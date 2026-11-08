@@ -1187,11 +1187,13 @@ body.brand-airdolomiti main > .section.newsletter > .newsletter-signup-wrapper {
   }
 
   /* the row's arrow as www's (brief 474: arrow.svg, two light teal bars forming a ">", turned 90
-     degrees down while open; drawn here, www's file is not in the capture) instead of the chevron */
+     degrees down while open; brief 492: www's own file, icons/airdolomiti-arrow.svg from
+     brand-media-002, as a mask in the light teal) instead of the chevron */
   body.brand-airdolomiti footer .footer .footer-column-toggle .lh-icon {
     width: 25px;
     height: 25px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 21 25'%3E%3Cpath fill='%23afd3d8' d='M0 0h11l10 11.5H10zM10 13.5h11L11 25H0z'/%3E%3C/svg%3E") center / 21px 25px no-repeat;
+    background: #afd3d8;
+    mask: url("/icons/airdolomiti-arrow.svg") center / 25px no-repeat;
     transform: none;
   }
 
@@ -3705,6 +3707,38 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-ov
 
 body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination:not(:has(.hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow), .hero-card-overlay-cta))::after {
   content: none;
+}
+
+
+/* the social links as www's (brief 492, brand-media-002): each its network's 500 x 500 disc from
+   www (Logo-<network>_footer.png: a white disc, the glyph in teal or cut out), by its link's host;
+   our icon stays in the link for its name, unseen */
+body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(2) a[href*="linkedin.com"] {
+  background: url("/icons/airdolomiti-social-linkedin.png") center / 100% no-repeat;
+}
+
+body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(2) a[href*="facebook.com"] {
+  background: url("/icons/airdolomiti-social-facebook.png") center / 100% no-repeat;
+}
+
+body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(2) a[href*="instagram.com"] {
+  background: url("/icons/airdolomiti-social-instagram.png") center / 100% no-repeat;
+}
+
+body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(2) a[href*="youtube.com"] {
+  background: url("/icons/airdolomiti-social-youtube.png") center / 100% no-repeat;
+}
+
+body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(2) a[href*="twitter.com"] {
+  background: url("/icons/airdolomiti-social-x.png") center / 100% no-repeat;
+}
+
+body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(2) a[href*="tiktok.com"] {
+  background: url("/icons/airdolomiti-social-tiktok.png") center / 100% no-repeat;
+}
+
+body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(2) a[href] img {
+  opacity: 0;
 }
 
 /* stylelint-enable no-descending-specificity */

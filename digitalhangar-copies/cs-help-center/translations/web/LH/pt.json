@@ -1,0 +1,532 @@
+{
+  "accentHint": "Os caracteres acentuados são convertidos em caracteres não acentuados. Isto não irá alterar as informações na confirmação da sua reserva.",
+  "backBookingLink": {
+    "enter": "Introduzir outra reserva",
+    "select": "Selecionar um voo diferente"
+  },
+  "boardingPass": {
+    "cameraOption": "Faça a leitura do cartão de embarque (é necessário acesso à câmara)",
+    "cameraTitle": "Centre o código de barras ou o código QR do seu cartão de embarque na moldura.",
+    "checking": "A verificar o seu cartão de embarque    ",
+    "closeAction": "Fechar",
+    "continue": "Continuar",
+    "continueWithoutBookingAction": "Continuar sem reserva",
+    "errors": {
+      "bookingNotFound": {
+        "message": "Não conseguimos encontrar uma reserva correspondente no nosso sistema.",
+        "title": "Dados da reserva indisponíveis"
+      },
+      "bookingServiceUnavailable": {
+        "message": "Isto deve-se a um problema técnico. Continue sem uma reserva..",
+        "title": "Não foi possível obter os dados da reserva"
+      },
+      "cameraAccessDenied": {
+        "message": "Autorize o acesso à câmara para efetuar a leitura do seu cartão de embarque.",
+        "title": "Acesso à câmara negado"
+      },
+      "passNotDetected": {
+        "message": "Carregue um cartão de embarque válido.",
+        "title": "Nenhum cartão de embarque detetado"
+      },
+      "uploadFailed": {
+        "message": "Não foi possível carregar o ficheiro. Tente novamente.",
+        "title": "Falha no carregamento"
+      }
+    },
+    "methodSelectionTitle": "Adicione os detalhes da reserva",
+    "open": "Utilize o seu cartão de embarque",
+    "processing": "A carregar ficheiro",
+    "retryAction": "Tente novamente",
+    "selectDifferentFileAction": "Selecione um ficheiro diferente",
+    "uploadOnlyAction": "Selecionar ficheiro",
+    "uploadOnlySupportedFormats": "Tipos de ficheiro suportados: jpg, jpeg, png, pdf ",
+    "uploadOption": "Carregue o cartão de embarque (jpg, jpeg, png, pdf)",
+    "uploadTitle": "Carregue o seu cartão de embarque"
+  },
+  "bookingInfo": {
+    "formTitle": "Introduzir informações da reserva",
+    "loading": "A obter a reserva",
+    "message": {
+      "internal": {
+        "message": "Devido a problemas técnicos, não foi possível carregar a sua reserva. Avançou automaticamente para este passo com as informações que forneceu.",
+        "title": "Não foi possível recuperar a reserva"
+      },
+      "notFound": {
+        "message": "Avançou automaticamente para este passo com as informações que forneceu.",
+        "retryMessage": "Tente novamente. Se o problema persistir, continuará a avançar automaticamente para o passo seguinte com as informações que forneceu.",
+        "title": "Não foi encontrada nenhuma reserva"
+      },
+      "title": {
+        "withData": "OK – como podemos ajudar?",
+        "withoutData": "Como podemos ajudar?"
+      }
+    },
+    "title": "A sua pergunta é sobre um voo?"
+  },
+  "bookingList": {
+    "anotherBooking": "Aceder a outra reserva",
+    "code": "Reserva: <sensitive>{{ code }}</sensitive>",
+    "error": {
+      "message": "Para obter ajuda com um voo específico, introduza os detalhes da sua reserva.",
+      "title": "Não foi possível carregar a visão geral do voo"
+    },
+    "select": {
+      "message": "Selecionar voo"
+    },
+    "wcag": {
+      "card": "Reserva {{ current }} de {{ total }}, código da reserva {{ code }} de {{ origin }} para {{ destination }} em {{ date }}",
+      "end": "Não há mais reservas para carregar",
+      "next": "Próximas reservas",
+      "previous": "Reservas anteriores",
+      "slide": "Reserva"
+    }
+  },
+  "chatAssistant": {
+    "languageNotAvailable": "Este serviço está definido para inglês porque o idioma selecionado não está disponível no momento."
+  },
+  "continue": "Continuar",
+  "country": {
+    "AD": "Andorra",
+    "AE": "Emirados Árabes Unidos",
+    "AF": "Afeganistão",
+    "AG": "Antígua e Barbuda",
+    "AI": "Anguila",
+    "AL": "Albânia",
+    "AM": "Armênia",
+    "AN": "Antilhas Holandesas",
+    "AO": "Angola",
+    "AR": "Argentina",
+    "AS": "Samoa Americana",
+    "AT": "Áustria",
+    "AU": "Austrália",
+    "AW": "Aruba",
+    "AX": "Ilhas Åland",
+    "AZ": "Azerbaijão",
+    "BA": "Bósnia e Herzegovina",
+    "BB": "Barbados",
+    "BD": "Bangladesh",
+    "BE": "Bélgica",
+    "BF": "Burkina Faso",
+    "BG": "Bulgária",
+    "BH": "Bahrein",
+    "BI": "Burundi",
+    "BJ": "Benin",
+    "BL": "São Bartolomeu",
+    "BM": "Bermudas",
+    "BN": "Brunei",
+    "BO": "Bolívia",
+    "BR": "Brasil",
+    "BS": "Bahamas",
+    "BT": "Butão",
+    "BW": "Botsuana",
+    "BY": "Belarus",
+    "BZ": "Belize",
+    "CA": "Canadá",
+    "CC": "Ilhas Cocos (Keeling)",
+    "CD": "República Democrática do Congo",
+    "CF": "República Centro-Africana",
+    "CG": "Congo",
+    "CH": "Suíça",
+    "CI": "Costa do Marfim",
+    "CK": "Ilhas Cook",
+    "CL": "Chile",
+    "CM": "Camarões",
+    "CN": "China",
+    "CO": "Colômbia",
+    "CR": "Costa Rica",
+    "CU": "Cuba",
+    "CV": "Cabo Verde",
+    "CX": "Ilha Christmas",
+    "CY": "Chipre",
+    "CZ": "República Tcheca",
+    "DE": "Alemanha",
+    "DJ": "Djibuti",
+    "DK": "Dinamarca",
+    "DM": "Dominica",
+    "DO": "República Dominicana",
+    "DZ": "Argélia",
+    "EC": "Equador",
+    "EE": "Estônia",
+    "EG": "Egito",
+    "ER": "Eritreia",
+    "ES": "Espanha",
+    "ET": "Etiópia",
+    "FI": "Finlândia",
+    "FJ": "Fiji",
+    "FK": "Ilhas Malvinas",
+    "FM": "Micronésia",
+    "FO": "Ilhas Faroé",
+    "FR": "França",
+    "GA": "Gabão",
+    "GB": "Reino Unido",
+    "GD": "Granada",
+    "GE": "Geórgia",
+    "GF": "Guiana Francesa",
+    "GG": "Guernsey",
+    "GH": "Gana",
+    "GI": "Gibraltar",
+    "GL": "Groenlândia",
+    "GM": "Gâmbia",
+    "GN": "Guiné",
+    "GP": "Guadalupe",
+    "GQ": "Guiné Equatorial",
+    "GR": "Grécia",
+    "GS": "Ilhas Geórgia do Sul e Sandwich do Sul",
+    "GT": "Guatemala",
+    "GU": "Guam",
+    "GW": "Guiné-Bissau",
+    "GY": "Guiana",
+    "HK": "Hong Kong",
+    "HM": "Ilhas Heard e McDonald",
+    "HN": "Honduras",
+    "HR": "Croácia",
+    "HT": "Haiti",
+    "HU": "Hungria",
+    "ID": "Indonésia",
+    "IE": "Irlanda",
+    "IL": "Israel",
+    "IM": "Ilha de Man",
+    "IN": "Índia",
+    "IO": "Território Britânico do Oceano Índico",
+    "IQ": "Iraque",
+    "IR": "Irã",
+    "IS": "Islândia",
+    "IT": "Itália",
+    "JE": "Jersey",
+    "JM": "Jamaica",
+    "JO": "Jordânia",
+    "JP": "Japão",
+    "KE": "Quênia",
+    "KG": "Quirguistão",
+    "KH": "Camboja",
+    "KI": "Kiribati",
+    "KM": "Comores",
+    "KN": "São Cristóvão e Névis",
+    "KP": "Coreia do Norte",
+    "KR": "Coreia do Sul",
+    "KW": "Kuwait",
+    "KY": "Ilhas Cayman",
+    "KZ": "Cazaquistão",
+    "LA": "Laos",
+    "LB": "Líbano",
+    "LC": "Santa Lúcia",
+    "LI": "Liechtenstein",
+    "LK": "Sri Lanka",
+    "LR": "Libéria",
+    "LS": "Lesoto",
+    "LT": "Lituânia",
+    "LU": "Luxemburgo",
+    "LV": "Letônia",
+    "LY": "Líbia",
+    "MA": "Marrocos",
+    "MC": "Mônaco",
+    "MD": "Moldávia",
+    "ME": "Montenegro",
+    "MF": "São Martinho",
+    "MG": "Madagascar",
+    "MH": "Ilhas Marshall",
+    "MK": "Macedônia",
+    "ML": "Mali",
+    "MM": "Myanmar",
+    "MN": "Mongólia",
+    "MO": "Macau",
+    "MP": "Ilhas Marianas do Norte",
+    "MQ": "Martinica",
+    "MR": "Mauritânia",
+    "MS": "Montserrat",
+    "MT": "Malta",
+    "MU": "Maurício",
+    "MV": "Maldivas",
+    "MW": "Malawi",
+    "MX": "México",
+    "MY": "Malásia",
+    "MZ": "Moçambique",
+    "NA": "Namíbia",
+    "NC": "Nova Caledônia",
+    "NE": "Níger",
+    "NF": "Ilha Norfolk",
+    "NG": "Nigéria",
+    "NI": "Nicarágua",
+    "NL": "Países Baixos",
+    "NO": "Noruega",
+    "NP": "Nepal",
+    "NR": "Nauru",
+    "NU": "Niue",
+    "NZ": "Nova Zelândia",
+    "OM": "Omã",
+    "PA": "Panamá",
+    "PE": "Peru",
+    "PF": "Polinésia Francesa",
+    "PG": "Papua-Nova Guiné",
+    "PH": "Filipinas",
+    "PK": "Paquistão",
+    "PL": "Polônia",
+    "PM": "São Pedro e Miquelon",
+    "PN": "Pitcairn",
+    "PR": "Porto Rico",
+    "PS": "Territórios Palestinos",
+    "PT": "Portugal",
+    "PW": "Palau",
+    "PY": "Paraguai",
+    "QA": "Catar",
+    "RE": "Reunião",
+    "RO": "Romênia",
+    "RS": "Sérvia",
+    "RU": "Rússia",
+    "RW": "Ruanda",
+    "SA": "Arábia Saudita",
+    "SB": "Ilhas Salomão",
+    "SC": "Seicheles",
+    "SD": "Sudão",
+    "SE": "Suécia",
+    "SG": "Singapura",
+    "SH": "Santa Helena, Ascensão e Tristão da Cunha",
+    "SI": "Eslovênia",
+    "SJ": "Svalbard e Jan Mayen",
+    "SK": "Eslováquia",
+    "SL": "Serra Leoa",
+    "SM": "San Marino",
+    "SN": "Senegal",
+    "SO": "Somália",
+    "SR": "Suriname",
+    "SS": "Sudão do Sul",
+    "ST": "São Tomé e Príncipe",
+    "SV": "El Salvador",
+    "SY": "Síria",
+    "SZ": "Essuatíni",
+    "TC": "Ilhas Turks e Caicos",
+    "TD": "Chade",
+    "TG": "Togo",
+    "TH": "Tailândia",
+    "TJ": "Tadjiquistão",
+    "TK": "Tokelau",
+    "TL": "Timor-Leste",
+    "TM": "Turcomenistão",
+    "TN": "Tunísia",
+    "TO": "Tonga",
+    "TR": "Turquia",
+    "TT": "Trinidad e Tobago",
+    "TV": "Tuvalu",
+    "TW": "Taiwan",
+    "TZ": "Tanzânia",
+    "UA": "Ucrânia",
+    "UG": "Uganda",
+    "US": "Estados Unidos",
+    "UY": "Uruguai",
+    "UZ": "Uzbequistão",
+    "VA": "Vaticano",
+    "VC": "São Vicente e Granadinas",
+    "VE": "Venezuela",
+    "VG": "Ilhas Virgens Britânicas",
+    "VI": "Ilhas Virgens Americanas",
+    "VN": "Vietnã",
+    "VU": "Vanuatu",
+    "WF": "Wallis e Futuna",
+    "WS": "Samoa",
+    "XK": "Kosovo",
+    "YE": "Iêmen",
+    "YT": "Mayotte",
+    "ZA": "África do Sul",
+    "ZM": "Zâmbia",
+    "ZW": "Zimbábue"
+  },
+  "faqInfoCard": {
+    "imageAlt": "",
+    "link": "Ir para as FAQs",
+    "text": "Obtenha respostas às perguntas mais frequentes sobre os nossos serviços, políticas e muito mais.",
+    "title": "FAQs"
+  },
+  "firstName": {
+    "invalid": "Introduza o seu nome próprio.",
+    "label": "Nome próprio"
+  },
+  "flightInfo": {
+    "booking": "Reserva <sensitive>{{ pnr }}</sensitive>",
+    "status": {
+      "cancelled": "Cancelado",
+      "delayed": "Atrasado",
+      "onTime": "A tempo",
+      "pending": "Pendente",
+      "scheduled": "Agendado",
+      "standby": "Standby",
+      "waitlisted": "Lista de espera"
+    },
+    "stops": "paragens",
+    "travelClass": {
+      "business": "Business",
+      "default": "Classe mista",
+      "eco": "Economy",
+      "first": "Primeira",
+      "premium-eco": "Premium Economy"
+    },
+    "wcag": {
+      "card": "Cartão {{ current }} de {{ total }}, Voo {{ flightNumber }} de {{ origin }} para {{ destination }} em {{ date }} - {{ bookingClass }}. {{ numberOfStops }} paragem(ns). {{ originStatus }} partida às {{ originTime }}. Duração {{ duration }}. {{ destinationStatus }} chegada às {{ destinationTime }}",
+      "cardWithoutFlightNumber": "Cartão {{ current }} de {{ total }}. De {{ origin }} para {{ destination }} em {{ date }} - {{ bookingClass }}. {{ numberOfStops }} paragem(ns). {{ originStatus }} partida às {{ originTime }}. Duração {{ duration }}. {{ destinationStatus }} chegada às {{ destinationTime }}"
+    }
+  },
+  "flightStatus": {
+    "inbound": "Volta",
+    "new": "Novo",
+    "notification": {
+      "success": "Todos os voos estão a operar conforme programado",
+      "warning": "O seu itinerário foi alterado. Consulte o seu e-mail para obter mais informações."
+    },
+    "old": "Antigo",
+    "outbound": "Ida",
+    "segment": "Segmento de voo {{ number }}"
+  },
+  "helpCenter": {
+    "bootstrapping": "Um momento, por favor"
+  },
+  "helpOptions": {
+    "back": "Powrót do opcji kontaktu",
+    "phoneInfo": {
+      "full": "O apoio por telefone não está disponível para este tópico. Se achar que é útil, agradecemos o seu feedback no inquérito abaixo.",
+      "short": "O apoio por telefone não está disponível para este tópico."
+    },
+    "title": "Ajuda e Contacto"
+  },
+  "identifier": {
+    "hint": "O código de reserva contém 6 letras e números combinados (por exemplo, ABCD12). O número do bilhete tem 13 dígitos (por exemplo, 7391538503519).",
+    "invalid": "O código de reserva contém 6 letras e números combinados (por exemplo, ABCD12). O número do bilhete tem 13 dígitos (por exemplo, 7391538503519).",
+    "label": "Código da reserva ou número do bilhete"
+  },
+  "informationalMessage": "",
+  "lastName": {
+    "invalid": "Introduza o seu apelido.",
+    "label": "Apelido"
+  },
+  "notBookingDetails": "Ignore",
+  "notifications": {
+    "milesAndMore": {
+      "call": {
+        "message": "Primeiros 2 minutos: 0,08 CHF por minuto; Próximos 10 minutos: 0,86 CHF por minuto; Todos os minutos seguintes: 0,08 CHF por minuto; O preço inclui IVA."
+      }
+    }
+  },
+  "phoneHandover": {
+    "error": "Não foi possível partilhar os seus dados desta vez. Tenha-os prontos quando telefonar.",
+    "form": {
+      "buttons": {
+        "withSharing": "Confirmar e ligar"
+      },
+      "recording": {
+        "consent": "Concordo que minha ligação seja gravada para fins de treinamento e qualidade. Posso retirar meu consentimento a qualquer momento.",
+        "privacyPolicy": "Proteção de dados"
+      }
+    },
+    "message": "Nossos agentes já podem visualizar detalhes relevantes (como seu nome e status Miles & More) assim que você ligar; não é necessário repeti-los.",
+    "title": "À disposição para sua chamada"
+  },
+  "salutation": {
+    "female": "Sra.",
+    "male": "Sr."
+  },
+  "searchInput": {
+    "button": "Pesquisa",
+    "error": {
+      "maxLengthExceeded": "{{ inputCount }}. Introduza no máximo {{ maxLength }} caracteres.",
+      "minLengthNotMet": "{{ inputCount }}. Introduza pelo menos {{ minLength }} caracteres."
+    },
+    "wcag": {
+      "clear": "Limpiar",
+      "search": "Pesquisa"
+    }
+  },
+  "selectedTopicInfo": {
+    "link": "Selecionar um pedido diferente"
+  },
+  "stepBreadcrumb": {
+    "home": "Início"
+  },
+  "steps": {
+    "bookingInfo": "Dados do voo (opcional)",
+    "helpOptions": "Opções de ajuda",
+    "screenReader": "{{ stepName }} página carregada.",
+    "topicSelection": "Ajuda"
+  },
+  "supportOptionCard": {
+    "recommended": "Recomendado"
+  },
+  "supportOptions": {
+    "call": "Ligar para o Centro de Atendimento",
+    "chat_assistant": "Assistente de Chat",
+    "live_chat": "Chat em direto",
+    "self_service": "Autoatendimento fácil"
+  },
+  "topicSearch": {
+    "error": {
+      "description": "Neste momento, não é possível mostrar os resultados da sua pesquisa. Selecione um dos nossos tópicos de ajuda.",
+      "title": "Resultados da sua pesquisa"
+    },
+    "humanSupportRequest": {
+      "message": "Quer contactar-nos? Diga-nos em que precisa de ajuda para que possamos mostrar-lhe as opções de contacto adequadas."
+    },
+    "noResults": {
+      "action": "Iniciar chat",
+      "description": "Reformule a sua pesquisa ou peça ajuda à nossa Assistente de Chat {{ chatAssistantName }}.",
+      "title": "Não foram encontrados resultados"
+    },
+    "results": {
+      "title": "Resultados da sua pesquisa",
+      "wcag": {
+        "list": "{{ resultsCount }} resultados para a sua pesquisa."
+      }
+    },
+    "searching": {
+      "ariaLabel": "A carregar resultados",
+      "title": "Resultados da sua pesquisa"
+    }
+  },
+  "topicSelection": {
+    "list": {
+      "description": "Tópicos com os quais podemos ajudá-lo.",
+      "error": {
+        "action": "Ver opções de contacto",
+        "message": "De momento, não nos é possível mostrar a lista de tópicos. Tente novamente mais tarde ou contacte‑nos para obter ajuda. ",
+        "title": "Não foi possível carregar a lista de tópicos."
+      },
+      "title": "Selecione o seu pedido"
+    },
+    "loader": "A carregar as suas opções de ajuda",
+    "searchBar": {
+      "label": "Encontre um tópico",
+      "placeholders": {
+        "default": [
+          "O meu upgrade não funcionou"
+        ],
+        "desktop": [
+          "Preciso novamente do meu cartão de embarque",
+          "Como posso obter a minha fatura?"
+        ],
+        "mobile": [
+          "Obter cartão embarque",
+          "Consulta de fatura"
+        ],
+        "tablet": [
+          "Obter cartão embarque",
+          "Consulta de fatura"
+        ]
+      },
+      "wcag": {
+        "clear": "Pesquisa limpa."
+      }
+    },
+    "subtitle": "Encontre respostas e opções de contacto para o seu pedido.",
+    "title": {
+      "loggedIn": "Como podemos ajudá-lo(a), <sensitive>{{ greet }}</sensitive>?",
+      "loggedOut": "Como podemos ajudá-lo(a)?"
+    }
+  },
+  "wcag": {
+    "close": "Fechar",
+    "dialogOpened": "Abre uma caixa de diálogo",
+    "modalOpened": "Abre num modal",
+    "newTabOpened": "Abre num novo separador",
+    "overlayOpened": "Abre numa caixa de diálogo overlay",
+    "phoneCall": "Inicia uma chamada telefónica",
+    "samePageOpened": "Abre na mesma página",
+    "selected": "selecionado",
+    "systemFolderOpened": "Abre a pasta do sistema numa caixa de diálogo"
+  }
+}

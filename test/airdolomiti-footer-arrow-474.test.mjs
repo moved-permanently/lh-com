@@ -15,7 +15,8 @@ const T = 'body.brand-airdolomiti footer .footer .footer-column-toggle';
 test('the row\'s icon is www\'s light teal ">", its chevron not drawn', () => {
   const rule = (css.match(new RegExp(`${T.replace(/\./g, '\\.')} \\.lh-icon \\{[^}]*\\}`, 'g')) || []).join(' ');
   assert.match(rule, /width: 25px; height: 25px;/);
-  assert.match(rule, /background: url\("data:image\/svg\+xml,[^"]*afd3d8[^"]*"\) center \/ 21px 25px no-repeat;/);
+  // (brief 492: www's own arrow.svg as a mask in the light teal; test/airdolomiti-footer-media-492)
+  assert.match(rule, /background: #afd3d8; mask: url\("\/icons\/airdolomiti-arrow\.svg"\) center \/ 25px no-repeat;/);
   assert.ok(css.includes(`${T} .lh-icon > * { display: none; }`));
 });
 

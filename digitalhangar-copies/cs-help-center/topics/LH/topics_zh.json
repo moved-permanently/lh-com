@@ -1,0 +1,4817 @@
+{
+  "targetCustomerStatus": "BASE",
+  "menu": [
+    {
+      "code": "travelBookingStatus",
+      "title": "最新航班信息",
+      "children": [
+        {
+          "code": "currentTravelInformation",
+          "title": "旅行指导",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/current-travel-information",
+                "linkTitle": "查看旅行信息",
+                "description": "如遇罢工或发生其他航班变更，查找相关信息并获取帮助。",
+                "title": "获取旅行更新信息",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "flightStatus",
+          "title": "航班状态",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/book-and-manage/timetable-and-flight-status",
+                "linkTitle": "立即查看",
+                "description": "通过航班号、航班航线或机场搜索并查看您的航班状态。",
+                "title": "查询航班状态",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=FLIGHTSTATUS&language=en",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以查看您的航班状态、出发时间和其他详细信息。",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "FLIGHTSTATUS",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": "icon-flight-status",
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "checkConnection",
+          "title": "查看联程航班",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=flynet&language=en",
+                "linkTitle": "开始聊天",
+                "description": "如果您因航班取消或延误而错过了联程航班，Elisa 可为您查找替代航班。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "flynet",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-flight-status",
+      "imageUrl": "https://www.lufthansa.com/content/dam/lh/images/local_images/help-center//travel-information.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "rebookingsCancelationsRefunds",
+      "title": "改签和取消",
+      "children": [
+        {
+          "code": "rebookFlight",
+          "title": "改签航班",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/profile/login",
+                "linkTitle": "管理预订",
+                "description": "在线为您预订中的一位或多位旅客更改航班日期或时间。\n \n请注意：如需更改航班航线，请使用我们的聊天助手 Elisa。",
+                "title": "改签航班",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.lufthansa.com/booking/manage-booking/retrieve?lang=zh-CN&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=CONTACTCENTERDEFAULT&language=en",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "CONTACTCENTERDEFAULT",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "开始实时聊天",
+                "description": "通过全天候在线聊天，获取我们服务中心专员的帮助。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "如果我们的在线服务无法解决您的需求，服务中心将为您提供支持。",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "获取新登机牌",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.lufthansa.com/connect/main-app?APPID=LHG_ONLINE&TENANT=LH&LANGUAGE=zh&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "前往办理登机手续",
+                "description": "若要获取新登机牌，请再次通过下列链接办理值机手续。",
+                "title": "再次办理登机手续",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmRebooking",
+          "title": "确认改签",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=MISSINGCONFIRMATION&language=en",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以为您查看改签状态。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "MISSINGCONFIRMATION",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "开始实时聊天",
+                "description": "如果您的预订已更改，我们的服务中心工作人员可以重新为您发送新的预订确认，并帮助您重新预订任何额外服务（如座位预订）。",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "OvernightStay",
+          "title": "因航班延误需入住酒店",
+          "children": [
+            {
+              "code": "BookOvernightStay",
+              "title": "我需要酒店预订协助",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/hotel-check",
+                    "linkTitle": "获取表格",
+                    "description": "确认您的联系方式详情，以接收过夜住宿的预订链接。\n \n请注意，以下网站目前只有英语和德语版本。",
+                    "title": "确认联系方式详情",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/book-and-manage/timetable-and-flight-status/flight-disruptions#accordion-item-section-hotel",
+                    "linkTitle": "查看常见问题及答案",
+                    "description": "查找航班延误所致过夜住宿相关帮助，以及如何申请酒店费用报销。",
+                    "title": "酒店住宿相关帮助",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "RefundOvernightStay",
+              "title": "我已经预订了酒店",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/support/fast-compensation",
+                    "linkTitle": "打开表格",
+                    "description": "请填写此表格，申请报销过夜住宿的相关费用。",
+                    "title": "申请费用报销",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "申请取消和/或退款",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=refund&language=en",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以帮您取消预订并发起退款。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "refund",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/profile/login",
+                "linkTitle": "管理预订",
+                "description": "取消预订并申请在线退款。\n \n请注意，您仅可取消整个预订。",
+                "title": "取消预订",
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://shop.lufthansa.com/booking/manage-booking/retrieve?lang=zh-CN&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "开始实时聊天",
+                "description": "通过全天候在线聊天，获取我们服务中心专员的帮助。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "如果我们的在线服务无法解决您的需求，服务中心将为您提供支持。",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "delayCancelationConfirmation",
+          "title": "确认取消",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "开始实时聊天",
+                "description": "取消后，您将收到一封确认电子邮件，该电子邮件可能已发送至您的“垃圾邮件”文件夹。如果您希望重新接收取消确认，请联系我们的服务中心。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-flight-irreg",
+      "imageUrl": "https://www.lufthansa.com/content/dam/lh/images/local_images/help-center//rebooking-cancellation-refund.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "RefundsAndCompensations",
+      "title": "退款和赔偿",
+      "children": [
+        {
+          "code": "claimCompensationFlightDisruption",
+          "title": "航空公司对航班变更后的补偿事宜",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/support/fast-compensation/compensation-flight-disruptions",
+                "linkTitle": "打开表格",
+                "description": "如果您的航班被取消、延误 3 小时或以上，或者您错过了联程航班，请使用我们的联系表申请退款。",
+                "title": "申请索赔",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "申请取消和/或退款",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=refund&language=en",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以帮您取消预订并发起退款。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "refund",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/profile/login",
+                "linkTitle": "管理预订",
+                "description": "取消预订并申请在线退款。\n \n请注意，您仅可取消整个预订。",
+                "title": "取消预订",
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://shop.lufthansa.com/booking/manage-booking/retrieve?lang=zh-CN&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "开始实时聊天",
+                "description": "通过全天候在线聊天，获取我们服务中心专员的帮助。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "如果我们的在线服务无法解决您的需求，服务中心将为您提供支持。",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "confirmRefund",
+          "title": "确认退款",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "开始实时聊天",
+                "description": "联系我们的服务中心工作人员，重新发送您的退款确认或查看您的退款状态。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "refundBaggageIrregularities",
+          "title": "行李问题赔偿",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/baggage-reimbursement",
+                "linkTitle": "打开表格",
+                "description": "使用我们的联系表格，针对行李延误或损坏造成的额外费用申请报销。",
+                "title": "申请费用报销",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/baggage-irregularities",
+                "linkTitle": "了解详细信息",
+                "description": "获取有关行李延误或损坏的帮助，以及如何申请报销。",
+                "title": "有关行李事宜的更多信息",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_RefundsAndCompensations-refundBaggageIrregularities",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_RefundsAndCompensations-refundBaggageIrregularities",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "OvernightStay",
+          "title": "因航班延误需入住酒店",
+          "children": [
+            {
+              "code": "BookOvernightStay",
+              "title": "我需要酒店预订协助",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/hotel-check",
+                    "linkTitle": "获取表格",
+                    "description": "确认您的联系方式详情，以接收过夜住宿的预订链接。\n \n请注意，以下网站目前只有英语和德语版本。",
+                    "title": "确认联系方式详情",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/book-and-manage/timetable-and-flight-status/flight-disruptions#accordion-item-section-hotel",
+                    "linkTitle": "查看常见问题及答案",
+                    "description": "查找航班延误所致过夜住宿相关帮助，以及如何申请酒店费用报销。",
+                    "title": "酒店住宿相关帮助",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "RefundOvernightStay",
+              "title": "我已经预订了酒店",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/support/fast-compensation",
+                    "linkTitle": "打开表格",
+                    "description": "请填写此表格，申请报销过夜住宿的相关费用。",
+                    "title": "申请费用报销",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "MealVoucher",
+          "title": "餐券",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/book-and-manage/timetable-and-flight-status/flight-disruptions#accordion-item-section-voucher",
+                "linkTitle": "了解详细信息",
+                "description": "在大多数情况下，您会自动收到一张餐券，该餐券会自动链接至机票上的二维码。查看如何获取餐券以及使用场所。",
+                "title": "查看条件",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "TravelbyTrain",
+          "title": "火车替代交通方式",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/book-and-manage/good-for-train",
+                "linkTitle": "输入预订详情",
+                "description": "如果您的航班取消且没有合适的替代航班，您可以将机票换成火车票代金券。\n \n请注意，此服务仅适用于某些航线。",
+                "title": "获取火车票代金券",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerRights",
+          "title": "旅客权益",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/common/passenger-rights",
+                "linkTitle": "了解详细信息",
+                "description": "了解在遇到航班取消、延误或其他航班中断时您享有的旅客权益。",
+                "title": "查看旅客权益",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-refund-possible",
+      "imageUrl": "https://www.lufthansa.com/content/dam/lh/images/local_images/help-center//refund-compensations.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "checkin",
+      "title": "办理登机手续",
+      "children": [
+        {
+          "code": "HelpWithCheckIn",
+          "title": "办理登机手续相关问题",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=checkin&language=en",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以帮助您了解无法办理航班登机手续的原因。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "checkin",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "我们的专家将竭诚为您解决任何问题或疑虑。",
+                "title": null,
+                "phone": "+496986799699",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "lateNightCheckin",
+          "title": "提前托运行李",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_checkin-lateNightCheckin",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_checkin-lateNightCheckin",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/all-check-in/pre-check-in",
+                "linkTitle": "更多信息",
+                "description": "在航班起飞当日之前办理登机手续和托运行李。",
+                "title": "提前托运行李",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "获取新登机牌",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.lufthansa.com/connect/main-app?APPID=LHG_ONLINE&TENANT=LH&LANGUAGE=zh&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "前往办理登机手续",
+                "description": "若要获取新登机牌，请再次通过下列链接办理值机手续。",
+                "title": "再次办理登机手续",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "otherCheckinQuestions",
+          "title": "有关办理登机手续的问题",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_checkin-otherCheckinQuestions",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_checkin-otherCheckinQuestions",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/all-check-in",
+                "linkTitle": "查看概览",
+                "description": "为下一趟旅程查找便捷的登机手续办理选项。",
+                "title": "查看值机手续办理选项",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-boarding-card",
+      "imageUrl": "https://www.lufthansa.com/content/dam/lh/images/local_images/help-center//check-in.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "baggage",
+      "title": "行李",
+      "children": [
+        {
+          "code": "baggage.rules",
+          "title": "行李规定和价格",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/profile/login",
+                "linkTitle": "管理预订",
+                "description": "查看您即将搭乘的航班可携带的行李额。",
+                "title": "查看免费行李额",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.lufthansa.com/booking/services/BAGGAGE?lang=zh-CN&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/baggage",
+                "linkTitle": "前往概览",
+                "description": "查看所有行李类型和服务概览。",
+                "title": "查看所有行李服务",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "开始实时聊天",
+                "description": "通过全天候在线聊天，获取我们服务中心专员的帮助。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "如果您需要其他支持，我们的专家将竭诚为您解决任何问题或疑虑。",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.excess",
+          "title": "额外行李 / 超重行李",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/profile/login",
+                "linkTitle": "管理预订",
+                "description": "查看您即将搭乘的航班可携带的行李额以及额外的行李额（如需）。",
+                "title": "添加额外行李",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.lufthansa.com/booking/services/BAGGAGE?lang=zh-CN&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-baggage_excess",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_excess",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/baggage/excess-baggage",
+                "linkTitle": "查看所有规定",
+                "description": "详细了解与您预订票价相对应的超额行李重量和尺寸限制。",
+                "title": "查看行李规定",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "开始实时聊天",
+                "description": "通过全天候在线聊天，获取我们服务中心专员的帮助。",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "如果您需要其他支持，我们的专家将竭诚为您解决任何问题或疑虑。",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.sports",
+          "title": "添加运动装备行李",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage",
+                "linkTitle": "打开表格",
+                "description": "填写表格，在您的预订中添加运动装备行李。",
+                "title": "登记运动装备行李",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-baggage_sports",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_sports",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/baggage/sport-baggage",
+                "linkTitle": "查看所有规定",
+                "description": "在此了解有关运动装备行李与特殊行李的所有信息。",
+                "title": "查看行李规定",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "开始实时聊天",
+                "description": "通过全天候在线聊天，获取我们服务中心专员的帮助。",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "我们的专家将竭诚为您解决任何问题或疑虑。",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "pets",
+          "title": "携带宠物出行",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "在客舱内运输动物（含笼具，重量不得超过 8 公斤）",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/profile/login",
+                    "linkTitle": "立即注册",
+                    "description": "在现有预订中为您的宠物注册，以便将其带入客舱（最晚需要在航班起飞前 72 小时完成）。",
+                    "title": "添加宠物",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.lufthansa.com/booking/services/PETS?lang=zh-CN&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_pets-travelPetsInCabin",
+                    "linkTitle": "开始聊天",
+                    "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCabin",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/baggage/travelling-with-animals",
+                    "linkTitle": "查看所有条件",
+                    "description": "点击此处可找到有关该主题和各种运输选项的所有信息。",
+                    "title": "查看旅行条件",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                    "linkTitle": "开始实时聊天",
+                    "description": "通过全天候在线聊天，获取我们服务中心专员的帮助。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "电话服务中心",
+                    "description": "我们的专家将竭诚为您解决任何问题或疑虑。",
+                    "title": null,
+                    "phone": "+496986799799",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "travelPetsInCargo",
+              "title": "在货舱内托运动物",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold",
+                    "linkTitle": "立即注册",
+                    "description": "如需让您的宠物随汉莎航空航班的货舱运输，请为您的宠物狗或宠物猫进行登记（不迟于出发前 72 小时）。",
+                    "title": "登记与您一同旅行的宠物",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_pets-travelPetsInCargo",
+                    "linkTitle": "开始聊天",
+                    "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCargo",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/baggage/travelling-with-animals",
+                    "linkTitle": "查看所有条件",
+                    "description": "了解更多关于在汉莎航空航班上携带动物的规定和旅行选项。",
+                    "title": "查看条件",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                    "linkTitle": "开始实时聊天",
+                    "description": "通过全天候在线聊天，获取我们服务中心专员的帮助。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "电话服务中心",
+                    "description": "我们的专家将竭诚为您解决任何问题或疑虑。",
+                    "title": null,
+                    "phone": "+496986799799",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "lateNightCheckin",
+          "title": "提前托运行李",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-lateNightCheckin",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-lateNightCheckin",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/all-check-in/pre-check-in",
+                "linkTitle": "更多信息",
+                "description": "在航班起飞当日之前办理登机手续和托运行李。",
+                "title": "提前托运行李",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.damagedOrDelayed",
+          "title": "行李问题",
+          "children": [
+            {
+              "code": "reportDelayedBaggage",
+              "title": "报告行李延误",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=DELAYBAGCREATE&language=en",
+                    "linkTitle": "开始聊天",
+                    "description": "如果您的托运行李未按时抵达，Elisa 可向您展示如何报告行李延误。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DELAYBAGCREATE",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay",
+                    "linkTitle": "阅读常见问题及答案",
+                    "description": "在我们的常见问题及答案中，查找有关行李延误的常见问题及答案。",
+                    "title": "有关行李延误的更多信息",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "statusBaggageReport",
+              "title": "管理行李延误报告",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=DELAYBAG&language=en",
+                    "linkTitle": "开始聊天",
+                    "description": "Elisa 可以帮您追踪或编辑您的行李延误报告。取回行李后，您还可以关闭报告。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DELAYBAG",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay",
+                    "linkTitle": "查看常见问题及答案",
+                    "description": "在我们的常见问题及答案中，查找有关行李延误的常见问题及答案。",
+                    "title": "有关行李延误的更多信息",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "reportDamagedBaggage",
+              "title": "报告行李损坏",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://mybag.aero/lufthansa/damaged/en",
+                    "linkTitle": "报告损坏",
+                    "description": "提交损坏行李的行李报告。抵达后 72 小时内均可。",
+                    "title": "报告行李损坏",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage",
+                    "linkTitle": "查看常见问题及答案",
+                    "description": "在我们的常见问题及答案中，查找有关行李损坏的常见问题及答案。",
+                    "title": "有关行李损坏的更多信息",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage_damagedOrDelayed-reportDamagedBaggage",
+                    "linkTitle": "开始聊天",
+                    "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_baggage_damagedOrDelayed-reportDamagedBaggage",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "refundBaggageIrregularities",
+              "title": "行李问题赔偿",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/baggage-reimbursement",
+                    "linkTitle": "打开表格",
+                    "description": "使用我们的联系表格，针对行李延误或损坏造成的额外费用申请报销。",
+                    "title": "申请费用报销",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/baggage-irregularities",
+                    "linkTitle": "了解详细信息",
+                    "description": "获取有关行李延误或损坏的帮助，以及如何申请报销。",
+                    "title": "有关行李事宜的更多信息",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage_damagedOrDelayed-refundBaggageIrregularities",
+                    "linkTitle": "开始聊天",
+                    "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_baggage_damagedOrDelayed-refundBaggageIrregularities",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.lost",
+          "title": "个人物品遗失",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC-baggage_lost-baggage",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC-baggage_lost-baggage",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/baggage/baggage-irregularities#faq",
+                "linkTitle": "立即报告",
+                "description": "报告在机场、飞机上或托运行李中遗失的个人物品。",
+                "title": "报告遗失的物品",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.dangerousGoods",
+          "title": "危险品和武器",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-baggage_dangerousGoods",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_dangerousGoods",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/baggage/dangerous-goods",
+                "linkTitle": "查看所有规定",
+                "description": "查看我们的危险物品和违禁物品综合清单。",
+                "title": "查看行李规定",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "开始实时聊天",
+                "description": "通过全天候在线聊天，获取我们服务中心专员的帮助。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "我们的专家将竭诚为您解决任何问题或疑虑。",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "OtherQuestionsBaggage",
+          "title": "其他行李问题",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_baggage-OtherQuestionsBaggage",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-OtherQuestionsBaggage",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-baggage",
+      "imageUrl": "https://www.lufthansa.com/content/dam/lh/images/local_images/help-center//baggage.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "addFlightServices",
+      "title": "额外服务",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "座位",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "添加或变更座位",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/profile/login",
+                    "linkTitle": "管理预订",
+                    "description": "在出发前至少 2 小时在线预订或更改座位。",
+                    "title": "添加或变更座位",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.lufthansa.com/booking/manage-booking/retrieve?lang=zh-CN&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/book-and-manage/advance-seat-reservation",
+                    "linkTitle": "前往概览",
+                    "description": "获取有关各航线的所有座位类型及其价格的信息。",
+                    "title": "查看所有座位类型",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "电话服务中心",
+                    "description": "在出发前至少 52 小时通过电话预订或更改座位。",
+                    "title": null,
+                    "phone": "+496986799799",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "预订相邻座位",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "电话服务中心",
+                    "description": "致电我们的服务中心，预订您旁边的空座，享受更舒适的旅程。",
+                    "title": null,
+                    "phone": "+496986799799",
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "MoreSeatReservations",
+              "title": "关于座位预订的更多信息",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/common/seatreservation-condtions",
+                    "linkTitle": "前往常见问题及答案",
+                    "description": "了解有关预先预订座位、取消时退款等服务的更多信息。",
+                    "title": "关于座位预订的更多信息",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "specialMeal",
+          "title": "机上餐饮",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/profile/login",
+                "linkTitle": "管理预订",
+                "description": "根据您的膳食、宗教或营养需求预订特殊餐食。\n \n请注意，能否提供该项服务取决于您的预订情况。",
+                "title": "预订特殊餐食",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.lufthansa.com/booking/manage-booking/retrieve?lang=zh-CN&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/during-your-trip/food-and-beverages/culinary-journey#/entry",
+                "linkTitle": "查看菜单",
+                "description": "探索我们航班上的餐饮服务，为您的下一次旅行预订餐食。",
+                "title": "探索机上美食",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_addFlightServices-specialMeal",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-specialMeal",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "开始实时聊天",
+                "description": "通过全天候在线聊天，获取我们服务中心专员的帮助。",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "我们的专家将竭诚为您解决任何问题或疑虑。",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "onBoardServices",
+          "title": "机上服务",
+          "children": [
+            {
+              "code": "ejournals",
+              "title": "数字报刊与杂志",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/during-your-trip/entertainment-on-board#ejournals",
+                    "linkTitle": "eJournals 电子期刊",
+                    "description": "海量报刊杂志任您选择，只需在航班起飞前将其保存至智能手机、平板电脑或手提电脑即可。",
+                    "title": "下载 eJournals 电子期刊",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "flynet",
+              "title": "机上网络服务",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/during-your-trip/internet-on-board",
+                    "linkTitle": "查看所有 FlyNet 套餐",
+                    "description": "提前购买合适的 FlyNet® 套餐，直接在指定中短途航班上上网。",
+                    "title": "使用机上无线网络",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "inflightEntertainment",
+              "title": "机上娱乐",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/during-your-trip/entertainment-on-board",
+                    "linkTitle": "查看所有选项",
+                    "description": "了解我们的娱乐服务，让您的机上时光丰富多彩。除了电影和电视剧外，我们还提供有声书籍、音乐和游戏。",
+                    "title": "查看机上娱乐",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "Lounges",
+          "title": "休息室",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_addFlightServices-Lounges",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-Lounges",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/during-your-trip/lounges",
+                "linkTitle": "查看目录",
+                "description": "查找所有可用的休息室，包括其在各个机场的营业时间和提供的服务。",
+                "title": "查找休息室",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/during-your-trip/lounges/admission-rules",
+                "linkTitle": "前往概览",
+                "description": "查看您可以在抵达后或出发前使用哪些休息室，以及是否可以携带旅伴一同进入休息室。",
+                "title": "查看休息室使用权",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "TravelInsurance",
+          "title": "旅行保险",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/profile/login",
+                "linkTitle": "选择保险",
+                "description": "为您的下次旅行购买旅行保险。\n  \n请注意，能否提供该项服务取决于您的预订情况。",
+                "title": "购买保险",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.lufthansa.com/booking/manage-booking/retrieve?lang=zh-CN&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "pets",
+          "title": "携带宠物出行",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "在客舱内运输动物（含笼具，重量不得超过 8 公斤）",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/profile/login",
+                    "linkTitle": "立即注册",
+                    "description": "在现有预订中为您的宠物注册，以便将其带入客舱（最晚需要在航班起飞前 72 小时完成）。",
+                    "title": "添加宠物",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.lufthansa.com/booking/services/PETS?lang=zh-CN&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_pets-travelPetsInCabin",
+                    "linkTitle": "开始聊天",
+                    "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCabin",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/baggage/travelling-with-animals",
+                    "linkTitle": "查看所有条件",
+                    "description": "点击此处可找到有关该主题和各种运输选项的所有信息。",
+                    "title": "查看旅行条件",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                    "linkTitle": "开始实时聊天",
+                    "description": "通过全天候在线聊天，获取我们服务中心专员的帮助。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "电话服务中心",
+                    "description": "我们的专家将竭诚为您解决任何问题或疑虑。",
+                    "title": null,
+                    "phone": "+496986799799",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "travelPetsInCargo",
+              "title": "在货舱内托运动物",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold",
+                    "linkTitle": "立即注册",
+                    "description": "如需让您的宠物随汉莎航空航班的货舱运输，请为您的宠物狗或宠物猫进行登记（不迟于出发前 72 小时）。",
+                    "title": "登记与您一同旅行的宠物",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_pets-travelPetsInCargo",
+                    "linkTitle": "开始聊天",
+                    "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCargo",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/baggage/travelling-with-animals",
+                    "linkTitle": "查看所有条件",
+                    "description": "了解更多关于在汉莎航空航班上携带动物的规定和旅行选项。",
+                    "title": "查看条件",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                    "linkTitle": "开始实时聊天",
+                    "description": "通过全天候在线聊天，获取我们服务中心专员的帮助。",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "en",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [
+                      {
+                        "type": "info",
+                        "title": null,
+                        "message": "chatAssistant.languageNotAvailable",
+                        "reason": null
+                      }
+                    ],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "电话服务中心",
+                    "description": "我们的专家将竭诚为您解决任何问题或疑虑。",
+                    "title": null,
+                    "phone": "+496986799799",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "TravelingWithChildren",
+          "title": "携儿童一起旅行",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/travelling-with-children",
+                "linkTitle": "了解详细信息",
+                "description": "查找有关携带儿童出行的信息，包括行程准备、座位安排等内容。",
+                "title": "旅行信息",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_addFlightServices-TravelingWithChildren",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 为您服务，解答携带儿童出行的相关问题。",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-TravelingWithChildren",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "开始实时聊天",
+                "description": "如果您遇到技术问题，或需要申请婴儿床、为单独出行的儿童预订航班，请直接联系我们的服务中心专员。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "如果您遇到技术问题，或需要申请婴儿床、为单独出行的儿童预订航班，请直接联系我们的服务中心专员。",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmAdditionalServices",
+          "title": "确认额外服务",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "我们的服务中心很乐意核实您申请的服务是否得到确认。",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "addFlightServices.problem",
+          "title": "关于添加服务的问题",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/support/feedback",
+                "linkTitle": "继续使用表格",
+                "description": "如果您在添加额外服务时遇到问题，可以使用“其他联系表格”下的联系表格，我们将尽快与您联系。",
+                "title": "报告问题",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "如果您需要其他支持，我们的专家将竭诚为您解决任何问题或疑虑。",
+                "title": null,
+                "phone": "+496986799699",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "MoreServices",
+          "title": "更多额外服务",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_addFlightServices-MoreServices",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-MoreServices",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/book-and-manage/additional-services",
+                "linkTitle": "查看服务概览",
+                "description": "探索更多额外服务，助您为旅程的每个环节做好准备，轻松畅享精彩旅行体验。",
+                "title": "查看所有服务",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-additional-services",
+      "imageUrl": "https://www.lufthansa.com/content/dam/lh/images/local_images/help-center//add-flight-service.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "booking",
+      "title": "预订和准备",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "座位",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "添加或变更座位",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/profile/login",
+                    "linkTitle": "管理预订",
+                    "description": "在出发前至少 2 小时在线预订或更改座位。",
+                    "title": "添加或变更座位",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.lufthansa.com/booking/manage-booking/retrieve?lang=zh-CN&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/book-and-manage/advance-seat-reservation",
+                    "linkTitle": "前往概览",
+                    "description": "获取有关各航线的所有座位类型及其价格的信息。",
+                    "title": "查看所有座位类型",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "电话服务中心",
+                    "description": "在出发前至少 52 小时通过电话预订或更改座位。",
+                    "title": null,
+                    "phone": "+496986799799",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "预订相邻座位",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "电话服务中心",
+                    "description": "致电我们的服务中心，预订您旁边的空座，享受更舒适的旅程。",
+                    "title": null,
+                    "phone": "+496986799799",
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "MoreSeatReservations",
+              "title": "关于座位预订的更多信息",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/common/seatreservation-condtions",
+                    "linkTitle": "前往常见问题及答案",
+                    "description": "了解有关预先预订座位、取消时退款等服务的更多信息。",
+                    "title": "关于座位预订的更多信息",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "booking.Upgrades",
+          "title": "升舱",
+          "children": [
+            {
+              "code": "upgradeFlight",
+              "title": "预订升舱",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/profile/login",
+                    "linkTitle": "管理预订",
+                    "description": "对比您下次航班可用的升舱方案，选择您心仪的选项。",
+                    "title": "预订升舱",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.lufthansa.com/booking/cash-upgrade?lang=zh-CN&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/travel-classes/upgrade-options",
+                    "linkTitle": "查看所有选项",
+                    "description": "探索我们的升舱选项，享受更舒适的旅程。",
+                    "title": "查看升舱选项",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "电话服务中心",
+                    "description": "我们的专家将竭诚为您解决任何问题或疑虑。",
+                    "title": null,
+                    "phone": "+496986799799",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BidUpgrade",
+              "title": "提交升舱竞价",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/zh/profile/login",
+                    "linkTitle": "提供优惠",
+                    "description": "以您的心仪价格升级到更高客舱等级。\n \n请注意，能否提供该项服务取决于您的预订情况。",
+                    "title": "提交升舱竞价",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.lufthansa.com/booking/manage-booking/retrieve?lang=zh-CN&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "reconfirmation",
+          "title": "确认预订",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=MISSINGCONFIRMATION&language=en",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 将向您展示在哪里可以找到您的预订代码或如何申请新的确认电子邮件。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "MISSINGCONFIRMATION",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "booking.miles",
+          "title": "使用里程预订",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/zh/spend/flights.html",
+                "linkTitle": "搜索航班",
+                "description": "使用里程兑换奖励航班。",
+                "title": "预订奖励航班",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "我们的专家将竭诚为您解决任何问题或疑虑。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.new.problem",
+          "title": "在预订或支付时遇到问题",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/support/feedback",
+                "linkTitle": "继续使用表格",
+                "description": "如果您在预订或付款时遇到问题，可以使用“其他联系表格”下的联系表格，我们将尽快与您联系。",
+                "title": "报告问题",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "如果您需要其他支持，我们的专家将竭诚为您解决任何问题或疑虑。",
+                "title": null,
+                "phone": "+496986799699",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NameChangeAfterBooking",
+          "title": "预订后姓名变更",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "请联系我们的服务中心，申请更改您预订中的姓名。\n \n请注意，只能进行小幅修改，例如修正拼写错误。",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerReceipt",
+          "title": "旅客收据/发票",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/book-and-manage/passenger-receipt",
+                "linkTitle": "立即申请",
+                "description": "在线检索电子机票的旅客收据。",
+                "title": "申请旅客收据",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "开始实时聊天",
+                "description": "通过全天候在线聊天，获取我们服务中心专员的帮助。",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "我们的专家将竭诚为您解决任何问题或疑虑。",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "TravelRegulations",
+          "title": "旅行条例",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://lufthansa.travel-regulations.com/?language=en",
+                "linkTitle": "输入行程",
+                "description": "为您的下一次旅行查找入境、签证和健康规定。",
+                "title": "查看旅行规定",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.group",
+          "title": "团体预订（至少 10 名旅客）",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/book-and-manage/group-travel",
+                "linkTitle": "查看规定",
+                "description": "您可以在我们的信息页面上找到有关团体预订的所有信息。",
+                "title": "查看条件",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "sustainableFlying",
+          "title": "让飞行更加可持续",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/profile/login",
+                "linkTitle": "选择套餐",
+                "description": "购买我们的组合套餐，以抵消您所搭乘航班的二氧化碳排放，并投资于可持续发展项目。\n \n请注意，能否提供该项服务取决于您的预订情况。",
+                "title": "购买抵消套餐",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.lufthansa.com/booking/manage-booking/retrieve?lang=zh-CN&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/fly-more-sustainably-search",
+                "linkTitle": "查看抵消选项",
+                "description": "您也可以随时抵消计算出的之前航班的碳排量。",
+                "title": "抵消之前航班",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-airplane-outbound",
+      "imageUrl": "https://www.lufthansa.com/content/dam/lh/images/local_images/help-center//booking.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "milesAndMore",
+      "title": "Miles & More 飞常里程汇",
+      "children": [
+        {
+          "code": "milesAndMore.mileageCredit",
+          "title": "预订后可获得的里程积分",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/zh/program/at-a-glance/mileage-request.html",
+                "linkTitle": "查看条件",
+                "description": "自活动之日起 6 个月内补登您的里程和 Points。",
+                "title": "申请里程补登",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "联系 Miles & More 飞常里程汇",
+                "description": "请联系 Miles & More 飞常里程汇服务团队，获取有关里程补登的更多帮助。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.mileageAccount",
+          "title": "Miles & More 飞常里程汇账户余额",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/zh/static/login.html",
+                "linkTitle": "登录",
+                "description": "登录 Miles & More 飞常里程汇，查看您当前的账户余额和里程到期日。",
+                "title": "查看账户余额",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "联系 Miles & More 飞常里程汇",
+                "description": "如有账户和可用里程的相关问题，请联系您的 Miles & More 飞常里程汇服务团队。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.spendMiles",
+          "title": "消费里程",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/zh/spend/award-overview.html",
+                "linkTitle": "消费里程",
+                "description": "用里程兑换产品、航班升舱、代金券等。",
+                "title": "消费里程",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "联系 Miles & More 飞常里程汇",
+                "description": "咨询您的 Miles & More 飞常里程汇服务团队，获取有关如何兑换里程的更多信息。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.login",
+          "title": "Miles & More 飞常里程汇登录出现问题",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/zh/general-information/help-and-contact.html?topic=pin-password-login/",
+                "linkTitle": "前往 Miles & More 飞常里程汇",
+                "description": "请访问 Miles & More 飞常里程汇，获取有关登录的帮助和信息。",
+                "title": "获取登录支持",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "联系 Miles & More 飞常里程汇",
+                "description": "如有任何登录问题或疑问，请联系 Miles & More 飞常里程汇服务团队寻求帮助。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.upgrade",
+          "title": "使用奖励里程/eVoucher 电子券升舱",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/zh/program/flight-benefits/upgrade-award.html",
+                "linkTitle": "有关升舱奖励的更多信息",
+                "description": "在线升舱至更高服务舱位。\n如果您使用 eVoucher 电子兑换券升舱，请选择“Call”（呼叫）选项。",
+                "title": "预订升舱奖励",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "联系 Miles & More 飞常里程汇",
+                "description": "如果您在升舱时遇到任何问题，请联系您的 Miles & More 飞常里程汇服务团队。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.status",
+          "title": "Miles & More 飞常里程汇会员资格礼遇",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/zh/program/status-benefits/status-level-comparison.html",
+                "linkTitle": "比较会员资格",
+                "description": "了解每种常旅客会员身份可获享的礼遇。",
+                "title": "查看会员资格礼遇",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "联系 Miles & More 飞常里程汇",
+                "description": "如果您对于会员资格礼遇有更多问题，请联系您的 Miles & More 飞常里程汇服务团队。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.newMember",
+          "title": "成为 Miles & More 飞常里程汇会员",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/book-and-manage/view-and-amend-flight-details",
+                "linkTitle": "登录",
+                "description": "如果您已有汉莎航空 Travel ID，请在 lufthansa.com 上登录您的账户并激活 Miles & More 飞常里程汇。",
+                "title": "激活 Miles & More 飞常里程汇",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/zh/program/at-a-glance.html",
+                "linkTitle": "立即注册",
+                "description": "免费注册并开始收集里程，用于航班升舱和其他奖励。",
+                "title": "成为会员",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "联系 Miles & More 飞常里程汇",
+                "description": "请联系您的 Miles & More 飞常里程汇服务团队，获取有关会员资格的更多信息。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.creditCard",
+          "title": "Miles & More 飞常里程汇信用卡",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/zh/program/credit-cards/credit-cards-overview.html",
+                "linkTitle": "查看所有信用卡",
+                "description": "了解各国家/地区的所有适用 Miles & More 飞常里程汇信用卡。",
+                "title": "选择信用卡",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/support/faq/faq-miles-and-more",
+                "linkTitle": "了解详细信息",
+                "description": "详细了解您的 Miles & More 飞常里程汇信用卡服务信息，并下载我们的应用程序以探索新的优惠。",
+                "title": "查看信用卡服务",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "联系 Miles & More 飞常里程汇",
+                "description": "您的 Miles & More 飞常里程汇服务团队将竭诚为您解决任何其他问题或疑虑。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.miles",
+          "title": "使用里程预订",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/zh/spend/flights.html",
+                "linkTitle": "搜索航班",
+                "description": "使用里程兑换奖励航班。",
+                "title": "预订奖励航班",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "我们的专家将竭诚为您解决任何问题或疑虑。",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.worldshop",
+          "title": "Worldshop",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.worldshop.eu/en/?p=oIGUDLalQDA",
+                "linkTitle": "前往 Worldshop",
+                "description": "在琳琅满目的精选高端品牌和专属产品中购买最新的特别商品。",
+                "title": "访问 Worldshop",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.otherQuestions",
+          "title": "有关 Miles & More 飞常里程汇的其他问题",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/zh/general-information/help-and-contact.html",
+                "linkTitle": "访问 Miles & More 飞常里程汇",
+                "description": "查找实用文章、表格和 Miles & More 飞常里程汇服务团队热线，以帮助您进行申请。",
+                "title": "查找帮助文章",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-miles-and-more",
+      "imageUrl": "https://www.lufthansa.com/content/dam/lh/images/local_images/help-center//miles-and-more.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "accessibility",
+      "title": "无障碍旅行",
+      "children": [
+        {
+          "code": "mobilityAssistance",
+          "title": "机场无障碍服务协助",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/special-travel-needs/travel-with-needs",
+                "linkTitle": "查看服务详情",
+                "description": "进一步了解我们为行动不便或感官障碍旅客提供的服务（可在出发前至少提前 48 小时预订）。",
+                "title": "查看出行协助服务",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form",
+                "linkTitle": "打开表格",
+                "description": "请在出发前至少 48 小时填写我们的联系表，告知我们您的协助要求。",
+                "title": "申请出行协助服务",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_accessibility-mobilityAssistance",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_accessibility-mobilityAssistance",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "开始实时聊天",
+                "description": "通过全天候在线聊天，获取我们服务中心专员的帮助。",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "我们的专家将竭诚为您解决任何问题或疑虑。",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "travelHealthIssues",
+          "title": "有健康问题的情况下旅行",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/special-travel-needs/travelling-healthy",
+                "linkTitle": "查看检查清单",
+                "description": "如果您感到不适或您的健康状况需要特别关注，请查看我们的检查清单，为您的下次旅行申请医疗护理。",
+                "title": "为旅行做好准备",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_accessibility-travelHealthIssues",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_accessibility-travelHealthIssues",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "开始实时聊天",
+                "description": "通过全天候在线聊天，获取我们服务中心专员的帮助。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "我们的专家将竭诚为您解决任何问题或疑虑。",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "moreAccessibleTravel",
+          "title": "关于无障碍旅程的更多资讯",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=en&start=DYNAMIC_accessibility-moreAccessibleTravel",
+                "linkTitle": "开始聊天",
+                "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_accessibility-moreAccessibleTravel",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/zh/prepare-for-your-trip/special-travel-needs",
+                "linkTitle": "前往概览",
+                "description": "查找所有可用服务的概览，以便在任何情况下确保您可畅享舒适旅行。",
+                "title": "查看所有服务",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=en",
+                "linkTitle": "开始实时聊天",
+                "description": "通过全天候在线聊天，获取我们服务中心专员的帮助。",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "en",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [
+                  {
+                    "type": "info",
+                    "title": null,
+                    "message": "chatAssistant.languageNotAvailable",
+                    "reason": null
+                  }
+                ],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "电话服务中心",
+                "description": "我们的专家将竭诚为您解决任何问题或疑虑。",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-wheelchair",
+      "imageUrl": "https://www.lufthansa.com/content/dam/lh/images/local_images/help-center//accessible-travel.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "TravelIDLogin",
+      "title": "登录与 Travel ID",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.lufthansa.com/xx/zh/profile/travel-id/faq",
+            "linkTitle": "查看常见问题及答案",
+            "description": "请在我们的常见问题及答案中查找有关 Travel ID 的更多信息，并获取登录问题的帮助。",
+            "title": "登录与 Travel ID 常见问题及答案",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "INFORMATIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CALL",
+            "link": null,
+            "linkTitle": "电话服务中心",
+            "description": "如果您需要进一步支持，我们的专家将随时为您提供帮助。",
+            "title": null,
+            "phone": "+496986799699",
+            "priority": 2,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": true
+          }
+        ]
+      },
+      "icon": "icon-service-login",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    },
+    {
+      "code": "other",
+      "title": "反馈和其他咨询",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.lufthansa.com/xx/zh/support/feedback-past-flight",
+            "linkTitle": "打开表格",
+            "description": "通过我们的联系表格提供您以往的航班体验反馈。我们将尽快回复您。",
+            "title": "发送反馈",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "FORM",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CHAT_ASSISTANT",
+            "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=CONTACTCENTERDEFAULT&language=en",
+            "linkTitle": "开始聊天",
+            "description": "Elisa 可以为您解答疑问，并引导您完成后续步骤。",
+            "title": null,
+            "phone": null,
+            "priority": 2,
+            "deeplink": {
+              "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+              "data": {
+                "lastName": "<lastName>",
+                "firstName": "<firstName>",
+                "start": "CONTACTCENTERDEFAULT",
+                "language": "en",
+                "filekey": "<pnr>"
+              }
+            },
+            "notifications": [
+              {
+                "type": "info",
+                "title": null,
+                "message": "chatAssistant.languageNotAvailable",
+                "reason": null
+              }
+            ],
+            "trackingType": null,
+            "profileHandoverEnabled": false
+          }
+        ]
+      },
+      "icon": "icon-create-post",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    }
+  ],
+  "_metadata": {
+    "tenant": "LH",
+    "language": "zh",
+    "extracted_at": "2026-11-08T02:02:51.491354",
+    "record_count": 1
+  }
+}

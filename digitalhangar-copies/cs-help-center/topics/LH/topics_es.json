@@ -1,0 +1,4446 @@
+{
+  "targetCustomerStatus": "BASE",
+  "menu": [
+    {
+      "code": "travelBookingStatus",
+      "title": "Información actual sobre vuelos",
+      "children": [
+        {
+          "code": "currentTravelInformation",
+          "title": "Avisos de viaje",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/current-travel-information",
+                "linkTitle": "Ver información de viaje",
+                "description": "Encuentre información y asistencia en caso de huelga u otros cambios de vuelo.  ",
+                "title": "Obtener actualizaciones de viaje",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "flightStatus",
+          "title": "Estado del vuelo",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/book-and-manage/timetable-and-flight-status",
+                "linkTitle": "Revisar ahora",
+                "description": "Busque por número de vuelo, ruta de vuelo o aeropuerto para averiguar el estado de su vuelo.",
+                "title": "Verificar el estado del vuelo",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=FLIGHTSTATUS&language=es",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa puede comprobar el estado, el horario de salida y otros detalles sobre su vuelo.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "FLIGHTSTATUS",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": "icon-flight-status",
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "checkConnection",
+          "title": "Revisar vuelo de conexión",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=flynet&language=es",
+                "linkTitle": "Comenzar el chat",
+                "description": "Si pierde su vuelo de conexión debido a una cancelación o retraso, Elisa puede encontrar vuelos alternativos para usted.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "flynet",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-flight-status",
+      "imageUrl": "https://www.lufthansa.com/content/dam/lh/images/local_images/help-center//travel-information.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "rebookingsCancelationsRefunds",
+      "title": "Cambios de reserva y cancelaciones",
+      "children": [
+        {
+          "code": "rebookFlight",
+          "title": "Cambiar la reserva de un vuelo",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/profile/login",
+                "linkTitle": "Gestionar reserva",
+                "description": "Cambie la fecha u hora de su vuelo online para uno o más pasajeros de su reserva. \n \nNota: Para cambiar la ruta de su vuelo, utilice nuestra asistente de chat Elisa.",
+                "title": "Cambiar la reserva del vuelo",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.lufthansa.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=CONTACTCENTERDEFAULT&language=es",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "CONTACTCENTERDEFAULT",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                "linkTitle": "Comenzar el chat en vivo",
+                "description": "Obtenga ayuda de los agentes de nuestro centro de atención al cliente a través del chat en directo, disponible en todo momento.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Si nuestra atención al cliente online no ha podido ayudarle con su solicitud, nuestro centro de atención al cliente está aquí para atenderle.",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "Obtener una nueva tarjeta de embarque",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.lufthansa.com/connect/main-app?APPID=LHG_ONLINE&TENANT=LH&LANGUAGE=es&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "Ir al check-in",
+                "description": "Para recibir su nueva tarjeta de embarque, vuelva a hacer el check-in a través del siguiente enlace.",
+                "title": "Volver a hacer el check-in",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmRebooking",
+          "title": "Confirmar la nueva reserva",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=MISSINGCONFIRMATION&language=es",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa puede comprobar el estado de su cambio de reserva por usted.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "MISSINGCONFIRMATION",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                "linkTitle": "Comenzar el chat en vivo",
+                "description": "Si su reserva ha cambiado, nuestros agentes del Centro de atención al cliente pueden volver a enviarle su confirmación de nueva reserva y cualquier servicio adicional (como reservas de asientos).",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "OvernightStay",
+          "title": "Estancia de hotel debido al retraso del vuelo",
+          "children": [
+            {
+              "code": "BookOvernightStay",
+              "title": "Necesito ayuda para reservar un hotel",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/hotel-check",
+                    "linkTitle": "Ir al formulario",
+                    "description": "Confirme sus detalles de contacto para recibir un enlace de reserva para su alojamiento nocturno.   \n \nTenga en cuenta que la siguiente página web solo está disponible actualmente en inglés y alemán.",
+                    "title": "Confirmar detalles de contacto",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/book-and-manage/timetable-and-flight-status/flight-disruptions#accordion-item-section-hotel",
+                    "linkTitle": "Ver preguntas frecuentes",
+                    "description": "Encuentre ayuda con las estancias debidas a retrasos en los vuelos e infórmese de cómo solicitar el reembolso de los gastos de alojamiento.",
+                    "title": "Ayuda con estancias en hoteles",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "RefundOvernightStay",
+              "title": "Ya he reservado un hotel",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/support/fast-compensation",
+                    "linkTitle": "Abrir el formulario",
+                    "description": "Complete este formulario para solicitar el reembolso de los costos de su alojamiento nocturno.",
+                    "title": "Solicitar reembolso",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "Solicitar cancelación y/o reembolso",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=refund&language=es",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa puede cancelar su reserva e iniciar el proceso de reembolso.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "refund",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/profile/login",
+                "linkTitle": "Gestionar reserva",
+                "description": "Cancele su reserva y solicite un reembolso en línea. \n \nTenga en cuenta que solo puede cancelar reservas completas.",
+                "title": "Cancelar reserva",
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://shop.lufthansa.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                "linkTitle": "Comenzar el chat en vivo",
+                "description": "Obtenga ayuda de los agentes de nuestro centro de atención al cliente a través del chat en directo, disponible en todo momento.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Si nuestra atención al cliente online no ha podido ayudarle con su solicitud, nuestro centro de atención al cliente está aquí para atenderle.",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "delayCancelationConfirmation",
+          "title": "Confirmar cancelación",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                "linkTitle": "Comenzar el chat en vivo",
+                "description": "Después de la cancelación, recibirá un mensaje de confirmación por correo electrónico, que podría haber sido enviado a la carpeta de correo no deseado. Si desea recibir nuevamente la confirmación de la cancelación, comuníquese con nuestro Centro de atención al cliente.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-flight-irreg",
+      "imageUrl": "https://www.lufthansa.com/content/dam/lh/images/local_images/help-center//rebooking-cancellation-refund.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "RefundsAndCompensations",
+      "title": "Reembolsos y compensaciones",
+      "children": [
+        {
+          "code": "claimCompensationFlightDisruption",
+          "title": "Compensación por cambios de vuelo realizados por la aerolínea",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/support/fast-compensation/compensation-flight-disruptions",
+                "linkTitle": "Abrir el formulario",
+                "description": "Si su vuelo se canceló, se retrasó al menos 3 horas o si perdió su vuelo de conexión, utilice nuestro formulario de contacto para solicitar un reembolso de sus gastos.",
+                "title": "Solicitar compensación",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "cancelBookingGetRefund",
+          "title": "Solicitar cancelación y/o reembolso",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=refund&language=es",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa puede cancelar su reserva e iniciar el proceso de reembolso.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "refund",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/profile/login",
+                "linkTitle": "Gestionar reserva",
+                "description": "Cancele su reserva y solicite un reembolso en línea. \n \nTenga en cuenta que solo puede cancelar reservas completas.",
+                "title": "Cancelar reserva",
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://shop.lufthansa.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                "linkTitle": "Comenzar el chat en vivo",
+                "description": "Obtenga ayuda de los agentes de nuestro centro de atención al cliente a través del chat en directo, disponible en todo momento.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Si nuestra atención al cliente online no ha podido ayudarle con su solicitud, nuestro centro de atención al cliente está aquí para atenderle.",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": true,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "confirmRefund",
+          "title": "Confirmar reembolso",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                "linkTitle": "Comenzar el chat en vivo",
+                "description": "Póngase en contacto con nuestros agentes del centro de atención al cliente para que le envíen la confirmación de su reembolso o verifiquen el estado de su reembolso.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "refundBaggageIrregularities",
+          "title": "Reembolso por problemas con el equipaje",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/baggage-reimbursement",
+                "linkTitle": "Abrir el formulario",
+                "description": "Use nuestro formulario de contacto para solicitar un reembolso de gastos adicionales a causa del retraso o daño de su equipaje.",
+                "title": "Solicitar reembolso",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/baggage-irregularities",
+                "linkTitle": "Más información",
+                "description": "Encuentre ayuda en caso de retrasos o daños en el equipaje e infórmese de cómo solicitar un reembolso.",
+                "title": "Más información sobre los problemas con el equipaje",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_RefundsAndCompensations-refundBaggageIrregularities",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_RefundsAndCompensations-refundBaggageIrregularities",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "OvernightStay",
+          "title": "Estancia de hotel debido al retraso del vuelo",
+          "children": [
+            {
+              "code": "BookOvernightStay",
+              "title": "Necesito ayuda para reservar un hotel",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/hotel-check",
+                    "linkTitle": "Ir al formulario",
+                    "description": "Confirme sus detalles de contacto para recibir un enlace de reserva para su alojamiento nocturno.   \n \nTenga en cuenta que la siguiente página web solo está disponible actualmente en inglés y alemán.",
+                    "title": "Confirmar detalles de contacto",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/book-and-manage/timetable-and-flight-status/flight-disruptions#accordion-item-section-hotel",
+                    "linkTitle": "Ver preguntas frecuentes",
+                    "description": "Encuentre ayuda con las estancias debidas a retrasos en los vuelos e infórmese de cómo solicitar el reembolso de los gastos de alojamiento.",
+                    "title": "Ayuda con estancias en hoteles",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "RefundOvernightStay",
+              "title": "Ya he reservado un hotel",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/support/fast-compensation",
+                    "linkTitle": "Abrir el formulario",
+                    "description": "Complete este formulario para solicitar el reembolso de los costos de su alojamiento nocturno.",
+                    "title": "Solicitar reembolso",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "MealVoucher",
+          "title": "Bono de comida",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/book-and-manage/timetable-and-flight-status/flight-disruptions#accordion-item-section-voucher",
+                "linkTitle": "Más información",
+                "description": "En la mayoría de los casos, recibirá automáticamente un cupón para comida que se vinculará al código QR de su boleto de avión. Vea cómo recibirá su cupón para comida y dónde puede usarlo.",
+                "title": "Revisar las condiciones",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "TravelbyTrain",
+          "title": "Transporte alternativo en tren",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/book-and-manage/good-for-train",
+                "linkTitle": "Introducir detalles de la reserva",
+                "description": "Si no hay una alternativa adecuada para su vuelo cancelado, puede cambiar su billete de avión por un bono para un viaje en tren. \n \nTenga en cuenta que esto solo se aplica a determinadas rutas.",
+                "title": "Obtener un cupón de tren",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerRights",
+          "title": "Derechos de los pasajeros",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/common/passenger-rights",
+                "linkTitle": "Más información",
+                "description": "Conozca sus derechos como pasajero en caso de cancelaciones de vuelos, retrasos u otras interrupciones de vuelos.",
+                "title": "Ver los derechos del pasajero",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-refund-possible",
+      "imageUrl": "https://www.lufthansa.com/content/dam/lh/images/local_images/help-center//refund-compensations.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "checkin",
+      "title": "Check-in",
+      "children": [
+        {
+          "code": "HelpWithCheckIn",
+          "title": "Problema con el check-in",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=checkin&language=es",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa puede ayudarle a averiguar por qué no puede realizar el check-in para su vuelo.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "checkin",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496986799699",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "lateNightCheckin",
+          "title": "Entrega de equipaje anticipada",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_checkin-lateNightCheckin",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_checkin-lateNightCheckin",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/all-check-in/pre-check-in",
+                "linkTitle": "Más información",
+                "description": "Realice el check-in por anticipado y deje su equipaje antes del día de partida.",
+                "title": "Despache su equipaje con antelación",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NewBoardingPass",
+          "title": "Obtener una nueva tarjeta de embarque",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://once.lufthansa.com/connect/main-app?APPID=LHG_ONLINE&TENANT=LH&LANGUAGE=es&COUNTRY=xx&MODE=PORTAL",
+                "linkTitle": "Ir al check-in",
+                "description": "Para recibir su nueva tarjeta de embarque, vuelva a hacer el check-in a través del siguiente enlace.",
+                "title": "Volver a hacer el check-in",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "otherCheckinQuestions",
+          "title": "Preguntas sobre el check-in",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_checkin-otherCheckinQuestions",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_checkin-otherCheckinQuestions",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/all-check-in",
+                "linkTitle": "Ver resumen",
+                "description": "Encuentre la opción de check-in más conveniente para su próximo viaje.",
+                "title": "Ver opciones de check-in",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-boarding-card",
+      "imageUrl": "https://www.lufthansa.com/content/dam/lh/images/local_images/help-center//check-in.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "baggage",
+      "title": "Equipaje",
+      "children": [
+        {
+          "code": "baggage.rules",
+          "title": "Reglas y precios de equipaje",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/profile/login",
+                "linkTitle": "Gestionar reserva",
+                "description": "Vea cuánto equipaje puede llevar en su próximo vuelo.",
+                "title": "Ver franquicia de equipaje",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.lufthansa.com/booking/services/BAGGAGE?lang=es-ES&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/baggage",
+                "linkTitle": "Ir al resumen",
+                "description": "Encuentre una descripción general de todos los tipos y servicios de equipaje.",
+                "title": "Ver todos los servicios de equipaje",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                "linkTitle": "Comenzar el chat en vivo",
+                "description": "Obtenga ayuda de los agentes de nuestro centro de atención al cliente a través del chat en directo, disponible en todo momento.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Si necesita más asistencia, nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.excess",
+          "title": "Equipaje adicional/exceso de equipaje",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/profile/login",
+                "linkTitle": "Gestionar reserva",
+                "description": "Vea cuánto equipaje puede llevar en su próximo vuelo y añada más si es necesario.",
+                "title": "Agregar equipaje extra",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.lufthansa.com/booking/services/BAGGAGE?lang=es-ES&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_baggage-baggage_excess",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_excess",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/baggage/excess-baggage",
+                "linkTitle": "Ver toda la normativa",
+                "description": "Obtenga más información sobre el peso y las dimensiones permitidos para el exceso de equipaje según la tarifa de su reserva.",
+                "title": "Revisar la normativa de equipaje",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                "linkTitle": "Comenzar el chat en vivo",
+                "description": "Obtenga ayuda de los agentes de nuestro centro de atención al cliente a través del chat en directo, disponible en todo momento.",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Si necesita más asistencia, nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.sports",
+          "title": "Añadir equipaje deportivo",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/baggage/sport-baggage/register-sports-baggage",
+                "linkTitle": "Abrir el formulario",
+                "description": "Llene el formulario para agregar equipaje deportivo a su reserva.",
+                "title": "Registrar equipaje deportivo",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_baggage-baggage_sports",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_sports",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/baggage/sport-baggage",
+                "linkTitle": "Ver toda la normativa",
+                "description": "Encuentre toda la información relacionada con el equipaje deportivo y el equipaje especial aquí.",
+                "title": "Revisar la normativa de equipaje",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                "linkTitle": "Comenzar el chat en vivo",
+                "description": "Obtenga ayuda de los agentes de nuestro centro de atención al cliente a través del chat en directo, disponible en todo momento.",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "pets",
+          "title": "Viajar con mascotas",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "Animales en la cabina (máximo 8 kg, incluida la caja transportadora)",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/profile/login",
+                    "linkTitle": "Registrarse ahora",
+                    "description": "Registre su mascota en una reserva existente para que la lleve en la cabina (hasta 72 horas antes de la salida).",
+                    "title": "Agregar una mascota",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.lufthansa.com/booking/services/PETS?lang=es-ES&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_pets-travelPetsInCabin",
+                    "linkTitle": "Comenzar el chat",
+                    "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCabin",
+                        "language": "es",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/baggage/travelling-with-animals",
+                    "linkTitle": "Ver todas las condiciones",
+                    "description": "Haga clic aquí para encontrar toda la información sobre este tema y las diversas opciones de transporte.",
+                    "title": "Verificar las condiciones de viaje",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                    "linkTitle": "Comenzar el chat en vivo",
+                    "description": "Obtenga ayuda de los agentes de nuestro centro de atención al cliente a través del chat en directo, disponible en todo momento.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "es",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Llamar al Centro de atención al cliente",
+                    "description": "Nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.",
+                    "title": null,
+                    "phone": "+496986799799",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "travelPetsInCargo",
+              "title": "Animales en la bodega de carga",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold",
+                    "linkTitle": "Registrarse ahora",
+                    "description": "Registre a su perro o gato para llevarlo en la bodega de carga de un vuelo de Lufthansa (a más tardar 72 horas antes de la partida).",
+                    "title": "Registre a su mascota para viajar",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_pets-travelPetsInCargo",
+                    "linkTitle": "Comenzar el chat",
+                    "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCargo",
+                        "language": "es",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/baggage/travelling-with-animals",
+                    "linkTitle": "Ver todas las condiciones",
+                    "description": "Conozca nuestras normas y opciones de viaje para transportar animales en vuelos de Lufthansa.",
+                    "title": "Revisar las condiciones",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                    "linkTitle": "Comenzar el chat en vivo",
+                    "description": "Obtenga ayuda de los agentes de nuestro centro de atención al cliente a través del chat en directo, disponible en todo momento.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "es",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Llamar al Centro de atención al cliente",
+                    "description": "Nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.",
+                    "title": null,
+                    "phone": "+496986799799",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "lateNightCheckin",
+          "title": "Entrega de equipaje anticipada",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_baggage-lateNightCheckin",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-lateNightCheckin",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/all-check-in/pre-check-in",
+                "linkTitle": "Más información",
+                "description": "Realice el check-in por anticipado y deje su equipaje antes del día de partida.",
+                "title": "Despache su equipaje con antelación",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.damagedOrDelayed",
+          "title": "Problemas con el equipaje",
+          "children": [
+            {
+              "code": "reportDelayedBaggage",
+              "title": "Informar sobre equipaje retrasado",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=DELAYBAGCREATE&language=es",
+                    "linkTitle": "Comenzar el chat",
+                    "description": "Si su equipaje facturado no llegó, Elisa le mostrará cómo notificar el retraso.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DELAYBAGCREATE",
+                        "language": "es",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay",
+                    "linkTitle": "Leer las preguntas frecuentes",
+                    "description": "Encuentre las respuestas a las preguntas más frecuentes sobre los retrasos de equipaje en nuestras preguntas frecuentes.",
+                    "title": "Más información sobre los retrasos de equipaje",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "statusBaggageReport",
+              "title": "Gestionar el informe de equipaje retrasado",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=DELAYBAG&language=es",
+                    "linkTitle": "Comenzar el chat",
+                    "description": "Elisa puede ayudarle a realizar un seguimiento o editar su informe de equipaje retrasado. También puede cerrar el informe una vez que le hayan devuelto su equipaje.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DELAYBAG",
+                        "language": "es",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/baggage/baggage-irregularities/faq-baggage-delay",
+                    "linkTitle": "Ver preguntas frecuentes",
+                    "description": "Encuentre las respuestas a las preguntas más frecuentes sobre los retrasos de equipaje en nuestras preguntas frecuentes.",
+                    "title": "Más información sobre los retrasos de equipaje",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "reportDamagedBaggage",
+              "title": "Notificar daños en el equipaje",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://mybag.aero/lufthansa/damaged/es",
+                    "linkTitle": "Informar daños",
+                    "description": "Presente un informe de equipaje dañado. Es posible hacerlo aquí hasta 72 horas después de la llegada.",
+                    "title": "Informar sobre equipaje dañado ",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage",
+                    "linkTitle": "Ver preguntas frecuentes",
+                    "description": "Encuentre las respuestas a las preguntas más frecuentes sobre equipaje dañado en nuestras preguntas frecuentes.",
+                    "title": "Más sobre equipaje dañado",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_baggage_damagedOrDelayed-reportDamagedBaggage",
+                    "linkTitle": "Comenzar el chat",
+                    "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_baggage_damagedOrDelayed-reportDamagedBaggage",
+                        "language": "es",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "refundBaggageIrregularities",
+              "title": "Reembolso por problemas con el equipaje",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/baggage-reimbursement",
+                    "linkTitle": "Abrir el formulario",
+                    "description": "Use nuestro formulario de contacto para solicitar un reembolso de gastos adicionales a causa del retraso o daño de su equipaje.",
+                    "title": "Solicitar reembolso",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/baggage-irregularities",
+                    "linkTitle": "Más información",
+                    "description": "Encuentre ayuda en caso de retrasos o daños en el equipaje e infórmese de cómo solicitar un reembolso.",
+                    "title": "Más información sobre los problemas con el equipaje",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_baggage_damagedOrDelayed-refundBaggageIrregularities",
+                    "linkTitle": "Comenzar el chat",
+                    "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_baggage_damagedOrDelayed-refundBaggageIrregularities",
+                        "language": "es",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "baggage.lost",
+          "title": "Pérdida de artículo personal",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC-baggage_lost-baggage",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC-baggage_lost-baggage",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/baggage/baggage-irregularities#faq",
+                "linkTitle": "Informar ahora",
+                "description": "Informar sobre artículos personales perdidos en el aeropuerto o en un avión, o que faltan en el equipaje facturado.",
+                "title": "Informar sobre artículos perdidos",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "baggage.dangerousGoods",
+          "title": "Mercancías peligrosas y armas",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_baggage-baggage_dangerousGoods",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-baggage_dangerousGoods",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/baggage/dangerous-goods",
+                "linkTitle": "Ver toda la normativa",
+                "description": "Eche un vistazo a nuestra lista completa de bienes peligrosos y artículos prohibidos.",
+                "title": "Revisar la normativa de equipaje",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                "linkTitle": "Comenzar el chat en vivo",
+                "description": "Obtenga ayuda de los agentes de nuestro centro de atención al cliente a través del chat en directo, disponible en todo momento.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "OtherQuestionsBaggage",
+          "title": "Otras preguntas sobre equipaje",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_baggage-OtherQuestionsBaggage",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_baggage-OtherQuestionsBaggage",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-baggage",
+      "imageUrl": "https://www.lufthansa.com/content/dam/lh/images/local_images/help-center//baggage.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "addFlightServices",
+      "title": "Servicios adicionales",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "Asientos",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "Añadir o cambiar asiento",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/profile/login",
+                    "linkTitle": "Gestionar reserva",
+                    "description": "Reserve o cambie su asiento online hasta 2 horas antes de la salida.",
+                    "title": "Agregar o cambiar asiento",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.lufthansa.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/book-and-manage/advance-seat-reservation",
+                    "linkTitle": "Ir al resumen",
+                    "description": "Obtenga información sobre todas las categorías de asientos y sus precios por ruta.",
+                    "title": "Ver todas las categorías de asientos",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Llamar al Centro de atención al cliente",
+                    "description": "Reserve o cambie su asiento por teléfono hasta 52 horas antes de la salida.",
+                    "title": null,
+                    "phone": "+496986799799",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "Reservar el asiento contiguo",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Llamar al Centro de atención al cliente",
+                    "description": "Llame a nuestro centro de atención al cliente para reservar el asiento contiguo y disfrutar de un viaje aún más cómodo.",
+                    "title": null,
+                    "phone": "+496986799799",
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "MoreSeatReservations",
+              "title": "Más sobre las reservas de asientos",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/common/seatreservation-condtions",
+                    "linkTitle": "Ir a las preguntas frecuentes",
+                    "description": "Obtenga más información sobre reservas de asientos por adelantado, reembolsos en caso de cancelaciones y otros aspectos.",
+                    "title": "Más sobre las reservas de asientos",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "specialMeal",
+          "title": "Comidas a bordo",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/profile/login",
+                "linkTitle": "Gestionar reserva",
+                "description": "Pida una comida especial para sus necesidades dietéticas, religiosas o nutricionales. \n \nTenga en cuenta que la disponibilidad de este servicio depende de las condiciones de su reserva.",
+                "title": "Pedir comida especial",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.lufthansa.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/during-your-trip/food-and-beverages/culinary-journey#/entry",
+                "linkTitle": "Ver el menú",
+                "description": "Descubra los servicios culinarios en nuestros vuelos y pida una comida por adelantado para su próximo viaje.",
+                "title": "Descubra las comidas a bordo",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_addFlightServices-specialMeal",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-specialMeal",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                "linkTitle": "Comenzar el chat en vivo",
+                "description": "Obtenga ayuda de los agentes de nuestro centro de atención al cliente a través del chat en directo, disponible en todo momento.",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "onBoardServices",
+          "title": "Servicios a bordo",
+          "children": [
+            {
+              "code": "ejournals",
+              "title": "Periódicos y revistas digitales",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/during-your-trip/entertainment-on-board#ejournals",
+                    "linkTitle": "eJournals",
+                    "description": "Elija entre una amplia variedad de periódicos y revistas y simplemente guárdelos en su teléfono inteligente, tableta o computadora portátil antes de su vuelo.",
+                    "title": "Descargar eJournal",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "flynet",
+              "title": "Internet a bordo",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/during-your-trip/internet-on-board",
+                    "linkTitle": "Ver todos los paquetes de FlyNet",
+                    "description": "Compre su paquete de FlyNet® más adecuado con anticipación para navegar en Internet directamente en vuelos de corta y media distancia seleccionados.",
+                    "title": "Obtenga Wi-Fi a bordo",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            },
+            {
+              "code": "inflightEntertainment",
+              "title": "Entretenimiento a bordo",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/during-your-trip/entertainment-on-board",
+                    "linkTitle": "Ver todas las opciones ",
+                    "description": "Descubra nuestra oferta de entretenimiento, que enriquecerá su estadía a bordo. Además de películas y series, le ofrecemos audiolibros, música y juegos.",
+                    "title": "Ver entretenimiento a bordo",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "Lounges",
+          "title": "Lounges",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_addFlightServices-Lounges",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-Lounges",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/during-your-trip/lounges",
+                "linkTitle": "Ver directorio",
+                "description": "Encuentre todas las lounges disponibles, incluidos sus horarios de apertura y servicios en los respectivos aeropuertos.",
+                "title": "Buscar lounges",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/during-your-trip/lounges/admission-rules",
+                "linkTitle": "Ir al resumen",
+                "description": "Vea a qué lounges puede acceder a su llegada o salida y si puede traer un acompañante.",
+                "title": "Verificar acceso a la lounge",
+                "phone": null,
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "TravelInsurance",
+          "title": "Seguro de viaje",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/profile/login",
+                "linkTitle": "Seleccionar seguro",
+                "description": "Contrate un seguro de viaje para su próximo viaje.  \n  \nTenga en cuenta que la disponibilidad de este servicio depende de las condiciones de su reserva.",
+                "title": "Contratar seguro",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.lufthansa.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "pets",
+          "title": "Viajar con mascotas",
+          "children": [
+            {
+              "code": "travelPetsInCabin",
+              "title": "Animales en la cabina (máximo 8 kg, incluida la caja transportadora)",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/profile/login",
+                    "linkTitle": "Registrarse ahora",
+                    "description": "Registre su mascota en una reserva existente para que la lleve en la cabina (hasta 72 horas antes de la salida).",
+                    "title": "Agregar una mascota",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.lufthansa.com/booking/services/PETS?lang=es-ES&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_pets-travelPetsInCabin",
+                    "linkTitle": "Comenzar el chat",
+                    "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCabin",
+                        "language": "es",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/baggage/travelling-with-animals",
+                    "linkTitle": "Ver todas las condiciones",
+                    "description": "Haga clic aquí para encontrar toda la información sobre este tema y las diversas opciones de transporte.",
+                    "title": "Verificar las condiciones de viaje",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                    "linkTitle": "Comenzar el chat en vivo",
+                    "description": "Obtenga ayuda de los agentes de nuestro centro de atención al cliente a través del chat en directo, disponible en todo momento.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "es",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Llamar al Centro de atención al cliente",
+                    "description": "Nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.",
+                    "title": null,
+                    "phone": "+496986799799",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "travelPetsInCargo",
+              "title": "Animales en la bodega de carga",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/baggage/travelling-with-animals/register-animal-cargo-hold",
+                    "linkTitle": "Registrarse ahora",
+                    "description": "Registre a su perro o gato para llevarlo en la bodega de carga de un vuelo de Lufthansa (a más tardar 72 horas antes de la partida).",
+                    "title": "Registre a su mascota para viajar",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "FORM",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "CHAT_ASSISTANT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_pets-travelPetsInCargo",
+                    "linkTitle": "Comenzar el chat",
+                    "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "DYNAMIC_pets-travelPetsInCargo",
+                        "language": "es",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/baggage/travelling-with-animals",
+                    "linkTitle": "Ver todas las condiciones",
+                    "description": "Conozca nuestras normas y opciones de viaje para transportar animales en vuelos de Lufthansa.",
+                    "title": "Revisar las condiciones",
+                    "phone": null,
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "LIVE_CHAT",
+                    "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                    "linkTitle": "Comenzar el chat en vivo",
+                    "description": "Obtenga ayuda de los agentes de nuestro centro de atención al cliente a través del chat en directo, disponible en todo momento.",
+                    "title": null,
+                    "phone": null,
+                    "priority": 4,
+                    "deeplink": {
+                      "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "firstName": "<firstName>",
+                        "start": "liveagent",
+                        "language": "es",
+                        "filekey": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Llamar al Centro de atención al cliente",
+                    "description": "Nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.",
+                    "title": null,
+                    "phone": "+496986799799",
+                    "priority": 5,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "TravelingWithChildren",
+          "title": "Viajar con niños",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/travelling-with-children",
+                "linkTitle": "Más información",
+                "description": "Consulte información sobre viajar con niños, desde la preparación de su viaje hasta los asientos y más.",
+                "title": "Información de viaje",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_addFlightServices-TravelingWithChildren",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa está disponible para responder sus preguntas sobre viajar con niños.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-TravelingWithChildren",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                "linkTitle": "Comenzar el chat en vivo",
+                "description": "Chatee con uno de nuestros agentes del centro de atención al cliente si tiene problemas técnicos o si desea solicitar un moisés o reservar un vuelo para un niño que viaja solo.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Póngase en contacto directamente con uno de los agentes de nuestro centro de atención al cliente si tiene problemas técnicos o si desea solicitar un moisés o reservar un vuelo para un niño que viaja solo.",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "confirmAdditionalServices",
+          "title": "Confirmar servicios adicionales",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestro centro de atención al cliente estará encantado de verificar si los servicios que ha solicitado están confirmados.",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "addFlightServices.problem",
+          "title": "Problemas para añadir un servicio",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/support/feedback",
+                "linkTitle": "Continuar con el formulario",
+                "description": "Si tiene algún problema para añadir un servicio adicional, puede utilizar nuestro formulario de contacto en “Otros formularios de contacto” y nos pondremos en contacto con usted lo antes posible.",
+                "title": "Informar sobre un problema",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Si necesita más asistencia, nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496986799699",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "MoreServices",
+          "title": "Más servicios adicionales",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_addFlightServices-MoreServices",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_addFlightServices-MoreServices",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/book-and-manage/additional-services",
+                "linkTitle": "Ver resumen de los servicios",
+                "description": "Descubra más servicios adicionales que le ayudarán a prepararse y disfrutar de cada parte de su viaje.",
+                "title": "Ver todos los servicios",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-additional-services",
+      "imageUrl": "https://www.lufthansa.com/content/dam/lh/images/local_images/help-center//add-flight-service.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "booking",
+      "title": "Reserve y prepárese",
+      "children": [
+        {
+          "code": "booking.Seats",
+          "title": "Asientos",
+          "children": [
+            {
+              "code": "changeSeat",
+              "title": "Añadir o cambiar asiento",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/profile/login",
+                    "linkTitle": "Gestionar reserva",
+                    "description": "Reserve o cambie su asiento online hasta 2 horas antes de la salida.",
+                    "title": "Agregar o cambiar asiento",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.lufthansa.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/book-and-manage/advance-seat-reservation",
+                    "linkTitle": "Ir al resumen",
+                    "description": "Obtenga información sobre todas las categorías de asientos y sus precios por ruta.",
+                    "title": "Ver todas las categorías de asientos",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Llamar al Centro de atención al cliente",
+                    "description": "Reserve o cambie su asiento por teléfono hasta 52 horas antes de la salida.",
+                    "title": null,
+                    "phone": "+496986799799",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BookNeighboringSeat",
+              "title": "Reservar el asiento contiguo",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Llamar al Centro de atención al cliente",
+                    "description": "Llame a nuestro centro de atención al cliente para reservar el asiento contiguo y disfrutar de un viaje aún más cómodo.",
+                    "title": null,
+                    "phone": "+496986799799",
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "MoreSeatReservations",
+              "title": "Más sobre las reservas de asientos",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/common/seatreservation-condtions",
+                    "linkTitle": "Ir a las preguntas frecuentes",
+                    "description": "Obtenga más información sobre reservas de asientos por adelantado, reembolsos en caso de cancelaciones y otros aspectos.",
+                    "title": "Más sobre las reservas de asientos",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": false
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "booking.Upgrades",
+          "title": "Upgrades",
+          "children": [
+            {
+              "code": "upgradeFlight",
+              "title": "Reservar un upgrade",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/profile/login",
+                    "linkTitle": "Gestionar reserva",
+                    "description": "Compare los upgrades para su próximo vuelo y seleccione su opción preferida.",
+                    "title": "Reservar un upgrade",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.lufthansa.com/booking/cash-upgrade?lang=es-ES&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/travel-classes/upgrade-options",
+                    "linkTitle": "Ver todas las opciones",
+                    "description": "Explore o realice un upgrade de opciones y disfrute de su viaje con aún más comodidad.",
+                    "title": "Ver las opciones de upgrade",
+                    "phone": null,
+                    "priority": 2,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": "INFORMATIONAL",
+                    "profileHandoverEnabled": false
+                  },
+                  {
+                    "type": "CALL",
+                    "link": null,
+                    "linkTitle": "Llamar al Centro de atención al cliente",
+                    "description": "Nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.",
+                    "title": null,
+                    "phone": "+496986799799",
+                    "priority": 3,
+                    "deeplink": null,
+                    "notifications": [],
+                    "trackingType": null,
+                    "profileHandoverEnabled": true
+                  }
+                ]
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            },
+            {
+              "code": "BidUpgrade",
+              "title": "Haga una oferta para obtener un upgrade",
+              "children": [],
+              "options": {
+                "recommended": [
+                  {
+                    "type": "SELF_SERVICE",
+                    "link": "https://www.lufthansa.com/xx/es/profile/login",
+                    "linkTitle": "Realizar oferta",
+                    "description": "Realice un upgrade a una clase de servicio superior al precio que usted desea.  \n \nTenga en cuenta que la disponibilidad de este servicio depende de las condiciones de su reserva.",
+                    "title": "Haga una oferta para obtener un upgrade",
+                    "phone": null,
+                    "priority": 1,
+                    "deeplink": {
+                      "url": "https://shop.lufthansa.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                      "data": {
+                        "lastName": "<lastName>",
+                        "recLoc": "<pnr>"
+                      }
+                    },
+                    "notifications": [],
+                    "trackingType": "TRANSACTIONAL",
+                    "profileHandoverEnabled": false
+                  }
+                ],
+                "others": []
+              },
+              "icon": null,
+              "imageUrl": null,
+              "notifications": [],
+              "eligibilityCheckEnabled": false,
+              "bookingDetailsEnabled": true
+            }
+          ],
+          "options": {
+            "recommended": [],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "reconfirmation",
+          "title": "Confirmar la reserva",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=MISSINGCONFIRMATION&language=es",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa le muestra dónde encontrar su código de reserva o cómo solicitar un nuevo e-mail de confirmación.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "MISSINGCONFIRMATION",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "booking.miles",
+          "title": "Reservar con millas",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/es/spend/flights.html",
+                "linkTitle": "Buscar vuelos",
+                "description": "Canjee sus millas por vuelos de premio.",
+                "title": "Reservar vuelo de premio",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.new.problem",
+          "title": "Problema con la reserva o el pago",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/support/feedback",
+                "linkTitle": "Continuar con el formulario",
+                "description": "Si tiene algún problema con una reserva o pago, puede utilizar nuestro formulario de contacto en “Otros formularios de contacto” y nos pondremos en contacto con usted lo antes posible.",
+                "title": "Informar sobre un problema",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Si necesita más asistencia, nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.\n",
+                "title": null,
+                "phone": "+496986799699",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "NameChangeAfterBooking",
+          "title": "Cambio de nombre después de la reserva",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Póngase en contacto con nuestro centro de atención al cliente para solicitar una corrección del nombre en su reserva. \n \nTenga en cuenta que solo se pueden realizar pequeños cambios, como la corrección de errores ortográficos.",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "passengerReceipt",
+          "title": "Recibo del pasajero/Factura",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/book-and-manage/passenger-receipt",
+                "linkTitle": "Solicitar ahora",
+                "description": "Obtenga el recibo del pasajero para su etix® en línea.",
+                "title": "Solicitar recibo del pasajero",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                "linkTitle": "Comenzar el chat en vivo",
+                "description": "Obtenga ayuda de los agentes de nuestro centro de atención al cliente a través del chat en directo, disponible en todo momento.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        },
+        {
+          "code": "TravelRegulations",
+          "title": "Reglamentaciones de viaje",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://lufthansa.travel-regulations.com/?language=en",
+                "linkTitle": "Ingresar itinerario",
+                "description": "Encuentre las reglamentaciones de entrada, visa y salud para su próximo viaje.",
+                "title": "Revisar las reglamentaciones de viaje",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.group",
+          "title": "Reserva de grupo (mínimo de 10 pasajeros)",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/book-and-manage/group-travel",
+                "linkTitle": "Ver condiciones",
+                "description": "Puede ver toda la información sobre reservas de grupo en nuestra página de información.",
+                "title": "Consultar las condiciones",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "sustainableFlying",
+          "title": "Vuele de manera más sostenible",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/profile/login",
+                "linkTitle": "Seleccionar paquete",
+                "description": "Adquiera uno de nuestros paquetes de combinación para compensar las emisiones de CO₂ de su vuelo e invertir en proyectos de sostenibilidad. \n \nTenga en cuenta que la disponibilidad de este servicio depende de las condiciones de su reserva.",
+                "title": "Comprar paquete de compensación",
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://shop.lufthansa.com/booking/manage-booking/retrieve?lang=es-ES&portalCountry=DE",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "recLoc": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/fly-more-sustainably-search",
+                "linkTitle": "Comprobar las opciones de compensación",
+                "description": "También puede compensar las emisiones de CO₂ calculadas de vuelos anteriores en cualquier momento.",
+                "title": "Compensar vuelo anterior",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": true
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-airplane-outbound",
+      "imageUrl": "https://www.lufthansa.com/content/dam/lh/images/local_images/help-center//booking.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "milesAndMore",
+      "title": "Miles & More",
+      "children": [
+        {
+          "code": "milesAndMore.mileageCredit",
+          "title": "Crédito de millas después de la reserva",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/es/program/at-a-glance/mileage-request.html",
+                "linkTitle": "Revisar las condiciones",
+                "description": "Solicite la acreditación de millas y puntos hasta 6 meses después de la fecha de la actividad.",
+                "title": "Solicitar crédito de millas",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar a Miles & More",
+                "description": "Comuníquese con el centro de atención al cliente Miles & More para obtener más ayuda con su solicitud de crédito.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.mileageAccount",
+          "title": "Saldo de la cuenta Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/es/static/login.html",
+                "linkTitle": "Iniciar sesión",
+                "description": "Inicie sesión en Miles & More para ver el saldo actual de su cuenta y la fecha de caducidad de sus millas.",
+                "title": "Consultar el saldo de la cuenta",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar a Miles & More",
+                "description": "Si tiene preguntas sobre su cuenta y las millas disponibles, comuníquese con su centro de atención al cliente Miles & More.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.spendMiles",
+          "title": "Canjear millas",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/es/spend/award-overview.html",
+                "linkTitle": "Gastar millas",
+                "description": "Canjee sus millas por dispositivos, upgrades de vuelos, tarjetas regalo y más.",
+                "title": "Canjear millas",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar a Miles & More",
+                "description": "Obtenga más información sobre cómo canjear sus millas de su centro de atención al cliente Miles & More.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.login",
+          "title": "Problema con el login de Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/es/general-information/help-and-contact.html?topic=pin-password-login/",
+                "linkTitle": "Ir a Miles & More",
+                "description": "Visite Miles & More para obtener ayuda e información sobre su login.",
+                "title": "Obtener asistencia para iniciar sesión",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar a Miles & More",
+                "description": "Comuníquese con el centro de atención al cliente Miles & More para obtener ayuda si tiene problemas con el login o inquietudes.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.upgrade",
+          "title": "Upgrade con millas de premio/eVoucher",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/es/program/flight-benefits/upgrade-award.html",
+                "linkTitle": "Más información sobre los upgrades de premio",
+                "description": "Realice un upgrade a una clase de servicio superior en línea. \nSi está realizando un upgrade con un eVoucher, seleccione la opción de Llamada.",
+                "title": "Reservar upgrade de premio",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar a Miles & More",
+                "description": "Si tiene algún problema al realizar un upgrade, comuníquese con su centro de atención al cliente Miles & More.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.status",
+          "title": "Beneficio de estado de Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/es/program/status-benefits/status-level-comparison.html",
+                "linkTitle": "Comparar status",
+                "description": "Descubra los beneficios de cada status de pasajero frecuente.",
+                "title": "Ver beneficios de status",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar a Miles & More",
+                "description": "Comuníquese con su centro de atención al cliente Miles & More si tiene más preguntas acerca de los beneficios de status.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.newMember",
+          "title": "Hágase miembro de Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/book-and-manage/view-and-amend-flight-details",
+                "linkTitle": "Iniciar sesión",
+                "description": "Si ya tiene Travel ID de Lufthansa, inicie sesión en su cuenta en lufthansa.com y active Miles & More.",
+                "title": "Activar Miles & More.",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/es/program/at-a-glance.html",
+                "linkTitle": "Registrarse ahora",
+                "description": "Regístrese gratis y comience a acumular millas para upgrades de vuelos y otras recompensas.",
+                "title": "Hágase socio",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar a Miles & More",
+                "description": "Comuníquese con su centro de atención al cliente Miles & More para obtener más información sobre la membresía.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.creditCard",
+          "title": "Tarjetas de crédito Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/es/program/credit-cards/credit-cards-overview.html",
+                "linkTitle": "Ver todas las tarjetas",
+                "description": "Descubra todas las tarjetas de crédito Miles & More disponibles para cada país.",
+                "title": "Seleccionar una tarjeta de crédito",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/support/faq/faq-miles-and-more",
+                "linkTitle": "Más información",
+                "description": "Encuentre más información sobre servicios para su tarjeta de crédito Miles & More y descargue nuestra aplicación para descubrir nuevas ofertas.",
+                "title": "Consulte los servicios de tarjetas de crédito",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar a Miles & More",
+                "description": "Su centro de atención al cliente Miles & More le ayudará con mucho gusto si tiene otras preguntas o inquietudes.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 3,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "booking.miles",
+          "title": "Reservar con millas",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/es/spend/flights.html",
+                "linkTitle": "Buscar vuelos",
+                "description": "Canjee sus millas por vuelos de premio.",
+                "title": "Reservar vuelo de premio",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+4969209777777",
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.worldshop",
+          "title": "Worldshop",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.worldshop.eu/en/?p=oIGUDLalQDA",
+                "linkTitle": "Ir a Worldshop",
+                "description": "Compre marcas prémium y productos exclusivos de nuestras ediciones especiales más recientes.",
+                "title": "Visite Worldshop",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "TRANSACTIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "milesAndMore.otherQuestions",
+          "title": "Otras preguntas sobre Miles & More",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.miles-and-more.com/row/es/general-information/help-and-contact.html",
+                "linkTitle": "Visite Miles & More ",
+                "description": "Encuentre artículos útiles, formularios y la línea de atención telefónica del centro de atención al cliente Miles & More para obtener ayuda con su solicitud.",
+                "title": "Buscar artículos de ayuda",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": []
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-miles-and-more",
+      "imageUrl": "https://www.lufthansa.com/content/dam/lh/images/local_images/help-center//miles-and-more.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "accessibility",
+      "title": "Viaje accesible",
+      "children": [
+        {
+          "code": "mobilityAssistance",
+          "title": "Asistencia a la movilidad en el aeropuerto",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/special-travel-needs/travel-with-needs",
+                "linkTitle": "Ver detalles de los servicios",
+                "description": "Obtenga más información sobre nuestros servicios para pasajeros con movilidad reducida o impedimentos sensoriales (se pueden reservar hasta 48 horas antes de la partida).",
+                "title": "Ver servicios de movilidad",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form",
+                "linkTitle": "Abrir el formulario",
+                "description": "Llene nuestro formulario de contacto para informarnos sobre sus requisitos de asistencia al menos 48 horas antes de la partida.",
+                "title": "Solicitar servicio de movilidad",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "FORM",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_accessibility-mobilityAssistance",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_accessibility-mobilityAssistance",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                "linkTitle": "Comenzar el chat en vivo",
+                "description": "Obtenga ayuda de los agentes de nuestro centro de atención al cliente a través del chat en directo, disponible en todo momento.",
+                "title": null,
+                "phone": null,
+                "priority": 4,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 5,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "travelHealthIssues",
+          "title": "Viajar con problemas de salud",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/special-travel-needs/travelling-healthy",
+                "linkTitle": "Ver la lista de verificación",
+                "description": "Consulte nuestra lista de verificación y solicite atención médica para su próximo viaje si siente incomodidad o tiene una afección médica que requiere atención especial.",
+                "title": "Prepárese para el viaje",
+                "phone": null,
+                "priority": 1,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_accessibility-travelHealthIssues",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                "title": null,
+                "phone": null,
+                "priority": 2,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_accessibility-travelHealthIssues",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                "linkTitle": "Comenzar el chat en vivo",
+                "description": "Obtenga ayuda de los agentes de nuestro centro de atención al cliente a través del chat en directo, disponible en todo momento.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        },
+        {
+          "code": "moreAccessibleTravel",
+          "title": "Más información sobre el viaje accesible",
+          "children": [],
+          "options": {
+            "recommended": [
+              {
+                "type": "CHAT_ASSISTANT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?language=es&start=DYNAMIC_accessibility-moreAccessibleTravel",
+                "linkTitle": "Comenzar el chat",
+                "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+                "title": null,
+                "phone": null,
+                "priority": 1,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "DYNAMIC_accessibility-moreAccessibleTravel",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              }
+            ],
+            "others": [
+              {
+                "type": "SELF_SERVICE",
+                "link": "https://www.lufthansa.com/xx/es/prepare-for-your-trip/special-travel-needs",
+                "linkTitle": "Ir al resumen",
+                "description": "Encuentre una descripción general de todos los servicios disponibles para viajar con comodidad en cualquier circunstancia.",
+                "title": "Ver todos los servicios",
+                "phone": null,
+                "priority": 2,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": "INFORMATIONAL",
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "LIVE_CHAT",
+                "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=liveagent&language=es",
+                "linkTitle": "Comenzar el chat en vivo",
+                "description": "Obtenga ayuda de los agentes de nuestro centro de atención al cliente a través del chat en directo, disponible en todo momento.",
+                "title": null,
+                "phone": null,
+                "priority": 3,
+                "deeplink": {
+                  "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+                  "data": {
+                    "lastName": "<lastName>",
+                    "firstName": "<firstName>",
+                    "start": "liveagent",
+                    "language": "es",
+                    "filekey": "<pnr>"
+                  }
+                },
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": false
+              },
+              {
+                "type": "CALL",
+                "link": null,
+                "linkTitle": "Llamar al Centro de atención al cliente",
+                "description": "Nuestros expertos responderán con mucho gusto a sus preguntas o inquietudes.",
+                "title": null,
+                "phone": "+496986799799",
+                "priority": 4,
+                "deeplink": null,
+                "notifications": [],
+                "trackingType": null,
+                "profileHandoverEnabled": true
+              }
+            ]
+          },
+          "icon": null,
+          "imageUrl": null,
+          "notifications": [],
+          "eligibilityCheckEnabled": false,
+          "bookingDetailsEnabled": false
+        }
+      ],
+      "options": {
+        "recommended": [],
+        "others": []
+      },
+      "icon": "icon-wheelchair",
+      "imageUrl": "https://www.lufthansa.com/content/dam/lh/images/local_images/help-center//accessible-travel.png",
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": true
+    },
+    {
+      "code": "TravelIDLogin",
+      "title": "Login y Travel ID",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.lufthansa.com/xx/es/profile/travel-id/faq",
+            "linkTitle": "Ver preguntas frecuentes",
+            "description": "Consulte más información sobre Travel ID y obtenga ayuda con los problemas de login en nuestras preguntas frecuentes.",
+            "title": "Preguntas frecuentes sobre el login y Travel ID",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "INFORMATIONAL",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CALL",
+            "link": null,
+            "linkTitle": "Llamar al Centro de atención al cliente",
+            "description": "Si necesita más ayuda, nuestros expertos están aquí para ayudarle.",
+            "title": null,
+            "phone": "+496986799699",
+            "priority": 2,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": true
+          }
+        ]
+      },
+      "icon": "icon-service-login",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    },
+    {
+      "code": "other",
+      "title": "Comentarios y otras consultas",
+      "children": [],
+      "options": {
+        "recommended": [
+          {
+            "type": "SELF_SERVICE",
+            "link": "https://www.lufthansa.com/xx/es/support/feedback-past-flight",
+            "linkTitle": "Abrir el formulario",
+            "description": "Infórmenos sobre su experiencia con un vuelo anterior a través de nuestro formulario de contacto. Le responderemos lo más rápido posible.",
+            "title": "Enviar comentarios",
+            "phone": null,
+            "priority": 1,
+            "deeplink": null,
+            "notifications": [],
+            "trackingType": "FORM",
+            "profileHandoverEnabled": false
+          }
+        ],
+        "others": [
+          {
+            "type": "CHAT_ASSISTANT",
+            "link": "https://www.lufthansa.com/digitalassistant/deeplink?start=CONTACTCENTERDEFAULT&language=es",
+            "linkTitle": "Comenzar el chat",
+            "description": "Elisa está disponible para responder a sus preguntas y guiarle a través de los siguientes pasos.",
+            "title": null,
+            "phone": null,
+            "priority": 2,
+            "deeplink": {
+              "url": "https://www.lufthansa.com/digitalassistant/deeplink",
+              "data": {
+                "lastName": "<lastName>",
+                "firstName": "<firstName>",
+                "start": "CONTACTCENTERDEFAULT",
+                "language": "es",
+                "filekey": "<pnr>"
+              }
+            },
+            "notifications": [],
+            "trackingType": null,
+            "profileHandoverEnabled": false
+          }
+        ]
+      },
+      "icon": "icon-create-post",
+      "imageUrl": null,
+      "notifications": [],
+      "eligibilityCheckEnabled": false,
+      "bookingDetailsEnabled": false
+    }
+  ],
+  "_metadata": {
+    "tenant": "LH",
+    "language": "es",
+    "extracted_at": "2026-11-08T02:02:50.094445",
+    "record_count": 1
+  }
+}

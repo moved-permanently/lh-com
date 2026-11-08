@@ -1,0 +1,482 @@
+{
+  "accentHint": "악센트가 있는 문자는 악센트가 없는 문자로 변환됩니다. 예약 확인에 기재된 정보는 변경되지 않습니다.",
+  "backBookingLink": {
+    "enter": "다른 예약 입력",
+    "select": "다른 항공편 선택"
+  },
+  "boardingPass": {
+    "cameraOption": "탑승권 스캔(카메라 접근 권한 필요)",
+    "cameraTitle": "탑승권의 바코드 또는 QR 코드를 프레임 중앙에 맞추세요.",
+    "checking": "탑승권 확인",
+    "closeAction": "닫기",
+    "continue": "계속",
+    "continueWithoutBookingAction": "예약 없이 계속 진행하기",
+    "errors": {
+      "bookingNotFound": {
+        "message": "시스템에서 일치하는 예약 정보를 찾을 수 없습니다.",
+        "title": "예약 세부 정보를 확인할 수 없습니다"
+      },
+      "bookingServiceUnavailable": {
+        "message": "이는 기술적 오류로 인한 문제입니다. 예약 없이 계속 진행해 주세요.",
+        "title": "예약 상세 정보를 조회할 수 없습니다."
+      },
+      "cameraAccessDenied": {
+        "message": "탑승권을 스캔하려면 카메라 접근 권한이 필요합니다.",
+        "title": "카메라 액세스가 거부됨"
+      },
+      "passNotDetected": {
+        "message": "유효한 탑승권을 업로드해 주세요.",
+        "title": "탑승권이 감지되지 않았습니다"
+      },
+      "uploadFailed": {
+        "message": "파일을 로드하지 못했습니다. 다시 시도해 주세요.",
+        "title": "업로드 실패"
+      }
+    },
+    "methodSelectionTitle": "예약 상세 정보 추가",
+    "open": "탑승권 사용하기",
+    "processing": "파일 업로드 중",
+    "retryAction": "재시도    ",
+    "selectDifferentFileAction": "다른 파일 선택",
+    "uploadOnlyAction": "파일 선택",
+    "uploadOnlySupportedFormats": "지원되는 파일 유형: jpg, jpeg, png, pdf ",
+    "uploadOption": "탑승권 업로드(jpg, jpeg, png, pdf)",
+    "uploadTitle": "탑승권 업로드"
+  },
+  "bookingInfo": {
+    "formTitle": "예약 상세 정보 입력",
+    "loading": "예약 정보를 불러오는 중",
+    "message": {
+      "internal": {
+        "message": "기술적인 문제로 예약 정보를 불러오지 못했습니다. 입력하신 정보를 바탕으로 자동으로 이 단계로 진행되었습니다.",
+        "title": "예약 정보를 불러올 수 없습니다"
+      },
+      "notFound": {
+        "message": "입력하신 예약을 찾을 수 없습니다. 다른 도움말이나 문의 옵션은 계속 이용하실 수 있습니다.",
+        "retryMessage": "입력하신 내용을 확인하고 다시 시도해 주세요. 그래도 예약을 찾을 수 없는 경우 자동으로 다음 단계로 진행됩니다.",
+        "title": "예약을 찾을 수 없음"
+      },
+      "title": {
+        "withData": "무엇을 도와드릴까요?",
+        "withoutData": "무엇을 도와드릴까요?"
+      }
+    },
+    "title": "항공편에 관한 문의인가요?"
+  },
+  "bookingList": {
+    "anotherBooking": "다른 예약 조회",
+    "code": "예약: <sensitive>{{ code }}</sensitive>",
+    "error": {
+      "message": "항공편 개요를 자동으로 불러올 수 없습니다. 항공편에 대한 도움이 필요하시면 “다른 예약 조회”를 선택해 주세요. ",
+      "title": "항공편 개요를 표시할 수 없습니다 "
+    },
+    "select": {
+      "message": "항공편 선택"
+    },
+    "wcag": {
+      "card": "총 {{ total }}개 중 {{ current }}번째 예약, 예약 코드 {{ code }}, {{ origin }}에서 {{ destination }}까지, {{ date }}",
+      "end": "더 이상 불러올 예약이 없습니다",
+      "next": "다음 예약",
+      "previous": "이전 예약",
+      "slide": "예약"
+    }
+  },
+  "chatAssistant": {
+    "languageNotAvailable": "현재 선택한 언어를 이용할 수 없으므로 이 서비스는 영어로 설정되어 있습니다."
+  },
+  "continue": "계속",
+  "country": {
+    "AD": "안도라",
+    "AE": "아랍에미리트",
+    "AF": "아프가니스탄",
+    "AG": "앤티가 바부다",
+    "AI": "앵귈라",
+    "AL": "알바니아",
+    "AM": "아르메니아",
+    "AO": "앙골라",
+    "AQ": "남극",
+    "AR": "아르헨티나",
+    "AS": "미국령 사모아",
+    "AT": "오스트리아",
+    "AU": "호주",
+    "AW": "아루바",
+    "AZ": "아제르바이잔",
+    "BA": "보스니아 헤르체고비나",
+    "BB": "바베이도스",
+    "BD": "방글라데시",
+    "BE": "벨기에",
+    "BF": "부르키나파소",
+    "BG": "불가리아",
+    "BH": "바레인",
+    "BI": "부룬디",
+    "BJ": "베냉",
+    "BM": "버뮤다",
+    "BN": "브루나이",
+    "BO": "볼리비아",
+    "BR": "브라질",
+    "BS": "바하마",
+    "BT": "부탄",
+    "BW": "보츠와나",
+    "BY": "벨라루스",
+    "BZ": "벨리즈",
+    "CA": "캐나다",
+    "CD": "콩고 민주 공화국",
+    "CF": "중앙아프리카 공화국",
+    "CG": "콩고",
+    "CH": "스위스",
+    "CI": "코트디부아르",
+    "CL": "칠레",
+    "CM": "카메룬",
+    "CN": "중국",
+    "CO": "콜롬비아",
+    "CR": "코스타리카",
+    "CU": "쿠바",
+    "CV": "카보베르데",
+    "CY": "키프로스",
+    "CZ": "체코",
+    "DE": "독일",
+    "DJ": "지부티",
+    "DK": "덴마크",
+    "DM": "도미니카",
+    "DO": "도미니카 공화국",
+    "DZ": "알제리",
+    "EC": "에콰도르",
+    "EE": "에스토니아",
+    "EG": "이집트",
+    "ER": "에리트레아",
+    "ES": "스페인",
+    "ET": "에티오피아",
+    "FI": "핀란드",
+    "FJ": "피지",
+    "FM": "미크로네시아",
+    "FR": "프랑스",
+    "GA": "가봉",
+    "GB": "영국",
+    "GD": "그레나다",
+    "GE": "조지아",
+    "GH": "가나",
+    "GM": "감비아",
+    "GN": "기니",
+    "GQ": "적도 기니",
+    "GR": "그리스",
+    "GT": "과테말라",
+    "GW": "기니비사우",
+    "GY": "가이아나",
+    "HK": "홍콩",
+    "HN": "온두라스",
+    "HR": "크로아티아",
+    "HT": "아이티",
+    "HU": "헝가리",
+    "ID": "인도네시아",
+    "IE": "아일랜드",
+    "IL": "이스라엘",
+    "IN": "인도",
+    "IQ": "이라크",
+    "IR": "이란",
+    "IS": "아이슬란드",
+    "IT": "이탈리아",
+    "JM": "자메이카",
+    "JO": "요르단",
+    "JP": "일본",
+    "KE": "케냐",
+    "KG": "키르기스스탄",
+    "KH": "캄보디아",
+    "KI": "키리바시",
+    "KM": "코모로",
+    "KP": "북한",
+    "KR": "대한민국",
+    "KW": "쿠웨이트",
+    "KY": "케이맨 제도",
+    "KZ": "카자흐스탄",
+    "LA": "라오스",
+    "LB": "레바논",
+    "LI": "리히텐슈타인",
+    "LK": "스리랑카",
+    "LR": "라이베리아",
+    "LS": "레소토",
+    "LT": "리투아니아",
+    "LU": "룩셈부르크",
+    "LV": "라트비아",
+    "LY": "리비아",
+    "MA": "모로코",
+    "MC": "모나코",
+    "MD": "몰도바",
+    "ME": "몬테네그로",
+    "MG": "마다가스카르",
+    "MH": "마셜 제도",
+    "ML": "말리",
+    "MM": "미얀마",
+    "MN": "몽골",
+    "MO": "마카오",
+    "MR": "모리타니",
+    "MT": "몰타",
+    "MU": "모리셔스",
+    "MV": "몰디브",
+    "MW": "말라위",
+    "MX": "멕시코",
+    "MY": "말레이시아",
+    "MZ": "모잠비크",
+    "NA": "나미비아",
+    "NE": "니제르",
+    "NG": "나이지리아",
+    "NI": "니카라과",
+    "NL": "네덜란드",
+    "NO": "노르웨이",
+    "NP": "네팔",
+    "NR": "나우루",
+    "NZ": "뉴질랜드",
+    "OM": "오만",
+    "PA": "파나마",
+    "PE": "페루",
+    "PG": "파푸아뉴기니",
+    "PH": "필리핀",
+    "PK": "파키스탄",
+    "PL": "폴란드",
+    "PR": "푸에르토리코",
+    "PT": "포르투갈",
+    "PW": "팔라우",
+    "PY": "파라과이",
+    "QA": "카타르",
+    "RO": "루마니아",
+    "RS": "세르비아",
+    "RU": "러시아",
+    "RW": "르완다",
+    "SA": "사우디아라비아",
+    "SB": "솔로몬 제도",
+    "SC": "세이셸",
+    "SD": "수단",
+    "SE": "스웨덴",
+    "SG": "싱가포르",
+    "SI": "슬로베니아",
+    "SK": "슬로바키아",
+    "SL": "시에라리온",
+    "SN": "세네갈",
+    "SO": "소말리아",
+    "SR": "수리남",
+    "SV": "엘살바도르",
+    "SY": "시리아",
+    "TD": "차드",
+    "TG": "토고",
+    "TH": "태국",
+    "TJ": "타지키스탄",
+    "TL": "동티모르",
+    "TM": "투르크메니스탄",
+    "TN": "튀니지",
+    "TO": "통가",
+    "TR": "터키",
+    "TT": "트리니다드 토바고",
+    "TW": "대만",
+    "TZ": "탄자니아",
+    "UA": "우크라이나",
+    "UG": "우간다",
+    "US": "미국",
+    "UY": "우루과이",
+    "UZ": "우즈베키스탄",
+    "VE": "베네수엘라",
+    "VN": "베트남",
+    "VU": "바누아투",
+    "YE": "예멘",
+    "ZA": "남아프리카 공화국",
+    "ZM": "잠비아",
+    "ZW": "짐바브웨"
+  },
+  "faqInfoCard": {
+    "imageAlt": "",
+    "link": "자주 묻는 질문으로 이동",
+    "text": "서비스, 정책 등과 관련된 가장 자주 묻는 질문에 대한 답변을 확인하세요.",
+    "title": "자주 묻는 질문"
+  },
+  "firstName": {
+    "invalid": "이름을 입력하세요.",
+    "label": "이름"
+  },
+  "flightInfo": {
+    "booking": "예약 <sensitive>{{ pnr }}</sensitive>",
+    "status": {
+      "cancelled": "취소됨",
+      "delayed": "지연",
+      "onTime": "정시",
+      "pending": "대기 중",
+      "scheduled": "예정",
+      "standby": "대기",
+      "waitlisted": "대기자 명단"
+    },
+    "stops": "회 경유",
+    "travelClass": {
+      "business": "비즈니스",
+      "default": "혼합 클래스",
+      "eco": "이코노미",
+      "first": "퍼스트",
+      "premium-eco": "프리미엄 이코노미"
+    },
+    "wcag": {
+      "card": "카드 {{ current }} / {{ total }}, 항공편 {{ flightNumber }}, {{ origin }}에서 {{ destination }}까지, {{ date }} - {{ bookingClass }}. 경유 {{ numberOfStops }}회. {{ originStatus }} {{ originTime }} 출발. 소요 시간 {{ duration }}. {{ destinationStatus }} {{ destinationTime }} 도착",
+      "cardWithoutFlightNumber": "카드 {{ current }} / {{ total }}. {{ origin }}에서 {{ destination }}까지, {{ date }} - {{ bookingClass }}. 경유 {{ numberOfStops }}회. {{ originStatus }} {{ originTime }} 출발. 소요 시간 {{ duration }}. {{ destinationStatus }} {{ destinationTime }} 도착"
+    }
+  },
+  "flightStatus": {
+    "inbound": "입국",
+    "new": "신규",
+    "notification": {
+      "success": "모든 항공편이 예정대로 운항되고 있습니다",
+      "warning": "여정이 변경되었습니다. 자세한 내용은 이메일을 확인하시기 바랍니다."
+    },
+    "old": "구간",
+    "outbound": "출국",
+    "segment": "항공편 구간 {{ number }}"
+  },
+  "helpCenter": {
+    "bootstrapping": "잠시만 기다려 주세요"
+  },
+  "helpOptions": {
+    "back": "문의 옵션으로 돌아가기",
+    "phoneInfo": {
+      "full": "이 주제는 전화 지원이 제공되지 않습니다. 도움이 되셨다면 아래 설문에 의견을 남겨주시면 감사하겠습니다.",
+      "short": "이 주제는 전화 지원이 제공되지 않습니다."
+    },
+    "title": "문의 및 연락처"
+  },
+  "identifier": {
+    "hint": "예약 코드는 6자리의 문자와 숫자가 혼합된 형태입니다(예: ABCD12). 항공권 번호는 13자리입니다(예: 7391538503519).",
+    "invalid": "예약 코드는 6자리의 문자와 숫자가 혼합된 형태입니다(예: ABCD12). 항공권 번호는 13자리입니다(예: 7391538503519).",
+    "label": "예약 코드 또는 항공권 번호"
+  },
+  "informationalMessage": "",
+  "lastName": {
+    "invalid": "성을 입력하세요.",
+    "label": "성"
+  },
+  "notBookingDetails": "건너뛰기",
+  "notifications": {
+    "milesAndMore": {
+      "call": {
+        "message": "처음 2분: 분당 0.08 CHF; 다음 10분: 분당 0.86 CHF; 이후 모든 분: 분당 0.08 CHF; 가격에는 VAT가 포함됩니다."
+      }
+    }
+  },
+  "phoneHandover": {
+    "error": "이번에는 고객님의 정보를 공유할 수 없습니다. 전화하실 때 해당 정보를 미리 준비해 주시기 바랍니다.",
+    "form": {
+      "buttons": {
+        "withSharing": "확인 후 전화 연결"
+      },
+      "recording": {
+        "consent": "본인은 교육 및 품질 관리 목적으로 통화 내용이 녹음되는 것에 동의합니다. 본인은 언제든지 동의를 철회할 수 있습니다.",
+        "privacyPolicy": "정보 보호"
+      }
+    },
+    "message": "전화를 주시면 상담원이 즉시 관련 세부 정보(이름 및 Miles & More 등급 등)를 확인할 수 있으므로 다시 말씀하지 않으셔도 됩니다.",
+    "title": "전화를 주시면 바로 응대해 드리겠습니다"
+  },
+  "salutation": {
+    "female": "",
+    "male": ""
+  },
+  "searchInput": {
+    "button": "검색",
+    "error": {
+      "maxLengthExceeded": "{{ inputCount }}. {{ maxLength }}자 이내로 입력하세요.",
+      "minLengthNotMet": "{{ inputCount }}. 최소 {{ minLength }}자 이상 입력하세요."
+    },
+    "wcag": {
+      "clear": "지우기",
+      "search": "검색"
+    }
+  },
+  "selectedTopicInfo": {
+    "link": "다른 요청 선택"
+  },
+  "stepBreadcrumb": {
+    "home": "홈"
+  },
+  "steps": {
+    "bookingInfo": "항공편 상세 정보(선택 사항)",
+    "helpOptions": "도움말 옵션",
+    "screenReader": "{{ stepName }} 페이지가 로드되었습니다.",
+    "topicSelection": "도움말"
+  },
+  "supportOptionCard": {
+    "recommended": "추천"
+  },
+  "supportOptions": {
+    "call": "콜 서비스 센터",
+    "chat_assistant": "챗봇 상담",
+    "live_chat": "라이브 채팅",
+    "self_service": "셀프 서비스"
+  },
+  "topicSearch": {
+    "error": {
+      "description": "현재 검색 결과를 표시할 수 없습니다. 대신 도움말 주제 중 하나를 선택해 주세요.",
+      "title": "검색 결과"
+    },
+    "humanSupportRequest": {
+      "message": "저희에게 문의하시겠습니까? 도움이 필요한 사항을 알려주시면 적절한 문의처 옵션을 안내해 드리겠습니다."
+    },
+    "noResults": {
+      "action": "채팅 시작하기",
+      "description": "검색어를 다시 입력하시거나, 채팅 도우미 {{ chatAssistantName }}에게 도움을 요청해 주세요.",
+      "title": "검색 결과 없음"
+    },
+    "results": {
+      "title": "검색 결과",
+      "wcag": {
+        "list": "검색 결과 {{ resultsCount }} 건"
+      }
+    },
+    "searching": {
+      "ariaLabel": "결과 로드 중",
+      "title": "검색 결과"
+    }
+  },
+  "topicSelection": {
+    "list": {
+      "description": "도와드릴 수 있는 주제입니다.",
+      "error": {
+        "action": "연락처 옵션 보기",
+        "message": "현재 주제 목록을 표시할 수 없습니다. 나중에 다시 시도하거나 문의하여 도움을 받으세요.",
+        "title": "주제 목록을 불러올 수 없습니다"
+      },
+      "title": "요청사항 선택"
+    },
+    "loader": "도움말 옵션을 불러오는 중입니다",
+    "searchBar": {
+      "label": "주제 찾기",
+      "placeholders": {
+        "default": [
+          "탑승권을 다시 받아야 합니다."
+        ],
+        "desktop": [
+          "좌석 승급이 적용되지 않았습니다",
+          "청구서를 받으려면 어떻게 해야 하나요?"
+        ],
+        "mobile": [
+          "좌석 업그레이드 안됨",
+          "송장 문의"
+        ],
+        "tablet": [
+          "좌석 업그레이드 안됨",
+          "송장 문의"
+        ]
+      },
+      "wcag": {
+        "clear": "검색이 초기화되었습니다."
+      }
+    },
+    "subtitle": "문의하신 내용에 대한 답변과 연락 방법을 확인하세요.",
+    "title": {
+      "loggedIn": "<sensitive>{{ greet }}</sensitive> 님, 무엇을 도와드릴까요, ",
+      "loggedOut": "님, 무엇을 도와드릴까요?"
+    }
+  },
+  "wcag": {
+    "close": "닫기",
+    "dialogOpened": "대화를 엽니다",
+    "modalOpened": "모달 창에서 열립니다",
+    "newTabOpened": "새 탭에서 열립니다",
+    "overlayOpened": "오버레이 대화를 엽니다",
+    "phoneCall": "전화 통화를 시작합니다",
+    "samePageOpened": "같은 페이지에서 열립니다",
+    "selected": "선택됨",
+    "systemFolderOpened": "대화 상자에서 시스템 폴더를 엽니다"
+  }
+}

@@ -84,7 +84,9 @@ const field = (key, value) => [`<h3>${esc(key)}</h3>`, value];
  */
 export function overviewPage(document, page, lang) {
   const p = PAGE[lang];
-  const header = document.querySelector('#main-content img[src*="notifications-header"]');
+  // www's header picture: notification-banner.jpg since 2026 (brief 492), notifications-header
+  // before
+  const header = document.querySelector('#main-content img[src*="notification-banner"], #main-content img[src*="notifications-header"]');
   const hero = header && page.file(header.getAttribute('src')) ? `<p>${page.img(header)}</p>` : '';
   if (header && !hero) console.log(`${lang}: the header picture is not in lh-cargo's DA yet (cargo-assets.mjs --download), left out`);
   const meta = [['Title', p.meta], ['Nav', `/${lang}/nav`], ['Footer', `/${lang}/footer`], ['Language', lang]];
