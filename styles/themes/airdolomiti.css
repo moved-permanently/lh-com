@@ -793,6 +793,14 @@ body.brand-airdolomiti .hero-campaign.narrow .hero-campaign-content h1 {
   }
 }
 
+/* row 69 (brief 503): www's HeroFirst is the window's height with the bar over its top, its content
+   centred above a 70 px gap (the links row): the title centred as there (the bar's height and the
+   70 px under the content; the next section 150 px lower, below). The page stages
+   only (the page's h1); the destination band (an h2) as it is */
+body.brand-airdolomiti .hero-campaign.narrow:has(.hero-campaign-content h1) {
+  padding-bottom: calc(var(--nav-height) + 70px);
+}
+
 /*
  * the homepage's service shortcuts (hero-campaign services, band: "Gestisci al meglio il tuo
  * viaggio"), as www at 390 and 1440: outlined pills without icons (1px white, 10px radius,
@@ -1905,6 +1913,11 @@ body.brand-airdolomiti main > .section > .breadcrumb-wrapper + .hero-campaign-wr
 
 body.brand-airdolomiti main > .section > .breadcrumb-wrapper:has(+ .hero-campaign-wrapper > .hero-campaign.narrow) .breadcrumb :is(li, li.breadcrumb-parent, a:any-link, .breadcrumb-current) {
   color: #fff;
+}
+
+/* row 69 (brief 503): the next section 150 px under a page stage (www's HeroFirst margin-bottom) */
+body.brand-airdolomiti main > .section:has(> .hero-campaign-wrapper > .hero-campaign.narrow .hero-campaign-content h1) {
+  margin-bottom: 150px;
 }
 
 /*
