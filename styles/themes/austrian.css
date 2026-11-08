@@ -804,7 +804,7 @@ body.brand-austrian main p.copytext-large {
   font-family: var(--heading-font-family);
   font-size: 18px;
   font-weight: 400;
-  line-height: 27px;
+  line-height: 27px;  letter-spacing: 0.19px;
 }
 
 body.brand-austrian main :is(.default-content-wrapper, .columns-media-text) > :is(h3, h4):not([class*="heading-"]) {

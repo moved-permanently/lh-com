@@ -26,7 +26,7 @@ test('withCopytextLarge: www\'s intro paragraphs keep their style as a marker th
 
 test('the theme: the intro, the default h3 / h4, the lists as www\'s', () => {
   const css = theme();
-  assert.match(css, /body\.brand-austrian main p\.copytext-large \{ font-family: var\(--heading-font-family\); font-size: 18px; font-weight: 400; line-height: 27px; \}/);
+  assert.match(css, /body\.brand-austrian main p\.copytext-large \{ font-family: var\(--heading-font-family\); font-size: 18px; font-weight: 400; line-height: 27px; letter-spacing: 0\.19px; \}/);
   assert.match(css, /body\.brand-austrian main :is\(\.default-content-wrapper, \.columns-media-text\) > :is\(h3, h4\):not\(\[class\*="heading-"\]\) \{ font-family: var\(--body-font-family\); font-size: 16px; font-weight: 500; line-height: 1\.1; \}/);
   assert.match(css, /@media \(width >= 1025px\) \{ body\.brand-austrian main :is\(\.default-content-wrapper, \.columns-media-text\) > :is\(h3, h4\):not\(\[class\*="heading-"\]\) \{ font-size: 18px; \} \}/);
   assert.match(css, /body\.brand-austrian main :is\(\.default-content-wrapper, \.columns-media-text, \.accordion-columns\) li \{ margin-bottom: 5px; \}/);
