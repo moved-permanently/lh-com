@@ -436,3 +436,30 @@ answers 200 on preview. In release order: `tools/reports/parity-2026-11-08/previ
 | Discover | flight search (1440) | -17.7, -18.7 % | – | the footer (166, 190 px of 231, 255; ema-adobe's); the page above it within 5 % |
 | Discover | offers (1440, 390) | -72 to -84 % | – | no offers from the API here (data, as in the sweep after 470) |
 
+## The pass after brief 501: the five worst layout and importer rows fixed (brief 503)
+
+- **What was measured:** today's main on each site's preview, the same 124 pages at 1440 and 390,
+  against the parity captures served offline (sweep-ours.mjs and compare-471.mjs).
+- **Left out of the ranking:**
+  - data: Discover's offers;
+  - the footer (ema-adobe's);
+  - the Air Dolomiti 390 views (the capture's booking-panel artefact);
+  - Cargo's feedback view (fixed by reimport-490-cargo.txt).
+- **B2B:** every page within 3 %.
+
+| Brand, row | Page (width) | Before | After (preview with the rules) | Commit |
+| --- | --- | --- | --- | --- |
+| Cargo 38 | SDG (390); Facts & Figures | +9.0 % (the stage 25 px low, 320 px video) | the stage at 60, 277 px (www 60, 277) | 86fa696c |
+| Air Dolomiti 68 | in-flight entertainment (1440, 390) | +5.6, +7.2 % | +2.6, +2.2 % (the draft; reimport-503-airdolomiti.txt) | 1d709b8b |
+| Cargo 39 | Fleet & ULD (390) | +6.5, +6.4 % | +4.7, +4.6 % | f682c697 |
+| Discover 37 | Business Class, Santorini, check-in at the airport (390) | +7.1 to +2.4 % | +3.5 to -1.1 %; the 1440 views the same | cd003dc6 |
+| Air Dolomiti 69 | the fleet (1440) | -5.5 % | -3.5 %; the title and "The Fleet" where www's are | f0f38e9d |
+
+Not changed:
+
+- **Discover's marker paragraphs:** p.column-mark and p.spacer take row 36's 36 px. Leaving them
+  out helped the 390 views but moved 12 of the 1440 views further from www.
+- **Cargo Support & Contact (+7 %):** small differences spread over the page and the footer.
+- **Air Dolomiti homepage, the first screen (156 px at 1440):** see the brief 503 section of
+  tools/reports/offline-2026-11-06/ema-lufthansa.md.
+

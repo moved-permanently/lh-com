@@ -1986,3 +1986,81 @@ columns as lh-com-better.tsv).
   lh-parity-002c.
 - **Suite:** lint and the full suite; every brand's smoke and TAP by hand before and after the push.
 
+## The brief after 501: SWISS stage buttons, five parity rows, the Air Dolomiti homepage
+
+Nothing was published, nothing was uploaded, and nothing was requested from www.
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git).
+
+**Drafts:** for comparison only, never handed over as documents.
+
+- The SWISS drafts are preview's documents passed through the changed step.
+- The Air Dolomiti drafts are the capture's pages converted with the importer's convert, which has
+  no marker collapse.
+- ema-test's 72026ccf (the collapse only for a brand whose theme is live) came in with this turn's
+  first push. An import from main after it writes markers as before, so the lists below can be
+  imported from main.
+
+### 1. SWISS A350 stage buttons (SWISS row 43): fixed, c3c97519 and 6831796c
+
+- **The fix:** withTeaserTexts (swiss-import.mjs) looks for www's button as a link with its label
+  outside the stage's heading, and writes a missing one after the stage's text.
+- **Test:** test/swiss-stage-buttons-503.test.mjs, on fixtures of www's stages (swiss-snapshots-046)
+  and our 11 documents' stage blocks.
+- **Which pages change:** all 45 earlier archives were downloaded too, each into its own directory:
+  4,721 pages, 175 of them with stage texts. Only the 11 A350 pages change: 15 buttons in all
+  (SWISS Wanderlust's on 11 pages; facts' and behind the scenes' in el and it).
+- **Checked:** the drafts on preview at 1440 (ch/it, ch/de), every stage with its button.
+- **Re-import:** tools/reports/swiss/reimport-503-swiss.txt (11).
+
+### 2. Five parity rows
+
+See sweep-brands.md, "The pass after brief 501". One commit per row:
+
+- **Cargo 38 (86fa696c):** the company pages' stage right under the header. Below 992 px a video
+  stage is the video at 16:9, with its title in a white box under it.
+- **Air Dolomiti 68 (1d709b8b):** a page without a heading of its own keeps the importer's title
+  h1 visually hidden (section hidden-heading). Re-import:
+  tools/reports/parity-2026-11-08/reimport-503-airdolomiti.txt (3). Four more documents repeat their
+  title h1 as a heading; they are not in the capture, so they are not confirmed (row 68).
+- **Cargo 39 (f682c697):** CF9 card rows on phones: pictures across the screen at 16:9, cards
+  stacked, rows 20 px apart.
+- **Discover 37 (cd003dc6):** a tab set on phones without the sections' gaps around it.
+- **Air Dolomiti 69 (f0f38e9d):** the page stage's title centred as www's HeroFirst, and the next
+  section 150 px lower.
+
+Rows 38, 39, 37 and 69 are code only, with no document change.
+
+### 3. Air Dolomiti homepage: the new layout followed; the first screen not
+
+- **Archive:** airdolomiti-parity-001 at the given URL is the archive used since the sweep after 470
+  (same size, sha256 a2b8d33e... as its sidecar).
+- **Measured:** 482's box comparison on today's preview, it, en and de at 1440 and 390.
+  - **The new layout:** the promotions, both tile grids, the Lufthansa Group strip and the services
+    are at 0 px from www's.
+  - **The Service charter box:** 3 to 8 px narrower.
+  - **The German tile titles:** h2 on www as in ours; the 10 px between the two is the marble box's
+    padding.
+- **Not followed: the first screen.** www's hero is 100vh with the alert bar (54 px) and the header
+  over its top. Ours stacks the header, the alert pill (ema-adobe's flash teaser: 127 px with its
+  spacing), the stage and the band. So "Discover our promotions" sits 156 px lower at 1440:
+  - +73 px: the strip;
+  - +52 px: the picture shown under the header;
+  - +2 px: the band;
+  - +29 px: the band's gap.
+  At 390 it sits 47 px higher. No stage height of mine meets www's at both widths while the strip
+  sits in the page, so nothing was changed. It is for whoever moves the alert bar above the header
+  (row 10, ema-adobe's).
+
+### Checked
+
+- **Hosts:**
+  - main--lh-swiss--, main--lh-cargo--, main--lh-airdolomiti-- and main--lh-discover--moved-permanently.aem.page,
+    with this checkout's CSS for the rows (host-eval, sweep-ours LOCAL_CSS);
+  - every brand's smoke host, before and after each push.
+- **Offline:** www's pages from swiss-snapshots-001 to -046, airdolomiti-, cargo- and
+  discover-parity-001.
+- **Suite:** lint and the full suite before each of the six pushes; TAP by hand before the first
+  push and after the last.
+
