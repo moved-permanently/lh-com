@@ -149,7 +149,11 @@ var CustomImportScript = (() => {
       pageTypes: {
         flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true } }
       }
-    }
+    },
+    // TAP: the base theme (an entry of its own, so its switch is one line as every brand's)
+    tap: {},
+    // Lufthansa Cargo: the base theme
+    cargo: {}
   };
   var mergeTheme = (a, b) => __spreadProps(__spreadValues(__spreadValues({}, a), b), {
     headings: __spreadValues(__spreadValues({}, a.headings), b.headings || {}),
