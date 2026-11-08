@@ -1,4 +1,4 @@
-# lh-ita: the 2083 local documents the collapse changes (marker-collapse-cli.mjs --check, 2026-11-08), in release order: de/en, de/de, then the other markets
+# lh-ita: the 2083 local documents the collapse changes (marker-collapse-cli.mjs --check, 2026-11-08, the brief after 503), in release order: de/en, de/de, then the other markets
 /de/en/homepage
 /de/de/book-and-prepare/book-flights
 /de/de/book-and-prepare/digital-services

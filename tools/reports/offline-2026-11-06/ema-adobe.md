@@ -1934,3 +1934,216 @@ unpushed.
 | 1 | 2416546 | hub: campaign-sections, hub-column-views, theme-separators; bundle |
 | 2 | 2321eca | lh-edge: a Parent list on a market root links the root, every entry |
 | 3 | 557c12b | lh-edge: lh-b2b's market roots under excluded paths read their own index |
+
+## Brief 500 (2026-11-08): hub parity rows, five campaign and insights rows, the hub column-view gap
+
+Left from 499: the generated import reports; the scratch in logs/b484, logs/b488, logs/b493 (with the 16 lh-bd-ema
+archives in logs/b493/bd-archives, kept on purpose) and logs/b497 (with lh-snapshots-085's pages in logs/b497/s085);
+/tmp/b488dam; nothing unpushed.
+
+Method: each page's draft from its freshest saved snapshot (lh-snapshots-085, then -062, then bd-snapshots) with the
+importer's output before the collapse, as `<main>` on lufthansa.turnsthe.page with the working copy's code, against
+lh-parity-002 (whole-page % and drift steps). Since ema-test's 72026cc the collapse only runs for a live theme, so
+these drafts are what an import writes today; the committed hub bundle gives byte-identical output. Where the
+harness has re-imported a page from a fresher snapshot than mine (stopover, 2026-10-21 here), the published
+document with the working copy's code instead. No request to www; the local renders of www's saved pages only for
+diagnosis.
+
+### 1. Hub rows (one commit each; all CSS but additional-services)
+
+| Row | Commit | Cause and fix | 1440 | 390 |
+| --- | --- | --- | --- | --- |
+| baggage | f20204b | the H1 as a section of its own kept our 48px section gap (H1's own margin now); our wrapper gap after jump links before a separator (none now); a column title's 32px plus the grid's 32px over the cards (8px now, from 768px, also in a grey band of such a page) | 17.5 -> 6.4 % | 12.5 -> 9.5 % |
+| flights | c3d943b | the destination finder's title: the finder's padded section above it, its space under it | 38.8 -> 39.1 % (drift at the top -41 / -73 -> 0 / +21px) | 47.6 -> 46.9 % |
+| additional-services | 9c5d045 | campaign-sections' separator components made the tiles' column view look shared: the cards-icon parser's padded option lost (importer); then the separators' wrapper gap after padded tiles (none now) | 31.3 -> 7.0 % | 22.7 -> 15.1 % |
+| lufthansa-travel-classes | cb308d5 | www's padded first section under the class tabs (campaign-sections takes only an unpadded one): the tabs' section 45 / 65px, the title section 20 / 40px before the next; under the Hero Banner 43 / 50px | 20.1 -> 7.6 % | 11.5 -> 12.9 % (the banner's own step -19 -> 0; later steps it offset, +18 / +17, remain) |
+| digital-self-services | c870ad7 | partner rows nested in titled groups: 20 / 40px under the title, 56 between rows, 60 / 39 under the last | 24.6 -> 8.2 % | 25.7 -> 9.1 % |
+
+- Every rule is scoped to the structure it was measured on. The selectors' matches over the 37 campaign and hub pages
+  lh-parity-002 has: baggage's three rules match baggage, miles-and-more (the title rule) and
+  new-onboard-experience (title and jump links: 20.7 -> 8.9 % / 23.2 -> 11.7 %); the travel-classes rules only that
+  page; the partner rules only the seven versions of digital-self-services; the finder rule the 18 flights documents.
+- flights stays high: its offers are live data (our finder shows "No results" for this machine) and the finder's own
+  phone layout (the block's, not mine) differs. digital-self-services: www's dividers span the two-thirds column,
+  ours the full width (open).
+- Found on the way, ema-test's area: had the collapse run (ac3ff61 before 72026cc), www's 40px separators would come
+  out as M (60px): baggage 17.5 -> 22.7 % / 12.5 -> 17.7 %, the page 80-240px longer. A theme with M = 40 on hub and
+  campaign pages, or 40px as its own size, would keep them.
+
+Documents: additional-services' 8 (part 1 of reimport-497-lh-com.txt) need 9c5d045's parser; part 2 gets one more,
+/de/en/overview-manage (stale on DA: its draft from lh-snapshots-085 19.6 % at 390, the published document 37.4 %).
+The harness's list now has 47 documents in release order.
+
+### 2. Five campaign and insights rows (worst first, with current documents and code)
+
+| Row | Commit | Cause and fix | Before -> after |
+| --- | --- | --- | --- |
+| 100-years/campaigns 390 | 94b968c | a narrow picture's nested view padding on phones (67 / 42px above it); a lone quote 93px under what's above it | 27.6 -> 19.8 % (18.0 with 93db9c9) |
+| 100-years/fleet 1440 | c9b015a | www's maui-table rows 36px taller (the cell's paragraph margin inside): spec tables' cells 68px under their text from 768px | 25.4 -> 13.9 % (390 9.1, unchanged) |
+| 100-years/cabin-design 390 | 93db9c9 | a [picture | empty] row: www stacks the empty column with its margins (52px under it on phones) | 24.1 -> 16.2 % |
+| discover-lufthansa/take-off 390 | 1615085, 18a7d3b | spacious rows 79px apart on www, ours 55: 66px above a row's first card on phones (brief 424's test follows) | 33.9 -> 24.5 % |
+| articles/tags/allegris | 3b22ecc | tag chips as www's maui tags (40px tall, 16 / 24px text) | 29.8 -> 23.2 % / 27.0 -> 19.8 % |
+
+- Side effects measured: take-off's rule: overview-travel-information 12.6 -> 11.9, services-at-the-airport 12.7 ->
+  10.1, frankfurt-fair 10.0 -> 9.0, four pages unchanged, overview-manage's stale document 37.4 -> 40.4 (its fresh
+  draft 19.6 before and after). The chips: highlights 11.5 -> 9.2 (1440), explore-the-world 20.6 -> 17.4 (390),
+  explore-flying 20.9 -> 19.4 / 25.4 -> 20.5, tags unchanged, tags/munich 22.4 -> 24.2 at 390, where ours already
+  runs long before its list (its sections' text wrapping).
+- stopover (58.4 % as a draft) was a stale snapshot: the harness's re-import of 490 brought the stage text; the
+  published page is 27.1 / 15.2 %. Not taken. Neither picture-perfect-austin (its draft capture failed twice here;
+  brief 488 found no layout step) nor the pages whose fixes wait for re-imports (all-it-takes-is-a-yes, allegris-
+  premium-economy-san-diego, new-onboard-experience: their drafts are 9-16 points better than DA's documents).
+- CSS only: no document changes for item 2.
+
+### 3. The hub column-view gap (ema-test, brief 503)
+
+- ema-test's rule came with 6e427298 (pulled before my push): on a page with column views that isn't a flow page,
+  the collapse writes Theme flow-spacing, and a live theme gives an H2 / H3 after other content 32px above
+  (--theme-heading-gap). I measured my hub output with it: the drafts collapsed by main's collapse (forced as for a
+  live lufthansa.com) and rendered with body.theme-live added. Today's marks against that:
+
+| Page | 1440 marks -> collapsed + rule | 390 marks -> collapsed + rule |
+| --- | --- | --- |
+| miles-and-more | 9.0 -> 27.1 % | 13.9 -> 21.5 % |
+| meetings-and-events | 10.2 -> 25.2 % | 12.7 -> 10.1 % |
+| digital-self-services | 8.2 -> 12.3 % | 9.1 -> 8.6 % |
+
+- So together they don't give www's spacing yet, at 1440 above all. On miles-and-more:
+  - the views' H2s lose their limited width (they wrap as www's only with "{limited-width}");
+  - between two views www has 64px (each view's 32), the rule gives 32;
+  - the last view loses its 32px under it.
+- What it needs to give, measured: www pads a column view of its own in an AEM section 32px (3.2rem) above and below
+  at every width; two such views 64px apart; under running text before the first view the text's margin and 32. Our
+  hub output carries this today as "{column-start}" / "{column-end}" (hub-column-views, the cleanup's
+  placeColumnMarks).
+- Without the rule (the collapse before 6e427298) those marks go ("theme", 6 / 8 / 10 on miles-and-more,
+  digital-self-services, meetings-and-events) and nothing marks the views: the column views' H2s are plain H2s
+  next to intro H2s in the same section (miles-and-more: "The frequent flyer and awards programme" is no view, the
+  next three are). With today's CSS the collapsed drafts measure miles-and-more 9.0 -> 25.8 % / 13.9 -> 22.5 %,
+  meetings-and-events 10.2 -> 25.1 % at 1440, digital-self-services 8.2 -> 12.8 % / 9.1 -> 10.3 %.
+- So a rule on H2s alone can't give www's spacing. Proposal: the collapse turns a column view of its own into a
+  carrier the theme reads (a section style for the view, e.g. "Column view", or a section of its own per view); the
+  hub transformer already knows each view (data-lh-column) and can write its break and style for it. I can add that
+  to hub-column-views as soon as the carrier's name is settled.
+- Until then nothing changes on screen: lufthansa.com's theme isn't live, so hub imports keep their marks (72026cc).
+  lufthansa.com's switch should wait for this carrier (or for a hub rule that gives 64 / 32px and the H2's width).
+
+### Checks
+
+- Lint in a clean worktree and the full suite before the push (lh-edge 69 files, site 601, 0 failing); smoke on
+  every host before (16:57) and after the push; SWISS and TAP by hand.
+- On lufthansa.turnsthe.page after the push, published documents with the deployed code against lh-parity-002:
+  take-off 24.5 % (390), fleet 13.9 % (1440), 100-years/campaigns 18.0 % (390), cabin-design 16.2 % (390),
+  tags/allegris 28.0 % (1440, its published document; 34.3 before). The hub rows wait for their re-imports (drafts
+  as above).
+
+| Item | Commit | What |
+| --- | --- | --- |
+| 1 | f20204b | baggage: title section, jump links, column titles before cards |
+| 1 | c3d943b | flights: the destination finder's title |
+| 1 | 9c5d045 | additional-services: cards-icon padded with separator components (parser, bundles), the separators' gap |
+| 1 | cb308d5 | travel classes: the tabs, the title section, the Hero Banner |
+| 1 | c870ad7 | digital services: partner rows |
+| 2 | 94b968c | 100-years/campaigns: narrow pictures and lone quotes on phones |
+| 2 | c9b015a | fleet: spec rows' height from 768px |
+| 2 | 93db9c9 | cabin-design: [picture, empty] rows on phones |
+| 2 | 1615085, 18a7d3b | take-off: spacious rows on phones (and brief 424's test) |
+| 2 | 3b22ecc | tags/allegris: tag chips |
+
+## Brief 505 (2026-11-08): the remaining rows, the published re-check, the xx additional-services documents
+
+Left from 504: the generated import reports; the scratch in logs/b500 (with the no-collapse bundles), logs/b484,
+logs/b488, logs/b493 (with the 16 lh-bd-ema archives), logs/b497 (with s085); /tmp/b488dam; nothing unpushed.
+
+Method: published documents on lufthansa.turnsthe.page against lh-parity-002a-d / -003 (whole-page % and drift
+steps; logs/b500/cap-pub.sh), importer drafts as `<main>` where DA's document waits for a re-import, and, since the
+harness's 049e070 (reimport-497, previewed, not published), the previewed documents from
+main--lh-com--moved-permanently.aem.page as `<main>` on lufthansa.turnsthe.page (logs/b505/cap-prev.sh; only the
+`.plain.html` and page head over curl, no preview page in a browser since those load www's fonts). No request to www;
+nothing published.
+
+### 1. The remaining rows (one commit each, CSS)
+
+| Row | Commit | Cause and fix | Before -> after |
+| --- | --- | --- | --- |
+| digital-self-services, the dividers | bd5d03c | www's .hr.limited-width between the partner groups: 66 % from 1025px | 8.2 -> 8.1 % (1440; 1px lines), 390 unchanged |
+| tags/munich, 390 | 4d620d5 | insights-flow: before a grey band only the text's 2.4rem (not before an in-column grey box) | 24.2 -> 17.9 % (390), 24.0 -> 15.0 % (1440) |
+| take-off, 390 | edd5d2e | below 768px the intro picture after the title keeps www's 4rem (pages of spacious cards) | 24.5 -> 19.3 % (390), 1440 unchanged 19.6 % |
+| lufthansa-travel-classes, 390 | 26dca44 | a grey band before a padded campaign-section keeps 32px | 12.9 -> 7.1 % (390), 7.6 -> 4.2 % (1440), drafts |
+| tags/allegris, 1440 | - | analysed, no fix: www's "Conditions" button under the stage teaser opens an empty modal (`<p><br></p>`; the import leaves it out, +45px on www), the pagination's look, a link 12px closer to its picture | 28.0 % (published), draft 23.2 % |
+
+- tags/munich's rule also helps highlights (9.2 -> 2.5 % / 8.1 -> 7.4 %) and all-it-takes-is-a-yes (15.2 -> 11.5 % /
+  18.3 -> 15.3 %); tags, explore-flying, explore-the-world and tags/allegris unchanged.
+- tags/munich's title is still 40px short at 390: www writes "Munich&nbsp;–&nbsp;a" and the import writes plain spaces.
+  That is helix-importer's HTML-to-Markdown step: the same with an empty import script, so for every template and
+  site (not one of our transformers).
+- travel classes' rule matches four 100 Years pages too (fleet, global-network, cabin-design, menu-on-board): unchanged
+  at both widths on their published documents.
+
+### 2. The published re-check (tools/reports/parity-2026-11-08/sweep-lh-recheck.md)
+
+- 296 pages (all published), 592 page-widths, the deployed code before this brief's commits. Per template median: info
+  9.1 %, legal 7.6, insights 13.4, campaign 15.2, hub 11.9, form 11.1, fleet 17.7, app-entry 11.3.
+- Fixed from it:
+  - overview-special-request (eea5da7: h2 card titles next to h3 cards 22px, www's heading-medium): 24.1 -> 18.4 % at
+    390, 8.7 -> 2.9 % at 1440; services-at-the-airport 4.0 -> 1.9 % at 1440, 10.1 -> 11.6 % at 390 (its small titles
+    had offset a +22px step);
+  - stopover (87e11df: the step cards with the column view's 3.2rem from 768px): 27.1 -> 13.3 % at 1440;
+  - Carousel Cards that end a campaign-section (099171e: www's column view's 3.2rem under them from 768px, whatever is
+    before them; found on the harness's previewed miles-and-more, which ends 94px short: 48px of it my draft method
+    had hidden with an empty last section): miles-and-more 11.6 -> 9.9 % at 1440, food-and-beverages 8.7 -> 9.0 % (its
+    step at the section end -32 -> -8px; an earlier +51 / +19px surplus is no longer compensated), stopover unchanged.
+  - With item 1's: munich, take-off, travel classes, digital-self-services. Seven rows, not ten.
+- The hub documents of reimport-497 are re-imported and previewed by the harness (049e070), not published. Measured on
+  their previews: digital-self-services 8.1 / 9.1 %, additional-services 6.1 / 14.5, baggage 5.4 / 8.9,
+  meetings-and-events 10.2 / 12.7, food-and-beverages 9.0 / 11.5, miles-and-more 9.9 / 16.0 (1440 / 390, deployed
+  code). Their published rows in the sweep fall as soon as they're published.
+- The rest of the worst in my areas, with their causes (the report has every one):
+  - documents to re-import: overview-manage (stale; the harness held it), new-onboard-experience, all-it-takes-is-a-yes
+    and allegris-premium-economy-san-diego (their drafts 9-16 points better than DA's documents);
+  - capture artefacts: picture-perfect-austin (parallax pictures), 100-years at 390 (the stage video's frame, www's
+    font fallback), flights (live offers);
+  - other owners' blocks: the culinary micro-frontend (both culinaryjourney pages), most-significant-route's
+    accordion-columns, the Berlin and Barcelona articles' poi-map;
+  - an importer gap: a cell heading with www's .limited-width keeps no width marker in a block (100-years/destinations'
+    "Rio de Janeiro: Party like World Cup winners"; 1 of 7 heading-large in two-column cells has it);
+  - open: miles-and-more at 390, the phone slider's dots ~52px lower on www and ~52px more under them.
+- The carousel ending is no rule for every template: info pages run a grey band into the footer on www (gap 0) or end
+  as ours do; fleet and flying-with-small-children already have more than www's 72px. The rule is campaign-section
+  only.
+
+### 3. The four xx additional-services documents
+
+- DA's xx/el, xx/it, xx/ja and xx/zh additional-services have de/en's structure: the same 11 sections, the same blocks
+  with the same row and cell counts, the same separator markers (only the metadata block in a section of its own).
+- Their www pages are in lh-snapshots-039 (xx/el), -032 (xx/it), -046 (xx/ja) and -019 (xx/zh), captured 2026-11-03.
+  xx/el's page from lh-snapshots-039 (streamed from the R2 drop, nothing from www) through main's hub bundle: de/en's
+  structure, all five tile blocks `padded`, the campaign sections as de/en's.
+- So the harness can import all four from those archives with main's hub bundle (template hub; page-templates.json
+  doesn't list them, so run them with the hub bundle by name). Nothing else is needed. 049e070's state has the four
+  uploaded and previewed (18:24-18:25 UTC); their previews match de/en's skeleton block for block (sections, blocks
+  with options and rows, markers), translated.
+
+### Checks
+
+- Lint in a clean worktree and the full suite before each push (lh-edge 69 files, site 612 / 616, 0 failing; the first
+  run caught test/lufthansa-parity-cards-teaser.test.mjs pinning the old h2 title selector, updated inside eea5da7);
+  smoke on every host before (19:22, 20:21) and after each push: the same as before on every host; Brussels and
+  SWISS 0 of 97 differ; swiss-smoke 8 x 200, 2 x 302, 2 x 404 as before; TAP 200.
+- On lufthansa.turnsthe.page after the pushes, deployed code: munich 15.0 / 17.9 %, take-off 19.3 (390) / 19.6
+  (1440), overview-special-request 2.9 / 18.4, stopover 13.3 / 15.2, services-at-the-airport 1.9 / 11.6, highlights
+  2.5 / 7.4, tags/allegris 28.0 (1440); the previewed hub documents as above.
+
+| Item | Commit | What |
+| --- | --- | --- |
+| 1 | bd5d03c | digital services: group dividers two thirds wide |
+| 1 | 4d620d5 | insights-flow: only the text's 2.4rem before a grey band (tags/munich) |
+| 1 | edd5d2e | take-off: the intro picture's 4rem on phones |
+| 1 | 26dca44 | travel classes: a grey band before a padded campaign-section |
+| 2 | eea5da7 | cards-teaser: h2 titles next to h3 titles (overview-special-request) |
+| 2 | 87e11df | stopover: the step cards' column-view padding |
+| 2 | 099171e | Carousel Cards ending a campaign-section: 32px under them (miles-and-more, food-and-beverages) |
+
+Documents: none new from this brief (all CSS). reimport-497-lh-com.txt stays at 47 (the harness's 049e070 did 23 of
+them; publish list work/local-import/publish-497-lh-com.txt is the harness's). The four xx additional-services
+documents come from lh-snapshots-039 / -032 / -046 / -019 with the hub bundle.

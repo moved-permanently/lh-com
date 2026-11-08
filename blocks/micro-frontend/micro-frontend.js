@@ -102,6 +102,11 @@ export const APPS = {
     attributes: { 'data-public-endpoint': '' },
     portalMeta: true,
     brandDesign: true,
+    // lufthansa.com's own (www's help-and-contact pages, lufthansa-parity-001): mausy-v1.40.1,
+    // the body's maui-theme-lh, X-Line b, help-center-web 4.3.2 (the brief after 505)
+    lhDesign: {
+      release: 'mausy-v1.40.1', themeClass: 'maui-theme-lh', meta: { 'X-Line': 'b' }, version: '4.3.2',
+    },
     // www's topic list is the app's own; the importer writes it after the block as the fallback
     shows: ['accordion-columns'],
   },
@@ -204,16 +209,20 @@ export function mountPlan(block, brand, locale, hostname = window.location.hostn
   if (app.path && brandHost) brandWww = `https://${servesDigitalHangar(hostname) ? hostname : brandHost}`;
   const www = ownHost ? `https://${hostname}` : brandWww;
   const design = app.brandDesign && brand ? BRAND_DESIGN_SYSTEMS[brand.www] : null;
-  // the brand's design system from its www; a lufthansa.com app's own release from www
+  // lufthansa.com's own setup of an app (lhDesign), on pages without a brand
+  const lh = !brand && app.lhDesign ? app.lhDesign : null;
+  // the brand's design system from its www; a lufthansa.com app's own release from www (lhDesign's
+  // from the page's own /digitalhangar/ where the host serves it)
   const releases = (origin) => `${origin}/digitalhangar/design-system/releases`;
   let base = null;
   if (design) base = `${releases(brandWww)}/${design.release}/standalone`;
+  else if (lh) base = `${releases(ownHost ? `https://${hostname}` : WWW)}/${lh.release}/standalone`;
   else if (app.release) base = `${releases(WWW)}/${app.release}/standalone`;
   const theme = design ? design.theme : 'lufthansa';
   const attributes = { ...(app.attributes || {}) };
   let { path } = app;
   // the brand's www release of the app (design apps), before a page's Version row
-  const brandRelease = design && design.apps && design.apps[app.tag];
+  const brandRelease = (design && design.apps && design.apps[app.tag]) || (lh && lh.version);
   if (path && brandRelease) path = path.replace(/-(\d+\.\d+\.\d+|latest)\.js$/, `-${brandRelease}.js`);
   rowsOf(block).slice(1).forEach(([key, value]) => {
     const name = String(key || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -239,11 +248,13 @@ export function mountPlan(block, brand, locale, hostname = window.location.hostn
       'X-Portal': portalOf(locale),
       'X-Portal-Site': String(locale.country || '').toUpperCase(),
       'X-Portal-Language': locale.lang,
-      // the brand's www page meta (ITA's X-Line)
+      // the brand's www page meta (ITA's X-Line; lufthansa.com's help app's)
       ...(design && design.meta ? design.meta : {}),
+      ...(lh && lh.meta ? lh.meta : {}),
     } : {},
     // the brand's theme class for the body (www's), where its design system has one
     ...(design && design.themeClass ? { themeClass: design.themeClass } : {}),
+    ...(lh && lh.themeClass ? { themeClass: lh.themeClass } : {}),
   };
 }
 

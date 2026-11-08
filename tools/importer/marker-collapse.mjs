@@ -19,10 +19,13 @@
  *   cell (no carrier there) it goes. Page-type gaps belong to the theme: lufthansa.com's /100-years
  *   sections (M at a section edge), its articles (the rule above an info box after any content but
  *   a heading; a rule before a chapter heading, an H2 / H3 or a bold paragraph: the chapter becomes
- *   a section of its own, the theme rules it).
+ *   a section of its own, the theme rules it), its Insights tag pages (the info box's rule).
  * - column views become structure: every column mark goes; an outside-a-section group that spans
- *   its whole section becomes the section style padded (the same 20 / 40 px).
- * - heading size: within one step of the context's default the default; two or more steps a
+ *   its whole section becomes the section style padded (the same 20 / 40 px); the page becomes a
+ *   flow page (Theme flow-spacing), where a brand's column-view blocks get their edges from the
+ *   theme (THEMES columnViews.blocks: Discover's, B2B's).
+ * - heading size: within one step of the context's default (the brand's and page type's, as the
+ *   site will see it: a page with column marks is a flow page) the default; two or more steps a
  *   level-scoped section style (h2-large, h2-compact, h3-large; on every section of the page the
  *   page's Headings row) or, in a block, its title option (title-large, title-compact); a size
  *   without a choice of its level goes (counted). The level never changes. limited-width goes.
@@ -840,6 +843,9 @@ function isBoldHeading(el) {
 
 /** Separators: runs of "{spacer-N}" / "{divider-N}" paragraphs. */
 function collapseSeparators(main, doc, stats, ctx) {
+  // the page type's gaps the theme draws (THEMES rules: sections-m, rule-before-info-box,
+  // ruled-chapters)
+  const { rules } = themeFor(ctx.brand, ctx.pageType);
   const isSep = (el) => !!el && el.tagName === 'P' && SEPARATOR.test(textOf(el));
   const parse = (el) => textOf(el).match(SEPARATOR);
   // in block cells, or nested in any other element of the page (an importer's tab panel before
@@ -875,18 +881,18 @@ function collapseSeparators(main, doc, stats, ctx) {
       const remove = () => run.els.forEach((el) => el.remove());
       if (size === 'none') { remove(); count(stats, 'theme', 'separator', run.els.length); return; }
       // page-type gaps: the theme's
-      if (ctx.brand === 'lufthansa' && ctx.pageType === '100-years' && size === 'm' && (atStart || atEnd)) {
+      if (rules.includes('sections-m') && size === 'm' && (atStart || atEnd)) {
         remove(); count(stats, 'theme', 'separator', run.els.length); return;
       }
-      if (ctx.brand === 'lufthansa' && ctx.pageType === 'article' && divider) {
+      if (divider) {
         // the rule above an info box (Columns Media) after any content but a heading (text, a
         // picture, its caption, another block)
-        if (blockName(after) === 'columns-media' && before && !atStart && !/^H[1-6]$/.test(before.tagName)) {
+        if (rules.includes('rule-before-info-box') && blockName(after) === 'columns-media' && before && !atStart && !/^H[1-6]$/.test(before.tagName)) {
           remove(); count(stats, 'theme', 'separator', run.els.length); return;
         }
         // a rule before a chapter heading (an H2 / H3, or a bold paragraph standing for one:
         // "About", "Tip"): the chapter a section of its own, the theme rules it
-        if (after && (/^H[23]$/.test(after.tagName) || isBoldHeading(after)) && !atStart) {
+        if (rules.includes('ruled-chapters') && after && (/^H[23]$/.test(after.tagName) || isBoldHeading(after)) && !atStart) {
           const last = run.els[run.els.length - 1];
           splitAfter(section, last, doc);
           remove();
@@ -973,7 +979,11 @@ export function collapseMain(main, opts = {}) {
       stats, ids: {}, hand, changed: t.theme + t.carrier + t.hand > 0,
     };
   }
-  const pageType = pageTypeOf({ path, articleHeader: !!main.querySelector('div.article-header'), themes: metaValue(main, 'theme') });
+  // the page type the site will see: a page with column marks becomes a flow page (collapseColumns
+  // writes its Theme row), so its headings are weighed against the flow pages' defaults
+  const themes = metaValue(main, 'theme');
+  const columnPage = /\{[^}]*\bcolumn-(start|end)/.test(main.textContent || '');
+  const pageType = pageTypeOf({ path, articleHeader: !!main.querySelector('div.article-header'), themes: columnPage ? `${themes}, flow-spacing` : themes });
   const theme = themeFor(brand, pageType);
   const emptyBefore = new Set([...main.querySelectorAll(':scope > div')].filter((d) => !d.children.length && !textOf(d)));
 

@@ -1986,3 +1986,151 @@ columns as lh-com-better.tsv).
   lh-parity-002c.
 - **Suite:** lint and the full suite; every brand's smoke and TAP by hand before and after the push.
 
+## The brief after 501: SWISS stage buttons, five parity rows, the Air Dolomiti homepage
+
+Nothing was published, nothing was uploaded, and nothing was requested from www.
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git).
+
+**Drafts:** for comparison only, never handed over as documents.
+
+- The SWISS drafts are preview's documents passed through the changed step.
+- The Air Dolomiti drafts are the capture's pages converted with the importer's convert, which has
+  no marker collapse.
+- ema-test's 72026ccf (the collapse only for a brand whose theme is live) came in with this turn's
+  first push. An import from main after it writes markers as before, so the lists below can be
+  imported from main.
+
+### 1. SWISS A350 stage buttons (SWISS row 43): fixed, c3c97519 and 6831796c
+
+- **The fix:** withTeaserTexts (swiss-import.mjs) looks for www's button as a link with its label
+  outside the stage's heading, and writes a missing one after the stage's text.
+- **Test:** test/swiss-stage-buttons-503.test.mjs, on fixtures of www's stages (swiss-snapshots-046)
+  and our 11 documents' stage blocks.
+- **Which pages change:** all 45 earlier archives were downloaded too, each into its own directory:
+  4,721 pages, 175 of them with stage texts. Only the 11 A350 pages change: 15 buttons in all
+  (SWISS Wanderlust's on 11 pages; facts' and behind the scenes' in el and it).
+- **Checked:** the drafts on preview at 1440 (ch/it, ch/de), every stage with its button.
+- **Re-import:** tools/reports/swiss/reimport-503-swiss.txt (11).
+
+### 2. Five parity rows
+
+See sweep-brands.md, "The pass after brief 501". One commit per row:
+
+- **Cargo 38 (86fa696c):** the company pages' stage right under the header. Below 992 px a video
+  stage is the video at 16:9, with its title in a white box under it.
+- **Air Dolomiti 68 (1d709b8b):** a page without a heading of its own keeps the importer's title
+  h1 visually hidden (section hidden-heading). Re-import:
+  tools/reports/parity-2026-11-08/reimport-503-airdolomiti.txt (3). Four more documents repeat their
+  title h1 as a heading; they are not in the capture, so they are not confirmed (row 68).
+- **Cargo 39 (f682c697):** CF9 card rows on phones: pictures across the screen at 16:9, cards
+  stacked, rows 20 px apart.
+- **Discover 37 (cd003dc6):** a tab set on phones without the sections' gaps around it.
+- **Air Dolomiti 69 (f0f38e9d):** the page stage's title centred as www's HeroFirst, and the next
+  section 150 px lower.
+
+Rows 38, 39, 37 and 69 are code only, with no document change.
+
+### 3. Air Dolomiti homepage: the new layout followed; the first screen not
+
+- **Archive:** airdolomiti-parity-001 at the given URL is the archive used since the sweep after 470
+  (same size, sha256 a2b8d33e... as its sidecar).
+- **Measured:** 482's box comparison on today's preview, it, en and de at 1440 and 390.
+  - **The new layout:** the promotions, both tile grids, the Lufthansa Group strip and the services
+    are at 0 px from www's.
+  - **The Service charter box:** 3 to 8 px narrower.
+  - **The German tile titles:** h2 on www as in ours; the 10 px between the two is the marble box's
+    padding.
+- **Not followed: the first screen.** www's hero is 100vh with the alert bar (54 px) and the header
+  over its top. Ours stacks the header, the alert pill (ema-adobe's flash teaser: 127 px with its
+  spacing), the stage and the band. So "Discover our promotions" sits 156 px lower at 1440:
+  - +73 px: the strip;
+  - +52 px: the picture shown under the header;
+  - +2 px: the band;
+  - +29 px: the band's gap.
+  At 390 it sits 47 px higher. No stage height of mine meets www's at both widths while the strip
+  sits in the page, so nothing was changed. It is for whoever moves the alert bar above the header
+  (row 10, ema-adobe's).
+
+### Checked
+
+- **Hosts:**
+  - main--lh-swiss--, main--lh-cargo--, main--lh-airdolomiti-- and main--lh-discover--moved-permanently.aem.page,
+    with this checkout's CSS for the rows (host-eval, sweep-ours LOCAL_CSS);
+  - every brand's smoke host, before and after each push.
+- **Offline:** www's pages from swiss-snapshots-001 to -046, airdolomiti-, cargo- and
+  discover-parity-001.
+- **Suite:** lint and the full suite before each of the six pushes; TAP by hand before the first
+  push and after the last.
+
+## The brief after 505
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git). Nothing is published, uploaded or requested from www. Documents are drafted for comparison
+only. No style markers are added to documents.
+
+### 1. Air Dolomiti homepage, the first screen (Air Dolomiti row 70): done
+
+- **The change:** on the homepage only, the alert pill's section is out of the flow, over the
+  stage's top. The stage is the window's height under the header. "Discover our promotions" is 64 px
+  under the band at 1440 and 60 px at 390, as www's.
+- **Measured** against airdolomiti-parity-001, www / before / after:
+
+  | Width | Promotions heading (it, en, de) |
+  | --- | --- |
+  | 1440 | 964 / 1120 / 964 |
+  | 390 | 904 / 857 / 904 |
+
+  Page heights are in row 70.
+- **File history:** airdolomiti.css had no other EMA's change since this morning.
+
+### 3. lufthansa.com help center (lufthansa.com row 19): done for lufthansa.com
+
+- **The cause:** the app drew unstyled; no margin was missing. www's page loads mausy-v1.40.1 with
+  maui-theme-lh, X-Line b and help-center-web 4.3.2. Ours loaded v1.38.0 and 4.3.1 without them.
+- **The fix:** the micro-frontend block gives lufthansa.com's help app www's setup, loaded from the
+  page's own /digitalhangar/ where the host serves it. The section is 56 px under the header from
+  768 px, 36 px below.
+- **Measured:** h1 at 1440 www 443 / before 553 / after 443; at 390 280 / 203 / 280. Details in row 19.
+- **The four brands:** their apps already have www's setup, and each starts 25 px under its header,
+  as lufthansa.com's did:
+
+  | Page | h1 at 1440 | h1 at 390 |
+  | --- | --- | --- |
+  | ITA it/en | 390 | 247 |
+  | Austrian at/en | 396 | 273 |
+  | SWISS ch/en | 415 | 265 |
+  | Brussels be/en | 410 | 262 |
+
+  www's h1 for them is not in this workspace: their recordings are not here, and the re-check
+  (sweep-recheck.md) did not record the app's shadow h1. Not changed. If www's pages are built as
+  lufthansa.com's, the same rule per brand would move them 31 px (1440) and 11 px (390) down. A
+  recording of one brand help page decides it.
+- **Note:** checking the files needed lh-edge to fetch two design-system files from www on a cache
+  miss (the site's own proxy, as for every visitor of the page).
+
+### 4. Air Dolomiti, the four pages not yet confirmed: none added
+
+Neither airdolomiti-parity-001 nor any crawl in this workspace holds these four pages. The importer's
+output (the documents on preview) decides only one:
+
+- **/de/flug-status:** www has a heading of its own. The document has two "Flugstatus" headings: an
+  h1 from a block's title, then www's h2. The title fallback does not apply, so nothing changes.
+- **/de/reisenformationen/schwangere-und-kinder, /de/reisenformationen/tiere-an-bord and
+  /en/destinations/florence/what-to-see:** not confirmed. Each opens with an h1 (alone, or before a
+  paragraph) and repeats its text as a heading in a block. That fits the title fallback, and it also
+  fits www's own Title block (the importer's titleLine).
+
+They are not on reimport-503-airdolomiti.txt. A re-import is harmless either way: the importer decides
+from www's data and notes "H1 from its title, hidden" where it applies.
+
+### 5. Discover at desktop width (Discover row 38): a phone-only rule
+
+- **Measured by:** where the footer starts (the content above it) against discover-parity-001. The
+  footer itself is ema-adobe's and 166 to 190 px off at 1440, so total height misled.
+- **At 1440:** the 36 px on the marker paragraphs stand where www's column views have their space.
+  Without them, 10 of 14 views moved away (check-in +1.9 -> -2.5 %), so they stay.
+- **At 390:** without them, 10 of 14 views come closer (check-in +6.3 -> +2.4 %).
+- **Shipped:** the change below 768 px only; every 1440 view is the same. The numbers are in row 38.
+

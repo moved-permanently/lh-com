@@ -437,6 +437,17 @@ body.brand-discover .section-tab-panel > .section-tab-toggle {
   line-height: 26px;
 }
 
+/* row 37 (brief 503): on phones www's tab control sits in its text's flow, 32 px under the text
+   above, the next heading right under its last toggle: the section before the set, the set's
+   placeholder and its last panel's section without the sections' gap */
+@media (width < 768px) {
+  body.brand-discover main > .section:has(+ .section.section-tabs),
+  body.brand-discover main > .section.section-tabs,
+  body.brand-discover main > .section.section-tab-panel:not(:has(+ .section.section-tab-panel)) {
+    margin-bottom: 0;
+  }
+}
+
 /* row 13: the offers page (destination-finder): the filter column's title bold, its group titles
    18 px, the toggles (Filters, More information, General conditions) LufthansaHead 18/24 */
 body.brand-discover .destination-finder .destination-finder-filters-heading { font-weight: 700; }
@@ -569,6 +580,15 @@ body.brand-discover main .section.column-titles > .default-content-wrapper:has(+
    the column texts and the accordions' panels */
 body.brand-discover main :is(.default-content-wrapper, .columns-media-text, .accordion-columns-panel) > :is(p, ul, ol):not(:last-child) {
   margin-bottom: 36px;
+}
+
+/* row 38 (the brief after 505): on phones not the paragraphs that carry only a marker (p.column-mark,
+   p.spacer), which got the 36 px too; from 768 px those 36 px stand where www's column views have
+   their space, measured against discover-parity-001 */
+@media (width < 768px) {
+  body.brand-discover main :is(.default-content-wrapper, .columns-media-text, .accordion-columns-panel) > :is(p.column-mark, p.spacer):not(:last-child) {
+    margin-bottom: 0;
+  }
 }
 
 /* www's column views: 20 px above and below each row's content on phones, 40 px from 768 px, so

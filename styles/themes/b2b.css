@@ -396,10 +396,6 @@ body.brand-b2b .columns-media.stage.light .columns-media-text > p:has(> a.button
   color: #05164d;
 }
 
-@media (width < 768px) {
-  body.brand-b2b .columns-media.stage .columns-media-text:has(> p:first-child > a > picture) > p:has(> em > a, > a.button) { display: none; }
-}
-
 @media (width >= 768px) {
   body.brand-b2b .columns-media.stage .columns-media-text:has(> p:first-child > a > picture) > :not(:first-child) {
     margin-inline: 40px;

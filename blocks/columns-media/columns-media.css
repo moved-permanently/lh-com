@@ -1513,9 +1513,30 @@ body.brand-lufthansa .columns-media .columns-media-row > div > blockquote > * + 
   }
 }
 
+/* a [picture | empty] row (www: a two-column view with an empty second column; cabin-design's
+   decade titles): below 768px www stacks the empty column under the picture with its item margins,
+   122px from the picture to the next heading at 390 (ours 70) */
+@media (width < 768px) {
+  .columns-media .columns-media-row:has(> .columns-media-media:first-child + .columns-media-text:empty:last-child) {
+    padding-bottom: 52px;
+  }
+}
+
 /* a picture narrower than its column on www (importer markers; 100-years/campaigns at 1440): a
    [empty | picture] view in a column, the picture in one half (301px of 622 at x 1051), a sidebar of
-   a picture only, three quarters (457px); below 768px www stacks them across the column */
+   a picture only, three quarters (457px); below 768px www stacks them across the column, the
+   nested view's padding above them (390: 80px from the text's last line to the half one, ours 37;
+   57 to the three-quarters one, ours 39) */
+@media (width < 768px) {
+  .columns-media .columns-media-row > div > p:is(.cell-half-start, .cell-half-end) {
+    margin-top: 67px;
+  }
+
+  .columns-media .columns-media-row > div > p.cell-three-quarters {
+    margin-top: 42px;
+  }
+}
+
 @media (width >= 768px) {
   .columns-media .columns-media-row > div > p:is(.cell-half-start, .cell-half-end) {
     width: calc(50% - 10px);

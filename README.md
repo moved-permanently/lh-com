@@ -174,9 +174,14 @@ In this order:
    level (H1 `heading-large`, H2 `heading-medium`, H3/H4 `heading-copytext-large`, H5/H6
    `heading-copytext-medium`), running text two thirds wide from 1025px (ITA: the whole width), body
    text 18px, separators M 60px / L 120px / Divider (1px line, 25px), a column view's 32px padding;
-   page types: lufthansa.com articles (a rule above an info box after text, chapters ruled),
-   /100-years (sections 60px apart), Brussels' service pages (H2 `heading-small`), Austrian's intro
-   after the H1. The page types' rules stay off (`live: false`) until step 2 has collapsed that
+   page types: lufthansa.com articles (a rule above an info box after text, chapters ruled) and its
+   Insights tag pages (the info box's rule), /100-years (sections 60px apart), Austrian's intro
+   after the H1; on flow pages the H3s of Austrian,
+   Brussels and Lufthansa Group for Business and the H2s of SWISS and Discover in `heading-small`,
+   and Discover's Columns Media and B2B's Columns Media, Carousel Images and Quote column views of
+   their own (their padding above and below); SWISS's FAQ hub teasers in their groups. A page
+   with column marks is a flow page once
+   collapsed. The page types' rules stay off (`live: false`) until step 2 has collapsed that
    brand's documents.
 2. **Section styles** (Section Metadata `Style`; the library offers them as `Label=value`):
    `Space above: M` / `L` (`space-m`, `space-l`), `Divider above` (`divider`), `Space below: M` / `L`,

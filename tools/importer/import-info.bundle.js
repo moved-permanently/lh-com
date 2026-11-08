@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_1110550_exports = {};
-  __export(tmp_bundle_info_1110550_exports, {
-    default: () => tmp_bundle_info_1110550_default
+  var tmp_bundle_info_1316475_exports = {};
+  __export(tmp_bundle_info_1316475_exports, {
+    default: () => tmp_bundle_info_1316475_default
   });
 
   // tools/importer/parsers/search-results.js
@@ -3719,7 +3719,7 @@ var CustomImportScript = (() => {
     let variants = [];
     if (usp) variants = element.matches(".fourcolumn") ? ["usp", "four-up"] : ["usp"];
     const view = element.querySelector(":scope > .column-view");
-    const own = element.classList.contains("column") && element.children.length === 1 && !!view && !!element.parentElement && element.parentElement.classList.contains("section-content") && [...element.parentElement.children].every((c) => c === element || !(c.textContent || "").trim());
+    const own = element.classList.contains("column") && element.children.length === 1 && !!view && !!element.parentElement && element.parentElement.classList.contains("section-content") && [...element.parentElement.children].every((c) => c === element || !(c.textContent || "").trim() || /^\{(?:spacer|divider)-\d{1,3}(?: from-768)?\}$/.test((c.textContent || "").trim()));
     const titled = view && [...view.children].some((c) => !c.matches(".row, .carousel") && c.querySelector("h1, h2, h3, h4, h5, h6"));
     if (own && !titled && !element.closest(".container-gray, .article-details-page") && !view.classList.contains("container-gray")) variants.push("padded");
     const cells = [];
@@ -5004,16 +5004,36 @@ var CustomImportScript = (() => {
         // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
         article: { rules: ["rule-before-info-box", "ruled-chapters"] },
         // /100-years: its sections 60px apart
-        "100-years": { rules: ["sections-m"] }
+        "100-years": { rules: ["sections-m"] },
+        // Insights tag pages (/articles/tags/…): the rule above an info box after any content but a
+        // heading, as on articles (www: 417 of 505 such Columns Media; the others without)
+        "insights-tag": { rules: ["rule-before-info-box"] }
       }
     },
-    // Austrian: the paragraph right after the page title is the intro (copytext-large, Portada 18/27)
-    austrian: { rules: ["intro-after-h1"] },
-    // Brussels: service pages set their H2s in heading-small
-    brussels: { pageTypes: { service: { headings: { h2: "heading-small" } } } },
+    // Austrian: the paragraph right after the page title is the intro (copytext-large, Portada
+    // 18/27); flow pages set their H3s in heading-small (www: 87 % of them)
+    austrian: { rules: ["intro-after-h1"], pageTypes: { flow: { headings: { h3: "heading-small" } } } },
+    // Brussels: flow pages set their H3s in heading-small (www: 72 %); a service page's H2s are the
+    // default (www: 89 % unmarked, heading-medium; no longer heading-small)
+    brussels: { pageTypes: { flow: { headings: { h3: "heading-small" } } } },
     // ITA: running text over the whole width
     // live: ITA's collapse pass (the brief after 503; merged with the harness's ITA pass)
-    ita: { text: { width: "full" }, live: true }
+    ita: { text: { width: "full" }, live: true },
+    // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
+    // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
+    // (a heading right before them starts the group's column view, as its marker did)
+    swiss: { rules: ["teaser-groups"], pageTypes: { flow: { headings: { h2: "heading-small" } } } },
+    // Discover: on flow pages the H2s in heading-small (www: 86 %) and a Columns Media a column view
+    // of its own (www: 26 of 33 not at a section's start)
+    discover: { pageTypes: { flow: { headings: { h2: "heading-small" }, columnViews: { blocks: ["columns-media"] } } } },
+    // Lufthansa Group for Business: on flow pages the H3s in heading-small (www: 82 %); Columns
+    // Media, Carousel Images and Quote column views of their own, also at a section's end (www: 558
+    // of 789 Columns Media not at a section's start, 749 of 962 with an edge below)
+    b2b: {
+      pageTypes: {
+        flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true } }
+      }
+    }
   };
   var mergeTheme = (a, b) => __spreadProps(__spreadValues(__spreadValues({}, a), b), {
     headings: __spreadValues(__spreadValues({}, a.headings), b.headings || {}),
@@ -5034,6 +5054,7 @@ var CustomImportScript = (() => {
   function pageTypeOf({ path = "", articleHeader = false, themes = "" } = {}) {
     if (articleHeader) return "article";
     if (/^\/[a-z]{2}\/[a-z]{2}\/100-years(\/|$)/.test(path)) return "100-years";
+    if (/^\/[a-z]{2}\/[a-z]{2}\/articles\/tags\//.test(path)) return "insights-tag";
     if (/(^|,)\s*flow-spacing\s*(,|$)/.test(themes)) return "flow";
     if (/^\/(?:[a-z]{2}(?:-[a-z]{2})?(?:\/[a-z]{2})?(?:\/homepage)?)?\/?$/.test(path)) return "home";
     return "service";
@@ -7746,6 +7767,7 @@ var CustomImportScript = (() => {
     return kids.length === 1 && kids[0].nodeType === 1 && /^(STRONG|B)$/.test(kids[0].tagName) && !!textOf(kids[0]) && !kids[0].querySelector("a, img, picture");
   }
   function collapseSeparators(main, doc, stats, ctx) {
+    const { rules } = themeFor(ctx.brand, ctx.pageType);
     const isSep = (el) => !!el && el.tagName === "P" && SEPARATOR.test(textOf(el));
     const parse29 = (el) => textOf(el).match(SEPARATOR);
     main.querySelectorAll(":scope > div > * p").forEach((p) => {
@@ -7782,18 +7804,18 @@ var CustomImportScript = (() => {
           count(stats, "theme", "separator", run.els.length);
           return;
         }
-        if (ctx.brand === "lufthansa" && ctx.pageType === "100-years" && size === "m" && (atStart || atEnd)) {
+        if (rules.includes("sections-m") && size === "m" && (atStart || atEnd)) {
           remove();
           count(stats, "theme", "separator", run.els.length);
           return;
         }
-        if (ctx.brand === "lufthansa" && ctx.pageType === "article" && divider) {
-          if (blockName(after) === "columns-media" && before && !atStart && !/^H[1-6]$/.test(before.tagName)) {
+        if (divider) {
+          if (rules.includes("rule-before-info-box") && blockName(after) === "columns-media" && before && !atStart && !/^H[1-6]$/.test(before.tagName)) {
             remove();
             count(stats, "theme", "separator", run.els.length);
             return;
           }
-          if (after && (/^H[23]$/.test(after.tagName) || isBoldHeading(after)) && !atStart) {
+          if (rules.includes("ruled-chapters") && after && (/^H[23]$/.test(after.tagName) || isBoldHeading(after)) && !atStart) {
             const last = run.els[run.els.length - 1];
             splitAfter(section, last, doc);
             remove();
@@ -7888,7 +7910,9 @@ var CustomImportScript = (() => {
         changed: t2.theme + t2.carrier + t2.hand > 0
       };
     }
-    const pageType = pageTypeOf({ path, articleHeader: !!main.querySelector("div.article-header"), themes: metaValue(main, "theme") });
+    const themes = metaValue(main, "theme");
+    const columnPage = /\{[^}]*\bcolumn-(start|end)/.test(main.textContent || "");
+    const pageType = pageTypeOf({ path, articleHeader: !!main.querySelector("div.article-header"), themes: columnPage ? `${themes}, flow-spacing` : themes });
     const theme = themeFor(brand, pageType);
     const emptyBefore = new Set([...main.querySelectorAll(":scope > div")].filter((d) => !d.children.length && !textOf(d)));
     if (/\/nav$/.test(path)) collapseNav(main, doc, stats);
@@ -8263,7 +8287,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_1110550_default = {
+  var tmp_bundle_info_1316475_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -8302,5 +8326,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_1110550_exports);
+  return __toCommonJS(tmp_bundle_info_1316475_exports);
 })();

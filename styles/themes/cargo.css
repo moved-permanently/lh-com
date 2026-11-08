@@ -641,6 +641,78 @@ body.brand-cargo main > .section.hero-campaign-container:first-of-type:has(.hero
   }
 }
 
+/* row 39: the card rows (cards-teaser without an option: the importer's CF9 .two-columns) on phones
+   as www's: the cards stacked without a gap, 20 px under each (its More link's margin), the picture
+   across the screen at 16:9 (past the 16 px page margin), the title 20 px under it; a row right after
+   another 20 px lower (mobile-mt-20) */
+@media (width < 768px) {
+  body.brand-cargo .cards-teaser:not(.three-up, .four-up, .overlay, .mosaic, .boxed) > ul > li:nth-child(n) {
+    margin-top: 0;
+    padding-bottom: 20px;
+  }
+
+  body.brand-cargo .cards-teaser:not(.three-up, .four-up, .overlay, .mosaic, .boxed) > ul > li > .cards-teaser-image {
+    margin: 0 -16px 20px;
+  }
+
+  body.brand-cargo .cards-teaser:not(.three-up, .four-up, .overlay, .mosaic, .boxed) > ul > li > .cards-teaser-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  /* the block's 91 px between two rows off: the wrapper's 20 px stays (row 39) */
+  body.brand-cargo .cards-teaser-wrapper + .cards-teaser-wrapper > .cards-teaser:not(.three-up, .four-up, .overlay, .mosaic, .boxed) {
+    margin-top: 0;
+  }
+}
+
+/* row 40 (the brief after 505): the footer's logo strip as www's .subFooter, 20 px above and below
+   the 20 px logos (not lufthansa.com's 25 / 28 px and staggered logos); below 768 px stacked and
+   centred, 10 px and 20 px apart; from 768 px one row in the 1296 px content column, the member
+   mark 20 px after the Lufthansa Cargo mark, Cargo iQ at the row's end */
+body.brand-cargo .footer .footer-logos-inner {
+  padding-block: 20px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the footer's logos, not the boxed cards' li */
+body.brand-cargo .footer .footer-logos li:nth-child(n) {
+  margin: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the footer's logos, not the boxed cards' li */
+body.brand-cargo .footer .footer-logos li:nth-child(2) {
+  margin-top: 10px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the footer's logos, not the boxed cards' li */
+body.brand-cargo .footer .footer-logos li:nth-child(3) {
+  margin-top: 20px;
+}
+
+@media (width >= 768px) {
+  body.brand-cargo .footer .footer-logos-inner {
+    padding-inline: max(16px, calc((100% - 1296px) / 2));
+  }
+
+  body.brand-cargo .footer .footer-logos li:nth-child(n) {
+    margin: 0 20px 0 0;
+  }
+
+  body.brand-cargo .footer .footer-logos li:last-child {
+    margin: 0 0 0 auto;
+  }
+}
+
+/* row 41 (the brief after 505): on phones a transport story's text (columns-media in the sections
+   with its picture modules) 380 px wide from x 5 at 390, as www's story-text-background columns */
+@media (width < 768px) {
+  body.brand-cargo main > .section:has(.hero-card-overlay.light) .columns-media .columns-media-text {
+    margin-inline: -11px;
+  }
+}
+
 /* row 14 (round 3): the story pictures (hero-card-overlay (light): on Cargo only the transport
    stories' picture modules) as www's .module--story: up to 1354 px wide in the middle, as tall as
    the picture is; the text box white at 90 %, 20 px inside (www's .story-text-background), the

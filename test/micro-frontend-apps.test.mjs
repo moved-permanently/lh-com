@@ -132,7 +132,8 @@ test('lufthansa.com\'s module apps from the page\'s own /digitalhangar/ where th
   const edge = mountPlan(blockOf([['claim-form-entry']]), null, { country: 'de', lang: 'en' }, 'lufthansa.turnsthe.page');
   assert.equal(edge.scripts[1].src, `https://lufthansa.turnsthe.page${CLAIM}`);
   const hc = mountPlan(blockOf([['help-center-web']]), null, { country: 'de', lang: 'en' }, 'lufthansa-edge.turnsthe.page');
-  assert.equal(hc.scripts[1].src, 'https://lufthansa-edge.turnsthe.page/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.1.js');
+  // www's release of lufthansa.com's help app, 4.3.2 (the brief after 505: micro-frontend-lh-help-506)
+  assert.equal(hc.scripts[1].src, 'https://lufthansa-edge.turnsthe.page/digitalhangar/cs-help-center/help-center-web/help-center-web-4.3.2.js');
   const own = mountPlan(blockOf([['claim-form-entry']]), null, { country: 'de', lang: 'en' }, 'www.lufthansa.com');
   assert.equal(own.scripts[1].src, `https://www.lufthansa.com${CLAIM}`);
   // the design system stays www's (its files allow every origin), classic scripts as before

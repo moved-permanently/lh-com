@@ -4082,4 +4082,25 @@ body.brand-tap main .accordion-columns p.blank-line {
   line-height: 24px;
 }
 
+/* token-free (brief 505): with TAP's theme live the collapse takes the blank line ({blank}, 24 px)
+   out; the paragraph pairs of card and accordion texts get half of it more than their gap today
+   (cards-teaser 0, cards and accordions 24, the feature views 8 px), so every pair is within 12 px
+   of what it was, with or without a blank line (the plan's rule); the margin collapses with the
+   paragraph's own margin-bottom, so the value is the whole gap */
+body.brand-tap main:where(.theme-live *) :is(.cards-teaser, .cards, .columns-media.feature, .columns-media.feature-small, .accordion-columns) p + p {
+  margin-top: var(--tap-paragraph-gap);
+}
+
+body.brand-tap main:where(.theme-live *) .cards-teaser {
+  --tap-paragraph-gap: 12px;
+}
+
+body.brand-tap main:where(.theme-live *) :is(.columns-media.feature, .columns-media.feature-small) {
+  --tap-paragraph-gap: 20px;
+}
+
+body.brand-tap main:where(.theme-live *) :is(.cards, .accordion-columns) {
+  --tap-paragraph-gap: 36px;
+}
+
 /* stylelint-enable no-descending-specificity */

@@ -1522,6 +1522,115 @@ body.brand-lufthansa main > .section.stage.before-padded + .section.campaign-sec
   padding-top: 0;
 }
 
+/* the page title (H1) as a section of its own before the first one (hub pages): live has only the
+   title's own space under it (baggage: the intro 8px lower at 1440, 16 at 390 with our section gap) */
+/* stylelint-disable-next-line no-descending-specificity -- a title section, not a column view's end */
+body.brand-lufthansa main > .section:not(.campaign-section):has(> .default-content-wrapper:last-child > h1:last-child):has(+ .section.campaign-section) {
+  margin-bottom: 0;
+}
+
+/* the title and intro in live's first AEM section, padded, under the class tabs (lufthansa-travel-
+   classes: campaign-sections takes a first section only unpadded; ours the tabs' 25px above the
+   title, live 46 / 65px, and our section gap under the intro, live 20 / 40px) */
+/* stylelint-disable-next-line no-descending-specificity -- the tabs' section, not a column view's end */
+body.brand-lufthansa main:has(> .section.campaign-section) > .section.profile-nav-container:has(+ .section > .default-content-wrapper:first-child > h1:first-child) {
+  margin-bottom: 45px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- a title section, not a column view's end */
+body.brand-lufthansa main > .section:not(.campaign-section):has(> .default-content-wrapper:last-child > h1:first-child + *):has(+ .section.campaign-section) {
+  margin-bottom: 20px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa main:has(> .section.campaign-section) > .section.profile-nav-container:has(+ .section > .default-content-wrapper:first-child > h1:first-child) {
+    margin-bottom: 65px;
+  }
+
+  body.brand-lufthansa main > .section:not(.campaign-section):has(> .default-content-wrapper:last-child > h1:first-child + *):has(+ .section.campaign-section) {
+    margin-bottom: 40px;
+  }
+}
+
+/* under a Hero Banner (live: dcep's web component, its own space below; lufthansa-travel-classes:
+   82px from the banner to the next column view's picture at 1440, ours 56; 19px short at 390) */
+/* stylelint-disable-next-line no-descending-specificity -- a banner's section, not a column view's end */
+body.brand-lufthansa main > .section.campaign-section.spaced:has(> .hero-banner-wrapper:last-child) {
+  margin-bottom: 43px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section.campaign-section.spaced:has(> .hero-banner-wrapper:last-child) {
+    margin-bottom: 50px;
+  }
+}
+
+/* partner teasers in a titled group, one row view each (live's digital-self-services: a one-column
+   view per group, every row a three-column view of its own, padded): ours one Cards Icon Text
+   (partner) per row after the title, 40px short under the title, 56 between the rows, 39 under the
+   last row at 1440; at 390 20, 56 and 60 */
+body.brand-lufthansa main .default-content-wrapper:has(> :is(h2, h3):last-child) + .cards-icon-text-wrapper > .cards-icon-text.partner {
+  padding-top: 20px;
+}
+
+body.brand-lufthansa main .cards-icon-text-wrapper:has(> .cards-icon-text.partner) + .cards-icon-text-wrapper > .cards-icon-text.partner {
+  padding-top: 56px;
+}
+
+body.brand-lufthansa main .cards-icon-text-wrapper:has(> .cards-icon-text.partner) + .cards-icon-text-wrapper:not(:has(+ .cards-icon-text-wrapper)) > .cards-icon-text.partner {
+  padding-bottom: 60px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa main .default-content-wrapper:has(> :is(h2, h3):last-child) + .cards-icon-text-wrapper > .cards-icon-text.partner {
+    padding-top: 40px;
+  }
+
+  body.brand-lufthansa main .cards-icon-text-wrapper:has(> .cards-icon-text.partner) + .cards-icon-text-wrapper:not(:has(+ .cards-icon-text-wrapper)) > .cards-icon-text.partner {
+    padding-bottom: 39px;
+  }
+}
+
+/* the divider after a group of partner rows (digital-self-services): www's .hr.limited-width, two
+   thirds of the content from 1025px like the running text (ours ran over the whole width) */
+@media (width >= 1025px) {
+  /* stylelint-disable-next-line no-descending-specificity -- a group's divider, not a column mark's */
+  body.brand-lufthansa main .cards-icon-text-wrapper:has(> .cards-icon-text.partner) + .default-content-wrapper > p.spacer.divider:is(:first-child, .column-mark + *) {
+    max-width: 66%;
+  }
+}
+
+/* a grey band, then a padded AEM section (lufthansa-travel-classes' Allegris cards): live's band
+   has no 2.4rem under it, only the section's padding follows (ours 15px more at 390, 17 at 1440) */
+/* stylelint-disable-next-line no-descending-specificity -- a band before a padded section, not a column view's end */
+body.brand-lufthansa main > .section.grey:has(+ .section.campaign-section.padded) {
+  margin-bottom: 32px;
+}
+
+/* Carousel Cards in a campaign-section, from 768px: www's column view of its own, padded 3.2rem
+   above where it follows running text (stopover's four steps, ours 31px short at 1440) and below
+   wherever it ends the section (stopover 33px, miles-and-more's related cards and food-and-beverages'
+   two-up 32px short); on phones, and on insights-flow pages (tags/munich: the cards in the text's
+   own column view), it measured worse */
+@media (width >= 768px) {
+  /* stylelint-disable-next-line no-descending-specificity -- a card grid after text, not a column view's end */
+  body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper:has(> p:last-child:not(.spacer)) + .carousel-cards-wrapper > .carousel-cards {
+    padding-top: 32px;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity -- as above */
+  body.brand-lufthansa main > .section.campaign-section > .carousel-cards-wrapper:last-child > .carousel-cards {
+    padding-bottom: 32px;
+  }
+}
+
+/* jump links, then a separator: live's link list ends at its last link, the separator's 1px and
+   margin follow it (baggage: 24px more before "Types of baggage" with our wrapper gap) */
+/* stylelint-disable-next-line no-descending-specificity -- a campaign-section's wrapper, not a modal link's */
+body.brand-lufthansa main > .section.campaign-section > .jump-links-wrapper + .default-content-wrapper:has(> p.spacer:first-child) {
+  margin-top: 0;
+}
+
 /* live's .section-content clears its floats (a table box at its end): the last component's
    bottom margin stays in the AEM section (a quote's 6rem / 8rem, then .mb-default), the first
    one's top margin collapses with the section before */
@@ -1540,9 +1649,27 @@ body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper
   padding-bottom: 10px;
 }
 
+/* an author quote alone in its AEM section, below 768px: www's 148px from the picture above to its
+   first line (100-years/campaigns at 390, ours 115) */
+@media (width < 768px) {
+  /* stylelint-disable-next-line no-descending-specificity -- a lone quote, not the shared quote rule */
+  body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper:only-child > blockquote:only-child {
+    margin-top: 93px;
+  }
+}
+
 /* a picture before more content: the image component's 4rem */
 body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper > p:has(> picture):not(:last-child) {
   margin-bottom: 40px;
+}
+
+/* below 768px a page of spacious cards that opens with its title and a picture (take-off at
+   390): www's image component keeps its 4rem under the picture (ours 24px, every card picture
+   after it 16px off); at 1440 as before */
+@media (width < 768px) {
+  body.brand-lufthansa main:has(.cards-teaser.spacious) .default-content-wrapper > h1 + p:is(:has(> picture), :has(> a > picture)):not(:last-child) {
+    margin-bottom: 40px;
+  }
 }
 
 /* a separator as live's: maui-divider's 1px box, then the .hr's margin, which collapses with the
@@ -1563,6 +1690,13 @@ body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper
 
 /* stylelint-disable-next-line no-descending-specificity -- as above */
 body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper:not(:has(> :not(p.spacer))) + div {
+  margin-top: 0;
+}
+
+/* after padded tiles (cards-icon padded: the column view's 32px below them already) none either
+   (additional-services: each band 26px long at 1440 with it) */
+/* stylelint-disable-next-line no-descending-specificity -- as above */
+body.brand-lufthansa main > .section.campaign-section > .cards-icon-wrapper:has(> .cards-icon.padded) + .default-content-wrapper:not(:has(> :not(p.spacer))) {
   margin-top: 0;
 }
 
@@ -1596,6 +1730,35 @@ body.brand-lufthansa main > .section.campaign-section > .cards-teaser-wrapper > 
 
 body.brand-lufthansa main > .section.campaign-section > .cards-teaser-wrapper:last-child > .cards-teaser > ul {
   padding-bottom: 32px;
+}
+
+/* a column view's title, then its cards: live's view has its 32px padding above the title, the
+   first picture 40px under the title's box (baggage: ours 64 with the grid's column padding
+   too), also in a grey band of such a page; below 768px the 12px after a heading
+   (cards-teaser.css) stay */
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper:has(> :is(h2, h3, h4, h5, h6):last-child) + .cards-teaser-wrapper > .cards-teaser:not(.overlay, .spacious) > ul,
+  body.brand-lufthansa main:has(> .section.campaign-section) > .section.column-band > .default-content-wrapper:has(> :is(h2, h3, h4, h5, h6):last-child) + .cards-teaser-wrapper > .cards-teaser:not(.overlay, .spacious) > ul {
+    padding-top: 8px;
+  }
+}
+
+/* the destination finder's title (/de/en/flights: www's "Best offers" inside the finder, in a padded
+   section; the importer makes it the H1 before the block): the section's padding above it, from
+   768px the finder's space under it (ours: the title 40px higher at 1440, the filter 54px more) */
+/* stylelint-disable-next-line no-descending-specificity -- a title's wrapper, not a modal link's */
+body.brand-lufthansa main > .section > .default-content-wrapper:has(> h1:last-child):has(+ .destination-finder-wrapper > .destination-finder.grid) {
+  padding-top: 20px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section > .default-content-wrapper:has(> h1:last-child):has(+ .destination-finder-wrapper > .destination-finder.grid) {
+    padding-top: 40px;
+  }
+
+  body.brand-lufthansa main > .section > .default-content-wrapper:has(> h1:last-child):has(+ .destination-finder-wrapper > .destination-finder.grid) > h1 {
+    margin-bottom: 94px;
+  }
 }
 
 /* jump links in a column view of their own ([links | empty], 100-years/chronicle): below 768px
@@ -1644,6 +1807,13 @@ body.brand-lufthansa.insights-flow main > .section:not(.grey) > :not(.default-co
   body.brand-lufthansa.insights-flow main > .section:not(.grey) > :not(.default-content-wrapper:has(> :last-child:is(h2, h3))) + .columns-media-wrapper > .columns-media:has(.columns-media-row > :nth-child(2)) {
     padding: 40px 0 16px;
   }
+}
+
+/* before a grey band only the text component's 2.4rem (tags/munich: the intro to "Highlights to
+   Listen to", ours the 48px section gap); not before an in-column grey box (tags/allegris) */
+/* stylelint-disable-next-line no-descending-specificity -- a band's neighbour, not a column view's end */
+body.brand-lufthansa.insights-flow main > .section:not(.grey):has(+ .section.grey:not(.in-column)) {
+  margin-bottom: 24px;
 }
 
 /* stylelint-disable no-descending-specificity -- the figure's own children, as the paragraphs' rules */

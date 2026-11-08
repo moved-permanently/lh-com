@@ -224,6 +224,19 @@ body.brand-brussels .carousel-cards.grid .carousel-cards-track {
   }
 }
 
+/* the overview pages' first card grid under the sidebar intro (brief 505): www 103 to 118 px from the
+   intro to the first card at 1440 (11 of 16 recorded pages), 109 to 132 at 390; ours was 68 / 54: 40 / 64 px
+   more (the margin collapses with the grid's own 20 / 16, so the value is the whole space) */
+body.brand-brussels main > .section > .columns-media-wrapper:has(> .columns-media.sidebar) + .carousel-cards-wrapper > .carousel-cards.grid {
+  margin-top: 80px;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels main > .section > .columns-media-wrapper:has(> .columns-media.sidebar) + .carousel-cards-wrapper > .carousel-cards.grid {
+    margin-top: 60px;
+  }
+}
+
 /* the wide teasers' eyebrow (.teaser-title): regular, uppercase */
 body.brand-brussels .carousel-cards .carousel-cards-body > .carousel-cards-eyebrow,
 body.brand-brussels .carousel-cards .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > .carousel-cards-eyebrow {

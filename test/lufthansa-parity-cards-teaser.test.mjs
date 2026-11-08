@@ -25,7 +25,8 @@ test('the first row 32 px under what comes before it, as www\'s column-view padd
 
 test('the titles\' own margins win over the body rule (no size marker)', () => {
   has(/body\.brand-lufthansa \.cards-teaser:not\(\.overlay\) \.cards-teaser-body > \.cards-teaser-title:not\(\[class\*="heading-"\]\) \{ margin-bottom: var\(--heading-margin-l\); \}/);
-  has(/body\.brand-lufthansa \.cards-teaser:not\(\.overlay, \.three-up, :has\(:is\(h3, h4, h5, h6\)\.cards-teaser-title\)\) \.cards-teaser-body > h2\.cards-teaser-title:not\(\[class\*="heading-"\]\) \{ margin-bottom: var\(--heading-margin-xl\); \}/);
+  // h2 titles next to h3 titles too (brief 505, overview-special-request; test/cards-teaser-h2-titles-505.test.mjs)
+  has(/body\.brand-lufthansa \.cards-teaser:not\(\.overlay, \.three-up\) \.cards-teaser-body > h2\.cards-teaser-title:not\(\[class\*="heading-"\]\) \{ margin-bottom: var\(--heading-margin-xl\); \}/);
   has(/body\.brand-lufthansa \.cards-teaser\.three-up:not\(\.overlay\) \.cards-teaser-body > \.cards-teaser-title:not\(\[class\*="heading-"\]\) \{ margin-bottom: var\(--spacing-default\); \}/);
 });
 

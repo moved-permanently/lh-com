@@ -729,11 +729,8 @@ body.brand-airdolomiti .flight-search .flight-search-submit {
     grid-area: flex;
   }
 
-  /* the homepage: the box over the bottom of the stage, the band 243px high under it */
-  body.brand-airdolomiti main > .section:has(.hero-campaign-services) .hero-campaign.hero-campaign-services {
-    min-height: 780px;
-  }
-
+  /* the homepage: the box over the bottom of the stage, the band 243px high under it (the stage's
+     height: row 70, below) */
   body.brand-airdolomiti main > .section:has(.hero-campaign-services) .hero-campaign.hero-campaign-services[data-services="band"] .hero-campaign-inner {
     padding-top: 151px;
   }
@@ -742,7 +739,7 @@ body.brand-airdolomiti .flight-search .flight-search-submit {
     position: relative;
     z-index: 2;
     margin-top: -343px;
-    margin-bottom: 230px;
+    margin-bottom: 201px;
   }
 
   body.brand-airdolomiti main > .section:has(.hero-campaign-services) + .section.flight-search-container > .flight-search-wrapper {
@@ -791,6 +788,32 @@ body.brand-airdolomiti .hero-campaign.narrow .hero-campaign-content h1 {
     font-size: 65px;
     line-height: 72px;
   }
+}
+
+/* row 69 (brief 503): www's HeroFirst is the window's height with the bar over its top, its content
+   centred above a 70 px gap (the links row): the title centred as there (the bar's height and the
+   70 px under the content; the next section 150 px lower, below). The page stages
+   only (the page's h1); the destination band (an h2) as it is */
+body.brand-airdolomiti .hero-campaign.narrow:has(.hero-campaign-content h1) {
+  padding-bottom: calc(var(--nav-height) + 70px);
+}
+
+/*
+ * row 70 (the brief after 505): the homepage's first screen as www's, where the hero is the window's
+ * height with the alert bar and the header over its top: the alert pill (flash-teaser) over the
+ * stage's top, out of the flow in the place it had; the stage the window's height under the header
+ * (780px at 1440 x 900, 764px at 390 x 844); the promotions 64px under the band from 1025px, 60px
+ * below (the flight search's section, below the media queries' rules)
+ */
+body.brand-airdolomiti main:has(.hero-campaign-services) > .section.flash-teaser-container:first-child {
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 3;
+}
+
+body.brand-airdolomiti main > .section:has(.hero-campaign-services) .hero-campaign.hero-campaign-services {
+  min-height: calc(100svh - var(--nav-height));
 }
 
 /*
@@ -1763,7 +1786,7 @@ body.brand-airdolomiti .flight-search .flight-search-trip-type[hidden] {
     position: relative;
     z-index: 2;
     margin-top: -271px;
-    margin-bottom: calc(171px + var(--section-gap));
+    margin-bottom: 231px;
   }
 
   /* the open panel's section above the bar (its own layer would keep the panel under it) */
@@ -1905,6 +1928,11 @@ body.brand-airdolomiti main > .section > .breadcrumb-wrapper + .hero-campaign-wr
 
 body.brand-airdolomiti main > .section > .breadcrumb-wrapper:has(+ .hero-campaign-wrapper > .hero-campaign.narrow) .breadcrumb :is(li, li.breadcrumb-parent, a:any-link, .breadcrumb-current) {
   color: #fff;
+}
+
+/* row 69 (brief 503): the next section 150 px under a page stage (www's HeroFirst margin-bottom) */
+body.brand-airdolomiti main > .section:has(> .hero-campaign-wrapper > .hero-campaign.narrow .hero-campaign-content h1) {
+  margin-bottom: 150px;
 }
 
 /*

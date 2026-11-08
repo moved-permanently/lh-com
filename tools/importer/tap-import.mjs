@@ -65,7 +65,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+// eslint-disable-next-line import/no-extraneous-dependencies -- tooling (linkedom: dev)
+import { parseHTML } from 'linkedom';
 import { SITE_LANGUAGES } from '../../scripts/site-languages.js';
+import { collapseHtml } from './marker-collapse.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const W = path.join(root, 'content-sites/lh-tap');
@@ -356,6 +359,21 @@ function list(n, c) {
  * {spacer-24}: cards-teaser drops the emptied spacer.
  */
 export const EMPTY_LINE = '<sub>{blank}</sub>';
+
+/**
+ * The last step of every TAP import (tap-import.mjs, tap-markets.mjs: they run no import bundle):
+ * ema-test's marker collapse (marker-collapse.mjs, brand tap), gated as the bundles' (72026ccf):
+ * until TAP's theme is live (scripts/style-markers.js THEMES.tap.live) the document comes back byte
+ * for byte; forced (a site's pass) the {blank} line goes and tap.css's paragraph gap stands for it.
+ * @param {string} html a document (div form)
+ * @param {string} doc its path
+ * @param {{force?: boolean}} [opts]
+ */
+export function collapseTap(html, doc, { force = false } = {}) {
+  return collapseHtml(html, {
+    path: doc, brand: 'tap', parse: parseHTML, force,
+  }).html;
+}
 
 /** Block-level HTML of a node list; consecutive inline nodes become a paragraph. */
 function flow(nodes, c, mode = 'top') {
@@ -1336,8 +1354,10 @@ async function main() {
   const idx = mediaIndex([...fromIndex.dirs, ...all('media')]);
   const media = mediaResolver(idx, { dry });
   const written = [];
-  const write = (doc, html) => {
+  const write = (doc, raw) => {
     if (dry) return null;
+    // the collapse, the last step (collapseTap)
+    const html = collapseTap(raw, doc);
     const out = path.join(OUT, `${doc}.plain.html`);
     fs.mkdirSync(path.dirname(out), { recursive: true });
     const before = fs.existsSync(out) ? fs.readFileSync(out, 'utf8') : null;

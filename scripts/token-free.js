@@ -36,6 +36,28 @@ export function separatorParagraph(px, divider = false) {
   return p;
 }
 
+/** A column view's edge as a marker paragraph draws it ("{column-start-outer}" makes the same). */
+function columnMark(kind) {
+  const p = document.createElement('p');
+  p.className = `${kind} column-mark`;
+  p.setAttribute('aria-hidden', 'true');
+  return p;
+}
+
+const META_BLOCKS = ['metadata', 'section-metadata'];
+const blockName = (el) => el.className.split(' ')[0];
+const isMeta = (el) => isBlock(el) && META_BLOCKS.includes(blockName(el));
+const isColumnMark = (el) => !!el && [...el.classList].some((c) => c.startsWith('column-'));
+// SWISS's topic teaser: a heading whose link starts with its icon
+const isTeaser = (el) => /^H[2-4]$/.test(el.tagName) && !!el.querySelector(':scope > a > picture:first-child');
+
+/** A tab panel: a section whose Section Metadata has a Tab row (data-tab once it is read). */
+function isTabPanel(section) {
+  if (section.hasAttribute('data-tab')) return true;
+  const meta = [...section.children].find((el) => isBlock(el) && blockName(el) === 'section-metadata');
+  return !!meta && [...meta.children].some((row) => (row.firstElementChild?.textContent || '').trim().toLowerCase() === 'tab');
+}
+
 /** A space or divider choice as a separator paragraph (null: none). */
 function separatorFor(space, divider) {
   if (divider) return separatorParagraph(DIVIDER_SPACE, true);
@@ -220,6 +242,30 @@ function applyThemeRules(main, theme) {
     if (i > 0 && first && !isSeparator(first)) {
       if (theme.rules.includes('sections-m')) section.prepend(separatorParagraph(SPACE.m));
       else if (theme.rules.includes('ruled-chapters') && isChapterStart(first)) section.prepend(separatorParagraph(DIVIDER_SPACE, true));
+    }
+    // the brand's blocks that are column views of their own in the page's flow (THEMES columnViews
+    // .blocks: www's column view around the block, its padding above and below as the markers drew
+    // it): not in a tab panel; no edge above at the section's start, none below at its end (the
+    // section's padding) unless columnViews.endEdge; never twice (a marker's edge stays)
+    const { blocks = [], endEdge = false } = theme.columnViews;
+    if (blocks.length && !isTabPanel(section)) {
+      section.querySelectorAll(':scope > div[class]').forEach((block) => {
+        if (!blocks.includes(blockName(block))) return;
+        let prev = block.previousElementSibling;
+        while (prev && isMeta(prev)) prev = prev.previousElementSibling;
+        let next = block.nextElementSibling;
+        while (next && isMeta(next)) next = next.nextElementSibling;
+        if (prev && !isColumnMark(prev)) block.before(columnMark('column-start-outer'));
+        if ((next || endEdge) && !isColumnMark(next)) block.after(columnMark('column-end-outer'));
+      });
+    }
+    // SWISS's FAQ hub (styles.css "SWISS's FAQ hub"): a heading right before a run of topic teasers
+    // (a heading whose link starts with its icon) starts their column view, as its marker did
+    if (theme.rules.includes('teaser-groups')) {
+      own(section).forEach((el) => {
+        const next = el.nextElementSibling;
+        if (/^H[2-4]$/.test(el.tagName) && !isTeaser(el) && next && isTeaser(next)) addUnmarked(el, 'column-start', /\bcolumn-/);
+      });
     }
     if (theme.rules.includes('rule-before-info-box')) {
       section.querySelectorAll(':scope > div.columns-media').forEach((block) => {

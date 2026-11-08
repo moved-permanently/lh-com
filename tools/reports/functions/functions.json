@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-06 17:23",
-  "change": "Lufthansa's passenger receipt form is the replica's own in all 16 language versions, and Cargo's support page searches every tab and opens the contact form over the page with the topic's reason chosen.",
+  "updated": "2026-11-08 21:07",
+  "change": "Group for Business sign-ins for companies and travel agencies are the replica's own pages since 7 November and work end to end with test accounts; what is left (real members and their data) is Lufthansa's.",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -50,7 +50,7 @@
     "sndest": "Brussels Airlines' fare teasers, homepage slider and offers grid load live prices, but their cards open a destination page address the replica doesn't have. Brussels Airlines' own destination page works on the replica, and one brand setting points the cards at it.",
     "snchat": "Brussels Airlines' chat assistant loads from Brussels Airlines' website, outside AEM, as Austrian's does. Since 1 November its button shows on the pages that have it on www, in all six languages.",
     "adesim": "Air Dolomiti's eSIM shop (from the vendor Breeze) is built into the replica, but its switch stays off: Breeze answers every call from our address with 403, because the widget's key belongs to Air Dolomiti's site. It works once Air Dolomiti or Breeze allows our address.",
-    "b2bsignin": "Lufthansa Group for Business has two sign-ins in AEM today, one for companies and one for travel agencies (eXperts), each with a member area. Their replacement follows the other airlines' sign-ins, with test data first; showing real member data needs Lufthansa to let it reach its user and role systems. Until then the replica links to the current sign-ins.",
+    "b2bsignin": "Lufthansa Group for Business has two sign-ins, one for companies and one for travel agencies (eXperts), each with a member area. The replica has its own versions of both since 7 November, tested end to end with test accounts, and the header's Login menu points to them. Signing in real members and showing their data needs Lufthansa to let them reach its user and role systems.",
     "lxmarkets": "Switzerland in all ten of SWISS's languages (English, German, French, Italian, Spanish, Portuguese, Chinese, Japanese, Greek, Russian), SWISS's other countries in the languages www offers them in, and Korea in Korean are on the new platform since 3 November.",
     "tapstays": "By decision, TAP's booking engine, check-in, the manage-booking steps, the account and TAP Miles&Go sign-in, flight status, site search, forms, live fares and chat stay on TAP's current systems, and the new site links to them as www.flytap.com does. The pages about these topics are on the new platform."
   },
@@ -2107,10 +2107,10 @@
           "evidence": "Brussels app shells 2026-11-01 (lh-com b8253346, 19a5cd63; jobs 17-46-17-1ff03596, 18-03-02-61f61019; 104 pages 200 on brussels.turnsthe.page)"
         },
         "b2b": {
-          "status": "wip",
-          "note": "The sign-ins for companies and travel agencies run in AEM today; the replica links to www's sign-in pages until we build their replacement, which is ours. Showing real member data needs Lufthansa (see Personalised content).",
+          "status": "lh",
+          "note": "The sign-ins for companies and travel agencies are the replica's own pages and work end to end with test accounts; checking real members needs Lufthansa's user and role systems, which only AEM reaches today (see Personalised content).",
           "footnote": "b2bsignin",
-          "evidence": "2026-11-02: replica header Login links www /de/en/login and /service/secured/api/experts/login?country=de&language=en (country=de on every market root; www carries the root's country); PartnerPlusBenefit portal link unchanged; AMS-rest inventory: B2B sign-in has no owner yet"
+          "evidence": "2026-11-08: sign-ins live since 7 November (publish rounds 32B, 35, 42, 58: login, internal login, member pages, header Login menu); end-to-end test with test accounts passed, its four findings (company user names, role tiles, German texts, phone tables) fixed and published; real members and real data need Lufthansa (Personalised content row)"
         },
         "swiss": {
           "status": "elsewhere",

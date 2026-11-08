@@ -351,4 +351,10 @@
   .table-striped.beside-end > .table-striped-main > .table-striped-table:first-child {
     margin-top: 39px;
   }
+
+  /* www's maui-table cell keeps its paragraph's margin inside: a spec row 36px taller than ours
+     (fleet at 1440: one line 128px, ours 91), the text at the same height */
+  .table-striped:is(.beside, .beside-end) :is(th, td) {
+    padding-bottom: 68px;
+  }
 }
