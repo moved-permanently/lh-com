@@ -1,0 +1,43 @@
+# lh-tap: the documents to import again with tap-import.mjs after brief 480 (a banner carousel of one slide is the
+# option slider now, as www draws it: 1,176 x 404 with the wedge at 1440), for the harness. From the language versions'
+# pages of the market-diff fetch of 2026-11-07, plus /fr-fr and /de-de miles-and-go (one slide in the sweep's capture
+# of 2026-11-08; not in that fetch). 13 of them are in reimport-tap-478.txt too: one import with today's importer does
+# both. Left out: publish-list-tap-480.txt's 2 (done in DA).
+/pt-pt/destinos
+/pt-pt/miles-and-go/club
+/pt-pt/miles-and-go/loja-de-milhas
+/pt-pt/miles-and-go/miles-and-go-pets
+/pt-pt/miles-and-go/promo
+/pt-pt/miles-and-go/utilizar-milhas/doar-milhas
+/en-pt/destinations
+/en-pt/miles-and-go/club
+/en-pt/miles-and-go/miles-and-go-pets
+/en-pt/miles-and-go/miles-store
+/en-pt/miles-and-go/promo
+/en-pt/miles-and-go/use-miles/donate-miles
+/es-es/destinos
+/es-es/destinos/inspirate
+/es-es/miles-and-go
+/es-es/miles-and-go/club
+/es-es/miles-and-go/miles-and-go-pets
+/es-es/miles-and-go/promo
+/es-es/miles-and-go/socios
+/es-es/miles-and-go/tienda-millas
+/es-es/miles-and-go/utilice-millas/donar-millas
+/es-es/reservas/medios-de-pago
+/fr-fr/miles-and-go
+/fr-fr/miles-and-go/club
+/fr-fr/miles-and-go/miles-and-go-pets
+/fr-fr/miles-and-go/partenaires
+/fr-fr/miles-and-go/promo
+/fr-fr/miles-and-go/utilisez-miles/don-miles
+/fr-fr/reservations/modes-de-paiement
+/de-de/miles-and-go
+/de-de/miles-and-go/club
+/de-de/miles-and-go/meilen-shop
+/de-de/miles-and-go/miles-and-go-pets
+/de-de/miles-and-go/partner
+/de-de/miles-and-go/promo
+/de-de/miles-and-go/verwenden-meilen/spenden-meilen
+/de-de/reiseziele
+/de-de/reiseziele/inspirieren

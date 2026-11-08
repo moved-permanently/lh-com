@@ -1,0 +1,10 @@
+# lh-tap: brief 480, in release order. Nothing is published yet. Uploaded to DA (moved-permanently/lh-tap) and
+# previewed on main--lh-tap--moved-permanently.aem.page: DA's copy of 2026-11-08 (brief 478's upload) with the banner
+# carousel's one-slide banners as the slider (hero-campaign slider narrow), nothing else changed; main's code draws
+# them already (hero-campaign-tap.js hero-campaign-single). They hold brief 462's market sections and DA's edits, so
+# they are not in the re-import list.
+#
+# Media: none new.
+# Pages
+/pt-pt/reservas/modalidades-de-pagamento
+/en-pt/bookings/payment-methods
