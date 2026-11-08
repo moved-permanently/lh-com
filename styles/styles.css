@@ -1616,6 +1616,15 @@ body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper
   padding-bottom: 10px;
 }
 
+/* an author quote alone in its AEM section, below 768px: www's 148px from the picture above to its
+   first line (100-years/campaigns at 390, ours 115) */
+@media (width < 768px) {
+  /* stylelint-disable-next-line no-descending-specificity -- a lone quote, not the shared quote rule */
+  body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper:only-child > blockquote:only-child {
+    margin-top: 93px;
+  }
+}
+
 /* a picture before more content: the image component's 4rem */
 body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper > p:has(> picture):not(:last-child) {
   margin-bottom: 40px;
