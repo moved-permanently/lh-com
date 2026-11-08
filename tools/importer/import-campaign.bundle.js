@@ -2340,7 +2340,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/columns-media.js
-  function parse6(element, { document }) {
+  function parse6(element, { document, url, params }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -2798,7 +2798,10 @@ var CustomImportScript = (() => {
       const isImage = (n) => n.nodeType === 1 && !clean3(n.textContent) && (n.matches("img, picture") || !!n.querySelector("img, picture")) && !n.querySelector("video, iframe");
       const loneImage = items.length > 1 && filled.length === 1 && filled[0].every(isImage);
       const halfAlone = element.matches(".twocolumn") && items.length === 2 && filled.length === 1;
-      const row = (hasEmbed || nestedView || loneImage || halfAlone) && filled.length ? collected.map((c) => c.length ? c : "") : filled;
+      const pageUrl = params && params.originalURL || url || "";
+      const lufthansa = /^https?:\/\/([^/]+\.)?lufthansa\.com\//.test(pageUrl);
+      const partial = lufthansa && element.matches(".threecolumn, .fourcolumn") && filled.length > 0 && filled.length < items.length;
+      const row = (hasEmbed || nestedView || loneImage || halfAlone || partial) && filled.length ? collected.map((c) => c.length ? c : "") : filled;
       if (row.length) cells.push(row);
       const sliderView = items.some((it) => [...it.querySelectorAll(".column-view > .carousel")].some((c) => c.querySelectorAll(".hidden-md-down .image img").length > 1));
       if (sliderView) variants.push("slider");
@@ -3863,6 +3866,41 @@ var CustomImportScript = (() => {
     const next = run[run.length - 1].nextElementSibling;
     return run.length === 1 && separatorInline(run[0]) === null && !separatorInfo(run[0]).keep && !!prev && !!next && prev.matches(FLOW_COLUMN) && next.matches(FLOW_COLUMN) ? next : null;
   }
+  function lhBetweenColumnViews(run) {
+    if (run.length !== 1) return null;
+    const inline = separatorInline(run[0]);
+    if (inline === null || inline < 10 || separatorInfo(run[0]).keep) return null;
+    const prev = run[0].previousElementSibling;
+    const next = run[0].nextElementSibling;
+    return !!prev && !!next && prev.matches(FLOW_COLUMN) && next.matches(FLOW_COLUMN) ? next : null;
+  }
+  var EMPTY_FIRST = "data-lh-empty-first";
+  function isEmptyParagraph(p) {
+    return !!p && p.tagName === "P" && !p.textContent.replace(/\u00A0/g, " ").trim() && !p.querySelector("img, br");
+  }
+  function markEmptyFirstParagraphs(document) {
+    document.querySelectorAll(`${CELL_ITEM} > .text`).forEach((comp) => {
+      const rich = comp.querySelector(":scope > .richtext");
+      if (rich && isEmptyParagraph(rich.firstElementChild)) comp.setAttribute(EMPTY_FIRST, "");
+    });
+  }
+  function markNoteSpacers(document) {
+    document.querySelectorAll(`${CELL_ITEM} > .text`).forEach((comp) => {
+      const prev = comp.previousElementSibling;
+      if (!prev || !prev.matches(CELL_TEXT)) return;
+      const rich = comp.querySelector(":scope > .richtext");
+      const first = rich && rich.firstElementChild;
+      const empty = isEmptyParagraph(first);
+      if (!empty && !comp.hasAttribute(EMPTY_FIRST)) return;
+      comp.removeAttribute(EMPTY_FIRST);
+      if (!rich || ![...rich.children].some((c) => !isEmptyParagraph(c) && c.textContent.trim())) return;
+      if (empty) first.remove();
+      const div = document.createElement("div");
+      div.className = CELL_SPACER;
+      div.textContent = "{spacer-24}";
+      comp.before(div);
+    });
+  }
   function endsTextCell(run) {
     const first = run[0];
     const item = first.parentElement;
@@ -3883,6 +3921,7 @@ var CustomImportScript = (() => {
     const template = (payload && payload.template || {}).name;
     const fillGaps = !SEPARATOR_AS_IS_TEMPLATES.includes(template);
     const cellSpacers = isLufthansaPage(payload);
+    if (cellSpacers) markNoteSpacers(document);
     const brussels = isBrusselsPage(payload);
     const runs = [];
     document.querySelectorAll(".separator").forEach((sep) => {
@@ -3913,7 +3952,7 @@ var CustomImportScript = (() => {
         run.slice(1).forEach((sep) => sep.remove());
         return;
       }
-      const separated = brussels && betweenColumnViews(run);
+      const separated = brussels && betweenColumnViews(run) || cellSpacers && lhBetweenColumnViews(run);
       if (separated) separated.setAttribute(SEPARATED, "true");
       let markers = null;
       if (infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run)) {
@@ -4859,6 +4898,10 @@ var CustomImportScript = (() => {
   }
   function transform(hookName, element, payload) {
     const document = payload && payload.document || element.ownerDocument || element;
+    if (hookName === "onLoad") {
+      markEmptyFirstParagraphs(document);
+      return;
+    }
     if (hookName === "beforeTransform") {
       decodeEntityText(document);
       const titleEl = document.querySelector("title");
@@ -5486,6 +5529,10 @@ var CustomImportScript = (() => {
     return pageBlocks;
   }
   var import_campaign_default = {
+    // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
+    onLoad: ({ document }) => {
+      executeTransformers("onLoad", document.body, { document });
+    },
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
