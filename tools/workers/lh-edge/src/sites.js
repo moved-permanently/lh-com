@@ -235,16 +235,17 @@ export const SITE_SITEMAP_INDEXES = {
 /**
  * The two-letter roots helix-query.yaml's market-pages index leaves out (it serves every site):
  * lh-com's four roots with their own indexes, Discover's xx/fr, ITA's and Austrian's language
- * versions. Each has its own search-<cc>-<ll> index. On SWISS (MARKET_EXTRA_INDEX_SITES) its
- * market roots among them are market roots like the others, whose own pages that index holds
+ * versions. Each has its own search-<cc>-<ll> index. On SWISS and lh-b2b (MARKET_EXTRA_INDEX_SITES)
+ * their market roots among them are market roots like the others, whose own pages that index holds
  * instead of /market-pages.json: siteEnv's MARKET_EXTRA_INDEXES, read with it (src/edge.js
- * originFetch). test/swiss-market-index.test.mjs checks the list against helix-query.yaml.
+ * originFetch; b2b: at/de, gb/en, it/en, brief 497). test/swiss-market-index.test.mjs checks the
+ * list against helix-query.yaml.
  */
 export const MARKET_INDEX_EXCLUDED_ROOTS = [
   'de/en', 'de/de', 'at/de', 'gb/en', 'xx/fr', 'it/en', 'it/it', 'fr/fr', 'es/es', 'nl/nl', 'br/pt',
   'gr/el', 'jp/ja', 'ru/ru', 'cn/zh', 'pl/pl',
 ];
-const MARKET_EXTRA_INDEX_SITES = new Set(['swiss']);
+const MARKET_EXTRA_INDEX_SITES = new Set(['b2b', 'swiss']);
 
 /**
  * The env a site's request is answered with: its origin and www host, its tables (read by
