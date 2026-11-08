@@ -70,13 +70,34 @@ export function cfEmail(hex) {
   return String.fromCharCode(...bytes.slice(1).map((b) => b ^ bytes[0]));
 }
 
-const attrValue = (name, v, norm) => {
+// a picture's value: src, srcset, data-src, data-srcset, poster, a widget's imageUrl (brief 496)
+const PICTURE_ATTRS = new Set(['src', 'srcset', 'data-src', 'data-srcset', 'poster']);
+const PICTURE_KEYS = /^imageUrl$/i;
+const PICTURE_FILE = /\.(?:jpe?g|png|gif|webp|avif|svg)(?=$|[?#]|\.transform\/)/i;
+// www's renditions: <the DAM file>.transform/<rendition>/img.jpg
+const TRANSFORM = /(\.(?:jpe?g|png|gif|webp|avif|svg))\.transform\/[^?#]*/i;
+
+/**
+ * A picture by its DAM file: the path before www's .transform/ tail (never the tail's img.jpg), the rendition and
+ * query left out, its numbers as they are (c-1026695176-4252991.jpg names the picture; brief 496); else null.
+ */
+export function pictureFile(s) {
+  if (!PICTURE_FILE.test(s)) return null;
+  return s.replace(TRANSFORM, '$1').replace(/[?#].*$/, '');
+}
+
+const attrValue = (name, v, norm, key = '') => {
   let s = norm(v);
   // the root's locale only where an attribute names a locale (custom-locale="en-ch"), not in links
   if (norm.locale && /locale|^lang$|hreflang/.test(name)) s = s.replace(norm.locale, '{locale}');
+  if (name === 'srcset' || name === 'data-srcset') s = s.split(',')[0].trim().split(' ')[0];
+  // pictures by their DAM file, unmasked
+  if (PICTURE_ATTRS.has(name) || PICTURE_KEYS.test(key)) {
+    const file = pictureFile(s);
+    if (file) return file;
+  }
   // number tails of generated ids in any attribute that points at an element (form-text-519644935, #accordion_123456)
   s = s.replace(/([-_])-?\d{5,}\b/g, '$1{n}').replace(/^#[\w-]*\d{5,}$/, '#{id}');
-  if (name === 'srcset') s = s.split(',')[0].trim().split(' ')[0];
   return s;
 };
 
@@ -95,18 +116,18 @@ function configValue(name, v, norm) {
   try { j = JSON.parse(v); } catch (e) { return plain; }
   if (!j || typeof j !== 'object') return plain;
   const codes = norm.codes || [];
-  const walk = (o) => {
-    if (Array.isArray(o)) return o.map(walk);
+  const walk = (o, key = '') => {
+    if (Array.isArray(o)) return o.map((x) => walk(x, key));
     if (o && typeof o === 'object') {
       return Object.fromEntries(Object.keys(o).sort().map((k) => {
         const val = o[k];
         if (DYNAMIC_KEYS.test(k)) return [k, '{dynamic}'];
         if (ID_KEYS.test(k) && typeof val !== 'object') return [k, '{id}'];
         if (MARKET_KEYS.test(k) && typeof val === 'string' && codes.includes(val.toLowerCase())) return [k, '{m}'];
-        return [k, walk(val)];
+        return [k, walk(val, k)];
       }));
     }
-    return typeof o === 'string' ? attrValue(name, o, norm) : o;
+    return typeof o === 'string' ? attrValue(name, o, norm, key) : o;
   };
   return JSON.stringify(walk(j));
 }

@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_989949_exports = {};
-  __export(tmp_bundle_campaign_989949_exports, {
-    default: () => tmp_bundle_campaign_989949_default
+  var tmp_bundle_campaign_325465_exports = {};
+  __export(tmp_bundle_campaign_325465_exports, {
+    default: () => tmp_bundle_campaign_325465_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -5600,6 +5600,18 @@ var CustomImportScript = (() => {
       return !!hr && hr.classList.contains("hr-no-layout");
     });
   }
+  var NOT_ALONE = /^\s*(\{(?:spacer|divider)-[^{}]*\})(?:\s*\{[a-z0-9 -]+\})+\s*$/;
+  function aloneMarkers(document) {
+    let fixed = 0;
+    document.querySelectorAll("p").forEach((p) => {
+      if (p.children.length) return;
+      const m = NOT_ALONE.exec(p.textContent || "");
+      if (!m) return;
+      p.textContent = m[1];
+      fixed += 1;
+    });
+    return fixed;
+  }
   function transform3(hookName, element, payload) {
     const document = payload && payload.document || element.ownerDocument || element;
     if (hookName === "onLoad") {
@@ -5616,6 +5628,10 @@ var CustomImportScript = (() => {
           sep.replaceWith(spacerComponent(document, hr.classList.contains("hidden-sm-down") ? `${n} from-768` : n));
         });
       });
+      return;
+    }
+    if (hookName === "afterTransform") {
+      aloneMarkers(document);
       return;
     }
     if (hookName !== "beforeTransform") return;
@@ -5914,7 +5930,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_989949_default = {
+  var tmp_bundle_campaign_325465_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5948,5 +5964,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_989949_exports);
+  return __toCommonJS(tmp_bundle_campaign_325465_exports);
 })();

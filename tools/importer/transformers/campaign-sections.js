@@ -104,6 +104,28 @@ function sectionSeparators(s) {
   });
 }
 
+/*
+ * A spacer or divider paragraph with a marker after its own ("{spacer-50} {limited-width}",
+ * brief 496): the cleanup's paragraph styles (afterTransform, before this one) read "{spacer-50}"
+ * as no marker (digits) and append the width of the text component it stands in; scripts.js makes
+ * a paragraph a spacer or divider only when its marker stands alone, so the pair showed as text.
+ * The paragraph keeps its own marker (its words too: {spacer-17 from-768}); a paragraph with
+ * markup or other text is left as it is.
+ */
+const NOT_ALONE = /^\s*(\{(?:spacer|divider)-[^{}]*\})(?:\s*\{[a-z0-9 -]+\})+\s*$/;
+
+function aloneMarkers(document) {
+  let fixed = 0;
+  document.querySelectorAll('p').forEach((p) => {
+    if (p.children.length) return;
+    const m = NOT_ALONE.exec(p.textContent || '');
+    if (!m) return;
+    p.textContent = m[1];
+    fixed += 1;
+  });
+  return fixed;
+}
+
 export default function transform(hookName, element, payload) {
   const document = (payload && payload.document) || element.ownerDocument || element;
   if (hookName === 'onLoad') {
@@ -121,6 +143,10 @@ export default function transform(hookName, element, payload) {
         sep.replaceWith(spacerComponent(document, hr.classList.contains('hidden-sm-down') ? `${n} from-768` : n));
       });
     });
+    return;
+  }
+  if (hookName === 'afterTransform') {
+    aloneMarkers(document);
     return;
   }
   if (hookName !== 'beforeTransform') return;
