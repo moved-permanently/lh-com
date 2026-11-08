@@ -1600,6 +1600,13 @@ body.brand-lufthansa main .cards-icon-text-wrapper:has(> .cards-icon-text.partne
   }
 }
 
+/* a grey band, then a padded AEM section (lufthansa-travel-classes' Allegris cards): live's band
+   has no 2.4rem under it, only the section's padding follows (ours 15px more at 390, 17 at 1440) */
+/* stylelint-disable-next-line no-descending-specificity -- a band before a padded section, not a column view's end */
+body.brand-lufthansa main > .section.grey:has(+ .section.campaign-section.padded) {
+  margin-bottom: 32px;
+}
+
 /* jump links, then a separator: live's link list ends at its last link, the separator's 1px and
    margin follow it (baggage: 24px more before "Types of baggage" with our wrapper gap) */
 /* stylelint-disable-next-line no-descending-specificity -- a campaign-section's wrapper, not a modal link's */
