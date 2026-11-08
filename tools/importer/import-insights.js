@@ -77,6 +77,7 @@ const PAGE_TEMPLATE = {
       "instances": [
         ".article-details-page .article-content > div > .twocolumn:not(:has(.column-view-item > .image + .headline))",
         ":is(.section-content, .container-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe:not(.video-player > iframe), maui-navigation-link[variant=\"anchor-down\"]))",
+        ".threecolumn:has(> .column-view > .row > .column-view-item > .videoViewer):not(:has(.teaser, .table, .accordion, .tabs, form, .onecolumn, .twocolumn, .fourcolumn))",
         ".videoViewer, .image:has(video)"
       ]
     },

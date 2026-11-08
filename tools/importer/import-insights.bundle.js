@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-insights.js
-  var tmp_bundle_insights_716511_exports = {};
-  __export(tmp_bundle_insights_716511_exports, {
-    default: () => tmp_bundle_insights_716511_default
+  var import_insights_exports = {};
+  __export(import_insights_exports, {
+    default: () => import_insights_default
   });
 
   // tools/importer/parsers/poi-data.js
@@ -7008,6 +7008,7 @@ var CustomImportScript = (() => {
         "instances": [
           ".article-details-page .article-content > div > .twocolumn:not(:has(.column-view-item > .image + .headline))",
           ':is(.section-content, .container-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe:not(.video-player > iframe), maui-navigation-link[variant="anchor-down"]))',
+          ".threecolumn:has(> .column-view > .row > .column-view-item > .videoViewer):not(:has(.teaser, .table, .accordion, .tabs, form, .onecolumn, .twocolumn, .fourcolumn))",
           ".videoViewer, .image:has(video)"
         ]
       },
@@ -7187,7 +7188,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_insights_716511_default = {
+  var import_insights_default = {
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -7217,5 +7218,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_insights_716511_exports);
+  return __toCommonJS(import_insights_exports);
 })();
