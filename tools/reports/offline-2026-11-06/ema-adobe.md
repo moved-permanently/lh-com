@@ -1771,3 +1771,63 @@ separators are maui-divider boxes, its links maui components) and no carousels.
 | 2 | 11014a6 | campaign separators, the intro section, the jump links' stacked column |
 | 2, 3 | e650caa | narrow pictures in columns; video player at the video's size |
 | 4 | 0d199b5 | Insights pages without AEM sections: Theme insights-flow |
+
+## Brief 493 (2026-11-08): SWISS upgrade links, the shared market index, bundles, the Bright Data snapshots
+
+Left from 492: the generated import reports and the scratch in logs/b484 and logs/b488 (with
+lh-snapshots-085 in logs/b488/dl and /tmp/b488dam); one reverted Insights column-title rule never
+committed; nothing unpushed.
+
+### 1. SWISS per-root upgrade links (d7210ee)
+
+- swiss is in lh-edge's UPGRADE_ARTIFACT_SITES now (Brussels' 29d9ca5 mechanism): a market root
+  served ch's language version links its own .../fix-price-upgrade/<cc>-<ll>. On
+  swiss.turnsthe.page after the deploy: cz/it → cz-it, de/de → de-de, gb/en → gb-en, hk/zh → hk-zh
+  (before: ch-it, ch-de, ch-en). No root is listed as lacking its artifact; I read no www page this
+  round, so a root whose artifact www doesn't have would now link a missing one. A sample checked
+  on www (one root per language) would settle it.
+- Smoke before and after: the same counts on every host; brussels and swiss 0 of 97 differ from
+  their recordings; swiss-smoke and TAP unchanged.
+
+### 2. The shared index and SWISS's own documents at ITA's and Austrian's language-version paths
+
+- Already in place since 8b8416b (2026-11-03): lh-edge's sites.js lists the roots helix-query.yaml's
+  market-pages index leaves out (MARKET_INDEX_EXCLUDED_ROOTS), and for SWISS, where they are market
+  roots, swiss.turnsthe.page's /market-pages.json merges in those roots' own search indexes
+  (/br/pt/search-index.json etc., which helix-query.yaml defines for every site). Other sites'
+  indexes are unchanged.
+- The origin's /market-pages.json has 4,600 rows (what you saw); the host's has 4,644. All five new
+  documents (br/pt advance-seat-reservation, cn/zh swiss-premium-economy, gr/el, jp/ja and ru/ru
+  medical-travel-companions) are in it, in their roots' sitemaps, and answer 200. llms.txt lists none
+  of them, as for the roots' other own pages (llms-include only).
+- No code change, nothing to republish.
+
+### 3. Hub, insights and fleet bundles (76ca558)
+
+- All three already carried 7f1038f (ema-cashub's ec12449 rebuilt every bundle). Hub and fleet
+  lacked e650caa (narrow pictures, the video size marker) and were rebuilt. Every page imported
+  offline with main's bundle and with the new one: hub 68 of 68 and fleet 32 of 32 identical, so
+  nothing to re-import. Insights was rebuilt in 492.
+
+### 4. Hub on the new section handling
+
+- Not started: ema-test's cards-icon padding isn't on main (blocks/cards-icon last changed 5cf7e6b,
+  2026-11-06).
+
+### 5. The Bright Data snapshots
+
+- tools/importer/bd-snapshots/: www.lufthansa.com has 3,397 pages (228 roots, 2026-10-21 to
+  2026-11-03, 8.5 GB with bd-session's page folders); www.discover-airlines.com has 562 (9 roots,
+  2026-10-27 to 2026-11-01, 125 MB).
+- 391 lufthansa.com pages are already in lh-snapshots archives, matched by URL against the 104
+  manifests in the R2 drop (read from the start of each archive's stream, nothing else downloaded).
+- The 3,568 others are packed into lh-bd-ema-001 to -016: 5,366 MB in all, each under 495 MB,
+  manifest first, bd-session layout. They're in logs/b493/bd-archives (outside git), not uploaded.
+- Names, sizes, sha256 and the per-root table:
+  [../bd-snapshots/lh-bd-ema.md](../bd-snapshots/lh-bd-ema.md). Discover's 562 are all in
+  lh-bd-ema-016.
+
+| Item | Commit | What |
+| --- | --- | --- |
+| 1 | d7210ee | lh-edge: SWISS market roots link their own upgrade artifact |
+| 3 | 76ca558 | hub and fleet bundles rebuilt (output unchanged) |
