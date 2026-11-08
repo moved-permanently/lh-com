@@ -1173,9 +1173,21 @@ body.brand-airdolomiti main > .section.newsletter > .newsletter-signup-wrapper {
     opacity: 0.91;
   }
 
+  /* the row's arrow as www's (brief 474: arrow.svg, two light teal bars forming a ">", turned 90
+     degrees down while open; drawn here, www's file is not in the capture) instead of the chevron */
   body.brand-airdolomiti footer .footer .footer-column-toggle .lh-icon {
     width: 25px;
     height: 25px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 21 25'%3E%3Cpath fill='%23afd3d8' d='M0 0h11l10 11.5H10zM10 13.5h11L11 25H0z'/%3E%3C/svg%3E") center / 21px 25px no-repeat;
+    transform: none;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-column-toggle .lh-icon > * {
+    display: none;
+  }
+
+  body.brand-airdolomiti footer .footer .footer-column-toggle[aria-expanded='true'] .lh-icon {
+    transform: rotate(90deg);
   }
 
   body.brand-airdolomiti footer .footer .footer-column-links a {

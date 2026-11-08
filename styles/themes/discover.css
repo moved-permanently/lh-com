@@ -441,6 +441,53 @@ body.brand-discover .footer .footer-legal .footer-link {
   font-size: 18px;
 }
 
+/* brief 474 (the brand sweep's footer rows): the footer on phones as www's (discover-parity-001 at
+   390): the sections 84 px under the top, 24 px apart, their titles 14/15.4 px in a 13 px padded row
+   whose white line stops 22 px from each side; Follow us 14/28 px, 36 px over the icons; no line
+   before the legal links, 60 px under the icons, 24 px apart and 12 px further in, 41 px over the
+   logo band, whose night sky blue part is 63 px */
+@media (width < 768px) {
+  body.brand-discover .footer .footer-inner {
+    padding-top: 84px;
+  }
+
+  body.brand-discover .footer .footer-column:not(.footer-column-badges) {
+    margin-bottom: 24px;
+  }
+
+  body.brand-discover .footer .footer-column-toggle {
+    width: calc(100% - 44px);
+    margin: 0 22px;
+    padding: 13px 28px 13px 0;
+    border-bottom-color: #fff;
+    font-size: 14px;
+    line-height: 15.4px;
+  }
+
+  body.brand-discover .footer .footer-column-badges {
+    padding-top: 0;
+  }
+
+  body.brand-discover .footer .footer-badge-heading {
+    margin-bottom: 36px;
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  body.brand-discover .footer .footer-divider {
+    display: none;
+  }
+
+  body.brand-discover .footer .footer-legal {
+    row-gap: 24px;
+    padding: 60px 0 41px 12px;
+  }
+
+  body.brand-discover .footer .footer-logos-inner {
+    padding-bottom: 97px;
+  }
+}
+
 /* brief 394: table row headers (a short first cell, blocks/table-striped) regular as www's cells */
 body.brand-discover .table-striped tbody th {
   font-weight: 400;
