@@ -1197,7 +1197,7 @@ It also gives `stripStyleMarkers` / `stripStyleMarkersHtml`. scripts.js, media.j
 left. A marker is a known token at the end of its element, so data placeholders (`{origin}`, `{COUNT}`, `{lang}`) and regex
 quantifiers (`{1,3}`) stay. No marker was added and none respelled.
 
-### A. lh-edge's app JSON for web pages (`003e833a`)
+### A. lh-edge's app JSON for web pages (`4000962d`)
 
 sdui-web.js leaves every marker out of headlines, texts, lists, teasers and accordion titles. A paragraph of markers only is
 no text item; with a picture it is an image item, so the parallax articles' images come back.
@@ -1212,12 +1212,12 @@ compare-sdui.mjs --local (75 URLs × v1 and v2) and compare-sdui-web.mjs --local
 with HEAD's code as with the new code: no new differences. lh-edge's suite passes: 394 tests. deploy-lh-edge.yaml now also
 deploys on scripts/style-markers.js.
 
-### B. List items (`003e833a`)
+### B. List items (`4000962d`)
 
 LIST_STYLE takes the text sizes (copytext-small, medium, large) as paragraphs do, and styles.css sizes `ul`/`ol` with them
 as `p`. Test: test/style-markers-lists.test.mjs, with the four marked lists of SWISS's /ch/en/prepare/baggage/sports-equipment.
 
-### C. TAP `{blank}` in Accordion Columns (`003e833a`)
+### C. TAP `{blank}` in Accordion Columns (`4000962d`)
 
 Accordion panels also hold real subscript paragraphs, such as an agency's note (`<p><sub>Si votre réservation…</sub></p>`).
 The cards' CSS (`p:has(> sub:only-child)`) would hide those too. Instead:
@@ -1228,7 +1228,7 @@ The cards' CSS (`p:has(> sub:only-child)`) would hide those too. Instead:
 Test: test/tap-blank-accordion.test.mjs. On tap.turnsthe.page/fr-fr/destinations/inspirez-vous with all 293 panels open and
 the local files served: 36 visible `{blank}` on the host now, 0 with the change, 36 lines of 24 px, no subscript hidden.
 
-### D. Meta descriptions (`f3158850`)
+### D. Meta descriptions (`ec12449c`)
 
 `tools/importer/description-fix.mjs` takes HTML in and gives HTML out. Only the Metadata block changes. It adds a
 Description row after Title, its cells written as the block's own:
@@ -1248,7 +1248,7 @@ markers. Not run on DA: the harness runs it on the 415 pages.
 
 ### Checks (the brief after 484)
 
-- Full suite in a fresh worktree of f3158850: eslint 0, stylelint 0, 554 passed and 1 failed. The failure was
+- Full suite in a fresh worktree of ec12449c: eslint 0, stylelint 0, 554 passed and 1 failed. The failure was
   test/deploy-lh-edge-paths.test.mjs: the workflow did not list scripts/style-markers.js. The follow-up commit adds it, and
   the test then passes. Again on the rebased heads after the pulls (other agents' themes, importers and TAP's accordion fragments): 556, 558, then 560 passed (6916dd16; the bundle conflict with the campaign importer resolved by rebuilding all bundles).
 - lh-edge: 394 tests passed.
@@ -1256,5 +1256,5 @@ markers. Not run on DA: the harness runs it on the 415 pages.
 
 | item | commit | what | rollback |
 | --- | --- | --- | --- |
-| A-C | `003e833a`, `1e843a26`, 00cfb540 | the shared marker list; lh-edge's app JSON; list text sizes; TAP {blank} in panels; deploy path | `git revert` |
-| D | `f3158850` | description-fix.mjs; the cleanup writes www's description; bundles | `git revert`; the harness's 415 documents: DA versions |
+| A-C | `4000962d`, `78a513fd`, 3144892d | the shared marker list; lh-edge's app JSON; list text sizes; TAP {blank} in panels; deploy path | `git revert` |
+| D | `ec12449c` | description-fix.mjs; the cleanup writes www's description; bundles | `git revert`; the harness's 415 documents: DA versions |
