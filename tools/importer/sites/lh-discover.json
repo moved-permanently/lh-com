@@ -563,7 +563,8 @@
   "/ca/en/my-bookings/manage/seat-reservation",
   "/ca/fr/legal/passenger-rights",
   "/ca/fr/my-bookings/manage/customer-service",
-  "/ca/fr/my-bookings/manage/seat-reservation"
+  "/ca/fr/my-bookings/manage/seat-reservation",
+  "/xx/en/new-destinations"
  ],
  "patterns": [
   "^/(de/en|de/de)/fragments/[a-z0-9-]+$"
