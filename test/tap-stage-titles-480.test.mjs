@@ -35,3 +35,8 @@ test('the TAP slider calls it first; the theme styles the class as the headings 
   assert.ok((css.match(/\.hero-campaign-content :is\(h1, h2, h3, h4, h5, h6, \.hero-campaign-heading\)/g) || []).length >= 6);
   assert.match(css, /body\.brand-tap \.hero-campaign-tap \.hero-campaign-heading \{\s+color: inherit;\s+font-family: var\(--heading-font-family\);/);
 });
+
+test('the title paragraph is not padded as the slide\'s other text: TAP\'s padding reset reaches it (hero-campaign.css pads every child but headings and the subtitle by 64 px from 1025 px)', () => {
+  const css = fs.readFileSync(new URL('../styles/themes/tap.css', import.meta.url), 'utf8');
+  assert.match(css, /body\.brand-tap \.hero-campaign-tap \.hero-campaign-content > :not\(h1, h2, h3, h4, h5, h6, \.hero-campaign-subtitle\) \{\s+padding-left: 0;/);
+});

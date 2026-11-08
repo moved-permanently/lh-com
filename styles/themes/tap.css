@@ -407,7 +407,7 @@ body.brand-tap .hero-campaign-tap .hero-campaign-content > .hero-campaign-subtit
   letter-spacing: -0.01em;
 }
 
-body.brand-tap .hero-campaign-tap .hero-campaign-content > :not(h1, h2, h3, h4, h5, h6, .hero-campaign-heading, .hero-campaign-subtitle) {
+body.brand-tap .hero-campaign-tap .hero-campaign-content > :not(h1, h2, h3, h4, h5, h6, .hero-campaign-subtitle) {
   padding-left: 0;
 }
 
