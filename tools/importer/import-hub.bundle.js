@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-hub.js
-  var tmp_bundle_hub_551601_exports = {};
-  __export(tmp_bundle_hub_551601_exports, {
-    default: () => tmp_bundle_hub_551601_default
+  var import_hub_exports = {};
+  __export(import_hub_exports, {
+    default: () => import_hub_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -4207,18 +4207,18 @@ var CustomImportScript = (() => {
       const aem = !quote.closest(".article-details-page") && holder.closest(".container-content > .section");
       const content = aem && holder.closest(".section-content");
       const alone = content && [...content.children].every((c) => c === holder || !cleanText(c));
-      const padded = (dir) => paddedAem(aemNeighbour(aem, dir));
+      const padded2 = (dir) => paddedAem(aemNeighbour(aem, dir));
       holder.replaceWith(
-        ...alone && padded("previousElementSibling") ? spacerParagraphs(document, QUOTE_SPACERS.before) : [],
+        ...alone && padded2("previousElementSibling") ? spacerParagraphs(document, QUOTE_SPACERS.before) : [],
         bq,
-        ...alone && padded("nextElementSibling") ? spacerParagraphs(document, QUOTE_SPACERS.after) : []
+        ...alone && padded2("nextElementSibling") ? spacerParagraphs(document, QUOTE_SPACERS.after) : []
       );
       converted += 1;
     });
     return converted;
   }
   function padCarouselSections(document) {
-    let padded = 0;
+    let padded2 = 0;
     document.querySelectorAll(".container-content > .section .section-content > .carousel").forEach((carousel) => {
       if (!carousel.querySelector(".swiper-single-slide")) return;
       const content = carousel.parentElement;
@@ -4227,9 +4227,9 @@ var CustomImportScript = (() => {
       const next = aemNeighbour(aem, "nextElementSibling");
       if (!next || paddedAem(next) || next.querySelector(".container-gray")) return;
       carousel.after(...spacerParagraphs(document, ["spacer-43", "spacer-17 from-768"]));
-      padded += 1;
+      padded2 += 1;
     });
-    return padded;
+    return padded2;
   }
   function restoreMovingImages(document) {
     let restored = 0;
@@ -5236,15 +5236,15 @@ var CustomImportScript = (() => {
     return null;
   }
   function greyStyles(region, template) {
-    const grey = region.matches(".container-gray") ? region : region.querySelector(".container-gray");
+    const grey2 = region.matches(".container-gray") ? region : region.querySelector(".container-gray");
     const styles = [];
-    if (!grey) return styles;
-    if (grey.classList.contains("column-view")) {
-      const column = grey.parentElement;
+    if (!grey2) return styles;
+    if (grey2.classList.contains("column-view")) {
+      const column = grey2.parentElement;
       if (ownColumnView(column) && column.parentElement && column.parentElement.classList.contains("section-content")) styles.push("column-band");
       else if (ownColumnView(column) && column.parentElement && column.parentElement.matches('.column-view-item, [class*="col-"]')) styles.push("in-column");
     } else {
-      const content = grey.querySelector(".section-content");
+      const content = grey2.querySelector(".section-content");
       const parts = content ? [...content.children].filter(meaningful) : [];
       if (parts.length && parts.every(ownColumnView)) {
         styles.push(content.classList.contains("section-padding-y-regular") ? "column-view" : "column-band");
@@ -5252,7 +5252,7 @@ var CustomImportScript = (() => {
     }
     const aem = region.closest(".container-content > .section");
     if (aem && !aem.querySelector(":scope > .mb-default")) styles.push("flush");
-    const whole = !!aem && (region === aem || grey.parentElement === aem);
+    const whole = !!aem && (region === aem || grey2.parentElement === aem);
     if (whole && aem.querySelector(":scope > .mb-default")) {
       let next = aem.nextElementSibling;
       while (next && !meaningful(next)) next = next.nextElementSibling;
@@ -5369,8 +5369,8 @@ var CustomImportScript = (() => {
           region.after(createBreak(document));
         });
       });
-      const padded = (s) => !!s.querySelector(":scope > div > .section-padding-y-regular");
-      const grey = (s) => !!s.querySelector(":scope > .container-gray");
+      const padded2 = (s) => !!s.querySelector(":scope > div > .section-padding-y-regular");
+      const grey2 = (s) => !!s.querySelector(":scope > .container-gray");
       const aemSections = [...document.querySelectorAll(".container-content > .section")].filter((s) => (s.textContent || "").replace(/[\s\u00a0\u200b]/g, "") || s.querySelector(MEDIA2));
       const paddedBreaks = /* @__PURE__ */ new Map();
       const pageUrl = payload && (payload.params && payload.params.originalURL || payload.url) || "";
@@ -5383,9 +5383,9 @@ var CustomImportScript = (() => {
         return kids.some((c) => c.matches(".authorquote")) && kids.every((c) => c.matches(".authorquote") || empty(c));
       };
       aemSections.forEach((s, i) => {
-        if (!i || !padded(s) || grey(s)) return;
+        if (!i || !padded2(s) || grey2(s)) return;
         const before = aemSections[i - 1];
-        if (!padded(before) && (!lufthansa || isStage(s) || isStage(before) || grey(before) || loneQuote(before))) return;
+        if (!padded2(before) && (!lufthansa || isStage(s) || isStage(before) || grey2(before) || loneQuote(before))) return;
         const hr = createBreak(document);
         hr.setAttribute(SOURCE_STYLE, "padded");
         s.before(hr);
@@ -5397,18 +5397,18 @@ var CustomImportScript = (() => {
         own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${gap}`);
       });
       const first = aemSections[0];
-      if ((template.name === "info" || template.base === "info") && first && padded(first) && !grey(first) && first.querySelector("h1") && !first.querySelector(".inspirationteaser, .stage")) {
+      if ((template.name === "info" || template.base === "info") && first && padded2(first) && !grey2(first) && first.querySelector("h1") && !first.querySelector(".inspirationteaser, .stage")) {
         const hr = createBreak(document);
         hr.setAttribute(SOURCE_STYLE, "padded");
         first.before(hr);
       }
-      const stage = (s) => !!s.querySelector(":scope > div > .section-content > .inspirationteaser");
+      const stage2 = (s) => !!s.querySelector(":scope > div > .section-content > .inspirationteaser");
       aemSections.forEach((s, i) => {
-        if (!stage(s)) return;
+        if (!stage2(s)) return;
         const next = aemSections[i + 1];
         const styles = ["stage"];
         if (!s.querySelector(":scope > .mb-default")) styles.push("flush");
-        if (next && padded(next) && !grey(next)) styles.push("before-padded");
+        if (next && padded2(next) && !grey2(next)) styles.push("before-padded");
         const start = createBreak(document);
         start.setAttribute(SOURCE_STYLE, styles.join(" "));
         s.before(start);
@@ -5472,10 +5472,208 @@ var CustomImportScript = (() => {
     }
   }
 
+  // tools/importer/transformers/campaign-sections.js
+  var BREAK2 = "data-excat-section-break";
+  var SOURCE_STYLE2 = "data-excat-section-source-style";
+  var MEDIA3 = "img, picture, video, iframe, svg, table, input, select, textarea, button";
+  var STAND_INS = [
+    ["blockquote.authorquote", ["spacer-0", "spacer-14 from-768"], ["spacer-53", "spacer-17 from-768"]],
+    [".carousel", [], ["spacer-43", "spacer-17 from-768"]]
+  ];
+  function firstMatch(document, selectors) {
+    for (const sel of [].concat(selectors || [])) {
+      if (!sel) continue;
+      try {
+        const el = document.querySelector(sel);
+        if (el) return el;
+      } catch (e) {
+      }
+    }
+    return null;
+  }
+  function standIns(el, tokens, dir) {
+    const found = [];
+    let n = el[dir];
+    const want = dir === "previousElementSibling" ? [...tokens].reverse() : tokens;
+    for (const t of want) {
+      if (!n || n.tagName !== "P" || (n.textContent || "").trim() !== `{${t}}`) return [];
+      found.push(n);
+      n = n[dir];
+    }
+    return found;
+  }
+  var padded = (s) => !!s.querySelector(":scope > div > .section-padding-y-regular");
+  var grey = (s) => !!s.querySelector(":scope > .container-gray");
+  var stage = (s) => !!s.querySelector(":scope > div > .section-content > .inspirationteaser");
+  var isAem = (el) => el.matches(".container-content > .section");
+  function campaignSections(document) {
+    const all = [...document.querySelectorAll(".container-content > .section")].filter((s) => (s.textContent || "").replace(/[\s\u00a0\u200b]/g, "") || s.querySelector(MEDIA3));
+    return all.filter((s, i) => !stage(s) && !grey(s) && (i || all.length > 1 && !padded(s)));
+  }
+  function spacerComponent(document, n) {
+    const text = document.createElement("div");
+    text.className = "text section";
+    text.innerHTML = `<div class="richtext limited-width"><p>{spacer-${n}}</p></div>`;
+    return text;
+  }
+  function sectionSeparators(s) {
+    const content = s.querySelector(":scope > div > .section-content");
+    return [...content ? content.children : []].filter((c) => {
+      if (!c.matches(".separator")) return false;
+      const hr = c.querySelector(".hr");
+      return !!hr && hr.classList.contains("hr-no-layout");
+    });
+  }
+  var NOT_ALONE = /^\s*(\{(?:spacer|divider)-[^{}]*\})(?:\s*\{[a-z0-9 -]+\})+\s*$/;
+  function aloneMarkers(document) {
+    let fixed = 0;
+    document.querySelectorAll("p").forEach((p) => {
+      if (p.children.length) return;
+      const m = NOT_ALONE.exec(p.textContent || "");
+      if (!m) return;
+      p.textContent = m[1];
+      fixed += 1;
+    });
+    return fixed;
+  }
+  function transform3(hookName, element, payload) {
+    const document = payload && payload.document || element.ownerDocument || element;
+    if (hookName === "onLoad") {
+      campaignSections(document).forEach((s) => {
+        s.querySelectorAll(".text > .richtext > p:last-child").forEach((p) => {
+          if ((p.textContent || "").replace(/[\s\u00a0\u200b]/g, "") || p.querySelector(MEDIA3) || !p.previousElementSibling) return;
+          p.closest(".text").after(spacerComponent(document, 50));
+          p.remove();
+        });
+        sectionSeparators(s).forEach((sep) => {
+          const hr = sep.querySelector(".hr");
+          const m = (hr.getAttribute("style") || "").match(/margin-bottom:\s*([\d.]+)px\s*(?:;|!|$)/i);
+          const n = m ? Math.max(0, Math.round(parseFloat(m[1]))) : 25;
+          sep.replaceWith(spacerComponent(document, hr.classList.contains("hidden-sm-down") ? `${n} from-768` : n));
+        });
+      });
+      return;
+    }
+    if (hookName === "afterTransform") {
+      aloneMarkers(document);
+      return;
+    }
+    if (hookName !== "beforeTransform") return;
+    const template = payload && payload.template || {};
+    const breaks = [...document.querySelectorAll(`hr[${BREAK2}]`)].map((hr) => [hr, hr.parentNode, hr.nextSibling]);
+    breaks.forEach(([hr]) => hr.remove());
+    const targets = (template.sections || []).map((section, i) => !i || section.style ? null : firstMatch(document, section.selector));
+    breaks.reverse().forEach(([hr, parent, next]) => parent.insertBefore(hr, next));
+    targets.forEach((el) => {
+      const hr = el && el.previousElementSibling;
+      if (!hr || isAem(el) || !hr.matches(`hr[${BREAK2}]`) || hr.attributes.length !== 1) return;
+      hr.remove();
+    });
+    campaignSections(document).forEach((s) => {
+      const styles = ["campaign-section"];
+      if (padded(s)) styles.push("padded");
+      styles.push(s.querySelector(":scope > .mb-default") ? "spaced" : "flush");
+      const hr = document.createElement("hr");
+      hr.setAttribute(BREAK2, "");
+      hr.setAttribute(SOURCE_STYLE2, styles.join(" "));
+      s.before(hr);
+    });
+    STAND_INS.forEach(([sel, before, after]) => {
+      document.querySelectorAll(`.container-content > .section ${sel}`).forEach((el) => {
+        [...standIns(el, before, "previousElementSibling"), ...standIns(el, after, "nextElementSibling")].forEach((p) => p.remove());
+      });
+    });
+  }
+
+  // tools/importer/transformers/hub-column-views.js
+  var COLUMN_ATTR2 = "data-lh-column";
+  var COLUMN_KINDS2 = ".onecolumn, .twocolumn, .threecolumn, .fourcolumn";
+  var HEADING2 = "h1, h2, h3, h4, h5, h6";
+  var MEDIA4 = "img, picture, video, iframe, svg, table, input, select, textarea, button";
+  var CLEANUP_TEMPLATES = ["info", "fleet"];
+  var cleanText2 = (el) => el.textContent.replace(/[\u200B\uFEFF]/g, "").replace(/\s+/g, " ").trim();
+  var isEmpty2 = (el) => !el.textContent.replace(/\u00A0/g, " ").trim() && !el.querySelector(MEDIA4);
+  function isOwnColumnView2(el) {
+    return !!el && el.matches(`:is(${COLUMN_KINDS2}).column`) && el.children.length === 1 && el.firstElementChild.classList.contains("column-view");
+  }
+  function markColumnViews2(document, template) {
+    const instances = (template.blocks || []).flatMap((b) => (b.instances || []).map((sel) => [b.name, sel]));
+    const blockOf = (el) => {
+      const hit = instances.find(([, sel]) => {
+        try {
+          return el.matches(sel);
+        } catch (e) {
+          return false;
+        }
+      });
+      return hit ? hit[0] : null;
+    };
+    const titled = (view) => [...view.children].some((d) => !d.matches(".row, .carousel") && d.querySelector(HEADING2) && cleanText2(d));
+    const mark = (root, kind, nested) => {
+      if (!isOwnColumnView2(root) || root.closest(".article-details-page") || root.hasAttribute(COLUMN_ATTR2)) return false;
+      const view = root.firstElementChild;
+      if (view.classList.contains("container-gray")) return false;
+      const parent = root.parentElement;
+      if (!nested && root.closest(".container-gray") && parent.matches(".section-content") && [...parent.children].filter((c) => !isEmpty2(c)).length === 1) return false;
+      const block = blockOf(root);
+      if (block && block !== "columns-media") return false;
+      if (block && kind === "sc" && !nested && !titled(view)) return false;
+      root.setAttribute(COLUMN_ATTR2, kind);
+      return !block;
+    };
+    const aemSections = [...document.querySelectorAll(".container-content > .section")].filter((s) => !isEmpty2(s) && !s.querySelector(".container-subnav"));
+    const lastAem = aemSections[aemSections.length - 1];
+    const endsSpacedPage = (root) => {
+      const aem = root.closest(".container-content > .section");
+      if (!aem || aem !== lastAem || !aem.querySelector(":scope > .mb-default")) return false;
+      let next = root.nextElementSibling;
+      while (next && isEmpty2(next)) next = next.nextElementSibling;
+      return !next;
+    };
+    document.querySelectorAll(`:is(.section-content, .container-content) > :is(${COLUMN_KINDS2})`).forEach((root) => {
+      const kind = root.parentElement.matches(".section-content") ? "sc" : "cc";
+      const flattened = mark(root, kind, false);
+      if (kind === "sc" && root.getAttribute(COLUMN_ATTR2) === "sc" && endsSpacedPage(root)) root.setAttribute(COLUMN_ATTR2, "sc-spaced");
+      if (!flattened) return;
+      root.querySelectorAll(`.column-view-item > :is(${COLUMN_KINDS2})`).forEach((inner) => {
+        if (inner.parentElement.closest(".column-view") === root.firstElementChild) mark(inner, kind, true);
+      });
+    });
+  }
+  function transform4(hookName, element, payload) {
+    if (hookName !== "beforeTransform") return;
+    const template = payload && payload.template || {};
+    if (CLEANUP_TEMPLATES.includes(template.name) || CLEANUP_TEMPLATES.includes(template.base)) return;
+    const document = payload && payload.document || element.ownerDocument || element;
+    markColumnViews2(document, template);
+  }
+
+  // tools/importer/transformers/theme-separators.js
+  var SEPARATOR = /^\{(spacer|divider)-(\d{1,3})( from-768)?\}$/;
+  var SPACER2 = { 60: "Spacer", 120: "Spacer (l)" };
+  var DIVIDER = { 25: "Divider" };
+  function transform5(hookName, element, payload) {
+    if (hookName !== "afterTransform") return;
+    const document = payload && payload.document || element.ownerDocument || element;
+    [...element.querySelectorAll("p")].forEach((p) => {
+      if (p.closest("table") || p.children.length) return;
+      const m = p.textContent.trim().match(SEPARATOR);
+      if (!m || m[3]) return;
+      const name = (m[1] === "divider" ? DIVIDER : SPACER2)[Number(m[2])];
+      if (!name) return;
+      p.replaceWith(WebImporter.Blocks.createBlock(document, { name, cells: [[""]] }));
+    });
+  }
+
   // tools/importer/import-hub.js
   var PAGE_TEMPLATE = {
     "name": "hub",
     "description": "Overview pages linking to service and information pages",
+    "transformers": [
+      "campaign-sections",
+      "hub-column-views",
+      "theme-separators"
+    ],
     "urls": [
       "https://www.lufthansa.com/de/en/baggage"
     ],
@@ -5659,7 +5857,7 @@ var CustomImportScript = (() => {
     "cards-icon-text": parse12,
     "embed": parse13
   };
-  var transformers = [transform, transform2];
+  var transformers = [transform, transform2, transform3, transform4, transform5];
   function executeTransformers(hookName, element, payload) {
     const enhancedPayload = __spreadProps(__spreadValues({}, payload), { template: PAGE_TEMPLATE });
     transformers.forEach((fn) => {
@@ -5681,7 +5879,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_hub_551601_default = {
+  var import_hub_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5715,5 +5913,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_hub_551601_exports);
+  return __toCommonJS(import_hub_exports);
 })();

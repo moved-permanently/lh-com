@@ -180,6 +180,7 @@
     {
       "name": "hub",
       "description": "Overview pages linking to service and information pages",
+      "transformers": ["campaign-sections", "hub-column-views", "theme-separators"],
       "urls": [
         "https://www.lufthansa.com/de/en/baggage",
         "https://www.lufthansa.com/de/en/additional-services",

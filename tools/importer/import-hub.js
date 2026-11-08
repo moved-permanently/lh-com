@@ -17,10 +17,18 @@ import cardsIconTextParser from './parsers/cards-icon-text.js';
 import embedParser from './parsers/embed.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
+import campaignSectionsTransformer from './transformers/campaign-sections.js';
+import hubColumnViewsTransformer from './transformers/hub-column-views.js';
+import themeSeparatorsTransformer from './transformers/theme-separators.js';
 
 const PAGE_TEMPLATE = {
   "name": "hub",
   "description": "Overview pages linking to service and information pages",
+  "transformers": [
+    "campaign-sections",
+    "hub-column-views",
+    "theme-separators"
+  ],
   "urls": [
     "https://www.lufthansa.com/de/en/baggage"
   ],
@@ -205,7 +213,7 @@ const parsers = {
   'cards-icon-text': cardsIconTextParser,
   'embed': embedParser,
 };
-const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
+const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer, campaignSectionsTransformer, hubColumnViewsTransformer, themeSeparatorsTransformer];
 
 function executeTransformers(hookName, element, payload) {
   const enhancedPayload = { ...payload, template: PAGE_TEMPLATE };
