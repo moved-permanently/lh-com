@@ -1340,7 +1340,10 @@ export function convert(rendered, sourceUrl) {
       const t = plain(post.title || (post.seo && post.seo.title) || '').replace(/\s*\|\s*Air Dolomiti\s*$/, '');
       docs = docs.length ? docs : [{ style: null, items: [] }];
       docs[0].items.unshift({ html: `<h1>${esc(t)}</h1>` });
-      page.note('no heading on the page: H1 from its title');
+      // www shows no page title there (its h1 is the header's logo): the h1 for screen readers and
+      // search, visually hidden as the homepages' (brief 503)
+      docs[0].style = docs[0].style ? `${docs[0].style}, hidden-heading` : 'hidden-heading';
+      page.note('no heading on the page: H1 from its title, hidden');
     }
   }
   // metadata: title, description, image, robots, the language's nav, footer and language
