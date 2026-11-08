@@ -437,6 +437,17 @@ body.brand-discover .section-tab-panel > .section-tab-toggle {
   line-height: 26px;
 }
 
+/* row 37 (brief 503): on phones www's tab control sits in its text's flow, 32 px under the text
+   above, the next heading right under its last toggle: the section before the set, the set's
+   placeholder and its last panel's section without the sections' gap */
+@media (width < 768px) {
+  body.brand-discover main > .section:has(+ .section.section-tabs),
+  body.brand-discover main > .section.section-tabs,
+  body.brand-discover main > .section.section-tab-panel:not(:has(+ .section.section-tab-panel)) {
+    margin-bottom: 0;
+  }
+}
+
 /* row 13: the offers page (destination-finder): the filter column's title bold, its group titles
    18 px, the toggles (Filters, More information, General conditions) LufthansaHead 18/24 */
 body.brand-discover .destination-finder .destination-finder-filters-heading { font-weight: 700; }
