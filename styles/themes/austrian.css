@@ -742,6 +742,19 @@ body.brand-austrian .carousel-cards:is(.grid, .phone-slider) .carousel-cards-sli
   }
 }
 
+/* the brief after 475: stacked below 768 px, www's teasers are 68 px apart (the teaser's 4.4rem, the
+   column-view item's 1.2rem margin and 1.2rem padding) and the next three-column view's 77 px below
+   (fly-with-austrian 390: ours 40 and 64, 35 px short per card) */
+@media (width < 768px) {
+  body.brand-austrian .carousel-cards.grid:not(.phone-slider) .carousel-cards-track {
+    gap: 68px;
+  }
+
+  body.brand-austrian .carousel-cards-wrapper + .carousel-cards-wrapper > .carousel-cards.grid:not(.phone-slider) {
+    margin-top: 77px;
+  }
+}
+
 /* row 19: the divider www's 1 px maui-divider in #b0b0b0 (its screen at 1440: two rows of
    #d7d7d7 for a line between pixels, one row of #b0b0b0 at 390) */
 body.brand-austrian main .default-content-wrapper > p.spacer.divider {
