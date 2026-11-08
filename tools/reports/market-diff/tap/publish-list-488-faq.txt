@@ -1,0 +1,10 @@
+# lh-tap: brief 488 item 4, the stale en-pt and pt-pt FAQs, in release order. Nothing is published yet. Uploaded to DA
+# (moved-permanently/lh-tap) and previewed on main--lh-tap--moved-permanently.aem.page: DA's copy of 2026-11-08 with
+# www's current questions (the market-diff fetch of the version pages and their roots' views, merged as in brief 462:
+# the variants for br and us as before; 924 and 616 of DA's rows kept, 12 and 8 new: the Miles&Go status questions,
+# the one about travelling under another name gone). Same blocks, headings and market sections as before.
+#
+# Media: none new.
+# Pages
+/en-pt/help/frequently-asked-questions
+/pt-pt/ajuda/perguntas-frequentes
