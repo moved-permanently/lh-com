@@ -1682,14 +1682,14 @@ against lh-parity-002 (compare.js, 8,000 px, vh 900) and the drift read with off
 script-free local render of www's CSS stayed a diagnosis tool only: it has no shadow DOM (www's
 separators are maui-divider boxes, its links maui components) and no carousels.
 
-### 1. table-striped beside-end below 768 px (row 47; e210db5)
+### 1. table-striped beside-end below 768 px (row 47; da17419)
 
 - The option reordered the partner with `order`, which only applied in the grid from 768 px, so on
   phones the three right-hand partners sat on their tables. Now a flex column: the table 96 px under
   the text, the picture 74 px under the table, as www's Focke-Wulf at 390 (lh-parity-002c). With the
   CSS injected: 96 / 74 px on all three; the 12 beside tables unchanged. No document change.
 
-### 2. The campaign pages 486 made worse, and the open items (row 48; 1127f57, 2f53706)
+### 2. The campaign pages 486 made worse, and the open items (row 48; 11014a6, e650caa)
 
 - crane: www's empty separators (maui-divider's 1 px box, then the .hr's margin) also open sections
   and sit between components; the cleanup drops them under 50 px. Every empty separator of a campaign
@@ -1721,7 +1721,7 @@ separators are maui-divider boxes, its links maui components) and no carousels.
   cancelled out). The tests for the separators and the first section were written after the
   measurements (test/campaign-sections-488), not before.
 
-### 3. The video player at the video's own size (row 49; 2f53706)
+### 3. The video player at the video's own size (row 49; e650caa)
 
 - Proposal, built: tools/importer/video-sizes.mjs reads each video viewer's video width and height
   from the file's MP4 header (tools/importer/mp4-size.mjs: moov > trak > tkhd, rotation respected;
@@ -1739,7 +1739,7 @@ separators are maui-divider boxes, its links maui components) and no carousels.
   to be in scripts/style-markers.js (ema-test's file), or lh-edge's app JSON and the loc marker check
   keep the marker as text. media.js accepts it already.
 
-### 4. tags/munich, all-it-takes-is-a-yes, picture-perfect-austin (row 50; 9a881e1)
+### 4. tags/munich, all-it-takes-is-a-yes, picture-perfect-austin (row 50; 0d199b5)
 
 - all-it-takes-is-a-yes and tags/munich have no AEM sections on www (components straight in
   .container-content, like the highlights and tags pages). Their spacing comes from the components
@@ -1767,7 +1767,7 @@ separators are maui-divider boxes, its links maui components) and no carousels.
 
 | Item | Commit | What |
 | --- | --- | --- |
-| 1 | e210db5 | table-striped beside-end below 768 px |
-| 2 | 1127f57 | campaign separators, the intro section, the jump links' stacked column |
-| 2, 3 | 2f53706 | narrow pictures in columns; video player at the video's size |
-| 4 | 9a881e1 | Insights pages without AEM sections: Theme insights-flow |
+| 1 | da17419 | table-striped beside-end below 768 px |
+| 2 | 11014a6 | campaign separators, the intro section, the jump links' stacked column |
+| 2, 3 | e650caa | narrow pictures in columns; video player at the video's size |
+| 4 | 0d199b5 | Insights pages without AEM sections: Theme insights-flow |
