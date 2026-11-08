@@ -1,0 +1,11 @@
+/ch/de/discover/a350
+/ch/en/discover/a350
+/ch/el/discover/a350
+/ch/es/discover/a350
+/ch/fr/discover/a350
+/ch/it/discover/a350
+/ch/ja/discover/a350
+/ch/pt/discover/a350
+/ch/ru/discover/a350
+/ch/zh/discover/a350
+/kr/ko/discover/a350
