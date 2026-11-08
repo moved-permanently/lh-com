@@ -53,6 +53,23 @@ Over 10 %: the offers and destination finders (live data), the SWISS magazine at
 - Brussels overview pages (info flow): the space around the intro (sidebar) and the card grids: www 77 to 161 px from the intro to the first card at 1440 (95 to 152 at 390), 99 to 254 px from the last card to the footer; ours 55 to 72 and 26 to 87; the h1 at 390 10 to 30 px higher; www's separators and column-view paddings differ per page, so no one theme rule fits (measured on six pages); mine, open.
 - SWISS travel-class pages at 390: www's column items in the tab panel's sidebar content 22 px from the edge, the text 326 px wide (ours 344: fewer lines) and 20 to 40 px more between items (swiss-business: -339 px before "Wählen Sie jetzt Ihr SWISS Business Menü"); mine (SWISS theme), open.
 - Brussels /be/fr/book-a-flight/our-payment-methods: the payment widget and a half-width text column (above).
+
+**Brief 505, the two rows above:**
+
+- **Brussels overview pages: fixed in part** (fix(brussels theme), brief 505). Measured again from the recordings (the intro
+  paragraph's recorded box to the first card), 16 pages: www 103 to 118 px at 1440 on 11 of them (390: 109 to 132), ours 68
+  (390: 54) on all. The first card grid under a sidebar intro now gets 40 px more from 768 px and 64 below
+  (styles/themes/brussels.css): special-assistance, pets, meals, families-and-children and baggage 1.6 to 2.6 points nearer
+  www's height at both widths (local dev server). Not ruled: meals and lounges (74 to 92 px on www) and families-and-children
+  (149 to 155) sit off the median whatever one value; the space below the last grid varies without a pattern (52 to 233 px on
+  www); the h1 at 390 10 to 30 px higher (-30 on 21 pages, -20 on 12, -10 on 9: no one value).
+- **SWISS travel-class items at 390: no brand rule fits.** www's narrower items (326 px instead of 346) and its extra space
+  between items (about 36 px) belong to column views with a title of their own (www's `.twocolumn > .column-view > h3`:
+  swiss-business, swiss-economy, entertainment-on-board, animals-travelling …); items with their own heading in the same
+  pages and tab panels stay 346 wide (swiss-airrail, advance-seat-reservation). Our documents write both alike (a heading
+  in the default content, then Columns Media), so a SWISS theme rule would move both. It needs the importer to mark a titled
+  column view (a section style or block option; with the token-free plan the carrier for a column view's structure),
+  then a theme rule: swiss-import.mjs is ema-lufthansa's this round. Not changed.
 - Not investigated further: SWISS /magazine/de/inside-swiss/behind-the-scenes/up-front-and-flying-high 1440 (+1,077 px before "Weitere Beiträge"); Austrian /at/en/baggage 390 (-13.5 %, no heading jump), /at/en/fly/flight-information/flight-irregularities 390 (-10.4 %), /at/de/legal 390 (-311 px before "Weitere rechtliche Inhalte"); Brussels /be/en/my-bookings/cancel-and-refund-requests (-21 to -25 %), /be/fr/extra-services/inflight-services 390 (+26 %), /be/fr/extra-services/baggage/problems-with-your-baggage 390 (-29 %), /be/fr/flying-with-us/welcome-brussels-airlines (-569 px before "Vous cherchez une autre destination").
 
 ## Causes in other agents' areas or outside the code (listed, not changed)
