@@ -5876,6 +5876,104 @@ var CustomImportScript = (() => {
     });
   }
 
+  // tools/importer/transformers/hub-dcep-render.js
+  var RENDITIONS = [2560, 1440, 720, 360];
+  function buildPanes(document, host) {
+    let props = {};
+    try {
+      props = JSON.parse(host.getAttribute("data-dcep") || "{}") || {};
+    } catch (e) {
+      return;
+    }
+    const panes = Array.isArray(props.panes) ? props.panes : [];
+    if (!panes.length) return;
+    const clean3 = (s) => typeof s === "string" ? s.replace(/\s+/g, " ").trim() : "";
+    const overlay = clean3(props.transparentOverlay);
+    const container = document.createElement("div");
+    container.className = "hero-container";
+    panes.forEach((pane) => {
+      const item = document.createElement("div");
+      item.className = "hero-item";
+      const label = clean3(pane.overlaySubHeadline);
+      if (label) {
+        const h2 = document.createElement("h2");
+        h2.className = "hero-subheading";
+        const button = document.createElement("button");
+        button.className = "hero-accordion-header-button";
+        button.textContent = label;
+        h2.append(button);
+        item.append(h2);
+      }
+      const media = pane.movingImage || {};
+      if (clean3(media.imageUrl)) {
+        const wrap = document.createElement("div");
+        wrap.className = "moving-image";
+        const box = document.createElement("div");
+        box.className = "w-100 h-100 object-cover";
+        const figure = document.createElement("figure");
+        const img = document.createElement("img");
+        img.setAttribute("src", clean3(media.imageUrl));
+        const ext = (clean3(media.imageUrl).match(/\.([a-z0-9]+)$/i) || [null, "jpg"])[1].toLowerCase();
+        img.setAttribute("srcset", RENDITIONS.map((w) => `${clean3(media.imageUrl)}.transform/lh-dcep-transform-width-${w}/img.${ext} ${w}w`).join(","));
+        img.setAttribute("alt", clean3(media.alt));
+        figure.append(img);
+        box.append(figure);
+        wrap.append(box);
+        item.append(wrap);
+      }
+      if (/^#[0-9a-f]{3,8}$/i.test(overlay)) {
+        const ov = document.createElement("div");
+        ov.className = "transparent-overlay";
+        ov.setAttribute("style", `--transparent-overlay-color: ${overlay}`);
+        item.append(ov);
+      }
+      const contents = document.createElement("div");
+      contents.className = "hero-items-contents";
+      if (clean3(pane.overlayTitle)) {
+        const h3 = document.createElement("h3");
+        h3.className = "hero-header";
+        h3.textContent = clean3(pane.overlayTitle);
+        contents.append(h3);
+      }
+      const p = document.createElement("p");
+      p.className = "hero-paragraph";
+      p.textContent = clean3(pane.overlayDescription);
+      contents.append(p);
+      if (clean3(pane.overlayButtonText) && clean3(pane.overlayButtonLinkTarget)) {
+        const btn = document.createElement("maui-button-link");
+        btn.className = "hero-button";
+        btn.setAttribute("href", clean3(pane.overlayButtonLinkTarget));
+        btn.setAttribute("label", clean3(pane.overlayButtonText));
+        btn.setAttribute("type", "secondary");
+        btn.textContent = clean3(pane.overlayButtonText);
+        contents.append(btn);
+      }
+      const label2 = item.querySelector(".hero-subheading");
+      if (label2) label2.after(contents);
+      else item.prepend(contents);
+      container.append(item);
+    });
+    const outer = document.createElement("div");
+    outer.className = "px-0 full-width-bg";
+    const intro = document.createElement("div");
+    intro.className = "hero-banner-intro-animation";
+    const h1 = document.createElement("h1");
+    h1.className = "animated-text";
+    intro.append(h1);
+    const banner = document.createElement("div");
+    banner.className = "hero-banner";
+    banner.append(container);
+    outer.append(intro, banner);
+    host.append(outer);
+  }
+  function transform6(hookName, element, payload) {
+    if (hookName !== "onLoad") return;
+    const document = payload && payload.document || element.ownerDocument || element;
+    document.querySelectorAll(".dcep-hero-banner[data-dcep]").forEach((host) => {
+      if (!host.querySelector(".hero-item")) buildPanes(document, host);
+    });
+  }
+
   // blocks/form/form-rules.js
   var COLUMNS2 = [
     "label",
@@ -6899,6 +6997,7 @@ var CustomImportScript = (() => {
     "name": "hub",
     "description": "Overview pages linking to service and information pages",
     "transformers": [
+      "hub-dcep-render",
       "campaign-sections",
       "hub-column-views",
       "theme-separators"
@@ -7086,7 +7185,7 @@ var CustomImportScript = (() => {
     "cards-icon-text": parse12,
     "embed": parse13
   };
-  var transformers = [transform, transform2, transform3, transform4, transform5];
+  var transformers = [transform, transform2, transform6, transform3, transform4, transform5];
   function executeTransformers(hookName, element, payload) {
     const enhancedPayload = __spreadProps(__spreadValues({}, payload), { template: PAGE_TEMPLATE });
     transformers.forEach((fn) => {

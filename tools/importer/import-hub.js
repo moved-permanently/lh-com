@@ -20,6 +20,7 @@ import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 import campaignSectionsTransformer from './transformers/campaign-sections.js';
 import hubColumnViewsTransformer from './transformers/hub-column-views.js';
 import themeSeparatorsTransformer from './transformers/theme-separators.js';
+import hubDcepRenderTransformer from './transformers/hub-dcep-render.js';
 // token-free styling (the brief after 493): the document's markers collapsed, the last step
 import { collapseMain, brandOfHost } from './marker-collapse.mjs';
 
@@ -27,6 +28,7 @@ const PAGE_TEMPLATE = {
   "name": "hub",
   "description": "Overview pages linking to service and information pages",
   "transformers": [
+    "hub-dcep-render",
     "campaign-sections",
     "hub-column-views",
     "theme-separators"
@@ -215,7 +217,7 @@ const parsers = {
   'cards-icon-text': cardsIconTextParser,
   'embed': embedParser,
 };
-const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer, campaignSectionsTransformer, hubColumnViewsTransformer, themeSeparatorsTransformer];
+const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer, hubDcepRenderTransformer, campaignSectionsTransformer, hubColumnViewsTransformer, themeSeparatorsTransformer];
 
 function executeTransformers(hookName, element, payload) {
   const enhancedPayload = { ...payload, template: PAGE_TEMPLATE };
