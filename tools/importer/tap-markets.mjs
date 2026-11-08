@@ -30,7 +30,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import {
-  convertPage, anchorsOf, docPath, mediaIndex, mediaResolver, WWW, outOfScope,
+  convertPage, anchorsOf, docPath, mediaIndex, mediaResolver, WWW, outOfScope, collapseTap,
 } from './tap-import.mjs';
 import {
   navHtml, footerHtml, logoSvg, flagSvg, flagPath,
@@ -577,8 +577,10 @@ async function main() {
   const written = [];
   // the language pages' fragment documents (market sections, categories): into the allowlist too
   const langFragments = [];
-  const write = (doc, html) => {
+  const write = (doc, raw) => {
     if (dry) return;
+    // the collapse, the last step (tap-import.mjs collapseTap)
+    const html = collapseTap(raw, doc);
     const f = path.join(OUT, `${doc}.plain.html`);
     fs.mkdirSync(path.dirname(f), { recursive: true });
     if (fs.existsSync(f) && fs.readFileSync(f, 'utf8') === html) return;
