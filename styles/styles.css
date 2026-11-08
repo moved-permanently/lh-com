@@ -1591,6 +1591,15 @@ body.brand-lufthansa main .cards-icon-text-wrapper:has(> .cards-icon-text.partne
   }
 }
 
+/* the divider after a group of partner rows (digital-self-services): www's .hr.limited-width, two
+   thirds of the content from 1025px like the running text (ours ran over the whole width) */
+@media (width >= 1025px) {
+  /* stylelint-disable-next-line no-descending-specificity -- a group's divider, not a column mark's */
+  body.brand-lufthansa main .cards-icon-text-wrapper:has(> .cards-icon-text.partner) + .default-content-wrapper > p.spacer.divider:is(:first-child, .column-mark + *) {
+    max-width: 66%;
+  }
+}
+
 /* jump links, then a separator: live's link list ends at its last link, the separator's 1px and
    margin follow it (baggage: 24px more before "Types of baggage" with our wrapper gap) */
 /* stylelint-disable-next-line no-descending-specificity -- a campaign-section's wrapper, not a modal link's */
