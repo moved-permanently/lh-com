@@ -17,7 +17,11 @@
   "/ch/en/profile/travel-id/**",
   "/ch/de/profile/travel-id/**"
  ],
- "patterns": ["^/(corporate/(en|de|fr)|medicalservices/(en|de))/[a-z0-9/-]+$", "^/magazine/(de|en)(/[a-z0-9/-]+)?$", "^/(ae|al|ar|at|au|be|bg|br|ca|cn|cz|de|dk|ee|eg|es|fr|gb|ge|gr|hk|hr|hu|ie|il|in|it|jp|ke|kr|lt|lu|mk|mt|nl|no|om|pl|pt|ro|rs|ru|se|sg|si|th|tz|ua|us|xk|za)/(de|en|fr|it|es|pt|zh|ja|ko|el|ru)/[a-z0-9/-]+$"],
+ "patterns": [
+  "^/(corporate/(en|de|fr)|medicalservices/(en|de))/[a-z0-9/-]+$",
+  "^/magazine/(de|en)(/[a-z0-9/-]+)?$",
+  "^/(ae|al|ar|at|au|be|bg|br|ca|cn|cz|de|dk|ee|eg|es|fr|gb|ge|gr|hk|hr|hu|ie|il|in|it|jp|ke|kr|lt|lu|mk|mt|nl|no|om|pl|pt|ro|rs|ru|se|sg|si|th|tz|ua|us|xk|za)/(de|en|fr|it|es|pt|zh|ja|ko|el|ru)/[a-z0-9/-]+$"
+ ],
  "paths": [
   "/ch/en/homepage",
   "/ch/de/homepage",
@@ -2865,7 +2869,26 @@
   "/medicalservices/en/search-results",
   "/medicalservices/de/search-results",
   "/ch/en/modals/general-conditions",
-  "/ch/de/modals/general-conditions"
+  "/ch/de/modals/general-conditions",
+  "/ae/de/fly/check-in/airport-check-in",
+  "/au/en/fly/on-board/travel-classes/swiss-premium-economy",
+  "/br/pt/book-and-manage/swiss-choice/advance-seat-reservation",
+  "/ca/en/book-and-manage/offers/vouchers",
+  "/ca/en/book-and-manage/swiss-choice/hold-the-booking",
+  "/ca/fr/book-and-manage/offers/vouchers",
+  "/ca/fr/book-and-manage/swiss-choice/hold-the-booking",
+  "/cn/zh/fly/on-board/travel-classes/swiss-premium-economy",
+  "/gr/el/book-and-manage/partner-offers/medical-travel-companions",
+  "/jp/ja/book-and-manage/partner-offers/medical-travel-companions",
+  "/kr/fr/terms-conditions/agb-extra-services-at-online-check-in",
+  "/kr/it/book-and-manage/conditions/baggage-conditions-check-in",
+  "/kr/it/book-and-manage/conditions/voucher-conditions-overview",
+  "/kr/it/book-and-manage/flights",
+  "/kr/it/book-and-manage/overview-extra-services",
+  "/ro/de/fly/on-board",
+  "/ru/ru/book-and-manage/partner-offers/medical-travel-companions",
+  "/us/en/book-and-manage/swiss-choice/hold-the-booking",
+  "/us/en/customer-support/travel-and-corona/travel-planning"
  ],
  "linkOuts": [
   "/ch/en/culinaryjourney",
