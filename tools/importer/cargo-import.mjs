@@ -888,6 +888,9 @@ function tabs(c, page) {
     if (filter) {
       page.topicFiltered = true;
       rows.push(['Filter label', esc(page.topicFilter.label)], ['No results', esc(page.topicFilter.noResults)]);
+      // www's finder card: its heading and its topic chips (brief 482)
+      if (page.topicFilter.heading) rows.push(['Filter heading', esc(page.topicFilter.heading)]);
+      if (page.topicFilter.chips) rows.push(['Filter chips', `<ul>${page.topicFilter.chips.map((chip) => `<li><a href="${attr(chip.href)}">${esc(chip.label)}</a></li>`).join('')}</ul>`]);
       page.note('support topics: accordion-columns (faq, tabs, filter), www\'s tabs and its "Find topic by typing" over them');
     }
     page.block(filter ? 'accordion-columns (faq, tabs, filter)' : 'accordion-columns (faq)', rows);
@@ -1481,10 +1484,34 @@ function metadata(document, page) {
 // "No search results." (www.lufthansa-cargo.com/en/support-and-contact, typed 2026-11-01)
 const TOPIC_NO_RESULTS = 'No search results.';
 
+/**
+ * www's finder card around the topic search's field (.lcagCard.search, brief 482): its heading
+ * ("Need support on your topic?") and its topic chips (.filterChips a.lcagChip: the portal's pages;
+ * a contactLink opens the contact form with the reason and subreason of its onclick, here the
+ * form's dialog with both).
+ * @returns {{heading?: string, chips?: {label: string, href: string}[]}}
+ */
+function finderCard(label, page) {
+  const card = label.closest('.lcagCard') || label.closest('[id^="portlet_"]');
+  if (!card) return {};
+  const heading = text(card.querySelector('.subHeadingCS, h2, h3'));
+  const chips = [...card.querySelectorAll('.filterChips a.lcagChip')].map((a) => {
+    const label2 = text(a);
+    const call = /openContactUsDialog\(\s*'([^']*)'\s*,\s*'([^']*)'/.exec(a.getAttribute('onclick') || '');
+    if (call) return { label: label2, href: contactFormHref(call[1], call[2], page.lang, { dialog: true }) };
+    const href = a.getAttribute('href');
+    if (!href || /^javascript:/i.test(href)) return null;
+    // the portal's own pages (its login portlet: p_p_id=...) stay www's, with their parameters
+    return { label: label2, href: /[?&]p_p_id=/.test(href) ? new URL(href, HOST).href : page.href(href) };
+  }).filter((c) => c && c.label);
+  return { ...(heading ? { heading } : {}), ...(chips.length ? { chips } : {}) };
+}
+
 function supportTopics(content, page) {
   // www's "Find topic by typing" (its topic search's field label): the topics' accordion filters
-  const topicLabel = text(content.querySelector('label[for$="_topicSearch"]'));
-  if (topicLabel) page.topicFilter = { label: topicLabel, noResults: TOPIC_NO_RESULTS };
+  const topicLabelEl = content.querySelector('label[for$="_topicSearch"]');
+  const topicLabel = text(topicLabelEl);
+  if (topicLabel) page.topicFilter = { label: topicLabel, noResults: TOPIC_NO_RESULTS, ...finderCard(topicLabelEl, page) };
   // entries without a link: www's script opens its contact form with the entry's reason and
   // subreason (.faqReason / .faqSubreason beside it): links to the form's dialog with both
   let linked = 0;

@@ -917,14 +917,16 @@ const HANDLERS = {
   },
   'lazyblock/reach-monaco': (a, page) => {
     page.section();
-    const price = [a.titleWidget, a.widgetPrice].filter(Boolean).map(plain).join(' ');
+    // www's bar: its h4 (titleWidget: "Starting from 174€", a post's "Fly with us") and a small line
+    // under it (widgetPrice: "at person", "Find out more"), a paragraph each (brief 482)
+    const price = [a.titleWidget, a.widgetPrice].filter(Boolean).map((t) => `<p>${esc(plain(t))}</p>`).join('');
     // the city's section buttons ("Cosa fare" #cosa-fare, "Cosa ascoltare" /podcast): www's pills in
     // the stage under the title, a list of the links with www's icons, the anchors as www has them
     // (brief 456; the theme's option destination)
     const buttons = (a.buttonTexts || []).filter((b) => b.ctaUrl && b.text);
     const pills = buttons.length ? `<ul>${buttons.map((b) => `<li><a href="${attr(b.ctaUrl.startsWith('#') ? b.ctaUrl : page.href(b.ctaUrl))}">${esc(plain(b.text))}</a>${page.img(b.icon)}</li>`).join('')}</ul>` : '';
     // the city's title is the page's H1 on www (HeroSecond h1)
-    page.block('hero-card-overlay (destination)', [[page.img(a.backgroundImg)], [`${a.header ? `<p>${esc(plain(a.header))}</p>` : ''}${page.heading('h1', a.title)}${pills}${price ? `<p>${esc(price)}</p>` : ''}${a.ctaUrl ? page.link(a.ctaUrl, a.ctaText, 'primary') : ''}`]]);
+    page.block('hero-card-overlay (destination)', [[page.img(a.backgroundImg)], [`${a.header ? `<p>${esc(plain(a.header))}</p>` : ''}${page.heading('h1', a.title)}${pills}${price}${a.ctaUrl ? page.link(a.ctaUrl, a.ctaText, 'primary') : ''}`]]);
     page.section();
   },
   'lazyblock/hero-middle': (a, page) => {

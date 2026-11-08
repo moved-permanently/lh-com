@@ -107,12 +107,14 @@ main > .section.subpage-nav-container {
     position: relative;
   }
 
-  /* out of the flow, over the content's top right; the section box lets clicks through */
+  /* out of the flow, over the content's top right; the section box lets clicks through; as
+     www's, over the footer where the nav is longer than the page (brief 482) */
   main > .section.subpage-nav-container {
     position: absolute;
     top: var(--subpage-nav-top, 0);
     right: 0;
     left: 0;
+    z-index: 1;
     margin: 0;
     pointer-events: none;
   }

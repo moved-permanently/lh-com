@@ -668,3 +668,61 @@ body.brand-lufthansa main > .section > .default-content-wrapper:has(+ .accordion
     display: none;
   }
 }
+
+/* ------------------------------------------------------------- finder topics -------- */
+
+/* the finder's topics (./accordion-columns-topics.js, brief 482: Cargo's Support & Contact): on
+   phones an accordion (each topic a button, its links under it); from 1025px the topics a list in
+   the first column and the chosen topic's panel in the second, beside the whole list, with the
+   topic's title repeated at its top */
+.accordion-columns.tabs.filter .accordion-columns-topic-heading {
+  margin: 0;
+}
+
+.accordion-columns.tabs.filter .accordion-columns-topic {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.accordion-columns.tabs.filter .accordion-columns-topic-panel[hidden] {
+  display: none;
+}
+
+.accordion-columns.tabs.filter .accordion-columns-topic-panel-title {
+  display: none;
+}
+
+@media (width >= 1025px) {
+  .accordion-columns.tabs.filter .accordion-columns-topics {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: repeat(var(--topics), auto) 1fr;
+    column-gap: 24px;
+  }
+
+  .accordion-columns.tabs.filter .accordion-columns-topic-heading {
+    grid-column: 1;
+  }
+
+  .accordion-columns.tabs.filter .accordion-columns-topic-panel {
+    grid-row: 1 / span var(--topics);
+    grid-column: 2;
+  }
+
+  .accordion-columns.tabs.filter .accordion-columns-topic-panel-title {
+    display: block;
+  }
+}

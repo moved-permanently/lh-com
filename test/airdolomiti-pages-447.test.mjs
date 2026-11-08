@@ -92,9 +92,9 @@ test('the destination pages\' stage as www\'s HeroSecond: the picture darkened a
   has(new RegExp(`${D} \\{[^}]*justify-content: center;[^}]*align-items: center;[^}]*min-height: 100vh;`));
   has(new RegExp(`${D} \\.hero-card-overlay-media::after \\{[^}]*background-color: rgb\\(0 0 0 / 50%\\);`));
   has(new RegExp(`${D} \\.hero-card-overlay-card \\{[^}]*color: #002e54;[^}]*text-align: center;`));
-  has(new RegExp(`${D} \\.hero-card-overlay-card h1 \\{[^}]*color: #002e54;[^}]*font-size: 37\\.8px;[^}]*font-weight: 300;[^}]*line-height: 40px;`));
+  has(new RegExp(`${D} \\.hero-card-overlay-card :is\\(h1, h2\\) \\{[^}]*color: #002e54;[^}]*font-size: 37\\.8px;[^}]*font-weight: 300;[^}]*line-height: 40px;`));
   has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${D} \\{[^}]*min-height: 90vh;`));
-  has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${D} \\.hero-card-overlay-card h1 \\{[^}]*font-size: 64\\.8px;[^}]*line-height: 72px;`));
+  has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${D} \\.hero-card-overlay-card :is\\(h1, h2\\) \\{[^}]*font-size: 64\\.8px;[^}]*line-height: 72px;`));
   has(new RegExp(`@media \\(width >= 530px\\) \\{[^@]*${D}::after \\{[^}]*height: 135px;[^}]*background-color: #fff;`));
 });
 

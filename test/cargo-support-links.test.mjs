@@ -11,10 +11,16 @@ import { convert, Page } from '../tools/importer/cargo-import.mjs';
 
 const entry = (title, reason = '', subreason = '') => `<div class="lfr-layout-structure-item"><div class="faqEntryTitle"><h4 class="component-heading">${title}</h4></div><div class="faqReason">${reason}</div><div class="faqSubreason">${subreason}</div></div>`;
 const PAGE = `<!DOCTYPE html><html><head><title>Support &amp; Contact - Lufthansa Cargo</title></head><body><div id="main-content">
-<div id="portlet_com_lhcargo_eportal_contact_support_topic_search"><div class="rHeaderBlock"><h1>Support &amp; Contact</h1></div><form><div class="topicSearchWrapper"><label class="control-label" for="_com_lhcargo_eportal_contact_support_topic_search_topicSearch">
+<div id="portlet_com_lhcargo_eportal_contact_support_topic_search"><div class="rHeaderBlock"><h1>Support &amp; Contact</h1></div><div class="lcagCard search"><div class="content"><h3 class="mb-0 subHeadingCS">Need support on your topic?</h3><form><div class="topicSearchWrapper"><label class="control-label" for="_com_lhcargo_eportal_contact_support_topic_search_topicSearch">
   Find topic by typing
 </label><input id="_com_lhcargo_eportal_contact_support_topic_search_topicSearch" name="_com_lhcargo_eportal_contact_support_topic_search_topicSearch"></div></form>
-<a href="javascript:void(0)" class="lcagChip contactLink" onclick="openContactUsDialog('General request', 'Feedback / Complaints');">Feedback/Complaints</a></div>
+<div class="filterChips">
+  <a href="/home?p_p_id=com_liferay_login_web_portlet_LoginPortlet&amp;_com_liferay_login_web_portlet_LoginPortlet_mvcRenderCommandName=%2Flogin%2Fforgot_password" target="_blank" class="lcagChip">
+    Forgot password
+  </a>
+  <a href="javascript:void(0)" class="lcagChip contactLink" onclick="openContactUsDialog('General request', 'Feedback / Complaints');">Feedback/Complaints</a>
+  <a href="/eservices/awb-amendment-request" target="_blank" class="lcagChip">AWB amendment</a>
+</div></div></div></div>
 <div class="component-tabs"><ul class="nav nav-tabs"><li><a href="#tab-1">Bookings &amp; Shipments</a></li></ul>
 <div class="tab-content"><div class="card tab-pane fade active show" id="tab-1"><div class="card-body"><div class="topicSection"><h4>Booking</h4><h5>Get assistance in booking or updating your shipment information.</h5></div></div></div></div></div>
 <div class="topicSection"><div class="topicSearchTriggerContainer"><h4>Booking</h4></div>
@@ -80,4 +86,20 @@ test('the German Support & Contact is no redirect to the English page any more; 
   const { REDIRECT_ONLY, ADDED_PAGES } = await import('../tools/importer/cargo-paths.mjs');
   assert.equal(REDIRECT_ONLY['/de/support-and-contact'], undefined);
   assert.deepEqual(ADDED_PAGES['/de/support-and-contact'], { alternate: '/en/support-and-contact' });
+});
+
+// brief 482: www's finder card is headed "Need support on your topic?" and has its topic chips
+// (.filterChips a.lcagChip: links to the portal's pages, Feedback/Complaints opening the contact
+// form) under the field; rows Filter heading and Filter chips (a list of the links)
+test('Support & Contact: the finder\'s heading and chips as rows of the block (Filter heading; Filter chips: the links, Feedback/Complaints to the form\'s dialog with its reason and subreason)', () => {
+  const { html } = convert(PAGE, '/en/support-and-contact', 'en');
+  assert.match(html, /<div><div>Filter heading<\/div><div>Need support on your topic\?<\/div><\/div>/);
+  const chips = (html.match(/<div><div>Filter chips<\/div><div>(<ul>[\s\S]*?<\/ul>)<\/div><\/div>/) || [])[1];
+  assert.ok(chips, 'Filter chips row');
+  const links = [...chips.matchAll(/<a href="([^"]+)">([^<]+)<\/a>/g)].map((m) => [m[1], m[2]]);
+  assert.deepEqual(links.map(([, t]) => t), ['Forgot password', 'Feedback/Complaints', 'AWB amendment']);
+  assert.match(links[0][0], /^https:\/\/www\.lufthansa-cargo\.com\/home\?p_p_id=com_liferay_login_web_portlet_LoginPortlet/);
+  assert.equal(links[1][0], '/modals/contact-us?reason=General%20request&amp;subreason=Feedback%20%2F%20Complaints');
+  assert.equal(links[2][0], 'https://www.lufthansa-cargo.com/eservices/awb-amendment-request');
+  assert.ok(!/Need technical support/.test(chips));
 });

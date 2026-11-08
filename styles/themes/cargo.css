@@ -1026,19 +1026,51 @@ body.brand-cargo .carousel-cards.timeline :is(.carousel-cards-prev, .carousel-ca
    tabs, filter): only that page) as www's "Need support on your topic?" card: white with a
    shadow, 24 px inside, the field an underline with its label above, the matching topics a list
    under it; from 1025 px the tabs a third of the row each, centred, LufthansaText 18 px, the
-   selected one under a 4 px navy line */
+   selected one under a 4 px navy line. Brief 482: the card on www's grey band (#f5f5f5 across the page, 20px above and below it, 40px
+   from 1025px), headed "Need support on your topic?" (row Filter heading), the field's label inside
+   it until something is typed, www's chevron at its end, the topic chips under it (row Filter
+   chips); then the line "Select a topic ..." (moved under the finder by the block) */
 body.brand-cargo .accordion-columns.tabs.filter > .accordion-columns-filter {
   max-width: none;
-  margin: 0 0 40px;
-  padding: 24px;
-  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%);
+  display: grid;
+  grid-template-areas: "heading" "field" "results" "status" "chips";
+  gap: 0;
+  margin: 20px 0 40px;
+  padding: 20px 16px;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%), 0 0 0 100vmax #f5f5f5;
+  clip-path: inset(-20px -100vmax);
   background-color: #fff;
 }
 
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-filter-heading {
+  grid-area: heading;
+  margin: 0 0 44px;
+  color: #05164d;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
 body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-filter label {
+  grid-area: field;
+  align-self: start;
+  margin-top: 8px;
+  pointer-events: none;
   color: #666;
   font-size: 18px;
   line-height: 24px;
+}
+
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-filter:has(.accordion-columns-filter-clear:not([hidden])) label {
+  visibility: hidden;
+}
+
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-filter-field {
+  grid-area: field;
+}
+
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-filter-status {
+  grid-area: status;
 }
 
 body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-filter input {
@@ -1047,10 +1079,47 @@ body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-filter input 
   border: 0;
   border-bottom: 2px solid #4d4d4d;
   border-radius: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%2305164d' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E") right 4px center / 16px no-repeat;
   font-size: 18px;
 }
 
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-filter-chips {
+  grid-area: chips;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 38px 0 6px;
+  padding: 0;
+  list-style: none;
+}
+
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-filter-chips a:any-link {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 17px;
+  background-color: #fff;
+  padding: 7px 20px;
+  color: #05164d;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-decoration: none;
+}
+
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-filter-chips a:is(:hover, :focus-visible) {
+  background-color: #05164d;
+  color: #fff;
+}
+
+body.brand-cargo .accordion-columns.tabs.filter > .accordion-columns-filter-intro {
+  margin: 0 0 20px;
+  color: #05164d;
+  font-size: 18px;
+  line-height: 24px;
+}
+
 body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-filter-results {
+  grid-area: results;
   max-height: 360px;
   overflow: auto;
 }
@@ -1071,6 +1140,154 @@ body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-filter-result
 
   body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-tab[aria-selected="true"] {
     border-bottom: 4px solid #05164d;
+  }
+
+  body.brand-cargo .accordion-columns.tabs.filter > .accordion-columns-filter {
+    margin: 40px 0 80px;
+    padding: 20px 24px;
+    clip-path: inset(-40px -100vmax);
+  }
+
+  body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-filter-heading {
+    margin-bottom: 30px;
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  body.brand-cargo .accordion-columns.tabs.filter.is-tabbed > .accordion-columns-item > .accordion-columns-panel {
+    padding-top: 30px;
+  }
+}
+
+/* brief 482: each tab's topics as www's: on phones an accordion (the title 18px / 24px light, the
+   line 14px / 18px, 13px 44px 13px 10px, a #ccc rule, www's chevron at the end; the links in a
+   #f5f5f5 box under the open one, 14px / 18px bold, 22px apart); from 1025px the list (10px 10px 10px 24px; the title regular; the
+   chosen one navy with white text) beside the chosen topic's panel (#f5f5f5, 20px 24px, its title
+   28px / 32px); the links 18px / 24px bold #52627c with www's arrow, 20px apart. The topic's
+   heading holds the button: not the faq's headings (66% wide, bold) */
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-panel .accordion-columns-topic-heading {
+  max-width: none;
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit;
+}
+
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic {
+  padding: 13px 44px 13px 10px;
+  border-bottom: 1px solid #ccc;
+  color: #05164d;
+}
+
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-title {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-text {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  right: 14px;
+  width: 16px;
+  height: 16px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23000' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-panel {
+  margin: 0 20px 20px 10px;
+  background-color: #f5f5f5;
+  padding: 30px 16px;
+}
+
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-panel-title {
+  margin: 0 0 20px;
+  color: #05164d;
+  font-size: 28px;
+  line-height: 32px;
+}
+
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-panel ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-panel li + li {
+  margin-top: 22px;
+}
+
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-panel a:any-link {
+  display: inline-flex;
+  gap: 13px;
+  align-items: flex-start;
+  color: #52627c;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  text-decoration: none;
+}
+
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-panel a:any-link::before {
+  content: "";
+  flex: 0 0 16px;
+  height: 18px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / 16px no-repeat;
+}
+
+@media (width >= 1025px) {
+  body.brand-cargo .accordion-columns.tabs.filter.is-tabbed > .accordion-columns-item > .accordion-columns-panel:has(.accordion-columns-topics) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic {
+    padding: 10px 10px 10px 24px;
+  }
+
+  body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic::after {
+    content: none;
+  }
+
+  body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-title {
+    font-weight: 400;
+  }
+
+  body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic[aria-expanded="true"] {
+    border-bottom-color: transparent;
+    background-color: #05164d;
+    color: #fff;
+  }
+
+  body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-panel {
+    margin: 0;
+    padding: 20px 24px;
+  }
+
+  body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-panel li + li {
+    margin-top: 20px;
+  }
+
+  body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-panel a:any-link {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-panel a:any-link::before {
+    height: 24px;
   }
 }
 

@@ -58,7 +58,7 @@ test('lazyblock/reach-monaco: hero-card-overlay (destination) with the section l
     { text: 'Podcast', ctaUrl: 'https://www.airdolomiti.eu/podcast' },
   ])]), HOME);
   const b = blockOf(html);
-  assert.match(b, /<p>The enchanting capital of Apulia<\/p><h([12])[^>]*>Explore Bari City in Puglia<\/h\1><ul><li><a href="#what-to-do">What to do<\/a><\/li><li><a href="#what-to-see">What to see<\/a><\/li><li><a href="[^"]*podcast">Podcast<\/a><\/li><\/ul><p>Starting from 174€<\/p><p><strong><a href="[^"]+">Book your flight<\/a><\/strong><\/p>/);
+  assert.match(b, /<p>The enchanting capital of Apulia<\/p><h([12])[^>]*>Explore Bari City in Puglia<\/h\1><ul><li><a href="#what-to-do">What to do<\/a><\/li><li><a href="#what-to-see">What to see<\/a><\/li><li><a href="[^"]*podcast">Podcast<\/a><\/li><\/ul><p>Starting from<\/p><p>174€<\/p><p><strong><a href="[^"]+">Book your flight<\/a><\/strong><\/p>/);
   assert.ok(!html.includes('<div class="cards-icon'), 'no cards-icon block');
 });
 
@@ -66,7 +66,7 @@ test('without section links: hero-card-overlay (destination), no list', () => {
   const { html } = convert(withBlocks([stage([])]), HOME);
   const b = blockOf(html);
   assert.ok(!b.includes('<ul>'), 'no list');
-  assert.match(b, /<h([12])[^>]*>Explore Bari City in Puglia<\/h\1><p>Starting from 174€<\/p>/);
+  assert.match(b, /<h([12])[^>]*>Explore Bari City in Puglia<\/h\1><p>Starting from<\/p><p>174€<\/p>/);
 });
 
 const css = readFileSync('styles/themes/airdolomiti.css', 'utf8');
@@ -80,18 +80,18 @@ const body = (sel, from = 0) => {
 test('the stage rules are the option\'s, not the tiles\' section\'s', () => {
   assert.ok(!/cards-icon-container \.hero-card-overlay/.test(css), 'no rule needs the cards-icon section');
   assert.match(body(S), /min-height: 100vh;/);
-  assert.match(body(`${S} .hero-card-overlay-card h1`), /font-weight: 300;/);
+  assert.match(body(`${S} .hero-card-overlay-card :is(h1, h2)`), /font-weight: 300;/);
 });
 
 test('the text box: the line and the title on www\'s marble (60%), 10px in; the card itself clear', () => {
   const card = body(`${S} .hero-card-overlay-card`);
   assert.match(card, /padding: 0;/);
   assert.match(card, /background-color: transparent;/);
-  const box = body(`${S} .hero-card-overlay-card > :is(.hero-card-overlay-eyebrow, h1)`);
+  const box = body(`${S} .hero-card-overlay-card > :is(.hero-card-overlay-eyebrow, h1, h2)`);
   assert.match(box, /background-color: hsl\(26deg 26% 95% \/ 60%\);/);
   assert.match(body(`${S} .hero-card-overlay-card > .hero-card-overlay-eyebrow`), /padding: 10px 10px 0;/);
-  assert.match(body(`${S} .hero-card-overlay-card > h1`), /padding: 0 10px 10px;/);
-  assert.match(body(`${S} .hero-card-overlay-card > h1:first-child`), /padding-top: 10px;/);
+  assert.match(body(`${S} .hero-card-overlay-card > :is(h1, h2)`), /padding: 0 10px 10px;/);
+  assert.match(body(`${S} .hero-card-overlay-card > :is(h1, h2):first-child`), /padding-top: 10px;/);
 });
 
 test('the pills: one row 70px under the box, 8px apart, centred, scrolling sideways when it doesn\'t fit; white, 10px radius, 18px 40px, teal 16 / 22 px 500, the icon 28px 16px after the label', () => {
@@ -119,4 +119,23 @@ test('the pills: one row 70px under the box, 8px apart, centred, scrolling sidew
 
 test('an item\'s paragraphs (DA wraps the link and the icon in one each: the pill 88px high on preview) add nothing to the pill', () => {
   assert.match(body(`${S} .hero-card-overlay-card > ul > li > p`), /display: contents;/);
+});
+
+/* brief 482 (the posts' stage, rows 14, 21 and 25 of the sweep after 470): www's bar holds two
+   lines, its h4 (titleWidget: "Fly with us", "Starting from 174€") and a small one under it
+   (widgetPrice: "Find out more", "at person"); they were one paragraph. On a post the stage's
+   title is an h2 (the post's title is the page's h1), styled as the destination's h1. */
+const flat = css.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
+const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const P = `${S} .hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow, .hero-card-overlay-cta)`;
+
+test('the bar\'s two lines: the first semibold 28.08px / 32px, the second 17.28px / 30px #1f1f1f under it (66px and 36px above the bar\'s foot); on phones only the first', () => {
+  assert.match(flat, new RegExp(`${esc(P)} \\+ p:not\\(\\.hero-card-overlay-cta\\) \\{ display: none; \\}`));
+  assert.match(flat, new RegExp(`${esc(P)}:has\\(\\+ p:not\\(\\.hero-card-overlay-cta\\)\\) \\{ bottom: 66px; \\}`));
+  assert.match(flat, new RegExp(`${esc(P)} \\+ p:not\\(\\.hero-card-overlay-cta\\) \\{ display: block; bottom: 36px; color: #1f1f1f; font-size: 17\\.28px; font-weight: 400; line-height: 30px; \\}`));
+});
+
+test('a post\'s stage title (an h2) as the destination\'s h1: light, in the marble box', () => {
+  assert.match(body(`${S} .hero-card-overlay-card :is(h1, h2)`), /font-weight: 300;/);
+  assert.match(body(`${S} .hero-card-overlay-card > :is(.hero-card-overlay-eyebrow, h1, h2)`), /background-color: hsl\(26deg 26% 95% \/ 60%\);/);
 });

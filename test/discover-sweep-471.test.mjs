@@ -15,3 +15,11 @@ test('row 30: two-up teaser cards as www\'s rows of .twocolumn (Additional servi
   const wide = css.split('@media (width >= 768px)').slice(1).join(' ');
   assert.ok(/body\.brand-discover \.carousel-cards\.grid\.two-up \.carousel-cards-track \{[^}]*row-gap: 80px;/.test(wide), 'row-gap 80px from 768px');
 });
+
+test('row 30, brief 482: a re-import writes each of www\'s rows as its own two-up block (Additional services: Tec4Med and Uptrip alone in theirs); the blocks as far apart as the rows, 40 px on phones, 80 px from 768 px', () => {
+  const css = theme();
+  const sel = 'body.brand-discover main .carousel-cards-wrapper:has(> .carousel-cards.grid.two-up) + .carousel-cards-wrapper > .carousel-cards.grid.two-up';
+  const esc = sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  assert.ok(new RegExp(`\\} ${esc} \\{ margin-top: 40px; \\}`).test(css), '40px on phones');
+  assert.ok(new RegExp(`@media \\(width >= 768px\\) \\{ ${esc} \\{ margin-top: 80px; \\} \\}`).test(css), '80px from 768px');
+});

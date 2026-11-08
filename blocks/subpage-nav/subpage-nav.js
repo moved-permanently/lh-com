@@ -31,7 +31,6 @@ function place(block) {
   if (!main || !section) return;
   if (!window.matchMedia(DESKTOP).matches) {
     section.style.removeProperty('--subpage-nav-top');
-    main.style.removeProperty('min-height');
     return;
   }
   const mainTop = main.getBoundingClientRect().top;
@@ -44,9 +43,8 @@ function place(block) {
   if (section.style.getPropertyValue('--subpage-nav-top') !== value) {
     section.style.setProperty('--subpage-nav-top', value);
   }
-  // the nav is out of the flow: the page is at least as long as the nav
-  const min = `${top + block.offsetHeight}px`;
-  if (main.style.minHeight !== min) main.style.minHeight = min;
+  // the nav is out of the flow and, as www's, keeps no room for itself: on a short page it runs
+  // into the footer, drawn over it (brief 482, /de/en/secure-flight)
 }
 
 export default function decorate(block) {

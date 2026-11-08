@@ -168,3 +168,93 @@ test('filter with tabs: a finder over the tabs, the matching topics of every tab
   assert.equal(results.hidden, true);
   assert.equal(filter.querySelector('.accordion-columns-filter-status').textContent, '');
 });
+
+// brief 482 (Cargo's Support & Contact, as www's at 1440 and 390): the finder headed (row Filter
+// heading) with its topic chips under the field (row Filter chips, a list of links); the line
+// right before the block (its section's last heading) under the finder, above the tab bar; each
+// panel's topics (a heading, its line, its links) a list of buttons and the chosen topic's links
+// beside them from 1025 px (one shown, the first chosen), on phones an accordion (the first open,
+// a second click closes it)
+const finder = async (wide) => {
+  window.matchMedia = () => ({ matches: wide, addEventListener: () => {}, addListener: () => {} });
+  const section = document.createElement('div');
+  section.className = 'section';
+  section.innerHTML = '<div class="default-content-wrapper"><h4>Select a topic from our list to get support with the most common requests.</h4></div><div class="accordion-columns-wrapper"></div>';
+  const el = document.createElement('div');
+  el.className = 'accordion-columns faq tabs filter';
+  const rows = [
+    ['Filter heading', 'Need support on your topic?'],
+    ['Filter chips', '<ul><li><a href="https://www.lufthansa-cargo.com/eservices/written-statement">Written statement</a></li><li><a href="/modals/contact-us?reason=General%20request">Feedback/Complaints</a></li></ul>'],
+    ['Bookings &amp; Shipments', '<h3>Booking</h3><p>Get assistance in booking.</p><ul><li><a href="/a">Book a quotation.</a></li></ul><h3>Status information</h3><p>Get a status.</p><ul><li><a href="/b">Get a flight status.</a></li></ul>'],
+    ['General request', '<h3>My account</h3><p>Manage your account.</p><ul><li><a href="/c">Change profile.</a></li></ul>'],
+  ];
+  el.innerHTML = rows.map(([a, b]) => `<div><div>${a}</div><div>${b}</div></div>`).join('');
+  section.querySelector('.accordion-columns-wrapper').append(el);
+  document.body.replaceChildren(section);
+  await decorate(el);
+  window.matchMedia = () => ({ matches: false, addEventListener: () => {}, addListener: () => {} });
+  return { el, section };
+};
+
+test('finder: www\'s heading over the field, its chips under it, the line before the block under the finder', async () => {
+  const { el, section } = await finder(true);
+  const filter = el.firstElementChild;
+  assert.equal(filter.querySelector('.accordion-columns-filter-heading').textContent, 'Need support on your topic?');
+  assert.equal(filter.firstElementChild.className, 'accordion-columns-filter-heading');
+  const chips = [...filter.querySelectorAll('.accordion-columns-filter-chips > li > a')].map((a) => [a.textContent, a.getAttribute('href')]);
+  assert.deepEqual(chips, [['Written statement', 'https://www.lufthansa-cargo.com/eservices/written-statement'], ['Feedback/Complaints', '/modals/contact-us?reason=General%20request']]);
+  const kids = [...filter.children];
+  assert.ok(kids.indexOf(filter.querySelector('.accordion-columns-filter-chips')) > kids.indexOf(filter.querySelector('.accordion-columns-filter-field')), 'the chips after the field');
+  const intro = filter.nextElementSibling;
+  assert.equal(intro.className, 'accordion-columns-filter-intro');
+  assert.match(intro.textContent, /^Select a topic from our list/);
+  assert.equal(intro.tagName, 'H4');
+  assert.ok(intro.nextElementSibling.classList.contains('accordion-columns-tablist'));
+  assert.equal(section.querySelector('.default-content-wrapper'), null, 'the emptied wrapper goes');
+  assert.equal([...el.querySelectorAll('summary')].map((s) => s.textContent.trim()).join('|'), 'Bookings & Shipments|General request', 'the rows are no items');
+});
+
+test('finder, from 1025 px: the topics a list of buttons (title and line) and the chosen topic\'s links beside them, the first chosen; a click chooses another', async () => {
+  const { el } = await finder(true);
+  const panel = el.querySelector('.accordion-columns-item .accordion-columns-panel');
+  const topics = panel.querySelector('.accordion-columns-topics');
+  assert.ok(topics, 'the topics');
+  const buttons = [...topics.querySelectorAll(':scope > h3 > button.accordion-columns-topic')];
+  assert.deepEqual(buttons.map((b) => [b.querySelector('.accordion-columns-topic-title').textContent, b.querySelector('.accordion-columns-topic-text').textContent]), [['Booking', 'Get assistance in booking.'], ['Status information', 'Get a status.']]);
+  const regions = buttons.map((b) => el.querySelector(`#${b.getAttribute('aria-controls')}`));
+  assert.ok(regions.every((r) => r && r.classList.contains('accordion-columns-topic-panel')));
+  assert.deepEqual(buttons.map((b) => b.getAttribute('aria-expanded')), ['true', 'false']);
+  assert.deepEqual(regions.map((r) => r.hidden), [false, true]);
+  assert.equal(regions[0].querySelector('.accordion-columns-topic-panel-title').textContent, 'Booking');
+  assert.equal(regions[0].querySelector('.accordion-columns-topic-panel-title').getAttribute('aria-hidden'), 'true');
+  assert.equal(regions[0].querySelector('a').getAttribute('href'), '/a');
+  assert.equal(topics.style.getPropertyValue('--topics'), '2');
+  buttons[1].click();
+  assert.deepEqual(regions.map((r) => r.hidden), [true, false]);
+  buttons[1].click();
+  assert.deepEqual(regions.map((r) => r.hidden), [true, false], 'from 1025 px one topic stays chosen');
+});
+
+test('finder, on phones: the topics an accordion, the first open; a second click closes it', async () => {
+  const { el } = await finder(false);
+  assert.deepEqual([...el.querySelectorAll('.accordion-columns-item')].map((d) => d.hasAttribute('open')), [true, false], 'the first tab open, as www\'s');
+  const buttons = [...el.querySelectorAll('.accordion-columns-item')[0].querySelectorAll('button.accordion-columns-topic')];
+  const regions = buttons.map((b) => el.querySelector(`#${b.getAttribute('aria-controls')}`));
+  assert.deepEqual(regions.map((r) => r.hidden), [false, true]);
+  buttons[0].click();
+  assert.deepEqual(buttons.map((b) => b.getAttribute('aria-expanded')), ['false', 'false']);
+  assert.deepEqual(regions.map((r) => r.hidden), [true, true]);
+  buttons[1].click();
+  assert.deepEqual(regions.map((r) => r.hidden), [true, false]);
+});
+
+test('finder: typing still lists the matching topics with their line and links (the topics read from the list)', async () => {
+  const { el } = await finder(true);
+  const input = el.querySelector('.accordion-columns-filter input');
+  type(input, 'flight status');
+  const results = el.querySelector('.accordion-columns-filter-results');
+  assert.deepEqual([...results.querySelectorAll('.accordion-columns-filter-result-title')].map((t) => t.textContent.trim()), ['Status information']);
+  assert.match(results.textContent, /Get a status\./);
+  assert.equal(results.querySelector('a').getAttribute('href'), '/b');
+  assert.equal(results.querySelector('button, [aria-hidden]'), null, 'no buttons or hidden copies in the results');
+});

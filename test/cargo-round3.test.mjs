@@ -39,7 +39,7 @@ test('row 14: the story pictures (hero-card-overlay (light), Cargo\'s stories on
 test('row 21: Support & Contact\'s topic finder over its tabs (accordion-columns (faq, tabs, filter)) as www\'s: the finder a white card with a shadow, the field an underline, the results a list under it; the tabs a third of the row each, centred, the selected one 4 px navy; the base list hidden while empty', () => {
   const css = cargo();
   const F = 'body\\.brand-cargo \\.accordion-columns\\.tabs\\.filter';
-  has(css, new RegExp(`${F} > \\.accordion-columns-filter \\{[^}]*max-width: none;[^}]*padding: 24px;[^}]*box-shadow: 0 1px 4px 0 rgb\\(0 0 0 / 20%\\);[^}]*background-color: #fff;`));
+  has(css, new RegExp(`${F} > \\.accordion-columns-filter \\{[^}]*max-width: none;[^}]*padding: 20px 16px;[^}]*box-shadow: 0 1px 4px 0 rgb\\(0 0 0 / 20%\\), 0 0 0 100vmax #f5f5f5;[^}]*background-color: #fff;`));
   has(css, new RegExp(`${F} \\.accordion-columns-filter input \\{[^}]*border: 0;[^}]*border-bottom: 2px solid #4d4d4d;[^}]*border-radius: 0;`));
   has(css, new RegExp(`${F} \\.accordion-columns-filter-results \\{[^}]*max-height: 360px;[^}]*overflow: auto;`));
   has(css, new RegExp(`@media \\(width >= 1025px\\) \\{[^@]*${F} \\.accordion-columns-tab \\{[^}]*flex: 1 1 0;[^}]*text-align: center;`));

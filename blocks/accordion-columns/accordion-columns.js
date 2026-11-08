@@ -277,8 +277,11 @@ export const FILTER_LABELS = {
   ko: { label: '입력하여 주제 찾기', empty: '주제를 찾을 수 없습니다.', clear: '삭제' },
   pl: { label: 'Znajdź temat, wpisując tekst', empty: 'Nie znaleziono tematów.', clear: 'Usuń' },
 };
-// rows of option filter: their first cell (lower case) -> the text they set
-const FILTER_ROWS = { 'filter label': 'label', 'no results': 'empty' };
+// rows of option filter: their first cell (lower case) -> the text they set (Filter chips: the
+// list of links itself)
+const FILTER_ROWS = {
+  'filter label': 'label', 'no results': 'empty', 'filter heading': 'heading', 'filter chips': 'chips',
+};
 let filterCount = 0;
 
 /** Lower case without accents and with single spaces: what the filter compares. */
@@ -295,6 +298,19 @@ const searchable = (value) => String(value).normalize('NFD').replace(/\p{M}/gu, 
  */
 function topicsOf(items) {
   return items.flatMap((item) => {
+    // a panel whose topics are a list and panel (./accordion-columns-topics.js): each topic's
+    // title, its line and its links
+    const listed = [...item.querySelectorAll('.accordion-columns-topic')];
+    if (listed.length) {
+      return listed.map((button) => {
+        const region = item.querySelector(`#${button.getAttribute('aria-controls')}`);
+        const line = button.querySelector('.accordion-columns-topic-text');
+        const p = line ? document.createElement('p') : null;
+        if (p) p.textContent = line.textContent;
+        const links = region ? [...region.children].filter((n) => !n.matches('.accordion-columns-topic-panel-title')) : [];
+        return { title: button.querySelector('.accordion-columns-topic-title').textContent.trim(), nodes: [p, ...links].filter(Boolean) };
+      });
+    }
     const nodes = [...item.querySelectorAll(':scope > .accordion-columns-panel > .accordion-columns-intro > *, :scope > .accordion-columns-panel > .accordion-columns-columns > .accordion-columns-column > *')];
     const topics = [];
     nodes.forEach((n) => {
@@ -326,10 +342,12 @@ function topicResult(topic) {
  * word (case and accents ignored), none left: the no-results line (a polite live region). Remove
  * empties the field and shows every item again. With tabs (finder): the field stays above the
  * tab bar and the items as they are; typing lists the matching topics of every tab under it
- * (topicsOf), as www's topic finder over its tabs.
+ * (topicsOf), as www's topic finder over its tabs. Texts heading and chips (rows Filter heading and
+ * Filter chips, brief 482): www's finder card's heading over the field and its topic chips (a list
+ * of links) under it.
  * @param {Element} block
  * @param {HTMLDetailsElement[]} items
- * @param {{label: string, empty: string, clear: string}} texts
+ * @param {{label: string, empty: string, clear: string, heading?: string, chips?: Element}} texts
  * @param {{finder?: boolean}} [options]
  */
 export function buildFilter(block, items, texts, { finder = false } = {}) {
@@ -364,7 +382,15 @@ export function buildFilter(block, items, texts, { finder = false } = {}) {
     results.hidden = true;
     input.setAttribute('aria-controls', results.id);
   }
-  wrap.append(...[label, field, results, status].filter(Boolean));
+  let heading = null;
+  if (texts.heading) {
+    heading = document.createElement('h2');
+    heading.className = 'accordion-columns-filter-heading';
+    heading.textContent = texts.heading;
+  }
+  const chipList = texts.chips && texts.chips.querySelector('ul');
+  if (chipList) chipList.className = 'accordion-columns-filter-chips';
+  wrap.append(...[heading, label, field, results, status, chipList].filter(Boolean));
 
   // read on the first input: after decorate has cleaned the texts
   let haystacks = null;
@@ -437,7 +463,7 @@ export default async function decorate(block) {
     const filterRow = filter && cells.length >= 2
       && FILTER_ROWS[cells[0].textContent.trim().toLowerCase()];
     if (filterRow) {
-      filterTexts[filterRow] = cells[1].textContent.trim();
+      filterTexts[filterRow] = filterRow === 'chips' ? cells[1] : cells[1].textContent.trim();
       return;
     }
     let titleNodes;
@@ -477,7 +503,24 @@ export default async function decorate(block) {
   if (block.classList.contains('tabs')) buildTabs(block, items);
   openFirst(block, items);
   exclusive(block, items);
-  if (filter) buildFilter(block, items, filterTexts, { finder: block.classList.contains('tabs') });
+  const finder = filter && block.classList.contains('tabs');
+  if (filter) buildFilter(block, items, filterTexts, { finder });
+  if (finder) {
+    // the finder (www's Support & Contact, brief 482): the line right before the block (its
+    // section's last heading, "Select a topic from our list ...") under the finder, over the tabs,
+    // and each panel's topics a list and panel
+    const before = block.parentElement && block.parentElement.previousElementSibling;
+    const line = before && before.matches('.default-content-wrapper') && before.lastElementChild;
+    if (line && line.matches(HEADINGS)) {
+      line.classList.add('accordion-columns-filter-intro');
+      block.querySelector(':scope > .accordion-columns-filter').after(line);
+      if (!before.children.length) before.remove();
+    }
+    // on phones (the accordion) the first tab open, as www's
+    if (items.length && !items.some((item) => item.open)) items[0].setAttribute('open', '');
+    const { default: buildTopics } = await import('./accordion-columns-topics.js');
+    items.forEach((item) => buildTopics(item, window.matchMedia(TABS_MEDIA)));
+  }
   // item grids first (one-row tables of pictures), then the data tables that are left
   block.querySelectorAll('.accordion-columns-panel').forEach(buildGrids);
   // tables in a panel (Discover's fee and rule tables) scroll sideways in their own box

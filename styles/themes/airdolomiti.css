@@ -856,6 +856,7 @@ body.brand-airdolomiti .hero-campaign.hero-campaign-services[data-services="band
  */
 body.brand-airdolomiti .carousel-cards.promo .carousel-cards-slide {
   flex-direction: column-reverse;
+  flex-basis: 250px;
   border: 0;
   border-radius: 10px;
   background-color: #f4f4f4;
@@ -926,9 +927,21 @@ body.brand-airdolomiti .carousel-cards.promo .carousel-cards-slide:has(.carousel
   text-decoration: underline;
 }
 
+/* the row (www's MiniCardSlider, brief 482: the capture's settled boxes): on phones 250px cards
+   2.5vw apart that swipe; from 1025px three to the row, 36px apart (432px at 1440). The capture's
+   tall cards at 1440 are the phone size mid-way through CardPromo's 0.5s transition. */
+body.brand-airdolomiti .carousel-cards.promo .carousel-cards-track {
+  gap: 2.5vw;
+}
+
 @media (width >= 1025px) {
+  body.brand-airdolomiti .carousel-cards.promo .carousel-cards-track {
+    gap: 36px;
+  }
+
   body.brand-airdolomiti .carousel-cards.promo .carousel-cards-slide {
     flex-direction: row;
+    flex-basis: calc((100% - 72px) / 3);
     min-height: 140px;
   }
 
@@ -2514,7 +2527,7 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-ov
   text-wrap: wrap;
 }
 
-body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card h1 {
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card :is(h1, h2) {
   margin: 0;
   color: #002e54;
   font-family: var(--body-font-family);
@@ -2525,7 +2538,7 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-ov
 }
 
 /* the box: the line and the title on the marble, 10px in */
-body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > :is(.hero-card-overlay-eyebrow, h1) {
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > :is(.hero-card-overlay-eyebrow, h1, h2) {
   background-color: hsl(26deg 26% 95% / 60%);
 }
 
@@ -2533,17 +2546,23 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-ov
   padding: 10px 10px 0;
 }
 
-body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > h1 {
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > :is(h1, h2) {
   padding: 0 10px 10px;
 }
 
-body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > h1:first-child {
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > :is(h1, h2):first-child {
   padding-top: 10px;
 }
 
 /* stylelint-disable-next-line no-descending-specificity -- the stage's lines, not the fleet's text (above) */
 body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow) {
   margin: 16px 0 0;
+}
+
+/* the bar's second line (www's small text under its h4, brief 482): not on phones (www's phone
+   button holds the first line alone) */
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow, .hero-card-overlay-cta) + p:not(.hero-card-overlay-cta) {
+  display: none;
 }
 
 @media (width >= 530px) {
@@ -2579,6 +2598,21 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-ov
     text-align: left;
   }
 
+  /* two lines (brief 482): the first 66px above the bar's foot, the second (17.28px / 30px, www's
+     #1f1f1f) 36px above it, as www's h4 and text at 1440 */
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow, .hero-card-overlay-cta):has(+ p:not(.hero-card-overlay-cta)) {
+    bottom: 66px;
+  }
+
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow, .hero-card-overlay-cta) + p:not(.hero-card-overlay-cta) {
+    display: block;
+    bottom: 36px;
+    color: #1f1f1f;
+    font-size: 17.28px;
+    font-weight: 400;
+    line-height: 30px;
+  }
+
   body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-cta {
     position: absolute;
     right: 50px;
@@ -2599,7 +2633,7 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-ov
     margin: 0;
   }
 
-  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card h1 {
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card :is(h1, h2) {
     font-size: 64.8px;
     line-height: 72px;
   }
@@ -3082,3 +3116,463 @@ body.brand-airdolomiti main > .section.compact-title .default-content-wrapper > 
     display: none;
   }
 }
+
+/* stylelint-disable no-descending-specificity -- the homepage's tiles and strip (brief 482),
+   after the three-up cards and the stages they leave alone */
+
+/*
+ * the homepage's blocks as www draws them now (brief 482, from ema-adobe 477; airdolomiti-parity-001 at
+ * 1440 and 390): www kept its blocks and data and changed the drawing.
+ * The two-up cards (gridtwocolumns: cards-teaser without an option; the homepage's eSIM and Miles & More,
+ * Leisure and Business, chi-siamo's and history's) are www's CardDefault tiles: the picture fills the
+ * tile (a 90vw square, 330px high from 530px) under a dark veil (50%, 10% from 930px, 50% on hover); the
+ * title and line in one marble box (60%) at the top, its width the longer of the two; www's white button
+ * with the teal arrow at the bottom. www's per-card theme (Business's navy box) is not in the document.
+ */
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul {
+  gap: 20px;
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li + li {
+  margin-top: 0;
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li:has(> .cards-teaser-image) {
+  position: relative;
+  overflow: hidden;
+  height: 90vw;
+  border-radius: 10px;
+  color: #fff;
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li:has(> .cards-teaser-image) > .cards-teaser-image {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li:has(> .cards-teaser-image) > .cards-teaser-image picture {
+  height: 100%;
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li:has(> .cards-teaser-image) > .cards-teaser-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li:has(> .cards-teaser-image) > .cards-teaser-body {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  box-sizing: border-box;
+  height: 100%;
+  grid-template-rows: auto auto 1fr;
+  grid-template-columns: fit-content(100%);
+  background-image: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0 / 50%));
+  padding: 20px 12px 28px;
+  transition: background-image 0.3s;
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li:has(> .cards-teaser-image) > .cards-teaser-body::before {
+  content: "";
+  z-index: -1;
+  grid-area: 1 / 1 / 3 / 2;
+  border-radius: 10px;
+  background-color: rgb(245 241 238 / 60%);
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li:has(> .cards-teaser-image) .cards-teaser-title {
+  grid-area: 1 / 1;
+  margin: 0;
+  padding: 10px 10px 0;
+  color: #002e54;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 34px;
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li:has(> .cards-teaser-image) .cards-teaser-title:has(+ .cards-teaser-cta) {
+  padding-bottom: 10px;
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li:has(> .cards-teaser-image) .cards-teaser-body > p:not(.cards-teaser-cta) {
+  grid-area: 2 / 1;
+  margin: 0;
+  padding: 8px 10px 10px;
+  color: #002e54;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li:has(> .cards-teaser-image) .cards-teaser-cta {
+  grid-area: 3 / 1;
+  place-self: end start;
+  margin: 0;
+  white-space: nowrap;
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li:has(> .cards-teaser-image) .cards-teaser-cta-link:any-link {
+  display: inline-flex;
+  gap: 16px;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 18px 40px;
+  color: #00798a;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  text-decoration: none;
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li:has(> .cards-teaser-image) .cards-teaser-cta-link::before {
+  display: none;
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li:has(> .cards-teaser-image) .cards-teaser-cta-link::after {
+  content: "";
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cpath d='M26.73 13.33H13.53L2 0h13.2zM2 28h13.2l11.53-13.33H13.53z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* the offers' heading 20px above the cards on phones, 34px from 1025px (the track's 5px included) */
+body.brand-airdolomiti main .default-content-wrapper:has(+ .carousel-cards-wrapper > .carousel-cards.promo) > h2:last-child {
+  margin-bottom: 15px;
+}
+
+@media (width >= 1025px) {
+  body.brand-airdolomiti main .default-content-wrapper:has(+ .carousel-cards-wrapper > .carousel-cards.promo) > h2:last-child {
+    margin-bottom: 29px;
+  }
+}
+
+/* the gaps around them (www at 1440 and 390): the two-up grids 20px under their heading, after each
+   other and above the strip (GridTwoColumns' margin: 20px auto); the download row 80px above what
+   follows (GridTwoColumnsDownload's margin-bottom), 84px from 930px (measured at 1440) */
+body.brand-airdolomiti main .default-content-wrapper:has(+ .cards-teaser-wrapper > .cards-teaser:not(.three-up)) > h2:last-child {
+  margin-bottom: 20px;
+}
+
+body.brand-airdolomiti main .default-content-wrapper:has(+ .cards-teaser-wrapper > .cards-teaser:not(.three-up)) + .cards-teaser-wrapper {
+  margin-top: 20px;
+}
+
+/* under the offers (www's MiniCardSlider: its row's padding, on phones the "Show all" row and its
+   100px margin): the tiles 170px under the cards on phones, 100px from 1025px (the track's 8px
+   padding included) */
+body.brand-airdolomiti main > .section:has(.carousel-cards.promo) > .cards-teaser-wrapper:has(> .cards-teaser:not(.three-up)) {
+  margin-top: 113px;
+}
+
+@media (width >= 1025px) {
+  body.brand-airdolomiti main > .section:has(.carousel-cards.promo) > .cards-teaser-wrapper:has(> .cards-teaser:not(.three-up)) {
+    margin-top: 92px;
+  }
+}
+
+body.brand-airdolomiti main .cards-teaser-wrapper + .cards-teaser-wrapper > .cards-teaser:not(.three-up) {
+  margin-top: 0;
+}
+
+body.brand-airdolomiti main .cards-teaser-wrapper:has(> .cards-teaser:not(.three-up)) + .cards-teaser-wrapper:has(> .cards-teaser:not(.three-up)) {
+  margin-top: 20px;
+}
+
+body.brand-airdolomiti main .cards-teaser-wrapper:has(> .cards-teaser:not(.three-up) > ul > li.cards-teaser-text-only):not(:last-child) {
+  margin-bottom: 80px;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main .cards-teaser-wrapper:has(> .cards-teaser:not(.three-up) > ul > li.cards-teaser-text-only):not(:last-child) {
+    margin-bottom: 84px;
+  }
+}
+
+body.brand-airdolomiti main > .section:has(> .cards-teaser-wrapper:last-child > .cards-teaser:not(.three-up)):has(+ .section.hero-card-overlay-container) {
+  margin-bottom: 20px;
+}
+
+/*
+ * the download row (gridtwocolumnsdownloadpdf: a picture card and a text-only one, the service
+ * charter): www's GridTwoColumnsDownload, 500px high from 530px: the picture tile (its title in a
+ * brighter marble box, 80%; a white outline button) beside a marble box (80%; as wide as its text,
+ * at most 300px, 400px from 1230px: 355px, 364px and 393px for it, de and en at 1440) with the
+ * title centred and bold over the teal download button; the box
+ * is not shown below 530px (www's display: none)
+ */
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li.cards-teaser-text-only {
+  display: none;
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul:has(> li.cards-teaser-text-only) > li:has(> .cards-teaser-image) > .cards-teaser-body::before {
+  background-color: rgb(246 242 239 / 80%);
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul:has(> li.cards-teaser-text-only) > li:has(> .cards-teaser-image) .cards-teaser-cta-link:any-link {
+  border: 1px solid #fff;
+  background-color: transparent;
+  padding: 20px 30px;
+  color: #fff;
+  font-weight: 700;
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li.cards-teaser-text-only .cards-teaser-title {
+  margin: 0;
+  color: #002e54;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 34px;
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li.cards-teaser-text-only .cards-teaser-cta {
+  margin: 0;
+  white-space: nowrap;
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li.cards-teaser-text-only .cards-teaser-cta-link:any-link {
+  display: inline-flex;
+  gap: 16px;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #00798a;
+  padding: 18px 40px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  text-decoration: none;
+}
+
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li.cards-teaser-text-only .cards-teaser-cta-link::before {
+  display: none;
+}
+
+/* www's download arrow (ours: a chevron down over a bar, in the label's colour) */
+body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li.cards-teaser-text-only .cards-teaser-cta-link::after {
+  content: "";
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cpath d='M4 0h7l3 9 3-9h7l-10 20zM6 24h16v4H6z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+@media (width >= 530px) {
+  body.brand-airdolomiti .cards-teaser:not(.three-up) > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li:has(> .cards-teaser-image) {
+    height: 330px;
+  }
+
+  body.brand-airdolomiti .cards-teaser:not(.three-up) > ul:has(> li.cards-teaser-text-only) {
+    display: flex;
+    height: 500px;
+  }
+
+  body.brand-airdolomiti .cards-teaser:not(.three-up) > ul:has(> li.cards-teaser-text-only) > li:has(> .cards-teaser-image) {
+    flex: 1 1 0;
+    height: auto;
+  }
+
+  body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li.cards-teaser-text-only {
+    display: flex;
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    width: max-content;
+    max-width: 300px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    background-color: rgb(246 242 239 / 80%);
+    padding: 40px 24px 60px;
+    text-align: center;
+  }
+
+  body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li.cards-teaser-text-only > .cards-teaser-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li:has(> .cards-teaser-image) > .cards-teaser-body {
+    background-image: linear-gradient(rgb(0 0 0 / 10%), rgb(0 0 0 / 10%));
+    padding: 24px;
+  }
+
+  body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li:has(> .cards-teaser-image):hover > .cards-teaser-body {
+    background-image: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0 / 50%));
+  }
+
+  /* the download row's picture keeps the 50% veil (GridTwoColumnsDownload has no lighter step) */
+  body.brand-airdolomiti .cards-teaser:not(.three-up) > ul:has(> li.cards-teaser-text-only) > li:has(> .cards-teaser-image) > .cards-teaser-body {
+    background-image: linear-gradient(rgb(0 0 0 / 50%), rgb(0 0 0 / 50%));
+  }
+
+  body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li:has(> .cards-teaser-image) .cards-teaser-title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+
+  body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li.cards-teaser-text-only {
+    padding: 50px;
+  }
+
+  body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li.cards-teaser-text-only .cards-teaser-title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+}
+
+@media (width >= 1230px) {
+  body.brand-airdolomiti .cards-teaser:not(.three-up) > ul:has(> li.cards-teaser-text-only) > li:has(> .cards-teaser-image) > .cards-teaser-body {
+    padding: 28px;
+  }
+
+  body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li.cards-teaser-text-only {
+    max-width: 400px;
+    padding: 60px;
+  }
+}
+
+/*
+ * the Lufthansa Group strip (cardfullwidth: hero-card-overlay without an option, an h2 card, in a
+ * section of its own; the articles' stage shares the h1's section): www's CardFullWidth, a marble
+ * box (#f5f1ee, sampled from the capture) with navy text: from 930px beside its picture (each half of
+ * 95vw, at most 1440px; 500px high, 100px below), the title 37.8px / 40px 600; below 930px above it
+ * (90vw; the box at least 250px, 60px 25px in; the picture 250px), the title 23.76px / 30px; the
+ * line 35px (36px) under the title (www at 390 and 1440: the text at the bottom of its box); www's
+ * white button with the teal arrow, 240px wide, 33px under the text (30px below 930px), its box
+ * 77px high
+ */
+body.brand-airdolomiti main > .section.hero-card-overlay-container:not(:has(h1, .article-header)) .hero-card-overlay:not(.destination):has(> .hero-card-overlay-card > h2:first-child) {
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  width: 90vw;
+  margin: 0 auto 70px;
+  aspect-ratio: auto;
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container:not(:has(h1, .article-header)) .hero-card-overlay:not(.destination):has(> .hero-card-overlay-card > h2:first-child) .hero-card-overlay-card {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  width: auto;
+  max-width: none;
+  min-height: 250px;
+  margin: 0;
+  border-radius: 0;
+  padding: 60px 25px;
+  background-color: #f5f1ee;
+  color: #002e54;
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container:not(:has(h1, .article-header)) .hero-card-overlay:not(.destination):has(> .hero-card-overlay-card > h2:first-child) .hero-card-overlay-media {
+  position: relative;
+  inset: auto;
+  height: 250px;
+  aspect-ratio: auto;
+  border-radius: 0 0 10px 10px;
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container:not(:has(h1, .article-header)) .hero-card-overlay:not(.destination):has(> .hero-card-overlay-card > h2:first-child) .hero-card-overlay-card h2 {
+  margin: 0;
+  color: #002e54;
+  font-size: 23.76px;
+  font-weight: 600;
+  line-height: 30px;
+  text-wrap: wrap;
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container:not(:has(h1, .article-header)) .hero-card-overlay:not(.destination):has(> .hero-card-overlay-card > h2:first-child) .hero-card-overlay-card > p:not(.hero-card-overlay-cta) {
+  margin: 35px 0 0;
+  color: #002e54;
+  font-size: 17.28px;
+  line-height: 24px;
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container:not(:has(h1, .article-header)) .hero-card-overlay:not(.destination):has(> .hero-card-overlay-card > h2:first-child) .hero-card-overlay-cta {
+  margin: 30px 0 0;
+  padding-bottom: 13px;
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container:not(:has(h1, .article-header)) .hero-card-overlay:not(.destination):has(> .hero-card-overlay-card > h2:first-child) .hero-card-overlay-cta a.button {
+  display: inline-flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 18px 40px;
+  color: #00798a;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container:not(:has(h1, .article-header)) .hero-card-overlay:not(.destination):has(> .hero-card-overlay-card > h2:first-child) .hero-card-overlay-cta a.button::after {
+  content: "";
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cpath d='M26.73 13.33H13.53L2 0h13.2zM2 28h13.2l11.53-13.33H13.53z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section.hero-card-overlay-container:not(:has(h1, .article-header)) .hero-card-overlay:not(.destination):has(> .hero-card-overlay-card > h2:first-child) {
+    flex-direction: row-reverse;
+    width: min(95vw, 1440px);
+    height: 500px;
+    margin-bottom: 100px;
+  }
+
+  body.brand-airdolomiti main > .section.hero-card-overlay-container:not(:has(h1, .article-header)) .hero-card-overlay:not(.destination):has(> .hero-card-overlay-card > h2:first-child) .hero-card-overlay-card {
+    width: 50%;
+    height: 100%;
+    padding: 50px;
+  }
+
+  body.brand-airdolomiti main > .section.hero-card-overlay-container:not(:has(h1, .article-header)) .hero-card-overlay:not(.destination):has(> .hero-card-overlay-card > h2:first-child) .hero-card-overlay-media {
+    width: 50%;
+    height: 100%;
+    border-radius: 0 10px 10px 0;
+  }
+
+  body.brand-airdolomiti main > .section.hero-card-overlay-container:not(:has(h1, .article-header)) .hero-card-overlay:not(.destination):has(> .hero-card-overlay-card > h2:first-child) .hero-card-overlay-card h2 {
+    font-size: 37.8px;
+    line-height: 40px;
+  }
+
+  body.brand-airdolomiti main > .section.hero-card-overlay-container:not(:has(h1, .article-header)) .hero-card-overlay:not(.destination):has(> .hero-card-overlay-card > h2:first-child) .hero-card-overlay-card > p:not(.hero-card-overlay-cta) {
+    margin-top: 36px;
+    font-size: 19.44px;
+    line-height: 30px;
+  }
+
+  body.brand-airdolomiti main > .section.hero-card-overlay-container:not(:has(h1, .article-header)) .hero-card-overlay:not(.destination):has(> .hero-card-overlay-card > h2:first-child) .hero-card-overlay-cta {
+    margin-top: 33px;
+  }
+
+  body.brand-airdolomiti main > .section.hero-card-overlay-container:not(:has(h1, .article-header)) .hero-card-overlay:not(.destination):has(> .hero-card-overlay-card > h2:first-child) .hero-card-overlay-cta a.button {
+    width: 240px;
+  }
+}
+
+/* stylelint-enable no-descending-specificity */
