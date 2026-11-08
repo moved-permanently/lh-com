@@ -50,3 +50,16 @@
 body.maui-theme-az .micro-frontend help-center-web {
   --border-color: initial;
 }
+
+/* lufthansa.com's help app (its body maui-theme-lh, the block's lhDesign) under the header as www's:
+   the app 56 px lower from 768 px, 36 px below (www's section-padding-y-regular and the app's top;
+   styles.css's first section 25 px) */
+body.maui-theme-lh main > .section:first-of-type:has(.micro-frontend help-center-web) {
+  margin-top: 36px;
+}
+
+@media (width >= 768px) {
+  body.maui-theme-lh main > .section:first-of-type:has(.micro-frontend help-center-web) {
+    margin-top: 56px;
+  }
+}

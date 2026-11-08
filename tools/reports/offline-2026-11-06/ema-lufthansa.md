@@ -2085,3 +2085,43 @@ only. No style markers are added to documents.
   Page heights are in row 70.
 - **File history:** airdolomiti.css had no other EMA's change since this morning.
 
+### 3. lufthansa.com help center (lufthansa.com row 19): done for lufthansa.com
+
+- **The cause:** the app drew unstyled; no margin was missing. www's page loads mausy-v1.40.1 with
+  maui-theme-lh, X-Line b and help-center-web 4.3.2. Ours loaded v1.38.0 and 4.3.1 without them.
+- **The fix:** the micro-frontend block gives lufthansa.com's help app www's setup, loaded from the
+  page's own /digitalhangar/ where the host serves it. The section is 56 px under the header from
+  768 px, 36 px below.
+- **Measured:** h1 at 1440 www 443 / before 553 / after 443; at 390 280 / 203 / 280. Details in row 19.
+- **The four brands:** their apps already have www's setup, and each starts 25 px under its header,
+  as lufthansa.com's did:
+
+  | Page | h1 at 1440 | h1 at 390 |
+  | --- | --- | --- |
+  | ITA it/en | 390 | 247 |
+  | Austrian at/en | 396 | 273 |
+  | SWISS ch/en | 415 | 265 |
+  | Brussels be/en | 410 | 262 |
+
+  www's h1 for them is not in this workspace: their recordings are not here, and the re-check
+  (sweep-recheck.md) did not record the app's shadow h1. Not changed. If www's pages are built as
+  lufthansa.com's, the same rule per brand would move them 31 px (1440) and 11 px (390) down. A
+  recording of one brand help page decides it.
+- **Note:** checking the files needed lh-edge to fetch two design-system files from www on a cache
+  miss (the site's own proxy, as for every visitor of the page).
+
+### 4. Air Dolomiti, the four pages not yet confirmed: none added
+
+Neither airdolomiti-parity-001 nor any crawl in this workspace holds these four pages. The importer's
+output (the documents on preview) decides only one:
+
+- **/de/flug-status:** www has a heading of its own. The document has two "Flugstatus" headings: an
+  h1 from a block's title, then www's h2. The title fallback does not apply, so nothing changes.
+- **/de/reisenformationen/schwangere-und-kinder, /de/reisenformationen/tiere-an-bord and
+  /en/destinations/florence/what-to-see:** not confirmed. Each opens with an h1 (alone, or before a
+  paragraph) and repeats its text as a heading in a block. That fits the title fallback, and it also
+  fits www's own Title block (the importer's titleLine).
+
+They are not on reimport-503-airdolomiti.txt. A re-import is harmless either way: the importer decides
+from www's data and notes "H1 from its title, hidden" where it applies.
+
