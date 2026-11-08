@@ -1,0 +1,22 @@
+# lh-swiss: the 21 local documents the collapse changes (marker-collapse-cli.mjs --check, 2026-11-08), in release order: de/en, de/de, then the other markets
+/ch/de/customer-support/faq
+/ch/de/prepare/baggage/hand-baggage
+/ch/el/customer-support/faq
+/ch/el/prepare/baggage/hand-baggage
+/ch/en/customer-support/faq
+/ch/en/prepare/baggage/hand-baggage
+/ch/es/customer-support/faq
+/ch/es/prepare/baggage/hand-baggage
+/ch/fr/customer-support/faq
+/ch/fr/prepare/baggage/hand-baggage
+/ch/it/customer-support/faq
+/ch/it/prepare/baggage/hand-baggage
+/ch/ja/customer-support/faq
+/ch/ja/prepare/baggage/hand-baggage
+/ch/pt/customer-support/faq
+/ch/pt/prepare/baggage/hand-baggage
+/ch/ru/customer-support/faq
+/ch/ru/prepare/baggage/hand-baggage
+/ch/zh/customer-support/faq
+/ch/zh/prepare/baggage/hand-baggage
+/kr/ko/prepare/baggage/hand-baggage

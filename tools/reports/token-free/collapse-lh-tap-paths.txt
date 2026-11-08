@@ -1,0 +1,1 @@
+# lh-tap: the 0 local documents the collapse changes (marker-collapse-cli.mjs --check, 2026-11-08), in release order: de/en, de/de, then the other markets

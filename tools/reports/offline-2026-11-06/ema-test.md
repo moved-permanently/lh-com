@@ -1380,3 +1380,201 @@ additional-services, 15 phone-slider pages. Nothing imported, uploaded or publis
 | 2 | `6153d40c` | link-list headings keep their size (columns-media parser, bundles) | `git revert` |
 | 3 | `e3df8bc2` | carousel-cards reads the dropped swiper copy's flag (parser, bundles) | `git revert`; the 17 documents: DA versions |
 | 4 | `b055e148` | token-free styling step 1: module, site, lh-edge, library, docs | `git revert` |
+
+## The brief after 493 (the video size token; token-free styling step 2: the collapse)
+
+Left uncommitted by 493, and still out of git:
+- `.migration/project.json` and `tools/importer/reports/**`: generated files.
+- `content/`, `content-sites/`, `migration-work/`: local documents (`content/library/` holds the library builder's
+  local output; nothing uploaded).
+- `logs/p4/s490`, `logs/p4/s494`: scripts, scratch imports, the collapse runs' JSON, render comparisons.
+- `/tmp`: captures, the suite worktree.
+- The autostash of 7 November: an older session's, not touched.
+
+Nothing was unpushed.
+
+### 1. The video size token (`57ce29bc`, deployed with lh-edge)
+
+ema-adobe's viewer parsers (e650caa6) add `size-WxH` to a video's settings marker
+(`{controls round-play-button size-1920x1080}`). scripts/media.js read the token, but the shared list did not. So lh-edge's
+app JSON (stripStyleMarkers) left the whole marker as text, and the loc marker check took it for plain braces. Now:
+- `VIDEO_SIZE` is part of `VIDEO_MARKER` and of the list every reader strips;
+- the loc check reads a video marker as its own kind, so a changed or lost one is listed;
+- the columns-media parser's `{cell-half-start}`, `{cell-half-end}` and `{cell-three-quarters}` are in the list too.
+
+Test first: test/video-size-token-494.test.mjs (3). lh-edge: 400 tests passed. Smoke on all 12 hosts before and after the
+deploy: 0 differences (logs/p4/smoke494). ema-adobe's re-import part B can run.
+
+Step 1 had no token-free carrier for the size. Step 2 adds one: the link's `#size=1920x1080` fragment (videoFragment
+reads it, media.js gives the player that aspect; other fragments stay). ema-adobe's importer needs no change: the
+collapse runs as every bundle's last step and turns its `size-WxH` into the fragment. Only the `{cell-*}` picture marks of
+the columns-media parser have no carrier yet: they are ema-adobe's (a block option or a picture-width rule would do).
+The collapse leaves them as they are.
+
+### 2. Token-free styling, step 2: the collapse (`ac3ff61f`)
+
+`tools/importer/marker-collapse.mjs`:
+- HTML in, HTML out (`collapseHtml`) or the DOM (`collapseMain`), idempotent;
+- the same function for DA documents (div form) and the importers' output (table form: the page's wrapper divs are read
+  through, as Markdown does, and a table the collapse leaves alone comes back as it was);
+- a page without anything like a marker is returned untouched (byte for byte).
+
+The rules are in its header. The judgment calls:
+- **Separators**: 0-31 px none, 32-89 M, 90 and more L (near values rounded, 81-89 to M); a run with a divider is one
+  Divider; `from-768` goes.
+  - Placement: at a section's start the section's Space / Divider style, at its end Space below / Divider below, right
+    before a block that block's option, else a Spacer / Divider block.
+  - In a block cell or another nested element: no carrier, the space goes (1 case locally).
+  - Page-type gaps are the theme's: /100-years sections (M at an edge), articles (the rule above a Columns Media after
+    text; a rule before a chapter heading splits the chapter into a section of its own).
+- **Column marks**: all go. An outside-a-section group that spans its whole section becomes section style padded
+  (the same 20 / 40 px).
+- **Heading size** against the level's default:
+  - within one step: the default;
+  - two or more steps: H2 large / H2 compact / H3 large as a section style when most of the section's own headings of
+    that level ask for it, the page's Headings row when every such section does, in a block its option title-large /
+    title-compact;
+  - levels without a choice (H1, H4-H6, a smaller H3): the default, counted as heading-no-choice;
+  - a heading's level never changes.
+- **Text width**: the brand's default (ITA wide); a section whose own running text is mostly wide gets Wide text; in
+  blocks the marker goes. `indent-N` becomes a list (bullets, numbers) or a quote (quote marks), else it goes.
+- **Text size** against the brand's body (18 px lufthansa, cargo, b2b, ita; 16 px austrian, brussels, swiss, discover,
+  airdolomiti, tap; within 2 px is body: on the 16 px brands 14 px small print is body too):
+  - a whole section of small text: Small print;
+  - a trailing run of small text: a section of its own with Small print;
+  - in a block where most of its text is small: its option small-print;
+  - single small paragraphs: body.
+- **Video**:
+  - controls + round play button is the default player (media.js now draws it without settings);
+  - autoplay without controls: the block's background-video, else the link's `#background`;
+  - the size: `#size=WxH`;
+  - a link whose text is its URL gets the poster's alt or the file name;
+  - `{mobile}` in an Article Header: its option mobile-video.
+- **Captions**: `{caption}` becomes the italic paragraph (step 1's figure caption). 88 follow no image (photo credits
+  after a gallery, Brussels' kenya / gambia articles): for a person, listed in the summary.
+- **Other markers**:
+  - `{parallax}` and `{narrow}` become section styles (new step-1 readers): a parallax image among other images gets a
+    section of its own;
+  - TAP's `<sub>{blank}</sub>` paragraph goes;
+  - form `{selected}` becomes a Default column (a header cell added where the table has a header row);
+  - nav role markers become a Nav Tools table;
+  - app screens get App Spacer, App Divider and App Text (small) blocks in their sections and nothing else.
+- **Heading ids** lose the marker's part (`free-baggage-heading-small` to `free-baggage`, as Edge Delivery makes the id
+  from the new text; a twin gets `-1`); links to the old ids in the document are rewritten.
+  marker-collapse-cli.mjs also rewrites links from other documents (0 found locally: the links already use the cut ids).
+
+Every import calls it last:
+- every generated import script (build-import-script.js; the brand from the source host);
+- import-magazine.js and import-nav.js;
+- every site importer (austrian, b2b, brussels, discover, ita, swiss, swiss-magazine, swiss-market, swiss-sub,
+  airdolomiti, cargo, sdui), after its own steps, through collapse-docs.mjs.
+
+All 16 bundles are rebuilt. The generated import-hub.js / its bundle (ema-adobe's hub template) gains only the collapse
+call; its section handling is unchanged. Not touched, and to tell:
+- ema-cashub: tap-import.mjs still writes `<sub>{blank}</sub>`. It needs `collapseDocs(…, { brand: 'tap' })` as its last
+  step, and tap.css a paragraph gap in card and accordion texts (e.g. `body.brand-tap main :is(.cards, .accordion-columns)
+  p + p { margin-top: 12px }`, to be measured by them).
+- ema-cashub: lufthansa-cleanup.js still writes markers inside the import; the bundles' last step collapses them.
+- ema-lufthansa: campaign-sections.js still writes markers inside the import; the bundles' last step collapses them.
+
+Step 1's readers for the new carriers:
+- section styles parallax, narrow, padded (labels for the library);
+- `#size=` in videoFragment and media.js;
+- Article Header's mobile-video;
+- the default player;
+- `body.theme-live` (set when a brand's theme is live) and its flow-page heading gap (32 px, the column view's padding).
+
+`live` stays false for every brand (as decided). **The collapse writes documents for a live theme.** A site's collapse pass
+should flip its brand's `live` in the same release, or its collapsed pages lose:
+- lh-com: the article rules, /100-years' 60 px and the flow pages' 32 px heading gap;
+- Austrian: the intro after the H1;
+- Brussels: service pages' H2 in heading-small;
+- ITA: running text over the whole width. ITA's 12,993 `{full-width}` all become the theme's default, so ITA must flip
+  with its pass.
+
+New imports after this lands follow the same rule.
+
+ema-adobe's hub switch (2416546a, pulled before the push) makes the hub write column marks again (hub-column-views)
+and Spacer / Divider blocks for the theme's sizes (theme-separators). The collapse runs after both, so a hub import
+now comes without column marks: column views are structure, as the plan says. The hub isn't a flow page, so the
+theme's 32 px heading gap doesn't stand in for the padding there. miles-and-more from lh-snapshots-085 with both
+changes: no marker, `carousel-cards grid phone-slider`, the separators as a Divider block, the "This might also
+interest you" H3 as H3 large. If the hub should keep its column views' 32 px, a theme rule for the hub page type is
+the place (ema-adobe and Ben).
+
+#### The local documents (marker-collapse-cli.mjs --check, no writes)
+
+| site | documents | changed | markers | theme | carriers (markers) | carriers written | for a person |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| lh-com | 6,854 | 5,153 | 35,284 | 20,173 (57 %) | 15,051 | 12,012 | 60 |
+| lh-austrian | 2,363 | 1,893 | 18,267 | 16,108 (88 %) | 2,159 | 1,473 | 0 |
+| lh-brussels | 1,633 | 1,070 | 5,977 | 4,643 (78 %) | 1,304 | 968 | 30 |
+| lh-ita | 2,492 | 2,083 | 18,497 | 17,382 (94 %) | 1,115 | 631 | 0 |
+| lh-swiss | 51 | 21 | 383 | 251 (66 %) | 132 | 77 | 0 |
+| lh-swiss-mk | 1,033 | 474 | 2,578 | 1,564 (61 %) | 1,014 | 368 | 0 |
+| lh-swiss-sub | 255 | 186 | 1,201 | 862 (72 %) | 339 | 91 | 0 |
+| lh-swiss-mag | 959 | 0 | 0 | | | | |
+| lh-tap | 383 | 0 | 0 | | | | |
+| lh-discover | 30 | 24 | 285 | 239 (84 %) | 46 | 18 | 0 |
+| lh-b2b | 678 | 644 | 5,185 | 3,307 (64 %) | 1,878 | 780 | 0 |
+| all | 16,731 | 11,548 | 87,657 | 64,529 (74 %) | 23,038 | 16,418 | 90 |
+
+The written carriers:
+- 6,322 italic captions (formatting, not exceptions);
+- 3,340 separator blocks (1,848 Divider, 1,409 Spacer, 83 Spacer L);
+- 3,340 section separator styles;
+- 1,236 Wide text;
+- 763 block spacing options;
+- 558 heading choices (H2 compact 374, H3 large 184);
+- 245 title options;
+- 213 Small print;
+- 143 padded;
+- 132 parallax;
+- 140 Default cells;
+- 325 app blocks;
+- 103 video carriers.
+
+Without the captions that is about 10,100 exceptions, more than the plan's ~2,400. The biggest single source is
+Insights' dividers: 4,339 in the articles, 2,524 of them right before a block. A theme rule "a rule above every block in
+an article body" would make most of them the theme's. That is a decision for Ben, not taken here. Per family, the
+written carriers and the 90 for a person: tools/reports/token-free/collapse-summary.md.
+
+Checks:
+- Unit tests: test/marker-collapse.test.mjs (16: one per family, the table form, ids, idempotence, placeholders) and
+  test/token-free.test.mjs (17).
+- All 16,731 local documents: 0 errors, 0 not idempotent.
+- Markers left in 4 documents, all prose that names markers: three /migration-status author and tech guide pages, and
+  a /data catalogue with the `{locale}` placeholder. They are no markers.
+- App screens: 69 local documents (the brief's 74 include DA-only ones). lh-edge renders each before and after, as v1,
+  v1 iOS and v2: 207 of 207 equal JSON, ids and order included. compare-sdui.mjs itself reads content/, which is
+  unchanged, so it was not rerun.
+- Bundles: 21 sample pages of 8 templates (snapshots in /tmp/lhs), imported with HEAD's bundle and collapsed by the CLI
+  afterwards, against the new bundle: 21 of 21 equal, no marker left.
+- Pages whose output changes per bundle: tools/reports/token-free/collapse-pages-by-bundle.md, with the lists in
+  collapse-bundle-<template>.txt. Info 7,062, insights 2,810, homepage 425, legal 163, campaign 147, hub 107, fleet 92,
+  app-entry 65, form 44, Austrian 40, flight-status 17.
+- Render sample, eight lh-com pages before and after the collapse on a local `aem up --html-folder` (port 3020), main's
+  height:
+  - 1440: baggage +0.5 %, admission-rules +0.1 %, flying-with-small-children -2.1 %, 100-years/global-network -0.4 %,
+    team-sport -1.7 %, additional-services, terms-of-use and boeing787 0;
+  - 390: admission-rules +5.2 % (its h2s move from heading-small to the default heading-medium, one step: the rule),
+    the others within ±1 %;
+  - all with the theme rules off.
+
+Documents: none changed. DA is the harness's (per site, with backups and a lock). The paths each site's pass changes,
+in release order (de/en, de/de, then the other markets), are tools/reports/token-free/collapse-<site>-paths.txt:
+lh-com 5,153, lh-austrian 1,893, lh-ita 2,083, lh-brussels 1,070, lh-b2b 644, lh-swiss-mk 474, lh-swiss-sub 186,
+lh-discover 24, lh-swiss 21.
+
+Full suite in a fresh worktree of ac3ff61f (rebased on ema-cashub's descriptions and the lh-edge market-root commits;
+the bundle conflicts resolved by rebuilding all bundles): eslint 0, stylelint 0, 581 passed, 0 failed. Again on 79a905ce
+after ema-adobe's hub switch (import-hub.js regenerated with its transformers and the collapse): 583 passed, 0 failed.
+lh-edge: 406 passed.
+
+Hosts: local only. localhost:3020 for the render sample (nothing on the turnsthe.page hosts changed by it). Smoke on all
+12 hosts before and after the push (logs/p4/smoke494b).
+
+| item | commit | what | rollback |
+| --- | --- | --- | --- |
+| 1 | `57ce29bc` | the size token in the shared list, lh-edge's app JSON and the loc check | `git revert` |
+| 2 | `ac3ff61f` | marker-collapse.mjs, its CLI, collapse-docs.mjs, every import's last step, step 1's new readers, bundles, docs | `git revert` (no document changed) |

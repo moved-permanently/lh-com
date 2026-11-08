@@ -1,0 +1,10 @@
+lh-austrian /at/de/fly/on-board/culinary-services
+lh-austrian /at/en/fly/on-board/culinary-services
+lh-austrian /cn/zh/fly/on-board/culinary-services
+lh-austrian /es/es/fly/on-board/culinary-services
+lh-austrian /fr/fr/fly/on-board/culinary-services
+lh-austrian /gr/el/fly/on-board/culinary-services
+lh-austrian /it/it/fly/on-board/culinary-services
+lh-austrian /jp/ja/fly/on-board/culinary-services
+lh-austrian /pl/pl/fly/on-board/culinary-services
+lh-austrian /ru/ru/fly/on-board/culinary-services

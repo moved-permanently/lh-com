@@ -1,0 +1,17 @@
+lh-com /at/de/flugplan-und-flugstatus
+lh-com /de/de/flugplan-und-flugstatus
+lh-com /de/en/timetable-and-flight-status
+lh-com /gb/en/timetable-and-flight-status
+lh-com /xx/el/timetable-and-flight-status
+lh-com /xx/it/timetable-and-flight-status
+lh-com /xx/ja/timetable-and-flight-status
+lh-com /xx/zh/timetable-and-flight-status
+lh-ita /br/pt/manage-my-bookings/manage/flight-status
+lh-ita /de/de/manage-my-bookings/manage/flight-status
+lh-ita /es/es/manage-my-bookings/manage/flight-status
+lh-ita /fr/fr/manage-my-bookings/manage/flight-status
+lh-ita /gr/el/manage-my-bookings/manage/flight-status
+lh-ita /it/en/manage-my-bookings/manage/flight-status
+lh-ita /it/it/manage-my-bookings/manage/flight-status
+lh-ita /jp/ja/manage-my-bookings/manage/flight-status
+lh-ita /nl/nl/manage-my-bookings/manage/flight-status

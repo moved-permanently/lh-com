@@ -1,0 +1,10 @@
+lh-austrian /at/de/flugstatus-und-flugplan
+lh-austrian /at/en/flight-status-and-timetable
+lh-austrian /cn/zh/flight-status-and-timetable
+lh-austrian /es/es/flight-status-and-timetable
+lh-austrian /fr/fr/flight-status-and-timetable
+lh-austrian /gr/el/flight-status-and-timetable
+lh-austrian /it/it/flight-status-and-timetable
+lh-austrian /jp/ja/flight-status-and-timetable
+lh-austrian /pl/pl/flight-status-and-timetable
+lh-austrian /ru/ru/flight-status-and-timetable
