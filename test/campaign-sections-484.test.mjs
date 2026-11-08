@@ -132,7 +132,7 @@ test('each AEM section of a campaign page is a section of ours, its padding and 
 test('the campaign template runs it after lufthansa-sections, in its import script and bundle', () => {
   const { templates } = JSON.parse(fs.readFileSync('tools/importer/page-templates.json', 'utf8'));
   assert.deepEqual(templates.find((t) => t.name === 'campaign').transformers, ['campaign-sections']);
-  assert.ok(templates.filter((t) => t.name !== 'campaign').every((t) => !t.transformers), 'only campaign');
+  assert.ok(templates.filter((t) => t.name !== 'campaign').every((t) => !(t.transformers || []).includes('campaign-sections')), 'only campaign');
   const script = fs.readFileSync('tools/importer/import-campaign.js', 'utf8');
   assert.match(script, /const transformers = \[lufthansaCleanupTransformer, lufthansaSectionsTransformer, campaignSectionsTransformer\];/);
   assert.ok(!fs.readFileSync('tools/importer/import-info.js', 'utf8').includes('campaignSections'));

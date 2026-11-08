@@ -1881,6 +1881,7 @@
     {
       "name": "insights",
       "description": "Lufthansa Insights magazine: overview, categories, tags, authors and articles",
+      "transformers": ["insights-flow"],
       "urls": [
         "https://www.lufthansa.com/de/de/articles/explore-the-world/be-picky-mexico-city-insidertipps",
         "https://www.lufthansa.com/at/de/articles/explore-the-world/be-picky-mexico-city-insidertipps",

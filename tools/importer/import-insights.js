@@ -15,10 +15,14 @@ import carouselImagesParser from './parsers/carousel-images.js';
 import accordionColumnsParser from './parsers/accordion-columns.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
+import insightsFlowTransformer from './transformers/insights-flow.js';
 
 const PAGE_TEMPLATE = {
   "name": "insights",
   "description": "Lufthansa Insights magazine: overview, categories, tags, authors and articles",
+  "transformers": [
+    "insights-flow"
+  ],
   "urls": [
     "https://www.lufthansa.com/de/de/articles/explore-the-world/be-picky-mexico-city-insidertipps"
   ],
@@ -236,7 +240,7 @@ const parsers = {
   'carousel-images': carouselImagesParser,
   'accordion-columns': accordionColumnsParser,
 };
-const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
+const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer, insightsFlowTransformer];
 
 function executeTransformers(hookName, element, payload) {
   const enhancedPayload = { ...payload, template: PAGE_TEMPLATE };

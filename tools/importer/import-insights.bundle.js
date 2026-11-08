@@ -7280,10 +7280,28 @@ var CustomImportScript = (() => {
     }
   }
 
+  // tools/importer/transformers/insights-flow.js
+  var THEME_ATTR2 = "data-lh-import-theme";
+  var THEME = "insights-flow";
+  function transform3(hookName, element, payload) {
+    if (hookName !== "beforeTransform") return;
+    const document = payload && payload.document || element.ownerDocument || element;
+    if (document.querySelector(".article-details-page, .author-details-page")) return;
+    const content = document.querySelector(".container-content");
+    if (!content || content.querySelector(":scope > .section") || !content.querySelector(":scope > .text, :scope > .headline")) return;
+    const root = document.documentElement;
+    const themes = (root.getAttribute(THEME_ATTR2) || "").split(",").map((t) => t.trim()).filter(Boolean);
+    if (!themes.includes(THEME)) themes.push(THEME);
+    root.setAttribute(THEME_ATTR2, themes.join(", "));
+  }
+
   // tools/importer/import-insights.js
   var PAGE_TEMPLATE = {
     "name": "insights",
     "description": "Lufthansa Insights magazine: overview, categories, tags, authors and articles",
+    "transformers": [
+      "insights-flow"
+    ],
     "urls": [
       "https://www.lufthansa.com/de/de/articles/explore-the-world/be-picky-mexico-city-insidertipps"
     ],
@@ -7500,7 +7518,7 @@ var CustomImportScript = (() => {
     "carousel-images": parse10,
     "accordion-columns": parse11
   };
-  var transformers = [transform, transform2];
+  var transformers = [transform, transform2, transform3];
   function executeTransformers(hookName, element, payload) {
     const enhancedPayload = __spreadProps(__spreadValues({}, payload), { template: PAGE_TEMPLATE });
     transformers.forEach((fn) => {

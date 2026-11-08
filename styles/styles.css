@@ -1618,3 +1618,30 @@ body.brand-lufthansa main > .section.campaign-section > .cards-teaser-wrapper:la
     margin-inline: 40px;
   }
 }
+
+/* insights-flow (importer, insights-flow: Insights pages whose components sit straight in www's
+   .container-content, the highlights and tags pages): www's own component spacing. A headline has
+   no margin above (text -> heading 24px, was 40 at 1440); an image component 4rem below (the hero
+   -> h1 40px, was 24); a two-column view .column-view's 2rem above (4rem from 768px) and 1rem + its
+   items' 1rem below (2rem + 2rem), here less the 24px wrapper gap (all-it-takes-is-a-yes: text ->
+   view 64px at 1440 and 44 at 390, view -> heading 40 / 20); not in a grey band, whose style pads it,
+   nor under a column title (tags/munich "Highlights to Listen to": the padding is above the title);
+   a picture with its caption keeps the caption under it */
+body.brand-lufthansa.insights-flow main .default-content-wrapper > * + :is(h2, h3) {
+  margin-top: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- other pages than the article rule's */
+body.brand-lufthansa.insights-flow main .default-content-wrapper > p:is(:has(> picture), :has(> a > picture)):not(:last-child, :has(+ p.caption)) {
+  margin-bottom: 40px;
+}
+
+body.brand-lufthansa.insights-flow main > .section:not(.grey) > :not(.default-content-wrapper:has(> :last-child:is(h2, h3))) + .columns-media-wrapper > .columns-media:has(.columns-media-row > :nth-child(2)) {
+  padding-top: 20px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa.insights-flow main > .section:not(.grey) > :not(.default-content-wrapper:has(> :last-child:is(h2, h3))) + .columns-media-wrapper > .columns-media:has(.columns-media-row > :nth-child(2)) {
+    padding: 40px 0 16px;
+  }
+}
