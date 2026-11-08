@@ -32,6 +32,7 @@ import prioritizeSecondSectionImage from './lcp-image.js';
 import decorateHeadingIcons from './heading-icon.js';
 import decorateSectionTabs from './section-tabs.js';
 import joinAsideSections from './section-aside.js';
+import rootMarketLinks from './ita-market-links.js';
 import { placeAlertsBar } from './alerts-bar.js';
 import {
   isLibraryPath, isAppScreenPath, addHeadingIds, removeLibraryMetadata, applyBarePage, followHash,
@@ -342,6 +343,8 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSectionMetadata(main);
   dropOtherMarkets(main);
+  // ITA: a market root's complaint-form links carry its country (scripts/ita-market-links.js)
+  rootMarketLinks(main, getLocale());
   decorateSections(main);
   // section style heading-icon: a small picture inline before the next H2
   decorateHeadingIcons(main);
