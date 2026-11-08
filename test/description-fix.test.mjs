@@ -53,9 +53,9 @@ test('a Description already there stays (its markers removed); placeholders stay
 });
 
 test('a page without a Metadata block gets one in its last section; a plain.html (no body) works too', () => {
-  const html = '<div><h1>Page</h1><p>First text {full-width}</p></div>';
+  const html = '<div><h1>Page</h1><p>First text of the page {full-width}</p></div>';
   const out = fixDescription(html);
-  assert.match(out.html, /<div class="metadata"><div><div><p>Description<\/p><\/div><div><p>First text<\/p><\/div><\/div><\/div>/);
+  assert.match(out.html, /<div class="metadata"><div><div><p>Description<\/p><\/div><div><p>First text of the page<\/p><\/div><\/div><\/div>/);
 });
 
 test('HTML in the text is escaped', () => {
