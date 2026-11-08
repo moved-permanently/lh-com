@@ -1,0 +1,14 @@
+/de/en/advance-seat-reservation
+/de/de/advance-seat-reservation
+/at/de/advance-seat-reservation
+/gb/en/advance-seat-reservation
+/de/en/book-and-manage/flights/wetlease-hub
+/de/de/book-and-manage/flights/wetlease-hub
+/at/de/book-and-manage/flights/wetlease-hub
+/gb/en/book-and-manage/flights/wetlease-hub
+/de/en/carry-on-baggage
+/gb/en/carry-on-baggage
+/de/en/lufthansa-express-rail
+/de/de/lufthansa-express-rail
+/at/de/lufthansa-express-rail
+/gb/en/lufthansa-express-rail

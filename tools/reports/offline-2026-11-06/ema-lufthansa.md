@@ -1586,3 +1586,71 @@ document's pictures.
 - **The 679 snapshot pages here scanned for the changed mappings:** 17 change, all in the re-import
   list.
 - **Heights:** at 1440 and 390 against the captures; the figures are in the rows.
+
+
+## The brief after 476: spacing on lufthansa.com's info and legal pages, and the sweep's next rows
+
+Nothing was published and nothing was uploaded. The documents go to the harness for re-import:
+tools/reports/parity-2026-11-08/reimport-480-lh-com.txt (14). The snapshots and captures are the
+ones of the brief after 473. Nothing was requested from www: drafts ran in a browser that resolves
+no host, ours rendered with www unresolvable, and the parser edits went through scripts.
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out of git).
+
+### Item 1: the spacing rows
+
+Only advance-seat-reservation has rows www separates.
+
+- **Its separators:** a 30 px separator between the merged column views.
+- **Its notes:** each note opens and ends with an empty paragraph.
+- **The fix:**
+  - the view after such a separator gets option separated;
+  - the note's opening empty paragraph becomes a "{spacer-24}" cell spacer;
+  - the import scripts got an onLoad hook, because helix-importer drops empty paragraphs before
+    the transform runs.
+- **Result:** 8,522 px at 1440, www 8,642 (was 8,038).
+
+On preview the item's other four pages are now within 0.1 to 6.3 % of www's height, with no such
+rows:
+
+- carry-on-baggage;
+- first-class;
+- onboard-delights;
+- travelling-healthy.
+
+ema-adobe's numbers for them were taken before their re-imports.
+
+### Item 2: the sweep's info and legal rows over 10 %
+
+I measured all 115 pages again on preview at 1440 and 390. Fixed:
+
+| Fix | Page | Before → after (www) |
+| --- | --- | --- |
+| three- and four-column views keep their empty columns (columns-media parser, lufthansa.com) | wetlease-hub at 1440 | 3,394 → 2,875 (2,943) |
+| no top margin on a heading after a divider (styles.css, lufthansa.com, not Insights) | terms-of-use at 1440 | 3,932 → 3,652 (3,671) |
+
+The rest are within 7 % in height, except:
+
+- **sixt, hertz, lh-rentalcar:** Meili's third-party app, which did not mount in this machine's
+  browser.
+- **lufthansa-terminal-muenchen:** row 35, for ema-test.
+- **schengen:** needs a fresh snapshot.
+- **secure-flight:** www's sub-navigation runs into its footer.
+- **ANA FAQ:** www pads two of its sections. lufthansa-sections.js writes style padded only after
+  another padded section; for ema-test.
+
+The pixel differences of the others come from small offsets, not structure.
+
+### Bundles
+
+Rebuilt: info and legal, with the cleanup, the columns-media parser and their import scripts'
+onLoad. The other bundles take these changes when their owners rebuild them; until then their
+pages import as before.
+
+### Checked
+
+- **Drafts:** all 151 info and legal pages with a snapshot here, drafted with main's bundles and
+  with these. 4 changed (advance-seat-reservation, wetlease-hub, carry-on-baggage,
+  lufthansa-express-rail); 147 are byte for byte the same.
+- **Renders:** the drafts rendered on the local dev server with preview's pictures.
+- **Measurements:** heights and drift (our headings located in www's screenshot) at 1440 and 390.
