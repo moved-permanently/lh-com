@@ -4103,4 +4103,24 @@ body.brand-tap main:where(.theme-live *) :is(.cards, .accordion-columns) {
   --tap-paragraph-gap: 36px;
 }
 
+/* brief 510 item 2 (promos' "News & Highlights"): the market rules put a list's cards in market
+   sections of their own (the Portugal Stopover card "-br,-ca,-pt,-us"), apart from their heading's
+   section; www has the heading 58 px over its first card (28 on phones), the section gap made it 81
+   (48): a section of a heading alone before a market section keeps 12 px below it, 41 from 728 px,
+   and not its heading's own margin (28 px on phones, collapsing through the section's); only before a
+   card list (the promos' and Miles&Go's offer lists, 14 pages; www has no recording of the others) */
+body.brand-tap main > .section:has(> .default-content-wrapper:only-child > :is(h1, h2, h3):only-child):has(+ .section[data-markets] > .cards-teaser-wrapper:first-child) {
+  margin-bottom: 12px;
+}
+
+body.brand-tap main > .section:has(> .default-content-wrapper:only-child > :is(h1, h2, h3):only-child):has(+ .section[data-markets] > .cards-teaser-wrapper:first-child) > .default-content-wrapper > :only-child {
+  margin-bottom: 0;
+}
+
+@media (width >= 728px) {
+  body.brand-tap main > .section:has(> .default-content-wrapper:only-child > :is(h1, h2, h3):only-child):has(+ .section[data-markets] > .cards-teaser-wrapper:first-child) {
+    margin-bottom: 41px;
+  }
+}
+
 /* stylelint-enable no-descending-specificity */
