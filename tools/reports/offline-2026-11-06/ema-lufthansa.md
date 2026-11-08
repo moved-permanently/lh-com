@@ -1895,3 +1895,41 @@ www's arrow and its six social discs now come from www's own files.
   four documents compared).
 - **Suite:** lint and the full suite; every brand's smoke and TAP by hand before and after the push.
 
+## The brief after 495: the campaign importer's combined spacer markers, market-diff's pictures
+
+Nothing was published and nothing was uploaded. For re-import:
+tools/reports/parity-2026-11-08/reimport-496-campaign.txt (2).
+
+Nothing was requested from www.
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git).
+
+### 1. The combined spacer markers (lufthansa.com row 51)
+
+campaign-sections.js had not changed since 0d199b5e (last change 11014a6f), so it was edited.
+
+- **The cause:** the cleanup's paragraph styles skip a paragraph that already ends in a marker, but
+  their pattern has no digits, so "{spacer-50}" counts as none. A spacer in a block cell then gets
+  the cell's "{limited-width}" after it.
+- **The fix:** campaign-sections' afterTransform runs after the cleanup's and keeps a spacer or
+  divider paragraph's own marker alone. lufthansa-cleanup.js is unchanged (ema-cashub's).
+- **Checked:** both chronicle pages drafted from lh-snapshots-085. Each paragraph is
+  "{spacer-50}" alone, and every other line equals main's output.
+- **The campaign bundle:** rebuilt. Of the 47 campaign pages with a snapshot here, only these two
+  change; the other 45 are byte for byte the same.
+
+### 2. market-diff's pictures
+
+A picture is now compared by its DAM file, unmasked: src, srcset, data-src, data-srcset, poster,
+and a widget's imageUrl. The path before www's .transform/ tail counts; the rendition and its
+img.jpg do not. Other values keep their number masking, and visible text was never masked.
+
+There is no saved comparison run in this workspace (no md-fetch bodies), so how many verdicts
+change could not be counted.
+
+### Checked
+
+- **Hosts:** none this turn (offline drafts and tests).
+- **Suite:** lint and the full suite; every brand's smoke and TAP by hand before and after the push.
+
