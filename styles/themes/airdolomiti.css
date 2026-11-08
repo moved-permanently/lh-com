@@ -3445,6 +3445,46 @@ body.brand-airdolomiti .cards-teaser:not(.three-up) > ul > li.cards-teaser-text-
   }
 }
 
+
+/* www's per-card themes (the block's option theme-<theme>-<position>, brief 486): CardDefault's
+   theme_business (the title box navy at 80 %) and theme_sustainability (olive at 80 %), their title
+   and line white (the card's own colour); cards 1 to 4 */
+body.brand-airdolomiti :is(
+    .cards-teaser.theme-business-1 > ul > li:nth-child(1),
+    .cards-teaser.theme-business-2 > ul > li:nth-child(2),
+    .cards-teaser.theme-business-3 > ul > li:nth-child(3),
+    .cards-teaser.theme-business-4 > ul > li:nth-child(4)
+  ):has(> .cards-teaser-image) > .cards-teaser-body::before {
+  background-color: rgb(0 46 84 / 80%);
+}
+
+body.brand-airdolomiti :is(
+    .cards-teaser.theme-business-1 > ul > li:nth-child(1),
+    .cards-teaser.theme-business-2 > ul > li:nth-child(2),
+    .cards-teaser.theme-business-3 > ul > li:nth-child(3),
+    .cards-teaser.theme-business-4 > ul > li:nth-child(4)
+  ):has(> .cards-teaser-image) .cards-teaser-body > :is(.cards-teaser-title, p:not(.cards-teaser-cta)) {
+  color: #fff;
+}
+
+body.brand-airdolomiti :is(
+    .cards-teaser.theme-sustainability-1 > ul > li:nth-child(1),
+    .cards-teaser.theme-sustainability-2 > ul > li:nth-child(2),
+    .cards-teaser.theme-sustainability-3 > ul > li:nth-child(3),
+    .cards-teaser.theme-sustainability-4 > ul > li:nth-child(4)
+  ):has(> .cards-teaser-image) > .cards-teaser-body::before {
+  background-color: rgb(57 72 25 / 80%);
+}
+
+body.brand-airdolomiti :is(
+    .cards-teaser.theme-sustainability-1 > ul > li:nth-child(1),
+    .cards-teaser.theme-sustainability-2 > ul > li:nth-child(2),
+    .cards-teaser.theme-sustainability-3 > ul > li:nth-child(3),
+    .cards-teaser.theme-sustainability-4 > ul > li:nth-child(4)
+  ):has(> .cards-teaser-image) .cards-teaser-body > :is(.cards-teaser-title, p:not(.cards-teaser-cta)) {
+  color: #fff;
+}
+
 /*
  * the Lufthansa Group strip (cardfullwidth: hero-card-overlay without an option, an h2 card, in a
  * section of its own; the articles' stage shares the h1's section): www's CardFullWidth, a marble

@@ -9,7 +9,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { convert, Page } from '../tools/importer/cargo-import.mjs';
 
-const entry = (title, reason = '', subreason = '') => `<div class="lfr-layout-structure-item"><div class="faqEntryTitle"><h4 class="component-heading">${title}</h4></div><div class="faqReason">${reason}</div><div class="faqSubreason">${subreason}</div></div>`;
+const entry = (title, reason = '', subreason = '', lock = false) => `<div class="lfr-layout-structure-item"><div class="faqEntryTitle${lock ? ' navigational lcagLink hyperlinkIcon lockIcon' : ''}"><h4 class="component-heading">${title}</h4></div><div class="faqReason">${reason}</div><div class="faqSubreason">${subreason}</div></div>`;
 const PAGE = `<!DOCTYPE html><html><head><title>Support &amp; Contact - Lufthansa Cargo</title></head><body><div id="main-content">
 <div id="portlet_com_lhcargo_eportal_contact_support_topic_search"><div class="rHeaderBlock"><h1>Support &amp; Contact</h1></div><div class="lcagCard search"><div class="content"><h3 class="mb-0 subHeadingCS">Need support on your topic?</h3><form><div class="topicSearchWrapper"><label class="control-label" for="_com_lhcargo_eportal_contact_support_topic_search_topicSearch">
   Find topic by typing
@@ -26,6 +26,7 @@ const PAGE = `<!DOCTYPE html><html><head><title>Support &amp; Contact - Lufthans
 <div class="topicSection"><div class="topicSearchTriggerContainer"><h4>Booking</h4></div>
 ${entry('Get technical support from our service team with eBooking.', 'Technical support', 'Technical support / Issue with a particular service')}
 ${entry('<a href="https://www.lufthansa-cargo.com/en/contact-cst?reason=Damaged cargo">Get support with damaged cargo.</a>', 'reason=Damaged cargo')}
+${entry('<a href="https://www.lufthansa-cargo.com/en/awb-stock-management">Get a new single AWB or AWB stock.<span class="icon"></span></a>', '', '', true)}
 ${entry('<a href="javascript:void(0)">Have feedback or a complaint? Let us know here.</a>', 'General request', 'Feedback / Complaints')}
 </div>
 <div id="portlet_com_lhcargo_eportal_contact_support_web"><form id="_com_lhcargo_eportal_contact_support_web_contactSupportForm"><input name="x"></form>
@@ -102,4 +103,12 @@ test('Support & Contact: the finder\'s heading and chips as rows of the block (F
   assert.equal(links[1][0], '/modals/contact-us?reason=General%20request&amp;subreason=Feedback%20%2F%20Complaints');
   assert.equal(links[2][0], 'https://www.lufthansa-cargo.com/eservices/awb-amendment-request');
   assert.ok(!/Need technical support/.test(chips));
+});
+
+// brief 486: www's entries that need the portal's login (.faqEntryTitle.lockIcon: a lock after the
+// link's text while signed out) end in the lock token, as the menus' (cargo-nav.mjs)
+test('Support & Contact: an entry behind the portal\'s login ends in :lock: (inside its link); the others none', () => {
+  const { html } = convert(PAGE, '/en/support-and-contact', 'en');
+  assert.match(html, /<a href="https:\/\/www\.lufthansa-cargo\.com\/en\/awb-stock-management">Get a new single AWB or AWB stock\. :lock:<\/a>/);
+  assert.equal((html.match(/:lock:/g) || []).length, 1);
 });

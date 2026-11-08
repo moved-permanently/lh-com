@@ -1248,6 +1248,22 @@ body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-panel a
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / 16px no-repeat;
 }
 
+/* brief 486: a link behind the portal's login ends in its lock (the document's :lock:), as www's
+   while signed out: 24 px at the link's end, grey #999 (www's icon-lock.svg is not in the capture:
+   our lock.svg as its shape) */
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-panel a .icon-lock {
+  display: inline-block;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 18px;
+  background-color: #999;
+  mask: url("/icons/lock.svg") center / 14px no-repeat;
+}
+
+body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-panel a .icon-lock > * {
+  opacity: 0;
+}
+
 @media (width >= 1025px) {
   body.brand-cargo .accordion-columns.tabs.filter.is-tabbed > .accordion-columns-item > .accordion-columns-panel:has(.accordion-columns-topics) {
     padding-right: 0;
@@ -1287,6 +1303,10 @@ body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-panel a
   }
 
   body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-panel a:any-link::before {
+    height: 24px;
+  }
+
+  body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-topic-panel a .icon-lock {
     height: 24px;
   }
 }

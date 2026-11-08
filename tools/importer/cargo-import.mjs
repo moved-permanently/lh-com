@@ -1549,7 +1549,12 @@ function supportTopics(content, page) {
       (entries[name] = entries[name] || []).push(current);
       return;
     }
-    if (current) current.push(e.querySelector('h1, h2, h3, h4, h5, h6') || e);
+    if (!current) return;
+    const entry = e.querySelector('h1, h2, h3, h4, h5, h6') || e;
+    // behind the portal's login (www's lockIcon: a lock after the link while signed out): the
+    // lock token, as the menus' (brief 486)
+    if (e.classList.contains('lockIcon')) entry.setAttribute('data-lh-lock', '');
+    current.push(entry);
   });
   let rebuilt = 0;
   const used = {};
@@ -1577,7 +1582,14 @@ function supportTopics(content, page) {
       const own = groups.length > 1 && tabTitle ? groups.find((g) => g.some((e) => text(e).toLowerCase().includes(tabTitle))) : null;
       const group = own || groups[Math.min(used[c.name] || 0, groups.length - 1)];
       used[c.name] = (used[c.name] || 0) + 1;
-      group.forEach((e) => { const li = doc.createElement('li'); li.append(...[...e.childNodes].map((n) => n.cloneNode(true))); ul.append(li); });
+      group.forEach((e) => {
+        const li = doc.createElement('li');
+        li.append(...[...e.childNodes].map((n) => n.cloneNode(true)));
+        // (www's own icon span in the link goes; the lock last in the link's text)
+        li.querySelectorAll('span.icon:empty').forEach((x) => x.remove());
+        if (e.hasAttribute('data-lh-lock')) (li.querySelector('a:last-of-type') || li).append(' :lock:');
+        ul.append(li);
+      });
       body.append(ul);
     });
     const box = pane.querySelector('.card-body') || pane;

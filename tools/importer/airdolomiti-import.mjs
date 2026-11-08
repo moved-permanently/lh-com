@@ -962,7 +962,10 @@ const HANDLERS = {
     if (iconHtml) page.section();
   },
   'lazyblock/gridtwocolumns': (a, page) => {
-    page.block('cards-teaser', (a.cardList || []).map((c) => cardRow(page, {
+    // www's per-card theme (CardDefault theme_business, theme_sustainability; none or general: the
+    // default): the block's option theme-<theme>-<the card's position> (brief 486)
+    const themes = (a.cardList || []).map((c, i) => (typeof c.theme === 'string' && /^[a-z]+$/.test(c.theme) && c.theme !== 'general' ? `theme-${c.theme}-${i + 1}` : '')).filter(Boolean);
+    page.block(themes.length ? `cards-teaser (${themes.join(', ')})` : 'cards-teaser', (a.cardList || []).map((c) => cardRow(page, {
       image: c.image, tag: 'h3', title: c.title, text: c.subtitle, url: c.url, label: c.btntext,
     })));
   },

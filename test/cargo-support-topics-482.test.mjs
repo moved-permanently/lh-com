@@ -99,3 +99,10 @@ test('the chosen topic\'s panel: its title 28 / 32 px, the links bold #52627c wi
   assert.match(a, /display: inline-flex;[^}]*gap: 13px;[^}]*color: #52627c;[^}]*font-size: 14px;[^}]*font-weight: 700;[^}]*line-height: 18px;[^}]*\} .*font-size: 18px; line-height: 24px;/);
   assert.match(rule(theme, `${F} .accordion-columns-topic-panel a:any-link::before`), /flex: 0 0 16px;[^}]*height: 18px;[^}]*mask: url\("data:image\/svg\+xml,[^"]+"\) center \/ 16px no-repeat;/);
 });
+
+test('brief 486: a login-only link\'s lock (the :lock: icon) 24 px at the link\'s end, www\'s grey (#999), the icon\'s own picture hidden', () => {
+  const L = `${F} .accordion-columns-topic-panel a .icon-lock`;
+  assert.match(rule(theme, L), /display: inline-block;[^}]*flex: 0 0 24px;[^}]*width: 24px;[^}]*height: 18px;[^}]*background-color: #999;[^}]*mask: url\("\/icons\/lock\.svg"\) center \/ 14px no-repeat;/);
+  assert.match(rule(theme, `${L} > *`), /opacity: 0;/);
+  assert.match(media(theme, '(width >= 1025px)'), new RegExp(`${esc(L)} \\{ height: 24px; \\}`));
+});
