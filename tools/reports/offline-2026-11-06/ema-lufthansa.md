@@ -1933,3 +1933,56 @@ change could not be counted.
 - **Hosts:** none this turn (offline drafts and tests).
 - **Suite:** lint and the full suite; every brand's smoke and TAP by hand before and after the push.
 
+## The brief after 498: SWISS A350 stage buttons, gesund-reisen's carousel, culinary descriptions
+
+Nothing was published and nothing was uploaded. No code changed, so there is nothing to re-import.
+Nothing was requested from www.
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git).
+
+### 1. SWISS A350 stage buttons (SWISS row 43): www's own text
+
+- **Archives:** the manifests of swiss-snapshots-001 to -046 were read from the start of each
+  stream. The A350 pages are in 001 to 028 (2026-11-02) and, all 11 together, in 046 (2026-11-07,
+  fresh stages). Only 046 was downloaded; its 22 files match the manifest's sha256.
+- **Finding:** www's maui-button-link texts are the labels we show, in every language: en "To
+  behind the scenes", fr "À faits et chiffres" and "À dans les coulisses", de "Zu Hinter den
+  Kulissen", es "Ir a “Entre bastidores”". These are SWISS's own labels, so nothing was changed.
+- **Open, not changed:** 15 of www's buttons are missing from our documents:
+  - SWISS Wanderlust's, on all 11 pages;
+  - in el and it, the facts and behind the scenes buttons.
+
+  On those buttons, www's label is the stage's own heading. withTeaserTexts (swiss-import.mjs)
+  adds a button only when the block lacks its text, and the heading counts as that text. A fix
+  would compare against the block's text without its heading, then re-import the 11 A350 pages.
+  It waits for a brief.
+
+### 2. gesund-reisen's carousel (lufthansa.com row 52): www has it
+
+lh-snapshots-084's de/de and at/de pages have "Das könnte Sie auch interessieren", a three-column
+carousel of three teasers (a swiper below md) in a grey column view. gb/en has no such section;
+there, Timeshifter and Doctor on Board are partner teasers in their own sections. Our documents
+follow www both ways, so nothing was changed.
+
+### 3. Culinary descriptions: tools/reports/descfix/lh-com-culinary.tsv
+
+There are 3 rows, for /xx/el, /xx/es and /xx/pt/culinaryjourney (147 to 151 characters, same
+columns as lh-com-better.tsv).
+
+- **What the pages show:** their content is the culinary-hub app. In www's saved el and pt pages
+  the app had not rendered, and the help teaser is the only text.
+- **Where the wording comes from:** the app's English intro, from the de/en capture (lh-parity-002c,
+  screenshot): see your flight's food and drinks with a booking code or flight details, and
+  pre-order a meal. The el, es and pt wording is our translation of that intro.
+- **Not available:** the app's own translations load from www and are in no saved page.
+
+### Checked
+
+- **Hosts:** main--lh-swiss--moved-permanently.aem.page (the 11 A350 documents, .plain.html) and
+  main--lh-com--moved-permanently.aem.page (the four gesund-reisen and travelling-healthy
+  documents, the three culinary documents).
+- **Offline:** www's pages from swiss-snapshots-046, lh-snapshots-084, -002, lh-snapshots-039 (el) and
+  lh-parity-002c.
+- **Suite:** lint and the full suite; every brand's smoke and TAP by hand before and after the push.
+
