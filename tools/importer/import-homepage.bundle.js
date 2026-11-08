@@ -1926,7 +1926,7 @@ var CustomImportScript = (() => {
     // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
     // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
     // (a heading right before them starts the group's column view, as its marker did)
-    swiss: { rules: ["teaser-groups"], pageTypes: { flow: { headings: { h2: "heading-small" } } } },
+    swiss: { live: true, rules: ["teaser-groups"], pageTypes: { flow: { headings: { h2: "heading-small" } } } },
     // Discover: on flow pages the H2s in heading-small (www: 86 %) and a Columns Media a column view
     // of its own (www: 26 of 33 not at a section's start)
     discover: { pageTypes: { flow: { headings: { h2: "heading-small" }, columnViews: { blocks: ["columns-media"] } } } },
