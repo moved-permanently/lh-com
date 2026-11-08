@@ -1522,6 +1522,20 @@ body.brand-lufthansa main > .section.stage.before-padded + .section.campaign-sec
   padding-top: 0;
 }
 
+/* the page title (H1) as a section of its own before the first one (hub pages): live has only the
+   title's own space under it (baggage: the intro 8px lower at 1440, 16 at 390 with our section gap) */
+/* stylelint-disable-next-line no-descending-specificity -- a title section, not a column view's end */
+body.brand-lufthansa main > .section:not(.campaign-section):has(> .default-content-wrapper:last-child > h1:last-child):has(+ .section.campaign-section) {
+  margin-bottom: 0;
+}
+
+/* jump links, then a separator: live's link list ends at its last link, the separator's 1px and
+   margin follow it (baggage: 24px more before "Types of baggage" with our wrapper gap) */
+/* stylelint-disable-next-line no-descending-specificity -- a campaign-section's wrapper, not a modal link's */
+body.brand-lufthansa main > .section.campaign-section > .jump-links-wrapper + .default-content-wrapper:has(> p.spacer:first-child) {
+  margin-top: 0;
+}
+
 /* live's .section-content clears its floats (a table box at its end): the last component's
    bottom margin stays in the AEM section (a quote's 6rem / 8rem, then .mb-default), the first
    one's top margin collapses with the section before */
@@ -1596,6 +1610,17 @@ body.brand-lufthansa main > .section.campaign-section > .cards-teaser-wrapper > 
 
 body.brand-lufthansa main > .section.campaign-section > .cards-teaser-wrapper:last-child > .cards-teaser > ul {
   padding-bottom: 32px;
+}
+
+/* a column view's title, then its cards: live's view has its 32px padding above the title, the
+   first picture 40px under the title's box (baggage: ours 64 with the grid's column padding
+   too), also in a grey band of such a page; below 768px the 12px after a heading
+   (cards-teaser.css) stay */
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper:has(> :is(h2, h3, h4, h5, h6):last-child) + .cards-teaser-wrapper > .cards-teaser:not(.overlay, .spacious) > ul,
+  body.brand-lufthansa main:has(> .section.campaign-section) > .section.column-band > .default-content-wrapper:has(> :is(h2, h3, h4, h5, h6):last-child) + .cards-teaser-wrapper > .cards-teaser:not(.overlay, .spacious) > ul {
+    padding-top: 8px;
+  }
 }
 
 /* jump links in a column view of their own ([links | empty], 100-years/chronicle): below 768px
