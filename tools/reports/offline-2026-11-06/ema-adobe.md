@@ -1476,3 +1476,87 @@ Checked on:
   footer, SWISS's views, ITA's footer;
 - the ten turnsthe.page hosts with baselines, plus brussels and swiss against their recordings;
 - lh-swiss's preview (swiss-smoke) and tap.turnsthe.page.
+
+## Brief 478 (100 Years fleet tables, Brussels footer, fixtures' client ids, sweep rows)
+
+- Left from the last turn, not in git: the generated import reports under tools/importer/reports
+  (never committed) and the scratch in logs/b460, b461, b464, b467, b470 and b474. Nothing was
+  unpushed. This turn's scratch is in logs/b478 (drafts, renders, measurements).
+- One code push after a pull: `09ce978..0c601aa` (bc0eb5a, e7c6e59, 23dd6d3, 0c601aa). Lint and
+  the full suite passed before it (lh-edge 64 files, site 544, 0 failing). The new rules and the
+  block change are served on lufthansa and brussels.turnsthe.page and on aem.page.
+- Smoke before and after: the ten hosts with a baseline: the same counts before and after; on the
+  three lufthansa hosts /de/en/search-index.json and the de/en sitemap hash differently between the two
+  runs (content published in between: round 73 and the harness's re-imports; no code of this push
+  reads them). brussels and swiss match their brief 474 recordings (97 checks each, 0 differ); SWISS's
+  hosts by hand (swiss-smoke as before) and tap.turnsthe.page/pt-pt answers 200.
+- No www page was requested: lh-snapshots-062 and lh-parity-002 / -003, brussels-parity-003.
+
+### 1. 100 Years fleet's spec tables (row 43; bc0eb5a)
+
+- www (lh-snapshots-062, lh-parity-002): each of the 15 tables is in a two-column view with its
+  picture or text, picture | table (9), table | picture (Focke-Wulf A 17a, "Big birds across the
+  Atlantic", the three-engine globetrotter), text | picture + table and the like. From 768 px side by
+  side (622 px each, 20 px apart at 1440, the table 39 px under the column's top), below stacked (the
+  picture 90 px over the table, pictures 16:9).
+- Now: the campaign template's parser table-beside makes each view one table-striped block with the
+  option beside (partner left) or beside-end (right): its first row the partner column and what sits
+  above the table, then the table's rows. table-striped lays the option out as www; without it the
+  block is as before (TAP's and every other table).
+- Drafted offline from the snapshot with the rebuilt bundle and rendered locally (www's hosts
+  refused): 15 tables, 12 beside, 3 beside-end, side by side at 1440 and stacked at 390.
+- Documents: the 7 language versions for your harness,
+  [../parity-2026-11-08/reimport-478-lh-com.txt](../parity-2026-11-08/reimport-478-lh-com.txt).
+
+### 2. Brussels' footer on phones (P48; e7c6e59)
+
+- www's rows 40 px high one every 60 px and 32 px in, "Social media" 14/15.4 bold, the legal links 78 px
+  under the icons, the dark band 58 px past them, the logo band 42 px padded. With the rules injected
+  on brussels.turnsthe.page: 831 px against www's 829 (/be/en/articles/milan-citytrip; was 696),
+  every row within 3 px.
+
+### 3. The public client ids in the other fixtures (23dd6d3)
+
+- Blanked in test/fixtures/importer-rows (three online check-in pages) and
+  test/fixtures/lh-app/lufthansa-04601cc.ndjson; no fixture in the repo holds one now (git history
+  keeps the old copies). The ndjson is a recording the apps' current output is compared with, and the
+  code still builds those URLs with the id, so test/lh-app-brands.test.mjs blanks the same ids in its
+  fresh output before comparing (16 of 16 pass).
+
+### 4. The next rows over 10 % (sweep-lh-swiss.md, mine)
+
+- overview-manage (37 %): waits for the fresh snapshot (on your capture list).
+- take-off (34 %): no layout cause (text wrapping per row, brief 474).
+- picture-perfect-austin (31 % at 390): the page matches www's (height within 2 %); the difference is
+  its photos shifted by about 12 px, which the pixel count weighs heavily. No cause.
+- 100 Years campaigns, new-onboard-experience, destinations, cabin-design, chronicle, history (20-33 %):
+  one shared cause, the spacing between the campaign components (steps of 40-66 px at each boundary,
+  shorter at 390, mixed at 1440). New this round: www's 2026-11-06 stylesheets are in lh-parity-003's
+  html/css, and lh-snapshots-062 links exactly those files, so a snapshot renders locally with www's
+  own CSS (no request out). On campaigns at 390 it shows the rhythm (each component its own section,
+  24 px apart, a text or picture section padded 20 / 20, a column view 32 / 32 more), which explains
+  the steps at 390. The 1440 side needs the same component-by-component table; next round with this
+  method. The capture request for these pages (capture-474, item 1) may not be needed any more.
+
+### Documents
+
+- None uploaded this round.
+- For your harness: [../parity-2026-11-08/reimport-478-lh-com.txt](../parity-2026-11-08/reimport-478-lh-com.txt),
+  7 documents (100-years/fleet: de/en, de/de, at/de, gb/en, fr/fr, xx/es, xx/fr).
+
+| Item | Commit | What |
+| --- | --- | --- |
+| 1 | bc0eb5a | campaign importer, table-striped: spec tables beside their partner |
+| 2 | e7c6e59 | Brussels' footer on phones |
+| 3 | 23dd6d3 | fixtures: the remaining public client ids blanked |
+| - | 0c601aa | campaign script and bundle rebuilt on bb2400f |
+
+Checked on:
+- lh-snapshots-062 and the lh-parity-002 / -003 screenshots: www's fleet views and their spacing;
+- the snapshot rendered locally with lh-parity-003's CSS (no request out): the campaign components;
+- an offline browser (every request aborted): the fleet draft; a local server with the draft,
+  rendered with www's hosts refused;
+- brussels.turnsthe.page: the footer before and with the rules injected; brussels-parity-003's CSS
+  rendered locally;
+- the ten turnsthe.page hosts with baselines, plus brussels and swiss against their recordings;
+- lh-swiss's preview (swiss-smoke) and tap.turnsthe.page.

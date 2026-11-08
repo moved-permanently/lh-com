@@ -1,0 +1,7 @@
+/de/en/100-years/fleet
+/de/de/100-years/fleet
+/at/de/100-years/fleet
+/gb/en/100-years/fleet
+/fr/fr/100-years/fleet
+/xx/es/100-years/fleet
+/xx/fr/100-years/fleet
