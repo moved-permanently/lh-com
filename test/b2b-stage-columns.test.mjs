@@ -71,8 +71,8 @@ test('b2b.css: the stage cell as www\'s stage teaser in a column', () => {
   assert.match(css, /> h3 \{ grid-row: 2;/);
   assert.match(css, /linear-gradient\(90deg, rgb\(255 255 255 \/ 85%\) 0, transparent 66%\)/);
   assert.match(css, /\.columns-media\.stage\.light [^{]*::after \{ background-image: linear-gradient\(90deg, rgb\(0 0 0 \/ 60%\) 0, transparent 66%\); \}/);
-  // headline 18/24 bold, subheadline 24/28 (28/32 from 1281 px), the button small and not on phones
+  // headline 18/24 bold, subheadline 24/28 (28/32 from 1281 px), the button small (on phones too since
+  // the brief after 505: b2b-stage-button-phones-506)
   assert.match(css, /> h2 \{[^}]*font-size: 18px;[^}]*line-height: 24px;[^}]*font-weight: 700;/);
   assert.match(css, /> h3 \{[^}]*font-size: 24px;[^}]*line-height: 28px;[^}]*font-weight: 400;/);
-  assert.match(css, /@media \(width < 768px\) \{[^@]*\.columns-media\.stage [^{]*> p:has\(> em > a, > a\.button\) \{ display: none; \}/);
 });
