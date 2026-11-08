@@ -389,6 +389,16 @@ export const BRANDS = {
   airdolomiti: {
     name: 'Air Dolomiti',
     www: 'www.airdolomiti.it',
+    // its www runs PrivacyLab's banner, reopened from the footer's "Modifica impostazioni cookie"
+    // (the brief after 509): as Cargo, the look-alike banner (scripts/consent-banner.js) and the
+    // footer's #privacy-settings link its preference center, Air Dolomiti's own privacy and cookie
+    // pages in it (it has no imprint page)
+    consent: 'fallback',
+    consentLinks: {
+      it: { privacy: '/informazioni-legali/privacy', cookies: 'https://www.privacylab.it/informativa.php?21671464204' },
+      en: { privacy: '/en/legal-info/privacy-policy', cookies: 'https://www.privacylab.it/informativa.php?21671464204&lang=en' },
+      de: { privacy: '/de/rechtliche-informationen/datenschutz', cookies: 'https://www.privacylab.it/informativa.php?21671464204&lang=de' },
+    },
     // its service notices (www's navbar alert, its own CMS, switched off) move to the site's
     // Message Center, tenant airdolomiti
     messageCenter: 'airdolomiti',

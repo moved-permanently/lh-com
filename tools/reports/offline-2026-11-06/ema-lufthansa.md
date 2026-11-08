@@ -2188,3 +2188,24 @@ Smoke after each push: 0 differences, except after 663bbcb1. There swiss and swi
 another /de/en/search-index.json, a content index on those hosts; this turn changed no SWISS code or
 content.
 
+## The brief after 509
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git). Nothing is published, uploaded or requested from www. B2B keeps the project's heading
+hyphenation (Ben's rule); the parked test stays outside the repo.
+
+### 1. Air Dolomiti's cookie settings link (row 33): built
+
+- **What was missing:** our consent already reopens from a footer link (#privacy-settings: the
+  consent.preferences event). Air Dolomiti had no consent tool, so there was nothing to reopen and
+  the link was left out.
+- **The change:** Air Dolomiti gets the look-alike consent without OneTrust, as Cargo has
+  (scripts/brands.js: consent fallback, its own privacy and cookie pages). The banner shows on a
+  first visit, as www's PrivacyLab banner does. The footer builder writes www's entry as the link,
+  with www's label in it, en and de.
+- **The shared code:** only Air Dolomiti's brand entry changed. TAP still has no consent tool, and
+  every other brand's consent and footer are as before.
+- **Checked on preview** (this checkout's code, drafted footers): it, en and de at 1440 and 390, the
+  banner and the preference center in the page's language, the link opening it. The real footers
+  come with reimport-510-airdolomiti-footer.txt (3: airdolomiti-nav.mjs --lang it, en, de).
+
