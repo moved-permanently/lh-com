@@ -1776,6 +1776,13 @@ body.brand-lufthansa.insights-flow main > .section:not(.grey) > :not(.default-co
   }
 }
 
+/* before a grey band only the text component's 2.4rem (tags/munich: the intro to "Highlights to
+   Listen to", ours the 48px section gap); not before an in-column grey box (tags/allegris) */
+/* stylelint-disable-next-line no-descending-specificity -- a band's neighbour, not a column view's end */
+body.brand-lufthansa.insights-flow main > .section:not(.grey):has(+ .section.grey:not(.in-column)) {
+  margin-bottom: 24px;
+}
+
 /* stylelint-disable no-descending-specificity -- the figure's own children, as the paragraphs' rules */
 
 /* the token-free caption (scripts/token-free.js): an italic paragraph right after an image is a
