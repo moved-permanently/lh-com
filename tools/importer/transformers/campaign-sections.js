@@ -12,7 +12,8 @@
  * views: 128 px on ours, 152 on live).
  *
  * beforeTransform, after lufthansa-sections (whose breaks at the same places merge with these,
- * styles of both): a break before every AEM section with content but the first, style
+ * styles of both): a break before every AEM section with content (the first only when it is
+ * unpadded and not alone; it then needs no break, its styles go on the page's first section), style
  * campaign-section, + padded (.section-padding-y-regular), + spaced (.mb-default) or flush (none).
  * Not before a stage (.inspirationteaser: lufthansa-sections' style stage) nor a grey one (style
  * grey has the padding and the gap). styles.css: campaign-section has no section gap of its own.
@@ -23,9 +24,8 @@
  * QUOTE_SPACERS, padCarouselSections): that padding is now the neighbour's own.
  * onLoad: an empty paragraph that ends a text component of such a section (<p><br></p>, the intro of
  * 100-years/campaigns: its line and the paragraph margin, 51px at 1440 and 390) becomes
- * "{spacer-50}" (50 + 1 px), and an empty separator that ends it (trailingSeparators) a text component with
- * "{spacer-N}" (lufthansa-cleanup would drop it); styles.css lets a spacer after text in a
- * campaign-section collapse with the paragraph's margin as www's empty separators do.
+ * "{spacer-50}" (50 + 1 px), and each empty separator among its components (sectionSeparators) a
+ * text component with "{spacer-N}" (lufthansa-cleanup would drop those under 50px).
  */
 
 const BREAK = 'data-excat-section-break';
@@ -66,11 +66,15 @@ const grey = (s) => !!s.querySelector(':scope > .container-gray');
 const stage = (s) => !!s.querySelector(':scope > div > .section-content > .inspirationteaser');
 const isAem = (el) => el.matches('.container-content > .section');
 
-/** The AEM sections that become a campaign-section: with content, not the first, a stage or grey. */
+/**
+ * The AEM sections that become a campaign-section: with content, not a stage or grey; the first
+ * one only when it is unpadded and more follow (discover-lufthansa/new-onboard-experience's intro
+ * text: no gap on www before the next section, ours had the 48px section gap).
+ */
 function campaignSections(document) {
-  return [...document.querySelectorAll('.container-content > .section')]
-    .filter((s) => (s.textContent || '').replace(/[\s\u00a0\u200b]/g, '') || s.querySelector(MEDIA))
-    .filter((s, i) => i && !stage(s) && !grey(s));
+  const all = [...document.querySelectorAll('.container-content > .section')]
+    .filter((s) => (s.textContent || '').replace(/[\s\u00a0\u200b]/g, '') || s.querySelector(MEDIA));
+  return all.filter((s, i) => !stage(s) && !grey(s) && (i || (all.length > 1 && !padded(s))));
 }
 
 /**
@@ -85,23 +89,19 @@ function spacerComponent(document, n) {
 }
 
 /**
- * The empty separators (.separator > .hr.hr-no-layout, no line) that end an AEM section's content:
- * lufthansa-cleanup drops those under 50px (the section gap stood for them), live keeps their
- * margin in the section (cabin-design: 40px under the last column view of five sections).
+ * The empty separators (.separator > .hr.hr-no-layout, no line) among an AEM section's components:
+ * lufthansa-cleanup drops those under 50px (the section gap and the wrapper gaps stood for them);
+ * live keeps maui-divider's 1px and the .hr's margin (2.5rem unless inline) at the section's start,
+ * between components and at its end (crane: 26px over "New beginnings and new designs"; cabin-design:
+ * 41px under the last column view of five sections). .hidden-sm-down ones only from 768px.
  */
-function trailingSeparators(s) {
+function sectionSeparators(s) {
   const content = s.querySelector(':scope > div > .section-content');
-  const out = [];
-  for (let c = content && content.lastElementChild; c; c = c.previousElementSibling) {
-    if (!c.matches('.separator')) {
-      if ((c.textContent || '').replace(/[\s\u00a0\u200b]/g, '') || c.querySelector(MEDIA)) break;
-      continue;
-    }
+  return [...(content ? content.children : [])].filter((c) => {
+    if (!c.matches('.separator')) return false;
     const hr = c.querySelector('.hr');
-    if (!hr || !hr.classList.contains('hr-no-layout') || hr.classList.contains('hidden-sm-down')) break;
-    out.push(c);
-  }
-  return out.slice(0, 1);
+    return !!hr && hr.classList.contains('hr-no-layout');
+  });
 }
 
 export default function transform(hookName, element, payload) {
@@ -114,10 +114,11 @@ export default function transform(hookName, element, payload) {
         p.closest('.text').after(spacerComponent(document, 50));
         p.remove();
       });
-      trailingSeparators(s).forEach((sep) => {
-        const hr = sep.querySelector('.hr') || sep;
+      sectionSeparators(s).forEach((sep) => {
+        const hr = sep.querySelector('.hr');
         const m = (hr.getAttribute('style') || '').match(/margin-bottom:\s*([\d.]+)px\s*(?:;|!|$)/i);
-        sep.replaceWith(spacerComponent(document, m ? Math.round(parseFloat(m[1])) : 25));
+        const n = m ? Math.max(0, Math.round(parseFloat(m[1]))) : 25;
+        sep.replaceWith(spacerComponent(document, hr.classList.contains('hidden-sm-down') ? `${n} from-768` : n));
       });
     });
     return;

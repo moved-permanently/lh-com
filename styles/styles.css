@@ -1545,6 +1545,14 @@ body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper
   margin-bottom: 40px;
 }
 
+/* a separator as live's: maui-divider's 1px box, then the .hr's margin, which collapses with the
+   next component's (a heading's) or the next wrapper's (crane: text, separator, carousel 50px,
+   24 + 1 + 25; as a height the next wrapper's 24px came on top) */
+body.brand-lufthansa main > .section.campaign-section .default-content-wrapper > p.spacer:not(.divider) {
+  height: 1px;
+  margin-bottom: var(--spacer-size, 25px);
+}
+
 /* a wrapper of separators (live: maui-divider's 1px + the .hr's margin) takes the 24px the column
    view above lacks (columns-media padded 8px + 24 = 3.2rem), the next wrapper none (cabin-design:
    41px under the last column view of a section, 73 with it) */
@@ -1555,6 +1563,13 @@ body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper
 
 /* stylelint-disable-next-line no-descending-specificity -- as above */
 body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper:not(:has(> :not(p.spacer))) + div {
+  margin-top: 0;
+}
+
+/* one that opens the section: the separator's own space at the section's top, no gap above it
+   (crane: 26px over "New beginnings and new designs") */
+/* stylelint-disable-next-line no-descending-specificity -- as above */
+body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper:first-child:not(:has(> :not(p.spacer))) {
   margin-top: 0;
 }
 
@@ -1581,6 +1596,15 @@ body.brand-lufthansa main > .section.campaign-section > .cards-teaser-wrapper > 
 
 body.brand-lufthansa main > .section.campaign-section > .cards-teaser-wrapper:last-child > .cards-teaser > ul {
   padding-bottom: 32px;
+}
+
+/* jump links in a column view of their own ([links | empty], 100-years/chronicle): below 768px
+   www stacks the view's empty second column under them, 89px from the last link to the next
+   section (ours 43) */
+@media (width < 768px) {
+  body.brand-lufthansa main > .section.campaign-section > .jump-links-wrapper:last-child > .jump-links.columns {
+    padding-bottom: 46px;
+  }
 }
 
 @media (width >= 768px) {

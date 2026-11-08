@@ -170,9 +170,10 @@ test('styles.css: the campaign-section components spaced as live\'s (measured ag
   assert.match(rule(`${S} > .cards-teaser-wrapper:last-child > .cards-teaser > ul`), /padding-bottom: 32px;/);
   assert.match(css, /@media \(width >= 1024px\) \{\s*body\.brand-lufthansa main > \.section\.campaign-section > \.default-content-wrapper > blockquote \{\s*margin-inline: 40px;/);
   assert.match(rule(`${S} > .default-content-wrapper:not(:has(> :not(p.spacer)))`), /margin-top: 24px;/);
-  // live's separator is maui-divider's 1px box (shadow DOM): margins do not collapse through it, the
-  // spacer keeps its N + 1 px (no campaign rule for its height)
-  assert.ok(!css.includes(`${S} .default-content-wrapper > p.spacer`) && !css.includes('+ p.spacer:not(.divider'), 'no spacer height rule');
+  // live's separator is maui-divider's 1px box (shadow DOM), then the .hr's margin (brief 488: the
+  // margin collapses with the next component's or wrapper's, not with the paragraph's above)
+  assert.match(rule(`${S} .default-content-wrapper > p.spacer:not(.divider)`), /height: 1px;\s*margin-bottom: var\(--spacer-size, 25px\);/);
+  assert.ok(!css.includes('+ p.spacer:not(.divider'), 'no collapse with the paragraph above');
   assert.match(rule(`${S} > .default-content-wrapper:not(:has(> :not(p.spacer))) + div`), /margin-top: 0;/);
 });
 
