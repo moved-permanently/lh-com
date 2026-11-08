@@ -55969,5 +55969,45 @@
  },
  "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-en.mp4": {
   "wwwStatus": 403
+ },
+ "/content/dam/lh/images/local_images/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/en_1440x461_LH_ExpressRail_LP_Header.mp4": {
+  "type": "video/mp4",
+  "file": "lh-snapshots-085 (www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/en_1440x461_LH_ExpressRail_LP_Header.mp4)",
+  "bytes": 753715,
+  "uploadedName": "/content/dam/lh/images/local_images/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/en-1440x461-lh-expressrail-lp-header.mp4",
+  "uploaded": "2026-11-08T07:43:59.000Z",
+  "preview": "2026-11-08T07:43:59.000Z"
+ },
+ "/content/dam/lh/images/local_images/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/1440x461_LH_ExpressRail_LP_Header_DE.mp4": {
+  "type": "video/mp4",
+  "file": "lh-snapshots-085 (www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/1440x461_LH_ExpressRail_LP_Header_DE.mp4)",
+  "bytes": 743388,
+  "uploadedName": "/content/dam/lh/images/local_images/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/1440x461-lh-expressrail-lp-header-de.mp4",
+  "uploaded": "2026-11-08T07:43:59.000Z",
+  "preview": "2026-11-08T07:43:59.000Z"
+ },
+ "/content/dam/lh/images/local_images/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/Express_Rail_Thumbnail_DE_8139046.jpg": {
+  "type": "image/jpeg",
+  "file": "lh-snapshots-085 (www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/Express_Rail_Thumbnail_DE_8139046.jpg)",
+  "bytes": 121810,
+  "uploadedName": "/content/dam/lh/images/local_images/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/express-rail-thumbnail-de-8139046.jpg",
+  "uploaded": "2026-11-08T07:43:59.000Z",
+  "preview": "2026-11-08T07:43:59.000Z"
+ },
+ "/content/dam/lh/videos/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/260916 LHA Express Rail DE V01_8118924.mp4": {
+  "type": "video/mp4",
+  "file": "lh-snapshots-085 (www.lufthansa.com/content/dam/lh/videos/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/260916 LHA Express Rail DE V01_8118924.mp4)",
+  "bytes": 35908047,
+  "uploadedName": "/content/dam/lh/videos/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail/260916-lha-express-rail-de-v01-8118924.mp4",
+  "uploaded": "2026-11-08T07:43:59.000Z",
+  "preview": "2026-11-08T07:43:59.000Z"
+ },
+ "/content/dam/lh/images/offers/midfunnel-campaigns/yes/moving-images/LH_EMEA_ENG_Roadtrip_10s_1440x461_noLufthansa_noSound.mp4": {
+  "type": "video/mp4",
+  "file": "lh-snapshots-085 (www.lufthansa.com/content/dam/lh/images/offers/midfunnel-campaigns/yes/moving-images/LH_EMEA_ENG_Roadtrip_10s_1440x461_noLufthansa_noSound.mp4)",
+  "bytes": 17425048,
+  "uploadedName": "/content/dam/lh/images/offers/midfunnel-campaigns/yes/moving-images/lh-emea-eng-roadtrip-10s-1440x461-nolufthansa-nosound.mp4",
+  "uploaded": "2026-11-08T07:43:59.000Z",
+  "preview": "2026-11-08T07:43:59.000Z"
  }
 }
