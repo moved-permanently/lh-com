@@ -93,6 +93,16 @@ export default async function decorate(block, opts = {}) {
     const { toComparison } = await import('./table-striped-tap.js');
     if (await toComparison(block, opts)) return;
   }
+  // option beside / beside-end (the campaign template's spec tables, www's /de/en/100-years/fleet,
+  // brief 478): the first row is the column beside the table (its first cell) and what the table's
+  // own column has above the table (a second cell)
+  let side = null;
+  if (block.matches('.beside, .beside-end') && block.children.length > 1) {
+    const first = block.firstElementChild;
+    const [partner, above] = [...first.children];
+    first.remove();
+    side = { partner, above };
+  }
   const rows = [...block.children]
     .map((row) => [...row.children])
     .filter((cells) => cells.some((c) => cleanText(c) || c.querySelector('img')));
@@ -139,8 +149,25 @@ export default async function decorate(block, opts = {}) {
   });
   table.append(tbody);
 
-  block.replaceChildren(table);
-  keepScrollFocusable(block);
+  if (side) {
+    // the partner and the table's column; the table scrolls in a box of its own
+    const part = (className, cell) => {
+      const div = document.createElement('div');
+      div.className = className;
+      if (cell) div.append(...cell.childNodes);
+      return div;
+    };
+    const box = part('table-striped-table');
+    box.append(table);
+    const main = part('table-striped-main');
+    if (side.above && (cleanText(side.above) || side.above.querySelector('img'))) main.append(part('table-striped-above', side.above));
+    main.append(box);
+    block.replaceChildren(part('table-striped-aside', side.partner), main);
+    keepScrollFocusable(box);
+  } else {
+    block.replaceChildren(table);
+    keepScrollFocusable(block);
+  }
   cleanTextNodes(table);
   decorateExternalLinks(table);
   // option matrix (wide comparison tables): sticky first column, the link titles as tooltips;

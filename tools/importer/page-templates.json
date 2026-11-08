@@ -1545,6 +1545,12 @@
           ]
         },
         {
+          "name": "table-beside",
+          "instances": [
+            ":is(.section-content, .container-content) > .twocolumn:has(> .column-view > .row > .column-view-item > div.table .cms-table-maui-wrapper)"
+          ]
+        },
+        {
           "name": "table-striped",
           "instances": [
             "div.table:has(.cms-table-maui-wrapper):not(.accordion div.table)"

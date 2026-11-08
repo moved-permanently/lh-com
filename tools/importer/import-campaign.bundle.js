@@ -21,6 +21,18 @@ var CustomImportScript = (() => {
     return a;
   };
   var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
+  var __objRest = (source, exclude) => {
+    var target = {};
+    for (var prop in source)
+      if (__hasOwnProp.call(source, prop) && exclude.indexOf(prop) < 0)
+        target[prop] = source[prop];
+    if (source != null && __getOwnPropSymbols)
+      for (var prop of __getOwnPropSymbols(source)) {
+        if (exclude.indexOf(prop) < 0 && __propIsEnum.call(source, prop))
+          target[prop] = source[prop];
+      }
+    return target;
+  };
   var __export = (target, all) => {
     for (var name in all)
       __defProp(target, name, { get: all[name], enumerable: true });
@@ -2327,39 +2339,8 @@ var CustomImportScript = (() => {
     element.replaceWith(block);
   }
 
-  // tools/importer/parsers/table-striped.js
-  function parse6(element, { document }) {
-    const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
-    const clean3 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
-    const cellContent = (cell) => {
-      const c = cell.cloneNode(true);
-      c.querySelectorAll(SKIP).forEach((n) => n.remove());
-      const nodes = [...c.childNodes].filter((n) => n.nodeType !== 8);
-      if (!clean3(c.textContent) && !c.querySelector("img")) return "";
-      if (nodes.every((n) => n.nodeType === 3)) return clean3(c.textContent);
-      return nodes;
-    };
-    const rowEls = [...element.querySelectorAll("maui-table-row, tr")].filter((r) => !r.parentElement.closest("maui-table-row, tr"));
-    let rows = rowEls.map((r) => [...r.children].filter((c) => /^(MAUI-TABLE-CELL|MAUI-TABLE-HEADER-CELL|MAUI-TABLE-HEAD-CELL|TD|TH)$/.test(c.tagName) || c.getAttribute("role") === "cell" || c.getAttribute("role") === "columnheader" || c.getAttribute("role") === "rowheader").map(cellContent));
-    rows = rows.filter((cells2) => cells2.some((c) => c !== ""));
-    const width = Math.max(1, ...rows.map((r) => r.length));
-    const cells = rows.map((r) => r.length < width ? [...r, ...Array(width - r.length).fill("")] : r);
-    const before = [];
-    const caption = element.querySelector("maui-table-caption, caption");
-    if (caption && clean3(caption.textContent)) {
-      const p = document.createElement("p");
-      p.textContent = clean3(caption.textContent);
-      before.push(p);
-    }
-    const head = element.querySelector("maui-table-head, thead");
-    const hasHeader = !!head && !!head.querySelector("maui-table-row, tr");
-    const name = hasHeader ? "Table Striped (header)" : "table-striped";
-    const block = WebImporter.Blocks.createBlock(document, { name, cells });
-    element.replaceWith(...before, block);
-  }
-
   // tools/importer/parsers/columns-media.js
-  function parse7(element, { document }) {
+  function parse6(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -2881,8 +2862,81 @@ var CustomImportScript = (() => {
     element.replaceWith(...titles, block);
   }
 
+  // tools/importer/parsers/table-striped.js
+  function parse7(element, { document }) {
+    const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
+    const clean3 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
+    const cellContent = (cell) => {
+      const c = cell.cloneNode(true);
+      c.querySelectorAll(SKIP).forEach((n) => n.remove());
+      const nodes = [...c.childNodes].filter((n) => n.nodeType !== 8);
+      if (!clean3(c.textContent) && !c.querySelector("img")) return "";
+      if (nodes.every((n) => n.nodeType === 3)) return clean3(c.textContent);
+      return nodes;
+    };
+    const rowEls = [...element.querySelectorAll("maui-table-row, tr")].filter((r) => !r.parentElement.closest("maui-table-row, tr"));
+    let rows = rowEls.map((r) => [...r.children].filter((c) => /^(MAUI-TABLE-CELL|MAUI-TABLE-HEADER-CELL|MAUI-TABLE-HEAD-CELL|TD|TH)$/.test(c.tagName) || c.getAttribute("role") === "cell" || c.getAttribute("role") === "columnheader" || c.getAttribute("role") === "rowheader").map(cellContent));
+    rows = rows.filter((cells2) => cells2.some((c) => c !== ""));
+    const width = Math.max(1, ...rows.map((r) => r.length));
+    const cells = rows.map((r) => r.length < width ? [...r, ...Array(width - r.length).fill("")] : r);
+    const before = [];
+    const caption = element.querySelector("maui-table-caption, caption");
+    if (caption && clean3(caption.textContent)) {
+      const p = document.createElement("p");
+      p.textContent = clean3(caption.textContent);
+      before.push(p);
+    }
+    const head = element.querySelector("maui-table-head, thead");
+    const hasHeader = !!head && !!head.querySelector("maui-table-row, tr");
+    const name = hasHeader ? "Table Striped (header)" : "table-striped";
+    const block = WebImporter.Blocks.createBlock(document, { name, cells });
+    element.replaceWith(...before, block);
+  }
+
+  // tools/importer/parsers/table-beside.js
+  function parse8(element, _a) {
+    var _b = _a, { document } = _b, rest = __objRest(_b, ["document"]);
+    const items = [...element.querySelectorAll(":scope > .column-view > .row > .column-view-item")];
+    const t = items.findIndex((it) => it.querySelector("div.table"));
+    if (items.length !== 2 || t < 0) return;
+    const capture = (fn, el) => {
+      const original = WebImporter.Blocks.createBlock;
+      let made = null;
+      WebImporter.Blocks.createBlock = (doc, opts) => {
+        made = opts;
+        return doc.createElement("table");
+      };
+      try {
+        const box = document.createElement("div");
+        box.append(el);
+        fn(el, __spreadValues({ document }, rest));
+      } finally {
+        WebImporter.Blocks.createBlock = original;
+      }
+      return made;
+    };
+    const table = capture(parse7, items[t].querySelector("div.table").cloneNode(true));
+    if (!table || !table.cells || !table.cells.length) return;
+    const view = element.cloneNode(true);
+    view.querySelectorAll("div.table").forEach((n) => n.remove());
+    const columns = capture(parse6, view);
+    const cells = columns && columns.cells && columns.cells[0] || [];
+    const filled = (c) => {
+      const nodes = Array.isArray(c) ? c : [c];
+      return nodes.some((n) => typeof n === "string" ? n.trim() : n && (n.textContent.trim() || n.querySelector && n.querySelector("img") || n.tagName === "IMG"));
+    };
+    const partner = cells.length === 2 ? cells[1 - t] : cells[0] || "";
+    const above = cells.length === 2 ? cells[t] : "";
+    const options = [];
+    if (/\(header\)/i.test(table.name || "")) options.push("header");
+    options.push(t === 1 ? "beside" : "beside-end");
+    const first = filled(above) ? [partner, above] : [partner];
+    const block = WebImporter.Blocks.createBlock(document, { name: `Table Striped (${options.join(", ")})`, cells: [first, ...table.cells] });
+    element.replaceWith(block);
+  }
+
   // tools/importer/parsers/cards-teaser.js
-  function parse8(element, { document }) {
+  function parse9(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
@@ -3090,7 +3144,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-images.js
-  function parse9(element, { document }) {
+  function parse10(element, { document }) {
     const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const isBroken3 = (src) => !src || /^(data|blob):/i.test(src) || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const slides = [...element.querySelectorAll(".swiper-slide")].filter((s) => !s.classList.contains("swiper-slide-duplicate"));
@@ -3127,7 +3181,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-cards.js
-  function parse10(element, { document }) {
+  function parse11(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -3395,7 +3449,7 @@ var CustomImportScript = (() => {
     return out;
   }
   var FALLBACKS = { "claim-form-entry": claimFallback, "baggage-form-entry": baggageFallback };
-  function parse11(element, { document, url }) {
+  function parse12(element, { document, url }) {
     const name = element.tagName.toLowerCase();
     const cells = [[name]];
     (ROWS[name] || []).forEach(([label, attr]) => {
@@ -5205,6 +5259,12 @@ var CustomImportScript = (() => {
         ]
       },
       {
+        "name": "table-beside",
+        "instances": [
+          ":is(.section-content, .container-content) > .twocolumn:has(> .column-view > .row > .column-view-item > div.table .cms-table-maui-wrapper)"
+        ]
+      },
+      {
         "name": "table-striped",
         "instances": [
           "div.table:has(.cms-table-maui-wrapper):not(.accordion div.table)"
@@ -5395,12 +5455,13 @@ var CustomImportScript = (() => {
     "flight-search": parse3,
     "hero-campaign": parse4,
     "accordion-columns": parse5,
-    "table-striped": parse6,
-    "columns-media": parse7,
-    "cards-teaser": parse8,
-    "carousel-images": parse9,
-    "carousel-cards": parse10,
-    "micro-frontend": parse11
+    "table-beside": parse8,
+    "table-striped": parse7,
+    "columns-media": parse6,
+    "cards-teaser": parse9,
+    "carousel-images": parse10,
+    "carousel-cards": parse11,
+    "micro-frontend": parse12
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
