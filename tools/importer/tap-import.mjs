@@ -160,6 +160,9 @@ export function linkOf(href, c) {
  * is hidden (the title on phones, as BySide's window) the words keep their gap.
  */
 export function bysideHtml(v, c) {
+  // the open links: false for one that goes nowhere (BySide's en-pt small print: href="null"),
+  // dropped with its closing tag, its text kept (brief 468)
+  const open = [];
   return String(v || '').replace(/<(script|style)\b[\s\S]*?<\/\1>/gi, '').replace(/[ \t]+(<br\s*\/?>)/gi, ' \u2060$1')
     .split(/(<[^>]*>)/)
     .map((x) => {
@@ -173,8 +176,10 @@ export function bysideHtml(v, c) {
       if (name) return `<${close}${name}>`;
       if (tag.toLowerCase() === 'br') return close ? '' : '<br>';
       if (tag.toLowerCase() !== 'a') return '';
-      if (close) return '</a>';
+      if (close) return open.pop() === false ? '' : '</a>';
       const href = (rest.match(/\bhref\s*=\s*"([^"]*)"/i) || [])[1];
+      if (href !== undefined && /^\s*(null|undefined|#|javascript:.*)\s*$/i.test(href)) { open.push(false); return ''; }
+      open.push(true);
       if (!href) return '<a>';
       const local = linkOf(href.replace(/&amp;/g, '&'), c);
       return `<a href="${attr(local.startsWith('/') ? local : href.replace(/&amp;/g, '&'))}">`;

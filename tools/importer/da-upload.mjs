@@ -38,7 +38,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import {
-  siteSettings, mayPreview, readDocument, uploadBody,
+  siteSettings, mayPreview, readDocument, uploadBody, mediaStep,
 } from './da-upload-sites.mjs';
 import { linksTakenBack } from './own-links.mjs';
 
@@ -135,9 +135,16 @@ for (const p of paths) {
   // local images → uploaded once to DA, referenced from content.da.live
   const media = [...new Set([...html.matchAll(/["(](\/media-da\/[^"')\s]+)/g)].map((m) => m[1]))];
   for (const m of media) {
-    if (state.media[m] && !has('force')) continue;
     const local = path.join(contentDir, m);
-    if (!fs.existsSync(local)) { problem(`${p}: missing image ${m}`); continue; }
+    // a picture with no local file that DA has already (another tree's upload, DA's copy of an
+    // earlier import): no problem, noted as DA's (brief 468)
+    const inDa = () => curl(['-o', '/dev/null', `https://admin.da.live/source/${ORG}/${SITE}${m}`]).status === 200;
+    const step = mediaStep({
+      known: Boolean(state.media[m]), force: has('force'), localExists: fs.existsSync(local), inDa,
+    });
+    if (step === 'known') continue;
+    if (step === 'in-da') { state.media[m] = { at: new Date().toISOString(), inDa: true }; continue; }
+    if (step === 'missing') { problem(`${p}: missing image ${m} (not in DA either)`); continue; }
     if (has('dry-run')) { console.log(`would upload ${m}`); continue; }
     const r = curl(['-X', 'POST', '-F', `data=@${local}`, `https://admin.da.live/source/${ORG}/${SITE}${m}`]);
     if (r.status < 200 || r.status >= 300) { problem(`${m}: DA ${r.status} ${r.body.slice(0, 120)}`); continue; }

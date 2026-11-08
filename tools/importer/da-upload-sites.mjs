@@ -73,6 +73,21 @@ export function readDocument(contentDir, p) {
   return DA_DOCUMENT.test(text) ? { kind: 'document', file: full, text } : null;
 }
 
+/**
+ * What da-upload does with a picture a document references (brief 468): 'known' (uploaded or found
+ * before, state.media), 'upload' (a local file), 'in-da' (no local file, DA has it: no problem) or
+ * 'missing' (neither). inDa() is asked only for a picture without a local file.
+ * @param {{known: boolean, force?: boolean, localExists: boolean, inDa: () => boolean}} o
+ * @returns {'known'|'upload'|'in-da'|'missing'}
+ */
+export function mediaStep({
+  known, force = false, localExists, inDa,
+}) {
+  if (known && !force) return 'known';
+  if (localExists) return 'upload';
+  return inDa() ? 'in-da' : 'missing';
+}
+
 /** What is sent to DA: a .plain.html in DA's source shape, a full DA document as it is. */
 export function uploadBody(kind, text) {
   return kind === 'document' ? text : `<body><header></header><main>${text}</main><footer></footer></body>`;

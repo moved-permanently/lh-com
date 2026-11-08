@@ -407,6 +407,88 @@ export function marketFragments(html, { home, base }) {
   return { html: `${out.join('\n')}\n`, fragments };
 }
 
+const marketItems = (m) => String(m || '').toLowerCase().split(/[\s,;]+/).filter(Boolean);
+const isInclude = (m) => m !== null && marketItems(m).length > 0 && !marketItems(m).some((i) => i.startsWith('-'));
+const sectionText = (sec) => splitSectionMetadata(sec).body.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+const firstBlock = (sec) => (sec.match(/<div class="([^"]+)"/) || [])[1] || '';
+const withMarkets = (sec, v) => sec.replace(/(<div><div>(?:<p>)?\s*Markets\s*(?:<\/p>)?<\/div><div>(?:<p>)?)([^<]*)/i, `$1${v}`);
+
+/**
+ * A language document merged again keeps what the existing copy (a local or DA document from an
+ * earlier import) gives the countries no root of the language covers: their views are in no
+ * capture of this merge (fr-fr promos: es, br, us and pt; brief 468). A section whose Markets list
+ * such a country stays for it: added to the merged section with the same text, else the section
+ * on its own for those countries, after its predecessor's counterpart. An existing exclusion of
+ * such a country goes to the merged section that replaces that section (the same text, else the
+ * same block at the same rank among the exclusion sections). The covered countries as merged.
+ * @param {string} html the merged document
+ * @param {string} existing the existing document's HTML ('' without one)
+ * @param {string[]} covered the home market and the countries of the language's roots
+ * @returns {{html: string, kept: {countries: string[], how: string, text: string}[]}}
+ */
+export function keepUncovered(html, existing, covered) {
+  const kept = [];
+  if (!existing) return { html, kept };
+  const cov = new Set(covered.map(lc));
+  const ex = topSections(existing);
+  const out = topSections(html);
+  const pos = (i) => {
+    // the merged section standing for the existing one: the same text, else (an exclusion or
+    // unmarked section) the same block at the same rank among its kind
+    const t = sectionText(ex[i]);
+    const same = out.findIndex((o) => sectionText(o) === t);
+    if (same >= 0) return same;
+    const m = sectionMarkets(ex[i]);
+    if (isInclude(m)) return -1;
+    const kind = (x) => {
+      const v = sectionMarkets(x);
+      return `${firstBlock(x)}|${v === null ? 'all' : (!isInclude(v) && 'not') || 'only'}`;
+    };
+    const k = kind(ex[i]);
+    const rank = ex.slice(0, i).filter((x) => kind(x) === k).length;
+    const like = out.map((o, j) => [o, j]).filter(([o]) => kind(o) === k);
+    return like[rank] ? like[rank][1] : -1;
+  };
+  ex.forEach((sec, i) => {
+    const m = sectionMarkets(sec);
+    if (!isInclude(m)) return;
+    const mine = marketItems(m).filter((c) => !cov.has(c));
+    if (!mine.length) return;
+    const j = out.findIndex((o) => sectionText(o) === sectionText(sec));
+    if (j >= 0) {
+      const om = sectionMarkets(out[j]);
+      if (om === null) return;
+      // the countries the merged section does not give them yet
+      const add = isInclude(om) ? mine.filter((c) => !marketItems(om).includes(c)) : mine.filter((c) => marketItems(om).includes(`-${c}`));
+      if (!add.length) return;
+      const rest = marketItems(om).filter((x) => !add.includes(x.slice(1)));
+      if (!isInclude(om) && !rest.length) return;
+      out[j] = withMarkets(out[j], isInclude(om) ? sorted(new Set([...marketItems(om), ...add])).join(',') : rest.join(','));
+      kept.push({ countries: add, how: 'added', text: sectionText(sec).slice(0, 80) });
+      return;
+    }
+    let at = -1;
+    for (let k = i - 1; k >= 0 && at < 0; k -= 1) at = pos(k);
+    out.splice(at + 1, 0, withMarkets(sec, mine.join(',')));
+    kept.push({ countries: mine, how: 'section', text: sectionText(sec).slice(0, 80) });
+  });
+  ex.forEach((sec, i) => {
+    const m = sectionMarkets(sec);
+    if (m === null || isInclude(m)) return;
+    const not = marketItems(m).filter((x) => x.startsWith('-')).map((x) => x.slice(1)).filter((c) => !cov.has(c));
+    const j = not.length ? pos(i) : -1;
+    if (j < 0) return;
+    const om = sectionMarkets(out[j]);
+    if (om === null || isInclude(om)) return;
+    const add = not.filter((c) => !marketItems(om).includes(`-${c}`));
+    if (!add.length) return;
+    out[j] = withMarkets(out[j], sorted(new Set([...marketItems(om), ...add.map((c) => `-${c}`)])).join(','));
+    kept.push({ countries: add, how: 'excluded', text: sectionText(sec).slice(0, 80) });
+  });
+  if (!kept.length) return { html, kept };
+  return { html: `${out.join('\n')}\n`, kept };
+}
+
 /** A root's document with its links as its language version's (/en-us → /en-pt, www's en_us → en_pt). */
 export function rootLinks(html, r, lv) {
   const u = (x) => x.replace('-', '_');
@@ -553,15 +635,19 @@ async function main() {
     }
     // the variants' fragment documents apart
     const vf = variantFragments(r.html, r.fragments);
-    const html = withPageMarkets(vf.html, pm);
+    let html = withPageMarkets(vf.html, pm);
     if (plain) {
       (report.plainAgain ||= []).push(doc);
       write(doc, html);
       vf.fragments.forEach((x) => { write(x.doc, x.html); langFragments.push(x.doc); });
       continue;
     }
+    // the countries no root of the language covers keep the local copy's sections (brief 468)
+    const keep = keepUncovered(html, fs.existsSync(localFile) ? fs.readFileSync(localFile, 'utf8') : '', [home, ...countries, ...vs.map((v) => v.country)]);
+    html = keep.html;
     (report.languages[lv] ||= {})[doc] = {
       sections: marked.map((u) => ({ component: keyOf(u), variation: u._variation, markets: u.__markets })),
+      ...(keep.kept.length ? { kept: keep.kept } : {}),
       pageMarkets: pm,
       merged: vs.map((v) => v.root),
       notes: merged.notes,

@@ -24,7 +24,9 @@
 - **For a decision:**
   - pt-pt payment-methods is version-local (all 57 roots agree, the version is Portugal's). I
     follow en-pt's precedent: the roots' hero as a section for every market except pt.
-  - The alerts pages: www's version shows a Portuguese identity-card notice the importer does not
-    render, so both views lack it. That's the version's own page, not a root difference.
+  - The alerts pages: www's version shows a Portuguese identity-card notice the roots don't. The
+    replica does the same (brief 468, checked on tap.turnsthe.page: pt-pt and en-pt list it, pt-ao,
+    en-us and pt-br don't); the alerts come from lh-tap's Message Center (markets pt) in the browser,
+    so my check, which reads the imported text, missed it on both sides. Nothing to import.
 - **The tool:** en-gb's Marriott link on `/miles-and-go/partners` is my check's artifact (the root
   code inside the external URL); nothing to import.
