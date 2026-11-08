@@ -4,7 +4,8 @@
  * Video: a poster picture plus a link to an .mp4 file, optionally followed in its paragraph by
  * links to its text tracks (.vtt: "Subtitles", "Audio description"; www's closedCaptionsSrc and
  * audioDescriptionSrc) and a settings marker ("{autoplay muted loop}",
- * "{controls round-play-button}").
+ * "{controls round-play-button}"; "size-1920x1080": the video's own size, the player takes its
+ * aspect before the video loads).
  * Embed: a link alone in its paragraph to a YouTube video (shown as a youtube-nocookie.com
  * player, 16:9) or to a Lufthansa in-flight entertainment widget
  * (www.lufthansa-inflightentertainment.com/.../widgets/?id=…&type=…&lang=…, 520px high, at most
@@ -28,7 +29,9 @@ import { VIDEO_SETTINGS } from './style-markers.js';
 /** Playback settings a video link can carry (marker after the link: "{autoplay muted loop}"). */
 // the settings marker after a video link ("{autoplay muted loop}"): scripts/style-markers.js
 export { VIDEO_SETTINGS } from './style-markers.js';
-const VIDEO_MARKER = new RegExp(`\\s*\\{((?:${VIDEO_SETTINGS.join('|')})(?: (?:${VIDEO_SETTINGS.join('|')}))*)\\}\\s*$`);
+// and the video's own size, read from the file (tools/importer/video-sizes.mjs): "size-1920x1080"
+const VIDEO_TOKEN = `(?:${VIDEO_SETTINGS.join('|')}|size-\\d{2,5}x\\d{2,5})`;
+const VIDEO_MARKER = new RegExp(`\\s*\\{(${VIDEO_TOKEN}(?: ${VIDEO_TOKEN})*)\\}\\s*$`);
 /** Matches every settings marker in a text (to ignore them as text). */
 export const VIDEO_MARKERS = new RegExp(VIDEO_MARKER.source.slice(0, -1), 'g');
 
@@ -436,6 +439,12 @@ export function buildVideo(link, picture, playLabel) {
   button.type = 'button';
   button.className = 'media-video-play';
   if (settings.has('round-play-button')) wrapper.classList.add('media-video-round');
+  // a known size: the player at the video's own aspect before it loads (www's video.js, vjs-fluid)
+  const size = [...settings].map((t) => t.match(/^size-(\d+)x(\d+)$/)).find(Boolean);
+  if (size) {
+    wrapper.classList.add('media-video-sized');
+    wrapper.style.setProperty('--media-video-ratio', `${size[1]} / ${size[2]}`);
+  }
   button.setAttribute('aria-label', buttonLabel);
   button.setAttribute('aria-controls', wrapper.id);
   wrapper.append(button);

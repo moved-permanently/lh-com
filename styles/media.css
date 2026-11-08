@@ -88,6 +88,20 @@
   outline: 2px solid rgb(9 104 246);
 }
 
+/* a video of known size (the importer's "size-WxH", read from the file): the player at the
+   video's own aspect before it loads, as www's video.js (vjs-fluid at the video's size), black,
+   the poster contained (.vjs-poster img { object-fit: contain }); allegris-premium-economy-san-diego:
+   a 1920x823 poster in the 16:9 player, 1053x592 at 1440 */
+.media-video.media-video-sized {
+  aspect-ratio: var(--media-video-ratio);
+  background-color: #000;
+}
+
+.media-video.media-video-sized :is(picture, img, video) {
+  height: 100%;
+  object-fit: contain;
+}
+
 /* embeds: Lufthansa .video-player (YouTube: 16:9 over the full width) and .iframe-wrapper
    (in-flight entertainment widget: max-width 1240px, height 520px inline) */
 .media-embed {

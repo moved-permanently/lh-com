@@ -1,6 +1,6 @@
 /* eslint-disable */
 /* global WebImporter */
-import { embedNodes } from './media-nodes.js';
+import { embedNodes, videoSizeToken } from './media-nodes.js';
 
 /**
  * Parser for columns-media (text beside media). Sources:
@@ -220,6 +220,8 @@ export default function parse(element, { document, url, params }) {
     const settings = [];
     if (cfg.autoplay === true || cfg.autoplay === 'true') settings.push('autoplay', 'muted');
     settings.push('controls', 'round-play-button');
+    const size = videoSizeToken(src);
+    if (size) settings.push(size);
     out.push(videoPara(src, clean(cfg.alternativeText), settings));
     return out;
   };
@@ -320,6 +322,39 @@ export default function parse(element, { document, url, params }) {
   };
 
   /** Content of a column, in document order, nested column views flattened. */
+  // a picture that www draws narrower than its column (brief 488, 100-years/campaigns): a two-column
+  // view inside the column of one empty item and one of pictures only (half the column from 768px,
+  // the side the picture item is on), or a sidebar inside the column with only pictures in its
+  // content and nothing aside (three quarters). The pictures become paragraphs marked
+  // " {cell-half-start}", " {cell-half-end}" or " {cell-three-quarters}" (blocks/columns-media).
+  const hasContent = (el) => !!clean(el.textContent) || !!el.querySelector('img, picture, video, iframe');
+  const picturesOnly = (el) => !!el && !!el.querySelector('.image img') && !el.querySelector('.text, .headline, .link, .teaser, video');
+  const marked = (nodes, token) => nodes.map((n) => {
+    if (n.tagName !== 'IMG') return n;
+    const para = document.createElement('p');
+    para.append(n, document.createTextNode(` {${token}}`));
+    return para;
+  });
+  const narrowPictures = (child) => {
+    if (!child.parentElement || !child.parentElement.closest('.column-view-item')) return null;
+    if (child.matches('.twocolumn')) {
+      const own = [...child.querySelectorAll('.column-view-item')].filter((it) => it.parentElement.closest('.twocolumn') === child);
+      if (own.length !== 2 || own.filter(hasContent).length !== 1) return null;
+      const at = own.findIndex(hasContent);
+      if (!picturesOnly(own[at])) return null;
+      const nodes = [...own[at].querySelectorAll('.image')].filter((c) => c.querySelector('img')).flatMap((c) => mediaNodes(c));
+      return marked(nodes, at ? 'cell-half-end' : 'cell-half-start');
+    }
+    if (child.matches('.sidebar')) {
+      const content = child.querySelector('.sidebar-content');
+      const aside = child.querySelector('.sidebar-aside');
+      if (!picturesOnly(content) || (aside && hasContent(aside))) return null;
+      const nodes = [...content.querySelectorAll('.image')].filter((c) => c.querySelector('img')).flatMap((c) => mediaNodes(c));
+      return marked(nodes, 'cell-three-quarters');
+    }
+    return null;
+  };
+
   const collect = (node, out) => {
     [...node.children].forEach((child) => {
       if (child.matches(SKIP_COMPONENTS)) return;
@@ -364,6 +399,8 @@ export default function parse(element, { document, url, params }) {
         const p = document.createElement('p');
         p.textContent = clean(child.textContent);
         out.push(p);
+      } else if (narrowPictures(child)) {
+        out.push(...narrowPictures(child));
       } else if (child.matches('blockquote.authorquote')) {
         // an author quote in the column (lufthansa-cleanup made it a blockquote; 100-years/campaigns
         // "There's no better way to fly." under the text of a sidebar, brief 484): kept as it is

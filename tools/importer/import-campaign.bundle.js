@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_920679_exports = {};
-  __export(tmp_bundle_campaign_920679_exports, {
-    default: () => tmp_bundle_campaign_920679_default
+  var import_campaign_exports = {};
+  __export(import_campaign_exports, {
+    default: () => import_campaign_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -1939,6 +1939,202 @@ var CustomImportScript = (() => {
     element.replaceWith(block);
   }
 
+  // tools/importer/parsers/video-sizes.js
+  var video_sizes_default = {
+    "/content/dam/four_y/videos/checkinvideo_de.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/four_y/videos/checkinvideo_en.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/four_y/videos/ocean_blue_video_v06.mp4": [
+      1920,
+      1150
+    ],
+    "/content/dam/lh/video/2024-muc-arrival-de.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/lh/video/2024-muc-arrival-en.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/lh/video/2024-muc-transfer-de.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/lh/video/2024-muc-transfer-en.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/lh/videos/100-years/crane/260316_lh_100y_muc_cube_moving_img_crane.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/lh/videos/100-years/destinations/260415_LH100_60sec_16x9_ENG_Webmix_v01.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/lh/videos/100-years/destinations/iconoclast_lufthansa100_60sec_16x9_DE_titled_master_webmix.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_2026_CulinarySpa_98s_ECO-PE-BUS_FIRST_1920x1080_DE_Agentur.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/lh/videos/discover-lufthansa/new-onboard-experience/LH_OBX_2026_CulinarySpa_98s_ECO-PE-BUS_FIRST_1920x1080_EN.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/lh/videos/prepare-for-your-trip/all-check-in/check-in-baggage/lh-bagdrop-self-check-in.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/2026-lha-how-to-stow-de.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/lh/videos/prepare-for-your-trip/baggage/carry-on-baggage/260721 LHA How to stow EN_7691080.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/art-design-france-2026/Lufthansa_ArtDesign_20_FRA_Antoine_E1_Master_Clean_260323_18h30.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/art-design-france-2026/Lufthansa_ArtDesign_2_0_FRA_Antoine_E2_Master_Clean_V02_260408_14h30.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/art-design-france-2026/Lufthansa_ArtDesign_2_0_FRA_Antoine_E3_Master_Clean_V1_260430.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/art-design-france-2026/Lufthansa_ArtDesign_2_0_FRA_Antoine_E4_Master_Clean_V1_260430.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/art-design-france-2026/Lufthansa_ArtDesign_2_0_UK_Jacob_E3_Master_Clean_V1_260430.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/art-design-it-2026/Lufthansa_ArtDesign_2_0_ITA_Elena_E1_Master_Clean_V2_260330_16h.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/art-design-it-2026/Lufthansa_ArtDesign_2_0_ITA_Elena_E2_Master_Clean_V01_260330_15h.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/art-design-it-2026/Lufthansa_ArtDesign_2_0_ITA_Elena_E3_Master_Clean_V1_260430.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/art-design-it-2026/Lufthansa_ArtDesign_2_0_ITA_Elena_E4_Master_Clean_V1_260430.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/art-design-italy/lh_art_italy_antonio_90sec.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/art-design-spain/lh_art_design_san_diego_diego_blanco_60sec.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/art-design-uk-2026/Lufthansa_ArtDesign_2_0_UK_Jacob_E1_Master_clean_V2_260401_13h.mp4": [
+      3840,
+      2160
+    ],
+    "/content/dam/video/c3/art-design-uk-2026/Lufthansa_ArtDesign_2_0_UK_Jacob_E2_Master_clean_V01_260401_13h.mp4": [
+      3840,
+      2160
+    ],
+    "/content/dam/video/c3/art-design-uk-2026/Lufthansa_ArtDesign_2_0_UK_Jacob_E4_Master_Clean_V1_260430.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/art-design-uk/lh_art_uk_san_diego_daniel_frost_90sec.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/campaigns/allegris-fashion/lh_fashion_france_mexico.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/campaigns/allegris-fashion/lh_fashion_italy_tokio_en.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/campaigns/allegris-fashion/lh_fashion_spain_johannesburg_en.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/campaigns/allegris-fashion/lh_fashion_uk_bengaluru_ov.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/campaigns/blog-allegris/01_video/allegris_master_en.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/campaigns/summer-push/01_video/lh_com_summerpush_anthem_en_16x9.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/c3/tag-pages/allegris/lh_allegris_20s_16x9.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/dbb/20-years-fct/241125_20_fct_de.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/nutcracker/ground-experience/2025-lh-pets-en.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-chat-assistant-rebooking-de.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/travel-briefing/chat-assistant-rebooking-lh/2025-chat-assistant-rebooking-en.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-de.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/travel-briefing/chat-assistant-refund-lh/2025-lh-chat-assistant-refund-en.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-de.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/travel-briefing/damaged-baggage-lh/2025-lh-damaged-baggage-en.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-de.mp4": [
+      1920,
+      1080
+    ],
+    "/content/dam/video/travel-briefing/delayed-baggage-lh/2025-lh-delayed-baggage-en.mp4": [
+      1920,
+      1080
+    ]
+  };
+
   // tools/importer/parsers/media-nodes.js
   var ZW = /[​-‍﻿]/g;
   var clean = (s) => (s || "").replace(ZW, "").replace(/\s+/g, " ").trim();
@@ -1951,6 +2147,17 @@ var CustomImportScript = (() => {
     p.append(a);
     if (settings.length) p.append(` {${settings.join(" ")}}`);
     return p;
+  }
+  function videoSizeToken(src) {
+    const path = String(src || "").trim().replace(/^https?:\/\/[^/]+/, "").split("/").map((seg) => {
+      try {
+        return decodeURIComponent(seg);
+      } catch (e) {
+        return seg;
+      }
+    }).join("/");
+    const size = video_sizes_default[path];
+    return size ? `size-${size[0]}x${size[1]}` : "";
   }
   function viewerNodes(comp, document) {
     const host = comp.matches("[data-dcep]") ? comp : comp.querySelector("[data-dcep]");
@@ -1975,6 +2182,8 @@ var CustomImportScript = (() => {
     const settings = [];
     if (cfg.autoplay === true || cfg.autoplay === "true") settings.push("autoplay", "muted");
     settings.push("controls", "round-play-button");
+    const size = videoSizeToken(src);
+    if (size) settings.push(size);
     out.push(videoPara(document, src, clean(cfg.alternativeText), settings));
     return out;
   }
@@ -2501,6 +2710,8 @@ var CustomImportScript = (() => {
       const settings = [];
       if (cfg.autoplay === true || cfg.autoplay === "true") settings.push("autoplay", "muted");
       settings.push("controls", "round-play-button");
+      const size = videoSizeToken(src);
+      if (size) settings.push(size);
       out.push(videoPara2(src, clean3(cfg.alternativeText), settings));
       return out;
     };
@@ -2584,6 +2795,33 @@ var CustomImportScript = (() => {
       }
       return out;
     };
+    const hasContent = (el) => !!clean3(el.textContent) || !!el.querySelector("img, picture, video, iframe");
+    const picturesOnly = (el) => !!el && !!el.querySelector(".image img") && !el.querySelector(".text, .headline, .link, .teaser, video");
+    const marked = (nodes, token) => nodes.map((n) => {
+      if (n.tagName !== "IMG") return n;
+      const para = document.createElement("p");
+      para.append(n, document.createTextNode(` {${token}}`));
+      return para;
+    });
+    const narrowPictures = (child) => {
+      if (!child.parentElement || !child.parentElement.closest(".column-view-item")) return null;
+      if (child.matches(".twocolumn")) {
+        const own = [...child.querySelectorAll(".column-view-item")].filter((it) => it.parentElement.closest(".twocolumn") === child);
+        if (own.length !== 2 || own.filter(hasContent).length !== 1) return null;
+        const at = own.findIndex(hasContent);
+        if (!picturesOnly(own[at])) return null;
+        const nodes = [...own[at].querySelectorAll(".image")].filter((c) => c.querySelector("img")).flatMap((c) => mediaNodes(c));
+        return marked(nodes, at ? "cell-half-end" : "cell-half-start");
+      }
+      if (child.matches(".sidebar")) {
+        const content = child.querySelector(".sidebar-content");
+        const aside = child.querySelector(".sidebar-aside");
+        if (!picturesOnly(content) || aside && hasContent(aside)) return null;
+        const nodes = [...content.querySelectorAll(".image")].filter((c) => c.querySelector("img")).flatMap((c) => mediaNodes(c));
+        return marked(nodes, "cell-three-quarters");
+      }
+      return null;
+    };
     const collect = (node, out) => {
       [...node.children].forEach((child) => {
         if (child.matches(SKIP_COMPONENTS)) return;
@@ -2625,6 +2863,8 @@ var CustomImportScript = (() => {
           const p = document.createElement("p");
           p.textContent = clean3(child.textContent);
           out.push(p);
+        } else if (narrowPictures(child)) {
+          out.push(...narrowPictures(child));
         } else if (child.matches("blockquote.authorquote")) {
           out.push(child.cloneNode(true));
         } else if (cl.contains("headline")) {
@@ -5341,7 +5581,8 @@ var CustomImportScript = (() => {
   var stage = (s) => !!s.querySelector(":scope > div > .section-content > .inspirationteaser");
   var isAem = (el) => el.matches(".container-content > .section");
   function campaignSections(document) {
-    return [...document.querySelectorAll(".container-content > .section")].filter((s) => (s.textContent || "").replace(/[\s\u00a0\u200b]/g, "") || s.querySelector(MEDIA3)).filter((s, i) => i && !stage(s) && !grey(s));
+    const all = [...document.querySelectorAll(".container-content > .section")].filter((s) => (s.textContent || "").replace(/[\s\u00a0\u200b]/g, "") || s.querySelector(MEDIA3));
+    return all.filter((s, i) => !stage(s) && !grey(s) && (i || all.length > 1 && !padded(s)));
   }
   function spacerComponent(document, n) {
     const text = document.createElement("div");
@@ -5349,19 +5590,13 @@ var CustomImportScript = (() => {
     text.innerHTML = `<div class="richtext limited-width"><p>{spacer-${n}}</p></div>`;
     return text;
   }
-  function trailingSeparators(s) {
+  function sectionSeparators(s) {
     const content = s.querySelector(":scope > div > .section-content");
-    const out = [];
-    for (let c = content && content.lastElementChild; c; c = c.previousElementSibling) {
-      if (!c.matches(".separator")) {
-        if ((c.textContent || "").replace(/[\s\u00a0\u200b]/g, "") || c.querySelector(MEDIA3)) break;
-        continue;
-      }
+    return [...content ? content.children : []].filter((c) => {
+      if (!c.matches(".separator")) return false;
       const hr = c.querySelector(".hr");
-      if (!hr || !hr.classList.contains("hr-no-layout") || hr.classList.contains("hidden-sm-down")) break;
-      out.push(c);
-    }
-    return out.slice(0, 1);
+      return !!hr && hr.classList.contains("hr-no-layout");
+    });
   }
   function transform3(hookName, element, payload) {
     const document = payload && payload.document || element.ownerDocument || element;
@@ -5372,10 +5607,11 @@ var CustomImportScript = (() => {
           p.closest(".text").after(spacerComponent(document, 50));
           p.remove();
         });
-        trailingSeparators(s).forEach((sep) => {
-          const hr = sep.querySelector(".hr") || sep;
+        sectionSeparators(s).forEach((sep) => {
+          const hr = sep.querySelector(".hr");
           const m = (hr.getAttribute("style") || "").match(/margin-bottom:\s*([\d.]+)px\s*(?:;|!|$)/i);
-          sep.replaceWith(spacerComponent(document, m ? Math.round(parseFloat(m[1])) : 25));
+          const n = m ? Math.max(0, Math.round(parseFloat(m[1]))) : 25;
+          sep.replaceWith(spacerComponent(document, hr.classList.contains("hidden-sm-down") ? `${n} from-768` : n));
         });
       });
       return;
@@ -5676,7 +5912,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_920679_default = {
+  var import_campaign_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5710,5 +5946,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_920679_exports);
+  return __toCommonJS(import_campaign_exports);
 })();

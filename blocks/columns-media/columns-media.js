@@ -225,6 +225,16 @@ export default async function decorate(block) {
   };
   const labels = resolveLabels(DEFAULT_LABELS, {}, getLocale().lang);
 
+  // a picture www draws narrower than its column (the importer's " {cell-half-start}",
+  // " {cell-half-end}", " {cell-three-quarters}": a nested two-column view or sidebar in a column)
+  block.querySelectorAll('p').forEach((p) => {
+    const last = p.lastChild;
+    const m = last && last.nodeType === 3 && last.nodeValue.match(/\s*\{cell-(half-start|half-end|three-quarters)\}\s*$/);
+    if (!m || !p.querySelector('picture, img')) return;
+    last.nodeValue = last.nodeValue.slice(0, m.index);
+    p.classList.add(`cell-${m[1]}`);
+  });
+
   // an icon heading (C8, hrefless a.teaser): the document keeps the heading's SVG icon as a
   // paragraph of its own right after it; it goes back into the heading
   block.querySelectorAll(':is(h3, h4) + p').forEach((p) => {

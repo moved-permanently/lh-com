@@ -7,13 +7,15 @@
  * (scripts/media.js).
  */
 
+import VIDEO_SIZES from './video-sizes.js';
+
 const ZW = /[​-‍﻿]/g;
 const clean = (s) => (s || '').replace(ZW, '').replace(/\s+/g, ' ').trim();
 const isBroken = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
 
 /**
  * Paragraph with the link to the .mp4 and, after it, the source's playback settings as a
- * marker ("{autoplay muted loop}", "{controls round-play-button}").
+ * marker ("{autoplay muted loop}", "{controls round-play-button size-1920x1080}").
  */
 export function videoPara(document, src, label, settings) {
   const a = document.createElement('a');
@@ -23,6 +25,19 @@ export function videoPara(document, src, label, settings) {
   p.append(a);
   if (settings.length) p.append(` {${settings.join(' ')}}`);
   return p;
+}
+
+/**
+ * The video's own size as a settings token ("size-1920x1080"), from tools/importer/video-sizes.mjs
+ * (read from the files' MP4 headers; www's video.js player takes that aspect before the video
+ * loads, scripts/media.js does the same with it); '' for a video not read yet.
+ */
+export function videoSizeToken(src) {
+  const path = String(src || '').trim().replace(/^https?:\/\/[^/]+/, '').split('/').map((seg) => {
+    try { return decodeURIComponent(seg); } catch (e) { return seg; }
+  }).join('/');
+  const size = VIDEO_SIZES[path];
+  return size ? `size-${size[0]}x${size[1]}` : '';
 }
 
 /**
@@ -49,6 +64,8 @@ export function viewerNodes(comp, document) {
   const settings = [];
   if (cfg.autoplay === true || cfg.autoplay === 'true') settings.push('autoplay', 'muted');
   settings.push('controls', 'round-play-button');
+  const size = videoSizeToken(src);
+  if (size) settings.push(size);
   out.push(videoPara(document, src, clean(cfg.alternativeText), settings));
   return out;
 }
