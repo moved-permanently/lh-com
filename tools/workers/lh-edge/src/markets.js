@@ -646,7 +646,18 @@ export function marketHtml(resp, ctx) {
         const prop = (e.getAttribute('property') || '').toLowerCase();
         const name = (e.getAttribute('name') || '').toLowerCase();
         if (prop === 'og:url') e.setAttribute('content', withPath(e.getAttribute('content')));
-        else if (['nav', 'footer', 'parent'].includes(name)) link('content').element(e);
+        else if (['nav', 'footer'].includes(name)) link('content').element(e);
+        else if (name === 'parent') {
+          // Parent can be the whole trail ("/de/en/homepage, /de/en/program", blocks/breadcrumb
+          // splits it at ", "): each entry as a link, the separators kept
+          const value = e.getAttribute('content');
+          const next = value.split(/(,\s+)/).map((part, i) => {
+            if (i % 2) return part;
+            const also = ctx.also ? marketHref(part, { ...ctx, ...ctx.also }) : null;
+            return marketHref(part, ctx) ?? also ?? part;
+          }).join('');
+          if (next !== value) e.setAttribute('content', next);
+        }
       },
     })
     .transform(resp);
