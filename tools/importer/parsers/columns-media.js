@@ -364,6 +364,10 @@ export default function parse(element, { document, url, params }) {
         const p = document.createElement('p');
         p.textContent = clean(child.textContent);
         out.push(p);
+      } else if (child.matches('blockquote.authorquote')) {
+        // an author quote in the column (lufthansa-cleanup made it a blockquote; 100-years/campaigns
+        // "There's no better way to fly." under the text of a sidebar, brief 484): kept as it is
+        out.push(child.cloneNode(true));
       } else if (cl.contains('headline')) {
         const h = headingFrom(child);
         if (h) out.push(h);

@@ -1463,3 +1463,52 @@ body.brand-cargo main:has(.news-feed) > .section:has(> .columns-media-wrapper:la
     margin-bottom: 20px;
   }
 }
+
+/* an author quote in a cell (parser: blockquote.authorquote; 100-years/campaigns "There's no
+   better way to fly." under a sidebar's text): as live's .author-quote (margin 6rem 1.5rem, from
+   768px 8rem 2rem, from 1024px 8rem 4rem; max-width 62.2rem), the empty subline's 1rem under it */
+body.brand-lufthansa .columns-media .columns-media-row > div > blockquote {
+  box-sizing: border-box;
+  max-width: 622px;
+  margin: 60px 15px;
+  padding: 0;
+}
+
+body.brand-lufthansa .columns-media .columns-media-row > div > blockquote:not(:has(> * + *)) {
+  padding-bottom: 10px;
+}
+
+body.brand-lufthansa .columns-media .columns-media-row > div > blockquote > :first-child {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+body.brand-lufthansa .columns-media .columns-media-row > div > blockquote > * + * {
+  margin: 10px 0 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* stacked below 768px: the cells' 40px between them + 20 = live's 6rem under the quote */
+@media (width < 768px) {
+  body.brand-lufthansa .columns-media.sidebar .columns-media-row > div > blockquote:last-child {
+    margin-bottom: 20px;
+  }
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa .columns-media .columns-media-row > div > blockquote {
+    margin: 80px 20px;
+  }
+}
+
+@media (width >= 1024px) {
+  body.brand-lufthansa .columns-media .columns-media-row > div > blockquote {
+    margin-inline: 40px;
+  }
+}
