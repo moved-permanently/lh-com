@@ -341,9 +341,9 @@ export default function transform(hookName, element, payload) {
     });
     // AEM sections (.container-content > .section): live pads most of them 20px (40px from
     // 768px) above and below (.section-padding-y-regular), so the space between two of them is
-    // larger than between the components of one. Such a section after another padded one opens
-    // a section with style padded (not after an unpadded stage, whose own spacing covers it;
-    // not when grey, the grey style has the padding). Unpadded AEM sections (section-regular
+    // larger than between the components of one. Such a section after another one opens a
+    // section with style padded (not after an unpadded stage or grey band, whose own spacing
+    // covers it; not when grey, the grey style has the padding). Unpadded AEM sections (section-regular
     // only, /additional-services) are spaced like components on live and stay together.
     const padded = (s) => !!s.querySelector(':scope > div > .section-padding-y-regular');
     const grey = (s) => !!s.querySelector(':scope > .container-gray');
@@ -353,8 +353,21 @@ export default function transform(hookName, element, payload) {
     // paddings, or nothing, not our section gap: the earlier one (a padded section of its own,
     // in one piece) gets style spaced (a 24 px gap) or flush (none); first-class-terminal +48 px
     const paddedBreaks = new Map();
+    // the brief after 479 (ANA FAQ, ema-lufthansa's row 42): also right after an unpadded AEM
+    // section, as www pads every one with .section-padding-y-regular; not for a stage, not after a
+    // stage or a grey band (their own spacing covers it), nor after an author quote alone in its AEM
+    // section (the cleanup's quote spacers stand for this padding: first-class-terminal)
+    const isStage = (s) => !!s.querySelector(':scope > div > .section-content > .inspirationteaser');
+    const loneQuote = (s) => {
+      const content = s.querySelector(':scope > div > .section-content');
+      const kids = content ? [...content.children] : [];
+      const empty = (c) => !(c.textContent || '').replace(/\{spacer-[^}]*\}/g, '').trim();
+      return kids.some((c) => c.matches('.authorquote')) && kids.every((c) => c.matches('.authorquote') || empty(c));
+    };
     aemSections.forEach((s, i) => {
-      if (!i || !padded(s) || grey(s) || !padded(aemSections[i - 1])) return;
+      if (!i || !padded(s) || grey(s)) return;
+      const before = aemSections[i - 1];
+      if (!padded(before) && (isStage(s) || isStage(before) || grey(before) || loneQuote(before))) return;
       const hr = createBreak(document);
       hr.setAttribute(SOURCE_STYLE, 'padded');
       s.before(hr);

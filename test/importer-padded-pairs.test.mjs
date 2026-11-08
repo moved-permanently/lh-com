@@ -106,3 +106,30 @@ test('the theme: the gap after a padded section that a padded one follows', () =
   assert.match(css, /main > \.section\.padded\.spaced \{ margin-bottom: var\(--spacing-default\); \}/);
   assert.match(css, /main > \.section\.padded\.flush \{ margin-bottom: 0; \}/);
 });
+
+// the brief after 479, item 3 (ema-lufthansa's row 42: /de/en/book-and-manage/flights/ana/faq, -8.8 %): www pads every AEM
+// section with .section-padding-y-regular; a padded one right after an unpadded one stayed in that one's section (no
+// padding). It opens a section with style padded too (not after a stage or a grey band, whose own spacing covers it).
+const plain = (text) => `<div class="section"><div><div class="section-content section-regular"><p>${text}</p></div></div></div>`;
+test('ANA FAQ: a padded section after an unpadded one opens a padded section; the unpadded one after it joins it', () => {
+  const s = sections(run(page([plain('Onboard'), plain('Check-in'), aem('Non-stop', false), plain('Baggage'), aem('Assistance')])));
+  assert.equal(styleOf(s, /Onboard/), '');
+  assert.equal(styleOf(s, /Non-stop/), 'style: padded');
+  assert.ok(s.find((x) => x.text.includes('Non-stop')).text.includes('Baggage'), 'the unpadded one after it stays in its section');
+  assert.equal(styleOf(s, /Assistance/), 'style: padded');
+  assert.equal(s.length, 3);
+});
+
+test('a padded section after a stage: as before (the stage\'s own spacing covers it)', () => {
+  const stage = '<div class="section"><div class="mb-default"><div class="section-content"><div class="inspirationteaser"><h1>Stage</h1></div></div></div></div>';
+  const s = sections(run(page([stage, aem('Next')])));
+  const next = s.find((x) => x.text.includes('Next'));
+  assert.ok(!next.meta.some((m) => m.split(/[:,]\s*/).includes('padded')), JSON.stringify(s));
+});
+
+test('after an author quote alone in its AEM section (first-class-terminal: the cleanup\'s quote spacers): as before', () => {
+  const quote = '<div class="section"><div class="mb-default"><div class="section-content section-regular"><div class="authorquote"><p>Sojourn in style</p></div></div></div></div>';
+  const s = sections(run(page([plain('Intro'), quote, aem('Carousel')])));
+  const next = s.find((x) => x.text.includes('Carousel'));
+  assert.ok(!next.meta.some((m) => m.split(/[:,]\s*/).includes('padded')), JSON.stringify(s));
+});
