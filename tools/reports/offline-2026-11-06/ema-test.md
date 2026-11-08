@@ -973,3 +973,101 @@ withdrawn.
 | 1 | `9fd81c8a` | Brussels: option separated, "{spacer-0}", the tab accordion's panel, list items; bundles | `git revert`; no documents changed |
 | 2 | `7720edcf` | Austrian theme: the page title's margin, card rows' column-view padding | `git revert` |
 | 1-3 | this report's commit | sweep follow-up, Austrian 45-46, Brussels P44, reimport-brussels-separated.txt (4), reimport-austrian-intro.txt (1,175) | – |
+
+## The brief after 475 (the search gap, ITA's complaint links, ITA's h1 and Related cards, fly-with-austrian at 390)
+
+Left uncommitted by 475, and still out of git:
+- `.migration/project.json` and `tools/importer/reports/**`: generated.
+- `content/`, `content-sites/` and `migration-work/`: local documents; DA is the source.
+- `logs/`: scripts, measurements, scratch imports in logs/p4/s476, DA reads.
+- `/tmp`: the unpacked captures.
+
+Nothing was unpushed.
+
+### 1. The section gap after a standalone flight search (Austrian only, as the user chose)
+
+The rule as briefed (the margin only where the search comes last) would change more than Austrian. It was measured on the
+hosts with the local flight-search.css served instead of the host's, at 1440: sections where blocks or text follow the search
+get 8 to 40 px back. Pages changed:
+
+| host | pages changed | measured |
+| --- | --- | --- |
+| austrian.turnsthe.page | 49 | 59 |
+| ita.turnsthe.page | 35 | 40 |
+| lufthansa.turnsthe.page | 28 | 39 |
+| brussels.turnsthe.page | 10 | 20 |
+| discover.turnsthe.page | 0 | 2 |
+
+Two more checks:
+- SWISS markets: the preview `main--lh-swiss-mk--moved-permanently.aem.page` refused the headless loads, so not measured.
+- TAP: none of its local documents holds a standalone search.
+
+So flight-search.css stays as it is. `573b5547` (with `769cf7b9`, which scopes it under body.brand-austrian as the theme's
+other rules), in the Austrian theme (test/flight-search-section-gap.test.mjs):
+- A section whose blocks go on after the search keeps its 40 px; after a lone separator it still has none.
+- A card grid ending the page's last section keeps the column view's 32 px.
+- fly-with-austrian 1440: the last cards are 72 px above the footer (www 72, ours 0 before).
+
+### 2. ITA complaint links on market roots
+
+`83fab725`, test/ita-complaint-market.test.mjs, with fixtures after the user's two examples. scripts/ita-market-links.js runs
+from decorateMain: on an ITA root with documents "language" (not xx), the complaint-form links in the page's main take the
+root's country in upper case. The language stays as the version has it, and a link without a market stays without. The nav
+and footer (fragments) keep theirs. Checked on ita.turnsthe.page with the local scripts:
+- `/au/en/support/support-faq/baggage-delay-faq`: 8 content links market=AU (were IT), the footer EN.
+- `/be/fr/...`: 7 BE and one without market, the footer FR.
+- `/it/en` and `/xx/en`: unchanged.
+
+No documents.
+
+### 3. ITA online check-in: the h1 and "Related"
+
+- **h1:** www holds it, and the Quick Links, in .airem-sidebar, whose padding is 4rem (2rem below 768 px). `c6f2c468`
+  (test/ita-sidebar-top.test.mjs): the breadcrumb of a section with the aside gets 40 / 20 px padding below it, so the content
+  and the aside move together. it/it: h1 y 217 at 1440 and 390 (www 218; it was 177 and 197).
+- **it/en (+26 / +6 px):** not changed. The market passes of 2026-11-07 wrote its h1 into a section of its own before the aside.
+- **"Related":** a document matter. The ITA importer gives `carousel-cards grid two-up` (one card half the width), checked in a
+  scratch import of both pages. 872 documents still have the older three-a-row grid (12 sampled in DA, none two-up):
+  `tools/reports/parity-2026-11-08/reimport-ita-two-up.txt`.
+  - A: 832 documents.
+  - B: 40 that the market passes wrote; re-import them only together with those passes.
+
+### 4. fly-with-austrian at 390
+
+www stacks the nine reason cards too. Only "This may also interest you" is a phone slider: the measurements put the reason
+cards' titles one under another at x 53, and the slider bullets sit at the page's end.
+- **Spacing:** www's stacked teasers are 68 px apart (the teaser's 4.4rem and the item's 1.2rem margin and padding), and the
+  next grid is 77 px below; ours were 40 and 64. `207f6234` (test/austrian-stacked-cards.test.mjs) sets www's values. With the
+  rule, the titles are within 7 px of www's pitch.
+- **The last grid's slider:** the importer already marks it (data-import-phone-slider: a scratch import of at/en gives
+  `grid phone-slider`), so it is a re-import, not an importer change. The 10 fly-with-austrian documents are in
+  `tools/reports/parity-2026-11-08/reimport-austrian-fly-with-austrian.txt`. They were in reimport-austrian-intro.txt part A,
+  which the harness re-imported, uploaded and previewed on 2026-11-08 (d80aa805): DA's at/en copy has the phone slider and the
+  intro marker. Nothing left for these, not published yet.
+
+Rows: Austrian 47 and 48, ITA 16 to 18.
+
+### Hosts checked
+
+- **ita.turnsthe.page:** online check-in it/it at 1440 and 390, with the rule; the complaint links on au/en, be/fr, it/en and
+  xx/en, with the local scripts.
+- **austrian.turnsthe.page:** fly-with-austrian at 1440 and 390, and economy-tariffs, with the rules injected.
+- **The flight-search survey:** 197 page loads at 1440 on austrian, brussels, ita, lufthansa and discover .turnsthe.page.
+- **Local renders:** the Austrian capture's shadow HTML, for www's teaser margins.
+- **DA, read only:** the ITA online check-in pair and 12 sampled ITA documents.
+- **Scratch imports from the saved snapshots:** ITA online check-in (it/en, it/it).
+
+### Checks (the brief after 475)
+
+- Lint and the full suite in a fresh worktree of af476d09 (769cf7b9 after the pull, which brought other agents' code: run again on the rebased heads 7169eedc: 537 passed, and 99a85453 after the TAP commits: 539 passed): eslint 0, stylelint 0, 525 passed. The first run, on 83fab725,
+  failed test/brand.test.mjs: the Austrian rule was under body.brand-austrian.appear, outside the theme's scope. 769cf7b9
+  puts it under body.brand-austrian; the measured 72 px are unchanged.
+- Smoke on all 12 hosts before and after the push (logs/p4/smoke476).
+
+| item | commit | what | rollback |
+| --- | --- | --- | --- |
+| 1 | `573b5547`, `769cf7b9` | Austrian: the gap after a standalone search's section with more blocks; a last grid's 32 px | `git revert` |
+| 2 | `83fab725` | ITA: complaint links with the root's country (scripts/ita-market-links.js) | `git revert` |
+| 3 | `c6f2c468` | ITA theme: the breadcrumb's 40 / 20 px in a section with the Quick Links | `git revert` |
+| 4 | `207f6234` | Austrian theme: stacked grid cards 68 px apart, the next grid 77 px | `git revert` |
+| 1-4 | this report's commit | rows Austrian 47-48, ITA 16-18; reimport-ita-two-up.txt (872), reimport-austrian-fly-with-austrian.txt (10) | – |

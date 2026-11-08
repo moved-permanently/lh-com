@@ -1,0 +1,11 @@
+# The brief after 475, item 4: the fly-with-austrian documents, whose last card grid ("This may also interest you") www shows as a phone slider; the documents predate the importer's phone-slider mark (a scratch import of at/en gives "carousel-cards grid phone-slider"). All 10 were in reimport-austrian-intro.txt part A, which the harness re-imported, uploaded and previewed on 2026-11-08 (d80aa805, 01:25-02:15 UTC): DA's at/en copy now has "carousel-cards grid phone-slider" and the intro marker. Nothing left to do for these; not published yet.
+/at/de/discover/inspiration/fly-with-austrian
+/at/en/discover/inspiration/fly-with-austrian
+/cn/zh/discover/inspiration/fly-with-austrian
+/es/es/discover/inspiration/fly-with-austrian
+/fr/fr/discover/inspiration/fly-with-austrian
+/gr/el/discover/inspiration/fly-with-austrian
+/it/it/discover/inspiration/fly-with-austrian
+/jp/ja/discover/inspiration/fly-with-austrian
+/pl/pl/discover/inspiration/fly-with-austrian
+/ru/ru/discover/inspiration/fly-with-austrian
