@@ -240,6 +240,22 @@ export const withTeaserColumns = (html) => editDivs(html, '<div class="twocolumn
   return el.replace('<div class="twocolumn', '<div class="threecolumn').replace('data-identifier="twocolumn"', 'data-identifier="threecolumn"');
 });
 
+/**
+ * A column view with www's carousel behaviour (<div class="carousel">: a .hidden-md-down grid and a
+ * .hidden-lg-up swiper copy; /be/fr/extra-services/inflight-services' four "Autres sujets" teasers,
+ * meetings-and-events' three steps): one card and dots on phones. Marked data-import-phone-slider, as
+ * austrian-import.mjs does: the carousel-cards parser gives a marked view phone-slider (a four-column one
+ * too); the cards-teaser parser reads the cleanup's carousel flag. A view whose own carousel is missing,
+ * or that holds column views of its own, is left as it is.
+ */
+export const withPhoneSliders = (html) => ['<div class="threecolumn', '<div class="fourcolumn']
+  .reduce((out, open) => editDivs(out, open, (el) => {
+    const head = el.slice(0, el.indexOf('>') + 1);
+    if (/data-import-phone-slider/.test(head) || /<div class="(?:two|three|four)column/.test(el.slice(1))
+      || !/<div class="carousel">[\s\S]*?<div class="hidden-lg-up"/.test(el)) return el;
+    return el.replace(/^<div class="([^"]*)"/, '<div class="$1" data-import-phone-slider=""');
+  }), html);
+
 /*
  * www's sidebar component (.airem-sidebar: .sidebar-content 75% beside .sidebar-aside) whose content
  * holds column views (travel-regulations' picture rows and its grey "Current Travel Regulations"
@@ -512,7 +528,7 @@ if (isMain) {
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
     // the Studio's snapshots keep www's scripts, which must not run in the import browser)
     // (the form's jQuery UI date picker, appended to the body and hidden on www, is no content)
-    const mapped = withoutLoads(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withSidebarContent(withoutTestForms(editDivs(stripScripts(withBookingLabels(html)), '<div id="ui-datepicker-div"', () => '')))))), p))))
+    const mapped = withoutLoads(withPhoneSliders(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withSidebarContent(withoutTestForms(editDivs(stripScripts(withBookingLabels(html)), '<div id="ui-datepicker-div"', () => '')))))), p)))))
       .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     if (/<div class="slideshow/.test(mapped)) {
