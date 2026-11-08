@@ -1206,8 +1206,11 @@ body.brand-airdolomiti main > .section.newsletter > .newsletter-signup-wrapper {
     padding: 0;
   }
 
+  /* no gap before the arrow (row 71: www's space-between row; the block's 16 px wrapped
+     "Assistenza al viaggiatore") */
   body.brand-airdolomiti footer .footer .footer-column-toggle {
     display: flex;
+    gap: 0;
     margin-bottom: 15px;
     padding: 15px 0;
     border-bottom: 1px solid #fff;

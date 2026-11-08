@@ -182,6 +182,19 @@ body.brand-brussels .breadcrumb li::before {
   background-color: var(--lh-marble-blue);
 }
 
+/* phones (brief 510): www's breadcrumb text 17 px under its 149 px header (166 at 390), ours 16 px
+   into its block under a 140 px header (156): 10 px more above it; an h1 opening a sidebar intro 76 px
+   from the breadcrumb on www, ours 56: 20 px more above the sidebar (40 instead of its 20) */
+@media (width < 768px) {
+  body.brand-brussels main .breadcrumb-wrapper {
+    padding-top: 10px;
+  }
+
+  body.brand-brussels main .columns-media.sidebar:has(h1) {
+    padding-top: 40px;
+  }
+}
+
 /* the stage card's headline (display-text) uppercase */
 body.brand-brussels .hero-card-overlay .hero-card-overlay-card :is(h1, h2, h3, h4, h5, h6) {
   text-transform: uppercase;
@@ -234,6 +247,20 @@ body.brand-brussels main > .section > .columns-media-wrapper:has(> .columns-medi
 @media (width >= 768px) {
   body.brand-brussels main > .section > .columns-media-wrapper:has(> .columns-media.sidebar) + .carousel-cards-wrapper > .carousel-cards.grid {
     margin-top: 60px;
+  }
+}
+
+/* and below the last one (brief 510): a page of one section with a sidebar intro ending with its card
+   grid (202 documents, 25 of them recorded). On www the last card is 61 to 130 px from the footer at
+   1440 and 82 to 248 at 390; ours 32 to 52 and 20 to 48, more on every recorded page. The median of
+   the differences: 64 px more from 768 px, 130 on phones */
+body.brand-brussels main > .section:only-child:has(> .columns-media-wrapper > .columns-media.sidebar):has(> .carousel-cards-wrapper:last-child, > .carousel-cards-wrapper + .default-content-wrapper:last-child > p.column-mark:only-child) {
+  padding-bottom: 130px;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels main > .section:only-child:has(> .columns-media-wrapper > .columns-media.sidebar):has(> .carousel-cards-wrapper:last-child, > .carousel-cards-wrapper + .default-content-wrapper:last-child > p.column-mark:only-child) {
+    padding-bottom: 64px;
   }
 }
 

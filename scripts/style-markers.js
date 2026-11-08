@@ -175,8 +175,7 @@ export const THEMES = {
   // default (www: 89 % unmarked, heading-medium; no longer heading-small)
   brussels: { pageTypes: { flow: { headings: { h3: 'heading-small' } } } },
   // ITA: running text over the whole width
-  // live: ITA's collapse pass (the brief after 503; merged with the harness's ITA pass)
-  ita: { text: { width: 'full' }, live: true },
+  ita: { live: true, text: { width: 'full' } },
   // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
   // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
   // (a heading right before them starts the group's column view, as its marker did)
@@ -192,6 +191,10 @@ export const THEMES = {
       flow: { headings: { h3: 'heading-small' }, columnViews: { blocks: ['columns-media', 'carousel-images', 'quote'], endEdge: true } },
     },
   },
+  // TAP: the base theme (an entry of its own, so its switch is one line as every brand's)
+  tap: {},
+  // Lufthansa Cargo: the base theme
+  cargo: {},
 };
 
 const mergeTheme = (a, b) => ({

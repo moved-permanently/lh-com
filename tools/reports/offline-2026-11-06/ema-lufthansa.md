@@ -2134,3 +2134,78 @@ from www's data and notes "H1 from its title, hidden" where it applies.
 - **At 390:** without them, 10 of 14 views come closer (check-in +6.3 -> +2.4 %).
 - **Shipped:** the change below 768 px only; every 1440 view is the same. The numbers are in row 38.
 
+### 2. The next five rows: four shipped, one needs your decision
+
+The ranking comes from a fresh sweep of today's previews (Air Dolomiti, Cargo, Discover, B2B; 124
+pages at 1440 and 390) against the parity captures. Each row is one commit, test first; the numbers
+are www / before / after:
+
+| Row | Commit | What | 1440 | 390 |
+| --- | --- | --- | --- | --- |
+| Cargo 40 | 663bbcb1 | the footer's logo strip as www's sub-footer (every page) | strip 60 / 87 / 60 | 130 / 178 / 130 |
+| B2B 33 | 9b3e73f8 | the stage's button shown on phones | unchanged | "Anmelden" at x 42 / hidden / x 42 |
+| Cargo 41 | fbe9c23b | a story's text 380 px wide on phones | unchanged | story 142 en 8,389 / 8,856 / 8,640, de 8,856 / 9,397 / 9,157 |
+| Air Dolomiti 71 | 6ff73b28 | the footer toggles without the 16 px gap | unchanged | footer 1,106 / 1,134 / 1,106 |
+
+**Needs your decision: B2B headings on phones.** www's CSS sets no hyphens, so its long words wrap
+whole: PartnerPlusBenefit de's h1 is 145 px on www and 109 px on ours. A B2B rule (hyphens: manual
+below 768 px) matched it on the 2 changed views of 26, with no overflow. It conflicts with the
+project rule in test/heading-wrap.test.mjs: every brand hyphenates headings on phones, and no theme
+sets wrapping. Reverted, not shipped. The test is kept outside the repo.
+
+**Looked at and not changed:**
+
+- **Air Dolomiti's footer band at 1440 (22 px):** www's "Info legali" holds one more entry, the
+  cookie settings link (row 33, your decision).
+- **Cargo Facts & Figures' timeline (-8.4 % at 1440):** the timeline script sets every item to
+  726 / 782 px, more than the cards' text needs. Not derivable from the cards.
+- **Discover customer service and Cargo Support & Contact:** small differences spread across the
+  page.
+- **Air Dolomiti's destination hubs (+3 to +4 % at 1440):** www's booking bar is a compact sticky
+  strip and the hub has no breadcrumb; ours has the strip option's full form and a breadcrumb (190
+  px from the header to the h1 on www, 312 on ours). The offline render shows www's widget unstuck,
+  so the strip's own measurements need a capture of its stuck state. Next candidate.
+
+### 6. Further batches: stopped
+
+The batch above needs your decision (B2B headings), so this turn stops here, as the brief asks. The
+rows still over 2 % and why each is not a layout row of mine today:
+
+- **Data:** Discover's offers (no fares here); Cargo's notifications (the header picture is not in
+  DA).
+- **A re-import:** Cargo's feedback view (reimport-490-cargo.txt); in-flight entertainment
+  (reimport-503-airdolomiti.txt).
+- **Other agents' areas:**
+  - Discover's footer, 166 to 190 px at 1440 (ema-adobe's), which carries most Discover 1440 rows;
+  - the Discover homepage.
+- **Capture artefact:** Air Dolomiti at 390 (Bari, Monaco, the articles, support, baggage,
+  assistance): the booking panel drawn into the 390 screenshots.
+- **Above, not derivable or needing a capture:** Cargo's timeline; Air Dolomiti's hub bar.
+- **Under 3 % after this turn:** B2B everywhere; Cargo Support & Contact after the logo strip;
+  Discover's tab-set and marker rows.
+
+Smoke after each push: 0 differences, except after 663bbcb1. There swiss and swiss-cn answered
+another /de/en/search-index.json, a content index on those hosts; this turn changed no SWISS code or
+content.
+
+## The brief after 509
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git). Nothing is published, uploaded or requested from www. B2B keeps the project's heading
+hyphenation (Ben's rule); the parked test stays outside the repo.
+
+### 1. Air Dolomiti's cookie settings link (row 33): built
+
+- **What was missing:** our consent already reopens from a footer link (#privacy-settings: the
+  consent.preferences event). Air Dolomiti had no consent tool, so there was nothing to reopen and
+  the link was left out.
+- **The change:** Air Dolomiti gets the look-alike consent without OneTrust, as Cargo has
+  (scripts/brands.js: consent fallback, its own privacy and cookie pages). The banner shows on a
+  first visit, as www's PrivacyLab banner does. The footer builder writes www's entry as the link,
+  with www's label in it, en and de.
+- **The shared code:** only Air Dolomiti's brand entry changed. TAP still has no consent tool, and
+  every other brand's consent and footer are as before.
+- **Checked on preview** (this checkout's code, drafted footers): it, en and de at 1440 and 390, the
+  banner and the preference center in the page's language, the link opening it. The real footers
+  come with reimport-510-airdolomiti-footer.txt (3: airdolomiti-nav.mjs --lang it, en, de).
+

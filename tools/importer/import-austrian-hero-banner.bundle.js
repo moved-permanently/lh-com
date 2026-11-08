@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-hero-banner.js
-  var tmp_bundle_austrian_hero_banner_1316475_exports = {};
-  __export(tmp_bundle_austrian_hero_banner_1316475_exports, {
-    default: () => tmp_bundle_austrian_hero_banner_1316475_default
+  var tmp_bundle_austrian_hero_banner_1320329_exports = {};
+  __export(tmp_bundle_austrian_hero_banner_1320329_exports, {
+    default: () => tmp_bundle_austrian_hero_banner_1320329_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -5086,8 +5086,7 @@ var CustomImportScript = (() => {
     // default (www: 89 % unmarked, heading-medium; no longer heading-small)
     brussels: { pageTypes: { flow: { headings: { h3: "heading-small" } } } },
     // ITA: running text over the whole width
-    // live: ITA's collapse pass (the brief after 503; merged with the harness's ITA pass)
-    ita: { text: { width: "full" }, live: true },
+    ita: { live: true, text: { width: "full" } },
     // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
     // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
     // (a heading right before them starts the group's column view, as its marker did)
@@ -5102,7 +5101,11 @@ var CustomImportScript = (() => {
       pageTypes: {
         flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true } }
       }
-    }
+    },
+    // TAP: the base theme (an entry of its own, so its switch is one line as every brand's)
+    tap: {},
+    // Lufthansa Cargo: the base theme
+    cargo: {}
   };
   var mergeTheme = (a, b) => __spreadProps(__spreadValues(__spreadValues({}, a), b), {
     headings: __spreadValues(__spreadValues({}, a.headings), b.headings || {}),
@@ -8365,7 +8368,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_hero_banner_1316475_default = {
+  var tmp_bundle_austrian_hero_banner_1320329_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -8404,5 +8407,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_hero_banner_1316475_exports);
+  return __toCommonJS(tmp_bundle_austrian_hero_banner_1320329_exports);
 })();

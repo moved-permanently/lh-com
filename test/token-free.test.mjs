@@ -1,4 +1,4 @@
-/* eslint-disable max-len, import/no-extraneous-dependencies, import/no-relative-packages -- dev tooling; linkedom is a dev dependency, lh-edge's parser for its nodes */
+/* eslint-disable max-len, import/no-extraneous-dependencies, import/no-relative-packages, import/extensions -- dev tooling; linkedom is a dev dependency, lh-edge's parser for its nodes */
 /* The brief after 488, item 4 (token-free styling, step 1 of 4): the theme defaults per brand and page type and the readers
    of the carriers that replace the markers, in one module (scripts/style-markers.js: the site and lh-edge read the same),
    and their site side (scripts/token-free.js, after the markers in decorateMain). Every carrier draws what the marker it
@@ -15,6 +15,7 @@ import {
   isDefaultChoice, isCheckedDefault, readNavRole, isCaptionParagraph, isImageParagraph, headingChoice,
 } from '../scripts/style-markers.js';
 import { parseHtml, elements } from '../tools/workers/lh-edge/src/html.js';
+import { LIVE, offThemes } from './live-brands.mjs';
 
 const read = (f) => fs.readFileSync(new URL(f, import.meta.url), 'utf8');
 
@@ -57,8 +58,8 @@ test('theme defaults per brand and page type; every theme off (live: false) in s
   assert.equal(themeFor('brussels', 'home').headings.h2, 'heading-medium');
   assert.deepEqual(themeFor('austrian').rules, ['intro-after-h1']);
   assert.equal(themeFor('unknown-brand').headings.h1, 'heading-large');
-  // every theme off but ITA's (its pass, the brief after 503: test/token-free-ita-live.test.mjs)
-  [...Object.keys(THEMES), 'tap', 'swiss'].forEach((b) => ['service', 'article', 'flow', 'home', '100-years'].forEach((t) => assert.equal(themeFor(b, t).live, b === 'ita', `${b} ${t}`)));
+  // a theme is live only with its switch (test/live-brands.mjs)
+  [...Object.keys(THEMES), 'tap', 'swiss'].forEach((b) => ['service', 'article', 'flow', 'home', '100-years'].forEach((t) => assert.equal(themeFor(b, t).live, LIVE.has(b), `${b} ${t}`)));
   assert.equal(headingChoice(lh, 2, 'large'), 'heading-large');
   assert.equal(headingChoice(lh, 2, 'compact'), 'heading-copytext-large');
   assert.equal(headingChoice(lh, 3, 'large'), 'heading-medium');
@@ -209,20 +210,21 @@ test('nothing changes on today\'s documents: markers only, the theme rules off',
   // article (text before an info box, chapters): the rules would act, but every theme is off
   const docs = [
     ['austrian', '/at/en/x', '<div><h1>Title</h1><p>Intro</p><h2>Sub</h2><p>Text</p></div>'],
+    ['ita', '/it/en/x', '<div><h2>Sub</h2><p>Text</p><ul><li>One</li></ul></div>'],
     ['brussels', '/be/en/plan-your-trip/x', '<div><h2>Sub</h2><p>Text</p></div>'],
     ['', '/de/en/articles/x', '<div><div class="article-header"><div><div>h</div></div></div><p>Text</p><div class="columns-media"><div><div>i</div></div></div></div><div><h3>Chapter</h3><p>Text</p></div>'],
     ['', '/de/en/100-years/x', '<div><h2>A</h2></div><div><h2>B</h2></div>'],
   ];
-  docs.forEach(([brand, path, html]) => {
+  offThemes(() => docs.forEach(([brand, path, html]) => {
     const main = decorate(html, { brand, path });
     assert.equal(main.innerHTML, page(html).innerHTML, `${brand || 'lufthansa'} ${path}`);
-  });
+  }));
   // a lufthansa.com document of today (markers, separators, captions with the marker): unchanged after the markers
   const fixture = read('./fixtures/style-markers/swiss-sports-equipment-lists.html');
   const body = parseHTML(fixture).document.querySelector('main') || parseHTML(`<main>${fixture}</main>`).document.querySelector('main');
   const before = body.innerHTML;
   globalThis.document = body.ownerDocument;
-  decorateTokenFree(body, { brand: 'swiss', path: '/ch/en/x' });
+  offThemes(() => decorateTokenFree(body, { brand: 'swiss', path: '/ch/en/x' }));
   assert.equal(body.innerHTML, before);
 });
 

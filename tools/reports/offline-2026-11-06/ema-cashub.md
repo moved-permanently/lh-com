@@ -1173,3 +1173,199 @@ Documents changed: none (0). Path lists for the harness, main at `7c7cc92b` or l
 
 Item 4: the footer's "Change Privacy Settings" wrap and articles/highlights/all-it-takes-is-a-yes
 left to ema-adobe, as you said.
+
+## Brief 510: TAP, Brussels, Austrian and ITA ranking; TAP promos; Brussels overview rows
+
+All numbers come from today's previews (`main--lh-<site>--moved-permanently.aem.page`) or from local
+dev servers with this tree's code, compared offline with the recordings: TAP from brief 478's www
+capture (2026-11-08), the others from brief 497's archives. No request went to www or to any brand's
+www host. Nothing was uploaded or published.
+
+### Item 4 (read only): the six old TAP category fragments, the legal hub's phone picture
+
+- **Fragments:** es-es inspirate cultura-2, cultura-3, playa-2 and de-de inspirieren kultur-2,
+  kultur-3, strand-2.
+  - All six answer 200 on preview and are in lh-tap.json's allowlist.
+  - None of the 1,452 TAP documents on preview links to them or includes them. The site has no
+    query index or sitemap on preview (both 404). The inspiration pages name only the new fragments
+    (brief 488).
+  - Recommendation: delete them from DA and drop them from the allowlist. That isn't done here,
+    since this brief is read-only.
+- **The legal hub's phone picture:** all 54 documents of reimport-tap-488-legal.txt have the
+  `hero-campaign narrow` banner on preview. The legal pages rank within ±1.3 % at both widths:
+  - /en-pt/legal-info +1.2 / -0.4 %;
+  - /pt-pt/info-legal +1.2 / -0.4 %;
+  - /pl-pl/informacje-prawne +1.3 / -0.3 %.
+
+  Recommendation: keep it as it is. The row is closed.
+
+### Item 2: TAP /en-pt/promos, the Portugal Stopover cards
+
+- **Where and how:** tap-markets' rules give each card group with its own market list a market
+  section of its own: the Portugal Stopover card in "-br,-ca,-pt,-us" (or "-pt,-us"), the pt-only
+  cards in "pt". The heading "News & Highlights" stays alone in the section before them.
+  - The exclusion itself is right: www's en-pt page has no Stopover card (sweep-tap.md, brief 488).
+  - What differed is the space. TAP's section gap (32 px, 64 from 728 px) opened between the
+    heading and its first card. At 1440, www has 58 px from the heading to the first card and ours
+    had 81; at 390, www 28 and ours 48.
+- **Fix (`1d4290c5`, tap.css, TAP only):**
+  - A section with a heading alone, before a market section that opens with a card list, keeps
+    12 px below it (41 from 728 px).
+  - Its heading gets no margin of its own (28 px on phones, which would collapse through the
+    section's margin).
+  - Scope, checked on preview: 89 TAP pages have a heading alone before a market section, but only
+    14 open that market section with a card list: the 7 promos pages and 7 Miles&Go offer lists.
+    The other 75 (legal texts, FAQs, banners) are untouched: www has no recording of them.
+  - Test: test/tap-market-heading-510.test.mjs.
+- **Before → after, local with this tree:**
+
+  | Page | Width | Heading to first card (www) | Page height vs www |
+  | --- | --- | --- | --- |
+  | /en-pt/promos | 1440 | 81 → 57 px (58) | +2.2 → +1.4 % |
+  | /en-pt/promos | 390 | 48 → 28 px (28) | +1.4 → +0.9 % |
+  | /pt-pt/promos | 1440 | (as en-pt) | +2.2 → +1.4 % |
+  | /pt-pt/promos | 390 | (as en-pt) | -0.5 → -1.0 % |
+  | /es-es/promos | 1440 | (as en-pt) | +2.3 → +1.4 % |
+  | /es-es/promos | 390 | (as en-pt) | -0.9 → -1.4 % |
+
+  At 390, pt-pt and es-es move 20 px further below www's height although the gap now matches.
+  They were already shorter elsewhere on the page.
+- **Documents:** none to re-import (theme only).
+
+### Item 3: the Brussels overview rows left open
+
+www's numbers per page are read from brief 497's recordings: positions in the measurements, gaps
+from the last ink in the png.
+
+- **h1 on phones (`2904fd29`, brussels.css):**
+  - www's breadcrumb text sits 17 px under its 149 px header (at 166). Ours sat 16 px into its
+    block under a 140 px header (at 156), so the breadcrumb gets 10 px more above it.
+  - An h1 that opens a sidebar intro is 76 px below the breadcrumb on www and was 56 on ours. The
+    sidebar now gets 40 px above it instead of 20.
+  - h1 top at 390 against www (73 recorded pages, today's preview → this tree):
+
+    | Group | Pages | Median offset | Within 10 px |
+    | --- | --- | --- | --- |
+    | Sidebar intro | 30 | -30 → 0 px | 2 → 27 pages |
+    | Default content | 35 | -16 → -9 px | 15 → 23 pages |
+    | Article header | 8 | unchanged (-10) | unchanged |
+
+  - 1440 is unchanged: the rule is for phones only.
+  - Test: test/brussels-phone-h1-510.test.mjs.
+- **The space below the last grid (`42d30cf3`, brussels.css):**
+  - The rule matches a page of one section with a sidebar intro that ends with its card grid (or
+    the grid and a column mark alone). That is 202 lh-brussels documents, 25 of them recorded.
+  - On www the last card is 61 to 130 px from the footer at 1440 and 82 to 248 at 390 (www's run of
+    hr-no-layout separators). Ours had 32 to 52 and 20 to 48: less on all 25 pages.
+  - So one rule per width serves them: the median of the differences, 64 px more from 768 px and
+    130 px on phones.
+  - On the 25 pages, the mean error of the gap dropped from 64 to 23 px at 1440 and from 125 to
+    45 px at 390. The mean page-height difference dropped from 6.6 to 3.4 % at 1440 and from 5.5 to
+    2.2 % at 390. The per-page table is in sweep-recheck-cashub.md.
+  - The pages where www has the least space now come out longer than www:
+    - /be/en/services-on-board: www 61 / 101 px, now +4.9 / +6.9 %;
+    - /be/en/my-bookings: www 82 / 82 px, now +1.2 / +3.7 %.
+  - At 390 www's space has no pattern (82 to 248 px for the same structure), so the median is as
+    close as one rule gets.
+  - Test: test/brussels-overview-bottom-510.test.mjs.
+- **No rule possible: meals and lounges (74–92 px on www), families-and-children (~150) and
+  our-fleet.** www's space from the intro to the first card follows its own markup, which our
+  documents don't carry:
+  - no separator (meals, lounges): 74–82 px at 1440, 80–92 at 390;
+  - an hr-no-layout separator (8 pages): 103–111 / 109–121;
+  - a separator and a `<p>&nbsp;</p>` line (families-and-children): 155 / 149;
+  - the `&nbsp;` line alone (our-fleet): 118 / 132.
+
+  Our documents carry neither the separator nor the empty line. The brief allows CSS only, and no
+  new markers, so nothing tells these pages apart. Brief 505's rule stays at the median of the
+  separator pages (80 px on phones, 60 from 768 px).
+- **Documents:** none to re-import (theme only).
+
+### Item 1: the ranking of TAP, Brussels, Austrian and ITA
+
+- **The ranking:** `tools/reports/parity-2026-11-08/sweep-recheck-cashub.md`. It has every page,
+  worst first by the larger difference, with both widths, the after values, cause and owner.
+  - 234 pages: TAP 41, Brussels 83, Austrian 82, ITA 28.
+  - Now 161 are at 2 % or more and 67 at 5 % or more.
+  - Ours were captured on the previews. TAP's /en-us and /en-us/promos have no preview document,
+    so those come from tap.turnsthe.page.
+  - After values come from a local dev server with this tree: every Brussels page, and the three
+    TAP promos pages.
+- **Fixed:** three rows, one commit each, in the brands' own CSS (`1d4290c5` TAP; `2904fd29` and
+  `42d30cf3` Brussels). Before and after numbers are in items 2 and 3 and in the report's table.
+  Across all Brussels pages the mean page-height difference dropped from 6.21 to 5.21 % at 1440
+  and from 6.15 to 4.49 % at 390.
+- **Why not ten:** going down the ranking, no other cause sits in TAP's, Brussels' or Austrian's
+  own CSS and serves more than one page.
+  - **Live data and third parties:** Brussels' destination list, Austrian's offers finder and its
+    irregularities feed, TAP's LUGGit baggage widget, the homepages' widgets.
+  - **Recording state and artefacts:**
+    - accordion panels open in the recording (Brussels baggage problems, cancel and refund);
+    - the contact finder still loading (TAP pt-br/ajuda at 1440);
+    - an empty component (Austrian unterhaltung-an-bord);
+    - TAP's unscrolled GSAP pin on the homepages (www scrolled 4,041 px against ours 3,948, -2.3 %).
+  - **Content:** Austrian /at/de and /at/en/contact (the preview document's contact app is 180 px
+    with a static accordion; live had the 1,306 px app), Austrian bearbeitungsgebuehren.
+  - **Importer carriers, outside this brief's scope:**
+    - phone sliders on www where our documents have a grid: Brussels inflight-services'
+      "Autres sujets", meetings-and-events' steps (brussels-import.mjs, the phone-slider option;
+      Brussels' scope here is brussels.css);
+    - Austrian baggage's boxed teasers (32 other recorded pages with the same grid are within
+      2.5 %);
+    - Austrian travelling-with-animals' picture beside its text.
+  - **Other agents' blocks:** Austrian legal's icon tiles (cards-icon padding, ema-adobe); ITA
+    (ranking only, ema-test).
+  - **Single pages without a shared pattern:**
+    - Brussels travel-insurances (the h1 section before a one-line grey band, the only recorded
+      page with that pair);
+    - Brussels special-meals and the other "Related topics" pages: the jump at that heading
+      ranges from -63 to +80 px at 1440 over 16 pages, so no one rule fits.
+
+### Item 5: further down the ranking, in batches of five
+
+- **Batch 2 (Brussels):** fr/contact, en/contact, beobank-mastercard, new-destinations,
+  online-check-in-options.
+- **Batch 3:** Austrian gesundes-reisen, online-check-in, bearbeitungsgebuehren and economy-class;
+  Brussels jobs.
+- **Result:** each one is a page-specific difference, not one brand rule. The positions are in the
+  ranking report. Examples:
+  - the contact app (no headings in ours);
+  - a block of -285 px plus 20 to 40 px per step card;
+  - +60 to +80 px around beobank's intro texts;
+  - sections growing 30 to 100 px each;
+  - www's second content block;
+  - shorter h3 card rows.
+- **Stopped there:** what is left at 5 % or more is the same mix, and each of these rows needs work
+  on its own page. Below 5 % I didn't investigate (130 rows, marked so).
+- **Rows that need a decision:**
+  1. Should Brussels' phone sliders come from brussels-import.mjs? That means writing the
+     phone-slider option and re-importing: inflight-services, meetings-and-events and the pages
+     like them.
+  2. Should Austrian baggage's boxed teasers get a block option in the Austrian importer?
+
+### The pushes
+
+- **`1d4290c5`, `2904fd29`, `42d30cf3`:** pushed in one go. Lint ok and the full suite green
+  (622 files, 0 fail) in a clean worktree of origin/main with the three commits.
+- **Pull right before the push, with a named stash.** Two commits came in (Air Dolomiti's footer,
+  a docs commit). They touch token-free tests and scripts but not tap.css, brussels.css or these
+  tests. So I re-ran brand.test, tap-parity-336, the token-free tests and the five tests of these
+  rows, then pulled once more and pushed.
+
+### Summary
+
+| Item | Commit | What | Rollback |
+| --- | --- | --- | --- |
+| 2 | `1d4290c5` | TAP: a heading alone over a market section's card list keeps www's gap (tap.css) | `git revert 1d4290c5` |
+| 3 | `2904fd29` | Brussels: the h1 on phones (brussels.css) | `git revert 2904fd29` |
+| 3 | `42d30cf3` | Brussels: the space below an overview page's last grid (brussels.css) | `git revert 42d30cf3` |
+| 1, 5 | (this commit) | sweep-recheck-cashub.md, this report | revert this commit |
+
+Documents to import: none (0). All three rows are theme CSS, so there is no paths file.
+
+Left uncommitted, with the reasons:
+- tools/importer/import-progress.json, tools/importer/reports/**, tools/importer/urls-*.txt and the
+  import report xlsx files: earlier import runs' output, not this brief's work.
+- styles/themes/brussels.css and tap.css carry nothing uncommitted: both are in the commits above.
+- migration-work/parity-510/ (captures, probes, scripts): scratch, kept out of git by
+  .git/info/exclude.
