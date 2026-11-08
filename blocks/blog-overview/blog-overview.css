@@ -514,3 +514,11 @@ body.brand-lufthansa .blog-overview:not(.grid) .blog-overview-count strong {
     padding: 40px;
   }
 }
+
+/* lufthansa.com: www's maui tags, 40px tall at every width (tags/allegris: "Team Stories" 121px
+   wide; ours 26px tall, 14px short per card) */
+body.brand-lufthansa .blog-overview .blog-overview-tags > li {
+  padding: 7px 15px;
+  font-size: 16px;
+  line-height: 24px;
+}
