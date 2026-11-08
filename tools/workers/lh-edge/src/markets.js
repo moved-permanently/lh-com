@@ -548,7 +548,9 @@ export function marketHref(href, {
  * (all 92 market roots read over Bright Data): 90 link their own artifact, each answering 200;
  * bf/en and bf/fr link none (they have documents of their own here).
  */
-export const UPGRADE_ARTIFACT_SITES = new Set(['brussels']);
+// SWISS (brief 493): the same on its upgrade-in-to-business-class pages (www's cz/it links cz-it;
+// ch's language versions were served with ch-it)
+export const UPGRADE_ARTIFACT_SITES = new Set(['brussels', 'swiss']);
 export const UPGRADE_ARTIFACT_MISSING = new Set(['bf/en', 'bf/fr']);
 const UPGRADE_ARTIFACT = '/artifacts/flight-upgrades/fix-price-upgrade/';
 

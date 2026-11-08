@@ -91,14 +91,14 @@ test('a root\'s own document is served as it is (bf/en)', async () => {
   assert.deepEqual(hrefs(html), [`${WWW}${A}/bf-en`]);
 });
 
-test('the helper: only the prefix with the source\'s code, on www or relative; brussels only; missing roots listed', () => {
+test('the helper: only the prefix with the source\'s code, on www or relative; brussels and swiss (brief 493); missing roots listed', () => {
   assert.equal(upgradeArtifactHref(`${WWW}${A}/be-en`, 'be/en', 'lv/en', 'www.brusselsairlines.com'), `${WWW}${A}/lv-en`);
   assert.equal(upgradeArtifactHref(`${A}/be-fr#x`, 'be/fr', 'cd/fr', 'www.brusselsairlines.com'), `${A}/cd-fr#x`);
   assert.equal(upgradeArtifactHref(`${A}/be-fr/`, 'be/fr', 'cd/fr', 'www.brusselsairlines.com'), `${A}/cd-fr/`);
   assert.equal(upgradeArtifactHref(`${WWW}${A}/de-de`, 'be/en', 'lv/en', 'www.brusselsairlines.com'), null);
   assert.equal(upgradeArtifactHref(`https://www.example.com${A}/be-en`, 'be/en', 'lv/en', 'www.brusselsairlines.com'), null);
   assert.equal(upgradeArtifactHref('/be/en/extra-services/upgrades', 'be/en', 'lv/en', 'www.brusselsairlines.com'), null);
-  assert.deepEqual([...UPGRADE_ARTIFACT_SITES], ['brussels']);
+  assert.deepEqual([...UPGRADE_ARTIFACT_SITES], ['brussels', 'swiss']);
   assert.ok(UPGRADE_ARTIFACT_MISSING instanceof Set);
 });
 
