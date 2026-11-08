@@ -12,7 +12,8 @@
  * with the style sidebar-part are parts of the section before them (www.swiss.com's grey box inside
  * a sidebar's content) and join it the same way; such a part that is a tab panel (a tab set inside
  * a sidebar's content: www.swiss.com's airportr) keeps its Tab and Tabs (data-tab, data-tabs) for
- * scripts/section-tabs.js, which then shows its panels inside the section.
+ * scripts/section-tabs.js, which then shows its panels inside the section. Sections linked through
+ * market sections (data-markets: a market root's part for some markets only) join the same way.
  */
 
 /** A section's style classes (its metadata's Style): not its own, not its blocks' containers. */
@@ -43,6 +44,17 @@ function joinPanelParts(last) {
       parts.unshift(prev);
       prev = prev.previousElementSibling;
     }
+  } else {
+    // market sections (section metadata markets, the other markets' dropped by scripts.js) split a
+    // sidebar's content into sections (brief 497: a market root's in three to five): with one of
+    // them among the sections back to the h1's (or an earlier aside's), all of them are the content
+    const market = (el) => el.dataset.markets !== undefined;
+    const run = [];
+    while (isSection(prev) && !prev.querySelector('h1') && !prev.classList.contains('with-aside')) {
+      run.unshift(prev);
+      prev = prev.previousElementSibling;
+    }
+    if ([last, ...run].some(market)) parts.unshift(...run);
   }
   if (parts.length < 2) return last;
   const [first] = parts;
