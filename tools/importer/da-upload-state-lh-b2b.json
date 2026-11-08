@@ -21,9 +21,9 @@
    "preview": "2026-11-08T08:44:47.296Z"
   },
   "/de/en/program/partner-plus-benefit": {
-   "uploaded": "2026-11-06T04:29:50.295Z",
-   "mtime": 1793939310090,
-   "preview": "2026-11-06T04:29:52.387Z"
+   "uploaded": "2026-11-08T09:57:18.753Z",
+   "mtime": 1794131788354.2976,
+   "preview": "2026-11-08T09:57:21.657Z"
   },
   "/de/en/program/corporate-preferred": {
    "uploaded": "2026-11-02T02:30:21.976Z",
@@ -751,9 +751,9 @@
    "preview": "2026-11-07T18:44:48.149Z"
   },
   "/de/en/program/experts/airlines-at-a-glance/discover-airlines": {
-   "uploaded": "2026-11-07T18:44:49.730Z",
-   "mtime": 1794076201660,
-   "preview": "2026-11-07T18:44:51.660Z"
+   "uploaded": "2026-11-08T10:01:35.094Z",
+   "mtime": 1794132077581.0347,
+   "preview": "2026-11-08T10:01:37.422Z"
   },
   "/de/en/program/experts/airlines-at-a-glance/edelweiss": {
    "uploaded": "2026-11-07T18:44:53.289Z",
@@ -796,14 +796,14 @@
    "preview": "2026-11-02T02:40:56.562Z"
   },
   "/de/en/program/experts/at-the-airport/hubs/frankfurt-airport": {
-   "uploaded": "2026-11-07T16:44:32.000Z",
-   "mtime": 1794069872680.3948,
-   "preview": "2026-11-07T16:44:37.000Z"
+   "uploaded": "2026-11-08T10:01:40.727Z",
+   "mtime": 1794132077581.2354,
+   "preview": "2026-11-08T10:01:42.946Z"
   },
   "/de/en/program/experts/at-the-airport/hubs/munich-airport": {
-   "uploaded": "2026-11-07T16:44:36.000Z",
-   "mtime": 1794069876618.034,
-   "preview": "2026-11-07T16:44:41.000Z"
+   "uploaded": "2026-11-08T10:01:45.979Z",
+   "mtime": 1794132077581.4146,
+   "preview": "2026-11-08T10:01:48.221Z"
   },
   "/de/en/program/experts/at-the-airport/hubs/vienna-airport": {
    "uploaded": "2026-11-02T02:41:09.914Z",
@@ -2946,9 +2946,9 @@
    "preview": "2026-11-02T03:08:33.850Z"
   },
   "/xx/en/program/experts/on-board/entertainment-on-board": {
-   "uploaded": "2026-11-02T03:08:35.232Z",
-   "mtime": 1793586022034,
-   "preview": "2026-11-02T03:08:37.643Z"
+   "uploaded": "2026-11-08T09:57:24.734Z",
+   "mtime": 1794131788355.775,
+   "preview": "2026-11-08T09:57:29.546Z"
   },
   "/xx/en/program/experts/on-board/meals-on-board": {
    "uploaded": "2026-11-02T03:08:38.913Z",
@@ -3599,6 +3599,71 @@
    "uploaded": "2026-11-07T08:44:36.036Z",
    "mtime": 1794041040902,
    "preview": "2026-11-07T08:44:37.399Z"
+  },
+  "/al/de/about-us": {
+   "uploaded": "2026-11-08T10:01:30.095Z",
+   "mtime": 1794132077579.1602,
+   "preview": "2026-11-08T10:01:32.307Z"
+  },
+  "/al/de/about-us/joint-ventures/china-joint-venture": {
+   "uploaded": "2026-11-08T09:57:36.485Z",
+   "mtime": 1794131725247.4045,
+   "preview": "2026-11-08T09:57:39.593Z"
+  },
+  "/al/de/about-us/joint-ventures/singapore-joint-venture": {
+   "uploaded": "2026-11-08T09:57:41.771Z",
+   "mtime": 1794131725247.981,
+   "preview": "2026-11-08T09:57:44.793Z"
+  },
+  "/al/de/allegris/video-gallery": {
+   "uploaded": "2026-11-08T09:57:46.950Z",
+   "mtime": 1794131725203.0107,
+   "preview": "2026-11-08T09:57:49.913Z"
+  },
+  "/al/de/common/terms-of-use": {
+   "uploaded": "2026-11-08T09:57:51.908Z",
+   "mtime": 1794131725197.1199,
+   "preview": "2026-11-08T09:57:53.983Z"
+  },
+  "/al/de/travel-management": {
+   "uploaded": "2026-11-08T09:57:55.931Z",
+   "mtime": 1794131725204.0686,
+   "preview": "2026-11-08T09:57:58.885Z"
+  },
+  "/al/de/travel-management/flight-irregularities": {
+   "uploaded": "2026-11-08T09:58:01.219Z",
+   "mtime": 1794131769352.4854,
+   "preview": "2026-11-08T09:58:04.902Z"
+  },
+  "/al/de/travel-management/tips-and-services": {
+   "uploaded": "2026-11-08T09:58:07.036Z",
+   "mtime": 1794131725248.9946,
+   "preview": "2026-11-08T09:58:10.099Z"
+  },
+  "/cn/en/program/partner-plus-benefit/cash-and-points": {
+   "uploaded": "2026-11-08T09:58:12.158Z",
+   "mtime": 1794131725219.021,
+   "preview": "2026-11-08T09:58:14.239Z"
+  },
+  "/gb/en/program/experts/programs-and-groups": {
+   "uploaded": "2026-11-08T09:58:16.417Z",
+   "mtime": 1794131725216.2295,
+   "preview": "2026-11-08T09:58:19.754Z"
+  },
+  "/mx/en/common/imprint": {
+   "uploaded": "2026-11-08T09:58:21.807Z",
+   "mtime": 1794131725197.8179,
+   "preview": "2026-11-08T09:58:23.960Z"
+  },
+  "/mx/en/common/privacy": {
+   "uploaded": "2026-11-08T09:58:26.117Z",
+   "mtime": 1794131725202.1777,
+   "preview": "2026-11-08T09:58:28.031Z"
+  },
+  "/mx/en/news": {
+   "uploaded": "2026-11-08T10:01:50.813Z",
+   "mtime": 1794132077583.5261,
+   "preview": "2026-11-08T10:01:54.971Z"
   }
  },
  "media": {

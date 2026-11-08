@@ -721,7 +721,20 @@
   "/de/de/reports",
   "/de/de/profile",
   "/de/de/lhghome",
-  "/de/de/experts-members"
+  "/de/de/experts-members",
+  "/al/de/about-us",
+  "/al/de/about-us/joint-ventures/china-joint-venture",
+  "/al/de/about-us/joint-ventures/singapore-joint-venture",
+  "/al/de/allegris/video-gallery",
+  "/al/de/common/terms-of-use",
+  "/al/de/travel-management",
+  "/al/de/travel-management/flight-irregularities",
+  "/al/de/travel-management/tips-and-services",
+  "/cn/en/program/partner-plus-benefit/cash-and-points",
+  "/gb/en/program/experts/programs-and-groups",
+  "/mx/en/common/imprint",
+  "/mx/en/common/privacy",
+  "/mx/en/news"
  ],
  "ownPages": [
   "/de/en/login",
