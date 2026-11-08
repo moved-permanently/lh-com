@@ -4060,4 +4060,14 @@ body.brand-tap main :is(.cards-teaser, .cards, .columns-media.feature, .columns-
   visibility: hidden;
 }
 
+/* the brief after 484: the same line in Accordion Columns panels (336 of the 487 {blank}: 63 fragments,
+   16 pages, e.g. /fr-fr/destinations/inspirez-vous). Panels hold real subscript paragraphs too (an
+   agency's note), so only the paragraph scripts.js marks p.blank-line (its word removed) */
+body.brand-tap main .accordion-columns p.blank-line {
+  height: 24px;
+  margin: 0;
+  overflow: hidden;
+  line-height: 24px;
+}
+
 /* stylelint-enable no-descending-specificity */

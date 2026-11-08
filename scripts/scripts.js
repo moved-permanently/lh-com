@@ -21,6 +21,9 @@ import {
   brandEntry, getLocale, rootRedirectPath, htmlLangOf,
 } from './locale.js';
 import { marketAllows } from './market-rules.js';
+import {
+  HEADING_STYLE, PARAGRAPH_STYLE, LIST_STYLE, SEPARATOR, BLANK_LINE,
+} from './style-markers.js';
 import { htmlLangOfRoot } from './site-languages.js';
 import {
   initConsent, isAuthoringContext, martechWanted, hidePrivacySettings,
@@ -237,14 +240,8 @@ function dropOtherMarkets(main) {
   });
 }
 
-// column-view padding markers (importer: the first / last element of a Lufthansa column view;
-// column-spaced: the column view ends a live section with .mb-default)
-const COLUMN_MARK = 'column-(?:(?:start|end)(?:-outer)?|spaced)';
-const styleMarker = (tokens) => new RegExp(`\\s*\\{((?:${tokens})(?: (?:${tokens}))*)\\}\\s*$`);
-const HEADING_STYLE = styleMarker(`heading-(?:large|medium|small|copytext-large|copytext-medium)|copytext-large|limited-width|${COLUMN_MARK}`);
-const PARAGRAPH_STYLE = styleMarker(`copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\\d{1,3}|${COLUMN_MARK}`);
-const LIST_STYLE = styleMarker(`full-width|limited-width|${COLUMN_MARK}`);
-const SEPARATOR = /^\{(spacer|divider)-(\d{1,3})( from-768)?\}$/;
+// the style markers (heading, paragraph, list, separator): scripts/style-markers.js, the list the
+// site, lh-edge's app JSON and the loc marker check share
 
 /**
  * Removes a trailing style marker from the last text of an element; returns the style or null.
@@ -265,8 +262,8 @@ function takeStyleMarker(el, pattern) {
  * Text style markers (see README "Authoring conventions"): "Ticket refunds {heading-medium}"
  * renders as <h3 class="heading-medium">Ticket refunds</h3> (Lufthansa sizes headings by class,
  * not by level), "Small print {copytext-small}" as <p class="copytext-small">, a list whose last
- * item ends with "{full-width}" as <ul class="full-width">. The marker is
- * removed from the text and from the heading id the backend derived from it.
+ * item ends with "{full-width}" (or a text size, "{copytext-medium}") as <ul class="full-width">.
+ * The marker is removed from the text and from the heading id the backend derived from it.
  * @param {Element} main The container element
  */
 function decorateTextStyles(main) {
@@ -285,6 +282,14 @@ function decorateTextStyles(main) {
       p.textContent = '';
       p.className = `spacer${sep[1] === 'divider' ? ' divider' : ''}${sep[3] ? ' from-768' : ''}`;
       p.style.setProperty('--spacer-size', `${Math.min(Number(sep[2]), 400)}px`);
+      p.setAttribute('aria-hidden', 'true');
+      return;
+    }
+    // TAP's empty line (<p><sub>{blank}</sub></p>): the word is no text; p.blank-line (tap.css
+    // draws it 24 px high). A real subscript paragraph stays as it is
+    if (BLANK_LINE.test(p.textContent) && p.querySelector(':scope > sub')) {
+      p.querySelector(':scope > sub').textContent = '';
+      p.classList.add('blank-line');
       p.setAttribute('aria-hidden', 'true');
       return;
     }

@@ -14,11 +14,14 @@ const read = (f) => fs.readFileSync(new URL(f, import.meta.url), 'utf8');
 const SOURCE = read('./fixtures/loc/marker-source.html');
 const TRANSLATED = read('./fixtures/loc/marker-translated.html');
 
-test('the check reads markers with the site\'s own patterns (scripts/scripts.js decorateTextStyles)', () => {
-  const defs = (src) => src.split('\n').filter((l) => /^const (COLUMN_MARK|styleMarker|HEADING_STYLE|PARAGRAPH_STYLE|LIST_STYLE|SEPARATOR) =/.test(l));
-  const site = defs(read('../scripts/scripts.js'));
-  assert.equal(site.length, 6, 'the six pattern lines are in scripts.js');
-  assert.deepEqual(defs(read('../tools/loc/marker-check.mjs')), site, 'copy them again into marker-check.mjs');
+test('the check reads markers with the site\'s own patterns (scripts/style-markers.js, which scripts.js decorateTextStyles reads)', () => {
+  // the brief after 484: one shared list instead of copies of scripts.js's pattern lines
+  const imports = (src) => /import \{\s*HEADING_STYLE, PARAGRAPH_STYLE, LIST_STYLE, SEPARATOR,(?: BLANK_LINE,)?\s*\} from '[./]+(?:scripts\/)?style-markers\.js';/.test(src);
+  assert.ok(imports(read('../scripts/scripts.js')), 'scripts.js reads the shared list');
+  assert.ok(imports(read('../tools/loc/marker-check.mjs')), 'marker-check.mjs reads the shared list');
+  const own = (src) => src.split('\n').filter((l) => /^const (COLUMN_MARK|styleMarker|HEADING_STYLE|PARAGRAPH_STYLE|LIST_STYLE|SEPARATOR) =/.test(l));
+  assert.deepEqual(own(read('../scripts/scripts.js')), [], 'no copy left in scripts.js');
+  assert.deepEqual(own(read('../tools/loc/marker-check.mjs')), [], 'no copy left in marker-check.mjs');
 });
 
 test('collectMarkers: what the site reads, at the end and exact; plain braces listed but not read', () => {

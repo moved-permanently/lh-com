@@ -23,9 +23,11 @@ import { loadCSS } from './aem.js';
 import { cleanText } from './block-config.js';
 import { getLocale } from './locale.js';
 import { trackLang } from './track-lang.js';
+import { VIDEO_SETTINGS } from './style-markers.js';
 
 /** Playback settings a video link can carry (marker after the link: "{autoplay muted loop}"). */
-export const VIDEO_SETTINGS = ['autoplay', 'muted', 'loop', 'controls', 'round-play-button'];
+// the settings marker after a video link ("{autoplay muted loop}"): scripts/style-markers.js
+export { VIDEO_SETTINGS } from './style-markers.js';
 const VIDEO_MARKER = new RegExp(`\\s*\\{((?:${VIDEO_SETTINGS.join('|')})(?: (?:${VIDEO_SETTINGS.join('|')}))*)\\}\\s*$`);
 /** Matches every settings marker in a text (to ignore them as text). */
 export const VIDEO_MARKERS = new RegExp(VIDEO_MARKER.source.slice(0, -1), 'g');

@@ -24,6 +24,7 @@ import CONTENT_PAGES from './web-pages.js';
 import { siteFetch, servedLocale } from './markets.js';
 /* eslint-disable import/no-relative-packages */
 import { LOCALES } from '../../../../scripts/locale.js';
+import { stripStyleMarkers, stripStyleMarkersHtml } from '../../../../scripts/style-markers.js';
 import {
   toArticle, byDate, listOf, normalizeTag, normalizeCategory, formatArticleDate, pickRelated,
 } from '../../../../scripts/articles.js';
@@ -81,13 +82,16 @@ export function wwwLink(a, inner) {
   return `<a${temp} href="${href}" linkscheme="Hyperlink"><em class="lh lh-arrow-right">\u200b</em>${inner}</a>`;
 }
 
-const textHtml = (el) => inlineHtml(el.children, { link: wwwLink }).replace(/^[ \t\n\r]+|[ \t\n\r]+$/g, '');
+// the importer's style markers (scripts/style-markers.js, the site's list) are no text on www
+const plainText = (el) => stripStyleMarkers(textOf(el)).trim();
+const textHtml = (el) => stripStyleMarkersHtml(inlineHtml(el.children, { link: wwwLink })).replace(/^[ \t\n\r]+|[ \t\n\r]+$/g, '');
 
 /** The image of a paragraph (a picture, not inside a link), host-relative at 1440 px wide. */
 function imageItem(el, page) {
   if (find(el, (n) => n.tag === 'a')) return null;
   const img = find(el, (n) => n.tag === 'img');
-  if (!img || textOf(el).trim()) return null;
+  // a picture with style markers only ("{parallax}") is an image
+  if (!img || plainText(el)) return null;
   const src = String(img.attrs.src || '');
   let url = src;
   const m = src.match(/^\.?\/?(media_[0-9a-f]+\.(\w+))/);
@@ -112,10 +116,11 @@ function contentItems(el, page, out) {
   const { tag } = el;
   if (/^h[1-6]$/.test(tag)) {
     const level = Number(tag[1]);
-    const html = level === 1 ? textOf(el).trim() : inlineHtml(el.children).replace(/\s*\{[a-z-]+\}\s*$/, '').trim();
+    const html = level === 1 ? plainText(el) : stripStyleMarkersHtml(inlineHtml(el.children)).trim();
+    if (!html.replace(/<[^>]+>/g, '').trim()) return;
     out.push({ kind: 'headline', level: level === 1 ? 1 : 3, html });
   } else if (tag === 'ul' || tag === 'ol') {
-    out.push({ kind: 'text', html: inlineHtml([el], { link: wwwLink }), small: false });
+    out.push({ kind: 'text', html: stripStyleMarkersHtml(inlineHtml([el], { link: wwwLink })), small: false });
   } else if (tag === 'p') {
     const raw = textOf(el).trim();
     const marker = raw.match(MARKER);
@@ -126,7 +131,8 @@ function contentItems(el, page, out) {
     if (/\{caption\}\s*$/.test(raw)) return; // image captions: not a part on www
     const img = imageItem(el, page);
     if (img) { out.push(img); return; }
-    if (!raw || linkOnly(el)) return;
+    // a paragraph of markers only ("{column-end-outer}"): no part
+    if (!stripStyleMarkers(raw).trim() || linkOnly(el)) return;
     out.push({ kind: 'text', html: textHtml(el), small: false });
   }
 }
@@ -140,7 +146,7 @@ function teaserItems(blk) {
     const a = findAll(row, (n) => n.tag === 'a').pop();
     const p = find(cells[cells.length - 1] || row, (n) => n.tag === 'p' && !find(n, (x) => x.tag === 'a'));
     return {
-      kind: 'teaser', title: h ? textOf(h).trim() : '', description: p ? textOf(p).trim() : '', href: a ? a.attrs.href : '', textLink: a ? textOf(a).trim() : '', image: img ? img.attrs.src : '',
+      kind: 'teaser', title: h ? plainText(h) : '', description: p ? plainText(p) : '', href: a ? a.attrs.href : '', textLink: a ? plainText(a) : '', image: img ? img.attrs.src : '',
     };
   }).filter((t) => t.title || t.href);
 }
@@ -150,7 +156,7 @@ function accordionItems(blk, page) {
   const out = [];
   elements(blk).forEach((row) => {
     const [title, body] = elements(row);
-    if (title && textOf(title).trim()) out.push({ kind: 'headline', level: 3, html: `<b>${inlineHtml(title.children).trim()}</b>` });
+    if (title && plainText(title)) out.push({ kind: 'headline', level: 3, html: `<b>${stripStyleMarkersHtml(inlineHtml(title.children)).trim()}</b>` });
     if (body) elements(body).forEach((el) => contentItems(el, page, out));
   });
   return out;

@@ -28,17 +28,15 @@ import { scopeRows } from './regional-diff.mjs';
 import { translationPath, DEFAULT_TRANSLATION } from './slug-lib.mjs';
 import { localePath } from './link-lib.mjs';
 import { setupFromArgs } from './setup-lib.mjs';
+import {
+  HEADING_STYLE, PARAGRAPH_STYLE, LIST_STYLE, SEPARATOR,
+} from '../../scripts/style-markers.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
 // the site's markers: the same patterns as scripts/scripts.js 198-204 (test/loc-marker-check.test.mjs
 // fails when they drift apart)
-const COLUMN_MARK = 'column-(?:(?:start|end)(?:-outer)?|spaced)';
-const styleMarker = (tokens) => new RegExp(`\\s*\\{((?:${tokens})(?: (?:${tokens}))*)\\}\\s*$`);
-const HEADING_STYLE = styleMarker(`heading-(?:large|medium|small|copytext-large|copytext-medium)|copytext-large|limited-width|${COLUMN_MARK}`);
-const PARAGRAPH_STYLE = styleMarker(`copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\\d{1,3}|${COLUMN_MARK}`);
-const LIST_STYLE = styleMarker(`full-width|limited-width|${COLUMN_MARK}`);
-const SEPARATOR = /^\{(spacer|divider)-(\d{1,3})( from-768)?\}$/;
+// the site's own patterns (scripts/style-markers.js: scripts.js decorateTextStyles reads them)
 
 const TEXT_ELEMENTS = 'h1, h2, h3, h4, h5, h6, p, li';
 // any brace text: what Google may have made of a marker (an unclosed one included)

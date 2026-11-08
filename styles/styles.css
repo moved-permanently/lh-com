@@ -470,18 +470,18 @@ body.appear main :is(.default-content-wrapper, .columns-media-text) :is(p:not(.l
 
 /* text styles (.copytext-small 1.4rem, .copytext-medium 1.6rem, .copytext-large 1.8rem;
    line-height 150%, margin-bottom 1.8rem / 2.4rem, links regular): set from the
-   "{copytext-small}" markers at the end of a paragraph (scripts.js) */
-main p.copytext-small {
+   "{copytext-small}" markers at the end of a paragraph, or of a list's last item (scripts.js) */
+main :is(p, ul, ol).copytext-small {
   margin-bottom: 18px;
   font-size: var(--body-font-size-xs);
 }
 
-main p.copytext-medium {
+main :is(p, ul, ol).copytext-medium {
   margin-bottom: 18px;
   font-size: var(--body-font-size-s);
 }
 
-main p.copytext-large {
+main :is(p, ul, ol).copytext-large {
   font-size: var(--body-font-size-m);
 }
 
