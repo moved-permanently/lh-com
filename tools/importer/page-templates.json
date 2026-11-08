@@ -1422,6 +1422,7 @@
     {
       "name": "campaign",
       "description": "Long editorial campaign pages (100 years, stopover, trade fairs)",
+      "transformers": ["campaign-sections"],
       "urls": [
         "https://www.lufthansa.com/de/en/100-years",
         "https://www.lufthansa.com/de/de/100-years",

@@ -16,10 +16,14 @@ import carouselCardsParser from './parsers/carousel-cards.js';
 import microFrontendParser from './parsers/micro-frontend.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
+import campaignSectionsTransformer from './transformers/campaign-sections.js';
 
 const PAGE_TEMPLATE = {
   "name": "campaign",
   "description": "Long editorial campaign pages (100 years, stopover, trade fairs)",
+  "transformers": [
+    "campaign-sections"
+  ],
   "urls": [
     "https://www.lufthansa.com/de/en/100-years"
   ],
@@ -261,7 +265,7 @@ const parsers = {
   'carousel-cards': carouselCardsParser,
   'micro-frontend': microFrontendParser,
 };
-const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer];
+const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer, campaignSectionsTransformer];
 
 function executeTransformers(hookName, element, payload) {
   const enhancedPayload = { ...payload, template: PAGE_TEMPLATE };

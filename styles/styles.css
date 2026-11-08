@@ -1506,3 +1506,91 @@ body.brand-swiss main .default-content-wrapper:has(> .column-start):has(> :is(h2
 :is(main, footer, #nav)[tabindex="-1"]:focus {
   outline: none;
 }
+
+/* campaign-section: each AEM section of a lufthansa.com campaign page is a section of ours
+   (importer, campaign-sections); live has its .mb-default (2.4rem, spaced) under it or nothing,
+   not the section gap. The stage's before-padded already holds the first one's top padding. */
+body.brand-lufthansa main > .section.campaign-section {
+  margin-bottom: 0;
+}
+
+body.brand-lufthansa main > .section.campaign-section.spaced {
+  margin-bottom: var(--spacing-default);
+}
+
+body.brand-lufthansa main > .section.stage.before-padded + .section.campaign-section.padded {
+  padding-top: 0;
+}
+
+/* live's .section-content clears its floats (a table box at its end): the last component's
+   bottom margin stays in the AEM section (a quote's 6rem / 8rem, then .mb-default), the first
+   one's top margin collapses with the section before */
+body.brand-lufthansa main > .section.campaign-section::after {
+  content: '';
+  display: table;
+}
+
+/* a quote: .author-quote's side margins (mx-3 1.5rem, md 2rem, from 1024px 4rem: x 128 at 1440)
+   and the empty .subline-text's 1rem under it */
+body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper > blockquote {
+  margin-inline: 15px;
+}
+
+body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper > blockquote:not(:has(> * + *)) {
+  padding-bottom: 10px;
+}
+
+/* a picture before more content: the image component's 4rem */
+body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper > p:has(> picture):not(:last-child) {
+  margin-bottom: 40px;
+}
+
+/* a wrapper of separators (live: maui-divider's 1px + the .hr's margin) takes the 24px the column
+   view above lacks (columns-media padded 8px + 24 = 3.2rem), the next wrapper none (cabin-design:
+   41px under the last column view of a section, 73 with it) */
+/* stylelint-disable-next-line no-descending-specificity -- a campaign-section's, not a grey band's next */
+body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper:not(:has(> :not(p.spacer))) {
+  margin-top: 24px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- as above */
+body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper:not(:has(> :not(p.spacer))) + div {
+  margin-top: 0;
+}
+
+/* a sidebar's own space below it is all live has before the next component */
+/* stylelint-disable-next-line no-descending-specificity -- another element than the column-mark rule's */
+body.brand-lufthansa main > .section.campaign-section > .columns-media-wrapper:has(> .columns-media.sidebar) + div {
+  margin-top: 0;
+}
+
+/* a column view's 3.2rem under its last row (columns-media padded: 8px + the next wrapper's
+   24px), also at the end of the section; teaser cards (a picture and a title, live's column view
+   of image + headline): the title without the card's 32px under it, the 3.2rem under the row */
+body.brand-lufthansa main > .section.campaign-section > .columns-media-wrapper:last-child > .columns-media.padded:not(.sidebar) {
+  padding-bottom: 32px;
+}
+
+body.brand-lufthansa main > .section.campaign-section .cards-teaser .cards-teaser-body > .cards-teaser-title:last-child {
+  margin-bottom: 0;
+}
+
+body.brand-lufthansa main > .section.campaign-section > .cards-teaser-wrapper > .cards-teaser > ul {
+  padding-bottom: 8px;
+}
+
+body.brand-lufthansa main > .section.campaign-section > .cards-teaser-wrapper:last-child > .cards-teaser > ul {
+  padding-bottom: 32px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper > blockquote {
+    margin-inline: 20px;
+  }
+}
+
+@media (width >= 1024px) {
+  body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper > blockquote {
+    margin-inline: 40px;
+  }
+}
