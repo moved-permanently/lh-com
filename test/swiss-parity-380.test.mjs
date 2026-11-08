@@ -118,10 +118,11 @@ test('rows 4, 5 (options), 8, 9, 11-13: the homepage blocks as www\'s (the alert
   has(css, /body\.brand-swiss \.accordion-columns \.accordion-columns-title \{ color: #6f6660; font-size: calc\(20px \* var\(--a11y-scale, 1\)\); line-height: calc\(27px \* var\(--a11y-scale, 1\)\); \}/, 'row 13');
 });
 
-test('row 18, the menu pages\' cards as www\'s: 80 px under the H1 from 1025 px (43 px below), a 1 px #ccc border without shadow (the shadow on hover), three per row also with a card without image (flights)', () => {
+test('row 18, the menu pages\' cards as www\'s: under the H1 by the view\'s kind (row 42, test/swiss-grid-kinds-474), a 1 px #ccc border without shadow (the shadow on hover), three per row also with a card without image (flights)', () => {
   const css = swiss();
-  has(css, /body\.brand-swiss main \.default-content-wrapper:has\(\+ \.carousel-cards-wrapper\) > h1:last-child \{ margin-bottom: 43px; \}/);
-  has(css, /@media \(width >= 1025px\) \{[^@]*body\.brand-swiss main \.default-content-wrapper:has\(\+ \.carousel-cards-wrapper\) > h1:last-child \{ margin-bottom: 80px; \}/);
+  // brief 474 (row 42): 72 px on phones and 73 from 768 px for views in a section, 60 / 80 for plain ones (were 43 / 80 from 1025 px for all)
+  has(css, /body\.brand-swiss main \.default-content-wrapper:has\(\+ \.carousel-cards-wrapper\) > h1:last-child \{ margin-bottom: 72px; \}/);
+  has(css, /@media \(width >= 768px\) \{[^@]*body\.brand-swiss main \.default-content-wrapper:has\(\+ \.carousel-cards-wrapper\) > h1:last-child \{ margin-bottom: 73px; \}/);
   has(css, /@media \(width >= 1025px\) \{[^@]*body\.brand-swiss main > \.section:has\(\+ \.section > \.carousel-cards-wrapper:first-child\) > \.default-content-wrapper:last-child > h1:last-child \{ margin-bottom: 72px; \}/, 'the H1 in a section of its own (flights, www 72 px)');
   const withImages = 'body\\.brand-swiss \\.carousel-cards:is\\(\\.grid, \\.four-up\\) \\.carousel-cards-track:has\\(> \\.carousel-cards-slide:not\\(\\.carousel-cards-text-only\\)\\) > \\.carousel-cards-slide';
   has(css, new RegExp(`${withImages} \\{ border-color: #ccc; border-radius: 0; box-shadow: none; \\}`), 'grids with image cards (the login strips, text only, as before)');

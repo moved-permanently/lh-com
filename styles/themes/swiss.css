@@ -434,12 +434,51 @@ body.brand-swiss .carousel-cards .carousel-cards-wide .carousel-cards-body :is(h
   font-weight: 400;
 }
 
-/* the menu pages' cards (row 18): 80 px under the H1 from 1025 px (43 px below; flights 72), a 1 px #ccc
-   border, square, the shadow only on hover; a grid with image cards keeps three per row from
-   1025 px when one card has no image (flights' Fly more sustainably), that card as the others
-   (lh-com's text-only cards are the login strips: two per row, padded) */
+/* the menu pages' cards (row 18): a 1 px #ccc border, square, the shadow only on hover; a grid with
+   image cards keeps three per row from 1025 px when one card has no image (flights' Fly more
+   sustainably), that card as the others (lh-com's text-only cards are the login strips: two per
+   row, padded). Their spacing by www's two kinds of card view (row 42, brief 474; www's screenshots,
+   the cards' frames): a view in a section component (the default: manage, extra services) puts its
+   first card 72 px under the H1 on phones (73 from 768 px), 65 / 64 px between grids; a plain view
+   (the importer's option plain-view: special requests, travel information) 60 / 80 px under the H1,
+   41 / 81 px between grids; every image card's title 15 px over its text (www's cards 5 px taller),
+   31 px between the cards on phones (flights' H1 in a section of its own: 72 px from 1025 px) */
 body.brand-swiss main .default-content-wrapper:has(+ .carousel-cards-wrapper) > h1:last-child {
-  margin-bottom: 43px;
+  margin-bottom: 72px;
+}
+
+body.brand-swiss main .default-content-wrapper:has(+ .carousel-cards-wrapper > .carousel-cards.plain-view) > h1:last-child {
+  margin-bottom: 60px;
+}
+
+body.brand-swiss .carousel-cards-wrapper + .carousel-cards-wrapper > .carousel-cards.grid:not(.plain-view):has(.carousel-cards-slide:not(.carousel-cards-text-only)) {
+  margin-top: 65px;
+}
+
+body.brand-swiss .carousel-cards-wrapper + .carousel-cards-wrapper > .carousel-cards.grid.plain-view {
+  margin-top: 41px;
+}
+
+body.brand-swiss .carousel-cards:is(.grid, .four-up) .carousel-cards-track:has(> .carousel-cards-slide:not(.carousel-cards-text-only)) > .carousel-cards-slide:not(.carousel-cards-text-only) .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 15px;
+}
+
+@media (width >= 768px) {
+  body.brand-swiss main .default-content-wrapper:has(+ .carousel-cards-wrapper) > h1:last-child {
+    margin-bottom: 73px;
+  }
+
+  body.brand-swiss main .default-content-wrapper:has(+ .carousel-cards-wrapper > .carousel-cards.plain-view) > h1:last-child {
+    margin-bottom: 80px;
+  }
+
+  body.brand-swiss .carousel-cards-wrapper + .carousel-cards-wrapper > .carousel-cards.grid:not(.plain-view):has(.carousel-cards-slide:not(.carousel-cards-text-only)) {
+    margin-top: 64px;
+  }
+
+  body.brand-swiss .carousel-cards-wrapper + .carousel-cards-wrapper > .carousel-cards.grid.plain-view {
+    margin-top: 81px;
+  }
 }
 
 body.brand-swiss .carousel-cards:is(.grid, .four-up) .carousel-cards-track:has(> .carousel-cards-slide:not(.carousel-cards-text-only)) > .carousel-cards-slide {
@@ -466,15 +505,11 @@ body.brand-swiss .carousel-cards.grid .carousel-cards-track:has(> .carousel-card
 
 @media (width < 768px) {
   body.brand-swiss .carousel-cards.grid .carousel-cards-track:has(> .carousel-cards-slide:not(.carousel-cards-text-only)) {
-    gap: 40px;
+    gap: 31px;
   }
 }
 
 @media (width >= 1025px) {
-  body.brand-swiss main .default-content-wrapper:has(+ .carousel-cards-wrapper) > h1:last-child {
-    margin-bottom: 80px;
-  }
-
   /* the H1 in a section of its own above the cards' (flights): www 72 px */
   body.brand-swiss main > .section:has(+ .section > .carousel-cards-wrapper:first-child) > .default-content-wrapper:last-child > h1:last-child {
     margin-bottom: 72px;
