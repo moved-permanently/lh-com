@@ -1,0 +1,22 @@
+# lh-tap: BySide's dead small-print link on en-pt's call-back cards (brief 468), in release order. Nothing is
+# published yet. Uploaded to DA (moved-permanently/lh-tap) and previewed on main--lh-tap--moved-permanently.aem.page.
+#
+# "For other subject, please contact us through the designated TAP service channels." linked to href="null" (www's
+# widget writes it so; tap-import.mjs bysideHtml now keeps the text without the link). Each document is DA's copy of
+# 2026-11-08 with that one link taken out, nothing else changed.
+# /en-pt/miles-and-go/promotions holds the American Express card's picture too (publish-list-468.txt): publish that
+# list's picture first, or with this list.
+#
+# Media: none new.
+# Pages
+/en-pt/manage-booking/extras
+/en-pt/manage-booking/extras/boarding
+/en-pt/manage-booking/extras/fast-track
+/en-pt/manage-booking/extras/lounges
+/en-pt/manage-booking/extras/seats
+/en-pt/miles-and-go/club
+/en-pt/miles-and-go/miles-store
+/en-pt/miles-and-go/promotions
+/en-pt/miles-and-go/use-miles/miles4extras
+/en-pt/miles-and-go/use-miles/upgrade-with-miles
+/en-pt/on-board/fly-economy

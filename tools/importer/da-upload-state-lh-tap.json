@@ -1696,14 +1696,14 @@
    "preview": "2026-11-04T04:44:45.152Z"
   },
   "/en-pt/manage-booking/extras": {
-   "uploaded": "2026-11-04T05:53:44.160Z",
-   "mtime": 1793771341994,
-   "preview": "2026-11-04T05:53:46.068Z"
+   "uploaded": "2026-11-08T00:36:12.429Z",
+   "mtime": 1794098157285,
+   "preview": "2026-11-08T00:36:14.794Z"
   },
   "/en-pt/manage-booking/extras/boarding": {
-   "uploaded": "2026-11-04T05:55:12.148Z",
-   "mtime": 1793771343708,
-   "preview": "2026-11-04T05:55:14.365Z"
+   "uploaded": "2026-11-08T00:36:16.515Z",
+   "mtime": 1794098157339,
+   "preview": "2026-11-08T00:36:18.827Z"
   },
   "/en-pt/manage-booking/extras/boost-packs": {
    "uploaded": "2026-11-04T05:55:09.045Z",
@@ -1716,19 +1716,19 @@
    "preview": "2026-11-04T05:55:17.664Z"
   },
   "/en-pt/manage-booking/extras/fast-track": {
-   "uploaded": "2026-11-04T04:49:08.576Z",
-   "mtime": 1793766926159,
-   "preview": "2026-11-04T04:49:11.296Z"
+   "uploaded": "2026-11-08T00:36:20.418Z",
+   "mtime": 1794098157388,
+   "preview": "2026-11-08T00:36:22.924Z"
   },
   "/en-pt/manage-booking/extras/lounges": {
-   "uploaded": "2026-11-04T04:49:12.837Z",
-   "mtime": 1793766926208,
-   "preview": "2026-11-04T04:49:15.283Z"
+   "uploaded": "2026-11-08T00:36:24.652Z",
+   "mtime": 1794098157434,
+   "preview": "2026-11-08T00:36:27.251Z"
   },
   "/en-pt/manage-booking/extras/seats": {
-   "uploaded": "2026-11-04T04:49:16.892Z",
-   "mtime": 1793766926253,
-   "preview": "2026-11-04T04:49:19.561Z"
+   "uploaded": "2026-11-08T00:36:29.073Z",
+   "mtime": 1794098157482,
+   "preview": "2026-11-08T00:36:32.107Z"
   },
   "/en-pt/manage-booking/extras/upgrades": {
    "uploaded": "2026-11-04T04:49:21.066Z",
@@ -1756,9 +1756,9 @@
    "preview": "2026-11-04T05:53:39.194Z"
   },
   "/en-pt/miles-and-go/club": {
-   "uploaded": "2026-11-04T04:48:18.890Z",
-   "mtime": 1793766925414,
-   "preview": "2026-11-04T04:48:21.141Z"
+   "uploaded": "2026-11-08T00:36:34.135Z",
+   "mtime": 1794098157550,
+   "preview": "2026-11-08T00:36:37.090Z"
   },
   "/en-pt/miles-and-go/earn-miles": {
    "uploaded": "2026-11-04T05:54:47.881Z",
@@ -1796,9 +1796,9 @@
    "preview": "2026-11-04T05:54:56.403Z"
   },
   "/en-pt/miles-and-go/miles-store": {
-   "uploaded": "2026-11-04T04:48:33.602Z",
-   "mtime": 1793766925661,
-   "preview": "2026-11-04T04:48:35.475Z"
+   "uploaded": "2026-11-08T00:36:39.346Z",
+   "mtime": 1794098157603,
+   "preview": "2026-11-08T00:36:41.575Z"
   },
   "/en-pt/miles-and-go/partners": {
    "uploaded": "2026-11-04T05:54:58.011Z",
@@ -1811,9 +1811,9 @@
    "preview": "2026-11-04T05:55:07.603Z"
   },
   "/en-pt/miles-and-go/promotions": {
-   "uploaded": "2026-11-08T00:00:45.571Z",
-   "mtime": 1794096020008,
-   "preview": "2026-11-08T00:00:48.335Z"
+   "uploaded": "2026-11-08T00:36:43.341Z",
+   "mtime": 1794098157651,
+   "preview": "2026-11-08T00:36:45.171Z"
   },
   "/en-pt/miles-and-go/promotions/navigator-experiences": {
    "uploaded": "2026-11-04T04:51:25.695Z",
@@ -1861,9 +1861,9 @@
    "preview": "2026-11-04T05:56:03.148Z"
   },
   "/en-pt/miles-and-go/use-miles/miles4extras": {
-   "uploaded": "2026-11-04T05:56:07.732Z",
-   "mtime": 1793771344156,
-   "preview": "2026-11-04T05:56:09.680Z"
+   "uploaded": "2026-11-08T00:36:47.070Z",
+   "mtime": 1794098157704,
+   "preview": "2026-11-08T00:36:49.207Z"
   },
   "/en-pt/miles-and-go/use-miles/trip-around-the-world": {
    "uploaded": "2026-11-04T04:51:57.087Z",
@@ -1871,9 +1871,9 @@
    "preview": "2026-11-04T04:51:58.692Z"
   },
   "/en-pt/miles-and-go/use-miles/upgrade-with-miles": {
-   "uploaded": "2026-11-04T05:56:10.996Z",
-   "mtime": 1793771344184,
-   "preview": "2026-11-04T05:56:13.177Z"
+   "uploaded": "2026-11-08T00:36:51.286Z",
+   "mtime": 1794098157759,
+   "preview": "2026-11-08T00:36:53.388Z"
   },
   "/en-pt/on-board": {
    "uploaded": "2026-11-04T05:53:29.123Z",
@@ -1901,9 +1901,9 @@
    "preview": "2026-11-04T05:54:32.817Z"
   },
   "/en-pt/on-board/fly-economy": {
-   "uploaded": "2026-11-04T05:54:27.180Z",
-   "mtime": 1793771342571,
-   "preview": "2026-11-04T05:54:29.184Z"
+   "uploaded": "2026-11-08T00:36:55.092Z",
+   "mtime": 1794098157812,
+   "preview": "2026-11-08T00:36:57.233Z"
   },
   "/en-pt/on-board/meals": {
    "uploaded": "2026-11-04T05:54:23.338Z",
@@ -10788,6 +10788,62 @@
   },
   "/media-da/tap/lp-cardless-generic-card-1280x7202-ba76bd33.webp": {
    "at": "2026-11-08T00:00:44.156Z"
+  },
+  "/media-da/tap/extras-and-upgrades-mobile-96844c78.jpg": {
+   "at": "2026-11-08T00:36:11.015Z",
+   "inDa": true
+  },
+  "/media-da/tap/bg-c2call-full-2-10dfa724.png": {
+   "at": "2026-11-08T00:36:11.273Z",
+   "inDa": true
+  },
+  "/media-da/tap/image-container-mobile-7eacf462.png": {
+   "at": "2026-11-08T00:36:11.431Z",
+   "inDa": true
+  },
+  "/media-da/tap/bg-c2call-full-2-ceb257c0.png": {
+   "at": "2026-11-08T00:36:28.173Z",
+   "inDa": true
+  },
+  "/media-da/tap/clubbannernv-1417x1417-be22aca7.jpg": {
+   "at": "2026-11-08T00:36:32.948Z",
+   "inDa": true
+  },
+  "/media-da/tap/bg-c2call-full-2-daea7f06.png": {
+   "at": "2026-11-08T00:36:33.109Z",
+   "inDa": true
+  },
+  "/media-da/tap/lojabanner-1417x1417-ed9a75f7.jpg": {
+   "at": "2026-11-08T00:36:38.020Z",
+   "inDa": true
+  },
+  "/media-da/tap/bg-c2call-full-2-f770da74.png": {
+   "at": "2026-11-08T00:36:38.288Z",
+   "inDa": true
+  },
+  "/media-da/tap/screenshot-2025-10-01-at-13-53-34-4f1ea783.jpg": {
+   "at": "2026-11-08T00:36:42.386Z",
+   "inDa": true
+  },
+  "/media-da/tap/bg-c2call-full-2-52554978.png": {
+   "at": "2026-11-08T00:36:42.524Z",
+   "inDa": true
+  },
+  "/media-da/tap/miles4extras-mobile-10e30ed6.jpg": {
+   "at": "2026-11-08T00:36:46.019Z",
+   "inDa": true
+  },
+  "/media-da/tap/bg-c2call-full-2-a3073405.png": {
+   "at": "2026-11-08T00:36:46.204Z",
+   "inDa": true
+  },
+  "/media-da/tap/bg-c2call-full-2-b45ce711.png": {
+   "at": "2026-11-08T00:36:50.128Z",
+   "inDa": true
+  },
+  "/media-da/tap/club-tap-miles-and-go-8a012e94.jpg": {
+   "at": "2026-11-08T00:36:50.273Z",
+   "inDa": true
   }
  }
 }
