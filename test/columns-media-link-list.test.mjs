@@ -30,5 +30,5 @@ test('icon link lists: the heading with its icon, option link-list', () => {
   parse(document.querySelector('.fourcolumn'), { document });
   assert.ok(out.variants.includes('link-list'), out.variants.join(','));
   const all = out.cells.flat().join('');
-  assert.match(all, /<h4[^>]*>Economy Basic<\/h4><h4><img src="\/content\/dam\/lh\/icons\/Handbag-dg\.svg" alt="">1 personal item<\/h4><p>max\. 40 x 30 x 15 cm<\/p>/);
+  assert.match(all, /<h4[^>]*>Economy Basic<\/h4><h4 class="heading-copytext-large"><img src="\/content\/dam\/lh\/icons\/Handbag-dg\.svg" alt="">1 personal item<\/h4><p>max\. 40 x 30 x 15 cm<\/p>/);
 });

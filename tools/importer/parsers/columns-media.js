@@ -376,6 +376,8 @@ export default function parse(element, { document, url, params }) {
             }
             const text = visibleText(h);
             if (text) head.append(document.createTextNode(text));
+            // its size (/flights/ana's h2.heading-copytext-large, brief after 488)
+            keepHeadingStyle(h, head);
             if (text || icon) out.push(head);
           }
           const links = [...ll.querySelectorAll('ul a[href], ul maui-navigation-link[href], ul maui-link[href]')];

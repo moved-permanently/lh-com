@@ -1,0 +1,16 @@
+# The brief after 488, item 2: the ana documents whose "What you need to remember" column view holds three link-list headings www sizes h2.heading-copytext-large. The columns-media parser rebuilt a link list's heading without its size class, so the import wrote no {heading-copytext-large}; it keeps it now (scratch imports of gb/en, at/de, xx/fr from lh-snapshots-085: all three markers, the other headings' markers as in the documents). DA's 15 ana documents below carry the three markers today (read 2026-11-08, the harness's restore): nothing to re-import for this; the next import keeps them. Also /de/en/prepare-for-your-trip/getting-to-and-from-the-airport/brussels-express-rail's seven link-list headings (h1.heading-copytext-large on www) now import as h2 {heading-copytext-large} (before: h2 {heading-large}); DA has them as h1 with the marker. Release order as listed.
+/de/en/book-and-manage/flights/ana
+/de/de/book-and-manage/flights/ana
+/gb/en/book-and-manage/flights/ana
+/at/de/book-and-manage/flights/ana
+/xx/el/book-and-manage/flights/ana
+/xx/es/book-and-manage/flights/ana
+/xx/fr/book-and-manage/flights/ana
+/xx/hk/book-and-manage/flights/ana
+/xx/it/book-and-manage/flights/ana
+/xx/ja/book-and-manage/flights/ana
+/xx/ko/book-and-manage/flights/ana
+/xx/pl/book-and-manage/flights/ana
+/xx/pt/book-and-manage/flights/ana
+/xx/ru/book-and-manage/flights/ana
+/xx/zh/book-and-manage/flights/ana

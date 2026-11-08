@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_988250_exports = {};
-  __export(tmp_bundle_info_988250_exports, {
-    default: () => tmp_bundle_info_988250_default
+  var tmp_bundle_info_989101_exports = {};
+  __export(tmp_bundle_info_989101_exports, {
+    default: () => tmp_bundle_info_989101_default
   });
 
   // tools/importer/parsers/search-results.js
@@ -4454,6 +4454,7 @@ var CustomImportScript = (() => {
               }
               const text = visibleText(h);
               if (text) head.append(document.createTextNode(text));
+              keepHeadingStyle(h, head);
               if (text || icon) out.push(head);
             }
             const links = [...ll.querySelectorAll("ul a[href], ul maui-navigation-link[href], ul maui-link[href]")];
@@ -7055,7 +7056,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_988250_default = {
+  var tmp_bundle_info_989101_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -7089,5 +7090,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_988250_exports);
+  return __toCommonJS(tmp_bundle_info_989101_exports);
 })();
