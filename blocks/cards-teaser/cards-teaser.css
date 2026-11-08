@@ -156,9 +156,11 @@ body.brand-lufthansa .cards-teaser-wrapper + .cards-teaser-wrapper > .cards-teas
   padding-top: 0;
 }
 
+/* below 768px a row's first card under the row above: 79px from its link to the next picture on
+   www (take-off, overview-travel-information at 390; ours 55 with 42) */
 @media (width < 768px) {
   body.brand-lufthansa .cards-teaser.spacious:not(.overlay, .three-up, .four-up) > ul > li:nth-child(2n + 3) {
-    margin-top: 42px;
+    margin-top: 66px;
   }
 }
 
