@@ -1623,6 +1623,24 @@ body.brand-lufthansa main > .section.campaign-section > .cards-teaser-wrapper:la
   }
 }
 
+/* the destination finder's title (/de/en/flights: www's "Best offers" inside the finder, in a padded
+   section; the importer makes it the H1 before the block): the section's padding above it, from
+   768px the finder's space under it (ours: the title 40px higher at 1440, the filter 54px more) */
+/* stylelint-disable-next-line no-descending-specificity -- a title's wrapper, not a modal link's */
+body.brand-lufthansa main > .section > .default-content-wrapper:has(> h1:last-child):has(+ .destination-finder-wrapper > .destination-finder.grid) {
+  padding-top: 20px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section > .default-content-wrapper:has(> h1:last-child):has(+ .destination-finder-wrapper > .destination-finder.grid) {
+    padding-top: 40px;
+  }
+
+  body.brand-lufthansa main > .section > .default-content-wrapper:has(> h1:last-child):has(+ .destination-finder-wrapper > .destination-finder.grid) > h1 {
+    margin-bottom: 94px;
+  }
+}
+
 /* jump links in a column view of their own ([links | empty], 100-years/chronicle): below 768px
    www stacks the view's empty second column under them, 89px from the last link to the next
    section (ours 43) */
