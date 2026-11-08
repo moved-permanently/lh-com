@@ -31,13 +31,19 @@ export const VIDEO_MARKER = styleMarker(VIDEO_SETTINGS.join('|'));
 // TAP's empty line in a text: a paragraph of only <sub>{blank}</sub> (decorateTextStyles)
 export const BLANK_LINE = /^\s*\{blank\}\s*$/;
 
+// the app screens' markers (scripts/library-page.js decorateAppScreen, /content/mobile documents):
+// a space "{spacer: medium}" (", v2": the v2 screen only), a rule "{divider}", small text "{small}"
+export const APP_SPACER = /^\{spacer:\s*(x-small|small|medium|m-large|large)\s*(,\s*v2)?\s*\}$/i;
+export const APP_SMALL = /\s*\{small\}\s*$/;
+
 // the article header's video for phones too ("{mobile}", blocks/article-header); TAP's empty card
 // line (<sub>{blank}</sub>, styles/themes/tap.css)
-const OTHER_TOKENS = 'mobile|blank';
+const OTHER_TOKENS = 'mobile|blank|small|divider';
 
 const ANY_TOKENS = [HEADING_TOKENS, PARAGRAPH_TOKENS, LIST_TOKENS, VIDEO_SETTINGS.join('|'), OTHER_TOKENS].join('|');
 const ANY_MARKER = `\\{\\s*(?:${ANY_TOKENS})(?: (?:${ANY_TOKENS}))*\\s*\\}`;
 const SEPARATOR_TEXT = /^\s*\{(?:spacer|divider)-\d{1,3}(?: from-768)?\}\s*$/;
+const isSeparatorText = (s) => SEPARATOR_TEXT.test(s) || APP_SPACER.test(s.trim());
 const TRAILING_TEXT = new RegExp(`\\s*${ANY_MARKER}\\s*$`);
 // in HTML: the marker at the end, before closing tags only (" …now {full-width}</a></li></ul>")
 const TRAILING_HTML = new RegExp(`\\s*${ANY_MARKER}((?:\\s*</[a-z][a-z0-9]*>)*)\\s*$`, 'i');
@@ -50,7 +56,7 @@ const TRAILING_HTML = new RegExp(`\\s*${ANY_MARKER}((?:\\s*</[a-z][a-z0-9]*>)*)\
  */
 export function stripStyleMarkers(text) {
   let s = String(text ?? '');
-  if (SEPARATOR_TEXT.test(s)) return '';
+  if (isSeparatorText(s)) return '';
   // markers can follow one another ("{column-end-outer}" after "{full-width}" in a merged text)
   for (let prev = null; prev !== s;) {
     prev = s;

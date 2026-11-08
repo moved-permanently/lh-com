@@ -16,6 +16,8 @@
  * Paths also under the local server's /content (aem up --html-folder content).
  */
 
+import { APP_SPACER, APP_SMALL } from './style-markers.js';
+
 const LIBRARY = /^(?:\/content)?\/library(?:\/|$)/;
 const APP_SCREEN = /^(?:\/content)?\/content\/mobile\//;
 
@@ -87,8 +89,9 @@ export function followHash(doc = document) {
   window.addEventListener('hashchange', go);
 }
 
-const SPACER = /^\{spacer:\s*(x-small|small|medium|m-large|large)\s*(,\s*v2)?\s*\}$/i;
-const SMALL = /\s*\{small\}\s*$/;
+// the app screens' markers: scripts/style-markers.js (shared with lh-edge and the importer's tools)
+const SPACER = APP_SPACER;
+const SMALL = APP_SMALL;
 
 /**
  * The app screen's markers: "{spacer: medium}" (also "{spacer: medium, v2}", a space only the

@@ -31,6 +31,9 @@ test('the shared list: every kind the site reads, combinations included; placeho
   assert.equal(stripStyleMarkers('Fly {copytext-small full-width} {column-end}'), 'Fly');
   assert.equal(stripStyleMarkers('{mobile}'), '');
   assert.equal(stripStyleMarkers('{blank}'), '');
+  assert.equal(stripStyleMarkers('{spacer: medium}'), '', 'the app screens\' space');
+  assert.equal(stripStyleMarkers('{divider}'), '');
+  assert.equal(stripStyleMarkers('19. Juni 2025 | 5 min read {small}'), '19. Juni 2025 | 5 min read');
   assert.equal(stripStyleMarkers('From {origin} to {destination}'), 'From {origin} to {destination}');
   assert.equal(stripStyleMarkers('{COUNT} results'), '{COUNT} results');
   assert.equal(stripStyleMarkers('Page {lang}'), 'Page {lang}');
