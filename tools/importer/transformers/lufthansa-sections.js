@@ -357,6 +357,9 @@ export default function transform(hookName, element, payload) {
     // section, as www pads every one with .section-padding-y-regular; not for a stage, not after a
     // stage or a grey band (their own spacing covers it), nor after an author quote alone in its AEM
     // section (the cleanup's quote spacers stand for this padding: first-class-terminal)
+    // (lufthansa.com's pages only: measured there; the brand sites' imports as before)
+    const pageUrl = (payload && ((payload.params && payload.params.originalURL) || payload.url)) || '';
+    const lufthansa = /^https?:\/\/([^/]+\.)?lufthansa\.com(\/|$)/.test(pageUrl);
     const isStage = (s) => !!s.querySelector(':scope > div > .section-content > .inspirationteaser');
     const loneQuote = (s) => {
       const content = s.querySelector(':scope > div > .section-content');
@@ -367,7 +370,7 @@ export default function transform(hookName, element, payload) {
     aemSections.forEach((s, i) => {
       if (!i || !padded(s) || grey(s)) return;
       const before = aemSections[i - 1];
-      if (!padded(before) && (isStage(s) || isStage(before) || grey(before) || loneQuote(before))) return;
+      if (!padded(before) && (!lufthansa || isStage(s) || isStage(before) || grey(before) || loneQuote(before))) return;
       const hr = createBreak(document);
       hr.setAttribute(SOURCE_STYLE, 'padded');
       s.before(hr);

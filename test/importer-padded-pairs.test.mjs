@@ -63,7 +63,7 @@ function rangeFor(document) {
   };
 }
 
-const run = (document, template = { name: 'info', blocks: [], sections: [] }) => {
+const run = (document, template = { name: 'info', blocks: [], sections: [] }, url = 'https://www.lufthansa.com/de/en/book-and-manage/flights/ana/faq') => {
   const main = document.querySelector('main');
   document.createRange = () => rangeFor(document);
   // linkedom's compareDocumentPosition misses a node after an ancestor's sibling: by document order
@@ -78,8 +78,9 @@ const run = (document, template = { name: 'info', blocks: [], sections: [] }) =>
     const at = order();
     return at.get(other) > at.get(this) ? 4 : 2;
   };
-  transform('beforeTransform', main, { document, template });
-  transform('afterTransform', main, { document, template });
+  const params = { originalURL: url };
+  transform('beforeTransform', main, { document, template, params });
+  transform('afterTransform', main, { document, template, params });
   return main;
 };
 // the sections of the result: the content between breaks, each with its metadata rows
@@ -132,4 +133,9 @@ test('after an author quote alone in its AEM section (first-class-terminal: the 
   const s = sections(run(page([plain('Intro'), quote, aem('Carousel')])));
   const next = s.find((x) => x.text.includes('Carousel'));
   assert.ok(!next.meta.some((m) => m.split(/[:,]\s*/).includes('padded')), JSON.stringify(s));
+});
+
+test('a brand site\'s page (www.austrian.com): a padded section after an unpadded one as before', () => {
+  const s = sections(run(page([plain('Onboard'), aem('Non-stop', false)]), undefined, 'https://www.austrian.com/at/en/x'));
+  assert.equal(s.length, 1);
 });

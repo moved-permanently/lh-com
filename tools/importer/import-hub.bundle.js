@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-hub.js
-  var tmp_bundle_hub_859390_exports = {};
-  __export(tmp_bundle_hub_859390_exports, {
-    default: () => tmp_bundle_hub_859390_default
+  var tmp_bundle_hub_860225_exports = {};
+  __export(tmp_bundle_hub_860225_exports, {
+    default: () => tmp_bundle_hub_860225_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -4994,6 +4994,8 @@ var CustomImportScript = (() => {
       const grey = (s) => !!s.querySelector(":scope > .container-gray");
       const aemSections = [...document.querySelectorAll(".container-content > .section")].filter((s) => (s.textContent || "").replace(/[\s\u00a0\u200b]/g, "") || s.querySelector(MEDIA2));
       const paddedBreaks = /* @__PURE__ */ new Map();
+      const pageUrl = payload && (payload.params && payload.params.originalURL || payload.url) || "";
+      const lufthansa = /^https?:\/\/([^/]+\.)?lufthansa\.com(\/|$)/.test(pageUrl);
       const isStage = (s) => !!s.querySelector(":scope > div > .section-content > .inspirationteaser");
       const loneQuote = (s) => {
         const content = s.querySelector(":scope > div > .section-content");
@@ -5004,7 +5006,7 @@ var CustomImportScript = (() => {
       aemSections.forEach((s, i) => {
         if (!i || !padded(s) || grey(s)) return;
         const before = aemSections[i - 1];
-        if (!padded(before) && (isStage(s) || isStage(before) || grey(before) || loneQuote(before))) return;
+        if (!padded(before) && (!lufthansa || isStage(s) || isStage(before) || grey(before) || loneQuote(before))) return;
         const hr = createBreak(document);
         hr.setAttribute(SOURCE_STYLE, "padded");
         s.before(hr);
@@ -5300,7 +5302,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_hub_859390_default = {
+  var tmp_bundle_hub_860225_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5334,5 +5336,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_hub_859390_exports);
+  return __toCommonJS(tmp_bundle_hub_860225_exports);
 })();
