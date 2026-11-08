@@ -1843,3 +1843,55 @@ Waiting for lh-snapshots-085.
     the drafts and the rules.
 - **Suite:** lint and the full suite; every brand's smoke and TAP by hand before and after the push.
 
+## The brief after 491: lh-snapshots-085, the help center's data, the bundles, Cargo's banner, Air Dolomiti's footer files
+
+Nothing was published and nothing was uploaded. For re-import:
+tools/reports/parity-2026-11-08/reimport-492-lh-com.txt (4).
+
+Both archives matched their sha256 (lh-snapshots-085 87ec2f67…db40, brand-media-002 96c5223a…a5).
+Each was unpacked into its own folder, and nothing in them was run. Nothing was requested from www.
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git).
+
+### 1. lufthansa.com rows 37, 38 and schengen
+
+The four pages were drafted from lh-snapshots-085 with main's info and legal bundles:
+
+- **business-class-on-short-and-medium-haul:** "Priority check-in" without a picture, as on www.
+- **cookie-policy:** www's current text, "Last updated: 30 October 2026", with its jump links.
+- **terms-and-conditions-lh:** www's current text.
+- **schengen:** the text of preview's document, from the snapshot it lacked.
+
+No template or importer change is needed: re-importing the four pages closes the rows.
+
+### 2. The help center's data (row 19)
+
+The 25 LH files (feature switches, the topics and texts in 12 languages) are now in
+digitalhangar-copies/cs-help-center/, as SWISS's, Austrian's, Brussels' and ITA's are. They are
+checked against the archive's sha256 and parse as JSON. lh-edge's copies route already takes every
+tenant, so its code is unchanged.
+
+### 3. The info and legal bundles
+
+Main's bundles already carry 7f1038f: ec12449c rebuilt them after it, and a rebuild here differs
+only in its temporary names, so nothing was committed. 194 info and legal pages with a snapshot
+here (151 earlier ones, 43 from 085) were drafted with both. All are byte for byte the same: none
+of them has an author quote in a column. The 4 carbon-offsetting/saf documents, which have no
+snapshot here, get theirs with the next info import.
+
+### 4. Cargo's notifications banner (Cargo row 37)
+
+The importer now finds www's current file name, notification-banner, as well as the old one.
+
+### 5. Air Dolomiti's footer files (Air Dolomiti row 67)
+
+www's arrow and its six social discs now come from www's own files.
+
+### Checked
+
+- **Hosts:** airdolomiti.turnsthe.page (the footer, with the local code and files, at 1440 and 390);
+  lufthansa.turnsthe.page (the help page before and after the deploy); main--lh-com preview (the
+  four documents compared).
+- **Suite:** lint and the full suite; every brand's smoke and TAP by hand before and after the push.
+
