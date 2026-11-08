@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-checkin.js
-  var tmp_bundle_austrian_checkin_1056278_exports = {};
-  __export(tmp_bundle_austrian_checkin_1056278_exports, {
-    default: () => tmp_bundle_austrian_checkin_1056278_default
+  var tmp_bundle_austrian_checkin_598975_exports = {};
+  __export(tmp_bundle_austrian_checkin_598975_exports, {
+    default: () => tmp_bundle_austrian_checkin_598975_default
   });
 
   // tools/importer/parsers/booking-lookup.js
@@ -6098,7 +6098,7 @@ var CustomImportScript = (() => {
       for (let level = 0; scope && level < 3; level += 1, scope = scope.parentElement) {
         const twin = [...scope.querySelectorAll(DESKTOP_COPY)].find((d) => d !== mobile && !d.contains(mobile) && !mobile.contains(d) && copySignature(d) === sig);
         if (twin) {
-          if (mobile.querySelector(".swiper-slide")) twin.setAttribute("data-lh-swiper-below-lg", "");
+          if (mobile.querySelector('.swiper-slide, [class*="swiper"]') || mobile.closest(".carousel")) twin.setAttribute("data-lh-swiper-below-lg", "");
           mobile.remove();
           removed += 1;
           return;
@@ -8460,7 +8460,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_checkin_1056278_default = {
+  var tmp_bundle_austrian_checkin_598975_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -8499,5 +8499,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_checkin_1056278_exports);
+  return __toCommonJS(tmp_bundle_austrian_checkin_598975_exports);
 })();

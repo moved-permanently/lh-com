@@ -1,0 +1,32 @@
+# Brief 497 (the parity re-check), Austrian: www.austrian.com's column views with carousel behaviour are one-card swipers on phones; ours stacked the cards (/at/en/economy-class at 390: 5,856 px, www 5,414). The Studio capture holds the swiper copy before www's swiper ran (no .swiper-slide), so lufthansa-cleanup did not flag the grid and the cards-teaser parser gave three-up alone. The cleanup now flags a carousel view's copy (all 14 bundles rebuilt): a re-import gives "cards-teaser three-up phone-slider" (economy-class with the option: 5,086 px at 390, "Services on long-haul flights" 47 px from www's place, was +721).
+# The 30 recorded pages with such a view (austrian-parity-001/-002a/-002b). Every other Austrian document whose snapshot has one needs the same re-import: grep -l 'class="carousel"' -r tools/importer/bd-snapshots/www.austrian.com (the snapshots are the harness's). Order: any.
+/at/de/bearbeitungsgebuehren
+/at/de/book/additional-services/seat-reservation
+/at/de/business-class
+/at/de/check-in
+/at/de/discover/inspiration/fly-with-austrian
+/at/de/flugstatus-und-flugplan
+/at/de/gesundes-reisen
+/at/de/legal/passenger-rights
+/at/de/lhg-staralliance-partner
+/at/de/missing-baggage
+/at/de/pre-order-food
+/at/de/schwangere-frauen
+/at/de/travel-briefing
+/at/de/upgrades
+/at/en/accessible-travel
+/at/en/book/additional-services/travel-insurances
+/at/en/book/flights/giftvoucher
+/at/en/book/flights/new-destinations
+/at/en/company
+/at/en/discover/inspiration/fly-with-austrian
+/at/en/economy-class
+/at/en/entryregulations
+/at/en/green-fare
+/at/en/international-lounges
+/at/en/online-check-in
+/at/en/plan/special-requirements/healthy-travel/doctor-on-board/doctor-on-board-news
+/at/en/plan/special-requirements/travelling-with-animals
+/at/en/premium-economy-class
+/at/en/sustainable-flying
+/at/en/unaccompanied-minors

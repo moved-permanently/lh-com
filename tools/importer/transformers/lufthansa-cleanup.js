@@ -1125,8 +1125,10 @@ function removeMobileDuplicates(document) {
         && !d.contains(mobile) && !mobile.contains(d) && copySignature(d) === sig);
       if (twin) {
         // a swiper copy (one card per view below lg): the rows kept say so, for the parsers'
-        // phone-slider option (cards-teaser, brief 441: /de/en/traveltricks)
-        if (mobile.querySelector('.swiper-slide')) twin.setAttribute('data-lh-swiper-below-lg', '');
+        // phone-slider option (cards-teaser, brief 441: /de/en/traveltricks); also a copy taken
+        // before www's swiper ran (no .swiper-slide yet: Austrian's Studio capture, brief 497)
+        // or a carousel view's copy
+        if (mobile.querySelector('.swiper-slide, [class*="swiper"]') || mobile.closest('.carousel')) twin.setAttribute('data-lh-swiper-below-lg', '');
         mobile.remove();
         removed += 1;
         return;
