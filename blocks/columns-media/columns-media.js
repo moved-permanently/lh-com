@@ -306,7 +306,7 @@ export default async function decorate(block) {
   if (block.classList.contains('band')) trackViewport(block);
   // brand tap: the homepage's Miles&Go cards pinned as www's (./columns-media-tap.js, brief 480)
   if (block.classList.contains('stack') && getMetadata('brand').trim().toLowerCase() === 'tap') {
-    const { pinStack } = await import('./columns-media-tap.js');
+    const { default: pinStack } = await import('./columns-media-tap.js');
     pinStack(block);
   }
   if (block.querySelector('.media-video, .media-embed')) await loadMediaStyles();

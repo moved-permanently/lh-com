@@ -17,15 +17,14 @@ const block = (n) => {
   globalThis.document = document;
   return document.querySelector('.columns-media');
 };
-const { pinStack } = await import('../blocks/columns-media/columns-media-tap.js');
+const { default: pinStack } = await import('../blocks/columns-media/columns-media-tap.js');
 
-test('four cards: the first three in the pin, a step of 500 px; the last after it', () => {
+test('four cards: the first three in the pin; the last after it', () => {
   const b = block(4);
   pinStack(b);
   const pin = b.firstElementChild;
   assert.ok(pin.classList.contains('columns-media-pin'));
   assert.equal(pin.children.length, 3);
-  assert.equal(pin.style.getPropertyValue('--columns-media-pin-step'), '500px');
   assert.equal(b.children.length, 2);
   assert.ok(b.lastElementChild.classList.contains('columns-media-row'));
   assert.ok(b.lastElementChild.textContent.includes('Card 3'));
@@ -33,11 +32,10 @@ test('four cards: the first three in the pin, a step of 500 px; the last after i
   assert.deepEqual([...b.querySelectorAll('.columns-media-row')].map((r) => [...r.classList].find((c) => c.startsWith('columns-media-tone-'))), ['columns-media-tone-1', 'columns-media-tone-2', 'columns-media-tone-3', 'columns-media-tone-4']);
 });
 
-test('three cards: two in the pin, a step of 1000 px; two cards or one: nothing to pin', () => {
+test('three cards: two in the pin; two cards or one: nothing to pin', () => {
   const b = block(3);
   pinStack(b);
   assert.equal(b.querySelector('.columns-media-pin').children.length, 2);
-  assert.equal(b.querySelector('.columns-media-pin').style.getPropertyValue('--columns-media-pin-step'), '1000px');
   const two = block(2);
   pinStack(two);
   assert.ok(!two.querySelector('.columns-media-pin'));
@@ -45,7 +43,7 @@ test('three cards: two in the pin, a step of 1000 px; two cards or one: nothing 
 
 test('columns-media hands a stack on brand tap to columns-media-tap.js, nothing else', () => {
   const js = fs.readFileSync(new URL('../blocks/columns-media/columns-media.js', import.meta.url), 'utf8');
-  assert.match(js, /if \(block\.classList\.contains\('stack'\) && getMetadata\('brand'\)\.trim\(\)\.toLowerCase\(\) === 'tap'\) \{\s+const \{ pinStack \} = await import\('\.\/columns-media-tap\.js'\);\s+pinStack\(block\);\s+\}/);
+  assert.match(js, /if \(block\.classList\.contains\('stack'\) && getMetadata\('brand'\)\.trim\(\)\.toLowerCase\(\) === 'tap'\) \{\s+const \{ default: pinStack \} = await import\('\.\/columns-media-tap\.js'\);\s+pinStack\(block\);\s+\}/);
 });
 
 test('tap.css: a column 16 px apart from 1024 px, the pin from 1280 px (580 + 1000 px, the cards at 160 px)', () => {
@@ -54,8 +52,28 @@ test('tap.css: a column 16 px apart from 1024 px, the pin from 1280 px (580 + 10
   assert.ok(part.length > 100);
   assert.match(part, /@media \(width >= 1280px\) \{[\s\S]*body\.brand-tap \.columns-media\.stack > \.columns-media-pin \{\s+display: flex;\s+flex-direction: column;\s+height: 1580px;/);
   assert.match(part, /body\.brand-tap \.columns-media\.stack > \.columns-media-pin > \.columns-media-row \{\s+position: sticky;\s+top: 160px;/);
-  assert.match(part, /body\.brand-tap \.columns-media\.stack > \.columns-media-pin > \.columns-media-row \+ \.columns-media-row \{\s+margin-top: calc\(var\(--columns-media-pin-step\) - 580px\);/);
   // the card rules reach the rows in the pin; the tones by class there
   assert.match(css, /body\.brand-tap \.columns-media\.stack \.columns-media-row \{\s+--tap-card-panel: #fcfcfc;/);
   assert.match(css, /body\.brand-tap \.columns-media\.stack > \.columns-media-row:nth-child\(4n \+ 1\),\s+body\.brand-tap \.columns-media\.stack \.columns-media-row\.columns-media-tone-1 \{/);
+});
+
+test('brief 483, as www measured while scrolling: the cards held 30 px apart (160, 190, 220, 250 px) and the next one fading in as it comes up (a scroll timeline; none for reduced motion)', () => {
+  const css = fs.readFileSync(new URL('../styles/themes/tap.css', import.meta.url), 'utf8');
+  const part = css.slice(css.indexOf('www measured while scrolling (brief 483'));
+  assert.ok(part.length > 100);
+  assert.match(part, /\.columns-media-pin > \.columns-media-row:nth-child\(2\) \{\s+top: 190px;/);
+  assert.match(part, /\.columns-media-pin > \.columns-media-row:nth-child\(3\) \{\s+top: 220px;/);
+  assert.match(part, /\.columns-media-pin > \.columns-media-row:nth-child\(n \+ 4\) \{\s+top: 250px;/);
+  assert.match(part, /@media \(width >= 1280px\) and \(prefers-reduced-motion: no-preference\) \{\s+@supports \(animation-timeline: view\(\)\) \{\s+body\.brand-tap \.columns-media\.stack > \.columns-media-pin > \.columns-media-row \+ \.columns-media-row \{\s+animation: tap-card-in linear both;\s+animation-timeline: view\(\);\s+animation-range: entry 28% entry 52%;/);
+  assert.match(css, /@keyframes tap-card-in \{\s+from \{\s+opacity: 0;\s+\}\s+to \{\s+opacity: 1;\s+\}\s+\}/);
+});
+
+test('brief 483, www\'s timing: the second card settled 400 px into the pin, each next 200 px later; the last card 580 px up, sliding over the stack as the pin ends', () => {
+  const css = fs.readFileSync(new URL('../styles/themes/tap.css', import.meta.url), 'utf8');
+  const part = css.slice(css.indexOf('www measured while scrolling (brief 483'));
+  assert.match(part, /\.columns-media-pin > \.columns-media-row:nth-child\(2\) \{\s+top: 190px;\s+margin-top: -180px;/);
+  assert.match(part, /\.columns-media-pin > \.columns-media-row:nth-child\(n \+ 3\) \{\s+margin-top: -380px;/);
+  assert.match(part, /body\.brand-tap \.columns-media\.stack > \.columns-media-pin \+ \.columns-media-row \{\s+margin-top: -580px;/);
+  const js = fs.readFileSync(new URL('../blocks/columns-media/columns-media-tap.js', import.meta.url), 'utf8');
+  assert.doesNotMatch(js, /--columns-media-pin-step/);
 });

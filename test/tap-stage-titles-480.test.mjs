@@ -40,3 +40,8 @@ test('the title paragraph is not padded as the slide\'s other text: TAP\'s paddi
   const css = fs.readFileSync(new URL('../styles/themes/tap.css', import.meta.url), 'utf8');
   assert.match(css, /body\.brand-tap \.hero-campaign-tap \.hero-campaign-content > :not\(h1, h2, h3, h4, h5, h6, \.hero-campaign-subtitle\) \{\s+padding-left: 0;/);
 });
+
+test('brief 483: a TAP slide 259 px high on phones whatever its text (www\'s fixed area, the text running over it: en-pt miles-and-go\'s banner 284 px before, the title 25 px low)', () => {
+  const css = fs.readFileSync(new URL('../styles/themes/tap.css', import.meta.url), 'utf8');
+  assert.match(css, /@media \(width < 1024px\) \{\s+body\.brand-tap \.hero-campaign-tap \.hero-campaign-slide \{\s+height: 259px;/);
+});

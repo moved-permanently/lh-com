@@ -336,6 +336,14 @@ body.brand-tap .hero-campaign-tap .hero-campaign-slide {
   min-height: 259px;
 }
 
+/* exactly so, as www's fixed area (the text runs over it there): a longer text no longer makes the
+   slide taller (en-pt miles-and-go's banner 284 px, the title 25 px lower; brief 483, row 122) */
+@media (width < 1024px) {
+  body.brand-tap .hero-campaign-tap .hero-campaign-slide {
+    height: 259px;
+  }
+}
+
 /* www: linear-gradient(90deg, rgba(5,5,5,.4) 3.08%, transparent) over the picture */
 body.brand-tap .hero-campaign-tap .hero-campaign-slide .hero-campaign-media::after {
   background: linear-gradient(90deg, rgb(5 5 5 / 40%) 3.08%, rgb(255 255 255 / 0%) 100%);
@@ -1556,8 +1564,57 @@ body.brand-tap .columns-media.stack > .columns-media-pin {
     flex: none;
   }
 
-  body.brand-tap .columns-media.stack > .columns-media-pin > .columns-media-row + .columns-media-row {
-    margin-top: calc(var(--columns-media-pin-step) - 580px);
+}
+
+/* www measured while scrolling (brief 483, row 121; www.flytap.com/pt-pt and /de-de at 1440, 100 px
+   steps through the pin): the stack held at 160 px, each card that comes in 30 px below the one
+   before (190, 220 px), entering at the front card's bottom edge with its opacity from 0 to 1 while
+   its top rises from about 740 to 600 px. A browser without scroll timelines, or a visitor who
+   asks for less motion, sees the card at once. www's timing: the second card settled about 200 px
+   into the pin, the third 380 (ours 400 and 600: a card arrives as fast as the scroll here, www's
+   faster), and the last card slides up over the stack as the pin ends (at 300 px from the top 700 px
+   into the pin on both), so the page is 580 px shorter once scrolled, as www's (4,041 against the
+   4,621 px of a capture that did not scroll) */
+@media (width >= 1280px) {
+  body.brand-tap .columns-media.stack > .columns-media-pin > .columns-media-row:nth-child(2) {
+    top: 190px;
+    margin-top: -180px;
+  }
+
+  body.brand-tap .columns-media.stack > .columns-media-pin > .columns-media-row:nth-child(n + 3) {
+    margin-top: -380px;
+  }
+
+  body.brand-tap .columns-media.stack > .columns-media-pin > .columns-media-row:nth-child(3) {
+    top: 220px;
+  }
+
+  body.brand-tap .columns-media.stack > .columns-media-pin > .columns-media-row:nth-child(n + 4) {
+    top: 250px;
+  }
+
+  body.brand-tap .columns-media.stack > .columns-media-pin + .columns-media-row {
+    margin-top: -580px;
+  }
+}
+
+@media (width >= 1280px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    body.brand-tap .columns-media.stack > .columns-media-pin > .columns-media-row + .columns-media-row {
+      animation: tap-card-in linear both;
+      animation-timeline: view();
+      animation-range: entry 28% entry 52%;
+    }
+  }
+}
+
+@keyframes tap-card-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
