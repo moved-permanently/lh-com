@@ -703,6 +703,20 @@ body.brand-ita main .section-aside .cards-teaser .cards-teaser-cta-link {
 
 /* stylelint-enable no-descending-specificity */
 
+/* the brief after 475: www's .airem-sidebar (padding 2rem, 4rem from 768 px) holds the content and
+   the Quick Links below the breadcrumb (ita-parity-002, it/it online check-in: our h1 41 px higher at
+   1440, 21 at 390): the breadcrumb of a section with the aside that starts with it gets that space
+   below it (padding, so it does not collapse into the content's margin) */
+body.brand-ita main > .section.with-aside > .breadcrumb-wrapper:first-child {
+  padding-bottom: 20px;
+}
+
+@media (width >= 768px) {
+  body.brand-ita main > .section.with-aside > .breadcrumb-wrapper:first-child {
+    padding-bottom: 40px;
+  }
+}
+
 /* online check-in's seat teaser beside the box (columns-media grey; www's two-column view,
    container-gray full-width-bg in the sidebar's content, ita-parity-002): #f8f8f9 to the screen's
    edges below 768 px, from the screen's left edge to the column's end from 768 px (x 0 to 1026 at
