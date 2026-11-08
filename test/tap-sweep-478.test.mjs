@@ -59,3 +59,18 @@ test('the phone swiper\'s dots in TAP\'s look (the carousels\' green ring, the c
   const css = fs.readFileSync(new URL('../styles/themes/tap.css', import.meta.url), 'utf8');
   assert.match(css, /body\.brand-tap \.cards-teaser\.phone-slider \{\s+--carousel-dot-color: var\(--lh-yellow\);\s+--carousel-dot-fill: transparent;\s+--carousel-dot-radius: 9999px;\s+--carousel-dot-current-width: 20px;\s+--carousel-dot-current-color: var\(--lh-yellow\);\s+\}/);
 });
+
+test('a heading closing its section above a FAQ panel: 32 px to the panel from 1025 px (www\'s heading md:-mb-8; brief 480, row 118)', () => {
+  const css = fs.readFileSync(new URL('../styles/themes/tap.css', import.meta.url), 'utf8');
+  assert.match(css, /@media \(width >= 1025px\) \{\s+body\.brand-tap main > \.section:has\(> \.default-content-wrapper:last-child > :is\(h2, h3\):last-child\):has\(\+ \.section > \.accordion-columns-wrapper:first-child > \.accordion-columns\.faq\) \{\s+margin-bottom: 32px;/);
+});
+
+test('a TAP homepage whose stage is its first section: no 25 px above it (www\'s stage under the alerts bar; brief 480, row 119)', () => {
+  const css = fs.readFileSync(new URL('../styles/themes/tap.css', import.meta.url), 'utf8');
+  assert.match(css, /body\.brand-tap header\.tap-home ~ main > \.section:first-of-type:not\(\.breadcrumb-container\):has\(> \.hero-campaign-wrapper\) \{\s+margin-top: 0;/);
+});
+
+test('two-up text cards 24 px apart from 768 px, as www\'s gap-6 (promos\' offers: the second row 43 px lower before; brief 480, row 120)', () => {
+  const css = fs.readFileSync(new URL('../styles/themes/tap.css', import.meta.url), 'utf8');
+  assert.match(css, /@media \(width >= 768px\) \{\s+body\.brand-tap \.cards-teaser:not\(\.three-up, \.four-up, \.phone-slider\) > ul:has\(> li > \.cards-teaser-body > p:not\(\.cards-teaser-cta\)\) \{\s+row-gap: 24px;/);
+});

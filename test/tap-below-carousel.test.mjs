@@ -43,7 +43,7 @@ test('footer: another brand\'s as before', async () => {
 });
 
 test('the Miles&Go cards and the Christmas banner: TAP-scoped rules for columns-media stack and hero-card-overlay', () => {
-  assert.match(css, /body\.brand-tap \.columns-media\.stack > \.columns-media-row \{/);
+  assert.match(css, /body\.brand-tap \.columns-media\.stack \.columns-media-row \{/);
   assert.match(css, /position: sticky;/);
   assert.match(css, /body\.brand-tap \.hero-card-overlay \.hero-card-overlay-card \{/);
   // every rule of the file under the brand's body class (test/brand.test.mjs checks the selectors)

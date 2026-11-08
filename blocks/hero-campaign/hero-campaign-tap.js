@@ -141,6 +141,23 @@ function stripe(className, markup) {
 }
 
 /**
+ * The slides' titles as www's (brief 480, parity row 116): www's stage and banners carry them in a
+ * span, no heading. A slide's h2 to h6 becomes a paragraph of the class hero-campaign-heading, its
+ * content and id kept (a region labelled by it still is); an h1 stays (one h1 a page). The look:
+ * tap.css, as the headings had it.
+ * @param {Element} block the slider
+ */
+export function plainTitles(block) {
+  block.querySelectorAll('.hero-campaign-content :is(h2, h3, h4, h5, h6)').forEach((h) => {
+    const p = document.createElement('p');
+    p.className = 'hero-campaign-heading';
+    if (h.id) p.id = h.id;
+    p.append(...h.childNodes);
+    h.replaceWith(p);
+  });
+}
+
+/**
  * TAP's slider parts on a built slider (hero-campaign.js buildSlider).
  * @param {Element} block the slider
  * @param {{slides: Element[], track: Element, prev: Element, next: Element, dots: Element,
@@ -150,6 +167,7 @@ export default function decorateTapSlider(block, {
   slides, track, prev, next, dots, goTo, current, motion, lang,
 }) {
   block.classList.add('hero-campaign-tap');
+  plainTitles(block);
   slides.forEach((slide) => {
     const media = slide.querySelector('.hero-campaign-media') || slide;
     media.after(stripe('hero-campaign-stripe-wedge', WEDGE), stripe('hero-campaign-stripe-line', LINE));

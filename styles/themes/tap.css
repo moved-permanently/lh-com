@@ -379,7 +379,16 @@ body.brand-tap .hero-campaign-tap .hero-campaign-content {
   max-width: 720px;
 }
 
-body.brand-tap .hero-campaign-tap .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+/* the slides' titles in paragraphs as www's (brief 480, row 116; hero-campaign-tap.js plainTitles):
+   the headings' font, colour and weight (styles.css, hero-campaign.css), the sizes as below */
+body.brand-tap .hero-campaign-tap .hero-campaign-heading {
+  color: inherit;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+
+body.brand-tap .hero-campaign-tap .hero-campaign-content :is(h1, h2, h3, h4, h5, h6, .hero-campaign-heading) {
   display: -webkit-box;
   margin: 0 0 16px;
   overflow: hidden;
@@ -399,7 +408,7 @@ body.brand-tap .hero-campaign-tap .hero-campaign-content > .hero-campaign-subtit
   letter-spacing: -0.01em;
 }
 
-body.brand-tap .hero-campaign-tap .hero-campaign-content > :not(h1, h2, h3, h4, h5, h6, .hero-campaign-subtitle) {
+body.brand-tap .hero-campaign-tap .hero-campaign-content > :not(h1, h2, h3, h4, h5, h6, .hero-campaign-heading, .hero-campaign-subtitle) {
   padding-left: 0;
 }
 
@@ -537,7 +546,7 @@ body.brand-tap .hero-campaign-tap :is(.hero-campaign-prev, .hero-campaign-next, 
     padding: 32px 64px;
   }
 
-  body.brand-tap .hero-campaign-tap .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+  body.brand-tap .hero-campaign-tap .hero-campaign-content :is(h1, h2, h3, h4, h5, h6, .hero-campaign-heading) {
     font-size: 32px;
   }
 
@@ -574,7 +583,7 @@ body.brand-tap .hero-campaign-tap :is(.hero-campaign-prev, .hero-campaign-next, 
     padding: 96px calc(max((100% - 1240px) / 2, 0px) + 64px) 0;
   }
 
-  body.brand-tap .hero-campaign-tap .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+  body.brand-tap .hero-campaign-tap .hero-campaign-content :is(h1, h2, h3, h4, h5, h6, .hero-campaign-heading) {
     margin-bottom: 32px;
     font-size: calc(64px * var(--a11y-scale, 1));
   }
@@ -1197,6 +1206,13 @@ body.brand-tap main > .section.extra-alert:first-of-type:not(.breadcrumb-contain
   margin-top: 0;
 }
 
+/* the same for the stage when it is the homepage's first section (de-de, es-es, it-it, pl-pl, pt-br,
+   en-us: no link strip first): www's stage right under the alerts bar (and the header's room on
+   phones), ours was 25 px lower at 1440 and 390 (brief 480, row 119) */
+body.brand-tap header.tap-home ~ main > .section:first-of-type:not(.breadcrumb-container):has(> .hero-campaign-wrapper) {
+  margin-top: 0;
+}
+
 body.brand-tap main > .section.extra-alert > .columns-wrapper {
   max-width: none;
   padding: 8px 16px;
@@ -1278,7 +1294,7 @@ body.brand-tap .columns-media.stack {
   gap: 16px;
 }
 
-body.brand-tap .columns-media.stack > .columns-media-row {
+body.brand-tap .columns-media.stack .columns-media-row {
   --tap-card-panel: #fcfcfc;
   --tap-card-accent: #e0dfe2;
 
@@ -1293,18 +1309,28 @@ body.brand-tap .columns-media.stack > .columns-media-row {
   box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
 
-body.brand-tap .columns-media.stack > .columns-media-row:nth-child(4n + 1) {
+/* the tones by place; in the pin (brief 480) by the class columns-media-tap.js gives each card */
+body.brand-tap .columns-media.stack > .columns-media-row:nth-child(4n + 1),
+body.brand-tap .columns-media.stack .columns-media-row.columns-media-tone-1 {
   --tap-card-panel: #f5fff0;
   --tap-card-accent: #65c922;
 }
 
-body.brand-tap .columns-media.stack > .columns-media-row:nth-child(4n + 2) {
+body.brand-tap .columns-media.stack > .columns-media-row:nth-child(4n + 2),
+body.brand-tap .columns-media.stack .columns-media-row.columns-media-tone-2 {
   --tap-card-accent: #bfd730;
 }
 
-body.brand-tap .columns-media.stack > .columns-media-row:nth-child(4n) {
+body.brand-tap .columns-media.stack > .columns-media-row:nth-child(4n),
+body.brand-tap .columns-media.stack .columns-media-row.columns-media-tone-4 {
   --tap-card-panel: #fff;
   --tap-card-accent: #1e5227;
+}
+
+/* a third card after the pin is its block's second child: its own tone, not the second's */
+body.brand-tap .columns-media.stack .columns-media-row.columns-media-tone-3 {
+  --tap-card-panel: #fcfcfc;
+  --tap-card-accent: #e0dfe2;
 }
 
 body.brand-tap .columns-media.stack .columns-media-row > .columns-media-media {
@@ -1434,27 +1460,14 @@ body.brand-tap .columns-media.stack .columns-media-text a.button.secondary:hover
 }
 
 @media (width >= 1024px) {
+  /* from 1024 px a column 16 px apart (www's mt-4); the pin from 1280 px below (brief 480) */
   body.brand-tap .columns-media.stack {
-    gap: 32px;
+    gap: 16px;
   }
 
-  body.brand-tap .columns-media.stack > .columns-media-row {
-    position: sticky;
-    top: 48px;
+  body.brand-tap .columns-media.stack .columns-media-row {
     flex-direction: row;
     height: 580px;
-  }
-
-  body.brand-tap .columns-media.stack > .columns-media-row:nth-child(2) {
-    top: 78px;
-  }
-
-  body.brand-tap .columns-media.stack > .columns-media-row:nth-child(3) {
-    top: 108px;
-  }
-
-  body.brand-tap .columns-media.stack > .columns-media-row:nth-child(n + 4) {
-    top: 138px;
   }
 
   body.brand-tap .columns-media.stack .columns-media-row > .columns-media-text {
@@ -1510,6 +1523,42 @@ body.brand-tap .columns-media.stack .columns-media-text a.button.secondary:hover
 
   body.brand-tap .columns-media.stack .columns-media-text :is(h2, h3) + h2 {
     font-size: 20px;
+  }
+}
+
+/* the Miles&Go cards pinned as www's (brief 480, row 115: www's GSAP pin from 1280 px, xl): on phones
+   and to 1279 px the cards a column (16 px apart from 1024 px); the pin (blocks/columns-media/
+   columns-media-tap.js) holds every card but the last, a column too below 1280 px. From 1280 px the
+   pin a box of 580 + 1000 px (www's pin-spacer: 1580 px whatever the cards), its cards sticky at
+   160 px (the 580 px card in the middle of a 900 px window), each a step below the one before (the
+   step: 1000 px over the steps), so the next one slides over the one before; the last card right
+   after the box (www's mt-0) */
+body.brand-tap .columns-media.stack > .columns-media-pin {
+  display: flex;
+  flex-direction: column;
+  gap: inherit;
+}
+
+@media (width >= 1280px) {
+  body.brand-tap .columns-media.stack {
+    gap: 0;
+  }
+
+  body.brand-tap .columns-media.stack > .columns-media-pin {
+    display: flex;
+    flex-direction: column;
+    height: 1580px;
+    gap: 0;
+  }
+
+  body.brand-tap .columns-media.stack > .columns-media-pin > .columns-media-row {
+    position: sticky;
+    top: 160px;
+    flex: none;
+  }
+
+  body.brand-tap .columns-media.stack > .columns-media-pin > .columns-media-row + .columns-media-row {
+    margin-top: calc(var(--columns-media-pin-step) - 580px);
   }
 }
 
@@ -2164,7 +2213,7 @@ body.brand-tap .hero-campaign-tap .hero-campaign-slide.narrow {
 /* the inner slider's text as www's swiper (pt-pt/miles-and-go and its partners page at 1440 and
    390; round 3): the title whole (the homepage stage's two-line clamp would cut www's three-line
    titles), 24 px to the lead and to the button, 56 px from the slide's top on phones */
-body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content :is(h1, h2, h3, h4, h5, h6, .hero-campaign-heading) {
   display: block;
   margin-bottom: 24px;
   overflow: visible;
@@ -2180,14 +2229,14 @@ body.brand-tap .hero-campaign-tap.narrow .hero-campaign-inner {
 }
 
 /* a slide without a lead: www's empty lead keeps its 24 px (the button 48 px under the title) */
-body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content > :is(h1, h2, h3, h4, h5, h6) + .hero-campaign-cta {
+body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content > :is(h1, h2, h3, h4, h5, h6, .hero-campaign-heading) + .hero-campaign-cta {
   padding-top: 24px;
 }
 
 /* on phones the banner's title 32 px and its lead Inter 20 / 30 (row 37; the homepage stage's
    are 24 and 18) */
 @media (width < 1024px) {
-  body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+  body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content :is(h1, h2, h3, h4, h5, h6, .hero-campaign-heading) {
     font-size: calc(32px * var(--a11y-scale, 1));
   }
 
@@ -2241,7 +2290,7 @@ body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content > :is(h1, h2, h3
     padding: 64px 60px 0;
   }
 
-  body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content :is(h1, h2, h3, h4, h5, h6) {
+  body.brand-tap .hero-campaign-tap.narrow .hero-campaign-content :is(h1, h2, h3, h4, h5, h6, .hero-campaign-heading) {
     max-width: 512px;
     margin-bottom: 24px;
     font-size: calc(48px * var(--a11y-scale, 1));
@@ -2563,6 +2612,15 @@ body.brand-tap .cards:is(.three-up, .two-up) .cards-card-body > :is(h2, h3, h4):
   line-height: 1.2;
 }
 
+/* the FAQ's title closing its section, the panel in the next: 32 px between them from 1025 px, not
+   the sections' 64 (www's heading wrapper md:-mb-8; help centre, ajuda and every version: the
+   contacts 32 px lower than www's before; brief 480, row 118). Phones as before (www's 0 there) */
+@media (width >= 1025px) {
+  body.brand-tap main > .section:has(> .default-content-wrapper:last-child > :is(h2, h3):last-child):has(+ .section > .accordion-columns-wrapper:first-child > .accordion-columns.faq) {
+    margin-bottom: 32px;
+  }
+}
+
 /* the FAQ accordions (row 28): www's panel #fcfcfc, 32 px corners and 16 / 32 px inside (16 px
    and 16 on phones; the panel's rule near the top), the questions Inter 16 / 24 semibold 12 px high, a line between them only,
    a dark green chevron at the right */
@@ -2791,6 +2849,15 @@ body.brand-tap .cards-teaser > ul > li:has(> .cards-teaser-body > p:not(.cards-t
   overflow: hidden;
   border-radius: 16px;
   box-shadow: 0 8px 16px rgb(0 0 0 / 10%);
+}
+
+/* two to a row: the rows 24 px apart from 768 px, as www's gap-6 (the cards' 16 px margins aside;
+   cards-teaser.css's 66 px is lufthansa.com's): promos' offers, the second row 43 px lower before
+   (brief 480, row 120) */
+@media (width >= 768px) {
+  body.brand-tap .cards-teaser:not(.three-up, .four-up, .phone-slider) > ul:has(> li > .cards-teaser-body > p:not(.cards-teaser-cta)) {
+    row-gap: 24px;
+  }
 }
 
 body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-image {

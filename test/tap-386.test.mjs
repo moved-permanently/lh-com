@@ -38,14 +38,14 @@ test('row 66: the call-back card\'s title without its line break up to 600 px, a
 
 test('round 3: the inner slider\'s text as www\'s swiper (titles whole, 48 / 48 in 512 px from 1024 px, 24 px apart)', () => {
   // the homepage stage keeps its two-line clamp; the inner slider shows the whole title
-  assert.match(css, /body\.brand-tap \.hero-campaign-tap\.narrow \.hero-campaign-content :is\(h1, h2, h3, h4, h5, h6\) \{\s*display: block;\s*margin-bottom: 24px;\s*overflow: visible;\s*-webkit-line-clamp: none;\s*\}/);
+  assert.match(css, /body\.brand-tap \.hero-campaign-tap\.narrow \.hero-campaign-content :is\(h1, h2, h3, h4, h5, h6, \.hero-campaign-heading\) \{\s*display: block;\s*margin-bottom: 24px;\s*overflow: visible;\s*-webkit-line-clamp: none;\s*\}/);
   assert.match(css, /body\.brand-tap \.hero-campaign-tap\.narrow \.hero-campaign-content > \.hero-campaign-subtitle \{\s*margin-bottom: 24px;\s*\}/);
   assert.match(css, /body\.brand-tap \.hero-campaign-tap\.narrow \.hero-campaign-inner \{\s*padding-top: 56px;\s*\}/);
   // a slide without a lead: www keeps the lead's empty line's 24 px (the button 48 px under the title)
-  assert.match(css, /body\.brand-tap \.hero-campaign-tap\.narrow \.hero-campaign-content > :is\(h1, h2, h3, h4, h5, h6\) \+ \.hero-campaign-cta \{\s*padding-top: 24px;\s*\}/);
+  assert.match(css, /body\.brand-tap \.hero-campaign-tap\.narrow \.hero-campaign-content > :is\(h1, h2, h3, h4, h5, h6, \.hero-campaign-heading\) \+ \.hero-campaign-cta \{\s*padding-top: 24px;\s*\}/);
   const wide = css.slice(css.indexOf('@media (width >= 1024px) {\n  body.brand-tap .hero-campaign.narrow:not(.slider),'));
   assert.match(wide, /body\.brand-tap \.hero-campaign-tap\.narrow \.hero-campaign-inner \{\s*padding: 64px 60px 0;\s*\}/);
-  assert.match(wide, /body\.brand-tap \.hero-campaign-tap\.narrow \.hero-campaign-content :is\(h1, h2, h3, h4, h5, h6\) \{\s*max-width: 512px;\s*margin-bottom: 24px;\s*font-size: calc\(48px \* var\(--a11y-scale, 1\)\);\s*line-height: 1;\s*\}/);
+  assert.match(wide, /body\.brand-tap \.hero-campaign-tap\.narrow \.hero-campaign-content :is\(h1, h2, h3, h4, h5, h6, \.hero-campaign-heading\) \{\s*max-width: 512px;\s*margin-bottom: 24px;\s*font-size: calc\(48px \* var\(--a11y-scale, 1\)\);\s*line-height: 1;\s*\}/);
 });
 
 test('round 3: the info card as wide as its content up to 790 px, its two links side by side', () => {

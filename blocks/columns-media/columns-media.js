@@ -1,4 +1,4 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
+import { createOptimizedPicture, getMetadata } from '../../scripts/aem.js';
 import { getLocale } from '../../scripts/locale.js';
 import {
   resolveLabels, cleanText, decorateExternalLinks, keepImageSize,
@@ -304,5 +304,10 @@ export default async function decorate(block) {
   nameImageLinks(block);
   decorateExternalLinks(block);
   if (block.classList.contains('band')) trackViewport(block);
+  // brand tap: the homepage's Miles&Go cards pinned as www's (./columns-media-tap.js, brief 480)
+  if (block.classList.contains('stack') && getMetadata('brand').trim().toLowerCase() === 'tap') {
+    const { pinStack } = await import('./columns-media-tap.js');
+    pinStack(block);
+  }
   if (block.querySelector('.media-video, .media-embed')) await loadMediaStyles();
 }

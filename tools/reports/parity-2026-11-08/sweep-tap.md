@@ -140,3 +140,28 @@ brief 462's market sections or DA's edits, so a re-import must not rewrite them)
 - **ema-test, hotline-finder:** pt-br's help lists three contact groups (Miles&Go, Contact Center, TAP Partner) where
   www shows one: +439 px at 1440. On every help page the contacts' picture is 32 px lower than www's at 1440.
 - **Not ours to fix:** www's baggage pages keep about 400 px empty for the LUGGit widget (ours links to www there).
+
+## Brief 480: the causes in the other agents' files, scoped to TAP (parity.md rows 115 to 120)
+
+Measured on the local dev server with this tree's code and lh-tap's preview content, against this sweep's www
+captures (no new www page read):
+
+| Page | Width | Before (ours) | After | www |
+| --- | ---: | --- | --- | --- |
+| /pt-pt (Miles&Go pin, row 115) | 1440 | 4,836 px | 4,580 px | 4,621 px |
+| /de-de (pin; stage 25 px, row 119) | 1440 | 4,197 px, pixels 28.6 % | 4,528 px, 18.8 %, the title 8 px from www's | 4,596 px |
+| /de-de (stage, row 119) | 390 | the title 29 px lower, 30.7 % | 4 px, 20.5 % | |
+| /pt-br (stage) | 390 | 31 px lower, 30.5 % | 6 px, 21.2 % | |
+| /fr-fr/miles-and-go (one-slide banner, row 117) | 1440 | -7.7 %, banner 1,120 x 305 | -3 %, 1,176 x 404 at www's place | |
+| /en-pt/help, /pt-pt/ajuda (FAQ gap, row 118) | 1440 | the contacts 32 px lower | at www's place; pt-pt 3 % pixels | |
+| /en-pt/promos (two-up rows, row 120) | 1440 | the second row 43 px lower, 11.6 % | 1 px, 8.1 % | |
+
+Corrections to the list above: pt-br help's "three contact groups where www shows one" was www's contacts finder still
+loading in the capture (its grey placeholders); en-pt's capture shows www's groups as ours. "The contacts' picture 32
+px lower" was the FAQ's title gap (row 118), not the finder.
+
+Left: the homepages' pixels (www's pin drawn as one still card in a full-page capture, the stage's slide at the
+capture); the Miles&Go banner's title wrap on phones (en-pt, pt-br: 25 px); the legal hubs' phone picture (www's
+mobile crop; ours the desktop picture: a default-content picture has no art direction) and the hub's one-line tile
+labels (cards-icon, ema-test's).
+

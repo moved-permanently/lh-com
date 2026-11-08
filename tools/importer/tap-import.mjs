@@ -652,7 +652,9 @@ const HANDLERS = {
   ComponentBannerCarouselModel: (s, P) => {
     const slides = s.slides || [];
     P.section();
-    P.block(slides.length > 1 ? 'hero-campaign (slider, narrow)' : 'hero-campaign (narrow)', slideRows(slides, P));
+    // one slide the slider too: www draws it as several, without the controls (fr-fr, de-de, es-es
+    // miles-and-go: 1,176 x 404 with the wedge; hero-campaign-tap.js hero-campaign-single; brief 480)
+    P.block('hero-campaign (slider, narrow)', slideRows(slides, P));
     P.section();
   },
   ComponentHeroCardModel: (s, P, i) => {
