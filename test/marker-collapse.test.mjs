@@ -11,7 +11,10 @@ import {
 } from '../tools/importer/marker-collapse.mjs';
 
 const PIC = '<picture><img src="./media_1.jpg" alt="Lisbon at dusk"></picture>';
-const run = (html, opts = {}) => collapseHtml(html, { path: '/de/en/x', parse: parseHTML, ...opts });
+// a site's pass (force): no brand's theme is live yet (test/marker-collapse-live-501.test.mjs)
+const run = (html, opts = {}) => collapseHtml(html, {
+  path: '/de/en/x', parse: parseHTML, force: true, ...opts,
+});
 const out = (html, opts) => run(html, opts).html;
 const meta = (style) => `<div class="section-metadata"><div><div>Style</div><div>${style}</div></div></div>`;
 const MARKER = /\{(?:heading-|copytext-|full-width|limited-width|column-|caption|parallax|narrow|indent-|spacer|divider|autoplay|muted|loop|controls|round-play-button|size-|mobile|selected|cart|small|blank)[^}]*\}/;
@@ -134,11 +137,11 @@ test('idempotent, and no marker left', () => {
 test('the importers\' table form: blocks as tables, sections between <hr>, new options in the table\'s name', () => {
   const { document } = parseHTML('<html><body><main><div class="contentpage-wrapper"><div><p>{spacer-60}</p><h2>A {heading-small}</h2><p>Text</p><p>{divider-25}</p><table><tr><th colspan="2">Columns Media (padded)</th></tr><tr><td><p>x</p></td><td><p>y</p></td></tr></table><hr><p>B</p><p>{spacer-120}</p><p>C</p></div></div><hr><table><tr><th colspan="2">Metadata</th></tr><tr><td>Title</td><td>t</td></tr></table></main></body></html>');
   const main = document.querySelector('main');
-  collapseMain(main, { path: '/de/en/x', document });
+  collapseMain(main, { path: '/de/en/x', document, force: true });
   // the page's wrappers read through (Markdown does), new and changed blocks as WebImporter writes them, the rest as it was
   assert.equal(main.innerHTML, '<h2>A</h2><p>Text</p><table><thead><tr><th colspan="2">Columns Media (padded, divider-above)</th></tr></thead><tbody><tr><td><p>x</p></td><td><p>y</p></td></tr></tbody></table><table><thead><tr><th colspan="2">Section Metadata</th></tr></thead><tbody><tr><td>Style</td><td>space-m</td></tr></tbody></table><hr><p>B</p><table><thead><tr><th>Spacer (l)</th></tr></thead><tbody><tr><td></td></tr></tbody></table><p>C</p><hr><table><tr><th colspan="2">Metadata</th></tr><tr><td>Title</td><td>t</td></tr></table>');
   const plain = parseHTML('<html><body><main><div class="w"><p>No markers</p><table><tr><th>Cards</th></tr></table></div></main></body></html>').document;
   const before = plain.querySelector('main').innerHTML;
-  collapseMain(plain.querySelector('main'), { path: '/de/en/y', document: plain });
+  collapseMain(plain.querySelector('main'), { path: '/de/en/y', document: plain, force: true });
   assert.equal(plain.querySelector('main').innerHTML, before, 'a page without markers as it came');
 });

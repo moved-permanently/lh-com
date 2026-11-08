@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-legal.js
-  var tmp_bundle_legal_1043927_exports = {};
-  __export(tmp_bundle_legal_1043927_exports, {
-    default: () => tmp_bundle_legal_1043927_default
+  var tmp_bundle_legal_1056278_exports = {};
+  __export(tmp_bundle_legal_1056278_exports, {
+    default: () => tmp_bundle_legal_1056278_default
   });
 
   // tools/importer/parsers/video-sizes.js
@@ -1475,6 +1475,7 @@ var CustomImportScript = (() => {
     if (pageType && pageTypes[pageType]) theme = mergeTheme(theme, pageTypes[pageType]);
     return theme;
   }
+  var isThemeLive = (brand) => themeFor(brand || "lufthansa").live === true;
   function pageTypeOf({ path = "", articleHeader = false, themes = "" } = {}) {
     if (articleHeader) return "article";
     if (/^\/[a-z]{2}\/[a-z]{2}\/100-years(\/|$)/.test(path)) return "100-years";
@@ -4267,8 +4268,17 @@ var CustomImportScript = (() => {
         changed: false
       };
     }
-    const back = tableToDiv(main, doc);
     const brand = String(opts.brand || metaValue(main, "brand") || "lufthansa").toLowerCase();
+    if (!opts.force && !isThemeLive(brand)) {
+      return {
+        stats,
+        ids: {},
+        hand,
+        changed: false,
+        skipped: true
+      };
+    }
+    const back = tableToDiv(main, doc);
     if (/^\/content\/mobile\//.test(path)) {
       collapseApp(main, doc, stats);
       if (back) back();
@@ -4484,7 +4494,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_legal_1043927_default = {
+  var tmp_bundle_legal_1056278_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -4523,5 +4533,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_legal_1043927_exports);
+  return __toCommonJS(tmp_bundle_legal_1056278_exports);
 })();

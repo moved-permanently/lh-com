@@ -4059,6 +4059,7 @@ var CustomImportScript = (() => {
     if (pageType && pageTypes[pageType]) theme = mergeTheme(theme, pageTypes[pageType]);
     return theme;
   }
+  var isThemeLive = (brand) => themeFor(brand || "lufthansa").live === true;
   function pageTypeOf({ path = "", articleHeader = false, themes = "" } = {}) {
     if (articleHeader) return "article";
     if (/^\/[a-z]{2}\/[a-z]{2}\/100-years(\/|$)/.test(path)) return "100-years";
@@ -4956,8 +4957,17 @@ var CustomImportScript = (() => {
         changed: false
       };
     }
-    const back = tableToDiv(main, doc);
     const brand = String(opts.brand || metaValue(main, "brand") || "lufthansa").toLowerCase();
+    if (!opts.force && !isThemeLive(brand)) {
+      return {
+        stats,
+        ids: {},
+        hand,
+        changed: false,
+        skipped: true
+      };
+    }
+    const back = tableToDiv(main, doc);
     if (/^\/content\/mobile\//.test(path)) {
       collapseApp(main, doc, stats);
       if (back) back();

@@ -9,7 +9,8 @@
  *
  * Usage: node tools/importer/marker-collapse-cli.mjs --content content-sites/lh-austrian/content
  *          --brand austrian [--out logs/collapse/lh-austrian] [--report logs/collapse/lh-austrian.json]
- *          [--list paths.txt] [--paths changed.txt] [--check]   (--check: no output written, the report only)
+ *          [--list paths.txt] [--paths changed.txt] [--check] [--force]   (--check: no output written,
+ *          the report only; --force: a brand whose theme isn't live yet, its pass)
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -22,6 +23,9 @@ const content = opt('content');
 const brand = opt('brand', 'lufthansa');
 const outDir = opt('out', '');
 const check = argv.includes('--check');
+// a site's collapse pass, its brand's theme going live in the same release (without: a brand that
+// isn't live keeps its markers, as the importers do)
+const force = argv.includes('--force');
 const listFile = opt('list', '');
 if (!content) {
   console.error('usage: marker-collapse-cli.mjs --content <dir> --brand <brand> [--out <dir>] [--report <file>] [--check]');
@@ -49,7 +53,9 @@ files.forEach((f) => {
   const docPath = `/${path.relative(content, f).replace(/\.plain\.html$/, '')}`;
   const html = fs.readFileSync(f, 'utf8');
   try {
-    const r = collapseHtml(html, { path: docPath, brand, parse: parseHTML });
+    const r = collapseHtml(html, {
+      path: docPath, brand, parse: parseHTML, force,
+    });
     Object.entries(r.stats).forEach(([kind, fam]) => Object.entries(fam).forEach(([k, n]) => {
       report.families[kind][k] = (report.families[kind][k] || 0) + n;
     }));
@@ -114,7 +120,9 @@ results.forEach((res, docPath) => {
   const { document } = parseHTML(`<main>${res.html}</main>`);
   const left = [...document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li')].filter((el) => LEFT.test(el.textContent));
   if (left.length && !docPath.startsWith('/content/mobile/')) report.left.push(`${docPath}: ${left.slice(0, 3).map((el) => el.textContent.trim().slice(-60)).join(' | ')}`);
-  const again = collapseHtml(res.html, { path: docPath, brand, parse: parseHTML }).html;
+  const again = collapseHtml(res.html, {
+    path: docPath, brand, parse: parseHTML, force,
+  }).html;
   if (again !== res.html) report.notIdempotent.push(docPath);
   if (outDir && !check) {
     const target = path.join(outDir, `${docPath}.plain.html`);

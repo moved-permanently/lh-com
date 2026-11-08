@@ -48,13 +48,16 @@
  *   are rewritten; collapseHtml returns the map for links from other documents
  *   (marker-collapse-cli.mjs rewrites those).
  *
- * Usage (DOM): collapseMain(main, { path, brand, document }) -> { stats, ids, hand }
- *        (HTML): collapseHtml(html, { path, brand, parse }) -> { html, stats, ids, hand }
+ * Only for a brand whose theme is live (THEMES[brand].live): until its switch, the importers' last step
+ * leaves the markers (an import as before); a site's collapse pass forces it in the same release.
+ *
+ * Usage (DOM): collapseMain(main, { path, brand, document, force }) -> { stats, ids, hand }
+ *        (HTML): collapseHtml(html, { path, brand, parse, force }) -> { html, stats, ids, hand }
  */
 import {
   HEADING_TOKENS, PARAGRAPH_TOKENS, LIST_TOKENS, VIDEO_SETTINGS, VIDEO_SIZE, SEPARATOR, BLANK_LINE,
   APP_SPACER, APP_SMALL, HEADING_SIZES, sizeSteps, themeFor, pageTypeOf, isImageParagraph, NAV_ROLES,
-  readNavRole,
+  readNavRole, isThemeLive,
 } from '../../scripts/style-markers.js';
 import { readHeaderTexts } from '../../blocks/form/form-rules.js';
 
@@ -895,8 +898,15 @@ export function collapseMain(main, opts = {}) {
       stats, ids: {}, hand, changed: false,
     };
   }
-  const back = tableToDiv(main, doc);
   const brand = String(opts.brand || metaValue(main, 'brand') || 'lufthansa').toLowerCase();
+  // until the brand's theme is live (scripts/style-markers.js isThemeLive, the one switch) the markers
+  // stay: an import comes out as before; a site's collapse pass forces it (marker-collapse-cli --force)
+  if (!opts.force && !isThemeLive(brand)) {
+    return {
+      stats, ids: {}, hand, changed: false, skipped: true,
+    };
+  }
+  const back = tableToDiv(main, doc);
   if (/^\/content\/mobile\//.test(path)) {
     collapseApp(main, doc, stats);
     if (back) back();

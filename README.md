@@ -158,8 +158,10 @@ The markers above are being replaced by carriers that need no style words in the
 steps). Step 1, the readers, and step 2, the collapse, are in place: `tools/importer/marker-collapse.mjs`
 (HTML in, HTML out, idempotent; the rules in its header) turns a document's markers into the theme's
 defaults or the carriers below; every generated import script calls it as its last step and every
-site importer (`tools/importer/*-import.mjs`, through `collapse-docs.mjs`) after its own steps, so no
-import writes markers. `tools/importer/marker-collapse-cli.mjs --content <dir> --brand <brand> --check`
+site importer (`tools/importer/*-import.mjs`, through `collapse-docs.mjs`) after its own steps. It only
+collapses for a brand whose theme is live (`THEMES[brand].live`, `isThemeLive`): until a brand's switch
+its imports keep writing markers exactly as before; the site's collapse pass (`--force`) and the switch
+ship in the same release. `tools/importer/marker-collapse-cli.mjs --content <dir> --brand <brand> --force --check`
 reports what it would do to a site's local documents; the harness runs it on DA per site. A brand's
 theme rules go live (`THEMES[brand].live`, `body.theme-live`) with its collapse pass. Data placeholders (`{origin}`, `{COUNT}`, `{lang}`, a form pattern's `{1,3}`) are
 content and stay. One module reads all of it for the site and lh-edge: `scripts/style-markers.js`

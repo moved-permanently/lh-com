@@ -197,6 +197,14 @@ export function themeFor(brand, pageType = '') {
 }
 
 /**
+ * Whether a brand's theme is live (THEMES[brand].live: the one switch; it goes on in the same
+ * release as the brand's collapse pass). Until then the importers keep writing markers
+ * (tools/importer/marker-collapse.mjs).
+ * @param {string} brand
+ */
+export const isThemeLive = (brand) => themeFor(brand || 'lufthansa').live === true;
+
+/**
  * A page's type for the theme: 'article' (an Article Header), '100-years' (lufthansa.com's
  * anniversary pages), 'flow' (Theme flow-spacing: the info pages), 'home' (a homepage or a market
  * root), else 'service' (the content pages).
