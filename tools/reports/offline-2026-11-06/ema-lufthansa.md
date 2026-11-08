@@ -2125,3 +2125,12 @@ output (the documents on preview) decides only one:
 They are not on reimport-503-airdolomiti.txt. A re-import is harmless either way: the importer decides
 from www's data and notes "H1 from its title, hidden" where it applies.
 
+### 5. Discover at desktop width (Discover row 38): a phone-only rule
+
+- **Measured by:** where the footer starts (the content above it) against discover-parity-001. The
+  footer itself is ema-adobe's and 166 to 190 px off at 1440, so total height misled.
+- **At 1440:** the 36 px on the marker paragraphs stand where www's column views have their space.
+  Without them, 10 of 14 views moved away (check-in +1.9 -> -2.5 %), so they stay.
+- **At 390:** without them, 10 of 14 views come closer (check-in +6.3 -> +2.4 %).
+- **Shipped:** the change below 768 px only; every 1440 view is the same. The numbers are in row 38.
+

@@ -582,6 +582,15 @@ body.brand-discover main :is(.default-content-wrapper, .columns-media-text, .acc
   margin-bottom: 36px;
 }
 
+/* row 38 (the brief after 505): on phones not the paragraphs that carry only a marker (p.column-mark,
+   p.spacer), which got the 36 px too; from 768 px those 36 px stand where www's column views have
+   their space, measured against discover-parity-001 */
+@media (width < 768px) {
+  body.brand-discover main :is(.default-content-wrapper, .columns-media-text, .accordion-columns-panel) > :is(p.column-mark, p.spacer):not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
 /* www's column views: 20 px above and below each row's content on phones, 40 px from 768 px, so
    consecutive rows' texts 40 px and 80 px apart (ours: 39 px at every width) */
 body.brand-discover main .columns-media-wrapper + .columns-media-wrapper {
