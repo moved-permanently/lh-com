@@ -717,6 +717,20 @@ body.brand-ita main > .section.with-aside > .breadcrumb-wrapper:first-child {
   }
 }
 
+/* the brief after 479: content in sections of its own after a picture's (it/en online check-in, the
+   market passes' document, with style sidebar-part on the sections between the h1's and the Quick
+   Links'): the joined section opens with the h1's part; www's picture margin (34 px) and the
+   sidebar's padding (40 px, 20 below 768 px) against our 48 px section gap */
+body.brand-ita main > .section.with-aside:has(> .section-part:first-child > .default-content-wrapper:first-child > h1:first-child) {
+  padding-top: 6px;
+}
+
+@media (width >= 768px) {
+  body.brand-ita main > .section.with-aside:has(> .section-part:first-child > .default-content-wrapper:first-child > h1:first-child) {
+    padding-top: 26px;
+  }
+}
+
 /* online check-in's seat teaser beside the box (columns-media grey; www's two-column view,
    container-gray full-width-bg in the sidebar's content, ita-parity-002): #f8f8f9 to the screen's
    edges below 768 px, from the screen's left edge to the column's end from 768 px (x 0 to 1026 at
