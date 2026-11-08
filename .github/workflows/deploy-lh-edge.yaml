@@ -22,6 +22,8 @@ on:
       - 'scripts/market-rules.js'
       # and the article helpers (web pages as SDUI: date line, related articles)
       - 'scripts/articles.js'
+      # and the style markers web pages as SDUI leave out of their text (src/sdui-web.js)
+      - 'scripts/style-markers.js'
       # and the turnsthe.page brand list (the head-URL rewrite)
       - 'scripts/demo.js'
       # and the brands' favicons and manifests (src/brand-icons.js)
