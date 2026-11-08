@@ -89,6 +89,20 @@ export function contactFormHref(reason, subreason, lang = 'en', { dialog = false
   return `${form}?${new URLSearchParams({ reason, subreason }).toString().replace(/\+/g, '%20')}`;
 }
 
+/**
+ * www's contact form links (/support-and-contact?reason=&subreason=: the form as a dialog over
+ * Support & Contact, brief 490): our Support & Contact of the language with the same query; its
+ * metadata Dialog On Query opens the form's dialog with both (scripts/fragment-dialog.js).
+ */
+export function supportHref(reason, subreason, lang = 'en') {
+  const page = `/${lang === 'de' ? 'de' : 'en'}/support-and-contact`;
+  if (!reason || !subreason) return page;
+  return `${page}?${new URLSearchParams({ reason, subreason }).toString().replace(/\+/g, '%20')}`;
+}
+
+/** Support & Contact's metadata Dialog On Query: the form's dialog and its parameters. */
+export const SUPPORT_DIALOG_QUERY = `${contactDialog()} reason subreason`;
+
 const GERMAN = {
   ä: 'ae', ö: 'oe', ü: 'ue', Ä: 'ae', Ö: 'oe', Ü: 'ue', ß: 'ss',
 };

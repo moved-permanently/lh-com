@@ -42,6 +42,24 @@ export function isDialogLink(a) {
   }
 }
 
+const FOCUSABLE = 'a[href], button, input, select, textarea, [tabindex]';
+
+/**
+ * The controls Tab reaches in a dialog, in order: not hidden fields, not in a hidden part (the
+ * form's rows for another reason), not disabled, not tabindex -1, rendered (brief 490: the
+ * contact form's hidden controls made Tab leave its dialog).
+ * @param {Element} root
+ * @returns {Element[]}
+ */
+export function focusables(root) {
+  return [...root.querySelectorAll(FOCUSABLE)].filter((n) => {
+    if (n.getAttribute('tabindex') === '-1' || n.hasAttribute('disabled')) return false;
+    if (n.tagName === 'INPUT' && (n.getAttribute('type') || '').toLowerCase() === 'hidden') return false;
+    if (n.closest('[hidden], [inert]')) return false;
+    return typeof n.checkVisibility !== 'function' || n.checkVisibility();
+  });
+}
+
 /** styles/fragment-dialog.css, once (from the first link on the page, else the first open) */
 function ensureStyles() {
   if (cssLoaded || !window.hlx) return;
@@ -97,7 +115,7 @@ export async function openFragmentDialog(path, trigger, { load = loadDocument, s
   // browser's own controls
   dialog.addEventListener('keydown', (e) => {
     if (e.key !== 'Tab') return;
-    const nodes = [...dialog.querySelectorAll('a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])')];
+    const nodes = focusables(dialog);
     const first = nodes[0];
     const last = nodes[nodes.length - 1];
     if (e.shiftKey ? document.activeElement === first : document.activeElement === last) {
@@ -119,6 +137,46 @@ export async function openFragmentDialog(path, trigger, { load = loadDocument, s
 }
 
 /**
+ * A page that opens a dialog from its address (brief 490: www opens Cargo's contact form over
+ * Support & Contact for /support-and-contact?reason=&subreason=): the page's metadata Dialog On
+ * Query names the dialog's document and the query's parameters ("/modals/contact-us reason
+ * subreason"). An address with every one of them opens the document as a dialog with the query
+ * (the focus returns to the page's h1); a link to the page itself with them opens it in place.
+ * @param {Document} doc
+ * @param {{open?: Function, url?: URL}} [options] open: openFragmentDialog; url: the address
+ */
+export function openDialogOnQuery(doc = document, options = {}) {
+  const { open = openFragmentDialog, url = new URL(window.location.href) } = options;
+  const meta = doc.querySelector('meta[name="dialog-on-query"]');
+  const [path, ...params] = ((meta && meta.getAttribute('content')) || '').trim().split(/\s+/);
+  if (!path || !MODAL_PATH.test(path) || !params.length) return;
+  const carries = (u) => params.every((p) => u.searchParams.get(p));
+  if (carries(url)) {
+    const h1 = doc.querySelector('main h1');
+    if (h1 && !h1.hasAttribute('tabindex')) h1.setAttribute('tabindex', '-1');
+    open(path, h1, { search: url.search });
+  }
+  doc.addEventListener('click', (e) => {
+    const a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    const modified = e.metaKey || e.ctrlKey || e.shiftKey || e.altKey;
+    if (e.defaultPrevented || e.button !== 0 || modified) return;
+    let target;
+    try {
+      target = new URL(a.getAttribute('href'), url.href);
+    } catch (err) {
+      return;
+    }
+    const same = target.origin === url.origin && target.pathname === url.pathname;
+    if (!same || !carries(target)) return;
+    e.preventDefault();
+    open(path, a, { search: target.search }).then((dialog) => {
+      if (!dialog) window.location.href = target.href;
+    });
+  });
+}
+
+/**
  * The page's links to /modals/ open their documents as dialogs.
  * @param {Document} doc
  * @param {{open?: Function}} [options] open(path, link, {search}): openFragmentDialog (tests)
@@ -127,6 +185,7 @@ export function initFragmentDialogs(doc = document, { open = openFragmentDialog 
   const links = [...doc.querySelectorAll('a[href*="/modals/"]')].filter(isDialogLink);
   links.forEach((a) => a.setAttribute('aria-haspopup', 'dialog'));
   if (links.length) ensureStyles();
+  openDialogOnQuery(doc, { open });
   let opening = false;
   doc.addEventListener('click', (e) => {
     const a = e.target.closest && e.target.closest('a[href]');

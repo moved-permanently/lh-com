@@ -562,3 +562,23 @@ body.brand-discover .carousel-cards.grid .carousel-cards-slide.carousel-cards-te
 body.brand-discover main .section.column-titles > .default-content-wrapper:has(+ div:not(.default-content-wrapper)) > :is(h2, h3):last-child {
   color: var(--lh-midnight);
 }
+
+/* brief 490 (the sweep on preview against discover-parity-001; customer service and families
+   9.7 to 9.8 % shorter above the footer): text as www's .richtext, paragraphs and lists 36 px
+   apart (margin-bottom: 3.6rem; the token's 28 px is the space between blocks), in default content,
+   the column texts and the accordions' panels */
+body.brand-discover main :is(.default-content-wrapper, .columns-media-text, .accordion-columns-panel) > :is(p, ul, ol):not(:last-child) {
+  margin-bottom: 36px;
+}
+
+/* www's column views: 20 px above and below each row's content on phones, 40 px from 768 px, so
+   consecutive rows' texts 40 px and 80 px apart (ours: 39 px at every width) */
+body.brand-discover main .columns-media-wrapper + .columns-media-wrapper {
+  margin-top: 40px;
+}
+
+@media (width >= 768px) {
+  body.brand-discover main .columns-media-wrapper + .columns-media-wrapper {
+    margin-top: 80px;
+  }
+}

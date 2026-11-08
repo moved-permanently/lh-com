@@ -3616,3 +3616,95 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container:not(:has(h1, 
 }
 
 /* stylelint-enable no-descending-specificity */
+
+/* stylelint-disable no-descending-specificity -- the booking pages' widget (brief 490), after the
+   homepage's and the strip's rules it changes */
+
+/*
+ * the booking pages' widget (the flight search without the strip or overlay options: it
+ * prenotazioni, en booking, de buchung), as www's full-block booking widget (airdolomiti-parity-001):
+ * a white card, 10px corners, 20px inside, www's shadow, 100px above the footer, on phones 10px
+ * further in than the column (30px from the screen's sides). On phones the fields 30px apart and
+ * Search 50px under the flexible dates; from 1025px the trip type stacked (30px apart), the fields
+ * in one row, the flexible dates 22px under them and the 207px button 20px under those (no white
+ * tab or box: the card is the box)
+ */
+body.brand-airdolomiti main .flight-search.airdolomiti:not(.strip, .flight-search-overlay, .standalone) {
+  margin: 0 10px 100px;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 12px 25px rgb(0 0 0 / 10%);
+}
+
+@media (width < 768px) {
+  body.brand-airdolomiti main .flight-search.airdolomiti:not(.strip, .flight-search-overlay, .standalone) .flight-search-form {
+    row-gap: 30px;
+  }
+
+  body.brand-airdolomiti main .flight-search.airdolomiti:not(.strip, .flight-search-overlay, .standalone) .flight-search-dates {
+    row-gap: 30px;
+  }
+
+  body.brand-airdolomiti main .flight-search.airdolomiti:not(.strip, .flight-search-overlay, .standalone) .flight-search-flexible {
+    margin-bottom: 20px;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-airdolomiti main .flight-search.airdolomiti:not(.strip, .flight-search-overlay, .standalone) {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  body.brand-airdolomiti main .flight-search.airdolomiti:not(.strip, .flight-search-overlay, .standalone) .flight-search-form {
+    grid-template:
+      "trip trip trip trip trip" auto
+      "origin dest dep ret trav" auto
+      "flex flex flex flex flex" auto
+      "submit submit . . ." auto
+      "error error error error error" auto
+      / minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    row-gap: 0;
+  }
+
+  body.brand-airdolomiti main .flight-search.airdolomiti:not(.strip, .flight-search-overlay, .standalone) .flight-search-form::before {
+    content: none;
+  }
+
+  body.brand-airdolomiti main .flight-search.airdolomiti:not(.strip, .flight-search-overlay, .standalone) .flight-search-trip-tabs {
+    flex-direction: column;
+    gap: 30px;
+    margin: 0 0 30px;
+  }
+
+  body.brand-airdolomiti main .flight-search.airdolomiti:not(.strip, .flight-search-overlay, .standalone) .flight-search-trip-tab {
+    width: auto;
+    height: auto;
+    padding-left: 0;
+    background-color: transparent;
+  }
+
+  body.brand-airdolomiti main .flight-search.airdolomiti:not(.strip, .flight-search-overlay, .standalone) .flight-search-flexible {
+    margin-top: 22px;
+  }
+
+  body.brand-airdolomiti main .flight-search.airdolomiti:not(.strip, .flight-search-overlay, .standalone) .flight-search-submit {
+    width: 207px;
+    margin-top: 20px;
+  }
+}
+
+
+/* a stage with neither a line nor a button (brief 490: flights in Europe's route map): www's
+   HeroSecond without its bar, the picture alone and 100px under it */
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination:not(:has(.hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow), .hero-card-overlay-cta)) {
+  margin-bottom: 100px;
+  padding-bottom: 0;
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination:not(:has(.hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow), .hero-card-overlay-cta))::after {
+  content: none;
+}
+
+/* stylelint-enable no-descending-specificity */

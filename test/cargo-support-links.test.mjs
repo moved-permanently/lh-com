@@ -70,16 +70,16 @@ test('links: /support-and-contact?reason=&subreason= to the form page of the lin
   // www's German Support & Contact is a page of its own (the English body and form with the German
   // header and footer, cargo-parity-001, brief 417): /de/support-and-contact and /de/contact-us
   const page = new Page('/de/home', 'de', '<html></html>');
-  assert.equal(page.href('/support-and-contact?reason=General request&subreason=Feedback / Complaints'), '/de/contact-us?reason=General%20request&subreason=Feedback%20%2F%20Complaints');
-  assert.equal(page.href('https://www.lufthansa-cargo.com/de/support-and-contact?reason=General%20request&amp;subreason=Other'), '/de/contact-us?reason=General%20request&subreason=Other');
-  assert.equal(page.href('https://www.lufthansa-cargo.com/en/support-and-contact?reason=General%20request&amp;subreason=Other'), '/en/contact-us?reason=General%20request&subreason=Other');
+  assert.equal(page.href('/support-and-contact?reason=General request&subreason=Feedback / Complaints'), '/de/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints');
+  assert.equal(page.href('https://www.lufthansa-cargo.com/de/support-and-contact?reason=General%20request&amp;subreason=Other'), '/de/support-and-contact?reason=General%20request&subreason=Other');
+  assert.equal(page.href('https://www.lufthansa-cargo.com/en/support-and-contact?reason=General%20request&amp;subreason=Other'), '/en/support-and-contact?reason=General%20request&subreason=Other');
   assert.equal(page.href('https://www.lufthansa-cargo.com/de/support-and-contact'), '/de/support-and-contact');
   assert.equal(page.href('/support-and-contact?reason=General request'), '/de/support-and-contact', 'a reason only: the page, as www opens no form');
   assert.equal(page.href('/en/contact-us?reason=a&subreason=b'), '/en/contact-us?reason=a&subreason=b');
   assert.equal(page.href('/de/contact-us?reason=a&subreason=b'), '/de/contact-us?reason=a&subreason=b');
   assert.equal(page.href('https://www.lufthansa-cargo.com/en/contact-cst'), 'https://www.lufthansa-cargo.com/en/contact-cst', 'behind the login: www');
   const en = new Page('/en/home', 'en', '<html></html>');
-  assert.equal(en.href('/support-and-contact?reason=General request&subreason=Feedback / Complaints'), '/en/contact-us?reason=General%20request&subreason=Feedback%20%2F%20Complaints');
+  assert.equal(en.href('/support-and-contact?reason=General request&subreason=Feedback / Complaints'), '/en/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints');
   assert.equal(en.href('/support-and-contact'), '/en/support-and-contact');
 });
 
@@ -111,4 +111,15 @@ test('Support & Contact: an entry behind the portal\'s login ends in :lock: (ins
   const { html } = convert(PAGE, '/en/support-and-contact', 'en');
   assert.match(html, /<a href="https:\/\/www\.lufthansa-cargo\.com\/en\/awb-stock-management">Get a new single AWB or AWB stock\. :lock:<\/a>/);
   assert.equal((html.match(/:lock:/g) || []).length, 1);
+});
+
+// brief 490 (row 22): www opens the form as a dialog over Support & Contact for those links; ours go
+// to Support & Contact with the same query, whose metadata Dialog On Query opens the form's dialog
+// with it (scripts/fragment-dialog.js openDialogOnQuery)
+test('Support & Contact carries metadata Dialog On Query: the form\'s dialog with reason and subreason', () => {
+  const { html } = convert(PAGE, '/en/support-and-contact', 'en');
+  assert.match(html, /<div><div>Dialog On Query<\/div><div>\/modals\/contact-us reason subreason<\/div><\/div>/);
+  // a page without www's topic search: no row
+  const other = convert(PAGE.replace(/<div class="topicSearchWrapper">[\s\S]*?<\/div><\/form>/, '</form>'), '/en/support-and-contact', 'en');
+  assert.ok(!/Dialog On Query/.test(other.html), 'only with the topic finder');
 });

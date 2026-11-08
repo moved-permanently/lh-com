@@ -48,7 +48,7 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import {
-  HOST, sourcePath, edsPath, REDIRECT_ONLY, LANGUAGE_LESS, ADDED_PAGES, CONTACT_FORM, contactForm, contactFormHref, contactDialog,
+  HOST, sourcePath, edsPath, REDIRECT_ONLY, LANGUAGE_LESS, ADDED_PAGES, CONTACT_FORM, contactForm, contactFormHref, contactDialog, supportHref, SUPPORT_DIALOG_QUERY,
 } from './cargo-paths.mjs';
 import { fileKey, edsName, baseName } from './cargo-assets.mjs';
 
@@ -242,11 +242,12 @@ export class Page {
     // our contact form pages and dialogs (no page on www; supportTopics links its entries to the
     // dialogs)
     if ([CONTACT_FORM, contactForm('de'), contactDialog()].includes(p)) return `${p}${u.search}`;
-    // www's contact form links: /support-and-contact?reason=&subreason= opens the form with both,
-    // on the form page of the link's language (a language-less link: this page's)
+    // www's contact form links: /support-and-contact?reason=&subreason= opens the form with both
+    // as a dialog over Support & Contact: our Support & Contact of the link's language (a
+    // language-less link: this page's) with the same query, which opens the form's dialog (brief 490)
     const q = u.searchParams;
     const support = p.match(/^(?:\/([a-z]{2}))?\/support-and-contact$/);
-    if (support && q.get('reason') && q.get('subreason')) return contactFormHref(q.get('reason'), q.get('subreason'), support[1] || this.lang);
+    if (support && q.get('reason') && q.get('subreason')) return supportHref(q.get('reason'), q.get('subreason'), support[1] || this.lang);
     const local = (sp) => {
       // a page in scope that answers 404 on www stays a link to www
       if (capture[sp] && capture[sp].status === 'not-found') return null;
@@ -1469,6 +1470,9 @@ function metadata(document, page) {
   const image = og ? page.file(og) : null;
   if (image) rows.push(['Image', `<picture><img src="${attr(image)}" alt=""></picture>`]);
   rows.push(['Nav', `/${page.lang}/nav`], ['Footer', `/${page.lang}/footer`], ['Language', page.lang]);
+  // Support & Contact (its topic finder): www's form links with reason and subreason open the
+  // form's dialog over it (brief 490)
+  if (page.topicFilter) rows.push(['Dialog On Query', esc(SUPPORT_DIALOG_QUERY)]);
   return rows;
 }
 

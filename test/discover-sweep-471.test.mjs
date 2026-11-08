@@ -23,3 +23,13 @@ test('row 30, brief 482: a re-import writes each of www\'s rows as its own two-u
   assert.ok(new RegExp(`\\} ${esc} \\{ margin-top: 40px; \\}`).test(css), '40px on phones');
   assert.ok(new RegExp(`@media \\(width >= 768px\\) \\{ ${esc} \\{ margin-top: 80px; \\} \\}`).test(css), '80px from 768px');
 });
+
+test('brief 490: text as www\'s .richtext (paragraphs and lists 36 px apart, margin-bottom 3.6rem) in default content, column text and accordion panels; consecutive column rows 40 px apart on phones, 80 px from 768 px (www\'s .column-view: 20 / 40 px above and below each row)', () => {
+  const css = theme();
+  const p = 'body.brand-discover main :is(.default-content-wrapper, .columns-media-text, .accordion-columns-panel) > :is(p, ul, ol):not(:last-child)';
+  const rows = 'body.brand-discover main .columns-media-wrapper + .columns-media-wrapper';
+  const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  assert.ok(new RegExp(`${esc(p)} \\{ margin-bottom: 36px; \\}`).test(css), 'paragraphs 36px');
+  assert.ok(new RegExp(`\\} ${esc(rows)} \\{ margin-top: 40px; \\}`).test(css), 'rows 40px on phones');
+  assert.ok(new RegExp(`@media \\(width >= 768px\\) \\{ ${esc(rows)} \\{ margin-top: 80px; \\} \\}`).test(css), 'rows 80px from 768px');
+});
