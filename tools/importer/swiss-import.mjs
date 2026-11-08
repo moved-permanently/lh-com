@@ -440,7 +440,10 @@ export function withPinnedTeasers(doc, html) {
  * stages had a paragraph and a button the snapshots of 11-02 lack): per hero-campaign block
  * matched by its heading, www's teaser paragraphs (.information .richtext p) and its button
  * (maui-button-link, secondary: a plain link paragraph) after the heading, when the block lacks
- * that text. Blocks with it, and teasers without such text, as they are.
+ * that text. Blocks with it, and teasers without such text, as they are. A button is a link with
+ * its label outside the heading (www's label can be the stage's heading, which the text can name
+ * too: SWISS Wanderlust; in el and it, facts and behind the scenes; brief 503); a missing one goes
+ * after the stage's text.
  * @returns {{doc: string, made: number}}
  */
 export function withTeaserTexts(doc, html) {
@@ -463,11 +466,14 @@ export function withTeaserTexts(doc, html) {
     const www = h && teasers.get(norm(h.textContent).replace(/\s*\{[a-z0-9 -]+\}$/, ''));
     if (!www) return;
     const have = norm(block.textContent);
-    const add = [];
-    www.ps.filter((t) => !have.includes(t)).forEach((t) => add.push(`<p>${esc(t)}</p>`));
-    if (www.button && !have.includes(www.button.text)) add.push(`<p><a href="${www.button.href.replace(/"/g, '&quot;')}">${esc(www.button.text)}</a></p>`);
-    if (!add.length) return;
-    h.insertAdjacentHTML('afterend', add.join(''));
+    const rest = block.cloneNode(true);
+    rest.querySelector('h1, h2, h3').remove();
+    const add = www.ps.filter((t) => !have.includes(t)).map((t) => `<p>${esc(t)}</p>`);
+    const button = www.button && ![...rest.querySelectorAll('a')].some((a) => norm(a.textContent) === www.button.text)
+      ? `<p><a href="${www.button.href.replace(/"/g, '&quot;')}">${esc(www.button.text)}</a></p>` : '';
+    if (!add.length && !button) return;
+    if (add.length) h.insertAdjacentHTML('afterend', add.join(''));
+    if (button) h.parentElement.insertAdjacentHTML('beforeend', button);
     made += 1;
   });
   if (!made) return { doc, made };
