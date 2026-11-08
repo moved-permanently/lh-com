@@ -207,7 +207,7 @@ var CustomImportScript = (() => {
     },
     // Austrian: the paragraph right after the page title is the intro (copytext-large, Portada
     // 18/27); flow pages set their H3s in heading-small (www: 87 % of them)
-    austrian: { rules: ["intro-after-h1"], pageTypes: { flow: { headings: { h3: "heading-small" } } } },
+    austrian: { live: true, rules: ["intro-after-h1"], pageTypes: { flow: { headings: { h3: "heading-small" } } } },
     // Brussels: flow pages set their H3s in heading-small (www: 72 %); a service page's H2s are the
     // default (www: 89 % unmarked, heading-medium; no longer heading-small)
     brussels: { pageTypes: { flow: { headings: { h3: "heading-small" } } } },
