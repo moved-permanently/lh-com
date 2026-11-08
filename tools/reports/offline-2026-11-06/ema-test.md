@@ -1071,3 +1071,105 @@ Rows: Austrian 47 and 48, ITA 16 to 18.
 | 3 | `c6f2c468` | ITA theme: the breadcrumb's 40 / 20 px in a section with the Quick Links | `git revert` |
 | 4 | `207f6234` | Austrian theme: stacked grid cards 68 px apart, the next grid 77 px | `git revert` |
 | 1-4 | this report's commit | rows Austrian 47-48, ITA 16-18; reimport-ita-two-up.txt (872), reimport-austrian-fly-with-austrian.txt (10) | – |
+
+## The brief after 479 (Austrian intro, tab panels, ANA padding, ITA it/en online check-in)
+
+Left uncommitted by 479, and still out of git:
+- `.migration/project.json` and `tools/importer/reports/**`: generated.
+- `content/`, `content-sites/` and `migration-work/`: local documents; DA is the source.
+- `logs/`: scripts, measurements, drafts in logs/p4/s480, DA reads.
+- `/tmp`: the unpacked captures and snapshot sets (lh-parity-002a-d, lh-parity-003, lh-snapshots-061 to -067 and -083, sha256
+  checked against lh-deliveries.json).
+
+Nothing was unpushed.
+
+### 1. The Austrian intro paragraph
+
+The intro already renders at www's size: Portada 400 18 / 27 px at 1440 and 390, as austrian-parity-001's measurements and
+its local render show. Ours matches on 9 live pages at both widths: fly-with-austrian and 8 sampled from part A. The theme
+rule `body.brand-austrian main p.copytext-large` has been on main since 663b69a0. The one difference left was www's letter
+spacing, 0.19 px against ours 0.05 px. The commit adds it, with test/austrian-intro-letter-spacing.test.mjs. Nothing to
+republish. Austrian row 49.
+
+### 2. Tab panels with a sidebar or a video (lufthansa parity row 35)
+
+lufthansa-sections.js makes tab sections for a tab control whose panels hold a sidebar or a video too. A control of text
+only stays profile-tabs'. Test first, in test/importer-tab-sections.test.mjs. A scratch import of xx/it
+passengers-using-wheelchairs (three Tabs) and lufthansa-terminal-muenchen (two Tabs) confirms it.
+
+A scan of the local snapshots finds only these two pages:
+- 1,391 lufthansa.com, 20 SWISS, and the Austrian, Brussels, ITA and B2B ones;
+- SWISS and the brands: none.
+
+Documents: 32 (every locale of the two pages), in `tools/reports/parity-2026-11-08/reimport-lh-com-tab-sections.txt`. The
+harness's own snapshot sets can be checked with the same rule: a maui-tab-control-responsive with a .sidebar, .videoViewer
+or .video and no column view or accordion.
+
+### 3. ANA FAQ: padded AEM sections after unpadded ones (ema-lufthansa's row 42)
+
+A padded AEM section (.section-padding-y-regular) after an unpadded one now opens a section with style padded, on
+lufthansa.com's pages only, as you chose. Exceptions:
+- not for a stage;
+- not after a stage or a grey band;
+- not after an author quote alone in its section, where the cleanup's quote spacers stand for that padding.
+
+Tests first, in test/importer-padded-pairs.test.mjs.
+
+Checked as you asked before the push: the 8 pages were imported from www's de/en snapshots with HEAD's bundles and with
+the new ones, served by local dev servers, and measured with the sweep's settle method. Page height to www's
+(lh-parity-002), old → new:
+
+| page | 1440 | 390 |
+| --- | --- | --- |
+| book-and-manage/flights/ana/faq | -288 → -80 | -78 → +50 |
+| advice-for-travellers-with-special-needs-to-and-from-the-usa | -213 → -109 | -327 → -279 |
+| passengers-using-wheelchairs | -173 → -69 | -157 → -93 |
+| passengers-with-sensory-impairment | -153 → +55 | -185 → -57 |
+| tips-senior-travellers | -422 → -318 | -279 → -215 |
+| 100-years/crane | -104 → -24 | -139 → -99 |
+| discover-lufthansa/new-onboard-experience | -447 → -367 | -369 → -329 |
+| first-class-terminal | +76, unchanged | +140, unchanged |
+
+The first version moved first-class-terminal away from www (+76 → +204 at 1440). Its padded carousel follows an author quote
+alone in its section, whose spacers already stand for the padding, so the rule now leaves that shape out. With that, all 8
+pages are closer to www or unchanged.
+
+Documents: 359 (25 page paths in every locale), in `tools/reports/parity-2026-11-08/reimport-lh-com-padded-sections.txt`.
+The paths come from a scan of the 1,391 local lufthansa.com snapshots (122 files). Scan rule for the harness: an AEM section
+with .section-padding-y-regular, not grey and not a stage, right after one that is neither padded, a stage, grey nor an
+author quote alone.
+
+### 4. ITA it/en online check-in
+
+Proposed: a document change for the harness plus a theme rule, written up in
+`tools/reports/parity-2026-11-08/ita-online-check-in-sidebar-part.md`.
+- **Document:** style sidebar-part on the sections between the h1's and the Quick Links', keeping flush and the Markets
+  rows. section-aside.js then joins them beside the box. dropOtherMarkets runs first, so each root keeps one accordion.
+- **Rule** (in ita.css, test first): a section with the aside whose first part opens with the h1 gets 26 px above it (6 px
+  below 768 px).
+
+Simulated on ita.turnsthe.page (the page's HTML rewritten in flight): h1 y 675 at 1440 and 372 at 390, both www's; the box
+beside the h1. carry-on-baggage has the same split with the breadcrumb in the h1's section, so it is not proposed. ITA
+row 19.
+
+### Hosts checked
+
+- **austrian.turnsthe.page:** the intro on 9 pages at 1440 and 390.
+- **ita.turnsthe.page:** it/en online check-in and carry-on-baggage with the document change simulated, and it/it unchanged.
+- **Local dev servers (ports 3021 / 3022, stopped):** the 8 lufthansa.com drafts.
+- **Local renders:** the Austrian capture's shadow HTML.
+- **DA, read only:** 171 ITA market-pass documents and the online check-in pair.
+- **Scratch imports from the saved snapshots:** xx/it wheelchairs and terminal; the 8 de/en drafts twice.
+
+### Checks (the brief after 479)
+
+- Lint and the full suite in a fresh worktree of 529a1b60 (543 passed), and again on the rebased heads 67b8ad9b and c62fc2a1 after the pulls, which brought TAP, campaign and Brussels code and the import generator's onLoad hook: 548 passed. The bundle conflicts were resolved by rebuilding all bundles from the sources at each step. That also regenerated the other templates' import scripts with that generator, so the onLoad hook is now in every import-*.js.
+- Smoke on all 12 hosts before and after the push (logs/p4/smoke480).
+
+| item | commit | what | rollback |
+| --- | --- | --- | --- |
+| 1 | `a0c57ec9` | Austrian theme: the intro's 0.19 px letter spacing | `git revert` |
+| 2 | `65d4dd55` | lufthansa-sections: tab sections for panels with a sidebar or a video; bundles | `git revert` |
+| 3 | `467626cb`, `b0a16d04` | lufthansa-sections: padded after unpadded (lufthansa.com); bundles | `git revert` |
+| 4 | `c47bdb67` | ITA theme: the h1's space in a joined section with the aside | `git revert` |
+| 1-4 | this report's commit | rows Austrian 49 and ITA 19; reimport-lh-com-tab-sections.txt (32), reimport-lh-com-padded-sections.txt (359), ita-online-check-in-sidebar-part.md | – |
