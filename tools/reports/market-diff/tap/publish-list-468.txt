@@ -1,0 +1,15 @@
+# lh-tap: the American Express card's picture on the three miles-and-go promotions pages (brief 468), in release
+# order. Nothing is published yet. Uploaded to DA (moved-permanently/lh-tap) and previewed on
+# main--lh-tap--moved-permanently.aem.page.
+#
+# The picture: fetched once, 2026-11-07 23:59 UTC, in the market-diff browser from the address www's US pages reference
+# (https://pic.flytap.com/adobe/dynamicmedia/deliver/dm-aid--23792432-d801-4de2-872c-de1c36b5e0ff/
+# lp_cardless_generic_card_1280x7202.jpg?preferwebp=true&quality=75&width=1280): 200, image/webp, 66,578 bytes,
+# sha256 07d2f058fd9a934478049575591504f65db1eaa2ec90c2fd90eb23ba58e740b6 (DA's copy the same).
+#
+# Media
+/media-da/tap/lp-cardless-generic-card-1280x7202-ba76bd33.webp
+# Pages
+/en-pt/miles-and-go/promotions
+/es-es/miles-and-go/promociones
+/pt-pt/miles-and-go/promocoes
