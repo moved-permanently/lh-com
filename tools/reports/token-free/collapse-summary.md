@@ -1,10 +1,10 @@
-# Token-free styling, step 2: the collapse over the local documents (2026-11-08)
+# Token-free styling, step 2: the collapse over the local documents (the brief after 500: 2026-11-08, --force)
 
-`node tools/importer/marker-collapse-cli.mjs --content <site content> --brand <brand> --check`: every local `.plain.html` of the workspace, nothing written. Markers: every token read (a `{full-width column-end}` is two). Theme: the marker goes (the theme draws it, or a near value is the default). Carriers: it becomes a section style, block option, purpose block, video fragment, italic caption, Default cell or Nav Tools role (counted per marker; "written" counts the carriers the documents gain). For a person: listed below.
+`node tools/importer/marker-collapse-cli.mjs --content <site content> --brand <brand> --force --check`: every local `.plain.html` of the workspace, nothing written. Markers: every token read (a `{full-width column-end}` is two). Theme: the marker goes (the theme draws it, or a near value is the default). Carriers: it becomes a section style, block option, purpose block, video fragment, italic caption, Default cell or Nav Tools role (counted per marker; "written" counts the carriers the documents gain). For a person: listed below.
 
 | site | brand | documents | changed | markers | theme | % | carriers (markers) | carriers written | for a person | marker left | not idempotent | errors |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| lh-com | lufthansa | 6854 | 5153 | 35284 | 20173 | 57.2 | 15051 | 12012 | 60 | 4 | 0 | 0 |
+| lh-com | lufthansa | 6854 | 5153 | 35686 | 20844 | 58.4 | 14782 | 11471 | 60 | 4 | 0 | 0 |
 | lh-austrian | austrian | 2363 | 1893 | 18267 | 16108 | 88.2 | 2159 | 1473 | 0 | 0 | 0 | 0 |
 | lh-brussels | brussels | 1633 | 1070 | 5977 | 4643 | 77.7 | 1304 | 968 | 30 | 0 | 0 | 0 |
 | lh-ita | ita | 2492 | 2083 | 18497 | 17382 | 94.0 | 1115 | 631 | 0 | 0 | 0 | 0 |
@@ -15,7 +15,7 @@
 | lh-tap | tap | 383 | 0 | 0 | 0 | - | 0 | 0 | 0 | 0 | 0 | 0 |
 | lh-discover | discover | 30 | 24 | 285 | 239 | 83.9 | 46 | 18 | 0 | 0 | 0 | 0 |
 | lh-b2b | b2b | 678 | 644 | 5185 | 3307 | 63.8 | 1878 | 780 | 0 | 0 | 0 | 0 |
-| all | | 16731 | 11548 | 87657 | 64529 | 73.6 | 23038 | 16418 | 90 | 4 | 0 | 0 |
+| all | | 16731 | 11548 | 88059 | 65200 | 74.0 | 22769 | 15877 | 90 | 4 | 0 | 0 |
 
 ## Per family (all sites)
 
@@ -24,6 +24,7 @@
 | app | 0 | 325 | 0 |
 | caption | 0 | 6322 | 88 |
 | column | 17351 | 270 | 0 |
+| column-page | 0 | 402 | 0 |
 | form | 0 | 140 | 0 |
 | heading | 19164 | 2144 | 0 |
 | heading-aligned | 464 | 0 | 0 |
@@ -31,7 +32,7 @@
 | indent | 571 | 19 | 0 |
 | parallax | 0 | 232 | 0 |
 | quote | 0 | 36 | 0 |
-| separator | 7312 | 7369 | 0 |
+| separator | 7983 | 6698 | 0 |
 | separator-from-768 | 681 | 0 | 0 |
 | separator-in-block | 1 | 0 | 0 |
 | text-size | 1747 | 360 | 0 |
@@ -43,14 +44,15 @@
 | carrier | count |
 | --- | --- |
 | italic caption | 6322 |
-| block divider | 1848 |
 | block spacer | 1409 |
 | section style wide-text | 1236 |
-| section style divider | 1166 |
+| block divider | 1228 |
+| section style divider | 1174 |
 | section style space-below-m | 729 |
-| block option divider-above | 555 |
+| block option divider-above | 508 |
 | section style space-m | 487 |
 | section style h2-compact | 374 |
+| section style parallax | 250 |
 | section style space-below-l | 227 |
 | section style small-print | 213 |
 | block app-spacer medium | 201 |
@@ -60,7 +62,6 @@
 | section style padded | 143 |
 | form Default | 140 |
 | block option title-large | 134 |
-| section style parallax | 132 |
 | block option title-compact | 111 |
 | block spacer l | 83 |
 | section style space-l | 75 |

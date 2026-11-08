@@ -1578,3 +1578,125 @@ Hosts: local only. localhost:3020 for the render sample (nothing on the turnsthe
 | --- | --- | --- | --- |
 | 1 | `57ce29bc` | the size token in the shared list, lh-edge's app JSON and the loc check | `git revert` |
 | 2 | `ac3ff61f` | marker-collapse.mjs, its CLI, collapse-docs.mjs, every import's last step, step 1's new readers, bundles, docs | `git revert` (no document changed) |
+
+## The brief after 500 (the import gate; theme rules for fewer exceptions; ITA's pass check)
+
+Left uncommitted by 500, and still out of git:
+- `.migration/project.json` and `tools/importer/reports/**`: generated files.
+- `content/`, `content-sites/`, `migration-work/`: local documents (with content/library's local build); DA is the
+  source.
+- `logs/p4/s490`, `s494`, `s501`: scripts, scratch imports, render comparisons and collapse runs.
+- `/tmp`: captures, the suite worktree.
+- The 7 November autostash: an older session's.
+
+Nothing was unpushed.
+
+### 1. Imports write markers again until a brand's switch (`72026ccf`, pushed first)
+
+ac3ff61f made every import's last step collapse while every theme was off. collapseMain now leaves a document alone
+unless the brand's theme is live (`isThemeLive`, i.e. `THEMES[brand].live`, the one switch) or a site's collapse pass
+forces it (`marker-collapse-cli.mjs --force`). The bundles and collapse-docs.mjs never force.
+
+Test first: test/marker-collapse-live-501.test.mjs (4): no brand live, off leaves the document, live and forced
+collapse, the table form and the app screens, the importers never force.
+
+Checked with the info bundle on 6 pages from the brands' snapshots: lh-com tips-senior-travellers and
+lufthansa-terminal-muenchen, ITA pre-check-in and volare-program, Brussels connecting-africa and
+digital-self-services:
+- with live off, the output is byte for byte the output of ac3ff61f^'s bundle;
+- with every theme forced on in a copy of the bundle, it is the CLI collapse of that output, with no marker left.
+
+Rechecked with the rebuilt bundles after item 2: the same. lh-edge deployed (style-markers.js); smoke on all 12 hosts
+before and after: 0 differences (logs/p4/smoke501). The harness can import again.
+
+### 2. Theme rules for fewer exceptions (`6e427298`)
+
+- **Insights.** A correction to my 500 report first: the 2,524 dividers before a block were already the theme's in
+  500 (the rule above a Columns Media after text). What stayed a carrier in the articles:
+  - 618 rules between two plain paragraphs;
+  - 153 (de/en alone) before a chapter heading written as a bold paragraph ("About", "Tip");
+  - about 50 before a Columns Media after a picture, a caption or another block.
+
+  The theme now takes the last two: the rule above a Columns Media after any content but a heading, and a bold
+  paragraph opening a chapter as an H2 / H3 does (the chapter a section of its own, the theme rules it). The site's
+  live rules do the same. The plain-paragraph rules stay Divider blocks; a rule above every block would add rules www
+  doesn't have (536 Columns Media, 398 POI maps and 704 card / image carousels in articles have none).
+- **Hub.** The hub's column marks (ema-adobe's hub-column-views) are info-page-like groups: a heading starting one,
+  ending in running text. The collapse now gives a page with column marks that is no flow page the flow pages'
+  spacing, one `Theme: flow-spacing` row (402 lh-com pages). That brings their column-view heading gap.
+  - Measured on 4 hub pages imported from the snapshots (local render, theme rules on): miles-and-more -6.9 % at 1440
+    (-3.1 % at 390), meetings-and-events -11.0 % (-2.3 %), food-and-beverages +2.4 % (+3.2 %).
+  - Why: the hub's `{limited-width}` headings become full width (one line instead of two), and the groups' ends
+    lose their 32 px (the plan). The gap itself is there (32 px above each group's heading).
+- **ema-adobe's `{cell-…}` picture marks.** They become Columns Media options `picture-half-start`,
+  `picture-half-end`, `picture-three-quarters`; columns-media.js reads them (the mark still works). A block whose
+  pictures disagree goes to a person. No local document has them yet; new campaign imports will.
+- **The theme's heading gap** no longer applies right after another heading, and it takes its value from the theme
+  (`columnViews.headingGap`, `--theme-heading-gap`). It stays 32 px for every brand: 0 measured worse on ITA (below).
+
+The per-site numbers (local documents, `--force --check`) against 500:
+
+| | markers | theme | carriers (markers) | carriers written | for a person |
+| --- | --- | --- | --- | --- | --- |
+| 500 | 87,657 | 64,529 | 23,038 | 16,418 | 90 |
+| now | 87,657 (+402 page rows) | 65,200 (+671) | 22,367 (-671) + 402 page rows | 15,877 (-541) | 90 |
+| lh-com | 35,284 | 20,844 | 14,380 + 402 | 11,471 (was 12,012) | 60 |
+
+The other sites are unchanged; their numbers are in tools/reports/token-free/collapse-summary.md (rewritten,
+release-order paths files unchanged in content). The plan's ~2,400 exceptions stay out of reach while the 6,322
+italic captions (formatting) and the plain-paragraph rules count. Without the captions about 9,550 carriers are written.
+
+### 3. ITA's pass check (tools/reports/token-free/ita-pass-check.md)
+
+20 it/en pages, three renders each, at 1440 and 390:
+- ita.turnsthe.page as today;
+- the local documents with today's code;
+- the collapse with ITA's theme forced on in the browser only.
+
+11 pages are flagged (more than 3 % or 40 px). Ours and fixed: the heading gap between a title and its subtitle.
+The rest by cause:
+- **ITA's wide running text.** 488 paragraphs that were www's two thirds become wide. This is the brand default; a
+  "Limited text" section style would keep them, which is Ben's decision.
+- **Column groups that end inside running text.** They lose their 32 px (the plan).
+- **0-30 px separators.** They go (the collapse table).
+- **One-step heading sizes.** They become the default.
+- **DA vs the workspace.** The homepage, invoicing and accessible-travel-us differ between DA and the local copies,
+  not because of the collapse.
+
+ITA isn't switched.
+
+### 4. What the files I didn't touch still write (the bundles' last step collapses it for a live brand)
+
+- **ema-cashub's tap-import.mjs**: TAP's `<sub>{blank}</sub>` paragraphs and `{spacer-N}`. tap-import runs no bundle,
+  so nothing collapses them. It needs `collapseDocs(…, { brand: 'tap' })` as its last step, and tap.css a paragraph
+  gap, before TAP's pass.
+- **ema-cashub's lufthansa-cleanup.js** (inside every bundle):
+  - heading sizes (`{heading-large…copytext-medium}`, `{copytext-large}`, `{limited-width}`);
+  - paragraph and list sizes and widths (`{copytext-small|medium|large}`, `{full-width}`, `{limited-width}`,
+    `{indent-N}`);
+  - `{caption}`, `{parallax}`, `{narrow}`;
+  - column marks (`{column-start|end[-outer]}`, `{column-spaced}`);
+  - separators (`{spacer-N}`, `{divider-N}`, `from-768`).
+- **ema-lufthansa's campaign-sections.js** (campaign and, through ema-adobe's template, hub): `{spacer-N}` /
+  `{divider-N}` separators alone in their paragraph, `{full-width}`, `{limited-width}`.
+- **Parsers, for completeness**: the video settings and `size-WxH` (media-nodes.js), `{mobile}`, and ema-adobe's
+  `{cell-…}` (columns-media parser).
+
+Checks:
+- Full suite in a fresh worktree of ee817a2d: eslint 0, stylelint 0, 584 passed, 0 failed; again after the pull (SWISS,
+  Cargo, Air Dolomiti and section-aside commits; the bundle conflicts resolved by rebuilding) on f2a33cf3: 589 passed,
+  0 failed. lh-edge: 406 passed.
+- Smoke on all 12 hosts before and after each push (logs/p4/smoke501, smoke501b).
+- Hosts:
+  - ita.turnsthe.page, read only, for ITA's check;
+  - local `aem up --html-folder` on :3020 (hub), :3021 and :3022 (ITA), stopped afterwards;
+  - nothing else, and nothing to www.
+
+Documents: none changed, none uploaded, nothing published. The paths each site's pass changes are unchanged:
+tools/reports/token-free/collapse-<site>-paths.txt, in release order (de/en, de/de, then the other markets), 11,548
+in all. lh-com's 402 column-view pages are among its 5,153.
+
+| item | commit | what | rollback |
+| --- | --- | --- | --- |
+| 1 | `72026ccf` | the collapse only for a live brand (`isThemeLive`), `--force` for a site's pass, bundles | `git revert` |
+| 2, 3 | `6e427298` | articles' rules, column-view pages, picture options, the heading gap; ITA's pass check | `git revert` |
