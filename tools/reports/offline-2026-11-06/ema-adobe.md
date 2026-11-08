@@ -1831,3 +1831,106 @@ committed; nothing unpushed.
 | --- | --- | --- |
 | 1 | d7210ee | lh-edge: SWISS market roots link their own upgrade artifact |
 | 3 | 76ca558 | hub and fleet bundles rebuilt (output unchanged) |
+
+## Brief 497 (2026-11-08): hub on the section handling, breadcrumbs on market roots, lh-b2b's own index
+
+Left from 496: the generated import reports; the scratch in logs/b484, logs/b488 and logs/b493 (with
+the 16 lh-bd-ema archives in logs/b493/bd-archives, kept on purpose) and /tmp/b488dam; nothing
+unpushed.
+
+### 1. Hub on the section handling (2416546)
+
+- page-templates.json hub "transformers": campaign-sections, hub-column-views, theme-separators.
+  - campaign-sections as on campaign pages, ema-lufthansa's file unchanged (its ff48495 is in the
+    bundle): each AEM section its own section, separators as spacers. ema-test's cards-icon
+    padding (35e34400) was the precondition.
+  - hub-column-views (new): www's column views of their own get the cleanup's data-lh-column, and the
+    cleanup's placeColumnMarks (every template) writes "{column-start}" / "{column-end}" as on info
+    pages, without "Theme: flow-spacing". The rule is lufthansa-cleanup's markColumnViews, mirrored
+    (transformers can't import; the cleanup is ema-cashub's and marks info and fleet only).
+    /de/en and /de/de miles-and-more: DA's three marks again; xx/es and xx/fr (from
+    lh-snapshots-085) the same three.
+  - theme-separators (new; any template can opt in): token-free step 1 carries the theme's M, L
+    and Divider as the purpose blocks Spacer, Spacer (l) and Divider, so "{spacer-60}",
+    "{spacer-120}" and "{divider-25}" are written as those blocks. On hub that is one rule (the
+    "{divider-25}" above "This might also interest you", 14 documents). The two renders of
+    miles-and-more are identical at 1440 and 390 (0.0 %). The other separators hub writes (25, 40,
+    50, "60 from-768") have no carrier and keep their markers. Heading and width markers come from
+    the shared cleanup; page-type rules stay off (step 2).
+- Measured: each page imported offline from its freshest snapshot (lh-snapshots-085 for
+  miles-and-more and overview-manage, lh-snapshots-062 for additional-services and
+  food-and-beverages, bd-snapshots for the rest). The draft goes in as `<main>` on
+  lufthansa.turnsthe.page with the working copy's code, against lh-parity-002. Figures are main's
+  bundle -> this one:
+
+| de/en page | 1440 | 390 |
+| --- | --- | --- |
+| miles-and-more | 12.7 -> 10.0 % | 21.2 -> 15.3 % |
+| food-and-beverages | 17.6 -> 8.7 % | 23.8 -> 10.9 % |
+| lufthansa-travel-classes | 26.1 -> 20.1 % | 21.1 -> 11.5 % |
+| additional-services | 35.1 -> 31.3 % | 33.2 -> 22.7 % |
+| digital-self-services | 29.0 -> 24.6 % | 27.4 -> 25.7 % |
+| meetings-and-events | 24.5 -> 10.2 % | 8.9 -> 12.7 % |
+| flights | 38.4 -> 38.8 % | 48.0 -> 47.6 % |
+| baggage | 11.1 -> 17.5 % | 9.2 -> 12.5 % |
+
+  - baggage, worse: main's draft was 7 px short at the grey "Baggage services" band. That hid +8 px
+    at the separator after the link list and +4 px under the H1, which now has a section of its own.
+    The band itself is right now (60 px, www 59). Open: the link list's spacer.
+  - meetings-and-events at 390: its snapshot is from 2026-10-21 and isn't www's page of 11-06 (a
+    yellow button there, a link in ours; +175 px before the change), so 390 says little.
+  - flights: www's page runs past 8,000 px, ours stops at 4,060; the change doesn't touch that.
+  - lounges and the de/de, at/de and gb/en copies: not in lh-parity-002 (no measurement).
+- 40 of 68 hub documents change. With the 6 xx language versions (in reimport-490 but not in
+  page-templates.json): 46, [reimport-497-lh-com.txt](../parity-2026-11-08/reimport-497-lh-com.txt).
+  The bundle's output is the same as the measured trial's on all 68 pages.
+- reimport-490-lh-com.txt's hub documents (14 of its 25): /de/en, /de/de, /at/de, /gb/en, /xx/es and
+  /xx/fr miles-and-more; /de/en, /de/de, /gb/en, /at/de, /xx/el, /xx/it, /xx/ja and /xx/zh
+  additional-services. They are part 1 of reimport-497. The harness's d18da32 uploaded the
+  other 11.
+
+### 2. Breadcrumbs on market roots (2321eca)
+
+- Cause: a page's Parent is often the whole trail ("/de/en/homepage, /de/en/program, …";
+  blocks/breadcrumb splits it at ", "). lh-edge's marketHtml rewrote `<meta name="parent">` as a
+  single link, so a list never matched a path.
+- Every brand had the gap. Root views still linking the language version, sampled before the fix:
+  - b2b kw/en: 214 of 241 pages with a list;
+  - SWISS gb/en: 121 of 121;
+  - Brussels gb/en: 91 of 100;
+  - ITA us/en: 182 of 186.
+- Fix (brand-neutral): each entry is rewritten as a link is; the separators stay.
+- On the hosts after the deploy, the same samples:
+  - b2b 0, SWISS 0, ITA 0;
+  - Brussels 1: /gb/en/book-a-flight/our-promotions/family-and-friends-faq keeps
+    /be/en/book-a-flight/our-promotions, a bf/en-only page gb/en doesn't serve (404), as any link to
+    it does;
+  - the brief's munich-airport page links /kw/en all the way up.
+
+### 3. lh-b2b gb/en's own document (557c12b)
+
+- Answering the page doesn't need the index: lh-edge serves a root's own document first whenever
+  the origin has one, and b2b's root search index already takes in the root's own index (gb/en: 1
+  row, at/de: 4).
+- The market model's own documents do come from /market-pages.json, and that feeds the root's
+  sitemap: gb/en's sitemap listed the page with de/en's date (2026-11-02), and a page only gb/en has
+  would be missing from it.
+- b2b joins SWISS in MARKET_EXTRA_INDEX_SITES: its /market-pages.json adds the at/de, gb/en and it/en
+  search indexes (it/en has none: 404, skipped).
+- On b2b.turnsthe.page after the deploy: market-pages.json has the 5 rows; gb/en's sitemap shows
+  programs-and-groups with 2026-11-08.
+
+### Checks
+
+- Lint in a clean worktree and the full suite before each push (lh-edge 69 files; site 578 files,
+  582 after the rebase onto the others' commits; 0 failing); lh-edge 406 tests.
+- Smoke on every host before and after the lh-edge push; SWISS and TAP by hand.
+- Hosts: b2b, swiss, brussels and ita.turnsthe.page (items 2 and 3); lufthansa.turnsthe.page (item
+  1's drafts, nothing changed there). DA read only (miles-and-more, and the column marks of the 20
+  documents that get them).
+
+| Item | Commit | What |
+| --- | --- | --- |
+| 1 | 2416546 | hub: campaign-sections, hub-column-views, theme-separators; bundle |
+| 2 | 2321eca | lh-edge: a Parent list on a market root links the root, every entry |
+| 3 | 557c12b | lh-edge: lh-b2b's market roots under excluded paths read their own index |
