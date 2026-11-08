@@ -2064,3 +2064,24 @@ Rows 38, 39, 37 and 69 are code only, with no document change.
 - **Suite:** lint and the full suite before each of the six pushes; TAP by hand before the first
   push and after the last.
 
+## The brief after 505
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git). Nothing is published, uploaded or requested from www. Documents are drafted for comparison
+only. No style markers are added to documents.
+
+### 1. Air Dolomiti homepage, the first screen (Air Dolomiti row 70): done
+
+- **The change:** on the homepage only, the alert pill's section is out of the flow, over the
+  stage's top. The stage is the window's height under the header. "Discover our promotions" is 64 px
+  under the band at 1440 and 60 px at 390, as www's.
+- **Measured** against airdolomiti-parity-001, www / before / after:
+
+  | Width | Promotions heading (it, en, de) |
+  | --- | --- |
+  | 1440 | 964 / 1120 / 964 |
+  | 390 | 904 / 857 / 904 |
+
+  Page heights are in row 70.
+- **File history:** airdolomiti.css had no other EMA's change since this morning.
+
