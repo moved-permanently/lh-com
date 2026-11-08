@@ -194,7 +194,7 @@ export const THEMES = {
   // TAP: the base theme (an entry of its own, so its switch is one line as every brand's)
   tap: {},
   // Lufthansa Cargo: the base theme
-  cargo: {},
+  cargo: { live: true },
 };
 
 const mergeTheme = (a, b) => ({
