@@ -1,0 +1,26 @@
+# The brief after 488: the lufthansa.com documents a re-import with main's importer changes (items 1 and 3), in release order: the two held miles-and-more documents first (phone-slider; their column marks and og:title: see the report), then the additional-services tiles (option padded, de/en first), then the other phone sliders. Item 2 (ana's {heading-copytext-large}) needs no re-import: DA's 15 ana documents carry the markers and the next import keeps them (ana-490-heading-size.txt). Item 4 changes no document. Lists: reimport-490-cards-icon-padded.txt, reimport-490-phone-slider.txt. Nothing imported or uploaded here.
+/de/en/miles-and-more
+/de/de/miles-and-more
+/de/en/additional-services
+/de/de/additional-services
+/gb/en/additional-services
+/at/de/additional-services
+/xx/el/additional-services
+/xx/it/additional-services
+/xx/ja/additional-services
+/xx/zh/additional-services
+/at/de/book-and-manage/stopover
+/at/de/miles-and-more
+/at/de/prepare-for-your-trip/special-travel-needs/medical-travel-companions
+/de/de/book-and-manage/stopover
+/de/en/book-and-manage/stopover
+/fr/fr/book-and-manage/stopover
+/gb/en/book-and-manage/stopover
+/gb/en/miles-and-more
+/gb/en/prepare-for-your-trip/special-travel-needs/medical-travel-companions
+/xx/es/book-and-manage/stopover
+/xx/es/miles-and-more
+/xx/es/prepare-for-your-trip/special-travel-needs/medical-travel-companions
+/xx/fr/book-and-manage/stopover
+/xx/fr/miles-and-more
+/xx/fr/prepare-for-your-trip/special-travel-needs/medical-travel-companions

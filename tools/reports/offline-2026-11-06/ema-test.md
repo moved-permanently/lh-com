@@ -1258,3 +1258,125 @@ markers. Not run on DA: the harness runs it on the 415 pages.
 | --- | --- | --- | --- |
 | A-C | `4000962d`, `78a513fd`, 3144892d | the shared marker list; lh-edge's app JSON; list text sizes; TAP {blank} in panels; deploy path | `git revert` |
 | D | `ec12449c` | description-fix.mjs; the cleanup writes www's description; bundles | `git revert`; the harness's 415 documents: DA versions |
+
+## The brief after 488 (cards-icon padding, ana's heading size, miles-and-more, token-free styling step 1)
+
+Left uncommitted by 488, and still out of git:
+- `.migration/project.json` and `tools/importer/reports/**`: generated.
+- `content/`, `content-sites/` and `migration-work/`: local documents; DA is the source. `content/library/` now holds the
+  library builder's output (local only, not uploaded).
+- `logs/`: scripts, scratch imports, measurements (logs/p4/s490).
+- `/tmp`: captures (lh-snapshots-085 checked: sha256 87ec2f67…db40, in /tmp/lhs85), worktrees.
+
+Nothing was unpushed.
+
+### 1. cards-icon: www's 32 px above and below a column view of its own (`35e34400`)
+
+/de/en/additional-services: each of its five service-tile blocks is a column view alone in an AEM section
+(`.section-content > .threecolumn > .column-view`); www pads it 3.2rem above and below. The cards-icon parser writes option
+`padded` there (not with a column title, grey or in an article, as columns-media's), cards-icon.css `padding: 32px 0`.
+README row, test/cards-icon-padded.test.mjs, all bundles rebuilt (only this in them).
+
+Measured with www's own CSS (lh-parity-003 on lh-snapshots-062) against ours with the rule injected
+(main--lh-com--moved-permanently.aem.page): the blocks 184 / 211 px at 1440 as www's (were 120 / 147); at 390 502 / 658,
+www 492 / 648 (were 438 / 594). A scratch hub import gives `usp padded` on all five. Only additional-services has such
+tiles in the snapshots (lh-snapshots-061…067, 083): 8 documents (reimport-490-cards-icon-padded.txt; de/en captured, the
+other seven translations of it). ema-adobe can switch the hub template once this is on main.
+
+### 2. ana's `{heading-copytext-large}` (`6153d40c`)
+
+The step: the columns-media parser rebuilds a link list's heading (`.imagelinklist > .link-list > h2`) without its
+`heading-*` class, so the cleanup writes no size marker. /flights/ana's "What you need to remember" view holds three such
+h2.heading-copytext-large. keepHeadingStyle now runs there as for every other rebuilt heading (test first:
+test/columns-media-link-list-size-490.test.mjs; carry-on-baggage's link-list test now expects the h4's class).
+
+Scratch imports from lh-snapshots-085 (gb/en, at/de, xx/fr): all three markers, the rest as DA. DA's 15 ana documents
+(the 9 local ones and xx/es, fr, ko, pl, pt, ru) carry the markers today, so nothing needs a re-import; the next import
+keeps them (ana-490-heading-size.txt). Also /de/en/…/brussels-express-rail's seven link-list headings
+(h1.heading-copytext-large on www) now import as h2 `{heading-copytext-large}` (before: h2 `{heading-large}`).
+
+### 3. /de/en and /de/de miles-and-more from lh-snapshots-085 (`e3df8bc2`)
+
+Scratch hub imports of both, compared with DA (read only):
+- **phone-slider (mine, fixed)**: 085's swipers are initialized, so the swiper copy below lg has the grid's signature and
+  the cleanup's removeMobileDuplicates drops it before the parser, flagging the grid (`data-lh-swiper-below-lg`).
+  carousel-cards only looked for the copy; it reads the flag now, as cards-teaser does (test first:
+  test/carousel-cards-phone-slider-swiper-flag-490.test.mjs). Scratch imports: miles-and-more de/en, de/de, gb/en,
+  medical-travel-companions gb/en and stopover gb/en's last grid all `grid phone-slider`. The 085 re-imports lost it on 15
+  more documents (DA has `grid` there): 17 documents, reimport-490-phone-slider.txt.
+- **the three column marks (ema-adobe's step, not changed)**: the hub template does not mark column views
+  (lufthansa-cleanup `columnMarksEnabled`: info and fleet only). With hub added the import gives DA's three marks, plus
+  `Theme: flow-spacing`, which DA does not have. ema-adobe left hub out on purpose (its report: 20 hub documents change,
+  miles-and-more 390 measured worse) and plans its new section handling for hub after item 1. Until then the harness can
+  keep DA's marks. Step 2 of item 4 turns column views into structure anyway.
+- **the longer title (no step drops it)**: in 085 www's og:title of de/en, de/de, gb/en and at/de miles-and-more is
+  "Miles & More"; the long text is www's `meta name="title"`, which the import keeps in Title ("Miles & More – Our
+  frequent flyer programme | Lufthansa", the page title). Older captures (xx/zh, xx/ko) and 085's xx/fr still have the long
+  og:title. So DA's og:title row is from an earlier www. The breadcrumb label is "Miles & More" either way. If the long
+  share title is wanted, the harness's "DA's metadata rows kept" covers it.
+
+The 2 paths: /de/en/miles-and-more, /de/de/miles-and-more (first in reimport-490-lh-com.txt).
+
+### 4. Token-free styling, step 1 of 4 (`b055e148`)
+
+One module, `scripts/style-markers.js`, read by the site (scripts.js through scripts/token-free.js, media.js, blocks/form,
+blocks/header, the library builder) and by lh-edge (sdui.js, sdui-web.js):
+- **Theme defaults** (`THEMES`, `themeFor(brand, pageType)`, `pageTypeOf`): heading size per level, the level-scoped
+  choices (H2 large = heading-large, H2 compact = heading-copytext-large, H3 large = heading-medium), text width (ITA
+  full), body and small text, separators M 60 / L 120 / Divider 25, column-view padding. Page-type rules: lh-com articles
+  (a rule above an info box after text, chapters ruled), /100-years (sections 60 apart), Brussels service pages (H2
+  heading-small), Austrian's intro after the H1. Every theme has `live: false`: the rules stay off until step 2 collapses
+  that brand's documents. A marker on an element always wins.
+- **Readers** for every new carrier:
+  - section styles (classes from Section Metadata Style, also the `Label=value` spelling) and the page's `Headings` row,
+    applied to the section's own default content only;
+  - block options;
+  - captions (`isCaptionParagraph`, on DOM and lh-edge nodes): figure.image-caption with a figcaption, drawn as
+    `{caption}`. The rules are in styles.css and, brand-scoped, in swiss-magazine, tap, swiss and airdolomiti. lh-edge's
+    app JSON leaves the caption out, and an italic link alone stays a button;
+  - `videoFragment` (`#background`; `#t=` kept);
+  - the purpose blocks Spacer (M, L), Divider, App Spacer (size, v2), App Divider and App Text (small), drawn as the
+    paragraphs their markers make;
+  - the form's `Default` column (`isDefaultChoice`, `isCheckedDefault`; `{selected}` still wins);
+  - the Nav Tools table's role column (`readNavRole`; header-tools' roles are the module's).
+- **Library**: spec.mjs entries for the six purpose blocks (8 variants, with friendly option notes from the module) and the
+  options sheet's friendly choices for Section Metadata `Style` and Metadata `Headings`. The builder writes them; the
+  manifest gets only these 8 entries (a full rebuild also churns other blocks from local content drift, left out). The
+  library documents are built locally and not uploaded.
+- **Docs**: README "Authoring without markers", AUTHORING.md "Styling without markers".
+
+Nothing visible changes:
+- Every local document (16,731 across content/ and content-sites/), run through decorateTokenFree as the page would be: all
+  unchanged except the 586 SWISS magazine articles, whose italic captions become figures.
+- Those figures, measured on swiss.turnsthe.page (6 articles, 37 captions, 1440 / 768 / 390, boxes of every element and the
+  caption font, logs/p4/s490/caption-measure.mjs): 0 differences, same page heights.
+- lh-com's `{caption}` paragraphs as figures (step 2's form), on lufthansa.turnsthe.page (two articles, a tags page, the
+  /100-years campaign page, tiere-als-handgepaeck de/en and at/de with the sub-page nav; 1440 and 390): 0 differences after
+  two mirrored rules (a campaign section's 40 px before the caption, the sub-page nav's full text width).
+
+Rollback: `git revert b055e148`. Step 2 (the collapse tool) is not started. No document changed.
+
+Tests: test/token-free.test.mjs (15), test/token-free-form-nav.test.mjs (4), tools/workers/lh-edge/test/token-free.test.mjs (2).
+
+### Checks (the brief after 488)
+
+- Lint: eslint 0 (tracked code), stylelint 0. Own tests pass; lh-edge's suite: 396 tests passed (394 + 2).
+- Full suite in a fresh worktree of 919e2810: eslint 0, stylelint 0, 572 passed and 1 failed (test/b2b-gaps.test.mjs: it
+  wants lh-b2b's only rule in styles.css; the caption's 800 px moved to b2b.css). Again on the rebased head fbf2ef0f: 576
+  passed, 0 failed; and after the last pull (lh-edge's SWISS artifact, the hub and fleet bundles; the hub bundle conflict
+  resolved by rebuilding all bundles), 8e9c491f: 576 passed, 0 failed; lh-edge 400 passed. The last pull brought upload
+  state only.
+- Smoke on all 12 hosts before (logs/p4/smoke490) and after the push.
+- Hosts measured: main--lh-com--moved-permanently.aem.page and www's CSS offline (item 1); swiss.turnsthe.page and
+  lufthansa.turnsthe.page (item 4, CSS and JS injected locally, nothing changed on the hosts). DA read only (ana,
+  miles-and-more, brussels-express-rail).
+
+Documents, in release order: 25 (tools/reports/parity-2026-11-08/reimport-490-lh-com.txt): 2 miles-and-more, 8
+additional-services, 15 phone-slider pages. Nothing imported, uploaded or published here.
+
+| item | commit | what | rollback |
+| --- | --- | --- | --- |
+| 1 | `35e34400` | cards-icon option padded (parser, CSS, README, bundles) | `git revert`; the 8 documents: DA versions |
+| 2 | `6153d40c` | link-list headings keep their size (columns-media parser, bundles) | `git revert` |
+| 3 | `e3df8bc2` | carousel-cards reads the dropped swiper copy's flag (parser, bundles) | `git revert`; the 17 documents: DA versions |
+| 4 | `b055e148` | token-free styling step 1: module, site, lh-edge, library, docs | `git revert` |
