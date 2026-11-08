@@ -13,6 +13,7 @@ import fs from 'node:fs';
 const css = fs.readFileSync('styles/styles.css', 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
 const SEL = 'body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper:has(> p:last-child:not(.spacer)) + .carousel-cards-wrapper > .carousel-cards';
 
-test('Carousel Cards after running text in a campaign-section, from 768 px: the column view\'s 32 px above, and under it at the section\'s end', () => {
-  assert.ok(css.includes(`@media (width >= 768px) { ${SEL} { padding-top: 32px; } ${SEL.replace('+ .carousel-cards-wrapper', '+ .carousel-cards-wrapper:last-child')} { padding-bottom: 32px; } }`));
+// the 32 px under it at the section's end since apply whatever is before the cards (test/carousel-cards-section-end-505.test.mjs)
+test('Carousel Cards after running text in a campaign-section, from 768 px: the column view\'s 32 px above', () => {
+  assert.ok(css.includes(`@media (width >= 768px) { ${SEL} { padding-top: 32px; } body.brand-lufthansa main > .section.campaign-section > .carousel-cards-wrapper:last-child > .carousel-cards { padding-bottom: 32px; } }`));
 });
