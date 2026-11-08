@@ -46,9 +46,9 @@
    "preview": "2026-11-04T05:49:39.784Z"
   },
   "/pt-pt/promos": {
-   "uploaded": "2026-11-07T23:18:04.007Z",
-   "mtime": 1794093387508,
-   "preview": "2026-11-07T23:18:06.280Z"
+   "uploaded": "2026-11-08T02:11:23.210Z",
+   "mtime": 1794103851165,
+   "preview": "2026-11-08T02:11:25.697Z"
   },
   "/pt-pt/reservas": {
    "uploaded": "2026-11-04T04:36:46.997Z",
@@ -601,9 +601,9 @@
    "preview": "2026-11-04T04:39:04.656Z"
   },
   "/pt-pt/reservas/modalidades-de-pagamento": {
-   "uploaded": "2026-11-07T23:17:55.956Z",
-   "mtime": 1794093387412,
-   "preview": "2026-11-07T23:17:58.594Z"
+   "uploaded": "2026-11-08T02:11:38.914Z",
+   "mtime": 1794103852080,
+   "preview": "2026-11-08T02:11:41.555Z"
   },
   "/pt-pt/reservas/ponte-aerea": {
    "uploaded": "2026-11-04T04:38:55.424Z",
@@ -1226,9 +1226,9 @@
    "preview": "2026-11-04T02:27:19.810Z"
   },
   "/es-es/promos": {
-   "uploaded": "2026-11-07T23:18:07.866Z",
-   "mtime": 1794093387557,
-   "preview": "2026-11-07T23:18:09.645Z"
+   "uploaded": "2026-11-08T02:11:31.640Z",
+   "mtime": 1794103851634,
+   "preview": "2026-11-08T02:11:33.682Z"
   },
   "/es-es/reservas": {
    "uploaded": "2026-11-04T04:52:53.667Z",
@@ -1336,9 +1336,9 @@
    "preview": "2026-11-04T04:47:22.798Z"
   },
   "/en-pt/bookings/payment-methods": {
-   "uploaded": "2026-11-04T04:47:13.688Z",
-   "mtime": 1793766924053,
-   "preview": "2026-11-04T04:47:16.051Z"
+   "uploaded": "2026-11-08T02:11:43.337Z",
+   "mtime": 1794103852313,
+   "preview": "2026-11-08T02:11:45.637Z"
   },
   "/en-pt/bookings/ponte-aerea": {
    "uploaded": "2026-11-04T04:47:17.512Z",
@@ -1941,9 +1941,9 @@
    "preview": "2026-11-04T05:54:35.848Z"
   },
   "/en-pt/promos": {
-   "uploaded": "2026-11-07T23:18:00.136Z",
-   "mtime": 1794093387462,
-   "preview": "2026-11-07T23:18:02.571Z"
+   "uploaded": "2026-11-08T02:11:27.511Z",
+   "mtime": 1794103851426,
+   "preview": "2026-11-08T02:11:29.893Z"
   },
   "/en-pt/stopover": {
    "uploaded": "2026-11-04T05:53:32.825Z",
@@ -2536,9 +2536,9 @@
    "preview": "2026-11-04T02:27:27.982Z"
   },
   "/fr-fr/promos": {
-   "uploaded": "2026-11-07T23:18:11.277Z",
-   "mtime": 1794093387609,
-   "preview": "2026-11-07T23:18:13.284Z"
+   "uploaded": "2026-11-08T02:11:35.069Z",
+   "mtime": 1794103851853,
+   "preview": "2026-11-08T02:11:37.131Z"
   },
   "/fr-fr/reservations": {
    "uploaded": "2026-11-04T05:00:13.415Z",
@@ -10843,6 +10843,26 @@
   },
   "/media-da/tap/club-tap-miles-and-go-8a012e94.jpg": {
    "at": "2026-11-08T00:36:50.273Z",
+   "inDa": true
+  },
+  "/media-da/tap/126-tdp-mco-card1280x720kv2-2d17b200.webp": {
+   "at": "2026-11-08T02:11:21.975Z",
+   "inDa": true
+  },
+  "/media-da/tap/card-1280x720-2d99a639.jpg": {
+   "at": "2026-11-08T02:11:22.232Z",
+   "inDa": true
+  },
+  "/media-da/tap/126-tdp-cwb-card1280x720-v2-0105eb7d.jpg": {
+   "at": "2026-11-08T02:11:26.572Z",
+   "inDa": true
+  },
+  "/media-da/tap/card-1280x720-b-85c21728.jpg": {
+   "at": "2026-11-08T02:11:26.761Z",
+   "inDa": true
+  },
+  "/media-da/tap/santander-banner-mobile-661x450-71cb465f.jpg": {
+   "at": "2026-11-08T02:11:38.010Z",
    "inDa": true
   }
  }

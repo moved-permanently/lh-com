@@ -1,0 +1,22 @@
+# lh-tap: the documents to import again with tap-import.mjs after brief 478 (the option phone-slider on the card
+# lists www swipes on phones, mobileType slider), for the harness. From the language versions' pages of the market-diff
+# fetch of 2026-11-07; a page that fetch didn't read is not in it. Left out: the 6 documents of
+# publish-list-tap-478.txt (done in DA: they hold brief 462's market sections or DA's edits).
+/pt-pt/miles-and-go/loja-de-milhas
+/pt-pt/miles-and-go/parceiros
+/pt-pt/miles-and-go/promocoes/navigator-experiences
+/pt-pt/miles-and-go/utilizar-milhas/doar-milhas
+/en-pt/miles-and-go/miles-store
+/en-pt/miles-and-go/partners
+/en-pt/miles-and-go/promotions/navigator-experiences
+/en-pt/miles-and-go/use-miles/donate-miles
+/es-es/destinos/inspirate
+/es-es/miles-and-go/tienda-millas
+/es-es/miles-and-go/utilice-millas/donar-millas
+/es-es/reservas/medios-de-pago
+/fr-fr/miles-and-go/utilisez-miles/don-miles
+/fr-fr/reservations/modes-de-paiement
+/de-de/miles-and-go/meilen-shop
+/de-de/miles-and-go/verwenden-meilen/spenden-meilen
+/de-de/promos
+/de-de/reiseziele/inspirieren

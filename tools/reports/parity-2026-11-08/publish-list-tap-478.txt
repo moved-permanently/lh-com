@@ -1,0 +1,14 @@
+# lh-tap: TAP's sweep (brief 478), in release order. Nothing is published yet. Uploaded to DA (moved-permanently/
+# lh-tap) and previewed on main--lh-tap--moved-permanently.aem.page: DA's copy of 2026-11-08 with cards-teaser's
+# option phone-slider on the card lists www swipes on phones (mobileType slider), nothing else changed.
+# Release them with or after the code of this brief (styles/themes/tap.css: the swiper's dots in TAP's look); the
+# option itself works with main's code already (cards-teaser-slider.js).
+#
+# Media: none new.
+# Pages
+/pt-pt/promos
+/en-pt/promos
+/es-es/promos
+/fr-fr/promos
+/pt-pt/reservas/modalidades-de-pagamento
+/en-pt/bookings/payment-methods
