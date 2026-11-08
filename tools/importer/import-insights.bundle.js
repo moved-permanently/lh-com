@@ -5554,6 +5554,7 @@ var CustomImportScript = (() => {
     // Media, Carousel Images and Quote column views of their own, also at a section's end (www: 558
     // of 789 Columns Media not at a section's start, 749 of 962 with an edge below)
     b2b: {
+      live: true,
       pageTypes: {
         flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true } }
       }
