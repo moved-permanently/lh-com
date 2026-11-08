@@ -28,8 +28,9 @@ import { scopeRows } from './regional-diff.mjs';
 import { translationPath, DEFAULT_TRANSLATION } from './slug-lib.mjs';
 import { localePath } from './link-lib.mjs';
 import { setupFromArgs } from './setup-lib.mjs';
+// (VIDEO_MARKER: a video's settings after its link, scripts/media.js, the size token included)
 import {
-  HEADING_STYLE, PARAGRAPH_STYLE, LIST_STYLE, SEPARATOR,
+  HEADING_STYLE, PARAGRAPH_STYLE, LIST_STYLE, SEPARATOR, VIDEO_MARKER,
 } from '../../scripts/style-markers.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -63,7 +64,9 @@ function siteMarker(el) {
     const sep = el.textContent.trim().match(SEPARATOR);
     if (sep) return { kind: 'separator', marker: el.textContent.trim().slice(1, -1) };
     const m = end(PARAGRAPH_STYLE);
-    return m && { kind: 'paragraph', marker: m };
+    if (m) return { kind: 'paragraph', marker: m };
+    const v = el.querySelector('a[href]') && end(VIDEO_MARKER);
+    return v && { kind: 'video', marker: v };
   }
   // a list: the marker at the end of its last item
   const items = [...el.parentElement.children].filter((c) => c.tagName === 'LI');
@@ -111,7 +114,7 @@ export function collectMarkers(html) {
 
 // the elements a marker of each kind can stand in (a separator: a paragraph of its own)
 const KIND_TAGS = {
-  heading: /^h[1-6]$/, paragraph: /^p$/, list: /^li$/, separator: /^p$/,
+  heading: /^h[1-6]$/, paragraph: /^p$/, list: /^li$/, separator: /^p$/, video: /^p$/,
 };
 
 /**

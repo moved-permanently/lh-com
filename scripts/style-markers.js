@@ -26,7 +26,10 @@ export const SEPARATOR = /^\{(spacer|divider)-(\d{1,3})( from-768)?\}$/;
 
 // a video's settings after its link ("{autoplay muted loop}", scripts/media.js)
 export const VIDEO_SETTINGS = ['autoplay', 'muted', 'loop', 'controls', 'round-play-button'];
-export const VIDEO_MARKER = styleMarker(VIDEO_SETTINGS.join('|'));
+// and the video's own size, read from its file (ema-adobe's tools/importer/video-sizes.mjs):
+// "{controls round-play-button size-1920x1080}"; scripts/media.js gives the player its aspect
+export const VIDEO_SIZE = 'size-\\d{2,5}x\\d{2,5}';
+export const VIDEO_MARKER = styleMarker(`${VIDEO_SETTINGS.join('|')}|${VIDEO_SIZE}`);
 
 // TAP's empty line in a text: a paragraph of only <sub>{blank}</sub> (decorateTextStyles)
 export const BLANK_LINE = /^\s*\{blank\}\s*$/;
@@ -37,10 +40,11 @@ export const APP_SPACER = /^\{spacer:\s*(x-small|small|medium|m-large|large)\s*(
 export const APP_SMALL = /\s*\{small\}\s*$/;
 
 // the article header's video for phones too ("{mobile}", blocks/article-header); TAP's empty card
-// line (<sub>{blank}</sub>, styles/themes/tap.css)
-const OTHER_TOKENS = 'mobile|blank|small|divider';
+// line (<sub>{blank}</sub>, styles/themes/tap.css); a picture narrower than its Columns Media cell
+// ("{cell-half-start}", blocks/columns-media)
+const OTHER_TOKENS = 'mobile|blank|small|divider|cell-(?:half-start|half-end|three-quarters)';
 
-const ANY_TOKENS = [HEADING_TOKENS, PARAGRAPH_TOKENS, LIST_TOKENS, VIDEO_SETTINGS.join('|'), OTHER_TOKENS].join('|');
+const ANY_TOKENS = [HEADING_TOKENS, PARAGRAPH_TOKENS, LIST_TOKENS, VIDEO_SETTINGS.join('|'), VIDEO_SIZE, OTHER_TOKENS].join('|');
 const ANY_MARKER = `\\{\\s*(?:${ANY_TOKENS})(?: (?:${ANY_TOKENS}))*\\s*\\}`;
 const SEPARATOR_TEXT = /^\s*\{(?:spacer|divider)-\d{1,3}(?: from-768)?\}\s*$/;
 const isSeparatorText = (s) => SEPARATOR_TEXT.test(s) || APP_SPACER.test(s.trim());

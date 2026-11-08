@@ -16,7 +16,7 @@ const TRANSLATED = read('./fixtures/loc/marker-translated.html');
 
 test('the check reads markers with the site\'s own patterns (scripts/style-markers.js, which scripts.js decorateTextStyles reads)', () => {
   // the brief after 484: one shared list instead of copies of scripts.js's pattern lines
-  const imports = (src) => /import \{\s*HEADING_STYLE, PARAGRAPH_STYLE, LIST_STYLE, SEPARATOR,(?: BLANK_LINE,)?\s*\} from '[./]+(?:scripts\/)?style-markers\.js';/.test(src);
+  const imports = (src) => /import \{\s*HEADING_STYLE, PARAGRAPH_STYLE, LIST_STYLE, SEPARATOR,(?: BLANK_LINE,)?(?: VIDEO_MARKER,)?\s*\} from '[./]+(?:scripts\/)?style-markers\.js';/.test(src);
   assert.ok(imports(read('../scripts/scripts.js')), 'scripts.js reads the shared list');
   assert.ok(imports(read('../tools/loc/marker-check.mjs')), 'marker-check.mjs reads the shared list');
   const own = (src) => src.split('\n').filter((l) => /^const (COLUMN_MARK|styleMarker|HEADING_STYLE|PARAGRAPH_STYLE|LIST_STYLE|SEPARATOR) =/.test(l));
