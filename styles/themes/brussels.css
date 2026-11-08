@@ -846,3 +846,44 @@ body.brand-brussels .fare-teaser .fare-teaser-price {
     line-height: 26.4px;
   }
 }
+
+/* the footer on phones (brief 478; brussels-parity-003 at 390, www 829 / 849 px, ours 696): the section
+   rows 40 px high (10 px padded, 32 px in) one every 60 px; "Social media" 14/15.4 bold, 29 px under the
+   rows, 20 px over the icons, 32 px in; the legal links 32 px in, the first 78 px under the icons, the
+   dark band 58 px past the last; the logo band 42 px padded above and below, its logos 31 / 30 px apart */
+@media (width < 768px) {
+  body.brand-brussels .footer .footer-column:not(.footer-column-badges) {
+    margin-bottom: 20px;
+  }
+
+  body.brand-brussels .footer .footer-column-toggle {
+    width: calc(100% - 44px);
+    margin: 0 22px;
+    padding: 10px;
+  }
+
+  body.brand-brussels .footer .footer-column-badges {
+    padding: 9px 12px 0;
+  }
+
+  body.brand-brussels .footer .footer-badge-heading {
+    margin-bottom: 20px;
+    line-height: 15.4px;
+  }
+
+  body.brand-brussels .footer .footer-legal {
+    padding: 69px 0 39px 10px;
+  }
+
+  body.brand-brussels .footer .footer-logos-inner {
+    padding: 42px 0;
+  }
+
+  body.brand-brussels .footer .footer-logos-inner > ul > li:nth-child(1) {
+    margin-bottom: 31px;
+  }
+
+  body.brand-brussels .footer .footer-logos-inner > ul > li:nth-child(2) {
+    margin-bottom: 30px;
+  }
+}
