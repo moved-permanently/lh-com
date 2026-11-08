@@ -4,10 +4,14 @@
  * as the documents' style markers ("Baggage {heading-small}"): ":austrian-cart: Your Cart {cart}",
  * so a brand's own icon keeps the role's behaviour (the cart dialog, the locale dialog, the login
  * link). Without a marker the icon's name decides, as before (":cart:", ":globe:" …), and a
- * travelid/login link is the login.
+ * travelid/login link is the login. Without markers: a Nav Tools table in the tools section, one
+ * row per item (the item | its role), scripts/token-free.js makes it the list (data-role).
  */
 
-export const ROLE_MARKERS = ['accessibility', 'help', 'search', 'cart', 'login', 'locale', 'notifications'];
+import { NAV_ROLES, readNavRole } from '../../scripts/style-markers.js';
+
+// the roles (scripts/style-markers.js NAV_ROLES, shared with the nav document's Nav Tools table)
+export const ROLE_MARKERS = NAV_ROLES;
 
 const MARKER = new RegExp(`\\s*\\{(${ROLE_MARKERS.join('|')})\\}\\s*`);
 
@@ -52,6 +56,14 @@ export function takeRole(li) {
   node.nodeValue = before && after ? `${before} ${after}` : before + after;
   return role;
 }
+
+/**
+ * The role a Nav Tools table gave an item (its role column, scripts/token-free.js: the li's
+ * data-role), else null.
+ * @param {Element} li
+ * @returns {string|null}
+ */
+export const tableRole = (li) => readNavRole(li.dataset ? li.dataset.role : '');
 
 /**
  * An item's role: its marker, else its icon's name, else a login link's.

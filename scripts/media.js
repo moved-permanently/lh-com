@@ -24,7 +24,7 @@ import { loadCSS } from './aem.js';
 import { cleanText } from './block-config.js';
 import { getLocale } from './locale.js';
 import { trackLang } from './track-lang.js';
-import { VIDEO_SETTINGS } from './style-markers.js';
+import { VIDEO_SETTINGS, videoFragment, BACKGROUND_VIDEO } from './style-markers.js';
 
 /** Playback settings a video link can carry (marker after the link: "{autoplay muted loop}"). */
 // the settings marker after a video link ("{autoplay muted loop}"): scripts/style-markers.js
@@ -395,8 +395,9 @@ function play(video) {
  * video comes near the viewport (Lufthansa moving image; not with reduced motion: then a play
  * button); otherwise the poster shows a play button (square bottom left, "round-play-button":
  * round in the middle, video viewer) that starts the video in place. No settings: click to play
- * with controls, looping. The link (and its paragraph, when nothing else is left in it) is
- * removed; the caller places the returned element.
+ * with controls, looping. A "#background" fragment on the link (or the block option
+ * background-video) stands for "{autoplay muted loop}". The link (and its paragraph, when
+ * nothing else is left in it) is removed; the caller places the returned element.
  * @param {HTMLAnchorElement} link video link
  * @param {Element} [picture] poster
  * @param {string} [playLabel] label of the play button when the link text is its URL
@@ -405,8 +406,14 @@ function play(video) {
 export function buildVideo(link, picture, playLabel) {
   mediaCount += 1;
   const settings = takeVideoSettings(link);
+  // a background video without a marker: the link's "#background" fragment (others, "#t=10",
+  // stay) or the block option background-video (scripts/style-markers.js); a marker wins
+  const fragment = videoFragment(link.getAttribute('href'));
+  if (!settings.size && (fragment.background || link.closest('.background-video'))) {
+    BACKGROUND_VIDEO.forEach((s) => settings.add(s));
+  }
   const tracks = takeTracks(link);
-  const src = link.href;
+  const src = fragment.background ? new URL(fragment.href, window.location.href).href : link.href;
   const buttonLabel = isUrlText(link) ? (playLabel || label('video')) : cleanText(link);
   const wrapper = document.createElement('div');
   wrapper.className = 'media-video';

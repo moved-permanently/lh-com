@@ -29,7 +29,8 @@ import {
   initConsent, isAuthoringContext, martechWanted, hidePrivacySettings,
 } from './consent.js';
 import { applyChannel } from './channel.js';
-import { loadBrandTheme, loadSubSiteTheme } from './brand.js';
+import { loadBrandTheme, loadSubSiteTheme, brandOf } from './brand.js';
+import decorateTokenFree from './token-free.js';
 import { isDemoHost, turnsThePageBrandOf } from './demo.js';
 import prioritizeSecondSectionImage from './lcp-image.js';
 import decorateHeadingIcons from './heading-icon.js';
@@ -347,6 +348,11 @@ export function decorateMain(main) {
   decorateTextStyles(main);
   buildAutoBlocks(main);
   decorateSectionMetadata(main);
+  // token-free styling (scripts/token-free.js): purpose blocks, block options, section styles,
+  // captions and the theme's rules, a marker on an element winning
+  decorateTokenFree(main, {
+    brand: brandOf(getMetadata), path: window.location.pathname, read: getMetadata,
+  });
   dropOtherMarkets(main);
   // ITA: a market root's complaint-form links carry its country (scripts/ita-market-links.js)
   rootMarketLinks(main, getLocale());

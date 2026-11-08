@@ -8,6 +8,8 @@
 import {
   parseHtml, elements, hasClass, find, findAll, textOf, isElement,
 } from './html.js';
+// eslint-disable-next-line import/no-relative-packages -- the site's module (the worker bundles it)
+import { readPurposeBlock } from '../../../../scripts/style-markers.js';
 
 export const SDUI_SUFFIX = /((?:\.(?:v2|ios|nocache))*)\.sdui$/;
 
@@ -166,6 +168,29 @@ function modelOf(el, out) {
     if (img) { out.push(img); return; }
     const small = takeMarker(el, 'small');
     out.push({ kind: 'text', html: inlineHtml(el.children).replace(/^[ \t\n\r]+|[ \t\n\r]+$/g, ''), small });
+  } else if (tag === 'div' && ['app-spacer', 'app-divider', 'app-text'].some((c) => hasClass(el, c))) {
+    // the purpose blocks instead of the markers (scripts/style-markers.js): App Spacer (size, v2),
+    // App Divider, App Text (small)
+    const [name, ...options] = String(el.attrs.class || '').split(/\s+/).filter(Boolean);
+    const what = readPurposeBlock(name, options);
+    if (!what) return;
+    if (what.kind === 'app-spacer') {
+      out.push({ kind: 'spacer', size: SPACER_SIZES[what.size] || what.size.toUpperCase(), v2Only: what.v2Only });
+    } else if (what.kind === 'app-divider') {
+      out.push({ kind: 'divider' });
+    } else {
+      rowsOf(el).flat().forEach((cell) => {
+        const kids = elements(cell).filter((k) => ['p', 'ul', 'ol'].includes(k.tag));
+        (kids.length ? kids : [{ ...cell, tag: 'p' }]).forEach((k) => {
+          if (k.tag !== 'p') {
+            out.push({ kind: 'text', html: inlineHtml([k]), small: what.small });
+            return;
+          }
+          const html = inlineHtml(k.children).replace(/^[ \t\n\r]+|[ \t\n\r]+$/g, '');
+          if (html) out.push({ kind: 'text', html, small: what.small });
+        });
+      });
+    }
   } else if (tag === 'div' && hasClass(el, 'app-links')) {
     rowsOf(el).forEach(([c1, c2, c3]) => {
       const a = cellLink(c1);

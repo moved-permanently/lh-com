@@ -567,6 +567,37 @@ body.brand-swiss.sub-site-magazine main:has(.article-header) .default-content-wr
   font-style: normal;
 }
 
+/* the same caption as a figure (scripts/token-free.js: an italic paragraph right after a picture):
+   the picture's paragraph and the caption as the paragraphs above, the figure no box of its own */
+body.brand-swiss.sub-site-magazine main:has(.article-header) .default-content-wrapper > figure.image-caption {
+  max-width: none;
+  margin: 0;
+}
+
+body.brand-swiss.sub-site-magazine main:has(.article-header) .default-content-wrapper > figure.image-caption > p {
+  max-width: none;
+  margin: 0 0 16px;
+}
+
+body.brand-swiss.sub-site-magazine main:has(.article-header) .default-content-wrapper > figure.image-caption > figcaption {
+  margin: 0 0 16px;
+  color: #101010;
+  font-family: var(--heading-font-family);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 18px;
+  letter-spacing: 0;
+}
+
+/* from 768 px the caption keeps the copy's column (styles.css: running text 66.667 % of the
+   article, the picture 83.333 %): 80 % of the figure, centred */
+@media (width >= 768px) {
+  body.brand-swiss.sub-site-magazine main:has(.article-header) > .section:not(.related-articles-container, :has(> .carousel-cards-wrapper > .carousel-cards:not(.article))) > .default-content-wrapper > figure.image-caption > figcaption {
+    max-width: 80%;
+    margin-inline: auto;
+  }
+}
+
 /* More Stories: the cards as the lists' */
 body.brand-swiss.sub-site-magazine .related-articles .related-articles-list {
   gap: 47px 24px;

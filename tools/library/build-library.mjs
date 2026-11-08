@@ -33,12 +33,11 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import {
   parse, describeBlockDiv, rowShape, normalizeCell, contentFields, fieldType, rowCovers, blockCovers,
   chooseModels, rowFits, rowIsModel, describeModel, configKeys,
 } from './structure.mjs';
-import { OPTION_NOTES } from './spec.mjs';
+import { OPTION_NOTES, EXTRA_ENTRIES, EXTRA_OPTIONS } from './spec.mjs';
 import { siteConfig, siteArg, specFor } from './sites.mjs';
 
 const SITE = siteConfig(siteArg());
@@ -89,6 +88,23 @@ walk(CONTENT).forEach((file) => {
     });
   });
 });
+
+// blocks no page uses yet (spec.mjs EXTRA_ENTRIES: token-free styling's purpose blocks), lh-com only
+if (SITE.name === 'lh-com') {
+  EXTRA_ENTRIES.forEach(({ block: name, opts, html }) => {
+    const key = opts.length ? `${name} (${opts.join(', ')})` : name;
+    if (variants.has(key)) return;
+    const block = parse(`<main><div>${html}</div></main>`).querySelector('main > div > div');
+    variants.set(key, {
+      key,
+      name,
+      opts,
+      uses: [{
+        page: '/library/blocks', block, firstOnPage: true, d: describeBlockDiv(block),
+      }],
+    });
+  });
+}
 
 const fieldTotal = (rows) => rows.reduce((a, r) => a + r.cells.reduce((b, c) => b + c.fields.length, 0), 0);
 
@@ -326,7 +342,9 @@ const options = [
   { blocks: 'car-rental', key: 'Partner ID', values: 'SIXT=105.14|Hertz=105.13|Europcar=105.12|Rental car offers=105.11' },
   { blocks: 'destination-offer', key: 'Content languages', values: 'English=en|German=de' },
 ];
-const siteOptions = options.filter((o) => o.blocks.split(', ').some((b) => byBlock.has(b)));
+const siteOptions = [...options.filter((o) => o.blocks.split(', ').some((b) => byBlock.has(b))),
+  // every page has sections and metadata: their friendly choices (spec.mjs EXTRA_OPTIONS)
+  ...(SITE.name === 'lh-com' ? EXTRA_OPTIONS : [])];
 const sheet = (data) => ({
   total: data.length, limit: data.length, offset: 0, data, ':colWidths': [],
 });

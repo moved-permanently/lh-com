@@ -3,6 +3,7 @@ import { getLocale } from '../../scripts/locale.js';
 import { languageOfPath } from '../../scripts/site-languages.js';
 import { outsideUrl } from '../../scripts/clock.js';
 import { brandWwwHost } from '../../scripts/brand.js';
+import { isCheckedDefault } from '../../scripts/style-markers.js';
 import {
   cleanText, stripZeroWidth, toConfigKey, resolveLabels, decorateExternalLinks,
 } from '../../scripts/block-config.js';
@@ -497,12 +498,14 @@ function readRows(block) {
       message: text('message'),
       constraint: text('constraint'),
       rules: parseRules(cellLines(cell('rules'))),
+      // the Default column: the options chosen at load (a single checkbox: yes, x, checked)
+      defaults: cellLines(cell('default')),
     };
   });
 }
 
 function parseOptions(row) {
-  return parseOptionLines(row.optionLines || []);
+  return parseOptionLines(row.optionLines || [], row.defaults || [], row.type === 'checkbox');
 }
 
 /** Moves the rich content of a cell into a new element; returns null for empty cells. */
@@ -781,7 +784,14 @@ function renderControl(row, ctx) {
     control = el('input', 'form-control');
     const inputTypes = ['text', 'email', 'tel', 'number', 'date', 'checkbox'];
     control.type = inputTypes.includes(row.type) ? row.type : 'text';
-    if (row.type === 'checkbox') control.value = 'yes';
+    if (row.type === 'checkbox') {
+      control.value = 'yes';
+      // checked at load by the Default column (scripts/style-markers.js)
+      if (isCheckedDefault(row.defaults || [])) {
+        control.checked = true;
+        control.defaultChecked = true;
+      }
+    }
   }
   control.id = id;
   control.name = row.name;

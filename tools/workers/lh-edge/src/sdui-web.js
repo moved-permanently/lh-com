@@ -24,7 +24,9 @@ import CONTENT_PAGES from './web-pages.js';
 import { siteFetch, servedLocale } from './markets.js';
 /* eslint-disable import/no-relative-packages */
 import { LOCALES } from '../../../../scripts/locale.js';
-import { stripStyleMarkers, stripStyleMarkersHtml } from '../../../../scripts/style-markers.js';
+import {
+  stripStyleMarkers, stripStyleMarkersHtml, isCaptionParagraph, readPurposeBlock, readSectionStyle,
+} from '../../../../scripts/style-markers.js';
 import {
   toArticle, byDate, listOf, normalizeTag, normalizeCategory, formatArticleDate, pickRelated,
 } from '../../../../scripts/articles.js';
@@ -111,8 +113,11 @@ const linkOnly = (el) => {
   return ['strong', 'em', 'b', 'i'].includes(one.tag) && elements(one).length === 1 && elements(one)[0].tag === 'a' && !one.children.some((c) => !isElement(c) && c.text.trim());
 };
 
-/** The items of one default-content element (headline, text, image, separator). */
-function contentItems(el, page, out) {
+/**
+ * The items of one default-content element (headline, text, image, separator); prev: the element
+ * before it (a caption follows an image).
+ */
+function contentItems(el, page, out, prev = null) {
   const { tag } = el;
   if (/^h[1-6]$/.test(tag)) {
     const level = Number(tag[1]);
@@ -129,6 +134,8 @@ function contentItems(el, page, out) {
       return;
     }
     if (/\{caption\}\s*$/.test(raw)) return; // image captions: not a part on www
+    // nor the token-free caption: an italic paragraph right after an image (style-markers.js)
+    if (prev && isCaptionParagraph(el, prev)) return;
     const img = imageItem(el, page);
     if (img) { out.push(img); return; }
     // a paragraph of markers only ("{column-end-outer}"): no part
@@ -171,31 +178,50 @@ export function webModel(html, page, { article } = {}) {
   const model = {
     hero: null, header: [], body: [], related: false,
   };
-  doc.sections.forEach((s) => s.kids.forEach((el) => {
-    if (el.tag === 'div' && hasClass(el, 'article-header')) {
-      const rows = elements(el).map((r) => elements(r)[0]).filter(Boolean);
-      const imgCell = rows.find((c) => find(c, (n) => n.tag === 'img'));
-      const img = imgCell && find(imgCell, (n) => n.tag === 'img');
-      if (img) model.hero = imageItem({ tag: 'p', children: [img], attrs: {} }, page);
-      const textCell = rows.find((c) => find(c, (n) => /^h[1-6]$/.test(n.tag)));
-      if (textCell) {
-        elements(textCell).forEach((x) => contentItems(x, page, model.header));
-        if (article) {
-          const info = [formatArticleDate(article.date, article.locale), article.readingTime, article.author].filter(Boolean).join(' | ');
-          const h = model.header.findIndex((i) => i.kind === 'headline');
-          if (info) model.header.splice(h + 1, 0, { kind: 'text', html: `<b>${info}</b>`, small: true });
+  doc.sections.forEach((s) => {
+    // section styles (Section Metadata Style): the space or rule above and below the section, as
+    // the separators' items (scripts/style-markers.js)
+    const style = readSectionStyle(String(s.attrs.style || ''));
+    const edge = (space, divider) => {
+      if (divider) return { kind: 'divider' };
+      return space ? { kind: 'web-spacer' } : null;
+    };
+    const above = edge(style.space, style.divider);
+    if (above && s.kids.some((el) => !(el.tag === 'div' && hasClass(el, 'article-header')))) model.body.push(above);
+    s.kids.forEach((el, at) => {
+      const prev = at ? s.kids[at - 1] : null;
+      if (el.tag === 'div' && hasClass(el, 'article-header')) {
+        const rows = elements(el).map((r) => elements(r)[0]).filter(Boolean);
+        const imgCell = rows.find((c) => find(c, (n) => n.tag === 'img'));
+        const img = imgCell && find(imgCell, (n) => n.tag === 'img');
+        if (img) model.hero = imageItem({ tag: 'p', children: [img], attrs: {} }, page);
+        const textCell = rows.find((c) => find(c, (n) => /^h[1-6]$/.test(n.tag)));
+        if (textCell) {
+          elements(textCell).forEach((x) => contentItems(x, page, model.header));
+          if (article) {
+            const info = [formatArticleDate(article.date, article.locale), article.readingTime, article.author].filter(Boolean).join(' | ');
+            const h = model.header.findIndex((i) => i.kind === 'headline');
+            if (info) model.header.splice(h + 1, 0, { kind: 'text', html: `<b>${info}</b>`, small: true });
+          }
         }
+      } else if (el.tag === 'div' && hasClass(el, 'related-articles')) {
+        model.related = true;
+      } else if (el.tag === 'div' && hasClass(el, 'cards-teaser')) {
+        model.body.push(...teaserItems(el));
+      } else if (el.tag === 'div' && hasClass(el, 'accordion-columns')) {
+        model.body.push(...accordionItems(el, page));
+      } else if (el.tag === 'div' && ['spacer', 'divider'].some((c) => hasClass(el, c))) {
+        // the purpose blocks Spacer and Divider, as "{spacer-N}" and "{divider-N}"
+        const [name, ...options] = String(el.attrs.class || '').split(/\s+/).filter(Boolean);
+        const what = readPurposeBlock(name, options);
+        if (what) model.body.push(what.kind === 'divider' ? { kind: 'divider' } : { kind: 'web-spacer' });
+      } else if (el.tag !== 'div') {
+        contentItems(el, page, model.body, prev);
       }
-    } else if (el.tag === 'div' && hasClass(el, 'related-articles')) {
-      model.related = true;
-    } else if (el.tag === 'div' && hasClass(el, 'cards-teaser')) {
-      model.body.push(...teaserItems(el));
-    } else if (el.tag === 'div' && hasClass(el, 'accordion-columns')) {
-      model.body.push(...accordionItems(el, page));
-    } else if (el.tag !== 'div') {
-      contentItems(el, page, model.body);
-    }
-  }));
+    });
+    const below = edge(style.spaceBelow, style.dividerBelow);
+    if (below) model.body.push(below);
+  });
   return model;
 }
 

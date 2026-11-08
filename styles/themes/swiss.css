@@ -970,6 +970,13 @@ body.brand-swiss main > .section > .section-part.grey {
   }
 }
 
+/* (the token-free caption, scripts/token-free.js: its figcaption as the paragraph) */
+@media (width >= 1025px) {
+  body.brand-swiss main > .section.with-aside .default-content-wrapper > figure.image-caption > figcaption {
+    max-width: none;
+  }
+}
+
 /* stylelint-enable no-descending-specificity */
 
 /* the online check-in's field hints (booking-lookup my-bookings checkin, brief 445): www's

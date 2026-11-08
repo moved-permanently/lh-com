@@ -2598,6 +2598,18 @@ body.brand-tap main > .section:not(.hidden-heading) .default-content-wrapper > h
   }
 }
 
+/* the token-free caption (scripts/token-free.js: a figure of the image paragraph and its
+   figcaption) as those paragraphs: the caption over the whole width, the picture rounded */
+@media (width >= 1025px) {
+  body.brand-tap main .default-content-wrapper > figure.image-caption > figcaption {
+    max-width: none;
+  }
+}
+
+body.brand-tap main .default-content-wrapper > figure.image-caption > p > picture img {
+  border-radius: 32px;
+}
+
 /* the breadcrumb (row 35): the whole trail at every width (a phone's too), the homepage as a
    house, lucide chevrons between, the page in semibold; as www (brief 356) Inter 14 / 21 in 26 px
    rows 6 px apart, the house in a 24 px box, the chevrons 6 px either side, #424045 */

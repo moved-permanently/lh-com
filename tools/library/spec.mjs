@@ -1,5 +1,6 @@
 /* eslint-disable max-len -- descriptions */
 /** lh-com's block library: descriptions and labels per block, option notes (build-library.mjs). */
+import { BLOCK_OPTION_LABELS, SECTION_STYLE_LABELS } from '../../scripts/style-markers.js';
 
 /**
  * Per block: multi (every row is an item authors add, delete and reorder), description, and
@@ -68,9 +69,48 @@ export const SPEC = {
   'stage-promotions': { description: 'Homepage stage: shows the active promotion of the locale\'s promotions document', rows: { 0: [['Promotions document']] } },
   'subpage-nav': { description: 'Navigation to the pages of a topic, at the end of the page', rows: { 0: [['Eyebrow', 'Topic', 'Pages']] } },
   'table-striped': { multi: true, description: 'Table with striped rows, one block row per table row (option header: the first row is the header)', columnLabels: true },
+  // the small purpose blocks of token-free styling (scripts/style-markers.js; README "Authoring without markers")
+  spacer: { description: 'Extra space at this place, for a real exception (the theme spaces the page): M 60px, L 120px; between two blocks or at a section\'s edge use the block option or section style instead' },
+  divider: { description: 'A thin grey line with 25px below it, for a real exception (the theme draws the usual rules)' },
+  'app-spacer': { title: 'App screen: spacer', description: 'App screen: an empty space (x-small, small, medium, m-large, large; v2: in the v2 screen only). Only in app screen documents under /content/mobile/lh/<lang>/' },
+  'app-divider': { title: 'App screen: divider', description: 'App screen: a rule. Only in app screen documents under /content/mobile/lh/<lang>/' },
+  'app-text': { title: 'App screen: text', description: 'App screen: text (option small: the small copy text). Only in app screen documents under /content/mobile/lh/<lang>/', rows: { 0: [['Text']] } },
+  'nav-tools': {
+    multi: true, title: 'Nav tools', description: 'The nav document\'s tools (its tools section): one row per tool, the icon and link, its role (accessibility, help, search, cart, login, locale, notifications) and optionally a list (the countries of the locale item)', item: [['Tool'], ['Role'], ['List']],
+  },
 };
 
+/*
+ * Library entries for blocks no page uses yet (the purpose blocks of token-free styling): build-library.mjs adds each
+ * where the pages give the variant no sample of their own.
+ */
+export const EXTRA_ENTRIES = [
+  { block: 'spacer', opts: [], html: '<div class="spacer"><div><div></div></div></div>' },
+  { block: 'spacer', opts: ['l'], html: '<div class="spacer l"><div><div></div></div></div>' },
+  { block: 'divider', opts: [], html: '<div class="divider"><div><div></div></div></div>' },
+  { block: 'app-spacer', opts: ['medium'], html: '<div class="app-spacer medium"><div><div></div></div></div>' },
+  { block: 'app-spacer', opts: ['medium', 'v2'], html: '<div class="app-spacer medium v2"><div><div></div></div></div>' },
+  { block: 'app-divider', opts: [], html: '<div class="app-divider"><div><div></div></div></div>' },
+  { block: 'app-text', opts: ['small'], html: '<div class="app-text small"><div><div><p>Small print</p></div></div></div>' },
+  { block: 'nav-tools', opts: [], html: '<div class="nav-tools"><div><div><p>:cart: <a href="/de/en/cart">Your Cart</a></p></div><div><p>cart</p></div><div></div></div></div>' },
+];
+
+/*
+ * Key / value choices with friendly labels ("Label=value", the options sheet): the section styles (Section Metadata
+ * Style) and the page's Headings row.
+ */
+export const EXTRA_OPTIONS = [
+  { blocks: 'section-metadata', key: 'Style', values: Object.entries(SECTION_STYLE_LABELS).map(([v, l]) => `${l}=${v}`).join('|') },
+  { blocks: 'metadata', key: 'Headings', values: ['H2 large', 'H2 compact', 'H3 large'].map((l) => `${l}=${l}`).join('|') },
+];
+
 export const OPTION_NOTES = {
+  ...BLOCK_OPTION_LABELS,
+  m: 'M (60px)',
+  l: 'L (120px)',
+  v2: 'v2 screen only',
+  small: 'small text',
+  medium: 'medium',
   faq: 'FAQ style',
   spaced: 'spaced items',
   'limited-width': 'limited width',

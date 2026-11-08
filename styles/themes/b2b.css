@@ -693,3 +693,9 @@ body.brand-b2b main > .section.grey {
     gap: 42px;
   }
 }
+
+/* the token-free caption (scripts/token-free.js: a figure of the image paragraph and its
+   figcaption) as the paragraph: at most 800 px, as styles.css's lh-b2b paragraphs */
+body.brand-b2b main figure.image-caption > figcaption {
+  max-width: 800px;
+}

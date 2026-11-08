@@ -11,7 +11,9 @@ import { getChannel, isFlynetHiddenLink, FLYNET_LOCALES } from '../../scripts/ch
 import { isDemoHost } from '../../scripts/demo.js';
 import { isOwnWwwHost, brandOf } from '../../scripts/brand.js';
 import { panelTabOrder, nextInOrder } from './header-focus.js';
-import { takeRole, toolRole, cartLabels } from './header-tools.js';
+import {
+  takeRole, tableRole, toolRole, cartLabels,
+} from './header-tools.js';
 import classifySections from './header-sections.js';
 
 /*
@@ -307,8 +309,9 @@ function readTools(section, lang, brand) {
   return topItems(section).map((li) => {
     const sub = subList(li);
     if (sub) sub.remove();
-    // the role: a marker ("{cart}"), else the icon's name (./header-tools.js)
-    const marker = takeRole(li);
+    // the role: a marker ("{cart}"), else the Nav Tools table's role column, else the icon's
+    // name (./header-tools.js)
+    const marker = takeRole(li) || tableRole(li);
     const icon = takeIconName(li);
     const a = ownLink(li);
     const role = toolRole({ marker, icon, href: a ? a.href : null });

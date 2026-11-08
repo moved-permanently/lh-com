@@ -1645,3 +1645,96 @@ body.brand-lufthansa.insights-flow main > .section:not(.grey) > :not(.default-co
     padding: 40px 0 16px;
   }
 }
+
+/* stylelint-disable no-descending-specificity -- the figure's own children, as the paragraphs' rules */
+
+/* the token-free caption (scripts/token-free.js): an italic paragraph right after an image is a
+   figure of the image paragraph and its figcaption, drawn as the two paragraphs of "{caption}"
+   above. The figure adds no box of its own (no margin, padding or border: its children's margins
+   meet the neighbours' as siblings would); a caption's classes (full-width, column-end) carry over */
+main .default-content-wrapper > figure.image-caption {
+  margin: 0;
+  padding: 0;
+}
+
+main .default-content-wrapper > figure.image-caption > p {
+  margin-bottom: 10px;
+}
+
+main .default-content-wrapper > figure.image-caption > figcaption {
+  margin: 0 0 40px;
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  line-height: 18px;
+}
+
+main .default-content-wrapper > figure.image-caption:last-child > figcaption {
+  margin-bottom: 0;
+}
+
+main .default-content-wrapper > figure.image-caption > p > a:has(> picture) {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+}
+
+main .default-content-wrapper > figure.image-caption > p > picture,
+main .default-content-wrapper > figure.image-caption > p > picture img,
+main .default-content-wrapper > figure.image-caption > p > a > picture,
+main .default-content-wrapper > figure.image-caption > p > a > picture img {
+  display: block;
+}
+
+main .default-content-wrapper > h1 + figure.image-caption img {
+  width: 100%;
+}
+
+main .default-content-wrapper > figure.image-caption > p.parallax img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+main .default-content-wrapper > figure.image-caption > p.column-start {
+  padding-top: 32px;
+}
+
+main .default-content-wrapper > figure.image-caption > figcaption.column-end {
+  margin-bottom: 0;
+  padding-bottom: 32px;
+}
+
+@media (width >= 1025px) {
+  main .default-content-wrapper > figure.image-caption > figcaption:not(.full-width) {
+    box-sizing: border-box;
+    max-width: 66%;
+  }
+}
+
+/* campaign sections: the image component's 4rem before its caption too; with the sub-page
+   navigation the caption runs as the text (the 75% column); lh-b2b's 800 px: b2b.css */
+body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper > figure.image-caption > p {
+  margin-bottom: 40px;
+}
+
+@media (width >= 1025px) {
+  main:has(.subpage-nav) .default-content-wrapper > figure.image-caption > figcaption {
+    max-width: none;
+  }
+}
+
+/* Insights articles: the image and its caption in the article card (83.333%, as the image
+   paragraphs above) */
+@media (width >= 768px) {
+  main:has(.article-header) > .section:not(.related-articles-container, :has(> .carousel-cards-wrapper > .carousel-cards:not(.article))) > .default-content-wrapper > figure.image-caption {
+    box-sizing: border-box;
+    max-width: 83.333%;
+    margin-inline: auto;
+  }
+
+  main:has(.article-header) > .section:not(.related-articles-container, :has(> .carousel-cards-wrapper > .carousel-cards:not(.article))) > .default-content-wrapper > figure.image-caption > figcaption {
+    max-width: none;
+  }
+}
+
+/* stylelint-enable no-descending-specificity */

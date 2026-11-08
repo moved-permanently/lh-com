@@ -12,9 +12,11 @@
  * - fields inside hidden sections are not required, have no pattern and are cleared on submit
  */
 
+import { isDefaultChoice } from '../../scripts/style-markers.js';
+
 /** Columns of the authored table, in default order (a header row may reorder or omit them). */
 export const COLUMNS = ['label', 'type', 'name', 'required', 'options', 'help', 'placeholder',
-  'message', 'constraint', 'rules'];
+  'message', 'constraint', 'rules', 'default'];
 
 /** Header cell texts (EN and DE, normalized like toConfigKey) per column. */
 export const HEADER_WORDS = {
@@ -31,6 +33,9 @@ export const HEADER_WORDS = {
     'format-meldung'],
   rules: ['rules', 'regeln', 'validation', 'validierung', 'attributes', 'attribute', 'settings',
     'einstellungen'],
+  // the options chosen at load (scripts/style-markers.js isDefaultChoice), instead of "{selected}"
+  default: ['default', 'defaults', 'vorauswahl', 'voreinstellung', 'vorbelegung', 'standard',
+    'preselected'],
 };
 
 export const TYPE_ALIASES = {
@@ -154,14 +159,8 @@ export function slugify(text) {
 
 const SELECTED_MARK = /\s*\{selected\}\s*$/i;
 
-/**
- * One option per line: "value=Label", "=Label" (empty value, e.g. "Please select") or just
- * "Label" (value derived from the label); "{selected}" at the end preselects the option.
- * Without separate lines a single comma-separated line is split (legacy authoring).
- * @param {string[]} lines
- * @returns {{value: string, label: string, selected: boolean}[]}
- */
-export function parseOptionLines(lines) {
+/** The options of an Options cell's lines, with their own "{selected}" marks. */
+function parseOptionsOnly(lines) {
   let parts = lines;
   if (lines.length === 1 && lines[0].includes(',')) {
     // legacy "a=A,b=B" or "A, B": split only when every part (or none) is a value=Label pair,
@@ -179,6 +178,28 @@ export function parseOptionLines(lines) {
     const label = text.slice(eq + 1).trim();
     return { value, label: label || value, selected };
   }).filter((o) => o.label || o.value);
+}
+
+/**
+ * One option per line: "value=Label", "=Label" (empty value, e.g. "Please select") or just
+ * "Label" (value derived from the label); "{selected}" at the end preselects the option, as do
+ * the lines of the row's Default cell (by value or label; with a "{selected}" option the marker
+ * wins; a single choice takes the first one).
+ * Without separate lines a single comma-separated line is split (legacy authoring).
+ * @param {string[]} lines
+ * @param {string[]} [defaults] the Default cell's lines
+ * @param {boolean} [multiple] a checkbox group (every default), else one choice
+ * @returns {{value: string, label: string, selected: boolean}[]}
+ */
+export function parseOptionLines(lines, defaults = [], multiple = false) {
+  const options = parseOptionsOnly(lines);
+  if (!defaults.length || options.some((o) => o.selected)) return options;
+  let chosen = false;
+  return options.map((o) => {
+    if ((chosen && !multiple) || !isDefaultChoice(o, defaults)) return o;
+    chosen = true;
+    return { ...o, selected: true };
+  });
 }
 
 /** Rule keys with a number value. */

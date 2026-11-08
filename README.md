@@ -152,6 +152,49 @@ LufthansaHead regular to the bold font file: there every light heading (300) dra
 importer records this as page metadata `Theme: digital-assistant` (`body.digital-assistant`,
 styles.css / fonts.css); remove the row to get the light headings.
 
+## Authoring without markers (token-free styling)
+
+The markers above are being replaced by carriers that need no style words in the text (Ben's plan, four
+steps; step 1, the readers, is in place; step 2, the tool that rewrites the documents and the importer's
+output, follows). Data placeholders (`{origin}`, `{COUNT}`, `{lang}`, a form pattern's `{1,3}`) are
+content and stay. One module reads all of it for the site and lh-edge: `scripts/style-markers.js`
+(`scripts/token-free.js` applies it to the page, after the markers; a marker on an element still wins).
+Every carrier draws what the marker it replaces draws, so nothing changes while documents carry markers.
+
+In this order:
+
+1. **The theme** (per brand and page type, `THEMES` in `scripts/style-markers.js`): heading size per
+   level (H1 `heading-large`, H2 `heading-medium`, H3/H4 `heading-copytext-large`, H5/H6
+   `heading-copytext-medium`), running text two thirds wide from 1025px (ITA: the whole width), body
+   text 18px, separators M 60px / L 120px / Divider (1px line, 25px), a column view's 32px padding;
+   page types: lufthansa.com articles (a rule above an info box after text, chapters ruled),
+   /100-years (sections 60px apart), Brussels' service pages (H2 `heading-small`), Austrian's intro
+   after the H1. The page types' rules stay off (`live: false`) until step 2 has collapsed that
+   brand's documents.
+2. **Section styles** (Section Metadata `Style`; the library offers them as `Label=value`):
+   `Space above: M` / `L` (`space-m`, `space-l`), `Divider above` (`divider`), `Space below: M` / `L`,
+   `Divider below`, `Wide text` (the section's running text over the whole width), `Small print`
+   (14px), `H2 large`, `H2 compact` (two sizes smaller), `H3 large`. They apply to the section's own
+   text and headings, not to its blocks. The same heading choices for a whole page: metadata
+   `Headings` (`H2 large`, `H2 compact`, `H3 large`); a section style wins over it.
+3. **Block options** (any block, in the name's parentheses): `space-m`, `space-l`, `divider-above`
+   (the space or rule above the block), `small-print`, `title-large`, `title-compact`,
+   `background-video`.
+4. **Formatting with a meaning**: a paragraph all in italics right after an image is the image's
+   caption (a figure with a figcaption, the look of `{caption}`; never a button: an italic link alone
+   stays a secondary button). lh-edge's app JSON leaves it out, as `{caption}`.
+5. **Link fragments** (videos only): `…/video.mp4#background` plays as a background video
+   (autoplay, muted, loop, no controls); other fragments such as `#t=10` stay. Without either the
+   default player: controls and the round play button.
+6. **Small purpose blocks** for the real exceptions: `Spacer` (M; `Spacer (l)`: L), `Divider`. On app
+   screens (`/content/mobile/**`): `App Spacer (medium)` (x-small, small, medium, m-large, large;
+   `v2`: in the v2 screen only), `App Divider`, `App Text (small)`.
+
+Elsewhere: the form table's `Default` column (Vorauswahl) names the options chosen at load, one per
+line, by value or label (a single checkbox: `yes`), instead of `{selected}`; the nav document's tools as
+a `Nav Tools` table name each item's role in its second column (accessibility, help, search, cart,
+login, locale, notifications) instead of `{cart}`.
+
 ## Time travel (preview)
 
 Preview the site as it will look at a chosen moment: the stage promotion of the homepage and the Message Center's disruption and flash banners are those of that moment (`scripts/clock.js`, the page's one clock). Add `?time-travel=` to a preview URL:
