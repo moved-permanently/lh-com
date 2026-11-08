@@ -45,6 +45,7 @@ import {
 } from './airdolomiti-paths.mjs';
 import { snapshotFile, urlKey } from './airdolomiti-capture.mjs';
 import { alternateRows, snapshotHead } from './airdolomiti-alternates.mjs';
+import collapseDocs from './collapse-docs.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const W = path.join(root, 'content-sites/lh-airdolomiti');
@@ -1420,6 +1421,8 @@ function main() {
     written.push(doc);
   });
   if (!argv.includes('--dry-run')) {
+    // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
+    collapseDocs(written.map((d) => path.join(OUT, `${d}.plain.html`)), { brand: 'airdolomiti', content: path.join(W, 'content') });
     writeJson(path.join(W, 'runs', `${name}-import.json`), report);
     fs.writeFileSync(path.join(W, 'runs', `${name}-paths.txt`), `${written.join('\n')}\n`);
     writeJson(path.join(ASSETS, 'files.json'), files);

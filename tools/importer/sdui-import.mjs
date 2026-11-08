@@ -1,4 +1,4 @@
-/* eslint-disable no-console, no-underscore-dangle, max-len -- one-off import of recorded JSON */
+/* eslint-disable no-console, no-underscore-dangle, max-len, import/extensions -- one-off import of recorded JSON */
 /**
  * Imports the Lufthansa app's server-driven screens once, from www's recorded answers
  * (tools/source-export/feeds/sdui/<lang>/<path>.v2.sdui.json and .sdui.json), into one DA
@@ -26,6 +26,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import collapseDocs from './collapse-docs.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const FEED = path.join(root, 'tools/source-export/feeds/sdui');
@@ -287,6 +288,7 @@ listed.forEach(({ article, offer, category }, i, all) => {
 });
 
 let written = 0;
+const writtenFiles = [];
 Object.entries(docs).forEach(([p, d]) => {
   const meta = [['Title', esc(d.title)], ['Robots', 'noindex, nofollow']];
   if (d.container) meta.push(['SDUI type', 'container']);
@@ -307,6 +309,9 @@ Object.entries(docs).forEach(([p, d]) => {
   const file = path.join(root, 'content', `${p}.plain.html`);
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, html);
+  writtenFiles.push(file);
   written += 1;
 });
 console.log(`sdui-import: ${written} documents (${listed.length} list entries)`);
+// the last step: the app screens' markers as App Spacer, App Divider and App Text blocks
+collapseDocs(writtenFiles, { brand: 'lufthansa', content: path.join(root, 'content') });

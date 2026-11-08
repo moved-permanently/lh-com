@@ -33,6 +33,7 @@ import {
 import { relativeDamLinks } from './swiss-dam.mjs';
 import { postprocess } from './site-postprocess.mjs';
 import { SUB_SITES } from '../../scripts/site-languages.js';
+import collapseDocs from './collapse-docs.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const HOST = 'www.swiss.com';
@@ -214,6 +215,8 @@ if (isMain) {
     fs.writeFileSync(f, doc);
   });
   fs.writeFileSync(path.join(W, 'runs', `${name}-upload.txt`), `${made.join('\n')}\n`);
+  // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
+  collapseDocs(made.map((p) => path.join(W, 'content', `${p}.plain.html`)), { brand: 'swiss', content: path.join(W, 'content') });
   fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);
   console.log(`${made.length} documents; upload list runs/${name}-upload.txt`);
 }

@@ -53,6 +53,7 @@ import { edsDamPath } from '../../scripts/dam-path.js';
 import { withLocalImages } from './swiss-nav.mjs';
 import { stripScripts } from './excat-plugin.mjs';
 import { withSwissSidebar, withSwissAccordions, wwwHref } from './swiss-sidebar.mjs';
+import collapseDocs from './collapse-docs.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -1130,6 +1131,8 @@ if (isMain) {
       const next = withSearchBar(withLiveFallback(withCockpitQuery(withOwnFlightSearchLinks(withOwnSuccess(linked, (t) => fs.existsSync(path.join(W, 'content', `${t}.plain.html`))), p), p), p));
       if (next !== doc) fs.writeFileSync(f, next);
     });
+    // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
+    collapseDocs(made.map((p) => path.join(W, 'content', `${p}.plain.html`)), { brand: 'swiss', content: path.join(W, 'content') });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);
     console.log(`${made.length} documents; upload list runs/${name}-upload.txt`);
   }

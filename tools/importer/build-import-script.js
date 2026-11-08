@@ -32,6 +32,8 @@ function build(name) {
 
 ${blockNames.map((b) => `import ${camel(b)}Parser from './parsers/${b}.js';`).join('\n')}
 ${transformers.map((t) => `import ${camel(t)}Transformer from './transformers/${t}.js';`).join('\n')}
+// token-free styling (the brief after 493): the document's markers collapsed, the last step
+import { collapseMain, brandOfHost } from './marker-collapse.mjs';
 
 const PAGE_TEMPLATE = ${JSON.stringify(embedded, null, 2)};
 
@@ -90,6 +92,9 @@ export default {
       .replace(/\\/$/, '')
       .replace(/\\.html?$/, '');
     const path = WebImporter.FileUtils.sanitizePath(rawPath === '' ? '/index' : rawPath);
+
+    // the last step: no import writes style markers (the theme's defaults and step 1's carriers)
+    try { collapseMain(main, { path, brand: brandOfHost(new URL(params.originalURL).hostname), document }); } catch (e) { console.error('marker-collapse failed:', e); }
 
     return [{
       element: main,

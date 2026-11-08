@@ -75,8 +75,8 @@ here. The language index takes the value when the page is **published**.
 ## Styling without markers (token-free styling)
 
 The documents still carry style markers in curly braces (`Ticket refunds {heading-medium}`, `{spacer-60}`); they are
-being replaced by the choices below, which need no style words in the text (README "Authoring without markers"; the
-replacement of the existing markers is a later step). The theme already spaces and sizes a page as its brand does, so
+being replaced by the choices below, which need no style words in the text (README "Authoring without markers"). A
+site's documents are collapsed in one pass (tools/importer/marker-collapse.mjs); new imports come without markers. The theme already spaces and sizes a page as its brand does, so
 most pages need none of them. Pick them in Document Authoring from the block library (friendly labels; the value in
 brackets is what the document holds).
 
@@ -86,10 +86,13 @@ brackets is what the document holds).
 | Section Metadata, `Style` | `Wide text` (`wide-text`) | the section's running text over the whole width (the default is two thirds from 1025 px) |
 | Section Metadata, `Style` | `Small print` (`small-print`) | the section's text in 14 px (footnotes, conditions) |
 | Section Metadata, `Style` | `H2 large`, `H2 compact`, `H3 large` | the section's own H2 (or H3) headings two sizes larger or smaller; the level stays |
+| Section Metadata, `Style` | `Parallax image` (`parallax`), `Narrow quote` (`narrow`), `Padded` (`padded`) | the section's images in a 500 px window, its quotes centred narrow, 20 / 40 px above and below |
 | Metadata, `Headings` | `H2 large`, `H2 compact`, `H3 large` | the same for the whole page (a section's style wins) |
 | A block's options | `space-m`, `space-l`, `divider-above`, `small-print`, `title-large`, `title-compact`, `background-video` | space or a line above the block, its text small, its titles larger or smaller, its video as a background video |
 | Under an image | a paragraph all in italics | the image's caption (14 px bold under the image); an italic link alone stays a button |
 | A video link | `…/video.mp4#background` | a background video: plays muted in a loop without controls (`#t=10` and other fragments stay) |
+| A video link | `…/video.mp4#size=1920x1080` | the video's own size: the player has its shape before the video loads |
+| Article Header's options | `mobile-video` | its video on phones too |
 | Purpose blocks | `Spacer` (60 px), `Spacer (l)` (120 px), `Divider` | for a real exception where none of the above fits |
 | App screens (`/content/mobile/**`) | `App Spacer (medium)` (x-small … large; `v2`: the v2 screen only), `App Divider`, `App Text (small)` | the app's space, rule and small text |
 | Form table | a `Default` column (`Vorauswahl`) | the options chosen when the form opens, one per line, by value or label; a single checkbox: `yes` |

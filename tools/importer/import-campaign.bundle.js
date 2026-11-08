@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_552379_exports = {};
-  __export(tmp_bundle_campaign_552379_exports, {
-    default: () => tmp_bundle_campaign_552379_default
+  var tmp_bundle_campaign_1043927_exports = {};
+  __export(tmp_bundle_campaign_1043927_exports, {
+    default: () => tmp_bundle_campaign_1043927_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -2543,8 +2543,8 @@ var CustomImportScript = (() => {
     } else {
       expanded.forEach((k) => options.push(`open-item-${k}`));
     }
-    const blockName = options.length ? `accordion-columns (${options.join(", ")})` : "accordion-columns";
-    const block = WebImporter.Blocks.createBlock(document, { name: blockName, cells });
+    const blockName2 = options.length ? `accordion-columns (${options.join(", ")})` : "accordion-columns";
+    const block = WebImporter.Blocks.createBlock(document, { name: blockName2, cells });
     element.replaceWith(block);
   }
 
@@ -3012,11 +3012,11 @@ var CustomImportScript = (() => {
       const ownSidebar = !!oneColumn && oneColumn.matches(".onecolumn.column") && oneColumn.children.length === 1 && !!oneColumn.parentElement && oneColumn.parentElement.classList.contains("section-content") && !oneColumn.hasAttribute("data-lh-column") && !ARTICLE && !element.closest(".container-gray");
       if (ownSidebar) {
         variants.push("padded");
-        const meaningful2 = (el) => !!clean4(el.textContent) || !!el.querySelector("img, picture, video, iframe");
-        const isLast = [...oneColumn.parentElement.children].filter(meaningful2).pop() === oneColumn;
+        const meaningful3 = (el) => !!clean4(el.textContent) || !!el.querySelector("img, picture, video, iframe");
+        const isLast = [...oneColumn.parentElement.children].filter(meaningful3).pop() === oneColumn;
         const aem = oneColumn.closest(".container-content > .section");
         let next = aem && aem.nextElementSibling;
-        while (next && !(next.classList.contains("section") && meaningful2(next))) next = next.nextElementSibling;
+        while (next && !(next.classList.contains("section") && meaningful3(next))) next = next.nextElementSibling;
         if (isLast && next && next.querySelector(":scope > div > .section-padding-y-regular") && !next.querySelector(":scope > .container-gray")) variants.push("before-padded");
       }
     } else {
@@ -3720,10 +3720,13 @@ var CustomImportScript = (() => {
   var HEADING_STYLE = styleMarker(HEADING_TOKENS);
   var PARAGRAPH_STYLE = styleMarker(PARAGRAPH_TOKENS);
   var LIST_STYLE = styleMarker(LIST_TOKENS);
+  var SEPARATOR = /^\{(spacer|divider)-(\d{1,3})( from-768)?\}$/;
   var VIDEO_SETTINGS = ["autoplay", "muted", "loop", "controls", "round-play-button"];
   var VIDEO_SIZE = "size-\\d{2,5}x\\d{2,5}";
   var VIDEO_MARKER = styleMarker(`${VIDEO_SETTINGS.join("|")}|${VIDEO_SIZE}`);
+  var BLANK_LINE = /^\s*\{blank\}\s*$/;
   var APP_SPACER = /^\{spacer:\s*(x-small|small|medium|m-large|large)\s*(,\s*v2)?\s*\}$/i;
+  var APP_SMALL = /\s*\{small\}\s*$/;
   var OTHER_TOKENS = "mobile|blank|small|divider|cell-(?:half-start|half-end|three-quarters)";
   var ANY_TOKENS = [HEADING_TOKENS, PARAGRAPH_TOKENS, LIST_TOKENS, VIDEO_SETTINGS.join("|"), VIDEO_SIZE, OTHER_TOKENS].join("|");
   var ANY_MARKER = `\\{\\s*(?:${ANY_TOKENS})(?: (?:${ANY_TOKENS}))*\\s*\\}`;
@@ -3742,6 +3745,12 @@ var CustomImportScript = (() => {
   }
   var SPACE = { m: 60, l: 120 };
   var DIVIDER_SPACE = 25;
+  var HEADING_SIZES = ["heading-large", "heading-medium", "heading-small", "heading-copytext-large", "heading-copytext-medium"];
+  function sizeSteps(from, to) {
+    const a = HEADING_SIZES.indexOf(from);
+    const b = HEADING_SIZES.indexOf(to);
+    return a < 0 || b < 0 ? null : b - a;
+  }
   var BASE_THEME = {
     headings: {
       h1: "heading-large",
@@ -3761,10 +3770,75 @@ var CustomImportScript = (() => {
     separators: { m: SPACE.m, l: SPACE.l, divider: DIVIDER_SPACE },
     // a Lufthansa column view's padding (32px; outside a page section 20px, 40px from 768px) and
     // the space a heading adds above itself on flow pages (none: the paddings make it)
-    columnViews: { padding: 32, outerPadding: [20, 40], headingGap: 0 },
+    columnViews: { padding: 32, outerPadding: [20, 40], headingGap: 32 },
     rules: [],
     live: false
   };
+  var THEMES = {
+    lufthansa: {
+      pageTypes: {
+        // Insights articles: a rule above an info box (Columns Media) that follows text; chapters
+        // as sections, a rule between them
+        article: { rules: ["rule-before-info-box", "ruled-chapters"] },
+        // /100-years: its sections 60px apart
+        "100-years": { rules: ["sections-m"] }
+      }
+    },
+    // Austrian: the paragraph right after the page title is the intro (copytext-large, Portada 18/27)
+    austrian: { rules: ["intro-after-h1"] },
+    // Brussels: service pages set their H2s in heading-small
+    brussels: { pageTypes: { service: { headings: { h2: "heading-small" } } } },
+    // ITA: running text over the whole width
+    ita: { text: { width: "full" } }
+  };
+  var mergeTheme = (a, b) => __spreadProps(__spreadValues(__spreadValues({}, a), b), {
+    headings: __spreadValues(__spreadValues({}, a.headings), b.headings || {}),
+    headingChoices: __spreadValues(__spreadValues({}, a.headingChoices), b.headingChoices || {}),
+    text: __spreadValues(__spreadValues({}, a.text), b.text || {}),
+    separators: __spreadValues(__spreadValues({}, a.separators), b.separators || {}),
+    columnViews: __spreadValues(__spreadValues({}, a.columnViews), b.columnViews || {}),
+    rules: [.../* @__PURE__ */ new Set([...a.rules || [], ...b.rules || []])]
+  });
+  function themeFor(brand, pageType = "") {
+    const own = THEMES[brand || "lufthansa"] || {};
+    const _a = own, { pageTypes = {} } = _a, brandTheme = __objRest(_a, ["pageTypes"]);
+    let theme = mergeTheme(BASE_THEME, brandTheme);
+    if (pageType && pageTypes[pageType]) theme = mergeTheme(theme, pageTypes[pageType]);
+    return theme;
+  }
+  function pageTypeOf({ path = "", articleHeader = false, themes = "" } = {}) {
+    if (articleHeader) return "article";
+    if (/^\/[a-z]{2}\/[a-z]{2}\/100-years(\/|$)/.test(path)) return "100-years";
+    if (/(^|,)\s*flow-spacing\s*(,|$)/.test(themes)) return "flow";
+    if (/^\/(?:[a-z]{2}(?:-[a-z]{2})?(?:\/[a-z]{2})?(?:\/homepage)?)?\/?$/.test(path)) return "home";
+    return "service";
+  }
+  var tagOf = (n) => String(n && (n.tagName || n.tag) || "").toLowerCase();
+  var kidsOf = (n) => [...n && (n.childNodes || n.children) || []];
+  var isTextNode = (n) => n && (n.nodeType === 3 || n.text !== void 0 && !n.tag && !n.tagName);
+  var nodeText = (n) => {
+    var _a, _b;
+    if (!n) return "";
+    if (isTextNode(n)) return String((_b = (_a = n.nodeValue) != null ? _a : n.text) != null ? _b : "");
+    if (n.nodeType === 8) return "";
+    return kidsOf(n).map(nodeText).join("");
+  };
+  var isElementNode = (n) => n && !isTextNode(n) && n.nodeType !== 8 && !!tagOf(n);
+  var meaningful = (n) => kidsOf(n).filter((c) => isTextNode(c) ? nodeText(c).replace(/[\s\u200b]+/g, "") : isElementNode(c));
+  function isImageParagraph(p) {
+    if (tagOf(p) !== "p" || nodeText(p).replace(/[\s\u200b]+/g, "")) return false;
+    const kids = meaningful(p);
+    if (kids.length !== 1) return false;
+    const [k] = kids;
+    const media = (n) => ["picture", "img"].includes(tagOf(n));
+    return media(k) || tagOf(k) === "a" && meaningful(k).length === 1 && media(meaningful(k)[0]);
+  }
+  var NAV_ROLES = ["accessibility", "help", "search", "cart", "login", "locale", "notifications"];
+  function readNavRole(text) {
+    const t = String(text != null ? text : "").trim().toLowerCase();
+    if (!t) return null;
+    return NAV_ROLES.find((r) => t === r || t.split(/[\s,/-]+/).includes(r)) || null;
+  }
 
   // tools/importer/description-rules.js
   var clean3 = (s) => String(s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
@@ -4463,7 +4537,7 @@ var CustomImportScript = (() => {
   function markColumnViews(document, payload) {
     const template = payload && payload.template || {};
     const instances = (template.blocks || []).flatMap((b) => (b.instances || []).map((sel) => [b.name, sel]));
-    const blockOf = (el) => {
+    const blockOf2 = (el) => {
       const hit = instances.find(([, sel]) => {
         try {
           return el.matches(sel);
@@ -4481,7 +4555,7 @@ var CustomImportScript = (() => {
       if (view.classList.contains("container-gray")) return false;
       const parent = root.parentElement;
       if (!nested && root.closest(".container-gray") && parent.matches(".section-content") && [...parent.children].filter((c) => !isEmpty(c)).length === 1) return false;
-      const block = blockOf(root);
+      const block = blockOf2(root);
       if (block && block !== "columns-media") return false;
       if (block && kind === "sc" && !nested && !titled(view)) return false;
       root.setAttribute(COLUMN_ATTR, kind);
@@ -5238,7 +5312,7 @@ var CustomImportScript = (() => {
     const modal = box.querySelector("maui-modal");
     const label = (modal && modal.getAttribute("label") ? modal.getAttribute("label").replace(/\s+/g, " ").trim() : "") || text(box.querySelector("maui-link-button"));
     const base = (String(pagePath || "").match(/^\/([a-z]{2})\/([a-z]{2})(?=\/|$)/) || [])[0];
-    const slug = label.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    const slug2 = label.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
     const out = [];
     if (note) {
       const p = document.createElement("p");
@@ -5249,7 +5323,7 @@ var CustomImportScript = (() => {
     if (modal && label && base) {
       const p = document.createElement("p");
       const a = document.createElement("a");
-      a.setAttribute("href", `${base}/fragments/modals/${slug}`);
+      a.setAttribute("href", `${base}/fragments/modals/${slug2}`);
       a.setAttribute("data-own-link", "");
       a.textContent = label;
       p.append(a);
@@ -5398,17 +5472,17 @@ var CustomImportScript = (() => {
   function ownColumnView(el) {
     return !!el && el.classList.contains("column") && el.children.length === 1 && el.firstElementChild.classList.contains("column-view");
   }
-  function meaningful(el) {
+  function meaningful2(el) {
     return !!((el.textContent || "").replace(/[\s\u00a0\u200b]/g, "") || el.querySelector(MEDIA2));
   }
   function titledColumnView(el) {
     if (!ownColumnView(el) || el.firstElementChild.classList.contains("container-gray")) return false;
-    return [...el.firstElementChild.children].some((d) => !d.matches(".row, .carousel") && d.querySelector("h1, h2, h3, h4, h5, h6") && meaningful(d));
+    return [...el.firstElementChild.children].some((d) => !d.matches(".row, .carousel") && d.querySelector("h1, h2, h3, h4, h5, h6") && meaningful2(d));
   }
   var SEPARATOR_NODE = (n) => n.nodeType === 8 && /^lh-separator /.test(n.nodeValue || "");
   function firstComponent(node) {
     for (let n = node; n; n = n.nextSibling) {
-      if (SEPARATOR_NODE(n) || n.nodeType === 1 && (meaningful(n) || n.matches(".separator"))) return n;
+      if (SEPARATOR_NODE(n) || n.nodeType === 1 && (meaningful2(n) || n.matches(".separator"))) return n;
     }
     return null;
   }
@@ -5422,7 +5496,7 @@ var CustomImportScript = (() => {
       else if (ownColumnView(column) && column.parentElement && column.parentElement.matches('.column-view-item, [class*="col-"]')) styles.push("in-column");
     } else {
       const content = grey2.querySelector(".section-content");
-      const parts = content ? [...content.children].filter(meaningful) : [];
+      const parts = content ? [...content.children].filter(meaningful2) : [];
       if (parts.length && parts.every(ownColumnView)) {
         styles.push(content.classList.contains("section-padding-y-regular") ? "column-view" : "column-band");
       }
@@ -5432,7 +5506,7 @@ var CustomImportScript = (() => {
     const whole = !!aem && (region === aem || grey2.parentElement === aem);
     if (whole && aem.querySelector(":scope > .mb-default")) {
       let next = aem.nextElementSibling;
-      while (next && !meaningful(next)) next = next.nextElementSibling;
+      while (next && !meaningful2(next)) next = next.nextElementSibling;
       const inner = next && next.matches(".section") ? next.firstElementChild : null;
       const content = inner && inner.querySelector(":scope > .section-content");
       const first = content && firstComponent(content.firstChild);
@@ -5762,6 +5836,968 @@ var CustomImportScript = (() => {
     });
   }
 
+  // blocks/form/form-rules.js
+  var COLUMNS = [
+    "label",
+    "type",
+    "name",
+    "required",
+    "options",
+    "help",
+    "placeholder",
+    "message",
+    "constraint",
+    "rules",
+    "default"
+  ];
+  var HEADER_WORDS = {
+    label: ["label", "bezeichnung", "beschriftung", "feld", "field", "titel", "title"],
+    type: ["type", "typ", "feldtyp", "field-type", "art"],
+    name: ["name", "feldname", "field-name", "key", "schluessel", "id"],
+    required: ["required", "pflicht", "pflichtfeld", "erforderlich", "mandatory"],
+    options: ["options", "optionen", "auswahl", "werte", "values", "choices"],
+    help: ["help-text", "help", "hilfetext", "hilfe", "beschreibung", "description", "hinweistext", "hint"],
+    placeholder: ["placeholder", "platzhalter"],
+    message: [
+      "validation-message",
+      "required-message",
+      "error-message",
+      "message",
+      "fehlermeldung",
+      "pflichtfeld-meldung",
+      "meldung"
+    ],
+    constraint: [
+      "constraint-message",
+      "format-message",
+      "pattern-message",
+      "formatfehler",
+      "format-meldung"
+    ],
+    rules: [
+      "rules",
+      "regeln",
+      "validation",
+      "validierung",
+      "attributes",
+      "attribute",
+      "settings",
+      "einstellungen"
+    ],
+    // the options chosen at load (scripts/style-markers.js isDefaultChoice), instead of "{selected}"
+    default: [
+      "default",
+      "defaults",
+      "vorauswahl",
+      "voreinstellung",
+      "vorbelegung",
+      "standard",
+      "preselected"
+    ]
+  };
+  function headerKey(text) {
+    return String(text || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  }
+  function readHeaderTexts(texts) {
+    const map = {};
+    let hits = 0;
+    texts.forEach((text, index) => {
+      const key = headerKey(text);
+      const column = COLUMNS.find((c) => HEADER_WORDS[c].includes(key));
+      if (column && map[column] === void 0) {
+        map[column] = index;
+        hits += 1;
+      }
+    });
+    return hits >= 2 ? map : null;
+  }
+
+  // tools/importer/marker-collapse.mjs
+  var BODY_PX = {
+    lufthansa: 18,
+    cargo: 18,
+    b2b: 18,
+    ita: 18,
+    austrian: 16,
+    brussels: 16,
+    swiss: 16,
+    discover: 16,
+    airdolomiti: 16,
+    tap: 16
+  };
+  var TEXT_PX = { "copytext-small": 14, "copytext-medium": 16 };
+  var KNOWN = `${HEADING_TOKENS}|${PARAGRAPH_TOKENS}|${LIST_TOKENS}|${VIDEO_SETTINGS.join("|")}|${VIDEO_SIZE}|mobile`;
+  var TAIL = new RegExp(`\\s*\\{\\s*((?:${KNOWN})(?: (?:${KNOWN}))*)\\s*\\}\\s*$`);
+  var COLUMN = /^column-/;
+  var SIZE_TOKEN = /^(heading-(?:large|medium|small|copytext-large|copytext-medium)|copytext-(?:small|medium|large))$/;
+  var ROLE = new RegExp(`\\s*\\{(${NAV_ROLES.join("|")})\\}\\s*`);
+  var SELECTED = /\s*\{selected\}\s*$/i;
+  var HEADING2 = "h1, h2, h3, h4, h5, h6";
+  var BLOCK_SKIP = /* @__PURE__ */ new Set(["section-metadata", "metadata"]);
+  function newStats() {
+    return { theme: {}, carrier: {}, hand: {} };
+  }
+  var count = (stats, kind, family, n = 1) => {
+    stats[kind][family] = (stats[kind][family] || 0) + n;
+  };
+  function totals(stats) {
+    const sum = (o) => Object.values(o).reduce((a, b) => a + b, 0);
+    return { theme: sum(stats.theme), carrier: sum(stats.carrier), hand: sum(stats.hand) };
+  }
+  var toClass = (s) => String(s || "").trim().toLowerCase().replace(/[^0-9a-z]+/g, "-").replace(/^-+|-+$/g, "");
+  var titleOf = (name) => name.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+  var WRAPPERS = /* @__PURE__ */ new Set(["DIV", "SECTION", "ARTICLE", "MAIN", "ASIDE", "HEADER", "FOOTER", "NAV"]);
+  var BLOCKISH = /* @__PURE__ */ new Set([...WRAPPERS, "P", "H1", "H2", "H3", "H4", "H5", "H6", "UL", "OL", "TABLE", "HR", "BLOCKQUOTE", "FIGURE", "PRE", "DL"]);
+  function flat(node, out = []) {
+    [...node.childNodes].forEach((n) => {
+      if (n.nodeType === 3 && !n.nodeValue.trim()) return;
+      if (n.nodeType === 8) return;
+      const wrapper = n.nodeType === 1 && WRAPPERS.has(n.tagName) && [...n.childNodes].every((c) => c.nodeType === 3 ? !c.nodeValue.trim() : c.nodeType !== 1 || BLOCKISH.has(c.tagName));
+      if (wrapper) flat(n, out);
+      else out.push(n);
+    });
+    return out;
+  }
+  function tableToDiv(main, doc) {
+    if (![...main.children].some((n) => n.tagName === "TABLE" || n.tagName === "HR")) return null;
+    const kids = flat(main);
+    const heads = /* @__PURE__ */ new Map();
+    const groups = [[]];
+    kids.forEach((n) => {
+      if (n.nodeType === 1 && n.tagName === "HR") groups.push([]);
+      else groups[groups.length - 1].push(n);
+    });
+    main.replaceChildren();
+    groups.forEach((g) => {
+      const section = doc.createElement("div");
+      section.dataset.mcSection = "";
+      g.forEach((n) => {
+        if (n.nodeType === 1 && n.tagName === "TABLE") {
+          const rows = [...n.querySelectorAll(":scope > tbody > tr, :scope > thead > tr, :scope > tr")];
+          const head = rows.shift();
+          const text = head ? head.textContent.trim() : "";
+          const m = text.match(/^([^(]*?)\s*(?:\((.*)\))?$/);
+          const name = toClass(m ? m[1] : text);
+          const opts = m && m[2] ? m[2].split(",").map(toClass).filter(Boolean) : [];
+          const block = doc.createElement("div");
+          block.className = [name, ...opts].join(" ");
+          const tds = rows.map((tr) => [...tr.children]);
+          heads.set(block, {
+            text,
+            name: m ? m[1].trim() : text,
+            opts: opts.join(" "),
+            table: n,
+            tds
+          });
+          tds.forEach((cells) => {
+            const row = doc.createElement("div");
+            cells.forEach((td) => {
+              const cell = doc.createElement("div");
+              cell.append(...td.childNodes);
+              row.append(cell);
+            });
+            block.append(row);
+          });
+          section.append(block);
+        } else {
+          if (n.nodeType === 1 && n.tagName === "DIV" && n.className) {
+            n.dataset.mcClass = n.className;
+            n.removeAttribute("class");
+          }
+          section.append(n);
+        }
+      });
+      main.append(section);
+    });
+    return () => {
+      const sections = [...main.children];
+      main.replaceChildren();
+      sections.forEach((section, i) => {
+        if (i) main.append(doc.createElement("hr"));
+        [...section.childNodes].forEach((n) => {
+          if (n.nodeType === 1 && n.tagName === "DIV" && n.classList.length) {
+            const [name, ...opts] = [...n.classList];
+            const was = heads.get(n);
+            const rowsNow = [...n.children];
+            if (was && was.opts === opts.join(" ") && rowsNow.length === was.tds.length && rowsNow.every((r, ri) => r.children.length === was.tds[ri].length)) {
+              rowsNow.forEach((r, ri) => [...r.children].forEach((c, ci) => was.tds[ri][ci].append(...c.childNodes)));
+              main.append(was.table);
+              return;
+            }
+            const label = was && was.opts === opts.join(" ") ? was.text : `${was ? was.name : titleOf(name)}${opts.length ? ` (${opts.join(", ")})` : ""}`;
+            const table = doc.createElement("table");
+            const rows = [...n.children];
+            const width = Math.max(1, ...rows.map((r) => r.children.length));
+            const head = doc.createElement("tr");
+            const th = doc.createElement("th");
+            if (width > 1) th.setAttribute("colspan", String(width));
+            th.textContent = label;
+            head.append(th);
+            const thead = doc.createElement("thead");
+            thead.append(head);
+            const tbody = doc.createElement("tbody");
+            rows.forEach((r) => {
+              const tr = doc.createElement("tr");
+              [...r.children].forEach((c) => {
+                const td = doc.createElement("td");
+                td.append(...c.childNodes);
+                tr.append(td);
+              });
+              tbody.append(tr);
+            });
+            table.append(thead, tbody);
+            main.append(table);
+          } else {
+            if (n.nodeType === 1 && n.dataset && n.dataset.mcClass !== void 0) {
+              n.className = n.dataset.mcClass;
+              delete n.dataset.mcClass;
+            }
+            main.append(n);
+          }
+        });
+      });
+    };
+  }
+  var isBlock = (el) => !!el && el.nodeType === 1 && el.tagName === "DIV" && el.classList.length > 0;
+  var blockName = (el) => isBlock(el) ? el.className.trim().split(/\s+/)[0] : "";
+  var sectionOf = (el, main) => {
+    let n = el;
+    while (n && n.parentElement !== main) n = n.parentElement;
+    return n;
+  };
+  var blockOf = (el, main) => {
+    for (let n = el.parentElement; n && n !== main; n = n.parentElement) {
+      if (n.parentElement && n.parentElement.parentElement === main && isBlock(n)) return n;
+    }
+    return null;
+  };
+  var ownContent = (section) => [...section.children].filter((el) => !isBlock(el) || !BLOCK_SKIP.has(blockName(el)));
+  var ownText = (section) => [...section.children].filter((el) => !isBlock(el));
+  function kvRows(block) {
+    const out = {};
+    [...block.children].forEach((row) => {
+      const [k, v] = row.children;
+      if (k && v) out[k.textContent.trim().toLowerCase()] = v;
+    });
+    return out;
+  }
+  function sectionStyles(section) {
+    const meta = [...section.children].find((c) => blockName(c) === "section-metadata");
+    const cell = meta && kvRows(meta).style;
+    return cell ? cell.textContent.split(",").map(toClass).filter(Boolean) : [];
+  }
+  function addSectionStyle(section, style, doc) {
+    let meta = [...section.children].find((c) => blockName(c) === "section-metadata");
+    if (!meta) {
+      meta = doc.createElement("div");
+      meta.className = "section-metadata";
+      section.append(meta);
+    }
+    let cell = kvRows(meta).style;
+    if (!cell) {
+      const row = doc.createElement("div");
+      const k = doc.createElement("div");
+      k.textContent = "Style";
+      cell = doc.createElement("div");
+      row.append(k, cell);
+      meta.prepend(row);
+    }
+    const have = cell.textContent.split(",").map((s) => s.trim()).filter(Boolean);
+    if (have.map(toClass).includes(style)) return false;
+    cell.textContent = [...have, style].join(", ");
+    return true;
+  }
+  function addBlockOption(block, opt) {
+    if (block.classList.contains(opt)) return false;
+    block.classList.add(opt);
+    return true;
+  }
+  function pageMetaCell(main, key, doc, create = false) {
+    const meta = main.querySelector(":scope > div > div.metadata");
+    if (!meta) return null;
+    const rows = kvRows(meta);
+    if (rows[key.toLowerCase()] || !create) return rows[key.toLowerCase()] || null;
+    const row = doc.createElement("div");
+    const k = doc.createElement("div");
+    k.textContent = key;
+    const v = doc.createElement("div");
+    row.append(k, v);
+    meta.append(row);
+    return v;
+  }
+  function splitSection(section, els, doc, styles = []) {
+    const next = doc.createElement("div");
+    if (section.dataset && "mcSection" in section.dataset) next.dataset.mcSection = "";
+    section.after(next);
+    next.append(...els);
+    sectionStyles(section).forEach((s) => addSectionStyle(next, s, doc));
+    styles.forEach((s) => addSectionStyle(next, s, doc));
+    return next;
+  }
+  function splitBefore(section, el, doc) {
+    const rest = [];
+    for (let n = el; n; n = n.nextSibling) rest.push(n);
+    const move = rest.filter((n) => !(n.nodeType === 1 && blockName(n) === "section-metadata"));
+    if (!move.some((n) => n.nodeType === 1 || (n.nodeValue || "").trim())) return null;
+    if (!ownContent(section).some((n) => !move.includes(n))) return section;
+    return splitSection(section, move, doc);
+  }
+  function splitAfter(section, el, doc) {
+    const next = el.nextElementSibling;
+    return next && !(blockName(next) === "section-metadata") ? splitBefore(section, next, doc) : null;
+  }
+  function lastText(el) {
+    let last = null;
+    const walk = (n) => n.childNodes.forEach((c) => {
+      if (c.nodeType === 3) {
+        if (c.nodeValue.trim()) last = c;
+      } else if (c.nodeType === 1) walk(c);
+    });
+    walk(el);
+    return last;
+  }
+  function takeTokens(el) {
+    const tokens = [];
+    for (let guard = 0; guard < 6; guard += 1) {
+      const t = lastText(el);
+      const m = t && t.nodeValue.match(TAIL);
+      if (!m) break;
+      tokens.unshift(...m[1].split(/\s+/));
+      t.nodeValue = t.nodeValue.slice(0, m.index);
+    }
+    return tokens;
+  }
+  function firstText(el) {
+    let first = null;
+    const walk = (n) => n.childNodes.forEach((c) => {
+      if (first) return;
+      if (c.nodeType === 3) {
+        if (c.nodeValue.trim()) first = c;
+      } else if (c.nodeType === 1) walk(c);
+    });
+    walk(el);
+    return first;
+  }
+  var textOf = (el) => (el.textContent || "").replace(/[\u200b\ufeff]/g, "").replace(/\s+/g, " ").trim();
+  var isEmptyP = (el) => el.tagName === "P" && !textOf(el) && !el.querySelector("img, picture, video, iframe, a, br + *");
+  function slug(text) {
+    return String(text).toLowerCase().replace(/[^\p{L}\p{M}\p{N}\p{Pc} -]/gu, "").replace(/ /g, "-");
+  }
+  function collapseApp(main, doc, stats) {
+    main.querySelectorAll(":scope > div > p").forEach((p) => {
+      const raw = textOf(p);
+      const sp = raw.match(APP_SPACER);
+      if (sp) {
+        const b = doc.createElement("div");
+        b.className = ["app-spacer", sp[1].toLowerCase(), ...sp[2] ? ["v2"] : []].join(" ");
+        b.innerHTML = "<div><div></div></div>";
+        p.replaceWith(b);
+        count(stats, "carrier", "app");
+        return;
+      }
+      if (/^\{divider\}$/i.test(raw)) {
+        const b = doc.createElement("div");
+        b.className = "app-divider";
+        b.innerHTML = "<div><div></div></div>";
+        p.replaceWith(b);
+        count(stats, "carrier", "app");
+      }
+    });
+    main.querySelectorAll(":scope > div").forEach((section) => {
+      let run = null;
+      [...section.children].forEach((el) => {
+        const t = el.tagName === "P" && lastText(el);
+        if (t && APP_SMALL.test(t.nodeValue)) {
+          t.nodeValue = t.nodeValue.replace(APP_SMALL, "");
+          if (!run) {
+            run = doc.createElement("div");
+            run.className = "app-text small";
+            run.innerHTML = "<div><div></div></div>";
+            el.before(run);
+          }
+          run.querySelector(":scope > div > div").append(el);
+          count(stats, "carrier", "app");
+        } else run = null;
+      });
+    });
+  }
+  function collapseForms(main, doc, stats) {
+    main.querySelectorAll(":scope > div > div.form").forEach((block) => {
+      const rows = [...block.children];
+      if (!rows.length) return;
+      const header = readHeaderTexts([...rows[0].children].map((c) => textOf(c)));
+      const optionsAt = header ? header.options : 4;
+      let defaultAt = header ? header.default : 10;
+      const body = header ? rows.slice(1) : rows;
+      const found = body.map((row) => {
+        const cell = row.children[optionsAt];
+        if (!cell) return [];
+        const picked = [];
+        const lines = cell.querySelectorAll("p, li").length ? [...cell.querySelectorAll("p, li")] : [cell];
+        lines.forEach((line) => {
+          const parts = [...line.childNodes].filter((n) => n.nodeType === 3 && SELECTED.test(n.nodeValue));
+          parts.forEach((n) => {
+            const own = n.nodeValue.replace(SELECTED, "");
+            n.nodeValue = own;
+            const text = (own.trim() ? own : textOf(line)).split(/\n/).pop().trim();
+            const label = text.includes("=") ? text.slice(text.indexOf("=") + 1).trim() : text;
+            if (label) picked.push(label);
+          });
+        });
+        return picked;
+      });
+      if (!found.some((f) => f.length)) return;
+      if (defaultAt === void 0) {
+        defaultAt = rows[0].children.length;
+        const h = doc.createElement("div");
+        h.textContent = "Default";
+        rows[0].append(h);
+      }
+      body.forEach((row, i) => {
+        while (row.children.length <= defaultAt) row.append(doc.createElement("div"));
+        const cell = row.children[defaultAt];
+        if (!found[i].length) return;
+        cell.replaceChildren(...found[i].map((l) => {
+          const p = doc.createElement("p");
+          p.textContent = l;
+          return p;
+        }));
+        count(stats, "carrier", "form", found[i].length);
+      });
+    });
+  }
+  function collapseNav(main, doc, stats) {
+    main.querySelectorAll(":scope > div > ul").forEach((list) => {
+      const items = [...list.children].filter((li) => li.tagName === "LI");
+      if (!items.some((li) => ROLE.test(li.textContent))) return;
+      const block = doc.createElement("div");
+      block.className = "nav-tools";
+      items.forEach((li) => {
+        const sub = [...li.children].filter((c) => /^(UL|OL)$/.test(c.tagName));
+        sub.forEach((s) => s.remove());
+        let role = "";
+        const walk = (n) => n.childNodes.forEach((c) => {
+          if (c.nodeType === 3 && ROLE.test(c.nodeValue)) {
+            [, role] = c.nodeValue.match(ROLE);
+            c.nodeValue = c.nodeValue.replace(ROLE, " ").replace(/\s+$/, "");
+          } else if (c.nodeType === 1) walk(c);
+        });
+        walk(li);
+        const row = doc.createElement("div");
+        const item = doc.createElement("div");
+        const p = doc.createElement("p");
+        p.append(...li.childNodes);
+        item.append(p);
+        const r = doc.createElement("div");
+        if (role && readNavRole(role)) {
+          r.textContent = role;
+          count(stats, "carrier", "nav");
+        }
+        const more = doc.createElement("div");
+        more.append(...sub);
+        row.append(item, r, more);
+        block.append(row);
+      });
+      list.replaceWith(block);
+    });
+  }
+  var VIDEO_LINK = (a) => /\.(mp4|m4v|webm|mov)(?:$|[?#])/i.test(a.getAttribute("href") || "");
+  var urlText = (a) => {
+    const t = textOf(a);
+    return !t || t === a.getAttribute("href") || /^(https?:\/\/|\/)\S+$/.test(t) || /\.(mp4|m4v|webm|mov)$/i.test(t);
+  };
+  function readableName(href) {
+    const file = decodeURIComponent(String(href).split(/[?#]/)[0].split("/").pop() || "").replace(/\.[a-z0-9]+$/i, "");
+    const words2 = file.replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
+    return words2 ? words2.charAt(0).toUpperCase() + words2.slice(1) : "Video";
+  }
+  function addFragment(a, part) {
+    const href = a.getAttribute("href");
+    const at = href.indexOf("#");
+    const base = at < 0 ? href : href.slice(0, at);
+    const parts = at < 0 ? [] : href.slice(at + 1).split("&").filter(Boolean);
+    const key = part.split("=")[0];
+    if (parts.some((p) => p.split("=")[0] === key)) return;
+    a.setAttribute("href", `${base}#${[...parts, part].join("&")}`);
+  }
+  function collapseVideos(main, doc, stats, marks) {
+    marks.forEach((tokens, el) => {
+      const video = tokens.filter((t) => VIDEO_SETTINGS.includes(t) || /^size-\d+x\d+$/.test(t) || t === "mobile");
+      if (!video.length) return;
+      const a = [...el.querySelectorAll("a[href]")].find(VIDEO_LINK);
+      const block = blockOf(el, main);
+      if (video.includes("mobile") && block && blockName(block) === "article-header") {
+        if (addBlockOption(block, "mobile-video")) count(stats, "carrier", "video");
+      } else if (video.includes("mobile")) count(stats, "hand", "video");
+      if (!a) {
+        if (video.some((t) => t !== "mobile")) count(stats, "hand", "video");
+        return;
+      }
+      const size = video.find((t) => /^size-\d+x\d+$/.test(t));
+      if (size) {
+        addFragment(a, `size=${size.slice(5)}`);
+        count(stats, "carrier", "video");
+      }
+      const settings = video.filter((t) => VIDEO_SETTINGS.includes(t));
+      if (settings.includes("autoplay") && !settings.includes("controls")) {
+        if (block && blockName(block) !== "article-header") addBlockOption(block, "background-video");
+        else addFragment(a, "background");
+        count(stats, "carrier", "video");
+      } else if (settings.length) count(stats, "theme", "video");
+      if (urlText(a)) {
+        const poster = el.querySelector("img") || el.previousElementSibling && isImageParagraph(el.previousElementSibling) && el.previousElementSibling.querySelector("img");
+        a.textContent = poster && poster.getAttribute("alt") || readableName(a.getAttribute("href"));
+      }
+    });
+  }
+  function collapseCaptions(main, doc, stats, marks, hand) {
+    marks.forEach((tokens, el) => {
+      if (!tokens.includes("caption") || el.tagName !== "P") return;
+      const onlyLink = el.querySelectorAll("a").length === 1 && textOf(el.querySelector("a")) === textOf(el);
+      const kids = [...el.childNodes].filter((n) => n.nodeType === 1 || n.nodeValue.trim());
+      if (!(kids.length === 1 && kids[0].nodeType === 1 && /^(EM|I)$/.test(kids[0].tagName))) {
+        const em = doc.createElement("em");
+        em.append(...el.childNodes);
+        if (em.lastChild && em.lastChild.nodeType === 3) em.lastChild.nodeValue = em.lastChild.nodeValue.replace(/\s+$/, "");
+        el.append(em);
+      }
+      if (isImageParagraph(el.previousElementSibling) && !onlyLink) count(stats, "carrier", "caption");
+      else {
+        count(stats, "hand", "caption");
+        hand.push(`caption after no image: "${textOf(el).slice(0, 60)}"`);
+      }
+    });
+  }
+  function headingWish(theme, level, size) {
+    const def = theme.headings[`h${level}`];
+    const idx = (s) => s === "copytext-large" ? HEADING_SIZES.length : HEADING_SIZES.indexOf(s);
+    const steps = size === "copytext-large" ? idx(size) - idx(def) : sizeSteps(def, size);
+    if (steps === null || Math.abs(steps) <= 1) return { kind: "default" };
+    const choice = steps < 0 ? "large" : "compact";
+    const has = ((theme.headingChoices || {})[`h${level}`] || {})[choice];
+    return has ? { kind: "choice", choice } : { kind: "none" };
+  }
+  function collapseHeadings(main, doc, stats, marks, theme) {
+    const wishes = /* @__PURE__ */ new Map();
+    marks.forEach((tokens, el) => {
+      if (!/^H[1-6]$/.test(el.tagName)) return;
+      const size = tokens.find((t) => SIZE_TOKEN.test(t));
+      tokens.filter((t) => t === "limited-width").forEach(() => count(stats, "theme", "heading"));
+      if (!size) return;
+      const w = headingWish(theme, Number(el.tagName[1]), size);
+      if (w.kind === "default") count(stats, "theme", "heading");
+      else if (w.kind === "none") count(stats, "theme", "heading-no-choice");
+      else wishes.set(el, w.choice);
+    });
+    const blocks = /* @__PURE__ */ new Map();
+    const sections = /* @__PURE__ */ new Map();
+    wishes.forEach((choice, h) => {
+      const block = blockOf(h, main);
+      if (block) {
+        if (!blocks.has(block)) blocks.set(block, []);
+        blocks.get(block).push(choice);
+      } else {
+        const s = sectionOf(h, main);
+        const key = `h${h.tagName[1]}-${choice}`;
+        if (!sections.has(s)) sections.set(s, /* @__PURE__ */ new Map());
+        sections.get(s).set(key, (sections.get(s).get(key) || 0) + 1);
+      }
+    });
+    blocks.forEach((choices, block) => {
+      const all = block.querySelectorAll(HEADING2).length;
+      const top = ["large", "compact"].map((c) => [c, choices.filter((x) => x === c).length]).sort((a, b) => b[1] - a[1])[0];
+      if (top[1] * 2 > all && addBlockOption(block, `title-${top[0]}`)) count(stats, "carrier", "heading", top[1]);
+      else count(stats, "theme", "heading-aligned", choices.length);
+    });
+    const styled = [];
+    sections.forEach((keys, section) => {
+      keys.forEach((n, key) => {
+        const level = key.slice(0, 2).toUpperCase();
+        const all = ownText(section).filter((el) => el.tagName === level).length;
+        if (n * 2 > all) {
+          styled.push([section, key]);
+          count(stats, "carrier", "heading", n);
+        } else count(stats, "theme", "heading-aligned", n);
+      });
+    });
+    const byKey = /* @__PURE__ */ new Map();
+    styled.forEach(([s, k]) => {
+      if (!byKey.has(k)) byKey.set(k, []);
+      byKey.get(k).push(s);
+    });
+    byKey.forEach((list, key) => {
+      const level = key.slice(0, 2).toUpperCase();
+      const withLevel = [...main.children].filter((s) => ownText(s).some((el) => el.tagName === level));
+      const row = withLevel.length > 1 && withLevel.every((s) => list.includes(s)) && pageMetaCell(main, "Headings", doc, true);
+      if (row) {
+        const label = `${level} ${key.slice(3)}`;
+        const have = textOf(row).split(",").map((x) => x.trim()).filter(Boolean);
+        if (!have.includes(label)) row.textContent = [...have, label].join(", ");
+      } else list.forEach((s) => addSectionStyle(s, key, doc));
+    });
+  }
+  var isRunningText = (el) => el.tagName === "P" && !isImageParagraph(el) && !SEPARATOR.test(textOf(el)) && textOf(el) || /^(UL|OL)$/.test(el.tagName);
+  function collapseText(main, doc, stats, marks, theme, brand, hand) {
+    const body = BODY_PX[brand] || 18;
+    const smallIn = /* @__PURE__ */ new Map();
+    const wideIn = /* @__PURE__ */ new Map();
+    const indents = [];
+    const parallax = [];
+    marks.forEach((tokens, el) => {
+      if (/^H[1-6]$/.test(el.tagName)) return;
+      const target = el.tagName === "LI" ? el.parentElement : el;
+      const block = blockOf(target, main);
+      tokens.forEach((t) => {
+        if (/^copytext-/.test(t)) {
+          const px = TEXT_PX[t] || body;
+          const intro = brand === "austrian" && t === "copytext-large" && target.previousElementSibling && target.previousElementSibling.tagName === "H1";
+          if (intro) count(stats, "theme", "text-size");
+          else if (Math.abs(px - body) <= 2) count(stats, "theme", "text-size");
+          else {
+            const key = block || sectionOf(target, main);
+            if (!smallIn.has(key)) smallIn.set(key, []);
+            smallIn.get(key).push(target);
+          }
+        } else if (t === "full-width" || t === "limited-width") {
+          if (block) {
+            count(stats, "theme", "text-width");
+            return;
+          }
+          const wantFull = t === "full-width";
+          if (theme.text.width === "full" === wantFull) {
+            count(stats, "theme", "text-width");
+            return;
+          }
+          if (!wantFull) {
+            count(stats, "theme", "text-width");
+            return;
+          }
+          const s = sectionOf(target, main);
+          if (!wideIn.has(s)) wideIn.set(s, []);
+          wideIn.get(s).push(target);
+        } else if (/^indent-\d+$/.test(t)) indents.push(target);
+        else if (t === "parallax") parallax.push(target);
+        else if (t === "narrow") {
+          const s = sectionOf(target, main);
+          if (target.closest("blockquote") && !block && addSectionStyle(s, "narrow", doc)) count(stats, "carrier", "quote");
+          else count(stats, block ? "hand" : "theme", "quote");
+        }
+      });
+    });
+    smallIn.forEach((els, key) => {
+      if (isBlock(key) && key.parentElement && key.parentElement.parentElement === main) {
+        const all = [...key.querySelectorAll("p, ul, ol")].filter(isRunningText).length;
+        if (els.length * 2 > all && addBlockOption(key, "small-print")) count(stats, "carrier", "text-size", els.length);
+        else count(stats, "theme", "text-size", els.length);
+        return;
+      }
+      const section = key;
+      const text = ownText(section).filter(isRunningText);
+      if (els.length === text.length) {
+        addSectionStyle(section, "small-print", doc);
+        count(stats, "carrier", "text-size", els.length);
+        return;
+      }
+      const kids = [...section.children].filter((el) => !(isBlock(el) && BLOCK_SKIP.has(blockName(el))));
+      const filler = (el) => SEPARATOR.test(textOf(el)) || isEmptyP(el);
+      let k = kids.length - 1;
+      while (k >= 0 && (els.includes(kids[k]) || !isBlock(kids[k]) && filler(kids[k]))) k -= 1;
+      const run = kids.slice(k + 1).filter((el) => els.includes(el));
+      if (run.length && run.length < text.length) {
+        const first = kids.slice(k + 1).find((el) => els.includes(el));
+        const next = splitBefore(section, first, doc);
+        if (next) addSectionStyle(next, "small-print", doc);
+        count(stats, "carrier", "text-size", run.length);
+        count(stats, "theme", "text-size", els.length - run.length);
+      } else count(stats, "theme", "text-size", els.length);
+    });
+    wideIn.forEach((els, section) => {
+      const all = ownText(section).filter(isRunningText).length;
+      if (els.length * 2 > all) {
+        addSectionStyle(section, "wide-text", doc);
+        count(stats, "carrier", "text-width", els.length);
+      } else count(stats, "theme", "text-width", els.length);
+    });
+    const BULLET = /^\s*[•·▪‣◦*–—-]\s+/;
+    const NUMBER = /^\s*\d{1,2}[.)]\s+/;
+    const QUOTE = /^\s*[„“"«‚‘»].*[“”"»‘’«]\s*$/;
+    const done = /* @__PURE__ */ new Set();
+    indents.forEach((el) => {
+      if (done.has(el) || el.tagName !== "P") {
+        count(stats, "theme", "indent");
+        return;
+      }
+      const t = textOf(el);
+      const kind = BULLET.test(t) && "UL" || NUMBER.test(t) && "OL" || "";
+      if (kind) {
+        const run = [el];
+        for (let n = el.nextElementSibling; n && indents.includes(n) && (kind === "UL" ? BULLET : NUMBER).test(textOf(n)); n = n.nextElementSibling) run.push(n);
+        const list = doc.createElement(kind.toLowerCase());
+        el.before(list);
+        run.forEach((p) => {
+          done.add(p);
+          const li = doc.createElement("li");
+          li.append(...p.childNodes);
+          const first = firstText(li);
+          if (first) first.nodeValue = first.nodeValue.replace(kind === "UL" ? BULLET : NUMBER, "");
+          list.append(li);
+          p.remove();
+        });
+        count(stats, "carrier", "indent", run.length);
+      } else if (QUOTE.test(t) && !el.closest("blockquote")) {
+        const q = doc.createElement("blockquote");
+        el.before(q);
+        q.append(el);
+        count(stats, "carrier", "indent");
+      } else count(stats, "theme", "indent");
+    });
+    parallax.forEach((el) => {
+      if (blockOf(el, main)) {
+        count(stats, "hand", "parallax");
+        hand.push("parallax in a block");
+        return;
+      }
+      const section = sectionOf(el, main);
+      const images = ownText(section).filter((x) => isImageParagraph(x));
+      if (images.every((x) => parallax.includes(x))) {
+        addSectionStyle(section, "parallax", doc);
+        count(stats, "carrier", "parallax");
+        return;
+      }
+      const own = splitBefore(section, el, doc) || section;
+      splitAfter(own, el, doc);
+      addSectionStyle(own, "parallax", doc);
+      count(stats, "carrier", "parallax");
+    });
+  }
+  function collapseColumns(main, doc, stats, marks) {
+    const outer = /* @__PURE__ */ new Map();
+    marks.forEach((tokens, el) => {
+      tokens.filter((t) => COLUMN.test(t)).forEach((t) => {
+        if (t === "column-start-outer" || t === "column-end-outer") {
+          const s = sectionOf(el.tagName === "LI" ? el.parentElement : el, main);
+          if (!outer.has(s)) outer.set(s, { start: [], end: [] });
+          outer.get(s)[t === "column-start-outer" ? "start" : "end"].push(el.tagName === "LI" ? el.parentElement : el);
+        } else count(stats, "theme", "column");
+      });
+    });
+    outer.forEach(({ start, end }, section) => {
+      const own = ownContent(section).filter((el) => !(el.tagName === "P" && isEmptyP(el) && !start.includes(el) && !end.includes(el)));
+      const spans = start.length === 1 && end.length === 1 && own[0] === start[0] && own[own.length - 1] === end[0];
+      if (spans && !sectionStyles(section).includes("padded")) {
+        addSectionStyle(section, "padded", doc);
+        count(stats, "carrier", "column", 2);
+      } else count(stats, "theme", "column", start.length + end.length);
+    });
+  }
+  function collapseSeparators(main, doc, stats, ctx) {
+    const isSep = (el) => !!el && el.tagName === "P" && SEPARATOR.test(textOf(el));
+    const parse13 = (el) => textOf(el).match(SEPARATOR);
+    main.querySelectorAll(":scope > div > * p").forEach((p) => {
+      if (!isSep(p)) return;
+      count(stats, "theme", "separator-in-block");
+      p.remove();
+    });
+    [...main.children].forEach((section) => {
+      const kids = [...section.children];
+      const runs = [];
+      kids.forEach((el, i) => {
+        if (!isSep(el)) return;
+        if (runs.length && runs[runs.length - 1].end === i - 1) {
+          runs[runs.length - 1].els.push(el);
+          runs[runs.length - 1].end = i;
+        } else runs.push({ els: [el], start: i, end: i });
+      });
+      runs.forEach((run) => {
+        const seps = run.els.map(parse13);
+        const divider = seps.some((m) => m[1] === "divider");
+        const px = seps.reduce((a, m) => a + Number(m[2]), 0);
+        seps.filter((m) => m[3]).forEach(() => count(stats, "theme", "separator-from-768"));
+        let size = null;
+        if (!divider && px <= 31) size = "none";
+        else if (!divider) size = px < 90 ? "m" : "l";
+        const content = (el) => el && !(isBlock(el) && BLOCK_SKIP.has(blockName(el))) && !isSep(el);
+        const before = run.els[0].previousElementSibling;
+        const after = run.els[run.els.length - 1].nextElementSibling;
+        const atStart = !content(before) && kids.slice(0, run.start).every((el) => !content(el));
+        const atEnd = kids.slice(run.end + 1).every((el) => !content(el));
+        const remove = () => run.els.forEach((el) => el.remove());
+        if (size === "none") {
+          remove();
+          count(stats, "theme", "separator", run.els.length);
+          return;
+        }
+        if (ctx.brand === "lufthansa" && ctx.pageType === "100-years" && size === "m" && (atStart || atEnd)) {
+          remove();
+          count(stats, "theme", "separator", run.els.length);
+          return;
+        }
+        if (ctx.brand === "lufthansa" && ctx.pageType === "article" && divider) {
+          if (blockName(after) === "columns-media" && before && isRunningText(before)) {
+            remove();
+            count(stats, "theme", "separator", run.els.length);
+            return;
+          }
+          if (after && /^H[23]$/.test(after.tagName) && !atStart) {
+            const last = run.els[run.els.length - 1];
+            splitAfter(section, last, doc);
+            remove();
+            count(stats, "theme", "separator", run.els.length);
+            return;
+          }
+        }
+        const style = divider ? "divider" : `space-${size}`;
+        if (atStart && !atEnd && !sectionStyles(section).some((s) => /^(space-[ml]|divider)$/.test(s))) {
+          addSectionStyle(section, style, doc);
+          remove();
+          count(stats, "carrier", "separator", run.els.length);
+          return;
+        }
+        if (atEnd && !atStart && !sectionStyles(section).some((s) => /^(space-below-[ml]|divider-below)$/.test(s))) {
+          addSectionStyle(section, divider ? "divider-below" : `space-below-${size}`, doc);
+          remove();
+          count(stats, "carrier", "separator", run.els.length);
+          return;
+        }
+        if (isBlock(after) && !BLOCK_SKIP.has(blockName(after)) && !["space-m", "space-l", "divider-above"].some((o) => after.classList.contains(o))) {
+          addBlockOption(after, divider ? "divider-above" : `space-${size}`);
+          remove();
+          count(stats, "carrier", "separator", run.els.length);
+          return;
+        }
+        const b = doc.createElement("div");
+        b.className = divider ? "divider" : `spacer${size === "l" ? " l" : ""}`;
+        b.innerHTML = "<div><div></div></div>";
+        run.els[0].before(b);
+        remove();
+        count(stats, "carrier", "separator", run.els.length);
+      });
+    });
+  }
+  function collapseBlank(main, stats) {
+    main.querySelectorAll("p").forEach((p) => {
+      if (BLANK_LINE.test(p.textContent) && p.querySelector(":scope > sub")) {
+        p.remove();
+        count(stats, "theme", "blank");
+      }
+    });
+  }
+  var BRAND_HOSTS = [
+    [/(^|\.)austrian\.com$/, "austrian"],
+    [/(^|\.)brusselsairlines\.com$/, "brussels"],
+    [/(^|\.)ita-airways\.com$/, "ita"],
+    [/(^|\.)swiss\.com$/, "swiss"],
+    [/(^|\.)flytap\.com$/, "tap"],
+    [/(^|\.)discover\.com$/, "discover"],
+    [/(^|\.)lufthansa-cargo\.com$/, "cargo"],
+    [/(^|\.)airdolomiti\.(it|eu|de)$/, "airdolomiti"],
+    [/(^|\.)lufthansagroup\.com$/, "b2b"]
+  ];
+  var brandOfHost = (host) => (BRAND_HOSTS.find(([re]) => re.test(String(host || ""))) || [null, "lufthansa"])[1];
+  var metaValue = (main, key) => {
+    const cell = pageMetaCell(main, key, null);
+    return cell ? textOf(cell) : "";
+  };
+  function collapseMain(main, opts = {}) {
+    const doc = opts.document || main.ownerDocument;
+    const path = opts.path || "";
+    const stats = newStats();
+    const hand = [];
+    if (!/\{\s*[a-z][a-z0-9 ,:-]*\}/.test(main.textContent || "")) {
+      return {
+        stats,
+        ids: {},
+        hand,
+        changed: false
+      };
+    }
+    const back = tableToDiv(main, doc);
+    const brand = String(opts.brand || metaValue(main, "brand") || "lufthansa").toLowerCase();
+    if (/^\/content\/mobile\//.test(path)) {
+      collapseApp(main, doc, stats);
+      if (back) back();
+      const t2 = totals(stats);
+      return {
+        stats,
+        ids: {},
+        hand,
+        changed: t2.theme + t2.carrier + t2.hand > 0
+      };
+    }
+    const pageType = pageTypeOf({ path, articleHeader: !!main.querySelector("div.article-header"), themes: metaValue(main, "theme") });
+    const theme = themeFor(brand, pageType);
+    const emptyBefore = new Set([...main.querySelectorAll(":scope > div")].filter((d) => !d.children.length && !textOf(d)));
+    if (/\/nav$/.test(path)) collapseNav(main, doc, stats);
+    collapseForms(main, doc, stats);
+    collapseBlank(main, stats);
+    const marks = /* @__PURE__ */ new Map();
+    main.querySelectorAll("h1, h2, h3, h4, h5, h6, p, li").forEach((el) => {
+      if (el.closest("div.metadata, div.section-metadata")) return;
+      if (el.tagName === "LI" && el.parentElement && [...el.parentElement.children].pop() !== el) return;
+      if (el.tagName === "P" && SEPARATOR.test(textOf(el))) return;
+      const tokens = takeTokens(el);
+      if (tokens.length) marks.set(el, tokens);
+    });
+    collapseVideos(main, doc, stats, marks);
+    collapseCaptions(main, doc, stats, marks, hand);
+    collapseHeadings(main, doc, stats, marks, theme);
+    collapseColumns(main, doc, stats, marks);
+    collapseText(main, doc, stats, marks, theme, brand, hand);
+    marks.forEach((tokens, el) => {
+      if (el.isConnected && el.tagName === "P" && isEmptyP(el)) el.remove();
+    });
+    collapseSeparators(main, doc, stats, { brand, pageType });
+    const t = totals(stats);
+    const changed = t.theme + t.carrier + t.hand > 0;
+    const ids = {};
+    if (changed) {
+      marks.forEach((tokens, h) => {
+        if (!/^H[1-6]$/.test(h.tagName) || !h.id || !h.isConnected) return;
+        const suffix = slug(tokens.join(" "));
+        const m = h.id.match(new RegExp(`^(.*?)-?${suffix.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(-\\d+)?$`));
+        if (!m) return;
+        const next = m[1] ? `${m[1]}${m[2] || ""}` : slug(textOf(h)).replace(/^\d+-+/, "");
+        if (!next || next === h.id) return;
+        ids[h.id] = next;
+        h.id = next;
+      });
+      const seen = /* @__PURE__ */ new Map();
+      main.querySelectorAll(HEADING2).forEach((h) => {
+        if (!h.id) return;
+        const base = h.id;
+        if (!seen.has(base)) {
+          seen.set(base, 0);
+          return;
+        }
+        let n = seen.get(base) + 1;
+        while (seen.has(`${base}-${n}`)) n += 1;
+        seen.set(base, n);
+        h.id = `${base}-${n}`;
+        seen.set(h.id, 0);
+      });
+    }
+    if (Object.keys(ids).length) {
+      main.querySelectorAll('a[href*="#"]').forEach((a) => {
+        const href = a.getAttribute("href");
+        const at = href.indexOf("#");
+        const page = href.slice(0, at);
+        const frag = decodeURIComponent(href.slice(at + 1));
+        if (page && page !== path && !page.endsWith(path)) return;
+        if (ids[frag]) a.setAttribute("href", `${page}#${ids[frag]}`);
+      });
+    }
+    main.querySelectorAll(":scope > div").forEach((s) => {
+      if (!s.children.length && !textOf(s) && !emptyBefore.has(s)) s.remove();
+    });
+    if (back) back();
+    return {
+      stats,
+      ids,
+      hand,
+      changed
+    };
+  }
+
   // tools/importer/import-campaign.js
   var PAGE_TEMPLATE = {
     "name": "campaign",
@@ -6031,7 +7067,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_552379_default = {
+  var tmp_bundle_campaign_1043927_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -6058,6 +7094,11 @@ var CustomImportScript = (() => {
       WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
       const rawPath = new URL(params.originalURL).pathname.replace(/\/$/, "").replace(/\.html?$/, "");
       const path = WebImporter.FileUtils.sanitizePath(rawPath === "" ? "/index" : rawPath);
+      try {
+        collapseMain(main, { path, brand: brandOfHost(new URL(params.originalURL).hostname), document });
+      } catch (e) {
+        console.error("marker-collapse failed:", e);
+      }
       return [{
         element: main,
         path,
@@ -6065,5 +7106,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_552379_exports);
+  return __toCommonJS(tmp_bundle_campaign_1043927_exports);
 })();

@@ -36,6 +36,7 @@ import { withDaImages, DA_CONTENT } from './swiss-sub-dam.mjs';
 import { LOCAL_IMAGES, withLocalImages } from './swiss-nav.mjs';
 import { edsDamPath } from '../../scripts/dam-path.js';
 import { BRAND_SITES, SWISS_OWN_ROOTS } from '../../scripts/brands.js';
+import collapseDocs from './collapse-docs.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const HOST = 'www.swiss.com';
@@ -368,6 +369,8 @@ if (isMain) {
   });
   fs.mkdirSync(path.join(W, 'runs'), { recursive: true });
   fs.writeFileSync(path.join(W, 'runs', `${name}-upload.txt`), `${made.map(docName).join('\n')}\n`);
+  // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
+  collapseDocs(made.map((p) => path.join(W, 'content', `${docName(p)}.plain.html`)), { brand: 'swiss', content: path.join(W, 'content') });
   fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);
   console.log(`${made.length} documents; upload list runs/${name}-upload.txt`);
 }

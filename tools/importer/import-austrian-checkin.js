@@ -33,6 +33,8 @@ import passengerReceiptParser from './parsers/passenger-receipt.js';
 import fareTeaserParser from './parsers/fare-teaser.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
+// token-free styling (the brief after 493): the document's markers collapsed, the last step
+import { collapseMain, brandOfHost } from './marker-collapse.mjs';
 
 const PAGE_TEMPLATE = {
   "name": "austrian-checkin",
@@ -386,6 +388,9 @@ export default {
       .replace(/\/$/, '')
       .replace(/\.html?$/, '');
     const path = WebImporter.FileUtils.sanitizePath(rawPath === '' ? '/index' : rawPath);
+
+    // the last step: no import writes style markers (the theme's defaults and step 1's carriers)
+    try { collapseMain(main, { path, brand: brandOfHost(new URL(params.originalURL).hostname), document }); } catch (e) { console.error('marker-collapse failed:', e); }
 
     return [{
       element: main,

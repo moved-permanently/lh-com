@@ -286,7 +286,8 @@ function takeVideo(block) {
   const link = [...block.querySelectorAll('a[href]')].find(isVideoLink);
   if (!link) return null;
   const p = link.closest('p');
-  const mobile = MOBILE_MARKER.test(p ? p.textContent : '');
+  // the marker, or the block's option mobile-video (token-free styling, scripts/style-markers.js)
+  const mobile = MOBILE_MARKER.test(p ? p.textContent : '') || block.classList.contains('mobile-video');
   const src = link.href;
   if (p) {
     const rest = p.cloneNode(true);

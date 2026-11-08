@@ -25,6 +25,10 @@
  * Exported helpers: test/swiss-magazine-import.test.mjs.
  */
 
+// token-free styling: the markers collapsed, the last step
+// eslint-disable-next-line import/extensions
+import { collapseMain } from './marker-collapse.mjs';
+
 const ORIGIN = 'https://www.swiss.com';
 
 export const clean = (s) => String(s || '').replace(/[\u200B-\u200D\uFEFF]/g, '').replace(/\u00A0/g, ' ').replace(/\s+/g, ' ')
@@ -393,6 +397,7 @@ export default {
   transform: ({ document, params }) => {
     const wwwPath = new URL(params.originalURL).pathname.replace(/\.html?$/, '').replace(/\/$/, '');
     const main = transformPage(document, wwwPath);
+    collapseMain(main, { path: docName(wwwPath), brand: 'swiss', document });
     return [{
       element: main,
       path: docName(wwwPath),

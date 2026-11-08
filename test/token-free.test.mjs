@@ -76,7 +76,7 @@ test('page types', () => {
 
 test('section styles: class names and the friendly "Label=value" spelling', () => {
   assert.deepEqual(readSectionStyle(['grey', 'space-m', 'wide-text', 'h2-large']), {
-    space: 'm', spaceBelow: null, divider: false, dividerBelow: false, width: 'full', size: null, headings: { h2: 'large' },
+    space: 'm', spaceBelow: null, divider: false, dividerBelow: false, width: 'full', size: null, headings: { h2: 'large' }, image: null, quote: null,
   });
   const friendly = readSectionStyle('Space=L, Small print, H3 large, Divider below');
   assert.equal(friendly.space, 'l');
@@ -90,10 +90,11 @@ test('block options, video fragments, purpose blocks, form defaults, nav roles',
   assert.deepEqual(readBlockOptions(['columns-media', 'space-l', 'small-print', 'background-video']), {
     space: 'l', divider: false, size: 'small', title: null, video: 'background',
   });
-  assert.deepEqual(videoFragment('/media/a.mp4#background'), { href: '/media/a.mp4', background: true });
-  assert.deepEqual(videoFragment('/media/a.mp4#t=10&background'), { href: '/media/a.mp4#t=10', background: true });
-  assert.deepEqual(videoFragment('/media/a.mp4#t=10'), { href: '/media/a.mp4#t=10', background: false });
-  assert.deepEqual(videoFragment('/media/a.mp4'), { href: '/media/a.mp4', background: false });
+  assert.deepEqual(videoFragment('/media/a.mp4#background'), { href: '/media/a.mp4', background: true, size: null });
+  assert.deepEqual(videoFragment('/media/a.mp4#t=10&background'), { href: '/media/a.mp4#t=10', background: true, size: null });
+  assert.deepEqual(videoFragment('/media/a.mp4#t=10'), { href: '/media/a.mp4#t=10', background: false, size: null });
+  assert.deepEqual(videoFragment('/media/a.mp4'), { href: '/media/a.mp4', background: false, size: null });
+  assert.deepEqual(videoFragment('/media/a.mp4#t=5&size=1920x1080'), { href: '/media/a.mp4#t=5', background: false, size: [1920, 1080] });
   assert.deepEqual(readPurposeBlock('spacer', []), { kind: 'spacer', px: 60 });
   assert.deepEqual(readPurposeBlock('spacer', ['l']), { kind: 'spacer', px: 120 });
   assert.deepEqual(readPurposeBlock('divider'), { kind: 'divider', px: 25 });
@@ -146,6 +147,23 @@ test('section styles on the section\'s own default content; a marker wins; block
   assert.equal(section.querySelector('.columns-media p').className, '');
   assert.equal(shape(section.firstElementChild), SEP(60));
   assert.equal(shape(section.lastElementChild), SEP(25, true));
+});
+
+test('section styles parallax and narrow: the section\'s images and quotes get the markers\' classes (the brief after 493)', () => {
+  const main = decorate(`<div class="parallax narrow"><p>${PICTURE}</p><p>Text</p><blockquote><p>Quote</p><p>Source</p></blockquote><div class="columns-media"><div><div><p>${PICTURE}</p></div></div></div></div>`);
+  const section = main.querySelector(':scope > div');
+  assert.equal(section.querySelector(':scope > p:has(picture)').className, 'parallax');
+  assert.equal(section.querySelector(':scope > p:not(:has(picture))').className, '');
+  assert.equal(section.querySelector('blockquote > p').className, 'narrow');
+  assert.equal(section.querySelector('.columns-media p').className, '', 'not in a block');
+});
+
+test('media.js: a link\'s #size=WxH is the video\'s size, no settings the default player (controls, round play button)', () => {
+  const js = read('../scripts/media.js').replace(/\s+/g, ' ');
+  assert.match(js, /if \(fragment\.size && !sizedByMarker\) settings\.add\(`size-\$\{fragment\.size\[0\]\}x\$\{fragment\.size\[1\]\}`\);/);
+  assert.match(js, /else if \(!marked\) \{ \/\/ the default player \(token-free styling\): controls and the round play button \['controls', 'round-play-button'\]\.forEach/);
+  const header = read('../blocks/article-header/article-header.js').replace(/\s+/g, ' ');
+  assert.match(header, /\|\| block\.classList\.contains\('mobile-video'\);/);
 });
 
 test('the page\'s Headings row; block options: spacing, small print, title size', () => {

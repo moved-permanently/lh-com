@@ -26,6 +26,9 @@
  * else on lufthansa.com absolute https://www.lufthansa.com/..., other domains unchanged.
  */
 import SCOPE_PATHS from './transformers/scope-paths.js';
+// token-free styling: the markers collapsed, the last step
+// eslint-disable-next-line import/extensions
+import { collapseMain } from './marker-collapse.mjs';
 
 const LIVE_ORIGIN = 'https://www.lufthansa.com';
 const SOURCE_HOSTS = ['www.lufthansa.com', 'lufthansa.com', 'localhost', '127.0.0.1'];
@@ -471,6 +474,7 @@ export default {
       const element = build();
       if (!element) return;
       rewriteLinks(element);
+      collapseMain(element, { path, document });
       outputs.push({ element, path, report: { template: 'nav', fragment: name } });
     };
     add('nav', `/${locale.key}/nav`, () => buildNav(document, locale));

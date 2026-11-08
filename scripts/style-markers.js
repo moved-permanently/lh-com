@@ -148,7 +148,7 @@ const BASE_THEME = {
   separators: { m: SPACE.m, l: SPACE.l, divider: DIVIDER_SPACE },
   // a Lufthansa column view's padding (32px; outside a page section 20px, 40px from 768px) and
   // the space a heading adds above itself on flow pages (none: the paddings make it)
-  columnViews: { padding: 32, outerPadding: [20, 40], headingGap: 0 },
+  columnViews: { padding: 32, outerPadding: [20, 40], headingGap: 32 },
   rules: [],
   live: false,
 };
@@ -229,6 +229,11 @@ export const SECTION_STYLES = {
   'h2-large': { headings: { h2: 'large' } },
   'h2-compact': { headings: { h2: 'compact' } },
   'h3-large': { headings: { h3: 'large' } },
+  // the section's own images in a 500 px window (Insights' parallax), its quotes narrow (centred)
+  parallax: { image: 'parallax' },
+  narrow: { quote: 'narrow' },
+  // the Lufthansa section padding (20 px, 40 px from 768 px) above and below
+  padded: {},
 };
 
 // the section styles' friendly labels (the DA library's Style choices: "Label=value")
@@ -244,6 +249,9 @@ export const SECTION_STYLE_LABELS = {
   'h2-large': 'H2 large',
   'h2-compact': 'H2 compact',
   'h3-large': 'H3 large',
+  parallax: 'Parallax image',
+  narrow: 'Narrow quote',
+  padded: 'Padded',
 };
 
 /**
@@ -264,6 +272,8 @@ export function readSectionStyle(classes) {
     width: null,
     size: null,
     headings: {},
+    image: null,
+    quote: null,
   };
   list.forEach((c) => {
     const s = SECTION_STYLES[c];
@@ -288,6 +298,8 @@ export const BLOCK_OPTIONS = {
   'title-large': { title: 'large' },
   'title-compact': { title: 'compact' },
   'background-video': { video: 'background' },
+  // Article Header: its video on phones too
+  'mobile-video': { video: 'mobile' },
 };
 
 // the block options' friendly labels (the DA library's notes)
@@ -299,6 +311,7 @@ export const BLOCK_OPTION_LABELS = {
   'title-large': 'large title',
   'title-compact': 'compact title',
   'background-video': 'background video (autoplay, muted, loop)',
+  'mobile-video': 'video on phones too',
 };
 
 /** What a block's options ask for (class names of the block element). */
@@ -367,18 +380,22 @@ export function isCaptionParagraph(p, prev) {
 
 /**
  * A video link's fragment: "#background" asks for a background video (autoplay, muted, loop, no
- * controls); the other fragments (#t=10) stay on the link. Media fragments joined by "&".
+ * controls), "#size=1920x1080" gives the video's own size; the other fragments (#t=10) stay on the
+ * link. Media fragments joined by "&".
  * @param {string} href
- * @returns {{href: string, background: boolean}}
+ * @returns {{href: string, background: boolean, size: number[]|null}}
  */
 export function videoFragment(href) {
   const s = String(href ?? '');
   const at = s.indexOf('#');
-  if (at < 0) return { href: s, background: false };
+  if (at < 0) return { href: s, background: false, size: null };
   const parts = s.slice(at + 1).split('&');
   const background = parts.some((p) => p.toLowerCase() === 'background');
-  const rest = parts.filter((p) => p && p.toLowerCase() !== 'background');
-  return { href: `${s.slice(0, at)}${rest.length ? `#${rest.join('&')}` : ''}`, background };
+  // the video's own size ("#size=1920x1080", the collapse of "size-1920x1080"): the player's aspect
+  const sized = parts.map((p) => p.match(/^size=(\d{2,5})x(\d{2,5})$/i)).find(Boolean);
+  const size = sized ? [Number(sized[1]), Number(sized[2])] : null;
+  const rest = parts.filter((p) => p && p.toLowerCase() !== 'background' && !/^size=/i.test(p));
+  return { href: `${s.slice(0, at)}${rest.length ? `#${rest.join('&')}` : ''}`, background, size };
 }
 
 // a background video's settings (as the "{autoplay muted loop}" marker)

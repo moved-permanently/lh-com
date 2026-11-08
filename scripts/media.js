@@ -394,10 +394,10 @@ function play(video) {
  * "autoplay muted" without "controls" plays inline by itself, without controls, once the
  * video comes near the viewport (Lufthansa moving image; not with reduced motion: then a play
  * button); otherwise the poster shows a play button (square bottom left, "round-play-button":
- * round in the middle, video viewer) that starts the video in place. No settings: click to play
- * with controls, looping. A "#background" fragment on the link (or the block option
- * background-video) stands for "{autoplay muted loop}". The link (and its paragraph, when
- * nothing else is left in it) is removed; the caller places the returned element.
+ * round in the middle, video viewer) that starts the video in place. No settings: the default
+ * player, controls and the round play button. A "#background" fragment on the link (or the
+ * block option background-video) stands for "{autoplay muted loop}". The link (and its
+ * paragraph, when nothing else is left in it) is removed; the caller places the returned element.
  * @param {HTMLAnchorElement} link video link
  * @param {Element} [picture] poster
  * @param {string} [playLabel] label of the play button when the link text is its URL
@@ -409,11 +409,19 @@ export function buildVideo(link, picture, playLabel) {
   // a background video without a marker: the link's "#background" fragment (others, "#t=10",
   // stay) or the block option background-video (scripts/style-markers.js); a marker wins
   const fragment = videoFragment(link.getAttribute('href'));
-  if (!settings.size && (fragment.background || link.closest('.background-video'))) {
+  const marked = settings.size > 0;
+  if (!marked && (fragment.background || link.closest('.background-video'))) {
     BACKGROUND_VIDEO.forEach((s) => settings.add(s));
+  } else if (!marked) {
+    // the default player (token-free styling): controls and the round play button
+    ['controls', 'round-play-button'].forEach((s) => settings.add(s));
   }
+  // the video's own size from the link's "#size=WxH" (a marker's size-WxH wins)
+  const sizedByMarker = [...settings].some((t) => t.startsWith('size-'));
+  if (fragment.size && !sizedByMarker) settings.add(`size-${fragment.size[0]}x${fragment.size[1]}`);
   const tracks = takeTracks(link);
-  const src = fragment.background ? new URL(fragment.href, window.location.href).href : link.href;
+  const bare = fragment.background || fragment.size;
+  const src = bare ? new URL(fragment.href, window.location.href).href : link.href;
   const buttonLabel = isUrlText(link) ? (playLabel || label('video')) : cleanText(link);
   const wrapper = document.createElement('div');
   wrapper.className = 'media-video';

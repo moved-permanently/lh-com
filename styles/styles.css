@@ -1738,3 +1738,10 @@ body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper
 }
 
 /* stylelint-enable no-descending-specificity */
+
+/* theme rules (scripts/style-markers.js THEMES: a brand's theme once its documents are collapsed,
+   body.theme-live, scripts/token-free.js): column views are structure; on flow pages a heading
+   after other content keeps the 32px a column view's padding gave it (columnViews.headingGap) */
+body.theme-live.flow-spacing main .default-content-wrapper > * + :is(h2, h3) {
+  margin-top: 32px;
+}

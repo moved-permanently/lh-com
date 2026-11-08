@@ -12,7 +12,7 @@
  *   (its text in copytext-small), title-large, title-compact (its headings' size);
  * - section styles (and the page's Headings row): space-m, space-l, divider (above the section),
  *   space-below-m, space-below-l, divider-below, wide-text, small-print, h2-large, h2-compact,
- *   h3-large, on the section's own default content;
+ *   h3-large, parallax (its images), narrow (its quotes), on the section's own default content;
  * - captions: an italic paragraph right after an image paragraph becomes a figure with the image
  *   and its figcaption (styles.css "captions": the look of "{caption}");
  * - the theme's rules (THEMES[brand].live; off until step 2 collapses the brand's documents).
@@ -145,8 +145,17 @@ function decorateSectionStyles(main, theme, pageHeadings) {
       if (level && headings[`h${level[1]}`]) {
         addUnmarked(el, headingChoice(theme, Number(level[1]), headings[`h${level[1]}`]), MARKED_SIZE);
       }
+      // the section's images in the parallax window, its quotes narrow (the "{parallax}" and
+      // "{narrow}" classes)
+      if (style.quote === 'narrow' && el.tagName === 'BLOCKQUOTE') {
+        const first = el.querySelector(':scope > p');
+        if (first) first.classList.add('narrow');
+      }
       if (!TEXT.includes(el.tagName) || isSeparator(el)) return;
-      if (el.tagName === 'P' && hasPicture(el) && !el.textContent.trim()) return;
+      if (el.tagName === 'P' && hasPicture(el) && !el.textContent.trim()) {
+        if (style.image === 'parallax') el.classList.add('parallax');
+        return;
+      }
       if (style.width === 'full') addUnmarked(el, 'full-width', MARKED_WIDTH);
       if (style.size === 'small') addUnmarked(el, theme.text.small, MARKED_SIZE);
     });
@@ -223,6 +232,11 @@ function applyThemeRules(main, theme) {
 export default function decorateTokenFree(main, { brand = '', path = '', read = () => '' } = {}) {
   const pageType = pageTypeOf({ path, articleHeader: !!main.querySelector('.article-header'), themes: read('theme') });
   const theme = themeFor(brand || 'lufthansa', pageType);
+  // a live theme's rules for the page's CSS too (styles.css "theme rules")
+  if (theme.live) {
+    const { body } = main.ownerDocument;
+    if (body && body.contains(main)) body.classList.add('theme-live');
+  }
   decoratePurposeBlocks(main);
   decorateNavTools(main);
   decorateBlockOptions(main, theme);

@@ -35,6 +35,7 @@ import { withLocalImages } from './austrian-nav.mjs';
 import { withTabMarkers, splitTabSections } from './swiss-import.mjs';
 import { stripScripts } from './excat-plugin.mjs';
 import { withPartnerLogoAlts } from './austrian-partner-logos.mjs';
+import collapseDocs from './collapse-docs.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -656,6 +657,8 @@ if (isMain) {
       const next = withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages, aliases, { linkOut: linkOutDocs.has(p) ? p : null }).doc;
       if (next !== doc) fs.writeFileSync(f, next);
     });
+    // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
+    collapseDocs(made.map((p) => path.join(W, 'content', `${p}.plain.html`)), { brand: 'austrian', content: path.join(W, 'content') });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);
     console.log(`${made.length} documents; upload list runs/${name}-upload.txt`);
   }

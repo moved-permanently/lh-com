@@ -155,8 +155,13 @@ styles.css / fonts.css); remove the row to get the light headings.
 ## Authoring without markers (token-free styling)
 
 The markers above are being replaced by carriers that need no style words in the text (Ben's plan, four
-steps; step 1, the readers, is in place; step 2, the tool that rewrites the documents and the importer's
-output, follows). Data placeholders (`{origin}`, `{COUNT}`, `{lang}`, a form pattern's `{1,3}`) are
+steps). Step 1, the readers, and step 2, the collapse, are in place: `tools/importer/marker-collapse.mjs`
+(HTML in, HTML out, idempotent; the rules in its header) turns a document's markers into the theme's
+defaults or the carriers below; every generated import script calls it as its last step and every
+site importer (`tools/importer/*-import.mjs`, through `collapse-docs.mjs`) after its own steps, so no
+import writes markers. `tools/importer/marker-collapse-cli.mjs --content <dir> --brand <brand> --check`
+reports what it would do to a site's local documents; the harness runs it on DA per site. A brand's
+theme rules go live (`THEMES[brand].live`, `body.theme-live`) with its collapse pass. Data placeholders (`{origin}`, `{COUNT}`, `{lang}`, a form pattern's `{1,3}`) are
 content and stay. One module reads all of it for the site and lh-edge: `scripts/style-markers.js`
 (`scripts/token-free.js` applies it to the page, after the markers; a marker on an element still wins).
 Every carrier draws what the marker it replaces draws, so nothing changes while documents carry markers.
@@ -174,18 +179,21 @@ In this order:
 2. **Section styles** (Section Metadata `Style`; the library offers them as `Label=value`):
    `Space above: M` / `L` (`space-m`, `space-l`), `Divider above` (`divider`), `Space below: M` / `L`,
    `Divider below`, `Wide text` (the section's running text over the whole width), `Small print`
-   (14px), `H2 large`, `H2 compact` (two sizes smaller), `H3 large`. They apply to the section's own
+   (14px), `H2 large`, `H2 compact` (two sizes smaller), `H3 large`, `Parallax image` (`parallax`: the
+   section's images in a 500px window), `Narrow quote` (`narrow`: its quotes centred narrow),
+   `Padded` (20px, 40px from 768px, above and below). They apply to the section's own
    text and headings, not to its blocks. The same heading choices for a whole page: metadata
    `Headings` (`H2 large`, `H2 compact`, `H3 large`); a section style wins over it.
 3. **Block options** (any block, in the name's parentheses): `space-m`, `space-l`, `divider-above`
    (the space or rule above the block), `small-print`, `title-large`, `title-compact`,
-   `background-video`.
+   `background-video`; Article Header's `mobile-video` (its video on phones too).
 4. **Formatting with a meaning**: a paragraph all in italics right after an image is the image's
    caption (a figure with a figcaption, the look of `{caption}`; never a button: an italic link alone
    stays a secondary button). lh-edge's app JSON leaves it out, as `{caption}`.
 5. **Link fragments** (videos only): `…/video.mp4#background` plays as a background video
-   (autoplay, muted, loop, no controls); other fragments such as `#t=10` stay. Without either the
-   default player: controls and the round play button.
+   (autoplay, muted, loop, no controls); `#size=1920x1080` is the video's own size (the player takes
+   its aspect before the video loads); other fragments such as `#t=10` stay, joined by `&`. Without
+   either the default player: controls and the round play button.
 6. **Small purpose blocks** for the real exceptions: `Spacer` (M; `Spacer (l)`: L), `Divider`. On app
    screens (`/content/mobile/**`): `App Spacer (medium)` (x-small, small, medium, m-large, large;
    `v2`: in the v2 screen only), `App Divider`, `App Text (small)`.

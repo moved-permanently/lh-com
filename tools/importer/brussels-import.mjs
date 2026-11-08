@@ -47,6 +47,7 @@ import { withLocalImages } from './brussels-nav.mjs';
 import { withShareImage } from './brussels-share-image.mjs';
 import { stripScripts } from './excat-plugin.mjs';
 import { withHiddenH1 } from './discover-import.mjs';
+import collapseDocs from './collapse-docs.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -631,6 +632,8 @@ if (isMain) {
       const next = withShareImage(withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages, aliases, { linkOut: linkOutDocs.has(p) ? p : null, served }).doc);
       if (next !== doc) fs.writeFileSync(f, next);
     });
+    // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
+    collapseDocs(made.map((p) => path.join(W, 'content', `${p}.plain.html`)), { brand: 'brussels', content: path.join(W, 'content') });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);
     console.log(`${made.length} documents; upload list runs/${name}-upload.txt`);
   }
