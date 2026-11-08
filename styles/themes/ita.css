@@ -556,6 +556,62 @@ body.brand-ita .footer .footer-logos .footer-logo-star-alliance-horizontal img {
   }
 }
 
+/* phones (the brief after 510, ITA rows: the footer 114 px taller than www's at 390): www's first
+   heading 32 px down, its accordion titles 8 px in (one line for "Informazioni su ITA Airways") */
+@media (width < 768px) {
+  body.brand-ita .footer .footer-inner {
+    padding-top: 32px;
+  }
+
+  body.brand-ita .footer .footer-column-toggle {
+    padding-left: 8px;
+  }
+
+  body.brand-ita .footer .footer-badges {
+    padding-top: 15px;
+    padding-bottom: 31px;
+  }
+
+  /* the legal links as www's: the arrow 14 px, 10 px to its text, 26 px to the next link (www packs
+     seven rows in English, six with our 12 / 8 / 20) */
+  body.brand-ita .footer .footer-legal {
+    column-gap: 26px;
+  }
+
+  body.brand-ita .footer .footer-legal .footer-link {
+    gap: 10px;
+  }
+
+  body.brand-ita .footer .footer-legal .footer-link .lh-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* the language button 11 px under the legal links' last row (their 24 px row margin and the
+     button's 8 px padding, less), 61 px over the company note */
+  body.brand-ita .footer .footer-locale {
+    margin: -30px 0 15px;
+  }
+
+  /* the logo stack: 22 and 24 px apart, 28 px under it (the footer's 25, 27 and 38) */
+  body.brand-ita .footer .footer-logos-inner {
+    padding-top: 26px;
+    padding-bottom: 27px;
+  }
+
+  body.brand-ita .footer .footer-logos li {
+    margin-bottom: 21px;
+  }
+
+  body.brand-ita .footer .footer-logos li:nth-child(2) {
+    margin-bottom: 23px;
+  }
+
+  body.brand-ita .footer .footer-logos li:last-child {
+    margin-bottom: 0;
+  }
+}
+
 /* the breadcrumb (row 12): www's maui-breadcrumb, the parents bold, the current page regular */
 body.brand-ita .breadcrumb a:any-link {
   font-weight: 700;
