@@ -641,6 +641,33 @@ body.brand-cargo main > .section.hero-campaign-container:first-of-type:has(.hero
   }
 }
 
+/* row 39: the card rows (cards-teaser without an option: the importer's CF9 .two-columns) on phones
+   as www's: the cards stacked without a gap, 20 px under each (its More link's margin), the picture
+   across the screen at 16:9 (past the 16 px page margin), the title 20 px under it; a row right after
+   another 20 px lower (mobile-mt-20) */
+@media (width < 768px) {
+  body.brand-cargo .cards-teaser:not(.three-up, .four-up, .overlay, .mosaic, .boxed) > ul > li:nth-child(n) {
+    margin-top: 0;
+    padding-bottom: 20px;
+  }
+
+  body.brand-cargo .cards-teaser:not(.three-up, .four-up, .overlay, .mosaic, .boxed) > ul > li > .cards-teaser-image {
+    margin: 0 -16px 20px;
+  }
+
+  body.brand-cargo .cards-teaser:not(.three-up, .four-up, .overlay, .mosaic, .boxed) > ul > li > .cards-teaser-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  /* the block's 91 px between two rows off: the wrapper's 20 px stays */
+  body.brand-cargo .cards-teaser-wrapper + .cards-teaser-wrapper > .cards-teaser:not(.three-up, .four-up, .overlay, .mosaic, .boxed) {
+    margin-top: 0;
+  }
+}
+
 /* row 14 (round 3): the story pictures (hero-card-overlay (light): on Cargo only the transport
    stories' picture modules) as www's .module--story: up to 1354 px wide in the middle, as tall as
    the picture is; the text box white at 90 %, 20 px inside (www's .story-text-background), the
