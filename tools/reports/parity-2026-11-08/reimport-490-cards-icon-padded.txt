@@ -1,0 +1,9 @@
+# The brief after 488, item 1: the additional-services hub documents, whose five service-tile blocks (cards-icon usp / usp four-up) are each a column view of their own in an AEM section on www; the cards-icon parser now writes option padded there (32 px above and below, www's .column-view padding: 3.2rem 0). Checked: lh-snapshots-062's /de/en page (the only capture with these tiles; a scratch hub import gives "usp padded" on all five blocks; with the CSS the blocks are 184 / 211 px high at 1440 as www's in its own CSS, 502 / 658 at 390 vs www's 492 / 648, before 120 / 147 and 438 / 594). The other seven are translations of the same page (five usp blocks each in the current documents), not captured. Release order: de/en first.
+/de/en/additional-services
+/de/de/additional-services
+/gb/en/additional-services
+/at/de/additional-services
+/xx/el/additional-services
+/xx/it/additional-services
+/xx/ja/additional-services
+/xx/zh/additional-services

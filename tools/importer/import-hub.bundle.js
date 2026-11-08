@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-hub.js
-  var import_hub_exports = {};
-  __export(import_hub_exports, {
-    default: () => import_hub_default
+  var tmp_bundle_hub_988250_exports = {};
+  __export(tmp_bundle_hub_988250_exports, {
+    default: () => tmp_bundle_hub_988250_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -1756,6 +1756,10 @@ var CustomImportScript = (() => {
     const usp = tiles.length > 0 && tiles[0].matches("a.teaser.usp");
     let variants = [];
     if (usp) variants = element.matches(".fourcolumn") ? ["usp", "four-up"] : ["usp"];
+    const view = element.querySelector(":scope > .column-view");
+    const own = element.classList.contains("column") && element.children.length === 1 && !!view && !!element.parentElement && element.parentElement.classList.contains("section-content") && [...element.parentElement.children].every((c) => c === element || !(c.textContent || "").trim());
+    const titled = view && [...view.children].some((c) => !c.matches(".row, .carousel") && c.querySelector("h1, h2, h3, h4, h5, h6"));
+    if (own && !titled && !element.closest(".container-gray, .article-details-page") && !view.classList.contains("container-gray")) variants.push("padded");
     const cells = [];
     tiles.forEach((tile) => {
       const link = tile.matches("a[href]") ? tile : tile.querySelector("a[href]");
@@ -5574,7 +5578,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_hub_default = {
+  var tmp_bundle_hub_988250_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5608,5 +5612,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_hub_exports);
+  return __toCommonJS(tmp_bundle_hub_988250_exports);
 })();

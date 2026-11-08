@@ -14,6 +14,7 @@ Single block table. Content: One row per tile. Cell 1: icon (:icon-name: token o
 | --- | --- |
 | Service tiles (Lufthansa a.teaser.usp, /additional-services): no box, 88px icon image centred over a regular label (20px to 24px), equal columns 20px apart: 1 per row, 2 from 768px, 3 from 1025px | `usp` |
 | Four per row from 1025px (with `usp`) | `four-up` |
+| A Lufthansa column view of its own in an AEM section (the importer: no column title, not grey): www's 3.2rem above and below, 32px | `padded` |
 
 ## Universal Editor fields
 

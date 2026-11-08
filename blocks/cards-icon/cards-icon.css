@@ -98,6 +98,13 @@
  * { padding-top: .6rem }. Equal columns 20px apart (col-md-6 col-lg): 1 per row, 2 from 768px,
  * 3 (four-up 4) from 1025px; rows 30px apart (20px from 768px): live pitch 157 / 148.
  */
+
+/* option padded: a Lufthansa column view of its own in an AEM section (.column-view { padding:
+   3.2rem 0 }): 32px above and below (/de/en/additional-services' tiles: 184px at 1440 as www's) */
+.cards-icon.padded {
+  padding: 32px 0;
+}
+
 .cards-icon.usp > ul {
   display: grid;
   grid-template-columns: minmax(0, 1fr);

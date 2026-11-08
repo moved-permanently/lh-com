@@ -34,6 +34,15 @@ export default function parse(element, { document }) {
   const usp = tiles.length > 0 && tiles[0].matches('a.teaser.usp');
   let variants = [];
   if (usp) variants = element.matches('.fourcolumn') ? ['usp', 'four-up'] : ['usp'];
+  // a column view of its own in an AEM section (.section-content > .column > .column-view, its
+  // only component; no column title, not grey, not in an article): www's 3.2rem above and below,
+  // option padded (as columns-media; /de/en/additional-services' tiles)
+  const view = element.querySelector(':scope > .column-view');
+  const own = element.classList.contains('column') && element.children.length === 1 && !!view
+    && !!element.parentElement && element.parentElement.classList.contains('section-content')
+    && [...element.parentElement.children].every((c) => c === element || !(c.textContent || '').trim());
+  const titled = view && [...view.children].some((c) => !c.matches('.row, .carousel') && c.querySelector('h1, h2, h3, h4, h5, h6'));
+  if (own && !titled && !element.closest('.container-gray, .article-details-page') && !view.classList.contains('container-gray')) variants.push('padded');
 
   const cells = [];
   tiles.forEach((tile) => {
