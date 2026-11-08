@@ -1,0 +1,3 @@
+/voli-europa
+/en/flights-europe
+/de/fluege-in-europa

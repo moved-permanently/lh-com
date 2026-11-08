@@ -415,3 +415,24 @@ answers 200 on preview. In release order: `tools/reports/parity-2026-11-08/previ
 | 250 | b2b | de-de-news | 390 | 6 | 1294 → 1292 (-0.2) |  | 223 → 221 | 2/2 (-2) | – | 0 / 1 (– / 346x123@326) | 6 / 5.4 | within 3 % in height everywhere; the pixel difference is the news teasers and pictures that change by load (homepage, Newsroom, the shared stories). No cause found to fix. |
 | 251 | b2b | de-en-news | 390 | 5.9 | 1298 → 1296 (-0.2) |  | 223 → 221 | 2/2 (-2) | – | 0 / 1 (– / 346x123@362) | 5.9 / 5 | within 3 % in height everywhere; the pixel difference is the news teasers and pictures that change by load (homepage, Newsroom, the shared stories). No cause found to fix. |
 | 252 | b2b | de-en-program-experts-news | 390 | 4.6 | 15698 → 15694 (+0) |  | 175 → 173 | 1/1 (-2) | cards-icon-text@15055 -29 | 0 / 38 (– / 344x229@321) | 4.6 / 6.3 | within 3 % in height everywhere; the pixel difference is the news teasers and pictures that change by load (homepage, Newsroom, the shared stories). No cause found to fix. |
+
+## The pass after brief 490: Air Dolomiti, Cargo, Discover and Group for Business on preview
+
+- **What was measured:** today's main on each site's preview (main--lh-<site>--moved-permanently.aem.page,
+  the documents as the harness last uploaded them), the same 124 pages as the sweep after 470, at
+  1440 and 390.
+- **Against:** the parity captures (airdolomiti-, cargo-, discover-, b2b-parity-001), served offline;
+  B2B signed out.
+- **The figure:** the page's height against the capture's measurement of the same load.
+- **Result:** 27 of 248 views over 10 % before the fixes; B2B none.
+
+| Brand | Page (width) | Before | After | Cause |
+| --- | --- | --- | --- | --- |
+| Air Dolomiti | booking, it, en, de (1440, 390) | -11.4 to -12.9 % | within 2 % | www's full-block booking widget; fixed (theme, row 65) |
+| Air Dolomiti | flights in Europe, it, en (1440) | -10.4, -11.1 % | -3.7 % (draft) | the route map's stage; fixed (theme, row 66), with the re-import of reimport-490-airdolomiti.txt |
+| Air Dolomiti | Bari, Monaco, articles (390) | -11.4 to -23.3 % | – | not a page difference: the archive's 390 views are the 1440 load resized, www's booking form laid open over the page (as in the sweep after 470) |
+| Cargo | the feedback form (en, de; 1440, 390) | -17.7 to -24.9 % | – | not the same view: www's Support & Contact with the form as a dialog, ours the form page; fixed by row 36 (with reimport-490-cargo.txt the link opens that view: Support & Contact drafted 2,438 px at 1440, www 2,301) |
+| Discover | customer service, families, check-in (1440) | -10.1 to -14.2 % | -6.7 to -11.1 % | text and row spacing; fixed (theme, row 36). The rest: the footer (166 to 190 px, ema-adobe's) and families' newer www text (a document matter) |
+| Discover | flight search (1440) | -17.7, -18.7 % | – | the footer (166, 190 px of 231, 255; ema-adobe's); the page above it within 5 % |
+| Discover | offers (1440, 390) | -72 to -84 % | – | no offers from the API here (data, as in the sweep after 470) |
+

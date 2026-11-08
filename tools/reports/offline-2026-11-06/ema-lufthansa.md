@@ -1783,3 +1783,63 @@ and the drops here have none. Row 35 and the ANA FAQ belong to ema-test.
   after).
 - **Suite:** lint and the full suite; every brand's smoke and TAP by hand before and after the push.
 
+## The brief after 489: Cargo's feedback dialog, the band icons, the four brands measured again
+
+Nothing was published and nothing was uploaded. For re-import, in release order:
+
+- tools/reports/parity-2026-11-08/reimport-490-cargo.txt (4);
+- tools/reports/parity-2026-11-08/reimport-490-airdolomiti.txt (3).
+
+Nothing was requested from www: www's side came from the parity captures, served offline.
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git), with the drafts, renders, measurements, edit scripts and the local Discover copy in ignored
+folders.
+
+### 1. Cargo's feedback form (row 22, Cargo row 36)
+
+- **The links:** www's /support-and-contact?reason=&subreason= links go to our Support & Contact
+  with the same query.
+- **The page:** its metadata Dialog On Query opens the contact form there as a dialog, both
+  choices preselected. A link to the page itself opens it in place.
+- **The form:** it keeps its lh-forms id and Turnstile.
+- **Keyboard,** at 1440 and 390:
+  - the focus moves to the dialog's close button;
+  - Escape closes the dialog, and the focus returns to the h1 or the link;
+  - Tab stays in the dialog. The trap now counts only the controls Tab reaches.
+
+### 2. The band icons (Cargo row 12)
+
+Nothing was missing. All 26 icons are drawn on en and de at both widths, and www's key facts
+have no icons. The row's status is corrected.
+
+### 3. The four brands measured again
+
+The pass is in sweep-brands.md. Fixed:
+
+- Air Dolomiti's booking widget (row 65);
+- the bar-less stage of flights in Europe (row 66);
+- Discover's text and row spacing (row 36).
+
+The remaining rows over 10 %:
+
+- the archive's 390 artefact (Air Dolomiti);
+- Cargo's feedback view, until its re-import;
+- Discover's footer (ema-adobe's);
+- Discover's offers data.
+
+B2B has no row over 10 %.
+
+### 4. lufthansa.com rows 37, 38 and schengen
+
+Waiting for lh-snapshots-085.
+
+### Checked
+
+- **Hosts:**
+  - cargo.turnsthe.page: the dialog and the icons;
+  - the four sites' preview hosts: the sweep;
+  - main--lh-airdolomiti--moved-permanently.aem.page and main--lh-discover--moved-permanently.aem.page:
+    the drafts and the rules.
+- **Suite:** lint and the full suite; every brand's smoke and TAP by hand before and after the push.
+
