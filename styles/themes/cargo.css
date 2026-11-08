@@ -705,6 +705,14 @@ body.brand-cargo .footer .footer-logos li:nth-child(3) {
   }
 }
 
+/* row 41 (the brief after 505): on phones a transport story's text (columns-media in the sections
+   with its picture modules) 380 px wide from x 5 at 390, as www's story-text-background columns */
+@media (width < 768px) {
+  body.brand-cargo main > .section:has(.hero-card-overlay.light) .columns-media .columns-media-text {
+    margin-inline: -11px;
+  }
+}
+
 /* row 14 (round 3): the story pictures (hero-card-overlay (light): on Cargo only the transport
    stories' picture modules) as www's .module--story: up to 1354 px wide in the middle, as tall as
    the picture is; the text box white at 90 %, 20 px inside (www's .story-text-background), the
