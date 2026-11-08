@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var import_campaign_exports = {};
-  __export(import_campaign_exports, {
-    default: () => import_campaign_default
+  var tmp_bundle_campaign_920679_exports = {};
+  __export(tmp_bundle_campaign_920679_exports, {
+    default: () => tmp_bundle_campaign_920679_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -4244,6 +4244,35 @@ var CustomImportScript = (() => {
   function cleanText(el) {
     return el.textContent.replace(/[\u200B\uFEFF]/g, "").replace(/\s+/g, " ").trim();
   }
+  var DATE_ONLY = new RegExp("^\\(?(?:\\d{1,2}\\.?\\s+\\p{L}+\\.?|\\p{L}+\\.?\\s+\\d{1,2},?)\\s+\\d{4}\\)?$", "u");
+  var VIDEO_PATH = /^(?:https?:\/\/\S+|\/\S+)\.(?:mp4|webm|mov|m4v)(?:\?\S*)?$|^(?:https?:\/\/[^\s/]+)?\/content\/dam\/\S+$/i;
+  function ensureDescription(document) {
+    const { head } = document;
+    if (!head) return;
+    const content = (sel) => {
+      const m = head.querySelector(sel);
+      return m ? (m.getAttribute("content") || "").replace(/\s+/g, " ").trim() : "";
+    };
+    const own = head.querySelector('meta[name="description"]');
+    if (own && content('meta[name="description"]')) return;
+    let description = content('meta[property="og:description"]') || content('meta[name="og:description"]') || content('meta[name="twitter:description"]') || content('meta[property="twitter:description"]');
+    if (!description) {
+      const root = document.querySelector(".container-content") || document.querySelector("main") || document.body;
+      const p = [...root.querySelectorAll("p")].find((x) => {
+        if (x.closest("header, footer, nav, .header, .footer, .lightbox-modal")) return false;
+        const text = cleanText(x);
+        if (!text || VIDEO_PATH.test(text) || DATE_ONLY.test(text)) return false;
+        const links = [...x.querySelectorAll("a")];
+        return !(links.length && links.map((a) => cleanText(a)).join(" ").trim() === text);
+      });
+      description = p ? cleanText(p) : "";
+    }
+    if (!description) return;
+    const meta = own || document.createElement("meta");
+    meta.setAttribute("name", "description");
+    meta.setAttribute("content", description);
+    if (!own) head.append(meta);
+  }
   function headingForTarget(target) {
     if (target.matches(HEADING)) return target;
     const inner = target.querySelector(HEADING);
@@ -4906,6 +4935,7 @@ var CustomImportScript = (() => {
     }
     if (hookName === "beforeTransform") {
       decodeEntityText(document);
+      ensureDescription(document);
       const titleEl = document.querySelector("title");
       if (titleEl) titleEl.textContent = titleEl.textContent.replace(/(\s*\|\s*Lufthansa)+\s*$/, " | Lufthansa");
       const pagePath = currentPagePath(document, payload);
@@ -5646,7 +5676,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_campaign_default = {
+  var tmp_bundle_campaign_920679_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5680,5 +5710,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_campaign_exports);
+  return __toCommonJS(tmp_bundle_campaign_920679_exports);
 })();

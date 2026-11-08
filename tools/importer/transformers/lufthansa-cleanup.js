@@ -1153,6 +1153,45 @@ function cleanText(el) {
   return el.textContent.replace(/[\u200B\uFEFF]/g, '').replace(/\s+/g, ' ').trim();
 }
 
+/**
+ * The page's description for its Metadata block (the brief after 484, item D): www's meta
+ * description; when it is missing or empty, its og: / twitter:description, else the first text
+ * paragraph of the content (not a link alone, a video path, a date or a picture), written into the head
+ * as meta name=description before the metadata is read (getMetadata). Without it Edge Delivery
+ * takes the page's first paragraph, the importer's style markers included.
+ */
+const DATE_ONLY = /^\(?(?:\d{1,2}\.?\s+\p{L}+\.?|\p{L}+\.?\s+\d{1,2},?)\s+\d{4}\)?$/u;
+const VIDEO_PATH = /^(?:https?:\/\/\S+|\/\S+)\.(?:mp4|webm|mov|m4v)(?:\?\S*)?$|^(?:https?:\/\/[^\s/]+)?\/content\/dam\/\S+$/i;
+
+function ensureDescription(document) {
+  const { head } = document;
+  if (!head) return;
+  const content = (sel) => {
+    const m = head.querySelector(sel);
+    return m ? (m.getAttribute('content') || '').replace(/\s+/g, ' ').trim() : '';
+  };
+  const own = head.querySelector('meta[name="description"]');
+  if (own && content('meta[name="description"]')) return;
+  let description = content('meta[property="og:description"]') || content('meta[name="og:description"]')
+    || content('meta[name="twitter:description"]') || content('meta[property="twitter:description"]');
+  if (!description) {
+    const root = document.querySelector('.container-content') || document.querySelector('main') || document.body;
+    const p = [...root.querySelectorAll('p')].find((x) => {
+      if (x.closest('header, footer, nav, .header, .footer, .lightbox-modal')) return false;
+      const text = cleanText(x);
+      if (!text || VIDEO_PATH.test(text) || DATE_ONLY.test(text)) return false;
+      const links = [...x.querySelectorAll('a')];
+      return !(links.length && links.map((a) => cleanText(a)).join(' ').trim() === text);
+    });
+    description = p ? cleanText(p) : '';
+  }
+  if (!description) return;
+  const meta = own || document.createElement('meta');
+  meta.setAttribute('name', 'description');
+  meta.setAttribute('content', description);
+  if (!own) head.append(meta);
+}
+
 /** The heading an anchor target stands for: the target itself, its leading heading, or the
  * heading right after an empty anchor element. */
 function headingForTarget(target) {
@@ -2020,6 +2059,8 @@ export default function transform(hookName, element, payload) {
   if (hookName === 'beforeTransform') {
     // www's twice-escaped text (Insights articles), once decoded, before anything reads it
     decodeEntityText(document);
+    // www's description in the head for the Metadata block's Description (getMetadata)
+    ensureDescription(document);
     // a few live titles repeat the site suffix ("Help & Contact | Lufthansa | Lufthansa"): one, as
     // on the other pages
     const titleEl = document.querySelector('title');
