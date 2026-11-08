@@ -1724,3 +1724,62 @@ helix-importer bundle changed.
 - **www:** the captures airdolomiti-parity-001, cargo-parity-001 and discover-parity-001, served offline.
 - **Suite:** lint and the full suite; TAP by hand before and after (40 pages).
 
+## The brief after 485: the Business tile, Cargo's locks, B2B's German member views, Discover's Airportr picture and new destinations
+
+Nothing was published. One document was uploaded to DA and previewed: lh-discover
+/de/en/my-bookings/services/additional-services, read back from DA equal to its local copy.
+
+For re-import, in release order:
+
+- tools/reports/parity-2026-11-08/reimport-486-airdolomiti-home.txt (3);
+- tools/reports/parity-2026-11-08/reimport-486-cargo.txt (2);
+- tools/reports/parity-2026-11-08/reimport-486-discover.txt (3).
+
+Nothing was requested from www: www's side came from the parity captures, and the importer edits
+went through scripts.
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out of git).
+
+### 1. The Business tile
+
+www's card data carries its theme. The importer writes it as the option theme-<theme>-<position>
+(the Business card: cards-teaser (theme-business-2)), and the theme draws the navy box. Only the
+homepages' grid has a themed card in the capture.
+
+### 2. Cargo's locks
+
+www's login-only links (lockIcon) end in :lock: in the document, as the menus' do. The finder
+draws a 24 px grey lock at the link's end.
+
+### 3. B2B at de/de
+
+All three test accounts were signed in on b2b.turnsthe.page, and their four member pages read.
+
+- Every label, code value and role is German, and the 403 views show the German no-access line.
+- English remains only in the backend's data (category names, product texts), which the
+  recorded answers carry in English only.
+- Nothing to close.
+
+### 4. Discover
+
+- **Airportr:** the de/en card now uses the DA copy of www's file (2560 x 1440, the picture in
+  the capture), as de/de's already did.
+- **Upload:** uploaded, read back and previewed.
+- **Preview:** every card's picture loads on both pages.
+- **New destinations:** xx/en, xx/de and xx/fr hold the 2025/26 programme, and our de/en import
+  of 1 November the 2027 one, so they are older than www.
+
+### 5. lufthansa.com
+
+No row in my templates (info, legal, form) can be closed here. Rows 37 (business class short and
+medium haul), 38 (cookie policy and terms) and schengen each need a current snapshot of www's page,
+and the drops here have none. Row 35 and the ANA FAQ belong to ema-test.
+
+### Checked
+
+- **Hosts:** airdolomiti.turnsthe.page (a drafted en homepage), cargo.turnsthe.page
+  (Support & Contact drafted, with the local code), b2b.turnsthe.page (signed in) and
+  main--lh-discover--moved-permanently.aem.page (both Additional services pages, before and
+  after).
+- **Suite:** lint and the full suite; every brand's smoke and TAP by hand before and after the push.
+

@@ -1,0 +1,3 @@
+/xx/en/book/new-destinations
+/xx/de/book/new-destinations
+/xx/fr/book/new-destinations
