@@ -124,7 +124,9 @@ test('Lufthansa\'s pages: every app on every host, locale and login state exactl
       body: r.document.body.className,
       fetched: r.requests.map((q) => `${q.url} ${q.credentials || ''}`.trim()),
     };
-    assert.deepEqual(now, was, key);
+    // the recording has www's public Travel ID client ids blanked (brief 478): so has the comparison
+    const blanked = JSON.parse(JSON.stringify(now).replace(/client_id=[A-Za-z0-9]+/g, 'client_id=[blanked]'));
+    assert.deepEqual(blanked, was, key);
   }
   /* eslint-enable no-restricted-syntax, no-await-in-loop */
 });
