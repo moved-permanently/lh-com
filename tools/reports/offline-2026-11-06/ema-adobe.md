@@ -1560,3 +1560,113 @@ Checked on:
   rendered locally;
 - the ten turnsthe.page hosts with baselines, plus brussels and swiss against their recordings;
 - lh-swiss's preview (swiss-smoke) and tap.turnsthe.page.
+
+## Brief 484 (2026-11-08): campaign section spacing, hub and Insights rows
+
+Left from 482: the generated import reports and the scratch in logs/b460 to b478 (not committed);
+nothing unpushed.
+
+### 1. Campaign section spacing (rows 45, 46; 4bed4bf, 1136e14)
+
+- Method: lh-snapshots-062 rendered locally with lh-parity-003's CSS, its pictures replaced by
+  placeholders of our pictures' sizes (the same 29 pictures in the same order on campaigns), so
+  heights around pictures match; per AEM section and per component against our page and against
+  the importer's draft, which is rendered on lufthansa.turnsthe.page as `<main>` (route on the
+  document, nothing from www). Then the same drafts with the CSS injected, captured against
+  lh-parity-002 (compare.js, 8,000 px, vh 900; offsets.mjs for the drift).
+- Cause: lufthansa-sections keeps an unpadded AEM section with the one before it. On campaigns
+  www's 20 AEM sections came in as 9 of ours, so every merged boundary lost or gained www's padding
+  (2rem / 4rem) and .mb-default (2.4rem). The whole page was within 8 px of www's at 1440 only
+  because steps of +155 and -160 px cancelled out.
+- Fix: the campaign template's own transformer (campaign-sections; page-templates.json
+  `"transformers"`, which build-import-script.js now runs after the shared ones) makes every AEM
+  section a section of ours: style campaign-section + padded + spaced / flush. With them go the
+  template's unstyled breaks inside an AEM section and the cleanup's quote and carousel spacers (the
+  neighbour's padding is real now). A trailing empty paragraph becomes a 51 px spacer, a trailing
+  empty separator its own spacer. styles.css (lufthansa.com) sets the rest, measured per component:
+  no section gap; the last component's margin stays in the section (live's clearfix); quotes with
+  .author-quote's side margins and subline; a picture's 4rem before more content; a column view's
+  3.2rem under its last row; teaser cards spaced like a column view; nothing extra after a sidebar.
+- A quote under the text of a sidebar ("There's no better way to fly.") was missing on every
+  campaigns page (and on the carbon-offsetting saf pages): the columns-media parser keeps it now.
+- One thing the local render got wrong: www's separators are maui-divider web components (shadow
+  DOM, a 1 px box), so paragraph margins don't collapse through them on www. A collapse rule derived
+  from the script-free render made crane and menu-on-board worse against the captures; it was taken
+  out and the spacers keep their N + 1 px.
+- Against lh-parity-002 (whole page % / drift steps px), published page, then draft + CSS:
+
+| Page | 1440 | 390 |
+| --- | --- | --- |
+| 100-years/campaigns | 24.2 / 553 → 29.9 / 226 | 33.1 / 287 → 27.6 / 221 |
+| 100-years | 16.8 / 243 → 13.5 / 112 | 21.1 / 173 → 20.2 / 24 |
+| 100-years/cabin-design | 19.9 / 265 → 13.8 / 59 | 24.9 / 577 → 24.3 / 423 |
+| 100-years/chronicle | 21.3 / 416 → 15.0 / 61 | 14.8 / 183 → 21.1 / 233 |
+| 100-years/crane | 9.0 / 224 → 11.8 / 284 | 15.0 / 208 → 16.5 / 292 |
+| 100-years/destinations | 30.1 / 353 → 18.6 / 225 | 12.5 / 138 → 15.2 / 154 |
+| 100-years/fleet | 25.6 / 621 → 25.2 / 595 | 14.0 / 1423 → 9.1 / 1865 |
+| 100-years/global-network | 18.0 / 472 → 13.9 / 264 | 20.0 / 522 → 19.7 / 925 |
+| 100-years/history | 15.8 / 187 → 1.9 / 0 | 24.9 / 150 → 8.2 / 21 |
+| 100-years/history/menu-on-board | 15.3 / 90 → 9.7 / 74 | 19.1 / 831 → 19.8 / 109 |
+| discover-lufthansa/new-onboard-experience | 27.6 / 572 → 25.7 / 360 | 30.0 / 401 → 27.6 / 296 |
+
+- Higher after: campaigns at 1440 (whole page; its drift fell from 553 to 226 px, but two nested
+  column views, open below, no longer have errors to cancel them), crane, and chronicle,
+  destinations and global-network at 390. Still open, all outside this rule: on campaigns, a
+  [empty | picture] view and a sidebar inside a column (www draws the picture at half or three
+  quarters of the column, ours across it: +184 and +128 px at 1440); on chronicle at 390, the jump
+  links' list height; and carousels everywhere (www's script sizes them, so the local render can't
+  show them).
+- Documents: 48 campaign documents (12 pages × de/en, de/de, at/de, gb/en), de/en first:
+  [../parity-2026-11-08/reimport-484-lh-com.txt](../parity-2026-11-08/reimport-484-lh-com.txt). 32 of
+  them are also on ema-test's reimport-lh-com-padded-sections.txt, which your harness ran in
+  e844428 with the bundle before this one: those 32 need this import again (the bundle pushed here
+  keeps that padding rule). 36 campaign pages
+  don't change (one AEM section, or none: stopover hotels, the fairs, take-off,
+  most-significant-route, culinaryjourney), and menu-card has no snapshot. The drafts were built
+  from lh-snapshots-062 for de/en, which is what the published new-onboard-experience and fleet came
+  from: the 2026-10-21 snapshots don't have their hero's option regular or one picture.
+
+### 2. Hub and Insights rows over 10 %
+
+Only additional-services and food-and-beverages (hub) are in lh-snapshots-062. The other rows'
+snapshots (2026-10-21) render with that day's CSS from tools/source-export/static (v1.38.0
+lufthansa.css, index.KLnJf0H_, app.5ad288dc), which works too.
+
+- additional-services (27.1 % / 18.8 %): www's bands are a stage, a 60 px separator, a three- or
+  four-column view of icon links, then another 60 px separator. The column view has 3.2rem above and
+  below (184 px high, ours 120 in cards-icon.usp), so ours is 30 px short per band, -143 px over five
+  bands. cards-icon is ema-test's (list below).
+- food-and-beverages (17.6 % / 23.8 %): www's 40 px separators between the components are dropped
+  (the cleanup keeps 50 px and more) and the sections merged. The campaign transformer settles it:
+  as a draft with the hub template opted in, 12.0 % / 11.4 %, no drift to 2,240 px. I did not opt hub
+  in: it changes 20 hub documents, additional-services gets worse until cards-icon has its padding,
+  and lufthansa-travel-classes (1440) and miles-and-more (390) measured worse from 2026-10-21
+  sources. Next round, once cards-icon has the column view's padding.
+- Insights, allegris-premium-economy-san-diego (23.4 %): the video viewer. www's video.js player
+  takes the video's own size (16:9 here), while our poster has its own (1920x823): 141 px short at
+  1440. A 16:9 rule for lufthansa.com's viewer brought it to 15.8 % / 14.7 %, but took
+  all-it-takes-is-a-yes from 24.0 to 35.3 %: its player follows the video's size once the metadata
+  loads, and the snapshot records only the default 1920x1080. So the rule was taken out (not
+  committed). The importer would need each video's real size, which isn't in the archives.
+- tags/munich (+7 to +24 px per list row, jumps of +86 / +88), all-it-takes-is-a-yes and
+  picture-perfect-austin: drift found, causes not settled this round. digital-self-services,
+  meetings-and-events, airport-information and overview-special-request: their drafts from the
+  2026-10-21 snapshots are the published documents (no AEM section boundaries this rule changes).
+
+### For others (not changed)
+
+- ema-test (cards-icon): an icon-link view of its own in an AEM section (www's .threecolumn /
+  .fourcolumn column view) has the column view's 3.2rem above and below. additional-services at
+  1440: 120 px where www's view is 184. It's hidden today by the section gap; it matters once a
+  template keeps www's sections.
+- Info's owner (ema-cashub / ema-lufthansa): the 4 carbon-offsetting/saf documents (de/en, de/de,
+  at/de, gb/en) get their missing quote with the next info import (columns-media parser,
+  4bed4bf); the info bundle needs rebuilding first.
+- Observation: tools/importer/import-hub.js lacks the generator's onLoad hook (the cleanup's
+  marking of empty first paragraphs never runs for hub imports). It's mine; I'll rebuild it with a
+  measured re-import next round.
+
+| Item | Commit | What |
+| --- | --- | --- |
+| 1 | 4bed4bf | columns-media: an author quote in a column or sidebar kept |
+| 1 | 1136e14 | campaign-sections transformer, generator option, styles.css campaign-section |
