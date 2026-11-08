@@ -50,7 +50,7 @@
 | 32 | Brussels | /be/fr/articles/milan-citytrip | 1440 | 6007 | 5871 | -2.3 % | 40.7 % | h1 1/1; +68 before "découvrez milan un city trip" (www y 763) | pictures 14/14 | within 3 %: the article's stage 68 px lower at 1440 (the price bar above it) |
 | 33 | Brussels | /be/en/articles/milan-citytrip | 1440 | 5796 | 5668 | -2.2 % | 42.0 % | h1 1/1; +68 before "discover milan a city trip f" (www y 763) | pictures 14/14 | within 3 %: the article's stage 68 px lower at 1440 (the price bar above it) |
 | 34 | Brussels | /ke/en/homepage | 390 | 5227 | 5327 | +1.9 % | 32.6 % | h1 0/1; -55 before "current topics and news" (www y 1816); -91 before "looking for more than just a" (www y 3274) | pictures 16/26; bru-square.jpg www 125x? ours 76x76 | homepage (ema-adobe): +239 px / -55 px before "Current topics and news" (the stage and the flight search area differ: live content), the destination tiles 76 px squares where www's are 125 px wide; www has no h1, ours one — list for you |
-| 35 | Austrian | /at/en/contact | 390 | 3022 | 3077 | +1.8 % | 18.9 % | h1 1/0; no jump over 40 px | pictures 2/2 | ours has no visible h1 at 390 (the help centre app draws the title; the app is the micro-frontend, ema-adobe) — list for you |
+| 35 | Austrian | /at/en/contact | 390 | 3022 | 3077 | +1.8 % | 18.9 % | h1 1/0; no jump over 40 px | pictures 2/2 | corrected (brief after 474): the title is there, "How can we help you?" at y 273, 314 x 31 px, as www's; the help centre app draws it inside maui-headline's shadow root, which the sweep's own measurement (light DOM h1 only) did not count; same on every contact row (h1 1/0) |
 | 36 | Austrian | /at/de/book/overview-services-on-board | 1440 | 2447 | 2403 | -1.8 % | 19.2 % | h1 1/1; no jump over 40 px | pictures 3/3 | within 4 %: not investigated further |
 | 37 | Austrian | /at/en/book/overview-services-on-board | 1440 | 2422 | 2379 | -1.8 % | 19.0 % | h1 1/1; no jump over 40 px | pictures 3/3 | within 4 %: not investigated further |
 | 38 | Austrian | /at/en/book/overview-manage | 1440 | 3693 | 3628 | -1.8 % | 27.2 % | h1 1/1; no jump over 40 px | pictures 8/8 | within 4 %: not investigated further |
@@ -102,10 +102,42 @@
    Data, probably no code change; worth a look when the offers answer.
 4. **Brussels ke/en and fr/fr homepages, +5 % / +3 %** (homepage, ema-adobe): +239 px before "Current topics and news" (the
    stage and the flight search area); the destination tiles 76 px squares where www's are 125 px wide.
-5. **Austrian /at/en/contact at 390** (help centre micro-frontend, ema-adobe): no visible h1 (www has one).
+5. ~~**Austrian /at/en/contact at 390**: no visible h1~~ — withdrawn (brief after 474): the h1 is there (the help centre
+   app's maui-headline type h1, in its shadow root, at www's box); the sweep's script counted light-DOM h1s only.
 
 ## Not located this round (mine, next)
 
 - /be/fr/travel-classes/business at 390: -482 px before the gallery (the columns-media rows above it).
 - carousel-cards on Brussels ("Other topics", the fleet carousel): 90-160 px off in either direction.
 - Austrian fly-with-austrian: about 5 %, spread over the carousel cards, no heading jump over 40 px.
+
+## The brief after 474 (follow-up)
+
+Measured on austrian.turnsthe.page and brussels.turnsthe.page with the sweep's settle method, the new rules injected
+(before the push), against the same captures; www's own layout values from the captures' shadow HTML rendered locally.
+Page heights include the footer, which on Brussels at 390 is 133-153 px shorter than www's on every page (www 829 / 849 px,
+ours 696): the footer's, not mine, so the content rows below compare the footer's top.
+
+| row | page, width | cause | fix | www / before / after |
+| --- | --- | --- | --- | --- |
+| 9 | Brussels /be/fr/travel-classes/business 390 | www's tab set is an accordion at 390 (maui-collapsible-item): the open panel holds its content 20 px further in (text 306 px wide, ours 346), 47 px below the header, 94 px to the next header; a separator between every two-column row (ours merged without it: 34 px per row) and after the first row's text; list items 10 px apart (ours 16, li > p) | P44, 9fd81c8a: Brussels theme (live) + option separated / "{spacer-0}" (4 documents to re-import) | footer top 8127 / 7589 / 8176 (theme only, before the re-import: 7853) |
+| 8 | the same page 1440 | the separated rows (24 px each) and the gallery (P43) | P44 + P43 (re-import) | 6458 / 5960 / 6438 page height |
+| 6 | Brussels premium-economy 1440 | as 8 (three separated rows) | P44 + P43 | 4620 / 4248 / 4609 page height |
+| 35 | Austrian /at/en/contact 390 | none: the h1 is there (the help centre's maui-headline type h1, its shadow root, at www's box); this sweep's measurement counted light-DOM h1s only (all four contact rows "h1 1/0") | withdrawn from the list for you | – |
+| 12, 14, 15, 17 | Austrian fly-with-austrian 1440 / 390 | the intro (p.copytext-large) unmarked in the document (33 px at 1440); the page title 40 px above the content (www 60); the card rows without the column view's 32 px above and below; at 390 the document predates the phone slider (+438 px); the page end: flight-search.css (`body.appear main > .section.flight-search-container:has(.flight-search.standalone) { margin-bottom: 0 }` from 768 px) drops the whole section's margin although the search is not its last block, so the last cards touch the footer (www 72 px) | Austrian 45 (theme, live after the push) + 46 (re-import list) | 1440 footer top 3693 / 3458 / 3534 (theme), about 3567 with the re-import; 390: 7632 / 8070 / 8134 until the re-import (the document stacks the nine cards, www slides them: not measurable before it) |
+| 13 | Brussels be/en economy 390 | the footer (-133 px of -262); the content -129 px (-3.0 %: the first row 37 px lower on www after a separator at its AEM section's end, then 11 px separators between rows) | – (content under 3 % without the footer) | footer top 4244 / 4115 / 4115 |
+| 18 | Austrian special-requirements 1440 | the page title's 60 px; the rest spread over the rows (h2 36 px below on www, ours 32) | Austrian 45 | footer top 2970 / 2838 / 2858 |
+| – | Austrian book overviews, fly/travel-classes 1440 | the page title's 60 px | Austrian 45 | -45 / -43 / -29 / -19 px to -25 / -23 / -9 / +1 |
+
+Not mine, for you:
+
+1. **The Brussels footer at 390** (every Brussels page): 696 px against www's 829 / 849 px (the accordion rows and the logo
+   row; the footer is ema-adobe's).
+2. **blocks/flight-search/flight-search.css:912** (`body.appear main > .section.flight-search-container:has(.flight-search.standalone)`,
+   from 768 px): margin-bottom 0 for any section that holds a standalone search, also when blocks follow it in the section;
+   Austrian fly-with-austrian 1440: the last cards touch the footer (www 72 px). Restricting it to a section whose last block is
+   the search (`:has(> .flight-search-wrapper:last-child)`) would keep the homepage stage as it is.
+
+Under 3 % or not mine now: every other Austrian and Brussels row (content edge). Documents: Brussels 4
+(`reimport-brussels-separated.txt`; the gallery re-import, 87b50477, ran before this change); Austrian 1,175 (`reimport-austrian-intro.txt`,
+A 636 / B 539).

@@ -1,0 +1,5 @@
+# The brief after 474, item 1 (Brussels P44, 9fd81c8a): documents whose two-column rows www separates with a default separator (columns-media option separated, "{spacer-0}" after a text item's closing separator), from a scan of the 1,471 Brussels snapshots through the new cleanup. The harness's gallery re-import (87b50477) ran before this change: these 4 need one more with main's bundles. Nothing imported or uploaded here.
+/be/en/travel-classes/business
+/be/en/travel-classes/premium-economy
+/be/fr/travel-classes/business
+/be/fr/travel-classes/premium-economy

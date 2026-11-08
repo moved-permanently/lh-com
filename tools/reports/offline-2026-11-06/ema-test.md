@@ -883,3 +883,93 @@ have no carousel-lightbox. Austrian: none (CSS).
 | --- | --- | --- | --- |
 | 3 | `9ebf3dbc` | Brussels galleries option wide (parser, block, import-fleet bundle); Austrian fare teaser title | `git revert`; no documents changed |
 | 1-3 | this report's commit | the sweep file, the re-import list, Austrian 44 and Brussels P43, this report | – |
+
+## The brief after 474 (row 9, the rows below the top 10, the Austrian contact title)
+
+Left uncommitted by 474, and still out of git, for the same reasons:
+- `.migration/project.json` and the import reports `tools/importer/reports/**`: generated. This round adds
+  `be/fr/travel-classes/business.report.json` from the scratch imports.
+- `content/`, `content-sites/` and `migration-work/`: local documents; DA is the source.
+- `logs/`: scripts, measurements, scratch imports in logs/p4/sweep475, DA reads in logs/da/orig.
+- `/tmp`: the two unpacked captures.
+
+Nothing was unpushed.
+
+### 1. Row 9: /be/fr/travel-classes/business at 390
+
+At 390, www's tab set is an accordion (maui-collapsible-item). Four differences from ours:
+- The open panel's content sits 20 px further in (text 306 px wide, ours 346), 47 px below the header, 94 px above the next header.
+- A separator between every two-column row. The parser merges the rows into one block and the cleanup drops the separator, so each row lost 34 px at 390 and 24 px at 1440.
+- A separator after the first row's text.
+- List items are 10 px apart (ours 16: the documents' li > p).
+
+Fix `9fd81c8a`, tests first (test/brussels-separated-rows.test.mjs):
+- Brussels theme: the open panel's inset and spacing, list items 10 px apart. Live after the push.
+- The cleanup (brusselsairlines.com only) and the columns-media parser: option separated (90 px between rows, 100 px below 768 px) and a "{spacer-0}" after a text item's closing separator.
+- Bundles rebuilt; only this change in them.
+
+A scratch import of business and premium-economy gives `columns-media separated` and the spacer. Measured with the rules and the re-import simulated:
+
+| page | width | www | before | after |
+| --- | --- | --- | --- | --- |
+| business | 390, footer top | 8127 | 7589 | 8176 (theme alone: 7853) |
+| business | 1440, page height | 6458 | 5960 | 6438 |
+| premium-economy | 1440, page height | 4620 | 4248 | 4609 |
+
+Documents: 4. The scan covered all 1,471 Brussels snapshots through the new cleanup. The 4 are listed in
+`tools/reports/parity-2026-11-08/reimport-brussels-separated.txt`. The harness's gallery re-import (87b50477) ran before
+this change, so they need one more.
+
+### 2. The rows below the top 10 (content edge, the footer aside)
+
+- **Brussels footer:** at 390 it is 133-153 px shorter on every Brussels page. That is the footer's, for its owner.
+- **Brussels economy 390:** its content is -3.0 % without the footer.
+- **Austrian, fix `7720edcf`** (test/austrian-title-cards-spacing.test.mjs). The page title gets 36 px below it, 60 px from 1281 px, as www. A card grid from column views gets the view's 32 px after text above it and before more blocks below it. Footer top at 1440 with the rules injected:
+
+| page | before | after |
+| --- | --- | --- |
+| special-requirements | -132 | -112 |
+| overview-manage | -65 | -45 |
+| extra-services | -29 | -9 |
+| fly/travel-classes | -19 | +1 |
+| services-on-board | -43 | -23 |
+| overview-inspiration | -45 | -25 |
+| fly-with-austrian | -235 | -159 |
+| book/flights | +15 | +35 |
+| overview-travel-information | 0 | +20 |
+
+  book/flights and overview-travel-information go the other way: their first component already sat lower than www's.
+- **Austrian intro paragraphs:** 1,175 documents carry no "{copytext-large}". Their import predates the importer's marker (663b69a0), or a later DA pass carried the old text. A scratch import of two of them marks it. The re-import list is `tools/reports/parity-2026-11-08/reimport-austrian-intro.txt`:
+  - A: 636 imported before the marker;
+  - B: 539 from later passes on DA. Re-import B only together with those passes.
+- **fly-with-austrian after the re-import:** about -126 px at 1440. 72 px of it is the page end, where flight-search.css:912 drops the section's margin (for you).
+
+Rows: Austrian 45 and 46, Brussels P44. The sweep file has a follow-up section, and its contact row is corrected.
+
+### 3. The Austrian contact title at 390
+
+Nothing to route: the title is there. "How can we help you?" is the help centre app's `maui-headline type=h1`, at y 273, 314 x 31 px, 28 px
+Portada, which is www's box. The app (the micro-frontend block's help-center-web) draws it inside the component's shadow root.
+The sweep's measurement counted light-DOM h1s only, so all four contact rows read "h1 1/0". Item 5 of the list for you is
+withdrawn.
+
+### Hosts checked
+
+- brussels.turnsthe.page: all 20 captured page widths before and after the new theme rules. Only the travel-classes rows changed.
+- austrian.turnsthe.page: all 44 page widths before and after the Austrian rules, plus the contact page's shadow DOM.
+- The captures' shadow HTML, rendered locally by their serve.py (no other host), for www's layout values.
+- DA (read only): business, economy, fly-with-austrian, airbus-a320-200 and 20 sampled Austrian documents.
+
+### Checks (the brief after 474)
+
+- Lint and the full suite in a fresh worktree of 3a0fe64a: eslint 0, stylelint 0, 518 passed; again after the pull (it brought code: styles.css, the
+  campaign importer; the bundle conflict resolved by rebuilding all) on the rebased head 13282971 (the same code as 9fd81c8a and 7720edcf; the last pull brought data only, then lint and the new tests again):
+  eslint 0, stylelint 0,
+  521 passed.
+- Smoke on all 12 hosts before and after the push (logs/p4/smoke475).
+
+| item | commit | what | rollback |
+| --- | --- | --- | --- |
+| 1 | `9fd81c8a` | Brussels: option separated, "{spacer-0}", the tab accordion's panel, list items; bundles | `git revert`; no documents changed |
+| 2 | `7720edcf` | Austrian theme: the page title's margin, card rows' column-view padding | `git revert` |
+| 1-3 | this report's commit | sweep follow-up, Austrian 45-46, Brussels P44, reimport-brussels-separated.txt (4), reimport-austrian-intro.txt (1,175) | – |
