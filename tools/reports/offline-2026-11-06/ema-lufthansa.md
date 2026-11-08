@@ -1509,3 +1509,80 @@ Before each of the two pushes:
 | Cargo row 33 | (document) | German story 142 re-imported | DA's copy backed up |
 | Air Dolomiti rows 59, 60 | 421ee7dc | a heading's picture before the heading (airdolomiti-import.mjs); the timetable widget placed as WidgetFullPage (flight-timetable.css); tests | revert; DA's copies of the 4 posts backed up |
 | — | (this push) | sweep-brands.md, preview-paths-sweep.txt, the parity rows (Cargo 30 to 33, Discover 30, 31, Air Dolomiti 59, 60), this section, the lh-cargo and lh-airdolomiti upload state | revert |
+
+
+## The brief after 473: lufthansa.com's info, legal, app-entry and form causes from ema-adobe's sweep
+
+Nothing was published and nothing was uploaded. The documents go to the harness for re-import:
+tools/reports/parity-2026-11-08/reimport-474-lh-com.txt (36).
+
+- **Snapshots** (from the drop; each sha256 equal to lh-deliveries.json; nothing run from them):
+  - lh-snapshots-061 to -067, -081, -083, -084, and for pages with no de/en snapshot here, -002, -030
+    and -033 (xx/pt, xx/zh, xx/it);
+  - the captures lh-parity-002a to -002d, -003 and lufthansa-parity-001.
+- **No request to www by my tools:**
+  - drafts were imported in a browser that resolves no host;
+  - ours was rendered with every brand's www unresolvable.
+- **One request I did not intend.** The editor's parser-validation hook, which runs after an edit to
+  a parser file, validated accordion-columns.js against the live https://www.lufthansa.com/de/en/homepage.
+  - It found no snapshot for that URL and fell back to the live page; its output says "No results
+    found", so the page most likely answered with its bot block.
+  - It ran once. After that I made the parser edits through a script, which does not trigger the hook.
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out of git).
+
+### What the table's first rows were
+
+ema-adobe's table compared www's accordion items and tab controls with our accordion blocks. On 8 of
+the 10 pages our documents already have www's accordions, with every item, and their tab sets. The
+height differences had other causes.
+
+| Page | Cause | Status |
+| --- | --- | --- |
+| gefaehrliche-gegenstaende | the accordion's last item is expanded on www; ours had every item closed | fixed (row 29) |
+| baggage-irregularities | each tab's four steps are a four-column view; ours had one step under the other | fixed (row 30) |
+| lufthansa-express-bus | the three route maps with jump links came in full width | fixed (row 32) |
+| passengers-using-wheelchairs, lufthansa-terminal-muenchen | tab panels with no column view (text, sidebar, video) are not made Tab sections | for ema-test (row 35, lufthansa-sections.js TAB_COLUMNS) |
+| advance-seat-reservation, carry-on-baggage, first-class, onboard-delights, travelling-healthy | tabs and accordions as www's; the rest is spacing (www's empty paragraphs and 30 px separators between column views: about 75 px a row on advance-seat-reservation) | open, not changed |
+
+### Items 2 to 4
+
+| Page | Cause | Status |
+| --- | --- | --- |
+| online-check-in at 390 | the capture's 390 view is a resize, which keeps the selected tab open; a fresh 390 load (lufthansa-parity-001) has both closed | not a difference (row 36) |
+| business-class-on-short-and-medium-haul at 390 | www's current page has no picture in the first row; our document, from an earlier snapshot, has one | a fresh snapshot (row 37) |
+| lufthansa-group-star-alliance-and-partner-airlines | the 26 partner logos came in full width | fixed (row 31) |
+| data-collection-usa, -canada | legal had no mapping for the notice teaser and the three cards | fixed (row 34) |
+| advice-…-usa, cognitive-impairment | a sidebar with a pictogram and an inner two-column view came in flat | fixed (row 33) |
+| schengen | the member states are in four text columns on www; ours stacks the lists | open: no snapshot here to confirm the structure |
+| cookie-policy, terms-and-conditions-lh | www's page is newer (28 October 2026 against our 7 August) | a fresh snapshot (row 38); terms within 0.5 % in height |
+| economy-class | within 2 % in height at both widths | no cause found |
+| feedbackai | www's capture is empty too (the form app loads nothing; 1,027 px); ours is 900 px | not a difference |
+
+### Bundles
+
+Rebuilt (commit after this section's numbers):
+
+- info: page-templates, the accordion parser;
+- legal: page-templates, the accordion parser;
+- form and fleet: the accordion parser.
+
+Not rebuilt, as other agents' bundles:
+
+- campaign, hub, homepage and insights: they also use accordion-columns.js and take the expanded
+  items when their owners rebuild them;
+- the three Austrian ones: info's mappings carry over into them. node tools/importer/austrian-templates.mjs
+  rewrote their entries in page-templates.json, which the suite checks; their bundles were not
+  rebuilt.
+
+### Checked
+
+Drafts are this branch's bundles over the snapshots, rendered on the local dev server with the preview
+document's pictures.
+
+- **All 14 de/en pages with a snapshot here, drafted before and after:**
+  - only the pages named above changed;
+  - the other 10 stayed byte for byte.
+- **The 679 snapshot pages here scanned for the changed mappings:** 17 change, all in the re-import
+  list.
+- **Heights:** at 1440 and 390 against the captures; the figures are in the rows.
