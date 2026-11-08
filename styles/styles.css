@@ -1565,6 +1565,32 @@ body.brand-lufthansa main > .section.campaign-section.spaced:has(> .hero-banner-
   }
 }
 
+/* partner teasers in a titled group, one row view each (live's digital-self-services: a one-column
+   view per group, every row a three-column view of its own, padded): ours one Cards Icon Text
+   (partner) per row after the title, 40px short under the title, 56 between the rows, 39 under the
+   last row at 1440; at 390 20, 56 and 60 */
+body.brand-lufthansa main .default-content-wrapper:has(> :is(h2, h3):last-child) + .cards-icon-text-wrapper > .cards-icon-text.partner {
+  padding-top: 20px;
+}
+
+body.brand-lufthansa main .cards-icon-text-wrapper:has(> .cards-icon-text.partner) + .cards-icon-text-wrapper > .cards-icon-text.partner {
+  padding-top: 56px;
+}
+
+body.brand-lufthansa main .cards-icon-text-wrapper:has(> .cards-icon-text.partner) + .cards-icon-text-wrapper:not(:has(+ .cards-icon-text-wrapper)) > .cards-icon-text.partner {
+  padding-bottom: 60px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa main .default-content-wrapper:has(> :is(h2, h3):last-child) + .cards-icon-text-wrapper > .cards-icon-text.partner {
+    padding-top: 40px;
+  }
+
+  body.brand-lufthansa main .cards-icon-text-wrapper:has(> .cards-icon-text.partner) + .cards-icon-text-wrapper:not(:has(+ .cards-icon-text-wrapper)) > .cards-icon-text.partner {
+    padding-bottom: 39px;
+  }
+}
+
 /* jump links, then a separator: live's link list ends at its last link, the separator's 1px and
    margin follow it (baggage: 24px more before "Types of baggage" with our wrapper gap) */
 /* stylelint-disable-next-line no-descending-specificity -- a campaign-section's wrapper, not a modal link's */
