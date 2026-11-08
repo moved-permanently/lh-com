@@ -2251,6 +2251,7 @@ var CustomImportScript = (() => {
       else if (!element.matches(".carousel")) variants = ["grid"];
       const swiperDropped = element.matches("[data-lh-swiper-below-lg]") || !!element.querySelector("[data-lh-swiper-below-lg]");
       if (variants[0] === "grid" && variants.length === 1 && (hasDesktopTwin && element.querySelector(".hidden-lg-up a.teaser") || swiperDropped || element.hasAttribute("data-import-phone-slider"))) variants.push("phone-slider");
+      if (variants.includes("phone-slider") && element.querySelector(".experiencefragment .teaser, .cmp-experiencefragment .teaser")) variants.push("fragment-slides");
       const block2 = WebImporter.Blocks.createBlock(document, { name: "carousel-cards", variants, cells: rows });
       element.replaceWith(...titles, block2);
       return;
