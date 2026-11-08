@@ -53,7 +53,7 @@ test('theme defaults per brand and page type; every theme off (live: false) in s
   assert.deepEqual(themeFor('lufthansa', 'article').rules, ['rule-before-info-box', 'ruled-chapters']);
   assert.deepEqual(themeFor('lufthansa', '100-years').rules, ['sections-m']);
   assert.equal(themeFor('ita').text.width, 'full');
-  assert.equal(themeFor('brussels', 'service').headings.h2, 'heading-small');
+  assert.equal(themeFor('brussels', 'service').headings.h2, 'heading-medium');
   assert.equal(themeFor('brussels', 'home').headings.h2, 'heading-medium');
   assert.deepEqual(themeFor('austrian').rules, ['intro-after-h1']);
   assert.equal(themeFor('unknown-brand').headings.h1, 'heading-large');

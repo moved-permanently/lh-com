@@ -9,8 +9,9 @@
  *
  * Usage: node tools/importer/marker-collapse-cli.mjs --content content-sites/lh-austrian/content
  *          --brand austrian [--out logs/collapse/lh-austrian] [--report logs/collapse/lh-austrian.json]
- *          [--list paths.txt] [--paths changed.txt] [--check] [--force]   (--check: no output written,
- *          the report only; --force: a brand whose theme isn't live yet, its pass)
+ *          [--list paths.txt] [--paths changed.txt] [--pages carriers.jsonl] [--check] [--force]
+ *          (--check: no output written, the report only; --force: a brand whose theme isn't live yet,
+ *          its pass; --pages: per changed document the carriers it gains, one JSON line each)
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -27,6 +28,7 @@ const check = argv.includes('--check');
 // isn't live keeps its markers, as the importers do)
 const force = argv.includes('--force');
 const listFile = opt('list', '');
+const pagesFile = opt('pages', '');
 if (!content) {
   console.error('usage: marker-collapse-cli.mjs --content <dir> --brand <brand> [--out <dir>] [--report <file>] [--check]');
   process.exit(2);
@@ -115,6 +117,10 @@ results.forEach((res, docPath) => {
       const d = v - (before[k] || 0);
       if (d > 0) report.carriers[k] = (report.carriers[k] || 0) + d;
     });
+    if (pagesFile) {
+      const gained = Object.fromEntries(Object.entries(after).map(([k, v]) => [k, v - (before[k] || 0)]).filter(([, d]) => d > 0));
+      fs.appendFileSync(pagesFile, `${JSON.stringify({ path: docPath, carriers: gained })}\n`);
+    }
     report.changedPaths.push(docPath);
   }
   const { document } = parseHTML(`<main>${res.html}</main>`);

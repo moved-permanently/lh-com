@@ -163,14 +163,34 @@ export const THEMES = {
       article: { rules: ['rule-before-info-box', 'ruled-chapters'] },
       // /100-years: its sections 60px apart
       '100-years': { rules: ['sections-m'] },
+      // Insights tag pages (/articles/tags/…): the rule above an info box after any content but a
+      // heading, as on articles (www: 417 of 505 such Columns Media; the others without)
+      'insights-tag': { rules: ['rule-before-info-box'] },
     },
   },
-  // Austrian: the paragraph right after the page title is the intro (copytext-large, Portada 18/27)
-  austrian: { rules: ['intro-after-h1'] },
-  // Brussels: service pages set their H2s in heading-small
-  brussels: { pageTypes: { service: { headings: { h2: 'heading-small' } } } },
+  // Austrian: the paragraph right after the page title is the intro (copytext-large, Portada
+  // 18/27); flow pages set their H3s in heading-small (www: 87 % of them)
+  austrian: { rules: ['intro-after-h1'], pageTypes: { flow: { headings: { h3: 'heading-small' } } } },
+  // Brussels: flow pages set their H3s in heading-small (www: 72 %); a service page's H2s are the
+  // default (www: 89 % unmarked, heading-medium; no longer heading-small)
+  brussels: { pageTypes: { flow: { headings: { h3: 'heading-small' } } } },
   // ITA: running text over the whole width
   ita: { text: { width: 'full' } },
+  // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
+  // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
+  // (a heading right before them starts the group's column view, as its marker did)
+  swiss: { rules: ['teaser-groups'], pageTypes: { flow: { headings: { h2: 'heading-small' } } } },
+  // Discover: on flow pages the H2s in heading-small (www: 86 %) and a Columns Media a column view
+  // of its own (www: 26 of 33 not at a section's start)
+  discover: { pageTypes: { flow: { headings: { h2: 'heading-small' }, columnViews: { blocks: ['columns-media'] } } } },
+  // Lufthansa Group for Business: on flow pages the H3s in heading-small (www: 82 %); Columns
+  // Media, Carousel Images and Quote column views of their own, also at a section's end (www: 558
+  // of 789 Columns Media not at a section's start, 749 of 962 with an edge below)
+  b2b: {
+    pageTypes: {
+      flow: { headings: { h3: 'heading-small' }, columnViews: { blocks: ['columns-media', 'carousel-images', 'quote'], endEdge: true } },
+    },
+  },
 };
 
 const mergeTheme = (a, b) => ({
@@ -208,14 +228,16 @@ export const isThemeLive = (brand) => themeFor(brand || 'lufthansa').live === tr
 
 /**
  * A page's type for the theme: 'article' (an Article Header), '100-years' (lufthansa.com's
- * anniversary pages), 'flow' (Theme flow-spacing: the info pages), 'home' (a homepage or a market
- * root), else 'service' (the content pages).
+ * anniversary pages), 'insights-tag' (lufthansa.com's Insights tag pages, /articles/tags/…), 'flow'
+ * (Theme flow-spacing: the info pages), 'home' (a homepage or a market root), else 'service' (the
+ * content pages).
  * @param {{path?: string, articleHeader?: boolean, themes?: string}} page
  * @returns {string}
  */
 export function pageTypeOf({ path = '', articleHeader = false, themes = '' } = {}) {
   if (articleHeader) return 'article';
   if (/^\/[a-z]{2}\/[a-z]{2}\/100-years(\/|$)/.test(path)) return '100-years';
+  if (/^\/[a-z]{2}\/[a-z]{2}\/articles\/tags\//.test(path)) return 'insights-tag';
   if (/(^|,)\s*flow-spacing\s*(,|$)/.test(themes)) return 'flow';
   if (/^\/(?:[a-z]{2}(?:-[a-z]{2})?(?:\/[a-z]{2})?(?:\/homepage)?)?\/?$/.test(path)) return 'home';
   return 'service';
