@@ -1670,3 +1670,104 @@ lufthansa.css, index.KLnJf0H_, app.5ad288dc), which works too.
 | --- | --- | --- |
 | 1 | 4bed4bf | columns-media: an author quote in a column or sidebar kept |
 | 1 | 1136e14 | campaign-sections transformer, generator option, styles.css campaign-section |
+
+## Brief 488 (2026-11-08): beside-end on phones, the campaign regressions, video sizes, Insights spacing
+
+Left from 486: the generated import reports and the scratch in logs/b460 to logs/b484 (not
+committed); the two reverted trials (16:9 video rule, hub opt-in) never committed; nothing unpushed.
+
+Method this round: each importer draft as `<main>` on lufthansa.turnsthe.page with the working copy's
+`/blocks`, `/scripts` and `/styles` routed in (logs/b484/capture-d.cjs `--main` `--local`), captured
+against lh-parity-002 (compare.js, 8,000 px, vh 900) and the drift read with offsets.mjs. The
+script-free local render of www's CSS stayed a diagnosis tool only: it has no shadow DOM (www's
+separators are maui-divider boxes, its links maui components) and no carousels.
+
+### 1. table-striped beside-end below 768 px (row 47; e210db5)
+
+- The option reordered the partner with `order`, which only applied in the grid from 768 px, so on
+  phones the three right-hand partners sat on their tables. Now a flex column: the table 96 px under
+  the text, the picture 74 px under the table, as www's Focke-Wulf at 390 (lh-parity-002c). With the
+  CSS injected: 96 / 74 px on all three; the 12 beside tables unchanged. No document change.
+
+### 2. The campaign pages 486 made worse, and the open items (row 48; 1127f57, 2f53706)
+
+- crane: www's empty separators (maui-divider's 1 px box, then the .hr's margin) also open sections
+  and sit between components; the cleanup drops them under 50 px. Every empty separator of a campaign
+  section is a spacer now, drawn as live's (1 px, its margin collapsing with what follows).
+- new-onboard-experience: the unpadded intro section had our 48 px section gap; it's a
+  campaign-section now.
+- chronicle at 390: the jump links' column view stacks its empty second column under the links on
+  www (89 px to the next section, ours 43).
+- Nested pictures (campaigns): a [empty | picture] view and a picture-only sidebar inside a column
+  are drawn at half / three quarters of the column from 768 px (parser markers, block classes).
+- Published → draft against lh-parity-002 (whole page % / drift steps px):
+
+| Page | 1440 | 390 |
+| --- | --- | --- |
+| 100-years/campaigns | 24.2 / 553 → 15.6 / 170 | 33.1 / 287 → 27.6 / 221 |
+| 100-years | 16.8 / 243 → 13.8 / 88 | 21.1 / 173 → 20.2 / 24 |
+| cabin-design | 19.9 / 265 → 13.8 / 59 | 24.9 / 577 → 24.3 / 423 |
+| chronicle | 21.3 / 416 → 15.0 / 61 | 14.8 / 183 → 8.9 / 187 |
+| crane | 9.0 / 224 → 9.9 / 115 | 15.0 / 208 → 15.4 / 138 |
+| destinations | 30.1 / 353 → 18.3 / 183 | 12.5 / 138 → 14.5 / 68 |
+| fleet | 25.6 / 621 → 25.4 / 595 | 14.0 / 1423 → 9.1 / 1068 |
+| global-network | 18.0 / 472 → 14.6 / 212 | 20.0 / 522 → 17.5 / 254 |
+| history | 15.8 / 187 → 1.9 / 0 | 24.9 / 150 → 8.2 / 21 |
+| history/menu-on-board | 15.3 / 90 → 9.7 / 74 | 19.1 / 831 → 19.8 / 109 |
+| new-onboard-experience | 27.6 / 572 → 20.7 / 168 | 30.0 / 401 → 23.2 / 103 |
+
+- Still above the published page's whole-page %: crane (+0.9 / +0.4), destinations at 390 (+2.0)
+  and menu-on-board at 390 (+0.7), each with lower drift than before (the published page's errors
+  cancelled out). The tests for the separators and the first section were written after the
+  measurements (test/campaign-sections-488), not before.
+
+### 3. The video player at the video's own size (row 49; 2f53706)
+
+- Proposal, built: tools/importer/video-sizes.mjs reads each video viewer's video width and height
+  from the file's MP4 header (tools/importer/mp4-size.mjs: moov > trak > tkhd, rotation respected;
+  range requests on the site's own copy on lh-edge, or a local copy such as lh-snapshots-085's
+  dam/, sha256 checked) into tools/importer/parsers/video-sizes.js. The viewer parsers add
+  `size-WxH` to the video's settings marker; scripts/media.js gives the player that aspect before the
+  video loads; styles/media.css draws it black with the poster contained, as www's video.js.
+- 48 of the 60 viewer videos read (45 × 1920x1080, one 1920x1150, two 3840x2160); 12 aren't on
+  lh-edge (the us-com hero videos and the Euro Cup player videos), so they keep the poster's size.
+- allegris-premium-economy-san-diego 23.4 → 15.8 % (1440), 17.6 → 14.7 % (390); all-it-takes-is-a-yes
+  unchanged by it. Its video and its poster are both 16:9. Correction to my 486 report: the 35 %
+  capture I blamed on the 16:9 rule was 284 px short, a page that hadn't finished loading. The rule
+  couldn't change that video.
+- Before importing the 24 video documents (part B of the list): the token `size-\d{2,5}x\d{2,5}` has
+  to be in scripts/style-markers.js (ema-test's file), or lh-edge's app JSON and the loc marker check
+  keep the marker as text. media.js accepts it already.
+
+### 4. tags/munich, all-it-takes-is-a-yes, picture-perfect-austin (row 50; 9a881e1)
+
+- all-it-takes-is-a-yes and tags/munich have no AEM sections on www (components straight in
+  .container-content, like the highlights and tags pages). Their spacing comes from the components
+  (a headline no margin above, an image 4rem below, column views 2rem / 4rem). The Insights template's
+  own transformer gives such pages Theme insights-flow, which styles.css spaces so.
+- all-it-takes-is-a-yes 24.0 → 15.2 % (1440), 17.8 → 18.3 % (390); tags/munich 24.9 → 24.0 % /
+  23.7 → 22.4 %; tags/allegris 34.3 → 29.8 % / 30.4 → 27.0 %; highlights 10.9 → 11.5 % / 9.5 → 8.0 %;
+  explore-flying unchanged; explore-the-world 15.4 → 17.9 % at 1440 (a column title 16 px higher:
+  not on the list). tags/munich still has +24 px at the audio guide's column title, +46 at the
+  "A Perfect Day" stage card and +34 / +48 in the story list: not settled.
+- picture-perfect-austin: not settled. An article, its drift alternates +83 / -83 px over the
+  repeating gallery rows (offsets' matching), no layout step found.
+
+### Documents
+
+- [../parity-2026-11-08/reimport-488-lh-com.txt](../parity-2026-11-08/reimport-488-lh-com.txt), 64 in
+  release order (de/en first in each part). Part A: 40 now (32 campaign, tags/munich and highlights
+  × 4). Part B: 24 after the marker token (12 campaign with video viewers, allegris-premium-economy-
+  san-diego, all-it-takes-is-a-yes and tags/allegris × 4). 44 of the campaign ones were on
+  reimport-484 too: one import after this push replaces that.
+- Not mine, for their owners' next import: info's baggage-irregularities (4) and handgepaeck (2)
+  get a taller video player (16:9, posters wider), the other info video pages only the marker; the
+  info bundle needs rebuilding (columns-media / media-nodes parsers). The two loungenet First Class
+  lounge pages (info) get the half-width picture of their nested view.
+
+| Item | Commit | What |
+| --- | --- | --- |
+| 1 | e210db5 | table-striped beside-end below 768 px |
+| 2 | 1127f57 | campaign separators, the intro section, the jump links' stacked column |
+| 2, 3 | 2f53706 | narrow pictures in columns; video player at the video's size |
+| 4 | 9a881e1 | Insights pages without AEM sections: Theme insights-flow |
