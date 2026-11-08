@@ -1700,3 +1700,129 @@ in all. lh-com's 402 column-view pages are among its 5,153.
 | --- | --- | --- | --- |
 | 1 | `72026ccf` | the collapse only for a live brand (`isThemeLive`), `--force` for a site's pass, bundles | `git revert` |
 | 2, 3 | `6e427298` | articles' rules, column-view pages, picture options, the heading gap; ITA's pass check | `git revert` |
+
+## The brief after 503 (ITA's switch on a branch; pass checks for Discover, SWISS, Austrian, Brussels and B2B; more theme rules)
+
+Left uncommitted by 503, and still out of git:
+- `.migration/project.json` and `tools/importer/reports/**`: generated files.
+- `content/`, `content-sites/`, `migration-work/` (with content/library's local build): local documents; DA is the
+  source.
+- `logs/p4/s490`, `s494`, `s501`, and now `s504`: scripts, the measured documents and renders, collapse runs.
+- `/tmp`: captures, the worktrees (the suite's, the ITA branch's, this brief's work and baseline worktrees).
+- The 7 November autostash: an older session's.
+
+Nothing was unpushed.
+
+### 1. ITA's switch, ready but not live: branch `token-free-ita-live`
+
+One change off main: `ita: { text: { width: 'full' }, live: true }` in scripts/style-markers.js, and the bundles' same
+line. Its test (test/token-free-ita-live.test.mjs) checks ITA's rules apply and no other brand's:
+- ITA is live, no other brand;
+- ITA's imports collapse without `--force`, another brand's keep their markers;
+- an ITA page gets the wide running text, body.theme-live and the heading gap; an Austrian page doesn't.
+
+The two tests that asserted "no brand is live" now expect ITA alone. Main was merged into the branch after this
+brief's push, with the bundles rebuilt, so the merge below is clean.
+
+### 2. Pass checks (tools/reports/token-free/<site>-pass-check.md)
+
+The method is ITA's, with one change: the documents measured are the published ones. Each page's `.plain.html`
+comes from the brand's host, with its page metadata, so the local render equals the host's before the collapse and
+the check measures the pass alone. That is what the harness collapses too. 10 to 19 pages per site, templates in
+proportion, at 1440 and 390, the brand's theme forced on in the browser only. Each report lists every page over 3 %
+or 40 px with its causes in px, from an element-by-element comparison: text width, column views, separators, heading
+sizes, the rest, and the local render against the host.
+
+| site | page widths over the thresholds (main's rules → new) | mean height off | mean worst heading |
+| --- | --- | --- | --- |
+| Discover | 21 → 20 of 28 | 3.2 → 1.9 % | 94 → 58 px |
+| SWISS (FAQ hubs, carry-on baggage) | 24 → 24 of 24 | 21.1 → 2.9 % | 842 → 149 px |
+| SWISS sub-sites | 5 → 4 of 24 | 1.2 → 1.2 % | 11 → 14 px |
+| SWISS markets | 19 → 18 of 32 | 2.9 → 2.3 % | 67 → 60 px |
+| Austrian | 18 → 19 of 38 | 1.9 → 1.9 % | 71 → 71 px |
+| Brussels | 15 → 12 of 38 | 1.6 → 1.1 % | 60 → 35 px |
+| B2B | 18 → 5 of 32 | 3.8 → 1.0 % | 28 → 14 px |
+
+Fixed, ours (56b60faf):
+- **SWISS's FAQ hub lost its grid.** styles.css draws the teaser grid on a wrapper with a `{column-start}`; without
+  the marks the teasers stacked (+38 % at 1440, -39 % at 390). The theme now marks the heading before a run of teasers
+  as their group's start (rule `teaser-groups`): -3.4 % / -1.9 %.
+- **Column-view blocks.** Discover's Columns Media and B2B's Columns Media, Carousel Images and Quote sit in column
+  views of their own on www (Discover 26 of 33, B2B 558 of 789). The collapse dropped those marks: -80 px per block,
+  B2B news pages -12 %. The theme now draws the edges on flow pages (not in tab panels or at a section's start; B2B
+  also at its end).
+- **Heading defaults per brand on flow pages**, by www's majority:
+  - Austrian H3 heading-small: 87 %;
+  - Brussels H3: 72 %;
+  - B2B H3: 82 %;
+  - SWISS H2: 63 % and 79 %;
+  - Discover H2: 86 %.
+- **Brussels' service-page H2 rule** (step 1's heading-small) contradicted www: 89 % of those H2s are unmarked,
+  heading-medium. It is gone (an-unforgettable-reunion lost 190 px to it).
+- **The page type.** The collapse weighed a page with column marks as a service page, and the site rendered it as a
+  flow page (its new Theme row). The collapse now weighs its headings against the flow page's defaults.
+- Tried and dropped: a 48 px heading gap for Austrian. More pages went over the thresholds, not fewer.
+
+For Ben (the options are in the reports):
+- **Text in column views** (a heading and its text, an intro paragraph, a table and its notes) loses the group's
+  padding. Austrian has 80 px between two headed groups on www and 32 px with the theme; data-protection-rights is at
+  -10.7 %. Options:
+  - keep the plan;
+  - a Padded section per group (1,304 Austrian pages have column marks);
+  - a theme rule for headed groups (measured as a gap: worse).
+- **B2B's text width.** 301 of 573 flow-page sections are mostly wide. Options:
+  - keep the two-thirds default (301 Wide text carriers);
+  - make wide B2B's default (272 sections www draws at two thirds become wide).
+- **`from-768` separators.** They now draw on phones too (SWISS carry-on baggage +140 px at 390). Options: keep, or
+  a Spacer option "from 768 px".
+- **Small separators, 21-31 px**, go (Brussels' `{spacer-28}`: -116 px on the A330 page). Keep, or M (which is
+  farther from those values).
+- **Numbered steps written as headings** in a section's minority take its default. Keep, or a carrier for a run of
+  them.
+
+### 3. Carriers: 9,555 → 9,026 written without the captions
+
+| site | written | written without captions | theme |
+| --- | --- | --- | --- |
+| lh-com | 11,471 → 11,049 | 5,249 → 4,827 | 20,844 → 21,266 |
+| lh-austrian | 1,473 → 1,414 | 1,463 → 1,404 | 16,108 → 16,214 |
+| lh-brussels | 968 → 962 | 883 → 877 | 4,643 → 4,649 |
+| lh-ita | 631 | 631 | 17,382 |
+| lh-swiss, -mk, -sub | 536 → 513 | 531 → 508 | 2,677 → 2,754 |
+| lh-discover | 18 → 6 | 18 → 6 | 239 → 279 |
+| lh-b2b | 780 → 773 | 780 → 773 | 3,307 → 3,335 |
+| all | 15,877 → 15,348 | 9,555 → 9,026 | 65,200 → 65,879 |
+
+New rules of Ben's kind:
+- **lufthansa.com's Insights tag pages** take the articles' rule above an info box. 417 of 505 Columns Media there
+  have it; divider-above goes from 508 to 86.
+- The heading defaults and column-view blocks above.
+
+Looked for and not found, so no rule (what www draws has no majority):
+- section-boundary gaps per template: none at 73-100 %; lh-com's hub 46 % M against 45 % none;
+- sections starting with an info box in articles: 1,019 without a rule against about 700 with;
+- text width per brand and page type: all limited by majority except B2B (above).
+
+What is left, 9,026:
+- separators: 5,864. Block spacers 1,409, Divider blocks 1,228, section dividers 1,174, space-below-m 729,
+  space-m 487 and the rest are authored space with no page-type pattern.
+- Wide text: 1,236 (B2B's 301 is Ben's decision).
+- headings: 697;
+- parallax: 250;
+- small print: 213;
+- app spacers: 325;
+- the rest: 441 (Padded 143, form defaults 140, video options 103, narrow 36, indents 19).
+
+The plan's ~2,400 would need the separators to go, which www draws.
+
+Checks:
+- Full suite in a fresh worktree of 414d9d1a (the rules before the pull): eslint 0, stylelint 0, 591 passed, 0 failed. Again after the pulls (the brief after 505's theme, cards, micro-frontend, TAP and content commits; the bundle conflicts resolved by rebuilding) on e86379b2: 620 passed, 0 failed.
+- Smoke on all 12 hosts before the push (logs/p4/s504/smoke) and after.
+- Hosts:
+  - discover, swiss, austrian, brussels and b2b.turnsthe.page: read only (pages and their `.plain.html`);
+  - local `aem up --html-folder` on :3021-3042, stopped afterwards;
+  - nothing to www.
+
+Documents: none changed, none uploaded, nothing published. The paths each site's pass changes are unchanged (the
+paths files' headers name this brief), 11,548 in all, in release order in
+tools/reports/token-free/collapse-<site>-paths.txt.
