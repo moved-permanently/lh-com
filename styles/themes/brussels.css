@@ -720,3 +720,129 @@ body.brand-brussels main :is(.default-content-wrapper, .columns-media-text) li >
     margin-top: 57px;
   }
 }
+
+/* the article lists (/be/en/articles, brief 474; brussels-parity-003, www's CSS rendered from the
+   capture): each card 40 px padded above and below; the title 20/22 px bold, 30 px over the date /
+   reading time / author line (20/22 px bold, 20 px over the teaser); the teaser 18/24 px, 10 px over
+   "Read article" in the regular weight; from 768 px the title 24/26.4 px, the line 18/19.8 px */
+body.brand-brussels .blog-overview:not(.grid) .blog-overview-list {
+  gap: 0;
+}
+
+body.brand-brussels .blog-overview:not(.grid) .blog-overview-card {
+  padding: 40px 0;
+}
+
+body.brand-brussels .blog-overview:not(.grid) .blog-overview-title {
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+body.brand-brussels .blog-overview:not(.grid) .blog-overview-info {
+  margin-bottom: 20px;
+  font-size: 20px;
+  line-height: 22px;
+}
+
+body.brand-brussels .blog-overview:not(.grid) .blog-overview-description {
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+body.brand-brussels .blog-overview:not(.grid) .blog-overview-more a:any-link {
+  font-weight: 400;
+}
+
+/* the picture cropped to 16:9, as www's (575 x 323 px at 1440, 331 x 186 px at 390) */
+body.brand-brussels .blog-overview:not(.grid) .blog-overview-image img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels .blog-overview:not(.grid) .blog-overview-title {
+    font-size: 24px;
+    line-height: 26.4px;
+  }
+
+  body.brand-brussels .blog-overview:not(.grid) .blog-overview-info {
+    font-size: 18px;
+    line-height: 19.8px;
+  }
+}
+
+/* the deals as www's boxed cards (brief 474; brussels-parity-003 /ke/en/homepage, www's CSS
+   rendered from the capture): a 1 px #c5c5c5 frame, the 125 px square picture at the left, the
+   text 13 px from the top and 20 px from the right, the origin 14/21 px bold, the city 20/22 px bold
+   (24/26.4 px from 1025 px), "Round trip from" 16/24 px over the price 20/22 px bold, right, dark */
+body.brand-brussels .fare-teaser .fare-teaser-list {
+  row-gap: 20px;
+}
+
+body.brand-brussels .fare-teaser .fare-teaser-item {
+  grid-template:
+    "image route" auto
+    "image offer" 1fr / 125px minmax(0, 1fr);
+  column-gap: 20px;
+  min-height: 125px;
+  padding: 0 20px 0 0;
+  border: 1px solid #c5c5c5;
+}
+
+body.brand-brussels .fare-teaser .fare-teaser-image {
+  width: 125px;
+  height: 125px;
+  margin: 0;
+}
+
+body.brand-brussels .fare-teaser .fare-teaser-image::after {
+  display: none;
+}
+
+body.brand-brussels .fare-teaser .fare-teaser-route:any-link {
+  padding: 13px 0 0;
+  border-bottom: 0;
+}
+
+body.brand-brussels .fare-teaser .fare-teaser-origin {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+}
+
+body.brand-brussels .fare-teaser .fare-teaser-destination {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+body.brand-brussels .fare-teaser .fare-teaser-offer {
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  row-gap: 0;
+  padding: 0 0 10px;
+  color: #1a1a1a;
+}
+
+body.brand-brussels .fare-teaser .fare-teaser-price-label {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+body.brand-brussels .fare-teaser .fare-teaser-price {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+@media (width >= 1025px) {
+  body.brand-brussels .fare-teaser .fare-teaser-destination {
+    font-size: 24px;
+    line-height: 26.4px;
+  }
+}

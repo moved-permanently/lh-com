@@ -354,6 +354,22 @@ function renderItem(route, labels, locale, pattern) {
   return li;
 }
 
+/**
+ * After a live answer: removes the authored routes the service gave no fare, as www shows the
+ * priced routes only (brussels /ke/en/homepage: six of its eleven); all stay when none is priced.
+ * Returns the number removed.
+ */
+export function dropUnpriced(list) {
+  const items = [...list.children];
+  const unpriced = items.filter((li) => {
+    const offer = li.querySelector('.fare-teaser-offer');
+    return !offer || offer.hidden || offer.hasAttribute('hidden');
+  });
+  if (unpriced.length === items.length) return 0;
+  unpriced.forEach((li) => li.remove());
+  return unpriced.length;
+}
+
 function applyOffer(li, offer, route, labels, locale, localeData) {
   const originName = route.originName || offer.originName || route.origin;
   const destinationName = route.destinationName || offer.destinationName || route.destination;
@@ -449,6 +465,7 @@ export default async function decorate(block) {
     });
   };
   fill(data.offers);
+  if (data.sources.fares === 'live') dropUnpriced(list);
 
   // routes still named by their codes (no live answer): the city names the site knows
   // (recorded suggestions and catalogs: names, never prices)
@@ -491,6 +508,7 @@ export default async function decorate(block) {
       const fares = await loadFares(settings, locale);
       if (fares.source !== 'live') return;
       fill(fares.offers);
+      dropUnpriced(list);
       markSource(block, { ...data.sources, fares: 'live' }, ['fares']);
       finish();
     }, priceRetryDelay(routes));
