@@ -1654,3 +1654,73 @@ pages import as before.
   lufthansa-express-rail); 147 are byte for byte the same.
 - **Renders:** the drafts rendered on the local dev server with preview's pictures.
 - **Measurements:** heights and drift (our headings located in www's screenshot) at 1440 and 390.
+
+## The brief after 481: Air Dolomiti's homepage, the open rows from 473, secure-flight
+
+Nothing was published and nothing was uploaded. The documents go to the harness for re-import, in
+release order:
+
+- tools/reports/parity-2026-11-08/reimport-482-discover.txt (2);
+- tools/reports/parity-2026-11-08/reimport-482-cargo.txt (2);
+- tools/reports/parity-2026-11-08/reimport-482-airdolomiti-posts.txt (4);
+- optional: tools/reports/parity-2026-11-08/reimport-482-airdolomiti-destinations.txt (83).
+
+Nothing was requested from www: www's pages came from the capture (served offline), ours were
+rendered on the brand hosts and preview with www unresolvable, the drafts were converted offline,
+and the importer edits went through scripts.
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out of git).
+
+### Item 1: Air Dolomiti's homepage
+
+The theme alone (Air Dolomiti scope). www's block data has not changed, so the document stays as it is.
+
+- **The two-up cards** (eSIM and Miles & More, Leisure and Business; chi-siamo's and history's too,
+  the same www component): www's CardDefault picture tiles.
+- **The download row** (Experience on board, Service charter): the picture tile beside a marble
+  box, as wide as its text; on phones the box is gone, as on www.
+- **The Lufthansa Group strip:** a #f5f1ee box beside its picture (above it on phones). The
+  articles' stage is the same block in the h1's section; the rule leaves it alone.
+- **The offers:** three to the row at 432 px (250 px cards that swipe on phones), 100 px (170 px)
+  above the tiles.
+
+The capture's tall promotion cards (316 x 500 in the 1440 PNG) are www's phone-size cards caught
+mid-way through CardPromo's 0.5 s transition. The measurements of the same load are 432 x 140,
+which is what we now draw.
+
+Measured on airdolomiti.turnsthe.page with the rules injected, against the capture, it, en and de
+at 1440 and 390, relative to the offers' heading: every box at 0 px, except the Service charter box
+(3 to 8 px narrower: its width is its text's). Open: the Business tile's navy title box, a per-card
+theme the document does not carry.
+
+### Item 2: the open rows from 473
+
+| Row | Fix | Measured (www) |
+| --- | --- | --- |
+| Cargo Support & Contact | importer: the finder's heading and chips; block: the finder, the line under it, the topics as a list and panel (an accordion on phones) | draft at 1440: 2,438 px (2,301; the document 3,094); at 390: 3,292 (3,066) |
+| Discover Additional services | a fresh import already writes www's rows as blocks; the theme spaces the blocks as rows | de/de at 1440: 3,877 (4,093; the document 3,350) |
+| Air Dolomiti post stage | the import's destination option (www's HeroSecond) with the bar's two lines | the drafted post as www's |
+
+### Item 3: secure-flight
+
+The sub-page navigation held the page as long as itself (main's min-height). www's does not, so on a
+short page it runs into the footer, drawn over it. Ours does the same now: 1,220 px at 1440 on
+preview with the change (1,376 before). At 390 nothing changes.
+
+### Bundles
+
+None: the changed importers (airdolomiti-import.mjs, cargo-import.mjs) run offline, and no
+helix-importer bundle changed.
+
+### Checked
+
+- **Hosts:**
+  - airdolomiti.turnsthe.page: the homepages and a drafted post;
+  - cargo.turnsthe.page: Support & Contact drafted;
+  - discover.turnsthe.page: Additional services drafted;
+  - main--lh-com--moved-permanently.aem.page: secure-flight.
+
+  Each was rendered with this checkout's CSS (and, for Cargo and lufthansa.com, its block scripts).
+- **www:** the captures airdolomiti-parity-001, cargo-parity-001 and discover-parity-001, served offline.
+- **Suite:** lint and the full suite; TAP by hand before and after (40 pages).
+

@@ -1,0 +1,2 @@
+/de/en/my-bookings/services/additional-services
+/de/de/my-bookings/services/additional-services
