@@ -147,7 +147,9 @@ const BASE_THEME = {
   text: { width: 'limited', size: 'copytext-large', small: 'copytext-small' },
   separators: { m: SPACE.m, l: SPACE.l, divider: DIVIDER_SPACE },
   // a Lufthansa column view's padding (32px; outside a page section 20px, 40px from 768px) and
-  // the space a heading adds above itself on flow pages (none: the paddings make it)
+  // the space a heading after content gets above it on flow pages once the column views are
+  // structure: 32px (the column view's padding; also what the small separators dropped before
+  // headings gave: ITA's pass check, tools/reports/token-free/ita-pass-check.md, measured 0 worse)
   columnViews: { padding: 32, outerPadding: [20, 40], headingGap: 32 },
   rules: [],
   live: false,
@@ -156,8 +158,8 @@ const BASE_THEME = {
 export const THEMES = {
   lufthansa: {
     pageTypes: {
-      // Insights articles: a rule above an info box (Columns Media) that follows text; chapters
-      // as sections, a rule between them
+      // Insights articles: a rule above an info box (Columns Media) after any content but a
+      // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
       article: { rules: ['rule-before-info-box', 'ruled-chapters'] },
       // /100-years: its sections 60px apart
       '100-years': { rules: ['sections-m'] },
@@ -308,6 +310,11 @@ export const BLOCK_OPTIONS = {
   'background-video': { video: 'background' },
   // Article Header: its video on phones too
   'mobile-video': { video: 'mobile' },
+  // Columns Media: its pictures narrower than their cell (www's nested view or sidebar; the
+  // "{cell-half-start}" marks)
+  'picture-half-start': { picture: 'half-start' },
+  'picture-half-end': { picture: 'half-end' },
+  'picture-three-quarters': { picture: 'three-quarters' },
 };
 
 // the block options' friendly labels (the DA library's notes)
@@ -320,12 +327,15 @@ export const BLOCK_OPTION_LABELS = {
   'title-compact': 'compact title',
   'background-video': 'background video (autoplay, muted, loop)',
   'mobile-video': 'video on phones too',
+  'picture-half-start': 'picture in the cell\'s first half',
+  'picture-half-end': 'picture in the cell\'s second half',
+  'picture-three-quarters': 'picture three quarters of the cell',
 };
 
 /** What a block's options ask for (class names of the block element). */
 export function readBlockOptions(classes) {
   const out = {
-    space: null, divider: false, size: null, title: null, video: null,
+    space: null, divider: false, size: null, title: null, video: null, picture: null,
   };
   [...classes].forEach((c) => Object.assign(out, BLOCK_OPTIONS[c] || {}));
   return out;

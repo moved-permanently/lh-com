@@ -37,6 +37,20 @@ test('separators: page-type gaps are the theme\'s (/100-years sections, articles
   assert.equal(article, '<div><div class="article-header"><div><div>h</div></div></div><p>Text</p><div class="columns-media"><div><div>i</div></div></div><p>More</p></div><div><h3>Chapter</h3><p>C</p></div>');
 });
 
+test('the brief after 500: articles\' rule above an info box after any content, bold chapter headings; hub column views; narrow pictures', () => {
+  const art = '<div class="article-header"><div><div>h</div></div></div>';
+  assert.equal(out(`<div>${art}<p>${PIC}</p><p>{divider-25}</p><div class="columns-media"><div><div>i</div></div></div></div>`), `<div>${art}<p>${PIC}</p><div class="columns-media"><div><div>i</div></div></div></div>`);
+  assert.equal(out(`<div>${art}<p>Text</p><p>{divider-25}</p><p><strong>About</strong></p><p>More</p></div>`), `<div>${art}<p>Text</p></div><div><p><strong>About</strong></p><p>More</p></div>`);
+  assert.equal(out(`<div>${art}<p>Text</p><p>{divider-25}</p><p>Plain</p></div>`), `<div>${art}<p>Text</p><div class="divider"><div><div></div></div></div><p>Plain</p></div>`, 'a rule between two plain paragraphs: still a Divider');
+  // a page with column marks that is no flow page (the hub): the flow pages' spacing, one Theme row
+  const hub = out('<div><h2>T {column-start}</h2><p>Text {column-end}</p><p>More</p></div><div><div class="metadata"><div><div>Title</div><div>t</div></div></div></div>');
+  assert.match(hub, /<div><div>Theme<\/div><div>flow-spacing<\/div><\/div>/);
+  assert.match(out('<div><h2>T {column-start}</h2><p>Text {column-end}</p></div><div><div class="metadata"><div><div>Theme</div><div>flow-spacing</div></div></div></div>'), /<div>Theme<\/div><div>flow-spacing<\/div>/, 'once');
+  assert.equal(out(`<div><div class="columns-media"><div><div></div><div><p>${PIC} {cell-half-start}</p></div></div></div></div>`), `<div><div class="columns-media picture-half-start"><div><div></div><div><p>${PIC}</p></div></div></div></div>`);
+  const mixed = run(`<div><div class="columns-media"><div><div><p>${PIC} {cell-half-start}</p></div><div><p>${PIC} {cell-three-quarters}</p></div></div></div></div>`);
+  assert.equal(mixed.hand.length, 1);
+});
+
 test('column views: the marks go; an outside group over its whole section: padded', () => {
   assert.equal(out('<div><h2>T {heading-medium column-start}</h2><p>Text {column-end}</p><p>After</p></div>'), '<div><h2>T</h2><p>Text</p><p>After</p></div>');
   assert.equal(out('<div><p>Text</p><p>{column-end}</p><div class="cards"><div><div>x</div></div></div></div>'), '<div><p>Text</p><div class="cards"><div><div>x</div></div></div></div>');

@@ -88,7 +88,7 @@ test('section styles: class names and the friendly "Label=value" spelling', () =
 
 test('block options, video fragments, purpose blocks, form defaults, nav roles', () => {
   assert.deepEqual(readBlockOptions(['columns-media', 'space-l', 'small-print', 'background-video']), {
-    space: 'l', divider: false, size: 'small', title: null, video: 'background',
+    space: 'l', divider: false, size: 'small', title: null, video: 'background', picture: null,
   });
   assert.deepEqual(videoFragment('/media/a.mp4#background'), { href: '/media/a.mp4', background: true, size: null });
   assert.deepEqual(videoFragment('/media/a.mp4#t=10&background'), { href: '/media/a.mp4#t=10', background: true, size: null });
@@ -224,6 +224,20 @@ test('nothing changes on today\'s documents: markers only, the theme rules off',
   globalThis.document = body.ownerDocument;
   decorateTokenFree(body, { brand: 'swiss', path: '/ch/en/x' });
   assert.equal(body.innerHTML, before);
+});
+
+test('the brief after 500: a live lufthansa.com article rules an info box after a picture and a bold chapter; Columns Media\'s picture options', () => {
+  THEMES.lufthansa.live = true;
+  try {
+    const main = decorate(`<div><div class="article-header"><div><div>h</div></div></div><p>${PICTURE}</p><div class="columns-media"><div><div>i</div></div></div></div><div><p><strong>About</strong></p><p>Text</p></div>`, { brand: '', path: '/de/en/articles/x' });
+    const [one, two] = main.querySelectorAll(':scope > div');
+    assert.ok(one.querySelector('.columns-media').previousElementSibling.matches('p.spacer.divider'));
+    assert.ok(two.firstElementChild.matches('p.spacer.divider'));
+  } finally {
+    delete THEMES.lufthansa.live;
+  }
+  const js = read('../blocks/columns-media/columns-media.js').replace(/\s+/g, ' ');
+  assert.match(js, /const narrow = \['half-start', 'half-end', 'three-quarters'\]\.find\(\(o\) => block\.classList\.contains\(`picture-\$\{o\}`\)\);/);
 });
 
 test('decorateMain runs it after the section metadata (section classes known) and before the sections are wrapped', () => {

@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-flight-status.js
-  var tmp_bundle_flight_status_598975_exports = {};
-  __export(tmp_bundle_flight_status_598975_exports, {
-    default: () => tmp_bundle_flight_status_598975_default
+  var tmp_bundle_flight_status_1096884_exports = {};
+  __export(tmp_bundle_flight_status_1096884_exports, {
+    default: () => tmp_bundle_flight_status_1096884_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -1364,7 +1364,9 @@ var CustomImportScript = (() => {
     text: { width: "limited", size: "copytext-large", small: "copytext-small" },
     separators: { m: SPACE.m, l: SPACE.l, divider: DIVIDER_SPACE },
     // a Lufthansa column view's padding (32px; outside a page section 20px, 40px from 768px) and
-    // the space a heading adds above itself on flow pages (none: the paddings make it)
+    // the space a heading after content gets above it on flow pages once the column views are
+    // structure: 32px (the column view's padding; also what the small separators dropped before
+    // headings gave: ITA's pass check, tools/reports/token-free/ita-pass-check.md, measured 0 worse)
     columnViews: { padding: 32, outerPadding: [20, 40], headingGap: 32 },
     rules: [],
     live: false
@@ -1372,8 +1374,8 @@ var CustomImportScript = (() => {
   var THEMES = {
     lufthansa: {
       pageTypes: {
-        // Insights articles: a rule above an info box (Columns Media) that follows text; chapters
-        // as sections, a rule between them
+        // Insights articles: a rule above an info box (Columns Media) after any content but a
+        // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
         article: { rules: ["rule-before-info-box", "ruled-chapters"] },
         // /100-years: its sections 60px apart
         "100-years": { rules: ["sections-m"] }
@@ -3409,7 +3411,8 @@ var CustomImportScript = (() => {
     tap: 16
   };
   var TEXT_PX = { "copytext-small": 14, "copytext-medium": 16 };
-  var KNOWN = `${HEADING_TOKENS}|${PARAGRAPH_TOKENS}|${LIST_TOKENS}|${VIDEO_SETTINGS.join("|")}|${VIDEO_SIZE}|mobile`;
+  var CELL = "cell-(?:half-start|half-end|three-quarters)";
+  var KNOWN = `${HEADING_TOKENS}|${PARAGRAPH_TOKENS}|${LIST_TOKENS}|${VIDEO_SETTINGS.join("|")}|${VIDEO_SIZE}|mobile|${CELL}`;
   var TAIL = new RegExp(`\\s*\\{\\s*((?:${KNOWN})(?: (?:${KNOWN}))*)\\s*\\}\\s*$`);
   var COLUMN = /^column-/;
   var SIZE_TOKEN = /^(heading-(?:large|medium|small|copytext-large|copytext-medium)|copytext-(?:small|medium|large))$/;
@@ -4053,6 +4056,31 @@ var CustomImportScript = (() => {
       count(stats, "carrier", "parallax");
     });
   }
+  function collapseCells(main, stats, marks, hand) {
+    const blocks = /* @__PURE__ */ new Map();
+    marks.forEach((tokens, el) => {
+      const cell = tokens.find((t) => /^cell-/.test(t));
+      if (!cell) return;
+      const block = blockOf(el, main);
+      if (!block) {
+        count(stats, "hand", "picture");
+        hand.push(`a narrow picture outside a block (${cell})`);
+        return;
+      }
+      if (!blocks.has(block)) blocks.set(block, []);
+      blocks.get(block).push(cell.slice(5));
+    });
+    blocks.forEach((kinds, block) => {
+      const pictures = [...block.querySelectorAll("p")].filter((p) => p.querySelector("picture, img") && !textOf(p)).length;
+      if (new Set(kinds).size === 1 && kinds.length === pictures) {
+        addBlockOption(block, `picture-${kinds[0]}`);
+        count(stats, "carrier", "picture", kinds.length);
+      } else {
+        count(stats, "hand", "picture", kinds.length);
+        hand.push(`narrow pictures of different kinds in one ${blockName(block)} (${kinds.join(", ")})`);
+      }
+    });
+  }
   function collapseColumns(main, doc, stats, marks) {
     const outer = /* @__PURE__ */ new Map();
     marks.forEach((tokens, el) => {
@@ -4072,6 +4100,23 @@ var CustomImportScript = (() => {
         count(stats, "carrier", "column", 2);
       } else count(stats, "theme", "column", start.length + end.length);
     });
+    const hasColumns = [...marks.values()].some((tokens) => tokens.some((t) => COLUMN.test(t)));
+    if (hasColumns) {
+      const theme = pageMetaCell(main, "Theme", doc, false);
+      const values = theme ? textOf(theme).split(",").map((x) => x.trim()).filter(Boolean) : [];
+      if (!values.includes("flow-spacing")) {
+        const cell = theme || pageMetaCell(main, "Theme", doc, true);
+        if (cell) {
+          cell.textContent = [...values, "flow-spacing"].join(", ");
+          count(stats, "carrier", "column-page");
+        }
+      }
+    }
+  }
+  function isBoldHeading(el) {
+    if (!el || el.tagName !== "P") return false;
+    const kids = [...el.childNodes].filter((n) => n.nodeType === 1 || (n.nodeValue || "").trim());
+    return kids.length === 1 && kids[0].nodeType === 1 && /^(STRONG|B)$/.test(kids[0].tagName) && !!textOf(kids[0]) && !kids[0].querySelector("a, img, picture");
   }
   function collapseSeparators(main, doc, stats, ctx) {
     const isSep = (el) => !!el && el.tagName === "P" && SEPARATOR.test(textOf(el));
@@ -4116,12 +4161,12 @@ var CustomImportScript = (() => {
           return;
         }
         if (ctx.brand === "lufthansa" && ctx.pageType === "article" && divider) {
-          if (blockName(after) === "columns-media" && before && isRunningText(before)) {
+          if (blockName(after) === "columns-media" && before && !atStart && !/^H[1-6]$/.test(before.tagName)) {
             remove();
             count(stats, "theme", "separator", run.els.length);
             return;
           }
-          if (after && /^H[23]$/.test(after.tagName) && !atStart) {
+          if (after && (/^H[23]$/.test(after.tagName) || isBoldHeading(after)) && !atStart) {
             const last = run.els[run.els.length - 1];
             splitAfter(section, last, doc);
             remove();
@@ -4235,6 +4280,7 @@ var CustomImportScript = (() => {
     collapseHeadings(main, doc, stats, marks, theme);
     collapseColumns(main, doc, stats, marks);
     collapseText(main, doc, stats, marks, theme, brand, hand);
+    collapseCells(main, stats, marks, hand);
     marks.forEach((tokens, el) => {
       if (el.isConnected && el.tagName === "P" && isEmptyP(el)) el.remove();
     });
@@ -4402,7 +4448,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_flight_status_598975_default = {
+  var tmp_bundle_flight_status_1096884_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -4441,5 +4487,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_flight_status_598975_exports);
+  return __toCommonJS(tmp_bundle_flight_status_1096884_exports);
 })();

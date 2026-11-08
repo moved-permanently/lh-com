@@ -191,6 +191,14 @@ export function decorateCaptions(main) {
   });
 }
 
+/** A chapter's start: an H2 / H3, or a paragraph that is all one bold text. */
+function isChapterStart(el) {
+  if (/^H[23]$/.test(el.tagName)) return true;
+  if (el.tagName !== 'P') return false;
+  const kids = [...el.childNodes].filter((n) => n.nodeType === 1 || n.nodeValue.trim());
+  return kids.length === 1 && /^(STRONG|B)$/.test(kids[0].tagName || '') && !!kids[0].textContent.trim();
+}
+
 /** The theme's own rules for a brand and page type (only a live theme). */
 function applyThemeRules(main, theme) {
   if (!theme.live) return;
@@ -211,12 +219,13 @@ function applyThemeRules(main, theme) {
     }
     if (i > 0 && first && !isSeparator(first)) {
       if (theme.rules.includes('sections-m')) section.prepend(separatorParagraph(SPACE.m));
-      else if (theme.rules.includes('ruled-chapters') && /^H[23]$/.test(first.tagName)) section.prepend(separatorParagraph(DIVIDER_SPACE, true));
+      else if (theme.rules.includes('ruled-chapters') && isChapterStart(first)) section.prepend(separatorParagraph(DIVIDER_SPACE, true));
     }
     if (theme.rules.includes('rule-before-info-box')) {
       section.querySelectorAll(':scope > div.columns-media').forEach((block) => {
         const prev = block.previousElementSibling;
-        if (!prev || !TEXT.includes(prev.tagName) || isSeparator(prev)) return;
+        // after any content but a heading (text, a picture, a caption, another block)
+        if (!prev || /^H[1-6]$/.test(prev.tagName) || isSeparator(prev)) return;
         block.before(separatorParagraph(DIVIDER_SPACE, true));
       });
     }
@@ -235,7 +244,11 @@ export default function decorateTokenFree(main, { brand = '', path = '', read = 
   // a live theme's rules for the page's CSS too (styles.css "theme rules")
   if (theme.live) {
     const { body } = main.ownerDocument;
-    if (body && body.contains(main)) body.classList.add('theme-live');
+    if (body && body.contains(main)) {
+      body.classList.add('theme-live');
+      // the brand's heading gap on flow pages (styles.css "theme rules")
+      body.style.setProperty('--theme-heading-gap', `${theme.columnViews.headingGap}px`);
+    }
   }
   decoratePurposeBlocks(main);
   decorateNavTools(main);

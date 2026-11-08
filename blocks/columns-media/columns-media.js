@@ -234,6 +234,14 @@ export default async function decorate(block) {
     last.nodeValue = last.nodeValue.slice(0, m.index);
     p.classList.add(`cell-${m[1]}`);
   });
+  // the same as a block option (token-free styling, scripts/style-markers.js): picture-half-start,
+  // picture-half-end, picture-three-quarters for the block's pictures
+  const narrow = ['half-start', 'half-end', 'three-quarters'].find((o) => block.classList.contains(`picture-${o}`));
+  if (narrow) {
+    block.querySelectorAll('p').forEach((p) => {
+      if (p.querySelector('picture, img') && !p.textContent.trim() && !/(^| )cell-/.test(p.className)) p.classList.add(`cell-${narrow}`);
+    });
+  }
 
   // an icon heading (C8, hrefless a.teaser): the document keeps the heading's SVG icon as a
   // paragraph of its own right after it; it goes back into the heading

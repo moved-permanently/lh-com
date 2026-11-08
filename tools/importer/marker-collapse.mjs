@@ -17,8 +17,9 @@
  *   At a section's start the section's Space / Divider style, at its end Space below / Divider
  *   below, right before a block that block's option, else a Spacer (L) / Divider block; in a block
  *   cell (no carrier there) it goes. Page-type gaps belong to the theme: lufthansa.com's /100-years
- *   sections (M at a section edge), its articles (the rule above an info box after text; a rule
- *   before a chapter heading: the chapter becomes a section of its own, the theme rules it).
+ *   sections (M at a section edge), its articles (the rule above an info box after any content but
+ *   a heading; a rule before a chapter heading, an H2 / H3 or a bold paragraph: the chapter becomes
+ *   a section of its own, the theme rules it).
  * - column views become structure: every column mark goes; an outside-a-section group that spans
  *   its whole section becomes the section style padded (the same 20 / 40 px).
  * - heading size: within one step of the context's default the default; two or more steps a
@@ -70,8 +71,9 @@ export const BODY_PX = {
 const TEXT_PX = { 'copytext-small': 14, 'copytext-medium': 16 };
 
 // every token the site reads at the end of an element (the cell-* marks of ema-adobe's columns-media
-// parser stay: they are no style of this plan, a person decides them)
-const KNOWN = `${HEADING_TOKENS}|${PARAGRAPH_TOKENS}|${LIST_TOKENS}|${VIDEO_SETTINGS.join('|')}|${VIDEO_SIZE}|mobile`;
+// parser: Columns Media's picture options)
+const CELL = 'cell-(?:half-start|half-end|three-quarters)';
+const KNOWN = `${HEADING_TOKENS}|${PARAGRAPH_TOKENS}|${LIST_TOKENS}|${VIDEO_SETTINGS.join('|')}|${VIDEO_SIZE}|mobile|${CELL}`;
 const TAIL = new RegExp(`\\s*\\{\\s*((?:${KNOWN})(?: (?:${KNOWN}))*)\\s*\\}\\s*$`);
 const COLUMN = /^column-/;
 const SIZE_TOKEN = /^(heading-(?:large|medium|small|copytext-large|copytext-medium)|copytext-(?:small|medium|large))$/;
@@ -764,6 +766,33 @@ function collapseText(main, doc, stats, marks, theme, brand, hand) {
   });
 }
 
+/**
+ * The columns-media parser's narrow pictures ("{cell-half-start}", "{cell-half-end}",
+ * "{cell-three-quarters}"): the block's option picture-half-start, picture-half-end,
+ * picture-three-quarters when its marked pictures agree and none of its pictures goes unmarked.
+ */
+function collapseCells(main, stats, marks, hand) {
+  const blocks = new Map();
+  marks.forEach((tokens, el) => {
+    const cell = tokens.find((t) => /^cell-/.test(t));
+    if (!cell) return;
+    const block = blockOf(el, main);
+    if (!block) { count(stats, 'hand', 'picture'); hand.push(`a narrow picture outside a block (${cell})`); return; }
+    if (!blocks.has(block)) blocks.set(block, []);
+    blocks.get(block).push(cell.slice(5));
+  });
+  blocks.forEach((kinds, block) => {
+    const pictures = [...block.querySelectorAll('p')].filter((p) => p.querySelector('picture, img') && !textOf(p)).length;
+    if (new Set(kinds).size === 1 && kinds.length === pictures) {
+      addBlockOption(block, `picture-${kinds[0]}`);
+      count(stats, 'carrier', 'picture', kinds.length);
+    } else {
+      count(stats, 'hand', 'picture', kinds.length);
+      hand.push(`narrow pictures of different kinds in one ${blockName(block)} (${kinds.join(', ')})`);
+    }
+  });
+}
+
 /** Column marks: structure now; an outside group over its whole section: the section's padding. */
 function collapseColumns(main, doc, stats, marks) {
   const outer = new Map();
@@ -784,6 +813,29 @@ function collapseColumns(main, doc, stats, marks) {
       count(stats, 'carrier', 'column', 2);
     } else count(stats, 'theme', 'column', start.length + end.length);
   });
+  // a page with column views that is no flow page yet (the hub: ema-adobe's hub-column-views marks
+  // www's column views as on info pages): the flow pages' spacing (Theme flow-spacing), whose
+  // column-view gap rule (the theme's 32 px above a heading after content) takes the marks' place;
+  // a page's Theme row, one per page
+  const hasColumns = [...marks.values()].some((tokens) => tokens.some((t) => COLUMN.test(t)));
+  if (hasColumns) {
+    const theme = pageMetaCell(main, 'Theme', doc, false);
+    const values = theme ? textOf(theme).split(',').map((x) => x.trim()).filter(Boolean) : [];
+    if (!values.includes('flow-spacing')) {
+      const cell = theme || pageMetaCell(main, 'Theme', doc, true);
+      if (cell) {
+        cell.textContent = [...values, 'flow-spacing'].join(', ');
+        count(stats, 'carrier', 'column-page');
+      }
+    }
+  }
+}
+
+/** A paragraph that is all one bold text (a chapter heading written as a paragraph). */
+function isBoldHeading(el) {
+  if (!el || el.tagName !== 'P') return false;
+  const kids = [...el.childNodes].filter((n) => n.nodeType === 1 || (n.nodeValue || '').trim());
+  return kids.length === 1 && kids[0].nodeType === 1 && /^(STRONG|B)$/.test(kids[0].tagName) && !!textOf(kids[0]) && !kids[0].querySelector('a, img, picture');
 }
 
 /** Separators: runs of "{spacer-N}" / "{divider-N}" paragraphs. */
@@ -827,8 +879,14 @@ function collapseSeparators(main, doc, stats, ctx) {
         remove(); count(stats, 'theme', 'separator', run.els.length); return;
       }
       if (ctx.brand === 'lufthansa' && ctx.pageType === 'article' && divider) {
-        if (blockName(after) === 'columns-media' && before && isRunningText(before)) { remove(); count(stats, 'theme', 'separator', run.els.length); return; }
-        if (after && /^H[23]$/.test(after.tagName) && !atStart) {
+        // the rule above an info box (Columns Media) after any content but a heading (text, a
+        // picture, its caption, another block)
+        if (blockName(after) === 'columns-media' && before && !atStart && !/^H[1-6]$/.test(before.tagName)) {
+          remove(); count(stats, 'theme', 'separator', run.els.length); return;
+        }
+        // a rule before a chapter heading (an H2 / H3, or a bold paragraph standing for one:
+        // "About", "Tip"): the chapter a section of its own, the theme rules it
+        if (after && (/^H[23]$/.test(after.tagName) || isBoldHeading(after)) && !atStart) {
           const last = run.els[run.els.length - 1];
           splitAfter(section, last, doc);
           remove();
@@ -936,6 +994,7 @@ export function collapseMain(main, opts = {}) {
   collapseHeadings(main, doc, stats, marks, theme);
   collapseColumns(main, doc, stats, marks);
   collapseText(main, doc, stats, marks, theme, brand, hand);
+  collapseCells(main, stats, marks, hand);
   // a paragraph left with nothing (a column mark of its own): gone
   marks.forEach((tokens, el) => {
     if (el.isConnected && el.tagName === 'P' && isEmptyP(el)) el.remove();
