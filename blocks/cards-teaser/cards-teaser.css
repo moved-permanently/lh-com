@@ -82,8 +82,9 @@
   line-height: var(--heading-line-height);
 }
 
-/* cards titled with h2 only (overview pages): h2.headline.heading-medium */
-.cards-teaser:where(:not(:has(:is(h3, h4, h5, h6).cards-teaser-title))) :where(.cards-teaser-body > h2.cards-teaser-title) {
+/* cards titled with h2 (overview pages): h2.headline.heading-medium, also next to h3 cards with
+   their markers (overview-special-request, services-at-the-airport: 22px with them before) */
+.cards-teaser :where(.cards-teaser-body > h2.cards-teaser-title) {
   margin-bottom: var(--heading-margin-xl);
   font-size: var(--heading-font-size-xl);
 }
@@ -195,7 +196,7 @@ body.brand-lufthansa .cards-teaser:not(.overlay) .cards-teaser-body > .cards-tea
   margin-bottom: var(--heading-margin-l);
 }
 
-body.brand-lufthansa .cards-teaser:not(.overlay, .three-up, :has(:is(h3, h4, h5, h6).cards-teaser-title)) .cards-teaser-body > h2.cards-teaser-title:not([class*="heading-"]) {
+body.brand-lufthansa .cards-teaser:not(.overlay, .three-up) .cards-teaser-body > h2.cards-teaser-title:not([class*="heading-"]) {
   margin-bottom: var(--heading-margin-xl);
 }
 
