@@ -47,3 +47,8 @@
 /de/de/flughafeninformation
 /at/de/flughafeninformation
 /gb/en/airport-information
+# part 2, brief 500 (appended in release order). The hub rows of brief 500 are CSS (no document change) but for
+# additional-services: its 8 documents (part 1) need the cards-icon parser of brief 500 (option padded again), so import
+# part 1 with main's bundle from that commit on. One more document, stale on DA (www's 11-06 page has the Check-in card
+# without its picture; the draft from lh-snapshots-085 is 19.6 % at 390, the published document 37.4 / 40.4 %):
+/de/en/overview-manage
