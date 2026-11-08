@@ -2907,13 +2907,12 @@ body.brand-tap .cards-teaser > ul > li:has(> .cards-teaser-body > p:not(.cards-t
   box-shadow: 0 8px 16px rgb(0 0 0 / 10%);
 }
 
-/* two to a row: the rows 24 px apart from 768 px, as www's gap-6 (the cards' 16 px margins aside;
+/* two to a row: the rows 24 px apart, as www's gap-6 (the cards' 16 px margins aside;
    cards-teaser.css's 66 px is lufthansa.com's): promos' offers, the second row 43 px lower before
-   (brief 480, row 120) */
-@media (width >= 768px) {
-  body.brand-tap .cards-teaser:not(.three-up, .four-up, .phone-slider) > ul:has(> li > .cards-teaser-body > p:not(.cards-teaser-cta)) {
-    row-gap: 24px;
-  }
+   (brief 480, row 120); on phones too, the cards one under the other (24 px closer than www's
+   before; brief 483, row 123) */
+body.brand-tap .cards-teaser:not(.three-up, .four-up, .phone-slider) > ul:has(> li > .cards-teaser-body > p:not(.cards-teaser-cta)) {
+  row-gap: 24px;
 }
 
 body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-image {
@@ -3110,6 +3109,84 @@ body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image
   body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image) {
     flex: 0 0 247px;
     scroll-snap-align: start;
+  }
+}
+
+/* the tier cards' swiper controls (brief 483, row 124; blocks/cards/cards-tap.js): on phones the
+   cards 24 px apart as www's swiper, under them previous, a dot per card and next, centred, 24 px
+   under the row (www's mt-2 and mt-4); the buttons 40 px with TAP's green chevron, the unavailable
+   one faded (www's 20 %); the dots as TAP's carousels' (a green ring, the current one a 20 px
+   pill). From 1024 px the four cards in a row and no controls */
+@media (width < 1024px) {
+  body.brand-tap .cards:not(.three-up, .four-up) > ul:has(> li > .cards-card-image) {
+    gap: 24px;
+  }
+}
+
+body.brand-tap .cards .cards-tap-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 24px;
+}
+
+body.brand-tap .cards .cards-tap-nav :is(.cards-tap-prev, .cards-tap-next) {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--lh-yellow);
+  cursor: pointer;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14.6 6.6 9.2 12l5.4 5.4-1.4 1.4L6.4 12l6.8-6.8z'/%3E%3C/svg%3E") center / 24px no-repeat;
+}
+
+body.brand-tap .cards .cards-tap-nav .cards-tap-next {
+  transform: scaleX(-1);
+}
+
+body.brand-tap .cards .cards-tap-nav [aria-disabled="true"] {
+  opacity: 0.2;
+  cursor: default;
+}
+
+body.brand-tap .cards .cards-tap-nav .cards-tap-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+body.brand-tap .cards .cards-tap-nav .cards-tap-dot::before {
+  content: "";
+  box-sizing: border-box;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--lh-yellow);
+  border-radius: 9999px;
+}
+
+body.brand-tap .cards .cards-tap-nav .cards-tap-dot[aria-current="true"]::before {
+  width: 20px;
+  background-color: var(--lh-yellow);
+}
+
+body.brand-tap .cards .cards-tap-nav button:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+@media (width >= 1024px) {
+  body.brand-tap .cards .cards-tap-nav {
+    display: none;
   }
 }
 

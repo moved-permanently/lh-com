@@ -165,3 +165,27 @@ capture); the Miles&Go banner's title wrap on phones (en-pt, pt-br: 25 px); the 
 mobile crop; ours the desktop picture: a default-content picture has no art direction) and the hub's one-line tile
 labels (cards-icon, ema-test's).
 
+## Brief 483 (parity.md rows 121 to 124)
+
+- **The pinned Miles&Go cards (row 121):** www.flytap.com/pt-pt and /de-de measured once more at 1440 while
+  scrolling (one load each, 100 px steps through the pin): the stack held at 160 px; each next card 30 px below the
+  one before, fading in from the front card's bottom edge; the last card sliding over the stack as the pin ends; the
+  page 580 px shorter once scrolled than in the unscrolled capture above (4,041 against 4,621 px). Ours now: 30 px
+  apart, the fade a scroll timeline, the last card over the stack, the page's end 22 px from www's. So the homepages'
+  heights at 1440 in the table above (and in a new unscrolled capture: -13.6 %) compare a scrolled page of ours
+  with www's unscrolled one; scrolled, they are within 1 %.
+- **The Miles&Go banners on phones (row 122):** www's slide is a fixed 259 px area the text runs over; ours grew to
+  284 px. Now 259: the title under it at www's 597 px on en-pt and pt-br miles-and-go.
+- **The legal hubs' phone picture: not carried.** www shows the banner's mobile picture at 390; ours is the picture
+  above the title in the default content, one picture per paragraph, no art direction. Two ways, both beyond a small
+  change: the importer writes both pictures and tap.css hides one per width (the phone's then loads lazily: the
+  largest element of the first screen later on phones), or the picture becomes a one-row hero-campaign narrow banner,
+  which takes a phone picture (the rules of rows 114 and 119 for the title under it to redo). For you to choose.
+- **Two-up text cards on phones (row 123)** and **the tier cards' swiper (row 124)** fixed.
+- **Re-measured** (local preview with this code against the captures above): left over 10 %, none in TAP's code with
+  a clear cause: the destinations pages at 390 (www's phone list is another selection and order of the destinations:
+  Reykjavik, New York, Rio, Toulouse… without Vienna, Zurich, Copenhagen, Warsaw, Maputo and Prague; the widget's
+  rule for it is not in the captures), the homepages and Miles&Go pages at 390 (the stage's and banners' slide at the
+  capture: both autoplay), baggage (www's empty LUGGit space), pt-br help (www's finder still loading). en-us is
+  not comparable on the local preview (market roots are lh-edge's route).
+

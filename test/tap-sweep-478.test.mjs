@@ -72,5 +72,6 @@ test('a TAP homepage whose stage is its first section: no 25 px above it (www\'s
 
 test('two-up text cards 24 px apart from 768 px, as www\'s gap-6 (promos\' offers: the second row 43 px lower before; brief 480, row 120)', () => {
   const css = fs.readFileSync(new URL('../styles/themes/tap.css', import.meta.url), 'utf8');
-  assert.match(css, /@media \(width >= 768px\) \{\s+body\.brand-tap \.cards-teaser:not\(\.three-up, \.four-up, \.phone-slider\) > ul:has\(> li > \.cards-teaser-body > p:not\(\.cards-teaser-cta\)\) \{\s+row-gap: 24px;/);
+  // brief 483: on phones too (www's cards one under the other 24 px further apart than ours)
+  assert.match(css, /\n\/\* two to a row[^*]*\*\/\nbody\.brand-tap \.cards-teaser:not\(\.three-up, \.four-up, \.phone-slider\) > ul:has\(> li > \.cards-teaser-body > p:not\(\.cards-teaser-cta\)\) \{\s+row-gap: 24px;/);
 });
