@@ -57,7 +57,8 @@ test('theme defaults per brand and page type; every theme off (live: false) in s
   assert.equal(themeFor('brussels', 'home').headings.h2, 'heading-medium');
   assert.deepEqual(themeFor('austrian').rules, ['intro-after-h1']);
   assert.equal(themeFor('unknown-brand').headings.h1, 'heading-large');
-  [...Object.keys(THEMES), 'tap', 'swiss'].forEach((b) => ['service', 'article', 'flow', 'home', '100-years'].forEach((t) => assert.equal(themeFor(b, t).live, false, `${b} ${t}`)));
+  // every theme off but ITA's (its pass, the brief after 503: test/token-free-ita-live.test.mjs)
+  [...Object.keys(THEMES), 'tap', 'swiss'].forEach((b) => ['service', 'article', 'flow', 'home', '100-years'].forEach((t) => assert.equal(themeFor(b, t).live, b === 'ita', `${b} ${t}`)));
   assert.equal(headingChoice(lh, 2, 'large'), 'heading-large');
   assert.equal(headingChoice(lh, 2, 'compact'), 'heading-copytext-large');
   assert.equal(headingChoice(lh, 3, 'large'), 'heading-medium');
@@ -208,7 +209,6 @@ test('nothing changes on today\'s documents: markers only, the theme rules off',
   // article (text before an info box, chapters): the rules would act, but every theme is off
   const docs = [
     ['austrian', '/at/en/x', '<div><h1>Title</h1><p>Intro</p><h2>Sub</h2><p>Text</p></div>'],
-    ['ita', '/it/en/x', '<div><h2>Sub</h2><p>Text</p><ul><li>One</li></ul></div>'],
     ['brussels', '/be/en/plan-your-trip/x', '<div><h2>Sub</h2><p>Text</p></div>'],
     ['', '/de/en/articles/x', '<div><div class="article-header"><div><div>h</div></div></div><p>Text</p><div class="columns-media"><div><div>i</div></div></div></div><div><h3>Chapter</h3><p>Text</p></div>'],
     ['', '/de/en/100-years/x', '<div><h2>A</h2></div><div><h2>B</h2></div>'],

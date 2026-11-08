@@ -14,23 +14,24 @@ const read = (f) => fs.readFileSync(new URL(f, import.meta.url), 'utf8');
 const DOC = '<div><p>{spacer-60}</p><h2 id="a-heading-small">A {heading-small}</h2><p>Text {full-width}</p></div>';
 const run = (opts) => collapseHtml(DOC, { path: '/it/en/x', parse: parseHTML, ...opts });
 
-test('no brand is live yet; the switch is THEMES[brand].live', () => {
-  ['lufthansa', 'austrian', 'brussels', 'ita', 'swiss', 'tap', 'discover', 'b2b', 'cargo', 'airdolomiti'].forEach((b) => assert.equal(isThemeLive(b), false, b));
+test('no brand is live yet but ITA (its pass); the switch is THEMES[brand].live', () => {
+  ['lufthansa', 'austrian', 'brussels', 'swiss', 'tap', 'discover', 'b2b', 'cargo', 'airdolomiti'].forEach((b) => assert.equal(isThemeLive(b), false, b));
+  assert.equal(isThemeLive('ita'), true);
 });
 
 test('a brand whose theme is off: the document as it came; live or forced: collapsed', () => {
-  assert.equal(run({ brand: 'ita' }).html, DOC);
-  assert.equal(run({ brand: 'ita' }).changed, false);
-  const forced = run({ brand: 'ita', force: true });
+  assert.equal(run({ brand: 'brussels' }).html, DOC);
+  assert.equal(run({ brand: 'brussels' }).changed, false);
+  const forced = run({ brand: 'brussels', force: true });
   assert.ok(forced.changed && !/\{/.test(forced.html), forced.html);
-  THEMES.ita.live = true;
+  THEMES.brussels.live = true;
   try {
-    assert.equal(run({ brand: 'ita' }).html, forced.html, 'live: the same as the forced pass');
-    assert.equal(run({ brand: 'brussels' }).html, DOC, 'another brand stays');
+    assert.equal(run({ brand: 'brussels' }).html, forced.html, 'live: the same as the forced pass');
+    assert.equal(run({ brand: 'austrian' }).html, DOC, 'another brand stays');
   } finally {
-    delete THEMES.ita.live;
+    delete THEMES.brussels.live;
   }
-  assert.equal(isThemeLive('ita'), false);
+  assert.equal(isThemeLive('brussels'), false);
 });
 
 test('the importers\' table form and the app screens too', () => {

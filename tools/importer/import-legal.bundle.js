@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-legal.js
-  var tmp_bundle_legal_1096884_exports = {};
-  __export(tmp_bundle_legal_1096884_exports, {
-    default: () => tmp_bundle_legal_1096884_default
+  var tmp_bundle_legal_1110550_exports = {};
+  __export(tmp_bundle_legal_1110550_exports, {
+    default: () => tmp_bundle_legal_1110550_default
   });
 
   // tools/importer/parsers/video-sizes.js
@@ -1460,7 +1460,8 @@ var CustomImportScript = (() => {
     // Brussels: service pages set their H2s in heading-small
     brussels: { pageTypes: { service: { headings: { h2: "heading-small" } } } },
     // ITA: running text over the whole width
-    ita: { text: { width: "full" } }
+    // live: ITA's collapse pass (the brief after 503; merged with the harness's ITA pass)
+    ita: { text: { width: "full" }, live: true }
   };
   var mergeTheme = (a, b) => __spreadProps(__spreadValues(__spreadValues({}, a), b), {
     headings: __spreadValues(__spreadValues({}, a.headings), b.headings || {}),
@@ -4540,7 +4541,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_legal_1096884_default = {
+  var tmp_bundle_legal_1110550_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -4579,5 +4580,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_legal_1096884_exports);
+  return __toCommonJS(tmp_bundle_legal_1110550_exports);
 })();

@@ -170,7 +170,8 @@ export const THEMES = {
   // Brussels: service pages set their H2s in heading-small
   brussels: { pageTypes: { service: { headings: { h2: 'heading-small' } } } },
   // ITA: running text over the whole width
-  ita: { text: { width: 'full' } },
+  // live: ITA's collapse pass (the brief after 503; merged with the harness's ITA pass)
+  ita: { text: { width: 'full' }, live: true },
 };
 
 const mergeTheme = (a, b) => ({
