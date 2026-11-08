@@ -601,6 +601,46 @@ body.brand-cargo .hero-campaign.narrow h1 {
   }
 }
 
+/* row 38: the stage right under the header (www's LCAGCP header; not styles.css's space above a
+   page's first section) */
+body.brand-cargo main > .section.hero-campaign-container:first-of-type:has(.hero-campaign.narrow) {
+  margin-top: 0;
+}
+
+/* row 38: below 992 px (www's header is 100vh from 992 px) a video stage is the video across the
+   screen at its own 16:9 (the three videos are), the title in a white box under it: 16 px in, the
+   title 10 px lower, 24/29 navy, the link row's 16 px under it (97 px with a title, 58 without) */
+@media (width < 992px) {
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media video) {
+    display: block;
+    min-height: 0;
+    padding-bottom: 0;
+    color: #05164d;
+  }
+
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media video) > .hero-campaign-media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+  }
+
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media video) > .hero-campaign-inner {
+    padding: 26px 16px 32px;
+    background-color: #fff;
+  }
+
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media video) h1 {
+    margin: 0 0 10px;
+    color: #05164d;
+    font-weight: 500;
+  }
+
+  /* the play/pause toggle on the video, 17 px from its foot as before */
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media video) > .hero-campaign-toggle {
+    top: calc(100vw * 9 / 16 - 57px);
+    bottom: auto;
+  }
+}
+
 /* row 14 (round 3): the story pictures (hero-card-overlay (light): on Cargo only the transport
    stories' picture modules) as www's .module--story: up to 1354 px wide in the middle, as tall as
    the picture is; the text box white at 90 %, 20 px inside (www's .story-text-background), the
