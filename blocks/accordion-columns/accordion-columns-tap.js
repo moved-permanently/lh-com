@@ -178,3 +178,40 @@ export default function decorateTapFaq(block) {
   if (!isPickerPage((window.location && window.location.pathname) || '')) return;
   buildFaqPicker(block.closest('main'));
 }
+
+/**
+ * Accordion items whose panel names a fragment document (the inspiration pages' articles, brief
+ * 488, parity row 126: the importer writes an article with its card lists as a fragment of its
+ * own, the panel a paragraph of its path as code; not a link, which scripts.js would load with the
+ * page): the fragment goes into the panel in the path's place when the item opens, the open one
+ * at once, each once. A path in running text stays as it is.
+ * @param {Element} block a decorated accordion-columns block
+ * @param {{load?: (path: string) => Promise<Element|null>}} [options] the fragment loader (tests)
+ */
+export async function loadPanelFragments(block, { load } = {}) {
+  const loader = load || (async (p) => (await import('../fragment/fragment.js')).loadFragment(p));
+  const waits = [];
+  block.querySelectorAll(':scope > details.accordion-columns-item').forEach((item) => {
+    const para = [...item.querySelectorAll('.accordion-columns-panel p')].find((p) => {
+      const code = p.querySelector(':scope > code:only-child');
+      return code && p.textContent.trim() === code.textContent.trim()
+        && /^\/[a-z]{2}-[a-z]{2}\/fragments\/[\w/-]+$/.test(code.textContent.trim());
+    });
+    if (!para) return;
+    const href = para.textContent.trim();
+    let started = false;
+    const fill = async () => {
+      if (started) return;
+      started = true;
+      const main = await loader(href);
+      if (!main) return;
+      // a fragment decorated as a page gets the page's breadcrumb (scripts.js): not in a panel
+      main.querySelectorAll('.breadcrumb-wrapper').forEach((b) => b.remove());
+      para.replaceWith(...main.childNodes);
+    };
+    const isOpen = () => item.open || item.hasAttribute('open');
+    if (isOpen()) waits.push(fill());
+    else item.addEventListener('toggle', () => { if (isOpen()) fill(); });
+  });
+  await Promise.all(waits);
+}

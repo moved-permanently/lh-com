@@ -533,8 +533,15 @@ export default async function decorate(block) {
   cleanTextNodes(block);
   decorateExternalLinks(block);
   await decorateMedia(block);
+  const tapBrand = (document.querySelector('meta[name="brand"]')?.getAttribute('content') || '').trim().toLowerCase() === 'tap';
+  // brand tap: a panel that names a fragment (the inspiration pages' articles, brief 488) loads
+  // it when its item opens (./accordion-columns-tap.js)
+  if (tapBrand && block.querySelector('.accordion-columns-panel p > code:only-child')) {
+    const { loadPanelFragments } = await import('./accordion-columns-tap.js');
+    await loadPanelFragments(block);
+  }
   // brand tap: the FAQ page's two-level picker, as www.flytap.com's (./accordion-columns-tap.js)
-  if (single && (document.querySelector('meta[name="brand"]')?.getAttribute('content') || '').trim().toLowerCase() === 'tap') {
+  if (single && tapBrand) {
     const { default: decorateTapFaq } = await import('./accordion-columns-tap.js');
     decorateTapFaq(block);
   }

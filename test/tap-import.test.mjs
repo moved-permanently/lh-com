@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies, import/extensions -- tests */
+/* eslint-disable import/no-extraneous-dependencies, import/extensions, max-len -- tests */
 /* eslint-disable no-underscore-dangle -- the page JSON's __typename */
 /**
  * TAP Air Portugal's importer (tools/importer/tap-import.mjs): www.flytap.com's page JSON
@@ -112,7 +112,12 @@ describe('tap-import media', () => {
     fs.mkdirSync(path.join(tmp, path.dirname(file)), { recursive: true });
     fs.writeFileSync(path.join(tmp, file), 'p');
     const url = 'https://bysa1.byside.com/files/B414516D6E/window/29971/bg_c2call_full_2.png';
-    fs.writeFileSync(path.join(tmp, 'click-to-call.json'), JSON.stringify({ entries: [], pictures: [{ file, url, width: 533, height: 584 }, { file: '../outside.png', url: 'https://bysa1.byside.com/x.png' }] }));
+    fs.writeFileSync(path.join(tmp, 'click-to-call.json'), JSON.stringify({
+      entries: [],
+      pictures: [{
+        file, url, width: 533, height: 584,
+      }, { file: '../outside.png', url: 'https://bysa1.byside.com/x.png' }],
+    }));
     const out = fs.mkdtempSync(path.join(os.tmpdir(), 'tap-out-'));
     const media = mediaResolver(mediaIndex([tmp]), { out });
     const m = media(url);
@@ -347,7 +352,8 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
       props: {
         pageProps: {
           page: {
-            title: 'Festival', slider: extra.slider,
+            title: 'Festival',
+            slider: extra.slider,
             sections: [{
               __typename: 'ComponentHeroCardModel', title: 'Festival de cinema a bordo', heroCardDescription: { plaintext: 'Já.' }, image: { _path: '/content/dam/tap/fest-1920x450.jpg' }, imageMobile: { _path: '/content/dam/tap/fest-1280x630.jpg' },
             }, { __typename: 'ComponentHeadingModel', title: 'Festival' }],
@@ -365,7 +371,12 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
     const same = hero(); same.props.pageProps.page.sections[0].imageMobile = { _path: '/content/dam/tap/fest-1920x450.jpg' };
     assert.equal(cell(convertPage(same, { ...at, phonePictures: true }).html).querySelectorAll('img').length, 1);
     // a stage's slide alike
-    const slider = { __typename: 'ComponentSliderHomepageModel', slides: [{ __typename: 'BannerSlideModel', title: 'Islândia', image: { _path: '/content/dam/tap/fest-1920x450.jpg' }, imageMobile: { _path: '/content/dam/tap/fest-1280x630.jpg' } }] };
+    const slider = {
+      __typename: 'ComponentSliderHomepageModel',
+      slides: [{
+        __typename: 'BannerSlideModel', title: 'Islândia', image: { _path: '/content/dam/tap/fest-1920x450.jpg' }, imageMobile: { _path: '/content/dam/tap/fest-1280x630.jpg' },
+      }],
+    };
     const s = dom(convertPage(hero({ slider }), { ...at, phonePictures: true }).html).querySelector('.hero-campaign');
     assert.deepEqual([...s.querySelector(':scope > div > div').querySelectorAll('img')].map((i) => i.getAttribute('src')), [desk, phone]);
   });
@@ -375,13 +386,19 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
     const slider = {
       __typename: 'ComponentSliderHomepageModel',
       slides: [{
-        __typename: 'DestinationSlideModel', title: null, flightType: 'round-trip',
-        destination: { title: 'Fortaleza', airports: ['FOR'], lowestPrice: null, image: { _path: '/content/dam/tap/media/global/destinations/fortaleza.jpeg' } },
+        __typename: 'DestinationSlideModel',
+        title: null,
+        flightType: 'round-trip',
+        destination: {
+          title: 'Fortaleza', airports: ['FOR'], lowestPrice: null, image: { _path: '/content/dam/tap/media/global/destinations/fortaleza.jpeg' },
+        },
       }],
     };
     const store = { pl: { common: { 'book-now': 'Rezerwuj teraz', 'flight-price': 'Loty z' } } };
     const page = { props: { pageProps: { _nextI18Next: { initialI18nStore: store }, page: { title: 'TAP', slider, sections: [] } } } };
-    const at = { ...ctx('https://www.flytap.com/pl-pl'), lang: 'pl', locale: 'pl-pl', media: (k) => (/fortaleza/.test(String(k)) ? fortaleza : null) };
+    const at = {
+      ...ctx('https://www.flytap.com/pl-pl'), lang: 'pl', locale: 'pl-pl', media: (k) => (/fortaleza/.test(String(k)) ? fortaleza : null),
+    };
     const s = dom(convertPage(page, at).html).querySelector('.hero-campaign');
     assert.ok(s, 'the stage');
     assert.equal(s.querySelector('img').getAttribute('src'), fortaleza);
@@ -399,13 +416,35 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
   });
 
   it('as www renders them: a hero card\'s title an H3; rich text\'s sub- and superscript plain text', () => {
-    const hero = { props: { pageProps: { page: { title: 'Extras', sections: [{ __typename: 'ComponentHeroCardModel', title: 'Adquira com antecedência e poupe', image: { _path: '/content/dam/tap/x.jpg' }, heroCardDescription: { plaintext: 'Já.' } }, { __typename: 'ComponentHeadingModel', title: 'Extras e Upgrades' }] } } } };
+    const hero = {
+      props: {
+        pageProps: {
+          page: {
+            title: 'Extras',
+            sections: [{
+              __typename: 'ComponentHeroCardModel', title: 'Adquira com antecedência e poupe', image: { _path: '/content/dam/tap/x.jpg' }, heroCardDescription: { plaintext: 'Já.' },
+            }, { __typename: 'ComponentHeadingModel', title: 'Extras e Upgrades' }],
+          },
+        },
+      },
+    };
     const picture = ['/media-da', 'tap', 'x-1.jpg'].join('/');
     const h = dom(convertPage(hero, { ...ctx('https://www.flytap.com/pt-pt/gerir-reserva/extras'), media: () => picture }).html);
     assert.equal(h.querySelector('.hero-campaign h3').textContent, 'Adquira com antecedência e poupe', 'an H3, as www (43 of 43)');
     assert.equal(h.querySelector('h1').textContent, 'Extras e Upgrades');
     // a feature card's title an H3 too (www 330 of 331; the theme's H3 style, parity 60)
-    const feature = { props: { pageProps: { page: { title: 'Inspire-se', sections: [{ __typename: 'ComponentHeadingModel', title: 'Inspire-se' }, { __typename: 'ComponentFeatureCardModel', title: 'Reiquiavique: descubra a nova rota TAP', featureCardDescription: { plaintext: 'Voe.' }, image: { _path: '/content/dam/tap/x.jpg' } }] } } } };
+    const feature = {
+      props: {
+        pageProps: {
+          page: {
+            title: 'Inspire-se',
+            sections: [{ __typename: 'ComponentHeadingModel', title: 'Inspire-se' }, {
+              __typename: 'ComponentFeatureCardModel', title: 'Reiquiavique: descubra a nova rota TAP', featureCardDescription: { plaintext: 'Voe.' }, image: { _path: '/content/dam/tap/x.jpg' },
+            }],
+          },
+        },
+      },
+    };
     const f = dom(convertPage(feature, { ...ctx('https://www.flytap.com/pt-pt/destinos/inspire-se'), media: () => picture }).html);
     assert.equal(f.querySelector('.columns-media h3').textContent, 'Reiquiavique: descubra a nova rota TAP');
     assert.ok(!f.querySelector('.columns-media h2'));
@@ -541,11 +580,11 @@ describe('tap-import parity (tools/reports/tap/parity.md)', () => {
     assert.ok(dom(own).querySelector('.jump-links'));
   });
 
-  it('a page banner with a picture only (no title, text or button): the picture in the content, no stage', () => {
+  it('a page banner with a picture only (no title, text or button): a one-row narrow banner of its picture (brief 488: with the phone picture where there is one; test/tap-legal-banner-488), no overlay card', () => {
     const img = { __typename: 'ImageRef', _dynamicUrl: '/adobe/dynamicmedia/deliver/dm-aid--bd6d1ad2-88c0-4ed9-9cc2-91a83509e5dc/baggage_tap_air_portugal_card_hp.jpg?preferwebp=true', description: 'Mala' };
     const d = dom(convertPage(one([{ __typename: 'ComponentHeroCardModel', image: img, title: null }, { __typename: 'ComponentHeadingModel', title: 'Bagagem' }]), ctx('https://www.flytap.com/pt-pt/informacoes/bagagem')).html);
-    assert.ok(!d.querySelector('.hero-campaign, .hero-card-overlay'));
-    assert.ok(d.querySelector('main > div > p > img[src^="/media-da/tap/"]'));
+    assert.ok(!d.querySelector('.hero-card-overlay'));
+    assert.ok(d.querySelector('.hero-campaign.narrow > div:only-child img[src^="/media-da/tap/"]'));
   });
 
   it('Explore Miles&Go (InfoSection): the picture, then its groups as an accordion', () => {
@@ -788,7 +827,18 @@ describe('tap-import pages', () => {
     assert.equal(box.parentElement.children.length, 1, 'a section of its own');
     assert.ok(!box.classList.contains('static'), 'www\'s dismissable: a close button');
     // an alert www shows without its close button (dismissable false, 30 of 152): the option static
-    const fixed = { props: { pageProps: { page: { title: 'Seguros', sections: [{ __typename: 'ComponentHeadingModel', title: 'Seguros' }, { __typename: 'ComponentInfoBlockModel', title: 'Informação importante', dismissable: false, message: { plaintext: 'Leia as condições.' } }] } } } };
+    const fixed = {
+      props: {
+        pageProps: {
+          page: {
+            title: 'Seguros',
+            sections: [{ __typename: 'ComponentHeadingModel', title: 'Seguros' }, {
+              __typename: 'ComponentInfoBlockModel', title: 'Informação importante', dismissable: false, message: { plaintext: 'Leia as condições.' },
+            }],
+          },
+        },
+      },
+    };
     assert.ok(dom(convertPage(fixed, ctx('https://www.flytap.com/pt-pt/reservas/seguros')).html).querySelector('.info-alert.static'));
     // a table in an item stays a table (accordion-columns shows data tables in its panels)
     const table = d.querySelector('.accordion-columns.faq table');
@@ -836,7 +886,15 @@ describe('tap-import pages', () => {
 
   it('fares (parity 99): ema-adobe\'s fare-comparison, a Group a route group, a Cabin a tab, its fares and services, its Caption and Notes (blocks/fare-comparison/README.md)', () => {
     const page = nd('tarifas-tap');
-    page.props.pageProps._nextI18Next = { initialI18nStore: { pt: { common: { caption: 'Legenda', 'service-included': 'Serviço incluído', 'service-not-included': 'Serviço não incluído', notes: 'Notas' } } } };
+    page.props.pageProps._nextI18Next = {
+      initialI18nStore: {
+        pt: {
+          common: {
+            caption: 'Legenda', 'service-included': 'Serviço incluído', 'service-not-included': 'Serviço não incluído', notes: 'Notas',
+          },
+        },
+      },
+    };
     const { html, report } = convertPage(page, ctx('https://www.flytap.com/pt-pt/reservas/tarifas-tap'));
     const d = dom(html);
     const b = d.querySelector('.fare-comparison');
@@ -871,9 +929,15 @@ describe('tap-import pages', () => {
     const table = structuredClone(tabs.tabs[0].tabsItems[0].sections.find((s) => s.__typename === 'ComponentTableModel'));
     table.columns[0].items.push('[no]');
     table.rowTitles = [...(table.rowTitles || []), 'Bagagem prioritária'];
-    const store = { pt: { common: { caption: 'Legenda', 'service-included': 'Serviço incluído', 'service-not-included': 'Serviço não incluído', notes: 'Notas' } } };
+    const store = {
+      pt: {
+        common: {
+          caption: 'Legenda', 'service-included': 'Serviço incluído', 'service-not-included': 'Serviço não incluído', notes: 'Notas',
+        },
+      },
+    };
     const page = { props: { pageProps: { _nextI18Next: { initialI18nStore: store }, page: { title: 'T', sections: [{ __typename: 'ComponentHeadingModel', title: 'T' }, { ...table, tableComplementaryNotes: { plaintext: 'As tarifas aqui apresentadas podem não estar disponíveis em todos os voos TAP.' } }] } } } };
-    const html = convertPage(page, ctx('https://www.flytap.com/pt-pt/reservas/tarifas-tap')).html;
+    const { html } = convertPage(page, ctx('https://www.flytap.com/pt-pt/reservas/tarifas-tap'));
     assert.ok(!/\[(yes|no)\]/.test(html), 'no raw [yes] / [no]');
     assert.ok(!/50 lbs\|/.test(html), 'no raw "value|note"');
     const d = dom(html);
@@ -942,10 +1006,28 @@ describe('tap-import pages', () => {
           page: {
             title: 'Entretenimento',
             sections: [{ __typename: 'ComponentHeadingModel', title: 'Entretenimento a bordo' },
-              { __typename: 'ComponentGenericCardListModel', desktopType: 'slider', mobileType: 'grid', itemsPerRow: 3, items: [{ __typename: 'GenericCard1Model', title: 'Novidades do mês', genericCard1Description: { json: [para(t('Diversão sem limites.'))] }, image: img }] },
-              { __typename: 'ComponentGenericCardListModel', itemsPerRow: 3, items: [{ __typename: 'GenericCard1Model', title: 'Sem slider', genericCard1Description: { json: [para(t('Grelha.'))] }, image: img }] },
-              { __typename: 'ComponentFeatureCardModel', size: 'default', featureCardDescription: { json: [para(t('Mais de 130 filmes.'))] }, image: img },
-              { __typename: 'ComponentFeatureCardModel', size: 'large', title: 'Use os seus auscultadores Bluetooth', featureCardDescription: { json: [para(t('Ligue-os ao ecrã.'))] }, image: img }],
+              {
+                __typename: 'ComponentGenericCardListModel',
+                desktopType: 'slider',
+                mobileType: 'grid',
+                itemsPerRow: 3,
+                items: [{
+                  __typename: 'GenericCard1Model', title: 'Novidades do mês', genericCard1Description: { json: [para(t('Diversão sem limites.'))] }, image: img,
+                }],
+              },
+              {
+                __typename: 'ComponentGenericCardListModel',
+                itemsPerRow: 3,
+                items: [{
+                  __typename: 'GenericCard1Model', title: 'Sem slider', genericCard1Description: { json: [para(t('Grelha.'))] }, image: img,
+                }],
+              },
+              {
+                __typename: 'ComponentFeatureCardModel', size: 'default', featureCardDescription: { json: [para(t('Mais de 130 filmes.'))] }, image: img,
+              },
+              {
+                __typename: 'ComponentFeatureCardModel', size: 'large', title: 'Use os seus auscultadores Bluetooth', featureCardDescription: { json: [para(t('Ligue-os ao ecrã.'))] }, image: img,
+              }],
           },
         },
       },
@@ -960,7 +1042,18 @@ describe('tap-import pages', () => {
   it('text cards www lays two to a row (itemsPerRow 2: the Schengen steps, 46 lists on pt-pt) the option two-up (brief 394)', () => {
     const t = (value) => ({ nodeType: 'text', value });
     const card = (title) => ({ __typename: 'SimpleGenericCardModel', title, description: { json: [{ nodeType: 'paragraph', content: [t('O agente verifica os dados.')] }] } });
-    const page = { props: { pageProps: { page: { title: 'Schengen', sections: [{ __typename: 'ComponentHeadingModel', title: 'Schengen' }, { __typename: 'ComponentGenericCardListModel', itemsPerRow: 2, desktopType: 'grid', items: [card('Passo 1'), card('Passo 2')] }] } } } };
+    const page = {
+      props: {
+        pageProps: {
+          page: {
+            title: 'Schengen',
+            sections: [{ __typename: 'ComponentHeadingModel', title: 'Schengen' }, {
+              __typename: 'ComponentGenericCardListModel', itemsPerRow: 2, desktopType: 'grid', items: [card('Passo 1'), card('Passo 2')],
+            }],
+          },
+        },
+      },
+    };
     const d = dom(convertPage(page, ctx('https://www.flytap.com/pt-pt/informacoes/documentacao/vistos-schengen')).html);
     assert.equal(d.querySelector('.cards').className, 'cards two-up');
   });
@@ -1010,7 +1103,7 @@ describe('tap-import pages', () => {
         },
       },
     };
-    const html = convertPage(page, ctx('https://www.flytap.com/pt-pt/informacoes/bagagem/bagagem-mao')).html;
+    const { html } = convertPage(page, ctx('https://www.flytap.com/pt-pt/informacoes/bagagem/bagagem-mao'));
     const card = dom(html).querySelector('.cards-teaser');
     const ps = [...card.querySelectorAll('p')].map((p) => p.innerHTML);
     assert.deepEqual(ps.slice(-5), ['<strong>Peso máximo:</strong> 30 kg', 'Dimensões máximas: 155 x 42 x 25 cm', EMPTY_LINE, '<strong>(1)</strong> Mediante a reserva de um assento extra.', EMPTY_LINE], 'the empty lines where www has them');
@@ -1033,14 +1126,21 @@ describe('tap-import pages', () => {
         },
       },
     };
-    const html = convertPage(page, ctx('https://www.flytap.com/pt-pt/a-bordo/wi-fi')).html;
+    const { html } = convertPage(page, ctx('https://www.flytap.com/pt-pt/a-bordo/wi-fi'));
     assert.ok(html.includes('Envie mensagens com emojis incluídos .'), 'the card: "(1)" left out, as www');
     assert.ok(html.includes('Compre online , e poupe.'), 'the feature card alike');
     assert.ok(html.includes('(1) Renovação gratuita'), 'a rich text keeps it (www shows it there)');
   });
 
   it('a card list of one a row (itemsPerRow 1, Wi-Fi\'s data packages): the option one-up (parity 98)', () => {
-    const list = (type) => ({ __typename: 'ComponentGenericCardListModel', itemsPerRow: 1, desktopType: 'grid', items: [{ __typename: type, title: 'Light', description: { plaintext: '1 h.' }, genericCard1Description: { plaintext: '1 h.' } }] });
+    const list = (type) => ({
+      __typename: 'ComponentGenericCardListModel',
+      itemsPerRow: 1,
+      desktopType: 'grid',
+      items: [{
+        __typename: type, title: 'Light', description: { plaintext: '1 h.' }, genericCard1Description: { plaintext: '1 h.' },
+      }],
+    });
     const page = (type) => ({ props: { pageProps: { page: { title: 'Wi-Fi', sections: [{ __typename: 'ComponentHeadingModel', title: 'Wi-Fi' }, list(type)] } } } });
     assert.ok(dom(convertPage(page('GenericCard1Model'), ctx()).html).querySelector('.cards-teaser.one-up'));
     assert.ok(dom(convertPage(page('SimpleGenericCardModel'), ctx()).html).querySelector('.cards.one-up'));
@@ -1102,16 +1202,22 @@ describe('tap-import pages', () => {
     assert.equal(rows.Link.querySelector('a').getAttribute('href'), 'https://www.flytap.com/pt-pt/gerir-reserva/extras/lugares', 'the same page on www');
     assert.ok(!d.body.textContent.includes('Ver em flytap.com'));
     // a page www shows no card on (the version's noCard, or a page outside the card's pages): nothing
-    const de = convertPage(page('2022-lugares-bordo-comfortseat'), { ...at, url: 'https://www.flytap.com/de-de/verwalten-buchungen/extras/sitzplatze', locale: 'de-de', lang: 'de' }).html;
+    const de = convertPage(page('2022-lugares-bordo-comfortseat'), {
+      ...at, url: 'https://www.flytap.com/de-de/verwalten-buchungen/extras/sitzplatze', locale: 'de-de', lang: 'de',
+    }).html;
     assert.ok(!de.includes('click-to-call') && !de.includes('Auf flytap.com ansehen'), 'no card, no link');
     const other = convertPage(page('2022-lugares-bordo-comfortseat'), { ...at, url: 'https://www.flytap.com/pt-pt/gerir-reserva/extras/fast-track' }).html;
     assert.ok(!other.includes('click-to-call') && !other.includes('Ver em flytap.com'), 'a page outside the card\'s pages: nothing');
     // no captured card for the type or the version: the link to www, as before
     assert.ok(convertPage(page('2023-flight-extra'), at).html.includes('Ver em flytap.com'));
-    assert.ok(convertPage(page('2022-lugares-bordo-comfortseat'), { ...at, url: 'https://www.flytap.com/fr-fr/gerer-reserves/extras/sieges', locale: 'fr-fr', lang: 'fr' }).html.includes('Voir sur flytap.com'));
+    assert.ok(convertPage(page('2022-lugares-bordo-comfortseat'), {
+      ...at, url: 'https://www.flytap.com/fr-fr/gerer-reserves/extras/sieges', locale: 'fr-fr', lang: 'fr',
+    }).html.includes('Voir sur flytap.com'));
     // a version's own card first (pt-br's, es-es's English), else the language's
     const br = { pt: { ...card, pages: undefined, title: 'Voe na área Comfort' }, 'pt-br': { ...card, pages: undefined, title: 'Voe na área Comfort (BR)' } };
-    const brAt = { ...at, url: 'https://www.flytap.com/pt-br/gerenciar-reserva/extras/assentos', locale: 'pt-br', lang: 'pt', clickToCall: { '2022-lugares-bordo-comfortseat': br } };
+    const brAt = {
+      ...at, url: 'https://www.flytap.com/pt-br/gerenciar-reserva/extras/assentos', locale: 'pt-br', lang: 'pt', clickToCall: { '2022-lugares-bordo-comfortseat': br },
+    };
     assert.ok(convertPage(page('2022-lugares-bordo-comfortseat'), brAt).html.includes('Voe na área Comfort (BR)'));
     delete br['pt-br'];
     assert.ok(convertPage(page('2022-lugares-bordo-comfortseat'), brAt).html.includes('Voe na área Comfort<'));

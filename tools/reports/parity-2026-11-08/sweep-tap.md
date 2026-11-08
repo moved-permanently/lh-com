@@ -189,3 +189,18 @@ labels (cards-icon, ema-test's).
   capture: both autoplay), baggage (www's empty LUGGit space), pt-br help (www's finder still loading). en-us is
   not comparable on the local preview (market roots are lh-edge's route).
 
+## Brief 488
+
+- **The legal hubs' phone picture (row 125):** the second way of brief 483: the importer writes the page's first
+  picture-only hero card as a one-row narrow banner of its desktop and phone pictures. The narrow banner already
+  stands where www's picture does at both widths (local preview: en-pt baggage, en-pt and pt-pt legal hubs, the
+  picture and the title at www's places at 1440 and 390, the legal hub's pixels 10.7 to 3.7 % at 1440); no theme
+  change. reimport-tap-488-legal.txt (54).
+- **The inspiration pages' articles (row 126):** www's articles hold 162 card lists a language that swipe on phones;
+  an accordion cell holds no block. Each article is now a fragment document loaded into its panel when the item
+  opens. reimport-tap-488-inspire.txt (240, in release order).
+- **/en-pt/promos' Portugal Stopover section (-br,-ca,-pt,-us): right.** www's en-pt page (Portugal's market) has
+  no Stopover card (not in its page data; the sweep's capture of 2026-11-08 and the fetch of 2026-11-07); every English
+  root shows one: br, ca and us their own ("Going to Europe? Portugal included", their sections), the other 16 the
+  marked section. Nothing to change.
+

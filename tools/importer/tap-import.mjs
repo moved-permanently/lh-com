@@ -660,9 +660,22 @@ const HANDLERS = {
   ComponentHeroCardModel: (s, P, i) => {
     // its title an H3, as www's (43 of 43)
     const text = `${P.heading(3, s.title)}${P.rich(s.heroCardDescription)}${P.ctas(s)}`;
-    // a banner with a picture only (bagagem, info-legal): the picture in the content, as www's
-    // rounded picture above the title
-    if (!text.trim()) { const im = P.img(s.image); if (im) P.add(`<p>${im}</p>`); return; }
+    // a banner with a picture only (bagagem, info-legal): the page's first one a one-row narrow
+    // banner of both pictures, so the phone shows www's phone picture (brief 488; the narrow
+    // banner sits where www's picture does: 305 px from 1024 px, 380 on phones, the title 64 / 32
+    // px under it); a later one the picture in the content, as before
+    if (!text.trim()) {
+      const pics = i === 0 ? P.pictures(s.image, s.imageMobile) : '';
+      if (pics) {
+        P.section();
+        P.block('hero-campaign (narrow)', [[pics]]);
+        P.section();
+        return;
+      }
+      const im = P.img(s.image);
+      if (im) P.add(`<p>${im}</p>`);
+      return;
+    }
     P.section();
     P.block(i === 0 ? 'hero-campaign (narrow)' : 'hero-card-overlay', [[P.pictures(s.image, s.imageMobile)], [text]]);
     P.section();
@@ -696,7 +709,32 @@ const HANDLERS = {
     P.add(P.link(s.ctaUrl, s.ctaLabel, 'primary'));
   },
   ComponentCategoryAccordionModel: (s, P) => {
-    const item = (x) => [esc(x.question), `${richText(x.answer, P.c, 'cell')}${nested(x.sections, P)}${P.link(x.ctaUrl, x.ctaLabel)}`];
+    // a page imported with fragments (the inspiration pages, brief 488): an item's article (its
+    // sections: rich text, feature cards, the card lists www swipes on phones) a fragment document
+    // of its own, /<locale>/fragments/<page>/<article>, written once however many categories hold
+    // it; the item's panel names it, its path as code (not a link: scripts.js loads every
+    // /fragments/ link of a page at once), and accordion-columns-tap.js loads it when it opens
+    const fragBase = `/${P.c.locale}/fragments/${docPath(P.c.url).split('/').pop()}`;
+    const plain = (t) => slugOf(t).normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const taken = new Set((s.categories || []).map((cat) => plain(cat.label)));
+    P.articles = P.articles || new Map();
+    const articleDoc = (x) => {
+      const key = x._path || x.question;
+      if (P.articles.has(key)) return P.articles.get(key);
+      let slug = plain(String(x._path || '').split('/').pop() || x.question);
+      if (taken.has(slug)) slug = `${slug}-article`;
+      const doc = `${fragBase}/${slug}`;
+      P.articles.set(key, doc);
+      P.fragments.push({ doc, html: standalone(x.sections, P) });
+      return doc;
+    };
+    const item = (x) => {
+      if (P.c.fragments && (x.sections || []).length) {
+        const doc = articleDoc(x);
+        return [esc(x.question), `${richText(x.answer, P.c, 'cell')}<p><code>${esc(doc)}</code></p>${P.link(x.ctaUrl, x.ctaLabel)}`];
+      }
+      return [esc(x.question), `${richText(x.answer, P.c, 'cell')}${nested(x.sections, P)}${P.link(x.ctaUrl, x.ctaLabel)}`];
+    };
     const subs = (cat) => (cat.subCategories || []).map((sub) => `${P.heading(3, sub.label)}${blockHtml('accordion-columns (faq)', (sub.items || []).map(item))}`).join('');
     (s.categories || []).forEach((cat) => {
       P.add(P.heading(2, cat.label));
@@ -1000,6 +1038,29 @@ function render(s, P, i) {
 }
 
 /** Components nested in an accordion item, as cell content (blocks flattened). */
+/**
+ * Sections rendered as a document of their own (an inspiration article's fragment, brief 488):
+ * blocks as on a page (no cell), a section each where the components start one, no metadata.
+ */
+function standalone(secs, P) {
+  const saved = P.sections;
+  const savedCell = P.cell;
+  const savedFragments = P.c.fragments;
+  P.sections = [{ style: null, items: [] }];
+  P.cell = false;
+  P.c.fragments = false;
+  // not the page's first component (a picture-only hero card stays a picture)
+  (secs || []).forEach((x, k) => render(x, P, k + 1));
+  const out = P.sections.filter((x) => x.items.length).map((x) => {
+    const sm = x.style ? blockHtml('section-metadata', [['Style', x.style]]) : '';
+    return `<div>${x.items.map((it) => it.html).join('')}${sm}</div>`;
+  }).join('\n');
+  P.sections = saved;
+  P.cell = savedCell;
+  P.c.fragments = savedFragments;
+  return `${out}\n`;
+}
+
 function nested(secs, P) {
   if (!(secs || []).length) return '';
   const saved = P.sections;
