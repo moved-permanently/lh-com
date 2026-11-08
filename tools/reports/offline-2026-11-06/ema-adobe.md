@@ -2147,3 +2147,104 @@ nothing published.
 Documents: none new from this brief (all CSS). reimport-497-lh-com.txt stays at 47 (the harness's 049e070 did 23 of
 them; publish list work/local-import/publish-497-lh-com.txt is the harness's). The four xx additional-services
 documents come from lh-snapshots-039 / -032 / -046 / -019 with the hub bundle.
+
+## Brief 506 (2026-11-08): the column view carrier, 40 px separators, the slider dots, the market index, the held hub documents
+
+Left from 505: the generated import reports; the scratch in logs/b505, logs/b500, logs/b484, logs/b488, logs/b493 (with
+the 16 lh-bd-ema archives), logs/b497 (with s085); /tmp/b488dam and the commit-message files; nothing unpushed.
+
+Method: drafts from the captures (lh-snapshots-085 / -062, bd-snapshots) through the hub bundle; the collapse run
+read-only (`collapseHtml(..., { force: true })`, logs/b506/collapse.mjs), the collapsed draft rendered on
+lufthansa.turnsthe.page with `body.theme-live` and the theme's heading gap; against lh-parity-002 at 1440 and 390. No
+request to www; nothing published; no file of ema-test's, ema-lufthansa's or ema-cashub's changed.
+
+### 1. The column view carrier (7438076)
+
+- hub-column-views (afterTransform, after the cleanup wrote the marks and the sections exist) makes each column view a
+  section of its own: its AEM section's styles plus `column-view`; a view directly in the container also `padded`;
+  `flush` where more of its AEM section follows; separators right before a view open its section; www's column wrapper
+  is the view's extent. The marks stay (today's documents render exactly as before: same heights on all four pages
+  with marks); the collapse removes them.
+- styles.css (lufthansa.com): a `column-view` section 32 px above and below (64 between two, 32 under the last), its
+  last element without margin, its headings two thirds wide from 1025 px; `column-view padded` the section padding;
+  24 px before a view; not on grey bands, and the paddings not while a mark is in the section.
+- Collapsed, 1440 / 390 (marks today; no carrier): miles-and-more 14.6 / 11.9 % (7.2 / 13.9; 25.4 / 21.5),
+  meetings-and-events 9.6 / 13.8 (10.2 / 12.7; 25.2 / 10.1), digital-self-services 10.6 / 8.1 (8.2 / 9.1; 12.2 / 8.6),
+  flights 38.7 / 45.6 (39.1 / 46.9; 39.2 / 45.8). miles-and-more's 8.4 points at 1440 are its first H2 outside the
+  views (the collapse drops limited-width: 6.2 % with it two thirds wide).
+- ema-test: the DA library's label "Column view" needs `SECTION_STYLE_LABELS` (and `SECTION_STYLES`) in
+  scripts/style-markers.js; the exact change and its expected output in
+  tools/reports/parity-2026-11-08/column-view-handover.md, with two notes for the switch (an outer view a separator
+  opens isn't padded by the collapse; limited-width outside views). Nothing else of ema-test's has to change.
+- ema-test's decision 1 (tools/reports/token-free/decisions.md, pushed during this brief) says text in column views
+  loses its padding, with no carrier per group; it was written for the brand sites. lufthansa.com's carrier is this
+  brief's item 1 and touches only lufthansa.com (its hub transformer, its CSS); the handover names the tension: Ben's to
+  settle whether decision 1 names lufthansa.com's hub pages or the carrier goes.
+- Documents: tools/reports/parity-2026-11-08/reimport-506-column-view-lh-com.txt (12, release order: miles-and-more on 6
+  roots, meetings-and-events on 4, digital-self-services on 2); flights (2) once imported (item 5).
+
+### 2. 40 px separators (tools/reports/parity-2026-11-08/separators-40-506.md)
+
+- No lufthansa.com page-type or section-edge rule: the M band's sizes are mixed in every page type and at every place
+  the collapse puts a carrier (info 40, campaign and hub 60; section ends 60, starts 40 / 50). An M of 40 brings baggage
+  back to today (6.4 / 9.6 %) and costs additional-services 24 points at 1440 and first-class / onboard-delights 4-5.
+- So M stays 60 (Ben's rule) and costs, against an M of 40, at 1440 / 390: baggage 8.0 / 2.8 points, food-and-beverages
+  7.1 / 3.1, new-onboard-experience 26.5 / 2.2, economy-class 1.0 / 0.7; the others gain from 60. Pages with 40 px
+  separators: 30 published de/en documents (listed in the report) and 7 hub previews.
+- The collapse draws `{spacer-N from-768}` at every width, as ema-test's decision 3 keeps it: on lufthansa.com that
+  costs additional-services 32.6 points at 390 (15.1 -> 47.7 %, ten of them).
+
+### 3. miles-and-more at 390 (c174800)
+
+- www's slides there are experience fragments: each slide 30 px taller than its teaser (www's own render), so the dots
+  sit 56 px under the cards (ours 21). Plain teaser slides (flying-with-small-children, doctor-on-board-news) have them
+  20 px under, as ours. Only miles-and-more has fragment slides (1 of 312 de/en pages).
+- The carousel-cards parser writes option `fragment-slides` (brand-neutral: what www's markup is); lufthansa.com's CSS
+  puts the dots 30 px lower below 768 px. 390: 13.9 -> 12.6 % (collapsed 11.9 -> 10.7), dots 52 px under the cards;
+  1440 unchanged. Documents: miles-and-more's 6 (in reimport-506's list).
+
+### 4. Market-pages index
+
+- swiss.turnsthe.page/market-pages.json (4,644 rows, read in 10 pages of 500): br/pt advance-seat-reservation, cn/zh
+  swiss-premium-economy, gr/el, jp/ja and ru/ru medical-travel-companions all listed; b2b.turnsthe.page (125 rows):
+  gb/en programs-and-groups listed. The raw shared index (main--lh-swiss / main--lh-b2b--moved-permanently.aem.live,
+  4,600 / 120 rows) leaves those roots out by design; their search indexes hold them and lh-edge merges them
+  (MARKET_EXTRA_INDEXES, brief 497). Nothing to finish, nothing a publish has to fill.
+
+### 5. The held hub documents (tools/reports/parity-2026-11-08/held-hub-documents-506.md; c23899d)
+
+- None of the five is in the lh-snapshots archives the harness holds; all are in the Bright Data captures lh-bd-ema-004
+  (de/de) and -005 (de/en), rendered, and import complete from there with main's hub bundle.
+- speisen-und-getraenke and both travel-classes pages: the server HTML carries the Hero Banner's panes as data-dcep
+  JSON; the new hub transformer hub-dcep-render builds www's rendered panes from it (byte-identical imports against the
+  captures). The harness can import these three from its server HTML with main's hub bundle.
+- flights and fluege: the finder's configuration is in the server HTML, its texts aren't (they vary per page), the
+  feedback question comes from an API: only the capture helps (lh-bd-ema-005 / -004, once their upload links are there).
+
+### Checks
+
+- Lint in a clean worktree and the full suite before the push (lh-edge 69 files, site 622 / 628 after the rebases onto
+  ema-test's theme commits, 0 failing); the hub bundle rebuilt from the merged sources at each rebase (equal to a fresh
+  build at the pushed head); smoke on every host before (22:49) and after (23:36): the same as before everywhere,
+  Brussels and SWISS 0 of 97 differ, swiss-smoke 8 x 200, 2 x 302, 2 x 404 as before, TAP 200.
+- ema-test's new collapse (51a1eb8, 56b60fa, f418f61) gives byte-identical output on the lufthansa.com drafts measured
+  here, so the collapsed figures stand.
+- On lufthansa.turnsthe.page with the deployed code before and after the push, the published documents (the harness's
+  hub documents live since 21:20): miles-and-more 9.9 / 16.0 %, meetings-and-events 10.2 / 12.7, digital-self-services
+  8.1 / 9.1, baggage 5.4 / 8.9, food-and-beverages 9.0 / 11.5, additional-services 6.1 / 14.5, flying-with-small-children
+  10.6 / 12.9, onboard-delights 11.3 / 14.3, stopover 13.3 / 15.2: identical before and after (no document carries the
+  new styles yet; the marks win where they are).
+- swiss.turnsthe.page and b2b.turnsthe.page market-pages.json (item 4); main--lh-swiss / main--lh-b2b--moved-permanently
+  .aem.live's raw index for comparison; main--lh-com--moved-permanently.aem.page .plain.html (curl) for the column marks
+  of the 68 hub documents.
+
+| Item | Commit | What |
+| --- | --- | --- |
+| 1 | 7438076 | the column view carrier: section style column-view (hub-column-views, styles.css, hub bundle) |
+| 5 | c23899d | hub-dcep-render: Hero Banner panes from data-dcep (page-templates.json, import-hub.js, hub bundle) |
+| 3 | c174800 | carousel-cards option fragment-slides, the dots on phones |
+| docs | (this commit) | this section, parity rows 59-62, the handover, the separator and held-document reports, reimport-506 |
+
+Documents: reimport-506-column-view-lh-com.txt (12, release order). The three Hero Banner documents of item 5
+(/de/de/speisen-und-getraenke, /de/en/lufthansa-travel-classes, /de/de/lufthansa-reiseklassen) can now be imported from
+the harness's server HTML; flights and fluege wait for lh-bd-ema-004 / -005.

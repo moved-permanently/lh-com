@@ -63,6 +63,15 @@ Expected output: the library's Section Metadata `Style` choices end in `|Padded=
 AUTHORING.md's section styles row (`Parallax image`, `Narrow quote`, `Padded`) could add `Column view` (`column-view`):
 "one column view: 32 px above and below, two views 64 px apart, its headings two thirds wide".
 
+## Decision 1 of tools/reports/token-free/decisions.md
+
+ema-test's decision 1 (the brief after 506, from the brand sites' pass checks) says text in column views loses its
+view's padding, with no Padded section per group and no gap rule. Brief 506 item 1 settles lufthansa.com's carrier the
+other way: a section style per column view (`column-view`), the page-type rules reading it. Both are on main: the
+carrier is written only by lufthansa.com's hub transformer and drawn only by lufthansa.com's CSS, so the brand sites
+stay as decision 1 has them. Whether decision 1 should name lufthansa.com's hub pages as the exception it then is, or
+the carrier go, is Ben's to decide; the measurements above are what each choice costs.
+
 ## For the switch (no change needed for the carrier)
 
 1. **An outer view that a separator opens is not padded by the collapse.** `collapseColumns` pads an outside-a-section
