@@ -860,7 +860,7 @@ body.brand-austrian main > .section:not(.grey):last-child > .carousel-cards-wrap
    (fly-with-austrian's cards, the fare pages' accordions) keeps its 40 px, a lone separator after it
    still none (lufthansa.com, ITA, Brussels, SWISS and TAP as they are) */
 @media (width >= 768px) {
-  body.brand-austrian.appear main > .section.flight-search-container:has(> .flight-search-wrapper > .flight-search.standalone):has(> .flight-search-wrapper + *):not(:has(> .flight-search-wrapper + .default-content-wrapper:last-child > p.spacer:only-child)) {
+  body.brand-austrian main > .section.flight-search-container:has(> .flight-search-wrapper > .flight-search.standalone):has(> .flight-search-wrapper + *):not(:has(> .flight-search-wrapper + .default-content-wrapper:last-child > p.spacer:only-child)) {
     margin-bottom: 40px;
   }
 }

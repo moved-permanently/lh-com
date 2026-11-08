@@ -13,7 +13,7 @@ const read = (f) => fs.readFileSync(new URL(`../${f}`, import.meta.url), 'utf8')
 
 test('Austrian: a section whose blocks go on after the standalone search keeps its 40 px from 768 px', () => {
   const css = read('styles/themes/austrian.css');
-  const m = css.match(/@media \(width >= 768px\) \{ body\.brand-austrian\.appear main > \.section\.flight-search-container:has\(> \.flight-search-wrapper > \.flight-search\.standalone\):has\(> \.flight-search-wrapper \+ \*\):not\(:has\(> \.flight-search-wrapper \+ \.default-content-wrapper:last-child > p\.spacer:only-child\)\) \{ margin-bottom: 40px; \} \}/);
+  const m = css.match(/@media \(width >= 768px\) \{ body\.brand-austrian main > \.section\.flight-search-container:has\(> \.flight-search-wrapper > \.flight-search\.standalone\):has\(> \.flight-search-wrapper \+ \*\):not\(:has\(> \.flight-search-wrapper \+ \.default-content-wrapper:last-child > p\.spacer:only-child\)\) \{ margin-bottom: 40px; \} \}/);
   assert.ok(m, 'the Austrian rule');
   assert.ok(!/:has\([^()]*:has\(/.test(m[0]), 'no :has() inside :has()');
 });
