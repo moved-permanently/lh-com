@@ -1364,3 +1364,115 @@ Checked on:
 - a local server (ports 3011, 3012): the first draft run, stopped (see the slip above);
 - the ten turnsthe.page hosts with baselines, plus brussels and swiss against their recordings;
 - lh-swiss's preview (swiss-smoke) and tap.turnsthe.page.
+
+## Brief 474 (Brussels articles hub and homepages, brand homepages and footers, SWISS row 42, 100 Years)
+
+- Left from the last turn, not in git: the generated import reports under tools/importer/reports
+  (never committed) and the scratch in logs/b460, b461, b464, b467 and b470. Nothing was unpushed.
+  This turn's scratch is in logs/b474 (captures, drafts, the DA rollback copies of the five documents).
+- One code push after a pull: `4c901fc..4710b79` (d74d2e4, a7156d3, c5da53b, 145fbe3, 4710b79).
+  Lint and the full suite passed before it (lh-edge 64 files, site 531, 0 failing). The new rules and
+  the fare teaser's change are served on swiss, brussels, discover and airdolomiti.turnsthe.page and
+  on aem.page.
+- Smoke before and after: the ten hosts with a baseline match their before run, check for
+  check; brussels and swiss match their brief 472 recordings (97 checks each, 0 differ); SWISS's
+  hosts by hand (swiss-smoke as before) and tap.turnsthe.page/pt-pt answers 200.
+- Captures: brussels-parity-003 (`f78cf1fc…ecb7e`), airdolomiti-parity-001 (`a2b8d33e…7df3`), both
+  equal to their .sha256; discover-parity-001 (`b08cb37e…a2b330eb`, no .sha256: as recorded in
+  ema-lufthansa's sweep); cargo-parity-001 and ita-parity-002 from brief 425. No www page was
+  requested; www's values come from the captures' screenshots and their HTML and CSS rendered
+  locally with every other host refused.
+- An interrupted `git stash -u` before the pull removed my new tests and the untracked reports from
+  the tree for a moment; all restored from the stash, nothing lost.
+
+### 1. Brussels
+
+- **Articles hub at 1440 (P45, d74d2e4):** the insights template now maps a three-column view of videos
+  to one columns-media row; the three documents (be/en, be/fr, be/nl) changed the same way in DA,
+  uploaded and previewed. be/en: 4,687 px at 1440 against www's 4,635 (was 10,838).
+- **Articles hub's cards (P46, a7156d3):** www's card type and spacing (40 px padded, title 20/22 with
+  30 px under it, the date line 20/22, the teaser 18/24, pictures 16:9; 24/26.4 and 18/19.8 from
+  768 px). Card to card within 2 px of www's at 390 and 1440, en and fr (were 57-84 px short at 390).
+- **Kenya and France homepages (P47, a7156d3):** the +239 px was the deals: ours kept the authored
+  routes the fare service had no fare for (eleven rows; www shows the six priced ones). The fare
+  teaser now drops such routes once the service has answered live (all stay without an answer), and
+  Brussels' deals are www's boxed cards (125 px pictures, the price right). The prices are live and
+  answered only some of the agent's runs; on the run with prices, five of eleven dropped out, and
+  the cards look as www's.
+
+### 2. Homepages and footers
+
+- **Discover's footer on phones (row 32, c5da53b):** 1,274 px against www's 1,271 (was 802).
+- **Discover's homepage (row 33):** the document's {spacer-60} doubled the space under the stage;
+  out of de/en and de/de, uploaded and previewed: "Economy Class Offers" 5 / 13 px off www's at
+  1440 / 390 (was 65 / 73).
+- **Air Dolomiti's footer on phones (row 61, c5da53b):** www's light teal ">" arrow, down while open
+  (drawn in the theme; www's file is not in the capture).
+- **Air Dolomiti's homepage (row 62):** www's new layout keeps the same nine blocks and their data,
+  so a re-import gives the same document; the look of the blocks must change (for you, below).
+- **ITA's footer at 1440:** the columns already sit where www's do (x 91, 409, 730, 1052); the rest is
+  Arial drawn on macOS in the capture against Linux in ours (the theme uses Arial as www does, whose
+  LufthansaText never loads). Nothing to change.
+- **Cargo's homepage:** within 0.5-1.3 % in height; the slider and the news change by load.
+
+### 3. SWISS row 42 (145fbe3)
+
+- Measured on www's screenshots by the cards' frames: views in a section component put the first card
+  72 px under the H1 on phones (73 from 768 px), 65 / 64 px between grids; plain views 60 / 80 and
+  41 / 81; both 31 px between cards on phones, titles 15 px over the text.
+- The importer marks a plain view's grid plain-view (withPlainViews); the theme spaces each kind.
+  With the rules injected and the option set, the frames sit within 1-2 px of www's on manage, extra
+  services, special requests, travel information and travel classes at 390 and 1440.
+- 277 documents (473 grids) take the option on re-import:
+  [../swiss/reimport-474-swiss.txt](../swiss/reimport-474-swiss.txt). Until then their grids get the
+  section kind's spacing (at 1440 the first card 7 px higher than www's; on phones about as now).
+
+### 4. lufthansa.com 100 Years and take-off
+
+- **take-off:** its rows are the same views as travel information's (which match www's exactly); the
+  per-row differences are text wrapping one line longer or shorter. No layout cause.
+- **100-years/campaigns (and chronicle):** the drift is 40-70 px at each component boundary, most
+  above the decade-title pictures; www's spacing there needs its rendered HTML and CSS, which no
+  capture on this machine has: on the capture list ([capture-474.txt](capture-474.txt)).
+
+### For you
+
+- **Air Dolomiti's homepage blocks (ema-lufthansa's):** the promotions as tall cards (316 x 500 at
+  1440, carousel-cards promo); eSIM and Miles & More as picture tiles with the title and button on the
+  picture (cards-teaser); the Lufthansa Group strip as a beige text box beside its picture
+  (hero-card-overlay: www's backgroundImageLeft, the importer already reads it); the services as
+  picture tiles with the text on them (cards-teaser).
+- **Capture list:** capture-474.txt (100 Years campaigns and chronicle, rendered; Air Dolomiti's
+  arrow.svg).
+- **Public client ids in fixtures:** I blanked www's public Travel ID client id in four of my fixtures
+  (4710b79; git history keeps the old copies). Others still carry it: test/fixtures/importer-rows
+  (three online-check-in pages) and test/fixtures/lh-app/lufthansa-04601cc.ndjson.
+
+### Documents
+
+- 5 uploaded and previewed, nothing published, in release order:
+  [../brussels/preview-paths-474.txt](../brussels/preview-paths-474.txt) (3) and
+  [../discover/preview-paths-474.txt](../discover/preview-paths-474.txt) (2). DA matches the local
+  copies; rollbacks in logs/b474/da.
+- For your harness: [../swiss/reimport-474-swiss.txt](../swiss/reimport-474-swiss.txt), 277 SWISS
+  documents.
+
+| Item | Commit | What |
+| --- | --- | --- |
+| 1 | d74d2e4 | insights: a three-column view of videos as one row |
+| 1 | a7156d3 | fare teaser: unpriced routes out after a live answer; Brussels' deals and article cards |
+| 2 | c5da53b | Discover's and Air Dolomiti's footers on phones |
+| 3 | 145fbe3 | SWISS grids by www's two kinds of view |
+| - | 4710b79 | fixtures: www's public client id blanked |
+| - | (docs) | campaign, hub, homepage and insights bundles rebuilt with a904be8's accordion parser |
+
+Checked on:
+- brussels, discover, airdolomiti, swiss and ita.turnsthe.page: the captures, the draft rules injected
+  (and the option / unpriced drop by script), the served code after the push;
+- main--lh-brussels--, main--lh-discover--moved-permanently.aem.page: the five documents, rendered with
+  www's hosts refused;
+- admin.da.live: the five documents read, then uploaded and previewed;
+- the captures' HTML and CSS rendered locally (no request out): Brussels' cards and deals, Discover's
+  footer, SWISS's views, ITA's footer;
+- the ten turnsthe.page hosts with baselines, plus brussels and swiss against their recordings;
+- lh-swiss's preview (swiss-smoke) and tap.turnsthe.page.

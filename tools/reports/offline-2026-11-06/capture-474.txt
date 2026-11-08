@@ -1,0 +1,12 @@
+# brief 474: what a local capture would settle (www, for the user's capture list; nothing requested by the agent)
+#
+# 1. lufthansa.com 100 Years (campaigns 814 px, chronicle 3,119 px shorter than www's at 1440): the rendered
+#    HTML and CSS, as lufthansa-parity-001's layout (<page>-<width>.html / .shadow.html, css/, serve.py), at
+#    1440 and 390. lh-parity-002 has screenshots only; the drift sits at every component boundary (40-70 px,
+#    most above the decade-title pictures), so the spacing needs www's own column-view and section CSS.
+https://www.lufthansa.com/de/en/100-years/campaigns
+https://www.lufthansa.com/de/en/100-years/chronicle
+#
+# 2. Air Dolomiti's footer arrow (drawn in the theme for now, brief 474 row 61): the file itself, so the theme
+#    can use www's shape exactly. One file, no page.
+https://www.airdolomiti.it/_next/static/media/arrow.4e982ebd.svg

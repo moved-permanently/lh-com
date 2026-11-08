@@ -1,0 +1,3 @@
+/be/en/articles
+/be/fr/articles
+/be/nl/articles
