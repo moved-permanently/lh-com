@@ -1580,6 +1580,13 @@ body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper
   margin-top: 0;
 }
 
+/* after padded tiles (cards-icon padded: the column view's 32px below them already) none either
+   (additional-services: each band 26px long at 1440 with it) */
+/* stylelint-disable-next-line no-descending-specificity -- as above */
+body.brand-lufthansa main > .section.campaign-section > .cards-icon-wrapper:has(> .cards-icon.padded) + .default-content-wrapper:not(:has(> :not(p.spacer))) {
+  margin-top: 0;
+}
+
 /* one that opens the section: the separator's own space at the section's top, no gap above it
    (crane: 26px over "New beginnings and new designs") */
 /* stylelint-disable-next-line no-descending-specificity -- as above */

@@ -40,7 +40,10 @@ export default function parse(element, { document }) {
   const view = element.querySelector(':scope > .column-view');
   const own = element.classList.contains('column') && element.children.length === 1 && !!view
     && !!element.parentElement && element.parentElement.classList.contains('section-content')
-    && [...element.parentElement.children].every((c) => c === element || !(c.textContent || '').trim());
+    // (a separator component of its own counts as empty: campaign-sections keeps www's separators as
+    // "{spacer-N}" components among the section's, hub since brief 497)
+    && [...element.parentElement.children].every((c) => c === element || !(c.textContent || '').trim()
+      || /^\{(?:spacer|divider)-\d{1,3}(?: from-768)?\}$/.test((c.textContent || '').trim()));
   const titled = view && [...view.children].some((c) => !c.matches('.row, .carousel') && c.querySelector('h1, h2, h3, h4, h5, h6'));
   if (own && !titled && !element.closest('.container-gray, .article-details-page') && !view.classList.contains('container-gray')) variants.push('padded');
 

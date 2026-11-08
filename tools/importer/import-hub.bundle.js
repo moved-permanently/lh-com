@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-hub.js
-  var tmp_bundle_hub_1096884_exports = {};
-  __export(tmp_bundle_hub_1096884_exports, {
-    default: () => tmp_bundle_hub_1096884_default
+  var import_hub_exports = {};
+  __export(import_hub_exports, {
+    default: () => import_hub_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -1769,7 +1769,7 @@ var CustomImportScript = (() => {
     let variants = [];
     if (usp) variants = element.matches(".fourcolumn") ? ["usp", "four-up"] : ["usp"];
     const view = element.querySelector(":scope > .column-view");
-    const own = element.classList.contains("column") && element.children.length === 1 && !!view && !!element.parentElement && element.parentElement.classList.contains("section-content") && [...element.parentElement.children].every((c) => c === element || !(c.textContent || "").trim());
+    const own = element.classList.contains("column") && element.children.length === 1 && !!view && !!element.parentElement && element.parentElement.classList.contains("section-content") && [...element.parentElement.children].every((c) => c === element || !(c.textContent || "").trim() || /^\{(?:spacer|divider)-\d{1,3}(?: from-768)?\}$/.test((c.textContent || "").trim()));
     const titled = view && [...view.children].some((c) => !c.matches(".row, .carousel") && c.querySelector("h1, h2, h3, h4, h5, h6"));
     if (own && !titled && !element.closest(".container-gray, .article-details-page") && !view.classList.contains("container-gray")) variants.push("padded");
     const cells = [];
@@ -6983,7 +6983,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_hub_1096884_default = {
+  var import_hub_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -7022,5 +7022,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_hub_1096884_exports);
+  return __toCommonJS(import_hub_exports);
 })();
