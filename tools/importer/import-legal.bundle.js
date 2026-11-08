@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-legal.js
-  var tmp_bundle_legal_198379_exports = {};
-  __export(tmp_bundle_legal_198379_exports, {
-    default: () => tmp_bundle_legal_198379_default
+  var tmp_bundle_legal_858272_exports = {};
+  __export(tmp_bundle_legal_858272_exports, {
+    default: () => tmp_bundle_legal_858272_default
   });
 
   // tools/importer/parsers/media-nodes.js
@@ -2624,6 +2624,7 @@ var CustomImportScript = (() => {
   var FOLLOWING = 4;
   var TAB_PANEL = "maui-tab-control-panel-responsive";
   var TAB_COLUMNS = ".twocolumn, .threecolumn, .fourcolumn, .accordion";
+  var TAB_CONTENT = `${TAB_COLUMNS}, .sidebar, .videoViewer, .video`;
   var SOURCE_STYLES = [[".container-gray", "grey"], [".image-wrapper.full-width-bg", "full-bleed"]];
   var STYLE_SKIP = ".sticky-price-wrapper, .dcep-sticky-price";
   var REGION_STOP = '.section-content, .container-content, .author-details-page, .column-view-item, [class*="col-"], .contentpage, maui-tab-control-panel-responsive, main, body';
@@ -2872,7 +2873,7 @@ var CustomImportScript = (() => {
       });
       document.querySelectorAll("maui-tab-control-responsive").forEach((control) => {
         const panels = [...control.querySelectorAll(TAB_PANEL)].filter((p) => p.closest("maui-tab-control-responsive") === control);
-        if (!panels.length || taken(control) || !panels.some((p) => p.querySelector(TAB_COLUMNS))) return;
+        if (!panels.length || taken(control) || !panels.some((p) => p.querySelector(TAB_CONTENT))) return;
         panels.forEach((panel, i) => {
           const hr = createBreak(document);
           hr.setAttribute(TAB, (panel.getAttribute("name") || "").trim() || `Tab ${i + 1}`);
@@ -3050,7 +3051,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_legal_198379_default = {
+  var tmp_bundle_legal_858272_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -3084,5 +3085,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_legal_198379_exports);
+  return __toCommonJS(tmp_bundle_legal_858272_exports);
 })();

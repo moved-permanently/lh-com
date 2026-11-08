@@ -168,3 +168,21 @@ test('a grey band inside a marked panel (SWISS / Austrian tab markers): its sect
   assert.ok(!after.text.includes('B'), 'the next panel not in it');
   assert.ok(s.some((x) => x.text.startsWith('@@tab@@1@@Beschädigt@@')), 'the next panel opens a section at its marker');
 });
+
+// lufthansa parity row 35 (the brief after 479): panels that hold a sidebar (/de/en/passengers-using-wheelchairs "Booking
+// and reservation": a one-column view with .sidebar .airem-sidebar per panel) or a video (/de/en/lufthansa-terminal-muenchen
+// "Arrival and transit": .videoViewer, beside a text-only "Departure" panel) came one after the other (+1,539 to +2,655
+// px): such a control's panels are sections with Tab too. A control of text only stays as it was (profile-tabs' in info).
+test('a tab control whose panels hold a sidebar, or a video beside a text panel: a section per panel with Tab', () => {
+  const sidebar = (t) => `<div class="onecolumn column"><div class="column-view"><div class="row"><div class="column-view-item"><div class="sidebar event section"><div class="airem-sidebar d-md-flex"><div class="sidebar-content"><h3>${t}</h3><p>Text</p></div><div class="sidebar-aside"><div class="image"><img src="/a.jpg"></div></div></div></div></div></div></div></div>`;
+  const wheel = page(`<div class="tabs panelcontainer section"><maui-tab-control-responsive><maui-tab-control-panel-responsive name="Able to board alone">${sidebar('Booking')}</maui-tab-control-panel-responsive><maui-tab-control-panel-responsive name="Unable to board alone">${sidebar('Assistance')}</maui-tab-control-panel-responsive></maui-tab-control-responsive></div>`);
+  const s = sections(run(wheel));
+  assert.equal(s.length, 4);
+  assert.deepEqual(s.slice(1, 3).map((x) => x.meta), [['Tab: Able to board alone'], ['Tab: Unable to board alone']]);
+  const video = '<div class="videoViewer"><div class="video-viewer"><video class="video-js"></video></div></div>';
+  const terminal = page(`<div class="tabs panelcontainer"><maui-tab-control-responsive><maui-tab-control-panel-responsive name="Departure"><div class="onecolumn column"><h3>Check-in</h3><p>Text</p></div></maui-tab-control-panel-responsive><maui-tab-control-panel-responsive name="Arrival and transit"><div class="onecolumn column"><h3>Transit</h3>${video}</div></maui-tab-control-panel-responsive></maui-tab-control-responsive></div>`);
+  const t = sections(run(terminal));
+  assert.equal(t.length, 4);
+  assert.deepEqual(t.slice(1, 3).map((x) => x.meta), [['Tab: Departure'], ['Tab: Arrival and transit']]);
+  assert.match(t[3].text, /^After the tabs$/);
+});

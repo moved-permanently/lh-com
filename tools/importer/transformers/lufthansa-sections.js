@@ -52,6 +52,9 @@ const TAB_PANEL = 'maui-tab-control-panel-responsive';
 // what makes a tab control's panels sections of their own: column views (lufthansa.com's travel
 // classes) or accordions (Brussels' /be/fr/extra-services/baggage/problems-with-your-baggage, P36)
 const TAB_COLUMNS = '.twocolumn, .threecolumn, .fourcolumn, .accordion';
+// ... or a sidebar or a video (lufthansa parity row 35: /de/en/passengers-using-wheelchairs' sidebars,
+// /de/en/lufthansa-terminal-muenchen's video panel beside a text one), which profile-tabs does not take
+const TAB_CONTENT = `${TAB_COLUMNS}, .sidebar, .videoViewer, .video`;
 
 /** Source backgrounds that become a section style: [selector, style]. */
 const SOURCE_STYLES = [['.container-gray', 'grey'], ['.image-wrapper.full-width-bg', 'full-bleed']];
@@ -391,9 +394,9 @@ export default function transform(hookName, element, payload) {
       if (next) next.before(createBreak(document));
     });
     // tabs whose panels hold column views (www's maui-tab-control-responsive, e.g. a panel per
-    // travel class on /advance-seat-reservation): a section per panel, Tab its name, and a break
-    // after the control; scripts/section-tabs.js makes the tab list. Not a control a template
-    // block takes (profile-tabs) nor one without column views.
+    // travel class on /advance-seat-reservation), accordions, a sidebar or a video: a section per
+    // panel, Tab its name, and a break after the control; scripts/section-tabs.js makes the tab
+    // list. Not a control a template block takes (profile-tabs) nor one of text only.
     const blockSelectors = (template.blocks || []).flatMap((b) => b.instances || []);
     const taken = (el) => blockSelectors.some((sel) => {
       try {
@@ -404,7 +407,7 @@ export default function transform(hookName, element, payload) {
     });
     document.querySelectorAll('maui-tab-control-responsive').forEach((control) => {
       const panels = [...control.querySelectorAll(TAB_PANEL)].filter((p) => p.closest('maui-tab-control-responsive') === control);
-      if (!panels.length || taken(control) || !panels.some((p) => p.querySelector(TAB_COLUMNS))) return;
+      if (!panels.length || taken(control) || !panels.some((p) => p.querySelector(TAB_CONTENT))) return;
       panels.forEach((panel, i) => {
         const hr = createBreak(document);
         hr.setAttribute(TAB, (panel.getAttribute('name') || '').trim() || `Tab ${i + 1}`);

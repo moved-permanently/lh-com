@@ -258,6 +258,10 @@ function findBlocksOnPage(document, template) {
 }
 
 export default {
+  // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
+  onLoad: ({ document }) => {
+    executeTransformers('onLoad', document.body, { document });
+  },
   transform: (payload) => {
     const { document, url, params } = payload;
     const main = document.body;

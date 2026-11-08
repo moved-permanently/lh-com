@@ -36,9 +36,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-flight-status.js
-  var tmp_bundle_austrian_flight_status_716511_exports = {};
-  __export(tmp_bundle_austrian_flight_status_716511_exports, {
-    default: () => tmp_bundle_austrian_flight_status_716511_default
+  var tmp_bundle_austrian_flight_status_858272_exports = {};
+  __export(tmp_bundle_austrian_flight_status_858272_exports, {
+    default: () => tmp_bundle_austrian_flight_status_858272_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -3387,14 +3387,21 @@ var CustomImportScript = (() => {
     const aloneInColumn = !!columnItem && [...columnItem.children].filter((c) => c !== element && !c.contains(element) && !c.matches(".separator") && (clean2(c.textContent) || c.querySelector("img, video, iframe"))).length === 0;
     if (aloneInColumn && columnCount > 1) options.push("column");
     else if (columnItem) options.push("spaced");
-    const blockName = options.length ? `accordion-columns (${options.join(", ")})` : "accordion-columns";
     const cells = [];
+    const expanded = [];
     items.forEach((item) => {
       const title = clean2(item.getAttribute("headline")) || visibleText(item.querySelector('[slot="headline"], .accordion-headline, summary, h2, h3'));
       const content = convertPanel(item);
       if (!title && !content.length) return;
       cells.push([title, content.length ? content : ""]);
+      if (item.hasAttribute("expanded")) expanded.push(cells.length);
     });
+    if (expanded.length && expanded.length <= 9 && expanded.every((k, i) => k === i + 1)) {
+      options.push(expanded.length === 1 ? "open-first" : `open-${expanded.length}`);
+    } else {
+      expanded.forEach((k) => options.push(`open-item-${k}`));
+    }
+    const blockName = options.length ? `accordion-columns (${options.join(", ")})` : "accordion-columns";
     const block = WebImporter.Blocks.createBlock(document, { name: blockName, cells });
     element.replaceWith(block);
   }
@@ -4026,7 +4033,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/columns-media.js
-  function parse22(element, { document }) {
+  function parse22(element, { document, url, params }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -4484,7 +4491,10 @@ var CustomImportScript = (() => {
       const isImage = (n) => n.nodeType === 1 && !clean2(n.textContent) && (n.matches("img, picture") || !!n.querySelector("img, picture")) && !n.querySelector("video, iframe");
       const loneImage = items.length > 1 && filled.length === 1 && filled[0].every(isImage);
       const halfAlone = element.matches(".twocolumn") && items.length === 2 && filled.length === 1;
-      const row = (hasEmbed || nestedView || loneImage || halfAlone) && filled.length ? collected.map((c) => c.length ? c : "") : filled;
+      const pageUrl = params && params.originalURL || url || "";
+      const lufthansa = /^https?:\/\/([^/]+\.)?lufthansa\.com\//.test(pageUrl);
+      const partial = lufthansa && element.matches(".threecolumn, .fourcolumn") && filled.length > 0 && filled.length < items.length;
+      const row = (hasEmbed || nestedView || loneImage || halfAlone || partial) && filled.length ? collected.map((c) => c.length ? c : "") : filled;
       if (row.length) cells.push(row);
       const sliderView = items.some((it) => [...it.querySelectorAll(".column-view > .carousel")].some((c) => c.querySelectorAll(".hidden-md-down .image img").length > 1));
       if (sliderView) variants.push("slider");
@@ -5145,6 +5155,41 @@ var CustomImportScript = (() => {
     const next = run[run.length - 1].nextElementSibling;
     return run.length === 1 && separatorInline(run[0]) === null && !separatorInfo(run[0]).keep && !!prev && !!next && prev.matches(FLOW_COLUMN) && next.matches(FLOW_COLUMN) ? next : null;
   }
+  function lhBetweenColumnViews(run) {
+    if (run.length !== 1) return null;
+    const inline = separatorInline(run[0]);
+    if (inline === null || inline < 10 || separatorInfo(run[0]).keep) return null;
+    const prev = run[0].previousElementSibling;
+    const next = run[0].nextElementSibling;
+    return !!prev && !!next && prev.matches(FLOW_COLUMN) && next.matches(FLOW_COLUMN) ? next : null;
+  }
+  var EMPTY_FIRST = "data-lh-empty-first";
+  function isEmptyParagraph(p) {
+    return !!p && p.tagName === "P" && !p.textContent.replace(/\u00A0/g, " ").trim() && !p.querySelector("img, br");
+  }
+  function markEmptyFirstParagraphs(document) {
+    document.querySelectorAll(`${CELL_ITEM} > .text`).forEach((comp) => {
+      const rich = comp.querySelector(":scope > .richtext");
+      if (rich && isEmptyParagraph(rich.firstElementChild)) comp.setAttribute(EMPTY_FIRST, "");
+    });
+  }
+  function markNoteSpacers(document) {
+    document.querySelectorAll(`${CELL_ITEM} > .text`).forEach((comp) => {
+      const prev = comp.previousElementSibling;
+      if (!prev || !prev.matches(CELL_TEXT)) return;
+      const rich = comp.querySelector(":scope > .richtext");
+      const first = rich && rich.firstElementChild;
+      const empty = isEmptyParagraph(first);
+      if (!empty && !comp.hasAttribute(EMPTY_FIRST)) return;
+      comp.removeAttribute(EMPTY_FIRST);
+      if (!rich || ![...rich.children].some((c) => !isEmptyParagraph(c) && c.textContent.trim())) return;
+      if (empty) first.remove();
+      const div = document.createElement("div");
+      div.className = CELL_SPACER;
+      div.textContent = "{spacer-24}";
+      comp.before(div);
+    });
+  }
   function endsTextCell(run) {
     const first = run[0];
     const item = first.parentElement;
@@ -5165,6 +5210,7 @@ var CustomImportScript = (() => {
     const template = (payload && payload.template || {}).name;
     const fillGaps = !SEPARATOR_AS_IS_TEMPLATES.includes(template);
     const cellSpacers = isLufthansaPage(payload);
+    if (cellSpacers) markNoteSpacers(document);
     const brussels = isBrusselsPage(payload);
     const runs = [];
     document.querySelectorAll(".separator").forEach((sep) => {
@@ -5195,7 +5241,7 @@ var CustomImportScript = (() => {
         run.slice(1).forEach((sep) => sep.remove());
         return;
       }
-      const separated = brussels && betweenColumnViews(run);
+      const separated = brussels && betweenColumnViews(run) || cellSpacers && lhBetweenColumnViews(run);
       if (separated) separated.setAttribute(SEPARATED, "true");
       let markers = null;
       if (infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run)) {
@@ -6141,6 +6187,10 @@ var CustomImportScript = (() => {
   }
   function transform(hookName, element, payload) {
     const document = payload && payload.document || element.ownerDocument || element;
+    if (hookName === "onLoad") {
+      markEmptyFirstParagraphs(document);
+      return;
+    }
     if (hookName === "beforeTransform") {
       decodeEntityText(document);
       const titleEl = document.querySelector("title");
@@ -6205,6 +6255,7 @@ var CustomImportScript = (() => {
   var FOLLOWING = 4;
   var TAB_PANEL = "maui-tab-control-panel-responsive";
   var TAB_COLUMNS = ".twocolumn, .threecolumn, .fourcolumn, .accordion";
+  var TAB_CONTENT = `${TAB_COLUMNS}, .sidebar, .videoViewer, .video`;
   var SOURCE_STYLES = [[".container-gray", "grey"], [".image-wrapper.full-width-bg", "full-bleed"]];
   var STYLE_SKIP = ".sticky-price-wrapper, .dcep-sticky-price";
   var REGION_STOP = '.section-content, .container-content, .author-details-page, .column-view-item, [class*="col-"], .contentpage, maui-tab-control-panel-responsive, main, body';
@@ -6453,7 +6504,7 @@ var CustomImportScript = (() => {
       });
       document.querySelectorAll("maui-tab-control-responsive").forEach((control) => {
         const panels = [...control.querySelectorAll(TAB_PANEL)].filter((p) => p.closest("maui-tab-control-responsive") === control);
-        if (!panels.length || taken(control) || !panels.some((p) => p.querySelector(TAB_COLUMNS))) return;
+        if (!panels.length || taken(control) || !panels.some((p) => p.querySelector(TAB_CONTENT))) return;
         panels.forEach((panel, i) => {
           const hr = createBreak(document);
           hr.setAttribute(TAB, (panel.getAttribute("name") || "").trim() || `Tab ${i + 1}`);
@@ -6649,14 +6700,17 @@ var CustomImportScript = (() => {
         "name": "columns-media",
         "instances": [
           ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))",
+          ".sidebar:has(> .airem-sidebar > .sidebar-aside img):has(> .airem-sidebar > .sidebar-content .twocolumn):not(:has(.threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table, .sidebar-aside .twocolumn))",
           ':is(.section-content, .container-content, .sidebar-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe:not(.video-player > iframe), maui-navigation-link[variant="anchor-down"]))',
           ':is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
           ":is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn) .image img):not(:has(.column-view-item .column-view-item :is(.text, .headline, .link, .teaser))):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe))",
           ':is(.section-content, .container-content, maui-tab-control-panel-responsive > div) > .onecolumn > .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
+          ':is(.section-content, .container-content, maui-tab-control-panel-responsive > div) > .onecolumn > .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > .image img):has(maui-navigation-link[variant="anchor-down"]):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe))',
           ".videoViewer, .image:has(video)",
           ":is(.section-content, .container-content) > .twocolumn:has(> .column-view > .carousel > .hidden-md-down > .row > .column-view-item > .headline):has(> .column-view > .carousel > .hidden-md-down > .row > .column-view-item > .image img):not(:has(.teaser, .table, .accordion, .tabs, .sidebar, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, form, iframe))",
           ':is(.section-content, .container-content) > .twocolumn:has(> .column-view > .row > .column-view-item > .onecolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, .onecolumn .onecolumn, .onecolumn .image, maui-navigation-link[variant="anchor-down"]))',
-          "maui-tab-control-panel-responsive :is(.twocolumn, .threecolumn):has(> .column-view > .row > .column-view-item > .image img):not(:has(.teaser, .table, .accordion, .tabs, form, iframe, .column-view-item .column-view-item))"
+          "maui-tab-control-panel-responsive :is(.twocolumn, .threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > .image img):not(:has(.teaser, .table, .accordion, .tabs, form, iframe, .column-view-item .column-view-item))",
+          ":is(.section-content, .container-content) > .onecolumn > .column-view > .row > .column-view-item > .onecolumn > .column-view > .row > .column-view-item > :is(.threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > .image img):not(:has(.headline, .text, .teaser, .table, .accordion, .tabs, .link, form, iframe, .column-view-item .column-view-item))"
         ]
       },
       {
@@ -6818,7 +6872,11 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_flight_status_716511_default = {
+  var tmp_bundle_austrian_flight_status_858272_default = {
+    // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
+    onLoad: ({ document }) => {
+      executeTransformers("onLoad", document.body, { document });
+    },
     transform: (payload) => {
       const { document, url, params } = payload;
       const main = document.body;
@@ -6848,5 +6906,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_flight_status_716511_exports);
+  return __toCommonJS(tmp_bundle_austrian_flight_status_858272_exports);
 })();
