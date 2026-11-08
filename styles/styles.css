@@ -1607,6 +1607,22 @@ body.brand-lufthansa main > .section.grey:has(+ .section.campaign-section.padded
   margin-bottom: 32px;
 }
 
+/* Carousel Cards right after running text in a campaign-section (stopover's four steps), from
+   768px: www's column view of its own, padded 3.2rem above and, where it ends the section, below
+   (ours 31 / 33px short at 1440); on phones, and on insights-flow pages (tags/munich: the cards in
+   the text's own column view), it measured worse */
+@media (width >= 768px) {
+  /* stylelint-disable-next-line no-descending-specificity -- a card grid after text, not a column view's end */
+  body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper:has(> p:last-child:not(.spacer)) + .carousel-cards-wrapper > .carousel-cards {
+    padding-top: 32px;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity -- as above */
+  body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper:has(> p:last-child:not(.spacer)) + .carousel-cards-wrapper:last-child > .carousel-cards {
+    padding-bottom: 32px;
+  }
+}
+
 /* jump links, then a separator: live's link list ends at its last link, the separator's 1px and
    margin follow it (baggage: 24px more before "Types of baggage" with our wrapper gap) */
 /* stylelint-disable-next-line no-descending-specificity -- a campaign-section's wrapper, not a modal link's */
