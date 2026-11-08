@@ -28,6 +28,13 @@
   }
 }
 
+/* lufthansa.com's separated rows (the importer: a 30 px separator between the merged column views,
+   /de/en/advance-seat-reservation): the separator's 31 px and the note's trailing empty paragraph on
+   top of the 66 px row gap, 112 px from a row's note to the next row on www */
+body.brand-lufthansa .columns-media.separated {
+  gap: 113px;
+}
+
 .columns-media .columns-media-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr);

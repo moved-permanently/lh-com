@@ -866,6 +866,14 @@ body.flow-spacing main .default-content-wrapper > * + h2 {
   margin-top: 0;
 }
 
+/* lufthansa.com: a heading right after a divider (www's .separator line between legal sections, its
+   margin-bottom the space; the next headline has no margin above): none of its own here either
+   (/de/en/terms-of-use 40 px more a section without it; the brief after 476). Not on Insights
+   articles, whose headings have their own spacing */
+body.brand-lufthansa main:not(:has(.article-header)) .default-content-wrapper > p.spacer.divider + :is(h2, h3) {
+  margin-top: 0;
+}
+
 /* an icon in a default-content heading (www's .link-list.nav-link-list [class*=heading-]
    .image-wrapper img: 2.6rem square, 1.2rem before the text, .2rem up; the carry-on baggage
    pages' "1 personal item"; brief 404): an SVG without its own width would fill the column */

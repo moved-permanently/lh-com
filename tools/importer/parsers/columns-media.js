@@ -53,7 +53,7 @@ import { embedNodes } from './media-nodes.js';
  * this instance has no own column title, its rows are appended to the previous Columns Media
  * table of the same variant, provided nothing but empty wrappers sits between the two.
  */
-export default function parse(element, { document }) {
+export default function parse(element, { document, url, params }) {
   const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
   const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
   const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -578,7 +578,13 @@ export default function parse(element, { document }) {
     // a two-column view of exactly two items, one empty, keeps the empty column (live: the other
     // item half the width from 768px; Austrian's /at/en/discover/inspiration teaser)
     const halfAlone = element.matches('.twocolumn') && items.length === 2 && filled.length === 1;
-    const row = (hasEmbed || nestedView || loneImage || halfAlone) && filled.length ? collected.map((c) => (c.length ? c : ''))
+    // lufthansa.com: a three- or four-column view with empty items keeps them (live: each item its
+    // column, col-lg; /de/en/book-and-manage/flights/wetlease-hub's one partner card a third of the
+    // row, the logo across it without them; the brief after 476)
+    const pageUrl = (params && params.originalURL) || url || '';
+    const lufthansa = /^https?:\/\/([^/]+\.)?lufthansa\.com\//.test(pageUrl);
+    const partial = lufthansa && element.matches('.threecolumn, .fourcolumn') && filled.length > 0 && filled.length < items.length;
+    const row = (hasEmbed || nestedView || loneImage || halfAlone || partial) && filled.length ? collected.map((c) => (c.length ? c : ''))
       : filled;
     if (row.length) cells.push(row);
     // an image column view with carousel behaviour in a column (app teaser: photo + QR code):

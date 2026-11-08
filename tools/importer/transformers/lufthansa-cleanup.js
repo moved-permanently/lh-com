@@ -643,6 +643,59 @@ function betweenColumnViews(run) {
     && !!prev && !!next && prev.matches(FLOW_COLUMN) && next.matches(FLOW_COLUMN) ? next : null;
 }
 
+// lufthansa.com (the brief after 476: /de/en/advance-seat-reservation): a separator with a space of its
+// own under 50 px (30 px there) between two column views the parser merges adds its space to every row
+// on www, as Brussels' default one: the next view is marked (option separated, columns-media.css)
+function lhBetweenColumnViews(run) {
+  if (run.length !== 1) return null;
+  const inline = separatorInline(run[0]);
+  if (inline === null || inline < 10 || separatorInfo(run[0]).keep) return null;
+  const prev = run[0].previousElementSibling;
+  const next = run[0].nextElementSibling;
+  return !!prev && !!next && prev.matches(FLOW_COLUMN) && next.matches(FLOW_COLUMN) ? next : null;
+}
+
+// lufthansa.com: a text component of a column item that opens with an empty paragraph after another
+// component (advance-seat-reservation's notes: "<p></p><p class="copytext-small">…</p><p></p>" under
+// the button) keeps that paragraph's 2.4rem on www (56 px from the button to the note, 26 without
+// it): a "{spacer-24}" cell spacer before it (columns-media.css: N + 1 px)
+const EMPTY_FIRST = 'data-lh-empty-first';
+
+/** The paragraph is empty (no text, no picture, no line break). */
+function isEmptyParagraph(p) {
+  return !!p && p.tagName === 'P' && !p.textContent.replace(/\u00A0/g, ' ').trim() && !p.querySelector('img, br');
+}
+
+/**
+ * onLoad (the import script's, before helix-importer's preprocessing drops empty paragraphs): a text
+ * component of a column item whose rich text opens with an empty paragraph is marked (EMPTY_FIRST), for
+ * markNoteSpacers in beforeTransform.
+ */
+function markEmptyFirstParagraphs(document) {
+  document.querySelectorAll(`${CELL_ITEM} > .text`).forEach((comp) => {
+    const rich = comp.querySelector(':scope > .richtext');
+    if (rich && isEmptyParagraph(rich.firstElementChild)) comp.setAttribute(EMPTY_FIRST, '');
+  });
+}
+
+function markNoteSpacers(document) {
+  document.querySelectorAll(`${CELL_ITEM} > .text`).forEach((comp) => {
+    const prev = comp.previousElementSibling;
+    if (!prev || !prev.matches(CELL_TEXT)) return;
+    const rich = comp.querySelector(':scope > .richtext');
+    const first = rich && rich.firstElementChild;
+    const empty = isEmptyParagraph(first);
+    if (!empty && !comp.hasAttribute(EMPTY_FIRST)) return;
+    comp.removeAttribute(EMPTY_FIRST);
+    if (!rich || ![...rich.children].some((c) => !isEmptyParagraph(c) && c.textContent.trim())) return;
+    if (empty) first.remove();
+    const div = document.createElement('div');
+    div.className = CELL_SPACER;
+    div.textContent = '{spacer-24}';
+    comp.before(div);
+  });
+}
+
 function endsTextCell(run) {
   const first = run[0];
   const item = first.parentElement;
@@ -665,6 +718,7 @@ function markSeparators(document, keepInFlow, payload) {
   const template = ((payload && payload.template) || {}).name;
   const fillGaps = !SEPARATOR_AS_IS_TEMPLATES.includes(template);
   const cellSpacers = isLufthansaPage(payload);
+  if (cellSpacers) markNoteSpacers(document);
   const brussels = isBrusselsPage(payload);
   // runs of adjacent separators are kept or dropped together (40px + line + 30px)
   const runs = [];
@@ -699,7 +753,7 @@ function markSeparators(document, keepInFlow, payload) {
       run.slice(1).forEach((sep) => sep.remove());
       return;
     }
-    const separated = brussels && betweenColumnViews(run);
+    const separated = (brussels && betweenColumnViews(run)) || (cellSpacers && lhBetweenColumnViews(run));
     if (separated) separated.setAttribute(SEPARATED, 'true');
     let markers = null;
     if (infos.some((i) => i.keep) || afterGrey(run[0]) || (keepInFlow && inFlow(run))) {
@@ -1957,6 +2011,11 @@ function removeOverlays(document) {
 
 export default function transform(hookName, element, payload) {
   const document = (payload && payload.document) || element.ownerDocument || element;
+
+  if (hookName === 'onLoad') {
+    markEmptyFirstParagraphs(document);
+    return;
+  }
 
   if (hookName === 'beforeTransform') {
     // www's twice-escaped text (Insights articles), once decoded, before anything reads it
