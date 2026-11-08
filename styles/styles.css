@@ -1639,6 +1639,15 @@ body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper
   margin-bottom: 40px;
 }
 
+/* below 768px a page of spacious cards that opens with its title and a picture (take-off at
+   390): www's image component keeps its 4rem under the picture (ours 24px, every card picture
+   after it 16px off); at 1440 as before */
+@media (width < 768px) {
+  body.brand-lufthansa main:has(.cards-teaser.spacious) .default-content-wrapper > h1 + p:is(:has(> picture), :has(> a > picture)):not(:last-child) {
+    margin-bottom: 40px;
+  }
+}
+
 /* a separator as live's: maui-divider's 1px box, then the .hr's margin, which collapses with the
    next component's (a heading's) or the next wrapper's (crane: text, separator, carousel 50px,
    24 + 1 + 25; as a height the next wrapper's 24px came on top) */
