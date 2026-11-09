@@ -209,7 +209,7 @@ const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort();
 const maps = Object.fromEntries(files.map((f) => [f.replace(/\.json$/, ''), JSON.parse(fs.readFileSync(new URL(f, dir), 'utf8'))]));
 
 // the airlines in scope; a file is added with its piece of work, so the list grows with the commits
-const IN_SCOPE = ['lh-com', 'lh-austrian', 'lh-swiss', 'lh-brussels', 'lh-discover'];
+const IN_SCOPE = ['lh-com', 'lh-austrian', 'lh-swiss', 'lh-brussels', 'lh-discover', 'lh-cargo', 'lh-b2b'];
 
 test('the committed maps exist for the airlines done so far and for no parked site', () => {
   IN_SCOPE.forEach((s) => assert.ok(maps[s], `tools/slugs/${s}.json`));
@@ -250,4 +250,18 @@ test('Brussels and Discover: zero measured, a guard-ready file with no group, no
     assert.equal(api.wwwPathOf('/de/de/anything'), '/de/de/anything');
     assert.deepEqual(api.entries({ all: true }), []);
   });
+});
+
+test('Cargo and Group for Business: no group, no flag until a pairing is measured; the measurement is bounded by what was read', () => {
+  const b2b = maps['lh-b2b'];
+  assert.equal(b2b.listed, false);
+  assert.match(b2b.pairing, /^pairing unmeasured, nothing moves: 0 of \d+ captured pages carry an hreflang link/);
+  assert.equal(b2b.source.pagesWithHreflang, 0);
+  const cargo = maps['lh-cargo'];
+  assert.equal(cargo.listed, false);
+  assert.match(cargo.pairing, /^partly measured, nothing moves/);
+  assert.equal(cargo.sourceRoot, 'en');
+  assert.ok(cargo.source.pagesRead > 0 && cargo.measured.unlisted.setsWithADifferentSlug === cargo.candidates.length);
+  cargo.candidates.forEach((c) => assert.ok(c.en.startsWith('/en/') && c.de.startsWith('/de/') && c.en.slice(3) !== c.de.slice(3)));
+  [b2b, cargo].forEach((m) => assert.deepEqual([m.groups, m.exceptions, m.active], [[], [], {}]));
 });
