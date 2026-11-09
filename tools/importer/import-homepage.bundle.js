@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var tmp_bundle_homepage_1711840_exports = {};
-  __export(tmp_bundle_homepage_1711840_exports, {
-    default: () => tmp_bundle_homepage_1711840_default
+  var tmp_bundle_homepage_1720268_exports = {};
+  __export(tmp_bundle_homepage_1720268_exports, {
+    default: () => tmp_bundle_homepage_1720268_default
   });
 
   // tools/importer/parsers/flash-teaser.js
@@ -4416,6 +4416,13 @@ var CustomImportScript = (() => {
     marks.forEach((tokens, el) => {
       if (!tokens.includes("caption") || el.tagName !== "P") return;
       const onlyLink = el.querySelectorAll("a").length === 1 && textOf(el.querySelector("a")) === textOf(el);
+      const prev = el.previousElementSibling;
+      if (prev && prev.tagName === "P" && !textOf(prev) && prev.querySelectorAll("picture, img").length - prev.querySelectorAll("picture img").length >= 2) {
+        const last = el.lastChild;
+        if (last && last.nodeType === 3) last.nodeValue = last.nodeValue.replace(/\s+$/, "");
+        count(stats, "theme", "caption");
+        return;
+      }
       const kids = [...el.childNodes].filter((n) => n.nodeType === 1 || n.nodeValue.trim());
       if (!(kids.length === 1 && kids[0].nodeType === 1 && /^(EM|I)$/.test(kids[0].tagName))) {
         const em = doc.createElement("em");
@@ -5225,7 +5232,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_homepage_1711840_default = {
+  var tmp_bundle_homepage_1720268_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5265,5 +5272,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_homepage_1711840_exports);
+  return __toCommonJS(tmp_bundle_homepage_1720268_exports);
 })();

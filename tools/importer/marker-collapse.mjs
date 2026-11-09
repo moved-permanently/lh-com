@@ -578,6 +578,15 @@ function collapseCaptions(main, doc, stats, marks, hand) {
     if (!tokens.includes('caption') || el.tagName !== 'P') return;
     // a link alone in italics stays a button (step 1): a person decides
     const onlyLink = el.querySelectorAll('a').length === 1 && textOf(el.querySelector('a')) === textOf(el);
+    // under a paragraph of two or more photos (no figure caption for one of them): a paragraph in the theme's
+    // default text, as a form note's (the brief after 532: Brussels' travel articles)
+    const prev = el.previousElementSibling;
+    if (prev && prev.tagName === 'P' && !textOf(prev) && prev.querySelectorAll('picture, img').length - prev.querySelectorAll('picture img').length >= 2) {
+      const last = el.lastChild;
+      if (last && last.nodeType === 3) last.nodeValue = last.nodeValue.replace(/\s+$/, '');
+      count(stats, 'theme', 'caption');
+      return;
+    }
     const kids = [...el.childNodes].filter((n) => n.nodeType === 1 || n.nodeValue.trim());
     if (!(kids.length === 1 && kids[0].nodeType === 1 && /^(EM|I)$/.test(kids[0].tagName))) {
       const em = doc.createElement('em');
