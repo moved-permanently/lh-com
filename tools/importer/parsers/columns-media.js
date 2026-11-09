@@ -22,11 +22,13 @@ import { embedNodes, videoSizeToken } from './media-nodes.js';
  * (copytext-medium); its .teaser-link-text is dropped.
  *
  * Column title (".column-view > div:not(.row) > h2") is default content before the table.
- * Insights articles (.article-details-page): an image's caption (figcaption > maui-caption) follows
- * it as "<p>… {caption}</p>"; a column item with several image components (live: stacked in
- * their column) gives option stacked (picture-perfect-austin galleries; outside articles too,
- * see cell-slider below). Other templates keep dropping captions; images of a nested column view
- * stay side by side (photo + QR code, 100-years, fleet cabins).
+ * An image's caption (figcaption > maui-caption) follows it as "<p>… {caption}</p>" in its cell, in
+ * every template (insights articles first; Austrian's cabin-pets carrier picture, the brief after 534
+ * item 1), lufthansa.com's own pages outside insights articles excepted for now (their only such
+ * captions are the 100-years campaign's, their owner's call); an empty caption is dropped. On insights articles (.article-details-page) a column item
+ * with several image components (live: stacked in their column) gives option stacked
+ * (picture-perfect-austin galleries; outside articles too, see cell-slider below); images of a
+ * nested column view stay side by side (photo + QR code, 100-years, fleet cabins).
  *
  * Option cell-slider: a column view whose own items have carousel behaviour
  * (.column-view > .carousel) and are media | text: below 1025px the cells are slides
@@ -67,6 +69,12 @@ export default function parse(element, { document, url, params }) {
     return clean(c.textContent);
   };
   const ARTICLE = !!element.closest('.article-details-page');
+  // lufthansa.com's own pages keep today's output outside insights articles: their column views' captions are on the
+  // 100-years campaign pages only (crane, global-network in every market; ema-adobe's rows, their owner's call); the
+  // brand sites keep them (the brief after 534 item 1)
+  let pageHost = '';
+  try { pageHost = new URL((params && params.originalURL) || url || '').hostname; } catch (e) { pageHost = ''; }
+  const KEEP_CAPTIONS = ARTICLE || pageHost !== 'www.lufthansa.com';
   const isBroken = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
 
   const isBr = (n) => n && n.nodeType === 1 && n.tagName === 'BR';
@@ -226,9 +234,9 @@ export default function parse(element, { document, url, params }) {
     return out;
   };
 
-  /** Article image caption: "<p>text {caption}</p>" (the cleanup's marker for figcaptions). */
+  /** An image's caption: "<p>text {caption}</p>" (the cleanup's marker for figcaptions). */
   const captionPara = (comp) => {
-    if (!ARTICLE) return null;
+    if (!KEEP_CAPTIONS) return null;
     const fc = comp.querySelector('figcaption');
     const text = fc && visibleText(fc.querySelector('maui-caption') || fc);
     if (!text) return null;

@@ -1,0 +1,11 @@
+# The brief after 534 item 1 (ema-cashub; the brands helper's job 2): lh-austrian's travelling-with-animals documents, whose cabin-pets tab comes in as a columns-media since 762510ab: the columns-media parser now keeps a picture's caption in its cell ("<p>… {caption}</p>"; it kept captions on insights articles only), so the carrier picture's "Maximum 8 kg (pet incl. soft travel carrier)" survives every import; the helper re-inserted it from DA today, so the next import of these 10 should leave live as it is (check: the caption paragraph after the picture, inside the columns-media). In release order. Offline import of the recording (/at/en) with the rebuilt info bundle: the caption is in the picture's cell. No other recorded Austrian or Brussels page has a captioned picture in a column view; lufthansa.com's own pages keep today's output (their only such captions are the 100-years campaign's, ema-adobe's call).
+/at/en/plan/special-requirements/travelling-with-animals
+/at/de/plan/special-requirements/travelling-with-animals
+/fr/fr/plan/special-requirements/travelling-with-animals
+/it/it/plan/special-requirements/travelling-with-animals
+/es/es/plan/special-requirements/travelling-with-animals
+/pl/pl/plan/special-requirements/travelling-with-animals
+/ru/ru/plan/special-requirements/travelling-with-animals
+/gr/el/plan/special-requirements/travelling-with-animals
+/jp/ja/plan/special-requirements/travelling-with-animals
+/cn/zh/plan/special-requirements/travelling-with-animals

@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var tmp_bundle_fleet_1720268_exports = {};
-  __export(tmp_bundle_fleet_1720268_exports, {
-    default: () => tmp_bundle_fleet_1720268_default
+  var tmp_bundle_fleet_1160434_exports = {};
+  __export(tmp_bundle_fleet_1160434_exports, {
+    default: () => tmp_bundle_fleet_1160434_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -1972,6 +1972,13 @@ var CustomImportScript = (() => {
       return clean3(c.textContent);
     };
     const ARTICLE = !!element.closest(".article-details-page");
+    let pageHost = "";
+    try {
+      pageHost = new URL(params && params.originalURL || url || "").hostname;
+    } catch (e) {
+      pageHost = "";
+    }
+    const KEEP_CAPTIONS = ARTICLE || pageHost !== "www.lufthansa.com";
     const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
     const isBr2 = (n) => n && n.nodeType === 1 && n.tagName === "BR";
     const isBlank = (n) => n && n.nodeType === 3 && !clean3(n.nodeValue);
@@ -2125,7 +2132,7 @@ var CustomImportScript = (() => {
       return out;
     };
     const captionPara = (comp) => {
-      if (!ARTICLE) return null;
+      if (!KEEP_CAPTIONS) return null;
       const fc = comp.querySelector("figcaption");
       const text = fc && visibleText(fc.querySelector("maui-caption") || fc);
       if (!text) return null;
@@ -5846,7 +5853,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_fleet_1720268_default = {
+  var tmp_bundle_fleet_1160434_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5886,5 +5893,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_fleet_1720268_exports);
+  return __toCommonJS(tmp_bundle_fleet_1160434_exports);
 })();
