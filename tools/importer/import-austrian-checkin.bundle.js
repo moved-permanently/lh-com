@@ -5250,7 +5250,7 @@ var CustomImportScript = (() => {
     austrian: { rules: ["intro-after-h1"], pageTypes: { flow: { headings: { h3: "heading-small" } } } },
     // Brussels: flow pages set their H3s in heading-small (www: 72 %); a service page's H2s are the
     // default (www: 89 % unmarked, heading-medium; no longer heading-small)
-    brussels: { pageTypes: { flow: { headings: { h3: "heading-small" } } } },
+    brussels: { live: true, pageTypes: { flow: { headings: { h3: "heading-small" } } } },
     // ITA: running text over the whole width
     ita: { live: true, text: { width: "full" } },
     // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
