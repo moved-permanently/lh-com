@@ -97,9 +97,9 @@ test('block options, video fragments, purpose blocks, form defaults, nav roles',
   assert.deepEqual(videoFragment('/media/a.mp4#t=10'), { href: '/media/a.mp4#t=10', background: false, size: null });
   assert.deepEqual(videoFragment('/media/a.mp4'), { href: '/media/a.mp4', background: false, size: null });
   assert.deepEqual(videoFragment('/media/a.mp4#t=5&size=1920x1080'), { href: '/media/a.mp4#t=5', background: false, size: [1920, 1080] });
-  assert.deepEqual(readPurposeBlock('spacer', []), { kind: 'spacer', px: 60 });
-  assert.deepEqual(readPurposeBlock('spacer', ['l']), { kind: 'spacer', px: 120 });
-  assert.deepEqual(readPurposeBlock('divider'), { kind: 'divider', px: 25 });
+  assert.deepEqual(readPurposeBlock('spacer', []), { kind: 'spacer', px: 60, fromTablet: false });
+  assert.deepEqual(readPurposeBlock('spacer', ['l']), { kind: 'spacer', px: 120, fromTablet: false });
+  assert.deepEqual(readPurposeBlock('divider'), { kind: 'divider', px: 25, fromTablet: false });
   assert.deepEqual(readPurposeBlock('app-spacer', ['m-large', 'v2']), { kind: 'app-spacer', size: 'm-large', v2Only: true });
   assert.deepEqual(readPurposeBlock('app-text', ['small']), { kind: 'app-text', small: true });
   assert.equal(readPurposeBlock('columns'), null);

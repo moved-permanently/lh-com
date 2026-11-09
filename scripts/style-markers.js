@@ -473,8 +473,9 @@ export const APP_SPACER_SIZES = ['x-small', 'small', 'medium', 'm-large', 'large
 export function readPurposeBlock(name, options = []) {
   const opts = [...options].map((o) => String(o).toLowerCase());
   switch (String(name || '').toLowerCase()) {
-    case 'spacer': return { kind: 'spacer', px: opts.includes('l') ? SPACE.l : SPACE.m };
-    case 'divider': return { kind: 'divider', px: DIVIDER_SPACE };
+    // option from-768: the space from 768px only, none on phones (as "{spacer-60 from-768}")
+    case 'spacer': return { kind: 'spacer', px: opts.includes('l') ? SPACE.l : SPACE.m, fromTablet: opts.includes('from-768') };
+    case 'divider': return { kind: 'divider', px: DIVIDER_SPACE, fromTablet: opts.includes('from-768') };
     case 'app-spacer': return {
       kind: 'app-spacer', size: APP_SPACER_SIZES.find((s) => opts.includes(s)) || 'medium', v2Only: opts.includes('v2'),
     };

@@ -83,7 +83,10 @@ function decoratePurposeBlocks(main) {
     const what = readPurposeBlock(name, options);
     if (!what) return;
     if (what.kind === 'spacer' || what.kind === 'divider') {
-      block.replaceWith(separatorParagraph(what.px, what.kind === 'divider'));
+      const p = separatorParagraph(what.px, what.kind === 'divider');
+      // from 768px only (styles.css hides p.spacer.from-768 below)
+      if (what.fromTablet) p.classList.add('from-768');
+      block.replaceWith(p);
       return;
     }
     if (what.kind === 'app-spacer' || what.kind === 'app-divider') {

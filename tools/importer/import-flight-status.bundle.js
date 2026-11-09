@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-flight-status.js
-  var tmp_bundle_flight_status_1430167_exports = {};
-  __export(tmp_bundle_flight_status_1430167_exports, {
-    default: () => tmp_bundle_flight_status_1430167_default
+  var tmp_bundle_flight_status_1450024_exports = {};
+  __export(tmp_bundle_flight_status_1450024_exports, {
+    default: () => tmp_bundle_flight_status_1450024_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -4236,7 +4236,8 @@ var CustomImportScript = (() => {
         const seps = run.els.map(parse4);
         const divider = seps.some((m) => m[1] === "divider");
         const px = seps.reduce((a, m) => a + Number(m[2]), 0);
-        seps.filter((m) => m[3]).forEach(() => count(stats, "theme", "separator-from-768"));
+        const tablet = seps.every((m) => m[3]);
+        if (!tablet) seps.filter((m) => m[3]).forEach(() => count(stats, "theme", "separator-from-768"));
         let size = null;
         if (!divider && px <= 31) size = "none";
         else if (!divider) size = px < 90 ? "m" : "l";
@@ -4249,6 +4250,15 @@ var CustomImportScript = (() => {
         if (size === "none") {
           remove();
           count(stats, "theme", "separator", run.els.length);
+          return;
+        }
+        if (tablet) {
+          const b2 = doc.createElement("div");
+          b2.className = divider ? "divider from-768" : `spacer${size === "l" ? " l" : ""} from-768`;
+          b2.innerHTML = "<div><div></div></div>";
+          run.els[0].before(b2);
+          remove();
+          count(stats, "carrier", "separator-from-768", run.els.length);
           return;
         }
         if (rules.includes("sections-m") && size === "m" && (atStart || atEnd)) {
@@ -4546,7 +4556,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_flight_status_1430167_default = {
+  var tmp_bundle_flight_status_1450024_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -4585,5 +4595,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_flight_status_1430167_exports);
+  return __toCommonJS(tmp_bundle_flight_status_1450024_exports);
 })();

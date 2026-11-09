@@ -11,8 +11,20 @@ in the brief after 506. Each lists the decision and the reason.
 2. **B2B's text width** keeps the brand's two-thirds default. The 301 sections that are mostly wide keep the section
    style Wide text (301 carriers). Reason: the default stays the brand's. A wide default would widen the 272 sections
    www draws at two thirds, and there would be no carrier to narrow them.
-3. **`from-768` separators** keep their space and show on phones too (SWISS carry-on baggage +140 px at 390).
-   Reason: "from 768" is a near value of the separator itself. A Spacer option for it would be an exception.
+3. **`from-768` separators keep "from 768 px"** (revised in the brief after 512). They become the Spacer (or
+   Divider) block with the option `from-768`, drawn from 768 px only, wherever such a run stands. A run of
+   separators that are all from-768 keeps it; mixed with ordinary ones the qualifier goes. 0-31 px go, as any
+   separator (decision 4). Reason: a space that exists only on desktop is not a near value of a space on every
+   width, and showing it on phones costs whole screens. Ben's rule against exceptions covers values that are close.
+   The block option is the third carrier in Ben's own order.
+   Cost without it (from-768-check.md): lufthansa.com additional-services +8.2 % at 390 against today's render (ten
+   `{spacer-60 from-768}`, +610 px; ema-adobe measured 15.1 to 47.7 % against www); SWISS carry-on baggage +85 px at
+   390. With it both are as today at 390 (additional-services +0.0 %; carry-on baggage +2.5 to +3.3 %, the rest being
+   heading sizes and separator rounding). 681 separators of the family (the workspaces; ITA 51, in 33 documents).
+
+   **40 px separators**: M stays 60, no rule, no exception. The cost per page is in ema-adobe's
+   tools/reports/parity-2026-11-08/separators-40-506.md (baggage 8.0 points at 1440, food-and-beverages 7.1,
+   new-onboard-experience 26.5).
 4. **Separators of 21 to 31 px** are dropped (the collapse table: 0-31 px none). Reason: none is the nearer value
    (M is 60 px), and keeping them would be an exception.
 5. **Numbered steps written as headings** take the section's default when they are a minority of its headings (a

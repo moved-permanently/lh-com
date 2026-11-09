@@ -27,7 +27,7 @@ test('separators: section start and end as section styles, before a block its op
   assert.equal(out('<div><p>A</p><p>{spacer-100}</p><p>B</p></div>'), '<div><p>A</p><div class="spacer l"><div><div></div></div></div><p>B</p></div>');
   assert.equal(out('<div><p>A</p><p>{spacer-40}</p><p>{divider-25}</p><p>B</p></div>'), '<div><p>A</p><div class="divider"><div><div></div></div></div><p>B</p></div>', 'a stacked spacer and divider: one Divider');
   assert.equal(out('<div><p>A</p><p>{spacer-25}</p><p>B</p></div>'), '<div><p>A</p><p>B</p></div>', '0-30 px: none');
-  assert.equal(out('<div><p>A</p><p>{spacer-85 from-768}</p><p>B</p></div>'), '<div><p>A</p><div class="spacer"><div><div></div></div></div><p>B</p></div>', 'near values: M; from-768 goes');
+  assert.equal(out('<div><p>A</p><p>{spacer-85 from-768}</p><p>B</p></div>'), '<div><p>A</p><div class="spacer from-768"><div><div></div></div></div><p>B</p></div>', 'near values: M; from-768 the block\'s option (decision 3, revised)');
   assert.equal(out('<div><div class="columns-media"><div><div><p>a</p><p>{spacer-40}</p><p>b</p></div></div></div></div>'), '<div><div class="columns-media"><div><div><p>a</p><p>b</p></div></div></div></div>', 'no carrier in a cell');
 });
 

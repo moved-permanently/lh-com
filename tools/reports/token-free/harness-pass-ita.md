@@ -18,8 +18,9 @@ The page checks below therefore read the switch branch's preview, which has the 
 
 ```
 git clone https://github.com/moved-permanently/lh-com.git && cd lh-com
-git checkout main      # must contain 6d1bb8a0 (the collapse fix, the loss and page checks) and 56b60faf (the theme rules)
-git merge-base --is-ancestor 6d1bb8a0 HEAD && git merge-base --is-ancestor 56b60faf HEAD && echo ok
+git checkout main      # must contain 6d1bb8a0 (the collapse fix, the loss and page checks), 56b60faf (the theme rules)
+                       # and the from-768 option (test/spacer-from-768-508.test.mjs: 33 of ITA's documents, from-768-check.md)
+git merge-base --is-ancestor 6d1bb8a0 HEAD && git merge-base --is-ancestor 56b60faf HEAD && test -f test/spacer-from-768-508.test.mjs && echo ok
 npm ci
 ```
 
@@ -66,9 +67,9 @@ off them:
 | | expected |
 | --- | --- |
 | documents changed | 2,083 |
-| markers | 18,497: 17,382 theme (the marker goes), 1,115 as carriers, 0 for a person |
+| markers | 18,446: 17,331 theme (the marker goes), 1,115 as carriers, 0 for a person (a "from-768" is no longer counted as a token of its own) |
 | marker left, not idempotent, errors | 0, 0, 0 |
-| carriers written | 631: Section Metadata styles h2-compact 196, divider-below 60, space-m 22, small-print 21, h3-large 9, space-below-l 8, space-below-m 7; Spacer blocks 144, Divider blocks 81; block options title-large 36, title-compact 27, divider-above 18; form Default 2 |
+| carriers written | 631: Section Metadata styles h2-compact 196, divider-below 60, space-m 22, small-print 21, h3-large 9, space-below-l 8, space-below-m 7; Spacer blocks 126, Spacer (from-768) 25, Spacer (l, from-768) 8, Divider blocks 81; block options title-large 36, title-compact 27, divider-above 18; form Default 2 |
 | the loss check | 0 failed (`collapse-loss-check` exits 0). The documents that already had several H1s are listed as notes: 52 in the workspace. |
 
 What a changed document looks like, per document class (the import reports' template):

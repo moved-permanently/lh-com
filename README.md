@@ -203,7 +203,8 @@ In this order:
    (autoplay, muted, loop, no controls); `#size=1920x1080` is the video's own size (the player takes
    its aspect before the video loads); other fragments such as `#t=10` stay, joined by `&`. Without
    either the default player: controls and the round play button.
-6. **Small purpose blocks** for the real exceptions: `Spacer` (M; `Spacer (l)`: L), `Divider`. On app
+6. **Small purpose blocks** for the real exceptions: `Spacer` (M; `Spacer (l)`: L), `Divider`; with the
+   option `from-768` only from 768px, none on phones (the collapse writes it for `{spacer-N from-768}`). On app
    screens (`/content/mobile/**`): `App Spacer (medium)` (x-small, small, medium, m-large, large;
    `v2`: in the v2 screen only), `App Divider`, `App Text (small)`.
 

@@ -13,7 +13,8 @@
  *
  * The rules (README "Authoring without markers"; the brief after 493, item 2):
  * - separators: none / M (60) / L (120) / Divider; 0-31 px none, 32-89 M, 90 and more L (the
- *   collapse table, near values rounded); a run with a divider is one Divider; "from-768" goes.
+ *   collapse table, near values rounded); a run with a divider is one Divider; a run of "from-768"
+ *   separators a Spacer / Divider block with the option from-768 (none on phones; decisions.md 3).
  *   At a section's start the section's Space / Divider style, at its end Space below / Divider
  *   below, right before a block that block's option, else a Spacer (L) / Divider block; in a block
  *   cell (no carrier there) it goes. Page-type gaps belong to the theme (THEMES rules: sections-m,
@@ -943,7 +944,11 @@ function collapseSeparators(main, doc, stats, ctx) {
       const seps = run.els.map(parse);
       const divider = seps.some((m) => m[1] === 'divider');
       const px = seps.reduce((a, m) => a + Number(m[2]), 0);
-      seps.filter((m) => m[3]).forEach(() => count(stats, 'theme', 'separator-from-768'));
+      // "from-768" (none on phones): a run of such separators only keeps it as the Spacer / Divider
+      // block's option from-768 (no section style or block option says "from 768px"); in a run
+      // with others the qualifier goes (counted)
+      const tablet = seps.every((m) => m[3]);
+      if (!tablet) seps.filter((m) => m[3]).forEach(() => count(stats, 'theme', 'separator-from-768'));
       let size = null;
       if (!divider && px <= 31) size = 'none';
       else if (!divider) size = px < 90 ? 'm' : 'l';
@@ -954,6 +959,15 @@ function collapseSeparators(main, doc, stats, ctx) {
       const atEnd = now.slice(lastAt + 1).every((el) => !content(el));
       const remove = () => run.els.forEach((el) => el.remove());
       if (size === 'none') { remove(); count(stats, 'theme', 'separator', run.els.length); return; }
+      if (tablet) {
+        const b = doc.createElement('div');
+        b.className = divider ? 'divider from-768' : `spacer${size === 'l' ? ' l' : ''} from-768`;
+        b.innerHTML = '<div><div></div></div>';
+        run.els[0].before(b);
+        remove();
+        count(stats, 'carrier', 'separator-from-768', run.els.length);
+        return;
+      }
       // page-type gaps: the theme's
       if (rules.includes('sections-m') && size === 'm' && (atStart || atEnd)) {
         remove(); count(stats, 'theme', 'separator', run.els.length); return;

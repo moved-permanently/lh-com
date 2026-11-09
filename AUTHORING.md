@@ -94,7 +94,7 @@ brackets is what the document holds).
 | A video link | `…/video.mp4#background` | a background video: plays muted in a loop without controls (`#t=10` and other fragments stay) |
 | A video link | `…/video.mp4#size=1920x1080` | the video's own size: the player has its shape before the video loads |
 | Article Header's options | `mobile-video` | its video on phones too |
-| Purpose blocks | `Spacer` (60 px), `Spacer (l)` (120 px), `Divider` | for a real exception where none of the above fits |
+| Purpose blocks | `Spacer` (60 px), `Spacer (l)` (120 px), `Divider`; option `from-768` (`Spacer (from-768)`, `Spacer (l, from-768)`: from 768 px only, none on phones) | for a real exception where none of the above fits |
 | App screens (`/content/mobile/**`) | `App Spacer (medium)` (x-small … large; `v2`: the v2 screen only), `App Divider`, `App Text (small)` | the app's space, rule and small text |
 | Form table | a `Default` column (`Vorauswahl`) | the options chosen when the form opens, one per line, by value or label; a single checkbox: `yes` |
 | Nav document, tools | a `Nav Tools` table: the tool (icon and link), its role, optionally its list | the role (accessibility, help, search, cart, login, locale, notifications) without `{cart}` |
