@@ -52,6 +52,7 @@ import {
 } from './cargo-paths.mjs';
 import { fileKey, edsName, baseName } from './cargo-assets.mjs';
 import collapseDocs from './collapse-docs.mjs';
+import { withRestoredNbsp } from './nbsp-guard.mjs';
 
 const sha1 = (s) => crypto.createHash('sha1').update(s).digest('hex');
 
@@ -1720,7 +1721,7 @@ async function main() {
   if (!argv.includes('--dry-run')) {
     fs.mkdirSync(path.join(W, 'runs'), { recursive: true });
     // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
-    collapseDocs(written.map((d) => path.join(OUT, `${d}.plain.html`)), { brand: 'cargo', content: path.join(W, 'content') });
+    collapseDocs(withRestoredNbsp(written.map((d) => path.join(OUT, `${d}.plain.html`)), fs), { brand: 'cargo', content: path.join(W, 'content') });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify(report, null, 1)}\n`);
     fs.writeFileSync(path.join(W, 'runs', `${name}-paths.txt`), `${written.join('\n')}\n`);
     // the allowlist of da-upload.mjs --site lh-cargo: the documents, the nav and footer of each language

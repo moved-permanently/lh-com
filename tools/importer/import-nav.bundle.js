@@ -4054,7 +4054,7 @@ var CustomImportScript = (() => {
     // default (www: 89 % unmarked, heading-medium; no longer heading-small)
     brussels: { live: true, pageTypes: { flow: { headings: { h3: "heading-small" } } } },
     // ITA: running text over the whole width
-    ita: { text: { width: "full" } },
+    ita: { live: true, text: { width: "full" } },
     // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
     // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
     // (a heading right before them starts the group's column view, as its marker did)
@@ -4617,15 +4617,6 @@ var CustomImportScript = (() => {
     });
   }
   var VIDEO_LINK = (a) => /\.(mp4|m4v|webm|mov)(?:$|[?#])/i.test(a.getAttribute("href") || "");
-  var urlText = (a) => {
-    const t = textOf(a);
-    return !t || t === a.getAttribute("href") || /^(https?:\/\/|\/)\S+$/.test(t) || /\.(mp4|m4v|webm|mov)$/i.test(t);
-  };
-  function readableName(href) {
-    const file = decodeURIComponent(String(href).split(/[?#]/)[0].split("/").pop() || "").replace(/\.[a-z0-9]+$/i, "");
-    const words = file.replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
-    return words ? words.charAt(0).toUpperCase() + words.slice(1) : "Video";
-  }
   function addFragment(a, part) {
     const href = a.getAttribute("href");
     const at = href.indexOf("#");
@@ -4659,16 +4650,19 @@ var CustomImportScript = (() => {
         else addFragment(a, "background");
         count(stats, "carrier", "video");
       } else if (settings.length) count(stats, "theme", "video");
-      if (urlText(a)) {
-        const poster = el2.querySelector("img") || el2.previousElementSibling && isImageParagraph(el2.previousElementSibling) && el2.previousElementSibling.querySelector("img");
-        a.textContent = poster && poster.getAttribute("alt") || readableName(a.getAttribute("href"));
-      }
     });
   }
   function collapseCaptions(main, doc, stats, marks, hand) {
     marks.forEach((tokens, el2) => {
       if (!tokens.includes("caption") || el2.tagName !== "P") return;
       const onlyLink = el2.querySelectorAll("a").length === 1 && textOf(el2.querySelector("a")) === textOf(el2);
+      const prev = el2.previousElementSibling;
+      if (prev && prev.tagName === "P" && !textOf(prev) && prev.querySelectorAll("picture, img").length - prev.querySelectorAll("picture img").length >= 2) {
+        const last = el2.lastChild;
+        if (last && last.nodeType === 3) last.nodeValue = last.nodeValue.replace(/\s+$/, "");
+        count(stats, "theme", "caption");
+        return;
+      }
       const kids = [...el2.childNodes].filter((n) => n.nodeType === 1 || n.nodeValue.trim());
       if (!(kids.length === 1 && kids[0].nodeType === 1 && /^(EM|I)$/.test(kids[0].tagName))) {
         const em = doc.createElement("em");

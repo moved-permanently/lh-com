@@ -287,3 +287,40 @@ Together with 521's five, that is five fixes per brand. Two rows I looked at and
 
 Capture list for after 15:00 CET: `capture-list-austrian-brussels.txt` (56 pages, 107 captures, about 18 minutes).
 No-break spaces: `nbsp-proposal-cashub.md` (not applied).
+
+## The brief after 527: no-break spaces, two more rows, the capture list's order
+
+A fresh capture of the 165 recorded pages on austrian.turnsthe.page and brussels.turnsthe.page (`caps/*-530`), with the
+fixes of 521 and 527 live, was the "before" for these rows.
+
+| Commit | Brand | Row | Pages | 1440 | 390 |
+| --- | --- | --- | --- | --- | --- |
+| `6a61397b` | all | www's no-break spaces through the import (nbsp-guard.mjs; the empty `<p>&nbsp;</p>` still dropped, as the brief asks) | `reimport-530-nbsp.txt` (10) | heights unchanged | 63 no-break spaces kept on 7 of the 10 |
+| `dd0436d2` | Austrian | a two-up card grid right after another, 42 px further from it on phones (austrian.css) | 12 documents with such pairs (42 pairs) | unchanged | extra-services -4.4 → -2.0 %, check-in -4.7 → -3.7 %, familien -3.8 → -2.4 % |
+| `433e6c2b` | Brussels | the footer from 1025 px as www's: en 478 px, fr 515, ours 468 on every page (brussels.css) | all Brussels pages (83 recorded) | the footer en 468 → 478, fr 468 → 514; 6 pages mean \|diff\| 4.98 → 3.13 % | unchanged |
+
+**The empty lines.** The brief's fixture keeps the empty `<p>&nbsp;</p>` dropped, so families-and-children's gap (about half
+of its -9.9 %) stays. Keeping them is one line in `nbsp-guard.mjs`: guard a text that is only no-break spaces too (the
+`NBSP_BLANK` test), and the framework keeps the paragraph. The capture list's first page measures them on www.
+
+**Rows I looked at and did not change:**
+
+- **Austrian fly-with-austrian:** after the flight search band, www has about 90 px more before "Das könnte Sie auch
+  interessieren". The space there is the document's `{divider-25}` marker (ema-test's style markers).
+- **Brussels online-check-in-options, 390:** www's check-in form is a collapsible item ("Enregistrement" over the form, a
+  Connexion link, a hint under each field, boxed fields). Ours is the plain booking-lookup without a title row, link or
+  hints: -285 px on its 3 documents. The block's JS renders no title for a single tab, and the import does not carry the
+  hints. That is a change to the shared booking-lookup block and the Brussels quick-actions mapping, too big to rule as
+  one row.
+- **Brussels card descriptions:** www's card text is 18 / 24 on jobs and our-company and 16 / 22 on flightvoucher. Ours
+  is 16 / 24 everywhere, but three pages are not enough to rule.
+
+**Not a layout cause, for after 15:00.** `/at/de/angebote-destinationen` (1440: 10,422 → 2,573 px) and `/ch/en/homepage`
+(4,581 → 3,905) lost most of their destination finder's offers between the two captures. The block is unchanged and
+its offers come over the network, so these two rows go with the network until 15:00 and are left out of the ranking's
+causes.
+
+**The capture list** (`1db40e6e`, `cce4b565`): the two templates without a recording that decide most documents are both forms.
+Austrian's form has 187 documents, only 11 of them copies of a recorded page; every other Austrian template has recorded
+pages. Brussels' form has 101 documents, none recorded. The list is now in the order the capture child should take,
+most decisive first; every line has host, path and width.
