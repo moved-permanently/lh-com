@@ -4055,7 +4055,7 @@ var CustomImportScript = (() => {
     // default (www: 89 % unmarked, heading-medium; no longer heading-small)
     brussels: { pageTypes: { flow: { headings: { h3: "heading-small" } } } },
     // ITA: running text over the whole width
-    ita: { text: { width: "full" } },
+    ita: { live: true, text: { width: "full" } },
     // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
     // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
     // (a heading right before them starts the group's column view, as its marker did)
@@ -4071,6 +4071,8 @@ var CustomImportScript = (() => {
         flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true } }
       }
     },
+    // Air Dolomiti: the base theme (between B2B's and TAP's entries, next to no switch line)
+    airdolomiti: {},
     // TAP: the base theme (an entry of its own, so its switch is one line as every brand's)
     tap: {},
     // Lufthansa Cargo: the base theme
@@ -4513,6 +4515,28 @@ var CustomImportScript = (() => {
       });
     });
   }
+  var NOTE_MARK = /\s*\{((?:copytext-(?:small|medium|large)|full-width|limited-width)(?: [a-z-]+)*)\}\s*$/;
+  function collapseFormNotes(main, stats) {
+    main.querySelectorAll(":scope > div > div.form").forEach((block) => {
+      const rows = [...block.children];
+      const header = rows.length ? readHeaderTexts([...rows[0].children].map((c) => textOf(c))) : null;
+      const labelAt = header && header.label !== void 0 ? header.label : 0;
+      const typeAt = header && header.type !== void 0 ? header.type : 1;
+      (header ? rows.slice(1) : rows).forEach((row) => {
+        if (!/^(note|hinweis)$/i.test(textOf(row.children[typeAt] || { textContent: "" }).trim())) return;
+        const cell = row.children[labelAt];
+        const paras = cell && cell.querySelector("p") ? [...cell.querySelectorAll("p")] : [cell].filter(Boolean);
+        paras.forEach((p) => {
+          const last = lastText(p);
+          const m = last && last.nodeValue.match(NOTE_MARK);
+          if (!m) return;
+          last.nodeValue = last.nodeValue.slice(0, m.index);
+          if (!last.nodeValue) last.remove();
+          m[1].split(" ").forEach((t) => count(stats, "theme", /^copytext-/.test(t) ? "text-size" : "text-width"));
+        });
+      });
+    });
+  }
   function collapseForms(main, doc, stats) {
     main.querySelectorAll(":scope > div > div.form").forEach((block) => {
       const rows = [...block.children];
@@ -4594,15 +4618,6 @@ var CustomImportScript = (() => {
     });
   }
   var VIDEO_LINK = (a) => /\.(mp4|m4v|webm|mov)(?:$|[?#])/i.test(a.getAttribute("href") || "");
-  var urlText = (a) => {
-    const t = textOf(a);
-    return !t || t === a.getAttribute("href") || /^(https?:\/\/|\/)\S+$/.test(t) || /\.(mp4|m4v|webm|mov)$/i.test(t);
-  };
-  function readableName(href) {
-    const file = decodeURIComponent(String(href).split(/[?#]/)[0].split("/").pop() || "").replace(/\.[a-z0-9]+$/i, "");
-    const words = file.replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
-    return words ? words.charAt(0).toUpperCase() + words.slice(1) : "Video";
-  }
   function addFragment(a, part) {
     const href = a.getAttribute("href");
     const at = href.indexOf("#");
@@ -4636,16 +4651,19 @@ var CustomImportScript = (() => {
         else addFragment(a, "background");
         count(stats, "carrier", "video");
       } else if (settings.length) count(stats, "theme", "video");
-      if (urlText(a)) {
-        const poster = el2.querySelector("img") || el2.previousElementSibling && isImageParagraph(el2.previousElementSibling) && el2.previousElementSibling.querySelector("img");
-        a.textContent = poster && poster.getAttribute("alt") || readableName(a.getAttribute("href"));
-      }
     });
   }
   function collapseCaptions(main, doc, stats, marks, hand) {
     marks.forEach((tokens, el2) => {
       if (!tokens.includes("caption") || el2.tagName !== "P") return;
       const onlyLink = el2.querySelectorAll("a").length === 1 && textOf(el2.querySelector("a")) === textOf(el2);
+      const prev = el2.previousElementSibling;
+      if (prev && prev.tagName === "P" && !textOf(prev) && prev.querySelectorAll("picture, img").length - prev.querySelectorAll("picture img").length >= 2) {
+        const last = el2.lastChild;
+        if (last && last.nodeType === 3) last.nodeValue = last.nodeValue.replace(/\s+$/, "");
+        count(stats, "theme", "caption");
+        return;
+      }
       const kids = [...el2.childNodes].filter((n) => n.nodeType === 1 || n.nodeValue.trim());
       if (!(kids.length === 1 && kids[0].nodeType === 1 && /^(EM|I)$/.test(kids[0].tagName))) {
         const em = doc.createElement("em");
@@ -5138,6 +5156,7 @@ var CustomImportScript = (() => {
     const emptyBefore = new Set([...main.querySelectorAll(":scope > div")].filter((d) => !d.children.length && !textOf(d)));
     if (/\/nav$/.test(path)) collapseNav(main, doc, stats);
     collapseForms(main, doc, stats);
+    collapseFormNotes(main, stats);
     collapseBlank(main, stats);
     const marks = /* @__PURE__ */ new Map();
     main.querySelectorAll("h1, h2, h3, h4, h5, h6, p, li").forEach((el2) => {
@@ -5146,6 +5165,13 @@ var CustomImportScript = (() => {
       if (el2.tagName === "P" && SEPARATOR.test(textOf(el2))) return;
       const tokens = takeTokens(el2);
       if (tokens.length) marks.set(el2, tokens);
+    });
+    main.querySelectorAll(":scope > div > div[class] > div > div").forEach((cell) => {
+      if (cell.querySelector("p, h1, h2, h3, h4, h5, h6, li, div") || !cell.querySelector("a[href]")) return;
+      const t2 = lastText(cell);
+      const m = t2 && t2.nodeValue.match(TAIL);
+      if (!m || !m[1].split(/\s+/).every((k) => VIDEO_SETTINGS.includes(k) || /^size-\d+x\d+$/.test(k))) return;
+      marks.set(cell, takeTokens(cell));
     });
     collapseVideos(main, doc, stats, marks);
     collapseCaptions(main, doc, stats, marks, hand);

@@ -17,7 +17,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { parseHTML } from 'linkedom';
 import { collapseHtml, totals } from './marker-collapse.mjs';
-import { LEFT_MARKER } from './marker-families.mjs';
+import { leftIn } from './collapse-loss-check.mjs';
 import { SECTION_STYLES } from '../../scripts/style-markers.js';
 
 const argv = process.argv.slice(2);
@@ -35,8 +35,6 @@ if (!content) {
   console.error('usage: marker-collapse-cli.mjs --content <dir> --brand <brand> [--out <dir>] [--report <file>] [--check]');
   process.exit(2);
 }
-// what is left after the collapse and must not be: a known marker at the end of a text
-const LEFT = LEFT_MARKER;
 
 const walk = (d, out = []) => {
   fs.readdirSync(d, { withFileTypes: true }).forEach((e) => {
@@ -127,9 +125,9 @@ results.forEach((res, docPath) => {
     }
     report.changedPaths.push(docPath);
   }
-  const { document } = parseHTML(`<main>${res.html}</main>`);
-  const left = [...document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li')].filter((el) => LEFT.test(el.textContent));
-  if (left.length && !docPath.startsWith('/content/mobile/')) report.left.push(`${docPath}: ${left.slice(0, 3).map((el) => el.textContent.trim().slice(-60)).join(' | ')}`);
+  // headings, paragraphs and list items, and block cells' bare text (a form note's label)
+  const left = leftIn(res.html);
+  if (left.length && !docPath.startsWith('/content/mobile/')) report.left.push(`${docPath}: ${left.slice(0, 3).join(' | ')}`);
   const again = collapseHtml(res.html, {
     path: docPath, brand, parse: parseHTML, force,
   }).html;

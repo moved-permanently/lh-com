@@ -210,15 +210,14 @@ For each batch:
    (tools/reports/lh-edge/compare-sdui.md) must list the same differences. An app screen's collapse doesn't depend on
    the theme switch.
 
-**The numbers to hold the pages to**: ema-adobe's lh-com-pass-check.md, mean height difference per page type with
-main's collapse ("today + item 2", now on main). With the from-768 option, additional-services and stopover come out
-lower at 390 (from-768-check.md):
+**The numbers to hold the pages to**: ema-adobe's lh-com-pass-check.md, mean height difference per page type, as
+measured again after the from-768 option (its section "After the "from 768 px" Spacer option", brief 521):
 
 | type | mean (lh-com-pass-check.md) | known flagged pages, accepted |
 | --- | --- | --- |
-| campaign | 1.8 % | chronicle and global-network on a heading 77-406 px off (column views B, heading sizes D) |
-| hub | 1.5 % | baggage 1440 (a heading 80 px down), miles-and-more's headings within 48 px; additional-services now +0.0 % at 390 |
-| info | 0.9 % | giftvoucher, payment-options-at-the-airport, first-class-terminal 390 (a heading 54-68 px off) |
+| campaign | 1.5 % | chronicle and global-network on a heading 77-406 px off (column views B, heading sizes D); stopover +1.9 % at both widths (heading sizes) |
+| hub | 0.8 % | baggage 1440 (a heading 80 px down), miles-and-more's headings within 48 px; additional-services 0 % at both widths |
+| info | 0.9 % | giftvoucher, payment-options-at-the-airport, first-class-terminal (a heading 54-108 px off) |
 | legal | 2.7 % | advance-seat-reservations-terms-and-conditions +7.4 / +6.5 % (a 100 px separator becomes L) |
 | insights | 2.0 % | the Related Articles divider (+26 px), the 40-60 px separators growing to M (+51 px) |
 | fleet | 0.6 % | 320 at 390, a heading 84 px off |

@@ -854,6 +854,17 @@ body.brand-lufthansa main > .section.grey + .section.table-striped-container:has
   }
 }
 
+/* a page that ends with a section of separators only, right after a grey band (brief 521:
+   /de/en/airport-information's {spacer-70}, the flights pages' {spacer-25}): on www the separator is
+   all there is between the band and the footer (71px at 1440), ours added the band's 48px and the
+   last section's own 48px (151px). The last section takes the band's gap back (its negative top
+   margin collapses with it and the wrapper's -16px) and has none below. One :has() level: a :has()
+   nested in another drops the rule */
+body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .default-content-wrapper > :not(p.spacer))) {
+  margin-top: -48px;
+  margin-bottom: 0;
+}
+
 /* default content (.richtext); .section-content > :last-child > :last-child { margin-bottom: 0 },
    a trailing headline keeps its margin to the block that follows */
 main .default-content-wrapper > :last-child:not(h1, h2, h3, h4, h5, h6) {
@@ -1992,7 +2003,16 @@ body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper
 /* theme rules (scripts/style-markers.js THEMES: a brand's theme once its documents are collapsed,
    body.theme-live, scripts/token-free.js): column views are structure; on flow pages a heading
    after other content (not right after another heading: a title's subheading keeps its own spacing)
-   gets the brand's gap (THEMES columnViews.headingGap: 32px, the column view's padding, or 0) */
-body.theme-live.flow-spacing main .default-content-wrapper > :not(h1, h2, h3, h4, h5, h6) + :is(h2, h3) {
+   gets the brand's gap (THEMES columnViews.headingGap: 32px, the column view's padding, or 0);
+   not after a Spacer: the Spacer is the gap (brief 536, spacer-cost-536.md) */
+body.theme-live.flow-spacing main .default-content-wrapper > :not(h1, h2, h3, h4, h5, h6, p.spacer:not(.divider)) + :is(h2, h3) {
   margin-top: var(--theme-heading-gap, 32px);
+}
+
+/* lufthansa.com's ruled chapters (theme rule ruled-chapters: a chapter is a section of its own that
+   opens with the chapter's divider): www draws the rule 24px under the text before it (the
+   paragraph's own margin), not a section gap (48px); brief 526, the pass check's articles:
+   in-my-hood-chiswick-london, be-picky-barcelona-insider-tips +24px at each chapter */
+body.brand-lufthansa.theme-live main > .section + .section > .default-content-wrapper:first-child > p.spacer.divider:first-child {
+  margin-top: -24px;
 }

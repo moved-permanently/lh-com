@@ -50,6 +50,100 @@ figures move up to 1 point between runs; the table takes the run in which every 
 | flight-status | 2 | 0 | 0 | 0 | 0.0 % | 0.0 % | 0.0 % | 0 |
 | homepage | 2 | 0 | 0 | 0 | 0.9 % | 0.9 % | 0.9 % | 0 |
 
+## After the "from 768 px" Spacer option (brief 521, ema-test's 2963500)
+
+The collapse now writes a run of `{spacer-N from-768}` as a Spacer with the option from-768 (hidden below 768 px). The
+pass check run again for the three sample documents with from-768 separators: the 37 documents collapsed with main's
+collapse as of 2963500 (305 markers: 144 to the theme, 161 to carriers, 131 written; none left, idempotent), those three
+rendered against today's published pages with the theme forced live in the browser only (logs/b521/pcc, not in git):
+
+| page | width | before (main as of 142a2d2) | with from-768 |
+| --- | --- | --- | --- |
+| /de/en/additional-services (10 from-768 separators) | 1440 | 0 % / 0 px | 0 % / 0 px |
+| /de/en/additional-services | 390 | +8.2 % / 0 px **flagged** | 0 % / 0 px |
+| /de/en/book-and-manage/stopover (6) | 1440 | +1.9 % / 224 px **flagged** | +1.9 % / 224 px **flagged** |
+| /de/en/book-and-manage/stopover | 390 | +3.9 % / 622 px **flagged** | +1.9 % / 296 px **flagged** |
+| /de/en/first-class-terminal (3) | 1440 | -1.0 % / -108 px **flagged** | -1.0 % / -108 px **flagged** |
+| /de/en/first-class-terminal | 390 | -0.6 % / -57 px **flagged** | -0.6 % / -57 px **flagged** |
+
+Per page type with these and /100-years without sections-m (ema-test's fa26e25; the numbers "today + item 2" below),
+the other pages as measured with main as of 142a2d2 (logs/b521/pc-summary-521.mjs):
+
+| page type | page widths | flagged | mean height difference | E (left out) |
+| --- | --- | --- | --- | --- |
+| campaign | 8 | 7 | 1.5 % | 2 |
+| fleet | 4 | 2 | 0.6 % | 0 |
+| info | 16 | 9 | 0.9 % | 0 |
+| hub | 12 | 5 | 0.8 % | 2 |
+| legal | 6 | 2 | 2.7 % | 0 |
+| form | 4 | 0 | 0.3 % | 0 |
+| insights | 12 | 8 | 2.0 % | 0 |
+| app-entry | 4 | 0 | 0.7 % | 0 |
+| flight-status | 2 | 0 | 0.0 % | 0 |
+| homepage | 2 | 0 | 0.9 % | 0 |
+
+stopover stays flagged on its headings (its heading-small H2s take heading-medium, near values: D +64 / +68 px);
+first-class-terminal's three from-768 separators are 14-17 px, each beside an ordinary one ({spacer-0}, -53, -43): 0-31
+px go as before, so nothing changes there; its column marks (B -56) and separators (C) as before. Not measured again here: insights after fa26e25's captions
+in block cells and the divider before Related Articles (handover items 4 and 5).
+
+## Insights after ema-test's captions and divider changes (brief 526, fa26e25)
+
+ema-test's fa26e25 put three of the handover's items into their files: no `sections-m` on /100-years, captions in block
+cells (an italic paragraph after a picture in a Columns Media cell gets the caption style), and no ruled-chapters
+divider before the Related Articles section. The six insights documents of the sample collapsed again with main's
+collapse (as of be71a18: 305 markers, 144 to the theme, 161 to carriers, none left, idempotent) and rendered against
+today's published pages with today's code, the theme forced live in the browser only (logs/b526/pcd, not in git):
+
+| page | width | before (main as of 142a2d2) | now |
+| --- | --- | --- | --- |
+| /de/en/articles/authors/florian-tomberg | 1440 | 0 % / 0 px | 0 % / 0 px |
+| /de/en/articles/authors/florian-tomberg | 390 | 0 % / 0 px | 0 % / 0 px |
+| /de/en/articles/explore-flying/flying-high-christoph-quarch | 1440 | +1.1 % / 50 px **flagged** | +0.5 % / 24 px |
+| /de/en/articles/explore-flying/flying-high-christoph-quarch | 390 | +0.9 % / 50 px **flagged** | +0.4 % / 24 px |
+| /de/en/articles/explore-the-world/be-picky-barcelona-insider-tips | 1440 | +3.9 % / 162 px **flagged** | +2.9 % / 122 px **flagged** |
+| /de/en/articles/explore-the-world/be-picky-barcelona-insider-tips | 390 | +4.1 % / 278 px **flagged** | +2.0 % / 136 px **flagged** |
+| /de/en/articles/explore-the-world/in-my-hood-chiswick-london | 1440 | +3.0 % / 125 px **flagged** | +2.3 % / 97 px **flagged** |
+| /de/en/articles/explore-the-world/in-my-hood-chiswick-london | 390 | +5.0 % / 310 px **flagged** | +1.5 % / 96 px **flagged** |
+| /de/en/articles/explore-the-world/on-the-scene-food-trends-istanbul | 1440 | +0.6 % / 26 px | +0.6 % / 24 px |
+| /de/en/articles/explore-the-world/on-the-scene-food-trends-istanbul | 390 | +3.8 % / 236 px **flagged** | +0.4 % / 22 px |
+| /de/en/articles/highlights | 1440 | +0.2 % / 0 px | +0.2 % / 0 px |
+| /de/en/articles/highlights | 390 | +1.2 % / 90 px **flagged** | +1.2 % / 90 px **flagged** |
+
+**Insights: 12 page-widths, 5 flagged (was 8), mean height difference 1.0 % (was 2.0 %).** food-trends' info box is back
+(the captions in its cells), the 24-26 px of the Related Articles divider are gone from every article. Left on the two
+flagged articles: their separators (C +25 / +26: 40-60 px ones grow to M) and the rest (R +45 to +88: be-picky's and
+chiswick's "About" boxes, the text below their last chapter); highlights at 390, R +93 (the tag chips wrap differently).
+
+A note on the method: the Price Bar (be-picky's and food-trends' "Round trip from ... €" fares, 90 px at 1440, 165 at
+390) is drawn on the host but not in any render that puts a document into the page as `<main>`: not in the collapsed
+one, and not in the render of the uncollapsed document with the theme off either (cap-e of brief 507). So it is the
+method's, not the collapse's or the theme's, and it is the same before and after; those two pages' collapsed heights
+come out 90 / 165 px short of what the switch would draw.
+
+With insights at 1.0 %, the page types: campaign 1.5 %, hub 0.8 %, info 0.9 %, legal 2.7 %, insights 1.0 %, the rest
+0.0-0.9 %.
+
+## Legal and insights: the three biggest differences (brief 526 item 3)
+
+Legal measured again with today's code (logs/b526/pcd): advance-seat-reservations-terms-and-conditions +7.4 / +6.5 %,
+seat-reservations +1.4 / +1.1 %, passenger-rights 0 / 0 % (legal 2.7 % as before). The three biggest of the two page
+types, after ec344f6:
+
+1. **The ruled chapters' section gap** (insights, every article with chapters): fixed, ec344f6 (styles.css, live
+   theme only). www draws a chapter's rule 24 px under the text before it; the collapsed page had a section gap (48 px):
+   +24 px per chapter. With the rule: flying-high and food-trends 0 %, be-picky +2.9 -> +1.2 % (1440) / +2.0 -> +0.9 %
+   (390), chiswick +2.3 -> +1.2 % / +1.5 -> +0.8 %. **Insights: 12 page-widths, mean height difference 0.5 %** (was 1.0).
+2. **advance-seat-reservations-terms-and-conditions** (legal, +62 / +101 px): its Columns Media's four cells carry
+   `{copytext-medium}` (16 px text); the collapse drops it, a near value of the theme's text size (18 px), so the
+   block is 42 px (1440) / 81 px (390) taller, and its `{spacer-100}` becomes L (120 px, +20). Both are Ben's rule (near
+   values collapse); nothing to change.
+3. **The chapter rule at www's own section boundaries** (insights: be-picky's "This may also be of interest to you",
+   +25 px): ema-test's token-free.js prepends the chapter divider to every section that opens with a heading, also to
+   www's teaser section (a heading and its carousel-cards), which www draws without a rule. The exact change is item 7
+   of [the handover](lh-com-handover-ema-test.md). seat-reservations' +27 / +32 px are its headings' sizes (D, near
+   values).
+
 ## Causes, by page type (main today)
 
 - **campaign** (8 page-widths; mine): the /100-years pages grow 3-9 %: `sections-m` adds 61 px at every section start,

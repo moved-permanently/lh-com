@@ -1,4 +1,4 @@
-/* eslint-disable no-console, max-len, import/prefer-default-export, import/extensions, no-use-before-define -- tooling */
+/* eslint-disable no-console, max-len, import/prefer-default-export, import/extensions, no-use-before-define, import/no-extraneous-dependencies -- tooling; linkedom is a dev dependency */
 /**
  * Imports one batch of Austrian's pages (lh-austrian) offline from their snapshots
  * (tools/importer/bd-snapshots/www.austrian.com: the Studio's capture, austrian-studio.mjs) with
@@ -26,6 +26,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { parseHTML } from 'linkedom';
 import {
   ownPages, ownAliases, withOwnLinks, onlyBatch,
 } from './own-links.mjs';
@@ -36,6 +37,7 @@ import { withTabMarkers, splitTabSections } from './swiss-import.mjs';
 import { stripScripts } from './excat-plugin.mjs';
 import { withPartnerLogoAlts } from './austrian-partner-logos.mjs';
 import collapseDocs from './collapse-docs.mjs';
+import { withRestoredNbsp, emptyLineSpacers } from './nbsp-guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -295,7 +297,10 @@ export function withFlightSearch(doc, p) {
  * maui-tab-control-responsive with column views, accordions, tables), no loads, no screen-reader
  * announcement (the help centre app's "Help page loaded." is no page text).
  */
-export const mappedOf = (html, p) => withoutLoads(withNestedOnecolumnUnwrapped(withPanelWrappersUnwrapped(withAccordionMapsHoisted(withTabMarkers(withTeaserCta(withPhoneSliders(withTeaserColumns(withPartnerCarousels(withCheckinTabs(withCopytextLarge(withLinkOuts(withPlaceholder(stripScripts(html)), p))))))))))))
+// www's visible empty lines (<p>&nbsp;</p>, about 48 px each on www) as the spacing marker the collapse turns into a
+// Spacer block (the brief after 530, item 1; nbsp-guard.mjs emptyLineSpacers)
+const withEmptyLineSpacers = (html) => emptyLineSpacers(html, { parse: parseHTML, size: 48 });
+export const mappedOf = (html, p) => withoutLoads(withNestedOnecolumnUnwrapped(withPanelWrappersUnwrapped(withAccordionMapsHoisted(withTabMarkers(withTeaserCta(withPhoneSliders(withTeaserColumns(withPartnerCarousels(withCheckinTabs(withCopytextLarge(withLinkOuts(withPlaceholder(withEmptyLineSpacers(stripScripts(html))), p))))))))))))
   .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
 
 /**
@@ -424,8 +429,10 @@ export function withPanelWrappersUnwrapped(html) {
   const tags = [...html.matchAll(/<(\/?)div\b[^>]*>/g)];
   const remove = new Set();
   tags.forEach((open, i) => {
-    if (open[1] || !/^<div class="section-content\b/.test(open[0])) return;
-    // the section content's direct children
+    // under the section content, or in a column-view item (a tab control inside a one-column view:
+    // /at/en/plan/special-requirements/travelling-with-animals' tabs)
+    if (open[1] || !/^<div class="(?:section-content\b|[^"]*\bcolumn-view-item\b)/.test(open[0])) return;
+    // the section content's (the item's) direct children
     let depth = 0;
     let child = null;
     for (let j = i + 1; j < tags.length; j += 1) {
@@ -483,15 +490,25 @@ const hasClass = (n, c) => n && n.cls.split(/\s+/).includes(c);
 export function withNestedOnecolumnUnwrapped(html) {
   const tags = [...html.matchAll(/<(\/?)div\b[^>]*>/g)];
   const remove = new Set();
+  const isHeadingWrapper = (d) => d && !d.kids.length && d.close !== undefined && tags[d.open][0] === '<div>'
+    && /^\s*<h[1-6]\b[^>]*>[^<]*<\/h[1-6]>\s*$/.test(html.slice(tags[d.open].index + 5, tags[d.close].index));
   const visit = (n) => {
     const [view] = n.kids;
-    const row = view?.kids[0];
+    // the view's own heading before its one row (a tab panel's "Small pets in the cabin"): a bare
+    // wrapper of a heading alone, kept for the outer item, where the item holds a column view (the
+    // two-column view lh-com's info importer maps one level into a one-column view only)
+    const head = view?.kids.length === 2 && isHeadingWrapper(view.kids[0]) ? view.kids[0] : null;
+    const row = view?.kids[head ? 1 : 0];
     const item = row?.kids[0];
+    if (head && !item?.kids.some((k) => /\b(?:two|three|four)column\b/.test(k.cls))) {
+      n.kids.forEach(visit);
+      return;
+    }
     const outer = n.parent?.parent?.parent?.parent;
     if (hasClass(n, 'onecolumn') && hasClass(n.parent, 'column-view-item') && hasClass(n.parent.parent, 'row')
       && hasClass(n.parent.parent.parent, 'column-view') && hasClass(outer, 'onecolumn')
       && n.kids.length === 1 && view.cls.trim().split(/\s+/).sort().join(' ') === 'column-view flex-column'
-      && view.kids.length === 1 && hasClass(row, 'row') && row.kids.length === 1 && hasClass(item, 'column-view-item')
+      && view.kids.length === (head ? 2 : 1) && hasClass(row, 'row') && row.kids.length === 1 && hasClass(item, 'column-view-item')
       && [n, view, row, item].every((x) => x.close !== undefined)) {
       [n, view, row, item].forEach((x) => remove.add(x.open).add(x.close));
     }
@@ -658,7 +675,7 @@ if (isMain) {
       if (next !== doc) fs.writeFileSync(f, next);
     });
     // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
-    collapseDocs(made.map((p) => path.join(W, 'content', `${p}.plain.html`)), { brand: 'austrian', content: path.join(W, 'content') });
+    collapseDocs(withRestoredNbsp(made.map((p) => path.join(W, 'content', `${p}.plain.html`)), fs), { brand: 'austrian', content: path.join(W, 'content') });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);
     console.log(`${made.length} documents; upload list runs/${name}-upload.txt`);
   }

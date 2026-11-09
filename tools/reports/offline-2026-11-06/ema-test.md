@@ -1986,3 +1986,199 @@ ema-adobe's lufthansa.com pass check arrived during this brief with four request
 (tools/reports/token-free/lh-com-handover-ema-test.md, items 2, 4, 5, 6). All four are done in fa26e255, with
 test/token-free-lhcom-507.test.mjs. Items 1 and 3 there were this brief's 6d1bb8a0 and d1bd76e7. The suite on
 fa26e255: 655 passed, 0 failed.
+
+## The brief after 512 (from-768 kept; lufthansa.com's harness page; the switch branches mergeable; ITA's canary)
+
+Left out of git, and why:
+- .migration/project.json and tools/importer/reports/** are generated;
+- content/ and migration-work/ are local documents (DA is the source);
+- logs/p4 is scratch (s508 this brief: the workspace collapse of lufthansa.com, its checks, the edit scripts);
+- the worktrees under /tmp (wt445, wt-allsw, wt-sw-*) are scratch;
+- the 7 November autostash is untouched.
+
+Nothing is unpushed. No test calls da-upload, the DA API or the preview API.
+
+1. **Decision 3 revised: from-768 kept** (2963500e, pushed before the ITA pass started).
+   - The Spacer and Divider purpose blocks take the option `from-768`. The collapse writes it for a run of from-768
+     separators, wherever the run stands; mixed with ordinary separators the qualifier goes. The site draws the
+     marker's paragraph, hidden below 768 px. The DA library, README and AUTHORING have it.
+   - test/spacer-from-768-508.test.mjs has one test per family: the reader, the site, the collapse per position,
+     mixed runs, 31 px and less, idempotence, the loss check, the library.
+   - Measured (from-768-check.md):
+     - additional-services at 390: +0.0 % against today's render (+8.2 % without the option);
+     - SWISS carry-on baggage at 390: +2.5 to +3.3 % (+3.4 to +4.4 % without);
+     - swiss-pass-check.md has the new numbers.
+   - decisions.md 3 has the reason and the costs. The 40 px separators stay M: no rule, no exception, the cost per
+     page is in separators-40-506.md.
+   - ITA: 51 such markers in 33 documents. The list is in from-768-check.md:
+     - legal/accessibility-statement-app on seven roots;
+     - fleet/short-haul and ita-airways-app on nine roots;
+     - the it homepages on five roots, homepage-new on three.
+   - harness-pass-ita.md: 18,446 markers, 631 carriers written; the clone check needs the new test file.
+2. **lufthansa.com's harness page** (65123e78): tools/reports/token-free/harness-pass-lufthansa.md. It has:
+   - the clone's commits;
+   - DA's own list, starting from lh-com-census-paths.txt (6,826 paths, release order, /migration-status/ out);
+   - phase A's expected numbers per class from the workspace run;
+   - a 20-document canary from every page type, then batches of 100;
+   - page checks against lh-com-pass-check.md's means per type, with its accepted pages;
+   - compare-sdui for the app screens;
+   - the backup folder /.token-free-backup/2026-11-lufthansa/, the stop rule, rollback, and publishing last of all
+     brands.
+   - **Catching a wrong carrier early.** The new tools/importer/carrier-check.mjs fails a document on:
+     - an unknown style or option;
+     - a carrier without the marks it stands for (column view, from-768, video, parallax, narrow, app blocks);
+     - an empty column view, or one that is flush on the page's last section;
+     - flush new to a section that isn't a column view;
+     - a class's forbidden carrier.
+     It lists the documents over their class's maximum.
+   - **Found and fixed with a test** (test/carrier-check-508.test.mjs): a stray `{column-end-outer}` after a column
+     group counted as more content. /ir/en/tehran-frankfurt-restart got flush, and its page metadata went into a
+     section of its own.
+   - **The workspace run**, 5,153 documents:
+     - markers 35,258: 14,915 theme, 20,283 carriers (17,683 written), 60 for a person (58 captions after no
+       image);
+     - 2 markers left, both in /migration-status/;
+     - the loss check: 0 failed without /migration-status/;
+     - the carrier check: 0 failed, 9 over the maximum (/mk/ articles without an import report).
+   - **Of the census's 6,826 documents the workspace has 4,874**, so DA's run will be about a third larger. The page
+     says so.
+   - **The switch branch `token-free-lufthansa-live`** (08a4f848, off 65123e78): the switch line, the bundles and
+     test/token-free-lufthansa-live.test.mjs. Two shared tests now run with every theme off, so they pass with
+     lufthansa.com live (in 65123e78).
+3. **The branches stay mergeable.** All nine switch branches merged one after another onto main 65123e78: no
+   conflict, 9 live lines, the token-free tests 377 passed, 0 failed. TAP's test passes too since ema-cashub's
+   b848bbd5; harness-pass-ita.md says TAP's branch can merge. I didn't touch test/tap-collapse-505.test.mjs.
+4. **ITA's canary report** isn't on main or in tools/reports/token-free/ yet, so nothing is written for it.
+
+Checks:
+- Full suite on main:
+  - 2963500e: 656 passed;
+  - 65bda7a9: 657 passed;
+  - after the pull that brought five commits, 65123e78: 661 passed, 0 failed.
+- The lufthansa.com branch 08a4f848: lint clean, 662 passed, 0 failed (the first build, off 8d8cce17: 658). It is
+  pushed; its preview is token-free-lufthansa-live--lh-com--moved-permanently.aem.page.
+- Smoke on all 12 hosts before and after 2963500e (style-markers.js deploys lh-edge): 0 differences. 65123e78
+  touches no deploy path.
+- Hosts: our own previews for from-768-check.md, local renders. Nothing to www or any brand's www host.
+
+Documents: none changed, none uploaded, nothing published.
+
+| item | commit | what |
+| --- | --- | --- |
+| 1 | 2963500e | from-768 kept: the Spacer / Divider option, collapse, site, library; decision 3; from-768-check.md |
+| 2 | 65123e78 | harness-pass-lufthansa.md, carrier-check.mjs, the column view fix, the census list, two tests off-theme |
+| 2 | 08a4f848 (branch token-free-lufthansa-live) | lufthansa.com's switch |
+| 3 | this one | TAP mergeable; this report |
+
+Left per item:
+1. Nothing.
+2. The harness runs the pass.
+3. The user merges, each branch after its pass.
+4. Read the ITA canary report when it lands.
+
+## The brief after 520 (ITA's branch with from-768; ITA's list from DA; the brands' harness pages; the marks in block cells)
+
+The last turn (the brief after 512) left nothing uncommitted or unpushed of its own beyond the usual:
+- .migration/project.json and tools/importer/reports/** are generated;
+- content/ and migration-work/ are local documents;
+- logs/p4 is scratch (s508);
+- the /tmp worktrees are scratch;
+- the 7 November autostash is untouched.
+
+Its commits were 2963500e, 65123e78, 8282ba39 and the branch token-free-lufthansa-live 08a4f848. This turn's scratch:
+- logs/p4/s509: the DA reads of eight sites (about 190 MB of documents, the brands' own content), the dry runs, the
+  edit scripts;
+- the worktrees /tmp/wt-ita, /tmp/wt-sw-*, /tmp/wt-push and /tmp/wt-allsw.
+
+None of it is in git: the reads are other people's documents and scratch.
+
+1. **ITA's switch branch** `token-free-ita-live`: main (be71a181) merged in as a merge commit, head **76d8fd18**
+   (no force push). It contains 2963500e. The branch's full suite: 668 passed, 0 failed. On the branch preview,
+   /it/en/world-of-ita-airways/discover-ita-airways/fleet/short-haul (one of the 33):
+   - its two from-768 separators as DA has them now (the marker): `display: none` at 390, `display: block` (51 px)
+     at 1440;
+   - the same page with the dry run's collapsed document in place of `<main>` (the Spacer (from-768) block,
+     answered locally): `none` at 390, `block` (61 px) at 1440, no marker text.
+2. **ITA's list is DA's census** (3a262ba9):
+   - census-lh-ita-paths.txt has 2,195 paths in release order;
+   - harness-pass-ita.md has DA's numbers: 22,198 markers, 20,974 theme, 1,224 carriers, 704 written, 0 for a
+     person; loss and carrier checks 0 failed; 42 documents with several H1s;
+   - the census is tools/importer/da-tree-read.mjs (GET only, test/da-tree-read-520.test.mjs) and the dry run, with
+     the pass's backups for the documents already collapsed.
+   - **The 112 extra documents**: none needs to be left alone. None has a workspace copy, their markers are the
+     common kinds, and both checks pass on all of them. 54 are in none of this workspace's upload states (their
+     owner is unknown here).
+3. **The brands' harness pages**, in the brands helper's order after ITA. Every switch branch has today's main
+   (3f2c61d7) merged in as a merge commit, its full suite 680 passed, 0 failed, and is pushed:
+
+   | brand | page | DA census | branch head | ready |
+   | --- | --- | --- | --- | --- |
+   | TAP | harness-pass-tap.md | 156 of 1,929 documents; 447 `{blank}`, all theme | 3d92339c | yes |
+   | Brussels | harness-pass-brussels.md | 1,252 of 1,898; 7,119 markers, 1,085 carriers written | 5ddc21b3 | yes |
+   | Austrian | harness-pass-austrian.md | 2,036 of 2,550; 20,226 markers, 1,447 written | 2700b095 | yes |
+   | SWISS and its sub-sites | harness-pass-swiss.md | 2,647 of 5,170; 19,417 markers, 2,663 written | 17da6b5b | yes |
+   | Group for Business | harness-pass-b2b.md (ema-adobe's, brief 531; status updated) | 679 of 733; 5,708 markers, 854 written | 07a0a3b7 | yes |
+   | Cargo | harness-pass-cargo.md (ema-adobe's; status updated) | 22 of 990; 30, all theme | 9fcbcb77 | after the video links' text (below) |
+   | Air Dolomiti | harness-pass-airdolomiti.md (ema-adobe's; status updated) | 3 of 1,575; 3 `{selected}` | 18b9dd20 (new) | yes |
+
+   Air Dolomiti's theme entry is on main (3f2c61d7). It sits between B2B's and TAP's entries so that it touches no
+   other branch's switch line: all nine branches trial-merge with no conflict. Smoke on the 12 hosts before and
+   after its deploy: 0 differences.
+
+   What the censuses found that needs a decision:
+   - **TAP**: nothing.
+   - **Brussels**:
+     - 30 captions a person must place: three travel articles in en, fr and nl, each caption under a paragraph
+       with two photos;
+     - 35 from-768 separators in 9 documents (11 become Spacer (from-768));
+     - 29 documents with several H1s.
+   - **Austrian**: 123 from-768 in 30 documents (20 become blocks); 2 with several H1s.
+   - **SWISS**:
+     - 390 documents with several H1s (check-in, on-board, baggage pages: a content question, not the pass's);
+     - 44 from-768 in 22 documents (22 become blocks);
+     - one page gains 26 carriers (/kr/ko/discover/swiss-senses/business).
+   - **Group for Business**: 58 documents with several H1s.
+   - **Cargo, Air Dolomiti**: nothing.
+4. **Marks no rule handled** (54303323, test/cell-marks-520.test.mjs): the censuses found marks in block cells'
+   bare text.
+   - Form note labels (Brussels 31 documents `{copytext-small}`, Austrian 11 `{copytext-large}`, ITA 1) now go to
+     the theme, as a block's single paragraphs do.
+   - A Columns Media cell with a video link and `{controls round-play-button}` (B2B 3) now takes the video rules.
+   - The left check (the CLI and the loss check) reads block cells, which is how they showed up.
+   - **ITA**: the one document is /xx/en/book-and-prepare/group-travel-and-charter/group-travel (list position
+     2,143, not uploaded yet at 12:56 UTC). The harness's phase A ran before this fix. To have it leave no mark,
+     collapse that one document again with main at 54303323 before its batch. As it stands, the note keeps
+     `{copytext-small}`, which form.js still reads (it renders as today).
+
+Checks:
+- Full suites:
+  - fbb1dc76: 668 passed;
+  - 3a262ba9 on its first rebase: 670. After the second rebase (one B2B CSS commit), lint plus 211 related tests;
+  - c0bead8c: 673. 8338554e after a rebase onto docs-only commits: lint plus its own tests;
+  - f8f883a5: 678;
+  - 3f2c61d7: 679;
+  - each switch branch: 680 (ITA's 668), Air Dolomiti's new branch 680.
+- Smoke on the 12 hosts before and after 3f2c61d7 (style-markers.js): 0 differences.
+- Hosts:
+  - DA, read only (list and source GET, eight sites, and the ITA pass's backup folder);
+  - token-free-ita-live--lh-ita for the from-768 check;
+  - the 12 turnsthe.page hosts for the smoke;
+  - api.github.com for the deploy run.
+  - Nothing to www.
+
+Documents: none changed, none uploaded, nothing previewed or published.
+
+Left per item:
+1. Nothing.
+2. Nothing; the helper goes on with the new list.
+3. The passes, in the order above. The user merges each branch after its pass, publishes last.
+4. ITA's one document (above).
+
+Seen during this brief and not done, because they are not in this brief's items:
+- ema-adobe's handover item 7 (the chapter rule at www's own section boundaries, token-free.js);
+- spacer-cost-536.md's CSS rule for ema-test (the Spacer heading gap; B2B's two news/lhg-ita-airways pages are flagged
+  without it);
+- harness-pass-cargo.md's second condition (brief 536): the collapse keeps the video links' text. Cargo's pass waits
+  for it.
+
+These three requests landed on main while this brief ran (b20eeb24, f8349f2a).

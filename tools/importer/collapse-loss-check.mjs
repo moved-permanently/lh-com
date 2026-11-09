@@ -50,6 +50,16 @@ const diffCounts = (a, b) => {
   return out;
 };
 
+/**
+ * The markers left in a document: at the end of a heading, paragraph or list item, or in a block cell's bare text
+ * (a form note's label, a one-paragraph cell). Data placeholders ({origin}, {n}) aren't markers.
+ */
+export function leftIn(html, main = mainOf(html)) {
+  const texts = [...main.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li')].filter((el) => LEFT_MARKER.test(el.textContent));
+  const cells = [...main.querySelectorAll('div')].filter((d) => [...d.childNodes].some((n) => n.nodeType === 3 && LEFT_MARKER.test(n.nodeValue)));
+  return [...texts, ...cells].map((el) => el.textContent.trim().slice(-60));
+}
+
 /** What a document's checks read. */
 export function readDocument(html) {
   const main = mainOf(html);
@@ -64,7 +74,7 @@ export function readDocument(html) {
     images: [...main.querySelectorAll('img')].map((i) => i.getAttribute('src') || ''),
     blocks: [...main.querySelectorAll(':scope > div > div[class]')].map(blockName).filter((n) => !SKIP_BLOCKS.has(n)),
     headings: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].map((h) => main.querySelectorAll(h).length),
-    left: [...main.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li')].filter((el) => LEFT_MARKER.test(el.textContent)).map((el) => el.textContent.trim().slice(-60)),
+    left: leftIn(html, main),
   };
 }
 

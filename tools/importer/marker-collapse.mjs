@@ -41,8 +41,8 @@
  *   theme's rule.
  * - video: controls + round play button is the default player (the marker goes); autoplay without
  *   controls a background video: the block's option background-video, else the link's #background
- *   fragment; the size token the link's #size=WxH fragment (other fragments stay); a link whose text
- *   is its URL gets a readable text (the poster's alt, else the file name). {mobile} in an Article
+ *   fragment; the size token the link's #size=WxH fragment (other fragments stay); the link's text
+ *   stays as it is (parity with www, a bare URL too). {mobile} in an Article
  *   Header: its option mobile-video.
  * - captions: "{caption}" becomes the italic paragraph after the image (a figure caption); one that
  *   follows no image is listed for a person.
@@ -419,6 +419,36 @@ function collapseApp(main, doc, stats) {
   });
 }
 
+// a note's text size or width, as blocks/form/form.js reads it at the end of the note's label
+const NOTE_MARK = /\s*\{((?:copytext-(?:small|medium|large)|full-width|limited-width)(?: [a-z-]+)*)\}\s*$/;
+
+/**
+ * The form block's note rows: the text-size / width mark at the end of the label (bare text, or the cell's last
+ * paragraph) goes to the theme, as a block's single paragraphs do (body size; a block's text is never wide).
+ */
+function collapseFormNotes(main, stats) {
+  main.querySelectorAll(':scope > div > div.form').forEach((block) => {
+    const rows = [...block.children];
+    const header = rows.length ? readHeaderTexts([...rows[0].children].map((c) => textOf(c))) : null;
+    const labelAt = header && header.label !== undefined ? header.label : 0;
+    const typeAt = header && header.type !== undefined ? header.type : 1;
+    (header ? rows.slice(1) : rows).forEach((row) => {
+      if (!/^(note|hinweis)$/i.test(textOf(row.children[typeAt] || { textContent: '' }).trim())) return;
+      const cell = row.children[labelAt];
+      const paras = cell && cell.querySelector('p') ? [...cell.querySelectorAll('p')] : [cell].filter(Boolean);
+      paras.forEach((p) => {
+        const last = lastText(p);
+        const m = last && last.nodeValue.match(NOTE_MARK);
+        if (!m) return;
+        last.nodeValue = last.nodeValue.slice(0, m.index);
+        // "Two <strong>bold</strong> {copytext-small}": the space before the mark goes with it
+        if (!last.nodeValue) last.remove();
+        m[1].split(' ').forEach((t) => count(stats, 'theme', /^copytext-/.test(t) ? 'text-size' : 'text-width'));
+      });
+    });
+  });
+}
+
 /** The form block's "{selected}": the options chosen at load in a Default column. */
 function collapseForms(main, doc, stats) {
   main.querySelectorAll(':scope > div > div.form').forEach((block) => {
@@ -501,15 +531,6 @@ function collapseNav(main, doc, stats) {
 }
 
 const VIDEO_LINK = (a) => /\.(mp4|m4v|webm|mov)(?:$|[?#])/i.test(a.getAttribute('href') || '');
-const urlText = (a) => {
-  const t = textOf(a);
-  return !t || t === a.getAttribute('href') || /^(https?:\/\/|\/)\S+$/.test(t) || /\.(mp4|m4v|webm|mov)$/i.test(t);
-};
-function readableName(href) {
-  const file = decodeURIComponent(String(href).split(/[?#]/)[0].split('/').pop() || '').replace(/\.[a-z0-9]+$/i, '');
-  const words = file.replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim();
-  return words ? words.charAt(0).toUpperCase() + words.slice(1) : 'Video';
-}
 function addFragment(a, part) {
   const href = a.getAttribute('href');
   const at = href.indexOf('#');
@@ -546,10 +567,8 @@ function collapseVideos(main, doc, stats, marks) {
       else addFragment(a, 'background');
       count(stats, 'carrier', 'video');
     } else if (settings.length) count(stats, 'theme', 'video');
-    if (urlText(a)) {
-      const poster = el.querySelector('img') || (el.previousElementSibling && isImageParagraph(el.previousElementSibling) && el.previousElementSibling.querySelector('img'));
-      a.textContent = (poster && poster.getAttribute('alt')) || readableName(a.getAttribute('href'));
-    }
+    // the link's text stays as it is, a bare URL too (parity with www: the player shows its own "Play video";
+    // the brief after 532, item 1c)
   });
 }
 
@@ -559,6 +578,15 @@ function collapseCaptions(main, doc, stats, marks, hand) {
     if (!tokens.includes('caption') || el.tagName !== 'P') return;
     // a link alone in italics stays a button (step 1): a person decides
     const onlyLink = el.querySelectorAll('a').length === 1 && textOf(el.querySelector('a')) === textOf(el);
+    // under a paragraph of two or more photos (no figure caption for one of them): a paragraph in the theme's
+    // default text, as a form note's (the brief after 532: Brussels' travel articles)
+    const prev = el.previousElementSibling;
+    if (prev && prev.tagName === 'P' && !textOf(prev) && prev.querySelectorAll('picture, img').length - prev.querySelectorAll('picture img').length >= 2) {
+      const last = el.lastChild;
+      if (last && last.nodeType === 3) last.nodeValue = last.nodeValue.replace(/\s+$/, '');
+      count(stats, 'theme', 'caption');
+      return;
+    }
     const kids = [...el.childNodes].filter((n) => n.nodeType === 1 || n.nodeValue.trim());
     if (!(kids.length === 1 && kids[0].nodeType === 1 && /^(EM|I)$/.test(kids[0].tagName))) {
       const em = doc.createElement('em');
@@ -1078,6 +1106,7 @@ export function collapseMain(main, opts = {}) {
 
   if (/\/nav$/.test(path)) collapseNav(main, doc, stats);
   collapseForms(main, doc, stats);
+  collapseFormNotes(main, stats);
   collapseBlank(main, stats);
   // the markers at the end of headings, paragraphs and lists (a list's: its last item)
   const marks = new Map();
@@ -1087,6 +1116,14 @@ export function collapseMain(main, opts = {}) {
     if (el.tagName === 'P' && SEPARATOR.test(textOf(el))) return;
     const tokens = takeTokens(el);
     if (tokens.length) marks.set(el, tokens);
+  });
+  // a block cell's bare text (no paragraph of its own) with a video's settings: "<a …mp4>…</a> {controls …}"
+  main.querySelectorAll(':scope > div > div[class] > div > div').forEach((cell) => {
+    if (cell.querySelector('p, h1, h2, h3, h4, h5, h6, li, div') || !cell.querySelector('a[href]')) return;
+    const t = lastText(cell);
+    const m = t && t.nodeValue.match(TAIL);
+    if (!m || !m[1].split(/\s+/).every((k) => VIDEO_SETTINGS.includes(k) || /^size-\d+x\d+$/.test(k))) return;
+    marks.set(cell, takeTokens(cell));
   });
   collapseVideos(main, doc, stats, marks);
   collapseCaptions(main, doc, stats, marks, hand);

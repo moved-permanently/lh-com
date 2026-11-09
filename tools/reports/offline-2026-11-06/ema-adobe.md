@@ -2337,3 +2337,75 @@ baselines, Brussels, SWISS and TAP; swiss-smoke and TAP by hand.
 
 - Written into tools/reports/token-free/lh-com-pass-check.md ("Answered (brief 515)") and, for decisions.md, into the
   handover to ema-test (item 6, the exact lines).
+
+## Brief 521 (2026-11-09): the next worst hub and campaign pages, the pass check after from-768, the capture list
+
+Left from 515: the generated import reports; the scratch in logs/b515, b507, b506, b505, b500, b484, b488; logs/b493 with
+the 16 lh-bd-ema archives (rollback windows); the draft test in logs/b506/drafts; /tmp/b488dam and the commit-message
+files; nothing unpushed.
+
+Method: no request to www or any brand's www host; nothing uploaded or published; no test calls da-upload, the DA API or
+the preview API. Lint (clean worktree) and both suites before the push (lh-edge 70 files, site 661, 0 failing); smoke
+before and after.
+
+### 1. Hub and campaign pages (tools/reports/parity-2026-11-09/hub-campaign-521.md; parity rows 69, 70)
+
+- The 37 recorded pages captured again (published, deployed code); the ten worst outside the named causes:
+  airport-information, take-off, overview-special-request and seven /100-years pages.
+- Most of their percentage is no layout: moving images at another frame, carousels, text from two text engines (the
+  recordings are macOS Chrome), card text wrapping by a line. The local www render draws www's buttons (maui-button-link)
+  as a 10-13 px line: gaps across a button are 32-38 px off there, so only the recordings decide those.
+- Fixed in my files: 9485448, a page that ends with separators only after a grey band (airport-information on four
+  roots, the flights pages, doctor-on-board-news): 71 px to the footer as on www (was 151); airport-information 1440
+  7.8 -> 5.8 %. Checked live on lufthansa.turnsthe.page: 71 px at 1440 and 390.
+- For ema-lufthansa (lufthansa-sections.js, the exact change in the report): stage sections www pads after an unpadded
+  AEM section (destinations' New York and Cape Town; not when a padded section follows): destinations 18.3 -> 15.2 % /
+  14.5 -> 13.5 %, 16 documents.
+- No third shared cause: nothing else repeats on two of the ten pages.
+
+### 2. Pass check after ema-test's from-768 option (2963500; lh-com-pass-check.md)
+
+- additional-services 390 +8.2 -> 0 %, stopover 390 +3.9 -> +1.9 %, first-class-terminal unchanged; 1440 unchanged.
+  Per page type: campaign 1.5 %, hub 0.8 %, info 0.9 %, legal 2.7 %, insights 2.0 %.
+
+### 3. Capture list (tools/reports/parity-2026-11-09/capture-list-lh-hub-video.txt)
+
+- 84 pages on www.lufthansa.com for after 15:00 CET: the 52 hub and 18 video documents without a recording, overview-
+  manage, flights, the six campaign re-import documents of 507 without one, six meetings-and-events roots of the logo
+  slider list (ema-cashub's correction to 10 added three). All 84 answer 200 on lufthansa.turnsthe.page.
+
+## Brief 526 (2026-11-09): insights after fa26e25, the held locale work for it/el/ja/ko/pl, legal and insights
+
+Left from 521: the generated import reports; the scratch in logs/b521, b515, b507, b506, b505, b500, b484, b488;
+logs/b493 with the 16 lh-bd-ema archives (rollback windows); the draft test in logs/b506/drafts; /tmp/b488dam and the
+commit-message files; nothing unpushed.
+
+Method: no request to www or any brand's www host; nothing uploaded or published; no test calls da-upload, the DA API
+or the preview API. Lint (clean worktree) and both suites before the push (lh-edge 70 files, site 668, 0 failing); smoke
+before and after.
+
+### 1. Insights after ema-test's fa26e25 (lh-com-pass-check.md)
+
+- The six insights documents collapsed with today's collapse, rendered against today's published pages: 5 of 12
+  page-widths flagged (was 8), mean 2.0 -> 1.0 % (food-trends 390 +3.8 -> +0.4 %: the captions in its cells).
+- The Price Bar is drawn in no injected-<main> render (also not uncollapsed with the theme off): the method's, the same
+  before and after.
+
+### 2. it, el, ja, ko, pl (tools/reports/markets/locales-17-21-check-526.md)
+
+- All seven items were already done on main, in DA and on preview: the rows with the calls (a), the roots' navs and
+  footers by the harness on 2026-11-06 (b), the query indexes 613708c (c), the built-in texts (d, tests pass), the
+  capture lists eafbc58 (e), EXCAT_IMPORT_SCRIPTS_SOURCE (f), zh / hk / pt / ru navs, footers and confirmations (g; the
+  own ammunition confirmations of xx/hk, xx/zh, xx/it, xx/el, xx/ja, xx/ko and xx/pl answer 200 on preview).
+- For the user: `liveWaves` already holds waves 17-21 on main since 2026-11-06 (029ec0b ... daa6a61); the twelve rows
+  are live and the twelve roots' homepages answer 200 on lufthansa.turnsthe.page.
+
+### 3. Legal and insights, the three biggest differences
+
+- Fixed: ec344f6 (styles.css, live theme only): a ruled chapter keeps www's 24 px under the text before its rule, not a
+  section gap. Insights 1.0 -> 0.5 % (flying-high and food-trends 0 %, be-picky +2.9 -> +1.2 %, chiswick +2.3 ->
+  +1.2 % at 1440). The published articles are unchanged (no body.theme-live; checked on lufthansa.turnsthe.page).
+- advance-seat-reservations-terms-and-conditions (legal +7.4 / +6.5 %): its cells' copytext-medium and its spacer-100
+  collapse to the theme's values, Ben's rule; nothing to change.
+- For ema-test (handover item 7, token-free.js): no chapter rule above a heading that a block follows (be-picky's teaser
+  section, +25 px), checked on the sample's sections.

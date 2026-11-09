@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-form.js
-  var tmp_bundle_form_1493351_exports = {};
-  __export(tmp_bundle_form_1493351_exports, {
-    default: () => tmp_bundle_form_1493351_default
+  var tmp_bundle_form_1720268_exports = {};
+  __export(tmp_bundle_form_1720268_exports, {
+    default: () => tmp_bundle_form_1720268_default
   });
 
   // tools/importer/parsers/form-core.js
@@ -2084,7 +2084,7 @@ var CustomImportScript = (() => {
     // default (www: 89 % unmarked, heading-medium; no longer heading-small)
     brussels: { pageTypes: { flow: { headings: { h3: "heading-small" } } } },
     // ITA: running text over the whole width
-    ita: { text: { width: "full" } },
+    ita: { live: true, text: { width: "full" } },
     // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
     // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
     // (a heading right before them starts the group's column view, as its marker did)
@@ -2100,6 +2100,8 @@ var CustomImportScript = (() => {
         flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true } }
       }
     },
+    // Air Dolomiti: the base theme (between B2B's and TAP's entries, next to no switch line)
+    airdolomiti: {},
     // TAP: the base theme (an entry of its own, so its switch is one line as every brand's)
     tap: {},
     // Lufthansa Cargo: the base theme
@@ -3952,7 +3954,9 @@ var CustomImportScript = (() => {
       aemSections.forEach((s, i) => {
         if (!i || !padded(s) || grey(s)) return;
         const before = aemSections[i - 1];
-        if (!padded(before) && (!lufthansa || isStage(s) || isStage(before) || grey(before) || loneQuote(before))) return;
+        const next = aemSections[i + 1];
+        const stageBeforePadded = isStage(s) && !!next && padded(next) && !grey(next);
+        if (!padded(before) && (!lufthansa || stageBeforePadded || isStage(before) || grey(before) || loneQuote(before))) return;
         const hr = createBreak(document);
         hr.setAttribute(SOURCE_STYLE, "padded");
         s.before(hr);
@@ -4425,6 +4429,28 @@ var CustomImportScript = (() => {
       });
     });
   }
+  var NOTE_MARK = /\s*\{((?:copytext-(?:small|medium|large)|full-width|limited-width)(?: [a-z-]+)*)\}\s*$/;
+  function collapseFormNotes(main, stats) {
+    main.querySelectorAll(":scope > div > div.form").forEach((block) => {
+      const rows = [...block.children];
+      const header = rows.length ? readHeaderTexts([...rows[0].children].map((c) => textOf(c))) : null;
+      const labelAt = header && header.label !== void 0 ? header.label : 0;
+      const typeAt = header && header.type !== void 0 ? header.type : 1;
+      (header ? rows.slice(1) : rows).forEach((row) => {
+        if (!/^(note|hinweis)$/i.test(textOf(row.children[typeAt] || { textContent: "" }).trim())) return;
+        const cell = row.children[labelAt];
+        const paras = cell && cell.querySelector("p") ? [...cell.querySelectorAll("p")] : [cell].filter(Boolean);
+        paras.forEach((p) => {
+          const last = lastText(p);
+          const m = last && last.nodeValue.match(NOTE_MARK);
+          if (!m) return;
+          last.nodeValue = last.nodeValue.slice(0, m.index);
+          if (!last.nodeValue) last.remove();
+          m[1].split(" ").forEach((t) => count(stats, "theme", /^copytext-/.test(t) ? "text-size" : "text-width"));
+        });
+      });
+    });
+  }
   function collapseForms(main, doc, stats) {
     main.querySelectorAll(":scope > div > div.form").forEach((block) => {
       const rows = [...block.children];
@@ -4506,15 +4532,6 @@ var CustomImportScript = (() => {
     });
   }
   var VIDEO_LINK = (a) => /\.(mp4|m4v|webm|mov)(?:$|[?#])/i.test(a.getAttribute("href") || "");
-  var urlText = (a) => {
-    const t = textOf(a);
-    return !t || t === a.getAttribute("href") || /^(https?:\/\/|\/)\S+$/.test(t) || /\.(mp4|m4v|webm|mov)$/i.test(t);
-  };
-  function readableName(href) {
-    const file = decodeURIComponent(String(href).split(/[?#]/)[0].split("/").pop() || "").replace(/\.[a-z0-9]+$/i, "");
-    const words2 = file.replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
-    return words2 ? words2.charAt(0).toUpperCase() + words2.slice(1) : "Video";
-  }
   function addFragment(a, part) {
     const href = a.getAttribute("href");
     const at = href.indexOf("#");
@@ -4548,16 +4565,19 @@ var CustomImportScript = (() => {
         else addFragment(a, "background");
         count(stats, "carrier", "video");
       } else if (settings.length) count(stats, "theme", "video");
-      if (urlText(a)) {
-        const poster = el.querySelector("img") || el.previousElementSibling && isImageParagraph(el.previousElementSibling) && el.previousElementSibling.querySelector("img");
-        a.textContent = poster && poster.getAttribute("alt") || readableName(a.getAttribute("href"));
-      }
     });
   }
   function collapseCaptions(main, doc, stats, marks, hand) {
     marks.forEach((tokens, el) => {
       if (!tokens.includes("caption") || el.tagName !== "P") return;
       const onlyLink = el.querySelectorAll("a").length === 1 && textOf(el.querySelector("a")) === textOf(el);
+      const prev = el.previousElementSibling;
+      if (prev && prev.tagName === "P" && !textOf(prev) && prev.querySelectorAll("picture, img").length - prev.querySelectorAll("picture img").length >= 2) {
+        const last = el.lastChild;
+        if (last && last.nodeType === 3) last.nodeValue = last.nodeValue.replace(/\s+$/, "");
+        count(stats, "theme", "caption");
+        return;
+      }
       const kids = [...el.childNodes].filter((n) => n.nodeType === 1 || n.nodeValue.trim());
       if (!(kids.length === 1 && kids[0].nodeType === 1 && /^(EM|I)$/.test(kids[0].tagName))) {
         const em = doc.createElement("em");
@@ -5062,6 +5082,7 @@ var CustomImportScript = (() => {
     const emptyBefore = new Set([...main.querySelectorAll(":scope > div")].filter((d) => !d.children.length && !textOf(d)));
     if (/\/nav$/.test(path)) collapseNav(main, doc, stats);
     collapseForms(main, doc, stats);
+    collapseFormNotes(main, stats);
     collapseBlank(main, stats);
     const marks = /* @__PURE__ */ new Map();
     main.querySelectorAll("h1, h2, h3, h4, h5, h6, p, li").forEach((el) => {
@@ -5070,6 +5091,13 @@ var CustomImportScript = (() => {
       if (el.tagName === "P" && SEPARATOR.test(textOf(el))) return;
       const tokens = takeTokens(el);
       if (tokens.length) marks.set(el, tokens);
+    });
+    main.querySelectorAll(":scope > div > div[class] > div > div").forEach((cell) => {
+      if (cell.querySelector("p, h1, h2, h3, h4, h5, h6, li, div") || !cell.querySelector("a[href]")) return;
+      const t2 = lastText(cell);
+      const m = t2 && t2.nodeValue.match(TAIL);
+      if (!m || !m[1].split(/\s+/).every((k) => VIDEO_SETTINGS.includes(k) || /^size-\d+x\d+$/.test(k))) return;
+      marks.set(cell, takeTokens(cell));
     });
     collapseVideos(main, doc, stats, marks);
     collapseCaptions(main, doc, stats, marks, hand);
@@ -5130,6 +5158,24 @@ var CustomImportScript = (() => {
       hand,
       changed
     };
+  }
+
+  // tools/importer/nbsp-guard.mjs
+  var NBSP_STAND_IN = "\u2007";
+  var NBSP_ALL = /\u00a0/g;
+  var NBSP_BLANK = /^[\s\u00a0]*$/;
+  var NBSP_SKIP_TAGS = /* @__PURE__ */ new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEMPLATE"]);
+  function guardNbsp(root) {
+    const visit = (el) => {
+      if (!el || NBSP_SKIP_TAGS.has(el.tagName) || NBSP_BLANK.test(el.textContent || "")) return;
+      [...el.childNodes].forEach((n) => {
+        if (n.nodeType === 3) {
+          if (n.nodeValue.includes("\xA0")) n.nodeValue = n.nodeValue.replace(NBSP_ALL, NBSP_STAND_IN);
+        } else if (n.nodeType === 1) visit(n);
+      });
+    };
+    visit(root);
+    return root;
   }
 
   // tools/importer/import-form.js
@@ -5251,10 +5297,11 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_form_1493351_default = {
+  var tmp_bundle_form_1720268_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
+      guardNbsp(document.body);
     },
     transform: (payload) => {
       const { document, url, params } = payload;
@@ -5290,5 +5337,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_form_1493351_exports);
+  return __toCommonJS(tmp_bundle_form_1720268_exports);
 })();

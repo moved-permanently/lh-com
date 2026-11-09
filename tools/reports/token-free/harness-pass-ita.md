@@ -26,7 +26,7 @@ npm ci
 
 - Node 20 or later.
 - For the page checks: a Chromium for playwright-core (`npx playwright-core install chromium`, or `CHROMIUM_PATH=<chrome>`).
-- The branch `token-free-ita-live` (head 72b2f4d9) must not be merged, checked out or changed by the harness. Its
+- The branch `token-free-ita-live` (head 76d8fd18: main at be71a181 merged in, with the from-768 option) must not be merged, checked out or changed by the harness. Its
   preview is all the harness uses: `https://token-free-ita-live--lh-ita--moved-permanently.aem.page`.
 - The R2 snapshots are not needed for this pass (no import runs).
 - During the pass no ITA re-import may run. ITA's theme is off on main, so an import would write markers again.
@@ -35,18 +35,33 @@ npm ci
 
 - DA site: org `moved-permanently`, site `lh-ita`. Source API: `https://admin.da.live/source/moved-permanently/lh-ita/<path>.html`,
   `Authorization: Bearer $DA_TOKEN`.
-- The pass's documents: `tools/reports/token-free/collapse-lh-ita-paths.txt`, 2,083 paths in release order
-  (de/en, de/de, then the other markets; it/en and it/it are 220 and 237 of them). These are the workspace's
-  documents with markers.
-- DA's set may differ:
-  - a listed path that DA doesn't have is recorded and skipped;
-  - a DA document that isn't listed is not touched (record it if it has markers: `marker-collapse-cli.mjs --check`
-    on it).
-  - Step 4's census of ITA's preview (2026-11-09, step4-preconditions.md) finds 2,141 of 2,563 previewed documents
-    with markers, against the workspace's 2,083. Download the site's whole tree once and run `--check` over it, so the
-    difference is known before phase B.
+- The pass's documents: `tools/reports/token-free/census-lh-ita-paths.txt`, **2,195 paths**, the DA documents
+  with markers (DA's own census, 2026-11-09). They are in release order: de/en, de/de, then the other markets, and
+  each root's documents of the earlier workspace list come first.
+  - The census: DA's whole tree read with `tools/importer/da-tree-read.mjs --site lh-ita` (GET only; 2,776
+    documents, 23 MB, 3 minutes), then the collapse's dry run over it. For the documents the pass had already
+    collapsed, the backups in `/.token-free-backup/2026-11-ita/` were used. It matches the harness's own census:
+    2,195 documents, 22,198 markers.
+  - The earlier list, `collapse-lh-ita-paths.txt` (2,083, the workspace's documents), lacks 112 of them. None of
+    them is missing from DA. They are documents this workspace has no copy of:
+    - /ve/en: 33;
+    - profile/travel-id, its privacy policy and terms, profile/account-statement and profile/miles-and-more: nine
+      roots each;
+    - legal/passenger-rights, conditions-of-carriage-ita and baggage-assistance: four each;
+    - lounges and accessible-travel: three each;
+    - the login and registration pages (login, profile/login, registo, iscrizione, connexion, inicio-de-sesion):
+      one `{spacer-N}` each, no H1;
+    - more single pages.
 
-## 3. Phase A, local only (no DA writes): download, collapse, check, all 2,083 at once
+    None of them needs to be left alone. Their markers are the common ones (`{full-width}` 2,937, `{heading-small}`
+    234, separators 168, `{limited-width}` 94, `{heading-copytext-large}` 94, column marks 42). The loss and carrier
+    checks pass on all 112: 78 gain nothing, the others 68 carriers in all, at most 4. 54 of them were uploaded by
+    none of this workspace's upload states (2026-11-01). Their owner is unknown here, and their markers are the
+    same kinds.
+- A listed path that DA doesn't have is recorded and skipped. A DA document with markers that isn't listed is not
+  touched: record it (`marker-collapse-cli.mjs --check` on it).
+
+## 3. Phase A, local only (no DA writes): download, collapse, check, all 2,195 at once
 
 The collapse must see all documents in one run. It rewrites links to another document's old heading ids, which is
 only possible within the run. So collapse everything first, then upload in batches.
@@ -55,24 +70,26 @@ only possible within the run. So collapse everything first, then upload in batch
 mkdir -p work/ita/before work/ita/after
 # every path of the list: GET the DA source, saved byte for byte as work/ita/before/<path>.plain.html (DA's <body>…</body>)
 node tools/importer/marker-collapse-cli.mjs --content work/ita/before --brand ita --force \
-  --list tools/reports/token-free/collapse-lh-ita-paths.txt --out work/ita/after \
+  --list tools/reports/token-free/census-lh-ita-paths.txt --out work/ita/after \
   --report work/ita/report.json --paths work/ita/changed.txt --pages work/ita/pages.jsonl
 node tools/importer/collapse-loss-check.mjs --before work/ita/before --after work/ita/after \
   --list work/ita/changed.txt --out work/ita/loss.json
 ```
 
-What the run must report (`work/ita/report.json`). These are the workspace's numbers, and DA's may be a little
-off them:
+What the run must report (`work/ita/report.json`). These are DA's numbers from the census, the same dry run:
 
 | | expected |
 | --- | --- |
-| documents changed | 2,083 |
-| markers | 18,446: 17,331 theme (the marker goes), 1,115 as carriers, 0 for a person (a "from-768" is no longer counted as a token of its own) |
+| documents changed | 2,195 (of 2,776 in the tree) |
+| markers | 22,198: 20,974 theme (the marker goes), 1,224 as carriers, 0 for a person |
 | marker left, not idempotent, errors | 0, 0, 0 |
-| carriers written | 631: Section Metadata styles h2-compact 196, divider-below 60, space-m 22, small-print 21, h3-large 9, space-below-l 8, space-below-m 7; Spacer blocks 126, Spacer (from-768) 25, Spacer (l, from-768) 8, Divider blocks 81; block options title-large 36, title-compact 27, divider-above 18; form Default 2 |
-| the loss check | 0 failed (`collapse-loss-check` exits 0). The documents that already had several H1s are listed as notes: 52 in the workspace. |
+| carriers written | 704: Section Metadata styles h2-compact 204, divider-below 67, small-print 23, space-m 22, h3-large 9, space-below-m 9; Spacer blocks 127, Spacer (from-768) 25, Spacer (l, from-768) 8, Divider blocks 117; block options title-large 40, title-compact 29, divider-above 19; the page's Headings row 3; form Default 2 |
+| the loss check | 0 failed (`collapse-loss-check` exits 0). The documents that already had several H1s are listed as notes: 42. `carrier-check.mjs` (harness-pass-lufthansa.md, section 4): 0 failed. |
 
-What a changed document looks like, per document class (the import reports' template):
+What a changed document gains: 0 for 1,816 of the 2,195; median 0, 95 % at most 2, at most 13 (the nine
+terms-and-conditions-of-use pages). The from-768 documents: 33 carry such separators, 24 gain a Spacer (from-768)
+block, and the other nine have only 25 px ones, which go. Per document class, from the workspace's earlier list
+(the import reports' template):
 
 | class | documents | carriers per document |
 | --- | --- | --- |
@@ -89,7 +106,7 @@ In every changed document:
   (title-large)`), Spacer / Divider blocks, and a form's Default column.
 
 Stop before phase B if any row above is off. That means: a loss-check failure, a marker left, an error or a
-document "for a person", carriers written more than 10 % above 631, or a document with more than 15 carriers.
+document "for a person", carriers written more than 10 % above 704, or a document with more than 15 carriers.
 
 ## 4. Phase B, in batches: back up, upload, preview, check
 
@@ -161,8 +178,11 @@ Never publish collapsed documents while the switch is off on main.
 
 ## The next brands: deltas
 
-Every brand's switch branch is in place (the brief after 506). Each merges on its own after its pass, without
-conflicts. The page above holds for each brand, with these changes:
+Every brand's switch branch is in place (the brief after 506; Air Dolomiti's since the brief after 520). Each merges
+on its own after its pass, without conflicts. Every brand now has a page of its own with DA's census, which takes the
+place of its row below: harness-pass-tap.md, -brussels, -austrian, -swiss (the brief after 520), -b2b, -cargo,
+-airdolomiti (ema-adobe's, brief 531), -discover and -lufthansa. The brands helper's order after ITA: TAP, Brussels,
+Austrian, SWISS, Group for Business, Cargo, Air Dolomiti. The table as it was:
 
 | brand | DA site | paths file (documents) | switch branch | branch preview | host | expected carriers written | pass check |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -175,5 +195,5 @@ conflicts. The page above holds for each brand, with these changes:
 | Cargo | lh-cargo | DA's own list: no workspace list; the census finds 22 previewed pages with video settings (60) | token-free-cargo-live | token-free-cargo-live--lh-cargo--moved-permanently.aem.page | cargo.turnsthe.page | from that check | none yet |
 | lufthansa.com (last) | lh-com | DA's own list, from lh-com-census-paths.txt (6,752 pages and 74 app screens) | token-free-lufthansa-live | token-free-lufthansa-live--lh-com--moved-permanently.aem.page | lufthansa.turnsthe.page | 17,683 for the workspace's 5,153 documents | lh-com-pass-check.md (ema-adobe's); its own page: harness-pass-lufthansa.md |
 
-TAP's branch can't merge yet: ema-cashub's test/tap-collapse-505.test.mjs asserts TAP's switch is off. It needs
-`test/live-brands.mjs` (LIVE or offThemes) first.
+TAP's branch can merge now: ema-cashub's b848bbd5 no longer pins TAP's switch in test/tap-collapse-505.test.mjs.
+With all nine branches merged onto main (65123e78) the token-free tests pass, TAP's included.
