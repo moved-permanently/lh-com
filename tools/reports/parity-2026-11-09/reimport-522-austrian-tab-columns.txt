@@ -1,0 +1,21 @@
+# The brief after 521 item 2 (ema-cashub): lh-austrian's documents to re-import with austrian-import.mjs after a tab panel's two-column view comes one level into the section's one-column view (withPanelWrappersUnwrapped in a column-view item; withNestedOnecolumnUnwrapped over a heading wrapper where the item holds a column view); in release order. On the 82 recorded pages two change: travelling-with-animals (the cabin-pets tab's text and carrier picture side by side, as www: 1440 +6.8 -> about -1.3 %) and online-check-in (the Tour Operator Booking tab's text and picture as a columns-media). These 20 are their language copies; the other 90 of the 110 Austrian documents with tab sets change only where their snapshot has the same nesting (a site-wide re-import from the harness's snapshots shows which). All 20 are published on austrian.turnsthe.page (200).
+/at/en/plan/special-requirements/travelling-with-animals
+/at/de/plan/special-requirements/travelling-with-animals
+/fr/fr/plan/special-requirements/travelling-with-animals
+/it/it/plan/special-requirements/travelling-with-animals
+/es/es/plan/special-requirements/travelling-with-animals
+/pl/pl/plan/special-requirements/travelling-with-animals
+/ru/ru/plan/special-requirements/travelling-with-animals
+/gr/el/plan/special-requirements/travelling-with-animals
+/jp/ja/plan/special-requirements/travelling-with-animals
+/cn/zh/plan/special-requirements/travelling-with-animals
+/at/en/online-check-in
+/at/de/online-check-in
+/fr/fr/online-check-in
+/it/it/online-check-in
+/es/es/online-check-in
+/pl/pl/online-check-in
+/ru/ru/online-check-in
+/gr/el/online-check-in
+/jp/ja/online-check-in
+/cn/zh/online-check-in

@@ -805,3 +805,13 @@ body.brand-cargo .carousel-cards.slides .carousel-cards-dots {
     margin-top: 40px;
   }
 }
+
+/* lufthansa.com: a phone slider of experience-fragment teasers (option fragment-slides, the importer:
+   miles-and-more's "This might also interest you"): www's slides are 30px taller than their teasers,
+   the pagination 20px under them; the dots 56px under the cards at 390, ours 21. On phones the dots
+   30px lower (8 + 30) */
+@media (width < 768px) {
+  body.brand-lufthansa .carousel-cards.phone-slider.fragment-slides .carousel-cards-dots {
+    margin-top: 38px;
+  }
+}

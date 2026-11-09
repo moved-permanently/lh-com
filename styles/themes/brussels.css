@@ -712,6 +712,43 @@ body.brand-brussels main :is(.default-content-wrapper, .columns-media-text) li >
   margin-bottom: 0;
 }
 
+/* the page title alone in its section, then a grey band (travel-insurances' residents notice): the band
+   right under the title and the text right under the band, as www (84 / 87 px at 1440; ours 161 / 136) */
+body.brand-brussels main > .section.padded:has(> .default-content-wrapper:last-child > h1:only-child):has(+ .section.grey) {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels main > .section.padded:has(> .default-content-wrapper:last-child > h1:only-child):has(+ .section.grey) {
+    margin-bottom: 12px;
+  }
+}
+
+body.brand-brussels main > .section.padded:has(> .default-content-wrapper:last-child > h1:only-child) + .section.grey {
+  margin-bottom: 0;
+}
+
+/* the heading after an accordion in its section: 41 px below the accordion from 768 px, 21 on phones, as
+   www (ours the default content's 20 / 16); a spaced accordion keeps lh-com's 40 px below */
+body.brand-brussels main .accordion-columns-wrapper:not(:has(> .spaced)) + .default-content-wrapper:has(> :is(h2, h3):first-child) {
+  margin-top: 21px;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels main .accordion-columns-wrapper:not(:has(> .spaced)) + .default-content-wrapper:has(> :is(h2, h3):first-child) {
+    margin-top: 41px;
+  }
+}
+
+/* an accordion straight under a section heading ("Good to know"): 40 px between them from 768 px,
+   as www (ours the heading's 26); even on phones */
+@media (width >= 768px) {
+  body.brand-brussels main .default-content-wrapper:has(+ .accordion-columns-wrapper) > h2:last-child {
+    margin-bottom: 40px;
+  }
+}
+
 /* a tab set below 768 px (scripts/section-tabs.js: an accordion; www's maui-tab-control-responsive
    draws maui-collapsible-item sn, /be/fr/travel-classes/business at 390): the header 20 / 24 px,
    bold when open, 20 px in; the open panel's content 20 px further in (.expandable-pane .section

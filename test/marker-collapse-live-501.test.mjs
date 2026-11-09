@@ -9,7 +9,7 @@ import fs from 'node:fs';
 import { parseHTML } from 'linkedom';
 import { THEMES, isThemeLive } from '../scripts/style-markers.js';
 import { collapseHtml, collapseMain } from '../tools/importer/marker-collapse.mjs';
-import { BRANDS, LIVE } from './live-brands.mjs';
+import { BRANDS, LIVE, offThemes } from './live-brands.mjs';
 
 const read = (f) => fs.readFileSync(new URL(f, import.meta.url), 'utf8');
 const DOC = '<div><p>{spacer-60}</p><h2 id="a-heading-small">A {heading-small}</h2><p>Text {full-width}</p></div>';
@@ -19,23 +19,17 @@ test('a brand is live only with its switch and its own test (test/token-free-<br
   BRANDS.forEach((b) => assert.equal(isThemeLive(b), LIVE.has(b), b));
 });
 
-test('a brand whose theme is off: the document as it came; live or forced: collapsed', () => {
-  const [one, other] = ['ita', 'brussels', 'austrian', 'swiss', 'b2b'].filter((b) => !LIVE.has(b));
-  assert.equal(run({ brand: one }).html, DOC);
-  assert.equal(run({ brand: one }).changed, false);
-  const forced = run({ brand: one, force: true });
+test('a brand whose theme is off: the document as it came; live or forced: collapsed', () => offThemes(() => {
+  assert.equal(run({ brand: 'ita' }).html, DOC);
+  assert.equal(run({ brand: 'ita' }).changed, false);
+  const forced = run({ brand: 'ita', force: true });
   assert.ok(forced.changed && !/\{/.test(forced.html), forced.html);
-  THEMES[one].live = true;
-  try {
-    assert.equal(run({ brand: one }).html, forced.html, 'live: the same as the forced pass');
-    assert.equal(run({ brand: other }).html, DOC, 'another brand stays');
-  } finally {
-    delete THEMES[one].live;
-  }
-  assert.equal(isThemeLive(one), false);
-});
+  THEMES.ita.live = true;
+  assert.equal(run({ brand: 'ita' }).html, forced.html, 'live: the same as the forced pass');
+  assert.equal(run({ brand: 'brussels' }).html, DOC, 'another brand stays');
+}));
 
-test('the importers\' table form and the app screens too', () => {
+test('the importers\' table form and the app screens too', () => offThemes(() => {
   const { document } = parseHTML('<html><body><main><p>{spacer-60}</p><p>A {copytext-small}</p><hr><table><tr><th>Metadata</th></tr></table></main></body></html>');
   const main = document.querySelector('main');
   const before = main.innerHTML;
@@ -44,7 +38,7 @@ test('the importers\' table form and the app screens too', () => {
   const app = '<div><p>{spacer: medium}</p><p>Fine {small}</p></div>';
   assert.equal(collapseHtml(app, { path: '/content/mobile/lh/de/x', parse: parseHTML }).html, app);
   assert.notEqual(collapseHtml(app, { path: '/content/mobile/lh/de/x', parse: parseHTML, force: true }).html, app);
-});
+}));
 
 test('the importers never force; the CLI forces only when asked (a site\'s pass)', () => {
   assert.ok(!/force/.test(read('../tools/importer/collapse-docs.mjs').replace(/\/\*[\s\S]*?\*\//g, '')), 'collapse-docs.mjs');

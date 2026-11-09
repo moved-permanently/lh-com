@@ -131,11 +131,12 @@ test('each AEM section of a campaign page is a section of ours, its padding and 
 
 test('the campaign template runs it after lufthansa-sections, in its import script and bundle', () => {
   const { templates } = JSON.parse(fs.readFileSync('tools/importer/page-templates.json', 'utf8'));
-  assert.deepEqual(templates.find((t) => t.name === 'campaign').transformers, ['campaign-sections']);
+  // hub-column-views after it since brief 507 (campaign pages of one AEM section: test/campaign-column-views-507.test.mjs)
+  assert.deepEqual(templates.find((t) => t.name === 'campaign').transformers, ['campaign-sections', 'hub-column-views']);
   // and hub since brief 497 (its own transformers after it)
   assert.deepEqual(templates.filter((t) => (t.transformers || []).includes('campaign-sections')).map((t) => t.name).sort(), ['campaign', 'hub']);
   const script = fs.readFileSync('tools/importer/import-campaign.js', 'utf8');
-  assert.match(script, /const transformers = \[lufthansaCleanupTransformer, lufthansaSectionsTransformer, campaignSectionsTransformer\];/);
+  assert.match(script, /const transformers = \[lufthansaCleanupTransformer, lufthansaSectionsTransformer, campaignSectionsTransformer, hubColumnViewsTransformer\];/);
   assert.ok(!fs.readFileSync('tools/importer/import-info.js', 'utf8').includes('campaignSections'));
   assert.ok(fs.readFileSync('tools/importer/import-campaign.bundle.js', 'utf8').includes('campaign-section'));
 });

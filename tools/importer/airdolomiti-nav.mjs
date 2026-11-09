@@ -16,8 +16,9 @@
  *   style badges: the main buttons, the social links (:facebook:, :instagram:, :linkedin:,
  *   :youtube:, :x:, :tiktok: tokens) and www's payment logos under their heading (images without
  *   a link, as on www), the
- *   legal row (www's "change cookie settings" opens PrivacyLab's banner: left out, the site has
- *   no consent layer), the company line (note) and the logo row.
+ *   legal row (www's "change cookie settings", which reopens PrivacyLab's banner, as the
+ *   #privacy-settings link: the site's consent preferences), the company line (note) and the logo
+ *   row.
  * - search (/search, /en/search, /de/search): the search-results block over the language's index.
  * Portal and live tools point at the live site; pages in scope (the booking and flight status
  * pages too) become the site's paths.
@@ -81,14 +82,20 @@ export function navTools(setup, others, { href }) {
 /**
  * The footer's link columns, as www's: the company (www shows it without a title: "Air Dolomiti"
  * here), contacts, news, routes, assistance and the legal links ("Info legali", www's last column;
- * its cookie-settings button, a {{...}} placeholder, left out); a column without links, none.
+ * its cookie-settings button, the placeholder {{update-cookie-preferencies}}, as the site's
+ * #privacy-settings link with www's label; other {{...}} placeholders left out); a column without
+ * links, none.
  * @param {Object} fd www's footer data
  * @param {Function} li li(url, text): a list item with the site's link
  * @returns {string}
  */
 export function footerColumns(fd, li) {
   const column = (title, links) => {
-    const items = (links || []).filter((l) => !/^\{\{/.test(l.url || '')).map((l) => li(l.url, l.text)).join('');
+    const items = (links || [])
+      .map((l) => (/^\{\{[^}]*cookie[^}]*\}\}$/i.test(l.url || '') && l.text ? `<li><a href="#privacy-settings">${esc(l.text.trim())}</a></li>` : l))
+      .filter((l) => typeof l === 'string' || !/^\{\{/.test(l.url || ''))
+      .map((l) => (typeof l === 'string' ? l : li(l.url, l.text)))
+      .join('');
     return items ? `<h3>${esc(title)}</h3><ul>${items}</ul>` : '';
   };
   return [

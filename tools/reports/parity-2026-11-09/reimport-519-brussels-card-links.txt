@@ -1,0 +1,19 @@
+# The brief after 517 item 3 (ema-cashub): lh-brussels' documents to re-import with brussels-import.mjs after its card teasers are marked (withTeaserCta: a card's link line, "Fasten up for perks", "En savoir plus", as a link after its description, as www shows it); in release order. These 18 are the language copies of the four recorded pages whose cards have a line on www (jobs 3 cards, connecting-africa 4 of 8, our-company 12; 23 of the 232 cards on the 46 recorded pages with card teasers have one, the others have none and stay as they are). Any other Brussels document with card teasers (809 have a carousel-cards block) changes only where its snapshot's card has a line: a site-wide re-import from the harness's snapshots shows which. All 18 are published on brussels.turnsthe.page (200).
+/be/en/jobs
+/be/fr/jobs
+/be/en/book-a-flight/connecting-africa
+/be/fr/book-a-flight/connecting-africa
+/be/nl/book-a-flight/connecting-africa
+/bf/en/book-a-flight/connecting-africa
+/bf/fr/book-a-flight/connecting-africa
+/de/de/book-a-flight/connecting-africa
+/es/es/book-a-flight/connecting-africa
+/it/it/book-a-flight/connecting-africa
+/be/en/our-company
+/be/fr/our-company
+/be/nl/our-company
+/bf/en/our-company
+/bf/fr/our-company
+/de/de/our-company
+/es/es/our-company
+/it/it/our-company

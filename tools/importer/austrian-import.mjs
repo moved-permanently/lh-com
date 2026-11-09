@@ -424,8 +424,10 @@ export function withPanelWrappersUnwrapped(html) {
   const tags = [...html.matchAll(/<(\/?)div\b[^>]*>/g)];
   const remove = new Set();
   tags.forEach((open, i) => {
-    if (open[1] || !/^<div class="section-content\b/.test(open[0])) return;
-    // the section content's direct children
+    // under the section content, or in a column-view item (a tab control inside a one-column view:
+    // /at/en/plan/special-requirements/travelling-with-animals' tabs)
+    if (open[1] || !/^<div class="(?:section-content\b|[^"]*\bcolumn-view-item\b)/.test(open[0])) return;
+    // the section content's (the item's) direct children
     let depth = 0;
     let child = null;
     for (let j = i + 1; j < tags.length; j += 1) {
@@ -483,15 +485,25 @@ const hasClass = (n, c) => n && n.cls.split(/\s+/).includes(c);
 export function withNestedOnecolumnUnwrapped(html) {
   const tags = [...html.matchAll(/<(\/?)div\b[^>]*>/g)];
   const remove = new Set();
+  const isHeadingWrapper = (d) => d && !d.kids.length && d.close !== undefined && tags[d.open][0] === '<div>'
+    && /^\s*<h[1-6]\b[^>]*>[^<]*<\/h[1-6]>\s*$/.test(html.slice(tags[d.open].index + 5, tags[d.close].index));
   const visit = (n) => {
     const [view] = n.kids;
-    const row = view?.kids[0];
+    // the view's own heading before its one row (a tab panel's "Small pets in the cabin"): a bare
+    // wrapper of a heading alone, kept for the outer item, where the item holds a column view (the
+    // two-column view lh-com's info importer maps one level into a one-column view only)
+    const head = view?.kids.length === 2 && isHeadingWrapper(view.kids[0]) ? view.kids[0] : null;
+    const row = view?.kids[head ? 1 : 0];
     const item = row?.kids[0];
+    if (head && !item?.kids.some((k) => /\b(?:two|three|four)column\b/.test(k.cls))) {
+      n.kids.forEach(visit);
+      return;
+    }
     const outer = n.parent?.parent?.parent?.parent;
     if (hasClass(n, 'onecolumn') && hasClass(n.parent, 'column-view-item') && hasClass(n.parent.parent, 'row')
       && hasClass(n.parent.parent.parent, 'column-view') && hasClass(outer, 'onecolumn')
       && n.kids.length === 1 && view.cls.trim().split(/\s+/).sort().join(' ') === 'column-view flex-column'
-      && view.kids.length === 1 && hasClass(row, 'row') && row.kids.length === 1 && hasClass(item, 'column-view-item')
+      && view.kids.length === (head ? 2 : 1) && hasClass(row, 'row') && row.kids.length === 1 && hasClass(item, 'column-view-item')
       && [n, view, row, item].every((x) => x.close !== undefined)) {
       [n, view, row, item].forEach((x) => remove.add(x.open).add(x.close));
     }
