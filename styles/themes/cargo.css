@@ -713,6 +713,16 @@ body.brand-cargo .footer .footer-logos li:nth-child(3) {
   }
 }
 
+/* row 46 (the brief after 531): from 1025 px a story's text blocks 50 px under a picture module and
+   50 px over the next one, as www's (cargo-parity-001's 142 story at 1440; the wrappers' 20 px
+   before); phones as before */
+@media (width >= 1025px) {
+  body.brand-cargo main > .section > .hero-card-overlay-wrapper:has(> .hero-card-overlay.light) + div,
+  body.brand-cargo main > .section > div:not(.hero-card-overlay-wrapper) + .hero-card-overlay-wrapper:has(> .hero-card-overlay.light) {
+    margin-top: 50px;
+  }
+}
+
 /* row 42 (the brief after 509): a gallery's dots onto the next line, centred, as www's inline-block
    owl dots (one dot a picture: the industry galleries ran past the screen at 390) */
 body.brand-cargo .carousel-images .carousel-images-dots {
