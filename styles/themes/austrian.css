@@ -542,6 +542,14 @@ body.brand-austrian .accordion-columns .accordion-columns-title {
   letter-spacing: 0.19px;
 }
 
+/* an accordion in a text column (spaced) 45 px under the text before it, as www at every width:
+   none of lh-com's 40 px above from 768 px (lufthansa.com's collapsible margin); the space below as lh-com's */
+@media (width >= 768px) {
+  body.brand-austrian .accordion-columns.spaced {
+    padding-top: 0;
+  }
+}
+
 /* the contact page's topics (the accordion after the help centre app) 18/28 regular #4d4d4d, as
    www's help topics; the content accordions (www's .accordion-maui: the info pages' questions, the
    conditions of carriage's articles) keep the 24/28 500 titles above (brief 445, austrian-parity-002:
