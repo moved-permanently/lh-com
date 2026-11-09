@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-hero-banner.js
-  var tmp_bundle_austrian_hero_banner_1024231_exports = {};
-  __export(tmp_bundle_austrian_hero_banner_1024231_exports, {
-    default: () => tmp_bundle_austrian_hero_banner_1024231_default
+  var tmp_bundle_austrian_hero_banner_1711840_exports = {};
+  __export(tmp_bundle_austrian_hero_banner_1711840_exports, {
+    default: () => tmp_bundle_austrian_hero_banner_1711840_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -7542,15 +7542,6 @@ var CustomImportScript = (() => {
     });
   }
   var VIDEO_LINK = (a) => /\.(mp4|m4v|webm|mov)(?:$|[?#])/i.test(a.getAttribute("href") || "");
-  var urlText = (a) => {
-    const t = textOf(a);
-    return !t || t === a.getAttribute("href") || /^(https?:\/\/|\/)\S+$/.test(t) || /\.(mp4|m4v|webm|mov)$/i.test(t);
-  };
-  function readableName(href) {
-    const file = decodeURIComponent(String(href).split(/[?#]/)[0].split("/").pop() || "").replace(/\.[a-z0-9]+$/i, "");
-    const words2 = file.replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
-    return words2 ? words2.charAt(0).toUpperCase() + words2.slice(1) : "Video";
-  }
   function addFragment(a, part) {
     const href = a.getAttribute("href");
     const at = href.indexOf("#");
@@ -7584,10 +7575,6 @@ var CustomImportScript = (() => {
         else addFragment(a, "background");
         count(stats, "carrier", "video");
       } else if (settings.length) count(stats, "theme", "video");
-      if (urlText(a)) {
-        const poster = el.querySelector("img") || el.previousElementSibling && isImageParagraph(el.previousElementSibling) && el.previousElementSibling.querySelector("img");
-        a.textContent = poster && poster.getAttribute("alt") || readableName(a.getAttribute("href"));
-      }
     });
   }
   function collapseCaptions(main, doc, stats, marks, hand) {
@@ -8503,7 +8490,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_hero_banner_1024231_default = {
+  var tmp_bundle_austrian_hero_banner_1711840_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -8543,5 +8530,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_hero_banner_1024231_exports);
+  return __toCommonJS(tmp_bundle_austrian_hero_banner_1711840_exports);
 })();
