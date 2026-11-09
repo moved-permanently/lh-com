@@ -2390,3 +2390,92 @@ pages stay open as listed after 509. Nobody captures anything before Ben writes 
 - **Documents:** reimport-518-discover.txt (13) and reimport-518-swiss-homepages.txt (186 ready,
   41 waiting), plus the 196 SWISS dialog documents general-conditions-dialogs.mjs writes;
   reimport-510-airdolomiti-footer.txt (3) is with the harness already.
+
+## The brief after 518
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git); nothing was unpushed. Nothing is published or uploaded, and no request went to any www. No
+test calls da-upload, the DA API or the preview API.
+
+### 1. market-diff and the slug maps: done, 8d8cce17
+
+- **The change:** md-replica-check.mjs asks our replica where the write step puts a page
+  (lib/replica-paths.mjs): the map's write target, `canonicalOf(path)` without `all`. That is
+  the canonical path once a root's flag is on, else the www path, the same rule as da-upload. The
+  www side stays at its www paths. The map comes from `--host` (each map names its own host:
+  lh-com, lh-swiss, lh-b2b; none for ITA and TAP). `--slug-map` takes a copy of a map.
+- **Why not `all: true` for the requests:** it maps every alias whatever its flag. With every flag
+  off it would ask the replica at 6,499 canonical paths whose pages are still at their www paths.
+  `{ all: true }` and `wwwPathsOf` are what the test checks.
+- **Proved:**
+  - Every flag off: the same requests for every pair on disk (Lufthansa 173,479, SWISS 36,205,
+    Group for Business 47,364, ITA and TAP).
+  - A flags-on copy of Lufthansa's map: the 6,499 pairs with a localized page ask the replica at
+    the canonical path, the www side stays at the www path, and every one maps back to its www path.
+
+### 2. SWISS dialog names: done, eafe8b59; 187 homepages ready
+
+- **The rule:** the label's slug as before; a label without Latin letters or digits takes the
+  root's language (/ch/ja/fragments/modals/ja). I chose it because it is never empty and the same
+  however www words the label. It also needs no transliteration table in two copies (Japanese and
+  Chinese have no simple one).
+- **What changed:** footer-disclaimer.js dialogPath, and in the shared cleanup transformer
+  (transformers/lufthansa-cleanup.js convertFooterDisclaimer) only its slug line.
+- **lufthansa.com unchanged:** its one dialog link today (de/en "General Conditions", the only one
+  among its 255 roots' homepages on our host) and "Allgemeine Bedingungen" keep their names, as do
+  SWISS's Latin labels (tested on the transformer and the document writer).
+- **Bundles:** the 14 bundles that carry the transformer were rebuilt with an installed
+  aem-import-helper (the offline npx cache has none). The builder's process-id identifier was set
+  back to main's, so each bundle differs from main by that one line. The rebuild also regenerated
+  import-hub.js (one import line in another order); it was put back, and the hub bundle has
+  only the line.
+- **Documents:** general-conditions-dialogs.mjs --host www.swiss.com now writes 206 dialog
+  documents, none without a name. In reimport-518-swiss-homepages.txt the ten roots no longer wait
+  for a name: 187 ready (sg/zh was the one waiting for the name alone), 40 wait for a capture.
+
+### 3. The consent banner in each brand's fonts: done, 65b0d52d
+
+- **The change:** a brand whose theme has fonts of its own (Air Dolomiti, TAP, SWISS, Austrian,
+  Brussels, ITA) gives the banner and its preference center its --heading-font-family and
+  --body-font-family. lufthansa.com, Cargo, Group for Business and Discover keep Lufthansa's
+  stacks exactly. It is one rule in consent-banner.css (:where(), so it weighs as .lh-consent).
+- **Checked with this code at 1440 and 390:**
+  - main--lh-airdolomiti--moved-permanently.aem.page: the banner on a first visit and the
+    preference center from the footer's "Change Cookie Settings" (it: "Modifica impostazioni
+    cookie") are in Euclid Circular B, loaded, and no Lufthansa font file is asked for. With
+    main's CSS the same page asked for four (LufthansaHead and LufthansaText).
+  - main--lh-tap--moved-permanently.aem.page: TAP has no consent tool, so its pages show no banner
+    and no cookie link. Called directly, the banner module renders in GT Flexa (headings, 700
+    loaded) and Inter.
+  - Cargo's banner is unchanged (LufthansaHead, LufthansaText).
+- Air Dolomiti parity row 75. Smoke on all hosts after the push: 0 differences.
+
+### 4. Capture list: written
+
+tools/reports/parity-2026-11-09/capture-list-brands.txt lists 52 pages, host first, in priority
+order:
+1. The ten SWISS reference-root homepages whose re-import waits (page source).
+2. The recordings that settle open questions:
+   - the help apps: SWISS /ch/en/help-center, ITA /it/en/help-and-contact, Austrian
+     /at/en/help-center and Brussels /be/en/contact, each with the app's shadow h1 box at 1440
+     and 390;
+   - the Air Dolomiti hub's stuck booking bar (www.airdolomiti.eu/destinations, 1440 and 390);
+   - Cargo's timeline (/en/ci/facts-figures, each item's box after www's script);
+   - Air Dolomiti's four unconfirmed pages (with __NEXT_DATA__);
+   - the street-food article;
+   - Discover's excess-baggage source.
+3. The 30 SWISS market homepages that wait for a capture.
+
+At 10 seconds a page that is 8 min 40 s; counting each width as its own capture (59), 9 min 50 s.
+Nothing is captured before Ben writes "stable" (after 15:00 CET).
+
+### Checked
+
+- **Previews:** main--lh-airdolomiti and main--lh-tap at 1440 and 390, main--lh-cargo at 1440
+  (this checkout's code routed in, www's hosts unresolvable).
+- **lufthansa.turnsthe.page:** the 255 roots' homepage documents read.
+- **Offline:** the slug maps and the pairs lists on disk, the SWISS snapshots of brief 503 (the
+  dialog writer, dry).
+- **Smoke after every push:** all 14 hosts, 0 differences.
+- **Documents:** none new to re-import beyond reimport-518-swiss-homepages.txt (187 ready, 40
+  waiting) and its 206 dialog documents.

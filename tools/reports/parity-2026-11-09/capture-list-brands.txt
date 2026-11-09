@@ -1,0 +1,57 @@
+# The brief after 518, item 4: pages to capture once Ben writes that the network is stable (after 15:00 CET on 2026-11-09;
+# nothing before). One line per page, host first, in priority order: the ten SWISS reference roots whose re-import waits,
+# the recordings that settle open questions, then the 30 SWISS market homepages that wait (reimport-518-swiss-homepages.txt).
+# Columns (tab): host, path, widths (a size matters: a recording at each width; "-": the page source only), what to record.
+# 52 pages: at 10 seconds a page 8 min 40 s; 59 captures counting each width (9 min 50 s).
+www.swiss.com	/ch/en/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone (a reference root)
+www.swiss.com	/ch/de/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone (a reference root)
+www.swiss.com	/ch/fr/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone (a reference root)
+www.swiss.com	/ch/it/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone (a reference root)
+www.swiss.com	/ch/es/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone (a reference root)
+www.swiss.com	/ch/pt/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone (a reference root)
+www.swiss.com	/ch/zh/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone (a reference root)
+www.swiss.com	/ch/ja/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone (a reference root)
+www.swiss.com	/ch/el/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone (a reference root)
+www.swiss.com	/ch/ru/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone (a reference root)
+www.swiss.com	/ch/en/help-center	1440 390	the help app: its shadow h1 box and the header's bottom (SWISS has no section padding around it)
+www.ita-airways.com	/it/en/help-and-contact	1440 390	the help app: its shadow h1 box and the header's bottom
+www.austrian.com	/at/en/help-center	1440 390	the help app: its shadow h1 box and the header's bottom
+www.brusselsairlines.com	/be/en/contact	1440 390	the help app: its shadow h1 box and the header's bottom
+www.airdolomiti.eu	/destinations	1440 390	the hub's booking bar scrolled into its stuck state: DisplayBookingWidget boxes stuck and unstuck, any breadcrumb, the h1's top
+www.lufthansa-cargo.com	/en/ci/facts-figures	1440 390	each timeline item's box after www's timeline script ran
+www.airdolomiti.de	/flug-status	1440	page source with __NEXT_DATA__: www's own heading or the title fallback
+www.airdolomiti.de	/reisenformationen/schwangere-und-kinder	1440	page source with __NEXT_DATA__: www's Title block or the title fallback
+www.airdolomiti.de	/reisenformationen/tiere-an-bord	1440	page source with __NEXT_DATA__: www's Title block or the title fallback
+www.airdolomiti.eu	/destinations/florence/what-to-see	1440	page source with __NEXT_DATA__: www's Title block or the title fallback
+www.airdolomiti.eu	/articles/destinations/street-food-in-munich	1440 390	page source with __NEXT_DATA__: the h3's block, the photo at its end and its box
+www.discover-airlines.com	/de/en/book/baggage/excess-baggage	1440	page source: the element before "This might also be of interest to you" (the 15 empty accordions)
+www.swiss.com	/at/de/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/ca/de/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/ca/en/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/ca/fr/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/ca/it/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/cn/en/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/cn/zh/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/de/de/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/gb/en/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/hk/zh/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/in/en/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/it/de/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/it/fr/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/it/it/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/jp/de/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/jp/en/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/jp/fr/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/jp/it/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/jp/ja/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/kr/fr/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/kr/it/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/ru/ru/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/se/de/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/se/en/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/sg/zh/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/th/en/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/us/de/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/us/es/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/us/fr/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
+www.swiss.com	/us/it/homepage	-	page source (the snapshot the importer reads): the re-import waits for it; the Bengaluru promotion must be gone
