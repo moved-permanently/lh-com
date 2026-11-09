@@ -28,7 +28,7 @@ import {
   withoutLoads, withTeaserColumns, withCheckinTabs, withOffersGridConfig, withItaForm, withPageLanguageMessages,
   withItaMetadata, withOwnSuccess, withFlightSearch, withCheckinHandoff, withHeroVideo, withFlightSearchVideo,
   withFlightSearchTeaser, withOwnFlightSearchLinks, templateOf, divEnd, docName, withAppVersions,
-  withLiveFallback, withSearchBar,
+  withLiveFallback, withSearchBar, withFinderConditions, withSwissIcons,
 } from './swiss-import.mjs';
 import { relativeDamLinks } from './swiss-dam.mjs';
 import { subSiteLinks, capturedPages, withOneH1 } from './swiss-sub-import.mjs';
@@ -356,6 +356,9 @@ if (isMain) {
     doc = withMarketOrigin(withFlightSearch(doc, p), snapHtml);
     doc = withItaMetadata(withCheckinHandoff(doc, p), p, snapHtml, []);
     doc = splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(doc, snapHtml), snapHtml), snapHtml));
+    // the fares conditions once, in the destination finder's Conditions row, and the icon tiles'
+    // SWISS icons, as the language versions' homepages (swiss-import.mjs; the brief after 526)
+    doc = withSwissIcons(withFinderConditions(doc, snapHtml).doc);
     // one h1 a page (www writes some of its subheadings as h1: h3, swiss-sub-import.mjs)
     doc = withOneH1(withOwnFlightSearchLinks(doc, p));
     // links: the root's pages and the language versions' relative, the rest on www; the DAM links
