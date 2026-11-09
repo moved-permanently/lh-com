@@ -620,6 +620,28 @@ body.brand-austrian .flight-search .flight-search-tab[aria-selected="true"]::aft
   background-color: #d81e05;
 }
 
+/* a tab set's items on phones as www's collapsibles: titles CoreSans 24/28 500 in 52 px rows, the
+   open one red; 64 px under an open item's content before the next item */
+body.brand-austrian .section-tab-panel > .section-tab-toggle {
+  padding: 12px 0;
+  color: #1a1a1a;
+  font-family: var(--body-font-family);
+  font-size: calc(24px * var(--a11y-scale, 1));
+  font-weight: 500;
+  line-height: calc(28px * var(--a11y-scale, 1));
+}
+
+body.brand-austrian .section-tab-panel > .section-tab-toggle[aria-expanded="true"] {
+  color: #d81e05;
+}
+
+@media (width < 768px) {
+  body.brand-austrian main > .section.section-tab-panel:has(> .section-tab-toggle[aria-expanded="true"]):has(+ .section-tab-panel),
+  body.brand-austrian main > .section.section-tab-part:not([hidden]):has(+ .section-tab-panel) {
+    padding-bottom: 64px;
+  }
+}
+
 /* brief 394: columns-media option panel, www's help center info card (the FAQs card on contact):
    the picture and a white text panel side by side without a gap in a grey band (stacked on
    phones), the panel 36 px padded (24 px from 768 px) with 24 px between title, text and link */
