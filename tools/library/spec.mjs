@@ -70,7 +70,7 @@ export const SPEC = {
   'subpage-nav': { description: 'Navigation to the pages of a topic, at the end of the page', rows: { 0: [['Eyebrow', 'Topic', 'Pages']] } },
   'table-striped': { multi: true, description: 'Table with striped rows, one block row per table row (option header: the first row is the header)', columnLabels: true },
   // the small purpose blocks of token-free styling (scripts/style-markers.js; README "Authoring without markers")
-  spacer: { description: 'Extra space at this place, for a real exception (the theme spaces the page): M 60px, L 120px; between two blocks or at a section\'s edge use the block option or section style instead' },
+  spacer: { description: 'Extra space at this place, for a real exception (the theme spaces the page): M 60px, L 120px, option from-768: from 768px only, none on phones; between two blocks or at a section\'s edge use the block option or section style instead' },
   divider: { description: 'A thin grey line with 25px below it, for a real exception (the theme draws the usual rules)' },
   'app-spacer': { title: 'App screen: spacer', description: 'App screen: an empty space (x-small, small, medium, m-large, large; v2: in the v2 screen only). Only in app screen documents under /content/mobile/lh/<lang>/' },
   'app-divider': { title: 'App screen: divider', description: 'App screen: a rule. Only in app screen documents under /content/mobile/lh/<lang>/' },
@@ -87,6 +87,7 @@ export const SPEC = {
 export const EXTRA_ENTRIES = [
   { block: 'spacer', opts: [], html: '<div class="spacer"><div><div></div></div></div>' },
   { block: 'spacer', opts: ['l'], html: '<div class="spacer l"><div><div></div></div></div>' },
+  { block: 'spacer', opts: ['from-768'], html: '<div class="spacer from-768"><div><div></div></div></div>' },
   { block: 'divider', opts: [], html: '<div class="divider"><div><div></div></div></div>' },
   { block: 'app-spacer', opts: ['medium'], html: '<div class="app-spacer medium"><div><div></div></div></div>' },
   { block: 'app-spacer', opts: ['medium', 'v2'], html: '<div class="app-spacer medium v2"><div><div></div></div></div>' },
@@ -108,6 +109,7 @@ export const OPTION_NOTES = {
   ...BLOCK_OPTION_LABELS,
   m: 'M (60px)',
   l: 'L (120px)',
+  'from-768': 'from 768px only (none on phones)',
   v2: 'v2 screen only',
   small: 'small text',
   medium: 'medium',

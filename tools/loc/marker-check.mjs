@@ -28,6 +28,7 @@ import { scopeRows } from './regional-diff.mjs';
 import { translationPath, DEFAULT_TRANSLATION } from './slug-lib.mjs';
 import { localePath } from './link-lib.mjs';
 import { setupFromArgs } from './setup-lib.mjs';
+import { siteFromArgv, isDefaultSite } from './sites.mjs';
 // (VIDEO_MARKER: a video's settings after its link, scripts/media.js, the size token included)
 import {
   HEADING_STYLE, PARAGRAPH_STYLE, LIST_STYLE, SEPARATOR, VIDEO_MARKER,
@@ -254,8 +255,16 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   }
   const { daClient } = await import('./slug-step.mjs');
   const listed = argv.flatMap((a, i) => (a === '--page' ? [argv[i + 1]] : []));
-  const t = (await setupFromArgs(argv)).translation || DEFAULT_TRANSLATION;
-  const results = await runMarkerCheck({ pairs: checkPairs(scopeRows(), listed, t), da: daClient(), rootDir: opt('root') || '' });
+  const site = siteFromArgv(argv);
+  const setup = await setupFromArgs(argv);
+  const own = !isDefaultSite(site);
+  const t = (opt('to') ? setup.translations.find((x) => x.to === opt('to')) : null) || setup.translation || DEFAULT_TRANSLATION;
+  if (own && !listed.length) {
+    console.error(`marker-check: ${site} has no scope table: name the pages with --page /${t.from}/<path> (one or more); --to <root> picks the translation (default ${t.to})`);
+    process.exit(1);
+  }
+  const pairs = own ? listed.map((source) => ({ source, targets: [translationPath(source, t)] })) : checkPairs(scopeRows(), listed, t);
+  const results = await runMarkerCheck({ pairs, da: daClient(undefined, undefined, site), rootDir: opt('root') || '' });
   const checked = results.filter((r) => r.target);
   const broken = checked.filter((r) => r.findings.length);
   const lines = [];

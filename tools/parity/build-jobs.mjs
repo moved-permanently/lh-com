@@ -35,9 +35,12 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import sharp from 'sharp';
+/* eslint-disable-next-line import/extensions -- plain Node module */
+import { edsUrlOf } from './pair.mjs';
+/* eslint-disable-next-line import/extensions -- plain Node module */
+import { slugMapOf } from '../importer/slug-write.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const EDS_ORIGIN = 'https://main--lh-com--moved-permanently.aem.page';
 const WIDTHS = [1440, 768, 390];
 const PRIMARY = ['de/en', 'de/de'];
 const SECONDARY = ['at/de', 'gb/en'];
@@ -47,8 +50,12 @@ const { values: args } = parseArgs({
   options: {
     out: { type: 'string', default: path.join(ROOT, 'tools/parity/jobs.json') },
     cutoff: { type: 'string', default: '2026-10-21T18:46:00Z' },
+    // another copy of tools/slugs/lh-com.json (a test copy with flags on)
+    'slug-map': { type: 'string' },
   },
 });
+// a job keeps www's path (its captures); our page is where the write step put it (one slug in every language)
+const SLUGS = slugMapOf('lh-com', { file: args['slug-map'] });
 const cutoff = Date.parse(args.cutoff);
 const outFile = path.resolve(args.out);
 const skippedFile = outFile.replace(/\.json$/, '') + '.skipped.json';
@@ -258,7 +265,7 @@ const jobs = candidates
     locale: job.locale,
     template: job.template,
     priority: job.priority,
-    edsUrl: `${EDS_ORIGIN}${job.path}`,
+    edsUrl: edsUrlOf(job.path, SLUGS),
     widths: job.widths,
     srcPng: job.srcPng,
     contentWidth: job.contentWidth,

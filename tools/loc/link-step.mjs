@@ -18,17 +18,22 @@
  * with --page, or with --all-pages --yes (every page of the target locale: selectPages).
  * --root /drafts/loc-test: every DA path below that folder. Never previews or publishes.
  * Report (dry run over the scope, all three pairs with --all): tools/reports/loc-link-step.md
- * Usage: node tools/loc/link-step.mjs --from de/de --to at/de [--page …] [--apply] [--root …] [--config …]
+ * --site <site> (default lh-com): another airline (tools/loc/sites.mjs): its translate.json, DA root and hosts; one slug per page,
+ * so /<from>/x becomes /<to>/x, and the pages are named with --page (no scope table, no --all).
+ * Usage: node tools/loc/link-step.mjs --from de/de --to at/de [--page …] [--apply] [--root …] [--config …] [--site …]
  *        node tools/loc/link-step.mjs --from de/de --to at/de --all-pages --apply [--yes]
  *        node tools/loc/link-step.mjs --all        (dry run of the setup's pairs, the report)
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { pairMap, localizeDoc, localePath } from './link-lib.mjs';
+import {
+  pairMap, sameSlugMap, localizeDoc, localePath,
+} from './link-lib.mjs';
 import { locSetup, readConfig, setupFromArgs } from './setup-lib.mjs';
 import { scopeRows } from './regional-diff.mjs';
 import { daClient } from './slug-step.mjs';
+import { siteFromArgv, isDefaultSite, hostsRegex } from './sites.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const REFUSED = /^\/lhg(\/|$)|^\/[a-z]{2}\/[a-z]{2}\/(login|profile)(\/|$)/;
@@ -71,12 +76,13 @@ export function selectPages({
  * (locSetup; default the repo copy): the pair must be one of its rollouts or its translation.
  */
 export async function runLinkStep({
-  from, to, pages, rows, da, apply = false, rootDir = '', concurrency = 6, setup,
+  from, to, pages, rows, da, apply = false, rootDir = '', concurrency = 6, setup, hosts,
 }) {
   const s = setup || locSetup(await readConfig());
   if (!s.pairs[`${from}>${to}`]) throw new Error(`--from ${from} --to ${to}: not a rollout or translation pair of this translate.json (${Object.keys(s.pairs).join(', ')})`);
   const others = [...new Set(s.rows.map((r) => r.location))];
-  const map = pairMap(rows, from, to, { others });
+  // rows: pages.csv (lh-com); without them (another site) one slug per page: /<from>/x -> /<to>/x
+  const map = rows ? pairMap(rows, from, to, { others }) : sameSlugMap(from, to, { hosts });
   return pool(pages, apply ? 1 : concurrency, async (page) => {
     if (!page.startsWith(`/${to}/`) && page !== `/${to}`) return { page, status: `not a /${to} page` };
     if (REFUSED.test(page)) return { page, status: 'refused (lhg, login or profile)' };
@@ -110,8 +116,10 @@ function summary(from, to, results, kind) {
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
   const argv = process.argv.slice(2);
   const opt = (name) => (argv.includes(`--${name}`) ? argv[argv.indexOf(`--${name}`) + 1] : undefined);
-  const rows = scopeRows();
-  const da = daClient();
+  const site = siteFromArgv(argv);
+  const own = !isDefaultSite(site);
+  const rows = own ? null : scopeRows();
+  const da = daClient(undefined, undefined, site);
   const setup = await setupFromArgs(argv);
   const all = argv.includes('--all');
   const pairs = all ? Object.keys(setup.pairs).map((k) => k.split('>')) : [[opt('from'), opt('to')]];
@@ -124,7 +132,11 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   if (all && apply) throw new Error('--all is a dry run only');
   const report = ['# Link step dry run over the scope (DA as it is)', '', new Date().toISOString(), ''];
   for (const [from, to] of pairs) {
-    const scope = [...new Set(rows.map((r) => localePath(r, to)).filter(Boolean))];
+    if (own && !listed.length) {
+      console.error(`link-step: ${site} has no scope table: name the pages with --page /${to}/<path> (one or more)`);
+      process.exit(1);
+    }
+    const scope = rows ? [...new Set(rows.map((r) => localePath(r, to)).filter(Boolean))] : [];
     const { pages, stop } = selectPages({
       listed, scope, to, apply, allPages: argv.includes('--all-pages'), yes: argv.includes('--yes'),
     });
@@ -134,7 +146,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
     }
     if (apply) console.log(`link-step: writing ${pages.length} /${to} page${pages.length > 1 ? 's' : ''}`);
     const results = await runLinkStep({
-      from, to, pages, rows, da, apply, rootDir: opt('root') || '', setup,
+      from, to, pages, rows, da, apply, rootDir: opt('root') || '', setup, hosts: own ? hostsRegex(site) : undefined,
     });
     const lines = summary(from, to, results, setup.pairs[`${from}>${to}`]);
     console.log(lines.slice(0, 3).join('\n'));

@@ -9,10 +9,12 @@
  * - the global source (test/fixtures/loc/translate-gc.json): English /gc/en -> /de/en, /gb/en;
  *   German /gc/en -> /gc/de, rolled out to /de/de and /at/de.
  * A switch (and a switch back) is a translate.json change only.
+ * Other sites (`--site <site>`, tools/loc/sites.mjs): their own file tools/loc/sites/<site>/translate.json and DA document.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { daConfigUrl, configFile, siteFromArgv } from './sites.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const REPO_CONFIG = path.join(root, 'tools/loc/translate.json');
@@ -47,14 +49,20 @@ export function locSetup(config) {
     if (r.actions.includes('rollout')) r.locales.forEach((l) => { pairs[`${r.location}>${l}`] = 'rollout'; });
   });
   let translation = null;
+  const translations = [];
   rows.forEach((r) => {
     if (!r.actions.includes('translate')) return;
     const from = r.source || source;
     pairs[`${from}>${r.location}`] = 'translation';
+    translations.push({
+      code: r.code, from, to: r.location, locales: r.locales,
+    });
     if (r.code === 'de') translation = { from, to: r.location, locales: r.locales };
   });
+  // a setup without a German row (the languages of a site with another first translation): its first translation
+  if (!translation && translations.length) translation = { from: translations[0].from, to: translations[0].to, locales: translations[0].locales };
   return {
-    rows, pairs, source, translation, global: /^gc\//.test(source),
+    rows, pairs, source, translation, translations, global: /^gc\//.test(source),
   };
 }
 
@@ -64,21 +72,23 @@ export function locSetup(config) {
  * @param {string} [which]
  * @param {{fetchImpl?: Function, token?: string}} [opts]
  */
-export async function readConfig(which = 'repo', { fetchImpl = fetch, token = process.env.DA_TOKEN } = {}) {
+export async function readConfig(which = 'repo', { fetchImpl = fetch, token = process.env.DA_TOKEN, site = 'lh-com' } = {}) {
   if (which === 'da') {
+    const url = daConfigUrl(site);
     const headers = token ? { authorization: `Bearer ${token}` } : {};
-    const r = await fetchImpl(DA_CONFIG, { headers: { 'cache-control': 'no-cache', ...headers } });
-    if (!r.ok) throw new Error(`DA ${r.status}: ${DA_CONFIG}${r.status === 401 || r.status === 403 ? ` (${token ? 'DA_TOKEN was refused' : 'no login: set DA_TOKEN'})` : ''}`);
+    const r = await fetchImpl(url, { headers: { 'cache-control': 'no-cache', ...headers } });
+    if (!r.ok) throw new Error(`DA ${r.status}: ${url}${r.status === 401 || r.status === 403 ? ` (${token ? 'DA_TOKEN was refused' : 'no login: set DA_TOKEN'})` : ''}`);
     return r.json();
   }
-  return JSON.parse(fs.readFileSync(which === 'repo' ? REPO_CONFIG : which, 'utf8'));
+  return JSON.parse(fs.readFileSync(which === 'repo' ? configFile(site) : which, 'utf8'));
 }
 
-/** The CLI's setup: --config <file>|da|repo (default repo); prints which rows it took. */
+/** The CLI's setup: --config <file>|da|repo (default repo) and --site <site> (default lh-com); prints which rows it took. */
 export async function setupFromArgs(argv, log = console.error) {
   const i = argv.indexOf('--config');
   const which = i >= 0 ? argv[i + 1] : 'repo';
-  const setup = locSetup(await readConfig(which));
-  log(`translate.json (${which}): source /${setup.source}; ${Object.entries(setup.pairs).map(([p, k]) => `${p.replace('>', ' -> ')} (${k})`).join(', ')}`);
+  const site = siteFromArgv(argv);
+  const setup = locSetup(await readConfig(which, { site }));
+  log(`translate.json (${site === 'lh-com' ? '' : `${site}: `}${which}): source /${setup.source}; ${Object.entries(setup.pairs).map(([p, k]) => `${p.replace('>', ' -> ')} (${k})`).join(', ')}`);
   return setup;
 }

@@ -83,7 +83,10 @@ function decoratePurposeBlocks(main) {
     const what = readPurposeBlock(name, options);
     if (!what) return;
     if (what.kind === 'spacer' || what.kind === 'divider') {
-      block.replaceWith(separatorParagraph(what.px, what.kind === 'divider'));
+      const p = separatorParagraph(what.px, what.kind === 'divider');
+      // from 768px only (styles.css hides p.spacer.from-768 below)
+      if (what.fromTablet) p.classList.add('from-768');
+      block.replaceWith(p);
       return;
     }
     if (what.kind === 'app-spacer' || what.kind === 'app-divider') {
@@ -197,6 +200,11 @@ function decorateSectionStyles(main, theme, pageHeadings) {
  * a "{caption}" one) becomes <figure class="image-caption"><p>(the image)</p><figcaption>.
  */
 export function decorateCaptions(main) {
+  // in a block's cell the caption stays a paragraph, with the class the "{caption}" marker gave it
+  // (the block styles p.caption: Columns Media's info boxes)
+  main.querySelectorAll(':scope > div > div[class] > div > div > p').forEach((p) => {
+    if (isCaptionParagraph(p, p.previousElementSibling)) p.classList.add('caption');
+  });
   main.querySelectorAll(':scope > div > p').forEach((p) => {
     const prev = p.previousElementSibling;
     if (!isCaptionParagraph(p, prev) || p.classList.contains('caption')) return;
@@ -241,7 +249,10 @@ function applyThemeRules(main, theme) {
     }
     if (i > 0 && first && !isSeparator(first)) {
       if (theme.rules.includes('sections-m')) section.prepend(separatorParagraph(SPACE.m));
-      else if (theme.rules.includes('ruled-chapters') && isChapterStart(first)) section.prepend(separatorParagraph(DIVIDER_SPACE, true));
+      // a chapter's rule, not above the Related Articles (www draws none there)
+      else if (theme.rules.includes('ruled-chapters') && isChapterStart(first) && !section.querySelector(':scope > div.related-articles')) {
+        section.prepend(separatorParagraph(DIVIDER_SPACE, true));
+      }
     }
     // the brand's blocks that are column views of their own in the page's flow (THEMES columnViews
     // .blocks: www's column view around the block, its padding above and below as the markers drew
