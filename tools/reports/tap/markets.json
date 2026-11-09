@@ -27,6 +27,7 @@
    "own": [],
    "sitemapPages": 116,
    "lacks": [
+    "/buchungen",
     "/buchungen/gift-card",
     "/rechtliche-informationen/schlichtungsstelle"
    ],
@@ -50,6 +51,7 @@
    "sitemapPages": 118,
    "lacks": [
     "/information/special-needs/lose-fear-flying",
+    "/legal-info/flight-passes",
     "/miles-and-go/earn-miles/credit-cards",
     "/miles-and-go/earn-miles/day-by-day",
     "/miles-and-go/promotions/navigator-experiences"
@@ -412,6 +414,7 @@
     "/bookings/gift-card",
     "/bookings/insurances",
     "/information/special-needs/lose-fear-flying",
+    "/manage-booking/extras/boarding",
     "/miles-and-go/earn-miles/credit-cards",
     "/miles-and-go/earn-miles/day-by-day",
     "/miles-and-go/promotions/navigator-experiences",
@@ -600,6 +603,8 @@
    "own": [],
    "sitemapPages": 113,
    "lacks": [
+    "/gestionar-reserva/extras/upgrades/precio-fijo",
+    "/miles-and-go/utilice-millas/tarifas",
     "/promos",
     "/reservas/gift-card",
     "/reservas/seguros"
@@ -694,7 +699,8 @@
    "lacks": [
     "/promos",
     "/reservas/gift-card",
-    "/reservas/seguros"
+    "/reservas/seguros",
+    "/reservas/vigo-porto"
    ],
    "noDocument": [
     "/ayuda/solicitudes-reclamaciones/reclamacion",
@@ -1213,6 +1219,7 @@
    "own": [],
    "sitemapPages": 112,
    "lacks": [
+    "/info-legal",
     "/informacoes/necessidades-especiais/perder-medo-voar",
     "/miles-and-go/acumular-milhas/cartoes-de-credito",
     "/miles-and-go/acumular-milhas/dia-a-dia",
@@ -1946,6 +1953,8 @@
    "own": [],
    "sitemapPages": 113,
    "lacks": [
+    "/a-bordo/wi-fi",
+    "/miles-and-go/tienda-millas",
     "/promos",
     "/reservas/gift-card",
     "/reservas/seguros"
@@ -2305,6 +2314,7 @@
    "sitemapPages": 114,
    "lacks": [
     "/informacoes/necessidades-especiais/perder-medo-voar",
+    "/miles-and-go/acumular-milhas",
     "/miles-and-go/acumular-milhas/cartoes-de-credito",
     "/miles-and-go/acumular-milhas/dia-a-dia",
     "/miles-and-go/promocoes/navigator-experiences",
@@ -2424,6 +2434,7 @@
    "lacks": [
     "/bookings/gift-card",
     "/bookings/insurances",
+    "/information/documentation",
     "/information/special-needs/lose-fear-flying",
     "/miles-and-go/earn-miles/credit-cards",
     "/miles-and-go/earn-miles/day-by-day",
@@ -2446,6 +2457,7 @@
    "own": [],
    "sitemapPages": 112,
    "lacks": [
+    "/destinos",
     "/informacoes/necessidades-especiais/perder-medo-voar",
     "/miles-and-go/acumular-milhas/cartoes-de-credito",
     "/miles-and-go/acumular-milhas/dia-a-dia",
@@ -2706,7 +2718,8 @@
     "/information/special-needs/lose-fear-flying",
     "/miles-and-go/earn-miles/credit-cards",
     "/miles-and-go/earn-miles/day-by-day",
-    "/miles-and-go/promotions/navigator-experiences"
+    "/miles-and-go/promotions/navigator-experiences",
+    "/miles-and-go/use-miles"
    ],
    "noDocument": [
     "/help/requests-complaints/complaints",
@@ -2963,6 +2976,7 @@
    "lacks": [
     "/bookings/gift-card",
     "/bookings/insurances",
+    "/help/frequently-asked-questions",
     "/information/special-needs/lose-fear-flying",
     "/miles-and-go/earn-miles/credit-cards",
     "/miles-and-go/earn-miles/day-by-day",
