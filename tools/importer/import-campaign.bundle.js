@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_1388749_exports = {};
-  __export(tmp_bundle_campaign_1388749_exports, {
-    default: () => tmp_bundle_campaign_1388749_default
+  var import_campaign_exports = {};
+  __export(import_campaign_exports, {
+    default: () => import_campaign_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -3075,8 +3075,8 @@ var CustomImportScript = (() => {
     };
     const previousSameBlock = () => {
       const name = headerText(block);
-      const before = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
-      const prev = before[before.length - 1];
+      const before2 = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
+      const prev = before2[before2.length - 1];
       if (!prev) return null;
       const range = document.createRange();
       range.setStartAfter(prev);
@@ -3125,18 +3125,18 @@ var CustomImportScript = (() => {
     rows = rows.filter((cells2) => cells2.some((c) => c !== ""));
     const width = Math.max(1, ...rows.map((r) => r.length));
     const cells = rows.map((r) => r.length < width ? [...r, ...Array(width - r.length).fill("")] : r);
-    const before = [];
+    const before2 = [];
     const caption = element.querySelector("maui-table-caption, caption");
     if (caption && clean4(caption.textContent)) {
       const p = document.createElement("p");
       p.textContent = clean4(caption.textContent);
-      before.push(p);
+      before2.push(p);
     }
     const head = element.querySelector("maui-table-head, thead");
     const hasHeader = !!head && !!head.querySelector("maui-table-row, tr");
     const name = hasHeader ? "Table Striped (header)" : "table-striped";
     const block = WebImporter.Blocks.createBlock(document, { name, cells });
-    element.replaceWith(...before, block);
+    element.replaceWith(...before2, block);
   }
 
   // tools/importer/parsers/table-beside.js
@@ -3365,8 +3365,8 @@ var CustomImportScript = (() => {
     const headerText = (t) => clean4((t.querySelector("tr") || t).textContent).toLowerCase();
     const previousSameBlock = () => {
       const name = headerText(block);
-      const before = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
-      const prev = before[before.length - 1];
+      const before2 = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
+      const prev = before2[before2.length - 1];
       if (!prev) return null;
       const range = document.createRange();
       range.setStartAfter(prev);
@@ -3680,8 +3680,8 @@ var CustomImportScript = (() => {
   }
   function claimFallback(element, document, url) {
     const first = element.querySelector("maui-button");
-    const before = (el) => first && el.compareDocumentPosition(first) & 4;
-    const heads = [...element.querySelectorAll("maui-headline, maui-copy")].filter(before).map((h) => clean2(h.textContent)).filter(Boolean);
+    const before2 = (el) => first && el.compareDocumentPosition(first) & 4;
+    const heads = [...element.querySelectorAll("maui-headline, maui-copy")].filter(before2).map((h) => clean2(h.textContent)).filter(Boolean);
     const button = clean2((first || {}).textContent);
     if (!heads.length || !button) return null;
     const live = livePage(document, url);
@@ -5574,16 +5574,16 @@ var CustomImportScript = (() => {
   function dropEmptyBreaks(document, root) {
     const breaks = [...document.querySelectorAll(`hr[${BREAK}]`)].filter((hr) => !hr.closest("table"));
     let prev = null;
-    let before = null;
+    let before2 = null;
     breaks.forEach((hr) => {
       if (contentBetween(document, root, prev, hr)) {
-        before = prev;
+        before2 = prev;
         prev = hr;
         return;
       }
-      if (prev && isGrey(before) && isGrey(hr) && !prev.hasAttribute(SOURCE_STYLE) && !prev.hasAttribute(MARKER) && spacersBetween(document, prev, hr)) {
+      if (prev && isGrey(before2) && isGrey(hr) && !prev.hasAttribute(SOURCE_STYLE) && !prev.hasAttribute(MARKER) && spacersBetween(document, prev, hr)) {
         prev.setAttribute(SOURCE_STYLE, "gap");
-        before = prev;
+        before2 = prev;
         prev = hr;
         return;
       }
@@ -5669,8 +5669,8 @@ var CustomImportScript = (() => {
       };
       aemSections.forEach((s, i) => {
         if (!i || !padded2(s) || grey2(s)) return;
-        const before = aemSections[i - 1];
-        if (!padded2(before) && (!lufthansa || isStage(s) || isStage(before) || grey2(before) || loneQuote(before))) return;
+        const before2 = aemSections[i - 1];
+        if (!padded2(before2) && (!lufthansa || isStage(s) || isStage(before2) || grey2(before2) || loneQuote(before2))) return;
         const hr = createBreak(document);
         hr.setAttribute(SOURCE_STYLE, "padded");
         s.before(hr);
@@ -5863,11 +5863,176 @@ var CustomImportScript = (() => {
       hr.setAttribute(SOURCE_STYLE2, styles.join(" "));
       s.before(hr);
     });
-    STAND_INS.forEach(([sel, before, after]) => {
+    STAND_INS.forEach(([sel, before2, after]) => {
       document.querySelectorAll(`.container-content > .section ${sel}`).forEach((el) => {
-        [...standIns(el, before, "previousElementSibling"), ...standIns(el, after, "nextElementSibling")].forEach((p) => p.remove());
+        [...standIns(el, before2, "previousElementSibling"), ...standIns(el, after, "nextElementSibling")].forEach((p) => p.remove());
       });
     });
+  }
+
+  // tools/importer/transformers/hub-column-views.js
+  var COLUMN_ATTR2 = "data-lh-column";
+  var COLUMN_KINDS2 = ".onecolumn, .twocolumn, .threecolumn, .fourcolumn";
+  var HEADING2 = "h1, h2, h3, h4, h5, h6";
+  var MEDIA4 = "img, picture, video, iframe, svg, table, input, select, textarea, button";
+  var CLEANUP_TEMPLATES = ["info", "fleet"];
+  var cleanText2 = (el) => el.textContent.replace(/[\u200B\uFEFF]/g, "").replace(/\s+/g, " ").trim();
+  var isEmpty2 = (el) => !el.textContent.replace(/\u00A0/g, " ").trim() && !el.querySelector(MEDIA4);
+  function isOwnColumnView2(el) {
+    return !!el && el.matches(`:is(${COLUMN_KINDS2}).column`) && el.children.length === 1 && el.firstElementChild.classList.contains("column-view");
+  }
+  function markColumnViews2(document, template, onlyDrawnViews = false) {
+    const instances = (template.blocks || []).flatMap((b) => (b.instances || []).map((sel) => [b.name, sel]));
+    const blockOf2 = (el) => {
+      const hit = instances.find(([, sel]) => {
+        try {
+          return el.matches(sel);
+        } catch (e) {
+          return false;
+        }
+      });
+      return hit ? hit[0] : null;
+    };
+    const titled = (view) => [...view.children].some((d) => !d.matches(".row, .carousel") && d.querySelector(HEADING2) && cleanText2(d));
+    const mark = (root, kind, nested) => {
+      if (!isOwnColumnView2(root) || root.closest(".article-details-page") || root.hasAttribute(COLUMN_ATTR2)) return false;
+      const view = root.firstElementChild;
+      if (view.classList.contains("container-gray")) return false;
+      const parent = root.parentElement;
+      if (!nested && root.closest(".container-gray") && parent.matches(".section-content") && [...parent.children].filter((c) => !isEmpty2(c)).length === 1) return false;
+      const block = blockOf2(root);
+      if (block && block !== "columns-media") return false;
+      if (block && kind === "sc" && !nested && !titled(view)) return false;
+      if (onlyDrawnViews && !block && !root.matches(".onecolumn")) return false;
+      root.setAttribute(COLUMN_ATTR2, kind);
+      return !block;
+    };
+    const aemSections = [...document.querySelectorAll(".container-content > .section")].filter((s) => !isEmpty2(s) && !s.querySelector(".container-subnav"));
+    const lastAem = aemSections[aemSections.length - 1];
+    const endsSpacedPage = (root) => {
+      const aem = root.closest(".container-content > .section");
+      if (!aem || aem !== lastAem || !aem.querySelector(":scope > .mb-default")) return false;
+      let next = root.nextElementSibling;
+      while (next && isEmpty2(next)) next = next.nextElementSibling;
+      return !next;
+    };
+    document.querySelectorAll(`:is(.section-content, .container-content) > :is(${COLUMN_KINDS2})`).forEach((root) => {
+      const kind = root.parentElement.matches(".section-content") ? "sc" : "cc";
+      const flattened = mark(root, kind, false);
+      if (kind === "sc" && root.getAttribute(COLUMN_ATTR2) === "sc" && endsSpacedPage(root)) root.setAttribute(COLUMN_ATTR2, "sc-spaced");
+      if (!flattened) return;
+      root.querySelectorAll(`.column-view-item > :is(${COLUMN_KINDS2})`).forEach((inner) => {
+        if (inner.parentElement.closest(".column-view") === root.firstElementChild) mark(inner, kind, true);
+      });
+    });
+  }
+  var MARK_HOLDERS = "p, h1, h2, h3, h4, h5, h6, li";
+  var LEAVES = "p, h1, h2, h3, h4, h5, h6, ul, ol, table, picture, img, video, iframe, blockquote";
+  var META = "section metadata";
+  var SEPARATOR_P = /^\{(spacer|divider)-[^}]*\}$/;
+  var order = /* @__PURE__ */ new Map();
+  var before = (a, b) => order.get(a) < order.get(b);
+  var inTable = (el) => !!(el.parentElement && el.parentElement.closest("table"));
+  var tableName = (table) => {
+    const row = table.querySelector("tr");
+    return row ? cleanText2(row).toLowerCase() : "";
+  };
+  var styleRow = (table) => [...table.querySelectorAll("tr")].slice(1).find((tr) => tr.firstElementChild && cleanText2(tr.firstElementChild).toLowerCase() === "style");
+  function columnMarks(main) {
+    return [...main.querySelectorAll(MARK_HOLDERS)].filter((el) => !el.closest("table")).map((el) => {
+      const m = cleanText2(el).match(/\{([a-z0-9 -]+)\}$/);
+      const tokens = m ? m[1].split(" ") : [];
+      const at = el.tagName === "LI" ? el.closest("ul, ol") : el;
+      return {
+        el: at,
+        start: tokens.includes("column-start"),
+        end: tokens.includes("column-end"),
+        startOuter: tokens.includes("column-start-outer"),
+        endOuter: tokens.includes("column-end-outer")
+      };
+    }).filter((k) => k.start || k.end || k.startOuter || k.endOuter);
+  }
+  function pairs(marks, start, end, kind) {
+    const out = [];
+    let depth = 0;
+    let open = null;
+    marks.forEach((k) => {
+      if (k[start]) {
+        if (!depth) open = k.el;
+        depth += 1;
+      }
+      if (k[end] && depth) {
+        depth -= 1;
+        if (!depth && open) out.push({ from: open, to: k.el, kind });
+      }
+    });
+    return out;
+  }
+  function viewBox(from, to, main, breaks) {
+    for (let el = from.parentElement; el && el !== main; el = el.parentElement) {
+      if (el.matches(`:is(${COLUMN_KINDS2}).column`) && el.contains(to)) {
+        return el.closest("table") || breaks.some((hr) => el.contains(hr)) ? null : el;
+      }
+    }
+    return null;
+  }
+  function splitColumnViews(main, document) {
+    const marks = columnMarks(main);
+    const outer = pairs(marks, "startOuter", "endOuter", "cc");
+    order = new Map([...main.querySelectorAll("*")].map((el, i) => [el, i]));
+    const inside = (p, q) => (p.from === q.from || before(q.from, p.from)) && (p.to === q.to || before(p.to, q.to));
+    const inner = pairs(marks, "start", "end", "sc").filter((p) => !outer.some((q) => inside(p, q)));
+    [...outer, ...inner].sort((p, q) => before(p.from, q.from) ? -1 : 1).forEach(({ from, to, kind }) => {
+      order = new Map([...main.querySelectorAll("*")].map((el, i) => [el, i]));
+      const breaks = [...main.querySelectorAll("hr")].filter((hr) => !inTable(hr));
+      if (breaks.some((hr) => before(from, hr) && before(hr, to))) return;
+      const box = viewBox(from, to, main, breaks);
+      const first = box || from;
+      const last = box || to;
+      const prev = breaks.filter((hr) => before(hr, first)).pop();
+      const next = breaks.find((hr) => before(last, hr) && !last.contains(hr));
+      const within = (el) => (!prev || before(prev, el)) && (!next || before(el, next));
+      const leaves = [...main.querySelectorAll(LEAVES)].filter((el) => !inTable(el) && within(el));
+      const meta = leaves.find((el) => el.tagName === "TABLE" && tableName(el) === META);
+      const row = meta && styleRow(meta);
+      const styles = row ? cleanText2(row.lastElementChild) : "";
+      const content = (el) => el !== meta && !el.contains(first) && !el.contains(last) && (el.tagName === "TABLE" || !isEmpty2(el) && !SEPARATOR_P.test(cleanText2(el)));
+      const contentBefore = leaves.some((el) => before(el, first) && content(el));
+      const contentAfter = leaves.some((el) => before(last, el) && !last.contains(el) && content(el));
+      const view = kind === "cc" ? ["column-view", "padded"] : ["column-view"];
+      const own = [styles, ...view].filter(Boolean).join(", ");
+      const metaBlock = (style) => WebImporter.Blocks.createBlock(document, { name: "Section Metadata", cells: { style } });
+      const endWith = (meta2) => box ? box.append(meta2) : last.after(meta2);
+      if (contentAfter) {
+        const list = styles.split(",").map((x) => x.trim()).filter((x) => x && x !== "spaced");
+        if (!list.includes("flush")) list.push("flush");
+        const hr = document.createElement("hr");
+        last.after(hr);
+        endWith(metaBlock([...list, ...view].join(", ")));
+      } else {
+        if (row) row.lastElementChild.textContent = own;
+        else endWith(metaBlock(own));
+      }
+      if (contentBefore) {
+        const lastContent = leaves.filter((el) => before(el, first) && content(el)).pop();
+        const lead = leaves.find((el) => el.tagName === "P" && SEPARATOR_P.test(cleanText2(el)) && before(lastContent, el) && !el.contains(lastContent) && before(el, first));
+        const hr = document.createElement("hr");
+        (lead || first).before(hr);
+        if (styles) hr.before(metaBlock(styles));
+      }
+    });
+  }
+  var CAMPAIGN_SECTION_BREAK = 'hr[data-excat-section-source-style*="campaign-section"]';
+  function transform4(hookName, element, payload) {
+    if (hookName !== "beforeTransform" && hookName !== "afterTransform") return;
+    const template = payload && payload.template || {};
+    if (CLEANUP_TEMPLATES.includes(template.name) || CLEANUP_TEMPLATES.includes(template.base)) return;
+    const document = payload && payload.document || element.ownerDocument || element;
+    const campaign = template.name === "campaign" || template.base === "campaign";
+    if (campaign && hookName === "beforeTransform" && document.querySelector(CAMPAIGN_SECTION_BREAK)) return;
+    if (campaign && hookName === "afterTransform" && !/\{[a-z0-9 -]*column-(start|end)/.test(element.textContent || "")) return;
+    if (hookName === "beforeTransform") markColumnViews2(document, template, campaign);
+    else splitColumnViews(element, document);
   }
 
   // blocks/form/form-rules.js
@@ -5967,7 +6132,7 @@ var CustomImportScript = (() => {
   var SIZE_TOKEN = /^(heading-(?:large|medium|small|copytext-large|copytext-medium)|copytext-(?:small|medium|large))$/;
   var ROLE = new RegExp(`\\s*\\{(${NAV_ROLES.join("|")})\\}\\s*`);
   var SELECTED = /\s*\{selected\}\s*$/i;
-  var HEADING2 = "h1, h2, h3, h4, h5, h6";
+  var HEADING3 = "h1, h2, h3, h4, h5, h6";
   var BLOCK_SKIP = /* @__PURE__ */ new Set(["section-metadata", "metadata"]);
   function newStats() {
     return { theme: {}, carrier: {}, hand: {} };
@@ -6439,7 +6604,7 @@ var CustomImportScript = (() => {
       }
     });
     blocks.forEach((choices, block) => {
-      const all = block.querySelectorAll(HEADING2).length;
+      const all = block.querySelectorAll(HEADING3).length;
       const top = ["large", "compact"].map((c) => [c, choices.filter((x) => x === c).length]).sort((a, b) => b[1] - a[1])[0];
       if (top[1] * 2 > all && addBlockOption(block, `title-${top[0]}`)) count(stats, "carrier", "heading", top[1]);
       else count(stats, "theme", "heading-aligned", choices.length);
@@ -6760,9 +6925,9 @@ var CustomImportScript = (() => {
         if (!divider && px <= 31) size = "none";
         else if (!divider) size = px < 90 ? "m" : "l";
         const content = (el) => el && !(isBlock(el) && BLOCK_SKIP.has(blockName(el))) && !isSep(el);
-        const before = run.els[0].previousElementSibling;
+        const before2 = run.els[0].previousElementSibling;
         const after = run.els[run.els.length - 1].nextElementSibling;
-        const atStart = !content(before) && now.slice(0, first).every((el) => !content(el));
+        const atStart = !content(before2) && now.slice(0, first).every((el) => !content(el));
         const atEnd = now.slice(lastAt + 1).every((el) => !content(el));
         const remove = () => run.els.forEach((el) => el.remove());
         if (size === "none") {
@@ -6776,7 +6941,7 @@ var CustomImportScript = (() => {
           return;
         }
         if (divider) {
-          if (rules.includes("rule-before-info-box") && blockName(after) === "columns-media" && before && !atStart && !/^H[1-6]$/.test(before.tagName)) {
+          if (rules.includes("rule-before-info-box") && blockName(after) === "columns-media" && before2 && !atStart && !/^H[1-6]$/.test(before2.tagName)) {
             remove();
             count(stats, "theme", "separator", run.els.length);
             return;
@@ -6917,7 +7082,7 @@ var CustomImportScript = (() => {
         h.id = next;
       });
       const seen = /* @__PURE__ */ new Map();
-      main.querySelectorAll(HEADING2).forEach((h) => {
+      main.querySelectorAll(HEADING3).forEach((h) => {
         if (!h.id) return;
         const base = h.id;
         if (!seen.has(base)) {
@@ -6958,7 +7123,8 @@ var CustomImportScript = (() => {
     "name": "campaign",
     "description": "Long editorial campaign pages (100 years, stopover, trade fairs)",
     "transformers": [
-      "campaign-sections"
+      "campaign-sections",
+      "hub-column-views"
     ],
     "urls": [
       "https://www.lufthansa.com/de/en/100-years"
@@ -7200,7 +7366,7 @@ var CustomImportScript = (() => {
     "carousel-cards": parse11,
     "micro-frontend": parse12
   };
-  var transformers = [transform, transform2, transform3];
+  var transformers = [transform, transform2, transform3, transform4];
   function executeTransformers(hookName, element, payload) {
     const enhancedPayload = __spreadProps(__spreadValues({}, payload), { template: PAGE_TEMPLATE });
     transformers.forEach((fn) => {
@@ -7222,7 +7388,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_1388749_default = {
+  var import_campaign_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -7261,5 +7427,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_1388749_exports);
+  return __toCommonJS(import_campaign_exports);
 })();

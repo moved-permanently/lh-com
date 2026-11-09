@@ -26,7 +26,7 @@ function isOwnColumnView(el) {
     && el.firstElementChild.classList.contains('column-view');
 }
 
-function markColumnViews(document, template) {
+function markColumnViews(document, template, onlyDrawnViews = false) {
   const instances = (template.blocks || []).flatMap((b) => (b.instances || []).map((sel) => [b.name, sel]));
   const blockOf = (el) => {
     const hit = instances.find(([, sel]) => {
@@ -47,6 +47,10 @@ function markColumnViews(document, template) {
     const block = blockOf(root);
     if (block && block !== 'columns-media') return false;
     if (block && kind === 'sc' && !nested && !titled(view)) return false;
+    // campaign pages (brief 507): only the views drawn as views, a one-column view or one a block
+    // takes; a multi-column text view the import stacks as default content keeps no padding
+    // (munich-fair's two text columns: 13.2 -> 20.9 % with it)
+    if (onlyDrawnViews && !block && !root.matches('.onecolumn')) return false;
     root.setAttribute(COLUMN_ATTR, kind);
     return !block;
   };
@@ -198,11 +202,20 @@ function splitColumnViews(main, document) {
   });
 }
 
+// campaign-sections' section breaks (lufthansa-sections' attributes): a campaign page that has them
+// keeps its own spacing; one that is a single AEM section of column views (frankfurt-fair, take-off,
+// the stopover partner pages; brief 507) gets the hub's column views
+const CAMPAIGN_SECTION_BREAK = 'hr[data-excat-section-source-style*="campaign-section"]';
+
 export default function transform(hookName, element, payload) {
   if (hookName !== 'beforeTransform' && hookName !== 'afterTransform') return;
   const template = (payload && payload.template) || {};
   if (CLEANUP_TEMPLATES.includes(template.name) || CLEANUP_TEMPLATES.includes(template.base)) return;
   const document = (payload && payload.document) || element.ownerDocument || element;
-  if (hookName === 'beforeTransform') markColumnViews(document, template);
+  const campaign = template.name === 'campaign' || template.base === 'campaign';
+  if (campaign && hookName === 'beforeTransform' && document.querySelector(CAMPAIGN_SECTION_BREAK)) return;
+  // afterTransform: only where beforeTransform marked (the breaks are gone by then); the marks tell
+  if (campaign && hookName === 'afterTransform' && !/\{[a-z0-9 -]*column-(start|end)/.test(element.textContent || '')) return;
+  if (hookName === 'beforeTransform') markColumnViews(document, template, campaign);
   else splitColumnViews(element, document);
 }
