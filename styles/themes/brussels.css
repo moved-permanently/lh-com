@@ -1080,3 +1080,24 @@ body.brand-brussels .booking-lookup.checkin .booking-lookup-field:last-of-type .
   }
 }
 /* stylelint-enable no-descending-specificity */
+
+/* a heading straight after text in a sidebar's text (columns-media sidebar: invoices, upgrades, the imprint; the brief
+   after 530, item 3; 107 documents): www's headline component 50 px under the paragraph at 1440 for an h2 (45 on phones), 32 for an h3
+   (28); ours had the paragraph's 20 (16). The margins collapse with the paragraph's */
+body.brand-brussels main .columns-media.sidebar .columns-media-text > p:not(.column-mark) + h2 {
+  margin-top: 45px;
+}
+
+body.brand-brussels main .columns-media.sidebar .columns-media-text > p:not(.column-mark) + h3 {
+  margin-top: 28px;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels main .columns-media.sidebar .columns-media-text > p:not(.column-mark) + h2 {
+    margin-top: 50px;
+  }
+
+  body.brand-brussels main .columns-media.sidebar .columns-media-text > p:not(.column-mark) + h3 {
+    margin-top: 32px;
+  }
+}
