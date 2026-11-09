@@ -1,0 +1,8 @@
+# The brief after 530 item 1 (ema-cashub, the empty lines): the recorded pages whose documents change when brussels-import.mjs and austrian-import.mjs write www's visible empty lines (<p>&nbsp;</p> outside a tab or accordion panel) as a spacing marker, {spacer-40} a line on Brussels, {spacer-48} on Austrian, a run as one marker (nbsp-guard.mjs emptyLineSpacers); in release order (Brussels, then Austrian). Offline import of the recordings, main's importers against this change's: each document differs from main's import by its markers only (families fr and en, our-fleet 2 each, the others 1). Measured on the local dev server (main's code, the brand's theme, its spacing markers not yet live), main's height, main's import -> this change's, 1440 / 390: families fr and en +102 / +98 (www's gaps there -50 and -49 / -39 at each line), our-fleet +102 / +98 (-50 / -30), travel-regulations +41 / +41 (-44 / -40), the-gambia +61 / +57 (one line on a 9,056 px page, under 1 %), extra-services +49 / +49 (-48 / -60), accessible-travel +49 / +49 (one line on a 12,856 px page, under 1 %). The empty lines in panels (fr business, gesundes-reisen, travelling-with-animals) are still dropped: those documents import unchanged (+0 / +0). Once the collapse runs on these brands a marker becomes a Spacer M (60 px, the decided +20 a marker). Another document whose snapshot has a visible empty line changes the same way on its next import; one without imports unchanged.
+/be/fr/special-care/families-and-children
+/be/en/special-care/families-and-children
+/be/en/flying-with-us/our-fleet
+/be/en/plan-your-trip/travel-regulations
+/be/en/articles/the-gambia
+/at/en/book/additional-services/extra-services
+/at/en/accessible-travel

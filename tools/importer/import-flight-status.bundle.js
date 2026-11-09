@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-flight-status.js
-  var tmp_bundle_flight_status_1604859_exports = {};
-  __export(tmp_bundle_flight_status_1604859_exports, {
-    default: () => tmp_bundle_flight_status_1604859_default
+  var tmp_bundle_flight_status_1720268_exports = {};
+  __export(tmp_bundle_flight_status_1720268_exports, {
+    default: () => tmp_bundle_flight_status_1720268_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -1397,7 +1397,7 @@ var CustomImportScript = (() => {
     // default (www: 89 % unmarked, heading-medium; no longer heading-small)
     brussels: { pageTypes: { flow: { headings: { h3: "heading-small" } } } },
     // ITA: running text over the whole width
-    ita: { text: { width: "full" } },
+    ita: { live: true, text: { width: "full" } },
     // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
     // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
     // (a heading right before them starts the group's column view, as its marker did)
@@ -3846,15 +3846,6 @@ var CustomImportScript = (() => {
     });
   }
   var VIDEO_LINK = (a) => /\.(mp4|m4v|webm|mov)(?:$|[?#])/i.test(a.getAttribute("href") || "");
-  var urlText = (a) => {
-    const t = textOf(a);
-    return !t || t === a.getAttribute("href") || /^(https?:\/\/|\/)\S+$/.test(t) || /\.(mp4|m4v|webm|mov)$/i.test(t);
-  };
-  function readableName(href) {
-    const file = decodeURIComponent(String(href).split(/[?#]/)[0].split("/").pop() || "").replace(/\.[a-z0-9]+$/i, "");
-    const words2 = file.replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
-    return words2 ? words2.charAt(0).toUpperCase() + words2.slice(1) : "Video";
-  }
   function addFragment(a, part) {
     const href = a.getAttribute("href");
     const at = href.indexOf("#");
@@ -3888,16 +3879,19 @@ var CustomImportScript = (() => {
         else addFragment(a, "background");
         count(stats, "carrier", "video");
       } else if (settings.length) count(stats, "theme", "video");
-      if (urlText(a)) {
-        const poster = el.querySelector("img") || el.previousElementSibling && isImageParagraph(el.previousElementSibling) && el.previousElementSibling.querySelector("img");
-        a.textContent = poster && poster.getAttribute("alt") || readableName(a.getAttribute("href"));
-      }
     });
   }
   function collapseCaptions(main, doc, stats, marks, hand) {
     marks.forEach((tokens, el) => {
       if (!tokens.includes("caption") || el.tagName !== "P") return;
       const onlyLink = el.querySelectorAll("a").length === 1 && textOf(el.querySelector("a")) === textOf(el);
+      const prev = el.previousElementSibling;
+      if (prev && prev.tagName === "P" && !textOf(prev) && prev.querySelectorAll("picture, img").length - prev.querySelectorAll("picture img").length >= 2) {
+        const last = el.lastChild;
+        if (last && last.nodeType === 3) last.nodeValue = last.nodeValue.replace(/\s+$/, "");
+        count(stats, "theme", "caption");
+        return;
+      }
       const kids = [...el.childNodes].filter((n) => n.nodeType === 1 || n.nodeValue.trim());
       if (!(kids.length === 1 && kids[0].nodeType === 1 && /^(EM|I)$/.test(kids[0].tagName))) {
         const em = doc.createElement("em");
@@ -4480,6 +4474,24 @@ var CustomImportScript = (() => {
     };
   }
 
+  // tools/importer/nbsp-guard.mjs
+  var NBSP_STAND_IN = "\u2007";
+  var NBSP_ALL = /\u00a0/g;
+  var NBSP_BLANK = /^[\s\u00a0]*$/;
+  var NBSP_SKIP_TAGS = /* @__PURE__ */ new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEMPLATE"]);
+  function guardNbsp(root) {
+    const visit = (el) => {
+      if (!el || NBSP_SKIP_TAGS.has(el.tagName) || NBSP_BLANK.test(el.textContent || "")) return;
+      [...el.childNodes].forEach((n) => {
+        if (n.nodeType === 3) {
+          if (n.nodeValue.includes("\xA0")) n.nodeValue = n.nodeValue.replace(NBSP_ALL, NBSP_STAND_IN);
+        } else if (n.nodeType === 1) visit(n);
+      });
+    };
+    visit(root);
+    return root;
+  }
+
   // tools/importer/import-flight-status.js
   var PAGE_TEMPLATE = {
     "name": "flight-status",
@@ -4592,10 +4604,11 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_flight_status_1604859_default = {
+  var tmp_bundle_flight_status_1720268_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
+      guardNbsp(document.body);
     },
     transform: (payload) => {
       const { document, url, params } = payload;
@@ -4631,5 +4644,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_flight_status_1604859_exports);
+  return __toCommonJS(tmp_bundle_flight_status_1720268_exports);
 })();

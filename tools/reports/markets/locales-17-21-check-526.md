@@ -23,3 +23,37 @@ already on: `tools/markets/locale-data.json` `liveWaves` is `["ch", 1, ..., 17, 
 generated table has the twelve rows as `status: live`, and lufthansa.turnsthe.page answers all twelve roots' homepages
 200 (checked 2026-11-09). Nothing of mine changes that; if those waves were meant to wait, that is a revert of those
 five commits, yours to decide.
+
+## Checked again on live (brief 536, 2026-11-09 evening; Ben's rule: only live counts)
+
+All seven items hold on main (44a93d7) and on live (main--lh-com--moved-permanently.aem.live, lufthansa.turnsthe.page,
+curl). No request to www.
+
+| item | live |
+| --- | --- |
+| (a) | the twelve rows and the calls in `locale-data.json` / `scripts/locale-table.js` (KRW, "Poland", "Japan \| 日本語", it/it's names; hreflang it-CH, it-IT, el-CY, el-GR, ja-JP, ko-KR, pl-PL); `liveWaves` still holds ch and waves 1-21 (yours, unchanged) |
+| (b) | the 14 navs and footers of it/it, ch/it, gr/el, cy/el, jp/ja, kr/ko, pl/pl: live 200, the same bytes as preview |
+| (c) | the indexes are filled: xx/it 304 rows, xx/el 309, xx/ja 309, xx/ko 307, xx/pl 310 (search-index, market-model and market-llms each) |
+| (d), (f) | `test/languages-17-21.test.mjs` 5 pass, `test/languages-17-21-rest.test.mjs` 3 pass, `test/offline-importer.test.mjs` 2 pass |
+| (e) | the three lists on main (eafbc58); their pages live 200 |
+| (g) | the 26 navs and footers of cn/hk, hk/hk, tw/hk, cn/zh, hk/zh, tw/zh, ao/pt, br/pt, pt/pt, by/ru, kz/ru, ru/ru: live 200, the same as preview; every own confirmation live 200 (the 8 pages of the seven `*-confirmations-own.txt` lists) |
+
+The confirmation lists' other 65 URLs that answer 404 on aem.live are not documents and need none:
+- the roots' lists (`<root>-confirmations.txt`, 7 pages each for hk/hk, cn/zh, it/it, gr/el, jp/ja, kr/ko, pl/pl,
+  ru/ru): a root's confirmation page is its version's document, served under the root by lh-edge (lufthansa.turnsthe.page
+  answers them 200);
+- the versions' `register-sporting-firearm/confirmation` (de/en's path; www's forms of the versions go to
+  `register-sporting-firearm1/confirmation`, which is live) and xx/hk's `register-animal/confirmation` (its form goes to
+  `register-animal/thank-you-confirmation`, live).
+
+Every success link of the 36 live form documents of xx/pt, ru, hk, zh, it, el, ja, ko and pl (26 links) answers 200 on
+lufthansa.turnsthe.page.
+
+**One functional point, ahead of the locale items (Ben's order):** on lufthansa.com a market root's own homepage lists
+no hreflang alternates. The language versions' homepages name it (de/de/homepage: 251 alternates, kr/ko/homepage among
+them), but kr/ko/homepage, jp/ja/homepage, fr/fr/homepage and hk/hk/homepage carry none back. Their other pages, served
+from the version, do carry the set (jp/ja/baggage-irregularities: 251). The brands' sites were given this on 2026-11-02
+(16f2dd1: `withLiveAlternates(..., { marketOwn: true })` in the site route). lh-com's pass-through route still calls it
+without `marketOwn` ("lh-com's hosts as before"). The fix is one argument in `tools/workers/lh-edge/src/index.js`'s
+pass-through call, with a test like 16f2dd1's. It changes the head of every live market root's homepage on
+lufthansa.com, so I haven't made it without your go.
