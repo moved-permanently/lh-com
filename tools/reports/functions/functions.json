@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-08 21:07",
-  "change": "Group for Business sign-ins for companies and travel agencies are the replica's own pages since 7 November and work end to end with test accounts; what is left (real members and their data) is Lufthansa's.",
+  "updated": "2026-11-09 05:25",
+  "change": "Air Dolomiti's footer now has the cookie settings link, as www's footer does; it opens the replica's consent settings dialog (all three languages, live since 4 o'clock).",
   "legend": {
     "done": {
       "label": "works on our replica",
@@ -2296,9 +2296,9 @@
         },
         "airdolomiti": {
           "status": "done",
-          "note": "The replica loads nothing for Air Dolomiti that needs consent, so it needs no consent tool.",
+          "note": "The footer's cookie settings link, as on www, opens the replica's consent settings dialog.",
           "page": "/",
-          "evidence": "matrix note 4; brands.js"
+          "evidence": "ff6e3e28 (footer link), round 109 2026-11-09 04:11 CET: airdolomiti.turnsthe.page it/en/de footers carry the link (#privacy-settings; labels as www writes them); a click opens the consent preference center (.lh-consent-pc); earlier note 'loads nothing that needs consent' no longer holds for the footer"
         },
         "brussels": {
           "status": "done",

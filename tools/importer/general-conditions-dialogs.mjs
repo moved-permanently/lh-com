@@ -6,9 +6,12 @@
  * document (the label as H2, the modal's text) from the same snapshots, once per locale and label.
  * Pages of one locale that give the same document another text are reported, the homepage's wins.
  *
- * Run after the import, before the upload (the documents go with the pages).
+ * Run after the import, before the upload (the documents go with the pages). --host: the
+ * snapshots' host (www.lufthansa.com when not given; www.swiss.com for SWISS's homepages, the brief
+ * after 514).
  * Usage: node tools/importer/general-conditions-dialogs.mjs
- *          --html-dir <dir holding www.lufthansa.com> [--locale de/en] [--out content] [--dry]
+ *          --html-dir <dir holding www.lufthansa.com> [--host www.swiss.com]
+ *          [--locale de/en] [--out content] [--dry]
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -24,11 +27,11 @@ const htmlDir = opt('html-dir');
 const only = opt('locale');
 const out = path.resolve(root, opt('out') || 'content');
 if (!htmlDir) {
-  console.error('Usage: node tools/importer/general-conditions-dialogs.mjs --html-dir <dir> [--locale cc/ll] [--out content] [--dry]');
+  console.error('Usage: node tools/importer/general-conditions-dialogs.mjs --html-dir <dir> [--host www.swiss.com] [--locale cc/ll] [--out content] [--dry]');
   process.exit(1);
 }
 
-const host = path.join(path.resolve(htmlDir), 'www.lufthansa.com');
+const host = path.join(path.resolve(htmlDir), opt('host') || 'www.lufthansa.com');
 const pages = [];
 const walk = (dir) => fs.readdirSync(dir, { withFileTypes: true }).forEach((e) => {
   const p = path.join(dir, e.name);

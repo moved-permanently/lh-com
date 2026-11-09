@@ -1,5 +1,6 @@
 {
  "source": "tools/migration-scope/pages.csv (de_en, de_de)",
+ "retired": "Retired by the one-slug-per-page order: its Lufthansa German part is folded into tools/slugs/lh-com.json (test/slug-map.test.mjs resolves all 72 pairs). Kept, with tools/loc/slug-step.mjs, until the Lufthansa German round is done; then it stays in git history only.",
  "slugs": {
   "/de/en/add-sports-baggage": "/de/de/sportgepaeck-hinzufuegen",
   "/de/en/addresses-worldwide": "/de/de/adressen-weltweit",

@@ -1,4 +1,4 @@
-# lh-com: the 5153 local documents the collapse changes (marker-collapse-cli.mjs --check, 2026-11-08, the brief after 503), in release order: de/en, de/de, then the other markets
+# lh-com: the 5153 local documents the collapse changes (marker-collapse-cli.mjs --check, 2026-11-09, the brief after 506), in release order: de/en, de/de, then the other markets
 /de/en/100-years
 /de/en/100-years/cabin-design
 /de/en/100-years/campaigns

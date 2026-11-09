@@ -17,6 +17,7 @@ import microFrontendParser from './parsers/micro-frontend.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 import campaignSectionsTransformer from './transformers/campaign-sections.js';
+import hubColumnViewsTransformer from './transformers/hub-column-views.js';
 // token-free styling (the brief after 493): the document's markers collapsed, the last step
 import { collapseMain, brandOfHost } from './marker-collapse.mjs';
 
@@ -24,7 +25,8 @@ const PAGE_TEMPLATE = {
   "name": "campaign",
   "description": "Long editorial campaign pages (100 years, stopover, trade fairs)",
   "transformers": [
-    "campaign-sections"
+    "campaign-sections",
+    "hub-column-views"
   ],
   "urls": [
     "https://www.lufthansa.com/de/en/100-years"
@@ -267,7 +269,7 @@ const parsers = {
   'carousel-cards': carouselCardsParser,
   'micro-frontend': microFrontendParser,
 };
-const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer, campaignSectionsTransformer];
+const transformers = [lufthansaCleanupTransformer, lufthansaSectionsTransformer, campaignSectionsTransformer, hubColumnViewsTransformer];
 
 function executeTransformers(hookName, element, payload) {
   const enhancedPayload = { ...payload, template: PAGE_TEMPLATE };

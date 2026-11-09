@@ -222,6 +222,13 @@ h6 {
   overflow-wrap: break-word;
 }
 
+/* running text likewise: a word longer than its line (a URL written as text: an Air Dolomiti post's
+   facebook.com/AirDolomiti/videos/..., 127px past a 390px screen) breaks instead of widening the
+   page; inherited, so a block that keeps its words whole (overflow-wrap: normal) still does */
+main {
+  overflow-wrap: break-word;
+}
+
 /* phones: long words (14+ characters) break at a syllable of the page's language first */
 @media (width < 768px) {
   h1,
@@ -847,6 +854,17 @@ body.brand-lufthansa main > .section.grey + .section.table-striped-container:has
   }
 }
 
+/* a page that ends with a section of separators only, right after a grey band (brief 521:
+   /de/en/airport-information's {spacer-70}, the flights pages' {spacer-25}): on www the separator is
+   all there is between the band and the footer (71px at 1440), ours added the band's 48px and the
+   last section's own 48px (151px). The last section takes the band's gap back (its negative top
+   margin collapses with it and the wrapper's -16px) and has none below. One :has() level: a :has()
+   nested in another drops the rule */
+body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .default-content-wrapper > :not(p.spacer))) {
+  margin-top: -48px;
+  margin-bottom: 0;
+}
+
 /* default content (.richtext); .section-content > :last-child > :last-child { margin-bottom: 0 },
    a trailing headline keeps its margin to the block that follows */
 main .default-content-wrapper > :last-child:not(h1, h2, h3, h4, h5, h6) {
@@ -876,8 +894,11 @@ body.brand-lufthansa main:not(:has(.article-header)) .default-content-wrapper > 
 
 /* an icon in a default-content heading (www's .link-list.nav-link-list [class*=heading-]
    .image-wrapper img: 2.6rem square, 1.2rem before the text, .2rem up; the carry-on baggage
-   pages' "1 personal item"; brief 404): an SVG without its own width would fill the column */
-main .default-content-wrapper :is(h2, h3, h4, h5, h6):has(> picture) {
+   pages' "1 personal item"; brief 404): an SVG without its own width would fill the column. The
+   row only for a heading that opens with its picture, as the icon does: an Air Dolomiti article's
+   h3 holding a paragraph, bold words and a photo at its end laid them out side by side (813px at
+   390px, street-food-in-munich) */
+main .default-content-wrapper :is(h2, h3, h4, h5, h6):has(> picture:first-child) {
   display: flex;
   align-items: center;
 }
@@ -1624,6 +1645,76 @@ body.brand-lufthansa main > .section.grey:has(+ .section.campaign-section.padded
   }
 }
 
+/* lufthansa.com: a bold teaser-card CTA is www's primary maui-button-link (meetings-and-events'
+   "Request offer now"; blocks/cards-teaser reads the token, brief 507) */
+body.brand-lufthansa {
+  --cards-teaser-bold-cta: button;
+}
+
+/* Insights articles on phones: www's related articles end the page (.dcep-related-articles, then
+   the footer): 34px from the last card's title to the footer at 390 (the card's 10px padding and
+   the title's 24px; 40 on flying-high-christoph-quarch). Ours added the section gap: 82px. From
+   768px the pages' heights match www's (brief 507). All 24 published documents with Related
+   Articles have them in their last section; the empty section after them (the page metadata's)
+   adds no gap of its own */
+@media (width < 768px) {
+  /* stylelint-disable-next-line no-descending-specificity -- the page's end, not a campaign-section's */
+  body.brand-lufthansa main > .section.related-articles-container {
+    margin-bottom: 0;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity -- an empty last section, not a column view's */
+  body.brand-lufthansa main > .section.related-articles-container ~ .section:last-child:not(:has(*)) {
+    margin-bottom: 0;
+  }
+}
+
+/* the column view carrier (brief 506): a section that is one www column view (Section Metadata
+   Style "Column view"; hub-column-views writes it). www's .column > .column-view:only-child
+   { padding: 3.2rem 0 }, its last component without margin: 32px above and below, 64 between two
+   views, 32 under the last; a view directly in the container (column-view, padded): its
+   .column-view 2rem 0 1rem (4rem 0 2rem from 768px) plus its items' margin, the section padding.
+   No section gap under a flush view (more of its AEM section follows), marks or not; the
+   section before a view keeps its text's 24px (www's .mb-default; the split took it). Its headline
+   components .limited-width. Not grey bands (their own column-view rule above); the paddings not
+   while a mark is in the section: a marker on an element wins until the collapse has run */
+/* stylelint-disable-next-line no-descending-specificity -- a column-view section's edge, not a campaign-section's */
+body.brand-lufthansa main > .section.column-view.flush:not(.grey) {
+  margin-bottom: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- as above */
+body.brand-lufthansa main > .section.column-view:not(.grey, :has(.column-start, .column-end, .column-start-outer, .column-end-outer)) {
+  padding: 32px 0;
+}
+
+body.brand-lufthansa main > .section.column-view.padded:not(.grey, :has(.column-start, .column-end, .column-start-outer, .column-end-outer)) {
+  padding: var(--section-padding) 0;
+}
+
+/* an outer view with its marks still in it: theirs, not the section's padding */
+body.brand-lufthansa main > .section.column-view.padded:not(.grey):has(.column-start, .column-end, .column-start-outer, .column-end-outer) {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- as above */
+body.brand-lufthansa main > .section.column-view:not(.grey, :has(.column-start, .column-end, .column-start-outer, .column-end-outer)) > div:last-child > :last-child {
+  margin-bottom: 0;
+}
+
+/* the section before a view, marks or not (no :has() in this one's :has(), it would drop the rule) */
+/* stylelint-disable-next-line no-descending-specificity -- the section before a view, not a campaign-section's */
+body.brand-lufthansa main > .section:not(.grey, .column-view):has(+ .section.column-view:not(.grey)) {
+  margin-bottom: var(--spacing-default);
+}
+
+@media (width >= 1025px) {
+  body.brand-lufthansa main > .section.column-view:not(.grey, .padded, :has(.column-start, .column-end, .column-start-outer, .column-end-outer)) > .default-content-wrapper > :is(h2, h3, h4) {
+    max-width: 66%;
+  }
+}
+
 /* jump links, then a separator: live's link list ends at its last link, the separator's 1px and
    margin follow it (baggage: 24px more before "Types of baggage" with our wrapper gap) */
 /* stylelint-disable-next-line no-descending-specificity -- a campaign-section's wrapper, not a modal link's */
@@ -1915,4 +2006,12 @@ body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper
    gets the brand's gap (THEMES columnViews.headingGap: 32px, the column view's padding, or 0) */
 body.theme-live.flow-spacing main .default-content-wrapper > :not(h1, h2, h3, h4, h5, h6) + :is(h2, h3) {
   margin-top: var(--theme-heading-gap, 32px);
+}
+
+/* lufthansa.com's ruled chapters (theme rule ruled-chapters: a chapter is a section of its own that
+   opens with the chapter's divider): www draws the rule 24px under the text before it (the
+   paragraph's own margin), not a section gap (48px); brief 526, the pass check's articles:
+   in-my-hood-chiswick-london, be-picky-barcelona-insider-tips +24px at each chapter */
+body.brand-lufthansa.theme-live main > .section + .section > .default-content-wrapper:first-child > p.spacer.divider:first-child {
+  margin-top: -24px;
 }

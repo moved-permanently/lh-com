@@ -59,6 +59,16 @@ function paths(rows, from, to) {
 }
 
 /**
+ * The map of a site without a scope table (every site but lh-com, tools/loc/sites.mjs): one slug per page, so the page
+ * /<from>/x has the counterpart /<to>/x. {from, to, same: true, hosts, paths: {}}; hosts: the site's own hosts (hostsRegex).
+ */
+export function sameSlugMap(from, to, { hosts = SITE_HOSTS } = {}) {
+  return {
+    from, to, same: true, hosts, paths: {}, also: [],
+  };
+}
+
+/**
  * {from, to, paths: {"/<from>/x": "/<to>/y"}, also: [{from, paths}]} from pages.csv rows.
  * others: the setup's other /gc locales (a rollout from /gc/de: ['gc/en']): their links become
  * the target market's page in that language (no such column, as at/en: every one listed).
@@ -78,12 +88,14 @@ export function pairMap(rows, from, to, { others = [] } = {}) {
 }
 
 /** The href mapped by one {from, paths}: [new href or undefined, unmapped path or undefined]. */
-function mapPath(v, { from, paths: p }) {
+function mapPath(v, {
+  from, to, paths: p, same,
+}) {
   const re = new RegExp(`^(/${from.replace('/', '\\/')}(?:/[^?#]*)?)([?#].*)?$`);
   const m = v.match(re);
   if (!m) return [undefined, undefined];
   const path = m[1].replace(/\.html$/, '').replace(/\/$/, '') || `/${from}`;
-  const target = p[path];
+  const target = same ? path.replace(new RegExp(`^/${from}(?=/|$)`), `/${to}`) : p[path];
   return target ? [`${target}${m[2] || ''}`, undefined] : [undefined, path];
 }
 
@@ -93,7 +105,7 @@ function mapPath(v, { from, paths: p }) {
  */
 export function localizeHref(href, map, report = () => {}) {
   const raw = String(href || '');
-  let v = raw.replace(SITE_HOSTS, '');
+  let v = raw.replace(map.hosts || SITE_HOSTS, '');
   if (v === '') v = '/';
   // the first map whose locale holds the link decides: its page, else the link is listed
   [map, ...(map.also || [])].some((m) => {
@@ -120,13 +132,14 @@ export function localizeDoc(html, map) {
     ['href', 'src', 'srcset'].forEach((attr) => {
       if (!el.hasAttribute(attr)) return;
       const value = el.getAttribute(attr);
-      const stripped = value.replace(SITE_HOSTS, '');
+      const hosts = map.hosts || SITE_HOSTS;
+      const stripped = value.replace(hosts, '');
       let next = stripped !== value ? stripped : null;
       if (attr === 'href') next = localizeHref(value, map, (p) => unmapped.add(p));
       if (next === null) return;
       el.setAttribute(attr, next);
       links += 1;
-      if (el.tagName === 'A' && [value, value.replace(SITE_HOSTS, '')].includes(el.textContent.trim())) el.textContent = next;
+      if (el.tagName === 'A' && [value, value.replace(hosts, '')].includes(el.textContent.trim())) el.textContent = next;
     });
   });
   if (map.from.startsWith(`${GLOBAL.root}/`) && !map.to.startsWith(`${GLOBAL.root}/`)) {

@@ -247,6 +247,30 @@ export function withOwnLinks(doc, host, pages, aliases = new Map(), { linkOut = 
   };
 }
 
+/**
+ * A document's internal links through its site's slug map (tools/slugs/<site>.json, slug-write.mjs; one slug in every language):
+ * a relative link to a www slug whose alias is active goes to the canonical path (query and fragment kept), in href and in link
+ * text that is the path itself (the Parent row). Absolute www links stay (www answers them). No map, or every flag off: the
+ * document as it was. Returns the document and the number of links moved.
+ */
+export function withCanonicalLinks(doc, map) {
+  if (!map) return { doc, moved: 0, links: [] };
+  let moved = 0;
+  const links = [];
+  const to = (p) => {
+    const c = map.canonicalOf(p);
+    if (c !== p) {
+      moved += 1;
+      links.push([p, c]);
+    }
+    return c;
+  };
+  const out = doc
+    .replace(/href="(\/[a-z]{2}\/[a-z]{2}\/[^"?#]*)([^"]*)"/g, (m, p, rest) => `href="${to(p)}${rest}"`)
+    .replace(/(<a [^>]*>)(\/[a-z]{2}\/[a-z]{2}\/[^<\s?#]*)(<\/a>)/g, (m, open, p, close) => `${open}${to(p)}${close}`);
+  return { doc: out, moved, links };
+}
+
 const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
   const argv = process.argv.slice(2);
