@@ -1374,6 +1374,7 @@ var CustomImportScript = (() => {
   };
   var THEMES = {
     lufthansa: {
+      live: true,
       // the column view carrier: a section of its own per www column view (the collapse writes it
       // from the column marks, ema-adobe's hub transformer on import; styles.css "the column view
       // carrier")
