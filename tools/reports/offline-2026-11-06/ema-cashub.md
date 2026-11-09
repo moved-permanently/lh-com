@@ -1771,3 +1771,134 @@ Left uncommitted, with the reasons:
   capture list's first page measures them on www.
 - **After 15:00 CET:** the capture list (56 pages, about 18 minutes), and a fresh capture of angebote-destinationen and
   ch/en/homepage (their offers didn't load in this one).
+
+## The brief after 530: the empty lines, Brussels' check-in form, the next causes
+
+**Left from 530, as reported:** the scratch folders `migration-work/parity-517`, `parity-519` and `parity-530`
+(measurements); the `urls-*.txt`, `import-progress.json` and report files that were in the checkout before I started
+are not mine. Nothing was unpushed. This turn adds `migration-work/parity-536` (measurements, offline imports, served
+copies) and the scratch worktrees `wt-536`, `wt-536b`, `wt-suite-536*`; none of them is in git (migration-work is
+ignored). Nothing uploaded, nothing published, no request to www or any brand's www host.
+
+### Item 1, the empty lines (`f26babc0`)
+
+- **What I chose, by numbers:** www's empty lines outside a tab or accordion panel become one spacing marker per run,
+  `{spacer-40}` a line on Brussels and `{spacer-48}` on Austrian (www's gap at them). The lines inside a panel stay out:
+  they show nothing on www at 1440 (business, gesundes-reisen). `<p>&nbsp;</p>` itself is still dropped everywhere.
+  - **Where:** `nbsp-guard.mjs` `emptyLineSpacers`, on the snapshot. Brussels' runs as the mapped snapshot's last
+    step. Austrian's runs right after the scripts are stripped, because `test/austrian-teaser-cards.test.mjs` pins the
+    outer steps.
+  - **Test first:** `test/nbsp-empty-lines-536.test.mjs`, with my own fixtures (a sidebar, a run of two, a tab, an
+    accordion) and one for the marker.
+- **The numbers** (www's gap from the recordings; then main's import against this change's on a local dev server with
+  the brand's theme, main's height, 1440 / 390):
+
+  | Page | www gap at the lines | Change |
+  | --- | --- | --- |
+  | families-and-children fr, en (2 lines each) | -50 and -49 / -39 each | +102 / +98 |
+  | our-fleet (2) | -50 / -30 | +102 / +98 |
+  | travel-regulations (1) | -44 / -40 (1.0 / 0.6 % of the page) | +41 / +41 |
+  | extra-services (1) | -48 / -60 (1.1 / 0.9 %) | +49 / +49 |
+  | the-gambia (1) | one line on a 9,056 px page, under 1 % | +61 / +57 |
+  | accessible-travel (1) | one line on a 12,856 px page, under 1 % | +49 / +49 |
+  | business, gesundes-reisen, travelling-with-animals (panels) | none at 1440 | +0 / +0 |
+
+- **Under 1 %:** the-gambia and accessible-travel get the marker too. The rule is the importer's, and the importer
+  doesn't know a page's height. The marker is the size of the line, so it closes a gap of that size and doesn't
+  overshoot. The 1 % test decides the rule as a whole: four of the six recorded pages with visible lines are at
+  1 % or more.
+- **The cost:** once the collapse runs on these brands, a marker becomes a Spacer M (60 px), the decided +20 a marker.
+  ema-test's `e8089eaa` (main, today) dropped the extra heading gap after a Spacer that spacer-cost-536.md describes.
+- **Re-import:** `reimport-536-empty-lines.txt` (7, release order: Brussels' five, then Austrian's two). The pages in
+  panels come out the same.
+- **Preview-wait step:** none. The documents publish in the next round, as the standing rule says.
+- **Suite:** 685 files green before the rebase. After it, lint and the 192 affected tests ran (189 pass, 0 fail).
+
+### Item 2, Brussels' check-in form (`b1542743`)
+
+- **What www has:** online-check-in-options is www's quick actions with the Check-in panel only. That is the check-in
+  component SWISS has (`flm-checkin-fktnCheckinRequest`).
+  - On phones: a row "Enregistrement" that opens and closes, the Connexion link, boxed fields and a hint under each
+    name.
+  - From 768 px: a tab bar with the one tab.
+- **What changed:**
+  - `brussels-import.mjs` `withCheckinFields` writes the form as SWISS's option, booking-lookup (my-bookings, checkin),
+    with www's Login link and name hints.
+  - `brussels.css` draws that option as www, under `body.brand-brussels .booking-lookup.checkin` only.
+  - The block's files are unchanged.
+  - Test first: `test/brussels-checkin-536.test.mjs`.
+- **Measured** on /be/fr, the only recorded page: the recording imported offline, then main's import against this
+  change's on the local server. The figure is the space between the page's two headings, www / main / this change:
+  - 390: 976 / 691 / 938 px, so -285 becomes -38;
+  - 1440: 838 / 589 / 808, so -249 becomes -30.
+- **The other brands' page checks,** before the push: every pass-check sample in tools/reports/token-free, plus the
+  block's documents in the workspace. Each was rendered on its site's published pages (aem.live) through a local dev
+  server twice, with main's brussels.css and with this change's, at 1440 and 390:
+
+  | Site | Pages | Renders | Changed | booking-lookup blocks on them |
+  | --- | --- | --- | --- | --- |
+  | lh-austrian | 19 | 38 | 0 | 2 |
+  | lh-b2b | 16 | 32 | 0 | 0 |
+  | lh-cargo (block's documents) | 2 | 4 | 0 | 4 |
+  | lh-com (37 sample + 11 block documents) | 48 | 96 | 3, load timing | 22 |
+  | lh-discover | 14 | 28 | 0 | 0 |
+  | lh-swiss (swiss, mk, sub samples + 19 block documents) | 59 | 118 | 0 | 40 |
+  | lh-tap | 10 | 20 | 0 | 0 |
+  | lh-brussels (its own sample; published documents, not yet re-imported) | 19 | 38 | 0 | 2 |
+
+  No page of another brand loads brussels.css. The three lh-com pages (100-years chronicle, global-network,
+  first-class-terminal, 1440, below their last heading) change between two runs with the same code (first-class-terminal
+  11,819 then 11,092 px with this change's CSS). ITA's report names no pages, so ITA has no sample to run.
+- **Suite:** 692 files green. Lint failed only on main's own lh-edge line, which `3891be5a` fixed before my rebase;
+  after the rebase lint is ok and 319 tests ran (0 fail).
+- **Re-import:** `reimport-536-brussels-checkin.txt` (6: be en, fr, nl; de, it, es).
+- **What is left:**
+  - The −38 / −30 px is the hints wrapping in our wider text column.
+  - Visible, not heights: www's dark tab-bar line and seat icon; ours has lh-com's light line and SWISS's icon.
+
+### Item 3, the next causes without a new capture
+
+- **Brussels (fixed):** in a sidebar's text, a heading right after a paragraph is www's headline component.
+  - **The gap:** www has 50 px at 1440 and 45 on phones for an h2, 32 / 28 for an h3; ours had 20 / 16.
+  - **Reach:** 107 documents, 171 h2, 115 h3. The 4 recorded pages, 1440 / 390:
+    - invoices -7.4 → -3.5 % / -3.8 → -1.2 %;
+    - imprint -5.8 → -3.5 % / -3.8 → -1.8 %;
+    - upgrades fr -2.5 → -1.8 % / -0.5 → -0.1 %;
+    - upgrades en -1.8 → -1.0 % / -0.8 → -0.4 %.
+  - CSS only, so no re-import.
+  - Commit: `fa8fc4e7`.
+- **Brussels, looked at and not ruled:**
+  - **legal-notices (-8.3 %):** the h1 is 84 px higher than on www, but other plain-h1 pages differ by -36 to -44 px, so
+    there is no one value.
+  - **Link lists:** www draws its link-list component as 25 px arrow rows (ours: bullets, 34 px). It is recorded on one
+    page only, while 259 Brussels documents have link-only lists whose www component I can't see.
+  - **beobank (+9.6 % on phones):** one page.
+- **Austrian:** the open rows belong to other owners or show no one rule. They are: the homepages, the legal icon
+  tiles (cards-icon), seat-reservation's partner teasers, the padded picture rows, and content to re-import.
+  - I tried a rule for the small print under seat-reservation's buttons (www has 21 px more at 1440). It reached 3 of
+    the 8 rows and left the per-row gap as it was, so I dropped it.
+  - The online check-in form is lh-com's older check-in component (`checkinpassengerreceiptentry`), not the quick
+    actions, so item 2 doesn't carry over to it.
+- **TAP:** I measured every page the 478 sweep captured on www (82 page-widths) against today's page on a local server.
+  No cause over 3 % is TAP's own and fixable without a new capture:
+  - **The homepages (-13 % at 1440):** the Miles&Go pin's scroll state. Scrolled, the page is 580 px shorter on www as
+    well (tap.css, brief 483).
+  - **Baggage:** www's LUGGit widget.
+  - **pt-br/ajuda:** ema-test's hotline-finder.
+  - **destinazioni:** the destinations widget.
+  - **en-us and en-us/promos:** 404 on both TAP hosts. They have no preview document (known since brief 510).
+  - **promos:** the cards' 44 px from the sweep are gone (+1.4 % now).
+
+- **Note:** TAP's and ITA's themes went live on main while I worked (`ace9e7ee`, `2377993b`); the TAP measurements
+  above are from main before that. Brussels' and Austrian's are still off.
+- **Suite for item 3:** 695 files green; after two rebases, lint and the 80 Brussels tests (0 fail).
+
+### What is left
+
+- **The brands helper:** re-import `reimport-536-empty-lines.txt` (7) and `reimport-536-brussels-checkin.txt` (6),
+  with this main. Every later re-import carries both by itself.
+- **Hosts I used:**
+  - localhost dev servers in front of main--lh-brussels / -austrian / -tap / -com--moved-permanently.aem.page, and of
+    every site's aem.live for the samples;
+  - brussels.turnsthe.page and austrian.turnsthe.page for the landmark comparisons;
+  - the recordings and the 478 captures from their archives.
