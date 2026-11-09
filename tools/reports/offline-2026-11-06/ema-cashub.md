@@ -1968,7 +1968,7 @@ measurements) and the worktrees `wt-suite-539*`. None of it is in git. Nothing u
 
 - **Hosts:** our pages captured on brussels.turnsthe.page (Brussels' theme live there now) and austrian.turnsthe.page
   (theme off), against brussels-parity-004 (30 pages) and austrian-parity-003 (28).
-- **Fixed, a rule (`98bad6bd`):** Brussels /be/en/local-page/offers, +190 % / +81 %. www's live fare recommender
+- **Fixed, a rule (`059a7126`):** Brussels /be/en/local-page/offers, +190 % / +81 %. www's live fare recommender
   (.fareteaserdynamicevo) is now the destination-finder block in the info template and in Austrian's three templates
   built from it, as on the homepages. Before, it
   came in as 16 stacked pictures. Local result -12.6 % / -14.1 %; the rest is the deals' live fares and the blanked
@@ -1990,8 +1990,9 @@ measurements) and the worktrees `wt-suite-539*`. None of it is in git. Nothing u
     jp/ja baggage (390 -8.6 %);
   - Brussels service-charges (1440 -8.6 %) and chase-the-sun (the re-import is -15 % at 390 locally, the published page
     -2.4 %: to check before it is re-imported).
-- **After the collapse:** Brussels is live already, so the numbers above are today's live look. Austrian's switch is
-  still off; its rows were measured as the host is today.
+- **After the collapse:** Brussels is live already, so the numbers above are today's live look. Austrian's switch was
+  still off when I measured, so its rows show the host as it was then; it went live on main while I worked
+  (`e78a5c98`).
 
 ### What is left
 
