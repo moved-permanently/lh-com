@@ -13,7 +13,7 @@ Files here:
 
 | File | What it is |
 |---|---|
-| `translate.json` | the app's configuration, to upload as the DA document `/.da/translate.json` of the site (an admin uploads it; tools never write site-wide documents) |
+| `translate.json` | the app's configuration, to upload as the DA document `/.da/translate.json` of the site. The migration harness uploads it (pre-approved, 2026-11-08) after `check-config` passes: a multipart POST, then a read-back; it never previews or publishes it (see "Other airlines"). The other airlines' files are in `sites/<site>/translate.json` |
 | `check-config.mjs` | runs the app's own code (pinned commit, downloaded to a temp folder) on `translate.json` and on lh-com pages; report `tools/reports/loc-config-check.md` (`--config <file>`: the gc rows, `tools/reports/loc-config-check-gc.md`) |
 | `setup-lib.mjs` | the setup of a `translate.json` (its languages rows): the source, the German translation, the pairs of every rollout; the link, slug and marker steps, regional-diff and check-config take it with `--config <file>\|da` (default the repo copy; `da`: DA's `/.da/translate.json`, read only) |
 | `regional-diff.mjs` | what a rollout would replace: each rollout pair of the setup, the market's DA sources against the rollout's source (today's rows: /at/de against /de/de, /gb/en against /de/en, report `tools/reports/loc-regional-diff.md`; the gc rows: /de/en and /gb/en against /gc/en, /de/de and /at/de against /gc/de, `tools/reports/loc-regional-diff-gc.md`); `--pages <file or comma list>` for some pages (to stdout) |
@@ -23,6 +23,7 @@ Files here:
 | `block-check.mjs`, `review-lib.mjs` | read only: every heading, paragraph, image and block of a target's copy from before a step that is missing after it |
 | `marker-check.mjs` | read only: the style markers (`{caption}`, `{heading-small}`, `{divider-25}` …) of each translated page against its English source; report `tools/reports/loc-marker-check.md` |
 | `da-nx.mjs` | loads the app's code at the pinned commit for check-config and the slug step |
+| `sites.mjs`, `sites/<site>/translate.json` | `--site <site>` (default lh-com) for every tool: the DA root, hosts and configuration file of the six airlines of the slug order; see "Other airlines" |
 
 All line numbers below are adobe/da-nx at `69006f3b` (release 1.29.1, 2026-10-29; `nx/blocks/loc/…`),
 the commit the scripts pin and da-nx `main` on 2026-11-01. The merge is still in
@@ -293,7 +294,9 @@ the imported content: 87 at/de pages link into `/de/de` and 89 gb/en pages into 
 own articles do: e.g. www's at/de "7 people" article links to `/de/de/articles/…`); 2 translated
 de/de pages hold a `/de/en` link.
 
-### The slug step (after a translation into /de/de)
+### The slug step (after a translation into /de/de) — RETIRED
+
+One slug per page replaces it: the 72 pages move to the English slug and the German slug redirects to it (`tools/slugs/lh-com.json`, tools/slugs/README.md). The step, `slug-lib.mjs` and `slug-map.json` stay until the Lufthansa German round is done and then remain in git history only; the sections about the 72 pages and about a rollout project with its own URLs go with them.
 
 The app writes the German translation of `/de/en/<path>` to `/de/de/<path>`. 72 pages have their
 own German slug (`slug-map.json`, from `tools/migration-scope/pages.csv`). Run, from the repo:
@@ -553,6 +556,65 @@ has neither, so the demo uses Google. The rows that would change:
 
 Remove `translation.service.prod.origin`/`.link`; the languages, conflict behaviours and DNT rules
 stay. GlobalLink's language codes may need the region (`de-DE`): `code` is sent as the target.
+
+## Other airlines (`--site <site>`)
+
+Austrian, SWISS, Brussels, Discover, Cargo and Group for Business (`tools/slugs/<site>.json` lists what differs from one slug per
+page). Lufthansa (lh-com) keeps the setup above and its `/gc` rows. TAP, Air Dolomiti and ITA are parked: no setup, the tools stop.
+
+**The setup** (decision D1: language roots, no `/gc` tree; English the source because Google's connector sends `fromlang=en`):
+the English language root is the source, every other language root a translation from it (`Skip, Translate`), no rollout: under
+option B each language root holds a full copy of its own and lh-edge serves the market roots from it, and a rollout writes every
+project URL into every locale listed. Roots with a few own documents (market homepages) stay out. A project holds URLs of one
+language root; `/at/de` URLs are a source of nothing (no rollout row) and market-root URLs go to Sync and are copied under the source
+root with their full path: never put them in a project.
+
+| site | source | translations into | file | state |
+|---|---|---|---|---|
+| lh-austrian | `/at/en` | `/at/de`, `/fr/fr`, `/it/it`, `/es/es`, `/gr/el`, `/jp/ja`, `/pl/pl`, `/ru/ru`, `/cn/zh` | `sites/lh-austrian/translate.json` | prepared |
+| lh-swiss | `/ch/en` | `/ch/de`, `/ch/fr`, `/ch/it`, `/ch/es`, `/ch/ru`, `/ch/pt`, `/ch/el`, `/ch/zh`, `/ch/ja`, `/kr/ko` | `sites/lh-swiss/translate.json` | prepared |
+| lh-brussels | `/be/en` | `/be/fr`, `/be/nl`, `/it/it`, `/de/de`, `/es/es` | `sites/lh-brussels/translate.json` | uploaded 2026-11-09 |
+| lh-discover | `/de/en` | `/de/de`, `/xx/fr` | `sites/lh-discover/translate.json` | uploaded 2026-11-09 |
+| lh-cargo | `/en` | `/de` | `sites/lh-cargo/translate.json` | prepared |
+| lh-b2b | `/de/en` | `/de/de` | `sites/lh-b2b/translate.json` | prepared |
+
+The roots are the ones that hold a full copy in DA (at least 100 uploaded documents each, `test/loc-sites.test.mjs`). Cargo: English
+and German share 141 of 496 slugs (articles carry title slugs), so only the pages whose slugs correspond belong in a project until a
+pairing is measured. Group for Business: 260 of the 277 `/de/en` documents also exist under `/de/de`.
+
+**The files** are lh-com's live DA file (read from DA) with the airline's rows: the same service, conflict behaviours, DNT sheet rules
+and block rules (`custom-doc-rules` are shared code), the airline's `source.fragment.hostnames` (its aem.live and turnsthe.page hosts)
+and the rules of the airline's own blocks that read key | value rows (the key column is a lookup and is never translated; addresses and
+ids are not either): Austrian and SWISS lounge-finder, ejournals, checkin-deadlines; Brussels lounge-finder, ejournals; Discover
+security-waiting-time, lounge-finder; Cargo news-feed, newsletter-form, newsroom, notifications; Group for Business b2b-login,
+b2b-member, hotline-finder. They follow the blocks' sources, not yet a project on the airline's pages: look at the DNT table of a real
+page first (`check-config` prints it). Known gap, also on lh-com: the URL and path cells of flight-search, fare-teaser and
+hero-card-overlay reach the translation service.
+
+**Check, then upload** (the harness; a site-wide write, so only a corrected file replaces it):
+
+```sh
+node tools/loc/check-config.mjs --site lh-brussels          # the app's own functions on the file; report tools/reports/slugs/loc-config-check-<site>.md
+# DA_TOKEN set (a DA read of the sample pages for the DNT table); never printed
+curl -s -o /dev/null -w '%{http_code}\n' -H "Authorization: Bearer $DA_TOKEN" https://admin.da.live/source/moved-permanently/lh-brussels/.da/translate.json   # before: 404
+curl -X POST -H "Authorization: Bearer $DA_TOKEN" -F 'data=@tools/loc/sites/lh-brussels/translate.json;type=application/json' https://admin.da.live/source/moved-permanently/lh-brussels/.da/translate.json   # 201
+# read it back with the login: equal to the file; never preview or publish it
+```
+
+Rollback: a site that had none: `DELETE` the same address (the file was created for this), or POST a corrected file; a wrong file only
+affects loc projects started on that site. Open da.live/apps/loc in a fresh tab afterwards (it keeps the first site's configuration).
+The other four are uploaded when their documents are on the canonical slugs (a first translation would otherwise write a second page
+next to a page with a translated slug): Cargo and Group for Business also wait for a measured pairing.
+
+**The tools with `--site`**: `check-config` (checks derived from the rows: the source root, where each translation lands, the roots a
+project refuses, the Sync hazard of a market root, the airline's own blocks, DNT samples read from DA), `link-step` (no scope table: one
+slug per page, so `/<from>/x` becomes `/<to>/x`, the site's own hosts become root-relative; pages with `--page`, no `--all`),
+`marker-check` (same pairing, pages with `--page`, `--to <root>` picks the translation), `block-check`, `clear-review`; `regional-diff`
+says there is no rollout to compare; `slug-step` is lh-com's only.
+
+**da-nx since the pinned commit** (`69006f3b`, 1.29.1; checked 2026-11-09 against 1.42.1): three loc commits, none touches the options,
+path or DNT functions the checks run: rollout placeholders (`/.da/rollout-placeholders.json`, opt-in, unused here) and its refactor, and
+the move of the merge into `nx/public/loc` (#801). The pin stays; move it when one of those functions changes.
 
 ## Limits (today's app, 69006f3b)
 
