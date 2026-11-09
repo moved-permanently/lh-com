@@ -1369,3 +1369,208 @@ Left uncommitted, with the reasons:
 - styles/themes/brussels.css and tap.css carry nothing uncommitted: both are in the commits above.
 - migration-work/parity-510/ (captures, probes, scripts): scratch, kept out of git by
   .git/info/exclude.
+
+## The brief after 510: the two importer options, ITA's rows, SWISS's ranking, Brussels' leftovers
+
+Hosts:
+- the previews;
+- ita.turnsthe.page, austrian.turnsthe.page and swiss.turnsthe.page (published pages, the SWISS sitemaps);
+- admin.hlx.page status (read only);
+- local dev servers with this tree.
+
+No request went to www or to any brand's www host. Nothing was uploaded or published. The six old
+TAP fragments stay in DA and in the allowlist, as you said.
+
+### Item 1a: Brussels' phone sliders (`09cdc53f`)
+
+- **www's carrier:** a column view whose content sits in `<div class="carousel">`: a
+  `.hidden-md-down` grid plus a `.hidden-lg-up` swiper copy. On phones that's one card a view
+  with dots. Among the recorded Brussels pages two have it:
+  - inflight-services' four "Autres sujets" teasers (a four-column view);
+  - meetings-and-events' three steps (a three-column view of picture, headline and text).
+- **brussels-import.mjs:** `withPhoneSliders` marks such a view (`data-import-phone-slider`), as
+  austrian-import.mjs does. It runs in the snapshot chain after `withTeaserColumns`.
+- **carousel-cards parser:** a marked four-column view now gets phone-slider too ("grid four-up
+  phone-slider"). Unmarked ones (lufthansa.com) stay "grid four-up", and no Austrian recording
+  has a four-column carousel view.
+- **Bundles:** the line added to the ten bundles built with this parser. After the pull each
+  differs from main by that one line. Brief 506's fragment-slides stays in the hub bundle only,
+  as its author built it. A rebuild of the hub bundle here would also have reordered its
+  transformers (the build rewrites import-hub.js), so the line went into the committed bundles
+  as they are.
+- **carousel-cards block:** an authored four-up keeps four cards a row from 1025 px with
+  phone-slider (it dropped to three a row).
+- **meetings-and-events:** the three-column steps get "cards-teaser three-up phone-slider" from
+  the cleanup's carousel flag (brief 497). Their document is older than that flag.
+- **Checked offline:** both recordings through the snapshot chain and the info bundle give
+  "carousel-cards grid four-up phone-slider" and "cards-teaser three-up phone-slider", with no
+  live fallback.
+- **Rendered locally** (a scratch copy of the document with the option):
+
+  | Width | Before | After |
+  | --- | --- | --- |
+  | 390 | four stacked cards, 1,150 px | one 346 px card a view with dots, 290 px |
+  | 1440 | four 301 px cards a row | unchanged |
+
+- **Tests:** test/brussels-phone-slider-import.test.mjs and
+  test/carousel-cards-phone-slider-four-up.test.mjs.
+- **Documents:** `tools/reports/parity-2026-11-08/reimport-brussels-phone-slider.txt` (11). That's
+  the two pages and their language copies in lh-brussels.json, plus the harness's grep rule for
+  every other snapshot with the pattern.
+
+### Item 1b: Austrian baggage's boxed teasers (`af7be822`)
+
+- **What the evidence showed:** www's current baggage page (brief 497's recording) has its nine
+  cards as context teasers (`a.teaser.card` in experience fragments) in two-column views. Our ten
+  baggage documents come from the Studio's older capture of the page: h2 titles in a
+  picture-and-text grid, with "Carry-on baggage" where www now says "Hand lugagge".
+- **Why there's no new option:** today's austrian-import.mjs already takes the current markup to
+  www's boxed cards ("carousel-cards grid two-up", as /at/de/familien and /at/de/check-in). The
+  recording run offline through mappedOf and the info bundle gives five such blocks. A new
+  option for the old markup would put boxes on a grid that the other 32 recorded pages with it
+  show flat on www.
+- **Test:** test/austrian-boxed-teasers.test.mjs keeps that path.
+- **Documents:** `tools/reports/parity-2026-11-08/reimport-austrian-boxed-teasers.txt` (10). They
+  need a newer capture before the re-import, because one from the current snapshot gives the
+  same document again:
+  - /at/en/baggage can use brief 497's recording as its snapshot;
+  - the nine language copies need a fresh Studio capture.
+
+### Item 2: ITA (`19d5920d`, one row)
+
+- **help-and-contact (ranks 1 and 2 in brief 510, -13 to -17 %):** a preview artefact. On
+  aem.page the help app's script, served from ita.turnsthe.page, is refused across origins, so the
+  micro-frontend shows its 183 px fallback. On ita.turnsthe.page:
+
+  | Page | 1440 | 390 |
+  | --- | --- | --- |
+  | /it/it/help-and-contact | +1.9 % | +5.4 % |
+  | /it/en/help-and-contact | +2.9 % | +3.6 % |
+
+  The same holds for brief 510's Austrian /at/de and /at/en/contact (rows 7 and 8): on
+  austrian.turnsthe.page they are 0 / +1.1 % and +0.9 / +1.8 %. Brief 510's ranking called that
+  "content"; it is the preview host.
+- **The row fixed: ITA's footer on phones (ita.css), 114 px taller than www's at 390.**
+  - Where the 114 px came from:
+    - the first heading 8 px lower;
+    - "Informazioni su ITA Airways" on two lines (the toggle 16 px in, where www's text is 8 px
+      in);
+    - the payment row 11 px lower, the legal links 7 px lower and packed closer than www's;
+    - the language button 41 px under the legal links (www 11);
+    - the note 9 px, and the logo stack 4 and 5 px further apart with 11 px more under it.
+  - Each text line of the footer is now within 1 to 6 px of www's. 1440 is unchanged (+24 px,
+    1.1 %).
+  - The 26 pages other than help-and-contact, at 390: the mean page-height difference went from
+    1.74 to 1.01 %, and 18 → 24 are within 2 %.
+
+    | Page | Before | After |
+    | --- | --- | --- |
+    | /it/it/homepage | +5.0 % | +0.3 % |
+    | /it/it/manage-my-bookings/manage | +4.2 % | +1.5 % |
+    | /it/it/world-of-ita-airways/travel-classes | +3.9 % | +0.9 % |
+
+  - This machine has no Arial (the legal links' font) and its fallback is wider. So the English
+    legal links take eight rows here and seven on www; with Arial the spacing gives www's rows.
+  - Test: test/ita-footer-phones.test.mjs.
+- **Why not ten:** every other ITA row is within ±3 % and has no shared cause in ITA's CSS or
+  blocks.
+  - The cause is page content. Example: /it/en/manage-my-bookings/extra-services is -2.8 % at
+    1440, while its Italian copy with the same blocks is +0.3 %.
+  - None of them needs one of ema-test's files.
+- **Documents:** none (theme only).
+
+### Item 3: SWISS (`8b9d3c8c`, one row)
+
+- **The ranking:** `tools/reports/parity-2026-11-08/sweep-swiss-cashub.md`.
+  - The published pages are those in swiss.turnsthe.page's 227 sitemaps: 67,414 pages across the
+    markets.
+  - 84 recorded pages are ranked: 74 in the sitemaps, plus 10 magazine pages that aren't in a
+    sitemap but answer 200 live.
+  - 57 are at 2 % or more, 30 at 5 % or more.
+  - The 3,120 published language documents without a recorded copy in any market are listed in
+    `swiss-unrecorded.txt`, not guessed.
+- **The row fixed: SWISS's picture-and-text rows (swiss.css).**
+  - www's rows are column views of their own: the next row's heading sits about 65 px under a row
+    at 1440 and 48 px at 390. Ours had the default 24 px.
+  - Rule: a heading that opens the content after a columns-media row gets 48 px, 64 px from
+    1025 px.
+  - On the 19 recorded pages with such rows (local; before equals the published pages), the mean
+    page-height difference went from 3.80 to 2.45 % at 1440 and from 2.89 to 2.17 % at 390.
+
+    | Page | 1440 before → after | 390 before → after |
+    | --- | --- | --- |
+    | swiss-business | -6.3 → +1.5 % | -5.2 → -2.1 % |
+    | swiss-economy | -5.6 → +0.4 % | -3.0 → -0.9 % |
+    | swiss-premium-economy | -7.6 → -2.1 % | -5.8 → -3.6 % |
+    | upgrade-options | -6.4 → -2.3 % | -6.5 → -4.6 % |
+
+  - Longer now (1440): swiss-airrail +5.4 → +6.1 %, miles-and-more +1.8 → +3.7 %,
+    baggage-irregularities +1.6 → +3.7 %.
+  - Test: test/swiss-row-headings.test.mjs.
+- **Why not five:** the other high rows aren't in SWISS's own CSS.
+  - **Live data:** /ch/en/offers (www's fares grid).
+  - **A link-out by design:** pax-receipt (www's booking-details form).
+  - **Third-party ads:** the seven magazine rows (-12 to -14 % at 390). On phones www puts a
+    roughly 300 px advertisement slot between sections; ours has none.
+  - **The homepages (/de/de +9.4 %, /us/en +7.9 % at 390):** after the destination finder our
+    documents carry the fares' disclaimer and conditions as 612 px of page text. On www they live
+    only in the fares widget's dialog, and the destination-finder parser already copies them into
+    the block's Conditions row.
+    - Change for swiss-import.mjs / the SWISS homepage import (ema-lufthansa): after the
+      destination-finder parser has read the conditions dialog (`.disclaimerandconditions` and its
+      portalled dialog), drop that dialog's source from the page, so it doesn't stay as default
+      content in the section.
+    - I didn't edit the file.
+  - **The intro paragraph (upgrade-options):** www's `p.copytext-large` (18 / 30 px), a per-page
+    style used on 2 of the 69 recorded pages. That's a carrier for ema-test's token-free work or
+    swiss-import.mjs, not a theme default.
+  - **Single pages:** travel-insurances, entertainment-on-board, travel-regulations,
+    health-and-travel and the culinary hub app, each with its own small difference.
+- **Documents:** none (theme only).
+
+### Item 4: Brussels rows left after brief 510
+
+- **Phone sliders:** a shared cause, now in the importer (item 1a). The documents still need the
+  re-import from the list.
+- **No rule possible:**
+  - **The space from the intro to the first card** (meals, lounges, families-and-children,
+    our-fleet). www's space follows its separators and empty lines, which our documents don't
+    carry. Brief 505's median rule stays.
+  - **The space below the last grid at 390.** www has 82 to 248 px for the same structure. Brief
+    510's median rule (130 px) is as close as one rule gets.
+  - **The space before "Related topics".** The jump at that heading runs from -63 to +80 px at
+    1440 over the 16 recorded pages, depending on what precedes it (accordions, galleries).
+- **Not shared:** open accordions in the recordings (baggage problems, cancel and refund),
+  widgets (payment methods, destinations) and single pages (travel-insurances' intro band,
+  beobank, new-destinations, contact).
+
+### The pushes
+
+- **`09cdc53f`, `af7be822`, `19d5920d`:** pushed after the full suite in a clean worktree (634
+  files, 0 fail) and a pull right before.
+  - The pull brought in brief 506's carousel-cards parser change and its hub-only bundle rebuild.
+  - The parser conflict was resolved with both changes.
+  - My line was then added to upstream's ten bundles, each differing from main by that line alone.
+- **`8b9d3c8c` and this report:** pushed after the suite, with a pull right before.
+
+### Summary
+
+| Item | Commit | What |
+| --- | --- | --- |
+| 1 | `09cdc53f` | Brussels phone sliders: importer mark, carousel-cards parser and block, the bundles' line |
+| 1 | `af7be822` | Austrian boxed teasers: the test of the existing path, the re-import list (a newer capture first) |
+| 2 | `19d5920d` | ITA's footer on phones (ita.css) |
+| 3 | `8b9d3c8c` | SWISS's picture-and-text rows (swiss.css) |
+| 3, 4 | (this commit) | sweep-swiss-cashub.md, swiss-unrecorded.txt, this report |
+
+Documents to import (paths files, in release order):
+- `tools/reports/parity-2026-11-08/reimport-brussels-phone-slider.txt`: 11 documents, plus the
+  harness's grep rule for the other Brussels snapshots with the pattern.
+- `tools/reports/parity-2026-11-08/reimport-austrian-boxed-teasers.txt`: 10 documents, after a
+  newer capture.
+
+Left uncommitted, with the reasons:
+- tools/importer/import-progress.json, tools/importer/reports/**, tools/importer/urls-*.txt and the
+  import report xlsx files: earlier import runs' output.
+- migration-work/parity-510 and parity-511 (captures, probes, scripts, the worktree): scratch, kept
+  out of git by .git/info/exclude.
