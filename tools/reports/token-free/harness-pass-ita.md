@@ -1,0 +1,177 @@
+# ITA's collapse pass: the harness's job (the first brand through token-free styling's step 2)
+
+The job is for a local import harness: a separate agent with a fresh clone, the R2 snapshots and the DA token. It
+should be able to follow this page without asking. The pass turns the style markers of ITA's DA documents (lh-ita)
+into the theme's defaults and carriers. It runs in three steps, in this order, and never otherwise:
+
+1. **The collapse pass on DA** (this page): download, collapse, check, back up, upload, preview, check. Nothing is
+   published.
+2. **The switch merged**: the user merges `token-free-ita-live` into main (`git merge --no-ff
+   origin/token-free-ita-live`). ITA's theme goes live in code.
+3. **Publish**: ITA's changed documents go live (below, "After the pass").
+
+Until step 2 the preview of `main` shows ITA's collapsed documents with ITA's theme off, so they look wrong there.
+The page checks below therefore read the switch branch's preview, which has the theme on. Live pages
+(ita.turnsthe.page, `*.aem.live`) don't change until step 3.
+
+## 1. The clone
+
+```
+git clone https://github.com/moved-permanently/lh-com.git && cd lh-com
+git checkout main      # must contain 6d1bb8a0 (the collapse fix, the loss and page checks) and 56b60faf (the theme rules)
+git merge-base --is-ancestor 6d1bb8a0 HEAD && git merge-base --is-ancestor 56b60faf HEAD && echo ok
+npm ci
+```
+
+- Node 20 or later.
+- For the page checks: a Chromium for playwright-core (`npx playwright-core install chromium`, or `CHROMIUM_PATH=<chrome>`).
+- The branch `token-free-ita-live` (head 72b2f4d9) must not be merged, checked out or changed by the harness. Its
+  preview is all the harness uses: `https://token-free-ita-live--lh-ita--moved-permanently.aem.page`.
+- The R2 snapshots are not needed for this pass (no import runs).
+- During the pass no ITA re-import may run. ITA's theme is off on main, so an import would write markers again.
+
+## 2. The documents
+
+- DA site: org `moved-permanently`, site `lh-ita`. Source API: `https://admin.da.live/source/moved-permanently/lh-ita/<path>.html`,
+  `Authorization: Bearer $DA_TOKEN`.
+- The pass's documents: `tools/reports/token-free/collapse-lh-ita-paths.txt`, 2,083 paths in release order
+  (de/en, de/de, then the other markets; it/en and it/it are 220 and 237 of them). These are the workspace's
+  documents with markers.
+- DA's set may differ:
+  - a listed path that DA doesn't have is recorded and skipped;
+  - a DA document that isn't listed is not touched (record it if it has markers: `marker-collapse-cli.mjs --check`
+    on it).
+  - Step 4's census of ITA's preview (2026-11-09, step4-preconditions.md) finds 2,141 of 2,563 previewed documents
+    with markers, against the workspace's 2,083. Download the site's whole tree once and run `--check` over it, so the
+    difference is known before phase B.
+
+## 3. Phase A, local only (no DA writes): download, collapse, check, all 2,083 at once
+
+The collapse must see all documents in one run. It rewrites links to another document's old heading ids, which is
+only possible within the run. So collapse everything first, then upload in batches.
+
+```
+mkdir -p work/ita/before work/ita/after
+# every path of the list: GET the DA source, saved byte for byte as work/ita/before/<path>.plain.html (DA's <body>…</body>)
+node tools/importer/marker-collapse-cli.mjs --content work/ita/before --brand ita --force \
+  --list tools/reports/token-free/collapse-lh-ita-paths.txt --out work/ita/after \
+  --report work/ita/report.json --paths work/ita/changed.txt --pages work/ita/pages.jsonl
+node tools/importer/collapse-loss-check.mjs --before work/ita/before --after work/ita/after \
+  --list work/ita/changed.txt --out work/ita/loss.json
+```
+
+What the run must report (`work/ita/report.json`). These are the workspace's numbers, and DA's may be a little
+off them:
+
+| | expected |
+| --- | --- |
+| documents changed | 2,083 |
+| markers | 18,497: 17,382 theme (the marker goes), 1,115 as carriers, 0 for a person |
+| marker left, not idempotent, errors | 0, 0, 0 |
+| carriers written | 631: Section Metadata styles h2-compact 196, divider-below 60, space-m 22, small-print 21, h3-large 9, space-below-l 8, space-below-m 7; Spacer blocks 144, Divider blocks 81; block options title-large 36, title-compact 27, divider-above 18; form Default 2 |
+| the loss check | 0 failed (`collapse-loss-check` exits 0). The documents that already had several H1s are listed as notes: 52 in the workspace. |
+
+What a changed document looks like, per document class (the import reports' template):
+
+| class | documents | carriers per document |
+| --- | --- | --- |
+| info | 1,980 | 0 for 1,643 of them (markers gone, nothing added); median 0, 95 % at most 2, at most 13 (the nine terms-and-conditions-of-use pages: their numbered chapters' Spacer and Divider blocks) |
+| homepage | 67 | 0 for 59; at most 3 (space-m, space-below-l) |
+| app-entry, flight-status, hub, others | 36 | 0 |
+
+In every changed document:
+- no `{…}` style marker is left; data placeholders such as `{origin}` stay;
+- headings keep their level, and their ids lose the marker's part (`about-heading-small` becomes `about`);
+- running text loses `{full-width}`, because ITA's theme is wide;
+- a page with column marks gains the Metadata row `Theme: flow-spacing`;
+- the carriers are only Section Metadata `Style` values, block options in a block's name (`Columns Media
+  (title-large)`), Spacer / Divider blocks, and a form's Default column.
+
+Stop before phase B if any row above is off. That means: a loss-check failure, a marker left, an error or a
+document "for a person", carriers written more than 10 % above 631, or a document with more than 15 carriers.
+
+## 4. Phase B, in batches: back up, upload, preview, check
+
+The batches follow the paths file's order. The first batch is 20 documents, a canary with every check. After it come
+100 documents per batch. Per batch:
+
+1. **Back up in DA.** POST each document's original (`work/ita/before/<path>.plain.html`, as downloaded) to
+   `/.token-free-backup/2026-11-ita/<path>.html` on the same DA site. Then GET it back and compare: it must be equal
+   byte for byte. Keep `work/ita/before/` too.
+2. **Read DA again before uploading.** If a document differs from `work/ita/before/` (someone edited it since phase
+   A), don't upload it. Collapse it again on its own, check it, and record it.
+3. **Upload** `work/ita/after/<path>.plain.html` as DA's source shape. The collapse writes a whole document
+   (`<html><head></head><body>…</body></html>`); send the `<body>…</body>` part. GET it back: it must equal what was
+   sent.
+4. **Preview**: `POST https://admin.hlx.page/preview/moved-permanently/lh-ita/main/<path>` with the token the harness
+   previews with today; it must answer 200.
+5. **Page checks** on the switch branch's preview against the host's published page:
+   ```
+   node tools/importer/pass-widths.mjs --paths work/ita/batch-NN.txt --host https://ita.turnsthe.page \
+     --preview https://token-free-ita-live--lh-ita--moved-permanently.aem.page --out work/ita/batch-NN-widths.json
+   ```
+   - The canary batch is checked at 1440 and 390 in full.
+   - Each later batch runs the fast checks for every page (`--widths none`: preview 200, `.plain.html` 200, no
+     `about:error`, one h1 where the published page had one), then widths for 10 of its pages: every page with
+     carriers first, then the batch's first pages.
+   - Flagged: more than 3 % off in height, or a heading more than 40 px off.
+
+What is known and accepted (tools/reports/token-free/ita-pass-check.md, decisions.md). These pages can be flagged
+without stopping the pass:
+- **Running text over the whole width**: ITA's default; 488 two-thirds paragraphs become wide (airline-partners
+  -7.6 % at 1440).
+- **Column groups that end inside running text** lose their padding (cookie-policy -5.1 %, -405 px).
+- **Separators of 0-31 px** go (youth -62 px).
+- **Heading sizes one step from the default** take the default (check-in +42 px at 390).
+
+### The stop rule
+
+Stop means: finish the document in hand, start no new batch, and report. Stop on any one of these:
+
+- a loss-check failure, or an uploaded document that doesn't read back equal;
+- a preview or `.plain.html` that isn't 200 after one retry, or an `about:error`: more than 2 in a batch;
+- a page whose published version had one h1 and whose preview doesn't;
+- a page more than 10 % off, or with a heading more than 400 px off;
+- more than 3 flagged pages in a batch's width sample that aren't one of the known kinds above (with a cause unlike
+  A to D in ita-pass-check.md).
+
+## 5. Rollback
+
+For one batch or the whole pass:
+1. POST each document's backup (`/.token-free-backup/2026-11-ita/<path>.html`, or `work/ita/before/`) back to
+   `<path>.html`. GET it back: it must be equal.
+2. Preview it again (`admin.hlx.page/preview/…`).
+3. If the pass had already gone live (step 3 above):
+   - first revert the switch: `git revert -m 1 <merge commit> && git push origin main`;
+   - then publish the restored documents again (`POST https://admin.hlx.page/live/moved-permanently/lh-ita/main/<path>`).
+
+Never publish collapsed documents while the switch is off on main.
+
+## 6. After the pass
+
+- **Report**: `work/ita/report.json`, `loss.json`, every batch's widths file, the skipped and re-collapsed paths, and
+  DA's documents with markers that weren't listed.
+- **The user merges** `token-free-ita-live`.
+- **Publish** the changed documents (`admin.hlx.page/live/…`), 100 per batch, in the paths file's order. After each
+  batch, run the fast checks on the host: `pass-widths.mjs --host https://ita.turnsthe.page --preview
+  https://ita.turnsthe.page --widths none`.
+- **Count what is left**: `node tools/importer/marker-census.mjs --site lh-ita` (step 4's census; it should show no
+  ITA markers on live).
+
+## The next brands: deltas
+
+Every brand's switch branch is in place (the brief after 506). Each merges on its own after its pass, without
+conflicts. The page above holds for each brand, with these changes:
+
+| brand | DA site | paths file (documents) | switch branch | branch preview | host | expected carriers written | pass check |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Discover | lh-discover | DA's own list: the workspace's collapse-lh-discover-paths.txt has 24, the census finds 470 previewed documents with markers | token-free-discover-live | token-free-discover-live--lh-discover--moved-permanently.aem.page | discover.turnsthe.page | 6 (20 documents none, at most 2) | discover-pass-check.md, harness-pass-discover.md |
+| TAP | lh-tap | collapse-lh-tap-paths.txt (0 today: TAP's importer collapses itself, gated on TAP's theme) | token-free-tap-live | token-free-tap-live--lh-tap--moved-permanently.aem.page | tap.turnsthe.page | 0 | tap-pass-check.md (ema-cashub's) |
+| SWISS | lh-swiss | collapse-lh-swiss-paths.txt (21), -swiss-mk- (474) and -swiss-sub- (186), one pass | token-free-swiss-live | token-free-swiss-live--lh-swiss--moved-permanently.aem.page | swiss.turnsthe.page | 513 | swiss-, swiss-mk-, swiss-sub-pass-check.md |
+| Austrian | lh-austrian | collapse-lh-austrian-paths.txt (1,893) | token-free-austrian-live | token-free-austrian-live--lh-austrian--moved-permanently.aem.page | austrian.turnsthe.page | 1,414 | austrian-pass-check.md |
+| Brussels | lh-brussels | collapse-lh-brussels-paths.txt (1,070) | token-free-brussels-live | token-free-brussels-live--lh-brussels--moved-permanently.aem.page | brussels.turnsthe.page | 962 | brussels-pass-check.md |
+| B2B | lh-b2b | collapse-lh-b2b-paths.txt (644; the census finds 679 previewed documents with markers) | token-free-b2b-live | token-free-b2b-live--lh-b2b--moved-permanently.aem.page | b2b.turnsthe.page | 773 | b2b-pass-check.md |
+| Cargo | lh-cargo | none yet: the workspace has no Cargo documents with markers; run `--check` on DA's copy first | token-free-cargo-live | token-free-cargo-live--lh-cargo--moved-permanently.aem.page | cargo.turnsthe.page | from that check | none yet |
+
+TAP's branch can't merge yet: ema-cashub's test/tap-collapse-505.test.mjs asserts TAP's switch is off. It needs
+`test/live-brands.mjs` (LIVE or offThemes) first.

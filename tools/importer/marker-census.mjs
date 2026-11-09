@@ -23,6 +23,13 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const ORG = 'moved-permanently';
 const origin = (site, env) => `https://main--${site}--${ORG}.aem.${env}`;
 const pause = (ms) => new Promise((r) => { setTimeout(r, ms); });
+// one request, 20 s at most, one retry (a hung request would stop the census)
+async function get(url) {
+  for (let i = 0; i < 2; i += 1) {
+    try { return await fetch(url, { signal: AbortSignal.timeout(20000) }); } catch (e) { await pause(1000); }
+  }
+  return { ok: false, status: 0 };
+}
 
 /** A response's text, gunzipped where a sitemap comes gzipped without saying so. */
 async function textOf(res) {
@@ -37,7 +44,7 @@ async function sitemapPaths(site, wait) {
   const read = async (url) => {
     if (seen.has(url)) return;
     seen.add(url);
-    const res = await fetch(url); await pause(wait);
+    const res = await get(url); await pause(wait);
     if (!res.ok) return;
     const xml = await textOf(res);
     const locs = [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map((m) => m[1]);
@@ -84,8 +91,9 @@ export async function census(site, {
     const r = {
       read: 0, missing: 0, withMarkers: 0, families: {}, pages: [],
     };
-    for (const p of list) {
-      const res = await fetch(`${origin(site, env)}${p === '/' ? '/index' : p}.plain.html`);
+    for (const [i, p] of list.entries()) {
+      if (i && i % 250 === 0) process.stderr.write(`${site} ${env}: ${i} of ${list.length}\n`);
+      const res = await get(`${origin(site, env)}${p === '/' ? '/index' : p}.plain.html`);
       await pause(wait);
       if (!res.ok) { r.missing += 1; continue; }
       r.read += 1;
@@ -96,6 +104,7 @@ export async function census(site, {
       Object.entries(fam).forEach(([k, v]) => { r.families[k] = (r.families[k] || 0) + v; });
       r.pages.push({ path: p, markers: n, families: fam });
     }
+    process.stderr.write(`${site} ${env}: ${r.read + r.missing} of ${list.length}\n`);
     r.pages.sort((a, b) => b.markers - a.markers);
     result.envs[env] = r;
   }

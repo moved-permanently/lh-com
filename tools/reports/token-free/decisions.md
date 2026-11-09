@@ -20,3 +20,9 @@ in the brief after 506. Each lists the decision and the reason.
    run would be an exception.
 
 These lines don't change the collapse: each is what marker-collapse.mjs already does.
+
+**lufthansa.com's column views have a carrier of their own**, settled in brief 511, item 1 (ema-adobe's handover,
+tools/reports/parity-2026-11-08/column-view-handover.md): the section style Column view (`column-view`), one
+section per www column view. ema-adobe's hub transformer writes it on import, and the collapse
+writes it from the column marks for brand lufthansa (THEMES.lufthansa.columnViews.carrier). Decision 1 holds for
+every brand site.
