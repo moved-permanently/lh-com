@@ -222,6 +222,13 @@ h6 {
   overflow-wrap: break-word;
 }
 
+/* running text likewise: a word longer than its line (a URL written as text: an Air Dolomiti post's
+   facebook.com/AirDolomiti/videos/..., 127px past a 390px screen) breaks instead of widening the
+   page; inherited, so a block that keeps its words whole (overflow-wrap: normal) still does */
+main {
+  overflow-wrap: break-word;
+}
+
 /* phones: long words (14+ characters) break at a syllable of the page's language first */
 @media (width < 768px) {
   h1,
