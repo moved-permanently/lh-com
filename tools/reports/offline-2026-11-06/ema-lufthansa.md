@@ -2479,3 +2479,84 @@ Nothing is captured before Ben writes "stable" (after 15:00 CET).
 - **Smoke after every push:** all 14 hosts, 0 differences.
 - **Documents:** none new to re-import beyond reimport-518-swiss-homepages.txt (187 ready, 40
   waiting) and its 206 dialog documents.
+
+## The brief after 523
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git); nothing was unpushed. Nothing is published or uploaded, and no request went to any www.
+No test reaches the uploader, the DA API or the preview API.
+
+### 1. Stages after an unpadded AEM section (lufthansa-sections.js): done, 6a2ee2e3
+
+- **The change:** ema-adobe's exact change from hub-campaign-521.md, with its exclusion. A
+  padded stage after an unpadded AEM section gets style padded, as www pads it, unless a padded
+  AEM section (not grey) follows it: economy-class's Allegris stage keeps before-padded.
+  lufthansa.com's pages only.
+- **Bundles:** the 14 bundles that carry the transformer were rebuilt, with the builder's
+  process-id identifier set back to main's. Each differs from main by that change only.
+- **ema-adobe's import-hub.js:** the rebuild regenerates it with one import line in another order
+  (`hub-dcep-render` moves up), as last time. It was put back; the hub bundle carries only the
+  change.
+- **Measured** on main--lh-com--moved-permanently.aem.page with a scratch copy of destinations
+  (New York's and Cape Town's stages padded, as the rule writes them) against lh-parity-002c's
+  recording (tools/parity/compare.js, the first 8,000 px): 1440 18.3 -> 15.2 %, 390 14.5 ->
+  13.5 %, ema-adobe's numbers.
+- **Documents:** reimport-526-hub-stages.txt lists 14, from the 1,577 lufthansa.com snapshots on
+  this disk: destinations on 8 roots, tips-senior-travellers on 5, first-class on 1. ema-adobe's
+  scan of 3,397 counts 16 (7, 7 and 2). Their snapshots aren't here, so the two lists can't be
+  matched path by path. A path of theirs that's missing can be added: a re-import the rule doesn't
+  reach comes out unchanged.
+
+### 2. Group for Business and Cargo against the recordings: ranked, three rows fixed
+
+The ranking is in sweep-b2b-cargo-526.md: both brands worst first, with cause and owner. The
+pages without a recording are listed (b2b-unrecorded-526.txt 586 language documents,
+cargo-unrecorded-526.txt 950 pages).
+
+| Commit | Brand | Row | 1440 | 390 |
+| --- | --- | --- | --- | --- |
+| 84fc8d14 | Cargo | 43: Support & Contact's support band (small print, its end) | 2435 -> 2335 (www 2301) | 3254 -> 3130 (www 3066) |
+| fb5e1502 | Cargo | 44: eBooking's features text col-5 | en 3915 -> 3853 (www 3771) | unchanged |
+| da6b22fc | B2B | 34: contact's hotline finder as www's PartnerPlusBenefit box | the box as www's; page 3417 -> 3397 (www 3499) | page 4056 -> 4102 (www 4153) |
+
+- **Why fewer than three per brand:**
+  - Cargo's three worst rows aren't in its CSS or importers: a re-import (the feedback view),
+    data (notifications) and a recording (the timeline). The article and fleet pairs below them
+    have several small causes and no single measurable rule.
+  - No Group for Business page is more than 3 % from www. Its other high rows are one page's own
+    styling (Ben's rule keeps the common style), or they need the importer to tell two kinds of
+    column view apart.
+- **Open, B2B (with the exact candidate change and what decides it, in the ranking file):**
+  - the two-item column view under text in a white section (about-us, celebrating-shared-stories);
+  - nested column views (lufthansa-group-airlines).
+- **For other owners:** below B2B contact's finder, the separator sits 4 px under the section's
+  top (the shared grey-after-grey join) where www has 20 / 40 px. The divider markers are
+  ema-test's, the join is shared styles.css. Not changed.
+- **Sign-in pages:** the de/en and de/de prelogin pages measure as www's. No test account was used,
+  and the login logic wasn't touched.
+- **B2B contact at 1440:** the page total moves 3417 -> 3397 px although the finder now matches
+  www. The finder had been 20 px too tall, which hid the 40 px the page lacks under its separator.
+
+### 3. ema-cashub's handover, "causes in other files": nothing of mine to change
+
+Of that section, only travelling-with-animals names a file of mine: the tab markers and
+splitTabSections in swiss-import.mjs. With a tab panel whose body nests a two-column view inside
+the panel's own column view, the steps pass the body through unchanged: withTabMarkers only drops
+the tab control and puts a marker before each panel, and splitTabSections only cuts sections at
+the markers (checked offline). So the default content comes later in the chain: Austrian's nested
+view unwrap (austrian-import.mjs withNestedOnecolumnUnwrapped, ema-cashub's) or the shared
+column-view mapping. What settles it: that panel's markup in the austrian-parity recording, which
+is ema-cashub's and not on this disk. The section's other causes belong elsewhere: economy-class's
+buttons (content, a re-import), cards-icon (ema-adobe), entryregulations' separators (ema-test),
+new-destinations (lh-com's mapping) and the homepages (ema-adobe). None names SWISS, Air Dolomiti,
+Cargo, Discover, the B2B importers, campaign-sections.js or market-diff.
+
+### Checked
+
+- **main--lh-com--moved-permanently.aem.page:** destinations at 1440 and 390, published and
+  draft, against the recording.
+- **b2b.turnsthe.page and cargo.turnsthe.page:** the 26 and 22 recorded pages at 1440 and 390
+  (the sweep), the fixed pages again with the rules, B2B's sitemaps.
+- **Offline:** the 1,577 lufthansa.com snapshots (the stage scan), the tab steps on a nested panel.
+- **Smoke after every push:** all 14 hosts, 0 differences.
+- **Documents:** reimport-526-hub-stages.txt (14); the CSS rows need none.
