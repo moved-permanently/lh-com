@@ -2283,3 +2283,57 @@ differ), swiss-smoke and TAP by hand (as before).
 - For Ben: the carrier on info and fleet pages too (main does it; Ben named hub pages) or hub only (info 0.9 -> 3.0 %);
   limited-width headings.
 - Parity rows 63-66 (tools/reports/lufthansa/parity.md).
+
+## Brief 515 (2026-11-09): brand fonts on two hosts, Discover's desktop footer, two shared-block rows, the recordings
+
+Left from 507: the generated import reports; the scratch in logs/b507, b506, b505, b500, b484, b488; logs/b493 with the
+16 lh-bd-ema archives (rollback windows); the draft test moved to logs/b506/drafts; /tmp/b488dam and the commit-message
+files; nothing unpushed.
+
+Method: no request to www or any brand's www host; nothing uploaded or published; lint (clean worktree) and both
+suites before the push (lh-edge 70 files, site 648, 0 failing); smoke before and after on the ten hosts with
+baselines, Brussels, SWISS and TAP; swiss-smoke and TAP by hand.
+
+### 1. Brand fonts on airdolomiti and tap (e222602, lh-edge)
+
+- wrangler.toml SITE_DESIGN_HOSTS airdolomiti=www.lufthansa.com; tap=www.lufthansa.com: /digitalhangar/ as on the
+  other brand hosts (a release file kept a year in the zone's cache). Tests first (test/plain-sites-fonts-515.test.mjs;
+  plain-sites and tap-site pinned "no design host").
+- Checked with curl after the deploy: the five files fonts.css names (LufthansaHeadWeb-Light, -Bold, LufthansaTextWeb-
+  Light, -Regular, -Bold) 200 font/woff2, x-lh-edge-route digitalhangar, cache-control a year, on both hosts; the bytes
+  as the capture archives' copies. Smoke: the two hosts' font check 404 -> 200, nothing else changed.
+- What asks for them: on Air Dolomiti the fallback consent banner (styles/consent-banner.css: --lh-consent-head
+  lufthansahead, --lh-consent-text lufthansatext, for every brand); the theme's text is Euclid Circular B. On TAP's
+  /pt-pt no element asked for them in my run (GT Flexa / Inter). Whether the banner should take the brand's fonts is the
+  banner owner's call; the host answer stays either way.
+- Note: lh-edge reads the files from www.lufthansa.com on a cache miss, as for the other brand hosts: the dependency on
+  www moves into the zone's cache (a year), it doesn't go away.
+
+### 2. Discover's footer from 768 px (8510214, styles/themes/discover.css: Discover row 41)
+
+- discover-parity-001 at 1440 (its shadow HTML rendered locally): www's footer 731 px on de/en pages, 669 on de/de;
+  ours 541 / 503. One cause: brief 474 matched the footer on phones only; from 768 px it kept lh-com's spacing (titles
+  40 px under the top, not 84; links 49 under the titles, not 60; a divider and 30 px before the legal links, not 72 and
+  no line; legal rows touching, not 24 apart; the logo band 79 px, not 110).
+- On discover.turnsthe.page after the deploy: 731 px (de/en homepage, baggage), 669 (de/de homepage) at 1440; 390
+  unchanged. ema-lufthansa: the change is the one @media (width >= 768px) footer block of Discover's theme file.
+
+### 3. Two rows in shared blocks (tools/reports/parity-2026-11-09/shared-blocks-515.md; parity rows 67, 68)
+
+- meetings-and-events' partner logos at 390: www's four-column carousel view of image-only items, one logo with dots;
+  ours stacked (the columns-media parser gives cell-slider only to media | text items). The exact parser change for
+  ema-cashub; with the option on the document 14.5 -> 7.6 % at 390, 1440 unchanged. Documents after it:
+  tools/reports/parity-2026-11-09/reimport-515-meetings-logos-lh-com.txt (7).
+- menu-on-board at 390: the capture's text rendering (macOS Chrome against Linux Chromium; height within 27 px), no
+  block. Found on the way: the import framework drops www's no-break spaces (html2md / md2da); measured, not the row's
+  cause; a decision for the user.
+
+### 4. Recordings for the 8 re-imports (tools/reports/parity-2026-11-09/reimport-507-recordings.md)
+
+- lh-parity-002c has /de/en/frankfurt-fair and /de/en/most-significant-route (1440, 768, 390; 2026-11-06); the de/de,
+  at/de and gb/en documents have no recording here, Bright Data snapshots only.
+
+### Ben's two answers
+
+- Written into tools/reports/token-free/lh-com-pass-check.md ("Answered (brief 515)") and, for decisions.md, into the
+  handover to ema-test (item 6, the exact lines).

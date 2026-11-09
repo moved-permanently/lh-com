@@ -68,7 +68,7 @@ figures move up to 1 point between runs; the table takes the run in which every 
 - **info** (16; ema-lufthansa's template): the carrier applies here too since d1bd76e: travel-agencies -11.6 -> -1.3 %
   at 1440 (-7.4 -> -0.4 at 390), lufthansa-corporate-customers -5.3 -> -0.6, flightreservation-priceguarantee -3.9 ->
   -1.2, accessible-travel -2.7 -> -0.4; payment-options-at-the-airport and first-class-terminal at 390 now flagged on a
-  heading 54-57 px off (within 0.9 % in height). Ben's question 1 below.
+  heading 54-57 px off (within 0.9 % in height). The carrier stays on info pages (answered below, brief 515).
 - **legal** (6; ema-lufthansa): advance-seat-reservations-terms-and-conditions +7.4 / +6.5 %: a 100 px separator
   becomes L (120) and its Columns Media 42 px taller (cell heading sizes).
 - **fleet** (4; ema-cashub): 320 -1.5 -> -0.8 % at 1440 with the carrier (-1.5 -> -1.4 at 390), still flagged on a
@@ -83,23 +83,24 @@ is what the collapse's carrier needs on lufthansa.com's side, and it is on main.
 fc1f4f7, 142a2d2; tools/reports/parity-2026-11-09/sweep-lh-baseline.md) are parity fixes on today's pages; they change
 both sides of this check alike.
 
-## For Ben
+## Answered (brief 515): Ben's rule, nothing goes back to him
 
-1. **The column view carrier on lufthansa.com's info, legal and fleet pages.** Ben named the hub pages an exception to
-   decision 1 (brief 511); main's collapse (d1bd76e) writes the carrier for every lufthansa.com page with column marks.
-   Measured on the sample: info 9 of 16 page-widths flagged, mean height difference 0.9 % (without the carrier there:
-   12 of 16, 3.0 %; travel-agencies -11.6 %, lufthansa-corporate-customers -5.3 %), fleet 0.6 % (0.8 %), legal
-   unchanged (no marks). Options: (a) the exception for hub pages only, as named (a condition in the collapse,
-   ema-test's: the theme's page types tell the info pages (`flow`) from the rest, not hub from fleet or legal, so
-   "not on info pages" is what a condition can say today; info back to decision 1, the cost above); (b) the exception for every lufthansa.com page with
-   column marks, as main does today (decisions.md then names it so). No change of mine either way: the carrier's CSS
-   is brand-wide.
-2. **Headings outside column views with www's limited width** (14 of 173 section H2s on www; miles-and-more's first H2
-   at 1440: A -39 px today, the first run's -174 px mostly the column views'): the collapse drops limited-width ("near value" of the text width). Options:
-   (a) as it is; (b) a heading style for the minority (an exception by Ben's rule).
+Both questions are answered by Ben's rule (near values collapse to the common style; nothing stays an exception):
+
+1. **The column view carrier stays on every lufthansa.com page type**, as main's collapse writes it (d1bd76e): hub,
+   info, legal, fleet and campaign pages with column marks alike. The reason: the carrier is lufthansa.com's common
+   style for www's column views, one rule for the brand; a hub-only condition would itself be the exception (the
+   theme's page types can't tell hub from fleet or legal pages either). The cost measured here: info at 0.9 % mean
+   height difference instead of 3.0 % (9 of 16 page-widths flagged instead of 12), fleet 0.6 % instead of 0.8 %,
+   legal unchanged (no marks). Nothing changes in the code: main does this today. decisions.md (ema-test's) gets the
+   wording through [the handover](lh-com-handover-ema-test.md), item 6.
+2. **Headings with www's limited width: dropped, as now.** No heading style for the minority (14 of 173 section H2s
+   on www): their width is a near value of the text width, so they collapse to it. The cost: miles-and-more's first
+   H2 at 1440, A -39 px (8.4 points in the first run, mostly the column views', since the carrier is in the collapse).
 
 ## Every page-width, worst first
 
+| page | type | width | first run: vs host / worst heading | main today | today + item 2 | causes (main today, px) |
 | --- | --- | --- | --- | --- | --- | --- |
 | /de/en/flights (E) | hub | 390 | -77.1 % / -14790 px **flagged** | -77.1 % / -14790 px **flagged** | = | C -89, D +51, R -14809 |
 | /de/en/flights (E) | hub | 1440 | -71.2 % / -7799 px **flagged** | -71.2 % / -7799 px **flagged** | = | C -89, D +18, R -7825 |

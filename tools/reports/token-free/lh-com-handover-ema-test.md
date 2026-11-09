@@ -45,11 +45,7 @@ ema-test's d1bd76e writes the carrier in the collapse (`THEMES.lufthansa.columnV
 390, height against today's published page): miles-and-more de/en -6.9 / -4.1 % -> +0.4 / +0.5 %, de/de -6.7 / -3.7 %
 -> +1.8 / +0.5 %, meetings-and-events de/de -10.7 / -2.2 % -> -0.5 / -0.1 %, as the mapping measured. It applies to
 every lufthansa.com page type with column marks, not only hub pages: info 3.0 -> 0.9 % mean, fleet 0.8 -> 0.6 %.
-Whether that stays is Ben's ([lh-com-pass-check.md](lh-com-pass-check.md), "For Ben" 1); if Ben limits it to hub
-pages, the condition is ema-test's: the theme's page types (`pageTypeOf`, scripts/style-markers.js) tell `flow` (the
-info pages, Theme flow-spacing) from `service` (hub, legal, fleet and campaign pages alike), and the documents carry no
-template, so "not on `flow` pages" is the nearest condition (info back to decision 1; fleet's two pages keep the
-carrier). Nothing else left.
+It stays so (brief 515: Ben's rule answers it, see item 6). Nothing left.
 
 ## 4. Captions in block cells (token-free.js)
 
@@ -72,7 +68,27 @@ pass check's articles). The change: not before a section that holds the related-
 (`section.querySelector(':scope > div.related-articles')`). Expected: those 26 px gone (flying-high +1.1 % -> about
 +0.6 %).
 
+## 6. decisions.md: the two answers of brief 515 (ema-test's file)
+
+Brief 515 answered the pass check's two questions by Ben's rule, so neither goes back to him. The exact lines for
+tools/reports/token-free/decisions.md, after its paragraph "**lufthansa.com's column views have a carrier of their
+own** ...":
+
+```markdown
+6. **lufthansa.com's column view carrier is on every page type** (hub, info, legal, fleet, campaign: wherever the
+   cleanup wrote column marks), as the collapse writes it for brand lufthansa. Reason: the carrier is the brand's
+   common style for www's column views, so one rule for the brand; a hub-only condition would itself be an exception
+   (the theme's page types can't tell hub from fleet or legal pages). Measured in lh-com-pass-check.md: info 0.9 %
+   mean height difference instead of 3.0 %, fleet 0.6 % instead of 0.8 %.
+7. **Headings with www's limited width outside column views** take the text width (14 of 173 section H2s on
+   lufthansa.com's www). Reason: the limited width is a near value of the text width, and a heading style for the
+   minority would be an exception. Cost: miles-and-more's first H2 at 1440, 39 px.
+```
+
+and, in the carrier paragraph, "ema-adobe's hub transformer writes it on import" stays (the campaign template's
+pages of one AEM section get it too since 142a2d2). No code changes: the collapse does both today.
+
 ## What ema-adobe changed on its side this brief
 
 Nothing in the theme for the switch was needed in lufthansa.com's rule files beyond the carrier (brief 506): left are
-items 2, 4 and 5 above, Ben's questions and other templates' (lh-com-pass-check.md).
+items 2, 4, 5 and 6 above and other templates' (lh-com-pass-check.md); Ben's questions are answered (item 6).
