@@ -215,6 +215,19 @@ body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-disco
   background: none;
 }
 
+/* lufthansa.com from 768px: www draws the dot 58px under the last slide's image or caption (lh-parity-004a/b:
+   crane, destinations, new-onboard-experience, san-diego); the 24px target's 8px above the drawn dot and the caption's
+   bottom padding made it 65 / 77 (the brief after 539). On phones the recordings don't settle it: as before */
+@media (width >= 768px) {
+  body.brand-lufthansa .carousel-images .carousel-images-dots {
+    margin-top: 50px;
+  }
+
+  body.brand-lufthansa .carousel-images .carousel-images-caption {
+    padding-bottom: 0;
+  }
+}
+
 /* Insights articles: the swiper sits in the article card (.article-content col-md-10
    offset-1), 864px slides at 1425 */
 @media (width >= 768px) {
