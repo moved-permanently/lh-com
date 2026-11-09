@@ -2637,3 +2637,72 @@ snapshots on this disk, DA's copy (item 2), fixtures only (item 3).
 - **TAP by hand:** 40 pages, all 200, the same as the brief after 523.
 - **Not in git:** the clean copy, the fixtures, the dry-run output and the logs, all in the ignored scratch folder.
   They are local run material.
+
+## The brief after 531
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out of git); nothing was
+unpushed. Main's lint was red at the start (a 129-character line in lh-edge, ema-adobe's); 3891be5a fixed it before
+my first push, and every push here ran the whole repository's lint first. Nothing was uploaded or published. The six
+recordings came from the R2 drop, each checked against its sha256 and unpacked into its own folder (scratch, not in
+git). No test reaches the uploader. Measured on our hosts (swiss, ita, cargo, discover, airdolomiti, b2b
+.turnsthe.page), with the local CSS or code injected where a change was pending, against the recordings.
+
+**Requests outside our hosts:**
+- Two probes of the help app (before I closed the gap) let the app's FAQs picture load from www.ita-airways.com and
+  swiss.com. The measuring scripts now make every brand host and its subdomains unresolvable.
+- The trial import of Discover's excess-baggage page ran offline (the site is flagged bot-protected, so the
+  importer used the recording, not www). Its browser may still have asked www.discover-airlines.com and
+  www.lufthansa.com for the recording's linked scripts, styles and pictures. I did not run the bulk importer again.
+
+### 1. The rows that waited for a recording
+
+| Commit | Row | What | Measured (ours before -> after, www) |
+| --- | --- | --- | --- |
+| 15db2b5e | SWISS 48 | the help app's question "Is there a topic missing?" moved into the app's own container (between the topics and the FAQs card), as www | SWISS /ch/en/help-center 1440 1964 -> 2082 (2116), 390 2170 -> 2336 (2326), with the patched document; ITA it/en 1440 2320 -> 2296 (2254) |
+| 785620e5 | SWISS 49 | the question's sizes in the app (bold question, 14 px note in half the column, 40 px over 50 px answers) | SWISS 1440 2082 -> 2107 (2116); ITA 1440 2296 -> 2304 (2254) |
+| e6e28ebd | AD 76 | the destination hub's booking strip sticks as www's: fixed under the header from 1025 px, a navy band under the 80 px header on phones; the header stays on those pages | 1440 4855 -> 4733 (4677), the h1 432 -> 310 (310); 390 9501 -> 9575 (9699) |
+| c866fc17 | Cargo 45 | the history timeline's texts as www's at every width, 80 px between the card rows and 48 px under the lower one | 1440 4547 -> 4802 (4848); 390 12398 -> 12248 (11916) |
+| 3b421062 | AD 77 | the flight status pages as www's half page (the form beside the card), www's page title (under its header) a hidden h1 | /de/flug-status 1440 2307 -> 1761 (1693) |
+| 87337c3e | Discover 42 | excess-baggage: the importer as it is makes www's tabs, the text beside its picture and the two-up cards; the document was older than the tab sections | 1440 5700 -> 2523 (2705), with that document; 5575 with Discover's theme live since 17:26 |
+
+- **Help apps:** the SWISS help-center document lacks the feedback block that its twin contact-us has: a patch
+  (patch-535-swiss-help-feedback.txt). ITA's rest (+2.2 % at 1440, +3.7 % at 390) is the footer and the page around the
+  app, not the app.
+- **Cargo:** www's script measures the timeline cards taller than it draws them (its timeline 1404 px, ours now
+  1223): no rule reproduces that.
+- **Air Dolomiti:**
+  - www's header shrinks to 80 px when scrolled (its bar then at 30); ours stays 120.
+  - Of the three pages not recorded before, flug-status is fixed. schwangere-und-kinder is -1.3 % to the footer.
+    tiere-an-bord is -4.9 % (its accordions start 24 px higher; the rest is not traced).
+  - street-food-in-munich is -6.7 % to the footer (not traced).
+- **B2B row 36 at 390** (b2b-parity-002, the published documents since round 130): de/en 5312 / 5286 (+0.5 %), de/de
+  5432 / 5454 (-0.4 %); nothing to do.
+
+### 2. The next ranking rows
+
+| Commit | Row | What | Measured |
+| --- | --- | --- | --- |
+| 2fa27f77 | AD 78 | the destination article lists (what to see, do, eat) from 930 px: the title and text centred as www's CenteredBlock, the cards 179 px under it | florence/what-to-see: the text 252-1188 px as www's, the footer 934 -> 1021 (1108; www's pagination row left) |
+| 8c03a4fe | Cargo 46 | the transport stories' text 50 px from the picture modules from 1025 px | 142 en 7561 -> 7921 (7829), de 7609 -> 7969 (7925) |
+
+- **B2B:** the next rows (partner-plus-benefit, experts) are spacing that the documents' style markers and spacers
+  draw (40 px under the title where www has 80). Group for Business' collapse pass (e28605e2) is uploaded and
+  previewed, not published. Ranking again after it publishes is the right order (ema-test's markers; not touched).
+- **Discover:** no open ranking row of its own after the brief after 518 (offers: data; families: the footer,
+  ema-adobe's). Other documents imported before 515475be may lack their tabs as excess-baggage did. That needs their
+  recordings to check.
+
+### Documents (4; each published as it stands, nothing waits at preview for a later step)
+
+- patch-535-swiss-help-feedback.txt (1): /ch/en/help-center, DA's copy plus contact-us's feedback block.
+- reimport-535-ad-flight-status.txt (2): /de/flug-status, /en/flight-status.
+- reimport-535-discover-excess-baggage.txt (1): /de/en/book/baggage/excess-baggage, from discover-parity-002.
+
+### Checks
+
+- **Smoke:** after each push, every brand's smoke was compared with the run before it: 0 differences. After
+  2fa27f77 and 8c03a4fe, Austrian's two hosts and B2B failed to fetch once (network); their reruns show 0 differences.
+  After 8c03a4fe, Brussels' /de/en/search-index.json changed (an index; others' content).
+- **TAP by hand:** 40 pages, all 200, the same as the brief after 526.
+- **Not in git:** the recordings, the clean copies, the trial import's output and the logs. They stay in the ignored
+  scratch folder as local run material.
