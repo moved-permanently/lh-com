@@ -921,8 +921,9 @@ export function withHeroVideo(doc, html) {
     .map((m) => [edsDamPath(m[1]), edsDamPath(m[2])]);
   if (!pairs.length) return doc;
   return doc.replace(/(<div class="hero-card-overlay(?: [^"]*)?"><div><div>)([\s\S]*?<\/picture>)(?!<p><a href="[^"]+\.mp4")/, (m, open, pic) => {
-    const src = (pic.match(/<img src="([^"]+)"/) || [])[1] || '';
-    const pair = pairs.find(([img]) => src.split('?')[0].endsWith(img));
+    // the picture as DA has it, or still www's rendition in the import chain (".jpg.transform/lh-dcep-...")
+    const src = ((pic.match(/<img src="([^"]+)"/) || [])[1] || '').split('?')[0].replace(/\.transform\/.*$/, '');
+    const pair = pairs.find(([img]) => src.endsWith(img));
     return pair ? `${open}${pic}<p><a href="${pair[1]}">${pair[1]}</a></p>` : m;
   });
 }
