@@ -1767,8 +1767,18 @@ body.brand-cargo main > .section.key-facts .carousel-cards-wrapper ~ .default-co
   }
 }
 
+/* Support & Contact's support band (the brief after 523, Cargo row 43): www's band ends 20 px
+   under its last line, the footer right after it (the band ends the page) */
 body.brand-cargo .columns.support {
-  padding: 40px 0;
+  padding: 40px 0 20px;
+}
+
+body.brand-cargo .columns.support > div > div:last-child > :last-child {
+  margin-bottom: 0;
+}
+
+body.brand-cargo main > :where(.section:last-child:has(.columns.support)) {
+  margin-bottom: 0;
 }
 
 /* both columns from the top (the block centres a shorter cell) */
@@ -1783,7 +1793,9 @@ body.brand-cargo .columns.support h3 {
   font-weight: 700;
 }
 
-body.brand-cargo .columns.support small {
+/* www's small print (.extraSmall): the opening hours and call charges after the phone number
+   (cargo-import.mjs writes <small>, which Edge Delivery's conversion does not keep) */
+body.brand-cargo .columns.support :is(small, p:has(> a[href^="tel:"]) ~ p) {
   font-size: 12px;
   line-height: 20px;
 }
