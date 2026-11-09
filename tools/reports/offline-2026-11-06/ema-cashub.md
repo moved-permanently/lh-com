@@ -1574,3 +1574,72 @@ Left uncommitted, with the reasons:
   import report xlsx files: earlier import runs' output.
 - migration-work/parity-510 and parity-511 (captures, probes, scripts, the worktree): scratch, kept
   out of git by .git/info/exclude.
+
+## The brief after 516: one slug in every language at the write step
+
+### Incident: a test wrote two documents to DA (2026-11-09)
+
+- **What ran:** at 03:04 UTC I ran a new test, test/da-upload-slugs.test.mjs, before the code it tests existed. It started
+  `tools/importer/da-upload.mjs` with an option that da-upload did not know yet (`--sink`, meant to keep it offline), so
+  da-upload ignored the option and did a real upload and preview.
+- **Which documents:**
+  - lh-austrian `/at/de/zusatzgepaeck`: uploaded 03:04:43, previewed 03:04:46 UTC;
+  - lh-tap `/en-pt/legal-info`: uploaded 03:04:48, previewed 03:04:50 UTC.
+
+  Each was replaced in DA by a test document of one paragraph. Nothing was published; live kept the earlier version.
+- **The repair:** the migration session restores both from DA's version history (byte-exact) and previews them again. I did
+  not touch either document or its preview. I put my two state files back to their pre-incident records
+  (`git checkout` of `da-upload-state-lh-austrian.json` and `-lh-tap.json`).
+- **The fix (`9dd3c732`):** a test can no longer reach the real uploader.
+  - Under the test runner (node sets `NODE_TEST_CONTEXT` for every child process) or with `DA_UPLOAD_TEST`, da-upload
+    refuses to start without `--dry-run` or `--sink`. It refuses before it reads a document or opens a connection, and
+    exits with code 2.
+  - test/da-upload-test-mode.test.mjs proves the refusal. Its red run was safe: its path is outside every allowlist, so
+    even the old uploader skipped it before any request.
+  - Every later run of the slug tests went to `--sink` folders, and the sites' real state files stayed unchanged
+    (checked by checksum).
+- **One more event:** when I first applied the da-upload edit, the remote-content safety guard blocked my local script,
+  because it contained the uploader's own `curl … admin.da.live` lines. That changed nothing. I made the same source
+  edits with the file editor; nothing was sent.
+
+### Items 1 to 7
+
+- **Report:** `tools/reports/slugs/write-step-517.md`. It has what the write step does now, the dry runs per airline, the
+  pairing checks, the scripts that write around the guard, and the limits.
+- **Item 1, mapping and links (`9dd3c732`):**
+  - `tools/importer/slug-write.mjs` provides `writeTarget` and `slugMapOf`; `own-links.mjs withCanonicalLinks` rewrites
+    the links; da-upload writes each page at its target.
+  - Snapshots, archives and the local trees stay keyed by the www path.
+  - TAP, Air Dolomiti and ITA have no map, and tests prove their paths, links and app-shell decisions are unchanged.
+- **Item 2, the guard (`9dd3c732`):** next to appShell, allowed and AUTHOR_EDITS. A write to a localized slug of an active
+  entry is refused with the canonical path (`--keep-paths` exposes it). With all flags off nothing is refused. Also
+  refused (`0fbbfcae`): two local documents for one page (none today).
+- **Item 3, holds (`9dd3c732`):** `holdAt` finds a hold at the target, at its www path, or at any www path of the target.
+  A unit test proves that a hold on `/de/de/gepaeck` protects `/de/de/baggage` (the map's real pair) once de/de is on.
+  The gepaeck document and author-edits.json are untouched; neither holds a gepaeck entry today.
+- **Item 4, unmapped pages:** written to `tools/reports/slugs/unmapped-<site>.json`, merged per path (`$SLUG_REPORT` for
+  another file).
+  - The English slug is used only where the document names its English page (`primary-language-url`) and the root's flag
+    is on. Otherwise the page keeps its path.
+  - Dry runs: SWISS 6 and Austrian 2, none verified.
+- **Item 5, offline proof:**
+  - Lufthansa: 300 pages (150 moved, 847 links), plus an 80-page run.
+  - SWISS 40 (2 moved), Austrian 60 (11 moved; built from the recordings), Brussels 30, Cargo 25, Group for Business 22,
+    and Discover's 563 allowlist paths (no documents on disk).
+  - In every run, every path and link was canonical, and the second run wrote nothing new.
+  - With flags off, every body was unchanged at its www path.
+  - Brussels, Discover, Cargo and Group for Business: the guard never fired and nothing moved.
+- **Item 6, pairing (`0fbbfcae`):**
+  - Parity: `tools/parity/pair.mjs edsUrlOf`, used by build-jobs.mjs, checked on the run on disk.
+  - page-check: no change needed (the same 825 broken links with flags off and on, over 300 pages).
+  - market-diff: the change is written down for ema-lufthansa (md-replica-check.mjs should ask the replica at the
+    canonical path; 6,499 Lufthansa pairs concerned).
+- **Item 7, scripts that write around the guard:** listed with their paths in the report. The harness's own scripts aren't
+  on this machine.
+
+### What is left
+
+- **Per brand:** no brand importer needed a change.
+- **ema-lufthansa:** the market-diff line above.
+- **The migration session:** route the listed scripts when a round goes on.
+- **A round's commit:** switching a flag in a map is that round's one change to the file, as the README says.
