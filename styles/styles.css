@@ -1634,6 +1634,24 @@ body.brand-lufthansa main > .section.grey:has(+ .section.campaign-section.padded
   }
 }
 
+/* Insights articles on phones: www's related articles end the page (.dcep-related-articles, then
+   the footer): 34px from the last card's title to the footer at 390 (the card's 10px padding and
+   the title's 24px; 40 on flying-high-christoph-quarch). Ours added the section gap: 82px. From
+   768px the pages' heights match www's (brief 507). All 24 published documents with Related
+   Articles have them in their last section; the empty section after them (the page metadata's)
+   adds no gap of its own */
+@media (width < 768px) {
+  /* stylelint-disable-next-line no-descending-specificity -- the page's end, not a campaign-section's */
+  body.brand-lufthansa main > .section.related-articles-container {
+    margin-bottom: 0;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity -- an empty last section, not a column view's */
+  body.brand-lufthansa main > .section.related-articles-container ~ .section:last-child:not(:has(*)) {
+    margin-bottom: 0;
+  }
+}
+
 /* the column view carrier (brief 506): a section that is one www column view (Section Metadata
    Style "Column view"; hub-column-views writes it). www's .column > .column-view:only-child
    { padding: 3.2rem 0 }, its last component without margin: 32px above and below, 64 between two
