@@ -209,7 +209,7 @@ const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort();
 const maps = Object.fromEntries(files.map((f) => [f.replace(/\.json$/, ''), JSON.parse(fs.readFileSync(new URL(f, dir), 'utf8'))]));
 
 // the airlines in scope; a file is added with its piece of work, so the list grows with the commits
-const IN_SCOPE = ['lh-com', 'lh-austrian', 'lh-swiss'];
+const IN_SCOPE = ['lh-com', 'lh-austrian', 'lh-swiss', 'lh-brussels', 'lh-discover'];
 
 test('the committed maps exist for the airlines done so far and for no parked site', () => {
   IN_SCOPE.forEach((s) => assert.ok(maps[s], `tools/slugs/${s}.json`));
@@ -233,5 +233,21 @@ Object.entries(maps).forEach(([site, map]) => {
     // every group of a deviating root names an alias; the flag set has exactly those roots
     const roots = new Set(api.entries().map((e) => e[0]));
     assert.deepEqual(Object.keys(map.active).sort(), [...roots].sort());
+  });
+});
+
+test('Brussels and Discover: zero measured, a guard-ready file with no group, nothing to refuse or map', () => {
+  [['lh-brussels', 317, 'be/en'], ['lh-discover', 214, 'de/en']].forEach(([site, groups, source]) => {
+    const map = maps[site];
+    assert.equal(map.listed, false);
+    assert.equal(map.measured.groupsInData, groups);
+    assert.equal(map.measured.deviatingGroups, 0);
+    assert.equal(map.sourceRoot, source);
+    assert.deepEqual([map.groups, map.exceptions, map.rootsets, map.active], [[], [], [], {}]);
+    assert.match(map.pairing, /^measured: of \d+ hreflang groups none holds a path that differs/);
+    const api = loadMap(map);
+    assert.equal(api.canonicalOf('/be/fr/anything'), '/be/fr/anything');
+    assert.equal(api.wwwPathOf('/de/de/anything'), '/de/de/anything');
+    assert.deepEqual(api.entries({ all: true }), []);
   });
 });
