@@ -4070,6 +4070,8 @@ var CustomImportScript = (() => {
         flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true } }
       }
     },
+    // Air Dolomiti: the base theme (between B2B's and TAP's entries, next to no switch line)
+    airdolomiti: {},
     // TAP: the base theme (an entry of its own, so its switch is one line as every brand's)
     tap: {},
     // Lufthansa Cargo: the base theme

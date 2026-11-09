@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-flight-status.js
-  var tmp_bundle_austrian_flight_status_1562966_exports = {};
-  __export(tmp_bundle_austrian_flight_status_1562966_exports, {
-    default: () => tmp_bundle_austrian_flight_status_1562966_default
+  var tmp_bundle_austrian_flight_status_1604859_exports = {};
+  __export(tmp_bundle_austrian_flight_status_1604859_exports, {
+    default: () => tmp_bundle_austrian_flight_status_1604859_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -5125,6 +5125,8 @@ var CustomImportScript = (() => {
         flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true } }
       }
     },
+    // Air Dolomiti: the base theme (between B2B's and TAP's entries, next to no switch line)
+    airdolomiti: {},
     // TAP: the base theme (an entry of its own, so its switch is one line as every brand's)
     tap: {},
     // Lufthansa Cargo: the base theme
@@ -8509,7 +8511,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_flight_status_1562966_default = {
+  var tmp_bundle_austrian_flight_status_1604859_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -8548,5 +8550,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_flight_status_1562966_exports);
+  return __toCommonJS(tmp_bundle_austrian_flight_status_1604859_exports);
 })();
