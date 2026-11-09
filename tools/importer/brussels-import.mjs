@@ -24,7 +24,8 @@
  * - the flight search hands off to shop.brusselsairlines.com from Brussels (withFlightSearch);
  * - the flight search picker's texts in the page's language from www's label state (withBookingLabels);
  * - the check-in entry becomes the booking-lookup block (withCheckinTabs), its hand-off the page
- *   on www (withCheckinHandoff); the booking login's "Enter booking code" opens the page on www;
+ *   on www (withCheckinHandoff); the quick actions' check-in panel as SWISS's check-in option with
+ *   www's link and hints (withCheckinFields); the booking login's "Enter booking code" opens the page on www;
  * - two-column teaser rows import as carousel-cards (withTeaserColumns);
  * - metadata (withItaMetadata): the root's nav and footer, `markets` (scope.json), www's noindex;
  * - links to www's DAM files become site-relative edsDamPath links (brussels-dam.mjs);
@@ -48,6 +49,7 @@ import { withShareImage } from './brussels-share-image.mjs';
 import { stripScripts } from './excat-plugin.mjs';
 import { withHiddenH1 } from './discover-import.mjs';
 import collapseDocs from './collapse-docs.mjs';
+import { withRestoredNbsp, emptyLineSpacers } from './nbsp-guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -224,6 +226,10 @@ export function spliceGalleries(doc, fleetDoc) {
  * ".tabs:has(.checkinpassengerreceiptentry)" into the booking-lookup block). Only the entry's
  * markup changes (a wrapper div), the rest of the snapshot stays as captured.
  */
+// www's visible empty lines (<p>&nbsp;</p>, about 40 px each on www) as the spacing marker the collapse turns into a
+// Spacer block (the brief after 530, item 1; nbsp-guard.mjs emptyLineSpacers)
+export const withEmptyLineSpacers = (html) => emptyLineSpacers(html, { parse: parseHTML, size: 40 });
+
 export function withCheckinTabs(html) {
   if (/class="tabs[ "][^>]*>\s*<div class="checkinpassengerreceiptentry/.test(html)) return html;
   return editDivs(html, '<div class="checkinpassengerreceiptentry', (el) => `<div class="tabs section">${el}</div>`);
@@ -239,6 +245,29 @@ export const withTeaserColumns = (html) => editDivs(html, '<div class="twocolumn
   if (!el.includes('class="teaser') || /<div class="(?:two|three|four)column/.test(el.slice(1))) return el;
   return el.replace('<div class="twocolumn', '<div class="threecolumn').replace('data-identifier="twocolumn"', 'data-identifier="threecolumn"');
 });
+
+/**
+ * A card teaser's link line (a.teaser.card > .teaser-link-text: "Fasten up for perks", "En savoir plus") is shown on
+ * www.brusselsairlines.com (hidden on lufthansa.com): the cards marked data-import-cta, as austrian-import.mjs does, so
+ * the carousel-cards parser adds the line as a link after the description (/be/en/jobs, connecting-africa, our-company).
+ */
+export const withTeaserCta = (html) => html.replace(/(<a\b[^>]*class="teaser card[^"]*")(?![^>]*data-import-cta)/g, '$1 data-import-cta=""');
+
+/**
+ * A column view with www's carousel behaviour (<div class="carousel">: a .hidden-md-down grid and a
+ * .hidden-lg-up swiper copy; /be/fr/extra-services/inflight-services' four "Autres sujets" teasers,
+ * meetings-and-events' three steps): one card and dots on phones. Marked data-import-phone-slider, as
+ * austrian-import.mjs does: the carousel-cards parser gives a marked view phone-slider (a four-column one
+ * too); the cards-teaser parser reads the cleanup's carousel flag. A view whose own carousel is missing,
+ * or that holds column views of its own, is left as it is.
+ */
+export const withPhoneSliders = (html) => ['<div class="threecolumn', '<div class="fourcolumn']
+  .reduce((out, open) => editDivs(out, open, (el) => {
+    const head = el.slice(0, el.indexOf('>') + 1);
+    if (/data-import-phone-slider/.test(head) || /<div class="(?:two|three|four)column/.test(el.slice(1))
+      || !/<div class="carousel">[\s\S]*?<div class="hidden-lg-up"/.test(el)) return el;
+    return el.replace(/^<div class="([^"]*)"/, '<div class="$1" data-import-phone-slider=""');
+  }), html);
 
 /*
  * www's sidebar component (.airem-sidebar: .sidebar-content 75% beside .sidebar-aside) whose content
@@ -268,6 +297,16 @@ export const withSidebarContent = (html) => editDivs(html, '<div class="sidebar 
   if (!COLUMN_VIEWS.test(el.slice(body, end))) return el;
   return `${el.slice(0, i)}<div class="sidebar-content col-sidebar-content"${el.slice(i + open.length, body)}${sidebarMarker(SIDEBAR_START)}${el.slice(body, end)}${sidebarMarker(SIDEBAR_END)}${el.slice(end)}`;
 });
+
+/**
+ * A three- or four-column view of headlines only in a sidebar's content (new-destinations' facts: "Vols par semaine" / "2",
+ * "Distance" / "6 773 km", ...): lh-com's info importer maps such a view into columns-media under .section-content or
+ * .container-content only, so in the sidebar its headlines came in stacked. It gets a container-content wrapper of its own;
+ * the sidebar's other column views (pictures, text, links) stay as they are.
+ */
+const headlineOnly = (view) => view.includes('class="headline') && !/class="(?:image|text|link|teaser|accordion)\b|<img\b/.test(view);
+export const withFactColumns = (html) => editDivs(html, '<div class="sidebar-content', (el) => ['<div class="threecolumn', '<div class="fourcolumn']
+  .reduce((out, open) => editDivs(out, open, (view) => (headlineOnly(view) && !out.includes(`<div class="container-content">${view}`) ? `<div class="container-content">${view}</div>` : view)), el));
 
 const SIDEBAR_MARK = new RegExp(`<p>(${SIDEBAR_START}|${SIDEBAR_END})(?: [{][^}<]*[}])?</p>`, 'g');
 const META_OPEN = '<div class="section-metadata">';
@@ -338,6 +377,36 @@ export function withBookingLabels(html) {
 export const withCheckinHandoff = (doc, p) => doc
   // the login widget's "Enter booking code" (lh-com: its own dialog) opens the page on www
   .split('href="#booking-code"').join(`href="https://${HOST}${p}"`).replace(/<div class="booking-lookup(?: [^"]*)?">/g, (m) => (/Submit URL/.test(doc) ? m : `${m}<div><div>Submit URL</div><div>https://${HOST}${p}</div></div>`));
+
+/**
+ * The check-in form as www's (the brief after 530, item 2): www's quick actions with the Check-in panel only
+ * (online-check-in-options) are its check-in component SWISS has: a row that opens and closes on phones, the Connexion
+ * link, the booking code and the names with a hint under each. lh-com's import writes a plain booking-lookup of its
+ * fields; the booking-lookup gets SWISS's option (my-bookings, checkin) and rows of www's link (Login link, after the
+ * tab) and hints (after their labels). brussels.css draws the option as www. A snapshot without that panel, and any
+ * other booking-lookup (the manage bookings form), as they are.
+ */
+export function withCheckinFields(doc, html) {
+  if (!doc.includes('<div class="booking-lookup">')) return doc;
+  const { document } = parseHTML(html);
+  const panels = [...document.querySelectorAll('.dcep-quick-actions maui-tab-control-panel, .dcep-quick-actions [role="tabpanel"]')];
+  const panel = panels.length === 1 && panels[0].getAttribute('data-key') === 'checkIn' ? panels[0] : null;
+  if (!panel) return doc;
+  const clean = (s) => (s || '').replace(/\s+/g, ' ').trim();
+  const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+  const row = (k, v) => (v ? `<div><div>${k}</div><div>${v}</div></div>` : '');
+  const hintOf = (name) => esc(clean(panel.querySelector(`maui-input[id$="-flm-checkin-fktnCheckinRequest-${name}"]`)?.getAttribute('hint')));
+  const link = panel.querySelector('maui-navigation-link[href], a[href]');
+  const login = link && clean(link.textContent) ? `<a href="${esc(link.getAttribute('href'))}">${esc(clean(link.textContent))}</a>` : '';
+  const after = (out, key, add) => (add ? out.replace(new RegExp(`(<div><div>${key}</div><div>[^<]*</div></div>)`), (m) => `${m}${add}`) : out);
+  return editDivs(doc, '<div class="booking-lookup">', (el) => {
+    let out = el.replace('<div class="booking-lookup">', '<div class="booking-lookup my-bookings checkin">');
+    out = after(out, 'Tab', row('Login link', login));
+    out = after(out, 'Reference label', row('Reference hint', hintOf('fileKey')));
+    out = after(out, 'First name label', row('First name hint', hintOf('firstName')));
+    return after(out, 'Last name label', row('Last name hint', hintOf('lastName')));
+  });
+}
 
 // the core forms: a proposed lh-forms id per page name (brussels-<page>; lh-forms does not know
 // them yet, so the form pages stay on preview)
@@ -512,7 +581,7 @@ if (isMain) {
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
     // the Studio's snapshots keep www's scripts, which must not run in the import browser)
     // (the form's jQuery UI date picker, appended to the body and hidden on www, is no content)
-    const mapped = withoutLoads(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withSidebarContent(withoutTestForms(editDivs(stripScripts(withBookingLabels(html)), '<div id="ui-datepicker-div"', () => '')))))), p))))
+    const mapped = withEmptyLineSpacers(withoutLoads(withTeaserCta(withPhoneSliders(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withFactColumns(withSidebarContent(withoutTestForms(editDivs(stripScripts(withBookingLabels(html)), '<div id="ui-datepicker-div"', () => ''))))))), p)))))))
       .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     if (/<div class="slideshow/.test(mapped)) {
@@ -605,7 +674,7 @@ if (isMain) {
         ? spliceGalleries(doc, fs.existsSync(fleetDoc) ? fs.readFileSync(fleetDoc, 'utf8') : '') : doc;
       const snap = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       // (one h1 per document after the finder's title: withPageH1, brief 448)
-      const next = withPageH1(withSidebarSections(withItaMetadata(withCheckinHandoff(withFlightSearch(withFinderTitle(withItaForm(galleried, p, snap), p), p), p), p, snap, markets)), snap);
+      const next = withPageH1(withSidebarSections(withItaMetadata(withCheckinHandoff(withCheckinFields(withFlightSearch(withFinderTitle(withItaForm(galleried, p, snap), p), p), snap), p), p, snap, markets)), snap);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
@@ -633,7 +702,7 @@ if (isMain) {
       if (next !== doc) fs.writeFileSync(f, next);
     });
     // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
-    collapseDocs(made.map((p) => path.join(W, 'content', `${p}.plain.html`)), { brand: 'brussels', content: path.join(W, 'content') });
+    collapseDocs(withRestoredNbsp(made.map((p) => path.join(W, 'content', `${p}.plain.html`)), fs), { brand: 'brussels', content: path.join(W, 'content') });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);
     console.log(`${made.length} documents; upload list runs/${name}-upload.txt`);
   }

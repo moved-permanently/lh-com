@@ -44,7 +44,7 @@ test('the quick actions with their icons; columns with and without a title', () 
   assert.equal(navColumn({ name: 'lazyblock/nav-bar-tab-esplora-x', a: { tabTitle: 'Empty', links: [] } }, ctx), '', 'a column without links: none');
 });
 
-test('the footer\'s columns: company, contacts, news, routes, assistance and, as on www, the legal links as the last column ("Info legali"; www\'s cookie-settings button left out)', () => {
+test('the footer\'s columns: company, contacts, news, routes, assistance and, as on www, the legal links as the last column ("Info legali"; www\'s cookie-settings button as the #privacy-settings link, the brief after 509)', () => {
   const li = (url, text) => `<li><a href="${ctx.href(url)}">${text}</a></li>`;
   const fd = {
     corporateLinks: [{ url: '/azienda/chi-siamo', text: 'Chi siamo' }],
@@ -61,7 +61,7 @@ test('the footer\'s columns: company, contacts, news, routes, assistance and, as
   };
   assert.equal(
     footerColumns(fd, li),
-    '<h3>Air Dolomiti</h3><ul><li><a href="/azienda/chi-siamo">Chi siamo</a></li></ul><h3>Contatti</h3><ul><li><a href="/sede">Sede</a></li></ul><h3>Tratte</h3><ul><li><a href="/orario-voli">Orario voli</a></li></ul><h3>Assistenza al viaggiatore</h3><ul><li><a href="/faq">FAQ</a></li></ul><h3>Info legali</h3><ul><li><a href="/privacy-policy">Privacy Policy</a></li><li><a href="/whistleblowing">Whistleblowing</a></li></ul>',
+    '<h3>Air Dolomiti</h3><ul><li><a href="/azienda/chi-siamo">Chi siamo</a></li></ul><h3>Contatti</h3><ul><li><a href="/sede">Sede</a></li></ul><h3>Tratte</h3><ul><li><a href="/orario-voli">Orario voli</a></li></ul><h3>Assistenza al viaggiatore</h3><ul><li><a href="/faq">FAQ</a></li></ul><h3>Info legali</h3><ul><li><a href="/privacy-policy">Privacy Policy</a></li><li><a href="#privacy-settings">Modifica impostazioni cookie</a></li><li><a href="/whistleblowing">Whistleblowing</a></li></ul>',
   );
 });
 

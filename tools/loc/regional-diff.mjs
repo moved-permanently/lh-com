@@ -32,6 +32,7 @@ import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import { localePath, GLOBAL } from './link-lib.mjs';
 import { setupFromArgs } from './setup-lib.mjs';
+import { daBase, siteFromArgv, isDefaultSite } from './sites.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const DA = 'https://admin.da.live/source/moved-permanently/lh-com';
@@ -70,14 +71,14 @@ export function scopeRows() {
 }
 
 /** A DA source (cached): the HTML, or null for a missing document. */
-export async function daSource(page, { refresh = false } = {}) {
-  const file = path.join(CACHE, `${page}.html`);
+export async function daSource(page, { refresh = false, site = 'lh-com' } = {}) {
+  const file = path.join(isDefaultSite(site) ? CACHE : path.join(CACHE, '_sites', site), `${page}.html`);
   if (!refresh && fs.existsSync(file)) return fs.readFileSync(file, 'utf8') || null;
   let resp;
   // the DA login from a terminal, as slug-step.mjs daClient (never printed)
   const headers = process.env.DA_TOKEN ? { authorization: `Bearer ${process.env.DA_TOKEN}` } : {};
   for (let i = 0; i < 3; i += 1) {
-    resp = await fetch(`${DA}${page}.html`, { headers });
+    resp = await fetch(`${isDefaultSite(site) ? DA : daBase(site)}${page}.html`, { headers });
     if (resp.status !== 429 && resp.status < 500) break;
     await new Promise((r) => { setTimeout(r, 2000 * (i + 1)); });
   }
@@ -218,6 +219,7 @@ export async function run({
   refresh = false, limit = 0, setup, source = (p) => daSource(p, { refresh }), pages = [],
 } = {}) {
   const pairs = regionalPairs(setup);
+  if (!pairs.length) return []; // a setup without a rollout (the airlines' language roots) has nothing to compare
   const locales = [...new Set(pairs.flatMap((p) => [p.from, p.to]))];
   const wanted = new Set(pages);
   const rows = scopeRows().slice(0, limit || undefined)
@@ -309,7 +311,16 @@ export function report(results, setup) {
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
   const argv = process.argv.slice(2);
+  const site = siteFromArgv(argv);
   const setup = await setupFromArgs(argv);
+  if (!regionalPairs(setup).length) {
+    console.log(`regional-diff: the setup of ${site} has no rollout (every language root holds its own full copy): nothing to compare`);
+    process.exit(0);
+  }
+  if (!isDefaultSite(site)) {
+    console.error(`regional-diff: ${site} has rollout pairs but no scope table (pages.csv is lh-com's)`);
+    process.exit(1);
+  }
   const pages = argv.includes('--pages') ? readPages(argv[argv.indexOf('--pages') + 1]) : [];
   const results = await run({
     refresh: argv.includes('--refresh'), limit: Number(argv.includes('--limit') ? argv[argv.indexOf('--limit') + 1] : 0), setup, pages,

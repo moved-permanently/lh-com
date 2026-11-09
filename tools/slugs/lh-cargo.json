@@ -1,0 +1,19 @@
+{
+ "version": 1,
+ "site": "lh-cargo",
+ "airline": "cargo",
+ "host": "https://www.lufthansa-cargo.com",
+ "sourceLanguage": "en",
+ "sourceRoot": "en",
+ "rootForm": "ll (www.lufthansa-cargo.com/<ll>/<slug>, no country folder)",
+ "source": {"data":"hreflang links in the held snapshots of www.lufthansa-cargo.com (server HTML), 7 languages and x-default per page; no sitemap read","pagesRead":67,"pagesWithHreflang":67},
+ "listed": false,
+ "measured": {"groupsInData":62,"mapped":0,"deviatingGroups":0,"exceptions":{},"unlisted":{"pagesRead":67,"alternateSets":62,"setsWithOneSlugInEveryLanguage":57,"setsWithADifferentSlug":5,"languagesWithADifferentSlug":{"de":5},"articleSets":4,"articleSetsWithADifferentSlug":3,"pagesNotInTheirOwnAlternates":6}},
+ "mirrors": {},
+ "active": {},
+ "pairing": "partly measured, nothing moves: the held snapshots are 67 pages (en and de) that name 62 sets of alternates; 57 sets have one slug in every language and 5 have a German slug that differs from the English one (listed as candidates). That is a sample (articles alone are 389 en and 348 de); no group is listed and no flag exists until the pairing of all pages is measured.",
+ "candidates": [{"en":"/en/-/142.-arctic-temperatures-on-board","de":"/de/-/142.-arktische-temperaturen-an-bord"},{"en":"/en/-/aerologic-fleet-set-to-grow-to-eleven-freighters","de":"/de/-/aerologic-flotte-wa%CC%88chst-auf-elf-frachtflugzeuge"},{"en":"/en/-/the-value-of-the-rose-17","de":"/de/-/der-wert-der-rose-17"},{"en":"/en/data-protection","de":"/de/datenschutz"},{"en":"/en/industries-healthcare","de":"/de/industrien-pharma-medizintechnik"}],
+ "rootsets": [],
+ "groups": [],
+ "exceptions": []
+}

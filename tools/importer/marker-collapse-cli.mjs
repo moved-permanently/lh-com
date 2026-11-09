@@ -17,6 +17,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { parseHTML } from 'linkedom';
 import { collapseHtml, totals } from './marker-collapse.mjs';
+import { leftIn } from './collapse-loss-check.mjs';
+import { SECTION_STYLES } from '../../scripts/style-markers.js';
 
 const argv = process.argv.slice(2);
 const opt = (n, d) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : d);
@@ -33,8 +35,6 @@ if (!content) {
   console.error('usage: marker-collapse-cli.mjs --content <dir> --brand <brand> [--out <dir>] [--report <file>] [--check]');
   process.exit(2);
 }
-// what is left after the collapse and must not be: a known marker at the end of a text
-const LEFT = /\{(?:heading-|copytext-|full-width|limited-width|column-|caption|parallax|narrow|indent-\d|spacer|divider|autoplay|muted|loop|controls|round-play-button|size-\d|mobile|selected|small|blank|cart|login|locale|help|search|accessibility|notifications)[^}]*\}/;
 
 const walk = (d, out = []) => {
   fs.readdirSync(d, { withFileTypes: true }).forEach((e) => {
@@ -81,7 +81,9 @@ results.forEach((res) => {
 });
 // the carriers a document holds (section styles, block options, purpose blocks, video fragments,
 // the Headings row): what the collapse wrote is the difference to the document before
-const STYLE_WORDS = ['space-m', 'space-l', 'divider', 'space-below-m', 'space-below-l', 'divider-below', 'wide-text', 'small-print', 'h2-large', 'h2-compact', 'h3-large', 'parallax', 'narrow', 'padded'];
+// the section styles a carrier writes (scripts/style-markers.js SECTION_STYLES; flush: a column view's
+// section that its original section goes on after)
+const STYLE_WORDS = [...Object.keys(SECTION_STYLES), 'flush'];
 const OPTION_WORDS = ['space-m', 'space-l', 'divider-above', 'small-print', 'title-large', 'title-compact', 'background-video', 'mobile-video'];
 const PURPOSE = ['spacer', 'divider', 'app-spacer', 'app-divider', 'app-text', 'nav-tools'];
 function carriersOf(html) {
@@ -123,9 +125,9 @@ results.forEach((res, docPath) => {
     }
     report.changedPaths.push(docPath);
   }
-  const { document } = parseHTML(`<main>${res.html}</main>`);
-  const left = [...document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li')].filter((el) => LEFT.test(el.textContent));
-  if (left.length && !docPath.startsWith('/content/mobile/')) report.left.push(`${docPath}: ${left.slice(0, 3).map((el) => el.textContent.trim().slice(-60)).join(' | ')}`);
+  // headings, paragraphs and list items, and block cells' bare text (a form note's label)
+  const left = leftIn(res.html);
+  if (left.length && !docPath.startsWith('/content/mobile/')) report.left.push(`${docPath}: ${left.slice(0, 3).join(' | ')}`);
   const again = collapseHtml(res.html, {
     path: docPath, brand, parse: parseHTML, force,
   }).html;

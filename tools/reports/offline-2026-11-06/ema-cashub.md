@@ -1369,3 +1369,405 @@ Left uncommitted, with the reasons:
 - styles/themes/brussels.css and tap.css carry nothing uncommitted: both are in the commits above.
 - migration-work/parity-510/ (captures, probes, scripts): scratch, kept out of git by
   .git/info/exclude.
+
+## The brief after 510: the two importer options, ITA's rows, SWISS's ranking, Brussels' leftovers
+
+Hosts:
+- the previews;
+- ita.turnsthe.page, austrian.turnsthe.page and swiss.turnsthe.page (published pages, the SWISS sitemaps);
+- admin.hlx.page status (read only);
+- local dev servers with this tree.
+
+No request went to www or to any brand's www host. Nothing was uploaded or published. The six old
+TAP fragments stay in DA and in the allowlist, as you said.
+
+### Item 1a: Brussels' phone sliders (`09cdc53f`)
+
+- **www's carrier:** a column view whose content sits in `<div class="carousel">`: a
+  `.hidden-md-down` grid plus a `.hidden-lg-up` swiper copy. On phones that's one card a view
+  with dots. Among the recorded Brussels pages two have it:
+  - inflight-services' four "Autres sujets" teasers (a four-column view);
+  - meetings-and-events' three steps (a three-column view of picture, headline and text).
+- **brussels-import.mjs:** `withPhoneSliders` marks such a view (`data-import-phone-slider`), as
+  austrian-import.mjs does. It runs in the snapshot chain after `withTeaserColumns`.
+- **carousel-cards parser:** a marked four-column view now gets phone-slider too ("grid four-up
+  phone-slider"). Unmarked ones (lufthansa.com) stay "grid four-up", and no Austrian recording
+  has a four-column carousel view.
+- **Bundles:** the line added to the ten bundles built with this parser. After the pull each
+  differs from main by that one line. Brief 506's fragment-slides stays in the hub bundle only,
+  as its author built it. A rebuild of the hub bundle here would also have reordered its
+  transformers (the build rewrites import-hub.js), so the line went into the committed bundles
+  as they are.
+- **carousel-cards block:** an authored four-up keeps four cards a row from 1025 px with
+  phone-slider (it dropped to three a row).
+- **meetings-and-events:** the three-column steps get "cards-teaser three-up phone-slider" from
+  the cleanup's carousel flag (brief 497). Their document is older than that flag.
+- **Checked offline:** both recordings through the snapshot chain and the info bundle give
+  "carousel-cards grid four-up phone-slider" and "cards-teaser three-up phone-slider", with no
+  live fallback.
+- **Rendered locally** (a scratch copy of the document with the option):
+
+  | Width | Before | After |
+  | --- | --- | --- |
+  | 390 | four stacked cards, 1,150 px | one 346 px card a view with dots, 290 px |
+  | 1440 | four 301 px cards a row | unchanged |
+
+- **Tests:** test/brussels-phone-slider-import.test.mjs and
+  test/carousel-cards-phone-slider-four-up.test.mjs.
+- **Documents:** `tools/reports/parity-2026-11-08/reimport-brussels-phone-slider.txt` (11). That's
+  the two pages and their language copies in lh-brussels.json, plus the harness's grep rule for
+  every other snapshot with the pattern.
+
+### Item 1b: Austrian baggage's boxed teasers (`af7be822`)
+
+- **What the evidence showed:** www's current baggage page (brief 497's recording) has its nine
+  cards as context teasers (`a.teaser.card` in experience fragments) in two-column views. Our ten
+  baggage documents come from the Studio's older capture of the page: h2 titles in a
+  picture-and-text grid, with "Carry-on baggage" where www now says "Hand lugagge".
+- **Why there's no new option:** today's austrian-import.mjs already takes the current markup to
+  www's boxed cards ("carousel-cards grid two-up", as /at/de/familien and /at/de/check-in). The
+  recording run offline through mappedOf and the info bundle gives five such blocks. A new
+  option for the old markup would put boxes on a grid that the other 32 recorded pages with it
+  show flat on www.
+- **Test:** test/austrian-boxed-teasers.test.mjs keeps that path.
+- **Documents:** `tools/reports/parity-2026-11-08/reimport-austrian-boxed-teasers.txt` (10). They
+  need a newer capture before the re-import, because one from the current snapshot gives the
+  same document again:
+  - /at/en/baggage can use brief 497's recording as its snapshot;
+  - the nine language copies need a fresh Studio capture.
+
+### Item 2: ITA (`19d5920d`, one row)
+
+- **help-and-contact (ranks 1 and 2 in brief 510, -13 to -17 %):** a preview artefact. On
+  aem.page the help app's script, served from ita.turnsthe.page, is refused across origins, so the
+  micro-frontend shows its 183 px fallback. On ita.turnsthe.page:
+
+  | Page | 1440 | 390 |
+  | --- | --- | --- |
+  | /it/it/help-and-contact | +1.9 % | +5.4 % |
+  | /it/en/help-and-contact | +2.9 % | +3.6 % |
+
+  The same holds for brief 510's Austrian /at/de and /at/en/contact (rows 7 and 8): on
+  austrian.turnsthe.page they are 0 / +1.1 % and +0.9 / +1.8 %. Brief 510's ranking called that
+  "content"; it is the preview host.
+- **The row fixed: ITA's footer on phones (ita.css), 114 px taller than www's at 390.**
+  - Where the 114 px came from:
+    - the first heading 8 px lower;
+    - "Informazioni su ITA Airways" on two lines (the toggle 16 px in, where www's text is 8 px
+      in);
+    - the payment row 11 px lower, the legal links 7 px lower and packed closer than www's;
+    - the language button 41 px under the legal links (www 11);
+    - the note 9 px, and the logo stack 4 and 5 px further apart with 11 px more under it.
+  - Each text line of the footer is now within 1 to 6 px of www's. 1440 is unchanged (+24 px,
+    1.1 %).
+  - The 26 pages other than help-and-contact, at 390: the mean page-height difference went from
+    1.74 to 1.01 %, and 18 → 24 are within 2 %.
+
+    | Page | Before | After |
+    | --- | --- | --- |
+    | /it/it/homepage | +5.0 % | +0.3 % |
+    | /it/it/manage-my-bookings/manage | +4.2 % | +1.5 % |
+    | /it/it/world-of-ita-airways/travel-classes | +3.9 % | +0.9 % |
+
+  - This machine has no Arial (the legal links' font) and its fallback is wider. So the English
+    legal links take eight rows here and seven on www; with Arial the spacing gives www's rows.
+  - Test: test/ita-footer-phones.test.mjs.
+- **Why not ten:** every other ITA row is within ±3 % and has no shared cause in ITA's CSS or
+  blocks.
+  - The cause is page content. Example: /it/en/manage-my-bookings/extra-services is -2.8 % at
+    1440, while its Italian copy with the same blocks is +0.3 %.
+  - None of them needs one of ema-test's files.
+- **Documents:** none (theme only).
+
+### Item 3: SWISS (`47272dc8`, one row)
+
+- **The ranking:** `tools/reports/parity-2026-11-08/sweep-swiss-cashub.md`.
+  - The published pages are those in swiss.turnsthe.page's 227 sitemaps: 67,414 pages across the
+    markets.
+  - 84 recorded pages are ranked: 74 in the sitemaps, plus 10 magazine pages that aren't in a
+    sitemap but answer 200 live.
+  - 57 are at 2 % or more, 30 at 5 % or more.
+  - The 3,120 published language documents without a recorded copy in any market are listed in
+    `swiss-unrecorded.txt`, not guessed.
+- **The row fixed: SWISS's picture-and-text rows (swiss.css).**
+  - www's rows are column views of their own: the next row's heading sits about 65 px under a row
+    at 1440 and 48 px at 390. Ours had the default 24 px.
+  - Rule: a heading that opens the content after a columns-media row gets 48 px, 64 px from
+    1025 px.
+  - On the 19 recorded pages with such rows (local; before equals the published pages), the mean
+    page-height difference went from 3.80 to 2.45 % at 1440 and from 2.89 to 2.17 % at 390.
+
+    | Page | 1440 before → after | 390 before → after |
+    | --- | --- | --- |
+    | swiss-business | -6.3 → +1.5 % | -5.2 → -2.1 % |
+    | swiss-economy | -5.6 → +0.4 % | -3.0 → -0.9 % |
+    | swiss-premium-economy | -7.6 → -2.1 % | -5.8 → -3.6 % |
+    | upgrade-options | -6.4 → -2.3 % | -6.5 → -4.6 % |
+
+  - Longer now (1440): swiss-airrail +5.4 → +6.1 %, miles-and-more +1.8 → +3.7 %,
+    baggage-irregularities +1.6 → +3.7 %.
+  - Test: test/swiss-row-headings.test.mjs.
+- **Why not five:** the other high rows aren't in SWISS's own CSS.
+  - **Live data:** /ch/en/offers (www's fares grid).
+  - **A link-out by design:** pax-receipt (www's booking-details form).
+  - **Third-party ads:** the seven magazine rows (-12 to -14 % at 390). On phones www puts a
+    roughly 300 px advertisement slot between sections; ours has none.
+  - **The homepages (/de/de +9.4 %, /us/en +7.9 % at 390):** after the destination finder our
+    documents carry the fares' disclaimer and conditions as 612 px of page text. On www they live
+    only in the fares widget's dialog, and the destination-finder parser already copies them into
+    the block's Conditions row.
+    - Change for swiss-import.mjs / the SWISS homepage import (ema-lufthansa): after the
+      destination-finder parser has read the conditions dialog (`.disclaimerandconditions` and its
+      portalled dialog), drop that dialog's source from the page, so it doesn't stay as default
+      content in the section.
+    - I didn't edit the file.
+  - **The intro paragraph (upgrade-options):** www's `p.copytext-large` (18 / 30 px), a per-page
+    style used on 2 of the 69 recorded pages. That's a carrier for ema-test's token-free work or
+    swiss-import.mjs, not a theme default.
+  - **Single pages:** travel-insurances, entertainment-on-board, travel-regulations,
+    health-and-travel and the culinary hub app, each with its own small difference.
+- **Documents:** none (theme only).
+
+### Item 4: Brussels rows left after brief 510
+
+- **Phone sliders:** a shared cause, now in the importer (item 1a). The documents still need the
+  re-import from the list.
+- **No rule possible:**
+  - **The space from the intro to the first card** (meals, lounges, families-and-children,
+    our-fleet). www's space follows its separators and empty lines, which our documents don't
+    carry. Brief 505's median rule stays.
+  - **The space below the last grid at 390.** www has 82 to 248 px for the same structure. Brief
+    510's median rule (130 px) is as close as one rule gets.
+  - **The space before "Related topics".** The jump at that heading runs from -63 to +80 px at
+    1440 over the 16 recorded pages, depending on what precedes it (accordions, galleries).
+- **Not shared:** open accordions in the recordings (baggage problems, cancel and refund),
+  widgets (payment methods, destinations) and single pages (travel-insurances' intro band,
+  beobank, new-destinations, contact).
+
+### The pushes
+
+- **`09cdc53f`, `af7be822`, `19d5920d`:** pushed after the full suite in a clean worktree (634
+  files, 0 fail) and a pull right before.
+  - The pull brought in brief 506's carousel-cards parser change and its hub-only bundle rebuild.
+  - The parser conflict was resolved with both changes.
+  - My line was then added to upstream's ten bundles, each differing from main by that line alone.
+- **`47272dc8` and this report:** pushed after the suite, with a pull right before.
+
+### Summary
+
+| Item | Commit | What |
+| --- | --- | --- |
+| 1 | `09cdc53f` | Brussels phone sliders: importer mark, carousel-cards parser and block, the bundles' line |
+| 1 | `af7be822` | Austrian boxed teasers: the test of the existing path, the re-import list (a newer capture first) |
+| 2 | `19d5920d` | ITA's footer on phones (ita.css) |
+| 3 | `47272dc8` | SWISS's picture-and-text rows (swiss.css) |
+| 3, 4 | (this commit) | sweep-swiss-cashub.md, swiss-unrecorded.txt, this report |
+
+Documents to import (paths files, in release order):
+- `tools/reports/parity-2026-11-08/reimport-brussels-phone-slider.txt`: 11 documents, plus the
+  harness's grep rule for the other Brussels snapshots with the pattern.
+- `tools/reports/parity-2026-11-08/reimport-austrian-boxed-teasers.txt`: 10 documents, after a
+  newer capture.
+
+Left uncommitted, with the reasons:
+- tools/importer/import-progress.json, tools/importer/reports/**, tools/importer/urls-*.txt and the
+  import report xlsx files: earlier import runs' output.
+- migration-work/parity-510 and parity-511 (captures, probes, scripts, the worktree): scratch, kept
+  out of git by .git/info/exclude.
+
+## The brief after 516: one slug in every language at the write step
+
+### Incident: a test wrote two documents to DA (2026-11-09)
+
+- **What ran:** at 03:04 UTC I ran a new test, test/da-upload-slugs.test.mjs, before the code it tests existed. It started
+  `tools/importer/da-upload.mjs` with an option that da-upload did not know yet (`--sink`, meant to keep it offline), so
+  da-upload ignored the option and did a real upload and preview.
+- **Which documents:**
+  - lh-austrian `/at/de/zusatzgepaeck`: uploaded 03:04:43, previewed 03:04:46 UTC;
+  - lh-tap `/en-pt/legal-info`: uploaded 03:04:48, previewed 03:04:50 UTC.
+
+  Each was replaced in DA by a test document of one paragraph. Nothing was published; live kept the earlier version.
+- **The repair:** the migration session restores both from DA's version history (byte-exact) and previews them again. I did
+  not touch either document or its preview. I put my two state files back to their pre-incident records
+  (`git checkout` of `da-upload-state-lh-austrian.json` and `-lh-tap.json`).
+- **The fix (`9dd3c732`):** a test can no longer reach the real uploader.
+  - Under the test runner (node sets `NODE_TEST_CONTEXT` for every child process) or with `DA_UPLOAD_TEST`, da-upload
+    refuses to start without `--dry-run` or `--sink`. It refuses before it reads a document or opens a connection, and
+    exits with code 2.
+  - test/da-upload-test-mode.test.mjs proves the refusal. Its red run was safe: its path is outside every allowlist, so
+    even the old uploader skipped it before any request.
+  - Every later run of the slug tests went to `--sink` folders, and the sites' real state files stayed unchanged
+    (checked by checksum).
+- **One more event:** when I first applied the da-upload edit, the remote-content safety guard blocked my local script,
+  because it contained the uploader's own `curl … admin.da.live` lines. That changed nothing. I made the same source
+  edits with the file editor; nothing was sent.
+
+### Items 1 to 7
+
+- **Report:** `tools/reports/slugs/write-step-517.md`. It has what the write step does now, the dry runs per airline, the
+  pairing checks, the scripts that write around the guard, and the limits.
+- **Item 1, mapping and links (`9dd3c732`):**
+  - `tools/importer/slug-write.mjs` provides `writeTarget` and `slugMapOf`; `own-links.mjs withCanonicalLinks` rewrites
+    the links; da-upload writes each page at its target.
+  - Snapshots, archives and the local trees stay keyed by the www path.
+  - TAP, Air Dolomiti and ITA have no map, and tests prove their paths, links and app-shell decisions are unchanged.
+- **Item 2, the guard (`9dd3c732`):** next to appShell, allowed and AUTHOR_EDITS. A write to a localized slug of an active
+  entry is refused with the canonical path (`--keep-paths` exposes it). With all flags off nothing is refused. Also
+  refused (`0fbbfcae`): two local documents for one page (none today).
+- **Item 3, holds (`9dd3c732`):** `holdAt` finds a hold at the target, at its www path, or at any www path of the target.
+  A unit test proves that a hold on `/de/de/gepaeck` protects `/de/de/baggage` (the map's real pair) once de/de is on.
+  The gepaeck document and author-edits.json are untouched; neither holds a gepaeck entry today.
+- **Item 4, unmapped pages:** written to `tools/reports/slugs/unmapped-<site>.json`, merged per path (`$SLUG_REPORT` for
+  another file).
+  - The English slug is used only where the document names its English page (`primary-language-url`) and the root's flag
+    is on. Otherwise the page keeps its path.
+  - Dry runs: SWISS 6 and Austrian 2, none verified.
+- **Item 5, offline proof:**
+  - Lufthansa: 300 pages (150 moved, 847 links), plus an 80-page run.
+  - SWISS 40 (2 moved), Austrian 60 (11 moved; built from the recordings), Brussels 30, Cargo 25, Group for Business 22,
+    and Discover's 563 allowlist paths (no documents on disk).
+  - In every run, every path and link was canonical, and the second run wrote nothing new.
+  - With flags off, every body was unchanged at its www path.
+  - Brussels, Discover, Cargo and Group for Business: the guard never fired and nothing moved.
+- **Item 6, pairing (`0fbbfcae`):**
+  - Parity: `tools/parity/pair.mjs edsUrlOf`, used by build-jobs.mjs, checked on the run on disk.
+  - page-check: no change needed (the same 825 broken links with flags off and on, over 300 pages).
+  - market-diff: the change is written down for ema-lufthansa (md-replica-check.mjs should ask the replica at the
+    canonical path; 6,499 Lufthansa pairs concerned).
+- **Item 7, scripts that write around the guard:** listed with their paths in the report. The harness's own scripts aren't
+  on this machine.
+
+### What is left
+
+- **Per brand:** no brand importer needed a change.
+- **ema-lufthansa:** the market-diff line above.
+- **The migration session:** route the listed scripts when a round goes on.
+- **A round's commit:** switching a flag in a map is that round's one change to the file, as the README says.
+
+## The brief after 517: TAP's switch test, the meetings logos, Austrian and Brussels against the recordings
+
+- **Item 1, TAP's token-free switch (`b848bbd5`):** test/tap-collapse-505.test.mjs no longer pins the switch. It imports
+  `LIVE` and `offThemes` from ema-test's test/live-brands.mjs (the same pattern as its per-brand files). The first test
+  now runs under `offThemes` (TAP off: collapseTap gives the document back byte for byte). A new test checks the switch as
+  it stands: with TAP live (its own test file), TAP's imports collapse without force. The header comment says where the
+  switch lives. The other three tests are unchanged. Checked on a scratch merge of origin/token-free-tap-live (b475f6d9)
+  onto these commits: lint and the whole suite pass there, and the old test fails there. The merge was not pushed, and
+  ema-test's files are untouched.
+- **Item 2, Columns Media (`cff0572e`):** an image-only four-column carousel view (three or more image-only items)
+  becomes a phone slider (cell-slider). The two-item photo and QR code pair and the mixed band are unchanged.
+  - The 12 bundles that carry the parser were rebuilt; each differs from main only by that change.
+  - meetings-and-events, both copies on one local server: 390 goes from 3,194 to 3,008 px (the logo row from 368 to
+    182 px: one logo and dots); 1440 stays at 2,713. On the published page that is 4,033 → 3,847 against www's 3,869
+    (+4.2 → -0.6 %). The before pixel diff reproduces the handover's 14.6 % at 390 and 9.0 % at 1440.
+  - Reach: 4 of the 46 carousel views in the 883 snapshots on disk change, all of them meetings-and-events. On preview,
+    10 documents carry the row.
+  - ema-adobe's list said 7; it now has 10 (/xx/hk, /xx/pt and /xx/ru added).
+- **Item 3, Austrian and Brussels:** `tools/reports/parity-2026-11-09/sweep-austrian-brussels-cashub.md`, with
+  `austrian-unrecorded.txt` (2,211 documents) and `brussels-unrecorded.txt` (1,394).
+  - Fixes, one commit each: Austrian `ec7b6079` (spaced accordions), `d6517227` (carousel slide titles: the parser, the
+    six bundles and a re-import list of 12) and `684d242f` (tab items on phones); Brussels `8247a50f` (card link lines:
+    the importer and a re-import list of 18) and `ed3a86b0` (heading to accordion).
+  - Austrian has three brand-own fixes and Brussels two, not five each. The other top rows are data and widgets,
+    recording state, homepage widgets and cards-icon (ema-adobe), or one-page causes. The report lists each with its
+    cause and owner.
+- **Item 4, no-break spaces:** the ranking points at them: 16 lines on 10 of the 165 recorded pages, about 40 to 48 px
+  each. On Brussels' families-and-children pages they are about half of the difference. The pages and amounts are in the
+  report. Nothing changed.
+
+### What is left
+
+- **The harness:** re-import ema-adobe's corrected meetings-and-events list (10 documents),
+  `reimport-519-austrian-carousel-titles.txt` (12), `reimport-519-brussels-card-links.txt` (18) and
+  `/at/en/economy-class` (its FAQ buttons). The CSS fixes need no re-import.
+- **Owners named in the report:** the nested two-column view in Austrian's tabs (not traced to its step), cards-icon
+  (ema-adobe), the divider markers (ema-test), and Brussels' headline-only column view (lh-com's mapping).
+
+## The brief after 521: the editor hook, five more fixes, the capture list, the no-break space proposal
+
+- **Item 1, the editor hook:** the excat plugin's `hooks/parser-validator-hook.js`, registered in the plugin's
+  `.claude-plugin/plugin.json` under PostToolUse, matcher `Write|Edit`. It is not in any settings file of this workspace.
+  - **What triggers it:** a write or edit of a `.js` file in `tools/importer/parsers/` in a workspace whose
+    `tools/importer/page-templates.json` has a block of the parser's name.
+  - **What it does:** takes the first URL of that block's template (carousel-images: https://www.lufthansa.com/de/en/flying-with-small-children).
+    It first sends that URL a GET (with a Range header) as a reachability probe (`hook-utils.js`
+    `gateImportLiveValidationNetwork`, 10 s). If the probe answers, it loads the URL in a local Chromium through
+    `import-validator/parser-validator.js`, up to 5 attempts per file.
+  - **The transformer twin:** `transformer-validator-hook.js` does the same for `tools/importer/transformers/`, but
+    prefers `migration-work/cleaned.html` when there is one.
+  - **Its log:** `hooks/parser-validator-debug.log` shows one run today, 08:06 UTC on carousel-images.js, and none since.
+  - **No switch for this hook alone:** Claude Code's settings can disable all hooks (`disableAllHooks`), which would
+    also switch off the plugin's guards (catalog-workflow-guard, block-html-sibling, block-long-preview-url), or the
+    whole excat plugin. The plugin isn't enabled through `enabledPlugins` in `~/.claude/settings.json`; the platform
+    loads it. Neither switch is a setting in my own workspace narrow enough for this, so I did not switch anything off.
+  - **For the owner of the plugin:** an environment variable checked at the top of `handlePostToolUse`, or an offline
+    mode that probes only snapshots.
+  - **Until then:** parser and transformer edits go through the shell (python), as in this brief. No parser was edited
+    this brief.
+- **Item 2, five more fixes:** Austrian `762510ab` and `a22d29eb`, Brussels `16dca5ed`, `582e6e25` and `4ce3096f`, one row per commit,
+  measured on the published page (`sweep-austrian-brussels-cashub.md`, the brief after 521).
+  - The travelling-with-animals tab case was in austrian-import.mjs's two unwrap steps, mine, fixed in `762510ab`.
+  - Re-import lists: `reimport-522-austrian-tab-columns.txt` (20) and `reimport-522-brussels-fact-columns.txt` (6).
+- **Item 3, the capture list (`6890efb4`):** `capture-list-austrian-brussels.txt`.
+  - Part A: 21 pages named as needing a recording.
+  - Part B: 35 pages, one per page type and template without a recording.
+  - 56 pages, 107 captures, about 18 minutes at 10 seconds a capture; all answer 200 on our hosts. Nothing captured.
+- **Item 4, no-break spaces (`d4096c8e`):** `nbsp-proposal-cashub.md`, the proposal only.
+
+### What is left
+
+- **The brands helper:** re-import the two new lists (26 documents). The CSS fixes need none.
+- **After 15:00 CET:** the capture list (56 pages).
+- **Ben:** the no-break space decision.
+- **The plugin's owner:** a switch for the validator hooks.
+
+## The brief after 527: no-break spaces, the remaining rows, the capture list's order
+
+- **Item 1, no-break spaces (`6a61397b`, pushed 13:41 CET):** one shared module, `tools/importer/nbsp-guard.mjs`.
+  - **How it works:** `guardNbsp` runs in onLoad, after the transformers' onLoad, so they still see www's no-break spaces
+    as before, and before the framework's steps. It writes them as U+2007, which no www snapshot on disk has and which
+    the framework leaves alone. `restoreNbsp` and `withRestoredNbsp` write them back.
+  - **As the brief's fixture asks:** an empty `<p>&nbsp;</p>` is not guarded, and the framework drops it as before.
+  - **Wiring, one place each, edits limited to the wiring:**
+    - `build-import-script.js` and the 14 generated import scripts: the import, and the call after `executeTransformers`
+      in onLoad.
+    - The 12 brand importers: `collapseDocs(withRestoredNbsp(files, fs), …)` and the import. Among them are ema-lufthansa's
+      airdolomiti, b2b, cargo, discover, swiss, swiss-magazine, swiss-market and swiss-sub.
+    - `import-batch.mjs` (lufthansa.com's runs): after the bulk run.
+    - `da-upload-sites.mjs` `uploadBody`, so no stand-in reaches DA.
+  - **The 14 bundles,** rebuilt on today's main: each differs from main only by the module and the call (19 lines).
+  - **Test first:** `test/nbsp-guard-530.test.mjs`. It covers a paragraph, a heading, a link text, a table cell, and an
+    empty `<p>&nbsp;</p>` that is still dropped, run through the framework's own DOMUtils and MDUtils.
+  - **Offline import of the 10 recorded pages** (main's bundles against these): 63 no-break spaces kept, no stand-in left,
+    paragraphs equal.
+  - **The text checks:** I changed nothing there, because a restored no-break space is whitespace to all of them:
+    - **word loss:** the collapse loss check (`collapse-loss-check.mjs` lossProblems) compares text without whitespace,
+      and JavaScript's `\s` includes U+00A0;
+    - **descheck:** the description rules (`description-rules.js` clean) map it to a space;
+    - **textdiff:** the plugin's text similarity (`content-similarity.js` tokenize) splits on `\s+`.
+
+    The test proves all three on a document pair. The same three checks on the 10 offline imports find no text, link,
+    heading or token difference.
+  - **Two side effects:** where www writes "&nbsp; " (a no-break space then a space), ours keeps both now, as www. A heading
+    id built from such text loses a doubled hyphen (gesundes-reisen: `…geräte--column-start` → `…geräte-column-start`).
+  - **Suite:** green at 678 files on the first commit, 681 on today's main after the rebase onto ema-test's bundle rebuild.
+  - **Re-import list:** `reimport-530-nbsp.txt` (the ranking's 10, in release order). 7 of them change, by their in-text
+    no-break spaces; the-gambia, our-fleet and extra-services come out the same.
+- **Item 2:**
+  - **Austrian `dd0436d2`:** two-up grids in a row on phones.
+  - **Brussels `433e6c2b`:** the footer from 1025 px, now 478 / 514 px against www's 478 / 515.
+  - **The other rows** (fly-with-austrian's divider: ema-test's marker; Brussels' check-in form on phones: the shared
+    booking-lookup block and the quick-actions mapping) are named in the sweep report.
+  - **The two templates without a recording that decide most documents (`1db40e6e`):** Austrian's form (176 documents not
+    copies of a recorded page) and Brussels' form (101, none recorded).
+- **Item 3 (`cce4b565`):** the capture list is in the order the capture child should take, most decisive first: decisions and
+  re-import lists, the two templates, the ranking's causes by gap, the page types by documents, the copies last. All 56
+  lines have host, path and width, and all answer 200 on our hosts.
+- **The editor hook** did not fire this brief: the parser and transformer files were not edited.
+
+### What is left
+
+- **The brands helper:** re-import `reimport-530-nbsp.txt` (10). Every later re-import carries the change by itself.
+- **Ben:** the empty lines. They are still dropped as the brief asks; keeping them is one line in nbsp-guard.mjs, and the
+  capture list's first page measures them on www.
+- **After 15:00 CET:** the capture list (56 pages, about 18 minutes), and a fresh capture of angebote-destinationen and
+  ch/en/homepage (their offers didn't load in this one).

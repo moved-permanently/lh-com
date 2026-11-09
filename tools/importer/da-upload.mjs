@@ -1,4 +1,4 @@
-/* eslint-disable no-console, no-await-in-loop, no-restricted-syntax, no-continue */
+/* eslint-disable no-console, no-await-in-loop, no-restricted-syntax, no-continue, max-len */
 /* eslint-disable import/extensions -- the site rules module */
 /**
  * Uploads local content documents to Document Authoring and previews them on
@@ -32,6 +32,24 @@
  *          [--keep-www <path prefix,…>] (links under these paths may go back to www: the check
  *          below leaves them out, e.g. SWISS's /digitalassistant/, which the replica does not
  *          serve)
+ *          [--sink <dir>] (offline: each upload body written to <dir>/<path>.html, the state in
+ *          <dir>/da-upload-state.json; no request to DA, admin.hlx.page or any host, no preview)
+ *          [--slug-map <file>] (another copy of the site's slug map, e.g. a test copy with flags on)
+ *          [--keep-paths] (write at exactly the listed path, no slug mapping: the guard refuses a
+ *          localized slug of an active entry)
+ *
+ * One slug in every language (tools/slugs/README.md, slug-write.mjs): the local documents stay keyed
+ * by the www path; each is written at writeTarget(path) (the canonical path for an active alias of
+ * the site's map tools/slugs/<site>.json; no map, or its flags off: the path as it is), its internal
+ * links through the map (own-links.mjs withCanonicalLinks), its author's hold found at the canonical
+ * path too (holdAt). A write to a localized slug of an active entry is refused with the canonical
+ * path. A page of a mapped root the map does not know is listed in the unmapped report
+ * (tools/reports/slugs/unmapped-<site>.json, or $SLUG_REPORT; merged per path) and moves to its
+ * English slug only where its document names its English page (primary-language-url) and its root's
+ * flag is on.
+ *
+ * Test mode (the test runner's NODE_TEST_CONTEXT, or DA_UPLOAD_TEST): refused without --dry-run or
+ * --sink, before anything is read or sent (incident of 2026-11-09: a test reached the real uploader).
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -40,21 +58,37 @@ import { fileURLToPath } from 'node:url';
 import {
   siteSettings, mayPreview, readDocument, uploadBody, mediaStep,
 } from './da-upload-sites.mjs';
-import { linksTakenBack } from './own-links.mjs';
+import { linksTakenBack, withCanonicalLinks } from './own-links.mjs';
+import {
+  slugMapOf, writeTarget, slugRefusal, holdAt, unmappedEntry,
+} from './slug-write.mjs';
 
 const started = Date.now();
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
 const has = (n) => argv.includes(`--${n}`);
 const opt = (n) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : null);
+// a test never reaches the real uploader: under the test runner (or DA_UPLOAD_TEST) only --dry-run or --sink
+if ((process.env.NODE_TEST_CONTEXT || process.env.DA_UPLOAD_TEST) && !has('dry-run') && !opt('sink')) {
+  console.error('da-upload: test mode: da-upload runs only with --dry-run or --sink (NODE_TEST_CONTEXT or DA_UPLOAD_TEST is set), nothing done');
+  process.exit(2);
+}
+const sink = opt('sink') ? path.resolve(opt('sink')) : null;
 const keepWww = (opt('keep-www') || '').split(',').map((x) => x.trim()).filter(Boolean);
 const loadScope = async () => (await import(path.join(root, 'tools/importer/transformers/scope-paths.js'))).default;
 const settings = await siteSettings(root, loadScope, {
   site: opt('site') || undefined, contentDir: opt('content-dir') || undefined, stateEnv: process.env.DA_UPLOAD_STATE, stateName: opt('state') || undefined,
 });
 const {
-  org: ORG, site: SITE, contentDir, stateFile, allowed, appShell, authorEdits: AUTHOR_EDITS,
+  org: ORG, site: SITE, contentDir, allowed, appShell, authorEdits: AUTHOR_EDITS,
 } = settings;
+// --sink: the state beside the bodies, never the site's
+const stateFile = sink ? path.join(sink, 'da-upload-state.json') : settings.stateFile;
+if (sink) fs.mkdirSync(sink, { recursive: true });
+// the site's slug map (none for TAP, Air Dolomiti, ITA); --keep-paths writes at the listed path, the guard still checks it
+const GUARD = slugMapOf(SITE, { file: opt('slug-map') || undefined });
+const SLUGS = has('keep-paths') ? null : GUARD;
+const unmapped = [];
 const state = fs.existsSync(stateFile) ? JSON.parse(fs.readFileSync(stateFile, 'utf8')) : { docs: {}, media: {} };
 state.docs ||= {};
 state.media ||= {};
@@ -88,11 +122,28 @@ let done = 0;
 const failures = [];
 const problem = (msg) => { failures.push(msg); console.log(`  ${msg}`); };
 
+// pages of mapped roots the slug map does not know, merged per path into the site's report
+const slugReport = () => {
+  if (!unmapped.length) return;
+  const file = process.env.SLUG_REPORT ? path.resolve(process.env.SLUG_REPORT) : path.join(root, 'tools/reports/slugs', `unmapped-${SITE}.json`);
+  const before = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : { site: SITE, pages: {} };
+  unmapped.forEach((u) => {
+    before.pages[u.path] = {
+      source: u.source, verified: u.verified, target: u.target, seen: new Date().toISOString(),
+    };
+  });
+  before.updated = new Date().toISOString();
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, `${JSON.stringify(before, null, 1)}\n`);
+  console.log(`unmapped: ${unmapped.length} page(s) the slug map does not know (${unmapped.filter((u) => u.verified).length} verified), ${path.relative(root, file)}`);
+};
+
 let finished = false;
 function finish(stop) {
   if (finished) return;
   finished = true;
   save();
+  slugReport();
   fs.rmSync(tmp, { recursive: true, force: true });
   const rest = paths.length - done;
   const stopped = stop ? `, stopped (${stop}) with ${rest} of ${paths.length} documents not done` : '';
@@ -115,12 +166,23 @@ for (const p of paths) {
   if (!allowed(p)) { problem(`${p}: not in scope, skipped`); continue; }
   const localDoc = readDocument(contentDir, p);
   if (!localDoc) { problem(`${p}: no local document`); continue; }
-  const edit = AUTHOR_EDITS[p];
-  if (edit?.skip) { problem(`${p}: author-owned (author-edits.json), not uploaded`); continue; }
+  // the page's path in DA: its canonical path for an active alias of the site's slug map
+  let target = writeTarget(p, SLUGS);
+  const unknown = SLUGS ? unmappedEntry(p, localDoc.text, SLUGS) : null;
+  if (unknown) {
+    unmapped.push(unknown);
+    target = unknown.target;
+  }
+  if (target !== p && appShell(target)) { problem(`${p}: app shell at ${target} (login/profile, built elsewhere), refused`); continue; }
+  const refusal = slugRefusal(target, GUARD);
+  if (refusal) { problem(refusal); continue; }
+  // two local documents for one page (its www slug and its canonical path): neither wins silently
+  if (target !== p && readDocument(contentDir, target)) { problem(`${p}: its page ${target} has a document of its own in ${path.relative(root, contentDir) || contentDir}: two documents for one page, refused`); continue; }
+  const edit = holdAt(target, p, AUTHOR_EDITS, SLUGS);
+  if (edit?.skip) { problem(`${target}: author-owned (author-edits.json), not uploaded`); continue; }
   const stat = fs.statSync(localDoc.file);
-  const known = state.docs[p];
+  const known = state.docs[target];
   const editKey = edit ? JSON.stringify(edit.replace || []) : undefined;
-  const fresh = known && known.uploaded && known.mtime === stat.mtimeMs && known.edits === editKey;
 
   let html = localDoc.text;
   if (edit) {
@@ -132,6 +194,12 @@ for (const p of paths) {
     }
     (edit.replace || []).forEach(([from, to]) => { html = html.split(from).join(to); });
   }
+  // internal links through the slug map (active entries only); the moves are part of the state, so a
+  // round that switches a flag on sends the pages that link to a moved page again
+  const linked = withCanonicalLinks(html, SLUGS);
+  html = linked.doc;
+  const slugKey = linked.links.length ? JSON.stringify(linked.links) : undefined;
+  const fresh = known && known.uploaded && known.mtime === stat.mtimeMs && known.edits === editKey && known.slugs === slugKey;
   // local images → uploaded once to DA, referenced from content.da.live
   const media = [...new Set([...html.matchAll(/["(](\/media-da\/[^"')\s]+)/g)].map((m) => m[1]))];
   for (const m of media) {
@@ -139,7 +207,8 @@ for (const p of paths) {
     // a picture with no local file that DA has already (another tree's upload, DA's copy of an
     // earlier import): no problem, noted as DA's (brief 468)
     const inDa = () => curl(['-o', '/dev/null', `https://admin.da.live/source/${ORG}/${SITE}${m}`]).status === 200;
-    const step = mediaStep({
+    // --sink: no request at all, a picture counts as known
+    const step = sink ? 'known' : mediaStep({
       known: Boolean(state.media[m]), force: has('force'), localExists: fs.existsSync(local), inDa,
     });
     if (step === 'known') continue;
@@ -157,46 +226,54 @@ for (const p of paths) {
     // a brand site's document whose DA version links a site page relative that the local one
     // links on www (another session changed it in DA, e.g. ITA's footers' /<root>/profile/...):
     // not uploaded, the local copy is older than DA (lh-com as before, no check)
-    if (SITE !== 'lh-com') {
-      const current = curl([`https://admin.da.live/source/${ORG}/${SITE}${p}.html`]);
+    if (SITE !== 'lh-com' && !sink) {
+      const current = curl([`https://admin.da.live/source/${ORG}/${SITE}${target}.html`]);
       const back = current.status === 200 ? linksTakenBack(current.body, html, keepWww) : [];
       if (back.length) {
-        problem(`${p}: would take ${back.length} link(s) DA has relative back to www (${back[0]}): local copy older than DA, not uploaded`);
+        problem(`${target}: would take ${back.length} link(s) DA has relative back to www (${back[0]}): local copy older than DA, not uploaded`);
         continue;
       }
     }
     const doc = path.join(tmp, 'doc.html');
     fs.writeFileSync(doc, uploadBody(localDoc.kind, html));
+    const where = target === p ? p : `${target} (www ${p})`;
     if (has('dry-run')) {
-      console.log(`would upload ${p} (${html.length} B, ${media.length} images)`);
+      console.log(`would upload ${where} (${html.length} B, ${media.length} images)`);
     } else {
-      const r = curl(['-X', 'POST', '-F', `data=@${doc};type=text/html`, `https://admin.da.live/source/${ORG}/${SITE}${p}.html`]);
-      if (r.status < 200 || r.status >= 300) {
-        problem(`${p}: DA ${r.status} ${r.body.slice(0, 120)}`);
-        if (r.status === 401 || r.status === 403) { stop = `DA ${r.status}`; break; }
-        continue;
+      if (sink) {
+        const out = path.join(sink, `${target.slice(1)}.html`);
+        fs.mkdirSync(path.dirname(out), { recursive: true });
+        fs.copyFileSync(doc, out);
+      } else {
+        const r = curl(['-X', 'POST', '-F', `data=@${doc};type=text/html`, `https://admin.da.live/source/${ORG}/${SITE}${target}.html`]);
+        if (r.status < 200 || r.status >= 300) {
+          problem(`${target}: DA ${r.status} ${r.body.slice(0, 120)}`);
+          if (r.status === 401 || r.status === 403) { stop = `DA ${r.status}`; break; }
+          continue;
+        }
       }
-      state.docs[p] = {
-        ...state.docs[p], uploaded: new Date().toISOString(), mtime: stat.mtimeMs, edits: editKey,
+      if (target !== p) console.log(`  ${p} written at ${target}`);
+      state.docs[target] = {
+        ...state.docs[target], uploaded: new Date().toISOString(), mtime: stat.mtimeMs, edits: editKey, slugs: slugKey, ...(target !== p ? { www: p } : {}),
       };
       uploaded += 1;
       save();
-      await sleep(400);
+      if (!sink) await sleep(400);
     }
   }
 
   // a preview is done only when it succeeded after the last upload
-  const d = state.docs[p];
+  const d = state.docs[target];
   const previewDone = d?.uploaded && d.preview && d.preview >= d.uploaded && !d.previewError;
-  if (!has('no-preview') && mayPreview(p) && !has('dry-run') && d?.uploaded && (!previewDone || has('force'))) {
-    const r = curl(['-X', 'POST', `https://admin.hlx.page/preview/${ORG}/${SITE}/main${p}`]);
+  if (!has('no-preview') && !sink && mayPreview(target) && !has('dry-run') && d?.uploaded && (!previewDone || has('force'))) {
+    const r = curl(['-X', 'POST', `https://admin.hlx.page/preview/${ORG}/${SITE}/main${target}`]);
     if (r.status < 200 || r.status >= 300) {
       const why = `${r.status} ${r.body.slice(0, 120)}`;
-      problem(`${p}: preview ${why}`);
-      state.docs[p] = { ...d, previewError: why, previewErrorAt: new Date().toISOString() };
+      problem(`${target}: preview ${why}`);
+      state.docs[target] = { ...d, previewError: why, previewErrorAt: new Date().toISOString() };
     } else {
       const { previewError, previewErrorAt, ...rest } = d;
-      state.docs[p] = { ...rest, preview: new Date().toISOString() };
+      state.docs[target] = { ...rest, preview: new Date().toISOString() };
       previewed += 1;
     }
     save();

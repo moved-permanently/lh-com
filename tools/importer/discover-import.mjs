@@ -15,7 +15,9 @@
  * Discover's forms get their lh-forms id, the same root's thank-you and error pages and www's
  * maxlengths (withDiscoverForm), noindex pages www's robots value (withRobots), www's visually hidden
  * H1 (the homepages': "Discover") an H1 of the first section, hidden by its section style
- * hidden-heading (withHiddenH1; styles/styles.css).
+ * hidden-heading (withHiddenH1; styles/styles.css). The German gender colon before a colon stays text, not an
+ * icon token (withoutGenderTokens); accordions without title text or content are dropped
+ * (withoutEmptyAccordions).
  * Links to www's DAM files become site-relative edsDamPath links (discover-dam.mjs relativeDamLinks;
  * the batch's files are copied with discover-dam.mjs --list --download --upload, its posters and
  * subtitle tracks switched with --switch).
@@ -30,6 +32,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { relativeDamLinks } from './discover-dam.mjs';
 import collapseDocs from './collapse-docs.mjs';
+import { withRestoredNbsp } from './nbsp-guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -218,6 +221,45 @@ export function withHiddenH1(doc, html) {
   return `<div><h1>${esc}</h1>${first.slice('<div>'.length)}${meta}</div>${doc.slice(end)}`;
 }
 
+// Edge Delivery reads ":name:" in a text node as an icon token (its pipeline's rewrite-icons,
+// /:(#?[a-z_-]+[a-z\d]*):/i): www's German gender colon followed by a colon ("Naturliebhaber:innen:
+// üppige Vegetation", winter-destinations) became the icon "innen". A WORD JOINER (no width, no
+// break) before the closing colon of a gender suffix right after a letter keeps it text; every other
+// token (:phone:) stays one
+const GENDER_TOKEN = /(\p{L}):(innen|in):/giu;
+
+/** A document whose gender suffixes (":in", ":innen" before a colon) are text, not icon tokens; tags and their attributes as they are. */
+export const withoutGenderTokens = (doc) => doc.split(/(<[^>]*>)/)
+  .map((part, i) => (i % 2 ? part : part.replace(GENDER_TOKEN, (m, letter, suffix) => `${letter}:${suffix}⁠:`)))
+  .join('');
+
+// an accordion's title cell and content: text, or a picture, video, iframe or link
+const MEDIA = /<(?:img|picture|video|iframe|svg|a)\b/i;
+const isEmpty = (html) => !MEDIA.test(html) && !html.replace(/<[^>]+>/g, '').replace(/&nbsp;|\s/g, '');
+
+/**
+ * A document without the accordions that have neither title text nor content (the importer wrote
+ * one empty cell where www's accordion has no items: 15 blocks on 12 documents, e.g. excess-baggage
+ * before "This might also be of interest to you"); one with a title and no body stays.
+ */
+export function withoutEmptyAccordions(doc) {
+  let out = doc;
+  const open = /<div class="accordion-columns(?:\s[^"]*)?">/g;
+  let m = open.exec(out);
+  while (m) {
+    const end = divEnd(out, m.index);
+    if (isEmpty(out.slice(m.index, end))) {
+      const before = out.slice(0, m.index);
+      // the line the block stood on goes with it
+      const lead = before.match(/\n[ \t]*$/);
+      out = (lead ? before.slice(0, -lead[0].length) : before) + out.slice(end);
+      open.lastIndex = lead ? m.index - lead[0].length : m.index;
+    }
+    m = open.exec(out);
+  }
+  return out;
+}
+
 /** The template of a page from its path and snapshot. */
 export function templateOf(p, html) {
   if (/^\/[a-z]{2}\/[a-z]{2}\/homepage$/.test(p)) return 'homepage';
@@ -278,13 +320,14 @@ if (isMain) {
     // their links out stay absolute in later runs too (site-postprocess.mjs)
     if (linkOuts.length) allow.linkOuts = [...new Set([...(allow.linkOuts || []), ...linkOuts.map(docName)])];
     fs.writeFileSync(sites, `${JSON.stringify(allow, null, 1)}\n`);
-    // Discover's forms (config rows, maxlengths) and www's noindex, before the links are mapped
+    // Discover's forms (config rows, maxlengths), www's noindex, the gender colon as text, no empty
+    // accordions, before the links are mapped
     made.forEach((p) => {
       const f = path.join(W, 'content', `${p}.plain.html`);
       const doc = fs.readFileSync(f, 'utf8');
       const src = Object.keys(out).find((k) => docName(k) === p);
       const html = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
-      const next = withHiddenH1(withRobots(withDiscoverForm(doc, p), html), html);
+      const next = withoutEmptyAccordions(withoutGenderTokens(withHiddenH1(withRobots(withDiscoverForm(doc, p), html), html)));
       if (next !== doc) fs.writeFileSync(f, next);
     });
     // the host mapping only for this batch's documents (earlier ones have their own Lufthansa URLs
@@ -302,7 +345,7 @@ if (isMain) {
       if (next !== doc) fs.writeFileSync(f, next);
     });
     // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
-    collapseDocs(made.map((p) => path.join(W, 'content', `${p}.plain.html`)), { brand: 'discover', content: path.join(W, 'content') });
+    collapseDocs(withRestoredNbsp(made.map((p) => path.join(W, 'content', `${p}.plain.html`)), fs), { brand: 'discover', content: path.join(W, 'content') });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);
     console.log(`${made.length} documents; upload list runs/${name}-upload.txt`);
   }

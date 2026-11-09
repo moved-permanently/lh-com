@@ -1,0 +1,19 @@
+# The brief after 523, item 1 (lufthansa-sections.js: a padded stage after an unpadded AEM section is padded too, unless a
+# padded AEM section follows it; ema-adobe's hub-campaign-521.md section 1): the documents whose snapshot on this disk the
+# rule reaches, 14, in release order (de/en, de/de: none on this disk, then the market roots). From the 1,577
+# lufthansa.com snapshots on this disk (ema-adobe scanned 3,397 and counts 16: destinations and tips-senior-travellers on seven
+# roots each, first-class on two); a document of theirs not below can be added: a re-import the rule does not reach is unchanged.
+/de/en/100-years/destinations
+/de/en/first-class
+/de/en/tips-senior-travellers
+/at/de/tips-senior-travellers
+/gb/en/tips-senior-travellers
+/xx/el/100-years/destinations
+/xx/es/tips-senior-travellers
+/xx/fr/tips-senior-travellers
+/xx/ja/100-years/destinations
+/xx/ko/100-years/destinations
+/xx/pl/100-years/destinations
+/xx/pt/100-years/destinations
+/xx/ru/100-years/destinations
+/xx/zh/100-years/destinations

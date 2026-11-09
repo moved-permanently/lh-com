@@ -27,12 +27,12 @@ test('separators: section start and end as section styles, before a block its op
   assert.equal(out('<div><p>A</p><p>{spacer-100}</p><p>B</p></div>'), '<div><p>A</p><div class="spacer l"><div><div></div></div></div><p>B</p></div>');
   assert.equal(out('<div><p>A</p><p>{spacer-40}</p><p>{divider-25}</p><p>B</p></div>'), '<div><p>A</p><div class="divider"><div><div></div></div></div><p>B</p></div>', 'a stacked spacer and divider: one Divider');
   assert.equal(out('<div><p>A</p><p>{spacer-25}</p><p>B</p></div>'), '<div><p>A</p><p>B</p></div>', '0-30 px: none');
-  assert.equal(out('<div><p>A</p><p>{spacer-85 from-768}</p><p>B</p></div>'), '<div><p>A</p><div class="spacer"><div><div></div></div></div><p>B</p></div>', 'near values: M; from-768 goes');
+  assert.equal(out('<div><p>A</p><p>{spacer-85 from-768}</p><p>B</p></div>'), '<div><p>A</p><div class="spacer from-768"><div><div></div></div></div><p>B</p></div>', 'near values: M; from-768 the block\'s option (decision 3, revised)');
   assert.equal(out('<div><div class="columns-media"><div><div><p>a</p><p>{spacer-40}</p><p>b</p></div></div></div></div>'), '<div><div class="columns-media"><div><div><p>a</p><p>b</p></div></div></div></div>', 'no carrier in a cell');
 });
 
-test('separators: page-type gaps are the theme\'s (/100-years sections, articles\' info box and chapters)', () => {
-  assert.equal(out('<div><p>A</p><p>{spacer-60}</p></div><div><p>B</p></div>', { path: '/de/en/100-years/x' }), '<div><p>A</p></div><div><p>B</p></div>');
+test('separators: page-type gaps are the theme\'s (articles\' info box and chapters); /100-years none of its own', () => {
+  assert.equal(out('<div><p>A</p><p>{spacer-60}</p></div><div><p>B</p></div>', { path: '/de/en/100-years/x' }), `<div><p>A</p>${meta('space-below-m')}</div><div><p>B</p></div>`, '/100-years: as any page (its campaign sections carry www\'s spacing)');
   const article = out('<div><div class="article-header"><div><div>h</div></div></div><p>Text</p><p>{divider-25}</p><div class="columns-media"><div><div>i</div></div></div><p>More</p><p>{divider-25}</p><h3>Chapter</h3><p>C</p></div>');
   assert.equal(article, '<div><div class="article-header"><div><div>h</div></div></div><p>Text</p><div class="columns-media"><div><div>i</div></div></div><p>More</p></div><div><h3>Chapter</h3><p>C</p></div>');
 });
@@ -51,10 +51,11 @@ test('the brief after 500: articles\' rule above an info box after any content, 
   assert.equal(mixed.hand.length, 1);
 });
 
-test('column views: the marks go; an outside group over its whole section: padded', () => {
-  assert.equal(out('<div><h2>T {heading-medium column-start}</h2><p>Text {column-end}</p><p>After</p></div>'), '<div><h2>T</h2><p>Text</p><p>After</p></div>');
-  assert.equal(out('<div><p>Text</p><p>{column-end}</p><div class="cards"><div><div>x</div></div></div></div>'), '<div><p>Text</p><div class="cards"><div><div>x</div></div></div></div>');
-  assert.equal(out('<div><h2>T {column-start-outer}</h2><p>Text {column-end-outer}</p></div>'), `<div><h2>T</h2><p>Text</p>${meta('padded')}</div>`);
+test('column views on the brand sites: the marks go; an outside group over its whole section: padded', () => {
+  const site = { brand: 'austrian', path: '/at/en/x' };
+  assert.equal(out('<div><h2>T {heading-medium column-start}</h2><p>Text {column-end}</p><p>After</p></div>', site), '<div><h2>T</h2><p>Text</p><p>After</p></div>');
+  assert.equal(out('<div><p>Text</p><p>{column-end}</p><div class="cards"><div><div>x</div></div></div></div>', site), '<div><p>Text</p><div class="cards"><div><div>x</div></div></div></div>');
+  assert.equal(out('<div><h2>T {column-start-outer}</h2><p>Text {column-end-outer}</p></div>', site), `<div><h2>T</h2><p>Text</p>${meta('padded')}</div>`);
 });
 
 test('heading sizes: a step from the default goes; two steps a level-scoped style, a page row or a block option', () => {
@@ -97,9 +98,9 @@ test('text width: a mostly wide section gets Wide text; ITA\'s default is wide; 
 
 test('video: the default player goes, the size and a background video as the link\'s fragment or the block\'s option', () => {
   assert.equal(out(`<div><p>${PIC}</p><p><a href="/media/v.mp4">Watch</a> {controls round-play-button size-1920x1080}</p></div>`), `<div><p>${PIC}</p><p><a href="/media/v.mp4#size=1920x1080">Watch</a></p></div>`);
-  assert.equal(out(`<div><p>${PIC}</p><p><a href="/media/v.mp4#t=10">/media/v.mp4</a> {autoplay muted loop}</p></div>`), `<div><p>${PIC}</p><p><a href="/media/v.mp4#t=10&amp;background">Lisbon at dusk</a></p></div>`);
+  assert.equal(out(`<div><p>${PIC}</p><p><a href="/media/v.mp4#t=10">/media/v.mp4</a> {autoplay muted loop}</p></div>`), `<div><p>${PIC}</p><p><a href="/media/v.mp4#t=10&amp;background">/media/v.mp4</a></p></div>`);
   assert.equal(out('<div><div class="columns-media"><div><div><p><a href="/media/v.mp4">Film</a> {autoplay muted loop}</p></div></div></div></div>'), '<div><div class="columns-media background-video"><div><div><p><a href="/media/v.mp4">Film</a></p></div></div></div></div>');
-  assert.equal(out('<div><div class="article-header"><div><div><p><a href="/media/en_header.mp4">/media/en_header.mp4</a> {mobile}</p></div></div></div></div>'), '<div><div class="article-header mobile-video"><div><div><p><a href="/media/en_header.mp4">En header</a></p></div></div></div></div>');
+  assert.equal(out('<div><div class="article-header"><div><div><p><a href="/media/en_header.mp4">/media/en_header.mp4</a> {mobile}</p></div></div></div></div>'), '<div><div class="article-header mobile-video"><div><div><p><a href="/media/en_header.mp4">/media/en_header.mp4</a></p></div></div></div></div>');
 });
 
 test('captions: the italic paragraph after the image; one after no image is listed for a person', () => {

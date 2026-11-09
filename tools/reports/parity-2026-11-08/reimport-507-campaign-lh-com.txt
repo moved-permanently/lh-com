@@ -1,0 +1,9 @@
+# Brief 507 item 1: the campaign documents that are one AEM section of column views, which the campaign template now gives the hub's column view sections (hub-column-views, one-column views and Columns Media only), in release order; import with main's campaign bundle. munich-fair (4 roots) is not in the list: its two text columns import stacked, so www's padding makes it taller still (13.2 -> 17.2 % at 1440); take-off, the stopover partner pages and both culinaryjourney pages import unchanged.
+/de/en/frankfurt-fair
+/de/de/frankfurt-fair
+/at/de/frankfurt-fair
+/gb/en/frankfurt-fair
+/de/en/most-significant-route
+/de/de/bedeutsamste-strecken
+/at/de/bedeutsamste-strecken
+/gb/en/most-significant-route

@@ -13,15 +13,18 @@
  *
  * The rules (README "Authoring without markers"; the brief after 493, item 2):
  * - separators: none / M (60) / L (120) / Divider; 0-31 px none, 32-89 M, 90 and more L (the
- *   collapse table, near values rounded); a run with a divider is one Divider; "from-768" goes.
+ *   collapse table, near values rounded); a run with a divider is one Divider; a run of "from-768"
+ *   separators a Spacer / Divider block with the option from-768 (none on phones; decisions.md 3).
  *   At a section's start the section's Space / Divider style, at its end Space below / Divider
  *   below, right before a block that block's option, else a Spacer (L) / Divider block; in a block
- *   cell (no carrier there) it goes. Page-type gaps belong to the theme: lufthansa.com's /100-years
- *   sections (M at a section edge), its articles (the rule above an info box after any content but
+ *   cell (no carrier there) it goes. Page-type gaps belong to the theme (THEMES rules: sections-m,
+ *   M at a section edge, for a page type that has it), lufthansa.com's articles (the rule above an info box after any content but
  *   a heading; a rule before a chapter heading, an H2 / H3 or a bold paragraph: the chapter becomes
  *   a section of its own, the theme rules it), its Insights tag pages (the info box's rule).
  * - column views become structure: every column mark goes; an outside-a-section group that spans
- *   its whole section becomes the section style padded (the same 20 / 40 px); the page becomes a
+ *   its whole section becomes the section style padded (the same 20 / 40 px); lufthansa.com's
+ *   column view carrier instead (THEMES columnViews.carrier): each group a section of its own,
+ *   column-view (outside a section also padded; flush where its section goes on); the page becomes a
  *   flow page (Theme flow-spacing), where a brand's column-view blocks get their edges from the
  *   theme (THEMES columnViews.blocks: Discover's, B2B's).
  * - heading size: within one step of the context's default (the brand's and page type's, as the
@@ -38,8 +41,8 @@
  *   theme's rule.
  * - video: controls + round play button is the default player (the marker goes); autoplay without
  *   controls a background video: the block's option background-video, else the link's #background
- *   fragment; the size token the link's #size=WxH fragment (other fragments stay); a link whose text
- *   is its URL gets a readable text (the poster's alt, else the file name). {mobile} in an Article
+ *   fragment; the size token the link's #size=WxH fragment (other fragments stay); the link's text
+ *   stays as it is (parity with www, a bare URL too). {mobile} in an Article
  *   Header: its option mobile-video.
  * - captions: "{caption}" becomes the italic paragraph after the image (a figure caption); one that
  *   follows no image is listed for a person.
@@ -416,6 +419,36 @@ function collapseApp(main, doc, stats) {
   });
 }
 
+// a note's text size or width, as blocks/form/form.js reads it at the end of the note's label
+const NOTE_MARK = /\s*\{((?:copytext-(?:small|medium|large)|full-width|limited-width)(?: [a-z-]+)*)\}\s*$/;
+
+/**
+ * The form block's note rows: the text-size / width mark at the end of the label (bare text, or the cell's last
+ * paragraph) goes to the theme, as a block's single paragraphs do (body size; a block's text is never wide).
+ */
+function collapseFormNotes(main, stats) {
+  main.querySelectorAll(':scope > div > div.form').forEach((block) => {
+    const rows = [...block.children];
+    const header = rows.length ? readHeaderTexts([...rows[0].children].map((c) => textOf(c))) : null;
+    const labelAt = header && header.label !== undefined ? header.label : 0;
+    const typeAt = header && header.type !== undefined ? header.type : 1;
+    (header ? rows.slice(1) : rows).forEach((row) => {
+      if (!/^(note|hinweis)$/i.test(textOf(row.children[typeAt] || { textContent: '' }).trim())) return;
+      const cell = row.children[labelAt];
+      const paras = cell && cell.querySelector('p') ? [...cell.querySelectorAll('p')] : [cell].filter(Boolean);
+      paras.forEach((p) => {
+        const last = lastText(p);
+        const m = last && last.nodeValue.match(NOTE_MARK);
+        if (!m) return;
+        last.nodeValue = last.nodeValue.slice(0, m.index);
+        // "Two <strong>bold</strong> {copytext-small}": the space before the mark goes with it
+        if (!last.nodeValue) last.remove();
+        m[1].split(' ').forEach((t) => count(stats, 'theme', /^copytext-/.test(t) ? 'text-size' : 'text-width'));
+      });
+    });
+  });
+}
+
 /** The form block's "{selected}": the options chosen at load in a Default column. */
 function collapseForms(main, doc, stats) {
   main.querySelectorAll(':scope > div > div.form').forEach((block) => {
@@ -498,15 +531,6 @@ function collapseNav(main, doc, stats) {
 }
 
 const VIDEO_LINK = (a) => /\.(mp4|m4v|webm|mov)(?:$|[?#])/i.test(a.getAttribute('href') || '');
-const urlText = (a) => {
-  const t = textOf(a);
-  return !t || t === a.getAttribute('href') || /^(https?:\/\/|\/)\S+$/.test(t) || /\.(mp4|m4v|webm|mov)$/i.test(t);
-};
-function readableName(href) {
-  const file = decodeURIComponent(String(href).split(/[?#]/)[0].split('/').pop() || '').replace(/\.[a-z0-9]+$/i, '');
-  const words = file.replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim();
-  return words ? words.charAt(0).toUpperCase() + words.slice(1) : 'Video';
-}
 function addFragment(a, part) {
   const href = a.getAttribute('href');
   const at = href.indexOf('#');
@@ -543,10 +567,8 @@ function collapseVideos(main, doc, stats, marks) {
       else addFragment(a, 'background');
       count(stats, 'carrier', 'video');
     } else if (settings.length) count(stats, 'theme', 'video');
-    if (urlText(a)) {
-      const poster = el.querySelector('img') || (el.previousElementSibling && isImageParagraph(el.previousElementSibling) && el.previousElementSibling.querySelector('img'));
-      a.textContent = (poster && poster.getAttribute('alt')) || readableName(a.getAttribute('href'));
-    }
+    // the link's text stays as it is, a bare URL too (parity with www: the player shows its own "Play video";
+    // the brief after 532, item 1c)
   });
 }
 
@@ -556,6 +578,15 @@ function collapseCaptions(main, doc, stats, marks, hand) {
     if (!tokens.includes('caption') || el.tagName !== 'P') return;
     // a link alone in italics stays a button (step 1): a person decides
     const onlyLink = el.querySelectorAll('a').length === 1 && textOf(el.querySelector('a')) === textOf(el);
+    // under a paragraph of two or more photos (no figure caption for one of them): a paragraph in the theme's
+    // default text, as a form note's (the brief after 532: Brussels' travel articles)
+    const prev = el.previousElementSibling;
+    if (prev && prev.tagName === 'P' && !textOf(prev) && prev.querySelectorAll('picture, img').length - prev.querySelectorAll('picture img').length >= 2) {
+      const last = el.lastChild;
+      if (last && last.nodeType === 3) last.nodeValue = last.nodeValue.replace(/\s+$/, '');
+      count(stats, 'theme', 'caption');
+      return;
+    }
     const kids = [...el.childNodes].filter((n) => n.nodeType === 1 || n.nodeValue.trim());
     if (!(kids.length === 1 && kids[0].nodeType === 1 && /^(EM|I)$/.test(kids[0].tagName))) {
       const em = doc.createElement('em');
@@ -796,8 +827,90 @@ function collapseCells(main, stats, marks, hand) {
   });
 }
 
+// a page with column views that is no flow page yet (the hub: ema-adobe's hub-column-views marks
+// www's column views as on info pages): the flow pages' spacing (Theme flow-spacing), whose
+// column-view gap rule (the theme's 32 px above a heading after content) takes the marks' place;
+// a page's Theme row, one per page
+function columnPageTheme(main, doc, stats, marks) {
+  const hasColumns = [...marks.values()].some((tokens) => tokens.some((t) => COLUMN.test(t)));
+  if (hasColumns) {
+    const theme = pageMetaCell(main, 'Theme', doc, false);
+    const values = theme ? textOf(theme).split(',').map((x) => x.trim()).filter(Boolean) : [];
+    if (!values.includes('flow-spacing')) {
+      const cell = theme || pageMetaCell(main, 'Theme', doc, true);
+      if (cell) {
+        cell.textContent = [...values, 'flow-spacing'].join(', ');
+        count(stats, 'carrier', 'column-page');
+      }
+    }
+  }
+}
+
+/**
+ * lufthansa.com's column view carrier (THEMES columnViews.carrier: the section style column-view; ema-adobe's
+ * hub-column-views writes the same on import, styles.css "the column view carrier" draws it): every column group of
+ * a section's own content (its outermost marks) becomes a section of its own, with the section's styles plus
+ * column-view; a group outside a section ("-outer" marks) also padded (20 / 40 px); flush where more of the original
+ * section follows. The separators right before a group open its section. A group that already is its section's whole
+ * content (a re-imported hub document) only gets the styles it lacks. Groups across a section break or inside a block
+ * keep no carrier (their marks go, as before). Returns the marks that became the carrier.
+ */
+function columnViewSections(main, doc, marks, carrier) {
+  const used = new Set();
+  const tokensOf = (el) => marks.get(el)
+    || (/^(UL|OL)$/.test(el.tagName) && el.lastElementChild ? marks.get(el.lastElementChild) : null) || [];
+  const isSepP = (el) => !!el && el.tagName === 'P' && SEPARATOR.test(textOf(el));
+  const add = (section, style) => { if (!sectionStyles(section).includes(style)) addSectionStyle(section, style, doc); };
+  [...main.querySelectorAll(':scope > div')].forEach((section) => {
+    const own = ownContent(section);
+    const groups = [];
+    let depth = 0;
+    let cur = null;
+    own.forEach((el) => {
+      tokensOf(el).filter((t) => /^column-(start|end)/.test(t)).forEach((t) => {
+        if (t.startsWith('column-start')) {
+          if (depth === 0) cur = { first: el, outer: t === 'column-start-outer' };
+          depth += 1;
+        } else if (depth > 0) {
+          depth -= 1;
+          if (depth === 0 && cur) { cur.last = el; groups.push(cur); cur = null; }
+        }
+      });
+    });
+    // an element that ends one group and starts the next belongs to the first
+    groups.forEach((g, i) => { if (i && groups[i - 1].last === g.first) g.first = g.first.nextElementSibling; });
+    [...groups].reverse().forEach((g) => {
+      if (!g.first || own.indexOf(g.first) < 0 || own.indexOf(g.first) > own.indexOf(g.last)) return;
+      let { first } = g;
+      while (isSepP(first.previousElementSibling)) first = first.previousElementSibling;
+      // more of the section: paragraphs left empty by their marks (a stray {column-end-outer}) don't count
+      const more = own.slice(own.indexOf(g.last) + 1).some((el) => !(el.tagName === 'P' && isEmptyP(el)));
+      const view = ownContent(section)[0] === first ? section : splitBefore(section, first, doc);
+      if (!view) return;
+      if (more) splitAfter(view, g.last, doc);
+      add(view, carrier);
+      if (g.outer) add(view, 'padded');
+      if (more) add(view, 'flush');
+      used.add(g.first); used.add(g.last);
+    });
+  });
+  return used;
+}
+
 /** Column marks: structure now; an outside group over its whole section: the section's padding. */
-function collapseColumns(main, doc, stats, marks) {
+function collapseColumns(main, doc, stats, marks, theme) {
+  if (theme.columnViews.carrier) {
+    // lufthansa.com: the column view carrier, one section per group (the brief after 506, item 1)
+    const used = columnViewSections(main, doc, marks, theme.columnViews.carrier);
+    marks.forEach((tokens, el) => {
+      const host = el.tagName === 'LI' && el.parentElement && [...el.parentElement.children].pop() === el ? el.parentElement : el;
+      tokens.filter((t) => COLUMN.test(t)).forEach((t) => {
+        count(stats, used.has(host) && /^column-(start|end)/.test(t) ? 'carrier' : 'theme', 'column');
+      });
+    });
+    columnPageTheme(main, doc, stats, marks);
+    return;
+  }
   const outer = new Map();
   marks.forEach((tokens, el) => {
     tokens.filter((t) => COLUMN.test(t)).forEach((t) => {
@@ -816,22 +929,7 @@ function collapseColumns(main, doc, stats, marks) {
       count(stats, 'carrier', 'column', 2);
     } else count(stats, 'theme', 'column', start.length + end.length);
   });
-  // a page with column views that is no flow page yet (the hub: ema-adobe's hub-column-views marks
-  // www's column views as on info pages): the flow pages' spacing (Theme flow-spacing), whose
-  // column-view gap rule (the theme's 32 px above a heading after content) takes the marks' place;
-  // a page's Theme row, one per page
-  const hasColumns = [...marks.values()].some((tokens) => tokens.some((t) => COLUMN.test(t)));
-  if (hasColumns) {
-    const theme = pageMetaCell(main, 'Theme', doc, false);
-    const values = theme ? textOf(theme).split(',').map((x) => x.trim()).filter(Boolean) : [];
-    if (!values.includes('flow-spacing')) {
-      const cell = theme || pageMetaCell(main, 'Theme', doc, true);
-      if (cell) {
-        cell.textContent = [...values, 'flow-spacing'].join(', ');
-        count(stats, 'carrier', 'column-page');
-      }
-    }
-  }
+  columnPageTheme(main, doc, stats, marks);
 }
 
 /** A paragraph that is all one bold text (a chapter heading written as a paragraph). */
@@ -866,20 +964,39 @@ function collapseSeparators(main, doc, stats, ctx) {
       } else runs.push({ els: [el], start: i, end: i });
     });
     runs.forEach((run) => {
+      // the run's section now: an earlier run's chapter split may have moved it into a section of its own
+      // (everything after the split goes with it, in order)
+      const sec = run.els[0].parentElement;
+      const now = [...sec.children];
+      const first = now.indexOf(run.els[0]);
+      const lastAt = now.indexOf(run.els[run.els.length - 1]);
       const seps = run.els.map(parse);
       const divider = seps.some((m) => m[1] === 'divider');
       const px = seps.reduce((a, m) => a + Number(m[2]), 0);
-      seps.filter((m) => m[3]).forEach(() => count(stats, 'theme', 'separator-from-768'));
+      // "from-768" (none on phones): a run of such separators only keeps it as the Spacer / Divider
+      // block's option from-768 (no section style or block option says "from 768px"); in a run
+      // with others the qualifier goes (counted)
+      const tablet = seps.every((m) => m[3]);
+      if (!tablet) seps.filter((m) => m[3]).forEach(() => count(stats, 'theme', 'separator-from-768'));
       let size = null;
       if (!divider && px <= 31) size = 'none';
       else if (!divider) size = px < 90 ? 'm' : 'l';
       const content = (el) => el && !(isBlock(el) && BLOCK_SKIP.has(blockName(el))) && !isSep(el);
       const before = run.els[0].previousElementSibling;
       const after = run.els[run.els.length - 1].nextElementSibling;
-      const atStart = !content(before) && kids.slice(0, run.start).every((el) => !content(el));
-      const atEnd = kids.slice(run.end + 1).every((el) => !content(el));
+      const atStart = !content(before) && now.slice(0, first).every((el) => !content(el));
+      const atEnd = now.slice(lastAt + 1).every((el) => !content(el));
       const remove = () => run.els.forEach((el) => el.remove());
       if (size === 'none') { remove(); count(stats, 'theme', 'separator', run.els.length); return; }
+      if (tablet) {
+        const b = doc.createElement('div');
+        b.className = divider ? 'divider from-768' : `spacer${size === 'l' ? ' l' : ''} from-768`;
+        b.innerHTML = '<div><div></div></div>';
+        run.els[0].before(b);
+        remove();
+        count(stats, 'carrier', 'separator-from-768', run.els.length);
+        return;
+      }
       // page-type gaps: the theme's
       if (rules.includes('sections-m') && size === 'm' && (atStart || atEnd)) {
         remove(); count(stats, 'theme', 'separator', run.els.length); return;
@@ -894,18 +1011,18 @@ function collapseSeparators(main, doc, stats, ctx) {
         // "About", "Tip"): the chapter a section of its own, the theme rules it
         if (rules.includes('ruled-chapters') && after && (/^H[23]$/.test(after.tagName) || isBoldHeading(after)) && !atStart) {
           const last = run.els[run.els.length - 1];
-          splitAfter(section, last, doc);
+          splitAfter(sec, last, doc);
           remove();
           count(stats, 'theme', 'separator', run.els.length);
           return;
         }
       }
       const style = divider ? 'divider' : `space-${size}`;
-      if (atStart && !atEnd && !sectionStyles(section).some((s) => /^(space-[ml]|divider)$/.test(s))) {
-        addSectionStyle(section, style, doc); remove(); count(stats, 'carrier', 'separator', run.els.length); return;
+      if (atStart && !atEnd && !sectionStyles(sec).some((s) => /^(space-[ml]|divider)$/.test(s))) {
+        addSectionStyle(sec, style, doc); remove(); count(stats, 'carrier', 'separator', run.els.length); return;
       }
-      if (atEnd && !atStart && !sectionStyles(section).some((s) => /^(space-below-[ml]|divider-below)$/.test(s))) {
-        addSectionStyle(section, divider ? 'divider-below' : `space-below-${size}`, doc); remove(); count(stats, 'carrier', 'separator', run.els.length); return;
+      if (atEnd && !atStart && !sectionStyles(sec).some((s) => /^(space-below-[ml]|divider-below)$/.test(s))) {
+        addSectionStyle(sec, divider ? 'divider-below' : `space-below-${size}`, doc); remove(); count(stats, 'carrier', 'separator', run.els.length); return;
       }
       if (isBlock(after) && !BLOCK_SKIP.has(blockName(after)) && !['space-m', 'space-l', 'divider-above'].some((o) => after.classList.contains(o))) {
         addBlockOption(after, divider ? 'divider-above' : `space-${size}`); remove(); count(stats, 'carrier', 'separator', run.els.length); return;
@@ -989,6 +1106,7 @@ export function collapseMain(main, opts = {}) {
 
   if (/\/nav$/.test(path)) collapseNav(main, doc, stats);
   collapseForms(main, doc, stats);
+  collapseFormNotes(main, stats);
   collapseBlank(main, stats);
   // the markers at the end of headings, paragraphs and lists (a list's: its last item)
   const marks = new Map();
@@ -999,10 +1117,18 @@ export function collapseMain(main, opts = {}) {
     const tokens = takeTokens(el);
     if (tokens.length) marks.set(el, tokens);
   });
+  // a block cell's bare text (no paragraph of its own) with a video's settings: "<a …mp4>…</a> {controls …}"
+  main.querySelectorAll(':scope > div > div[class] > div > div').forEach((cell) => {
+    if (cell.querySelector('p, h1, h2, h3, h4, h5, h6, li, div') || !cell.querySelector('a[href]')) return;
+    const t = lastText(cell);
+    const m = t && t.nodeValue.match(TAIL);
+    if (!m || !m[1].split(/\s+/).every((k) => VIDEO_SETTINGS.includes(k) || /^size-\d+x\d+$/.test(k))) return;
+    marks.set(cell, takeTokens(cell));
+  });
   collapseVideos(main, doc, stats, marks);
   collapseCaptions(main, doc, stats, marks, hand);
   collapseHeadings(main, doc, stats, marks, theme);
-  collapseColumns(main, doc, stats, marks);
+  collapseColumns(main, doc, stats, marks, theme);
   collapseText(main, doc, stats, marks, theme, brand, hand);
   collapseCells(main, stats, marks, hand);
   // a paragraph left with nothing (a column mark of its own): gone

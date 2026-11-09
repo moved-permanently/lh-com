@@ -18,6 +18,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { missingItems } from './review-lib.mjs';
 import { daClient } from './slug-step.mjs';
+import { siteFromArgv } from './sites.mjs';
 
 /** A local file, or a DA path (/cc/ll/...) read through the client. */
 async function load(ref, da) {
@@ -41,7 +42,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
     console.error('block-check: --before <file|DA path> --after <DA path|file>, or --pair <before> <after> …');
     process.exit(1);
   }
-  const da = daClient();
+  const da = daClient(undefined, undefined, siteFromArgv(argv));
   let bad = 0;
   for (const [before, after] of pairs) {
     const r = await checkPair(before, after, da);

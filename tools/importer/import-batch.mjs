@@ -13,6 +13,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+// eslint-disable-next-line import/extensions
+import { withRestoredNbsp } from './nbsp-guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 // EXCAT_IMPORT_SCRIPTS: the network-blocked copy (tools/importer/offline-importer.mjs); imports read snapshots only
@@ -66,6 +68,9 @@ groups.filter(([, list]) => list.length).forEach(([dir, list]) => {
   });
   if (run.status !== 0) console.error((run.stderr || '').split('\n').slice(-15).join('\n'));
 });
+
+// www's no-break spaces back (nbsp-guard.mjs: the bundles' onLoad wrote them as a stand-in)
+withRestoredNbsp(todo.map(plain), fs);
 
 let ok = 0;
 todo.forEach((u) => {

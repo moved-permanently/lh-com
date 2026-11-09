@@ -1,0 +1,13 @@
+# The brief after 510, item 1 (Brussels' phone sliders): www.brusselsairlines.com's column views with carousel behaviour (<div class="carousel">: a .hidden-md-down grid and a .hidden-lg-up swiper copy) are one-card swipers with dots on phones; ours stacked the cards (brief 510's ranking: /be/fr/extra-services/inflight-services 390 +26.2 %, meetings-and-events 390 +10.1 %). brussels-import.mjs now marks such a view (withPhoneSliders), the carousel-cards parser gives a marked four-column view phone-slider too (10 bundles rebuilt), the block keeps an authored four-up from 1025 px. A re-import gives "carousel-cards grid four-up phone-slider" (inflight-services' "Autres sujets") and "cards-teaser three-up phone-slider" (meetings-and-events' steps); checked offline on brief 497's recordings with the info bundle.
+# The two recorded pages and their language copies in lh-brussels.json (the copies share the column views; a copy without one re-imports unchanged). Every other Brussels document whose snapshot has such a view needs the same re-import: grep -l '<div class="carousel">' -r tools/importer/bd-snapshots/www.brusselsairlines.com (the snapshots are the harness's; a match inside a three- or four-column view). Template: info. Order: the reference roots first (be/en, be/fr, be/nl), then the market roots.
+/be/en/extra-services/inflight-services
+/be/fr/extra-services/inflight-services
+/be/nl/extra-services/inflight-services
+/be/en/book-a-flight/groups-and-charter/meetings-and-events
+/be/fr/book-a-flight/groups-and-charter/meetings-and-events
+/be/nl/book-a-flight/groups-and-charter/meetings-and-events
+/de/de/book-a-flight/groups-and-charter/meetings-and-events
+/es/es/extra-services/inflight-services
+/es/es/book-a-flight/groups-and-charter/meetings-and-events
+/it/it/extra-services/inflight-services
+/it/it/book-a-flight/groups-and-charter/meetings-and-events

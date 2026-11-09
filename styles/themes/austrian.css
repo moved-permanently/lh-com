@@ -542,6 +542,14 @@ body.brand-austrian .accordion-columns .accordion-columns-title {
   letter-spacing: 0.19px;
 }
 
+/* an accordion in a text column (spaced) 45 px under the text before it, as www at every width:
+   none of lh-com's 40 px above from 768 px (lufthansa.com's collapsible margin); the space below as lh-com's */
+@media (width >= 768px) {
+  body.brand-austrian .accordion-columns.spaced {
+    padding-top: 0;
+  }
+}
+
 /* the contact page's topics (the accordion after the help centre app) 18/28 regular #4d4d4d, as
    www's help topics; the content accordions (www's .accordion-maui: the info pages' questions, the
    conditions of carriage's articles) keep the 24/28 500 titles above (brief 445, austrian-parity-002:
@@ -610,6 +618,28 @@ body.brand-austrian .flight-search .flight-search-tab[aria-selected="true"] {
 
 body.brand-austrian .flight-search .flight-search-tab[aria-selected="true"]::after {
   background-color: #d81e05;
+}
+
+/* a tab set's items on phones as www's collapsibles: titles CoreSans 24/28 500 in 52 px rows, the
+   open one red; 64 px under an open item's content before the next item */
+body.brand-austrian .section-tab-panel > .section-tab-toggle {
+  padding: 12px 0;
+  color: #1a1a1a;
+  font-family: var(--body-font-family);
+  font-size: calc(24px * var(--a11y-scale, 1));
+  font-weight: 500;
+  line-height: calc(28px * var(--a11y-scale, 1));
+}
+
+body.brand-austrian .section-tab-panel > .section-tab-toggle[aria-expanded="true"] {
+  color: #d81e05;
+}
+
+@media (width < 768px) {
+  body.brand-austrian main > .section.section-tab-panel:has(> .section-tab-toggle[aria-expanded="true"]):has(+ .section-tab-panel),
+  body.brand-austrian main > .section.section-tab-part:not([hidden]):has(+ .section-tab-panel) {
+    padding-bottom: 64px;
+  }
 }
 
 /* brief 394: columns-media option panel, www's help center info card (the FAQs card on contact):
@@ -755,6 +785,14 @@ body.brand-austrian .carousel-cards:is(.grid, .phone-slider) .carousel-cards-sli
   }
 }
 
+/* the brief after 527: a two-up grid right after another (one of www's two-column views a row: extra-services,
+   check-in, familien) 42 px further from it below 768 px, the next view's own row padding */
+@media (width < 768px) {
+  body.brand-austrian .carousel-cards-wrapper:has(> .carousel-cards.grid.two-up) + .carousel-cards-wrapper > .carousel-cards.grid.two-up {
+    padding-top: 42px;
+  }
+}
+
 /* row 19: the divider www's 1 px maui-divider in #b0b0b0 (its screen at 1440: two rows of
    #d7d7d7 for a line between pixels, one row of #b0b0b0 at 390) */
 body.brand-austrian main .default-content-wrapper > p.spacer.divider {
@@ -866,6 +904,12 @@ body.brand-austrian main > .section:not(.grey):last-child > .carousel-cards-wrap
 }
 
 body.brand-austrian main > .section:not(.grey) > .default-content-wrapper:not(:has(> :is(h1, h2, h3, h4, h5, h6):last-child)) + .carousel-cards-wrapper:has(> .carousel-cards.grid) {
+  padding-top: 32px;
+}
+
+/* the brief after 521: the same 32 px where the grid opens the section after the page title's own section
+   (check-in, families: www's title to the first card 107 px at 1440, 91 at 390; ours 75 and 61) */
+body.brand-austrian main > .section:has(> .default-content-wrapper:last-child > h1:only-child) + .section:not(.grey) > .carousel-cards-wrapper:first-child:has(> .carousel-cards.grid) {
   padding-top: 32px;
 }
 

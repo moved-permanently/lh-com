@@ -302,6 +302,33 @@ body.brand-b2b main :is(.default-content-wrapper, .columns-media-text) > :is(h3,
   line-height: 24px;
 }
 
+/* contact's hotline finder as www's PartnerPlusBenefit box (.dcep-ppb-hotlinebox; the brief after
+   523, row 34): its title a B2B h3 (www's maui-headline type h3: the l size on l + 4 px lines,
+   400), 30 px above it, 48 px under the hours on phones, 30 px under its picture from 768 px */
+body.brand-b2b main .hotline-finder .hotline-finder-title {
+  font-size: var(--heading-font-size-l);
+  font-weight: 400;
+  line-height: calc(var(--heading-font-size-l) + 4px);
+}
+
+body.brand-b2b main > .section.hotline-finder-container {
+  padding-top: 30px;
+  padding-bottom: 48px;
+}
+
+@media (width >= 768px) {
+  body.brand-b2b main > .section.hotline-finder-container {
+    padding-bottom: 30px;
+  }
+}
+
+/* the text column beside the picture as www's (its title one line, 539 px at 1440) */
+@media (width >= 1025px) {
+  body.brand-b2b main .hotline-finder {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 640px);
+  }
+}
+
 /* a stage inside a column view (b2b-import.mjs: columns-media option stage, www's .stage >
    .stage-teaser in a column item; brief 421): the cell's picture with the headline, the
    subheadline and a small outlined button over it, 20 px from its top left (40 px from 768 px), on
@@ -419,6 +446,28 @@ body.brand-b2b .columns-media.stage.light .columns-media-text > p:has(> a.button
 @media (width >= 768px) {
   body.brand-b2b .columns-media {
     gap: 106px;
+  }
+}
+
+/* a block made of column views nested in one view (b2b-import.mjs: columns-media (nested); the
+   airlines' rows on travel-solutions/lufthansa-group-airlines): www's rows 83 px apart there, not
+   the top-level views' 106 (the brief after 526, row 36) */
+@media (width >= 768px) {
+  body.brand-b2b .columns-media.nested {
+    gap: 83px;
+  }
+}
+
+/* a card carousel right under text in a white section: www's column view with its 4rem above it
+   (64 px from 768 px, 44 on phones; about-us, celebrating-shared-stories: ours the section's
+   24; the brief after 526, row 35); in a grey band the band's padding spaces it */
+body.brand-b2b main > .section:not(.grey) .default-content-wrapper + .carousel-cards-wrapper {
+  margin-top: 44px;
+}
+
+@media (width >= 768px) {
+  body.brand-b2b main > .section:not(.grey) .default-content-wrapper + .carousel-cards-wrapper {
+    margin-top: 64px;
   }
 }
 

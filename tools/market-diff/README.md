@@ -64,12 +64,56 @@ node bin/md-report.mjs --airline 'NAME' --runs runs/A-compare --out ../reports/m
 node bin/md-selftest.mjs --pairs lists/A/pairs-pending.tsv.gz --fetch runs/A --host HOST --profile PROFILE --max 15
 ```
 
+A pair stays two www paths. `md-replica-check.mjs` asks our replica where the write step puts a page
+(`lib/replica-paths.mjs`: the write target in the site's slug map `tools/slugs/<site>.json`, found by `--host`): the
+canonical path once a root's flag is on, else the www path. With every flag off every request is as before.
+`--slug-map <file>` takes another copy of the map, for example a test copy with flags on.
+
 `md-run.sh` runs one stream per host (a second start on the same host exits 6); streams on different hosts may run side
 by side. It asks one page at a time, 500 ms start to start (2 pages a second), inside a browser tab that has opened the
 host's warm-up page (same-origin `fetch` of the raw server HTML; no rendering). It stops at the first block: a Cloudflare
 challenge page ("Just a moment"), a `cf-mitigated` header, 429 or any 403. Exit codes: 0 done, 2 stopped by a `STOP`
 file in the run folder or a limit, 3 blocked, 4 the warm-up page is blocked, 5 the warm-up page failed without a block
 (network, timeout), 6 another stream holds the host. A stopped run resumes where it stopped (`fetch.jsonl`).
+
+## Resuming the runs (the comparison after 15:00 CET, 2026-11-09)
+
+The pilot of 2026-11-07 (`../reports/market-diff/pilot.md`) stopped at the warm-up page on four hosts; TAP was fetched in
+full (`../reports/market-diff/tap/`). Each runner starts again from a clean checkout with the commands below (`npm ci` in
+the repository root first): the same run folder skips what it has read (`fetch.jsonl`), a new one starts at the list's top.
+Different hosts may run side by side; two waves stay within a 5 GB memory limit (ITA, TAP and SWISS, then B2B and
+lufthansa.com). An exit 4 (the warm-up page blocked) means the host still challenges: stop that runner for the day.
+
+```
+cd tools/market-diff && mkdir -p runs
+# one runner: pilot, status, full fetch, compare, replica check (slug-aware for lh, swiss, b2b: the write target in
+# ../slugs/<site>.json, found by --host; ITA and TAP have no map), report
+run() { # key host warm-up profile replica name
+  bash bin/md-run.sh runs/$1 $2 $3 500 lists/$1/urls-pilot.txt || return
+  node bin/md-status.mjs --run runs/$1 --urls lists/$1/urls-pilot.txt
+  node bin/md-order.mjs --pairs lists/$1/pairs-pending.tsv.gz --out runs/$1-urls.txt
+  bash bin/md-run.sh runs/$1 $2 $3 500 runs/$1-urls.txt || return
+  node bin/md-compare.mjs --pairs lists/$1/pairs-pending.tsv.gz --fetch runs/$1 --out runs/$1-compare --host $2 --profile $4
+  node bin/md-replica-check.mjs --results runs/$1-compare --fetch runs/$1 --replica $5 --host $2 --profile $4
+  node bin/md-report.mjs --airline "$6" --runs runs/$1-compare --out ../reports/market-diff/$1 \
+    --pairs-summary lists/$1/pairs-summary.json --not-served lists/$1/not-served.tsv.gz --summary ../reports/market-diff/$1/summary.md
+}
+# wave 1
+run ita www.ita-airways.com /it/en/homepage aem-html https://ita.turnsthe.page 'ITA Airways' > runs/ita.out 2>&1 &
+run tap www.flytap.com /en-pt tap-next https://tap.turnsthe.page 'TAP Air Portugal' > runs/tap.out 2>&1 &
+run swiss www.swiss.com /ch/en/homepage aem-html https://swiss.turnsthe.page 'SWISS' > runs/swiss.out 2>&1 &
+wait
+# wave 2
+run b2b business.lufthansagroup.com /de/en/homepage aem-html https://b2b.turnsthe.page 'Lufthansa Group for Business' > runs/b2b.out 2>&1 &
+run lh www.lufthansa.com /de/en/homepage aem-html https://lufthansa.turnsthe.page 'Lufthansa' > runs/lh.out 2>&1 &
+wait
+# progress of a runner at any time; a graceful stop: touch runs/<key>/STOP (remove it before the next start)
+node bin/md-status.mjs --run runs/lh --urls runs/lh-urls.txt
+```
+
+TAP has no `not-served.tsv.gz` (md-report then leaves that section empty). The lists are 173,479 pending pairs (lh), 36,205
+(swiss), 47,364 (b2b), 6,927 (ita) and 5,801 (tap); at 2 pages a second the fetch of lufthansa.com's list takes days, so
+its runner resumes in the same run folder after each stop.
 
 ## Pages for the importers
 

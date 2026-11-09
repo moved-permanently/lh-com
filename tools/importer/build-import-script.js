@@ -34,6 +34,8 @@ ${blockNames.map((b) => `import ${camel(b)}Parser from './parsers/${b}.js';`).jo
 ${transformers.map((t) => `import ${camel(t)}Transformer from './transformers/${t}.js';`).join('\n')}
 // token-free styling (the brief after 493): the document's markers collapsed, the last step
 import { collapseMain, brandOfHost } from './marker-collapse.mjs';
+// www's no-break spaces through the framework's steps (the brief after 527): guarded in onLoad, restored after
+import { guardNbsp } from './nbsp-guard.mjs';
 
 const PAGE_TEMPLATE = ${JSON.stringify(embedded, null, 2)};
 
@@ -65,6 +67,7 @@ export default {
   // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
   onLoad: ({ document }) => {
     executeTransformers('onLoad', document.body, { document });
+    guardNbsp(document.body);
   },
   transform: (payload) => {
     const { document, url, params } = payload;
