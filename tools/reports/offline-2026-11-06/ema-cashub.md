@@ -2030,3 +2030,37 @@ files in the checkout are not mine.
     draws such an inline margin, so a blank of about that size is likely, but that is not a measurement.
   - **Capture list:** `capture-list-austrian-brussels.txt` gains the page for the capture child: lines 57
     (it/it, which has the separator) and 58 (at/de, which the pass did not flag), at 1440 and 390.
+
+## The brief after 540, item 1: the ranking rows not traced yet
+
+Measured on the live hosts (austrian.turnsthe.page, brussels.turnsthe.page; both themes live) against austrian-parity-003 /
+brussels-parity-004, with every request to a www host refused and counted (Brussels 42 refused in the capture, Austrian 0).
+The "after" numbers come from copies of the published documents with only the change in question, served locally, as a
+difference applied to the live height. No code changed.
+
+- **Austrian medical-travel-companions (390 +19.4 %):** www shows "This may also be of interest to you" as a swiper (one card
+  and dots); the published document stacks the three cards. Today's importer already writes it as phone-slider
+  (withPhoneSliders); the published document is older. Re-import: 390 3,724 -> about 2,924 px against www's 3,120
+  (+19.4 -> about -6.3 %); 1440 unchanged (-3.4 %).
+- **Austrian cancellation-refund-via-document-upload (-11.2 % / -11.5 %):** the published form has no file upload and no
+  second card for the terms; today's import has both (form-core's upload row, the second band). Re-import: 1440 about
+  +469 px (-11.2 -> about +3.0 %), 390 about +289 px (-11.5 -> about -4.3 %).
+- **Austrian jp/ja baggage (390 -8.6 %):** not a page cause. The headless browser here has no Japanese font: our capture
+  draws the text as boxes, in fewer lines (2 instead of 4 in each teaser). The cn/zh and jp/ja rows of every ranking on this
+  disk are measured that way and are not reliable; their documents have the same blocks as the other languages'.
+- **Brussels service-charges (1440 -8.6 %):** two causes, neither one rule. (1) The h1 is 44 px higher than on www at 1440
+  (30 at 390): on www the h1 is the first component of a sidebar (.sidebar-content); cancel-and-refund and flight-search
+  show the same -44 / -30, legal-notices -84 / -60. A rule would need the importer to mark such pages (a re-import), not
+  done. (2) www draws the sidebar's accordions in the text column (938 px), ours full width; giving these pages the sidebar
+  section style changes nothing on service-charges and cancel-and-refund (+16 / 0 px) and moves special-meals' and
+  check-in-at-the-airport's h1 108 px up: not a rule (tried on the 5 recorded Brussels sidebars with an accordion or a
+  table and no column view).
+- **Brussels chase-the-sun-across-spain:** the -15 % at 390 was my local copy, not the page: its twelve destination
+  pictures did not load there (the published pictures could not be paired with the import's). The real difference is the
+  page: www's stage is now inspiration-teaser-tall (the recording), the published document has the old narrow stage (350
+  px). Today's importer writes the default stage (810 px at 390), and the hero-campaign parser has no tall option. With it:
+  "Why Spain this summer" at 997 px (1440) and 995 (390) against www's 969 / 979; the published page has it at 537 / 535.
+  The destination rows are the same markup in both. A re-import makes the page better: 1440 about -6.7 -> 0 %, 390 about
+  -2.4 -> +1 to +3 % (its two Spacer sections, "space-below-m", are not in today's import: about -120 px at 390, an
+  estimate).
+- **Austrian form-confirmation ({spacer-350}):** the capture child's archive austrian-parity-005 is in the drop; item 2 next.
