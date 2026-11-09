@@ -11,9 +11,9 @@
    "preview": "2026-11-05T14:26:49.446Z"
   },
   "/at/en/online-check-in": {
-   "uploaded": "2026-11-07T03:53:39.772Z",
-   "mtime": 1794023479724,
-   "preview": "2026-11-07T03:53:41.767Z"
+   "uploaded": "2026-11-09T13:29:05.393Z",
+   "mtime": 1794230845107.7222,
+   "preview": "2026-11-09T13:29:07.823Z"
   },
   "/at/en/flight-status-and-timetable": {
    "uploaded": "2026-11-08T02:59:11.303Z",
@@ -36,9 +36,9 @@
    "preview": "2026-11-07T17:03:35.520Z"
   },
   "/at/en/baggage": {
-   "uploaded": "2026-11-06T23:16:14.017Z",
-   "mtime": 1794002882802,
-   "preview": "2026-11-06T23:16:16.433Z"
+   "uploaded": "2026-11-09T13:09:21.652Z",
+   "mtime": 1794229708544.3496,
+   "preview": "2026-11-09T13:09:24.622Z"
   },
   "/at/en/book/flights/giftvoucher": {
    "uploaded": "2026-11-06T23:15:37.222Z",
@@ -116,9 +116,9 @@
    "preview": "2026-11-01T05:59:24.514Z"
   },
   "/at/en/plan/special-requirements/travelling-with-animals": {
-   "uploaded": "2026-11-07T17:31:40.433Z",
-   "mtime": 1794069605148,
-   "preview": "2026-11-07T17:31:42.192Z"
+   "uploaded": "2026-11-09T13:28:13.603Z",
+   "mtime": 1794230845110.4497,
+   "preview": "2026-11-09T13:28:16.189Z"
   },
   "/at/en/unaccompanied-minors": {
    "uploaded": "2026-11-07T03:53:58.560Z",
@@ -131,9 +131,9 @@
    "preview": "2026-11-08T01:34:02.128Z"
   },
   "/at/en/accessible-travel": {
-   "uploaded": "2026-11-07T17:31:09.055Z",
-   "mtime": 1794069604805,
-   "preview": "2026-11-07T17:31:10.757Z"
+   "uploaded": "2026-11-09T13:49:54.068Z",
+   "mtime": 1794232171261.9968,
+   "preview": "2026-11-09T13:49:56.235Z"
   },
   "/at/en/healthy-travel": {
    "uploaded": "2026-11-08T02:59:27.371Z",
@@ -216,9 +216,9 @@
    "preview": "2026-11-08T20:12:24.729Z"
   },
   "/at/en/premium-economy-class": {
-   "uploaded": "2026-11-07T03:53:51.287Z",
-   "mtime": 1794023479824,
-   "preview": "2026-11-07T03:53:53.690Z"
+   "uploaded": "2026-11-09T13:28:04.076Z",
+   "mtime": 1794230845076.027,
+   "preview": "2026-11-09T13:28:06.227Z"
   },
   "/at/en/business-class": {
    "uploaded": "2026-11-08T01:30:17.572Z",
@@ -416,9 +416,9 @@
    "preview": "2026-11-05T10:54:42.400Z"
   },
   "/at/de/online-check-in": {
-   "uploaded": "2026-11-08T01:27:37.016Z",
-   "mtime": 1794100759852.9263,
-   "preview": "2026-11-08T01:27:39.124Z"
+   "uploaded": "2026-11-09T13:29:10.572Z",
+   "mtime": 1794230845104.154,
+   "preview": "2026-11-09T13:29:12.862Z"
   },
   "/at/de/flugstatus-und-flugplan": {
    "uploaded": "2026-11-07T18:27:24.240Z",
@@ -431,9 +431,9 @@
    "preview": "2026-10-31T20:47:36.978Z"
   },
   "/at/de/gepaeck": {
-   "uploaded": "2026-11-01T05:56:02.027Z",
-   "mtime": 1793511548587,
-   "preview": "2026-11-01T05:56:03.719Z"
+   "uploaded": "2026-11-09T13:09:44.214Z",
+   "mtime": 1794229708545.5017,
+   "preview": "2026-11-09T13:09:48.176Z"
   },
   "/at/de/book/flights/giftvoucher": {
    "uploaded": "2026-11-08T01:24:33.028Z",
@@ -506,9 +506,9 @@
    "preview": "2026-11-06T23:15:47.731Z"
   },
   "/at/de/plan/special-requirements/travelling-with-animals": {
-   "uploaded": "2026-11-07T17:30:58.203Z",
-   "mtime": 1794069604694,
-   "preview": "2026-11-07T17:31:00.512Z"
+   "uploaded": "2026-11-09T13:28:18.830Z",
+   "mtime": 1794230845106.5222,
+   "preview": "2026-11-09T13:28:21.454Z"
   },
   "/at/de/alleinreisende-kinder": {
    "uploaded": "2026-11-08T01:23:42.706Z",
@@ -526,9 +526,9 @@
    "preview": "2026-11-07T17:30:26.782Z"
   },
   "/at/de/gesundes-reisen": {
-   "uploaded": "2026-11-07T17:30:35.923Z",
-   "mtime": 1794069604449,
-   "preview": "2026-11-07T17:30:38.336Z"
+   "uploaded": "2026-11-09T13:49:48.798Z",
+   "mtime": 1794232171259.6196,
+   "preview": "2026-11-09T13:49:51.133Z"
   },
   "/at/de/schwangere-frauen": {
    "uploaded": "2026-11-07T03:53:03.621Z",
@@ -596,9 +596,9 @@
    "preview": "2026-11-08T01:25:14.183Z"
   },
   "/at/de/premium-economy-class": {
-   "uploaded": "2026-10-31T12:09:36.192Z",
-   "mtime": 1793447474412,
-   "preview": "2026-10-31T12:09:38.164Z"
+   "uploaded": "2026-11-09T13:28:08.778Z",
+   "mtime": 1794230845074.7031,
+   "preview": "2026-11-09T13:28:11.148Z"
   },
   "/at/de/business-class": {
    "uploaded": "2026-11-07T03:52:41.149Z",
@@ -2411,9 +2411,9 @@
    "preview": "2026-11-08T03:11:23.994Z"
   },
   "/fr/fr/baggage": {
-   "uploaded": "2026-11-01T07:08:27.836Z",
-   "mtime": 1793516616018,
-   "preview": "2026-11-01T07:08:29.860Z"
+   "uploaded": "2026-11-09T13:09:50.883Z",
+   "mtime": 1794229708546.7124,
+   "preview": "2026-11-09T13:09:53.213Z"
   },
   "/fr/fr/baggage-conditions": {
    "uploaded": "2026-11-01T07:08:31.290Z",
@@ -3111,9 +3111,9 @@
    "preview": "2026-11-08T01:50:16.647Z"
   },
   "/fr/fr/online-check-in": {
-   "uploaded": "2026-11-08T01:50:19.911Z",
-   "mtime": 1794100760023.2202,
-   "preview": "2026-11-08T01:50:22.423Z"
+   "uploaded": "2026-11-09T13:29:15.580Z",
+   "mtime": 1794230845113.0396,
+   "preview": "2026-11-09T13:29:17.772Z"
   },
   "/fr/fr/parking-vienna-airport": {
    "uploaded": "2026-11-08T01:50:25.255Z",
@@ -3171,9 +3171,9 @@
    "preview": "2026-11-08T03:14:44.467Z"
   },
   "/fr/fr/plan/special-requirements/travelling-with-animals": {
-   "uploaded": "2026-11-07T17:33:38.530Z",
-   "mtime": 1794069606583,
-   "preview": "2026-11-07T17:33:40.599Z"
+   "uploaded": "2026-11-09T13:28:24.027Z",
+   "mtime": 1794230845116.0027,
+   "preview": "2026-11-09T13:28:26.288Z"
   },
   "/fr/fr/plan/tariffs/economy-basic": {
    "uploaded": "2026-10-31T12:52:56.171Z",
@@ -4141,9 +4141,9 @@
    "preview": "2026-11-08T02:01:15.284Z"
   },
   "/it/it/online-check-in": {
-   "uploaded": "2026-11-08T02:01:18.079Z",
-   "mtime": 1794100760107.678,
-   "preview": "2026-11-08T02:01:20.504Z"
+   "uploaded": "2026-11-09T13:29:20.617Z",
+   "mtime": 1794230845095.2822,
+   "preview": "2026-11-09T13:29:23.036Z"
   },
   "/it/it/parking-vienna-airport": {
    "uploaded": "2026-11-08T02:01:23.443Z",
@@ -4201,9 +4201,9 @@
    "preview": "2026-11-08T03:24:49.854Z"
   },
   "/it/it/plan/special-requirements/travelling-with-animals": {
-   "uploaded": "2026-11-07T17:34:53.521Z",
-   "mtime": 1794069607595,
-   "preview": "2026-11-07T17:34:55.463Z"
+   "uploaded": "2026-11-09T13:28:28.927Z",
+   "mtime": 1794230845097.6423,
+   "preview": "2026-11-09T13:28:31.449Z"
   },
   "/it/it/plan/tariffs/economy-basic": {
    "uploaded": "2026-10-31T13:14:11.813Z",
@@ -4461,9 +4461,9 @@
    "preview": "2026-11-08T02:14:06.662Z"
   },
   "/ru/ru/baggage": {
-   "uploaded": "2026-10-31T13:39:02.988Z",
-   "mtime": 1793447517393,
-   "preview": "2026-10-31T13:39:04.813Z"
+   "uploaded": "2026-11-09T13:10:05.822Z",
+   "mtime": 1794229708551.5093,
+   "preview": "2026-11-09T13:10:08.382Z"
   },
   "/ru/ru/baggage-conditions": {
    "uploaded": "2026-10-31T13:39:00.138Z",
@@ -5146,9 +5146,9 @@
    "preview": "2026-11-08T02:17:32.812Z"
   },
   "/ru/ru/online-check-in": {
-   "uploaded": "2026-11-08T02:17:35.846Z",
-   "mtime": 1794100760183.3098,
-   "preview": "2026-11-08T02:17:38.001Z"
+   "uploaded": "2026-11-09T13:29:39.844Z",
+   "mtime": 1794230845099.9446,
+   "preview": "2026-11-09T13:29:42.231Z"
   },
   "/ru/ru/parking-vienna-airport": {
    "uploaded": "2026-11-08T02:17:40.846Z",
@@ -5206,9 +5206,9 @@
    "preview": "2026-11-08T03:39:53.331Z"
   },
   "/ru/ru/plan/special-requirements/travelling-with-animals": {
-   "uploaded": "2026-11-07T17:36:59.769Z",
-   "mtime": 1794069609014,
-   "preview": "2026-11-07T17:37:01.963Z"
+   "uploaded": "2026-11-09T13:28:45.070Z",
+   "mtime": 1794230845102.416,
+   "preview": "2026-11-09T13:28:47.877Z"
   },
   "/ru/ru/plan/tariffs/economy-basic": {
    "uploaded": "2026-10-31T13:45:58.590Z",
@@ -5471,9 +5471,9 @@
    "preview": "2026-11-08T03:06:35.250Z"
   },
   "/es/es/baggage": {
-   "uploaded": "2026-11-01T07:05:50.884Z",
-   "mtime": 1793516614719,
-   "preview": "2026-11-01T07:05:52.709Z"
+   "uploaded": "2026-11-09T13:09:55.842Z",
+   "mtime": 1794229708549.274,
+   "preview": "2026-11-09T13:09:58.293Z"
   },
   "/es/es/baggage-conditions": {
    "uploaded": "2026-11-01T07:05:54.268Z",
@@ -6161,9 +6161,9 @@
    "preview": "2026-11-08T01:44:54.858Z"
   },
   "/es/es/online-check-in": {
-   "uploaded": "2026-11-08T01:44:57.745Z",
-   "mtime": 1794100759982.8794,
-   "preview": "2026-11-08T01:45:00.082Z"
+   "uploaded": "2026-11-09T13:29:25.553Z",
+   "mtime": 1794230845119.186,
+   "preview": "2026-11-09T13:29:28.025Z"
   },
   "/es/es/parking-vienna-airport": {
    "uploaded": "2026-11-08T01:45:02.921Z",
@@ -6221,9 +6221,9 @@
    "preview": "2026-11-08T03:09:48.829Z"
   },
   "/es/es/plan/special-requirements/travelling-with-animals": {
-   "uploaded": "2026-11-07T17:32:59.490Z",
-   "mtime": 1794069606150,
-   "preview": "2026-11-07T17:33:01.468Z"
+   "uploaded": "2026-11-09T13:28:34.085Z",
+   "mtime": 1794230845121.0078,
+   "preview": "2026-11-09T13:28:36.726Z"
   },
   "/es/es/plan/tariffs/economy-basic": {
    "uploaded": "2026-10-31T12:42:54.445Z",
@@ -7181,9 +7181,9 @@
    "preview": "2026-11-08T01:55:39.915Z"
   },
   "/gr/el/online-check-in": {
-   "uploaded": "2026-11-08T01:55:42.765Z",
-   "mtime": 1794100760067.8652,
-   "preview": "2026-11-08T01:55:45.293Z"
+   "uploaded": "2026-11-09T13:29:44.972Z",
+   "mtime": 1794230845087.3584,
+   "preview": "2026-11-09T13:29:47.039Z"
   },
   "/gr/el/parking-vienna-airport": {
    "uploaded": "2026-11-08T01:55:48.171Z",
@@ -7241,9 +7241,9 @@
    "preview": "2026-11-08T03:19:51.425Z"
   },
   "/gr/el/plan/special-requirements/travelling-with-animals": {
-   "uploaded": "2026-11-07T17:34:16.395Z",
-   "mtime": 1794069607139,
-   "preview": "2026-11-07T17:34:18.202Z"
+   "uploaded": "2026-11-09T13:28:50.364Z",
+   "mtime": 1794230845089.1514,
+   "preview": "2026-11-09T13:28:52.765Z"
   },
   "/gr/el/plan/tariffs/economy-basic": {
    "uploaded": "2026-10-31T13:03:04.525Z",
@@ -8211,9 +8211,9 @@
    "preview": "2026-11-08T02:06:47.991Z"
   },
   "/jp/ja/online-check-in": {
-   "uploaded": "2026-11-08T02:06:50.755Z",
-   "mtime": 1794100760131.174,
-   "preview": "2026-11-08T02:06:53.002Z"
+   "uploaded": "2026-11-09T13:29:49.510Z",
+   "mtime": 1794230845123.0444,
+   "preview": "2026-11-09T13:29:51.842Z"
   },
   "/jp/ja/parking-vienna-airport": {
    "uploaded": "2026-11-08T02:06:55.877Z",
@@ -8271,9 +8271,9 @@
    "preview": "2026-11-08T03:29:49.948Z"
   },
   "/jp/ja/plan/special-requirements/travelling-with-animals": {
-   "uploaded": "2026-11-07T17:35:37.393Z",
-   "mtime": 1794069608057,
-   "preview": "2026-11-07T17:35:39.654Z"
+   "uploaded": "2026-11-09T13:28:55.268Z",
+   "mtime": 1794230845125.0515,
+   "preview": "2026-11-09T13:28:57.358Z"
   },
   "/jp/ja/plan/tariffs/economy-basic": {
    "uploaded": "2026-10-31T13:24:19.827Z",
@@ -8546,9 +8546,9 @@
    "preview": "2026-11-08T03:31:31.262Z"
   },
   "/pl/pl/baggage": {
-   "uploaded": "2026-10-31T13:28:10.284Z",
-   "mtime": 1793447512460,
-   "preview": "2026-10-31T13:28:11.944Z"
+   "uploaded": "2026-11-09T13:10:00.855Z",
+   "mtime": 1794229708550.3735,
+   "preview": "2026-11-09T13:10:03.062Z"
   },
   "/pl/pl/baggage-conditions": {
    "uploaded": "2026-10-31T13:28:07.396Z",
@@ -9241,9 +9241,9 @@
    "preview": "2026-11-08T02:12:13.664Z"
   },
   "/pl/pl/online-check-in": {
-   "uploaded": "2026-11-08T02:12:16.939Z",
-   "mtime": 1794100760159.0854,
-   "preview": "2026-11-08T02:12:19.224Z"
+   "uploaded": "2026-11-09T13:29:30.622Z",
+   "mtime": 1794230845083.498,
+   "preview": "2026-11-09T13:29:33.095Z"
   },
   "/pl/pl/parking-vienna-airport": {
    "uploaded": "2026-11-08T02:12:22.312Z",
@@ -9301,9 +9301,9 @@
    "preview": "2026-11-08T03:34:56.404Z"
   },
   "/pl/pl/plan/special-requirements/travelling-with-animals": {
-   "uploaded": "2026-11-07T17:36:20.705Z",
-   "mtime": 1794069608548,
-   "preview": "2026-11-07T17:36:22.920Z"
+   "uploaded": "2026-11-09T13:28:39.457Z",
+   "mtime": 1794230845085.5562,
+   "preview": "2026-11-09T13:28:42.104Z"
   },
   "/pl/pl/plan/tariffs/economy-basic": {
    "uploaded": "2026-10-31T13:35:51.701Z",
@@ -10276,9 +10276,9 @@
    "preview": "2026-11-08T01:39:15.419Z"
   },
   "/cn/zh/online-check-in": {
-   "uploaded": "2026-11-08T01:39:18.503Z",
-   "mtime": 1794100759944.9246,
-   "preview": "2026-11-08T01:39:20.620Z"
+   "uploaded": "2026-11-09T13:29:54.448Z",
+   "mtime": 1794230845091.3252,
+   "preview": "2026-11-09T13:29:56.445Z"
   },
   "/cn/zh/parking-vienna-airport": {
    "uploaded": "2026-11-08T01:39:23.876Z",
@@ -10336,9 +10336,9 @@
    "preview": "2026-11-08T03:04:51.624Z"
   },
   "/cn/zh/plan/special-requirements/travelling-with-animals": {
-   "uploaded": "2026-11-07T17:32:20.742Z",
-   "mtime": 1794069605719,
-   "preview": "2026-11-07T17:32:23.158Z"
+   "uploaded": "2026-11-09T13:29:00.373Z",
+   "mtime": 1794230845093.2576,
+   "preview": "2026-11-09T13:29:02.507Z"
   },
   "/cn/zh/plan/tariffs/economy-basic": {
    "uploaded": "2026-10-31T12:31:54.746Z",

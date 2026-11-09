@@ -36,6 +36,7 @@ import { subSiteLinks } from './swiss-sub-import.mjs';
 import { withDaImages } from './swiss-sub-dam.mjs';
 import { docName } from './import-magazine.js';
 import collapseDocs from './collapse-docs.mjs';
+import { withRestoredNbsp } from './nbsp-guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const HOST = 'www.swiss.com';
@@ -288,7 +289,7 @@ if (isMain) {
   fs.mkdirSync(path.join(W, 'runs'), { recursive: true });
   fs.writeFileSync(path.join(W, 'runs', `${name}-upload.txt`), `${made.join('\n')}\n`);
   // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
-  collapseDocs(made.map((d) => path.join(W, 'content', `${d}.plain.html`)), { brand: 'swiss', content: path.join(W, 'content') });
+  collapseDocs(withRestoredNbsp(made.map((d) => path.join(W, 'content', `${d}.plain.html`)), fs), { brand: 'swiss', content: path.join(W, 'content') });
   fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({
     documents: out, made, missing, outside, empty,
   }, null, 1)}\n`);

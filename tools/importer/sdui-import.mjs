@@ -27,6 +27,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import collapseDocs from './collapse-docs.mjs';
+import { withRestoredNbsp } from './nbsp-guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const FEED = path.join(root, 'tools/source-export/feeds/sdui');
@@ -314,4 +315,4 @@ Object.entries(docs).forEach(([p, d]) => {
 });
 console.log(`sdui-import: ${written} documents (${listed.length} list entries)`);
 // the last step: the app screens' markers as App Spacer, App Divider and App Text blocks
-collapseDocs(writtenFiles, { brand: 'lufthansa', content: path.join(root, 'content') });
+collapseDocs(withRestoredNbsp(writtenFiles, fs), { brand: 'lufthansa', content: path.join(root, 'content') });

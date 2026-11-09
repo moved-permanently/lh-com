@@ -180,7 +180,7 @@ export const THEMES = {
   // default (www: 89 % unmarked, heading-medium; no longer heading-small)
   brussels: { pageTypes: { flow: { headings: { h3: 'heading-small' } } } },
   // ITA: running text over the whole width
-  ita: { text: { width: 'full' } },
+  ita: { live: true, text: { width: 'full' } },
   // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
   // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
   // (a heading right before them starts the group's column view, as its marker did)
