@@ -4031,6 +4031,10 @@ var CustomImportScript = (() => {
   };
   var THEMES = {
     lufthansa: {
+      // the column view carrier: a section of its own per www column view (the collapse writes it
+      // from the column marks, ema-adobe's hub transformer on import; styles.css "the column view
+      // carrier")
+      columnViews: { carrier: "column-view" },
       pageTypes: {
         // Insights articles: a rule above an info box (Columns Media) after any content but a
         // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
@@ -4881,7 +4885,79 @@ var CustomImportScript = (() => {
       }
     });
   }
-  function collapseColumns(main, doc, stats, marks) {
+  function columnPageTheme(main, doc, stats, marks) {
+    const hasColumns = [...marks.values()].some((tokens) => tokens.some((t) => COLUMN.test(t)));
+    if (hasColumns) {
+      const theme = pageMetaCell(main, "Theme", doc, false);
+      const values = theme ? textOf(theme).split(",").map((x) => x.trim()).filter(Boolean) : [];
+      if (!values.includes("flow-spacing")) {
+        const cell = theme || pageMetaCell(main, "Theme", doc, true);
+        if (cell) {
+          cell.textContent = [...values, "flow-spacing"].join(", ");
+          count(stats, "carrier", "column-page");
+        }
+      }
+    }
+  }
+  function columnViewSections(main, doc, marks, carrier) {
+    const used = /* @__PURE__ */ new Set();
+    const tokensOf = (el2) => marks.get(el2) || (/^(UL|OL)$/.test(el2.tagName) && el2.lastElementChild ? marks.get(el2.lastElementChild) : null) || [];
+    const isSepP = (el2) => !!el2 && el2.tagName === "P" && SEPARATOR.test(textOf(el2));
+    const add = (section, style) => {
+      if (!sectionStyles(section).includes(style)) addSectionStyle(section, style, doc);
+    };
+    [...main.querySelectorAll(":scope > div")].forEach((section) => {
+      const own = ownContent(section);
+      const groups = [];
+      let depth = 0;
+      let cur = null;
+      own.forEach((el2) => {
+        tokensOf(el2).filter((t) => /^column-(start|end)/.test(t)).forEach((t) => {
+          if (t.startsWith("column-start")) {
+            if (depth === 0) cur = { first: el2, outer: t === "column-start-outer" };
+            depth += 1;
+          } else if (depth > 0) {
+            depth -= 1;
+            if (depth === 0 && cur) {
+              cur.last = el2;
+              groups.push(cur);
+              cur = null;
+            }
+          }
+        });
+      });
+      groups.forEach((g, i) => {
+        if (i && groups[i - 1].last === g.first) g.first = g.first.nextElementSibling;
+      });
+      [...groups].reverse().forEach((g) => {
+        if (!g.first || own.indexOf(g.first) < 0 || own.indexOf(g.first) > own.indexOf(g.last)) return;
+        let { first } = g;
+        while (isSepP(first.previousElementSibling)) first = first.previousElementSibling;
+        const more = own.indexOf(g.last) < own.length - 1;
+        const view = ownContent(section)[0] === first ? section : splitBefore(section, first, doc);
+        if (!view) return;
+        if (more) splitAfter(view, g.last, doc);
+        add(view, carrier);
+        if (g.outer) add(view, "padded");
+        if (more) add(view, "flush");
+        used.add(g.first);
+        used.add(g.last);
+      });
+    });
+    return used;
+  }
+  function collapseColumns(main, doc, stats, marks, theme) {
+    if (theme.columnViews.carrier) {
+      const used = columnViewSections(main, doc, marks, theme.columnViews.carrier);
+      marks.forEach((tokens, el2) => {
+        const host = el2.tagName === "LI" && el2.parentElement && [...el2.parentElement.children].pop() === el2 ? el2.parentElement : el2;
+        tokens.filter((t) => COLUMN.test(t)).forEach((t) => {
+          count(stats, used.has(host) && /^column-(start|end)/.test(t) ? "carrier" : "theme", "column");
+        });
+      });
+      columnPageTheme(main, doc, stats, marks);
+      return;
+    }
     const outer = /* @__PURE__ */ new Map();
     marks.forEach((tokens, el2) => {
       tokens.filter((t) => COLUMN.test(t)).forEach((t) => {
@@ -4900,18 +4976,7 @@ var CustomImportScript = (() => {
         count(stats, "carrier", "column", 2);
       } else count(stats, "theme", "column", start.length + end.length);
     });
-    const hasColumns = [...marks.values()].some((tokens) => tokens.some((t) => COLUMN.test(t)));
-    if (hasColumns) {
-      const theme = pageMetaCell(main, "Theme", doc, false);
-      const values = theme ? textOf(theme).split(",").map((x) => x.trim()).filter(Boolean) : [];
-      if (!values.includes("flow-spacing")) {
-        const cell = theme || pageMetaCell(main, "Theme", doc, true);
-        if (cell) {
-          cell.textContent = [...values, "flow-spacing"].join(", ");
-          count(stats, "carrier", "column-page");
-        }
-      }
-    }
+    columnPageTheme(main, doc, stats, marks);
   }
   function isBoldHeading(el2) {
     if (!el2 || el2.tagName !== "P") return false;
@@ -5073,7 +5138,7 @@ var CustomImportScript = (() => {
     collapseVideos(main, doc, stats, marks);
     collapseCaptions(main, doc, stats, marks, hand);
     collapseHeadings(main, doc, stats, marks, theme);
-    collapseColumns(main, doc, stats, marks);
+    collapseColumns(main, doc, stats, marks, theme);
     collapseText(main, doc, stats, marks, theme, brand, hand);
     collapseCells(main, stats, marks, hand);
     marks.forEach((tokens, el2) => {

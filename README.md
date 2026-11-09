@@ -188,7 +188,9 @@ In this order:
    `Divider below`, `Wide text` (the section's running text over the whole width), `Small print`
    (14px), `H2 large`, `H2 compact` (two sizes smaller), `H3 large`, `Parallax image` (`parallax`: the
    section's images in a 500px window), `Narrow quote` (`narrow`: its quotes centred narrow),
-   `Padded` (20px, 40px from 768px, above and below). They apply to the section's own
+   `Padded` (20px, 40px from 768px, above and below), on lufthansa.com `Column view`
+   (`column-view`: one www column view, 32px above and below; the collapse writes one per column
+   group). They apply to the section's own
    text and headings, not to its blocks. The same heading choices for a whole page: metadata
    `Headings` (`H2 large`, `H2 compact`, `H3 large`); a section style wins over it.
 3. **Block options** (any block, in the name's parentheses): `space-m`, `space-l`, `divider-above`

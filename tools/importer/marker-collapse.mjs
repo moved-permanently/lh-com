@@ -21,7 +21,9 @@
  *   a heading; a rule before a chapter heading, an H2 / H3 or a bold paragraph: the chapter becomes
  *   a section of its own, the theme rules it), its Insights tag pages (the info box's rule).
  * - column views become structure: every column mark goes; an outside-a-section group that spans
- *   its whole section becomes the section style padded (the same 20 / 40 px); the page becomes a
+ *   its whole section becomes the section style padded (the same 20 / 40 px); lufthansa.com's
+ *   column view carrier instead (THEMES columnViews.carrier): each group a section of its own,
+ *   column-view (outside a section also padded; flush where its section goes on); the page becomes a
  *   flow page (Theme flow-spacing), where a brand's column-view blocks get their edges from the
  *   theme (THEMES columnViews.blocks: Discover's, B2B's).
  * - heading size: within one step of the context's default (the brand's and page type's, as the
@@ -796,8 +798,89 @@ function collapseCells(main, stats, marks, hand) {
   });
 }
 
+// a page with column views that is no flow page yet (the hub: ema-adobe's hub-column-views marks
+// www's column views as on info pages): the flow pages' spacing (Theme flow-spacing), whose
+// column-view gap rule (the theme's 32 px above a heading after content) takes the marks' place;
+// a page's Theme row, one per page
+function columnPageTheme(main, doc, stats, marks) {
+  const hasColumns = [...marks.values()].some((tokens) => tokens.some((t) => COLUMN.test(t)));
+  if (hasColumns) {
+    const theme = pageMetaCell(main, 'Theme', doc, false);
+    const values = theme ? textOf(theme).split(',').map((x) => x.trim()).filter(Boolean) : [];
+    if (!values.includes('flow-spacing')) {
+      const cell = theme || pageMetaCell(main, 'Theme', doc, true);
+      if (cell) {
+        cell.textContent = [...values, 'flow-spacing'].join(', ');
+        count(stats, 'carrier', 'column-page');
+      }
+    }
+  }
+}
+
+/**
+ * lufthansa.com's column view carrier (THEMES columnViews.carrier: the section style column-view; ema-adobe's
+ * hub-column-views writes the same on import, styles.css "the column view carrier" draws it): every column group of
+ * a section's own content (its outermost marks) becomes a section of its own, with the section's styles plus
+ * column-view; a group outside a section ("-outer" marks) also padded (20 / 40 px); flush where more of the original
+ * section follows. The separators right before a group open its section. A group that already is its section's whole
+ * content (a re-imported hub document) only gets the styles it lacks. Groups across a section break or inside a block
+ * keep no carrier (their marks go, as before). Returns the marks that became the carrier.
+ */
+function columnViewSections(main, doc, marks, carrier) {
+  const used = new Set();
+  const tokensOf = (el) => marks.get(el)
+    || (/^(UL|OL)$/.test(el.tagName) && el.lastElementChild ? marks.get(el.lastElementChild) : null) || [];
+  const isSepP = (el) => !!el && el.tagName === 'P' && SEPARATOR.test(textOf(el));
+  const add = (section, style) => { if (!sectionStyles(section).includes(style)) addSectionStyle(section, style, doc); };
+  [...main.querySelectorAll(':scope > div')].forEach((section) => {
+    const own = ownContent(section);
+    const groups = [];
+    let depth = 0;
+    let cur = null;
+    own.forEach((el) => {
+      tokensOf(el).filter((t) => /^column-(start|end)/.test(t)).forEach((t) => {
+        if (t.startsWith('column-start')) {
+          if (depth === 0) cur = { first: el, outer: t === 'column-start-outer' };
+          depth += 1;
+        } else if (depth > 0) {
+          depth -= 1;
+          if (depth === 0 && cur) { cur.last = el; groups.push(cur); cur = null; }
+        }
+      });
+    });
+    // an element that ends one group and starts the next belongs to the first
+    groups.forEach((g, i) => { if (i && groups[i - 1].last === g.first) g.first = g.first.nextElementSibling; });
+    [...groups].reverse().forEach((g) => {
+      if (!g.first || own.indexOf(g.first) < 0 || own.indexOf(g.first) > own.indexOf(g.last)) return;
+      let { first } = g;
+      while (isSepP(first.previousElementSibling)) first = first.previousElementSibling;
+      const more = own.indexOf(g.last) < own.length - 1;
+      const view = ownContent(section)[0] === first ? section : splitBefore(section, first, doc);
+      if (!view) return;
+      if (more) splitAfter(view, g.last, doc);
+      add(view, carrier);
+      if (g.outer) add(view, 'padded');
+      if (more) add(view, 'flush');
+      used.add(g.first); used.add(g.last);
+    });
+  });
+  return used;
+}
+
 /** Column marks: structure now; an outside group over its whole section: the section's padding. */
-function collapseColumns(main, doc, stats, marks) {
+function collapseColumns(main, doc, stats, marks, theme) {
+  if (theme.columnViews.carrier) {
+    // lufthansa.com: the column view carrier, one section per group (the brief after 506, item 1)
+    const used = columnViewSections(main, doc, marks, theme.columnViews.carrier);
+    marks.forEach((tokens, el) => {
+      const host = el.tagName === 'LI' && el.parentElement && [...el.parentElement.children].pop() === el ? el.parentElement : el;
+      tokens.filter((t) => COLUMN.test(t)).forEach((t) => {
+        count(stats, used.has(host) && /^column-(start|end)/.test(t) ? 'carrier' : 'theme', 'column');
+      });
+    });
+    columnPageTheme(main, doc, stats, marks);
+    return;
+  }
   const outer = new Map();
   marks.forEach((tokens, el) => {
     tokens.filter((t) => COLUMN.test(t)).forEach((t) => {
@@ -816,22 +899,7 @@ function collapseColumns(main, doc, stats, marks) {
       count(stats, 'carrier', 'column', 2);
     } else count(stats, 'theme', 'column', start.length + end.length);
   });
-  // a page with column views that is no flow page yet (the hub: ema-adobe's hub-column-views marks
-  // www's column views as on info pages): the flow pages' spacing (Theme flow-spacing), whose
-  // column-view gap rule (the theme's 32 px above a heading after content) takes the marks' place;
-  // a page's Theme row, one per page
-  const hasColumns = [...marks.values()].some((tokens) => tokens.some((t) => COLUMN.test(t)));
-  if (hasColumns) {
-    const theme = pageMetaCell(main, 'Theme', doc, false);
-    const values = theme ? textOf(theme).split(',').map((x) => x.trim()).filter(Boolean) : [];
-    if (!values.includes('flow-spacing')) {
-      const cell = theme || pageMetaCell(main, 'Theme', doc, true);
-      if (cell) {
-        cell.textContent = [...values, 'flow-spacing'].join(', ');
-        count(stats, 'carrier', 'column-page');
-      }
-    }
-  }
+  columnPageTheme(main, doc, stats, marks);
 }
 
 /** A paragraph that is all one bold text (a chapter heading written as a paragraph). */
@@ -1008,7 +1076,7 @@ export function collapseMain(main, opts = {}) {
   collapseVideos(main, doc, stats, marks);
   collapseCaptions(main, doc, stats, marks, hand);
   collapseHeadings(main, doc, stats, marks, theme);
-  collapseColumns(main, doc, stats, marks);
+  collapseColumns(main, doc, stats, marks, theme);
   collapseText(main, doc, stats, marks, theme, brand, hand);
   collapseCells(main, stats, marks, hand);
   // a paragraph left with nothing (a column mark of its own): gone

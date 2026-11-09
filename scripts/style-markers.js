@@ -157,6 +157,10 @@ const BASE_THEME = {
 
 export const THEMES = {
   lufthansa: {
+    // the column view carrier: a section of its own per www column view (the collapse writes it
+    // from the column marks, ema-adobe's hub transformer on import; styles.css "the column view
+    // carrier")
+    columnViews: { carrier: 'column-view' },
     pageTypes: {
       // Insights articles: a rule above an info box (Columns Media) after any content but a
       // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
@@ -270,6 +274,9 @@ export const SECTION_STYLES = {
   narrow: { quote: 'narrow' },
   // the Lufthansa section padding (20 px, 40 px from 768 px) above and below
   padded: {},
+  // one www column view (lufthansa.com: 32 px above and below, its headings two thirds wide;
+  // styles.css)
+  'column-view': {},
 };
 
 // the section styles' friendly labels (the DA library's Style choices: "Label=value")
@@ -288,6 +295,7 @@ export const SECTION_STYLE_LABELS = {
   parallax: 'Parallax image',
   narrow: 'Narrow quote',
   padded: 'Padded',
+  'column-view': 'Column view',
 };
 
 /**

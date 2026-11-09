@@ -18,6 +18,7 @@ import path from 'node:path';
 import { parseHTML } from 'linkedom';
 import { collapseHtml, totals } from './marker-collapse.mjs';
 import { LEFT_MARKER } from './marker-families.mjs';
+import { SECTION_STYLES } from '../../scripts/style-markers.js';
 
 const argv = process.argv.slice(2);
 const opt = (n, d) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : d);
@@ -82,7 +83,9 @@ results.forEach((res) => {
 });
 // the carriers a document holds (section styles, block options, purpose blocks, video fragments,
 // the Headings row): what the collapse wrote is the difference to the document before
-const STYLE_WORDS = ['space-m', 'space-l', 'divider', 'space-below-m', 'space-below-l', 'divider-below', 'wide-text', 'small-print', 'h2-large', 'h2-compact', 'h3-large', 'parallax', 'narrow', 'padded'];
+// the section styles a carrier writes (scripts/style-markers.js SECTION_STYLES; flush: a column view's
+// section that its original section goes on after)
+const STYLE_WORDS = [...Object.keys(SECTION_STYLES), 'flush'];
 const OPTION_WORDS = ['space-m', 'space-l', 'divider-above', 'small-print', 'title-large', 'title-compact', 'background-video', 'mobile-video'];
 const PURPOSE = ['spacer', 'divider', 'app-spacer', 'app-divider', 'app-text', 'nav-tools'];
 function carriersOf(html) {

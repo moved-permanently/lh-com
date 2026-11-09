@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var tmp_bundle_fleet_1387788_exports = {};
-  __export(tmp_bundle_fleet_1387788_exports, {
-    default: () => tmp_bundle_fleet_1387788_default
+  var tmp_bundle_fleet_1388749_exports = {};
+  __export(tmp_bundle_fleet_1388749_exports, {
+    default: () => tmp_bundle_fleet_1388749_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -2584,6 +2584,10 @@ var CustomImportScript = (() => {
   };
   var THEMES = {
     lufthansa: {
+      // the column view carrier: a section of its own per www column view (the collapse writes it
+      // from the column marks, ema-adobe's hub transformer on import; styles.css "the column view
+      // carrier")
+      columnViews: { carrier: "column-view" },
       pageTypes: {
         // Insights articles: a rule above an info box (Columns Media) after any content but a
         // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
@@ -5317,7 +5321,79 @@ var CustomImportScript = (() => {
       }
     });
   }
-  function collapseColumns(main, doc, stats, marks) {
+  function columnPageTheme(main, doc, stats, marks) {
+    const hasColumns = [...marks.values()].some((tokens) => tokens.some((t) => COLUMN.test(t)));
+    if (hasColumns) {
+      const theme = pageMetaCell(main, "Theme", doc, false);
+      const values = theme ? textOf(theme).split(",").map((x) => x.trim()).filter(Boolean) : [];
+      if (!values.includes("flow-spacing")) {
+        const cell = theme || pageMetaCell(main, "Theme", doc, true);
+        if (cell) {
+          cell.textContent = [...values, "flow-spacing"].join(", ");
+          count(stats, "carrier", "column-page");
+        }
+      }
+    }
+  }
+  function columnViewSections(main, doc, marks, carrier) {
+    const used = /* @__PURE__ */ new Set();
+    const tokensOf = (el) => marks.get(el) || (/^(UL|OL)$/.test(el.tagName) && el.lastElementChild ? marks.get(el.lastElementChild) : null) || [];
+    const isSepP = (el) => !!el && el.tagName === "P" && SEPARATOR.test(textOf(el));
+    const add = (section, style) => {
+      if (!sectionStyles(section).includes(style)) addSectionStyle(section, style, doc);
+    };
+    [...main.querySelectorAll(":scope > div")].forEach((section) => {
+      const own = ownContent(section);
+      const groups = [];
+      let depth = 0;
+      let cur = null;
+      own.forEach((el) => {
+        tokensOf(el).filter((t) => /^column-(start|end)/.test(t)).forEach((t) => {
+          if (t.startsWith("column-start")) {
+            if (depth === 0) cur = { first: el, outer: t === "column-start-outer" };
+            depth += 1;
+          } else if (depth > 0) {
+            depth -= 1;
+            if (depth === 0 && cur) {
+              cur.last = el;
+              groups.push(cur);
+              cur = null;
+            }
+          }
+        });
+      });
+      groups.forEach((g, i) => {
+        if (i && groups[i - 1].last === g.first) g.first = g.first.nextElementSibling;
+      });
+      [...groups].reverse().forEach((g) => {
+        if (!g.first || own.indexOf(g.first) < 0 || own.indexOf(g.first) > own.indexOf(g.last)) return;
+        let { first } = g;
+        while (isSepP(first.previousElementSibling)) first = first.previousElementSibling;
+        const more = own.indexOf(g.last) < own.length - 1;
+        const view = ownContent(section)[0] === first ? section : splitBefore(section, first, doc);
+        if (!view) return;
+        if (more) splitAfter(view, g.last, doc);
+        add(view, carrier);
+        if (g.outer) add(view, "padded");
+        if (more) add(view, "flush");
+        used.add(g.first);
+        used.add(g.last);
+      });
+    });
+    return used;
+  }
+  function collapseColumns(main, doc, stats, marks, theme) {
+    if (theme.columnViews.carrier) {
+      const used = columnViewSections(main, doc, marks, theme.columnViews.carrier);
+      marks.forEach((tokens, el) => {
+        const host = el.tagName === "LI" && el.parentElement && [...el.parentElement.children].pop() === el ? el.parentElement : el;
+        tokens.filter((t) => COLUMN.test(t)).forEach((t) => {
+          count(stats, used.has(host) && /^column-(start|end)/.test(t) ? "carrier" : "theme", "column");
+        });
+      });
+      columnPageTheme(main, doc, stats, marks);
+      return;
+    }
     const outer = /* @__PURE__ */ new Map();
     marks.forEach((tokens, el) => {
       tokens.filter((t) => COLUMN.test(t)).forEach((t) => {
@@ -5336,18 +5412,7 @@ var CustomImportScript = (() => {
         count(stats, "carrier", "column", 2);
       } else count(stats, "theme", "column", start.length + end.length);
     });
-    const hasColumns = [...marks.values()].some((tokens) => tokens.some((t) => COLUMN.test(t)));
-    if (hasColumns) {
-      const theme = pageMetaCell(main, "Theme", doc, false);
-      const values = theme ? textOf(theme).split(",").map((x) => x.trim()).filter(Boolean) : [];
-      if (!values.includes("flow-spacing")) {
-        const cell = theme || pageMetaCell(main, "Theme", doc, true);
-        if (cell) {
-          cell.textContent = [...values, "flow-spacing"].join(", ");
-          count(stats, "carrier", "column-page");
-        }
-      }
-    }
+    columnPageTheme(main, doc, stats, marks);
   }
   function isBoldHeading(el) {
     if (!el || el.tagName !== "P") return false;
@@ -5521,7 +5586,7 @@ var CustomImportScript = (() => {
     collapseVideos(main, doc, stats, marks);
     collapseCaptions(main, doc, stats, marks, hand);
     collapseHeadings(main, doc, stats, marks, theme);
-    collapseColumns(main, doc, stats, marks);
+    collapseColumns(main, doc, stats, marks, theme);
     collapseText(main, doc, stats, marks, theme, brand, hand);
     collapseCells(main, stats, marks, hand);
     marks.forEach((tokens, el) => {
@@ -5722,7 +5787,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_fleet_1387788_default = {
+  var tmp_bundle_fleet_1388749_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5761,5 +5826,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_fleet_1387788_exports);
+  return __toCommonJS(tmp_bundle_fleet_1388749_exports);
 })();

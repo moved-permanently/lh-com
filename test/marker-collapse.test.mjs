@@ -51,10 +51,11 @@ test('the brief after 500: articles\' rule above an info box after any content, 
   assert.equal(mixed.hand.length, 1);
 });
 
-test('column views: the marks go; an outside group over its whole section: padded', () => {
-  assert.equal(out('<div><h2>T {heading-medium column-start}</h2><p>Text {column-end}</p><p>After</p></div>'), '<div><h2>T</h2><p>Text</p><p>After</p></div>');
-  assert.equal(out('<div><p>Text</p><p>{column-end}</p><div class="cards"><div><div>x</div></div></div></div>'), '<div><p>Text</p><div class="cards"><div><div>x</div></div></div></div>');
-  assert.equal(out('<div><h2>T {column-start-outer}</h2><p>Text {column-end-outer}</p></div>'), `<div><h2>T</h2><p>Text</p>${meta('padded')}</div>`);
+test('column views on the brand sites: the marks go; an outside group over its whole section: padded', () => {
+  const site = { brand: 'austrian', path: '/at/en/x' };
+  assert.equal(out('<div><h2>T {heading-medium column-start}</h2><p>Text {column-end}</p><p>After</p></div>', site), '<div><h2>T</h2><p>Text</p><p>After</p></div>');
+  assert.equal(out('<div><p>Text</p><p>{column-end}</p><div class="cards"><div><div>x</div></div></div></div>', site), '<div><p>Text</p><div class="cards"><div><div>x</div></div></div></div>');
+  assert.equal(out('<div><h2>T {column-start-outer}</h2><p>Text {column-end-outer}</p></div>', site), `<div><h2>T</h2><p>Text</p>${meta('padded')}</div>`);
 });
 
 test('heading sizes: a step from the default goes; two steps a level-scoped style, a page row or a block option', () => {

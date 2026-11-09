@@ -87,6 +87,7 @@ brackets is what the document holds).
 | Section Metadata, `Style` | `Small print` (`small-print`) | the section's text in 14 px (footnotes, conditions) |
 | Section Metadata, `Style` | `H2 large`, `H2 compact`, `H3 large` | the section's own H2 (or H3) headings two sizes larger or smaller; the level stays |
 | Section Metadata, `Style` | `Parallax image` (`parallax`), `Narrow quote` (`narrow`), `Padded` (`padded`) | the section's images in a 500 px window, its quotes centred narrow, 20 / 40 px above and below |
+| Section Metadata, `Style` (lufthansa.com) | `Column view` (`column-view`) | one www column view: 32 px above and below, two views 64 px apart, its headings two thirds wide |
 | Metadata, `Headings` | `H2 large`, `H2 compact`, `H3 large` | the same for the whole page (a section's style wins) |
 | A block's options | `space-m`, `space-l`, `divider-above`, `small-print`, `title-large`, `title-compact`, `background-video` | space or a line above the block, its text small, its titles larger or smaller, its video as a background video |
 | Under an image | a paragraph all in italics | the image's caption (14 px bold under the image); an italic link alone stays a button |
