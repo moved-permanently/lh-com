@@ -2248,3 +2248,38 @@ request to www; nothing published; no file of ema-test's, ema-lufthansa's or ema
 Documents: reimport-506-column-view-lh-com.txt (12, release order). The three Hero Banner documents of item 5
 (/de/de/speisen-und-getraenke, /de/en/lufthansa-travel-classes, /de/de/lufthansa-reiseklassen) can now be imported from
 the harness's server HTML; flights and fluege wait for lh-bd-ema-004 / -005.
+
+## Brief 507 (2026-11-09): the baseline after the hub and video documents, lufthansa.com's pass check
+
+Left from 506: the generated import reports; the scratch in logs/b506, logs/b505, logs/b500, logs/b484, logs/b488,
+logs/b493 (with the 16 lh-bd-ema archives, kept for the rollback windows); /tmp/b488dam and the commit-message files;
+nothing unpushed.
+
+Method: no request to www; nothing published or uploaded; no file of ema-test's, ema-lufthansa's or ema-cashub's
+changed. Lint (clean worktree) and both suites before the push (lh-edge 69 files, site 646, 0 failing); smoke before
+and after on the ten hosts with baselines (same answers), Brussels and SWISS against brief 506's runs (0 of 97
+differ), swiss-smoke and TAP by hand (as before).
+
+### 1. The baseline (tools/reports/parity-2026-11-09/sweep-lh-baseline.md)
+
+- The 296 lufthansa.com pages of lh-parity-002a-d / -003 on lufthansa.turnsthe.page, 1440 and 390, with the deployed
+  code, against the recordings; 52 hub and 18 video documents without a recording listed, not measured.
+- Hub median 11.9 -> 8.9 % with the published hub documents; 29 page-widths moved 2 points or more.
+- Three fixes, not ten: 0369cb9 (Insights articles at 390, no section gap under the related articles that end the
+  page), fc1f4f7 (cards-teaser: a bold CTA is a primary button where the theme's token asks: meetings-and-events),
+  142a2d2 (the campaign template runs hub-column-views on pages without campaign sections: frankfurt-fair,
+  most-significant-route; munich-fair worse with it, excluded). The other worst rows of my templates have causes in
+  the data or other owners' blocks (named per row in the report).
+- Documents: tools/reports/parity-2026-11-08/reimport-507-campaign-lh-com.txt (8, release order), for the harness.
+
+### 2. The pass check (tools/reports/token-free/lh-com-pass-check.md, lh-com-handover-ema-test.md)
+
+- 37 published documents, 10 page types, the collapse read-only (`--force`), the theme forced live in the browser
+  only; run again on main's collapse after ema-test's d1bd76e (the carrier) and 6d1bb8a (the chapter order), both
+  pushed during the brief and both items of my handover: mean height difference campaign 5.5 %, legal 2.7, insights
+  2.0, hub 1.5, info 0.9, the rest under 1.
+- No rule needed in lufthansa.com's rule files. Handover left: items 2 (no `sections-m` on /100-years: campaign 5.5 ->
+  1.8 %), 4 (captions in block cells), 5 (the ruled chapters' divider before Related Articles).
+- For Ben: the carrier on info and fleet pages too (main does it; Ben named hub pages) or hub only (info 0.9 -> 3.0 %);
+  limited-width headings.
+- Parity rows 63-66 (tools/reports/lufthansa/parity.md).
