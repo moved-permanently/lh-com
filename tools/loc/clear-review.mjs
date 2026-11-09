@@ -20,6 +20,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { removeDaMetadata, removeLinkedImageMarks } from './review-lib.mjs';
 import { daClient } from './slug-step.mjs';
+import { siteFromArgv } from './sites.mjs';
 
 /** The marks of linked images only (--linked-images): {page, status, removed: [{href, image}]}. */
 async function unmarkLinkedImages(page, at, html, { da, apply, today }) {
@@ -62,7 +63,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
     process.exit(1);
   }
   const rootDir = argv.includes('--root') ? argv[argv.indexOf('--root') + 1] : '';
-  const da = daClient();
+  const da = daClient(undefined, undefined, siteFromArgv(argv));
   for (const page of pages) {
     const r = await clearReview(page, {
       da, apply: argv.includes('--apply'), rootDir, linkedImages: argv.includes('--linked-images'),

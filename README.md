@@ -175,7 +175,7 @@ In this order:
    `heading-copytext-medium`), running text two thirds wide from 1025px (ITA: the whole width), body
    text 18px, separators M 60px / L 120px / Divider (1px line, 25px), a column view's 32px padding;
    page types: lufthansa.com articles (a rule above an info box after text, chapters ruled) and its
-   Insights tag pages (the info box's rule), /100-years (sections 60px apart), Austrian's intro
+   Insights tag pages (the info box's rule), Austrian's intro
    after the H1; on flow pages the H3s of Austrian,
    Brussels and Lufthansa Group for Business and the H2s of SWISS and Discover in `heading-small`,
    and Discover's Columns Media and B2B's Columns Media, Carousel Images and Quote column views of
@@ -188,7 +188,9 @@ In this order:
    `Divider below`, `Wide text` (the section's running text over the whole width), `Small print`
    (14px), `H2 large`, `H2 compact` (two sizes smaller), `H3 large`, `Parallax image` (`parallax`: the
    section's images in a 500px window), `Narrow quote` (`narrow`: its quotes centred narrow),
-   `Padded` (20px, 40px from 768px, above and below). They apply to the section's own
+   `Padded` (20px, 40px from 768px, above and below), on lufthansa.com `Column view`
+   (`column-view`: one www column view, 32px above and below; the collapse writes one per column
+   group). They apply to the section's own
    text and headings, not to its blocks. The same heading choices for a whole page: metadata
    `Headings` (`H2 large`, `H2 compact`, `H3 large`); a section style wins over it.
 3. **Block options** (any block, in the name's parentheses): `space-m`, `space-l`, `divider-above`
@@ -201,7 +203,8 @@ In this order:
    (autoplay, muted, loop, no controls); `#size=1920x1080` is the video's own size (the player takes
    its aspect before the video loads); other fragments such as `#t=10` stay, joined by `&`. Without
    either the default player: controls and the round play button.
-6. **Small purpose blocks** for the real exceptions: `Spacer` (M; `Spacer (l)`: L), `Divider`. On app
+6. **Small purpose blocks** for the real exceptions: `Spacer` (M; `Spacer (l)`: L), `Divider`; with the
+   option `from-768` only from 768px, none on phones (the collapse writes it for `{spacer-N from-768}`). On app
    screens (`/content/mobile/**`): `App Spacer (medium)` (x-small, small, medium, m-large, large;
    `v2`: in the v2 screen only), `App Divider`, `App Text (small)`.
 

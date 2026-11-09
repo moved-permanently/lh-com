@@ -64,6 +64,11 @@ node bin/md-report.mjs --airline 'NAME' --runs runs/A-compare --out ../reports/m
 node bin/md-selftest.mjs --pairs lists/A/pairs-pending.tsv.gz --fetch runs/A --host HOST --profile PROFILE --max 15
 ```
 
+A pair stays two www paths. `md-replica-check.mjs` asks our replica where the write step puts a page
+(`lib/replica-paths.mjs`: the write target in the site's slug map `tools/slugs/<site>.json`, found by `--host`): the
+canonical path once a root's flag is on, else the www path. With every flag off every request is as before.
+`--slug-map <file>` takes another copy of the map, for example a test copy with flags on.
+
 `md-run.sh` runs one stream per host (a second start on the same host exits 6); streams on different hosts may run side
 by side. It asks one page at a time, 500 ms start to start (2 pages a second), inside a browser tab that has opened the
 host's warm-up page (same-origin `fetch` of the raw server HTML; no rendering). It stops at the first block: a Cloudflare

@@ -2001,9 +2001,11 @@ function convertFooterDisclaimer(document, pagePath) {
   const label = (modal && modal.getAttribute('label') ? modal.getAttribute('label').replace(/\s+/g, ' ').trim() : '')
     || text(box.querySelector('maui-link-button'));
   const base = (String(pagePath || '').match(/^\/([a-z]{2})\/([a-z]{2})(?=\/|$)/) || [])[0];
+  // a label without Latin letters or digits (SWISS's el, ja, ru, zh): the root's language
+  // (footer-disclaimer.js dialogPath, the same rule)
   const slug = label.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
+    .replace(/^-+|-+$/g, '') || (base || '').split('/')[2] || '';
   const out = [];
   if (note) {
     const p = document.createElement('p');

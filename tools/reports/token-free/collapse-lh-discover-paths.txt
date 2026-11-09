@@ -1,4 +1,4 @@
-# lh-discover: the 24 local documents the collapse changes (marker-collapse-cli.mjs --check, 2026-11-08, the brief after 503), in release order: de/en, de/de, then the other markets
+# lh-discover: the 24 local documents the collapse changes (marker-collapse-cli.mjs --check, 2026-11-09, the brief after 506), in release order: de/en, de/de, then the other markets
 /de/en/book/baggage
 /de/en/book/flights/flight-search
 /de/en/book/special-requests/families

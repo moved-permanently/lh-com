@@ -354,8 +354,9 @@ export default function transform(hookName, element, payload) {
     // in one piece) gets style spaced (a 24 px gap) or flush (none); first-class-terminal +48 px
     const paddedBreaks = new Map();
     // the brief after 479 (ANA FAQ, ema-lufthansa's row 42): also right after an unpadded AEM
-    // section, as www pads every one with .section-padding-y-regular; not for a stage, not after a
-    // stage or a grey band (their own spacing covers it), nor after an author quote alone in its AEM
+    // section, as www pads every one with .section-padding-y-regular (a stage too, unless a padded
+    // AEM section follows it: the brief after 523); not after a stage or a grey band (their own
+    // spacing covers it), nor after an author quote alone in its AEM
     // section (the cleanup's quote spacers stand for this padding: first-class-terminal)
     // (lufthansa.com's pages only: measured there; the brand sites' imports as before)
     const pageUrl = (payload && ((payload.params && payload.params.originalURL) || payload.url)) || '';
@@ -370,7 +371,12 @@ export default function transform(hookName, element, payload) {
     aemSections.forEach((s, i) => {
       if (!i || !padded(s) || grey(s)) return;
       const before = aemSections[i - 1];
-      if (!padded(before) && (!lufthansa || isStage(s) || isStage(before) || grey(before) || loneQuote(before))) return;
+      // a stage after an unpadded AEM section is padded on www too; not when the AEM section after it is padded
+      // (style before-padded holds that space already: economy-class's Allegris stage measured worse padded)
+      // (the brief after 523, ema-adobe's hub-campaign-521.md: destinations' New York and Cape Town)
+      const next = aemSections[i + 1];
+      const stageBeforePadded = isStage(s) && !!next && padded(next) && !grey(next);
+      if (!padded(before) && (!lufthansa || stageBeforePadded || isStage(before) || grey(before) || loneQuote(before))) return;
       const hr = createBreak(document);
       hr.setAttribute(SOURCE_STYLE, 'padded');
       s.before(hr);

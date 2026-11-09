@@ -1,0 +1,261 @@
+{
+  "config": {
+    "total": 11,
+    "limit": 11,
+    "offset": 0,
+    "data": [
+      {
+        "key": "source.language",
+        "value": "English",
+        "description": "The name of the languages row every project starts from: English, /at/en (the airline's English language root; no /gc tree, decision D1 of the slug order)."
+      },
+      {
+        "key": "source.language.detect",
+        "value": "true",
+        "description": "Multi-level: a project takes its source folder from its URLs (/at/en, /at/de, /fr/fr, /it/it, /es/es, /gr/el, /jp/ja, /pl/pl, /ru/ru, /cn/zh), released in da-nx #793 and #870 (2026-10-29). Put the URLs of one language root in a project: English pages (/at/en) are translated into the other language roots."
+      },
+      {
+        "key": "translate.conflict.behavior",
+        "value": "merge, overwrite",
+        "description": "Translations from /at/en into the other language roots: merge marks the differences to the existing page instead of replacing it."
+      },
+      {
+        "key": "rollout.conflict.behavior",
+        "value": "merge, overwrite",
+        "description": "No rollout is set up: every language root holds its own full copy (option B: lh-edge serves the market roots from them). Kept for the day a root is added."
+      },
+      {
+        "key": "copy.conflict.behavior",
+        "value": "merge, overwrite",
+        "description": "Copy into a language folder."
+      },
+      {
+        "key": "sync.conflict.behavior",
+        "value": "merge, overwrite",
+        "description": "Sync into /at/en: only for URLs from outside every source folder. URLs of a market root (/ch/de ...) land here and get copied to /at/en/ch/de/...: never put them in a project."
+      },
+      {
+        "key": "translation.service.name",
+        "value": "Google",
+        "description": "Google machine translation through Document Authoring (no keys). GlobalLink: see tools/loc/README.md."
+      },
+      {
+        "key": "translation.service.all.env",
+        "value": "prod",
+        "description": "The service environments; the first is the default."
+      },
+      {
+        "key": "translation.service.prod.origin",
+        "value": "https://translate.da.live/google",
+        "description": ""
+      },
+      {
+        "key": "translation.service.prod.link",
+        "value": "https://cloud.google.com/translate/docs/overview",
+        "description": ""
+      },
+      {
+        "key": "source.fragment.hostnames",
+        "value": "main--lh-austrian--moved-permanently.aem.live, austrian.turnsthe.page",
+        "description": "Absolute fragment links on these hosts are added to a project with their page (relative /fragments/ links are not: add them yourself)."
+      }
+    ]
+  },
+  "languages": {
+    "total": 10,
+    "limit": 10,
+    "offset": 0,
+    "data": [
+      {
+        "name": "English",
+        "code": "en",
+        "source": "",
+        "location": "/at/en",
+        "locales": "",
+        "actions": "Skip"
+      },
+      {
+        "name": "German",
+        "code": "de",
+        "source": "/at/en",
+        "location": "/at/de",
+        "locales": "",
+        "actions": "Skip, Translate"
+      },
+      {
+        "name": "French",
+        "code": "fr",
+        "source": "/at/en",
+        "location": "/fr/fr",
+        "locales": "",
+        "actions": "Skip, Translate"
+      },
+      {
+        "name": "Italian",
+        "code": "it",
+        "source": "/at/en",
+        "location": "/it/it",
+        "locales": "",
+        "actions": "Skip, Translate"
+      },
+      {
+        "name": "Spanish",
+        "code": "es",
+        "source": "/at/en",
+        "location": "/es/es",
+        "locales": "",
+        "actions": "Skip, Translate"
+      },
+      {
+        "name": "Greek",
+        "code": "el",
+        "source": "/at/en",
+        "location": "/gr/el",
+        "locales": "",
+        "actions": "Skip, Translate"
+      },
+      {
+        "name": "Japanese",
+        "code": "ja",
+        "source": "/at/en",
+        "location": "/jp/ja",
+        "locales": "",
+        "actions": "Skip, Translate"
+      },
+      {
+        "name": "Polish",
+        "code": "pl",
+        "source": "/at/en",
+        "location": "/pl/pl",
+        "locales": "",
+        "actions": "Skip, Translate"
+      },
+      {
+        "name": "Russian",
+        "code": "ru",
+        "source": "/at/en",
+        "location": "/ru/ru",
+        "locales": "",
+        "actions": "Skip, Translate"
+      },
+      {
+        "name": "Chinese",
+        "code": "zh",
+        "source": "/at/en",
+        "location": "/cn/zh",
+        "locales": "",
+        "actions": "Skip, Translate"
+      }
+    ]
+  },
+  "custom-doc-rules": {
+    "total": 21,
+    "limit": 21,
+    "offset": 0,
+    "data": [
+      {
+        "block": "metadata",
+        "rule": "translate col 2 if col 1 is \"title\" or \"description\" or \"og:title\" or \"og:description\" or \"keywords\" or \"breadcrumb title\" or \"parent title\" or \"card-image-alt\" or \"author-description\" or \"reading-time\" or \"tags\""
+      },
+      {
+        "block": "section-metadata",
+        "rule": "do-not-translate"
+      },
+      {
+        "block": "blog-overview, car-rental, embed, micro-frontend, search-results, stage-promotions",
+        "rule": "do-not-translate"
+      },
+      {
+        "block": "price-bar, flight-search, destination-finder, booking-lookup, fare-teaser, flight-status, destination-offer",
+        "rule": "dnt col 1"
+      },
+      {
+        "block": "price-bar",
+        "rule": "dnt col 2 if col 1 is \"destination\" or \"origin\""
+      },
+      {
+        "block": "destination-finder",
+        "rule": "dnt col 2 if col 1 is \"default origin\" or \"trip duration\" or \"highlight priority\" or \"smart search\" or \"destination page\""
+      },
+      {
+        "block": "booking-lookup",
+        "rule": "dnt col 2 if col 1 is \"reference pattern\""
+      },
+      {
+        "block": "fare-teaser",
+        "rule": "dnt col 2 if col 1 is \"origin\" or \"destinations\" or \"trip duration\" or \"cabin\" or \"travel months\""
+      },
+      {
+        "block": "flight-status",
+        "rule": "dnt col 2 if col 1 is \"active tab\" or \"airlines\" or \"default airline\" or \"days before\" or \"days after\""
+      },
+      {
+        "block": "destination-offer",
+        "rule": "dnt col 2 if col 1 is \"trip duration\" or \"max adults\" or \"max children\" or \"max infants\" or \"content languages\""
+      },
+      {
+        "block": "poi-map",
+        "rule": "dnt col 1 if col 1 is \"caption\" or \"aside\" or \"zoom in label\" or \"zoom out label\" or \"visit website label\""
+      },
+      {
+        "block": "poi-map",
+        "rule": "dnt row if col 1 is \"source\" or \"tiles\""
+      },
+      {
+        "block": "poi-map",
+        "rule": "dnt col 2 if col 2 startswith \"0\" or \"1\" or \"2\" or \"3\" or \"4\" or \"5\" or \"6\" or \"7\" or \"8\" or \"9\" or \"-\""
+      },
+      {
+        "block": "carousel-images, carousel-lightbox",
+        "rule": "dnt col 1 if col 1 is \"carousel label\" or \"previous label\" or \"next label\" or \"slide label\" or \"open label\" or \"close label\" or \"dialog label\""
+      },
+      {
+        "block": "hero-banner",
+        "rule": "dnt row if col 1 is \"overlay\""
+      },
+      {
+        "block": "form",
+        "rule": "dnt row 1"
+      },
+      {
+        "block": "form",
+        "rule": "dnt col 2,3,4,10"
+      },
+      {
+        "block": "form",
+        "rule": "dnt row if col 2 is \"config\""
+      },
+      {
+        "block": "lounge-finder, ejournals, checkin-deadlines",
+        "rule": "dnt col 1"
+      },
+      {
+        "block": "ejournals",
+        "rule": "dnt col 2 if col 1 is \"live page\" or \"login link\" or \"trips endpoint\""
+      },
+      {
+        "block": "checkin-deadlines",
+        "rule": "dnt col 2 if col 1 is \"check-in link\""
+      }
+    ]
+  },
+  "dnt-sheet-rules": {
+    "total": 1,
+    "limit": 1,
+    "offset": 0,
+    "data": [
+      {
+        "pattern": "beginsWith(http:// || https://)",
+        "action": "dnt"
+      }
+    ]
+  },
+  ":names": [
+    "config",
+    "languages",
+    "custom-doc-rules",
+    "dnt-sheet-rules"
+  ],
+  ":version": 3,
+  ":type": "multi-sheet"
+}

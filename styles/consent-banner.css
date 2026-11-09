@@ -20,6 +20,14 @@
   color: var(--lh-consent-navy);
 }
 
+/* a brand with fonts of its own (its theme's --heading-font-family and --body-font-family): the
+   banner and the preference center in them, as the page around them; Lufthansa's brands
+   (lufthansa.com, Cargo, Group for Business, Discover) keep the stacks above */
+:where(body.brand-airdolomiti, body.brand-tap, body.brand-swiss, body.brand-austrian, body.brand-brussels, body.brand-ita) .lh-consent {
+  --lh-consent-head: var(--heading-font-family);
+  --lh-consent-text: var(--body-font-family);
+}
+
 .lh-consent *,
 .lh-consent ::before,
 .lh-consent ::after {

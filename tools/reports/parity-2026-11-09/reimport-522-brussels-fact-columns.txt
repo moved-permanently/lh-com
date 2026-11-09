@@ -1,0 +1,7 @@
+# The brief after 521 item 2 (ema-cashub): lh-brussels' documents to re-import with brussels-import.mjs after a headline-only column view in a sidebar's content gets its container-content wrapper (withFactColumns: new-destinations' destination facts as a columns-media of label and value pairs, as www, instead of ten stacked h4); in release order. On the 83 recorded pages only /be/fr/flying-with-us/new-destinations changes (of the 7 with a marked sidebar): 1440 +8.8 -> about -2.0 %, 390 -7.5 -> about -4.0 %. These 6 are its language copies; any other Brussels document changes only where its snapshot has such a view in a sidebar. All 6 are published on brussels.turnsthe.page (200).
+/be/en/flying-with-us/new-destinations
+/be/fr/flying-with-us/new-destinations
+/be/nl/flying-with-us/new-destinations
+/de/de/flying-with-us/new-destinations
+/es/es/flying-with-us/new-destinations
+/it/it/flying-with-us/new-destinations

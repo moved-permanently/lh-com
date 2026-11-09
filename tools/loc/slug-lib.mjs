@@ -1,5 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies, import/extensions -- dev tooling */
 /**
+ * RETIRED with the slug step (see tools/loc/slug-step.mjs): one slug per page, tools/slugs/lh-com.json.
+ *
  * The slug step's pure parts (tools/loc/slug-step.mjs; tests: test/loc-slug-step.test.mjs).
  *
  * The localisation app writes the German translation of /de/en/<path> to /de/de/<path>
