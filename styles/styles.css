@@ -1659,22 +1659,20 @@ body.brand-lufthansa {
   --cards-teaser-bold-cta: button;
 }
 
-/* Insights articles on phones: www's related articles end the page (.dcep-related-articles, then
-   the footer): 34px from the last card's title to the footer at 390 (the card's 10px padding and
-   the title's 24px; 40 on flying-high-christoph-quarch). Ours added the section gap: 82px. From
-   768px the pages' heights match www's (brief 507). All 24 published documents with Related
-   Articles have them in their last section; the empty section after them (the page metadata's)
-   adds no gap of its own */
-@media (width < 768px) {
-  /* stylelint-disable-next-line no-descending-specificity -- the page's end, not a campaign-section's */
-  body.brand-lufthansa main > .section.related-articles-container {
-    margin-bottom: 0;
-  }
+/* Insights articles: www's related articles end the page (.dcep-related-articles, then the
+   footer): 34px from the last card's title to the footer at 390 (the card's 10px padding and the
+   title's 24px; 40 on flying-high-christoph-quarch) and at 1440 (lh-parity-004a/b, san-diego: ours
+   83). Ours added the section gap. All 24 published documents with Related Articles have them in
+   their last section; the empty section after them (the page metadata's) adds no gap of its own
+   (brief 507 on phones; every width since the brief after 539) */
+/* stylelint-disable-next-line no-descending-specificity -- the page's end, not a campaign-section's */
+body.brand-lufthansa main > .section.related-articles-container {
+  margin-bottom: 0;
+}
 
-  /* stylelint-disable-next-line no-descending-specificity -- an empty last section, not a column view's */
-  body.brand-lufthansa main > .section.related-articles-container ~ .section:last-child:not(:has(*)) {
-    margin-bottom: 0;
-  }
+/* stylelint-disable-next-line no-descending-specificity -- an empty last section, not a column view's */
+body.brand-lufthansa main > .section.related-articles-container ~ .section:last-child:not(:has(*)) {
+  margin-bottom: 0;
 }
 
 /* the column view carrier (brief 506): a section that is one www column view (Section Metadata
