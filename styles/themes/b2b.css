@@ -449,6 +449,15 @@ body.brand-b2b .columns-media.stage.light .columns-media-text > p:has(> a.button
   }
 }
 
+/* a block made of column views nested in one view (b2b-import.mjs: columns-media (nested); the
+   airlines' rows on travel-solutions/lufthansa-group-airlines): www's rows 83 px apart there, not
+   the top-level views' 106 (the brief after 526, row 36) */
+@media (width >= 768px) {
+  body.brand-b2b .columns-media.nested {
+    gap: 83px;
+  }
+}
+
 /* a card carousel right under text in a white section: www's column view with its 4rem above it
    (64 px from 768 px, 44 on phones; about-us, celebrating-shared-stories: ours the section's
    24; the brief after 526, row 35); in a grey band the band's padding spaces it */

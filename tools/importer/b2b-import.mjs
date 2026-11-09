@@ -17,6 +17,8 @@
  *   mailto: links and their text (withEmails);
  * - a column view holding a stage as a columns-media block of option stage, the stage in its
  *   half as www's (withStageColumnMarkers, withStageColumns);
+ * - a one-column view holding column views as a columns-media block of option nested, its rows
+ *   as www's nested views (withNestedColumnMarkers, withNestedColumns; the brief after 526);
  * - a tab set holding blocks (the Newsroom's categories: maui-tab-control-responsive) as Tab
  *   sections, swiss-import.mjs's withTabMarkers and splitTabSections (scripts/section-tabs.js);
  * - the pre-login search: the search bar and the results widget as one search-results block
@@ -281,6 +283,39 @@ export function withStageColumnMarkers(html) {
   return out;
 }
 
+// a one-column view that holds column views (www's airline rows: two-item views inside one view)
+const NESTED_MARK = /^@@nested-columns@@(?:\s*\{[^}]*\})?$/;
+const NESTED_END = /^@@nested-columns-end@@(?:\s*\{[^}]*\})?$/;
+
+/**
+ * A one-column view whose items hold column views (travel-solutions/lufthansa-group-airlines: the
+ * airlines' two-item views inside one view, 83 px apart on www; the homepage's top-level views, a
+ * separator between, are 106 apart) between two marker paragraphs; withNestedColumns gives the
+ * columns-media block made of it the option nested (b2b.css). The brief after 526, B2B row 36.
+ */
+export function withNestedColumnMarkers(html) {
+  if (html.includes('@@nested-columns')) return html;
+  return editDivs(html, '<div class="onecolumn', (el) => {
+    if (!/class="col[^"]*column-view-item[^"]*"[\s\S]*?<div class="(?:two|three|four)column/.test(el)) return el;
+    return `${stageMarker('@@nested-columns@@')}${el}${stageMarker('@@nested-columns-end@@')}`;
+  });
+}
+
+/** The columns-media blocks between the nested-view markers (withNestedColumnMarkers) as option nested; the markers go. */
+export function withNestedColumns(doc) {
+  if (!doc.includes('@@nested-columns')) return doc;
+  const { document } = parseHTML(`<html><body>${doc}</body></html>`);
+  const isMark = (el, re) => el.tagName === 'P' && re.test(el.textContent.trim());
+  const all = [...document.body.querySelectorAll('*')];
+  let inside = false;
+  all.forEach((el) => {
+    if (isMark(el, NESTED_MARK)) { inside = true; el.remove(); return; }
+    if (isMark(el, NESTED_END)) { inside = false; el.remove(); return; }
+    if (inside && el.matches('div.columns-media') && !el.classList.contains('nested')) el.classList.add('nested');
+  });
+  return document.body.innerHTML;
+}
+
 /** An element's trailing marker without the column-view tokens (the block keeps its own spacing). */
 const withoutColumnTokens = (el) => {
   const walker = el.ownerDocument.createTreeWalker(el, 4);
@@ -455,7 +490,7 @@ export function withPageHeading(doc) {
 export const templateOf = () => 'info';
 
 /** A snapshot as the import reads it. */
-export const mappedOf = (html) => withoutLoads(withSearch(withStageColumnMarkers(withTabMarkers(withB2bComponents(withHotlines(withEmails(withoutHelperLinks(withPlaceholder(stripScripts(html)))))))))
+export const mappedOf = (html) => withoutLoads(withSearch(withNestedColumnMarkers(withStageColumnMarkers(withTabMarkers(withB2bComponents(withHotlines(withEmails(withoutHelperLinks(withPlaceholder(stripScripts(html))))))))))
   .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, ''));
 
 const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
@@ -541,7 +576,7 @@ if (isMain) {
       const html = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       const markets = scope.documents[src]?.markets || [];
       // a tab set's panels as Tab sections (the markers withTabMarkers left, scripts/section-tabs.js)
-      const next = withPageHeading(withEndSpacer(withB2bMetadata(withHotlineFinder(withB2bQuotes(withB2bForm(withStageColumns(withTabPanels(splitTabSections(doc))), p, html), html), labelsOf(hotlineRecord, p.split('/')[2]), imageOf(hotlineRecord)), p, html, markets), html));
+      const next = withPageHeading(withEndSpacer(withB2bMetadata(withHotlineFinder(withB2bQuotes(withB2bForm(withNestedColumns(withStageColumns(withTabPanels(splitTabSections(doc)))), p, html), html), labelsOf(hotlineRecord, p.split('/')[2]), imageOf(hotlineRecord)), p, html, markets), html));
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
