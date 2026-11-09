@@ -1902,3 +1902,104 @@ ignored). Nothing uploaded, nothing published, no request to www or any brand's 
     every site's aem.live for the samples;
   - brussels.turnsthe.page and austrian.turnsthe.page for the landmark comparisons;
   - the recordings and the 478 captures from their archives.
+
+## The brief after 534: the caption, the two form pages, the ranking against the new recordings
+
+**Left from 534, as reported:** the scratch folders `migration-work/parity-517`, `519`, `530`, `536` and the scratch
+worktrees; the `urls-*.txt`, `import-progress.json` and report files that were there before are not mine. Nothing was
+unpushed. This turn adds `migration-work/parity-539` (the two recording archives, offline imports, served copies,
+measurements) and the worktrees `wt-suite-539*`. None of it is in git. Nothing uploaded or published.
+
+**Requests to www (found this turn, my own):**
+- **Widgets:** a browser render of our pages makes the site's widgets call www.lufthansa.com's public APIs
+  (`scripts/lh-data.js`: catalogs, labels, destination finder, prices), about 2 to 8 calls a page. Every capture and
+  local render in this brief and the earlier ones did that.
+- **Offline copies:** they keep www's image URLs. My local renders of them in briefs 536 and 539 loaded pictures from
+  www.lufthansa.com, www.brusselsairlines.com and www.austrian.com.
+- **From the late part of this brief on:** my scripts refuse every request to a www.* host and count them (108 refused
+  in the last measurement run). The served copies take the published document's pictures or blank ones.
+- **Not affected:** the numbers marked "local" below were measured that way. The captures of the published pages
+  (`caps/*-539`) ran before the change, with the widgets' calls.
+
+### Item 1, the caption (`fd259071`)
+
+- **Cause:** the columns-media parser kept a picture's caption on insights articles only. The cabin-pets carrier
+  picture (in a columns-media since `762510ab`) lost "Maximum 8 kg (pet incl. soft travel carrier)".
+- **Fix:** every template now keeps the caption as `<p>… {caption}</p>` in the picture's cell; an empty caption is
+  dropped.
+- **lufthansa.com:** its own pages keep today's output outside articles. Their only such captions are the 100-years
+  campaign's (8 snapshots), which are ema-adobe's rows; www shows them, so that is their call.
+- **Bundles:** the 11 that hold the parser were rebuilt. The hub bundle is left as on main, because a rebuild would also
+  ship ema-adobe's unbundled hub source.
+- **Test first:** `test/columns-media-caption-539.test.mjs`.
+- **Re-import:** `reimport-539-animals.txt` (10).
+
+### Item 2, the two form pages (`895e762a`)
+
+- **Recordings:** austrian-parity-003 and brussels-parity-004 from the R2 drop. Their sha256 match the drop's sidecars
+  (99780ee6… and 5131664c…). The progress.md the brief names is not on this disk, so I could not compare against it.
+- **Austrian exclusive-charter-enquiry:** the import already matches www field for field (labels, messages, stepper,
+  airports, masked dates, form id, success page /at/en/form-confirmation).
+  - **Look:** a band with a headline now has it 36 px under the band's top, bold (austrian.css).
+  - **Local, between band headlines, against www at 1440:** charter +29 → -7 px; invoice-request-hungary +32 / +17 →
+    -4 / -19; private-check-in-counter +54 / +36 → +18 / 0.
+- **Brussels /be/en/contact/feedback/general/other:**
+  - **Parser:**
+    - www's older date-picker field (each flight's Flight Date) becomes a date row;
+    - the "Additional passengers" section gets the rule hidden;
+    - the pre-checked Euro box gets `{selected}`.
+  - **Block:** a hidden repeatable section shows with its checkbox's toggles.
+  - **Look:** brussels.css gives the core forms www's sn look (bold band headlines and descriptions, 50 px boxed
+    fields, sn-blue-3 controls).
+  - **Result:** published 1440 +14.0 %, 390 +13.6 %. Local re-import with the theme live and www refused: +4.9 % /
+    +6.2 %, or +3.1 % / +3.6 % before www was refused.
+- **Other Brussels forms (CSS, no re-import), local:**
+  - rebooking-request-birthright +15.5 → +8.4 %;
+  - dsar-start +6.1 → +2.3 %;
+  - emergency-contact +1.9 → -4.3 % until its date rows come in on the re-import (about +74 px);
+  - charter +1.5 → -2.7 %.
+- **SWISS:** 64 form snapshots have the same date picker and gain the field on their next import (ema-lufthansa's
+  SWISS documents; www shows it).
+- **Field type without a block:** the jQuery calendar. The core date row is the masked input (DD/MM/YYYY in the field).
+  The smallest addition would be the label shown in the field until typing (Rules `label-inside`).
+- **Re-import:** `reimport-539-brussels-forms.txt` (18).
+
+### Item 3, the ranking against the new recordings
+
+- **Hosts:** our pages captured on brussels.turnsthe.page (Brussels' theme live there now) and austrian.turnsthe.page
+  (theme off), against brussels-parity-004 (30 pages) and austrian-parity-003 (28).
+- **Fixed, a rule (`98bad6bd`):** Brussels /be/en/local-page/offers, +190 % / +81 %. www's live fare recommender
+  (.fareteaserdynamicevo) is now the destination-finder block in the info template and in Austrian's three templates
+  built from it, as on the homepages. Before, it
+  came in as 16 stacked pictures. Local result -12.6 % / -14.1 %; the rest is the deals' live fares and the blanked
+  pictures.
+- **Re-import only (today's importer is right, the published documents are older):**
+  - Brussels student-fares +124 % → +10.8 %: the benefit tiles become cards-icon-text partner;
+  - Brussels star-alliance +8.7 → -4.8 %: the logo cards in a sidebar section;
+  - Austrian wetlease-hub 390 -16.5 → -11.3 %: the stage keeps its text.
+
+  All three are in `reimport-539-ranking.txt` (21, offers first). Austrian's after its collapse pass, which main shows
+  as done (`256857f4`).
+- **Live data, recording state or a one-off (named, not changed):**
+  - Brussels problems-with-your-baggage and cancel-and-refund (accordions open in the recording);
+  - Brussels our-payment-methods (www's payment widget);
+  - the offers' and Austrian promptpay's fare deals (live fares, nothing drawn from our hosts);
+  - Austrian unterhaltung-an-bord (the recording's empty panel).
+- **Not traced, under the time I had:**
+  - Austrian medical-travel-companions (390 +20.3 %, 1440 -2.0 %), cancellation-refund-via-document-upload (-10 %),
+    jp/ja baggage (390 -8.6 %);
+  - Brussels service-charges (1440 -8.6 %) and chase-the-sun (the re-import is -15 % at 390 locally, the published page
+    -2.4 %: to check before it is re-imported).
+- **After the collapse:** Brussels is live already, so the numbers above are today's live look. Austrian's switch is
+  still off; its rows were measured as the host is today.
+
+### What is left
+
+- **The brands helper:**
+  - re-import `reimport-539-animals.txt` (10), `reimport-539-brussels-forms.txt` (18) and `reimport-539-ranking.txt`
+    (21);
+  - the Austrian two of `reimport-536-empty-lines.txt` (the collapse pass is done);
+  - job 536 changed 8 documents (check-in ×6, travel-regulations, the-gambia). families-and-children fr/en and our-fleet
+    of the same list did not change, and families is still -9.1 % on the host.
+- **ema-adobe:** the 100-years captions (above).
+- **ema-lufthansa:** SWISS's 64 forms gain their date fields on the next import.
