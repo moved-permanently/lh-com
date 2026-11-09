@@ -29,7 +29,7 @@ that settle a cause) 28, mean 14.4 %.
 | /de/de/fluege, /at/de/fluege, /gb/en/flights, /de/en/flights (8) | 38.6-47.6 | the destination finder's offers are live data: ours shows "No results for your current origin selection" on this machine, www's grid of 40+ offers (8,000 px vs 3,900-5,500) | not a layout cause; the user checks the finder on our host from a normal browser |
 | /de/en, /de/de, /at/de, /gb/en overview-manage 390 (4) | 39.8-41.6 | the recording settles brief 505's question: www's Check-in card has no picture, at 1440 and 390, on both recordings (11-06 and 11-09). Our documents carry it: de/en is the stale document (its fresh draft from lh-snapshots-085 is 19.6 %), and the other three are from 2026-10-24 | a re-import of the four with the hub bundle; harness list reimport-497 part 2 (de/en); de/de, at/de, gb/en added below |
 | /xx/hk/meetings-and-events 390 / 1440 | 34.4 / 15.8 | ours 454 / 217 px shorter: the steps' text width (below, fixed) and the hk page's own text | the re-import below |
-| /de/de, /at/de, /gb/en meetings-and-events and the six others at 1440 (10) | 9.0-10.6 | **the steps' text at two thirds of the card** (www .richtext.limited-width) | **fixed, 0c9f092** (parser + block); re-import list reimport-538-card-text-width-lh-com.txt (10) |
+| /de/de, /at/de, /gb/en meetings-and-events and the six others at 1440 (10) | 9.0-10.6 | **the steps' text at two thirds of the card** (www .richtext.limited-width) | **fixed, 2a90346** (parser + block); re-import list reimport-538-card-text-width-lh-com.txt (10) |
 | /gb/en/articles/highlights/all-it-takes-is-a-yes 1440 | 28.0 | waits for its re-import (brief 507: its draft is 9-16 points better than DA's document) | the harness's re-import list |
 | /de/de, /at/de 100-years/destinations 1440 | 25.6-25.7 | both 8,000 px (truncated); drift in the carousel rows | open, below 1 row |
 | /gb/en, /de/de, /at/de airport-information 390, overview-travel-information 390, lufthansa-travel-classes 390 (12) | 18.6-25.4 | **our text runs 1.3-1.4 % narrower than www's** at the same size (18 px LufthansaText: the intro line 288 px vs 292). Fewer lines wrap, so the page drifts up 27 px per paragraph that loses a line. At 390 the footer's legal row also loses a line on de pages ("Passagierrechte" and "Erklärung zur Barrierefreiheit" fit in one row on ours, -41 px) | open: font files or rendering; the cause is the same on every page, so I measure before changing anything |
@@ -51,7 +51,7 @@ that settle a cause) 28, mean 14.4 %.
 ## Documents
 
 - reimport-538-card-text-width-lh-com.txt: the ten meetings-and-events documents in release order, for the fix of
-  0c9f092 (the local import harness re-imports, uploads and previews them; they are published in the next round, Ben's
+  2a90346 (the local import harness re-imports, uploads and previews them; they are published in the next round, Ben's
   rule).
 - overview-manage: /de/en is on the harness's reimport-497 list (part 2). /de/de, /at/de and /gb/en are from
   2026-10-24, and their re-import with the hub bundle drops the Check-in picture that www no longer shows. Release
