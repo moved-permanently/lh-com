@@ -2234,7 +2234,7 @@ hyphenation (Ben's rule); the parked test stays outside the repo.
   - Discover winter-destinations shows a broken icon. "Naturliebhaber:innen:" is read as the icon
     token `:innen:`. This needs your decision on how the importer writes that word, then one
     re-import.
-  - 15 empty accordions in 14 Discover documents (0 px, nothing visible): the importer can drop
+  - 15 empty accordions in 12 Discover documents (corrected after 514; 0 px, nothing visible): the importer can drop
     them with the next Discover re-import.
   - Pages with no h1: the Cargo SDG pages (es, fr, it, pt; www has none either) and Discover's
     application pages. No change.
@@ -2285,3 +2285,108 @@ Captures only after Ben writes that the network is stable. Each item below says 
 - **Smoke after every push:** all 14 hosts, 0 differences.
 - **Documents:** 3 to re-import, reimport-510-airdolomiti-footer.txt (/footer, /en/footer,
   /de/footer); the code commits need none.
+
+## The brief after 514
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git); nothing was unpushed. Nothing is published or uploaded, and no request went to any www.
+
+### 1. Discover importer (Discover row 40): done, b99ee4c0
+
+- **The gender colon:** Edge Delivery reads `:innen:` as an icon token, so the page showed a broken
+  /icons/innen.svg in place of "innen:". The importer now puts a WORD JOINER (U+2060: no width, no
+  line break) before the closing colon of a gender suffix (":in", ":innen" right after a letter).
+  The text reads exactly as www's, and every other token (`:phone:`) is still an icon (tested).
+- **Empty accordions:** an accordion with neither title text nor content is dropped; one with a
+  title and no body stays.
+- **Checked offline** through aem-cli's html2md and html pipeline (6.33.2) on our published
+  documents. Winter-destinations shows "Naturliebhaber:innen: üppige Vegetation" with no icon.
+  The 15 empty blocks are gone; every other accordion and every section is kept.
+- **The count:** 12 documents hold the 15 empty accordions, not 14 as my last report said
+  (sports-baggage has two per language). All 533 published Discover documents were checked.
+- **Documents:** reimport-518-discover.txt, 13 (the 12 and winter-destinations), reference roots
+  de/de, de/en, xx/fr. None of them has a snapshot on this disk (the importer's snapshot folder
+  holds Brussels only; discover-parity-001 has none of these pages).
+- **The same kind, already handled:** the culinaryjourney configuration's `dmc:https://…`
+  publishes as an `https` icon too. The micro-frontend block turns that icon back into its text
+  (micro-frontend.js), so the app gets its address and nothing changes there.
+
+### 2. SWISS homepages (SWISS row 44): done, b3133408; 186 documents ready, 41 waiting
+
+- **What the ranking saw:** the published homepages were imported before 75c9418e (2026-11-07). A
+  re-import already turns www's footer disclaimer into its note plus a link to a dialog document,
+  and the dialog's text leaves the page. The old documents still carry that text as page text
+  (504 px at 390 on /de/de/homepage; the note and the label, which www shows, make the rest of the
+  612 px).
+- **What a re-import still got wrong:** the bulk import of /us/en/homepage from its snapshot put
+  the winter sports offer's dialog into the destination finder's Conditions row. The fare teasers
+  before the finder are blocks by then, so the parser's index shifts. The general conditions were
+  then nowhere on the page.
+- **The change** (swiss-import.mjs withFinderConditions, after the import): the finder's own
+  dialog, read from the untouched snapshot by the parser's rule, fills its Conditions row; the
+  dialog's paragraphs leave the page flow; the note and the label stay.
+- **Dialog documents:** general-conditions-dialogs.mjs --host www.swiss.com writes the dialog
+  documents the re-imported homepages link (196, at /{cc}/{ll}/fragments/modals/{label}). It must
+  run after the bulk import, before the upload.
+- **Measured** on swiss.turnsthe.page with draft documents (published + the step), against the www
+  heights of ema-cashub's recordings as their ranking states them (the recordings themselves are
+  not on this disk):
+
+  | Page | 1440 www / before / after | 390 www / before / after |
+  | --- | --- | --- |
+  | /de/de/homepage | 4480 / 4438 / 4286 (-4.3 %) | 5196 / 5705 / 5201 (+0.1 %) |
+  | /us/en/homepage | 4467 / 4399 / 4269 (-4.4 %) | 4920 / 5294 / 4922 (+0.04 %) |
+  | /ch/en/homepage | 4412 / 4251 / unchanged | 5010 / 5224 / unchanged |
+
+  Both pages come within the 5 % band at both widths. /ch/en has no copy: its +4.3 % at 390 is the
+  market's promotions.
+- **Documents:** reimport-518-swiss-homepages.txt lists all 227 homepage documents (each market
+  root has its own) in release order, ch first. All 227 have a snapshot on disk; none has a
+  recording on this disk (ema-cashub's archives record ch/en, ch/de, de/de and us/en, marked).
+  186 are ready. 41 are on "# wait" lines:
+  - 40 for a capture after "stable": their snapshot carries the Bengaluru promotion, which a
+    re-import would keep. se/de's document has none but its snapshot does. All ten ch roots are
+    among them.
+  - 10 for a name rule (el, ja, ru, zh): www's label has no Latin letters, so the link and the
+    dialog document get an empty name (/{cc}/{ll}/fragments/modals/). Nine are in both groups.
+- **Written down, not changed:** the name rule exists twice, in footer-disclaimer.js and inlined
+  in transformers/lufthansa-cleanup.js (plain scripts), and the homepage bundle would need
+  rebuilding. Changing only one copy would break lufthansa.com's links, so both copies and the
+  bundle should change together. After the re-import, ch/en and ch/de link the new dialog
+  documents, and their hand-made /ch/{ll}/modals/general-conditions (2026-11-05) are no longer
+  linked.
+
+### 3. The open questions, from the archives on disk
+
+1. **The photo at the end of street-food-in-munich's h3:** an Air Dolomiti article
+   (en/articles/destinations/street-food-in-munich), not Discover. No archive on disk holds it:
+   airdolomiti-parity-001's articles hub only links it, and the media archive holds footer icons.
+   Open. Settled by a recording of that page at 1440 and 390 with its __NEXT_DATA__: the h3's block
+   and the photo's box.
+2. **What www has where Discover's accordions are empty:** none of the 12 pages is in an archive on
+   disk. Open. Settled by the snapshot of /de/en/book/baggage/excess-baggage from the harness's
+   archive: the element before "This might also be of interest to you" (one page answers the
+   pattern for all 15 blocks).
+3. **The help apps' 25 px:** partly settled, for SWISS. Its help pages' snapshots (/ch/en/help-center,
+   /ch/de/hilfe-center) wrap the app in a section without lufthansa.com's section-padding-y-regular
+   and mb-default (lufthansa-parity-001's de/en and de/de help-and-contact have both). So
+   lufthansa.com's 56/36 px rule does not carry over to SWISS, and nothing changes. The pixel
+   distance stays open: a recording of /ch/en/help-center at 1440 and 390 with the app's shadow h1
+   box and the header's bottom. ITA, Austrian and Brussels: no help page on disk. Open: the same
+   recording of one help page per brand (it/en, at/en, be/en).
+
+The Air Dolomiti hub's sticky booking bar, Cargo's timeline and Air Dolomiti's three unconfirmed
+pages stay open as listed after 509. Nobody captures anything before Ben writes "stable".
+
+### Checked
+
+- **discover.turnsthe.page:** the 533 published documents read (no browser), the 13 changed ones
+  through Edge Delivery's own chain, offline.
+- **swiss.turnsthe.page:** /de/de, /us/en and /ch/en homepages at 390 and 1440, published against
+  drafts. All 227 homepage documents read.
+- **Offline:** the bulk import of /de/de and /us/en homepages from brief 503's snapshots, in a
+  scratch workspace (the reports it writes put back).
+- **Smoke after every push:** all 14 hosts, 0 differences.
+- **Documents:** reimport-518-discover.txt (13) and reimport-518-swiss-homepages.txt (186 ready,
+  41 waiting), plus the 196 SWISS dialog documents general-conditions-dialogs.mjs writes;
+  reimport-510-airdolomiti-footer.txt (3) is with the harness already.
