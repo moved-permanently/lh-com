@@ -36,8 +36,19 @@ const blockName = (el) => String(el.className || '').split(/\s+/)[0];
 // the text without its markers and without whitespace (a serialisation may join or split text nodes, and
 // whitespace between elements comes and goes), a list's numbers and bullets written as text ("1. ", "- ") aside: the
 // collapse makes such paragraphs a list (indent-N)
+// (a run of sibling text nodes is one text: the parser splits a node at an entity, "Familie&#160;– und" is three nodes,
+// and a dash after a no-break space is no list sign; the brief after 539)
 const textNodes = (node, out = []) => {
-  node.childNodes.forEach((n) => { if (n.nodeType === 3) out.push(n.nodeValue); else if (n.nodeType === 1) textNodes(n, out); });
+  let run = null;
+  node.childNodes.forEach((n) => {
+    if (n.nodeType === 3) {
+      if (run === null) { run = out.length; out.push(''); }
+      out[run] += n.nodeValue;
+      return;
+    }
+    run = null;
+    if (n.nodeType === 1) textNodes(n, out);
+  });
   return out;
 };
 const textOf = (node) => textNodes(node).map((t) => stripMarkers(t).replace(LIST_SIGN, '')).join('').replace(/\s+/g, '');
