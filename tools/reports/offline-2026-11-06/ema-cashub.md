@@ -2004,3 +2004,29 @@ measurements) and the worktrees `wt-suite-539*`. None of it is in git. Nothing u
     of the same list did not change, and families is still -9.1 % on the host.
 - **ema-adobe:** the 100-years captions (above).
 - **ema-lufthansa:** SWISS's 64 forms gain their date fields on the next import.
+
+## The brief after 539: two tool items from the Austrian collapse pass
+
+**Left from the last turn:** nothing unpushed. The scratch folders `migration-work/parity-539` (recordings, offline
+imports, measurements) and the suite worktrees stay out of git; the `urls-*.txt`, `import-progress.json` and report
+files in the checkout are not mine.
+
+- **Item 1, the loss check (`c65d2fa9`):**
+  - **Cause:** the collapse writes a no-break space as `&#160;`, and linkedom splits a text node at an entity
+    ("Familie", " ", "– und"). The check took a list sign from the start of every text node, so the dash after the
+    no-break space went.
+  - **Fix:** a run of sibling text nodes is now read as one text. A list sign at a paragraph's start still goes, and a
+    dash that is really lost is still reported.
+  - **Test first:** `test/collapse-loss-nbsp-dash-539.test.mjs`, with the four documents' sentences.
+  - **Check on the four documents:** I took their published (collapsed) copies from our preview and wrote each
+    no-break space as `&#160;`. The old check reports a text loss on all four (at/de, pl/pl, ru/ru
+    travelling-with-animals, pl/pl online-check-in), the new one none.
+  - **Suite:** 719 files, 0 failures.
+- **Item 2, the `{spacer-350}` paragraph:** no recording of the confirmation page is on this disk. The Austrian
+  archives (austrian-parity-001, -002a, -002b, -003) and tools/reports/parity-2026-11-09 only name its address, as the
+  forms' redirect. So I cannot say from www whether the blank is there, and I left the theme as it is.
+  - **What the import tells:** the cleanup writes `{spacer-N}` from a separator's inline `margin-bottom` (N its px).
+    www's snapshot of those 7 language copies had a separator with `margin-bottom: 350px` at the top. www usually
+    draws such an inline margin, so a blank of about that size is likely, but that is not a measurement.
+  - **Capture list:** `capture-list-austrian-brussels.txt` gains the page for the capture child: lines 57
+    (it/it, which has the separator) and 58 (at/de, which the pass did not flag), at 1440 and 390.
