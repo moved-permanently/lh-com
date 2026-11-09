@@ -1,5 +1,8 @@
 /* eslint-disable no-console, max-len, no-await-in-loop, no-restricted-syntax, import/extensions -- dev tooling */
 /**
+ * RETIRED (one slug per page, slug order of 2026-11-08): the pages move to the English slug and the German slug redirects to it
+ * (tools/slugs/lh-com.json). Kept until the Lufthansa German round is done, then in git history only.
+ *
  * Slug step, after a translation project into /de/de (tools/loc/README.md): the app writes the
  * German translation of /de/en/<path> to /de/de/<path>; for the 72 pages with their own German
  * slug (tools/loc/slug-map.json, from tools/migration-scope/pages.csv) this step
@@ -36,6 +39,7 @@ import {
 } from './slug-lib.mjs';
 import { scopeRows } from './regional-diff.mjs';
 import { setupFromArgs } from './setup-lib.mjs';
+import { daBase, siteFromArgv, isDefaultSite } from './sites.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const MAP_FILE = path.join(root, 'tools/loc/slug-map.json');
@@ -52,11 +56,11 @@ export function loadMap() {
  * `Authorization: Bearer $DA_TOKEN`; the token is never printed. Without it no header is sent
  * (where the login is added for the tools).
  */
-export function daClient(fetchImpl = fetch, token = process.env.DA_TOKEN) {
-  const url = (p) => `${DA}${p}.html`;
+export function daClient(fetchImpl = fetch, token = process.env.DA_TOKEN, site = 'lh-com') {
+  const url = (p) => `${site === 'lh-com' ? DA : daBase(site)}${p}.html`;
   const auth = token ? { authorization: `Bearer ${token}` } : {};
   const denied = (status) => new Error(token
-    ? `DA ${status}: DA_TOKEN was refused (expired or without access to moved-permanently/lh-com)`
+    ? `DA ${status}: DA_TOKEN was refused (expired or without access to moved-permanently/${site})`
     : `DA ${status}: no login (set DA_TOKEN, or enable Document Authoring in Settings → LLM Permissions)`);
   return {
     async get(p) {
@@ -164,9 +168,13 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   if (argv.includes('--build-map')) {
     const m = buildSlugMap(scopeRows());
     m.paths['/de/en'] = '/de/de';
-    fs.writeFileSync(MAP_FILE, `${JSON.stringify({ source: 'tools/migration-scope/pages.csv (de_en, de_de)', ...m }, null, 1)}\n`);
+    fs.writeFileSync(MAP_FILE, `${JSON.stringify({ source: 'tools/migration-scope/pages.csv (de_en, de_de)', retired: loadMap().retired, ...m }, null, 1)}\n`);
     console.log(`slug-map.json: ${Object.keys(m.slugs).length} own German slugs, ${Object.keys(m.paths).length} paths`);
     process.exit(0);
+  }
+  if (!isDefaultSite(siteFromArgv(argv))) {
+    console.error(`slug-step: lh-com only (the 72 own German slugs). ${siteFromArgv(argv)} has one slug per page: no slug step; the pages whose www slug differs are listed in tools/slugs/${siteFromArgv(argv)}.json`);
+    process.exit(1);
   }
   const map = loadMap();
   const listed = argv.flatMap((a, i) => (a === '--page' ? [argv[i + 1]] : []));

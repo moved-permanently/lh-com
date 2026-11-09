@@ -133,3 +133,86 @@ test('the airline\'s own blocks: Brussels and Discover add nothing the airline d
   assert.ok(rules('lh-austrian').some((r) => /checkin-deadlines/.test(r.block)));
   assert.ok(!rules('lh-brussels').some((r) => /b2b|newsletter-form|checkin-deadlines/.test(r.block)));
 });
+
+// ---- the other tools with --site ---------------------------------------------------------------------------------
+
+const { spawnSync } = await import('node:child_process');
+const { sameSlugMap, localizeHref, localizeDoc } = await import('../tools/loc/link-lib.mjs');
+const { runLinkStep } = await import('../tools/loc/link-step.mjs');
+const { daClient } = await import('../tools/loc/slug-step.mjs');
+const { run: regionalRun, regionalPairs } = await import('../tools/loc/regional-diff.mjs');
+
+test('daClient: the site\'s DA root, the refusal names the site; lh-com as before', async () => {
+  const seen = [];
+  const fetchImpl = async (url, opts) => { seen.push([url, opts.method || 'GET', opts.headers.authorization]); return new Response('<main></main>', { status: 200 }); };
+  await daClient(fetchImpl, 't', 'lh-swiss').get('/ch/de/x');
+  await daClient(fetchImpl, 't').get('/de/de/x');
+  assert.deepEqual(seen, [
+    ['https://admin.da.live/source/moved-permanently/lh-swiss/ch/de/x.html', 'GET', 'Bearer t'],
+    ['https://admin.da.live/source/moved-permanently/lh-com/de/de/x.html', 'GET', 'Bearer t'],
+  ]);
+  const denied = daClient(async () => new Response('', { status: 403 }), 't', 'lh-b2b');
+  await assert.rejects(() => denied.get('/de/de/x'), /moved-permanently\/lh-b2b/);
+});
+
+test('link step without a scope table: one slug per page, the site\'s own hosts become root-relative, other hosts stay', () => {
+  const map = sameSlugMap('at/en', 'at/de', { hosts: hostsRegex('lh-austrian') });
+  const unmapped = [];
+  const r = (h) => localizeHref(h, map, (p) => unmapped.push(p));
+  assert.equal(r('https://main--lh-austrian--moved-permanently.aem.page/at/en/baggage'), '/at/de/baggage');
+  assert.equal(r('https://austrian.turnsthe.page/at/en/baggage?x=1#top'), '/at/de/baggage?x=1#top');
+  assert.equal(r('/at/en/baggage.html'), '/at/de/baggage');
+  assert.equal(r('/at/en'), '/at/de');
+  assert.equal(r('/at/en/'), '/at/de');
+  assert.equal(r('https://www.austrian.com/at/en/baggage'), null, 'www links stay');
+  assert.equal(r('https://main--lh-swiss--moved-permanently.aem.page/ch/en/x'), null, 'another site\'s host stays');
+  assert.equal(r('/at/de/baggage'), null);
+  assert.equal(r('/fr/fr/baggage'), null, 'another root');
+  assert.equal(r('#a'), null);
+  assert.deepEqual(unmapped, []);
+  const out = localizeDoc('<body><main><p><a href="https://austrian.turnsthe.page/at/en/a">https://austrian.turnsthe.page/at/en/a</a> <a href="/at/en/b">b</a> <a href="https://www.austrian.com/x">x</a></p></main></body>', map);
+  assert.equal(out.links, 2);
+  assert.match(out.html, /href="\/at\/de\/a">\/at\/de\/a<\/a>/);
+  assert.match(out.html, /href="\/at\/de\/b"/);
+  assert.match(out.html, /href="https:\/\/www\.austrian\.com\/x"/);
+  // lh-com's hosts are not this site's
+  assert.equal(localizeHref('https://lufthansa.turnsthe.page/at/en/x', map, () => {}), null);
+});
+
+test('runLinkStep without rows: the site\'s pairs from its setup, a fake DA, dry run and apply', async () => {
+  const store = new Map([['/fr/fr/a', '<body><main><p><a href="https://main--lh-austrian--moved-permanently.aem.live/at/en/b">b</a></p></main></body>'], ['/fr/fr/b', '<body><main><p>nothing</p></main></body>']]);
+  const da = { get: async (p) => store.get(p) || null, put: async (p, h) => { store.set(p, h); } };
+  const setup = locSetup(cfg('lh-austrian'));
+  const dry = await runLinkStep({
+    from: 'at/en', to: 'fr/fr', pages: ['/fr/fr/a', '/fr/fr/b', '/fr/fr/c', '/at/de/x'], rows: null, da, setup, hosts: hostsRegex('lh-austrian'),
+  });
+  assert.deepEqual(dry.map((x) => [x.page, x.status, x.links || 0]), [['/fr/fr/a', 'changes', 1], ['/fr/fr/b', 'unchanged', 0], ['/fr/fr/c', 'not in DA', 0], ['/at/de/x', 'not a /fr/fr page', 0]]);
+  assert.match(store.get('/fr/fr/a'), /aem\.live/, 'a dry run writes nothing');
+  await runLinkStep({
+    from: 'at/en', to: 'fr/fr', pages: ['/fr/fr/a'], rows: null, da, setup, apply: true, hosts: hostsRegex('lh-austrian'),
+  });
+  assert.match(store.get('/fr/fr/a'), /href="\/fr\/fr\/b"/);
+  await assert.rejects(() => runLinkStep({ from: 'at/de', to: 'fr/fr', pages: [], rows: null, da, setup }), /not a rollout or translation pair/);
+});
+
+test('slug step, regional diff, link step and marker check: another site is handled, not crashed', async () => {
+  const cli = (f, ...args) => spawnSync('node', [`tools/loc/${f}.mjs`, ...args], { cwd: new URL('..', import.meta.url).pathname, encoding: 'utf8' });
+  const slug = cli('slug-step', '--site', 'lh-swiss');
+  assert.equal(slug.status, 1);
+  assert.match(slug.stderr, /lh-com only .* tools\/slugs\/lh-swiss\.json/);
+  const diff = cli('regional-diff', '--site', 'lh-brussels');
+  assert.equal(diff.status, 0);
+  assert.match(diff.stdout, /no rollout/);
+  const link = cli('link-step', '--site', 'lh-brussels', '--from', 'be/en', '--to', 'be/fr');
+  assert.equal(link.status, 1);
+  assert.match(link.stderr, /no scope table/);
+  const marker = cli('marker-check', '--site', 'lh-cargo');
+  assert.equal(marker.status, 1);
+  assert.match(marker.stderr, /no scope table/);
+  const parked = cli('link-step', '--site', 'lh-tap', '--from', 'a/b', '--to', 'c/d');
+  assert.notEqual(parked.status, 0);
+  assert.match(parked.stderr, /parked/);
+  // the regional diff of a setup without rollout compares nothing
+  assert.deepEqual(regionalPairs(locSetup(cfg('lh-discover'))), []);
+  assert.deepEqual(await regionalRun({ setup: locSetup(cfg('lh-discover')) }), []);
+});
