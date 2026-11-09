@@ -1479,7 +1479,7 @@ TAP fragments stay in DA and in the allowlist, as you said.
   - None of them needs one of ema-test's files.
 - **Documents:** none (theme only).
 
-### Item 3: SWISS (`8b9d3c8c`, one row)
+### Item 3: SWISS (`47272dc8`, one row)
 
 - **The ranking:** `tools/reports/parity-2026-11-08/sweep-swiss-cashub.md`.
   - The published pages are those in swiss.turnsthe.page's 227 sitemaps: 67,414 pages across the
@@ -1551,7 +1551,7 @@ TAP fragments stay in DA and in the allowlist, as you said.
   - The pull brought in brief 506's carousel-cards parser change and its hub-only bundle rebuild.
   - The parser conflict was resolved with both changes.
   - My line was then added to upstream's ten bundles, each differing from main by that line alone.
-- **`8b9d3c8c` and this report:** pushed after the suite, with a pull right before.
+- **`47272dc8` and this report:** pushed after the suite, with a pull right before.
 
 ### Summary
 
@@ -1560,7 +1560,7 @@ TAP fragments stay in DA and in the allowlist, as you said.
 | 1 | `09cdc53f` | Brussels phone sliders: importer mark, carousel-cards parser and block, the bundles' line |
 | 1 | `af7be822` | Austrian boxed teasers: the test of the existing path, the re-import list (a newer capture first) |
 | 2 | `19d5920d` | ITA's footer on phones (ita.css) |
-| 3 | `8b9d3c8c` | SWISS's picture-and-text rows (swiss.css) |
+| 3 | `47272dc8` | SWISS's picture-and-text rows (swiss.css) |
 | 3, 4 | (this commit) | sweep-swiss-cashub.md, swiss-unrecorded.txt, this report |
 
 Documents to import (paths files, in release order):

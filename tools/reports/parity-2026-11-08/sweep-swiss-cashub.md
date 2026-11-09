@@ -18,7 +18,7 @@ The published pages of lh-swiss on swiss.turnsthe.page against the www.swiss.com
 
 | Commit | Row | Pages | 1440 | 390 |
 | --- | --- | --- | --- | --- |
-| `8b9d3c8c` | picture-and-text rows: a row's next heading 48 px under it, 64 px from 1025 px (swiss.css) | the 19 recorded pages with such rows | mean \|diff\| 3.80 → 2.45 % | 2.89 → 2.17 % |
+| `47272dc8` | picture-and-text rows: a row's next heading 48 px under it, 64 px from 1025 px (swiss.css) | the 19 recorded pages with such rows | mean \|diff\| 3.80 → 2.45 % | 2.89 → 2.17 % |
 
 The other high rows are live data, a link-out widget, third-party ads, the homepage import's conditions text (ema-lufthansa) and
 single pages without a shared cause. Their causes and owners are listed below.
@@ -41,16 +41,16 @@ single pages without a shared cause. Their causes and owners are listed below.
 | 12 | /us/en/homepage | 4467 / 4260 (-4.6 %) | 4920 / 5310 (+7.9 %) | as /de/de/homepage (the conditions text after the destination finder) | swiss-import.mjs (ema-lufthansa) |
 | 13 | /ch/de/book-and-manage/partner-offers/travel-insurances | 2272 / 2392 (+5.3 %) | 2092 / 2254 (+7.7 %) | 390: +93 px before "Versicherungsbedingungen" (the intro and the partner box) | not investigated further (one page) |
 | 14 | /magazine/de/inside-swiss/behind-the-scenes/up-front-and-flying-high | 11771 / 12672 (+7.7 %) | 14310 / 13486 (-5.8 %) | phones: www's advertisement slots (about 300 px each, between the sections), ours none; 1440 within 7 % | none (third-party ads) |
-| 15 | /ch/de/fly/check-in/online-check-in | 3728 / 3446 (-7.6 %) → 3486 (-6.5 %) | 5567 / 5475 (-1.7 %) → 5499 (-1.2 %) | picture-and-text rows: the next heading 24 px under a row, www 48 / 65 px (fixed, 8b9d3c8c; after values →) | swiss.css (fixed) |
-| 16 | /ch/en/fly/on-board/travel-classes/swiss-premium-economy | 4120 / 3806 (-7.6 %) → 4032 (-2.1 %) | 7682 / 7234 (-5.8 %) → 7402 (-3.6 %) | picture-and-text rows: the next heading 24 px under a row, www 48 / 65 px (fixed, 8b9d3c8c; after values →) | swiss.css (fixed) |
+| 15 | /ch/de/fly/check-in/online-check-in | 3728 / 3446 (-7.6 %) → 3486 (-6.5 %) | 5567 / 5475 (-1.7 %) → 5499 (-1.2 %) | picture-and-text rows: the next heading 24 px under a row, www 48 / 65 px (fixed, 47272dc8; after values →) | swiss.css (fixed) |
+| 16 | /ch/en/fly/on-board/travel-classes/swiss-premium-economy | 4120 / 3806 (-7.6 %) → 4032 (-2.1 %) | 7682 / 7234 (-5.8 %) → 7402 (-3.6 %) | picture-and-text rows: the next heading 24 px under a row, www 48 / 65 px (fixed, 47272dc8; after values →) | swiss.css (fixed) |
 | 17 | /ch/de/fly/on-board/entertainment-on-board | 2554 / 2470 (-3.3 %) | 2837 / 2625 (-7.5 %) | 390: -50 px before "Let SWISS entertain you", then the media rows (no heading jump) | not investigated further |
 | 18 | /ch/de/prepare/travel-regulations | 1547 / 1446 (-6.5 %) | 2696 / 2686 (-0.4 %) | 1440: below the h1 (-76 px to the footer; the travel-regulations widget) | not investigated further |
 | 19 | /ch/en/prepare/special-care/health-and-travel | 3150 / 2946 (-6.5 %) | 4873 / 4732 (-2.9 %) | 1440: -24 px per section (the aside's boxes) | not investigated further |
 | 20 | /ch/en/book-and-manage/swiss-choice/upgrade-options | 2888 / 2702 (-6.4 %) → 2822 (-2.3 %) | 3904 / 3651 (-6.5 %) → 3723 (-4.6 %) | the intro: www's p.copytext-large (18 / 30 px, 834 px wide), ours a plain paragraph (on 2 of the 69 recorded pages: a per-page style, no theme default); and the rows (fixed) | the intro: ema-test (token-free carriers) / swiss-import.mjs; rows: fixed |
-| 21 | /ch/de/fly/on-board/swiss-business | 4655 / 4364 (-6.3 %) → 4724 (+1.5 %) | 6821 / 6465 (-5.2 %) → 6681 (-2.1 %) | picture-and-text rows: the next heading 24 px under a row, www 48 / 65 px (fixed, 8b9d3c8c; after values →) | swiss.css (fixed) |
+| 21 | /ch/de/fly/on-board/swiss-business | 4655 / 4364 (-6.3 %) → 4724 (+1.5 %) | 6821 / 6465 (-5.2 %) → 6681 (-2.1 %) | picture-and-text rows: the next heading 24 px under a row, www 48 / 65 px (fixed, 47272dc8; after values →) | swiss.css (fixed) |
 | 22 | /magazine/en/switzerland/discover-switzerland/jungfrau-region | 14025 / 14283 (+1.8 %) | 13014 / 12233 (-6.0 %) | phones: www's advertisement slots (about 300 px each, between the sections), ours none; 1440 within 7 % | none (third-party ads) |
 | 23 | /ch/en/fly/on-board/green-fare | 6240 / 5869 (-5.9 %) | 7481 / 7598 (+1.6 %) | not investigated | - |
-| 24 | /ch/de/fly/on-board/swiss-economy | 3989 / 3766 (-5.6 %) → 4006 (+0.4 %) | 6755 / 6552 (-3.0 %) → 6696 (-0.9 %) | picture-and-text rows: the next heading 24 px under a row, www 48 / 65 px (fixed, 8b9d3c8c; after values →) | swiss.css (fixed) |
+| 24 | /ch/de/fly/on-board/swiss-economy | 3989 / 3766 (-5.6 %) → 4006 (+0.4 %) | 6755 / 6552 (-3.0 %) → 6696 (-0.9 %) | picture-and-text rows: the next heading 24 px under a row, www 48 / 65 px (fixed, 47272dc8; after values →) | swiss.css (fixed) |
 | 25 | /ch/en/book-and-manage/partner-offers/swiss-airrail | 6269 / 6609 (+5.4 %) → 6649 (+6.1 %) | 9662 / 9999 (+3.5 %) → 10047 (+4.0 %) | picture-and-text rows (the row rule applies; after values →) | swiss.css |
 | 26 | /ch/en/fly/flight-information/mobile-apps | 2152 / 2081 (-3.3 %) | 2643 / 2500 (-5.4 %) | not investigated | - |
 | 27 | /ch/en/customer-support/feedback | 1855 / 1927 (+3.9 %) | 2167 / 2281 (+5.3 %) | not investigated | - |
@@ -62,15 +62,15 @@ single pages without a shared cause. Their causes and owners are listed below.
 | 33 | /ch/de/fly/on-board/internet-overview | 3085 / 3117 (+1.0 %) | 3961 / 4137 (+4.4 %) | picture-and-text rows (the row rule applies; after values →) | swiss.css |
 | 34 | /ch/en/homepage | 4412 / 4231 (-4.1 %) | 5010 / 5224 (+4.3 %) | as /de/de/homepage; +201 px before "Current topics" (the market's promotions, brief 505) | swiss-import.mjs (ema-lufthansa) |
 | 35 | /ch/de/homepage | 4480 / 4297 (-4.1 %) | 5141 / 5278 (+2.7 %) | as /ch/en/homepage | swiss-import.mjs (ema-lufthansa) |
-| 36 | /ch/en/book-and-manage/rebook | 1792 / 1719 (-4.1 %) → 1759 (-1.8 %) | 2064 / 2059 (-0.2 %) → 2083 (+0.9 %) | picture-and-text rows: the next heading 24 px under a row, www 48 / 65 px (fixed, 8b9d3c8c; after values →) | swiss.css (fixed) |
+| 36 | /ch/en/book-and-manage/rebook | 1792 / 1719 (-4.1 %) → 1759 (-1.8 %) | 2064 / 2059 (-0.2 %) → 2083 (+0.9 %) | picture-and-text rows: the next heading 24 px under a row, www 48 / 65 px (fixed, 47272dc8; after values →) | swiss.css (fixed) |
 | 37 | /ch/en/book-and-manage/offers/vouchers | 3328 / 3400 (+2.2 %) | 4189 / 4356 (+4.0 %) | not investigated | - |
-| 38 | /ch/de/fly/on-board/swiss-first | 4322 / 4155 (-3.9 %) → 4238 (-1.9 %) | 8116 / 7849 (-3.3 %) → 8017 (-1.2 %) | picture-and-text rows: the next heading 24 px under a row, www 48 / 65 px (fixed, 8b9d3c8c; after values →) | swiss.css (fixed) |
-| 39 | /ch/en/book-and-manage/swiss-choice/advance-seat-reservation | 7124 / 6850 (-3.8 %) → 6890 (-3.3 %) | 9348 / 9357 (+0.1 %) → 9381 (+0.4 %) | picture-and-text rows: the next heading 24 px under a row, www 48 / 65 px (fixed, 8b9d3c8c; after values →) | swiss.css (fixed) |
+| 38 | /ch/de/fly/on-board/swiss-first | 4322 / 4155 (-3.9 %) → 4238 (-1.9 %) | 8116 / 7849 (-3.3 %) → 8017 (-1.2 %) | picture-and-text rows: the next heading 24 px under a row, www 48 / 65 px (fixed, 47272dc8; after values →) | swiss.css (fixed) |
+| 39 | /ch/en/book-and-manage/swiss-choice/advance-seat-reservation | 7124 / 6850 (-3.8 %) → 6890 (-3.3 %) | 9348 / 9357 (+0.1 %) → 9381 (+0.4 %) | picture-and-text rows: the next heading 24 px under a row, www 48 / 65 px (fixed, 47272dc8; after values →) | swiss.css (fixed) |
 | 40 | /ch/en/prepare/special-care/animals-travelling | 5121 / 4988 (-2.6 %) | 7771 / 7482 (-3.7 %) | not investigated | - |
 | 41 | /ch/de/book-and-manage/swiss-choice/additional-bag | 2387 / 2300 (-3.6 %) | 2816 / 2732 (-3.0 %) | not investigated | - |
 | 42 | /ch/de/discover/new-destinations | 6070 / 6281 (+3.5 %) | 5676 / 5772 (+1.7 %) | not investigated | - |
 | 43 | /ch/en/customer-support/faq | 2739 / 2834 (+3.5 %) | 5343 / 5371 (+0.5 %) | not investigated | - |
-| 44 | /ch/en/fly/on-board/food-and-beverage | 4473 / 4317 (-3.5 %) → 4477 (+0.1 %) | 6747 / 6679 (-1.0 %) → 6775 (+0.4 %) | picture-and-text rows: the next heading 24 px under a row, www 48 / 65 px (fixed, 8b9d3c8c; after values →) | swiss.css (fixed) |
+| 44 | /ch/en/fly/on-board/food-and-beverage | 4473 / 4317 (-3.5 %) → 4477 (+0.1 %) | 6747 / 6679 (-1.0 %) → 6775 (+0.4 %) | picture-and-text rows: the next heading 24 px under a row, www 48 / 65 px (fixed, 47272dc8; after values →) | swiss.css (fixed) |
 | 45 | /ch/de/terms-conditions | 1818 / 1843 (+1.4 %) | 3147 / 3256 (+3.5 %) | not investigated | - |
 | 46 | /ch/en/discover/swiss-recraft-collection | 4053 / 4191 (+3.4 %) | 5441 / 5355 (-1.6 %) | picture-and-text rows (the row rule applies; after values →) | swiss.css |
 | 47 | /ch/en/customer-support/faq/payment-options | 2365 / 2288 (-3.3 %) | 1990 / 1956 (-1.7 %) | not investigated | - |
@@ -83,7 +83,7 @@ single pages without a shared cause. Their causes and owners are listed below.
 | 54 | /ch/de/fly/on-board | 1448 / 1429 (-1.3 %) | 2235 / 2284 (+2.2 %) | not investigated | - |
 | 55 | /ch/de/customer-support/refunds | 1989 / 1945 (-2.2 %) | 1934 / 1957 (+1.2 %) | not investigated | - |
 | 56 | /ch/de/fly/airport | 2014 / 1973 (-2.0 %) | 3184 / 3158 (-0.8 %) | not investigated | - |
-| 57 | /ch/en/fly/on-board/food-and-beverage/special-meals | 2592 / 2547 (-1.7 %) → 2587 (-0.2 %) | 3167 / 3105 (-2.0 %) → 3129 (-1.2 %) | picture-and-text rows: the next heading 24 px under a row, www 48 / 65 px (fixed, 8b9d3c8c; after values →) | swiss.css (fixed) |
+| 57 | /ch/en/fly/on-board/food-and-beverage/special-meals | 2592 / 2547 (-1.7 %) → 2587 (-0.2 %) | 3167 / 3105 (-2.0 %) → 3129 (-1.2 %) | picture-and-text rows: the next heading 24 px under a row, www 48 / 65 px (fixed, 47272dc8; after values →) | swiss.css (fixed) |
 | 58 | /ch/en/discover/overview-inspiration | 1394 / 1402 (+0.6 %) | 2557 / 2603 (+1.8 %) | not investigated | - |
 | 59 | /ch/en/customer-support/contact-us | 2116 / 2112 (-0.2 %) | 2326 / 2366 (+1.7 %) | not investigated | - |
 | 60 | /ch/de/customer-support/contact-us | 2143 / 2112 (-1.4 %) | 2409 / 2449 (+1.7 %) | not investigated | - |
