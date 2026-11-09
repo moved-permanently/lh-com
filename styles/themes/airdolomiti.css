@@ -2467,6 +2467,32 @@ body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-
   }
 }
 
+/* the destination article lists (what to see, do, eat: the title and its text over the article
+   cards) as www's TitleDescriptionCta, a CenteredBlock (airdolomiti-parity-002, florence/what-to-see
+   at 1440; the brief after 531): the title 38 / 46 px light centred 10 px over the text, the text
+   16 / 27.2 px justified in the middle 65 % of the screen (936 px at 1440), the cards 179 px under it. From 930 px (phones as before) */
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section.breadcrumb-container.cards-teaser-container > .default-content-wrapper:has(> h1:first-child + p:last-child):has(+ .cards-teaser-wrapper > .cards-teaser.three-up) {
+    margin-bottom: 179px;
+  }
+
+  body.brand-airdolomiti main > .section.breadcrumb-container.cards-teaser-container > .default-content-wrapper:has(> h1:first-child + p:last-child):has(+ .cards-teaser-wrapper > .cards-teaser.three-up) > h1 {
+    margin-bottom: 10px;
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 46px;
+    text-align: center;
+  }
+
+  body.brand-airdolomiti main > .section.breadcrumb-container.cards-teaser-container > .default-content-wrapper:has(> h1:first-child + p:last-child):has(+ .cards-teaser-wrapper > .cards-teaser.three-up) > p {
+    max-width: 65vw;
+    margin-inline: auto;
+    font-size: 16px;
+    line-height: 27.2px;
+    text-align: justify;
+  }
+}
+
 /*
  * the destination pages' stage (hero-card-overlay, option destination; brief 456: every stage, with
  * or without its section links), as www's HeroSecond: the picture across the screen (100vh, 90vh
