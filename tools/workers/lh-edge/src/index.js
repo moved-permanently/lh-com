@@ -308,7 +308,13 @@ export const ROUTES = [
     // sites' since 16f2dd1)
     name: 'market',
     match: (url) => marketPath(url.pathname) !== null,
-    handle: async (request, env) => withLiveAlternates(await market(request, env), request, env, undefined, { marketOwn: true }),
+    handle: async (request, env) => withLiveAlternates(
+      await market(request, env),
+      request,
+      env,
+      undefined,
+      { marketOwn: true },
+    ),
   },
   {
     // the live roots' pages with their alternates once a wave is live (src/live-alternates.js)
