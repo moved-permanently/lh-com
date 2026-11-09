@@ -2182,3 +2182,88 @@ Seen during this brief and not done, because they are not in this brief's items:
   for it.
 
 These three requests landed on main while this brief ran (b20eeb24, f8349f2a).
+
+## The brief after 532 (the three requests from ema-adobe; the captions decision; every branch up to main; B2B's and Cargo's canary)
+
+The last turn (the brief after 520) left these out of git, and why:
+- logs/p4/s509 holds the DA reads of eight sites (the brands' own documents, about 190 MB), the dry runs and the edit
+  scripts;
+- the /tmp worktrees are scratch;
+- .migration/project.json is generated;
+- the 7 November autostash is untouched.
+
+Nothing was unpushed. This turn's scratch is logs/p4/s510: the sample and canary measurements and the edit scripts.
+
+1a. **No chapter rule above a heading a block follows right away** (27fd3bd2, test/chapter-rule-teaser-532.test.mjs).
+    - On the insights sample only be-picky changes: 3 rules -> 2, its teaser section -25 px. So be-picky goes from
+      +1.2 to about +0.6 % at 1440 and from +0.9 to about +0.5 % at 390, and insights from 0.5 % to about 0.4 %.
+    - Across the workspace's collapsed articles: 643 such sections in 613 documents, almost all "This may also be of
+      interest to you" / "Das könnte Sie auch interessieren" and the podcast teasers.
+1b. **No heading gap right after a Spacer** (e8089eaa, ema-adobe's selector and test). Every brand's pass-check sample
+    on its branch preview, with and without the fix: checks-532.md.
+    - It changes 69 of 338 page-widths and brings them closer to the host on all but three: ITA 3.7 -> 1.4 %, SWISS
+      2.9 -> 0.4 %, B2B 3.2 -> 0.4 %, Austrian 2.3 -> 0.9 %, Brussels 1.7 -> 0.6 %, Discover 0.9 -> 0.1 %,
+      lufthansa.com 0.7 -> 0.0 %; TAP unchanged.
+    - Pushed with green suites. On main it is live for ITA and TAP, whose switches are merged.
+1c. **The collapse keeps a video link's text** (27284049, test/video-link-text-532.test.mjs). The rewrite was
+    collapseVideos in marker-collapse.mjs (a URL text replaced by the poster's alt, else the file name). It is gone for
+    every brand. token-free-cargo-live (0e0a2c31) has it: Cargo is ready for its pass.
+- **Brussels' 30 captions under two photos** (61e81113, test/caption-gallery-532.test.mjs). My choice: such a caption
+  becomes a paragraph in the theme's default text, as the form note labels did in 54303323. The marker goes, there are
+  no italics and no figure caption, and it counts as theme. Brussels' dry run: for a person 30 -> 0; the other brands
+  unchanged.
+- **main's lint** (3891be5a): 3fb1e4f4's lh-edge line over 100 characters failed eslint on main and on every merged
+  branch. I wrapped it.
+  - lh-edge's tests: 415 passed.
+  - Smoke on the 12 hosts before and after the deploy: 0 differences on 11. On ita.turnsthe.page, /ch/de/homepage's
+    hash changed: ITA's switch and its published documents (2377993b, round 131), not the wrap.
+
+2. **Every switch branch up to main**, merge commits only, full suite per head:
+
+   | brand | head | main merged | suite |
+   | --- | --- | --- | --- |
+   | ITA | 76d8fd18 | (merged into main by you: 2377993b) | 668 |
+   | TAP | 6632f44e | 3891be5a (TAP is on main since ace9e7ee) | 693 |
+   | Brussels | 7b7c7261 | 3891be5a | 693 |
+   | Austrian | e9d3775b | d7b9b8eb | 697 |
+   | SWISS | 32f6b893 (your merge) | ace9e7ee | 696 |
+   | Discover | dcdaeb53 (your merge) | ace9e7ee | 696 |
+   | Group for Business | 6d6a9206 | 3891be5a | 693 |
+   | Cargo | 0e0a2c31 | 3891be5a | 693 |
+   | Air Dolomiti | d8762626 | 3891be5a | 693 |
+   | lufthansa.com | f2139516 | 3891be5a | 693 |
+
+   You had merged main into SWISS and Discover yourself while mine ran. I dropped my unpushed merges and tested your
+   heads.
+3. **B2B's and Cargo's canary** (checks-532.md):
+   - **B2B**: the collapse's own difference, the collapsed render against the uncollapsed one rendered the same way,
+     is a mean of 2.0 %, 10 of 40 page-widths over 3 %. DA's documents differ from the published pages on 22 of the 40
+     page-widths: re-imports previewed, not yet published. The three biggest:
+     1. help-alliance -6.7 % (a `{spacer-30}` goes; a heading that opened an outer column group leaves its padding and
+        takes B2B's default size; its paragraph runs wider);
+     2. lhg-history-alliances-and-joint-ventures -6.2 % (the same with H3s, and the grey band's Columns Media as a
+        column view of its own);
+     3. contact +4.3 % at 390 (each Columns Media of the grey band a column view of its own, also at the section's end;
+        the heading gap).
+
+     All are the known causes A to D: Ben's rule, nothing to fix.
+   - **Cargo**: 0 px on all 44 page-widths.
+
+**Checked, and on which host:**
+- full suites on main: 688 on fca84c58, 690 on 4053e2f4; after the last pull, lint plus the 42 related tests; each
+  branch's own as in the table;
+- smoke on the 12 turnsthe.page hosts;
+- the branch previews `token-free-<brand>-live--lh-<brand>` and the turnsthe.page hosts for checks-532.md;
+- api.github.com for the deploy runs.
+
+Nothing went to www. Documents: none changed, none uploaded, nothing previewed or published.
+
+**Ben's rule (what is previewed is published in the next round).** None of my steps leaves a document waiting at
+preview. One consequence for the passes: a brand's collapsed documents look right only once its switch is on main. So
+each brand's switch branch has to be merged before, or in, the round that publishes its documents. That is how you did
+ITA (2377993b) and TAP (ace9e7ee). Who publishes: that next round.
+
+Left per item:
+- 1a to 1c: nothing.
+- 2: you merge each branch after its pass.
+- 3: nothing to fix. The B2B canary's flagged pages are the known causes.
