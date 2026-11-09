@@ -88,6 +88,30 @@ own** ...":
 and, in the carrier paragraph, "ema-adobe's hub transformer writes it on import" stays (the campaign template's
 pages of one AEM section get it too since 142a2d2). No code changes: the collapse does both today.
 
+## 7. The chapter rule at www's own section boundaries (token-free.js; brief 526)
+
+`applyThemeRules`, `ruled-chapters`: every section after the first that opens with a chapter start (an H2/H3 or a bold
+heading) gets the chapter's divider. Besides the chapters the collapse split off (a `{divider}` before the heading in the
+document), that also takes www's own AEM sections that open with a heading and a block: be-picky-barcelona-insider-tips'
+"This may also be of interest to you" (H2 and its carousel-cards section), which www draws without a rule: +25 px at
+1440 and 390 (C in the pass check). The change, as the Related Articles exception already does for its section:
+
+```js
+-      else if (theme.rules.includes('ruled-chapters') && isChapterStart(first) && !section.querySelector(':scope > div.related-articles')) {
++      // not a heading that a block follows right away (www's teaser and related-articles sections draw no rule)
++      const next = first && first.nextElementSibling;
++      else if (theme.rules.includes('ruled-chapters') && isChapterStart(first) && !(next && isBlock(next))) {
+```
+
+(the `else if` needs `next` declared before the `if` chain). On the sample's five articles (logs/b526/chapter-starts.mjs,
+their collapsed documents) the heading-led sections are: the chapters "About", "About:", "Chiswick, London – More Tips",
+"Selected Tips – Additional Ideas" (a paragraph or a list follows: rule kept), the four "Related Articles" (a block
+follows: excluded today, excluded by the new condition too) and be-picky's teaser section (a block follows: no rule, as
+www). Expected: be-picky 1440 +1.2 % -> about +0.6 %, 390 +0.9 % -> about +0.5 %.
+
+Also for this brief, in ema-adobe's files: 8696468 (styles.css, live theme only) gives a ruled chapter www's 24 px under
+the text before its rule instead of a section gap.
+
 ## What ema-adobe changed on its side this brief
 
 Nothing in the theme for the switch was needed in lufthansa.com's rule files beyond the carrier (brief 506): left are

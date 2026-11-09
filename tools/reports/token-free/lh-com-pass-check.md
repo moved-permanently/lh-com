@@ -124,6 +124,26 @@ come out 90 / 165 px short of what the switch would draw.
 With insights at 1.0 %, the page types: campaign 1.5 %, hub 0.8 %, info 0.9 %, legal 2.7 %, insights 1.0 %, the rest
 0.0-0.9 %.
 
+## Legal and insights: the three biggest differences (brief 526 item 3)
+
+Legal measured again with today's code (logs/b526/pcd): advance-seat-reservations-terms-and-conditions +7.4 / +6.5 %,
+seat-reservations +1.4 / +1.1 %, passenger-rights 0 / 0 % (legal 2.7 % as before). The three biggest of the two page
+types, after 8696468:
+
+1. **The ruled chapters' section gap** (insights, every article with chapters): fixed, 8696468 (styles.css, live
+   theme only). www draws a chapter's rule 24 px under the text before it; the collapsed page had a section gap (48 px):
+   +24 px per chapter. With the rule: flying-high and food-trends 0 %, be-picky +2.9 -> +1.2 % (1440) / +2.0 -> +0.9 %
+   (390), chiswick +2.3 -> +1.2 % / +1.5 -> +0.8 %. **Insights: 12 page-widths, mean height difference 0.5 %** (was 1.0).
+2. **advance-seat-reservations-terms-and-conditions** (legal, +62 / +101 px): its Columns Media's four cells carry
+   `{copytext-medium}` (16 px text); the collapse drops it, a near value of the theme's text size (18 px), so the
+   block is 42 px (1440) / 81 px (390) taller, and its `{spacer-100}` becomes L (120 px, +20). Both are Ben's rule (near
+   values collapse); nothing to change.
+3. **The chapter rule at www's own section boundaries** (insights: be-picky's "This may also be of interest to you",
+   +25 px): ema-test's token-free.js prepends the chapter divider to every section that opens with a heading, also to
+   www's teaser section (a heading and its carousel-cards), which www draws without a rule. The exact change is item 7
+   of [the handover](lh-com-handover-ema-test.md). seat-reservations' +27 / +32 px are its headings' sizes (D, near
+   values).
+
 ## Causes, by page type (main today)
 
 - **campaign** (8 page-widths; mine): the /100-years pages grow 3-9 %: `sections-m` adds 61 px at every section start,
