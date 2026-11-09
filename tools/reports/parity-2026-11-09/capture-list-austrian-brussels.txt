@@ -1,60 +1,59 @@
-# The brief after 521 item 3 (ema-cashub, 2026-11-09): Austrian and Brussels pages to capture on www from 15:00 CET (the stable network), as brief 497's archives (the 1440 html, png and measurements; 390 where a size is listed); nothing captured before. One line per page: URL, widths, # why.
-# Part A (21): pages the ranking and the reports name as needing a recording to settle a cause (tools/reports/parity-2026-11-09/sweep-austrian-brussels-cashub.md).
-https://www.austrian.com/at/en/baggage 1440 390 # boxed teasers: the harness snapshot is older than www (reimport-austrian-boxed-teasers.txt); the recording settles /at/en only
-https://www.austrian.com/at/de/gepaeck 1440 390 # as /at/en/baggage, not recorded
-https://www.austrian.com/fr/fr/baggage 1440 390 # as /at/en/baggage, not recorded
-https://www.austrian.com/it/it/baggage 1440 390 # as /at/en/baggage, not recorded
-https://www.austrian.com/es/es/baggage 1440 390 # as /at/en/baggage, not recorded
-https://www.austrian.com/pl/pl/baggage 1440 390 # as /at/en/baggage, not recorded
-https://www.austrian.com/ru/ru/baggage 1440 390 # as /at/en/baggage, not recorded
-https://www.austrian.com/gr/el/baggage 1440 390 # as /at/en/baggage, not recorded
-https://www.austrian.com/jp/ja/baggage 1440 390 # as /at/en/baggage, not recorded
-https://www.austrian.com/cn/zh/baggage 1440 390 # as /at/en/baggage, not recorded
-https://www.austrian.com/at/de/unterhaltung-an-bord 1440 390 # the recording has about 700 px of empty space in the open tab (an empty component): ranking row 2, -18.2 %
-https://www.austrian.com/at/en/fly/on-board/culinary-services 1440 # whether its picture carousels' slides have headline components (reimport-519-austrian-carousel-titles.txt, 10 documents)
-https://www.austrian.com/at/de/bearbeitungsgebuehren 1440 390 # www's page continued with a second h1 block ("Zahlungs-Möglichkeiten") ours does not have: content or recording
-https://www.austrian.com/at/en/online-check-in 1440 # the Tour Operator Booking tab's text and picture (columns-media since fff2e69d): open that tab for the capture
-https://www.brusselsairlines.com/be/fr/extra-services/baggage/problems-with-your-baggage 1440 390 # the recording has two accordion panels open (ranking row 3); capture with all closed
-https://www.brusselsairlines.com/be/en/my-bookings/cancel-and-refund-requests 1440 390 # the recording has a panel and the chat assistant open (row 4); capture with both closed
-https://www.brusselsairlines.com/be/fr/book-a-flight/our-payment-methods 1440 390 # the payment methods widget is empty in the recording (row 2)
-https://www.brusselsairlines.com/be/fr/legal-notices 1440 # the h1 84 px higher on ours: something above it on www (row 11)
-https://www.brusselsairlines.com/be/en/articles/the-gambia 1440 # the price bar over the article h1 in the recording (h1 +84 px on ours)
-https://www.brusselsairlines.com/be/fr/articles/vibrant-senegal 1440 # as the-gambia (h1 +85 px)
-https://www.brusselsairlines.com/be/fr/special-care/families-and-children 1440 390 # the no-break-space lines (item 4 of the brief after 521): their height on www
-# Part B (35): one page per page type (the path's first part after the root; "top" for a flat path) and template (the documents' key blocks) that has no recorded document: the en copy on the main root where published (at/en, be/en), else the first published copy.
-https://www.austrian.com/at/en/plan/special-requirements/medical-travel-companions 1440 390 # austrian: type plan, template info, 63 documents without a recording
-https://www.austrian.com/at/en/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry 1440 390 # the brief after 527 item 2, Austrian's template that decides most documents without a recording: form, 187 documents, only 11 of them copies of a recorded page (every other Austrian template has its recorded pages); settles the core form block (fields, labels, the submit row, the success text) for 176 documents
-https://www.austrian.com/at/en/book-and-manage/flights/wetlease-hub 1440 390 # austrian: type book-and-manage, template info, 10 documents without a recording
-https://www.austrian.com/at/en/fly/check-in/private-check-in-counter 1440 390 # austrian: type fly, template form, 10 documents without a recording
-https://www.austrian.com/at/en/footer-pages/help-and-contact/bagdamage 1440 390 # austrian: type footer-pages, template form, 6 documents without a recording
-https://www.austrian.com/at/de/local-page/feels-like-flying/os401crewstory 1440 390 # austrian: type local-page, template info, 5 documents without a recording
-https://www.austrian.com/al/en/local-page/black-friday 1440 390 # austrian: type local-page, template info-faq, 4 documents without a recording
-https://www.austrian.com/cn/en/local-pages/tarmac-delay-contingency-plan 1440 390 # austrian: type local-pages, template info, 3 documents without a recording
-https://www.austrian.com/th/en/book/flights/promptpay 1440 390 # austrian: type book, template hub, 2 documents without a recording
-https://www.austrian.com/us/en/local-page/ski-campaign-2026 1440 390 # austrian: type local-page, template hub, 2 documents without a recording
-https://www.austrian.com/at/de/book/overview-manage/manage-my-bookings 1440 390 # austrian: type book, template checkin, 1 documents without a recording
-https://www.austrian.com/il/en/legal/cancellation-refund-via-document-upload 1440 390 # austrian: type legal, template form, 1 documents without a recording
-https://www.austrian.com/hu/en/local-page/invoice-request-hungary 1440 390 # austrian: type local-page, template form, 1 documents without a recording
-https://www.brusselsairlines.com/be/en/contact/feedback/general/other 1440 390 # the brief after 527 item 2, Brussels' template that decides most documents without a recording: form, 101 documents, none recorded (66 contact forms); settles the form block's layout and spacing for all 101
-https://www.brusselsairlines.com/be/en/contact/feedback 1440 390 # brussels: type contact, template info, 39 documents without a recording
-https://www.brusselsairlines.com/be/en/our-company/organisation 1440 390 # brussels: type our-company, template info, 20 documents without a recording
-https://www.brusselsairlines.com/be/en/local-page/offers 1440 390 # brussels: type local-page, template info, 15 documents without a recording
-https://www.brusselsairlines.com/be/en/book-a-flight/groups-and-charter/charter 1440 390 # brussels: type book-a-flight, template form, 14 documents without a recording
-https://www.brusselsairlines.com/be/en/lufthansa-group/star-alliance 1440 390 # brussels: type lufthansa-group, template info, 14 documents without a recording
-https://www.brusselsairlines.com/be/en/my-bookings/emergency-contact 1440 390 # brussels: type my-bookings, template form, 14 documents without a recording
-https://www.brusselsairlines.com/be/en/check-in-options-and-info/check-in-at-the-airport 1440 390 # brussels: type check-in-options-and-info, template info-faq, 12 documents without a recording
-https://www.brusselsairlines.com/be/en/local-page/student-fares 1440 390 # brussels: type local-page, template info-faq, 11 documents without a recording
-https://www.brusselsairlines.com/be/en/farealert/unsubscribe-failure 1440 390 # brussels: type farealert, template info, 10 documents without a recording
-https://www.brusselsairlines.com/be/en/local-page/chase-the-sun-across-spain 1440 390 # brussels: type local-page, template hub, 10 documents without a recording
-https://www.brusselsairlines.com/be/en/contact/service-charges 1440 390 # brussels: type contact, template info-faq, 8 documents without a recording
-https://www.brusselsairlines.com/be/en/jobs/core-values 1440 390 # brussels: type jobs, template info, 8 documents without a recording
-https://www.brusselsairlines.com/be/en/check-in-options-and-info/check-in-times 1440 390 # brussels: type check-in-options-and-info, template info, 7 documents without a recording
-https://www.brusselsairlines.com/be/en/extra-services/meals/bon 1440 390 # brussels: type extra-services, template info-gallery, 6 documents without a recording
-https://www.brusselsairlines.com/be/en/jobs/mpl-cadet-program 1440 390 # brussels: type jobs, template info-faq, 6 documents without a recording
-https://www.brusselsairlines.com/be/en/legal-notices/dsar-start 1440 390 # brussels: type legal-notices, template form, 6 documents without a recording
-https://www.brusselsairlines.com/be/en/lufthansa-group/lufthansa-group/ita-airways 1440 390 # brussels: type lufthansa-group, template info-faq, 6 documents without a recording
-https://www.brusselsairlines.com/be/en/travel-comfortably-from-lille 1440 390 # brussels: type top, template info-faq, 3 documents without a recording
-https://www.brusselsairlines.com/am/en/non-encrypt-mail/contact-form-error 1440 390 # brussels: type non-encrypt-mail, template info, 2 documents without a recording
-https://www.brusselsairlines.com/be/en/flying-with-us/romantic-getaways 1440 390 # brussels: type flying-with-us, template article, 1 documents without a recording
-https://www.brusselsairlines.com/il/en/rebooking-request-birthright 1440 390 # brussels: type top, template form, 1 documents without a recording
-# 56 pages, 107 page captures (a width each): at 10 seconds a capture about 18 minutes (9 minutes at 10 seconds a page with both widths in one visit).
+# The brief after 521 item 3, ordered in the brief after 527 items 2 and 3 (ema-cashub, 2026-11-09): Austrian and Brussels pages to capture on www from 15:00 CET (the stable network), as brief 497's archives (the 1440 html, png and measurements; 390 where listed); nothing captured before. In the order to take: most decisive first. One line per page: URL (host and path), widths, # rank: what it decides.
+# 1-3: an open decision or a re-import list; 4-5: the two templates without a recording that decide most documents; 6-14: the ranking's open causes, by their gap; then one page per page type and template without a recorded document, by its documents; last the language copies that only give the boxed-teaser re-import its snapshot.
+https://www.brusselsairlines.com/be/fr/special-care/families-and-children 1440 390 # 1: the empty-line decision (nbsp-guard.mjs drops <p>&nbsp;</p> as the brief asks; keeping them is one line): their height on www today, on the page where they are half the gap; settles it for every document with such lines
+https://www.austrian.com/at/en/online-check-in 1440 # 2: reimport-522-austrian-tab-columns.txt (20 documents): the Tour Operator Booking tab's text and picture side by side; open that tab for the capture
+https://www.austrian.com/at/en/fly/on-board/culinary-services 1440 # 3: reimport-519-austrian-carousel-titles.txt (10 of its 12 documents): whether the picture carousels' slides have headline components
+https://www.austrian.com/at/en/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry 1440 390 # 4: Austrian's form template: 187 documents, only 11 of them copies of a recorded page (every other Austrian template has its recorded pages); settles the core form block (fields, labels, the submit row, the success text) for 176 documents
+https://www.brusselsairlines.com/be/en/contact/feedback/general/other 1440 390 # 5: Brussels' form template: 101 documents, none recorded (66 contact forms); settles the form block's layout and spacing for all 101
+https://www.brusselsairlines.com/be/fr/book-a-flight/our-payment-methods 1440 390 # 6: ranking row 2 (-28.4 % at 1440, 8 documents): the payment methods widget is empty in the recording
+https://www.brusselsairlines.com/be/fr/extra-services/baggage/problems-with-your-baggage 1440 390 # 7: row 3 (-28.6 % at 390, 8 documents): two accordion panels open in the recording; capture with all closed
+https://www.brusselsairlines.com/be/en/my-bookings/cancel-and-refund-requests 1440 390 # 8: row 4 (-24.6 % at 1440, 7 documents): a panel and the chat assistant open in the recording; capture with both closed
+https://www.austrian.com/at/de/unterhaltung-an-bord 1440 390 # 9: Austrian row 2 (-18.2 %, 10 documents): about 700 px of empty space in the open tab in the recording (an empty component)
+https://www.austrian.com/at/en/baggage 1440 390 # 10: Austrian row 3 (-13.5 % at 390, 10 documents): the boxed teasers; the harness's snapshot is older than www (reimport-austrian-boxed-teasers.txt)
+https://www.brusselsairlines.com/be/fr/legal-notices 1440 # 11: row 11 (-8.3 %, 6 documents): the h1 84 px higher on ours, something above it on www
+https://www.austrian.com/at/de/bearbeitungsgebuehren 1440 390 # 12: Austrian row 13 (+5.4 / +6.3 %): www's second h1 block ("Zahlungs-Möglichkeiten"), content or recording
+https://www.brusselsairlines.com/be/en/articles/the-gambia 1440 # 13: the price bar over the article h1 in the recording (h1 +84 px on ours; 3 documents)
+https://www.brusselsairlines.com/be/fr/articles/vibrant-senegal 1440 # 14: as the-gambia (h1 +85 px; 3 documents)
+https://www.austrian.com/at/en/plan/special-requirements/medical-travel-companions 1440 390 # 15: austrian: page type plan, template info, 63 documents without a recording
+https://www.brusselsairlines.com/be/en/contact/feedback 1440 390 # 16: brussels: page type contact, template info, 39 documents without a recording
+https://www.brusselsairlines.com/be/en/our-company/organisation 1440 390 # 17: brussels: page type our-company, template info, 20 documents without a recording
+https://www.brusselsairlines.com/be/en/local-page/offers 1440 390 # 18: brussels: page type local-page, template info, 15 documents without a recording
+https://www.brusselsairlines.com/be/en/book-a-flight/groups-and-charter/charter 1440 390 # 19: brussels: page type book-a-flight, template form, 14 documents without a recording
+https://www.brusselsairlines.com/be/en/lufthansa-group/star-alliance 1440 390 # 20: brussels: page type lufthansa-group, template info, 14 documents without a recording
+https://www.brusselsairlines.com/be/en/my-bookings/emergency-contact 1440 390 # 21: brussels: page type my-bookings, template form, 14 documents without a recording
+https://www.brusselsairlines.com/be/en/check-in-options-and-info/check-in-at-the-airport 1440 390 # 22: brussels: page type check-in-options-and-info, template info-faq, 12 documents without a recording
+https://www.brusselsairlines.com/be/en/local-page/student-fares 1440 390 # 23: brussels: page type local-page, template info-faq, 11 documents without a recording
+https://www.austrian.com/at/en/book-and-manage/flights/wetlease-hub 1440 390 # 24: austrian: page type book-and-manage, template info, 10 documents without a recording
+https://www.austrian.com/at/en/fly/check-in/private-check-in-counter 1440 390 # 25: austrian: page type fly, template form, 10 documents without a recording
+https://www.brusselsairlines.com/be/en/farealert/unsubscribe-failure 1440 390 # 26: brussels: page type farealert, template info, 10 documents without a recording
+https://www.brusselsairlines.com/be/en/local-page/chase-the-sun-across-spain 1440 390 # 27: brussels: page type local-page, template hub, 10 documents without a recording
+https://www.brusselsairlines.com/be/en/contact/service-charges 1440 390 # 28: brussels: page type contact, template info-faq, 8 documents without a recording
+https://www.brusselsairlines.com/be/en/jobs/core-values 1440 390 # 29: brussels: page type jobs, template info, 8 documents without a recording
+https://www.brusselsairlines.com/be/en/check-in-options-and-info/check-in-times 1440 390 # 30: brussels: page type check-in-options-and-info, template info, 7 documents without a recording
+https://www.austrian.com/at/en/footer-pages/help-and-contact/bagdamage 1440 390 # 31: austrian: page type footer-pages, template form, 6 documents without a recording
+https://www.brusselsairlines.com/be/en/extra-services/meals/bon 1440 390 # 32: brussels: page type extra-services, template info-gallery, 6 documents without a recording
+https://www.brusselsairlines.com/be/en/jobs/mpl-cadet-program 1440 390 # 33: brussels: page type jobs, template info-faq, 6 documents without a recording
+https://www.brusselsairlines.com/be/en/legal-notices/dsar-start 1440 390 # 34: brussels: page type legal-notices, template form, 6 documents without a recording
+https://www.brusselsairlines.com/be/en/lufthansa-group/lufthansa-group/ita-airways 1440 390 # 35: brussels: page type lufthansa-group, template info-faq, 6 documents without a recording
+https://www.austrian.com/at/de/local-page/feels-like-flying/os401crewstory 1440 390 # 36: austrian: page type local-page, template info, 5 documents without a recording
+https://www.austrian.com/al/en/local-page/black-friday 1440 390 # 37: austrian: page type local-page, template info-faq, 4 documents without a recording
+https://www.austrian.com/cn/en/local-pages/tarmac-delay-contingency-plan 1440 390 # 38: austrian: page type local-pages, template info, 3 documents without a recording
+https://www.brusselsairlines.com/be/en/travel-comfortably-from-lille 1440 390 # 39: brussels: page type top, template info-faq, 3 documents without a recording
+https://www.austrian.com/th/en/book/flights/promptpay 1440 390 # 40: austrian: page type book, template hub, 2 documents without a recording
+https://www.austrian.com/us/en/local-page/ski-campaign-2026 1440 390 # 41: austrian: page type local-page, template hub, 2 documents without a recording
+https://www.brusselsairlines.com/am/en/non-encrypt-mail/contact-form-error 1440 390 # 42: brussels: page type non-encrypt-mail, template info, 2 documents without a recording
+https://www.austrian.com/at/de/book/overview-manage/manage-my-bookings 1440 390 # 43: austrian: page type book, template checkin, 1 documents without a recording
+https://www.austrian.com/il/en/legal/cancellation-refund-via-document-upload 1440 390 # 44: austrian: page type legal, template form, 1 documents without a recording
+https://www.austrian.com/hu/en/local-page/invoice-request-hungary 1440 390 # 45: austrian: page type local-page, template form, 1 documents without a recording
+https://www.brusselsairlines.com/be/en/flying-with-us/romantic-getaways 1440 390 # 46: brussels: page type flying-with-us, template article, 1 documents without a recording
+https://www.brusselsairlines.com/il/en/rebooking-request-birthright 1440 390 # 47: brussels: page type top, template form, 1 documents without a recording
+https://www.austrian.com/at/de/gepaeck 1440 390 # 48: the snapshot for the boxed-teaser re-import of this copy (as /at/en/baggage above; decides only this document)
+https://www.austrian.com/fr/fr/baggage 1440 390 # 49: the snapshot for the boxed-teaser re-import of this copy (as /at/en/baggage above; decides only this document)
+https://www.austrian.com/it/it/baggage 1440 390 # 50: the snapshot for the boxed-teaser re-import of this copy (as /at/en/baggage above; decides only this document)
+https://www.austrian.com/es/es/baggage 1440 390 # 51: the snapshot for the boxed-teaser re-import of this copy (as /at/en/baggage above; decides only this document)
+https://www.austrian.com/pl/pl/baggage 1440 390 # 52: the snapshot for the boxed-teaser re-import of this copy (as /at/en/baggage above; decides only this document)
+https://www.austrian.com/ru/ru/baggage 1440 390 # 53: the snapshot for the boxed-teaser re-import of this copy (as /at/en/baggage above; decides only this document)
+https://www.austrian.com/gr/el/baggage 1440 390 # 54: the snapshot for the boxed-teaser re-import of this copy (as /at/en/baggage above; decides only this document)
+https://www.austrian.com/jp/ja/baggage 1440 390 # 55: the snapshot for the boxed-teaser re-import of this copy (as /at/en/baggage above; decides only this document)
+https://www.austrian.com/cn/zh/baggage 1440 390 # 56: the snapshot for the boxed-teaser re-import of this copy (as /at/en/baggage above; decides only this document)
+# 56 pages, 107 page captures (a width each): at 10 seconds a capture about 18 minutes.
