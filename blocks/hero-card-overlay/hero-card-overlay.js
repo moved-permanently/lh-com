@@ -315,8 +315,39 @@ function phonePicture(picture, eager, from) {
  * (optional eyebrow paragraph, heading, text, CTA links) in any other cell.
  * @param {Element} block
  */
+/** The languages with their own transport stories overview (/<lang>/ci/transport-stories). */
+const STORY_HOMES = ['de', 'en', 'es', 'fr', 'it', 'pt'];
+
+/**
+ * Cargo's transport stories: www's story template puts "Transport Stories Home" (the same English
+ * label in every language) under the breadcrumb, a link to the stories' overview; the importer
+ * drops it as a template part. The page's first picture module (the light option, Cargo's
+ * stories only) adds it before itself, once.
+ * @param {Element} block a hero-card-overlay block
+ * @param {string} lang the page's language (its path's first segment)
+ */
+export function storyHomeLink(block, lang) {
+  if (!block.classList.contains('light') || !document.body.classList.contains('brand-cargo')) return;
+  const main = block.closest('main');
+  const wrapper = block.parentElement;
+  if (!main || !wrapper || main.querySelector('.hero-card-overlay.light') !== block) return;
+  if (main.querySelector('.hero-card-overlay-stories')) return;
+  const row = document.createElement('div');
+  row.className = 'hero-card-overlay-stories-wrapper';
+  const p = document.createElement('p');
+  p.className = 'hero-card-overlay-stories';
+  const a = document.createElement('a');
+  a.href = `/${STORY_HOMES.includes(lang) ? lang : 'en'}/ci/transport-stories`;
+  a.textContent = 'Transport Stories Home';
+  p.append(a);
+  row.append(p);
+  wrapper.before(row);
+}
+
 export default function decorate(block) {
   instanceCount += 1;
+  // Cargo's paths start with the language (/de/news/…)
+  storyHomeLink(block, window.location.pathname.split('/')[1] || '');
   // a linked .mp4 (SWISS's main stage teaser, www's moving image): no card content
   const videoLink = takeVideoLink(block);
   const picture = block.querySelector('picture');

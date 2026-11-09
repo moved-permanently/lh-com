@@ -723,6 +723,61 @@ body.brand-cargo .footer .footer-logos li:nth-child(3) {
   }
 }
 
+/* row 47 (the brief after 540): a story's own chrome as www's story template (cargo-parity-001's 142
+   story): "Transport Stories Home" in its grey label with the stories' icon under the breadcrumb
+   (hero-card-overlay.js adds it), 28 px over the first picture; from 1025 px a 38 px navy chevron
+   at the foot of every module (www's story-scrollLink, 3 px over the module's edge), the last one up */
+body.brand-cargo .hero-card-overlay-stories-wrapper {
+  margin-top: 22px;
+}
+
+body.brand-cargo .hero-card-overlay-stories {
+  margin: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the label's link, not the header's */
+body.brand-cargo .hero-card-overlay-stories a {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 25px;
+  padding: 0 5px 0 35px;
+  background-color: #d3d3d3;
+  background-image: url("/icons/cargo-stories.svg");
+  background-repeat: no-repeat;
+  background-position: 8px center;
+  color: #05164d;
+  font-size: 14px;
+  line-height: 25px;
+  text-decoration: none;
+}
+
+@media (width >= 1025px) {
+  body.brand-cargo main > .section:has(> .hero-card-overlay-wrapper > .hero-card-overlay.light) > :is(.hero-card-overlay-wrapper, .columns-media-wrapper) {
+    position: relative;
+  }
+
+  body.brand-cargo main > .section:has(> .hero-card-overlay-wrapper > .hero-card-overlay.light) > :is(.hero-card-overlay-wrapper, .columns-media-wrapper)::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    z-index: 2;
+    width: 38px;
+    height: 38px;
+    margin-left: -19px;
+    background: #006 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2.5' d='M2 5l6 6 6-6'/%3E%3C/svg%3E") center / 16px no-repeat;
+  }
+
+  body.brand-cargo main > .section:has(> .hero-card-overlay-wrapper > .hero-card-overlay.light) > :is(.hero-card-overlay-wrapper, .columns-media-wrapper):not(:has(~ :is(.hero-card-overlay-wrapper, .columns-media-wrapper)))::after {
+    rotate: 180deg;
+  }
+
+  /* a text module's at the foot of its 50 px before the next picture, on that picture's edge */
+  body.brand-cargo main > .section:has(> .hero-card-overlay-wrapper > .hero-card-overlay.light) > .columns-media-wrapper:has(+ .hero-card-overlay-wrapper)::after {
+    bottom: -51px;
+  }
+}
+
 /* row 42 (the brief after 509): a gallery's dots onto the next line, centred, as www's inline-block
    owl dots (one dot a picture: the industry galleries ran past the screen at 390) */
 body.brand-cargo .carousel-images .carousel-images-dots {
@@ -740,6 +795,11 @@ body.brand-cargo .carousel-images .carousel-images-dots {
 body.brand-cargo main > .section > .hero-card-overlay-wrapper:has(> .hero-card-overlay.light) {
   max-width: 1354px;
   margin-inline: auto;
+}
+
+/* (row 47) the first picture 28 px under the stories' label */
+body.brand-cargo main > .section > div.hero-card-overlay-stories-wrapper + .hero-card-overlay-wrapper:has(> .hero-card-overlay.light) {
+  margin-top: 28px;
 }
 
 /* (one column as wide as the block: sized by the content it grew to the card's longest title word,
