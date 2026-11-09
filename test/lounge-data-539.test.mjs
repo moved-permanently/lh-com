@@ -126,11 +126,19 @@ test('tools/lounges/build-lounge-data.mjs: www answers in, the folder and manife
   fs.writeFileSync(path.join(answers, 'index.jsonl'), [
     { status: 'BUS', code: 'FRA', kind: 'city', http: 200, file: 'BUS/FRA.json' },
     { status: 'BUS', code: 'NQZ', kind: 'city', http: 200, file: 'BUS/NQZ.json' },
+    // an index that lists every call of the recording (lh-lounges-api-006): a file of another archive is skipped,
+    // a by-airport call too (the finder searches by city)
+    { status: 'SEN', code: 'MUC', kind: 'city', http: 200, file: 'SEN/MUC.json' },
+    { status: 'BUS', code: 'LHR', kind: 'airport', http: 200, file: 'BUS/LHR.airport.json' },
   ].map((r) => JSON.stringify(r)).join('\n'));
+  fs.writeFileSync(path.join(answers, 'BUS', 'LHR.airport.json'), JSON.stringify({ lounges: [{ loungeid: '1' }] }));
+  // the merged file of the last archive: status, city, body
+  fs.writeFileSync(path.join(answers, 'lounges.json'), JSON.stringify({ HON: { FRA: { lounges: [{ loungeid: '14448' }, { loungeid: '14433' }] } } }));
   const out = path.join(tmp, 'out');
   execFileSync(process.execPath, [new URL('../tools/lounges/build-lounge-data.mjs', import.meta.url).pathname, '--onload', onload, '--answers', answers, '--out', out], { stdio: 'pipe' });
   const read = (f) => JSON.parse(fs.readFileSync(path.join(out, f), 'utf8'));
-  assert.deepEqual(read('manifest.json').lounges, { en: { BUS: { FRA: 1, NQZ: 0 } } });
+  assert.deepEqual(read('manifest.json').lounges, { en: { BUS: { FRA: 1, NQZ: 0 }, HON: { FRA: 2 } } });
+  assert.ok(!fs.existsSync(path.join(out, 'en/BUS/LHR.json')), 'no by-airport answer');
   assert.equal(read('en/BUS/FRA.json').lounges[0].loungeid, '14552');
   assert.ok(!fs.existsSync(path.join(out, 'en/BUS/NQZ.json')), 'no file for an empty answer');
   assert.equal(read('cities-de.json').cities[0].city, 'Frankfurt am Main');

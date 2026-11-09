@@ -11,7 +11,8 @@
  * --onload: <page>/requests.jsonl + <page>/responses/*.json per page (de-de, de-en, at-de,
  *   gb-en): catalogs/lounges/cities and labels/loungefinder/lh/<ll>, de from de-de, en from de-en.
  * --answers, any of three layouts (later ones win for the same status, city and language):
- *   - index.jsonl rows {status, code, file, lang?} with <file> beside it (lh-lounges-api-003);
+ *   - index.jsonl rows {status, code, file, lang?} with <file> beside it (lh-lounges-api-003; a row
+ *     whose file isn't in that folder, another archive's, is skipped: -006 lists all 970 calls);
  *   - search/responses/<ll>-<STATUS>-<CITY>.json (lh-lounges-api-002; "-airport" ones skipped);
  *   - lounges.json {<STATUS>: {<CITY>: answer}} or {<ll>: {<STATUS>: {<CITY>: answer}}}.
  *   A row without a language is en (the recorder's default header).
@@ -60,7 +61,9 @@ answersDirs.forEach((dir) => {
       const r = JSON.parse(l);
       if (r.http !== undefined && r.http !== 200) return;
       if (r.kind && r.kind !== 'city') return;
-      if (put(r.lang || 'en', r.status, r.code, readJson(path.join(dir, r.file)))) n += 1;
+      const file = path.join(dir, r.file);
+      if (!fs.existsSync(file)) return;
+      if (put(r.lang || 'en', r.status, r.code, readJson(file))) n += 1;
     });
   }
   const search = path.join(dir, 'search', 'responses');
