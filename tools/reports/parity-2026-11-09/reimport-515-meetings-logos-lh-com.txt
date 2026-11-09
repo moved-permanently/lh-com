@@ -1,0 +1,8 @@
+# Brief 515 item 3: meetings-and-events' partner logos as a phone slider (columns-media cell-slider), in release order; only after ema-cashub's parser change (tools/reports/parity-2026-11-09/shared-blocks-515.md) and the hub bundle rebuilt. All seven are published on lufthansa.turnsthe.page (200, checked 2026-11-09).
+/de/en/meetings-and-events
+/de/de/meetings-and-events
+/at/de/meetings-and-events
+/gb/en/meetings-and-events
+/fr/fr/meetings-and-events
+/xx/es/meetings-and-events
+/xx/fr/meetings-and-events
