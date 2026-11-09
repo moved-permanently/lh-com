@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-flight-status.js
-  var tmp_bundle_austrian_flight_status_830859_exports = {};
-  __export(tmp_bundle_austrian_flight_status_830859_exports, {
-    default: () => tmp_bundle_austrian_flight_status_830859_default
+  var tmp_bundle_austrian_flight_status_1493351_exports = {};
+  __export(tmp_bundle_austrian_flight_status_1493351_exports, {
+    default: () => tmp_bundle_austrian_flight_status_1493351_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -7872,7 +7872,7 @@ var CustomImportScript = (() => {
         if (!g.first || own.indexOf(g.first) < 0 || own.indexOf(g.first) > own.indexOf(g.last)) return;
         let { first } = g;
         while (isSepP(first.previousElementSibling)) first = first.previousElementSibling;
-        const more = own.indexOf(g.last) < own.length - 1;
+        const more = own.slice(own.indexOf(g.last) + 1).some((el) => !(el.tagName === "P" && isEmptyP(el)));
         const view = ownContent(section)[0] === first ? section : splitBefore(section, first, doc);
         if (!view) return;
         if (more) splitAfter(view, g.last, doc);
@@ -8477,7 +8477,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_flight_status_830859_default = {
+  var tmp_bundle_austrian_flight_status_1493351_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -8516,5 +8516,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_flight_status_830859_exports);
+  return __toCommonJS(tmp_bundle_austrian_flight_status_1493351_exports);
 })();

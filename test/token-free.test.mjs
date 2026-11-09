@@ -168,7 +168,7 @@ test('media.js: a link\'s #size=WxH is the video\'s size, no settings the defaul
   assert.match(header, /\|\| block\.classList\.contains\('mobile-video'\);/);
 });
 
-test('the page\'s Headings row; block options: spacing, small print, title size', () => {
+test('the page\'s Headings row; block options: spacing, small print, title size (every theme off)', () => offThemes(() => {
   const main = decorate('<div><h2>A</h2><h3>B</h3><p>Text</p><div class="columns-media space-l small-print title-compact"><div><div><h2>T</h2><p>Small</p></div></div></div></div>', { read: (n) => (n === 'headings' ? 'H3 large' : '') });
   const section = main.querySelector(':scope > div');
   assert.equal(section.querySelector(':scope > h2').className, '');
@@ -177,7 +177,7 @@ test('the page\'s Headings row; block options: spacing, small print, title size'
   assert.equal(shape(block.previousElementSibling), SEP(120));
   assert.equal(block.querySelector('p').className, 'copytext-small');
   assert.equal(block.querySelector('h2').className, 'heading-copytext-large');
-});
+}));
 
 test('captions become a figure with the image paragraph and its figcaption; "{caption}" and buttons as before', () => {
   const main = decorate(`<div><p>${PICTURE}</p><p><em>Lisbon at <strong>dusk</strong></em></p><p>${PICTURE}</p><p class="caption">Marked</p><p>${PICTURE}</p><p><em><a href="/x">More</a></em></p></div>`);

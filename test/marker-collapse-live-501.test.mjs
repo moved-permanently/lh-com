@@ -29,7 +29,7 @@ test('a brand whose theme is off: the document as it came; live or forced: colla
   assert.equal(run({ brand: 'brussels' }).html, DOC, 'another brand stays');
 }));
 
-test('the importers\' table form and the app screens too', () => {
+test('the importers\' table form and the app screens too', () => offThemes(() => {
   const { document } = parseHTML('<html><body><main><p>{spacer-60}</p><p>A {copytext-small}</p><hr><table><tr><th>Metadata</th></tr></table></main></body></html>');
   const main = document.querySelector('main');
   const before = main.innerHTML;
@@ -38,7 +38,7 @@ test('the importers\' table form and the app screens too', () => {
   const app = '<div><p>{spacer: medium}</p><p>Fine {small}</p></div>';
   assert.equal(collapseHtml(app, { path: '/content/mobile/lh/de/x', parse: parseHTML }).html, app);
   assert.notEqual(collapseHtml(app, { path: '/content/mobile/lh/de/x', parse: parseHTML, force: true }).html, app);
-});
+}));
 
 test('the importers never force; the CLI forces only when asked (a site\'s pass)', () => {
   assert.ok(!/force/.test(read('../tools/importer/collapse-docs.mjs').replace(/\/\*[\s\S]*?\*\//g, '')), 'collapse-docs.mjs');

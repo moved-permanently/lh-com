@@ -4934,7 +4934,7 @@ var CustomImportScript = (() => {
         if (!g.first || own.indexOf(g.first) < 0 || own.indexOf(g.first) > own.indexOf(g.last)) return;
         let { first } = g;
         while (isSepP(first.previousElementSibling)) first = first.previousElementSibling;
-        const more = own.indexOf(g.last) < own.length - 1;
+        const more = own.slice(own.indexOf(g.last) + 1).some((el2) => !(el2.tagName === "P" && isEmptyP(el2)));
         const view = ownContent(section)[0] === first ? section : splitBefore(section, first, doc);
         if (!view) return;
         if (more) splitAfter(view, g.last, doc);
