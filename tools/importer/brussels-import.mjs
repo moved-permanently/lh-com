@@ -240,6 +240,29 @@ export const withTeaserColumns = (html) => editDivs(html, '<div class="twocolumn
   return el.replace('<div class="twocolumn', '<div class="threecolumn').replace('data-identifier="twocolumn"', 'data-identifier="threecolumn"');
 });
 
+/**
+ * A card teaser's link line (a.teaser.card > .teaser-link-text: "Fasten up for perks", "En savoir plus") is shown on
+ * www.brusselsairlines.com (hidden on lufthansa.com): the cards marked data-import-cta, as austrian-import.mjs does, so
+ * the carousel-cards parser adds the line as a link after the description (/be/en/jobs, connecting-africa, our-company).
+ */
+export const withTeaserCta = (html) => html.replace(/(<a\b[^>]*class="teaser card[^"]*")(?![^>]*data-import-cta)/g, '$1 data-import-cta=""');
+
+/**
+ * A column view with www's carousel behaviour (<div class="carousel">: a .hidden-md-down grid and a
+ * .hidden-lg-up swiper copy; /be/fr/extra-services/inflight-services' four "Autres sujets" teasers,
+ * meetings-and-events' three steps): one card and dots on phones. Marked data-import-phone-slider, as
+ * austrian-import.mjs does: the carousel-cards parser gives a marked view phone-slider (a four-column one
+ * too); the cards-teaser parser reads the cleanup's carousel flag. A view whose own carousel is missing,
+ * or that holds column views of its own, is left as it is.
+ */
+export const withPhoneSliders = (html) => ['<div class="threecolumn', '<div class="fourcolumn']
+  .reduce((out, open) => editDivs(out, open, (el) => {
+    const head = el.slice(0, el.indexOf('>') + 1);
+    if (/data-import-phone-slider/.test(head) || /<div class="(?:two|three|four)column/.test(el.slice(1))
+      || !/<div class="carousel">[\s\S]*?<div class="hidden-lg-up"/.test(el)) return el;
+    return el.replace(/^<div class="([^"]*)"/, '<div class="$1" data-import-phone-slider=""');
+  }), html);
+
 /*
  * www's sidebar component (.airem-sidebar: .sidebar-content 75% beside .sidebar-aside) whose content
  * holds column views (travel-regulations' picture rows and its grey "Current Travel Regulations"
@@ -268,6 +291,16 @@ export const withSidebarContent = (html) => editDivs(html, '<div class="sidebar 
   if (!COLUMN_VIEWS.test(el.slice(body, end))) return el;
   return `${el.slice(0, i)}<div class="sidebar-content col-sidebar-content"${el.slice(i + open.length, body)}${sidebarMarker(SIDEBAR_START)}${el.slice(body, end)}${sidebarMarker(SIDEBAR_END)}${el.slice(end)}`;
 });
+
+/**
+ * A three- or four-column view of headlines only in a sidebar's content (new-destinations' facts: "Vols par semaine" / "2",
+ * "Distance" / "6 773 km", ...): lh-com's info importer maps such a view into columns-media under .section-content or
+ * .container-content only, so in the sidebar its headlines came in stacked. It gets a container-content wrapper of its own;
+ * the sidebar's other column views (pictures, text, links) stay as they are.
+ */
+const headlineOnly = (view) => view.includes('class="headline') && !/class="(?:image|text|link|teaser|accordion)\b|<img\b/.test(view);
+export const withFactColumns = (html) => editDivs(html, '<div class="sidebar-content', (el) => ['<div class="threecolumn', '<div class="fourcolumn']
+  .reduce((out, open) => editDivs(out, open, (view) => (headlineOnly(view) && !out.includes(`<div class="container-content">${view}`) ? `<div class="container-content">${view}</div>` : view)), el));
 
 const SIDEBAR_MARK = new RegExp(`<p>(${SIDEBAR_START}|${SIDEBAR_END})(?: [{][^}<]*[}])?</p>`, 'g');
 const META_OPEN = '<div class="section-metadata">';
@@ -512,7 +545,7 @@ if (isMain) {
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
     // the Studio's snapshots keep www's scripts, which must not run in the import browser)
     // (the form's jQuery UI date picker, appended to the body and hidden on www, is no content)
-    const mapped = withoutLoads(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withSidebarContent(withoutTestForms(editDivs(stripScripts(withBookingLabels(html)), '<div id="ui-datepicker-div"', () => '')))))), p))))
+    const mapped = withoutLoads(withTeaserCta(withPhoneSliders(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withFactColumns(withSidebarContent(withoutTestForms(editDivs(stripScripts(withBookingLabels(html)), '<div id="ui-datepicker-div"', () => ''))))))), p))))))
       .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     if (/<div class="slideshow/.test(mapped)) {

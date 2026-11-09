@@ -2188,3 +2188,375 @@ Smoke after each push: 0 differences, except after 663bbcb1. There swiss and swi
 another /de/en/search-index.json, a content index on those hosts; this turn changed no SWISS code or
 content.
 
+## The brief after 509
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git). Nothing is published, uploaded or requested from www. B2B keeps the project's heading
+hyphenation (Ben's rule); the parked test stays outside the repo.
+
+### 1. Air Dolomiti's cookie settings link (row 33): built
+
+- **What was missing:** our consent already reopens from a footer link (#privacy-settings: the
+  consent.preferences event). Air Dolomiti had no consent tool, so there was nothing to reopen and
+  the link was left out.
+- **The change:** Air Dolomiti gets the look-alike consent without OneTrust, as Cargo has
+  (scripts/brands.js: consent fallback, its own privacy and cookie pages). The banner shows on a
+  first visit, as www's PrivacyLab banner does. The footer builder writes www's entry as the link,
+  with www's label in it, en and de.
+- **The shared code:** only Air Dolomiti's brand entry changed. TAP still has no consent tool, and
+  every other brand's consent and footer are as before.
+- **Checked on preview** (this checkout's code, drafted footers): it, en and de at 1440 and 390, the
+  banner and the preference center in the page's language, the link opening it. The real footers
+  come with reimport-510-airdolomiti-footer.txt (3: airdolomiti-nav.mjs --lang it, en, de).
+
+### 2. The published pages outside the last sweep: ranked, five rows fixed
+
+- **Which pages:** published on the live hosts, not in the sweep against the captures: Cargo 950,
+  Discover 533, Air Dolomiti 1509. None has a recording, so they were checked on our side only and
+  nothing is compared with www. The lists are in parity-2026-11-08 (unrecorded-510-*.txt).
+- **How:** each page on its brand host at 390 and 1440, one page at a time. The check looks for a
+  page wider than the screen, failed pictures and responses, empty blocks and the h1 count.
+- **The ranking** (ranking-510-published.md, worst first, with cause and owner): every page answers
+  200. At 1440 no page is wider than the screen. At 390, 19 pages were wider than the screen. All
+  19 are fixed:
+
+  | Row | Commit | Pages | Too wide at 390 | The fix |
+  | --- | --- | --- | --- | --- |
+  | Cargo 42 | b256a7aa | oil and gas, fine arts (de, en) | 21 to 141 px | the gallery's dots wrap (Cargo theme) |
+  | Discover 39 | 25d3e87c | the two firearm forms | 65 px | a form option's label breaks a long word (form block) |
+  | Air Dolomiti 72 | ac445d11 | four posts, the security-check tips | 26 to 127 px | running text breaks a URL written as text (styles.css) |
+  | Air Dolomiti 73 | c87eaaa1 | seven German FAQ and baggage pages | 8 to 105 px | an accordion title breaks a long word (accordion-columns block) |
+  | Air Dolomiti 74 | fd757777 | street-food-in-munich | 423 px | the icon heading's row only for a heading that opens with its picture (styles.css) |
+
+  Each fix is one common rule for every brand, as Ben's rule asks; no theme sets wrapping. Each
+  page was measured at 390 with the rule: as wide as the screen. Code only, no document changes.
+- **Left:**
+  - Discover winter-destinations shows a broken icon. "Naturliebhaber:innen:" is read as the icon
+    token `:innen:`. This needs your decision on how the importer writes that word, then one
+    re-import.
+  - 15 empty accordions in 12 Discover documents (corrected after 514; 0 px, nothing visible): the importer can drop
+    them with the next Discover re-import.
+  - Pages with no h1: the Cargo SDG pages (es, fr, it, pt; www has none either) and Discover's
+    application pages. No change.
+  - The 404s Cargo's language switch gets when it checks other languages are by design.
+
+### 3. Group for Business member and sign-in pages: no difference, nothing to fix
+
+- **Texts:** the answers archive was downloaded again into a directory of its own (sha256 f4cc8ca1…,
+  matches). On b2b.turnsthe.page, signed in with the three test accounts of the mock mode, the four
+  de/de member pages show the same texts as the signed-in views I recorded (brief 486). de/en shows
+  the English labels, as its language should.
+- **Layout at 1440 and 390:** the sign-in pages and the member pages are no wider than the screen.
+  At 390 the member tables become boxes that scroll sideways, as built. No CSS difference, so
+  nothing changed.
+- **Left:** none.
+
+### 4. Open questions that need a recording
+
+Captures only after Ben writes that the network is stable. Each item below says what settles it:
+
+1. **The help apps' 25 px offset** on ITA it/en, Austrian at/en, SWISS ch/en and Brussels be/en (h1
+   at 1440: 390, 396, 415, 410; at 390: 247, 273, 265, 262). It is settled by one recording per brand
+   of that help page at 1440 and 390, with the app's own h1 box (inside its shadow root) and the
+   header's bottom. If www sits as lufthansa.com's does, the brand gets lufthansa.com's rule: 31 px
+   down at 1440, 11 px at 390.
+2. **Air Dolomiti's destination hub booking bar** (/en/destinations, +3 to +4 % at 1440). It is
+   settled by a recording of /en/destinations at 1440 and 390, scrolled until the bar is stuck. The
+   recording needs the bar's box in both states (DisplayBookingWidget), whether a breadcrumb exists,
+   and the h1's top (190 px under the header on www unstuck, 312 on ours).
+3. **Cargo Facts & Figures' timeline** (-8.4 % at 1440): www's script sets each item to 726 or 782
+   px. It is settled by a recording of the page at 1440 with each timeline item's box after that
+   script ran.
+4. **Air Dolomiti's three unconfirmed pages** (/de/reisenformationen/schwangere-und-kinder,
+   /de/reisenformationen/tiere-an-bord, /en/destinations/florence/what-to-see): is the first heading
+   www's Title block or the title fallback? It is settled by each page's source with its
+   __NEXT_DATA__.
+5. **From this turn's ranking:** what www shows for the photo at the end of street-food-in-munich's
+   h3 (it stays at the icon's 26 px), and what www has where Discover's empty accordions are. A
+   recording of each page settles it.
+
+### Checked
+
+- **Item 1:** on preview (main--airdolomiti--moved-permanently.aem.page, this checkout's code, the
+  drafted footers): it, en and de at 1440 and 390.
+- **Item 2:** cargo, discover and airdolomiti .turnsthe.page at 390 and 1440, every page on the
+  three lists. Each fix was measured there with its rule before shipping.
+- **Item 3:** b2b.turnsthe.page, the three test accounts, de/de and de/en, at 1440 and 390.
+- **Smoke after every push:** all 14 hosts, 0 differences.
+- **Documents:** 3 to re-import, reimport-510-airdolomiti-footer.txt (/footer, /en/footer,
+  /de/footer); the code commits need none.
+
+## The brief after 514
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git); nothing was unpushed. Nothing is published or uploaded, and no request went to any www.
+
+### 1. Discover importer (Discover row 40): done, b99ee4c0
+
+- **The gender colon:** Edge Delivery reads `:innen:` as an icon token, so the page showed a broken
+  /icons/innen.svg in place of "innen:". The importer now puts a WORD JOINER (U+2060: no width, no
+  line break) before the closing colon of a gender suffix (":in", ":innen" right after a letter).
+  The text reads exactly as www's, and every other token (`:phone:`) is still an icon (tested).
+- **Empty accordions:** an accordion with neither title text nor content is dropped; one with a
+  title and no body stays.
+- **Checked offline** through aem-cli's html2md and html pipeline (6.33.2) on our published
+  documents. Winter-destinations shows "Naturliebhaber:innen: üppige Vegetation" with no icon.
+  The 15 empty blocks are gone; every other accordion and every section is kept.
+- **The count:** 12 documents hold the 15 empty accordions, not 14 as my last report said
+  (sports-baggage has two per language). All 533 published Discover documents were checked.
+- **Documents:** reimport-518-discover.txt, 13 (the 12 and winter-destinations), reference roots
+  de/de, de/en, xx/fr. None of them has a snapshot on this disk (the importer's snapshot folder
+  holds Brussels only; discover-parity-001 has none of these pages).
+- **The same kind, already handled:** the culinaryjourney configuration's `dmc:https://…`
+  publishes as an `https` icon too. The micro-frontend block turns that icon back into its text
+  (micro-frontend.js), so the app gets its address and nothing changes there.
+
+### 2. SWISS homepages (SWISS row 44): done, b3133408; 186 documents ready, 41 waiting
+
+- **What the ranking saw:** the published homepages were imported before 75c9418e (2026-11-07). A
+  re-import already turns www's footer disclaimer into its note plus a link to a dialog document,
+  and the dialog's text leaves the page. The old documents still carry that text as page text
+  (504 px at 390 on /de/de/homepage; the note and the label, which www shows, make the rest of the
+  612 px).
+- **What a re-import still got wrong:** the bulk import of /us/en/homepage from its snapshot put
+  the winter sports offer's dialog into the destination finder's Conditions row. The fare teasers
+  before the finder are blocks by then, so the parser's index shifts. The general conditions were
+  then nowhere on the page.
+- **The change** (swiss-import.mjs withFinderConditions, after the import): the finder's own
+  dialog, read from the untouched snapshot by the parser's rule, fills its Conditions row; the
+  dialog's paragraphs leave the page flow; the note and the label stay.
+- **Dialog documents:** general-conditions-dialogs.mjs --host www.swiss.com writes the dialog
+  documents the re-imported homepages link (196, at /{cc}/{ll}/fragments/modals/{label}). It must
+  run after the bulk import, before the upload.
+- **Measured** on swiss.turnsthe.page with draft documents (published + the step), against the www
+  heights of ema-cashub's recordings as their ranking states them (the recordings themselves are
+  not on this disk):
+
+  | Page | 1440 www / before / after | 390 www / before / after |
+  | --- | --- | --- |
+  | /de/de/homepage | 4480 / 4438 / 4286 (-4.3 %) | 5196 / 5705 / 5201 (+0.1 %) |
+  | /us/en/homepage | 4467 / 4399 / 4269 (-4.4 %) | 4920 / 5294 / 4922 (+0.04 %) |
+  | /ch/en/homepage | 4412 / 4251 / unchanged | 5010 / 5224 / unchanged |
+
+  Both pages come within the 5 % band at both widths. /ch/en has no copy: its +4.3 % at 390 is the
+  market's promotions.
+- **Documents:** reimport-518-swiss-homepages.txt lists all 227 homepage documents (each market
+  root has its own) in release order, ch first. All 227 have a snapshot on disk; none has a
+  recording on this disk (ema-cashub's archives record ch/en, ch/de, de/de and us/en, marked).
+  186 are ready. 41 are on "# wait" lines:
+  - 40 for a capture after "stable": their snapshot carries the Bengaluru promotion, which a
+    re-import would keep. se/de's document has none but its snapshot does. All ten ch roots are
+    among them.
+  - 10 for a name rule (el, ja, ru, zh): www's label has no Latin letters, so the link and the
+    dialog document get an empty name (/{cc}/{ll}/fragments/modals/). Nine are in both groups.
+- **Written down, not changed:** the name rule exists twice, in footer-disclaimer.js and inlined
+  in transformers/lufthansa-cleanup.js (plain scripts), and the homepage bundle would need
+  rebuilding. Changing only one copy would break lufthansa.com's links, so both copies and the
+  bundle should change together. After the re-import, ch/en and ch/de link the new dialog
+  documents, and their hand-made /ch/{ll}/modals/general-conditions (2026-11-05) are no longer
+  linked.
+
+### 3. The open questions, from the archives on disk
+
+1. **The photo at the end of street-food-in-munich's h3:** an Air Dolomiti article
+   (en/articles/destinations/street-food-in-munich), not Discover. No archive on disk holds it:
+   airdolomiti-parity-001's articles hub only links it, and the media archive holds footer icons.
+   Open. Settled by a recording of that page at 1440 and 390 with its __NEXT_DATA__: the h3's block
+   and the photo's box.
+2. **What www has where Discover's accordions are empty:** none of the 12 pages is in an archive on
+   disk. Open. Settled by the snapshot of /de/en/book/baggage/excess-baggage from the harness's
+   archive: the element before "This might also be of interest to you" (one page answers the
+   pattern for all 15 blocks).
+3. **The help apps' 25 px:** partly settled, for SWISS. Its help pages' snapshots (/ch/en/help-center,
+   /ch/de/hilfe-center) wrap the app in a section without lufthansa.com's section-padding-y-regular
+   and mb-default (lufthansa-parity-001's de/en and de/de help-and-contact have both). So
+   lufthansa.com's 56/36 px rule does not carry over to SWISS, and nothing changes. The pixel
+   distance stays open: a recording of /ch/en/help-center at 1440 and 390 with the app's shadow h1
+   box and the header's bottom. ITA, Austrian and Brussels: no help page on disk. Open: the same
+   recording of one help page per brand (it/en, at/en, be/en).
+
+The Air Dolomiti hub's sticky booking bar, Cargo's timeline and Air Dolomiti's three unconfirmed
+pages stay open as listed after 509. Nobody captures anything before Ben writes "stable".
+
+### Checked
+
+- **discover.turnsthe.page:** the 533 published documents read (no browser), the 13 changed ones
+  through Edge Delivery's own chain, offline.
+- **swiss.turnsthe.page:** /de/de, /us/en and /ch/en homepages at 390 and 1440, published against
+  drafts. All 227 homepage documents read.
+- **Offline:** the bulk import of /de/de and /us/en homepages from brief 503's snapshots, in a
+  scratch workspace (the reports it writes put back).
+- **Smoke after every push:** all 14 hosts, 0 differences.
+- **Documents:** reimport-518-discover.txt (13) and reimport-518-swiss-homepages.txt (186 ready,
+  41 waiting), plus the 196 SWISS dialog documents general-conditions-dialogs.mjs writes;
+  reimport-510-airdolomiti-footer.txt (3) is with the harness already.
+
+## The brief after 518
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git); nothing was unpushed. Nothing is published or uploaded, and no request went to any www. No
+test calls da-upload, the DA API or the preview API.
+
+### 1. market-diff and the slug maps: done, 8d8cce17
+
+- **The change:** md-replica-check.mjs asks our replica where the write step puts a page
+  (lib/replica-paths.mjs): the map's write target, `canonicalOf(path)` without `all`. That is
+  the canonical path once a root's flag is on, else the www path, the same rule as da-upload. The
+  www side stays at its www paths. The map comes from `--host` (each map names its own host:
+  lh-com, lh-swiss, lh-b2b; none for ITA and TAP). `--slug-map` takes a copy of a map.
+- **Why not `all: true` for the requests:** it maps every alias whatever its flag. With every flag
+  off it would ask the replica at 6,499 canonical paths whose pages are still at their www paths.
+  `{ all: true }` and `wwwPathsOf` are what the test checks.
+- **Proved:**
+  - Every flag off: the same requests for every pair on disk (Lufthansa 173,479, SWISS 36,205,
+    Group for Business 47,364, ITA and TAP).
+  - A flags-on copy of Lufthansa's map: the 6,499 pairs with a localized page ask the replica at
+    the canonical path, the www side stays at the www path, and every one maps back to its www path.
+
+### 2. SWISS dialog names: done, eafe8b59; 187 homepages ready
+
+- **The rule:** the label's slug as before; a label without Latin letters or digits takes the
+  root's language (/ch/ja/fragments/modals/ja). I chose it because it is never empty and the same
+  however www words the label. It also needs no transliteration table in two copies (Japanese and
+  Chinese have no simple one).
+- **What changed:** footer-disclaimer.js dialogPath, and in the shared cleanup transformer
+  (transformers/lufthansa-cleanup.js convertFooterDisclaimer) only its slug line.
+- **lufthansa.com unchanged:** its one dialog link today (de/en "General Conditions", the only one
+  among its 255 roots' homepages on our host) and "Allgemeine Bedingungen" keep their names, as do
+  SWISS's Latin labels (tested on the transformer and the document writer).
+- **Bundles:** the 14 bundles that carry the transformer were rebuilt with an installed
+  aem-import-helper (the offline npx cache has none). The builder's process-id identifier was set
+  back to main's, so each bundle differs from main by that one line. The rebuild also regenerated
+  import-hub.js (one import line in another order); it was put back, and the hub bundle has
+  only the line.
+- **Documents:** general-conditions-dialogs.mjs --host www.swiss.com now writes 206 dialog
+  documents, none without a name. In reimport-518-swiss-homepages.txt the ten roots no longer wait
+  for a name: 187 ready (sg/zh was the one waiting for the name alone), 40 wait for a capture.
+
+### 3. The consent banner in each brand's fonts: done, 65b0d52d
+
+- **The change:** a brand whose theme has fonts of its own (Air Dolomiti, TAP, SWISS, Austrian,
+  Brussels, ITA) gives the banner and its preference center its --heading-font-family and
+  --body-font-family. lufthansa.com, Cargo, Group for Business and Discover keep Lufthansa's
+  stacks exactly. It is one rule in consent-banner.css (:where(), so it weighs as .lh-consent).
+- **Checked with this code at 1440 and 390:**
+  - main--lh-airdolomiti--moved-permanently.aem.page: the banner on a first visit and the
+    preference center from the footer's "Change Cookie Settings" (it: "Modifica impostazioni
+    cookie") are in Euclid Circular B, loaded, and no Lufthansa font file is asked for. With
+    main's CSS the same page asked for four (LufthansaHead and LufthansaText).
+  - main--lh-tap--moved-permanently.aem.page: TAP has no consent tool, so its pages show no banner
+    and no cookie link. Called directly, the banner module renders in GT Flexa (headings, 700
+    loaded) and Inter.
+  - Cargo's banner is unchanged (LufthansaHead, LufthansaText).
+- Air Dolomiti parity row 75. Smoke on all hosts after the push: 0 differences.
+
+### 4. Capture list: written
+
+tools/reports/parity-2026-11-09/capture-list-brands.txt lists 52 pages, host first, in priority
+order:
+1. The ten SWISS reference-root homepages whose re-import waits (page source).
+2. The recordings that settle open questions:
+   - the help apps: SWISS /ch/en/help-center, ITA /it/en/help-and-contact, Austrian
+     /at/en/help-center and Brussels /be/en/contact, each with the app's shadow h1 box at 1440
+     and 390;
+   - the Air Dolomiti hub's stuck booking bar (www.airdolomiti.eu/destinations, 1440 and 390);
+   - Cargo's timeline (/en/ci/facts-figures, each item's box after www's script);
+   - Air Dolomiti's four unconfirmed pages (with __NEXT_DATA__);
+   - the street-food article;
+   - Discover's excess-baggage source.
+3. The 30 SWISS market homepages that wait for a capture.
+
+At 10 seconds a page that is 8 min 40 s; counting each width as its own capture (59), 9 min 50 s.
+Nothing is captured before Ben writes "stable" (after 15:00 CET).
+
+### Checked
+
+- **Previews:** main--lh-airdolomiti and main--lh-tap at 1440 and 390, main--lh-cargo at 1440
+  (this checkout's code routed in, www's hosts unresolvable).
+- **lufthansa.turnsthe.page:** the 255 roots' homepage documents read.
+- **Offline:** the slug maps and the pairs lists on disk, the SWISS snapshots of brief 503 (the
+  dialog writer, dry).
+- **Smoke after every push:** all 14 hosts, 0 differences.
+- **Documents:** none new to re-import beyond reimport-518-swiss-homepages.txt (187 ready, 40
+  waiting) and its 206 dialog documents.
+
+## The brief after 523
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out
+of git); nothing was unpushed. Nothing is published or uploaded, and no request went to any www.
+No test reaches the uploader, the DA API or the preview API.
+
+### 1. Stages after an unpadded AEM section (lufthansa-sections.js): done, 6a2ee2e3
+
+- **The change:** ema-adobe's exact change from hub-campaign-521.md, with its exclusion. A
+  padded stage after an unpadded AEM section gets style padded, as www pads it, unless a padded
+  AEM section (not grey) follows it: economy-class's Allegris stage keeps before-padded.
+  lufthansa.com's pages only.
+- **Bundles:** the 14 bundles that carry the transformer were rebuilt, with the builder's
+  process-id identifier set back to main's. Each differs from main by that change only.
+- **ema-adobe's import-hub.js:** the rebuild regenerates it with one import line in another order
+  (`hub-dcep-render` moves up), as last time. It was put back; the hub bundle carries only the
+  change.
+- **Measured** on main--lh-com--moved-permanently.aem.page with a scratch copy of destinations
+  (New York's and Cape Town's stages padded, as the rule writes them) against lh-parity-002c's
+  recording (tools/parity/compare.js, the first 8,000 px): 1440 18.3 -> 15.2 %, 390 14.5 ->
+  13.5 %, ema-adobe's numbers.
+- **Documents:** reimport-526-hub-stages.txt lists 14, from the 1,577 lufthansa.com snapshots on
+  this disk: destinations on 8 roots, tips-senior-travellers on 5, first-class on 1. ema-adobe's
+  scan of 3,397 counts 16 (7, 7 and 2). Their snapshots aren't here, so the two lists can't be
+  matched path by path. A path of theirs that's missing can be added: a re-import the rule doesn't
+  reach comes out unchanged.
+
+### 2. Group for Business and Cargo against the recordings: ranked, three rows fixed
+
+The ranking is in sweep-b2b-cargo-526.md: both brands worst first, with cause and owner. The
+pages without a recording are listed (b2b-unrecorded-526.txt 586 language documents,
+cargo-unrecorded-526.txt 950 pages).
+
+| Commit | Brand | Row | 1440 | 390 |
+| --- | --- | --- | --- | --- |
+| 84fc8d14 | Cargo | 43: Support & Contact's support band (small print, its end) | 2435 -> 2335 (www 2301) | 3254 -> 3130 (www 3066) |
+| fb5e1502 | Cargo | 44: eBooking's features text col-5 | en 3915 -> 3853 (www 3771) | unchanged |
+| da6b22fc | B2B | 34: contact's hotline finder as www's PartnerPlusBenefit box | the box as www's; page 3417 -> 3397 (www 3499) | page 4056 -> 4102 (www 4153) |
+
+- **Why fewer than three per brand:**
+  - Cargo's three worst rows aren't in its CSS or importers: a re-import (the feedback view),
+    data (notifications) and a recording (the timeline). The article and fleet pairs below them
+    have several small causes and no single measurable rule.
+  - No Group for Business page is more than 3 % from www. Its other high rows are one page's own
+    styling (Ben's rule keeps the common style), or they need the importer to tell two kinds of
+    column view apart.
+- **Open, B2B (with the exact candidate change and what decides it, in the ranking file):**
+  - the two-item column view under text in a white section (about-us, celebrating-shared-stories);
+  - nested column views (lufthansa-group-airlines).
+- **For other owners:** below B2B contact's finder, the separator sits 4 px under the section's
+  top (the shared grey-after-grey join) where www has 20 / 40 px. The divider markers are
+  ema-test's, the join is shared styles.css. Not changed.
+- **Sign-in pages:** the de/en and de/de prelogin pages measure as www's. No test account was used,
+  and the login logic wasn't touched.
+- **B2B contact at 1440:** the page total moves 3417 -> 3397 px although the finder now matches
+  www. The finder had been 20 px too tall, which hid the 40 px the page lacks under its separator.
+
+### 3. ema-cashub's handover, "causes in other files": nothing of mine to change
+
+Of that section, only travelling-with-animals names a file of mine: the tab markers and
+splitTabSections in swiss-import.mjs. With a tab panel whose body nests a two-column view inside
+the panel's own column view, the steps pass the body through unchanged: withTabMarkers only drops
+the tab control and puts a marker before each panel, and splitTabSections only cuts sections at
+the markers (checked offline). So the default content comes later in the chain: Austrian's nested
+view unwrap (austrian-import.mjs withNestedOnecolumnUnwrapped, ema-cashub's) or the shared
+column-view mapping. What settles it: that panel's markup in the austrian-parity recording, which
+is ema-cashub's and not on this disk. The section's other causes belong elsewhere: economy-class's
+buttons (content, a re-import), cards-icon (ema-adobe), entryregulations' separators (ema-test),
+new-destinations (lh-com's mapping) and the homepages (ema-adobe). None names SWISS, Air Dolomiti,
+Cargo, Discover, the B2B importers, campaign-sections.js or market-diff.
+
+### Checked
+
+- **main--lh-com--moved-permanently.aem.page:** destinations at 1440 and 390, published and
+  draft, against the recording.
+- **b2b.turnsthe.page and cargo.turnsthe.page:** the 26 and 22 recorded pages at 1440 and 390
+  (the sweep), the fixed pages again with the rules, B2B's sitemaps.
+- **Offline:** the 1,577 lufthansa.com snapshots (the stage scan), the tab steps on a nested panel.
+- **Smoke after every push:** all 14 hosts, 0 differences.
+- **Documents:** reimport-526-hub-stages.txt (14); the CSS rows need none.

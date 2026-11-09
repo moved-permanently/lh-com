@@ -57,8 +57,8 @@ test('row 21: Support & Contact\'s "Contact us" band (section contact: navy on a
   has(css, /@media \(width >= 768px\) \{[^@]*body\.brand-cargo \.columns\.support > div > div \+ div \{[^}]*border-left: 1px solid #ccc;/);
 });
 
-test('row 25: eBooking\'s text one third, picture two thirds (columns-media (wide-media)) as www\'s CF7: the text a third of the grid less the gutters (416 px of 1296), 24 px between', () => {
-  has(cargo(), /@media \(width >= 768px\) \{[^@]*body\.brand-cargo \.columns-media\.wide-media \.columns-media-media-last \{[^}]*grid-template-columns: calc\(\(100% - 48px\) \/ 3\) minmax\(0, 1fr\);[^}]*column-gap: 24px;/);
+test('row 25 (row 44 after 523): eBooking\'s text beside its picture (columns-media (wide-media)) as www\'s CF7 of 2026-11-06: col-5 | col-7 (526 px of 1296), 24 px between', () => {
+  has(cargo(), /@media \(width >= 768px\) \{[^@]*body\.brand-cargo \.columns-media\.wide-media \.columns-media-media-last \{[^}]*grid-template-columns: calc\(\(100% \+ 24px\) \* 5 \/ 12 - 24px\) minmax\(0, 1fr\);[^}]*column-gap: 24px;/);
 });
 
 test('row 22: the contact form as www\'s dialog (Support & Contact\'s links open /modals/contact-us): 900 px wide, the card across it without the page\'s grey band; its fields in three columns from 768 px, on the page too (the core form\'s one column was display: block, so the columns never applied)', () => {

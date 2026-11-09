@@ -34,10 +34,11 @@ are on swiss.turnsthe.page.
   - the separators round to the table's sizes: 50 px to M (60), 100 px to L (120, four of them);
   - three `from-768` separators (none on phones on www) are drawn on phones as well: +140 px at 390.
 
-## For Ben
+## From 768 px (decision 3, revised in the brief after 512)
 
-- **`from-768` separators** (the collapse table drops the qualifier): keep (phones get the space as well), or a
-  Spacer option for "from 768 px" (a carrier per such separator: SWISS 3 per baggage page).
+The `from-768` separators keep "from 768 px" as the Spacer block's option. Carry-on baggage at 390 now comes out
++2.5 to +3.3 % against today's render (it was +3.4 to +4.4 %); its 80 px separator stays off phones. See
+from-768-check.md.
 
 
 ## The pages over the thresholds (with the new theme rules: 24 of 24 page widths; with main's rules 24)

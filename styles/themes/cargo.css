@@ -713,6 +713,13 @@ body.brand-cargo .footer .footer-logos li:nth-child(3) {
   }
 }
 
+/* row 42 (the brief after 509): a gallery's dots onto the next line, centred, as www's inline-block
+   owl dots (one dot a picture: the industry galleries ran past the screen at 390) */
+body.brand-cargo .carousel-images .carousel-images-dots {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 /* row 14 (round 3): the story pictures (hero-card-overlay (light): on Cargo only the transport
    stories' picture modules) as www's .module--story: up to 1354 px wide in the middle, as tall as
    the picture is; the text box white at 90 %, 20 px inside (www's .story-text-background), the
@@ -1760,8 +1767,18 @@ body.brand-cargo main > .section.key-facts .carousel-cards-wrapper ~ .default-co
   }
 }
 
+/* Support & Contact's support band (the brief after 523, Cargo row 43): www's band ends 20 px
+   under its last line, the footer right after it (the band ends the page) */
 body.brand-cargo .columns.support {
-  padding: 40px 0;
+  padding: 40px 0 20px;
+}
+
+body.brand-cargo .columns.support > div > div:last-child > :last-child {
+  margin-bottom: 0;
+}
+
+body.brand-cargo main > :where(.section:last-child:has(.columns.support)) {
+  margin-bottom: 0;
 }
 
 /* both columns from the top (the block centres a shorter cell) */
@@ -1776,7 +1793,9 @@ body.brand-cargo .columns.support h3 {
   font-weight: 700;
 }
 
-body.brand-cargo .columns.support small {
+/* www's small print (.extraSmall): the opening hours and call charges after the phone number
+   (cargo-import.mjs writes <small>, which Edge Delivery's conversion does not keep) */
+body.brand-cargo .columns.support :is(small, p:has(> a[href^="tel:"]) ~ p) {
   font-size: 12px;
   line-height: 20px;
 }
@@ -1788,12 +1807,13 @@ body.brand-cargo .columns.support small {
   }
 }
 
-/* row 25 (round 3): eBooking's text one third, picture right (columns-media (wide-media): on
-   Cargo only www's CF7) as www's col-4 | col-8: the text 416 px of the 1296 px grid, 24 px between
-   (lh-com's wide-media: 25 | 75) */
+/* row 25 (round 3; Cargo row 44, the brief after 523): eBooking's text beside its picture
+   (columns-media (wide-media): on Cargo only www's CF7, the ebooking-info pages) as www's of
+   2026-11-06, col-5 | col-7: the text 526 px of the 1296 px grid, 24 px between (round 3 had
+   col-4 | col-8 from an earlier capture; lh-com's wide-media: 25 | 75) */
 @media (width >= 768px) {
   body.brand-cargo .columns-media.wide-media .columns-media-media-last {
-    grid-template-columns: calc((100% - 48px) / 3) minmax(0, 1fr);
+    grid-template-columns: calc((100% + 24px) * 5 / 12 - 24px) minmax(0, 1fr);
     column-gap: 24px;
   }
 }
