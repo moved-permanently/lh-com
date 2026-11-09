@@ -144,6 +144,29 @@ types, after ec344f6:
    of [the handover](lh-com-handover-ema-test.md). seat-reservations' +27 / +32 px are its headings' sizes (D, near
    values).
 
+## Hub: the next three biggest differences, settled against www's recordings (brief 538 item 3)
+
+Same method as brief 526 item 3: the published document and its collapse (read-only CLI, `--brand lufthansa --force`;
+each page's Theme row put back from the live page, since `.plain.html` drops the Metadata block) as `<main>` on
+lufthansa.turnsthe.page with main's code at 3fb1e4f, theme live in the browser only (logs/b538/pc-run.sh, q-pass.js).
+New this time: both renders are measured against www's recording (lh-parity-002 for de/en, lh-parity-004b for de/de
+miles-and-more; logs/b538/pc-www.sh), so each difference says which side is right. These were the next three after the
+explained rows (flights and culinaryjourney E, /100-years item 2, legal and insights brief 526).
+
+| page | width | host vs www | collapsed vs www | where the collapse differs | right |
+| --- | --- | --- | --- | --- | --- |
+| /de/en/baggage | 1440 | +30 px (5.4 %) | +134 px (14.4 %) | +20 px at each of four separators of 40 px that become M (60): above "Types of baggage", the Bag-Free Travel Columns Media, "Baggage services", "Further information" | **the host** (www 40 px): decision 3's cost, +80 px on this page |
+| /de/en/baggage | 390 | +19 px (8.9 %) | +119 px (12.4 %) | the same four, +16-20 px each | the host |
+| /de/en/lufthansa-travel-classes | 390 | -72 px (18.7 %) | -11 px (26.4 %) | the H1 marked heading-medium takes heading-large (a near value): +61 px at its top, from one more line | **the host** (www's H1 is heading-medium); the shorter total only hides the -46 / -77 px further down, which both have (the grey band to the cards, the footer) |
+| /de/en/lufthansa-travel-classes | 1440 | -45 px (10.3 %) | -24 px (15.3 %) | the same H1, +22 px | the host |
+| /de/de/miles-and-more | 390 | -148 px (14.9 %) | -124 px (13.0 %) | the column view as structure (B): www's offset at 2,960 px -373 px on the host, +2 px collapsed | **the collapse** |
+| /de/de/miles-and-more | 1440 | -61 px (9.9 %) | -37 px (7.8 %) | the same, -62 -> -38 px | the collapse |
+
+So two of the three hub rows are decided costs that make the page farther from www: decision 3 (40 px separators to
+M, +20 px each) and Ben's rule on near values (H1 heading-medium to heading-large, +22 / +61 px). Both are decided, so I
+changed nothing; the numbers are here for the decision's owners. The third (miles-and-more's column views) is the
+collapse being right where the published page is wrong; the switch improves it.
+
 ## Causes, by page type (main today)
 
 - **campaign** (8 page-widths; mine): the /100-years pages grow 3-9 %: `sections-m` adds 61 px at every section start,
