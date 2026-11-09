@@ -2455,6 +2455,15 @@ body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-
   }
 }
 
+
+/* the half page's end where the accordions are the longer column (tiere-an-bord, airdolomiti-parity-002;
+   the brief after 531): www's newsletter 127 px under the last accordion's line, ours 52 */
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container > .accordion-columns-wrapper {
+    margin-bottom: 75px;
+  }
+}
+
 @media (width >= 1230px) {
   body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container {
     grid-template-columns: minmax(0, 65%) minmax(0, 1fr);
