@@ -197,7 +197,7 @@ const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort();
 const maps = Object.fromEntries(files.map((f) => [f.replace(/\.json$/, ''), JSON.parse(fs.readFileSync(new URL(f, dir), 'utf8'))]));
 
 // the airlines in scope; a file is added with its piece of work, so the list grows with the commits
-const IN_SCOPE = ['lh-com'];
+const IN_SCOPE = ['lh-com', 'lh-austrian'];
 
 test('the committed maps exist for the airlines done so far and for no parked site', () => {
   IN_SCOPE.forEach((s) => assert.ok(maps[s], `tools/slugs/${s}.json`));
