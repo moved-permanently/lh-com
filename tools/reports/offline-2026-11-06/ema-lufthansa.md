@@ -2209,3 +2209,79 @@ hyphenation (Ben's rule); the parked test stays outside the repo.
   banner and the preference center in the page's language, the link opening it. The real footers
   come with reimport-510-airdolomiti-footer.txt (3: airdolomiti-nav.mjs --lang it, en, de).
 
+### 2. The published pages outside the last sweep: ranked, five rows fixed
+
+- **Which pages:** published on the live hosts, not in the sweep against the captures: Cargo 950,
+  Discover 533, Air Dolomiti 1509. None has a recording, so they were checked on our side only and
+  nothing is compared with www. The lists are in parity-2026-11-08 (unrecorded-510-*.txt).
+- **How:** each page on its brand host at 390 and 1440, one page at a time. The check looks for a
+  page wider than the screen, failed pictures and responses, empty blocks and the h1 count.
+- **The ranking** (ranking-510-published.md, worst first, with cause and owner): every page answers
+  200. At 1440 no page is wider than the screen. At 390, 19 pages were wider than the screen. All
+  19 are fixed:
+
+  | Row | Commit | Pages | Too wide at 390 | The fix |
+  | --- | --- | --- | --- | --- |
+  | Cargo 42 | b256a7aa | oil and gas, fine arts (de, en) | 21 to 141 px | the gallery's dots wrap (Cargo theme) |
+  | Discover 39 | 25d3e87c | the two firearm forms | 65 px | a form option's label breaks a long word (form block) |
+  | Air Dolomiti 72 | ac445d11 | four posts, the security-check tips | 26 to 127 px | running text breaks a URL written as text (styles.css) |
+  | Air Dolomiti 73 | c87eaaa1 | seven German FAQ and baggage pages | 8 to 105 px | an accordion title breaks a long word (accordion-columns block) |
+  | Air Dolomiti 74 | fd757777 | street-food-in-munich | 423 px | the icon heading's row only for a heading that opens with its picture (styles.css) |
+
+  Each fix is one common rule for every brand, as Ben's rule asks; no theme sets wrapping. Each
+  page was measured at 390 with the rule: as wide as the screen. Code only, no document changes.
+- **Left:**
+  - Discover winter-destinations shows a broken icon. "Naturliebhaber:innen:" is read as the icon
+    token `:innen:`. This needs your decision on how the importer writes that word, then one
+    re-import.
+  - 15 empty accordions in 14 Discover documents (0 px, nothing visible): the importer can drop
+    them with the next Discover re-import.
+  - Pages with no h1: the Cargo SDG pages (es, fr, it, pt; www has none either) and Discover's
+    application pages. No change.
+  - The 404s Cargo's language switch gets when it checks other languages are by design.
+
+### 3. Group for Business member and sign-in pages: no difference, nothing to fix
+
+- **Texts:** the answers archive was downloaded again into a directory of its own (sha256 f4cc8ca1…,
+  matches). On b2b.turnsthe.page, signed in with the three test accounts of the mock mode, the four
+  de/de member pages show the same texts as the signed-in views I recorded (brief 486). de/en shows
+  the English labels, as its language should.
+- **Layout at 1440 and 390:** the sign-in pages and the member pages are no wider than the screen.
+  At 390 the member tables become boxes that scroll sideways, as built. No CSS difference, so
+  nothing changed.
+- **Left:** none.
+
+### 4. Open questions that need a recording
+
+Captures only after Ben writes that the network is stable. Each item below says what settles it:
+
+1. **The help apps' 25 px offset** on ITA it/en, Austrian at/en, SWISS ch/en and Brussels be/en (h1
+   at 1440: 390, 396, 415, 410; at 390: 247, 273, 265, 262). It is settled by one recording per brand
+   of that help page at 1440 and 390, with the app's own h1 box (inside its shadow root) and the
+   header's bottom. If www sits as lufthansa.com's does, the brand gets lufthansa.com's rule: 31 px
+   down at 1440, 11 px at 390.
+2. **Air Dolomiti's destination hub booking bar** (/en/destinations, +3 to +4 % at 1440). It is
+   settled by a recording of /en/destinations at 1440 and 390, scrolled until the bar is stuck. The
+   recording needs the bar's box in both states (DisplayBookingWidget), whether a breadcrumb exists,
+   and the h1's top (190 px under the header on www unstuck, 312 on ours).
+3. **Cargo Facts & Figures' timeline** (-8.4 % at 1440): www's script sets each item to 726 or 782
+   px. It is settled by a recording of the page at 1440 with each timeline item's box after that
+   script ran.
+4. **Air Dolomiti's three unconfirmed pages** (/de/reisenformationen/schwangere-und-kinder,
+   /de/reisenformationen/tiere-an-bord, /en/destinations/florence/what-to-see): is the first heading
+   www's Title block or the title fallback? It is settled by each page's source with its
+   __NEXT_DATA__.
+5. **From this turn's ranking:** what www shows for the photo at the end of street-food-in-munich's
+   h3 (it stays at the icon's 26 px), and what www has where Discover's empty accordions are. A
+   recording of each page settles it.
+
+### Checked
+
+- **Item 1:** on preview (main--airdolomiti--moved-permanently.aem.page, this checkout's code, the
+  drafted footers): it, en and de at 1440 and 390.
+- **Item 2:** cargo, discover and airdolomiti .turnsthe.page at 390 and 1440, every page on the
+  three lists. Each fix was measured there with its rule before shipping.
+- **Item 3:** b2b.turnsthe.page, the three test accounts, de/de and de/en, at 1440 and 390.
+- **Smoke after every push:** all 14 hosts, 0 differences.
+- **Documents:** 3 to re-import, reimport-510-airdolomiti-footer.txt (/footer, /en/footer,
+  /de/footer); the code commits need none.
