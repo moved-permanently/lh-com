@@ -1,0 +1,239 @@
+# The brief after 514, item 2: every SWISS homepage document (227), in release order: the reference roots (ch, the language
+# documents) first, then the market roots in the sitemap index's order. Snapshots: all 227 on disk (brief 503's swiss-snapshots).
+# Recordings: none on this disk; ema-cashub's swiss-parity archives record /ch/en, /ch/de, /de/de and /us/en (marked below).
+# Lines "# wait ..." are not to be imported yet:
+#   wait (capture): the snapshot carries the Bengaluru promotion www no longer shows (swiss-promotions-505.md); a re-import from it
+#     keeps it (se/de's document has none, its snapshot has it: a re-import would bring it back). They wait for a capture after "stable".
+#   wait (label): www's dialog label has no Latin letters (el, ja, ru, zh), so the import's link and the dialog document get no name
+#     (/{cc}/{ll}/fragments/modals/). They wait for a name rule shared by footer-disclaimer.js and transformers/lufthansa-cleanup.js.
+# After the bulk import, before the upload: node tools/importer/general-conditions-dialogs.mjs --html-dir <the snapshots' dir>
+#   --host www.swiss.com --out content-sites/lh-swiss/content: the dialog documents the homepages link (196 of them at
+#   /{cc}/{ll}/fragments/modals/{label}, e.g. /de/de/fragments/modals/allgemeine-bedingungen); upload them with the homepages.
+# wait (capture): /ch/en/homepage (recorded in ema-cashub's archives)
+# wait (capture): /ch/de/homepage (recorded in ema-cashub's archives)
+# wait (capture): /ch/fr/homepage
+# wait (capture): /ch/it/homepage
+# wait (capture): /ch/es/homepage
+# wait (capture): /ch/pt/homepage
+# wait (capture, label): /ch/zh/homepage
+# wait (capture, label): /ch/ja/homepage
+# wait (capture, label): /ch/el/homepage
+# wait (capture, label): /ch/ru/homepage
+/kr/ko/homepage
+/ae/de/homepage
+/ae/en/homepage
+/ae/fr/homepage
+/ae/it/homepage
+/al/de/homepage
+/al/en/homepage
+/al/fr/homepage
+/al/it/homepage
+/ar/de/homepage
+/ar/en/homepage
+/ar/es/homepage
+/ar/fr/homepage
+/ar/it/homepage
+# wait (capture): /at/de/homepage
+/at/en/homepage
+/at/fr/homepage
+/at/it/homepage
+/au/de/homepage
+/au/en/homepage
+/au/fr/homepage
+/au/it/homepage
+/be/de/homepage
+/be/en/homepage
+/be/fr/homepage
+/be/it/homepage
+/bg/de/homepage
+/bg/en/homepage
+/bg/fr/homepage
+/bg/it/homepage
+/br/de/homepage
+/br/en/homepage
+/br/es/homepage
+/br/fr/homepage
+/br/it/homepage
+/br/pt/homepage
+# wait (capture): /ca/de/homepage
+# wait (capture): /ca/en/homepage
+# wait (capture): /ca/fr/homepage
+# wait (capture): /ca/it/homepage
+/cn/de/homepage
+# wait (capture): /cn/en/homepage
+/cn/fr/homepage
+/cn/it/homepage
+# wait (capture, label): /cn/zh/homepage
+/cz/de/homepage
+/cz/en/homepage
+/cz/fr/homepage
+/cz/it/homepage
+# wait (capture): /de/de/homepage (recorded in ema-cashub's archives)
+/de/en/homepage
+/de/fr/homepage
+/de/it/homepage
+/dk/de/homepage
+/dk/en/homepage
+/dk/fr/homepage
+/dk/it/homepage
+/ee/de/homepage
+/ee/en/homepage
+/ee/fr/homepage
+/ee/it/homepage
+/eg/de/homepage
+/eg/en/homepage
+/eg/fr/homepage
+/eg/it/homepage
+/es/de/homepage
+/es/en/homepage
+/es/es/homepage
+/es/fr/homepage
+/es/it/homepage
+/fr/de/homepage
+/fr/en/homepage
+/fr/fr/homepage
+/fr/it/homepage
+/gb/de/homepage
+# wait (capture): /gb/en/homepage
+/gb/fr/homepage
+/gb/it/homepage
+/ge/de/homepage
+/ge/en/homepage
+/ge/fr/homepage
+/ge/it/homepage
+/gr/de/homepage
+# wait (label): /gr/el/homepage
+/gr/en/homepage
+/gr/fr/homepage
+/gr/it/homepage
+/hk/de/homepage
+/hk/en/homepage
+/hk/fr/homepage
+/hk/it/homepage
+# wait (capture, label): /hk/zh/homepage
+/hr/de/homepage
+/hr/en/homepage
+/hr/fr/homepage
+/hr/it/homepage
+/hu/de/homepage
+/hu/en/homepage
+/hu/fr/homepage
+/hu/it/homepage
+/ie/de/homepage
+/ie/en/homepage
+/ie/fr/homepage
+/ie/it/homepage
+/il/de/homepage
+/il/en/homepage
+/il/fr/homepage
+/il/it/homepage
+/in/de/homepage
+# wait (capture): /in/en/homepage
+/in/fr/homepage
+/in/it/homepage
+# wait (capture): /it/de/homepage
+/it/en/homepage
+# wait (capture): /it/fr/homepage
+# wait (capture): /it/it/homepage
+# wait (capture): /jp/de/homepage
+# wait (capture): /jp/en/homepage
+# wait (capture): /jp/fr/homepage
+# wait (capture): /jp/it/homepage
+# wait (capture, label): /jp/ja/homepage
+/ke/de/homepage
+/ke/en/homepage
+/ke/fr/homepage
+/ke/it/homepage
+/kr/de/homepage
+/kr/en/homepage
+# wait (capture): /kr/fr/homepage
+# wait (capture): /kr/it/homepage
+/lt/de/homepage
+/lt/en/homepage
+/lt/fr/homepage
+/lt/it/homepage
+/lu/de/homepage
+/lu/en/homepage
+/lu/fr/homepage
+/lu/it/homepage
+/mk/de/homepage
+/mk/en/homepage
+/mk/fr/homepage
+/mk/it/homepage
+/mt/de/homepage
+/mt/en/homepage
+/mt/fr/homepage
+/mt/it/homepage
+/nl/de/homepage
+/nl/en/homepage
+/nl/fr/homepage
+/nl/it/homepage
+/no/de/homepage
+/no/en/homepage
+/no/fr/homepage
+/no/it/homepage
+/om/de/homepage
+/om/en/homepage
+/om/fr/homepage
+/om/it/homepage
+/pl/de/homepage
+/pl/en/homepage
+/pl/fr/homepage
+/pl/it/homepage
+/pt/de/homepage
+/pt/en/homepage
+/pt/fr/homepage
+/pt/it/homepage
+/pt/pt/homepage
+/ro/de/homepage
+/ro/en/homepage
+/ro/fr/homepage
+/ro/it/homepage
+/rs/de/homepage
+/rs/en/homepage
+/rs/fr/homepage
+/rs/it/homepage
+/ru/de/homepage
+/ru/en/homepage
+/ru/fr/homepage
+/ru/it/homepage
+# wait (capture, label): /ru/ru/homepage
+# wait (capture): /se/de/homepage
+# wait (capture): /se/en/homepage
+/se/fr/homepage
+/se/it/homepage
+/sg/de/homepage
+/sg/en/homepage
+/sg/fr/homepage
+/sg/it/homepage
+# wait (capture, label): /sg/zh/homepage
+/si/de/homepage
+/si/en/homepage
+/si/fr/homepage
+/si/it/homepage
+/th/de/homepage
+# wait (capture): /th/en/homepage
+/th/fr/homepage
+/th/it/homepage
+/tz/de/homepage
+/tz/en/homepage
+/tz/fr/homepage
+/tz/it/homepage
+/ua/de/homepage
+/ua/en/homepage
+/ua/fr/homepage
+/ua/it/homepage
+# wait (capture): /us/de/homepage
+# recorded in ema-cashub's archives: /us/en/homepage
+/us/en/homepage
+# wait (capture): /us/es/homepage
+# wait (capture): /us/fr/homepage
+# wait (capture): /us/it/homepage
+/xk/de/homepage
+/xk/en/homepage
+/xk/fr/homepage
+/xk/it/homepage
+/za/de/homepage
+/za/en/homepage
+/za/fr/homepage
+/za/it/homepage
