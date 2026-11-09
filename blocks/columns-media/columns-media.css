@@ -68,6 +68,14 @@ body.brand-lufthansa .columns-media.separated {
   margin-bottom: 36px;
 }
 
+/* lufthansa.com on phones: 34px under a video cell (www's video component; new-onboard-experience at 390:
+   lh-parity-004a/b), the image's 50px stays (the brief after 539) */
+@media (width < 768px) {
+  body.brand-lufthansa .columns-media .columns-media-row > .columns-media-media:not(:last-child):has(.media-video) {
+    margin-bottom: 34px;
+  }
+}
+
 /* wide-media stacks media first, 40px above the text */
 .columns-media.wide-media .columns-media-media-last > .columns-media-media {
   order: -1;
