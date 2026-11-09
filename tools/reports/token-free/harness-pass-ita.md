@@ -175,5 +175,5 @@ conflicts. The page above holds for each brand, with these changes:
 | Cargo | lh-cargo | DA's own list: no workspace list; the census finds 22 previewed pages with video settings (60) | token-free-cargo-live | token-free-cargo-live--lh-cargo--moved-permanently.aem.page | cargo.turnsthe.page | from that check | none yet |
 | lufthansa.com (last) | lh-com | DA's own list, from lh-com-census-paths.txt (6,752 pages and 74 app screens) | token-free-lufthansa-live | token-free-lufthansa-live--lh-com--moved-permanently.aem.page | lufthansa.turnsthe.page | 17,683 for the workspace's 5,153 documents | lh-com-pass-check.md (ema-adobe's); its own page: harness-pass-lufthansa.md |
 
-TAP's branch can't merge yet: ema-cashub's test/tap-collapse-505.test.mjs asserts TAP's switch is off. It needs
-`test/live-brands.mjs` (LIVE or offThemes) first.
+TAP's branch can merge now: ema-cashub's b848bbd5 no longer pins TAP's switch in test/tap-collapse-505.test.mjs.
+With all nine branches merged onto main (65123e78) the token-free tests pass, TAP's included.
