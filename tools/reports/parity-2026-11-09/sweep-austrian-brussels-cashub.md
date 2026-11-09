@@ -261,3 +261,29 @@ recordings' rich text.
 | 81 | /be/en/extra-services/baggage | 1594 / 1593 (-0.1 %) | 3655 / 3633 (-0.6 %) | not investigated | - |
 | 82 | /be/fr/travel-classes/premium-economy | 4620 / 4609 (-0.2 %) | 6224 / 6249 (+0.4 %) | not investigated | - |
 | 83 | /be/en/legal-notices/data-protection-and-privacy-notice | 16274 / 16276 (+0.0 %) | 29975 / 30034 (+0.2 %) | not investigated | - |
+
+## The brief after 521: five more rows in our own files
+
+Measured on the published page: before on austrian.turnsthe.page / brussels.turnsthe.page, after on a local dev server
+with this tree and the site's preview content. For importer changes, the recording is imported offline and the changed
+part is put into the published document, with both copies on one local server.
+
+| Commit | Brand | Row | Pages | 1440 | 390 |
+| --- | --- | --- | --- | --- | --- |
+| `762510ab` | Austrian | a tab panel's two-column view one level into the section's one-column view (austrian-import.mjs: withPanelWrappersUnwrapped in a column-view item; withNestedOnecolumnUnwrapped over a heading wrapper where the item holds a column view). Traced: the travelling-with-animals tab case was in these two steps, not in swiss-import.mjs | travelling-with-animals, online-check-in (2 of 82 recorded); `reimport-522-austrian-tab-columns.txt` (20) | travelling-with-animals +6.8 → about -1.3 % | -3.7 → about -3.4 % |
+| `a22d29eb` | Austrian | a card grid opening the section after the page title's own section keeps the column view's 32 px (austrian.css) | check-in, families (20 documents) | check-in -3.7 → -2.6 %, familien -1.5 → -0.2 % | -5.5 → -4.7 %, -4.8 → -3.8 % |
+| `16dca5ed` | Brussels | the heading after an accordion in its section, 41 px below it from 768 px, 21 on phones (brussels.css) | 222 + 38 documents with an h2 / h3 after an accordion | special-meals -6.7 → -4.9 %; 5 pages mean \|diff\| 10.04 → 9.32 % | 6.22 → 6.18 % |
+| `582e6e25` | Brussels | the page title's section and a grey band right under it (brussels.css; ranking row 5) | travel-insurances en, fr | +8.0 → +1.9 % | +10.0 → +7.0 % |
+| `4ce3096f` | Brussels | a headline-only column view in a sidebar's content comes in as columns-media (brussels-import.mjs withFactColumns; ranking row 8: the destination facts) | new-destinations (1 of 7 recorded pages with a marked sidebar); `reimport-522-brussels-fact-columns.txt` (6) | +8.8 → about -2.0 % | -7.5 → about -4.0 % |
+
+Together with 521's five, that is five fixes per brand. Two rows I looked at and did not rule:
+
+- **Austrian:** the padded teaser pairs (rebook, premium-economy, giftvoucher). The 33 recorded pages with
+  `columns-media padded` show no one difference.
+- **Brussels:** two patterns that are not one rule.
+  - A teaser row ending in a button before a heading: -41 to -64 px on rebook, flightvoucher and beobank, but +24 on
+    upgrades.
+  - The link-to-heading "+21": the button's box against www's button host, not a gap; the ink gaps are equal.
+
+Capture list for after 15:00 CET: `capture-list-austrian-brussels.txt` (56 pages, 107 captures, about 18 minutes).
+No-break spaces: `nbsp-proposal-cashub.md` (not applied).

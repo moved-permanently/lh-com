@@ -1681,3 +1681,41 @@ Left uncommitted, with the reasons:
   `/at/en/economy-class` (its FAQ buttons). The CSS fixes need no re-import.
 - **Owners named in the report:** the nested two-column view in Austrian's tabs (not traced to its step), cards-icon
   (ema-adobe), the divider markers (ema-test), and Brussels' headline-only column view (lh-com's mapping).
+
+## The brief after 521: the editor hook, five more fixes, the capture list, the no-break space proposal
+
+- **Item 1, the editor hook:** the excat plugin's `hooks/parser-validator-hook.js`, registered in the plugin's
+  `.claude-plugin/plugin.json` under PostToolUse, matcher `Write|Edit`. It is not in any settings file of this workspace.
+  - **What triggers it:** a write or edit of a `.js` file in `tools/importer/parsers/` in a workspace whose
+    `tools/importer/page-templates.json` has a block of the parser's name.
+  - **What it does:** takes the first URL of that block's template (carousel-images: https://www.lufthansa.com/de/en/flying-with-small-children).
+    It first sends that URL a GET (with a Range header) as a reachability probe (`hook-utils.js`
+    `gateImportLiveValidationNetwork`, 10 s). If the probe answers, it loads the URL in a local Chromium through
+    `import-validator/parser-validator.js`, up to 5 attempts per file.
+  - **The transformer twin:** `transformer-validator-hook.js` does the same for `tools/importer/transformers/`, but
+    prefers `migration-work/cleaned.html` when there is one.
+  - **Its log:** `hooks/parser-validator-debug.log` shows one run today, 08:06 UTC on carousel-images.js, and none since.
+  - **No switch for this hook alone:** Claude Code's settings can disable all hooks (`disableAllHooks`), which would
+    also switch off the plugin's guards (catalog-workflow-guard, block-html-sibling, block-long-preview-url), or the
+    whole excat plugin. The plugin isn't enabled through `enabledPlugins` in `~/.claude/settings.json`; the platform
+    loads it. Neither switch is a setting in my own workspace narrow enough for this, so I did not switch anything off.
+  - **For the owner of the plugin:** an environment variable checked at the top of `handlePostToolUse`, or an offline
+    mode that probes only snapshots.
+  - **Until then:** parser and transformer edits go through the shell (python), as in this brief. No parser was edited
+    this brief.
+- **Item 2, five more fixes:** Austrian `762510ab` and `a22d29eb`, Brussels `16dca5ed`, `582e6e25` and `4ce3096f`, one row per commit,
+  measured on the published page (`sweep-austrian-brussels-cashub.md`, the brief after 521).
+  - The travelling-with-animals tab case was in austrian-import.mjs's two unwrap steps, mine, fixed in `762510ab`.
+  - Re-import lists: `reimport-522-austrian-tab-columns.txt` (20) and `reimport-522-brussels-fact-columns.txt` (6).
+- **Item 3, the capture list (`6890efb4`):** `capture-list-austrian-brussels.txt`.
+  - Part A: 21 pages named as needing a recording.
+  - Part B: 35 pages, one per page type and template without a recording.
+  - 56 pages, 107 captures, about 18 minutes at 10 seconds a capture; all answer 200 on our hosts. Nothing captured.
+- **Item 4, no-break spaces (`d4096c8e`):** `nbsp-proposal-cashub.md`, the proposal only.
+
+### What is left
+
+- **The brands helper:** re-import the two new lists (26 documents). The CSS fixes need none.
+- **After 15:00 CET:** the capture list (56 pages).
+- **Ben:** the no-break space decision.
+- **The plugin's owner:** a switch for the validator hooks.
