@@ -1,4 +1,4 @@
-# Brief 515 item 3: meetings-and-events' partner logos as a phone slider (columns-media cell-slider), in release order; only after ema-cashub's parser change (tools/reports/parity-2026-11-09/shared-blocks-515.md) and the hub bundle rebuilt. All seven are published on lufthansa.turnsthe.page (200, checked 2026-11-09).
+# Brief 515 item 3: meetings-and-events' partner logos as a phone slider (columns-media cell-slider), in release order; only after ema-cashub's parser change (tools/reports/parity-2026-11-09/shared-blocks-515.md) and the hub bundle rebuilt. All seven are published on lufthansa.turnsthe.page (200, checked 2026-11-09). Corrected by ema-cashub (the brief after 517 item 2): 10, not 7. The ten documents on lh-com's preview all hold the logo row (a columns-media of four pictures alone, no option): /xx/hk, /xx/pt and /xx/ru were missing (their snapshots are on disk and give the same view; the three pages are in lh-com.json's allowlist and answer 200 on preview).
 /de/en/meetings-and-events
 /de/de/meetings-and-events
 /at/de/meetings-and-events
@@ -6,3 +6,6 @@
 /fr/fr/meetings-and-events
 /xx/es/meetings-and-events
 /xx/fr/meetings-and-events
+/xx/hk/meetings-and-events
+/xx/pt/meetings-and-events
+/xx/ru/meetings-and-events

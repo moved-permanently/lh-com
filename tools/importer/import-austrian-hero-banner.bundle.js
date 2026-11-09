@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-hero-banner.js
-  var tmp_bundle_austrian_hero_banner_1450024_exports = {};
-  __export(tmp_bundle_austrian_hero_banner_1450024_exports, {
-    default: () => tmp_bundle_austrian_hero_banner_1450024_default
+  var tmp_bundle_austrian_hero_banner_830859_exports = {};
+  __export(tmp_bundle_austrian_hero_banner_830859_exports, {
+    default: () => tmp_bundle_austrian_hero_banner_830859_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -4749,7 +4749,8 @@ var CustomImportScript = (() => {
       if (stacked) variants.push("stacked");
       if (items.some((it) => it.querySelector(".imagelinklist .nav-link-list"))) variants.push("link-list");
       const textItem = (it) => !!it.querySelector(".headline, .text");
-      if (!sliderView && view.querySelector(":scope > .carousel") && items.length > 1 && items.some(textItem) && items.some((it) => !textItem(it) && it.querySelector(".image img"))) {
+      const imageItem = (it) => !textItem(it) && !!it.querySelector(".image img");
+      if (!sliderView && view.querySelector(":scope > .carousel") && items.length > 1 && (items.some(textItem) && items.some(imageItem) || items.length > 2 && items.every(imageItem))) {
         variants.push("cell-slider");
       }
       const own = element.classList.contains("column") && element.children.length === 1 && element.firstElementChild === view && !!element.parentElement && element.parentElement.classList.contains("section-content");
@@ -8450,7 +8451,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_hero_banner_1450024_default = {
+  var tmp_bundle_austrian_hero_banner_830859_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -8489,5 +8490,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_hero_banner_1450024_exports);
+  return __toCommonJS(tmp_bundle_austrian_hero_banner_830859_exports);
 })();
