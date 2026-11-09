@@ -924,6 +924,26 @@ body.brand-brussels .fare-teaser .fare-teaser-price {
   }
 }
 
+/* the footer from 1025 px (the brief after 527; www 478 px on the en pages, 515 on the fr ones, ours 468): the
+   titles 14 px over the lists, the legal row 98 px under the last link and 41 px over the logo band, its links on
+   three quarters of the content width (the French row wraps its sixth link, as www's), the logo band 68 px high */
+@media (width >= 1025px) {
+  body.brand-brussels .footer .footer-column-title {
+    margin-bottom: 14px;
+  }
+
+  body.brand-brussels .footer .footer-legal {
+    max-width: 948px;
+    padding-top: 60px;
+    padding-bottom: 10px;
+  }
+
+  body.brand-brussels .footer .footer-logos-inner {
+    padding-top: 15px;
+    padding-bottom: 18px;
+  }
+}
+
 /* the footer on phones (brief 478; brussels-parity-003 at 390, www 829 / 849 px, ours 696): the section
    rows 40 px high (10 px padded, 32 px in) one every 60 px; "Social media" 14/15.4 bold, 29 px under the
    rows, 20 px over the icons, 32 px in; the legal links 32 px in, the first 78 px under the icons, the

@@ -303,10 +303,18 @@ export const ROUTES = [
   },
   {
     // market roots answered from their language's documents (src/markets.js; pilot roots only on
-    // PILOT_HOSTS, elsewhere the pass-through)
+    // PILOT_HOSTS, elsewhere the pass-through); a live market root's own document (its homepage)
+    // lists the alternates its market copies list (src/live-alternates.js marketOwn, as the brand
+    // sites' since 16f2dd1)
     name: 'market',
     match: (url) => marketPath(url.pathname) !== null,
-    handle: market,
+    handle: async (request, env) => withLiveAlternates(
+      await market(request, env),
+      request,
+      env,
+      undefined,
+      { marketOwn: true },
+    ),
   },
   {
     // the live roots' pages with their alternates once a wave is live (src/live-alternates.js)

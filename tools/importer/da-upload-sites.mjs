@@ -20,6 +20,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { LOCALE_TABLE } from '../../scripts/locale.js';
+// eslint-disable-next-line import/extensions
+import { restoreNbsp } from './nbsp-guard.mjs';
 
 export const ORG = 'moved-permanently';
 export const DEFAULT_SITE = 'lh-com';
@@ -90,7 +92,9 @@ export function mediaStep({
 
 /** What is sent to DA: a .plain.html in DA's source shape, a full DA document as it is. */
 export function uploadBody(kind, text) {
-  return kind === 'document' ? text : `<body><header></header><main>${text}</main><footer></footer></body>`;
+  // www's no-break spaces back where a document still has the import's stand-in (nbsp-guard.mjs)
+  const body = restoreNbsp(text);
+  return kind === 'document' ? body : `<body><header></header><main>${body}</main><footer></footer></body>`;
 }
 
 /** Is the path allowed by another site's allowlist? */

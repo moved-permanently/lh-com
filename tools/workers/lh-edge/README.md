@@ -248,7 +248,10 @@ hreflang alternates, in its sitemaps only; no www page head has any) a reference
 another page (its homepage: `marketOwn`), so they answer each other; an own page no other root has, nav and footer
 list none. The origin's own hreflang links are replaced, the hrefs name the canonical's host (on austrian-cn:
 austrian.turnsthe.page). B2B (www: no sitemap, no hreflang) and Discover (no snapshot of www) list none on their
-reference roots and own documents. `test/brand-alternates.test.mjs`.
+reference roots and own documents. `test/brand-alternates.test.mjs`. On lufthansa.com's hosts a live market root's
+own document (its homepage, kr/ko/homepage) lists the set its language version's page lists too (the market route's
+`marketOwn`, brief 538; before it, de/de/homepage named kr/ko/homepage and kr/ko/homepage named nothing back);
+`test/market-home-alternates.test.mjs`.
 
 SWISS's language versions' index (`SITE_INDEX_PATHS` in `src/sites.js`): its reference roots are ch/<ll>, which on
 lh-com are market roots with documents of their own, and helix-query.yaml serves every site, so their index is

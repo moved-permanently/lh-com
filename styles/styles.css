@@ -2003,8 +2003,9 @@ body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper
 /* theme rules (scripts/style-markers.js THEMES: a brand's theme once its documents are collapsed,
    body.theme-live, scripts/token-free.js): column views are structure; on flow pages a heading
    after other content (not right after another heading: a title's subheading keeps its own spacing)
-   gets the brand's gap (THEMES columnViews.headingGap: 32px, the column view's padding, or 0) */
-body.theme-live.flow-spacing main .default-content-wrapper > :not(h1, h2, h3, h4, h5, h6) + :is(h2, h3) {
+   gets the brand's gap (THEMES columnViews.headingGap: 32px, the column view's padding, or 0);
+   not after a Spacer: the Spacer is the gap (brief 536, spacer-cost-536.md) */
+body.theme-live.flow-spacing main .default-content-wrapper > :not(h1, h2, h3, h4, h5, h6, p.spacer:not(.divider)) + :is(h2, h3) {
   margin-top: var(--theme-heading-gap, 32px);
 }
 

@@ -6,14 +6,14 @@
    "preview": "2026-11-06T22:45:29.072Z"
   },
   "/ch/en/homepage": {
-   "uploaded": "2026-11-05T14:26:24.779Z",
-   "mtime": 1793888210161,
-   "preview": "2026-11-05T14:26:27.084Z"
+   "uploaded": "2026-11-09T14:08:12.546Z",
+   "mtime": 1794232902074.6458,
+   "preview": "2026-11-09T14:08:16.731Z"
   },
   "/ch/de/homepage": {
-   "uploaded": "2026-11-05T14:26:32.195Z",
-   "mtime": 1793888210216,
-   "preview": "2026-11-05T14:26:34.568Z"
+   "uploaded": "2026-11-09T14:08:19.365Z",
+   "mtime": 1794232902075.6606,
+   "preview": "2026-11-09T14:08:22.490Z"
   },
   "/ch/en/fly/check-in/online-check-in": {
    "uploaded": "2026-11-07T02:37:32.268Z",
@@ -4326,9 +4326,9 @@
    "preview": "2026-11-02T19:11:33.097Z"
   },
   "/ch/fr/homepage": {
-   "uploaded": "2026-11-02T17:57:06.450Z",
-   "mtime": 1793642059368,
-   "preview": "2026-11-02T17:57:08.974Z"
+   "uploaded": "2026-11-09T14:08:25.342Z",
+   "mtime": 1794232902076.633,
+   "preview": "2026-11-09T14:08:27.807Z"
   },
   "/ch/fr/book-and-manage": {
    "uploaded": "2026-11-02T16:05:50.374Z",
@@ -5841,9 +5841,9 @@
    "preview": "2026-11-02T17:59:02.653Z"
   },
   "/ch/it/homepage": {
-   "uploaded": "2026-11-02T18:41:09.398Z",
-   "mtime": 1793644406912,
-   "preview": "2026-11-02T18:41:11.693Z"
+   "uploaded": "2026-11-09T14:08:30.634Z",
+   "mtime": 1794232902077.6243,
+   "preview": "2026-11-09T14:08:32.981Z"
   },
   "/ch/it/book-and-manage": {
    "uploaded": "2026-11-02T18:02:50.074Z",
@@ -7226,9 +7226,9 @@
    "preview": "2026-11-02T18:46:39.255Z"
   },
   "/ch/es/homepage": {
-   "uploaded": "2026-11-02T21:06:16.250Z",
-   "mtime": 1793653060082,
-   "preview": "2026-11-02T21:06:18.598Z"
+   "uploaded": "2026-11-09T14:08:36.005Z",
+   "mtime": 1794232902079.1606,
+   "preview": "2026-11-09T14:08:38.646Z"
   },
   "/ch/es/book-and-manage": {
    "uploaded": "2026-11-02T20:26:46.318Z",
@@ -8596,9 +8596,9 @@
    "preview": "2026-11-08T08:34:42.794Z"
   },
   "/ch/pt/homepage": {
-   "uploaded": "2026-11-02T21:56:29.667Z",
-   "mtime": 1793656065797,
-   "preview": "2026-11-02T21:56:32.480Z"
+   "uploaded": "2026-11-09T14:08:41.432Z",
+   "mtime": 1794232902080.139,
+   "preview": "2026-11-09T14:08:43.723Z"
   },
   "/ch/pt/baggage-conditions": {
    "uploaded": "2026-11-02T21:16:05.144Z",
@@ -10331,9 +10331,9 @@
    "preview": "2026-11-02T20:54:28.322Z"
   },
   "/at/de/homepage": {
-   "uploaded": "2026-11-03T05:11:22.072Z",
-   "mtime": 1793682392354,
-   "preview": "2026-11-03T05:11:24.825Z"
+   "uploaded": "2026-11-09T14:09:10.760Z",
+   "mtime": 1794232902086.7488,
+   "preview": "2026-11-09T14:09:13.052Z"
   },
   "/at/de/nav": {
    "uploaded": "2026-11-06T01:07:55.080Z",
@@ -10646,9 +10646,9 @@
    "preview": "2026-11-02T20:58:14.395Z"
   },
   "/ca/de/homepage": {
-   "uploaded": "2026-11-03T05:13:59.766Z",
-   "mtime": 1793682393755,
-   "preview": "2026-11-03T05:14:01.800Z"
+   "uploaded": "2026-11-09T14:09:15.551Z",
+   "mtime": 1794232902089.2344,
+   "preview": "2026-11-09T14:09:17.981Z"
   },
   "/ca/de/nav": {
    "uploaded": "2026-11-06T01:09:24.118Z",
@@ -10661,9 +10661,9 @@
    "preview": "2026-11-02T20:58:24.435Z"
   },
   "/ca/en/homepage": {
-   "uploaded": "2026-11-03T05:14:07.452Z",
-   "mtime": 1793682393813,
-   "preview": "2026-11-03T05:14:09.582Z"
+   "uploaded": "2026-11-09T14:09:20.639Z",
+   "mtime": 1794232902090.2854,
+   "preview": "2026-11-09T14:09:23.178Z"
   },
   "/ca/en/local-page/passenger-rights-in-canada": {
    "uploaded": "2026-11-03T05:14:14.127Z",
@@ -10696,9 +10696,9 @@
    "preview": "2026-11-02T20:58:48.436Z"
   },
   "/ca/fr/homepage": {
-   "uploaded": "2026-11-02T20:58:49.766Z",
-   "mtime": 1793652529414,
-   "preview": "2026-11-02T20:58:51.712Z"
+   "uploaded": "2026-11-09T14:09:25.809Z",
+   "mtime": 1794232902091.9553,
+   "preview": "2026-11-09T14:09:28.368Z"
   },
   "/ca/fr/local-page/droits-des-passagers": {
    "uploaded": "2026-11-03T05:14:32.045Z",
@@ -10726,9 +10726,9 @@
    "preview": "2026-11-02T20:59:08.340Z"
   },
   "/ca/it/homepage": {
-   "uploaded": "2026-11-02T20:59:09.857Z",
-   "mtime": 1793652529491,
-   "preview": "2026-11-02T20:59:12.013Z"
+   "uploaded": "2026-11-09T14:09:30.788Z",
+   "mtime": 1794232902093.0066,
+   "preview": "2026-11-09T14:09:33.704Z"
   },
   "/ca/it/nav": {
    "uploaded": "2026-11-06T01:09:35.797Z",
@@ -10756,9 +10756,9 @@
    "preview": "2026-11-02T20:59:30.461Z"
   },
   "/cn/en/homepage": {
-   "uploaded": "2026-11-03T05:14:57.002Z",
-   "mtime": 1793682394264,
-   "preview": "2026-11-03T05:14:58.798Z"
+   "uploaded": "2026-11-09T14:09:36.698Z",
+   "mtime": 1794232902094.354,
+   "preview": "2026-11-09T14:09:39.107Z"
   },
   "/cn/en/local-page/cnypromocode26": {
    "uploaded": "2026-11-08T12:32:43.357Z",
@@ -10881,9 +10881,9 @@
    "preview": "2026-11-02T21:01:03.293Z"
   },
   "/de/de/homepage": {
-   "uploaded": "2026-11-03T05:16:15.421Z",
-   "mtime": 1793682394892,
-   "preview": "2026-11-03T05:16:17.191Z"
+   "uploaded": "2026-11-09T14:10:05.361Z",
+   "mtime": 1794232902096.4824,
+   "preview": "2026-11-09T14:10:07.668Z"
   },
   "/de/de/nav": {
    "uploaded": "2026-11-06T01:10:47.697Z",
@@ -11306,9 +11306,9 @@
    "preview": "2026-11-02T21:06:28.252Z"
   },
   "/gb/en/homepage": {
-   "uploaded": "2026-11-03T05:19:32.562Z",
-   "mtime": 1793682396606,
-   "preview": "2026-11-03T05:19:34.992Z"
+   "uploaded": "2026-11-09T14:10:10.525Z",
+   "mtime": 1794232902098.59,
+   "preview": "2026-11-09T14:10:13.022Z"
   },
   "/gb/en/local-page/sweepstakes-thank-you": {
    "uploaded": "2026-11-03T05:19:36.595Z",
@@ -11821,9 +11821,9 @@
    "preview": "2026-11-02T21:12:28.477Z"
   },
   "/in/en/homepage": {
-   "uploaded": "2026-11-03T05:23:02.201Z",
-   "mtime": 1793682398676,
-   "preview": "2026-11-03T05:23:04.134Z"
+   "uploaded": "2026-11-09T14:10:21.807Z",
+   "mtime": 1794232902101.3557,
+   "preview": "2026-11-09T14:10:25.291Z"
   },
   "/in/en/local-page/diwaliwithswiss-termsandconditions": {
    "uploaded": "2026-11-03T05:23:05.799Z",
@@ -11876,9 +11876,9 @@
    "preview": "2026-11-02T21:13:04.914Z"
   },
   "/it/de/homepage": {
-   "uploaded": "2026-11-03T05:23:22.939Z",
-   "mtime": 1793682398883,
-   "preview": "2026-11-03T05:23:25.642Z"
+   "uploaded": "2026-11-09T14:10:27.986Z",
+   "mtime": 1794232902103.5222,
+   "preview": "2026-11-09T14:10:30.441Z"
   },
   "/it/de/nav": {
    "uploaded": "2026-11-06T01:15:03.375Z",
@@ -11906,9 +11906,9 @@
    "preview": "2026-11-02T21:13:24.169Z"
   },
   "/it/fr/homepage": {
-   "uploaded": "2026-11-02T21:13:25.688Z",
-   "mtime": 1793652531603,
-   "preview": "2026-11-02T21:13:27.827Z"
+   "uploaded": "2026-11-09T14:10:32.923Z",
+   "mtime": 1794232902104.3323,
+   "preview": "2026-11-09T14:10:35.034Z"
   },
   "/it/fr/nav": {
    "uploaded": "2026-11-06T01:15:11.768Z",
@@ -11921,9 +11921,9 @@
    "preview": "2026-11-02T21:13:34.351Z"
   },
   "/it/it/homepage": {
-   "uploaded": "2026-11-02T21:13:35.780Z",
-   "mtime": 1793652531630,
-   "preview": "2026-11-02T21:13:37.924Z"
+   "uploaded": "2026-11-09T14:10:38.064Z",
+   "mtime": 1794232902105.261,
+   "preview": "2026-11-09T14:10:41.232Z"
   },
   "/it/it/nav": {
    "uploaded": "2026-11-06T01:15:15.856Z",
@@ -11936,9 +11936,9 @@
    "preview": "2026-11-02T21:13:44.354Z"
   },
   "/jp/de/homepage": {
-   "uploaded": "2026-11-03T05:23:44.731Z",
-   "mtime": 1793682399085,
-   "preview": "2026-11-03T05:23:46.503Z"
+   "uploaded": "2026-11-09T14:10:43.889Z",
+   "mtime": 1794232902106.6445,
+   "preview": "2026-11-09T14:10:46.674Z"
   },
   "/jp/de/nav": {
    "uploaded": "2026-11-06T01:15:20.010Z",
@@ -11951,9 +11951,9 @@
    "preview": "2026-11-02T21:13:53.861Z"
   },
   "/jp/en/homepage": {
-   "uploaded": "2026-11-03T05:23:51.029Z",
-   "mtime": 1793682399158,
-   "preview": "2026-11-03T05:23:53.080Z"
+   "uploaded": "2026-11-09T14:10:49.898Z",
+   "mtime": 1794232902107.5872,
+   "preview": "2026-11-09T14:10:52.434Z"
   },
   "/jp/en/local-page/japanese-meal": {
    "uploaded": "2026-11-06T17:08:54.673Z",
@@ -11971,9 +11971,9 @@
    "preview": "2026-11-02T21:14:07.118Z"
   },
   "/jp/fr/homepage": {
-   "uploaded": "2026-11-02T21:14:08.521Z",
-   "mtime": 1793652531710,
-   "preview": "2026-11-02T21:14:11.001Z"
+   "uploaded": "2026-11-09T14:10:55.339Z",
+   "mtime": 1794232902108.4849,
+   "preview": "2026-11-09T14:10:58.184Z"
   },
   "/jp/fr/nav": {
    "uploaded": "2026-11-06T01:15:27.668Z",
@@ -11986,9 +11986,9 @@
    "preview": "2026-11-02T21:14:18.063Z"
   },
   "/jp/it/homepage": {
-   "uploaded": "2026-11-02T21:14:19.792Z",
-   "mtime": 1793652531735,
-   "preview": "2026-11-02T21:14:21.670Z"
+   "uploaded": "2026-11-09T14:11:00.876Z",
+   "mtime": 1794232902109.2778,
+   "preview": "2026-11-09T14:11:03.285Z"
   },
   "/jp/it/nav": {
    "uploaded": "2026-11-06T01:15:31.377Z",
@@ -12871,9 +12871,9 @@
    "preview": "2026-11-02T21:24:32.592Z"
   },
   "/se/de/homepage": {
-   "uploaded": "2026-11-03T05:33:36.604Z",
-   "mtime": 1793682405701,
-   "preview": "2026-11-03T05:33:39.035Z"
+   "uploaded": "2026-11-09T14:11:16.475Z",
+   "mtime": 1794232902112.493,
+   "preview": "2026-11-09T14:11:18.512Z"
   },
   "/se/de/nav": {
    "uploaded": "2026-11-06T01:19:58.571Z",
@@ -12886,9 +12886,9 @@
    "preview": "2026-11-02T21:24:42.874Z"
   },
   "/se/en/homepage": {
-   "uploaded": "2026-11-03T05:33:43.991Z",
-   "mtime": 1793682405766,
-   "preview": "2026-11-03T05:33:46.154Z"
+   "uploaded": "2026-11-09T14:11:21.203Z",
+   "mtime": 1794232902113.4749,
+   "preview": "2026-11-09T14:11:23.620Z"
   },
   "/se/en/nav": {
    "uploaded": "2026-11-06T01:20:02.536Z",
@@ -13076,9 +13076,9 @@
    "preview": "2026-11-02T21:26:55.139Z"
   },
   "/th/en/homepage": {
-   "uploaded": "2026-11-03T05:35:03.977Z",
-   "mtime": 1793682406503,
-   "preview": "2026-11-03T05:35:06.087Z"
+   "uploaded": "2026-11-09T14:11:31.968Z",
+   "mtime": 1794232902115.2817,
+   "preview": "2026-11-09T14:11:34.628Z"
   },
   "/th/en/local-page/promo-code-th-europe3000-lx": {
    "uploaded": "2026-11-08T08:40:40.284Z",
@@ -13251,9 +13251,9 @@
    "preview": "2026-11-02T21:28:53.725Z"
   },
   "/us/de/homepage": {
-   "uploaded": "2026-11-03T05:36:05.151Z",
-   "mtime": 1793682407099,
-   "preview": "2026-11-03T05:36:06.922Z"
+   "uploaded": "2026-11-09T14:11:56.568Z",
+   "mtime": 1794232902116.5847,
+   "preview": "2026-11-09T14:11:59.450Z"
   },
   "/us/de/nav": {
    "uploaded": "2026-11-06T01:21:44.045Z",
@@ -13291,9 +13291,9 @@
    "preview": "2026-11-02T21:29:23.421Z"
   },
   "/us/fr/homepage": {
-   "uploaded": "2026-11-02T21:29:24.921Z",
-   "mtime": 1793652534118,
-   "preview": "2026-11-02T21:29:26.927Z"
+   "uploaded": "2026-11-09T14:12:06.631Z",
+   "mtime": 1794232902118.5332,
+   "preview": "2026-11-09T14:12:08.834Z"
   },
   "/us/fr/nav": {
    "uploaded": "2026-11-06T01:21:55.473Z",
@@ -13306,9 +13306,9 @@
    "preview": "2026-11-02T21:29:33.096Z"
   },
   "/us/it/homepage": {
-   "uploaded": "2026-11-02T21:29:34.537Z",
-   "mtime": 1793652534145,
-   "preview": "2026-11-02T21:29:36.789Z"
+   "uploaded": "2026-11-09T14:12:11.586Z",
+   "mtime": 1794232902119.2996,
+   "preview": "2026-11-09T14:12:14.311Z"
   },
   "/us/it/nav": {
    "uploaded": "2026-11-06T01:21:59.194Z",
@@ -13436,9 +13436,9 @@
    "preview": "2026-11-06T01:22:34.948Z"
   },
   "/ch/zh/homepage": {
-   "uploaded": "2026-11-03T00:35:58.439Z",
-   "mtime": 1793665627357,
-   "preview": "2026-11-03T00:36:01.328Z"
+   "uploaded": "2026-11-09T14:08:46.801Z",
+   "mtime": 1794232902081.438,
+   "preview": "2026-11-09T14:08:50.965Z"
   },
   "/ch/zh/baggage-conditions": {
    "uploaded": "2026-11-02T23:52:16.299Z",
@@ -14796,9 +14796,9 @@
    "preview": "2026-11-08T08:38:11.212Z"
   },
   "/ch/ja/homepage": {
-   "uploaded": "2026-11-03T01:32:15.606Z",
-   "mtime": 1793669008712,
-   "preview": "2026-11-03T01:32:18.525Z"
+   "uploaded": "2026-11-09T14:08:53.580Z",
+   "mtime": 1794232902082.5256,
+   "preview": "2026-11-09T14:08:56.164Z"
   },
   "/ch/ja/book-and-manage": {
    "uploaded": "2026-11-03T00:48:00.159Z",
@@ -19191,9 +19191,9 @@
    "preview": "2026-11-09T10:28:34.149Z"
   },
   "/us/es/homepage": {
-   "uploaded": "2026-11-03T08:11:54.795Z",
-   "mtime": 1793692612261,
-   "preview": "2026-11-03T08:11:56.923Z"
+   "uploaded": "2026-11-09T14:12:02.050Z",
+   "mtime": 1794232902117.791,
+   "preview": "2026-11-09T14:12:04.109Z"
   },
   "/ar/es/local-page/companion-special-swiss-business": {
    "uploaded": "2026-11-03T05:11:01.603Z",
@@ -21106,9 +21106,9 @@
    "preview": "2026-11-05T22:50:18.323Z"
   },
   "/ch/el/homepage": {
-   "uploaded": "2026-11-03T04:07:54.562Z",
-   "mtime": 1793678328033,
-   "preview": "2026-11-03T04:07:57.447Z"
+   "uploaded": "2026-11-09T14:08:58.855Z",
+   "mtime": 1794232902083.954,
+   "preview": "2026-11-09T14:09:01.672Z"
   },
   "/ch/el/book-and-manage": {
    "uploaded": "2026-11-03T03:22:14.009Z",
@@ -22461,9 +22461,9 @@
    "preview": "2026-11-08T08:33:07.385Z"
   },
   "/ch/ru/homepage": {
-   "uploaded": "2026-11-03T05:07:01.048Z",
-   "mtime": 1793681897716,
-   "preview": "2026-11-03T05:07:03.732Z"
+   "uploaded": "2026-11-09T14:09:04.354Z",
+   "mtime": 1794232902085.2751,
+   "preview": "2026-11-09T14:09:07.451Z"
   },
   "/ch/ru/baggage-conditions": {
    "uploaded": "2026-11-03T04:20:55.829Z",
@@ -23826,24 +23826,24 @@
    "preview": "2026-11-08T08:37:20.567Z"
   },
   "/cn/zh/homepage": {
-   "uploaded": "2026-11-03T05:15:30.145Z",
-   "mtime": 1793682394525,
-   "preview": "2026-11-03T05:15:32.491Z"
+   "uploaded": "2026-11-09T14:09:41.965Z",
+   "mtime": 1794232902095.4695,
+   "preview": "2026-11-09T14:09:44.399Z"
   },
   "/hk/zh/homepage": {
-   "uploaded": "2026-11-03T05:21:16.810Z",
-   "mtime": 1793682397566,
-   "preview": "2026-11-03T05:21:19.015Z"
+   "uploaded": "2026-11-09T14:10:15.760Z",
+   "mtime": 1794232902100.07,
+   "preview": "2026-11-09T14:10:18.743Z"
   },
   "/sg/zh/homepage": {
-   "uploaded": "2026-11-03T05:34:30.065Z",
-   "mtime": 1793682406151,
-   "preview": "2026-11-03T05:34:31.726Z"
+   "uploaded": "2026-11-09T14:11:26.554Z",
+   "mtime": 1794232902114.3645,
+   "preview": "2026-11-09T14:11:29.158Z"
   },
   "/jp/ja/homepage": {
-   "uploaded": "2026-11-03T05:24:11.648Z",
-   "mtime": 1793682399336,
-   "preview": "2026-11-03T05:24:13.478Z"
+   "uploaded": "2026-11-09T14:11:06.109Z",
+   "mtime": 1794232902109.9758,
+   "preview": "2026-11-09T14:11:08.011Z"
   },
   "/cn/zh/irreg-handling-plan": {
    "uploaded": "2026-11-03T05:15:34.176Z",
@@ -25331,9 +25331,9 @@
    "preview": "2026-11-03T06:14:30.850Z"
   },
   "/ru/ru/homepage": {
-   "uploaded": "2026-11-03T06:14:32.628Z",
-   "mtime": 1793686359818,
-   "preview": "2026-11-03T06:14:34.845Z"
+   "uploaded": "2026-11-09T14:11:11.239Z",
+   "mtime": 1794232902110.989,
+   "preview": "2026-11-09T14:11:13.432Z"
   },
   "/ru/ru/family-promotion": {
    "uploaded": "2026-11-03T06:14:36.564Z",
@@ -26464,6 +26464,196 @@
    "uploaded": "2026-11-09T10:11:16.321Z",
    "mtime": 1794217300226.4756,
    "preview": "2026-11-09T10:11:18.301Z"
+  },
+  "/at/de/fragments/modals/allgemeine-bedingungen": {
+   "uploaded": "2026-11-09T14:02:56.307Z",
+   "mtime": 1794232660687.108,
+   "preview": "2026-11-09T14:02:58.161Z"
+  },
+  "/ca/de/fragments/modals/allgemeine-bedingungen": {
+   "uploaded": "2026-11-09T14:03:00.376Z",
+   "mtime": 1794232660688.511,
+   "preview": "2026-11-09T14:03:02.361Z"
+  },
+  "/ca/en/fragments/modals/general-conditions": {
+   "uploaded": "2026-11-09T14:03:04.695Z",
+   "mtime": 1794232660689.4614,
+   "preview": "2026-11-09T14:03:06.642Z"
+  },
+  "/ca/fr/fragments/modals/conditions-generales": {
+   "uploaded": "2026-11-09T14:03:08.602Z",
+   "mtime": 1794232660691.0303,
+   "preview": "2026-11-09T14:03:10.353Z"
+  },
+  "/ca/it/fragments/modals/condizioni-generali": {
+   "uploaded": "2026-11-09T14:03:12.384Z",
+   "mtime": 1794232660691.954,
+   "preview": "2026-11-09T14:03:14.239Z"
+  },
+  "/ch/de/fragments/modals/allgemeine-bedingungen": {
+   "uploaded": "2026-11-09T14:03:16.311Z",
+   "mtime": 1794232660692.987,
+   "preview": "2026-11-09T14:03:18.315Z"
+  },
+  "/ch/el/fragments/modals/el": {
+   "uploaded": "2026-11-09T14:03:20.353Z",
+   "mtime": 1794232660693.549,
+   "preview": "2026-11-09T14:03:22.318Z"
+  },
+  "/ch/en/fragments/modals/general-conditions": {
+   "uploaded": "2026-11-09T14:03:24.485Z",
+   "mtime": 1794232660694.4893,
+   "preview": "2026-11-09T14:03:26.336Z"
+  },
+  "/ch/es/fragments/modals/condiciones-generales": {
+   "uploaded": "2026-11-09T14:03:28.321Z",
+   "mtime": 1794232660695.1667,
+   "preview": "2026-11-09T14:03:30.417Z"
+  },
+  "/ch/fr/fragments/modals/conditions-generales": {
+   "uploaded": "2026-11-09T14:03:32.450Z",
+   "mtime": 1794232660696.1692,
+   "preview": "2026-11-09T14:03:34.730Z"
+  },
+  "/ch/it/fragments/modals/condizioni-generali": {
+   "uploaded": "2026-11-09T14:03:37.045Z",
+   "mtime": 1794232660697.229,
+   "preview": "2026-11-09T14:03:39.079Z"
+  },
+  "/ch/ja/fragments/modals/ja": {
+   "uploaded": "2026-11-09T14:03:41.223Z",
+   "mtime": 1794232660698.6997,
+   "preview": "2026-11-09T14:03:43.061Z"
+  },
+  "/ch/pt/fragments/modals/condicoes-gerais": {
+   "uploaded": "2026-11-09T14:03:45.454Z",
+   "mtime": 1794232660699.6074,
+   "preview": "2026-11-09T14:03:47.533Z"
+  },
+  "/ch/ru/fragments/modals/ru": {
+   "uploaded": "2026-11-09T14:03:49.818Z",
+   "mtime": 1794232660700.4285,
+   "preview": "2026-11-09T14:03:52.030Z"
+  },
+  "/ch/zh/fragments/modals/zh": {
+   "uploaded": "2026-11-09T14:03:54.316Z",
+   "mtime": 1794232660701.432,
+   "preview": "2026-11-09T14:03:55.941Z"
+  },
+  "/cn/en/fragments/modals/general-conditions": {
+   "uploaded": "2026-11-09T14:03:58.221Z",
+   "mtime": 1794232660702.102,
+   "preview": "2026-11-09T14:04:00.075Z"
+  },
+  "/cn/zh/fragments/modals/zh": {
+   "uploaded": "2026-11-09T14:04:02.781Z",
+   "mtime": 1794232660702.9692,
+   "preview": "2026-11-09T14:04:04.887Z"
+  },
+  "/de/de/fragments/modals/allgemeine-bedingungen": {
+   "uploaded": "2026-11-09T14:04:07.930Z",
+   "mtime": 1794232660703.7004,
+   "preview": "2026-11-09T14:04:10.048Z"
+  },
+  "/gb/en/fragments/modals/general-conditions": {
+   "uploaded": "2026-11-09T14:04:12.176Z",
+   "mtime": 1794232660704.2644,
+   "preview": "2026-11-09T14:04:14.144Z"
+  },
+  "/hk/zh/fragments/modals/zh": {
+   "uploaded": "2026-11-09T14:04:16.213Z",
+   "mtime": 1794232660705.171,
+   "preview": "2026-11-09T14:04:19.008Z"
+  },
+  "/in/en/fragments/modals/general-conditions": {
+   "uploaded": "2026-11-09T14:04:21.865Z",
+   "mtime": 1794232660705.768,
+   "preview": "2026-11-09T14:04:23.751Z"
+  },
+  "/it/de/fragments/modals/allgemeine-bedingungen": {
+   "uploaded": "2026-11-09T14:04:29.976Z",
+   "mtime": 1794232660706.6855,
+   "preview": "2026-11-09T14:04:31.921Z"
+  },
+  "/it/fr/fragments/modals/conditions-generales": {
+   "uploaded": "2026-11-09T14:04:34.386Z",
+   "mtime": 1794232660707.4268,
+   "preview": "2026-11-09T14:04:36.384Z"
+  },
+  "/it/it/fragments/modals/condizioni-generali": {
+   "uploaded": "2026-11-09T14:04:38.441Z",
+   "mtime": 1794232660708.4487,
+   "preview": "2026-11-09T14:04:40.880Z"
+  },
+  "/jp/de/fragments/modals/allgemeine-bedingungen": {
+   "uploaded": "2026-11-09T14:04:43.016Z",
+   "mtime": 1794232660709.2573,
+   "preview": "2026-11-09T14:04:44.949Z"
+  },
+  "/jp/en/fragments/modals/general-conditions": {
+   "uploaded": "2026-11-09T14:04:47.528Z",
+   "mtime": 1794232660709.9148,
+   "preview": "2026-11-09T14:04:49.325Z"
+  },
+  "/jp/fr/fragments/modals/conditions-generales": {
+   "uploaded": "2026-11-09T14:04:51.285Z",
+   "mtime": 1794232660710.7063,
+   "preview": "2026-11-09T14:04:53.866Z"
+  },
+  "/jp/it/fragments/modals/condizioni-generali": {
+   "uploaded": "2026-11-09T14:04:56.011Z",
+   "mtime": 1794232660711.3508,
+   "preview": "2026-11-09T14:04:57.714Z"
+  },
+  "/jp/ja/fragments/modals/ja": {
+   "uploaded": "2026-11-09T14:05:00.193Z",
+   "mtime": 1794232660712.005,
+   "preview": "2026-11-09T14:05:02.256Z"
+  },
+  "/ru/ru/fragments/modals/ru": {
+   "uploaded": "2026-11-09T14:05:04.405Z",
+   "mtime": 1794232660712.7507,
+   "preview": "2026-11-09T14:05:06.459Z"
+  },
+  "/se/de/fragments/modals/allgemeine-bedingungen": {
+   "uploaded": "2026-11-09T14:05:08.477Z",
+   "mtime": 1794232660713.421,
+   "preview": "2026-11-09T14:05:10.813Z"
+  },
+  "/se/en/fragments/modals/general-conditions": {
+   "uploaded": "2026-11-09T14:05:12.754Z",
+   "mtime": 1794232660714.2087,
+   "preview": "2026-11-09T14:05:14.847Z"
+  },
+  "/sg/zh/fragments/modals/zh": {
+   "uploaded": "2026-11-09T14:05:16.827Z",
+   "mtime": 1794232660714.8386,
+   "preview": "2026-11-09T14:05:18.624Z"
+  },
+  "/th/en/fragments/modals/general-conditions": {
+   "uploaded": "2026-11-09T14:05:20.655Z",
+   "mtime": 1794232660715.557,
+   "preview": "2026-11-09T14:05:22.480Z"
+  },
+  "/us/de/fragments/modals/allgemeine-bedingungen": {
+   "uploaded": "2026-11-09T14:05:24.774Z",
+   "mtime": 1794232660716.2532,
+   "preview": "2026-11-09T14:05:27.005Z"
+  },
+  "/us/es/fragments/modals/condiciones-generales": {
+   "uploaded": "2026-11-09T14:05:28.989Z",
+   "mtime": 1794232660716.5366,
+   "preview": "2026-11-09T14:05:30.726Z"
+  },
+  "/us/fr/fragments/modals/conditions-generales": {
+   "uploaded": "2026-11-09T14:05:33.022Z",
+   "mtime": 1794232660716.823,
+   "preview": "2026-11-09T14:05:34.680Z"
+  },
+  "/us/it/fragments/modals/condizioni-generali": {
+   "uploaded": "2026-11-09T14:05:36.744Z",
+   "mtime": 1794232660717.0571,
+   "preview": "2026-11-09T14:05:38.471Z"
   }
  },
  "media": {
