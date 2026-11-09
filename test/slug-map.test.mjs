@@ -265,3 +265,24 @@ test('Cargo and Group for Business: no group, no flag until a pairing is measure
   cargo.candidates.forEach((c) => assert.ok(c.en.startsWith('/en/') && c.de.startsWith('/de/') && c.en.slice(3) !== c.de.slice(3)));
   [b2b, cargo].forEach((m) => assert.deepEqual([m.groups, m.exceptions, m.active], [[], [], {}]));
 });
+
+test('lh-com: the evidence stays as it is (pages.csv, slug-map.json) and the map resolves it', () => {
+  const api = loadMap(maps['lh-com']);
+  const csv = fs.readFileSync(new URL('../tools/migration-scope/pages.csv', import.meta.url), 'utf8').trim().split('\n');
+  const cols = csv[0].split(',');
+  assert.deepEqual(cols.slice(0, 5), ['template_group', 'de_en', 'de_de', 'at_de', 'gb_en'], 'the source columns of pages.csv are not renamed or moved');
+  const rows = csv.slice(1).map((l) => Object.fromEntries(l.split(',').map((v, i) => [cols[i], v])));
+  const tail = (p) => p.split('/').slice(3).join('/');
+  const own = rows.filter((r) => r.de_en && r.de_de && tail(r.de_en) !== tail(r.de_de));
+  assert.ok(own.length >= 72, 'the 72 pages with their own German slug are still www paths in pages.csv');
+  own.forEach((r) => {
+    assert.equal(api.canonicalOf(r.de_de, { all: true }), `/de/de/${tail(r.de_en)}`, r.de_de);
+    if (r.at_de) assert.equal(api.canonicalOf(r.at_de, { all: true }), `/at/de/${tail(r.de_en)}`, r.at_de);
+    assert.equal(api.canonicalOf(r.de_de), r.de_de, 'inactive: the www path stays');
+    assert.ok(api.wwwPathsOf(`/de/de/${tail(r.de_en)}`).includes(r.de_de), 'back to the www path of pages.csv');
+  });
+  const old = JSON.parse(fs.readFileSync(new URL('../tools/loc/slug-map.json', import.meta.url), 'utf8')).slugs;
+  Object.entries(old).forEach(([en, de]) => assert.equal(api.canonicalOf(de, { all: true }), `/de/de/${tail(en)}`, `slug-map.json ${de}`));
+  // gc follows its public language root
+  assert.equal(api.wwwPathOf('/gc/de/flight-search'), '/gc/de/flugsuche');
+});
