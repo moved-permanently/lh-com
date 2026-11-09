@@ -35,8 +35,8 @@ test('the legal links spaced as www\'s: a 14 px arrow, 10 px to its text, 26 px 
   assert.ok(phones.includes('body.brand-ita .footer .footer-legal .footer-link .lh-icon { width: 14px; height: 14px; }'));
 });
 
-test('the logo stack 22 and 24 px apart, 28 px under it', () => {
-  assert.ok(phones.includes('body.brand-ita .footer .footer-logos-inner { padding-top: 26px; padding-bottom: 27px; }'));
+test('the logo stack 22 and 24 px apart, 25 px above and under it (ita-parity-004, the brief after 540)', () => {
+  assert.ok(phones.includes('body.brand-ita .footer .footer-logos-inner { padding-top: 25px; padding-bottom: 24px; }'));
   assert.ok(phones.includes('body.brand-ita .footer .footer-logos li { margin-bottom: 21px; }'));
   assert.ok(phones.includes('body.brand-ita .footer .footer-logos li:nth-child(2) { margin-bottom: 23px; }'));
 });

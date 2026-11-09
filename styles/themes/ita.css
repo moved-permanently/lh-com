@@ -535,10 +535,14 @@ body.brand-ita .footer .footer-logos .footer-logo-star-alliance-horizontal img {
     padding-bottom: 0;
   }
 
+  /* the payment and social row 27 px under the link columns, its headings' ink 28 px under the rule,
+     the icons' ink 38 px over the next one (ita-parity-004 at 1440, the brief after 540) */
   body.brand-ita .footer .footer-badges {
     flex-flow: row nowrap;
     gap: 0;
-    margin-top: 30px;
+    margin-top: 27px;
+    padding-top: 24px;
+    padding-bottom: 31px;
   }
 
   body.brand-ita .footer .footer-badge-group {
@@ -548,6 +552,12 @@ body.brand-ita .footer .footer-logos .footer-logo-star-alliance-horizontal img {
   body.brand-ita .footer .footer-badge-heading {
     font-size: 24px;
     line-height: 26.4px;
+  }
+
+  /* the logo bar 70 px, the logos' ink 25 px from its top, 26 from its bottom (ita-parity-004) */
+  body.brand-ita .footer .footer-logos-inner {
+    padding-top: 19px;
+    padding-bottom: 25px;
   }
 
   body.brand-ita .footer .footer-locale {
@@ -593,10 +603,11 @@ body.brand-ita .footer .footer-logos .footer-logo-star-alliance-horizontal img {
     margin: -30px 0 15px;
   }
 
-  /* the logo stack: 22 and 24 px apart, 28 px under it (the footer's 25, 27 and 38) */
+  /* the logo stack: 22 and 24 px apart, 25 px above and under it (the footer's 25, 27 and 38;
+     ita-parity-004, the brief after 540) */
   body.brand-ita .footer .footer-logos-inner {
-    padding-top: 26px;
-    padding-bottom: 27px;
+    padding-top: 25px;
+    padding-bottom: 24px;
   }
 
   body.brand-ita .footer .footer-logos li {
