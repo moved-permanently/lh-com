@@ -924,6 +924,26 @@ body.brand-brussels .fare-teaser .fare-teaser-price {
   }
 }
 
+/* the footer from 1025 px (the brief after 527; www 478 px on the en pages, 515 on the fr ones, ours 468): the
+   titles 14 px over the lists, the legal row 98 px under the last link and 41 px over the logo band, its links on
+   three quarters of the content width (the French row wraps its sixth link, as www's), the logo band 68 px high */
+@media (width >= 1025px) {
+  body.brand-brussels .footer .footer-column-title {
+    margin-bottom: 14px;
+  }
+
+  body.brand-brussels .footer .footer-legal {
+    max-width: 948px;
+    padding-top: 60px;
+    padding-bottom: 10px;
+  }
+
+  body.brand-brussels .footer .footer-logos-inner {
+    padding-top: 15px;
+    padding-bottom: 18px;
+  }
+}
+
 /* the footer on phones (brief 478; brussels-parity-003 at 390, www 829 / 849 px, ours 696): the section
    rows 40 px high (10 px padded, 32 px in) one every 60 px; "Social media" 14/15.4 bold, 29 px under the
    rows, 20 px over the icons, 32 px in; the legal links 32 px in, the first 78 px under the icons, the
@@ -962,5 +982,122 @@ body.brand-brussels .fare-teaser .fare-teaser-price {
 
   body.brand-brussels .footer .footer-logos-inner > ul > li:nth-child(2) {
     margin-bottom: 30px;
+  }
+}
+
+/* the online check-in (booking-lookup my-bookings checkin, the brief after 530 item 2; brussels-import.mjs
+   withCheckinFields): www's quick actions with the Check-in panel only (online-check-in-options: be fr,
+   en and nl, de, it, es). Its fields are maui-input boxes, 48 px, #f8f8f8 with a 1 px border, 4 px corners, the
+   label inside, 20 px apart, the hint 7 px under its field (13/15 px, three lines at www's widths) and
+   20 px above the next; Connexion 20 px above the first field. From 1025 px the fields are 255 px (www's
+   col-lg-4) and the tab bar's indicator is red. Below 768 px the row stays in the text column (not across
+   the viewport as lh-com's), its title 18 px Intelo Bold sn-blue-3, the panel 32 px below it, 40 px in
+   from both sides, the button as wide as the fields, 56 px under it; the form 44 px under the text before
+   it and 70 px (from 768 px 72) over the next heading */
+/* stylelint-disable no-descending-specificity -- another component than the flight search above */
+body.brand-brussels .booking-lookup.checkin {
+  --booking-lookup-field-height: 48px;
+  --booking-lookup-field-reserve: 20px;
+
+  margin: 44px 0 72px;
+}
+
+body.brand-brussels .booking-lookup.checkin .booking-lookup-tab {
+  color: var(--lh-marble-blue);
+}
+
+body.brand-brussels .booking-lookup.checkin .booking-lookup-login {
+  margin-bottom: 20px;
+}
+
+body.brand-brussels .booking-lookup.checkin .booking-lookup-field::after {
+  content: none;
+}
+
+body.brand-brussels .booking-lookup.checkin .booking-lookup-field input {
+  padding: 17px 11px 3px;
+  border: 1px solid var(--lh-grey-8);
+  border-radius: 4px;
+  background-color: var(--lh-grey-1);
+}
+
+body.brand-brussels .booking-lookup.checkin .booking-lookup-field input[aria-invalid="true"] {
+  border-color: var(--lh-red);
+}
+
+body.brand-brussels .booking-lookup.checkin .booking-lookup-field label {
+  top: 5px;
+  left: 11px;
+  right: 11px;
+}
+
+body.brand-brussels .booking-lookup.checkin .booking-lookup-field:has(> input:placeholder-shown:not(:focus)) label {
+  top: 10px;
+  line-height: 28px;
+}
+
+body.brand-brussels .booking-lookup.checkin .booking-lookup-hint {
+  margin: 7px 0 20px;
+  color: var(--lh-grey-8);
+  font-size: 13px;
+  line-height: 15px;
+}
+
+body.brand-brussels .booking-lookup.checkin .booking-lookup-field:last-of-type .booking-lookup-hint {
+  margin-bottom: 24px;
+}
+
+@media (width >= 1025px) {
+  body.brand-brussels .booking-lookup.checkin .booking-lookup-field {
+    max-width: 255px;
+  }
+
+  body.brand-brussels .booking-lookup.checkin .booking-lookup-tab[aria-selected="true"] {
+    border-bottom-color: var(--brand-color);
+  }
+}
+
+@media (width < 768px) {
+  body.brand-brussels .booking-lookup.checkin {
+    margin: 44px 0 70px;
+  }
+
+  body.brand-brussels .booking-lookup.checkin .booking-lookup-tab {
+    padding-block: 12px;
+    font-size: 18px;
+  }
+
+  body.brand-brussels .booking-lookup.checkin .booking-lookup-tabs ~ .booking-lookup-panel {
+    padding: 32px 40px 56px;
+  }
+
+  body.brand-brussels .booking-lookup.checkin .booking-lookup-field {
+    max-width: none;
+  }
+
+  body.brand-brussels .booking-lookup.checkin .booking-lookup-submit {
+    width: 100%;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/* a heading straight after text in a sidebar's text (columns-media sidebar: invoices, upgrades, the imprint; the brief
+   after 530, item 3; 107 documents): www's headline component 50 px under the paragraph at 1440 for an h2 (45 on phones), 32 for an h3
+   (28); ours had the paragraph's 20 (16). The margins collapse with the paragraph's */
+body.brand-brussels main .columns-media.sidebar .columns-media-text > p:not(.column-mark) + h2 {
+  margin-top: 45px;
+}
+
+body.brand-brussels main .columns-media.sidebar .columns-media-text > p:not(.column-mark) + h3 {
+  margin-top: 28px;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels main .columns-media.sidebar .columns-media-text > p:not(.column-mark) + h2 {
+    margin-top: 50px;
+  }
+
+  body.brand-brussels main .columns-media.sidebar .columns-media-text > p:not(.column-mark) + h3 {
+    margin-top: 32px;
   }
 }

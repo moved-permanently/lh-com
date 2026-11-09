@@ -180,7 +180,7 @@ export const THEMES = {
   // default (www: 89 % unmarked, heading-medium; no longer heading-small)
   brussels: { pageTypes: { flow: { headings: { h3: 'heading-small' } } } },
   // ITA: running text over the whole width
-  ita: { text: { width: 'full' } },
+  ita: { live: true, text: { width: 'full' } },
   // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
   // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
   // (a heading right before them starts the group's column view, as its marker did)
@@ -199,7 +199,7 @@ export const THEMES = {
   // Air Dolomiti: the base theme (between B2B's and TAP's entries, next to no switch line)
   airdolomiti: {},
   // TAP: the base theme (an entry of its own, so its switch is one line as every brand's)
-  tap: {},
+  tap: { live: true },
   // Lufthansa Cargo: the base theme
   cargo: {},
 };
