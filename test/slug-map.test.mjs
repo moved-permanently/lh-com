@@ -92,6 +92,18 @@ test('source-language fallback only where the English roots agree on one slug', 
   assert.deepEqual(g.aliases.map((a) => a.slug), ['/nur-uk']);
 });
 
+test('a broken <loc> with the host name inside the path is no page address: ignored and counted', () => {
+  const m = build([
+    { 'ch/en': '/ch/en/various/GVA-2022-Inspiration', 'ch/fr': '/ch/fr/www.swiss.com/ch/fr/various/swiss-gva-2022-inspiration' },
+    { 'ch/en': '/ch/en/www.swiss.com/ch/en/various/swiss-gva-2022-information', 'ch/fr': '/ch/fr/various/GVA-2022-Information' },
+  ], { sourceRoot: 'ch/en' });
+  assert.equal(m.measured.ignoredPaths, 2);
+  assert.deepEqual(m.groups.map((g) => g.canonical), ['/various/gva-2022-inspiration']);
+  assert.equal(m.groups[0].aliases.length, 1, 'only the case form of the English slug: no alias from the broken address');
+  assert.equal(m.groups[0].aliases[0].sanitizedOnly, true);
+  assert.deepEqual(m.exceptions.map((e) => e.kind), ['no-source-member']);
+});
+
 test('a root-specific English deviation is an alias, not an exception', () => {
   const m = build([{ 'de/en': '/de/en/offers', 'us/en': '/us/en/offers-us', 'gb/en': '/gb/en/offers' }]);
   const g = find(m, '/offers');
@@ -197,7 +209,7 @@ const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort();
 const maps = Object.fromEntries(files.map((f) => [f.replace(/\.json$/, ''), JSON.parse(fs.readFileSync(new URL(f, dir), 'utf8'))]));
 
 // the airlines in scope; a file is added with its piece of work, so the list grows with the commits
-const IN_SCOPE = ['lh-com', 'lh-austrian'];
+const IN_SCOPE = ['lh-com', 'lh-austrian', 'lh-swiss'];
 
 test('the committed maps exist for the airlines done so far and for no parked site', () => {
   IN_SCOPE.forEach((s) => assert.ok(maps[s], `tools/slugs/${s}.json`));

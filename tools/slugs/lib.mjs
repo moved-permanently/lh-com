@@ -1,4 +1,4 @@
-/* eslint-disable import/extensions, max-len -- dev tooling, plain Node */
+/* eslint-disable import/extensions, max-len, no-use-before-define -- dev tooling, plain Node */
 /**
  * Slug maps: one page, one slug in every language of an airline (tests: test/slug-map.test.mjs).
  *
@@ -46,7 +46,8 @@ export function splitPath(p) {
 }
 
 /** The name EDS gives a path: lower case, a-z 0-9 and hyphens (helix-shared sanitizeName), kept per segment. */
-export const sanitizePath = (slug) => slug.split('/').map((s) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')).join('/');
+export const sanitizePath = (slug) => slug.split('/').map((s) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-')
+  .replace(/^-+|-+$/g, '')).join('/');
 
 const hashId = (prefix, text) => `${prefix}-${crypto.createHash('sha1').update(text).digest('hex').slice(0, 8)}`;
 
@@ -72,7 +73,8 @@ export function buildMap(o) {
     Object.entries(g.paths).forEach(([, v]) => {
       (Array.isArray(v) ? v : [v]).forEach((p) => {
         const sp = splitPath(p);
-        if (!sp) {
+        // a broken <loc> that carries the host name inside the path (www.swiss.com/ch/en/www.swiss.com/ch/en/...) is no page address
+        if (!sp || /^\/[a-z0-9-]+(\.[a-z0-9-]+)+\//.test(sp[1])) {
           stats.ignoredPaths += 1;
           if (stats.ignoredPathsSample.length < 5) stats.ignoredPathsSample.push(p);
           return;
@@ -115,7 +117,9 @@ export function buildMap(o) {
     const seen = new Set();
     const clean = list.every((it) => [...it.roots.keys()].every((r) => { const dup = seen.has(r); seen.add(r); return !dup; }));
     if (list.length === 1 || !clean) { merged.push(...list); return; }
-    const m = { roots: new Map(), canonical: list[0].canonical, exception: null, fallback: list.every((it) => it.fallback), mergedGroups: list.length };
+    const m = {
+      roots: new Map(), canonical: list[0].canonical, exception: null, fallback: list.every((it) => it.fallback), mergedGroups: list.length,
+    };
     list.forEach((it) => it.roots.forEach((v, r) => m.roots.set(r, v)));
     merged.push(m);
   });
@@ -165,7 +169,9 @@ export function buildMap(o) {
   items.forEach((it) => {
     const key = keyOf(it, o.sourceRoot);
     if (!it.canonical) {
-      const e = { id: hashId(o.site === 'lh-com' ? 'lh' : o.site.replace(/^lh-/, ''), key), kind: it.exception.kind, key, detail: it.exception.detail };
+      const e = {
+        id: hashId(o.site === 'lh-com' ? 'lh' : o.site.replace(/^lh-/, ''), key), kind: it.exception.kind, key, detail: it.exception.detail,
+      };
       if (it.exception.withKeys) e.with = it.exception.withKeys.sort();
       e.rootCount = it.roots.size;
       e.slugs = [...new Set([...it.roots.values()].flatMap((s) => [...s]))].sort().slice(0, 12);
@@ -259,7 +265,9 @@ export function loadMap(map) {
   const wwwOf = new Map(); // `${root}${canonical}` -> [www paths], canonical first
   const add = (g, root, slug, alias, sanitizedOnly) => {
     const p = joinPath(root, slug);
-    const hit = { g, alias, sanitizedOnly, root, slug };
+    const hit = {
+      g, alias, sanitizedOnly, root, slug,
+    };
     www.set(p, hit);
     if (!wwwLc.has(sanitizePath(p))) wwwLc.set(sanitizePath(p), hit);
     const ck = joinPath(root, g.canonical);
