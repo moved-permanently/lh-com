@@ -1101,3 +1101,82 @@ body.brand-brussels main .columns-media.sidebar .columns-media-text > p:not(.col
     margin-top: 32px;
   }
 }
+
+/* the core forms as www's (maui theme sn; the brief after 534 item 2, /be/en/contact/feedback/general/other,
+   brussels-parity-004 at 1440): each band's headline Intelo Bold 36 / 39.6, its description bold 18 / 19.8 beside the
+   card; the subsection titles (Bank account 1, Flight 1) bold 18 / 19.8; the fields 335 x 50 boxes (1 px sngrey8
+   border, 4 px corners, #f8f8f8 fill), the label inside, 11 px from the left, 24 px to the next field; the checkboxes
+   and radios in sn-blue-3 */
+body.brand-brussels .form.core {
+  --form-field-height: 50px;
+  --form-control-border: var(--lh-marble-blue);
+}
+
+body.brand-brussels .form.core .form-step-title {
+  font-weight: 700;
+}
+
+body.brand-brussels .form.core .form-step-description {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+body.brand-brussels .form.core .form-subsection-title {
+  color: inherit;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+body.brand-brussels .form.core :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number, .form-field-date, .form-field-select, .form-field-region, .form-field-autocomplete) > .form-control {
+  padding: 19px 11px 5px;
+  border: 1px solid var(--lh-grey-8);
+  border-radius: 4px;
+  background-color: var(--lh-grey-1);
+  line-height: 24px;
+}
+
+body.brand-brussels .form.core :is(.form-field-select, .form-field-region) > .form-control,
+body.brand-brussels .form.core .form-field-autocomplete > .form-control {
+  background-position: right 12px center;
+}
+
+body.brand-brussels .form.core :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number, .form-field-date, .form-field-select, .form-field-region, .form-field-autocomplete) > .form-label {
+  top: 6px;
+  left: 12px;
+  right: 12px;
+}
+
+body.brand-brussels .form.core .form-field:where(:has(> .form-control[placeholder=" "]:placeholder-shown:not(:focus))) > .form-label,
+body.brand-brussels .form.core .form-field-empty > .form-label {
+  top: 13px;
+  line-height: 24px;
+}
+
+body.brand-brussels .form.core .form-optional {
+  top: 13px;
+}
+
+body.brand-brussels .form.core :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number)::after {
+  content: none;
+}
+
+body.brand-brussels .form.core textarea.form-control {
+  border: 1px solid var(--lh-grey-8);
+  border-radius: 4px;
+  background-color: var(--lh-grey-1);
+}
+
+body.brand-brussels .form.core .form-field-invalid .form-control,
+body.brand-brussels .form.core .form-control:user-invalid {
+  border-color: var(--lh-red);
+}
+
+@media (width >= 1025px) {
+  body.brand-brussels .form.core .form-step-description {
+    font-size: 18px;
+    line-height: 1.1;
+  }
+}

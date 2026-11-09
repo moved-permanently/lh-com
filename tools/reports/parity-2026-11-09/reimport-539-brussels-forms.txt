@@ -1,0 +1,19 @@
+# The brief after 534 item 2 (ema-cashub, the two form pages): the lh-brussels documents of the core forms whose snapshot has www's older date-picker field (div.input > input.forms-datepicker), a repeatable section hidden until a checkbox shows it (forms-repeatable-section collapse) or a checkbox checked at load: the parser (form-core.js) now writes a date row with its mask for the first, the rule hidden for the second (the form block shows such a section with its checkbox) and {selected} for the third. Recorded (brussels-parity-004): /be/en/contact/feedback/general/other (each flight's Flight Date, Additional passengers hidden until 'Show additional passengers', 'this account is an Euro account' checked), /be/en/my-bookings/emergency-contact and /be/en/book-a-flight/groups-and-charter/charter (their date fields). Each page's language documents in release order (en, fr, nl, de, it, es, as the harness's scope maps the market copies; a document of these pages the scope names otherwise changes the same way). Measured on /be/en/.../other with this change (offline import of the recording, local dev server, Brussels' theme and its form rules): 1440 page 7,405 -> 6,696 px against www's 6,497 (+14.0 -> +3.1 %), 390 8,407 -> 7,665 against 7,400 (+13.6 -> +3.6 %); the rules in brussels.css apply to every Brussels core form without a re-import.
+/be/en/contact/feedback/general/other
+/be/fr/contact/feedback/general/other
+/be/nl/contact/feedback/general/other
+/de/de/contact/feedback/general/other
+/it/it/contact/feedback/general/other
+/es/es/contact/feedback/general/other
+/be/en/my-bookings/emergency-contact
+/be/fr/my-bookings/emergency-contact
+/be/nl/my-bookings/emergency-contact
+/de/de/my-bookings/emergency-contact
+/it/it/my-bookings/emergency-contact
+/es/es/my-bookings/emergency-contact
+/be/en/book-a-flight/groups-and-charter/charter
+/be/fr/book-a-flight/groups-and-charter/charter
+/be/nl/book-a-flight/groups-and-charter/charter
+/de/de/book-a-flight/groups-and-charter/charter
+/it/it/book-a-flight/groups-and-charter/charter
+/es/es/book-a-flight/groups-and-charter/charter

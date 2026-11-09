@@ -1035,6 +1035,18 @@ body.brand-austrian .form.core .form-step {
   padding: 72px 0 36px;
 }
 
+/* a band with a headline (the brief after 534 item 2: exclusive-charter-enquiry, private-check-in-counter,
+   invoice-request-hungary; austrian-parity-003): www's headline is 36 px under the band's top and bold, the card
+   about 76 px under it, so the next band's headline sits 72 px under a card (ours 108); bands without a headline
+   (notfallkontakt) keep the 72 px above */
+body.brand-austrian .form.core .form-step:has(.form-step-title) {
+  padding-top: 36px;
+}
+
+body.brand-austrian .form.core .form-step-title {
+  font-weight: 700;
+}
+
 body.brand-austrian .form.core .form-step-description {
   font-size: 16px;
   font-weight: 500;

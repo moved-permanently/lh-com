@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-form.js
-  var tmp_bundle_form_1160434_exports = {};
-  __export(tmp_bundle_form_1160434_exports, {
-    default: () => tmp_bundle_form_1160434_default
+  var tmp_bundle_form_20247_exports = {};
+  __export(tmp_bundle_form_20247_exports, {
+    default: () => tmp_bundle_form_20247_default
   });
 
   // tools/importer/parsers/form-core.js
@@ -192,6 +192,23 @@ var CustomImportScript = (() => {
       row.rules = mask ? [`mask=${mask}`] : [];
       add(row);
     }
+    function pickerDate(box) {
+      const field = box.querySelector("input.forms-datepicker");
+      if (!field) return;
+      const wrapper = wrapperOf(box);
+      const format = attr((wrapper || box).querySelector('input[name="date-format"]'), "value");
+      const mask = /^[dmy]+([./-])[dmy]+\1[dmy]+$/i.test(format) ? format.split(/[./-]/).map((g) => ({ d: "DD", m: "MM", y: "YYYY" })[g[0].toLowerCase()]).join(format.match(/[./-]/)[0]) : "";
+      const label = field.id ? box.querySelector(`label[for="${field.id}"]`) : null;
+      add({
+        label: text(label || box.querySelector("label")) || attr(field, "placeholder"),
+        type: "date",
+        name: nameOf(field),
+        required: requiredOf(field, wrapper),
+        message: messageOf(field, wrapper, false),
+        constraint: attr(wrapper, "data-cmp-constraint-message"),
+        rules: mask ? [`mask=${mask}`] : []
+      });
+    }
     function street(box) {
       const field = box.querySelector('input:not([type="hidden"])');
       if (!field) return;
@@ -273,7 +290,8 @@ var CustomImportScript = (() => {
         type: "checkbox",
         name: nameOf(boxes[0]),
         required: required ? "yes" : "",
-        options: boxes.map((b) => `${clean3(b.getAttribute("value") || "")}=${attr(b, "label") || text(b) || attr(b, "data-aria-label")}`),
+        // a box checked at load (Brussels' "this account is an Euro account") keeps it: the block's {selected}
+        options: boxes.map((b) => `${clean3(b.getAttribute("value") || "")}=${attr(b, "label") || text(b) || attr(b, "data-aria-label")}${has(b, "checked") ? " {selected}" : ""}`),
         message: attr(boxes[0], "data-customerror") || attr(wrapper, "data-cmp-required-message"),
         rules: targets.length ? [`toggles=${targets.join(", ")}`] : []
       });
@@ -415,6 +433,7 @@ var CustomImportScript = (() => {
       if (add_) rules.push(`add=${add_}`);
       if (removeBtn) rules.push(`remove=${attr(removeBtn, "aria-label")}`);
       if (remaining) rules.push(`remaining=${remaining}`);
+      if (sub.classList.contains("collapse") || sub.classList.contains("d-none")) rules.push("hidden");
       add({
         label: legend.replace(/(\d+)(?!.*\d)/, "{n}"),
         type: "fieldset",
@@ -506,6 +525,10 @@ var CustomImportScript = (() => {
       }
       if (el.matches(".streetAddress")) {
         street(el);
+        return;
+      }
+      if (el.matches("div.input") && el.querySelector("input.forms-datepicker")) {
+        pickerDate(el);
         return;
       }
       if (el.matches("maui-input")) {
@@ -5304,7 +5327,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_form_1160434_default = {
+  var tmp_bundle_form_20247_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5344,5 +5367,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_form_1160434_exports);
+  return __toCommonJS(tmp_bundle_form_20247_exports);
 })();
