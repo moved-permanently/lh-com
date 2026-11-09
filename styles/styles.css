@@ -883,8 +883,11 @@ body.brand-lufthansa main:not(:has(.article-header)) .default-content-wrapper > 
 
 /* an icon in a default-content heading (www's .link-list.nav-link-list [class*=heading-]
    .image-wrapper img: 2.6rem square, 1.2rem before the text, .2rem up; the carry-on baggage
-   pages' "1 personal item"; brief 404): an SVG without its own width would fill the column */
-main .default-content-wrapper :is(h2, h3, h4, h5, h6):has(> picture) {
+   pages' "1 personal item"; brief 404): an SVG without its own width would fill the column. The
+   row only for a heading that opens with its picture, as the icon does: an Air Dolomiti article's
+   h3 holding a paragraph, bold words and a photo at its end laid them out side by side (813px at
+   390px, street-food-in-munich) */
+main .default-content-wrapper :is(h2, h3, h4, h5, h6):has(> picture:first-child) {
   display: flex;
   align-items: center;
 }
