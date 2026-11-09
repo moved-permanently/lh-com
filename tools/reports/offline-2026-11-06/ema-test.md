@@ -1939,4 +1939,43 @@ reordered. The brand sites have no chapter rule.
   - what must be 0 first: every brand's pass and switch (lufthansa.com and Air Dolomiti included), the census at 0
     on preview and live for each family, no writer left, the documents that quote markers left out, and the readers'
     tests and docs going with them.
-- **The run**: the census over all sites is about 60,000 requests at that pace. Counted: lh-b2b, lh-discover, lh-ita; still running for lh-cargo, lh-tap, lh-airdolomiti, lh-brussels, lh-austrian, lh-swiss, lh-com (the table in step4-preconditions.md fills as they finish).
+- **The run**: the census over all sites is about 60,000 requests at that pace. Every site is counted (2026-11-09). Pages with markers, preview and live alike:
+  - lh-com 6,752 of 7,587 (plus 74 app screens);
+  - SWISS 2,625 of 5,125;
+  - ITA 2,141 of 2,563;
+  - Austrian 2,007 of 2,398;
+  - Brussels 1,216 of 1,801;
+  - B2B 679 of 733;
+  - Discover 470 of 563;
+  - TAP 156 (`{blank}`);
+  - Cargo 22 (video settings);
+  - Air Dolomiti 3 (`{selected}`).
+
+  No reader can go yet. DA holds more documents with markers than the workspaces' lists (Discover 470 against 24),
+  so each pass takes DA's own list. The harness page says so, and its delta table has TAP's and Cargo's numbers.
+
+Checks:
+- Full suite in fresh worktrees: 624 passed on f418f61b (TAP and Cargo entries); 632, 639, 640 and 642 passed, 0
+  failed, on this brief's code after each pull. The last pull brought one CSS commit (Air Dolomiti row 74), checked
+  with lint, its own tests and mine (67 passed).
+- With every switch branch merged onto today's main: no conflict, 8 live lines; the token-free tests 357 passed, and
+  1 failed, ema-cashub's TAP test above.
+- Smoke on all 12 hosts before and after both pushes that deploy lh-edge (f418f61b, d1bd76e7): 0 differences
+  (logs/p4/s507/smoke, smoke2).
+- Hosts:
+  - our own only: main--<site>--moved-permanently.aem.page and .aem.live for the census;
+  - the branch previews `token-free-<brand>-live--lh-<brand>--…aem.page` (the switch line);
+  - ita.turnsthe.page and token-free-ita-live--lh-ita for the page-check tool's trial;
+  - main--lh-com--…aem.page for the four column-view documents;
+  - local `aem up` on :3051-3053, stopped;
+  - nothing to www.
+
+Documents: none changed, none uploaded, nothing published.
+
+| item | commit | what |
+| --- | --- | --- |
+| tests | 51a1eb88 | a brand is live where its own switch test is; decisions.md |
+| 2 | f418f61b | TAP and Cargo theme entries (each switch one line) |
+| 3, 4 | 6d1bb8a0 | the collapse keeps an article's order; loss check, page checks, census, marker families |
+| 1 | d1bd76e7 | the column view carrier in the collapse, "Column view" in the library |
+| docs | this one | the reports |

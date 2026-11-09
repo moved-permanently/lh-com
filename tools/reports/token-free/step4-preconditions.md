@@ -54,11 +54,35 @@ ms between requests:
 
 | site | environment | paths (source) | read | missing | with markers | per family |
 | --- | --- | --- | --- | --- | --- | --- |
+| lh-airdolomiti | page | 1,569 (upload state (previewed documents)) | 1,569 | 0 | 3 | form 3 |
+| lh-airdolomiti | live | 1,569 (upload state (previewed documents)) | 1,569 | 0 | 3 | form 3 |
+| lh-austrian | page | 2,398 (upload state (previewed documents)) | 2,398 | 0 | 2,007 | column 8,906, heading 4,945, separator 2,307, text-size 1,890, text-width 1,845, indent 357, video 100, caption 10 |
+| lh-austrian | live | 2,398 (upload state (previewed documents)) | 2,397 | 1 | 2,006 | column 8,904, heading 4,944, separator 2,307, text-size 1,890, text-width 1,845, indent 357, video 100, caption 10 |
 | lh-b2b | page | 733 (upload state (previewed documents)) | 733 | 0 | 679 | text-width 1,961, column 1,909, heading 883, separator 819, video 159, indent 29, text-size 27 |
 | lh-b2b | live | 733 (upload state (previewed documents)) | 733 | 0 | 679 | text-width 1,961, column 1,909, heading 883, separator 819, video 159, indent 29, text-size 27 |
+| lh-brussels | page | 1,801 (upload state (previewed documents)) | 1,801 | 0 | 1,216 | separator 2,154, heading 1,927, text-width 1,147, column 890, text-size 344, video 178, form 139, caption 115, indent 9 |
+| lh-brussels | live | 1,801 (upload state (previewed documents)) | 1,801 | 0 | 1,216 | separator 2,154, heading 1,927, text-width 1,147, column 890, text-size 344, video 178, form 139, caption 115, indent 9 |
+| lh-cargo | page | 990 (upload state (previewed documents)) | 990 | 0 | 22 | video 60 |
+| lh-cargo | live | 990 (upload state (previewed documents)) | 990 | 0 | 22 | video 60 |
+| lh-com | page | 7,587 (sitemap) | 7,587 | 0 | 6,752 | heading 12,329, separator 11,472, column 10,038, text-width 8,245, caption 6,249, video 2,044, text-size 1,464, parallax-narrow 292, indent 90, form 30, cell 8 |
+| lh-com | live | 7,587 (sitemap) | 7,587 | 0 | 6,752 | heading 12,329, separator 11,472, column 10,038, text-width 8,245, caption 6,249, video 2,044, text-size 1,464, parallax-narrow 292, indent 90, form 30, cell 8 |
 | lh-discover | page | 563 (upload state (previewed documents)) | 563 | 0 | 470 | column 1,677, heading 1,634, separator 518, text-width 451, text-size 40, video 24, form 6 |
 | lh-discover | live | 563 (upload state (previewed documents)) | 563 | 0 | 470 | column 1,677, heading 1,634, separator 518, text-width 451, text-size 40, video 24, form 6 |
 | lh-ita | page | 2,563 (upload state (previewed documents)) | 2,563 | 0 | 2,141 | text-width 14,466, heading 3,494, separator 1,466, column 590, indent 138, text-size 86, video 20, form 2 |
 | lh-ita | live | 2,563 (upload state (previewed documents)) | 2,563 | 0 | 2,141 | text-width 14,466, heading 3,494, separator 1,466, column 590, indent 138, text-size 86, video 20, form 2 |
+| lh-swiss | page | 5,125 (upload state (previewed documents)) | 5,125 | 0 | 2,625 | heading 7,797, separator 4,982, text-width 4,446, column 1,048, text-size 720, video 615, caption 25, form 24, indent 12 |
+| lh-swiss | live | 5,125 (upload state (previewed documents)) | 5,124 | 1 | 2,624 | heading 7,797, separator 4,982, text-width 4,445, column 1,048, text-size 720, video 615, caption 25, form 24, indent 12 |
+| lh-tap | page | 1,228 (upload state (previewed documents)) | 1,228 | 0 | 156 | blank 447 |
+| lh-tap | live | 1,228 (upload state (previewed documents)) | 1,228 | 0 | 156 | blank 447 |
+| lh-com nav documents and app screens | page, live | 326 (the upload state's previewed /…/nav and /content/mobile/…) | 326 | 0 | 74 | app spacer 291, app small 218, app divider 2 (no nav-role marker is left: the Nav Tools tables carry them) |
 
-Counted so far: lh-b2b, lh-discover, lh-ita. Still to count (the census runs one request at a time, about 3 a second): lh-cargo, lh-tap, lh-airdolomiti, lh-brussels, lh-austrian, lh-swiss, lh-com; `logs/p4/s507/census/` collects them, and this table is rewritten from it.
+Every site is counted (2026-11-09). Preview and live are equal everywhere, except one page each that live lacks
+(Austrian, SWISS). No
+brand has had its pass yet, so every family a reader reads is still far from 0. Two things follow for the passes:
+
+- DA holds more documents with markers than the workspaces' paths files: ITA 2,141 against 2,083, Discover 470
+  against 24, B2B 679 against 644, Brussels 1,216 against 1,070, Austrian 2,007 against 1,893. Each pass takes DA's
+  own list (harness-pass-ita.md, section 2).
+- The smaller sites have markers too: TAP 156 pages with `{blank}` (447; TAP's importer collapses only new
+  imports), Cargo 22 pages with video settings (60), Air Dolomiti 3 with `{selected}`. Each needs its pass as well.
+- lufthansa.com's sitemaps leave out its nav documents and app screens, so those were counted from its upload state.
