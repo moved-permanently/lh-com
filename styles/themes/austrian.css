@@ -785,6 +785,14 @@ body.brand-austrian .carousel-cards:is(.grid, .phone-slider) .carousel-cards-sli
   }
 }
 
+/* the brief after 527: a two-up grid right after another (one of www's two-column views a row: extra-services,
+   check-in, familien) 42 px further from it below 768 px, the next view's own row padding */
+@media (width < 768px) {
+  body.brand-austrian .carousel-cards-wrapper:has(> .carousel-cards.grid.two-up) + .carousel-cards-wrapper > .carousel-cards.grid.two-up {
+    padding-top: 42px;
+  }
+}
+
 /* row 19: the divider www's 1 px maui-divider in #b0b0b0 (its screen at 1440: two rows of
    #d7d7d7 for a line between pixels, one row of #b0b0b0 at 390) */
 body.brand-austrian main .default-content-wrapper > p.spacer.divider {

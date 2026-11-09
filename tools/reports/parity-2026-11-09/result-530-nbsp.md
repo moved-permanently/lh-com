@@ -1,0 +1,9 @@
+# reimport-530-nbsp: www's no-break spaces on the ten listed pages: 6 uploaded and previewed, 4 unchanged, not published
+
+Snapshots: austrian-snapshots-001, -002 and brussels-snapshots-001, -002 (R2 drop, sha256 checked), 10 of 10. Importers at origin/main f8349f2a (contains 6a61397b).
+Method as the other re-imports: DA's copy plus the delta of the change (import of the same snapshot at 6a61397b^ and at 6a61397b), 3-way line merge, DA's metadata verbatim.
+
+- Uploaded (6): /at/de/gesundes-reisen (23 no-break spaces), /at/en/accessible-travel (3), /be/fr/travel-classes/business (18), /be/fr and /be/en special-care/families-and-children (1 each), /be/en/plan-your-trip/travel-regulations (1). Only no-break spaces differ from DA, plus one heading id on gesundes-reisen ("tragbare-elektronische-medizinische-geraete--column-start" becomes "-column-start", the importer's slug; nothing links to it). 0 words lost. Rendered 1440 / 390, preview equals live on all: gesundes-reisen 6,978 / 9,552, accessible-travel 13,028 / 18,589, business 5,774 / 8,710, travel-regulations 4,166 / 6,899.
+- Unchanged, not uploaded (4): /be/en/articles/the-gambia, /be/en/flying-with-us/our-fleet, /at/en/book/additional-services/extra-services (identical before and after the change, as the list says), /at/en/plan/special-requirements/travelling-with-animals (DA already has the no-break spaces from the 522 re-import).
+- Found, not applied: on /at/de/gesundes-reisen DA's copy lacks a sentence the import has (the list item "Bitte holen Sie vorab ein ärztliches Attest ein ... Bitte senden Sie dieses an specialcases@..."; DA has only the mailto link) and keeps the older "Reisethrombose {column-start}" heading and a closing {column-end}; not part of this change, left as DA.
+Backup: notes/_backup/2026-11-09-job5-nbsp/ (10 x 200).

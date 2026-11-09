@@ -164,6 +164,10 @@ test('the hero\'s video: www\'s moving image of the hero picture linked in the h
   assert.equal(withHeroVideo(doc, snap.replace('Bengaluru Header Video_8017471.mp4', '')), doc, 'no video: as it is');
   const other = doc.replace('c-1455672767-478966716', 'c-1');
   assert.equal(withHeroVideo(other, snap), other, 'another picture: as it is');
+  // in the import chain the picture is still www's rendition (the brief after 526: the dry run of /ch/en/homepage lost
+  // the video, which DA's copy has)
+  const rendition = doc.replace('https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/frontify_variations/6/c-1455672767-478966716.jpg', 'https://www.swiss.com/content/dam/lx/images/frontify_variations/6/c-1455672767-478966716.jpg.transform/lh-dcep-transform-width-1440/img.jpg');
+  assert.match(withHeroVideo(rendition, snap), /<\/picture><p><a href="\/content\/dam\/lx\/video\/bengaluru-header-video-8017471\.mp4">/);
 });
 
 test('tab sets that hold blocks: a marker before each panel and after the set; text-only sets as before', async () => {

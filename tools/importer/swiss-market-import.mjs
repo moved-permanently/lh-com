@@ -28,7 +28,7 @@ import {
   withoutLoads, withTeaserColumns, withCheckinTabs, withOffersGridConfig, withItaForm, withPageLanguageMessages,
   withItaMetadata, withOwnSuccess, withFlightSearch, withCheckinHandoff, withHeroVideo, withFlightSearchVideo,
   withFlightSearchTeaser, withOwnFlightSearchLinks, templateOf, divEnd, docName, withAppVersions,
-  withLiveFallback, withSearchBar,
+  withLiveFallback, withSearchBar, withFinderConditions, withSwissIcons,
 } from './swiss-import.mjs';
 import { relativeDamLinks } from './swiss-dam.mjs';
 import { subSiteLinks, capturedPages, withOneH1 } from './swiss-sub-import.mjs';
@@ -37,6 +37,7 @@ import { LOCAL_IMAGES, withLocalImages } from './swiss-nav.mjs';
 import { edsDamPath } from '../../scripts/dam-path.js';
 import { BRAND_SITES, SWISS_OWN_ROOTS } from '../../scripts/brands.js';
 import collapseDocs from './collapse-docs.mjs';
+import { withRestoredNbsp } from './nbsp-guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const HOST = 'www.swiss.com';
@@ -355,6 +356,9 @@ if (isMain) {
     doc = withMarketOrigin(withFlightSearch(doc, p), snapHtml);
     doc = withItaMetadata(withCheckinHandoff(doc, p), p, snapHtml, []);
     doc = splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(doc, snapHtml), snapHtml), snapHtml));
+    // the fares conditions once, in the destination finder's Conditions row, and the icon tiles'
+    // SWISS icons, as the language versions' homepages (swiss-import.mjs; the brief after 526)
+    doc = withSwissIcons(withFinderConditions(doc, snapHtml).doc);
     // one h1 a page (www writes some of its subheadings as h1: h3, swiss-sub-import.mjs)
     doc = withOneH1(withOwnFlightSearchLinks(doc, p));
     // links: the root's pages and the language versions' relative, the rest on www; the DAM links
@@ -370,7 +374,7 @@ if (isMain) {
   fs.mkdirSync(path.join(W, 'runs'), { recursive: true });
   fs.writeFileSync(path.join(W, 'runs', `${name}-upload.txt`), `${made.map(docName).join('\n')}\n`);
   // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
-  collapseDocs(made.map((p) => path.join(W, 'content', `${docName(p)}.plain.html`)), { brand: 'swiss', content: path.join(W, 'content') });
+  collapseDocs(withRestoredNbsp(made.map((p) => path.join(W, 'content', `${docName(p)}.plain.html`)), fs), { brand: 'swiss', content: path.join(W, 'content') });
   fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);
   console.log(`${made.length} documents; upload list runs/${name}-upload.txt`);
 }

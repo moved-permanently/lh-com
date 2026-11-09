@@ -1,0 +1,11 @@
+# The brief after 527 item 1 (ema-cashub): the recorded pages the no-break space change applies to (sweep-austrian-brussels-cashub.md, item 4: the ranking's 10), in release order; to re-import with the bundles and brand importers of this change (tools/importer/nbsp-guard.mjs), and every later re-import carries it by itself. As the brief asks, www's empty lines (<p>&nbsp;</p>) are still dropped, so these pages keep their heights; what changes is the no-break spaces inside text (offline import of the recordings, main's bundles against this change's): /be/fr/travel-classes/business 18, /at/de/gesundes-reisen 23, /at/en/plan/special-requirements/travelling-with-animals 16, /at/en/accessible-travel 3, travel-regulations, families-and-children en and fr 1 each; the-gambia, our-fleet and extra-services come out byte for byte the same (listed as asked). All 10 are published on brussels.turnsthe.page / austrian.turnsthe.page (200).
+/be/fr/special-care/families-and-children
+/be/en/special-care/families-and-children
+/be/fr/travel-classes/business
+/be/en/plan-your-trip/travel-regulations
+/be/en/articles/the-gambia
+/be/en/flying-with-us/our-fleet
+/at/en/plan/special-requirements/travelling-with-animals
+/at/en/accessible-travel
+/at/de/gesundes-reisen
+/at/en/book/additional-services/extra-services

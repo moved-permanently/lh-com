@@ -54,6 +54,7 @@ import { withLocalImages } from './swiss-nav.mjs';
 import { stripScripts } from './excat-plugin.mjs';
 import { withSwissSidebar, withSwissAccordions, wwwHref } from './swiss-sidebar.mjs';
 import collapseDocs from './collapse-docs.mjs';
+import { withRestoredNbsp } from './nbsp-guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -538,6 +539,29 @@ export function withFinderConditions(doc, html) {
   return { doc: isPlain ? main.innerHTML : doc.replace(/<main>[\s\S]*<\/main>/, () => `<main>${main.innerHTML}</main>`), made };
 }
 
+// SWISS's own icons (icons/swiss-*.svg, www's tile icons: SWISS row 12, brief 380)
+const SWISS_ICONS = new Set(fs.readdirSync(path.join(root, 'icons')).filter((f) => /^swiss-[a-z0-9-]+\.svg$/.test(f)).map((f) => f.slice(6, -4)));
+
+/**
+ * A document whose icon tiles (cards-icon) use SWISS's own icon where one exists: :hotel: ->
+ * :swiss-hotel: (and an imported tile's span icon-hotel -> icon-swiss-hotel), as row 12 changed
+ * the homepages in DA; the importer wrote lufthansa.com's, which a re-import brought back (the
+ * brief after 526: the dry run of /ch/en/homepage against DA's copy). Other tokens as they are.
+ */
+export function withSwissIcons(doc) {
+  if (!doc.includes('class="cards-icon')) return doc;
+  return doc.split(/(?=<div class="cards-icon(?: [^"]*)?">)/)
+    .map((part, i) => {
+      if (!i && !part.startsWith('<div class="cards-icon')) return part;
+      const end = divEnd(part, 0);
+      const block = part.slice(0, end)
+        .replace(/:([a-z0-9-]+):/g, (m, name) => (SWISS_ICONS.has(name) ? `:swiss-${name}:` : m))
+        .replace(/class="icon icon-([a-z0-9-]+)"/g, (m, name) => (SWISS_ICONS.has(name) ? `class="icon icon-swiss-${name}"` : m));
+      return block + part.slice(end);
+    })
+    .join('');
+}
+
 // the core forms: a proposed lh-forms id per page name (swiss-<page>; lh-forms does not know
 // them yet, so the form pages stay on preview)
 export const formIdOf = (p) => `swiss-${p.split('/').pop().replace(/[^a-z0-9-]/gi, '-').toLowerCase()}`;
@@ -920,8 +944,9 @@ export function withHeroVideo(doc, html) {
     .map((m) => [edsDamPath(m[1]), edsDamPath(m[2])]);
   if (!pairs.length) return doc;
   return doc.replace(/(<div class="hero-card-overlay(?: [^"]*)?"><div><div>)([\s\S]*?<\/picture>)(?!<p><a href="[^"]+\.mp4")/, (m, open, pic) => {
-    const src = (pic.match(/<img src="([^"]+)"/) || [])[1] || '';
-    const pair = pairs.find(([img]) => src.split('?')[0].endsWith(img));
+    // the picture as DA has it, or still www's rendition in the import chain (".jpg.transform/lh-dcep-...")
+    const src = ((pic.match(/<img src="([^"]+)"/) || [])[1] || '').split('?')[0].replace(/\.transform\/.*$/, '');
+    const pair = pairs.find(([img]) => src.endsWith(img));
     return pair ? `${open}${pic}<p><a href="${pair[1]}">${pair[1]}</a></p>` : m;
   });
 }
@@ -1167,8 +1192,9 @@ if (isMain) {
       const snapHtml = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       // www's sidebar component (airem-sidebar) as the content beside a sidebar-aside section (swiss-sidebar.mjs)
       // (the homepages' fares conditions once, in the destination finder's Conditions row: withFinderConditions)
+      // (the icon tiles with SWISS's own icons: withSwissIcons)
       // (www's accordions the import wrote as text first: the sidebar's content can end with one)
-      const next = withSwissSidebar(withSwissAccordions(withFinderConditions(withTeaserTexts(withPinnedTeasers(withPlainViews(withTwoUpCards(withUspTeasers(withCardLinks(splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinFields(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), snapHtml), p, snapHtml, markets), snapHtml), snapHtml), snapHtml)), snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc;
+      const next = withSwissIcons(withSwissSidebar(withSwissAccordions(withFinderConditions(withTeaserTexts(withPinnedTeasers(withPlainViews(withTwoUpCards(withUspTeasers(withCardLinks(splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinFields(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), snapHtml), p, snapHtml, markets), snapHtml), snapHtml), snapHtml)), snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
@@ -1197,7 +1223,7 @@ if (isMain) {
       if (next !== doc) fs.writeFileSync(f, next);
     });
     // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
-    collapseDocs(made.map((p) => path.join(W, 'content', `${p}.plain.html`)), { brand: 'swiss', content: path.join(W, 'content') });
+    collapseDocs(withRestoredNbsp(made.map((p) => path.join(W, 'content', `${p}.plain.html`)), fs), { brand: 'swiss', content: path.join(W, 'content') });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);
     console.log(`${made.length} documents; upload list runs/${name}-upload.txt`);
   }

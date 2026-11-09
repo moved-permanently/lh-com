@@ -1,0 +1,7 @@
+# The brief after 530 item 2 (ema-cashub, Brussels' check-in form): the Brussels documents whose snapshot has www's quick actions with the Check-in panel only (online-check-in-options, the six documents of run b448-oco), in release order. brussels-import.mjs (withCheckinFields) writes their booking-lookup as SWISS's check-in option, booking-lookup (my-bookings, checkin), with www's Connexion link and the two name hints; brussels.css draws that option as www (boxed 48 px fields, the hints, on phones the row in the text column with its title, the panel 40 px in, the button as wide as the fields). Measured on /be/fr (the one recorded), offline import of the recording, main's import against this change's on the local dev server with Brussels' theme, between the page's two headings ("Comment faire pour m'enregistrer en ligne ?" to "Comment obtenir votre carte d'embarquement"), www / main's / this change's: 390: 976 / 691 / 938 px (-285 -> -38); 1440: 838 / 589 / 808 px (-249 -> -30). What is left is the hints' wrapping (our text column is wider than www's at 390). The block's other documents (the manage bookings form, lh-com's, SWISS's, Austrian's, Discover's, Cargo's) are untouched.
+/be/en/check-in-options-and-info/online-check-in-options
+/be/fr/check-in-options-and-info/online-check-in-options
+/be/nl/check-in-options-and-info/online-check-in-options
+/de/de/check-in-options-and-info/online-check-in-options
+/it/it/check-in-options-and-info/online-check-in-options
+/es/es/check-in-options-and-info/online-check-in-options

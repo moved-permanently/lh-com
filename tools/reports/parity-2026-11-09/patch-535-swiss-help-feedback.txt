@@ -1,0 +1,6 @@
+# The brief after 531, item 1 (SWISS parity row 48): one lh-swiss document patched, not re-imported (its snapshot has no
+# questionnaire: www's Tealium loads it). The patch: DA's /ch/en/help-center with the feedback block of DA's
+# /ch/en/customer-support/contact-us (question "Is there a topic missing?", answers "Yes, No", the note), inserted right
+# before the metadata block, in the micro-frontend's section, as contact-us has it. Nothing else changes (the two
+# documents are otherwise the same but for the topic links' targets). Uploaded, previewed and published as it stands.
+/ch/en/help-center
