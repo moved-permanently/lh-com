@@ -1719,3 +1719,55 @@ Left uncommitted, with the reasons:
 - **After 15:00 CET:** the capture list (56 pages).
 - **Ben:** the no-break space decision.
 - **The plugin's owner:** a switch for the validator hooks.
+
+## The brief after 527: no-break spaces, the remaining rows, the capture list's order
+
+- **Item 1, no-break spaces (`6a61397b`, pushed 13:41 CET):** one shared module, `tools/importer/nbsp-guard.mjs`.
+  - **How it works:** `guardNbsp` runs in onLoad, after the transformers' onLoad, so they still see www's no-break spaces
+    as before, and before the framework's steps. It writes them as U+2007, which no www snapshot on disk has and which
+    the framework leaves alone. `restoreNbsp` and `withRestoredNbsp` write them back.
+  - **As the brief's fixture asks:** an empty `<p>&nbsp;</p>` is not guarded, and the framework drops it as before.
+  - **Wiring, one place each, edits limited to the wiring:**
+    - `build-import-script.js` and the 14 generated import scripts: the import, and the call after `executeTransformers`
+      in onLoad.
+    - The 12 brand importers: `collapseDocs(withRestoredNbsp(files, fs), …)` and the import. Among them are ema-lufthansa's
+      airdolomiti, b2b, cargo, discover, swiss, swiss-magazine, swiss-market and swiss-sub.
+    - `import-batch.mjs` (lufthansa.com's runs): after the bulk run.
+    - `da-upload-sites.mjs` `uploadBody`, so no stand-in reaches DA.
+  - **The 14 bundles,** rebuilt on today's main: each differs from main only by the module and the call (19 lines).
+  - **Test first:** `test/nbsp-guard-530.test.mjs`. It covers a paragraph, a heading, a link text, a table cell, and an
+    empty `<p>&nbsp;</p>` that is still dropped, run through the framework's own DOMUtils and MDUtils.
+  - **Offline import of the 10 recorded pages** (main's bundles against these): 63 no-break spaces kept, no stand-in left,
+    paragraphs equal.
+  - **The text checks:** I changed nothing there, because a restored no-break space is whitespace to all of them:
+    - **word loss:** the collapse loss check (`collapse-loss-check.mjs` lossProblems) compares text without whitespace,
+      and JavaScript's `\s` includes U+00A0;
+    - **descheck:** the description rules (`description-rules.js` clean) map it to a space;
+    - **textdiff:** the plugin's text similarity (`content-similarity.js` tokenize) splits on `\s+`.
+
+    The test proves all three on a document pair. The same three checks on the 10 offline imports find no text, link,
+    heading or token difference.
+  - **Two side effects:** where www writes "&nbsp; " (a no-break space then a space), ours keeps both now, as www. A heading
+    id built from such text loses a doubled hyphen (gesundes-reisen: `…geräte--column-start` → `…geräte-column-start`).
+  - **Suite:** green at 678 files on the first commit, 681 on today's main after the rebase onto ema-test's bundle rebuild.
+  - **Re-import list:** `reimport-530-nbsp.txt` (the ranking's 10, in release order). 7 of them change, by their in-text
+    no-break spaces; the-gambia, our-fleet and extra-services come out the same.
+- **Item 2:**
+  - **Austrian `dd0436d2`:** two-up grids in a row on phones.
+  - **Brussels `433e6c2b`:** the footer from 1025 px, now 478 / 514 px against www's 478 / 515.
+  - **The other rows** (fly-with-austrian's divider: ema-test's marker; Brussels' check-in form on phones: the shared
+    booking-lookup block and the quick-actions mapping) are named in the sweep report.
+  - **The two templates without a recording that decide most documents (`1db40e6e`):** Austrian's form (176 documents not
+    copies of a recorded page) and Brussels' form (101, none recorded).
+- **Item 3 (`cce4b565`):** the capture list is in the order the capture child should take, most decisive first: decisions and
+  re-import lists, the two templates, the ranking's causes by gap, the page types by documents, the copies last. All 56
+  lines have host, path and width, and all answer 200 on our hosts.
+- **The editor hook** did not fire this brief: the parser and transformer files were not edited.
+
+### What is left
+
+- **The brands helper:** re-import `reimport-530-nbsp.txt` (10). Every later re-import carries the change by itself.
+- **Ben:** the empty lines. They are still dropped as the brief asks; keeping them is one line in nbsp-guard.mjs, and the
+  capture list's first page measures them on www.
+- **After 15:00 CET:** the capture list (56 pages, about 18 minutes), and a fresh capture of angebote-destinationen and
+  ch/en/homepage (their offers didn't load in this one).
