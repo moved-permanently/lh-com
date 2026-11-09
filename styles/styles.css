@@ -2007,3 +2007,11 @@ body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper
 body.theme-live.flow-spacing main .default-content-wrapper > :not(h1, h2, h3, h4, h5, h6) + :is(h2, h3) {
   margin-top: var(--theme-heading-gap, 32px);
 }
+
+/* lufthansa.com's ruled chapters (theme rule ruled-chapters: a chapter is a section of its own that
+   opens with the chapter's divider): www draws the rule 24px under the text before it (the
+   paragraph's own margin), not a section gap (48px); brief 526, the pass check's articles:
+   in-my-hood-chiswick-london, be-picky-barcelona-insider-tips +24px at each chapter */
+body.brand-lufthansa.theme-live main > .section + .section > .default-content-wrapper:first-child > p.spacer.divider:first-child {
+  margin-top: -24px;
+}
