@@ -50,6 +50,43 @@ figures move up to 1 point between runs; the table takes the run in which every 
 | flight-status | 2 | 0 | 0 | 0 | 0.0 % | 0.0 % | 0.0 % | 0 |
 | homepage | 2 | 0 | 0 | 0 | 0.9 % | 0.9 % | 0.9 % | 0 |
 
+## After the "from 768 px" Spacer option (brief 521, ema-test's 2963500)
+
+The collapse now writes a run of `{spacer-N from-768}` as a Spacer with the option from-768 (hidden below 768 px). The
+pass check run again for the three sample documents with from-768 separators: the 37 documents collapsed with main's
+collapse as of 2963500 (305 markers: 144 to the theme, 161 to carriers, 131 written; none left, idempotent), those three
+rendered against today's published pages with the theme forced live in the browser only (logs/b521/pcc, not in git):
+
+| page | width | before (main as of 142a2d2) | with from-768 |
+| --- | --- | --- | --- |
+| /de/en/additional-services (10 from-768 separators) | 1440 | 0 % / 0 px | 0 % / 0 px |
+| /de/en/additional-services | 390 | +8.2 % / 0 px **flagged** | 0 % / 0 px |
+| /de/en/book-and-manage/stopover (6) | 1440 | +1.9 % / 224 px **flagged** | +1.9 % / 224 px **flagged** |
+| /de/en/book-and-manage/stopover | 390 | +3.9 % / 622 px **flagged** | +1.9 % / 296 px **flagged** |
+| /de/en/first-class-terminal (3) | 1440 | -1.0 % / -108 px **flagged** | -1.0 % / -108 px **flagged** |
+| /de/en/first-class-terminal | 390 | -0.6 % / -57 px **flagged** | -0.6 % / -57 px **flagged** |
+
+Per page type with these and /100-years without sections-m (ema-test's fa26e25; the numbers "today + item 2" below),
+the other pages as measured with main as of 142a2d2 (logs/b521/pc-summary-521.mjs):
+
+| page type | page widths | flagged | mean height difference | E (left out) |
+| --- | --- | --- | --- | --- |
+| campaign | 8 | 7 | 1.5 % | 2 |
+| fleet | 4 | 2 | 0.6 % | 0 |
+| info | 16 | 9 | 0.9 % | 0 |
+| hub | 12 | 5 | 0.8 % | 2 |
+| legal | 6 | 2 | 2.7 % | 0 |
+| form | 4 | 0 | 0.3 % | 0 |
+| insights | 12 | 8 | 2.0 % | 0 |
+| app-entry | 4 | 0 | 0.7 % | 0 |
+| flight-status | 2 | 0 | 0.0 % | 0 |
+| homepage | 2 | 0 | 0.9 % | 0 |
+
+stopover stays flagged on its headings (its heading-small H2s take heading-medium, near values: D +64 / +68 px);
+first-class-terminal's three from-768 separators are 14-17 px, each beside an ordinary one ({spacer-0}, -53, -43): 0-31
+px go as before, so nothing changes there; its column marks (B -56) and separators (C) as before. Not measured again here: insights after fa26e25's captions
+in block cells and the divider before Related Articles (handover items 4 and 5).
+
 ## Causes, by page type (main today)
 
 - **campaign** (8 page-widths; mine): the /100-years pages grow 3-9 %: `sections-m` adds 61 px at every section start,
