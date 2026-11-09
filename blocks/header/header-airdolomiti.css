@@ -95,6 +95,18 @@
     translate: 0 -8px;
   }
 
+  /* once the page is scrolled www's bar is 80 px, its logo 40 px, 4 px above the middle
+     (airdolomiti-parity-002, stuck) */
+  .header .nav-airdolomiti.is-scrolled .nav-bar {
+    min-height: 80px;
+    padding-block: 10px;
+  }
+
+  .header .nav-airdolomiti.is-scrolled .nav-brand img {
+    height: 40px;
+    translate: 0 -4px;
+  }
+
   .header .nav-airdolomiti .nav-ad-menu {
     display: flex;
     flex: 1 1 auto;
@@ -262,6 +274,7 @@
   }
 
   .header .nav-airdolomiti .nav-ad-card picture,
+  /* stylelint-disable-next-line no-descending-specificity -- other pictures than the logo (the scrolled bar's, above) */
   .header .nav-airdolomiti .nav-ad-card img {
     position: absolute;
     inset: 0;
@@ -353,6 +366,7 @@
   }
 
   .header .nav-airdolomiti .nav-ad-quick-link picture,
+  /* stylelint-disable-next-line no-descending-specificity -- other pictures than the logo (the scrolled bar's, above) */
   .header .nav-airdolomiti .nav-ad-quick-link img {
     display: block;
     flex: 0 0 20px;
