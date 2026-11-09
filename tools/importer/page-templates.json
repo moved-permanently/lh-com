@@ -1250,6 +1250,12 @@
           ]
         },
         {
+          "name": "destination-finder",
+          "instances": [
+            ".fareteaserdynamicevo"
+          ]
+        },
+        {
           "name": "hero-card-overlay",
           "instances": [
             ".b2b-stage"
@@ -5580,6 +5586,12 @@
           ]
         },
         {
+          "name": "destination-finder",
+          "instances": [
+            ".fareteaserdynamicevo"
+          ]
+        },
+        {
           "name": "hero-card-overlay",
           "instances": [
             ".b2b-stage"
@@ -5847,6 +5859,12 @@
           ]
         },
         {
+          "name": "destination-finder",
+          "instances": [
+            ".fareteaserdynamicevo"
+          ]
+        },
+        {
           "name": "hero-card-overlay",
           "instances": [
             ".b2b-stage"
@@ -6110,6 +6128,12 @@
           "name": "flight-search",
           "instances": [
             ".redesignedflightmanager"
+          ]
+        },
+        {
+          "name": "destination-finder",
+          "instances": [
+            ".fareteaserdynamicevo"
           ]
         },
         {

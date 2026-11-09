@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-checkin.js
-  var tmp_bundle_austrian_checkin_20247_exports = {};
-  __export(tmp_bundle_austrian_checkin_20247_exports, {
-    default: () => tmp_bundle_austrian_checkin_20247_default
+  var tmp_bundle_austrian_checkin_62376_exports = {};
+  __export(tmp_bundle_austrian_checkin_62376_exports, {
+    default: () => tmp_bundle_austrian_checkin_62376_default
   });
 
   // tools/importer/parsers/booking-lookup.js
@@ -2864,8 +2864,214 @@ var CustomImportScript = (() => {
     element.replaceWith(block);
   }
 
-  // tools/importer/parsers/hero-card-overlay.js
+  // tools/importer/parsers/destination-finder.js
+  function parseGrid(element, finder, document) {
+    const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
+    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const visibleText = (node) => {
+      if (!node) return "";
+      const clone = node.cloneNode(true);
+      clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
+      return clean3(clone.textContent);
+    };
+    const para = (text) => {
+      const p = document.createElement("p");
+      p.textContent = text;
+      return p;
+    };
+    const linkPara = (href, label) => {
+      const p = document.createElement("p");
+      const a = document.createElement("a");
+      a.href = href;
+      a.textContent = label;
+      p.append(a);
+      return p;
+    };
+    let props = {};
+    try {
+      props = JSON.parse(finder.getAttribute("data-dcep") || "{}") || {};
+    } catch (e) {
+      props = {};
+    }
+    const value = (v) => v === null || v === void 0 ? "" : clean3(String(v));
+    const cells = [];
+    const addRow = (key, v) => {
+      if (v === null || v === void 0) return;
+      if (typeof v === "string" && !v) return;
+      if (Array.isArray(v) && !v.length) return;
+      cells.push([key, v]);
+    };
+    addRow("Trip duration", value(props.tripDuration));
+    addRow("Highlighted offers", value(props.maxHighlightedOffers));
+    addRow("Highlight priority", value(props.priorityOfHighlightingOffers).split(",").map((s) => s.trim()).filter(Boolean).join(", "));
+    const sds = finder.querySelector('.df-sds-link-button[href], maui-button-link[icon="ai"][href]');
+    const sdsHref = value(props.aiSearchUrl) || sds && sds.getAttribute("href");
+    const sdsLabel = visibleText(sds) || sds && clean3(sds.getAttribute("label"));
+    if (sdsHref && sdsLabel) addRow("Smart search", [linkPara(sdsHref, sdsLabel)]);
+    const redirect = value(props.baseRedirectUrl);
+    if (redirect) addRow("Destination page", [linkPara(redirect, redirect.replace(/^.*\//, "") || redirect)]);
+    if (/^[A-Za-z]{3}$/.test(value(props.preselectedOrigin))) addRow("Default origin", value(props.preselectedOrigin).toUpperCase());
+    const copies = [...finder.querySelectorAll("maui-copy")].filter((c) => !c.closest("maui-card, .df-filters, maui-modal"));
+    const disclaimerNode = copies.find((c) => /^\*/.test(visibleText(c)));
+    const disclaimer = visibleText(disclaimerNode) || clean3((finder.querySelector("maui-price-display[conditions]") || { getAttribute: () => "" }).getAttribute("conditions"));
+    if (disclaimer) addRow("Disclaimer", [para(disclaimer)]);
+    const trigger = finder.querySelector(".disclaimerandconditions maui-link-button, .disclaimerandconditions button, .disclaimerandconditions a");
+    const triggerLabel = visibleText(trigger);
+    if (triggerLabel) {
+      const p = document.createElement("p");
+      const strong = document.createElement("strong");
+      strong.textContent = triggerLabel;
+      p.append(strong);
+      addRow("Conditions", [p]);
+    }
+    const out = [];
+    const headline = finder.querySelector('maui-headline[type="h1"]') || finder.querySelector("maui-headline");
+    const headingText = visibleText(headline);
+    if (headingText) {
+      const h1 = document.createElement("h1");
+      h1.textContent = headingText;
+      out.push(h1);
+    }
+    out.push(WebImporter.Blocks.createBlock(document, { name: "Destination Finder (grid)", cells }));
+    element.replaceWith(...out);
+  }
   function parse13(element, { document }) {
+    const grid = element.matches(".dcep-destination-finder") ? element : element.querySelector(".dcep-destination-finder");
+    if (grid) {
+      parseGrid(element, grid, document);
+      return;
+    }
+    const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
+    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const visibleText = (node) => {
+      if (!node) return "";
+      const clone = node.cloneNode(true);
+      clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
+      return clean3(clone.textContent);
+    };
+    const attr = (node, name) => clean3(node ? node.getAttribute(name) : "");
+    const code = (v) => /^[A-Za-z]{3}$/.test(clean3(v)) ? clean3(v).toUpperCase() : "";
+    const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
+    const para = (text) => {
+      const p = document.createElement("p");
+      p.textContent = text;
+      return p;
+    };
+    const linkPara = (href, label) => {
+      const p = document.createElement("p");
+      const a = document.createElement("a");
+      a.href = href;
+      a.textContent = label;
+      p.append(a);
+      return p;
+    };
+    const queryOf = (href) => {
+      try {
+        return new URL(href, "https://www.lufthansa.com/").searchParams;
+      } catch (e) {
+        return new URLSearchParams();
+      }
+    };
+    let props = {};
+    const propsHost = element.querySelector("[data-dcep]") || (element.hasAttribute("data-dcep") ? element : null);
+    if (propsHost) {
+      try {
+        props = JSON.parse(propsHost.getAttribute("data-dcep")) || {};
+      } catch (e) {
+        props = {};
+      }
+    }
+    const cells = [];
+    const addRow = (key, value) => {
+      if (value === null || value === void 0) return;
+      if (typeof value === "string" && !value) return;
+      if (Array.isArray(value) && !value.length) return;
+      cells.push([key, value]);
+    };
+    const headline = element.querySelector(".inlinetextdropdown maui-headline, .fareteaser-recommendation-headline maui-headline, maui-headline");
+    let headingText = "";
+    if (headline) {
+      const clone = headline.cloneNode(true);
+      clone.querySelectorAll(`.inlinetextautocomplete, .selectable, input, label, button, ${SR_ONLY2}`).forEach((n) => n.remove());
+      headingText = clean3(clone.textContent);
+    }
+    addRow("Heading", headingText);
+    const originInput = element.querySelector('.inlinetextautocomplete input:not([type="hidden"]), .autocomplete-airport input:not([type="hidden"])');
+    const cards = [...element.querySelectorAll(".swiper-slide a.ftde-card[href], a.ftde-card[href]")].filter((a, i, all) => all.indexOf(a) === i);
+    const destinationCards = cards.filter((a) => a.getAttribute("data-testid") !== "destination-finder-card" && a.querySelector("maui-price-display, .ftde-card-price"));
+    const firstQuery = destinationCards.length ? queryOf(destinationCards[0].getAttribute("href")) : new URLSearchParams();
+    const originCode = code(props.preselectedOrigin) || code(firstQuery.get("OriginCode"));
+    const originName = attr(originInput, "value") || visibleText(element.querySelector(".inlinetextautocomplete-measure"));
+    if (originCode) addRow("Default origin", originName && !code(originName) ? `${originName} (${originCode})` : originCode);
+    const originLabel = visibleText(element.querySelector(".inlinetextautocomplete label, .autocomplete-airport label")) || attr(originInput, "placeholder");
+    addRow("Origin input label", originLabel);
+    const chips = [...element.querySelectorAll(".trip-type-chips maui-chip, maui-chip-list maui-chip")].filter((c, i, all) => all.indexOf(c) === i).map((c) => attr(c, "label") || visibleText(c)).filter(Boolean);
+    const tripTypes = [...new Set(chips)];
+    addRow("Trip types", tripTypes.join(", "));
+    if (props.isOneWayDefault === true && tripTypes[1]) addRow("Default trip type", tripTypes[1]);
+    addRow("Trip duration", clean3(firstQuery.get("TripDuration")));
+    if (props.airlineWhitelistingEnabled === true) addRow("Airline whitelist", "yes");
+    addRow("Price label", attr(element.querySelector("maui-price-display[label]"), "label"));
+    const finder = cards.find((a) => a.getAttribute("data-testid") === "destination-finder-card") || cards.find((a) => !a.querySelector("maui-price-display, .ftde-card-price"));
+    if (finder) {
+      const content = [];
+      const img = [...finder.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
+      if (img) {
+        const image = document.createElement("img");
+        image.src = img.getAttribute("src");
+        image.alt = img.getAttribute("alt") || "";
+        content.push(image);
+      }
+      const copy = visibleText(finder.querySelector("maui-copy, p"));
+      if (copy) content.push(para(copy));
+      const nav = finder.querySelector("maui-navigation-link[href], maui-button-link[href]");
+      const label = visibleText(nav) || attr(finder, "aria-label");
+      const href = nav && nav.getAttribute("href") || finder.getAttribute("href");
+      if (href && label) content.push(linkPara(href, label));
+      addRow("Finder card", content);
+    }
+    const cta = element.querySelector(".ftde-footer-cta maui-button-link[href], .ftde-footer-cta a[href], .recommender-footer maui-button-link[href]");
+    if (cta && visibleText(cta)) addRow("CTA", [linkPara(cta.getAttribute("href"), visibleText(cta))]);
+    const disclaimerNode = element.querySelector(".recommender-footer .disclaimer maui-copy, .recommender-footer .disclaimer p");
+    const disclaimer = visibleText(disclaimerNode) || attr(element.querySelector("maui-price-display[conditions]"), "conditions");
+    if (disclaimer) addRow("Disclaimer", [para(disclaimer)]);
+    const conditions = [];
+    const trigger = element.querySelector(".disclaimerandconditions maui-link-button, .disclaimerandconditions button, .disclaimerandconditions a");
+    const triggerLabel = visibleText(trigger);
+    const triggerHref = trigger && trigger.getAttribute("href");
+    if (triggerLabel) {
+      if (triggerHref && !triggerHref.startsWith("#")) {
+        conditions.push(linkPara(triggerHref, triggerLabel));
+      } else {
+        const p = document.createElement("p");
+        const strong = document.createElement("strong");
+        strong.textContent = triggerLabel;
+        p.append(strong);
+        conditions.push(p);
+      }
+    }
+    if (trigger) {
+      const dialogs = [...document.querySelectorAll("maui-modal")].filter((m) => !element.contains(m) && m.querySelector(":scope > .richtext") && !m.querySelector("maui-button, maui-button-link, form, input"));
+      const owners = [...document.querySelectorAll(".disclaimerandconditions")].map((d) => d.closest('[class*="fareteaser"].section, .section') || d).filter((o, i, all) => all.indexOf(o) === i);
+      const index = Math.max(0, owners.findIndex((o) => o === element || o.contains(element) || element.contains(o)));
+      const dialog = dialogs[Math.min(index, dialogs.length - 1)];
+      if (dialog) {
+        dialog.querySelectorAll(".richtext p, .richtext li").forEach((node) => {
+          if (!visibleText(node)) return;
+          const p = document.createElement("p");
+          p.innerHTML = node.innerHTML;
+          p.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
+          conditions.push(p);
+        });
+      }
+    }
+    addRow("Conditions", conditions);
+    const block = WebImporter.Blocks.createBlock(document, { name: "destination-finder", cells });
+    element.replaceWith(block);
+  }
+
+  // tools/importer/parsers/hero-card-overlay.js
+  function parse14(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -3008,7 +3214,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/hero-campaign.js
-  function parse14(element, { document }) {
+  function parse15(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean3 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -3143,7 +3349,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-images.js
-  function parse15(element, { document }) {
+  function parse16(element, { document }) {
     const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const isBroken3 = (src) => !src || /^(data|blob):/i.test(src) || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const slides = [...element.querySelectorAll(".swiper-slide")].filter((s) => !s.classList.contains("swiper-slide-duplicate"));
@@ -3462,7 +3668,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/accordion-columns.js
-  function parse16(element, { document }) {
+  function parse17(element, { document }) {
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
     const ZW2 = /[​-‍﻿]/g;
     const clean3 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
@@ -3789,7 +3995,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/table-striped.js
-  function parse17(element, { document }) {
+  function parse18(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean3 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const cellContent = (cell) => {
@@ -3820,7 +4026,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-icon-text.js
-  function parse18(element, { document }) {
+  function parse19(element, { document }) {
     const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const modules = [...element.querySelectorAll(".icon-module")];
     if (modules.length) {
@@ -3947,7 +4153,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-icon.js
-  function parse19(element, { document }) {
+  function parse20(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -4001,7 +4207,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-cards.js
-  function parse20(element, { document }) {
+  function parse21(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -4214,7 +4420,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-teaser.js
-  function parse21(element, { document }) {
+  function parse22(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
@@ -4427,7 +4633,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/columns-media.js
-  function parse22(element, { document, url, params }) {
+  function parse23(element, { document, url, params }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -4995,7 +5201,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/embed.js
-  function parse23(element, { document }) {
+  function parse24(element, { document }) {
     if (!element.isConnected || !element.parentElement || element.parentElement.closest("table")) return;
     const href = embedUrl(element);
     if (!href) return;
@@ -5007,7 +5213,7 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/lounge-finder.js
   var DEFAULT_IMAGE_BASE = "/content/dam/lh/images/lounges";
-  function parse24(element, { document }) {
+  function parse25(element, { document }) {
     const host = element.matches(".dcep-lounge-finder") ? element : element.querySelector(".dcep-lounge-finder");
     let config = {};
     try {
@@ -5023,31 +5229,31 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/security-waiting-time.js
-  function parse25(element, { document }) {
+  function parse26(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "security-waiting-time", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/checkin-deadlines.js
-  function parse26(element, { document }) {
+  function parse27(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "checkin-deadlines", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/ejournals.js
-  function parse27(element, { document }) {
+  function parse28(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "ejournals", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/passenger-receipt.js
-  function parse28(element, { document }) {
+  function parse29(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "passenger-receipt", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/fare-teaser.js
-  function parse29(element, { document }) {
+  function parse30(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -8119,7 +8325,7 @@ var CustomImportScript = (() => {
   function collapseSeparators(main, doc, stats, ctx) {
     const { rules } = themeFor(ctx.brand, ctx.pageType);
     const isSep = (el) => !!el && el.tagName === "P" && SEPARATOR.test(textOf(el));
-    const parse30 = (el) => textOf(el).match(SEPARATOR);
+    const parse31 = (el) => textOf(el).match(SEPARATOR);
     main.querySelectorAll(":scope > div > * p").forEach((p) => {
       if (!isSep(p)) return;
       count(stats, "theme", "separator-in-block");
@@ -8140,7 +8346,7 @@ var CustomImportScript = (() => {
         const now = [...sec.children];
         const first = now.indexOf(run.els[0]);
         const lastAt = now.indexOf(run.els[run.els.length - 1]);
-        const seps = run.els.map(parse30);
+        const seps = run.els.map(parse31);
         const divider = seps.some((m) => m[1] === "divider");
         const px = seps.reduce((a, m) => a + Number(m[2]), 0);
         const tablet = seps.every((m) => m[3]);
@@ -8461,6 +8667,12 @@ var CustomImportScript = (() => {
         ]
       },
       {
+        "name": "destination-finder",
+        "instances": [
+          ".fareteaserdynamicevo"
+        ]
+      },
+      {
         "name": "hero-card-overlay",
         "instances": [
           ".b2b-stage"
@@ -8659,23 +8871,24 @@ var CustomImportScript = (() => {
     "form-core": parse10,
     "car-rental": parse11,
     "flight-search": parse12,
-    "hero-card-overlay": parse13,
-    "hero-campaign": parse14,
-    "carousel-images": parse15,
-    "accordion-columns": parse16,
-    "table-striped": parse17,
-    "cards-icon-text": parse18,
-    "cards-icon": parse19,
-    "carousel-cards": parse20,
-    "cards-teaser": parse21,
-    "columns-media": parse22,
-    "embed": parse23,
-    "lounge-finder": parse24,
-    "security-waiting-time": parse25,
-    "checkin-deadlines": parse26,
-    "ejournals": parse27,
-    "passenger-receipt": parse28,
-    "fare-teaser": parse29
+    "destination-finder": parse13,
+    "hero-card-overlay": parse14,
+    "hero-campaign": parse15,
+    "carousel-images": parse16,
+    "accordion-columns": parse17,
+    "table-striped": parse18,
+    "cards-icon-text": parse19,
+    "cards-icon": parse20,
+    "carousel-cards": parse21,
+    "cards-teaser": parse22,
+    "columns-media": parse23,
+    "embed": parse24,
+    "lounge-finder": parse25,
+    "security-waiting-time": parse26,
+    "checkin-deadlines": parse27,
+    "ejournals": parse28,
+    "passenger-receipt": parse29,
+    "fare-teaser": parse30
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -8699,7 +8912,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_checkin_20247_default = {
+  var tmp_bundle_austrian_checkin_62376_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -8739,5 +8952,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_checkin_20247_exports);
+  return __toCommonJS(tmp_bundle_austrian_checkin_62376_exports);
 })();

@@ -13,6 +13,7 @@ import poiMapParser from './parsers/poi-map.js';
 import formCoreParser from './parsers/form-core.js';
 import carRentalParser from './parsers/car-rental.js';
 import flightSearchParser from './parsers/flight-search.js';
+import destinationFinderParser from './parsers/destination-finder.js';
 import heroCardOverlayParser from './parsers/hero-card-overlay.js';
 import heroCampaignParser from './parsers/hero-campaign.js';
 import carouselImagesParser from './parsers/carousel-images.js';
@@ -111,6 +112,12 @@ const PAGE_TEMPLATE = {
       "name": "flight-search",
       "instances": [
         ".redesignedflightmanager"
+      ]
+    },
+    {
+      "name": "destination-finder",
+      "instances": [
+        ".fareteaserdynamicevo"
       ]
     },
     {
@@ -297,6 +304,7 @@ const parsers = {
   'form-core': formCoreParser,
   'car-rental': carRentalParser,
   'flight-search': flightSearchParser,
+  'destination-finder': destinationFinderParser,
   'hero-card-overlay': heroCardOverlayParser,
   'hero-campaign': heroCampaignParser,
   'carousel-images': carouselImagesParser,

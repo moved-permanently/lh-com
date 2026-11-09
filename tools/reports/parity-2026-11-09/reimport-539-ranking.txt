@@ -1,0 +1,22 @@
+# The brief after 534 item 3 (ema-cashub, the ranking against brussels-parity-004 / austrian-parity-003): documents to re-import, in release order. (1) Brussels /local-page/offers: www's live fare recommender ('Flight offers from Brussels', .fareteaserdynamicevo) is now the destination-finder block in the info template (as on the homepages; this commit), where it came in as 16 stacked 720 px pictures: 1440 +190 -> about -13 %, 390 +81 -> about -14 % (offline import, local server, the deals' live fares not drawn). (2) Brussels /local-page/student-fares and /lufthansa-group/star-alliance: today's importer is already right, the published documents are older: the student benefits as cards-icon-text partner tiles (were four page-wide icons: 1440 +124 -> +11 %), Star Alliance's logo cards in the sidebar's text width (a sidebar section: 1440 +8.7 -> -4.8 %). (3) Austrian /book-and-manage/flights/wetlease-hub: today's importer keeps the stage's text (published: the title only; 390 -16.5 -> -11.3 %); after the Austrian collapse pass (the site is locked while it runs). Each page's language documents that are published; another document of these pages the harness's scope names changes the same way.
+/be/en/local-page/offers
+/be/fr/local-page/offers
+/be/nl/local-page/offers
+/be/en/local-page/student-fares
+/be/fr/local-page/student-fares
+/be/en/lufthansa-group/star-alliance
+/be/fr/lufthansa-group/star-alliance
+/be/nl/lufthansa-group/star-alliance
+/de/de/lufthansa-group/star-alliance
+/it/it/lufthansa-group/star-alliance
+/es/es/lufthansa-group/star-alliance
+/at/en/book-and-manage/flights/wetlease-hub
+/at/de/book-and-manage/flights/wetlease-hub
+/fr/fr/book-and-manage/flights/wetlease-hub
+/it/it/book-and-manage/flights/wetlease-hub
+/es/es/book-and-manage/flights/wetlease-hub
+/pl/pl/book-and-manage/flights/wetlease-hub
+/ru/ru/book-and-manage/flights/wetlease-hub
+/gr/el/book-and-manage/flights/wetlease-hub
+/jp/ja/book-and-manage/flights/wetlease-hub
+/cn/zh/book-and-manage/flights/wetlease-hub
