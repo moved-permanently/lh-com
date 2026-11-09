@@ -858,9 +858,10 @@ body.brand-lufthansa main > .section.grey + .section.table-striped-container:has
    /de/en/airport-information's {spacer-70}, the flights pages' {spacer-25}): on www the separator is
    all there is between the band and the footer (71px at 1440), ours added the band's 48px and the
    last section's own 48px (151px). The last section takes the band's gap back (its negative top
-   margin collapses with it and the wrapper's -16px) and has none below. One :has() level: a :has()
-   nested in another drops the rule */
-body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .default-content-wrapper > :not(p.spacer))) {
+   margin collapses with it and the wrapper's -16px) and has none below. A last section with a card
+   carousel keeps its gap (the travel classes' cards: 4 px under the band, www 50; brief 539).
+   One :has() level: a :has() nested in another drops the rule */
+body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .carousel-cards-wrapper), :has(> .default-content-wrapper > :not(p.spacer))) {
   margin-top: -48px;
   margin-bottom: 0;
 }
