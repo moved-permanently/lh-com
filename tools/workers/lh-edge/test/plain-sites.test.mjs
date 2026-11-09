@@ -2,8 +2,8 @@
 /* Sites without <cc>/<ll> roots (src/sites.js PLAIN_SITES, brief 162): Lufthansa Cargo on
    cargo.turnsthe.page and Air Dolomiti on airdolomiti.turnsthe.page, every path passed through to
    the site's origin as it is, Cargo's entry redirects as on its source, /digitalhangar/ from the
-   site's design host (Cargo: www.lufthansa.com, never www.lufthansa-cargo.com; Air Dolomiti: none,
-   the origin's answer), no market route; Discover and ITA as before. */
+   site's design host (Cargo: www.lufthansa.com, never www.lufthansa-cargo.com; Air Dolomiti too since
+   brief 515 item 1, never www.airdolomiti.it), no market route; Discover and ITA as before. */
 import { test, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
 import HTMLRewriter from './htmlrewriter-shim.mjs';
@@ -23,7 +23,7 @@ const env = (extra = {}) => ({
   SITE_HOSTS: 'discover.turnsthe.page=discover; ita.turnsthe.page=ita; cargo.turnsthe.page=cargo; airdolomiti.turnsthe.page=airdolomiti',
   SITE_ORIGINS: `discover=${DISCOVER}; ita=main--lh-ita--moved-permanently.aem.live; cargo=${CARGO}; airdolomiti=${AD}`,
   SITE_WWW_HOSTS: 'discover=www.discover-airlines.com; ita=www.ita-airways.com; cargo=www.lufthansa-cargo.com; airdolomiti=www.airdolomiti.it',
-  SITE_DESIGN_HOSTS: 'discover=www.discover-airlines.com; ita=www.ita-airways.com; cargo=www.lufthansa.com',
+  SITE_DESIGN_HOSTS: 'discover=www.discover-airlines.com; ita=www.ita-airways.com; cargo=www.lufthansa.com; airdolomiti=www.lufthansa.com',
   ...extra,
 });
 const META = { total: 1, data: [{ URL: '/**', robots: 'noindex, nofollow', brand: 'cargo' }], ':type': 'sheet' };
@@ -57,7 +57,7 @@ test('siteOf: a plain site with its origin, www and design host; without an orig
   assert.equal(cargo.www, 'www.lufthansa-cargo.com');
   assert.equal(cargo.design, 'www.lufthansa.com');
   const ad = siteOf(new Request('https://airdolomiti.turnsthe.page/'), env());
-  assert.equal(ad.design, '');
+  assert.equal(ad.design, 'www.lufthansa.com');
   assert.equal(siteOf(new Request('https://cargo.turnsthe.page/'), env({ SITE_ORIGINS: `discover=${DISCOVER}` })), null);
   assert.equal(siteOf(new Request('https://discover.turnsthe.page/'), env()).plain, null, 'Discover keeps its tables');
 });
@@ -105,7 +105,7 @@ test('Cargo: /digitalhangar/ from www.lufthansa.com (its fonts), never www.lufth
   assert.ok(calls.every((c) => c.host !== 'www.lufthansa-cargo.com'));
 });
 
-test('Air Dolomiti: / is the Italian homepage at /, /en/ and /de/ as they are; /digitalhangar/ the origin\'s answer', async () => {
+test('Air Dolomiti: / is the Italian homepage at /, /en/ and /de/ as they are; /digitalhangar/ from www.lufthansa.com', async () => {
   for (const p of ['/', '/en/', '/de/', '/en/voli']) { // eslint-disable-line no-restricted-syntax
     const resp = await get(`https://airdolomiti.turnsthe.page${p}`); // eslint-disable-line no-await-in-loop
     assert.equal(resp.status, 404, `${p}: the origin's answer (nothing published yet)`);
@@ -113,8 +113,9 @@ test('Air Dolomiti: / is the Italian homepage at /, /en/ and /de/ as they are; /
     assert.equal(calls.at(-1).path, p);
   }
   const font = await get(`https://airdolomiti.turnsthe.page${FONT}`);
-  assert.equal(font.status, 404);
-  assert.equal(calls.at(-1).host, AD, 'no request to www.airdolomiti.it');
+  assert.equal(font.status, 200);
+  assert.equal(await font.text(), 'font from www.lufthansa.com');
+  assert.equal(calls.at(-1).host, 'www.lufthansa.com', 'never www.airdolomiti.it');
   assert.equal((await (await get('https://airdolomiti.turnsthe.page/metadata.json')).json()).data[0].robots, 'noindex, nofollow');
 });
 
