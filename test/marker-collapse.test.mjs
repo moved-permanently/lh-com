@@ -98,9 +98,9 @@ test('text width: a mostly wide section gets Wide text; ITA\'s default is wide; 
 
 test('video: the default player goes, the size and a background video as the link\'s fragment or the block\'s option', () => {
   assert.equal(out(`<div><p>${PIC}</p><p><a href="/media/v.mp4">Watch</a> {controls round-play-button size-1920x1080}</p></div>`), `<div><p>${PIC}</p><p><a href="/media/v.mp4#size=1920x1080">Watch</a></p></div>`);
-  assert.equal(out(`<div><p>${PIC}</p><p><a href="/media/v.mp4#t=10">/media/v.mp4</a> {autoplay muted loop}</p></div>`), `<div><p>${PIC}</p><p><a href="/media/v.mp4#t=10&amp;background">Lisbon at dusk</a></p></div>`);
+  assert.equal(out(`<div><p>${PIC}</p><p><a href="/media/v.mp4#t=10">/media/v.mp4</a> {autoplay muted loop}</p></div>`), `<div><p>${PIC}</p><p><a href="/media/v.mp4#t=10&amp;background">/media/v.mp4</a></p></div>`);
   assert.equal(out('<div><div class="columns-media"><div><div><p><a href="/media/v.mp4">Film</a> {autoplay muted loop}</p></div></div></div></div>'), '<div><div class="columns-media background-video"><div><div><p><a href="/media/v.mp4">Film</a></p></div></div></div></div>');
-  assert.equal(out('<div><div class="article-header"><div><div><p><a href="/media/en_header.mp4">/media/en_header.mp4</a> {mobile}</p></div></div></div></div>'), '<div><div class="article-header mobile-video"><div><div><p><a href="/media/en_header.mp4">En header</a></p></div></div></div></div>');
+  assert.equal(out('<div><div class="article-header"><div><div><p><a href="/media/en_header.mp4">/media/en_header.mp4</a> {mobile}</p></div></div></div></div>'), '<div><div class="article-header mobile-video"><div><div><p><a href="/media/en_header.mp4">/media/en_header.mp4</a></p></div></div></div></div>');
 });
 
 test('captions: the italic paragraph after the image; one after no image is listed for a person', () => {

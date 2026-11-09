@@ -178,8 +178,11 @@ Never publish collapsed documents while the switch is off on main.
 
 ## The next brands: deltas
 
-Every brand's switch branch is in place (the brief after 506). Each merges on its own after its pass, without
-conflicts. The page above holds for each brand, with these changes:
+Every brand's switch branch is in place (the brief after 506; Air Dolomiti's since the brief after 520). Each merges
+on its own after its pass, without conflicts. Every brand now has a page of its own with DA's census, which takes the
+place of its row below: harness-pass-tap.md, -brussels, -austrian, -swiss (the brief after 520), -b2b, -cargo,
+-airdolomiti (ema-adobe's, brief 531), -discover and -lufthansa. The brands helper's order after ITA: TAP, Brussels,
+Austrian, SWISS, Group for Business, Cargo, Air Dolomiti. The table as it was:
 
 | brand | DA site | paths file (documents) | switch branch | branch preview | host | expected carriers written | pass check |
 | --- | --- | --- | --- | --- | --- | --- | --- |

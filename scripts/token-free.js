@@ -247,10 +247,15 @@ function applyThemeRules(main, theme) {
         if (p.textContent.trim() && !hasPicture(p)) addUnmarked(p, 'copytext-large', MARKED_SIZE);
       });
     }
+    // what follows the section's first element (its metadata aside)
+    const afterFirst = first && first.nextElementSibling;
     if (i > 0 && first && !isSeparator(first)) {
       if (theme.rules.includes('sections-m')) section.prepend(separatorParagraph(SPACE.m));
-      // a chapter's rule, not above the Related Articles (www draws none there)
-      else if (theme.rules.includes('ruled-chapters') && isChapterStart(first) && !section.querySelector(':scope > div.related-articles')) {
+      // a chapter's rule, not above the Related Articles and not above a heading a block follows
+      // right away (www's teaser sections draw none: ema-adobe's handover item 7)
+      else if (theme.rules.includes('ruled-chapters') && isChapterStart(first)
+        && !section.querySelector(':scope > div.related-articles')
+        && !(afterFirst && isBlock(afterFirst) && !isMeta(afterFirst))) {
         section.prepend(separatorParagraph(DIVIDER_SPACE, true));
       }
     }

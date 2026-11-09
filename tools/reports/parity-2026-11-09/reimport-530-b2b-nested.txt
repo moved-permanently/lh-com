@@ -1,0 +1,3 @@
+# The brief after 526 item 1b (B2B row 36): the Group for Business documents with a one-column view holding column views, which b2b-import.mjs now writes as columns-media (nested) (rows 83 px apart from 768 px, www's), in release order (de/en, then de/de). From the 26 recorded pages (b2b-parity-001; no B2B snapshot on this disk): these two. Another document whose snapshot in the harness's archive has such a view changes the same way on its next import; a document without one imports unchanged. Measured with the option at 1440: de/en 4108 -> 4039 px (www 4013), de/de 4142 -> 4073 (www 4071).
+/de/en/travel-solutions/lufthansa-group-airlines
+/de/de/travel-solutions/lufthansa-group-airlines

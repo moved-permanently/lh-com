@@ -1,4 +1,4 @@
-/* eslint-disable no-console, max-len, import/prefer-default-export, import/extensions, no-use-before-define -- tooling */
+/* eslint-disable no-console, max-len, import/prefer-default-export, import/extensions, no-use-before-define, import/no-extraneous-dependencies -- tooling; linkedom is a dev dependency */
 /**
  * Imports one batch of Austrian's pages (lh-austrian) offline from their snapshots
  * (tools/importer/bd-snapshots/www.austrian.com: the Studio's capture, austrian-studio.mjs) with
@@ -26,6 +26,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { parseHTML } from 'linkedom';
 import {
   ownPages, ownAliases, withOwnLinks, onlyBatch,
 } from './own-links.mjs';
@@ -36,6 +37,7 @@ import { withTabMarkers, splitTabSections } from './swiss-import.mjs';
 import { stripScripts } from './excat-plugin.mjs';
 import { withPartnerLogoAlts } from './austrian-partner-logos.mjs';
 import collapseDocs from './collapse-docs.mjs';
+import { withRestoredNbsp, emptyLineSpacers } from './nbsp-guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -295,7 +297,10 @@ export function withFlightSearch(doc, p) {
  * maui-tab-control-responsive with column views, accordions, tables), no loads, no screen-reader
  * announcement (the help centre app's "Help page loaded." is no page text).
  */
-export const mappedOf = (html, p) => withoutLoads(withNestedOnecolumnUnwrapped(withPanelWrappersUnwrapped(withAccordionMapsHoisted(withTabMarkers(withTeaserCta(withPhoneSliders(withTeaserColumns(withPartnerCarousels(withCheckinTabs(withCopytextLarge(withLinkOuts(withPlaceholder(stripScripts(html)), p))))))))))))
+// www's visible empty lines (<p>&nbsp;</p>, about 48 px each on www) as the spacing marker the collapse turns into a
+// Spacer block (the brief after 530, item 1; nbsp-guard.mjs emptyLineSpacers)
+const withEmptyLineSpacers = (html) => emptyLineSpacers(html, { parse: parseHTML, size: 48 });
+export const mappedOf = (html, p) => withoutLoads(withNestedOnecolumnUnwrapped(withPanelWrappersUnwrapped(withAccordionMapsHoisted(withTabMarkers(withTeaserCta(withPhoneSliders(withTeaserColumns(withPartnerCarousels(withCheckinTabs(withCopytextLarge(withLinkOuts(withPlaceholder(withEmptyLineSpacers(stripScripts(html))), p))))))))))))
   .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
 
 /**
@@ -670,7 +675,7 @@ if (isMain) {
       if (next !== doc) fs.writeFileSync(f, next);
     });
     // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
-    collapseDocs(made.map((p) => path.join(W, 'content', `${p}.plain.html`)), { brand: 'austrian', content: path.join(W, 'content') });
+    collapseDocs(withRestoredNbsp(made.map((p) => path.join(W, 'content', `${p}.plain.html`)), fs), { brand: 'austrian', content: path.join(W, 'content') });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({ templates: out, documents: made, missing }, null, 1)}\n`);
     console.log(`${made.length} documents; upload list runs/${name}-upload.txt`);
   }
