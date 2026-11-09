@@ -52,7 +52,7 @@ test('theme defaults per brand and page type; every theme off (live: false) in s
   assert.deepEqual(lh.separators, { m: 60, l: 120, divider: 25 });
   assert.equal(lh.columnViews.padding, 32);
   assert.deepEqual(themeFor('lufthansa', 'article').rules, ['rule-before-info-box', 'ruled-chapters']);
-  assert.deepEqual(themeFor('lufthansa', '100-years').rules, ['sections-m']);
+  assert.deepEqual(themeFor('lufthansa', '100-years').rules, [], '/100-years: www\'s own spacing (campaign sections)');
   assert.equal(themeFor('ita').text.width, 'full');
   assert.equal(themeFor('brussels', 'service').headings.h2, 'heading-medium');
   assert.equal(themeFor('brussels', 'home').headings.h2, 'heading-medium');

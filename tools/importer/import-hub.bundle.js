@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-hub.js
-  var import_hub_exports = {};
-  __export(import_hub_exports, {
-    default: () => import_hub_default
+  var tmp_bundle_hub_1430167_exports = {};
+  __export(tmp_bundle_hub_1430167_exports, {
+    default: () => tmp_bundle_hub_1430167_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -3623,8 +3623,9 @@ var CustomImportScript = (() => {
         // Insights articles: a rule above an info box (Columns Media) after any content but a
         // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
         article: { rules: ["rule-before-info-box", "ruled-chapters"] },
-        // /100-years: its sections 60px apart
-        "100-years": { rules: ["sections-m"] },
+        // /100-years: no rule of its own (it had sections 60px apart, sections-m; its documents are
+        // campaign pages whose sections carry www's own spacing: +9 % on /de/en/100-years with it,
+        // lh-com-pass-check.md, ema-adobe's handover item 2)
         // Insights tag pages (/articles/tags/…): the rule above an info box after any content but a
         // heading, as on articles (www: 417 of 505 such Columns Media; the others without)
         "insights-tag": { rules: ["rule-before-info-box"] }
@@ -5592,6 +5593,104 @@ var CustomImportScript = (() => {
     }
   }
 
+  // tools/importer/transformers/hub-dcep-render.js
+  var RENDITIONS = [2560, 1440, 720, 360];
+  function buildPanes(document, host) {
+    let props = {};
+    try {
+      props = JSON.parse(host.getAttribute("data-dcep") || "{}") || {};
+    } catch (e) {
+      return;
+    }
+    const panes = Array.isArray(props.panes) ? props.panes : [];
+    if (!panes.length) return;
+    const clean3 = (s) => typeof s === "string" ? s.replace(/\s+/g, " ").trim() : "";
+    const overlay = clean3(props.transparentOverlay);
+    const container = document.createElement("div");
+    container.className = "hero-container";
+    panes.forEach((pane) => {
+      const item = document.createElement("div");
+      item.className = "hero-item";
+      const label = clean3(pane.overlaySubHeadline);
+      if (label) {
+        const h2 = document.createElement("h2");
+        h2.className = "hero-subheading";
+        const button = document.createElement("button");
+        button.className = "hero-accordion-header-button";
+        button.textContent = label;
+        h2.append(button);
+        item.append(h2);
+      }
+      const media = pane.movingImage || {};
+      if (clean3(media.imageUrl)) {
+        const wrap = document.createElement("div");
+        wrap.className = "moving-image";
+        const box = document.createElement("div");
+        box.className = "w-100 h-100 object-cover";
+        const figure = document.createElement("figure");
+        const img = document.createElement("img");
+        img.setAttribute("src", clean3(media.imageUrl));
+        const ext = (clean3(media.imageUrl).match(/\.([a-z0-9]+)$/i) || [null, "jpg"])[1].toLowerCase();
+        img.setAttribute("srcset", RENDITIONS.map((w) => `${clean3(media.imageUrl)}.transform/lh-dcep-transform-width-${w}/img.${ext} ${w}w`).join(","));
+        img.setAttribute("alt", clean3(media.alt));
+        figure.append(img);
+        box.append(figure);
+        wrap.append(box);
+        item.append(wrap);
+      }
+      if (/^#[0-9a-f]{3,8}$/i.test(overlay)) {
+        const ov = document.createElement("div");
+        ov.className = "transparent-overlay";
+        ov.setAttribute("style", `--transparent-overlay-color: ${overlay}`);
+        item.append(ov);
+      }
+      const contents = document.createElement("div");
+      contents.className = "hero-items-contents";
+      if (clean3(pane.overlayTitle)) {
+        const h3 = document.createElement("h3");
+        h3.className = "hero-header";
+        h3.textContent = clean3(pane.overlayTitle);
+        contents.append(h3);
+      }
+      const p = document.createElement("p");
+      p.className = "hero-paragraph";
+      p.textContent = clean3(pane.overlayDescription);
+      contents.append(p);
+      if (clean3(pane.overlayButtonText) && clean3(pane.overlayButtonLinkTarget)) {
+        const btn = document.createElement("maui-button-link");
+        btn.className = "hero-button";
+        btn.setAttribute("href", clean3(pane.overlayButtonLinkTarget));
+        btn.setAttribute("label", clean3(pane.overlayButtonText));
+        btn.setAttribute("type", "secondary");
+        btn.textContent = clean3(pane.overlayButtonText);
+        contents.append(btn);
+      }
+      const label2 = item.querySelector(".hero-subheading");
+      if (label2) label2.after(contents);
+      else item.prepend(contents);
+      container.append(item);
+    });
+    const outer = document.createElement("div");
+    outer.className = "px-0 full-width-bg";
+    const intro = document.createElement("div");
+    intro.className = "hero-banner-intro-animation";
+    const h1 = document.createElement("h1");
+    h1.className = "animated-text";
+    intro.append(h1);
+    const banner = document.createElement("div");
+    banner.className = "hero-banner";
+    banner.append(container);
+    outer.append(intro, banner);
+    host.append(outer);
+  }
+  function transform3(hookName, element, payload) {
+    if (hookName !== "onLoad") return;
+    const document = payload && payload.document || element.ownerDocument || element;
+    document.querySelectorAll(".dcep-hero-banner[data-dcep]").forEach((host) => {
+      if (!host.querySelector(".hero-item")) buildPanes(document, host);
+    });
+  }
+
   // tools/importer/transformers/campaign-sections.js
   var BREAK2 = "data-excat-section-break";
   var SOURCE_STYLE2 = "data-excat-section-source-style";
@@ -5656,7 +5755,7 @@ var CustomImportScript = (() => {
     });
     return fixed;
   }
-  function transform3(hookName, element, payload) {
+  function transform4(hookName, element, payload) {
     const document = payload && payload.document || element.ownerDocument || element;
     if (hookName === "onLoad") {
       campaignSections(document).forEach((s) => {
@@ -5858,7 +5957,7 @@ var CustomImportScript = (() => {
     });
   }
   var CAMPAIGN_SECTION_BREAK = 'hr[data-excat-section-source-style*="campaign-section"]';
-  function transform4(hookName, element, payload) {
+  function transform5(hookName, element, payload) {
     if (hookName !== "beforeTransform" && hookName !== "afterTransform") return;
     const template = payload && payload.template || {};
     if (CLEANUP_TEMPLATES.includes(template.name) || CLEANUP_TEMPLATES.includes(template.base)) return;
@@ -5874,7 +5973,7 @@ var CustomImportScript = (() => {
   var SEPARATOR2 = /^\{(spacer|divider)-(\d{1,3})( from-768)?\}$/;
   var SPACER2 = { 60: "Spacer", 120: "Spacer (l)" };
   var DIVIDER = { 25: "Divider" };
-  function transform5(hookName, element, payload) {
+  function transform6(hookName, element, payload) {
     if (hookName !== "afterTransform") return;
     const document = payload && payload.document || element.ownerDocument || element;
     [...element.querySelectorAll("p")].forEach((p) => {
@@ -5884,104 +5983,6 @@ var CustomImportScript = (() => {
       const name = (m[1] === "divider" ? DIVIDER : SPACER2)[Number(m[2])];
       if (!name) return;
       p.replaceWith(WebImporter.Blocks.createBlock(document, { name, cells: [[""]] }));
-    });
-  }
-
-  // tools/importer/transformers/hub-dcep-render.js
-  var RENDITIONS = [2560, 1440, 720, 360];
-  function buildPanes(document, host) {
-    let props = {};
-    try {
-      props = JSON.parse(host.getAttribute("data-dcep") || "{}") || {};
-    } catch (e) {
-      return;
-    }
-    const panes = Array.isArray(props.panes) ? props.panes : [];
-    if (!panes.length) return;
-    const clean3 = (s) => typeof s === "string" ? s.replace(/\s+/g, " ").trim() : "";
-    const overlay = clean3(props.transparentOverlay);
-    const container = document.createElement("div");
-    container.className = "hero-container";
-    panes.forEach((pane) => {
-      const item = document.createElement("div");
-      item.className = "hero-item";
-      const label = clean3(pane.overlaySubHeadline);
-      if (label) {
-        const h2 = document.createElement("h2");
-        h2.className = "hero-subheading";
-        const button = document.createElement("button");
-        button.className = "hero-accordion-header-button";
-        button.textContent = label;
-        h2.append(button);
-        item.append(h2);
-      }
-      const media = pane.movingImage || {};
-      if (clean3(media.imageUrl)) {
-        const wrap = document.createElement("div");
-        wrap.className = "moving-image";
-        const box = document.createElement("div");
-        box.className = "w-100 h-100 object-cover";
-        const figure = document.createElement("figure");
-        const img = document.createElement("img");
-        img.setAttribute("src", clean3(media.imageUrl));
-        const ext = (clean3(media.imageUrl).match(/\.([a-z0-9]+)$/i) || [null, "jpg"])[1].toLowerCase();
-        img.setAttribute("srcset", RENDITIONS.map((w) => `${clean3(media.imageUrl)}.transform/lh-dcep-transform-width-${w}/img.${ext} ${w}w`).join(","));
-        img.setAttribute("alt", clean3(media.alt));
-        figure.append(img);
-        box.append(figure);
-        wrap.append(box);
-        item.append(wrap);
-      }
-      if (/^#[0-9a-f]{3,8}$/i.test(overlay)) {
-        const ov = document.createElement("div");
-        ov.className = "transparent-overlay";
-        ov.setAttribute("style", `--transparent-overlay-color: ${overlay}`);
-        item.append(ov);
-      }
-      const contents = document.createElement("div");
-      contents.className = "hero-items-contents";
-      if (clean3(pane.overlayTitle)) {
-        const h3 = document.createElement("h3");
-        h3.className = "hero-header";
-        h3.textContent = clean3(pane.overlayTitle);
-        contents.append(h3);
-      }
-      const p = document.createElement("p");
-      p.className = "hero-paragraph";
-      p.textContent = clean3(pane.overlayDescription);
-      contents.append(p);
-      if (clean3(pane.overlayButtonText) && clean3(pane.overlayButtonLinkTarget)) {
-        const btn = document.createElement("maui-button-link");
-        btn.className = "hero-button";
-        btn.setAttribute("href", clean3(pane.overlayButtonLinkTarget));
-        btn.setAttribute("label", clean3(pane.overlayButtonText));
-        btn.setAttribute("type", "secondary");
-        btn.textContent = clean3(pane.overlayButtonText);
-        contents.append(btn);
-      }
-      const label2 = item.querySelector(".hero-subheading");
-      if (label2) label2.after(contents);
-      else item.prepend(contents);
-      container.append(item);
-    });
-    const outer = document.createElement("div");
-    outer.className = "px-0 full-width-bg";
-    const intro = document.createElement("div");
-    intro.className = "hero-banner-intro-animation";
-    const h1 = document.createElement("h1");
-    h1.className = "animated-text";
-    intro.append(h1);
-    const banner = document.createElement("div");
-    banner.className = "hero-banner";
-    banner.append(container);
-    outer.append(intro, banner);
-    host.append(outer);
-  }
-  function transform6(hookName, element, payload) {
-    if (hookName !== "onLoad") return;
-    const document = payload && payload.document || element.ownerDocument || element;
-    document.querySelectorAll(".dcep-hero-banner[data-dcep]").forEach((host) => {
-      if (!host.querySelector(".hero-item")) buildPanes(document, host);
     });
   }
 
@@ -7261,7 +7262,7 @@ var CustomImportScript = (() => {
     "cards-icon-text": parse12,
     "embed": parse13
   };
-  var transformers = [transform, transform2, transform6, transform3, transform4, transform5];
+  var transformers = [transform, transform2, transform3, transform4, transform5, transform6];
   function executeTransformers(hookName, element, payload) {
     const enhancedPayload = __spreadProps(__spreadValues({}, payload), { template: PAGE_TEMPLATE });
     transformers.forEach((fn) => {
@@ -7283,7 +7284,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_hub_default = {
+  var tmp_bundle_hub_1430167_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -7322,5 +7323,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_hub_exports);
+  return __toCommonJS(tmp_bundle_hub_1430167_exports);
 })();

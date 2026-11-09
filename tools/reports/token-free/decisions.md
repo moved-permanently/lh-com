@@ -26,3 +26,14 @@ tools/reports/parity-2026-11-08/column-view-handover.md): the section style Colu
 section per www column view. ema-adobe's hub transformer writes it on import, and the collapse
 writes it from the column marks for brand lufthansa (THEMES.lufthansa.columnViews.carrier). Decision 1 holds for
 every brand site.
+
+6. **lufthansa.com's column view carrier is on every page type** (hub, info, legal, fleet, campaign: wherever the
+   cleanup wrote column marks), as the collapse writes it for brand lufthansa. Reason: the carrier is the brand's
+   common style for www's column views, so it is one rule for the brand. A hub-only condition would itself be an
+   exception, and the theme's page types can't tell hub from fleet or legal pages. Measured in lh-com-pass-check.md:
+   info pages 0.9 % mean height difference instead of 3.0 %, fleet 0.6 % instead of 0.8 %.
+7. **Headings with www's limited width outside column views** take the text width (14 of 173 section H2s on
+   lufthansa.com's www). Reason: the limited width is a near value of the text width, and a heading style for the
+   minority would be an exception. Cost: miles-and-more's first H2 at 1440, 39 px.
+
+Lines 6 and 7 are brief 515's answers, by Ben's rule (ema-adobe's lh-com-handover-ema-test.md, item 6).

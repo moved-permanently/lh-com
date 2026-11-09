@@ -31,8 +31,8 @@ test('separators: section start and end as section styles, before a block its op
   assert.equal(out('<div><div class="columns-media"><div><div><p>a</p><p>{spacer-40}</p><p>b</p></div></div></div></div>'), '<div><div class="columns-media"><div><div><p>a</p><p>b</p></div></div></div></div>', 'no carrier in a cell');
 });
 
-test('separators: page-type gaps are the theme\'s (/100-years sections, articles\' info box and chapters)', () => {
-  assert.equal(out('<div><p>A</p><p>{spacer-60}</p></div><div><p>B</p></div>', { path: '/de/en/100-years/x' }), '<div><p>A</p></div><div><p>B</p></div>');
+test('separators: page-type gaps are the theme\'s (articles\' info box and chapters); /100-years none of its own', () => {
+  assert.equal(out('<div><p>A</p><p>{spacer-60}</p></div><div><p>B</p></div>', { path: '/de/en/100-years/x' }), `<div><p>A</p>${meta('space-below-m')}</div><div><p>B</p></div>`, '/100-years: as any page (its campaign sections carry www\'s spacing)');
   const article = out('<div><div class="article-header"><div><div>h</div></div></div><p>Text</p><p>{divider-25}</p><div class="columns-media"><div><div>i</div></div></div><p>More</p><p>{divider-25}</p><h3>Chapter</h3><p>C</p></div>');
   assert.equal(article, '<div><div class="article-header"><div><div>h</div></div></div><p>Text</p><div class="columns-media"><div><div>i</div></div></div><p>More</p></div><div><h3>Chapter</h3><p>C</p></div>');
 });

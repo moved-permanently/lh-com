@@ -175,7 +175,7 @@ In this order:
    `heading-copytext-medium`), running text two thirds wide from 1025px (ITA: the whole width), body
    text 18px, separators M 60px / L 120px / Divider (1px line, 25px), a column view's 32px padding;
    page types: lufthansa.com articles (a rule above an info box after text, chapters ruled) and its
-   Insights tag pages (the info box's rule), /100-years (sections 60px apart), Austrian's intro
+   Insights tag pages (the info box's rule), Austrian's intro
    after the H1; on flow pages the H3s of Austrian,
    Brussels and Lufthansa Group for Business and the H2s of SWISS and Discover in `heading-small`,
    and Discover's Columns Media and B2B's Columns Media, Carousel Images and Quote column views of

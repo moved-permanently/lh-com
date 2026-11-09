@@ -16,8 +16,8 @@
  *   collapse table, near values rounded); a run with a divider is one Divider; "from-768" goes.
  *   At a section's start the section's Space / Divider style, at its end Space below / Divider
  *   below, right before a block that block's option, else a Spacer (L) / Divider block; in a block
- *   cell (no carrier there) it goes. Page-type gaps belong to the theme: lufthansa.com's /100-years
- *   sections (M at a section edge), its articles (the rule above an info box after any content but
+ *   cell (no carrier there) it goes. Page-type gaps belong to the theme (THEMES rules: sections-m,
+ *   M at a section edge, for a page type that has it), lufthansa.com's articles (the rule above an info box after any content but
  *   a heading; a rule before a chapter heading, an H2 / H3 or a bold paragraph: the chapter becomes
  *   a section of its own, the theme rules it), its Insights tag pages (the info box's rule).
  * - column views become structure: every column mark goes; an outside-a-section group that spans

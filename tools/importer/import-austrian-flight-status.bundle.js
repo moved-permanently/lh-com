@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-flight-status.js
-  var tmp_bundle_austrian_flight_status_1388749_exports = {};
-  __export(tmp_bundle_austrian_flight_status_1388749_exports, {
-    default: () => tmp_bundle_austrian_flight_status_1388749_default
+  var tmp_bundle_austrian_flight_status_1430167_exports = {};
+  __export(tmp_bundle_austrian_flight_status_1430167_exports, {
+    default: () => tmp_bundle_austrian_flight_status_1430167_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -5093,8 +5093,9 @@ var CustomImportScript = (() => {
         // Insights articles: a rule above an info box (Columns Media) after any content but a
         // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
         article: { rules: ["rule-before-info-box", "ruled-chapters"] },
-        // /100-years: its sections 60px apart
-        "100-years": { rules: ["sections-m"] },
+        // /100-years: no rule of its own (it had sections 60px apart, sections-m; its documents are
+        // campaign pages whose sections carry www's own spacing: +9 % on /de/en/100-years with it,
+        // lh-com-pass-check.md, ema-adobe's handover item 2)
         // Insights tag pages (/articles/tags/…): the rule above an info box after any content but a
         // heading, as on articles (www: 417 of 505 such Columns Media; the others without)
         "insights-tag": { rules: ["rule-before-info-box"] }
@@ -8465,7 +8466,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_flight_status_1388749_default = {
+  var tmp_bundle_austrian_flight_status_1430167_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -8504,5 +8505,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_flight_status_1388749_exports);
+  return __toCommonJS(tmp_bundle_austrian_flight_status_1430167_exports);
 })();
