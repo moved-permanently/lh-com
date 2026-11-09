@@ -283,6 +283,10 @@ test('lh-com: the evidence stays as it is (pages.csv, slug-map.json) and the map
   });
   const old = JSON.parse(fs.readFileSync(new URL('../tools/loc/slug-map.json', import.meta.url), 'utf8')).slugs;
   Object.entries(old).forEach(([en, de]) => assert.equal(api.canonicalOf(de, { all: true }), `/de/de/${tail(en)}`, `slug-map.json ${de}`));
+  // the Travel ID activation page: www's hreflang does not carry it, the app-shell pair does
+  assert.equal(api.canonicalOf('/de/de/travel-id-aktivieren', { all: true }), '/de/de/validate-mail-token');
+  assert.equal(api.canonicalOf('/at/de/travel-id-aktivieren', { all: true }), '/at/de/validate-mail-token');
+  assert.equal(api.canonicalOf('/de/de/anmeldung', { all: true }), '/de/de/login');
   // gc follows its public language root
   assert.equal(api.wwwPathOf('/gc/de/flight-search'), '/gc/de/flugsuche');
 });
