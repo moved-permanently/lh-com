@@ -1867,7 +1867,8 @@ The handover asked for the DA label only. The brief asked for the collapse side 
 
 - **The carrier count**: lh-com writes 2,729 column-view sections, 1,974 flush, 845 more padded, and more per-section
   styles where sections split (wide-text +726). lh-com goes from 11,049 to 17,468 written; all sites from 15,348 to
-  21,767 (9,026 to 15,445 without the captions). The brand sites are unchanged. collapse-summary.md is rewritten; the
+  21,767 (9,026 to 15,445 without the captions). With /100-years' rule gone (below), its section-edge separators
+  become Space styles as on any page: lh-com 17,684, all sites 21,983 (15,661 without the captions). The brand sites are unchanged. collapse-summary.md is rewritten; the
   paths files are unchanged but for their header.
 
 ### 2. Switch branches, ITA's pattern, nothing merged
@@ -1978,4 +1979,10 @@ Documents: none changed, none uploaded, nothing published.
 | 2 | f418f61b | TAP and Cargo theme entries (each switch one line) |
 | 3, 4 | 6d1bb8a0 | the collapse keeps an article's order; loss check, page checks, census, marker families |
 | 1 | d1bd76e7 | the column view carrier in the collapse, "Column view" in the library |
-| docs | this one | the reports |
+| docs | 98ee45ff and this one | the reports |
+| ema-adobe's lh-com handover | fa26e255 | no sections-m on /100-years, captions in block cells, no rule above Related Articles; decisions 6 and 7 |
+
+ema-adobe's lufthansa.com pass check arrived during this brief with four requests for ema-test's files
+(tools/reports/token-free/lh-com-handover-ema-test.md, items 2, 4, 5, 6). All four are done in fa26e255, with
+test/token-free-lhcom-507.test.mjs. Items 1 and 3 there were this brief's 6d1bb8a0 and d1bd76e7. The suite on
+fa26e255: 655 passed, 0 failed.

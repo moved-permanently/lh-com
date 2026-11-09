@@ -4,7 +4,7 @@
 
 | site | brand | documents | changed | markers | theme | % | carriers (markers) | carriers written | for a person | marker left | not idempotent | errors |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| lh-com | lufthansa | 6854 | 5153 | 35686 | 15559 | 43.6 | 20067 | 17468 | 60 | 4 | 0 | 0 |
+| lh-com | lufthansa | 6854 | 5153 | 35686 | 15343 | 43.0 | 20283 | 17684 | 60 | 4 | 0 | 0 |
 | lh-austrian | austrian | 2363 | 1893 | 18267 | 16214 | 88.8 | 2053 | 1414 | 0 | 0 | 0 | 0 |
 | lh-brussels | brussels | 1633 | 1070 | 5977 | 4649 | 77.8 | 1298 | 962 | 30 | 0 | 0 | 0 |
 | lh-ita | ita | 2492 | 2083 | 18497 | 17382 | 94.0 | 1115 | 631 | 0 | 0 | 0 | 0 |
@@ -15,7 +15,7 @@
 | lh-tap | tap | 383 | 0 | 0 | 0 | - | 0 | 0 | 0 | 0 | 0 | 0 |
 | lh-discover | discover | 30 | 24 | 285 | 279 | 97.9 | 6 | 6 | 0 | 0 | 0 | 0 |
 | lh-b2b | b2b | 678 | 644 | 5185 | 3335 | 64.3 | 1850 | 773 | 0 | 0 | 0 | 0 |
-| all | | 16731 | 11548 | 88059 | 60172 | 68.3 | 27797 | 21767 | 90 | 4 | 0 | 0 |
+| all | | 16731 | 11548 | 88059 | 59956 | 68.1 | 28013 | 21983 | 90 | 4 | 0 | 0 |
 
 ## Per family (all sites)
 
@@ -32,7 +32,7 @@
 | indent | 571 | 19 | 0 |
 | parallax | 0 | 232 | 0 |
 | quote | 0 | 36 | 0 |
-| separator | 8400 | 6281 | 0 |
+| separator | 8184 | 6497 | 0 |
 | separator-from-768 | 681 | 0 | 0 |
 | separator-in-block | 1 | 0 | 0 |
 | text-size | 1508 | 599 | 0 |
@@ -51,8 +51,8 @@
 | section style divider | 1377 |
 | block divider | 1043 |
 | section style padded | 988 |
-| section style space-below-m | 712 |
-| section style space-m | 534 |
+| section style space-below-m | 883 |
+| section style space-m | 579 |
 | section style h2-compact | 347 |
 | section style small-print | 344 |
 | section style parallax | 250 |
