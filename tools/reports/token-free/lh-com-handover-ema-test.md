@@ -109,7 +109,7 @@ their collapsed documents) the heading-led sections are: the chapters "About", "
 follows: excluded today, excluded by the new condition too) and be-picky's teaser section (a block follows: no rule, as
 www). Expected: be-picky 1440 +1.2 % -> about +0.6 %, 390 +0.9 % -> about +0.5 %.
 
-Also for this brief, in ema-adobe's files: 8696468 (styles.css, live theme only) gives a ruled chapter www's 24 px under
+Also for this brief, in ema-adobe's files: ec344f6 (styles.css, live theme only) gives a ruled chapter www's 24 px under
 the text before its rule instead of a section gap.
 
 ## What ema-adobe changed on its side this brief

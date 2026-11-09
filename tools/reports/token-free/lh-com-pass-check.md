@@ -128,9 +128,9 @@ With insights at 1.0 %, the page types: campaign 1.5 %, hub 0.8 %, info 0.9 %, l
 
 Legal measured again with today's code (logs/b526/pcd): advance-seat-reservations-terms-and-conditions +7.4 / +6.5 %,
 seat-reservations +1.4 / +1.1 %, passenger-rights 0 / 0 % (legal 2.7 % as before). The three biggest of the two page
-types, after 8696468:
+types, after ec344f6:
 
-1. **The ruled chapters' section gap** (insights, every article with chapters): fixed, 8696468 (styles.css, live
+1. **The ruled chapters' section gap** (insights, every article with chapters): fixed, ec344f6 (styles.css, live
    theme only). www draws a chapter's rule 24 px under the text before it; the collapsed page had a section gap (48 px):
    +24 px per chapter. With the rule: flying-high and food-trends 0 %, be-picky +2.9 -> +1.2 % (1440) / +2.0 -> +0.9 %
    (390), chiswick +2.3 -> +1.2 % / +1.5 -> +0.8 %. **Insights: 12 page-widths, mean height difference 0.5 %** (was 1.0).
