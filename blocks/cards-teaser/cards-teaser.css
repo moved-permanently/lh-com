@@ -72,6 +72,14 @@
   margin-bottom: 0;
 }
 
+/* {limited-width} text (www's .richtext.limited-width { width: 66% } from 1025px; the parser
+   keeps the class: /de/de/meetings-and-events' steps, three lines of 256px in a 410px card) */
+@media (width >= 1025px) {
+  .cards-teaser .cards-teaser-body > :is(p, ul, ol).limited-width {
+    max-width: 66%;
+  }
+}
+
 /* title: h3.headline.heading-small (also h2.heading-small next to h3 cards on /online-check-in).
    The title rules are :where() (one class), so a size marker ({heading-small}, main
    h3.heading-small in styles.css) wins, e.g. my-bookings three-up cards with 28px light titles */

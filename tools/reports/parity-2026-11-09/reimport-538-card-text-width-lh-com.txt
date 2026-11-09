@@ -1,0 +1,11 @@
+# Brief 538 item 2 (ema-adobe, 2026-11-09): the meetings-and-events steps' text at two thirds of its card from 1025 px (the cards-teaser parser keeps .richtext.limited-width, the cleanup writes "{limited-width}"; blocks/cards-teaser draws it at 66 %). Re-import with the hub bundle of this commit, in release order. Offline check (lh-snapshots-085): de/en, de/de, at/de and gb/en change, nothing else of the 98 snapshot pages with such text; the six others show the same widths in lh-parity-004a/b (www 317-361 px of text, ours 470-479). Measured on de/de as a draft on lufthansa.turnsthe.page: 10.5 -> 9.2 % at 1440, 3479 -> 3506 px (www 3615); 390 unchanged (the rule starts at 1025 px).
+/de/en/meetings-and-events
+/de/de/meetings-and-events
+/at/de/meetings-and-events
+/gb/en/meetings-and-events
+/fr/fr/meetings-and-events
+/xx/es/meetings-and-events
+/xx/fr/meetings-and-events
+/xx/hk/meetings-and-events
+/xx/pt/meetings-and-events
+/xx/ru/meetings-and-events

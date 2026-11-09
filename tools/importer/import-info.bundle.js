@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_1720268_exports = {};
-  __export(tmp_bundle_info_1720268_exports, {
-    default: () => tmp_bundle_info_1720268_default
+  var import_info_exports = {};
+  __export(import_info_exports, {
+    default: () => import_info_default
   });
 
   // tools/importer/parsers/search-results.js
@@ -4022,6 +4022,11 @@ var CustomImportScript = (() => {
         run.append(n.cloneNode(true));
       });
       flush();
+      if (rt.classList && rt.classList.contains("limited-width")) {
+        out.forEach((n) => {
+          if (/^(P|UL|OL)$/.test(n.tagName)) n.classList.add("limited-width");
+        });
+      }
       return out;
     };
     const MAUI = "maui-navigation-link[href], maui-button-link[href], maui-link[href], a[href]";
@@ -8419,7 +8424,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_1720268_default = {
+  var import_info_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -8459,5 +8464,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_1720268_exports);
+  return __toCommonJS(import_info_exports);
 })();

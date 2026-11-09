@@ -79,6 +79,11 @@ export default function parse(element, { document }) {
       run.append(n.cloneNode(true));
     });
     flush();
+    // .richtext.limited-width: 66% of the card from 1025px on live (the cleanup writes the
+    // "{limited-width}" marker, as for columns-media; /de/de/meetings-and-events' steps)
+    if (rt.classList && rt.classList.contains('limited-width')) {
+      out.forEach((n) => { if (/^(P|UL|OL)$/.test(n.tagName)) n.classList.add('limited-width'); });
+    }
     return out;
   };
 

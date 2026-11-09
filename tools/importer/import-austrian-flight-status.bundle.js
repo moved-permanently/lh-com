@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-flight-status.js
-  var tmp_bundle_austrian_flight_status_1720268_exports = {};
-  __export(tmp_bundle_austrian_flight_status_1720268_exports, {
-    default: () => tmp_bundle_austrian_flight_status_1720268_default
+  var import_austrian_flight_status_exports = {};
+  __export(import_austrian_flight_status_exports, {
+    default: () => import_austrian_flight_status_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -4106,6 +4106,11 @@ var CustomImportScript = (() => {
         run.append(n.cloneNode(true));
       });
       flush();
+      if (rt.classList && rt.classList.contains("limited-width")) {
+        out.forEach((n) => {
+          if (/^(P|UL|OL)$/.test(n.tagName)) n.classList.add("limited-width");
+        });
+      }
       return out;
     };
     const MAUI = "maui-navigation-link[href], maui-button-link[href], maui-link[href], a[href]";
@@ -8523,7 +8528,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_flight_status_1720268_default = {
+  var import_austrian_flight_status_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -8563,5 +8568,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_flight_status_1720268_exports);
+  return __toCommonJS(import_austrian_flight_status_exports);
 })();
