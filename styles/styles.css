@@ -569,6 +569,15 @@ a.button:any-link {
   width: auto;
 }
 
+/* lufthansa.com: a label that doesn't fit wraps, its lines from the left, as www's (lh-parity-004a/b at 390:
+   new-onboard-experience "Lufthansa Signature Moments for / you", 100-years/crane's three lines); one that fits stays
+   one centred line (the brief after 539) */
+body.brand-lufthansa a.button:any-link {
+  white-space: normal;
+  text-align: start;
+  text-overflow: clip;
+}
+
 @media (width >= 768px) {
   a.button:any-link,
   button.button {
