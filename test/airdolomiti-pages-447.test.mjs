@@ -67,11 +67,12 @@ test('the manage-booking page: title and line centred, the line 16 / 22 px', () 
 });
 
 test('the FAQ pages: title, line and accordions as www\'s; the card beside them from 930 px', () => {
-  const S = `${B} main > \\.section\\.accordion-columns-container\\.columns-media-container`;
-  has(new RegExp(`${S} \\.default-content-wrapper h1 \\{[^}]*font-size: 34px;[^}]*line-height: 42px;`));
-  has(new RegExp(`@media \\(width >= 530px\\) \\{[^@]*${S} \\.default-content-wrapper h1 \\{[^}]*letter-spacing: 2px;`));
-  has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${S} \\.default-content-wrapper h1 \\{[^}]*font-size: 38px;[^}]*line-height: 46px;`));
-  has(new RegExp(`${S} \\.default-content-wrapper h1 \\+ p \\{[^}]*font-size: 16px;[^}]*line-height: 22px;`));
+  // (the brief after 531: the flight status pages' half page too)
+  const S = `${B} main > \\.section:is\\(\\.accordion-columns-container, \\.flight-status-container\\)\\.columns-media-container`;
+  has(new RegExp(`${S} \\.default-content-wrapper h1(,[^{]*)? \\{[^}]*font-size: 34px;[^}]*line-height: 42px;`));
+  has(new RegExp(`@media \\(width >= 530px\\) \\{[^@]*${S} \\.default-content-wrapper h1(,[^{]*)? \\{[^}]*letter-spacing: 2px;`));
+  has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${S} \\.default-content-wrapper h1(,[^{]*)? \\{[^}]*font-size: 38px;[^}]*line-height: 46px;`));
+  has(new RegExp(`${S} \\.default-content-wrapper h1 \\+ p(,[^{]*)? \\{[^}]*font-size: 16px;[^}]*line-height: 22px;`));
   // (brief 452: every FAQ accordion, www's TogleTariffe on the assistance page too, not only beside the help card)
   const A = `${B} main \\.accordion-columns\\.faq`;
   has(new RegExp(`${A} \\.accordion-columns-title \\{[^}]*padding: 20px 0;[^}]*font-size: 34px;[^}]*font-weight: 300;[^}]*line-height: 57\\.8px;`));

@@ -399,6 +399,13 @@ export function newsletterStrip(rendered, { label, href }) {
 // Air Dolomiti's current travel information pages (the Message Center's cti-pages.json rows)
 const CTI_PAGES = ['www.airdolomiti.it/informazioni-aggiornate', 'www.airdolomiti.eu/current-flight-information', 'www.airdolomiti.de/fluginformationen'];
 
+/** A section style added to the current section once. */
+function addStyle(page, style) {
+  const styles = (page.current.style || '').split(/,\s*/).filter(Boolean);
+  if (!styles.includes(style)) styles.push(style);
+  page.current.style = styles.join(', ');
+}
+
 /* ------------------------------------------------------------------ site data ---------- */
 
 let site;
@@ -900,7 +907,7 @@ const HANDLERS = {
   'lazyblock/title': (a, page) => {
     // www's Title as the page's title (the Italian timetable): its smaller size, the section's
     // style compact-title (the theme; parity row 50), not TitleMargin's
-    if (a.tag === 'h1') page.current.style = page.current.style ? `${page.current.style}, compact-title` : 'compact-title';
+    if (a.tag === 'h1') addStyle(page, 'compact-title');
     titleLine(a, page);
   },
   'lazyblock/title-margin': (a, page) => titleLine(a, page),
@@ -1018,8 +1025,11 @@ const HANDLERS = {
   },
   'lazyblock/half-page': (a, page, b) => {
     const card = `${page.heading(a.tag || 'h3', a.cardTitle)}${a.cardSubtitle ? `<p>${esc(plain(a.cardSubtitle))}</p>` : ''}${a.urlBtn ? page.link(a.urlBtn, a.textBtn, 'primary') : ''}${a.urlLink ? page.link(a.urlLink, plain(a.textImage) || a.textLink) : ''}`;
-    // a flight status page: its title, the flight-status block (www's form), then the card
+    // a flight status page: its title, the flight-status block (www's form), then the card. www's page
+    // title before the half page sits under its fixed header (y 20, airdolomiti-parity-002): the
+    // section's h1 stays for screen readers and search, hidden (the half page's title shows)
     if (page.tool === 'status') {
+      if (page.current.items.some((i) => (i.html || '').includes('<h1'))) addStyle(page, 'hidden-heading');
       (b.innerBlocks || []).forEach((x) => render(x, page, 'top'));
       page.block('flight-status', flightStatusRows(page).map(([k, v]) => [k, esc(v)]));
       if (a.img) page.block('columns-media', [[page.img(a.img), card]]); else page.add(card);

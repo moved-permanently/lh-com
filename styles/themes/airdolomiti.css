@@ -2262,23 +2262,30 @@ body.brand-airdolomiti main > .section.hero-campaign-container + .section > .def
  * radius): its text 40px 25px in (the title bold 37.8px / 40px, the text 19.44px / 30px, the
  * button across it), the picture under it (225px); 410px wide from 530px. From 930px the card
  * beside the title and the accordions (their column half the width, 65% from 1230px, 55% from
- * 1330px), at its end.
+ * 1330px), at its end. The flight status pages (the flight-status form and the card, brief after 531,
+ * airdolomiti-parity-002) the same: www's half page; their title the h2 after the hidden h1 (www's page
+ * title sits under its header).
  */
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .default-content-wrapper h1 {
+/* stylelint-disable no-descending-specificity -- the half pages' title and line, after other pages' */
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .default-content-wrapper h1,
+body.brand-airdolomiti main > .section.flight-status-container.columns-media-container .default-content-wrapper h1 + h2 {
   margin-bottom: 20px;
   font-size: 34px;
   line-height: 42px;
 }
+/* stylelint-enable no-descending-specificity */
 
-/* stylelint-disable-next-line no-descending-specificity -- another page type's paragraphs (the cards above) */
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .default-content-wrapper h1 + p {
+/* stylelint-disable no-descending-specificity -- another page type's paragraphs (the cards above) */
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .default-content-wrapper h1 + p,
+body.brand-airdolomiti main > .section.flight-status-container.columns-media-container .default-content-wrapper h1 + h2 + p {
   max-width: none;
   margin-bottom: 0;
   font-size: 16px;
   line-height: 22px;
 }
+/* stylelint-enable no-descending-specificity */
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container > .accordion-columns-wrapper {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container > .accordion-columns-wrapper {
   margin-top: 20px;
 }
 
@@ -2318,7 +2325,7 @@ body.brand-airdolomiti main .accordion-columns.faq .accordion-columns-panel {
   line-height: 22px;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media-row {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-row {
   display: flex;
   flex-direction: column-reverse;
   align-items: stretch;
@@ -2327,15 +2334,15 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
   background-color: #f4f4f4;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media-row > div {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-row > div {
   margin: 0;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media-text {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-text {
   padding: 40px 25px;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media-text h3 {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-text h3 {
   margin: 0 0 10px;
   color: #002e54;
   font-size: 37.8px;
@@ -2344,18 +2351,18 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
 }
 
 /* stylelint-disable-next-line no-descending-specificity -- the help card's text, not the fleet's (above) */
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media-text p:not(.button-wrapper) {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-text p:not(.button-wrapper) {
   max-width: none;
   margin: 0 0 40px;
   font-size: 19.44px;
   line-height: 30px;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media-text .button-wrapper {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-text .button-wrapper {
   margin: 0;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media-text .button {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-text .button {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2368,7 +2375,7 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
   line-height: 24px;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media-text .button::after {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-text .button::after {
   content: "";
   flex: 0 0 20px;
   width: 20px;
@@ -2378,7 +2385,7 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cpath d='M26.73 13.33H13.53L2 0h13.2zM2 28h13.2l11.53-13.33H13.53z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media-media :is(picture, img) {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-media :is(picture, img) {
   display: block;
   width: 100%;
   height: 225px;
@@ -2388,24 +2395,25 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
 
 /* below 930px the card under the accordions, 110px on (www's TogleTariffe margin) */
 @media (width < 930px) {
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container > .columns-media-wrapper {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container > .columns-media-wrapper {
     margin-top: 110px;
   }
 }
 
 @media (width >= 530px) {
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .default-content-wrapper h1 {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .default-content-wrapper h1,
+  body.brand-airdolomiti main > .section.flight-status-container.columns-media-container .default-content-wrapper h1 + h2 {
     letter-spacing: 2px;
   }
 
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media {
     max-width: 410px;
     margin-inline: auto;
   }
 }
 
 @media (width >= 930px) {
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container {
     display: grid;
     grid-template-columns: minmax(0, 50%) minmax(0, 1fr);
     grid-template-rows: auto auto 1fr;
@@ -2415,7 +2423,7 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
     padding-inline: var(--layout-margin);
   }
 
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container > div {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container > div {
     grid-column: 1;
     box-sizing: border-box;
     max-width: none;
@@ -2423,11 +2431,11 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
     padding-inline: 0;
   }
 
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container > .breadcrumb-wrapper {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container > .breadcrumb-wrapper {
     grid-column: 1 / -1;
   }
 
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container > .columns-media-wrapper {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container > .columns-media-wrapper {
     grid-column: 2;
     grid-row: 2 / span 2;
     justify-self: end;
@@ -2435,7 +2443,8 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
     margin-top: 4px;
   }
 
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .default-content-wrapper h1 {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .default-content-wrapper h1,
+  body.brand-airdolomiti main > .section.flight-status-container.columns-media-container .default-content-wrapper h1 + h2 {
     font-size: 38px;
     line-height: 46px;
   }
@@ -2447,13 +2456,13 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
 }
 
 @media (width >= 1230px) {
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container {
     grid-template-columns: minmax(0, 65%) minmax(0, 1fr);
   }
 }
 
 @media (width >= 1330px) {
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container {
     grid-template-columns: minmax(0, 55%) minmax(0, 1fr);
   }
 }
