@@ -176,6 +176,8 @@ for (const p of paths) {
   if (target !== p && appShell(target)) { problem(`${p}: app shell at ${target} (login/profile, built elsewhere), refused`); continue; }
   const refusal = slugRefusal(target, GUARD);
   if (refusal) { problem(refusal); continue; }
+  // two local documents for one page (its www slug and its canonical path): neither wins silently
+  if (target !== p && readDocument(contentDir, target)) { problem(`${p}: its page ${target} has a document of its own in ${path.relative(root, contentDir) || contentDir}: two documents for one page, refused`); continue; }
   const edit = holdAt(target, p, AUTHOR_EDITS, SLUGS);
   if (edit?.skip) { problem(`${target}: author-owned (author-edits.json), not uploaded`); continue; }
   const stat = fs.statSync(localDoc.file);

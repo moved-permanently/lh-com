@@ -77,3 +77,12 @@ test('TAP has no map: the same path and the same bytes as the document', () => {
   const src = fs.readFileSync(path.join(tmp, `tap/content${tapPath}.plain.html`), 'utf8');
   assert.ok(fs.readFileSync(path.join(sink, `${tapPath.slice(1)}.html`), 'utf8').includes(src));
 });
+
+test('two local documents for one page (the localized slug and its canonical path): refused, nothing written', () => {
+  write('twin/content/at/de/zusatzgepaeck.plain.html', doc);
+  write('twin/content/at/de/additional-baggage.plain.html', '<div><h1>Additional baggage</h1></div>');
+  const sink = path.join(tmp, 'sink-twin');
+  const out = run(['--site', 'lh-austrian', '--content-dir', path.join(tmp, 'twin/content'), '--list', path.join(tmp, 'list.txt'), '--sink', sink, '--slug-map', path.join(tmp, 'map-on.json')]);
+  assert.match(out, /\/at\/de\/zusatzgepaeck: its page \/at\/de\/additional-baggage has a document of its own .*refused/);
+  assert.deepEqual(files(sink), []);
+});
