@@ -38,6 +38,12 @@ function bodyElements(row) {
  * (./cards-teaser-slider.js).
  * @param {Element} block
  */
+/** Whether the brand's theme draws a bold card CTA as a primary button (--cards-teaser-bold-cta) */
+function boldCtaButton(block) {
+  const read = typeof getComputedStyle === 'function' ? getComputedStyle(block) : null;
+  return !!read && read.getPropertyValue('--cards-teaser-bold-cta').trim() === 'button';
+}
+
 export default async function decorate(block) {
   const ul = document.createElement('ul');
   // images in the first two sections load eagerly (the baggage page's first view), as hero-campaign
@@ -92,7 +98,19 @@ export default async function decorate(block) {
       const italic = links.length === 1 && !last.querySelector('strong')
         && (last.querySelector('em a, a em') || (links[0].classList.contains('secondary')
           && !links[0].classList.contains('primary') && !links[0].classList.contains('accent')));
-      if (last.tagName === 'P' && links.length === 1 && cleanText(last) === cleanText(links[0]) && italic) {
+      // a bold CTA (decorateButtons: a.button.primary) is a primary button where the brand's theme
+      // asks for it (--cards-teaser-bold-cta: button; lufthansa.com: www's primary
+      // maui-button-link), else the arrow link (TAP's and Brussels' bold CTAs: www's arrow links)
+      const bold = links.length === 1 && !italic && (!!last.querySelector('strong')
+        || links[0].classList.contains('primary') || links[0].classList.contains('accent'));
+      const boldButton = bold && boldCtaButton(block);
+      if (last.tagName === 'P' && links.length === 1 && cleanText(last) === cleanText(links[0]) && boldButton) {
+        const a = links[0];
+        last.className = 'cards-teaser-cta cards-teaser-cta-button button-wrapper';
+        a.classList.remove('secondary', 'accent');
+        a.classList.add('button', 'primary');
+        last.replaceChildren(a);
+      } else if (last.tagName === 'P' && links.length === 1 && cleanText(last) === cleanText(links[0]) && italic) {
         const a = links[0];
         last.className = 'cards-teaser-cta cards-teaser-cta-button button-wrapper';
         a.classList.remove('primary', 'accent');

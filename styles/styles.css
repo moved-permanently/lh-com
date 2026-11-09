@@ -1634,6 +1634,12 @@ body.brand-lufthansa main > .section.grey:has(+ .section.campaign-section.padded
   }
 }
 
+/* lufthansa.com: a bold teaser-card CTA is www's primary maui-button-link (meetings-and-events'
+   "Request offer now"; blocks/cards-teaser reads the token, brief 507) */
+body.brand-lufthansa {
+  --cards-teaser-bold-cta: button;
+}
+
 /* Insights articles on phones: www's related articles end the page (.dcep-related-articles, then
    the footer): 34px from the last card's title to the footer at 390 (the card's 10px padding and
    the title's 24px; 40 on flying-high-christoph-quarch). Ours added the section gap: 82px. From
