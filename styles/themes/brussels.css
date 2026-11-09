@@ -712,6 +712,18 @@ body.brand-brussels main :is(.default-content-wrapper, .columns-media-text) li >
   margin-bottom: 0;
 }
 
+/* the heading after an accordion in its section: 41 px below the accordion from 768 px, 21 on phones, as
+   www (ours the default content's 20 / 16); a spaced accordion keeps lh-com's 40 px below */
+body.brand-brussels main .accordion-columns-wrapper:not(:has(> .spaced)) + .default-content-wrapper:has(> :is(h2, h3):first-child) {
+  margin-top: 21px;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels main .accordion-columns-wrapper:not(:has(> .spaced)) + .default-content-wrapper:has(> :is(h2, h3):first-child) {
+    margin-top: 41px;
+  }
+}
+
 /* an accordion straight under a section heading ("Good to know"): 40 px between them from 768 px,
    as www (ours the heading's 26); even on phones */
 @media (width >= 768px) {
