@@ -1761,7 +1761,7 @@ var CustomImportScript = (() => {
     const modal = box.querySelector("maui-modal");
     const label = (modal && modal.getAttribute("label") ? modal.getAttribute("label").replace(/\s+/g, " ").trim() : "") || text(box.querySelector("maui-link-button"));
     const base = (String(pagePath || "").match(/^\/([a-z]{2})\/([a-z]{2})(?=\/|$)/) || [])[0];
-    const slug2 = label.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    const slug2 = label.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || (base || "").split("/")[2] || "";
     const out = [];
     if (note) {
       const p = document.createElement("p");

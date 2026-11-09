@@ -1,13 +1,13 @@
-# The brief after 514, item 2: every SWISS homepage document (227), in release order: the reference roots (ch, the language
+# The brief after 514, item 2 (updated after 518, item 2): every SWISS homepage document (227), in release order: the reference roots (ch, the language
 # documents) first, then the market roots in the sitemap index's order. Snapshots: all 227 on disk (brief 503's swiss-snapshots).
 # Recordings: none on this disk; ema-cashub's swiss-parity archives record /ch/en, /ch/de, /de/de and /us/en (marked below).
 # Lines "# wait ..." are not to be imported yet:
 #   wait (capture): the snapshot carries the Bengaluru promotion www no longer shows (swiss-promotions-505.md); a re-import from it
 #     keeps it (se/de's document has none, its snapshot has it: a re-import would bring it back). They wait for a capture after "stable".
-#   wait (label): www's dialog label has no Latin letters (el, ja, ru, zh), so the import's link and the dialog document get no name
-#     (/{cc}/{ll}/fragments/modals/). They wait for a name rule shared by footer-disclaimer.js and transformers/lufthansa-cleanup.js.
+#   (the ten roots whose dialog label has no Latin letters, el, ja, ru and zh, name their dialog document with the root's language,
+#     e.g. /ch/ja/fragments/modals/ja, since the brief after 518: no longer waiting for that)
 # After the bulk import, before the upload: node tools/importer/general-conditions-dialogs.mjs --html-dir <the snapshots' dir>
-#   --host www.swiss.com --out content-sites/lh-swiss/content: the dialog documents the homepages link (196 of them at
+#   --host www.swiss.com --out content-sites/lh-swiss/content: the dialog documents the homepages link (206 of them at
 #   /{cc}/{ll}/fragments/modals/{label}, e.g. /de/de/fragments/modals/allgemeine-bedingungen); upload them with the homepages.
 # wait (capture): /ch/en/homepage (recorded in ema-cashub's archives)
 # wait (capture): /ch/de/homepage (recorded in ema-cashub's archives)
@@ -15,10 +15,10 @@
 # wait (capture): /ch/it/homepage
 # wait (capture): /ch/es/homepage
 # wait (capture): /ch/pt/homepage
-# wait (capture, label): /ch/zh/homepage
-# wait (capture, label): /ch/ja/homepage
-# wait (capture, label): /ch/el/homepage
-# wait (capture, label): /ch/ru/homepage
+# wait (capture): /ch/zh/homepage
+# wait (capture): /ch/ja/homepage
+# wait (capture): /ch/el/homepage
+# wait (capture): /ch/ru/homepage
 /kr/ko/homepage
 /ae/de/homepage
 /ae/en/homepage
@@ -63,7 +63,7 @@
 # wait (capture): /cn/en/homepage
 /cn/fr/homepage
 /cn/it/homepage
-# wait (capture, label): /cn/zh/homepage
+# wait (capture): /cn/zh/homepage
 /cz/de/homepage
 /cz/en/homepage
 /cz/fr/homepage
@@ -102,7 +102,7 @@
 /ge/fr/homepage
 /ge/it/homepage
 /gr/de/homepage
-# wait (label): /gr/el/homepage
+/gr/el/homepage
 /gr/en/homepage
 /gr/fr/homepage
 /gr/it/homepage
@@ -110,7 +110,7 @@
 /hk/en/homepage
 /hk/fr/homepage
 /hk/it/homepage
-# wait (capture, label): /hk/zh/homepage
+# wait (capture): /hk/zh/homepage
 /hr/de/homepage
 /hr/en/homepage
 /hr/fr/homepage
@@ -139,7 +139,7 @@
 # wait (capture): /jp/en/homepage
 # wait (capture): /jp/fr/homepage
 # wait (capture): /jp/it/homepage
-# wait (capture, label): /jp/ja/homepage
+# wait (capture): /jp/ja/homepage
 /ke/de/homepage
 /ke/en/homepage
 /ke/fr/homepage
@@ -197,7 +197,7 @@
 /ru/en/homepage
 /ru/fr/homepage
 /ru/it/homepage
-# wait (capture, label): /ru/ru/homepage
+# wait (capture): /ru/ru/homepage
 # wait (capture): /se/de/homepage
 # wait (capture): /se/en/homepage
 /se/fr/homepage
@@ -206,7 +206,7 @@
 /sg/en/homepage
 /sg/fr/homepage
 /sg/it/homepage
-# wait (capture, label): /sg/zh/homepage
+# wait (capture): /sg/zh/homepage
 /si/de/homepage
 /si/en/homepage
 /si/fr/homepage
