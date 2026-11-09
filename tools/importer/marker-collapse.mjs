@@ -419,6 +419,36 @@ function collapseApp(main, doc, stats) {
   });
 }
 
+// a note's text size or width, as blocks/form/form.js reads it at the end of the note's label
+const NOTE_MARK = /\s*\{((?:copytext-(?:small|medium|large)|full-width|limited-width)(?: [a-z-]+)*)\}\s*$/;
+
+/**
+ * The form block's note rows: the text-size / width mark at the end of the label (bare text, or the cell's last
+ * paragraph) goes to the theme, as a block's single paragraphs do (body size; a block's text is never wide).
+ */
+function collapseFormNotes(main, stats) {
+  main.querySelectorAll(':scope > div > div.form').forEach((block) => {
+    const rows = [...block.children];
+    const header = rows.length ? readHeaderTexts([...rows[0].children].map((c) => textOf(c))) : null;
+    const labelAt = header && header.label !== undefined ? header.label : 0;
+    const typeAt = header && header.type !== undefined ? header.type : 1;
+    (header ? rows.slice(1) : rows).forEach((row) => {
+      if (!/^(note|hinweis)$/i.test(textOf(row.children[typeAt] || { textContent: '' }).trim())) return;
+      const cell = row.children[labelAt];
+      const paras = cell && cell.querySelector('p') ? [...cell.querySelectorAll('p')] : [cell].filter(Boolean);
+      paras.forEach((p) => {
+        const last = lastText(p);
+        const m = last && last.nodeValue.match(NOTE_MARK);
+        if (!m) return;
+        last.nodeValue = last.nodeValue.slice(0, m.index);
+        // "Two <strong>bold</strong> {copytext-small}": the space before the mark goes with it
+        if (!last.nodeValue) last.remove();
+        m[1].split(' ').forEach((t) => count(stats, 'theme', /^copytext-/.test(t) ? 'text-size' : 'text-width'));
+      });
+    });
+  });
+}
+
 /** The form block's "{selected}": the options chosen at load in a Default column. */
 function collapseForms(main, doc, stats) {
   main.querySelectorAll(':scope > div > div.form').forEach((block) => {
@@ -1078,6 +1108,7 @@ export function collapseMain(main, opts = {}) {
 
   if (/\/nav$/.test(path)) collapseNav(main, doc, stats);
   collapseForms(main, doc, stats);
+  collapseFormNotes(main, stats);
   collapseBlank(main, stats);
   // the markers at the end of headings, paragraphs and lists (a list's: its last item)
   const marks = new Map();
@@ -1087,6 +1118,14 @@ export function collapseMain(main, opts = {}) {
     if (el.tagName === 'P' && SEPARATOR.test(textOf(el))) return;
     const tokens = takeTokens(el);
     if (tokens.length) marks.set(el, tokens);
+  });
+  // a block cell's bare text (no paragraph of its own) with a video's settings: "<a …mp4>…</a> {controls …}"
+  main.querySelectorAll(':scope > div > div[class] > div > div').forEach((cell) => {
+    if (cell.querySelector('p, h1, h2, h3, h4, h5, h6, li, div') || !cell.querySelector('a[href]')) return;
+    const t = lastText(cell);
+    const m = t && t.nodeValue.match(TAIL);
+    if (!m || !m[1].split(/\s+/).every((k) => VIDEO_SETTINGS.includes(k) || /^size-\d+x\d+$/.test(k))) return;
+    marks.set(cell, takeTokens(cell));
   });
   collapseVideos(main, doc, stats, marks);
   collapseCaptions(main, doc, stats, marks, hand);

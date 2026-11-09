@@ -597,6 +597,28 @@ var CustomImportScript = (() => {
       });
     });
   }
+  var NOTE_MARK = /\s*\{((?:copytext-(?:small|medium|large)|full-width|limited-width)(?: [a-z-]+)*)\}\s*$/;
+  function collapseFormNotes(main, stats) {
+    main.querySelectorAll(":scope > div > div.form").forEach((block) => {
+      const rows = [...block.children];
+      const header = rows.length ? readHeaderTexts([...rows[0].children].map((c) => textOf(c))) : null;
+      const labelAt = header && header.label !== void 0 ? header.label : 0;
+      const typeAt = header && header.type !== void 0 ? header.type : 1;
+      (header ? rows.slice(1) : rows).forEach((row) => {
+        if (!/^(note|hinweis)$/i.test(textOf(row.children[typeAt] || { textContent: "" }).trim())) return;
+        const cell = row.children[labelAt];
+        const paras = cell && cell.querySelector("p") ? [...cell.querySelectorAll("p")] : [cell].filter(Boolean);
+        paras.forEach((p) => {
+          const last = lastText(p);
+          const m = last && last.nodeValue.match(NOTE_MARK);
+          if (!m) return;
+          last.nodeValue = last.nodeValue.slice(0, m.index);
+          if (!last.nodeValue) last.remove();
+          m[1].split(" ").forEach((t) => count(stats, "theme", /^copytext-/.test(t) ? "text-size" : "text-width"));
+        });
+      });
+    });
+  }
   function collapseForms(main, doc, stats) {
     main.querySelectorAll(":scope > div > div.form").forEach((block) => {
       const rows = [...block.children];
@@ -1222,6 +1244,7 @@ var CustomImportScript = (() => {
     const emptyBefore = new Set([...main.querySelectorAll(":scope > div")].filter((d) => !d.children.length && !textOf(d)));
     if (/\/nav$/.test(path)) collapseNav(main, doc, stats);
     collapseForms(main, doc, stats);
+    collapseFormNotes(main, stats);
     collapseBlank(main, stats);
     const marks = /* @__PURE__ */ new Map();
     main.querySelectorAll("h1, h2, h3, h4, h5, h6, p, li").forEach((el) => {
@@ -1230,6 +1253,13 @@ var CustomImportScript = (() => {
       if (el.tagName === "P" && SEPARATOR.test(textOf(el))) return;
       const tokens = takeTokens(el);
       if (tokens.length) marks.set(el, tokens);
+    });
+    main.querySelectorAll(":scope > div > div[class] > div > div").forEach((cell) => {
+      if (cell.querySelector("p, h1, h2, h3, h4, h5, h6, li, div") || !cell.querySelector("a[href]")) return;
+      const t2 = lastText(cell);
+      const m = t2 && t2.nodeValue.match(TAIL);
+      if (!m || !m[1].split(/\s+/).every((k) => VIDEO_SETTINGS.includes(k) || /^size-\d+x\d+$/.test(k))) return;
+      marks.set(cell, takeTokens(cell));
     });
     collapseVideos(main, doc, stats, marks);
     collapseCaptions(main, doc, stats, marks, hand);
