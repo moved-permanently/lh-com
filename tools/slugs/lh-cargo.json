@@ -6,7 +6,7 @@
  "sourceLanguage": "en",
  "sourceRoot": "en",
  "rootForm": "ll (www.lufthansa-cargo.com/<ll>/<slug>, no country folder)",
- "source": {"data":"hreflang links in the held snapshots (work/cargo-capture/snapshots/www.lufthansa-cargo.com), 7 languages and x-default per page; no sitemap read","pagesRead":67,"pagesWithHreflang":67},
+ "source": {"data":"hreflang links in the held snapshots of www.lufthansa-cargo.com (server HTML), 7 languages and x-default per page; no sitemap read","pagesRead":67,"pagesWithHreflang":67},
  "listed": false,
  "measured": {"groupsInData":62,"mapped":0,"deviatingGroups":0,"exceptions":{},"unlisted":{"pagesRead":67,"alternateSets":62,"setsWithOneSlugInEveryLanguage":57,"setsWithADifferentSlug":5,"languagesWithADifferentSlug":{"de":5},"articleSets":4,"articleSetsWithADifferentSlug":3,"pagesNotInTheirOwnAlternates":6}},
  "mirrors": {},

@@ -5,7 +5,7 @@
  "host": "https://business.lufthansagroup.com",
  "sourceLanguage": "en",
  "sourceRoot": "de/en",
- "source": {"data":"the captured pages of business.lufthansagroup.com under work/b2b-capture (server HTML)","pagesRead":1370,"pagesWithHreflang":0,"roots":["al/de","al/en","at/de","ca/en","ch/en","de/de","de/en","mx/en","us/en","xx/de","xx/en"]},
+ "source": {"data":"the held captures of business.lufthansagroup.com (server HTML)","pagesRead":1370,"pagesWithHreflang":0,"roots":["al/de","al/en","at/de","ca/en","ch/en","de/de","de/en","mx/en","us/en","xx/de","xx/en"]},
  "listed": false,
  "measured": {"groupsInData":0,"mapped":0,"deviatingGroups":0,"exceptions":{},"unlisted":{"pagesRead":1370,"pagesWithHreflang":0}},
  "mirrors": {},
