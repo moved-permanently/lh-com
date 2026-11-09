@@ -550,6 +550,17 @@ function isBlockComponent(el) {
   return !!el && !el.matches(`${FLOW_COMPONENT}, .separator`);
 }
 
+// hub: a separator right after a column view nested in a view's item, before a headline
+// (/de/de/lounges: the two-column "Zugang zu unseren Lounges", then "Unsere Lounges in der
+// Übersicht"): the heading has no margin of its own above on pages with column marks, so the
+// separator's space is all there is (brief 540: the heading 25 px too high without it)
+function afterNestedView(run) {
+  const prev = run[0].previousElementSibling;
+  const next = run[run.length - 1].nextElementSibling;
+  return !!prev && !!next && prev.matches(FLOW_COLUMN) && next.matches('.headline')
+    && !!run[0].parentElement && run[0].parentElement.matches('.column-view-item');
+}
+
 /** The markers for a dropped run the replica has no stand-in for, or null (see above). */
 function missingSeparatorMarkers(run, flow, template) {
   const first = run[0];
@@ -757,7 +768,8 @@ function markSeparators(document, keepInFlow, payload) {
     const separated = (brussels && betweenColumnViews(run)) || (cellSpacers && lhBetweenColumnViews(run));
     if (separated) separated.setAttribute(SEPARATED, 'true');
     let markers = null;
-    if (infos.some((i) => i.keep) || afterGrey(run[0]) || (keepInFlow && inFlow(run))) {
+    if (infos.some((i) => i.keep) || afterGrey(run[0]) || (keepInFlow && inFlow(run))
+      || (template === 'hub' && afterNestedView(run))) {
       markers = infos.map((i) => i.marker);
     } else if (fillGaps) {
       markers = missingSeparatorMarkers(run, keepInFlow, template);

@@ -968,6 +968,23 @@ var CustomImportScript = (() => {
       row.rules = mask ? [`mask=${mask}`] : [];
       add(row);
     }
+    function pickerDate(box) {
+      const field = box.querySelector("input.forms-datepicker");
+      if (!field) return;
+      const wrapper = wrapperOf(box);
+      const format = attr((wrapper || box).querySelector('input[name="date-format"]'), "value");
+      const mask = /^[dmy]+([./-])[dmy]+\1[dmy]+$/i.test(format) ? format.split(/[./-]/).map((g) => ({ d: "DD", m: "MM", y: "YYYY" })[g[0].toLowerCase()]).join(format.match(/[./-]/)[0]) : "";
+      const label = field.id ? box.querySelector(`label[for="${field.id}"]`) : null;
+      add({
+        label: text(label || box.querySelector("label")) || attr(field, "placeholder"),
+        type: "date",
+        name: nameOf(field),
+        required: requiredOf(field, wrapper),
+        message: messageOf(field, wrapper, false),
+        constraint: attr(wrapper, "data-cmp-constraint-message"),
+        rules: mask ? [`mask=${mask}`] : []
+      });
+    }
     function street(box) {
       const field = box.querySelector('input:not([type="hidden"])');
       if (!field) return;
@@ -1049,7 +1066,8 @@ var CustomImportScript = (() => {
         type: "checkbox",
         name: nameOf(boxes[0]),
         required: required ? "yes" : "",
-        options: boxes.map((b) => `${clean3(b.getAttribute("value") || "")}=${attr(b, "label") || text(b) || attr(b, "data-aria-label")}`),
+        // a box checked at load (Brussels' "this account is an Euro account") keeps it: the block's {selected}
+        options: boxes.map((b) => `${clean3(b.getAttribute("value") || "")}=${attr(b, "label") || text(b) || attr(b, "data-aria-label")}${has(b, "checked") ? " {selected}" : ""}`),
         message: attr(boxes[0], "data-customerror") || attr(wrapper, "data-cmp-required-message"),
         rules: targets.length ? [`toggles=${targets.join(", ")}`] : []
       });
@@ -1191,6 +1209,7 @@ var CustomImportScript = (() => {
       if (add_) rules.push(`add=${add_}`);
       if (removeBtn) rules.push(`remove=${attr(removeBtn, "aria-label")}`);
       if (remaining) rules.push(`remaining=${remaining}`);
+      if (sub.classList.contains("collapse") || sub.classList.contains("d-none")) rules.push("hidden");
       add({
         label: legend.replace(/(\d+)(?!.*\d)/, "{n}"),
         type: "fieldset",
@@ -1282,6 +1301,10 @@ var CustomImportScript = (() => {
       }
       if (el.matches(".streetAddress")) {
         street(el);
+        return;
+      }
+      if (el.matches("div.input") && el.querySelector("input.forms-datepicker")) {
+        pickerDate(el);
         return;
       }
       if (el.matches("maui-input")) {
@@ -2320,6 +2343,13 @@ var CustomImportScript = (() => {
       return clean3(c.textContent);
     };
     const ARTICLE = !!element.closest(".article-details-page");
+    let pageHost = "";
+    try {
+      pageHost = new URL(params && params.originalURL || url || "").hostname;
+    } catch (e) {
+      pageHost = "";
+    }
+    const KEEP_CAPTIONS = ARTICLE || pageHost !== "www.lufthansa.com";
     const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
     const isBr2 = (n) => n && n.nodeType === 1 && n.tagName === "BR";
     const isBlank = (n) => n && n.nodeType === 3 && !clean3(n.nodeValue);
@@ -2473,7 +2503,7 @@ var CustomImportScript = (() => {
       return out;
     };
     const captionPara = (comp) => {
-      if (!ARTICLE) return null;
+      if (!KEEP_CAPTIONS) return null;
       const fc = comp.querySelector("figcaption");
       const text = fc && visibleText(fc.querySelector("maui-caption") || fc);
       if (!text) return null;
@@ -4104,6 +4134,11 @@ var CustomImportScript = (() => {
   function isBlockComponent(el) {
     return !!el && !el.matches(`${FLOW_COMPONENT}, .separator`);
   }
+  function afterNestedView(run) {
+    const prev = run[0].previousElementSibling;
+    const next = run[run.length - 1].nextElementSibling;
+    return !!prev && !!next && prev.matches(FLOW_COLUMN) && next.matches(".headline") && !!run[0].parentElement && run[0].parentElement.matches(".column-view-item");
+  }
   function missingSeparatorMarkers(run, flow, template) {
     const first = run[0];
     const last = run[run.length - 1];
@@ -4262,7 +4297,7 @@ var CustomImportScript = (() => {
       const separated = brussels && betweenColumnViews(run) || cellSpacers && lhBetweenColumnViews(run);
       if (separated) separated.setAttribute(SEPARATED, "true");
       let markers = null;
-      if (infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run)) {
+      if (infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run) || template === "hub" && afterNestedView(run)) {
         markers = infos.map((i) => i.marker);
       } else if (fillGaps) {
         markers = missingSeparatorMarkers(run, keepInFlow, template);
