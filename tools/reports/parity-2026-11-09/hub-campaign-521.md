@@ -71,7 +71,7 @@ stages followed by a padded AEM section (style before-padded): economy-class's A
 roots each, first-class on two (16); a test: a padded stage after an unpadded AEM section on a lufthansa.com page gets
 "stage, padded", with a padded AEM section after it "stage, before-padded" as today.
 
-### 2. A page that ends with separators only after a grey band (fixed: e224886, lufthansa.com styles)
+### 2. A page that ends with separators only after a grey band (fixed: 9485448, lufthansa.com styles)
 
 /de/en/airport-information on four roots, the flights pages on three (held documents) and the info page
 doctor-on-board-news end with "{spacer-N}" alone in a section after a grey band. On www that separator is all there is
