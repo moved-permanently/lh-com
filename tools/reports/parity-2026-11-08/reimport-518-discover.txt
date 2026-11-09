@@ -1,0 +1,13 @@
+/de/de/book/baggage/excess-baggage
+/de/de/book/baggage/sports-baggage-and-special-baggage
+/de/de/book/travel-information/lounges
+/de/de/legal/data-protection-information/privacy-policy-of-discover-airlines
+/de/de/travel-inspiration/winter-destinations
+/de/en/book/baggage/excess-baggage
+/de/en/book/baggage/sports-baggage-and-special-baggage
+/de/en/book/travel-information/lounges
+/de/en/legal/data-protection-information/privacy-policy-of-discover-airlines
+/de/en/legal/passenger-rights
+/xx/fr/book/baggage/sports-baggage-and-special-baggage
+/xx/fr/book/travel-information/lounges
+/xx/fr/legal/data-protection-information/privacy-policy-of-discover-airlines
