@@ -58,6 +58,14 @@ function isTabPanel(section) {
   return !!meta && [...meta.children].some((row) => (row.firstElementChild?.textContent || '').trim().toLowerCase() === 'tab');
 }
 
+/** A grey band: its Section Metadata style (or its class, once decorated) says grey. */
+function isBand(section) {
+  if (section.classList.contains('grey')) return true;
+  const meta = [...section.children].find((el) => isBlock(el) && blockName(el) === 'section-metadata');
+  const row = meta && [...meta.children].find((r) => (r.firstElementChild?.textContent || '').trim().toLowerCase() === 'style');
+  return !!row && /(^|,)\s*grey\s*(,|$)/i.test(row.lastElementChild?.textContent || '');
+}
+
 /** A space or divider choice as a separator paragraph (null: none). */
 function separatorFor(space, divider) {
   if (divider) return separatorParagraph(DIVIDER_SPACE, true);
@@ -263,15 +271,19 @@ function applyThemeRules(main, theme) {
     // .blocks: www's column view around the block, its padding above and below as the markers drew
     // it): not in a tab panel; no edge above at the section's start, none below at its end (the
     // section's padding) unless columnViews.endEdge; never twice (a marker's edge stays)
-    const { blocks = [], endEdge = false } = theme.columnViews;
+    const { blocks = [], endEdge = false, startAtHeading = false } = theme.columnViews;
     if (blocks.length && !isTabPanel(section)) {
       section.querySelectorAll(':scope > div[class]').forEach((block) => {
         if (!blocks.includes(blockName(block))) return;
-        let prev = block.previousElementSibling;
+        // startAtHeading: a heading right before the block is the view's first item (www's column
+        // view starts at it), so the edge goes above the heading
+        let start = block;
+        if (startAtHeading && !isBand(section) && /^H[2-4]$/.test(block.previousElementSibling?.tagName || '')) start = block.previousElementSibling;
+        let prev = start.previousElementSibling;
         while (prev && isMeta(prev)) prev = prev.previousElementSibling;
         let next = block.nextElementSibling;
         while (next && isMeta(next)) next = next.nextElementSibling;
-        if (prev && !isColumnMark(prev)) block.before(columnMark('column-start-outer'));
+        if (prev && !isColumnMark(prev)) start.before(columnMark('column-start-outer'));
         if ((next || endEdge) && !isColumnMark(next)) block.after(columnMark('column-end-outer'));
       });
     }

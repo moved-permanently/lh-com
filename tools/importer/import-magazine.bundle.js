@@ -153,7 +153,8 @@ var CustomImportScript = (() => {
     b2b: {
       live: true,
       pageTypes: {
-        flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true } }
+        // a heading right before such a block opens its column view (www: 81 of 105 marked so)
+        flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true, startAtHeading: true } }
       }
     },
     // Air Dolomiti: the base theme (between B2B's and TAP's entries, next to no switch line)

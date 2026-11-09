@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-flight-status.js
-  var tmp_bundle_flight_status_10786_exports = {};
-  __export(tmp_bundle_flight_status_10786_exports, {
-    default: () => tmp_bundle_flight_status_10786_default
+  var tmp_bundle_flight_status_39293_exports = {};
+  __export(tmp_bundle_flight_status_39293_exports, {
+    default: () => tmp_bundle_flight_status_39293_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -1418,7 +1418,8 @@ var CustomImportScript = (() => {
     b2b: {
       live: true,
       pageTypes: {
-        flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true } }
+        // a heading right before such a block opens its column view (www: 81 of 105 marked so)
+        flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true, startAtHeading: true } }
       }
     },
     // Air Dolomiti: the base theme (between B2B's and TAP's entries, next to no switch line)
@@ -4616,7 +4617,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_flight_status_10786_default = {
+  var tmp_bundle_flight_status_39293_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -4656,5 +4657,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_flight_status_10786_exports);
+  return __toCommonJS(tmp_bundle_flight_status_39293_exports);
 })();
