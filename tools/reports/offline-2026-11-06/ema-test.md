@@ -2267,3 +2267,42 @@ Left per item:
 - 1a to 1c: nothing.
 - 2: you merge each branch after its pass.
 - 3: nothing to fix. The B2B canary's flagged pages are the known causes.
+
+## The brief after 539 (lufthansa.com insights and campaign parity; B2B's grey band rule)
+
+The last turn left these out of git, and why:
+- logs/p4/s509 and logs/p4/s510 are scratch;
+- the /tmp worktrees are gone with the restarts (pruned);
+- .migration/project.json is generated;
+- the 7 November autostash is untouched.
+
+Nothing was unpushed. This turn's scratch is logs/p4/s511 and s512 (Discover's DA read, the sweep runs, the
+measurement scripts). The recordings were unpacked under /tmp, outside the checkout. All of it is out of git: scratch,
+and www's recordings.
+
+1. **Insights and campaign parity**: [sweep-lh-004-insights-campaign.md](../parity-2026-11-09/sweep-lh-004-insights-campaign.md).
+   - Four CSS fixes, lufthansa.com only, each measured before and after:
+     - 10a30d1b, the carousel dots from 768 px;
+     - 60354011, no gap under the related articles that end an article, at every width;
+     - 299fb458, 34 px under a video cell on phones;
+     - 88360b0e, button labels wrap instead of being cut.
+   - Insights 16.5 -> 15.2 % (15.8 -> 15.4 without the fare recommender's live data); campaign 11.6 -> 10.7 %.
+   - No importer rule, so no reimport list.
+   - Not fixed, with the reasons in the report:
+     - the stage pictures' parallax crop;
+     - the tag page's Conditions link (needs www's markup);
+     - the world map's width (one image);
+     - frankfurt-fair's column view padding (ema-adobe's carrier);
+     - the text-rasterising difference between the recording's browser and ours.
+3. **B2B's grey band Columns Media**: not one rule. Dropping the edges raises the canary's mean from 2.0 to 2.4 %, and
+   the page-widths over 3 % from 11 to 18. Reverted.
+
+Checked, and on which host:
+- the published pages on lufthansa.turnsthe.page against lh-parity-004a/b;
+- the B2B branch preview for item 3;
+- lint (the whole repo, its exit codes) and the full suite before each push: 717, 718 and 722 passed, 0 failed. After
+  the last rebases, lint plus the commits' own tests.
+
+Nothing went to www. Documents: none changed, none uploaded, nothing published.
+
+Left: the causes the report lists as not fixed, each with its owner or the evidence it needs.
