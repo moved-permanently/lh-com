@@ -2064,3 +2064,42 @@ difference applied to the live height. No code changed.
   -2.4 -> +1 to +3 % (its two Spacer sections, "space-below-m", are not in today's import: about -120 px at 390, an
   estimate).
 - **Austrian form-confirmation ({spacer-350}):** the capture child's archive austrian-parity-005 is in the drop; item 2 next.
+
+## The brief after 551: three re-import lists, the confirmation pages' space, the charter's date field
+
+**Left from the last turn:** nothing unpushed (07f2b6ac). Scratch out of git: `migration-work/parity-551` (the
+austrian-parity-005 archive, its sha256 equal to the brief's 384427ef..., and an offline import of both pages) and
+`parity-540`.
+
+- **Item 1, re-import lists** (tools/reports/parity-2026-11-09, release order):
+  - `reimport-551-austrian-medical-travel-companions.txt` (9: at/en, then the eight language documents cn/zh ... ru/ru;
+    the healthy-travel documents are another page and are not listed);
+  - `reimport-551-austrian-cancellation-refund.txt` (1: il/en is the only root with the page);
+  - `reimport-551-chase-the-sun.txt` (3: be/en, fr, nl; no other site has the page).
+  - chase-the-sun: the live document's two space-below-m sections ("Why Spain this summer", "Ready to explore Spain?",
+    about 120 px at 390) come from an older import's markers. Today's snapshot has no source for them, so a re-import
+    drops them. That is closer to www (with them the page would be about 2 % taller than www's), so the list has no
+    marker note.
+- **Item 2, {spacer-350}:** www has no blank above the title, as the brief reads it. It has one below the button.
+  - In austrian-parity-005 both pages' content is the h1, the copytext, the button and a separator. it/it's separator
+    has `margin-bottom: 350px`, at/de's 70 px.
+  - www draws that space: the footer starts at 723 px on it/it against 443 on at/de at 1440 (737 / 457 at 390). The h1
+    is at 138 / 162 on both.
+  - The published it/it document carries the space at its end, not its start: its only section is `space-below-l`, the
+    collapse's Spacer L (120 px, the most a marker gives).
+  - Live host at 1440: the h1 at 138 as on www. Footer at 545 against www's 723 on it/it, 485 against 443 on at/de.
+  - So the old import's space was right in size and place (under the content); the collapse caps it at L.
+  - Today's importer writes no spacer for it at all. The separator is the last component of `.container-content`, not
+    of `.section-content`, and missingSeparatorMarkers drops it there. A re-import would take the Spacer L away: it/it's
+    footer about 120 px higher still.
+  - **No importer change, no re-import list.** The confirmation pages stay as published. A trailing-separator rule (an
+    end Spacer L for a margin of 90 px or more) would only keep what the documents have; it is the user's choice.
+- **Item 3, brussels-charter's depDayScheduled-2:** www requires it.
+  - On www's charter form (brussels-parity-004) the stepper "Number of required seats" is named depDayScheduled too. So
+    "Departure Date" is the page's second field of that name, and the form block makes it unique: depDayScheduled-2.
+  - www's Departure Date input has `required` and its wrapper `data-cmp-required`. "Return Date" (retDayScheduled) is
+    optional on both.
+  - The flight section is a plain fieldset on www (section-flightsInformation, no repeatable section), as in our
+    document.
+  - The required mark is www's; nothing to change. The duplicate name is www's; the submission sees
+    depDayScheduled-2 for the date.
