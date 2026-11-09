@@ -27,3 +27,16 @@ test('ITA: the guide\'s list is DA\'s census', () => {
   assert.match(guide, /census-lh-ita-paths\.txt`, \*\*2,195 paths\*\*/);
   assert.ok(!/--list tools\/reports\/token-free\/collapse-lh-ita-paths\.txt/.test(guide));
 });
+
+test('the brands\' pages: each list is its DA census, the page says so and names its branch', () => {
+  [['tap', 156], ['brussels', 1252], ['austrian', 2036], ['swiss', 2647]].forEach(([brand, count]) => {
+    const list = read(`../tools/reports/token-free/census-lh-${brand}-paths.txt`).split('\n').filter((l) => l.startsWith('/'));
+    assert.equal(list.length, count, brand);
+    assert.equal(new Set(list).size, count, `${brand}: no path twice`);
+    const page = read(`../tools/reports/token-free/harness-pass-${brand}.md`);
+    assert.ok(page.includes(`census-lh-${brand}-paths.txt\`, **${count.toLocaleString('en-US')} paths**`), brand);
+    assert.match(page, new RegExp(`token-free-${brand}-live\` \\(head [0-9a-f]{8}`), brand);
+    assert.match(page, /\*\*Ready to start\*\*/, brand);
+    assert.match(page, /\/\.token-free-backup\/2026-11-/, brand);
+  });
+});

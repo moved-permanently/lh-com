@@ -1,5 +1,11 @@
 # Air Dolomiti's collapse pass: the harness's job (after harness-pass-ita.md)
 
+**Update (ema-test, the brief after 520): ready to start.** `token-free-airdolomiti-live` exists (head 18b9dd20, cut
+from main at 3f2c61d7: `airdolomiti: { live: true }`, the bundles rebuilt, test/token-free-airdolomiti-live.test.mjs;
+full suite 680 passed, 0 failed). The entry on main sits between B2B's and TAP's, next to no other switch line, so all
+the branches merge without a conflict. DA's own census (the dry run on DA's 1,575 documents): 3 changed, 3
+`{selected}` to the form's Default column, checks 0 failed: as below.
+
 Status, 2026-11-09: **waits for ema-test's switch branch.** Air Dolomiti's theme entry is on main since 3f2c61d
 (`airdolomiti: {}` in `scripts/style-markers.js` THEMES, the base theme). The branch `token-free-airdolomiti-live`
 doesn't exist yet: it needs `airdolomiti: { live: true }` and the bundles rebuilt, as Cargo's and TAP's got in f418f61,

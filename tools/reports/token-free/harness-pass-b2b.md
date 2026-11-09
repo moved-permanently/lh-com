@@ -1,5 +1,13 @@
 # Lufthansa Group for Business's collapse pass: the harness's job (after harness-pass-ita.md)
 
+**Update (ema-test, the brief after 520): the branch is up to main.** `token-free-b2b-live` has main at 3f2c61d7
+merged in (head 07a0a3b7, full suite 680 passed, 0 failed), pushed as a merge commit: the status's one condition is
+met. DA's own census (`da-tree-read.mjs`, then the dry run on DA's 733 documents, with main's collapse after
+54303323): 679 changed, 5,708 markers (3,588 theme, 2,120 carriers, 854 written, 0 for a person), loss and carrier
+checks 0 failed, 58 with several H1s. That is three markers more than the preview's count: the three video cells'
+`{controls round-play-button}`, which the collapse now reads (54303323), go to the theme. The Spacer heading-gap rule
+(spacer-cost-536.md) is not done in this brief.
+
 Status, 2026-11-09: **waits for one thing: ema-test brings `token-free-b2b-live` up to main.** It is 1 commit ahead
 and 86 behind, so its preview runs older code than the host and the page checks would compare two code bases (lesson 1
 below). Then it is **ready to start**. Everything else below is in place. ema-test's Spacer heading-gap rule

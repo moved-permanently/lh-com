@@ -1,5 +1,10 @@
 # Lufthansa Cargo's collapse pass: the harness's job (after harness-pass-ita.md)
 
+**Update (ema-test, the brief after 520): the first condition is met, the second isn't.** `token-free-cargo-live` has
+main at 3f2c61d7 merged in (head 9fcbcb77, full suite 680 passed, 0 failed), pushed as a merge commit. The video
+links' text (brief 536) is not done in this brief. DA's own census (the dry run on DA's 990 documents): 22 changed, 30
+markers, all to the theme, loss and carrier checks 0 failed: as below.
+
 Status, 2026-11-09: **waits for two things from ema-test.** First, `token-free-cargo-live` has to come up to main (it
 is 1 commit ahead and 86 behind; Cargo's theme had fixes on main since, 84fc8d1 among them). Second, the collapse has to
 keep the video links' text (the user, brief 536: parity with www; section 6). Then it is **ready to start**. The pass is
