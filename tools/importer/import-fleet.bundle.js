@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var tmp_bundle_fleet_1604859_exports = {};
-  __export(tmp_bundle_fleet_1604859_exports, {
-    default: () => tmp_bundle_fleet_1604859_default
+  var tmp_bundle_fleet_1024231_exports = {};
+  __export(tmp_bundle_fleet_1024231_exports, {
+    default: () => tmp_bundle_fleet_1024231_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -5690,6 +5690,24 @@ var CustomImportScript = (() => {
     };
   }
 
+  // tools/importer/nbsp-guard.mjs
+  var NBSP_STAND_IN = "\u2007";
+  var NBSP_ALL = /\u00a0/g;
+  var NBSP_BLANK = /^[\s\u00a0]*$/;
+  var NBSP_SKIP_TAGS = /* @__PURE__ */ new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEMPLATE"]);
+  function guardNbsp(root) {
+    const visit = (el) => {
+      if (!el || NBSP_SKIP_TAGS.has(el.tagName) || NBSP_BLANK.test(el.textContent || "")) return;
+      [...el.childNodes].forEach((n) => {
+        if (n.nodeType === 3) {
+          if (n.nodeValue.includes("\xA0")) n.nodeValue = n.nodeValue.replace(NBSP_ALL, NBSP_STAND_IN);
+        } else if (n.nodeType === 1) visit(n);
+      });
+    };
+    visit(root);
+    return root;
+  }
+
   // tools/importer/import-fleet.js
   var PAGE_TEMPLATE = {
     "name": "fleet",
@@ -5833,10 +5851,11 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_fleet_1604859_default = {
+  var tmp_bundle_fleet_1024231_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
+      guardNbsp(document.body);
     },
     transform: (payload) => {
       const { document, url, params } = payload;
@@ -5872,5 +5891,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_fleet_1604859_exports);
+  return __toCommonJS(tmp_bundle_fleet_1024231_exports);
 })();
