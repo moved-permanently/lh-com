@@ -2706,3 +2706,24 @@ git). No test reaches the uploader. Measured on our hosts (swiss, ita, cargo, di
 - **TAP by hand:** 40 pages, all 200, the same as the brief after 526.
 - **Not in git:** the recordings, the clean copies, the trial import's output and the logs. They stay in the ignored
   scratch folder as local run material.
+
+### The brief after 531, continued (after the report above)
+
+ITA, TAP and Discover are live with their token-free styling since 536's start (2377993b, ace9e7ee, bbe699f9): ITA and
+Discover are measured as they are on live.
+
+| Commit | Row | What | Measured |
+| --- | --- | --- | --- |
+| 1d87c05c | SWISS 50 | the help app's section to the footer as www's: 24 px on ITA, 30 px on SWISS (was 48) | ITA live 1440 2304 -> 2280 (www 2254), the footer 1484 -> 1460 (1459), 390 3164 -> 3140 (3052); SWISS contact-us the footer 30 px under the card as www's |
+| 5bae2c03 | AD 79 | the FAQ half page's accordions 75 px over the next section | tiere-an-bord the footer 1482 -> 1557 (1558); schwangere-und-kinder 1075 -> 1108 (1089) |
+| 6e1171db | AD 80 | the header 80 px once scrolled, the logo 40 px; the hub's strip under it at 30 | after 900 px: the bar 80, the logo 16-56 (www 16-55), the strip at 30 (30) |
+
+- **Left:**
+  - ITA's help page at 390 is +2.9 % (its footer, 49 px taller than www's, is ITA's).
+  - SWISS's help card ends 28 px higher than www's (www's note wraps to two lines).
+  - Air Dolomiti street-food-in-munich is -6.7 % to the footer. It's a post's own layout (the stage card's width, the
+    lead texts' column, www's picture rows), not traced.
+  - Florence's pagination row is still missing.
+  - Cargo stories at 390 are still about +3 %.
+  - B2B waits for its pass.
+- **Documents:** the same 4 as above.
