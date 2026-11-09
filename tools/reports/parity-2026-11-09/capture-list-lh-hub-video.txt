@@ -1,0 +1,89 @@
+# Brief 521 item 3 (ema-adobe, 2026-11-09): lufthansa.com pages to capture on www.lufthansa.com from 15:00 CET (the stable network), at 1440 and 390 as lh-parity-002; nothing captured before. 81 pages, release order within each part; all 81 answer 200 on lufthansa.turnsthe.page (checked 2026-11-09).
+# Part A (52): the hub template's documents without a recording (tools/importer/page-templates.json hub urls not in lh-parity-002a-d / -003; tools/reports/parity-2026-11-09/sweep-lh-baseline.md, Pages without a recording).
+https://www.lufthansa.com/de/de/additional-services
+https://www.lufthansa.com/at/de/additional-services
+https://www.lufthansa.com/gb/en/additional-services
+https://www.lufthansa.com/de/de/flughafeninformation
+https://www.lufthansa.com/at/de/flughafeninformation
+https://www.lufthansa.com/gb/en/airport-information
+https://www.lufthansa.com/de/de/gepaeck
+https://www.lufthansa.com/at/de/gepaeck
+https://www.lufthansa.com/gb/en/baggage
+https://www.lufthansa.com/de/de/digital-self-services
+https://www.lufthansa.com/at/de/digital-self-services
+https://www.lufthansa.com/gb/en/digital-self-services
+https://www.lufthansa.com/de/de/fluege
+https://www.lufthansa.com/at/de/fluege
+https://www.lufthansa.com/gb/en/flights
+https://www.lufthansa.com/de/de/speisen-und-getraenke
+https://www.lufthansa.com/at/de/speisen-und-getraenke
+https://www.lufthansa.com/gb/en/food-and-beverages
+https://www.lufthansa.com/de/en/lounges
+https://www.lufthansa.com/de/de/lounges
+https://www.lufthansa.com/at/de/lounges
+https://www.lufthansa.com/gb/en/lounges
+https://www.lufthansa.com/de/de/lufthansa-reiseklassen
+https://www.lufthansa.com/at/de/lufthansa-reiseklassen
+https://www.lufthansa.com/gb/en/lufthansa-travel-classes
+https://www.lufthansa.com/de/de/meetings-and-events
+https://www.lufthansa.com/at/de/meetings-and-events
+https://www.lufthansa.com/gb/en/meetings-and-events
+https://www.lufthansa.com/de/de/miles-and-more
+https://www.lufthansa.com/at/de/miles-and-more
+https://www.lufthansa.com/gb/en/miles-and-more
+https://www.lufthansa.com/de/de/overview-flights
+https://www.lufthansa.com/at/de/overview-flights
+https://www.lufthansa.com/gb/en/overview-flights
+https://www.lufthansa.com/de/de/overview-manage
+https://www.lufthansa.com/at/de/overview-manage
+https://www.lufthansa.com/gb/en/overview-manage
+https://www.lufthansa.com/de/de/overview-special-request
+https://www.lufthansa.com/at/de/overview-special-request
+https://www.lufthansa.com/gb/en/overview-special-request
+https://www.lufthansa.com/de/de/overview-travel-information
+https://www.lufthansa.com/at/de/overview-travel-information
+https://www.lufthansa.com/gb/en/overview-travel-information
+https://www.lufthansa.com/de/de/services-am-flughafen
+https://www.lufthansa.com/at/de/services-am-flughafen
+https://www.lufthansa.com/gb/en/services-at-the-airport
+https://www.lufthansa.com/de/de/services-an-bord
+https://www.lufthansa.com/at/de/services-an-bord
+https://www.lufthansa.com/gb/en/services-on-board
+https://www.lufthansa.com/de/de/betreuungsbedarf
+https://www.lufthansa.com/at/de/betreuungsbedarf
+https://www.lufthansa.com/gb/en/special-needs
+# Part B (18): reimport-488 part B's video documents without a recording (same section).
+https://www.lufthansa.com/de/de/100-years/crane
+https://www.lufthansa.com/de/de/100-years/destinations
+https://www.lufthansa.com/de/de/articles/highlights/all-it-takes-is-a-yes
+https://www.lufthansa.com/de/de/articles/highlights/allegris-premium-economy-san-diego
+https://www.lufthansa.com/de/de/articles/tags/allegris
+https://www.lufthansa.com/de/de/discover-lufthansa/new-onboard-experience
+https://www.lufthansa.com/at/de/100-years/crane
+https://www.lufthansa.com/at/de/100-years/destinations
+https://www.lufthansa.com/at/de/articles/highlights/all-it-takes-is-a-yes
+https://www.lufthansa.com/at/de/articles/highlights/allegris-premium-economy-san-diego
+https://www.lufthansa.com/at/de/articles/tags/allegris
+https://www.lufthansa.com/at/de/discover-lufthansa/new-onboard-experience
+https://www.lufthansa.com/gb/en/100-years/crane
+https://www.lufthansa.com/gb/en/100-years/destinations
+https://www.lufthansa.com/gb/en/articles/highlights/all-it-takes-is-a-yes
+https://www.lufthansa.com/gb/en/articles/highlights/allegris-premium-economy-san-diego
+https://www.lufthansa.com/gb/en/articles/tags/allegris
+https://www.lufthansa.com/gb/en/discover-lufthansa/new-onboard-experience
+# Part C (11): pages my reports name as needing a recording to settle a cause:
+# - /de/en/overview-manage: the 2026-11-06 recording shows Check-in without its picture, a fresh capture decides (sweep-lh-swiss.md rows, ema-adobe.md brief 505)
+https://www.lufthansa.com/de/en/overview-manage
+# - /de/en/flights: the hub document held until a capture with the destination finder's texts (ema-adobe.md brief 506; /de/de/fluege is in part A)
+https://www.lufthansa.com/de/en/flights
+# - the six campaign re-import documents without a recording (reimport-507-campaign-lh-com.txt; reimport-507-recordings.md)
+https://www.lufthansa.com/de/de/frankfurt-fair
+https://www.lufthansa.com/at/de/frankfurt-fair
+https://www.lufthansa.com/gb/en/frankfurt-fair
+https://www.lufthansa.com/de/de/bedeutsamste-strecken
+https://www.lufthansa.com/at/de/bedeutsamste-strecken
+https://www.lufthansa.com/gb/en/most-significant-route
+# - the meetings-and-events roots of reimport-515-meetings-logos-lh-com.txt that part A doesn't have (the logo slider after ema-cashub's parser change)
+https://www.lufthansa.com/fr/fr/meetings-and-events
+https://www.lufthansa.com/xx/es/meetings-and-events
+https://www.lufthansa.com/xx/fr/meetings-and-events
