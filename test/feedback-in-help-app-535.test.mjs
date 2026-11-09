@@ -23,7 +23,9 @@ test('in the help app: the question bold, the note 14 px in half the column 40 p
   assert.equal(rule(`${IN} .feedback-label`)['font-weight'], '700');
   const note = rule(`${IN} .feedback-note`);
   assert.deepEqual([note['margin-bottom'], note['font-size']], ['40px', '14px']);
-  assert.ok(css.includes(`@media (width >= 768px) {\n  ${IN} .feedback-note {\n    max-width: 50%;`), 'half the column from 768 px (www\'s col-md-6)');
+  assert.equal(note['max-width'], '600px', 'www\'s 600 px column (the brief after 540: SWISS\'s note on two lines, ITA\'s on one)');
+  const lx = rule(`body.maui-theme-lx ${IN} .feedback-note`);
+  assert.deepEqual([lx['font-size'], lx['line-height']], ['16px', '24px'], 'SWISS\'s copy-medium 16 / 24 px');
 });
 
 test('in the help app: the answers 48 px high inside the control\'s border, 15 px in, no minimum width', () => {
