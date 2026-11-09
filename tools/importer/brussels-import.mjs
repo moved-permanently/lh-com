@@ -24,7 +24,8 @@
  * - the flight search hands off to shop.brusselsairlines.com from Brussels (withFlightSearch);
  * - the flight search picker's texts in the page's language from www's label state (withBookingLabels);
  * - the check-in entry becomes the booking-lookup block (withCheckinTabs), its hand-off the page
- *   on www (withCheckinHandoff); the booking login's "Enter booking code" opens the page on www;
+ *   on www (withCheckinHandoff); the quick actions' check-in panel as SWISS's check-in option with
+ *   www's link and hints (withCheckinFields); the booking login's "Enter booking code" opens the page on www;
  * - two-column teaser rows import as carousel-cards (withTeaserColumns);
  * - metadata (withItaMetadata): the root's nav and footer, `markets` (scope.json), www's noindex;
  * - links to www's DAM files become site-relative edsDamPath links (brussels-dam.mjs);
@@ -377,6 +378,36 @@ export const withCheckinHandoff = (doc, p) => doc
   // the login widget's "Enter booking code" (lh-com: its own dialog) opens the page on www
   .split('href="#booking-code"').join(`href="https://${HOST}${p}"`).replace(/<div class="booking-lookup(?: [^"]*)?">/g, (m) => (/Submit URL/.test(doc) ? m : `${m}<div><div>Submit URL</div><div>https://${HOST}${p}</div></div>`));
 
+/**
+ * The check-in form as www's (the brief after 530, item 2): www's quick actions with the Check-in panel only
+ * (online-check-in-options) are its check-in component SWISS has: a row that opens and closes on phones, the Connexion
+ * link, the booking code and the names with a hint under each. lh-com's import writes a plain booking-lookup of its
+ * fields; the booking-lookup gets SWISS's option (my-bookings, checkin) and rows of www's link (Login link, after the
+ * tab) and hints (after their labels). brussels.css draws the option as www. A snapshot without that panel, and any
+ * other booking-lookup (the manage bookings form), as they are.
+ */
+export function withCheckinFields(doc, html) {
+  if (!doc.includes('<div class="booking-lookup">')) return doc;
+  const { document } = parseHTML(html);
+  const panels = [...document.querySelectorAll('.dcep-quick-actions maui-tab-control-panel, .dcep-quick-actions [role="tabpanel"]')];
+  const panel = panels.length === 1 && panels[0].getAttribute('data-key') === 'checkIn' ? panels[0] : null;
+  if (!panel) return doc;
+  const clean = (s) => (s || '').replace(/\s+/g, ' ').trim();
+  const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+  const row = (k, v) => (v ? `<div><div>${k}</div><div>${v}</div></div>` : '');
+  const hintOf = (name) => esc(clean(panel.querySelector(`maui-input[id$="-flm-checkin-fktnCheckinRequest-${name}"]`)?.getAttribute('hint')));
+  const link = panel.querySelector('maui-navigation-link[href], a[href]');
+  const login = link && clean(link.textContent) ? `<a href="${esc(link.getAttribute('href'))}">${esc(clean(link.textContent))}</a>` : '';
+  const after = (out, key, add) => (add ? out.replace(new RegExp(`(<div><div>${key}</div><div>[^<]*</div></div>)`), (m) => `${m}${add}`) : out);
+  return editDivs(doc, '<div class="booking-lookup">', (el) => {
+    let out = el.replace('<div class="booking-lookup">', '<div class="booking-lookup my-bookings checkin">');
+    out = after(out, 'Tab', row('Login link', login));
+    out = after(out, 'Reference label', row('Reference hint', hintOf('fileKey')));
+    out = after(out, 'First name label', row('First name hint', hintOf('firstName')));
+    return after(out, 'Last name label', row('Last name hint', hintOf('lastName')));
+  });
+}
+
 // the core forms: a proposed lh-forms id per page name (brussels-<page>; lh-forms does not know
 // them yet, so the form pages stay on preview)
 // www's copies of a form under another page name: the form's id (ro/en's ask-invoice1 is the invoice
@@ -643,7 +674,7 @@ if (isMain) {
         ? spliceGalleries(doc, fs.existsSync(fleetDoc) ? fs.readFileSync(fleetDoc, 'utf8') : '') : doc;
       const snap = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       // (one h1 per document after the finder's title: withPageH1, brief 448)
-      const next = withPageH1(withSidebarSections(withItaMetadata(withCheckinHandoff(withFlightSearch(withFinderTitle(withItaForm(galleried, p, snap), p), p), p), p, snap, markets)), snap);
+      const next = withPageH1(withSidebarSections(withItaMetadata(withCheckinHandoff(withCheckinFields(withFlightSearch(withFinderTitle(withItaForm(galleried, p, snap), p), p), snap), p), p, snap, markets)), snap);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
