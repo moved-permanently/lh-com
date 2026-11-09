@@ -3163,6 +3163,42 @@ body.brand-airdolomiti main > .section.compact-title .default-content-wrapper > 
   }
 }
 
+/* the strip right after the breadcrumb (the destination hub) stays at the top as the page scrolls, as
+   www's DisplayBookingWidget (airdolomiti-parity-002, stuck and unstuck): on phones a navy band after
+   the breadcrumb, 58 px over the "Book your flight" pill and 44 under it, that sticks under the 80 px
+   header; from 1025 px fixed under the 120 px header, its trip tab row behind the header's lower 50 px
+   and the breadcrumb under it. The section's boxes join main's flow so the strip sticks past it, its
+   space to the next section the strip's own (www's h1 20 px under the band, 31 px under the fields) */
+body.brand-airdolomiti main > .section.breadcrumb-container:has(> .flight-search-wrapper > .flight-search.airdolomiti.strip) {
+  display: contents;
+}
+
+body.brand-airdolomiti main > .section > .breadcrumb-wrapper + .flight-search-wrapper:has(> .flight-search.airdolomiti.strip) {
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+  margin-bottom: 20px;
+  padding: 58px var(--layout-margin) 44px;
+  background-color: #05164d;
+}
+
+/* www's header stays at the top on these pages (its strip under it); ours hid while scrolling down */
+body.brand-airdolomiti header:has(~ main .breadcrumb-wrapper + .flight-search-wrapper > .flight-search.airdolomiti.strip) .header .nav-wrapper.is-hidden {
+  transform: none;
+}
+
+@media (width >= 1025px) {
+  body.brand-airdolomiti main > .section > .breadcrumb-wrapper + .flight-search-wrapper:has(> .flight-search.airdolomiti.strip) {
+    top: 70px;
+    margin-top: -92px;
+    margin-bottom: 34px;
+    padding: 0 var(--layout-margin);
+    background-color: #fff;
+    box-shadow: 0 0 0 100vmax #fff;
+    clip-path: inset(0 -100vmax);
+  }
+}
+
 /* stylelint-disable no-descending-specificity -- the homepage's tiles and strip (brief 482),
    after the three-up cards and the stages they leave alone */
 
