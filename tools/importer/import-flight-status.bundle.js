@@ -3265,7 +3265,9 @@ var CustomImportScript = (() => {
       aemSections.forEach((s, i) => {
         if (!i || !padded(s) || grey(s)) return;
         const before = aemSections[i - 1];
-        if (!padded(before) && (!lufthansa || isStage(s) || isStage(before) || grey(before) || loneQuote(before))) return;
+        const next = aemSections[i + 1];
+        const stageBeforePadded = isStage(s) && !!next && padded(next) && !grey(next);
+        if (!padded(before) && (!lufthansa || stageBeforePadded || isStage(before) || grey(before) || loneQuote(before))) return;
         const hr = createBreak(document);
         hr.setAttribute(SOURCE_STYLE, "padded");
         s.before(hr);
