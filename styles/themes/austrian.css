@@ -899,6 +899,12 @@ body.brand-austrian main > .section:not(.grey) > .default-content-wrapper:not(:h
   padding-top: 32px;
 }
 
+/* the brief after 521: the same 32 px where the grid opens the section after the page title's own section
+   (check-in, families: www's title to the first card 107 px at 1440, 91 at 390; ours 75 and 61) */
+body.brand-austrian main > .section:has(> .default-content-wrapper:last-child > h1:only-child) + .section:not(.grey) > .carousel-cards-wrapper:first-child:has(> .carousel-cards.grid) {
+  padding-top: 32px;
+}
+
 @media (width >= 1281px) {
   body.brand-austrian main .default-content-wrapper > h1 {
     margin-bottom: 60px;
