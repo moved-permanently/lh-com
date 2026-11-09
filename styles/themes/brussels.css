@@ -712,6 +712,23 @@ body.brand-brussels main :is(.default-content-wrapper, .columns-media-text) li >
   margin-bottom: 0;
 }
 
+/* the page title alone in its section, then a grey band (travel-insurances' residents notice): the band
+   right under the title and the text right under the band, as www (84 / 87 px at 1440; ours 161 / 136) */
+body.brand-brussels main > .section.padded:has(> .default-content-wrapper:last-child > h1:only-child):has(+ .section.grey) {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels main > .section.padded:has(> .default-content-wrapper:last-child > h1:only-child):has(+ .section.grey) {
+    margin-bottom: 12px;
+  }
+}
+
+body.brand-brussels main > .section.padded:has(> .default-content-wrapper:last-child > h1:only-child) + .section.grey {
+  margin-bottom: 0;
+}
+
 /* the heading after an accordion in its section: 41 px below the accordion from 768 px, 21 on phones, as
    www (ours the default content's 20 / 16); a spaced accordion keeps lh-com's 40 px below */
 body.brand-brussels main .accordion-columns-wrapper:not(:has(> .spaced)) + .default-content-wrapper:has(> :is(h2, h3):first-child) {
