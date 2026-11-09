@@ -23,7 +23,7 @@ https://www.brusselsairlines.com/be/fr/articles/vibrant-senegal 1440 # as the-ga
 https://www.brusselsairlines.com/be/fr/special-care/families-and-children 1440 390 # the no-break-space lines (item 4 of the brief after 521): their height on www
 # Part B (35): one page per page type (the path's first part after the root; "top" for a flat path) and template (the documents' key blocks) that has no recorded document: the en copy on the main root where published (at/en, be/en), else the first published copy.
 https://www.austrian.com/at/en/plan/special-requirements/medical-travel-companions 1440 390 # austrian: type plan, template info, 63 documents without a recording
-https://www.austrian.com/at/en/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry 1440 390 # austrian: type book, template form, 10 documents without a recording
+https://www.austrian.com/at/en/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry 1440 390 # the brief after 527 item 2, Austrian's template that decides most documents without a recording: form, 187 documents, only 11 of them copies of a recorded page (every other Austrian template has its recorded pages); settles the core form block (fields, labels, the submit row, the success text) for 176 documents
 https://www.austrian.com/at/en/book-and-manage/flights/wetlease-hub 1440 390 # austrian: type book-and-manage, template info, 10 documents without a recording
 https://www.austrian.com/at/en/fly/check-in/private-check-in-counter 1440 390 # austrian: type fly, template form, 10 documents without a recording
 https://www.austrian.com/at/en/footer-pages/help-and-contact/bagdamage 1440 390 # austrian: type footer-pages, template form, 6 documents without a recording
@@ -35,7 +35,7 @@ https://www.austrian.com/us/en/local-page/ski-campaign-2026 1440 390 # austrian:
 https://www.austrian.com/at/de/book/overview-manage/manage-my-bookings 1440 390 # austrian: type book, template checkin, 1 documents without a recording
 https://www.austrian.com/il/en/legal/cancellation-refund-via-document-upload 1440 390 # austrian: type legal, template form, 1 documents without a recording
 https://www.austrian.com/hu/en/local-page/invoice-request-hungary 1440 390 # austrian: type local-page, template form, 1 documents without a recording
-https://www.brusselsairlines.com/be/en/contact/feedback/general/other 1440 390 # brussels: type contact, template form, 66 documents without a recording
+https://www.brusselsairlines.com/be/en/contact/feedback/general/other 1440 390 # the brief after 527 item 2, Brussels' template that decides most documents without a recording: form, 101 documents, none recorded (66 contact forms); settles the form block's layout and spacing for all 101
 https://www.brusselsairlines.com/be/en/contact/feedback 1440 390 # brussels: type contact, template info, 39 documents without a recording
 https://www.brusselsairlines.com/be/en/our-company/organisation 1440 390 # brussels: type our-company, template info, 20 documents without a recording
 https://www.brusselsairlines.com/be/en/local-page/offers 1440 390 # brussels: type local-page, template info, 15 documents without a recording
