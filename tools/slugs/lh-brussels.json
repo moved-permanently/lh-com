@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "site": "lh-brussels",
+ "airline": "brussels",
+ "host": "https://www.brusselsairlines.com",
+ "sourceLanguage": "en",
+ "sourceRoot": "be/en",
+ "source": {"data":"hreflang alternates of the www.brusselsairlines.com XML sitemaps (index and child files)","sitemapFiles":205,"urlEntries":24589,"note":"www paths only; a root is a market-language folder (cc/ll)"},
+ "measured": {"groupsInData":317,"mapped":0,"deviatingGroups":0,"sanitizedOnlyGroups":2,"exceptions":{},"unlisted":{"no-source-member":20,"mergedGroups":0,"groupsWithOneSlugInAllRoots":297},"ignoredPaths":0},
+ "mirrors": {},
+ "active": {},
+ "listed": false,
+ "pairing": "measured: of 317 hreflang groups none holds a path that differs from the page's path in be/en (after the EDS name); nothing moves, no group is listed. The guard has nothing to refuse.",
+ "rootsets": [],
+ "groups": [],
+ "exceptions": []
+}

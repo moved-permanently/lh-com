@@ -78,7 +78,9 @@ test('row 21: lh-com\'s teaser CTAs keep the plain arrow when they open a new ta
 test('item 8: an icon in a default-content heading is www\'s .nav-link-list heading image (26px, 12px before the text, 2px up), every brand', () => {
   const css = read('styles/styles.css');
   const H = 'main .default-content-wrapper :is(h2, h3, h4, h5, h6)';
-  assert.match(css, new RegExp(`${esc(`${H}:has(> picture)`)} \\{ display: flex; align-items: center; \\}`));
+  // the row for a heading that opens with its picture, as the icon does (the brief after 509,
+  // Air Dolomiti row 74: test/heading-icon-first-510.test.mjs)
+  assert.match(css, new RegExp(`${esc(`${H}:has(> picture:first-child)`)} \\{ display: flex; align-items: center; \\}`));
   assert.match(css, new RegExp(`${esc(`${H} > picture`)} \\{ position: relative; bottom: 2px; flex: 0 0 auto; margin-right: 12px; \\}`));
   assert.match(css, new RegExp(`${esc(`${H} > picture img`)} \\{ display: block; width: 26px; height: 26px; \\}`));
 });

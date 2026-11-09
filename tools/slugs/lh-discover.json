@@ -1,0 +1,17 @@
+{
+ "version": 1,
+ "site": "lh-discover",
+ "airline": "discover",
+ "host": "https://www.discover-airlines.com",
+ "sourceLanguage": "en",
+ "sourceRoot": "de/en",
+ "source": {"data":"hreflang alternates of the www.discover-airlines.com XML sitemaps (index and the 9 market files), fetched 2026-10-28","sitemapFiles":10,"urlEntries":1743,"note":"www paths only; a root is a market-language folder (cc/ll)"},
+ "measured": {"groupsInData":214,"mapped":0,"deviatingGroups":0,"sanitizedOnlyGroups":1,"exceptions":{},"unlisted":{"no-source-member":22,"mergedGroups":0,"groupsWithOneSlugInAllRoots":192},"ignoredPaths":0},
+ "mirrors": {},
+ "active": {},
+ "listed": false,
+ "pairing": "measured: of 214 hreflang groups none holds a path that differs from the page's path in de/en (after the EDS name); nothing moves, no group is listed. The guard has nothing to refuse.",
+ "rootsets": [],
+ "groups": [],
+ "exceptions": []
+}

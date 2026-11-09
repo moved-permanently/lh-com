@@ -648,8 +648,11 @@ export default function parse(element, { document, url, params }) {
     // .hidden-md-down grid from 1025px, a .hidden-lg-up swiper below) with media | text items
     // (/onboard-delights Dallmayr): below 1025px the cells are slides with dots (cell-slider)
     const textItem = (it) => !!it.querySelector('.headline, .text');
+    const imageItem = (it) => !textItem(it) && !!it.querySelector('.image img');
+    // and a row of logos with carousel behaviour (meetings-and-events' partner airlines): three or
+    // more image-only items (not the app teaser's photo + QR code pair, option slider)
     if (!sliderView && view.querySelector(':scope > .carousel') && items.length > 1
-      && items.some(textItem) && items.some((it) => !textItem(it) && it.querySelector('.image img'))) {
+      && ((items.some(textItem) && items.some(imageItem)) || (items.length > 2 && items.every(imageItem)))) {
       variants.push('cell-slider');
     }
     // a column view of its own in an AEM section (.section-content > .column >

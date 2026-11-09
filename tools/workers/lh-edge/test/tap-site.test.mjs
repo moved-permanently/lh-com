@@ -51,7 +51,7 @@ test('wrangler.toml: tap.turnsthe.page is TAP, its origin lh-tap\'s aem.live, it
   assert.match(tomlVar('SITE_HOSTS'), /(^|; )tap\.turnsthe\.page=tap(;|$)/);
   assert.match(tomlVar('SITE_ORIGINS'), new RegExp(`(^|; )tap=${TAP}(;|$)`));
   assert.match(tomlVar('SITE_WWW_HOSTS'), /(^|; )tap=www\.flytap\.com(;|$)/);
-  assert.doesNotMatch(tomlVar('SITE_DESIGN_HOSTS'), /(^|; )tap=/);
+  assert.match(tomlVar('SITE_DESIGN_HOSTS'), /(^|; )tap=www\.lufthansa\.com(;|$)/);
   ['airdolomiti.turnsthe.page=airdolomiti', 'cargo.turnsthe.page=cargo', 'swiss.turnsthe.page=swiss', 'b2b.turnsthe.page=b2b'].forEach((e) => assert.ok(tomlVar('SITE_HOSTS').includes(e), e));
   const site = siteOf(new Request('https://tap.turnsthe.page/pt-pt'), env());
   assert.equal(site.name, 'tap');
@@ -59,7 +59,7 @@ test('wrangler.toml: tap.turnsthe.page is TAP, its origin lh-tap\'s aem.live, it
   assert.equal(site.plain, PLAIN_SITES.tap);
   assert.equal(site.origin, TAP);
   assert.equal(site.www, 'www.flytap.com');
-  assert.equal(site.design, '');
+  assert.equal(site.design, 'www.lufthansa.com');
 });
 
 test('/ to /pt-pt (302, the query kept), nothing fetched; HEAD too', async () => {

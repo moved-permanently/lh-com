@@ -713,6 +713,13 @@ body.brand-cargo .footer .footer-logos li:nth-child(3) {
   }
 }
 
+/* row 42 (the brief after 509): a gallery's dots onto the next line, centred, as www's inline-block
+   owl dots (one dot a picture: the industry galleries ran past the screen at 390) */
+body.brand-cargo .carousel-images .carousel-images-dots {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 /* row 14 (round 3): the story pictures (hero-card-overlay (light): on Cargo only the transport
    stories' picture modules) as www's .module--story: up to 1354 px wide in the middle, as tall as
    the picture is; the text box white at 90 %, 20 px inside (www's .story-text-background), the

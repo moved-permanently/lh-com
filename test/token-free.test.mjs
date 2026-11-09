@@ -52,7 +52,7 @@ test('theme defaults per brand and page type; every theme off (live: false) in s
   assert.deepEqual(lh.separators, { m: 60, l: 120, divider: 25 });
   assert.equal(lh.columnViews.padding, 32);
   assert.deepEqual(themeFor('lufthansa', 'article').rules, ['rule-before-info-box', 'ruled-chapters']);
-  assert.deepEqual(themeFor('lufthansa', '100-years').rules, ['sections-m']);
+  assert.deepEqual(themeFor('lufthansa', '100-years').rules, [], '/100-years: www\'s own spacing (campaign sections)');
   assert.equal(themeFor('ita').text.width, 'full');
   assert.equal(themeFor('brussels', 'service').headings.h2, 'heading-medium');
   assert.equal(themeFor('brussels', 'home').headings.h2, 'heading-medium');
@@ -97,9 +97,9 @@ test('block options, video fragments, purpose blocks, form defaults, nav roles',
   assert.deepEqual(videoFragment('/media/a.mp4#t=10'), { href: '/media/a.mp4#t=10', background: false, size: null });
   assert.deepEqual(videoFragment('/media/a.mp4'), { href: '/media/a.mp4', background: false, size: null });
   assert.deepEqual(videoFragment('/media/a.mp4#t=5&size=1920x1080'), { href: '/media/a.mp4#t=5', background: false, size: [1920, 1080] });
-  assert.deepEqual(readPurposeBlock('spacer', []), { kind: 'spacer', px: 60 });
-  assert.deepEqual(readPurposeBlock('spacer', ['l']), { kind: 'spacer', px: 120 });
-  assert.deepEqual(readPurposeBlock('divider'), { kind: 'divider', px: 25 });
+  assert.deepEqual(readPurposeBlock('spacer', []), { kind: 'spacer', px: 60, fromTablet: false });
+  assert.deepEqual(readPurposeBlock('spacer', ['l']), { kind: 'spacer', px: 120, fromTablet: false });
+  assert.deepEqual(readPurposeBlock('divider'), { kind: 'divider', px: 25, fromTablet: false });
   assert.deepEqual(readPurposeBlock('app-spacer', ['m-large', 'v2']), { kind: 'app-spacer', size: 'm-large', v2Only: true });
   assert.deepEqual(readPurposeBlock('app-text', ['small']), { kind: 'app-text', small: true });
   assert.equal(readPurposeBlock('columns'), null);
@@ -168,7 +168,7 @@ test('media.js: a link\'s #size=WxH is the video\'s size, no settings the defaul
   assert.match(header, /\|\| block\.classList\.contains\('mobile-video'\);/);
 });
 
-test('the page\'s Headings row; block options: spacing, small print, title size', () => {
+test('the page\'s Headings row; block options: spacing, small print, title size (every theme off)', () => offThemes(() => {
   const main = decorate('<div><h2>A</h2><h3>B</h3><p>Text</p><div class="columns-media space-l small-print title-compact"><div><div><h2>T</h2><p>Small</p></div></div></div></div>', { read: (n) => (n === 'headings' ? 'H3 large' : '') });
   const section = main.querySelector(':scope > div');
   assert.equal(section.querySelector(':scope > h2').className, '');
@@ -177,7 +177,7 @@ test('the page\'s Headings row; block options: spacing, small print, title size'
   assert.equal(shape(block.previousElementSibling), SEP(120));
   assert.equal(block.querySelector('p').className, 'copytext-small');
   assert.equal(block.querySelector('h2').className, 'heading-copytext-large');
-});
+}));
 
 test('captions become a figure with the image paragraph and its figcaption; "{caption}" and buttons as before', () => {
   const main = decorate(`<div><p>${PICTURE}</p><p><em>Lisbon at <strong>dusk</strong></em></p><p>${PICTURE}</p><p class="caption">Marked</p><p>${PICTURE}</p><p><em><a href="/x">More</a></em></p></div>`);

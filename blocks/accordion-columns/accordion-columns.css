@@ -28,6 +28,11 @@
   line-height: calc(24px * var(--a11y-scale, 1));
   list-style: none;
   cursor: pointer;
+
+  /* the text is a flex item that can't shrink below its longest word: a word longer than the
+     line breaks instead of widening the page (Air Dolomiti's 34px FAQ titles on German pages,
+     "Handgepäckbestimmungen", up to 105px past a 390px screen); a no-op for every word that fits */
+  overflow-wrap: anywhere;
 }
 
 .accordion-columns .accordion-columns-title::-webkit-details-marker {

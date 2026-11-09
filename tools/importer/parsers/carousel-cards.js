@@ -238,6 +238,13 @@ export default function parse(element, { document }) {
     // miles-and-more, brief after 488)
     const swiperDropped = element.matches('[data-lh-swiper-below-lg]') || !!element.querySelector('[data-lh-swiper-below-lg]');
     if (variants[0] === 'grid' && variants.length === 1 && ((hasDesktopTwin && element.querySelector('.hidden-lg-up a.teaser')) || swiperDropped || element.hasAttribute('data-import-phone-slider'))) variants.push('phone-slider');
+    // a four-column view a brand importer marked (Brussels' inflight-services, the brief after 510):
+    // phone-slider as well, four-up kept for its rows from 1025 px; unmarked ones stay grid four-up
+    else if (variants.join(' ') === 'grid four-up' && element.hasAttribute('data-import-phone-slider')) variants.push('phone-slider');
+    // its cards experience fragments (.experiencefragment > … > .aem-Grid > .teaser, miles-and-more's
+    // "This might also interest you"): each of www's slides 30px taller than its teaser, the dots that
+    // much lower (brief 506; the block's CSS per brand): option fragment-slides
+    if (variants.includes('phone-slider') && element.querySelector('.experiencefragment .teaser, .cmp-experiencefragment .teaser')) variants.push('fragment-slides');
     const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-cards', variants, cells: rows });
     element.replaceWith(...titles, block);
     return;

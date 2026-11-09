@@ -33,9 +33,11 @@ export default function parse(element, { document }) {
       captionCell = p;
     } else {
       // the slide's own text next to its image (Discover's /about-us/career values carousel:
-      // .text > .richtext, no figcaption): its paragraphs, headings and lists as the caption
-      const parts = [...slide.querySelectorAll('.richtext')]
-        .flatMap((rt) => [...rt.children])
+      // .text > .richtext, no figcaption): its paragraphs, headings and lists as the caption;
+      // with the slide's headings outside the rich text, in its order (Austrian's
+      // premium-economy-class: a headline component's h3 above each slide's text, the slide's title)
+      const parts = [...slide.querySelectorAll('.richtext > *, h1, h2, h3, h4, h5, h6')]
+        .filter((n) => n.parentElement.classList.contains('richtext') || !n.parentElement.closest('.richtext'))
         .filter((n) => /^(P|H[1-6]|UL|OL)$/.test(n.tagName) && clean(n.textContent))
         .map((n) => {
           const copy = n.cloneNode(true);

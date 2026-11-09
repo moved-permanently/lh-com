@@ -142,9 +142,11 @@ SITE_WWW_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; a
 # same release with its fonts/austrian/; www.austrian.com refuses plain requests) and Brussels (its
 # fonts/brussels/, Intelo, in the same release) and Lufthansa Group for Business (Lufthansa's fonts,
 # the Thin face of release v1.38.0 too; business.lufthansagroup.com sends its fonts without CORS) and SWISS
-# (its fonts/swiss/, CH Sans, and the culinary hub in the same release); a site without one: its
+# (its fonts/swiss/, CH Sans, and the culinary hub in the same release); Air Dolomiti and TAP too
+# (styles/fonts.css's Lufthansa files, which the fallback consent banner draws in; without the entry
+# every page there fetched them from www.lufthansa.com's absolute URL); a site without one: its
 # origin's answer
-SITE_DESIGN_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.lufthansa.com; cargo=www.lufthansa.com; brussels=www.lufthansa.com; b2b=www.lufthansa.com; swiss=www.lufthansa.com"
+SITE_DESIGN_HOSTS = "discover=www.discover-airlines.com; ita=www.ita-airways.com; austrian=www.lufthansa.com; cargo=www.lufthansa.com; brussels=www.lufthansa.com; b2b=www.lufthansa.com; swiss=www.lufthansa.com; airdolomiti=www.lufthansa.com; tap=www.lufthansa.com"
 # www's large DAM files (mp4 over 36 MB, vtt, PDFs over 20 MB) from this AEM publish tier, the only
 # source of them (src/dam-aem.js); "": off. AEM_KEEPALIVE_URLS: one GET each an hour from the
 # poller (src/aem-keepalive.js) so the sandbox doesn't hibernate; "": none

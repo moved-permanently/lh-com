@@ -480,6 +480,64 @@ export function withTeaserTexts(doc, html) {
   return { doc: isPlain ? main.innerHTML : doc.replace(/<main>[\s\S]*<\/main>/, () => `<main>${main.innerHTML}</main>`), made };
 }
 
+/**
+ * A homepage's fares conditions once, in the destination finder's Conditions row (the brief after
+ * 514; ema-cashub's sweep-swiss-cashub.md rows 10, 12, 34). The parser takes the dialog at the
+ * finder's place among the fares components that own conditions, but in the import's page the fare
+ * teasers before it are blocks already: on /us/en/homepage it took the winter sports offer's
+ * dialog, and the general conditions were nowhere on the page. The finder's own dialog, read from
+ * the untouched snapshot, fills the row where the import put another. A document imported before
+ * the footer disclaimer became a link to its dialog document (75c9418e, transformers/lufthansa-
+ * cleanup.js: the dialog's text as page text, 612 px at 390 on /de/de/homepage) loses the
+ * dialog's paragraphs from the page flow; the disclaimer's note and label stay (www shows them).
+ * Pages without the finder or its dialog as they are.
+ * @returns {{doc: string, made: number}}
+ */
+export function withFinderConditions(doc, html) {
+  const norm = (s) => (s || '').replace(/\u200B/g, '').replace(/\s+/g, ' ').trim();
+  const snap = parseHTML(html).document;
+  // the parser's rule (parsers/destination-finder.js), on the page before any parser ran
+  const owners = [...snap.querySelectorAll('.disclaimerandconditions')]
+    .map((d) => d.closest('[class*="fareteaser"].section, .section') || d)
+    .filter((o, i, all) => all.indexOf(o) === i);
+  const at = owners.findIndex((o) => o.querySelector('.dcep-fare-teaser-dynamic-evo'));
+  const dialogs = at < 0 ? [] : [...snap.querySelectorAll('maui-modal')]
+    .filter((m) => !owners[at].contains(m) && m.querySelector(':scope > .richtext') && !m.querySelector('maui-button, maui-button-link, form, input'));
+  const paras = dialogs.length ? [...dialogs[Math.min(at, dialogs.length - 1)].querySelectorAll('.richtext p, .richtext li')].filter((n) => norm(n.textContent)) : [];
+  const texts = paras.map((n) => norm(n.textContent));
+  if (!texts.length || !/class="destination-finder/.test(doc)) return { doc, made: 0 };
+  const isPlain = !/<main>/.test(doc);
+  const inner = isPlain ? doc : doc.match(/<main>([\s\S]*)<\/main>/)[1];
+  const { document } = parseHTML(`<!DOCTYPE html><html><body><main>${inner}</main></body></html>`);
+  const main = document.querySelector('main');
+  const block = main.querySelector('div.destination-finder');
+  const cell = [...block.children].find((r) => norm(r.children[0]?.textContent) === 'Conditions')?.children[1];
+  let made = 0;
+  if (cell && !texts.every((t) => norm(cell.textContent).includes(t))) {
+    // the trigger's label (its first paragraph) stays, the finder's dialog after it
+    const label = cell.firstElementChild && cell.firstElementChild.querySelector('strong, a') ? cell.firstElementChild : null;
+    cell.innerHTML = '';
+    if (label) cell.append(label);
+    paras.forEach((n) => {
+      const p = document.createElement('p');
+      p.innerHTML = n.innerHTML;
+      p.querySelectorAll('.sr-only, .visually-hidden, maui-screen-reader-label').forEach((x) => x.remove());
+      cell.append(p);
+    });
+    made += 1;
+  }
+  // the page flow after the block: no paragraph of the dialog's text (a style marker aside)
+  const flow = [...main.children].flatMap((section) => [...section.children]);
+  const copy = flow.slice(flow.indexOf(block) + 1)
+    .filter((el) => el.tagName === 'P' && texts.includes(norm(el.textContent).replace(/\s*\{[a-z0-9 -]+\}$/, '')));
+  if (copy.length) {
+    copy.forEach((el) => el.remove());
+    made += 1;
+  }
+  if (!made) return { doc, made };
+  return { doc: isPlain ? main.innerHTML : doc.replace(/<main>[\s\S]*<\/main>/, () => `<main>${main.innerHTML}</main>`), made };
+}
+
 // the core forms: a proposed lh-forms id per page name (swiss-<page>; lh-forms does not know
 // them yet, so the form pages stay on preview)
 export const formIdOf = (p) => `swiss-${p.split('/').pop().replace(/[^a-z0-9-]/gi, '-').toLowerCase()}`;
@@ -1108,8 +1166,9 @@ if (isMain) {
       const markets = scope.documents[src]?.markets || [];
       const snapHtml = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       // www's sidebar component (airem-sidebar) as the content beside a sidebar-aside section (swiss-sidebar.mjs)
+      // (the homepages' fares conditions once, in the destination finder's Conditions row: withFinderConditions)
       // (www's accordions the import wrote as text first: the sidebar's content can end with one)
-      const next = withSwissSidebar(withSwissAccordions(withTeaserTexts(withPinnedTeasers(withPlainViews(withTwoUpCards(withUspTeasers(withCardLinks(splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinFields(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), snapHtml), p, snapHtml, markets), snapHtml), snapHtml), snapHtml)), snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc;
+      const next = withSwissSidebar(withSwissAccordions(withFinderConditions(withTeaserTexts(withPinnedTeasers(withPlainViews(withTwoUpCards(withUspTeasers(withCardLinks(splitTabSections(withFlightSearchTeaser(withFlightSearchVideo(withHeroVideo(withItaMetadata(withCheckinFields(withCheckinHandoff(withFlightSearch(withPageLanguageMessages(withItaForm(doc, p, snapHtml), p), p), p), snapHtml), p, snapHtml, markets), snapHtml), snapHtml), snapHtml)), snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc, snapHtml).doc;
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);

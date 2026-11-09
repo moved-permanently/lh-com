@@ -7,10 +7,13 @@
 // with the sections whose markets leave the root's country out dropped (scripts/market-rules.js). Either way each fragment
 // block's document goes in its place, filtered for the country (fragments load in the browser), so "covered" means
 // served the same. Then looks for the texts only the www root page has (should be there) and the texts only the www
-// version page has (should not be). Requests go to our own hosts only.
+// version page has (should not be). Requests go to our own hosts only. A pair is two www paths; our replica is asked
+// where the write step puts the page (lib/replica-paths.mjs: the site's slug map's write target, the canonical path once
+// a root's flag is on; with every flag off the www path, as before).
 //
 // usage: node bin/md-replica-check.mjs --results <md-compare out dir> --fetch <fetch dir> --replica https://<host>
 //          [--profile aem-html|tap-next] [--host <www host>] [--concurrency 4] [--read root|version]
+//          [--slug-map <a copy of tools/slugs/<site>.json, e.g. with flags on>]
 // Writes <results dir>/replica.jsonl and replica.tsv: covered (>= 80 % of the root's own texts there, <= 20 % of the
 // version's), missing (< 50 % of the root's texts, >= 50 % of the version's: the replica shows the version's text),
 // partly (in between), no-text-diff (only links, media or attributes differ: check by eye), replica-404, replica-error.
@@ -20,6 +23,7 @@ import zlib from 'node:zlib';
 import { parseHTML } from 'linkedom';
 import { diffTokens } from '../lib/diff.mjs';
 import { servedView, countryOfRoot } from '../lib/served.mjs';
+import { replicaMapOf, requestsOf } from '../lib/replica-paths.mjs';
 
 const argv = process.argv.slice(2);
 const opt = (n, d) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : d);
@@ -30,6 +34,7 @@ const PROFILE = opt('profile', 'aem-html');
 const HOST = opt('host', '');
 const CONC = Number(opt('concurrency', '2'));
 const READ = opt('read', 'root');
+const SLUG_MAP = replicaMapOf(HOST, { file: opt('slug-map') });
 const { pageFacts } = await import(PROFILE === 'tap-next' ? '../lib/tap-next.mjs' : '../lib/aem-html.mjs');
 const rootStyle = PROFILE === 'tap-next' ? 'll-cc' : 'cc/ll';
 const fetched = new Map();
@@ -48,8 +53,7 @@ async function check(r) {
   const d = diffTokens(a.content, b.content);
   const rootOnly = [...new Set(texts(d.ops, '+'))];
   const versionOnly = [...new Set(texts(d.ops, '-'))];
-  const short = (p) => p.replace(/^\/content\/[^/]+\/markets/, '');
-  const rest = short(r.rootPath);
+  const [rest, versionRest] = requestsOf(r, SLUG_MAP).replica;
   const url = `${REPLICA}${rest}.plain.html`;
   // our own hosts; a failed connection is asked again twice (Node's fetch drops one now and then)
   const get = async (p) => {
@@ -65,7 +69,7 @@ async function check(r) {
   };
   let view;
   try {
-    view = await servedView({ get, rootPath: rest, versionPath: short(r.versionPath), country: countryOfRoot(r.root, rootStyle), read: READ });
+    view = await servedView({ get, rootPath: rest, versionPath: versionRest, country: countryOfRoot(r.root, rootStyle), read: READ });
   } catch (e) { return { ...r, replica: 'replica-error', url, error: String(e).slice(0, 120) }; }
   if (view.status === 404) return { ...r, replica: 'replica-404', url };
   if (view.status !== 200) return { ...r, replica: 'replica-error', url, http: view.status };
