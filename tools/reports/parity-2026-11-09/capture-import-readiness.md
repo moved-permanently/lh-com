@@ -6,6 +6,13 @@ capture is mechanical. Nothing was captured; no request to any www. Dry run: /ch
 snapshot (brief 503's swiss-snapshots, the Bengaluru promotion) with swiss-import.mjs, against DA's copy (a read of
 admin.da.live/source). Re-import lists are published as they stand (Ben's rule of today).
 
+Status at 14:20 UTC (15:20 CET): the first capture is in. swiss-snapshots-047 (41 pages) took the 40 SWISS homepages off
+the "# wait (capture)" lines: c3442453 (result-518b-swiss-homepages.md) patched 38 of them in DA from it, the footer
+note, its paragraphs and the dialog link from swiss-import.mjs and DA's copy otherwise (38 dialog documents new), uploaded
+and previewed, not published; 2 unchanged. That patch keeps DA's stage, so the Bengaluru promotion was not applied and
+the lines below for a full re-import of these homepages (the stage's video, the tiles' icons, the market importer's
+steps) apply to the next re-import from a capture, not to that job. The capture is not on this disk.
+
 ## ema-lufthansa's list (52)
 
 | Pages | Importer, template | After the capture | Known gaps | Who fixes |
