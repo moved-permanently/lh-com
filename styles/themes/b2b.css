@@ -449,6 +449,19 @@ body.brand-b2b .columns-media.stage.light .columns-media-text > p:has(> a.button
   }
 }
 
+/* a card carousel right under text in a white section: www's column view with its 4rem above it
+   (64 px from 768 px, 44 on phones; about-us, celebrating-shared-stories: ours the section's
+   24; the brief after 526, row 35); in a grey band the band's padding spaces it */
+body.brand-b2b main > .section:not(.grey) .default-content-wrapper + .carousel-cards-wrapper {
+  margin-top: 44px;
+}
+
+@media (width >= 768px) {
+  body.brand-b2b main > .section:not(.grey) .default-content-wrapper + .carousel-cards-wrapper {
+    margin-top: 64px;
+  }
+}
+
 /* the search field focused as www's (row 16, brief 421: the 390 and 1440 search-focused snapshots):
    its label floats up to the field's top edge, 12 px grey, the entry below it, the placeholder and
    the line under the field go; the focus outline stays, the keyboard's indicator */
