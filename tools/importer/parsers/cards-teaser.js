@@ -164,6 +164,10 @@ export default function parse(element, { document }) {
       return !outer || !element.contains(outer);
     });
   const cells = [];
+  // a stage teaser's "Conditions" dialog button under the tile (.stage-teaser > maui-link-button.modal-trigger;
+  // the Allegris tag pages' grey band, lh-snapshots-089): its label only, as small print after the block (the
+  // user's decision, the brief after 546: www's dialog is empty)
+  const conditions = [];
   items.forEach((item) => {
     let media = null;
     const body = [];
@@ -184,6 +188,9 @@ export default function parse(element, { document }) {
         const link = comp.querySelector('a.stage-teaser-link[href], a[href]');
         const sub = visibleText(comp.querySelector('.stage-teaser-subheadline'));
         const label = visibleText(comp.querySelector('.stage-teaser-overlay-bottom'));
+        const trigger = comp.querySelector('.stage-teaser > maui-link-button.modal-trigger');
+        const condition = trigger && visibleText(trigger);
+        if (condition) conditions.push(condition);
         if (lone) {
           if (sub) { const p = document.createElement('p'); p.textContent = sub; body.push(p); }
           if (link && (label || sub || head)) {
@@ -255,10 +262,22 @@ export default function parse(element, { document }) {
       const rows = [...block.querySelectorAll('tr')].slice(1);
       const lastRow = [...prev.querySelectorAll('tr')].pop();
       rows.forEach((r) => lastRow.parentNode.append(r));
+      conditions.forEach((t) => {
+        const p = document.createElement('p');
+        p.className = 'copytext-small';
+        p.textContent = t;
+        element.before(p);
+      });
       element.remove();
       return;
     }
   }
 
-  element.replaceWith(...titles, block);
+  const smallPrint = conditions.map((t) => {
+    const p = document.createElement('p');
+    p.className = 'copytext-small';
+    p.textContent = t;
+    return p;
+  });
+  element.replaceWith(...titles, block, ...smallPrint);
 }

@@ -1,0 +1,4 @@
+# The brief after 546, item 1: the Allegris tag page's grey band. The stage teaser's "Conditions" / "Konditionen" dialog button becomes its label as small print after the Cards Teaser (overlay), with no dialog: the user's decision, www's dialog is empty. The cards-teaser parser of this commit (test/cards-teaser-conditions-546.test.mjs). Re-import with the insights bundle of this commit, in release order. The source is lh-snapshots-089, with the rendered www HTML of these three pages. No other page of the lufthansa.com snapshots has such a trigger. Measured with the label in place on lufthansa.turnsthe.page against lh-parity-004a/b: de/de and at/de 18.8 -> 14.1 % at 390 and 24.3 -> 22.2 % at 1440; gb/en 19.8 -> 15.2 % and 23.2 -> 20.7 %. The harness re-imports, uploads and previews them; they are published in the next round (Ben's rule).
+/gb/en/articles/tags/allegris
+/de/de/articles/tags/allegris
+/at/de/articles/tags/allegris

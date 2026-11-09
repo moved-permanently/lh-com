@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-hero-banner.js
-  var import_austrian_hero_banner_exports = {};
-  __export(import_austrian_hero_banner_exports, {
-    default: () => import_austrian_hero_banner_default
+  var tmp_bundle_austrian_hero_banner_10786_exports = {};
+  __export(tmp_bundle_austrian_hero_banner_10786_exports, {
+    default: () => tmp_bundle_austrian_hero_banner_10786_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -4380,6 +4380,7 @@ var CustomImportScript = (() => {
       return !outer || !element.contains(outer);
     });
     const cells = [];
+    const conditions = [];
     items.forEach((item) => {
       let media = null;
       const body = [];
@@ -4408,6 +4409,9 @@ var CustomImportScript = (() => {
           const link = comp.querySelector("a.stage-teaser-link[href], a[href]");
           const sub = visibleText(comp.querySelector(".stage-teaser-subheadline"));
           const label = visibleText(comp.querySelector(".stage-teaser-overlay-bottom"));
+          const trigger = comp.querySelector(".stage-teaser > maui-link-button.modal-trigger");
+          const condition = trigger && visibleText(trigger);
+          if (condition) conditions.push(condition);
           if (lone) {
             if (sub) {
               const p = document.createElement("p");
@@ -4472,11 +4476,23 @@ var CustomImportScript = (() => {
         const rows = [...block.querySelectorAll("tr")].slice(1);
         const lastRow = [...prev.querySelectorAll("tr")].pop();
         rows.forEach((r) => lastRow.parentNode.append(r));
+        conditions.forEach((t) => {
+          const p = document.createElement("p");
+          p.className = "copytext-small";
+          p.textContent = t;
+          element.before(p);
+        });
         element.remove();
         return;
       }
     }
-    element.replaceWith(...titles, block);
+    const smallPrint = conditions.map((t) => {
+      const p = document.createElement("p");
+      p.className = "copytext-small";
+      p.textContent = t;
+      return p;
+    });
+    element.replaceWith(...titles, block, ...smallPrint);
   }
 
   // tools/importer/parsers/columns-media.js
@@ -8751,7 +8767,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_austrian_hero_banner_default = {
+  var tmp_bundle_austrian_hero_banner_10786_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -8791,5 +8807,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_austrian_hero_banner_exports);
+  return __toCommonJS(tmp_bundle_austrian_hero_banner_10786_exports);
 })();

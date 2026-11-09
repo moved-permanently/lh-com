@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var import_fleet_exports = {};
-  __export(import_fleet_exports, {
-    default: () => import_fleet_default
+  var tmp_bundle_fleet_10786_exports = {};
+  __export(tmp_bundle_fleet_10786_exports, {
+    default: () => tmp_bundle_fleet_10786_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -5858,7 +5858,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_fleet_default = {
+  var tmp_bundle_fleet_10786_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5898,5 +5898,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_fleet_exports);
+  return __toCommonJS(tmp_bundle_fleet_10786_exports);
 })();
