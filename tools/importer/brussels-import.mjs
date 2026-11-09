@@ -241,6 +241,13 @@ export const withTeaserColumns = (html) => editDivs(html, '<div class="twocolumn
 });
 
 /**
+ * A card teaser's link line (a.teaser.card > .teaser-link-text: "Fasten up for perks", "En savoir plus") is shown on
+ * www.brusselsairlines.com (hidden on lufthansa.com): the cards marked data-import-cta, as austrian-import.mjs does, so
+ * the carousel-cards parser adds the line as a link after the description (/be/en/jobs, connecting-africa, our-company).
+ */
+export const withTeaserCta = (html) => html.replace(/(<a\b[^>]*class="teaser card[^"]*")(?![^>]*data-import-cta)/g, '$1 data-import-cta=""');
+
+/**
  * A column view with www's carousel behaviour (<div class="carousel">: a .hidden-md-down grid and a
  * .hidden-lg-up swiper copy; /be/fr/extra-services/inflight-services' four "Autres sujets" teasers,
  * meetings-and-events' three steps): one card and dots on phones. Marked data-import-phone-slider, as
@@ -528,7 +535,7 @@ if (isMain) {
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
     // the Studio's snapshots keep www's scripts, which must not run in the import browser)
     // (the form's jQuery UI date picker, appended to the body and hidden on www, is no content)
-    const mapped = withoutLoads(withPhoneSliders(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withSidebarContent(withoutTestForms(editDivs(stripScripts(withBookingLabels(html)), '<div id="ui-datepicker-div"', () => '')))))), p)))))
+    const mapped = withoutLoads(withTeaserCta(withPhoneSliders(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withSidebarContent(withoutTestForms(editDivs(stripScripts(withBookingLabels(html)), '<div id="ui-datepicker-div"', () => '')))))), p))))))
       .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     if (/<div class="slideshow/.test(mapped)) {
