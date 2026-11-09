@@ -1150,6 +1150,13 @@ main > .section.grey.column-band {
   padding: 32px 0;
 }
 
+/* a column band before a column view: www stacks the views (the band, then the next view's 32px
+   padding), no section gap between them (/de/de/lounges: "Lounge-News", then "Zugang zu unseren
+   Lounges" 64px under the band, ours 112; brief 540) */
+body.brand-lufthansa main > .section.grey.column-band:has(+ .section.column-view) {
+  margin-bottom: 0;
+}
+
 /* what live has below a grey band instead of the section gap (importer, lufthansa-sections
    greyStyles): spaced, a grey AEM section before an unpadded one that starts with a headline or
    text: its .mb-default 2.4rem (onboard-delights band -> "Fresh on board" 32px of ink, was 56);
