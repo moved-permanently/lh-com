@@ -51,7 +51,7 @@ test('a row in a section keeps the plain block', () => {
 
 test('spacious: www\'s page-column padding and row gaps (lh-com only)', () => {
   has(/body\.brand-lufthansa \.cards-teaser\.spacious:not\(\.overlay\) > ul \{ padding-top: 20px; \}/);
-  has(/@media \(width < 768px\) \{ body\.brand-lufthansa \.cards-teaser\.spacious:not\(\.overlay, \.three-up, \.four-up\) > ul > li:nth-child\(2n \+ 3\) \{ margin-top: 66px; \} \}/, 'phones only: the grid resets the stacked margins from 768px');
+  has(/@media \(width < 768px\) \{ body\.brand-lufthansa \.cards-teaser\.spacious:not\(\.overlay, \.three-up, \.four-up\) > ul > li:nth-child\(2n \+ 3\) \{ margin-top: 66px; \}/, 'phones only: the grid resets the stacked margins from 768px (brief 544: the digital-assistant pages\' 41px follow in the same block)');
   has(/body\.brand-lufthansa \.cards-teaser-wrapper \+ \.cards-teaser-wrapper > \.cards-teaser\.spacious \{ margin-top: 42px; \}/, 'a grid after a grid: www\'s 40 px, not the sections\' 91');
   has(/@media \(width >= 768px\) \{[^@]*body\.brand-lufthansa \.cards-teaser-wrapper \+ \.cards-teaser-wrapper > \.cards-teaser\.spacious \{ margin-top: 82px; \}/);
   // the grid's section when nothing but empty sections follow (DA's trailing <div></div>), whose

@@ -171,6 +171,13 @@ body.brand-lufthansa .cards-teaser-wrapper + .cards-teaser-wrapper > .cards-teas
   body.brand-lufthansa .cards-teaser.spacious:not(.overlay, .three-up, .four-up) > ul > li:nth-child(2n + 3) {
     margin-top: 66px;
   }
+
+  /* pages with the digital assistant (Theme digital-assistant): 45px from the link to the next
+     row's picture on www, as within a row (overview-travel-information at 390, lh-parity-005 and
+     -002; brief 544) */
+  body.brand-lufthansa.digital-assistant .cards-teaser.spacious:not(.overlay, .three-up, .four-up) > ul > li:nth-child(2n + 3) {
+    margin-top: 41px;
+  }
 }
 
 body.brand-lufthansa .cards-teaser-wrapper + .cards-teaser-wrapper > .cards-teaser.spacious {
