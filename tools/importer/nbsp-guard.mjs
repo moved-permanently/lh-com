@@ -40,3 +40,50 @@ export function withRestoredNbsp(files, fs) {
   });
   return files;
 }
+
+// www's empty line: a paragraph whose text is only no-break spaces (with or without <br>); in a tab or accordion
+// panel it shows nothing at 1440 (the brief after 530: business, gesundes-reisen), elsewhere a line of the brand's size
+const EMPTY_LINE = /<p(?:\s[^>]*)?>((?:\s|&nbsp;|&#160;|&#xa0;|\u00a0|<br\s*\/?>)*)<\/p>/gi;
+const HAS_NBSP = /&nbsp;|&#160;|&#xa0;|\u00a0/i;
+const IN_PANEL = '.accordion, .accordionitem, maui-collapsible-item, maui-tab-control-panel-responsive, .tabs, header, footer, nav';
+const emptyLine = (p) => [...p.children].every((c) => c.tagName === 'BR') && (p.textContent || '').includes('\u00a0') && NBSP_BLANK.test(p.textContent || '');
+
+/**
+ * The snapshot with each run of n visible empty lines as one spacing marker {spacer-(n x size)} (the brief after 530,
+ * item 1): the marker the collapse turns into a Spacer block, where the framework would drop the empty paragraph. String
+ * based (the rest of the snapshot byte for byte); parse (linkedom's parseHTML) tells which empty lines are in a panel. A
+ * snapshot whose paragraphs the parse and the string do not count alike comes back unchanged.
+ */
+export function emptyLineSpacers(html, { parse, size }) {
+  const matches = [...html.matchAll(EMPTY_LINE)].filter((m) => HAS_NBSP.test(m[1]));
+  if (!matches.length) return html;
+  const { document } = parse(html);
+  const lines = [...document.querySelectorAll('p')].filter(emptyLine);
+  if (lines.length !== matches.length) return html;
+  const visible = lines.map((p) => !p.closest(IN_PANEL));
+  let out = '';
+  let at = 0;
+  let run = null;
+  const flush = () => {
+    if (!run) return;
+    out += `<p>{spacer-${run.n * size}}</p>`;
+    at = run.end;
+    run = null;
+  };
+  matches.forEach((m, i) => {
+    if (!visible[i]) {
+      flush();
+      return;
+    }
+    if (run && !html.slice(run.end, m.index).trim()) {
+      run.n += 1;
+      run.end = m.index + m[0].length;
+      return;
+    }
+    flush();
+    out += html.slice(at, m.index);
+    run = { n: 1, end: m.index + m[0].length };
+  });
+  flush();
+  return out + html.slice(at);
+}

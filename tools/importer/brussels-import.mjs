@@ -48,7 +48,7 @@ import { withShareImage } from './brussels-share-image.mjs';
 import { stripScripts } from './excat-plugin.mjs';
 import { withHiddenH1 } from './discover-import.mjs';
 import collapseDocs from './collapse-docs.mjs';
-import { withRestoredNbsp } from './nbsp-guard.mjs';
+import { withRestoredNbsp, emptyLineSpacers } from './nbsp-guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -225,6 +225,10 @@ export function spliceGalleries(doc, fleetDoc) {
  * ".tabs:has(.checkinpassengerreceiptentry)" into the booking-lookup block). Only the entry's
  * markup changes (a wrapper div), the rest of the snapshot stays as captured.
  */
+// www's visible empty lines (<p>&nbsp;</p>, about 40 px each on www) as the spacing marker the collapse turns into a
+// Spacer block (the brief after 530, item 1; nbsp-guard.mjs emptyLineSpacers)
+export const withEmptyLineSpacers = (html) => emptyLineSpacers(html, { parse: parseHTML, size: 40 });
+
 export function withCheckinTabs(html) {
   if (/class="tabs[ "][^>]*>\s*<div class="checkinpassengerreceiptentry/.test(html)) return html;
   return editDivs(html, '<div class="checkinpassengerreceiptentry', (el) => `<div class="tabs section">${el}</div>`);
@@ -546,7 +550,7 @@ if (isMain) {
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
     // the Studio's snapshots keep www's scripts, which must not run in the import browser)
     // (the form's jQuery UI date picker, appended to the body and hidden on www, is no content)
-    const mapped = withoutLoads(withTeaserCta(withPhoneSliders(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withFactColumns(withSidebarContent(withoutTestForms(editDivs(stripScripts(withBookingLabels(html)), '<div id="ui-datepicker-div"', () => ''))))))), p))))))
+    const mapped = withEmptyLineSpacers(withoutLoads(withTeaserCta(withPhoneSliders(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withFactColumns(withSidebarContent(withoutTestForms(editDivs(stripScripts(withBookingLabels(html)), '<div id="ui-datepicker-div"', () => ''))))))), p)))))))
       .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     if (/<div class="slideshow/.test(mapped)) {
