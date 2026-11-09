@@ -268,6 +268,14 @@
   cursor: pointer;
 }
 
+/* an option's label shrinks with its line and breaks a word longer than the line instead of
+   widening the page (Discover's firearm forms: "Einzellader/Repetierbüchse/...", 65 px past the
+   screen at 390; the brief after 509); a no-op for every word that fits */
+.form .form-option-label {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
 .form .form-field-checkbox .form-control,
 .form input[type="radio"],
 .form input[type="checkbox"] {

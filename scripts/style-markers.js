@@ -157,12 +157,17 @@ const BASE_THEME = {
 
 export const THEMES = {
   lufthansa: {
+    // the column view carrier: a section of its own per www column view (the collapse writes it
+    // from the column marks, ema-adobe's hub transformer on import; styles.css "the column view
+    // carrier")
+    columnViews: { carrier: 'column-view' },
     pageTypes: {
       // Insights articles: a rule above an info box (Columns Media) after any content but a
       // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
       article: { rules: ['rule-before-info-box', 'ruled-chapters'] },
-      // /100-years: its sections 60px apart
-      '100-years': { rules: ['sections-m'] },
+      // /100-years: no rule of its own (it had sections 60px apart, sections-m; its documents are
+      // campaign pages whose sections carry www's own spacing: +9 % on /de/en/100-years with it,
+      // lh-com-pass-check.md, ema-adobe's handover item 2)
       // Insights tag pages (/articles/tags/…): the rule above an info box after any content but a
       // heading, as on articles (www: 417 of 505 such Columns Media; the others without)
       'insights-tag': { rules: ['rule-before-info-box'] },
@@ -192,6 +197,8 @@ export const THEMES = {
       flow: { headings: { h3: 'heading-small' }, columnViews: { blocks: ['columns-media', 'carousel-images', 'quote'], endEdge: true } },
     },
   },
+  // Air Dolomiti: the base theme (between B2B's and TAP's entries, next to no switch line)
+  airdolomiti: {},
   // TAP: the base theme (an entry of its own, so its switch is one line as every brand's)
   tap: {},
   // Lufthansa Cargo: the base theme
@@ -271,6 +278,9 @@ export const SECTION_STYLES = {
   narrow: { quote: 'narrow' },
   // the Lufthansa section padding (20 px, 40 px from 768 px) above and below
   padded: {},
+  // one www column view (lufthansa.com: 32 px above and below, its headings two thirds wide;
+  // styles.css)
+  'column-view': {},
 };
 
 // the section styles' friendly labels (the DA library's Style choices: "Label=value")
@@ -289,6 +299,7 @@ export const SECTION_STYLE_LABELS = {
   parallax: 'Parallax image',
   narrow: 'Narrow quote',
   padded: 'Padded',
+  'column-view': 'Column view',
 };
 
 /**
@@ -465,8 +476,9 @@ export const APP_SPACER_SIZES = ['x-small', 'small', 'medium', 'm-large', 'large
 export function readPurposeBlock(name, options = []) {
   const opts = [...options].map((o) => String(o).toLowerCase());
   switch (String(name || '').toLowerCase()) {
-    case 'spacer': return { kind: 'spacer', px: opts.includes('l') ? SPACE.l : SPACE.m };
-    case 'divider': return { kind: 'divider', px: DIVIDER_SPACE };
+    // option from-768: the space from 768px only, none on phones (as "{spacer-60 from-768}")
+    case 'spacer': return { kind: 'spacer', px: opts.includes('l') ? SPACE.l : SPACE.m, fromTablet: opts.includes('from-768') };
+    case 'divider': return { kind: 'divider', px: DIVIDER_SPACE, fromTablet: opts.includes('from-768') };
     case 'app-spacer': return {
       kind: 'app-spacer', size: APP_SPACER_SIZES.find((s) => opts.includes(s)) || 'medium', v2Only: opts.includes('v2'),
     };

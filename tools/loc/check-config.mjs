@@ -13,7 +13,11 @@
  * - globalSourceChecks: the same for the global source's rows (/gc/en, /gc/de; README "Global
  *   source (/gc)"), with the app's Sync, translate and rollout path functions.
  * The checks follow the translate.json's rows (setup-lib.mjs): today's or the gc ones.
- * Usage: node tools/loc/check-config.mjs [--config <file>|da] [--page /de/en/feedback-past-flight ...]
+ * --site <site> (default lh-com, tools/loc/sites.mjs): another airline's tools/loc/sites/<site>/translate.json, with checks
+ * derived from its own languages rows (siteChecks): the source root, where each translation lands, the roots a project
+ * refuses, the Sync hazard of a market root; report tools/reports/slugs/loc-config-check-<site>.md. DNT samples are read
+ * from DA (DA_TOKEN) when there is no local copy.
+ * Usage: node tools/loc/check-config.mjs [--site <site>] [--config <file>|da] [--page /de/en/feedback-past-flight ...]
  * Exit 1 when a check fails. Report: tools/reports/loc-config-check.md (today's rows),
  * tools/reports/loc-config-check-gc.md (the gc rows)
  */
@@ -23,6 +27,9 @@ import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import { loadApp, DA_NX_COMMIT } from './da-nx.mjs';
 import { locSetup, readConfig } from './setup-lib.mjs';
+import {
+  siteInfo, isDefaultSite, siteFromArgv, daBase, ORG,
+} from './sites.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -30,7 +37,7 @@ const lines = [];
 let failed = 0;
 const check = (name, ok, detail = '') => {
   if (!ok) failed += 1;
-  lines.push(`- ${ok ? 'OK  ' : 'FAIL'} ${name}${detail ? `: ${detail}` : ''}`);
+  lines.push(`- ${ok === 'skip' ? 'SKIP' : (ok ? 'OK  ' : 'FAIL')} ${name}${detail ? `: ${detail}` : ''}`);
 };
 
 /** The cells of a block that stay translatable after addDnt: [{row, col, text}]. */
@@ -201,6 +208,88 @@ export function globalSourceChecks(app, config) {
   }
 }
 
+/**
+ * The rows of a site other than lh-com (tools/loc/sites/<site>/translate.json): language roots, English the source,
+ * every other row a translation from it, no rollout (option B: the roots hold full copies of their own). Every check
+ * is derived from the rows themselves, with the app's own functions (formatConfig, formatLangs, getProjectSource,
+ * filterLangsBySource, finalizeOptions, getSourceLocations, getProjectBasePath, getSaveDestPath, getSyncUrls).
+ * [{name, ok, detail}]
+ * @param {Object} app the app's modules (loadApp)
+ * @param {Object} config the site's translate.json
+ * @param {string} site `lh-austrian`, ...
+ */
+export function siteChecks(app, config, site) {
+  try {
+    return siteChecksOf(app, config, site);
+  } catch (e) {
+    // rows that are no setup of this site leave the app's functions without what they read: a failed check, not a crash
+    return [{ name: 'the rows as the app reads them', ok: false, detail: e.message }];
+  }
+}
+
+function siteChecksOf(app, config, site) {
+  const out = [];
+  const add = (name, ok, detail = '') => out.push({ name, ok: Boolean(ok), detail });
+  const info = siteInfo(site);
+  const setup = locSetup(config);
+  const { options: opts, config: conf } = app.options.formatConfig(config);
+  const srcRow = setup.rows.find((r) => r.name === 'English' && !r.source) || setup.rows.find((r) => !r.source);
+  const src = `/${srcRow.location}`;
+  const translations = setup.translations.map((t) => ({ ...t, to: `/${t.to}` }));
+  add('source.language.detect is read and on (isSourceDetectEnabled, da-nx #793 + #870, release 1.29.1)', app.utils.isSourceDetectEnabled(conf['source.language.detect']), String(conf['source.language.detect']));
+  add(`source.language -> the English row at ${src} (every project's default source)`, JSON.stringify(opts['source.language']) === JSON.stringify({ name: 'English', code: 'en', location: src }), JSON.stringify(opts['source.language']));
+  add('the source row has no source of its own and no rollout locale; every other row is a translation from it', setup.rows.filter((r) => r !== srcRow).every((r) => r.source === setup.source && r.actions.includes('translate')) && srcRow.locales.length === 0, JSON.stringify(setup.rows.map((r) => [r.code, r.source, r.location, r.locales])));
+  add('no rollout rows or locales (option B: every language root holds a full copy; lh-edge serves the market roots)', setup.rows.every((r) => !r.actions.includes('rollout') && r.locales.length === 0), JSON.stringify(Object.entries(setup.pairs)));
+  add('every location is a root of its own (no root inside another)', setup.rows.every((a) => setup.rows.every((b) => a === b || !`/${a.location}/`.startsWith(`/${b.location}/`))), setup.rows.map((r) => r.location).join(', '));
+
+  const langsOf = () => app.options.formatLangs(structuredClone(config.languages.data), conf);
+  const all = langsOf();
+  const acts = (l) => l.orderedActions.map((a) => a.value).join('|');
+  add('Skip is the first action of every row (a new project preselects it); the source row has Skip only, the others Skip|Translate', all.every((l) => l.orderedActions[0].value === 'skip' && l.activeAction.value === 'skip')
+    && acts(all.find((l) => l.location === src) || all[0]) === 'skip' && all.filter((l) => l.location !== src).every((l) => acts(l) === 'skip|translate'), all.map((l) => `${l.code}:${acts(l)}`).join(' '));
+  add('unique codes (options.js matches languages by code); no waiting languages (no "source language" column)', new Set(all.map((l) => l.code)).size === all.length && all.every((l) => !l.waitingFor), all.map((l) => l.code).join(','));
+
+  const project = projectView(app, config);
+  const langActs = (langs) => langs.map((l) => `${l.name}:${acts(l)}`).join(', ');
+  const sourceLocations = (p) => app.utils.getSourceLocations({ options: { 'source.language': { location: p.detected ? p.sourceLang.location : opts['source.language'].location } }, langs: config.languages.data });
+  const sample = '/zz-check-page';
+  const en = project([`${src}${sample}`, `${src}${sample}-2`]);
+  const wanted = translations.map((t) => `${setup.rows.find((r) => r.code === t.code).name}:skip|translate`).join(', ');
+  add(`${src} URLs: source ${src} (resolveSourceLang), every other row Skip|Translate`, en.detected && en.sourceLang?.location === src && langActs(en.langs) === wanted, `${en.sourceLang?.location}; ${langActs(en.langs)}`);
+
+  // each translation: where the app writes it (views/translate/index.js getSaveDestPath) and the view a project goes to
+  const enLocs = sourceLocations(en);
+  const basePath = app.utils.getProjectBasePath({ path: `${src}${sample}`, defaultLocation: src, sourceLocations: enLocs });
+  translations.forEach((t) => {
+    const lang = en.langs.find((l) => l.code === t.code);
+    const dest = app.translate.getSaveDestPath({ url: { suppliedPath: `${src}${sample}`, basePath }, lang, sourceLocations: enLocs });
+    add(`translate ${src}${sample} into ${lang.name} -> ${t.to}${sample}.html (getSaveDestPath: the same slug, only the root changes)`, dest === `${t.to}${sample}.html`, dest);
+  });
+  const pickTr = en.langs.map((l) => ({ ...l, activeAction: { value: 'translate' } }));
+  const fin = app.options.finalizeOptions(conf, en.options, pickTr, [{ suppliedPath: `${src}${sample}` }], enLocs);
+  add(`${src} URLs with every translation set -> translate view`, fin.view === 'translate', fin.view);
+
+  // other roots of the setup: a translated root is a source of nothing (no rollout row), a mix of roots is refused with the URL to uncheck
+  const first = translations[0];
+  if (first) {
+    const tr = project([`${first.to}${sample}`]);
+    add(`${first.to} URLs: the app finds the source ${first.to} and offers no action (no translation starts there, no rollout is set up)`, tr.detected && tr.sourceLang?.location === first.to && tr.langs.length === 0, `${tr.sourceLang?.location}; ${langActs(tr.langs) || 'no rows'}`);
+    const mixed = project([`${src}${sample}`, `${first.to}${sample}`]);
+    add(`mixed ${src} and ${first.to} URLs: refused, the message names the URL to uncheck`, Boolean(mixed.error) && mixed.error.includes(`${first.to}${sample}`) && mixed.error.includes('more than one source root'), mixed.error);
+  }
+
+  // the hazard: a market root's URLs match no source root, the project goes to Sync, which copies them under the default source with their full path
+  const marketUrl = `${info.market}${sample}`;
+  const market = project([marketUrl]);
+  const mLocs = sourceLocations(market);
+  const marketLangs = market.langs.filter((l) => l.code !== 'en').slice(0, 1).map((l) => ({ ...l, activeAction: { value: 'translate' } }));
+  const view = app.options.finalizeOptions(conf, market.options, marketLangs, [{ suppliedPath: marketUrl }], mLocs).view;
+  const synced = app.sync.getSyncUrls(ORG, site, market.options['source.language'].location, [{ suppliedPath: marketUrl }], undefined, mLocs);
+  const dests = synced.map((u) => u.destination.replace(`/${ORG}/${site}`, '')).join(', ');
+  add(`${marketUrl} matches no source root: Sync copies it into ${src}${marketUrl}.html: never put market URLs in a project`, !market.detected && !market.error && view === 'sync' && dests === `${src}${marketUrl}.html`, `detected ${market.detected}; view ${view}; ${dests}`);
+  return out;
+}
+
 /** Today's rows (/de/en source): source language, actions, locales, views and paths. */
 function todayChecks(app, config, options, conf) {
   check('source.language -> the English row', JSON.stringify(options['source.language']) === JSON.stringify({ name: 'English', code: 'en', location: '/de/en' }), JSON.stringify(options['source.language']));
@@ -241,7 +330,7 @@ function todayChecks(app, config, options, conf) {
 const dntRows = [];
 
 /** DNT: the rules on small tables, and what reaches the translation service on lh-com pages. */
-async function dntChecks(app, config, pages) {
+async function dntChecks(app, config, pages, site = 'lh-com') {
   // DNT rules on small tables (decorateTable, dnt/decorateTable.js): every rule shape the config uses
   const synthetic = [
     ['poi-map', [['Casa Bacardi', '39.93, 116.45', '<a href="x">More Information</a>'], ['Caption', 'A caption, with a comma'], ['Source', 'abc=='], ['Zoom in label', 'Zoom in']],
@@ -264,12 +353,40 @@ async function dntChecks(app, config, pages) {
     check(`rules on a ${block} table`, JSON.stringify(got) === JSON.stringify(expected), `${got.join(' | ')} (expected ${expected.join(' | ')})`);
   }
 
+  // another site's own blocks (the rules beyond lh-com's): a key | value table per block, the rules read from the config itself
+  if (!isDefaultSite(site)) {
+    const base = JSON.parse(fs.readFileSync(path.join(root, siteInfo('lh-com').config), 'utf8'))['custom-doc-rules'].data;
+    const baseKey = (r) => `${r.block}|${r.rule}`;
+    const extra = config['custom-doc-rules'].data.filter((r) => !base.some((b) => baseKey(b) === baseKey(r)));
+    const blocks = [...new Set(extra.flatMap((r) => r.block.split(',').map((b) => b.trim())))];
+    for (const block of blocks) {
+      const mine = config['custom-doc-rules'].data.filter((r) => r.block.split(',').map((b) => b.trim()).includes(block));
+      const dnt1 = mine.some((r) => r.rule.trim() === 'dnt col 1');
+      const keys2 = mine.flatMap((r) => (/^dnt col 2 if col 1 is /.test(r.rule) ? [...r.rule.matchAll(/"([^"]+)"/g)].map((m) => m[1].toLowerCase()) : []));
+      const rows = [...keys2.slice(0, 2).map((k) => [k, 'an address or an id']), ['Some label', 'A text for the visitor']];
+      const html = `<html><body><main><div><div class="${block}">${rows.map((r) => `<div>${r.map((x) => `<div>${x}</div>`).join('')}</div>`).join('')}</div></div></main></body></html>`;
+      const { document } = parseHTML(await app.dnt.addDnt(html, config)); // eslint-disable-line no-await-in-loop
+      const t = document.querySelector(`.${block}`);
+      // a row with both cells not translated is marked as a whole (decorateTable)
+      const got = [...t.children].map((r) => (r.getAttribute('translate') === 'no' ? 'ROW' : [...r.children].map((cell) => (cell.getAttribute('translate') === 'no' ? 'no' : 'tr')).join('/')));
+      const expected = rows.map(([k]) => (dnt1 && keys2.includes(k) ? 'ROW' : `${dnt1 ? 'no' : 'tr'}/${keys2.includes(k) ? 'no' : 'tr'}`));
+      check(`rules on a ${block} table (the site's own block)`, JSON.stringify(got) === JSON.stringify(expected), `${got.join(' | ')} (expected ${expected.join(' | ')})`);
+    }
+  }
+
   // DNT on real pages: what reaches the translation service
-  const samples = pages.length ? pages : ['/de/en/feedback-past-flight', '/de/en/timetable-and-flight-status', '/de/en/homepage', '/de/en/articles/explore-the-world/a-perfect-day-beijing-in-one-day', '/de/en/320', '/de/en/flights', '/de/en/online-check-in', '/de/en/food-and-beverages', '/de/en/32n', '/de/en/articles/explore-the-world'];
+  const own = !isDefaultSite(site);
+  const samples = pages.length ? pages : (own ? (siteInfo(site).samples || []) : ['/de/en/feedback-past-flight', '/de/en/timetable-and-flight-status', '/de/en/homepage', '/de/en/articles/explore-the-world/a-perfect-day-beijing-in-one-day', '/de/en/320', '/de/en/flights', '/de/en/online-check-in', '/de/en/food-and-beverages', '/de/en/32n', '/de/en/articles/explore-the-world']);
   for (const p of samples) {
     const file = path.join(root, 'content', `${p}.plain.html`);
-    if (!fs.existsSync(file)) { check(`DNT sample ${p}`, false, 'no local copy'); continue; } // eslint-disable-line no-continue
-    const html = `<html><body><header></header><main>${fs.readFileSync(file, 'utf8')}</main><footer></footer></body></html>`;
+    let html;
+    if (fs.existsSync(file)) html = `<html><body><header></header><main>${fs.readFileSync(file, 'utf8')}</main><footer></footer></body></html>`;
+    else if (own) {
+      // another site: the page's DA source, as the app feeds it to addDnt (a read; DA_TOKEN)
+      const r = await fetch(`${daBase(site)}${p}.html`, { headers: process.env.DA_TOKEN ? { authorization: `Bearer ${process.env.DA_TOKEN}` } : {} }); // eslint-disable-line no-await-in-loop
+      if (!r.ok) { check(`DNT sample ${p}`, r.status === 404 || r.status === 401 || r.status === 403 ? 'skip' : false, `DA ${r.status}: not checked`); continue; } // eslint-disable-line no-continue
+      html = await r.text(); // eslint-disable-line no-await-in-loop
+    } else { check(`DNT sample ${p}`, false, 'no local copy'); continue; } // eslint-disable-line no-continue
     // eslint-disable-next-line no-await-in-loop
     const out = await app.dnt.addDnt(html, config);
     const { document } = parseHTML(out);
@@ -293,21 +410,25 @@ async function dntChecks(app, config, pages) {
 }
 
 /** The report of the run (today's rows or the gc ones): {failed, lines}. */
-function report(which, global) {
-  const out = [`# translate.json against the localisation app (adobe/da-nx ${DA_NX_COMMIT.slice(0, 8)})`, '', new Date().toISOString(), '',
-    `translate.json: ${which === 'repo' ? 'tools/loc/translate.json' : which} (${global ? 'the global source\'s rows: /gc/en, /gc/de' : 'today\'s rows: /de/en, /de/de'}).`, '',
+function report(which, global, site = 'lh-com', setup = null) {
+  const own = !isDefaultSite(site);
+  const rowsText = own ? `the language roots of ${site}: ${setup.rows.map((r) => `/${r.location}`).join(', ')}` : (global ? 'the global source\'s rows: /gc/en, /gc/de' : 'today\'s rows: /de/en, /de/de');
+  const out = [`# translate.json against the localisation app (adobe/da-nx ${DA_NX_COMMIT.slice(0, 8)})${own ? `, site ${site}` : ''}`, '', new Date().toISOString(), '',
+    `translate.json: ${which === 'repo' ? siteInfo(site).config : which} (${rowsText}).`, '',
     `${failed ? `${failed} checks failed` : 'All checks pass'}.`, '', ...lines, '',
     '## What reaches the translation service (addDnt on lh-com pages)', '', 'row/col and text of the cells that stay translatable, per block (other blocks: everything but the block name is translated)', '',
     '| page | block | translatable cells |', '|---|---|---|', ...dntRows, ''];
-  fs.mkdirSync(path.join(root, 'tools/reports'), { recursive: true });
-  fs.writeFileSync(path.join(root, `tools/reports/loc-config-check${global ? '-gc' : ''}.md`), out.join('\n'));
+  const dir = own ? 'tools/reports/slugs' : 'tools/reports';
+  fs.mkdirSync(path.join(root, dir), { recursive: true });
+  fs.writeFileSync(path.join(root, dir, `loc-config-check${own ? `-${site}` : (global ? '-gc' : '')}.md`), out.join('\n'));
   return { failed, lines };
 }
 
-export async function run({ pages = [], which = 'repo' } = {}) {
+export async function run({ pages = [], which = 'repo', site = 'lh-com' } = {}) {
   const app = await loadApp();
-  const config = await readConfig(which);
-  const { global } = locSetup(config);
+  const config = await readConfig(which, { site });
+  const setup = locSetup(config);
+  const { global } = setup;
 
   // the sheet: every :names entry exists, totals match
   config[':names'].forEach((n) => check(`sheet ${n}`, Array.isArray(config[n]?.data) && config[n].total === config[n].data.length, `${config[n]?.data?.length} rows, total ${config[n]?.total}`));
@@ -317,17 +438,18 @@ export async function run({ pages = [], which = 'repo' } = {}) {
   ['translate', 'rollout', 'copy', 'sync'].forEach((k) => check(`${k}.conflict.behavior default`, options[`${k}.conflict.behavior`] === 'merge', options[`${k}.conflict.behavior`]));
   check('service', conf.service.name === 'Google' && options['translation.service.all.env'] === 'prod' && conf.service.envs.prod.origin === 'https://translate.da.live/google', JSON.stringify(conf.service));
   // the global source: its own checks of the rows (sources, rollouts, the Sync hazard)
-  if (global) globalSourceChecks(app, config).forEach((c) => check(c.name, c.ok, c.ok ? '' : c.detail));
+  if (!isDefaultSite(site)) siteChecks(app, config, site).forEach((c) => check(c.name, c.ok, c.detail));
+  else if (global) globalSourceChecks(app, config).forEach((c) => check(c.name, c.ok, c.ok ? '' : c.detail));
   else todayChecks(app, config, options, conf);
-  await dntChecks(app, config, pages);
-  return report(which, global);
+  await dntChecks(app, config, pages, site);
+  return report(which, global, site, setup);
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
   const argv = process.argv.slice(2);
   const pages = argv.flatMap((a, i) => (a === '--page' ? [argv[i + 1]] : []));
   const which = argv.includes('--config') ? argv[argv.indexOf('--config') + 1] : 'repo';
-  const { failed: n } = await run({ pages, which });
+  const { failed: n } = await run({ pages, which, site: siteFromArgv(argv) });
   console.log(lines.join('\n'));
   process.exitCode = n ? 1 : 0;
 }

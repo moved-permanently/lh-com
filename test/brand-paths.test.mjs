@@ -46,7 +46,9 @@ test('the fallback banner\'s privacy links: the brand\'s www pages; lh-com\'s as
   // Cargo (brief 422): its own pages on the site (German: its imprint, the English pages it lacks)
   assert.deepEqual(onPage({ brand: 'cargo' }, () => bannerLinks('en')).map(([, h]) => h), ['/en/data-protection', '/en/cookie-information', '/en/footer/bottomnav/imprint']);
   assert.deepEqual(onPage({ brand: 'cargo' }, () => bannerLinks('de')).map(([, h]) => h), ['/en/data-protection', '/en/cookie-information', '/de/footer/bottomnav/imprint']);
-  assert.deepEqual(onPage({ brand: 'airdolomiti' }, () => bannerLinks('en')), lhEn, 'a brand without its own: as before');
+  // Air Dolomiti (the brief after 509): its own privacy and cookie pages, no imprint
+  assert.deepEqual(onPage({ brand: 'airdolomiti' }, () => bannerLinks('en')).map(([, h]) => h), ['/en/legal-info/privacy-policy', 'https://www.privacylab.it/informativa.php?21671464204&lang=en']);
+  assert.deepEqual(onPage({ brand: 'tap' }, () => bannerLinks('en')), lhEn, 'a brand without its own: as before');
 });
 
 test('the data layer\'s title: without " | <brand>"; lh-com\'s as before', () => {

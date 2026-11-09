@@ -32,7 +32,9 @@ test('initConsent: the stub carries the brand\'s OneTrust id', async () => {
   assert.equal(ita.stub.dataset.domainScript, '01994cb4-04ea-768d-baf8-f6ed09be97dd');
 });
 
-test('initConsent: Air Dolomiti (no consent tool on its www) shows no banner, not Lufthansa\'s', async () => {
+// Air Dolomiti has no OneTrust (its www runs PrivacyLab): never Lufthansa's stub; since the
+// brief after 509 its fallback banner and preferences (test/airdolomiti-consent-510.test.mjs)
+test('initConsent: Air Dolomiti loads no OneTrust stub, not Lufthansa\'s', async () => {
   assert.equal(oneTrustId(meta({ brand: 'airdolomiti' })), '');
   const { stub, events } = await consentOn('airdolomiti');
   assert.equal(stub, null);

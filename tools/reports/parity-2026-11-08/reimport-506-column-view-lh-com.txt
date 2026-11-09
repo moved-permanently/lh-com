@@ -1,0 +1,13 @@
+# Brief 506 item 1: the hub documents with column marks, which the column view carrier (hub-column-views writes a section style column-view per view) changes, in release order: miles-and-more (the measured page, 14.6 / 11.9 % collapsed), meetings-and-events, digital-self-services. Import with main's hub bundle (the marks stay: today's rendering is unchanged, the carrier takes over after the collapse). Flights (de/en, de/de: one view each) gets the same once the harness imports it (held, brief 506 item 5).
+/de/en/miles-and-more
+/de/de/miles-and-more
+/at/de/miles-and-more
+/gb/en/miles-and-more
+/xx/es/miles-and-more
+/xx/fr/miles-and-more
+/de/en/meetings-and-events
+/de/de/meetings-and-events
+/at/de/meetings-and-events
+/gb/en/meetings-and-events
+/de/en/digital-self-services
+/de/de/digital-self-services

@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-hub.js
-  var tmp_bundle_hub_1320329_exports = {};
-  __export(tmp_bundle_hub_1320329_exports, {
-    default: () => tmp_bundle_hub_1320329_default
+  var tmp_bundle_hub_1604859_exports = {};
+  __export(tmp_bundle_hub_1604859_exports, {
+    default: () => tmp_bundle_hub_1604859_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -1124,8 +1124,8 @@ var CustomImportScript = (() => {
         image: ["image/jpeg", "image/jpg", "image/png"]
       };
       const types = [...new Set(attr(first, "accept").split(",").flatMap((t) => TYPES[t.trim().toLowerCase()] || []))];
-      const order = ["application/pdf", "image/jpeg", "image/jpg", "image/png"];
-      types.sort((a, b) => order.indexOf(a) - order.indexOf(b));
+      const order2 = ["application/pdf", "image/jpeg", "image/jpg", "image/png"];
+      types.sort((a, b) => order2.indexOf(a) - order2.indexOf(b));
       const rules = [];
       if (types.length) rules.push(`accept=${types.join(", ")}`);
       rules.push(`max-files=${inputs.length}`);
@@ -1727,8 +1727,8 @@ var CustomImportScript = (() => {
     const headerText = (t) => clean3((t.querySelector("tr") || t).textContent).toLowerCase();
     const previousSameBlock = () => {
       const name = headerText(block);
-      const before = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
-      const prev = before[before.length - 1];
+      const before2 = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
+      const prev = before2[before2.length - 1];
       if (!prev) return null;
       const range = document.createRange();
       range.setStartAfter(prev);
@@ -2251,6 +2251,8 @@ var CustomImportScript = (() => {
       else if (!element.matches(".carousel")) variants = ["grid"];
       const swiperDropped = element.matches("[data-lh-swiper-below-lg]") || !!element.querySelector("[data-lh-swiper-below-lg]");
       if (variants[0] === "grid" && variants.length === 1 && (hasDesktopTwin && element.querySelector(".hidden-lg-up a.teaser") || swiperDropped || element.hasAttribute("data-import-phone-slider"))) variants.push("phone-slider");
+      else if (variants.join(" ") === "grid four-up" && element.hasAttribute("data-import-phone-slider")) variants.push("phone-slider");
+      if (variants.includes("phone-slider") && element.querySelector(".experiencefragment .teaser, .cmp-experiencefragment .teaser")) variants.push("fragment-slides");
       const block2 = WebImporter.Blocks.createBlock(document, { name: "carousel-cards", variants, cells: rows });
       element.replaceWith(...titles, block2);
       return;
@@ -2802,7 +2804,8 @@ var CustomImportScript = (() => {
       if (stacked) variants.push("stacked");
       if (items.some((it) => it.querySelector(".imagelinklist .nav-link-list"))) variants.push("link-list");
       const textItem = (it) => !!it.querySelector(".headline, .text");
-      if (!sliderView && view.querySelector(":scope > .carousel") && items.length > 1 && items.some(textItem) && items.some((it) => !textItem(it) && it.querySelector(".image img"))) {
+      const imageItem = (it) => !textItem(it) && !!it.querySelector(".image img");
+      if (!sliderView && view.querySelector(":scope > .carousel") && items.length > 1 && (items.some(textItem) && items.some(imageItem) || items.length > 2 && items.every(imageItem))) {
         variants.push("cell-slider");
       }
       const own = element.classList.contains("column") && element.children.length === 1 && element.firstElementChild === view && !!element.parentElement && element.parentElement.classList.contains("section-content");
@@ -2825,8 +2828,8 @@ var CustomImportScript = (() => {
     };
     const previousSameBlock = () => {
       const name = headerText(block);
-      const before = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
-      const prev = before[before.length - 1];
+      const before2 = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
+      const prev = before2[before2.length - 1];
       if (!prev) return null;
       const range = document.createRange();
       range.setStartAfter(prev);
@@ -3613,12 +3616,17 @@ var CustomImportScript = (() => {
   };
   var THEMES = {
     lufthansa: {
+      // the column view carrier: a section of its own per www column view (the collapse writes it
+      // from the column marks, ema-adobe's hub transformer on import; styles.css "the column view
+      // carrier")
+      columnViews: { carrier: "column-view" },
       pageTypes: {
         // Insights articles: a rule above an info box (Columns Media) after any content but a
         // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
         article: { rules: ["rule-before-info-box", "ruled-chapters"] },
-        // /100-years: its sections 60px apart
-        "100-years": { rules: ["sections-m"] },
+        // /100-years: no rule of its own (it had sections 60px apart, sections-m; its documents are
+        // campaign pages whose sections carry www's own spacing: +9 % on /de/en/100-years with it,
+        // lh-com-pass-check.md, ema-adobe's handover item 2)
         // Insights tag pages (/articles/tags/…): the rule above an info box after any content but a
         // heading, as on articles (www: 417 of 505 such Columns Media; the others without)
         "insights-tag": { rules: ["rule-before-info-box"] }
@@ -3648,6 +3656,8 @@ var CustomImportScript = (() => {
         flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true } }
       }
     },
+    // Air Dolomiti: the base theme (between B2B's and TAP's entries, next to no switch line)
+    airdolomiti: {},
     // TAP: the base theme (an entry of its own, so its switch is one line as every brand's)
     tap: {},
     // Lufthansa Cargo: the base theme
@@ -5176,7 +5186,7 @@ var CustomImportScript = (() => {
     const modal = box.querySelector("maui-modal");
     const label = (modal && modal.getAttribute("label") ? modal.getAttribute("label").replace(/\s+/g, " ").trim() : "") || text(box.querySelector("maui-link-button"));
     const base = (String(pagePath || "").match(/^\/([a-z]{2})\/([a-z]{2})(?=\/|$)/) || [])[0];
-    const slug2 = label.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    const slug2 = label.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || (base || "").split("/")[2] || "";
     const out = [];
     if (note) {
       const p = document.createElement("p");
@@ -5404,16 +5414,16 @@ var CustomImportScript = (() => {
   function dropEmptyBreaks(document, root) {
     const breaks = [...document.querySelectorAll(`hr[${BREAK}]`)].filter((hr) => !hr.closest("table"));
     let prev = null;
-    let before = null;
+    let before2 = null;
     breaks.forEach((hr) => {
       if (contentBetween(document, root, prev, hr)) {
-        before = prev;
+        before2 = prev;
         prev = hr;
         return;
       }
-      if (prev && isGrey(before) && isGrey(hr) && !prev.hasAttribute(SOURCE_STYLE) && !prev.hasAttribute(MARKER) && spacersBetween(document, prev, hr)) {
+      if (prev && isGrey(before2) && isGrey(hr) && !prev.hasAttribute(SOURCE_STYLE) && !prev.hasAttribute(MARKER) && spacersBetween(document, prev, hr)) {
         prev.setAttribute(SOURCE_STYLE, "gap");
-        before = prev;
+        before2 = prev;
         prev = hr;
         return;
       }
@@ -5499,8 +5509,10 @@ var CustomImportScript = (() => {
       };
       aemSections.forEach((s, i) => {
         if (!i || !padded2(s) || grey2(s)) return;
-        const before = aemSections[i - 1];
-        if (!padded2(before) && (!lufthansa || isStage(s) || isStage(before) || grey2(before) || loneQuote(before))) return;
+        const before2 = aemSections[i - 1];
+        const next = aemSections[i + 1];
+        const stageBeforePadded = isStage(s) && !!next && padded2(next) && !grey2(next);
+        if (!padded2(before2) && (!lufthansa || stageBeforePadded || isStage(before2) || grey2(before2) || loneQuote(before2))) return;
         const hr = createBreak(document);
         hr.setAttribute(SOURCE_STYLE, "padded");
         s.before(hr);
@@ -5587,6 +5599,104 @@ var CustomImportScript = (() => {
     }
   }
 
+  // tools/importer/transformers/hub-dcep-render.js
+  var RENDITIONS = [2560, 1440, 720, 360];
+  function buildPanes(document, host) {
+    let props = {};
+    try {
+      props = JSON.parse(host.getAttribute("data-dcep") || "{}") || {};
+    } catch (e) {
+      return;
+    }
+    const panes = Array.isArray(props.panes) ? props.panes : [];
+    if (!panes.length) return;
+    const clean3 = (s) => typeof s === "string" ? s.replace(/\s+/g, " ").trim() : "";
+    const overlay = clean3(props.transparentOverlay);
+    const container = document.createElement("div");
+    container.className = "hero-container";
+    panes.forEach((pane) => {
+      const item = document.createElement("div");
+      item.className = "hero-item";
+      const label = clean3(pane.overlaySubHeadline);
+      if (label) {
+        const h2 = document.createElement("h2");
+        h2.className = "hero-subheading";
+        const button = document.createElement("button");
+        button.className = "hero-accordion-header-button";
+        button.textContent = label;
+        h2.append(button);
+        item.append(h2);
+      }
+      const media = pane.movingImage || {};
+      if (clean3(media.imageUrl)) {
+        const wrap = document.createElement("div");
+        wrap.className = "moving-image";
+        const box = document.createElement("div");
+        box.className = "w-100 h-100 object-cover";
+        const figure = document.createElement("figure");
+        const img = document.createElement("img");
+        img.setAttribute("src", clean3(media.imageUrl));
+        const ext = (clean3(media.imageUrl).match(/\.([a-z0-9]+)$/i) || [null, "jpg"])[1].toLowerCase();
+        img.setAttribute("srcset", RENDITIONS.map((w) => `${clean3(media.imageUrl)}.transform/lh-dcep-transform-width-${w}/img.${ext} ${w}w`).join(","));
+        img.setAttribute("alt", clean3(media.alt));
+        figure.append(img);
+        box.append(figure);
+        wrap.append(box);
+        item.append(wrap);
+      }
+      if (/^#[0-9a-f]{3,8}$/i.test(overlay)) {
+        const ov = document.createElement("div");
+        ov.className = "transparent-overlay";
+        ov.setAttribute("style", `--transparent-overlay-color: ${overlay}`);
+        item.append(ov);
+      }
+      const contents = document.createElement("div");
+      contents.className = "hero-items-contents";
+      if (clean3(pane.overlayTitle)) {
+        const h3 = document.createElement("h3");
+        h3.className = "hero-header";
+        h3.textContent = clean3(pane.overlayTitle);
+        contents.append(h3);
+      }
+      const p = document.createElement("p");
+      p.className = "hero-paragraph";
+      p.textContent = clean3(pane.overlayDescription);
+      contents.append(p);
+      if (clean3(pane.overlayButtonText) && clean3(pane.overlayButtonLinkTarget)) {
+        const btn = document.createElement("maui-button-link");
+        btn.className = "hero-button";
+        btn.setAttribute("href", clean3(pane.overlayButtonLinkTarget));
+        btn.setAttribute("label", clean3(pane.overlayButtonText));
+        btn.setAttribute("type", "secondary");
+        btn.textContent = clean3(pane.overlayButtonText);
+        contents.append(btn);
+      }
+      const label2 = item.querySelector(".hero-subheading");
+      if (label2) label2.after(contents);
+      else item.prepend(contents);
+      container.append(item);
+    });
+    const outer = document.createElement("div");
+    outer.className = "px-0 full-width-bg";
+    const intro = document.createElement("div");
+    intro.className = "hero-banner-intro-animation";
+    const h1 = document.createElement("h1");
+    h1.className = "animated-text";
+    intro.append(h1);
+    const banner = document.createElement("div");
+    banner.className = "hero-banner";
+    banner.append(container);
+    outer.append(intro, banner);
+    host.append(outer);
+  }
+  function transform3(hookName, element, payload) {
+    if (hookName !== "onLoad") return;
+    const document = payload && payload.document || element.ownerDocument || element;
+    document.querySelectorAll(".dcep-hero-banner[data-dcep]").forEach((host) => {
+      if (!host.querySelector(".hero-item")) buildPanes(document, host);
+    });
+  }
+
   // tools/importer/transformers/campaign-sections.js
   var BREAK2 = "data-excat-section-break";
   var SOURCE_STYLE2 = "data-excat-section-source-style";
@@ -5651,7 +5761,7 @@ var CustomImportScript = (() => {
     });
     return fixed;
   }
-  function transform3(hookName, element, payload) {
+  function transform4(hookName, element, payload) {
     const document = payload && payload.document || element.ownerDocument || element;
     if (hookName === "onLoad") {
       campaignSections(document).forEach((s) => {
@@ -5693,9 +5803,9 @@ var CustomImportScript = (() => {
       hr.setAttribute(SOURCE_STYLE2, styles.join(" "));
       s.before(hr);
     });
-    STAND_INS.forEach(([sel, before, after]) => {
+    STAND_INS.forEach(([sel, before2, after]) => {
       document.querySelectorAll(`.container-content > .section ${sel}`).forEach((el) => {
-        [...standIns(el, before, "previousElementSibling"), ...standIns(el, after, "nextElementSibling")].forEach((p) => p.remove());
+        [...standIns(el, before2, "previousElementSibling"), ...standIns(el, after, "nextElementSibling")].forEach((p) => p.remove());
       });
     });
   }
@@ -5711,7 +5821,7 @@ var CustomImportScript = (() => {
   function isOwnColumnView2(el) {
     return !!el && el.matches(`:is(${COLUMN_KINDS2}).column`) && el.children.length === 1 && el.firstElementChild.classList.contains("column-view");
   }
-  function markColumnViews2(document, template) {
+  function markColumnViews2(document, template, onlyDrawnViews = false) {
     const instances = (template.blocks || []).flatMap((b) => (b.instances || []).map((sel) => [b.name, sel]));
     const blockOf2 = (el) => {
       const hit = instances.find(([, sel]) => {
@@ -5733,6 +5843,7 @@ var CustomImportScript = (() => {
       const block = blockOf2(root);
       if (block && block !== "columns-media") return false;
       if (block && kind === "sc" && !nested && !titled(view)) return false;
+      if (onlyDrawnViews && !block && !root.matches(".onecolumn")) return false;
       root.setAttribute(COLUMN_ATTR2, kind);
       return !block;
     };
@@ -5755,19 +5866,120 @@ var CustomImportScript = (() => {
       });
     });
   }
-  function transform4(hookName, element, payload) {
-    if (hookName !== "beforeTransform") return;
+  var MARK_HOLDERS = "p, h1, h2, h3, h4, h5, h6, li";
+  var LEAVES = "p, h1, h2, h3, h4, h5, h6, ul, ol, table, picture, img, video, iframe, blockquote";
+  var META = "section metadata";
+  var SEPARATOR_P = /^\{(spacer|divider)-[^}]*\}$/;
+  var order = /* @__PURE__ */ new Map();
+  var before = (a, b) => order.get(a) < order.get(b);
+  var inTable = (el) => !!(el.parentElement && el.parentElement.closest("table"));
+  var tableName = (table) => {
+    const row = table.querySelector("tr");
+    return row ? cleanText2(row).toLowerCase() : "";
+  };
+  var styleRow = (table) => [...table.querySelectorAll("tr")].slice(1).find((tr) => tr.firstElementChild && cleanText2(tr.firstElementChild).toLowerCase() === "style");
+  function columnMarks(main) {
+    return [...main.querySelectorAll(MARK_HOLDERS)].filter((el) => !el.closest("table")).map((el) => {
+      const m = cleanText2(el).match(/\{([a-z0-9 -]+)\}$/);
+      const tokens = m ? m[1].split(" ") : [];
+      const at = el.tagName === "LI" ? el.closest("ul, ol") : el;
+      return {
+        el: at,
+        start: tokens.includes("column-start"),
+        end: tokens.includes("column-end"),
+        startOuter: tokens.includes("column-start-outer"),
+        endOuter: tokens.includes("column-end-outer")
+      };
+    }).filter((k) => k.start || k.end || k.startOuter || k.endOuter);
+  }
+  function pairs(marks, start, end, kind) {
+    const out = [];
+    let depth = 0;
+    let open = null;
+    marks.forEach((k) => {
+      if (k[start]) {
+        if (!depth) open = k.el;
+        depth += 1;
+      }
+      if (k[end] && depth) {
+        depth -= 1;
+        if (!depth && open) out.push({ from: open, to: k.el, kind });
+      }
+    });
+    return out;
+  }
+  function viewBox(from, to, main, breaks) {
+    for (let el = from.parentElement; el && el !== main; el = el.parentElement) {
+      if (el.matches(`:is(${COLUMN_KINDS2}).column`) && el.contains(to)) {
+        return el.closest("table") || breaks.some((hr) => el.contains(hr)) ? null : el;
+      }
+    }
+    return null;
+  }
+  function splitColumnViews(main, document) {
+    const marks = columnMarks(main);
+    const outer = pairs(marks, "startOuter", "endOuter", "cc");
+    order = new Map([...main.querySelectorAll("*")].map((el, i) => [el, i]));
+    const inside = (p, q) => (p.from === q.from || before(q.from, p.from)) && (p.to === q.to || before(p.to, q.to));
+    const inner = pairs(marks, "start", "end", "sc").filter((p) => !outer.some((q) => inside(p, q)));
+    [...outer, ...inner].sort((p, q) => before(p.from, q.from) ? -1 : 1).forEach(({ from, to, kind }) => {
+      order = new Map([...main.querySelectorAll("*")].map((el, i) => [el, i]));
+      const breaks = [...main.querySelectorAll("hr")].filter((hr) => !inTable(hr));
+      if (breaks.some((hr) => before(from, hr) && before(hr, to))) return;
+      const box = viewBox(from, to, main, breaks);
+      const first = box || from;
+      const last = box || to;
+      const prev = breaks.filter((hr) => before(hr, first)).pop();
+      const next = breaks.find((hr) => before(last, hr) && !last.contains(hr));
+      const within = (el) => (!prev || before(prev, el)) && (!next || before(el, next));
+      const leaves = [...main.querySelectorAll(LEAVES)].filter((el) => !inTable(el) && within(el));
+      const meta = leaves.find((el) => el.tagName === "TABLE" && tableName(el) === META);
+      const row = meta && styleRow(meta);
+      const styles = row ? cleanText2(row.lastElementChild) : "";
+      const content = (el) => el !== meta && !el.contains(first) && !el.contains(last) && (el.tagName === "TABLE" || !isEmpty2(el) && !SEPARATOR_P.test(cleanText2(el)));
+      const contentBefore = leaves.some((el) => before(el, first) && content(el));
+      const contentAfter = leaves.some((el) => before(last, el) && !last.contains(el) && content(el));
+      const view = kind === "cc" ? ["column-view", "padded"] : ["column-view"];
+      const own = [styles, ...view].filter(Boolean).join(", ");
+      const metaBlock = (style) => WebImporter.Blocks.createBlock(document, { name: "Section Metadata", cells: { style } });
+      const endWith = (meta2) => box ? box.append(meta2) : last.after(meta2);
+      if (contentAfter) {
+        const list = styles.split(",").map((x) => x.trim()).filter((x) => x && x !== "spaced");
+        if (!list.includes("flush")) list.push("flush");
+        const hr = document.createElement("hr");
+        last.after(hr);
+        endWith(metaBlock([...list, ...view].join(", ")));
+      } else {
+        if (row) row.lastElementChild.textContent = own;
+        else endWith(metaBlock(own));
+      }
+      if (contentBefore) {
+        const lastContent = leaves.filter((el) => before(el, first) && content(el)).pop();
+        const lead = leaves.find((el) => el.tagName === "P" && SEPARATOR_P.test(cleanText2(el)) && before(lastContent, el) && !el.contains(lastContent) && before(el, first));
+        const hr = document.createElement("hr");
+        (lead || first).before(hr);
+        if (styles) hr.before(metaBlock(styles));
+      }
+    });
+  }
+  var CAMPAIGN_SECTION_BREAK = 'hr[data-excat-section-source-style*="campaign-section"]';
+  function transform5(hookName, element, payload) {
+    if (hookName !== "beforeTransform" && hookName !== "afterTransform") return;
     const template = payload && payload.template || {};
     if (CLEANUP_TEMPLATES.includes(template.name) || CLEANUP_TEMPLATES.includes(template.base)) return;
     const document = payload && payload.document || element.ownerDocument || element;
-    markColumnViews2(document, template);
+    const campaign = template.name === "campaign" || template.base === "campaign";
+    if (campaign && hookName === "beforeTransform" && document.querySelector(CAMPAIGN_SECTION_BREAK)) return;
+    if (campaign && hookName === "afterTransform" && !/\{[a-z0-9 -]*column-(start|end)/.test(element.textContent || "")) return;
+    if (hookName === "beforeTransform") markColumnViews2(document, template, campaign);
+    else splitColumnViews(element, document);
   }
 
   // tools/importer/transformers/theme-separators.js
   var SEPARATOR2 = /^\{(spacer|divider)-(\d{1,3})( from-768)?\}$/;
   var SPACER2 = { 60: "Spacer", 120: "Spacer (l)" };
   var DIVIDER = { 25: "Divider" };
-  function transform5(hookName, element, payload) {
+  function transform6(hookName, element, payload) {
     if (hookName !== "afterTransform") return;
     const document = payload && payload.document || element.ownerDocument || element;
     [...element.querySelectorAll("p")].forEach((p) => {
@@ -6166,6 +6378,28 @@ var CustomImportScript = (() => {
       });
     });
   }
+  var NOTE_MARK = /\s*\{((?:copytext-(?:small|medium|large)|full-width|limited-width)(?: [a-z-]+)*)\}\s*$/;
+  function collapseFormNotes(main, stats) {
+    main.querySelectorAll(":scope > div > div.form").forEach((block) => {
+      const rows = [...block.children];
+      const header = rows.length ? readHeaderTexts([...rows[0].children].map((c) => textOf(c))) : null;
+      const labelAt = header && header.label !== void 0 ? header.label : 0;
+      const typeAt = header && header.type !== void 0 ? header.type : 1;
+      (header ? rows.slice(1) : rows).forEach((row) => {
+        if (!/^(note|hinweis)$/i.test(textOf(row.children[typeAt] || { textContent: "" }).trim())) return;
+        const cell = row.children[labelAt];
+        const paras = cell && cell.querySelector("p") ? [...cell.querySelectorAll("p")] : [cell].filter(Boolean);
+        paras.forEach((p) => {
+          const last = lastText(p);
+          const m = last && last.nodeValue.match(NOTE_MARK);
+          if (!m) return;
+          last.nodeValue = last.nodeValue.slice(0, m.index);
+          if (!last.nodeValue) last.remove();
+          m[1].split(" ").forEach((t) => count(stats, "theme", /^copytext-/.test(t) ? "text-size" : "text-width"));
+        });
+      });
+    });
+  }
   function collapseForms(main, doc, stats) {
     main.querySelectorAll(":scope > div > div.form").forEach((block) => {
       const rows = [...block.children];
@@ -6540,7 +6774,79 @@ var CustomImportScript = (() => {
       }
     });
   }
-  function collapseColumns(main, doc, stats, marks) {
+  function columnPageTheme(main, doc, stats, marks) {
+    const hasColumns = [...marks.values()].some((tokens) => tokens.some((t) => COLUMN.test(t)));
+    if (hasColumns) {
+      const theme = pageMetaCell(main, "Theme", doc, false);
+      const values = theme ? textOf(theme).split(",").map((x) => x.trim()).filter(Boolean) : [];
+      if (!values.includes("flow-spacing")) {
+        const cell = theme || pageMetaCell(main, "Theme", doc, true);
+        if (cell) {
+          cell.textContent = [...values, "flow-spacing"].join(", ");
+          count(stats, "carrier", "column-page");
+        }
+      }
+    }
+  }
+  function columnViewSections(main, doc, marks, carrier) {
+    const used = /* @__PURE__ */ new Set();
+    const tokensOf = (el) => marks.get(el) || (/^(UL|OL)$/.test(el.tagName) && el.lastElementChild ? marks.get(el.lastElementChild) : null) || [];
+    const isSepP = (el) => !!el && el.tagName === "P" && SEPARATOR.test(textOf(el));
+    const add = (section, style) => {
+      if (!sectionStyles(section).includes(style)) addSectionStyle(section, style, doc);
+    };
+    [...main.querySelectorAll(":scope > div")].forEach((section) => {
+      const own = ownContent(section);
+      const groups = [];
+      let depth = 0;
+      let cur = null;
+      own.forEach((el) => {
+        tokensOf(el).filter((t) => /^column-(start|end)/.test(t)).forEach((t) => {
+          if (t.startsWith("column-start")) {
+            if (depth === 0) cur = { first: el, outer: t === "column-start-outer" };
+            depth += 1;
+          } else if (depth > 0) {
+            depth -= 1;
+            if (depth === 0 && cur) {
+              cur.last = el;
+              groups.push(cur);
+              cur = null;
+            }
+          }
+        });
+      });
+      groups.forEach((g, i) => {
+        if (i && groups[i - 1].last === g.first) g.first = g.first.nextElementSibling;
+      });
+      [...groups].reverse().forEach((g) => {
+        if (!g.first || own.indexOf(g.first) < 0 || own.indexOf(g.first) > own.indexOf(g.last)) return;
+        let { first } = g;
+        while (isSepP(first.previousElementSibling)) first = first.previousElementSibling;
+        const more = own.slice(own.indexOf(g.last) + 1).some((el) => !(el.tagName === "P" && isEmptyP(el)));
+        const view = ownContent(section)[0] === first ? section : splitBefore(section, first, doc);
+        if (!view) return;
+        if (more) splitAfter(view, g.last, doc);
+        add(view, carrier);
+        if (g.outer) add(view, "padded");
+        if (more) add(view, "flush");
+        used.add(g.first);
+        used.add(g.last);
+      });
+    });
+    return used;
+  }
+  function collapseColumns(main, doc, stats, marks, theme) {
+    if (theme.columnViews.carrier) {
+      const used = columnViewSections(main, doc, marks, theme.columnViews.carrier);
+      marks.forEach((tokens, el) => {
+        const host = el.tagName === "LI" && el.parentElement && [...el.parentElement.children].pop() === el ? el.parentElement : el;
+        tokens.filter((t) => COLUMN.test(t)).forEach((t) => {
+          count(stats, used.has(host) && /^column-(start|end)/.test(t) ? "carrier" : "theme", "column");
+        });
+      });
+      columnPageTheme(main, doc, stats, marks);
+      return;
+    }
     const outer = /* @__PURE__ */ new Map();
     marks.forEach((tokens, el) => {
       tokens.filter((t) => COLUMN.test(t)).forEach((t) => {
@@ -6559,18 +6865,7 @@ var CustomImportScript = (() => {
         count(stats, "carrier", "column", 2);
       } else count(stats, "theme", "column", start.length + end.length);
     });
-    const hasColumns = [...marks.values()].some((tokens) => tokens.some((t) => COLUMN.test(t)));
-    if (hasColumns) {
-      const theme = pageMetaCell(main, "Theme", doc, false);
-      const values = theme ? textOf(theme).split(",").map((x) => x.trim()).filter(Boolean) : [];
-      if (!values.includes("flow-spacing")) {
-        const cell = theme || pageMetaCell(main, "Theme", doc, true);
-        if (cell) {
-          cell.textContent = [...values, "flow-spacing"].join(", ");
-          count(stats, "carrier", "column-page");
-        }
-      }
-    }
+    columnPageTheme(main, doc, stats, marks);
   }
   function isBoldHeading(el) {
     if (!el || el.tagName !== "P") return false;
@@ -6597,22 +6892,36 @@ var CustomImportScript = (() => {
         } else runs.push({ els: [el], start: i, end: i });
       });
       runs.forEach((run) => {
+        const sec = run.els[0].parentElement;
+        const now = [...sec.children];
+        const first = now.indexOf(run.els[0]);
+        const lastAt = now.indexOf(run.els[run.els.length - 1]);
         const seps = run.els.map(parse14);
         const divider = seps.some((m) => m[1] === "divider");
         const px = seps.reduce((a, m) => a + Number(m[2]), 0);
-        seps.filter((m) => m[3]).forEach(() => count(stats, "theme", "separator-from-768"));
+        const tablet = seps.every((m) => m[3]);
+        if (!tablet) seps.filter((m) => m[3]).forEach(() => count(stats, "theme", "separator-from-768"));
         let size = null;
         if (!divider && px <= 31) size = "none";
         else if (!divider) size = px < 90 ? "m" : "l";
         const content = (el) => el && !(isBlock(el) && BLOCK_SKIP.has(blockName(el))) && !isSep(el);
-        const before = run.els[0].previousElementSibling;
+        const before2 = run.els[0].previousElementSibling;
         const after = run.els[run.els.length - 1].nextElementSibling;
-        const atStart = !content(before) && kids.slice(0, run.start).every((el) => !content(el));
-        const atEnd = kids.slice(run.end + 1).every((el) => !content(el));
+        const atStart = !content(before2) && now.slice(0, first).every((el) => !content(el));
+        const atEnd = now.slice(lastAt + 1).every((el) => !content(el));
         const remove = () => run.els.forEach((el) => el.remove());
         if (size === "none") {
           remove();
           count(stats, "theme", "separator", run.els.length);
+          return;
+        }
+        if (tablet) {
+          const b2 = doc.createElement("div");
+          b2.className = divider ? "divider from-768" : `spacer${size === "l" ? " l" : ""} from-768`;
+          b2.innerHTML = "<div><div></div></div>";
+          run.els[0].before(b2);
+          remove();
+          count(stats, "carrier", "separator-from-768", run.els.length);
           return;
         }
         if (rules.includes("sections-m") && size === "m" && (atStart || atEnd)) {
@@ -6621,28 +6930,28 @@ var CustomImportScript = (() => {
           return;
         }
         if (divider) {
-          if (rules.includes("rule-before-info-box") && blockName(after) === "columns-media" && before && !atStart && !/^H[1-6]$/.test(before.tagName)) {
+          if (rules.includes("rule-before-info-box") && blockName(after) === "columns-media" && before2 && !atStart && !/^H[1-6]$/.test(before2.tagName)) {
             remove();
             count(stats, "theme", "separator", run.els.length);
             return;
           }
           if (rules.includes("ruled-chapters") && after && (/^H[23]$/.test(after.tagName) || isBoldHeading(after)) && !atStart) {
             const last = run.els[run.els.length - 1];
-            splitAfter(section, last, doc);
+            splitAfter(sec, last, doc);
             remove();
             count(stats, "theme", "separator", run.els.length);
             return;
           }
         }
         const style = divider ? "divider" : `space-${size}`;
-        if (atStart && !atEnd && !sectionStyles(section).some((s) => /^(space-[ml]|divider)$/.test(s))) {
-          addSectionStyle(section, style, doc);
+        if (atStart && !atEnd && !sectionStyles(sec).some((s) => /^(space-[ml]|divider)$/.test(s))) {
+          addSectionStyle(sec, style, doc);
           remove();
           count(stats, "carrier", "separator", run.els.length);
           return;
         }
-        if (atEnd && !atStart && !sectionStyles(section).some((s) => /^(space-below-[ml]|divider-below)$/.test(s))) {
-          addSectionStyle(section, divider ? "divider-below" : `space-below-${size}`, doc);
+        if (atEnd && !atStart && !sectionStyles(sec).some((s) => /^(space-below-[ml]|divider-below)$/.test(s))) {
+          addSectionStyle(sec, divider ? "divider-below" : `space-below-${size}`, doc);
           remove();
           count(stats, "carrier", "separator", run.els.length);
           return;
@@ -6728,6 +7037,7 @@ var CustomImportScript = (() => {
     const emptyBefore = new Set([...main.querySelectorAll(":scope > div")].filter((d) => !d.children.length && !textOf(d)));
     if (/\/nav$/.test(path)) collapseNav(main, doc, stats);
     collapseForms(main, doc, stats);
+    collapseFormNotes(main, stats);
     collapseBlank(main, stats);
     const marks = /* @__PURE__ */ new Map();
     main.querySelectorAll("h1, h2, h3, h4, h5, h6, p, li").forEach((el) => {
@@ -6737,10 +7047,17 @@ var CustomImportScript = (() => {
       const tokens = takeTokens(el);
       if (tokens.length) marks.set(el, tokens);
     });
+    main.querySelectorAll(":scope > div > div[class] > div > div").forEach((cell) => {
+      if (cell.querySelector("p, h1, h2, h3, h4, h5, h6, li, div") || !cell.querySelector("a[href]")) return;
+      const t2 = lastText(cell);
+      const m = t2 && t2.nodeValue.match(TAIL);
+      if (!m || !m[1].split(/\s+/).every((k) => VIDEO_SETTINGS.includes(k) || /^size-\d+x\d+$/.test(k))) return;
+      marks.set(cell, takeTokens(cell));
+    });
     collapseVideos(main, doc, stats, marks);
     collapseCaptions(main, doc, stats, marks, hand);
     collapseHeadings(main, doc, stats, marks, theme);
-    collapseColumns(main, doc, stats, marks);
+    collapseColumns(main, doc, stats, marks, theme);
     collapseText(main, doc, stats, marks, theme, brand, hand);
     collapseCells(main, stats, marks, hand);
     marks.forEach((tokens, el) => {
@@ -6803,6 +7120,7 @@ var CustomImportScript = (() => {
     "name": "hub",
     "description": "Overview pages linking to service and information pages",
     "transformers": [
+      "hub-dcep-render",
       "campaign-sections",
       "hub-column-views",
       "theme-separators"
@@ -6990,7 +7308,7 @@ var CustomImportScript = (() => {
     "cards-icon-text": parse12,
     "embed": parse13
   };
-  var transformers = [transform, transform2, transform3, transform4, transform5];
+  var transformers = [transform, transform2, transform3, transform4, transform5, transform6];
   function executeTransformers(hookName, element, payload) {
     const enhancedPayload = __spreadProps(__spreadValues({}, payload), { template: PAGE_TEMPLATE });
     transformers.forEach((fn) => {
@@ -7012,7 +7330,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_hub_1320329_default = {
+  var tmp_bundle_hub_1604859_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -7051,5 +7369,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_hub_1320329_exports);
+  return __toCommonJS(tmp_bundle_hub_1604859_exports);
 })();

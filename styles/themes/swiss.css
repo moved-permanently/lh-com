@@ -1169,3 +1169,18 @@ body.brand-swiss .booking-lookup .booking-lookup-field:has(> input:placeholder-s
 body.brand-swiss main .default-content-wrapper > p:not([class], :has(picture)) {
   margin-bottom: 20px;
 }
+
+/* picture-and-text rows (the brief after 510): www's rows are column views of their own, the next
+   row's heading about 48 px under a row on phones and 65 px at 1440 (upgrade-options,
+   swiss-premium-economy, swiss-business); ours had the default 24 px. Default content after a row
+   that does not open with a heading keeps its 24 px */
+/* stylelint-disable-next-line no-descending-specificity -- a row's heading, not the picture-title lists' */
+body.brand-swiss main .columns-media-wrapper + .default-content-wrapper:has(> :is(h2, h3):first-child) {
+  margin-top: 48px;
+}
+
+@media (width >= 1025px) {
+  body.brand-swiss main .columns-media-wrapper + .default-content-wrapper:has(> :is(h2, h3):first-child) {
+    margin-top: 64px;
+  }
+}

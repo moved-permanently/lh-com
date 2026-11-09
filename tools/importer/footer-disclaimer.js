@@ -40,11 +40,16 @@ export function readFooterDisclaimer(root) {
   };
 }
 
-/** The dialog document's path for a page (null without a modal or a locale). */
+/**
+ * The dialog document's path for a page (null without a modal or a locale): its name the label's
+ * slug, or the root's language for a label without Latin letters or digits (SWISS's el, ja, ru,
+ * zh: "一般ご利用条件" -> /ch/ja/fragments/modals/ja; the brief after 518). The same rule as
+ * transformers/lufthansa-cleanup.js convertFooterDisclaimer.
+ */
 export function dialogPath(disclaimer, pagePath) {
   const base = localeBase(pagePath);
   if (!disclaimer || !disclaimer.modal || !base) return null;
-  return `${base}/fragments/modals/${slugify(disclaimer.label)}`;
+  return `${base}/fragments/modals/${slugify(disclaimer.label) || base.split('/')[2]}`;
 }
 
 const escapeHtml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')

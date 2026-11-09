@@ -1,7 +1,8 @@
 /* "Change privacy settings" links (#privacy-settings) on a site without a consent tool: a brand
-   without a OneTrust id in scripts/brands.js (Air Dolomiti, TAP today) runs no consent tool, so the
-   link opens nothing. Lufthansa Cargo has the look-alike banner since brief 422 (consent
-   'fallback'): its footer's "Cookie Settings" stays and opens the preferences. The link goes while
+   without a OneTrust id in scripts/brands.js (TAP today) runs no consent tool, so the link opens
+   nothing. Lufthansa Cargo has the look-alike banner since brief 422, Air Dolomiti since the brief
+   after 509 (consent 'fallback'): their footer's cookie settings link stays and opens the
+   preferences. The link goes while
    no consent tool runs (scripts/consent.js hidePrivacySettings, from decorateMain: pages, nav,
    footer and fragments): a list item or paragraph holding only the link with it, a link inside
    running text becomes its text. Brands with OneTrust (and lh-com, Lufthansa's) keep every link
@@ -57,34 +58,34 @@ const texts = (el) => [...el.querySelectorAll('li, p')].map((n) => n.textContent
 
 // TAP (briefs 312, 314): www.flytap.com's pages load no consent manager of their own, only Google
 // Tag Manager (GTM-5H44JL7M), which the replica doesn't run
-test('a consent tool runs where the brand has OneTrust (and on lh-com, Lufthansa\'s) and on Cargo (the fallback banner, brief 422); not on Air Dolomiti or TAP', () => {
+test('a consent tool runs where the brand has OneTrust (and on lh-com, Lufthansa\'s) and on Cargo and Air Dolomiti (the fallback banner, brief 422 and the brief after 509); not on TAP', () => {
   assert.equal(hasConsentTool(), true, 'lh-com');
   const without = Object.keys(BRANDS).filter((k) => {
     brand(k);
     return !hasConsentTool();
   });
-  assert.deepEqual(without.sort(), ['airdolomiti', 'tap']);
+  assert.deepEqual(without.sort(), ['tap']);
   without.forEach((k) => assert.equal(BRANDS[k].oneTrust, undefined));
 });
 
-test('Air Dolomiti: the footer\'s Cookie Settings item goes, the other legal links stay in order', () => {
-  brand('airdolomiti');
+test('TAP: the footer\'s Cookie Settings item goes, the other legal links stay in order', () => {
+  brand('tap');
   const main = root(LEGAL);
   assert.equal(hidePrivacySettings(main), 1);
   assert.deepEqual(texts(main), ['Imprint', 'Privacy', 'Terms']);
   assert.equal(main.querySelectorAll('a[href="#privacy-settings"]').length, 0);
 });
 
-test('Air Dolomiti: a paragraph with only the link goes; a link in running text becomes its text', () => {
-  brand('airdolomiti');
+test('TAP: a paragraph with only the link goes; a link in running text becomes its text', () => {
+  brand('tap');
   const main = root(CONTENT);
   assert.equal(hidePrivacySettings(main), 2);
   assert.deepEqual(texts(main), ['You can change your choice in the privacy settings at any time.', 'Privacy']);
   assert.equal(main.querySelectorAll('a[href="#privacy-settings"]').length, 0);
 });
 
-test('brands with OneTrust, lh-com and Cargo (its fallback banner): every link stays, the markup as it was', () => {
-  [null, 'discover', 'ita', 'austrian', 'brussels', 'cargo'].forEach((key) => {
+test('brands with OneTrust, lh-com, Cargo and Air Dolomiti (their fallback banner): every link stays, the markup as it was', () => {
+  [null, 'discover', 'ita', 'austrian', 'brussels', 'cargo', 'airdolomiti'].forEach((key) => {
     brand(key);
     const main = root(LEGAL + CONTENT);
     const before = main.innerHTML;
@@ -95,7 +96,7 @@ test('brands with OneTrust, lh-com and Cargo (its fallback banner): every link s
 
 test('decorateMain hides them (pages, nav, footer and fragments go through it); the footer\'s click handler stays for the others', async () => {
   const { decorateMain } = await import('../scripts/scripts.js');
-  brand('airdolomiti');
+  brand('tap');
   const main = root(LEGAL);
   decorateMain(main);
   assert.equal(main.querySelectorAll('a[href="#privacy-settings"]').length, 0);

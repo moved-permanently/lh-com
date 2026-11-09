@@ -285,11 +285,13 @@ export default async function decorate(block) {
   instanceCount += 1;
   const uid = `carousel-cards-${instanceCount}`;
   // option phone-slider (Lufthansa's three-card column views, www's .hidden-lg-up swiper): below
-  // 1025px the four-up carousel, from 1025px the grid rows (the carousel's controls hidden)
+  // 1025px the four-up carousel, from 1025px the grid rows (the carousel's controls hidden); an
+  // authored four-up (a four-column view, Brussels) keeps its four cards a row from 1025px
   const phoneSlider = block.classList.contains('phone-slider');
+  const fourUp = block.classList.contains('four-up');
   const narrow = phoneSlider ? window.matchMedia('(width < 1025px)') : null;
   const applyPhoneSlider = () => {
-    block.classList.toggle('four-up', narrow.matches);
+    block.classList.toggle('four-up', narrow.matches || fourUp);
     block.classList.toggle('grid', !narrow.matches);
   };
   if (phoneSlider) applyPhoneSlider();

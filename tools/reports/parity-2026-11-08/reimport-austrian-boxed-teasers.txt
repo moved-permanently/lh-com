@@ -1,0 +1,13 @@
+# The brief after 510, item 1 (Austrian baggage's boxed teaser cards; brief 510's ranking row 21: /at/en/baggage 390 -13.5 %): www's current baggage page (brief 497's recording, austrian-parity-002b/at-en-baggage-1440.html) has its nine cards as context teasers (a.teaser.card in experience fragments) in two-column views, which www draws as boxed cards two a row. The Studio's snapshot behind our documents is an older version of the page (h2 titles in a picture-and-text grid: "Carry-on baggage" where www now has "Hand lugagge"), imported as "columns-media padded".
+# No new option: austrian-import.mjs already takes the current markup to the boxed cards (withTeaserColumns' data-import-two-up, carousel-cards "grid two-up", as /at/de/familien and /at/de/check-in). Checked offline: the recording through mappedOf and the info bundle gives five "carousel-cards grid two-up" blocks. Test: test/austrian-boxed-teasers.test.mjs.
+# A re-import from the harness's current snapshot gives the same document again. These documents need a newer capture of www first: /at/en/baggage can use brief 497's recording as its snapshot; the nine language copies were not recorded (all ten documents have the old "columns-media padded" grid on preview), so they need a fresh Studio capture. Template: info. Order: at/en, at/de, then the market roots.
+/at/en/baggage
+/at/de/gepaeck
+/fr/fr/baggage
+/it/it/baggage
+/es/es/baggage
+/pl/pl/baggage
+/ru/ru/baggage
+/gr/el/baggage
+/jp/ja/baggage
+/cn/zh/baggage

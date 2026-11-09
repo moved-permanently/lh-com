@@ -1,0 +1,13 @@
+# The brief after 517 item 3 (ema-cashub): lh-austrian's documents with a carousel-images block, to re-import with austrian-import.mjs after the carousel-images parser change (a slide's headline component, h3 above its text, kept as the slide's title) and the info bundle rebuilt; in release order. The first two (premium-economy-class's Services: Luxurious extras, Culinary highlights, Exciting entertainment, More Comfort in Every Detail) lose 4 titles today (the en snapshot on disk shows them; the de document has the same block). The other ten (culinary-services' picture carousels) have empty captions in ours: no snapshot on disk, so whether www gives their slides a headline is for the re-import to show (if not, they come out as they are). All 12 are published on austrian.turnsthe.page (200).
+/at/en/premium-economy-class
+/at/de/premium-economy-class
+/at/en/fly/on-board/culinary-services
+/at/de/fly/on-board/culinary-services
+/fr/fr/fly/on-board/culinary-services
+/it/it/fly/on-board/culinary-services
+/es/es/fly/on-board/culinary-services
+/pl/pl/fly/on-board/culinary-services
+/ru/ru/fly/on-board/culinary-services
+/gr/el/fly/on-board/culinary-services
+/jp/ja/fly/on-board/culinary-services
+/cn/zh/fly/on-board/culinary-services
