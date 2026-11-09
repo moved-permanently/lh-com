@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_1493351_exports = {};
-  __export(tmp_bundle_campaign_1493351_exports, {
-    default: () => tmp_bundle_campaign_1493351_default
+  var tmp_bundle_campaign_914211_exports = {};
+  __export(tmp_bundle_campaign_914211_exports, {
+    default: () => tmp_bundle_campaign_914211_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -3410,7 +3410,7 @@ var CustomImportScript = (() => {
         [...inner.childNodes].forEach((n) => p.append(n.cloneNode(true)));
         captionCell = p;
       } else {
-        const parts = [...slide.querySelectorAll(".richtext")].flatMap((rt) => [...rt.children]).filter((n) => /^(P|H[1-6]|UL|OL)$/.test(n.tagName) && clean4(n.textContent)).map((n) => {
+        const parts = [...slide.querySelectorAll(".richtext > *, h1, h2, h3, h4, h5, h6")].filter((n) => n.parentElement.classList.contains("richtext") || !n.parentElement.closest(".richtext")).filter((n) => /^(P|H[1-6]|UL|OL)$/.test(n.tagName) && clean4(n.textContent)).map((n) => {
           const copy = n.cloneNode(true);
           copy.querySelectorAll(".sr-only, .visually-hidden, maui-screen-reader-label").forEach((x) => x.remove());
           return copy;
@@ -7400,7 +7400,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_1493351_default = {
+  var tmp_bundle_campaign_914211_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -7439,5 +7439,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_1493351_exports);
+  return __toCommonJS(tmp_bundle_campaign_914211_exports);
 })();
