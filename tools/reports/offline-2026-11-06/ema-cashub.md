@@ -1643,3 +1643,41 @@ Left uncommitted, with the reasons:
 - **ema-lufthansa:** the market-diff line above.
 - **The migration session:** route the listed scripts when a round goes on.
 - **A round's commit:** switching a flag in a map is that round's one change to the file, as the README says.
+
+## The brief after 517: TAP's switch test, the meetings logos, Austrian and Brussels against the recordings
+
+- **Item 1, TAP's token-free switch (`b848bbd5`):** test/tap-collapse-505.test.mjs no longer pins the switch. It imports
+  `LIVE` and `offThemes` from ema-test's test/live-brands.mjs (the same pattern as its per-brand files). The first test
+  now runs under `offThemes` (TAP off: collapseTap gives the document back byte for byte). A new test checks the switch as
+  it stands: with TAP live (its own test file), TAP's imports collapse without force. The header comment says where the
+  switch lives. The other three tests are unchanged. Checked on a scratch merge of origin/token-free-tap-live (b475f6d9)
+  onto these commits: lint and the whole suite pass there, and the old test fails there. The merge was not pushed, and
+  ema-test's files are untouched.
+- **Item 2, Columns Media (`cff0572e`):** an image-only four-column carousel view (three or more image-only items)
+  becomes a phone slider (cell-slider). The two-item photo and QR code pair and the mixed band are unchanged.
+  - The 12 bundles that carry the parser were rebuilt; each differs from main only by that change.
+  - meetings-and-events, both copies on one local server: 390 goes from 3,194 to 3,008 px (the logo row from 368 to
+    182 px: one logo and dots); 1440 stays at 2,713. On the published page that is 4,033 → 3,847 against www's 3,869
+    (+4.2 → -0.6 %). The before pixel diff reproduces the handover's 14.6 % at 390 and 9.0 % at 1440.
+  - Reach: 4 of the 46 carousel views in the 883 snapshots on disk change, all of them meetings-and-events. On preview,
+    10 documents carry the row.
+  - ema-adobe's list said 7; it now has 10 (/xx/hk, /xx/pt and /xx/ru added).
+- **Item 3, Austrian and Brussels:** `tools/reports/parity-2026-11-09/sweep-austrian-brussels-cashub.md`, with
+  `austrian-unrecorded.txt` (2,211 documents) and `brussels-unrecorded.txt` (1,394).
+  - Fixes, one commit each: Austrian `ec7b6079` (spaced accordions), `d6517227` (carousel slide titles: the parser, the
+    six bundles and a re-import list of 12) and `684d242f` (tab items on phones); Brussels `8247a50f` (card link lines:
+    the importer and a re-import list of 18) and `ed3a86b0` (heading to accordion).
+  - Austrian has three brand-own fixes and Brussels two, not five each. The other top rows are data and widgets,
+    recording state, homepage widgets and cards-icon (ema-adobe), or one-page causes. The report lists each with its
+    cause and owner.
+- **Item 4, no-break spaces:** the ranking points at them: 16 lines on 10 of the 165 recorded pages, about 40 to 48 px
+  each. On Brussels' families-and-children pages they are about half of the difference. The pages and amounts are in the
+  report. Nothing changed.
+
+### What is left
+
+- **The harness:** re-import ema-adobe's corrected meetings-and-events list (10 documents),
+  `reimport-519-austrian-carousel-titles.txt` (12), `reimport-519-brussels-card-links.txt` (18) and
+  `/at/en/economy-class` (its FAQ buttons). The CSS fixes need no re-import.
+- **Owners named in the report:** the nested two-column view in Austrian's tabs (not traced to its step), cards-icon
+  (ema-adobe), the divider markers (ema-test), and Brussels' headline-only column view (lh-com's mapping).
