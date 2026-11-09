@@ -4,6 +4,9 @@
  *
  * 0. Recorded only: /service/secured/api/pointsOfInterest/* (poi-map) answers its points only to
  *    same-origin calls on www.lufthansa.com (204 without a body from aem.page): recordings only.
+ *    lufthansa.com's lounge finder (labels/loungefinder, catalogs/lounges/cities and
+ *    catalogs/lounges/<STATUS>/<CITY>, brief 539): www refuses our hosts and Workers, so they are
+ *    answered from /data/lounges (scripts/lounge-data.js) and never called on www.
  * 1. Direct: routes www.lufthansa.com answers with Access-Control-Allow-Origin: * (airport
  *    suggestions, labels, catalogs, defaultAirport, core/feature/list, destinationfinder/*) are
  *    called from the visitor's browser without credentials, with the query and X-Portal-*
@@ -34,6 +37,7 @@ import {
 } from './locale.js';
 import { FALLBACK_LANGUAGE_VERSION } from './locale-table.js';
 import { isDemoHost } from './demo.js';
+import { isLoungeRoute, loungeAnswer } from './lounge-data.js';
 
 // the lh-com tenant's OF1 hosts (OF1's edge proxy in front of the site and its preview): the
 // widgets call www there as on the demo hosts; elsewhere they stay production (scripts/demo.js)
@@ -561,6 +565,12 @@ export async function lhFetch(route, {
     const { data, error } = await timedFetch(route, init, DIRECT_TIMEOUT_MS);
     if (error) throw new Error(`no live answer for ${route}: ${error}`);
     return { data, source: 'live', via: 'same-origin' };
+  }
+  // lufthansa.com's lounge finder (labels, cities, search): www's recorded answers under
+  // /data/lounges (scripts/lounge-data.js), never a call to www (it refuses our hosts and Workers)
+  if (method === 'GET' && isLoungeRoute(route)
+    && portalOf(siteLocales()[market] || LOCALE_TABLE[market]) === 'LH') {
+    return loungeAnswer(route, market);
   }
   const key = requestKey(method, route, body);
   const options = {
