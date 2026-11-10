@@ -1113,6 +1113,7 @@ body.brand-brussels .form.core {
 }
 
 body.brand-brussels .form.core .form-step-title {
+  margin-bottom: 22px; /* the card under a band's title: see the titled band below (the brief after 570) */
   font-weight: 700;
 }
 
@@ -1195,4 +1196,24 @@ body.brand-brussels .form.core .form-step-plain .form-step-card {
   margin: 0;
   padding: 0;
   background: none;
+}
+
+/* a core form band with a title (h2; /be/en/contact/feedback/general/other, the brief after 570): www's white card 26 px
+   under the title at 1440, 22 at 390, the description right on the card at 390, the first field 20 px inside the card and
+   the card's bottom 20 px under the last field's margin (ours had 32 / 10 / 30 / 30), the card in the page column at 390;
+   bands without a title (a description beside the card: /my-bookings/emergency-contact) as before; the title's 22 px are
+   in its rule above */
+body.brand-brussels .form.core .form-step:has(> .form-step-intro > .form-step-title) .form-step-description {
+  margin-bottom: 0;
+}
+
+body.brand-brussels .form.core .form-step:has(> .form-step-intro > .form-step-title) .form-step-card {
+  margin-inline: 0;
+  padding: 20px;
+}
+
+@media (width >= 1025px) {
+  body.brand-brussels .form.core .form-step-title {
+    margin-bottom: 26px;
+  }
 }
