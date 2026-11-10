@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-hub.js
-  var import_hub_exports = {};
-  __export(import_hub_exports, {
-    default: () => import_hub_default
+  var tmp_bundle_hub_944863_exports = {};
+  __export(tmp_bundle_hub_944863_exports, {
+    default: () => tmp_bundle_hub_944863_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -2632,6 +2632,7 @@ var CustomImportScript = (() => {
         const cl = child.classList;
         if (cl.contains("imagelinklist")) {
           child.querySelectorAll(".link-list").forEach((ll) => {
+            var _a;
             const h = ll.querySelector("h1, h2, h3, h4, h5, h6");
             if (h) {
               const head = document.createElement(h.tagName.toLowerCase());
@@ -2660,6 +2661,8 @@ var CustomImportScript = (() => {
                 li.append(a);
                 list.append(li);
               });
+              const layout = (_a = ll.querySelector(":scope > ul[data-lh-links]")) == null ? void 0 : _a.getAttribute("data-lh-links");
+              if (layout && list.lastElementChild) list.lastElementChild.append(` {links-${layout}}`);
               if (list.children.length) out.push(list);
             }
           });
@@ -2813,6 +2816,9 @@ var CustomImportScript = (() => {
       const sideView = item && item.classList.contains("column-view-item") && item.children.length === 1 && item.parentElement && item.parentElement.classList.contains("row") && item.parentElement.children.length === 1 && item.parentElement.parentElement;
       const oneColumn = sideView && sideView.classList.contains("column-view") && sideView.parentElement;
       const ownSidebar = !!oneColumn && oneColumn.matches(".onecolumn.column") && oneColumn.children.length === 1 && !!oneColumn.parentElement && oneColumn.parentElement.classList.contains("section-content") && !oneColumn.hasAttribute("data-lh-column") && !ARTICLE && !element.closest(".container-gray");
+      if (oneColumn && pageHost === "www.brusselsairlines.com" && oneColumn.matches(".onecolumn.column") && oneColumn.children.length === 1 && !!oneColumn.parentElement && oneColumn.parentElement.classList.contains("container-content") && !ARTICLE) {
+        variants.push("in-column");
+      }
       if (ownSidebar) {
         variants.push("padded");
         const meaningful3 = (el) => !!clean3(el.textContent) || !!el.querySelector("img, picture, video, iframe");
@@ -2845,7 +2851,7 @@ var CustomImportScript = (() => {
       const loneImage = items.length > 1 && filled.length === 1 && filled[0].every(isImage);
       const halfAlone = element.matches(".twocolumn") && items.length === 2 && filled.length === 1;
       const pageUrl = params && params.originalURL || url || "";
-      const lufthansa = /^https?:\/\/([^/]+\.)?(lufthansa|austrian|brusselsairlines)\.com\//.test(pageUrl);
+      const lufthansa = /^https?:\/\/([^/]+\.)?(lufthansa|austrian|brusselsairlines|lufthansagroup)\.com\//.test(pageUrl);
       const partial = lufthansa && element.matches(".threecolumn, .fourcolumn") && filled.length > 0 && filled.length < items.length;
       const row = (hasEmbed || nestedView || loneImage || halfAlone || partial) && filled.length ? collected.map((c) => c.length ? c : "") : filled;
       if (row.length) cells.push(row);
@@ -3605,7 +3611,7 @@ var CustomImportScript = (() => {
   var styleMarker = (tokens) => new RegExp(`\\s*\\{((?:${tokens})(?: (?:${tokens}))*)\\}\\s*$`);
   var HEADING_TOKENS = `heading-(?:large|medium|small|copytext-large|copytext-medium)|copytext-large|limited-width|${COLUMN_MARK}`;
   var PARAGRAPH_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\\d{1,3}|${COLUMN_MARK}`;
-  var LIST_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|${COLUMN_MARK}`;
+  var LIST_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|links-(?:horizontal|responsive|vertical)|${COLUMN_MARK}`;
   var HEADING_STYLE = styleMarker(HEADING_TOKENS);
   var PARAGRAPH_STYLE = styleMarker(PARAGRAPH_TOKENS);
   var LIST_STYLE = styleMarker(LIST_TOKENS);
@@ -3651,7 +3657,10 @@ var CustomImportScript = (() => {
     },
     headingChoices: {
       h2: { large: "heading-large", compact: "heading-copytext-large" },
-      h3: { large: "heading-medium" }
+      h3: { large: "heading-medium" },
+      // an H4 two steps over its default too (www's heading-medium card titles: B2B's Joint
+      // Ventures, the brief after d9cf2340; without it the collapse dropped the size)
+      h4: { large: "heading-medium" }
     },
     // running text: two thirds of the content width from 1025px ('full': the whole width); body
     // text 18px (copytext-large), small print 14px
@@ -4746,6 +4755,35 @@ var CustomImportScript = (() => {
     });
     return converted;
   }
+  var LINK_LIST_LAYOUTS = ["horizontal", "responsive", "vertical"];
+  var LINK_LIST_LINK = "maui-navigation-link[href], maui-link[href], a[href], maui-button-link[href]";
+  function markLinkLists(document, payload) {
+    if (!isLufthansaPage(payload)) return 0;
+    let marked = 0;
+    document.querySelectorAll(".imagelinklist .link-list > ul").forEach((ul) => {
+      const layout = LINK_LIST_LAYOUTS.find((c) => ul.classList.contains(c));
+      if (!layout || ul.closest(".accordion, maui-collapsible, footer, header")) return;
+      const items = [...ul.children].filter((li) => li.tagName === "LI");
+      const links = [];
+      const ok = items.every((li) => {
+        const found = [...li.querySelectorAll(LINK_LIST_LINK)].filter((l) => !l.parentElement.closest(LINK_LIST_LINK));
+        const rest = li.cloneNode(true);
+        rest.querySelectorAll(`${LINK_LIST_LINK}, [slot="box"]`).forEach((l) => l.remove());
+        if (cleanText(rest) || rest.querySelector("img, picture, svg, video, iframe, input, button")) return false;
+        if (!found.length) return true;
+        if (found.length > 1) return false;
+        links.push(found[0]);
+        return true;
+      });
+      if (!ok || !links.length) return;
+      const pageLink = (l) => l.tagName === "MAUI-NAVIGATION-LINK" && ["hyper", "external"].includes(l.getAttribute("variant")) && !l.querySelector("img, picture, svg") && cleanText(l);
+      if (!links.every(pageLink)) return;
+      links[links.length - 1].closest("li").append(` {links-${layout}}`);
+      ul.setAttribute("data-lh-links", layout);
+      marked += 1;
+    });
+    return marked;
+  }
   var MAUI_LINK = "maui-button-link[href], maui-navigation-link[href], maui-link[href]";
   function convertMauiLinks(document) {
     const links = [...document.querySelectorAll(MAUI_LINK)].reverse();
@@ -5321,6 +5359,7 @@ var CustomImportScript = (() => {
       removeMobileDuplicates(document);
       rewriteAnchors(document, pagePath);
       convertJumpLinks(document);
+      markLinkLists(document, payload);
       convertAuthorQuotes(document);
       padCarouselSections(document);
       restoreMovingImages(document);
@@ -5629,7 +5668,9 @@ var CustomImportScript = (() => {
       });
       document.querySelectorAll("maui-tab-control-responsive").forEach((control) => {
         const panels = [...control.querySelectorAll(TAB_PANEL)].filter((p) => p.closest("maui-tab-control-responsive") === control);
-        if (!panels.length || taken(control) || !panels.some((p) => p.querySelector(TAB_CONTENT))) return;
+        const tabUrl = payload && (payload.params && payload.params.originalURL || payload.url) || "";
+        const content = /^https?:\/\/www\.brusselsairlines\.com\//.test(tabUrl) ? `${TAB_CONTENT}, .table` : TAB_CONTENT;
+        if (!panels.length || taken(control) || !panels.some((p) => p.querySelector(content))) return;
         panels.forEach((panel, i) => {
           const hr = createBreak(document);
           hr.setAttribute(TAB, (panel.getAttribute("name") || "").trim() || `Tab ${i + 1}`);
@@ -5675,6 +5716,104 @@ var CustomImportScript = (() => {
         [MARKER, SOURCE_STYLE, TAB, TABS, BREAK].forEach((attr) => hr.removeAttribute(attr));
       });
     }
+  }
+
+  // tools/importer/transformers/hub-dcep-render.js
+  var RENDITIONS = [2560, 1440, 720, 360];
+  function buildPanes(document, host) {
+    let props = {};
+    try {
+      props = JSON.parse(host.getAttribute("data-dcep") || "{}") || {};
+    } catch (e) {
+      return;
+    }
+    const panes = Array.isArray(props.panes) ? props.panes : [];
+    if (!panes.length) return;
+    const clean3 = (s) => typeof s === "string" ? s.replace(/\s+/g, " ").trim() : "";
+    const overlay = clean3(props.transparentOverlay);
+    const container = document.createElement("div");
+    container.className = "hero-container";
+    panes.forEach((pane) => {
+      const item = document.createElement("div");
+      item.className = "hero-item";
+      const label = clean3(pane.overlaySubHeadline);
+      if (label) {
+        const h2 = document.createElement("h2");
+        h2.className = "hero-subheading";
+        const button = document.createElement("button");
+        button.className = "hero-accordion-header-button";
+        button.textContent = label;
+        h2.append(button);
+        item.append(h2);
+      }
+      const media = pane.movingImage || {};
+      if (clean3(media.imageUrl)) {
+        const wrap = document.createElement("div");
+        wrap.className = "moving-image";
+        const box = document.createElement("div");
+        box.className = "w-100 h-100 object-cover";
+        const figure = document.createElement("figure");
+        const img = document.createElement("img");
+        img.setAttribute("src", clean3(media.imageUrl));
+        const ext = (clean3(media.imageUrl).match(/\.([a-z0-9]+)$/i) || [null, "jpg"])[1].toLowerCase();
+        img.setAttribute("srcset", RENDITIONS.map((w) => `${clean3(media.imageUrl)}.transform/lh-dcep-transform-width-${w}/img.${ext} ${w}w`).join(","));
+        img.setAttribute("alt", clean3(media.alt));
+        figure.append(img);
+        box.append(figure);
+        wrap.append(box);
+        item.append(wrap);
+      }
+      if (/^#[0-9a-f]{3,8}$/i.test(overlay)) {
+        const ov = document.createElement("div");
+        ov.className = "transparent-overlay";
+        ov.setAttribute("style", `--transparent-overlay-color: ${overlay}`);
+        item.append(ov);
+      }
+      const contents = document.createElement("div");
+      contents.className = "hero-items-contents";
+      if (clean3(pane.overlayTitle)) {
+        const h3 = document.createElement("h3");
+        h3.className = "hero-header";
+        h3.textContent = clean3(pane.overlayTitle);
+        contents.append(h3);
+      }
+      const p = document.createElement("p");
+      p.className = "hero-paragraph";
+      p.textContent = clean3(pane.overlayDescription);
+      contents.append(p);
+      if (clean3(pane.overlayButtonText) && clean3(pane.overlayButtonLinkTarget)) {
+        const btn = document.createElement("maui-button-link");
+        btn.className = "hero-button";
+        btn.setAttribute("href", clean3(pane.overlayButtonLinkTarget));
+        btn.setAttribute("label", clean3(pane.overlayButtonText));
+        btn.setAttribute("type", "secondary");
+        btn.textContent = clean3(pane.overlayButtonText);
+        contents.append(btn);
+      }
+      const label2 = item.querySelector(".hero-subheading");
+      if (label2) label2.after(contents);
+      else item.prepend(contents);
+      container.append(item);
+    });
+    const outer = document.createElement("div");
+    outer.className = "px-0 full-width-bg";
+    const intro = document.createElement("div");
+    intro.className = "hero-banner-intro-animation";
+    const h1 = document.createElement("h1");
+    h1.className = "animated-text";
+    intro.append(h1);
+    const banner = document.createElement("div");
+    banner.className = "hero-banner";
+    banner.append(container);
+    outer.append(intro, banner);
+    host.append(outer);
+  }
+  function transform3(hookName, element, payload) {
+    if (hookName !== "onLoad") return;
+    const document = payload && payload.document || element.ownerDocument || element;
+    document.querySelectorAll(".dcep-hero-banner[data-dcep]").forEach((host) => {
+      if (!host.querySelector(".hero-item")) buildPanes(document, host);
+    });
   }
 
   // tools/importer/transformers/campaign-sections.js
@@ -5741,7 +5880,7 @@ var CustomImportScript = (() => {
     });
     return fixed;
   }
-  function transform3(hookName, element, payload) {
+  function transform4(hookName, element, payload) {
     const document = payload && payload.document || element.ownerDocument || element;
     if (hookName === "onLoad") {
       campaignSections(document).forEach((s) => {
@@ -5943,7 +6082,7 @@ var CustomImportScript = (() => {
     });
   }
   var CAMPAIGN_SECTION_BREAK = 'hr[data-excat-section-source-style*="campaign-section"]';
-  function transform4(hookName, element, payload) {
+  function transform5(hookName, element, payload) {
     if (hookName !== "beforeTransform" && hookName !== "afterTransform") return;
     const template = payload && payload.template || {};
     if (CLEANUP_TEMPLATES.includes(template.name) || CLEANUP_TEMPLATES.includes(template.base)) return;
@@ -5959,7 +6098,7 @@ var CustomImportScript = (() => {
   var SEPARATOR2 = /^\{(spacer|divider)-(\d{1,3})( from-768)?\}$/;
   var SPACER2 = { 60: "Spacer", 120: "Spacer (l)" };
   var DIVIDER = { 25: "Divider" };
-  function transform5(hookName, element, payload) {
+  function transform6(hookName, element, payload) {
     if (hookName !== "afterTransform") return;
     const document = payload && payload.document || element.ownerDocument || element;
     [...element.querySelectorAll("p")].forEach((p) => {
@@ -5969,104 +6108,6 @@ var CustomImportScript = (() => {
       const name = (m[1] === "divider" ? DIVIDER : SPACER2)[Number(m[2])];
       if (!name) return;
       p.replaceWith(WebImporter.Blocks.createBlock(document, { name, cells: [[""]] }));
-    });
-  }
-
-  // tools/importer/transformers/hub-dcep-render.js
-  var RENDITIONS = [2560, 1440, 720, 360];
-  function buildPanes(document, host) {
-    let props = {};
-    try {
-      props = JSON.parse(host.getAttribute("data-dcep") || "{}") || {};
-    } catch (e) {
-      return;
-    }
-    const panes = Array.isArray(props.panes) ? props.panes : [];
-    if (!panes.length) return;
-    const clean3 = (s) => typeof s === "string" ? s.replace(/\s+/g, " ").trim() : "";
-    const overlay = clean3(props.transparentOverlay);
-    const container = document.createElement("div");
-    container.className = "hero-container";
-    panes.forEach((pane) => {
-      const item = document.createElement("div");
-      item.className = "hero-item";
-      const label = clean3(pane.overlaySubHeadline);
-      if (label) {
-        const h2 = document.createElement("h2");
-        h2.className = "hero-subheading";
-        const button = document.createElement("button");
-        button.className = "hero-accordion-header-button";
-        button.textContent = label;
-        h2.append(button);
-        item.append(h2);
-      }
-      const media = pane.movingImage || {};
-      if (clean3(media.imageUrl)) {
-        const wrap = document.createElement("div");
-        wrap.className = "moving-image";
-        const box = document.createElement("div");
-        box.className = "w-100 h-100 object-cover";
-        const figure = document.createElement("figure");
-        const img = document.createElement("img");
-        img.setAttribute("src", clean3(media.imageUrl));
-        const ext = (clean3(media.imageUrl).match(/\.([a-z0-9]+)$/i) || [null, "jpg"])[1].toLowerCase();
-        img.setAttribute("srcset", RENDITIONS.map((w) => `${clean3(media.imageUrl)}.transform/lh-dcep-transform-width-${w}/img.${ext} ${w}w`).join(","));
-        img.setAttribute("alt", clean3(media.alt));
-        figure.append(img);
-        box.append(figure);
-        wrap.append(box);
-        item.append(wrap);
-      }
-      if (/^#[0-9a-f]{3,8}$/i.test(overlay)) {
-        const ov = document.createElement("div");
-        ov.className = "transparent-overlay";
-        ov.setAttribute("style", `--transparent-overlay-color: ${overlay}`);
-        item.append(ov);
-      }
-      const contents = document.createElement("div");
-      contents.className = "hero-items-contents";
-      if (clean3(pane.overlayTitle)) {
-        const h3 = document.createElement("h3");
-        h3.className = "hero-header";
-        h3.textContent = clean3(pane.overlayTitle);
-        contents.append(h3);
-      }
-      const p = document.createElement("p");
-      p.className = "hero-paragraph";
-      p.textContent = clean3(pane.overlayDescription);
-      contents.append(p);
-      if (clean3(pane.overlayButtonText) && clean3(pane.overlayButtonLinkTarget)) {
-        const btn = document.createElement("maui-button-link");
-        btn.className = "hero-button";
-        btn.setAttribute("href", clean3(pane.overlayButtonLinkTarget));
-        btn.setAttribute("label", clean3(pane.overlayButtonText));
-        btn.setAttribute("type", "secondary");
-        btn.textContent = clean3(pane.overlayButtonText);
-        contents.append(btn);
-      }
-      const label2 = item.querySelector(".hero-subheading");
-      if (label2) label2.after(contents);
-      else item.prepend(contents);
-      container.append(item);
-    });
-    const outer = document.createElement("div");
-    outer.className = "px-0 full-width-bg";
-    const intro = document.createElement("div");
-    intro.className = "hero-banner-intro-animation";
-    const h1 = document.createElement("h1");
-    h1.className = "animated-text";
-    intro.append(h1);
-    const banner = document.createElement("div");
-    banner.className = "hero-banner";
-    banner.append(container);
-    outer.append(intro, banner);
-    host.append(outer);
-  }
-  function transform6(hookName, element, payload) {
-    if (hookName !== "onLoad") return;
-    const document = payload && payload.document || element.ownerDocument || element;
-    document.querySelectorAll(".dcep-hero-banner[data-dcep]").forEach((host) => {
-      if (!host.querySelector(".hero-item")) buildPanes(document, host);
     });
   }
 
@@ -7398,7 +7439,7 @@ var CustomImportScript = (() => {
     "cards-icon-text": parse12,
     "embed": parse13
   };
-  var transformers = [transform, transform2, transform6, transform3, transform4, transform5];
+  var transformers = [transform, transform2, transform3, transform4, transform5, transform6];
   function executeTransformers(hookName, element, payload) {
     const enhancedPayload = __spreadProps(__spreadValues({}, payload), { template: PAGE_TEMPLATE });
     transformers.forEach((fn) => {
@@ -7420,7 +7461,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_hub_default = {
+  var tmp_bundle_hub_944863_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -7460,5 +7501,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_hub_exports);
+  return __toCommonJS(tmp_bundle_hub_944863_exports);
 })();
