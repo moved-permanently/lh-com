@@ -244,6 +244,39 @@ export const LOCAL_IMAGES = Object.fromEntries([
   '02_Deepening ties-2017_Teaser-1440x512', '02_Deepening ties-2017-2_Teaser-1440x512',
 ].map((f) => [`${WEBHUB}/${f}.svg`, `/media-da/b2b/${f.replace(/ /g, '-').toLowerCase()}.png`]));
 
+/**
+ * An SVG that only wraps one PNG picture (the Joint Ventures teasers: an <image> with a data: PNG,
+ * nothing drawn): that picture's bytes, else null.
+ */
+export function embeddedRaster(svg) {
+  const images = svg.match(/<image\b/g) || [];
+  if (images.length !== 1 || /<(?:path|rect|circle|ellipse|polygon|polyline|line|text)\b/.test(svg)) return null;
+  const m = svg.match(/data:image\/png;base64,([A-Za-z0-9+/=\s]+)/);
+  return m ? Buffer.from(m[1].replace(/\s+/g, ''), 'base64') : null;
+}
+
+/**
+ * LOCAL_IMAGES' files from the capture's SVGs (assets: b2b-studio's content-sites/lh-b2b/assets/svg,
+ * www's file names): the picture an SVG wraps, as www shows it (the airline tails transparent on the
+ * grey band; renderings on white were RGB). An SVG not there, or one that draws, leaves its file as
+ * it is. Returns the media paths written. The brief after d9cf2340, item 4.
+ */
+export function writeLocalImages(assets, content, fsx = fs) {
+  const written = [];
+  Object.entries(LOCAL_IMAGES).forEach(([www, media]) => {
+    const svg = path.join(assets, path.basename(www));
+    if (!fsx.existsSync(svg)) return;
+    const png = embeddedRaster(fsx.readFileSync(svg, 'utf8'));
+    if (!png) return;
+    const to = path.join(content, media);
+    if (fsx.existsSync(to) && Buffer.compare(fsx.readFileSync(to), png) === 0) return;
+    fsx.mkdirSync(path.dirname(to), { recursive: true });
+    fsx.writeFileSync(to, png);
+    written.push(media);
+  });
+  return written;
+}
+
 /** A document's images Edge Delivery refuses (LOCAL_IMAGES) as their PNG renderings. */
 export const withLocalImages = (doc) => doc.replace(/<img src="(?:https:\/\/business\.lufthansagroup\.com)?(\/content\/dam\/[^"?]+\.svg)"/g, (m, src) => {
   let www = src;
@@ -618,6 +651,10 @@ if (isMain) {
       const next = withOwnLinks(withLocalImages(relativeDamLinks(doc)), HOST, pages, aliases).doc;
       if (next !== doc) fs.writeFileSync(f, next);
     });
+    // the pictures LOCAL_IMAGES points to, from the capture's SVGs (www's own, transparent where it is)
+    const media = made.some((p) => /\/media-da\/b2b\//.test(fs.readFileSync(path.join(W, 'content', `${p}.plain.html`), 'utf8')))
+      ? writeLocalImages(path.join(W, 'assets/svg'), path.join(W, 'content')) : [];
+    if (media.length) console.log(`local images from the SVGs: ${media.join(' ')} (upload them with the documents)`);
     // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
     collapseDocs(withRestoredNbsp(made.map((p) => path.join(W, 'content', `${p}.plain.html`)), fs), { brand: 'b2b', content: path.join(W, 'content') });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({
