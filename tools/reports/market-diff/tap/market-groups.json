@@ -1,0 +1,1112 @@
+{
+ "about": "TAP's market comparison (tools/reports/market-diff/tap/import-list.tsv) as decisions for tools/importer/tap-markets.mjs: pages: per language page the root groups www serves another variant without a rule (by the comparison's variant hash), each a section with its countries; own: per root the pages it gets a document of its own for. Written by tools/markets/tap-market-groups.mjs",
+ "pages": {
+  "/en-pt/bookings/payment-methods": [
+   {
+    "variant": "f707241be327",
+    "kind": "version-local",
+    "roots": [
+     "en-ao",
+     "en-ar",
+     "en-at",
+     "en-be",
+     "en-br",
+     "en-ca",
+     "en-ch",
+     "en-ci",
+     "en-cl",
+     "en-co",
+     "en-cv",
+     "en-cz",
+     "en-de",
+     "en-dk",
+     "en-dz",
+     "en-ee",
+     "en-eg",
+     "en-es",
+     "en-fi",
+     "en-fr",
+     "en-gb",
+     "en-gh",
+     "en-gm",
+     "en-gn",
+     "en-gr",
+     "en-gw",
+     "en-hk",
+     "en-hr",
+     "en-hu",
+     "en-ie",
+     "en-il",
+     "en-it",
+     "en-lt",
+     "en-lu",
+     "en-lv",
+     "en-ma",
+     "en-ml",
+     "en-mx",
+     "en-mz",
+     "en-nl",
+     "en-no",
+     "en-pa",
+     "en-pl",
+     "en-ro",
+     "en-rs",
+     "en-ru",
+     "en-se",
+     "en-sk",
+     "en-sn",
+     "en-st",
+     "en-tg",
+     "en-tn",
+     "en-tr",
+     "en-ua",
+     "en-us",
+     "en-uy",
+     "en-ve",
+     "en-za"
+    ],
+    "countries": [
+     "ao",
+     "ar",
+     "at",
+     "be",
+     "br",
+     "ca",
+     "ch",
+     "ci",
+     "cl",
+     "co",
+     "cv",
+     "cz",
+     "de",
+     "dk",
+     "dz",
+     "ee",
+     "eg",
+     "es",
+     "fi",
+     "fr",
+     "gb",
+     "gh",
+     "gm",
+     "gn",
+     "gr",
+     "gw",
+     "hk",
+     "hr",
+     "hu",
+     "ie",
+     "il",
+     "it",
+     "lt",
+     "lu",
+     "lv",
+     "ma",
+     "ml",
+     "mx",
+     "mz",
+     "nl",
+     "no",
+     "pa",
+     "pl",
+     "ro",
+     "rs",
+     "ru",
+     "se",
+     "sk",
+     "sn",
+     "st",
+     "tg",
+     "tn",
+     "tr",
+     "ua",
+     "us",
+     "uy",
+     "ve",
+     "za"
+    ]
+   }
+  ],
+  "/en-pt/information/traveling-with-animals/service-animals": [
+   {
+    "variant": "22c64dc2169d",
+    "kind": "version-local",
+    "roots": [
+     "en-br"
+    ],
+    "countries": [
+     "br"
+    ]
+   }
+  ],
+  "/en-pt/miles-and-go/club": [
+   {
+    "variant": "a2de3720e001",
+    "kind": "version-local",
+    "roots": [
+     "en-ao"
+    ],
+    "countries": [
+     "ao"
+    ]
+   },
+   {
+    "variant": "d000ae69f168",
+    "kind": "version-local",
+    "roots": [
+     "en-ar",
+     "en-at",
+     "en-be",
+     "en-ca",
+     "en-ch",
+     "en-ci",
+     "en-cl",
+     "en-co",
+     "en-cv",
+     "en-cz",
+     "en-de",
+     "en-dk",
+     "en-dz",
+     "en-ee",
+     "en-eg",
+     "en-es",
+     "en-fi",
+     "en-fr",
+     "en-gb",
+     "en-gh",
+     "en-gm",
+     "en-gn",
+     "en-gr",
+     "en-gw",
+     "en-hk",
+     "en-hr",
+     "en-hu",
+     "en-ie",
+     "en-il",
+     "en-it",
+     "en-lt",
+     "en-lu",
+     "en-lv",
+     "en-ma",
+     "en-ml",
+     "en-mx",
+     "en-mz",
+     "en-nl",
+     "en-no",
+     "en-pa",
+     "en-pl",
+     "en-ro",
+     "en-rs",
+     "en-ru",
+     "en-se",
+     "en-sk",
+     "en-sn",
+     "en-st",
+     "en-tg",
+     "en-tn",
+     "en-tr",
+     "en-ua",
+     "en-uy",
+     "en-ve",
+     "en-za"
+    ],
+    "countries": [
+     "ar",
+     "at",
+     "be",
+     "ca",
+     "ch",
+     "ci",
+     "cl",
+     "co",
+     "cv",
+     "cz",
+     "de",
+     "dk",
+     "dz",
+     "ee",
+     "eg",
+     "es",
+     "fi",
+     "fr",
+     "gb",
+     "gh",
+     "gm",
+     "gn",
+     "gr",
+     "gw",
+     "hk",
+     "hr",
+     "hu",
+     "ie",
+     "il",
+     "it",
+     "lt",
+     "lu",
+     "lv",
+     "ma",
+     "ml",
+     "mx",
+     "mz",
+     "nl",
+     "no",
+     "pa",
+     "pl",
+     "ro",
+     "rs",
+     "ru",
+     "se",
+     "sk",
+     "sn",
+     "st",
+     "tg",
+     "tn",
+     "tr",
+     "ua",
+     "uy",
+     "ve",
+     "za"
+    ]
+   },
+   {
+    "variant": "68d773521e42",
+    "kind": "version-local",
+    "roots": [
+     "en-us"
+    ],
+    "countries": [
+     "us"
+    ]
+   }
+  ],
+  "/en-pt/miles-and-go/partners": [
+   {
+    "variant": "5c1014f0a6ee",
+    "kind": "version-local",
+    "roots": [
+     "en-ao"
+    ],
+    "countries": [
+     "ao"
+    ]
+   },
+   {
+    "variant": "3a29a9cb9830",
+    "kind": "version-local",
+    "roots": [
+     "en-br"
+    ],
+    "countries": [
+     "br"
+    ]
+   },
+   {
+    "variant": "5c2f746d1b49",
+    "kind": "version-local",
+    "roots": [
+     "en-ca"
+    ],
+    "countries": [
+     "ca"
+    ]
+   },
+   {
+    "variant": "58b7043f4b0b",
+    "kind": "version-local",
+    "roots": [
+     "en-mx"
+    ],
+    "countries": [
+     "mx"
+    ]
+   },
+   {
+    "variant": "7ea5d16fe84b",
+    "kind": "version-local",
+    "roots": [
+     "en-us"
+    ],
+    "countries": [
+     "us"
+    ]
+   }
+  ],
+  "/en-pt/miles-and-go/promo": [
+   {
+    "variant": "03a4dbe868a2",
+    "kind": "shared variant",
+    "roots": [
+     "en-cl",
+     "en-mx",
+     "en-mz",
+     "en-pl",
+     "en-sn",
+     "en-tg",
+     "en-tr",
+     "en-za"
+    ],
+    "countries": [
+     "cl",
+     "mx",
+     "mz",
+     "pl",
+     "sn",
+     "tg",
+     "tr",
+     "za"
+    ]
+   }
+  ],
+  "/en-pt/miles-and-go/promotions": [
+   {
+    "variant": "4141979f97a2",
+    "kind": "version-local",
+    "roots": [
+     "en-br"
+    ],
+    "countries": [
+     "br"
+    ]
+   },
+   {
+    "variant": "98f97c319b08",
+    "kind": "version-local",
+    "roots": [
+     "en-us"
+    ],
+    "countries": [
+     "us"
+    ]
+   }
+  ],
+  "/en-pt/promos": [
+   {
+    "variant": "41186379b776",
+    "kind": "version-local",
+    "roots": [
+     "en-ca"
+    ],
+    "countries": [
+     "ca"
+    ]
+   },
+   {
+    "variant": "da8324431108",
+    "kind": "version-local",
+    "roots": [
+     "en-us"
+    ],
+    "countries": [
+     "us"
+    ]
+   }
+  ],
+  "/es-es/informacion-legal/condiciones-de-transporte": [
+   {
+    "variant": "fe2a2597ecb5",
+    "kind": "version-local",
+    "roots": [
+     "es-ar",
+     "es-cl",
+     "es-co",
+     "es-mx",
+     "es-pa",
+     "es-uy",
+     "es-ve"
+    ],
+    "countries": [
+     "ar",
+     "cl",
+     "co",
+     "mx",
+     "pa",
+     "uy",
+     "ve"
+    ]
+   },
+   {
+    "variant": "96c43da3465b",
+    "kind": "version-local",
+    "roots": [
+     "es-us"
+    ],
+    "countries": [
+     "us"
+    ]
+   }
+  ],
+  "/es-es/miles-and-go/socios": [
+   {
+    "variant": "355ef29ebd81",
+    "kind": "version-local",
+    "roots": [
+     "es-mx"
+    ],
+    "countries": [
+     "mx"
+    ]
+   },
+   {
+    "variant": "5a633bab6f24",
+    "kind": "version-local",
+    "roots": [
+     "es-us"
+    ],
+    "countries": [
+     "us"
+    ]
+   }
+  ],
+  "/fr-fr/miles-and-go/partenaires": [
+   {
+    "variant": "aa48e2c441f7",
+    "kind": "version-local",
+    "roots": [
+     "fr-ci",
+     "fr-dz",
+     "fr-gh",
+     "fr-gn",
+     "fr-ma",
+     "fr-ml",
+     "fr-sn",
+     "fr-tg"
+    ],
+    "countries": [
+     "ci",
+     "dz",
+     "gh",
+     "gn",
+     "ma",
+     "ml",
+     "sn",
+     "tg"
+    ]
+   }
+  ],
+  "/pt-pt/informacoes/viajar-com-animais/animais-assistencia": [
+   {
+    "variant": "2e83845d19ad",
+    "kind": "version-local",
+    "roots": [
+     "pt-ao",
+     "pt-ar",
+     "pt-at",
+     "pt-be",
+     "pt-ca",
+     "pt-ch",
+     "pt-ci",
+     "pt-cl",
+     "pt-co",
+     "pt-cv",
+     "pt-cz",
+     "pt-de",
+     "pt-dk",
+     "pt-dz",
+     "pt-ee",
+     "pt-eg",
+     "pt-es",
+     "pt-fi",
+     "pt-fr",
+     "pt-gb",
+     "pt-gh",
+     "pt-gm",
+     "pt-gn",
+     "pt-gr",
+     "pt-gw",
+     "pt-hk",
+     "pt-hr",
+     "pt-hu",
+     "pt-ie",
+     "pt-il",
+     "pt-it",
+     "pt-lt",
+     "pt-lu",
+     "pt-lv",
+     "pt-ma",
+     "pt-ml",
+     "pt-mx",
+     "pt-mz",
+     "pt-nl",
+     "pt-no",
+     "pt-pa",
+     "pt-pl",
+     "pt-ro",
+     "pt-rs",
+     "pt-ru",
+     "pt-se",
+     "pt-sk",
+     "pt-sn",
+     "pt-st",
+     "pt-tg",
+     "pt-tn",
+     "pt-tr",
+     "pt-ua",
+     "pt-uy",
+     "pt-ve",
+     "pt-za"
+    ],
+    "countries": [
+     "ao",
+     "ar",
+     "at",
+     "be",
+     "ca",
+     "ch",
+     "ci",
+     "cl",
+     "co",
+     "cv",
+     "cz",
+     "de",
+     "dk",
+     "dz",
+     "ee",
+     "eg",
+     "es",
+     "fi",
+     "fr",
+     "gb",
+     "gh",
+     "gm",
+     "gn",
+     "gr",
+     "gw",
+     "hk",
+     "hr",
+     "hu",
+     "ie",
+     "il",
+     "it",
+     "lt",
+     "lu",
+     "lv",
+     "ma",
+     "ml",
+     "mx",
+     "mz",
+     "nl",
+     "no",
+     "pa",
+     "pl",
+     "ro",
+     "rs",
+     "ru",
+     "se",
+     "sk",
+     "sn",
+     "st",
+     "tg",
+     "tn",
+     "tr",
+     "ua",
+     "uy",
+     "ve",
+     "za"
+    ]
+   }
+  ],
+  "/pt-pt/miles-and-go/club": [
+   {
+    "variant": "defea5a78796",
+    "kind": "version-local",
+    "roots": [
+     "pt-ao"
+    ],
+    "countries": [
+     "ao"
+    ]
+   },
+   {
+    "variant": "a14d1d1d7f0c",
+    "kind": "version-local",
+    "roots": [
+     "pt-ar",
+     "pt-at",
+     "pt-be",
+     "pt-ca",
+     "pt-ch",
+     "pt-ci",
+     "pt-cl",
+     "pt-co",
+     "pt-cv",
+     "pt-cz",
+     "pt-de",
+     "pt-dk",
+     "pt-dz",
+     "pt-ee",
+     "pt-eg",
+     "pt-es",
+     "pt-fi",
+     "pt-fr",
+     "pt-gb",
+     "pt-gh",
+     "pt-gm",
+     "pt-gn",
+     "pt-gr",
+     "pt-gw",
+     "pt-hk",
+     "pt-hr",
+     "pt-hu",
+     "pt-ie",
+     "pt-il",
+     "pt-it",
+     "pt-lt",
+     "pt-lu",
+     "pt-lv",
+     "pt-ma",
+     "pt-ml",
+     "pt-mx",
+     "pt-mz",
+     "pt-nl",
+     "pt-no",
+     "pt-pa",
+     "pt-pl",
+     "pt-ro",
+     "pt-rs",
+     "pt-ru",
+     "pt-se",
+     "pt-sk",
+     "pt-sn",
+     "pt-st",
+     "pt-tg",
+     "pt-tn",
+     "pt-tr",
+     "pt-ua",
+     "pt-uy",
+     "pt-ve",
+     "pt-za"
+    ],
+    "countries": [
+     "ar",
+     "at",
+     "be",
+     "ca",
+     "ch",
+     "ci",
+     "cl",
+     "co",
+     "cv",
+     "cz",
+     "de",
+     "dk",
+     "dz",
+     "ee",
+     "eg",
+     "es",
+     "fi",
+     "fr",
+     "gb",
+     "gh",
+     "gm",
+     "gn",
+     "gr",
+     "gw",
+     "hk",
+     "hr",
+     "hu",
+     "ie",
+     "il",
+     "it",
+     "lt",
+     "lu",
+     "lv",
+     "ma",
+     "ml",
+     "mx",
+     "mz",
+     "nl",
+     "no",
+     "pa",
+     "pl",
+     "ro",
+     "rs",
+     "ru",
+     "se",
+     "sk",
+     "sn",
+     "st",
+     "tg",
+     "tn",
+     "tr",
+     "ua",
+     "uy",
+     "ve",
+     "za"
+    ]
+   },
+   {
+    "variant": "12c6d0dae27a",
+    "kind": "version-local",
+    "roots": [
+     "pt-us"
+    ],
+    "countries": [
+     "us"
+    ]
+   }
+  ],
+  "/pt-pt/miles-and-go/parceiros": [
+   {
+    "variant": "95a14d279e7c",
+    "kind": "version-local",
+    "roots": [
+     "pt-ao"
+    ],
+    "countries": [
+     "ao"
+    ]
+   },
+   {
+    "variant": "883106978a51",
+    "kind": "version-local",
+    "roots": [
+     "pt-ca"
+    ],
+    "countries": [
+     "ca"
+    ]
+   },
+   {
+    "variant": "4229491570ec",
+    "kind": "version-local",
+    "roots": [
+     "pt-mx"
+    ],
+    "countries": [
+     "mx"
+    ]
+   },
+   {
+    "variant": "b78aa62f7e8a",
+    "kind": "version-local",
+    "roots": [
+     "pt-us"
+    ],
+    "countries": [
+     "us"
+    ]
+   }
+  ],
+  "/pt-pt/miles-and-go/promo": [
+   {
+    "variant": "807e552e868d",
+    "kind": "shared variant",
+    "roots": [
+     "pt-cl",
+     "pt-mx",
+     "pt-mz",
+     "pt-pl",
+     "pt-sn",
+     "pt-tg",
+     "pt-tr",
+     "pt-za"
+    ],
+    "countries": [
+     "cl",
+     "mx",
+     "mz",
+     "pl",
+     "sn",
+     "tg",
+     "tr",
+     "za"
+    ]
+   }
+  ],
+  "/pt-pt/miles-and-go/promocoes": [
+   {
+    "variant": "bd3d00800278",
+    "kind": "version-local",
+    "roots": [
+     "pt-us"
+    ],
+    "countries": [
+     "us"
+    ]
+   }
+  ],
+  "/pt-pt/promos": [
+   {
+    "variant": "73360a4631fc",
+    "kind": "version-local",
+    "roots": [
+     "pt-at",
+     "pt-be",
+     "pt-ch",
+     "pt-cz",
+     "pt-de",
+     "pt-dk",
+     "pt-fr",
+     "pt-gb",
+     "pt-ie",
+     "pt-it",
+     "pt-lu",
+     "pt-nl",
+     "pt-no",
+     "pt-se"
+    ],
+    "countries": [
+     "at",
+     "be",
+     "ch",
+     "cz",
+     "de",
+     "dk",
+     "fr",
+     "gb",
+     "ie",
+     "it",
+     "lu",
+     "nl",
+     "no",
+     "se"
+    ]
+   },
+   {
+    "variant": "f8df2be9b2f9",
+    "kind": "version-local",
+    "roots": [
+     "pt-ca"
+    ],
+    "countries": [
+     "ca"
+    ]
+   },
+   {
+    "variant": "022352aa85d7",
+    "kind": "version-local",
+    "roots": [
+     "pt-es"
+    ],
+    "countries": [
+     "es"
+    ]
+   },
+   {
+    "variant": "930a5c530fd5",
+    "kind": "version-local",
+    "roots": [
+     "pt-pl"
+    ],
+    "countries": [
+     "pl"
+    ]
+   },
+   {
+    "variant": "1865d6a077e8",
+    "kind": "version-local",
+    "roots": [
+     "pt-us"
+    ],
+    "countries": [
+     "us"
+    ]
+   }
+  ],
+  "/pt-pt/reservas/modalidades-de-pagamento": [
+   {
+    "variant": "af8fda4069b2",
+    "kind": "version-local",
+    "roots": [
+     "pt-ao",
+     "pt-ar",
+     "pt-at",
+     "pt-be",
+     "pt-ca",
+     "pt-ch",
+     "pt-ci",
+     "pt-cl",
+     "pt-co",
+     "pt-cv",
+     "pt-cz",
+     "pt-de",
+     "pt-dk",
+     "pt-dz",
+     "pt-ee",
+     "pt-eg",
+     "pt-es",
+     "pt-fi",
+     "pt-fr",
+     "pt-gb",
+     "pt-gh",
+     "pt-gm",
+     "pt-gn",
+     "pt-gr",
+     "pt-gw",
+     "pt-hk",
+     "pt-hr",
+     "pt-hu",
+     "pt-ie",
+     "pt-il",
+     "pt-it",
+     "pt-lt",
+     "pt-lu",
+     "pt-lv",
+     "pt-ma",
+     "pt-ml",
+     "pt-mx",
+     "pt-mz",
+     "pt-nl",
+     "pt-no",
+     "pt-pa",
+     "pt-pl",
+     "pt-ro",
+     "pt-rs",
+     "pt-ru",
+     "pt-se",
+     "pt-sk",
+     "pt-sn",
+     "pt-st",
+     "pt-tg",
+     "pt-tn",
+     "pt-tr",
+     "pt-ua",
+     "pt-us",
+     "pt-uy",
+     "pt-ve",
+     "pt-za"
+    ],
+    "countries": [
+     "ao",
+     "ar",
+     "at",
+     "be",
+     "ca",
+     "ch",
+     "ci",
+     "cl",
+     "co",
+     "cv",
+     "cz",
+     "de",
+     "dk",
+     "dz",
+     "ee",
+     "eg",
+     "es",
+     "fi",
+     "fr",
+     "gb",
+     "gh",
+     "gm",
+     "gn",
+     "gr",
+     "gw",
+     "hk",
+     "hr",
+     "hu",
+     "ie",
+     "il",
+     "it",
+     "lt",
+     "lu",
+     "lv",
+     "ma",
+     "ml",
+     "mx",
+     "mz",
+     "nl",
+     "no",
+     "pa",
+     "pl",
+     "ro",
+     "rs",
+     "ru",
+     "se",
+     "sk",
+     "sn",
+     "st",
+     "tg",
+     "tn",
+     "tr",
+     "ua",
+     "us",
+     "uy",
+     "ve",
+     "za"
+    ]
+   }
+  ]
+ },
+ "own": {
+  "de-at": [
+   "https://www.flytap.com/de-at/buchungen/versicherung"
+  ],
+  "de-ch": [
+   "https://www.flytap.com/de-ch/buchungen/versicherung"
+  ],
+  "en-br": [
+   "https://www.flytap.com/en-br/help",
+   "https://www.flytap.com/en-br/help/frequently-asked-questions",
+   "https://www.flytap.com/en-br/help/tap-refunds",
+   "https://www.flytap.com/en-br/info-legal/privacidade",
+   "https://www.flytap.com/en-br/legal-info/privacy",
+   "https://www.flytap.com/en-br/legal-info/terms-and-conditions",
+   "https://www.flytap.com/en-br/miles-and-go/gift"
+  ],
+  "en-ca": [
+   "https://www.flytap.com/en-ca/information/baggage/problems-baggage"
+  ],
+  "en-es": [
+   "https://www.flytap.com/en-es/legal-info/conditions-of-carriage"
+  ],
+  "en-gb": [
+   "https://www.flytap.com/en-gb/legal-info/conditions-of-carriage"
+  ],
+  "en-us": [
+   "https://www.flytap.com/en-us/miles-and-go/gift"
+  ],
+  "es-cl": [
+   "https://www.flytap.com/es-cl/miles-and-go/promo"
+  ],
+  "es-mx": [
+   "https://www.flytap.com/es-mx/miles-and-go/promo"
+  ],
+  "es-us": [
+   "https://www.flytap.com/es-us/miles-and-go/club",
+   "https://www.flytap.com/es-us/miles-and-go/gane-millas",
+   "https://www.flytap.com/es-us/miles-and-go/promociones",
+   "https://www.flytap.com/es-us/promos"
+  ],
+  "fr-be": [
+   "https://www.flytap.com/fr-be/reservations/assurances"
+  ],
+  "fr-ca": [
+   "https://www.flytap.com/fr-ca/informations/bagage/problemes-bagages",
+   "https://www.flytap.com/fr-ca/miles-and-go/gagnez-miles",
+   "https://www.flytap.com/fr-ca/promos"
+  ],
+  "fr-sn": [
+   "https://www.flytap.com/fr-sn/miles-and-go/promo"
+  ],
+  "fr-tg": [
+   "https://www.flytap.com/fr-tg/miles-and-go/promo"
+  ],
+  "pt-be": [
+   "https://www.flytap.com/pt-be/info-legal/condicoes-de-transporte"
+  ],
+  "pt-ca": [
+   "https://www.flytap.com/pt-ca/informacoes/bagagem/problemas-bagagem"
+  ],
+  "pt-ch": [
+   "https://www.flytap.com/pt-ch/reservas/seguros"
+  ],
+  "pt-es": [
+   "https://www.flytap.com/pt-es/info-legal/condicoes-de-transporte"
+  ],
+  "pt-fr": [
+   "https://www.flytap.com/pt-fr/info-legal/condicoes-de-transporte"
+  ],
+  "pt-gb": [
+   "https://www.flytap.com/pt-gb/info-legal/condicoes-de-transporte"
+  ],
+  "pt-us": [
+   "https://www.flytap.com/pt-us/ajuda",
+   "https://www.flytap.com/pt-us/ajuda/perguntas-frequentes",
+   "https://www.flytap.com/pt-us/miles-and-go/gift"
+  ]
+ },
+ "leftOut": [
+  "/pt-pt/alertas-e-informacoes"
+ ]
+}

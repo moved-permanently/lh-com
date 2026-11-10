@@ -1,0 +1,5 @@
+# The standing order of 2026-11-10, item 3b (TAP parity row 128): tap-parity-002's get-inspired recording has about
+# 1,500 pictures that did not load (www 5,582 px at 1440 against our 39,589), so it is no measure; tap-parity-001 has
+# no such page. For the next capture window: full page at 1440 x 900 and 390 x 844 with measurements (as tap-parity-002),
+# the page scrolled through slowly and every picture waited for (complete and naturalWidth > 0) before the capture.
+https://www.flytap.com/en-pt/destinations/get-inspired

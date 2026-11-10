@@ -2791,4 +2791,49 @@ bari, Munich and cagliari -198 each; every page at 1440 and the article, homepag
 - **Lists:** reimport-567-ad-description-news.txt (22 pages), capture-567-ad-description-news.txt (2). Parity row 92.
 - **Note:** an earlier offline import run here made an empty folder content-sites/lh-airdolomiti/content/media-da/airdolomiti
   (git-ignored, left as it is).
+- **On main:** b51dfc86 (lint 0, 3402 pass 0 fail, smoke 0 differences on 14 hosts).
+
+### Item 3: TAP
+
+- **3a, /en-pt at 1440 (row 127):** the change from 4,836 to 4,000 px was ours, not www's: ed2c5846 (row 121) pinned the
+  Miles&Go cards as www's while scrolling. www's recordings (tap-parity-001 and -002) are 4,621 px because they did not
+  scroll (www's GSAP pin-spacer keeps 1,580 px until scrolled through); scrolled, www is 4,041 (brief 483). Ours 4,000:
+  -1 %. Nothing to follow.
+- **3b, get-inspired (row 128):** tap-parity-002's recording marked unreliable (about 1,500 pictures not loaded; www 5,582
+  px against our 39,589), out of the ranking. No other recording in the drop has the page (tap-parity-001 has none,
+  sha256 d3a98bb2... as downloaded). capture-567-tap-get-inspired.txt for the next window.
+- **3c, the market comparison's import rows (row 129):** the comparison's rulings file is not on main (work/market-diff/tap
+  is Ben's), so I worked from its import-list.tsv (387 rows), which has the same kinds of rows:
+  - version-local pages ("home-market section"): 16 language pages, by the comparison's variant hash 34 groups;
+  - the shared promo variant: en and pt /miles-and-go/promo, 8 roots each (the "16 shared promo" rows);
+  - own documents: 34 rows of 21 roots;
+  - the alerts page left out (the comparison's summary: the alerts come from the Message Center, nothing to import);
+  - the lacks rows: Ben's 14 in 5f33ef7e; a 15th is not in the files on main;
+  - the en-pt club page: three groups (55 roots, ao, us) like pt-pt's; its implicit market_us variation still goes by
+    the rule path, which comes first.
+  - **Step:** tap-markets.mjs read no such decisions: where no rule explains a difference it kept the language version
+    for every market. Now tools/markets/tap-market-groups.mjs writes market-groups.json from the comparison, and the step
+    gives a group whose capture differs its own section (its countries) and the language version's section to every other
+    market; a group without a capture is noted and keeps the language version; the own documents join the roots' own
+    pages (the CLI converts them from the roots' captures). ITA's and SWISS's pattern: one document with Markets sections.
+  - **Kind:** importer and data only; nothing live changes before the run. The own documents are served once
+    tools/reports/tap/markets.json and scripts/tap-markets.js (lh-edge's table, ema-adobe's deploy) follow the run.
+  - **Lists:** reimport-567-tap-markets.txt (17 language documents and 34 root documents, the groups per row),
+    capture-567-tap-market-groups.txt (70: one root per group and each own document's page).
+  - **Test:** test/tap-market-groups-567.test.mjs (fails on the old step); test/tap-markets.test.mjs unchanged and passing.
+- **On main:** see the commit after b51dfc86 (feat(TAP markets)).
+
+### Item 4: SWISS
+
+- **The offers row (SWISS row 52):** the "mapping error" is the sweep's: our finder asks www.lufthansa.com's /service/api
+  (SWISS has no serviceOrigin), and the sweep's browser blocks airline hosts, so our page always showed "No results"
+  (2,218 px against www's 32,382). Fixed in the sweep: the row is out of the height ranking as not measurable offline.
+  Whether visitors get cards is check-567-swiss-offers.txt for the next window (row 35 had it open as data).
+- **SWISS ranking (the 5 recorded pages, live today, 390 at www's 844 px window):** homepage 4,246 / 5,194 (www 4,413 /
+  5,086: -3.8 % / +2.1 %), book-and-manage 1,249 / 1,709 (1,272 / 1,776: -1.8 % / -3.8 %), prepare -0.9 % / -0.6 %,
+  help-center 0.0 % / +0.9 %. Nothing over 5 %: the homepage goes into the fresh ranking (item 6).
+- **The SWISS document that would change on its own next import:** not found from the files on this machine. No report
+  on main names it, the machine has one SWISS snapshot and one local document (no dry run possible), and the nearest lead
+  (b01's grand-suite request page, markets ch) has no local copy to compare. Marked blocked: it needs the helper's note
+  naming the document. Not asked now (rule 5); I went on.
 

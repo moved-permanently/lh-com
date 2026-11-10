@@ -1,0 +1,84 @@
+# The standing order of 2026-11-10, item 3c (TAP parity row 129): TAP's market comparison
+# (tools/reports/market-diff/tap/import-list.tsv, brief 488) through tap-markets.mjs. The step now reads
+# tools/reports/market-diff/tap/market-groups.json (tools/markets/tap-market-groups.mjs): per language page the root
+# groups www serves another variant without a rule, and per root its own documents. Run: tap-markets.mjs as for the
+# market roots (--archive the language pages, --market-archive the market pages, --media, --sitemaps, --pages
+# tap-market-pages.json), with the market pages of capture-567-tap-market-groups.txt in a --market-archive: a group
+# without a capture is noted unplaced in the run's report (the language version kept for it), an own document
+# without a capture is noted 'no capture'. The run writes tools/reports/tap/markets.json (the roots' own documents);
+# scripts/tap-markets.js follows with tools/markets/tap-market-table.mjs and lh-edge's deploy (lh-edge is
+# ema-adobe's), so a root's own document is served once that table is live.
+# Not here: the alerts page (/pt-pt/alertas-e-informacoes: Message Center, nothing to import); the 14 lacks rows
+# (5f33ef7e, Ben); a 15th lacks row is not in the comparison's files on main.
+#
+# Language documents: expected change per row (the groups: kind, roots):
+# /en-pt/bookings/payment-methods: market sections, version-local 58 roots (ao,ar,at,be,br,ca,...); the language version's section for every other market
+# /en-pt/information/traveling-with-animals/service-animals: market sections, version-local 1 root (br); the language version's section for every other market
+# /en-pt/miles-and-go/club: market sections, version-local 1 root (ao); version-local 55 roots (ar,at,be,ca,ch,ci,...); version-local 1 root (us); the language version's section for every other market
+# /en-pt/miles-and-go/partners: market sections, version-local 1 root (ao); version-local 1 root (br); version-local 1 root (ca); version-local 1 root (mx); version-local 1 root (us); the language version's section for every other market
+# /en-pt/miles-and-go/promo: market sections, shared variant 8 roots (cl,mx,mz,pl,sn,tg,...); the language version's section for every other market
+# /en-pt/miles-and-go/promotions: market sections, version-local 1 root (br); version-local 1 root (us); the language version's section for every other market
+# /en-pt/promos: market sections, version-local 1 root (ca); version-local 1 root (us); the language version's section for every other market
+# /es-es/informacion-legal/condiciones-de-transporte: market sections, version-local 7 roots (ar,cl,co,mx,pa,uy,...); version-local 1 root (us); the language version's section for every other market
+# /es-es/miles-and-go/socios: market sections, version-local 1 root (mx); version-local 1 root (us); the language version's section for every other market
+# /fr-fr/miles-and-go/partenaires: market sections, version-local 8 roots (ci,dz,gh,gn,ma,ml,...); the language version's section for every other market
+# /pt-pt/informacoes/viajar-com-animais/animais-assistencia: market sections, version-local 56 roots (ao,ar,at,be,ca,ch,...); the language version's section for every other market
+# /pt-pt/miles-and-go/club: market sections, version-local 1 root (ao); version-local 55 roots (ar,at,be,ca,ch,ci,...); version-local 1 root (us); the language version's section for every other market
+# /pt-pt/miles-and-go/parceiros: market sections, version-local 1 root (ao); version-local 1 root (ca); version-local 1 root (mx); version-local 1 root (us); the language version's section for every other market
+# /pt-pt/miles-and-go/promo: market sections, shared variant 8 roots (cl,mx,mz,pl,sn,tg,...); the language version's section for every other market
+# /pt-pt/miles-and-go/promocoes: market sections, version-local 1 root (us); the language version's section for every other market
+# /pt-pt/promos: market sections, version-local 14 roots (at,be,ch,cz,de,dk,...); version-local 1 root (ca); version-local 1 root (es); version-local 1 root (pl); version-local 1 root (us); the language version's section for every other market
+# /pt-pt/reservas/modalidades-de-pagamento: market sections, version-local 57 roots (ao,ar,at,be,ca,ch,...); the language version's section for every other market
+#
+# Root documents (own documents, from the root's capture; the root's allowlist entry and markets.json own):
+/en-pt/bookings/payment-methods
+/en-pt/information/traveling-with-animals/service-animals
+/en-pt/miles-and-go/club
+/en-pt/miles-and-go/partners
+/en-pt/miles-and-go/promo
+/en-pt/miles-and-go/promotions
+/en-pt/promos
+/es-es/informacion-legal/condiciones-de-transporte
+/es-es/miles-and-go/socios
+/fr-fr/miles-and-go/partenaires
+/pt-pt/informacoes/viajar-com-animais/animais-assistencia
+/pt-pt/miles-and-go/club
+/pt-pt/miles-and-go/parceiros
+/pt-pt/miles-and-go/promo
+/pt-pt/miles-and-go/promocoes
+/pt-pt/promos
+/pt-pt/reservas/modalidades-de-pagamento
+/de-at/buchungen/versicherung
+/de-ch/buchungen/versicherung
+/en-br/help
+/en-br/help/frequently-asked-questions
+/en-br/help/tap-refunds
+/en-br/info-legal/privacidade
+/en-br/legal-info/privacy
+/en-br/legal-info/terms-and-conditions
+/en-br/miles-and-go/gift
+/en-ca/information/baggage/problems-baggage
+/en-es/legal-info/conditions-of-carriage
+/en-gb/legal-info/conditions-of-carriage
+/en-us/miles-and-go/gift
+/es-cl/miles-and-go/promo
+/es-mx/miles-and-go/promo
+/es-us/miles-and-go/club
+/es-us/miles-and-go/gane-millas
+/es-us/miles-and-go/promociones
+/es-us/promos
+/fr-be/reservations/assurances
+/fr-ca/informations/bagage/problemes-bagages
+/fr-ca/miles-and-go/gagnez-miles
+/fr-ca/promos
+/fr-sn/miles-and-go/promo
+/fr-tg/miles-and-go/promo
+/pt-be/info-legal/condicoes-de-transporte
+/pt-ca/informacoes/bagagem/problemas-bagagem
+/pt-ch/reservas/seguros
+/pt-es/info-legal/condicoes-de-transporte
+/pt-fr/info-legal/condicoes-de-transporte
+/pt-gb/info-legal/condicoes-de-transporte
+/pt-us/ajuda
+/pt-us/ajuda/perguntas-frequentes
+/pt-us/miles-and-go/gift
