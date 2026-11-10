@@ -298,8 +298,17 @@ body.brand-b2b main :is(.default-content-wrapper, .columns-media-text) > :is(h1,
 }
 
 body.brand-b2b main .hotline-finder :is(h3, h4),
-body.brand-b2b main :is(.default-content-wrapper, .columns-media-text) > :is(h3, h4):not([class*="heading-"]) {
+body.brand-b2b main .default-content-wrapper > :is(h3, h4):not([class*="heading-"]),
+body.brand-b2b main .columns-media-text > h4:not([class*="heading-"]) {
   line-height: 24px;
+}
+
+/* a card's H3 without a size class: www's heading-small (every card H3 of a column view, 28 on
+   32 px lines at 400, 24.06 on 28.06 at 390; the collapse drops the mark in a block), not the
+   light heading columns-media.css draws */
+body.brand-b2b main .columns-media-text > h3:not([class*="heading-"]) {
+  font-weight: 400;
+  line-height: calc(var(--heading-font-size-l) + 4px);
 }
 
 /* contact's hotline finder as www's PartnerPlusBenefit box (.dcep-ppb-hotlinebox; the brief after
