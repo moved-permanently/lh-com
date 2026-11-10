@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-mfe.js
-  var tmp_bundle_mfe_39293_exports = {};
-  __export(tmp_bundle_mfe_39293_exports, {
-    default: () => tmp_bundle_mfe_39293_default
+  var import_mfe_exports = {};
+  __export(import_mfe_exports, {
+    default: () => import_mfe_default
   });
 
   // tools/importer/parsers/micro-frontend.js
@@ -683,6 +683,11 @@ var CustomImportScript = (() => {
     const next = run[run.length - 1].nextElementSibling;
     return !!prev && !!next && prev.matches(FLOW_COLUMN) && next.matches(".headline") && !!run[0].parentElement && run[0].parentElement.matches(".column-view-item");
   }
+  function pictureBeforeGrey(run) {
+    const prev = run[0].previousElementSibling;
+    const next = run[run.length - 1].nextElementSibling;
+    return !!prev && !!next && prev.matches(".image:not(:has(video, .videoViewer))") && (next.matches(".container-gray") || !!next.querySelector(".container-gray"));
+  }
   function missingSeparatorMarkers(run, flow, template) {
     const first = run[0];
     const last = run[run.length - 1];
@@ -841,7 +846,7 @@ var CustomImportScript = (() => {
       const separated = brussels && betweenColumnViews(run) || cellSpacers && lhBetweenColumnViews(run);
       if (separated) separated.setAttribute(SEPARATED, "true");
       let markers = null;
-      if (infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run) || template === "hub" && afterNestedView(run)) {
+      if (infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run) || template === "hub" && (afterNestedView(run) || pictureBeforeGrey(run))) {
         markers = infos.map((i) => i.marker);
       } else if (fillGaps) {
         markers = missingSeparatorMarkers(run, keepInFlow, template);
@@ -3376,7 +3381,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_mfe_39293_default = {
+  var import_mfe_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -3416,5 +3421,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_mfe_39293_exports);
+  return __toCommonJS(import_mfe_exports);
 })();

@@ -561,6 +561,16 @@ function afterNestedView(run) {
     && !!run[0].parentElement && run[0].parentElement.matches('.column-view-item');
 }
 
+// hub: a separator between a picture and a grey component (/de/de/lounges: the intro picture,
+// then the lounge finder's .container-gray): the replica's section gap alone is 16 px short of
+// www's picture margin and separator (brief 552: 50 px to the grey band, www 66)
+function pictureBeforeGrey(run) {
+  const prev = run[0].previousElementSibling;
+  const next = run[run.length - 1].nextElementSibling;
+  return !!prev && !!next && prev.matches('.image:not(:has(video, .videoViewer))')
+    && (next.matches('.container-gray') || !!next.querySelector('.container-gray'));
+}
+
 /** The markers for a dropped run the replica has no stand-in for, or null (see above). */
 function missingSeparatorMarkers(run, flow, template) {
   const first = run[0];
@@ -769,7 +779,7 @@ function markSeparators(document, keepInFlow, payload) {
     if (separated) separated.setAttribute(SEPARATED, 'true');
     let markers = null;
     if (infos.some((i) => i.keep) || afterGrey(run[0]) || (keepInFlow && inFlow(run))
-      || (template === 'hub' && afterNestedView(run))) {
+      || (template === 'hub' && (afterNestedView(run) || pictureBeforeGrey(run)))) {
       markers = infos.map((i) => i.marker);
     } else if (fillGaps) {
       markers = missingSeparatorMarkers(run, keepInFlow, template);

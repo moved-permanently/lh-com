@@ -1793,6 +1793,14 @@ body.brand-lufthansa main > .section.campaign-section .default-content-wrapper >
   margin-bottom: var(--spacer-size, 25px);
 }
 
+/* a section that ends with a picture and www's separator, before a grey band (/de/de/lounges: the
+   intro picture, "{spacer-25}", the lounge finder): the picture's 40px and the separator's 26px are
+   www's whole gap (66px); the separator's margin takes the section gap back (brief 552; not
+   in campaign sections, whose separators have their own rule above) */
+body.brand-lufthansa main > .section:not(.campaign-section):has(+ .section.grey) > .default-content-wrapper:last-child > p:has(> picture) + p.spacer:last-child {
+  margin-bottom: -48px;
+}
+
 /* a wrapper of separators (live: maui-divider's 1px + the .hr's margin) takes the 24px the column
    view above lacks (columns-media padded 8px + 24 = 3.2rem), the next wrapper none (cabin-design:
    41px under the last column view of a section, 73 with it) */
