@@ -1,0 +1,63 @@
+# The standing order after 584 (ema-cashub): pages for the Captures child, rendered at 1440 and 390 each, in priority order (record from the top; the later rows matter less). Brussels as brussels-parity-NNN, Austrian as austrian-parity-NNN.
+# Priority 1 - Brussels overview hubs of the in-column sidebar layout (reimport-570-brussels-in-column-sidebars, 104 documents): a sample in every language to check the expected heights (the h1 44 / 20 px lower, the text 72 / 66 px under it) before and after its re-import.
+https://www.brusselsairlines.com/be/en/travel-classes 1440 390 # 1: in-column hub
+https://www.brusselsairlines.com/be/fr/extra-services/baggage 1440 390 # 2: in-column hub
+https://www.brusselsairlines.com/be/nl/special-care/pets 1440 390 # 3: in-column hub
+https://www.brusselsairlines.com/de/de/extra-services/lounges 1440 390 # 4: in-column hub
+https://www.brusselsairlines.com/it/it/extra-services/meals 1440 390 # 5: in-column hub
+https://www.brusselsairlines.com/es/es/plan-your-trip 1440 390 # 6: in-column hub
+# Priority 2 - Brussels pages whose h1 opens a sidebar inside an AEM section (the open row: our h1 44 / 30 px higher on cancel-and-refund and service-charges, 30 / 16 on dsar-start): other languages and two more pages of the type, to tell the cases apart.
+https://www.brusselsairlines.com/be/fr/my-bookings/cancel-and-refund-requests 1440 390 # 7: section sidebar h1
+https://www.brusselsairlines.com/be/nl/contact/service-charges 1440 390 # 8: section sidebar h1
+https://www.brusselsairlines.com/de/de/legal-notices/dsar-start 1440 390 # 9: section sidebar h1
+https://www.brusselsairlines.com/be/en/contact 1440 390 # 10: section sidebar h1
+https://www.brusselsairlines.com/be/fr/contact/feedback 1440 390 # 11: section sidebar h1
+# Priority 3 - Austrian: the 48 roots without any recording (austrian-parity-003 has 16), their homepage each, for the ranking of all 64 roots (footer, header, homepage blocks per market).
+https://www.austrian.com/am/en/homepage 1440 390 # 12: Austrian root /am/en
+https://www.austrian.com/au/en/homepage 1440 390 # 13: Austrian root /au/en
+https://www.austrian.com/ba/en/homepage 1440 390 # 14: Austrian root /ba/en
+https://www.austrian.com/be/en/homepage 1440 390 # 15: Austrian root /be/en
+https://www.austrian.com/bg/en/homepage 1440 390 # 16: Austrian root /bg/en
+https://www.austrian.com/by/en/homepage 1440 390 # 17: Austrian root /by/en
+https://www.austrian.com/by/ru/homepage 1440 390 # 18: Austrian root /by/ru
+https://www.austrian.com/ca/en/homepage 1440 390 # 19: Austrian root /ca/en
+https://www.austrian.com/ca/fr/homepage 1440 390 # 20: Austrian root /ca/fr
+https://www.austrian.com/ch/de/homepage 1440 390 # 21: Austrian root /ch/de
+https://www.austrian.com/ch/en/homepage 1440 390 # 22: Austrian root /ch/en
+https://www.austrian.com/ch/fr/homepage 1440 390 # 23: Austrian root /ch/fr
+https://www.austrian.com/ch/it/homepage 1440 390 # 24: Austrian root /ch/it
+https://www.austrian.com/cy/en/homepage 1440 390 # 25: Austrian root /cy/en
+https://www.austrian.com/cz/en/homepage 1440 390 # 26: Austrian root /cz/en
+https://www.austrian.com/de/de/homepage 1440 390 # 27: Austrian root /de/de
+https://www.austrian.com/de/en/homepage 1440 390 # 28: Austrian root /de/en
+https://www.austrian.com/dk/en/homepage 1440 390 # 29: Austrian root /dk/en
+https://www.austrian.com/eg/en/homepage 1440 390 # 30: Austrian root /eg/en
+https://www.austrian.com/es/en/homepage 1440 390 # 31: Austrian root /es/en
+https://www.austrian.com/fr/en/homepage 1440 390 # 32: Austrian root /fr/en
+https://www.austrian.com/gb/en/homepage 1440 390 # 33: Austrian root /gb/en
+https://www.austrian.com/ge/en/homepage 1440 390 # 34: Austrian root /ge/en
+https://www.austrian.com/gr/en/homepage 1440 390 # 35: Austrian root /gr/en
+https://www.austrian.com/hr/en/homepage 1440 390 # 36: Austrian root /hr/en
+https://www.austrian.com/iq/en/homepage 1440 390 # 37: Austrian root /iq/en
+https://www.austrian.com/ir/en/homepage 1440 390 # 38: Austrian root /ir/en
+https://www.austrian.com/it/en/homepage 1440 390 # 39: Austrian root /it/en
+https://www.austrian.com/jo/en/homepage 1440 390 # 40: Austrian root /jo/en
+https://www.austrian.com/jp/en/homepage 1440 390 # 41: Austrian root /jp/en
+https://www.austrian.com/lt/en/homepage 1440 390 # 42: Austrian root /lt/en
+https://www.austrian.com/md/en/homepage 1440 390 # 43: Austrian root /md/en
+https://www.austrian.com/me/en/homepage 1440 390 # 44: Austrian root /me/en
+https://www.austrian.com/mk/en/homepage 1440 390 # 45: Austrian root /mk/en
+https://www.austrian.com/nl/en/homepage 1440 390 # 46: Austrian root /nl/en
+https://www.austrian.com/no/en/homepage 1440 390 # 47: Austrian root /no/en
+https://www.austrian.com/pl/en/homepage 1440 390 # 48: Austrian root /pl/en
+https://www.austrian.com/pt/en/homepage 1440 390 # 49: Austrian root /pt/en
+https://www.austrian.com/ro/en/homepage 1440 390 # 50: Austrian root /ro/en
+https://www.austrian.com/rs/en/homepage 1440 390 # 51: Austrian root /rs/en
+https://www.austrian.com/ru/en/homepage 1440 390 # 52: Austrian root /ru/en
+https://www.austrian.com/se/en/homepage 1440 390 # 53: Austrian root /se/en
+https://www.austrian.com/si/en/homepage 1440 390 # 54: Austrian root /si/en
+https://www.austrian.com/sk/en/homepage 1440 390 # 55: Austrian root /sk/en
+https://www.austrian.com/tr/en/homepage 1440 390 # 56: Austrian root /tr/en
+https://www.austrian.com/ua/en/homepage 1440 390 # 57: Austrian root /ua/en
+https://www.austrian.com/xk/en/homepage 1440 390 # 58: Austrian root /xk/en
+https://www.austrian.com/xx/en/homepage 1440 390 # 59: Austrian root /xx/en
