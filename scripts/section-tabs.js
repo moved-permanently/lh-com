@@ -37,16 +37,20 @@ function setsOf(main) {
     // a part that is no panel (a panel's grey box, a sidebar's intro) ends no set
     if (!label && section.classList.contains('section-part')) return;
     if (!label) { current = null; return; }
-    const name = section.dataset.tabs || '';
+    // "1, open first" | "1, closed": the set's name before the comma, its phone default after it
+    const [name, ...opts] = String(section.dataset.tabs || '').split(',').map((x) => x.trim());
     if (!current || current.name !== name) {
-      current = { name, panels: [] };
+      current = { name, panels: [], open: null };
       sets.push(current);
     }
+    const opt = opts.join(' ').toLowerCase();
+    if (/^open[\s-]*first$/.test(opt)) current.open = 0;
+    if (opt === 'closed') current.open = -1;
     const last = current.panels[current.panels.length - 1];
     if (last && String(last[0].dataset.tab).trim() === String(label).trim()) last.push(section);
     else current.panels.push([section]);
   });
-  return sets.map((s) => s.panels);
+  return sets.map((s) => Object.assign(s.panels, { open: s.open }));
 }
 
 function button(className, text) {
@@ -117,6 +121,8 @@ function buildSet(groups) {
   let open = CLOSED_BRANDS.includes(getMetadata('brand').trim().toLowerCase()) ? -1 : 0;
   if (pageOpen === 'first') open = 0;
   if (pageOpen === 'none') open = -1;
+  // the set's own option on its Tabs row wins
+  if (groups.open === 0 || groups.open === -1) open = groups.open;
   const render = () => {
     const desktop = media.matches;
     tabs.forEach(({
