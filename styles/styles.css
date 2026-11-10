@@ -1752,6 +1752,15 @@ body.brand-lufthansa main > .section.campaign-section > .jump-links-wrapper:has(
   margin-top: 7px;
 }
 
+/* a grey band, then a campaign section that opens with a separator and content: www's component
+   spacing (32px) under the band, then the separator; 78-80px of ink from the band's end to the
+   heading at 390 and 1440 (baggage, food-and-beverages, speisen-und-getraenke), ours 93-96 with a
+   plain band's 48px, 45-48 with a campaign band's none (brief 557). Not before a column view
+   (lounges: already as www's) */
+body.brand-lufthansa main > .section.grey:has(+ .section.campaign-section > .default-content-wrapper:first-child > p.spacer:first-child + :not(p.spacer)) {
+  margin-bottom: 32px;
+}
+
 /* live's .section-content clears its floats (a table box at its end): the last component's
    bottom margin stays in the AEM section (a quote's 6rem / 8rem, then .mb-default), the first
    one's top margin collapses with the section before */
