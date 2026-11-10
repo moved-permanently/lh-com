@@ -2914,5 +2914,19 @@ follow when their run is through.
   c20b77ea (that rule's :not() holds a :has(), so it counts more), and the posts' text was a centred 912 px column. The
   theme's rules now carry the same :has(). 1440: the three Adriatic articles within 0.6 % (de 4,496 -> 4,285 against
   4,262). street-food-in-munich went 5,830 -> 5,467 against www's 6,173: its column is www's now; its stage and quiz card
-  (row 82) are the rest, next in line.
+  (row 82) are the rest, next in line.- **On main:** 8df03876 (lint 0, 3457 pass 0 fail, smoke 0 differences on 14 hosts).
+- **Rows classified, no change** (the rest of the ranking is under 5 %):
+  - street-food-in-munich at 1440 (-11 % since row 94): www's h3s hold whole passages and a photo (179 against 120 px,
+    898 against 466); content structure of that post, not a theme rule (row 74's kind).
+  - Air Dolomiti manage booking (+4.7 / +5.0 % at 1440): the importer drops www's empty paragraphs, so the theme's blank
+    line between every paragraph gives 66 px where www has none between the last three; the form's fields 9 px taller
+    each. An importer change and three re-imports for 3 %: noted, not done.
+  - Air Dolomiti assistance (-5.1 % at 390): offline, www's accordion items have our heights; the recording's differ by
+    the live font's line breaks. The 75 px before the accordions is the title's place, which varies by www's template
+    (-24 on support, -44 here): not one rule.
+  - SWISS homepage (-3.8 % at 1440): the gap is the flight offers, whose data our host asks of www.lufthansa.com (blocked
+    in the measuring browser), as the offers page (row 52).
+- **ITA row 28:** after row 26 the Miles & More panels showed two more causes. The block's own 66 % rule from 1025 px won
+  over the panels' full width, and the panels were each 46 px short of www's spacing. Both fixed; each panel's pitch is now
+  www's at both widths (1440 3,827 against 3,906; 390 5,865 against 5,759).
 
