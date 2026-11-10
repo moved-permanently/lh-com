@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var tmp_bundle_fleet_122981_exports = {};
-  __export(tmp_bundle_fleet_122981_exports, {
-    default: () => tmp_bundle_fleet_122981_default
+  var tmp_bundle_fleet_874419_exports = {};
+  __export(tmp_bundle_fleet_874419_exports, {
+    default: () => tmp_bundle_fleet_874419_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -2647,9 +2647,7 @@ var CustomImportScript = (() => {
             blocks: ["columns-media", "carousel-images", "quote"],
             endEdge: true,
             startAtHeading: true,
-            bandHeadings: true,
-            // the collapse: an H1 that opens a column view, a padded section of its own (2026-11-10)
-            h1View: true
+            bandHeadings: true
           }
         }
       }
@@ -5435,7 +5433,7 @@ var CustomImportScript = (() => {
       }
     }
   }
-  function columnViewSections(main, doc, marks, carrier, only = () => true) {
+  function columnViewSections(main, doc, marks, carrier) {
     const used = /* @__PURE__ */ new Set();
     const tokensOf = (el) => marks.get(el) || (/^(UL|OL)$/.test(el.tagName) && el.lastElementChild ? marks.get(el.lastElementChild) : null) || [];
     const isSepP = (el) => !!el && el.tagName === "P" && SEPARATOR.test(textOf(el));
@@ -5467,14 +5465,13 @@ var CustomImportScript = (() => {
       });
       [...groups].reverse().forEach((g) => {
         if (!g.first || own.indexOf(g.first) < 0 || own.indexOf(g.first) > own.indexOf(g.last)) return;
-        if (!only(g)) return;
         let { first } = g;
         while (isSepP(first.previousElementSibling)) first = first.previousElementSibling;
         const more = own.slice(own.indexOf(g.last) + 1).some((el) => !(el.tagName === "P" && isEmptyP(el)));
         const view = ownContent(section)[0] === first ? section : splitBefore(section, first, doc);
         if (!view) return;
         if (more) splitAfter(view, g.last, doc);
-        if (carrier) add(view, carrier);
+        add(view, carrier);
         if (g.outer) add(view, "padded");
         if (more) add(view, "flush");
         used.add(g.first);
@@ -5494,9 +5491,6 @@ var CustomImportScript = (() => {
       });
       columnPageTheme(main, doc, stats, marks);
       return;
-    }
-    if (theme.columnViews.h1View) {
-      columnViewSections(main, doc, marks, null, (g) => g.outer && g.first.tagName === "H1");
     }
     const outer = /* @__PURE__ */ new Map();
     marks.forEach((tokens, el) => {
@@ -5927,7 +5921,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_fleet_122981_default = {
+  var tmp_bundle_fleet_874419_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5967,5 +5961,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_fleet_122981_exports);
+  return __toCommonJS(tmp_bundle_fleet_874419_exports);
 })();

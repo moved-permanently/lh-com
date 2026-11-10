@@ -205,12 +205,7 @@ export const THEMES = {
       flow: {
         headings: { h3: 'heading-small' },
         columnViews: {
-          blocks: ['columns-media', 'carousel-images', 'quote'],
-          endEdge: true,
-          startAtHeading: true,
-          bandHeadings: true,
-          // the collapse: an H1 that opens a column view, a padded section of its own (2026-11-10)
-          h1View: true,
+          blocks: ['columns-media', 'carousel-images', 'quote'], endEdge: true, startAtHeading: true, bandHeadings: true,
         },
       },
     },
