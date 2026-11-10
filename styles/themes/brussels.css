@@ -250,6 +250,12 @@ body.brand-brussels main > .section > .columns-media-wrapper:has(> .columns-medi
   }
 }
 
+/* a page that ends with a core form (/my-bookings/emergency-contact, /contact/feedback/general/other; the brief after
+   570c): www's grey band ends 40 px under the button and the footer starts there; no section gap under it */
+body.brand-brussels main > .section:last-child:has(> .form-wrapper:last-child > .form.core) {
+  margin-bottom: 0;
+}
+
 /* and below the last one (brief 510): a page of one section with a sidebar intro ending with its card
    grid (202 documents, 25 of them recorded). On www the last card is 61 to 130 px from the footer at
    1440 and 82 to 248 at 390; ours 32 to 52 and 20 to 48, more on every recorded page. The median of
