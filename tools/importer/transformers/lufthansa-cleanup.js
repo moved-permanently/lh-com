@@ -391,7 +391,15 @@ function removeScreenReaderOnly(document) {
   // "You are visiting an external website" tooltips attached to links (not info tooltips).
   document.querySelectorAll('maui-tooltip').forEach((tip) => {
     const trigger = tip.querySelector('[slot="trigger"]');
-    if (trigger && (trigger.tagName === 'A' || trigger.hasAttribute('href') || trigger.querySelector('[href]'))) {
+    // a tooltip without a trigger: www never shows its box (nothing to hover or focus; Austrian
+    // /online-check-in's app links, the brief after 566), so it goes, and a list item it leaves empty
+    if (!trigger) {
+      const item = tip.closest('li');
+      tip.remove();
+      if (item && !item.textContent.trim() && !item.querySelector('img, picture, svg, a, [href]')) item.remove();
+      return;
+    }
+    if (trigger.tagName === 'A' || trigger.hasAttribute('href') || trigger.querySelector('[href]')) {
       tip.querySelectorAll(':scope > [slot="box"]').forEach((box) => box.remove());
     }
   });

@@ -1,0 +1,10 @@
+# The brief after 566 (ema-cashub, the ranking against austrian-parity-003): lh-austrian's /online-check-in documents to re-import with the austrian-checkin bundle of this commit, in release order. www's "Austrian App" link list has a third item holding only a tooltip without a trigger ("This link leads to an external website whose security and accessibility cannot be influenced by Austrian Airlines.", in each language); www never shows it, the published documents have it as a third list item. The cleanup now drops a tooltip without a trigger and the list item it leaves empty. The published documents also lost the two store links (their items are plain text: "To Apple App Store", "To Google Play Store"); today's import writes them as links again (secondary-button links in the list items). The page's row in the ranking (1440 -5.9 %) is not this: it is spacing (the step numbers, the separators around the Travel ID row, the divider section's top), see ema-cashub.md. at/de has no such list and is not listed. For any page whose DA copy differs from the importer's output in things the importer does not own (pictures, alt texts, metadata rows), the harness keeps DA's version of those.
+/at/en/online-check-in
+/cn/zh/online-check-in
+/es/es/online-check-in
+/fr/fr/online-check-in
+/gr/el/online-check-in
+/it/it/online-check-in
+/jp/ja/online-check-in
+/pl/pl/online-check-in
+/ru/ru/online-check-in

@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-flight-status.js
-  var tmp_bundle_austrian_flight_status_41813_exports = {};
-  __export(tmp_bundle_austrian_flight_status_41813_exports, {
-    default: () => tmp_bundle_austrian_flight_status_41813_default
+  var tmp_bundle_austrian_flight_status_81718_exports = {};
+  __export(tmp_bundle_austrian_flight_status_81718_exports, {
+    default: () => tmp_bundle_austrian_flight_status_81718_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -5750,7 +5750,13 @@ var CustomImportScript = (() => {
   function removeScreenReaderOnly(document) {
     document.querySelectorAll("maui-tooltip").forEach((tip) => {
       const trigger = tip.querySelector('[slot="trigger"]');
-      if (trigger && (trigger.tagName === "A" || trigger.hasAttribute("href") || trigger.querySelector("[href]"))) {
+      if (!trigger) {
+        const item = tip.closest("li");
+        tip.remove();
+        if (item && !item.textContent.trim() && !item.querySelector("img, picture, svg, a, [href]")) item.remove();
+        return;
+      }
+      if (trigger.tagName === "A" || trigger.hasAttribute("href") || trigger.querySelector("[href]")) {
         tip.querySelectorAll(':scope > [slot="box"]').forEach((box) => box.remove());
       }
     });
@@ -8800,7 +8806,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_flight_status_41813_default = {
+  var tmp_bundle_austrian_flight_status_81718_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -8840,5 +8846,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_flight_status_41813_exports);
+  return __toCommonJS(tmp_bundle_austrian_flight_status_81718_exports);
 })();
