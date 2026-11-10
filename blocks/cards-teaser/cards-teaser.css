@@ -203,10 +203,11 @@ body.brand-lufthansa main > .section:has(> .cards-teaser-wrapper:last-child > .c
 /* a grid right after a heading on phones (brief 467): www's column view has no top padding below
    768px, its items 12px, so the heading's margin and 12px put the first picture 40px under the
    heading (/de/en/baggage at 390; ours was 60px with the 32px above); after a text, and from 768px,
-   the 32px stay */
+   the 32px stay. Brief 556: the full recordings at 390 (gb/en baggage, de/de gepaeck) put the
+   picture 13-14px nearer the heading than 12px did, on all three grids: no padding */
 @media (width < 768px) {
   body.brand-lufthansa main .default-content-wrapper:has(> :is(h2, h3, h4, h5, h6):last-child) + .cards-teaser-wrapper > .cards-teaser:not(.overlay, .spacious) > ul {
-    padding-top: 12px;
+    padding-top: 0;
   }
 }
 
