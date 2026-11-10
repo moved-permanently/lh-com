@@ -2897,5 +2897,12 @@ follow when their run is through.
   Everything else within 5.6 %.
 - **ITA row 26:** the re-imported Miles & More panels hold the picture second (line, picture, heading, list, link), so
   rows 21's and 23's rules, built on a document with the picture last, matched nothing. The panel and its picture are
-  now found wherever the picture paragraph is. Live 1440 4,527 -> 4,038 (www 3,906), 390 5,286 -> 5,718 (5,759).
+  now found wherever the picture paragraph is. Live 1440 4,527 -> 4,038 (www 3,906), 390 5,286 -> 5,718 (5,759).- **On main:** 2d80c816 (lint 0, 3448 pass 0 fail, smoke 0 differences on 14 hosts).
+- **Air Dolomiti's FAQ half pages at 1440 (schwangere-und-kinder -13.6 %, tiere-an-bord -12.0 %; 390 exact):** www's
+  recording (airdolomiti-parity-002) has about 326 px of empty white under its footer (its body runs past the content);
+  our headings and the footer start match (the title 186 against 190, the footer 1,108 against 1,089). A recording
+  artefact, nothing to match.
+- **ITA row 27, the tables:** Verona's flight table at 390 squeezed four columns into 346 px. www's maui-table keeps
+  each cell 200 px at least and scrolls; as Austrian's 93374199, the ITA theme now does the same: 390 3,804 -> 3,555 (www
+  3,536), 1440 unchanged.
 

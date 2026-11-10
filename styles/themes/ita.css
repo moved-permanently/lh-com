@@ -918,3 +918,14 @@ body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > p
   }
 }
 /* stylelint-enable no-descending-specificity */
+
+/* tables as www's maui-table renders them (the standing order of 2026-11-10, item 6: /it/en/local-page/verona at 390, as
+   Austrian's 93374199): columns by their content, each cell 200 px at least (www's .cell-content min-width), the block
+   scrolls sideways as before */
+body.brand-ita .table-striped table {
+  table-layout: auto;
+}
+
+body.brand-ita .table-striped :is(td, th) {
+  min-width: 200px;
+}
