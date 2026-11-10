@@ -178,6 +178,12 @@ body.brand-lufthansa .cards-teaser-wrapper + .cards-teaser-wrapper > .cards-teas
   body.brand-lufthansa.digital-assistant .cards-teaser.spacious:not(.overlay, .three-up, .four-up) > ul > li:nth-child(2n + 3) {
     margin-top: 41px;
   }
+
+  /* a row's first card without a picture: its title 50px under the link above on www
+     (services-am-flughafen's "Boarding" at 390, ours 76; brief 554) */
+  body.brand-lufthansa .cards-teaser.spacious:not(.overlay, .three-up, .four-up) > ul > li.cards-teaser-text-only:nth-child(2n + 3) {
+    margin-top: 40px;
+  }
 }
 
 body.brand-lufthansa .cards-teaser-wrapper + .cards-teaser-wrapper > .cards-teaser.spacious {
