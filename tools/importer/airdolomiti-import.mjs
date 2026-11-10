@@ -967,7 +967,8 @@ const HANDLERS = {
     page.block('carousel-cards', (a.cardList || []).map((c) => cardRow(page, {
       image: c.topImage || c.image, tag: a.tagCard, title: c.title, text: c.date, url: c.Url || c.url, label: c.ctaText || c.title,
     })));
-    if (a.showMoreTextUrl && a.showMoreText) page.add(page.link(a.showMoreTextUrl, a.showMoreText));
+    // www's "Zeige alles (4)": the link with the number of cards, as the offers' (the sweep after 556)
+    page.add(showMoreLink(a, page));
     if (iconHtml) page.section();
   },
   'lazyblock/gridtwocolumns': (a, page) => {

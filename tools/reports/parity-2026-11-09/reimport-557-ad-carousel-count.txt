@@ -1,0 +1,29 @@
+# The sweep after 556 (Air Dolomiti parity row 86): the pages whose carousels (www's CosaFareCarroussel, the
+# importer's carousel-cards without an option) end in a "see all" link without www's number of cards ("Zeige alles",
+# www: "Zeige alles (4)"): re-imported with airdolomiti-import.mjs as it is (the link through showMoreLink, as the
+# offers'). Found on airdolomiti.turnsthe.page (each page's live document; the two airports' "Related articles" too).
+# Release order; published as they stand.
+/de/flughaefen/frankfurt-de
+/de/reiseziele/bari-de
+/de/reiseziele/bologna-de
+/de/reiseziele/florenz-de
+/de/reiseziele/jersey-de
+/de/reiseziele/london
+/de/reiseziele/mailand-de
+/de/reiseziele/pisa-de
+/de/reiseziele/turin-de
+/de/reiseziele/venedig
+/de/reiseziele/verona-de
+/destinazioni/francoforte
+/destinazioni/monaco-di-baviera
+/en/airports/munich
+/en/destinations/bari
+/en/destinations/bologna
+/en/destinations/florence
+/en/destinations/jersey
+/en/destinations/london-eu
+/en/destinations/milan-eu
+/en/destinations/pisa
+/en/destinations/turin
+/en/destinations/venice
+/en/destinations/verona
