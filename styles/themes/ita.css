@@ -837,3 +837,45 @@ body.brand-ita .micro-frontend .topic-selection-info-cards-container.full-width-
   box-shadow: 0 0 0 100vmax #f8f8f9;
   clip-path: inset(0 -100vmax);
 }
+
+/* stylelint-disable no-descending-specificity -- the panels' paragraphs, not the card lists' (above) */
+
+/* the Miles & More status panels (ita-parity-004, the brief after 556): www's item holds its points
+   line, then a two-column view, the status card | the benefits (heading, list, link); the import
+   flattens it (the heading, the line, the list, the link, the picture last). The line first, the
+   picture next, beside the benefits from 768 px */
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > p:first-of-type {
+  grid-row: 1;
+}
+
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > p:last-child {
+  grid-row: 2;
+}
+
+@media (width >= 768px) {
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 24px;
+  }
+
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > p:first-of-type {
+    grid-column: 1 / -1;
+  }
+
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > p:last-child {
+    grid-column: 1;
+    grid-row: 2 / span 3;
+  }
+
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > :is(h3, ul, p:not(:first-of-type, :last-child)) {
+    grid-column: 2;
+  }
+}
+
+/* stylelint-enable no-descending-specificity */
