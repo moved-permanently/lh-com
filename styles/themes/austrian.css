@@ -1173,3 +1173,16 @@ body.brand-austrian main > .section.stage > .default-content-wrapper:has(> h3:on
     margin-top: 0;
   }
 }
+
+/* the homepage's quick actions (the brief after 591, item 1): on every Austrian homepage www has a quick-actions
+   section right after the stage (.quickaction, all four actions hidden for a visitor, then a divider with 30 px under
+   it and an empty profile component, .mb-default): 43 px of space before the next section at 1440 that ours has not
+   (the 64 roots' snapshots and the 48 recordings of austrian-parity-008 to -011 all have it). Nothing to import: the
+   space on the page that opens with the flight search (the homepages only: 64 of 2,398 Austrian documents). Below
+   1025 px our stage card is taller than www's and takes that space already (the stage to the next heading within
+   7 px at 390): not there */
+@media (width >= 1025px) {
+  body.brand-austrian main:has(> .section.flight-search-container:first-child) > .section.hero-card-overlay-container {
+    margin-bottom: calc(var(--section-gap) + 43px);
+  }
+}
