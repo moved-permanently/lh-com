@@ -1855,12 +1855,13 @@ body.brand-lufthansa main > .section.campaign-section > .cards-teaser-wrapper:la
 
 /* a column view's title, then its cards: live's view has its 32px padding above the title, the
    first picture 40px under the title's box (baggage: ours 64 with the grid's column padding
-   too), also in a grey band of such a page; below 768px the 12px after a heading
-   (cards-teaser.css) stay */
+   too), also in a grey band of such a page. Brief 556: the full recordings (lh-parity-004a,
+   /gb/en/baggage at 1440) put each first picture 8-9px nearer the title than the 8px did: none;
+   below 768px cards-teaser.css (none either since brief 556) */
 @media (width >= 768px) {
   body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper:has(> :is(h2, h3, h4, h5, h6):last-child) + .cards-teaser-wrapper > .cards-teaser:not(.overlay, .spacious) > ul,
   body.brand-lufthansa main:has(> .section.campaign-section) > .section.column-band > .default-content-wrapper:has(> :is(h2, h3, h4, h5, h6):last-child) + .cards-teaser-wrapper > .cards-teaser:not(.overlay, .spacious) > ul {
-    padding-top: 8px;
+    padding-top: 0;
   }
 }
 

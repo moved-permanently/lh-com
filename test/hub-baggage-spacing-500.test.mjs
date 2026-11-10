@@ -11,6 +11,8 @@
      view has its 32 px padding above the title, the first picture 40 px under the title's box; ours
      64 (the title's 32 px and the grid's 32 px column padding). From 768 px a grid right after a heading
      in a campaign-section, or in a grey band of such a page, starts 8 px down (phones: the 12 px of brief 467 stay).
+   Brief 556: the full recordings (lh-parity-004a, /gb/en/baggage at 1440) put each first picture 8-9 px nearer
+     the heading than the 8 px did (heading ink to picture: www 40 / 45, ours 49 / 54): no padding.
    Run: node --test test/hub-baggage-spacing-500.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -26,7 +28,7 @@ test('a separator right after jump links in a campaign-section: no wrapper gap a
   assert.ok(css.includes('body.brand-lufthansa main > .section.campaign-section > .jump-links-wrapper + .default-content-wrapper:has(> p.spacer:first-child) { margin-top: 0; }'));
 });
 
-test('a grid right after a heading in a campaign-section from 768 px: 8 px, not the column padding', () => {
-  const at = css.indexOf('@media (width >= 768px) { body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper:has(> :is(h2, h3, h4, h5, h6):last-child) + .cards-teaser-wrapper > .cards-teaser:not(.overlay, .spacious) > ul { padding-top: 8px; } }'.replace(' { padding-top', ', body.brand-lufthansa main:has(> .section.campaign-section) > .section.column-band > .default-content-wrapper:has(> :is(h2, h3, h4, h5, h6):last-child) + .cards-teaser-wrapper > .cards-teaser:not(.overlay, .spacious) > ul { padding-top'));
+test('a grid right after a heading in a campaign-section from 768 px: no padding', () => {
+  const at = css.indexOf('@media (width >= 768px) { body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper:has(> :is(h2, h3, h4, h5, h6):last-child) + .cards-teaser-wrapper > .cards-teaser:not(.overlay, .spacious) > ul { padding-top: 0; } }'.replace(' { padding-top', ', body.brand-lufthansa main:has(> .section.campaign-section) > .section.column-band > .default-content-wrapper:has(> :is(h2, h3, h4, h5, h6):last-child) + .cards-teaser-wrapper > .cards-teaser:not(.overlay, .spacious) > ul { padding-top'));
   assert.ok(at > 0);
 });
