@@ -2483,11 +2483,11 @@ body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-
    at 1440; the brief after 531): the title 38 / 46 px light centred 10 px over the text, the text
    16 / 27.2 px justified in the middle 65 % of the screen (936 px at 1440), the cards 179 px under it. From 930 px (phones as before) */
 @media (width >= 930px) {
-  body.brand-airdolomiti main > .section.breadcrumb-container.cards-teaser-container > .default-content-wrapper:has(> h1:first-child + p:last-child):has(+ .cards-teaser-wrapper > .cards-teaser.three-up) {
+  body.brand-airdolomiti main > .section.breadcrumb-container.cards-teaser-container > .default-content-wrapper:has(> h1:first-child + p:last-child):has(+ .cards-teaser-wrapper > .cards-teaser.three-up):not(:has(+ .cards-teaser-wrapper > .cards-teaser.three-up > ul > li > .cards-teaser-image + .cards-teaser-body > .cards-teaser-title:first-child + .cards-teaser-cta:last-child)) {
     margin-bottom: 179px;
   }
 
-  body.brand-airdolomiti main > .section.breadcrumb-container.cards-teaser-container > .default-content-wrapper:has(> h1:first-child + p:last-child):has(+ .cards-teaser-wrapper > .cards-teaser.three-up) > h1 {
+  body.brand-airdolomiti main > .section.breadcrumb-container.cards-teaser-container > .default-content-wrapper:has(> h1:first-child + p:last-child):has(+ .cards-teaser-wrapper > .cards-teaser.three-up):not(:has(+ .cards-teaser-wrapper > .cards-teaser.three-up > ul > li > .cards-teaser-image + .cards-teaser-body > .cards-teaser-title:first-child + .cards-teaser-cta:last-child)) > h1 {
     margin-bottom: 10px;
     font-size: 38px;
     font-weight: 300;
@@ -2495,7 +2495,7 @@ body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-
     text-align: center;
   }
 
-  body.brand-airdolomiti main > .section.breadcrumb-container.cards-teaser-container > .default-content-wrapper:has(> h1:first-child + p:last-child):has(+ .cards-teaser-wrapper > .cards-teaser.three-up) > p {
+  body.brand-airdolomiti main > .section.breadcrumb-container.cards-teaser-container > .default-content-wrapper:has(> h1:first-child + p:last-child):has(+ .cards-teaser-wrapper > .cards-teaser.three-up):not(:has(+ .cards-teaser-wrapper > .cards-teaser.three-up > ul > li > .cards-teaser-image + .cards-teaser-body > .cards-teaser-title:first-child + .cards-teaser-cta:last-child)) > p {
     max-width: 65vw;
     margin-inline: auto;
     font-size: 16px;
@@ -4420,3 +4420,9 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-car
   }
 }
 /* stylelint-enable no-descending-specificity */
+
+/* the link tiles' grid 150px over what follows (www's GridThreeScroll: margin 20px auto 150px at every width; support,
+   baggage; the standing order of 2026-11-10, item 6) */
+body.brand-airdolomiti main > .section:has(> .cards-teaser-wrapper > .cards-teaser.three-up > ul > li > .cards-teaser-image + .cards-teaser-body > .cards-teaser-title:first-child + .cards-teaser-cta:last-child) {
+  margin-bottom: 150px;
+}

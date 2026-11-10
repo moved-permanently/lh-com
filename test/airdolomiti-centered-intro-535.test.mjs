@@ -12,7 +12,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 
 const css = fs.readFileSync(new URL('../styles/themes/airdolomiti.css', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
-const W = 'body.brand-airdolomiti main > .section.breadcrumb-container.cards-teaser-container > .default-content-wrapper:has(> h1:first-child + p:last-child):has(+ .cards-teaser-wrapper > .cards-teaser.three-up)';
+const W = 'body.brand-airdolomiti main > .section.breadcrumb-container.cards-teaser-container > .default-content-wrapper:has(> h1:first-child + p:last-child):has(+ .cards-teaser-wrapper > .cards-teaser.three-up):not(:has(+ .cards-teaser-wrapper > .cards-teaser.three-up > ul > li > .cards-teaser-image + .cards-teaser-body > .cards-teaser-title:first-child + .cards-teaser-cta:last-child))'; // (the link tiles left out: the standing order of 2026-11-10)
 
 const block = (media) => {
   const at = css.indexOf(`@media ${media} {\n  ${W} {`);

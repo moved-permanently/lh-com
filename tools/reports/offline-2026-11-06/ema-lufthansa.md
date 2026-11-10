@@ -2904,5 +2904,10 @@ follow when their run is through.
   artefact, nothing to match.
 - **ITA row 27, the tables:** Verona's flight table at 390 squeezed four columns into 346 px. www's maui-table keeps
   each cell 200 px at least and scrolls; as Austrian's 93374199, the ITA theme now does the same: 390 3,804 -> 3,555 (www
-  3,536), 1440 unchanged.
+  3,536), 1440 unchanged.- **On main:** 38aaadd6 (lint 0, 3450 pass 0 fail, smoke 0 differences on 14 hosts).
+- **Air Dolomiti row 93, the link tile pages (support and baggage, de, en, it):** two causes. From 930 px the
+  destination article lists' rule (a title and one line over three-up cards) took these pages too, centring the title.
+  Under the tiles, www's grid keeps 150 px at every width and ours had 48. The article lists' rule now leaves out the
+  tile cards, and the tiles' section keeps 150 px. All six pages within about 2 % at both widths (support en 390 -6.2 % ->
+  -0.7 %, de -7.4 % -> -2.2 %, baggage de -6.4 % -> -1.9 %); Florence's article list and the homepage unchanged.
 
