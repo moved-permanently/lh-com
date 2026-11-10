@@ -103,3 +103,8 @@
 /be/de/pre-check-in	be/de	/de/de/pre-check-in	de/de/pre-check-in	1	app-entry
 /dk/de/pre-check-in	dk/de	/de/de/pre-check-in	de/de/pre-check-in	1	app-entry
 /be/de/cash-and-miles	be/de	/de/de/cash-and-miles	de/de/cash-and-miles	1	info
+# added 2026-11-10 23:30 CET (brief 582): new Insights articles on www's /de/en/articles/explore-flying (lh-snapshots-091, 19:23 CET) that have no document and no snapshot here; the de/de list page for their German paths. da_path: the new document (insights template).
+/de/en/articles/explore-flying/what-the-hack-sleep-on-a-plane	de/en	/de/en/articles/explore-flying/what-the-hack-sleep-on-a-plane	-	2	insights
+/de/en/articles/explore-flying/first-class-collectible-loungewear-cdlp-jorinde-voigt	de/en	/de/en/articles/explore-flying/first-class-collectible-loungewear-cdlp-jorinde-voigt	-	2	insights
+/de/en/articles/explore-flying/welcome-to-my-world-jorinde-voigt	de/en	/de/en/articles/explore-flying/welcome-to-my-world-jorinde-voigt	-	2	insights
+/de/de/articles/explore-flying	de/de	/de/de/articles/explore-flying	-	2	insights
