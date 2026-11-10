@@ -105,6 +105,9 @@
    Scoped to body.brand-discover (set by scripts/brand.js), which also outranks the blocks' own
    rules that load after this file; Lufthansa's underlined fields stay on every other site. */
 body.brand-discover {
+  /* headings 36px over what follows at 1440 as www's headlines, 24 on phones (Discover row 44; 36 from 1281px below) */
+  --heading-margin-l: calc(24px + 12 * (100vw - 375px) / 1065);
+  --heading-margin-xl: calc(28px + 8 * (100vw - 375px) / 1065);
   --discover-field-height: 50px;
   --discover-field-border: 1px solid rgb(0 62 123 / 80%);
   --discover-field-fill: #e9f2fb;
@@ -653,4 +656,12 @@ body.brand-discover main .accordion-columns-panel > .accordion-columns-intro :is
 
 body.brand-discover main .accordion-columns-panel > .accordion-columns-intro li {
   margin-bottom: 10px;
+}
+
+/* headings 36px over what follows from 1281px as www's headlines (Discover row 44) */
+@media (width >= 1281px) {
+  body.brand-discover {
+    --heading-margin-l: 36px;
+    --heading-margin-xl: 36px;
+  }
 }
