@@ -1803,7 +1803,7 @@ body.brand-cargo main > .section.key-facts .carousel-cards-wrapper ~ .default-co
   position: relative;
   z-index: 2;
   margin: 0;
-  padding: 51px 16px 30px;
+  padding: 32px 16px 17px; /* the link 32px under the dots' row, 17px over the foot (Cargo row 50) */
 }
 
 /* stylelint-disable-next-line no-descending-specificity -- the key facts link, not a slide's or a card's text */
