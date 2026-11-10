@@ -3841,9 +3841,9 @@
    "preview": "2026-11-08T04:38:54.749Z"
   },
   "/es/es/book-and-prepare/book-flights": {
-   "uploaded": "2026-11-06T01:32:41.761Z",
-   "mtime": 1793928696029.2517,
-   "preview": "2026-11-06T01:32:44.016Z"
+   "uploaded": "2026-11-10T18:58:17.798Z",
+   "mtime": 1794336365381.2188,
+   "preview": "2026-11-10T18:58:20.060Z"
   },
   "/es/es/book-and-prepare/destination": {
    "uploaded": "2026-11-06T01:32:47.802Z",
@@ -3851,9 +3851,9 @@
    "preview": "2026-11-06T01:32:50.227Z"
   },
   "/es/es/book-and-prepare/digital-services": {
-   "uploaded": "2026-11-07T14:01:25.159Z",
-   "mtime": 1794059726454,
-   "preview": "2026-11-07T14:01:27.364Z"
+   "uploaded": "2026-11-10T18:58:22.795Z",
+   "mtime": 1794336365392.2007,
+   "preview": "2026-11-10T18:58:25.565Z"
   },
   "/es/es/book-and-prepare/flight-and-train": {
    "uploaded": "2026-11-06T01:32:53.735Z",
@@ -3866,14 +3866,14 @@
    "preview": "2026-10-31T12:12:43.432Z"
   },
   "/es/es/book-and-prepare/flight-search": {
-   "uploaded": "2026-11-01T11:39:22.289Z",
-   "mtime": 1793532968834,
-   "preview": "2026-11-01T11:39:24.080Z"
+   "uploaded": "2026-11-10T18:58:28.167Z",
+   "mtime": 1794336365403.1956,
+   "preview": "2026-11-10T18:58:30.341Z"
   },
   "/es/es/book-and-prepare/flightpass": {
-   "uploaded": "2026-11-08T04:22:39.426Z",
-   "mtime": 1794109947610.0305,
-   "preview": "2026-11-08T04:22:41.848Z"
+   "uploaded": "2026-11-10T18:58:33.110Z",
+   "mtime": 1794336365413.2266,
+   "preview": "2026-11-10T18:58:35.617Z"
   },
   "/es/es/book-and-prepare/flightpass/all-destinations": {
    "uploaded": "2026-11-08T04:22:44.889Z",
@@ -5036,9 +5036,9 @@
    "preview": "2026-11-10T18:32:21.676Z"
   },
   "/de/de/book-and-prepare/digital-services": {
-   "uploaded": "2026-11-07T14:01:11.551Z",
-   "mtime": 1794059726304,
-   "preview": "2026-11-07T14:01:13.208Z"
+   "uploaded": "2026-11-10T18:46:24.254Z",
+   "mtime": 1794336363861.3916,
+   "preview": "2026-11-10T18:46:27.306Z"
   },
   "/de/de/book-and-prepare/flight-and-train": {
    "uploaded": "2026-11-01T11:38:28.270Z",
@@ -5051,19 +5051,19 @@
    "preview": "2026-10-31T12:02:15.218Z"
   },
   "/de/de/book-and-prepare/flight-search": {
-   "uploaded": "2026-11-01T11:38:31.385Z",
-   "mtime": 1793532966868,
-   "preview": "2026-11-01T11:38:33.094Z"
+   "uploaded": "2026-11-10T18:46:30.205Z",
+   "mtime": 1794336363873.343,
+   "preview": "2026-11-10T18:46:32.464Z"
   },
   "/de/de/book-and-prepare/flightpass": {
-   "uploaded": "2026-11-08T04:14:14.729Z",
-   "mtime": 1794109947573.4944,
-   "preview": "2026-11-08T04:14:16.967Z"
+   "uploaded": "2026-11-10T18:46:35.453Z",
+   "mtime": 1794336363887.666,
+   "preview": "2026-11-10T18:46:38.687Z"
   },
   "/de/de/book-and-prepare/flightpass/all-destinations": {
-   "uploaded": "2026-11-08T04:14:19.809Z",
-   "mtime": 1794109947573.9014,
-   "preview": "2026-11-08T04:14:22.305Z"
+   "uploaded": "2026-11-10T18:46:42.792Z",
+   "mtime": 1794336363899.5647,
+   "preview": "2026-11-10T18:46:45.578Z"
   },
   "/de/de/book-and-prepare/flightpass/all-destinations/flightpass-all-destinations-faq": {
    "uploaded": "2026-10-31T12:02:23.140Z",
@@ -5076,9 +5076,9 @@
    "preview": "2026-10-31T12:02:27.602Z"
   },
   "/de/de/book-and-prepare/flightpass/destinations-with-connections": {
-   "uploaded": "2026-11-08T04:14:25.106Z",
-   "mtime": 1794109947574.225,
-   "preview": "2026-11-08T04:14:27.314Z"
+   "uploaded": "2026-11-10T18:46:48.469Z",
+   "mtime": 1794336363913.007,
+   "preview": "2026-11-10T18:46:50.881Z"
   },
   "/de/de/book-and-prepare/flightpass/destinations-with-connections/faq": {
    "uploaded": "2026-10-31T12:02:31.899Z",
@@ -5091,9 +5091,9 @@
    "preview": "2026-10-31T12:02:36.797Z"
   },
   "/de/de/book-and-prepare/flightpass/fco-lin": {
-   "uploaded": "2026-11-08T04:14:30.211Z",
-   "mtime": 1794109947574.5552,
-   "preview": "2026-11-08T04:14:32.524Z"
+   "uploaded": "2026-11-10T18:46:53.619Z",
+   "mtime": 1794336363924.9902,
+   "preview": "2026-11-10T18:46:55.920Z"
   },
   "/de/de/book-and-prepare/flightpass/fco-lin/flightpass-fco-lin-faq": {
    "uploaded": "2026-10-31T12:02:41.412Z",
@@ -5106,9 +5106,9 @@
    "preview": "2026-10-31T12:02:45.785Z"
   },
   "/de/de/book-and-prepare/flightpass/youth": {
-   "uploaded": "2026-11-08T04:14:35.480Z",
-   "mtime": 1794109947574.871,
-   "preview": "2026-11-08T04:14:37.993Z"
+   "uploaded": "2026-11-10T18:46:58.872Z",
+   "mtime": 1794336363937.2422,
+   "preview": "2026-11-10T18:47:01.261Z"
   },
   "/de/de/book-and-prepare/flightpass/youth/flightpass-youth-faq": {
    "uploaded": "2026-10-31T12:02:49.982Z",
@@ -5121,9 +5121,9 @@
    "preview": "2026-10-31T12:02:54.587Z"
   },
   "/de/de/book-and-prepare/flights-overview": {
-   "uploaded": "2026-10-31T13:51:37.025Z",
-   "mtime": 1793360426203,
-   "preview": "2026-10-31T13:51:38.698Z"
+   "uploaded": "2026-11-10T18:47:04.040Z",
+   "mtime": 1794336363951.732,
+   "preview": "2026-11-10T18:47:06.393Z"
   },
   "/de/de/book-and-prepare/multi-leg": {
    "uploaded": "2026-11-01T11:38:34.366Z",
@@ -5131,9 +5131,9 @@
    "preview": "2026-11-01T11:38:35.900Z"
   },
   "/de/de/book-and-prepare/offers": {
-   "uploaded": "2026-10-31T13:51:43.012Z",
-   "mtime": 1793360426392,
-   "preview": "2026-10-31T13:51:44.723Z"
+   "uploaded": "2026-11-10T18:47:09.450Z",
+   "mtime": 1794336363964.6677,
+   "preview": "2026-11-10T18:47:13.855Z"
   },
   "/de/de/book-and-prepare/offers-and-destinations": {
    "uploaded": "2026-10-31T13:51:39.967Z",
@@ -5146,9 +5146,9 @@
    "preview": "2026-10-31T12:03:03.584Z"
   },
   "/de/de/book-and-prepare/offers/territorial-continuity": {
-   "uploaded": "2026-10-31T12:03:10.700Z",
-   "mtime": 1793446990142,
-   "preview": "2026-10-31T12:03:12.321Z"
+   "uploaded": "2026-11-10T18:47:17.256Z",
+   "mtime": 1794336363978.807,
+   "preview": "2026-11-10T18:47:19.963Z"
   },
   "/de/de/book-and-prepare/offers/territorial-continuity/alghero": {
    "uploaded": "2026-11-01T11:38:37.343Z",
@@ -5166,44 +5166,44 @@
    "preview": "2026-11-01T11:38:45.548Z"
   },
   "/de/de/book-and-prepare/other-requests": {
-   "uploaded": "2026-10-31T13:51:46.075Z",
-   "mtime": 1793360426919,
-   "preview": "2026-10-31T13:51:47.767Z"
+   "uploaded": "2026-11-10T18:47:22.599Z",
+   "mtime": 1794336363991.8083,
+   "preview": "2026-11-10T18:47:24.753Z"
   },
   "/de/de/book-and-prepare/other-requests/accessible-travel": {
-   "uploaded": "2026-11-08T04:14:40.976Z",
-   "mtime": 1794109947575.389,
-   "preview": "2026-11-08T04:14:43.249Z"
+   "uploaded": "2026-11-10T18:47:30.921Z",
+   "mtime": 1794336364012.006,
+   "preview": "2026-11-10T18:47:34.576Z"
   },
   "/de/de/book-and-prepare/other-requests/families-and-children": {
-   "uploaded": "2026-10-31T12:03:47.120Z",
-   "mtime": 1793446990414,
-   "preview": "2026-10-31T12:03:48.684Z"
+   "uploaded": "2026-11-10T18:47:37.201Z",
+   "mtime": 1794336364033.9307,
+   "preview": "2026-11-10T18:47:46.055Z"
   },
   "/de/de/book-and-prepare/other-requests/families-and-children/baggage-and-strollers": {
-   "uploaded": "2026-11-08T04:14:46.258Z",
-   "mtime": 1794109947575.8064,
-   "preview": "2026-11-08T04:14:48.480Z"
+   "uploaded": "2026-11-10T18:47:49.453Z",
+   "mtime": 1794336364047.814,
+   "preview": "2026-11-10T18:47:51.684Z"
   },
   "/de/de/book-and-prepare/other-requests/families-and-children/children-safety-onboard": {
-   "uploaded": "2026-11-08T04:14:51.657Z",
-   "mtime": 1794109947576.152,
-   "preview": "2026-11-08T04:14:53.798Z"
+   "uploaded": "2026-11-10T18:47:57.689Z",
+   "mtime": 1794336364059.414,
+   "preview": "2026-11-10T18:48:00.254Z"
   },
   "/de/de/book-and-prepare/other-requests/families-and-children/families-onboard-seats": {
-   "uploaded": "2026-11-08T04:14:56.684Z",
-   "mtime": 1794109947576.4778,
-   "preview": "2026-11-08T04:14:58.927Z"
+   "uploaded": "2026-11-10T18:48:02.985Z",
+   "mtime": 1794336364070.4912,
+   "preview": "2026-11-10T18:48:05.028Z"
   },
   "/de/de/book-and-prepare/other-requests/families-and-children/first-time-flyers": {
-   "uploaded": "2026-11-08T04:15:02.056Z",
-   "mtime": 1794109947576.826,
-   "preview": "2026-11-08T04:15:04.738Z"
+   "uploaded": "2026-11-10T18:48:07.692Z",
+   "mtime": 1794336364080.5215,
+   "preview": "2026-11-10T18:48:10.203Z"
   },
   "/de/de/book-and-prepare/other-requests/families-and-children/flying-with-a-baby": {
-   "uploaded": "2026-10-31T12:03:31.837Z",
-   "mtime": 1793446990305,
-   "preview": "2026-10-31T12:03:33.408Z"
+   "uploaded": "2026-11-10T18:48:12.940Z",
+   "mtime": 1794336364091.0322,
+   "preview": "2026-11-10T18:48:15.724Z"
   },
   "/de/de/nav": {
    "uploaded": "2026-11-01T10:57:58.701Z",
@@ -5221,14 +5221,14 @@
    "preview": "2026-10-31T12:03:36.926Z"
   },
   "/de/de/book-and-prepare/other-requests/families-and-children/required-documents-families-and-children": {
-   "uploaded": "2026-11-08T04:15:07.596Z",
-   "mtime": 1794109947577.1675,
-   "preview": "2026-11-08T04:15:09.668Z"
+   "uploaded": "2026-11-10T18:48:18.503Z",
+   "mtime": 1794336364101.4753,
+   "preview": "2026-11-10T18:48:20.935Z"
   },
   "/de/de/book-and-prepare/other-requests/families-and-children/unaccompained-minors": {
-   "uploaded": "2026-11-08T04:15:13.103Z",
-   "mtime": 1794109947577.5388,
-   "preview": "2026-11-08T04:15:15.500Z"
+   "uploaded": "2026-11-10T18:48:23.909Z",
+   "mtime": 1794336364112.228,
+   "preview": "2026-11-10T18:48:26.284Z"
   },
   "/de/de/book-and-prepare/other-requests/families-and-children/unaccompained-minors/unaccompanied-minor-charge": {
    "uploaded": "2026-10-31T12:03:41.174Z",
@@ -5236,19 +5236,19 @@
    "preview": "2026-10-31T12:03:42.669Z"
   },
   "/de/de/book-and-prepare/other-requests/pregnancy": {
-   "uploaded": "2026-11-08T04:15:18.499Z",
-   "mtime": 1794109947577.878,
-   "preview": "2026-11-08T04:15:20.969Z"
+   "uploaded": "2026-11-10T18:48:29.354Z",
+   "mtime": 1794336364123.746,
+   "preview": "2026-11-10T18:48:31.924Z"
   },
   "/de/de/book-and-prepare/other-requests/travelling-with-pets": {
-   "uploaded": "2026-10-31T12:04:14.061Z",
-   "mtime": 1793446990615,
-   "preview": "2026-10-31T12:04:15.702Z"
+   "uploaded": "2026-11-10T18:48:35.149Z",
+   "mtime": 1794336364134.502,
+   "preview": "2026-11-10T18:48:37.415Z"
   },
   "/de/de/book-and-prepare/other-requests/travelling-with-pets/assistance-dogs": {
-   "uploaded": "2026-11-08T04:15:23.940Z",
-   "mtime": 1794109947578.2822,
-   "preview": "2026-11-08T04:15:26.516Z"
+   "uploaded": "2026-11-10T18:48:40.210Z",
+   "mtime": 1794336364146.9639,
+   "preview": "2026-11-10T18:48:42.809Z"
   },
   "/de/de/book-and-prepare/other-requests/travelling-with-pets/pet-transportation-charges": {
    "uploaded": "2026-10-31T12:03:56.029Z",
@@ -5256,14 +5256,14 @@
    "preview": "2026-10-31T12:03:57.444Z"
   },
   "/de/de/book-and-prepare/other-requests/travelling-with-pets/pets-as-cargo": {
-   "uploaded": "2026-11-08T04:15:29.483Z",
-   "mtime": 1794109947578.66,
-   "preview": "2026-11-08T04:15:32.229Z"
+   "uploaded": "2026-11-10T18:48:45.561Z",
+   "mtime": 1794336364157.9658,
+   "preview": "2026-11-10T18:48:47.963Z"
   },
   "/de/de/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin": {
-   "uploaded": "2026-11-08T04:15:35.190Z",
-   "mtime": 1794109947579.1223,
-   "preview": "2026-11-08T04:15:37.868Z"
+   "uploaded": "2026-11-10T18:48:51.057Z",
+   "mtime": 1794336364168.8367,
+   "preview": "2026-11-10T18:48:53.346Z"
   },
   "/de/de/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin/large-dog-on-board": {
    "uploaded": "2026-10-31T12:04:04.641Z",
@@ -5276,9 +5276,9 @@
    "preview": "2026-10-31T12:04:03.367Z"
   },
   "/de/de/book-and-prepare/other-requests/travelling-with-pets/pets-travel-documents": {
-   "uploaded": "2026-11-08T04:15:41.572Z",
-   "mtime": 1794109947579.486,
-   "preview": "2026-11-08T04:15:43.794Z"
+   "uploaded": "2026-11-10T18:48:57.541Z",
+   "mtime": 1794336364180.5754,
+   "preview": "2026-11-10T18:49:00.034Z"
   },
   "/de/de/book-and-prepare/reservation-with-price-guarantee": {
    "uploaded": "2026-10-31T13:51:49.087Z",
@@ -5286,29 +5286,29 @@
    "preview": "2026-10-31T13:51:50.693Z"
   },
   "/de/de/book-and-prepare/travel-information": {
-   "uploaded": "2026-10-31T13:51:51.877Z",
-   "mtime": 1793360428008,
-   "preview": "2026-10-31T13:51:53.438Z"
+   "uploaded": "2026-11-10T18:49:02.965Z",
+   "mtime": 1794336364191.6213,
+   "preview": "2026-11-10T18:49:07.163Z"
   },
   "/de/de/book-and-prepare/travel-information/at-the-airport": {
-   "uploaded": "2026-10-31T12:05:08.594Z",
-   "mtime": 1793446991034,
-   "preview": "2026-10-31T12:05:10.318Z"
+   "uploaded": "2026-11-10T18:49:09.997Z",
+   "mtime": 1794336364202.8389,
+   "preview": "2026-11-10T18:49:12.070Z"
   },
   "/de/de/book-and-prepare/travel-information/at-the-airport/digital-newsstand": {
-   "uploaded": "2026-11-08T04:15:46.704Z",
-   "mtime": 1794109947579.9905,
-   "preview": "2026-11-08T04:15:49.196Z"
+   "uploaded": "2026-11-10T18:49:14.880Z",
+   "mtime": 1794336364213.0789,
+   "preview": "2026-11-10T18:49:16.968Z"
   },
   "/de/de/book-and-prepare/travel-information/at-the-airport/group-boarding": {
-   "uploaded": "2026-11-08T04:15:52.317Z",
-   "mtime": 1794109947580.344,
-   "preview": "2026-11-08T04:15:54.541Z"
+   "uploaded": "2026-11-10T18:49:19.648Z",
+   "mtime": 1794336364225.126,
+   "preview": "2026-11-10T18:49:25.160Z"
   },
   "/de/de/book-and-prepare/travel-information/at-the-airport/lounges": {
-   "uploaded": "2026-10-31T12:04:40.973Z",
-   "mtime": 1793446990827,
-   "preview": "2026-10-31T12:04:42.680Z"
+   "uploaded": "2026-11-10T18:49:28.188Z",
+   "mtime": 1794336364237.5615,
+   "preview": "2026-11-10T18:49:32.523Z"
   },
   "/de/de/book-and-prepare/travel-information/at-the-airport/lounges/fantasia-lounge": {
    "uploaded": "2026-10-31T12:04:22.977Z",
@@ -5341,9 +5341,9 @@
    "preview": "2026-10-31T12:04:39.517Z"
   },
   "/de/de/book-and-prepare/travel-information/at-the-airport/meet-and-greet": {
-   "uploaded": "2026-11-08T04:15:57.607Z",
-   "mtime": 1794109947580.7004,
-   "preview": "2026-11-08T04:16:00.293Z"
+   "uploaded": "2026-11-10T18:49:35.279Z",
+   "mtime": 1794336364248.0176,
+   "preview": "2026-11-10T18:49:37.996Z"
   },
   "/de/de/book-and-prepare/travel-information/at-the-airport/meet-and-greet/meet-and-greet-fares": {
    "uploaded": "2026-10-31T12:04:44.000Z",
@@ -5356,19 +5356,19 @@
    "preview": "2026-10-31T12:04:48.252Z"
   },
   "/de/de/book-and-prepare/travel-information/at-the-airport/priority": {
-   "uploaded": "2026-11-08T04:16:03.281Z",
-   "mtime": 1794109947581.0864,
-   "preview": "2026-11-08T04:16:05.378Z"
+   "uploaded": "2026-11-10T18:49:40.948Z",
+   "mtime": 1794336364259.132,
+   "preview": "2026-11-10T18:49:44.522Z"
   },
   "/de/de/book-and-prepare/travel-information/at-the-airport/priority/priority-gates": {
-   "uploaded": "2026-11-08T04:16:08.588Z",
-   "mtime": 1794109947581.492,
-   "preview": "2026-11-08T04:16:10.790Z"
+   "uploaded": "2026-11-10T18:49:47.229Z",
+   "mtime": 1794336364270.889,
+   "preview": "2026-11-10T18:49:49.463Z"
   },
   "/de/de/book-and-prepare/travel-information/at-the-airport/priority/qpass": {
-   "uploaded": "2026-11-08T04:16:14.173Z",
-   "mtime": 1794109947581.8203,
-   "preview": "2026-11-08T04:16:16.594Z"
+   "uploaded": "2026-11-10T18:49:52.495Z",
+   "mtime": 1794336364282.528,
+   "preview": "2026-11-10T18:49:55.429Z"
   },
   "/de/de/book-and-prepare/travel-information/at-the-airport/security-check-time-slot": {
    "uploaded": "2026-10-31T12:05:02.194Z",
@@ -5376,14 +5376,14 @@
    "preview": "2026-10-31T12:05:03.962Z"
   },
   "/de/de/book-and-prepare/travel-information/at-the-airport/security-waiting-times": {
-   "uploaded": "2026-11-01T15:41:30.663Z",
-   "mtime": 1793547581616,
-   "preview": "2026-11-01T15:41:32.283Z"
+   "uploaded": "2026-11-10T18:49:58.748Z",
+   "mtime": 1794336364294.181,
+   "preview": "2026-11-10T18:50:01.492Z"
   },
   "/de/de/book-and-prepare/travel-information/baggage": {
-   "uploaded": "2026-10-31T12:05:40.126Z",
-   "mtime": 1793446991279,
-   "preview": "2026-10-31T12:05:42.039Z"
+   "uploaded": "2026-11-10T18:50:04.406Z",
+   "mtime": 1794336364304.5818,
+   "preview": "2026-11-10T18:50:08.771Z"
   },
   "/de/de/book-and-prepare/travel-information/baggage/baggage-assistance": {
    "uploaded": "2026-11-08T09:44:04.473Z",
@@ -5406,9 +5406,9 @@
    "preview": "2026-10-31T12:05:23.358Z"
   },
   "/de/de/book-and-prepare/travel-information/baggage/electronic-devices-and-batteries": {
-   "uploaded": "2026-11-08T05:11:37.712Z",
-   "mtime": 1794114667620.609,
-   "preview": "2026-11-08T05:11:40.225Z"
+   "uploaded": "2026-11-10T18:50:11.764Z",
+   "mtime": 1794336364317.5205,
+   "preview": "2026-11-10T18:50:14.840Z"
   },
   "/de/de/book-and-prepare/travel-information/baggage/excess-baggage": {
    "uploaded": "2026-10-31T12:05:28.242Z",
@@ -5416,14 +5416,14 @@
    "preview": "2026-10-31T12:05:29.602Z"
   },
   "/de/de/book-and-prepare/travel-information/baggage/free-baggage-allowance": {
-   "uploaded": "2026-10-31T12:05:30.825Z",
-   "mtime": 1793446991207,
-   "preview": "2026-10-31T12:05:32.489Z"
+   "uploaded": "2026-11-10T18:50:19.229Z",
+   "mtime": 1794336364327.7805,
+   "preview": "2026-11-10T18:50:25.158Z"
   },
   "/de/de/book-and-prepare/travel-information/baggage/restricted-and-prohibited-items": {
-   "uploaded": "2026-11-08T04:16:25.241Z",
-   "mtime": 1794109947582.9915,
-   "preview": "2026-11-08T04:16:28.536Z"
+   "uploaded": "2026-11-10T18:50:28.059Z",
+   "mtime": 1794336364340.8599,
+   "preview": "2026-11-10T18:50:31.870Z"
   },
   "/de/de/book-and-prepare/travel-information/baggage/special-baggage": {
    "uploaded": "2026-10-31T12:05:37.129Z",
@@ -5431,24 +5431,24 @@
    "preview": "2026-10-31T12:05:38.831Z"
   },
   "/de/de/book-and-prepare/travel-information/check-in-information": {
-   "uploaded": "2026-11-08T04:16:31.424Z",
-   "mtime": 1794109947583.5032,
-   "preview": "2026-11-08T04:16:33.620Z"
+   "uploaded": "2026-11-10T18:50:37.336Z",
+   "mtime": 1794336364351.5476,
+   "preview": "2026-11-10T18:50:39.667Z"
   },
   "/de/de/book-and-prepare/travel-information/check-in-information/check-in-deadlines": {
-   "uploaded": "2026-11-08T04:16:36.664Z",
-   "mtime": 1794109947583.8645,
-   "preview": "2026-11-08T04:16:39.623Z"
+   "uploaded": "2026-11-10T18:50:42.378Z",
+   "mtime": 1794336364362.684,
+   "preview": "2026-11-10T18:50:44.852Z"
   },
   "/de/de/book-and-prepare/travel-information/check-in-information/online-check-in": {
-   "uploaded": "2026-11-08T04:16:42.568Z",
-   "mtime": 1794109947584.2231,
-   "preview": "2026-11-08T04:16:44.764Z"
+   "uploaded": "2026-11-10T18:50:47.501Z",
+   "mtime": 1794336364378.3345,
+   "preview": "2026-11-10T18:50:49.990Z"
   },
   "/de/de/book-and-prepare/travel-information/entry-regulations": {
-   "uploaded": "2026-11-07T17:24:39.000Z",
-   "mtime": 1794072279827.3496,
-   "preview": "2026-11-07T17:24:44.000Z"
+   "uploaded": "2026-11-10T18:50:53.156Z",
+   "mtime": 1794336364389.7083,
+   "preview": "2026-11-10T18:50:55.558Z"
   },
   "/de/de/book-and-prepare/travel-information/entry-regulations/children-from-to-south-africa": {
    "uploaded": "2026-10-31T12:05:52.483Z",
@@ -5456,9 +5456,9 @@
    "preview": "2026-10-31T12:05:53.981Z"
   },
   "/de/de/book-and-prepare/travel-information/entry-regulations/entry-regulations-canada": {
-   "uploaded": "2026-10-31T12:05:55.286Z",
-   "mtime": 1793446991391,
-   "preview": "2026-10-31T12:05:56.960Z"
+   "uploaded": "2026-11-10T18:50:58.277Z",
+   "mtime": 1794336364400.3694,
+   "preview": "2026-11-10T18:51:00.471Z"
   },
   "/de/de/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen": {
    "uploaded": "2026-10-31T12:06:01.311Z",
@@ -5466,9 +5466,9 @@
    "preview": "2026-10-31T12:06:02.906Z"
   },
   "/de/de/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system": {
-   "uploaded": "2026-10-31T12:05:58.456Z",
-   "mtime": 1793446991413,
-   "preview": "2026-10-31T12:06:00.043Z"
+   "uploaded": "2026-11-10T18:51:03.326Z",
+   "mtime": 1794336364410.7932,
+   "preview": "2026-11-10T18:51:06.283Z"
   },
   "/de/de/book-and-prepare/travel-information/entry-regulations/entry-regulations-uk": {
    "uploaded": "2026-10-31T12:06:04.135Z",
@@ -5476,9 +5476,9 @@
    "preview": "2026-10-31T12:06:05.666Z"
   },
   "/de/de/book-and-prepare/travel-information/entry-regulations/entry-regulations-us": {
-   "uploaded": "2026-10-31T12:06:07.019Z",
-   "mtime": 1793446991481,
-   "preview": "2026-10-31T12:06:08.504Z"
+   "uploaded": "2026-11-10T18:51:09.202Z",
+   "mtime": 1794336364423.662,
+   "preview": "2026-11-10T18:51:11.305Z"
   },
   "/de/de/book-and-prepare/travel-information/entry-regulations/secure-flight": {
    "uploaded": "2026-10-31T12:06:09.857Z",
@@ -5486,9 +5486,9 @@
    "preview": "2026-10-31T12:06:11.423Z"
   },
   "/de/de/book-and-prepare/travel-information/travel-briefing": {
-   "uploaded": "2026-10-31T12:06:16.420Z",
-   "mtime": 1793446991545,
-   "preview": "2026-10-31T12:06:18.256Z"
+   "uploaded": "2026-11-10T18:51:13.946Z",
+   "mtime": 1794336364437.846,
+   "preview": "2026-11-10T18:51:16.736Z"
   },
   "/de/de/book-and-prepare/view-and-amend-flight-details": {
    "uploaded": "2026-10-31T13:51:54.678Z",
@@ -5626,9 +5626,9 @@
    "preview": "2026-10-30T11:47:42.316Z"
   },
   "/de/de/manage-my-bookings/extra-services": {
-   "uploaded": "2026-10-30T11:47:43.393Z",
-   "mtime": 1793360817671,
-   "preview": "2026-10-30T11:47:45.215Z"
+   "uploaded": "2026-11-10T18:51:19.332Z",
+   "mtime": 1794336364449.8604,
+   "preview": "2026-11-10T18:51:21.409Z"
   },
   "/de/de/manage-my-bookings/extra-services/extra-baggage": {
    "uploaded": "2026-10-31T12:06:41.091Z",
@@ -5641,29 +5641,29 @@
    "preview": "2026-10-31T12:06:39.719Z"
   },
   "/de/de/manage-my-bookings/extra-services/seats-selection": {
-   "uploaded": "2026-10-31T12:06:56.584Z",
-   "mtime": 1793446991940,
-   "preview": "2026-10-31T12:06:58.339Z"
+   "uploaded": "2026-11-10T18:51:24.108Z",
+   "mtime": 1794336364461.5247,
+   "preview": "2026-11-10T18:51:26.956Z"
   },
   "/de/de/manage-my-bookings/extra-services/seats-selection/seats-selection-business": {
-   "uploaded": "2026-11-08T04:16:47.854Z",
-   "mtime": 1794109947585.053,
-   "preview": "2026-11-08T04:16:50.400Z"
+   "uploaded": "2026-11-10T18:51:30.068Z",
+   "mtime": 1794336364474.2952,
+   "preview": "2026-11-10T18:51:32.527Z"
   },
   "/de/de/manage-my-bookings/extra-services/seats-selection/seats-selection-economy": {
-   "uploaded": "2026-11-08T04:16:53.856Z",
-   "mtime": 1794109947585.4844,
-   "preview": "2026-11-08T04:16:56.687Z"
+   "uploaded": "2026-11-10T18:51:35.458Z",
+   "mtime": 1794336364486.9902,
+   "preview": "2026-11-10T18:51:38.387Z"
   },
   "/de/de/manage-my-bookings/extra-services/seats-selection/seats-selection-economy/legroom-seat": {
-   "uploaded": "2026-10-31T12:06:47.184Z",
-   "mtime": 1793446991871,
-   "preview": "2026-10-31T12:06:48.924Z"
+   "uploaded": "2026-11-10T18:51:41.218Z",
+   "mtime": 1794336364500.063,
+   "preview": "2026-11-10T18:51:43.823Z"
   },
   "/de/de/manage-my-bookings/extra-services/seats-selection/seats-selection-premium-economy": {
-   "uploaded": "2026-11-08T04:16:59.885Z",
-   "mtime": 1794109947585.8909,
-   "preview": "2026-11-08T04:17:02.952Z"
+   "uploaded": "2026-11-10T18:51:46.550Z",
+   "mtime": 1794336364512.3328,
+   "preview": "2026-11-10T18:51:49.356Z"
   },
   "/de/de/manage-my-bookings/extra-services/travel-insurance": {
    "uploaded": "2026-10-30T11:48:08.610Z",
@@ -5671,34 +5671,34 @@
    "preview": "2026-10-30T11:48:10.495Z"
   },
   "/de/de/manage-my-bookings/extra-services/upgrade": {
-   "uploaded": "2026-10-31T12:07:17.829Z",
-   "mtime": 1793446992105,
-   "preview": "2026-10-31T12:07:19.422Z"
+   "uploaded": "2026-11-10T18:51:52.280Z",
+   "mtime": 1794336364523.1868,
+   "preview": "2026-11-10T18:51:54.287Z"
   },
   "/de/de/manage-my-bookings/extra-services/upgrade/airport-upgrade": {
-   "uploaded": "2026-11-08T04:17:06.098Z",
-   "mtime": 1794109947586.2717,
-   "preview": "2026-11-08T04:17:08.483Z"
+   "uploaded": "2026-11-10T18:51:56.968Z",
+   "mtime": 1794336364535.3645,
+   "preview": "2026-11-10T18:52:01.484Z"
   },
   "/de/de/manage-my-bookings/extra-services/upgrade/bid-upgrade": {
-   "uploaded": "2026-11-08T04:17:11.729Z",
-   "mtime": 1794109947586.7854,
-   "preview": "2026-11-08T04:17:14.704Z"
+   "uploaded": "2026-11-10T18:52:04.578Z",
+   "mtime": 1794336364549.6428,
+   "preview": "2026-11-10T18:52:07.680Z"
   },
   "/de/de/manage-my-bookings/extra-services/upgrade/fixed-price-upgrade": {
-   "uploaded": "2026-11-08T04:17:17.993Z",
-   "mtime": 1794109947587.1426,
-   "preview": "2026-11-08T04:17:20.668Z"
+   "uploaded": "2026-11-10T18:52:10.409Z",
+   "mtime": 1794336364563.1357,
+   "preview": "2026-11-10T18:52:12.987Z"
   },
   "/de/de/manage-my-bookings/extra-services/upgrade/immediate-upgrade": {
-   "uploaded": "2026-11-08T04:17:23.515Z",
-   "mtime": 1794109947587.4949,
-   "preview": "2026-11-08T04:17:25.970Z"
+   "uploaded": "2026-11-10T18:52:15.962Z",
+   "mtime": 1794336364576.1272,
+   "preview": "2026-11-10T18:52:18.013Z"
   },
   "/de/de/manage-my-bookings/extra-services/upgrade/onboard-upgrade": {
-   "uploaded": "2026-11-08T04:17:29.599Z",
-   "mtime": 1794109947587.8623,
-   "preview": "2026-11-08T04:17:32.265Z"
+   "uploaded": "2026-11-10T18:52:20.977Z",
+   "mtime": 1794336364588.403,
+   "preview": "2026-11-10T18:52:23.051Z"
   },
   "/de/de/manage-my-bookings/extra-services/upgrade/upgrade-terms-and-conditions": {
    "uploaded": "2026-10-31T12:07:15.043Z",
@@ -5706,14 +5706,14 @@
    "preview": "2026-10-31T12:07:16.613Z"
   },
   "/de/de/manage-my-bookings/manage": {
-   "uploaded": "2026-10-30T11:48:32.583Z",
-   "mtime": 1793360817927,
-   "preview": "2026-10-30T11:48:34.243Z"
+   "uploaded": "2026-11-10T18:52:25.919Z",
+   "mtime": 1794336364600.395,
+   "preview": "2026-11-10T18:52:27.654Z"
   },
   "/de/de/manage-my-bookings/manage/cancellation-and-refund": {
-   "uploaded": "2026-11-08T04:17:35.377Z",
-   "mtime": 1794109947588.2864,
-   "preview": "2026-11-08T04:17:37.665Z"
+   "uploaded": "2026-11-10T18:52:30.519Z",
+   "mtime": 1794336364614.3557,
+   "preview": "2026-11-10T18:52:33.397Z"
   },
   "/de/de/manage-my-bookings/manage/cancellation-and-refund/refund": {
    "uploaded": "2026-10-31T12:07:23.430Z",
@@ -5726,9 +5726,9 @@
    "preview": "2026-10-31T12:07:22.211Z"
   },
   "/de/de/manage-my-bookings/manage/change-and-refund": {
-   "uploaded": "2026-11-08T04:17:40.665Z",
-   "mtime": 1794109947588.636,
-   "preview": "2026-11-08T04:17:42.846Z"
+   "uploaded": "2026-11-10T18:52:36.128Z",
+   "mtime": 1794336364628.0532,
+   "preview": "2026-11-10T18:52:38.423Z"
   },
   "/de/de/manage-my-bookings/manage/check-in": {
    "uploaded": "2026-10-31T12:07:32.101Z",
@@ -5741,9 +5741,9 @@
    "preview": "2026-10-31T12:07:36.750Z"
   },
   "/de/de/manage-my-bookings/manage/manage-my-bookings": {
-   "uploaded": "2026-11-08T04:17:45.887Z",
-   "mtime": 1794109947589.19,
-   "preview": "2026-11-08T04:17:48.374Z"
+   "uploaded": "2026-11-10T18:52:41.123Z",
+   "mtime": 1794336364639.7969,
+   "preview": "2026-11-10T18:52:43.270Z"
   },
   "/de/de/manage-my-bookings/manage/passenger-receipt": {
    "uploaded": "2026-10-31T12:07:40.986Z",
@@ -5751,54 +5751,54 @@
    "preview": "2026-10-31T12:07:42.420Z"
   },
   "/de/de/manage-my-bookings/manage/view-and-manage-flight": {
-   "uploaded": "2026-11-08T04:17:51.171Z",
-   "mtime": 1794109947589.5354,
-   "preview": "2026-11-08T04:17:53.434Z"
+   "uploaded": "2026-11-10T18:52:45.977Z",
+   "mtime": 1794336364652.1565,
+   "preview": "2026-11-10T18:52:49.032Z"
   },
   "/de/de/manage-my-bookings/partners": {
-   "uploaded": "2026-10-31T13:51:57.696Z",
-   "mtime": 1793361117366,
-   "preview": "2026-10-31T13:51:59.441Z"
+   "uploaded": "2026-11-10T18:52:51.574Z",
+   "mtime": 1794336364665.3545,
+   "preview": "2026-11-10T18:52:54.183Z"
   },
   "/de/de/manage-my-bookings/partners/airport-in-the-city": {
-   "uploaded": "2026-11-08T04:17:56.830Z",
-   "mtime": 1794109947589.9211,
-   "preview": "2026-11-08T04:17:59.009Z"
+   "uploaded": "2026-11-10T18:52:56.786Z",
+   "mtime": 1794336364680.3657,
+   "preview": "2026-11-10T18:52:58.857Z"
   },
   "/de/de/manage-my-bookings/partners/airport-parking": {
-   "uploaded": "2026-11-08T04:18:01.892Z",
-   "mtime": 1794109947590.2632,
-   "preview": "2026-11-08T04:18:04.340Z"
+   "uploaded": "2026-11-10T18:53:01.574Z",
+   "mtime": 1794336364693.5254,
+   "preview": "2026-11-10T18:53:03.656Z"
   },
   "/de/de/manage-my-bookings/partners/airport-parking/easy-parking": {
-   "uploaded": "2026-11-08T04:18:07.174Z",
-   "mtime": 1794109947590.6787,
-   "preview": "2026-11-08T04:18:09.327Z"
+   "uploaded": "2026-11-10T18:53:06.321Z",
+   "mtime": 1794336364706.2793,
+   "preview": "2026-11-10T18:53:08.823Z"
   },
   "/de/de/manage-my-bookings/partners/airport-parking/parcheggi-aeroporti-di-milano": {
-   "uploaded": "2026-11-08T04:18:12.116Z",
-   "mtime": 1794109947590.9878,
-   "preview": "2026-11-08T04:18:14.153Z"
+   "uploaded": "2026-11-10T18:53:11.602Z",
+   "mtime": 1794336364717.3794,
+   "preview": "2026-11-10T18:53:13.826Z"
   },
   "/de/de/manage-my-bookings/partners/airport-transfer": {
-   "uploaded": "2026-11-08T04:18:17.435Z",
-   "mtime": 1794109947591.321,
-   "preview": "2026-11-08T04:18:19.645Z"
+   "uploaded": "2026-11-10T18:53:16.634Z",
+   "mtime": 1794336364728.3591,
+   "preview": "2026-11-10T18:53:19.228Z"
   },
   "/de/de/manage-my-bookings/partners/airport-transfer/ferrotramviaria": {
-   "uploaded": "2026-11-08T04:18:22.608Z",
-   "mtime": 1794109947591.7131,
-   "preview": "2026-11-08T04:18:25.024Z"
+   "uploaded": "2026-11-10T18:53:21.982Z",
+   "mtime": 1794336364740.2715,
+   "preview": "2026-11-10T18:53:24.919Z"
   },
   "/de/de/manage-my-bookings/partners/airport-transfer/mozio": {
-   "uploaded": "2026-11-08T04:18:28.308Z",
-   "mtime": 1794109947592.0486,
-   "preview": "2026-11-08T04:18:30.714Z"
+   "uploaded": "2026-11-10T18:53:27.891Z",
+   "mtime": 1794336364750.5261,
+   "preview": "2026-11-10T18:53:30.155Z"
   },
   "/de/de/manage-my-bookings/partners/airport-transfer/taxi": {
-   "uploaded": "2026-11-08T04:18:33.742Z",
-   "mtime": 1794109947592.379,
-   "preview": "2026-11-08T04:18:36.191Z"
+   "uploaded": "2026-11-10T18:53:32.929Z",
+   "mtime": 1794336364762.546,
+   "preview": "2026-11-10T18:53:35.550Z"
   },
   "/de/de/manage-my-bookings/partners/car-rental": {
    "uploaded": "2026-10-31T12:08:10.878Z",
@@ -5806,19 +5806,19 @@
    "preview": "2026-10-31T12:08:12.331Z"
   },
   "/de/de/manage-my-bookings/partners/e-sim": {
-   "uploaded": "2026-11-08T04:18:39.545Z",
-   "mtime": 1794109947592.6833,
-   "preview": "2026-11-08T04:18:44.053Z"
+   "uploaded": "2026-11-10T18:53:38.815Z",
+   "mtime": 1794336364780.0361,
+   "preview": "2026-11-10T18:53:41.018Z"
   },
   "/de/de/manage-my-bookings/partners/get-your-guide": {
-   "uploaded": "2026-11-08T04:18:46.883Z",
-   "mtime": 1794109947593.0078,
-   "preview": "2026-11-08T04:18:49.741Z"
+   "uploaded": "2026-11-10T18:53:43.905Z",
+   "mtime": 1794336364790.683,
+   "preview": "2026-11-10T18:53:48.217Z"
   },
   "/de/de/manage-my-bookings/partners/hotel": {
-   "uploaded": "2026-11-08T04:18:52.690Z",
-   "mtime": 1794109947593.3438,
-   "preview": "2026-11-08T04:18:54.855Z"
+   "uploaded": "2026-11-10T18:53:50.968Z",
+   "mtime": 1794336364800.9966,
+   "preview": "2026-11-10T18:53:52.995Z"
   },
   "/de/de/support/flight-disruptions": {
    "uploaded": "2026-10-30T11:52:35.827Z",
@@ -5886,19 +5886,19 @@
    "preview": "2026-10-30T11:53:11.522Z"
   },
   "/de/de/support/utilities/purchases": {
-   "uploaded": "2026-11-08T04:18:57.728Z",
-   "mtime": 1794109947593.8894,
-   "preview": "2026-11-08T04:18:59.864Z"
+   "uploaded": "2026-11-10T18:53:56.031Z",
+   "mtime": 1794336364812.1877,
+   "preview": "2026-11-10T18:53:58.195Z"
   },
   "/de/de/world-of-ita-airways": {
-   "uploaded": "2026-10-31T13:52:07.082Z",
-   "mtime": 1793361413665,
-   "preview": "2026-10-31T13:52:08.672Z"
+   "uploaded": "2026-11-10T18:54:00.876Z",
+   "mtime": 1794336364824.3274,
+   "preview": "2026-11-10T18:54:03.284Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways": {
-   "uploaded": "2026-10-31T13:52:03.992Z",
-   "mtime": 1793361413063,
-   "preview": "2026-10-31T13:52:05.901Z"
+   "uploaded": "2026-11-10T18:54:06.095Z",
+   "mtime": 1794336364835.1118,
+   "preview": "2026-11-10T18:54:08.652Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/awards-for-ita": {
    "uploaded": "2026-10-31T12:08:22.664Z",
@@ -5906,9 +5906,9 @@
    "preview": "2026-10-31T12:08:24.513Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/corporate": {
-   "uploaded": "2026-10-31T12:08:40.862Z",
-   "mtime": 1793446992773,
-   "preview": "2026-10-31T12:08:42.540Z"
+   "uploaded": "2026-11-10T18:54:11.456Z",
+   "mtime": 1794336364845.692,
+   "preview": "2026-11-10T18:54:13.912Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/corporate/about-us": {
    "uploaded": "2026-10-31T12:08:25.758Z",
@@ -5926,9 +5926,9 @@
    "preview": "2026-10-31T12:08:33.287Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/corporate/work-with-us": {
-   "uploaded": "2026-10-31T12:08:37.837Z",
-   "mtime": 1793446992755,
-   "preview": "2026-10-31T12:08:39.604Z"
+   "uploaded": "2026-11-10T18:54:16.542Z",
+   "mtime": 1794336364858.045,
+   "preview": "2026-11-10T18:54:18.745Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/corporate/work-with-us/events": {
    "uploaded": "2026-11-07T14:01:21.708Z",
@@ -5936,9 +5936,9 @@
    "preview": "2026-11-07T14:01:23.619Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/fleet": {
-   "uploaded": "2026-11-08T04:19:02.845Z",
-   "mtime": 1794109947594.3313,
-   "preview": "2026-11-08T04:19:05.094Z"
+   "uploaded": "2026-11-10T18:54:21.621Z",
+   "mtime": 1794336364869.749,
+   "preview": "2026-11-10T18:54:23.954Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/fleet/long-haul": {
    "uploaded": "2026-10-31T12:08:44.195Z",
@@ -5956,64 +5956,64 @@
    "preview": "2026-10-31T12:08:55.206Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/network": {
-   "uploaded": "2026-11-08T05:11:42.898Z",
-   "mtime": 1794114667621.6614,
-   "preview": "2026-11-08T05:11:45.188Z"
+   "uploaded": "2026-11-10T18:54:27.154Z",
+   "mtime": 1794336364880.9993,
+   "preview": "2026-11-10T18:54:29.476Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/roma-fiumicino": {
-   "uploaded": "2026-10-31T12:09:29.343Z",
-   "mtime": 1793446993136,
-   "preview": "2026-10-31T12:09:31.248Z"
+   "uploaded": "2026-11-10T18:54:32.140Z",
+   "mtime": 1794336364891.3198,
+   "preview": "2026-11-10T18:54:34.776Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/roma-fiumicino/arrivals": {
-   "uploaded": "2026-11-08T04:19:12.949Z",
-   "mtime": 1794109947595.0903,
-   "preview": "2026-11-08T04:19:15.217Z"
+   "uploaded": "2026-11-10T18:54:37.528Z",
+   "mtime": 1794336364901.8582,
+   "preview": "2026-11-10T18:54:42.744Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/roma-fiumicino/baggage": {
-   "uploaded": "2026-11-08T04:19:18.370Z",
-   "mtime": 1794109947595.4297,
-   "preview": "2026-11-08T04:19:20.487Z"
+   "uploaded": "2026-11-10T18:54:45.525Z",
+   "mtime": 1794336364915.5984,
+   "preview": "2026-11-10T18:54:48.504Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/roma-fiumicino/boarding": {
-   "uploaded": "2026-11-08T04:19:23.711Z",
-   "mtime": 1794109947595.7388,
-   "preview": "2026-11-08T04:19:26.460Z"
+   "uploaded": "2026-11-10T18:54:51.407Z",
+   "mtime": 1794336364926.5198,
+   "preview": "2026-11-10T18:54:53.820Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/roma-fiumicino/border-checks": {
-   "uploaded": "2026-11-08T04:19:29.581Z",
-   "mtime": 1794109947596.0608,
-   "preview": "2026-11-08T04:19:31.977Z"
+   "uploaded": "2026-11-10T18:54:56.336Z",
+   "mtime": 1794336364937.8235,
+   "preview": "2026-11-10T18:54:58.378Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/roma-fiumicino/check-in": {
-   "uploaded": "2026-11-08T04:19:35.011Z",
-   "mtime": 1794109947596.3857,
-   "preview": "2026-11-08T04:19:37.220Z"
+   "uploaded": "2026-11-10T18:55:01.331Z",
+   "mtime": 1794336364950.162,
+   "preview": "2026-11-10T18:55:03.837Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/roma-fiumicino/how-to-get-there": {
-   "uploaded": "2026-11-08T04:19:40.348Z",
-   "mtime": 1794109947596.7268,
-   "preview": "2026-11-08T04:19:42.591Z"
+   "uploaded": "2026-11-10T18:55:06.641Z",
+   "mtime": 1794336364961.8428,
+   "preview": "2026-11-10T18:55:09.038Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/roma-fiumicino/lost-and-found": {
-   "uploaded": "2026-11-08T04:19:45.430Z",
-   "mtime": 1794109947597.0828,
-   "preview": "2026-11-08T04:19:47.594Z"
+   "uploaded": "2026-11-10T18:55:11.943Z",
+   "mtime": 1794336364973.3552,
+   "preview": "2026-11-10T18:55:14.612Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/roma-fiumicino/security-checks": {
-   "uploaded": "2026-11-08T04:19:50.760Z",
-   "mtime": 1794109947597.4192,
-   "preview": "2026-11-08T04:19:52.883Z"
+   "uploaded": "2026-11-10T18:55:17.668Z",
+   "mtime": 1794336364983.6301,
+   "preview": "2026-11-10T18:55:20.072Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/roma-fiumicino/services": {
-   "uploaded": "2026-11-08T04:19:55.728Z",
-   "mtime": 1794109947597.7488,
-   "preview": "2026-11-08T04:19:58.179Z"
+   "uploaded": "2026-11-10T18:55:22.661Z",
+   "mtime": 1794336364993.6733,
+   "preview": "2026-11-10T18:55:25.120Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/roma-fiumicino/transit-passengers": {
-   "uploaded": "2026-11-08T04:20:01.194Z",
-   "mtime": 1794109947598.0881,
-   "preview": "2026-11-08T04:20:03.528Z"
+   "uploaded": "2026-11-10T18:55:27.955Z",
+   "mtime": 1794336365003.876,
+   "preview": "2026-11-10T18:55:30.308Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/star-alliance": {
    "uploaded": "2026-10-31T12:09:32.462Z",
@@ -6026,54 +6026,54 @@
    "preview": "2026-10-31T12:10:08.768Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/sustainability/autism-program": {
-   "uploaded": "2026-11-08T04:20:07.011Z",
-   "mtime": 1794109947598.508,
-   "preview": "2026-11-08T04:20:09.044Z"
+   "uploaded": "2026-11-10T18:55:33.660Z",
+   "mtime": 1794336365015.5386,
+   "preview": "2026-11-10T18:55:35.868Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/sustainability/decarbonisation": {
-   "uploaded": "2026-11-08T04:20:11.976Z",
-   "mtime": 1794109947598.875,
-   "preview": "2026-11-08T04:20:14.118Z"
+   "uploaded": "2026-11-10T18:55:38.675Z",
+   "mtime": 1794336365028.1672,
+   "preview": "2026-11-10T18:55:41.345Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/sustainability/digital-newsstand": {
-   "uploaded": "2026-11-08T04:20:16.914Z",
-   "mtime": 1794109947599.226,
-   "preview": "2026-11-08T04:20:19.342Z"
+   "uploaded": "2026-11-10T18:55:44.263Z",
+   "mtime": 1794336365039.5906,
+   "preview": "2026-11-10T18:55:46.326Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/sustainability/female-talent": {
-   "uploaded": "2026-11-08T04:20:22.988Z",
-   "mtime": 1794109947599.581,
-   "preview": "2026-11-08T04:20:25.248Z"
+   "uploaded": "2026-11-10T18:55:49.027Z",
+   "mtime": 1794336365053.6702,
+   "preview": "2026-11-10T18:55:51.330Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/sustainability/fly-with-saf": {
-   "uploaded": "2026-11-08T04:20:28.097Z",
-   "mtime": 1794109947599.9375,
-   "preview": "2026-11-08T04:20:30.644Z"
+   "uploaded": "2026-11-10T18:55:53.939Z",
+   "mtime": 1794336365066.356,
+   "preview": "2026-11-10T18:55:55.746Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/sustainability/iris": {
-   "uploaded": "2026-11-08T04:20:33.523Z",
-   "mtime": 1794109947600.2896,
-   "preview": "2026-11-08T04:20:35.962Z"
+   "uploaded": "2026-11-10T18:55:58.868Z",
+   "mtime": 1794336365078.0918,
+   "preview": "2026-11-10T18:56:01.246Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/sustainability/next-generation-fleet": {
-   "uploaded": "2026-11-08T04:20:39.542Z",
-   "mtime": 1794109947600.7146,
-   "preview": "2026-11-08T04:20:41.875Z"
+   "uploaded": "2026-11-10T18:56:04.090Z",
+   "mtime": 1794336365090.9397,
+   "preview": "2026-11-10T18:56:06.466Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/sustainability/social-partnership": {
-   "uploaded": "2026-11-08T04:20:44.682Z",
-   "mtime": 1794109947601.0696,
-   "preview": "2026-11-08T04:20:47.423Z"
+   "uploaded": "2026-11-10T18:56:09.292Z",
+   "mtime": 1794336365101.639,
+   "preview": "2026-11-10T18:56:12.125Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/sustainability/sustainability-report": {
-   "uploaded": "2026-11-08T04:20:50.981Z",
-   "mtime": 1794109947601.438,
-   "preview": "2026-11-08T04:20:53.338Z"
+   "uploaded": "2026-11-10T18:56:15.059Z",
+   "mtime": 1794336365113.138,
+   "preview": "2026-11-10T18:56:17.521Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/sustainability/universal-access": {
-   "uploaded": "2026-11-08T04:20:56.337Z",
-   "mtime": 1794109947601.7947,
-   "preview": "2026-11-08T04:20:58.668Z"
+   "uploaded": "2026-11-10T18:56:20.399Z",
+   "mtime": 1794336365125.3826,
+   "preview": "2026-11-10T18:56:23.021Z"
   },
   "/de/de/world-of-ita-airways/discover-ita-airways/voglia-di-volare": {
    "uploaded": "2026-10-31T12:10:10.066Z",
@@ -6081,19 +6081,19 @@
    "preview": "2026-10-31T12:10:11.544Z"
   },
   "/de/de/world-of-ita-airways/services-on-board": {
-   "uploaded": "2026-10-30T11:59:02.141Z",
-   "mtime": 1793361413504,
-   "preview": "2026-10-30T11:59:03.986Z"
+   "uploaded": "2026-11-10T18:56:25.721Z",
+   "mtime": 1794336365135.7798,
+   "preview": "2026-11-10T18:56:27.979Z"
   },
   "/de/de/world-of-ita-airways/services-on-board/catering": {
-   "uploaded": "2026-10-31T12:10:49.951Z",
-   "mtime": 1793446993715,
-   "preview": "2026-10-31T12:10:51.589Z"
+   "uploaded": "2026-11-10T18:56:30.588Z",
+   "mtime": 1794336365146.3376,
+   "preview": "2026-11-10T18:56:32.525Z"
   },
   "/de/de/world-of-ita-airways/services-on-board/catering/children-meals": {
-   "uploaded": "2026-11-08T04:21:01.726Z",
-   "mtime": 1794109947602.3628,
-   "preview": "2026-11-08T04:21:04.190Z"
+   "uploaded": "2026-11-10T18:56:35.371Z",
+   "mtime": 1794336365156.5442,
+   "preview": "2026-11-10T18:56:37.798Z"
   },
   "/de/de/world-of-ita-airways/services-on-board/catering/digital-menu-card": {
    "uploaded": "2026-10-31T12:10:15.938Z",
@@ -6101,44 +6101,44 @@
    "preview": "2026-10-31T12:10:17.578Z"
   },
   "/de/de/world-of-ita-airways/services-on-board/catering/meals-in-travel-classes": {
-   "uploaded": "2026-10-31T12:10:37.925Z",
-   "mtime": 1793446993632,
-   "preview": "2026-10-31T12:10:39.616Z"
+   "uploaded": "2026-11-10T18:56:40.962Z",
+   "mtime": 1794336365170.0608,
+   "preview": "2026-11-10T18:56:43.546Z"
   },
   "/de/de/world-of-ita-airways/services-on-board/catering/meals-in-travel-classes/meals-in-business-long-haul": {
-   "uploaded": "2026-11-08T04:21:07.484Z",
-   "mtime": 1794109947602.7747,
-   "preview": "2026-11-08T04:21:09.789Z"
+   "uploaded": "2026-11-10T18:56:46.565Z",
+   "mtime": 1794336365186.2915,
+   "preview": "2026-11-10T18:56:49.147Z"
   },
   "/de/de/world-of-ita-airways/services-on-board/catering/meals-in-travel-classes/meals-in-business-medium-haul": {
-   "uploaded": "2026-11-08T04:21:12.783Z",
-   "mtime": 1794109947603.1116,
-   "preview": "2026-11-08T04:21:14.995Z"
+   "uploaded": "2026-11-10T18:56:52.045Z",
+   "mtime": 1794336365199.043,
+   "preview": "2026-11-10T18:56:54.554Z"
   },
   "/de/de/world-of-ita-airways/services-on-board/catering/meals-in-travel-classes/meals-in-domestic-flights": {
-   "uploaded": "2026-11-08T04:21:17.843Z",
-   "mtime": 1794109947603.4453,
-   "preview": "2026-11-08T04:21:20.557Z"
+   "uploaded": "2026-11-10T18:56:57.449Z",
+   "mtime": 1794336365211.3877,
+   "preview": "2026-11-10T18:56:59.995Z"
   },
   "/de/de/world-of-ita-airways/services-on-board/catering/meals-in-travel-classes/meals-in-economy-long-haul": {
-   "uploaded": "2026-11-08T04:21:23.614Z",
-   "mtime": 1794109947603.8062,
-   "preview": "2026-11-08T04:21:25.997Z"
+   "uploaded": "2026-11-10T18:57:02.866Z",
+   "mtime": 1794336365221.9282,
+   "preview": "2026-11-10T18:57:05.066Z"
   },
   "/de/de/world-of-ita-airways/services-on-board/catering/meals-in-travel-classes/meals-in-economy-medium-haul": {
-   "uploaded": "2026-11-08T04:21:28.877Z",
-   "mtime": 1794109947604.1409,
-   "preview": "2026-11-08T04:21:31.096Z"
+   "uploaded": "2026-11-10T18:57:08.270Z",
+   "mtime": 1794336365232.9695,
+   "preview": "2026-11-10T18:57:10.747Z"
   },
   "/de/de/world-of-ita-airways/services-on-board/catering/meals-in-travel-classes/meals-in-premium-economy-long-haul": {
-   "uploaded": "2026-11-08T04:21:34.154Z",
-   "mtime": 1794109947604.5037,
-   "preview": "2026-11-08T04:21:36.359Z"
+   "uploaded": "2026-11-10T18:57:13.603Z",
+   "mtime": 1794336365243.9414,
+   "preview": "2026-11-10T18:57:15.687Z"
   },
   "/de/de/world-of-ita-airways/services-on-board/catering/special-meals": {
-   "uploaded": "2026-11-08T04:21:39.387Z",
-   "mtime": 1794109947604.8699,
-   "preview": "2026-11-08T04:21:41.758Z"
+   "uploaded": "2026-11-10T18:57:18.967Z",
+   "mtime": 1794336365254.353,
+   "preview": "2026-11-10T18:57:21.628Z"
   },
   "/de/de/world-of-ita-airways/services-on-board/catering/special-meals/medical-dietary-meals": {
    "uploaded": "2026-10-31T12:10:41.135Z",
@@ -6151,14 +6151,14 @@
    "preview": "2026-10-31T12:10:45.565Z"
   },
   "/de/de/world-of-ita-airways/services-on-board/connectivity-on-board": {
-   "uploaded": "2026-11-08T04:21:44.865Z",
-   "mtime": 1794109947605.2266,
-   "preview": "2026-11-08T04:21:47.276Z"
+   "uploaded": "2026-11-10T18:57:24.413Z",
+   "mtime": 1794336365264.6262,
+   "preview": "2026-11-10T18:57:26.943Z"
   },
   "/de/de/world-of-ita-airways/services-on-board/entertainment-on-board": {
-   "uploaded": "2026-11-08T04:21:50.269Z",
-   "mtime": 1794109947605.5896,
-   "preview": "2026-11-08T04:21:52.271Z"
+   "uploaded": "2026-11-10T18:57:29.896Z",
+   "mtime": 1794336365280.884,
+   "preview": "2026-11-10T18:57:31.982Z"
   },
   "/de/de/world-of-ita-airways/services-on-board/entertainment-on-board/movies": {
    "uploaded": "2026-10-31T12:10:56.431Z",
@@ -6171,34 +6171,34 @@
    "preview": "2026-10-31T12:11:03.071Z"
   },
   "/de/de/world-of-ita-airways/services-on-board/health-and-travel": {
-   "uploaded": "2026-11-08T04:21:55.142Z",
-   "mtime": 1794109947605.9546,
-   "preview": "2026-11-08T04:21:57.369Z"
+   "uploaded": "2026-11-10T18:57:34.895Z",
+   "mtime": 1794336365293.2761,
+   "preview": "2026-11-10T18:57:37.171Z"
   },
   "/de/de/world-of-ita-airways/travel-classes": {
-   "uploaded": "2026-11-08T04:22:00.921Z",
-   "mtime": 1794109947606.3052,
-   "preview": "2026-11-08T04:22:03.146Z"
+   "uploaded": "2026-11-10T18:57:40.119Z",
+   "mtime": 1794336365303.9683,
+   "preview": "2026-11-10T18:57:42.552Z"
   },
   "/de/de/world-of-ita-airways/travel-classes/business-class-medium-haul": {
-   "uploaded": "2026-11-08T04:22:06.598Z",
-   "mtime": 1794109947606.7708,
-   "preview": "2026-11-08T04:22:09.272Z"
+   "uploaded": "2026-11-10T18:57:45.574Z",
+   "mtime": 1794336365314.1785,
+   "preview": "2026-11-10T18:57:48.212Z"
   },
   "/de/de/world-of-ita-airways/travel-classes/business-long-haul": {
-   "uploaded": "2026-11-08T04:22:12.272Z",
-   "mtime": 1794109947607.175,
-   "preview": "2026-11-08T04:22:15.540Z"
+   "uploaded": "2026-11-10T18:57:50.976Z",
+   "mtime": 1794336365324.802,
+   "preview": "2026-11-10T18:57:53.894Z"
   },
   "/de/de/world-of-ita-airways/travel-classes/economy": {
-   "uploaded": "2026-11-08T04:22:18.323Z",
-   "mtime": 1794109947607.549,
-   "preview": "2026-11-08T04:22:20.625Z"
+   "uploaded": "2026-11-10T18:57:56.902Z",
+   "mtime": 1794336365335.1975,
+   "preview": "2026-11-10T18:57:59.168Z"
   },
   "/de/de/world-of-ita-airways/travel-classes/premium-economy": {
-   "uploaded": "2026-11-08T04:22:23.668Z",
-   "mtime": 1794109947607.917,
-   "preview": "2026-11-08T04:22:26.335Z"
+   "uploaded": "2026-11-10T18:58:02.135Z",
+   "mtime": 1794336365345.4817,
+   "preview": "2026-11-10T18:58:04.111Z"
   },
   "/nl/nl/book-and-prepare/book-flights": {
    "uploaded": "2026-11-01T11:43:29.609Z",
@@ -11476,9 +11476,9 @@
    "preview": "2026-10-31T12:11:41.841Z"
   },
   "/do/es/world-of-ita-airways/discover-ita-airways/sustainability/voglia-di-volare": {
-   "uploaded": "2026-11-08T04:22:29.161Z",
-   "mtime": 1794109947608.5593,
-   "preview": "2026-11-08T04:22:31.292Z"
+   "uploaded": "2026-11-10T18:58:07.277Z",
+   "mtime": 1794336365356.953,
+   "preview": "2026-11-10T18:58:09.721Z"
   },
   "/dz/en/homepage": {
    "uploaded": "2026-11-01T11:39:06.691Z",
@@ -11486,9 +11486,9 @@
    "preview": "2026-11-01T11:39:08.196Z"
   },
   "/dz/en/manage-my-bookings/partners/airport-transfer/goopti": {
-   "uploaded": "2026-11-08T04:22:34.184Z",
-   "mtime": 1794109947609.125,
-   "preview": "2026-11-08T04:22:36.496Z"
+   "uploaded": "2026-11-10T18:58:12.616Z",
+   "mtime": 1794336365368.8914,
+   "preview": "2026-11-10T18:58:15.232Z"
   },
   "/eg/en/homepage": {
    "uploaded": "2026-11-01T11:39:09.662Z",
