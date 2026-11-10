@@ -2651,3 +2651,73 @@ Time worked on this standing order: 10:19 to 18:40 CET (about 8 h 20 min of the 
 - **Found, for the next turn:** the info stage's description on /de/en/during-your-trip/internet-overview is smaller on
   www at 390 (x-height 11 px, 29 px apart, 32 px under the title; ours 18 px text, 24 apart, 45 under): check the
   hero-campaign description size on phones across the stage pages before a rule.
+
+## Standing order 582 (2026-11-10 19:00 CET to 2026-11-11 09:00 CET, Captures recording)
+
+Started 19:08 CET. Left from the last turn: nothing uncommitted or unpushed (main was one commit behind
+origin/main, rebased). Nothing uploaded, previewed or published; no request to www or any airline host (the R2
+drop and our own host only).
+
+### Pages to capture (lists on main)
+
+- **19:30 CET, 18974ba:** tools/markets/capture-lists/capture-list-582-lh-com.txt, 97 rows: the priority 2 (18)
+  and 3 (79) own-document root pages of import-rows.tsv (www_path, root, da_path, the version page it differs
+  from, priority, template). /ba/en/flights and /ec/de/fluege left off (bd-snapshots hold them).
+
+### Item a: link lists to pages (a1a8e13, pushed 20:17 CET)
+
+- **Population.** My 312 of brief 558 counted every ul.horizontal, the footers' too. In the main content of the
+  3,397 lufthansa.com snapshots, www's .imagelinklist .link-list lists with links are: 539 vertical hyper (the
+  Insights tag pages, in accordions: they stay), 454 horizontal "custom" (the homepages' icon tiles: they stay),
+  71 jump links (anchor-down: the Jump Links block already), 18 button rows (app stores: they stay), and the
+  carrier's 35: horizontal hyper/external 21, responsive 7, vertical external 7, one per document.
+- **Carrier.** The cleanup (markLinkLists, lufthansa.com pages only) ends the list's last item with
+  "{links-horizontal}", "{links-responsive}" or "{links-vertical}"; the columns-media parser keeps it on the list
+  it rebuilds; LIST_TOKENS take it; styles.css (brand-scoped) draws www's .link-list rules: no bullets, the 19px
+  standalone arrow (up-right to other sites), 30px apart stacked (www 30/31 at 390, measured), 20px side by side,
+  responsive stacked below 768px, vertical 12px in from 768px (www's arrows at x 107 against the text's 89).
+- **Measured** on our host, the published document with the marker (--main, working-copy code), before -> after:
+  business-class-on-long-haul-routes 31.2 -> 28.7 % (390), 28.6 -> 22.9 % (1440); security-check-time-slot
+  4.8 -> 4.1, 5.3 -> 2.6; unterhaltung-an-bord 18.8 -> 19.3, 18.6 -> 16.5; pre-check-in 11.2 -> 11.3, 8.0 -> 8.2;
+  data-collection-canada 18.9 -> 21.3, 20.7 -> 21.9, its list region aligned 6.5 -> 2.8 and 2.2 -> 0.6 (region-cmp:
+  the page is 100 to 300 px short of www above the list, the whole-page % rewarded the bullets' extra height).
+  Shipped: the lists themselves match www; the losses are other rows' heights (open below).
+- **Left as it is:** the space under a list: ours +17 px before security-check's column start, +7 px before
+  unterhaltung-an-bord's next heading; different contexts, no single value.
+- **List:** tools/reports/parity-2026-11-09/reimport-582-link-lists-lh-com.txt, 35 documents by page type
+  (info 21, legal 7, app-entry 7: app-entry is ema-cashub's template, theirs to run), the expected change per type.
+  The de/en drafts differ from the published documents by the marker only.
+- Bundles rebuilt for it: app-entry, campaign, fleet, flight-status, form, homepage, info, insights, legal, mfe
+  (only this change each). Test test/link-lists-582.test.mjs (5). Gate: site 807, lh-edge 71, failing 0; lint
+  exit 0; smoke before/after on the eight hosts: same statuses.
+
+### Item b: tonight's archives
+
+- **R2 drop** (the index still has 155 entries, newest snapshot archive in it 088): probed 088 to 098; 097 and
+  098 are 404. sha256 computed here (logs/b582/archives.tsv; 088 matches the index):
+
+  | archive | bytes | sha256 | pages | what |
+  | --- | --- | --- | --- | --- |
+  | lh-snapshots-088 | 442,839 | 9e3ed9bc…f00214 | 9 | 2026-11-09 Insights capture (not ours) |
+  | lh-snapshots-089 | 144,010 | ac04d028…a1945 | 3 | 2026-11-09 tags/allegris (not ours) |
+  | lh-snapshots-090 | 5,596,531 | aaa840fc…cd1181 | 46 | lh-com-market-steps-558.txt, all 46 ok |
+  | lh-snapshots-091 | 574,039 | 85e34a87…7c67 | 3 | capture-list-558-lh-com.txt, all 3 ok |
+  | lh-snapshots-092 | 689,667 | b180c4c3…f7760 | 16 | own-documents-priority1 (part) |
+  | lh-snapshots-093 | 265 | b5de61c6…3b63 | 0 | lounges, 4 redirects (not ours) |
+  | lh-snapshots-094 | 6,581,251 | e6a418d2…7ade | 77 | own-documents-priority1 (the rest; 093 + 094 = all 93 ok) |
+  | lh-snapshots-095 | 303 | 6de8921a…a9fe | 0 | lounges redirects (not ours) |
+  | lh-snapshots-096 | 1,928,067 | f9287620…28a2 | 4 | during-your-trip/lounges (not ours) |
+
+- **The 46 root pages** through the market steps offline (logs/b582/steps-46.mjs: each variant and its version
+  page imported with the row's template, runRow on the drafts):
+  tools/reports/markets/lh-market-diff/market-steps-582.tsv, 39 steps (17 markets-section, 22 shared-variant),
+  each with its expected change; market-steps.mjs --dry-run runs all 39 on the drafts. 7 rows without a step,
+  listed at the end of the file: 26 (a double full stop only: no markets section for it), 57 and 59 (ar/fr: the
+  promotion teaser only, rule W1 as the user ruled for 58 and 60), 45, 52, 56 (hideHotel on a hotel-only widget:
+  www draws the widget empty, see below), 53 (ru/en shows two Meili widgets: open).
+- **Decisions.** markets-section: the home market sees the version's sections (de; xx for xx/ru, whose three
+  roots by/ru, kz/ru, ru/ru all show the variant), every other root the variant's (www: every covered root shows
+  the same). The cn/de check-in rows (1, 16) differ in the sub-navigation's order only: a shared variant still
+  (www's order). mk/en traveltricks (36) differs in the breadcrumb only (page metadata): a shared variant.
+- **The 7 widget-setting rows** (D2 media, W1 promotion teaser) are IGNORE in import-rows.tsv and
+  import-rows-importer-work.tsv (action "ignore (widget setting: …, brief 582)"), as the user ruled.
