@@ -855,7 +855,7 @@ function columnPageTheme(main, doc, stats, marks) {
  * content (a re-imported hub document) only gets the styles it lacks. Groups across a section break or inside a block
  * keep no carrier (their marks go, as before). Returns the marks that became the carrier.
  */
-function columnViewSections(main, doc, marks, carrier) {
+function columnViewSections(main, doc, marks, carrier, only = () => true) {
   const used = new Set();
   const tokensOf = (el) => marks.get(el)
     || (/^(UL|OL)$/.test(el.tagName) && el.lastElementChild ? marks.get(el.lastElementChild) : null) || [];
@@ -881,6 +881,7 @@ function columnViewSections(main, doc, marks, carrier) {
     groups.forEach((g, i) => { if (i && groups[i - 1].last === g.first) g.first = g.first.nextElementSibling; });
     [...groups].reverse().forEach((g) => {
       if (!g.first || own.indexOf(g.first) < 0 || own.indexOf(g.first) > own.indexOf(g.last)) return;
+      if (!only(g)) return;
       let { first } = g;
       while (isSepP(first.previousElementSibling)) first = first.previousElementSibling;
       // more of the section: paragraphs left empty by their marks (a stray {column-end-outer}) don't count
@@ -888,7 +889,7 @@ function columnViewSections(main, doc, marks, carrier) {
       const view = ownContent(section)[0] === first ? section : splitBefore(section, first, doc);
       if (!view) return;
       if (more) splitAfter(view, g.last, doc);
-      add(view, carrier);
+      if (carrier) add(view, carrier);
       if (g.outer) add(view, 'padded');
       if (more) add(view, 'flush');
       used.add(g.first); used.add(g.last);
@@ -910,6 +911,12 @@ function collapseColumns(main, doc, stats, marks, theme) {
     });
     columnPageTheme(main, doc, stats, marks);
     return;
+  }
+  // Group for Business (THEMES columnViews.h1View): an H1 that opens a column view is the view's
+  // section of its own, padded (www's view padding above the H1 and below its last item), flush when
+  // more follows; the rest as before (the standing order of 2026-11-10 evening, decision 1)
+  if (theme.columnViews.h1View) {
+    columnViewSections(main, doc, marks, null, (g) => g.outer && g.first.tagName === 'H1');
   }
   const outer = new Map();
   marks.forEach((tokens, el) => {
