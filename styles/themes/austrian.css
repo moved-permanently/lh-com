@@ -1121,3 +1121,14 @@ body.brand-austrian .form.core .form-control:user-invalid {
     font-size: 18px;
   }
 }
+
+/* tables as www's maui-table renders them (the standing order after 570 item 1: /at/de/bearbeitungsgebuehren at 390):
+   columns by their content, each cell 200 px at least (.cell-content min-width; no rendered table has equalcolumns), the
+   block scrolls sideways as before */
+body.brand-austrian .table-striped table {
+  table-layout: auto;
+}
+
+body.brand-austrian .table-striped :is(td, th) {
+  min-width: 200px;
+}
