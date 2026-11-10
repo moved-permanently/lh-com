@@ -2103,3 +2103,49 @@ austrian-parity-005 archive, its sha256 equal to the brief's 384427ef..., and an
     document.
   - The required mark is www's; nothing to change. The duplicate name is www's; the submission sees
     depDayScheduled-2 for the date.
+
+## The briefs after 551c-566: the ranking against today's capture (Austrian, Brussels)
+
+Our pages captured again on brussels.turnsthe.page and austrian.turnsthe.page (both themes live) against
+brussels-parity-004 / austrian-parity-003, every www request refused and counted. Offline imports clean the snapshot
+copies of every fetchable www reference first (`migration-work/parity-557/no-www-snap.mjs`); the 539 and 551 offline
+imports did not, so they will have fetched the recordings' www stylesheets and script preloads (no pages).
+
+**Capture effects (do not chase):**
+- **Turnstile on core forms (+71 px):** a headless capture of any Form (core) page shows the bot check's "Verify you
+  are human" checkbox 71 px above the button after about 10 s; a visitor normally gets none. Rows: Brussels
+  rebooking-request-birthright (+71 of its +230 at 1440), contact/feedback/general/other, legal-notices/dsar-start,
+  groups-and-charter/charter, my-bookings/emergency-contact; Austrian hu/en invoice-request-hungary. The banded core
+  forms are within about 10 px of www below their last field once the 71 px are taken off.
+- **CJK rows:** cn/zh and jp/ja (no Japanese or Chinese font in this browser).
+
+**Changes on main:**
+- `66713b35` info importer: a two-column view whose nested view holds only links is columns-media (Brussels
+  student-fares' Uptrip row, 1440 +18.9 -> about +2.0 %). Re-import: `reimport-566-brussels-info.txt`.
+- `c26893cb` columns-media parser: Austrian's and Brussels' three- and four-column views keep their empty items
+  (Austrian wetlease-hub 1440 +13.6 -> about -2.5 %; Brussels organisation's people a quarter each). Re-import:
+  `reimport-566-brussels-info.txt`, `reimport-566-austrian-wetlease.txt`.
+- `560369f6` Brussels theme: a core form without bands draws its fields on the grey band, no white card (birthright,
+  the only one of 101; live: 1440 +12.1 -> +6.1 %, 390 +7.4 -> +4.3 %, of which 71 px are the capture's).
+- `4f442dd4` cleanup: a tooltip without a trigger goes, with the list item it leaves empty (Austrian online-check-in's
+  "This link leads to an external website ..." as a third app-link item in 9 documents). Re-import:
+  `reimport-566-austrian-online-check-in.txt` (it also brings back the two store links the published copies lost).
+- `2d0d7cab` re-import only: Austrian help-center's "Is there a topic missing?" questionnaire (today's importer writes
+  the Feedback block; the published at/en document has none: 1440 -131 px, -5.4 %). `reimport-566-austrian-help-center.txt`.
+- This commit: `patch-566-austrian-footer-search.txt`. 62 of the 64 Austrian footer documents (all but at/de, at/en)
+  have a "Search for topic" section www's footers do not have; the footer block draws it as a search field, about
+  100 px. It is most of the non-at rows of the Austrian ranking (hu/en invoice-request-hungary: footer 916 -> 814 at
+  1440 without it, www 815). A patch in DA, no re-import.
+
+**Traced, not changed (not mine or no rule):**
+- Austrian online-check-in (1440 -5.9 %): beside the tooltip, spacing. The divider section under the Travel ID row
+  (www 142 px from the picture to the line, ours 48) and the space above the Travel ID title (www 100, ours 50) come
+  from the token-free section styles and markers (scripts/token-free.js, the collapse: ema-test's); the step numbers
+  1-4 are smaller than www's heading-large, with less space under them (-34 px), and the space before "Austrian App"
+  is short (-42). The app links are a list of links where www has two outlined buttons side by side.
+- Austrian help-center's grey FAQ band is full width on www, ours only in the content width (no height change).
+
+**The checkout:** while preparing the tooltip commit I reverted `tools/importer/import-progress.json` in the main
+checkout (another job's uncommitted file, written by import-batch.mjs; 4,107 changed lines against HEAD). Restored from
+the newest copy git still held (unreachable blob f48e31ce, entries up to 2026-11-07 03:05, the same 4,107 changed lines);
+entries the job wrote after that, if any, are lost. It stays uncommitted as before.
