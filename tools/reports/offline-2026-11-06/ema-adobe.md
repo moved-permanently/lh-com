@@ -2525,3 +2525,30 @@ tools/markets/capture-lists/lh-com-market-steps-558.txt: the 46 www pages the ot
 - The capture list tools/markets/capture-lists/lh-com-own-documents-priority1.txt is complete (93 rows, no
   duplicate); only in/en and sa/en /flights have a root snapshot (bd-snapshots, 2026-10-21): they stay on it.
   Not changed.
+
+### Item 4: the hub ranking (in progress)
+
+- **The ranking** (11:33 to 12:03 CET, on lufthansa.turnsthe.page against lh-parity-004a/b and -002, geo.css, core
+  form pages with the bot-check holder hidden): 112 page-widths, average 6.96 % (9.49 in the ranking of brief 539);
+  without the three marked causes (overview-manage, xx/hk, flughafeninformation) 98 rows, 5.94 % (8.82); 29 rows
+  under 3 %. File: logs/b558/rank-558.tsv (scratch).
+- **Marked causes** (no code change): /de/en/overview-manage (39.9 / 20.6 %: the blank picture slot Ben's rule
+  accepts), /xx/hk/meetings-and-events (no CJK fonts in our captures), de/de and at/de flughafeninformation at 390
+  (the long title's word break, decided), overview-travel-information at 390 on the three roots (10.1 % against
+  lh-parity-004a, whose capture has the digital assistant's chat open; 4.6 / 4.7 % against lh-parity-005 with it
+  closed), xx/ru meetings (sliders and a 1-2 px column width).
+- **e66d091 / 173451f** (the divider that opens miles-and-more's "This might also interest you" view, 32 px on both
+  sides): gb/en 12.6 -> 7.3 % at 390, 9.1 -> 2.3 % at 1440; de/de 11.9 -> 6.9, 8.9 -> 2.3.
+- **83d1a62** (the slider options' rows keep www's swiper place from 1025 px): meetings-and-events at 1440 de/de
+  9.0 -> 4.1 %, gb/en 8.9 -> 3.9 % (nine roots); onboard-delights unchanged (its media | text slides left out).
+
+### Item 5: lufthansa.com's token-free switch
+
+tools/reports/token-free/lufthansa-switch-plan-558.md. Measured on 12 published documents collapsed locally and
+rendered with the theme on (a worktree, nothing switched): baggage 5.0 / 1.7 -> 13.7 / 11.8 %, food-and-beverages
+6.6 / 2.2 -> 28.2 / 21.3, lufthansa-travel-classes 7.2 / 2.7 -> 32.8 / 15.0, digital-self-services 7.1 / 2.9 -> 16.3
+/ 19.9; the four documents without markers as today (control). Blockers, worst first: the column view carrier on
+hub pages (+261 / +385 px on digital-self-services), M at 60 px for www's 40 px separators (decision 3's cost:
+baggage +8.7 / +10.1 points; with M at 40 baggage and gepaeck are back to today), heading sizes one step from the
+default dropped (an H1 in heading-medium: +61 px on travel-classes), the bundles behind their sources (every bundle
+changes on a rebuild today). Decision: no switch, no theme change; the plan file lists the steps and checks.
