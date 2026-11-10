@@ -2256,3 +2256,46 @@ Live pages, without the capture's 71 px Turnstile checkbox:
   words ("Telefonnu-mmer", "Österreic-h") and makes the rows tall. A phone rule for the Austrian theme's tables, with a
   reach check over the recorded pages first: the next change.
 - Austrian os401crewstory (+3.0 %): not traced.
+
+## The standing order after 570 (the 10-12 hour queue): items 1 to 4
+
+Rules followed: nothing uploaded, previewed or published; no request to an airline host (the R2 drop and our own hosts
+only); every change with before and after numbers on our host; smoke of the 11 hosts before and after each served change.
+
+**Item 1a, Austrian tables (`93374199`, served, live):** www's maui-table, as rendered, keeps a 200 px minimum per cell
+(shadow CSS .cell-content; .equal-width unsets it) and scrolls sideways. No rendered recording of any brand shows
+equalcolumns / equal-width (81 tables: Austrian, Brussels, SWISS); the Studio's 2026-10-30 snapshots carry equalcolumns on
+all 1,053 Austrian tables, which the live page does not apply (decision: the rendered page is www). The Austrian theme draws
+table-striped tables so (columns by content, 200 px at least). Live: bearbeitungsgebuehren 390 +4.8 -> -2.1 % (the table
+600 px wide, scrolling), 1440 unchanged; private-check-in-counter unchanged in height. Reach in the recordings: the three
+Austrian pages with a table outside an accordion. Smoke: 0 differences.
+
+**Item 1b, os401crewstory (+3.0 %): by design, not changed.** www's h2 "Wie Maya ..." is heading-small and its h3s
+heading-copytext-large; the cleanup writes {heading-small} (h3 copytext-large is lufthansa.com's h3 default: no marker), and
+the token-free collapse makes a size within one step of the brand default that default (marker-collapse.mjs, ema-test's).
+Ours: h2 36 px, h3 28 px (Austrian defaults); www 28 / 18. Every section drifts 30 to 65 px. Rule: "collapse near values
+into the brand default".
+
+**Item 2, Brussels in-column sidebars (`2595ae36`, importer + theme; backwards compatible):** families-and-children's intro
+is, on www, a sidebar alone in a one-column view straight in the page container: the h1 44 px lower than ours at 1440 (20 at
+390), the text 72 px under it (66; ours 28 / 26). 110 pages of the drop have that layout (the overview hubs, every
+language). Today's documents do not set it apart: their section style padded also sits on the four flight-search pages,
+and a structure rule moved contact/feedback (+4.2 -> +7.3 %) and dsar-start too far, so the importer marks it (columns-media
+option in-column, Brussels pages) and the theme spaces only that option. Measured with the option on the live families page:
+the h1 at www's y and the text gap 72 / 66; the page -9.1 -> -4.4 % at 1440, -3.7 -> -2.1 % at 390. List:
+`reimport-570-brussels-in-column-sidebars.txt` (104; the six legal-notices pages of the layout have no sidebar block in our
+documents). Open: the h1 of section sidebars (cancel-and-refund, service-charges: -44 / -30 px) is a separate cause.
+
+**Item 3, Austrian closing flight-search band (`02e15c52`, served, live):** ski-campaign-2026 is one stage section; www's
+closing title is heading-small at 28 px (22 at 390), 90 px under the fare teaser (ours 54), 58 px over the band (42), and 54
+px from the band to the footer (0). Live: us/en 1440 -5.3 -> -2.0 %, 390 -4.5 -> -5.5 % (the title one line as www's; at 390
+www shows the flight search on white without the band picture: not changed, a separate decision about the mobile
+picture). Two documents (gb/en, us/en). Smoke: see the next section.
+
+**Item 4, the tab-control audit (this round, importer):** pages in the drop's archives with a tab control of content panels
+(not the check-in or flight-manager widgets): Austrian 100, Brussels 38, Discover 7. Published documents with tab sections:
+Austrian 100 / 100, Discover 7 / 7, Brussels 32 / 38. The six without are /extra-services/baggage/checked-baggage (be/en,
+be/fr, be/nl, de/de, it/it, es/es): panels with a table, which neither the Tab sections rule nor profile-tabs took. Fix: a
+Brussels panel with a table is a Tab section. Offline be/en: two Tab sections; local copies 1440 -941 px, 390 -1074 px.
+List: `reimport-570-brussels-tab-tables.txt` (6), WAITING for the capture window: no rendered recording shows these pages,
+so whether www shows the control at 390 and in every language is not confirmed (`capture-list-570.txt`).
