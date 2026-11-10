@@ -2870,5 +2870,17 @@ bari, Munich and cagliari -198 each; every page at 1440 and the article, homepag
 - **5e, Cargo's ranking (the 11 recorded pages in en and de, live today, 390 at 844 px):** notification-overview -9.8 % at
   1440 (data: www's header picture, as before); the 142 story +4.0 % / +3.7 % at 390 (de / en); fleet +3.4 % at 390;
   everything else within 3 % at both widths (the newsroom +0.2 % / 0.0 % after row 48). Nothing over 5 % but the data
-  row: the story and the fleet go into the fresh ranking (item 6).
+  row: the story and the fleet go into the fresh ranking (item 6).- **On main:** 22902ff0 (lint 0, 3443 pass 0 fail, smoke 0 differences on 14 hosts).
+
+### Item 6: the fresh ranking (AD, ITA, TAP, SWISS, Cargo)
+
+Taken from the newest recordings in the R2 drop (Air Dolomiti parity-001/002/004, ITA parity-004, TAP parity-002, SWISS
+parity-005, Cargo parity-001/002), every recorded page re-measured on its live host with main's code (1440 x 900 and
+390 x 844 as the recordings), worst first. SWISS and Cargo are above (items 4 and 5e); the Air Dolomiti, ITA and TAP rows
+follow when their run is through.
+
+- **Cargo row 49, the transport stories on phones:** the import's two text cells stacked 36 px apart; www's story text
+  runs on. Below 768 px they join: 390 en 8,696 -> 8,516 (www 8,389), de 9,213 -> 9,033 (8,856). The rest is the text
+  face: www's older LufthansaTextWeb is narrower. Decided by the rules: Cargo keeps the brand font (a switch would change
+  every Cargo page for 1.5 to 2 % in narrow columns).
 
