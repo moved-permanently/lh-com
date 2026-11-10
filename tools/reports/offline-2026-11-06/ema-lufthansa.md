@@ -3095,3 +3095,17 @@ follow when their run is through.
   (/de/reiseziele/…, /en/destinations/…): 16 redirects, 1 error page, 3 of .it's copies. Not what the re-import reads.
   Capture list 3 (tools/reports/parity-2026-11-09/capture-list-585-brands-3.txt) gives those 20 rows at www's own hosts
   (www.airdolomiti.de without /de, www.airdolomiti.eu without /en).
+- **On main:** aa6bcd6f (capture list 3).
+- **ITA's teaser re-import, read back on our host (22:25 UTC):** the harness's jobs 567-ita-teaser-cta-01 to -13b are
+  on preview. Of reimport-ita-two-up.txt's 872 documents, 772 now show "grid two-up" and the link lines; 82 have the
+  link lines but still a plain grid (travel-insurance among them: 1440 3,001 against www's 3,091, a two-up draft gave
+  3,093). An offline import of ita-parity-004's travel-insurance with main's importer gives "grid two-up", so the
+  harness's input for those 82 differs from www's page as recorded (older snapshots, or a nested column view).
+  New list: tools/reports/parity-2026-11-09/reimport-585-ita-two-up-82.txt (expected change: two-up only), and capture
+  list 4 (tools/reports/parity-2026-11-09/capture-list-585-brands-4.txt): fresh snapshots of its 49 it/en and it/it
+  rows.
+- **Classified, no change:** Air Dolomiti's German FAQ page at 390 (lounge-zutritt -4.6 %): the recording's accordion
+  titles wrap to three lines where www's own page rendered here wraps to two as ours (the live font's line breaks,
+  as the German footer). TAP fly-business +2.3 % at 1440: www's footnote "*Exceptionally…" is a small-print paragraph
+  under the two columns, ours sits in the text column (a document's structure: the importer's columns step; noted for a
+  later importer item).
