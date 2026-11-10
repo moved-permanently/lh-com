@@ -429,7 +429,11 @@ export default function transform(hookName, element, payload) {
     });
     document.querySelectorAll('maui-tab-control-responsive').forEach((control) => {
       const panels = [...control.querySelectorAll(TAB_PANEL)].filter((p) => p.closest('maui-tab-control-responsive') === control);
-      if (!panels.length || taken(control) || !panels.some((p) => p.querySelector(TAB_CONTENT))) return;
+      // Brussels: a panel with a table too (/extra-services/baggage/checked-baggage's Europe /
+      // Intercontinental: profile-tabs takes no tables, so they stacked; the standing order after 570)
+      const tabUrl = (payload && ((payload.params && payload.params.originalURL) || payload.url)) || '';
+      const content = /^https?:\/\/www\.brusselsairlines\.com\//.test(tabUrl) ? `${TAB_CONTENT}, .table` : TAB_CONTENT;
+      if (!panels.length || taken(control) || !panels.some((p) => p.querySelector(content))) return;
       panels.forEach((panel, i) => {
         const hr = createBreak(document);
         hr.setAttribute(TAB, (panel.getAttribute('name') || '').trim() || `Tab ${i + 1}`);

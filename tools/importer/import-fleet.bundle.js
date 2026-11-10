@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var tmp_bundle_fleet_228601_exports = {};
-  __export(tmp_bundle_fleet_228601_exports, {
-    default: () => tmp_bundle_fleet_228601_default
+  var tmp_bundle_fleet_259838_exports = {};
+  __export(tmp_bundle_fleet_259838_exports, {
+    default: () => tmp_bundle_fleet_259838_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -4560,7 +4560,9 @@ var CustomImportScript = (() => {
       });
       document.querySelectorAll("maui-tab-control-responsive").forEach((control) => {
         const panels = [...control.querySelectorAll(TAB_PANEL)].filter((p) => p.closest("maui-tab-control-responsive") === control);
-        if (!panels.length || taken(control) || !panels.some((p) => p.querySelector(TAB_CONTENT))) return;
+        const tabUrl = payload && (payload.params && payload.params.originalURL || payload.url) || "";
+        const content = /^https?:\/\/www\.brusselsairlines\.com\//.test(tabUrl) ? `${TAB_CONTENT}, .table` : TAB_CONTENT;
+        if (!panels.length || taken(control) || !panels.some((p) => p.querySelector(content))) return;
         panels.forEach((panel, i) => {
           const hr = createBreak(document);
           hr.setAttribute(TAB, (panel.getAttribute("name") || "").trim() || `Tab ${i + 1}`);
@@ -5886,7 +5888,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_fleet_228601_default = {
+  var tmp_bundle_fleet_259838_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5926,5 +5928,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_fleet_228601_exports);
+  return __toCommonJS(tmp_bundle_fleet_259838_exports);
 })();
