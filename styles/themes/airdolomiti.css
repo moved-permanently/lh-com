@@ -4475,3 +4475,27 @@ body.brand-airdolomiti main > .section.hidden-heading:first-child > .breadcrumb-
     padding-top: 24px;
   }
 }
+
+/* a post's title as www's BlogLayout (AD row 99): the trail right under the bar and the title at 170 from 1025px, the
+   title at 150 on phones; lh-com's 25px over a post's trail out, from 1025px the breadcrumb's 16px too */
+/* stylelint-disable no-descending-specificity -- a post's trail, not a stage's (above) */
+body.brand-airdolomiti main > .section:first-of-type > .breadcrumb-wrapper:has(+ .article-header-wrapper) {
+  padding-top: 0;
+}
+
+@media (width < 768px) {
+  body.brand-airdolomiti main > .section > .breadcrumb-wrapper + .article-header-wrapper {
+    margin-top: 0;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-airdolomiti main > .section:first-of-type > .breadcrumb-wrapper:has(+ .article-header-wrapper) {
+    --breadcrumb-top: 0;
+  }
+
+  body.brand-airdolomiti main > .section > .breadcrumb-wrapper + .article-header-wrapper {
+    margin-top: 24px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
