@@ -20,7 +20,8 @@
  * - a one-column view holding column views as a columns-media block of option nested, its rows
  *   as www's nested views (withNestedColumnMarkers, withNestedColumns; the brief after 526);
  * - a tab set holding blocks (the Newsroom's categories: maui-tab-control-responsive) as Tab
- *   sections, swiss-import.mjs's withTabMarkers and splitTabSections (scripts/section-tabs.js);
+ *   sections, swiss-import.mjs's withTabMarkers and splitTabSections (scripts/section-tabs.js); a
+ *   panel without a name as a part of the panel after it (withNamedTabPanels);
  * - the pre-login search: the search bar and the results widget as one search-results block
  *   (the site search, /<root>/search-index.json);
  * - the core forms get a form config row with the lh-forms id b2b-<page> and their success page
@@ -431,6 +432,31 @@ export function withTabPanels(doc) {
   }
 }
 
+/**
+ * A tab panel without a name (meals-on-board's eighth, "Lufthansa Business Class: New catering
+ * concept": www draws an empty tab before "Lufthansa") as a part of the panel after it, the last
+ * one of the one before it: withTabMarkers would write it without a Tab label, which splits the
+ * set (scripts/section-tabs.js). One set of labelled tabs, nothing hidden, no tab without a name.
+ * The brief after d9cf2340, item 3.
+ */
+export function withNamedTabPanels(html) {
+  if (!html.includes('<div class="tabs panelcontainer')) return html;
+  const PANEL = /<maui-tab-control-panel-responsive\b[^>]*>/g;
+  const nameOf = (tag) => ((tag.match(/\sname="([^"]*)"/) || [])[1] || '').replace(/\s+/g, ' ').trim();
+  return editDivs(html, '<div class="tabs panelcontainer', (el) => {
+    const names = [...el.matchAll(PANEL)].map((m) => nameOf(m[0]));
+    if (!names.some((n) => !n) || names.every((n) => !n)) return el;
+    const fill = names.map((n, i) => n || names.slice(i + 1).find(Boolean) || names.slice(0, i).reverse().find(Boolean));
+    let k = 0;
+    return el.replace(PANEL, (tag) => {
+      const name = fill[k];
+      k += 1;
+      if (nameOf(tag)) return tag;
+      return /\sname="[^"]*"/.test(tag) ? tag.replace(/\sname="[^"]*"/, ` name="${name}"`) : tag.replace('<maui-tab-control-panel-responsive', `<maui-tab-control-panel-responsive name="${name}"`);
+    });
+  });
+}
+
 /** The template of a page: lh-com's info template (B2B has no homepage widgets of lh-com's). */
 // www's main content ending with a separator: its inline margin-bottom (in px)
 const END_SEPARATOR = /<div class="separator[^"]*">\s*<div aria-hidden="true" style="margin-bottom:\s*(\d+)px;?"[^>]*>\s*<maui-divider[^>]*>\s*<\/maui-divider>\s*<\/div>\s*<\/div>(?:\s|<\/div>|<!--[\s\S]*?-->)*(?:<\/main>\s*)?(?:<link[^>]*>\s*)*<footer/;
@@ -490,7 +516,7 @@ export function withPageHeading(doc) {
 export const templateOf = () => 'info';
 
 /** A snapshot as the import reads it. */
-export const mappedOf = (html) => withoutLoads(withSearch(withNestedColumnMarkers(withStageColumnMarkers(withTabMarkers(withB2bComponents(withHotlines(withEmails(withoutHelperLinks(withPlaceholder(stripScripts(html))))))))))
+export const mappedOf = (html) => withoutLoads(withSearch(withNestedColumnMarkers(withStageColumnMarkers(withTabMarkers(withNamedTabPanels(withB2bComponents(withHotlines(withEmails(withoutHelperLinks(withPlaceholder(stripScripts(html)))))))))))
   .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, ''));
 
 const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);

@@ -53,7 +53,8 @@ test('withStageColumns: the run between the markers one columns-media stage bloc
 
 test('b2b-import.mjs: the markers before the import, the blocks after it', () => {
   const src = fs.readFileSync(new URL('../tools/importer/b2b-import.mjs', import.meta.url), 'utf8');
-  assert.match(src, /withStageColumnMarkers\(withTabMarkers\(withB2bComponents\(/);
+  // a nameless tab panel named before the tab markers (withNamedTabPanels, test/b2b-tabs-nameless-569.test.mjs)
+  assert.match(src, /withStageColumnMarkers\(withTabMarkers\(withNamedTabPanels\(withB2bComponents\(/);
   assert.match(src, /withStageColumns\(withTabPanels\(splitTabSections\(doc\)\)\)/);
 });
 
