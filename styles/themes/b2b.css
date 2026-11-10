@@ -150,6 +150,17 @@ body.brand-b2b main > .section:last-child:has(> .default-content-wrapper:last-ch
   margin-bottom: 8px;
 }
 
+/* after a grey band (www's column view on a full-width grey) only the next section's own space:
+   25 px, the documents' commonest spacer there (the collapse drops it), none when the section
+   brings its space (space-m, space-l, a divider) */
+body.brand-b2b main > .section.grey:has(+ .section:not(.grey)) {
+  margin-bottom: 25px;
+}
+
+body.brand-b2b main > .section.grey:has(+ .section:not(.grey):is(.space-m, .space-l, .divider)) {
+  margin-bottom: 0;
+}
+
 body.brand-b2b main > .section:has(> .default-content-wrapper:last-child > p.column-mark.column-end-outer:last-child):has(+ .section.grey),
 body.brand-b2b main > .section:has(> .default-content-wrapper:last-child > p.column-mark.column-end-outer + p.spacer:last-child):has(+ .section.grey),
 body.brand-b2b main > .section:has(> .default-content-wrapper:last-child > p.column-mark.column-end-outer + p.spacer + p.spacer:last-child):has(+ .section.grey),
