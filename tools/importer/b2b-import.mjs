@@ -107,6 +107,12 @@ export function withB2bComponents(html) {
     out = editDivs(out, `<div class="${col}`, (el) => (/class="iconmodule\b/.test(el) && !/<div class="(?:two|three|four)column/.test(el.slice(1))
       ? el.replace(`<div class="${col}`, `<div class="b2b-iconmodules ${col}`) : el));
   });
+  // a two-column view of text beside an iframe component (help-alliance's YouTube video, the brief
+  // after 4c9cd359): the template keeps iframes out of Columns Media (lufthansa.com's forms and
+  // maps); the class is the template's B2B selector, the parser makes the iframe its embed cell
+  out = editDivs(out, '<div class="twocolumn', (el) => (/<div class="iframe\b[^"]*"[^>]*>\s*<div class="iframe-wrapper/.test(el)
+    && !/<div class="(?:one|two|three|four)column/.test(el.slice(1)) && !/<form\b|class="(?:table|accordion|teaser)\b/.test(el)
+    ? el.replace('<div class="twocolumn', '<div class="b2b-embed-columns twocolumn') : el));
   out = editDivs(out, '<div class="stage ', (el) => (/class="stage-teaser"/.test(el) ? el.replace('<div class="stage ', '<div class="b2b-stage stage ') : el));
   out = out.replace(/<div class="inspirationalstage(["\s])/g, '<div class="b2b-inspirationalstage inspirationalstage$1');
   out = editDivs(out, '<div class="authorquote', (el) => {
