@@ -2845,5 +2845,17 @@ bari, Munich and cagliari -198 each; every page at 1440 and the article, homepag
   right under the header and no page title over it; ours had "Newsroom" (68 px with its margin) and the section's 25 px
   above, 48 px below (www 23). While the app is mounted the section sits under the header and 23 px over the footer, and
   the title is visually hidden (still read). 1440 4,556 -> 4,438 (www 4,430); 390 10,736 -> 10,629 (10,631); de alike.
-  Served code, backwards compatible: without the app (flag off, no consent) nothing changes.
+  Served code, backwards compatible: without the app (flag off, no consent) nothing changes.- **On main:** 9c004e6f (lint 0, 3427 pass 0 fail, smoke 0 differences on 14 hosts).
+- **5b, "Transport Stories Home" and the chevrons (Cargo row 47):** both live since 9c6dcefa; the label and its picture
+  gap as www's. Left from row 47: 11 chevrons against www's 12. www's twelfth module is the story's closing text (the
+  partner links and the photos' credits) with the up chevron; ours held it as a text block without one. The chevron set
+  now includes the section's closing text block: 12, the last picture's down, the credits' up, the height unchanged
+  (7,947 px at 1440). **Process slip:** I edited cargo.css while 9c004e6f's ship was running, so that commit took the
+  chevron selectors with the newsroom rule, and its test update stayed behind; main's
+  test/cargo-story-chrome-541.test.mjs failed one test until the next commit, which carries the test. The served change
+  had been measured before (smoke after 9c004e6f: 0 differences on 14 hosts). From here on I edit no file of a running
+  ship's list.
+- **5c, the collapse keeping the play button's text:** checked, no change needed. marker-collapse.mjs (ema-test's,
+  read only) gates Cargo until its theme is live; with the gate forced open a video's {controls round-play-button} marker
+  goes and the link's text stays as it is (a bare URL or "Watch the video"), as its own rules say.
 
