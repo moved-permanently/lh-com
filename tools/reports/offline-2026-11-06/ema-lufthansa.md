@@ -2973,3 +2973,24 @@ follow when their run is through.
   over it, so those pages were 16 px lower. Theme rule (backwards-compatible: a variable on the title pages' trail); the
   title is at www's 170 on the six pages, the FAQ and stage pages are left as they were (already www's).
 
+
+## Rule 6, where it stands (2026-11-10, 17:10 UTC; about 8.8 hours of the standing order)
+
+- **On main from this stretch** (each lint 0, the full suite passing, smoke 0 differences on 14 hosts before and after):
+  bf81faa5 TAP 130, 30b37eab ITA 29 (importer), c0f901f7 ITA 30, c14f8348 AD 95, cbe045dd TAP 131, 960a4643 AD 96,
+  7c66580c AD 97.
+- **New lists:** reimport-567-ita-teaser-cta.txt (1,193 ITA documents; 852 also on the two-up list, one run gives
+  both), capture-567-ad-news-de.txt (one page). Nothing imported, uploaded, previewed or published.
+- **Open, worst-first, for the next session:**
+  1. ITA two-column headings: the live documents lack www's size markers (invoicing's "Flight Certification" 36 px
+     against 28); the parser keeps the class on the recording's markup, so the loss is later in the import. Needs a
+     scratch import that cannot fall through to a live request to www.
+  2. Cargo /ci/facts-figures at 390 (+2.7 %): our page shows the board and compliance sections in a different
+     arrangement from www's; the recording's headings list stops early, so it needs a section-by-section comparison.
+  3. Air Dolomiti's title on phones on the title pages (www 24 px lower, the content under it where ours is) and the
+     Adriatic article's title at 1440 (206 against 170).
+  4. TAP's footer document has no "Cookies Settings" row (a consent button on www) and "© 2026, TAP." is not bold.
+- **Measuring notes:** ITA's 390 heights carry +42 px from the measuring browser's Arial fallback in the footer; Air
+  Dolomiti's German recording has a 28 px taller footer from its live font. Neither is a code difference.
+- **Left out of git, with the reason:** .migration/project.json (modified before this session, not mine to commit);
+  the recordings, scans, drafts and screenshots under .scratch/ and /tmp (scratch material, recordings are private).
