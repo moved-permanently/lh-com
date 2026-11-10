@@ -2567,3 +2567,28 @@ changes on a rebuild today). Decision: no switch, no theme change; the plan file
   7.5 -> 5.5 %, but take-off 14.9 -> 28.8 and de/en services 8.0 -> 12.5: www's row gap differs per page, 47 or
   79 px, with the same markup); 22 px between a spacious grid and a grey band on airport-information (the band's own
   20 px shortfall below it made the page worse).
+- **7fdbfb0 / e9fcbe6** (on phones a divider between two spacious grids sits as www's): gb/en airport-information
+  7.8 -> 5.6 % at 390 (four documents); from 768 px left (1440 measured 5.3 -> 7.3 % with it).
+
+### Rule 6: the fresh ranking of the full recordings, worst first
+
+- **The ranking** of every lufthansa.com page in lh-parity-002a-d and -003 (296 pages, 592 page-widths) runs on our
+  host now, one capture at a time (logs/b558/rank-002.tsv, scratch). Partway (202 page-widths): info 10.1 % mean,
+  campaign 11.7, insights 11.5, legal 9.0, fleet 18.0, hub 5.8, form 4.9.
+- **Owners** as brief 497 split the templates: info, legal and form ema-lufthansa's; fleet, app-entry and flight
+  status ema-cashub's; campaign, insights, hub and homepage mine. I take mine first.
+- **c4f706e** (the Insights list filter as www's maui fields: underline, the category label above the select, 837 px
+  from 1025 px; no wrapper gap after the intro's separator): the filter's lines match www's at 390. The pages'
+  numbers move either way (explore-flying 21.7 -> 23.6 / 10.9 -> 9.5 %, explore-the-world 16.4 -> 17.4 / 15.2 ->
+  16.2) because the lists' content rules them: www lists an article our index doesn't have ("Lufthansa Stories Tour
+  the Globe", 30 October; capture list) and cards whose tags wrap differently. Decision: ship the filter (visual
+  parity of the control itself), mark the lists' content as the cause.
+- **Marked causes so far:** /de/en/100-years at 390 (its "History Overview" video: the recording holds a frame of the
+  playing video, ours the poster); /100-years/campaigns at 1440 (the poster collage's positions, a layout of its own,
+  +25 / -6 px steps); the loungenet first-class lounge pages (36 / 31 %, info: ema-lufthansa's).
+- **Captions in the 100-years column views (not shipped).** www shows the pictures' captions in the columns-media
+  sidebars of /100-years/global-network and crane ("A high-wing monoplane with an open cockpit ..."); the
+  columns-media parser drops them on lufthansa.com's own pages, by the owner's earlier call (mine). With them kept
+  (the parser's KEEP_CAPTIONS for lufthansa.com, the campaign bundle rebuilt), drafts imported offline from
+  bd-snapshots and rendered in the page: global-network 15.0 -> 15.2 % at 390, 13.6 -> 11.2 at 1440; crane 9.5 ->
+  12.0 / 7.8 -> 9.3. Mixed, so reverted: the crane's second caption sits in a slider on www and needs a look first.
