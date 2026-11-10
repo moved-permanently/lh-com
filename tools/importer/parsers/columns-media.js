@@ -582,6 +582,15 @@ export default function parse(element, { document, url, params }) {
     const ownSidebar = !!oneColumn && oneColumn.matches('.onecolumn.column') && oneColumn.children.length === 1
       && !!oneColumn.parentElement && oneColumn.parentElement.classList.contains('section-content')
       && !oneColumn.hasAttribute('data-lh-column') && !ARTICLE && !element.closest('.container-gray');
+    // Brussels: a sidebar that is the only item of a one-column view straight in the page container
+    // (.container-content > .onecolumn, outside any AEM section: the overview hubs' intro,
+    // /be/fr/special-care/families-and-children; 110 pages of the drop): www's column view puts its
+    // h1 44 px lower and the text 72 px under it (the brief after 570): option in-column (theme CSS)
+    if (oneColumn && pageHost === 'www.brusselsairlines.com' && oneColumn.matches('.onecolumn.column')
+      && oneColumn.children.length === 1 && !!oneColumn.parentElement
+      && oneColumn.parentElement.classList.contains('container-content') && !ARTICLE) {
+      variants.push('in-column');
+    }
     if (ownSidebar) {
       variants.push('padded');
       const meaningful = (el) => !!clean(el.textContent) || !!el.querySelector('img, picture, video, iframe');
