@@ -491,6 +491,18 @@ body.brand-b2b main > .section:not(.grey) .default-content-wrapper + .carousel-c
   }
 }
 
+/* under a link (www's link component has no margin, 43b88b05) only the view's padding: 20 px, 40
+   from 768 px (program/experts/news' "News archive", the standing order of 2026-11-10) */
+body.brand-b2b main > .section:not(.grey) .default-content-wrapper:has(> p.link-wrapper:last-child) + .carousel-cards-wrapper {
+  margin-top: 20px;
+}
+
+@media (width >= 768px) {
+  body.brand-b2b main > .section:not(.grey) .default-content-wrapper:has(> p.link-wrapper:last-child) + .carousel-cards-wrapper {
+    margin-top: 40px;
+  }
+}
+
 /* the search field focused as www's (row 16, brief 421: the 390 and 1440 search-focused snapshots):
    its label floats up to the field's top edge, 12 px grey, the entry below it, the placeholder and
    the line under the field go; the focus outline stays, the keyboard's indicator */
