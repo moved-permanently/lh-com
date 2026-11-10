@@ -47,6 +47,7 @@ import { snapshotFile, urlKey } from './airdolomiti-capture.mjs';
 import { alternateRows, snapshotHead } from './airdolomiti-alternates.mjs';
 import collapseDocs from './collapse-docs.mjs';
 import { withRestoredNbsp } from './nbsp-guard.mjs';
+import { daCopyOf, missingAssets } from './airdolomiti-media.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const W = path.join(root, 'content-sites/lh-airdolomiti');
@@ -553,6 +554,12 @@ export class Page {
       const key = im.url.replace(/[?#].*$/, '');
       files[key] = { ...(files[key] || { kind: 'image', pages: [] }), maxWidth: opts.maxWidth };
     }
+    // a file www answers 404 for (airdolomiti-missing-assets.json, its answer recorded): left out
+    const listed = im.url.replace(/[?#].*$/, '');
+    if (missingAssets().has(listed)) {
+      this.note(`image ${listed.split('/').pop()}: 404 on www (airdolomiti-missing-assets.json), left out`);
+      return '';
+    }
     let src = this.file(im.url, 'image');
     if (!src) {
       const key = im.url.replace(/[?#].*$/, '');
@@ -571,6 +578,15 @@ export class Page {
           if (gone) return '';
         }
       }
+    }
+    if (!src) {
+      // not downloaded here: DA's copy when DA has one (its name is the URL's: airdolomiti-media.mjs), also
+      // a resized copy's original, so the document holds no www address (the import helper had patched
+      // them to DA's copies after every import; the standing order of 2026-11-10, item 2a)
+      const key = im.url.replace(/[?#].*$/, '');
+      const original = key.replace(/-\d+x\d+(?=\.[a-z0-9]+$)/i, '');
+      src = daCopyOf(key) || (original !== key ? daCopyOf(original) : null);
+      if (src) { this.missing.delete(key); this.missing.delete(original); }
     }
     return `<picture><img src="${attr(src || im.url)}" alt="${attr(im.alt)}"></picture>`;
   }

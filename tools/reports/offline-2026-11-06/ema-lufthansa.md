@@ -2727,3 +2727,38 @@ Discover are measured as they are on live.
   - Cargo stories at 390 are still about +3 %.
   - B2B waits for its pass.
 - **Documents:** the same 4 as above.
+
+## The standing order of 2026-11-10 (Air Dolomiti, ITA, TAP, SWISS, Cargo)
+
+The list in order, each item finished, committed and pushed before the next (whole-repo lint, the suite, smoke before
+and after on served code). Nothing uploaded, previewed or published by me; re-imports are list files under
+tools/reports/parity-2026-11-09 and wait for the helpers. No request to an airline host: recordings from the R2 drop,
+measurements on our own hosts with the airline hosts unresolvable. Decisions by the existing rules are written under
+each item.
+
+Before the order (the brief after 566, on main): dbbbc719 (AD 88, the text block's foot), ef0ddc38 (AD 89, the price bar
+pinned), 5651bc79 and 67bf4437 (ITA 24 and 25), all with lint, the suite and smoke at 0 differences on 14 hosts.
+
+### Item 1: the Air Dolomiti phone strip and breadcrumb (done)
+
+5ea6e536 (AD row 90), as the user answered: on the destination pages' top below 530 px the search strip without room or
+card (still rendered, so the header's plane opens its panel over the window, the focus back on the plane), the
+breadcrumb visually hidden (still a named nav), the stage 90 px under the header. The articles keep their visible
+trail (www's is dark over their title). 390 x 844: bari-de 8194 -> 7996 (www 8097, every carousel heading within 1 px),
+bari, Munich and cagliari -198 each; every page at 1440 and the article, homepage and fleet at 390 unchanged.
+
+### Item 2a: Air Dolomiti pictures by DA's copies
+
+- **Found:** the importer writes a picture's local copy when its own download step has it, else www's
+  cms.airdolomiti.it address; the helper then patched the page to DA's copy. DA's copies are named from the www URL alone
+  (/media-da/airdolomiti/<readable name>-<sha1 of the URL, 8>.<ext>) and lh-airdolomiti's upload state lists all 1811,
+  so no request is needed to find one: of airdolomiti-parity-004 bari-de's picture URLs, 31 resolve to DA copies.
+- **Change:** tools/importer/airdolomiti-media.mjs (the naming, shared with airdolomiti-assets.mjs, which now uses it;
+  daCopyOf; missingAssets). The import writes DA's copy for any picture it has not downloaded and DA has (a resized copy's
+  original too); a picture DA lacks keeps www's address as before (the helper's download step takes it). A /media-da path
+  the upload state knows is linked without a local file (da-upload's mediaStep: known).
+- **404s:** tools/importer/airdolomiti-missing-assets.json, Austrian's pattern (url, www's answer, when, pages); the
+  import leaves a listed picture out and keeps the card. It starts empty: no www answer is recorded on this machine, and
+  I make no requests. The importer's own download state still leaves out what it found 404 itself.
+- **Kind:** importer only; no live page changes, no re-import needed (the live documents hold DA's copies already).
+- **Test:** test/airdolomiti-da-copies-567.test.mjs (fails on the old importer).
