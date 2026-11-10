@@ -40,3 +40,15 @@ test('LOCAL_IMAGES\' media files written from the capture\'s SVGs, the others le
   assert.deepEqual(writeLocalImages(assets, content), [], 'the same file again: nothing to write');
   fs.rmSync(dir, { recursive: true, force: true });
 });
+
+test('an SVG not in the assets is taken from a snapshot tree at its www path (b2b-snapshots-014\'s layout)', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'b2b-local-images-'));
+  const snap = path.join(dir, 'business.lufthansagroup.com');
+  const content = path.join(dir, 'content');
+  const [www, media] = Object.entries(LOCAL_IMAGES).find(([k]) => k.includes('2012'));
+  fs.mkdirSync(path.dirname(path.join(snap, www)), { recursive: true });
+  fs.writeFileSync(path.join(snap, www), wrap(PNG.toString('base64')));
+  assert.deepEqual(writeLocalImages(path.join(dir, 'assets/svg'), content, fs, snap), [media]);
+  assert.deepEqual(fs.readFileSync(path.join(content, media)), PNG);
+  fs.rmSync(dir, { recursive: true, force: true });
+});

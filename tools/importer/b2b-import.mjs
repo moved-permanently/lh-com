@@ -267,11 +267,12 @@ export function embeddedRaster(svg) {
  * grey band; renderings on white were RGB). An SVG not there, or one that draws, leaves its file as
  * it is. Returns the media paths written. The brief after d9cf2340, item 4.
  */
-export function writeLocalImages(assets, content, fsx = fs) {
+export function writeLocalImages(assets, content, fsx = fs, snapshots = '') {
   const written = [];
   Object.entries(LOCAL_IMAGES).forEach(([www, media]) => {
-    const svg = path.join(assets, path.basename(www));
-    if (!fsx.existsSync(svg)) return;
+    // the capture's assets first, else a snapshot tree at www's path (b2b-snapshots-014's layout)
+    const svg = [path.join(assets, path.basename(www)), snapshots && path.join(snapshots, www)].find((f) => f && fsx.existsSync(f));
+    if (!svg) return;
     const png = embeddedRaster(fsx.readFileSync(svg, 'utf8'));
     if (!png) return;
     const to = path.join(content, media);
@@ -659,7 +660,7 @@ if (isMain) {
     });
     // the pictures LOCAL_IMAGES points to, from the capture's SVGs (www's own, transparent where it is)
     const media = made.some((p) => /\/media-da\/b2b\//.test(fs.readFileSync(path.join(W, 'content', `${p}.plain.html`), 'utf8')))
-      ? writeLocalImages(path.join(W, 'assets/svg'), path.join(W, 'content')) : [];
+      ? writeLocalImages(path.join(W, 'assets/svg'), path.join(W, 'content'), fs, SNAP) : [];
     if (media.length) console.log(`local images from the SVGs: ${media.join(' ')} (upload them with the documents)`);
     // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
     collapseDocs(withRestoredNbsp(made.map((p) => path.join(W, 'content', `${p}.plain.html`)), fs), { brand: 'b2b', content: path.join(W, 'content') });
