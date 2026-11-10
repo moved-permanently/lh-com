@@ -61,3 +61,21 @@ https://www.austrian.com/tr/en/homepage 1440 390 # 56: Austrian root /tr/en
 https://www.austrian.com/ua/en/homepage 1440 390 # 57: Austrian root /ua/en
 https://www.austrian.com/xk/en/homepage 1440 390 # 58: Austrian root /xk/en
 https://www.austrian.com/xx/en/homepage 1440 390 # 59: Austrian root /xx/en
+# Priority 4 (added after brief 588, item 2) - Brussels legal notices' pages whose h1 opens a sidebar left to default content (reimport-588-brussels-sidebar-h1.txt, 84 documents WAITING): one page per kind, to measure our h1 against www's before their re-import; and the legal-notices hub at 390 (in-column, its 390 not recorded).
+https://www.brusselsairlines.com/ao/fr/legal-notices/aviation-services-law 1440 390 # 60: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/brussels-airlines-responsible-disclosure-statement 1440 390 # 61: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/israel-cancellation-policy 1440 390 # 62: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/liability 1440 390 # 63: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/privacy-notice-applicants 1440 390 # 64: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/refund-for-cancelled-flights 1440 390 # 65: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/short-notice-eu-us 1440 390 # 66: sidebar-h1 kind
+https://www.brusselsairlines.com/it/it/legal-notices/special-assistance-legal-guidelines 1440 390 # 67: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/terms-and-conditions-conditions-of-carriage 1440 390 # 68: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/terms-of-use 1440 390 # 69: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/travel-id 1440 390 # 70: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/us-contingency-plan-for-lengthy-tarmac-delays 1440 390 # 71: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/us-customer-service-plan 1440 390 # 72: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/us-traveling-with-disabilities 1440 390 # 73: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-compensation-voucher 1440 390 # 74: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-refund-voucher 1440 390 # 75: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices 1440 390 # 76: in-column legal notices hub (390)

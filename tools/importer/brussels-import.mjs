@@ -299,6 +299,40 @@ export const withSidebarContent = (html) => editDivs(html, '<div class="sidebar 
 });
 
 /**
+ * A sidebar whose content opens with the page's h1 and holds what keeps it from lh-com's columns-media sidebar
+ * (accordions, a table, a link list: cancel-and-refund-requests, service-charges) and no column view (those are
+ * withSidebarContent's): its content imports as default content, the h1 44 px higher than www's at 1440 (30 at 390;
+ * the brief after 588, item 2: every recorded page of the kind, brussels-parity-004 and -006). A marker paragraph
+ * before the h1; withSidebarH1Style gives its section the style sidebar-h1 (the Brussels theme's offset) and removes
+ * it. Not a sidebar in a column view's item (/be/fr/legal-notices: in-column, its 390 px not recorded).
+ */
+export const SIDEBAR_H1 = 'brussels-sidebar-h1';
+const LEFT_TO_CONTENT = /<div class="(?:accordion|table|imagelinklist)[ "]/;
+const OPENS_WITH_H1 = /^\s*(?:<!--[\s\S]*?-->\s*)*<div class="headline[ "][^>]*>\s*(?:<!--[\s\S]*?-->\s*)*<h1\b/;
+export const withSidebarH1 = (html) => {
+  let out = '';
+  let from = 0;
+  let i = html.indexOf('<div class="sidebar ', from);
+  while (i >= 0) {
+    const end = divEnd(html, i);
+    let el = html.slice(i, end);
+    const inItem = /<div class="[^"]*\bcolumn-view-item\b[^"]*">\s*$/.test(html.slice(Math.max(0, i - 400), i));
+    const c = el.indexOf('<div class="sidebar-content"');
+    if (c >= 0 && !inItem) {
+      const body = el.indexOf('>', c) + 1;
+      const content = el.slice(body, divEnd(el, c) - '</div>'.length);
+      if (!COLUMN_VIEWS.test(content) && LEFT_TO_CONTENT.test(content) && OPENS_WITH_H1.test(content)) {
+        el = `${el.slice(0, body)}${sidebarMarker(SIDEBAR_H1)}${el.slice(body)}`;
+      }
+    }
+    out += html.slice(from, i) + el;
+    from = end;
+    i = html.indexOf('<div class="sidebar ', from);
+  }
+  return out + html.slice(from);
+};
+
+/**
  * A three- or four-column view of headlines only in a sidebar's content (new-destinations' facts: "Vols par semaine" / "2",
  * "Distance" / "6 773 km", ...): lh-com's info importer maps such a view into columns-media under .section-content or
  * .container-content only, so in the sidebar its headlines came in stacked. It gets a container-content wrapper of its own;
@@ -358,6 +392,29 @@ export function withSidebarSections(doc) {
     i = doc.indexOf('<div', from);
   }
   return out + doc.slice(from);
+}
+
+const SIDEBAR_H1_MARK = new RegExp(`<p>${SIDEBAR_H1}(?: [{][^}<]*[}])?</p>\\s*`);
+
+/** The section with withSidebarH1's marker gets the style sidebar-h1; the marker goes (the brief after 588). */
+export function withSidebarH1Style(doc) {
+  const mark = doc.match(SIDEBAR_H1_MARK);
+  if (!mark) return doc;
+  let i = doc.indexOf('<div');
+  while (i >= 0) {
+    const close = divEnd(doc, i);
+    if (mark.index > i && mark.index < close) {
+      const section = doc.slice(i, close).replace(SIDEBAR_H1_MARK, '');
+      const open = section.indexOf('>') + 1;
+      let body = section.slice(open, -'</div>'.length);
+      const m = body.lastIndexOf(META_OPEN);
+      const meta = m >= 0 && balanced(body.slice(0, m)) ? body.slice(m, divEnd(body, m)) : '';
+      if (meta) body = body.slice(0, m) + body.slice(m + meta.length);
+      return `${doc.slice(0, i)}${section.slice(0, open)}${body}${withSectionStyle(meta, 'sidebar-h1')}</div>${doc.slice(close)}`;
+    }
+    i = doc.indexOf('<div', close);
+  }
+  return doc.replace(SIDEBAR_H1_MARK, '');
 }
 
 /**
@@ -595,7 +652,7 @@ if (isMain) {
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
     // the Studio's snapshots keep www's scripts, which must not run in the import browser)
     // (the form's jQuery UI date picker, appended to the body and hidden on www, is no content)
-    const mapped = withEmptyLineSpacers(withoutLoads(withTeaserCta(withPhoneSliders(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withFactColumns(withSidebarContent(withoutTestForms(editDivs(stripScripts(withBookingLabels(html)), '<div id="ui-datepicker-div"', () => ''))))))), p)))))))
+    const mapped = withEmptyLineSpacers(withoutLoads(withTeaserCta(withPhoneSliders(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withFactColumns(withSidebarContent(withSidebarH1(withoutTestForms(editDivs(stripScripts(withBookingLabels(html)), '<div id="ui-datepicker-div"', () => '')))))))), p)))))))
       .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     if (/<div class="slideshow/.test(mapped)) {
@@ -688,7 +745,7 @@ if (isMain) {
         ? spliceGalleries(doc, fs.existsSync(fleetDoc) ? fs.readFileSync(fleetDoc, 'utf8') : '') : doc;
       const snap = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       // (one h1 per document after the finder's title: withPageH1, brief 448)
-      const next = withPageH1(withSidebarSections(withItaMetadata(withCheckinHandoff(withCheckinFields(withFlightSearch(withFinderTitle(withItaForm(galleried, p, snap), p), p), snap), p), p, snap, markets)), snap);
+      const next = withPageH1(withSidebarH1Style(withSidebarSections(withItaMetadata(withCheckinHandoff(withCheckinFields(withFlightSearch(withFinderTitle(withItaForm(galleried, p, snap), p), p), snap), p), p, snap, markets))), snap);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);

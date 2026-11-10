@@ -270,6 +270,20 @@ body.brand-brussels main > .section > .columns-media-wrapper:has(> .columns-medi
   }
 }
 
+/* section style sidebar-h1 (written by the Brussels import from the brief after 588: www's h1 opens a sidebar whose
+   content imports as default content, cancel-and-refund-requests, service-charges, the legal notices' pages): the h1
+   44 px lower (30 at 390), as on www (226 / 236 px on the four recorded pages, ours 182 / 206). Only when the h1 opens
+   the section's first text; a picture before it (check-in-at-the-airport) leaves it as it is */
+body.brand-brussels main > .section.sidebar-h1 > .default-content-wrapper:not(.default-content-wrapper ~ .default-content-wrapper):has(> h1:first-child) {
+  padding-top: 30px;
+}
+
+@media (width >= 1025px) {
+  body.brand-brussels main > .section.sidebar-h1 > .default-content-wrapper:not(.default-content-wrapper ~ .default-content-wrapper):has(> h1:first-child) {
+    padding-top: 44px;
+  }
+}
+
 /* and below the last one (brief 510): a page of one section with a sidebar intro ending with its card
    grid (202 documents, 25 of them recorded). On www the last card is 61 to 130 px from the footer at
    1440 and 82 to 248 at 390; ours 32 to 52 and 20 to 48, more on every recorded page. The median of

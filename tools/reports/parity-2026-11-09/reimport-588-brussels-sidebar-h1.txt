@@ -1,0 +1,96 @@
+# The brief after 588, item 2 (ema-cashub): lh-brussels documents whose h1 opens a sidebar on www that the import leaves to default content (accordions, a table or a link list in it, no column view): to re-import with brussels-import.mjs as of this commit (the info bundle unchanged). The import now gives their first section the style sidebar-h1 (withSidebarH1 on the snapshot, withSidebarH1Style on the document) and the Brussels theme moves the h1 that opens it 44 px down at 1440 (30 at 390): www's y on the four recorded pages of the kind (cancel-and-refund-requests be/en, be/fr; service-charges be/en, be/nl: 226 / 236 px on www, ours 182 / 206). Offline import of all 95 from their snapshots against origin/main's (every network request refused, 0 made): the only change is that style row; the h1 opens the first section in all 95. Expected per row: the h1 and everything under it +44 px at 1440, +30 at 390. READY: kinds measured on recordings. WAITING: the legal notices' pages (16 kinds, no recording yet): their be/en page (or the only root) is on capture-list-584-brands.txt; re-import them only after I mark them READY. Not listed: the 124 documents of the kind whose section opens with a picture (special-meals, check-in-at-the-airport ...: the rule does not apply there, the import's change is only the style row), and the sidebars in a column view's item (/be/fr/legal-notices etc.: 390 not recorded). TSV: path, snapshot archive (2026-10-30), expected 1440 / 390, status.
+/be/en/contact/service-charges	brussels-snapshots-002	+44 / +30	READY
+/be/fr/contact/service-charges	brussels-snapshots-003	+44 / +30	READY
+/be/nl/contact/service-charges	brussels-snapshots-005	+44 / +30	READY
+/de/de/contact/service-charges	brussels-snapshots-006	+44 / +30	READY
+/es/es/contact/service-charges	brussels-snapshots-009	+44 / +30	READY
+/be/en/my-bookings/cancel-and-refund-requests	brussels-snapshots-001	+44 / +30	READY
+/be/fr/my-bookings/cancel-and-refund-requests	brussels-snapshots-002	+44 / +30	READY
+/be/nl/my-bookings/cancel-and-refund-requests	brussels-snapshots-005	+44 / +30	READY
+/de/de/my-bookings/cancel-and-refund-requests	brussels-snapshots-007	+44 / +30	READY
+/it/it/my-bookings/cancel-and-refund-requests	brussels-snapshots-008	+44 / +30	READY
+/es/es/my-bookings/cancel-and-refund-requests	brussels-snapshots-010	+44 / +30	READY
+/ao/fr/legal-notices/aviation-services-law	brussels-snapshots-013	+44 / +30	WAITING capture-list-584-brands.txt
+/il/en/legal-notices/aviation-services-law	brussels-snapshots-013	+44 / +30	WAITING capture-list-584-brands.txt
+/be/en/legal-notices/brussels-airlines-responsible-disclosure-statement	brussels-snapshots-003	+44 / +30	WAITING capture-list-584-brands.txt
+/be/fr/legal-notices/brussels-airlines-responsible-disclosure-statement	brussels-snapshots-004	+44 / +30	WAITING capture-list-584-brands.txt
+/be/nl/legal-notices/brussels-airlines-responsible-disclosure-statement	brussels-snapshots-005	+44 / +30	WAITING capture-list-584-brands.txt
+/de/de/legal-notices/brussels-airlines-responsible-disclosure-statement	brussels-snapshots-007	+44 / +30	WAITING capture-list-584-brands.txt
+/it/it/legal-notices/brussels-airlines-responsible-disclosure-statement	brussels-snapshots-008	+44 / +30	WAITING capture-list-584-brands.txt
+/es/es/legal-notices/brussels-airlines-responsible-disclosure-statement	brussels-snapshots-009	+44 / +30	WAITING capture-list-584-brands.txt
+/be/en/legal-notices/israel-cancellation-policy	brussels-snapshots-003	+44 / +30	WAITING capture-list-584-brands.txt
+/be/fr/legal-notices/israel-cancellation-policy	brussels-snapshots-004	+44 / +30	WAITING capture-list-584-brands.txt
+/be/nl/legal-notices/israel-cancellation-policy	brussels-snapshots-005	+44 / +30	WAITING capture-list-584-brands.txt
+/de/de/legal-notices/israel-cancellation-policy	brussels-snapshots-007	+44 / +30	WAITING capture-list-584-brands.txt
+/it/it/legal-notices/israel-cancellation-policy	brussels-snapshots-008	+44 / +30	WAITING capture-list-584-brands.txt
+/es/es/legal-notices/israel-cancellation-policy	brussels-snapshots-009	+44 / +30	WAITING capture-list-584-brands.txt
+/be/en/legal-notices/liability	brussels-snapshots-003	+44 / +30	WAITING capture-list-584-brands.txt
+/be/fr/legal-notices/liability	brussels-snapshots-004	+44 / +30	WAITING capture-list-584-brands.txt
+/be/nl/legal-notices/liability	brussels-snapshots-005	+44 / +30	WAITING capture-list-584-brands.txt
+/de/de/legal-notices/liability	brussels-snapshots-007	+44 / +30	WAITING capture-list-584-brands.txt
+/it/it/legal-notices/liability	brussels-snapshots-008	+44 / +30	WAITING capture-list-584-brands.txt
+/es/es/legal-notices/liability	brussels-snapshots-009	+44 / +30	WAITING capture-list-584-brands.txt
+/be/en/legal-notices/privacy-notice-applicants	brussels-snapshots-003	+44 / +30	WAITING capture-list-584-brands.txt
+/be/fr/legal-notices/privacy-notice-applicants	brussels-snapshots-004	+44 / +30	WAITING capture-list-584-brands.txt
+/be/nl/legal-notices/privacy-notice-applicants	brussels-snapshots-005	+44 / +30	WAITING capture-list-584-brands.txt
+/be/en/legal-notices/refund-for-cancelled-flights	brussels-snapshots-003	+44 / +30	WAITING capture-list-584-brands.txt
+/be/fr/legal-notices/refund-for-cancelled-flights	brussels-snapshots-004	+44 / +30	WAITING capture-list-584-brands.txt
+/be/nl/legal-notices/refund-for-cancelled-flights	brussels-snapshots-005	+44 / +30	WAITING capture-list-584-brands.txt
+/de/de/legal-notices/refund-for-cancelled-flights	brussels-snapshots-007	+44 / +30	WAITING capture-list-584-brands.txt
+/it/it/legal-notices/refund-for-cancelled-flights	brussels-snapshots-008	+44 / +30	WAITING capture-list-584-brands.txt
+/es/es/legal-notices/refund-for-cancelled-flights	brussels-snapshots-009	+44 / +30	WAITING capture-list-584-brands.txt
+/be/en/legal-notices/short-notice-eu-us	brussels-snapshots-003	+44 / +30	WAITING capture-list-584-brands.txt
+/be/fr/legal-notices/short-notice-eu-us	brussels-snapshots-004	+44 / +30	WAITING capture-list-584-brands.txt
+/be/nl/legal-notices/short-notice-eu-us	brussels-snapshots-005	+44 / +30	WAITING capture-list-584-brands.txt
+/de/de/legal-notices/short-notice-eu-us	brussels-snapshots-007	+44 / +30	WAITING capture-list-584-brands.txt
+/it/it/legal-notices/short-notice-eu-us	brussels-snapshots-008	+44 / +30	WAITING capture-list-584-brands.txt
+/es/es/legal-notices/short-notice-eu-us	brussels-snapshots-009	+44 / +30	WAITING capture-list-584-brands.txt
+/it/it/legal-notices/special-assistance-legal-guidelines	brussels-snapshots-008	+44 / +30	WAITING capture-list-584-brands.txt
+/be/en/legal-notices/terms-and-conditions-conditions-of-carriage	brussels-snapshots-003	+44 / +30	WAITING capture-list-584-brands.txt
+/be/fr/legal-notices/terms-and-conditions-conditions-of-carriage	brussels-snapshots-004	+44 / +30	WAITING capture-list-584-brands.txt
+/be/nl/legal-notices/terms-and-conditions-conditions-of-carriage	brussels-snapshots-005	+44 / +30	WAITING capture-list-584-brands.txt
+/de/de/legal-notices/terms-and-conditions-conditions-of-carriage	brussels-snapshots-007	+44 / +30	WAITING capture-list-584-brands.txt
+/it/it/legal-notices/terms-and-conditions-conditions-of-carriage	brussels-snapshots-008	+44 / +30	WAITING capture-list-584-brands.txt
+/es/es/legal-notices/terms-and-conditions-conditions-of-carriage	brussels-snapshots-009	+44 / +30	WAITING capture-list-584-brands.txt
+/be/en/legal-notices/terms-of-use	brussels-snapshots-003	+44 / +30	WAITING capture-list-584-brands.txt
+/be/fr/legal-notices/terms-of-use	brussels-snapshots-004	+44 / +30	WAITING capture-list-584-brands.txt
+/be/nl/legal-notices/terms-of-use	brussels-snapshots-005	+44 / +30	WAITING capture-list-584-brands.txt
+/de/de/legal-notices/terms-of-use	brussels-snapshots-007	+44 / +30	WAITING capture-list-584-brands.txt
+/it/it/legal-notices/terms-of-use	brussels-snapshots-008	+44 / +30	WAITING capture-list-584-brands.txt
+/es/es/legal-notices/terms-of-use	brussels-snapshots-009	+44 / +30	WAITING capture-list-584-brands.txt
+/be/en/legal-notices/travel-id	brussels-snapshots-003	+44 / +30	WAITING capture-list-584-brands.txt
+/be/fr/legal-notices/travel-id	brussels-snapshots-004	+44 / +30	WAITING capture-list-584-brands.txt
+/be/nl/legal-notices/travel-id	brussels-snapshots-005	+44 / +30	WAITING capture-list-584-brands.txt
+/de/de/legal-notices/travel-id	brussels-snapshots-007	+44 / +30	WAITING capture-list-584-brands.txt
+/it/it/legal-notices/travel-id	brussels-snapshots-008	+44 / +30	WAITING capture-list-584-brands.txt
+/es/es/legal-notices/travel-id	brussels-snapshots-009	+44 / +30	WAITING capture-list-584-brands.txt
+/be/en/legal-notices/us-contingency-plan-for-lengthy-tarmac-delays	brussels-snapshots-003	+44 / +30	WAITING capture-list-584-brands.txt
+/be/fr/legal-notices/us-contingency-plan-for-lengthy-tarmac-delays	brussels-snapshots-004	+44 / +30	WAITING capture-list-584-brands.txt
+/be/nl/legal-notices/us-contingency-plan-for-lengthy-tarmac-delays	brussels-snapshots-005	+44 / +30	WAITING capture-list-584-brands.txt
+/de/de/legal-notices/us-contingency-plan-for-lengthy-tarmac-delays	brussels-snapshots-007	+44 / +30	WAITING capture-list-584-brands.txt
+/it/it/legal-notices/us-contingency-plan-for-lengthy-tarmac-delays	brussels-snapshots-008	+44 / +30	WAITING capture-list-584-brands.txt
+/es/es/legal-notices/us-contingency-plan-for-lengthy-tarmac-delays	brussels-snapshots-009	+44 / +30	WAITING capture-list-584-brands.txt
+/be/en/legal-notices/us-customer-service-plan	brussels-snapshots-003	+44 / +30	WAITING capture-list-584-brands.txt
+/be/fr/legal-notices/us-customer-service-plan	brussels-snapshots-004	+44 / +30	WAITING capture-list-584-brands.txt
+/be/nl/legal-notices/us-customer-service-plan	brussels-snapshots-005	+44 / +30	WAITING capture-list-584-brands.txt
+/de/de/legal-notices/us-customer-service-plan	brussels-snapshots-007	+44 / +30	WAITING capture-list-584-brands.txt
+/it/it/legal-notices/us-customer-service-plan	brussels-snapshots-008	+44 / +30	WAITING capture-list-584-brands.txt
+/es/es/legal-notices/us-customer-service-plan	brussels-snapshots-009	+44 / +30	WAITING capture-list-584-brands.txt
+/be/en/legal-notices/us-traveling-with-disabilities	brussels-snapshots-003	+44 / +30	WAITING capture-list-584-brands.txt
+/be/fr/legal-notices/us-traveling-with-disabilities	brussels-snapshots-004	+44 / +30	WAITING capture-list-584-brands.txt
+/be/nl/legal-notices/us-traveling-with-disabilities	brussels-snapshots-005	+44 / +30	WAITING capture-list-584-brands.txt
+/de/de/legal-notices/us-traveling-with-disabilities	brussels-snapshots-007	+44 / +30	WAITING capture-list-584-brands.txt
+/it/it/legal-notices/us-traveling-with-disabilities	brussels-snapshots-008	+44 / +30	WAITING capture-list-584-brands.txt
+/es/es/legal-notices/us-traveling-with-disabilities	brussels-snapshots-009	+44 / +30	WAITING capture-list-584-brands.txt
+/be/en/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-compensation-voucher	brussels-snapshots-003	+44 / +30	WAITING capture-list-584-brands.txt
+/be/fr/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-compensation-voucher	brussels-snapshots-004	+44 / +30	WAITING capture-list-584-brands.txt
+/be/nl/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-compensation-voucher	brussels-snapshots-005	+44 / +30	WAITING capture-list-584-brands.txt
+/de/de/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-compensation-voucher	brussels-snapshots-007	+44 / +30	WAITING capture-list-584-brands.txt
+/it/it/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-compensation-voucher	brussels-snapshots-008	+44 / +30	WAITING capture-list-584-brands.txt
+/es/es/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-compensation-voucher	brussels-snapshots-009	+44 / +30	WAITING capture-list-584-brands.txt
+/be/en/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-refund-voucher	brussels-snapshots-003	+44 / +30	WAITING capture-list-584-brands.txt
+/be/fr/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-refund-voucher	brussels-snapshots-004	+44 / +30	WAITING capture-list-584-brands.txt
+/be/nl/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-refund-voucher	brussels-snapshots-005	+44 / +30	WAITING capture-list-584-brands.txt
+/de/de/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-refund-voucher	brussels-snapshots-007	+44 / +30	WAITING capture-list-584-brands.txt
+/it/it/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-refund-voucher	brussels-snapshots-008	+44 / +30	WAITING capture-list-584-brands.txt
+/es/es/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-refund-voucher	brussels-snapshots-009	+44 / +30	WAITING capture-list-584-brands.txt
