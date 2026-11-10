@@ -1132,3 +1132,26 @@ body.brand-austrian .table-striped table {
 body.brand-austrian .table-striped :is(td, th) {
   min-width: 200px;
 }
+
+/* a stage section that ends with a flight-search band (gb/en and us/en ski-campaign-2026; the standing order after 570
+   item 3): www's closing title heading-small at 28 px (22 at 390), 90 px under the fare teaser and 58 px over the band
+   at 1440, and 54 px from the band to the footer */
+body.brand-austrian main > .section.stage > .default-content-wrapper:has(> h3:only-child):has(+ .flight-search-wrapper.flight-search-band:last-child) > h3 {
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+@media (width >= 1025px) {
+  body.brand-austrian main > .section.stage > .default-content-wrapper:has(> h3:only-child):has(+ .flight-search-wrapper.flight-search-band:last-child) {
+    margin-top: calc(var(--spacing-default) + 36px);
+  }
+
+  body.brand-austrian main > .section.stage > .default-content-wrapper:has(> h3:only-child):has(+ .flight-search-wrapper.flight-search-band:last-child) > h3 {
+    margin-bottom: 36px;
+    font-size: 28px;
+  }
+
+  body.brand-austrian main > .section.stage:last-child:has(> .flight-search-wrapper.flight-search-band:last-child) {
+    margin-bottom: 54px;
+  }
+}
