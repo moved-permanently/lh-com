@@ -506,6 +506,20 @@ export function withFlightSearch(doc, p) {
   });
 }
 
+/**
+ * The flight-search picker's Group booking link: the page's own root's groups page, relative (the brief after 551, the
+ * harness). www's flight manager names another root's group page or none (data-dcep groupBookingsUrl: student-fares
+ * /content/lh/markets/sg/en, offers /es/en, the campaign pages /content/sn/gc/<ll> or /content/sn/markets/be/en), which
+ * the picker made /<cc>/<ll>/group-travel and site-postprocess a www link. The page's own link on www (its nav and
+ * footer) is /<cc>/<ll>/book-a-flight/groups-and-charter/groups, which our site serves on every root. The last link
+ * step, so site-postprocess and withOwnLinks leave it as it is.
+ */
+export function withGroupBooking(doc, p) {
+  const key = (String(p).match(/^\/[a-z]{2}\/[a-z]{2}(?=\/|$)/) || [])[0];
+  if (!key) return doc;
+  return doc.replace(/(<div>\s*Group booking\s*<\/div>\s*<div>\s*<a href=")[^"]*(")/g, `$1${key}/book-a-flight/groups-and-charter/groups$2`);
+}
+
 // www's destination finder titles its offers itself (maui-headline type h1). A capture with the
 // widget rendered keeps the title in the import; the others (be/en, be/fr our-destinations) left
 // the page without one (axe page-has-heading-one). The labels www's captures show, per language.
@@ -697,8 +711,9 @@ if (isMain) {
     made.forEach((p) => {
       const f = path.join(W, 'content', `${p}.plain.html`);
       const doc = fs.readFileSync(f, 'utf8');
-      // a share image www doesn't serve: Brussels' own logo (brussels-share-image.mjs)
-      const next = withShareImage(withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages, aliases, { linkOut: linkOutDocs.has(p) ? p : null, served }).doc);
+      // a share image www doesn't serve: Brussels' own logo (brussels-share-image.mjs); the picker's group link
+      // the root's groups page (withGroupBooking)
+      const next = withGroupBooking(withShareImage(withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages, aliases, { linkOut: linkOutDocs.has(p) ? p : null, served }).doc), p);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
