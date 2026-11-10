@@ -2409,3 +2409,119 @@ before and after.
   collapse to the theme's values, Ben's rule; nothing to change.
 - For ema-test (handover item 7, token-free.js): no chapter rule above a heading that a block follows (be-picky's teaser
   section, +25 px), checked on the sample's sections.
+
+## Briefs 537 to 557 (2026-11-09/10): summary
+
+The fixes of these briefs are on main with their numbers in the commit messages; the lists are under
+tools/reports/parity-2026-11-09/. The last four on 2026-11-10 (brief 557): ae5352e (a grey band, then a
+campaign section that opens with a separator: 32 px under the band; baggage 390 5.9 -> 5.0 %, 1440 2.9
+-> 1.7 %; food-and-beverages 10.9 -> 6.6 / 7.1 -> 2.2 %; speisen-und-getraenke 12.1 -> 8.7 / 7.3 -> 2.4 %;
+not before a column view: lounges would get worse), 53d6873 (jump links ending their section, then a
+separator: digital-self-services 8.3 -> 7.1 / 7.4 -> 2.9 %), f4077ac (core form sections keep www's
+empty title and description slots: betreuungsbedarf 8.5 -> 6.9 / 5.1 -> 3.9 %, bot-check holder hidden
+in both runs), 717ae1d (the overview-manage lists withdrawn: Ben's rule keeps those documents as DA has
+them). overview-manage is reached by none of these rules.
+
+## Standing order of 2026-11-10 (10 to 12 hours, nobody else working)
+
+Started 10:19 CET. Decisions are written under each item. Nothing uploaded, previewed or published;
+no request to any airline host (the R2 drop and our own hosts only).
+
+### Item 1: the open items of brief 557
+
+- The digital-self-services separator and the grey band rule: shipped in brief 557 (53d6873, ae5352e;
+  numbers above). The 14 other documents were measured (11 with a recording; the four stopover
+  documents not: their flight search calls www's APIs).
+- **Accordion titles (0411230).** Below 768 px www insets an accordion title 20 px on both sides (text at
+  x 42 at 390), ours 12 (x 34): our titles ran wider, in fewer lines. Measured with the inset in the page
+  on all 80 recorded lufthansa.com pages with an accordion and no www widget: option spaced (45 pages)
+  net -25.2 points (lounges de/de 12.7 -> 7.1 %, onboard-delights faq 10.8 -> 2.6, cancellations
+  17.8 -> 12.3), three worse by 0.7 to 1.6 (entryprocesses, lufthansa-express-bus, group-travel, each with
+  other causes); the other 35 net +3.3 (faq limited-width 6 of 9 worse, lufthansa-voucher +3.0). A
+  48 px right padding instead of 56 was tried on the 29 pages that moved: no better overall. Decision:
+  ship for option spaced only (measured, net positive, the three worse pages named).
+- **betreuungsbedarf's remaining items (not shipped).** Causes found: (1) a form card's sub-section title
+  (legend h3.heading-copytext-large) is 20 px below 768 px on www (ours 24) and sits 12 px higher in the
+  card at 390 and 1440 (ink 24 px under the card's top, ours 36); (2) the support-type card's untitled
+  sub-section: www renders an empty legend and an empty group headline there (33 px); a rule for every
+  untitled sub-section also hit card 1 and the message card (+33 / +55), so it needs a narrower carrier;
+  (3) the Sauerstoff paragraph's link: www shows "→ https://www.lufthansa.com/de/de/gesund-reisen" (an
+  arrow icon and the address as the text, two lines), our document "/de/de/gesund-reisen": the shared
+  own-link helper writes it (ema-cashub's code, not touched). (1) alone makes card 2 exact but the page
+  8.5 % instead of 6.9 (it removes compensation), so it waits for (2). Decision: park, causes recorded.
+- **xx/ru meetings (9.4 %).** No code cause: the text is the same face and pitch; two lines break one
+  word differently because www's column is a pixel or two narrower; the remaining steps sit around the
+  two sliders (cell-slider, phone-slider). Marked cause: sliders and a 1-2 px column width.
+
+### Item 2: lufthansa.com's market importer work (the 62 rows)
+
+Read: README.md, rulings.md, import-rows-importer-work.tsv, the 59 evidence files. The R2 drop's
+archives the rows name (lh-snapshots-006, 007, 033, 065, 069, 083 to 087) were fetched into /tmp/r2 (sha256
+checked against the delivery index; data only, outside the checkout, not in git).
+
+**What exists.** Section-level `markets` is read by the site (scripts/scripts.js dropOtherMarkets) and by
+lh-edge's market route (dropMarketSections); page-level `markets` serves a donor document to the roots it
+lists (lh-edge README, "Market roots" step 3). ITA's importer writes page-level `markets` from scope.json;
+TAP's sectioned language documents come from tap-markets.mjs (brand-specific: www.flytap.com's
+personalization rules). Nothing wrote these for lufthansa.com.
+
+**The steps (22cbf7e, e8d4524).** tools/importer/market-sections.mjs: mergeMarketVariant (markets sections
+on a version page: the version's differing sections with its home market, `de` or `xx`, a covered root's
+with `-de` / `-xx`; equal sections once; the page metadata once, outside), withPageMarkets (shared
+variants), withTabsByMarket (widget settings, a Flight Search `Tabs by market` row, read by
+blocks/flight-search marketTabs: backwards compatible, no document has it yet). CLI
+tools/importer/market-steps.mjs runs a list over the documents the harness imported. Unit tests against
+documents the info bundle imports offline from lh-snapshots-083/084 and bd-snapshots.
+
+**Inputs.** The drop holds the version pages, not the roots' variants (17 root pages in archives for all
+254 rows; for the 62: the version page for nearly all, a root page for none of the variants). A stand-in
+was checked for each markets-section row: at/de for de/de, gb/en for de/en (their www pages are what the
+market shows), counting the evidence's root-only text found and version-only text absent. gb/en matches
+completely on de/en cash-and-miles (0/0, 10/10), free2move (2/2, 2/2) and medical-travel-companions (1/1,
+1/1); every at/de stand-in is partial (at/de shows its own variant: 0/0 and 0/10 on cash-and-miles), so de/de
+rows wait for a covered root's capture.
+
+**Lists.** tools/reports/markets/lh-market-diff/market-steps-558.tsv: 4 rows with inputs in the drop and
+their expected change (offline: de/en cash-and-miles, the North America promotion only for de; free2move,
+the Free2move offer text; medical-travel-companions, the CTA "Book now" vs "To the services"; xx/es
+cash-and-miles, cr/es, ec/es, pa/es, pe/es see the widget with "Vuelos" only).
+tools/markets/capture-lists/lh-com-market-steps-558.txt: the 46 www pages the other rows need.
+
+**Decisions on rows.**
+- The feedback questionnaire (row 8, 21 roots): our /de/de/feedback/feedbackai document is empty (the
+  questionnaire, an Angular app on www, is not migrated), so there is nothing to put in a markets section:
+  functional work first (rule: functional before parity before locales).
+- hideHotel on hotelangebote / hotel-offers (de/de, de/en, xx/es; 13 + 14 + 4 roots): the widget there has
+  only the hotel tab; with it hidden no tab is left. What www shows those markets is on the capture list.
+- lh-rentalcar ru/en: the Meili car rental widget's partner id (ptid 105.11) on that root; on the capture
+  list, low (priority 3, one root).
+
+**Where I disagree with rulings.md.**
+- WIDGET SETTING (65 pairs, 14 rows): 7 of the 14 rows are not market settings. Five (flughafeninformation
+  and reisen-mit-besonderen-anforderungen on mk/de; airport-information, electronic-bag-tags, upgrade-info
+  on mk/en) differ in picture order, alt text or an empty `videoUrl` placeholder only: rule D2 (media only)
+  covers them. Two (xx/fr cash-and-miles and hotel-offers for cr/fr) differ only in `.promotionTeaser`: rule
+  W1. I would move those 7 rows to IGNORE.
+- The de/de cash-and-miles widget row for be/de has no evidence of its own (the evidence file is ae/de's,
+  verdict content): unruled until be/de is captured.
+- The other classes I agree with: D1 date format (4,818: the placeholder against localized dates), W1
+  promotion teaser (466, campaign data, as ITA and TAP), L1/L2 link only, D2 media only, M1/M2 meta only,
+  and the section 8 question stays Ben's ("follow www" is what the steps write).
+
+### Item 3: the 93 priority-1 own-document rows
+
+- Each row's page type checked against the drop: 84 rows by page-templates.json (the version page's template is
+  what the import helper takes, and those version documents exist), 7 article rows by their path (insights), and
+  the 16 version pages behind the heuristic rows (companion specials, offers, sale, ski-campaign-2026, the promocode
+  terms, munich-mountains) imported offline from lh-snapshots-065/066/069 with the info, campaign and hub bundles:
+  the info bundle keeps 86 to 99 % of each page's text with the blocks it needs (hero-campaign, flight-search,
+  table-striped, accordion-columns, carousel-cards); campaign keeps 2 to 6 points more only on /dk/en/sale and
+  /cz/en/autumn-campaign22, where info keeps the fare teaser (live data) instead of its static text.
+  Decision: info for those (one template for the local offer pages; the fare teaser is www's own block there),
+  legal for the promocode terms. No page type the importer lacks: nothing to fix. The import helper's slices 1 to
+  3 (4c9d33b, 37 market-root documents of 21 roots, info and legal) are the same path.
+- tools/reports/markets/lh-market-diff/own-documents-priority1-types.tsv: the 93 rows with the template and how it
+  was confirmed.
+- The capture list tools/markets/capture-lists/lh-com-own-documents-priority1.txt is complete (93 rows, no
+  duplicate); only in/en and sa/en /flights have a root snapshot (bd-snapshots, 2026-10-21): they stay on it.
+  Not changed.
