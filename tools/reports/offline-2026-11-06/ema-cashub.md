@@ -2373,3 +2373,123 @@ the columns-media cell's spacing between link paragraphs, measured per page firs
 Austrian wetlease-hub's -3.5 %, the second ranking sweep with the night's new recordings (austrian-parity-008 and later,
 brussels-parity-006 and later, discover-parity-003: not in the drop when last probed), and the Brussels section-sidebar h1
 (analysed above: about 280 pages, a sidebar-section change that needs per-page measurement first).
+
+## The brief after 588 (the evening of 2026-11-10)
+
+**Item 1 first, the importer defect (`edcadbe4`, pushed):** 2595ae36's in-column step ran (every bundle had it) but never
+matched. Its condition asked for a sidebar that is the *only* child of its column item; on www and in every snapshot the
+hub's card grids follow the sidebar in that same item (`.column-view-item > .sidebar + .separator + .fourcolumn ...`,
+Carousel Cards tables by the time the parser runs). Only 2595ae36's hand-written test fixture had a lone sidebar. Found
+with an instrumented copy of the info bundle in an offline import of the snapshot (setContent, every request refused):
+the log prints, and the condition fails at the column item. Now the sidebar is the item's first content.
+- The theme's h1 rule of 2595ae36 (72 / 66 px over the text) is dropped. brussels-parity-006's six hubs: www's text is 28 /
+  26 px under the h1, as ours. families-and-children's 72 / 66 is an empty line of that page (`<p>&nbsp;</p>`, 24 + 20
+  px). The empty line cannot be a marker there: the collapse drops spacers in block cells.
+- Six hubs, with the option added in the browser: the h1 at www's y on the five in-column hubs (before -44 / -20). it/it
+  meals has its sidebar in an AEM section; the option would make it worse (+1.2 -> +4.0 %), so the condition leaves it
+  out.
+- Offline import of all 104 listed documents, before / after: 81 change, and the only change is `in-column`; 23 are
+  byte-identical (their sidebar is in an AEM section). Expected per changed document: +44 / +20 px, not the list's
+  +88 / +60. The list stayed as it is.
+- The helper has since re-imported it (`0e8882ca`..`11d24069`, 81 documents). Measured after, 1440 / 390:
+  - be/en travel-classes -5.0 -> -1.7 / +0.7 -> +1.5 %
+  - be/fr baggage -5.0 -> -2.4 / -0.6 -> 0.0 %
+  - be/nl pets -5.0 -> -2.4 / -2.9 -> -2.2 %
+  - de/de lounges -3.1 -> +0.2 / +1.1 -> +1.9 %
+  - es/es plan-your-trip -3.9 -> -1.2 / +0.1 -> +0.8 %
+  - be/fr families-and-children -9.1 -> -6.8 / -3.7 -> -3.1 % (the empty lines remain)
+- Test: `test/columns-media-in-column-588.test.mjs`, on the snapshot's own `.container-content`. It fails on 2595ae36's
+  parser and passes after.
+- Bundles rebuilt from origin/main: the eleven that hold columns-media. Austrian's three also took a1a8e13d's link-list
+  marking, which was never built into them; it acts on lufthansa.com pages only.
+
+**Item 2, the Brussels section-sidebar h1 (`74a1657c`, pushed; smoke of the 11 hosts before and after: 0 differences).**
+Measured first, page by page: all 47 recorded Brussels pages, our h1 against www's, with where www puts its h1.
+- A theme rule on a default-content h1 cannot tell the cases apart. That was brief 540's trap. The 20 recorded pages whose
+  www h1 is not in a sidebar are already within 6 / 10 px.
+- The four pages whose www h1 opens a sidebar that our documents leave to default content are all -44 / -30. That is a
+  sidebar holding accordions, a table or a link list, with no column view: cancel-and-refund en, fr; service-charges en,
+  nl. On www they sit at 226 / 236, ours at 182 / 206.
+- The importer marks those pages:
+  - `withSidebarH1` puts a marker on the snapshot.
+  - `withSidebarH1Style` turns it into the section style sidebar-h1 on the document.
+  - The theme moves the opening h1 down 30 px, 44 from 1025 px.
+- With the style added in the browser, the h1 is at www's y on all four at both widths:
+  - cancel-and-refund en -22.4 -> -19.7 / -19.8 -> -18.4 %
+  - cancel-and-refund fr -25.4 -> -22.9 / -20.4 -> -19.1 %
+  - service-charges en -8.6 -> -6.0 / -4.6 -> -3.2 %
+  - service-charges nl -8.5 -> -5.9 / -4.8 -> -3.4 %
+- Reach: the marker is on 221 of the 1,520 snapshots. The rule moves the 95 documents whose section opens with the h1. Of
+  the other 126, 124 open with a picture and 2 have no published document (special-meals, check-in-at-the-airport: 540's two pages are untouched).
+- Offline import of the 95, before / after: the only change is the style row.
+- List `reimport-588-brussels-sidebar-h1.txt`:
+  - READY 11 (cancel-and-refund ×6, service-charges ×5).
+  - WAITING 84 (the legal notices' pages, 16 kinds, not recorded). One page per kind is on the capture list, rows 60-75,
+    and the legal-notices hub at 390 is row 76.
+- Not done: the in-column legal-notices hubs (390 not recorded); dsar-start (-30 / -16, in a columns-media sidebar, www
+  has more above it). be/en/contact has no main h1 at all on ours: www's is in the help app. That case is separate and
+  stays open.
+
+**Item 3, contact/feedback's concern links (`54088ca1`, pushed, live; smoke 0 differences).** The rule is scoped to a list
+of three or more link paragraphs in a row in a columns-media sidebar cell. Reach: the six contact/feedback documents of
+the 1,801 published ones; among the 1,520 snapshots only those six have such a list.
+- It gives www's 16 px regular, 44 px apart.
+- It adds the space of www's empty line over the list: 69 px at 1440, 22 at 390.
+- When the list ends the sidebar, it sets www's gap to the footer: no block padding under the list, the section 39 / 49
+  px over the footer.
+- www's link rows were read off the recordings' screenshots: the links are in shadow DOM, so the measurements have no box
+  for them.
+- Live on brussels.turnsthe.page:
+  - be/fr +3.9 -> -0.2 / +6.4 -> -1.2 %, the footer at www's y at both widths.
+  - be/en +4.2 -> 0.0 / +4.4 -> -1.2 %.
+  - Unchanged, measured twice each way: be/en contact, chase-the-sun, contact-form-error, feedback/general/other.
+
+**Item 4 (no code):**
+- **birthright:** our capture includes the 71 px Turnstile box. Without it the page is about +2.3 / +1.8 %. The last 27
+  / 30 px are the wide-text section's 48 px under the last text, where www has about 20. It is one page, and the other
+  form pages' www tails are not in the recordings (their last controls are in shadow DOM). Decision: no rule.
+- **Austrian wetlease-hub (-3.5 / -3.0 %):** traced to the grey partners band.
+  - On www the partner column view has 32 px above and below. The parser leaves out padded in grey because the section
+    style column-view carries it, but this document's section is only grey.
+  - www's grey band has a 24 px white `.mb-default` before the footer.
+  - Together that is +31 / +33 / +24 px of the -105. This is a shared Austrian grey-section cause, left for the sweep.
+- **Discover D2 to D9:** measured and located in `rows-for-ema-lufthansa.md` (after ema-lufthansa's a46f654d, d76a3d39,
+  f3e44340, 7a0e7014; D2 is now -5.9 / -2.8 %).
+
+**Item 5, the second ranking sweep:** `tools/reports/parity-2026-11-09/ranking-588-austrian-brussels-discover.md`.
+- The probe waits for every section and a stable height. The first Austrian run did not, and gave -55 to -81 % on 9
+  roots; it was discarded.
+- **Austrian, 48 roots:** the homepages fall into groups with identical numbers.
+  - G1: 21 roots at -244 / +91..96 px.
+  - G2: 8 roots at -893 / -330.
+  - G3: tr, me, xk, jp at about +110 / +600.
+  - The static part of G1 and G2: www draws its quick-actions row between the stage and the fare teaser, ours the flight
+    search above the stage (-71 px to "Winter deals"); then the fare teaser band.
+  - The rest is the destination finder. Ours renders its empty state because I refuse www's APIs. Its height differs per
+    origin: 941 px for Brussels, 292 for Prague; www's is about 1,160.
+  - No fix tonight. The quick actions' order is an importer question for every Austrian homepage. The widget bands need a
+    capture of our own page with the APIs allowed: capture list rows 77-80 (be/en, cz/en, tr/en, ge/en on
+    austrian.turnsthe.page).
+- **Brussels, 47 pages:** after tonight's re-imports, 31 pages are within 3 %.
+  - The six tab-table pages are from +7.5..+9.3 / +12.4..+15.3 % now at -1.2..-2.5 / +0.9..+3.0 %.
+  - The worst open rows: problems-with-your-baggage (-17.4 / -28.5 %) and our-payment-methods (-24.7 / -16.9 %), not
+    traced. cancel-and-refund en / fr (about -22 / -20 %): the h1 part is READY, the rest is the accordions' text column
+    and content. offers (-9.0 / -4.9 %): widget state. service-charges (-8.6 / -4.7 %): h1 READY.
+- **Discover, 26 pages:** the two offers pages (-70 / -83 %) are one destination finder in its empty state (widget
+  state); the rest are rows D1 to D9 for ema-lufthansa (worst now: families -6.6 / -3.5 %, punta-cana and entertainment
+  +6.3 % at 390); 6 pages within 3 %.
+
+**Lists written:**
+- `reimport-588-brussels-sidebar-h1.txt` (95: READY 11, WAITING 84).
+- `capture-list-584-brands.txt` rows 60-80: 17 Brussels pages, 4 of our own homepages.
+- `rows-for-ema-lufthansa.md`: D2-D9 measured.
+- `ranking-588-austrian-brussels-discover.md`.
+- reimport-570-brussels-in-column-sidebars.txt is unchanged, as asked.
+
+**Recordings read (sha256 = sidecar):**
+- brussels-parity-006 `de7fb8c1…`
+- austrian-parity-008 `eca0ef2e…`, -009 `c834f0ea…`, -010 `2d834446…`, -011 `8c8cd14d…` (prefix 3LZRr22D3…, not
+  GDDocrq…)
+- brussels-parity-003 `f78cf1fc…`, read for the h1 type: none of its pages is of it.
+
+No upload, preview or publish. Every www request was refused in the browser and counted in each probe; none was made.

@@ -79,3 +79,8 @@ https://www.brusselsairlines.com/be/en/legal-notices/us-traveling-with-disabilit
 https://www.brusselsairlines.com/be/en/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-compensation-voucher 1440 390 # 74: sidebar-h1 kind
 https://www.brusselsairlines.com/be/en/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-refund-voucher 1440 390 # 75: sidebar-h1 kind
 https://www.brusselsairlines.com/be/en/legal-notices 1440 390 # 76: in-column legal notices hub (390)
+# Priority 5 (added after brief 588, item 5) - OUR host's Austrian homepages with www's APIs allowed (the fare teaser's and the destination finder's data come from www's APIs in the browser; ema-cashub refuses every www request, so ours render their empty state and the 48-root ranking cannot compare those bands): banner accepted, nothing opened, as the www recordings. One root of each group of the ranking (ranking-588-austrian-brussels-discover.md).
+https://austrian.turnsthe.page/be/en/homepage 1440 390 # 77: our host, group of /be/en
+https://austrian.turnsthe.page/cz/en/homepage 1440 390 # 78: our host, group of /cz/en
+https://austrian.turnsthe.page/tr/en/homepage 1440 390 # 79: our host, group of /tr/en
+https://austrian.turnsthe.page/ge/en/homepage 1440 390 # 80: our host, group of /ge/en
