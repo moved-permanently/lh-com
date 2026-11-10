@@ -3011,5 +3011,27 @@ follow when their run is through.
   www's column views contradict (12 of 13 column-view headings on ita-parity-004 / -003 are heading-small). Decision:
   ema-test's files stay as they are; the row and its evidence go to ema-test
   (tools/reports/parity-2026-11-09/rows-for-ema-test.md, row 1), and the part the ITA theme can do safely is ITA row
-  31 (next commit).
+  31 (next commit).- **On main:** 564f24a7 (the capture list, rows-for-ema-test.md, the report; lint 0, 3488 pass 0 fail, smoke 0
+  differences on 14 hosts).
+- **ITA row 31:** an unmarked Columns Media H2 in www's heading-small size (28 px at 1440, 22 at 375). Theme rule,
+  backwards-compatible (an unmarked heading in that block only; a marked one keeps its size). Contact -88 px at 1440,
+  the others a few px (the picture sets the row's height); the "Related" headings stay with ema-test (row 1 there).
+- **New archives in the R2 drop** (probed after the newest I knew; sha256 computed here):
+  - airdolomiti-snapshots-004: 240,103 bytes, b09b5f267d263ca7418d7c9331d21ad725d54e117a9edd2b9b9de75ee0bd0cd1, 3 pages
+    (unterhaltung-an-bord, london-eu, basel-de; 18:07 UTC);
+  - airdolomiti-parity-005: 14,036,855 bytes, 9c78554e04392823f4dccefe7bd693384ee01c00b3b450259e845c2b5b8176f4, the
+    same 3 pages rendered;
+  - tap-snapshots-027: 934,760 bytes, 2182dde3ce0cd6e3935fd7723b7e64d3e570e803923a68bfc55228fbdd941388, 9 pages of list
+    "e" (not the 70 market-group pages yet);
+  - tap-parity-003: 385,967 bytes, 35c64c09dafc73f92afa1fc167f7586092c5b7b62fa716bdd13a9b3943aedfeb, 0 pages (1 not
+    recorded);
+  - tap-parity-004: 13,053,116 bytes, 9cdb21ba8ed013c6e533c07f5eb23687d71cd07d2aade2e8d048f92cf88e49a3, get-inspired at
+    1440 and 390.
+- **The German in-flight entertainment page (capture-567-ad-news-de, now recorded):** www.airdolomiti.de shows the
+  trail in its own row and the picture at 235 px with no visible title over it (the title is the subtitle under the
+  picture), unlike en / it in airdolomiti-parity-001 (the picture from the page's top under the bar). Ours already
+  matches it in height at 1440 (picture 240, text 951, footer 1,659 against 235, 946, 1,657) but shows the document's
+  H1 in the white space over the picture. Decision: not a re-import with the hidden-heading style yet (row 95 would then
+  pull the picture under the bar, which www.airdolomiti.de does not do); en and it go on the next capture list to see
+  whether www.airdolomiti.eu / .it now show the German layout too.
 

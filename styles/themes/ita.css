@@ -961,3 +961,11 @@ body.brand-ita main > .section > .default-content-wrapper + .flight-search-wrapp
 body.brand-ita main > .section > .flight-search-wrapper.flight-search-band + .default-content-wrapper {
   margin-top: 46px;
 }
+
+/* a Columns Media heading in www's heading-small (ITA row 31): www's column-view headings are heading-small (28px at
+   1440, 22 at 375; 12 of 13 on ita-parity-004 / -003), which the collapse makes the level's default; unmarked H2s only,
+   not under a title option or in the sidebar layout (the page's own headings) */
+body.brand-ita main .columns-media:not(.title-large, .title-compact, .sidebar) .columns-media-text h2:not([class*="heading-"]) {
+  font-size: var(--heading-font-size-l);
+  line-height: 1.1;
+}
