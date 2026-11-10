@@ -636,3 +636,21 @@ body.brand-discover main .columns-media-wrapper + .columns-media-wrapper {
     margin-top: 80px;
   }
 }
+
+/* the accordions' panel text as www's rich text (Discover row 43, ema-cashub's D1 b): 12px further in than the title,
+   paragraphs and lists 36px apart, lists 40px in with their items 10px apart (the block puts the text in the intro) */
+body.brand-discover main .accordion-columns-panel > .accordion-columns-intro {
+  padding-inline: 12px;
+}
+
+body.brand-discover main .accordion-columns-panel > .accordion-columns-intro > :is(p, ul, ol):not(:last-child) {
+  margin-bottom: 36px;
+}
+
+body.brand-discover main .accordion-columns-panel > .accordion-columns-intro :is(ul, ol) {
+  padding-left: 40px;
+}
+
+body.brand-discover main .accordion-columns-panel > .accordion-columns-intro li {
+  margin-bottom: 10px;
+}

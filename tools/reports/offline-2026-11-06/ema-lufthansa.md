@@ -3038,4 +3038,21 @@ follow when their run is through.
 
 - **On main:** 4fd7c695 (ITA 31; lint 0, 3493 pass 0 fail). Smoke after the push: 0 differences on 12 hosts; Discover's
   run before the push failed to connect (socket closed), re-run by hand: 0 differences against the last run;
-  lufthansa-edge's sitemap_lh.xml.gz changed (another session's sitemap, not code).
+  lufthansa-edge's sitemap_lh.xml.gz changed (another session's sitemap, not code).- **Air Dolomiti row 99, the post title (decision 1):** the title at www's 170 at 1440 and 152 at 390 (www 150);
+  backwards-compatible (the post's trail and header spacing in the theme). The posts' totals at 1440 within 0.3 %.- **TAP row 132 (decision 2):** "© 2026, TAP." in bold as on www (footer-tap.js, TAP only; backwards-compatible: the
+  other brands' notes unchanged). The "Cookies Settings" row is open: the site has no consent dialog to open (no
+  OneTrust id, no fallback for TAP), our consent code removes such a row where there is none, and the row would be a
+  footer document change (no upload in this order).- **Item b, Cargo Facts & Figures at 390, section by section (Cargo row 50):** the key facts band was 25 px over www's
+  shape (the link's spacing): fixed, backwards-compatible (theme). The board's accordion matches. The timeline (+250 px
+  over 40 cards) is our brand font wrapping one line more in about half the cards; the font is row 49's decision
+  (www uses the older LufthansaTextWeb), so it stays.- **Discover row 43 (ema-cashub's D1 b):** the accordions' panel text spaced as www's rich text (36 px between
+  paragraphs and lists, list items 10 px apart, 12 px in); backwards-compatible (theme). families +92 px at 1440,
+  +140 at 390 (de and en). discover-parity-001 fetched here: 108,747,903 bytes,
+  b08cb37e203ac49b7fae32f01f442e504eb75fd210630ce9dfb34020a2b330eb.
+
+- **On main:** 1367b1d5 (AD 98; its first push was refused, pushed after a fresh lint 0, 3500 pass 0 fail and smoke:
+  0 differences on 13 hosts, SWISS's after-run failed to connect and was re-run by hand: 0 differences). Main's whole-repo
+  lint was red from 18:48 to about 19:40 UTC (another session's link-list rules in styles/styles.css); I held the push
+  until it was green again.
+- **Four items in one push** (each its own commit and files; lint, the full suite and smoke once on the tree with all
+  four, as main moves fast tonight): AD 99, TAP 132, Cargo 50, Discover 43.
