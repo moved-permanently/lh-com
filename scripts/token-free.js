@@ -248,7 +248,13 @@ function applyThemeRules(main, theme) {
   sections.forEach((section, i) => {
     own(section).forEach((el) => {
       const level = /^H([1-6])$/.exec(el.tagName);
-      if (level) addUnmarked(el, theme.headings[`h${level[1]}`], MARKED_SIZE);
+      if (level) {
+        // headingsBefore: the level's size right before a given block (ITA's H2 over a teaser grid)
+        let next = el.nextElementSibling;
+        while (next && isMeta(next)) next = next.nextElementSibling;
+        const before = next && isBlock(next) && ((theme.headingsBefore || {})[blockName(next)] || {})[`h${level[1]}`];
+        addUnmarked(el, before || theme.headings[`h${level[1]}`], MARKED_SIZE);
+      }
       if (theme.text.width === 'full' && TEXT.includes(el.tagName) && !isSeparator(el)
         && !(el.tagName === 'P' && hasPicture(el) && !el.textContent.trim())) addUnmarked(el, 'full-width', MARKED_WIDTH);
     });

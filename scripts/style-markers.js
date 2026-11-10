@@ -185,7 +185,13 @@ export const THEMES = {
   // default (www: 89 % unmarked, heading-medium; no longer heading-small)
   brussels: { live: true, pageTypes: { flow: { headings: { h3: 'heading-small' } } } },
   // ITA: running text over the whole width
-  ita: { live: true, text: { width: 'full' } },
+  // ITA: a section's H2 right before a teaser grid in heading-small (www's column view; DA: 923 of
+  // 1,029 H2s before Carousel Cards, every one of 67 before Cards Icon; rows-for-ema-test row 1)
+  ita: {
+    live: true,
+    text: { width: 'full' },
+    headingsBefore: { 'carousel-cards': { h2: 'heading-small' }, 'cards-icon': { h2: 'heading-small' } },
+  },
   // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
   // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
   // (a heading right before them starts the group's column view, as its marker did)
