@@ -84,3 +84,5 @@ https://austrian.turnsthe.page/be/en/homepage 1440 390 # 77: our host, group of 
 https://austrian.turnsthe.page/cz/en/homepage 1440 390 # 78: our host, group of /cz/en
 https://austrian.turnsthe.page/tr/en/homepage 1440 390 # 79: our host, group of /tr/en
 https://austrian.turnsthe.page/ge/en/homepage 1440 390 # 80: our host, group of /ge/en
+# Priority 6 (added after brief 591, item 2) - the payment methods table of Brussels' our-payment-methods (www draws it in an iframe of webv4.brusselsairlines.com; all six languages use the same page): its rendered HTML is what the Brussels import needs (withPaymentTable reads content-sites/lh-brussels/assets/fop/<file>.html, the table only), the 1440 and 390 recordings of the iframe page as for any page.
+https://webv4.brusselsairlines.com/prod/content/v3assets/misc/fop/new/fop_standalone_1_en.html 1440 390 # 81: Brussels payment methods table (iframe page)
