@@ -526,9 +526,9 @@
    "preview": "2026-11-08T04:45:10.780Z"
   },
   "/pt-pt/miles-and-go/parceiros": {
-   "uploaded": "2026-11-04T05:51:41.646Z",
-   "mtime": 1793771340138,
-   "preview": "2026-11-04T05:51:48.236Z"
+   "uploaded": "2026-11-10T19:25:04.014Z",
+   "mtime": 1794338620594.0525,
+   "preview": "2026-11-10T19:25:09.810Z"
   },
   "/pt-pt/miles-and-go/promo": {
    "uploaded": "2026-11-08T04:45:13.704Z",
@@ -1801,9 +1801,9 @@
    "preview": "2026-11-08T04:45:43.797Z"
   },
   "/en-pt/miles-and-go/partners": {
-   "uploaded": "2026-11-04T05:54:58.011Z",
-   "mtime": 1793771343580,
-   "preview": "2026-11-04T05:55:03.246Z"
+   "uploaded": "2026-11-10T19:24:54.900Z",
+   "mtime": 1794338620465.7388,
+   "preview": "2026-11-10T19:25:00.043Z"
   },
   "/en-pt/miles-and-go/promo": {
    "uploaded": "2026-11-08T04:45:46.785Z",
@@ -6139,6 +6139,186 @@
    "uploaded": "2026-11-08T09:19:58.930Z",
    "mtime": 1794128090413.452,
    "preview": "2026-11-08T09:20:01.052Z"
+  },
+  "/en-pt/fragments/partners/market-9c0d89": {
+   "uploaded": "2026-11-10T19:24:24.822Z",
+   "mtime": 1794338655152.6624,
+   "preview": "2026-11-10T19:24:27.445Z"
+  },
+  "/pt-pt/fragments/parceiros/market-b4e65f": {
+   "uploaded": "2026-11-10T19:24:29.736Z",
+   "mtime": 1794338655154.2288,
+   "preview": "2026-11-10T19:24:31.943Z"
+  },
+  "/de-at/buchungen/versicherung": {
+   "uploaded": "2026-11-10T19:25:12.147Z",
+   "mtime": 1794338620663.8389,
+   "preview": "2026-11-10T19:25:14.264Z"
+  },
+  "/de-ch/buchungen/versicherung": {
+   "uploaded": "2026-11-10T19:25:16.353Z",
+   "mtime": 1794338620680.5125,
+   "preview": "2026-11-10T19:25:18.826Z"
+  },
+  "/en-br/help": {
+   "uploaded": "2026-11-10T19:25:20.793Z",
+   "mtime": 1794338620697.0745,
+   "preview": "2026-11-10T19:25:23.375Z"
+  },
+  "/en-br/help/frequently-asked-questions": {
+   "uploaded": "2026-11-10T19:25:25.267Z",
+   "mtime": 1794338620712.3992,
+   "preview": "2026-11-10T19:25:28.229Z"
+  },
+  "/en-br/help/tap-refunds": {
+   "uploaded": "2026-11-10T19:25:30.663Z",
+   "mtime": 1794338620726.3462,
+   "preview": "2026-11-10T19:25:32.872Z"
+  },
+  "/en-br/info-legal/privacidade": {
+   "uploaded": "2026-11-10T19:25:35.161Z",
+   "mtime": 1794338620739.8513,
+   "preview": "2026-11-10T19:25:37.690Z"
+  },
+  "/en-br/legal-info/privacy": {
+   "uploaded": "2026-11-10T19:25:39.710Z",
+   "mtime": 1794338620754.7954,
+   "preview": "2026-11-10T19:25:42.075Z"
+  },
+  "/en-br/legal-info/terms-and-conditions": {
+   "uploaded": "2026-11-10T19:25:44.041Z",
+   "mtime": 1794338620768.8064,
+   "preview": "2026-11-10T19:25:46.463Z"
+  },
+  "/en-br/miles-and-go/gift": {
+   "uploaded": "2026-11-10T19:25:48.464Z",
+   "mtime": 1794338620782.292,
+   "preview": "2026-11-10T19:25:51.260Z"
+  },
+  "/en-ca/information/baggage/problems-baggage": {
+   "uploaded": "2026-11-10T19:25:55.625Z",
+   "mtime": 1794338620797.699,
+   "preview": "2026-11-10T19:25:58.255Z"
+  },
+  "/en-es/legal-info/conditions-of-carriage": {
+   "uploaded": "2026-11-10T19:26:00.426Z",
+   "mtime": 1794338620815.2578,
+   "preview": "2026-11-10T19:26:03.072Z"
+  },
+  "/en-gb/legal-info/conditions-of-carriage": {
+   "uploaded": "2026-11-10T19:26:05.050Z",
+   "mtime": 1794338620829.2063,
+   "preview": "2026-11-10T19:26:07.609Z"
+  },
+  "/en-us/miles-and-go/gift": {
+   "uploaded": "2026-11-10T19:26:09.823Z",
+   "mtime": 1794338620844.3257,
+   "preview": "2026-11-10T19:26:12.252Z"
+  },
+  "/es-cl/miles-and-go/promo": {
+   "uploaded": "2026-11-10T19:26:14.991Z",
+   "mtime": 1794338620858.9075,
+   "preview": "2026-11-10T19:26:22.510Z"
+  },
+  "/es-mx/miles-and-go/promo": {
+   "uploaded": "2026-11-10T19:26:24.878Z",
+   "mtime": 1794338620874.0083,
+   "preview": "2026-11-10T19:26:28.665Z"
+  },
+  "/es-us/miles-and-go/club": {
+   "uploaded": "2026-11-10T19:26:30.712Z",
+   "mtime": 1794338620889.095,
+   "preview": "2026-11-10T19:26:33.272Z"
+  },
+  "/es-us/miles-and-go/gane-millas": {
+   "uploaded": "2026-11-10T19:26:35.526Z",
+   "mtime": 1794338620903.8015,
+   "preview": "2026-11-10T19:26:38.129Z"
+  },
+  "/es-us/miles-and-go/promociones": {
+   "uploaded": "2026-11-10T19:26:40.152Z",
+   "mtime": 1794338620918.8032,
+   "preview": "2026-11-10T19:26:42.767Z"
+  },
+  "/es-us/promos": {
+   "uploaded": "2026-11-10T19:26:45.097Z",
+   "mtime": 1794338620934.8025,
+   "preview": "2026-11-10T19:26:47.532Z"
+  },
+  "/fr-be/reservations/assurances": {
+   "uploaded": "2026-11-10T19:26:49.383Z",
+   "mtime": 1794338620949.043,
+   "preview": "2026-11-10T19:26:51.555Z"
+  },
+  "/fr-ca/informations/bagage/problemes-bagages": {
+   "uploaded": "2026-11-10T19:26:53.626Z",
+   "mtime": 1794338620963.9404,
+   "preview": "2026-11-10T19:26:56.238Z"
+  },
+  "/fr-ca/miles-and-go/gagnez-miles": {
+   "uploaded": "2026-11-10T19:26:58.278Z",
+   "mtime": 1794338620979.3718,
+   "preview": "2026-11-10T19:27:01.238Z"
+  },
+  "/fr-ca/promos": {
+   "uploaded": "2026-11-10T19:27:03.426Z",
+   "mtime": 1794338620995.8882,
+   "preview": "2026-11-10T19:27:05.568Z"
+  },
+  "/fr-sn/miles-and-go/promo": {
+   "uploaded": "2026-11-10T19:27:07.584Z",
+   "mtime": 1794338621020.3047,
+   "preview": "2026-11-10T19:27:11.676Z"
+  },
+  "/fr-tg/miles-and-go/promo": {
+   "uploaded": "2026-11-10T19:27:13.649Z",
+   "mtime": 1794338621036.8867,
+   "preview": "2026-11-10T19:27:16.146Z"
+  },
+  "/pt-be/info-legal/condicoes-de-transporte": {
+   "uploaded": "2026-11-10T19:27:18.199Z",
+   "mtime": 1794338621051.5356,
+   "preview": "2026-11-10T19:27:20.645Z"
+  },
+  "/pt-ca/informacoes/bagagem/problemas-bagagem": {
+   "uploaded": "2026-11-10T19:27:22.835Z",
+   "mtime": 1794338621066.6533,
+   "preview": "2026-11-10T19:27:25.301Z"
+  },
+  "/pt-ch/reservas/seguros": {
+   "uploaded": "2026-11-10T19:27:27.191Z",
+   "mtime": 1794338621080.9702,
+   "preview": "2026-11-10T19:27:29.120Z"
+  },
+  "/pt-es/info-legal/condicoes-de-transporte": {
+   "uploaded": "2026-11-10T19:27:31.595Z",
+   "mtime": 1794338621101.3923,
+   "preview": "2026-11-10T19:27:34.253Z"
+  },
+  "/pt-fr/info-legal/condicoes-de-transporte": {
+   "uploaded": "2026-11-10T19:27:36.538Z",
+   "mtime": 1794338621117.5151,
+   "preview": "2026-11-10T19:27:39.433Z"
+  },
+  "/pt-gb/info-legal/condicoes-de-transporte": {
+   "uploaded": "2026-11-10T19:27:41.488Z",
+   "mtime": 1794338621131.8342,
+   "preview": "2026-11-10T19:27:44.174Z"
+  },
+  "/pt-us/ajuda": {
+   "uploaded": "2026-11-10T19:27:46.053Z",
+   "mtime": 1794338621144.9946,
+   "preview": "2026-11-10T19:27:48.406Z"
+  },
+  "/pt-us/ajuda/perguntas-frequentes": {
+   "uploaded": "2026-11-10T19:27:50.371Z",
+   "mtime": 1794338621158.4548,
+   "preview": "2026-11-10T19:27:52.869Z"
+  },
+  "/pt-us/miles-and-go/gift": {
+   "uploaded": "2026-11-10T19:27:54.865Z",
+   "mtime": 1794338621172.7144,
+   "preview": "2026-11-10T19:27:57.446Z"
   }
  },
  "media": {
