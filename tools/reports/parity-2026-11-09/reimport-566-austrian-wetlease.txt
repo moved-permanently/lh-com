@@ -1,0 +1,11 @@
+# The brief after 566 (ema-cashub, the ranking against austrian-parity-003): lh-austrian's /book-and-manage/flights/wetlease-hub documents to re-import with the info bundle as of c26893cb, in release order. www's "Our wet lease partners" is a three-column view with one card (the airBaltic logo, its text and link) and two empty items; the columns-media parser now keeps the empty items on Austrian pages too (c26893cb), so the card takes a third of the row as on www (since the job 539 re-import the logo filled the row): at/en 1440 +13.6 -> about -2.5 %, 390 -4.0 -> about -3.0 %. Snapshots: this disk has www's page only for /at/en/book-and-manage/flights/wetlease-hub (the recording austrian-parity-003, 1440 and 390; there is no tools/importer/bd-snapshots/www.austrian.com here). The harness needs one snapshot per page: a page without one is not re-imported but goes back to the user as a capture request. For any page whose DA copy differs from the importer's output in things the importer does not own (pictures, links, alt texts, metadata rows), the harness keeps DA's version of those. (cn/zh and jp/ja: no measurement here, no CJK font in this browser.)
+/at/de/book-and-manage/flights/wetlease-hub
+/at/en/book-and-manage/flights/wetlease-hub
+/cn/zh/book-and-manage/flights/wetlease-hub
+/es/es/book-and-manage/flights/wetlease-hub
+/fr/fr/book-and-manage/flights/wetlease-hub
+/gr/el/book-and-manage/flights/wetlease-hub
+/it/it/book-and-manage/flights/wetlease-hub
+/jp/ja/book-and-manage/flights/wetlease-hub
+/pl/pl/book-and-manage/flights/wetlease-hub
+/ru/ru/book-and-manage/flights/wetlease-hub

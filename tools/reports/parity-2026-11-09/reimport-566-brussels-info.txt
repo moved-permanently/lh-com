@@ -1,0 +1,9 @@
+# The brief after 566 (ema-cashub, the ranking against brussels-parity-004): lh-brussels documents to re-import with the info bundle as of c26893cb, in release order. (1) /local-page/student-fares (66713b35): www's "Fly, collect and redeem" row (picture | the text and the two app links in a nested column view) becomes columns-media; it came in as a page-wide 2,497 px picture with the text under it: 1440 +18.9 -> about +2.0 %, 390 -0.8 -> about -0.5 %. (2) /our-company/organisation (c26893cb): the four-column people row keeps its empty first item, so the three people take a quarter each as on www (were three thirds). Snapshots: this disk has www's page only for /be/en/local-page/student-fares and /be/en/our-company/organisation (the recording brussels-parity-004, 1440 and 390; tools/importer/bd-snapshots has neither page). The harness needs one snapshot per page: a page without one is not re-imported but goes back to the user as a capture request. For any page whose DA copy differs from the importer's output in things the importer does not own (pictures, links, alt texts, metadata rows), the harness keeps DA's version of those.
+/be/en/local-page/student-fares
+/be/fr/local-page/student-fares
+/be/en/our-company/organisation
+/be/fr/our-company/organisation
+/be/nl/our-company/organisation
+/de/de/our-company/organisation
+/es/es/our-company/organisation
+/it/it/our-company/organisation
