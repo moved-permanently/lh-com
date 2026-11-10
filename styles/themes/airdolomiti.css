@@ -1021,8 +1021,8 @@ body.brand-airdolomiti .article-header .article-header-byline {
     margin-inline: 0;
   }
 
-  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container) > .default-content-wrapper > :is(p, ul, ol, h2, h3, h4, h5, h6),
-  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container) > .default-content-wrapper > p:is(:has(> picture), :has(> a > picture), .caption) {
+  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container, :has(> .carousel-cards-wrapper > .carousel-cards:not(.article))) > .default-content-wrapper > :is(p, ul, ol, h2, h3, h4, h5, h6),
+  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container, :has(> .carousel-cards-wrapper > .carousel-cards:not(.article))) > .default-content-wrapper > p:is(:has(> picture), :has(> a > picture), .caption) {
     max-width: 1200px;
     margin-inline: 0;
   }
@@ -1031,12 +1031,12 @@ body.brand-airdolomiti .article-header .article-header-byline {
 /* the token-free caption (scripts/token-free.js: a figure of the image paragraph and its
    figcaption) as those paragraphs: 1200px from the left, the caption the figure's width */
 @media (width >= 768px) {
-  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container) > .default-content-wrapper > figure.image-caption {
+  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container, :has(> .carousel-cards-wrapper > .carousel-cards:not(.article))) > .default-content-wrapper > figure.image-caption {
     max-width: 1200px;
     margin-inline: 0;
   }
 
-  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container) > .default-content-wrapper > figure.image-caption > figcaption {
+  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container, :has(> .carousel-cards-wrapper > .carousel-cards:not(.article))) > .default-content-wrapper > figure.image-caption > figcaption {
     max-width: none;
   }
 }

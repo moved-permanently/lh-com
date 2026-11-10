@@ -2909,5 +2909,10 @@ follow when their run is through.
   destination article lists' rule (a title and one line over three-up cards) took these pages too, centring the title.
   Under the tiles, www's grid keeps 150 px at every width and ours had 48. The article lists' rule now leaves out the
   tile cards, and the tiles' section keeps 150 px. All six pages within about 2 % at both widths (support en 390 -6.2 % ->
-  -0.7 %, de -7.4 % -> -2.2 %, baggage de -6.4 % -> -1.9 %); Florence's article list and the homepage unchanged.
+  -0.7 %, de -7.4 % -> -2.2 %, baggage de -6.4 % -> -1.9 %); Florence's article list and the homepage unchanged.- **On main:** 95e8f01b (lint 0, 3454 pass 0 fail, smoke 0 differences on 14 hosts).
+- **Air Dolomiti row 94, the posts' text column:** the theme's 1200 px rule had lost to lh-com's article rule since
+  c20b77ea (that rule's :not() holds a :has(), so it counts more), and the posts' text was a centred 912 px column. The
+  theme's rules now carry the same :has(). 1440: the three Adriatic articles within 0.6 % (de 4,496 -> 4,285 against
+  4,262). street-food-in-munich went 5,830 -> 5,467 against www's 6,173: its column is www's now; its stage and quiz card
+  (row 82) are the rest, next in line.
 
