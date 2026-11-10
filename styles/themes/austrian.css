@@ -1155,3 +1155,21 @@ body.brand-austrian main > .section.stage > .default-content-wrapper:has(> h3:on
     margin-bottom: 54px;
   }
 }
+
+/* the closing band on phones (the decision of 584): www shows the flight search on white, without the band picture,
+   80 px under the title and 107 px above the footer (us/en ski-campaign-2026 at 390) */
+@media (width < 768px) {
+  body.brand-austrian main > .section.stage:last-child > .flight-search-wrapper.flight-search-band:last-child {
+    min-height: 0;
+    padding-top: 80px;
+    padding-bottom: 107px;
+  }
+
+  body.brand-austrian main > .section.stage:last-child > .flight-search-wrapper.flight-search-band:last-child > .flight-search-background {
+    display: none;
+  }
+
+  body.brand-austrian main > .section.stage:last-child > .flight-search-wrapper.flight-search-band:last-child > .flight-search.standalone {
+    margin-top: 0;
+  }
+}

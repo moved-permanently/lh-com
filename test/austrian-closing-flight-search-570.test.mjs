@@ -24,3 +24,11 @@ test('from 1025 px: 36 px more above the title, 54 px under the band before the 
   assert.match(css, new RegExp(`${TITLE} \\{ margin-top: calc\\(var\\(--spacing-default\\) \\+ 36px\\); \\}`));
   assert.match(css, /body\.brand-austrian main > \.section\.stage:last-child:has\(> \.flight-search-wrapper\.flight-search-band:last-child\) \{ margin-bottom: 54px; \}/);
 });
+
+test('below 768 px the closing band shows no picture (www: the search on white), 80 px above it, 107 px to the footer (decision of 584)', () => {
+  const BAND = 'body\\.brand-austrian main > \\.section\\.stage:last-child > \\.flight-search-wrapper\\.flight-search-band:last-child';
+  const phone = css.match(/@media \(width < 768px\) \{ body\.brand-austrian main > \.section\.stage:last-child > \.flight-search-wrapper\.flight-search-band:last-child \{[^}]*\}[^@]*\}/)?.[0] || '';
+  assert.match(phone, /min-height: 0; padding-top: 80px; padding-bottom: 107px;/);
+  assert.match(phone, new RegExp(`${BAND} > \\.flight-search-background \\{ display: none; \\}`));
+  assert.match(phone, new RegExp(`${BAND} > \\.flight-search\\.standalone \\{ margin-top: 0; \\}`));
+});
