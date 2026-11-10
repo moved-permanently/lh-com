@@ -16,8 +16,9 @@ export const styleMarker = (tokens) => new RegExp(`\\s*\\{((?:${tokens})(?: (?:$
 
 export const HEADING_TOKENS = `heading-(?:large|medium|small|copytext-large|copytext-medium)|copytext-large|limited-width|${COLUMN_MARK}`;
 export const PARAGRAPH_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\\d{1,3}|${COLUMN_MARK}`;
-// lists: the text sizes as on paragraphs too (SWISS's sports-equipment lists: "{copytext-medium}"); lufthansa.com's
-// link lists to pages (www's .link-list ul.horizontal|responsive|vertical, brief 582): "{links-horizontal}"
+// lists: the text sizes as on paragraphs too (SWISS's sports-equipment lists: "{copytext-medium}");
+// lufthansa.com's link lists to pages (www's .link-list ul.horizontal|responsive|vertical,
+// brief 582): "{links-horizontal}"
 export const LIST_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|links-(?:horizontal|responsive|vertical)|${COLUMN_MARK}`;
 
 export const HEADING_STYLE = styleMarker(HEADING_TOKENS);
