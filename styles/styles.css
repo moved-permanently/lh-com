@@ -1746,6 +1746,23 @@ body.brand-lufthansa main > .section.column-view:not(.grey, :has(.column-start, 
   margin-bottom: 0;
 }
 
+/* the collapse splits a view's opening separator (the hub documents' flush column-view padded
+   sections start with a Spacer / Divider block) into a section of its own that keeps the view's
+   classes: no view padding and no section gap for such a section, and none after the view before
+   it (the marks drew none there). No published document has one before the switch (census of the
+   6,826 documents, brief 582); digital-self-services switched 16.3 / 19.9 % -> 8.2 / 3.5 % (390 /
+   1440; today 7.1 / 2.9), +281 / +393 px -> +49 / +1 px */
+/* stylelint-disable-next-line no-descending-specificity -- a separator-only view section, not a campaign-section's */
+body.brand-lufthansa main > .section.column-view:not(.grey):has(> .default-content-wrapper:only-child > p.spacer:only-child) {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+body.brand-lufthansa main > .section.column-view:not(.grey) + .section.column-view:not(.grey):has(> .default-content-wrapper:only-child > p.spacer:only-child) {
+  margin-top: -48px;
+}
+
 /* the section before a view, marks or not (no :has() in this one's :has(), it would drop the rule) */
 /* stylelint-disable-next-line no-descending-specificity -- the section before a view, not a campaign-section's */
 body.brand-lufthansa main > .section:not(.grey, .column-view):has(+ .section.column-view:not(.grey)) {
