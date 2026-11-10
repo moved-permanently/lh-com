@@ -2118,6 +2118,10 @@ imports did not, so they will have fetched the recordings' www stylesheets and s
   groups-and-charter/charter, my-bookings/emergency-contact; Austrian hu/en invoice-request-hungary. The banded core
   forms are within about 10 px of www below their last field once the 71 px are taken off.
 - **CJK rows:** cn/zh and jp/ja (no Japanese or Chinese font in this browser).
+- **Link-outs by design:** Brussels /check-in-options-and-info/check-in-times (390 -5.5 %): www's check-in deadline
+  search (travel class, country, airport, Show) is a link to the page on www on ours (brussels-import.mjs
+  withLinkOuts: a widget a www service answers); -259 px at 390, -43 at 1440. The deadline tables above it are
+  -53 px at both widths (not traced).
 
 **Changes on main:**
 - `66713b35` info importer: a two-column view whose nested view holds only links is columns-media (Brussels
