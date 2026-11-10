@@ -1568,3 +1568,16 @@ body.brand-lufthansa .columns-media .columns-media-row > div > blockquote > * + 
     margin-bottom: 19px;
   }
 }
+
+/* the same strip below 1025px, where it is a slider: www's strip 61px under the picture above, its
+   dots 78px under the logos, the text 46px under the dots at 390; ours 45, 87 and 66 (brief 558) */
+@media (width < 1025px) {
+  body.brand-lufthansa .columns-media.cell-slider:not(:has(.columns-media-text)) {
+    margin-top: 16px;
+  }
+
+  body.brand-lufthansa .columns-media.cell-slider:not(:has(.columns-media-text)) .columns-media-dots {
+    margin-top: -47px;
+    margin-bottom: 10px;
+  }
+}
