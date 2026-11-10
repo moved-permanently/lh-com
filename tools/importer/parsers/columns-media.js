@@ -633,9 +633,10 @@ export default function parse(element, { document, url, params }) {
     // with empty items keeps them (live: each item its column, col-lg; wetlease-hub's one partner
     // card a third of the row, the logo across it without them, the brief after 476; Austrian's
     // /at/en wetlease-hub, Brussels' /be/en/our-company/organisation, an empty first item and three
-    // people a quarter each, the brief after 551c)
+    // people a quarter each, the brief after 551c; Group for Business' lhg-history-alliances Joint
+    // Ventures, [2010, 2012, empty] and [empty, 2017, 2017], the brief after d9cf2340)
     const pageUrl = (params && params.originalURL) || url || '';
-    const lufthansa = /^https?:\/\/([^/]+\.)?(lufthansa|austrian|brusselsairlines)\.com\//.test(pageUrl);
+    const lufthansa = /^https?:\/\/([^/]+\.)?(lufthansa|austrian|brusselsairlines|lufthansagroup)\.com\//.test(pageUrl);
     const partial = lufthansa && element.matches('.threecolumn, .fourcolumn') && filled.length > 0 && filled.length < items.length;
     const row = (hasEmbed || nestedView || loneImage || halfAlone || partial) && filled.length ? collected.map((c) => (c.length ? c : ''))
       : filled;

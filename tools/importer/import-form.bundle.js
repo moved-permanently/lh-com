@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-form.js
-  var tmp_bundle_form_81718_exports = {};
-  __export(tmp_bundle_form_81718_exports, {
-    default: () => tmp_bundle_form_81718_default
+  var tmp_bundle_form_331094_exports = {};
+  __export(tmp_bundle_form_331094_exports, {
+    default: () => tmp_bundle_form_331094_default
   });
 
   // tools/importer/parsers/form-core.js
@@ -1629,7 +1629,7 @@ var CustomImportScript = (() => {
       const loneImage = items.length > 1 && filled.length === 1 && filled[0].every(isImage);
       const halfAlone = element.matches(".twocolumn") && items.length === 2 && filled.length === 1;
       const pageUrl = params && params.originalURL || url || "";
-      const lufthansa = /^https?:\/\/([^/]+\.)?(lufthansa|austrian|brusselsairlines)\.com\//.test(pageUrl);
+      const lufthansa = /^https?:\/\/([^/]+\.)?(lufthansa|austrian|brusselsairlines|lufthansagroup)\.com\//.test(pageUrl);
       const partial = lufthansa && element.matches(".threecolumn, .fourcolumn") && filled.length > 0 && filled.length < items.length;
       const row = (hasEmbed || nestedView || loneImage || halfAlone || partial) && filled.length ? collected.map((c) => c.length ? c : "") : filled;
       if (row.length) cells.push(row);
@@ -2127,8 +2127,18 @@ var CustomImportScript = (() => {
     b2b: {
       live: true,
       pageTypes: {
-        // a heading right before such a block opens its column view (www: 81 of 105 marked so)
-        flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true, startAtHeading: true } }
+        // a heading right before such a block opens its column view (www: 81 of 105 marked so, the
+        // brief after 550 narrows it); in a grey band no edge above a block right after a heading
+        // (www: none of 146 bands has column marks; travel-id's and contact's headings sit on it)
+        flow: {
+          headings: { h3: "heading-small" },
+          columnViews: {
+            blocks: ["columns-media", "carousel-images", "quote"],
+            endEdge: true,
+            startAtHeading: true,
+            bandHeadings: true
+          }
+        }
       }
     },
     // Air Dolomiti: the base theme (between B2B's and TAP's entries, next to no switch line)
@@ -5344,7 +5354,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_form_81718_default = {
+  var tmp_bundle_form_331094_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5384,5 +5394,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_form_81718_exports);
+  return __toCommonJS(tmp_bundle_form_331094_exports);
 })();
