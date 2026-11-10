@@ -2806,3 +2806,46 @@ drop and our own host only).
   section has no gap. List: reimport-582-profile-nav-flush-lh-com.txt (43 info documents). Also seen there, not
   changed yet: www's bar label on phones is the section's first tab ("Lufthansa Travel Classes"), ours the page's
   own tab; the stage description is smaller on www at 390.
+- **B1, the slider margins (628d2d8):** in a carrier view the last element loses its bottom margin; the
+  sliders' own (cell-slider 19 px, phone-slider 44 px from 1025 px) stay: meetings-and-events at 1440 after the
+  switch 8.3 -> 4.7 % (today 3.9). 15 documents have such a view today (onboard-delights' versions): unchanged.
+- **B1, where the 36 pages stand after the switch (with tonight's code, both sides injected):** the column views
+  within a point; worse by 0.5 or more: miles-and-more (+3.4 at 390, +4.5 to +14.8 at 1440: its separators
+  collapse to M and the carousel section takes h3-large, 89 px shorter), most-significant-route /
+  bedeutsamste-strecken (+2.1 / +1.1), stopover (+2.9 / +3.5), neuschwanstein (+1.2 at 390), chronicle (+1.0 at
+  1440). These are B2 (M at 60 px, Ben's decision 3) and B4 (per page), not the carrier.
+
+### Item b, continued
+
+- **lh-snapshots-097 to -099 (landed 20:25 to 20:29 CET):** 097 (12,140,512 bytes, sha256
+  0a114d31…9b76f8, 96 pages): capture-list-582's 97 own-document pages, all ok; 098 (aa2e4294…a8d1, 13
+  pages) and 099 (0c8d9797…4a09, 1 page) are other lists. The five stand-ins appended at 21:00 CET (be/de, dk/de)
+  are not captured yet.
+- **The 97 priority 2/3 own documents** imported offline with their templates (logs/b582/own-docs-97.mjs):
+  no importer change needed (the gaps below 90 % are the destination finder, Meili, video player labels, the
+  map's keyboard help and screen-reader notes). Import list: tools/reports/markets/lh-market-diff/
+  own-documents-582-p23.tsv (www_path, da_path, template, priority, version page, archive, text kept).
+- **Row 53** (ru/en lh-rentalcar): no step: tonight's ru/en has de/en's Meili settings (ptid 105.11); its
+  second Meili element sits outside the content (Meili's own mount).
+- **capture-list-558's three pages (lh-snapshots-091):** planning-with-kids imports to exactly our published
+  text (99 % of the page's words): my 558 note (www's text longer) was wrong; the page is at 4.5 % now (23.1 in
+  the 558 ranking, fixed by rules since). explore-flying lists three new articles that have neither a document
+  nor a snapshot here: appended to capture-list-582 (00:09 CET, a329c50) with the de/de list page. crane: the
+  second column caption is an image's figcaption in a two-column view item (not a slider); our document lacks it
+  (as in 558; adding column captions made crane worse against the recording then): parked.
+- **The helper's first uploads from tonight's list:** steps 38, 39 (xx/ru markets sections) and 40, 46 (ae/de
+  shared variants), 23:52 CET (1137a2e). Our host serves /xx/ru/automatic-check-in with the sections marked xx
+  and -xx, as the list says.
+
+### Rule 6: the 558 ranking's top 40 re-measured (logs/b582/rerank-top.tsv)
+
+- Down since 558 (the helper's re-imports and tonight's rules): medical-travel-companions 41.3 -> 8.9 % (390),
+  schengen 32.7 -> 8.5 (1440), shopping 31.5 -> 9.0, planning-with-kids 23.1 -> 4.5, exclusive-charter 23.4 ->
+  14.6, free2move 19.4 -> 13.2 (1440).
+- Still at the top, with their causes: overview-manage (DA as is), the loungenet first-class lounge pages
+  (36.1 / 31.3: the media cells' links, rule too broad for now), economy-class / premium-economy-class /
+  internet-overview (profile-nav flush list), first-class-terminal (no single cause: small steps across the
+  page), traveltricks (app-store buttons without href), business-class-on-long-haul-routes and
+  data-collection-canada (link-list list), feedbackai (not migrated), entryprocesses (28.5: the grey intro band
+  17 px lower, then small steps), giftvoucher (market rows 3/23), 100-years (video frame). A full fresh ranking
+  of all recorded pages is running (logs/b582/rank-582.tsv).
