@@ -2944,5 +2944,13 @@ follow when their run is through.
   wider), so one row of links wraps. ITA's 390 numbers in the ranking are about 42 px too tall on our side.
 - **ITA row 30, the flight search band on the local pages:** www has an invisible separator on each side of the flight
   search (50 px above, 46 px below); ours had 24 px. Theme rule (backwards-compatible: two margins). Verona's sections
-  now sit as www's ("Operating flights" 1,746 against 1,745 at 390); 1440 2,356 -> 2,404 against 2,444.
+  now sit as www's ("Operating flights" 1,746 against 1,745 at 390); 1440 2,356 -> 2,404 against 2,444.- **On main:** c0f901f7 (lint 0, 3472 pass 0 fail, smoke 0 differences on 14 hosts; its first push met another
+  session's push, rebased and pushed again, the after-smoke run by hand).
+- **Air Dolomiti row 95, the in-flight entertainment pages' top:** www's picture starts at the page's top under the
+  fixed bar with the trail on it; ours sat 186 px lower under its own trail row. Theme rule (backwards-compatible: the
+  hidden-heading lead only). The title is now at www's 650 px at both widths. The page totals go from +3.6 % to -4.3 % (en,
+  1440) because the blank lines between the paragraphs are missing: next item, row 96.
 
+- **Process note:** the first run of this commit's checks failed on a test I had already written for the next change
+  (test first, but placed in test/ while another change was being checked); nothing was committed. Tests for a next
+  change now wait outside test/ until their own run.

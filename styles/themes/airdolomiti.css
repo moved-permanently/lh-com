@@ -4426,3 +4426,29 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-car
 body.brand-airdolomiti main > .section:has(> .cards-teaser-wrapper > .cards-teaser.three-up > ul > li > .cards-teaser-image + .cards-teaser-body > .cards-teaser-title:first-child + .cards-teaser-cta:last-child) {
   margin-bottom: 150px;
 }
+
+/* the lead with its picture at the page's top (columns-media news, www's DescritionNews; AD row 95): the picture from the
+   page's top, its first part under the fixed bar, the trail on it under the bar (16px higher from 930px), the title 50px
+   under the picture at 650px as www's at both widths; a page whose title shows (a section without the hidden-heading
+   style) keeps its title over the picture */
+body.brand-airdolomiti main > .section.hidden-heading:first-child:has(> .columns-media-wrapper > .columns-media.news) > .breadcrumb-wrapper:first-child {
+  position: absolute;
+  top: var(--nav-height);
+  left: 0;
+  z-index: 3;
+  width: 100%;
+}
+
+body.brand-airdolomiti main > .section.hidden-heading:first-child > .breadcrumb-wrapper:first-child + .default-content-wrapper:has(+ .columns-media-wrapper > .columns-media.news) {
+  margin-top: 0;
+}
+
+body.brand-airdolomiti main > .section.hidden-heading:first-child > .breadcrumb-wrapper:first-child ~ .columns-media-wrapper:has(> .columns-media.news) {
+  margin-top: calc(-1 * var(--nav-height));
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section.hidden-heading:first-child:has(> .columns-media-wrapper > .columns-media.news) > .breadcrumb-wrapper:first-child {
+    top: calc(var(--nav-height) - 16px);
+  }
+}
