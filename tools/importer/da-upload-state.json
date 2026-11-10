@@ -51675,6 +51675,131 @@
    "uploaded": "2026-11-10T18:57:31.528Z",
    "mtime": 1794336631245.3464,
    "preview": "2026-11-10T18:57:33.739Z"
+  },
+  "/cy/el/automatic-check-in": {
+   "uploaded": "2026-11-10T19:39:09.121Z",
+   "mtime": 1794339376452.5022,
+   "preview": "2026-11-10T19:39:11.050Z"
+  },
+  "/cy/el/pre-check-in": {
+   "uploaded": "2026-11-10T19:39:12.762Z",
+   "mtime": 1794339376453.0918,
+   "preview": "2026-11-10T19:39:15.305Z"
+  },
+  "/gr/el/pre-check-in": {
+   "uploaded": "2026-11-10T19:39:16.871Z",
+   "mtime": 1794339376958.7178,
+   "preview": "2026-11-10T19:39:20.146Z"
+  },
+  "/cn/hk/automatic-check-in": {
+   "uploaded": "2026-11-10T19:39:21.807Z",
+   "mtime": 1794339376373.6897,
+   "preview": "2026-11-10T19:39:23.994Z"
+  },
+  "/tw/hk/automatic-check-in": {
+   "uploaded": "2026-11-10T19:39:25.712Z",
+   "mtime": 1794339378607.7449,
+   "preview": "2026-11-10T19:39:27.961Z"
+  },
+  "/cn/hk/check-in-baggage": {
+   "uploaded": "2026-11-10T19:39:29.490Z",
+   "mtime": 1794339376374.0366,
+   "preview": "2026-11-10T19:39:32.041Z"
+  },
+  "/cn/hk/pre-check-in": {
+   "uploaded": "2026-11-10T19:39:33.647Z",
+   "mtime": 1794339376374.5127,
+   "preview": "2026-11-10T19:39:35.581Z"
+  },
+  "/tw/hk/pre-check-in": {
+   "uploaded": "2026-11-10T19:39:37.215Z",
+   "mtime": 1794339378608.1538,
+   "preview": "2026-11-10T19:39:54.829Z"
+  },
+  "/jp/ja/automatic-check-in": {
+   "uploaded": "2026-11-10T19:39:56.766Z",
+   "mtime": 1794339377217.796,
+   "preview": "2026-11-10T19:39:59.120Z"
+  },
+  "/jp/ja/flights": {
+   "uploaded": "2026-11-10T19:40:00.851Z",
+   "mtime": 1794339377218.615,
+   "preview": "2026-11-10T19:40:03.073Z"
+  },
+  "/jp/ja/fly-more-sustainabl": {
+   "uploaded": "2026-11-10T19:40:04.740Z",
+   "mtime": 1794339377219.1008,
+   "preview": "2026-11-10T19:40:07.017Z"
+  },
+  "/jp/ja/pre-check-in": {
+   "uploaded": "2026-11-10T19:40:08.958Z",
+   "mtime": 1794339377219.7695,
+   "preview": "2026-11-10T19:40:11.247Z"
+  },
+  "/kr/ko/automatic-check-in": {
+   "uploaded": "2026-11-10T19:40:13.000Z",
+   "mtime": 1794339377300.6343,
+   "preview": "2026-11-10T19:40:15.924Z"
+  },
+  "/kr/ko/pre-check-in": {
+   "uploaded": "2026-11-10T19:40:17.776Z",
+   "mtime": 1794339377301.2346,
+   "preview": "2026-11-10T19:40:20.426Z"
+  },
+  "/pl/pl/flights": {
+   "uploaded": "2026-11-10T19:40:22.014Z",
+   "mtime": 1794339378351.4827,
+   "preview": "2026-11-10T19:40:24.126Z"
+  },
+  "/br/pt/fliegen-mit-kleinkind": {
+   "uploaded": "2026-11-10T19:40:25.825Z",
+   "mtime": 1794339375871.5315,
+   "preview": "2026-11-10T19:40:28.365Z"
+  },
+  "/pt/pt/flights": {
+   "uploaded": "2026-11-10T19:40:30.138Z",
+   "mtime": 1794339378437.2786,
+   "preview": "2026-11-10T19:40:32.260Z"
+  },
+  "/bh/en/companion-special-business-class": {
+   "uploaded": "2026-11-10T19:40:33.892Z",
+   "mtime": 1794339375785.1304,
+   "preview": "2026-11-10T19:40:36.813Z"
+  },
+  "/bh/en/companion-special-jun2021": {
+   "uploaded": "2026-11-10T19:40:38.519Z",
+   "mtime": 1794339375785.8542,
+   "preview": "2026-11-10T19:40:41.414Z"
+  },
+  "/bh/en/companion-special-premium-economy-class": {
+   "uploaded": "2026-11-10T19:40:43.163Z",
+   "mtime": 1794339375786.5303,
+   "preview": "2026-11-10T19:40:45.070Z"
+  },
+  "/bh/en/offers-to-europe": {
+   "uploaded": "2026-11-10T19:40:46.745Z",
+   "mtime": 1794339375787.0764,
+   "preview": "2026-11-10T19:40:50.821Z"
+  },
+  "/kw/en/offers-to-europe": {
+   "uploaded": "2026-11-10T19:40:52.465Z",
+   "mtime": 1794339377386.773,
+   "preview": "2026-11-10T19:40:54.475Z"
+  },
+  "/bh/en/special-offers-to-north-america": {
+   "uploaded": "2026-11-10T19:40:56.396Z",
+   "mtime": 1794339375787.4854,
+   "preview": "2026-11-10T19:40:58.700Z"
+  },
+  "/kw/en/special-offers-to-north-america": {
+   "uploaded": "2026-11-10T19:41:00.627Z",
+   "mtime": 1794339377387.6467,
+   "preview": "2026-11-10T19:41:03.201Z"
+  },
+  "/ee/en/local-page/companion-special-in-business-class": {
+   "uploaded": "2026-11-10T19:41:05.065Z",
+   "mtime": 1794339376696.1316,
+   "preview": "2026-11-10T19:41:07.317Z"
   }
  },
  "media": {
