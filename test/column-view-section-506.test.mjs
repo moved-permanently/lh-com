@@ -27,7 +27,8 @@ test('no section gap under a flush column view, marks or not', () => {
 test('a column-view section without marks: 32 px above and below (the section padding when padded), its last element without margin', () => {
   assert.ok(css.includes(`${CV} { padding: 32px 0; }`));
   assert.ok(css.includes(`body.brand-lufthansa main > .section.column-view.padded:not(.grey, ${MARKS}) { padding: var(--section-padding) 0; }`));
-  assert.ok(css.includes(`${CV} > div:last-child > :last-child { margin-bottom: 0; }`));
+  // brief 582: the sliders keep their own bottom margins (test/column-view-slider-margin-582.test.mjs)
+  assert.ok(css.includes(`${CV} > div:last-child > :last-child:not(.cards-teaser.phone-slider, .columns-media.cell-slider) { margin-bottom: 0; }`));
 });
 
 // not a view before a view: 32 + 32 px between two. With or without marks in the view (a :has() in this :has() would

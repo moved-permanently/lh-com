@@ -1742,7 +1742,7 @@ body.brand-lufthansa main > .section.column-view.padded:not(.grey):has(.column-s
 }
 
 /* stylelint-disable-next-line no-descending-specificity -- as above */
-body.brand-lufthansa main > .section.column-view:not(.grey, :has(.column-start, .column-end, .column-start-outer, .column-end-outer)) > div:last-child > :last-child {
+body.brand-lufthansa main > .section.column-view:not(.grey, :has(.column-start, .column-end, .column-start-outer, .column-end-outer)) > div:last-child > :last-child:not(.cards-teaser.phone-slider, .columns-media.cell-slider) {
   margin-bottom: 0;
 }
 
