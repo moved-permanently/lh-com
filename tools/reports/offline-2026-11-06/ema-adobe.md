@@ -2638,5 +2638,11 @@ changes on a rebuild today). Decision: no switch, no theme change; the plan file
    business-class-on-long-haul-routes, premium-economy-class, first-class, entryprocesses), campaign (the 100-years
    pages' collage, video and captions), insights (the articles' end spacing, the lists' content).
 4. betreuungsbedarf's card headings and its untitled sub-section (item 1 above).
+5. **www's horizontal link lists** (.imagelinklist > .link-list > ul.horizontal of maui navigation links: side by side,
+   arrows, no bullets) come in as plain bulleted lists when their links are not anchors (convertJumpLinks takes anchors
+   only): /de/en/lufthansa-business-class-on-long-haul-routes' two aircraft links stack with bullets (+66 to +112 px
+   there, 31 / 28.6 %). 312 de/en snapshots have a ul.horizontal (jump links and button rows among them). A carrier
+   is needed in the importer (a list the site can tell from a running-text list), then a re-import; CSS alone can't
+   tell the two lists apart.
 
 Time worked on this standing order: 10:19 to 18:40 CET (about 8 h 20 min of the 10).
