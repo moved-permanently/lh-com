@@ -260,3 +260,24 @@ test('below 768px on brand discover: every item closed at first, as www\'s four_
   assert.deepEqual([...swiss.querySelectorAll('.section-tab-toggle')].map((t) => t.getAttribute('aria-expanded')), ['true', 'false']);
   desktop = true;
 });
+
+// the brief after a736f78e, item 1: a page's own phone default (page metadata "Tabs open": first | none). www's B2B
+// meals-on-board and Allegris pages open their first item below 768 px (b2b-parity-003 at 390), the Newsroom none
+// (b2b-parity-001); the 1440 snapshots can't tell them apart, so the page says it. Pages without the row as before.
+test('below 768px a page\'s "Tabs open" metadata: first opens the first item on a closed brand, none closes all', () => {
+  desktop = false;
+  const metas = [['brand', 'b2b'], ['tabs-open', 'first']].map(([n, c]) => { const m = document.createElement('meta'); m.name = n; m.content = c; document.head.append(m); return m; });
+  try {
+    const main = SWISS();
+    decorateSectionTabs(main);
+    assert.deepEqual([...main.querySelectorAll('.section-tab-toggle')].map((t) => t.getAttribute('aria-expanded')), ['true', 'false'], 'b2b, first');
+    metas[1].content = 'none';
+    metas[0].content = 'swiss';
+    const swiss = SWISS();
+    decorateSectionTabs(swiss);
+    assert.deepEqual([...swiss.querySelectorAll('.section-tab-toggle')].map((t) => t.getAttribute('aria-expanded')), ['false', 'false'], 'swiss, none');
+  } finally {
+    metas.forEach((m) => m.remove());
+    desktop = true;
+  }
+});

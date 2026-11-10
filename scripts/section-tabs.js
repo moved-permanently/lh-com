@@ -110,7 +110,12 @@ function buildSet(groups) {
 
   const media = window.matchMedia(DESKTOP);
   let active = 0;
+  // below 768px the first item open, or none on the closed brands; a page's own "Tabs open"
+  // metadata (first | none) wins (B2B's meals-on-board and Allegris pages open the first)
+  const pageOpen = getMetadata('tabs-open').trim().toLowerCase();
   let open = CLOSED_BRANDS.includes(getMetadata('brand').trim().toLowerCase()) ? -1 : 0;
+  if (pageOpen === 'first') open = 0;
+  if (pageOpen === 'none') open = -1;
   const render = () => {
     const desktop = media.matches;
     tabs.forEach(({
