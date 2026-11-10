@@ -2622,3 +2622,21 @@ changes on a rebuild today). Decision: no switch, no theme change; the plan file
   /de/en/book-and-manage/stopover/* (the map: www's Google tiles against ours, a different height per zoom); the
   insights lists (their content: new articles, tag wraps); /de/en/100-years (a playing video's frame in the recording);
   the loungenet first-class lounge pages (an image link list with www's arrows and spacing, info: next).
+- **Tried and not taken:** a link under a picture in a Columns Media media cell (the loungenet lounges' "Services for
+  your trip") drawn as www's navigation link (its arrow, 45 px under the picture, the next picture 39 px under it):
+  the lines then match www's to 1 px, but the pages stay 35 / 32 % (the fragment's eJournals and survey items are
+  short of their link texts) and the rule reaches every media cell with a link; held for a measured sweep.
+
+### Open, for the next turn
+
+1. The re-import lists of today, for the import helper once Ben says continue: market-steps-558.tsv (4 rows, run
+   tools/importer/market-steps.mjs after the template imports), reimport-558-sidebar-columns-lh-com.txt (4),
+   reimport-558-phone-slider-lh-com.txt (2). The capture lists: lh-com-market-steps-558.txt (46),
+   capture-list-558-lh-com.txt (2), lh-com-own-documents-priority1.txt (93, unchanged).
+2. The token-free switch's blockers (lufthansa-switch-plan-558.md, B1 to B5), B5 first (rebuild the bundles).
+3. Rule 6's next rows by size: info (342 page-widths, median 8.4 %: economy-class, first-class-terminal,
+   business-class-on-long-haul-routes, premium-economy-class, first-class, entryprocesses), campaign (the 100-years
+   pages' collage, video and captions), insights (the articles' end spacing, the lists' content).
+4. betreuungsbedarf's card headings and its untitled sub-section (item 1 above).
+
+Time worked on this standing order: 10:19 to 18:40 CET (about 8 h 20 min of the 10).
