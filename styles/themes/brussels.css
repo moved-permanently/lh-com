@@ -1180,3 +1180,19 @@ body.brand-brussels .form.core .form-control:user-invalid {
     line-height: 1.1;
   }
 }
+
+/* a core form without bands (no step row; /il/en/rebooking-request-birthright, the only one of the 101; the brief after
+   566): www draws its fields straight on the grey band from its left edge, no white card, the note 40 px under the band's
+   top, the fields at the band's content edge (88 px at 1440, 22 at 390) and the button 56 px under the last field (the
+   field's 24 px and the actions' 30) */
+body.brand-brussels .form.core .form-step-plain {
+  padding-top: 40px;
+  padding-bottom: 0;
+}
+
+body.brand-brussels .form.core .form-step-plain .form-step-card {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 0;
+  background: none;
+}
