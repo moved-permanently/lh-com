@@ -2552,3 +2552,18 @@ hub pages (+261 / +385 px on digital-self-services), M at 60 px for www's 40 px 
 baggage +8.7 / +10.1 points; with M at 40 baggage and gepaeck are back to today), heading sizes one step from the
 default dropped (an H1 in heading-medium: +61 px on travel-classes), the bundles behind their sources (every bundle
 changes on a rebuild today). Decision: no switch, no theme change; the plan file lists the steps and checks.
+- **d51438b** (on phones a padded campaign section that opens with a separator after a grey band: no top padding):
+  de/de gepaeck 6.6 -> 4.8 % at 390. From 768 px left as it is: removing the 40 px there measured 3.4 -> 6.5 % at
+  1440, because the band sits 37 px early at 1440 (Bag-Free Travel's text, which the parked no-break-space re-import
+  changes). Decision: phones now, 1440 with that re-import.
+- **258ced5** (meetings-and-events' two sliders on phones: the logo strip and its dots, the steps' button and dots):
+  de/de 7.9 -> 6.3 %, gb/en 7.6 -> 6.0 % at 390 (nine roots).
+- **d2a7c7e** (a card grid that ends the page in a padded campaign section: 32 px under it on phones): gb/en
+  lufthansa-travel-classes 7.2 -> 5.8 %, de/de lufthansa-reiseklassen 7.2 -> 5.9 % at 390 (four documents).
+- **73db366** (a column-spaced page end before DA's trailing empty sections keeps its 24 px): de/de lounges 7.1 ->
+  6.3 % at 390, 1.8 -> 0.6 % at 1440 (four documents; plain column ends before empty sections left: most-significant-
+  route measured 6.0 -> 9.0 % with 0 px).
+- **Tried and not taken:** a row's first spacious card 40 px under the row above instead of 66 (services-at-the-airport
+  7.5 -> 5.5 %, but take-off 14.9 -> 28.8 and de/en services 8.0 -> 12.5: www's row gap differs per page, 47 or
+  79 px, with the same markup); 22 px between a spacious grid and a grey band on airport-information (the band's own
+  20 px shortfall below it made the page worse).
