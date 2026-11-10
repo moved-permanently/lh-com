@@ -1,0 +1,9 @@
+# ema-lufthansa, the night of 2026-11-10 (ema-cashub's row D1 a; Discover parity rows 43 to 46): the families pages
+# re-imported from tonight's snapshots, for their newer text. Snapshot archive: discover-snapshots-002 (R2 drop,
+# 91,498 bytes, sha256 5d93626434df8f085575c321411ac638f87e3cf535885b32a9e21082c56b7536 as downloaded here; the two
+# files' sha256 as its manifest lists them, 21:57 / 21:58 UTC). Re-import with discover-import.mjs as it is on main.
+# Expected change per row: www's longer "Auf einen Blick" / "At a glance" items (the first item 510 characters in de
+# against our 126, 474 against 124 in en; the others likewise), and whatever else www changed in the page's text since
+# the import; the layout unchanged (the theme's rows 43 to 46 are already live). Nothing imported or uploaded here.
+/de/de/book/special-requests/families
+/de/en/book/special-requests/families

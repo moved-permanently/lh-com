@@ -3109,3 +3109,21 @@ follow when their run is through.
   as the German footer). TAP fly-business +2.3 % at 1440: www's footnote "*Exceptionally…" is a small-print paragraph
   under the two columns, ours sits in the text column (a document's structure: the importer's columns step; noted for a
   later importer item).
+- **On main:** the 82-documents list and capture list 4 (the commit after aa6bcd6f).
+- **New archives** (sha256 computed here):
+  - airdolomiti-parity-006 (3,771,522 bytes, cd64901eac37fdb59231ca26c6beebd9162814f7f8e3be9ea72e5232615ef0c1): the
+    en and it in-flight entertainment pages tonight. Both still show the picture from the page's top under the bar, the
+    title at 650 at both widths: AD row 95 stands for .eu and .it. www.airdolomiti.de's page has its own layout (the trail
+    in a row of its own, the picture at 235): our German page matches its heights already; its visible H1 over the
+    picture stays until a German-specific decision (the hidden-heading style would pull the picture under the bar,
+    which .de does not do). Decision: leave the German document as it is; recorded here.
+  - airdolomiti-snapshots-006 (1,373,758 bytes, 9b12e2f408b67d88b5617c4950550d0eec6c2e3d8f96da98c8b0689da00d3eff): 16
+    of the news rows at www.airdolomiti.it/de/… and /en/…, this time answered 200 with the German and English pages
+    (canonical www.airdolomiti.de / .eu). With snapshots-005's 3 and -004's 2 that is 21 of the 22 rows of
+    reimport-567-ad-description-news.txt (all but /de/reiseziele/london), usable once filed under their canonical host
+    and path. Capture list 3 is then only needed for /de/reiseziele/london (www.airdolomiti.de/reiseziele/london).
+  - discover-snapshots-002 (91,498 bytes, 5d93626434df8f085575c321411ac638f87e3cf535885b32a9e21082c56b7536): the
+    families pages; www's list items are four times our documents' (510 against 126 characters, de). New list:
+    tools/reports/parity-2026-11-09/reimport-585-discover-families.txt.
+  - ita-snapshots-020 (137,430 bytes, c6e3b8ab879df026c4afb37fbd0af266ca659d6ef318142272f2163bc15c8307): 55 pages, 51
+    error pages; not from my lists.
