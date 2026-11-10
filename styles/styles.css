@@ -1761,6 +1761,20 @@ body.brand-lufthansa main > .section.grey:has(+ .section.campaign-section > .def
   margin-bottom: 32px;
 }
 
+/* one row of jump links that ends its section, the next section opening with a separator (www:
+   the link list, a .separator with its own margin, the column view with its heading;
+   digital-self-services: 99px of ink from the last link to the heading at 390, ours 146): the
+   list's 31px (the default separator a list has after it) and the section gap go, the separator
+   is the space; 5px for the link list's own margin (brief 557) */
+/* stylelint-disable-next-line no-descending-specificity -- a section ending with jump links, not a column end */
+body.brand-lufthansa main > .section:has(> .jump-links-wrapper:last-child > .jump-links:not(.columns)):has(+ .section > .default-content-wrapper:first-child > p.spacer:first-child) {
+  margin-bottom: 5px;
+}
+
+body.brand-lufthansa main > .section:has(+ .section > .default-content-wrapper:first-child > p.spacer:first-child) > .jump-links-wrapper:last-child > .jump-links:not(.columns) .jump-links-list {
+  padding-bottom: 0;
+}
+
 /* live's .section-content clears its floats (a table box at its end): the last component's
    bottom margin stays in the AEM section (a quote's 6rem / 8rem, then .mb-default), the first
    one's top margin collapses with the section before */
