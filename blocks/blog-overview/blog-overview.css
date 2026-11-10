@@ -522,3 +522,68 @@ body.brand-lufthansa .blog-overview .blog-overview-tags > li {
   font-size: 16px;
   line-height: 24px;
 }
+
+/* lufthansa.com: www's maui fields, an underline and no box, the category select's label above it
+   (12px), the icons on the text line; on phones the search underline 79px under the result count's
+   ink, the label 47px under that; from 1025px the two fields 837px together (www's x 514 to 1351
+   at 1440; /de/en/articles/explore-flying, brief 558) */
+body.brand-lufthansa .blog-overview .blog-overview-filter input,
+body.brand-lufthansa .blog-overview .blog-overview-filter select {
+  height: 40px;
+  padding: 0 36px 0 0;
+  border: 0;
+  border-bottom: 1px solid var(--lh-grey-8);
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--lh-grey-8);
+}
+
+body.brand-lufthansa .blog-overview .blog-overview-select > label.blog-overview-sr {
+  position: static;
+  display: block;
+  width: auto;
+  height: auto;
+  margin-bottom: 4px;
+  overflow: visible;
+  clip-path: none;
+  color: var(--lh-grey-7);
+  font-size: 12px;
+  line-height: 16px;
+  white-space: normal;
+}
+
+body.brand-lufthansa .blog-overview .blog-overview-search::after,
+body.brand-lufthansa .blog-overview .blog-overview-select::after {
+  top: auto;
+  right: 2px;
+  bottom: 9px;
+  width: 22px;
+  height: 22px;
+}
+
+body.brand-lufthansa .blog-overview .blog-overview-bar {
+  gap: 33px;
+}
+
+body.brand-lufthansa .blog-overview .blog-overview-filter {
+  gap: 42px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa .blog-overview .blog-overview-filter {
+    align-items: flex-end;
+    gap: 16px;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-lufthansa .blog-overview .blog-overview-filter {
+    flex: 0 1 837px;
+  }
+}
+
+/* ... and right after a separator that ends the text above (the intro's {spacer-50}): the separator
+   is the space, no wrapper gap (www's count 84px of ink under the intro at 390, ours 107) */
+body.brand-lufthansa main .default-content-wrapper:has(> p.spacer:last-child) + .blog-overview-wrapper {
+  margin-top: 0;
+}
