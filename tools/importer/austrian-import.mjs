@@ -300,6 +300,24 @@ export function withFlightSearch(doc, p) {
 // www's visible empty lines (<p>&nbsp;</p>, about 48 px each on www) as the spacing marker the collapse turns into a
 // Spacer block (the brief after 530, item 1; nbsp-guard.mjs emptyLineSpacers)
 const withEmptyLineSpacers = (html) => emptyLineSpacers(html, { parse: parseHTML, size: 48 });
+// www files the pages reference but www answers 404 for (tools/importer/austrian-missing-assets.json)
+const MISSING_ASSETS = JSON.parse(fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), 'austrian-missing-assets.json'), 'utf8')).assets.map((a) => a.path);
+
+/**
+ * The snapshot without pictures of files www answers 404 for (the brief after 570c: medical-travel-companions'
+ * "Electronic devices" card, .../baggage-electronic-devices-flugmodus-2x1.jpg and its renditions): their <img> and
+ * <source> go (before mappedOf, in main()), so the import writes no picture the media step cannot fetch (about:error); www's own render shows an
+ * empty picture area there, and the card keeps its text.
+ * @param {string} html the snapshot
+ */
+export function withoutMissingAssets(html) {
+  if (!MISSING_ASSETS.some((a) => html.includes(a))) return html;
+  const listed = (attrs) => MISSING_ASSETS.some((a) => attrs.includes(a));
+  return html
+    .replace(/<source\b[^>]*>/gi, (tag) => (listed(tag) ? '' : tag))
+    .replace(/<img\b[^>]*>/gi, (tag) => (listed(tag) ? '' : tag));
+}
+
 export const mappedOf = (html, p) => withoutLoads(withNestedOnecolumnUnwrapped(withPanelWrappersUnwrapped(withAccordionMapsHoisted(withTabMarkers(withTeaserCta(withPhoneSliders(withTeaserColumns(withPartnerCarousels(withCheckinTabs(withCopytextLarge(withLinkOuts(withPlaceholder(withEmptyLineSpacers(stripScripts(html))), p))))))))))))
   .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
 
@@ -582,7 +600,8 @@ if (isMain) {
     fs.mkdirSync(path.dirname(copy), { recursive: true });
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
     // the Studio's snapshots keep www's scripts, which must not run in the import browser)
-    const mapped = mappedOf(html, p);
+    // (pictures of files www answers 404 for go first: withoutMissingAssets, the brief after 570c)
+    const mapped = mappedOf(withoutMissingAssets(html), p);
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     fs.writeFileSync(copy, mapped);
     (byTemplate[t] ||= []).push(u);

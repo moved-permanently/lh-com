@@ -1,0 +1,11 @@
+{
+  "about": "www.austrian.com files the pages reference but www answers 404 for (the media step cannot fetch them: about:error in the preview). austrian-import.mjs withoutMissingAssets drops their pictures from the snapshot; DA keeps an empty picture slot, as www's own render shows nothing there. Add a file only with www's answer recorded.",
+  "assets": [
+    {
+      "path": "/content/dam/aua/images/plan/baggage/electronic-devices-and-batteries/baggage-electronic-devices-flugmodus-2x1.jpg",
+      "answer": "404 text/html (one-byte body) for the original and its 2560, 1440 and 720 renditions; x-vhost publish, cached 404 (cf-cache-status MISS / EXPIRED)",
+      "checked": "2026-11-10 08:11 CET (the user's capture child, four requests)",
+      "pages": "medical-travel-companions and plan/special-requirements/healthy-travel/medical-travel-companions, every language (19 in austrian-snapshots-001 to -018): the second related card, Electronic devices; www's render (austrian-parity-003) shows an empty picture area"
+    }
+  ]
+}
