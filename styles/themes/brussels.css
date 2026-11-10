@@ -1223,3 +1223,21 @@ body.brand-brussels .form.core .form-step:has(> .form-step-intro > .form-step-ti
     margin-bottom: 26px;
   }
 }
+
+/* a core form band without a title (a description beside the card: /my-bookings/emergency-contact, the brief after
+   570c): www's band 56 px above the card at 1440 (51 at 390), the first field 35 px inside it, the card's bottom 20 px
+   under the last field's margin, 96 px between cards, the card in the page column at 390 (ours 30 / 30 / 30, 70) */
+body.brand-brussels .form.core .form-step:not(.form-step-plain, :has(> .form-step-intro > .form-step-title)) {
+  padding-top: 51px;
+}
+
+body.brand-brussels .form.core .form-step:not(.form-step-plain, :has(> .form-step-intro > .form-step-title)) .form-step-card {
+  margin-inline: 0;
+  padding: 35px 20px 20px;
+}
+
+@media (width >= 1025px) {
+  body.brand-brussels .form.core .form-step:not(.form-step-plain, :has(> .form-step-intro > .form-step-title)) {
+    padding-top: 56px;
+  }
+}
