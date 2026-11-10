@@ -2762,3 +2762,33 @@ bari, Munich and cagliari -198 each; every page at 1440 and the article, homepag
   I make no requests. The importer's own download state still leaves out what it found 404 itself.
 - **Kind:** importer only; no live page changes, no re-import needed (the live documents hold DA's copies already).
 - **Test:** test/airdolomiti-da-copies-567.test.mjs (fails on the old importer).
+- **On main:** 156f3b65 (lint 0, 3400 pass 0 fail, smoke 0 differences on 14 hosts).
+
+### Item 2b: the two Air Dolomiti airport pages
+
+- **Why they were held:** false positives of reimport-557-ad-carousel-count.txt. Their carousel ("Related articles")
+  has no "see all" link on www (showMoreText empty); the paragraph after it is the map link, which my scan took for one.
+- **Recording:** airdolomiti-snapshots-003.tar.gz from the R2 drop (S0cxjp folder, sha256 b6daf243... as downloaded; no
+  delivery checksum is recorded for it, both files match the manifest's own sha256), Frankfurt 05:36 and Munich 05:39 UTC.
+- **The import against the live documents** (run offline on the snapshots):
+  - Frankfurt: www's new AiRail closure notice (an h2 and two paragraphs).
+  - Both: the text block as columns-media (news) and the title section compact-title, as www's description-news and
+    Title h1; the newsletter section style; DA's picture copies.
+  - Munich's text is unchanged (only a space between the bold labels and their text, from the markup).
+  - The links are as now. The missing /de prefix in the offline run is this machine's missing paths.json, not a change.
+- **Decision** ("www's text and links, DA's local picture copies"): re-import both. The Alternate rows stay: www still lists
+  it and en (Frankfurt) and it and de (Munich), as our rows. The news and compact-title variants stay: www shows both.
+- **List:** reimport-567-ad-airports.txt (2 rows, the snapshot archive, the expected change per row). Parity row 91.
+
+### Item 2c: the destination pages' text size on phones
+
+- **Measured at 390 x 844:** the text block under the stage (www's TitleDescriptionTextCta) is 22 / 37.4 px since row 83 on
+  all 9 pages checked. The 16 / 27.2 px text left is www's DescritionNews (a picture across the page over its text):
+  22 live documents hold it as a plain columns-media, imported before 80458997 wrote columns-media (news). The variant has
+  www's look since brief 456 (the picture 600 px, the text 19.44 / 33).
+- **Decision:** no code change; re-import. London with the variant on its live document: 390 x 844 8761 -> 10132 px,
+  1440 6023 -> 7384 (the 600 px pictures, as www's rule). No recording measures www's London or Basel: both on a capture list.
+- **Lists:** reimport-567-ad-description-news.txt (22 pages), capture-567-ad-description-news.txt (2). Parity row 92.
+- **Note:** an earlier offline import run here made an empty folder content-sites/lh-airdolomiti/content/media-da/airdolomiti
+  (git-ignored, left as it is).
+
