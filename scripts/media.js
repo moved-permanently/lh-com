@@ -277,7 +277,12 @@ export function embedFor(href) {
 /** Whether a link alone in its paragraph is an embed (link text = URL or a title). */
 export function isEmbedLink(a) {
   const p = a.closest('p');
-  return Boolean(embedFor(a.href)) && (!p || cleanText(p) === cleanText(a));
+  const embed = embedFor(a.href);
+  if (!embed || (p && cleanText(p) !== cleanText(a))) return false;
+  // www's eJournals newsstand is an embed where the document gives its address (the iframe's
+  // src, as DA writes a bare link); a labelled link to it is a link on www (the loungenet
+  // service tiles' "eJournals", brief 582)
+  return embed.type !== 'newsstand' || isUrlText(a);
 }
 
 /**

@@ -1590,3 +1590,42 @@ body.brand-lufthansa .columns-media .columns-media-row > div > blockquote > * + 
     margin-bottom: 105px;
   }
 }
+
+/* lufthansa.com: a media cell's link alone under its picture (the loungenet first-class lounges'
+   service tiles, brief 582): www's standalone navigation link (19px arrow, up-right to other sites)
+   46px under the picture at 1440 (ours 8), 22px margin below 768px. With the eJournals tile a
+   link again (scripts/media.js): /content/lh/markets/de/en/during-your-trip/lounges/loungenet/
+   fra-first-class-lounge-b 36.1 -> 28.1 % (390), 31.3 -> 8.3 % (1440); the 11 other recorded
+   pages with such a cell measure the same (their cells are not media cells) */
+/* stylelint-disable-next-line no-descending-specificity -- a media cell's lone link, not a cargo feature list's */
+body.brand-lufthansa main .columns-media .columns-media-media > p:has(> picture) + p.link-wrapper:last-child {
+  margin-top: 22px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa main .columns-media .columns-media-media > p:has(> picture) + p.link-wrapper:last-child {
+    margin-top: 40px;
+  }
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- a media cell's lone link, not a cargo feature list's */
+body.brand-lufthansa main .columns-media .columns-media-media > p:has(> picture) + p.link-wrapper:last-child > a:any-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- a media cell's lone link, not a cargo feature list's */
+body.brand-lufthansa main .columns-media .columns-media-media > p:has(> picture) + p.link-wrapper:last-child > a:any-link::before {
+  content: "";
+  flex: 0 0 auto;
+  align-self: center;
+  width: 19px;
+  height: 19px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.brand-lufthansa main .columns-media .columns-media-media > p:has(> picture) + p.link-wrapper:last-child > a:any-link[href^="http"]:not([href*="//www.lufthansa.com"])::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.3 16.4 7.6 17.7 15.9 9.4v6.1h1.8V6.3H8.5v1.8h6.1z'/%3E%3C/svg%3E");
+}
