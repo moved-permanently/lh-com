@@ -1744,6 +1744,14 @@ body.brand-lufthansa main > .section.campaign-section > .jump-links-wrapper + .d
   margin-top: 0;
 }
 
+/* one row of jump links (not option columns) there: the full recordings (lh-parity-004a,
+   /gb/en/baggage, /de/de/gepaeck) put the title 87px of ink under the last link at 390 and 1440,
+   ours 80 with none: 7px (brief 556; new-onboard-experience's column links as they were) */
+/* stylelint-disable-next-line no-descending-specificity -- a campaign-section's wrapper, not a modal link's */
+body.brand-lufthansa main > .section.campaign-section > .jump-links-wrapper:has(> .jump-links:not(.columns)) + .default-content-wrapper:has(> p.spacer:first-child) {
+  margin-top: 7px;
+}
+
 /* live's .section-content clears its floats (a table box at its end): the last component's
    bottom margin stays in the AEM section (a quote's 6rem / 8rem, then .mb-default), the first
    one's top margin collapses with the section before */

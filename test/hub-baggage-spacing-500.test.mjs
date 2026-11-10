@@ -7,6 +7,8 @@
    - jump links, then a separator (www: the link list ends at its last link, maui-divider's 1 px and the
      .hr's 40 px, the next column view's title): our wrapper gap after the block came on top (+24 px
      before "Types of baggage"). A wrapper opening with a separator right after the jump links has none.
+     Brief 556: after one row of jump links (not option columns) the full recordings put the title 87 px of ink
+     under the last link at 390 and 1440, ours 80 without the gap: 7 px there.
    - a column view's title, then its cards (Types of baggage, Baggage services, Further information): www's
      view has its 32 px padding above the title, the first picture 40 px under the title's box; ours
      64 (the title's 32 px and the grid's 32 px column padding). From 768 px a grid right after a heading
@@ -26,6 +28,10 @@ test('a title section before a campaign-section: no section gap, the H1 keeps it
 
 test('a separator right after jump links in a campaign-section: no wrapper gap above it', () => {
   assert.ok(css.includes('body.brand-lufthansa main > .section.campaign-section > .jump-links-wrapper + .default-content-wrapper:has(> p.spacer:first-child) { margin-top: 0; }'));
+});
+
+test('after one row of jump links (not option columns): 7 px above the separator', () => {
+  assert.ok(css.includes('body.brand-lufthansa main > .section.campaign-section > .jump-links-wrapper:has(> .jump-links:not(.columns)) + .default-content-wrapper:has(> p.spacer:first-child) { margin-top: 7px; }'));
 });
 
 test('a grid right after a heading in a campaign-section from 768 px: no padding', () => {
