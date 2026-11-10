@@ -815,3 +815,12 @@ body.brand-cargo .carousel-cards.slides .carousel-cards-dots {
     margin-top: 38px;
   }
 }
+
+/* lufthansa.com on phones: a card grid that ends the page in a padded campaign section
+   (lufthansa-travel-classes' "Discover more"): www's footer 81px under the last card's text at
+   390, ours 49 (brief 558) */
+@media (width < 768px) {
+  body.brand-lufthansa main > .section.campaign-section.padded:last-of-type > .carousel-cards-wrapper:last-child > .carousel-cards.grid:not(.phone-slider) {
+    margin-bottom: 32px;
+  }
+}
