@@ -688,3 +688,12 @@ body.brand-cargo .cards-teaser.overlay.fleet .cards-teaser-cta-link:any-link {
   outline: 2px solid var(--focus-color, #05164d);
   outline-offset: 2px;
 }
+
+/* lufthansa.com, option phone-slider from 1025px (its rows): www's swiper keeps its pagination's
+   place under the rows (meetings-and-events' steps: the next view's heading 132px of ink under the
+   button at 1440, ours 88; brief 558); spacious rows (digital-self-services) as they were */
+@media (width >= 1025px) {
+  body.brand-lufthansa .cards-teaser.phone-slider:not(.spacious) {
+    margin-bottom: 44px;
+  }
+}

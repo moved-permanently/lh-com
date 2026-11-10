@@ -1558,3 +1558,13 @@ body.brand-lufthansa .columns-media .columns-media-row > div > blockquote > * + 
     width: calc(75% - 10px);
   }
 }
+
+/* lufthansa.com, option cell-slider of pictures only from 1025px (its row): www's logo strip on
+   meetings-and-events 16px lower and 19px more under it than ours at 1440 (its swiper's place;
+   brief 558); media | text slides (onboard-delights' Dallmayr band) as they were */
+@media (width >= 1025px) {
+  body.brand-lufthansa .columns-media.cell-slider:not(:has(.columns-media-text)) {
+    margin-top: 16px;
+    margin-bottom: 19px;
+  }
+}
