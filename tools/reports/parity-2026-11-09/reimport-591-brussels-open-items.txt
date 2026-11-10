@@ -1,0 +1,67 @@
+# The brief after 591, item 2 (ema-cashub): lh-brussels documents whose accordion on www opens items at load (maui-collapsible-item expanded) while the published accordion-columns block opens none: the published documents predate the accordion parser's open-first / open-N / open-item-K options. To re-import with brussels-import.mjs as of this commit (importer unchanged: an offline import of all 66 from their snapshots writes the option, every request refused). Measured with the items opened in the browser on brussels.turnsthe.page against the recordings (column 5, 1440 / 390). cancel-and-refund-requests is also READY in reimport-588-brussels-sidebar-h1.txt (one re-import does both). WAITING: the legal notices' documents that reimport-588 keeps waiting (their re-import also brings the sidebar-h1 style): after its captures. TSV: path, snapshot archive (2026-10-30), the option the import writes, items expanded on www, measured, status.
+/be/en/book-a-flight/rebook/voluntary-rebooking	brussels-snapshots-002	accordion-columns faq limited-width open-3	3	-	READY
+/be/fr/book-a-flight/rebook/voluntary-rebooking	brussels-snapshots-003	accordion-columns faq limited-width open-3	3	-	READY
+/be/nl/book-a-flight/rebook/voluntary-rebooking	brussels-snapshots-005	accordion-columns faq limited-width open-3	3	-	READY
+/de/de/book-a-flight/rebook/voluntary-rebooking	brussels-snapshots-006	accordion-columns faq limited-width open-3	3	-	READY
+/it/it/book-a-flight/rebook/voluntary-rebooking	brussels-snapshots-007	accordion-columns faq limited-width open-3	3	-	READY
+/es/es/book-a-flight/rebook/voluntary-rebooking	brussels-snapshots-009	accordion-columns faq limited-width open-3	3	-	READY
+/be/fr/companion-special-february-2024	brussels-snapshots-003	accordion-columns faq open-first	1	-	READY
+/be/nl/companion-special-february-2024	brussels-snapshots-005	accordion-columns faq open-first	1	-	READY
+/be/en/extra-services/baggage/problems-with-your-baggage	brussels-snapshots-001	accordion-columns faq spaced open-2	2	-17.4 -> -2.5 % / -28.5 -> -5.1 % (be/fr, recorded)	READY
+/be/fr/extra-services/baggage/problems-with-your-baggage	brussels-snapshots-002	accordion-columns faq spaced open-2	2	-17.4 -> -2.5 % / -28.5 -> -5.1 % (be/fr, recorded)	READY
+/be/nl/extra-services/baggage/problems-with-your-baggage	brussels-snapshots-005	accordion-columns faq spaced open-2	2	-17.4 -> -2.5 % / -28.5 -> -5.1 % (be/fr, recorded)	READY
+/de/de/extra-services/baggage/problems-with-your-baggage	brussels-snapshots-006	accordion-columns faq spaced open-2	2	-17.4 -> -2.5 % / -28.5 -> -5.1 % (be/fr, recorded)	READY
+/it/it/extra-services/baggage/problems-with-your-baggage	brussels-snapshots-008	accordion-columns faq spaced open-2	2	-17.4 -> -2.5 % / -28.5 -> -5.1 % (be/fr, recorded)	READY
+/es/es/extra-services/baggage/problems-with-your-baggage	brussels-snapshots-009	accordion-columns faq spaced open-2	2	-17.4 -> -2.5 % / -28.5 -> -5.1 % (be/fr, recorded)	READY
+/be/en/extra-services/baggage/prohibited-items	brussels-snapshots-002	accordion-columns faq limited-width open-item-K	1	-	READY
+/be/fr/extra-services/baggage/prohibited-items	brussels-snapshots-003	accordion-columns faq limited-width open-item-K	1	-	READY
+/be/nl/extra-services/baggage/prohibited-items	brussels-snapshots-005	accordion-columns faq limited-width open-item-K	1	-	READY
+/de/de/extra-services/baggage/prohibited-items	brussels-snapshots-006	accordion-columns faq limited-width open-item-K	1	-	READY
+/it/it/extra-services/baggage/prohibited-items	brussels-snapshots-008	accordion-columns faq limited-width open-item-K	1	-	READY
+/es/es/extra-services/baggage/prohibited-items	brussels-snapshots-009	accordion-columns faq limited-width open-item-K	1	-	READY
+/be/fr/extra-services/meals/special-meals	brussels-snapshots-002	accordion-columns faq open-first	1	-	READY
+/be/nl/extra-services/meals/special-meals	brussels-snapshots-005	accordion-columns faq open-first	1	-	READY
+/be/en/extra-services/meals/standard-meals	brussels-snapshots-002	accordion-columns faq limited-width open-first	1	-	READY
+/be/fr/extra-services/meals/standard-meals	brussels-snapshots-004	accordion-columns faq limited-width open-first	1	-	READY
+/be/nl/extra-services/meals/standard-meals	brussels-snapshots-005	accordion-columns faq limited-width open-first	1	-	READY
+/de/de/extra-services/meals/standard-meals	brussels-snapshots-006	accordion-columns faq limited-width open-first	1	-	READY
+/it/it/extra-services/meals/standard-meals	brussels-snapshots-008	accordion-columns faq limited-width open-first	1	-	READY
+/es/es/extra-services/meals/standard-meals	brussels-snapshots-009	accordion-columns faq limited-width open-first	1	-	READY
+/be/en/flying-with-us/social-responsibility/respectful-flying	brussels-snapshots-003	accordion-columns faq limited-width open-first	1	-	READY
+/be/fr/flying-with-us/social-responsibility/respectful-flying	brussels-snapshots-004	accordion-columns faq limited-width open-first	1	-	READY
+/be/en/my-bookings/cancel-and-refund-requests	brussels-snapshots-001	accordion-columns faq open-item-K	1	-22.4 -> -16.2 % / -19.8 -> -11.7 % (be/en), -25.4 -> -19.6 % / -20.4 -> -13.2 % (be/fr)	READY
+/be/fr/my-bookings/cancel-and-refund-requests	brussels-snapshots-002	accordion-columns faq open-item-K	1	-22.4 -> -16.2 % / -19.8 -> -11.7 % (be/en), -25.4 -> -19.6 % / -20.4 -> -13.2 % (be/fr)	READY
+/be/nl/my-bookings/cancel-and-refund-requests	brussels-snapshots-005	accordion-columns faq open-item-K	1	-22.4 -> -16.2 % / -19.8 -> -11.7 % (be/en), -25.4 -> -19.6 % / -20.4 -> -13.2 % (be/fr)	READY
+/de/de/my-bookings/cancel-and-refund-requests	brussels-snapshots-007	accordion-columns faq open-item-K	1	-22.4 -> -16.2 % / -19.8 -> -11.7 % (be/en), -25.4 -> -19.6 % / -20.4 -> -13.2 % (be/fr)	READY
+/it/it/my-bookings/cancel-and-refund-requests	brussels-snapshots-008	accordion-columns faq open-item-K	1	-22.4 -> -16.2 % / -19.8 -> -11.7 % (be/en), -25.4 -> -19.6 % / -20.4 -> -13.2 % (be/fr)	READY
+/es/es/my-bookings/cancel-and-refund-requests	brussels-snapshots-010	accordion-columns faq open-item-K	1	-22.4 -> -16.2 % / -19.8 -> -11.7 % (be/en), -25.4 -> -19.6 % / -20.4 -> -13.2 % (be/fr)	READY
+/be/en/plan-your-trip/airport-info/brussels-airport-info	brussels-snapshots-003	accordion-columns faq open-first	1	-	READY
+/be/fr/plan-your-trip/airport-info/brussels-airport-info	brussels-snapshots-004	accordion-columns faq open-first	1	-	READY
+/be/nl/plan-your-trip/airport-info/brussels-airport-info	brussels-snapshots-006	accordion-columns faq open-first	1	-	READY
+/de/de/plan-your-trip/airport-info/brussels-airport-info	brussels-snapshots-007	accordion-columns faq open-first	1	-	READY
+/it/it/plan-your-trip/airport-info/brussels-airport-info	brussels-snapshots-008	accordion-columns faq open-first	1	-	READY
+/es/es/plan-your-trip/airport-info/brussels-airport-info	brussels-snapshots-010	accordion-columns faq open-first	1	-	READY
+/be/en/legal-notices/terms-and-conditions-conditions-of-carriage	brussels-snapshots-003	accordion-columns faq open-item-K open-item-	18	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/be/fr/legal-notices/terms-and-conditions-conditions-of-carriage	brussels-snapshots-004	accordion-columns faq open-item-K open-item-	18	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/be/nl/legal-notices/terms-and-conditions-conditions-of-carriage	brussels-snapshots-005	accordion-columns faq open-item-K open-item-	18	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/de/de/legal-notices/terms-and-conditions-conditions-of-carriage	brussels-snapshots-007	accordion-columns faq open-item-K open-item-	18	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/it/it/legal-notices/terms-and-conditions-conditions-of-carriage	brussels-snapshots-008	accordion-columns faq open-item-K open-item-	18	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/es/es/legal-notices/terms-and-conditions-conditions-of-carriage	brussels-snapshots-009	accordion-columns faq open-item-K open-item-	18	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/be/en/legal-notices/terms-of-use	brussels-snapshots-003	accordion-columns faq open-item-K open-item-	10	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/be/fr/legal-notices/terms-of-use	brussels-snapshots-004	accordion-columns faq open-item-K open-item-	10	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/be/nl/legal-notices/terms-of-use	brussels-snapshots-005	accordion-columns faq open-item-K open-item-	10	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/de/de/legal-notices/terms-of-use	brussels-snapshots-007	accordion-columns faq open-item-K open-item-	10	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/it/it/legal-notices/terms-of-use	brussels-snapshots-008	accordion-columns faq open-item-K open-item-	10	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/es/es/legal-notices/terms-of-use	brussels-snapshots-009	accordion-columns faq open-9	9	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/be/en/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-compensation-voucher	brussels-snapshots-003	accordion-columns faq open-item-K open-item-	10	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/be/fr/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-compensation-voucher	brussels-snapshots-004	accordion-columns faq open-item-K open-item-	10	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/be/nl/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-compensation-voucher	brussels-snapshots-005	accordion-columns faq open-item-K open-item-	10	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/de/de/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-compensation-voucher	brussels-snapshots-007	accordion-columns faq open-item-K open-item-	10	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/it/it/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-compensation-voucher	brussels-snapshots-008	accordion-columns faq open-item-K open-item-	10	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/es/es/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-compensation-voucher	brussels-snapshots-009	accordion-columns faq open-item-K open-item-	10	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/be/en/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-refund-voucher	brussels-snapshots-003	accordion-columns faq open-9	9	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/be/fr/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-refund-voucher	brussels-snapshots-004	accordion-columns faq open-9	9	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/be/nl/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-refund-voucher	brussels-snapshots-005	accordion-columns faq open-9	9	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/de/de/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-refund-voucher	brussels-snapshots-007	accordion-columns faq open-9	9	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/it/it/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-refund-voucher	brussels-snapshots-008	accordion-columns faq open-9	9	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)
+/es/es/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-refund-voucher	brussels-snapshots-009	accordion-columns faq open-9	9	-	WAITING (with reimport-588-brussels-sidebar-h1.txt: its legal notices capture rows 60-75)

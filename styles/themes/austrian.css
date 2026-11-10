@@ -1186,3 +1186,15 @@ body.brand-austrian main > .section.stage > .default-content-wrapper:has(> h3:on
     margin-bottom: calc(var(--section-gap) + 43px);
   }
 }
+
+/* a column view in a grey band (the brief after 591, item 3): on www a column view in a .container-gray section
+   keeps its 3.2rem above and below (wetlease-hub's partner card, culinary-services); the importer gives
+   columns-media option padded only outside grey (the section style is to carry it, and these documents' sections are
+   only grey). Measured with the rule added on every recorded Austrian page it reaches: wetlease-hub -3.5 -> -2.1 %
+   (1440), -3.0 -> -1.9 % (390); culinary-services -1.8 -> -1.0 % (1440). 138 documents
+   (reach-591-austrian-grey-column-view.txt). Not www's 24 px of white under a grey band that ends the page: it made
+   bearbeitungsgebuehren 0.8 points worse */
+body.brand-austrian main > .section.grey > .columns-media-wrapper > .columns-media:not(.padded, .sidebar) {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}

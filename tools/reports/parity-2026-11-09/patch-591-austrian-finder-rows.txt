@@ -1,0 +1,42 @@
+# The brief after 591, item 1 (ema-cashub): DA patches for Austrian homepages whose destination-finder block lacks rows the importer writes from www's rendered finder (their 2026-10-30 snapshots had no offers loaded: no preselected origin, no recommendation links). Add each row to the document's destination-finder block (after Origin input label: Default origin before it, Trip duration, Price label and Finder card after Trip types; the block's rows are read by name). Values from the offline import of the root's recording (column 2), checked against the importer's rows of the 42 complete homepages. Measured on austrian.turnsthe.page with the rows inserted into the served page (www requests refused): the eight G2 roots (ch/en, cz, fr, it/en, md, pl, ro, rs) -17.9..-18.8 -> -4.2..-5.1 % at 1440 and -5.6 -> +1.6..+1.7 % at 390 (the G1 roots' numbers); ge/en -23.7 -> -9.8 % / -15.3 -> -7.9 %. HOLD: au/en (-12.3 -> +2.5 % at 1440, +3.9 -> +11.9 % at 390) and ch/de (-11.7 -> +3.5 % / +5.4 -> +13.7 %): their 390 gets worse with the finder's empty state; decided after the capture of our own page with www's APIs allowed. Not listed: al/en, hu/en, jp/ja, ru/ru (no recording; the 10-30 snapshots lack the rows: capture), ua/en (its recording's finder has the rows it has), by/en, by/ru, ca/en, ca/fr, ru/en, xx/en (no finder on www either). TSV: path, recording, row, value, status.
+/au/en/homepage	austrian-parity-008	Default origin	Adelaide (ADL)	HOLD: own-host capture with the APIs (capture-list rows 82, 83)
+/au/en/homepage	austrian-parity-008	Trip duration	14	HOLD: own-host capture with the APIs (capture-list rows 82, 83)
+/au/en/homepage	austrian-parity-008	Price label	Round trip from	HOLD: own-host capture with the APIs (capture-list rows 82, 83)
+/au/en/homepage	austrian-parity-008	Finder card	as /be/en/homepage's Finder card (its picture: the shared DestinationFinderCard image), text "For all flight routes and prices, visit our", link "Offers & destinations page" to https://www.austrian.com/au/en/book/offers-and-destinations?OriginCode=ADL&tripType=ROUNDTRIP	HOLD: own-host capture with the APIs (capture-list rows 82, 83)
+/ch/de/homepage	austrian-parity-008	Trip duration	14	HOLD: own-host capture with the APIs (capture-list rows 82, 83)
+/ch/de/homepage	austrian-parity-008	Price label	Hin-und Rückflug ab	HOLD: own-host capture with the APIs (capture-list rows 82, 83)
+/ch/de/homepage	austrian-parity-008	Finder card	as /be/en/homepage's Finder card (its picture: the shared DestinationFinderCard image), text "Alle Flugstrecken und Preise finden Sie auf unserer", link "Seite „Angebote und Reiseziele“" to https://www.austrian.com/ch/de/book/offers-and-destinations?OriginCode=ZRH&tripType=ROUNDTRIP	HOLD: own-host capture with the APIs (capture-list rows 82, 83)
+/ch/en/homepage	austrian-parity-008	Trip duration	14	READY
+/ch/en/homepage	austrian-parity-008	Price label	Round trip from	READY
+/ch/en/homepage	austrian-parity-008	Finder card	as /be/en/homepage's Finder card (its picture: the shared DestinationFinderCard image), text "For all flight routes and prices, visit our", link "Offers & destinations page" to https://www.austrian.com/ch/en/book/offers-and-destinations?OriginCode=ZRH&tripType=ROUNDTRIP	READY
+/cz/en/homepage	austrian-parity-008	Default origin	Prague (PRG)	READY
+/cz/en/homepage	austrian-parity-008	Trip duration	14	READY
+/cz/en/homepage	austrian-parity-008	Price label	Round trip from	READY
+/cz/en/homepage	austrian-parity-008	Finder card	as /be/en/homepage's Finder card (its picture: the shared DestinationFinderCard image), text "For all flight routes and prices, visit our", link "Offers & destinations page" to https://www.austrian.com/cz/en/book/offers-and-destinations?OriginCode=PRG&tripType=ROUNDTRIP	READY
+/fr/en/homepage	austrian-parity-008	Default origin	Bastia (BIA)	READY
+/fr/en/homepage	austrian-parity-008	Trip duration	14	READY
+/fr/en/homepage	austrian-parity-008	Price label	Round trip from	READY
+/fr/en/homepage	austrian-parity-008	Finder card	as /be/en/homepage's Finder card (its picture: the shared DestinationFinderCard image), text "For all flight routes and prices, visit our", link "Offers & destinations page" to https://www.austrian.com/fr/en/book/offers-and-destinations?OriginCode=BIA&tripType=ROUNDTRIP	READY
+/ge/en/homepage	austrian-parity-008	Default origin	Tbilisi (TBS)	READY
+/ge/en/homepage	austrian-parity-008	Trip duration	14	READY
+/ge/en/homepage	austrian-parity-008	Price label	Round trip from	READY
+/ge/en/homepage	austrian-parity-008	Finder card	as /be/en/homepage's Finder card (its picture: the shared DestinationFinderCard image), text "For all flight routes and prices, visit our", link "Offers & destinations page" to https://www.austrian.com/ge/en/book/offers-and-destinations?OriginCode=TBS&tripType=ROUNDTRIP	READY
+/it/en/homepage	austrian-parity-008	Trip duration	14	READY
+/it/en/homepage	austrian-parity-008	Price label	Round trip from	READY
+/it/en/homepage	austrian-parity-008	Finder card	as /be/en/homepage's Finder card (its picture: the shared DestinationFinderCard image), text "For all flight routes and prices, visit our", link "Offers & destinations page" to https://www.austrian.com/it/en/book/offers-and-destinations?OriginCode=MIL&tripType=ROUNDTRIP	READY
+/md/en/homepage	austrian-parity-009	Default origin	Chisinau (RMO)	READY
+/md/en/homepage	austrian-parity-009	Trip duration	14	READY
+/md/en/homepage	austrian-parity-009	Price label	Round trip from	READY
+/md/en/homepage	austrian-parity-009	Finder card	as /be/en/homepage's Finder card (its picture: the shared DestinationFinderCard image), text "For all flight routes and prices, visit our", link "Offers & destinations page" to https://www.austrian.com/md/en/book/offers-and-destinations?OriginCode=RMO&tripType=ROUNDTRIP	READY
+/pl/en/homepage	austrian-parity-009	Default origin	Bydgoszcz (BZG)	READY
+/pl/en/homepage	austrian-parity-009	Trip duration	14	READY
+/pl/en/homepage	austrian-parity-009	Price label	Round trip from	READY
+/pl/en/homepage	austrian-parity-009	Finder card	as /be/en/homepage's Finder card (its picture: the shared DestinationFinderCard image), text "For all flight routes and prices, visit our", link "Offers & destinations page" to https://www.austrian.com/pl/en/book/offers-and-destinations?OriginCode=BZG&tripType=ROUNDTRIP	READY
+/ro/en/homepage	austrian-parity-009	Default origin	Bucharest (BUH)	READY
+/ro/en/homepage	austrian-parity-009	Trip duration	14	READY
+/ro/en/homepage	austrian-parity-009	Price label	Round trip from	READY
+/ro/en/homepage	austrian-parity-009	Finder card	as /be/en/homepage's Finder card (its picture: the shared DestinationFinderCard image), text "For all flight routes and prices, visit our", link "Offers & destinations page" to https://www.austrian.com/ro/en/book/offers-and-destinations?OriginCode=BUH&tripType=ROUNDTRIP	READY
+/rs/en/homepage	austrian-parity-009	Default origin	Belgrade (BEG)	READY
+/rs/en/homepage	austrian-parity-009	Trip duration	14	READY
+/rs/en/homepage	austrian-parity-009	Price label	Round trip from	READY
+/rs/en/homepage	austrian-parity-009	Finder card	as /be/en/homepage's Finder card (its picture: the shared DestinationFinderCard image), text "For all flight routes and prices, visit our", link "Offers & destinations page" to https://www.austrian.com/rs/en/book/offers-and-destinations?OriginCode=BEG&tripType=ROUNDTRIP	READY

@@ -86,3 +86,16 @@ https://austrian.turnsthe.page/tr/en/homepage 1440 390 # 79: our host, group of 
 https://austrian.turnsthe.page/ge/en/homepage 1440 390 # 80: our host, group of /ge/en
 # Priority 6 (added after brief 591, item 2) - the payment methods table of Brussels' our-payment-methods (www draws it in an iframe of webv4.brusselsairlines.com; all six languages use the same page): its rendered HTML is what the Brussels import needs (withPaymentTable reads content-sites/lh-brussels/assets/fop/<file>.html, the table only), the 1440 and 390 recordings of the iframe page as for any page.
 https://webv4.brusselsairlines.com/prod/content/v3assets/misc/fop/new/fop_standalone_1_en.html 1440 390 # 81: Brussels payment methods table (iframe page)
+# Priority 7 (added after brief 591, items 1 and 3) - our own host with www's APIs allowed, as rows 77-80: the two homepages whose finder patch is on HOLD (patch-591-austrian-finder-rows.txt). Then www pages: one page of each of the ten largest kinds the Austrian grey-band rule reaches (a columns-media block in a grey section: 32 px above and below, as www's column view; 138 documents, only wetlease-hub and culinary-services recorded), to check it.
+https://austrian.turnsthe.page/au/en/homepage 1440 390 # 82: our host, finder patch HOLD
+https://austrian.turnsthe.page/ch/de/homepage 1440 390 # 83: our host, finder patch HOLD
+https://www.austrian.com/at/en/austrian-app 1440 390 # 84: grey-band rule, kind of 20 documents
+https://www.austrian.com/at/en/accessible-travel 1440 390 # 85: grey-band rule, kind of 11 documents
+https://www.austrian.com/at/en/bangkok-airways 1440 390 # 86: grey-band rule, kind of 10 documents
+https://www.austrian.com/at/en/entryregulations 1440 390 # 87: grey-band rule, kind of 10 documents
+https://www.austrian.com/at/en/plan/special-requirements/entry-regulations/immigration-regulations-schengen 1440 390 # 88: grey-band rule, kind of 10 documents
+https://www.austrian.com/at/en/plan/special-requirements/healthy-travel/doctor-on-board 1440 390 # 89: grey-band rule, kind of 10 documents
+https://www.austrian.com/at/en/travel-id 1440 390 # 90: grey-band rule, kind of 10 documents
+https://www.austrian.com/at/en/sustainable-flying 1440 390 # 91: grey-band rule, kind of 10 documents
+https://www.austrian.com/at/en/additional-services 1440 390 # 92: grey-band rule, kind of 9 documents
+https://www.austrian.com/at/en/healthy-travel 1440 390 # 93: grey-band rule, kind of 9 documents
