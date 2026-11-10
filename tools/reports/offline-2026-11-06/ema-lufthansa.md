@@ -2836,4 +2836,14 @@ bari, Munich and cagliari -198 each; every page at 1440 and the article, homepag
   on main names it, the machine has one SWISS snapshot and one local document (no dry run possible), and the nearest lead
   (b01's grand-suite request page, markets ch) has no local copy to compare. Marked blocked: it needs the helper's note
   naming the document. Not asked now (rule 5); I went on.
+- **On main:** 2fd7f5a8 (lint 0, 3421 pass 0 fail, smoke 0 differences on 14 hosts).
+
+### Item 5: Cargo
+
+- **5a, the newsroom feed (Cargo row 48):** with every consent group accepted Mynewsdesk's app loads in the measuring
+  browser: its frame is 3,840 px on both, so the newsroom was +2.8 % only from what we put around it. www has the app
+  right under the header and no page title over it; ours had "Newsroom" (68 px with its margin) and the section's 25 px
+  above, 48 px below (www 23). While the app is mounted the section sits under the header and 23 px over the footer, and
+  the title is visually hidden (still read). 1440 4,556 -> 4,438 (www 4,430); 390 10,736 -> 10,629 (10,631); de alike.
+  Served code, backwards compatible: without the app (flag off, no consent) nothing changes.
 

@@ -726,7 +726,8 @@ body.brand-cargo .footer .footer-logos li:nth-child(3) {
 /* row 47 (the brief after 540): a story's own chrome as www's story template (cargo-parity-001's 142
    story): "Transport Stories Home" in its grey label with the stories' icon under the breadcrumb
    (hero-card-overlay.js adds it), 28 px over the first picture; from 1025 px a 38 px navy chevron
-   at the foot of every module (www's story-scrollLink, 3 px over the module's edge), the last one up */
+   at the foot of every module (www's story-scrollLink, 3 px over the module's edge), the last one up;
+   the closing text (the partner links and the photos' credits) is www's twelfth module, its chevron the up one */
 body.brand-cargo .hero-card-overlay-stories-wrapper {
   margin-top: 22px;
 }
@@ -752,11 +753,11 @@ body.brand-cargo .hero-card-overlay-stories a {
 }
 
 @media (width >= 1025px) {
-  body.brand-cargo main > .section:has(> .hero-card-overlay-wrapper > .hero-card-overlay.light) > :is(.hero-card-overlay-wrapper, .columns-media-wrapper) {
+  body.brand-cargo main > .section:has(> .hero-card-overlay-wrapper > .hero-card-overlay.light) > :is(.hero-card-overlay-wrapper, .columns-media-wrapper, .default-content-wrapper:last-child) {
     position: relative;
   }
 
-  body.brand-cargo main > .section:has(> .hero-card-overlay-wrapper > .hero-card-overlay.light) > :is(.hero-card-overlay-wrapper, .columns-media-wrapper)::after {
+  body.brand-cargo main > .section:has(> .hero-card-overlay-wrapper > .hero-card-overlay.light) > :is(.hero-card-overlay-wrapper, .columns-media-wrapper, .default-content-wrapper:last-child)::after {
     content: "";
     position: absolute;
     bottom: -3px;
@@ -768,7 +769,7 @@ body.brand-cargo .hero-card-overlay-stories a {
     background: #006 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2.5' d='M2 5l6 6 6-6'/%3E%3C/svg%3E") center / 16px no-repeat;
   }
 
-  body.brand-cargo main > .section:has(> .hero-card-overlay-wrapper > .hero-card-overlay.light) > :is(.hero-card-overlay-wrapper, .columns-media-wrapper):not(:has(~ :is(.hero-card-overlay-wrapper, .columns-media-wrapper)))::after {
+  body.brand-cargo main > .section:has(> .hero-card-overlay-wrapper > .hero-card-overlay.light) > :is(.hero-card-overlay-wrapper, .columns-media-wrapper, .default-content-wrapper:last-child):not(:has(~ :is(.hero-card-overlay-wrapper, .columns-media-wrapper, .default-content-wrapper:last-child)))::after {
     rotate: 180deg;
   }
 
@@ -1975,4 +1976,24 @@ body.brand-cargo .cards-teaser.mosaic .cards-teaser-body a {
    of lower specificity) */
 body.brand-cargo main > .section.key-facts .carousel-cards-wrapper ~ .default-content-wrapper a:any-link {
   color: #05164d;
+}
+
+/* the newsroom once Mynewsdesk's app is there (blocks/newsroom, after consent; cargo-parity-001 /en/ci/newsroom at 1440
+   and 390, the standing order of 2026-11-10, item 5): www shows the app right under the header, its own "Latest news"
+   its first heading, and the footer 23px under it; the page's "Newsroom" title for screen readers only (visually
+   hidden, not removed). Without the app (the flag off, no consent: the link to the newsroom) the title stays */
+body.brand-cargo main > .section.newsroom-container:has(#mnd-iframe) {
+  margin-top: 0;
+  margin-bottom: 23px;
+}
+
+body.brand-cargo main > .section.newsroom-container:has(#mnd-iframe) > .default-content-wrapper > h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
