@@ -20,3 +20,16 @@ found, the evidence and what would follow www.
   right before a Carousel Cards grid ("Related"). ema-lufthansa's ITA theme covers (a) for unmarked headings from
   ITA row 31 on (a block's headings get no default class at runtime); (b) gets its heading-medium class from
   token-free.js applyThemeRules, which the theme cannot tell from an authored one, so it is left to THEMES.ita.
+
+## 2. Discover: column-view heading sizes are mixed on www (2026-11-10)
+
+- **Found:** /de/de/discover/services-on-board/entertainment +5.9 % at 390: www's column-view H3s are
+  heading-copytext-large (16 px bold at 390), ours render 22 px light (the Columns Media block's heading size), the H2s
+  heading-small on www (22 px), ours 28. The markers that carried the sizes went in the collapse (one step from the
+  default, decision D).
+- **Evidence:** discover-parity-001, headings in www's two/three/four-column views (teaser titles left out): H3 34
+  heading-copytext-large, 10 heading-small (all on customer service); H2 22 heading-copytext-large, 12 heading-small.
+  A single theme size helps some pages and hurts others (customer service at 390 -188 -> -276 px with copytext-large).
+- **What would follow www:** keeping www's size where it is not the block's default (a marker, or a block option the
+  collapse writes), rather than one default for all column-view headings.
+

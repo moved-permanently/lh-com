@@ -3079,5 +3079,13 @@ follow when their run is through.
   the pages whose captures landed, for a re-run with them as --market-archive, once more of the 70 are in (the later
   archives tonight); not written yet.
 - **Capture list 2:** tools/reports/parity-2026-11-09/capture-list-585-brands-2.txt (A: Air Dolomiti's en and it
-  in-flight entertainment pages, rendered; B: Discover's families pages de and en as snapshots for D1 a).
+  in-flight entertainment pages, rendered; B: Discover's families pages de and en as snapshots for D1 a).- **On main:** 3cb59675 (capture list 2, the report).
+- **SWISS row 53:** the grid cards' text 40 px over the card's foot as www's (backwards-compatible: theme). book-and-manage
+  now within 0.4 % at both widths. Left on purpose: SWISS's footer legal row keeps 24 px lines on phones (www 15), an
+  accessibility decision (target spacing), +18 px on every SWISS phone page.
+- **Tried and not shipped, Discover's column-view H3s (ema-cashub's D4, entertainment +5.9 % at 390):** www sets most of
+  them in heading-copytext-large (34 of 44 on discover-parity-001) and some in heading-small (10, all on customer
+  service); ours render them in the block's own heading size since the collapse took the markers. A theme rule for one
+  size made entertainment and check-in closer and customer service and families further (customer service 390 -188 ->
+  -276): not one rule. Row 2 for ema-test (rows-for-ema-test.md).
 
