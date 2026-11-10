@@ -97,3 +97,9 @@
 /ch/it/cash-and-miles	ch/it	/ch/it/cash-and-miles	xx/it/cash-and-miles	3	info
 /it/it/flights	it/it	/it/it/flights	xx/it/flights	3	hub
 /it/it/refund	it/it	/it/it/refund	xx/it/refund	3	info
+# added 2026-11-10 21:00 CET (brief 582 item b): market-step stand-ins. Rows 2 and 17 of import-rows-importer-work.tsv (de/de automatic-check-in, pre-check-in: 80 and 81 covered roots) need a covered root of the largest group (ae/de, the 558 stand-in, has its own variant, rows 40/46); row 6 (de/de cash-and-miles, the be/de widget setting) has no evidence of its own. da_path here: the document the step writes.
+/be/de/automatic-check-in	be/de	/de/de/automatic-check-in	de/de/automatic-check-in	1	info
+/dk/de/automatic-check-in	dk/de	/de/de/automatic-check-in	de/de/automatic-check-in	1	info
+/be/de/pre-check-in	be/de	/de/de/pre-check-in	de/de/pre-check-in	1	app-entry
+/dk/de/pre-check-in	dk/de	/de/de/pre-check-in	de/de/pre-check-in	1	app-entry
+/be/de/cash-and-miles	be/de	/de/de/cash-and-miles	de/de/cash-and-miles	1	info

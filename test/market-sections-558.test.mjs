@@ -84,8 +84,12 @@ test('widget settings: hideCar and hideHotel as a Tabs by market row', () => {
   assert.equal(withTabsByMarket(html, [{ markets: 'cr/en', hide: ['car'] }]).blocks, 0, 'a block with the row keeps it');
 });
 
-test('widget settings: a group whose hidden tabs leave none (hotel-offers: Hotel only) gets no row', () => {
-  assert.equal(withTabsByMarket(fx('de-en-hotel-offers'), [{ markets: 'am/en', hide: ['hotel'] }]).blocks, 0);
+// brief 582: www draws the widget empty there (lh-snapshots-090: am/en hotel-offers, hideHotel), so the group gets
+// "none" (blocks/flight-search: the block goes); 558 wrote no row
+test('widget settings: a group whose hidden tabs leave none (hotel-offers: Hotel only) gets "none"', () => {
+  const { html, blocks } = withTabsByMarket(fx('de-en-hotel-offers'), [{ markets: 'am/en', hide: ['hotel'] }]);
+  assert.equal(blocks, 1);
+  assert.ok(html.includes('<div><div>Tabs by market</div><div><p>am/en = none</p></div></div>'));
 });
 
 test('market-steps: the list rows run on documents by path, missing inputs skipped', async () => {

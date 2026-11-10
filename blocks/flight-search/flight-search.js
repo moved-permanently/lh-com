@@ -95,7 +95,8 @@ function groupBookingOf(entry) {
  * market (hideHotel, hideCar, hideHoliday). The optional Tabs by market row holds one paragraph
  * per group, "<markets> = <tab, tab>" (markets as section metadata reads them,
  * scripts/market-rules.js); the first group whose markets allow the page's country gives the
- * tabs, else null (the Tabs row).
+ * tabs, else null (the Tabs row). "<markets> = none": no tab left in those markets (www draws the
+ * widget empty: hideHotel on a hotel-only widget, brief 582): an empty list, the block goes.
  * @param {Object} config result of readConfigRows
  * @param {Object} locale result of getLocale()
  * @returns {string[]|null}
@@ -108,7 +109,9 @@ export function marketTabs(config, locale) {
   const lines = paragraphs.length ? paragraphs : entry.cell.textContent.split('\n');
   const group = lines.map((line) => line.replace(/\s+/g, ' ').split(' = '))
     .find((parts) => parts.length === 2 && parts[1].trim() && marketAllows(parts[0], country));
-  return group ? group[1].split(/\s*[,;]\s*/).map((t) => t.trim()).filter(Boolean) : null;
+  if (!group) return null;
+  if (group[1].trim().toLowerCase() === 'none') return [];
+  return group[1].split(/\s*[,;]\s*/).map((t) => t.trim()).filter(Boolean);
 }
 
 /**
@@ -122,8 +125,11 @@ export function readFlightSearchSettings(config, locale) {
   const destinationValue = text('default-destination', 'destination');
   const destinationCode = parseAirportCode(destinationValue);
   const cabins = codesOf(text('cabins'), /^[EPBF]$/);
+  const byMarket = marketTabs(config, locale);
   return {
-    tabs: marketTabs(config, locale) || (pick(config, 'tabs', 'tab') || { list: [] }).list,
+    tabs: byMarket && byMarket.length ? byMarket : (pick(config, 'tabs', 'tab') || { list: [] }).list,
+    // "<markets> = none" (marketTabs): nothing to show in this market
+    hidden: !!byMarket && !byMarket.length,
     tripTypes: (pick(config, 'trip-types', 'trip-type') || { list: [] }).list.slice(0, 2),
     defaultTripType: text('default-trip-type'),
     // null: the market default airport (defaultAirport), like the live prefilled origin
@@ -948,6 +954,10 @@ export default function decorate(block) {
   // the page URL's search, as www's flight manager (url-prefill.js): over the authored rows
   const params = pagePrefillParams();
   const authored = readFlightSearchSettings(config, locale);
+  if (authored.hidden) {
+    (block.closest('.flight-search-wrapper') || block).remove();
+    return;
+  }
   const prefill = Object.keys(params).length ? parsePrefill(params, {
     today: isoDate(new Date()),
     cabins: authored.cabins,

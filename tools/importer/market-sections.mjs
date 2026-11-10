@@ -246,7 +246,10 @@ export function withTabsByMarket(html, groups) {
     const lines = tabsRow ? groups.map(({ markets, hide }) => {
       const tabs = tabsRow[1].replace(/<[^>]+>/g, '').split(/\s*[,;]\s*/).map((t) => t.trim()).filter(Boolean);
       const kept = tabs.filter((t) => !hide.includes(tabKind(t)));
-      return kept.length && kept.length < tabs.length ? `<p>${markets} = ${kept.join(', ')}</p>` : '';
+      // no tab left (hideHotel on a hotel-only widget): www draws the widget empty there (brief 582,
+      // lh-snapshots-090: am/de hotelangebote, am/en and cr/es hotel-offers): "none", the block goes
+      if (!kept.length) return `<p>${markets} = none</p>`;
+      return kept.length < tabs.length ? `<p>${markets} = ${kept.join(', ')}</p>` : '';
     }).filter(Boolean) : [];
     let next = block;
     if (lines.length && !rows.some(([k]) => k.toLowerCase() === 'tabs by market')) {

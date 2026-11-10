@@ -2710,11 +2710,31 @@ drop and our own host only).
 
 - **The 46 root pages** through the market steps offline (logs/b582/steps-46.mjs: each variant and its version
   page imported with the row's template, runRow on the drafts):
-  tools/reports/markets/lh-market-diff/market-steps-582.tsv, 39 steps (17 markets-section, 22 shared-variant),
-  each with its expected change; market-steps.mjs --dry-run runs all 39 on the drafts. 7 rows without a step,
-  listed at the end of the file: 26 (a double full stop only: no markets section for it), 57 and 59 (ar/fr: the
-  promotion teaser only, rule W1 as the user ruled for 58 and 60), 45, 52, 56 (hideHotel on a hotel-only widget:
-  www draws the widget empty, see below), 53 (ru/en shows two Meili widgets: open).
+  tools/reports/markets/lh-market-diff/market-steps-582.tsv (as pushed in 539eb4f at 20:45 CET: 39 steps, rows 2
+  and 17 with the wrong stand-in, see the correction; the corrected list came with the next commit): 43 steps
+  (15 markets-section, 25 shared-variant, 3 tabs-by-market), each with its expected change; market-steps.mjs
+  --dry-run runs all 43 on the drafts. 6 rows without a step, listed at the end of the file: 26 (a double full
+  stop only: no markets section for it), 57 and 59 (ar/fr: the promotion teaser only, rule W1 as the user ruled
+  for 58 and 60), 53 (ru/en shows two Meili widgets: open), 2 and 17 (below).
+- **Rows 45, 52, 56** (hideHotel on a hotel-only widget: de/de hotelangebote for 13 roots, de/en hotel-offers
+  for 14, xx/es hotel-offers for 4): tonight's captures show www's widget element empty there (no text at all).
+  withTabsByMarket now writes "<markets> = none" when no tab is left (558 wrote no row), and blocks/flight-search
+  reads "none" as hidden and removes the block (backwards compatible: no document has the row yet). The three
+  rows are tabs-by-market steps with hide "hotel".
+- **Correction to my 558 list.** lh-com-market-steps-558.txt named ae/de as the covered root for rows 2 and 17
+  (de/de automatic-check-in, pre-check-in), but ae/de is in a group of its own there (rows 40 and 46: ae/de,
+  am/de, ao/de). Rows 2 and 17 wait for be/de and dk/de (appended to capture-list-582-lh-com.txt); tonight's
+  ae/de pages give rows 40 and 46 instead (shared variants: the sub-navigation without "Gepäckabgabe"). Row 30
+  (de/en flight-search, no capture asked) runs with gb/en from bd-snapshots, as 558's rows 25/33/34 (gb/en is
+  not in row 29's group). The other stand-ins checked: no other markets-section row's stand-in is in a group.
+- **The 93 own-document pages** (lh-snapshots-092 and -094, all 93 ok; /no/en/local-page/ski-campaign-2026 was
+  rebuilt from the daemon's saved outerHTML after a Chrome crash) imported offline with their confirmed templates
+  (logs/b582/own-docs-93.mjs): 73 keep 90 % or more of the snapshot's main words, no maui element left, no empty
+  accordion panel. The 20 below 90 % are widget text the blocks draw themselves (Meili car rental 17 to 75 %,
+  destination finder on in/en and sa/en flights 48/51 %, fare teasers' "show more"), screen-reader link notes
+  ("will be opened in a new browser tab") and the map's keyboard help: **no importer change needed**, as expected.
+- **Capture list, second part (21:00 CET):** capture-list-582-lh-com.txt + 5 rows: /be/de and /dk/de
+  automatic-check-in and pre-check-in (rows 2, 17), /be/de/cash-and-miles (row 6, the be/de widget setting).
 - **Decisions.** markets-section: the home market sees the version's sections (de; xx for xx/ru, whose three
   roots by/ru, kz/ru, ru/ru all show the variant), every other root the variant's (www: every covered root shows
   the same). The cn/de check-in rows (1, 16) differ in the sub-navigation's order only: a shared variant still
