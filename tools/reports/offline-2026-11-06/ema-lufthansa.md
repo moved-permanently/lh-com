@@ -2882,5 +2882,20 @@ follow when their run is through.
 - **Cargo row 49, the transport stories on phones:** the import's two text cells stacked 36 px apart; www's story text
   runs on. Below 768 px they join: 390 en 8,696 -> 8,516 (www 8,389), de 9,213 -> 9,033 (8,856). The rest is the text
   face: www's older LufthansaTextWeb is narrower. Decided by the rules: Cargo keeps the brand font (a switch would change
-  every Cargo page for 1.5 to 2 % in narrow columns).
+  every Cargo page for 1.5 to 2 % in narrow columns).- **On main:** 1946c9f2 (lint 0, 3447 pass 0 fail). Smoke after it: 8 hosts 0 differences; on the other 6 one check
+  differs, the same DAM file (/content/dam/lh/images/mobileapp/Lufthansa%20Insights%20V2.png) flipping 404 <-> 503
+  (lh-edge's DAM route, dam-aem-unavailable: its upstream unavailable at times), in both directions across hosts:
+  transient, not the Cargo CSS.
+- **The ranking (94 rows re-measured; the stale /it/... and /en/homepage, /de/homepage rows of the first sweep's wrong
+  mapping left out, they answer 404; get-inspired and SWISS offers out as unmeasurable):** worst first:
+  1. ITA /it/en/profile/miles-and-more 1440 +15.9 % (since its re-import 45cd42f8): fixed below (ITA row 26).
+  2. TAP /en-pt/information/baggage -16.9 % / -11.0 %: LUGGit's iframe, decided (TAP row 41).
+  3. Air Dolomiti florence/what-to-see -13.8 % at 1440: waits for its re-import (row 81's list).
+  4. Air Dolomiti /de/reisenformationen/schwangere-und-kinder -13.6 % and tiere-an-bord -12.0 % at 1440 (390 0.0 %).
+  5. TAP /en-pt -13.4 % at 1440: the unscrolled capture (row 127).
+  6. ITA /it/en/local-page/verona +7.6 % at 390; Air Dolomiti's support pages and baggage -6 to -7 % at 390.
+  Everything else within 5.6 %.
+- **ITA row 26:** the re-imported Miles & More panels hold the picture second (line, picture, heading, list, link), so
+  rows 21's and 23's rules, built on a document with the picture last, matched nothing. The panel and its picture are
+  now found wherever the picture paragraph is. Live 1440 4,527 -> 4,038 (www 3,906), 390 5,286 -> 5,718 (5,759).
 

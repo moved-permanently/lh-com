@@ -13,7 +13,7 @@ import fs from 'node:fs';
 
 const css = fs.readFileSync(new URL('../styles/themes/ita.css', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
 const base = css.replace(/@media[^{]*\{[\s\S]*?\n\}\n/g, '');
-const P = 'body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture)';
+const P = 'body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture)';
 // the declarations of the rules whose selector list holds sel (in scope), merged
 const decls = (scope, sel) => Object.fromEntries([...scope.matchAll(/([^{}]+)\{([^{}]*)\}/g)]
   .filter((m) => m[1].replace(/@media[^{]*$/, '').split(/,\s*\n/).map((s) => s.replace(/^[\s\S]*\{/, '').trim()).includes(sel))
@@ -35,5 +35,5 @@ test('the benefits 40 px in, the bullets outside, the items 10 px apart', () => 
 
 test('the picture 56 px under the line from 768 px; on phones 45 px under it and 40 px over the heading', () => {
   assert.equal(decls(media('width >= 768px'), `${P} > p:first-of-type`)['margin-bottom'], '56px');
-  assert.equal(decls(media('width < 768px'), `${P} > p:last-child`).margin, '45px 0 40px');
+  assert.equal(decls(media('width < 768px'), `${P} > p:has(> picture)`).margin, '45px 0 40px');
 });

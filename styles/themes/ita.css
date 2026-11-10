@@ -844,36 +844,36 @@ body.brand-ita .micro-frontend .topic-selection-info-cards-container.full-width-
    line, then a two-column view, the status card | the benefits (heading, list, link); the import
    flattens it (the heading, the line, the list, the link, the picture last). The line first, the
    picture next, beside the benefits from 768 px */
-body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) {
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   align-items: start;
 }
 
-body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > p:first-of-type {
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > p:first-of-type {
   grid-row: 1;
 }
 
-body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > p:last-child {
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > p:has(> picture) {
   grid-row: 2;
 }
 
 @media (width >= 768px) {
-  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) {
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     column-gap: 24px;
   }
 
-  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > p:first-of-type {
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > p:first-of-type {
     grid-column: 1 / -1;
   }
 
-  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > p:last-child {
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > p:has(> picture) {
     grid-column: 1;
     grid-row: 2 / span 3;
   }
 
-  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > :is(h3, ul, p:not(:first-of-type, :last-child)) {
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > :is(h3, ul, p:not(:first-of-type, :has(> picture))) {
     grid-column: 2;
   }
 }
@@ -887,33 +887,33 @@ body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:las
    the line and 40px over the heading; the text the column's full width (www's column view; the
    panels' 66 % is for a panel of text alone) */
 /* stylelint-disable no-descending-specificity -- the panels' text rules (the block, the theme above) */
-body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > * {
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > * {
   max-width: none;
 }
 
-body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > h3 {
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > h3 {
   font-size: clamp(22px, calc(22px + 6 * (100vw - 375px) / 1065), 28px);
   line-height: 1.1;
 }
 
-body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > ul {
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > ul {
   padding-left: 40px;
   list-style-position: outside;
 }
 
-body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > ul > li + li {
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > ul > li + li {
   margin-top: 10px;
 }
 
 /* from 768px the picture and the benefits 56px under the line (www's column view under its text) */
 @media (width >= 768px) {
-  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > p:first-of-type {
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > p:first-of-type {
     margin-bottom: 56px;
   }
 }
 
 @media (width < 768px) {
-  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > p:last-child {
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > p:has(> picture) {
     margin: 45px 0 40px;
   }
 }
