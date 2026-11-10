@@ -29,7 +29,7 @@
  *   theme (THEMES columnViews.blocks: Discover's, B2B's).
  * - heading size: within one step of the context's default (the brand's and page type's, as the
  *   site will see it: a page with column marks is a flow page) the default; two or more steps a
- *   level-scoped section style (h2-large, h2-compact, h3-large; on every section of the page the
+ *   level-scoped section style (h2-large, h2-compact, h3-large, h4-large; on every section of the page the
  *   page's Headings row) or, in a block, its title option (title-large, title-compact); a size
  *   without a choice of its level goes (counted). The level never changes. limited-width goes.
  * - text width: the brand's default (running text two thirds; ITA the whole width); a section whose

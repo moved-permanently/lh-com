@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var tmp_bundle_homepage_81718_exports = {};
-  __export(tmp_bundle_homepage_81718_exports, {
-    default: () => tmp_bundle_homepage_81718_default
+  var tmp_bundle_homepage_364621_exports = {};
+  __export(tmp_bundle_homepage_364621_exports, {
+    default: () => tmp_bundle_homepage_364621_default
   });
 
   // tools/importer/parsers/flash-teaser.js
@@ -1890,7 +1890,10 @@ var CustomImportScript = (() => {
     },
     headingChoices: {
       h2: { large: "heading-large", compact: "heading-copytext-large" },
-      h3: { large: "heading-medium" }
+      h3: { large: "heading-medium" },
+      // an H4 two steps over its default too (www's heading-medium card titles: B2B's Joint
+      // Ventures, the brief after d9cf2340; without it the collapse dropped the size)
+      h4: { large: "heading-medium" }
     },
     // running text: two thirds of the content width from 1025px ('full': the whole width); body
     // text 18px (copytext-large), small print 14px
@@ -1943,8 +1946,18 @@ var CustomImportScript = (() => {
     b2b: {
       live: true,
       pageTypes: {
-        // a heading right before such a block opens its column view (www: 81 of 105 marked so)
-        flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true, startAtHeading: true } }
+        // a heading right before such a block opens its column view (www: 81 of 105 marked so, the
+        // brief after 550 narrows it); in a grey band no edge above a block right after a heading
+        // (www: none of 146 bands has column marks; travel-id's and contact's headings sit on it)
+        flow: {
+          headings: { h3: "heading-small" },
+          columnViews: {
+            blocks: ["columns-media", "carousel-images", "quote"],
+            endEdge: true,
+            startAtHeading: true,
+            bandHeadings: true
+          }
+        }
       }
     },
     // Air Dolomiti: the base theme (between B2B's and TAP's entries, next to no switch line)
@@ -5250,7 +5263,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_homepage_81718_default = {
+  var tmp_bundle_homepage_364621_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5290,5 +5303,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_homepage_81718_exports);
+  return __toCommonJS(tmp_bundle_homepage_364621_exports);
 })();

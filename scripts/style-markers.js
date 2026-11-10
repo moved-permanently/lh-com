@@ -141,6 +141,9 @@ const BASE_THEME = {
   headingChoices: {
     h2: { large: 'heading-large', compact: 'heading-copytext-large' },
     h3: { large: 'heading-medium' },
+    // an H4 two steps over its default too (www's heading-medium card titles: B2B's Joint
+    // Ventures, the brief after d9cf2340; without it the collapse dropped the size)
+    h4: { large: 'heading-medium' },
   },
   // running text: two thirds of the content width from 1025px ('full': the whole width); body
   // text 18px (copytext-large), small print 14px
@@ -281,6 +284,7 @@ export const SECTION_STYLES = {
   'h2-large': { headings: { h2: 'large' } },
   'h2-compact': { headings: { h2: 'compact' } },
   'h3-large': { headings: { h3: 'large' } },
+  'h4-large': { headings: { h4: 'large' } },
   // the section's own images in a 500 px window (Insights' parallax), its quotes narrow (centred)
   parallax: { image: 'parallax' },
   narrow: { quote: 'narrow' },
@@ -304,6 +308,7 @@ export const SECTION_STYLE_LABELS = {
   'h2-large': 'H2 large',
   'h2-compact': 'H2 compact',
   'h3-large': 'H3 large',
+  'h4-large': 'H4 large',
   parallax: 'Parallax image',
   narrow: 'Narrow quote',
   padded: 'Padded',

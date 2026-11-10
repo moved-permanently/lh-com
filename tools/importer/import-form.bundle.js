@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-form.js
-  var tmp_bundle_form_331094_exports = {};
-  __export(tmp_bundle_form_331094_exports, {
-    default: () => tmp_bundle_form_331094_default
+  var tmp_bundle_form_364621_exports = {};
+  __export(tmp_bundle_form_364621_exports, {
+    default: () => tmp_bundle_form_364621_default
   });
 
   // tools/importer/parsers/form-core.js
@@ -2074,7 +2074,10 @@ var CustomImportScript = (() => {
     },
     headingChoices: {
       h2: { large: "heading-large", compact: "heading-copytext-large" },
-      h3: { large: "heading-medium" }
+      h3: { large: "heading-medium" },
+      // an H4 two steps over its default too (www's heading-medium card titles: B2B's Joint
+      // Ventures, the brief after d9cf2340; without it the collapse dropped the size)
+      h4: { large: "heading-medium" }
     },
     // running text: two thirds of the content width from 1025px ('full': the whole width); body
     // text 18px (copytext-large), small print 14px
@@ -5354,7 +5357,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_form_331094_default = {
+  var tmp_bundle_form_364621_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5394,5 +5397,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_form_331094_exports);
+  return __toCommonJS(tmp_bundle_form_364621_exports);
 })();

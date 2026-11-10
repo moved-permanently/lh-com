@@ -63,7 +63,8 @@ test('theme defaults per brand and page type; every theme off (live: false) in s
   assert.equal(headingChoice(lh, 2, 'large'), 'heading-large');
   assert.equal(headingChoice(lh, 2, 'compact'), 'heading-copytext-large');
   assert.equal(headingChoice(lh, 3, 'large'), 'heading-medium');
-  assert.equal(headingChoice(lh, 4, 'large'), null);
+  assert.equal(headingChoice(lh, 4, 'large'), 'heading-medium', 'H4 has H3\'s large choice since the brief after d9cf2340 (test/heading-h4-large-569.test.mjs)');
+  assert.equal(headingChoice(lh, 4, 'compact'), null);
 });
 
 test('page types', () => {
