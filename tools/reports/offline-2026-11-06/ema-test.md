@@ -2404,3 +2404,38 @@ Austrian, Brussels and Discover are ema-cashub's.
 ### Item 6 (the fresh ranking after the list): not reached
 
 The restart took about seven hours of the ten; what remains open is above and in the summary.
+
+## The standing order of 2026-11-10 evening (Ben resumed at 19:00 CET; captures tonight)
+
+Started 18:30 UTC. Recordings: b2b-parity-001 to -005 and b2b-snapshots-014/-015 from the drop (sha256: 004
+0051c81b…57f0, 005 20ff0f75…5d9d3f, snapshots-015 e3609195…dc0736; 001 to 003 and 014 as before).
+
+- Capture list (18:50 UTC, within the first two hours): tools/reports/parity-2026-11-09/capture-list-583-b2b.txt,
+  33 pages at 1440 and 390: the documents the H1-view change touches (decision 1's measurement).
+- Decision 2, the tab default on phones (decba696, served, backwards-compatible: no section-metadata Tabs value
+  in any brand's DA has a comma): a set's own option on its Tabs row, "<name>, open first" | "<name>, closed".
+  From the 390 recordings: b2b-parity-005 (the 30 pages, 2026-11-10) every set closed; b2b-parity-003 (11-09)
+  de/en meals-on-board's and de/en corporates-start-of-booking's first panels open. List
+  reimport-583-b2b-tabs-open.txt: those 2 get "open first", the other 7 meals / Allegris documents keep B2B's
+  default (closed, as www); it replaces reimport-1110-b2b-tabs-open.txt. Smoke 12 hosts before and after: no
+  difference but the at/de sitemap's content.
+- Decision 1, the H1 view (8fe46779, import-time: the collapse and an inert theme flag; bundles rebuilt, 10):
+  on B2B an H1 that opens a column view is a section of its own, which the existing rule (an outer group over
+  its whole section) makes padded, flush when more follows. Of the 29 documents with such an H1 the collapse
+  changes 26 (3 unchanged: businesstogo de/de and xx/de, airlines-at-a-glance discover-airlines de/en).
+  Measured where a recording exists, the published page with the change rendered locally (our host's media):
+  lhg-history de/en 1440 37.4 -> 21.0 %, 390 32.9 -> 31.3 % (the H1 at 233 px, www 235). The list
+  reimport-583-b2b-h1-view.txt is on HOLD until the 33 recordings land and every document is measured
+  (release only if the net is better and none is worse by 0.5 points).
+- Decision 4, the held pairs (b2b-snapshots-015, 2026-11-10): the A350 Mumbai paragraph (15 December 2026) is on
+  www on all four swiss-senses pages (xx/en, xx/de corporates and intermediaries): DA's newer text is www's now.
+  xx/en entertainment-on-board: DA's 316 extra words are not newer content: market-variant rows (bg/en, kw/en:
+  "Any other travelers: €3 or 1,000 miles" and its note), an older paragraph www no longer has ("Chatting above
+  the clouds: with FlyNet® Chat for €3", Update March 2022) and "Current program" link labels; www's current page
+  is the rest.
+- Main's lint was red for about 40 minutes (a1a8e13d's comment lines and link-list rules, others' fixes and a
+  revert); I pushed only after a full green run. Decision on retests: after a full green run, a rebase that brings
+  only report text (tools/reports .md/.txt, read by no test or lint) is pushed without another run; one that
+  brings upload-state JSON reruns the two tests that read it (da-upload-sites, loc-sites).
+- Also queued (rows-for-ema-test.md, from ema-lufthansa): ITA's column-view headings at heading-small (a context
+  default in my collapse files); after the B2B ranking.
