@@ -2366,3 +2366,41 @@ I pushed only after a run with it passing again.
 The 228 candidates (85 on www, 143 answering 404) are not in any file I can find: not on main or any branch, not in
 tools/market-diff/lists/b2b (read only, it is ema-cashub's), not in content-sites/lh-b2b. Needed: the list's
 location. Nothing done for it; item 4 went on meanwhile.
+
+### The service restart (about 11:15 to 18:00 UTC)
+
+The machine's service restarted during a suite run at about 11:15; my turn resumed at 18:02. /tmp was wiped: the
+downloaded archives, the merged SWISS / TAP snapshot trees, the scratch worktrees and the offline imports in
+them (ITA's 63 tab documents were being imported). The report commit of 11:00 was still unpushed; the logs under
+logs/p4/s571 survived, with 270 of 296 height measurements.
+
+### Item 4: the tab-control audit (10:00 to 11:15, 18:05 to 18:30 UTC)
+
+Snapshots: lufthansa.com and ITA from this machine's capture (tools/importer/bd-snapshots), SWISS from swiss-snapshots-001
+to -047, TAP from tap-snapshots-001 to -026 (the R2 drop). Cargo and Air Dolomiti: their archives are in drops whose URLs
+are not in the repository and nothing of theirs is on this machine; not audited (needs their archive links).
+A tab control counts as covered in DA with Tab sections or the library's profile-tabs block (text-only panels).
+
+| brand | www pages with a tab control | DA covered | DA without | the importer today | list |
+| --- | --- | --- | --- | --- | --- |
+| lufthansa.com | 75 (xx/el, it, ja, ko, zh) | 20 | 45 (10 more 404 on our host, left out) | info bundle writes Tab sections: 45 of 45 offline | reimport-1110-lh-tabs.txt |
+| ITA | 115 | 45 | 63 (7 without a DA copy) | the same; 2 of 63 imported offline before the restart, both with their tabs | reimport-1110-ita-tabs.txt |
+| SWISS | 432 | 412 | 11 (9 without a copy) | swiss-import.mjs writes them (withTabMarkers) | reimport-1110-swiss-tabs.txt |
+| TAP | 58 radix content tabs (the booking widget left out) | 0 | 29 (29 more under other document names) | tap-import.mjs has no rule for them (ema-lufthansa's file, on TAP now) | reimport-1110-tap-tabs.txt |
+
+Every page with a control has it in every language the snapshots hold (unlike B2B's German pages). Rows carry the
+sets and labels and the before heights on our hosts (the footer's top at 1440 / 390); the after heights were not
+measured: the scratch imports went with the restart. On B2B's measured pages the saving was most of the page (meals-on-board
+28,610 -> 2,228 px at 1440 with stand-in pictures).
+
+### Item 5: the tab block on phones
+
+www below 768 px, from the 390 recordings: B2B's Newsroom every item closed, its meals-on-board and Allegris pages the
+first open (cfc02df5's "Tabs open" metadata, item 1); TAP's content tabs every item closed (10 of 11 recorded pages):
+a8a7b0ca adds TAP to the closed brands (backwards-compatible: no TAP document has tab sections yet). SWISS's,
+lufthansa.com's and ITA's recordings hold no content tab page at 390: their first open stays (the block's default).
+Austrian, Brussels and Discover are ema-cashub's.
+
+### Item 6 (the fresh ranking after the list): not reached
+
+The restart took about seven hours of the ten; what remains open is above and in the summary.
