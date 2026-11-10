@@ -3871,3 +3871,41 @@ body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(2) a[href] i
 }
 
 /* stylelint-enable no-descending-specificity */
+
+/* the destinations' text block under the stage (www's TitleDescriptionTextCta after HeroSecond:
+   /destinations/bari, /de/reiseziele/bari-de, /destinazioni/monaco-di-baviera; the sweep after 556):
+   the section after a destination stage whose card holds the city as the H1 (the articles' stage
+   holds an h2, www's HtmlContent under it at 16px); as the hubs' block above: the title 38px / 46px
+   (42px / 50px from 930px) with a blank line under it, the text, its lists and its headings (www's
+   paragraph__large, its h2s too) 22px / 37.4px a blank line apart, from 930px a centred 70vw column */
+/* stylelint-disable no-descending-specificity -- another page type's text (the hubs' above) */
+body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section > .default-content-wrapper:first-child > h2:first-child {
+  margin-bottom: 37.4px;
+  font-size: 38px;
+  line-height: 46px;
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section > .default-content-wrapper:first-child > p:not(.button-wrapper),
+body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section > .default-content-wrapper:first-child > :is(ul, ol),
+body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section > .default-content-wrapper:first-child > h2:not(:first-child) {
+  max-width: none;
+  margin: 0 0 37.4px;
+  font-size: 22px;
+  line-height: 37.4px;
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section > .default-content-wrapper:first-child > :is(ul, ol) {
+  padding-left: 1.625em;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section > .default-content-wrapper:first-child > h2:first-child {
+    font-size: 42px;
+    line-height: 50px;
+  }
+
+  body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section > .default-content-wrapper:first-child > :is(h2, ul, ol, p:not(.button-wrapper), p.button-wrapper) {
+    margin-inline: calc((100% - 70vw) / 2);
+  }
+}
+/* stylelint-enable no-descending-specificity */
