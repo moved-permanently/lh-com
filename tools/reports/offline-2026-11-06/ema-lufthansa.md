@@ -3066,5 +3066,18 @@ follow when their run is through.
   metadata) and no fallback banner, so the row stays open: it needs TAP's OneTrust domain in the site metadata (a
   document change) or a fallback banner for TAP (a new banner on every TAP page). Not decided here; open.
 - **AD row 100 (the trail on one line, as www's), Discover rows 44 to 46 (heading margins, column rows, accordions):**
-  four commits, one push (below).
+  four commits, one push (below).- **On main:** 2a291f2f (AD 100), f3e44340 (Discover 44), d76a3d39 (Discover 45), a46f654d (Discover 46): lint 0, 3521
+  pass 0 fail, smoke 0 differences on 14 hosts before and after.
+- **Item d, TAP's market groups:** tap-snapshots-027 (above) holds the first 9 of the 70 pages of
+  capture-567-tap-market-groups.txt (list "e"; 18:13 UTC). Checked offline against our documents
+  (.scratch scripts, nothing fetched from www): each captured root differs from our language version where the
+  comparison said (en-ao / pt-ao payment methods without the language version's Santander link; the club, partners,
+  service-animals and promos pages with the root's own links), and fr-ca/promos is an own document as listed. So the
+  list's decisions hold for these 9; no correction list. Our language documents on the host have no market sections
+  yet (no "markets" cells), so the harness's job 567-tap-markets-01 has not reached these pages' previews, or ran
+  without their captures (then they are noted unplaced in its report, as the list says). Decision: a follow-up list of
+  the pages whose captures landed, for a re-run with them as --market-archive, once more of the 70 are in (the later
+  archives tonight); not written yet.
+- **Capture list 2:** tools/reports/parity-2026-11-09/capture-list-585-brands-2.txt (A: Air Dolomiti's en and it
+  in-flight entertainment pages, rendered; B: Discover's families pages de and en as snapshots for D1 a).
 

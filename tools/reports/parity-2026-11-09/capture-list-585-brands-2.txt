@@ -1,0 +1,18 @@
+# ema-lufthansa's second capture list for the night of 2026-11-10 (after capture-list-585-brands.txt). For the Captures
+# child; no request to an airline host from ema-lufthansa. Priority: top to bottom.
+#
+# A. Air Dolomiti, 2 pages: rendered recordings as airdolomiti-parity-005 (1440 x 900 and 390 x 844, scrolled, light
+#    and shadow DOM, measurements), archive airdolomiti-parity-NNN. Why: www.airdolomiti.de's in-flight entertainment page
+#    (airdolomiti-parity-005, tonight) shows the trail in its own row and the picture at 235 px; en and it in
+#    airdolomiti-parity-001 (6 November) showed the picture from the page's top under the bar, which AD row 95 follows.
+#    These two decide whether .eu and .it changed to the German layout (then row 95 is undone for them) or not (then the
+#    German document gets the hidden-heading style on its next import).
+https://www.airdolomiti.eu/services-on-board/in-flight-entertainment-system
+https://www.airdolomiti.it/servizi-a-bordo/sistema-di-intrattenimento-a-bordo
+#
+# B. Discover, 2 pages: snapshots for the importer (full HTML as discover-snapshots-NNN, the importer's input), archive
+#    discover-snapshots-NNN. Why: ema-cashub's row D1 a, www's "Auf einen Blick" list text is longer than our documents'
+#    (content drift since the import); a re-import from these snapshots brings it (a re-import list follows once they
+#    land).
+https://www.discover-airlines.com/de/de/book/special-requests/families
+https://www.discover-airlines.com/de/en/book/special-requests/families
