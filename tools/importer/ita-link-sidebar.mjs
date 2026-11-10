@@ -45,8 +45,10 @@ export function withLinkListSidebar(doc, html) {
   while (isLinkLine(n)) { lines.push(n); n = n.nextElementSibling; }
   const rest = [];
   while (n) { rest.push(n); n = n.nextElementSibling; }
-  // the box ends the section (only the section's own metadata after it)
-  if (!lines.length || rest.some((el) => !el.classList.contains('section-metadata'))) return doc;
+  // the box ends the section (only the section's own metadata after it, or the page's: the import writes
+  // its metadata block at the end of the last section; DA's copy has it in a section of its own)
+  if (!lines.length || rest.some((el) => !el.classList.contains('section-metadata') && !el.classList.contains('metadata'))) return doc;
+  const pageMeta = rest.filter((el) => el.classList.contains('metadata'));
   const aside = document.createElement('div');
   const meta = document.createElement('div');
   meta.className = 'section-metadata';
@@ -61,6 +63,12 @@ export function withLinkListSidebar(doc, html) {
     section.after(content, aside);
   } else {
     section.after(aside);
+  }
+  // the page's metadata a section of its own after the box (as DA's copy has it)
+  if (pageMeta.length) {
+    const metaSection = document.createElement('div');
+    metaSection.append(...pageMeta);
+    aside.after(metaSection);
   }
   return isPlain ? main.innerHTML : doc.replace(/<main>[\s\S]*<\/main>/, () => `<main>${main.innerHTML}</main>`);
 }

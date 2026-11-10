@@ -36,6 +36,28 @@ test('the title and stage picture, the sidebar\'s content, the link box beside i
   assert.equal(withLinkListSidebar(out, snapshot), out, 'once');
 });
 
+// the import's shape (the brief after 566: the import helper's run of c4a8d511): the page's metadata block at the end of
+// the section that ends in the heading and its links (the bulk import writes it there, withItaMetadata adds its rows);
+// DA's copy has it in a section of its own
+const { withItaMetadata } = await import('../tools/importer/ita-import.mjs');
+const META = '<div class="metadata"><div><div>Title</div><div>Miles &amp; More | ITA Airways</div></div></div>';
+const imported = withItaMetadata(doc.replace(/(Frequent flyer programme<\/a><\/p>\s*)<\/div>\s*<div><\/div>\s*$/, `$1${META}</div>\n`), '/it/en/profile/miles-and-more', snapshot);
+
+test('the import\'s metadata in the links\' section: the box as with it apart, the metadata a section of its own at the end', () => {
+  assert.match(imported, /<div class="metadata">[\s\S]*<div>nav<\/div><div>\/it\/en\/nav<\/div>[\s\S]*<\/div>\s*$/);
+  const out = withLinkListSidebar(imported, snapshot);
+  assert.notEqual(out, imported, 'the step ran');
+  const [top, content, aside, meta, ...more] = sections(out);
+  assert.equal(more.length, 0);
+  assert.ok(top.querySelector('h1') && content.querySelector('.accordion-columns'));
+  assert.equal(text(aside.querySelector('h2')), 'More about Miles & More');
+  assert.equal(aside.querySelectorAll('p > a').length, 4);
+  assert.ok(!aside.querySelector('.metadata') && !content.querySelector('.metadata'));
+  assert.deepEqual([...meta.children].map((c) => c.className), ['metadata']);
+  assert.deepEqual([...meta.querySelectorAll('.metadata > div')].map((r) => text(r.firstElementChild)), ['nav', 'footer', 'Title']);
+  assert.equal(withLinkListSidebar(out, snapshot), out, 'once');
+});
+
 test('nothing changes without such a box in the snapshot', () => {
   assert.equal(withLinkListSidebar(doc, '<html><body><main><p>no sidebar</p></main></body></html>'), doc);
   assert.equal(withLinkListSidebar(doc, ''), doc);
