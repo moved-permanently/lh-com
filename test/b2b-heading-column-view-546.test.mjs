@@ -60,6 +60,11 @@ test('the brief after 550: only a Columns Media of two or more cells side by sid
   const sidebar = page('<div><p>Text</p><h2>More choice</h2><div class="columns-media sidebar"><div><div>x</div><div>y</div></div></div><p>More</p></div>');
   decorateTokenFree(sidebar, { brand: 'b2b', path: '/de/en/x', read: flowRead });
   assert.equal(seq(sidebar), 'p h2 start columns-media end p', 'sidebar: as before');
+  // the brief after d9cf2340: a view's empty items are kept now (columns-media parser), one card and two empty cells
+  // is still one card (summer-2026's unmarked "From Munich (MUC)" heading over it)
+  const partial = page('<div><p>Text</p><h3>From Munich (MUC)</h3><div class="columns-media"><div><div>x</div><div></div><div></div></div></div><p>More</p></div>');
+  decorateTokenFree(partial, { brand: 'b2b', path: '/de/en/x', read: flowRead });
+  assert.equal(seq(partial), 'p h3 start columns-media end p', 'one card and empty cells: as one cell');
 });
 
 test('the brief after 550: not after a divider, not when the cells have H4 headings (www\'s view starts below the heading)', () => {

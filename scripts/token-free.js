@@ -58,6 +58,9 @@ function isTabPanel(section) {
   return !!meta && [...meta.children].some((row) => (row.firstElementChild?.textContent || '').trim().toLowerCase() === 'tab');
 }
 
+/** A block row's cells with content (a view's empty items, kept as empty cells, aren't cards). */
+const filledCells = (row) => [...(row?.children || [])].filter((c) => c.textContent.trim() || c.querySelector('img, picture, video, iframe')).length;
+
 /** A grey band: its Section Metadata style (or its class, once decorated) says grey. */
 function isBand(section) {
   if (section.classList.contains('grey')) return true;
@@ -288,7 +291,7 @@ function applyThemeRules(main, theme) {
         let start = block;
         const heading = block.previousElementSibling;
         const sideBySide = blockName(block) === 'columns-media' && !block.classList.contains('stage')
-          && !block.classList.contains('sidebar') && (block.firstElementChild?.children.length || 0) >= 2
+          && !block.classList.contains('sidebar') && filledCells(block.firstElementChild) >= 2
           && !block.querySelector('h4');
         const afterDivider = (el) => el && (el.matches('p.divider') || (isBlock(el) && blockName(el) === 'divider'));
         if (startAtHeading && sideBySide && !isBand(section) && /^H[2-4]$/.test(heading?.tagName || '')
