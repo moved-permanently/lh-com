@@ -2358,3 +2358,18 @@ those sidebars as sidebar sections (withSidebarContent marks only sidebars with 
 their accordions www's text column (the brief after 540's second cause). Not shipped tonight: the same section style moved
 two other pages' h1 by 108 px in 540, so it needs per-page measurement first. dsar-start (h1 in a columns-media sidebar,
 -30 / -16 px) is its own case.
+
+## The standing order after 584: second part, where it stands
+
+**Brussels contact/feedback (+4.2 / +3.2 %, about +60 px): cause found, no rule yet.** The page's ten concern links are, on
+www, maui-navigation-link size medium variant hyper: 16 px regular, 44 px apart, 88 px under the intro and 52 px above the
+footer. Ours are link paragraphs (p.link-wrapper) inside the columns-media sidebar cell: 18 px bold, 50 px apart, 44 px under
+the intro, 106 px above the footer. A Brussels rule giving link paragraphs www's 16 px regular and 20 px margin, tried on
+every recorded Brussels page with the rule added in the browser: contact/feedback +4.2 -> +5.6 % at 1440 and chase-the-sun
++2.1 -> +3.3 % (the cell's paragraph spacing is not that margin), other pages unchanged. Not shipped; the next step is
+the columns-media cell's spacing between link paragraphs, measured per page first.
+
+**Not reached tonight:** birthright's last 31 px, the Discover rows beyond D1 (rows-for-ema-lufthansa.md D2 to D9),
+Austrian wetlease-hub's -3.5 %, the second ranking sweep with the night's new recordings (austrian-parity-008 and later,
+brussels-parity-006 and later, discover-parity-003: not in the drop when last probed), and the Brussels section-sidebar h1
+(analysed above: about 280 pages, a sidebar-section change that needs per-page measurement first).
