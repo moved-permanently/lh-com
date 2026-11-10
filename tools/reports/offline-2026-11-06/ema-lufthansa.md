@@ -2928,5 +2928,10 @@ follow when their run is through.
     in the measuring browser), as the offers page (row 52).
 - **ITA row 28:** after row 26 the Miles & More panels showed two more causes. The block's own 66 % rule from 1025 px won
   over the panels' full width, and the panels were each 46 px short of www's spacing. Both fixed; each panel's pitch is now
-  www's at both widths (1440 3,827 against 3,906; 390 5,865 against 5,759).
+  www's at both widths (1440 3,827 against 3,906; 390 5,865 against 5,759).- **On main:** fe73084f (lint 0, 3461 pass 0 fail, smoke 0 differences on 14 hosts).
+- **TAP row 130, the FAQ pages:** the categories 32 px under the title from 768 px, as www's (the title's section had kept
+  64). 1440 2,079 -> 2,047 (www 2,009) on en-pt, pt-pt and es-es; phones already www's.
+- **Cargo's pages at 390 (+2 to +3 %), tried and not changed:** our last section's 48 px before the footer is part of
+  it on the fleet page (www about 20), but taking it away for every Cargo page on phones moved industries-in-focus away
+  from www (-0.8 % -> -1.7 %) while fleet, ebooking-info and the SDG page came closer: not one rule, so left.
 
