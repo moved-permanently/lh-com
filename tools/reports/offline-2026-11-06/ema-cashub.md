@@ -2153,3 +2153,46 @@ imports did not, so they will have fetched the recordings' www stylesheets and s
 checkout (another job's uncommitted file, written by import-batch.mjs; 4,107 changed lines against HEAD). Restored from
 the newest copy git still held (unreachable blob f48e31ce, entries up to 2026-11-07 03:05, the same 4,107 changed lines);
 entries the job wrote after that, if any, are lost. It stays uncommitted as before.
+
+## The brief after 570: the contact pages' help app, the waiting Austrian rows, the ranking after the footer patch
+
+**Item 1, the contact pages (aad9ae54):** `reimport-570-austrian-contact-help-app.txt`, waiting for a capture. The R2
+drop's austrian-snapshots-001 to -018 (2026-10-30) hold /at/de/contact (-002) and /at/en/contact (-001), with the help
+app's questionnaire element empty (not rendered when captured); the other eight (cn/zh, es/es, fr/fr, gr/el, it/it,
+jp/ja, pl/pl, ru/ru) are in no archive. The importer writes the Feedback block only from a rendered questionnaire, so
+all ten need a capture with the help app rendered (asked for at the start of the turn, before the 08:00 CET window).
+The same holds for the drop's help-center snapshots (-003 at/en, -004 at/de hilfe-center): the 566 help-center list
+now says to import at/en from the recording austrian-parity-003 and at/de after a capture. The other 566 lists were
+checked against the drop: online-check-in (10, at/de added: its document lacks the whole Austrian App part), wetlease-hub
+(10) and the Brussels info pages (8 there; be/fr organisation taken off: no empty item, the rule changes nothing).
+
+**The ranking after the footer patch** (capture 570: austrian.turnsthe.page and brussels.turnsthe.page against
+austrian-parity-003 / brussels-parity-004; www refused and counted: 118 / 192). Live by then: the 62 footers, wetlease-hub
+(10), the Brussels info pages (7), and help-center at/en (its Feedback block is on the live page).
+- Footer patch: fr/fr, pl/pl, es/es baggage -0.4 to +0.6 % at 1440, -0.7 % at 390 (were +2.0 to +2.9 % / +0.9 to
+  +1.0 %); it/it +0.1 / -1.1 % (was +2.4 / +0.6); hu/en invoice +1.0 / +2.8 % (was +4.3 / +5.7; the 71 px Turnstile
+  effect included); al/en black-friday -0.5 / -0.9 %.
+- wetlease-hub (re-imported): -3.5 / -3.0 % (was +13.6 / -4.0).
+- help-center (re-imported): on the live page -2.1 % at 1440, -2.2 % at 390 (were -5.4 / -4.9). Capture 570's -26.4 %
+  at 390 is the capture (the help app had not rendered when it was taken, its fallback shown); two probes after it: the
+  app and the Feedback block at both widths.
+
+**Item 2, the waiting Austrian rows** (capture 570):
+- Baggage, the four copies brief 513b left unchanged: it/it +0.1 / -1.1 % (done by the footer patch); gr/el +2.5 /
+  +2.6 % (not traced, about 110 / 160 px); jp/ja -5.8 / -10.3 % and cn/zh -4.2 / -7.6 % are CJK rows (no Japanese or
+  Chinese font in this browser; do not chase). No list: their bodies equal DA.
+- The captured form templates, each with the 71 px Turnstile checkbox on our side (measured on every one), without it:
+  exclusive-charter-enquiry -0.7 / -0.4 %, private-check-in-counter +0.6 / +1.0 %, bagdamage -2.1 / +0.1 %, hu/en
+  invoice-request-hungary -1.2 / +0.8 %, il/en cancellation-refund -2.2 / -8.6 % (390 waits for the 551 re-import). No
+  list.
+
+**Item 3, the next rows by size** (marks: capture effect, by design, live data, recording state, CJK):
+- Austrian: promptpay -18.5 / -18.4 % (live fares), unterhaltung-an-bord -18.2 / -16.0 % (the recording's empty panel),
+  online-check-in -7.0 % (re-import queued; the rest token-free spacing), us/en ski-campaign-2026 -5.3 / -4.5 % (new
+  after the footer patch: www's us/en footer is 856 px, 41 more than the others; not traced), bearbeitungsgebuehren 390
+  +4.8 %, ru/ru baggage +3.5 / +3.6 %, os401crewstory +3.0 % (not traced).
+- Brussels: problems-with-your-baggage and cancel-and-refund-requests (accordions open in the recording),
+  our-payment-methods (www's payment widget), offers (live fares), check-in-times (the deadline search's link-out),
+  chase-the-sun (551 re-import queued), service-charges (no single rule, traced before). Next to trace:
+  contact/feedback/general/other +4.2 / +5.1 % without the capture's 71 px: each of its 8 bands is 16 to 34 px taller
+  than www's (at "Voice your concern" +99 at 1440, +160 at 390); then families-and-children -9.1 % at 1440.
