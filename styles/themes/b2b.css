@@ -782,3 +782,9 @@ body.brand-b2b main > .section.grey {
 body.brand-b2b main figure.image-caption > figcaption {
   max-width: 800px;
 }
+
+/* www's sidebar component is no column view (scripts/token-free.js columnViews.sidebarNoView): the
+   column view after it starts right at its foot, its own padding the space (route-network) */
+body.brand-b2b main > .section > div:has(> .columns-media.sidebar) + .default-content-wrapper:has(> p.column-mark.column-start-outer:first-child) {
+  margin-top: 0;
+}

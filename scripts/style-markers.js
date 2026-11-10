@@ -220,7 +220,7 @@ export const THEMES = {
       flow: {
         headings: { h3: 'heading-small' },
         columnViews: {
-          blocks: ['columns-media', 'carousel-images', 'quote'], endEdge: true, startAtHeading: true, bandHeadings: true,
+          blocks: ['columns-media', 'carousel-images', 'quote'], endEdge: true, startAtHeading: true, bandHeadings: true, sidebarNoView: true,
         },
       },
     },

@@ -284,10 +284,14 @@ function applyThemeRules(main, theme) {
     // on it, no edge above the block or the heading
     const {
       blocks = [], endEdge = false, startAtHeading = false, bandHeadings = false,
+      sidebarNoView = false,
     } = theme.columnViews;
     if (blocks.length && !isTabPanel(section)) {
       section.querySelectorAll(':scope > div[class]').forEach((block) => {
         if (!blocks.includes(blockName(block))) return;
+        // sidebarNoView: a sidebar Columns Media is www's sidebar component, no column view (B2B:
+        // none of the census' 15 sidebars has a column mark)
+        if (sidebarNoView && block.classList.contains('sidebar')) return;
         // startAtHeading: a heading right before the block is the view's first item (www's column
         // view starts at it), so the edge goes above the heading; only a Columns Media of two
         // or more cells side by side, not a stage or sidebar one, not after a divider, not one

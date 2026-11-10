@@ -59,7 +59,9 @@ test('the brief after 550: only a Columns Media of two or more cells side by sid
   assert.equal(seq(one), 'p h3 start columns-media end p', 'one cell: as before');
   const sidebar = page('<div><p>Text</p><h2>More choice</h2><div class="columns-media sidebar"><div><div>x</div><div>y</div></div></div><p>More</p></div>');
   decorateTokenFree(sidebar, { brand: 'b2b', path: '/de/en/x', read: flowRead });
-  assert.equal(seq(sidebar), 'p h2 start columns-media end p', 'sidebar: as before');
+  // the standing order of 2026-11-10 evening: a sidebar is no column view at all (sidebarNoView,
+  // test/b2b-sidebar-no-view-583.test.mjs: none of the census' 15 sidebars has a column mark)
+  assert.equal(seq(sidebar), 'p h2 columns-media p', 'sidebar: no view');
   // the brief after d9cf2340: a view's empty items are kept now (columns-media parser), one card and two empty cells
   // is still one card (summer-2026's unmarked "From Munich (MUC)" heading over it)
   const partial = page('<div><p>Text</p><h3>From Munich (MUC)</h3><div class="columns-media"><div><div>x</div><div></div><div></div></div></div><p>More</p></div>');
