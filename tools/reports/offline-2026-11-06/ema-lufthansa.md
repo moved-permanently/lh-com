@@ -2955,5 +2955,18 @@ follow when their run is through.
   (test first, but placed in test/ while another change was being checked); nothing was committed. Tests for a next
   change now wait outside test/ until their own run.- **TAP row 131, the footer:** www's footer links are 14 px (ours 16, so one wrapped) and its cards start at the
   footer's top (ours 16 px lower from 1024 px). Theme rule (backwards-compatible). Every TAP page at 1440 is 39 px
-  shorter and the footer's rows sit as www's; the FAQ page is now 2,008 against www's 2,009.
+  shorter and the footer's rows sit as www's; the FAQ page is now 2,008 against www's 2,009.- **On main:** c14f8348 (AD 95) and cbe045dd (TAP 131), each lint 0, the full suite passing (3480 / 3481), smoke 0
+  differences on 14 hosts.
+- **Air Dolomiti row 96, the lead's paragraphs:** www's authors put blank lines between them with line breaks the import
+  leaves out; the theme now gives a blank line between two paragraphs (the brand default). The in-flight entertainment
+  pages are within 1.5 % at both widths (it 1440 2,397 against 2,400).
+- **Classified, no change:**
+  - Air Dolomiti's German footer at 390: the recording's is 28 px taller than ours on every German page, but www's own
+    page rendered here is 1,046 px as ours: the recording's live font wraps one more line. Not a difference in the code.
+  - Air Dolomiti's title on phones: www's sits 24 px lower on the booking, baggage, timetable and support pages (4 px on
+    the text pages, 44 on assistance), with the content under it where ours is: a template's spacing, not one rule.
+  - ITA two-column headings (invoicing's "Flight Certification" 36 px against www's heading-small 28): the importer's
+    parser keeps www's class (checked on the recording), but the live document has no size marker; the cause is
+    between the parser and the upload and needs a scratch import, which I did not run (a failed snapshot import falls
+    through to a live request to www). Open.
 

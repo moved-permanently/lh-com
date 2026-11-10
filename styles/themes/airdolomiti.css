@@ -3064,6 +3064,13 @@ body.brand-airdolomiti .columns-media.news .columns-media-text p {
   line-height: 33px;
 }
 
+/* a blank line (33px, the text's line) between two paragraphs: www's authors start them with line breaks or put an
+   &nbsp; paragraph between, which the import leaves out; the brand's text default (row 35) (AD row 96) */
+/* stylelint-disable-next-line no-descending-specificity -- the lead's text, not the promo cards' (above) */
+body.brand-airdolomiti .columns-media.news .columns-media-text p + p {
+  margin-top: 33px;
+}
+
 @media (width >= 930px) {
   body.brand-airdolomiti .columns-media.news .columns-media-text {
     width: 50vw;
