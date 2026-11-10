@@ -1581,3 +1581,12 @@ body.brand-lufthansa .columns-media .columns-media-row > div > blockquote > * + 
     margin-bottom: 10px;
   }
 }
+
+/* lufthansa.com, option nested-4 on phones (shopping's "Your benefits at a glance"): the nested
+   view's three empty items stack under the icon and keep their margins, the text 202px of ink
+   under the icon at 390 on www, ours 159 with 62px (brief 558; nested-2 and 768px up as before) */
+@media (width < 768px) {
+  body.brand-lufthansa .columns-media.nested-4 .columns-media-text > p:has(> picture, > a > picture):first-child {
+    margin-bottom: 105px;
+  }
+}
