@@ -2858,4 +2858,17 @@ bari, Munich and cagliari -198 each; every page at 1440 and the article, homepag
 - **5c, the collapse keeping the play button's text:** checked, no change needed. marker-collapse.mjs (ema-test's,
   read only) gates Cargo until its theme is live; with the gate forced open a video's {controls round-play-button} marker
   goes and the link's text stays as it is (a bare URL or "Watch the video"), as its own rules say.
+- **On main:** 221b672b, the test with its CSS again (lint 0, 3429 pass 0 fail, smoke 0 differences on 14 hosts).
+- **5d, the token-free run for Cargo:** the plan is tools/reports/token-free/cargo-plan-567.md, the pass itself
+  harness-pass-cargo.md (written 2026-11-09). The switch is THEMES.cargo.live on token-free-cargo-live, as the other
+  brands had it: nothing changes live before the pass's documents. Of the two conditions:
+  - the collapse keeping the video links' text is met (checked above);
+  - the branch up to main is not: it is 199 commits behind and 3 ahead, and main has Cargo theme changes since
+    (9c004e6f, 9c6dcefa). That is ema-test's (I don't touch the token-free branches).
+  - The list is DA's own census at the pass (yesterday's: 22 documents, 30 markers, all to the theme).
+  - The order also keeps Cargo's re-imports out of the window between the pass and the switch.
+- **5e, Cargo's ranking (the 11 recorded pages in en and de, live today, 390 at 844 px):** notification-overview -9.8 % at
+  1440 (data: www's header picture, as before); the 142 story +4.0 % / +3.7 % at 390 (de / en); fleet +3.4 % at 390;
+  everything else within 3 % at both widths (the newsroom +0.2 % / 0.0 % after row 48). Nothing over 5 % but the data
+  row: the story and the fleet go into the fresh ranking (item 6).
 
