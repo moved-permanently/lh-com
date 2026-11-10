@@ -2484,3 +2484,27 @@ Started 18:30 UTC. Recordings: b2b-parity-001 to -005 and b2b-snapshots-014/-015
   54088ca1, ema-cashub's file). I held every push (the 21:45 report too) for 90 minutes; with nobody fixing it and
   the report overdue, decided: three comment lines (stylelint-disable-next-line on the three rules, each with its
   reason), no rule or order changed, so nothing served changes; its own commit for ema-cashub to see or redo.
+
+### Update 00:50 UTC
+
+- Pushed at 23:15 (92eb058f): 31138060 / f5e1cb6f (airlines-at-a-glance, list reimport-583-b2b-teaser-grids.txt, 74
+  documents), the lint fix, the reports. Smoke 12 hosts before/after: no difference but lh-com's de/en sitemap.
+- Ranking artefact found and fixed in my measurement: the fresh ranking captured our pages at most 8,000 px tall, so
+  www's long pages (up to 18,044 px) counted their tail as differences. Recaptured at full height: de/en
+  program/experts/news 390 28.0 -> 9.6 %, corporates-start-of-booking 390 27.6 -> 24.8, celebrating-shared-stories
+  1440 27.0 -> 24.8; de/de experts/news 390 stays 35.3 (www's news list of 2026-11-06 differs from today's), the
+  celebrating hubs at 390 stay about 45 to 49 (real).
+- celebrating-shared-stories (both hubs): measured and NOT shipped. (a) its stage video right after the H1 is www's
+  video component (22 of 24 snapshots with a video after a heading: no column view); with no column edges the page's
+  top matches www's within 2 px at 1440 and 390, but the numbers came out mixed (de/en 1440 24.8 -> 22.1, de/de
+  1440 25.1 -> 28.8, 390 within 0.2): what follows (H2 sizes the collapse dropped in mixed sections, card heights,
+  grey bands) is out of line either way. (b) no column edge at a grey band's end (census: no band has column
+  marks): mixed too (de/en 1440 22.1 -> 26.4, de/de 390 44.9 -> 42.2). Both diffs kept outside git
+  (logs/p4/s583/held-video, scratch).
+- 345ee538 (served, no re-import): a sidebar Columns Media is no column view (census: 0 of 15 sidebars have a column
+  mark), the view after it starts at its foot. Local measurement, our host's documents: route-network de/de 1440 15.2
+  -> 9.8 %, 390 32.4 -> 30.2; de/en 19.8 -> 15.2, 29.3 -> 27.0. Applies to the 15 sidebar documents (route-network,
+  kuala-lumpur, premium-is-in-the-detail, summer-2027, lufthansa-group-wifi, our-european-fares).
+- Seen, not fixable without per-heading markers: the collapse drops a heading size when a section's headings
+  disagree (route-network's "Profitieren Sie …" {heading-copytext-large} next to two unmarked H2s; 112 H2s
+  {heading-small} on B2B flow pages, many in mixed sections). Noted for the collapse's owner, no change tonight.
