@@ -462,9 +462,7 @@ body.brand-lufthansa main .default-content-wrapper p.link-wrapper a:any-link[hre
    for other sites, down for in-page anchors (1440 capture, imprint "Internet: lufthansa.com").
    body.appear (always set on a shown page) keeps the specificity these rules had as
    body:not(.aircore) before the /lhg/ pages left the replica */
-/* stylelint-disable-next-line no-descending-specificity -- the link-list rule (brief 582) comes first, the shared link rules after it */
 body.appear main :is(.default-content-wrapper, .columns-media-text) :is(p:not(.link-wrapper, .button-wrapper), li) a:any-link:not(.button, :has(img, picture))::before,
-/* stylelint-disable-next-line no-descending-specificity -- the link-list rule (brief 582) comes first, the shared link rules after it */
 body.appear main :is(.default-content-wrapper, .columns-media-text) p.link-wrapper:is(.copytext-small, .copytext-medium, .copytext-large) a:any-link::before {
   content: "";
   display: inline-block;
@@ -526,7 +524,6 @@ main .default-content-wrapper > p:is(:has(> picture), :has(> a > picture)):has(+
   margin-bottom: 10px;
 }
 
-/* stylelint-disable-next-line no-descending-specificity -- the link-list rule (brief 582) comes first, the shared link rules after it */
 main p:is(.copytext-small, .copytext-medium, .copytext-large) a:any-link:not(.button) {
   font-weight: 400;
 }
@@ -950,13 +947,11 @@ main .default-content-wrapper > h1 + p:has(> picture) img {
   width: 100%;
 }
 
-/* stylelint-disable-next-line no-descending-specificity -- the link-list list rule (brief 582) comes first, the shared list rules after it */
 main .default-content-wrapper > ul,
 main .default-content-wrapper > ol {
   padding-left: 40px;
 }
 
-/* stylelint-disable-next-line no-descending-specificity -- the link-list list rule (brief 582) comes first, the shared list rules after it */
 main .default-content-wrapper li > ul,
 main .default-content-wrapper li > ol {
   margin-top: 12px;
