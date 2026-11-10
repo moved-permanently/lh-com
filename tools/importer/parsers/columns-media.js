@@ -401,6 +401,10 @@ export default function parse(element, { document, url, params }) {
               li.append(a);
               list.append(li);
             });
+            // lufthansa.com's link lists to pages (lufthansa-cleanup markLinkLists, brief 582): the
+            // layout marker on the last item, as in default content
+            const layout = ll.querySelector(':scope > ul[data-lh-links]')?.getAttribute('data-lh-links');
+            if (layout && list.lastElementChild) list.lastElementChild.append(` {links-${layout}}`);
             if (list.children.length) out.push(list);
           }
         });

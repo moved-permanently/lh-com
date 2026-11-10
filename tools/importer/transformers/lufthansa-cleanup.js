@@ -1341,6 +1341,51 @@ function convertJumpLinks(document) {
   return converted;
 }
 
+/**
+ * lufthansa.com's link lists to pages (brief 582): www's .imagelinklist > .link-list > ul.horizontal,
+ * .responsive or .vertical of maui-navigation-link variant="hyper" or "external" (the standalone
+ * arrow links, side by side and wrapping, stacked below 768px, or stacked), one link per item.
+ * They came in as bulleted running-text lists (/de/en/lufthansa-business-class-on-long-haul-routes'
+ * two aircraft links, /de/en/security-check-time-slot's app downloads). The list's last item ends
+ * with "{links-horizontal}", "{links-responsive}" or "{links-vertical}" (scripts.js: the list's
+ * class, styles.css draws them as www does); data-lh-links keeps the layout for parsers that
+ * rebuild the list (columns-media). Lists in accordions (the Insights tag lists), icon tiles
+ * (variant custom), buttons, images and jump links (convertJumpLinks, before) stay as they were.
+ * Runs before convertMauiLinks. Returns the count.
+ */
+const LINK_LIST_LAYOUTS = ['horizontal', 'responsive', 'vertical'];
+const LINK_LIST_LINK = 'maui-navigation-link[href], maui-link[href], a[href], maui-button-link[href]';
+
+function markLinkLists(document, payload) {
+  if (!isLufthansaPage(payload)) return 0;
+  let marked = 0;
+  document.querySelectorAll('.imagelinklist .link-list > ul').forEach((ul) => {
+    const layout = LINK_LIST_LAYOUTS.find((c) => ul.classList.contains(c));
+    if (!layout || ul.closest('.accordion, maui-collapsible, footer, header')) return;
+    const items = [...ul.children].filter((li) => li.tagName === 'LI');
+    const links = [];
+    const ok = items.every((li) => {
+      const found = [...li.querySelectorAll(LINK_LIST_LINK)].filter((l) => !l.parentElement.closest(LINK_LIST_LINK));
+      const rest = li.cloneNode(true);
+      rest.querySelectorAll(`${LINK_LIST_LINK}, [slot="box"]`).forEach((l) => l.remove());
+      if (cleanText(rest) || rest.querySelector('img, picture, svg, video, iframe, input, button')) return false;
+      if (!found.length) return true; // an item holding only a link's tooltip box
+      if (found.length > 1) return false;
+      links.push(found[0]);
+      return true;
+    });
+    if (!ok || !links.length) return;
+    const pageLink = (l) => l.tagName === 'MAUI-NAVIGATION-LINK' && ['hyper', 'external'].includes(l.getAttribute('variant'))
+      && !l.querySelector('img, picture, svg') && cleanText(l);
+    if (!links.every(pageLink)) return;
+    // at the end of the item (a later step unwraps the external links' tooltips to their trigger)
+    links[links.length - 1].closest("li").append(` {links-${layout}}`);
+    ul.setAttribute('data-lh-links', layout);
+    marked += 1;
+  });
+  return marked;
+}
+
 /* ------------------------------------------------------- maui links ----------------- */
 
 const MAUI_LINK = 'maui-button-link[href], maui-navigation-link[href], maui-link[href]';
@@ -2107,6 +2152,7 @@ export default function transform(hookName, element, payload) {
     removeMobileDuplicates(document);
     rewriteAnchors(document, pagePath);
     convertJumpLinks(document);
+    markLinkLists(document, payload);
     convertAuthorQuotes(document);
     padCarouselSections(document);
     restoreMovingImages(document);

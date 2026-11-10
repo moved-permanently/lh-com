@@ -457,6 +457,62 @@ body.brand-lufthansa main .default-content-wrapper p.link-wrapper a:any-link[hre
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2'%3E%3Cpath d='M9 3h12v12H9zM15 15v6H3V9h6'/%3E%3C/svg%3E");
 }
 
+/* lufthansa.com's link lists to pages (brief 582: www's .link-list ul.horizontal|responsive|vertical of
+   maui-navigation-link hyper/external, the list's "{links-horizontal}" marker): the standalone links
+   above (19px arrow, 10px to the text, up-right to other sites), no bullets, items 30px apart when
+   stacked, 20px side by side (.link-list .horizontal { flex-wrap: wrap; gap: 0 2rem }); responsive
+   stacks below 768px (/de/en/lufthansa-business-class-on-long-haul-routes, security-check-time-slot,
+   data-collection-canada at 390 and 1440, lh-parity-002) */
+body.brand-lufthansa main ul:is(.links-horizontal, .links-responsive, .links-vertical) {
+  display: flex;
+  flex-flow: column;
+  gap: 6px 20px;
+  padding: 0;
+  list-style: none;
+}
+
+body.brand-lufthansa main ul.links-horizontal {
+  flex-flow: row wrap;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa main ul.links-responsive {
+    flex-flow: row wrap;
+  }
+
+  /* www's .link-list .vertical { padding-left: 1.2rem } (data-collection-canada at 1440: the arrows 18px right of the text above) */
+  body.brand-lufthansa main ul.links-vertical {
+    padding-left: 12px;
+  }
+}
+
+body.brand-lufthansa main ul:is(.links-horizontal, .links-responsive, .links-vertical) > li {
+  margin: 0;
+  line-height: 24px;
+}
+
+body.brand-lufthansa main ul:is(.links-horizontal, .links-responsive, .links-vertical) > li > a:any-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+body.appear.brand-lufthansa main ul:is(.links-horizontal, .links-responsive, .links-vertical) > li > a:any-link:not(.button)::before {
+  content: "";
+  flex: 0 0 auto;
+  align-self: center;
+  width: 19px;
+  height: 19px;
+  margin: 0;
+  background-color: currentcolor;
+  vertical-align: baseline;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.appear.brand-lufthansa main ul:is(.links-horizontal, .links-responsive, .links-vertical) > li > a:any-link:not(.button)[href^="http"]:not([href*="//www.lufthansa.com"])::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.3 16.4 7.6 17.7 15.9 9.4v6.1h1.8V6.3H8.5v1.8h6.1z'/%3E%3C/svg%3E");
+}
+
 /* links in running text (.richtext a > em.lh.lh-arrow-right / lh-arrow-top-right / lh-arrow-down,
    a .lh { font-size: 1.6rem }): a 9x8px arrow ink 3px into the link, 5px to the text; up-right
    for other sites, down for in-page anchors (1440 capture, imprint "Internet: lufthansa.com").

@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-app-entry.js
-  var tmp_bundle_app_entry_259838_exports = {};
-  __export(tmp_bundle_app_entry_259838_exports, {
-    default: () => tmp_bundle_app_entry_259838_default
+  var tmp_bundle_app_entry_874057_exports = {};
+  __export(tmp_bundle_app_entry_874057_exports, {
+    default: () => tmp_bundle_app_entry_874057_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -1770,6 +1770,7 @@ var CustomImportScript = (() => {
         const cl = child.classList;
         if (cl.contains("imagelinklist")) {
           child.querySelectorAll(".link-list").forEach((ll) => {
+            var _a;
             const h = ll.querySelector("h1, h2, h3, h4, h5, h6");
             if (h) {
               const head = document.createElement(h.tagName.toLowerCase());
@@ -1798,6 +1799,8 @@ var CustomImportScript = (() => {
                 li.append(a);
                 list.append(li);
               });
+              const layout = (_a = ll.querySelector(":scope > ul[data-lh-links]")) == null ? void 0 : _a.getAttribute("data-lh-links");
+              if (layout && list.lastElementChild) list.lastElementChild.append(` {links-${layout}}`);
               if (list.children.length) out.push(list);
             }
           });
@@ -2845,7 +2848,7 @@ var CustomImportScript = (() => {
   var styleMarker = (tokens) => new RegExp(`\\s*\\{((?:${tokens})(?: (?:${tokens}))*)\\}\\s*$`);
   var HEADING_TOKENS = `heading-(?:large|medium|small|copytext-large|copytext-medium)|copytext-large|limited-width|${COLUMN_MARK}`;
   var PARAGRAPH_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\\d{1,3}|${COLUMN_MARK}`;
-  var LIST_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|${COLUMN_MARK}`;
+  var LIST_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|links-(?:horizontal|responsive|vertical)|${COLUMN_MARK}`;
   var HEADING_STYLE = styleMarker(HEADING_TOKENS);
   var PARAGRAPH_STYLE = styleMarker(PARAGRAPH_TOKENS);
   var LIST_STYLE = styleMarker(LIST_TOKENS);
@@ -3989,6 +3992,35 @@ var CustomImportScript = (() => {
     });
     return converted;
   }
+  var LINK_LIST_LAYOUTS = ["horizontal", "responsive", "vertical"];
+  var LINK_LIST_LINK = "maui-navigation-link[href], maui-link[href], a[href], maui-button-link[href]";
+  function markLinkLists(document, payload) {
+    if (!isLufthansaPage(payload)) return 0;
+    let marked = 0;
+    document.querySelectorAll(".imagelinklist .link-list > ul").forEach((ul) => {
+      const layout = LINK_LIST_LAYOUTS.find((c) => ul.classList.contains(c));
+      if (!layout || ul.closest(".accordion, maui-collapsible, footer, header")) return;
+      const items = [...ul.children].filter((li) => li.tagName === "LI");
+      const links = [];
+      const ok = items.every((li) => {
+        const found = [...li.querySelectorAll(LINK_LIST_LINK)].filter((l) => !l.parentElement.closest(LINK_LIST_LINK));
+        const rest = li.cloneNode(true);
+        rest.querySelectorAll(`${LINK_LIST_LINK}, [slot="box"]`).forEach((l) => l.remove());
+        if (cleanText(rest) || rest.querySelector("img, picture, svg, video, iframe, input, button")) return false;
+        if (!found.length) return true;
+        if (found.length > 1) return false;
+        links.push(found[0]);
+        return true;
+      });
+      if (!ok || !links.length) return;
+      const pageLink = (l) => l.tagName === "MAUI-NAVIGATION-LINK" && ["hyper", "external"].includes(l.getAttribute("variant")) && !l.querySelector("img, picture, svg") && cleanText(l);
+      if (!links.every(pageLink)) return;
+      links[links.length - 1].closest("li").append(` {links-${layout}}`);
+      ul.setAttribute("data-lh-links", layout);
+      marked += 1;
+    });
+    return marked;
+  }
   var MAUI_LINK = "maui-button-link[href], maui-navigation-link[href], maui-link[href]";
   function convertMauiLinks(document) {
     const links = [...document.querySelectorAll(MAUI_LINK)].reverse();
@@ -4564,6 +4596,7 @@ var CustomImportScript = (() => {
       removeMobileDuplicates(document);
       rewriteAnchors(document, pagePath);
       convertJumpLinks(document);
+      markLinkLists(document, payload);
       convertAuthorQuotes(document);
       padCarouselSections(document);
       restoreMovingImages(document);
@@ -6234,7 +6267,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_app_entry_259838_default = {
+  var tmp_bundle_app_entry_874057_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -6274,5 +6307,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_app_entry_259838_exports);
+  return __toCommonJS(tmp_bundle_app_entry_874057_exports);
 })();
