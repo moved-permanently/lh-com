@@ -4267,3 +4267,22 @@ body.brand-airdolomiti .blog-overview.grid .blog-overview-image {
   }
 }
 /* stylelint-enable no-descending-specificity */
+
+/* the destinations' text block's foot as www's TitleDescriptionTextCta (airdolomiti-parity-004
+   /reiseziele/bari-de, the brief after 566): its button 43px under the text (79px from 930px: www's rich
+   text's 25px and the empty small text's 50px), the next section's title 100px under it */
+/* stylelint-disable no-descending-specificity -- the text block's rules above */
+body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section {
+  margin-bottom: 100px;
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section > .default-content-wrapper:first-child > p.button-wrapper {
+  margin-top: 43px;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section > .default-content-wrapper:first-child > p.button-wrapper {
+    margin-top: 79px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
