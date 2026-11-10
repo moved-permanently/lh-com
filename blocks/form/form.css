@@ -473,6 +473,15 @@
   padding: 30px 20px;
 }
 
+/* lufthansa.com on phones: www's card sits in a .col-12, 22px from both edges at 390 (346px), not
+   bleeding the column padding as .container-white.row.px-4 does (ours 366px: labels and the
+   consent text in fewer lines; betreuungsbedarf, special-needs; brief 556) */
+@media (width < 768px) {
+  body.brand-lufthansa .form.core .form-step-card {
+    margin-inline: 0;
+  }
+}
+
 .form.core .form-fields {
   display: block;
   padding: 0;
