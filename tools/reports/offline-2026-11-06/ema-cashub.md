@@ -2196,3 +2196,35 @@ austrian-parity-003 / brussels-parity-004; www refused and counted: 118 / 192). 
   chase-the-sun (551 re-import queued), service-charges (no single rule, traced before). Next to trace:
   contact/feedback/general/other +4.2 / +5.1 % without the capture's 71 px: each of its 8 bands is 16 to 34 px taller
   than www's (at "Voice your concern" +99 at 1440, +160 at 390); then families-and-children -9.1 % at 1440.
+
+## The brief after 570b: the medical-travel-companions picture, the form bands, the next rows
+
+**The picture the media step refuses (medical-travel-companions, second card):** www's
+`/content/dam/aua/images/plan/baggage/electronic-devices-and-batteries/baggage-electronic-devices-flugmodus-2x1.jpg`,
+written by the importer as its 2560 rendition (`.transform/lh-dcep-transform-width-2560/img.jpg`), the same form as the
+page's three other pictures, which the media step fetches. It is on 19 pages of the R2 drop's austrian-snapshots-001
+to -018 (the page and its healthy-travel copy per language) and on none other; no published copy has ever carried it
+(at/en, at/de, fr/fr healthy-travel and fr/fr medical-travel-companions: 3 pictures where www has 4). So the media step
+has always failed on this file: how www answers for it, which needs a request to www (asked as a capture: the original
+and its 2560, 1440 and 720 renditions with status, headers and body). Until then DA keeps the empty slot, as the
+helper did. Afterwards: a smaller rendition if www serves one (the importer writes it for this picture), else the
+captured copy in DA's media.
+
+**`895fc563` Brussels theme, the core form bands with a title:** www's card 26 px under the title at 1440, 22 at 390,
+20 px padding, in the page column; bands without a title as before. On the live pages without the capture's 71 px:
+feedback/general/other +4.2 -> +1.0 % / +5.1 -> +1.9 %; charter +1.8 -> +0.2 % / +3.0 -> +0.9 %; dsar-start
++2.3 -> -0.3 % / +2.8 -> +0.7 %; emergency-contact unchanged (-1.4 / +0.2 %; its untitled bands: www pads their cards
+about 36 px and keeps 96 px between bands, ours 30 and 70; not changed yet).
+
+**The other rows:**
+- Brussels be/fr families-and-children (-9.1 % at 1440): the sidebar-first h1 group of the brief after 540 (the h1 46 px
+  higher, the intro 90 px nearer the h1); needs the importer to mark such pages and a re-import; not chased.
+- Austrian us/en ski-campaign-2026 (-5.3 / -4.5 %): the footer now equals www's (855 / 856 px at 1440, 1193 / 1188 at
+  390, the CCPA, "Do not sell" and Tarmac Delay Plan links in both). The rest is above it: no gap between the closing
+  stage band and the footer (-54 px at 1440), less space above "Find your winter adventure" (-36, and the title larger
+  than www's small one) and under it (-16); the deal cards without prices are live fares. Not traced to one rule.
+- **Capture effect, fallback font (do not chase):** ru/ru baggage (+3.5 / +3.6 %) and gr/el baggage (+2.5 / +2.6 %).
+  www's CoreSans files are a Latin subset (18 KB), so Cyrillic and Greek text falls back to the next font: Arial or
+  Helvetica on the recording's machine, DejaVu Sans (wider) here, which has neither. The extra lines sit in the
+  text-heavy teaser rows (+50 to +67 px each).
+- Not traced this turn: bearbeitungsgebuehren (390 +4.8 %), os401crewstory (+3.0 %).
