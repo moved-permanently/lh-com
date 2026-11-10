@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-insights.js
-  var tmp_bundle_insights_1084257_exports = {};
-  __export(tmp_bundle_insights_1084257_exports, {
-    default: () => tmp_bundle_insights_1084257_default
+  var tmp_bundle_insights_306859_exports = {};
+  __export(tmp_bundle_insights_306859_exports, {
+    default: () => tmp_bundle_insights_306859_default
   });
 
   // tools/importer/parsers/poi-data.js
@@ -5598,7 +5598,13 @@ var CustomImportScript = (() => {
     // default (www: 89 % unmarked, heading-medium; no longer heading-small)
     brussels: { live: true, pageTypes: { flow: { headings: { h3: "heading-small" } } } },
     // ITA: running text over the whole width
-    ita: { live: true, text: { width: "full" } },
+    // ITA: a section's H2 right before a teaser grid in heading-small (www's column view; DA: 923 of
+    // 1,029 H2s before Carousel Cards, every one of 67 before Cards Icon; rows-for-ema-test row 1)
+    ita: {
+      live: true,
+      text: { width: "full" },
+      headingsBefore: { "carousel-cards": { h2: "heading-small" }, "cards-icon": { h2: "heading-small" } }
+    },
     // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
     // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
     // (a heading right before them starts the group's column view, as its marker did)
@@ -5611,6 +5617,9 @@ var CustomImportScript = (() => {
     // of 789 Columns Media not at a section's start, 749 of 962 with an edge below)
     b2b: {
       live: true,
+      // a title in heading-small (www's airline pages: 21 first H1s of the census, 20 later ones),
+      // two steps under the H1 default, which the collapse dropped (section style H1 compact)
+      headingChoices: { h1: { compact: "heading-small" } },
       pageTypes: {
         // a heading right before such a block opens its column view (www: 81 of 105 marked so, the
         // brief after 550 narrows it); in a grey band no edge above a block right after a heading
@@ -9017,7 +9026,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_insights_1084257_default = {
+  var tmp_bundle_insights_306859_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9057,5 +9066,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_insights_1084257_exports);
+  return __toCommonJS(tmp_bundle_insights_306859_exports);
 })();

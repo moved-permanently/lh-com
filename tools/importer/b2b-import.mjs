@@ -537,18 +537,35 @@ export function withEndSpacer(doc, html = '') {
  * Products & Services" as an h2; the brief after 463): its first h2 is the page's h1, its id and
  * size marker kept, so it looks as before; an h2 without a size marker gets {heading-medium} (an
  * unmarked h2's size; an unmarked h1 is the page title's: the brief after 467). A document with an
- * h1, or without an h2, as it is.
+ * h1, or without an h2, as it is. The import's own collapse (in the browser, before this step) takes
+ * an h2's marker one step from the h2 default away (heading-small): then the size of www's heading
+ * of the same text (html, the snapshot), so the airline pages' titles stay heading-small (the
+ * standing order of 2026-11-10 evening, decision 3).
  */
-export function withPageHeading(doc) {
+const plainText = (s) => String(s || '').replace(/<[^>]+>/g, '').replace(/\{[^}]*\}/g, '')
+  .replace(/&nbsp;|&#xa0;|&#160;|\u00a0/gi, ' ')
+  .replace(/&amp;|&#x26;|&#38;/gi, '&')
+  .replace(/\s+/g, ' ')
+  .trim();
+const wwwSizeOf = (html, text) => {
+  const want = plainText(text);
+  if (!want) return '';
+  const hit = [...String(html || '').matchAll(/<h[1-6]\b[^>]*class="([^"]*)"[^>]*>([\s\S]*?)<\/h[1-6]>/g)]
+    .find((h) => /\bheading-[a-z-]+/.test(h[1]) && plainText(h[2]) === want);
+  return hit ? hit[1].match(/\bheading-[a-z-]+/)[0] : '';
+};
+
+export function withPageHeading(doc, html = '') {
   if (/<h1[\s>]/.test(doc)) return doc;
   const m = doc.match(/<h2(\s[^>]*)?>([\s\S]*?)<\/h2>/);
   if (!m) return doc;
   let text = m[2];
   if (!/\{[^}]*\bheading-[a-z-]+[^}]*\}\s*$/.test(text)) {
+    const size = wwwSizeOf(html, text) || 'heading-medium';
     const group = text.match(/\{([^}]*)\}\s*$/);
     text = group
-      ? `${text.slice(0, group.index)}{heading-medium ${group[1].trim()}}`
-      : `${text.trimEnd()} {heading-medium}`;
+      ? `${text.slice(0, group.index)}{${size} ${group[1].trim()}}`
+      : `${text.trimEnd()} {${size}}`;
   }
   return `${doc.slice(0, m.index)}<h1${m[1] || ''}>${text}</h1>${doc.slice(m.index + m[0].length)}`;
 }
@@ -642,7 +659,7 @@ if (isMain) {
       const html = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       const markets = scope.documents[src]?.markets || [];
       // a tab set's panels as Tab sections (the markers withTabMarkers left, scripts/section-tabs.js)
-      const next = withPageHeading(withEndSpacer(withB2bMetadata(withHotlineFinder(withB2bQuotes(withB2bForm(withNestedColumns(withStageColumns(withTabPanels(splitTabSections(doc)))), p, html), html), labelsOf(hotlineRecord, p.split('/')[2]), imageOf(hotlineRecord)), p, html, markets), html));
+      const next = withPageHeading(withEndSpacer(withB2bMetadata(withHotlineFinder(withB2bQuotes(withB2bForm(withNestedColumns(withStageColumns(withTabPanels(splitTabSections(doc)))), p, html), html), labelsOf(hotlineRecord, p.split('/')[2]), imageOf(hotlineRecord)), p, html, markets), html), html);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);

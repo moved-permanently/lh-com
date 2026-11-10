@@ -30,6 +30,17 @@ test('an h2 without a size marker keeps the h2 size as the h1: {heading-medium} 
   assert.ok(sized.includes('<h1>Airlines at a Glance {heading-large}</h1>'), sized);
 });
 
+test('a marker the import\'s collapse dropped: the size of www\'s heading of that text', () => {
+  // the standing order of 2026-11-10 evening, decision 3: the import collapses in the browser
+  // before this step, so the airline pages' {heading-small} was gone and the title grew to
+  // heading-large
+  const html = '<div class="column-view"><div><h2 class="heading-small ">&nbsp;Air Dolomiti&nbsp;Produkte &amp; Services</h2></div><h4 class="heading-copytext-large teaser-heading">Reiseklassen</h4></div>';
+  const out = withPageHeading('<div><h2 id="t">Air Dolomiti Produkte &#x26; Services</h2><h2>Reiseklassen</h2></div>', html);
+  assert.ok(out.includes('<h1 id="t">Air Dolomiti Produkte &#x26; Services {heading-small}</h1>'), out);
+  const other = withPageHeading('<div><h2>Another title</h2></div>', html);
+  assert.ok(other.includes('<h1>Another title {heading-medium}</h1>'), 'no www heading of that text: heading-medium as before');
+});
+
 test('an h1 already, or no h2: as it is', () => {
   const withH1 = '<div><h1>Welcome to eXperts</h1><h2>News</h2></div>';
   assert.equal(withPageHeading(withH1), withH1);

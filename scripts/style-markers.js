@@ -210,6 +210,9 @@ export const THEMES = {
   // of 789 Columns Media not at a section's start, 749 of 962 with an edge below)
   b2b: {
     live: true,
+    // a title in heading-small (www's airline pages: 21 first H1s of the census, 20 later ones),
+    // two steps under the H1 default, which the collapse dropped (section style H1 compact)
+    headingChoices: { h1: { compact: 'heading-small' } },
     pageTypes: {
       // a heading right before such a block opens its column view (www: 81 of 105 marked so, the
       // brief after 550 narrows it); in a grey band no edge above a block right after a heading

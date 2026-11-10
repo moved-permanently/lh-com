@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-hero-banner.js
-  var import_austrian_hero_banner_exports = {};
-  __export(import_austrian_hero_banner_exports, {
-    default: () => import_austrian_hero_banner_default
+  var tmp_bundle_austrian_hero_banner_306859_exports = {};
+  __export(tmp_bundle_austrian_hero_banner_306859_exports, {
+    default: () => tmp_bundle_austrian_hero_banner_306859_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -1141,7 +1141,8 @@ var CustomImportScript = (() => {
     const block = WebImporter.Blocks.createBlock(document, { name: "profile-nav", cells: [[ul]] });
     const hr = document.createElement("hr");
     hr.setAttribute("data-excat-section-break", "");
-    element.replaceWith(block, hr);
+    const flush = document.querySelector(".contentpage.pt-0") ? [WebImporter.Blocks.createBlock(document, { name: "Section Metadata", cells: { style: "flush" } })] : [];
+    element.replaceWith(block, ...flush, hr);
   }
 
   // tools/importer/parsers/subpage-nav.js
@@ -5346,6 +5347,12 @@ var CustomImportScript = (() => {
       // from the column marks, ema-adobe's hub transformer on import; styles.css "the column view
       // carrier")
       columnViews: { carrier: "column-view" },
+      // page titles in heading-medium (www's smaller H1: 168 of the 6,826 census
+      // documents' first H1s, 85 later H1s; brief 582, the switch plan's B3): one step from
+      // the H1 default, which the collapse would take, so a choice of their own the collapse
+      // keeps (section style H1 compact)
+      headingChoices: { h1: { compact: "heading-medium" } },
+      nearChoices: { h1: { "heading-medium": "compact" } },
       pageTypes: {
         // Insights articles: a rule above an info box (Columns Media) after any content but a
         // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
@@ -5365,7 +5372,13 @@ var CustomImportScript = (() => {
     // default (www: 89 % unmarked, heading-medium; no longer heading-small)
     brussels: { live: true, pageTypes: { flow: { headings: { h3: "heading-small" } } } },
     // ITA: running text over the whole width
-    ita: { live: true, text: { width: "full" } },
+    // ITA: a section's H2 right before a teaser grid in heading-small (www's column view; DA: 923 of
+    // 1,029 H2s before Carousel Cards, every one of 67 before Cards Icon; rows-for-ema-test row 1)
+    ita: {
+      live: true,
+      text: { width: "full" },
+      headingsBefore: { "carousel-cards": { h2: "heading-small" }, "cards-icon": { h2: "heading-small" } }
+    },
     // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
     // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
     // (a heading right before them starts the group's column view, as its marker did)
@@ -5378,6 +5391,9 @@ var CustomImportScript = (() => {
     // of 789 Columns Media not at a section's start, 749 of 962 with an edge below)
     b2b: {
       live: true,
+      // a title in heading-small (www's airline pages: 21 first H1s of the census, 20 later ones),
+      // two steps under the H1 default, which the collapse dropped (section style H1 compact)
+      headingChoices: { h1: { compact: "heading-small" } },
       pageTypes: {
         // a heading right before such a block opens its column view (www: 81 of 105 marked so, the
         // brief after 550 narrows it); in a grey band no edge above a block right after a heading
@@ -7937,7 +7953,12 @@ var CustomImportScript = (() => {
     const def = theme.headings[`h${level}`];
     const idx = (s) => s === "copytext-large" ? HEADING_SIZES.length : HEADING_SIZES.indexOf(s);
     const steps = size === "copytext-large" ? idx(size) - idx(def) : sizeSteps(def, size);
-    if (steps === null || Math.abs(steps) <= 1) return { kind: "default" };
+    if (steps === null) return { kind: "default" };
+    if (Math.abs(steps) <= 1) {
+      const near = ((theme.nearChoices || {})[`h${level}`] || {})[size];
+      const kept = near && ((theme.headingChoices || {})[`h${level}`] || {})[near];
+      return kept ? { kind: "choice", choice: near } : { kind: "default" };
+    }
     const choice = steps < 0 ? "large" : "compact";
     const has = ((theme.headingChoices || {})[`h${level}`] || {})[choice];
     return has ? { kind: "choice", choice } : { kind: "none" };
@@ -8838,7 +8859,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_austrian_hero_banner_default = {
+  var tmp_bundle_austrian_hero_banner_306859_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -8878,5 +8899,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_austrian_hero_banner_exports);
+  return __toCommonJS(tmp_bundle_austrian_hero_banner_306859_exports);
 })();
