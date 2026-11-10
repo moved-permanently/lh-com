@@ -3126,4 +3126,15 @@ follow when their run is through.
     families pages; www's list items are four times our documents' (510 against 126 characters, de). New list:
     tools/reports/parity-2026-11-09/reimport-585-discover-families.txt.
   - ita-snapshots-020 (137,430 bytes, c6e3b8ab879df026c4afb37fbd0af266ca659d6ef318142272f2163bc15c8307): 55 pages, 51
-    error pages; not from my lists.
+    error pages; not from my lists.- **Cargo row 51:** on phones a text-and-picture row shows its picture first, as www's (backwards-compatible: theme,
+  outside the transport stories). Heights unchanged; the order as www's.
+- **ita-snapshots-021** (2,168,688 bytes, bf2501ca41589b55839f5d467dda182513c3dd70dcf652df52a973bf25797511; 52 pages,
+  21:44 UTC, not from my lists) holds 12 of the 82 rows of reimport-585-ita-two-up-82.txt, travel-insurance among them:
+  its page through main's importer offline gives "carousel-cards grid two-up" (the view is a plain .twocolumn). So for
+  those 12 a re-import from ita-snapshots-021 gives two-up; the other 70 wait for capture list 4 or the harness's own
+  check of its inputs.
+- **The fresh ranking pass (rank-c, our pages now against the recordings' heights, 121 rows):** the rows over 4 % are
+  all classified (TAP baggage's LUGGit frame, TAP's unscrolled en-pt capture, Cargo's notification overview data, Air
+  Dolomiti florence's re-import, the FAQ half pages' white space, street-food's content, ITA's rows waiting for the
+  two-up re-import); the rest is under 3.5 %, most of it Cargo's phone pages (+2 to +3.4 %).
+

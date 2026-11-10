@@ -2006,3 +2006,11 @@ body.brand-cargo main > .section.newsroom-container:has(#mnd-iframe) > .default-
     margin-bottom: 0;
   }
 }
+
+/* row 51: on phones a text-and-picture row shows its picture first, as www's Text-Image-horizontal-CF5 (order-first
+   below 768px); not in a transport story's sections (row 41) */
+@media (width < 768px) {
+  body.brand-cargo main > .section:not(:has(.hero-card-overlay.light)) .columns-media .columns-media-row.columns-media-media-last > .columns-media-media {
+    order: -1;
+  }
+}
