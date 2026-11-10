@@ -2306,3 +2306,24 @@ Checked, and on which host:
 Nothing went to www. Documents: none changed, none uploaded, nothing published.
 
 Left: the causes the report lists as not fixed, each with its owner or the evidence it needs.
+
+## The standing order of 2026-11-10 (B2B importer and theme, the tab audit): running report
+
+Ben's pause from 09:00 (Mac clock): nothing uploaded, previewed or published by me; every re-import a list file
+on main (tools/reports/parity-2026-11-09/), every capture a capture list. Started 09:06 UTC.
+
+### Item 1: the previous brief's open points (09:06 to 09:40 UTC)
+
+- lhg-ita-airways' info icon: no code; today's importer writes the partner teaser as Cards Icon Text (icon 48 px).
+  List reimport-569-b2b-partner-teasers.txt (4 documents; lhg-ita-airways 1440 5,515 -> 4,259 px, www 4,093).
+- help-alliance's iframe: 20137ed7 (+ a736f78e for the Austrian templates); list reimport-569-b2b-embed-columns.txt
+  (2 documents; 1440 1,748 -> 1,966 px, www 2,008; 390 2,515 -> 2,697, www 2,844).
+- The five SVGs from the snapshot tree: 4cc7541b (writeLocalImages looks at the snapshot tree's www path).
+- The first tab item on phones: cfc02df5, page metadata "Tabs open" (first | none), backwards-compatible (no page
+  has it). Decision from the 390 recordings: the Newsroom (de/de, de/en) none open, meals-on-board and
+  corporates-start-of-booking (de/en) the first of each set open; list reimport-1110-b2b-tabs-open.txt (2), the 31
+  other tab pages on capture-1110-b2b-tabs-390.txt (they keep B2B's default until a 390 render says otherwise).
+- lhg-history's column views: decided not to ship a theme rule. The published shape (H1, text, Carousel Cards at
+  the page's start) is shared by 30 documents and www opens a view at the H1 on 2 of them; a rule would add 40 px
+  above the H1 and an edge before the cards on 28 pages www draws without. Marked cause: the collapse dropped
+  DA's column marks (29 documents with an H1 that opens a view); weighed in item 2's ranking.
