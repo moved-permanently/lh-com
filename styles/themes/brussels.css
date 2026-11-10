@@ -303,6 +303,7 @@ body.brand-brussels .columns-media.sidebar > div > div > p.link-wrapper:is(:has(
   font-weight: 400;
 }
 
+/* stylelint-disable-next-line no-descending-specificity -- the first of a link list after other content (comment only, lint) */
 body.brand-brussels .columns-media.sidebar > div > div > :not(p.link-wrapper) + p.link-wrapper:has(+ p.link-wrapper + p.link-wrapper) {
   margin-top: 22px;
 }
@@ -810,6 +811,7 @@ body.brand-brussels main > .section.padded:has(> .default-content-wrapper:last-c
 
 /* the heading after an accordion in its section: 41 px below the accordion from 768 px, 21 on phones, as
    www (ours the default content's 20 / 16); a spaced accordion keeps lh-com's 40 px below */
+/* stylelint-disable-next-line no-descending-specificity -- after an accordion, not the sidebar-h1 section's first text (comment only, lint) */
 body.brand-brussels main .accordion-columns-wrapper:not(:has(> .spaced)) + .default-content-wrapper:has(> :is(h2, h3):first-child) {
   margin-top: 21px;
 }
@@ -908,6 +910,7 @@ body.brand-brussels .blog-overview:not(.grid) .blog-overview-description {
   line-height: 24px;
 }
 
+/* stylelint-disable-next-line no-descending-specificity -- the blog overview's links, not the sidebar's link list (comment only, lint) */
 body.brand-brussels .blog-overview:not(.grid) .blog-overview-more a:any-link {
   font-weight: 400;
 }
