@@ -276,9 +276,19 @@ function applyThemeRules(main, theme) {
       section.querySelectorAll(':scope > div[class]').forEach((block) => {
         if (!blocks.includes(blockName(block))) return;
         // startAtHeading: a heading right before the block is the view's first item (www's column
-        // view starts at it), so the edge goes above the heading
+        // view starts at it), so the edge goes above the heading; only a Columns Media of two
+        // or more cells side by side, not a stage or sidebar one, not after a divider, not one
+        // whose cells have H4 headings (www: 81 headings whose view starts at them, none of the
+        // 23 before a one-cell, stage or sidebar Columns Media, none of the 18 after a divider
+        // or before H4 card headings, where the view starts below the heading)
         let start = block;
-        if (startAtHeading && !isBand(section) && /^H[2-4]$/.test(block.previousElementSibling?.tagName || '')) start = block.previousElementSibling;
+        const heading = block.previousElementSibling;
+        const sideBySide = blockName(block) === 'columns-media' && !block.classList.contains('stage')
+          && !block.classList.contains('sidebar') && (block.firstElementChild?.children.length || 0) >= 2
+          && !block.querySelector('h4');
+        const afterDivider = (el) => el && (el.matches('p.divider') || (isBlock(el) && blockName(el) === 'divider'));
+        if (startAtHeading && sideBySide && !isBand(section) && /^H[2-4]$/.test(heading?.tagName || '')
+          && !afterDivider(heading.previousElementSibling)) start = heading;
         let prev = start.previousElementSibling;
         while (prev && isMeta(prev)) prev = prev.previousElementSibling;
         let next = block.nextElementSibling;
