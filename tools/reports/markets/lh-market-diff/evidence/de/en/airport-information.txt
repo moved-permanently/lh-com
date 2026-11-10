@@ -1,0 +1,7 @@
+root    /mk/en/airport-information
+version /de/en/airport-information
+verdict differs (widget)
+diff (- version only, + root only; = shared), from token 1:
+- @data-dcep={"alt":"","caption":"","id":"{id}","imageClassName":"","imageUrl":"/content/dam/lh/images/pixels_variations/c-{n}-{n}.transform/lh-dcep-transform-width-1440/img.jpg","isParallaxEnabled":false,"isVideoEnabledOnMobile":false,"loading":"","srcset":"/content/dam/lh/images/pixels_variations/c-
+~ @data-dcep (JSON, version -> root): .alt: "Couple look out of a window front at Munich Airport" -> ""; .imageUrl: "/content/dam/lh/images/local_variations/c-{n}-5-star-airport-munich.jpg.transform/lh-dcep-transform-width-1440/img.jpg" -> "/content/dam/lh/images/pixels_variations/c-{n}-{n}.transform/lh-dcep-transform-width-1440/img.jpg"; .srcset: "/content/dam/lh/images/local_variations/c-{n}-5-star-airport-munich.jpg.transform/lh-dcep-transform-width-1440/img.jpg 1440w,/content/dam/lh/images/local_variations/c-{n}-5-star-airport-munich.jpg.transform/lh-dcep-transform-width; .videoUrl: "/content/~/markets/{R}" -> ""
++ @data-dcep={"alt":"Couple look out of a window front at Munich Airport","caption":"","id":"{id}","imageClassName":"","imageUrl":"/content/dam/lh/images/local_variations/c-{n}-5-star-airport-munich.jpg.transform/lh-dcep-transform-width-1440/img.jpg","isParallaxEnabled":false,"isVideoEnabledOnMobile":

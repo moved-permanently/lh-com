@@ -1,0 +1,7 @@
+root    /it/en/unionpay
+version /de/en/unionpay
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 44:
+- <li>
+- <p>
+- "OPC-free"

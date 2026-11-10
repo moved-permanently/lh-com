@@ -1,0 +1,41 @@
+root    /cn/de/pre-check-in
+version /de/de/pre-check-in
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 112:
+- @href=http://www.lufthansa.com/{R}/prepare-for-your-trip/all-check-in/check-in-information
++ @href=http://www.lufthansa.com/{R}/prepare-for-your-trip/all-check-in/online-check-in-info
+  @target=_self
+  <span>
+- "Annahmeschlusszeiten"
++ "Online Check-in"
+  <maui-icon>
+  @slot=icon
+  …
+- @href=http://www.lufthansa.com/{R}/prepare-for-your-trip/all-check-in/online-check-in-info
++ @href=http://www.lufthansa.com/{R}/prepare-for-your-trip/all-check-in/automatic-check-in
+  @target=_self
+  <span>
+- "Online Check-in"
++ "Automatischer Check-in"
+  <maui-icon>
+  @slot=icon
+  …
++ <li.active>
++ <span.mb-0>
++ "Vorabend Check-in"
++ <i.lh.icon>
+  <li>
+  <a.nav-link.mb-0>
+- @href=http://www.lufthansa.com/{R}/prepare-for-your-trip/all-check-in/automatic-check-in
++ @href=http://www.lufthansa.com/{R}/prepare-for-your-trip/all-check-in/baggage-drop
+  @target=_self
+  <span>
+- "Automatischer Check-in"
++ "Gepäckabgabe"
+  <maui-icon>
+  @slot=icon
+  …
+- <li.active>
+- <span.mb-0>
+- "Vorabend Check-in"
+- <i.lh.icon>

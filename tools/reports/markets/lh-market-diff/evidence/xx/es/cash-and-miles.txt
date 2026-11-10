@@ -1,0 +1,5 @@
+root    /cr/es/cash-and-miles
+version /content/lh/markets/xx/es/cash-and-miles
+verdict differs (widget)
+diff (- version only, + root only; = shared), from token 2:
+~ @data-dcep (JSON, version -> root): .hideCar: false -> true; .hideHotel: false -> true

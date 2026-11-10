@@ -1,0 +1,8 @@
+root    /al/en/sixt
+version /de/en/sixt
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 21:
++ <div.text>
++ <div.richtext.limited-width>
++ <p>
++ "Lufthansa and SIXT are two top global brands that are made in Germany. Benefit from Lufthansa’s partnership with SIXT, and simply book SIXT’s premium offer through Lufthansa; you can expect the usual high-quality SIXT service at over 2,100 SIXT rental locations in more than 105 countries. All vehic

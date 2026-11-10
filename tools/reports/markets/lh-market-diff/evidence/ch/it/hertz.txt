@@ -1,0 +1,14 @@
+root    /ch/it/hertz
+version /content/lh/markets/xx/it/hertz
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 20:
+- "Hertz. Let’s Go!"
++ "Hertz. Let"
++ "'"
++ "s GO!"
+  <div.content-wrapper>
+  <div.container-content>
+  …
++ <div.separator>
++ <div.hr.hr-no-layout>
++ <maui-divider>

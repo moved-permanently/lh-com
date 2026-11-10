@@ -1,0 +1,30 @@
+root    /cl/de/cash-and-miles
+version /de/de/cash-and-miles
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 44:
+- <div.onecolumn.column.event>
+- <div.column-view.flex-column.container-gray.full-width-bg>
+- <div>
+- <h2.heading-medium.limited-width>
+- "Promotion: Jetzt Nordamerika entdecken und bis zu 30% Meilen sparen"
+- <div.row>
+- <div.col-lg.column-view-item>
+- <div.text>
+- <div.richtext.limited-width>
+- <p>
+- "Lassen Sie Ihre Reiseträume wahr werden und entdecken Sie die USA, Kanada oder Mexiko! Sparen Sie jetzt mit Cash"
+- "&"
+- "Miles bis zu 30% Ihrer Meilen im Vergleich zum regulären Meilenwert.*"
+- <p>
+- "Lösen Sie einfach Ihre Meilen"
+- <b>
+- "vom 02. bis zum 30.11.2026"
+- "bei der Flugbuchung mit Cash"
+- "&"
+- "Miles ein und"
+- <b>
+- "sichern Sie sich bis zu 30% Meilennachlass"
+- ". Das Angebot gilt für Reisen mit Austrian Airlines, Brussels Airlines, Discover Airlines, Lufthansa und SWISS vom 02.11. bis zum 16.12.2026 in der Economy Class. Bitte beachten Sie, dass der im Buchungsprozess angezeigte Wert an einzulösenden Meilen schon diese Reduzierung enthält."
+- <p>
+- <p.copytext-small>
+- "*Diese Aktion gilt im Buchungszeitraum vom 02. bis zum 30.11.2026 für Flüge in der Economy Class nach Nordamerika (USA, Kanada, Mexiko), die im Reisezeitraum vom 02.11. bis zum 16.12.2026 von Austrian Airlines, Brussels Airlines, Discover Airlines, Lufthansa und SWISS durchgeführt werden. Die Höhe 

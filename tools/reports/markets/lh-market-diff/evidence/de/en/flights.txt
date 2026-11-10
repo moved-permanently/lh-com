@@ -1,0 +1,31 @@
+root    /ae/en/flights
+version /de/en/flights
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 296:
+- <div.separator>
+- <div.hr.hr-no-layout>
+- <maui-divider>
+- <div.separator>
+- <div.hr>
+- <maui-divider>
+- <div.separator>
+- <div.hr.hr-no-layout>
+- <maui-divider>
+- <div.separator>
+- <div.hr.hr-no-layout>
+- <maui-divider>
+- <div.separator>
+- <div.hr.hr-no-layout>
+- <maui-divider>
+- <div.tilegrid.event>
+- <div.tile-grid.pt-7.pt-md-8.pb-3.pb-md-7>
+- <div.row>
+- <div.text-right>
+- <maui-link-button>
+- @as=button
+- <span>
+- "read more"
+- <maui-icon>
+- @slot=icon
+- @use=icon-expand-b
+- @mode=library
