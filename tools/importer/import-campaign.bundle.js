@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_81718_exports = {};
-  __export(tmp_bundle_campaign_81718_exports, {
-    default: () => tmp_bundle_campaign_81718_default
+  var import_campaign_exports = {};
+  __export(import_campaign_exports, {
+    default: () => import_campaign_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -3846,8 +3846,18 @@ var CustomImportScript = (() => {
     b2b: {
       live: true,
       pageTypes: {
-        // a heading right before such a block opens its column view (www: 81 of 105 marked so)
-        flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true, startAtHeading: true } }
+        // a heading right before such a block opens its column view (www: 81 of 105 marked so, the
+        // brief after 550 narrows it); in a grey band no edge above a block right after a heading
+        // (www: none of 146 bands has column marks; travel-id's and contact's headings sit on it)
+        flow: {
+          headings: { h3: "heading-small" },
+          columnViews: {
+            blocks: ["columns-media", "carousel-images", "quote"],
+            endEdge: true,
+            startAtHeading: true,
+            bandHeadings: true
+          }
+        }
       }
     },
     // Air Dolomiti: the base theme (between B2B's and TAP's entries, next to no switch line)
@@ -5878,7 +5888,7 @@ var CustomImportScript = (() => {
     if (hookName === "onLoad") {
       campaignSections(document).forEach((s) => {
         s.querySelectorAll(".text > .richtext > p:last-child").forEach((p) => {
-          if ((p.textContent || "").replace(/[\s\u00a0\u200b]/g, "") || p.querySelector(MEDIA3) || !p.previousElementSibling) return;
+          if ((p.textContent || "").replace(/[\s\u00a0\u200b]/g, "") || p.querySelector(MEDIA3) || !p.previousElementSibling || !p.querySelector("br")) return;
           p.closest(".text").after(spacerComponent(document, 50));
           p.remove();
         });
@@ -7492,7 +7502,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_81718_default = {
+  var import_campaign_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -7532,5 +7542,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_81718_exports);
+  return __toCommonJS(import_campaign_exports);
 })();

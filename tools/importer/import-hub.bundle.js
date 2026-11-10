@@ -2845,7 +2845,7 @@ var CustomImportScript = (() => {
       const loneImage = items.length > 1 && filled.length === 1 && filled[0].every(isImage);
       const halfAlone = element.matches(".twocolumn") && items.length === 2 && filled.length === 1;
       const pageUrl = params && params.originalURL || url || "";
-      const lufthansa = /^https?:\/\/([^/]+\.)?lufthansa\.com\//.test(pageUrl);
+      const lufthansa = /^https?:\/\/([^/]+\.)?(lufthansa|austrian|brusselsairlines)\.com\//.test(pageUrl);
       const partial = lufthansa && element.matches(".threecolumn, .fourcolumn") && filled.length > 0 && filled.length < items.length;
       const row = (hasEmbed || nestedView || loneImage || halfAlone || partial) && filled.length ? collected.map((c) => c.length ? c : "") : filled;
       if (row.length) cells.push(row);
@@ -3704,8 +3704,18 @@ var CustomImportScript = (() => {
     b2b: {
       live: true,
       pageTypes: {
-        // a heading right before such a block opens its column view (www: 81 of 105 marked so)
-        flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true, startAtHeading: true } }
+        // a heading right before such a block opens its column view (www: 81 of 105 marked so, the
+        // brief after 550 narrows it); in a grey band no edge above a block right after a heading
+        // (www: none of 146 bands has column marks; travel-id's and contact's headings sit on it)
+        flow: {
+          headings: { h3: "heading-small" },
+          columnViews: {
+            blocks: ["columns-media", "carousel-images", "quote"],
+            endEdge: true,
+            startAtHeading: true,
+            bandHeadings: true
+          }
+        }
       }
     },
     // Air Dolomiti: the base theme (between B2B's and TAP's entries, next to no switch line)
@@ -4074,7 +4084,13 @@ var CustomImportScript = (() => {
   function removeScreenReaderOnly(document) {
     document.querySelectorAll("maui-tooltip").forEach((tip) => {
       const trigger = tip.querySelector('[slot="trigger"]');
-      if (trigger && (trigger.tagName === "A" || trigger.hasAttribute("href") || trigger.querySelector("[href]"))) {
+      if (!trigger) {
+        const item = tip.closest("li");
+        tip.remove();
+        if (item && !item.textContent.trim() && !item.querySelector("img, picture, svg, a, [href]")) item.remove();
+        return;
+      }
+      if (trigger.tagName === "A" || trigger.hasAttribute("href") || trigger.querySelector("[href]")) {
         tip.querySelectorAll(':scope > [slot="box"]').forEach((box) => box.remove());
       }
     });
@@ -5730,7 +5746,7 @@ var CustomImportScript = (() => {
     if (hookName === "onLoad") {
       campaignSections(document).forEach((s) => {
         s.querySelectorAll(".text > .richtext > p:last-child").forEach((p) => {
-          if ((p.textContent || "").replace(/[\s\u00a0\u200b]/g, "") || p.querySelector(MEDIA3) || !p.previousElementSibling) return;
+          if ((p.textContent || "").replace(/[\s\u00a0\u200b]/g, "") || p.querySelector(MEDIA3) || !p.previousElementSibling || !p.querySelector("br")) return;
           p.closest(".text").after(spacerComponent(document, 50));
           p.remove();
         });
