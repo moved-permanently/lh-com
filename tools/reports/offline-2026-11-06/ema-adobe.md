@@ -2783,3 +2783,26 @@ drop and our own host only).
   8.2 -> 7.7.
 - **Decision (1d00125):** T1, and the inset for option faq but not faq limited-width. Neither guard page gets
   worse (both better by 0.5 and 4.8 points); re-measured on our host with the commit's CSS.
+- **B3 shipped (6c997b5, 22:45 CET):** the lufthansa theme keeps an H1 marked one step smaller as a choice
+  (nearChoices; section style H1 compact = heading-medium); other brands' collapses unchanged (the theme option
+  only lufthansa sets). Measured with the theme on: travel-classes 33.8 -> 5.8 % (390), 15.0 -> 2.7 % (1440;
+  today 7.2 / 2.7); food-and-beverages 28.2 -> 22.0, 21.3 -> 17.2 (its rest is B2's 40 px separators and B4).
+  An H1 marked heading-small (two steps) takes H1 compact too (14 later H1s in the census). Bundles rebuilt.
+- **B1 measured on the 36 pages:** the first run compared the live page with the switched page and showed
+  /gb/en/flights, /de/de/fluege and the like at 0.4 -> 46 %: an artefact of the method (the destination finder
+  draws 16,931 px of results on the live page, 2,093 px when any document is injected, today's own included). The
+  second run (logs/b582/b1all.tsv) injects today's document for "today" too and uses all of tonight's code
+  (live theme, H1 compact, the two carrier rules).
+
+### Rule 6, worst first (continued)
+
+- **/de/en/economy-class (34.2 % at 390, 22.5 at 1440) and its stage pages.** Ours draws the stage 20 px under
+  the sub-navigation bar (25 px from 1024 px); www's content wrapper is .contentpage.pt-0 on economy-class,
+  premium-economy-class, business-class, internet-overview, lhg-wifi and flynet (no space), plain .contentpage on
+  first-class (20 px). A structural rule (bar right before a stage: no gap) on the five recorded such pages:
+  internet-overview 22.6 -> 14.3 / 14.6 -> 5.6, lhg-wifi 18.0 -> 14.7 / 17.9 -> 13.6, economy-class 34.2 ->
+  29.6 / 22.5 -> 18.1, premium-economy-class 26.3 -> 22.0 / 18.7 -> 19.7, first-class 25.9 -> 32.7 / 20.2 ->
+  27.4. So a carrier (dbee1c6): the profile-nav parser writes Style flush for pt-0 pages, a flush profile-nav
+  section has no gap. List: reimport-582-profile-nav-flush-lh-com.txt (43 info documents). Also seen there, not
+  changed yet: www's bar label on phones is the section's first tab ("Lufthansa Travel Classes"), ours the page's
+  own tab; the stage description is smaller on www at 390.
