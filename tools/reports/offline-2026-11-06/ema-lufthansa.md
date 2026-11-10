@@ -2994,3 +2994,22 @@ follow when their run is through.
   Dolomiti's German recording has a 28 px taller footer from its live font. Neither is a code difference.
 - **Left out of git, with the reason:** .migration/project.json (modified before this session, not mine to commit);
   the recordings, scans, drafts and screenshots under .scratch/ and /tmp (scratch material, recordings are private).
+
+## The standing order of the night of 2026-11-10 (from 19:00 CET; the user's items a to e)
+
+- **Start:** nothing of mine was uncommitted or unpushed; .migration/project.json was already modified before the last
+  session and is not mine. main pulled (3b84865d).
+- **Capture list (within the first two hours):** tools/reports/parity-2026-11-09/capture-list-585-brands.txt, A: 22 ITA
+  pages (column-view headings, rendered recordings as ita-parity-004, archive ita-parity-NNN), B: TAP's FAQ page with
+  www's "Cookies Settings" dialog open (archive tap-parity-NNN).
+- **Item a, where ITA's two-column heading size is lost:** an offline test import of the recording's invoicing page
+  (.scratch/offline/tools/offline-import.mjs: setContent, every request aborted, the airline hosts unresolvable;
+  ita-import.mjs mappedOf, import-info.bundle.js; 0 requests left the browser) gives "Flight Certification" without
+  a marker, while lh-com's columns-media parser alone keeps www's h2.heading-small. The size goes in the bundle's last
+  step, marker-collapse.mjs collapseMain (THEMES.ita live): a size one step from the level's default becomes the
+  default, decision D of tools/reports/token-free/ita-pass-check.md. Not a bug in the importer: a plan decision that
+  www's column views contradict (12 of 13 column-view headings on ita-parity-004 / -003 are heading-small). Decision:
+  ema-test's files stay as they are; the row and its evidence go to ema-test
+  (tools/reports/parity-2026-11-09/rows-for-ema-test.md, row 1), and the part the ITA theme can do safely is ITA row
+  31 (next commit).
+
