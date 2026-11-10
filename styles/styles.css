@@ -1775,6 +1775,15 @@ body.brand-lufthansa main > .section:has(+ .section > .default-content-wrapper:f
   padding-bottom: 0;
 }
 
+/* a divider that opens a padded campaign section right after a campaign column view
+   (miles-and-more's "This might also interest you"): www's line 53px under the button above, the
+   heading's ink 63px under the line at 390 and 1440, ours 21 and 30: the column view's 32px on
+   both sides (brief 558) */
+body.brand-lufthansa main > .section.campaign-section.column-view + .section.campaign-section.padded > .default-content-wrapper:first-child > p.spacer.divider:first-child {
+  margin-top: 32px;
+  margin-bottom: 33px;
+}
+
 /* live's .section-content clears its floats (a table box at its end): the last component's
    bottom margin stays in the AEM section (a quote's 6rem / 8rem, then .mb-default), the first
    one's top margin collapses with the section before */
@@ -2075,6 +2084,7 @@ body.theme-live.flow-spacing main .default-content-wrapper > :not(h1, h2, h3, h4
    opens with the chapter's divider): www draws the rule 24px under the text before it (the
    paragraph's own margin), not a section gap (48px); brief 526, the pass check's articles:
    in-my-hood-chiswick-london, be-picky-barcelona-insider-tips +24px at each chapter */
+/* stylelint-disable-next-line no-descending-specificity -- articles' chapters; the divider after a campaign column view (above) is another place */
 body.brand-lufthansa.theme-live main > .section + .section > .default-content-wrapper:first-child > p.spacer.divider:first-child {
   margin-top: -24px;
 }
