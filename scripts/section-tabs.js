@@ -19,8 +19,9 @@ import { getMetadata, loadCSS, toClassName } from './aem.js';
 const DESKTOP = '(width >= 768px)';
 // the brands whose www shows every accordion item closed below 768px (business.lufthansagroup.com's
 // Newsroom, maui-tab-control-responsive theme b2b, brief 418; www.discover-airlines.com's, theme
-// four_y, the sweep after brief 470); the others open the first
-const CLOSED_BRANDS = ['b2b', 'discover'];
+// four_y, the sweep after brief 470; www.flytap.com's content tabs, tap-parity-001/-002 at 390);
+// the others open the first
+const CLOSED_BRANDS = ['b2b', 'discover', 'tap'];
 let setCount = 0;
 
 /**

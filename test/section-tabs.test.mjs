@@ -281,3 +281,21 @@ test('below 768px a page\'s "Tabs open" metadata: first opens the first item on 
     desktop = true;
   }
 });
+
+// the standing order of 2026-11-10, item 5: www.flytap.com's content tabs below 768 px are an accordion with every
+// item closed (tap-parity-001/-002 at 390: 10 of the 11 recorded content-tab pages, none expanded)
+test('below 768px on brand tap: every item closed at first, as www\'s', () => {
+  desktop = false;
+  const meta = document.createElement('meta');
+  meta.name = 'brand';
+  meta.content = 'tap';
+  document.head.append(meta);
+  try {
+    const main = SWISS();
+    decorateSectionTabs(main);
+    assert.deepEqual([...main.querySelectorAll('.section-tab-toggle')].map((t) => t.getAttribute('aria-expanded')), ['false', 'false']);
+  } finally {
+    meta.remove();
+    desktop = true;
+  }
+});
