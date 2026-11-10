@@ -194,8 +194,15 @@ export const THEMES = {
   b2b: {
     live: true,
     pageTypes: {
-      // a heading right before such a block opens its column view (www: 81 of 105 marked so)
-      flow: { headings: { h3: 'heading-small' }, columnViews: { blocks: ['columns-media', 'carousel-images', 'quote'], endEdge: true, startAtHeading: true } },
+      // a heading right before such a block opens its column view (www: 81 of 105 marked so, the
+      // brief after 550 narrows it); in a grey band no edge above a block right after a heading
+      // (www: none of 146 bands has column marks; travel-id's and contact's headings sit on it)
+      flow: {
+        headings: { h3: 'heading-small' },
+        columnViews: {
+          blocks: ['columns-media', 'carousel-images', 'quote'], endEdge: true, startAtHeading: true, bandHeadings: true,
+        },
+      },
     },
   },
   // Air Dolomiti: the base theme (between B2B's and TAP's entries, next to no switch line)

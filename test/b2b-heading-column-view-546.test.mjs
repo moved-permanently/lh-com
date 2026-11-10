@@ -77,10 +77,19 @@ test('the brief after 550: not after a divider, not when the cells have H4 headi
   assert.equal(seq(h3), 'p start h2 columns-media end p', 'H3 card headings: at the heading');
 });
 
-test('a grey band keeps the start between heading and block', () => {
-  const band = page(`<div><p>Text</p><h2>Contact</h2>${CM}<p>More</p><div class="section-metadata"><div><div>style</div><div>grey</div></div></div></div>`);
+test('the brief after 550: in a grey band a block right after a heading has no edge above it, nor the heading', () => {
+  // www (none of 146 grey bands has column marks): travel-id-now-required's H3 32 px over its cards, contact's
+  // Passenger Receipts H2 (after a divider) likewise; ours had a 40 px edge between them. A block after other
+  // content keeps its edges (contact: the divider 40 px above the Corporate card, as www's)
+  assert.equal(themeFor('b2b', 'flow').columnViews.bandHeadings, true);
+  const grey = '<div class="section-metadata"><div><div>style</div><div>grey</div></div></div>';
+  const band = page(`<div><p>Text</p><div class="divider"><div><div></div></div></div><h2>Passenger Receipts</h2>${CM}<p>More</p>${grey}</div>`);
   decorateTokenFree(band, { brand: 'b2b', path: '/de/en/about-us/contact', read: flowRead });
-  assert.equal(seq(band), 'p h2 start columns-media end p section-metadata');
+  assert.equal(seq(band), 'p divider h2 columns-media end p section-metadata');
+  const card = page(`<div><p>Text</p><div class="divider"><div><div></div></div></div>${CM}<p>More</p>${grey}</div>`);
+  decorateTokenFree(card, { brand: 'b2b', path: '/de/en/about-us/contact', read: flowRead });
+  assert.equal(seq(card), 'p divider start columns-media end p section-metadata', 'after other content: as before');
+  assert.ok(!themeFor('discover', 'flow').columnViews.bandHeadings, 'Discover as before');
 });
 
 test('Discover keeps its column views as they were', () => {

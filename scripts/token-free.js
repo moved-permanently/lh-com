@@ -271,7 +271,11 @@ function applyThemeRules(main, theme) {
     // .blocks: www's column view around the block, its padding above and below as the markers drew
     // it): not in a tab panel; no edge above at the section's start, none below at its end (the
     // section's padding) unless columnViews.endEdge; never twice (a marker's edge stays)
-    const { blocks = [], endEdge = false, startAtHeading = false } = theme.columnViews;
+    // bandHeadings: in a grey band (no column marks on www) a heading right before the block sits
+    // on it, no edge above the block or the heading
+    const {
+      blocks = [], endEdge = false, startAtHeading = false, bandHeadings = false,
+    } = theme.columnViews;
     if (blocks.length && !isTabPanel(section)) {
       section.querySelectorAll(':scope > div[class]').forEach((block) => {
         if (!blocks.includes(blockName(block))) return;
@@ -293,7 +297,8 @@ function applyThemeRules(main, theme) {
         while (prev && isMeta(prev)) prev = prev.previousElementSibling;
         let next = block.nextElementSibling;
         while (next && isMeta(next)) next = next.nextElementSibling;
-        if (prev && !isColumnMark(prev)) start.before(columnMark('column-start-outer'));
+        const onBandHeading = bandHeadings && isBand(section) && /^H[2-4]$/.test(heading?.tagName || '');
+        if (prev && !isColumnMark(prev) && !onBandHeading) start.before(columnMark('column-start-outer'));
         if ((next || endEdge) && !isColumnMark(next)) block.after(columnMark('column-end-outer'));
       });
     }
