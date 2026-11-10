@@ -142,6 +142,13 @@ export const withTeaserColumns = (html) => editDivs(html, '<div class="twocolumn
   return el.replace(/^<div class="twocolumn([^"]*)"/, '<div class="threecolumn$1" data-import-two-up=""').replace('data-identifier="twocolumn"', 'data-identifier="threecolumn"');
 });
 
+/**
+ * A snapshot whose teaser cards are marked data-import-cta: www shows their link line (.teaser
+ * .teaser-link-text is display:block, "→ Learn More About Choosing Your Seat" at the card's foot),
+ * which lh-com's carousel-cards parser keeps only on a marked card (ITA row 29; as austrian-import.mjs).
+ */
+export const withTeaserCta = (html) => html.replace(/(<a\b[^>]*class="teaser card[^"]*")(?![^>]*data-import-cta)/g, '$1 data-import-cta=""');
+
 // the booking-lookup's hand-off: www's check-in app is not reachable from the replica (and its
 // target is not in the page), so a valid search opens the same page on www, nothing in the URL
 export const withCheckinHandoff = (doc, p) => doc
@@ -228,7 +235,7 @@ export function templateOf(p, html) {
  */
 export function mappedOf(html, p) {
   const noPicker = editDivs(stripScripts(html), '<div id="ui-datepicker-div"', () => '');
-  return withoutLoads(withFareTeaserConfig(withTeaserColumns(withCheckinTabs(withLinkOuts(withPlaceholder(noPicker), p)))))
+  return withoutLoads(withFareTeaserConfig(withTeaserCta(withTeaserColumns(withCheckinTabs(withLinkOuts(withPlaceholder(noPicker), p))))))
     .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
 }
 
