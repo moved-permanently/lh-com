@@ -879,3 +879,42 @@ body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:las
 }
 
 /* stylelint-enable no-descending-specificity */
+
+/* the status panels' text as www's (the sweep after 556; ita-parity-004 /it/en/profile/miles-and-more at
+   390 and 1440, www's column view: its headline heading-small, its rich text's list): the heading
+   22px to 28px with the width (www's clamp, 22.08px at 390, 28px at 1440), 1.1; the benefits a list
+   40px in with its bullets outside, the items 10px apart; on phones the picture (stacked) 45px under
+   the line and 40px over the heading; the text the column's full width (www's column view; the
+   panels' 66 % is for a panel of text alone) */
+/* stylelint-disable no-descending-specificity -- the panels' text rules (the block, the theme above) */
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > * {
+  max-width: none;
+}
+
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > h3 {
+  font-size: clamp(22px, calc(22px + 6 * (100vw - 375px) / 1065), 28px);
+  line-height: 1.1;
+}
+
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > ul {
+  padding-left: 40px;
+  list-style-position: outside;
+}
+
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > ul > li + li {
+  margin-top: 10px;
+}
+
+/* from 768px the picture and the benefits 56px under the line (www's column view under its text) */
+@media (width >= 768px) {
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > p:first-of-type {
+    margin-bottom: 56px;
+  }
+}
+
+@media (width < 768px) {
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p:last-child > picture) > p:last-child {
+    margin: 45px 0 40px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
