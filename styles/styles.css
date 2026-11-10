@@ -1761,6 +1761,16 @@ body.brand-lufthansa main > .section.grey:has(+ .section.campaign-section > .def
   margin-bottom: 32px;
 }
 
+/* such a section padded, on phones (gepaeck's "Weitere Informationen" after its band): www's
+   heading 58px of ink under the band's end at 390, ours 82 with the section's 20px above the
+   separator: none. From 768px the 40px stay until the no-break-space re-import (the band sits
+   37px early at 1440 for Bag-Free Travel's text; brief 558) */
+@media (width < 768px) {
+  body.brand-lufthansa main > .section.grey + .section.campaign-section.padded:has(> .default-content-wrapper:first-child > p.spacer:first-child) {
+    padding-top: 0;
+  }
+}
+
 /* one row of jump links that ends its section, the next section opening with a separator (www:
    the link list, a .separator with its own margin, the column view with its heading;
    digital-self-services: 99px of ink from the last link to the heading at 390, ours 146): the
