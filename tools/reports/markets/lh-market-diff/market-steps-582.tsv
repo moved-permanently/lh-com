@@ -47,6 +47,6 @@ row	action	document	variant	markets	hide	archive	expected
 # row 2 (/ae/de/automatic-check-in -> /de/de/automatic-check-in): no step yet: the stand-in ae/de is not in the 80 covered roots (it is in rows 40/46's own group: ae/de, am/de, ao/de); a covered root's page is on capture-list-582-lh-com.txt (be/de, dk/de)
 # row 17 (/ae/de/pre-check-in -> /de/de/pre-check-in): no step yet: as row 2 (pre-check-in); be/de and dk/de on capture-list-582-lh-com.txt
 # row 26 (/at/en/common/terms-and-conditions/terms-and-conditions-promocode -> /de/en/common/terms-and-conditions/terms-and-conditions-promocode): no step: the only difference is a double full stop on the version ("to the US.." vs "to the US."); not worth a markets section (decision 582)
-# row 53 (/ru/en/lh-rentalcar -> /de/en/lh-rentalcar): open: ru/en shows two Meili car rental widgets (data-dcep id dcep-meili-car-rental 1 -> 2); not a text step, checked next
+# row 53 (/ru/en/lh-rentalcar -> /de/en/lh-rentalcar): no step: tonight's ru/en has the same Meili settings as de/en (ptid 105.11, the same meiliUrl); its second .dcep-meili-car-rental sits outside the content (container-content, Meili's own mount in the rendered page)
 # row 57 (/ar/fr/cash-and-miles -> /xx/fr/cash-and-miles): ignore: ar/fr's difference is the promotion teaser only (rule W1, as rows 58 and 60 the user ruled)
 # row 59 (/ar/fr/hotel-offers -> /xx/fr/hotel-offers): ignore: ar/fr's difference is the promotion teaser only (rule W1)

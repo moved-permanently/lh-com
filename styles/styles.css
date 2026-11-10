@@ -2195,3 +2195,13 @@ body.appear.brand-lufthansa main ul:is(.links-horizontal, .links-responsive, .li
 body.brand-lufthansa main > .section:has(> .default-content-wrapper:last-child > h1:last-child):has(+ .section > .accordion-columns-wrapper:first-child) {
   margin-bottom: 0;
 }
+
+/* lufthansa.com: the sub-navigation's section with Style flush (the profile-nav parser writes it
+   where www's content starts right under the bar, .contentpage.pt-0; brief 582): no section gap
+   under it. Measured with the gap removed on the recorded such pages: internet-overview 22.6 ->
+   14.3 % (390), 14.6 -> 5.6 % (1440); lhg-wifi 18.0 -> 14.7, 17.9 -> 13.6; economy-class 34.2 ->
+   29.6, 22.5 -> 18.1; premium-economy-class 26.3 -> 22.0, 18.7 -> 19.7. first-class keeps its gap
+   (www's .contentpage without pt-0: removing it there 25.9 -> 32.7) */
+body.brand-lufthansa main > .section.profile-nav-container.flush {
+  margin-bottom: 0;
+}
