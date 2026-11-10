@@ -4243,3 +4243,27 @@ body.brand-airdolomiti main > .section > .hero-campaign-wrapper > .hero-campaign
   }
 }
 /* stylelint-enable no-descending-specificity */
+
+/*
+ * the post cards as www's CardPost at every width (www's GridBlog; airdolomiti-parity-001 /articles at
+ * 390, the sweep after 556): 470px high, the picture 60 % of it (282px), the text below; the grid
+ * option's 443 / 282 picture is that only at three to the row (1440). Below 930px the posts 170px
+ * under the hub's categories (www's GridBlog box: margin-top 170px, none from 930px)
+ */
+/* stylelint-disable no-descending-specificity -- the grid option's cards (the block) and the hub's list above */
+body.brand-airdolomiti .blog-overview.grid .blog-overview-card {
+  height: 470px;
+}
+
+body.brand-airdolomiti .blog-overview.grid .blog-overview-image {
+  flex: none;
+  height: 60%;
+  aspect-ratio: auto;
+}
+
+@media (width < 930px) {
+  body.brand-airdolomiti main .default-content-wrapper:has(> h1:first-child + ul):has(+ .blog-overview-wrapper) > ul {
+    margin-bottom: 170px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
