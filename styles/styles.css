@@ -1353,6 +1353,20 @@ main > .section:not(.grey):is(:last-child, :has(+ .section.subpage-nav-container
   margin-bottom: var(--spacing-default);
 }
 
+/* lufthansa.com: the same when only empty sections follow (DA's trailing <div></div>: the rule
+   above looked for the last section; lounges kept a 48px gap and the empty section's own, www's
+   footer 64px of ink under the last link at 390 and 1440, ours 87; brief 558). Plain column ends
+   before empty sections as they were (most-significant-route measured worse with 0px) */
+/* stylelint-disable-next-line no-descending-specificity -- the page end before empty sections, not the last section */
+body.brand-lufthansa main > .section:not(.grey, :empty, :last-child, :has(~ .section:not(:empty))):has(> .default-content-wrapper:last-child > .column-spaced:last-child) {
+  margin-bottom: var(--spacing-default);
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the empty sections after it, not a section with content */
+body.brand-lufthansa main > .section:has(> .default-content-wrapper:last-child > .column-spaced:last-child) ~ .section:empty {
+  margin: 0;
+}
+
 /* a padded first section (the page title in a padded AEM section, /de/en/book-and-manage/
    pax-receipt): the breadcrumb (outside the AEM section on live) stays at the top, the padding
    goes between it and the title */
