@@ -2439,3 +2439,23 @@ Started 18:30 UTC. Recordings: b2b-parity-001 to -005 and b2b-snapshots-014/-015
   brings upload-state JSON reruns the two tests that read it (da-upload-sites, loc-sites).
 - Also queued (rows-for-ema-test.md, from ema-lufthansa): ITA's column-view headings at heading-small (a context
   default in my collapse files); after the B2B ranking.
+
+### Update 21:45 UTC
+
+- Decision 1 measured and NOT shipped: with the 33 recordings (b2b-parity-006) the H1-view change made 21 of the
+  26 changed documents worse (mean +7.15 points; lhg-history de/en the only clear gain). Reverted (b4376eac,
+  pushed with bf4832a9; bundles back as before); reimport-583-b2b-h1-view.txt now says WITHDRAWN and lists all 52
+  rows with their before/after (8eac1baf). Nothing for the harness from it.
+- Tried and dropped (not pushed): no column view starting right after an H1 (mean of the fresh ranking 17.21 ->
+  17.82 %, contact much worse: www opens a view after its H1 there without any mark).
+- ITA row (rows-for-ema-test.md row 1, f8c5b3ff, served code, no re-import): an unmarked section H2 right before a
+  Carousel Cards or Cards Icon grid is heading-small (DA census: 923 of 1029 and 67 of 67 such H2s carried it).
+  ita.turnsthe.page: goopti's "Related" 36 -> 28 px at 1440, ae/en homepage page 50 px shorter at 1440, 58 at 390.
+  Smoke 12 hosts before/after: unchanged.
+- Process note: the report-only commit 6f5c279d went out after lint but without a fresh suite run; every push
+  since had lint exit 0 and the full suite first.
+- Fresh B2B ranking (our host vs b2b-parity-001..006, 1440 and 390): mean 17.06 %. Worst now the 20
+  airlines-at-a-glance pages (45 to 55 % at 1440). Cause found: their first row (www: two teaser cards side by
+  side under a heading-small heading) is loose pictures and links in DA, stacked full width. Those documents were
+  imported on 2026-11-02, before the two-up teaser selector (65afd3a2, 11-06); a scratch re-import is next, then
+  the measurement and a list if it holds.
