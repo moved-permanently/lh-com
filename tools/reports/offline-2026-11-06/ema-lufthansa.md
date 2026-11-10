@@ -3089,3 +3089,9 @@ follow when their run is through.
   size made entertainment and check-in closer and customer service and families further (customer service 390 -188 ->
   -276): not one rule. Row 2 for ema-test (rows-for-ema-test.md).
 
+- **On main:** 33a18bae (SWISS 53; lint 0, the suite passing, smoke 0 differences on 14 hosts).
+- **airdolomiti-snapshots-005** (266,868 bytes, 1c90f7c0baee0cbc83389543c8326f167d00895d51f3cf5c33806ca05c80bbe6, 21:37
+  UTC): the rows of reimport-567-ad-description-news.txt captured at www.airdolomiti.it with our document paths
+  (/de/reiseziele/…, /en/destinations/…): 16 redirects, 1 error page, 3 of .it's copies. Not what the re-import reads.
+  Capture list 3 (tools/reports/parity-2026-11-09/capture-list-585-brands-3.txt) gives those 20 rows at www's own hosts
+  (www.airdolomiti.de without /de, www.airdolomiti.eu without /en).

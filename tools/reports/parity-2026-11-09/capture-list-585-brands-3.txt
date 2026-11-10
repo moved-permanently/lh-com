@@ -1,0 +1,28 @@
+# ema-lufthansa's third capture list for the night of 2026-11-10: the www URLs of reimport-567-ad-description-news.txt.
+# For the Captures child; no request to an airline host from ema-lufthansa.
+# Why: airdolomiti-snapshots-005 (21:37 UTC) holds that list's rows on www.airdolomiti.it (/de/reiseziele/…,
+# /en/destinations/…): those are our document paths, not www's. www has the German pages on www.airdolomiti.de without
+# /de and the English ones on www.airdolomiti.eu without /en (16 of the 19 redirected, figari-de came back an error
+# page; the 3 that answered 200 are .it's copies, not the pages the re-import reads). The 20 pages below are those
+# rows at www's own hosts (london-eu and basel-de are already in airdolomiti-snapshots-004). Full HTML with
+# __NEXT_DATA__ as airdolomiti-snapshots-004, archive airdolomiti-snapshots-NNN.
+https://www.airdolomiti.de/reiseziele/biarritz-de
+https://www.airdolomiti.de/reiseziele/birmingham-de
+https://www.airdolomiti.de/reiseziele/bordeaux-de
+https://www.airdolomiti.de/reiseziele/figari-de
+https://www.airdolomiti.de/reiseziele/ljubljana-laibach
+https://www.airdolomiti.de/reiseziele/london
+https://www.airdolomiti.de/reiseziele/luxemburg
+https://www.airdolomiti.de/reiseziele/prag
+https://www.airdolomiti.de/reiseziele/rijeka-de
+https://www.airdolomiti.de/reiseziele/zuerich
+https://www.airdolomiti.eu/destinations/basel
+https://www.airdolomiti.eu/destinations/biarritz
+https://www.airdolomiti.eu/destinations/birmingham
+https://www.airdolomiti.eu/destinations/bordeaux
+https://www.airdolomiti.eu/destinations/figari
+https://www.airdolomiti.eu/destinations/ljubljana
+https://www.airdolomiti.eu/destinations/luxembourg
+https://www.airdolomiti.eu/destinations/prague
+https://www.airdolomiti.eu/destinations/rijeka
+https://www.airdolomiti.eu/destinations/zurich
