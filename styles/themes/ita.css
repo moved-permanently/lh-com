@@ -950,3 +950,14 @@ body.brand-ita .accordion-columns .accordion-columns-panel > .accordion-columns-
   line-height: 24px;
 }
 /* stylelint-enable no-descending-specificity */
+
+/* the flight search band between two text components (ITA row 30; /it/en/local-page/verona, ita-parity-004): www's
+   invisible separators (.hr-no-layout, 1px and 24px under it) on both sides of the flight manager, 50px from the text
+   above and 46px to the text under it at every width (the sections' 24px before) */
+body.brand-ita main > .section > .default-content-wrapper + .flight-search-wrapper.flight-search-band {
+  margin-top: 50px;
+}
+
+body.brand-ita main > .section > .flight-search-wrapper.flight-search-band + .default-content-wrapper {
+  margin-top: 46px;
+}

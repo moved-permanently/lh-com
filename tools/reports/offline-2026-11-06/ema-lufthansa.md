@@ -2938,5 +2938,11 @@ follow when their run is through.
   import left it out (the shared parser keeps it only on marked cards, which ITA's import did not mark). Fixed in the
   importer (backwards-compatible: tooling only, nothing served changes). Together with row 17's two-up, the
   travel-insurance page comes out at www's height (1440 3,093 against 3,091; 390 4,061 against 4,059). Re-import list:
-  reimport-567-ita-teaser-cta.txt, 1,193 documents (852 also on the two-up list, one run gives both).
+  reimport-567-ita-teaser-cta.txt, 1,193 documents (852 also on the two-up list, one run gives both).- **On main:** 30b37eab (lint 0, 3469 pass 0 fail, smoke 0 differences on 14 hosts).
+- **A measuring note for ITA on phones:** our ITA footer measures 1,313 px at 390 against www's 1,271 on every recorded
+  page. Not a real difference: the legal links are Arial (as www's), and the measuring browser has no Arial (DejaVu Sans,
+  wider), so one row of links wraps. ITA's 390 numbers in the ranking are about 42 px too tall on our side.
+- **ITA row 30, the flight search band on the local pages:** www has an invisible separator on each side of the flight
+  search (50 px above, 46 px below); ours had 24 px. Theme rule (backwards-compatible: two margins). Verona's sections
+  now sit as www's ("Operating flights" 1,746 against 1,745 at 390); 1440 2,356 -> 2,404 against 2,444.
 
