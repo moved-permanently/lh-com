@@ -3033,5 +3033,9 @@ follow when their run is through.
   matches it in height at 1440 (picture 240, text 951, footer 1,659 against 235, 946, 1,657) but shows the document's
   H1 in the white space over the picture. Decision: not a re-import with the hidden-heading style yet (row 95 would then
   pull the picture under the bar, which www.airdolomiti.de does not do); en and it go on the next capture list to see
-  whether www.airdolomiti.eu / .it now show the German layout too.
+  whether www.airdolomiti.eu / .it now show the German layout too.- **Air Dolomiti row 98, the title on phones (decision 1):** 24 px over the title on the title pages below 768 px, as
+  www's (backwards-compatible: one theme rule). The title at www's 170 on the six recorded title pages.
 
+- **On main:** 4fd7c695 (ITA 31; lint 0, 3493 pass 0 fail). Smoke after the push: 0 differences on 12 hosts; Discover's
+  run before the push failed to connect (socket closed), re-run by hand: 0 differences against the last run;
+  lufthansa-edge's sitemap_lh.xml.gz changed (another session's sitemap, not code).

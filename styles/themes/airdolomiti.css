@@ -4467,3 +4467,11 @@ body.brand-airdolomiti main > .section.hidden-heading:first-child > .breadcrumb-
     --breadcrumb-top: 0;
   }
 }
+
+/* the title on phones on the title pages (AD row 98): 24px lower than right under the trail, as www's (its title at 170
+   against our 146 at 390, the text under it as ours); padding, as a margin would collapse into the trail's; row 97's scope */
+@media (width < 768px) {
+  body.brand-airdolomiti main > .section:not(.hidden-heading, :has(.accordion-columns.faq)) > .breadcrumb-wrapper + .default-content-wrapper:has(> h1:first-child) {
+    padding-top: 24px;
+  }
+}
