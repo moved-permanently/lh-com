@@ -166,6 +166,12 @@ export const THEMES = {
     // from the column marks, ema-adobe's hub transformer on import; styles.css "the column view
     // carrier")
     columnViews: { carrier: 'column-view' },
+    // page titles in heading-medium (www's smaller H1: 168 of the 6,826 census
+    // documents' first H1s, 85 later H1s; brief 582, the switch plan's B3): one step from
+    // the H1 default, which the collapse would take, so a choice of their own the collapse
+    // keeps (section style H1 compact)
+    headingChoices: { h1: { compact: 'heading-medium' } },
+    nearChoices: { h1: { 'heading-medium': 'compact' } },
     pageTypes: {
       // Insights articles: a rule above an info box (Columns Media) after any content but a
       // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
@@ -289,6 +295,7 @@ export const SECTION_STYLES = {
   'divider-below': { dividerBelow: true },
   'wide-text': { width: 'full' },
   'small-print': { size: 'small' },
+  'h1-compact': { headings: { h1: 'compact' } },
   'h2-large': { headings: { h2: 'large' } },
   'h2-compact': { headings: { h2: 'compact' } },
   'h3-large': { headings: { h3: 'large' } },
@@ -313,6 +320,7 @@ export const SECTION_STYLE_LABELS = {
   'divider-below': 'Divider below',
   'wide-text': 'Wide text',
   'small-print': 'Small print',
+  'h1-compact': 'H1 compact',
   'h2-large': 'H2 large',
   'h2-compact': 'H2 compact',
   'h3-large': 'H3 large',

@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-insights.js
-  var import_insights_exports = {};
-  __export(import_insights_exports, {
-    default: () => import_insights_default
+  var tmp_bundle_insights_1084257_exports = {};
+  __export(tmp_bundle_insights_1084257_exports, {
+    default: () => tmp_bundle_insights_1084257_default
   });
 
   // tools/importer/parsers/poi-data.js
@@ -5573,6 +5573,12 @@ var CustomImportScript = (() => {
       // from the column marks, ema-adobe's hub transformer on import; styles.css "the column view
       // carrier")
       columnViews: { carrier: "column-view" },
+      // page titles in heading-medium (www's smaller H1: 168 of the 6,826 census
+      // documents' first H1s, 85 later H1s; brief 582, the switch plan's B3): one step from
+      // the H1 default, which the collapse would take, so a choice of their own the collapse
+      // keeps (section style H1 compact)
+      headingChoices: { h1: { compact: "heading-medium" } },
+      nearChoices: { h1: { "heading-medium": "compact" } },
       pageTypes: {
         // Insights articles: a rule above an info box (Columns Media) after any content but a
         // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
@@ -8179,7 +8185,12 @@ var CustomImportScript = (() => {
     const def = theme.headings[`h${level}`];
     const idx = (s) => s === "copytext-large" ? HEADING_SIZES.length : HEADING_SIZES.indexOf(s);
     const steps = size === "copytext-large" ? idx(size) - idx(def) : sizeSteps(def, size);
-    if (steps === null || Math.abs(steps) <= 1) return { kind: "default" };
+    if (steps === null) return { kind: "default" };
+    if (Math.abs(steps) <= 1) {
+      const near = ((theme.nearChoices || {})[`h${level}`] || {})[size];
+      const kept = near && ((theme.headingChoices || {})[`h${level}`] || {})[near];
+      return kept ? { kind: "choice", choice: near } : { kind: "default" };
+    }
     const choice = steps < 0 ? "large" : "compact";
     const has = ((theme.headingChoices || {})[`h${level}`] || {})[choice];
     return has ? { kind: "choice", choice } : { kind: "none" };
@@ -9006,7 +9017,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_insights_default = {
+  var tmp_bundle_insights_1084257_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9046,5 +9057,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_insights_exports);
+  return __toCommonJS(tmp_bundle_insights_1084257_exports);
 })();

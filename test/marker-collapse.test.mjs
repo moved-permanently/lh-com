@@ -65,9 +65,13 @@ test('heading sizes: a step from the default goes; two steps a level-scoped styl
   const row = out('<div><h3>A {heading-large}</h3></div><div><h3>B {heading-medium}</h3></div><div><div class="metadata"><div><div>Title</div><div>t</div></div></div></div>');
   assert.match(row, /<div><h3>A<\/h3><\/div><div><h3>B<\/h3><\/div>.*<div><div>Headings<\/div><div>H3 large<\/div><\/div>/);
   assert.equal(out('<div><div class="columns-media"><div><div><h3>A {heading-medium}</h3><p>x</p></div></div></div></div>'), '<div><div class="columns-media title-large"><div><div><h3>A</h3><p>x</p></div></div></div></div>');
-  const r = run('<div><h1>T {heading-small}</h1></div>');
+  // brief 582: the lufthansa theme has an H1 compact choice (heading-medium) and keeps its one step
+  // (nearChoices); a brand without it takes the default as before
+  assert.equal(out('<div><h1>T {heading-small}</h1></div>'), `<div><h1>T</h1>${meta('h1-compact')}</div>`);
+  assert.equal(out('<div><h1>T {heading-medium}</h1></div>'), `<div><h1>T</h1>${meta('h1-compact')}</div>`);
+  const r = run('<div><h1>T {heading-small}</h1></div>', { brand: 'swiss' });
   assert.equal(r.html, '<div><h1>T</h1></div>');
-  assert.equal(totals(r.stats).theme, 1, 'H1 has no choice: the default');
+  assert.equal(totals(r.stats).theme, 1, 'H1 has no choice there: the default');
 });
 
 test('heading ids lose the marker\'s part (a twin: -1); links to the old ids in the page are rewritten, the map returned', () => {

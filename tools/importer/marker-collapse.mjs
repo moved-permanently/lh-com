@@ -608,7 +608,13 @@ function headingWish(theme, level, size) {
   const def = theme.headings[`h${level}`];
   const idx = (s) => (s === 'copytext-large' ? HEADING_SIZES.length : HEADING_SIZES.indexOf(s));
   const steps = size === 'copytext-large' ? idx(size) - idx(def) : sizeSteps(def, size);
-  if (steps === null || Math.abs(steps) <= 1) return { kind: 'default' };
+  if (steps === null) return { kind: 'default' };
+  if (Math.abs(steps) <= 1) {
+    // a theme may keep a one-step size as a choice (lufthansa.com's H1 in heading-medium, brief 582)
+    const near = ((theme.nearChoices || {})[`h${level}`] || {})[size];
+    const kept = near && ((theme.headingChoices || {})[`h${level}`] || {})[near];
+    return kept ? { kind: 'choice', choice: near } : { kind: 'default' };
+  }
   const choice = steps < 0 ? 'large' : 'compact';
   const has = ((theme.headingChoices || {})[`h${level}`] || {})[choice];
   return has ? { kind: 'choice', choice } : { kind: 'none' };
