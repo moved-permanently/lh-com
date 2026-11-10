@@ -665,3 +665,10 @@ body.brand-discover main .accordion-columns-panel > .accordion-columns-intro li 
     --heading-margin-xl: 36px;
   }
 }
+
+/* column-view rows 80px apart from 768px also with a column mark between their blocks (Discover row 45) */
+@media (width >= 768px) {
+  body.brand-discover main .columns-media-wrapper + .default-content-wrapper:has(> p.column-mark:only-child) + .columns-media-wrapper {
+    margin-top: 40px;
+  }
+}
