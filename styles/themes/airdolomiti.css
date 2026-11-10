@@ -4459,3 +4459,11 @@ body.brand-airdolomiti main > .section.hidden-heading:first-child > .breadcrumb-
     top: calc(var(--nav-height) - 16px);
   }
 }
+
+/* the trail over a page title from 1025px (AD row 97): right under the bar as www's (its text at 132, the title at 170);
+   not on the FAQ half pages (www's title there 20px lower), a stage's or the hidden-heading lead's trail */
+@media (width >= 1025px) {
+  body.brand-airdolomiti main > .section:not(.hidden-heading, :has(.accordion-columns.faq)) > .breadcrumb-wrapper:has(+ .default-content-wrapper > h1:first-child) {
+    --breadcrumb-top: 0;
+  }
+}

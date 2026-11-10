@@ -2968,5 +2968,8 @@ follow when their run is through.
   - ITA two-column headings (invoicing's "Flight Certification" 36 px against www's heading-small 28): the importer's
     parser keeps www's class (checked on the recording), but the live document has no size marker; the cause is
     between the parser and the upload and needs a scratch import, which I did not run (a failed snapshot import falls
-    through to a live request to www). Open.
+    through to a live request to www). Open.- **On main:** 960a4643 (AD 96; lint 0, 3483 pass 0 fail, smoke 0 differences on 14 hosts).
+- **Air Dolomiti row 97, the trail on the title pages from 1025 px:** www's trail sits right under the bar; ours had 16 px
+  over it, so those pages were 16 px lower. Theme rule (backwards-compatible: a variable on the title pages' trail); the
+  title is at www's 170 on the six pages, the FAQ and stage pages are left as they were (already www's).
 
