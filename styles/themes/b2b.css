@@ -525,6 +525,12 @@ body.brand-b2b main :is(.default-content-wrapper, .columns-media-text) p.link-wr
   margin-top: 1px;
 }
 
+/* a link right before a column view: www's link component has no margin below, the view's padding
+   is the gap (travel-id-now-required's "Back to News" 40 px over its column view, ours had 64) */
+body.brand-b2b main .default-content-wrapper > p.link-wrapper:has(+ .column-start-outer) {
+  margin-bottom: 0;
+}
+
 /* 24 px from link to link (WCAG 2.5.8's target spacing; www's 21 px are under it: accessibility pass,
    offline package item 5) */
 body.brand-b2b main .columns-media .columns-media-text p.link-wrapper:has(+ p.link-wrapper) {
