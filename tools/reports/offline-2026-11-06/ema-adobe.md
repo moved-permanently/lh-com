@@ -2741,3 +2741,45 @@ drop and our own host only).
   (www's order). mk/en traveltricks (36) differs in the breadcrumb only (page metadata): a shared variant.
 - **The 7 widget-setting rows** (D2 media, W1 promotion teaser) are IGNORE in import-rows.tsv and
   import-rows-importer-work.tsv (action "ignore (widget setting: …, brief 582)"), as the user ruled.
+
+### Item c: the token-free switch's blockers (in the plan's order)
+
+- **B5, the bundles behind their sources (a94f721, pushed 21:36 CET).** After a1a8e13 only the hub bundle was
+  behind (263 lines: columns-media's in-column and lufthansagroup branches, style-markers' H4 large choice, the
+  Brussels tab content); a rebuild of the others changes esbuild's temp names only. The 133 hub pages with a
+  bd-snapshot import byte-identically with the old and the new hub bundle (logs/b582/hub-bundle-cmp.mjs). The
+  three Austrian bundles are behind by a1a8e13's link lists (a no-op on austrian.com pages): left to their EMA.
+- **B1, the column-view carrier (measured, not shipped yet).** Found on digital-self-services: the published
+  hub documents hold each column view as a `flush column-view padded` section opening with a separator block; the
+  collapse splits that separator into a section of its own, which keeps the view's classes and so gets the view's
+  padding (20/20 px at 390, 40/40 from 768 px) and the view section after it, now without `flush`, keeps the 48 px
+  section gap. Two rules (logs/b582/try/tf-sep.js): a column-view section holding only a separator: no padding,
+  no gap; such a section right after another view: margin-top -48 px. digital-self-services after the switch:
+  16.3 / 19.9 % -> 8.2 / 3.5 % (today 7.1 / 2.9); the page +281 / +393 px -> +49 / +1 px, every heading within
+  8 px of today's. The plan's check (the 36 recorded hub and campaign pages with column marks, today against
+  switched + the two rules, at 390 and 1440) is running: logs/b582/b1sep.tsv.
+- **B3, heading near values (census done).** Of the 6,826 census documents (read from the preview through the
+  local dev server), 168 have their page title (first H1) marked {heading-medium} (campaign 40, info 26, hub 12,
+  90 without an import report), 85 later H1s (section titles) too; 74 later H1s {heading-copytext-large} and 14
+  {heading-small} (two or more steps: no H1 choice exists, the collapse drops them as well). The collapse takes a
+  one-step marker to the level's default, so all 168 titles grow to heading-large (+61 px on travel-classes).
+  Campaign has 40 marked titles of many more unmarked, so a page-type default would move the others: an "H1
+  compact" carrier instead (a lufthansa-only theme option, nearChoices, so the collapse writes the section style
+  H1 compact for those; other brands' collapses unchanged). Next: code and measure on travel-classes,
+  food-and-beverages and airport-information.
+
+### Item d: rule 6, the accordion inset
+
+- **What the old padding hid on faq-saf:** with www's 20 px inset our titles wrap line for line as www's
+  (35 lines; 33 with 12 px). The two missing lines (48 px) had made up for two section gaps: the first question
+  16 px lower than www's at 390 (8 at 1440: our 48 px gap after a section ending with the H1; www uses the
+  title's 32 / 40 px margin) and 27 px more under the last question. lufthansa-voucher shows the same pair.
+- **Measured, one change at a time:** T1, no section gap between a title-only section and an accordion
+  section (the only two recorded pages): faq-saf 9.5 -> 9.3 % (390), 5.9 -> 2.8 % (1440); lufthansa-voucher
+  8.2 -> 5.3, 6.1 -> 3.7. T2, a smaller end gap after a page-ending accordion (24 / 40 px, 12 pages): 390 net
+  +6.5 points, 1440 mostly worse: not shipped (www's end gap varies by page: 24 to 35 px at 390). T1 + the inset
+  for every accordion at 390 on all 80 pages: faq 25 pages net -14.6 (7 better, assistenzhunde 8.9 -> 9.9),
+  faq limited-width 9 pages net +6.2 (6 worse), spaced unchanged; guards faq-saf 9.5 -> 4.7, lufthansa-voucher
+  8.2 -> 7.7.
+- **Decision (1d00125):** T1, and the inset for option faq but not faq limited-width. Neither guard page gets
+  worse (both better by 0.5 and 4.8 points); re-measured on our host with the commit's CSS.
