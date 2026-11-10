@@ -2299,3 +2299,31 @@ be/fr, be/nl, de/de, it/it, es/es): panels with a table, which neither the Tab s
 Brussels panel with a table is a Tab section. Offline be/en: two Tab sections; local copies 1440 -941 px, 390 -1074 px.
 List: `reimport-570-brussels-tab-tables.txt` (6), WAITING for the capture window: no rendered recording shows these pages,
 so whether www shows the control at 390 and in every language is not confirmed (`capture-list-570.txt`).
+
+## The standing order after 570: items 5 and 6, the fresh ranking and the forms pass
+
+**Item 5, the ranking (`debd0305`):** `tools/reports/parity-2026-11-09/ranking-570-austrian-brussels-discover.md`, every row
+of 3 % or more worst-first, marked CAPTURE / DESIGN / LIVE / RECORDING / QUEUED or with its cause. Discover's first sweep
+since its theme switch: 26 recorded pages (discover-parity-001; 204 www requests refused in the capture). Decision: Discover's
+importer and theme files are ema-lufthansa's (standing rule), so Discover rows with a cause in its own files are rows for
+ema-lufthansa; shared causes are fixed here. Traced so far: families (de/de -9.1 %, de/en -8.1 %): content drift (www's "Auf
+einen Blick" text is longer: a re-import from the recording) and the accordions' list spacing (Discover theme).
+
+**Breadcrumb titles (`4b064708`, `bc7a406b`): two DA patch lists, no code.** Brussels contact-form-error +5.6 % at 390: on phones
+the breadcrumb is a back link to the parent, labelled with the parent's Breadcrumb title, else its og:title. 92 of 98 Brussels
+homepages and 59 of 64 Austrian ones have none, so every first-level page shows the homepage's og:title ("Discover the world
+– book flights with Brussels Airlines", two lines at 390) where www shows Home / Homepage (one line; the first crumb at 1440
+too). `patch-570-brussels-home-breadcrumb.txt` (92), `patch-570-austrian-home-breadcrumb.txt` (59 + 3 Austrian homepages
+whose "Home" www writes "Homepage"), with www's label per language from the drop's breadcrumbs.
+
+**Item 6, the forms pass (the 71 px Turnstile box taken off, live pages):**
+- Austrian: exclusive-charter-enquiry -0.7 / -0.4 %, private-check-in-counter +0.6 / +1.0 %, bagdamage -2.1 / +0.1 %, hu/en
+  invoice-request-hungary -1.2 / +0.8 % (after the footer patch), il/en cancellation-refund -2.2 / -8.6 % (390: QUEUED,
+  reimport-551).
+- Brussels: feedback/general/other +0.3 / +1.3 %, charter -1.3 / -0.4 %, dsar-start -1.9 / -0.5 %, emergency-contact 0.0 /
+  +0.7 %, birthright +2.3 / +1.8 % (row: about 31 px more between the last text link and the footer than www's; one page,
+  open).
+
+**Open rows (next):** the section-sidebar h1 on Brussels (cancel-and-refund, service-charges: -44 / -30 px); Brussels
+contact/feedback (+60 px at both widths); Discover customer-service, punta-cana, entertainment, flight-search, the homepages,
+baggage; Austrian wetlease-hub's -3.5 %; the ski-campaign band picture at 390.
