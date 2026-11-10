@@ -4383,3 +4383,40 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-car
   }
 }
 /* stylelint-enable no-descending-specificity */
+
+/*
+ * phones on the destination pages' top (the search strip's section, then the stage; below 530px; airdolomiti-parity-004 /reiseziele/bari-de at
+ * 390 x 844, the brief after 566): www shows no search strip and no breadcrumb above the stage, its stage
+ * 90px under the 80px header (y 170). The articles keep their breadcrumb (www's dark trail over the title). www's breadcrumb is in its markup (nav "Navigationspfad", white on
+ * the white above the stage): ours visually hidden, still read by screen readers. The search strip stays
+ * in the page with no room and without its card, so the header's plane button still opens its panel
+ * (the form fixed over the window); the pinned price card links to the booking too
+ */
+/* stylelint-disable no-descending-specificity -- the strip's and the breadcrumb's rules above */
+@media (width < 530px) {
+  body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination) > .section:has(> .flight-search-wrapper > .flight-search.airdolomiti.strip) > .breadcrumb-wrapper {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination) > .section:has(> .flight-search-wrapper > .flight-search.airdolomiti.strip) > .flight-search-wrapper {
+    position: static;
+    margin: 0;
+    padding: 0;
+  }
+
+  body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination) > .section:has(> .flight-search-wrapper > .flight-search.airdolomiti.strip) > .flight-search-wrapper > .flight-search.airdolomiti.strip .flight-search-open {
+    display: none;
+  }
+
+  body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination) > .section:has(> .flight-search-wrapper > .flight-search.airdolomiti.strip) + .section.hero-card-overlay-container {
+    margin-top: 90px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
