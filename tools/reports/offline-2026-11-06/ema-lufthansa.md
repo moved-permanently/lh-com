@@ -2821,7 +2821,7 @@ bari, Munich and cagliari -198 each; every page at 1440 and the article, homepag
   - **Lists:** reimport-567-tap-markets.txt (17 language documents and 34 root documents, the groups per row),
     capture-567-tap-market-groups.txt (70: one root per group and each own document's page).
   - **Test:** test/tap-market-groups-567.test.mjs (fails on the old step); test/tap-markets.test.mjs unchanged and passing.
-- **On main:** see the commit after b51dfc86 (feat(TAP markets)).
+- **On main:** 6e4af88b (lint 0, 3416 pass 0 fail, smoke 0 differences on 14 hosts).
 
 ### Item 4: SWISS
 

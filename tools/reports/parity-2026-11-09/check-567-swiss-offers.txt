@@ -1,0 +1,7 @@
+# The standing order of 2026-11-10, item 4 (SWISS parity rows 35 and 52): for the next window, in a normal browser
+# (not the sweep's, which blocks airline hosts): open our page below, wait for the destination finder, and record
+# how many destination cards it shows and the answers of its /service/api calls to www.lufthansa.com (status, CORS
+# headers, body size). www's page (swiss-parity-005) shows its full grid (32,382 px at 1440). No cards: data (row 35)
+# or CORS (then SWISS needs a serviceOrigin in scripts/brands.js, which only www.swiss.com's API answering our host
+# makes possible).
+https://swiss.turnsthe.page/ch/en/offers
