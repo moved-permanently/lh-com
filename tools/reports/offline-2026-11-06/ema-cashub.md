@@ -2228,3 +2228,31 @@ about 36 px and keeps 96 px between bands, ours 30 and 70; not changed yet).
   Helvetica on the recording's machine, DejaVu Sans (wider) here, which has neither. The extra lines sit in the
   text-heavy teaser rows (+50 to +67 px each).
 - Not traced this turn: bearbeitungsgebuehren (390 +4.8 %), os401crewstory (+3.0 %).
+
+## The brief after 570c: the missing picture closed, the form bands' tail and untitled bands, the next rows
+
+**medical-travel-companions' Electronic devices picture: closed as missing on www too.** www's AEM publish answers 404 for
+the file and its renditions (the user's check, 2026-11-10 08:11 CET), www's card points at nothing else, and www's own
+render (austrian-parity-003) shows an empty picture area there. `62433a1a`: tools/importer/austrian-missing-assets.json
+lists such files with www's answer; austrian-import.mjs drops their pictures before the snapshot steps, so the import
+writes the card's text and an empty slot, as DA has it. No re-import.
+
+**Brussels core forms (`c0b107f5`, `bfb3889b`, live):** no section gap under a page-ending core form (www's grey band
+runs into the footer); untitled bands as www's (56 / 51 px above the card, 35 / 20 px padding, 96 px between cards).
+Live pages, without the capture's 71 px Turnstile checkbox:
+
+| page | 1440 | 390 |
+|---|---|---|
+| contact/feedback/general/other | +4.2 -> +0.3 % | +5.1 -> +1.3 % |
+| groups-and-charter/charter | +1.8 -> -1.3 % | +3.0 -> -0.4 % |
+| legal-notices/dsar-start | +2.3 -> -1.9 % | +2.8 -> -0.5 % |
+| my-bookings/emergency-contact | -1.4 -> 0.0 % | +0.2 -> +0.7 % |
+
+(the first column's "before" is the row ahead of 895fc563.)
+
+**Next:**
+- Austrian at/de bearbeitungsgebuehren (390 +4.8 %, about +260 px below "Auf dem Ticket nicht ausgewiesene ..."): www's
+  contact table keeps its columns' widths on phones and scrolls sideways; ours fits three columns into 346 px, breaks
+  words ("Telefonnu-mmer", "Österreic-h") and makes the rows tall. A phone rule for the Austrian theme's tables, with a
+  reach check over the recorded pages first: the next change.
+- Austrian os401crewstory (+3.0 %): not traced.
