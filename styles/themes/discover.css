@@ -672,3 +672,14 @@ body.brand-discover main .accordion-columns-panel > .accordion-columns-intro li 
     margin-top: 40px;
   }
 }
+
+/* the accordions 40px over and under them from 768px, 20px under them on phones, as www's maui-collapsible (Discover row 46) */
+body.brand-discover main .accordion-columns-wrapper {
+  margin-bottom: 20px;
+}
+
+@media (width >= 768px) {
+  body.brand-discover main .accordion-columns-wrapper {
+    margin-block: 40px;
+  }
+}

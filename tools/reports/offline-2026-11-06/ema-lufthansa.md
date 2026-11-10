@@ -3055,4 +3055,16 @@ follow when their run is through.
   lint was red from 18:48 to about 19:40 UTC (another session's link-list rules in styles/styles.css); I held the push
   until it was green again.
 - **Four items in one push** (each its own commit and files; lint, the full suite and smoke once on the tree with all
-  four, as main moves fast tonight): AD 99, TAP 132, Cargo 50, Discover 43.
+  four, as main moves fast tonight): AD 99, TAP 132, Cargo 50, Discover 43.- **On main:** 0ba9fe13 (AD 99), bd8e6ac4 (TAP 132), 48f721cd (Cargo 50), 7a0e7014 (Discover 43): lint 0, 3513 pass 0
+  fail. My new multi-commit script ran its before-smoke against the wrong directory (an argument shift), so this push had
+  no before-smoke of its own; the after-smoke compared with the previous push's after-state: 0 differences on all 14
+  hosts (SWISS re-run by hand). Script fixed.
+- **TAP's cookie row, recorded (tap-parity-005: 502,829 bytes,
+  6786ed4c4e2455a724066f221b924a00b6d3f7e62f9b3a0f53e8392453a5c83b):** www's "Cookies settings" is OneTrust's
+  ot-sdk-show-settings button and opens OneTrust's preference center (#onetrust-pc-sdk). So www.flytap.com does run
+  OneTrust now (scripts/brands.js still says it runs none). Our TAP site has no OneTrust id (that comes from the site's
+  metadata) and no fallback banner, so the row stays open: it needs TAP's OneTrust domain in the site metadata (a
+  document change) or a fallback banner for TAP (a new banner on every TAP page). Not decided here; open.
+- **AD row 100 (the trail on one line, as www's), Discover rows 44 to 46 (heading margins, column rows, accordions):**
+  four commits, one push (below).
+
