@@ -33,8 +33,8 @@ test('no space over a post\'s trail at any width, and from 1025 px none in the b
   assert.ok(r.some(([m, d]) => /width >= 1025px/.test(m) && /--breadcrumb-top: 0;/.test(d)), 'from 1025 px');
 });
 
-test('the post header 24 px under the trail from 1025 px, right under it below 768 px', () => {
+test('the post header 24 px under the trail from 1025 px, 28 px under the one-line trail below 768 px', () => {
   const r = rules(HEADER);
   assert.ok(r.some(([m, d]) => /width >= 1025px/.test(m) && /margin-top: 24px;/.test(d)));
-  assert.ok(r.some(([m, d]) => /width < 768px/.test(m) && /margin-top: 0;/.test(d)));
+  assert.ok(r.some(([m, d]) => /width < 768px/.test(m) && /margin-top: 28px;/.test(d)), 'below 768 px 28 px under the one-line trail (row 100)');
 });
