@@ -2646,3 +2646,8 @@ changes on a rebuild today). Decision: no switch, no theme change; the plan file
    tell the two lists apart.
 
 Time worked on this standing order: 10:19 to 18:40 CET (about 8 h 20 min of the 10).
+- **991c1b0** (a grey band right before an outer column view's heading has no section gap): /de/en/exclusive-charter
+  23.4 -> 14.6 % at 390, 17.1 -> 11.4 % at 1440 (the only recorded page so).
+- **Found, for the next turn:** the info stage's description on /de/en/during-your-trip/internet-overview is smaller on
+  www at 390 (x-height 11 px, 29 px apart, 32 px under the title; ours 18 px text, 24 apart, 45 under): check the
+  hero-campaign description size on phones across the stage pages before a rule.
