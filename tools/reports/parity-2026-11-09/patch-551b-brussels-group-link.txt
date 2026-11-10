@@ -1,0 +1,9 @@
+# The brief after 551b item 1: the Brussels documents (published, checked 2026-11-10 on aem.live: 8 of the 131 with the flight-search picker) whose picker Group booking link is wrong. Patch only that one link in DA (the Group booking row of the flight-search block), no re-import. TSV: path, the wrong href, the right href (the page's own root's groups page, relative; our site serves it on every root). Fixed in the importer by 6899385d.
+/ae/en/local-page/black-friday	https://www.brusselsairlines.com/content/sn/gc/en	/ae/en/book-a-flight/groups-and-charter/groups
+/ao/fr/local-page/black-friday	https://www.brusselsairlines.com/content/sn/gc/fr	/ao/fr/book-a-flight/groups-and-charter/groups
+/be/fr/companion-special-february-2024	https://www.brusselsairlines.com/content/sn/markets/be/en	/be/fr/book-a-flight/groups-and-charter/groups
+/be/nl/companion-special-february-2024	https://www.brusselsairlines.com/content/sn/markets/be/en	/be/nl/book-a-flight/groups-and-charter/groups
+/gb/en/local-page/ski-campaign-2026	https://www.brusselsairlines.com/gb/en/group-travel	/gb/en/book-a-flight/groups-and-charter/groups
+/nl/en/local-page/ski-campaign-2026	https://www.brusselsairlines.com/gb/en/group-travel	/nl/en/book-a-flight/groups-and-charter/groups
+/nl/nl/local-page/black-friday	https://www.brusselsairlines.com/content/sn/gc/nl	/nl/nl/book-a-flight/groups-and-charter/groups
+/us/en/local-page/ski-campaign-2026	https://www.brusselsairlines.com/gb/en/group-travel	/us/en/book-a-flight/groups-and-charter/groups
