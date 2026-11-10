@@ -2327,3 +2327,42 @@ on main (tools/reports/parity-2026-11-09/), every capture a capture list. Starte
   the page's start) is shared by 30 documents and www opens a view at the H1 on 2 of them; a rule would add 40 px
   above the H1 and an edge before the cards on 28 pages www draws without. Marked cause: the collapse dropped
   DA's column marks (29 documents with an H1 that opens a view); weighed in item 2's ranking.
+
+### Item 2: the B2B ranking (09:50 to 11:00 UTC)
+
+Fresh sweep on b2b.turnsthe.page against b2b-parity-001 to -003 (34 pages, 68 page-widths; no newer B2B recording in
+the drop): mean 18.53 % (height 6.95 %). Two theme changes, one at a time, each measured on all 68:
+- 81a152e0: a card carousel under a link sits only the card view's padding under it (40 px, 20 on phones; www's
+  link component has no margin). Product & Service News 1440 24.7 -> 8.2 % (de/de), 23.9 -> 7.9 % (de/en), 390
+  36.5 -> 34.4 %, 39.9 -> 28.0 %; nothing else moved; mean 18.53 -> 17.84 %.
+- 98ea96ac: a teaser's linked picture under its heading keeps 40 px under it (www's image component, both widths;
+  the tooling's 24 px). Homepages 1440 21.5 -> 18.4 %, 19.8 -> 16.4 %; 390 de/en 17.1 -> 14.3 %, de/de 17.7 ->
+  21.5 % (an error the 16 px had hidden); mean 18.53 -> 18.45 % alone. Tried and dropped: a stacked cell ending in
+  its button 10 px over the next (the homepage's www value): 6 other rows worse (program/experts 390 24.2 -> 34.9 %).
+Smoke of the 12 hosts before and after each push: no difference. Mean now about 17.8 %; not below 8 %. Every row
+over 10 % has its marked cause:
+
+| rows | cause | kind |
+| --- | --- | --- |
+| corporates-start-of-booking 1440 / 390, meals-on-board 1440 / 390 | the tab control (DA without tab sections) | re-import pending: reimport-569-b2b-tabs.txt, -1110-b2b-tabs-open.txt |
+| lhg-history-alliances 1440 / 390, help-alliance 1440 / 390, lhg-ita-airways 1440 / 390 | empty items, H4s, SVGs; the video view; the partner teaser | re-imports pending (reimport-569-b2b-*.txt) |
+| lhg-history 1440 / 390 | the H1's column view and the cards' view (the collapse dropped DA's marks; the shape is shared by 30 documents, www draws the view on 2) | collapse carrier needed (29 documents with an H1 that opens a view); no theme rule |
+| route-network 1440 / 390 | the H2 marked {heading-copytext-large} at B2B's default | Ben's rule (by design) |
+| celebrating-shared-stories 1440 / 390 | small shifts along a long page; the H2 {heading-small} at the default (one step: the collapse's near-value rule) | by design; height matches within 1.5 % |
+| program/experts/news 390 | layout aligned after 81a152e0 (offset -2 px to 8,000 px): photo and text rendering on a photo-dense list | capture effect |
+| program/experts 1440 / 390, partner-plus-benefit 390 | small shifts on long pages (the first view +42 px), cards | marked, no single rule |
+| lufthansa-group-airlines 1440 / 390 | two views at the H2, the page end (2 pages, nothing survives the collapse); its card H3s fixed (e0e70deb) | marked |
+| homepages 1440 / 390 | the first row 26 px higher; a stacked cell's button 36 px over the next heading (www 10 on the homepage, other pages differ) | marked |
+| about-us 390 | card titles wrapping on www by about 2 px of width (three steps of 24 px) | text measurement, marked |
+| contact 390 | the cards' H2 {heading-small} at the default (near-value rule); the hotline finder's inner spacing | by design / marked |
+| lhg4b-search prelogin | the search widget's state | capture effect |
+| the "h" figures over 10 % (news lists, experts, celebrating) | our capture stops at 8,000 px, the recording's height doesn't | measurement artifact |
+
+Note: a Cargo test (test/cargo-story-chrome-541) failed on origin/main for about 15 minutes (9c004e6f, not mine);
+I pushed only after a run with it passing again.
+
+### Item 3: the B2B version documents: blocked on its source
+
+The 228 candidates (85 on www, 143 answering 404) are not in any file I can find: not on main or any branch, not in
+tools/market-diff/lists/b2b (read only, it is ema-cashub's), not in content-sites/lh-b2b. Needed: the list's
+location. Nothing done for it; item 4 went on meanwhile.
