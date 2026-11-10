@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-flight-status.js
-  var import_flight_status_exports = {};
-  __export(import_flight_status_exports, {
-    default: () => import_flight_status_default
+  var tmp_bundle_flight_status_41813_exports = {};
+  __export(tmp_bundle_flight_status_41813_exports, {
+    default: () => tmp_bundle_flight_status_41813_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -920,7 +920,7 @@ var CustomImportScript = (() => {
       const loneImage = items.length > 1 && filled.length === 1 && filled[0].every(isImage);
       const halfAlone = element.matches(".twocolumn") && items.length === 2 && filled.length === 1;
       const pageUrl = params && params.originalURL || url || "";
-      const lufthansa = /^https?:\/\/([^/]+\.)?lufthansa\.com\//.test(pageUrl);
+      const lufthansa = /^https?:\/\/([^/]+\.)?(lufthansa|austrian|brusselsairlines)\.com\//.test(pageUrl);
       const partial = lufthansa && element.matches(".threecolumn, .fourcolumn") && filled.length > 0 && filled.length < items.length;
       const row = (hasEmbed || nestedView || loneImage || halfAlone || partial) && filled.length ? collected.map((c) => c.length ? c : "") : filled;
       if (row.length) cells.push(row);
@@ -4622,7 +4622,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_flight_status_default = {
+  var tmp_bundle_flight_status_41813_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -4662,5 +4662,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_flight_status_exports);
+  return __toCommonJS(tmp_bundle_flight_status_41813_exports);
 })();
