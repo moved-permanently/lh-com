@@ -86,7 +86,7 @@ test('the FAQ pages: title, line and accordions as www\'s; the card beside them 
   has(new RegExp(`${S} \\.columns-media-text h3 \\{[^}]*font-size: 37\\.8px;[^}]*font-weight: 600;[^}]*line-height: 40px;`));
 });
 
-test('the destination pages\' stage as www\'s HeroSecond: the picture darkened across the screen, the lines centred in a light box, the price and the button on a white bar under them', () => {
+test('the destination pages\' stage as www\'s HeroSecond: the picture darkened across the screen, the lines centred in a light box, the price and the button on a white bar (fixed at the window\'s foot since the brief after 566)', () => {
   // (brief 456: the option destination, every stage; the box on the line and the title, the card
   // clear for the pills under it: test/airdolomiti-destination-stage-456.test.mjs)
   const D = `${B} main > \\.section\\.hero-card-overlay-container \\.hero-card-overlay\\.destination`;
@@ -96,7 +96,7 @@ test('the destination pages\' stage as www\'s HeroSecond: the picture darkened a
   has(new RegExp(`${D} \\.hero-card-overlay-card :is\\(h1, h2\\) \\{[^}]*color: #002e54;[^}]*font-size: 37\\.8px;[^}]*font-weight: 300;[^}]*line-height: 40px;`));
   has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${D} \\{[^}]*min-height: 90vh;`));
   has(new RegExp(`@media \\(width >= 930px\\) \\{[^@]*${D} \\.hero-card-overlay-card :is\\(h1, h2\\) \\{[^}]*font-size: 64\\.8px;[^}]*line-height: 72px;`));
-  has(new RegExp(`@media \\(width >= 530px\\) \\{[^@]*${D}::after \\{[^}]*height: 135px;[^}]*background-color: #fff;`));
+  has(new RegExp(`@media \\(width >= 530px\\) \\{[^@]*${D}::after \\{[^}]*position: fixed;[^}]*height: 15vh;[^}]*background-color: #fff;`));
 });
 
 test('section headings as most of www\'s (MiniCardSlider, Title, CosaFareCarroussel, CenteredBlock): 34 / 42 px, 38 / 46 px from 930 px; the text blocks\' and the destination grid\'s 38 / 46, 42 / 50 from 930 px', () => {

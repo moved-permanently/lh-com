@@ -129,10 +129,10 @@ const flat = css.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
 const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const P = `${S} .hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow, .hero-card-overlay-cta)`;
 
-test('the bar\'s two lines: the first semibold 28.08px / 32px, the second 17.28px / 30px #1f1f1f under it (66px and 36px above the bar\'s foot); on phones only the first', () => {
+test('the bar\'s two lines: the first semibold 28.08px / 32px, the second 17.28px / 30px #1f1f1f under it (66px and 36px above the bar\'s foot at 900 px high: centred in the 15vh bar, the brief after 566); on phones only the first', () => {
   assert.match(flat, new RegExp(`${esc(P)} \\+ p:not\\(\\.hero-card-overlay-cta\\) \\{ display: none; \\}`));
-  assert.match(flat, new RegExp(`${esc(P)}:has\\(\\+ p:not\\(\\.hero-card-overlay-cta\\)\\) \\{ bottom: 66px; \\}`));
-  assert.match(flat, new RegExp(`${esc(P)} \\+ p:not\\(\\.hero-card-overlay-cta\\) \\{ display: block; bottom: 36px; color: #1f1f1f; font-size: 17\\.28px; font-weight: 400; line-height: 30px; \\}`));
+  assert.match(flat, new RegExp(`${esc(P)}:has\\(\\+ p:not\\(\\.hero-card-overlay-cta\\)\\) \\{ bottom: calc\\(7\\.5vh - 1px\\); \\}`));
+  assert.match(flat, new RegExp(`${esc(P)} \\+ p:not\\(\\.hero-card-overlay-cta\\) \\{ display: block; bottom: calc\\(7\\.5vh - 31px\\); color: #1f1f1f; font-size: 17\\.28px; font-weight: 400; line-height: 30px; \\}`));
 });
 
 test('a post\'s stage title (an h2) as the destination\'s h1: light, in the marble box', () => {
