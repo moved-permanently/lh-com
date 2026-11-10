@@ -1765,12 +1765,17 @@ body.brand-tap .footer .footer-tap-links .footer-column-links {
   padding: 12px 0 0;
 }
 
+/* the links www's text-body-s, 14px / 21px, 44px from one to the next, none under the last (TAP row 131) */
 body.brand-tap .footer .footer-tap-links .footer-link {
-  margin-bottom: 20px;
+  margin-bottom: 23px;
   color: #020817;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 21px;
+}
+
+body.brand-tap .footer .footer-tap-links li:last-child > .footer-link {
+  margin-bottom: 0;
 }
 
 body.brand-tap .footer .footer-tap-links .footer-link:hover {
@@ -1888,7 +1893,7 @@ body.brand-tap .footer .footer-tap-partner img {
     grid-template-areas: "links side" "bar bar";
     grid-template-columns: minmax(0, 1fr) 280px;
     gap: 16px 24px;
-    padding-top: 16px;
+    padding-top: 0; /* the cards at the footer's top, as www's (TAP row 131) */
   }
 
   body.brand-tap .footer .footer-tap-links,

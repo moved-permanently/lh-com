@@ -2953,4 +2953,7 @@ follow when their run is through.
 
 - **Process note:** the first run of this commit's checks failed on a test I had already written for the next change
   (test first, but placed in test/ while another change was being checked); nothing was committed. Tests for a next
-  change now wait outside test/ until their own run.
+  change now wait outside test/ until their own run.- **TAP row 131, the footer:** www's footer links are 14 px (ours 16, so one wrapped) and its cards start at the
+  footer's top (ours 16 px lower from 1024 px). Theme rule (backwards-compatible). Every TAP page at 1440 is 39 px
+  shorter and the footer's rows sit as www's; the FAQ page is now 2,008 against www's 2,009.
+
