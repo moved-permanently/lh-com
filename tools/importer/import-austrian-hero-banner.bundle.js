@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-hero-banner.js
-  var import_austrian_hero_banner_exports = {};
-  __export(import_austrian_hero_banner_exports, {
-    default: () => import_austrian_hero_banner_default
+  var tmp_bundle_austrian_hero_banner_25270_exports = {};
+  __export(tmp_bundle_austrian_hero_banner_25270_exports, {
+    default: () => tmp_bundle_austrian_hero_banner_25270_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -8616,6 +8616,7 @@ var CustomImportScript = (() => {
           ':is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
           ":is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn) .image img):not(:has(.column-view-item .column-view-item :is(.text, .headline, .link, .teaser))):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe))",
           ':is(.section-content, .container-content, maui-tab-control-panel-responsive > div) > .onecolumn > .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
+          ':is(.section-content, .container-content) > .onecolumn > .column-view > .row > .column-view-item > .twocolumn:has(> .column-view > .row > .column-view-item > .image img):has(> .column-view > .row > .column-view-item > .twocolumn):not(:has(.threecolumn, .fourcolumn, .onecolumn, .table, .teaser, .poimapping, .stage, .slideshow, .accordion, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"])):not(:has(> .column-view > .row > .column-view-item > .twocolumn .twocolumn)):not(:has(> .column-view > .row > .column-view-item > .twocolumn > .column-view > .row > .column-view-item > :not(.link)))',
           ':is(.section-content, .container-content, maui-tab-control-panel-responsive > div) > .onecolumn > .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > .image img):has(maui-navigation-link[variant="anchor-down"]):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe))',
           ".videoViewer, .image:has(video)",
           ":is(.section-content, .container-content) > .twocolumn:has(> .column-view > .carousel > .hidden-md-down > .row > .column-view-item > .headline):has(> .column-view > .carousel > .hidden-md-down > .row > .column-view-item > .image img):not(:has(.teaser, .table, .accordion, .tabs, .sidebar, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, form, iframe))",
@@ -8773,7 +8774,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_austrian_hero_banner_default = {
+  var tmp_bundle_austrian_hero_banner_25270_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -8813,5 +8814,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_austrian_hero_banner_exports);
+  return __toCommonJS(tmp_bundle_austrian_hero_banner_25270_exports);
 })();
