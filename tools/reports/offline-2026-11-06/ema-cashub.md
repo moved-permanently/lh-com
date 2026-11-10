@@ -2327,3 +2327,34 @@ whose "Home" www writes "Homepage"), with www's label per language from the drop
 **Open rows (next):** the section-sidebar h1 on Brussels (cancel-and-refund, service-charges: -44 / -30 px); Brussels
 contact/feedback (+60 px at both widths); Discover customer-service, punta-cana, entertainment, flight-search, the homepages,
 baggage; Austrian wetlease-hub's -3.5 %; the ski-campaign band picture at 390.
+
+## The standing order after 584 (the night of 2026-11-10): first part
+
+**Capture list (`31003193`):** `tools/reports/parity-2026-11-09/capture-list-584-brands.txt`, 59 pages in priority order: 6
+Brussels in-column hubs (to check reimport-570-brussels-in-column-sidebars), 5 Brussels section-sidebar pages (the open h1
+row), 48 Austrian homepages of the roots austrian-parity-003 does not cover.
+
+**New archives read:** austrian-parity-006 (sha256 c3e4eb0e2ebfee49..., /at/de/hilfe-center), austrian-parity-007
+(45b1e89051ab9ca0..., the ten /contact pages), brussels-parity-005 (7973382445d0b0d5..., checked-baggage x 6). Not yet:
+austrian-parity-008, brussels-parity-006, discover-parity-003.
+
+**Decision 1, the ski-campaign band at 390 (`39372514`, served, live):** below 768 px the closing band of a stage section has
+no picture and www's spacing (80 px under the title, 107 to the footer). Live us/en: 390 -5.5 -> -2.0 %, 1440 -2.0 % (as
+before). Smoke: the Austrian and Brussels homepages' answers changed (the breadcrumb patch lists applied by the helper in
+the same window), the rest 0.
+
+**Decision 2, Brussels tab tables (`4219306a`): the list stands.** brussels-parity-005: www draws Europe / Intercontinental as
+tabs at 1440 and as an accordion with the first item open at 390 in all six languages, as our tab sections do. Expected
+heights measured again with the published pictures in both local copies (1440 -618, 390 -599 px; the first estimate with
+blanked pictures was wrong): be/en +9.3 -> -6.4 % at 1440, +14.9 -> +3.8 % at 390. The helper should use the recording as the
+snapshot (www added content since the 10-30 snapshot: two h2 more).
+
+**Decision 3, Discover (`255a8425`):** `tools/reports/parity-2026-11-09/rows-for-ema-lufthansa.md`, rows D1 to D9.
+
+**Brussels section-sidebar h1 (open, analysed):** on cancel-and-refund and service-charges the sidebar holds accordions, so the
+info template's columns-media sidebar (which excludes accordions and tables) leaves it to default content: the h1 has no
+block padding (182 px against www 226 at 1440). About 280 published Brussels pages are of that kind. The fix is to treat
+those sidebars as sidebar sections (withSidebarContent marks only sidebars with column views today), which also gives
+their accordions www's text column (the brief after 540's second cause). Not shipped tonight: the same section style moved
+two other pages' h1 by 108 px in 540, so it needs per-page measurement first. dsar-start (h1 in a columns-media sidebar,
+-30 / -16 px) is its own case.
