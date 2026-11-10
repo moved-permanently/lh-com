@@ -284,6 +284,51 @@ body.brand-brussels main > .section.sidebar-h1 > .default-content-wrapper:not(.d
   }
 }
 
+/* a list of links in a sidebar (three or more link paragraphs in a row in a columns-media sidebar cell: the concern
+   links of /contact/feedback, www's maui-navigation-link medium hyper; the brief after 588, item 3): www's 16 px
+   regular, 44 px apart, an empty line's space over the list, and when the list ends the sidebar www's 57 px (67 at 390)
+   from the last link to the footer. Measured on be/fr and be/en contact/feedback (brussels-parity-006, -004): the
+   footer at www's y at 1440 (both) and 390 (fr; en -25 px). Single link paragraphs (chase-the-sun, contact-form-error,
+   feedback/general/other) are not a list: unchanged */
+body.brand-brussels .columns-media.sidebar > div > div > p.link-wrapper:is(:has(+ p.link-wrapper + p.link-wrapper), p.link-wrapper + p.link-wrapper:has(+ p.link-wrapper), p.link-wrapper + p.link-wrapper + p.link-wrapper) {
+  margin-bottom: 20px;
+}
+
+body.brand-brussels .columns-media.sidebar > div > div > p.link-wrapper:is(:has(+ p.link-wrapper + p.link-wrapper), p.link-wrapper + p.link-wrapper:has(+ p.link-wrapper), p.link-wrapper + p.link-wrapper + p.link-wrapper):last-child {
+  margin-bottom: 0;
+}
+
+body.brand-brussels .columns-media.sidebar > div > div > p.link-wrapper:is(:has(+ p.link-wrapper + p.link-wrapper), p.link-wrapper + p.link-wrapper:has(+ p.link-wrapper), p.link-wrapper + p.link-wrapper + p.link-wrapper) > a {
+  font-size: var(--body-font-size-s, 16px);
+  font-weight: 400;
+}
+
+body.brand-brussels .columns-media.sidebar > div > div > :not(p.link-wrapper) + p.link-wrapper:has(+ p.link-wrapper + p.link-wrapper) {
+  margin-top: 22px;
+}
+
+body.brand-brussels .columns-media.sidebar:has(> div > div > p.link-wrapper + p.link-wrapper + p.link-wrapper:last-child) {
+  padding-bottom: 0;
+}
+
+body.brand-brussels main > .section:has(> .columns-media-wrapper:last-child > .columns-media.sidebar > div > div > p.link-wrapper + p.link-wrapper + p.link-wrapper:last-child) {
+  margin-bottom: 49px;
+}
+
+@media (width >= 1025px) {
+  body.brand-brussels .columns-media.sidebar > div > div > :not(p.link-wrapper) + p.link-wrapper:has(+ p.link-wrapper + p.link-wrapper) {
+    margin-top: 69px;
+  }
+
+  body.brand-brussels .columns-media.sidebar > div > div:has(> p.link-wrapper + p.link-wrapper + p.link-wrapper:last-child) {
+    padding-bottom: 0;
+  }
+
+  body.brand-brussels main > .section:has(> .columns-media-wrapper:last-child > .columns-media.sidebar > div > div > p.link-wrapper + p.link-wrapper + p.link-wrapper:last-child) {
+    margin-bottom: 39px;
+  }
+}
+
 /* and below the last one (brief 510): a page of one section with a sidebar intro ending with its card
    grid (202 documents, 25 of them recorded). On www the last card is 61 to 130 px from the footer at
    1440 and 82 to 248 at 390; ours 32 to 52 and 20 to 48, more on every recorded page. The median of
