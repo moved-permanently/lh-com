@@ -710,3 +710,16 @@ body.brand-lufthansa .cards-teaser.phone-slider .cards-teaser-cta-button {
     margin-bottom: 31px;
   }
 }
+
+/* lufthansa.com on phones: a divider between two spacious grids (airport-information's airport
+   cards): www's line 25px of ink under the last link, the next picture 46px under the line at
+   390; ours 12 and 70 (brief 558; from 768px as before, 1440 measured worse with it) */
+@media (width < 768px) {
+  body.brand-lufthansa main .cards-teaser-wrapper:has(> .cards-teaser.spacious) + .default-content-wrapper:not(:has(> :not(p.spacer.divider))) {
+    margin-top: 21px;
+  }
+
+  body.brand-lufthansa main .cards-teaser-wrapper:has(> .cards-teaser.spacious) + .default-content-wrapper:not(:has(> :not(p.spacer.divider))) + .cards-teaser-wrapper {
+    margin-top: 0;
+  }
+}
