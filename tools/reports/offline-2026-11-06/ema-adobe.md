@@ -2592,3 +2592,33 @@ changes on a rebuild today). Decision: no switch, no theme change; the plan file
   (the parser's KEEP_CAPTIONS for lufthansa.com, the campaign bundle rebuilt), drafts imported offline from
   bd-snapshots and rendered in the page: global-network 15.0 -> 15.2 % at 390, 13.6 -> 11.2 at 1440; crane 9.5 ->
   12.0 / 7.8 -> 9.3. Mixed, so reverted: the crane's second caption sits in a slider on www and needs a look first.
+- **43fdebb** (an Insights article's "Back to overview": www's variant back, the left arrow; every article).
+- **3011959** (importer: a three- or four-column view inside a sidebar is Columns Media in the info template; the
+  Austrian templates take it with info, as austrian-templates.mjs builds them): /de/en/schengen's member lists side by
+  side; offline draft rendered 11.4 -> 8.5 % at 390, 32.7 -> 8.5 % at 1440. Re-import list
+  tools/reports/parity-2026-11-09/reimport-558-sidebar-columns-lh-com.txt (the four schengen documents).
+- **Re-import list** tools/reports/parity-2026-11-09/reimport-558-phone-slider-lh-com.txt: /de/en and /de/de
+  medical-travel-companions, imported before the phone-slider option (de/en 41.3 -> 11.3 % at 390 with it).
+- **036bfec** (on phones nested-4 icons keep the stacked empty items' space): /de/en/shopping 31.5 -> 9.0 % at 390.
+- **Tried and not taken:** an article's end (the divider after the credit 24 px nearer, the back link's section 22 px
+  nearer Related Articles): both lines match www locally, but quarch, district-zurich and essentials move -3.4 to +0.9
+  points; held.
+- **A slip:** I started a gate while the one before it was still running (16:21); the earlier one ended void
+  ("site files 0"), the later one was stopped, the worktree cleaned and one gate run again (passed). Nothing was
+  pushed off a void gate.
+
+**The rankings now** (17:23 CET, our host, geo.css):
+- Hub ranking (item 4, 112 page-widths): 9.49 % in brief 539, 6.96 this morning, **5.97 now**; without the three marked
+  causes 98 rows at **4.88 %** (5.94 this morning); 32 rows under 3 % (29). Hub goal below 6 %: met.
+- Full recordings (rule 6, 538 page-widths of 296 pages; 27 pages skipped, their widgets call www's APIs): mean
+  9.95 %, 34 under 3 %. Medians against brief 507's sweep: info 9.1 -> 8.4, insights 13.2 -> 10.9, legal 7.6 -> 7.0,
+  campaign 14.5 -> 11.2, hub 8.9 -> 5.7, form 11.1 -> 10.1, fleet 17.7 -> 17.1, app-entry 11.3 -> 11.3. Taken before
+  this afternoon's fixes; the schengen, medical-travel-companions and shopping rows move with their re-imports and
+  036bfec.
+- **Capture list** tools/reports/parity-2026-11-09/capture-list-558-lh-com.txt (the explore-flying list's new
+  article, crane's slider caption).
+- **Marked causes, rule 6** (no code change): /de/en/traveltricks at 390 (www's two app-store buttons, maui-button-link
+  without an href in every snapshot, set by www's script: the importer drops link buttons without a target);
+  /de/en/book-and-manage/stopover/* (the map: www's Google tiles against ours, a different height per zoom); the
+  insights lists (their content: new articles, tag wraps); /de/en/100-years (a playing video's frame in the recording);
+  the loungenet first-class lounge pages (an image link list with www's arrows and spacing, info: next).
