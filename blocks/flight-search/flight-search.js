@@ -8,6 +8,7 @@ import {
   mapDefaultAirport, mapAirportNames, searchAirportsWithSource, fillLabel,
 } from '../../scripts/lh-api.js';
 import { markSource } from '../../scripts/lh-data.js';
+import { marketAllows } from '../../scripts/market-rules.js';
 import { buildShopHandoff, submitShopHandoff } from '../../scripts/shop-handoff.js';
 import {
   postHandoffOn, isOwnWww, hotelTarget, openTarget,
@@ -90,6 +91,27 @@ function groupBookingOf(entry) {
 }
 
 /**
+ * The tabs of a market (brief 558): www's booking widget hides its hotel, car or holiday tab per
+ * market (hideHotel, hideCar, hideHoliday). The optional Tabs by market row holds one paragraph
+ * per group, "<markets> = <tab, tab>" (markets as section metadata reads them,
+ * scripts/market-rules.js); the first group whose markets allow the page's country gives the
+ * tabs, else null (the Tabs row).
+ * @param {Object} config result of readConfigRows
+ * @param {Object} locale result of getLocale()
+ * @returns {string[]|null}
+ */
+export function marketTabs(config, locale) {
+  const entry = config['tabs-by-market'];
+  const country = locale && locale.country;
+  if (!entry || !country) return null;
+  const paragraphs = [...entry.cell.querySelectorAll('p')].map((p) => p.textContent);
+  const lines = paragraphs.length ? paragraphs : entry.cell.textContent.split('\n');
+  const group = lines.map((line) => line.replace(/\s+/g, ' ').split(' = '))
+    .find((parts) => parts.length === 2 && parts[1].trim() && marketAllows(parts[0], country));
+  return group ? group[1].split(/\s*[,;]\s*/).map((t) => t.trim()).filter(Boolean) : null;
+}
+
+/**
  * Settings of an authored block.
  * @param {Object} config result of readConfigRows
  * @param {Object} locale result of getLocale()
@@ -101,7 +123,7 @@ export function readFlightSearchSettings(config, locale) {
   const destinationCode = parseAirportCode(destinationValue);
   const cabins = codesOf(text('cabins'), /^[EPBF]$/);
   return {
-    tabs: (pick(config, 'tabs', 'tab') || { list: [] }).list,
+    tabs: marketTabs(config, locale) || (pick(config, 'tabs', 'tab') || { list: [] }).list,
     tripTypes: (pick(config, 'trip-types', 'trip-type') || { list: [] }).list.slice(0, 2),
     defaultTripType: text('default-trip-type'),
     // null: the market default airport (defaultAirport), like the live prefilled origin
