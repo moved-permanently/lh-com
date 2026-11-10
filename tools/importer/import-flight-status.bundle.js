@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-flight-status.js
-  var tmp_bundle_flight_status_874354_exports = {};
-  __export(tmp_bundle_flight_status_874354_exports, {
-    default: () => tmp_bundle_flight_status_874354_default
+  var import_flight_status_exports = {};
+  __export(import_flight_status_exports, {
+    default: () => import_flight_status_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -891,7 +891,12 @@ var CustomImportScript = (() => {
       const sideView = item && item.classList.contains("column-view-item") && item.children.length === 1 && item.parentElement && item.parentElement.classList.contains("row") && item.parentElement.children.length === 1 && item.parentElement.parentElement;
       const oneColumn = sideView && sideView.classList.contains("column-view") && sideView.parentElement;
       const ownSidebar = !!oneColumn && oneColumn.matches(".onecolumn.column") && oneColumn.children.length === 1 && !!oneColumn.parentElement && oneColumn.parentElement.classList.contains("section-content") && !oneColumn.hasAttribute("data-lh-column") && !ARTICLE && !element.closest(".container-gray");
-      if (oneColumn && pageHost === "www.brusselsairlines.com" && oneColumn.matches(".onecolumn.column") && oneColumn.children.length === 1 && !!oneColumn.parentElement && oneColumn.parentElement.classList.contains("container-content") && !ARTICLE) {
+      const hasContent2 = (el) => !!clean3(el.textContent) || !!el.querySelector("img, picture, video, iframe");
+      const opensItem = !!item && item.classList.contains("column-view-item") && [...item.children].find(hasContent2) === element;
+      const hubRow = opensItem && item.parentElement && item.parentElement.classList.contains("row") && item.parentElement.children.length === 1 && item.parentElement;
+      const hubView = hubRow && hubRow.parentElement && hubRow.parentElement.classList.contains("column-view") && hubRow.parentElement;
+      const hubColumn = hubView && hubView.parentElement;
+      if (hubColumn && pageHost === "www.brusselsairlines.com" && hubColumn.matches(".onecolumn.column") && hubColumn.children.length === 1 && !!hubColumn.parentElement && hubColumn.parentElement.classList.contains("container-content") && !ARTICLE) {
         variants.push("in-column");
       }
       if (ownSidebar) {
@@ -4679,7 +4684,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_flight_status_874354_default = {
+  var import_flight_status_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -4719,5 +4724,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_flight_status_874354_exports);
+  return __toCommonJS(import_flight_status_exports);
 })();

@@ -586,13 +586,25 @@ export default function parse(element, { document, url, params }) {
     const ownSidebar = !!oneColumn && oneColumn.matches('.onecolumn.column') && oneColumn.children.length === 1
       && !!oneColumn.parentElement && oneColumn.parentElement.classList.contains('section-content')
       && !oneColumn.hasAttribute('data-lh-column') && !ARTICLE && !element.closest('.container-gray');
-    // Brussels: a sidebar that is the only item of a one-column view straight in the page container
+    // Brussels: a sidebar that opens the only item of a one-column view straight in the page container
     // (.container-content > .onecolumn, outside any AEM section: the overview hubs' intro,
-    // /be/fr/special-care/families-and-children; 110 pages of the drop): www's column view puts its
-    // h1 44 px lower and the text 72 px under it (the brief after 570): option in-column (theme CSS)
-    if (oneColumn && pageHost === 'www.brusselsairlines.com' && oneColumn.matches('.onecolumn.column')
-      && oneColumn.children.length === 1 && !!oneColumn.parentElement
-      && oneColumn.parentElement.classList.contains('container-content') && !ARTICLE) {
+    // /be/fr/special-care/families-and-children; 87 pages of the drop): www's column view puts its
+    // h1 44 px lower (20 at 390; the brief after 570): option in-column (theme CSS). The hubs' card
+    // grids follow the sidebar in the same item (.sidebar + .separator + .fourcolumn ..., Carousel
+    // Cards tables by the time this parser runs), so the sidebar is the item's first content, not
+    // its only child (the brief after 588: the only-child test never matched a snapshot). A sidebar
+    // in an AEM section (.section-content > .onecolumn, it/it/extra-services/meals) is not one.
+    const hasContent = (el) => !!clean(el.textContent) || !!el.querySelector('img, picture, video, iframe');
+    const opensItem = !!item && item.classList.contains('column-view-item')
+      && [...item.children].find(hasContent) === element;
+    const hubRow = opensItem && item.parentElement && item.parentElement.classList.contains('row')
+      && item.parentElement.children.length === 1 && item.parentElement;
+    const hubView = hubRow && hubRow.parentElement && hubRow.parentElement.classList.contains('column-view')
+      && hubRow.parentElement;
+    const hubColumn = hubView && hubView.parentElement;
+    if (hubColumn && pageHost === 'www.brusselsairlines.com' && hubColumn.matches('.onecolumn.column')
+      && hubColumn.children.length === 1 && !!hubColumn.parentElement
+      && hubColumn.parentElement.classList.contains('container-content') && !ARTICLE) {
       variants.push('in-column');
     }
     if (ownSidebar) {

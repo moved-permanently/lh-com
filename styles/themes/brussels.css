@@ -256,24 +256,17 @@ body.brand-brussels main > .section:last-child:has(> .form-wrapper:last-child > 
   margin-bottom: 0;
 }
 
-/* a sidebar alone in a one-column view straight in the page container (columns-media option in-column, written by
-   the importer from the standing order after 570; the overview hubs' intro, /be/fr/special-care/families-and-children):
-   www's column view puts the h1 44 px lower (20 at 390) and the text 72 px under it (66 at 390) */
+/* a sidebar that opens a one-column view straight in the page container (columns-media option in-column, written by
+   the importer from the standing order after 570; the overview hubs' intro): www's column view puts the h1 44 px
+   lower (20 at 390). The text under the h1 stays at the brand's gap (www 28 / 26 on the six hubs of
+   brussels-parity-006; families-and-children's 72 / 66 is an empty line of that page, the brief after 588) */
 body.brand-brussels main > .section > .columns-media-wrapper:has(> .columns-media.sidebar.in-column) {
   margin-top: calc(var(--spacing-default) + 20px);
-}
-
-body.brand-brussels .columns-media.sidebar.in-column > div:first-child > div:first-child > h1:first-child {
-  margin-bottom: 66px;
 }
 
 @media (width >= 1025px) {
   body.brand-brussels main > .section > .columns-media-wrapper:has(> .columns-media.sidebar.in-column) {
     margin-top: calc(var(--spacing-default) + 44px);
-  }
-
-  body.brand-brussels .columns-media.sidebar.in-column > div:first-child > div:first-child > h1:first-child {
-    margin-bottom: 72px;
   }
 }
 
