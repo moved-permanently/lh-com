@@ -2656,3 +2656,36 @@ far behind it), and the night's closing report was given in the chat at 07:40. N
    capture-list-583-b2b.txt (07:46 UTC, likely after the window).
 3. The ranking: see the night's report above (the full-height ranking 16.52 %, the shipped changes and the held
    ones). Lists released: reimport-583-b2b-tab-columns.txt (12; no measured page worse).
+
+## Standing order 4 (2026-11-11), final section (18:07 UTC)
+
+The session was cut by a service restart at about 09:00 UTC and came back at 18:05 UTC; /tmp (the extracted
+recordings) was wiped. What stands:
+
+- Start of the turn: nothing of mine uncommitted or unpushed; GitHub Build of 05b7923c and of the night's pushes
+  (92eb058f, 8d426847, 51daa560, 0a0ee9c7, 6f64b6ae, 68e05677): success.
+- Item 1, empty-paragraph spacers: groundwork only, no code changed, nothing to ship, no list.
+  - Recordings read (sha256 = sidecar): brussels-parity-003 f78cf1fc…, -004 5131664c…, -005 79733824…, -006
+    de7fb8c1…, -007 89d8ac09…, -008 0d4758b7…, -009 f6e76249…; austrian-parity-017 38daa259… (prefix 3LZRr22D3…;
+    controls at-en culinary-services and online-check-in). brussels-parity-001 not used: its sidecar is missing (an
+    HTML page comes back), so its sha256 (0a19e359…) could not be checked.
+  - Method: www's recorded page laid out offline (logs/p4/s590/replica.mjs: the archive's .shadow.html, css and fonts,
+    scripts off, every other request aborted; nothing reaches the network); per content empty paragraph (outside header,
+    footer, nav, panels, cookie banner) the space it takes = the next element's shift when it is hidden.
+  - Result (39 Brussels pages, 36 B2B pages, 1440 and 390; the B2B scan did not reach b2b-parity-001 before the
+    restart): only 5 Brussels pages and the 4 businesstogo pages have empty paragraphs that take space. Brussels: an
+    empty <p></p> between paragraphs 20 px at 1440 / 16 at 390 (aviation-services-law, short-notice-eu-us), <p><br></p>
+    44 / 40 (short-notice-eu-us, privacy-notice-applicants), <p>&nbsp;</p> 44 / 40 (the-gambia, contact-feedback,
+    privacy-notice-applicants: the case emptyLineSpacers already writes as {spacer-40}). B2B businesstogo: one empty
+    <p> 24 px at both widths and one 6 px. Every other empty paragraph is 0 px (at a container's start, in the banner).
+  - The plan, not started: (a) emptyLineSpacers also takes <p></p> and <p><br></p> between two text paragraphs (sizes
+    per site: Brussels 18 and 40, B2B 23; our spacer paragraph adds its size + 1 px), backwards-compatible (new options,
+    default off); (b) the collapse keeps a spacer of 31 px or less as {spacer-N} when it stands between two running-text
+    elements on a theme that asks for it (idempotent: the same rule on a second run); (c) a delta script for DA's copies
+    from the recordings; then the measurement on every recorded Brussels / B2B page and the two Austrian controls with
+    the 0.5-point gate. Given the counts, the expected effect is small: 9 recorded pages.
+- Item 2 (B2B ranking, shared causes) and item 3 (narrower scopes for the four held changes): not reached; the four
+  stay held as they are.
+- Out of git: logs/p4/s590 (replica scripts and scan results, scratch), the wiped /tmp recordings,
+  .migration/project.json (the workspace's own change), the untracked tools/importer/reports/*, content/ and
+  migration-work/ (from before, not mine).
