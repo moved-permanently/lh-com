@@ -2893,6 +2893,8 @@ drop and our own host only).
   104 (4e074bc9…ac16): green-fare de/en and de/de at www's long path (the short one redirects). Lists:
   import-582-new-articles-lh-com.txt (6 new documents, insights, 93 to 96 % of the words kept offline),
   reimport-582-green-fare-lh-com.txt (2 documents, info, the page now "Impact Fares").
+- **lh-snapshots-105** (05:49 CET, 54b7cd73…6d37, 1 page): business-class-on-long-haul-routes fr/fr (xx/es, xx/fr 404):
+  not on my list.
 - **Still not captured:** be/de and dk/de automatic-check-in and pre-check-in (rows 2, 17), be/de cash-and-miles
   (row 6).
 - **Profile Tabs panels (03508b5, 03:52 CET):** the airport pages' text sits in a panel beside the sidebar
@@ -2982,6 +2984,18 @@ the ten hosts before and after anything served (same statuses every time; once, 
   33, 34), and rows 2 and 17 to put back to the version page alone until be/de or dk/de is captured.
 - Waiting with the helper at 05:15 CET: the link-list re-import (35 documents) and the profile-nav flush
   re-import (43); market-steps-582.tsv rows other than 30, 38, 39, 40, 46 (uploaded and checked).
+- Also looked at, marked: giftvoucher (cards and content, a market-rows page), explore-flying (our list has 83
+  results since tonight's three articles, the recording 80), the long pagers (www shows six pages as six 50 px
+  buttons at 1440; ours with 50 px buttons measured worse there because the content below moves: left as is).
+- **B1 for info pages, sampled at 06:00 CET** (the 12 recorded de/en info pages with the most column marks;
+  switched with main's code and the theme on, today injected the same way; logs/b582/b1info.tsv): 9 of 12 worse,
+  lufthansa-express-rail +9.6 at 1440, first-class-lounges +5.9 / +2.4, fia-valet-service +5.0 / +2.1,
+  bid-upgrade +5.0 at 1440, europa-tarife-economy-class +4.0 at 390, rail-and-fly +3.5 at 390,
+  digital-baggage-services +3.3 at 390; admission-rules, bid-upgrade at 390 and unaccompanied-minors at 1440
+  better. On express-rail each collapsed view (column-view flush sections) is 16 to 80 px shorter than with its
+  marks, -200 px by the page end: the carrier rules so far fit the hub pattern; info needs its own. Next work.
+- The switch plan (tools/reports/token-free/lufthansa-switch-plan-558.md) has a section 5 on where B1, B3 and B5
+  stand (6831fea).
 - My mistakes tonight: a1a8e13 pushed with lint errors (the lint read the tree before the commit; Ben fixed
   the max-len lines in parallel); the 558 stand-in for rows 2/17 (ae/de) was in its own group; the 558 merge tool
   left the variant root's links (fixed; 3 documents rerun, 15 on the rerun list), and the helper had uploaded

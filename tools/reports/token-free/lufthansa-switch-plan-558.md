@@ -100,7 +100,9 @@ collapsed with main's CLI and injected into the page on our host, today's side i
    with column marks (logs/b582/b1all.tsv in the EMA's logs): the views within a point; worse by more after the
    switch: miles-and-more (+3.4 at 390, up to +14.8 at 1440), most-significant-route (+2.1 / +1.1), stopover
    (+2.9 / +3.5), neuschwanstein (+1.2 at 390), chronicle (+1.0 at 1440): separators (B2) and per-page (B4).
-   Info pages with column marks: not run yet.
+   Info pages with column marks, sampled (the 12 recorded de/en ones with the most marks): 9 of 12 worse after
+   the switch (lufthansa-express-rail +9.6 at 1440, first-class-lounges, fia-valet-service, bid-upgrade +5 or
+   more): each collapsed view 16 to 80 px shorter than with its marks; info needs carrier rules of its own.
 3. **B3, code done (6c997b5):** census of the 6,826 documents: 168 page titles and 85 later H1s marked
    heading-medium. The lufthansa theme keeps that one-step size as the choice "H1 compact" (nearChoices); the
    collapse writes the section style, other brands unchanged. travel-classes 33.8 -> 5.8 / 15.0 -> 2.7 (today
