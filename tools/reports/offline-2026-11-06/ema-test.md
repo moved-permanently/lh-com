@@ -2781,3 +2781,18 @@ SWISS Senses start-of-booking pages at 390 (27 to 36), businesstogo (29.6 to 30.
 - The tab accordion's 20 px inset on phones (the cause found at 20:00): B2B as lufthansa.com's. On the 26 recorded
   tab pages at 390: de/en corporates-start-of-booking 27.19 -> 20.92, meals-on-board 22.08 -> 19.14, businesstogo
   de/de and xx/de -0.1, the others unchanged (their sets closed), none worse.
+- The tab set's own space on phones: the Allegris start-of-booking pages' section before the tab set has
+  space-below-m (www's first accordion row 25 px under "Wohin fliegt Lufthansa Allegris?" at 390, ours 115). Below
+  768 px that section's trailing spacer goes (b2b.css): de/de, xx/de corporates and intermediaries and de/en
+  intermediaries 32.43 -> 27.07, 31.80 -> 24.40, 36.26 -> 28.68, 34.55 -> 24.18, 30.68 -> 21.64; the other 21 tab
+  pages unchanged.
+- businesstogo (de/de, de/en, xx/de, xx/en): www draws each tab panel two-up (text left, picture right), DA holds
+  loose paragraphs over a full-width picture. DA's copy plus the delta (tools/importer/b2b-tab-picture-columns-apply.mjs,
+  list reimport-so5-b2b-tab-picture-columns.txt, 4 READY): 1440 30.14 / 29.58 / 30.20 / 29.61 -> 14.61 / 12.16 / 14.67
+  / 12.17; 390 unchanged (the panels are closed on phones).
+- SWISS Senses start-of-booking (de/de, xx/de): the seat-map download is a bold text link on www, a full-width
+  button here (DA: <strong><a>). List reimport-so5-b2b-seatmap-links.txt (the <strong> goes): 3 READY (390 25.02 ->
+  23.60, 30.66 -> 22.31, 32.57 -> 26.89), de/de intermediaries HOLD (27.75 -> 29.03).
+- Seen, not changed: the local render drops multi-level breadcrumbs (the SWISS Senses pages show the page title
+  where our host shows "< SWISS Senses": the parent pages are fetched within 5 s, which the local proxy misses), so
+  those rows read a little worse locally than on our host; before and after alike.
