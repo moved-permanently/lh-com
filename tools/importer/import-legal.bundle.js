@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-legal.js
-  var tmp_bundle_legal_413843_exports = {};
-  __export(tmp_bundle_legal_413843_exports, {
-    default: () => tmp_bundle_legal_413843_default
+  var import_legal_exports = {};
+  __export(import_legal_exports, {
+    default: () => import_legal_default
   });
 
   // tools/importer/parsers/video-sizes.js
@@ -865,6 +865,10 @@ var CustomImportScript = (() => {
       if (own && !titles.length && !ARTICLE && !element.closest(".container-gray") && !view.classList.contains("container-gray")) variants.push("padded");
     }
     if (!cells.length && !titles.length) return;
+    if (pageHost === "www.austrian.com" && !variants.includes("sidebar") && cells.length && cells.every((row) => row.length > 1 && row.every((cell) => {
+      const first = Array.isArray(cell) ? cell.find((n) => n && n.nodeType === 1) : null;
+      return !!first && first.tagName === "H2" && /^\d{1,2}$/.test(clean3(first.textContent));
+    }))) variants.push("steps");
     const block = WebImporter.Blocks.createBlock(document, { name: "columns-media", variants, cells });
     const headerText = (t) => clean3((t.querySelector("tr") || t).textContent).toLowerCase().replace(/\s*\(([^)]*)\)$/, (m, list) => {
       const rest = list.split(",").map((v) => v.trim()).filter((v) => v && v !== "separated");
@@ -4797,7 +4801,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_legal_413843_default = {
+  var import_legal_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -4837,5 +4841,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_legal_413843_exports);
+  return __toCommonJS(import_legal_exports);
 })();

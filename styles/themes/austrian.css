@@ -1226,3 +1226,56 @@ body.brand-austrian main:has(a[href*="/fragments/modals/"]):has(> .section.fligh
   body.brand-austrian main:has(a[href*="/fragments/modals/"]):has(> .section.flight-search-container:first-child) > .section.destination-finder-container:not(:has(> .default-content-wrapper)) { margin-bottom: calc(var(--section-gap) + 142px); }
   body.brand-austrian main:has(a[href*="/fragments/modals/"]):has(> .section.flight-search-container:first-child) > .section > .cards-icon-wrapper + .default-content-wrapper { margin-top: 65px; }
 }
+
+/* numbered steps (columns-media option steps, written by the importer from the brief after 596 on Austrian pages: every
+   column opens with an h2 of its number, www's heading-large "1" .. "4" over a heading-copytext-large title;
+   online-check-in's "How to get your boarding pass", nine languages): www's number 36 / 39.6 px with 36 px under it on
+   phones, 48 / 52.8 px with 60 px from 1025 px; the title 12 / 24 px over its text. And a list of secondary links (the
+   cleanup's <em> links of www's image link list of maui-button-link secondary: the app store links): www's row of
+   secondary buttons, 12 px apart (the theme's button tokens). Measured with both on the live page (the option added in
+   the browser), against austrian-parity-017: 1440 -7.0 -> -6.3 %, 390 -7.6 -> -6.2 % */
+body.brand-austrian main .columns-media.steps > div > div > h2:first-child {
+  font-size: 36px;
+  line-height: 39.6px;
+  margin-bottom: 36px;
+}
+
+body.brand-austrian main .columns-media.steps > div > div > h2:first-child + h3 {
+  margin-bottom: 12px;
+}
+
+body.brand-austrian main .default-content-wrapper > ul:has(> li > em:only-child > a:only-child):not(:has(> li > :not(em), > li > em > :not(a))) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+body.brand-austrian main .default-content-wrapper > ul:has(> li > em:only-child > a:only-child):not(:has(> li > :not(em), > li > em > :not(a))) > li > em > a {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--button-min-height, 50px);
+  padding: 11px 30px;
+  border: 2px solid var(--button-secondary-color, var(--lh-deepblue));
+  border-radius: var(--button-radius, var(--radius-s));
+  background-color: var(--button-secondary-surface, var(--lh-white));
+  color: var(--button-secondary-color, var(--lh-deepblue));
+  font-style: normal;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+@media (width >= 1025px) {
+  body.brand-austrian main .columns-media.steps > div > div > h2:first-child {
+    font-size: 48px;
+    line-height: 52.8px;
+    margin-bottom: 60px;
+  }
+
+  body.brand-austrian main .columns-media.steps > div > div > h2:first-child + h3 {
+    margin-bottom: 24px;
+  }
+}

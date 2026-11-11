@@ -705,6 +705,16 @@ export default function parse(element, { document, url, params }) {
   // nothing to show (empty column view): left as it is, the cleanup drops empty components
   if (!cells.length && !titles.length) return;
 
+  // Austrian: a row of numbered steps (every column opens with an h2 of its number, www's
+  // headline heading-large "1" .. "4" over a heading-copytext-large title: online-check-in's "How
+  // to get your boarding pass"): option steps, the theme's size and spacing for the numbers (the
+  // brief after 596)
+  if (pageHost === 'www.austrian.com' && !variants.includes('sidebar') && cells.length
+    && cells.every((row) => row.length > 1 && row.every((cell) => {
+      const first = Array.isArray(cell) ? cell.find((n) => n && n.nodeType === 1) : null;
+      return !!first && first.tagName === 'H2' && /^\d{1,2}$/.test(clean(first.textContent));
+    }))) variants.push('steps');
+
   const block = WebImporter.Blocks.createBlock(document, { name: 'columns-media', variants, cells });
 
   // --- merge into the previous Columns Media table when this is its continuation

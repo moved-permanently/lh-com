@@ -8,7 +8,8 @@ import fs from 'node:fs';
 
 const css = fs.readFileSync(new URL('../styles/themes/austrian.css', import.meta.url), 'utf8');
 const start = css.indexOf('the homepage after its footer-disclaimer patch');
-const block = css.slice(css.indexOf('*/', start) + 2);
+const end = css.indexOf('/* numbered steps', start);
+const block = css.slice(css.indexOf('*/', start) + 2, end > 0 ? end : undefined);
 const rules = block.replace(/\/\*[\s\S]*?\*\//g, '').split('}').map((r) => r.trim()).filter((r) => r.includes('{') && !r.startsWith('@media'));
 
 test('every rule of the set needs the patched document (a link to /fragments/modals/)', () => {
