@@ -2636,3 +2636,23 @@ smoke 12 hosts before and after each served push: no difference but lh-com's de/
 servers are stopped. Not in git and why: logs/ (scratch, measurements, captures), content-sites/ (scratch imports),
 .migration/project.json (the workspace's own change, not mine), the untracked tools/importer/reports/* and content/,
 migration-work/ (from before this turn, not mine).
+
+## The brief after 583's evening order (received 07:46 UTC, 2026-11-11)
+
+State at the start: everything of the night is on origin/main (last 68e05677, 07:39 UTC; bf4832a9 and 6f5c279d are
+far behind it), and the night's closing report was given in the chat at 07:40. Nothing of mine was uncommitted.
+
+1. Import from www's snapshot vs DA's collapsed document, page by page against b2b-parity-006: the scratch import of the
+   airline pages is done and measured (above, 23:00 UTC update: DA's copy plus the import's blocks and H1 compact).
+   37 of 48 page-widths better, 6 worse at 390 by 2.7 to 10.8 points (discover-airlines de/en +10.8, ch/en +5.0, de/de
+   +3.3; austrian-airlines de/en +2.8; eurowings de/en +2.8, ch/en +2.7). The gate (no page worse by 0.5) is not met:
+   no reimport-590-b2b-h1-view.txt; reimport-583-b2b-teaser-grids.txt is on HOLD (header), not applied by any upload
+   yet. The H1-view collapse of decision 1 stays withdrawn (21 of 26 worse). Item closed.
+2. Tab default on phones: b2b-parity-006 holds the 33 pages of capture-list-583-b2b.txt, not the 30 tab pages; only
+   businesstogo (de/de, de/en, xx/de, xx/en) is in both, and there the two disagree: -006 has the first panel active at
+   390, -005 none. Both archives (and -003) take 390 from the 1440 load after a resize, so none shows a phone's first
+   load. Decision: B2B's default (every item closed) for every set; the two "open first" rows of
+   reimport-583-b2b-tabs-open.txt on HOLD; four pages for a first-load capture at 390 appended to
+   capture-list-583-b2b.txt (07:46 UTC, likely after the window).
+3. The ranking: see the night's report above (the full-height ranking 16.52 %, the shipped changes and the held
+   ones). Lists released: reimport-583-b2b-tab-columns.txt (12; no measured page worse).

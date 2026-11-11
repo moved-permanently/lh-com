@@ -32,3 +32,8 @@
 /de/en/travel-management/hygiene-and-safety
 /xx/de/travel-management/hygiene-and-safety
 /xx/en/travel-management/hygiene-and-safety
+# Appended 07:47 UTC, 2026-11-11 (the brief after 583's evening order, item 2): at 390 x 844 only, each page LOADED AT THAT SIZE (a phone's first load, not the 1440 load resized; banner accepted, nothing opened), to settle which tab panel www's phones show open first: b2b-parity-005 and -006 disagree on businesstogo, and the "open first" rows of reimport-583-b2b-tabs-open.txt rest on b2b-parity-003's resized view.
+/de/en/program/businesstogo
+/de/de/program/businesstogo
+/de/en/program/experts/on-board/meals-on-board
+/de/en/allegris/corporates-start-of-booking
