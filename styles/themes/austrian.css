@@ -1279,3 +1279,33 @@ body.brand-austrian main .default-content-wrapper > ul:has(> li > em:only-child 
     margin-bottom: 24px;
   }
 }
+
+/* the app part under the numbered steps (standing order 8; online-check-in, nine languages, the only documents with
+   option steps): www's "Austrian App" heading is heading-medium (36 / 39.6 px with 36 px under it from 1025 px, 28 /
+   30.8 px with 24 on phones; ours the collapse's h3), 65 px under the steps row at 1440 and 61 at 390 (ours 24 / 23),
+   and "Good to know" 133 / 145 px under the store buttons (ours 85: the spacer of www's 80 px divider margin).
+   Measured on the live page against austrian-parity-017 (its measurements and full-page rows): both gaps as www's at
+   1440 and 390; the page 4196 -> 4298 px at 1440 (www 4477), 5486 -> 5591 at 390 (www 5846) */
+body.brand-austrian main .columns-media-wrapper:has(> .columns-media.steps) + .default-content-wrapper > h3:first-child {
+  padding-top: 38px;
+  font-size: 28px;
+  line-height: 30.8px;
+  margin-bottom: 24px;
+}
+
+body.brand-austrian main .columns-media-wrapper:has(> .columns-media.steps) + .default-content-wrapper > .spacer + h2 {
+  margin-top: 60px;
+}
+
+@media (width >= 1025px) {
+  body.brand-austrian main .columns-media-wrapper:has(> .columns-media.steps) + .default-content-wrapper > h3:first-child {
+    padding-top: 41px;
+    font-size: 36px;
+    line-height: 39.6px;
+    margin-bottom: 36px;
+  }
+
+  body.brand-austrian main .columns-media-wrapper:has(> .columns-media.steps) + .default-content-wrapper > .spacer + h2 {
+    margin-top: 48px;
+  }
+}
