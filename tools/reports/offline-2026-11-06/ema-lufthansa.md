@@ -3495,4 +3495,22 @@ the drop and our own host only. Nothing uploaded, previewed or published.
 - **Air Dolomiti row 107 c (item 1):** the footer's room for the price bar only where the stage has its card (the
   flights-to-Europe hubs' ReachMonaco stage has neither card nor bar; www keeps no room there). 390 6743 -> 6603 (www
   6643), 6264 -> 6124 (6131), 6860 -> 6720 (6745); at 1440 the pages now 1 to 2.6 % short (the padding hid it): next.
+- **On main:** 063e7ce7 (AD 107 c; npm run lint exit 0 and stylelint 0 before and after the rebase, 3651 pass 0 fail,
+  git show --stat 4 files as given, smoke 0 differences on 14 hosts, GitHub Build success). Served (main's CSS only):
+  390 6603 / 6124 / 6720 (www 6643 / 6131 / 6745).
+- **The flights-to-Europe hubs at 1440 (classified, no change):** after row 107 c they read 1 to 2.6 % short of the live
+  recording; everything matches down to the first route list's title (1497 on both), then www's list is 88 px taller in
+  the recording's JSON (its card rows 178 px apart, ours 160). www's own CSS fixes those cards at 140 px from 930 px
+  (CardPromo_card_promo, so 160 a row with the 20 px gap, as ours and as the recording rendered offline), and the
+  recording's screenshot shows the same cards about 400 px high: the capture caught the list unsettled while its
+  pictures loaded. A recording artefact, not a layout difference.
+- **ITA item 2:** reimport-587-ita-two-up-status.txt. Of reimport-585-ita-two-up-82.txt's 82 documents, read live on
+  ita.turnsthe.page at 20:00 UTC: 73 already show the two-up grid (every row of the snapshot lists' A and C sections and
+  the one without a snapshot of mine; the import helper's re-imports), so they get no row (named in the header); the 9
+  digital-services pages (the B sections) are HOLD: their plain grid is right, www's view there has three cards (a phone
+  slider). No READY rows, no capture needed.
+- **Discover item 3, discover-spacing-585 dropped:** it was last night's combined draft of rows 44 to 46, which shipped
+  with a test each (discover-heading-margins-585 in f3e44340, discover-column-rows-585 in d76a3d39,
+  discover-accordion-margins-585 in a46f654d), so it would only repeat them. Moved out of the pending folder in .scratch
+  (not deleted); the applied hub-foot patch went with it.
 
