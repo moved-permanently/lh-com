@@ -2519,3 +2519,15 @@ Started 18:30 UTC. Recordings: b2b-parity-001 to -005 and b2b-snapshots-014/-015
   copy plus the delta (tools/importer/b2b-tab-columns-apply.mjs, from the snapshots); de/en corporates-start 1440
   36.1 -> 30.8 %, the panel as www's; 390 unchanged (stacked as www's). The B2B importer now writes the same
   (b2b-tab-columns; also entertainment-on-board's views on its next import).
+
+### Update 04:00 UTC
+
+- Fresh ranking at full height (our host, 68 rows of b2b-parity-001..005, after the sidebar push): mean 16.52 %
+  (17.05 with the 8,000 px captures). Worst: celebrating-shared-stories 390 (49.1 / 45.1, held above), lhg-history
+  (37.4 / 32.9; decision 1 withdrawn), de/de experts/news 390 35.3 (www's list of 11-06 differs), corporates-start
+  1440 35.2, route-network 390 30.2 / 27.0.
+- The tab-column list grew (b320b155): reimport-583-b2b-tab-columns.txt is now 12 documents: the 6 Allegris pages,
+  meals-on-board de/en, xx/en, ch/en (each airline's text in www's left half, the right one empty; DA two thirds
+  wide), ch/en travel-classes-and-booking, entertainment-on-board de/en, ch/en. de/en meals-on-board 1440 23.5 ->
+  20.7 % (local). The importer writes the same now (b2b-tab-columns, 27c4cec4 / 8f224998 / b320b155; selector the
+  class alone so info's single tab-panel selector stays single, info-template-474).
