@@ -3778,6 +3778,20 @@ body.brand-tap :where(header:not(.tap-home)) ~ main > .section > div:not(.breadc
   }
 }
 
+/* a rich-text table as www's cards (table-striped columns, TAP row 146): 32 px under the heading
+   before it from 728 px (www's heading section to its rich text), and the text after it in the
+   same rich text 16 px under it (its gap-4; tap-parity-009 fees at 1440: the five tables were
+   48 px further down each) */
+@media (width >= 728px) {
+  body.brand-tap :where(header:not(.tap-home)) ~ main > .section > .default-content-wrapper:has(> :last-child:is(h2, h3)) + .table-striped-wrapper:has(> .table-striped.columns) {
+    margin-top: 32px;
+  }
+}
+
+body.brand-tap :where(header:not(.tap-home)) ~ main > .section > .table-striped-wrapper:has(> .table-striped.columns) + .default-content-wrapper:not(:has(> :first-child:is(h1, h2, h3, h4))) {
+  margin-top: 16px;
+}
+
 /* a three-up card without a button (the buy-ticket steps): www keeps 48 px under its text, the
    text's own 24 px and 24 more (229 px at 1440 and 390, as www) */
 body.brand-tap .cards:is(.three-up, .two-up) .cards-card-body:not(:has(> .button-wrapper)) {

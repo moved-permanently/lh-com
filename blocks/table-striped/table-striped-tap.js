@@ -87,3 +87,83 @@ export async function toComparison(block, { load = loadBlock } = {}) {
   await load(fc);
   return fc;
 }
+
+let columnSets = 0;
+// a cell's note at its end: a line break, then italic text (table-striped.js noteAsInfo)
+const NOTE = /<br>\s*<(em|i)>[\s\S]*<\/\1>\s*(<\/p>)?$/;
+
+const div = (className, ...children) => {
+  const d = document.createElement('div');
+  if (className) d.className = className;
+  d.append(...children);
+  return d;
+};
+
+/** A cell's content: its nodes (or a copy), a single paragraph unwrapped. */
+function content(cell, copy) {
+  if (!cell) return [];
+  const nodes = [...cell.childNodes].filter((n) => n.nodeType !== 3 || n.textContent.trim());
+  const inner = nodes.length === 1 && nodes[0].tagName === 'P' ? [...nodes[0].childNodes] : [...cell.childNodes];
+  return copy ? inner.map((n) => n.cloneNode(true)) : inner;
+}
+
+/**
+ * www.flytap.com's rich-text tables (TAP row 146: every recorded one, tap-parity-007 and -009):
+ * from 1024 px one card per column side by side (the first the row labels when the table's first
+ * cell is empty; the others grey with a dark top line, the column's head over its values; the
+ * rows as high across the cards: a subgrid), below 1024 px one closed accordion per value column
+ * (its head the column's; inside, each row's label over its value). Both views are built, the
+ * stylesheet shows one (table-striped.css, .table-striped.columns). A comparison table (✓ / ✕),
+ * a table with notes, one row or one column: none (false).
+ * @param {Element} block the undecorated table-striped block
+ * @returns {boolean} whether the table became the two views
+ */
+export function toColumns(block) {
+  const rows = [...block.children].map((row) => [...row.children])
+    .filter((cells) => cells.some((c) => text(c) || c.querySelector('img')));
+  const n = Math.max(0, ...rows.map((cells) => cells.length));
+  if (rows.length < 2 || n < 2) return false;
+  if (rows.some((cells) => cells.some((c) => MARK.test(text(c))))) return false;
+  // a cell with a note (italic after a line break: table-striped.js's (i)s) keeps the table
+  if (rows.some((cells) => cells.some((c) => NOTE.test(c.innerHTML.trim())))) return false;
+  const labels = !text(rows[0][0]) && !rows[0][0].querySelector('img');
+  columnSets += 1;
+  const id = `table-striped-columns-${columnSets}`;
+  // the accordions first (copies), then the cards take the cells' own nodes
+  const items = [];
+  for (let i = labels ? 1 : 0; i < n; i += 1) {
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'table-striped-acc-toggle';
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.append(...content(rows[0][i], true));
+    const panel = div('table-striped-acc-panel', ...rows.slice(1).map((cells) => div(
+      'table-striped-acc-row',
+      ...(labels ? [div('table-striped-acc-label', ...content(cells[0], true))] : []),
+      div('table-striped-acc-value', ...content(cells[i], true)),
+    )));
+    panel.id = `${id}-${i}`;
+    panel.hidden = true;
+    toggle.setAttribute('aria-controls', panel.id);
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') !== 'true';
+      toggle.setAttribute('aria-expanded', String(open));
+      panel.hidden = !open;
+    });
+    items.push(div('table-striped-acc', toggle, panel));
+  }
+  const cards = [];
+  for (let i = 0; i < n; i += 1) {
+    const card = div(`table-striped-card${labels && i === 0 ? ' table-striped-card-labels' : ''}`, ...rows.map((cells, r) => div(
+      r === 0 ? 'table-striped-cell table-striped-cell-head' : 'table-striped-cell',
+      ...content(cells[i], false),
+    )));
+    cards.push(card);
+  }
+  const grid = div('table-striped-cards', ...cards);
+  grid.style.setProperty('--table-striped-cols', String(n));
+  grid.style.setProperty('--table-striped-rows', String(rows.length));
+  block.classList.add('columns');
+  block.replaceChildren(grid, div('table-striped-accordions', ...items));
+  return true;
+}

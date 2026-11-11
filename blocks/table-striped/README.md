@@ -12,6 +12,8 @@ A cell's note: italic text after a line break at the end of a cell (`Embarque Pr
 
 On brand tap a comparison table, option `header` without `matrix`, with ✓ / ✕ values and followed by the legend's heading and list (and the notes' heading and text), is drawn as www.flytap.com draws it: a `fare-comparison` block of one table, the legend and notes in its caption box (`table-striped-tap.js`, blocks/fare-comparison/README.md; the Economy Prime pages).
 
+Every other table on brand tap (not `matrix`, no ✓ / ✕, no notes, at least two rows and two columns) is drawn as www.flytap.com draws its rich-text tables (TAP parity row 146; `table-striped-tap.js` toColumns, the class `columns`): the first row is the columns' heads; when the first cell is empty the first column is the row labels. From 1024px one card per column, side by side and centred (as wide as each other, at most 282px, wider only for their content; 16px apart): the labels card white, the others #f7f7f8 under a 4px #37363a line, a row as high on every card; below 1024px one closed accordion per value column (its head the column's head; opened, each row's label over its value). No authoring change: the same table.
+
 ## Layout
 
 67px (70px from 768px) below the heading above it, 80px below an image (fleet "Technical data"). Equal columns on every breakpoint, as in the live captures (390: value text at x208 of 375, "Max. take-off weight" on two lines on live too).
