@@ -1,0 +1,20 @@
+# ema-cashub, the night of 2026-11-11 (TAP row 147): the stopover partner pages, 8 languages. Their category accordion (the
+# regions: Azores, Madeira, Lisbon, Porto, Center, Alentejo, Algarve) is in DA as seven region fragments shown one under the
+# other; main's importer writes each region a tab section (row 134's, the inspiration pages'), one region at a time.
+# Found comparing every language page with main's fresh import (841 against DA's sources, GET): each page document differs
+# by the tab sections alone (and row 139's structural break); en-pt's seven region fragments are as DA has them, so
+# the page documents alone change. No market sections.
+# en-pt stopover partners on our host: live 25,426 px at 1440 and 31,895 at 390 (every region's accordions down the
+# page); a draft of the fresh page 4,713 / 3,260.
+# HOLD until www's page is recorded (capture-so11-tap-recordings-tables.txt, its last row): the drafts follow row 134's
+# design, which was measured on the inspiration pages only. Then READY where the recording agrees.
+# Run then: tap-import.mjs as for reimport-so11-tap-inspiration-it.txt, --only <these paths>; upload the page documents.
+# Columns: document, status, expected change.
+/es-es/stopover/socios	HOLD	one tab a region (row 134), the regions' fragments unchanged; waits for the recording of en-pt's page
+/fr-fr/stopover/partenaires	HOLD	one tab a region (row 134), the regions' fragments unchanged; waits for the recording of en-pt's page
+/pt-pt/stopover/parceiros	HOLD	one tab a region (row 134), the regions' fragments unchanged; waits for the recording of en-pt's page
+/en-pt/stopover/partners	HOLD	one tab a region (row 134), the regions' fragments unchanged; waits for the recording of en-pt's page
+/de-de/stopover/partner	HOLD	one tab a region (row 134), the regions' fragments unchanged; waits for the recording of en-pt's page
+/it-it/stopover/partner	HOLD	one tab a region (row 134), the regions' fragments unchanged; waits for the recording of en-pt's page
+/pl-pl/stopover/partnerzy	HOLD	one tab a region (row 134), the regions' fragments unchanged; waits for the recording of en-pt's page
+/pt-br/stopover/parceiros	HOLD	one tab a region (row 134), the regions' fragments unchanged; waits for the recording of en-pt's page
