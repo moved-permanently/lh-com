@@ -35,7 +35,7 @@ test('the heading and the gap: scoped to the default content after the steps row
 });
 
 test('every selector of the part names the steps option and nests no :has', () => {
-  const selectors = [...body.matchAll(/^\s*([^@{}/][^{}]*?)\s*\{/gm)].map((m) => m[1].trim()).filter((s) => !s.startsWith('@'));
+  const selectors = [...body.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/^\s*([^@{}/][^{}]*?)\s*\{/gm)].map((m) => m[1].trim()).filter((s) => !s.startsWith('@'));
   assert.equal(selectors.length, 4);
   selectors.forEach((s) => {
     assert.ok(s.startsWith(SCOPE), s);

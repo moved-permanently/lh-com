@@ -1240,6 +1240,7 @@ body.brand-austrian main .columns-media.steps > div > div > h2:first-child {
   margin-bottom: 36px;
 }
 
+/* stylelint-disable-next-line no-descending-specificity -- a step's title, not the stage band's h3 of the closing band rule */
 body.brand-austrian main .columns-media.steps > div > div > h2:first-child + h3 {
   margin-bottom: 12px;
 }
@@ -1286,6 +1287,7 @@ body.brand-austrian main .default-content-wrapper > ul:has(> li > em:only-child 
    and "Good to know" 133 / 145 px under the store buttons (ours 85: the spacer of www's 80 px divider margin).
    Measured on the live page against austrian-parity-017 (its measurements and full-page rows): both gaps as www's at
    1440 and 390; the page 4196 -> 4298 px at 1440 (www 4477), 5486 -> 5591 at 390 (www 5846) */
+/* stylelint-disable-next-line no-descending-specificity -- the app heading after the steps, not the stage band's h3 */
 body.brand-austrian main .columns-media-wrapper:has(> .columns-media.steps) + .default-content-wrapper > h3:first-child {
   padding-top: 38px;
   font-size: 28px;
