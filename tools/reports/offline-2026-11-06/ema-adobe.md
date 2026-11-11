@@ -3007,3 +3007,36 @@ the ten hosts before and after anything served (same statuses every time; once, 
   the max-len lines in parallel); the 558 stand-in for rows 2/17 (ae/de) was in its own group; the 558 merge tool
   left the variant root's links (fixed; 3 documents rerun, 15 on the rerun list), and the helper had uploaded
   rows 2 and 17 with the wrong stand-in before my correction reached main.
+
+### Standing order 3, final (2026-11-11, written 19:10 CET)
+
+A service restart at about 10:00 CET stopped my session until 19:05 CET; nothing ran in between. Everything below
+reached main before that, each with lint 0, the gate passed and a green Build; no www request, no upload.
+
+1. **Scope paths:** the 86 paths in tools/importer/sites/lh-com.json, in the file's order (345cbec, on main 08:01 CET).
+2. **Marker text in cells:** lufthansa-cleanup's last afterTransform step drops a paragraph-style marker from a block
+   cell whose only content is one paragraph or bare text (all parsers; Form notes, video settings, other brands
+   unchanged; 85241fd, test on the /az/en/online-check-in snapshot, 11 bundles rebuilt). The published documents
+   (6,826) and the 440 drafts have no other such cell: reimport-596-lone-cell-markers-lh-com.txt, one READY row
+   (/az/en/online-check-in, the same as the helper's hand fix).
+3. **Slug map:** /dz/de/datenschutz-lufthansa-facebook gets no slug. www pairs it with no English page, so the map
+   holds it as a no-source-member exception (98 German roots), which keeps its path. The uploader reports it because
+   slug-write.mjs knows exceptions at their key only (71 scope paths like it): slug-596-exception-members-lh-com.txt
+   (HOLD row for ema-cashub's files; b3a1219).
+4. **Media from www:** media-596-www-files-lh-com.txt (a4b64b3). 414 www files in 626 documents, each asked of lh-edge
+   on our host: 320 READY (our copy is served; the switch step for each type), 94 HOLD (no copy). The Jorinde Voigt
+   video (de/en, de/de), its four text tracks and the loungewear article's video come first, with the steps once
+   Ben decides on the www block.
+5. **Info-page switch:** the 582 sample was measured without the Theme the collapse writes. Measured again with it,
+   then four shared causes fixed, all inert while the theme is off (850e4c1: H3 heading-small kept on flow pages,
+   a view's opening divider, the title image before a view, full-width view headings on flow pages). 12-page sums
+   at 390 / 1440: today 75.6 / 66.7, switched 88.9 / 88.0, now 83.7 / 74.6. **Not yet:** 4 of 12 still worse at
+   1440 and 6 at 390. The causes still in the way (nested views, band before a view, a separator inside a view, a
+   view's last table) are in the switch plan's section 6, with counts. Smoke on the ten hosts: same statuses
+   before and after.
+6. **Not done:** the ranking rows over 5 % (item 6). The restart took the time. Candidates seen: the six fleet pages
+   (744, 32n, 320, 359, 351, boeing787, 15 to 19 %) and six /100-years pages (14 to 17 %).
+
+Left out of git: logs/b596 (scripts, captures, census outputs: working material). Lost in the restart: /tmp was
+wiped (the trial worktrees and the R2 archives under /tmp/r2), and the measurement documents are rebuilt by
+logs/b596/prep-all.sh.
