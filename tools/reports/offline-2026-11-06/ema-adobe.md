@@ -3040,3 +3040,48 @@ reached main before that, each with lint 0, the gate passed and a green Build; n
 Left out of git: logs/b596 (scripts, captures, census outputs: working material). Lost in the restart: /tmp was
 wiped (the trial worktrees and the R2 archives under /tmp/r2), and the measurement documents are rebuilt by
 logs/b596/prep-all.sh.
+
+### Standing order 4 (2026-11-11 21:05 CET to 2026-11-12 06:00 CET)
+
+No www or airline-host requests, nothing uploaded. Each push: whole-repo lint 0, gate passed, Build green, smoke
+on the ten hosts the same before and after.
+
+1. **Fleet and /100-years rows.** The fleet pages share one cause. Their seat-map slideshows sit inside the
+   column marks that brief 461 added, and the Carousel Lightbox margins date from before those marks. A nested
+   outer view also ended with two `{column-end-outer}` marks. The importer now gives such a slideshow the
+   option `in-view` (no margins of its own) and writes one end mark there (9b2ce55; nothing changes on a
+   document until it is re-imported). Documents as the importer now writes them, % off www at 1440 / 390:
+   744 15.7 / 19.1 -> 7.7 / 12.4, 32n 18.7 / 18.5 -> 11.3 / 9.8, 320 18.0 / 17.5 -> 11.8 / 9.1,
+   359 17.7 / 17.8 -> 5.9 / 8.8, boeing787 16.8 / 20.4 -> 8.8 / 13.0. 351 has no seat map (15.9 / 15.8, not
+   changed). List: reimport-so4-fleet-in-view-lh-com.txt, 86 documents (24 READY, 62 HOLD: no snapshot in
+   this checkout). The six /100-years pages (13.6 to 17.3 %) share no cause. Their drift starts at a
+   different component on each page (chronicle: its jump links, 37px; campaigns: the collage section,
+   +25px; menu-on-board: a heading after Columns Media, -31px; fleet: the grey table bands, -100 to -250px).
+   None is fixed.
+2. **Info-page switch:** still not "switch".
+   - Two changes are right where they act: a view's last table keeps its 40px, and a separator that is a
+     view's first component stays inside the view's padding (fia-valet-service's table and note now sit
+     where www draws them, within 6px). The table rule also improves rail-and-fly (8.0 -> 6.2 at 1440,
+     12.1 -> 10.5 at 390), tiere-als-uebergepaeck (9.5 -> 8.3) and unaccompanied-minors (6.9 -> 5.8).
+   - Both expose a fifth cause: the gap under the page's last view. The collapse drops `column-spaced`,
+     so it can't tell www's 24px from none. fia-valet-service at 1440 gets worse by 0.8 (table rule) and
+     2.5 (both), over the 0.5 limit.
+   - A blanket page-end rule made six pages worse. None of the three is shipped; the trial stays in a
+     local worktree.
+   - Nested views (247 starts in 193 documents) and the band before a view are not attempted. The band
+     rule was measured on /de/de/lounges, which has no recording to check it against.
+3. **lh-com.json's description** says what `"paths"` holds now (7d6e50e).
+4. **Ranking, the 40 worst rows re-measured** (logs/b596/rerank.tsv):
+   - Down since 582: internet-overview 22.6 -> 14.3, advance-seat-reservation 22.5 -> 12.0,
+     lufthansa-terminal-muenchen 19.7 -> 10.1 (390), economy-class 22.5 -> 17.9 and
+     business-class-on-long-haul-routes 28.6 -> 22.9 (1440).
+   - The travel-class pages (economy-class 29.7 at 390, premium-economy-class 22.0, first-class 25.9)
+     share the profile-nav flush cause: their re-import list (reimport-582-profile-nav-flush-lh-com.txt)
+     is still open.
+   - The two loungenet first-class lounge pages share a fragment (28.1 at 390). A larger link gap under
+     the tiles' pictures measured worse (28.7) and is not shipped.
+   - The rest are single pages with their causes noted before: overview-manage, traveltricks,
+     feedbackai, my-logbook, entryprocesses, first-class-terminal.
+
+Left out of git: logs/b596 (scripts, captures, censuses: working material) and the item 2 trial in
+/tmp/wt-596 (half-done, measured worse).
