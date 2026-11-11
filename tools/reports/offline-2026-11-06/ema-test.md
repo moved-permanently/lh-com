@@ -2508,3 +2508,14 @@ Started 18:30 UTC. Recordings: b2b-parity-001 to -005 and b2b-snapshots-014/-015
 - Seen, not fixable without per-heading markers: the collapse drops a heading size when a section's headings
   disagree (route-network's "Profitieren Sie …" {heading-copytext-large} next to two unmarked H2s; 112 H2s
   {heading-small} on B2B flow pages, many in mixed sections). Noted for the collapse's owner, no change tonight.
+
+### Update 02:40 UTC
+
+- Pushed at 01:30 (8d426847): c35b1d7d, the sidebar change (route-network on our host now: de/de 1440 9.8 %, 390
+  30.2; de/en 15.2, 27.0, as measured locally). Smoke 12 hosts before/after: no difference but lh-com's de/en sitemap
+  (the first lufthansa run's node error was transient; rerun fine).
+- 0959d901 (list) and the importer commit after it: the Allegris start-of-booking pages' tab panels (www: FRA beside
+  MUC in a two-item column view; DA: one under the other). List reimport-583-b2b-tab-columns.txt, 6 documents, DA's
+  copy plus the delta (tools/importer/b2b-tab-columns-apply.mjs, from the snapshots); de/en corporates-start 1440
+  36.1 -> 30.8 %, the panel as www's; 390 unchanged (stacked as www's). The B2B importer now writes the same
+  (b2b-tab-columns; also entertainment-on-board's views on its next import).
