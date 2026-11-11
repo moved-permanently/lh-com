@@ -71,7 +71,7 @@ austrian-parity-003 and were within 3 % in the ranking of 570), and the finder a
 |---|---|---|---|
 | /be/fr/extra-services/baggage/problems-with-your-baggage | -17.4 % (-455) | -28.5 % (-1080) | not traced (h1 at www's y) |
 | /be/fr/my-bookings/cancel-and-refund-requests | -25.4 % (-447) | -20.4 % (-491) | the h1 -44 / -30: READY in reimport-588-brussels-sidebar-h1 (74a1657c); the rest the accordions' text column (the brief after 540) and content |
-| /be/fr/book-a-flight/our-payment-methods | -24.7 % (-927) | -16.9 % (-913) | not traced (the payment table: an iframe on www, withPaymentTable) |
+| /be/fr/book-a-flight/our-payment-methods | -24.7 % (-927) | -16.9 % (-913) | BUILT, FLAG OFF (ce584e22): www's 750 px country-picker iframe of webv4.brusselsairlines.com behind the site flag brussels-payment-picker; with the flag off the import's link stays (today's page); with it on (simulated) -24.7 -> -5.7 % at 1440 |
 | /be/en/my-bookings/cancel-and-refund-requests | -22.4 % (-368) | -19.8 % (-425) | as be/fr |
 | /be/en/local-page/offers | -9.0 % (-419) | -4.9 % (-307) | not traced (the finder / flight search widgets: state) |
 | /be/en/contact/service-charges | -8.6 % (-144) | -4.6 % (-100) | the h1 -44 / -30: READY in reimport-588 (about +2.6 / +1.4 points) |

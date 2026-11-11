@@ -2582,3 +2582,73 @@ hosts before and after each served change, 0 differences each time.
 
 **Commits:** `64a88a3d` (capture row 81), `dde8635a` (quick actions), `62b37730` (grey column view and the first lists),
 this one (released lists, withdrawn patch, item 1 list, HOLD list, report).
+
+## The standing order after 593 (the night of 2026-11-11)
+
+Start state: nothing of mine was uncommitted or unpushed (`745f3066`). Rules as in 586: no request to www or any
+airline host, nothing uploaded, previewed or published, every import a list on main, smoke of the 11 hosts before and
+after each served change (0 differences each time). New archives: austrian-parity-014 (`7ef5b406…`, our au/en and ch/de
+homepages with the APIs) and -015 (`969792a7…`, the ten grey-rule kinds); sha256 = sidecar.
+
+**Item 1, the Austrian homepage's short bands (`6b64414c`, served) and the disclaimer release (`ae367334`).**
+- **Each band, located by its rows** (our own-host recordings with www's APIs, austrian-parity-013, against www's
+  austrian-parity-008 to -010; px, 1440 / 390). Every one is spacing:
+  - the flight search's top: www +24 / +33; under it: +4 / +32
+  - the fare teaser: heading +16 / +15, rows +4, conditions +30, then +23 / +11
+  - before the finder (the carousel's end to the finder's heading): +86 / +81
+  - under the finder (its conditions toggle and the gap under it): +142 / +82
+  - before the note at the page's end: +41 / +90
+- **The text www keeps in a dialog** (the footer disclaimer): 192 / 408 px on ours.
+- **One set of theme rules for these bands.** Every rule needs today's disclaimer form in the document (a link to
+  /fragments/modals/), so a homepage as published today is unchanged (be/en 4543 / 5886 px with and without, measured
+  live after the push).
+- **Simulated on our host** (the dialog text off; the note and the link moved after the cards-icon block, where www has
+  them): every heading down to the finder at www's y at 1440 (0, +1, +6 px), within 16-28 px at 390.
+- **Totals with the APIs** (the recording, plus each rule's and the patch's delta measured on our host):
+  - be/en: 1440 today -3.7 % -> after +0.1 %; 390 today +1.7 % -> after +1.2 %
+  - cz/en: the same
+  - tr/en, au/en, ch/de (austrian-parity-014): worse at 1440 (+4.6 -> +8.7 %, +5.0 -> +9.1 %, +5.5 -> +9.5 %), better at
+    390. On those markets www's fare teaser had no deals at recording time.
+- **G1 (no APIs, our probe):** -201 -> -22 px at 1440, +96 -> +71 at 390. The rules add +370 / +382 px on every patched
+  G1 root.
+- **Decision: released.** be/en with the APIs is no worse than today at either width.
+  - `content-593-austrian-gc-dialogs.txt`: 60 dialog documents (general-conditions-dialogs.mjs --host www.austrian.com),
+    READY, first.
+  - Then `reimport-591-austrian-home-disclaimer.txt`: 56 homepage patches, READY.
+  - It is a patch, not a re-import: the 10-30 snapshots have the disclaimer in the finder section, where www had it then.
+    The patch spells out what to change: the dialog text off, the label a link, the note and the link after the
+    cards-icon block.
+
+**Item 2, the grey-band check (austrian-parity-015).**
+- With the rule on and off in the browser: 8 kinds better or even. Two worse: immigration-regulations-schengen +21.0 ->
+  +23.0 % at 1440; healthy-travel +1.5 -> +2.4 % / +10.7 -> +11.4 %.
+- Band by band, in a flush grey band www's column view has no space above it: bangkok-airways' block heading is at www's
+  y without the rule and 31 px low with it; schengen +14 -> +46, healthy-travel +17 -> +49. In the other grey bands it
+  has that space: austrian-app -67 -> -35, entryregulations -26 -> +6 px.
+- Narrowed to grey sections that are not flush (`6b64414c`): 64 documents instead of 138
+  (`reach-591-austrian-grey-column-view.txt`). Live after it: schengen, healthy-travel, bangkok-airways and
+  doctor-on-board are back to their values without the rule; culinary-services (flush) is back at -1.8 %.
+
+**Item 3, Brussels' payment picker (`ce584e22`, built, flag off).**
+- `scripts/brands.js`: Brussels embeds `brussels-payment-picker` (webv4.brusselsairlines.com's fop_standalone page,
+  750 px, the page it belongs on).
+- `scripts/site-embeds.js` `paymentPicker()`: on /…/book-a-flight/our-payment-methods, with the flag on and outside
+  authoring views, the iframe replaces the import's link-out (the paragraph of the one link to the page itself on www).
+- **With the flag off (no row, today):** the page shows exactly what it shows now: the link "Modes de paiement et
+  informations" (and its kin in the other languages), 2825 px at 1440, checked live.
+- **To switch it on:** an author adds the row `brussels-payment-picker | on` to lh-brussels' `/config/flags` sheet in DA
+  and publishes the sheet (`/config/flags.json`); nothing else.
+- **Simulated on:** the iframe in place of the link (be/fr 3537 px: -24.7 -> -5.7 % at 1440; the iframe's page refused
+  in my check).
+- The ranking row is marked BUILT, FLAG OFF.
+
+**Item 4, the next worst pages** (stable probe, the 41 recorded Austrian non-homepage pages).
+- **it/it/form-confirmation (-21.1 / -17.8 %):** the document does not exist (our 404 page). An import from its
+  recording gives "Grazie" and its text, as /at/en/form-confirmation.
+- **th/en/book/flights/promptpay (-18.5 / -17.7 %):** the published document lacks the header picture
+  (dcep-moving-image) and the fare teaser's title. Today's importer writes both from the recording.
+  - Both pages are in list `reimport-593-austrian-pages.txt`: 2, READY.
+- **at/de/unterhaltung-an-bord (-17.4 / -16.0 %): a row.** www embeds austrian-inflightentertainment.com's carousel
+  widget (external-widgets?id=124) in an iframe; ours has the import's link-out "Carousel". Building it would be an
+  embed behind a flag, like the payment picker. Not built: not asked, and it is a third-party content widget.
+- **jp/ja, cn/zh rows:** not reliable here (no CJK font in the headless browser).
