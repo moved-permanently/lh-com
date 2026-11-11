@@ -2909,3 +2909,65 @@ drop and our own host only).
   take-off (pictures: www shows another Travel ID image), tips-senior-travellers (its grid comes from a column view
   that a block takes, and such views get no marks by design: the view's 32 px padding is missing; the only
   recorded page so).
+- **The stage's information text (164f17d):** our hero-campaign made a short paragraph after the title the
+  subheadline (LufthansaHead light 22 / 28 px); on www, when only the call to action follows, it is the
+  information text (LufthansaText light 18 px): economy-class, internet-overview, 32n, boeing787 (5 of the 90
+  stages in the de snapshots). lufthansa.com only; the scores barely move (the stage photo dominates them):
+  economy-class 34.2 -> 34.1, the others the same, the text now as www's.
+- **The helper's work on tonight's lists, checked on our host at 04:35 CET:** the rerun of 30, 38, 39 (03:32 CET,
+  387599a) left no gb/en or by/ru link; the six new explore-flying articles and green-fare (03:40 CET, 20a181d)
+  answer 200; green-fare 19.2 -> 4.6 % at 390.
+
+### Final report (brief 582, written 04:40 to 08:30 CET)
+
+**Commits on main tonight (mine), with their numbers.** Every push: whole-repo lint exit 0 on the committed tree
+(after a1a8e13, see below), the full suite (site files 806 to 844, lh-edge 71, failing 0 each time), smoke on
+the ten hosts before and after anything served (same statuses every time; once, before 0f0f370, the
+"before" run crashed on lufthansa-edge and its "after" was compared with the previous run).
+
+| commit | what | measured on our host |
+| --- | --- | --- |
+| 18974ba | capture-list-582 (97 priority 2/3 own-document roots), later + 5 stand-ins, 3 + 3 articles, green-fare | (all but the five be/de, dk/de stand-ins captured in 097 to 104) |
+| a1a8e13 | link lists to pages: {links-horizontal / responsive / vertical} (importer, styles) | business-class-on-long-haul-routes 31.2 -> 28.7 / 28.6 -> 22.9; security-check-time-slot 4.8 -> 4.1 / 5.3 -> 2.6; data-collection-canada's list region 6.5 -> 2.8 / 2.2 -> 0.6 (marked documents) |
+| cebf748 | a1a8e13's lint findings (it went out with max-len and five stylelint errors: I linted before committing) | same rendering |
+| 539eb4f, 0f0f370 | market-steps-582.tsv (43 steps), the 7 widget rows ignored; Flight Search "<markets> = none" | rows 45, 52, 56: no widget where www draws it empty |
+| a94f721 | B5: the hub bundle rebuilt from its sources | 133 hub snapshots import byte-identically |
+| f6b611b | no section gap between the page title and an accordion; the phone title inset for option faq too | faq-saf 9.5 -> 4.7 (390) / 5.9 -> 2.8; lufthansa-voucher 8.2 -> 7.7 / 6.1 -> 3.7; faq pages net -14.6 |
+| 6c997b5 | B3: H1 compact carrier (nearChoices) | after the switch: travel-classes 33.8 -> 5.8 / 15.0 -> 2.7; food-and-beverages 28.2 -> 22.0 / 21.3 -> 17.2 |
+| ae626ef | profile-nav Style flush where www's content starts under the bar (.contentpage.pt-0) | (re-import list) internet-overview 22.6 -> 14.3 / 14.6 -> 5.6; economy-class 34.2 -> 29.6 / 22.5 -> 18.1 |
+| 0346b0c, d085603 | B1: separator-only column-view sections; the carrier view's last slider margin | after the switch: digital-self-services 16.3 / 19.9 -> 8.2 / 3.5; meetings-and-events 1440 8.3 -> 4.7 |
+| 139ac0a | loungenet tiles: labelled newsstand link stays a link; media cell's lone link as www's | fra / muc first-class lounge 36.1 -> 28.1 / 31.3 -> 8.3 |
+| 50ac395 | the tag pages' pagination as www's (short pagers) | tags/allegris 18.4 -> 17.5 / 22.8 -> 21.7 (and its versions); munich +0.6 |
+| 2a44c16 | tabs on phones: label and content 20 px in | advance-seat-reservation 22.5 -> 12.0; baggage-irregularities 18.3 -> 8.2; terminal-muenchen 19.7 -> 10.1; unterhaltung-an-bord 18.8 -> 14.8 (390) |
+| 35ea5ce | wide tables on phones keep www's column width and scroll | lufthansa-guide-service 15.6 -> 8.6 (390) |
+| 1736cf4 | market steps: the variant's links rewritten to the version's root; rerun list 30, 38, 39 | (rerun done by the helper; no wrong-root link left) |
+| 03508b5 | profile tabs: a panel's text fills the panel | lufthansa-am-flughafen-frankfurt 18.9 -> 14.0 (1440) |
+| 164f17d | the stage's information text not as a subheadline (lufthansa.com) | economy-class 34.2 -> 34.1 (text as www's) |
+| docs | the report and lists (539eb4f, 569d473, b3cb341, d0180f6, 04e49ff, a329c50, 779abb5, 10073f3, 805ec7b) | |
+
+**Lists written tonight (all on main):**
+- tools/markets/capture-lists/capture-list-582-lh-com.txt (the night's capture list: 97 + 5 + 4 + 3 + 2 rows).
+- tools/reports/parity-2026-11-09/reimport-582-link-lists-lh-com.txt (35 documents: info 21, legal 7, app-entry 7).
+- tools/reports/parity-2026-11-09/reimport-582-profile-nav-flush-lh-com.txt (43 info documents).
+- tools/reports/markets/lh-market-diff/market-steps-582.tsv (43 steps: 15 markets-section, 25 shared-variant,
+  3 tabs-by-market; 6 rows without a step and why) and market-steps-582-rerun.tsv (30, 38, 39: done).
+- tools/reports/markets/lh-market-diff/own-documents-582-p23.tsv (the 97 priority 2/3 own documents, templates,
+  archive 097; the helper uploaded them from 097/099 in four slices at 20:46 CET).
+- tools/reports/parity-2026-11-09/import-582-new-articles-lh-com.txt (6 new Insights articles: uploaded) and
+  reimport-582-green-fare-lh-com.txt (2 documents: uploaded).
+- import-rows.tsv / import-rows-importer-work.tsv: the 7 widget-setting rows marked ignore.
+
+**Pages that still need a capture:** /be/de/automatic-check-in, /dk/de/automatic-check-in, /be/de/pre-check-in,
+/dk/de/pre-check-in (rows 2 and 17: a covered root's page; ae/de, the 558 stand-in, has its own variant),
+/be/de/cash-and-miles (row 6, the be/de widget setting). All on capture-list-582-lh-com.txt since 21:00 CET.
+
+**Not done, and why:**
+- B2 (M at 60 px against www's 40 px separators) is Ben's decision 3; B4 per page (miles-and-more's carousel
+  section, stopover, most-significant-route) after B1/B3: measured, listed above, not changed.
+- Rule 6 leftovers with their causes: overview-manage (DA as is), traveltricks (app-store buttons without
+  href), feedbackai (not migrated), 100-years (video frame), first-class-terminal and entryprocesses (small steps,
+  no single cause), take-off (another picture on www), tips-senior-travellers (a column view taken by a block gets
+  no marks: one recorded page), crane's column caption (parked since 558).
+- My mistakes tonight: a1a8e13 pushed with lint errors (the lint read the tree before the commit; Ben fixed
+  the max-len lines in parallel); the 558 stand-in for rows 2/17 (ae/de) was in its own group; the 558 merge tool
+  left the variant root's links (fixed, rerun done).
