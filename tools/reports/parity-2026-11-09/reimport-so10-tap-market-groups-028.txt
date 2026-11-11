@@ -19,8 +19,22 @@
 # tap-snapshots-016 to -022, -025, -027, -028, -029, --media every media archive with tap-media-026 and tap-byside-001,
 # --sitemaps, --pages tap-market-pages.json, --existing DA's copies saved just before the run, curl -R); upload only the
 # documents below. Columns: document, status, expected change.
-/pt-pt/promos	READY	es only: "Natal ao estilo de Nova Iorque" off (pt-es's capture of 2026-11-11 no longer has it); every other country as on DA
+# The two rows the helper held (round 256: its run changed more than the row said), answered by ema-cashub the evening
+# of 2026-11-11 from a run reproducing the helper's (main's code, the same archives, DA's copies of today; a first run
+# whose allowlist stays, as the helper's checkout keeps the roots' own documents in it): every extra change is what www
+# shows now, none is a tool effect, so both rows are READY with the full change below.
+# - pt-pt/promos' Alternate rows es-us and fr-ca: www's hrefLangs of the page list /es-us/promos and /fr-ca/promos, both
+#   own documents on our site; the importer keeps an alternate that is a document in its scope, and the scope holds
+#   them once a run has added the roots' own documents to the allowlist (main's allowlist does not have them yet, so a
+#   run from a clean checkout leaves the two rows out).
+# - the "Reserve já" text belongs to the card "A sua viagem a Portugal começa aqui", which stays for es (it is on www's
+#   pt-es page); only the New York card goes.
+# - es-us/promos' picture: www's es-us card changed on its own between the captures of 2026-11-04 (CARD_1280x720_POSUSA,
+#   "Añade Portugal a tu próximo viaje") and 2026-11-11 (CARD_1280x720, "¿Viaja a Europa? Portugal incluido."); our
+#   card-1280x720-2d99a639.jpg is that picture, already in DA (pt-pt, en-pt, es-es and fr-fr promos use it).
+#   card-1280x720-posusa-93017565.jpg stays in DA, used by no document any more.
+/pt-pt/promos	READY	es: "Natal ao estilo de Nova Iorque" off (not on www's pt-es of 2026-11-11; "A sua viagem a Portugal começa aqui" with its "Reserve já" stays); ca and us: the Stopover card "Vai para a Europa? Portugal incluído" in a section of its own each instead of one [ca,us] section, same text and picture, after the [-br,-ca,-pt,-us] section (each as on www's pt-ca / pt-us of 2026-11-11); metadata: Alternate es-us = /es-us/promos and Alternate fr-ca = /fr-ca/promos added (www's hrefLangs, both our documents); every other country as on DA
 /en-br/help/frequently-asked-questions	READY	www's current answers (the hand baggage allowance by cabin, Economy Prime and others: 39 texts new, 6 gone, none of the gone ones on www)
 /pt-us/ajuda/perguntas-frequentes	READY	as en-br's FAQ, in Portuguese
 /es-us/miles-and-go/promociones	READY	the American Express card section www's es-us now shows (Earn 40.000 Bonus Miles + 15.000 Status Miles)
-/es-us/promos	READY	the Stopover card in www's current words ("¿Viaja a Europa? Portugal incluido.")
+/es-us/promos	READY	the Stopover card as www's es-us shows it on 2026-11-11: "¿Viaja a Europa? Portugal incluido." / "Portugal Stopover: 2 destinos en Europa por el precio de 1." with www's new picture (card-1280x720-2d99a639.jpg, already in DA) in place of "Añade Portugal a tu próximo viaje" and card-1280x720-posusa-93017565.jpg; nothing else changes
