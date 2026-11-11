@@ -2571,3 +2571,15 @@ clock (date -u).
   body text wrapping a word earlier on www at 390 (about-us, help-alliance): same font files (v1.38.0 and our v1.40.1
   Light measure the same), same sizes and widths in the recordings.
 - No new archives in the drop (b2b-parity-007/-008, b2b-snapshots-016/-017: 404 at 03:16 UTC).
+
+### Update 04:42 UTC
+
+- Tried and held (outside git, logs/p4/s583/held-h2small): "H2 small", a section style for B2B's section H2s marked
+  {heading-small} (one step under the H2 default, so the collapse took them to heading-medium; census: 127 section
+  H2s, 74 more in blocks; the collapse with the change: 41 sections and 17 Headings rows in 58 documents), with a
+  delta script from the census copies. Measured on the six recorded pages it touches (12 rows, published -> with the
+  delta, local): de/en experts 1440 14.7 -> 13.5, 390 20.6 -> 19.4, de/de experts 1440 17.4 -> 16.0, but de/de experts
+  390 20.2 -> 22.3, the celebrating hubs 390 +0.8 / +1.4, de/de celebrating 1440 +0.9; summed 373.1 -> 374.6. Not
+  shipped. The sizes are www's; what is left on these pages (spacers and view starts the collapse dropped, card text
+  wrapping) moves the rest out of line either way.
+- No new archives in the drop (b2b-parity-007, b2b-snapshots-016: 404 at 04:41 UTC).
