@@ -229,6 +229,15 @@ export const BRANDS = {
         script: 'https://www.brusselsairlines.com/digitalassistant/support/webchat_init.js',
         languages: ['en', 'fr', 'nl', 'de', 'it', 'es'],
       },
+      // the payment methods' country picker as www's our-payment-methods pages embed it (an iframe
+      // of webv4.brusselsairlines.com, 750 px high, the same page in all six languages: the
+      // brussels-parity-004 / -008 recordings): scripts/site-embeds.js, in place of the import's
+      // link to the page on www (the flag off: that link, as today)
+      'brussels-payment-picker': {
+        src: 'https://webv4.brusselsairlines.com/prod/content/v3assets/misc/fop/new/fop_standalone_1_en.html',
+        height: 750,
+        path: '/book-a-flight/our-payment-methods',
+      },
     },
     www: 'www.brusselsairlines.com',
     travelId: { host: 'api.travelid.brusselsairlines.com', clientId: 'FuBoxl39ln5fAfvIAX18xIi2BI4d6rny' },

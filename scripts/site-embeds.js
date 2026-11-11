@@ -11,9 +11,15 @@
  *   2026-11-01; OneTrust group C0001, strictly necessary: whatever the visitor chose) on the pages
  *   of its clean.url table, here the pages with the metadata chat-button: a start id, or "open"
  *   (the table's TRUE|FALSE rows: no start id, the chat window opened on load).
+ * - brussels-payment-picker (Brussels' payment methods country picker, an iframe of
+ *   webv4.brusselsairlines.com that loads the methods of the chosen country from Brussels' live
+ *   systems): on the our-payment-methods pages, in place of the import's link to the same page on
+ *   www (a paragraph of that one link); with the flag off the link stays (the 2026-11-01 rule for
+ *   embeds into an airline's live systems).
  */
 import { getMetadata } from './aem.js';
-import { embedWanted, loadEmbedScript } from './embeds.js';
+import { brandEntry } from './locale.js';
+import { embedConfig, embedWanted, loadEmbedScript } from './embeds.js';
 
 async function liveChat() {
   // the chat page: its own chat (blocks/live-chat), not the site-wide script
@@ -65,7 +71,54 @@ async function chatButton() {
   loadEmbedScript(init.src).catch(() => {});
 }
 
+/**
+ * The paragraph the payment picker replaces: the one whose only content is a link to the page
+ * itself on the brand's www host (the import's link-out for www's iframe), on the configured page.
+ * @param {Element} main
+ * @param {Object} config the brand's brussels-payment-picker entry
+ * @param {{pathname: string}} location
+ * @param {string} www the brand's www host
+ * @returns {Element|null}
+ */
+export function paymentPickerTarget(main, config, location, www) {
+  if (!main || !config || !www || !location.pathname.endsWith(config.path)) return null;
+  return [...main.querySelectorAll('p')].find((p) => {
+    const links = p.querySelectorAll('a[href]');
+    if (links.length !== 1 || p.textContent.trim() !== links[0].textContent.trim()) return false;
+    try {
+      const url = new URL(links[0].getAttribute('href'), 'https://invalid.invalid');
+      return url.hostname === www && url.pathname.replace(/\/$/, '') === location.pathname.replace(/\/$/, '');
+    } catch (e) {
+      return false;
+    }
+  }) || null;
+}
+
+/** The picker as www embeds it: an iframe of its page, the configured height, the full width. */
+export function paymentPickerFrame(config, title) {
+  const wrap = document.createElement('div');
+  wrap.className = 'payment-picker';
+  const frame = document.createElement('iframe');
+  frame.setAttribute('src', config.src);
+  frame.setAttribute('title', title || 'Payment methods');
+  frame.setAttribute('loading', 'lazy');
+  frame.setAttribute('width', '100%');
+  frame.setAttribute('height', String(config.height || 750));
+  frame.setAttribute('frameborder', '0');
+  wrap.append(frame);
+  return wrap;
+}
+
+async function paymentPicker() {
+  const brand = brandEntry();
+  const config = embedConfig('brussels-payment-picker', brand);
+  const target = paymentPickerTarget(document.querySelector('main'), config, window.location, brand && brand.www);
+  if (!target) return;
+  if (!(await embedWanted('brussels-payment-picker', brand))) return;
+  target.replaceWith(paymentPickerFrame(config, target.textContent.trim()));
+}
+
 /** Loads the page's site-wide embeds whose site flag is on. */
 export default async function loadSiteEmbeds() {
-  await Promise.all([liveChat(), chatButton()]);
+  await Promise.all([liveChat(), chatButton(), paymentPicker()]);
 }
