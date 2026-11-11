@@ -35,3 +35,16 @@ changes. The sections between two headings are where each row's height goes. Eve
 | D7 | /de/de/book/baggage | -4.1 % | +3.4 % | Between the h1 and "Zusätzliches Gepäck": -125 at 1440, +117 at 390 (the intro's link cards); after it constant. www's teaser grid has five more headings at 2425-2680 (Gepäckbeleg, Handgepäck, Gefährliche Gegenstände, Elektronische Geräte ...): the grid's content differs. |
 | D8 | /de/de/my-bookings/check-in | +0.6 % | +4.2 % | 390: the second check-in card +40 under the first (+48 in that row), the footer +77. 1440 within 22 px. |
 | D9 | /de/de/my-bookings/services/additional-services | -3.9 % | -0.3 % | 1440 only: everything from the first card row on is 118 px higher (h1 -6): the space between the h1 and the card grid. The grid itself matches (rows 498 px apart on both). 390: -20 there, then within 20. |
+
+## D3 to D9 after a check for shared causes (ema-cashub, the brief after 595, item 4)
+
+Checked whether any remaining Discover row has its cause in shared code (blocks, styles.css, the shared importer
+parsers); none does, so nothing was changed on Discover pages. What each comes down to:
+
+| # | page | cause | where |
+|---|---|---|---|
+| D9 | /de/de/my-bookings/services/additional-services (1440 -3.9 %) | www draws the intro (h1 and its text) in a one-column view straight in the page container (`onecolumn column event`, its padding above and below): 108 px from the h1 to the text and 87 from the text to the cards on www, ours 50 and 36 (default content in the breadcrumb section) | an importer option for that column view (as Brussels' in-column, `edcadbe4`) or a Discover theme rule: Discover's own |
+| D4 | /de/de/discover/services-on-board/entertainment (390 +6.3 %) | in each picture-and-text row at 390 our text wraps onto one line more than www's (Onboard Cloud: 6 lines against 5, +43 of the row's +50 px); the picture, the gaps and the block's padding match (ours has none) | Discover's text size or width on phones (theme) |
+| D5 | /de/*/book/flights/flight-search | the fare calendar widget's height (data from www's APIs, refused in the probe) | widget state |
+| D6 | /de/en/homepage | the destination finder's state (www's API refused) | widget state |
+| D3, D7, D8 | punta-cana, baggage, check-in | as located in the table above (the eyebrow gap, the intro link cards, the second check-in card at 390) | Discover's theme or content |

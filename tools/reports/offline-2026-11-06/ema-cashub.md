@@ -2740,3 +2740,120 @@ Start state: nothing of mine uncommitted or unpushed (`f0d38170`).
     www). The helper's check should close both first.
 - **lh-austrian's allowlist (`e79aab27`):** the pattern `^/[a-z]{2}/[a-z]{2}/fragments/modals/[a-z0-9-]+$` allows all
   60 dialog documents (test/austrian-dialog-allowlist-594.test.mjs), nothing deeper.
+
+## The standing order after 595 (the morning of 2026-11-11)
+
+Start state: nothing of mine uncommitted or unpushed (`93e160f5`). The rules of 586, smoke of the 11 hosts before and
+after each served change: 0 differences each time. Captures asked before 08:00 CET: capture-list rows 95-99 (five
+recorded pages without a 390 recording, `c9c9c958`), all recorded by 05:24 CET with ru/ru (row 94):
+brussels-parity-009 `f6e76249…`, austrian-parity-016 `a52e29d1…`, -017 `38daa259…` (sha256 = sidecar).
+
+**Item 1, Austrian ranking** (the 41 recorded non-homepage pages, stable probe, tonight's rules live; worst first):
+- **th/en promptpay (+65.6 / +36.8 % since round 232): a broken document.** Its DA source (read, not written) holds the
+  document twice: after the first section come a second "View more offers", a second metadata block and a second
+  section-metadata, outside any section, with one `</div>` too many: the old document's tail, kept by the merge. Edge
+  Delivery renders that as 1,628 px of loose metadata text.
+  - The importer's own steps keep one metadata block (checked offline).
+  - In `reimport-593-austrian-pages.txt`: READY again, to be replaced whole (no merge). Its link is now written relative
+    (item 7).
+- **at/de unterhaltung-an-bord (-17.4 / -16.0 %):** built behind a flag (item 3); with it on, +0.9 % at 1440.
+- **it/it form-confirmation:** live; -21.1 -> -10.1 % / -17.8 -> -10.6 %.
+- **at/en online-check-in (1440 -7.0 %, 390 -7.6 % from austrian-parity-017): a row.** It is all in the steps component
+  and the App part. Rows, www against ours, 1440:
+  - the step numbers' glyphs: 36 vs 25 px
+  - number to step title: 76 vs 46 px
+  - the "Austrian App" heading: 34 vs 25 px, and 71 vs 34 px above it
+  - the store links: two 50 px badge images on www, text links on ours
+  - before "Good to know": 136 vs 91 px
+  - At 390 the four steps stack and the same differences add up to -203 px before "Good to know".
+  - A theme rule cannot tell the numbered steps' h2 ("1"-"4") from other headings, and the badges are an import
+    question. Row for the Austrian importer: a marker for a numbered-steps row, the store badges as pictures.
+- **jp/ja, cn/zh (baggage, contact): not reliable** (no CJK font in the headless browser).
+- **culinary-services:** -1.9 % / -1.9 % (390 now recorded).
+
+**Item 2, Brussels.** 25 of the 64 recorded pages are still more than 3 % off, worst first, each with its cause:
+- **our-payment-methods (-24.7 / -16.9 %):** built, flag off (`brussels-payment-picker`).
+- **short-notice-eu-us, legal-notices hub, us-traveling-with-disabilities, special-assistance-legal-guidelines,
+  israel-cancellation-policy, refund-for-cancelled-flights, us-customer-service-plan (390) (-4 to -10 % at 1440):** the
+  sidebar-h1 sections' text column and www's empty paragraphs. Row for ema-test (`rows-for-ema-test.md` row 2, item 5).
+- **offers (-9.0 / -4.9 %):** the finder and flight-search widgets' state (www's APIs refused in the probe).
+- **cancel-and-refund be/fr, be/en (-8.0 / -4.6 %, -5.2 / -3.2 %):** the accordions' text column (as the sidebar-h1 row)
+  and the page's content.
+- **families-and-children (-6.8 / -3.1 %):** www's empty lines inside the sidebar block (the collapse drops spacers in
+  block cells).
+- **service-charges be/en, be/nl (-6.0 / -3.2 %):** content. www's tab headings "Europe" / "Intercontinental" and the
+  stretch after "Optional payment charge" (-73 px).
+- **check-in-times (-3.3 / -5.5 %):** -259 px at 390 where www has the check-in deadline search widget; the import makes
+  it a link-out by design (it queries the airline's live system). An embed decision, as the payment picker.
+- **birthright:** with the 71 px bot-check box (`.form-bot-check`, Cloudflare Turnstile) out of the measurement, +2.3 % /
+  +1.8 %; the last margin is 48 px under the last text against www's about 21 / 18 (+27 / +30). One page, no rule.
+- **emergency-contact:** without the box 0.0 % / +1.4 %; feedback/general/other +0.3 % / +1.5 %. The box was the whole
+  difference.
+- **contact-form-error (390 +3.7 %):** the sidebar block's bottom padding (one page).
+- **terms-and-conditions-conditions-of-carriage, the vouchers, aviation-services-law (390 -3 to -4 %):** after
+  `b654354e`; the rest is the empty-paragraph row.
+- **the-gambia, vibrant-senegal (1440 -3.7 / -3.5 %, 390 now -0.6 / -1.3 %, brussels-parity-009):** the article header's
+  h1 (+84 px on ours); not traced further.
+- **unsubscribe-failure (-3.5 / -2.2 %):** not traced.
+
+**Item 3, unterhaltung-an-bord (`6b77d7a0`, built, flag off).**
+- `scripts/brands.js` Austrian embeds `austrian-ife-carousel`: www.austrian-inflightentertainment.com's
+  external-widgets?id=12441&type=film-carousel&lang=de (www sends lang=de on all ten languages), 520 px, the page it
+  belongs on, www's host.
+- `scripts/site-embeds.js` `linkOutEmbed`: the payment picker's code made general, one function for both.
+- **Flag off (no row, today):** the page as now, the link "Carousel" (and its kin in the ten languages), 2272 px at 1440,
+  checked live.
+- **Flag on (simulated):** the 520 px iframe in that link's place, 2773 px against www's 2749 (-17.4 -> +0.9 %; the
+  vendor's page refused in my check).
+- **To switch it on:** an author adds `austrian-ife-carousel | on` to lh-austrian's /config/flags sheet in DA and
+  publishes the sheet.
+
+**Item 4, Discover:** no remaining row has its cause in shared code. `rows-for-ema-lufthansa.md` lists them:
+- D9: the intro's one-column view, an importer option or a Discover theme rule
+- D4: the text wrapping at 390, Discover's theme
+- D5, D6: widget state
+- D3, D7, D8: Discover's own
+
+**Item 5:** `rows-for-ema-test.md` row 2 (`51cc39e6`), with the four pages and their numbers.
+
+**Item 6 (`535dc0b3`):** /it/it/form-confirmation is in lh-austrian.json's paths. The slug map needs no entry: it holds
+www's sitemap hreflang groups, the page is in none and has the same slug as /at/en/form-confirmation, and the uploader
+writes a page the map does not know at its own path with the flags off.
+
+**Item 7 (`535dc0b3`):** the absolute link was not on purpose.
+- The link step keeps a www link absolute unless it is one of the site's documents or a path the host serves, and the
+  Austrian import never passed `served`.
+- Our host answers each root's offers-destinations page on 61 of the 64 roots (the edge's fallback to the /at/en
+  document; 404 on at/de, de/de, ch/de).
+- lh-austrian.json `served` lists those 61 paths, and austrian-import.mjs passes them as the Brussels import does.
+- Of the 2,398 published documents only th/en promptpay has such a link; it is listed.
+
+### Final report (about 06:00 CET, 2026-11-11)
+
+**Commits** (all pushed; lint exit 0 before each push; build success):
+
+| commit | what |
+|---|---|
+| `c9c9c958` | capture rows 95-99 |
+| `535dc0b3` | the served paths and /it/it/form-confirmation |
+| `6b77d7a0` | the in-flight entertainment carousel behind its flag |
+| `51cc39e6` | the ema-test row, promptpay's row |
+| this one | ru/ru released, the Discover rows, the report |
+
+**Lists for the import helper (READY counts):**
+- `reimport-591-austrian-home-disclaimer.txt`: by/en, by/ru, ru/en, ru/ru READY (4, with the carousel source); ca/en,
+  ca/fr stay.
+- `reimport-593-austrian-pages.txt`: th/en promptpay READY again (1), to be replaced whole.
+- Done tonight by the helper: the 60 dialogs, 50 homepage patches, it/it form-confirmation.
+
+**Rows left, with causes:**
+- **Austrian:** online-check-in (the steps component and the store badges); G3 roots and ca/en, ca/fr (www's fare
+  teaser state, no finder); jp/ja, cn/zh (font).
+- **Brussels:** the sidebar-h1 empty paragraphs and text column (ema-test row 2); check-in-times (a widget embed
+  decision); offers (widget state); families (empty lines in a block cell); service-charges (content); birthright and
+  contact-form-error (one page each); the articles' header (not traced).
+- **Discover:** ema-lufthansa's rows.
+- **Flags off, built:** brussels-payment-picker, austrian-ife-carousel.
+
+No upload, preview or publish. Two reads of DA sources (promptpay, the form-confirmation pages), no write. Every probe
+refused www.* and counted it.
