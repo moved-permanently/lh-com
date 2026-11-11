@@ -2689,3 +2689,25 @@ recordings) was wiped. What stands:
 - Out of git: logs/p4/s590 (replica scripts and scan results, scratch), the wiped /tmp recordings,
   .migration/project.json (the workspace's own change), the untracked tools/importer/reports/*, content/ and
   migration-work/ (from before, not mine).
+
+## Standing order 4 again (received 18:27 UTC, 2026-11-11)
+
+Before it: standing order 4 was worked from 08:30 until the restart (09:00 UTC); its final section and push are on main
+(cc469ec4, 18:23 UTC, Build success). This part goes on from there.
+
+- Item 1 (empty-paragraph spacers): code written for the import (an empty paragraph, with or without a line break,
+  between two text paragraphs as {spacer-N}) and for the collapse (keep such a spacer of 31 px or less between running
+  text on a theme with textSpacers). Not finished: no delta script for DA's copies and no measurement, so nothing
+  shipped. Set aside outside git (logs/p4/s590/held-text-spacers/code.diff). Recordings re-fetched after /tmp was wiped
+  (sha256 = sidecar for all but b2b-parity-001, whose sidecar is missing; its sha256 1c391af6… is the one recorded on
+  11-09).
+- Item 2 (B2B ranking, a shared cause): bb203902, the start edge after an airline page's logo stage (8 documents: the
+  rows that held the teaser-grid list), on the new document version only. With the teaser-grid list's delta, on its 23
+  recorded documents (46 page-widths): mean 35.83 -> 19.23 % (1440 47.55 -> 21.50, 390 24.10 -> 16.97), none worse by
+  0.5. So dc00e801 releases reimport-583-b2b-teaser-grids.txt again, 74 rows READY (it was on HOLD for those 6 rows;
+  the code is served first and changes nothing on today's documents). reimport-583-b2b-tabs-open.txt: its 2 open-first
+  rows HOLD, the 7 others "no change".
+- Item 3 (the four held B2B changes): left held. A narrower scope does not separate gains from losses: "H2 small"
+  improved de/de experts at 1440 (17.4 -> 16.0) and made the same page worse at 390 (20.2 -> 22.3); the video edges
+  improved de/en celebrating at 1440 and made de/de celebrating at 1440 worse with the same template; the no-break
+  spaces made the one page they touch worse at 390. No scope by page, template or width is clean.
