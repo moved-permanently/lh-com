@@ -108,3 +108,7 @@
 /de/en/articles/explore-flying/first-class-collectible-loungewear-cdlp-jorinde-voigt	de/en	/de/en/articles/explore-flying/first-class-collectible-loungewear-cdlp-jorinde-voigt	-	2	insights
 /de/en/articles/explore-flying/welcome-to-my-world-jorinde-voigt	de/en	/de/en/articles/explore-flying/welcome-to-my-world-jorinde-voigt	-	2	insights
 /de/de/articles/explore-flying	de/de	/de/de/articles/explore-flying	-	2	insights
+# added 2026-11-11 01:50 CET (brief 582): the German versions of the three new explore-flying articles (same slugs on www's /de/de/articles/explore-flying, lh-snapshots-102).
+/de/de/articles/explore-flying/what-the-hack-sleep-on-a-plane	de/de	/de/de/articles/explore-flying/what-the-hack-sleep-on-a-plane	-	2	insights
+/de/de/articles/explore-flying/first-class-collectible-loungewear-cdlp-jorinde-voigt	de/de	/de/de/articles/explore-flying/first-class-collectible-loungewear-cdlp-jorinde-voigt	-	2	insights
+/de/de/articles/explore-flying/welcome-to-my-world-jorinde-voigt	de/de	/de/de/articles/explore-flying/welcome-to-my-world-jorinde-voigt	-	2	insights

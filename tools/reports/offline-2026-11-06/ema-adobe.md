@@ -2849,3 +2849,18 @@ drop and our own host only).
   data-collection-canada (link-list list), feedbackai (not migrated), entryprocesses (28.5: the grey intro band
   17 px lower, then small steps), giftvoucher (market rows 3/23), 100-years (video frame). A full fresh ranking
   of all recorded pages is running (logs/b582/rank-582.tsv).
+- **The loungenet first-class lounge pages (139ac0a, 01:10 CET):** their six service tiles (Columns Media
+  media cells: a picture and a link) draw the link on www as a standalone navigation link 46 px under the
+  picture; ours 8 px under it without the arrow, and the eJournals tile's labelled link to box.media-carrier.de
+  became the 520 px newsstand iframe (it had made up for the spacing). scripts/media.js: a newsstand link is an
+  embed only when its text is its address (the real ones, in Embed blocks, are); columns-media.css: the media
+  cell's lone link with the arrow, 22 px under the picture below 768 px, 40 from 768. fra-first-class-lounge-b
+  36.1 -> 28.1 % (390), 31.3 -> 8.3 % (1440), muc the same (one fragment); the other recorded pages with a
+  picture-and-link cell unchanged. The CSS alone measured worse (42.1 / 33.2): both or neither.
+- **The Insights tag pages' pagination (98add57):** www's maui-pagination: 50 x 50 px buttons 10 px apart on
+  grey 245, the arrows without a box; ours 40 px, 4 px apart, no background. For pagers of at most five items:
+  tags/allegris 18.4 -> 17.5 / 22.8 -> 21.7 (and its de/de, at/de, gb/en versions by about a point); munich (two
+  pages) +0.6 at both widths (its region below was off already); six-page pagers (highlights, explore-flying)
+  measured worse with 50 px buttons: unchanged (www shortens them with an ellipsis, ours lists every page).
+- **Not shipped:** www's sub-navigation label on the travel-class pages (the hub's tab: www's own active-tab
+  quirk, the parser notes it); entryprocesses (28.5: no single cause); first-class-terminal (32.0: small steps).
