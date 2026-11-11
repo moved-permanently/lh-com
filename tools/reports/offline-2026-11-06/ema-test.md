@@ -2552,3 +2552,22 @@ clock (date -u).
 - Looked at and left: lufthansa-group-airlines (www opens a second view between "Lufthansa Group airlines at a
   glance" and its cards: in DA's marks, gone with the collapse), help-alliance 390 (text wraps a word earlier on
   www, cause not found in the recordings).
+
+### Update 03:16 UTC
+
+- Pushed at 02:50 UTC (51daa560): the tab-column importer and list (12 documents), the hyphenation rule (in
+  styles.css after all: brand themes set no wrapping, heading-wrap / text-wrap-510; b2b-gaps now expects that second
+  B2B rule there), the Austrian lint exception (one line kept: test/austrian-home-bands-593 reads it). Smoke 12 hosts
+  before/after: no difference but lh-com's de/en sitemap. On our host: de/de experts/news 390 22.7 %,
+  partner-plus-benefit 21.0 (de/de) and 17.7 (de/en), as measured with the rule injected.
+- Tried and held (outside git, logs/p4/s583/held-nbsp): www's no-break spaces into DA's copies (de/de experts: "finden
+  Sie&nbsp;exklusive"; DA's copies predate the import's no-break space guard). de/de experts 390 20.2 -> 20.4, 1440
+  17.4 -> 17.4: not better, not shipped.
+- Findings for later, no change tonight (all are marks the collapse drops, so they need its owner and a re-collapse
+  from the census): (1) spacers of 31 px or less go for every brand ("size none"); on B2B 40 of them stand right
+  before a column start ({spacer-25} x16, -30 x15, -20 x9; de/de homepage's first view 26 px higher than www's);
+  (2) a heading size is dropped when a section's headings disagree (112 H2 {heading-small} on B2B flow pages);
+  (3) www's second view start between a heading and its block (lufthansa-group-airlines). Not explained: card and
+  body text wrapping a word earlier on www at 390 (about-us, help-alliance): same font files (v1.38.0 and our v1.40.1
+  Light measure the same), same sizes and widths in the recordings.
+- No new archives in the drop (b2b-parity-007/-008, b2b-snapshots-016/-017: 404 at 03:16 UTC).
