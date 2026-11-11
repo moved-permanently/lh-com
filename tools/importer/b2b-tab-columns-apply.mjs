@@ -30,12 +30,35 @@ export function tabViews(snapshot) {
     [...panel.querySelectorAll('.twocolumn, .threecolumn')]
       .filter((v) => !v.querySelector('img, iframe, form, .teaser, .table, .accordion') && !v.parentElement.closest('.twocolumn, .threecolumn, .fourcolumn'))
       .forEach((v) => {
-        const items = [...v.querySelectorAll('.column-view-item')].filter((it) => !it.parentElement.closest('.column-view-item'));
+        const items = [...v.querySelectorAll('.column-view-item')].filter((it) => !v.contains(it.parentElement.closest('.column-view-item')));
         const heads = items.map((it) => text(it.querySelector(HEADING)));
         let rest = '';
         for (let n = v.nextElementSibling; n; n = n.nextElementSibling) rest += text(n);
         if (items.length >= 2 && heads.every(Boolean) && !rest) views.push(heads);
       });
+  });
+  return views;
+}
+
+/** Text as letters and digits only (www's and DA's whitespace, icons and punctuation differ). */
+const key = (s) => String(s || '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '');
+
+/**
+ * www's two-column views in tab panels with one text item beside empty ones (meals-on-board: the
+ * text in the left half): [{ at, of, text }] (the filled item's index, the item count, its text).
+ */
+export function halfViews(snapshot) {
+  const { document } = parseHTML(snapshot);
+  // screen-reader texts (a link's new-tab and external-site notes) are not DA's text
+  document.querySelectorAll('.sr-only, maui-screen-reader-label').forEach((el) => el.remove());
+  const views = [];
+  document.querySelectorAll('maui-tab-control-panel-responsive .twocolumn').forEach((v) => {
+    if (v.querySelector('img, iframe, form, .teaser, .table, .accordion') || v.parentElement.closest('.twocolumn, .threecolumn, .fourcolumn')) return;
+    const items = [...v.querySelectorAll('.column-view-item')].filter((it) => !v.contains(it.parentElement.closest('.column-view-item')));
+    const filled = items.map((it, i) => [i, key(it.textContent)]).filter(([, t]) => t);
+    // an empty item holds nothing: an image component whose picture loads later is not empty
+    const blank = items.filter((it) => !key(it.textContent) && !it.querySelector('.image, .videoViewer, picture, video'));
+    if (items.length === 2 && filled.length === 1 && blank.length === 1) views.push({ at: filled[0][0], of: 2, text: filled[0][1] });
   });
   return views;
 }
@@ -74,6 +97,40 @@ export function applyTabColumns(doc, snapshot) {
     if (stop < kids.length) kids[stop].before(block);
     else section.append(block);
     made.push(heads.join(' | '));
+  });
+  // a text beside an empty item: the run of a section's elements whose text is the item's
+  halfViews(snapshot).forEach(({ at, of, text: want }) => {
+    [...main.children].some((section) => {
+      if (section.matches('.columns-media') || !section.children.length) return false;
+      const kids = [...section.children];
+      for (let i = 0; i < kids.length; i += 1) {
+        // the run's texts in www's item, in order, from its start; www's links carry notes DA has
+        // not (screen-reader labels), up to 250 letters between two of them and at its end
+        let pos = 0;
+        let covered = 0;
+        for (let j = i; j < kids.length && !isMetaBlock(kids[j]) && kids[j].tagName !== 'DIV'; j += 1) {
+          const k = key(kids[j].textContent);
+          const idx = k ? want.indexOf(k, pos) : pos;
+          if (idx < 0 || (j === i ? idx !== 0 : idx - pos > 250)) break;
+          pos = idx + k.length;
+          covered += k.length;
+          const next = kids[j + 1] && key(kids[j + 1].textContent);
+          const nextFits = next && want.indexOf(next, pos) >= 0 && want.indexOf(next, pos) - pos <= 250;
+          if (!nextFits && want.length - pos <= 250 && covered >= want.length * 0.6) {
+            const block = document.createElement('div');
+            block.className = 'columns-media';
+            const row = document.createElement('div');
+            for (let c = 0; c < of; c += 1) row.append(document.createElement('div'));
+            kids[i].before(block);
+            row.children[at].append(...kids.slice(i, j + 1));
+            block.append(row);
+            made.push(`half: ${text(row.children[at]).slice(0, 40)}`);
+            return true;
+          }
+        }
+      }
+      return false;
+    });
   });
   return { html: main.innerHTML, views: made };
 }

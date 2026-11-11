@@ -35,3 +35,8 @@ test('the info template and the Austrian ones take the class as a Columns Media'
   });
   assert.ok(fs.readFileSync('tools/importer/import-info.bundle.js', 'utf8').includes(sel), 'the info bundle rebuilt');
 });
+
+test('one text item beside an empty one takes the class too; beside an image component without its picture yet, not', () => {
+  assert.equal(isTabTextColumns(view(`${item('<div class="text"><p>Whether your customers want a meal.</p></div>')}${item('')}`)), true);
+  assert.equal(isTabTextColumns(view(`${item('<div class="text"><p>Text</p></div>')}${item('<div class="image"></div>')}`)), false);
+});

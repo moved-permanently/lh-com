@@ -34,3 +34,11 @@ test('headings not in one section: as it is', () => {
   assert.deepEqual(r.views, []);
   assert.ok(!r.html.includes('columns-media'));
 });
+
+test('a text item beside an empty one (meals-on-board): the run of DA\'s elements with its text in the first cell, the second empty', () => {
+  const snap = '<maui-tab-control-panel-responsive><div class="onecolumn"><div class="column-view-item"><div class="twocolumn"><div class="column-view"><div class="row"><div class="column-view-item"><div class="text"><p>Whether your customers want a meal.</p><p><a href="/x">Pre-order special meals<span class="sr-only">The link will be opened in a new browser tab</span></a></p></div></div><div class="column-view-item"></div></div></div></div></div></div></maui-tab-control-panel-responsive>';
+  const doc = '<div><h2>Special Meals request</h2><p>Whether your customers want a meal.</p><p><a href="/x">Pre-order special meals</a></p><h2>Next</h2><p>Other</p></div>';
+  const r = applyTabColumns(doc, snap);
+  assert.equal(r.views.length, 1);
+  assert.ok(r.html.includes('<h2>Special Meals request</h2><div class="columns-media"><div><div><p>Whether your customers want a meal.</p><p><a href="/x">Pre-order special meals</a></p></div><div></div></div></div><h2>Next</h2>'), r.html);
+});

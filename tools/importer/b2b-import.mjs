@@ -96,12 +96,19 @@ export function withEmails(html) {
     .replace(/<a\b[^>]*href="(?:https?:\/\/[^"/]+)?\/cdn-cgi\/l\/email-protection"[^>]*>\s*\[email[^\]]*\]\s*<\/a>/gi, '');
 }
 
-/** A column view of text only (no picture, embed, form, teaser, table, accordion, nested view) whose items each open with a heading. */
+/**
+ * A column view of text only (no picture, embed, form, teaser, table, accordion, nested view) whose
+ * items each open with a heading, or one text item beside an empty one (meals-on-board: the text in
+ * www's left half; an image component without its picture yet is not empty).
+ */
 export function isTabTextColumns(el) {
   if (/<img\b|<iframe\b|<form\b|class="(?:teaser|table|accordion)\b/.test(el) || /<div class="(?:one|two|three|four)column/.test(el.slice(1))) return false;
   const { document } = parseHTML(`<html><body>${el}</body></html>`);
   const items = [...document.querySelectorAll('.column-view-item')];
-  return items.length >= 2 && items.every((it) => {
+  if (items.length < 2) return false;
+  const blank = items.filter((it) => !clean(it.textContent) && !it.querySelector('.image, .videoViewer, picture, video'));
+  if (items.length === 2 && blank.length === 1 && clean(items.find((it) => !blank.includes(it)).textContent)) return true;
+  return items.every((it) => {
     const first = [...it.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li')].find((x) => clean(x.textContent));
     return !!first && /^H[1-6]$/.test(first.tagName);
   });
