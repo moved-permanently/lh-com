@@ -4242,3 +4242,22 @@ body.brand-tap .cards-wrapper > .cards.one-up > ul > li:not(:has(a)) > .cards-ca
 body.brand-tap .cards-wrapper > .cards.one-up > ul > li:not(:has(a)) > .cards-card-body > :last-child {
   margin-bottom: 0;
 }
+
+/* TAP row 139, a heading with its description (www's heading component, as brief 388's rule above for a heading that
+   opens its wrapper): the importer ends the heading's section after the description, style heading-section, so the
+   heading after other text in its wrapper gets www's 16 px to its description and 32 px to the next component too. Only
+   real descriptions are marked: a heading followed by a separate rich text (www's 32 px) is not (a rule on h2 + p alone
+   made en-pt miles-and-go 0.85 points worse). Auctions against tap-parity-001, drafts as delivered: 1440 +3.1 -> +1.2 %,
+   390 0.0 -> -0.4 %; the other recorded pages unchanged */
+body.brand-tap :where(header:not(.tap-home)) ~ main > .section.heading-section {
+  margin-bottom: 32px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- a margin; line 4190's rule centres the inspiration title (text-align) */
+body.brand-tap :where(header:not(.tap-home)) ~ main > .section.heading-section > .default-content-wrapper:last-child > h2:nth-last-child(2):has(+ p:last-child) {
+  margin-bottom: 16px;
+}
+
+body.brand-tap :where(header:not(.tap-home)) ~ main > .section.heading-section + .section > :first-child {
+  margin-top: 0;
+}

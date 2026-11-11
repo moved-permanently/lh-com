@@ -1,0 +1,45 @@
+# ema-cashub, standing order 10 (2026-11-11), TAP row 139: a heading with its description (www's heading component:
+# the description 16 px under it, the next component 32 px under that). tap-import.mjs now ends such a heading's section
+# after the description (style heading-section) and tap.css spaces it so; brief 388's rule already did that for a
+# heading that opens its wrapper. Of the 95 language pages with such a heading, 29 change visibly (text comes
+# right before the heading); the other 66 only change structurally and need no re-import.
+# Decided with the fresh ranking (tap-parity-001, -002, -004, drafts as delivered): no recorded page-width worse by
+# more than 0.5 points; auctions 1440 +3.1 -> +1.2 %, 390 0.0 -> -0.4 %; bagagem-mao, en-pt miles-and-go and the
+# other recorded pages unchanged. A theme-only rule (any h2 + one paragraph) was rejected: en-pt miles-and-go 0.85
+# points worse (a heading followed by a separate rich text, www's 32 px).
+# READY: the auctions page in its eight languages (measured; each fresh import equals DA's source of today, GET only,
+# but for the heading's section break and one empty paragraph DA still has, which renders nothing: main's draft of
+# auctions is the live page's height). Run: tap-import.mjs --archive tap-snapshots-001 to -015 and -023 --media every
+# media archive and tap-byside-001 --only <these paths>.
+# HOLD: the families with no recording (lounges, Schengen visas, donating miles, pt-br's credit cards): measure first
+# (capture-so10-tap-recordings-139.txt); a document with market sections re-imports through tap-markets.mjs only.
+# Columns: document, status, expected change.
+/de-de/information/dokumentations/schengen-visa	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/de-de/miles-and-go/verwenden-meilen/spenden-meilen	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/de-de/verwalten-buchungen/extras/lounges	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/de-de/verwalten-buchungen/extras/upgrades/auktionen	READY	the heading "available auctions" 16 px over its description, the first upgrade card 32 px under it (www's)
+/en-pt/information/documentation/schengen-visas	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/en-pt/manage-booking/extras/lounges	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/en-pt/manage-booking/extras/upgrades/auctions	READY	the heading "available auctions" 16 px over its description, the first upgrade card 32 px under it (www's)
+/es-es/gestionar-reserva/extras/lounges	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/es-es/gestionar-reserva/extras/upgrades/subastas	READY	the heading "available auctions" 16 px over its description, the first upgrade card 32 px under it (www's)
+/es-es/informacion/documentacion/visados-schengen	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/es-es/miles-and-go/utilice-millas/donar-millas	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/fr-fr/gerer-reserves/extras/encheres	READY	the heading "available auctions" 16 px over its description, the first upgrade card 32 px under it (www's)
+/fr-fr/gerer-reserves/extras/lounges	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/fr-fr/informations/documentation/visas-schengen	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/fr-fr/miles-and-go/utilisez-miles/don-miles	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/it-it/gestire-prenotazione/extra/lounge	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/it-it/gestire-prenotazione/extra/upgrade/aste	READY	the heading "available auctions" 16 px over its description, the first upgrade card 32 px under it (www's)
+/it-it/informazioni/documentazione/visti-schengen	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/pl-pl/informacyjne/dokumenty/wizy-schengen	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/pl-pl/zarzadzaj-rezerwacja/dodatki/lounges	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/pl-pl/zarzadzaj-rezerwacja/dodatki/upgrades/aukcje	READY	the heading "available auctions" 16 px over its description, the first upgrade card 32 px under it (www's)
+/pt-br/gerenciar-reserva/extras/lounges	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/pt-br/gerenciar-reserva/extras/upgrades/leiloes	READY	the heading "available auctions" 16 px over its description, the first upgrade card 32 px under it (www's)
+/pt-br/informacoes/documentacao/vistos-schengen	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/pt-br/miles-and-go/ganhe-milhas/cartoes-de-credito	HOLD	market sections: through tap-markets.mjs (same converter), after a recording of the page
+/pt-br/miles-and-go/utilizar-milhas/doacao-milhas	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/pt-pt/gerir-reserva/extras/lounges	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)
+/pt-pt/gerir-reserva/extras/upgrades/leiloes	READY	the heading "available auctions" 16 px over its description, the first upgrade card 32 px under it (www's)
+/pt-pt/informacoes/documentacao/vistos-schengen	HOLD	no recording of the page family yet (capture-so10-tap-recordings-139.txt)

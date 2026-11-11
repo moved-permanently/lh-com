@@ -709,7 +709,15 @@ const HANDLERS = {
   ComponentHeadingSectionModel: (s, P) => {
     if (s.lead) P.add(`<p>${esc(s.lead)}</p>`);
     P.add(P.heading(2, s.title));
-    P.add(P.rich(s.headingSectionDescription));
+    const desc = P.rich(s.headingSectionDescription);
+    P.add(desc);
+    // a heading with its description (TAP row 139): www's description 16 px under the heading and the next
+    // component 32 px under it; the heading and the description end their section, style heading-section
+    // (tap.css), so the next component starts a section. Not in a block cell or a tab's section (its Tab rows)
+    if (desc && desc.replace(/<[^>]+>/g, '').trim() && !P.cell && !P.current.tab) {
+      P.current.style = [P.current.style, 'heading-section'].filter(Boolean).join(', ');
+      P.section();
+    }
   },
   ComponentRichTextBlockModel: (s, P) => {
     P.add(P.rich(s.richTextContent));
