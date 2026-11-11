@@ -5,5 +5,8 @@
 # Expected change per row: www's longer "Auf einen Blick" / "At a glance" items (the first item 510 characters in de
 # against our 126, 474 against 124 in en; the others likewise), and whatever else www changed in the page's text since
 # the import; the layout unchanged (the theme's rows 43 to 46 are already live). Nothing imported or uploaded here.
-/de/de/book/special-requests/families
-/de/en/book/special-requests/families
+# Standing order 4 (2026-11-11 23:15 UTC): still not re-imported (the live documents keep the short items: de 126
+#   characters); READY per row added, the snapshot each.
+# Columns: document, READY/HOLD, snapshot archive (R2 drop).
+/de/de/book/special-requests/families	READY	discover-snapshots-002
+/de/en/book/special-requests/families	READY	discover-snapshots-002

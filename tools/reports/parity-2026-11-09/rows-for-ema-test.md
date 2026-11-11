@@ -58,3 +58,19 @@ found, the evidence and what would follow www.
 - **What would follow www:** an empty paragraph of www's rich text written as a small gap the collapse keeps (a 16 px
   spacer or the paragraph margin), so that the sidebar-h1 sections can then take www's text column (the h1 and the text in
   938 px, as www's sidebar; tried in ema-cashub's brief after 593 and not shipped because of these pages).
+
+## 3. Discover: www's heading-copytext-large headings render as plain headings (2026-11-11)
+
+- **Found:** www's H2s and H3s marked heading-copytext-large (16 / 17.6 px bold at 390, 18 / 19.8 px bold at 1440, 12
+  / 24 px under them) render as the level's default on our Discover pages: an H2 in default content 22 / 24.3 light (the
+  eyebrow over /de/en/.../punta-cana's title: two lines where www's is one, the title 55 px lower at 390), an H2 in a
+  Columns Media block 28 / 30.9 light, an H3 there 22 / 24.3 light. Only the card titles (additional services, 14 / 15.4
+  bold) come out small. This widens row 2 (column views only): the default content's are lost the same way.
+- **Evidence:** discover-parity-001: 55 such headings on 17 of the 26 recorded pages (de and en: baggage 1, families 2,
+  entertainment 4, business class 3, check-in 2, check-in at the airport 4, additional services 7 / 8, Punta Cana 2,
+  Santorini 4); ours measured with main's CSS on additional services, Santorini, check-in and baggage (2026-11-11 23:15
+  UTC). Punta Cana at 390 +6.3 % (en) / +4.8 % (de) in the fresh ranking, the eyebrow its first difference.
+- **What would follow www:** the marker kept for heading-copytext-large (it is not one step from a level's default, so
+  decision D should not collapse it; worth checking where it goes); ema-lufthansa's Discover theme has no unmarked rule
+  for it, as an eyebrow cannot be told from a section heading without the marker.
+

@@ -3554,4 +3554,18 @@ the drop and our own host only. Nothing uploaded, previewed or published.
 - **Air Dolomiti row 110 (item 4):** an article's H2s as www's HtmlContent (26 / 32 regular, 45 / 56 from 930 px, from
   www's CSS). 390 5319 -> 5185 (www 5124), 5659 -> 5515 (5481), 5285 -> 5141 (5134); backwards-compatible (theme,
   articles' text only).
+- **On main:** 372131ff (AD 110; npm run lint exit 0 and stylelint 0 before and after the rebase, 3681 pass 0 fail, git
+  show --stat 4 files as given, smoke 0 differences on 14 hosts, GitHub Build success).
+- **The ranking, ITA (classified):** the rows over 2 % at 390 are the phone footer's +42 px (DejaVu Sans here, no
+  Arial) plus a line's wrap and the space under the last section (classified before as differing by page): invoicing
+  3700 against 3608 = 42 (footer) + 26 (text) + 24 (the last section). Under 1.5 % without the footer.
+- **The ranking, Discover (26 pages from discover-parity-001):** offers -70 to -84 % (widget data, as before); families
+  -6.6 / -6.1 % at 1440: the re-import of reimport-585-discover-families.txt has not run yet (the live items still the
+  short ones), its rows now marked READY; customer service -5.9 / -5.8 % at 1440 and other pages: www puts a separator
+  (div.separator, 1 px and its space, 31 px between two components there; 1 to 7 on 20 of the 26 pages) where our
+  documents have none: the shared cleanup transformer (tools/importer/transformers/lufthansa-cleanup.js separatorInfo)
+  drops separators of 25 to 40 px as "the normal component spacing the replica already has", which on Discover's
+  customer service it does not (the page is one section, so the theme has no mark to space by): for that importer's
+  owner, no change here. Punta Cana +6.3 / +4.8 % at 390 and the column views: www's heading-copytext-large headings
+  render as plain headings (55 on 17 pages): rows-for-ema-test.md row 3 (the size markers are ema-test's).
 
