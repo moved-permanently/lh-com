@@ -27,7 +27,7 @@ test('not with a picture, or an item that opens with text', () => {
 });
 
 test('the info template and the Austrian ones take the class as a Columns Media', () => {
-  const sel = 'maui-tab-control-panel-responsive :is(.twocolumn, .threecolumn).b2b-tab-columns';
+  const sel = ':is(.twocolumn, .threecolumn).b2b-tab-columns';
   const { templates } = JSON.parse(fs.readFileSync('tools/importer/page-templates.json', 'utf8'));
   ['info', 'austrian-checkin', 'austrian-flight-status', 'austrian-hero-banner'].forEach((name) => {
     const cm = templates.find((t) => t.name === name).blocks.find((b) => b.name === 'columns-media');
