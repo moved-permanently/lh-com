@@ -3018,3 +3018,82 @@ another Columns Media.
   ignored).
 
 No upload, preview or publish. da-upload.mjs was not called; no DA or preview API call from tests.
+
+## Standing order 9 (2026-11-11, from about 08:40 CET; TAP is mine from now on)
+
+Start state: nothing of mine uncommitted or unpushed (`1e559222`); the builds of my pushes of standing order 8 all
+success. Recordings and archives from the drop only, each checked against the index (or its .sha256); DA read with GET
+only. No request to www.lufthansa.com, www.flytap.com or any airline host. Smoke now on 14 hosts (tap, swiss and
+swiss-cn added) before and after each served change. One command was stopped by the remote-content guard: a GET of
+DA's sources chained with a local import; it changed nothing, the GET ran again on its own.
+
+**Item 1, row 133, the feature card's footnote (`8ef1c508`).**
+- The importer writes complementaryNote as the card's second row of one text cell; tap.css draws it the whole width at
+  14 / 24 px, 8 px under the card.
+- fly-business with the structure simulated: the note at www's 1008 px at 1440; the page 5,055 -> 5,019 (www 4,942).
+- The note is on three pages in all eight languages, not two: fly-business, locate-baggage, special meals.
+- Each of the 24, re-imported offline, equals DA's source but for the note's row.
+- `reimport-so9-tap-feature-note-133.txt`: 24 READY.
+
+**Item 2, the inspiration re-import (`01e82baa`).**
+- The importer writes what main's code and theme expect. A draft of en-pt (fresh documents in our page, nothing
+  uploaded) shows the 11 tabs and the country list, and an opened item loads its article fragment.
+- 1440 6,291 px, 390 5,020 (www 5,582 / 4,957).
+- reimport-585's "page only" held for es-es and de-de alone (their 238 fragments as DA has them). DA's en-pt, pt-pt,
+  pt-br and fr-fr folders still hold the 14 pre-488 category fragments and no article fragments.
+- `reimport-so9-tap-inspiration.txt`: 482 READY (476 fragments, 6 pages). reimport-585's rows on HOLD.
+
+**Item 3, split categories (`bd2c518d`): no merge in the code.** Only those four pages' old fragments split a
+category; the importer writes each category one fragment with www's countries (66 checked). The re-import of item 2
+ends the split (parity row 137).
+
+**Item 4, market groups (`bd2c518d`).** All 70 pages of capture-567 are in the drop: 9 in 027, 61 only in the
+archives of 2026-11-04 / -05. Those are older than the comparison and DA's copies, so tap-markets.mjs keeps DA's view
+for them. `capture-so9-tap-market-groups-missing.txt`: 61 rows, the 46 waiting documents named; nothing to import for
+them until captured.
+
+**Item 5:** cookie row, no work (decided).
+
+**Item 6, the ranking** (tap-parity-001, -002, -004 against our host):
+- Over 3 % as decided: the inspiration pages (item 2), en-pt baggage (LUGGit, row 41), en-pt (unscrolled recording,
+  row 127).
+- **Row 138 (`ed91a522`):** time-to-think -4.2 %, a cause its eight language documents share (one-up text cards). Theme
+  only: 1440 -0.6 %, 390 +1.0 % live.
+- **Row 139, open:** auctions +3.1 %, a heading's description 16 px under it on www (ours 32), 119 headings on 95
+  pages. Our documents cannot tell it from the next component's text, so it needs an importer carrier.
+  - The candidate (its section ends after the description, style heading-section) fixes auctions in drafts, but changed
+    nothing on bagagem-mao and miles-and-go, and I could not find out why before the session restarted (about 11:00 to
+    19:00 CET).
+  - Not shipped: the patch and the rule wait in migration-work/parity-588/row139-wip (ignored).
+
+### Final section (about 19:30 CET, 2026-11-11)
+
+**Commits** (pushed; whole-repo lint exit 0 and stylelint on tap.css before each push; full suite 3,646 tests, 0 fail;
+every build success):
+
+| commit | what |
+|---|---|
+| `8ef1c508` | row 133, the feature card's footnote (importer, theme), 24 READY |
+| `01e82baa` | the inspiration re-import list, 482 READY; reimport-585 on HOLD |
+| `bd2c518d` | row 137's decision; the 61 missing market-group pages as a capture list |
+| `ed91a522` | row 138, one-up text cards (theme) |
+| this one | parity row 139 (open), the report |
+
+**For the import helper:** `reimport-so9-tap-feature-note-133.txt` (24) and `reimport-so9-tap-inspiration.txt`
+(482).
+
+**Capture list:** `capture-so9-tap-market-groups-missing.txt` (61).
+
+**Rows left:**
+- TAP 139, with its candidate.
+- A fresh import of en-pt miles-and-go renders 6,271 px at 390 against 4,730 live: check that before re-importing it.
+- The 61 group pages to capture.
+- Auctions' feature-card drift (+12 / +24 px).
+
+**Not in git:**
+- the restart cleared /tmp: the drop archives, DA's copies and my scratch scripts are gone (all can be fetched again);
+- the scratch imports in the worktree's content-sites/lh-tap (gitignored);
+- row 139's candidate (migration-work, ignored);
+- wt-old (ignored).
+
+No upload, preview or publish. da-upload.mjs was not called; no DA or preview API call from tests.
