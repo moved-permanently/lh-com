@@ -1,5 +1,5 @@
 {
-  "about": "Every lufthansa.com document path that may be sent to DA as a page, exact paths only. da-upload.mjs allows a path in this list or in the migration scope (transformers/scope-paths.js) or in a document family (nav, footer, fragments, app screens, feeds: da-upload-sites.mjs); the import helper's runs read this list alone, so it also repeats the scope's published documents. It holds: the ch pilot (2026-10-27: the homepages and own pages of ch/en and ch/de, tools/reports/markets/inventory.json, and the market versions of the ch sweep, tools/reports/markets/ch-sweep.md); the market-root documents and the locale-gap roots added with the markets rollout; the import helper's own-document paths (standing order 3, 2026-11-11); and every published document of the census and the uploader's state, plus the planned own documents of the own-document lists (3af8ecd, 2026-11-11: 4,008 paths, 3,905 of them in the scope). Not here: the document families (allowed by pattern); the app shell (login, profile), which da-upload refuses even when listed; the German sign-in pages (anmeldung), kept out so no run overwrites them. Order: in batches as added, each batch in its own order.",
+  "about": "Every lufthansa.com document path that may be sent to DA as a page, exact paths only. da-upload.mjs allows a path in this list or in the migration scope (transformers/scope-paths.js) or in a document family (nav, footer, fragments, app screens, feeds: da-upload-sites.mjs); the import helper's runs read this list alone, so it also repeats the scope's published documents. It holds: the ch pilot (2026-10-27: the homepages and own pages of ch/en and ch/de, tools/reports/markets/inventory.json, and the market versions of the ch sweep, tools/reports/markets/ch-sweep.md); the market-root documents and the locale-gap roots added with the markets rollout; the import helper's own-document paths (standing order 3, 2026-11-11); and every published document of the census and the uploader's state, plus the planned own documents of the own-document lists (3af8ecd, 2026-11-11: 4,008 paths, 3,905 of them in the scope). Not here: the document families (allowed by pattern); the app shell (login, profile), which da-upload refuses even when listed; the German sign-in pages (anmeldung), kept out so no run overwrites them. Also the 13 market-root documents published 2026-11-11 23:31 CET (Page not found placeholders before; standing order 5 of 2026-11-12, item 1). Order: in batches as added, each batch in its own order.",
   "paths": [
     "/ch/en/homepage",
     "/ch/en/local-page/experience-america",
@@ -9302,6 +9302,19 @@
     "/us/en/ccpa",
     "/us/en/dnsmpi",
     "/us/es/book-and-manage/additional-services/travel-insurances",
-    "/us/fr/book-and-manage/additional-services/travel-insurances"
+    "/us/fr/book-and-manage/additional-services/travel-insurances",
+    "/am/de/articles/explore-the-world/on-the-scene-bookstores-buenos-aires",
+    "/am/de/articles/highlights-european-championship/scotland-with-heart-and-energy",
+    "/ba/en/flights",
+    "/br/de/articles/explore-the-world/on-the-scene-bookstores-buenos-aires",
+    "/br/de/articles/highlights-european-championship/scotland-with-heart-and-energy",
+    "/by/de/articles/explore-the-world/on-the-scene-bookstores-buenos-aires",
+    "/by/de/articles/highlights-european-championship/scotland-with-heart-and-energy",
+    "/se/en/fly-more-sustainabl",
+    "/us/de/digitale-gepaeckservices",
+    "/us/de/gefaehrliche-gegenstaende",
+    "/us/de/sportgepaeck",
+    "/us/de/travelling-with-animals",
+    "/us/de/uebergepaeck"
   ]
 }
