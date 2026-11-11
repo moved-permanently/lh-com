@@ -437,6 +437,26 @@ body.brand-b2b .columns-media.stage.light .columns-media-text > p:has(> a.button
   color: #f5f5f5;
 }
 
+/* stage teasers under a heading in the block's first cell (hygiene-and-safety's Travel Briefing
+   grid, the census' only such documents: de/de, de/en, xx/de, xx/en): from 768 px www draws the
+   heading over the row and the teasers two-up, 91 px between the rows (heading at 1069, teasers'
+   headlines at 1179 / 1683 / 2188 at 1440; standing order 5, item 2). Below 768 px all stacked,
+   as before */
+@media (width >= 768px) {
+  body.brand-b2b .columns-media.stage .columns-media-row:has(> .columns-media-text:first-child > :is(h2, h3):only-child) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.brand-b2b .columns-media.stage .columns-media-row > .columns-media-text:first-child:has(> :is(h2, h3):only-child) {
+    grid-column: 1 / -1;
+    margin-bottom: 35px;
+  }
+
+  body.brand-b2b main .columns-media-wrapper:has(> .columns-media.stage) + .default-content-wrapper:has(+ .columns-media-wrapper > .columns-media.stage) > p.column-mark.column-end-outer:only-child {
+    padding-bottom: 91px;
+  }
+}
+
 body.brand-b2b .columns-media.stage.light .columns-media-text > p:has(> a.button) > a.button:is(:hover, :focus-visible) {
   border-color: #fff;
   background-color: #fff;
@@ -761,6 +781,20 @@ body.brand-b2b main > .section.grey {
 
   body.brand-b2b main > .section.section-tab-panel ~ .section:not(:has(*)) {
     display: none;
+  }
+
+  /* www's collapsible insets a tab's label and its open content 20 px on each side (meals-on-board,
+     businesstogo, corporates-start-of-booking at 390: the text at x 42, ours at 22), as lufthansa.com's
+     (styles/section-tabs.css). Standing order 5, item 2, on the 26 recorded tab pages at 390: de/en
+     corporates-start-of-booking 27.19 -> 20.92 %, meals-on-board 22.08 -> 19.14, none worse */
+  body.brand-b2b main > .section.section-tab-panel > .section-tab-toggle {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  body.brand-b2b main > .section:is(.section-tab-panel, .section-tab-part) > div:not(.section-tab-toggle) {
+    padding-right: calc(var(--layout-margin, 22px) + 20px);
+    padding-left: calc(var(--layout-margin, 22px) + 20px);
   }
 }
 
