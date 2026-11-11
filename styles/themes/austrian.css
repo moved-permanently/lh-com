@@ -1210,11 +1210,8 @@ body.brand-austrian main > .section.grey:not(.flush) > .columns-media-wrapper > 
 body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.flight-search-container:first-child:has(+ .section.hero-card-overlay-container) .flight-search.block { padding-top: 86px; }
 body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.flight-search-container:first-child:has(+ .section.hero-card-overlay-container) { margin-bottom: 80px; }
 body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.fare-teaser-container > .default-content-wrapper:has(+ .fare-teaser-wrapper) > :last-child { margin-bottom: 35px; }
-
-body.brand-austrian main:has(a[href*="/fragments/modals/"]) .fare-teaser .fare-teaser-list {
-  row-gap: 24px;
-  margin-bottom: 60px;
-}
+/* stylelint-disable-next-line declaration-block-single-line-max-declarations -- one line as its neighbours (test/austrian-home-bands-593 reads it so) */
+body.brand-austrian main:has(a[href*="/fragments/modals/"]) .fare-teaser .fare-teaser-list { row-gap: 24px; margin-bottom: 60px; }
 body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.fare-teaser-container:has(.fare-teaser-footer) { margin-bottom: calc(var(--section-gap) + 11px); }
 body.brand-austrian main:has(a[href*="/fragments/modals/"]):has(> .section.flight-search-container:first-child) > .section.carousel-cards-container:has(+ .section.destination-finder-container) { margin-bottom: calc(var(--section-gap) + 81px); }
 body.brand-austrian main:has(a[href*="/fragments/modals/"]):has(> .section.flight-search-container:first-child) > .section.destination-finder-container:not(:has(> .default-content-wrapper)) { margin-bottom: calc(var(--section-gap) + 82px); }

@@ -242,6 +242,15 @@ main {
   }
 }
 
+/* Group for Business keeps its headings' words whole on phones, as www's (de/de partner-plus-benefit's
+   "GESCHÄFTSREISEN" on a line of its own; b2b-parity-001 at 390: de/de experts/news 35.3 -> 22.7 %,
+   partner-plus-benefit 22.9 -> 21.0, no row worse); a word longer than its line still breaks */
+@media (width < 768px) {
+  body.brand-b2b :is(h1, h2, h3, h4, h5, h6) {
+    hyphens: manual;
+  }
+}
+
 /* --heading-large-weight, --heading-large-transform: a brand theme's headline (b2b: LufthansaHead
    200 uppercase); lh-com's 700, none */
 h1 {

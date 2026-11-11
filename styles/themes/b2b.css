@@ -788,13 +788,3 @@ body.brand-b2b main figure.image-caption > figcaption {
 body.brand-b2b main > .section > div:has(> .columns-media.sidebar) + .default-content-wrapper:has(> p.column-mark.column-start-outer:first-child) {
   margin-top: 0;
 }
-
-/* phones: headings keep their words whole, as www's (styles.css hyphenates words of 14+ letters;
-   www's de/de pages set "GESCHÄFTSREISEN" on a line of its own); a word longer than its line still
-   breaks (main's overflow-wrap). b2b-parity-001: de/de experts/news 390 35.3 -> 22.7 %,
-   partner-plus-benefit 22.9 -> 21.0, no 390 row worse */
-@media (width < 768px) {
-  body.brand-b2b :is(h1, h2, h3, h4, h5, h6) {
-    hyphens: manual;
-  }
-}
