@@ -1,0 +1,8 @@
+# Standing order 5 (2026-11-11), item 1, Group for Business (lh-b2b): www's empty paragraphs in running text. No B2B document gets the delta: every empty paragraph that takes space on the recorded pages (b2b-parity-001..006, laid out offline, 86 documents, 153 page-widths) sits in what DA holds as a Columns Media cell, or in a dialog, and the spacing marker is drawn only in a section's own content (tools/importer/text-spacers-apply.mjs reports "not found" for each; the data: tools/reports/parity-2026-11-09/text-spacers-so5.json, site b2b). The import and collapse code of this push changes nothing for B2B (THEMES.b2b has no textSpacers). Nothing for the harness.
+# Each line: DA path, www's empty paragraphs (kind and space at 1440 / 390), where DA has the place, READY / HOLD.
+/de/de/program/businesstogo	<p></p> 24 / 24 before the footnote "* Lufthansa Group BusinessToGo …"; <p></p> 6 / 6 and <p><br></p> - / 48 after "… zur Verfügung."	Columns Media cell	HOLD (nothing to apply)
+/de/en/program/businesstogo	<p></p> 24 / 24 before the footnote "* Lufthansa Group BusinessToGo …"; <p></p> 6 / 6 and <p><br></p> - / 48 after "… United Kingdom."	Columns Media cell	HOLD (nothing to apply)
+/xx/de/program/businesstogo	as /de/de/program/businesstogo	Columns Media cell	HOLD (nothing to apply)
+/xx/en/program/businesstogo	as /de/en/program/businesstogo	Columns Media cell	HOLD (nothing to apply)
+/de/en/homepage	<p>&nbsp;</p> 48 / 48 between "… possibilities for every journey." and its link "Explore the possibilities"	Columns Media cell	HOLD (nothing to apply)
+/de/de/travel-solutions/lufthansa-group-airlines	<p><br></p> 48 / 48 between "… Lufthansa Drehkreuzen." and its link "Zu atemberaubenden Zielen"	Columns Media cell	HOLD (nothing to apply)

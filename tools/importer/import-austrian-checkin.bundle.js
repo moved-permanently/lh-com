@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-checkin.js
-  var import_austrian_checkin_exports = {};
-  __export(import_austrian_checkin_exports, {
-    default: () => import_austrian_checkin_default
+  var tmp_bundle_austrian_checkin_228472_exports = {};
+  __export(tmp_bundle_austrian_checkin_228472_exports, {
+    default: () => tmp_bundle_austrian_checkin_228472_default
   });
 
   // tools/importer/parsers/booking-lookup.js
@@ -5511,6 +5511,15 @@ var CustomImportScript = (() => {
       headingChoices: { h1: { compact: "heading-medium" } },
       nearChoices: { h1: { "heading-medium": "compact" } },
       pageTypes: {
+        // flow pages (the info pages; a page with column marks is one): an H3 in heading-small is
+        // a choice of its own (H3 large draws heading-small here, not heading-medium): www's H3s
+        // there are heading-small 924 times, unmarked 432, heading-medium 106 (the 1,862 published
+        // column-mark documents, standing order 3); the collapse took the H3 default before (bold
+        // 24px for www's light 28px). nearChoices replaces the brand's, so the H1's again
+        flow: {
+          headingChoices: { h3: { large: "heading-small" } },
+          nearChoices: { h1: { "heading-medium": "compact" }, h3: { "heading-small": "large" } }
+        },
         // Insights articles: a rule above an info box (Columns Media) after any content but a
         // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
         article: { rules: ["rule-before-info-box", "ruled-chapters"] },
@@ -5527,7 +5536,14 @@ var CustomImportScript = (() => {
     austrian: { live: true, rules: ["intro-after-h1"], pageTypes: { flow: { headings: { h3: "heading-small" } } } },
     // Brussels: flow pages set their H3s in heading-small (www: 72 %); a service page's H2s are the
     // default (www: 89 % unmarked, heading-medium; no longer heading-small)
-    brussels: { live: true, pageTypes: { flow: { headings: { h3: "heading-small" } } } },
+    // textSpacers: a spacer of 31 px or less between two text elements (www's empty paragraph,
+    // nbsp-guard.mjs emptyParagraphSpacers) stays as {spacer-N} in the collapse (standing order 5
+    // of 2026-11-11, item 1; import time only, nothing served reads it)
+    brussels: {
+      live: true,
+      textSpacers: true,
+      pageTypes: { flow: { headings: { h3: "heading-small" } } }
+    },
     // ITA: running text over the whole width
     // ITA: a section's H2 right before a teaser grid in heading-small (www's column view; DA: 923 of
     // 1,029 H2s before Carousel Cards, every one of 67 before Cards Icon; rows-for-ema-test row 1)
@@ -5562,7 +5578,8 @@ var CustomImportScript = (() => {
             endEdge: true,
             startAtHeading: true,
             bandHeadings: true,
-            sidebarNoView: true
+            sidebarNoView: true,
+            startAfterLogo: true
           }
         }
       }
@@ -6405,6 +6422,8 @@ var CustomImportScript = (() => {
   function placeColumnMarks(document) {
     const roots = [...document.querySelectorAll(`[${COLUMN_ATTR}]`)];
     let placed = 0;
+    const ownEnds = /* @__PURE__ */ new Map();
+    inViewSlideshows(roots);
     roots.forEach((root) => {
       const suffix = root.getAttribute(COLUMN_ATTR) === "cc" ? "-outer" : "";
       const spaced = root.getAttribute(COLUMN_ATTR) === "sc-spaced";
@@ -6426,12 +6445,43 @@ var CustomImportScript = (() => {
       if (inline(last) && addMarkerToken(last, `column-end${suffix}`)) {
         if (spaced) addMarkerToken(last, "column-spaced");
       } else {
-        root.append(own(`column-end${suffix}${spaced ? " column-spaced" : ""}`));
+        const end = own(`column-end${suffix}${spaced ? " column-spaced" : ""}`);
+        root.append(end);
+        ownEnds.set(end, end.textContent);
       }
       placed += 1;
     });
+    dropNestedOuterEnds(ownEnds);
     roots.forEach((root) => root.removeAttribute(COLUMN_ATTR));
     return placed;
+  }
+  function inViewSlideshows(roots) {
+    roots.forEach((root) => {
+      root.querySelectorAll("table").forEach((table) => {
+        const head = table.querySelector("tr > th, tr > td");
+        const name = head ? cleanText(head) : "";
+        const m = name.match(/^carousel[- ]lightbox\s*(?:\(([^)]*)\))?$/i);
+        if (!m) return;
+        const opts = (m[1] || "").split(",").map((o) => o.trim()).filter(Boolean);
+        if (opts.includes("in-view")) return;
+        head.textContent = `${name.replace(/\s*\(.*$/, "")} (${[...opts, "in-view"].join(", ")})`;
+      });
+    });
+  }
+  function dropNestedOuterEnds(ownEnds) {
+    ownEnds.forEach((token, inner) => {
+      if (token !== "{column-end-outer}" || !inner.isConnected) return;
+      let el = inner;
+      while (el.parentElement) {
+        let next = el.nextElementSibling;
+        while (next && !cleanText(next) && !next.querySelector("img, picture, table, video, iframe")) next = next.nextElementSibling;
+        if (next) {
+          if (ownEnds.get(next) === token && next.parentElement.contains(inner)) inner.remove();
+          return;
+        }
+        el = el.parentElement;
+      }
+    });
   }
   var MOBILE_COPY = ".hidden-lg-up, .hidden-md-up, .d-md-none, .d-lg-none, .visible-xs";
   var DESKTOP_COPY = ".hidden-md-down, .hidden-sm-down, .d-none.d-md-block, .d-none.d-lg-block, .d-none.d-md-flex, .d-none.d-lg-flex";
@@ -6623,6 +6673,32 @@ var CustomImportScript = (() => {
       marked += 1;
     });
     return marked;
+  }
+  var CELL_TEXT_TOKEN = /^(?:copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\d{1,3}|column-(?:(?:start|end)(?:-outer)?|spaced))$/;
+  var TRAILING_TOKENS = /\s*\{([a-z0-9 -]+)\}\s*$/;
+  function dropLoneCellMarkers(document, payload) {
+    if (!isLufthansaPage(payload)) return 0;
+    let dropped = 0;
+    document.querySelectorAll("table").forEach((table) => {
+      const name = cleanText(table.querySelector("tr > th, tr > td") || table).toLowerCase();
+      if (/^(section )?metadata$/.test(name) || /^form\b/.test(name)) return;
+      table.querySelectorAll(":scope > tbody > tr > td, :scope > tr > td").forEach((td) => {
+        const els = [...td.children];
+        const bare = [...td.childNodes].some((c) => c.nodeType === 3 && c.nodeValue.trim());
+        let holder = null;
+        if (els.length === 1 && els[0].tagName === "P" && !bare) [holder] = els;
+        else if (!els.length && bare) holder = td;
+        if (!holder || holder.querySelector("img, picture, video, iframe")) return;
+        const walker = document.createTreeWalker(holder, 4);
+        let last = null;
+        for (let n = walker.nextNode(); n; n = walker.nextNode()) if (n.nodeValue.trim()) last = n;
+        const m = last && last.nodeValue.match(TRAILING_TOKENS);
+        if (!m || !m[1].trim().split(/\s+/).every((t) => CELL_TEXT_TOKEN.test(t))) return;
+        last.nodeValue = last.nodeValue.slice(0, m.index);
+        dropped += 1;
+      });
+    });
+    return dropped;
   }
   var MAUI_LINK = "maui-button-link[href], maui-navigation-link[href], maui-link[href]";
   function convertMauiLinks(document) {
@@ -7230,6 +7306,7 @@ var CustomImportScript = (() => {
       convertCaptions(document);
       markParagraphStyles(document);
       placeColumnMarks(document);
+      dropLoneCellMarkers(document, payload);
       addPageMetadata(document, payload);
     }
   }
@@ -8438,7 +8515,7 @@ var CustomImportScript = (() => {
     return kids.length === 1 && kids[0].nodeType === 1 && /^(STRONG|B)$/.test(kids[0].tagName) && !!textOf(kids[0]) && !kids[0].querySelector("a, img, picture");
   }
   function collapseSeparators(main, doc, stats, ctx) {
-    const { rules } = themeFor(ctx.brand, ctx.pageType);
+    const { rules, textSpacers = false } = themeFor(ctx.brand, ctx.pageType);
     const isSep = (el) => !!el && el.tagName === "P" && SEPARATOR.test(textOf(el));
     const parse31 = (el) => textOf(el).match(SEPARATOR);
     main.querySelectorAll(":scope > div > * p").forEach((p) => {
@@ -8475,6 +8552,15 @@ var CustomImportScript = (() => {
         const atStart = !content(before) && now.slice(0, first).every((el) => !content(el));
         const atEnd = now.slice(lastAt + 1).every((el) => !content(el));
         const remove = () => run.els.forEach((el) => el.remove());
+        const prose = (el) => !!el && isRunningText(el) && !/^\s*\{[^}]*\}\s*$/.test(textOf(el));
+        if (size === "none" && textSpacers && !tablet && prose(before) && prose(after)) {
+          const keep = doc.createElement("p");
+          keep.textContent = `{spacer-${px}}`;
+          run.els[0].before(keep);
+          remove();
+          count(stats, "carrier", "text-spacer", run.els.length);
+          return;
+        }
         if (size === "none") {
           remove();
           count(stats, "theme", "separator", run.els.length);
@@ -9031,7 +9117,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_austrian_checkin_default = {
+  var tmp_bundle_austrian_checkin_228472_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9071,5 +9157,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_austrian_checkin_exports);
+  return __toCommonJS(tmp_bundle_austrian_checkin_228472_exports);
 })();

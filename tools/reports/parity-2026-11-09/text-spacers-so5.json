@@ -1,0 +1,308 @@
+[
+ {
+  "site": "b2b",
+  "path": "/de/de/program/businesstogo",
+  "kind": "empty",
+  "after": "",
+  "before": "* Lufthansa Group BusinessToGo in Kooperation mit ",
+  "px1440": 24,
+  "px390": 24
+ },
+ {
+  "site": "b2b",
+  "path": "/de/de/program/businesstogo",
+  "kind": "empty",
+  "after": "tannien, der Schweiz und Österreich zur Verfügung.",
+  "before": "",
+  "px1440": 6,
+  "px390": 6
+ },
+ {
+  "site": "b2b",
+  "path": "/de/de/program/businesstogo",
+  "kind": "br",
+  "after": "tannien, der Schweiz und Österreich zur Verfügung.",
+  "before": "",
+  "px390": 48
+ },
+ {
+  "site": "b2b",
+  "path": "/de/de/travel-solutions/lufthansa-group-airlines",
+  "kind": "br",
+  "after": "queme Zubringerflüge zu den Lufthansa Drehkreuzen.",
+  "before": "Zu atemberaubenden Zielen The link will be opened ",
+  "px1440": 48,
+  "px390": 48
+ },
+ {
+  "site": "b2b",
+  "path": "/de/en/homepage",
+  "kind": "nbsp",
+  "after": " they create more possibilities for every journey.",
+  "before": "Explore the possibilities",
+  "px1440": 48,
+  "px390": 48
+ },
+ {
+  "site": "b2b",
+  "path": "/de/en/program/businesstogo",
+  "kind": "empty",
+  "after": "",
+  "before": "* Lufthansa Group BusinessToGo in partnership with",
+  "px1440": 24,
+  "px390": 24
+ },
+ {
+  "site": "b2b",
+  "path": "/de/en/program/businesstogo",
+  "kind": "empty",
+  "after": ", France, Germany, Switzerland and United Kingdom.",
+  "before": "",
+  "px1440": 6,
+  "px390": 6
+ },
+ {
+  "site": "b2b",
+  "path": "/de/en/program/businesstogo",
+  "kind": "br",
+  "after": ", France, Germany, Switzerland and United Kingdom.",
+  "before": "",
+  "px390": 48
+ },
+ {
+  "site": "b2b",
+  "path": "/xx/de/program/businesstogo",
+  "kind": "empty",
+  "after": "",
+  "before": "* Lufthansa Group BusinessToGo in Kooperation mit ",
+  "px1440": 24,
+  "px390": 24
+ },
+ {
+  "site": "b2b",
+  "path": "/xx/de/program/businesstogo",
+  "kind": "empty",
+  "after": "tannien, der Schweiz und Österreich zur Verfügung.",
+  "before": "",
+  "px1440": 6,
+  "px390": 6
+ },
+ {
+  "site": "b2b",
+  "path": "/xx/de/program/businesstogo",
+  "kind": "br",
+  "after": "tannien, der Schweiz und Österreich zur Verfügung.",
+  "before": "",
+  "px390": 48
+ },
+ {
+  "site": "b2b",
+  "path": "/xx/en/program/businesstogo",
+  "kind": "empty",
+  "after": "",
+  "before": "* Lufthansa Group BusinessToGo in partnership with",
+  "px1440": 24,
+  "px390": 24
+ },
+ {
+  "site": "b2b",
+  "path": "/xx/en/program/businesstogo",
+  "kind": "empty",
+  "after": ", France, Germany, Switzerland and United Kingdom.",
+  "before": "",
+  "px1440": 6,
+  "px390": 6
+ },
+ {
+  "site": "b2b",
+  "path": "/xx/en/program/businesstogo",
+  "kind": "br",
+  "after": ", France, Germany, Switzerland and United Kingdom.",
+  "before": "",
+  "px390": 48
+ },
+ {
+  "site": "brussels",
+  "path": "/ao/fr/legal-notices/aviation-services-law",
+  "kind": "empty",
+  "after": "his document apply in the following circumstances:",
+  "before": "You have a confirmed reservation on a flight opera",
+  "px1440": 20,
+  "gap1440": 52,
+  "px390": 16,
+  "gap390": 42
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/articles/the-gambia",
+  "kind": "nbsp",
+  "after": " as a tourist it's easy to engage in conversation.",
+  "before": "Fall in love with the nature and immerse yourself ",
+  "px1440": 44,
+  "px390": 40
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/contact/feedback",
+  "kind": "nbsp",
+  "after": " more information or help you voice your feedback.",
+  "before": "Rebooking",
+  "px1440": 44,
+  "px390": 40
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/contact/feedback/general/other",
+  "kind": "empty",
+  "after": "",
+  "before": "Flights from Spain: for claims made within the sco",
+  "px1440": 20,
+  "px390": 16
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/contact/feedback/general/other",
+  "kind": "empty",
+  "after": "d by AESA in ADR is binding for Brussels Airlines.",
+  "before": "Send",
+  "px1440": 4
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/legal-notices/privacy-notice-applicants",
+  "kind": "nbsp",
+  "after": "Last updated on 19.08.2025",
+  "before": "INTRODUCTION",
+  "px1440": 44,
+  "gap1440": 64,
+  "px390": 40,
+  "gap390": 56
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/legal-notices/privacy-notice-applicants",
+  "kind": "br",
+  "after": "u have about this policy, you can contact us here.",
+  "before": "PURPOSE AND LEGAL BASIS",
+  "px1440": 44,
+  "gap1440": 64,
+  "px390": 40,
+  "gap390": 56
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/legal-notices/privacy-notice-applicants",
+  "kind": "nbsp",
+  "after": "sen to include in the context of your application.",
+  "before": "2. Third Parties",
+  "px1440": 44,
+  "gap1440": 64,
+  "px390": 40,
+  "gap390": 56
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/legal-notices/privacy-notice-applicants",
+  "kind": "nbsp",
+  "after": " current aptitude tests for employment as a pilot.",
+  "before": "SECURITY WHEN DEALING WITH PERSON-RELATED DATA",
+  "px1440": 44,
+  "gap1440": 64,
+  "px390": 40,
+  "gap390": 56
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/legal-notices/privacy-notice-applicants",
+  "kind": "br",
+  "after": "ted by the EU Commission (article 45 of the GDPR).",
+  "before": "YOUR DATA PROTECTION RIGHTS AS AN APPLICANT",
+  "px1440": 44,
+  "gap1440": 64,
+  "px390": 40,
+  "gap390": 56
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/legal-notices/privacy-notice-applicants",
+  "kind": "nbsp",
+  "after": "regular mail (Rue de la presse 35, 1000 Brussels).",
+  "before": "",
+  "px1440": 44,
+  "px390": 40
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/legal-notices/short-notice-eu-us",
+  "kind": "empty",
+  "after": "",
+  "before": "",
+  "px1440": 20,
+  "px390": 16
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/legal-notices/short-notice-eu-us",
+  "kind": "br",
+  "after": "quest or see the Frequently Asked Questions (FAQ):",
+  "before": "Frequently asked questions regarding the transfer ",
+  "px1440": 44,
+  "gap1440": 64,
+  "px390": 40,
+  "gap390": 56
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/local-page/student-fares",
+  "kind": "br",
+  "after": "book student fares now.​Frequently Asked Questions",
+  "before": "Student fare benefits",
+  "px1440": 44,
+  "gap1440": 64,
+  "px390": 40,
+  "gap390": 56
+ },
+ {
+  "site": "brussels",
+  "path": "/be/fr/contact/feedback",
+  "kind": "nbsp",
+  "after": "formations ou de vous aider à exprimer votre avis.",
+  "before": "Nouvelle réservation",
+  "px1440": 44,
+  "px390": 40
+ },
+ {
+  "site": "brussels",
+  "path": "/be/fr/special-care/families-and-children",
+  "kind": "nbsp",
+  "after": "",
+  "before": "Prendre l’avion avec des enfants peut s’avérer fas",
+  "px1440": 44,
+  "px390": 40
+ },
+ {
+  "site": "brussels",
+  "path": "/be/fr/special-care/families-and-children",
+  "kind": "nbsp",
+  "after": "’atterrissage, nous avons tout ce qu’il vous faut.",
+  "before": "",
+  "px390": 40
+ },
+ {
+  "site": "brussels",
+  "path": "/be/fr/travel-classes/premium-economy",
+  "kind": "empty",
+  "after": "ges pour les bagages enregistrés est de 1 x 23 kg.",
+  "before": "",
+  "px1440": 4
+ },
+ {
+  "site": "brussels",
+  "path": "/il/en/rebooking-request-birthright",
+  "kind": "br",
+  "after": "",
+  "before": "This form is not supported by Internet Explorer. P",
+  "px1440": 44,
+  "px390": 40
+ }
+]

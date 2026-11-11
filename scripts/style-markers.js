@@ -198,7 +198,14 @@ export const THEMES = {
   austrian: { live: true, rules: ['intro-after-h1'], pageTypes: { flow: { headings: { h3: 'heading-small' } } } },
   // Brussels: flow pages set their H3s in heading-small (www: 72 %); a service page's H2s are the
   // default (www: 89 % unmarked, heading-medium; no longer heading-small)
-  brussels: { live: true, pageTypes: { flow: { headings: { h3: 'heading-small' } } } },
+  // textSpacers: a spacer of 31 px or less between two text elements (www's empty paragraph,
+  // nbsp-guard.mjs emptyParagraphSpacers) stays as {spacer-N} in the collapse (standing order 5
+  // of 2026-11-11, item 1; import time only, nothing served reads it)
+  brussels: {
+    live: true,
+    textSpacers: true,
+    pageTypes: { flow: { headings: { h3: 'heading-small' } } },
+  },
   // ITA: running text over the whole width
   // ITA: a section's H2 right before a teaser grid in heading-small (www's column view; DA: 923 of
   // 1,029 H2s before Carousel Cards, every one of 67 before Cards Icon; rows-for-ema-test row 1)

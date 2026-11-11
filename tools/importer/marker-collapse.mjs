@@ -949,7 +949,7 @@ function isBoldHeading(el) {
 function collapseSeparators(main, doc, stats, ctx) {
   // the page type's gaps the theme draws (THEMES rules: sections-m, rule-before-info-box,
   // ruled-chapters)
-  const { rules } = themeFor(ctx.brand, ctx.pageType);
+  const { rules, textSpacers = false } = themeFor(ctx.brand, ctx.pageType);
   const isSep = (el) => !!el && el.tagName === 'P' && SEPARATOR.test(textOf(el));
   const parse = (el) => textOf(el).match(SEPARATOR);
   // in block cells, or nested in any other element of the page (an importer's tab panel before
@@ -993,6 +993,17 @@ function collapseSeparators(main, doc, stats, ctx) {
       const atStart = !content(before) && now.slice(0, first).every((el) => !content(el));
       const atEnd = now.slice(lastAt + 1).every((el) => !content(el));
       const remove = () => run.els.forEach((el) => el.remove());
+      // a small space between two running-text elements (www's empty paragraph: nbsp-guard.mjs emptyParagraphSpacers)
+      // stays as one {spacer-N} on a theme with textSpacers (standing order 5 of 2026-11-11, item 1); the same on a second run
+      const prose = (el) => !!el && isRunningText(el) && !/^\s*\{[^}]*\}\s*$/.test(textOf(el));
+      if (size === 'none' && textSpacers && !tablet && prose(before) && prose(after)) {
+        const keep = doc.createElement('p');
+        keep.textContent = `{spacer-${px}}`;
+        run.els[0].before(keep);
+        remove();
+        count(stats, 'carrier', 'text-spacer', run.els.length);
+        return;
+      }
       if (size === 'none') { remove(); count(stats, 'theme', 'separator', run.els.length); return; }
       if (tablet) {
         const b = doc.createElement('div');

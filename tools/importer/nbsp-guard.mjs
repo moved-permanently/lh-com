@@ -87,3 +87,50 @@ export function emptyLineSpacers(html, { parse, size }) {
   flush();
   return out + html.slice(at);
 }
+
+// an empty paragraph without a no-break space (<p></p>, <p><br></p>): the framework drops it too
+// (spaces, tabs and line ends only: a no-break space is emptyLineSpacers' empty line)
+const EMPTY_PARA = /<p(?:\s[^>]*)?>((?:[ \t\n\r\f]|<br\s*\/?>)*)<\/p>/gi;
+const isEmptyPara = (p) => p.tagName === 'P' && [...p.children].every((c) => c.tagName === 'BR') && !(p.textContent || '').replace(/[ \t\n\r\f]/g, '');
+// the sibling before / after, a stray <br> between blocks passed over (Brussels' rich text: </p><br><p></p>)
+const neighbour = (el, dir) => { let n = el[dir]; while (n && n.tagName === 'BR') n = n[dir]; return n; };
+// a text paragraph (not a marker paragraph such as an empty line's {spacer-N}) or a list
+const isText = (el) => !!el && ((el.tagName === 'P' && !!(el.textContent || '').trim() && !/^\s*\{[^}]*\}\s*$/.test(el.textContent)) || /^(UL|OL)$/.test(el.tagName));
+
+/**
+ * www's empty paragraphs between two text paragraphs (standing order 5 of 2026-11-11, item 1; ema-cashub's row 2: Brussels'
+ * rich text): an empty <p></p> takes one paragraph margin on www, a <p><br></p> a line and a margin; the framework drops
+ * both. Each run of them whose neighbours are a text paragraph or a list (the same parent, not in a panel) as one spacing
+ * marker: {spacer-(emptySize)} for a run of empty ones, {spacer-(n x brSize)} for a run with n line breaks. The collapse keeps
+ * such a marker between two text elements on a theme with textSpacers (marker-collapse.mjs). A paragraph at a container's start
+ * or end takes nothing on www and stays out. String based, as emptyLineSpacers; without sizes the snapshot as it is.
+ */
+export function emptyParagraphSpacers(html, { parse, emptySize, brSize }) {
+  if (!emptySize && !brSize) return html;
+  const matches = [...html.matchAll(EMPTY_PARA)];
+  if (!matches.length) return html;
+  const { document } = parse(html);
+  const paras = [...document.querySelectorAll('p')].filter(isEmptyPara);
+  if (paras.length !== matches.length) return html;
+  // runs of consecutive empty paragraphs (siblings), with their text neighbours
+  const take = new Map(); // index of a run's first match -> { last, px }
+  for (let i = 0; i < paras.length; i += 1) {
+    let j = i;
+    while (j + 1 < paras.length && paras[j].nextElementSibling === paras[j + 1]) j += 1;
+    const first = paras[i];
+    const last = paras[j];
+    const run = paras.slice(i, j + 1);
+    const lines = run.filter((p) => p.querySelector('br')).length;
+    const px = lines ? lines * (brSize || 0) : (emptySize || 0);
+    if (px && isText(neighbour(first, 'previousElementSibling')) && isText(neighbour(last, 'nextElementSibling')) && !first.closest(IN_PANEL)) take.set(i, { last: j, px });
+    i = j;
+  }
+  if (!take.size) return html;
+  let out = '';
+  let at = 0;
+  take.forEach(({ last, px }, i) => {
+    out += `${html.slice(at, matches[i].index)}<p>{spacer-${px}}</p>`;
+    at = matches[last].index + matches[last][0].length;
+  });
+  return out + html.slice(at);
+}

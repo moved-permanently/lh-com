@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var tmp_bundle_fleet_37944_exports = {};
-  __export(tmp_bundle_fleet_37944_exports, {
-    default: () => tmp_bundle_fleet_37944_default
+  var tmp_bundle_fleet_228472_exports = {};
+  __export(tmp_bundle_fleet_228472_exports, {
+    default: () => tmp_bundle_fleet_228472_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -2646,7 +2646,14 @@ var CustomImportScript = (() => {
     austrian: { live: true, rules: ["intro-after-h1"], pageTypes: { flow: { headings: { h3: "heading-small" } } } },
     // Brussels: flow pages set their H3s in heading-small (www: 72 %); a service page's H2s are the
     // default (www: 89 % unmarked, heading-medium; no longer heading-small)
-    brussels: { live: true, pageTypes: { flow: { headings: { h3: "heading-small" } } } },
+    // textSpacers: a spacer of 31 px or less between two text elements (www's empty paragraph,
+    // nbsp-guard.mjs emptyParagraphSpacers) stays as {spacer-N} in the collapse (standing order 5
+    // of 2026-11-11, item 1; import time only, nothing served reads it)
+    brussels: {
+      live: true,
+      textSpacers: true,
+      pageTypes: { flow: { headings: { h3: "heading-small" } } }
+    },
     // ITA: running text over the whole width
     // ITA: a section's H2 right before a teaser grid in heading-small (www's column view; DA: 923 of
     // 1,029 H2s before Carousel Cards, every one of 67 before Cards Icon; rows-for-ema-test row 1)
@@ -5618,7 +5625,7 @@ var CustomImportScript = (() => {
     return kids.length === 1 && kids[0].nodeType === 1 && /^(STRONG|B)$/.test(kids[0].tagName) && !!textOf(kids[0]) && !kids[0].querySelector("a, img, picture");
   }
   function collapseSeparators(main, doc, stats, ctx) {
-    const { rules } = themeFor(ctx.brand, ctx.pageType);
+    const { rules, textSpacers = false } = themeFor(ctx.brand, ctx.pageType);
     const isSep = (el) => !!el && el.tagName === "P" && SEPARATOR.test(textOf(el));
     const parse8 = (el) => textOf(el).match(SEPARATOR);
     main.querySelectorAll(":scope > div > * p").forEach((p) => {
@@ -5655,6 +5662,15 @@ var CustomImportScript = (() => {
         const atStart = !content(before) && now.slice(0, first).every((el) => !content(el));
         const atEnd = now.slice(lastAt + 1).every((el) => !content(el));
         const remove = () => run.els.forEach((el) => el.remove());
+        const prose = (el) => !!el && isRunningText(el) && !/^\s*\{[^}]*\}\s*$/.test(textOf(el));
+        if (size === "none" && textSpacers && !tablet && prose(before) && prose(after)) {
+          const keep = doc.createElement("p");
+          keep.textContent = `{spacer-${px}}`;
+          run.els[0].before(keep);
+          remove();
+          count(stats, "carrier", "text-spacer", run.els.length);
+          return;
+        }
         if (size === "none") {
           remove();
           count(stats, "theme", "separator", run.els.length);
@@ -6021,7 +6037,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_fleet_37944_default = {
+  var tmp_bundle_fleet_228472_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -6061,5 +6077,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_fleet_37944_exports);
+  return __toCommonJS(tmp_bundle_fleet_228472_exports);
 })();
