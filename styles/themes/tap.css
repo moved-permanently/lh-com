@@ -4190,3 +4190,30 @@ body.brand-tap main > .section.section-tab-panel[data-tabs="categories"] > .defa
 body.brand-tap main > .section:has(+ .section.section-tabs + .section-tab-panel[data-tabs="categories"]) > .default-content-wrapper:last-child > h2:last-child {
   text-align: center;
 }
+
+/* TAP row 133, a feature card's footnote (complementaryNote): www's small print under the card's two columns,
+   text-body-s (14 px on a 24 px line, the body's colour; on phones under the text). The importer writes it as the
+   card's second row, one text cell (no other TAP feature card has such a row): the whole width, 8 px under the first
+   row. /en-pt/on-board/fly-business against tap-parity-002: the note at 1008 px at 1440 as www's (ours 988, in the
+   text cell, two lines), 1516 at 390 (www 1519); the page 5055 -> 5019 px at 1440 (www 4942), 8325 -> 8313 at 390
+   (www 8224) */
+body.brand-tap .columns-media:is(.feature, .feature-small):has(> .columns-media-row > .columns-media-text:only-child) {
+  row-gap: 8px;
+}
+
+body.brand-tap .columns-media:is(.feature, .feature-small) > .columns-media-row:has(> .columns-media-text:only-child) {
+  grid-template-columns: minmax(0, 1fr);
+  padding-bottom: 0;
+}
+
+/* (the note's cell and paragraphs named through their row: more specific than the feature cards' text rules) */
+body.brand-tap main .columns-media:is(.feature, .feature-small) > .columns-media-row:has(> .columns-media-text:only-child) > .columns-media-text {
+  padding-bottom: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- a feature card's note, never a Cards Teaser text (line 2975's) */
+body.brand-tap main .columns-media:is(.feature, .feature-small) > .columns-media-row:has(> .columns-media-text:only-child) > .columns-media-text > p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 24px;
+}

@@ -856,11 +856,15 @@ const HANDLERS = {
   },
   ComponentFeatureCardModel: (s, P) => {
     // its title an H3, as www's (330 of 331; the theme's TAP H3, parity 60)
-    const text = `${P.heading(3, s.title)}${P.cardRich(s.featureCardDescription)}${P.cardRich(s.complementaryNote)}${P.link(s.ctaUrl, s.ctaLabel, 'primary')}`;
+    const text = `${P.heading(3, s.title)}${P.cardRich(s.featureCardDescription)}${P.link(s.ctaUrl, s.ctaLabel, 'primary')}`;
     // www's size: large (536 x 275, the chevron frame) the option feature, default (260 x 180)
     // feature-small; the theme lays them out (brief 394)
     const size = s.size === 'large' ? 'feature' : 'feature-small';
-    P.block(`columns-media (${size})`, [s.switchImageToRight ? [text, P.img(s.image)] : [P.img(s.image), text]]);
+    // the footnote (complementaryNote): www's small print under the card's two columns (TAP row
+    // 133), the card's second row of one text cell (the theme draws it, tap.css)
+    const note = P.cardRich(s.complementaryNote);
+    const hasNote = !!note && !!note.replace(/<[^>]+>/g, '').replace(/&nbsp;|\s/g, '');
+    P.block(`columns-media (${size})`, [s.switchImageToRight ? [text, P.img(s.image)] : [P.img(s.image), text], ...(hasNote ? [[note]] : [])]);
   },
   ComponentInfoSectionModel: (s, P) => {
     // www: a picture beside an accordion of link groups; the picture, then the accordion
