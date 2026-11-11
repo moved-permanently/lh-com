@@ -2711,3 +2711,18 @@ Before it: standing order 4 was worked from 08:30 until the restart (09:00 UTC);
   improved de/de experts at 1440 (17.4 -> 16.0) and made the same page worse at 390 (20.2 -> 22.3); the video edges
   improved de/en celebrating at 1440 and made de/de celebrating at 1440 worse with the same template; the no-break
   spaces made the one page they touch worse at 390. No scope by page, template or width is clean.
+
+### Update 20:00 UTC
+
+- Fresh ranking at full height on our host (68 rows, after the tab-columns list went live): mean 16.20 % (16.52
+  before). Better: de/de experts/news 390 35.3 -> 22.7, corporates-start 1440 35.2 -> 29.2, meals-on-board 1440 23.5
+  -> 20.7, partner-plus-benefit 390 22.9 -> 21.0. Worse: de/en meals-on-board 390 20.0 -> 22.1 (+2.1), a row of the
+  tab-columns list my local check could not see (its tabs rendered closed there).
+- Cause of that row, shared by every B2B tab page: on phones www's tab accordion indents its label and its panel's
+  content 20 px on each side (meals-on-board, businesstogo, corporates-start at 390: text from x 42, ours from 22), so
+  www's text wraps into more lines. The old loose link lines' larger spacing had hidden it on meals-on-board. Not fixed
+  yet: the next change is that indent in styles/themes/b2b.css below 768 px, measured on every recorded tab page at 390
+  with the same rule.
+- Looked at and left: the second view start under lufthansa-group-airlines' heading (2 documents; route-network has
+  the same structure and a single start, so no theme rule can tell them apart); H2s in Columns Media cells (315
+  unmarked, 74 heading-small in the census: no structural default).
