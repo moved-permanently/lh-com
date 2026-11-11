@@ -3208,5 +3208,9 @@ follow when their run is through.
   needs the picker to work with fragment-loaded accordions (the inspiration pages are fragment pages), not tonight.- **On main:** f205aa9d (TAP 136; lint 0 before and after the rebase, the suite passing, smoke 0 differences on 14 hosts).
 - **TAP row 137:** the inspiration categories' countries as www's list beside the chosen country's articles (the FAQ
   picker's second level, now also in the inspiration fragments). Backwards-compatible (TAP's inspiration fragments only).
-  With rows 134 to 137 and the re-import, en-pt get-inspired at 1440 is 6,194 px against www's 5,582 (from 39,550).
+  With rows 134 to 137 and the re-import, en-pt get-inspired at 1440 is 6,194 px against www's 5,582 (from 39,550).- **TAP's inspiration page, where it stands:** main's code alone (rows 135 to 137) takes en-pt get-inspired from 39,550
+  to 19,942 px at 1440 and from 42,994 to 19,564 at 390; with the re-import of reimport-585-tap-inspiration-tabs.txt
+  (categories as tabs, and the phone sliders the live documents predate) drafts give 6,194 / 5,177 against www's 5,582 /
+  4,957. The list's header now names the phone sliders too.
 
+- **On main:** 8ceb28a5 (TAP 137; lint 0 before and after the rebase, 3598 pass 0 fail, smoke 0 differences on 14 hosts).

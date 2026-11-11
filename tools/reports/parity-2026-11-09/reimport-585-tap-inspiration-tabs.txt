@@ -4,8 +4,13 @@
 # re-import, reimport-tap-488-inspire); with fragments, as before (the pages are over the content bus's limits).
 # Expected change per row: the page document only: one section per category (its heading and its fragment blocks) with
 # Tab = the category's label and Tabs = categories; the fragment documents (/<locale>/fragments/<page>/…) unchanged.
-# Measured with a draft of en-pt's document on our host (the shared tabs' closed-item class in place): 1440 39,550 ->
-# 8,321 px, 390 42,994 -> 9,311 (www 5,582 / 4,957, tap-parity-004 tonight). Nothing imported or uploaded here.
+# The live documents also predate the importer's phone-slider option for www's swiped card lists (mobileType slider):
+# the re-import brings it on the page's three card lists ("Discover Portugal", "The best tips for your trip", "Discover
+# what we have on offer"; one card a view on phones, as www's).
+# Measured with drafts of en-pt's document on our host, with main's code (the shared tabs' closed-item class, rows 136
+# and 137): the categories as tabs 1440 39,550 -> 6,194, 390 42,994 -> 9,311; with the phone sliders too, 390 -> 5,177
+# (www 5,582 / 4,957, tap-parity-004 tonight). Before the re-import, main's code alone (row 137's country lists in every
+# category) already gives 19,942 / 19,564. Nothing imported or uploaded here.
 /en-pt/destinations/get-inspired
 /pt-pt/destinos/inspire-se
 /pt-br/destinos/inspire-se
