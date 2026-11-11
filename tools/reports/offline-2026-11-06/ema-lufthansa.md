@@ -3175,5 +3175,15 @@ follow when their run is through.
 - **TAP row 133** (open, importer): a feature card's footnote, see above.
 - **Classified (Cargo's phone pages, +2 to +3.4 %):** ebooking-info's step cards and headings differ by a few px each
   where the text wraps (our brand font against www's older LufthansaTextWeb, row 49's decision); no single rule.- **AD row 101:** an H2 in a lead's (columns-media news) text at the text's size as www's DescritionNews rich text
-  (backwards-compatible: theme; every news block on the destination pages).
+  (backwards-compatible: theme; every news block on the destination pages).- **AD row 102:** the importer writes a text-only DescritionNews (no picture, no subtitle) as a one-cell columns-media
+  (news), as www draws it (backwards-compatible: tooling only). Re-import list reimport-585-ad-news-text.txt, 22 documents
+  (london-eu at 390 within 0.2 % of www with it).
 
+- **On main:** 4dd0b125 (AD 101; lint 0 before and after the rebase, the suite passing, smoke 0 differences on 14 hosts).
+- **ita-snapshots-024** (1 page, 23:56 UTC; 38,542 bytes, 8b93bf762e5c4cc4c794d165a73687a8a70a7a595bcaab583c1990611158feef):
+  /nl/nl/manage-my-bookings/partners/airport-transfer, the one row missing from ita-snapshots-023; offline it gives
+  two-up. So all 73 two-up rows of the 82 now have a snapshot that gives it (the other 9 are three-card views on www).
+  On our host at 01:00 UTC 38 of the 872 two-up documents still lacked it (the harness's jobs 585-ita-two-up-* were
+  running); travel-insurance is now 3,084 at 1440 against www's 3,091.
+- **Air Dolomiti's re-imported news pages** (reimport-567-ad-description-news.txt, on our host since tonight): london-eu
+  1440 7,483 (www 7,514), basel-de 390 12,010 (12,014) against tonight's airdolomiti-parity-005.

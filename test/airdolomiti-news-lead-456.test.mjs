@@ -54,6 +54,11 @@ test('without a picture: its title and text in the page, as before', () => {
   assert.ok(!html.includes('columns-media news'));
 });
 
+test('the night of 2026-11-10 (AD row 101): without a picture and without a subtitle, the text a columns-media (news) of its own (www\'s DescritionNews text: 19.44 / 33 in its 50vw column)', () => {
+  const { html } = convert(withBlocks([{ name: 'lazyblock/description-news', attributes: { subtitle: '', description: '<h2><strong>Unmissable London attractions</strong></h2><p>A visit to London.</p>', backgroundImage: '' } }]), HOME);
+  assert.match(html, /<div class="columns-media news"><div><div><h2[^>]*><strong>Unmissable London attractions<\/strong><\/h2><p>A visit to London\.<\/p><\/div><\/div><\/div>/);
+});
+
 const css = readFileSync('styles/themes/airdolomiti.css', 'utf8');
 const N = 'body.brand-airdolomiti .columns-media.news';
 const body = (sel, from = 0) => {

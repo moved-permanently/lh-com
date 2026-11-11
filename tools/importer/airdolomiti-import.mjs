@@ -1038,6 +1038,10 @@ const HANDLERS = {
     // with its picture, www's DescritionNews: the picture across the page, the text under it (the
     // theme's option news; brief 456)
     if (im) page.block('columns-media (news)', [[im, text]]);
+    // without a picture and a subtitle, www's DescritionNews text alone (19.44 / 33 in its 50vw
+    // column, the destinations' first text; AD row 101): the block's text, one cell; with a
+    // subtitle (a page's first title, row 68) the text in the page as before
+    else if (!a.subtitle && text) page.block('columns-media (news)', [[text]]);
     else page.add(text);
   },
   'lazyblock/half-page': (a, page, b) => {
