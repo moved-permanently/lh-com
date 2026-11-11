@@ -358,3 +358,23 @@
     padding-bottom: 68px;
   }
 }
+
+/* lufthansa.com below 768px: a table of four or more columns keeps www's column width (about
+   200 px each: /de/en/data-collection-usa's country list shows "Andorra | Australia" at 390,
+   green-fare's fare tables the same) and scrolls sideways in its box (overflow: auto above), where
+   ours squeezed the columns and broke the words. Table cells ignore min-width: the table's, by
+   its widest row (brief 582). At 390: lufthansa-guide-service 15.6 -> 8.6 %,
+   security-check-time-slot 4.8 -> 4.6, unaccompanied-minors 5.5 -> 5.6, the others the same */
+@media (width < 768px) {
+  body.brand-lufthansa .table-striped:not(.matrix) table:has(tr > :nth-child(4)) {
+    min-width: 800px;
+  }
+
+  body.brand-lufthansa .table-striped:not(.matrix) table:has(tr > :nth-child(5)) {
+    min-width: 1000px;
+  }
+
+  body.brand-lufthansa .table-striped:not(.matrix) table:has(tr > :nth-child(6)) {
+    min-width: 1200px;
+  }
+}
