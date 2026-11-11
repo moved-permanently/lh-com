@@ -13,7 +13,8 @@
 # Drafts with main's code: en-pt 1440 2,866 (-1.3 %), 390 3,260 (-8.5 %: our regions all closed on phones, www opens the
 # first region under its pills: TAP parity row 148, code, no document change). The page as published now, with
 # 074e9b60: 7,029 / 8,054 (25,426 / 31,895 before).
-# READY: the recording agrees at 1440; at 390 the rest is row 148's.
+# READY: the recording agrees at 1440; at 390 the rest was row 148's, done in code since (the categories' pills and the
+# first region on phones too): en-pt 390 3,531 (-0.9 %).
 # Run then: tap-import.mjs as for reimport-so11-tap-inspiration-it.txt, --only <these paths>; upload the page documents.
 # Columns: document, status, expected change.
 /es-es/stopover/socios	READY	one tab a region (row 134), the regions' fragments unchanged; draft 1440 2,866 px, 390 3,395 (en-pt www 2,903 / 3,564)

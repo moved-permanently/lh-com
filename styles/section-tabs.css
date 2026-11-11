@@ -154,6 +154,22 @@ main .section.section-tab-part[hidden],
   }
 }
 
+/* a set that stays tabs below 768px (section-tabs.js TAB_SETS_ON_PHONES): its tab list at every
+   width, no toggles */
+.section-tabs.section-tabs-always .section-tabs-list {
+  display: flex;
+}
+
+.section-tab-panel.section-tab-always > .section-tab-toggle {
+  display: none;
+}
+
+@media (width < 768px) {
+  main > .section.section-tabs.section-tabs-always {
+    display: block;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .section-tab-panel > .section-tab-toggle::after {
     transition: none;

@@ -7,7 +7,8 @@
  * aria-controls and a roving tabindex; arrow keys, Home and End select and focus; the panels
  * role tabpanel, aria-labelledby, the others hidden), shown from 768px; below 768px each panel is
  * an accordion item (a toggle with aria-expanded over it, the first open; on brands b2b and
- * discover all closed, as www's). A deep link (#id) into
+ * discover all closed, as www's; a brand's sets named in TAB_SETS_ON_PHONES stay tabs, TAP's
+ * categories). A deep link (#id) into
  * a panel selects its tab. A section with the same `Tab` label (and set) as the one before it is a
  * part of that panel (www.austrian.com's austrian-app: a panel's text, then its image in a
  * full-bleed section; a grey box inside a panel): shown and hidden with the panel, its own section
@@ -22,6 +23,10 @@ const DESKTOP = '(width >= 768px)';
 // four_y, the sweep after brief 470; www.flytap.com's content tabs, tap-parity-001/-002 at 390);
 // the others open the first
 const CLOSED_BRANDS = ['b2b', 'discover', 'tap'];
+// the sets that stay tabs below 768px too (their tab list, one panel at a time, no toggles), by
+// brand and set name: www.flytap.com's CategoryAccordion keeps its pills on phones, the first
+// category shown under them (the stopover partners and inspiration pages, TAP row 148)
+const TAB_SETS_ON_PHONES = { tap: ['categories'] };
 let setCount = 0;
 
 /**
@@ -50,7 +55,7 @@ function setsOf(main) {
     if (last && String(last[0].dataset.tab).trim() === String(label).trim()) last.push(section);
     else current.panels.push([section]);
   });
-  return sets.map((s) => Object.assign(s.panels, { open: s.open }));
+  return sets.map((s) => Object.assign(s.panels, { open: s.open, name: s.name }));
 }
 
 function button(className, text) {
@@ -114,17 +119,23 @@ function buildSet(groups) {
   });
 
   const media = window.matchMedia(DESKTOP);
+  const brand = getMetadata('brand').trim().toLowerCase();
+  const always = (TAB_SETS_ON_PHONES[brand] || []).includes(String(groups.name || '').trim().toLowerCase());
+  if (always) {
+    nav.classList.add('section-tabs-always');
+    tabs.forEach(({ panel, parts }) => [panel, ...parts].forEach((x) => x.classList.add('section-tab-always')));
+  }
   let active = 0;
   // below 768px the first item open, or none on the closed brands; a page's own "Tabs open"
   // metadata (first | none) wins (B2B's meals-on-board and Allegris pages open the first)
   const pageOpen = getMetadata('tabs-open').trim().toLowerCase();
-  let open = CLOSED_BRANDS.includes(getMetadata('brand').trim().toLowerCase()) ? -1 : 0;
+  let open = CLOSED_BRANDS.includes(brand) ? -1 : 0;
   if (pageOpen === 'first') open = 0;
   if (pageOpen === 'none') open = -1;
   // the set's own option on its Tabs row wins
   if (groups.open === 0 || groups.open === -1) open = groups.open;
   const render = () => {
-    const desktop = media.matches;
+    const desktop = always || media.matches;
     tabs.forEach(({
       tab, toggle, panel, parts,
     }, i) => {
