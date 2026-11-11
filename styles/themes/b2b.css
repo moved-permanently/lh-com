@@ -176,6 +176,16 @@ body.brand-b2b main .carousel-cards-wrapper + .carousel-cards-wrapper > .carouse
   margin-top: 0;
 }
 
+/* a teaser grid that mixes cards with and without a picture keeps www's three columns from 1025 px
+   (the base rule makes a grid with a text-only card two-up, for lufthansa.com's login cards):
+   ch/en discover-airlines' "Entertainment on board" (census: also de/en discover-airlines' market
+   rows and mx/en news). Standing order 5, item 2: ch/en discover-airlines 1440 37.11 -> 15.50 % */
+@media (width >= 1025px) {
+  body.brand-b2b .carousel-cards.grid:not(.two-up, .four-up) .carousel-cards-track:has(> .carousel-cards-text-only):has(> :not(.carousel-cards-text-only)) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 body.brand-b2b main .default-content-wrapper > p.column-mark.column-end-outer + :is(h1, h2, h3, h4, h5, h6) {
   margin-top: 20px;
 }

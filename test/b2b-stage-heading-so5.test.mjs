@@ -70,3 +70,9 @@ test('below 768 px: no section space between a section and the tab set after it'
   assert.equal(at > 0 && media > 0 && between.split('{').length - between.split('}').length === 1, true, 'inside the phone media block');
   assert.match(css.slice(at), /body\.brand-b2b main > \.section:has\(\+ \.section\.section-tabs\) > \.default-content-wrapper:last-child > p\.spacer:last-child \{\n {4}display: none;\n {2}\}/);
 });
+
+test('from 1025 px: a teaser grid mixing cards with and without a picture keeps three columns', () => {
+  const at = css.indexOf('/* a teaser grid that mixes cards with and without a picture');
+  assert.equal(at > 0, true);
+  assert.match(css.slice(at), /@media \(width >= 1025px\) \{\n {2}body\.brand-b2b \.carousel-cards\.grid:not\(\.two-up, \.four-up\) \.carousel-cards-track:has\(> \.carousel-cards-text-only\):has\(> :not\(\.carousel-cards-text-only\)\) \{\n {4}grid-template-columns: repeat\(3, minmax\(0, 1fr\)\);/);
+});
