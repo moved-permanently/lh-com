@@ -3483,3 +3483,16 @@ passing, git show --stat checked against the files given, smoke 0 differences on
 the GitHub Build read). No call of da-upload.mjs, no DA or preview API, no request to an airline host; recordings from
 the drop and our own host only. Nothing uploaded, previewed or published.
 
+## Standing order 4 of 2026-11-11 (from about 20:40 CET to 06:00 CET Thursday)
+
+- **Left from the last turn:** nothing unpushed; `.migration/project.json` modified (not mine). bb642f0e's checks (not
+  in its own report lines): npm run lint exit 0 before and after the rebase, stylelint 0, 3651 pass 0 fail, git show
+  --stat 4 files as given, GitHub Build success; smoke 0 differences on all 14 hosts, five of them after a re-run (b2b
+  and the three lufthansa hosts failed on the network in the after-run, ITA's before-run did: ITA compared with ship
+  b's answers). origin/main checked: bb642f0e on it.
+- **Live check of row 107 (the destination hubs, round 254):** 1440 3633 / 4696 / 4812 against www's 3626 / 4677 /
+  4793; 390 6421 / 9917 / 10416 against 6393 / 9699 / 10151 (left for the ranking: no stage on those pages).
+- **Air Dolomiti row 107 c (item 1):** the footer's room for the price bar only where the stage has its card (the
+  flights-to-Europe hubs' ReachMonaco stage has neither card nor bar; www keeps no room there). 390 6743 -> 6603 (www
+  6643), 6264 -> 6124 (6131), 6860 -> 6720 (6745); at 1440 the pages now 1 to 2.6 % short (the padding hid it): next.
+

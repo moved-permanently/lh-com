@@ -4393,10 +4393,12 @@ body.brand-airdolomiti main > .section.hero-campaign-container + .section:has(> 
  * margin-bottom). Every stage with the option (www's HeroSecond with its box: the destinations' and the
  * articles' "Fly with us"; not the flights-to-Europe stage, a hero-campaign). The page's foot 140px (15vh +
  * 30px from 530px) longer under the footer, as www's body padding on those pages (the bar never over the
- * footer's end; the brand's rules start at its body class, so the room is the footer's padding). * The stage a stacking context over the sections after it (z-index 4: under the search lists, 5 and 10,
+ * footer's end; the brand's rules start at its body class, so the room is the footer's padding); only where the
+ * stage has its card, so the bar (AD row 107 c: the flights-to-Europe hubs' ReachMonaco stage has none, www no room).
+ * The stage a stacking context over the sections after it (z-index 4: under the search lists, 5 and 10,
  * and the header)
  */
-body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination) ~ footer {
+body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card) ~ footer {
   padding-bottom: 140px;
 }
 
@@ -4473,7 +4475,7 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-car
 }
 
 @media (width >= 530px) {
-  body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination) ~ footer {
+  body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card) ~ footer {
     padding-bottom: calc(15vh + 30px);
   }
 }

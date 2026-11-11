@@ -15,7 +15,9 @@ const css = fs.readFileSync(new URL('../styles/themes/airdolomiti.css', import.m
 const base = css.replace(/@media[^{]*\{[\s\S]*?\n\}\n/g, '');
 const S = 'body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination';
 // (www's body padding; the brand's rules start at its body class: the footer's padding here)
-const BODY = 'body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination) ~ footer';
+// only where the stage has its card (and so the bar): the flights-to-Europe hubs' ReachMonaco stage has neither, and www
+// keeps no room under their footer (AD row 107 c, airdolomiti-parity-001 /voli-europa, /en/flights-europe, /de/fluege-in-europa)
+const BODY = 'body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card) ~ footer';
 const PRICE = `${S} .hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow, .hero-card-overlay-cta)`;
 // the declarations of the rules whose selector list holds sel (in scope), merged
 const decls = (scope, sel) => Object.fromEntries([...scope.matchAll(/([^{}]+)\{([^{}]*)\}/g)]
@@ -34,6 +36,7 @@ test('from 530 px: the bar fixed at the window\'s foot, 15vh, the price and the 
   assert.equal(decls(wide, S)['padding-bottom'], undefined, 'the stage keeps no room for the bar');
   assert.equal(decls(wide, BODY)['padding-bottom'], 'calc(15vh + 30px)');
   assert.equal(decls(base, BODY)['padding-bottom'], '140px');
+  assert.ok(!css.includes('main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination) ~ footer'), 'no room without the card');
   // the footer's box down to the company line under the band (it was outside it: the room would start 38 px early)
   assert.equal(decls(media('width >= 930px'), 'body.brand-airdolomiti footer .footer .footer-logos')['margin-bottom'], '38px');
   assert.deepEqual([decls(wide, `${S}::after`).position, decls(wide, `${S}::after`).height], ['fixed', '15vh']);
