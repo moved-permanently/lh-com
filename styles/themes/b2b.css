@@ -790,7 +790,9 @@ body.brand-b2b main > .section.grey {
   body.brand-b2b main > .section.section-tab-panel ~ .section:not(:has(*)) {
     display: none;
   }
+}
 
+@media (width < 768px) {
   /* www's collapsible insets a tab's label and its open content 20 px on each side (meals-on-board,
      businesstogo, corporates-start-of-booking at 390: the text at x 42, ours at 22), as lufthansa.com's
      (styles/section-tabs.css). Standing order 5, item 2, on the 26 recorded tab pages at 390: de/en
