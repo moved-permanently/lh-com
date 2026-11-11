@@ -4,8 +4,9 @@
  * picture right from 768 px), DA's copy plus the delta, not a new import (standing order 5 of 2026-11-11, item 2:
  * businesstogo's four panels, de/de, de/en, xx/de, xx/en; www's text in the left half beside the picture, DA's text
  * full width over a full-width picture). Per tab section (data-tab, a section with a Tab row) whose own content is one or
- * more paragraphs, lists or headings and, last, one paragraph holding only a picture: that content becomes one
- * Columns Media row, the text in the first cell, the picture paragraph in the second. Everything else of the document
+ * more paragraphs, lists or headings and, last (or first), one paragraph holding only a picture: that content becomes
+ * one Columns Media row, the text in the first cell and the picture paragraph in the second (the picture first where it
+ * came first: the Allegris pages' HON Circle / Senators panels, www's picture left). Everything else of the document
  * stays as it is (the section, its metadata, the other sections). Idempotent (a panel that is a block already is left).
  *
  * Usage: node tools/importer/b2b-tab-picture-columns-apply.mjs --list paths.txt --docs <dir> --out <dir>
@@ -19,13 +20,18 @@ import { parseHTML } from 'linkedom';
 const TEXT = new Set(['P', 'UL', 'OL', 'H2', 'H3', 'H4', 'H5', 'H6']);
 const isPicturePara = (el) => !!el && el.tagName === 'P' && !!el.querySelector('picture') && !el.textContent.trim();
 
-/** A tab section's own content when it is text and one picture paragraph at its end, else null. */
+/**
+ * A tab section's own content when it is text and one picture paragraph at its end (www: the text left, the picture
+ * right) or at its start (the picture left), else null.
+ */
 const panelParts = (section) => {
   const kids = [...section.children].filter((k) => !k.matches('.section-metadata'));
+  if (kids.length < 2) return null;
+  const isText = (els) => els.every((e) => TEXT.has(e.tagName) && !e.querySelector('picture'));
   const last = kids[kids.length - 1];
-  if (kids.length < 2 || !isPicturePara(last)) return null;
-  const text = kids.slice(0, -1);
-  return text.every((e) => TEXT.has(e.tagName) && !e.querySelector('picture')) ? { text, picture: last } : null;
+  if (isPicturePara(last) && isText(kids.slice(0, -1))) return { text: kids.slice(0, -1), picture: last, pictureFirst: false };
+  if (isPicturePara(kids[0]) && isText(kids.slice(1))) return { text: kids.slice(1), picture: kids[0], pictureFirst: true };
+  return null;
 };
 
 /**
@@ -48,10 +54,11 @@ export function applyTabPictureColumns(html) {
     const row = document.createElement('div');
     const textCell = document.createElement('div');
     const mediaCell = document.createElement('div');
-    parts.text[0].before(block);
+    (parts.pictureFirst ? parts.picture : parts.text[0]).before(block);
     textCell.append(...parts.text);
     mediaCell.append(parts.picture);
-    row.append(textCell, mediaCell);
+    if (parts.pictureFirst) row.append(mediaCell, textCell);
+    else row.append(textCell, mediaCell);
     block.append(row);
     panels += 1;
   });
