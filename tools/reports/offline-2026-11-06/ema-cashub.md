@@ -2717,3 +2717,26 @@ homepages with the APIs) and -015 (`969792a7…`, the ten grey-rule kinds); sha2
 
 No upload, preview or publish. Every probe refused www.* (and, for the picker check, *.brusselsairlines.com) and
 counted it; none was made.
+
+## The brief after 594 (short)
+
+Start state: nothing of mine uncommitted or unpushed (`f0d38170`).
+
+- **The six skipped homepages (`e79aab27`).** On www all five recorded ones have the footer disclaimer at the page's end,
+  after the cards-icon section, as the other roots. Ours have the dialog text in the carousel-cards section; there is
+  no finder section. Simulated with that section as the source, the rules live, against the recordings:
+  - by/en, ru/en: +1.3 -> -1.0 % / +2.8 -> -2.1 %
+  - by/ru: +4.4 -> -0.5 % / +7.6 -> -1.6 %
+  - These three are READY, with the corrected instruction in the list header.
+  - ca/en (+1.0 -> -3.0 % / +2.1 -> -3.7 %) and ca/fr (-3.2 -> -7.6 % / -4.8 -> -11.6 %) stay as they are: they have no
+    fare teaser and no finder, the bands that make up for the removed text.
+  - ru/ru stays until recorded (capture row 94).
+- **The 50 patched homepages:** be/en live is 4722 / 5861 px, as simulated before the release.
+- **The real click on "General Conditions":** two layers cover the link.
+  - On load, the showcase notice is an open modal `<dialog>`; elementFromPoint at the link gives `dialog.showcase-notice`.
+  - After "I understand", OneTrust's dark filter of the cookie banner covers it instead.
+  - With both closed, the real click opens the dialog at 1440 and 390.
+  - No rule: both are meant to block the page until the visitor answers (the notice on demo hosts, the banner as on
+    www). The helper's check should close both first.
+- **lh-austrian's allowlist (`e79aab27`):** the pattern `^/[a-z]{2}/[a-z]{2}/fragments/modals/[a-z0-9-]+$` allows all
+  60 dialog documents (test/austrian-dialog-allowlist-594.test.mjs), nothing deeper.
