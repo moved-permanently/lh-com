@@ -2895,3 +2895,17 @@ drop and our own host only).
   reimport-582-green-fare-lh-com.txt (2 documents, info, the page now "Impact Fares").
 - **Still not captured:** be/de and dk/de automatic-check-in and pre-check-in (rows 2, 17), be/de cash-and-miles
   (row 6).
+- **Profile Tabs panels (03508b5, 03:52 CET):** the airport pages' text sits in a panel beside the sidebar
+  (948 px at 1440) and its limited-width narrowed it again to 626 px; www's fills the panel.
+  lufthansa-am-flughafen-frankfurt 18.9 -> 14.0 % at 1440, the two other recorded pages with the block the same.
+- **The fresh ranking's 60 worst page-widths re-measured at 04:10 CET (logs/b582/rerank-top2.tsv), with the
+  rules shipped since:** summed 1,356.2 -> 1,237.5 points, 12 better by a point or more, none worse:
+  loungenet first-class lounges 36.1 -> 28.1 (390) and 31.3 -> 8.3 (1440, both pages), advance-seat-reservation
+  22.5 -> 12.0, baggage-irregularities 18.3 -> 8.2, lufthansa-terminal-muenchen 19.7 -> 10.1, unterhaltung-an-bord
+  18.8 -> 14.8, lufthansa-am-flughafen-frankfurt 18.9 -> 14.0, green-fare 19.2 -> 4.6 (the helper re-imported it
+  from tonight's list), tags/allegris 22.8 -> 21.7, explore-flying 22.1 -> 20.6.
+- **Not yet re-imported at 04:15 CET:** the link-list and profile-nav flush lists (no marker on our host yet).
+- **Looked at, no single cause (not changed):** business-class-on-short-and-medium-haul, miles-and-more-credit-card,
+  take-off (pictures: www shows another Travel ID image), tips-senior-travellers (its grid comes from a column view
+  that a block takes, and such views get no marks by design: the view's 32 px padding is missing; the only
+  recorded page so).
