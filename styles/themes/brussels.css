@@ -1317,3 +1317,22 @@ body.brand-brussels .form.core .form-step:not(.form-step-plain, :has(> .form-ste
     padding-top: 56px;
   }
 }
+
+/* an accordion's panel text as www's (the brief after 593, item 4): in every Brussels recording www's accordion panels
+   hold plain paragraphs (920 of 944), 18 / 24 px (ours lh-com's faq 16 px), and on phones the panel 20 px in from
+   each side (ours 12). Measured with the rule added on the 35 recorded Brussels pages with an accordion: the pages
+   with open panels better at both widths (terms-of-use -4.4 -> +1.3 % / -12.9 -> -2.5 %, conditions of carriage
+   -6.6 -> -1.5 % / -15.8 -> -4.1 %, the two voucher conditions, problems-with-your-baggage -2.5 -> -0.7 % / -5.1 ->
+   -1.4 %), the others unchanged. www's wider panel text at 1440 (923 px from the column's edge) not taken: with it
+   four pages got worse */
+body.brand-brussels main .accordion-columns.faq .accordion-columns-panel :is(p, li) {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+@media (width < 768px) {
+  body.brand-brussels main .accordion-columns.faq .accordion-columns-panel {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
