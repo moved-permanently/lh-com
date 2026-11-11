@@ -1265,7 +1265,11 @@ export function deliveryMediaDirs(indexFile, top = '/tmp/lh-arch') {
 /** The media archives' files by every URL (and URL path) they were seen under. */
 export function mediaIndex(dirs) {
   const idx = new Map();
-  dirs.forEach((dir) => {
+  dirs.forEach((given) => {
+    // the call-back capture unpacked as it comes (tap-byside-001/byside/…): its byside folder
+    // (without it the click-to-call cards lost their Image rows, the held club pages of 2026-11-11)
+    const dir = !fs.existsSync(path.join(given, 'manifest.json')) && !fs.existsSync(path.join(given, 'click-to-call.json'))
+      && fs.existsSync(path.join(given, 'byside', 'click-to-call.json')) ? path.join(given, 'byside') : given;
     // a media archive's manifest, else the call-back capture's pictures (tap-byside-001)
     const m = readJson(path.join(dir, 'manifest.json'), null) || readJson(path.join(dir, 'click-to-call.json'), {}).pictures || [];
     (Array.isArray(m) ? m : m.files || []).forEach((e) => {

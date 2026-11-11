@@ -22,7 +22,9 @@
  * Usage: node tools/importer/tap-markets.mjs --archive <language pages archive> [...]
  *          --market-archive <market pages archive> [...] --media <media archive> [...]
  *          --sitemaps <sitemaps archive> [...] --pages tap-market-pages.json
- *          [--roots de-ch,fr-ca] [--name markets] [--dry-run]
+ *          [--roots de-ch,fr-ca] [--name markets] [--existing <DA copies>] [--dry-run]
+ *        (--existing: DA's documents saved read-only before the run, <doc>.html with DA's time,
+ *        curl -R; without it the local copies)
  *        (archives unpacked, in the index's order)
  */
 import fs from 'node:fs';
@@ -519,6 +521,164 @@ export function keepUncovered(html, existing, covered) {
   return { html: `${out.join('\n')}\n`, kept };
 }
 
+// the page's metadata block of a section (the document's last section holds it), '' without one
+const metadataOf = (sec) => {
+  const at = sec.indexOf('<div class="metadata">');
+  return at < 0 ? '' : topSections(sec.slice(at))[0];
+};
+// a section's own text: without its section metadata and the page's metadata
+const ownText = (sec) => {
+  const md = metadataOf(sec);
+  return sectionText(md ? sec.replace(md, '') : sec);
+};
+const sees = (sec, c) => {
+  const m = sectionMarkets(sec);
+  return m === null || marketAllows(m, c);
+};
+// a section that shows (want) or does not show a country; null: it shows no one any more
+function showFor(sec, c, want) {
+  const m = sectionMarkets(sec);
+  const items = m === null ? [] : marketItems(m);
+  const inc = items.filter((i) => !i.startsWith('-'));
+  let exc = items.filter((i) => i.startsWith('-'));
+  let list;
+  if (want) {
+    exc = exc.filter((i) => i !== `-${c}`);
+    list = inc.length && !inc.includes(c) ? [...inc, c] : inc;
+  } else if (inc.length) {
+    list = inc.filter((i) => i !== c);
+    if (!list.length) return null;
+  } else {
+    list = inc;
+    exc = [...exc, `-${c}`];
+  }
+  const value = [...sorted(new Set(list)), ...sorted(new Set(exc))].join(',');
+  if (value === (m || '')) return sec;
+  if (m !== null) return withMarkets(sec, value);
+  // an unmarked section: a Markets row into its section metadata, else a section metadata block
+  const at = sec.indexOf('<div class="section-metadata">');
+  const row = `<div><div>Markets</div><div>${value}</div></div>`;
+  if (at >= 0) return sec.replace('<div class="section-metadata">', `<div class="section-metadata">${row}`);
+  const md = metadataOf(sec);
+  const block = `<div class="section-metadata">${row}</div>`;
+  return md ? sec.replace(md, `${block}${md}`) : sec.replace(/<\/div>$/, `${block}</div>`);
+}
+
+/**
+ * A language document merged again shows the countries in `stale` what the existing copy (DA's)
+ * showed them: countries the run's captures do not hold a view of (unplaced) or hold one older
+ * than the existing copy (TAP's held documents of 2026-11-11: DA's US and Canada sections came
+ * from the market comparison's fetch of 2026-11-07, the drop's en-us / en-ca captures are of
+ * 2026-11-04). A merged section shows such a country exactly when the existing copy showed it a
+ * section with the same text; an existing section it saw that the merge lacks comes back for it
+ * (the countries that saw it as its Markets), after its predecessor's counterpart. The page's
+ * metadata stays in the last section. keepUncovered's countries (no root) are not this one's.
+ * @param {string} html the merged document
+ * @param {string} existing the existing document's HTML ('' without one)
+ * @param {string[]} stale the countries whose view the existing copy keeps
+ * @param {string[]} [audience] the countries the document is served to (the home market, the
+ *   roots'): a merged section this step hid from all of them goes (it would show no one)
+ * @returns {{html: string, kept: {countries: string[], how: string, text: string}[]}}
+ */
+export function keepStale(html, existing, stale, audience = null) {
+  const kept = [];
+  const xs = sorted(new Set((stale || []).map(lc)));
+  if (!existing || !xs.length) return { html, kept };
+  const ex = topSections(existing).filter((s) => ownText(s));
+  let out = topSections(html);
+  // the page's metadata apart (back as the last section's at the end)
+  const mdAt = out.findIndex((s) => metadataOf(s));
+  const md = mdAt >= 0 ? metadataOf(out[mdAt]) : '';
+  if (md) {
+    out[mdAt] = out[mdAt].replace(md, '');
+    if (out[mdAt] === '<div></div>') out.splice(mdAt, 1);
+  }
+  const seenBefore = new Map(xs.map((c) => [c, new Set(ex.filter((s) => sees(s, c)).map(ownText))]));
+  const note = (countries, how, sec) => {
+    if (countries.length) kept.push({ countries, how, text: ownText(sec).slice(0, 80) });
+  };
+  // 1. the merged sections: shown to a stale country exactly when it saw the same text before
+  out = out.flatMap((sec) => {
+    const t = ownText(sec);
+    if (!t) return [sec];
+    let s = sec;
+    const shown = [];
+    const hidden = [];
+    xs.forEach((c) => {
+      if (s === null) return;
+      const want = seenBefore.get(c).has(t);
+      if (sees(s, c) === want) return;
+      s = showFor(s, c, want);
+      (want ? shown : hidden).push(c);
+    });
+    note(shown, 'shown', sec);
+    note(hidden, 'hidden', sec);
+    if (s !== null && hidden.length && audience && !audience.map(lc).some((c) => sees(s, c))) s = null;
+    return s === null ? [] : [s];
+  });
+  // 2. the existing sections a stale country saw that no merged section shows it now
+  ex.forEach((sec, i) => {
+    const t = ownText(sec);
+    const missing = xs.filter((c) => sees(sec, c) && !out.some((o) => ownText(o) === t && sees(o, c)));
+    if (!missing.length) return;
+    const same = out.findIndex((o) => ownText(o) === t);
+    if (same >= 0) {
+      missing.forEach((c) => { out[same] = showFor(out[same], c, true); });
+      note(missing, 'shown', sec);
+      return;
+    }
+    let at = -1;
+    for (let k = i - 1; k >= 0 && at < 0; k -= 1) {
+      const tk = ownText(ex[k]);
+      for (let j = out.length - 1; j >= 0 && at < 0; j -= 1) if (ownText(out[j]) === tk) at = j;
+    }
+    const value = sorted(missing).join(',');
+    const m = sectionMarkets(sec);
+    let add = m !== null ? withMarkets(sec, value) : showFor(sec, missing[0], false);
+    if (m === null) add = withMarkets(add, value);
+    out.splice(at + 1, 0, add);
+    note(missing, 'section', sec);
+  });
+  if (!kept.length) return { html, kept };
+  if (md) {
+    // the metadata in an unmarked last section (never a market's, tap-import.mjs)
+    const last = out[out.length - 1];
+    if (last && sectionMarkets(last) === null) out[out.length - 1] = last.replace(/<\/div>$/, `${md}</div>`);
+    else out.push(`<div>${md}</div>`);
+  }
+  return { html: `${out.join('\n')}\n`, kept };
+}
+
+/**
+ * The countries keepStale gives the existing copy's view: every root country (and every country
+ * a view or group names) that no capture newer than the existing copy covers. A capture covers
+ * its root's country and, for the comparison's group whose first captured member it is
+ * (marketUnits takes that member's view for the group), the group's countries. Rule-derived and
+ * unplaced views of uncaptured roots are no newer than the captures they come from, so the
+ * existing copy's stay. Never the home market (the language page is the document's own).
+ * @param {{home: string, roots?: string[], views: {country: string, at?: string}[],
+ *   groups?: string[][], notes?: object[], at?: string|null}} o roots: the countries of the
+ *   language's roots with the page; at: the existing copy's time (null: every capture is newer)
+ * @returns {string[]}
+ */
+export function staleCountries({
+  home, roots = [], views = [], groups = [], notes = [], at = null,
+}) {
+  const h = lc(home);
+  const when = new Map(views.map((v) => [lc(v.country), v.at || '']));
+  const fresh = (c) => c === h || (when.has(c) && (!at || String(when.get(c)) >= String(at)));
+  // a country's view: its group's first captured member's, else its own capture's
+  const by = new Map();
+  groups.forEach((g) => {
+    const cs = g.map(lc);
+    const from = cs.find((c) => c === h || when.has(c));
+    if (from) cs.forEach((c) => { if (!by.has(c)) by.set(c, from); });
+  });
+  const unplaced = notes.filter((n) => n.kind === 'unplaced').flatMap((n) => (n.root ? [n.root] : n.countries || []));
+  const all = new Set([...roots, ...when.keys(), ...by.keys(), ...unplaced].map(lc));
+  return sorted([...all].filter((c) => c !== h && c !== OTHERS && !fresh(by.get(c) || c)));
+}
+
 /** A root's document with its links as its language version's (/en-us → /en-pt, www's en_us → en_pt). */
 export function rootLinks(html, r, lv) {
   const u = (x) => x.replace('-', '_');
@@ -597,13 +757,25 @@ async function main() {
   const all = (n) => argv.flatMap((a, i) => (a === `--${n}` ? [path.resolve(argv[i + 1])] : []));
   const opt = (n) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : null);
   const dry = argv.includes('--dry-run');
+  // DA's documents as saved before the run (read only: <dir>/<doc>.html as DA's source API gives
+  // it, or <dir>/<doc>.plain.html; the file's time is the copy's, curl -R keeps DA's
+  // Last-Modified), for a checkout without the local copies
+  const existingDir = opt('existing') ? path.resolve(opt('existing')) : null;
+  const existingOf = (doc, localFile) => {
+    const files = existingDir ? [`${doc}.html`, `${doc}.plain.html`].map((f) => path.join(existingDir, f)) : [];
+    const f = [...files, localFile].find((x) => fs.existsSync(x));
+    if (!f) return { html: '', at: null };
+    const raw = fs.readFileSync(f, 'utf8');
+    const inner = raw.match(/<main>([\s\S]*)<\/main>/);
+    return { html: inner ? inner[1].trim() : raw, at: fs.statSync(f).mtime.toISOString(), file: f };
+  };
   const name = opt('name') || 'markets';
   const pagesList = readJson(path.resolve(opt('pages') || ''), null);
   // the market comparison's root groups and own documents (market-groups.json)
   const comparison = withComparison(pagesList || {}, readJson(MARKET_GROUPS, {}));
   const list = pagesList && comparison.list;
   if (!all('archive').length || !all('market-archive').length || !list) {
-    console.log('usage: --archive <dir> ... --market-archive <dir> ... --media <dir> ... --sitemaps <dir> ... --pages tap-market-pages.json [--roots a,b] [--dry-run]');
+    console.log('usage: --archive <dir> ... --market-archive <dir> ... --media <dir> ... --sitemaps <dir> ... --pages tap-market-pages.json [--roots a,b] [--existing <dir>] [--dry-run]');
     process.exit(1);
   }
   const only = opt('roots') ? opt('roots').split(',') : null;
@@ -656,7 +828,9 @@ async function main() {
     const nd = ndOf(p);
     const page = nd.props.pageProps.page || {};
     const home = lv === 'pt-br' ? 'br' : lv.split('-')[1];
-    const vs = (views.get(doc) || []).filter((v) => v.page && ndOf(v.page)).map((v) => ({ country: v.country, root: v.root, units: unitsOf(ndOf(v.page)) }));
+    const vs = (views.get(doc) || []).filter((v) => v.page && ndOf(v.page)).map((v) => ({
+      country: v.country, root: v.root, at: v.page.at, units: unitsOf(ndOf(v.page)),
+    }));
     // the markets of the roots that have the page (their sitemaps) and that the page's rules allow
     const pm = pageMarkets(page, rules);
     const rest = doc.slice(lv.length + 1);
@@ -694,12 +868,23 @@ async function main() {
       vf.fragments.forEach((x) => { write(x.doc, x.html); langFragments.push(x.doc); });
       continue;
     }
-    // the countries no root of the language covers keep the local copy's sections (brief 468)
-    const keep = keepUncovered(html, fs.existsSync(localFile) ? fs.readFileSync(localFile, 'utf8') : '', [home, ...countries, ...vs.map((v) => v.country)]);
-    html = keep.html;
+    // the existing copy: DA's as saved (--existing), else the local copy (brief 468)
+    const prior = existingOf(doc, localFile);
+    // the countries no root of the language covers keep the existing copy's sections (brief 468)
+    const covered = [home, ...countries, ...vs.map((v) => v.country)];
+    const keep = keepUncovered(html, prior.html, covered);
+    // the countries whose view no capture holds (unplaced) or only one older than the existing
+    // copy keep the existing copy's view (the held TAP documents of 2026-11-11)
+    const older = staleCountries({
+      home, roots: countries, views: vs, groups: comparison.groupsOf(doc), notes: merged.notes, at: prior.at,
+    }).filter((c) => covered.map(lc).includes(c));
+    // compared as written: the existing copy is collapsed (collapseTap is idempotent, write collapses)
+    const kept2 = keepStale(older.length && prior.html ? collapseTap(keep.html, doc) : keep.html, prior.html, older, covered);
+    html = kept2.html;
     (report.languages[lv] ||= {})[doc] = {
       sections: marked.map((u) => ({ component: keyOf(u), variation: u._variation, markets: u.__markets })),
       ...(keep.kept.length ? { kept: keep.kept } : {}),
+      ...(kept2.kept.length ? { keptStale: kept2.kept, stale: older, existingAt: prior.at } : {}),
       pageMarkets: pm,
       merged: vs.map((v) => v.root),
       notes: merged.notes,
