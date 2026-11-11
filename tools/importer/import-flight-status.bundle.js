@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-flight-status.js
-  var tmp_bundle_flight_status_228472_exports = {};
-  __export(tmp_bundle_flight_status_228472_exports, {
-    default: () => tmp_bundle_flight_status_228472_default
+  var tmp_bundle_flight_status_80765_exports = {};
+  __export(tmp_bundle_flight_status_80765_exports, {
+    default: () => tmp_bundle_flight_status_80765_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -4670,16 +4670,22 @@ var CustomImportScript = (() => {
   var NBSP_ALL = /\u00a0/g;
   var NBSP_BLANK = /^[\s\u00a0]*$/;
   var NBSP_SKIP_TAGS = /* @__PURE__ */ new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEMPLATE"]);
+  var HEADING_TAGS = /* @__PURE__ */ new Set(["H1", "H2", "H3", "H4", "H5", "H6"]);
+  var SPACE_RUN = /(?: |\u00a0|\u2007|&nbsp;|&#160;|&#xa0;|&#8199;|&#x2007;|&numsp;)+/gi;
+  var HAS_NB = /\u00a0|\u2007|&nbsp;|&#160;|&#xa0;|&#8199;|&#x2007;|&numsp;/i;
+  var headingText = (text) => String(text).replace(SPACE_RUN, (run) => HAS_NB.test(run) ? " " : run);
   function guardNbsp(root) {
-    const visit = (el) => {
+    const visit = (el, inHeading) => {
       if (!el || NBSP_SKIP_TAGS.has(el.tagName) || NBSP_BLANK.test(el.textContent || "")) return;
+      const heading = inHeading || HEADING_TAGS.has(el.tagName);
       [...el.childNodes].forEach((n) => {
         if (n.nodeType === 3) {
-          if (n.nodeValue.includes("\xA0")) n.nodeValue = n.nodeValue.replace(NBSP_ALL, NBSP_STAND_IN);
-        } else if (n.nodeType === 1) visit(n);
+          if (!n.nodeValue.includes("\xA0")) return;
+          n.nodeValue = heading ? headingText(n.nodeValue) : n.nodeValue.replace(NBSP_ALL, NBSP_STAND_IN);
+        } else if (n.nodeType === 1) visit(n, heading);
       });
     };
-    visit(root);
+    visit(root, false);
     return root;
   }
 
@@ -4795,7 +4801,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_flight_status_228472_default = {
+  var tmp_bundle_flight_status_80765_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -4835,5 +4841,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_flight_status_228472_exports);
+  return __toCommonJS(tmp_bundle_flight_status_80765_exports);
 })();

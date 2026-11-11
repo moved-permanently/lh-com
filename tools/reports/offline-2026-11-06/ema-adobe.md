@@ -3085,3 +3085,67 @@ on the ten hosts the same before and after.
 
 Left out of git: logs/b596 (scripts, captures, censuses: working material) and the item 2 trial in
 /tmp/wt-596 (half-done, measured worse).
+
+### Brief 597 (2026-11-11 ~23:15 CET): heading ids and www's no-break spaces
+
+The helper's finding holds. Since the no-break space guard (6a61397, 2026-11-09), www's U+00A0 also reaches headings.
+Edge Delivery makes a heading's id from its text with github-slugger: only a plain space becomes `-`, a no-break space is
+dropped. "Sitzpläne&nbsp;Airbus A320-200" got `sitzpläneairbus-a320-200`, while the page's jump link (www's `#seatmaps`,
+rewritten by lufthansa-cleanup's rewriteAnchors from the text with plain spaces) points to `#sitzpläne-airbus-a320-200`.
+DA's html2md drops a document's own id attributes, so only the text decides.
+
+**The rule** (tools/importer/nbsp-guard.mjs): in a heading's text, a run of spaces holding a no-break space is one plain
+space. Everywhere else the no-break spaces stay as before.
+- guardNbsp writes it so in www's headings, before the framework's steps (the cleanup's anchors are made from the same text).
+- restoreNbsp applies it to every heading of a written document: a heading a parser built from guarded text, and any
+  document da-upload sends. A file's own id that the framework made from the old text follows the new text (a hand-made
+  id stays).
+- The 14 import bundles were rebuilt; they differ from main only in nbsp-guard's lines.
+- test/nbsp-heading-ids-597.test.mjs, on slices of /de/de/320's snapshot (test/fixtures/nbsp-heading-ids-597): the
+  heading texts, the jump link, and the pipeline's ids (aem-cli's slugger, where installed) with every anchor resolving.
+  Running text keeps its no-break spaces. With main's guard the fleet test fails (the heading keeps U+00A0).
+  test/nbsp-guard-530.test.mjs: its heading case now expects the plain space.
+- Offline import of /de/de/320 (offline-importer copy, snapshot only): main's bundle gives
+  `sitzpläneairbus-a320-200` and `sitzplänedes-airbus-a320-200-zum-download`, and the jump link misses. This change gives
+  `sitzpläne-airbus-a320-200` and `sitzpläne-des-airbus-a320-200-zum-download`, and the jump link resolves. No
+  no-break space outside headings was lost (there are none on that page).
+
+**www's look.** The anchors and www's line breaks cannot both come from the text alone. The id needs a U+0020, and Chrome
+breaks after a U+0020 even with a word joiner (U+2060) next to it: measured on brussels.turnsthe.page and
+lufthansa.turnsthe.page, the word joiner wrapped exactly like a plain space. So the rule gives up the no-break look in
+headings, as the importer did before 2026-11-09 and as the helper's hand fix did.
+- Measured on our live hosts at 1440/768/390: 14 documents wrap a heading differently with plain spaces.
+  - Cash & Miles (6 markets, 390): "Cash & / Miles".
+  - The four German Allegris start-of-booking pages (768): a dash starts a line.
+  - Brussels student-fares (390): a colon alone. Brussels checked-baggage (390).
+  - TAP inspirez-vous (768): a "!" alone.
+  - flight-disruptions /ca/en (390).
+- One wraps better: /az/en/europa-tarife-economy-class, where www puts no-break spaces between every word of an h3
+  and ours breaks "optio / n".
+- Two ways to keep the look, for your decision:
+  - Keep U+00A0 in the documents and let lufthansa-cleanup write the anchors as the pipeline's ids
+    (`#sitzpläneairbus-a320-200`). All in the importer, but the ids change from the form that is live now.
+  - Keep U+00A0, and have scripts.js re-id such headings at decoration. It already cuts marker suffixes off ids and
+    scrolls to the hash after the sections load. That is site code.
+
+**Published documents the rule changes** (tools/reports/parity-2026-11-09/reimport-597-heading-nbsp.txt):
+- I checked the 3,206 documents uploaded on any site since the guard. .plain.html on aem.live and aem.page are the same
+  for all of them.
+- 67 have a no-break space in a heading: lh-com 42, lh-b2b 13, lh-tap 6, lh-austrian 3, lh-brussels 2, lh-swiss 1. The
+  rule changes the ids of 54 of them, when they are re-imported or uploaded.
+- No anchor that resolves today would stop resolving.
+- **READY, 4 broken today** (an in-page anchor misses):
+  - lh-austrian /es/es/plan/special-requirements/travelling-with-animals
+  - lh-brussels /be/fr/local-page/student-fares
+  - lh-com /de/en/book-and-manage/flights/giftvoucher (3 links to its FAQ)
+  - lh-com /ca/en/flight-disruptions
+  - headingSpaces on their DA sources (read with GET only) changes 1 or 2 heading lines each, and every anchor then
+    resolves.
+
+Note for the next ranking: the travel-class pages of reimport-582-profile-nav-flush-lh-com.txt have been live since round
+237 (2026-11-11 05:44 CET). My standing order 4 section counted them as waiting, which was wrong; measure them on the live
+host first.
+
+Left out of git: logs/b597 (the census scripts and TSVs, the four DA sources read and their ruled copies, the
+look-check script). The offline import workspaces are under /tmp. The untracked tools/importer/reports/ folders are earlier
+import runs' generated reports, not this brief's.

@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var tmp_bundle_homepage_228472_exports = {};
-  __export(tmp_bundle_homepage_228472_exports, {
-    default: () => tmp_bundle_homepage_228472_default
+  var tmp_bundle_homepage_80765_exports = {};
+  __export(tmp_bundle_homepage_80765_exports, {
+    default: () => tmp_bundle_homepage_80765_default
   });
 
   // tools/importer/parsers/flash-teaser.js
@@ -345,15 +345,15 @@ var CustomImportScript = (() => {
       content.push(p);
     }
     const headingSource = card.querySelector(".display-text, h1, h2, h3");
-    const headingText = visibleText(headingSource);
-    if (headingText) {
+    const headingText2 = visibleText(headingSource);
+    if (headingText2) {
       const h = document.createElement(headingSource && /^H[1-3]$/.test(headingSource.tagName) ? headingSource.tagName : "h2");
-      h.textContent = headingText;
+      h.textContent = headingText2;
       content.push(h);
     }
     card.querySelectorAll(".mst-text, .mst-description, .mst-card p").forEach((t) => {
       const text = visibleText(t);
-      if (text && text !== eyebrowText && text !== headingText) {
+      if (text && text !== eyebrowText && text !== headingText2) {
         const p = document.createElement("p");
         p.textContent = text;
         content.push(p);
@@ -556,13 +556,13 @@ var CustomImportScript = (() => {
     }
     addRow("Conditions", conditions);
     const headline = element.querySelector("maui-headline, h2, h3");
-    const headingText = visibleText(headline) || clean3(props.headline);
+    const headingText2 = visibleText(headline) || clean3(props.headline);
     const block = WebImporter.Blocks.createBlock(document, { name: "fare-teaser", cells });
-    if (headingText) {
+    if (headingText2) {
       const type = attr(headline, "type").toLowerCase();
       const level = /^h[1-6]$/.test(type) ? type : headline && /^H[1-6]$/.test(headline.tagName) ? headline.tagName.toLowerCase() : "h2";
       const heading = document.createElement(level);
-      heading.textContent = headingText;
+      heading.textContent = headingText2;
       element.replaceWith(heading, block);
     } else {
       element.replaceWith(block);
@@ -1253,10 +1253,10 @@ var CustomImportScript = (() => {
     }
     const out = [];
     const headline = finder.querySelector('maui-headline[type="h1"]') || finder.querySelector("maui-headline");
-    const headingText = visibleText(headline);
-    if (headingText) {
+    const headingText2 = visibleText(headline);
+    if (headingText2) {
       const h1 = document.createElement("h1");
-      h1.textContent = headingText;
+      h1.textContent = headingText2;
       out.push(h1);
     }
     out.push(WebImporter.Blocks.createBlock(document, { name: "Destination Finder (grid)", cells }));
@@ -1316,13 +1316,13 @@ var CustomImportScript = (() => {
       cells.push([key, value]);
     };
     const headline = element.querySelector(".inlinetextdropdown maui-headline, .fareteaser-recommendation-headline maui-headline, maui-headline");
-    let headingText = "";
+    let headingText2 = "";
     if (headline) {
       const clone = headline.cloneNode(true);
       clone.querySelectorAll(`.inlinetextautocomplete, .selectable, input, label, button, ${SR_ONLY2}`).forEach((n) => n.remove());
-      headingText = clean3(clone.textContent);
+      headingText2 = clean3(clone.textContent);
     }
-    addRow("Heading", headingText);
+    addRow("Heading", headingText2);
     const originInput = element.querySelector('.inlinetextautocomplete input:not([type="hidden"]), .autocomplete-airport input:not([type="hidden"])');
     const cards = [...element.querySelectorAll(".swiper-slide a.ftde-card[href], a.ftde-card[href]")].filter((a, i, all) => all.indexOf(a) === i);
     const destinationCards = cards.filter((a) => a.getAttribute("data-testid") !== "destination-finder-card" && a.querySelector("maui-price-display, .ftde-card-price"));
@@ -1468,11 +1468,11 @@ var CustomImportScript = (() => {
     columns.forEach((column) => {
       const content = [];
       const headingSource = column.querySelector("h1, h2, h3, h4, h5, h6, .headline");
-      const headingText = visibleText(headingSource);
-      if (headingText) {
+      const headingText2 = visibleText(headingSource);
+      if (headingText2) {
         const tag = headingSource && /^H[1-6]$/.test(headingSource.tagName) ? headingSource.tagName : "h3";
         const h = document.createElement(tag);
-        h.textContent = headingText;
+        h.textContent = headingText2;
         content.push(h);
       }
       const ul = document.createElement("ul");
@@ -5180,16 +5180,22 @@ var CustomImportScript = (() => {
   var NBSP_ALL = /\u00a0/g;
   var NBSP_BLANK = /^[\s\u00a0]*$/;
   var NBSP_SKIP_TAGS = /* @__PURE__ */ new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEMPLATE"]);
+  var HEADING_TAGS = /* @__PURE__ */ new Set(["H1", "H2", "H3", "H4", "H5", "H6"]);
+  var SPACE_RUN = /(?: |\u00a0|\u2007|&nbsp;|&#160;|&#xa0;|&#8199;|&#x2007;|&numsp;)+/gi;
+  var HAS_NB = /\u00a0|\u2007|&nbsp;|&#160;|&#xa0;|&#8199;|&#x2007;|&numsp;/i;
+  var headingText = (text) => String(text).replace(SPACE_RUN, (run) => HAS_NB.test(run) ? " " : run);
   function guardNbsp(root) {
-    const visit = (el) => {
+    const visit = (el, inHeading) => {
       if (!el || NBSP_SKIP_TAGS.has(el.tagName) || NBSP_BLANK.test(el.textContent || "")) return;
+      const heading = inHeading || HEADING_TAGS.has(el.tagName);
       [...el.childNodes].forEach((n) => {
         if (n.nodeType === 3) {
-          if (n.nodeValue.includes("\xA0")) n.nodeValue = n.nodeValue.replace(NBSP_ALL, NBSP_STAND_IN);
-        } else if (n.nodeType === 1) visit(n);
+          if (!n.nodeValue.includes("\xA0")) return;
+          n.nodeValue = heading ? headingText(n.nodeValue) : n.nodeValue.replace(NBSP_ALL, NBSP_STAND_IN);
+        } else if (n.nodeType === 1) visit(n, heading);
       });
     };
-    visit(root);
+    visit(root, false);
     return root;
   }
 
@@ -5402,7 +5408,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_homepage_228472_default = {
+  var tmp_bundle_homepage_80765_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5442,5 +5448,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_homepage_228472_exports);
+  return __toCommonJS(tmp_bundle_homepage_80765_exports);
 })();

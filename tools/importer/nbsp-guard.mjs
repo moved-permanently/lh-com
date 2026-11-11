@@ -8,28 +8,71 @@
  * writes them back: withRestoredNbsp at every brand importer's collapse, import-batch.mjs after the bulk run, da-upload's
  * upload body. A text that is only no-break spaces (www's empty line, <p>&nbsp;</p>) is not guarded: the framework drops
  * it, as before. Attributes are left as they are. No Node API here: the import bundles take this file.
+ *
+ * Headings are the exception (brief 597): Edge Delivery makes a heading's id from its text (github-slugger: only a plain
+ * space becomes '-', a no-break space is dropped), so "Sitzpläne&nbsp;Airbus A320-200" got the id
+ * sitzpläneairbus-a320-200 while the page's own links (the cleanup's headingId, www's anchors) point to
+ * #sitzpläne-airbus-a320-200. In a heading's text a run of spaces holding a no-break space is one plain space: guardNbsp
+ * writes it so in www's headings, restoreNbsp in every heading of a written document (a heading a parser built from guarded
+ * text, a document uploaded as it is). The ids and the anchors then match, as before the guard (2026-11-09).
  */
 export const NBSP_STAND_IN = '\u2007';
 const NBSP_ALL = /\u00a0/g;
 const NBSP_BLANK = /^[\s\u00a0]*$/;
 const NBSP_SKIP_TAGS = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEMPLATE']);
 
-/** The element's text nodes with a no-break space as the stand-in, in place; an element whose whole text is blank skipped. */
+const HEADING_TAGS = new Set(['H1', 'H2', 'H3', 'H4', 'H5', 'H6']);
+// a run of spaces with a no-break space (or the stand-in) in it, as characters or entities
+const SPACE_RUN = /(?: |\u00a0|\u2007|&nbsp;|&#160;|&#xa0;|&#8199;|&#x2007;|&numsp;)+/gi;
+const HAS_NB = /\u00a0|\u2007|&nbsp;|&#160;|&#xa0;|&#8199;|&#x2007;|&numsp;/i;
+/** A heading's text: every run of spaces holding a no-break space (or the stand-in) as one plain space. */
+export const headingText = (text) => String(text).replace(SPACE_RUN, (run) => (HAS_NB.test(run) ? ' ' : run));
+
+/** The element's text nodes with a no-break space as the stand-in, in place; an element whose whole text is blank skipped;
+ * in a heading a plain space (headingText: its id as the page's anchors). */
 export function guardNbsp(root) {
-  const visit = (el) => {
+  const visit = (el, inHeading) => {
     if (!el || NBSP_SKIP_TAGS.has(el.tagName) || NBSP_BLANK.test(el.textContent || '')) return;
+    const heading = inHeading || HEADING_TAGS.has(el.tagName);
     [...el.childNodes].forEach((n) => {
       if (n.nodeType === 3) {
-        if (n.nodeValue.includes('\u00a0')) n.nodeValue = n.nodeValue.replace(NBSP_ALL, NBSP_STAND_IN);
-      } else if (n.nodeType === 1) visit(n);
+        if (!n.nodeValue.includes('\u00a0')) return;
+        n.nodeValue = heading ? headingText(n.nodeValue) : n.nodeValue.replace(NBSP_ALL, NBSP_STAND_IN);
+      } else if (n.nodeType === 1) visit(n, heading);
     });
   };
-  visit(root);
+  visit(root, false);
   return root;
 }
 
-/** The stand-in (also as &#8199; &#x2007; &numsp;) back to U+00A0; idempotent. */
-export const restoreNbsp = (html) => String(html).replace(/\u2007|&#8199;|&#x2007;|&numsp;/gi, '\u00a0');
+const HEADING_HTML = /(<(h[1-6])\b[^>]*>)([\s\S]*?)(<\/\2\s*>)/gi;
+// the id the framework wrote from the heading's text (github-slugger's rules, as lufthansa-cleanup's headingId); Edge
+// Delivery ignores a document's ids (html2md drops them) and makes its own from the text, so only the file's id follows
+const ENTITY = {
+  '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&#39;': "'", '&nbsp;': '\u00a0', '&#160;': '\u00a0', '&#xa0;': '\u00a0', '&#8199;': '\u2007', '&#x2007;': '\u2007', '&numsp;': '\u2007',
+};
+const plainText = (inner) => inner.replace(/<[^>]*>/g, '').replace(/&(?:amp|lt|gt|quot|#39|nbsp|#160|#xa0|#8199|#x2007|numsp);/gi, (e) => ENTITY[e.toLowerCase()] || e);
+const textSlug = (text) => text.trim().toLowerCase().replace(/[^\p{L}\p{M}\p{N}\p{Pc}\- ]/gu, '').replace(/ /g, '-');
+/** A document's headings with headingText applied to their text (not to their tags' attributes); an id the framework
+ * made from the old text (its slug, or the slug and a -N) made from the new one, any other id as it is. */
+export const headingSpaces = (html) => String(html).replace(HEADING_HTML, (all, open, tag, inner, close) => {
+  if (!HAS_NB.test(inner)) return all;
+  const next = inner.split(/(<[^>]*>)/).map((part, i) => (i % 2 ? part : headingText(part))).join('');
+  const was = textSlug(plainText(inner));
+  // Edge Delivery's slugger takes a leading number off ("2. Trips": trips)
+  const now = textSlug(plainText(next)).replace(/^\d+-+/, '');
+  const head = open.replace(/(\sid=")([^"]*)(")/, (m, pre, id, post) => {
+    const own = (x) => x === was || x === was.replace(/^\d+-+/, '');
+    const n = id.match(/^(.*?)(-\d+)$/);
+    if (own(id)) return `${pre}${now}${post}`;
+    if (n && own(n[1])) return `${pre}${now}${n[2]}${post}`;
+    return m;
+  });
+  return head + next + close;
+});
+
+/** The stand-in (also as &#8199; &#x2007; &numsp;) back to U+00A0, headings as headingSpaces writes them; idempotent. */
+export const restoreNbsp = (html) => headingSpaces(html).replace(/\u2007|&#8199;|&#x2007;|&numsp;/gi, '\u00a0');
 
 /** The written documents restored in place (an unchanged file is not written); the list back, for collapseDocs. */
 export function withRestoredNbsp(files, fs) {
