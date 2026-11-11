@@ -2857,3 +2857,91 @@ writes a page the map does not know at its own path with the flags off.
 
 No upload, preview or publish. Two reads of DA sources (promptpay, the form-confirmation pages), no write. Every probe
 refused www.* and counted it.
+
+## Standing order 7 (the morning of 2026-11-11)
+
+Start state: nothing of mine uncommitted or unpushed (`705fd699`). No request to www.lufthansa.com or any airline www
+(every probe refuses www.*); recordings from the drop only. Smoke of the 11 hosts before and after each served change:
+0 differences.
+
+**Item 1, zero-width characters (`ee9a9f45`).** general-conditions-dialogs.mjs copied them: its module
+`tools/importer/footer-disclaimer.js` wrote every text node as it was.
+- It now drops U+200B, U+200C, U+200D and U+FEFF from the label, the note and the dialog's text.
+- test/footer-disclaimer-zero-width-596.test.mjs (fixture: the by/ru snapshot's footer disclaimer, verbatim, 10
+  characters) fails on the old module and passes after.
+- Checked every live dialog document:
+  - Austrian's 60: only /by/ru (10) and /ru/ru (24)
+  - SWISS's 206: only /ch/ru and /ru/ru (24 each)
+  - Lufthansa's /de/en: none
+- Regenerated offline: only those change, and only by those characters.
+- List `content-596-dialogs-zero-width.txt`: 4 READY (regenerate or patch; SWISS /ru/ru patch only, it is in no
+  snapshot).
+
+**Item 2, at/en online-check-in (`a539f6ca`).**
+- **Numbered steps:** the Columns Media parser writes option `steps` on Austrian pages for a row whose every column opens
+  with an h2 of a number. The Austrian theme sizes them as www's heading-large: 48 / 52.8 px with 60 px under them from
+  1025 px, 36 / 39.6 px with 36 under them on phones; the title 24 / 12 px over its text.
+- **The store badges are not images on www:** they are `maui-button-link type="secondary"` in an image link list (two 50
+  px secondary buttons, 12 px apart). A theme rule draws a list whose items are each one secondary link as that row of
+  buttons (the theme's button tokens). No re-import for it: one document has such a list, this page.
+- **Measured** (the option added in the browser) against austrian-parity-017: 1440 -7.0 -> -6.3 %, 390 -7.6 -> -6.2 %.
+  Live with the button rule alone: 390 -6.5 %.
+- **What is left on the page:** www's "Austrian App" heading in heading-medium (the collapse's default size on ours) and
+  the gap before "Good to know" (about -126 px at 1440).
+- List `reimport-596-austrian-steps.txt`: 9 READY (online-check-in in nine languages; the austrian-checkin template
+  writes the option, checked offline on the recording).
+- test/austrian-numbered-steps-596.test.mjs.
+
+**Item 3, Brussels check-in-times: not built behind a flag; my earlier row was wrong.**
+- Our documents already hold the `checkin-deadlines` block on the six check-in-times pages. For Brussels it calls
+  www.lufthansa.com's check-in service with Brussels' portal (X-Portal SN; www.brusselsairlines.com sends no CORS
+  headers). test/checkin-deadlines.test.mjs has that Brussels case.
+- So visitors get the live search today. My probes refuse www, so they saw the block's fallback link: the -259 px at 390
+  I reported as "the widget's place" was that probe state, not the page.
+- A flag that is off by default would switch off a working search on six live pages. The same block runs unflagged for
+  Austrian and Lufthansa, and it only reads public catalogs (countries, airports, deadlines), not the payment picker's
+  hand-off into a booking.
+- I wrote the gate (a brand embed entry `brussels-checkin-deadlines` naming the block; the block showing only its
+  fallback link with the flag off) and reverted it before committing.
+- Decision for you: if Ben's rule should cover this block too, the flag name would be `brussels-checkin-deadlines`. The
+  change is about 20 lines (scripts/embeds.js blockFlag, the block's early return) and turns the live search off until a
+  row is added.
+
+**Item 4, Brussels pages over 3 %:** no cause shared by two or more pages is fixable as a rule without making pages worse.
+- **The articles (the-gambia, vibrant-senegal; -3.7 / -3.5 % at 1440, within 1.3 % at 390):** www's header picture is
+  full-bleed 2.39:1 (603 px) with the h1 21 px under it; ours 16:9 (810 px) with the text panel overlapping 152 px. www's
+  shape puts the h1 on www's y but takes 55 px off pages that are already short. Row: trace the article body first.
+- **The bot-check box (71 px, Cloudflare Turnstile, `.form-bot-check`):** a measurement artefact on the form pages (the
+  rest is under 1.5 %).
+- **The sidebar-h1 pages:** ema-test's row 2.
+- **One-page causes, as notes:** offers (widget state), families (empty lines in a block cell), service-charges
+  (content), contact-form-error, birthright, unsubscribe-failure (-33 px).
+
+**Item 5, Austrian:** one shared cause traced. pl/pl, es/es contact and at/de hilfe-center lack about 80 px of the help
+app's rows under its cards (1136-1183 px on www's es/es) at the same place: the app's content, from www's APIs. The pages
+are at -2.9 / -2.7 % (es/es) to -3.6 % at 390 (pl/pl). A row; not a CSS cause.
+
+### Final report (about 07:00 CET, 2026-11-11)
+
+**Commits** (pushed; lint exit 0 before each push, one push loop stopped on a failed lint and was fixed before it
+pushed; build success):
+
+| commit | what |
+|---|---|
+| `ee9a9f45` | zero-width characters out of the dialog documents |
+| `a539f6ca` | numbered steps and the secondary-button list |
+| this one | the report |
+
+**Lists for the import helper:**
+- `content-596-dialogs-zero-width.txt`: 4 READY (2 Austrian, 2 SWISS)
+- `reimport-596-austrian-steps.txt`: 9 READY
+
+**Rows left, with causes:**
+- **Austrian:** online-check-in's App part (a heading size the collapse removes, the gap before "Good to know"); the
+  contact pages' help app rows (API content); the G3 homepages (www's fare teaser state); jp/ja, cn/zh (font).
+- **Brussels:** the article header's picture and panel; the sidebar-h1 empty paragraphs (ema-test row 2); the one-page
+  notes above.
+- **Decision for you:** whether check-in-times' live search should go behind a flag (item 3).
+- **Flags built and off:** brussels-payment-picker, austrian-ife-carousel.
+
+No upload, preview or publish; da-upload.mjs was not called; no DA or preview API call from tests.
