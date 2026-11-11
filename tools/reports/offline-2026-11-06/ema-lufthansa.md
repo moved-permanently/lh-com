@@ -3136,5 +3136,9 @@ follow when their run is through.
 - **The fresh ranking pass (rank-c, our pages now against the recordings' heights, 121 rows):** the rows over 4 % are
   all classified (TAP baggage's LUGGit frame, TAP's unscrolled en-pt capture, Cargo's notification overview data, Air
   Dolomiti florence's re-import, the FAQ half pages' white space, street-food's content, ITA's rows waiting for the
-  two-up re-import); the rest is under 3.5 %, most of it Cargo's phone pages (+2 to +3.4 %).
+  two-up re-import); the rest is under 3.5 %, most of it Cargo's phone pages (+2 to +3.4 %).- **Discover row 47:** on phones the footer's legal links wrap as a row as www's (short links side by side), every
+  Discover page 62 px shorter at 390; backwards-compatible (theme, phones only; the footer from 768 px is ema-adobe's).
+- **Process:** my pushes from 21:30 to 23:00 UTC went onto a main whose stylelint was red from another session's Brussels
+  rules (fixed in a6d34148); my ship script had read the whole-repo lint before its rebase only. From now on the lint is
+  read again on the rebased tree right before the commit and push (.scratch tool ship2.sh), and a red lint holds the push.
 

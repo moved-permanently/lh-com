@@ -505,8 +505,10 @@ body.brand-discover .footer .footer-legal .footer-link {
     display: none;
   }
 
+  /* a wrapping row as www's: short links side by side, 24px apart (Discover row 47) */
   body.brand-discover .footer .footer-legal {
-    row-gap: 24px;
+    flex-direction: row;
+    gap: 24px;
     padding: 60px 0 41px 12px;
   }
 
