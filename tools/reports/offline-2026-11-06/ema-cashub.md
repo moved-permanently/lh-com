@@ -2493,3 +2493,92 @@ the 1,801 published ones; among the 1,520 snapshots only those six have such a l
 - brussels-parity-003 `f78cf1fc…`, read for the h1 type: none of its pages is of it.
 
 No upload, preview or publish. Every www request was refused in the browser and counted in each probe; none was made.
+
+## The standing order after 591 (the night of 2026-11-10 to 11)
+
+Start state: nothing of mine was uncommitted or unpushed. The checkout and my worktree were at `f97eb85c`, and every
+dirty file in the checkout belongs to other jobs. Rules followed: no request to www or any airline host (every probe
+refuses www.* and counts it); nothing uploaded, previewed or published; every import is a list on main; smoke of the 11
+hosts before and after each served change, 0 differences each time.
+
+**Item 1, the Austrian homepage order (`dde8635a`, served).**
+- **It is a missing section, not a reordering.** www's order is flight search, stage, quick actions, fare teaser on all
+  48 recordings of austrian-parity-008 to -011 and on all 64 roots' 2026-10-30 snapshots. Ours has the first two the
+  same and no quick-actions section.
+- **It shows nothing to a visitor.** All four actions are hidden (`hideFlightStatus`, `hideCheckIn`, `hideMyBookings`,
+  `hideMilesAndMore`), followed by a divider with 30 px under it and an empty profile component.
+- **Decision: not an importer rule, there is nothing to import.** A theme rule gives the stage section of a page that
+  opens with the flight search 43 px more under it, from 1025 px. Reach: 64 of the 2,398 Austrian documents, all
+  homepages. At 390 the stage's top to the next heading is already within 7 px (our stage card is taller), so the rule
+  starts at 1025 px.
+- **The heading after the stage at 1440:** be/en "Winter deals" -71 -> -28 px, by/ru -59 -> -16, ca/en -107 -> -64.
+- **Page height after, 1440:**
+  - G1 (21 roots) -244 -> -201 px
+  - G2 (8) -893 -> -850
+  - G3 (4) +108..132 -> +151..175
+  - 390: unchanged in all three groups, by design.
+- **Worse by 0.5 points or more at 1440 (eight roots):** G3's four, and by/en, by/ru, ru/en and ca/en, which were near 0
+  before only because other bands cancelled out. I kept the rule: the band is right on every one.
+- List `reimport-591-austrian-home-order.txt` (no re-import; the 48 roots' numbers).
+- **G2's cause (beyond the API bands):** none. Its documents lack the finder's Default origin / Trip duration / Price
+  label / Finder card rows, so our finder's empty state, when www's API is refused, is 292 instead of 941 px. The
+  own-host recordings with the APIs allowed (austrian-parity-012, -013) settle it: cz/en measures exactly as be/en (4527
+  px at 1440, finder band 2105 on both). My patch list for those rows (`patch-591-austrian-finder-rows.txt`, 11
+  documents) is **withdrawn**.
+- **G3's cause: only the API band.** On tr, me, xk and jp, www's fare teaser came back without deals at recording time
+  (www's band 208 / 186 px, ours 488 / 651 with its six destinations).
+
+**Item 2, Brussels worst pages.**
+- **problems-with-your-baggage (-17.4 / -28.5 %):** www's author opens the first two accordion items (`expanded`). The
+  accordion parser already writes open-first / open-N / open-item-K; the published documents predate it.
+  - Measured with the items opened in the browser: -17.4 -> -2.5 % / -28.5 -> -5.1 %. cancel-and-refund en -22.4 ->
+    -16.2 % / -19.8 -> -11.7 %, fr -25.4 -> -19.6 % / -20.4 -> -13.2 % (on top of its h1 row).
+  - List `reimport-591-brussels-open-items.txt`: 66 documents, all READY. An offline import of all 66 writes the option;
+    the importer is unchanged.
+- **our-payment-methods (-24.7 / -16.9 %): a row, not a rule.**
+  - www's 750 px iframe holds an interactive country picker from webv4.brusselsairlines.com. Its recording
+    (brussels-parity-008, from capture row 81) has no table: the payment blocks load only after a country is picked.
+  - So withPaymentTable has nothing to inline, and the import's link-out paragraph stays. Showing that third-party
+    iframe on our page is a product decision.
+
+**Item 3, the grey band (`62b37730`, served).**
+- **Rule:** a columns-media block (not padded, not a sidebar) in an Austrian grey section gets www's column-view 32 px
+  above and below.
+- **Measured on every recorded Austrian page it reaches** (41 recorded non-homepage pages surveyed): wetlease-hub -3.5
+  -> -2.1 % / -3.0 -> -1.9 %, culinary-services -1.8 -> -1.0 % (1440). No recorded page is worse.
+- **Reach:** 138 documents (`reach-591-austrian-grey-column-view.txt`). One page of each of the ten largest unrecorded
+  kinds is requested in capture rows 84-93.
+- **Not shipped:** the 24 px of white under a grey band that ends the page. It made bearbeitungsgebuehren 0.8 points
+  worse at 1440.
+
+**Item 4, the captures (brussels-parity-007, -008, austrian-parity-012, -013; sha256 = sidecar).**
+- **sidebar-h1 per page kind:** on all 16 legal-notices kinds our h1 is -44 / -30 px, and with the style at www's y
+  (0 / 0). Every page improves, e.g. liability -4.9 -> -1.8 % / -1.9 -> -0.3 %, short-notice-eu-us -12.2 -> -10.0 % /
+  -4.3 -> -3.3 %.
+  - Released: the 84 WAITING rows of `reimport-588-brussels-sidebar-h1.txt` are READY (95 READY in all), and with them
+    the 24 legal-notices rows of the open-items list. be/en terms-of-use with its ten items open: -66.0 -> -5.4 % /
+    -77.1 -> -13.2 %.
+  - The legal-notices hub (-84 / -60, in-column, not marked) stays a row.
+- **The four own-host homepages with the APIs, band by band against www (be/en):**
+  - The fare teaser: ours 488 vs 560 px at 1440, 651 vs 714 at 390. The cards are the same; the difference is all
+    spacing: heading to cards +16 / +15, rows +4, cards to "Conditions" +30, then +23 / +11.
+    - A scoped rule makes the band exact at both widths (be/en: "Discover Austrian" now differs by the same -27 / -81
+      px as "Winter deals" above it). Not shipped: see the disclaimer.
+  - The finder: ours 2105 vs 2042 at 1440, 1968 vs 1498 at 390. The +470 at 390 is www's footer-disclaimer dialog text,
+    which our documents show on the page.
+    - Today's importer writes it as a note plus a dialog link (convertFooterDisclaimer).
+    - `general-conditions-dialogs.mjs --host www.austrian.com` writes the 60 dialog documents (checked into a scratch
+      folder).
+    - List `reimport-591-austrian-home-disclaimer.txt` (56 homepages with the inline text): **HOLD**. Taking the text
+      off is right for its band (be/en -192 / -408 px), but the page totals get worse until the homepage's other short
+      bands are fixed. With the APIs, be/en goes -4.6 -> -8.6 % at 1440. The other short bands: the fare teaser
+      (above), the carousel's heading gap (+32 on www), the flight-search band (-28 / -75), and the finder's own -48 at
+      1440.
+    - Release the fare-teaser rule and this list together with those.
+- **Captures appended:**
+  - rows 81 (`64a88a3d`, within the hour)
+  - 82-83: our au/en and ch/de homepages with the APIs, no longer needed since the finder patch is withdrawn
+  - 84-93: the grey-rule kinds
+
+**Commits:** `64a88a3d` (capture row 81), `dde8635a` (quick actions), `62b37730` (grey column view and the first lists),
+this one (released lists, withdrawn patch, item 1 list, HOLD list, report).
