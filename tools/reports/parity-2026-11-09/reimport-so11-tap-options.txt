@@ -1,0 +1,24 @@
+# ema-cashub, the night of 2026-11-11: TAP language documents that predate two importer options and differ from a fresh
+# import by nothing else. Found by importing every language page with main's code (tap-snapshots-001 to -015, -023, every
+# media archive and the BySide capture; 849 documents) and comparing each with its published document: these 10 have
+# the same blocks and the same texts, only the options below are missing on our host; checked against DA's sources too
+# (GET): 8 differ from DA by the options alone; the two day-by-day documents also hold a market section ([pt]) in DA,
+# which a plain re-import would drop, so they stay HOLD for tap-markets.mjs.
+# - cards-teaser +phone-slider: www's card lists swiped on phones (row 113; mobileType slider): one card a view below
+#   1025 px instead of every card under the other. The same omission made pt-br's donating miles 10,541 px at 390
+#   against www's 4,817 (row 139's list re-imports it).
+# - hero-campaign +slider: a one-slide banner as www's slider (row 117: its wedge, 1176 x 404 at 1440).
+# Measured live against drafts as delivered (no recording of these pages; the options' geometry was measured against www
+# in rows 113 and 117). Run: tap-import.mjs --archive tap-snapshots-001 to -015 and -023 (the index's order) --media
+# every media archive and tap-byside-001 --only <these paths>.
+# Columns: document, status, expected change.
+/pt-pt/miles-and-go/acumular-milhas/dia-a-dia	HOLD	cards-teaser +phone-slider; hero-campaign +slider (nothing else); 390 5,663 -> 4,180 px, 1440 3,704 -> 3,826 px; HOLD: a [pt] market section in DA, re-import through tap-markets.mjs (same converter)
+/en-pt/miles-and-go/earn-miles/day-by-day	HOLD	cards-teaser +phone-slider; hero-campaign +slider (nothing else); 390 5,639 -> 4,204 px, 1440 3,728 -> 3,850 px; HOLD: a [pt] market section in DA, re-import through tap-markets.mjs (same converter)
+/fr-fr/destinations	READY	hero-campaign +slider (nothing else); 390 5,275 -> 5,154 px, 1440 2,809 -> 2,972 px
+/fr-fr/miles-and-go/boutique-miles	READY	cards-teaser +phone-slider; hero-campaign +slider (nothing else); 390 5,183 -> 3,955 px, 1440 3,680 -> 3,956 px
+/it-it/destinazioni	READY	hero-campaign +slider (nothing else); 390 5,251 -> 5,130 px, 1440 2,809 -> 2,972 px
+/pl-pl/miejsca-docelowe	READY	hero-campaign +slider (nothing else); 390 5,351 -> 5,230 px, 1440 2,818 -> 2,981 px
+/pt-br/destinos	READY	hero-campaign +slider (nothing else); 390 5,203 -> 5,082 px, 1440 2,809 -> 2,972 px
+/pt-br/miles-and-go/loja-de-milhas	READY	cards-teaser +phone-slider; hero-campaign +slider (nothing else); 390 5,236 -> 4,022 px, 1440 3,700 -> 3,976 px
+/pt-br/miles-and-go/promo	READY	hero-campaign +slider (nothing else); 390 2,797 -> 2,668 px, 1440 1,967 -> 2,106 px
+/pt-br/miles-and-go/miles-and-go-pets	READY	hero-campaign +slider (nothing else); 390 4,031 -> 3,902 px, 1440 2,833 -> 2,956 px
