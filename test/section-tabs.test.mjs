@@ -300,6 +300,29 @@ test('below 768px on brand tap: every item closed at first, as www\'s', () => {
   }
 });
 
+// the night of 2026-11-11 (TAP row 134): a closed item's panel and parts carry section-tab-closed, which the styles
+// hide everything under the toggle by, so what a block adds later (a fragment's sections, TAP's inspiration categories)
+// stays hidden; the open item and the desktop panels carry no such class
+test('below 768px a closed item\'s panel carries section-tab-closed, which hides what is added to it later', () => {
+  desktop = false;
+  try {
+    const main = SWISS();
+    decorateSectionTabs(main);
+    const panels = [...main.querySelectorAll('.section-tab-panel')];
+    assert.deepEqual(panels.map((x) => x.classList.contains('section-tab-closed')), [false, true], 'the first open, the second closed');
+    const late = document.createElement('div');
+    panels[1].append(late);
+    assert.ok(!late.hidden, 'a later child has no hidden attribute of its own');
+    const css = fs.readFileSync(new URL('../styles/section-tabs.css', import.meta.url), 'utf8');
+    assert.match(css, /\.section-tab-panel\.section-tab-closed > :not\(\.section-tab-toggle\),\s*\.section-tab-part\.section-tab-closed > \* \{\s*display: none;/, 'the class hides it');
+  } finally {
+    desktop = true;
+  }
+  const main = SWISS();
+  decorateSectionTabs(main);
+  assert.ok(![...main.querySelectorAll('.section-tab-panel')].some((x) => x.classList.contains('section-tab-closed')), 'none from 768 px');
+});
+
 // the standing order of 2026-11-10 evening, decision 2: a set's own phone default on its Tabs row ("1, open first" |
 // "1, closed"; the name is the part before the comma): b2b-parity-003 at 390 has de/en meals-on-board's and de/en
 // corporates-start-of-booking's first panels open, b2b-parity-005 every other B2B tab page closed

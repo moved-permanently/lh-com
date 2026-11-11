@@ -99,6 +99,12 @@ main .section.section-tab-part[hidden],
   display: none;
 }
 
+/* a closed item below 768px: everything under its toggle, also what a block adds later (a fragment) */
+.section-tab-panel.section-tab-closed > :not(.section-tab-toggle),
+.section-tab-part.section-tab-closed > * {
+  display: none;
+}
+
 /* an open item's content under its toggle */
 .section-tab-panel > .section-tab-toggle + div {
   margin-top: var(--spacing-default, 24px);

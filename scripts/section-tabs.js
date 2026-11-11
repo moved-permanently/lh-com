@@ -134,9 +134,13 @@ function buildSet(groups) {
       panel.hidden = desktop && i !== active;
       [...panel.children].filter((c) => c !== toggle)
         .forEach((c) => { c.hidden = !desktop && i !== open; });
+      // a closed item's class too: what a block puts in the panel after this (a fragment's
+      // sections) stays hidden with it (TAP's inspiration categories, TAP row 134)
+      panel.classList.toggle('section-tab-closed', !desktop && i !== open);
       parts.forEach((part) => {
         part.hidden = desktop ? i !== active : i !== open;
         [...part.children].forEach((c) => { c.hidden = !desktop && i !== open; });
+        part.classList.toggle('section-tab-closed', !desktop && i !== open);
       });
     });
   };

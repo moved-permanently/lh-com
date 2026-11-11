@@ -3186,4 +3186,9 @@ follow when their run is through.
   On our host at 01:00 UTC 38 of the 872 two-up documents still lacked it (the harness's jobs 585-ita-two-up-* were
   running); travel-insurance is now 3,084 at 1440 against www's 3,091.
 - **Air Dolomiti's re-imported news pages** (reimport-567-ad-description-news.txt, on our host since tonight): london-eu
-  1440 7,483 (www 7,514), basel-de 390 12,010 (12,014) against tonight's airdolomiti-parity-005.
+  1440 7,483 (www 7,514), basel-de 390 12,010 (12,014) against tonight's airdolomiti-parity-005.- **Shared section tabs (scripts/section-tabs.js, styles/section-tabs.css):** below 768 px a closed tab item now also
+  carries the class section-tab-closed, which hides everything under its toggle, so content a block adds after the
+  tabs are built (a fragment's sections) stays hidden with it; before, a fragment loaded into a closed panel showed.
+  Backwards-compatible (the same items closed as before; only late content now follows them). Found on TAP's
+  inspiration page with its categories drafted as tabs (row 134): at 390 the page 42,817 -> 9,311 px with it.
+
