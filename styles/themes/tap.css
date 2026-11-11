@@ -4217,3 +4217,28 @@ body.brand-tap main .columns-media:is(.feature, .feature-small) > .columns-media
   font-size: 14px;
   line-height: 24px;
 }
+
+/* TAP row 138, text cards one a row (the importer's cards one-up: www's itemsPerRow 1 of SimpleGenericCardModel, the
+   time-to-think steps in all eight languages): www's card as its other text cards (row 27's title: text-title-xs
+   medium, 24 / 28.8, 8 px above the text), 32 px under the heading over them, and its button row's 48 px under the text
+   when there is no button (mt-12 of an empty row, then the card's 24 px). /pt-pt/reservas/time-to-think against
+   tap-parity-001: every step title within 8 px of www's at 1440 (ours were 20 px, up to 38 px off); the page 2,117 ->
+   2,196 px at 1440 (www 2,209), 2,945 -> 3,063 at 390 (www 3,032; one paragraph wraps to one line more on ours) */
+body.brand-tap main .default-content-wrapper:has(> :is(h2, h3):last-child) + .cards-wrapper:has(> .cards.one-up) {
+  margin-top: 32px;
+}
+
+body.brand-tap .cards.one-up .cards-card-body > :is(h2, h3, h4):first-child {
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+body.brand-tap .cards-wrapper > .cards.one-up > ul > li:not(:has(a)) > .cards-card-body {
+  padding-bottom: 48px;
+}
+
+body.brand-tap .cards-wrapper > .cards.one-up > ul > li:not(:has(a)) > .cards-card-body > :last-child {
+  margin-bottom: 0;
+}
