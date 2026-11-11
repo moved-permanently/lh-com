@@ -2945,3 +2945,76 @@ pushed; build success):
 - **Flags built and off:** brussels-payment-picker, austrian-ife-carousel.
 
 No upload, preview or publish; da-upload.mjs was not called; no DA or preview API call from tests.
+
+## Standing order 8 (the morning of 2026-11-11)
+
+Start state: nothing of mine uncommitted or unpushed (`8a69f0c2`). Check-in-times stays unflagged; the revert stays.
+- No request to www.lufthansa.com or TAP's hosts. Recordings and archives from the drop, each checked against the
+  index's sha256 (027 against ema-lufthansa's).
+- DA read with GET only: the six documents and their Last-Modified.
+- Smoke of the 11 hosts before and after the served change: 0 differences.
+
+**TAP markets defect (`06a13134`).** The helper's nine notes are six documents: en-pt / pt-pt promotions (promocoes),
+promos and club. Reproduced offline: origin/main's tap-markets.mjs, run on the drop's archives, drops exactly what the
+helper saw. Two causes, neither "the variant is not captured at all":
+- **promotions, promocoes, promos: the step dropped sections it should keep.**
+  - DA's US and Canada sections (the American Express card, the "Going to Europe? Portugal included" cards) and the
+    other roots' Portugal Stopover card come from the market comparison's fetch of 2026-11-07 (`461596e5`; DA's
+    copies of 2026-11-08).
+  - The drop's captures of those roots are older (2026-11-03 to -05: tap-snapshots-001 to -005, -017, -020, -025).
+  - keepUncovered counted every root with the page as covered, so the older view replaced DA's.
+  - Now: staleCountries and keepStale. Every country that no capture newer than the existing copy covers (its own, or
+    its comparison group's) sees exactly what DA's copy showed it. `--existing <dir>` reads DA's copies saved before
+    the run (curl -R keeps their time), for a checkout without local copies.
+- **club: an input gap, not the step.** tap-byside-001 passed as unpacked has its pictures in its byside folder, so the
+  call-back card's Image and Mobile image rows went. mediaIndex now reads the archive root too.
+- **Checked:** the same inputs through origin/main's code and the fixed code differ in the four market documents only.
+  For every served country (home market and the language's roots with the page) against DA:
+  - five documents as on DA;
+  - pt-pt promos' 14-root group gets the New Year card from pt-at's capture of 2026-11-10 (newer than DA's copy);
+  - the old code differed for us, and for 18 / 16 roots on the two promos pages.
+- **Test:** test/tap-markets-older-captures.test.mjs (fixtures: DA's and the merge's pt-pt promocoes).
+- **Lists:**
+  - `reimport-so8-tap-markets-da-kept.txt`: 6 READY, with the run (add `--existing`).
+  - `capture-so8-tap-language-pages.txt`: the four language pages. The US / Canada group pages are still open on
+    capture-567.
+- **Row:** en-pt promos' 16 other roots are in no comparison group. Each keeps DA's view until a capture of its own
+  lands.
+
+**Austrian at/en online-check-in, the app part (`b59c39ad`).** All nine online-check-in documents on our host carry
+option steps now (reimport-596 ran). My 07:00 note that the live page lacked it was wrong: my probe had matched
+another Columns Media.
+- Two theme rules reach only the default content right after a steps row (all nine have the same h3, text, button
+  list, spacer, h2 there).
+- The heading: www's heading-medium (36 / 39.6 px with 36 under it, 28 / 30.8 with 24 on phones), 65 / 61 px under
+  the steps.
+- The gap: "Good to know" 133 / 145 px under the store buttons (ours were 24 / 23 and 85 px).
+- Live on at/en against austrian-parity-017: 1440 4196 -> 4298 px (www 4477, -6.3 -> -4.0 %); 390 5486 -> 5591 (www
+  5846, -6.2 -> -4.4 %). at/de and jp/ja the same.
+- test/austrian-app-part-so8.test.mjs.
+
+### Final section (about 08:15 CET, 2026-11-11)
+
+**Commits** (pushed; whole-repo lint exit 0 before each push; full suite 3626 tests, 0 fail):
+
+| commit | what |
+|---|---|
+| `06a13134` | TAP markets: DA's view kept for countries no newer capture covers; the BySide archive root |
+| `b59c39ad` | Austrian theme: online-check-in's app part |
+| this one | the report |
+
+**For the import helper:** `reimport-so8-tap-markets-da-kept.txt` (6 READY).
+
+**Capture list:** `capture-so8-tap-language-pages.txt` (4 pages).
+
+**Rows left:**
+- TAP: the US / Canada group pages of capture-567 (not in 027); en-pt promos' ungrouped roots.
+- Austrian: online-check-in's remaining -4 % (the steps row's columns and the travel ID part, not measured today).
+
+**Not in git, local only:**
+- the drop's archives and DA's six copies (/tmp/p588/tap);
+- the scratch runs' documents (migration-work/parity-588/wt/content-sites/lh-tap, gitignored);
+- a partial checkout from a timed-out worktree add (migration-work/parity-588/wt-old, not a registered worktree,
+  ignored).
+
+No upload, preview or publish. da-upload.mjs was not called; no DA or preview API call from tests.
