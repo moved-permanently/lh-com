@@ -7,3 +7,5 @@ https://www.flytap.com/en-pt/miles-and-go/use-miles/fees
 https://www.flytap.com/en-pt/information/baggage/hold-baggage
 https://www.flytap.com/en-pt/information/special-needs/wheelchair
 https://www.flytap.com/en-pt/miles-and-go/earn-miles/by-flying
+# Also (TAP row 147): a stopover partners page, whose categories main's importer would now write as tabs.
+https://www.flytap.com/en-pt/stopover/partners

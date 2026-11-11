@@ -1,0 +1,16 @@
+# ema-cashub, the night of 2026-11-11: pt-br documents that predate row 125's picture-only banner (the page's first picture
+# a narrow hero-campaign with its phone picture, the title at www's place: reimport-tap-488-legal.txt took the en-pt and
+# pt-pt documents). Found comparing every language page with main's fresh import (841 documents against DA's sources,
+# GET): these 8 differ from DA by that banner alone (the legal hub also by Alternate rows for roots' own documents, www's
+# hrefLangs). No market sections. pt-br bagagem as a draft on our host: 1440 2,093 -> 2,061 px, as pt-pt's live page
+# (2,061, the shape row 125 measured against www); 390 unchanged (2,937).
+# Run: tap-import.mjs --archive tap-snapshots-001 to -015 and -023 (the index's order) --media every media archive and
+# tap-byside-001 --only <these paths>. Columns: document, status, expected change.
+/pt-br/informacoes-legais	READY	the first picture as the narrow banner (row 125); Alternate rows for the 12 roots' own legal documents (en-at, en-ca, en-ch, en-de, en-fr, fr-ca, fr-ch, pt-at, pt-ca, pt-ch, pt-de, pt-fr; www's hrefLangs)
+/pt-br/a-bordo/refeicoes	READY	the first picture as the narrow banner (row 125)
+/pt-br/informacoes/documentacao	READY	the first picture as the narrow banner (row 125)
+/pt-br/informacoes/bagagem	READY	the first picture as the narrow banner (row 125)
+/pt-br/informacoes/viajar-com-animais	READY	the first picture as the narrow banner (row 125)
+/pt-br/informacoes/necessidades-especiais	READY	the first picture as the narrow banner (row 125)
+/pt-br/gerenciar-reserva/extras/upgrades	READY	the first picture as the narrow banner (row 125)
+/pt-br/miles-and-go/estatutos/for-life	READY	the first picture as the narrow banner (row 125)
