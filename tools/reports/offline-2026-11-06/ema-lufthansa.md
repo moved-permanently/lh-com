@@ -3541,4 +3541,17 @@ the drop and our own host only. Nothing uploaded, previewed or published.
 - **Air Dolomiti row 109 (item 4, the ranking: the destination hubs at 390):** the hub cards 20 px apart on phones as
   www's (the block's stacked 36 px no longer added). 390 6421 -> 6385 (www 6393), 9917 -> 9629 (9699), 10416 -> 10128
   (10151); backwards-compatible (theme, those cards only, phones only).
+- **On main:** 9fa0d5aa (AD 109; npm run lint exit 0 and stylelint 0 before and after the rebase, 3672 pass 0 fail, git
+  show --stat 4 files as given, smoke 0 differences on 14 hosts, GitHub Build success). 9520d63c's Build is still
+  queued at GitHub (since 20:38 UTC) while later commits' Builds ran: a3029929, b28d7256 and 9fa0d5aa contain it and
+  passed the same whole-tree lint.
+- **The fresh ranking (rank-d: Air Dolomiti, ITA and Discover rows with main's CSS, 98 rows):** a loaded machine gave
+  some wrong readings; re-measured: /en/homepage and /de/homepage are 404 paths in the rows (our homepages are /en/ and
+  /de/: 5059 against www's 5092), the English in-flight entertainment page 2316 (2352), flights to Europe 5581 (the
+  recording artefact above). Over 4 %, all classified before (Florence's re-import, the FAQ half pages' white space,
+  street-food's content, assistance's recorded accordions, the lounge page's live fonts, the flight status form). The
+  first shared cause after them: the Adriatic article in three languages at 390 (row 110).
+- **Air Dolomiti row 110 (item 4):** an article's H2s as www's HtmlContent (26 / 32 regular, 45 / 56 from 930 px, from
+  www's CSS). 390 5319 -> 5185 (www 5124), 5659 -> 5515 (5481), 5285 -> 5141 (5134); backwards-compatible (theme,
+  articles' text only).
 

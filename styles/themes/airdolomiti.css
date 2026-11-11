@@ -4365,6 +4365,26 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-car
 }
 /* stylelint-enable no-descending-specificity */
 
+/* an article's headings as www's HtmlContent (AD row 110: .HtmlContent_innerContent h2): 26px / 32px regular with 12px
+   over them, from 930px 45px / 56px 0.9px apart; an article's text: the sections after a stage whose card holds an H2
+   (the articles' "Fly with us"; the destination pages' card holds their H1) */
+/* stylelint-disable no-descending-specificity -- an article's headings, after the other pages' */
+body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > h2) > .section:not(.hero-card-overlay-container) > .default-content-wrapper > h2 {
+  margin-top: 12px;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > h2) > .section:not(.hero-card-overlay-container) > .default-content-wrapper > h2 {
+    font-size: 45px;
+    line-height: 56px;
+    letter-spacing: 0.9px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
 /* the fleet's text block's foot as the destinations' (AD row 105: www's TitleDescriptionTextCta under the fleet's
    stage, /flotta, /en/fleet, /de/flotte): a campaign stage's text section (an H2 and its paragraphs) ending in a button,
    the button 43px under the text (79px from 930px), what follows 100px under it */
