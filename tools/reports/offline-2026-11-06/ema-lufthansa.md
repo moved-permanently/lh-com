@@ -3166,3 +3166,12 @@ follow when their run is through.
 - **TAP fly-business's footnote** (www's small print under the two columns, ours in the text cell): an importer item
   (tap-import.mjs's ComponentFeatureCardModel puts complementaryNote in the cell); only the two fly-business documents
   (en-pt, pt-pt) carry one among the language documents, so it stays a noted row (TAP row 133, open), not tonight's work.
+- **Item d, TAP's market groups, the first 9 captures:** tools/reports/parity-2026-11-09/reimport-585-tap-market-groups-027.txt
+  lists the language documents whose groups tap-snapshots-027 now covers (8 rows: en-pt payment methods and club,
+  fr-fr partners, pt-pt service animals, club, promos (two groups), payment methods) for a re-run of tap-markets.mjs
+  with it as a --market-archive. Job 567-tap-markets-01 uploaded the own documents and two fragments only; the language
+  documents still have no market sections on our host. No correction of reimport-567-tap-markets.txt: the captures
+  match its decisions. The other 61 pages of the 70 have not landed (tap-snapshots-028 not in the drop at 00:45 UTC).
+- **TAP row 133** (open, importer): a feature card's footnote, see above.
+- **Classified (Cargo's phone pages, +2 to +3.4 %):** ebooking-info's step cards and headings differ by a few px each
+  where the text wraps (our brand font against www's older LufthansaTextWeb, row 49's decision); no single rule.
