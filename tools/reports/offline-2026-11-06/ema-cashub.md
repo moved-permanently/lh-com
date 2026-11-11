@@ -3097,3 +3097,62 @@ every build success):
 - wt-old (ignored).
 
 No upload, preview or publish. da-upload.mjs was not called; no DA or preview API call from tests.
+
+## Standing order 10 (2026-11-11, from about 20:05 CET)
+
+Start state: nothing of mine uncommitted or unpushed (`0a564bac`, build success). Archives from the drop only (55 checked
+against the index, 028 / 029 / media-026 included); DA read with GET only; nothing fetched from TAP's or any airline host.
+Two read-only commands (a GET of DA documents chained with other steps) were stopped by the remote-content guard; they
+changed nothing and I did without them (aem.live's published documents instead).
+
+**A measuring mistake found first:** my drafts injected DA-form `<img>` without `<picture>`, so a picture could render at
+its natural size. That was the "6,271 px" of en-pt miles-and-go (item 3): as delivered a fresh import renders 4,720 px
+at 390 against 4,730 live. Every draft since wraps pictures as the pipeline does.
+
+- **Item 1 (`b2a86f80`).** The 64 captured pages, compared by what each country sees (028 / 029 are raw snapshots, so www
+  cannot be measured by height from them):
+  - On the way, a merge defect (row 140): `variantFragments` re-pointed fragment links by position, so where market
+    sections share a fragment every later link pointed at another one. With row 134's tabs the partners pages would
+    have lost most of a market's partners (en-ao: 538 of www's texts). Fixed and tested; nothing in DA had such links.
+  - `reimport-so10-tap-market-groups-028.txt`: 5 READY (pt-pt promos for es; the en-br and pt-us FAQs, es-us
+    promociones and promos). Every other page is as DA has it.
+- **Item 2, row 139 (`94c29ca9`):** shipped. On every recorded page-width no change worse than 0.36 points, and auctions
+  1440 +3.1 -> +1.2 %. A theme-only rule was rejected (en-pt miles-and-go 0.85 points worse).
+  `reimport-so10-tap-heading-section-139.txt`: 8 READY (live since: auctions +1.25 % / -0.36 %), 21 HOLD until
+  `capture-so10-tap-recordings-139.txt` is recorded.
+- **Item 3:** the draft artefact above; nothing to warn about for en-pt miles-and-go.
+- **Item 4:** a separate cause, not row 139's. Auctions' remaining +33 px is brief 505's paragraph gap in three paragraph
+  pairs (row 142, kept: the token-free plan's rule).
+- **Item 5:**
+  - Row 141 (`7fe0337b`): the inspiration categories' 13 country headings showed again under the picker. 1440 en-pt
+    +13.2 -> -0.4 %, pt-pt +14.0 -> +0.6 %; nothing else moved.
+  - Rows 143 (phone-slider card width: right on www's geometry, but makes navigator-experiences worse alone) and 144
+    (titles www writes as h1: bigger would make 390 worse) recorded, not shipped.
+  - `capture-so10-tap-recordings-ranking.txt` (`6c87f34c`): four pages that would bring every component type into the
+    ranking.
+
+### Final section (about 22:10 CET, 2026-11-11)
+
+**Commits** (pushed; whole-repo lint exit 0 and stylelint on tap.css before each push; full suite 3,663 tests, 0
+fail; smoke 0 differences on 13 of 14 hosts, b2b only its search index, another job's documents):
+
+| commit | what |
+|---|---|
+| `94c29ca9` | row 139, heading with description (importer, theme), 8 READY / 21 HOLD |
+| `b2a86f80` | row 140, fragment links by name (merge); the 028 / 029 comparison, 5 READY |
+| `7fe0337b` | row 141, the inspiration country headings (theme); row 142 |
+| `6c87f34c` | four recordings for the ranking |
+| this one | rows 143, 144; the report |
+
+Builds: `94c29ca9` and `b2a86f80` success; the later ones were still queued with every other commit of the evening (the
+runner's queue since 20:19 UTC).
+
+**Every recorded TAP page is within 3 % of www**, but for the decided rows (en-pt baggage's LUGGit frame, row 41; en-pt's
+unscrolled recording, row 127).
+
+**Rows left:** 143 (with the cards' own sizes), the 21 HOLD rows of 139 (their recordings), the four ranking recordings.
+
+**Not in git:** the drop archives, DA's and the published copies, scratch runs and scripts (migration-work/parity-588/so10,
+ignored), my worktree's scratch imports (gitignored), wt-old (ignored).
+
+No upload, preview or publish. da-upload.mjs was not called; no DA or preview API call from tests.
