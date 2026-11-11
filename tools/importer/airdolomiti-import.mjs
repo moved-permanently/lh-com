@@ -976,12 +976,14 @@ const HANDLERS = {
     page.add(showMoreLink(a, page));
   },
   'lazyblock/cosa-fare-carroussel': (a, page) => {
-    // www's small picture inline before the heading: a section of its own with the style
-    // heading-icon, the picture in a paragraph before the H2
+    // a section of its own with the style heading-icon (the theme's MiniCardSlider row, AD rows 84
+    // and 107), www's small picture inline before the heading in a paragraph before the H2; the
+    // hubs' carousel has no picture and gets the section too
     const icon = imageOf(a.icon);
     // (at most 200 px wide: the style moves only a small picture; www shows it at 40 px)
     const iconHtml = icon ? page.img(icon, { maxWidth: 200 }) : '';
-    if (iconHtml) { page.section('heading-icon'); page.add(`<p>${iconHtml}</p>`); }
+    page.section('heading-icon');
+    if (iconHtml) page.add(`<p>${iconHtml}</p>`);
     page.add(page.heading(a.tag || 'h2', a.header || a.title));
     if (a.description) page.add(rich(a.description, page));
     page.block('carousel-cards', (a.cardList || []).map((c) => cardRow(page, {
@@ -989,7 +991,7 @@ const HANDLERS = {
     })));
     // www's "Zeige alles (4)": the link with the number of cards, as the offers' (the sweep after 556)
     page.add(showMoreLink(a, page));
-    if (iconHtml) page.section();
+    page.section();
   },
   'lazyblock/gridtwocolumns': (a, page) => {
     // www's per-card theme (CardDefault theme_business, theme_sustainability; none or general: the

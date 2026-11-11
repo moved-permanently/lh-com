@@ -3429,4 +3429,15 @@ differences on every host after each push unless noted)**
   changes). /de/flug-status 1761 px before and after (our fields already reserve the line), the rest of row 77's gap
   left. Lists: reimport-586-ad-flight-status-hints.txt (/de/flug-status READY from airdolomiti-parity-002;
   /en/flight-status and /stato-volo HOLD, no recording), capture-list-586-brands.txt (those two, HOLD until Ben decides).
+- **On main:** f576bdf2 (AD 106; npm run lint exit 0 before and after the rebase, 3634 pass 0 fail, git show --stat 8
+  files as given, smoke 0 differences on 14 hosts, GitHub Build success).
+- **Item 3, the German manage-booking page (Air Dolomiti's /de/bearbeitung-ihrer-buchungen; ITA has none):** it did
+  move with the Italian and English ones: 1440 2365 -> 2281, 390 3327 -> 3243 (main's CSS only now). Two things made it
+  look unmoved: my first "before" (2299) was measured with the checkout's CSS already edited (host-eval routes local CSS
+  unless NO_LOCAL_CSS is set), and the German recording's live fonts: rendered offline it is 2279 / 3236 against our
+  2281 / 3243 (+2 / +7 px); the Italian recording shows no such gap (2147 live and offline).
+- **Air Dolomiti row 107, the hub gap (item 1), part b:** found in three places (the text's foot, the carousel's layout,
+  then the phone footer; last night's single rule could fit none of them). The importer gives every CosaFareCarroussel
+  its own heading-icon section (row 84's layout), backwards-compatible (documents change on re-import only):
+  reimport-586-ad-hub-carousel.txt, /destinazioni, /en/destinations, /de/reiseziele READY (airdolomiti-parity-001).
 
