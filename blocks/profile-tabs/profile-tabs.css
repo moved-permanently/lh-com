@@ -186,3 +186,11 @@
     max-width: 66%;
   }
 }
+
+/* lufthansa.com: running text in a panel (the airport pages' content beside their sidebar) is not
+   limited again: www's text fills the panel (/de/en/lufthansa-am-flughafen-frankfurt at 1440: lines
+   to x 1005, ours to 677, 66 % of the 948 px panel). 18.9 -> 14.0 % at 1440; onboard-delights and
+   payment-options-at-the-airport the same; phones unchanged (brief 582) */
+body.brand-lufthansa .profile-tabs .profile-tabs-panel :is(p, ul, ol, h2, h3, h4).limited-width {
+  max-width: none;
+}
