@@ -2796,3 +2796,25 @@ SWISS Senses start-of-booking pages at 390 (27 to 36), businesstogo (29.6 to 30.
 - Seen, not changed: the local render drops multi-level breadcrumbs (the SWISS Senses pages show the page title
   where our host shows "< SWISS Senses": the parent pages are fetched within 5 s, which the local proxy misses), so
   those rows read a little worse locally than on our host; before and after alike.
+
+### Update 23:46 UTC
+
+- Pushed e337668a (22:37 UTC) and c86531e9 (23:30): the hygiene grid, the phone tab inset, the tab set's space,
+  the businesstogo and seat-map lists, and the mixed teaser grid (b2b.css: a grid mixing cards with and without a
+  picture keeps three columns from 1025 px; ch/en discover-airlines' "Entertainment on board"; on the 86 recorded B2B
+  pages it matches that page only: 1440 37.11 -> 15.50, also on our host). Each push: npm run lint 0, stylelint 0, the
+  full suite (879 and 881 files) or, after a rebase that brought other agents' unrelated theme / block commits, lint
+  plus their tests and mine (82 and 75 files); Build success; smoke 12 hosts before and after: 0 differ. On our host
+  after the push: hygiene de/en 1440 3.65, ch/en discover-airlines 1440 15.50, de/en Allegris corporates 390 16.62.
+- Full pass, all 153 recorded B2B page-widths with this code (the lists not applied): mean 19.82 -> 18.03 %, 12 better,
+  none worse on a re-run (two rows read worse once, +0.70 and +1.54, and equal to before on two re-runs: render noise).
+- The tab-picture delta also takes a picture first (www's picture left): the Allegris and SWISS Senses start-of-booking
+  pages' HON Circle / Senators panels. reimport-so5-b2b-tab-picture-columns.txt is now 16 READY (businesstogo x4, the
+  start-of-booking pages x12; de/en Allegris corporates 1440 30.84 -> 16.46, 390 +0.24) and 4 HOLD (the on-board
+  pages: their airline panels are closed in every recording, so www's layout of them is not verified).
+- Looked at and left: a later H1 (de/en Allegris' "What's next for Lufthansa Allegris", www heading-small): the census
+  has no default (62 heading-medium, 20 heading-small, 12 copytext, 32 unmarked); route-network's heading size (the
+  collapse's dropped marks, noted before); a long German H1 word on phones (SWISS Senses: www lets
+  "LANGSTRECKENERLEBNIS" run past the screen, ours breaks it on purpose: styles.css's overflow-wrap, not changed);
+  the celebrating hubs (held before) and lhg-history (decision 1, withdrawn); businesstogo at 390 (the recording has
+  its first panel open from a 1440 load resized, B2B's phone default is closed, as decided on 11-11).
