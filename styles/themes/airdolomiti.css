@@ -4511,3 +4511,15 @@ body.brand-airdolomiti main > .section:first-of-type > .breadcrumb-wrapper:has(+
   }
 }
 /* stylelint-enable no-descending-specificity */
+
+/* an H2 in the lead's text (www's DescritionNews rich text, a text-only lead on the destinations; AD row 101) at the
+   text's size, a blank line under it */
+/* stylelint-disable-next-line no-descending-specificity -- the lead's heading, not other blocks' (above) */
+body.brand-airdolomiti .columns-media.news .columns-media-text h2 {
+  margin: 0 0 33px;
+  color: #494949;
+  font-family: var(--body-font-family);
+  font-size: 19.44px;
+  font-weight: 400;
+  line-height: 33px;
+}

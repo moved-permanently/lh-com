@@ -3174,4 +3174,6 @@ follow when their run is through.
   match its decisions. The other 61 pages of the 70 have not landed (tap-snapshots-028 not in the drop at 00:45 UTC).
 - **TAP row 133** (open, importer): a feature card's footnote, see above.
 - **Classified (Cargo's phone pages, +2 to +3.4 %):** ebooking-info's step cards and headings differ by a few px each
-  where the text wraps (our brand font against www's older LufthansaTextWeb, row 49's decision); no single rule.
+  where the text wraps (our brand font against www's older LufthansaTextWeb, row 49's decision); no single rule.- **AD row 101:** an H2 in a lead's (columns-media news) text at the text's size as www's DescritionNews rich text
+  (backwards-compatible: theme; every news block on the destination pages).
+
