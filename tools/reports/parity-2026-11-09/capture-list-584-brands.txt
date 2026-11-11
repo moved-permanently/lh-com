@@ -101,3 +101,9 @@ https://www.austrian.com/at/en/additional-services 1440 390 # 92: grey-band rule
 https://www.austrian.com/at/en/healthy-travel 1440 390 # 93: grey-band rule, kind of 9 documents
 # Priority 8 (added after brief 594) - Austrian ru/ru homepage, to measure its footer-disclaimer patch (reimport-591-austrian-home-disclaimer.txt) as by/ru.
 https://www.austrian.com/ru/ru/homepage 1440 390 # 94: Austrian root /ru/ru (disclaimer patch)
+# Priority 9 (added after brief 595, before 08:00 CET) - recorded pages whose 390 recording is missing (their recordings were 1440 only), for the morning's rankings: Austrian at/en online-check-in first.
+https://www.austrian.com/at/en/online-check-in 1440 390 # 95: 390 missing
+https://www.austrian.com/at/en/fly/on-board/culinary-services 1440 390 # 96: 390 missing
+https://www.brusselsairlines.com/be/fr/legal-notices 1440 390 # 97: 390 missing
+https://www.brusselsairlines.com/be/en/articles/the-gambia 1440 390 # 98: 390 missing
+https://www.brusselsairlines.com/be/fr/articles/vibrant-senegal 1440 390 # 99: 390 missing
