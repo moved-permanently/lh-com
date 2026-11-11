@@ -376,11 +376,21 @@ export function variantFragments(html, fragments) {
     if (!seen.has(f.html)) seen.set(f.html, `${f.doc}-${crypto.createHash('sha1').update(f.html).digest('hex').slice(0, 6)}`);
     return { doc: seen.get(f.html), html: f.html };
   });
-  let i = 0;
+  // each link resolved by its fragment's name, in order among the fragments of that name; a link repeated (market
+  // sections with the same content share one fragment, marketFragments) keeps the name its fragment got. By position
+  // alone the links after such a repeat pointed at other fragments (en-pt partners: ao's "Rent a Car" tab linked a
+  // Hotels fragment; standing order 10)
+  const queues = new Map();
+  fragments.forEach((f, k) => {
+    if (!queues.has(f.doc)) queues.set(f.doc, []);
+    queues.get(f.doc).push(docs[k].doc);
+  });
+  const lastOf = new Map();
   const out = html.replace(/<div class="fragment"><div><div><a href="([^"]+)">[^<]*<\/a><\/div><\/div><\/div>/g, (m, d) => {
-    const f = docs[i];
-    i += 1;
-    return f && f.doc !== d ? m.split(d).join(f.doc) : m;
+    const q = queues.get(d);
+    const to = q && q.length ? q.shift() : (lastOf.get(d) || d);
+    lastOf.set(d, to);
+    return to !== d ? m.split(d).join(to) : m;
   });
   const uniq = [...new Map(docs.map((f) => [f.doc, f])).values()];
   return { html: out, fragments: uniq };

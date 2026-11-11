@@ -1,0 +1,26 @@
+# ema-cashub, standing order 10 (2026-11-11), item 1: the 61 market-group pages of capture-so9-tap-market-groups-missing.txt
+# and the four so8 language pages, captured in tap-snapshots-028 (45 pages) and -029 (19; /en-br/legal-info/privacy not
+# saved), with tap-media-026. Compared offline (nothing fetched from TAP's hosts): tap-markets.mjs with every archive
+# and --existing (DA's copies of the 209 language documents, GET) against our documents, per served country.
+# These are raw snapshots, not rendered recordings: www's height cannot be measured from them, so the comparison is by
+# content (texts and blocks a country sees) against DA's copies and the published root documents, and against www's
+# server-rendered markup in the snapshot.
+# Found on the way (fixed in this commit, test/tap-market-fragments-shared-so10.test.mjs; TAP parity row 140):
+# variantFragments rewrote the fragment links of a page over the limits by position, so where market sections share
+# content (one fragment for several) every later link pointed at another fragment. With the tabs of row 134, en-pt,
+# pt-pt and es-es partners would have lost most of a market's partners (en-ao: 538 of www's texts). No document in DA
+# has such links (none has tab sections as market fragments yet); the fixed run gives every country of the partners
+# pages exactly DA's view. Run the merge only with this commit's tap-markets.mjs.
+# No change needed (the fresh document gives every country what DA's copy and the published document give it): the
+# group pages of club, partners / parceiros / socios, promo, promotions / promocoes, en-pt / pt-pt / en-ca / en-us /
+# pt-ca / pt-us promos, the conditions of carriage, service animals; and the own documents of insurance, baggage
+# problems, gift, help, tap-refunds, privacy, terms, club, earn miles, the promo pages and the conditions of carriage.
+# Run for the rows: tap-markets.mjs (this commit) as for reimport-so8 (--archive the language archives, --market-archive
+# tap-snapshots-016 to -022, -025, -027, -028, -029, --media every media archive with tap-media-026 and tap-byside-001,
+# --sitemaps, --pages tap-market-pages.json, --existing DA's copies saved just before the run, curl -R); upload only the
+# documents below. Columns: document, status, expected change.
+/pt-pt/promos	READY	es only: "Natal ao estilo de Nova Iorque" off (pt-es's capture of 2026-11-11 no longer has it); every other country as on DA
+/en-br/help/frequently-asked-questions	READY	www's current answers (the hand baggage allowance by cabin, Economy Prime and others: 39 texts new, 6 gone, none of the gone ones on www)
+/pt-us/ajuda/perguntas-frequentes	READY	as en-br's FAQ, in Portuguese
+/es-us/miles-and-go/promociones	READY	the American Express card section www's es-us now shows (Earn 40.000 Bonus Miles + 15.000 Status Miles)
+/es-us/promos	READY	the Stopover card in www's current words ("¿Viaja a Europa? Portugal incluido.")
