@@ -112,3 +112,6 @@
 /de/de/articles/explore-flying/what-the-hack-sleep-on-a-plane	de/de	/de/de/articles/explore-flying/what-the-hack-sleep-on-a-plane	-	2	insights
 /de/de/articles/explore-flying/first-class-collectible-loungewear-cdlp-jorinde-voigt	de/de	/de/de/articles/explore-flying/first-class-collectible-loungewear-cdlp-jorinde-voigt	-	2	insights
 /de/de/articles/explore-flying/welcome-to-my-world-jorinde-voigt	de/de	/de/de/articles/explore-flying/welcome-to-my-world-jorinde-voigt	-	2	insights
+# added 2026-11-11 02:05 CET (brief 582, rule 6): www renamed the page's fare ("Impact Fares: A fare that supports lower-emission aviation", our documents still "Green Fares", recording lh-parity-002): fresh captures for a re-import (info).
+/de/en/green-fare	de/en	/de/en/green-fare	-	2	info
+/de/de/green-fare	de/de	/de/de/green-fare	-	2	info
