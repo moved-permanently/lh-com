@@ -3140,5 +3140,19 @@ follow when their run is through.
   Discover page 62 px shorter at 390; backwards-compatible (theme, phones only; the footer from 768 px is ema-adobe's).
 - **Process:** my pushes from 21:30 to 23:00 UTC went onto a main whose stylelint was red from another session's Brussels
   rules (fixed in a6d34148); my ship script had read the whole-repo lint before its rebase only. From now on the lint is
-  read again on the rebased tree right before the commit and push (.scratch tool ship2.sh), and a red lint holds the push.
+  read again on the rebased tree right before the commit and push (.scratch tool ship2.sh), and a red lint holds the push.- **New archives from my lists** (sha256 computed here):
+  - ita-snapshots-022 (capture list 4; 49 pages ok, 23:09 UTC; 2,028,213 bytes,
+    8945892afc3b06422e8013d9aa2d8d1943087bbc0a7ba3b54f739141d351beb2). Each page imported offline with main's
+    ita-import.mjs and its bundle: 47 give the "Related" grid "two-up"; the two digital-services pages give a
+    three-card phone slider (www's view has three cards), so they leave the two-up lists. New list:
+    tools/reports/parity-2026-11-09/reimport-585-ita-two-up-snapshots.txt (A 47 rows from ita-snapshots-022, B 2 rows
+    out, C 2 rows from ita-snapshots-021, D 31 rows without a snapshot tonight). Capture list 5
+    (tools/reports/parity-2026-11-09/capture-list-585-brands-5.txt) asks for D's 31 pages.
+  - airdolomiti-snapshots-007 (capture list 3; 20 pages ok at www.airdolomiti.de / .eu, 23:25 UTC; 1,727,817 bytes,
+    20f76507199d9e22b7c6930e9f0e427be39676e9a2612325b645fd4b5b412e9f): with snapshots-004's two, all 22 rows of
+    reimport-567-ad-description-news.txt now have www's page at its own host.
+- **Classified, no change (Discover, ema-cashub's rows):** D6 homepage and D5 flight search at 1440: the flight
+  offers widget's destination tiles (prices) come from an offers service our measuring browser does not reach (data,
+  as SWISS's offers row 52); D9 additional services -3.9 % at 1440: www's space between the title and its intro
+  differs by page (40 to 100 px against our 40 to 80), not one rule.
 
