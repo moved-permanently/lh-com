@@ -2726,3 +2726,58 @@ Before it: standing order 4 was worked from 08:30 until the restart (09:00 UTC);
 - Looked at and left: the second view start under lufthansa-group-airlines' heading (2 documents; route-network has
   the same structure and a single start, so no theme rule can tell them apart); H2s in Columns Media cells (315
   unmarked, 74 heading-small in the census: no structural default).
+
+## Standing order 5 (received about 20:00 UTC, 2026-11-11)
+
+State at the start (20:01 UTC): one local commit not pushed, the 20:00 UTC update above (the previous conversation
+ended on model errors right after making it); pushed at 20:26 as 7f1686c6 after lint 0 and the full suite (873/873).
+Nothing else of mine uncommitted. A local preview server from before (port 3042) stopped.
+
+Method for both items: our host's published documents (b2b, brussels and austrian .turnsthe.page, with their head
+metas as a Metadata block) rendered locally at full height with this checkout's code, compared with the newest
+recording of each page (tools/parity/compare.js, % of differing pixels); www's empty paragraphs found by laying the
+recordings out offline (scripts off, every request answered from the archive or aborted). Recordings as on 11-11
+(sha256 = sidecar; b2b-parity-001 checked against the value recorded on 11-09). No request to any airline host.
+Recorded: Brussels 73 documents / 146 page-widths, B2B 86 / 153, Austrian 2 / 4. Scratch: logs/p4/so5 (outside git).
+
+### Item 1, the empty-paragraph spacers: shipped (6926f76b, 21:34 UTC)
+
+- What www does: an empty paragraph in a rich text takes space (Brussels <p></p> 20 px at 1440 / 16 at 390,
+  <p>&nbsp;</p> and <p><br></p> 44 / 40; B2B 48). Found on 11 Brussels and 6 B2B documents of the recordings; only 4
+  Brussels documents have such a place between running text in a section's own content in DA. Every B2B one is in a
+  Columns Media cell (businesstogo x4, de/en homepage, de/de lufthansa-group-airlines) or a dialog.
+- The size had to be www's gap, not the empty paragraph: our gaps around it differ from www's (an H2 after a spacer
+  loses its top margin; a list on www has one of its own). Tried first the paragraph's space (privacy-notice 1440
+  10.32 -> 5.57 but student-fares worse) and the space plus the heading margin (privacy 1440 worse, 12.47); kept:
+  N = mean over both widths of www's gap less our paragraph margin (20 / 16), less 1.
+- Delta: tools/importer/text-spacers-apply.mjs with tools/reports/parity-2026-11-09/text-spacers-so5.json (DA's copy
+  plus <p>{spacer-N}</p>; --list takes a reimport list's READY rows only).
+- reimport-so5-brussels-text-spacers.txt: READY aviation-services-law (ao/fr) 1440 8.45 -> 6.16, 390 15.22 -> 14.24;
+  privacy-notice-applicants 10.32 -> 9.35, 15.05 -> 10.21; short-notice-eu-us 24.23 -> 21.47, 14.38 -> 12.65.
+  HOLD student-fares (1440 11.06 -> 13.42: the page is about 385 px lower than www's from its first section) and 7
+  documents with nothing to apply. reimport-so5-b2b-text-spacers.txt: nothing to apply (6 rows HOLD with the reason).
+  Every other recorded page's document is unchanged; the Austrian controls measured with main's code and with this
+  push: identical (culinary-services 38.78 / 25.41, online-check-in 19.71 / 23.16).
+- Import and collapse (Brussels only): <p></p> as {spacer-17}, <p><br></p> as {spacer-40} between two text
+  paragraphs; the collapse keeps a spacer of 31 px or less between running text on a theme with textSpacers. All 14
+  bundles rebuilt; the three Austrian bundles (checkin, flight-status, hero-banner) were behind their sources and
+  now carry what was already there (dropLoneCellMarkers, startAfterLogo, the flow headings entry).
+- Push: lint 0, stylelint 0, suite 876/876, the edge's own tests 415/415 (scripts/style-markers.js deploys lh-edge),
+  smoke 12 hosts before and after the deploy: 0 differ. Build and Deploy lh-edge of 6926f76b: success (7f1686c6's
+  Build stayed queued behind later runs, which passed).
+
+### Item 2, the B2B ranking (fresh, local, full height: 153 page-widths, mean 19.82 %)
+
+Worst first: hygiene-and-safety 1440 (four documents, 51.7 to 52.4), the celebrating hubs 390 (49.1 / 45.1, held
+before), lhg-history 1440 (38.4 / 37.4, decision 1 withdrawn), ch/en discover-airlines 1440 37.1, the Allegris and
+SWISS Senses start-of-booking pages at 390 (27 to 36), businesstogo (29.6 to 30.4).
+
+- hygiene-and-safety (de/de, de/en, xx/de, xx/en), shared by the four: DA holds www's heading as the first cell of a
+  Columns Media stage with two teaser cells (three columns here), and www has 91 px between the teaser rows (ours
+  40). From 768 px the heading over the row, the teasers two-up, 91 px between two stage blocks in a row
+  (styles/themes/b2b.css; census: only these four documents have either structure; on all 86 recorded B2B pages
+  the rules match these four only). 1440 52.42 / 52.42 / 51.88 / 51.68 -> 3.65 / 3.65 / 3.78 / 3.78 %; 390 unchanged
+  (the rules start at 768 px).
+- The tab accordion's 20 px inset on phones (the cause found at 20:00): B2B as lufthansa.com's. On the 26 recorded
+  tab pages at 390: de/en corporates-start-of-booking 27.19 -> 20.92, meals-on-board 22.08 -> 19.14, businesstogo
+  de/de and xx/de -0.1, the others unchanged (their sets closed), none worse.
