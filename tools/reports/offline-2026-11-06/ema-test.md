@@ -2583,3 +2583,54 @@ clock (date -u).
   shipped. The sizes are www's; what is left on these pages (spacers and view starts the collapse dropped, card text
   wrapping) moves the rest out of line either way.
 - No new archives in the drop (b2b-parity-007, b2b-snapshots-016: 404 at 04:41 UTC).
+
+## Final report of the night (06:59 UTC, 2026-11-11)
+
+Decisions of the standing order of 2026-11-10 evening:
+
+1. lhg-history, the H1-view collapse change: done, measured on all 29 documents' recordings (26 changed): worse on 21
+   of 26, mean +7.15 points: not shipped, reverted; reimport-583-b2b-h1-view.txt says WITHDRAWN with all rows.
+2. Tab default on phones: built (decba696, per-set "open first" / "closed" on the Tabs row, backwards-compatible);
+   reimport-583-b2b-tabs-open.txt from the 390 recordings: 2 documents "open first", the other 7 as B2B's default.
+3. B2B ranking worst-first, one change at a time on our host. Shipped:
+   - airlines-at-a-glance (31138060 + list reimport-583-b2b-teaser-grids.txt, 74 documents; DA's copy plus the delta,
+     tools/importer/b2b-teaser-grids-apply.mjs): loose teaser runs as Carousel Cards, the 21 airline titles H1 compact.
+     24 recorded pages: mean 35.84 -> 21.01 % (1440 46.98 -> 21.72, 390 24.70 -> 20.30).
+   - sidebars no column view (c35b1d7d, served): route-network de/de 1440 15.2 -> 9.8, 390 32.4 -> 30.2; de/en 19.8 ->
+     15.2, 29.3 -> 27.0 (confirmed on our host).
+   - tab panels' text columns (importer b2b-tab-columns + list reimport-583-b2b-tab-columns.txt, 12 documents; delta
+     tools/importer/b2b-tab-columns-apply.mjs): corporates-start de/en 1440 36.1 -> 30.8, meals-on-board de/en 1440
+     23.5 -> 20.7 (local; 390 unchanged).
+   - B2B headings unhyphenated on phones (styles.css, served): de/de experts/news 390 35.3 -> 22.7, partner-plus-benefit
+     22.9 -> 21.0 (confirmed on our host), no 390 row worse.
+   - ITA (rows-for-ema-test row 1, f8c5b3ff, served): an unmarked H2 before a teaser grid in heading-small.
+   Measured and held (outside git, logs/p4/s583/held-*): the celebrating pages' video component and a grey band's end
+   edge, www's no-break spaces into DA's copies, "H2 small" for B2B's one-step H2s: each structurally www's, each
+   measured mixed or worse on the recorded pages.
+   Fresh ranking at full height (68 rows, our host, after the sidebar push): mean 16.52 % (the earlier 17.05 counted
+   8,000 px captures of www's long pages).
+   Capture lists: capture-list-583-b2b.txt (33 pages, recorded as b2b-parity-006), capture-list-583-b2b-2.txt (12 pages,
+   00:40 UTC; nothing recorded yet: b2b-parity-007 and b2b-snapshots-016 still 404 at 06:57 UTC).
+4. The five held tab pairs (b2b-snapshots-015): the A350 Mumbai paragraph (15 December 2026) is on www on all four
+   swiss-senses pages, so DA's newer text is www's now; xx/en entertainment-on-board's extra DA text is market-variant
+   rows and an older paragraph www no longer has, not newer content.
+
+For the harness, in release order (the code is on main and served): reimport-583-b2b-tabs-open.txt,
+reimport-583-b2b-teaser-grids.txt, reimport-583-b2b-tab-columns.txt (the last two: DA's copy plus the delta, their
+scripts named in the headers; their order does not matter).
+
+For the collapse's owner (findings, nothing changed): spacers of 31 px or less go for every brand (on B2B 40 right
+before a column start); a heading size goes when a section's headings disagree; a second view start between a
+heading and its block goes with its marker paragraph. ema-cashub's row 2 in rows-for-ema-test.md (04:05 UTC: www's
+empty paragraphs in Brussels' rich text, about 16 px each, dropped by the import and not kept by the collapse) has the
+same root as the first: received at the end of the night, not started; a small gap the collapse keeps would serve
+both.
+
+Process: main's stylelint was red twice from other agents' theme commits (Brussels 21:30, Austrian 01:01); after an
+hour each I made it green with comment / formatting-only commits (no rule or value changed), named in their messages.
+Three report headings had wrong times (written, not read from the clock); corrected at 01:25. Every push had lint exit
+0 and the full suite (or, after a rebase bringing only reports and upload state, the two tests that read the state);
+smoke 12 hosts before and after each served push: no difference but lh-com's de/en sitemap content. My local preview
+servers are stopped. Not in git and why: logs/ (scratch, measurements, captures), content-sites/ (scratch imports),
+.migration/project.json (the workspace's own change, not mine), the untracked tools/importer/reports/* and content/,
+migration-work/ (from before this turn, not mine).
