@@ -2820,13 +2820,15 @@ body.brand-airdolomiti .cards-teaser.three-up:not(.routes) > ul:has(> li > .card
  * the destination hub's cards (cards-teaser three-up: picture, title, line and the city's link), as
  * www's CardNews: white with a soft shadow, a 10px radius, 470px high, the picture 60% of it (its
  * own 10px radius), 25px 15px in, the title regular 20px / 26px, the line at the foot grey 14px /
- * 18px underlined; the card one link (the city's, its name the link's name)
+ * 18px underlined; the card one link (the city's, its name the link's name); no margin of its own: the grid's 20px
+ * gap alone parts them, not the block's 36px between stacked cards below 768px (AD row 109)
  */
 body.brand-airdolomiti .cards-teaser.three-up:not(.routes) > ul > li:has(> .cards-teaser-image + .cards-teaser-body > .cards-teaser-title:first-child + p:not(.cards-teaser-cta) + .cards-teaser-cta:last-child) {
   position: relative;
   display: flex;
   flex-direction: column;
   height: 470px;
+  margin-top: 0;
   overflow: hidden;
   border-radius: 10px;
   background-color: #fff;

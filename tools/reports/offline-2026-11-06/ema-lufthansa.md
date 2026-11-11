@@ -3534,4 +3534,11 @@ the drop and our own host only. Nothing uploaded, previewed or published.
   with main's importer: the two hint rows each, the text the same. reimport-586-ad-flight-status-hints.txt: /en/flight-status
   and /stato-volo now READY (/stato-volo's re-import also brings the section style compact-title, www's Title as the
   page's H1: that document predates row 50's importer); capture-list-586-brands.txt marks both captured.
+- **On main:** b28d7256 (the flight status hints READY; npm run lint exit 0 before and after the rebase, 3670 pass 0
+  fail, git show --stat 3 files as given, GitHub Build success; smoke: 6 hosts 0 differences, lufthansa, -cn and -edge
+  one line each (sitemap_lh_at_de.xml.gz 45,999 -> 46,003 bytes: published content, not code), five runs crashed on the
+  network and were run again: 0 differences against a3029929's answers).
+- **Air Dolomiti row 109 (item 4, the ranking: the destination hubs at 390):** the hub cards 20 px apart on phones as
+  www's (the block's stacked 36 px no longer added). 390 6421 -> 6385 (www 6393), 9917 -> 9629 (9699), 10416 -> 10128
+  (10151); backwards-compatible (theme, those cards only, phones only).
 
