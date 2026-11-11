@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-homepage.js
-  var tmp_bundle_homepage_40802_exports = {};
-  __export(tmp_bundle_homepage_40802_exports, {
-    default: () => tmp_bundle_homepage_40802_default
+  var tmp_bundle_homepage_38386_exports = {};
+  __export(tmp_bundle_homepage_38386_exports, {
+    default: () => tmp_bundle_homepage_38386_default
   });
 
   // tools/importer/parsers/flash-teaser.js
@@ -2824,6 +2824,8 @@ var CustomImportScript = (() => {
   function placeColumnMarks(document) {
     const roots = [...document.querySelectorAll(`[${COLUMN_ATTR}]`)];
     let placed = 0;
+    const ownEnds = /* @__PURE__ */ new Map();
+    inViewSlideshows(roots);
     roots.forEach((root) => {
       const suffix = root.getAttribute(COLUMN_ATTR) === "cc" ? "-outer" : "";
       const spaced = root.getAttribute(COLUMN_ATTR) === "sc-spaced";
@@ -2845,12 +2847,43 @@ var CustomImportScript = (() => {
       if (inline(last) && addMarkerToken(last, `column-end${suffix}`)) {
         if (spaced) addMarkerToken(last, "column-spaced");
       } else {
-        root.append(own(`column-end${suffix}${spaced ? " column-spaced" : ""}`));
+        const end = own(`column-end${suffix}${spaced ? " column-spaced" : ""}`);
+        root.append(end);
+        ownEnds.set(end, end.textContent);
       }
       placed += 1;
     });
+    dropNestedOuterEnds(ownEnds);
     roots.forEach((root) => root.removeAttribute(COLUMN_ATTR));
     return placed;
+  }
+  function inViewSlideshows(roots) {
+    roots.forEach((root) => {
+      root.querySelectorAll("table").forEach((table) => {
+        const head = table.querySelector("tr > th, tr > td");
+        const name = head ? cleanText(head) : "";
+        const m = name.match(/^carousel[- ]lightbox\s*(?:\(([^)]*)\))?$/i);
+        if (!m) return;
+        const opts = (m[1] || "").split(",").map((o) => o.trim()).filter(Boolean);
+        if (opts.includes("in-view")) return;
+        head.textContent = `${name.replace(/\s*\(.*$/, "")} (${[...opts, "in-view"].join(", ")})`;
+      });
+    });
+  }
+  function dropNestedOuterEnds(ownEnds) {
+    ownEnds.forEach((token, inner) => {
+      if (token !== "{column-end-outer}" || !inner.isConnected) return;
+      let el = inner;
+      while (el.parentElement) {
+        let next = el.nextElementSibling;
+        while (next && !cleanText(next) && !next.querySelector("img, picture, table, video, iframe")) next = next.nextElementSibling;
+        if (next) {
+          if (ownEnds.get(next) === token && next.parentElement.contains(inner)) inner.remove();
+          return;
+        }
+        el = el.parentElement;
+      }
+    });
   }
   var MOBILE_COPY = ".hidden-lg-up, .hidden-md-up, .d-md-none, .d-lg-none, .visible-xs";
   var DESKTOP_COPY = ".hidden-md-down, .hidden-sm-down, .d-none.d-md-block, .d-none.d-lg-block, .d-none.d-md-flex, .d-none.d-lg-flex";
@@ -5353,7 +5386,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_homepage_40802_default = {
+  var tmp_bundle_homepage_38386_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5393,5 +5426,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_homepage_40802_exports);
+  return __toCommonJS(tmp_bundle_homepage_38386_exports);
 })();

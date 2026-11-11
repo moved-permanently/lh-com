@@ -1086,6 +1086,8 @@ function addMarkerToken(el, token) {
 function placeColumnMarks(document) {
   const roots = [...document.querySelectorAll(`[${COLUMN_ATTR}]`)];
   let placed = 0;
+  const ownEnds = new Map(); // a root's own end paragraph -> its token
+  inViewSlideshows(roots);
   // outer column views first (document order), so a nested one adds its own marker
   roots.forEach((root) => {
     const suffix = root.getAttribute(COLUMN_ATTR) === 'cc' ? '-outer' : '';
@@ -1108,12 +1110,58 @@ function placeColumnMarks(document) {
     if (inline(last) && addMarkerToken(last, `column-end${suffix}`)) {
       if (spaced) addMarkerToken(last, 'column-spaced');
     } else {
-      root.append(own(`column-end${suffix}${spaced ? ' column-spaced' : ''}`));
+      const end = own(`column-end${suffix}${spaced ? ' column-spaced' : ''}`);
+      root.append(end);
+      ownEnds.set(end, end.textContent);
     }
     placed += 1;
   });
+  dropNestedOuterEnds(ownEnds);
   roots.forEach((root) => root.removeAttribute(COLUMN_ATTR));
   return placed;
+}
+
+/**
+ * Standing order 4: a Carousel Lightbox (the fleet pages' seat maps) inside a marked column view gets
+ * the option in-view: the view's marks are its spacing, blocks/carousel-lightbox.css drops the block's
+ * own margins (measured on documents without marks, before brief 461) for it. /de/en/744 15.7 -> 7.7 %
+ * at 1440, 19.1 -> 12.4 at 390; 359 17.7 -> 5.9 / 17.8 -> 8.8.
+ */
+function inViewSlideshows(roots) {
+  roots.forEach((root) => {
+    root.querySelectorAll('table').forEach((table) => {
+      const head = table.querySelector('tr > th, tr > td');
+      const name = head ? cleanText(head) : '';
+      const m = name.match(/^carousel[- ]lightbox\s*(?:\(([^)]*)\))?$/i);
+      if (!m) return;
+      const opts = (m[1] || '').split(',').map((o) => o.trim()).filter(Boolean);
+      if (opts.includes('in-view')) return;
+      head.textContent = `${name.replace(/\s*\(.*$/, '')} (${[...opts, 'in-view'].join(', ')})`;
+    });
+  });
+}
+
+/**
+ * Standing order 4: an outer view nested in an outer view that ends where its outer view ends (the
+ * fleet pages' seat-map view in the section's view): www pads each .column-view 2rem below, our one
+ * {column-end-outer} draws those 40px, so the inner view's own end paragraph goes (two drew 80px).
+ * The views inside a section (column-end) as before: www's last nested view has no padding there.
+ */
+function dropNestedOuterEnds(ownEnds) {
+  ownEnds.forEach((token, inner) => {
+    if (token !== '{column-end-outer}' || !inner.isConnected) return;
+    // walk up while the paragraph's branch is the last content of its parent
+    let el = inner;
+    while (el.parentElement) {
+      let next = el.nextElementSibling;
+      while (next && !cleanText(next) && !next.querySelector('img, picture, table, video, iframe')) next = next.nextElementSibling;
+      if (next) {
+        if (ownEnds.get(next) === token && next.parentElement.contains(inner)) inner.remove();
+        return;
+      }
+      el = el.parentElement;
+    }
+  });
 }
 
 /* ------------------------------------------- desktop/mobile copies ----------------- */
