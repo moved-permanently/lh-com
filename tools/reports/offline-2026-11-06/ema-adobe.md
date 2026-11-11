@@ -2940,7 +2940,7 @@ the ten hosts before and after anything served (same statuses every time; once, 
 | 50ac395 | the tag pages' pagination as www's (short pagers) | tags/allegris 18.4 -> 17.5 / 22.8 -> 21.7 (and its versions); munich +0.6 |
 | 2a44c16 | tabs on phones: label and content 20 px in | advance-seat-reservation 22.5 -> 12.0; baggage-irregularities 18.3 -> 8.2; terminal-muenchen 19.7 -> 10.1; unterhaltung-an-bord 18.8 -> 14.8 (390) |
 | 35ea5ce | wide tables on phones keep www's column width and scroll | lufthansa-guide-service 15.6 -> 8.6 (390) |
-| 1736cf4 | market steps: the variant's links rewritten to the version's root; rerun list 30, 38, 39 | (rerun done by the helper; no wrong-root link left) |
+| 1736cf4, a167dfc | market steps: the variant's links rewritten to the version's root; rerun list | 30, 38, 39 rerun by the helper (no wrong-root link left); 15 more markets-section documents uploaded earlier still link into ae/de or gb/en (rerun list of 05:35 CET); rows 2, 17 to undo |
 | 03508b5 | profile tabs: a panel's text fills the panel | lufthansa-am-flughafen-frankfurt 18.9 -> 14.0 (1440) |
 | 164f17d | the stage's information text not as a subheadline (lufthansa.com) | economy-class 34.2 -> 34.1 (text as www's) |
 | docs | the report and lists (539eb4f, 569d473, b3cb341, d0180f6, 04e49ff, a329c50, 779abb5, 10073f3, 805ec7b) | |
@@ -2950,7 +2950,8 @@ the ten hosts before and after anything served (same statuses every time; once, 
 - tools/reports/parity-2026-11-09/reimport-582-link-lists-lh-com.txt (35 documents: info 21, legal 7, app-entry 7).
 - tools/reports/parity-2026-11-09/reimport-582-profile-nav-flush-lh-com.txt (43 info documents).
 - tools/reports/markets/lh-market-diff/market-steps-582.tsv (43 steps: 15 markets-section, 25 shared-variant,
-  3 tabs-by-market; 6 rows without a step and why) and market-steps-582-rerun.tsv (30, 38, 39: done).
+  3 tabs-by-market; 6 rows without a step and why) and market-steps-582-rerun.tsv (30, 38, 39 done at 03:32 CET;
+  since 05:35 CET the 15 other markets-section rows, and rows 2 and 17 to undo).
 - tools/reports/markets/lh-market-diff/own-documents-582-p23.tsv (the 97 priority 2/3 own documents, templates,
   archive 097; the helper uploaded them from 097/099 in four slices at 20:46 CET).
 - tools/reports/parity-2026-11-09/import-582-new-articles-lh-com.txt (6 new Insights articles: uploaded) and
@@ -2983,4 +2984,5 @@ the ten hosts before and after anything served (same statuses every time; once, 
   re-import (43); market-steps-582.tsv rows other than 30, 38, 39, 40, 46 (uploaded and checked).
 - My mistakes tonight: a1a8e13 pushed with lint errors (the lint read the tree before the commit; Ben fixed
   the max-len lines in parallel); the 558 stand-in for rows 2/17 (ae/de) was in its own group; the 558 merge tool
-  left the variant root's links (fixed, rerun done).
+  left the variant root's links (fixed; 3 documents rerun, 15 on the rerun list), and the helper had uploaded
+  rows 2 and 17 with the wrong stand-in before my correction reached main.
