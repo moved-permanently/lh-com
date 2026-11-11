@@ -3513,4 +3513,15 @@ the drop and our own host only. Nothing uploaded, previewed or published.
   with a test each (discover-heading-margins-585 in f3e44340, discover-column-rows-585 in d76a3d39,
   discover-accordion-margins-585 in a46f654d), so it would only repeat them. Moved out of the pending folder in .scratch
   (not deleted); the applied hub-foot patch went with it.
+- **On main:** 9520d63c (the ITA list and the classifications; npm run lint exit 0 before and after the rebase, 3656 pass
+  0 fail, git show --stat 2 files as given, smoke 0 differences on 14 hosts; its GitHub Build was not yet listed when
+  read, the queue behind: read again below).
+- **Air Dolomiti row 108, the German in-flight entertainment title (item 1):** www.airdolomiti.de's title-only text
+  before the lead becomes the page's hidden H1 (section styles hidden-heading, lead-under-trail), the picture where
+  www's is (235 / 242). Backwards-compatible: the theme's exclusion changes nothing for today's documents, the new rules
+  need the new style. List: reimport-587-ad-german-lead.txt (1 READY, airdolomiti-parity-005). Only this page has the
+  pattern in the recordings.
+  First ship run stopped at the suite (2 fail, nothing committed): row 95's test (airdolomiti-news-stage-567) looked
+  its rules up by the selectors before the lead-under-trail exclusion; updated in the same commit (every Air Dolomiti
+  test run alone before the second run: 0 fail).
 

@@ -4528,7 +4528,7 @@ body.brand-airdolomiti main > .section:has(> .cards-teaser-wrapper > .cards-teas
    page's top, its first part under the fixed bar, the trail on it under the bar (16px higher from 930px), the title 50px
    under the picture at 650px as www's at both widths; a page whose title shows (a section without the hidden-heading
    style) keeps its title over the picture */
-body.brand-airdolomiti main > .section.hidden-heading:first-child:has(> .columns-media-wrapper > .columns-media.news) > .breadcrumb-wrapper:first-child {
+body.brand-airdolomiti main > .section.hidden-heading:not(.lead-under-trail):first-child:has(> .columns-media-wrapper > .columns-media.news) > .breadcrumb-wrapper:first-child {
   position: absolute;
   top: var(--nav-height);
   left: 0;
@@ -4536,19 +4536,38 @@ body.brand-airdolomiti main > .section.hidden-heading:first-child:has(> .columns
   width: 100%;
 }
 
-body.brand-airdolomiti main > .section.hidden-heading:first-child > .breadcrumb-wrapper:first-child + .default-content-wrapper:has(+ .columns-media-wrapper > .columns-media.news) {
+body.brand-airdolomiti main > .section.hidden-heading:not(.lead-under-trail):first-child > .breadcrumb-wrapper:first-child + .default-content-wrapper:has(+ .columns-media-wrapper > .columns-media.news) {
   margin-top: 0;
 }
 
-body.brand-airdolomiti main > .section.hidden-heading:first-child > .breadcrumb-wrapper:first-child ~ .columns-media-wrapper:has(> .columns-media.news) {
+body.brand-airdolomiti main > .section.hidden-heading:not(.lead-under-trail):first-child > .breadcrumb-wrapper:first-child ~ .columns-media-wrapper:has(> .columns-media.news) {
   margin-top: calc(-1 * var(--nav-height));
 }
 
 @media (width >= 930px) {
-  body.brand-airdolomiti main > .section.hidden-heading:first-child:has(> .columns-media-wrapper > .columns-media.news) > .breadcrumb-wrapper:first-child {
+  body.brand-airdolomiti main > .section.hidden-heading:not(.lead-under-trail):first-child:has(> .columns-media-wrapper > .columns-media.news) > .breadcrumb-wrapper:first-child {
     top: calc(var(--nav-height) - 16px);
   }
 }
+
+/* www.airdolomiti.de's lead (AD row 108, the German in-flight entertainment page): the trail in a row of its own, the
+   picture 94px under it (73px from 930px), no title on screen (www's title sits behind the fixed bar): section styles
+   hidden-heading (the H1 for screen readers) and lead-under-trail (row 95's pull under the bar not applied) */
+/* stylelint-disable no-descending-specificity -- the German lead's wrappers, after row 95's */
+body.brand-airdolomiti main > .section.hidden-heading.lead-under-trail > .breadcrumb-wrapper + .default-content-wrapper:has(+ .columns-media-wrapper > .columns-media.news) {
+  margin-top: 0;
+}
+
+body.brand-airdolomiti main > .section.hidden-heading.lead-under-trail > .breadcrumb-wrapper ~ .columns-media-wrapper:has(> .columns-media.news) {
+  margin-top: 94px;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section.hidden-heading.lead-under-trail > .breadcrumb-wrapper ~ .columns-media-wrapper:has(> .columns-media.news) {
+    margin-top: 73px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
 
 /* the trail over a page title from 1025px (AD row 97): right under the bar as www's (its text at 132, the title at 170);
    not on the FAQ half pages (www's title there 20px lower), a stage's or the hidden-heading lead's trail */

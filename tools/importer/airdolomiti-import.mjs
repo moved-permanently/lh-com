@@ -938,7 +938,20 @@ const HANDLERS = {
     ...a, description: a.subTitle || a.description, ctaText: a.ctaText || a.textCta, url: a.url || a.ctaUrl,
   }, page, 'primary'),
   // www's CTA here is its outline button (style_btn_outline, 9 of 9 in the archive; brief 456)
-  'lazyblock/title-description-text-cta': (a, page) => titleText(a, page, 'secondary'),
+  'lazyblock/title-description-text-cta': (a, page) => {
+    // www.airdolomiti.de's lead (the German in-flight entertainment page, AD row 108): a title alone (no text, no
+    // button) right before a DescritionNews; www draws it behind the fixed bar (y 20), so on screen the page has no
+    // title over its picture: the page's H1 for screen readers (hidden-heading), the lead under the trail's own row
+    // (lead-under-trail: the theme's row 95 pull under the bar not applied)
+    const next = page.nextBlock;
+    if (a.title && !plain(a.description || a.text || '') && !(a.url && a.ctaText) && next && next.name === 'lazyblock/description-news') {
+      page.add(`<h1>${esc(plain(a.title))}</h1>`);
+      addStyle(page, 'hidden-heading');
+      addStyle(page, 'lead-under-trail');
+      return;
+    }
+    titleText(a, page, 'secondary');
+  },
   'lazyblock/cardfullwidth': (a, page) => {
     page.section();
     page.block('hero-card-overlay', [[page.img(a.backgroundImage || a.backgroundImageLeft)], [`${page.heading(a.tag || 'h2', a.title)}${rich(a.subtitle, page)}${a.urlBtn ? page.link(a.urlBtn, a.ctaText, 'primary') : ''}`]]);
@@ -1358,7 +1371,9 @@ export function convert(rendered, sourceUrl) {
   // the current travel information pages (cti-pages.json): the Message Center's notices above
   // their accordion
   const cti = CTI_PAGES.includes(sourceKey(sourceUrl));
-  (post.blocks || []).forEach((b) => {
+  (post.blocks || []).forEach((b, i) => {
+    // the next top-level block, for a handler that depends on it (the title-only text before a lead)
+    page.nextBlock = (post.blocks || [])[i + 1] || null;
     if (cti && !page.messagesPlaced && b.name === 'lazyblock/tariffe-list') {
       page.block('message-center', [['Types', 'irreg, tech-outage']]);
       page.messagesPlaced = true;
