@@ -3205,5 +3205,8 @@ follow when their run is through.
   differences on 14 hosts).
 - **TAP row 136:** the inspiration categories' tabs as www's pills, the titles centred (backwards-compatible: theme rules
   for the set "categories" only). Open (row 137): the countries beside the articles, www's FAQ picker's second level; it
-  needs the picker to work with fragment-loaded accordions (the inspiration pages are fragment pages), not tonight.
+  needs the picker to work with fragment-loaded accordions (the inspiration pages are fragment pages), not tonight.- **On main:** f205aa9d (TAP 136; lint 0 before and after the rebase, the suite passing, smoke 0 differences on 14 hosts).
+- **TAP row 137:** the inspiration categories' countries as www's list beside the chosen country's articles (the FAQ
+  picker's second level, now also in the inspiration fragments). Backwards-compatible (TAP's inspiration fragments only).
+  With rows 134 to 137 and the re-import, en-pt get-inspired at 1440 is 6,194 px against www's 5,582 (from 39,550).
 

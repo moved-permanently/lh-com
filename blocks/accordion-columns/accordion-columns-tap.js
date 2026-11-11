@@ -169,13 +169,103 @@ export function buildFaqPicker(main) {
   pick(Math.max(ci, 0));
 }
 
+/** The inspiration pages' slug in TAP's languages (www's same CategoryAccordion as the FAQ). */
+export const INSPIRATION_SLUGS = ['get-inspired', 'inspire-se', 'inspirate', 'inspirez-vous', 'inspirieren'];
+
+/** Whether a path is a root's inspiration page. */
+export const isInspirationPage = (pathname) => INSPIRATION_SLUGS.includes(String(pathname || '').replace(/\/+$/, '').split('/').pop());
+
+/**
+ * The second level of www's picker in a fragment of an inspiration page (TAP row 137): the
+ * fragment holds one category's subcategories (its countries: an H3 and a FAQ block each; the
+ * category is the page's tab, row 134), shown as the FAQ page's subcategories are: from 1024 px a
+ * list on the left (vertical tabs) beside the chosen one's questions, on phones a select over
+ * them; one at a time, the first at first. Built once a main.
+ * @param {Element} main the fragment's main
+ */
+export function buildSubPicker(main) {
+  if (!main || main.dataset.faqPicker) return;
+  const subs = [];
+  let box = null;
+  [...main.querySelectorAll(':scope > .section')].forEach((section) => {
+    let last = null;
+    [...section.children].forEach((child) => {
+      const h3s = child.matches('.default-content-wrapper') ? child.querySelectorAll('h3') : [];
+      if (h3s.length) last = h3s[h3s.length - 1];
+      if (child.querySelector(':scope > .accordion-columns.faq') && last) {
+        subs.push({ heading: last, panel: child, section });
+        last = null;
+      }
+    });
+  });
+  if (!subs.length) return;
+  main.dataset.faqPicker = 'true';
+  pickers += 1;
+  const id = `faq-picker-${pickers}`;
+  const name = (main.querySelector('h2') || {}).textContent || '';
+  subs.forEach((x) => {
+    x.section.classList.add('faq-picker-section');
+    x.heading.classList.add('faq-picker-sub-heading');
+  });
+  const tabs = subs.map((x, si) => node('button', {
+    type: 'button', role: 'tab', id: `${id}-0-${si}`, className: 'faq-picker-tab', 'aria-selected': 'false', tabindex: '-1',
+  }, x.heading.textContent.trim()));
+  const list = node('div', { role: 'tablist', className: 'faq-picker-tabs', 'aria-orientation': 'vertical' }, ...tabs);
+  const select = node('select', { className: 'faq-picker-select', 'aria-label': name.trim() || subs[0].heading.textContent.trim() }, ...subs.map((x, si) => node('option', { value: String(si) }, x.heading.textContent.trim())));
+  const panels = subs.map((x, si) => {
+    x.panel.setAttribute('role', 'tabpanel');
+    x.panel.id = x.panel.id || `${id}-0-${si}-panel`;
+    x.panel.setAttribute('aria-labelledby', tabs[si].id);
+    tabs[si].setAttribute('aria-controls', x.panel.id);
+    return x.panel;
+  });
+  // the body where the first subcategory's heading was, in its section
+  const first = subs[0].heading.closest('.default-content-wrapper') || subs[0].panel;
+  const questions = node('div', { className: 'faq-picker-questions' });
+  box = node('div', { className: 'faq-picker-category' }, node('div', { className: 'faq-picker-body' }, node('div', { className: 'faq-picker-subs' }, list, select), questions));
+  first.before(box);
+  questions.append(...panels);
+  const show = (si, focus = false) => {
+    tabs.forEach((t, i) => {
+      t.setAttribute('aria-selected', String(i === si));
+      t.setAttribute('tabindex', i === si ? '0' : '-1');
+    });
+    panels.forEach((x, i) => { x.hidden = i !== si; });
+    select.querySelectorAll('option').forEach((o, i) => {
+      if (i === si) o.setAttribute('selected', '');
+      else o.removeAttribute('selected');
+      try { o.selected = i === si; } catch (e) { /* the attribute stands */ }
+    });
+    if (focus) tabs[si].focus();
+  };
+  tabs.forEach((t, si) => t.addEventListener('click', () => show(si)));
+  list.addEventListener('keydown', (e) => {
+    const at = tabs.findIndex((t) => t.getAttribute('aria-selected') === 'true');
+    const keys = {
+      ArrowDown: at + 1, ArrowUp: at - 1, Home: 0, End: tabs.length - 1,
+    };
+    if (!(e.key in keys)) return;
+    e.preventDefault();
+    show((keys[e.key] + tabs.length) % tabs.length, true);
+  });
+  select.addEventListener('change', () => show(Math.max(0, Number(select.value) || 0)));
+  show(0);
+}
+
 /**
  * accordion-columns.js on brand tap: a FAQ block of the FAQ page or the Miles&Go partners page
- * builds the page's picker.
+ * builds the page's picker; one in a fragment of an inspiration page builds that fragment's
+ * subcategory picker (row 137).
  * @param {Element} block
  */
 export default function decorateTapFaq(block) {
-  if (!isPickerPage((window.location && window.location.pathname) || '')) return;
+  const path = (window.location && window.location.pathname) || '';
+  if (isInspirationPage(path)) {
+    const main = block.closest('main');
+    if (main && main !== document.querySelector('main')) buildSubPicker(main);
+    return;
+  }
+  if (!isPickerPage(path)) return;
   buildFaqPicker(block.closest('main'));
 }
 
