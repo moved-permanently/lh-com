@@ -33,3 +33,28 @@ found, the evidence and what would follow www.
 - **What would follow www:** keeping www's size where it is not the block's default (a marker, or a block option the
   collapse writes), rather than one default for all column-view headings.
 
+
+## 2. Brussels: www's empty paragraphs in rich text, about 16 px each, dropped by the import and not carried by the collapse (from ema-cashub, 2026-11-11)
+
+- **Found:** in the rich text of www's Brussels pages an empty paragraph (`<p></p>`, no no-break space) still takes about
+  16 px. On /be/en/legal-notices/short-notice-eu-us (brussels-parity-007, 1440) the first paragraph ends at 481 px and the
+  next starts at 541 (60 px) with two `<p></p>` between them; ours 28 px (no empty paragraph). The import drops them
+  (helix-importer's preprocessing drops empty paragraphs; `nbsp-guard.mjs` emptyLineSpacers only takes `<p>&nbsp;</p>`), and
+  a spacer marker of 31 px or less would not survive marker-collapse.mjs either (collapseSeparators: `px <= 31` is size
+  none, removed).
+- **Evidence, the four pages where it shows** (ours on brussels.turnsthe.page against brussels-parity-007 at 1440; the
+  test was www's 938 px text column for the sidebar-h1 sections' text, which takes the pages' extra wrapping away and
+  leaves what the missing spacing costs):
+
+| page | `<p></p>` outside panels on www | 1440 now | with www's text column |
+|---|---|---|---|
+| /ao/fr/legal-notices/aviation-services-law | 3 | -1.2 % | -5.5 % |
+| /be/en/legal-notices/us-customer-service-plan | 2 | -0.7 % | -2.0 % |
+| /be/en/legal-notices/short-notice-eu-us | 3 | -10.0 % | -6.4 % (better: its h1 wraps as www's) |
+| /be/en/legal-notices/privacy-notice-applicants | 0 (5 `<p>&nbsp;</p>`: the empty-line spacer's case) | -2.5 % | -5.6 % |
+
+  /be/en/legal-notices/brussels-airlines-responsible-disclosure-statement also got worse with the column (-0.5 -> -1.8 %)
+  and has no empty paragraph: another cause, not this row.
+- **What would follow www:** an empty paragraph of www's rich text written as a small gap the collapse keeps (a 16 px
+  spacer or the paragraph margin), so that the sidebar-h1 sections can then take www's text column (the h1 and the text in
+  938 px, as www's sidebar; tried in ema-cashub's brief after 593 and not shipped because of these pages).
