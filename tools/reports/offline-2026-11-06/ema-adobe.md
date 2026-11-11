@@ -2930,13 +2930,13 @@ the ten hosts before and after anything served (same statuses every time; once, 
 | commit | what | measured on our host |
 | --- | --- | --- |
 | 18974ba | capture-list-582 (97 priority 2/3 own-document roots), later + 5 stand-ins, 3 + 3 articles, green-fare | (all but the five be/de, dk/de stand-ins captured in 097 to 104) |
-| a1a8e13 | link lists to pages: {links-horizontal / responsive / vertical} (importer, styles) | business-class-on-long-haul-routes 31.2 -> 28.7 / 28.6 -> 22.9; security-check-time-slot 4.8 -> 4.1 / 5.3 -> 2.6; data-collection-canada's list region 6.5 -> 2.8 / 2.2 -> 0.6 (marked documents) |
+| a1a8e13 | link lists to pages: {links-horizontal / responsive / vertical} (importer, styles) | live after the re-import: business-class-on-long-haul-routes 31.2 -> 28.7 / 28.6 -> 22.9; security-check-time-slot 4.8 -> 3.9 / 5.3 -> 2.6; data-collection-canada's list region 6.5 -> 2.8 / 2.2 -> 0.6 |
 | cebf748 | a1a8e13's lint findings (it went out with max-len and five stylelint errors: I linted before committing) | same rendering |
 | 539eb4f, 0f0f370 | market-steps-582.tsv (43 steps), the 7 widget rows ignored; Flight Search "<markets> = none" | rows 45, 52, 56: no widget where www draws it empty |
 | a94f721 | B5: the hub bundle rebuilt from its sources | 133 hub snapshots import byte-identically |
 | f6b611b | no section gap between the page title and an accordion; the phone title inset for option faq too | faq-saf 9.5 -> 4.7 (390) / 5.9 -> 2.8; lufthansa-voucher 8.2 -> 7.7 / 6.1 -> 3.7; faq pages net -14.6 |
 | 6c997b5 | B3: H1 compact carrier (nearChoices) | after the switch: travel-classes 33.8 -> 5.8 / 15.0 -> 2.7; food-and-beverages 28.2 -> 22.0 / 21.3 -> 17.2 |
-| ae626ef | profile-nav Style flush where www's content starts under the bar (.contentpage.pt-0) | (re-import list) internet-overview 22.6 -> 14.3 / 14.6 -> 5.6; economy-class 34.2 -> 29.6 / 22.5 -> 18.1 |
+| ae626ef, 96558f2 | profile-nav Style flush where www's content starts under the bar (.contentpage.pt-0); the rule above profile-nav.css's | live after the re-import: internet-overview 22.6 -> 14.3 / 14.6 -> 5.6; economy-class 34.1 -> 29.7 / 22.4 -> 17.9; lhg-wifi 18.0 -> 14.7 / 17.9 -> 13.6 |
 | 0346b0c, d085603 | B1: separator-only column-view sections; the carrier view's last slider margin | after the switch: digital-self-services 16.3 / 19.9 -> 8.2 / 3.5; meetings-and-events 1440 8.3 -> 4.7 |
 | 139ac0a | loungenet tiles: labelled newsstand link stays a link; media cell's lone link as www's | fra / muc first-class lounge 36.1 -> 28.1 / 31.3 -> 8.3 |
 | 50ac395 | the tag pages' pagination as www's (short pagers) | tags/allegris 18.4 -> 17.5 / 22.8 -> 21.7 (and its versions); munich +0.6 |
@@ -2982,8 +2982,15 @@ the ten hosts before and after anything served (same statuses every time; once, 
   and 17 were made with the wrong stand-in (ae/de). market-steps-582-rerun.tsv (second version): the 15
   markets-section rows to run again with the fixed tool (3, 5, 9, 11, 12, 14, 15, 18, 19, 23, 28, 31 and 558's 25,
   33, 34), and rows 2 and 17 to put back to the version page alone until be/de or dk/de is captured.
-- Waiting with the helper at 05:15 CET: the link-list re-import (35 documents) and the profile-nav flush
-  re-import (43); market-steps-582.tsv rows other than 30, 38, 39, 40, 46 (uploaded and checked).
+- **The helper re-imported both lists at 05:37 to 05:43 CET** (c795248: link-list markers, 31 documents;
+  2a34772: profile-nav flush, 41 documents). Live on our host at 06:30 CET: business-class-on-long-haul-routes
+  31.2 -> 28.7 % / 28.6 -> 22.9, security-check-time-slot 4.8 -> 3.9 / 5.3 -> 2.6, unterhaltung-an-bord 18.8 -> 15.4
+  / 18.6 -> 16.5 (with the tab rule), data-collection-canada 18.9 -> 21.3 / 20.7 -> 21.9 (as predicted: its list
+  region better, the page short above). The flush pages had not moved: ae626ef's rule tied with profile-nav.css's
+  on specificity and lost on order (my trial had injected it last). **96558f2** gives it body.appear: economy-class
+  34.1 -> 29.7 / 22.4 -> 17.9, internet-overview 22.6 -> 14.3 / 14.6 -> 5.6, lhg-wifi 18.0 -> 14.7 / 17.9 -> 13.6,
+  premium-economy-class 26.3 -> 22.0 / 18.7 -> 19.7; first-class unchanged (no flush, as www).
+- Waiting with the helper: market-steps-582-rerun.tsv (the 15 markets-section rows, rows 2 and 17 to undo).
 - Also looked at, marked: giftvoucher (cards and content, a market-rows page), explore-flying (our list has 83
   results since tonight's three articles, the recording 80), the long pagers (www shows six pages as six 50 px
   buttons at 1440; ours with 50 px buttons measured worse there because the content below moves: left as is).
