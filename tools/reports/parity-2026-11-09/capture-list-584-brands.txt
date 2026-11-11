@@ -99,3 +99,5 @@ https://www.austrian.com/at/en/travel-id 1440 390 # 90: grey-band rule, kind of 
 https://www.austrian.com/at/en/sustainable-flying 1440 390 # 91: grey-band rule, kind of 10 documents
 https://www.austrian.com/at/en/additional-services 1440 390 # 92: grey-band rule, kind of 9 documents
 https://www.austrian.com/at/en/healthy-travel 1440 390 # 93: grey-band rule, kind of 9 documents
+# Priority 8 (added after brief 594) - Austrian ru/ru homepage, to measure its footer-disclaimer patch (reimport-591-austrian-home-disclaimer.txt) as by/ru.
+https://www.austrian.com/ru/ru/homepage 1440 390 # 94: Austrian root /ru/ru (disclaimer patch)

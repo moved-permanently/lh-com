@@ -1,6 +1,9 @@
 {
  "site": "moved-permanently/lh-austrian",
  "source": "www.austrian.com (option B: one document per language page; market roots hold their own pages and homepages)",
+ "patterns": [
+  "^/[a-z]{2}/[a-z]{2}/fragments/modals/[a-z0-9-]+$"
+ ],
  "paths": [
   "/at/en/nav",
   "/at/en/footer",
