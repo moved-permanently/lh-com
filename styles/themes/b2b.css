@@ -788,3 +788,10 @@ body.brand-b2b main figure.image-caption > figcaption {
 body.brand-b2b main > .section > div:has(> .columns-media.sidebar) + .default-content-wrapper:has(> p.column-mark.column-start-outer:first-child) {
   margin-top: 0;
 }
+
+/* the view after an airline page's logo stage (scripts/token-free.js columnViews.startAfterLogo):
+   www's text 42 px under the logo's view at 1440 and 390, so the edge 40 px at every width (the
+   section padding is 20 px on phones) */
+body.brand-b2b main .default-content-wrapper > p.column-mark.column-start-outer.after-logo {
+  padding-top: 40px;
+}

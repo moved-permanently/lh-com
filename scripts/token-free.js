@@ -284,7 +284,7 @@ function applyThemeRules(main, theme) {
     // on it, no edge above the block or the heading
     const {
       blocks = [], endEdge = false, startAtHeading = false, bandHeadings = false,
-      sidebarNoView = false,
+      sidebarNoView = false, startAfterLogo = false,
     } = theme.columnViews;
     if (blocks.length && !isTabPanel(section)) {
       section.querySelectorAll(':scope > div[class]').forEach((block) => {
@@ -311,7 +311,26 @@ function applyThemeRules(main, theme) {
         let next = block.nextElementSibling;
         while (next && isMeta(next)) next = next.nextElementSibling;
         const onBandHeading = bandHeadings && isBand(section) && /^H[2-4]$/.test(heading?.tagName || '');
-        if (prev && !isColumnMark(prev) && !onBandHeading) start.before(columnMark('column-start-outer'));
+        // startAfterLogo: right after a one-picture Columns Media (an airline page's logo
+        // stage, its empty cells aside) the next Columns Media opens a view of its own, its
+        // edge below the logo's (B2B's census: 8 of 8 such pairs marked end and start)
+        const logoBefore = (mark) => {
+          let b = mark && mark.previousElementSibling;
+          while (b && isMeta(b)) b = b.previousElementSibling;
+          const cells = b && blockName(b) === 'columns-media' ? [...(b.firstElementChild?.children || [])] : [];
+          const full = cells.filter((c) => c.textContent.trim() || c.querySelector('img, picture'));
+          return b && b.children.length === 1 && full.length === 1 && !full[0].textContent.trim() && !!full[0].querySelector('picture');
+        };
+        // only on a page of the new version (its title's section H1 compact, which
+        // reimport-583-b2b-teaser-grids.txt writes): today's documents as they are
+        const afterLogo = startAfterLogo && !!section.parentElement?.querySelector(':scope > .h1-compact')
+          && blockName(block) === 'columns-media' && start === block
+          && isColumnMark(prev) && prev.classList.contains('column-end-outer') && logoBefore(prev);
+        if (prev && (!isColumnMark(prev) || afterLogo) && !onBandHeading) {
+          const mark = columnMark('column-start-outer');
+          if (afterLogo) mark.classList.add('after-logo');
+          start.before(mark);
+        }
         if ((next || endEdge) && !isColumnMark(next)) block.after(columnMark('column-end-outer'));
       });
     }

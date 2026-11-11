@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-legal.js
-  var tmp_bundle_legal_1599786_exports = {};
-  __export(tmp_bundle_legal_1599786_exports, {
-    default: () => tmp_bundle_legal_1599786_default
+  var tmp_bundle_legal_40802_exports = {};
+  __export(tmp_bundle_legal_40802_exports, {
+    default: () => tmp_bundle_legal_40802_default
   });
 
   // tools/importer/parsers/video-sizes.js
@@ -1544,7 +1544,8 @@ var CustomImportScript = (() => {
             endEdge: true,
             startAtHeading: true,
             bandHeadings: true,
-            sidebarNoView: true
+            sidebarNoView: true,
+            startAfterLogo: true
           }
         }
       }
@@ -4837,7 +4838,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_legal_1599786_default = {
+  var tmp_bundle_legal_40802_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -4877,5 +4878,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_legal_1599786_exports);
+  return __toCommonJS(tmp_bundle_legal_40802_exports);
 })();
