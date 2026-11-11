@@ -2626,8 +2626,10 @@ empty paragraphs in Brussels' rich text, about 16 px each, dropped by the import
 same root as the first: received at the end of the night, not started; a small gap the collapse keeps would serve
 both.
 
-Process: main's stylelint was red twice from other agents' theme commits (Brussels 21:30, Austrian 01:01); after an
-hour each I made it green with comment / formatting-only commits (no rule or value changed), named in their messages.
+Process: main's stylelint was red three times from other agents' theme commits (Brussels 21:30, Austrian 01:01 and
+05:32). The first two I made green after an hour each with comment / formatting-only commits (no rule or value
+changed), named in their messages; the third the owner fixed at about 07:20 (1e559222), so my own comment-only fix
+was dropped in the rebase.
 Three report headings had wrong times (written, not read from the clock); corrected at 01:25. Every push had lint exit
 0 and the full suite (or, after a rebase bringing only reports and upload state, the two tests that read the state);
 smoke 12 hosts before and after each served push: no difference but lh-com's de/en sitemap content. My local preview
