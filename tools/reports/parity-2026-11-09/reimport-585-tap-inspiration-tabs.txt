@@ -1,3 +1,6 @@
+# ema-cashub, standing order 9 (2026-11-11): every row HOLD, superseded by reimport-so9-tap-inspiration.txt. DA's
+# en-pt, pt-pt, pt-br and fr-fr fragments are of before brief 488 (no article fragments), so a page-only re-import would
+# link category fragments DA does not hold in that form; the new list has their 476 fragments and the six pages.
 # ema-lufthansa, the night of 2026-11-11 (TAP parity row 134): TAP's inspiration pages with their categories as tabs.
 # Re-import with tap-import.mjs as it is on main (since this commit each category of a CategoryAccordion is a section
 # with the section metadata Tab and Tabs), from the snapshots the pages were last imported from (brief 488's inspiration
@@ -11,9 +14,9 @@
 # and 137): the categories as tabs 1440 39,550 -> 6,194, 390 42,994 -> 9,311; with the phone sliders too, 390 -> 5,177
 # (www 5,582 / 4,957, tap-parity-004 tonight). Before the re-import, main's code alone (row 137's country lists in every
 # category) already gives 19,942 / 19,564. Nothing imported or uploaded here.
-/en-pt/destinations/get-inspired
-/pt-pt/destinos/inspire-se
-/pt-br/destinos/inspire-se
-/es-es/destinos/inspirate
-/fr-fr/destinations/inspirez-vous
-/de-de/reiseziele/inspirieren
+/en-pt/destinations/get-inspired	HOLD	superseded by reimport-so9-tap-inspiration.txt
+/pt-pt/destinos/inspire-se	HOLD	superseded by reimport-so9-tap-inspiration.txt
+/pt-br/destinos/inspire-se	HOLD	superseded by reimport-so9-tap-inspiration.txt
+/es-es/destinos/inspirate	HOLD	superseded by reimport-so9-tap-inspiration.txt
+/fr-fr/destinations/inspirez-vous	HOLD	superseded by reimport-so9-tap-inspiration.txt
+/de-de/reiseziele/inspirieren	HOLD	superseded by reimport-so9-tap-inspiration.txt
