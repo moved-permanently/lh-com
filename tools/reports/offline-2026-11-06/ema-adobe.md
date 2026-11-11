@@ -2864,3 +2864,34 @@ drop and our own host only).
   measured worse with 50 px buttons: unchanged (www shortens them with an ellipsis, ours lists every page).
 - **Not shipped:** www's sub-navigation label on the travel-class pages (the hub's tab: www's own active-tab
   quirk, the parser notes it); entryprocesses (28.5: no single cause); first-class-terminal (32.0: small steps).
+- **Tabs on phones (2a44c16, 02:17 CET):** below 768 px www's collapsible insets a tab's label and its open
+  content 20 px (carry-on-baggage, unterhaltung-an-bord: text at x 43, ours 23). Measured at 390 on the 8 recorded
+  tabbed pages without www widgets: advance-seat-reservation 22.5 -> 12.0 %, baggage-irregularities 18.3 -> 8.2,
+  lufthansa-terminal-muenchen 19.7 -> 10.1, unterhaltung-an-bord 18.8 -> 14.8, climate-protection-projects 10.3
+  -> 8.0, carry-on-baggage 7.0 -> 6.4, first-class and passengers-using-wheelchairs the same.
+- **Wide tables on phones (8232379):** www keeps a table's columns about 200 px wide and scrolls it; ours
+  squeezed four to six columns and broke words. Tables of four or more columns get the minimum width by their
+  widest row: lufthansa-guide-service 15.6 -> 8.6 % (390), security-check-time-slot 4.8 -> 4.6, the others of the
+  7 recorded such pages the same (unaccompanied-minors +0.1).
+- **green-fare:** www renamed the fare ("Impact Fares: A fare that supports lower-emission aviation"); our
+  documents still say Green Fares: de/en and de/de on capture-list-582 (02:05 CET) for a re-import.
+- **The fresh ranking (logs/b582/rank-582.tsv, 00:08 to 01:55 CET, before the lounge, pager, tab and table
+  rules and before the re-imports of tonight's lists):** 538 page-widths, mean 9.95 -> 9.67 %; medians: info 8.3,
+  campaign 11.6, insights 10.8, legal 7.0, hub 5.7, form 10.5, fleet 17.5, app-entry 11.5.
+- **A bug in my 558 market tool, found on an uploaded step (07a7558):** row 30's uploaded /de/en/flight-search
+  has a link to gb/en's fly-more-sustainabl page in its `-de` section: the variant's sections kept their own
+  root's links, and lh-edge's market route rewrites only links into the language version. Rows 38 and 39 (xx/ru,
+  variant by/ru) the same. The merge now rewrites the variant root's links (root-relative and www) to the
+  version's; the 43 rows on the offline drafts leave none behind. market-steps-582-rerun.tsv: 30, 38, 39 to run
+  again (and any markets-section row uploaded before 07a7558). Shared variants (40, 46) are fine: lh-edge
+  rewrites a donor root's links.
+- **Also checked on our host:** /xx/ru/automatic-check-in serves its sections marked `xx` / `-xx`, and
+  /de/en/flight-search `de` / `-de`, as the list says.
+- **lh-snapshots-100 to -104** (sha256 computed here, logs/b582/archives.tsv): 100 (b5d84635…9244d) de/en and gb/en
+  flight-search, row 30's pair (the step as with bd-snapshots); 101 (e965dc9f…88b1) capture-list-558's three
+  again; 102 (5bf08e52…1c20) and 103 (7900e479…7119): the three new explore-flying articles in de/en and de/de;
+  104 (4e074bc9…ac16): green-fare de/en and de/de at www's long path (the short one redirects). Lists:
+  import-582-new-articles-lh-com.txt (6 new documents, insights, 93 to 96 % of the words kept offline),
+  reimport-582-green-fare-lh-com.txt (2 documents, info, the page now "Impact Fares").
+- **Still not captured:** be/de and dk/de automatic-check-in and pre-check-in (rows 2, 17), be/de cash-and-miles
+  (row 6).
