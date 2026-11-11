@@ -969,3 +969,14 @@ body.brand-ita main .columns-media:not(.title-large, .title-compact, .sidebar) .
   font-size: var(--heading-font-size-l);
   line-height: 1.1;
 }
+
+/* small print under a text (ITA row 32): www's copytext-small is the last paragraph of the text's richtext, 24px under
+   the text and 42px over the next component (its 18px margin and the component's 24); the import gives it a section of
+   its own (Style small-print), 48px from either */
+body.brand-ita main > .section:has(> .default-content-wrapper:last-child):has(+ .section.small-print) {
+  margin-bottom: 24px;
+}
+
+body.brand-ita main > .section:has(> .default-content-wrapper:last-child) + .section.small-print {
+  margin-bottom: 42px;
+}
