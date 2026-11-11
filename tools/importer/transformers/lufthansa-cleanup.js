@@ -1386,6 +1386,46 @@ function markLinkLists(document, payload) {
   return marked;
 }
 
+/**
+ * A block cell whose only content is one paragraph (or bare text) ending with a paragraph-style
+ * marker (standing order 3: "{copytext-medium}" on /az/en/online-check-in's Columns Media text
+ * cell): Edge Delivery unwraps a cell's lone <p>, so scripts/style-markers.js, which reads
+ * paragraphs, never consumes the marker and it shows as text. The marker goes (the cell's text
+ * takes the block's own size). Only the paragraph tokens (text size and width, caption, parallax,
+ * narrow, indent, column marks); a video's settings after its link ("{controls ...}"), the cell
+ * marks on picture paragraphs ("{cell-half-start}") and the Form block's cells (it reads them) stay. lufthansa.com pages; after every
+ * parser and marker step (the last of afterTransform). Returns the count.
+ */
+const CELL_TEXT_TOKEN = /^(?:copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\d{1,3}|column-(?:(?:start|end)(?:-outer)?|spaced))$/;
+const TRAILING_TOKENS = /\s*\{([a-z0-9 -]+)\}\s*$/;
+
+function dropLoneCellMarkers(document, payload) {
+  if (!isLufthansaPage(payload)) return 0;
+  let dropped = 0;
+  document.querySelectorAll('table').forEach((table) => {
+    const name = cleanText(table.querySelector('tr > th, tr > td') || table).toLowerCase();
+    // the Form block reads its note rows' markers itself (blocks/form/form.js renderNote: group-travel's
+    // "{copytext-small}" note)
+    if (/^(section )?metadata$/.test(name) || /^form\b/.test(name)) return;
+    table.querySelectorAll(':scope > tbody > tr > td, :scope > tr > td').forEach((td) => {
+      const els = [...td.children];
+      const bare = [...td.childNodes].some((c) => c.nodeType === 3 && c.nodeValue.trim());
+      let holder = null;
+      if (els.length === 1 && els[0].tagName === 'P' && !bare) [holder] = els;
+      else if (!els.length && bare) holder = td;
+      if (!holder || holder.querySelector('img, picture, video, iframe')) return;
+      const walker = document.createTreeWalker(holder, 4); // NodeFilter.SHOW_TEXT
+      let last = null;
+      for (let n = walker.nextNode(); n; n = walker.nextNode()) if (n.nodeValue.trim()) last = n;
+      const m = last && last.nodeValue.match(TRAILING_TOKENS);
+      if (!m || !m[1].trim().split(/\s+/).every((t) => CELL_TEXT_TOKEN.test(t))) return;
+      last.nodeValue = last.nodeValue.slice(0, m.index);
+      dropped += 1;
+    });
+  });
+  return dropped;
+}
+
 /* ------------------------------------------------------- maui links ----------------- */
 
 const MAUI_LINK = 'maui-button-link[href], maui-navigation-link[href], maui-link[href]';
@@ -2186,6 +2226,7 @@ export default function transform(hookName, element, payload) {
     convertCaptions(document);
     markParagraphStyles(document);
     placeColumnMarks(document); // after the style markers, which skip marked elements
+    dropLoneCellMarkers(document, payload); // last: every parser and marker step has run
     addPageMetadata(document, payload);
   }
 }

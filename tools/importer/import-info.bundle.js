@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var import_info_exports = {};
-  __export(import_info_exports, {
-    default: () => import_info_default
+  var tmp_bundle_info_1548100_exports = {};
+  __export(tmp_bundle_info_1548100_exports, {
+    default: () => tmp_bundle_info_1548100_default
   });
 
   // tools/importer/parsers/search-results.js
@@ -6402,6 +6402,32 @@ var CustomImportScript = (() => {
     });
     return marked;
   }
+  var CELL_TEXT_TOKEN = /^(?:copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\d{1,3}|column-(?:(?:start|end)(?:-outer)?|spaced))$/;
+  var TRAILING_TOKENS = /\s*\{([a-z0-9 -]+)\}\s*$/;
+  function dropLoneCellMarkers(document, payload) {
+    if (!isLufthansaPage(payload)) return 0;
+    let dropped = 0;
+    document.querySelectorAll("table").forEach((table) => {
+      const name = cleanText(table.querySelector("tr > th, tr > td") || table).toLowerCase();
+      if (/^(section )?metadata$/.test(name) || /^form\b/.test(name)) return;
+      table.querySelectorAll(":scope > tbody > tr > td, :scope > tr > td").forEach((td) => {
+        const els = [...td.children];
+        const bare = [...td.childNodes].some((c) => c.nodeType === 3 && c.nodeValue.trim());
+        let holder = null;
+        if (els.length === 1 && els[0].tagName === "P" && !bare) [holder] = els;
+        else if (!els.length && bare) holder = td;
+        if (!holder || holder.querySelector("img, picture, video, iframe")) return;
+        const walker = document.createTreeWalker(holder, 4);
+        let last = null;
+        for (let n = walker.nextNode(); n; n = walker.nextNode()) if (n.nodeValue.trim()) last = n;
+        const m = last && last.nodeValue.match(TRAILING_TOKENS);
+        if (!m || !m[1].trim().split(/\s+/).every((t) => CELL_TEXT_TOKEN.test(t))) return;
+        last.nodeValue = last.nodeValue.slice(0, m.index);
+        dropped += 1;
+      });
+    });
+    return dropped;
+  }
   var MAUI_LINK = "maui-button-link[href], maui-navigation-link[href], maui-link[href]";
   function convertMauiLinks(document) {
     const links = [...document.querySelectorAll(MAUI_LINK)].reverse();
@@ -7008,6 +7034,7 @@ var CustomImportScript = (() => {
       convertCaptions(document);
       markParagraphStyles(document);
       placeColumnMarks(document);
+      dropLoneCellMarkers(document, payload);
       addPageMetadata(document, payload);
     }
   }
@@ -8787,7 +8814,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var import_info_default = {
+  var tmp_bundle_info_1548100_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -8827,5 +8854,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(import_info_exports);
+  return __toCommonJS(tmp_bundle_info_1548100_exports);
 })();
