@@ -255,6 +255,10 @@ function flightStatusRows(page) {
   const labels = [...form.querySelectorAll('label')].map(t).filter(Boolean);
   if (labels[0]) rows.push(['Flight number label', labels[0]]);
   if (labels[1]) rows.push(['Date label', labels[1]]);
+  // www's help texts under the two fields (StatusVoli_helpText: "Pflichtfeld. Beispiel: EN1234", the date's format)
+  const helps = [...form.querySelectorAll('[class*="StatusVoli_helpText"]')].map(t).filter(Boolean);
+  if (helps[0]) rows.push(['Flight number hint', helps[0]]);
+  if (helps[1]) rows.push(['Date hint', helps[1]]);
   const submit = t(form.querySelector('button[type="submit"]'));
   if (submit) rows.push(['Submit label', submit]);
   return rows;

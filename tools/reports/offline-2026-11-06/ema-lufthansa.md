@@ -3415,3 +3415,18 @@ differences on every host after each push unless noted)**
 - ITA: the space under the last section (mixed by page); the two-up rows waiting for re-import or captures (lists above).
 
 **origin/main afterwards:** checked after this commit's push (below).
+
+## Standing order 3 of 2026-11-11 (from about 08:40 CET)
+
+- **Left from the last turn:** nothing uncommitted but `.migration/project.json` (not mine, modified before the night).
+  GitHub Build of 14da116b and of the night's pushes 35da8237, 7391aff2, 3c2161bc, 474d19ea, 0e33f179: success.
+- **Ship script:** .scratch tool ship3.sh takes one file per argument, reads `npm run lint`'s exit code and runs
+  stylelint on every styles/themes/ file given (the repo lint does not cover them) before and after the rebase,
+  compares `git show --stat` with the files given before the push (else it undoes the commit, nothing pushed), and reads
+  the GitHub Build of the pushed commit.
+- **Air Dolomiti row 106 (item 1):** www's flight status help texts imported as the form's field hints (the importer's
+  rows Flight number hint and Date hint; the block shows the first, backwards-compatible: without the row nothing
+  changes). /de/flug-status 1761 px before and after (our fields already reserve the line), the rest of row 77's gap
+  left. Lists: reimport-586-ad-flight-status-hints.txt (/de/flug-status READY from airdolomiti-parity-002;
+  /en/flight-status and /stato-volo HOLD, no recording), capture-list-586-brands.txt (those two, HOLD until Ben decides).
+

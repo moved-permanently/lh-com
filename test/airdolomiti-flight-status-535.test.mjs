@@ -46,3 +46,8 @@ test('the theme lays the form and the card out as the FAQ pages\' half page', ()
   assert.ok(css.includes('@media (width >= 930px) {\n  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container {\n    display: grid;'));
   assert.ok(css.includes('body.brand-airdolomiti main > .section.flight-status-container.columns-media-container .default-content-wrapper h1 + h2 {'), 'the visible title as the half page\'s');
 });
+
+test('www\'s help texts under the fields as the block\'s rows Flight number hint and Date hint (AD row 106)', () => {
+  assert.match(html, /<div><div>Flight number hint<\/div><div>Pflichtfeld\. Beispiel: EN1234<\/div><\/div>/);
+  assert.match(html, /<div><div>Date hint<\/div><div>Pflichtfeld\. Format: tt\/mm\/jjjj<\/div><\/div>/);
+});

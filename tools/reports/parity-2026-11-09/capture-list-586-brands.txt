@@ -1,0 +1,7 @@
+# ema-lufthansa's capture list for standing order 3 of 2026-11-11 (written while the stable network has ended: nothing is
+# captured until Ben decides). For the Captures child; no request to an airline host from ema-lufthansa.
+# Every row HOLD until Ben decides. Full HTML snapshots with __NEXT_DATA__ (as airdolomiti-snapshots-007 /
+# ita-snapshots-022), archive <brand>-snapshots-NNN.
+# Air Dolomiti (reimport-586-ad-flight-status-hints.txt's HOLD rows): www's flight status form with its help texts.
+https://www.airdolomiti.eu/flight-status # HOLD: until Ben decides
+https://www.airdolomiti.it/stato-volo # HOLD: until Ben decides
