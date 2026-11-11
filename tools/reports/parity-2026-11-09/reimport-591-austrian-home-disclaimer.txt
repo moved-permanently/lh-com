@@ -1,65 +1,65 @@
-# The brief after 591, item 4 (ema-cashub): HOLD, do not import yet. The Austrian homepages show www's footer disclaimer dialog text on the page ("General Conditions" and its 400-580 px of conditions, the 2026-10-30 import kept the modal's text); www shows the note and a "General Conditions" button that opens a dialog. Today's import writes that as lufthansa-cleanup's convertFooterDisclaimer does (the note as small print, a link to /{cc}/{ll}/fragments/modals/{label} that opens as a dialog), and tools/importer/general-conditions-dialogs.mjs --host www.austrian.com writes the 60 dialog documents from the homepages' snapshots (checked offline into a scratch folder, column 3). Why HOLD: measured with the text taken off in the browser, be/en -192 px at 1440 and -408 at 390 (de/de -240 / -576): right for that band (with www's APIs, austrian-parity-013: our finder band 1968 px at 390 against www's 1498), but the page totals get worse until the homepage's other short bands are fixed (the fare teaser's spacing, -72 / -63, a rule measured band-exact and not shipped; the carousel's heading gap, +32 on www; the flight-search band, -28 / -75), e.g. be/en with the APIs -4.6 -> -8.6 % at 1440. Release: together with those. TSV: homepage, its disclaimer now (inline = the dialog text on the page), the dialog document to create.
-/al/en	inline	/al/en/fragments/modals/general-conditions	HOLD
-/am/en	inline	/am/en/fragments/modals/general-conditions	HOLD
-/at/de	none	/at/de/fragments/modals/allgemeine-bedingungen	HOLD
-/at/en	none	/at/en/fragments/modals/general-conditions	HOLD
-/au/en	inline	/au/en/fragments/modals/general-conditions	HOLD
-/ba/en	inline	/ba/en/fragments/modals/general-conditions	HOLD
-/be/en	inline	/be/en/fragments/modals/general-conditions	HOLD
-/bg/en	inline	/bg/en/fragments/modals/general-conditions	HOLD
-/by/en	inline	/by/en/fragments/modals/general-conditions	HOLD
-/by/ru	inline	/by/ru/fragments/modals/ru	HOLD
-/ca/en	inline	/ca/en/fragments/modals/general-conditions	HOLD
-/ca/fr	inline	/ca/fr/fragments/modals/conditions-generales	HOLD
-/ch/de	inline	/ch/de/fragments/modals/allgemeine-bedingungen	HOLD
-/ch/en	inline	/ch/en/fragments/modals/general-conditions	HOLD
-/ch/fr	inline	/ch/fr/fragments/modals/conditions-generales	HOLD
-/ch/it	inline	/ch/it/fragments/modals/condizioni-generali	HOLD
-/cn/en	inline	/cn/en/fragments/modals/general-conditions	HOLD
-/cn/zh	none	-	HOLD
-/cy/en	inline	/cy/en/fragments/modals/general-conditions	HOLD
-/cz/en	inline	/cz/en/fragments/modals/general-conditions	HOLD
-/de/de	inline	/de/de/fragments/modals/allgemeine-bedingungen	HOLD
-/de/en	inline	/de/en/fragments/modals/general-conditions	HOLD
-/dk/en	inline	/dk/en/fragments/modals/general-conditions	HOLD
-/eg/en	inline	/eg/en/fragments/modals/general-conditions	HOLD
-/es/en	inline	/es/en/fragments/modals/general-conditions	HOLD
-/es/es	inline	/es/es/fragments/modals/condiciones-generales	HOLD
-/fr/en	inline	/fr/en/fragments/modals/general-conditions	HOLD
-/fr/fr	inline	/fr/fr/fragments/modals/conditions-generales	HOLD
-/gb/en	inline	/gb/en/fragments/modals/general-conditions	HOLD
-/ge/en	none	-	HOLD
-/gr/el	none	/gr/el/fragments/modals/el	HOLD
-/gr/en	inline	/gr/en/fragments/modals/general-conditions	HOLD
-/hr/en	inline	/hr/en/fragments/modals/general-conditions	HOLD
-/hu/en	inline	/hu/en/fragments/modals/general-conditions	HOLD
-/il/en	inline	/il/en/fragments/modals/general-conditions	HOLD
-/iq/en	inline	/iq/en/fragments/modals/general-conditions	HOLD
-/ir/en	inline	/ir/en/fragments/modals/general-conditions	HOLD
-/it/en	inline	/it/en/fragments/modals/general-conditions	HOLD
-/it/it	inline	/it/it/fragments/modals/condizioni-generali	HOLD
-/jo/en	inline	/jo/en/fragments/modals/general-conditions	HOLD
-/jp/en	inline	/jp/en/fragments/modals/general-conditions	HOLD
-/jp/ja	none	/jp/ja/fragments/modals/ja	HOLD
-/lt/en	inline	/lt/en/fragments/modals/general-conditions	HOLD
-/md/en	inline	/md/en/fragments/modals/general-conditions	HOLD
-/me/en	inline	/me/en/fragments/modals/general-conditions	HOLD
-/mk/en	inline	/mk/en/fragments/modals/general-conditions	HOLD
-/nl/en	inline	/nl/en/fragments/modals/general-conditions	HOLD
-/no/en	inline	/no/en/fragments/modals/general-conditions	HOLD
-/pl/en	inline	/pl/en/fragments/modals/general-conditions	HOLD
-/pl/pl	inline	/pl/pl/fragments/modals/ogolne-warunki	HOLD
-/pt/en	none	-	HOLD
-/ro/en	inline	/ro/en/fragments/modals/general-conditions	HOLD
-/rs/en	inline	/rs/en/fragments/modals/general-conditions	HOLD
-/ru/en	inline	/ru/en/fragments/modals/general-conditions	HOLD
-/ru/ru	inline	/ru/ru/fragments/modals/ru	HOLD
-/se/en	inline	/se/en/fragments/modals/general-conditions	HOLD
-/si/en	inline	/si/en/fragments/modals/general-conditions	HOLD
-/sk/en	inline	/sk/en/fragments/modals/general-conditions	HOLD
-/th/en	inline	/th/en/fragments/modals/general-conditions	HOLD
-/tr/en	inline	/tr/en/fragments/modals/general-conditions	HOLD
-/ua/en	inline	/ua/en/fragments/modals/general-conditions	HOLD
-/us/en	inline	/us/en/fragments/modals/general-conditions	HOLD
-/xk/en	inline	/xk/en/fragments/modals/general-conditions	HOLD
-/xx/en	none	-	HOLD
+# The brief after 593, item 1 (ema-cashub): RELEASED. The Austrian homepages show www's footer-disclaimer dialog text on the page; www shows the note and a "General Conditions" button that opens a dialog, at the end of the page after the cards-icon block. Release order: (0) the code that tolerates both versions is on main (6b64414c: the homepage band rules apply only to a document with the new form); (1) the dialog documents of content-593-austrian-gc-dialogs.txt, created and published first (the links of step 2 open them); (2) per homepage, a DA patch: in the destination-finder section's default content, delete the paragraphs after the "General Conditions" paragraph (the dialog's text); make that paragraph a link to the dialog document of column 3 (the label as its text); move the note paragraph ("*The prices incl. ...") and that link paragraph to the end of the section that holds the cards-icon block, after the block. That is today's importer output (lufthansa-cleanup convertFooterDisclaimer) in www's current place (austrian-parity-008: the .footerdisclaimer after the cards-icon section); a re-import from the 10-30 snapshots would keep them in the finder section, where www had them then, so it is a patch, not a re-import. Measured (the patch simulated on our host, with the rules): be/en with www's APIs (austrian-parity-013) 1440 -3.7 -> +0.1 %, 390 +1.7 -> +1.2 %; cz/en the same; tr/en, au/en, ch/de worse at 1440 (+4.6 -> +8.7 %, +5.0 -> +9.1 %, +5.5 -> +9.5 %: www's fare teaser had no deals there at recording time) and better at 390. TSV: homepage, disclaimer now, dialog document, status.
+/al/en/homepage	inline	/al/en/fragments/modals/general-conditions	READY (step 2)
+/am/en/homepage	inline	/am/en/fragments/modals/general-conditions	READY (step 2)
+/at/de/homepage	none	-	not listed (no dialog text on the page)
+/at/en/homepage	none	-	not listed (no dialog text on the page)
+/au/en/homepage	inline	/au/en/fragments/modals/general-conditions	READY (step 2)
+/ba/en/homepage	inline	/ba/en/fragments/modals/general-conditions	READY (step 2)
+/be/en/homepage	inline	/be/en/fragments/modals/general-conditions	READY (step 2)
+/bg/en/homepage	inline	/bg/en/fragments/modals/general-conditions	READY (step 2)
+/by/en/homepage	inline	/by/en/fragments/modals/general-conditions	READY (step 2)
+/by/ru/homepage	inline	/by/ru/fragments/modals/ru	READY (step 2)
+/ca/en/homepage	inline	/ca/en/fragments/modals/general-conditions	READY (step 2)
+/ca/fr/homepage	inline	/ca/fr/fragments/modals/conditions-generales	READY (step 2)
+/ch/de/homepage	inline	/ch/de/fragments/modals/allgemeine-bedingungen	READY (step 2)
+/ch/en/homepage	inline	/ch/en/fragments/modals/general-conditions	READY (step 2)
+/ch/fr/homepage	inline	/ch/fr/fragments/modals/conditions-generales	READY (step 2)
+/ch/it/homepage	inline	/ch/it/fragments/modals/condizioni-generali	READY (step 2)
+/cn/en/homepage	inline	/cn/en/fragments/modals/general-conditions	READY (step 2)
+/cn/zh/homepage	none	-	not listed (no dialog text on the page)
+/cy/en/homepage	inline	/cy/en/fragments/modals/general-conditions	READY (step 2)
+/cz/en/homepage	inline	/cz/en/fragments/modals/general-conditions	READY (step 2)
+/de/de/homepage	inline	/de/de/fragments/modals/allgemeine-bedingungen	READY (step 2)
+/de/en/homepage	inline	/de/en/fragments/modals/general-conditions	READY (step 2)
+/dk/en/homepage	inline	/dk/en/fragments/modals/general-conditions	READY (step 2)
+/eg/en/homepage	inline	/eg/en/fragments/modals/general-conditions	READY (step 2)
+/es/en/homepage	inline	/es/en/fragments/modals/general-conditions	READY (step 2)
+/es/es/homepage	inline	/es/es/fragments/modals/condiciones-generales	READY (step 2)
+/fr/en/homepage	inline	/fr/en/fragments/modals/general-conditions	READY (step 2)
+/fr/fr/homepage	inline	/fr/fr/fragments/modals/conditions-generales	READY (step 2)
+/gb/en/homepage	inline	/gb/en/fragments/modals/general-conditions	READY (step 2)
+/ge/en/homepage	none	-	not listed (no dialog text on the page)
+/gr/el/homepage	none	-	not listed (no dialog text on the page)
+/gr/en/homepage	inline	/gr/en/fragments/modals/general-conditions	READY (step 2)
+/hr/en/homepage	inline	/hr/en/fragments/modals/general-conditions	READY (step 2)
+/hu/en/homepage	inline	/hu/en/fragments/modals/general-conditions	READY (step 2)
+/il/en/homepage	inline	/il/en/fragments/modals/general-conditions	READY (step 2)
+/iq/en/homepage	inline	/iq/en/fragments/modals/general-conditions	READY (step 2)
+/ir/en/homepage	inline	/ir/en/fragments/modals/general-conditions	READY (step 2)
+/it/en/homepage	inline	/it/en/fragments/modals/general-conditions	READY (step 2)
+/it/it/homepage	inline	/it/it/fragments/modals/condizioni-generali	READY (step 2)
+/jo/en/homepage	inline	/jo/en/fragments/modals/general-conditions	READY (step 2)
+/jp/en/homepage	inline	/jp/en/fragments/modals/general-conditions	READY (step 2)
+/jp/ja/homepage	none	-	not listed (no dialog text on the page)
+/lt/en/homepage	inline	/lt/en/fragments/modals/general-conditions	READY (step 2)
+/md/en/homepage	inline	/md/en/fragments/modals/general-conditions	READY (step 2)
+/me/en/homepage	inline	/me/en/fragments/modals/general-conditions	READY (step 2)
+/mk/en/homepage	inline	/mk/en/fragments/modals/general-conditions	READY (step 2)
+/nl/en/homepage	inline	/nl/en/fragments/modals/general-conditions	READY (step 2)
+/no/en/homepage	inline	/no/en/fragments/modals/general-conditions	READY (step 2)
+/pl/en/homepage	inline	/pl/en/fragments/modals/general-conditions	READY (step 2)
+/pl/pl/homepage	inline	/pl/pl/fragments/modals/ogolne-warunki	READY (step 2)
+/pt/en/homepage	none	-	not listed (no dialog text on the page)
+/ro/en/homepage	inline	/ro/en/fragments/modals/general-conditions	READY (step 2)
+/rs/en/homepage	inline	/rs/en/fragments/modals/general-conditions	READY (step 2)
+/ru/en/homepage	inline	/ru/en/fragments/modals/general-conditions	READY (step 2)
+/ru/ru/homepage	inline	/ru/ru/fragments/modals/ru	READY (step 2)
+/se/en/homepage	inline	/se/en/fragments/modals/general-conditions	READY (step 2)
+/si/en/homepage	inline	/si/en/fragments/modals/general-conditions	READY (step 2)
+/sk/en/homepage	inline	/sk/en/fragments/modals/general-conditions	READY (step 2)
+/th/en/homepage	inline	/th/en/fragments/modals/general-conditions	READY (step 2)
+/tr/en/homepage	inline	/tr/en/fragments/modals/general-conditions	READY (step 2)
+/ua/en/homepage	inline	/ua/en/fragments/modals/general-conditions	READY (step 2)
+/us/en/homepage	inline	/us/en/fragments/modals/general-conditions	READY (step 2)
+/xk/en/homepage	inline	/xk/en/fragments/modals/general-conditions	READY (step 2)
+/xx/en/homepage	none	-	not listed (no dialog text on the page)
