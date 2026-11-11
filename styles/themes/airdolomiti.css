@@ -4338,6 +4338,25 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-car
 }
 /* stylelint-enable no-descending-specificity */
 
+/* the fleet's text block's foot as the destinations' (AD row 105: www's TitleDescriptionTextCta under the fleet's
+   stage, /flotta, /en/fleet, /de/flotte): a campaign stage's text section (an H2 and its paragraphs) ending in a button,
+   the button 43px under the text (79px from 930px), what follows 100px under it */
+/* stylelint-disable no-descending-specificity -- the text block's rules above */
+body.brand-airdolomiti main > .section.hero-campaign-container + .section:has(> .default-content-wrapper:first-child > h2:first-child ~ p ~ p.button-wrapper:last-child) {
+  margin-bottom: 100px;
+}
+
+body.brand-airdolomiti main > .section.hero-campaign-container + .section:has(> .default-content-wrapper:first-child > h2:first-child ~ p ~ p.button-wrapper:last-child) > .default-content-wrapper:first-child > p.button-wrapper:last-child {
+  margin-top: 43px;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section.hero-campaign-container + .section:has(> .default-content-wrapper:first-child > h2:first-child ~ p ~ p.button-wrapper:last-child) > .default-content-wrapper:first-child > p.button-wrapper:last-child {
+    margin-top: 79px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
 /*
  * the destination pages' price bar pinned to the window's foot as www's (HeroSecond; airdolomiti-parity-004
  * /reiseziele/bari-de, scroll-log.json: fixed at every sampled offset 0, 600, 1500, the middle and the foot,
