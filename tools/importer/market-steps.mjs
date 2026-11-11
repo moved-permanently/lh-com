@@ -34,7 +34,11 @@ export function runRow(row, read) {
     const variant = read(row.variant);
     if (variant === null) return { skip: `no variant ${row.variant}` };
     const [home, others] = String(row.markets).split('|');
-    const r = mergeMarketVariant(doc, variant, { home, others });
+    // the variant's links into its root become the version's (brief 582)
+    const rootOf = (p) => (String(p || '').match(/^\/([a-z]{2}\/[a-z]{2})(?:\/|$)/) || [])[1];
+    const r = mergeMarketVariant(doc, variant, {
+      home, others, variantRoot: rootOf(row.variant), versionRoot: rootOf(row.document),
+    });
     return { html: r.html, note: r.unchanged ? 'no difference' : `${r.runs.length} run(s): ${r.runs.map((x) => `${x.version.length}/${x.variant.length}`).join(', ')} sections` };
   }
   if (row.action === 'shared-variant') return { html: withPageMarkets(doc, row.markets), note: `markets ${row.markets}` };

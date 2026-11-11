@@ -110,6 +110,16 @@ export function withSectionMarkets(section, value) {
   return section.slice(0, r[0]) + next + section.slice(r[1]);
 }
 
+/**
+ * A document's links into one root rewritten into another: href="/gb/en/x" and
+ * href="https://www.lufthansa.com/gb/en/x" become the de/en page's; without both roots, as it is.
+ */
+export function withRootLinks(html, from, to) {
+  if (!from || !to || from === to) return html;
+  const esc = from.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&');
+  return html.replace(new RegExp(`(href="(?:https?://www\\.lufthansa\\.com)?/)${esc}(?=[/"#?])`, 'g'), `$1${to}`);
+}
+
 /** Longest common subsequence of two key lists: pairs [i, j] of equal keys, in order. */
 function lcs(a, b) {
   const n = a.length;
@@ -140,13 +150,20 @@ function pageMeta(sections) {
  * The version document with a market variant merged in as markets sections.
  * @param {string} versionHtml the language version's document (its home market's view)
  * @param {string} variantHtml a covered root's document of the same page (the roots' view)
- * @param {{home: string, others: string}} markets e.g. { home: 'de', others: '-de' }
+ * @param {{home: string, others: string, variantRoot?: string, versionRoot?: string}} markets e.g.
+ *   { home: 'de', others: '-de', variantRoot: 'gb/en', versionRoot: 'de/en' }: the variant's links into
+ *   its own root become the version's (lh-edge's market route rewrites links into the language
+ *   version to the requesting root, not links into another root; brief 582: a link to the gb/en
+ *   page in de/en flight-search's -de section)
  * @returns {{html: string, runs: Array<{version: number[], variant: number[]}>, unchanged: boolean}}
  *   runs: the differing section runs (indexes into each document's sections)
  */
-export function mergeMarketVariant(versionHtml, variantHtml, { home, others }) {
+export function mergeMarketVariant(versionHtml, variantHtml, {
+  home, others, variantRoot, versionRoot,
+}) {
   const vs = splitSections(versionHtml);
-  const ws = splitSections(variantHtml);
+  // eslint-disable-next-line no-use-before-define
+  const ws = splitSections(withRootLinks(variantHtml, variantRoot, versionRoot));
   if (!home || !others) throw new Error('mergeMarketVariant: home and others are needed');
   vs.forEach((s, i) => {
     if (sectionMarketsValue(s) !== null) throw new Error(`mergeMarketVariant: version section ${i} has markets already`);
