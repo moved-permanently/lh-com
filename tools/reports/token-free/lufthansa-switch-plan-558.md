@@ -109,3 +109,58 @@ collapsed with main's CLI and injected into the page on our host, today's side i
    7.2 / 2.7); food-and-beverages 28.2 -> 22.0 / 21.3 -> 17.2.
 4. **B2** as before (Ben's decision 3). **B4** next: miles-and-more (its separators collapse to M and its carousel
    section takes h3-large, 89 px shorter at 1440), stopover, most-significant-route, food-and-beverages' rest.
+
+## 6. Info pages (standing order 3 item 5, 2026-11-11 11:00 CET)
+
+The 582 sample of 12 recorded de/en info pages, measured again with the method fixed: 582 injected the collapsed
+`.plain.html` without its Metadata, so the `Theme: flow-spacing` the collapse writes on every column-mark page never
+reached the page (the page-level rules of column pages went off: the title image's 40px, the heading gap);
+`logs/b596/capture-meta.cjs` puts the collapsed document's Metadata rows (the page's own Theme plus flow-spacing)
+into the head. Today = the published document; switched = main's collapse and
+code with `live: true`; fixed = with 739b5b1. % off www, 390 / 1440:
+
+| page | today | switched | fixed |
+| --- | --- | --- | --- |
+| europa-tarife-economy-class | 7.4 / 5.8 | 9.2 / 8.4 | 7.1 / 6.2 |
+| lufthansa-express-rail | 8.2 / 10.8 | 8.3 / 20.4 | 8.5 / 20.4 |
+| unaccompanied-minors | 5.6 / 8.3 | 6.7 / 6.6 | 6.6 / 6.9 |
+| first-class-lounges | 3.6 / 3.5 | 7.6 / 5.9 | 3.6 / 2.2 |
+| rail-and-fly | 8.6 / 8.0 | 12.1 / 8.0 | 12.1 / 8.0 |
+| admission-rules | 5.6 / 3.1 | 4.7 / 3.6 | 4.7 / 3.6 |
+| fia-valet-service | 3.4 / 2.0 | 5.2 / 2.0 | 5.5 / 2.5 |
+| sports-baggage | 5.8 / 5.9 | 6.0 / 6.4 | 6.0 / 4.6 |
+| tiere-als-uebergepaeck | 9.5 / 8.1 | 10.0 / 9.5 | 10.0 / 9.5 |
+| bid-upgrade | 8.0 / 2.3 | 7.1 / 7.3 | 8.0 / 2.3 |
+| digital-baggage-services | 5.3 / 6.0 | 6.3 / 5.2 | 6.3 / 5.2 |
+| green-fare | 4.6 / 2.9 | 5.7 / 4.7 | 5.3 / 3.2 |
+
+Sum of the 12: 390 75.6 / 88.9 / 83.7, 1440 66.7 / 88.0 / 74.6. Fixed (739b5b1, all inert while the theme is off):
+A an H3 marked heading-small stays heading-small on flow pages (section style H3 large; www: 924 of the 1,462 H3s
+of the 1,862 column-mark documents); B a view's opening divider at the section's top edge; C the title image 40px
+above a view; D a view's headings keep the full width on flow pages (6,500 of 6,978 without `{limited-width}`).
+unaccompanied-minors at 1440 6.6 -> 6.9 with D is drift: its H2 is one line as on www (recording crop), the two-line
+H2 had made up for 40px missing above.
+
+Still in the way (shared, by documents):
+
+1. **Nested column views** (a `{column-start}` while a view is open: 247 in 193 of the 1,862 column-mark documents):
+   the collapse keeps the outermost group, the inner view's 32px above and below go (express-rail: four headings
+   32px closer to their block).
+2. **A grey column band before a view on info pages:** the rule from /de/de/lounges (brief 540, no gap) takes the
+   band's 48px (rail-and-fly -80px at 390, express-rail -48 at 1440).
+3. **A separator that is a view's first component** (75 dividers in 75 documents, 39 spacers in 39): with B 32px
+   higher than www (fia-valet-service at 390 3.4 -> 5.5). Dividers right before a view, where B fits: 177 in 90
+   documents (spacers 124 in 109; logs/b596/sep-census.mjs).
+4. **A view's last block without bottom margin** ("the last component without margin"): after a table www keeps
+   40px (fia-valet-service's Parking charges).
+5. **Small print in the middle of a view** takes the body size (the collapse: "single small paragraphs body";
+   express-rail's City-Ticket note), and copytext-medium paragraphs too (2px rule; unaccompanied-minors' notes).
+6. Losses A and D take: 106 H3s marked heading-medium in 59 flow documents (miles-and-more's carousel title) come out
+   heading-small (one H3 choice only); 462 headings marked limited-width come out full width (express-rail's video
+   title). And the 143 published flow documents with column-view sections and no marks (economy-class,
+   business-class, onboard-delights … in their markets) lose their two-thirds headings once the theme is live:
+   measure them before the switch.
+
+**Verdict: not yet for info pages.** With 739b5b1 the sample went from 9 of 12 worse to 4 of 12 worse at 1440 and
+6 of 12 at 390 (by 0.5 points or more); lufthansa-express-rail (+9.6 at 1440) and rail-and-fly (+3.5 at 390)
+need 1 and 2, fia-valet-service needs 3 and 4.
