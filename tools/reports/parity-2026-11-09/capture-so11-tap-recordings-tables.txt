@@ -1,0 +1,9 @@
+# ema-cashub, the night of 2026-11-11 (TAP parity row 146): www draws the rich-text tables of /en-pt/manage-booking/extras/lounges
+# as one card per column from lg and as accordions on phones (tap-parity-007); our table-striped is a plain table there. 93 such
+# tables sit on 53 language pages of other shapes (fees, baggage allowances, special needs). Before a TAP view of table-striped
+# is built, one page of each shape, as the tap-parity recordings (full page at 1440 x 900 and 390 x 844, measurements, every
+# picture waited for). For the next capture window.
+https://www.flytap.com/en-pt/miles-and-go/use-miles/fees
+https://www.flytap.com/en-pt/information/baggage/hold-baggage
+https://www.flytap.com/en-pt/information/special-needs/wheelchair
+https://www.flytap.com/en-pt/miles-and-go/earn-miles/by-flying
