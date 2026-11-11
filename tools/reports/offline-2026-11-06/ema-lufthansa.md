@@ -3156,3 +3156,13 @@ follow when their run is through.
   as SWISS's offers row 52); D9 additional services -3.9 % at 1440: www's space between the title and its intro
   differs by page (40 to 100 px against our 40 to 80), not one rule.
 
+- **On main:** eda09545 (the two-up rows by snapshot, capture list 5; smoke 0 differences on 14 hosts).
+- **ita-snapshots-023** (32 pages, 23:48 UTC; 1,274,950 bytes,
+  89f1609a5a188d415398ff69225a239c1e857db96b55e760e7cb16e8cecd71e8): capture list 5's pages, each imported offline:
+  25 give two-up, 7 a three-card phone slider (they leave the two-up lists), one D row is not in it
+  (/nl/nl/manage-my-bookings/partners/airport-transfer). New list:
+  tools/reports/parity-2026-11-09/reimport-585-ita-two-up-snapshots-2.txt. With the first, 72 of the 82 rows now have
+  a snapshot that gives two-up, 9 are three-card views on www (no change), 1 has no snapshot.
+- **TAP fly-business's footnote** (www's small print under the two columns, ours in the text cell): an importer item
+  (tap-import.mjs's ComponentFeatureCardModel puts complementaryNote in the cell); only the two fly-business documents
+  (en-pt, pt-pt) carry one among the language documents, so it stays a noted row (TAP row 133, open), not tonight's work.
