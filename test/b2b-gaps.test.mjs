@@ -30,7 +30,11 @@ test('header.css: the bar padding and the open item\'s fill, only under body.bra
 // the stage copy; one that holds a picture keeps the column (test/b2b-parity-418.test.mjs)
 test('styles.css: the copy at most 800 px, only under body.brand-b2b', () => {
   const rules = b2bRules(read('styles/styles.css'));
-  assert.equal(rules.length, 1);
-  assert.equal(rules[0].sel, 'body.brand-b2b main p:not(:has(> picture))');
-  assert.equal(rules[0].body, 'max-width: 800px;');
+  // and the phone headings unhyphenated (the standing order of 2026-11-10 evening: wrapping lives
+  // in styles.css, no brand theme sets it; test/b2b-no-hyphens-583.test.mjs)
+  assert.equal(rules.length, 2);
+  const copy = rules.find((r) => r.sel === 'body.brand-b2b main p:not(:has(> picture))');
+  assert.equal(copy && copy.body, 'max-width: 800px;');
+  const headings = rules.find((r) => r.sel === 'body.brand-b2b :is(h1, h2, h3, h4, h5, h6)');
+  assert.equal(headings && headings.body, 'hyphens: manual;');
 });
