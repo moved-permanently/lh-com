@@ -4137,3 +4137,56 @@ body.brand-tap main > .section:has(> .default-content-wrapper:only-child > :is(h
     margin-bottom: 32px;
   }
 }
+
+/* the inspiration pages' category tabs (row 134's set "categories") as www's chips, as the FAQ picker's (row 65) */
+body.brand-tap main > .section.section-tabs:has(+ .section-tab-panel[data-tabs="categories"]) .section-tabs-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: min(720px, calc(100% - 2 * var(--layout-margin)));
+  margin: 32px auto 0;
+  border: 0;
+}
+
+body.brand-tap main > .section.section-tabs:has(+ .section-tab-panel[data-tabs="categories"]) [role="tab"] {
+  flex: 0 0 auto;
+  min-height: 40px;
+  margin: 0;
+  padding: 0 24px;
+  border: 1px solid #e0dfe2;
+  border-radius: 999px;
+  background-color: #fff;
+  color: #424045;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+body.brand-tap main > .section.section-tabs:has(+ .section-tab-panel[data-tabs="categories"]) [role="tab"][aria-selected="true"] {
+  border-color: #65c922;
+  background-color: #65c922;
+  color: #000;
+}
+
+body.brand-tap main > .section.section-tabs:has(+ .section-tab-panel[data-tabs="categories"]) [role="tab"][aria-selected="true"]::after {
+  content: none;
+}
+
+body.brand-tap main > .section.section-tab-panel[data-tabs="categories"] > .default-content-wrapper:first-of-type > h2:first-child {
+  margin-top: 64px;
+  font-size: calc(28px * var(--a11y-scale, 1));
+  line-height: 1.2;
+  text-align: center;
+}
+
+@media (width >= 1024px) {
+  body.brand-tap main > .section.section-tabs:has(+ .section-tab-panel[data-tabs="categories"]) .section-tabs-list {
+    gap: 16px;
+  }
+}
+
+/* the set's title right before the chips centred, as www's */
+body.brand-tap main > .section:has(+ .section.section-tabs + .section-tab-panel[data-tabs="categories"]) > .default-content-wrapper:last-child > h2:last-child {
+  text-align: center;
+}

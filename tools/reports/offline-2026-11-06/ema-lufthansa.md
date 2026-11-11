@@ -3201,5 +3201,9 @@ follow when their run is through.
 - **TAP row 135 / shared scripts.js:** a fragment no longer gets the page's breadcrumb (buildBreadcrumb ran on every main
   it decorated, fragments included). Backwards-compatible: the page's own trail as before; duplicate trails inside
   fragment blocks go, on every brand (for ema-adobe and ema-cashub to know: lufthansa.com's and Austrian's pages with
-  fragment blocks and a Parent lose their second trail).
+  fragment blocks and a Parent lose their second trail).- **On main:** 666ce6e7 (the fragment breadcrumb; lint 0 before and after the rebase, 3591 pass 0 fail, smoke 0
+  differences on 14 hosts).
+- **TAP row 136:** the inspiration categories' tabs as www's pills, the titles centred (backwards-compatible: theme rules
+  for the set "categories" only). Open (row 137): the countries beside the articles, www's FAQ picker's second level; it
+  needs the picker to work with fragment-loaded accordions (the inspiration pages are fragment pages), not tonight.
 
