@@ -62,3 +62,11 @@ test('below 768 px: a tab\'s label and its open content 20 px inside, as lufthan
   assert.match(after, /body\.brand-b2b main > \.section\.section-tab-panel > \.section-tab-toggle \{\n {4}padding-right: 20px;\n {4}padding-left: 20px;\n {2}\}/);
   assert.match(after, /body\.brand-b2b main > \.section:is\(\.section-tab-panel, \.section-tab-part\) > div:not\(\.section-tab-toggle\) \{\n {4}padding-right: calc\(var\(--layout-margin, 22px\) \+ 20px\);\n {4}padding-left: calc\(var\(--layout-margin, 22px\) \+ 20px\);/);
 });
+
+test('below 768 px: no section space between a section and the tab set after it', () => {
+  const at = css.indexOf('/* and no section space of its own there (space-below-m');
+  const media = css.lastIndexOf('@media (width < 768px) {', at);
+  const between = css.slice(media, at);
+  assert.equal(at > 0 && media > 0 && between.split('{').length - between.split('}').length === 1, true, 'inside the phone media block');
+  assert.match(css.slice(at), /body\.brand-b2b main > \.section:has\(\+ \.section\.section-tabs\) > \.default-content-wrapper:last-child > p\.spacer:last-child \{\n {4}display: none;\n {2}\}/);
+});

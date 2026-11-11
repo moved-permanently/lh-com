@@ -768,6 +768,14 @@ body.brand-b2b main > .section.grey {
     margin-bottom: 30px;
   }
 
+  /* and no section space of its own there (space-below-m: the Allegris start-of-booking pages'
+     "Wohin fliegt Lufthansa Allegris?", www's first row 25 px under it at 390, ours 115; standing
+     order 5, item 2: de/de, xx/de corporates and intermediaries, de/en intermediaries 5.4 to 10.4
+     points better, the other 21 recorded tab pages unchanged) */
+  body.brand-b2b main > .section:has(+ .section.section-tabs) > .default-content-wrapper:last-child > p.spacer:last-child {
+    display: none;
+  }
+
   body.brand-b2b main > .section.section-tab-panel:not(:has(> .section-tab-toggle[aria-expanded="true"])) {
     margin-top: 0;
     padding-top: 0;
