@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-checkin.js
-  var tmp_bundle_austrian_checkin_306859_exports = {};
-  __export(tmp_bundle_austrian_checkin_306859_exports, {
-    default: () => tmp_bundle_austrian_checkin_306859_default
+  var tmp_bundle_austrian_checkin_393005_exports = {};
+  __export(tmp_bundle_austrian_checkin_393005_exports, {
+    default: () => tmp_bundle_austrian_checkin_393005_default
   });
 
   // tools/importer/parsers/booking-lookup.js
@@ -5557,7 +5557,8 @@ var CustomImportScript = (() => {
             blocks: ["columns-media", "carousel-images", "quote"],
             endEdge: true,
             startAtHeading: true,
-            bandHeadings: true
+            bandHeadings: true,
+            sidebarNoView: true
           }
         }
       }
@@ -8851,6 +8852,7 @@ var CustomImportScript = (() => {
           ".sidebar:has(> .airem-sidebar > .sidebar-aside img):has(> .airem-sidebar > .sidebar-content .twocolumn):not(:has(.threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table, .sidebar-aside .twocolumn))",
           ':is(.section-content, .container-content, .sidebar-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe:not(.video-player > iframe), maui-navigation-link[variant="anchor-down"]))',
           ":is(.section-content, .container-content) > .twocolumn.b2b-embed-columns",
+          "maui-tab-control-panel-responsive :is(.twocolumn, .threecolumn).b2b-tab-columns",
           ':is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
           '.sidebar-content > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
           ":is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn) .image img):not(:has(.column-view-item .column-view-item :is(.text, .headline, .link, .teaser))):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe))",
@@ -9025,7 +9027,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_checkin_306859_default = {
+  var tmp_bundle_austrian_checkin_393005_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9065,5 +9067,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_checkin_306859_exports);
+  return __toCommonJS(tmp_bundle_austrian_checkin_393005_exports);
 })();

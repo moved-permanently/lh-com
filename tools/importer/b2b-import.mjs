@@ -96,6 +96,17 @@ export function withEmails(html) {
     .replace(/<a\b[^>]*href="(?:https?:\/\/[^"/]+)?\/cdn-cgi\/l\/email-protection"[^>]*>\s*\[email[^\]]*\]\s*<\/a>/gi, '');
 }
 
+/** A column view of text only (no picture, embed, form, teaser, table, accordion, nested view) whose items each open with a heading. */
+export function isTabTextColumns(el) {
+  if (/<img\b|<iframe\b|<form\b|class="(?:teaser|table|accordion)\b/.test(el) || /<div class="(?:one|two|three|four)column/.test(el.slice(1))) return false;
+  const { document } = parseHTML(`<html><body>${el}</body></html>`);
+  const items = [...document.querySelectorAll('.column-view-item')];
+  return items.length >= 2 && items.every((it) => {
+    const first = [...it.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li')].find((x) => clean(x.textContent));
+    return !!first && /^H[1-6]$/.test(first.tagName);
+  });
+}
+
 /**
  * B2B's components: the classes the templates' B2B selectors take (the column row of icon
  * modules, the stage, the inspirational stage), the author quote as its text and name.
@@ -113,6 +124,11 @@ export function withB2bComponents(html) {
   out = editDivs(out, '<div class="twocolumn', (el) => (/<div class="iframe\b[^"]*"[^>]*>\s*<div class="iframe-wrapper/.test(el)
     && !/<div class="(?:one|two|three|four)column/.test(el.slice(1)) && !/<form\b|class="(?:table|accordion|teaser)\b/.test(el)
     ? el.replace('<div class="twocolumn', '<div class="b2b-embed-columns twocolumn') : el));
+  // a tab panel's text-only two- or three-column view whose items open with a heading (the Allegris
+  // start-of-booking pages' FRA / MUC lists, the standing order of 2026-11-10 evening): the
+  // template's B2B selector makes it a Columns Media, its items side by side as www's
+  out = out.replace(/<maui-tab-control-panel-responsive\b[\s\S]*?<\/maui-tab-control-panel-responsive>/g, (panel) => ['twocolumn', 'threecolumn']
+    .reduce((acc, col) => editDivs(acc, `<div class="${col}`, (el) => (isTabTextColumns(el) ? el.replace(`<div class="${col}`, `<div class="b2b-tab-columns ${col}`) : el)), panel));
   out = editDivs(out, '<div class="stage ', (el) => (/class="stage-teaser"/.test(el) ? el.replace('<div class="stage ', '<div class="b2b-stage stage ') : el));
   out = out.replace(/<div class="inspirationalstage(["\s])/g, '<div class="b2b-inspirationalstage inspirationalstage$1');
   out = editDivs(out, '<div class="authorquote', (el) => {

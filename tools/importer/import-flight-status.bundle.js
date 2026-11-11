@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-flight-status.js
-  var tmp_bundle_flight_status_306859_exports = {};
-  __export(tmp_bundle_flight_status_306859_exports, {
-    default: () => tmp_bundle_flight_status_306859_default
+  var tmp_bundle_flight_status_393005_exports = {};
+  __export(tmp_bundle_flight_status_393005_exports, {
+    default: () => tmp_bundle_flight_status_393005_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -1456,7 +1456,8 @@ var CustomImportScript = (() => {
             blocks: ["columns-media", "carousel-images", "quote"],
             endEdge: true,
             startAtHeading: true,
-            bandHeadings: true
+            bandHeadings: true,
+            sidebarNoView: true
           }
         }
       }
@@ -4704,7 +4705,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_flight_status_306859_default = {
+  var tmp_bundle_flight_status_393005_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -4744,5 +4745,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_flight_status_306859_exports);
+  return __toCommonJS(tmp_bundle_flight_status_393005_exports);
 })();
