@@ -2485,9 +2485,9 @@ Started 18:30 UTC. Recordings: b2b-parity-001 to -005 and b2b-snapshots-014/-015
   the report overdue, decided: three comment lines (stylelint-disable-next-line on the three rules, each with its
   reason), no rule or order changed, so nothing served changes; its own commit for ema-cashub to see or redo.
 
-### Update 00:50 UTC
+### Update 23:35 UTC
 
-- Pushed at 23:15 (92eb058f): 31138060 / f5e1cb6f (airlines-at-a-glance, list reimport-583-b2b-teaser-grids.txt, 74
+- Pushed at 23:08 (92eb058f): 31138060 / f5e1cb6f (airlines-at-a-glance, list reimport-583-b2b-teaser-grids.txt, 74
   documents), the lint fix, the reports. Smoke 12 hosts before/after: no difference but lh-com's de/en sitemap.
 - Ranking artefact found and fixed in my measurement: the fresh ranking captured our pages at most 8,000 px tall, so
   www's long pages (up to 18,044 px) counted their tail as differences. Recaptured at full height: de/en
@@ -2509,9 +2509,9 @@ Started 18:30 UTC. Recordings: b2b-parity-001 to -005 and b2b-snapshots-014/-015
   disagree (route-network's "Profitieren Sie …" {heading-copytext-large} next to two unmarked H2s; 112 H2s
   {heading-small} on B2B flow pages, many in mixed sections). Noted for the collapse's owner, no change tonight.
 
-### Update 02:40 UTC
+### Update 00:13 UTC
 
-- Pushed at 01:30 (8d426847): c35b1d7d, the sidebar change (route-network on our host now: de/de 1440 9.8 %, 390
+- Pushed at 23:56 (8d426847): c35b1d7d, the sidebar change (route-network on our host now: de/de 1440 9.8 %, 390
   30.2; de/en 15.2, 27.0, as measured locally). Smoke 12 hosts before/after: no difference but lh-com's de/en sitemap
   (the first lufthansa run's node error was transient; rerun fine).
 - 0959d901 (list) and the importer commit after it: the Allegris start-of-booking pages' tab panels (www: FRA beside
@@ -2520,7 +2520,7 @@ Started 18:30 UTC. Recordings: b2b-parity-001 to -005 and b2b-snapshots-014/-015
   36.1 -> 30.8 %, the panel as www's; 390 unchanged (stacked as www's). The B2B importer now writes the same
   (b2b-tab-columns; also entertainment-on-board's views on its next import).
 
-### Update 04:00 UTC
+### Update 00:38 UTC
 
 - Fresh ranking at full height (our host, 68 rows of b2b-parity-001..005, after the sidebar push): mean 16.52 %
   (17.05 with the 8,000 px captures). Worst: celebrating-shared-stories 390 (49.1 / 45.1, held above), lhg-history
@@ -2531,3 +2531,10 @@ Started 18:30 UTC. Recordings: b2b-parity-001 to -005 and b2b-snapshots-014/-015
   wide), ch/en travel-classes-and-booking, entertainment-on-board de/en, ch/en. de/en meals-on-board 1440 23.5 ->
   20.7 % (local). The importer writes the same now (b2b-tab-columns, 27c4cec4 / 8f224998 / b320b155; selector the
   class alone so info's single tab-panel selector stays single, info-template-474).
+
+### Note 01:25 UTC: times corrected
+
+The three headings above said 00:50, 02:40 and 04:00 UTC and two "pushed at" times were off: I had written the
+times instead of reading the clock. Corrected from the commits (23:35, 00:13, 00:38; pushes 23:08 and 23:56), as
+in capture-list-583-b2b-2.txt (written 00:40 UTC, not 04:10). From here every time in this file is read from the
+clock (date -u).
