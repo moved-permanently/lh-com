@@ -2538,3 +2538,17 @@ The three headings above said 00:50, 02:40 and 04:00 UTC and two "pushed at" tim
 times instead of reading the clock. Corrected from the commits (23:35, 00:13, 00:38; pushes 23:08 and 23:56), as
 in capture-list-583-b2b-2.txt (written 00:40 UTC, not 04:10). From here every time in this file is read from the
 clock (date -u).
+
+### Update 02:03 UTC
+
+- 24fe90b1 (served): B2B headings keep their words whole on phones (styles.css hyphenates headings of 14+ letter words
+  for every brand below 768 px; www's B2B does not: partner-plus-benefit's "GESCHÄFTSREISEN" on its own line).
+  Measured with the rule injected on our host, all 34 rows at 390: de/de experts/news 35.3 -> 22.7 %,
+  partner-plus-benefit 22.9 -> 21.0, homepage 19.1 -> 19.0, none worse (mean 18.77 -> 18.34).
+- Main's stylelint red again from 01:01 UTC (styles/themes/austrian.css, 6b64414c: a two-declaration one-line rule,
+  missing blank lines; ema-cashub's file). Held my pushes for an hour, then (as with Brussels) a formatting-only
+  commit: the rule on its own lines, two blank lines; no selector, value or order changed.
+- capture-list-583-b2b-2.txt (12 pages, written 00:40 UTC) is on main with this push.
+- Looked at and left: lufthansa-group-airlines (www opens a second view between "Lufthansa Group airlines at a
+  glance" and its cards: in DA's marks, gone with the collapse), help-alliance 390 (text wraps a word earlier on
+  www, cause not found in the recordings).
