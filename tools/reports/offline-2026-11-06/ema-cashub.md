@@ -2652,3 +2652,68 @@ homepages with the APIs) and -015 (`969792a7…`, the ten grey-rule kinds); sha2
   widget (external-widgets?id=124) in an iframe; ours has the import's link-out "Carousel". Building it would be an
   embed behind a flag, like the payment picker. Not built: not asked, and it is a third-party content widget.
 - **jp/ja, cn/zh rows:** not reliable here (no CJK font in the headless browser).
+- **Brussels, after the helper's imports** (reimport-588 95 and the open-items list 66: 131 documents, published),
+  stable probe on the 63 recorded pages; 35 are within 3 %.
+  - problems-with-your-baggage -17.4 -> -2.5 % / -28.5 -> -5.1 %
+  - cancel-and-refund be/en -22.4 -> -5.2 % / -19.8 -> -4.3 %, be/fr -25.4 -> -8.0 % / -20.4 -> -5.6 %
+  - service-charges be/en -8.6 -> -6.0 % / -4.6 -> -3.2 %
+  - the terms pages -60..-95 % -> -4..-7 % at 1440
+- **Brussels accordion panels (`b654354e`, served): a rule.** www's panel text is plain 18 / 24 px paragraphs in every
+  Brussels recording (920 of 944); ours were 16 px. On phones www's panel is 20 px in from each side.
+  - Measured on the 35 recorded Brussels pages with an accordion: the pages with open panels are better at both widths,
+    the others unchanged.
+    - terms-of-use -4.4 -> +1.3 % / -12.9 -> -2.5 %
+    - conditions-of-carriage -6.6 -> -1.5 % / -15.8 -> -4.1 %
+    - the compensation voucher -5.5 -> -1.1 % / -12.1 -> -3.5 %
+    - the refund voucher -6.4 -> -1.8 % / -10.3 -> -3.1 %
+    - problems-with-your-baggage -2.5 -> -0.7 % / -5.1 -> -1.4 %
+  - www's wider panel text at 1440 (923 px, no indent) was tried and not taken: four pages got 1.2-1.4 points worse.
+  - Reach: 549 published documents with an faq accordion.
+- **Not shipped: the sidebar-h1 column (75 % - 10 px, as the sidebar style).**
+  - With the blocks in it, the open accordions get much taller (terms-of-use +1.3 -> +18.4 %).
+  - With the text only: 8 pages better (short-notice-eu-us -10.0 -> -6.4 %, cancel-and-refund be/fr -8.0 -> -5.0 %),
+    4 worse (aviation-services-law -1.2 -> -5.5 %, privacy-notice-applicants -2.5 -> -5.6 %).
+  - The cause under that: www's empty `<p></p>` in rich text take about 16 px each (short-notice: +32 between two
+    paragraphs). The import drops them, and a spacer of 31 px or less is dropped by the collapse
+    (marker-collapse.mjs, "size none"), so there is no carrier without a collapse change. A row for ema-test's collapse.
+
+### Final report (about 04:00 CET, 2026-11-11)
+
+**Commits tonight, all pushed, Build success on each:**
+
+| commit | what |
+|---|---|
+| `6b64414c` | Austrian homepage band rules (both document versions); grey rule not in flush bands |
+| `ae367334` | the disclaimer release lists |
+| `ce584e22` | the Brussels payment picker behind brussels-payment-picker, off |
+| `f45c41d3` | report part 1, reimport-593-austrian-pages |
+| `b654354e` | Brussels accordion panel text |
+| this one | the final report |
+
+**Lists for the import helper (READY counts):**
+- `content-593-austrian-gc-dialogs.txt`: 60 READY, first
+- `reimport-591-austrian-home-disclaimer.txt`: 56 READY, after the dialogs
+- `reimport-593-austrian-pages.txt`: 2 READY (it/it form-confirmation new, th/en promptpay)
+- From the night before, imported by the helper tonight: reimport-588 (95) and reimport-591-brussels-open-items (66).
+- `reach-591-austrian-grey-column-view.txt`: 64, served CSS, no import.
+
+**Rows left, with causes:**
+- **Brussels our-payment-methods (-24.7 / -16.9 %):** BUILT, FLAG OFF. An author switches it on with the row
+  `brussels-payment-picker | on` in lh-brussels' /config/flags sheet (then -5.7 % at 1440, simulated).
+- **Austrian at/de unterhaltung-an-bord (-17.4 / -16.0 %):** www's inflight-entertainment carousel iframe
+  (austrian-inflightentertainment.com) is a link-out on ours; an embed decision, not built.
+- **Austrian at/en online-check-in (-7.0 % at 1440):** the four-step row (number to step title +41 px on www) and the
+  stretch before "Good to know" (-86); headings differ there. Not traced further.
+- **Austrian G3 roots (tr, me, xk, jp; au, ch/de with the APIs):** www's fare teaser had no deals at recording time
+  (market data). Our homepage rules make their 1440 longer.
+- **Brussels sidebar-h1 pages:** www's empty paragraphs (about 16 px each) have no carrier through the collapse (above);
+  the h1 column width depends on it.
+- **Brussels offers (-9.0 / -4.9 %):** the finder / flight-search widgets' state (www's APIs refused here).
+- **Brussels families-and-children (-6.8 / -3.1 %):** www's two empty lines in the sidebar; spacers in block cells are
+  dropped by the collapse.
+- **Brussels birthright (+6.1 / +4.3 % raw):** the 71 px Turnstile box in our capture, then the wide-text section's
+  margin; one page, no rule.
+- **Austrian jp/ja, cn/zh:** not measurable here (no CJK font).
+
+No upload, preview or publish. Every probe refused www.* (and, for the picker check, *.brusselsairlines.com) and
+counted it; none was made.
