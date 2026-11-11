@@ -22,3 +22,7 @@ test('nothing deeper, nothing outside a root, nothing under /lhg/; the pages as 
   ['/at/en/fragments/modals/a/b', '/fragments/modals/general-conditions', '/at/en/fragments/other/x', '/lhg/de/fragments/modals/x'].forEach((p) => assert.ok(!allowed(p), p));
   assert.ok(allowed('/at/en/homepage'));
 });
+
+test('the brief after 595: /it/it/form-confirmation (reimport-593-austrian-pages.txt) is allowed', () => {
+  assert.ok(allowed('/it/it/form-confirmation'));
+});

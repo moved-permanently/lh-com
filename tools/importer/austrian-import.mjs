@@ -28,7 +28,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
 import {
-  ownPages, ownAliases, withOwnLinks, onlyBatch,
+  ownPages, ownAliases, ownServed, withOwnLinks, onlyBatch,
 } from './own-links.mjs';
 import { relativeDamLinks } from './austrian-dam.mjs';
 import { withLocalImages } from './austrian-nav.mjs';
@@ -685,12 +685,15 @@ if (isMain) {
     // imported so far)
     const pages = ownPages('lh-austrian');
     const aliases = ownAliases('lh-austrian');
+    // paths our host serves without a document of the site (lh-austrian.json served: a root's
+    // offers-destinations, the edge's fallback to /at/en's): a www link to one becomes relative
+    const served = ownServed('lh-austrian');
     // a link-out document keeps its link to its own page on www
     const linkOutDocs = new Set(allow.linkOuts || []);
     made.forEach((p) => {
       const f = path.join(W, 'content', `${p}.plain.html`);
       const doc = fs.readFileSync(f, 'utf8');
-      const next = withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages, aliases, { linkOut: linkOutDocs.has(p) ? p : null }).doc;
+      const next = withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages, aliases, { linkOut: linkOutDocs.has(p) ? p : null, served }).doc;
       if (next !== doc) fs.writeFileSync(f, next);
     });
     // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
