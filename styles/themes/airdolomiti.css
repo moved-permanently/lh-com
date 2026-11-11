@@ -2170,6 +2170,27 @@ body.brand-airdolomiti main:has(.manage-booking) .manage-booking-wrapper ~ .defa
   line-height: 0;
 }
 
+/* the form's rhythm as www's FormPnr box (AD row 104): 50px over and under, the rows 20px apart, a label 17.28px / 24px
+   8px over its field, the button 4px further in (396px high at every width) */
+body.brand-airdolomiti .manage-booking .manage-booking-form {
+  gap: 20px;
+  padding-block: 50px;
+}
+
+body.brand-airdolomiti .manage-booking .manage-booking-field {
+  gap: 8px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the form's labels, not the flight search's */
+body.brand-airdolomiti .manage-booking .manage-booking-field label {
+  font-size: 17.28px;
+  line-height: 24px;
+}
+
+body.brand-airdolomiti .manage-booking .manage-booking-submit {
+  margin-block: 4px;
+}
+
 /* a title followed by more than one paragraph (www's TitleDescriptionTextCta: the destinations,
    flights and assistance hubs; the fleet's text under its stage, a heading and its paragraphs): its rich text 22px / 37.4px with a blank line between the
    paragraphs and under the title (www's empty paragraphs), from 930px in a centred column of
