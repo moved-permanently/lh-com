@@ -84,3 +84,26 @@ Candidate theme rules simulated in the page (measurement only):
 
 Checks for each step: the sample above (12 documents) and every recorded hub page at 390 and 1440, today against
 after; smoke before and after any served change; nothing published until step 5's own order.
+
+## 5. Where it stands (brief 582, 2026-11-11 06:00 CET)
+
+Nothing switched; THEMES.lufthansa has no `live`. Measured in a local worktree with `live: true`, the documents
+collapsed with main's CLI and injected into the page on our host, today's side injected the same way.
+
+1. **B5 done (a94f721):** the hub bundle rebuilt (the 133 hub snapshots import byte-identically); the other
+   lufthansa.com bundles are current (rebuilt with every importer change since). The three Austrian bundles are
+   their EMA's.
+2. **B1, code done (0346b0c, d085603):** the collapse splits a view's opening separator into a section of its own
+   that keeps the view's classes; such a section now has no padding and no gap, and none after the view before it;
+   a carrier view's last slider keeps its own bottom margin. digital-self-services 16.3 / 19.9 % -> 8.2 / 3.5
+   (today 7.1 / 2.9); meetings-and-events at 1440 8.3 -> 4.7 (today 3.9). The 36 recorded hub and campaign pages
+   with column marks (logs/b582/b1all.tsv in the EMA's logs): the views within a point; worse by more after the
+   switch: miles-and-more (+3.4 at 390, up to +14.8 at 1440), most-significant-route (+2.1 / +1.1), stopover
+   (+2.9 / +3.5), neuschwanstein (+1.2 at 390), chronicle (+1.0 at 1440): separators (B2) and per-page (B4).
+   Info pages with column marks: not run yet.
+3. **B3, code done (6c997b5):** census of the 6,826 documents: 168 page titles and 85 later H1s marked
+   heading-medium. The lufthansa theme keeps that one-step size as the choice "H1 compact" (nearChoices); the
+   collapse writes the section style, other brands unchanged. travel-classes 33.8 -> 5.8 / 15.0 -> 2.7 (today
+   7.2 / 2.7); food-and-beverages 28.2 -> 22.0 / 21.3 -> 17.2.
+4. **B2** as before (Ben's decision 3). **B4** next: miles-and-more (its separators collapse to M and its carousel
+   section takes h3-large, 89 px shorter at 1440), stopover, most-significant-route, food-and-beverages' rest.
