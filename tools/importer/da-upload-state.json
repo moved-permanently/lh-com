@@ -722,9 +722,9 @@
    "preview": "2026-11-08T01:47:07.799Z"
   },
   "/de/en/green-fare": {
-   "uploaded": "2026-10-24T10:42:45.617Z",
-   "mtime": 1792838403339,
-   "preview": "2026-10-24T10:42:47.374Z"
+   "uploaded": "2026-11-11T02:33:58.984Z",
+   "mtime": 1794364384103.5852,
+   "preview": "2026-11-11T02:34:01.794Z"
   },
   "/de/en/group-travel": {
    "uploaded": "2026-11-08T01:47:09.968Z",
@@ -2102,9 +2102,9 @@
    "preview": "2026-11-08T01:47:43.052Z"
   },
   "/de/de/green-fare": {
-   "uploaded": "2026-10-24T10:20:09.977Z",
-   "mtime": 1792837051725,
-   "preview": "2026-10-24T10:20:11.792Z"
+   "uploaded": "2026-11-11T02:34:04.175Z",
+   "mtime": 1794364384109.6912,
+   "preview": "2026-11-11T02:34:06.581Z"
   },
   "/de/de/group-travel": {
    "uploaded": "2026-11-08T01:47:45.211Z",
@@ -52165,6 +52165,36 @@
    "uploaded": "2026-11-10T22:52:31.283Z",
    "mtime": 1794351127350.7454,
    "preview": "2026-11-10T22:52:33.544Z"
+  },
+  "/de/en/articles/explore-flying/what-the-hack-sleep-on-a-plane": {
+   "uploaded": "2026-11-11T02:33:30.015Z",
+   "mtime": 1794364348834.3228,
+   "preview": "2026-11-11T02:33:32.918Z"
+  },
+  "/de/en/articles/explore-flying/first-class-collectible-loungewear-cdlp-jorinde-voigt": {
+   "uploaded": "2026-11-11T02:33:34.713Z",
+   "mtime": 1794364350559.169,
+   "preview": "2026-11-11T02:33:38.544Z"
+  },
+  "/de/en/articles/explore-flying/welcome-to-my-world-jorinde-voigt": {
+   "uploaded": "2026-11-11T02:33:40.042Z",
+   "mtime": 1794364352292.5808,
+   "preview": "2026-11-11T02:33:42.900Z"
+  },
+  "/de/de/articles/explore-flying/what-the-hack-sleep-on-a-plane": {
+   "uploaded": "2026-11-11T02:33:44.536Z",
+   "mtime": 1794364354324.5417,
+   "preview": "2026-11-11T02:33:47.653Z"
+  },
+  "/de/de/articles/explore-flying/first-class-collectible-loungewear-cdlp-jorinde-voigt": {
+   "uploaded": "2026-11-11T02:33:49.233Z",
+   "mtime": 1794364356015.3816,
+   "preview": "2026-11-11T02:33:51.883Z"
+  },
+  "/de/de/articles/explore-flying/welcome-to-my-world-jorinde-voigt": {
+   "uploaded": "2026-11-11T02:33:53.712Z",
+   "mtime": 1794364357409.2524,
+   "preview": "2026-11-11T02:33:56.521Z"
   }
  },
  "media": {
