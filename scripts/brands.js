@@ -150,6 +150,16 @@ export const BRANDS = {
       // tag manager loads it (Tealium os-main tag 110, 2026-11-01): scripts/site-embeds.js, on the
       // pages with the metadata chat-button
       'chat-button': { script: 'https://www.austrian.com/digitalassistant/support/webchat_init.js' },
+      // the in-flight entertainment's film carousel as www's unterhaltung-an-bord pages embed
+      // it (an iframe of www.austrian-inflightentertainment.com, 520 px high, the same widget in
+      // all ten languages: the 10-30 snapshots, austrian-parity-003): scripts/site-embeds.js, in
+      // place of the import's link to the page on www (the flag off: that link, as today)
+      'austrian-ife-carousel': {
+        src: 'https://www.austrian-inflightentertainment.com/external-widgets?id=12441&type=film-carousel&lang=de',
+        height: 520,
+        path: '/unterhaltung-an-bord',
+        www: 'www.austrian.com',
+      },
     },
     consentLinks: {
       en: {

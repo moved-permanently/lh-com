@@ -16,6 +16,9 @@
  *   systems): on the our-payment-methods pages, in place of the import's link to the same page on
  *   www (a paragraph of that one link); with the flag off the link stays (the 2026-11-01 rule for
  *   embeds into an airline's live systems).
+ * - austrian-ife-carousel (Austrian's in-flight entertainment film carousel, an iframe of
+ *   www.austrian-inflightentertainment.com, the vendor's live system): on the unterhaltung-an-bord
+ *   pages, the same way (linkOutEmbed).
  */
 import { getMetadata } from './aem.js';
 import { brandEntry } from './locale.js';
@@ -94,10 +97,10 @@ export function paymentPickerTarget(main, config, location, www) {
   }) || null;
 }
 
-/** The picker as www embeds it: an iframe of its page, the configured height, the full width. */
+/** The embed as www draws it: an iframe of the configured page and height, the full width. */
 export function paymentPickerFrame(config, title) {
   const wrap = document.createElement('div');
-  wrap.className = 'payment-picker';
+  wrap.className = 'link-out-embed';
   const frame = document.createElement('iframe');
   frame.setAttribute('src', config.src);
   frame.setAttribute('title', title || 'Payment methods');
@@ -109,16 +112,22 @@ export function paymentPickerFrame(config, title) {
   return wrap;
 }
 
-async function paymentPicker() {
+/**
+ * An embed that takes the place of the import's link-out (paymentPickerTarget) with the brand's
+ * configured iframe, when its flag is on.
+ * @param {string} flag
+ */
+async function linkOutEmbed(flag) {
   const brand = brandEntry();
-  const config = embedConfig('brussels-payment-picker', brand);
-  const target = paymentPickerTarget(document.querySelector('main'), config, window.location, brand && brand.www);
+  const config = embedConfig(flag, brand);
+  const www = (config && config.www) || (brand && brand.www);
+  const target = paymentPickerTarget(document.querySelector('main'), config, window.location, www);
   if (!target) return;
-  if (!(await embedWanted('brussels-payment-picker', brand))) return;
+  if (!(await embedWanted(flag, brand))) return;
   target.replaceWith(paymentPickerFrame(config, target.textContent.trim()));
 }
 
 /** Loads the page's site-wide embeds whose site flag is on. */
 export default async function loadSiteEmbeds() {
-  await Promise.all([liveChat(), chatButton(), paymentPicker()]);
+  await Promise.all([liveChat(), chatButton(), linkOutEmbed('brussels-payment-picker'), linkOutEmbed('austrian-ife-carousel')]);
 }

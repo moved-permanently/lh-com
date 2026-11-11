@@ -80,7 +80,7 @@ test('the flag on: the iframe in the link paragraph\'s place, 750 px, the link i
   assert.equal(f[0].getAttribute('height'), '750');
   assert.equal(f[0].getAttribute('title'), 'Modes de paiement et informations');
   assert.equal(document.querySelectorAll('main a').length, 1);
-  assert.ok(document.querySelector('main .payment-picker').previousElementSibling.tagName === 'P');
+  assert.ok(document.querySelector('main .link-out-embed').previousElementSibling.tagName === 'P');
 });
 
 test('the flag on, another page: nothing', async () => {
