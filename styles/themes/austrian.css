@@ -1193,8 +1193,34 @@ body.brand-austrian main > .section.stage > .default-content-wrapper:has(> h3:on
    only grey). Measured with the rule added on every recorded Austrian page it reaches: wetlease-hub -3.5 -> -2.1 %
    (1440), -3.0 -> -1.9 % (390); culinary-services -1.8 -> -1.0 % (1440). 138 documents
    (reach-591-austrian-grey-column-view.txt). Not www's 24 px of white under a grey band that ends the page: it made
-   bearbeitungsgebuehren 0.8 points worse */
-body.brand-austrian main > .section.grey > .columns-media-wrapper > .columns-media:not(.padded, .sidebar) {
+   bearbeitungsgebuehren 0.8 points worse. Not in a flush grey band (the brief after 593, austrian-parity-015): there www's column
+   view has no space above (bangkok-airways' block heading at www's y without it), and schengen and healthy-travel got worse */
+body.brand-austrian main > .section.grey:not(.flush) > .columns-media-wrapper > .columns-media:not(.padded, .sidebar) {
   margin-top: 32px;
   margin-bottom: 32px;
+}
+
+/* the homepage after its footer-disclaimer patch (the brief after 593, item 1): www's spacing on the bands that were
+   short, measured on austrian-parity-013 / -014 (our homepages with www's APIs) against austrian-parity-008 to -010.
+   Only where the document has today's disclaimer form (the note and a link to /{cc}/{ll}/fragments/modals/..., which
+   reimport-591-austrian-home-disclaimer.txt writes): a document as published today is not changed. The flight search's
+   top (+24 / +33 px) and under it (+4 / +32), the fare teaser (heading +16 / +15, rows +4, conditions +30, then +23 /
+   +11), before the finder (+86 / +81), under the finder (+142 / +82) and before the note at the page's end (+41 / +90
+   over the cards-icon wrapper's 24). be/en with the APIs: 1440 -3.7 -> +0.1 %, 390 +1.7 -> +1.2 % */
+body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.flight-search-container:first-child:has(+ .section.hero-card-overlay-container) .flight-search.block { padding-top: 86px; }
+body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.flight-search-container:first-child:has(+ .section.hero-card-overlay-container) { margin-bottom: 80px; }
+body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.fare-teaser-container > .default-content-wrapper:has(+ .fare-teaser-wrapper) > :last-child { margin-bottom: 35px; }
+body.brand-austrian main:has(a[href*="/fragments/modals/"]) .fare-teaser .fare-teaser-list { row-gap: 24px; margin-bottom: 60px; }
+body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.fare-teaser-container:has(.fare-teaser-footer) { margin-bottom: calc(var(--section-gap) + 11px); }
+body.brand-austrian main:has(a[href*="/fragments/modals/"]):has(> .section.flight-search-container:first-child) > .section.carousel-cards-container:has(+ .section.destination-finder-container) { margin-bottom: calc(var(--section-gap) + 81px); }
+body.brand-austrian main:has(a[href*="/fragments/modals/"]):has(> .section.flight-search-container:first-child) > .section.destination-finder-container:not(:has(> .default-content-wrapper)) { margin-bottom: calc(var(--section-gap) + 82px); }
+body.brand-austrian main:has(a[href*="/fragments/modals/"]):has(> .section.flight-search-container:first-child) > .section > .cards-icon-wrapper + .default-content-wrapper { margin-top: 114px; }
+@media (width >= 1025px) {
+  body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.flight-search-container:first-child:has(+ .section.hero-card-overlay-container) .flight-search.block { padding-top: 59px; }
+  body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.flight-search-container:first-child:has(+ .section.hero-card-overlay-container) { margin-bottom: 44px; }
+  body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.fare-teaser-container > .default-content-wrapper:has(+ .fare-teaser-wrapper) > :last-child { margin-bottom: 36px; }
+  body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.fare-teaser-container:has(.fare-teaser-footer) { margin-bottom: calc(var(--section-gap) + 23px); }
+  body.brand-austrian main:has(a[href*="/fragments/modals/"]):has(> .section.flight-search-container:first-child) > .section.carousel-cards-container:has(+ .section.destination-finder-container) { margin-bottom: calc(var(--section-gap) + 86px); }
+  body.brand-austrian main:has(a[href*="/fragments/modals/"]):has(> .section.flight-search-container:first-child) > .section.destination-finder-container:not(:has(> .default-content-wrapper)) { margin-bottom: calc(var(--section-gap) + 142px); }
+  body.brand-austrian main:has(a[href*="/fragments/modals/"]):has(> .section.flight-search-container:first-child) > .section > .cards-icon-wrapper + .default-content-wrapper { margin-top: 65px; }
 }
