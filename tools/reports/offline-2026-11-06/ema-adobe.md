@@ -2968,6 +2968,19 @@ the ten hosts before and after anything served (same statuses every time; once, 
   href), feedbackai (not migrated), 100-years (video frame), first-class-terminal and entryprocesses (small steps,
   no single cause), take-off (another picture on www), tips-senior-travellers (a column view taken by a block gets
   no marks: one recorded page), crane's column caption (parked since 558).
+- The accordion end gap, tried again at 05:00 CET with fresh baselines (34 px below 768 px instead of 48, the
+  12 pages that end with an accordion): faq-saf 4.7 -> 3.6, current-travel-information 10.9 -> 9.1, seat-reservations
+  9.9 -> 9.2, but faq-data-security, faq-ejournals, faq-password-security +1.3 to +1.4 each (net -0.6, and no option
+  tells them apart: current-travel-information is limited-width too). Not shipped.
+- **Found at 05:30 CET: the helper had uploaded most markets-section steps in the evening, before 1736cf4**
+  (bee7a57, a61c436, 0f2080e: from my 558 lists), so they link into the variant's root: /de/de/automatic-check-in 5
+  links into ae/de, giftvoucher (de/de, de/en) 7 each, fluege 4, flugsuche 3, pre-check-in many, cash-and-miles
+  (de/de, de/en) 1, lufthansa-express-rail-briefing 1, meetings-und-events-teilnehmer 1, /de/en/europcar 1; and rows 2
+  and 17 were made with the wrong stand-in (ae/de). market-steps-582-rerun.tsv (second version): the 15
+  markets-section rows to run again with the fixed tool (3, 5, 9, 11, 12, 14, 15, 18, 19, 23, 28, 31 and 558's 25,
+  33, 34), and rows 2 and 17 to put back to the version page alone until be/de or dk/de is captured.
+- Waiting with the helper at 05:15 CET: the link-list re-import (35 documents) and the profile-nav flush
+  re-import (43); market-steps-582.tsv rows other than 30, 38, 39, 40, 46 (uploaded and checked).
 - My mistakes tonight: a1a8e13 pushed with lint errors (the lint read the tree before the commit; Ben fixed
   the max-len lines in parallel); the 558 stand-in for rows 2/17 (ae/de) was in its own group; the 558 merge tool
   left the variant root's links (fixed, rerun done).
