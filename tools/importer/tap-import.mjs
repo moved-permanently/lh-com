@@ -454,8 +454,11 @@ class Page {
 
   section(style = null) {
     if (this.cell) return;
-    if (!this.current.items.length) Object.assign(this.current, { style, markets: this.markets });
-    else this.sections.push({ style, items: [], markets: this.markets });
+    if (!this.current.items.length) {
+      Object.assign(this.current, {
+        style, markets: this.markets, tab: undefined, tabs: undefined,
+      });
+    } else this.sections.push({ style, items: [], markets: this.markets });
   }
 
   add(html) { if (html) this.current.items.push({ html }); }
@@ -754,7 +757,14 @@ const HANDLERS = {
       return [esc(x.question), `${richText(x.answer, P.c, 'cell')}${nested(x.sections, P)}${P.link(x.ctaUrl, x.ctaLabel)}`];
     };
     const subs = (cat) => (cat.subCategories || []).map((sub) => `${P.heading(3, sub.label)}${blockHtml('accordion-columns (faq)', (sub.items || []).map(item))}`).join('');
+    // each category a tab (TAP row 134; www's chips over one category at a time): a section of its
+    // own with the section metadata Tab (its label) and Tabs (the set), scripts/section-tabs.js
+    const tabbed = !P.cell && (s.categories || []).length > 1;
     (s.categories || []).forEach((cat) => {
+      if (tabbed) {
+        P.section();
+        Object.assign(P.current, { tab: cat.label, tabs: 'categories' });
+      }
       P.add(P.heading(2, cat.label));
       // a page over the content bus's limits (c.fragments; 1 MB, 200 images a document): the
       // category's accordions fragment documents of the locale (/<locale>/fragments/<page>/
@@ -791,6 +801,7 @@ const HANDLERS = {
       P.blocks['accordion-columns (faq)'] = (P.blocks['accordion-columns (faq)'] || 0) + (cat.subCategories || []).length;
       P.add(subs(cat));
     });
+    if (tabbed) P.section();
   },
   ComponentGenericCardListModel: (s, P) => {
     // www renders no card list's title (the meals' "To pre-choose your meal, follow the steps
@@ -1191,7 +1202,7 @@ export function convertPage(nd, site) {
   let h1s = 0;
   docs = docs.map((s, i) => {
     const body = iconSafe(s.items.map((it) => it.html).join(''));
-    const rows = [s.style && ['Style', s.style], s.markets && ['Markets', s.markets]].filter(Boolean);
+    const rows = [s.style && ['Style', s.style], s.markets && ['Markets', s.markets], s.tab && ['Tab', esc(s.tab)], s.tab && ['Tabs', esc(s.tabs)]].filter(Boolean);
     const sm = rows.length ? blockHtml('section-metadata', rows) : '';
     const md = i === docs.length - 1 ? blockHtml('metadata', meta) : '';
     // one H1 a page; a market section's (a variant's own) stays

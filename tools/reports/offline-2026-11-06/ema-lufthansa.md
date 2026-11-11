@@ -3190,5 +3190,10 @@ follow when their run is through.
   carries the class section-tab-closed, which hides everything under its toggle, so content a block adds after the
   tabs are built (a fragment's sections) stays hidden with it; before, a fragment loaded into a closed panel showed.
   Backwards-compatible (the same items closed as before; only late content now follows them). Found on TAP's
-  inspiration page with its categories drafted as tabs (row 134): at 390 the page 42,817 -> 9,311 px with it.
+  inspiration page with its categories drafted as tabs (row 134): at 390 the page 42,817 -> 9,311 px with it.- **TAP row 134, the inspiration pages' categories as tabs:** the importer writes each category as a Tab section
+  (backwards-compatible: tooling only). Drafted, en-pt get-inspired goes from 39,550 to 8,321 px at 1440 and from 42,994
+  to 9,311 at 390 (www 5,582 / 4,957). Re-import list reimport-585-tap-inspiration-tabs.txt (6 pages).
 
+- **On main:** 54ba3351 (the shared section tabs; lint 0 before and after the rebase, the suite passing; smoke 0
+  differences on 11 hosts; lufthansa, -cn and -edge differ only in /sitemap/sitemap_lh_de_en.xml, the de/en articles
+  another session previewed tonight, not code).

@@ -1,0 +1,14 @@
+# ema-lufthansa, the night of 2026-11-11 (TAP parity row 134): TAP's inspiration pages with their categories as tabs.
+# Re-import with tap-import.mjs as it is on main (since this commit each category of a CategoryAccordion is a section
+# with the section metadata Tab and Tabs), from the snapshots the pages were last imported from (brief 488's inspiration
+# re-import, reimport-tap-488-inspire); with fragments, as before (the pages are over the content bus's limits).
+# Expected change per row: the page document only: one section per category (its heading and its fragment blocks) with
+# Tab = the category's label and Tabs = categories; the fragment documents (/<locale>/fragments/<page>/…) unchanged.
+# Measured with a draft of en-pt's document on our host (the shared tabs' closed-item class in place): 1440 39,550 ->
+# 8,321 px, 390 42,994 -> 9,311 (www 5,582 / 4,957, tap-parity-004 tonight). Nothing imported or uploaded here.
+/en-pt/destinations/get-inspired
+/pt-pt/destinos/inspire-se
+/pt-br/destinos/inspire-se
+/es-es/destinos/inspirate
+/fr-fr/destinations/inspirez-vous
+/de-de/reiseziele/inspirieren
