@@ -175,6 +175,15 @@ export const INSPIRATION_SLUGS = ['get-inspired', 'inspire-se', 'inspirate', 'in
 /** Whether a path is a root's inspiration page. */
 export const isInspirationPage = (pathname) => INSPIRATION_SLUGS.includes(String(pathname || '').replace(/\/+$/, '').split('/').pop());
 
+/** The stopover partners page's slug in TAP's languages (its regions: www's CategoryAccordion). */
+export const STOPOVER_PARTNER_SLUGS = [...PARTNER_SLUGS, 'partnerzy'];
+
+/** Whether a path is a root's stopover partners page (row 147: a region a fragment). */
+export const isStopoverPartnersPage = (pathname) => {
+  const parts = String(pathname || '').replace(/\/+$/, '').split('/');
+  return parts[parts.length - 2] === 'stopover' && STOPOVER_PARTNER_SLUGS.includes(parts[parts.length - 1]);
+};
+
 /**
  * The second level of www's picker in a fragment of an inspiration page (TAP row 137): the
  * fragment holds one category's subcategories (its countries: an H3 and a FAQ block each; the
@@ -254,13 +263,13 @@ export function buildSubPicker(main) {
 
 /**
  * accordion-columns.js on brand tap: a FAQ block of the FAQ page or the Miles&Go partners page
- * builds the page's picker; one in a fragment of an inspiration page builds that fragment's
- * subcategory picker (row 137).
+ * builds the page's picker; one in a fragment of an inspiration page (row 137) or of a stopover
+ * partners page (a region, row 147) builds that fragment's subcategory picker.
  * @param {Element} block
  */
 export default function decorateTapFaq(block) {
   const path = (window.location && window.location.pathname) || '';
-  if (isInspirationPage(path)) {
+  if (isInspirationPage(path) || isStopoverPartnersPage(path)) {
     const main = block.closest('main');
     if (main && main !== document.querySelector('main')) buildSubPicker(main);
     return;
