@@ -3440,4 +3440,46 @@ differences on every host after each push unless noted)**
   then the phone footer; last night's single rule could fit none of them). The importer gives every CosaFareCarroussel
   its own heading-icon section (row 84's layout), backwards-compatible (documents change on re-import only):
   reimport-586-ad-hub-carousel.txt, /destinazioni, /en/destinations, /de/reiseziele READY (airdolomiti-parity-001).
+- **On main:** 34d1583b (AD 107 b, the importer; npm run lint exit 0 before and after the rebase, 3642 pass 0 fail, git
+  show --stat 6 files as given, smoke 0 differences on 13 hosts, GitHub Build success; SWISS's before-smoke failed on a
+  network reset to our own host (ECONNRESET), so its after-answers were compared with this morning's: 97 checks, 0
+  differ). Its first run was cut off by a service restart in its suite
+  (08:5x UTC, nothing committed or pushed); run again at 18:06 UTC.
+- **Air Dolomiti row 107 a, the hub text's foot:** the hub section's first H2 after the text 165 px under it from 930 px,
+  130 below (the destination grid's title 210 on phones), as www's TitleDescriptionTextCta; backwards-compatible: not
+  while the section still holds the carousel (the destination hubs take it with reimport-586-ad-hub-carousel.txt). The
+  flights-to-Europe hubs' route lists now start where www's do (1440: 1535, 1497, 1572 as www's); with the converted
+  documents the destination hubs at 1440 are 3633 / 4696 / 4812 against www's 3626 / 4677 / 4793 (before 3670 / 4733 /
+  4849).
+
+## Final section, standing order 3 (2026-11-11, until about 20:00 CET)
+
+**Left uncommitted, and why:** `.migration/project.json` (not mine, modified before the night). In `.scratch/`
+(ignored by git): the drafts (b586/plain: the converted hub documents and the German flight status draft), the
+measuring scripts, the ship logs, the pending Discover test from last night (discover-spacing-585, not shipped: half-done).
+
+**Commits today (npm run lint exit 0 before and after each rebase, stylelint on the theme files touched, the suite
+passing, git show --stat checked against the files given, smoke 0 differences on 14 hosts, GitHub Build read):**
+- f576bdf2 AD 106: www's flight status help texts as the form's field hints (importer rows, the block's optional
+  Flight number hint row). Lists: reimport-586-ad-flight-status-hints.txt (1 READY, 2 HOLD), capture-list-586-brands.txt
+  (2 rows HOLD until Ben decides). Build success.
+- 34d1583b AD 107 b: every CosaFareCarroussel in its own heading-icon section. List: reimport-586-ad-hub-carousel.txt (3
+  READY). Build success.
+- This commit: AD 107 a, the hub text's foot (theme), and this final section.
+
+**Items of the order:**
+1. Air Dolomiti. Help texts: done (row 106, imported as text, no space removed; /de/flug-status 1761 px before and after,
+   the hints fit our fields' rows). The hub gap: found in three places; the text's foot and the carousel's section done
+   (row 107), the third (the footer padding on the flights-to-Europe hubs at 390) located, not done. The German in-flight
+   entertainment title: not reached today.
+2. ITA's two-up READY list: not reached today. The lists from last night stand (reimport-585-ita-two-up-82.txt,
+   -snapshots.txt, -snapshots-2.txt; capture-list-585-brands-4 and -5); a READY/HOLD list per document is the next step.
+3. The German manage-booking page: answered (above): it moved with it and en; the rest is the German recording's live
+   fonts.
+4. Discover: not reached today.
+5. ema-test's row 2 stays with ema-test. TAP is ema-cashub's: no TAP file touched today.
+
+**Process:** ship3.sh (one file per argument, the commit's files checked before the push, stylelint on theme files,
+the GitHub Build read). No call of da-upload.mjs, no DA or preview API, no request to an airline host; recordings from
+the drop and our own host only. Nothing uploaded, previewed or published.
 

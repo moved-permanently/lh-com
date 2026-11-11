@@ -2298,6 +2298,31 @@ body.brand-airdolomiti main > .section.hero-campaign-container + .section > .def
   }
 }
 
+/* the hub text's foot (AD row 107, "the hub gap"): www's TitleDescriptionTextCta ends 165px over the next component
+   from 930px (its rich text's 25px, the empty small text's 50px, its 90px margin), 130px below; the destinations'
+   grid adds 80px on phones (210px). Here the next component's title is the hub section's first H2 after the text
+   (destinations' "Scopri le nostre destinazioni", flights to Europe's "Voli per Francoforte"); not while the hub's
+   carousel is still in that section (documents before row 107's re-import: their carousel has no layout of its own) */
+/* stylelint-disable no-descending-specificity -- the hub text's headings, not the other blocks' */
+body.brand-airdolomiti main > .section.cards-teaser-container:not(:has(> .carousel-cards-wrapper)) > .default-content-wrapper:first-child:has(> h1 ~ p ~ p) > :is(p, ul, ol) + h2 {
+  margin-top: 130px;
+}
+
+body.brand-airdolomiti main > .section.cards-teaser-container:not(:has(> .carousel-cards-wrapper)) > .default-content-wrapper:first-child:has(> h1 ~ p ~ p) > :is(p, ul, ol) + h2:last-child {
+  margin-top: 210px;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section.cards-teaser-container:not(:has(> .carousel-cards-wrapper)) > .default-content-wrapper:first-child:has(> h1 ~ p ~ p) > :is(p, ul, ol) + h2 {
+    margin-top: 165px;
+  }
+
+  body.brand-airdolomiti main > .section.cards-teaser-container:not(:has(> .carousel-cards-wrapper)) > .default-content-wrapper:first-child:has(> h1 ~ p ~ p) > :is(p, ul, ol) + h2:last-child {
+    margin-top: 165px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
 /*
  * the pages with the FAQ accordions and the help card (www's HalfPage, Title_h2_headline,
  * TogleTariffe and CardPromoCta: lounges, seat reservation, parking; the accordions' look on every
