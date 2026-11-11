@@ -121,6 +121,10 @@ function buildWidgetAutoBlocks(main) {
  */
 function buildBreadcrumb(main) {
   if (!getMetadata('parent') || /^(hidden|off|no|false)$/i.test(getMetadata('breadcrumb'))) return;
+  // the page's own main only: a fragment's (fragment.js decorates its own main) shows no trail of
+  // the page's (TAP's inspiration categories showed the page's trail in every panel; TAP row 135)
+  if (main.isConnected && main !== document.querySelector('main')) return;
+  if (!main.isConnected && document.querySelector('main')) return;
   if (main.querySelector('div.breadcrumb')) return;
   const first = main.querySelector(':scope > div');
   if (!first) return;

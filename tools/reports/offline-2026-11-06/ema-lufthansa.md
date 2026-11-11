@@ -3196,4 +3196,10 @@ follow when their run is through.
 
 - **On main:** 54ba3351 (the shared section tabs; lint 0 before and after the rebase, the suite passing; smoke 0
   differences on 11 hosts; lufthansa, -cn and -edge differ only in /sitemap/sitemap_lh_de_en.xml, the de/en articles
-  another session previewed tonight, not code).
+  another session previewed tonight, not code).- **On main:** 6fb199db (TAP 134's importer; lint 0 before and after the rebase, 3579 pass 0 fail, smoke 0 differences on
+  14 hosts).
+- **TAP row 135 / shared scripts.js:** a fragment no longer gets the page's breadcrumb (buildBreadcrumb ran on every main
+  it decorated, fragments included). Backwards-compatible: the page's own trail as before; duplicate trails inside
+  fragment blocks go, on every brand (for ema-adobe and ema-cashub to know: lufthansa.com's and Austrian's pages with
+  fragment blocks and a Parent lose their second trail).
+
