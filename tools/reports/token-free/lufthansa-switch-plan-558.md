@@ -117,7 +117,7 @@ The 582 sample of 12 recorded de/en info pages, measured again with the method f
 reached the page (the page-level rules of column pages went off: the title image's 40px, the heading gap);
 `logs/b596/capture-meta.cjs` puts the collapsed document's Metadata rows (the page's own Theme plus flow-spacing)
 into the head. Today = the published document; switched = main's collapse and
-code with `live: true`; fixed = with 739b5b1. % off www, 390 / 1440:
+code with `live: true`; fixed = with 850e4c1. % off www, 390 / 1440:
 
 | page | today | switched | fixed |
 | --- | --- | --- | --- |
@@ -134,7 +134,7 @@ code with `live: true`; fixed = with 739b5b1. % off www, 390 / 1440:
 | digital-baggage-services | 5.3 / 6.0 | 6.3 / 5.2 | 6.3 / 5.2 |
 | green-fare | 4.6 / 2.9 | 5.7 / 4.7 | 5.3 / 3.2 |
 
-Sum of the 12: 390 75.6 / 88.9 / 83.7, 1440 66.7 / 88.0 / 74.6. Fixed (739b5b1, all inert while the theme is off):
+Sum of the 12: 390 75.6 / 88.9 / 83.7, 1440 66.7 / 88.0 / 74.6. Fixed (850e4c1, all inert while the theme is off):
 A an H3 marked heading-small stays heading-small on flow pages (section style H3 large; www: 924 of the 1,462 H3s
 of the 1,862 column-mark documents); B a view's opening divider at the section's top edge; C the title image 40px
 above a view; D a view's headings keep the full width on flow pages (6,500 of 6,978 without `{limited-width}`).
@@ -161,6 +161,6 @@ Still in the way (shared, by documents):
    business-class, onboard-delights … in their markets) lose their two-thirds headings once the theme is live:
    measure them before the switch.
 
-**Verdict: not yet for info pages.** With 739b5b1 the sample went from 9 of 12 worse to 4 of 12 worse at 1440 and
+**Verdict: not yet for info pages.** With 850e4c1 the sample went from 9 of 12 worse to 4 of 12 worse at 1440 and
 6 of 12 at 390 (by 0.5 points or more); lufthansa-express-rail (+9.6 at 1440) and rail-and-fly (+3.5 at 390)
 need 1 and 2, fia-valet-service needs 3 and 4.

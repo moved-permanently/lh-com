@@ -38,8 +38,10 @@ test('the section before a column view: www\'s .mb-default 24 px (text -> view 2
   assert.ok(css.includes('body.brand-lufthansa main > .section:not(.grey, .column-view):has(+ .section.column-view:not(.grey)) { margin-bottom: var(--spacing-default); }'));
 });
 
+// standing order 3 item 5: not on flow pages once the theme is live (the collapsed column-mark documents' headings keep
+// their full width, test/info-switch-596.test.mjs)
 test('the views\' headings two thirds wide from 1025 px (www\'s limited-width headline components), not an outer view\'s', () => {
-  assert.ok(css.includes(`@media (width >= 1025px) { body.brand-lufthansa main > .section.column-view:not(.grey, .padded, ${MARKS}) > .default-content-wrapper > :is(h2, h3, h4) { max-width: 66%; } }`));
+  assert.ok(css.includes(`@media (width >= 1025px) { body.brand-lufthansa:not(.theme-live.flow-spacing) main > .section.column-view:not(.grey, .padded, ${MARKS}) > .default-content-wrapper > :is(h2, h3, h4) { max-width: 66%; } }`));
 });
 
 test('an outer view (column-view, padded) with its marks still in it: the marks\' padding, not the section\'s', () => {
