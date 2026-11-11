@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-mfe.js
-  var tmp_bundle_mfe_1549001_exports = {};
-  __export(tmp_bundle_mfe_1549001_exports, {
-    default: () => tmp_bundle_mfe_1549001_default
+  var tmp_bundle_mfe_1599722_exports = {};
+  __export(tmp_bundle_mfe_1599722_exports, {
+    default: () => tmp_bundle_mfe_1599722_default
   });
 
   // tools/importer/parsers/micro-frontend.js
@@ -208,6 +208,15 @@ var CustomImportScript = (() => {
       headingChoices: { h1: { compact: "heading-medium" } },
       nearChoices: { h1: { "heading-medium": "compact" } },
       pageTypes: {
+        // flow pages (the info pages; a page with column marks is one): an H3 in heading-small is
+        // a choice of its own (H3 large draws heading-small here, not heading-medium): www's H3s
+        // there are heading-small 924 times, unmarked 432, heading-medium 106 (the 1,862 published
+        // column-mark documents, standing order 3); the collapse took the H3 default before (bold
+        // 24px for www's light 28px). nearChoices replaces the brand's, so the H1's again
+        flow: {
+          headingChoices: { h3: { large: "heading-small" } },
+          nearChoices: { h1: { "heading-medium": "compact" }, h3: { "heading-small": "large" } }
+        },
         // Insights articles: a rule above an info box (Columns Media) after any content but a
         // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
         article: { rules: ["rule-before-info-box", "ruled-chapters"] },
@@ -3480,7 +3489,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_mfe_1549001_default = {
+  var tmp_bundle_mfe_1599722_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -3520,5 +3529,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_mfe_1549001_exports);
+  return __toCommonJS(tmp_bundle_mfe_1599722_exports);
 })();

@@ -1778,8 +1778,13 @@ body.brand-lufthansa main > .section:not(.grey, .column-view):has(+ .section.col
   margin-bottom: var(--spacing-default);
 }
 
+/* not on flow pages (Theme flow-spacing) once the theme is live (the collapsed column-mark
+   documents, info and hub alike): their headings keep the full width, as www's (6,500 of the 6,978
+   H2 / H3 of the 1,862 published column-mark documents had no {limited-width}; /de/en/bid-upgrade:
+   a two-line H2 at 834px). Until then as before: 143 published documents have column-view sections
+   and flow-spacing today (economy-class, onboard-delights ... in their markets) */
 @media (width >= 1025px) {
-  body.brand-lufthansa main > .section.column-view:not(.grey, .padded, :has(.column-start, .column-end, .column-start-outer, .column-end-outer)) > .default-content-wrapper > :is(h2, h3, h4) {
+  body.brand-lufthansa:not(.theme-live.flow-spacing) main > .section.column-view:not(.grey, .padded, :has(.column-start, .column-end, .column-start-outer, .column-end-outer)) > .default-content-wrapper > :is(h2, h3, h4) {
     max-width: 66%;
   }
 }
@@ -2152,6 +2157,22 @@ body.theme-live.flow-spacing main .default-content-wrapper > :not(h1, h2, h3, h4
 /* stylelint-disable-next-line no-descending-specificity -- articles' chapters; the divider after a campaign column view (above) is another place */
 body.brand-lufthansa.theme-live main > .section + .section > .default-content-wrapper:first-child > p.spacer.divider:first-child {
   margin-top: -24px;
+}
+
+/* a column view that opens with its divider (the collapse moves the separators right before a
+   view into the view's section): the rule at the section's top edge and the view's 32px under
+   it, as between two of www's column views (the marks drew it so); with the chapters' -24px it
+   sat 8px into the padding (/de/en/europa-tarife-economy-class: +8px at each of its six views) */
+/* stylelint-disable-next-line no-descending-specificity -- a column view's opening divider, not a campaign-section's */
+body.brand-lufthansa.theme-live main > .section.column-view:not(.grey, .padded) > .default-content-wrapper:first-child > p.spacer.divider:first-child {
+  margin-top: -32px;
+}
+
+/* the image right below the page title, when the collapse made the content after it a column view
+   of its own: the column pages' 40px under it (the marks drew it so; "pages with column markers"
+   above), not the fleet pages' end-of-section 60 / 80px (/de/en/bid-upgrade: +40px) */
+body.brand-lufthansa.theme-live main > .section:has(+ .section.column-view) > .default-content-wrapper > h1 + p:has(> picture):last-child {
+  margin-bottom: 40px;
 }
 
 /* lufthansa.com's link lists to pages (brief 582: www's .link-list ul.horizontal|responsive|vertical of
