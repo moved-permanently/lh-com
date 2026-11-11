@@ -3524,4 +3524,14 @@ the drop and our own host only. Nothing uploaded, previewed or published.
   First ship run stopped at the suite (2 fail, nothing committed): row 95's test (airdolomiti-news-stage-567) looked
   its rules up by the selectors before the lead-under-trail exclusion; updated in the same commit (every Air Dolomiti
   test run alone before the second run: 0 fail).
+- **On main:** a3029929 (AD 108; npm run lint exit 0 and stylelint 0 before and after the rebase, 3661 pass 0 fail, git
+  show --stat 8 files as given, smoke 0 differences on 14 hosts, GitHub Build success). 9520d63c's and the other
+  sessions' Builds from 20:26 UTC were queued at GitHub (actions/runs: status queued), not missing: read again later.
+- **New archive:** airdolomiti-snapshots-008 (129,111 bytes, sha256 f5231f10dbc1b7b4613d69a6c9e89eea886708daf7e2eb9686c8bd8e7468615e
+  computed here; 19:31 UTC; both files match the manifest's sha256): capture-list-586-brands.txt's two pages,
+  www.airdolomiti.eu/flight-status ("Required. Example: EN1234", "Required. Format: dd/mm/yyyy") and
+  www.airdolomiti.it/stato-volo ("Obbligatorio. Esempio: EN1234", "Obbligatoria. Formato: gg/mm/aaaa"). Imported offline
+  with main's importer: the two hint rows each, the text the same. reimport-586-ad-flight-status-hints.txt: /en/flight-status
+  and /stato-volo now READY (/stato-volo's re-import also brings the section style compact-title, www's Title as the
+  page's H1: that document predates row 50's importer); capture-list-586-brands.txt marks both captured.
 

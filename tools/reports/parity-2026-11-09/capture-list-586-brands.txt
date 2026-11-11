@@ -3,5 +3,5 @@
 # Every row HOLD until Ben decides. Full HTML snapshots with __NEXT_DATA__ (as airdolomiti-snapshots-007 /
 # ita-snapshots-022), archive <brand>-snapshots-NNN.
 # Air Dolomiti (reimport-586-ad-flight-status-hints.txt's HOLD rows): www's flight status form with its help texts.
-https://www.airdolomiti.eu/flight-status # HOLD: until Ben decides
-https://www.airdolomiti.it/stato-volo # HOLD: until Ben decides
+https://www.airdolomiti.eu/flight-status # captured: airdolomiti-snapshots-008 (2026-11-11 19:31 UTC)
+https://www.airdolomiti.it/stato-volo # captured: airdolomiti-snapshots-008 (2026-11-11 19:31 UTC)
