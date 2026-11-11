@@ -44,5 +44,5 @@ test('www content 20 px under the bar (.contentpage): the profile nav alone, as 
 
 test('styles.css: a flush profile-nav section has no gap', () => {
   const css = fs.readFileSync(new URL('../styles/styles.css', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
-  assert.ok(css.includes('body.brand-lufthansa main > .section.profile-nav-container.flush { margin-bottom: 0; }'));
+  assert.ok(css.includes('body.brand-lufthansa.appear main > .section.profile-nav-container.flush { margin-bottom: 0; }'));
 });
