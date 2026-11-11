@@ -3593,8 +3593,12 @@ body.brand-tap main .faq-picker-category > .default-content-wrapper > h2 {
   text-align: center;
 }
 
-/* the subcategories' headings for assistive tech only (www's are 1 px) */
-body.brand-tap .faq-picker-section .faq-picker-sub-heading {
+/* the subcategories' headings for assistive tech only (www's are 1 px). Every heading the picker took over (only
+   accordion-columns-tap.js gives this class), not only those in a section it marked: in an inspiration category the
+   picker's sections are a fragment's, whose class stays behind when the fragment's content moves into the page, so the
+   13 country headings showed under the picker (TAP row 141: en-pt get-inspired 6,317 -> 5,557 px at 1440, www 5,582;
+   pt-pt inspire-se 6,454 -> 5,694, www 5,662; every other recorded page as before) */
+body.brand-tap main .faq-picker-sub-heading {
   position: absolute;
   overflow: hidden;
   width: 1px;
