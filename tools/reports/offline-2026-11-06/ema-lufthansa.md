@@ -3583,4 +3583,13 @@ the drop and our own host only. Nothing uploaded, previewed or published.
   only changes pages whose heights follow the screen (the timetable widget's minimum, the price bar's room, 15vh): row
   107 c's 1440 figures above were taken that way (the room 157 px instead of 165, so 8 px), the others are unaffected.
   From row 111 on, 1440 is measured at 1440 x 900 and 390 at 390 x 844, as the recordings.
+- **On main:** 49aa0991 (AD 111; npm run lint exit 0 and stylelint 0 before and after the rebase, 3694 pass 0 fail, git
+  show --stat 4 files as given, smoke 0 differences on 14 hosts, GitHub Build success).
+- **ITA online check-in at 1440 (classified):** www's column-view heading there is heading-medium (36 px), ours row 31's
+  default for an unmarked column-view H2 (heading-small, 28 px: 12 of 13 recorded): its marker was lost in the collapse
+  (rows-for-ema-test.md row 1); the rest in the grey band around it. The other ITA rows at 1440 (-2 to -2.9 %) differ in
+  different places, no shared cause.
+- **Air Dolomiti row 112 (item 4):** the assistance text's button and foot as www's two TitleDescriptionTextCta (only
+  the three assistance pages have a button in an H1 text). 1440 4807 / 4787 / 5033 against www's 4795 / 4776 / 4984
+  (from 4637 / 4617 / 4863); 390 7238 / 7092 / 7772 against 7420 / 7332 / 7771.
 

@@ -2231,6 +2231,29 @@ body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p) > :is(ul,
   }
 }
 
+/* the text's button and foot as www's TitleDescriptionTextCta (AD row 112, the assistance pages: www's title, text and
+   "Request assistance" then the contacts in a second block, ours one text): the button 43px under the text (79px from
+   930px, row 88's), the text going on 100px under it (www's box margin), an accordion 90px under the text */
+/* stylelint-disable no-descending-specificity -- the text's button and foot, after the text's rules (above) */
+body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p) > p.button-wrapper {
+  margin-top: 43px;
+}
+
+body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p) > p.button-wrapper:not(:last-child) {
+  margin-bottom: 100px;
+}
+
+body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p):has(+ .accordion-columns-wrapper) {
+  margin-bottom: 90px;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p) > p.button-wrapper {
+    margin-top: 79px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
 /* a section heading ends the text block (flights to Europe's "Flights from Frankfurt": www's
    styles_title, its line 16px / 22px across the page; brief 452) */
 body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p) > h2 ~ :is(p:not(.button-wrapper), ul, ol) {
