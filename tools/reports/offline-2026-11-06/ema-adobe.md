@@ -3459,3 +3459,52 @@ Left out of git:
 - test/column-end-links-so10.test.mjs and its fixture: the dropped importer fix's test, which fails without it.
 - The untracked import reports of earlier runs.
 - The offline-import workspaces and archives under /tmp.
+
+### Standing order 11 (2026-11-12 20:00 to 01:00 CET)
+
+No airline-host requests, nothing uploaded, previewed or published. DA was only read (GET source). Recordings came from
+lh-snapshots-110 and -111 only, sha256 checked. Each push: whole-repo lint read 0 on a clean worktree of the rebased HEAD,
+stylelint on styles.css, columns-media.css and the theme files 0, the tests that read the changed files passed (one
+existing skip), Build green. The helper pushed every few minutes, so a push took up to six rebase-and-lint rounds.
+
+1. **Stage-intro HOLD rows READY (reimport-so7-stage-intro-lh-com.txt).** Each new snapshot was imported with main's
+   info bundle and with lufthansa-sections.js from before 7d58bb1; the sections alone differ. Each row says what else
+   changes against DA's copy:
+   - All six: the stages' no-subtitle option.
+   - business-class: the page's last chapter as a section of its own; the helper's usual pipeline steps (metadata
+     rows, DAM video name).
+   - at/de business-class: www's newer German text (147 words).
+   - gb/en business-class: replaces the doubled copy with www's newer English text; supersedes the delta-so9 row.
+   - at/de sensory-impairment: one link where DA's own slug gesund-reisen must stay.
+
+   The list notes that www moved /<cc>/<ll>/business-class to /prepare-for-your-trip/travel-classes/business-class
+   and our documents keep the old path. It also notes what 110 holds for the READY twins: at/de and gb/en
+   premium-economy-class and the hearing and visual twins carry newer text.
+
+   /de/en/business-class on 111's recordings, % off www at 1440 / 390:
+   - Published before: 29.4 / 15.8.
+   - Drafts: 23.1 / 19.9 without the stage-intro change, 19.0 / 18.6 with it.
+   - Live since the helper's upload: 21.3 / 17.6. At 390 the last chapter's own section adds 48 px near the end.
+2. **lufthansa-travel-classes (b8ab4f0, served).** Standing order 7's flush-grey-band rule took the gap before the
+   cards' padded campaign section. That band keeps 24px now (test first). Live, the four travel-class hubs are at 3.9
+   / 7.9-8.0 (de/en was 8.2 / 14.8). gepaeck and menu-on-board are as before.
+3. **insights-imprint and the held rule A (783764a, served).** tools/importer/cell-end-spacers-apply.mjs (test first on
+   DA's copy) puts {spacer-26} where www ends two cells with an empty paragraph; READY row in
+   delta-so11-insights-imprint-cell-spacers-lh-com.txt. Drafts, % off www at 1440 / 390:
+   - Today: 3.2 / 6.5.
+   - With rule A: 5.8 / 8.4.
+   - With the delta and rule A: 3.4 / 6.8.
+
+   Rule A ships with it. Live: imprint 7.2 / 9.2 -> 5.2 / 8.3; insights-imprint reads 5.8 / 8.4 until the delta is
+   uploaded (the row asks for it first). The other recorded legal pages are unchanged.
+4. **datenschutz: still open.** I found no clear third approach (ranking-so10's row says why).
+
+Pushed at the start of standing order 12 (the session ended before this section's push). Since then, checked at 23:35
+CET: the helper published the 16 stage-intro pages, among them /gb/en/business-class once (one H1). The insights-imprint
+delta is not live yet, so that page reads about 5.8 / 8.4 until it is.
+
+Left out of git:
+- logs/b603: runners, comparisons, captures, drafts, DA copies.
+- test/column-end-links-so10.test.mjs and its fixture: still the dropped fix's test.
+- The untracked import reports of earlier runs.
+- /tmp: the R2 archives (r2-110, r2-111), the base bundle and the offline-import workspaces.
