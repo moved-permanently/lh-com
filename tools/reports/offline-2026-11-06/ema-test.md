@@ -3037,7 +3037,22 @@ shell's wrapping, not our page). Every number below is a full-chrome capture.
      right (content-sites/lh-b2b's import of 2026-11-11 has the section style h1-compact there); DA's copy predates it.
      DA's copy plus the delta (heading-size-marks-apply.mjs, data b2b-second-h1-so7.json):
      reimport-so7-b2b-second-h1.txt, 5 READY (390 better by 2.4 to 4.1), 1 HOLD (de/en corporates, worse at 390 by
-     1.94: its open tab panel is about 50 px shorter than www's, which the tall H1 made up for).
+     1.94: its open tab panel is about 50 px shorter than www's, which the tall H1 made up for). The same title on 4
+     SWISS Senses start-of-booking pages (de/de, de/en; xx/de has none): 4 more READY in that list (390 better by 1.6
+     to 3.3).
+   - Empty accordions, 14 recorded pages (the Allegris and SWISS Senses start-of-booking pages, experts,
+     special-assistance): www's empty <maui-collapsible> came in as an accordion-columns block without rows (48 in 39
+     of lh-b2b's imported documents). It renders nothing, but its wrapper took the gap between blocks (40 px after the
+     breadcrumb: SWISS Senses de/en's title 13 px under www's). Fixed for Group for Business (tests first): such a
+     block takes no space (styles/themes/b2b.css, for DA's copies), and the parser makes no block of a B2B accordion
+     (theme="b2b") without items (bundles rebuilt, the parser's change only). On our host, the 16 recorded
+     page-widths: 6 better by 0.6 to 2.3, SWISS Senses de/en corporates +0.10, the rest unchanged (their DA copies
+     have no empty block any more). B2B only because Austrian's published tariff, free-baggage, group-travel and
+     faq-travelid documents (12 checked, 61 in the import) carry such empty blocks too and none of them is recorded:
+     for them nothing changes.
+     Each of my two edits to the parser set off the workspace's parser-validation hook, which tries
+     www.lufthansa.com's homepage; both times it reported no snapshot and no results. I did not run it myself or
+     retry it.
    - SWISS Senses and Allegris start-of-booking: a link alone in www's text paragraph (".richtext p > a", "Download
      SWISS Senses (A350-900) seat map", "Download overview") is a text link on www (18 / 24 bold, two lines at 390);
      ours draws every lone link as the navigation link (14 / 18, one line). 9 recorded pages have such paragraphs, 5
@@ -3057,3 +3072,30 @@ shell's wrapping, not our page). Every number below is a full-chrome capture.
      every width. The slider starts 11 px higher than www's and its cards are 19 px shorter; the larger offsets come
      later, section by section (-53 before the history cards, +50 at "Looking forward...", -173 before "A century of
      iconic destinations"), no cause shared with another page found. Not changed.
+
+## Standing order 7, final section (12:00 UTC, 2026-11-12)
+
+- Measuring: parity captures now with full chrome (PARITY_CHROME=1); the headless shell had wrapped our text a line
+  later than www's. B2B's 153 recorded page-widths: 15.04 -> 14.33 % from that alone.
+- Item 1 (Allegris de/en 2,580 px taller at 390): DA's leftover "Tabs open | first" row; www's de/en recording has the
+  panels open too. reimport-so7-b2b-tabs-open-row.txt, 2 HOLD; no change.
+- Item 2 (Discover's title margin): not shipped. With order 6's rows and the check-in markers, 19 better and 6 worse
+  (check-in de/de +3.69, santorini +2.47 / +1.78, airport +0.71 twice); each worse page has a cause of its own
+  (wrapping and the teaser gap, a short intro gap, a taller stage), no one second cause.
+- Item 3 (Group for Business, worst first, causes on two or more pages), shipped with tests first:
+  - carousel-cards: a picture link left empty is no arrow row above the card's title (Allegris start-of-booking x6,
+    the 7 page-widths 183.6 -> 172.3);
+  - an empty accordion takes no space and is no block (B2B; 14 recorded pages, 6 better, none worse by over 0.1);
+  - reimport-so7-b2b-second-h1.txt: the second title as www's heading-small, 9 READY, 1 HOLD (Allegris x6, SWISS
+    Senses x4).
+  Looked at, not changed: the text links alone in a paragraph (needs a token of its own), the H2 small delta (still 5
+  better, 6 worse), lhg-history's title in a column view (the import's marks don't place it), celebrating's
+  section-by-section offsets.
+- For the import helper: reimport-so7-b2b-second-h1.txt (9 READY). A B2B re-import now writes no empty accordion.
+- Seen, not started (it came in at 10:46 UTC, after this order): rows-for-ema-test.md row 5, Brussels' small
+  separators before a heading.
+- Nothing uploaded, previewed or published; da-upload.mjs not run; my requests went to our own hosts only, besides
+  the parser-validation hook above (it reported no snapshot and no results, twice).
+- Not in git and why: logs/p4/so7 (scratch: renders, captures, results, the set-aside tabs-open tool and test, the
+  lone-link CSS simulation), the recordings in /tmp, .migration/project.json (the workspace's own), content/,
+  migration-work/, tools/importer/reports/* (from before, not mine). My local preview servers are stopped.
