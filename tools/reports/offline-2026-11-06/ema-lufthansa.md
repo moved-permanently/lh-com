@@ -3696,4 +3696,13 @@ DA or preview API; nothing uploaded, previewed or published by me.
   HOLD, and rows-for-ema-test.md row 4 asks for the carrier. The import bundles are not rebuilt here
   (@adobe/aem-import-helper is not in this machine's npx cache; the bundler runs offline only, and I did not install
   it): the next rebuild takes the change, nothing depends on it before the collapse carries the spacers.
+- **On main:** 52d5f939 (item 1; npm run lint exit 0 before and after the rebase, 3733 pass 0 fail, git show --stat 5
+  files as given, smoke 0 differences on 14 hosts, GitHub Build success).
+- **Item 2, Cargo (classified, no change):** facts and figures at 390 is still en 12223 / de 12823 against www's 11916 /
+  12482 (+2.6 / +2.7 %; 1440 within 1 / 2.1 %): row 50's section-by-section comparison stands, the rest our brand font
+  wrapping one line more in about half of the 40 timeline cards (row 49's font decision). The Transport Stories'
+  chevrons: next commit.
+- **Air Dolomiti row 115 (item 3):** the German London page 11 px too wide at 390 (a carousel title's icon past the
+  screen, as on www with that word): the title leaves the icon 45 px within the screen and hyphenates; the page 390 px
+  wide, its title two lines (+42 px); a sideways scroll fixed rather than copied (WCAG 1.4.10).
 

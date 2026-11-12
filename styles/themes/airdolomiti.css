@@ -4061,9 +4061,12 @@ body.brand-airdolomiti main > .section.heading-icon:has(> .carousel-cards-wrappe
   margin-bottom: 101px;
 }
 
+/* (AD row 115) the icon's 45px (10px and an icon up to 35px wide) within the screen (www's lets it run past the column into the page margin, not past the
+   screen): a word too long for the rest then hyphenates by styles.css's heading rule (phones, the page's language) */
 body.brand-airdolomiti main > .section.heading-icon:has(> .carousel-cards-wrapper > .carousel-cards:not(.promo, .destinations)) > .default-content-wrapper:first-child > h2 {
   position: relative;
   width: fit-content;
+  max-width: calc(100% + var(--layout-margin) - 45px);
   margin: 0;
 }
 
