@@ -945,6 +945,16 @@ function collapseColumns(main, doc, stats, marks, theme) {
   }
   const outer = new Map();
   marks.forEach((tokens, el) => {
+    // a view that opens and closes on one running-text element (Discover's intro in a one-column view after the
+    // title, additional-services; THEMES columnViews.oneElementViews, standing order 10 of 2026-11-12): both marks
+    // stay on it, the page draws them as the view's padding; the same on a second run
+    if (theme.columnViews.oneElementViews && tokens.includes('column-start-outer') && tokens.includes('column-end-outer')
+      && el.tagName === 'P' && isRunningText(el) && !blockOf(el, main)) {
+      el.append(doc.createTextNode(' {column-start-outer column-end-outer}'));
+      count(stats, 'carrier', 'column', 2);
+      tokens.filter((t) => COLUMN.test(t) && t !== 'column-start-outer' && t !== 'column-end-outer').forEach(() => count(stats, 'theme', 'column'));
+      return;
+    }
     tokens.filter((t) => COLUMN.test(t)).forEach((t) => {
       if (t === 'column-start-outer' || t === 'column-end-outer') {
         const s = sectionOf(el.tagName === 'LI' ? el.parentElement : el, main);

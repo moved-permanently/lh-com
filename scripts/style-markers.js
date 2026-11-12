@@ -229,6 +229,10 @@ export const THEMES = {
   discover: {
     live: true,
     componentSpacers: true,
+    // oneElementViews: a column view that opens and closes on one paragraph (www's intro in a
+    // one-column view after the title) keeps its marks in the collapse (standing order 10 of
+    // 2026-11-12; import time only)
+    columnViews: { oneElementViews: true },
     // keepSizes: a heading size the collapse keeps as its marker, which the page reads as the class
     // (www's heading-copytext-large, 16 / 18 px bold: rows-for-ema-test.md row 3)
     keepSizes: ['heading-copytext-large'],

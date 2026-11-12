@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-app-entry.js
-  var tmp_bundle_app_entry_1217818_exports = {};
-  __export(tmp_bundle_app_entry_1217818_exports, {
-    default: () => tmp_bundle_app_entry_1217818_default
+  var tmp_bundle_app_entry_1241873_exports = {};
+  __export(tmp_bundle_app_entry_1241873_exports, {
+    default: () => tmp_bundle_app_entry_1241873_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -2994,6 +2994,10 @@ var CustomImportScript = (() => {
     discover: {
       live: true,
       componentSpacers: true,
+      // oneElementViews: a column view that opens and closes on one paragraph (www's intro in a
+      // one-column view after the title) keeps its marks in the collapse (standing order 10 of
+      // 2026-11-12; import time only)
+      columnViews: { oneElementViews: true },
       // keepSizes: a heading size the collapse keeps as its marker, which the page reads as the class
       // (www's heading-copytext-large, 16 / 18 px bold: rows-for-ema-test.md row 3)
       keepSizes: ["heading-copytext-large"],
@@ -6006,6 +6010,12 @@ var CustomImportScript = (() => {
     }
     const outer = /* @__PURE__ */ new Map();
     marks.forEach((tokens, el) => {
+      if (theme.columnViews.oneElementViews && tokens.includes("column-start-outer") && tokens.includes("column-end-outer") && el.tagName === "P" && isRunningText(el) && !blockOf(el, main)) {
+        el.append(doc.createTextNode(" {column-start-outer column-end-outer}"));
+        count(stats, "carrier", "column", 2);
+        tokens.filter((t) => COLUMN.test(t) && t !== "column-start-outer" && t !== "column-end-outer").forEach(() => count(stats, "theme", "column"));
+        return;
+      }
       tokens.filter((t) => COLUMN.test(t)).forEach((t) => {
         if (t === "column-start-outer" || t === "column-end-outer") {
           const s = sectionOf(el.tagName === "LI" ? el.parentElement : el, main);
@@ -6491,7 +6501,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_app_entry_1217818_default = {
+  var tmp_bundle_app_entry_1241873_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -6531,5 +6541,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_app_entry_1217818_exports);
+  return __toCommonJS(tmp_bundle_app_entry_1241873_exports);
 })();
