@@ -22,7 +22,14 @@ import { viewerNodes, embedNodes } from './media-nodes.js';
  * Source links carry an icon <em class="lh lh-arrow-right">, zero-width characters and an
  * sr-only "opens in a new tab" span; those are dropped.
  */
-export default function parse(element, { document }) {
+export default function parse(element, { document, url, params }) {
+  // Brussels pages: a panel heading keeps www's size class (h3.headline.heading-small, the cleanup's markHeadingStyles
+  // writes "{heading-small}"): the conditions of carriage's 70 article subheadings (standing order 17); other brands
+  // as before
+  let pageHost = '';
+  try { pageHost = new URL((params && params.originalURL) || url || '').hostname; } catch (e) { pageHost = ''; }
+  const KEEP_HEADING_SIZE = /(^|\.)brusselsairlines\.com$/.test(pageHost);
+  const HEADING_SIZES = ['heading-large', 'heading-medium', 'heading-small', 'heading-copytext-large', 'heading-copytext-medium'];
   const SR_ONLY = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
   const ZW = /[​-‍﻿]/g;
   const clean = (s) => (s || '').replace(ZW, '').replace(/\s+/g, ' ').trim();
@@ -372,6 +379,8 @@ export default function parse(element, { document }) {
             h.append(img);
           }
           h.append(text);
+          const size = KEEP_HEADING_SIZE && HEADING_SIZES.find((c) => node.classList.contains(c));
+          if (size) h.classList.add(size);
           content.push(h);
         } else if (node.matches('.richtext')) {
           content.push(...convertRichText(node));

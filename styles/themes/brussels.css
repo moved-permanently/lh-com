@@ -1356,6 +1356,16 @@ body.brand-brussels main .accordion-columns.faq .accordion-columns-panel :is(p, 
   line-height: 24px;
 }
 
+/* a panel heading with www's size (h3.headline.heading-small in an accordion panel: 28 / 30.8 px with 22 px below at
+   1440, 22 / 24.2 px with 18 below at 390, as the heading-small tokens; the importer keeps the class as
+   "{heading-small}" on Brussels pages from standing order 17: the conditions of carriage's 70 article subheadings,
+   ours 18 / 19.8 px with 20 below) */
+body.brand-brussels main .accordion-columns .accordion-columns-panel :is(h2, h3, h4).heading-small {
+  margin-bottom: var(--heading-margin-l);
+  font-size: var(--heading-font-size-l);
+  line-height: var(--heading-line-height);
+}
+
 @media (width < 768px) {
   body.brand-brussels main .accordion-columns.faq .accordion-columns-panel {
     padding-left: 20px;

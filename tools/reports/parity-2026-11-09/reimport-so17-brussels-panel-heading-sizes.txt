@@ -1,0 +1,17 @@
+# ema-cashub, standing order 17 (2026-11-12), item 4: Brussels documents whose accordion panels hold headings www
+# sizes by class (h3.headline.heading-small: 28 / 30.8 px with 22 px below at 1440, 22 / 24.2 with 18 at 390). The
+# accordion parser wrote them as bare h3s (18 / 19.8 px); from this order it keeps the class on Brussels pages, the
+# cleanup writes "{heading-small}", and the Brussels theme sizes such a panel heading by the heading-small tokens
+# (tools/importer/parsers/accordion-columns.js, styles/themes/brussels.css; test/brussels-panel-heading-size-so17.test.mjs).
+# Found over the 32 recorded Brussels pages (brussels-parity-*): one page, 70 such headings (service-charges' two panel
+# h3s are heading-copytext-large, the h3 default: unchanged). The 17 Brussels snapshots in this checkout have none;
+# the helper's own snapshots may hold the page's other languages.
+# Measured on our host, the published document with only the markers added (offline: the page's main replaced by the
+# local copy; www.* and the airline hosts refused, none sent), draft against draft, with this commit's theme:
+# 390 57,059 -> 58,073 px (www 59,474; -4.06 -> -2.36 %), 1440 28,041 -> 28,951 (www 28,478; -1.53 -> +1.66 %: at
+# 1440 our answers are 66 % of the full width, P50, which the shorter headings offset; with P50's held rules -2.84 %).
+# HOLD until the import bundles carry the parser change: build-bundles.mjs could not run here (the aem-import-helper
+# package is not in this checkout's npm cache; nothing fetched), so today's bundles still write bare h3s. READY once
+# they are rebuilt (the next bundle chore, as 5eed8692 did for 1b717771).
+# Columns: document, status, expected change.
+/be/en/legal-notices/terms-and-conditions-conditions-of-carriage	HOLD	the 70 panel h3s "{heading-small}" (28 px at 1440, 22 at 390); 390 57,059 -> 58,073 px, 1440 28,041 -> 28,951 px; held for the bundle rebuild
