@@ -2283,3 +2283,11 @@ body.brand-austrian main .default-content-wrapper > ul > li > em > a:any-link {
   overflow-wrap: anywhere;
 }
 /* stylelint-enable no-descending-specificity */
+
+/* a flush grey band (its AEM section has no .mb-default) before a padded section: www has only that
+   section's top padding between them, not our section gap (economy-class, lhg-wifi,
+   travel-insurances, premium-economy-class: the content after the band 48px low; 112 published
+   documents; standing order 7). Not before an unpadded section: there the gap measured right */
+body.brand-lufthansa main > .section.grey.flush:has(+ .section.padded) {
+  margin-bottom: 0;
+}

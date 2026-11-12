@@ -428,6 +428,28 @@ export default function transform(hookName, element, payload) {
       s.before(start);
       if (next) next.before(createBreak(document));
     });
+    // lufthansa.com info and fleet pages (standing order 7): a padded AEM section right after a stage, then an unpadded
+    // one. The stage's before-padded holds the padded section's top padding, but its bottom padding and .mb-default
+    // went missing, since the unpadded AEM section stayed in its section (premium-economy-class: "Your personal space"
+    // 40 px higher than www's). The padded one becomes style padded spaced, the stage loses before-padded (the padding
+    // above is the padded section's own now), and the unpadded one starts a section of its own.
+    if (lufthansa && (['fleet', 'info'].includes(template.name) || ['fleet', 'info'].includes(template.base))) {
+      aemSections.forEach((s, i) => {
+        const next = aemSections[i + 1];
+        const after = aemSections[i + 2];
+        // only a padded section with .mb-default (spaced): without it the measured pages read better as before
+        // (first-class-terminal +6.7 at 1440)
+        if (!stage(s) || !next || !after || !padded(next) || grey(next) || stage(next) || padded(after) || grey(after) || stage(after)) return;
+        if (!next.querySelector(':scope > .mb-default')) return;
+        const hr = next.previousElementSibling;
+        if (!hr || !hr.hasAttribute(BREAK) || hr.getAttribute(SOURCE_STYLE)) return;
+        hr.setAttribute(SOURCE_STYLE, 'padded spaced');
+        // its top padding is its own now: the stage keeps only its own gap (before-padded off, the same space above)
+        const own = s.previousElementSibling;
+        if (own && own.hasAttribute(BREAK)) own.setAttribute(SOURCE_STYLE, own.getAttribute(SOURCE_STYLE).split(' ').filter((x) => x !== 'before-padded').join(' '));
+        if (!(after.previousElementSibling && after.previousElementSibling.hasAttribute(BREAK)) && !after.querySelector(`hr[${BREAK}]`)) after.before(createBreak(document));
+      });
+    }
     // tabs whose panels hold column views (www's maui-tab-control-responsive, e.g. a panel per
     // travel class on /advance-seat-reservation), accordions, a sidebar or a video: a section per
     // panel, Tab its name, and a break after the control; scripts/section-tabs.js makes the tab

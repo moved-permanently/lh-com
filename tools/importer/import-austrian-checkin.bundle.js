@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-checkin.js
-  var tmp_bundle_austrian_checkin_663835_exports = {};
-  __export(tmp_bundle_austrian_checkin_663835_exports, {
-    default: () => tmp_bundle_austrian_checkin_663835_default
+  var tmp_bundle_austrian_checkin_450922_exports = {};
+  __export(tmp_bundle_austrian_checkin_450922_exports, {
+    default: () => tmp_bundle_austrian_checkin_450922_default
   });
 
   // tools/importer/parsers/booking-lookup.js
@@ -7615,6 +7615,20 @@ var CustomImportScript = (() => {
         s.before(start);
         if (next) next.before(createBreak(document));
       });
+      if (lufthansa && (["fleet", "info"].includes(template.name) || ["fleet", "info"].includes(template.base))) {
+        aemSections.forEach((s, i) => {
+          const next = aemSections[i + 1];
+          const after = aemSections[i + 2];
+          if (!stage(s) || !next || !after || !padded(next) || grey(next) || stage(next) || padded(after) || grey(after) || stage(after)) return;
+          if (!next.querySelector(":scope > .mb-default")) return;
+          const hr = next.previousElementSibling;
+          if (!hr || !hr.hasAttribute(BREAK) || hr.getAttribute(SOURCE_STYLE)) return;
+          hr.setAttribute(SOURCE_STYLE, "padded spaced");
+          const own = s.previousElementSibling;
+          if (own && own.hasAttribute(BREAK)) own.setAttribute(SOURCE_STYLE, own.getAttribute(SOURCE_STYLE).split(" ").filter((x) => x !== "before-padded").join(" "));
+          if (!(after.previousElementSibling && after.previousElementSibling.hasAttribute(BREAK)) && !after.querySelector(`hr[${BREAK}]`)) after.before(createBreak(document));
+        });
+      }
       const blockSelectors = (template.blocks || []).flatMap((b) => b.instances || []);
       const taken = (el) => blockSelectors.some((sel) => {
         try {
@@ -9195,7 +9209,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_checkin_663835_default = {
+  var tmp_bundle_austrian_checkin_450922_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9235,5 +9249,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_checkin_663835_exports);
+  return __toCommonJS(tmp_bundle_austrian_checkin_450922_exports);
 })();

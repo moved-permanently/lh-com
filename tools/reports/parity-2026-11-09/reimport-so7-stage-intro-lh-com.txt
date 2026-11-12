@@ -1,0 +1,35 @@
+# Standing order 7 (2026-11-12), item 4: a cause shared by lufthansa.com info pages. www's stage (an AEM section with
+# .inspirationteaser), then a padded AEM section with .mb-default (the intro), then an unpadded one. The stage's
+# before-padded held the intro's top padding, but the unpadded AEM section stayed in the intro's section, so the intro's
+# bottom padding and .mb-default went missing (premium-economy-class: "Your personal space" 40 px higher than www's at
+# 1440). lufthansa-sections (info and fleet) now makes the intro padded spaced, takes before-padded off the stage, and
+# starts a section with the unpadded one. Shipped with styles.css's flush grey band before a padded section (no section
+# gap; served on push).
+# Drafts on our host (the published pictures swapped in), % off www at 1440 / 390, main's import -> this:
+# - premium-economy-class 19.4 / 19.5 -> 8.0 / 16.9
+# - hearing-impairment 8.4 / 7.1 -> 5.8 / 6.5
+# - visual-impairment 9.8 / 6.1 -> 7.7 / 6.3
+# - passengers-with-sensory-impairment 5.6 / 6.5 -> 6.0 / 6.7
+# Until the re-import, premium-economy-class gets the band rule alone: 19.7 -> 20.7 at 1440 (+1.0), 22.0 -> 18.3 at 390.
+# Found by the shape in tools/importer/bd-snapshots (790 info and fleet pages): these 20.
+# Columns: status, document, what changes.
+READY	/at/de/premium-economy-class	the intro after the stage padded spaced, the stage without before-padded, the unpadded section after the intro a section of its own (10 -> 11 sections); the published text reads as main's import of the snapshot
+READY	/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment	the intro after the stage padded spaced, the stage without before-padded, the unpadded section after the intro a section of its own (5 -> 6 sections); the published text reads as main's import of the snapshot
+READY	/at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment	the intro after the stage padded spaced, the stage without before-padded, the unpadded section after the intro a section of its own (5 -> 6 sections); the published text reads as main's import of the snapshot
+READY	/de/de/passengers-with-sensory-impairment	the intro after the stage padded spaced, the stage without before-padded, the unpadded section after the intro a section of its own (7 -> 8 sections); the published text reads as main's import of the snapshot
+READY	/de/de/premium-economy-class	the intro after the stage padded spaced, the stage without before-padded, the unpadded section after the intro a section of its own (10 -> 11 sections); the published text reads as main's import of the snapshot
+READY	/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment	the intro after the stage padded spaced, the stage without before-padded, the unpadded section after the intro a section of its own (5 -> 6 sections); the published text reads as main's import of the snapshot
+READY	/de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment	the intro after the stage padded spaced, the stage without before-padded, the unpadded section after the intro a section of its own (5 -> 6 sections); the published text reads as main's import of the snapshot
+READY	/de/en/passengers-with-sensory-impairment	the intro after the stage padded spaced, the stage without before-padded, the unpadded section after the intro a section of its own (7 -> 8 sections); the published text reads as main's import of the snapshot
+READY	/de/en/premium-economy-class	the intro after the stage padded spaced, the stage without before-padded, the unpadded section after the intro a section of its own (10 -> 11 sections); the published text reads as main's import of the snapshot
+READY	/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment	the intro after the stage padded spaced, the stage without before-padded, the unpadded section after the intro a section of its own (5 -> 6 sections); the published text reads as main's import of the snapshot
+READY	/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment	the intro after the stage padded spaced, the stage without before-padded, the unpadded section after the intro a section of its own (5 -> 6 sections); the published text reads as main's import of the snapshot
+READY	/gb/en/premium-economy-class	the intro after the stage padded spaced, the stage without before-padded, the unpadded section after the intro a section of its own (10 -> 11 sections); the published text reads as main's import of the snapshot
+READY	/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment	the intro after the stage padded spaced, the stage without before-padded, the unpadded section after the intro a section of its own (5 -> 6 sections); the published text reads as main's import of the snapshot
+READY	/gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment	the intro after the stage padded spaced, the stage without before-padded, the unpadded section after the intro a section of its own (5 -> 6 sections); the published text reads as main's import of the snapshot
+HOLD	/at/de/business-class	the stage loses before-padded and the intro becomes padded spaced (no new section: the unpadded one was a section of its own already); no recording of a business-class page to check this shape
+HOLD	/at/de/passengers-with-sensory-impairment	the split applies (7 -> 8 sections), but this checkout's snapshot is older than the published document (its text differs): re-import from a fresh capture
+HOLD	/de/de/business-class	the stage loses before-padded and the intro becomes padded spaced (no new section: the unpadded one was a section of its own already); no recording of a business-class page to check this shape
+HOLD	/de/en/business-class	the stage loses before-padded and the intro becomes padded spaced (no new section: the unpadded one was a section of its own already); no recording of a business-class page to check this shape
+HOLD	/gb/en/business-class	the stage loses before-padded and the intro becomes padded spaced (no new section: the unpadded one was a section of its own already); no recording of a business-class page to check this shape
+HOLD	/gb/en/passengers-with-sensory-impairment	the split applies (7 -> 8 sections), but this checkout's snapshot is older than the published document (its text differs): re-import from a fresh capture
