@@ -1356,6 +1356,37 @@ body.brand-brussels main .accordion-columns.faq .accordion-columns-panel :is(p, 
   line-height: 24px;
 }
 
+/* the questions as www's .sn collapsible header (shadow CSS: 20 / 24 px, regular while collapsed, bold open, sn-blue-3;
+   padding 13px 20px on phones, 13px 10px from 768 px, the 24 px chevron in it; standing order 17, item 4): on phones
+   www's questions wrap onto more lines than lufthansa.com's 18 px bold ones (at 390 seven legal pages closer, e.g.
+   us-customer-service-plan -4.70 -> -1.23 %; 1440 unchanged) */
+body.brand-brussels main .accordion-columns .accordion-columns-title {
+  padding-right: 44px;
+  padding-left: 20px;
+  color: var(--lh-marble-blue);
+  font-size: calc(20px * var(--a11y-scale, 1));
+  font-weight: 400;
+}
+
+body.brand-brussels main .accordion-columns .accordion-columns-title::after {
+  right: 20px;
+}
+
+body.brand-brussels main .accordion-columns .accordion-columns-item[open] > .accordion-columns-title {
+  font-weight: 700;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels main .accordion-columns .accordion-columns-title {
+    padding-right: 34px;
+    padding-left: 10px;
+  }
+
+  body.brand-brussels main .accordion-columns .accordion-columns-title::after {
+    right: 10px;
+  }
+}
+
 /* a panel heading with www's size (h3.headline.heading-small in an accordion panel: 28 / 30.8 px with 22 px below at
    1440, 22 / 24.2 px with 18 below at 390, as the heading-small tokens; the importer keeps the class as
    "{heading-small}" on Brussels pages from standing order 17: the conditions of carriage's 70 article subheadings,
