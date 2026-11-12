@@ -2846,3 +2846,8 @@ SWISS Senses start-of-booking pages at 390 (27 to 36), businesstogo (29.6 to 30.
   lufthansa-group-airlines de/en 24.89 -> 15.88, 17.64 -> 14.18, de/de 22.01 -> 12.04, 19.36 -> 16.38; help-alliance
   13.44 -> 10.64, 21.69 -> 19.99), 5 HOLD (japan-joint-venture 390 +0.55, video-gallery 1440 +2.54, the three
   entertainment-on-board 390 +2.4). The 39 documents without a recording are not listed.
+- Tab panels' headings (meals-on-board de/en and ch/en, the "Special meals & catering" panel): on www each airline's
+  heading and text is a column view of its own (the next heading 99 px under the last link at 1440, ours 40). From
+  768 px a heading right after a Columns Media in a tab panel starts 83 px down (b2b.css; www's exact spacing is 77,
+  which measured 8.05 against 83's 6.65): de/en 1440 20.74 -> 6.65; on the recorded pages only these two documents
+  have it; phones unchanged.
