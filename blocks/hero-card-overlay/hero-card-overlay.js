@@ -344,10 +344,53 @@ export function storyHomeLink(block, lang) {
   wrapper.before(row);
 }
 
+/**
+ * The chevrons' names (www's are unnamed links): next part, back to the start; English for other
+ * languages.
+ */
+const STORY_CHEVRON_LABELS = {
+  en: ['Next part of the story', 'Back to the start of the story'],
+  de: ['Nächster Teil der Geschichte', 'Zurück zum Anfang der Geschichte'],
+};
+
+/**
+ * Cargo's transport stories (row 52): www's story-scrollLink at the foot of every story module, a
+ * link that scrolls to the next module, the last one (up) back to the first. The page's first
+ * picture module (the light option, Cargo's stories only) adds one button to each module once:
+ * the picture modules, the text modules and the closing text (the section's last default
+ * content); cargo.css draws them from 1025 px (www's, hidden on phones).
+ * @param {Element} block a hero-card-overlay block
+ * @param {string} lang the page's language (its path's first segment)
+ */
+export function storyChevrons(block, lang) {
+  if (!block.classList.contains('light') || !document.body.classList.contains('brand-cargo')) return;
+  const main = block.closest('main');
+  if (!main || main.querySelector('.hero-card-overlay.light') !== block || main.querySelector('.story-chevron')) return;
+  const modules = [...main.querySelectorAll(':scope > .section')]
+    .filter((s) => [...s.children].some((c) => c.matches('.hero-card-overlay-wrapper') && c.querySelector(':scope > .hero-card-overlay.light')))
+    .flatMap((s) => [...s.children].filter((c, i, all) => c.matches('.hero-card-overlay-wrapper, .columns-media-wrapper')
+      || (c.matches('.default-content-wrapper') && i === all.length - 1)));
+  if (!modules.length) return;
+  const [nextLabel, firstLabel] = STORY_CHEVRON_LABELS[lang] || STORY_CHEVRON_LABELS.en;
+  modules.forEach((m, i) => {
+    const last = i === modules.length - 1;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `story-chevron${last ? ' story-chevron-first' : ''}`;
+    button.setAttribute('aria-label', last ? firstLabel : nextLabel);
+    button.addEventListener('click', () => {
+      const to = last ? modules[0] : modules[i + 1];
+      to.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    m.append(button);
+  });
+}
+
 export default function decorate(block) {
   instanceCount += 1;
   // Cargo's paths start with the language (/de/news/…)
   storyHomeLink(block, window.location.pathname.split('/')[1] || '');
+  storyChevrons(block, window.location.pathname.split('/')[1] || '');
   // a linked .mp4 (SWISS's main stage teaser, www's moving image): no card content
   const videoLink = takeVideoLink(block);
   const picture = block.querySelector('picture');

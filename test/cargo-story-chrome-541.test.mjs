@@ -60,7 +60,8 @@ test('a language without its own overview links the English one; other brands an
 test('cargo.css: the label grey as www\'s, the chevrons from 1025 px at every module\'s foot, the last one up', () => {
   const css = fs.readFileSync(new URL('../styles/themes/cargo.css', import.meta.url), 'utf8');
   assert.match(css, /body\.brand-cargo \.hero-card-overlay-stories a \{[^}]*height: 25px;[^}]*background-color: #d3d3d3;/);
-  assert.match(css, /@media \(width >= 1025px\) \{[^@]*body\.brand-cargo main > \.section:has\(> \.hero-card-overlay-wrapper > \.hero-card-overlay\.light\) > :is\(\.hero-card-overlay-wrapper, \.columns-media-wrapper, \.default-content-wrapper:last-child\)::after \{[^}]*width: 38px;[^}]*height: 38px;/);
-  assert.match(css, /:is\(\.hero-card-overlay-wrapper, \.columns-media-wrapper, \.default-content-wrapper:last-child\):not\(:has\(~ :is\(\.hero-card-overlay-wrapper, \.columns-media-wrapper, \.default-content-wrapper:last-child\)\)\)::after \{[^}]*rotate: 180deg;/);
-  assert.match(css, /> \.columns-media-wrapper:has\(\+ \.hero-card-overlay-wrapper\)::after \{[^}]*bottom: -51px;/, 'a text module\'s chevron on the next picture\'s edge');
+  // the chevrons are buttons since row 52 (hero-card-overlay.js storyChevrons, test/cargo-story-chevrons-588.test.mjs)
+  assert.match(css, /@media \(width >= 1025px\) \{[^@]*body\.brand-cargo main > \.section:has\(> \.hero-card-overlay-wrapper > \.hero-card-overlay\.light\) > :is\(\.hero-card-overlay-wrapper, \.columns-media-wrapper, \.default-content-wrapper:last-child\) > \.story-chevron \{[^}]*width: 38px;[^}]*height: 38px;/);
+  assert.match(css, /> \.story-chevron-first \{[^}]*rotate: 180deg;/);
+  assert.match(css, /> \.columns-media-wrapper:has\(\+ \.hero-card-overlay-wrapper\) > \.story-chevron \{[^}]*bottom: -51px;/, 'a text module\'s chevron on the next picture\'s edge');
 });

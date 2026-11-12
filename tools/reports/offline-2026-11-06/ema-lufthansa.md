@@ -3717,4 +3717,12 @@ DA or preview API; nothing uploaded, previewed or published by me.
   narrowed. The test now accepts the narrowed selector and still checks the 32 px; tap.css untouched; a row for
   ema-cashub: tools/reports/parity-2026-11-09/rows-for-ema-cashub.md row 1. Also seen: ema-test took rows-for-ema-test
   row 3 (4d295672: heading-copytext-large stays the heading's marker in the collapse).
+- **Punta Cana at 390 (item 3) and Discover's row spacing, tried and not shipped:** Punta Cana's 182 px between the title
+  and "Useful to know" are the eyebrow H2 (+55, rows-for-ema-test row 3, now taken by ema-test in 4d295672) and the rows
+  of one merged Columns Media block: www's two-column views are 40 px apart on phones and 80 px from 768 px, our block's
+  rows 66 at every width (the pictures the same, 206 / 208 px). A Discover rule for a block's rows (40 / 80) was measured
+  on the 26 recorded pages: better on 5 (Punta Cana en 390 +6.3 -> +4.4 %, de +4.8 -> +3.0; entertainment; families en),
+  worse on 4 (Santorini +28 px at 1440: its beach rows are a nested view, 60 px apart on www; customer service's
+  side-picture block at 390). Our documents do not mark which www view a merged block's rows came from, so no one rule:
+  not shipped (its test in .scratch, dropped). Left for an importer option that keeps the view's kind.
 
