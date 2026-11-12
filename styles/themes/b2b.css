@@ -879,3 +879,29 @@ body.brand-b2b main .default-content-wrapper > p.column-mark.column-start-outer.
 body.brand-b2b main .accordion-columns-wrapper:has(> .accordion-columns:empty) {
   display: none;
 }
+
+/* an airline page (airlines-at-a-glance, its title's section H1 compact) that ends with a card grid:
+   www's column view padding under the cards (21 px to the footer at 390, 40 at 1440), not the
+   section gap (48); other templates that end with cards measured worse with it (standing order 8
+   of 2026-11-12) */
+body.brand-b2b main > .section.h1-compact:last-child:has(> .carousel-cards-wrapper:last-child) {
+  margin-bottom: 20px;
+}
+
+@media (width >= 768px) {
+  body.brand-b2b main > .section.h1-compact:last-child:has(> .carousel-cards-wrapper:last-child) {
+    margin-bottom: 40px;
+  }
+}
+
+/* on phones the airline page's title right after the logo's view, the cards under it, as www's:
+   64 px under the view's end (ours 20 + 20), the cards 25 px under the title (ours 44) */
+@media (width < 768px) {
+  body.brand-b2b main > .section.h1-compact > .breadcrumb-wrapper + .default-content-wrapper + .columns-media-wrapper + .default-content-wrapper:has(+ .carousel-cards-wrapper) > p.column-mark.column-end-outer:first-child + h1:last-child {
+    margin-top: 44px;
+  }
+
+  body.brand-b2b main > .section.h1-compact > .breadcrumb-wrapper + .default-content-wrapper + .columns-media-wrapper + .default-content-wrapper:has(> p.column-mark.column-end-outer:first-child + h1:last-child) + .carousel-cards-wrapper {
+    margin-top: 25px;
+  }
+}
