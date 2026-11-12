@@ -3568,4 +3568,19 @@ the drop and our own host only. Nothing uploaded, previewed or published.
   customer service it does not (the page is one section, so the theme has no mark to space by): for that importer's
   owner, no change here. Punta Cana +6.3 / +4.8 % at 390 and the column views: www's heading-copytext-large headings
   render as plain headings (55 on 17 pages): rows-for-ema-test.md row 3 (the size markers are ema-test's).
+- **On main:** 55526a4a (the row for ema-test, the families rows, the classifications; npm run lint exit 0 before and after
+  the rebase, 3688 pass 0 fail, git show --stat 3 files as given, smoke 0 differences on 14 hosts, GitHub Build
+  success).
+- **The seat reservation pages at 390 (classified):** the en / it / de differences (-3.1 / -2.5 / +2.0 %) are the
+  accordion titles' line breaks: www's recording wraps "Seat assignment for minors…" in four lines and "Seats in emergency
+  exit rows" in three, ours in three and two; www's page rendered offline with the archive's own fonts wraps them as ours
+  (3 / 2 / 3). The live fonts, as the German recordings.
+- **Air Dolomiti row 111 (item 4):** the timetable pages' widget 20 px over the footer as www's (a section ending with the
+  timetable keeps no margin; backwards-compatible, theme). At the recording's viewports: 1440 2009 / 2001 / 2005 against
+  www's 1991 / 2001 / 2005; 390 2299 / 2111 / 2157 against 2299 / 2150 / 2224 (en and de: www's widget form taller than
+  its minimum there).
+- **Measuring note:** some of tonight's loops measured 1440 at a 844 px high window (VIEW_H set for both widths); that
+  only changes pages whose heights follow the screen (the timetable widget's minimum, the price bar's room, 15vh): row
+  107 c's 1440 figures above were taken that way (the room 157 px instead of 165, so 8 px), the others are unaffected.
+  From row 111 on, 1440 is measured at 1440 x 900 and 390 at 390 x 844, as the recordings.
 

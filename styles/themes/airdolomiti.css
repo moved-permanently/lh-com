@@ -3277,6 +3277,13 @@ body.brand-airdolomiti main > .section.compact-title .default-content-wrapper > 
   }
 }
 
+/* the timetable pages' foot (AD row 111): www's WidgetFullPage ends 20px over the footer (the block's margin, row 60);
+   the section that ends with it keeps no margin of its own, which would win over the 20px */
+/* stylelint-disable-next-line no-descending-specificity -- the timetable's section, not the carousels' (above) */
+body.brand-airdolomiti main > .section:has(> .flight-timetable-wrapper:last-child) {
+  margin-bottom: 0;
+}
+
 /* the booking strip under the header (flight-search airdolomiti, option strip; brief 452): www's
    widget there has no trip type tabs in its row (its phone panel keeps them) */
 @media (width >= 1025px) {
