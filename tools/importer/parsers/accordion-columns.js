@@ -328,6 +328,21 @@ export default function parse(element, { document, url, params }) {
     return out;
   };
 
+  /** The cleanup's separator placeholder ("lh-separator spacer-N") right before a node's component, or ''. */
+  const separatorBefore = (node, root) => {
+    let el = node.closest('.headline') || node;
+    while (el && el !== root) {
+      let prev = el.previousSibling;
+      while (prev && prev.nodeType === 3 && !prev.nodeValue.trim()) prev = prev.previousSibling;
+      if (prev) {
+        const m = prev.nodeType === 8 && prev.nodeValue.trim().match(/^lh-separator ((?:spacer|divider)-\d{1,3})$/);
+        return m ? m[1] : '';
+      }
+      el = el.parentElement;
+    }
+    return '';
+  };
+
   /** Panel content: column by column (heading + links), or the rich text as a whole. */
   const convertPanel = (panel) => {
     const content = [];
@@ -366,6 +381,15 @@ export default function parse(element, { document, url, params }) {
         } else if (/^H[1-6]$/.test(node.tagName)) {
           const text = visibleText(node);
           if (!text) return;
+          // Brussels: the cleanup's separator placeholder right before the heading's component (www's
+          // .separator .hr-no-layout between a text and the next headline, the conditions of carriage's
+          // 11 px) as a spacer paragraph before the heading (standing order 18)
+          const spacer = KEEP_HEADING_SIZE && separatorBefore(node, part);
+          if (spacer) {
+            const sp = document.createElement('p');
+            sp.textContent = `{${spacer}}`;
+            content.push(sp);
+          }
           const h = document.createElement(columns.length ? 'h3' : node.tagName);
           // the icon of a teaser without a target (a.teaser.partner > h4.teaser-heading >
           // img.icon-svg + .teaser-heading-text, /gefaehrliche-gegenstaende): kept in the heading

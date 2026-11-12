@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-checkin.js
-  var tmp_bundle_austrian_checkin_20787_exports = {};
-  __export(tmp_bundle_austrian_checkin_20787_exports, {
-    default: () => tmp_bundle_austrian_checkin_20787_default
+  var tmp_bundle_austrian_checkin_28487_exports = {};
+  __export(tmp_bundle_austrian_checkin_28487_exports, {
+    default: () => tmp_bundle_austrian_checkin_28487_default
   });
 
   // tools/importer/parsers/booking-lookup.js
@@ -3922,6 +3922,19 @@ var CustomImportScript = (() => {
       out.push(table);
       return out;
     };
+    const separatorBefore = (node, root) => {
+      let el = node.closest(".headline") || node;
+      while (el && el !== root) {
+        let prev = el.previousSibling;
+        while (prev && prev.nodeType === 3 && !prev.nodeValue.trim()) prev = prev.previousSibling;
+        if (prev) {
+          const m = prev.nodeType === 8 && prev.nodeValue.trim().match(/^lh-separator ((?:spacer|divider)-\d{1,3})$/);
+          return m ? m[1] : "";
+        }
+        el = el.parentElement;
+      }
+      return "";
+    };
     const convertPanel = (panel) => {
       const content = [];
       const columns = panelColumns(panel);
@@ -3956,6 +3969,12 @@ var CustomImportScript = (() => {
           } else if (/^H[1-6]$/.test(node.tagName)) {
             const text = visibleText(node);
             if (!text) return;
+            const spacer = KEEP_HEADING_SIZE && separatorBefore(node, part);
+            if (spacer) {
+              const sp = document.createElement("p");
+              sp.textContent = `{${spacer}}`;
+              content.push(sp);
+            }
             const h = document.createElement(columns.length ? "h3" : node.tagName);
             const icon = node.closest("a.teaser") && node.querySelector("img");
             const src = icon && icon.getAttribute("src");
@@ -8654,6 +8673,13 @@ var CustomImportScript = (() => {
     const parse31 = (el) => textOf(el).match(SEPARATOR);
     main.querySelectorAll(":scope > div > * p").forEach((p) => {
       if (!isSep(p)) return;
+      const m = parse31(p);
+      const prev = p.previousElementSibling;
+      const next = p.nextElementSibling;
+      if (textSpacers && m[1] === "spacer" && !m[3] && Number(m[2]) <= 31 && prev && isRunningText(prev) && !SEPARATOR.test(textOf(prev)) && next && /^H[1-6]$/.test(next.tagName)) {
+        count(stats, "carrier", "text-spacer-in-block");
+        return;
+      }
       count(stats, "theme", "separator-in-block");
       p.remove();
     });
@@ -9266,7 +9292,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_checkin_20787_default = {
+  var tmp_bundle_austrian_checkin_28487_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9306,5 +9332,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_checkin_20787_exports);
+  return __toCommonJS(tmp_bundle_austrian_checkin_28487_exports);
 })();

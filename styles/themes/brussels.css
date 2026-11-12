@@ -1387,6 +1387,15 @@ body.brand-brussels main .accordion-columns .accordion-columns-item[open] > .acc
   }
 }
 
+/* a separator in a panel ("{spacer-N}" before a panel heading, written by the importer from standing order 18: www's
+   .separator .hr-no-layout between a text and the next headline, 11 px on the conditions of carriage) as in default
+   content */
+body.brand-brussels main .accordion-columns-panel p.spacer {
+  box-sizing: content-box;
+  height: calc(var(--spacer-size, 25px) + 1px);
+  margin: 0;
+}
+
 /* a panel heading with www's size (h3.headline.heading-small in an accordion panel: 28 / 30.8 px with 22 px below at
    1440, 22 / 24.2 px with 18 below at 390, as the heading-small tokens; the importer keeps the class as
    "{heading-small}" on Brussels pages from standing order 17: the conditions of carriage's 70 article subheadings,

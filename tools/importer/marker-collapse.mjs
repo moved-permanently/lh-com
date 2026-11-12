@@ -990,8 +990,18 @@ function collapseSeparators(main, doc, stats, ctx) {
   const parse = (el) => textOf(el).match(SEPARATOR);
   // in block cells, or nested in any other element of the page (an importer's tab panel before
   // its sections): no carrier there; the space goes
+  // (on a theme with textSpacers, Brussels: one of 31 px or less between running text and a heading stays, as in
+  // default content: www's separators before an accordion panel's headings, standing order 18)
   main.querySelectorAll(':scope > div > * p').forEach((p) => {
     if (!isSep(p)) return;
+    const m = parse(p);
+    const prev = p.previousElementSibling;
+    const next = p.nextElementSibling;
+    if (textSpacers && m[1] === 'spacer' && !m[3] && Number(m[2]) <= 31 && prev && isRunningText(prev)
+      && !SEPARATOR.test(textOf(prev)) && next && /^H[1-6]$/.test(next.tagName)) {
+      count(stats, 'carrier', 'text-spacer-in-block');
+      return;
+    }
     count(stats, 'theme', 'separator-in-block');
     p.remove();
   });

@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-app-entry.js
-  var tmp_bundle_app_entry_20787_exports = {};
-  __export(tmp_bundle_app_entry_20787_exports, {
-    default: () => tmp_bundle_app_entry_20787_default
+  var tmp_bundle_app_entry_28487_exports = {};
+  __export(tmp_bundle_app_entry_28487_exports, {
+    default: () => tmp_bundle_app_entry_28487_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -6061,6 +6061,13 @@ var CustomImportScript = (() => {
     const parse9 = (el) => textOf(el).match(SEPARATOR);
     main.querySelectorAll(":scope > div > * p").forEach((p) => {
       if (!isSep(p)) return;
+      const m = parse9(p);
+      const prev = p.previousElementSibling;
+      const next = p.nextElementSibling;
+      if (textSpacers && m[1] === "spacer" && !m[3] && Number(m[2]) <= 31 && prev && isRunningText(prev) && !SEPARATOR.test(textOf(prev)) && next && /^H[1-6]$/.test(next.tagName)) {
+        count(stats, "carrier", "text-spacer-in-block");
+        return;
+      }
       count(stats, "theme", "separator-in-block");
       p.remove();
     });
@@ -6517,7 +6524,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_app_entry_20787_default = {
+  var tmp_bundle_app_entry_28487_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -6557,5 +6564,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_app_entry_20787_exports);
+  return __toCommonJS(tmp_bundle_app_entry_28487_exports);
 })();
