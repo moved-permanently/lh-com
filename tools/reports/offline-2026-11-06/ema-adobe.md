@@ -3329,3 +3329,41 @@ and more, lh-edge 71, failing 0), Build green.
 Lists on main: reimport-so7-stage-intro-lh-com.txt, ranking-so7-lh-com.txt, and the legal list's notes for items 1
 and 2. Left out of git: logs/b599 (scanners, censuses, captures, trials) and the R2 archives and import workspaces
 under /tmp.
+
+### Standing order 8 (2026-11-12 10:05 to 14:00 CET)
+
+No airline-host requests, nothing uploaded or previewed. The only R2 read was lh-snapshots-047. Each push: whole-repo
+lint read 0 on a clean worktree of HEAD, stylelint on styles.css 0 (no theme file touched), the suites passed (site
+913 and more, lh-edge 71, failing 0), and every test that reads styles.css passed after the rebase. Build green.
+
+1. **Fleet h1: www has none on these pages, so nothing changes.** www's stage-style fleet pages (320, 32n, boeing787,
+   351) mark their title as h2.headline inside the stage: in the 2026-10-22 snapshots and in lh-snapshots-047
+   (2026-11-03, xx/ja 351). 359, 744 and lufthansa-first-class-fleet have an h1, and so do our documents. The
+   recordings agree on the look (the same stage title at 1440); they hold no markup.
+2. **The six HOLD rows of reimport-so7-stage-intro-lh-com.txt** now say what would make them READY:
+   - de/en, de/de, at/de business-class: a 1440 / 390 recording of a business-class page, or your go on the measured
+     mechanism. Their text reads as main's import.
+   - gb/en business-class: a fresh capture. The published document holds the page twice (two H1s, each of its ten H2
+     chapters twice, an older and a newer version). It is the only such document of the 6,826.
+   - at/de and gb/en passengers-with-sensory-impairment: fresh captures. The published documents carry www's newer
+     text.
+3. **Ranking below 14 % (ranking-so8-lh-com.txt).** The 110 rows from 8 to 14 %, measured again on our host. 17
+   captures got HTTP 429 from our host and were re-run slowly; they read as before. Shared causes:
+   - **page-end-cta (cdea086, served):** the confirmation pages and refund end with a call to action and www's
+     closing separator, and our last section added its 48 px gap.
+     - contact-form-confirmation: 10.1 / 10.2 -> 1.0 / 4.1
+     - the other six: 5.7-10.6 -> 1.6-2.1 at 1440, 3.2-5.0 at 390
+     - The same rule after a block or a text paragraph made 18 page-widths worse, so the gap stays there.
+   - **padded-block-margin (39f6f7f, served):** from 768 px, a padded section that ends with a padded Columns Media
+     before an unpadded section keeps the block's 24 px, as www's component margin. 32n 10.0 -> 6.4, 320 9.1 -> 6.4,
+     premium-economy-class 11.2 -> 10.1 at 1440. Phones stay as before (premium-economy-class measured worse at 390).
+     The margin on every such section made 23 page-widths worse.
+   - **fleet-hero-information (HOLD):** on 32n and boeing787 at 390 the stage text is www's .information body text
+     (about 16 px), but the hero block takes a lone paragraph after the heading as its subtitle (22 px heading face).
+     The importer writes www's .subheadline and .information alike. It needs a parser mark and a re-import.
+   - **article-lead-font (HOLD):** two Insights articles; the recording draws the lead in a fallback face, one line
+     more. A recording artefact.
+   - premium-economy-class's stage-intro re-import is live: 19.7 -> 11.2 at 1440.
+
+Left out of git: logs/b600 (runners, censuses, captures, trial CSS), and the R2 archives and import workspaces under
+/tmp.
