@@ -2818,3 +2818,15 @@ SWISS Senses start-of-booking pages at 390 (27 to 36), businesstogo (29.6 to 30.
   "LANGSTRECKENERLEBNIS" run past the screen, ours breaks it on purpose: styles.css's overflow-wrap, not changed);
   the celebrating hubs (held before) and lhg-history (decision 1, withdrawn); businesstogo at 390 (the recording has
   its first panel open from a 1440 load resized, B2B's phone default is closed, as decided on 11-11).
+
+### Update 00:20 UTC
+
+- Pushed 2dbabcfe (00:08 UTC): the tab-picture list at 16 READY and the 23:46 update (no served code; lint 0,
+  stylelint 0, after rebases onto other agents' TAP table / section-tabs commits their tests and mine, 24 and 95 files).
+- The airline pages' grid under its heading (shared by every airlines-at-a-glance page): www's teaser cards are 33 px
+  under "<airline> Products & Services" at 1440 (in that heading's column view), ours 64 (the 4rem above a carousel
+  right under text). From 768 px a carousel right under a heading has only the heading's margin above it (b2b.css).
+  On the 24 recorded pages the rule matches at 1440 (21 airline pages, de/de and de/en experts, route-network): summed
+  473.3 -> 158.1, e.g. de/en brussels-airlines 22.42 -> 4.64, de/de swiss 24.23 -> 6.65, none worse. On phones the
+  same rule was mixed (austrian, eurowings, discover about 10 points better, brussels, edelweiss, lufthansa, swiss,
+  airdolomiti 8 to 13 worse, de/en experts +1.9): not on phones.
