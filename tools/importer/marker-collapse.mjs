@@ -1017,7 +1017,11 @@ function collapseSeparators(main, doc, stats, ctx) {
       // a small space between two running-text elements (www's empty paragraph: nbsp-guard.mjs emptyParagraphSpacers)
       // stays as one {spacer-N} on a theme with textSpacers (standing order 5 of 2026-11-11, item 1); the same on a second run
       const prose = (el) => !!el && isRunningText(el) && !/^\s*\{[^}]*\}\s*$/.test(textOf(el));
-      if (size === 'none' && textSpacers && !tablet && prose(before) && prose(after)) {
+      // and between running text and the next heading (www.brusselsairlines.com's .separator .hr-no-layout between a
+      // text and a headline, the cleanup's "{spacer-28}": the heading 48 to 51 px under the text on www;
+      // rows-for-ema-test.md row 5, standing order 8 of 2026-11-12)
+      const heading = (el) => !!el && /^H[1-6]$/.test(el.tagName);
+      if (size === 'none' && textSpacers && !tablet && prose(before) && (prose(after) || heading(after))) {
         const keep = doc.createElement('p');
         keep.textContent = `{spacer-${px}}`;
         run.els[0].before(keep);

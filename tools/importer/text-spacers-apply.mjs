@@ -36,6 +36,8 @@ const isProse = (el) => !!el && ((el.tagName === 'P' && !!text(el) && !isMarker(
 
 /** The marker's size for one row: { n } or { skip: reason }. margins: our paragraph margin at 1440 and 390. */
 export function spacerSize(row, margins = [20, 16]) {
+  // a separator row carries www's own size (the separator's margin-bottom, as the cleanup writes it)
+  if (row.kind === 'separator' && Number.isInteger(row.n)) return row.n >= 1 && row.n <= 31 ? { n: row.n } : { skip: 'size out of range' };
   const d = [[row.gap1440, margins[0]], [row.gap390, margins[1]]].filter(([g]) => typeof g === 'number').map(([g, m]) => g - m);
   if (!d.length) return { skip: 'no gap' };
   const n = Math.round(d.reduce((a, b) => a + b, 0) / d.length) - 1;
@@ -57,7 +59,8 @@ export function applyTextSpacers(html, rows, { margins = [20, 16] } = {}) {
     let next = null;
     if (after) {
       const hits = top.filter((el) => isProse(el) && text(el).endsWith(after)
-        && (!before || text(el.nextElementSibling).startsWith(before)));
+        // a separator row looks past a spacing marker there (its second run: 'present')
+        && (!before || text(row.kind === 'separator' && isSpacer(el.nextElementSibling) ? el.nextElementSibling.nextElementSibling : el.nextElementSibling).startsWith(before)));
       if (hits.length !== 1) return { row, result: hits.length ? 'ambiguous' : 'not found' };
       [prev] = hits;
       next = prev.nextElementSibling;
@@ -68,7 +71,11 @@ export function applyTextSpacers(html, rows, { margins = [20, 16] } = {}) {
       prev = next.previousElementSibling;
     } else return { row, result: 'no text around' };
     if (isSpacer(next) || isSpacer(prev)) return { row, result: 'present' };
-    if (!isProse(prev) || !(isProse(next) || (!!next && next.tagName === 'H2'))) {
+    // a separator row (www.brusselsairlines.com's small .separator between a text and the next headline,
+    // rows-for-ema-test.md row 5): any heading after the text, the row's own size (www's separator)
+    const sepRow = row.kind === 'separator';
+    const headingOk = !!next && (sepRow ? /^H[1-6]$/.test(next.tagName) : next.tagName === 'H2');
+    if (!isProse(prev) || !((!sepRow && isProse(next)) || headingOk)) {
       return { row, result: `not between running text (${prev ? prev.tagName : '-'} / ${next ? (next.className || next.tagName) : '-'})` };
     }
     const size = spacerSize(row, margins);
@@ -102,7 +109,7 @@ const main = () => {
     const src = [`${p}.plain.html`, `${p}.html`].map((f) => path.join(opt('docs'), f)).find((f) => fs.existsSync(f));
     if (!src) { report.push(`${p}\t-\tno document`); return; }
     const { html, results } = applyTextSpacers(fs.readFileSync(src, 'utf8'), rows, { margins });
-    results.forEach(({ row, result }) => report.push(`${p}\t${row.kind} gap ${row.gap1440 ?? '-'}/${row.gap390 ?? '-'} "${row.after.slice(-25)}" -> "${row.before.slice(0, 25)}"\t${result}`));
+    results.forEach(({ row, result }) => report.push(`${p}\t${row.kind} ${row.kind === 'separator' ? `${row.n} px` : `gap ${row.gap1440 ?? '-'}/${row.gap390 ?? '-'}`} "${row.after.slice(-25)}" -> "${row.before.slice(0, 25)}"\t${result}`));
     if (results.some(({ result }) => result.startsWith('{spacer-'))) {
       const out = path.join(opt('out'), path.relative(opt('docs'), src));
       fs.mkdirSync(path.dirname(out), { recursive: true });

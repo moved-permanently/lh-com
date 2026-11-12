@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-form.js
-  var tmp_bundle_form_942526_exports = {};
-  __export(tmp_bundle_form_942526_exports, {
-    default: () => tmp_bundle_form_942526_default
+  var tmp_bundle_form_973111_exports = {};
+  __export(tmp_bundle_form_973111_exports, {
+    default: () => tmp_bundle_form_973111_default
   });
 
   // tools/importer/parsers/form-core.js
@@ -5244,7 +5244,8 @@ var CustomImportScript = (() => {
         const atEnd = now.slice(lastAt + 1).every((el) => !content(el));
         const remove = () => run.els.forEach((el) => el.remove());
         const prose = (el) => !!el && isRunningText(el) && !/^\s*\{[^}]*\}\s*$/.test(textOf(el));
-        if (size === "none" && textSpacers && !tablet && prose(before) && prose(after)) {
+        const heading = (el) => !!el && /^H[1-6]$/.test(el.tagName);
+        if (size === "none" && textSpacers && !tablet && prose(before) && (prose(after) || heading(after))) {
           const keep = doc.createElement("p");
           keep.textContent = `{spacer-${px}}`;
           run.els[0].before(keep);
@@ -5608,7 +5609,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_form_942526_default = {
+  var tmp_bundle_form_973111_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5648,5 +5649,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_form_942526_exports);
+  return __toCommonJS(tmp_bundle_form_973111_exports);
 })();

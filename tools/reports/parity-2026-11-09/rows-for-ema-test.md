@@ -115,3 +115,7 @@ found, the evidence and what would follow www.
   checked-baggage in six languages (18 px before "What if I exceed the limits for checked baggage?"), after the accordion on service-charges en and nl (8 px
   before "Optional Payment Charge"). The cleanup drops those itself on Brussels (ema-lufthansa's; it would keep them as
   Discover's once the collapse carries a spacer between two components there: componentSpacers on THEMES.brussels).
+- **Done (standing order 8, 2026-11-12, ema-test):** the collapse keeps them on Brussels (textSpacers: running text
+  then a heading); for DA's copies the delta (text-spacers-apply.mjs, rows of kind separator, data
+  brussels-heading-spacers-so8.json). reimport-589-brussels-heading-spacers.txt: 9 READY, 2 HOLD (be/fr premium-economy,
+  be/fr checked-baggage 390 +0.66), 3 with nothing to apply. service-charges en's heading at 513 at 1440, as www's.
