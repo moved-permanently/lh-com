@@ -22,6 +22,10 @@
       "label": "Text card right"
     },
     {
+      "class": "no-subtitle",
+      "label": "No subtitle (the paragraph after the heading is text)"
+    },
+    {
       "class": "services",
       "label": "Service shortcuts (look: ?hero-services, the variant word, metadata hero-services, else band)"
     },

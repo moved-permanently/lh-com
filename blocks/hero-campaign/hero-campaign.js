@@ -365,7 +365,9 @@ function decorateStage(block, labels, {
         && cleanText(rest[0]) === [...rest[0].querySelectorAll('a[href]')].map((x) => cleanText(x)).join(' ').trim();
     };
     const lufthansa = document.body.classList.contains('brand-lufthansa');
-    if (next && next.tagName === 'P' && !next.querySelector('a, picture')
+    // option no-subtitle (the importer: www's stage has body copy, no tagline): no subtitle
+    const noSubtitle = block.classList.contains('no-subtitle');
+    if (next && next.tagName === 'P' && !noSubtitle && !next.querySelector('a, picture')
       && cleanText(next).length <= SUBTITLE_MAX_LENGTH && !(lufthansa && onlyCta(next))) {
       next.classList.add('hero-campaign-subtitle');
     }
