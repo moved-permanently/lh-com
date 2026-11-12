@@ -3987,3 +3987,14 @@ copy where that element is not found once or the text is there already). DA's co
 to the published copy). With the delta and the CSS: the heading at x 88, 408 px wide, the teasers at x 516 and 944, as
 www's; 1440 5449 (unchanged; www 5469), 390 8993 -> 9052 (www 9309). The layout matches no section on the 39 recorded
 ITA pages as served. reimport-591-ita-row-39.txt: 1 READY.
+
+1b717771 ITA row 39: npm run lint 0 before and after the rebase and after each of two retry rebases (main busy: the
+push refused twice), the suite 3862 / 0 before and 3875 / 0 after the rebase, Build success, smoke 0 differences.
+
+**Item 2, the worst single ITA pages:**
+- **baggage-and-strollers (-30.8 / -45.5 %):** the order 6 row would have re-imported a document whose DA copy holds the
+  fare accordion twice (market variants): HOLD there now (the helper had not taken it: the en page's last upload is of
+  2026-11-10). DA's copy plus a delta instead (tools/importer/ita-block-options-apply.mjs: open-2 on both blocks;
+  reimport-591-ita-strollers-open.txt READY; its test written after the tool, the only one this order), and the item's
+  tables as www's four-column view (ita.css: two a row from 768 px, all in one row from 992 px). With both: 1440
+  3077 -> 4000 (www 4446), 390 4297 -> 6187 (7882). The 39 recorded ITA pages as served: unchanged.

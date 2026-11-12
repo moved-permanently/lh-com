@@ -1068,3 +1068,29 @@ body.brand-ita .table-striped tr > :first-child:nth-last-child(6) ~ :is(td, th) 
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* tables in an accordion item as www's four-column view (ITA row 36's rest; baggage-and-strollers, ita-parity-005):
+   www's col-md-6 col-lg items two a row from 768px, all in one row from 992px, one under the other on phones; an item
+   whose content is only tables (two or more) the same way, 24px between the rows, 20px between the columns */
+/* stylelint-disable no-descending-specificity -- the accordion's own table rules above */
+@media (width >= 768px) {
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-columns-table + .accordion-columns-table):not(:has(> :not(.accordion-columns-table))) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 20px;
+    align-items: start;
+  }
+
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-columns-table + .accordion-columns-table):not(:has(> :not(.accordion-columns-table))) > .accordion-columns-table {
+    margin: 0;
+  }
+}
+
+@media (width >= 992px) {
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-columns-table + .accordion-columns-table):not(:has(> :not(.accordion-columns-table))) {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+  }
+}
+/* stylelint-enable no-descending-specificity */
