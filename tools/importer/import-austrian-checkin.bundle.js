@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-checkin.js
-  var tmp_bundle_austrian_checkin_239200_exports = {};
-  __export(tmp_bundle_austrian_checkin_239200_exports, {
-    default: () => tmp_bundle_austrian_checkin_239200_default
+  var tmp_bundle_austrian_checkin_285803_exports = {};
+  __export(tmp_bundle_austrian_checkin_285803_exports, {
+    default: () => tmp_bundle_austrian_checkin_285803_default
   });
 
   // tools/importer/parsers/booking-lookup.js
@@ -7557,6 +7557,16 @@ var CustomImportScript = (() => {
         const gap = prev.querySelector(":scope > .mb-default") ? "spaced" : "flush";
         own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${gap}`);
       });
+      if (template.name === "fleet" || template.base === "fleet") {
+        aemSections.forEach((s, i) => {
+          const prev = aemSections[i - 1];
+          const own = prev && paddedBreaks.get(prev);
+          if (!own || padded(s) || grey(s) || isStage(s) || s.querySelector(`hr[${BREAK}]`) || prev.querySelector(`hr[${BREAK}]`)) return;
+          s.before(createBreak(document));
+          const gap = prev.querySelector(":scope > .mb-default") ? "spaced" : "flush";
+          if (!/ (spaced|flush)$/.test(own.getAttribute(SOURCE_STYLE))) own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${gap}`);
+        });
+      }
       const first = aemSections[0];
       if ((template.name === "info" || template.base === "info") && first && padded(first) && !grey(first) && first.querySelector("h1") && !first.querySelector(".inspirationteaser, .stage")) {
         const hr = createBreak(document);
@@ -9142,7 +9152,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_checkin_239200_default = {
+  var tmp_bundle_austrian_checkin_285803_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9182,5 +9192,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_checkin_239200_exports);
+  return __toCommonJS(tmp_bundle_austrian_checkin_285803_exports);
 })();

@@ -387,6 +387,19 @@ export default function transform(hookName, element, payload) {
       const gap = prev.querySelector(':scope > .mb-default') ? 'spaced' : 'flush';
       own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${gap}`);
     });
+    // fleet (standing order 6): an unpadded AEM section right after a padded one is not that one's content; www draws the
+    // padded section's bottom padding and its .mb-default between them (/de/en/32n: "The quietest cabin" 62px higher
+    // than www's, the space back under it). It starts a section of its own; the padded one keeps spaced or flush
+    if (template.name === 'fleet' || template.base === 'fleet') {
+      aemSections.forEach((s, i) => {
+        const prev = aemSections[i - 1];
+        const own = prev && paddedBreaks.get(prev);
+        if (!own || padded(s) || grey(s) || isStage(s) || s.querySelector(`hr[${BREAK}]`) || prev.querySelector(`hr[${BREAK}]`)) return;
+        s.before(createBreak(document));
+        const gap = prev.querySelector(':scope > .mb-default') ? 'spaced' : 'flush';
+        if (!/ (spaced|flush)$/.test(own.getAttribute(SOURCE_STYLE))) own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${gap}`);
+      });
+    }
     // the page title in a padded first AEM section (info: /book-and-manage/pax-receipt, whose
     // passenger receipt form is an app widget that is not imported): style padded there too, the
     // title 2rem / 4rem lower as on live (styles.css keeps the breadcrumb at the top)

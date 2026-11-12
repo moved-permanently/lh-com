@@ -2258,3 +2258,12 @@ body.brand-lufthansa main > .section:has(> .default-content-wrapper:last-child >
 body.brand-lufthansa.appear main > .section.profile-nav-container.flush {
   margin-bottom: 0;
 }
+
+/* the image right below the page title (the 60 / 80px rule above): 40px when the next section
+   opens an outer column view (the fleet pages since brief 461: its "{column-start-outer}"
+   padding, 20 / 40px, comes on top). /de/en/359 and /de/en/744: www's first
+   heading 225px of ink under the aircraft at 1440, ours 265; at 390 ours 19px low. 42 published
+   documents, lufthansa.com only (standing order 6) */
+body.brand-lufthansa main > .section:has(+ .section > .default-content-wrapper:first-child > .column-start-outer:first-child) > .default-content-wrapper > h1 + p:has(> picture):last-child {
+  margin-bottom: 40px;
+}
