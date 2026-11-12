@@ -86,3 +86,9 @@ test('from 768 px: a teaser grid right under a heading has only the heading\'s m
   // the general 64 px rule comes first, so this one wins at equal specificity plus its :has()
   assert.equal(css.indexOf('.default-content-wrapper + .carousel-cards-wrapper {\n    margin-top: 64px;') < at, true);
 });
+
+test('from 768 px: in a tab panel a heading after a Columns Media starts a view of its own (83 px)', () => {
+  const at = css.indexOf('/* in a tab panel each heading with its text is a column view of its own on www');
+  assert.equal(at > 0, true);
+  assert.match(css.slice(at), /@media \(width >= 768px\) \{\n {2}body\.brand-b2b main > \.section:is\(\.section-tab-panel, \.section-tab-part\) > \.columns-media-wrapper \+ \.default-content-wrapper:has\(> :is\(h2, h3\):first-child\) \{\n {4}margin-top: 83px;\n {2}\}\n\}/);
+});

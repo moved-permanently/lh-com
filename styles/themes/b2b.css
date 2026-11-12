@@ -829,6 +829,17 @@ body.brand-b2b main > .section.grey {
   }
 }
 
+/* in a tab panel each heading with its text is a column view of its own on www (meals-on-board's
+   "Special meals & catering": the next airline's heading 99 px under the last link at 1440, ours 40):
+   from 768 px a heading right after a Columns Media in a panel starts that far down (on the
+   recorded pages only de/en and ch/en meals-on-board have it; standing order 5, item 2: de/en
+   1440 20.74 -> 6.65 %; 77 px, www's exact spacing, measured 8.05) */
+@media (width >= 768px) {
+  body.brand-b2b main > .section:is(.section-tab-panel, .section-tab-part) > .columns-media-wrapper + .default-content-wrapper:has(> :is(h2, h3):first-child) {
+    margin-top: 83px;
+  }
+}
+
 /* brief 438: the airlines page below 768 px: a stacked text cell that ends with its link line 14 px
    above the picture (www's link 1469, the picture 1483 at 390; lh-com's 36 px), the rows of such
    cells 42 px apart (the link line 45 px above the next row's picture; 66 px rows before) */
