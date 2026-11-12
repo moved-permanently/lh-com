@@ -3970,3 +3970,20 @@ two dropped changes with their tests (`.scratch/offline/b567/dropped/`: the padd
 
 **Process:** reads only from our own hosts, the drop's recordings and DA (GET of the two fleet copies, from my session,
 not from tests); no request to an airline host; no da-upload.mjs call, no upload, preview or publish.
+
+## Standing order 8 of 2026-11-12 (from about 18:50 CET to 23:00 CET)
+
+**At the start:** nothing of mine uncommitted or unpushed; `.migration/project.json` (the lh-tap entry from outside my
+orders) and `.scratch/` (excluded from git: DA's copies and the tools' outputs from them, recordings, drafts, scripts,
+logs, the dropped changes) left as they are.
+
+**Item 1, ITA row 39:** the layout first (test first): from 768 px a section whose first wrapper is the H2 alone right
+before a partner cards-icon-text is a grid on the content box, the heading a third less the gaps, the teasers two by two
+beside it. The first version nested a :has() in a :has(), which the browser drops (the draft measured unchanged); now
+two :has() side by side, and the test refuses a nested one. The heading back: in the import (lufthansa-cleanup.js
+liftHeadingItems, the step of standing order 7 that was held back) and, for DA's copy with its market sections,
+tools/importer/ita-insert-apply.mjs (one element before the section-level element whose text starts as given; refuses a
+copy where that element is not found once or the text is there already). DA's copy read (GET, 17:55 UTC; its text equal
+to the published copy). With the delta and the CSS: the heading at x 88, 408 px wide, the teasers at x 516 and 944, as
+www's; 1440 5449 (unchanged; www 5469), 390 8993 -> 9052 (www 9309). The layout matches no section on the 39 recorded
+ITA pages as served. reimport-591-ita-row-39.txt: 1 READY.

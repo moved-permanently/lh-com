@@ -1034,3 +1034,37 @@ body.brand-ita .table-striped tr > :first-child:nth-last-child(6),
 body.brand-ita .table-striped tr > :first-child:nth-last-child(6) ~ :is(td, th) {
   width: calc(100% / 6);
 }
+
+/* a heading beside icon teasers (ITA row 39; entry-exit-system, ita-parity-005): www's three-column view holds "What
+   data is collected?" in its first column (408px at 1440) and the four teasers two by two in the other two, 20px apart;
+   on phones the heading over them. From 768px the section is a grid on the content box: the heading (the section's
+   first wrapper, the H2 alone, right before a partner cards-icon-text; no :has() in a :has()) a third less the gaps, the teasers the rest, the section's other
+   content across both */
+@media (width >= 768px) {
+  body.brand-ita main > .section:has(> .default-content-wrapper:first-child > h2:only-child):has(> .default-content-wrapper:first-child + .cards-icon-text-wrapper > .cards-icon-text.partner) {
+    display: grid;
+    grid-template-columns: calc((100% - 40px) / 3) minmax(0, 1fr);
+    column-gap: 20px;
+    align-items: start;
+    padding-inline: max(var(--layout-margin), calc((100% - var(--content-max-width)) / 2 + var(--layout-margin)));
+  }
+
+  body.brand-ita main > .section:has(> .default-content-wrapper:first-child > h2:only-child):has(> .default-content-wrapper:first-child + .cards-icon-text-wrapper > .cards-icon-text.partner) > * {
+    grid-column: 1 / -1;
+    max-width: none;
+    padding-inline: 0;
+  }
+
+  body.brand-ita main > .section:has(> .default-content-wrapper:first-child > h2:only-child):has(> .default-content-wrapper:first-child + .cards-icon-text-wrapper > .cards-icon-text.partner) > .default-content-wrapper:first-child {
+    grid-column: 1;
+  }
+
+  body.brand-ita main > .section:has(> .default-content-wrapper:first-child > h2:only-child):has(> .default-content-wrapper:first-child + .cards-icon-text-wrapper > .cards-icon-text.partner) > .default-content-wrapper:first-child + .cards-icon-text-wrapper {
+    grid-column: 2;
+    margin-top: 0;
+  }
+
+  body.brand-ita main > .section:has(> .default-content-wrapper:first-child > h2:only-child):has(> .default-content-wrapper:first-child + .cards-icon-text-wrapper > .cards-icon-text.partner) > .default-content-wrapper:first-child + .cards-icon-text-wrapper > .cards-icon-text.partner > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

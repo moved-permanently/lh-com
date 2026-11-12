@@ -2098,6 +2098,31 @@ function addPageMetadata(document, payload) {
   document.body.append(WebImporter.Blocks.getMetadataBlock(document, meta));
 }
 
+/* ---------------------------------------------------- a heading item beside teasers ---------- */
+
+/**
+ * A column item that is only a headline in a column view of partner teasers (ITA row 39, standing
+ * order 8 of 2026-11-12; entry-exit-system: "What data is collected?", h2 heading-large, in the
+ * first item, four icon teasers in the next ones): the cards-icon-text parser builds its block of
+ * the teasers and the item went with it. Its heading goes before the column view, with its
+ * classes, as a column view's own title does (ita.css sets it beside the teasers from 768px).
+ */
+function liftHeadingItems(document) {
+  const text = (el) => (el.textContent || '').replace(/[\s\u00a0\u200b]+/g, ' ').trim();
+  document.querySelectorAll(':is(.twocolumn, .threecolumn, .fourcolumn) > .column-view > .row').forEach((row) => {
+    if (!row.querySelector(':scope > .column-view-item a.teaser.partner')) return;
+    const view = row.parentElement.parentElement;
+    [...row.children].forEach((item) => {
+      if (!item.matches('.column-view-item') || item.querySelector('a.teaser')) return;
+      const heads = [...item.querySelectorAll(':scope > .headline :is(h1, h2, h3, h4, h5, h6)')].filter(text);
+      const other = [...item.children].some((c) => !c.matches('.headline') && text(c));
+      if (!heads.length || other) return;
+      heads.forEach((h) => view.before(h));
+      item.remove();
+    });
+  });
+}
+
 /* -------------------------------------------------------------- empty headlines ---------- */
 
 /**
@@ -2283,6 +2308,7 @@ export default function transform(hookName, element, payload) {
     // info: column views for their padding markers, and flow spacing: the separators in running
     // text are kept (headings have no margin of their own above, styles.css)
     markEmptyHeadlines(document, payload); // before the empty components go
+    liftHeadingItems(document); // before the parsers take the teasers' column view
     const flow = columnMarksEnabled(payload);
     if (flow) {
       markColumnViews(document, payload);
