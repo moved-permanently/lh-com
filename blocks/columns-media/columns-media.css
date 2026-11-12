@@ -76,6 +76,17 @@ body.brand-lufthansa .columns-media.separated {
   }
 }
 
+/* lufthansa.com on phones: a stacked text cell that ends with a list 24px above the next cell (www zeroes the
+   list's margin, the column-view item keeps its own; the 36px above stand for a closing link). 390:
+   hearing-impairment 7.9 -> 6.0, visual-impairment 6.3 -> 4.3, cognitive-impairment 6.8 -> 5.9,
+   passengers-with-sensory-impairment 6.7 -> 5.4; schengen and sports-baggage worse on the whole page (their
+   own earlier drifts), their blocks better; standing order 10 (ranking-so9 list-end) */
+@media (width < 768px) {
+  body.brand-lufthansa .columns-media:not(.slider, .sidebar) .columns-media-row > .columns-media-text:not(:last-child):has(> :is(ul, ol):last-child) {
+    margin-bottom: 24px;
+  }
+}
+
 /* wide-media stacks media first, 40px above the text */
 .columns-media.wide-media .columns-media-media-last > .columns-media-media {
   order: -1;

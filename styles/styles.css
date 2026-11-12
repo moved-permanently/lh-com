@@ -2314,6 +2314,16 @@ body.brand-lufthansa main > .section:not(.grey):is(:last-child, :has(+ .section.
   margin-bottom: 0;
 }
 
+/* a stage (not a flush one), then a section of default content only (the intro), then a padded or grey
+   section: www's intro AEM section keeps its .mb-default above the next section's padding, 16-17px more than
+   our section gap (my-bookings, seat-maps: the third section 17px high at 1440). 1440: my-bookings
+   7.4 -> 4.6, seat-maps 7.8 -> 4.9, wetlease-hub 14.5 -> 13.4, travel-companion 8.9 -> 7.3; air-baltic
+   4.8 -> 5.4 (a later drift of its own); standing order 10 (ranking-so9 stage-intro-padded) */
+/* stylelint-disable-next-line no-descending-specificity -- an intro between a stage and a band, not a page end */
+body.brand-lufthansa main > .section.stage:not(.flush) + .section:not(.padded, .grey, .stage, .spaced, .flush, .column-view):has(> .default-content-wrapper:only-child):has(+ .section:is(.padded, .grey)) {
+  margin-bottom: 64px;
+}
+
 /* from 768px: a section that ends with an Accordion Columns (its column mark after it) before a plain grey
    band: www has 20px between them, ours had our section gap on top (the upgrade pages: "Further
    information about your upgrade" 48px lower than www's at 1440). 1440: upgrade-first-class
