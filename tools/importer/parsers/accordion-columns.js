@@ -431,6 +431,12 @@ export default function parse(element, { document }) {
   } else {
     expanded.forEach((k) => options.push(`open-item-${k}`));
   }
+  // an accordion without items (www's empty <maui-collapsible>, SWISS Senses de/en's before its
+  // title): no block, whose wrapper took the space between blocks (standing order 7 of 2026-11-12)
+  if (!cells.length) {
+    element.remove();
+    return;
+  }
   const blockName = options.length ? `accordion-columns (${options.join(', ')})` : 'accordion-columns';
 
   const block = WebImporter.Blocks.createBlock(document, { name: blockName, cells });
