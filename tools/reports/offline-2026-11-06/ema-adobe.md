@@ -3280,3 +3280,52 @@ passed (site 896, lh-edge 71, failing 0), Build green.
 
 Left out of git: logs/b598 (runners, captures, comparison tables), the /tmp worktrees (wt-so6: the table, end-gap,
 spaced and small-print trials, measured, not shipped), the offline import workspaces and the R2 archives under /tmp/r2.
+
+### Standing order 7 (2026-11-12 06:10 to 10:00 CET)
+
+No airline-host requests, nothing uploaded or previewed; R2 reads only (lh-snapshots-109). Each push: whole-repo
+lint read 0 on a clean worktree of HEAD, stylelint on styles.css 0 (no theme file touched), the suites passed (site 900
+and more, lh-edge 71, failing 0), Build green.
+
+1. **datenerfassung-fuer-die-usa (at/de, de/de): no new German path found.** Every link to the old slug in the
+   archives held here is in the 2026-10-22 captures (the de/de and at/de entryprocesses hubs). No capture after that
+   (R2 drop 089 to 109, tools/importer/bd-snapshots) links a German US entry page, and the English pages carry no
+   language alternates. A fresh capture of /de/de/entryprocesses and /at/de/entryprocesses would show the new path.
+   Both rows stay HOLD as DA has them.
+2. **passenger-rights (at/de, de/de): release them.** The style row "flush, column-band, grey" doesn't come from the
+   column marks. Importing lh-snapshots-109 with the legal bundle from before the marks (aeb250c~1) gives the same
+   row. It is lufthansa-sections' grey-band rule reading www's markup:
+   - column-band: the band is a column view of its own, as the published /de/en and /gb/en pages already have.
+   - flush: the German pages' AEM section has no .mb-default; the English ones have it.
+3. **Long link text (0e2a3ad).** besondere-befoerderungsbedingungen-bus scrolled sideways at 390 on 16 documents
+   (/de/en, /gb/en, /at/de, /de/de and 12 xx versions), and so did /xx/fr's Facebook-page privacy statement.
+   - Cause: a link alone in its paragraph (inline-flex for its arrow) with a URL as its text. In a flex box,
+     break-word can't shrink the text's minimum width.
+   - www breaks link text at its hyphens and lets an unbreakable rest run past the edge (lh-parity-002d).
+   - The fix: overflow-wrap: anywhere on the flex text links (link-wrapper, the link lists, buttons, SWISS's aside
+     lists, Austrian's em buttons).
+   - Scans at 390 on our hosts:
+     - 157 lufthansa.com pages with a 30+ character link word: 17 scrolled sideways before, none since the push.
+     - 364 such pages of the nine brand sites: none scrolls.
+   - Of the 57 recorded pages with such links, only bayerischer-hof 1440 moves (14.2 -> 14.6).
+4. **Ranking (ranking-so7-lh-com.txt).** The 87 rows at or over 14 %, measured again on our host, read as in order 5.
+   Two causes shared by recorded pages, both shipped in 595b219:
+   - **The intro after a stage loses its padding.** www's stage is followed by a padded intro with .mb-default and
+     then an unpadded section. The intro's bottom padding went missing ("Your personal space" 40 px high on
+     premium-economy-class). Drafts: premium-economy-class 19.4 / 19.5 -> 8.0 / 16.9, hearing-impairment
+     8.4 / 7.1 -> 5.8 / 6.5, visual-impairment 9.8 / 6.1 -> 7.7 / 6.3, passengers-with-sensory-impairment
+     5.6 / 6.5 -> 6.0 / 6.7.
+     - An intro without .mb-default stays as before (first-class-terminal measured +6.7 at 1440).
+     - List reimport-so7-stage-intro-lh-com.txt: 14 READY, 6 HOLD (the business-class pages: a shape without a
+       recording; two snapshots older than published).
+   - **A flush grey band before a padded section** kept our 48 px gap; www has only the padded section's top padding.
+     Served on push, nothing to import: economy-class 17.9 / 29.7 -> 15.9 / 28.1, lhg-wifi 13.6 / 14.7 -> 11.8 / 13.5,
+     travel-insurances 15.1 / 14.6 -> 10.1 / 11.0.
+     - premium-economy-class reads 20.7 at 1440 (+1.0) until its re-import brings the intro rule.
+     - The same rule before an unpadded section split 35 better against 35 worse, so it is not shipped.
+   - **Measured, not shipped:** the fleet split (a padded AEM section, then an unpadded one) applied to info pages.
+     It made four recorded pages worse by 1.0 to 1.7 (advice-for-travellers, air-baltic, ana and its FAQ).
+
+Lists on main: reimport-so7-stage-intro-lh-com.txt, ranking-so7-lh-com.txt, and the legal list's notes for items 1
+and 2. Left out of git: logs/b599 (scanners, censuses, captures, trials) and the R2 archives and import workspaces
+under /tmp.
