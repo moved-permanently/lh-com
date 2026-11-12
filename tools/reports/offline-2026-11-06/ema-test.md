@@ -2961,3 +2961,35 @@ with the recordings at 1440 and 390; each list's gate per document: no page-widt
    the marker in the feedback pages' sidebar cell (with a brussels.css rule for it, test first): worse at both widths
    (our sidebar holds that space already: 1,425 px against www's 1,426 before, 1,487 after); withdrawn, the test set
    aside outside git. The others sit before a block, in forms or stage blocks, take 4 px or none.
+
+### Update 07:27 UTC
+
+- Pushed b4d0f42d (06:43 UTC): rows 4 and 3 (collapse, THEMES.discover, bundles), the four lists, the report. npm run
+  lint 0, stylelint 0; the full suite before the rebase 905 / 906: test/tap-faq-gap-567 fails on origin/main itself
+  (checked in a clean worktree of 954ddfba; it reads styles/themes/tap.css, which e9b72c4d changed; TAP's owner's, not
+  touched; the test was brought in line by ed03817e at 07:29 UTC); after the rebase lint, stylelint and the 128 tests that read the collapse, the themes and the new upload
+  states. scripts/style-markers.js deploys lh-edge: its 415 tests, Deploy lh-edge and Build success, smoke 12 hosts
+  before and after: 0 differ.
+- Row 3's HOLD rows, their shared cause looked at: www's H1 heading-large has 60 px under it at 1440 and 36 at 390
+  (all 22 recorded headline H1s), ours 40 / 32, so the column view after it starts about 20 px higher (check-in: www's
+  first heading at 851, ours 829). Measured on all 26 recorded Discover pages (52 page-widths, against our host):
+  the H1 margin alone 1171.2 -> 1139.4 summed, 20 better, 11 worse; with row 3's markers on their 15 documents
+  1171.2 -> 1121.7 (24 better, 12 worse); the margin from 1025 px only, with the markers, 1123.5 (24 better, 9 worse:
+  check-in de/de 1440 +3.8, families 390 +3.4 / +2.3, punta-cana 1440 +1.0 / +1.3, business-class de/en +1.3). Not
+  shipped (the gate); the cases left are the column views' own content (families' tab panels, check-in's links).
+
+## Standing order 6, final section (07:30 UTC, 2026-11-12)
+
+- Row 4 (Discover's separators): the collapse carries them (componentSpacers, on main); reimport-so6-lh-discover-
+  separators.txt 4 READY, 6 HOLD, 6 nothing to apply.
+- Row 3 (Discover's heading-copytext-large): the collapse keeps the marker (keepSizes, on main);
+  reimport-so6-lh-discover-copytext-headings.txt 4 READY, 11 HOLD. The shared cause of the HOLD rows (the H1's margin)
+  measured, not shipped (9 to 12 page-widths worse).
+- Row 1 (ITA's column-view headings): already www's (12 of 13); no change.
+- Brussels' remaining empty paragraphs: reimport-so6-lh-brussels-text-spacers.txt, all HOLD; the cell spacer tried and
+  withdrawn.
+- For the import helper: a re-import of a HOLD document of the two Discover lists now brings its change.
+- Nothing uploaded, previewed or published; no request to any airline host; da-upload.mjs not run.
+- Not in git and why: logs/p4/so6 (scratch: the Discover, ITA and Brussels renders, captures and results, the set-aside
+  Brussels test), the recordings in /tmp, .migration/project.json (the workspace's own), content/, migration-work/,
+  tools/importer/reports/* (from before, not mine). My local preview servers are stopped.
