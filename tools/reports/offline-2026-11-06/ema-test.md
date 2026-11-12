@@ -2926,3 +2926,38 @@ State at the start: nothing of mine uncommitted or unpushed (ec81d170 on main, B
   before and after: 0 differ). Served check: Discover's winter-destinations, whose DA copy has held the joiner since
   b99ee4c0, now reads "Naturliebhaber:innen:" with no joiner in the page's text on discover.turnsthe.page and on
   aem.live. The listed pages change when the import helper applies the lists.
+
+## Standing order 6 (received 05:30 UTC, 2026-11-12): the open rows of rows-for-ema-test.md
+
+State at the start: nothing of mine uncommitted or unpushed (d923557f on main, Build success). By 05:33 the import
+helper had applied the five icon-token lists (upload states 5c78a6f7 to 63da5b54). Recordings from the drop, sha256 =
+the value on record (discover-parity-001 b08cb37e…330eb, its sidecar an HTML page; ita-parity-003 and -004 = their
+sidecars). Method as before: our hosts' published copies rendered locally at full height with this code, compared
+with the recordings at 1440 and 390; each list's gate per document: no page-width worse by more than 0.5.
+
+1. Row 4, Discover's separators: ema-lufthansa's cleanup commit (52d5f939) was on main before I started; I did not
+   touch lufthansa-cleanup.js. The collapse carries them now (THEMES.discover componentSpacers: a run of 31 px or less
+   between two components stays one {spacer-N}, not at a section's start or end; test first). Bundles rebuilt (they
+   now carry 52d5f939 too). DA's copy plus the delta (the generic spacer delta, data from the cleanup run offline on
+   the recordings): reimport-so6-lh-discover-separators.txt, 4 READY (families de/de 1440 36.27 -> 28.60, 390 25.50
+   -> 21.69; customer-service de/de 19.35 -> 13.31, 21.49 -> 20.55, de/en 19.19 -> 13.33, 17.88 -> 16.55; punta-cana
+   de/de 23.05 -> 19.61), 6 HOLD (worse at one width: check-in de/de 1440 +17.0, where our teaser heading already sits
+   at www's place), 6 with nothing to apply (the separator at a section's start, or its place inside a block).
+2. Row 3, Discover's heading-copytext-large: the collapse kept it only where all of a section's H2s agreed (section
+   style H2 compact) and dropped it in blocks and mixed sections. THEMES.discover keepSizes: the marker stays on the
+   heading (test first), the page reads it as the class. DA's copy plus the delta (40 headline headings on 15 recorded
+   pages; the card titles are small already): reimport-so6-lh-discover-copytext-headings.txt, 4 READY (santorini de/de
+   and de/en, baggage de/en, business-class de/en), 11 HOLD: the headings then have www's size and weight, but the
+   pages read worse by pixels (the column views around them start about 24 px higher than www's and their links are
+   14 px where www's are 16 bold; the larger heading had filled that space). www's margins under these headings (12 /
+   24 px) measured too and not shipped (check-in de/de +0.85 with that CSS alone).
+   For the import helper: a re-import of a HOLD document of either list now brings its change (the collapse keeps it).
+3. Row 1, ITA's column-view headings: already www's on our host. Of the 13 heading-small headings in www's column views
+   on ita-parity-003 / -004, 12 render at www's 28 px (1440) and 22 px (390) on ita.turnsthe.page (f8c5b3ff and
+   ema-lufthansa's ITA theme). The 13th, unaccompanied-minors' "Didn't Find What You Were Looking For?" (an H3 in a
+   grey column band, ours 24 / 20 px): the census has 78 such band H3s unmarked against 10 heading-small, so no
+   structural default; left. No code, no list.
+4. Brussels' empty paragraphs on the remaining pages: reimport-so6-lh-brussels-text-spacers.txt, every row HOLD. Tried
+   the marker in the feedback pages' sidebar cell (with a brussels.css rule for it, test first): worse at both widths
+   (our sidebar holds that space already: 1,425 px against www's 1,426 before, 1,487 after); withdrawn, the test set
+   aside outside git. The others sit before a block, in forms or stage blocks, take 4 px or none.
