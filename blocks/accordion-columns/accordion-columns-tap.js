@@ -170,7 +170,7 @@ export function buildFaqPicker(main) {
 }
 
 /** The inspiration pages' slug in TAP's languages (www's same CategoryAccordion as the FAQ). */
-export const INSPIRATION_SLUGS = ['get-inspired', 'inspire-se', 'inspirate', 'inspirez-vous', 'inspirieren'];
+export const INSPIRATION_SLUGS = ['get-inspired', 'inspire-se', 'inspirate', 'inspirez-vous', 'inspirieren', 'ispirati'];
 
 /** Whether a path is a root's inspiration page. */
 export const isInspirationPage = (pathname) => INSPIRATION_SLUGS.includes(String(pathname || '').replace(/\/+$/, '').split('/').pop());
