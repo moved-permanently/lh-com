@@ -4279,3 +4279,13 @@ body.brand-tap :where(header:not(.tap-home)) ~ main > .section.heading-section >
 body.brand-tap :where(header:not(.tap-home)) ~ main > .section.heading-section + .section > :first-child {
   margin-top: 0;
 }
+
+/* a content heading at most 790 px wide, as www's heading sections (their container max-w-[790px], left: 64 of the 95
+   H2s of the tap-parity recordings; the others are cards', pickers' and centred titles). A long one wraps as www's:
+   Schengen visas' "Travel to Europe: pre-register before departure / ...", hold baggage's "Baby and children baggage
+   allowed in the aircraft' cabin" (39 px each at 1440). Centred titles keep their width: the H2 after an H1, a
+   carousel's, a category set's, a tab panel's */
+/* stylelint-disable-next-line no-descending-specificity -- a max-width; the earlier H2 rules set margins, sizes, alignment */
+body.brand-tap main > .section:not(.section-tab-panel, :has(+ .section.section-tabs)) > .default-content-wrapper:not(:has(+ .carousel-cards-wrapper)) > h2:not(h1 + h2) {
+  max-width: 790px;
+}
