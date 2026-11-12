@@ -2291,3 +2291,15 @@ body.brand-austrian main .default-content-wrapper > ul > li > em > a:any-link {
 body.brand-lufthansa main > .section.grey.flush:has(+ .section.padded) {
   margin-bottom: 0;
 }
+
+/* from 768px: a padded section that ends with a padded Columns Media and is followed by an unpadded
+   section (the fleet split of 1455833 and the stage intro of 7d58bb1: www's padded AEM section,
+   then an unpadded one) keeps the block's 24px inside its padding, as www's component margin
+   (/de/en/32n: "The quietest cabin" 24px higher than www's at 1440). 32n 10.0 -> 6.4, 320
+   9.1 -> 6.4, premium-economy-class 11.2 -> 10.1 at 1440; at 390 it measured worse on
+   premium-economy-class, so phones as before; standing order 8 */
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section.padded:is(.spaced, .flush):not(.grey, .campaign-section):has(+ .section:not(.padded, .grey, .stage, .campaign-section)) > .columns-media-wrapper:last-child:has(> .columns-media.padded) {
+    margin-bottom: var(--spacing-default);
+  }
+}
