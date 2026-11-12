@@ -3810,3 +3810,53 @@ maui-table with equalcolumns; ours took the columns by content since row 27; ita
 200 px a cell at least (test/ita-table-equal-columns-589.test.mjs). group-boarding 1440 -4.7 -> -2.4 %; the 39
 recorded ITA pages at both widths with local CSS: no other change by this rule. rows-for-ema-test.md row 5 gets the
 8 separators after a block (the tab control on checked-baggage, the accordion on service-charges).
+
+## Final section, standing order 6 (2026-11-12, 09:40 to 14:00 CET)
+
+**Recordings** (the drop's shared folder GDDocrqS7sYpHQrbIT_4NmGC, sha256 computed here; only the drop and our own
+hosts were asked, no airline host):
+- ita-parity-005: 50,246,817 bytes, 966e59cfa922994b5708a66ee7b0b53cfec67cf373764d60b1c09af170960091, 22 pages;
+- brussels-parity-004: 91,676,646 bytes, 5131664c4882f3aaed4962e333178eb26ddc2d01a4ce351ae3ae9321820cfa2d, 30 pages;
+- brussels-parity-005: 26,399,650 bytes, 7973382445d0b0d5dbd47bf8608602c0c33036aff0af05fd060824785f5e4495, 6 pages;
+- brussels-parity-006: 21,161,069 bytes, de7fb8c1859f4e98fbd40228ddc411d17925ddd0c44d47ea37b5aac4eca2b1f0, 11 pages;
+- held from before: brussels-parity-003 (10 pages), ita-parity-002 to -004, swiss-parity-003 and -005.
+
+**Commits on main** (each: whole-repo `npm run lint` exit 0 and stylelint on the theme touched, before and after
+the rebase; the full suite 0 failures; the GitHub Build read; rollback `git revert <hash>`):
+- f378637a ITA row 34: the fleet seat maps beside their tables from 768 px; reimport-589-ita-fleet-tabs.txt. Build
+  success. Its smoke did not run (the wrong scratch folder given to the ship script); run by hand after the push: 0
+  differences but lufthansa.com's at/de sitemap file (not from the push).
+- ce2e5d0c ITA rows 35 (accordions 40 px from their neighbours from 992 px) and 36 (strollers, a document);
+  reimport-589-ita-strollers-open.txt; rows-for-ema-test.md row 5; reimport-589-brussels-heading-spacers.txt. Build
+  success, smoke 0 differences.
+- f7ecc06f Brussels P49: the article lists without the search field and category filter. Build success, smoke 0
+  differences (the first push refused, main had moved: rebased and pushed without the lints again).
+- f3efe91e ITA row 37: table columns of equal width; row 5's addendum (the separators after a block). Build
+  success, smoke 0 differences.
+- This commit: this final section.
+
+**Lists** (tools/reports/parity-2026-11-09/, READY / HOLD per row): reimport-589-ita-fleet-tabs.txt 3 READY
+(ita-airways-app done since: upload job 589-ita-fleet-tabs-01, 390422de, not mine; short-haul and long-haul wait);
+reimport-589-ita-strollers-open.txt 1 READY; reimport-589-brussels-heading-spacers.txt 14 HOLD (the collapse removes
+the spacers: rows-for-ema-test.md row 5).
+
+**Items:**
+1. ITA: the worst three shared www's tab control (two re-imports wait, one done); rows 34 to 37 shipped; no recorded
+   ITA page further from www by more than 0.4 points (checked-baggage at 1440 with row 35). Left, each on one page:
+   contact -7.8 / -10 %, electronic devices -3.0 % (the icon grid at the top), residents-in-sicily +3.1 %, the
+   strollers' tables two per row at 1440 (after the re-import).
+2. Brussels: the shared cause (www's small separators before a heading, 14 pages) is the collapse's (ema-test's row
+   5); P49 shipped (2 pages). Tried and dropped: 200 px table cells (student-fares 2.84 points worse at 390).
+   Classified before: payment methods P41, cancel-and-refund P39 (the chat), the homepages P38. Left, one page each:
+   our-company fr +6.7 % at 390 (the facts block and the fleet cards), local-page/offers -9 %, families-and-children
+   fr -6.8 %, rebooking-request-birthright +6.1 %.
+3. SWISS: 5 recorded pages, no shared cause (offers and the homepage are data, as classified).
+
+**Left uncommitted, and why:** `.migration/project.json` (an lh-tap entry from outside this order; TAP is
+ema-cashub's); everything under `.scratch/` (excluded from git): the drop's archives (recordings), the offline imports
+and drafts, the measuring scripts and logs, and the dropped Brussels table test (`.scratch/offline/b567/dropped/`, not
+finished: it made pages worse).
+
+**Process:** no request to an airline host; no da-upload.mjs call, no DA or preview API from tests or by hand;
+nothing uploaded, previewed or published by me. brussels.css edited only after checking its log (last other commit
+32 hours old).
