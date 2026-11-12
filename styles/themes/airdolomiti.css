@@ -3323,6 +3323,16 @@ body.brand-airdolomiti main > .section:has(> .flight-timetable-wrapper:last-chil
   margin-bottom: 0;
 }
 
+/* the booking pages' search 30px under the title (www's TitleMargin before DisplayBookingWidget; AD row 114): a title
+   section followed by the full search (not the hubs' and destinations' strip) keeps 30px, not the sections' 48px, from
+   930px (on phones www's widget is its own sticky layout) */
+@media (width >= 930px) {
+  /* stylelint-disable-next-line no-descending-specificity -- the booking title's section, not the other sections' (above) */
+  body.brand-airdolomiti main > .section:has(> .default-content-wrapper:last-child > h1:last-child):has(+ .section.flight-search-container .flight-search:not(.strip)) {
+    margin-bottom: 30px;
+  }
+}
+
 /* the booking strip under the header (flight-search airdolomiti, option strip; brief 452): www's
    widget there has no trip type tabs in its row (its phone panel keeps them) */
 @media (width >= 1025px) {

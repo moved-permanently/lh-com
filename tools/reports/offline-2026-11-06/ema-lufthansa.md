@@ -3599,4 +3599,8 @@ the drop and our own host only. Nothing uploaded, previewed or published.
   against 2299 (the widget's form, as en's).
 - **Drop probe 00:45 UTC:** nothing after airdolomiti-snapshots-008 (airdolomiti-snapshots-009, -parity-007,
   ita-snapshots-025, ita-parity-005, discover-snapshots-003, discover-parity-003: 404).
+- **On main:** 816d5ffd (AD 113; npm run lint exit 0 and stylelint 0 before and after the rebase, 3704 pass 0 fail, git
+  show --stat 4 files as given, smoke 0 differences on 14 hosts, GitHub Build success).
+- **Air Dolomiti row 114 (item 4):** the booking pages' search 30 px under the title from 930 px, as www's (the three
+  booking pages 1515 / 1533 / 1537 at 1440, www's exactly); phones unchanged (www's sticky widget there).
 
