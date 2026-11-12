@@ -3613,4 +3613,19 @@ the drop and our own host only. Nothing uploaded, previewed or published.
 - **ITA row 33 (item 4):** the cards' link line 14 to 16 px fluid as www's btn-link (one line on phones). Limolane 390
   3873 -> 3834 (www 3773; 42 of the rest the phone footer's font), travel insurance 4050 -> 4030; backwards-compatible
   (theme, the grid cards' links only).
+- **On main:** eff46712 (ITA 33; npm run lint exit 0 and stylelint 0 before and after the rebase, 3714 pass 0 fail, git
+  show --stat 4 files as given, smoke 0 differences on 14 hosts (Brussels' apple-app-site-association answered 520 once
+  in the after-run, re-run: 0 differences), GitHub Build success).
+- **Tonight's lists live (the import helper's job 587-ad-hints-lead-01, 23:39 UTC, 3 documents):** the German in-flight
+  entertainment page with hidden-heading, lead-under-trail: 1440 picture 235, text 946, page 2489 (www 235 / 946 /
+  2492); 390 242 / 953 / 3334 (242 / 953 / 3337); /en/flight-status and /stato-volo with www's hints (the number field
+  described by its hint), as /de/flug-status. The date hint shows on all three tabs' date fields (the block's one date
+  hint), as www's form has it.
+- **The ranking again (rank-e: main's CSS at the recording's viewports, 98 rows, 02:28 to 03:06 UTC; ITA measured before
+  ITA 33 went live):** Air Dolomiti's 53 pages: over 4 % 10 -> 6, over 3 % 13 -> 9, over 2 % 23 -> 15, median
+  deviation 0.82 -> 0.64 %; the destination hubs, the Adriatic articles, assistance, the timetables and the booking
+  pages within 1 % at 1440. ITA's 17 and Discover's 26 unchanged (Discover's rows over 2 % are others': widget data,
+  ema-test's markers, the shared cleanup's separators, the families re-import). One row further from www: /de/flugplan
+  at 390 (-1.8 -> -3.0 %: its widget form, row 111). Last night's two readings of the English in-flight entertainment
+  page and flights to Europe at 1440 were noise (re-measured: -1.5 / -1.7 %).
 
