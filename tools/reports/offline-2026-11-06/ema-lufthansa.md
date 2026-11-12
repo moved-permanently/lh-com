@@ -3705,4 +3705,16 @@ DA or preview API; nothing uploaded, previewed or published by me.
 - **Air Dolomiti row 115 (item 3):** the German London page 11 px too wide at 390 (a carousel title's icon past the
   screen, as on www with that word): the title leaves the icon 45 px within the screen and hyphenates; the page 390 px
   wide, its title two lines (+42 px); a sideways scroll fixed rather than copied (WCAG 1.4.10).
+- **On main:** b178678c (AD 115; npm run lint exit 0 and stylelint 0 before and after the rebase, 3741 pass 0 fail, git
+  show --stat 4 files as given, smoke 0 differences on 14 hosts, GitHub Build success). Its first run stopped at the
+  suite (1 fail, nothing committed): the theme had set hyphens, which styles.css's heading rule already does
+  (test/heading-wrap.test.mjs: no theme sets it); the theme rule now only limits the width.
+- **Cargo row 52 (item 2):** the transport stories' chevrons as www's scroll links: buttons that bring the next module
+  (the last one the first) under the fixed bar, named, from 1025 px as before, none on phones; the story's heights
+  unchanged (7947 / 8516 px).
+- **Main's suite red since 05:21 UTC (found 07:01 UTC in Cargo row 52's ship, nothing committed):**
+  test/tap-faq-gap-567.test.mjs (mine, TAP row 130) looked up a tap.css selector that e9b72c4d (ema-cashub's TAP row 151)
+  narrowed. The test now accepts the narrowed selector and still checks the 32 px; tap.css untouched; a row for
+  ema-cashub: tools/reports/parity-2026-11-09/rows-for-ema-cashub.md row 1. Also seen: ema-test took rows-for-ema-test
+  row 3 (4d295672: heading-copytext-large stays the heading's marker in the collapse).
 

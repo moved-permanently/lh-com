@@ -11,7 +11,9 @@ import fs from 'node:fs';
 const css = fs.readFileSync(new URL('../styles/themes/tap.css', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
 
 test('from 768 px the section before the FAQ picker 32 px over it', () => {
-  const sel = 'body.brand-tap main > .section:has(+ .section.faq-picker-section)';
+  // e9b72c4d (TAP row 151: a FAQ page whose categories are a tab set) narrowed the selector to a section that is not a
+  // picker section itself; the rule as before
+  const sel = 'body.brand-tap main > .section:not(.faq-picker-section):has(+ .section.faq-picker-section)';
   const at = css.indexOf(`@media (width >= 768px) {\n  ${sel} {`);
   assert.ok(at >= 0);
   assert.match(css.slice(at, css.indexOf('}', at + 40)), /margin-bottom: 32px;/);
