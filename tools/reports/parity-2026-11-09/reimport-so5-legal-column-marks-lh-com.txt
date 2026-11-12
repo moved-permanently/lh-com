@@ -9,6 +9,16 @@
 # alone on every page; 72 get marks. READY: the published document reads as main's import (nothing but the marks
 # changes); HOLD: the published document is newer than its snapshot. Standing order 6 (2026-11-12): three of the five HOLD
 # rows READY from the fresh capture lh-snapshots-108; the two German data-collection documents are 404 on www.
+# Standing order 7 (2026-11-12):
+# - /at/de and /de/de datenerfassung-fuer-die-usa: no new German path in the archives held here. Every link to the old
+#   slug is in the 2026-10-22 captures (the de/de and at/de entryprocesses hubs). No capture after that (R2 drop 089 to
+#   109, tools/importer/bd-snapshots) links a German US entry page. A fresh capture of /de/de/entryprocesses and
+#   /at/de/entryprocesses would show it. Both stay HOLD as DA has them.
+# - /at/de and /de/de passenger-rights: the fresh import's style row "flush, column-band, grey" is not from the column
+#   marks. Importing lh-snapshots-109 with the legal bundle from before the marks (aeb250c~1) gives the same row. It is
+#   lufthansa-sections' grey-band rule reading www's markup: the band is a column view of its own (column-band, as the
+#   published /de/en and /gb/en pages already have), in an AEM section without .mb-default on the German pages
+#   (flush; the English ones have it). Both rows stay READY.
 # Run: the legal template's import (import-legal.bundle.js) offline from tools/importer/bd-snapshots for these paths.
 # Columns: status, document, what changes.
 READY	/at/de/befoerderungsbedingungen-lh	40 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot

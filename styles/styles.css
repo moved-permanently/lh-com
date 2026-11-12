@@ -2267,3 +2267,19 @@ body.brand-lufthansa.appear main > .section.profile-nav-container.flush {
 body.brand-lufthansa main > .section:has(+ .section > .default-content-wrapper:first-child > .column-start-outer:first-child) > .default-content-wrapper > h1 + p:has(> picture):last-child {
   margin-bottom: 40px;
 }
+
+/* a link whose box is a flex container (the link alone in its paragraph with its arrow, the link
+   lists, buttons, SWISS's aside lists, Austrian's em buttons): its text is an anonymous flex item
+   whose minimum width is its longest word, so a URL as link text pushed the page sideways
+   (besondere-befoerderungsbedingungen-bus at 390: scroll width 453). anywhere keeps the normal
+   breaks (www's lh-parity-002d: at the hyphens) and breaks only a word that does not fit;
+   standing order 7 */
+/* stylelint-disable no-descending-specificity -- one wrapping value for these links, not their layout */
+main p.link-wrapper > a:any-link,
+main a.button:any-link,
+body.brand-lufthansa main ul:is(.links-horizontal, .links-responsive, .links-vertical) > li > a:any-link,
+body.brand-swiss main .section-aside .default-content-wrapper :is(ul, ol) > li > a:any-link,
+body.brand-austrian main .default-content-wrapper > ul > li > em > a:any-link {
+  overflow-wrap: anywhere;
+}
+/* stylelint-enable no-descending-specificity */
