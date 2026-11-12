@@ -43,6 +43,8 @@ export function applyViewSpacers(html, rows) {
     if (hits.length !== 1) return { row, result: hits.length ? 'ambiguous' : 'not found' };
     const [at] = hits;
     if (isSpacer(at.previousElementSibling)) return { row, result: 'present' };
+    // at a section's start the collapse keeps no small spacer either (the section's own gap)
+    if (!at.previousElementSibling) return { row, result: 'at a section start' };
     const p = document.createElement('p');
     // from768: the space from 768 px only (styles.css hides p.spacer.from-768 on phones), where www's phone layout has none
     const marker = `{spacer-${row.px}${row.from768 ? ' from-768' : ''}}`;

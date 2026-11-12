@@ -962,7 +962,7 @@ function isBoldHeading(el) {
 function collapseSeparators(main, doc, stats, ctx) {
   // the page type's gaps the theme draws (THEMES rules: sections-m, rule-before-info-box,
   // ruled-chapters)
-  const { rules, textSpacers = false } = themeFor(ctx.brand, ctx.pageType);
+  const { rules, textSpacers = false, componentSpacers = false } = themeFor(ctx.brand, ctx.pageType);
   const isSep = (el) => !!el && el.tagName === 'P' && SEPARATOR.test(textOf(el));
   const parse = (el) => textOf(el).match(SEPARATOR);
   // in block cells, or nested in any other element of the page (an importer's tab panel before
@@ -1015,6 +1015,17 @@ function collapseSeparators(main, doc, stats, ctx) {
         run.els[0].before(keep);
         remove();
         count(stats, 'carrier', 'text-spacer', run.els.length);
+        return;
+      }
+      // a small space between two components (Discover's separators, www's .hr 30 px + 1: the cleanup's "{spacer-30}")
+      // stays as one {spacer-N} on a theme with componentSpacers, not at a section's start or end (www: no margin
+      // there; rows-for-ema-test.md row 4, standing order 6 of 2026-11-12); the same on a second run
+      if (size === 'none' && componentSpacers && !tablet && !atStart && !atEnd && content(before) && content(after)) {
+        const keep = doc.createElement('p');
+        keep.textContent = `{spacer-${px}}`;
+        run.els[0].before(keep);
+        remove();
+        count(stats, 'carrier', 'component-spacer', run.els.length);
         return;
       }
       if (size === 'none') { remove(); count(stats, 'theme', 'separator', run.els.length); return; }

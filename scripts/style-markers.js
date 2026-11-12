@@ -220,7 +220,13 @@ export const THEMES = {
   swiss: { live: true, rules: ['teaser-groups'], pageTypes: { flow: { headings: { h2: 'heading-small' } } } },
   // Discover: on flow pages the H2s in heading-small (www: 86 %) and a Columns Media a column view
   // of its own (www: 26 of 33 not at a section's start)
-  discover: { live: true, pageTypes: { flow: { headings: { h2: 'heading-small' }, columnViews: { blocks: ['columns-media'] } } } },
+  // componentSpacers: a separator of 31 px or less between two components (www's .hr, 30 px + 1)
+  // stays as {spacer-N} in the collapse (rows-for-ema-test.md row 4; import time only)
+  discover: {
+    live: true,
+    componentSpacers: true,
+    pageTypes: { flow: { headings: { h2: 'heading-small' }, columnViews: { blocks: ['columns-media'] } } },
+  },
   // Lufthansa Group for Business: on flow pages the H3s in heading-small (www: 82 %); Columns
   // Media, Carousel Images and Quote column views of their own, also at a section's end (www: 558
   // of 789 Columns Media not at a section's start, 749 of 962 with an edge below)

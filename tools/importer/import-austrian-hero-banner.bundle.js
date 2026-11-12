@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-hero-banner.js
-  var tmp_bundle_austrian_hero_banner_285803_exports = {};
-  __export(tmp_bundle_austrian_hero_banner_285803_exports, {
-    default: () => tmp_bundle_austrian_hero_banner_285803_default
+  var tmp_bundle_austrian_hero_banner_647021_exports = {};
+  __export(tmp_bundle_austrian_hero_banner_647021_exports, {
+    default: () => tmp_bundle_austrian_hero_banner_647021_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -5405,7 +5405,13 @@ var CustomImportScript = (() => {
     swiss: { live: true, rules: ["teaser-groups"], pageTypes: { flow: { headings: { h2: "heading-small" } } } },
     // Discover: on flow pages the H2s in heading-small (www: 86 %) and a Columns Media a column view
     // of its own (www: 26 of 33 not at a section's start)
-    discover: { live: true, pageTypes: { flow: { headings: { h2: "heading-small" }, columnViews: { blocks: ["columns-media"] } } } },
+    // componentSpacers: a separator of 31 px or less between two components (www's .hr, 30 px + 1)
+    // stays as {spacer-N} in the collapse (rows-for-ema-test.md row 4; import time only)
+    discover: {
+      live: true,
+      componentSpacers: true,
+      pageTypes: { flow: { headings: { h2: "heading-small" }, columnViews: { blocks: ["columns-media"] } } }
+    },
     // Lufthansa Group for Business: on flow pages the H3s in heading-small (www: 82 %); Columns
     // Media, Carousel Images and Quote column views of their own, also at a section's end (www: 558
     // of 789 Columns Media not at a section's start, 749 of 962 with an edge below)
@@ -5953,6 +5959,23 @@ var CustomImportScript = (() => {
       return false;
     }
   }
+  function isDiscoverPage(payload) {
+    const url = payload && (payload.params && payload.params.originalURL || payload.url) || "";
+    try {
+      return /(^|\.)discover-airlines\.com$/.test(new URL(url).hostname);
+    } catch (e) {
+      return false;
+    }
+  }
+  var DISCOVER_SEPARATOR_SPACE = 30;
+  function discoverSized(sep, marker) {
+    const inline = separatorInline(sep);
+    return marker.replace(/^(spacer|divider)-\d+/, `$1-${Math.max(inline === null ? DISCOVER_SEPARATOR_SPACE : inline, 0)}`);
+  }
+  function discoverMarkers(run) {
+    if (!run[0].previousElementSibling || !run[run.length - 1].nextElementSibling) return null;
+    return run.map((sep) => discoverSized(sep, separatorInfo(sep).marker));
+  }
   var SEPARATED = "data-lh-separated";
   function betweenColumnViews(run) {
     const prev = run[0].previousElementSibling;
@@ -6016,6 +6039,7 @@ var CustomImportScript = (() => {
     const cellSpacers = isLufthansaPage(payload);
     if (cellSpacers) markNoteSpacers(document);
     const brussels = isBrusselsPage(payload);
+    const discover = isDiscoverPage(payload);
     const runs = [];
     document.querySelectorAll(".separator").forEach((sep) => {
       const last = runs[runs.length - 1];
@@ -6050,9 +6074,12 @@ var CustomImportScript = (() => {
       let markers = null;
       if (infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run) || template === "hub" && (afterNestedView(run) || pictureBeforeGrey(run))) {
         markers = infos.map((i) => i.marker);
+      } else if (discover) {
+        markers = discoverMarkers(run);
       } else if (fillGaps) {
         markers = missingSeparatorMarkers(run, keepInFlow, template);
       }
+      if (discover && markers) markers = markers.map((m, i) => m ? discoverSized(run[i], m) : m);
       run.forEach((sep, i) => {
         if (!sep.isConnected) return;
         if (markers && markers[i]) sep.replaceWith(document.createComment(`${SEPARATOR_COMMENT} ${markers[i]}`));
@@ -8391,7 +8418,7 @@ var CustomImportScript = (() => {
     return kids.length === 1 && kids[0].nodeType === 1 && /^(STRONG|B)$/.test(kids[0].tagName) && !!textOf(kids[0]) && !kids[0].querySelector("a, img, picture");
   }
   function collapseSeparators(main, doc, stats, ctx) {
-    const { rules, textSpacers = false } = themeFor(ctx.brand, ctx.pageType);
+    const { rules, textSpacers = false, componentSpacers = false } = themeFor(ctx.brand, ctx.pageType);
     const isSep = (el) => !!el && el.tagName === "P" && SEPARATOR.test(textOf(el));
     const parse31 = (el) => textOf(el).match(SEPARATOR);
     main.querySelectorAll(":scope > div > * p").forEach((p) => {
@@ -8435,6 +8462,14 @@ var CustomImportScript = (() => {
           run.els[0].before(keep);
           remove();
           count(stats, "carrier", "text-spacer", run.els.length);
+          return;
+        }
+        if (size === "none" && componentSpacers && !tablet && !atStart && !atEnd && content(before) && content(after)) {
+          const keep = doc.createElement("p");
+          keep.textContent = `{spacer-${px}}`;
+          run.els[0].before(keep);
+          remove();
+          count(stats, "carrier", "component-spacer", run.els.length);
           return;
         }
         if (size === "none") {
@@ -8986,7 +9021,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_hero_banner_285803_default = {
+  var tmp_bundle_austrian_hero_banner_647021_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9026,5 +9061,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_hero_banner_285803_exports);
+  return __toCommonJS(tmp_bundle_austrian_hero_banner_647021_exports);
 })();
