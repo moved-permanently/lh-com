@@ -3225,3 +3225,58 @@ reimport-so5-app-entry-column-marks-lh-com.txt (READY rows for the import helper
 - The trial worktrees /tmp/wt-so5 (the table, separator and page-end rules, measured, not shipped) and /tmp/wt-so5b.
 - The offline import workspaces under /tmp.
 - The untracked tools/importer/reports folders, which are earlier runs' generated reports.
+
+### Standing order 6 (2026-11-12 04:00 to 08:00 CET)
+
+No www or airline-host requests, nothing uploaded or previewed. The only R2 read was the drop's newest archive,
+lh-snapshots-108. Each push: whole-repo lint read 0 on a clean worktree of HEAD, stylelint on styles.css 0, the suites
+passed (site 896, lh-edge 71, failing 0), Build green.
+
+1. **Fleet pages (1455833; list reimport-so6-fleet-sections-lh-com.txt).** The 8 recorded fleet pages measured on our
+   live host after the so4 publish, % off www at 1440 / 390: 359 5.9 / 8.8, 320 11.8 / 9.1, 32n 11.3 / 9.8,
+   744 7.7 / 12.4, boeing787 8.8 / 12.7, 351 15.9 / 15.8, first-class-fleet 8.2 / 4.2, seat-maps 7.8 / 7.2.
+   Two causes are shared by two pages each:
+   - **The title image before an outer column view.** Its 60 / 80 px and the view's own 20 / 40 px padding added up:
+     the first heading sat 40 px lower than www's on 359 and 744. styles.css now gives it 40 px there (lufthansa.com
+     only; 42 published documents have the shape). Measured on the live host after the push: 359 3.7 / 7.6,
+     744 5.0 / 11.4. No re-import needed.
+   - **A padded AEM section followed by an unpadded one** stayed one section, so its padding came after both
+     ("The quietest cabin" 62 px high on 32n). For fleet pages the unpadded one now starts a section of its own.
+     Drafts on our host: 320 8.8 / 7.8, 32n 9.8 / 9.1. Of the 32 fleet pages with snapshots, only the 320 and 32n
+     pages change; the rest import byte for byte as before.
+     - 4 READY: de/en and de/de, 320 and 32n.
+     - 26 HOLD: at/de and gb/en have snapshots older than the published documents; the xx language versions have
+       their snapshots only in the helper's so4 archive; xx/ja stays as DA has it.
+
+   Not shared: 351 (no seat map) and boeing787 (small steps through the page).
+2. **Info-page switch: no rule shipped. 12-page totals unchanged at 63.1 / 80.2 (today 66.7 / 75.6).** Measured
+   again on HEAD: today, and the switched base (HEAD's collapse with the theme live). The six page-widths one by one:
+   - **tiere-als-uebergepaeck at 1440 and fia-valet-service at 390:** a view's last table loses www's 40 px under it.
+     The table rule fixes both (tiere 9.5 -> 8.3, today 8.1; fia 5.5 -> 3.8, today 3.4), and the totals go to
+     62.2 / 78.1. Not shipped: it makes fia at 1440 +0.8 and rail-and-fly at 1440 +0.6 worse. On both, the table's
+     40 px is right where it acts (rail-and-fly at "conditions of use" goes from 33 px off www to 7). The pages then end
+     too long, because the switched page keeps a 48 px section gap under its last view.
+   - **digital-baggage-services at 390:** exactly that gap under the last view. The end rule brings it to today's
+     5.3. Not shipped: even with column-spaced carried through as `spaced` (24 px), express-rail, first-class-lounges,
+     admission-rules and sports-baggage get worse by 1.0 to 1.3 at 1440. Their 48 px was making up for space missing
+     higher up.
+   - **unaccompanied-minors at 390:** the block headings marked {heading-small} come out as their level's default, by
+     the one-step rule ("collapse minor differences"). Two H2s in the first Columns Media wrap to more lines, +83 px.
+     No fix by the rule.
+   - **green-fare at 390:** the switched page draws its band as www does (34 px above, 36 below; today 82 / 80). The
+     page is short further down (the table region and one heading split into two lines instead of www's three), the
+     same as today, where the two 48 px gaps had made up for it. No switch-specific cause.
+   - **lufthansa-express-rail at 1440:** a trailing small-print paragraph split off into a view of its own (+64 px), the
+     theme's 32 px heading gap, and the coarser spacers (25 px -> none, 40 -> 60).
+     - Joining the split small print back into its view made express-rail +2.0 and unaccompanied, sports and tiere
+       worse. On www the gap there is larger than today's, so the split is closer to www.
+     - Left as it is.
+3. **Legal HOLD rows (b736122).** lh-snapshots-108 landed at 03:03 UTC. Its sha256 matches its manifest.
+   - cookie-policy (de/en) and data-collection-usa (de/en, gb/en): imported offline, each one's text reads as the
+     published document's, and the column marks come in. Now READY in reimport-so5-legal-column-marks-lh-com.txt
+     (70 READY): import from the archive's folder, not tools/importer/bd-snapshots (older copies there).
+   - The two German datenerfassung-fuer-die-usa documents: www answers 404 (the archive's manifest), so they stay HOLD
+     as DA has them.
+
+Left out of git: logs/b598 (runners, captures, comparison tables), the /tmp worktrees (wt-so6: the table, end-gap,
+spaced and small-print trials, measured, not shipped), the offline import workspaces and the R2 archives under /tmp/r2.
