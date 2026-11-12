@@ -1296,6 +1296,37 @@ body.brand-austrian main > .section:not(.space-s, .space-m, .space-l, .space-xl)
   }
 }
 
+/* a tab panel of text and a picture (Austrian row 55, standing order 16; travel-id's "Website", "Chat assistant", "App",
+   "FlyNet"): from 1025 px www's two-column view, the text 622 px wide on the left, the picture beside it, both from the
+   top, the heading heading-small (austrian-parity-015 travel-id at 1440; ours had the picture full width under the
+   text). Phones as before */
+@media (width >= 1025px) {
+  body.brand-austrian main > .section.section-tab-panel > .default-content-wrapper:has(> p:last-child > picture:only-child) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+    align-items: start;
+  }
+
+  body.brand-austrian main > .section.section-tab-panel > .default-content-wrapper:has(> p:last-child > picture:only-child) > * {
+    grid-column: 1;
+  }
+
+  body.brand-austrian main > .section.section-tab-panel > .default-content-wrapper:has(> p:last-child > picture:only-child) > p:last-child {
+    grid-column: 2;
+    grid-row: 1 / span 20;
+    margin: 0;
+  }
+
+  body.brand-austrian main > .section.section-tab-panel > .default-content-wrapper:has(> p:last-child > picture:only-child) > h3:first-child {
+    margin-bottom: 36px;
+    font-family: var(--heading-font-family);
+    font-size: 28px;
+    font-weight: var(--heading-light-weight);
+    line-height: 1.1;
+  }
+}
+
 /* "This may also interest you" (a divider section: its heading, then a card carousel; Austrian rows 52 and 53, standing
    order 15): www's heading heading-small, 28 / 30.8 px with 36 px under it from 1025 px, 22 / 24.2 with 24 on phones
    (entryregulations, sustainable-flying, doctor-on-board; the homepages' "Discover Austrian" stays heading-medium); the
