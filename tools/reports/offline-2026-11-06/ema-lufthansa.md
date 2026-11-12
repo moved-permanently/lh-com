@@ -3878,3 +3878,14 @@ the band's variant, the market paragraph all kept). Rendered locally as it/en wi
 reimport-589-ita-fleet-tabs.txt READY with the command and the expected change. Long-haul at 1440 is still tall: DA keeps
 the A350 and A330neo tables (two market variants each) and their seat maps in separate sections, so row 34's side by
 side does not reach them (next: ITA row 38, a layout change).
+
+8c8844ac item 1 (the delta tool, the data, both rows READY): npm run lint 0 before and after the rebase, 3807 pass 0
+fail, Build success, smoke 0 differences on 14 hosts. ITA row 38: scripts/section-tabs.js, on ITA, a panel part that is
+only one picture joins the table-only section before it, so row 34's two columns reach DA's split sections
+(test/ita-tab-seat-maps-590.test.mjs): long-haul with the delta 5337 -> 3398 at 1440 (www 3526), 390 4931 (4919);
+the 39 recorded ITA pages with local code: none changes. The ship script now runs both lints again after a retry
+rebase too (the slip of f7ecc06f).
+Its first ship (13:25 UTC) stopped after the suite (3822 pass, 0 fail): main had moved, and putting the working tree
+back after the rebase met ema-test's new lines in rows-for-ema-test.md (row 5 done: the collapse keeps Brussels' spacers
+before a heading; reimport-589-brussels-heading-spacers.txt 9 READY, 2 HOLD by ema-test) beside my uncommitted row 6;
+nothing committed or pushed, both kept, run again.

@@ -196,12 +196,41 @@ function buildSet(groups) {
 }
 
 /**
+ * ITA's fleet pages (ITA rows 34 and 38): www puts an aircraft's specifications table and its seat
+ * map side by side (col-md-6); DA keeps them in two sections of one panel where the table has
+ * market variants. A part that is only one picture paragraph joins the section before it when that
+ * one is only a table (the same panel; the part without a style of its own), so ita.css lays them
+ * out as one section's two columns.
+ * @param {Element[][]} panels a set's panels, each [panel, ...parts]
+ */
+function joinSeatMaps(panels) {
+  const only = (section, selector) => section.children.length === 1
+    && section.firstElementChild.matches(selector);
+  panels.forEach((sections) => {
+    for (let i = sections.length - 1; i > 0; i -= 1) {
+      const map = sections[i];
+      const table = sections[i - 1];
+      const wrapper = map.firstElementChild;
+      const lone = wrapper && wrapper.children.length === 1 && wrapper.firstElementChild.matches('p')
+        && wrapper.firstElementChild.querySelectorAll('picture').length === 1 && !wrapper.textContent.trim();
+      if (table.nextElementSibling === map && map.classList.length === 1 && only(table, '.table-striped-wrapper')
+        && only(map, '.default-content-wrapper') && lone) {
+        table.append(wrapper);
+        map.remove();
+        sections.splice(i, 1);
+      }
+    }
+  });
+}
+
+/**
  * The page's tab sets (sections with `Tab` metadata), after decorateSections and decorateBlocks.
  * @param {Element} main
  */
 export default function decorateSectionTabs(main) {
   const sets = setsOf(main);
   if (!sets.length) return;
+  if (getMetadata('brand').trim().toLowerCase() === 'ita') sets.forEach(joinSeatMaps);
   sets.forEach(buildSet);
   loadCSS(`${window.hlx?.codeBasePath || ''}/styles/section-tabs.css`);
 }
