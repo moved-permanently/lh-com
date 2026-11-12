@@ -21,6 +21,7 @@ import {
   brandEntry, getLocale, rootRedirectPath, htmlLangOf,
 } from './locale.js';
 import { marketAllows } from './market-rules.js';
+import { restoreIconTokenText } from './icon-token-text.js';
 import {
   HEADING_STYLE, PARAGRAPH_STYLE, LIST_STYLE, SEPARATOR, BLANK_LINE,
 } from './style-markers.js';
@@ -347,6 +348,7 @@ export function decorateMain(main) {
   // no consent tool on the site (a brand without OneTrust: Cargo, Air Dolomiti): no "Change
   // privacy settings" links, they would open nothing
   hidePrivacySettings(main);
+  restoreIconTokenText(main);
   restoreAppConfigText(main);
   decorateIcons(main);
   decorateTextStyles(main);
