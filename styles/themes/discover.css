@@ -581,6 +581,24 @@ body.brand-discover .table-striped tbody td > p:last-child {
   }
 }
 
+/* pictures in an accordion panel sit in www's column view (families' "Baggage regulations for
+   children": 93 px under the text's last line at 1440, 76 to the next item's rule; at 390 the
+   stacked pictures 46 px apart, 73 under the text, 57 over the next item; ours 54 / 21 and 24):
+   the panel's picture grid with that spacing (standing order 10) */
+body.brand-discover .accordion-columns .accordion-columns-grid {
+  row-gap: 46px;
+  margin-top: 55px;
+  margin-bottom: 36px;
+}
+
+@media (width >= 768px) {
+  body.brand-discover .accordion-columns .accordion-columns-grid {
+    row-gap: 32px;
+    margin-top: 75px;
+    margin-bottom: 55px;
+  }
+}
+
 /* brief 394: columns-media option side-picture, www's column view nested in a column (Customer
    service: the WhatsApp text beside its QR code under the column's heading): a text cell ending in a
    picture puts it beside the text from 768 px, below it on phones */
