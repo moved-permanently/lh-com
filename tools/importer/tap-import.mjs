@@ -89,15 +89,26 @@ const plainOf = (v) => (v && typeof v === 'object' ? v.plaintext : v) || '';
 
 /** The texts in the page's language (pt-pt: pt, en-pt: en). */
 const LABELS = {
-  pt: { onWww: 'Ver em flytap.com', video: 'Ver o vídeo', book: 'Pesquisar voos em flytap.com' },
-  en: { onWww: 'See on flytap.com', video: 'Watch the video', book: 'Search flights on flytap.com' },
-  es: { onWww: 'Ver en flytap.com', video: 'Ver el vídeo', book: 'Buscar vuelos en flytap.com' },
-  fr: { onWww: 'Voir sur flytap.com', video: 'Regarder la vidéo', book: 'Rechercher des vols sur flytap.com' },
-  de: { onWww: 'Auf flytap.com ansehen', video: 'Video ansehen', book: 'Flüge auf flytap.com suchen' },
-  it: { onWww: 'Vedi su flytap.com', video: 'Guarda il video', book: 'Cerca voli su flytap.com' },
-  pl: { onWww: 'Zobacz na flytap.com', video: 'Obejrzyj wideo', book: 'Szukaj lotów na flytap.com' },
+  pt: { onWww: 'Ver em flytap.com', video: 'Ver o vídeo', book: 'Pesquisar voos em flytap.com', track: 'Pesquisar em flytap.com' },
+  en: { onWww: 'See on flytap.com', video: 'Watch the video', book: 'Search flights on flytap.com', track: 'Search on flytap.com' },
+  es: { onWww: 'Ver en flytap.com', video: 'Ver el vídeo', book: 'Buscar vuelos en flytap.com', track: 'Buscar en flytap.com' },
+  fr: { onWww: 'Voir sur flytap.com', video: 'Regarder la vidéo', book: 'Rechercher des vols sur flytap.com', track: 'Rechercher sur flytap.com' },
+  de: { onWww: 'Auf flytap.com ansehen', video: 'Video ansehen', book: 'Flüge auf flytap.com suchen', track: 'Auf flytap.com suchen' },
+  it: { onWww: 'Vedi su flytap.com', video: 'Guarda il video', book: 'Cerca voli su flytap.com', track: 'Cerca su flytap.com' },
+  pl: { onWww: 'Zobacz na flytap.com', video: 'Obejrzyj wideo', book: 'Szukaj lotów na flytap.com', track: 'Wyszukaj na flytap.com' },
 };
 const labelsOf = (lang) => LABELS[lang] || LABELS.en;
+/** www's baggage tracker's line under its title (TAP row 145), by root, else by language (the roots' snapshots) */
+const TRACKER_TEXT = {
+  'pt-br': 'Verifique se sua bagagem foi embarcada em seu voo usando a etiqueta de bagagem.',
+  pt: 'Verifique se a sua bagagem foi carregada no seu voo, usando o número da etiqueta de bagagem.',
+  en: 'Check if your baggage has been loaded on your flight by using the baggage tag.',
+  es: 'Compruebe si su equipaje ha sido cargado en su vuelo utilizando la etiqueta de equipaje.',
+  fr: 'Vérifiez que vos bagages ont été transportés sur votre vol à l\'aide de l\'étiquette de bagage.',
+  de: 'Überprüfen Sie, ob Ihr Gepäck auf Ihren Flug geladen wurde, indem Sie den Gepäckaufkleber verwenden.',
+  it: 'Controlli se il suo bagaglio è stato caricato sul suo volo utilizzando l\'etichetta del bagaglio.',
+  pl: 'Sprawdź, czy Twój bagaż został załadowany na pokład samolotu, korzystając z etykiety bagażowej.',
+};
 /** Page templates out of scope: no document (their links go to www). */
 const OUT_TEMPLATES = {
   register: 'register: the TAP Miles&Go sign-up form (a form, out of scope)',
@@ -995,7 +1006,15 @@ const HANDLERS = {
     });
   },
   ComponentMiles_GoCardModel: (s, P) => HANDLERS.ComponentMiles_GoCardListModel({ milesAndGoCards: [s] }, P),
-  ComponentTrackBagaggeModel: (s, P) => { P.add(P.heading(2, s.title)); P.onWww('TrackBagagge (the baggage tracking form)'); },
+  ComponentTrackBagaggeModel: (s, P) => {
+    // www's baggage tracker (TAP row 145): a React form TAP's own service answers (flight date, airline code, flight
+    // number, baggage tag number; no action), which cannot work on our hosts. The title, then a link box (cards
+    // one-up, one card): www's line under the title and a button to the tracker on flytap.com, in the page's language
+    P.add(P.heading(2, s.title));
+    P.linkedOut.add(`TrackBagagge (the baggage tracking form, a link box): ${docPath(P.c.url)}`);
+    const text = TRACKER_TEXT[P.c.locale] || TRACKER_TEXT[P.c.lang] || TRACKER_TEXT.en;
+    P.block('cards (one-up)', [[`<p>${esc(text)}</p><p><strong><a href="${attr(`${WWW}${docPath(P.c.url)}`)}">${esc(labelsOf(P.c.lang).track)}</a></strong></p>`]]);
+  },
   // the destinations map (mapa-destinos): the poi-map block on ema-test's sheet of the language
   // version (/<version>/destinations/destinations-map.json in every version; a root's document
   // its version's), before it Smartvel's grid of the same widget (Explore&Go) as ema-test's
