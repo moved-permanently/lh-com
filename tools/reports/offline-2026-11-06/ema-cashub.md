@@ -3156,3 +3156,65 @@ unscrolled recording, row 127).
 ignored), my worktree's scratch imports (gitignored), wt-old (ignored).
 
 No upload, preview or publish. da-upload.mjs was not called; no DA or preview API call from tests.
+
+## Standing order 11 (2026-11-11, from about 22:00 CET)
+
+Start state: nothing of mine uncommitted or unpushed (`cacc364a`). Builds once Actions was back: `cacc364a` success;
+`6c87f34c` and `7fe0337b` have no check run at all (queued in the outage and dropped; `cacc364a`'s tree holds both).
+Archives from the drop only (tap-parity-007 to -009, sha256 checked); www's styles read from offline renders of the
+recordings (the archive served under a made-up host, every other request aborted); nothing fetched from TAP's or any
+airline host; DA read with GET only, before this order.
+
+- **The two held rows (`4b68ad42`):** both are www's own changes, so READY with the full change. /pt-pt/promos: the
+  Stopover card a section each for ca / us as www pt-ca / pt-us show it, the Natal card off for es ("Reserve já" is the
+  kept card's button), two Alternate rows from www's hrefLangs. /es-us/promos: www swapped the card's picture itself.
+  The import helper has uploaded both since (so10-tap-market-groups-02).
+- **Row 139's 21 HOLD rows (`5b71be12`, recordings tap-parity-007):** 12 READY (8 lounges, 4 donating miles; uploaded
+  since, so10-tap-heading-section-02), 9 HOLD. Measured again tonight with main's code: the 8 Schengen documents are
+  right where the change acts (heading to step cards 135 px as www, 183 before, twice), but the page is still 1.12
+  points worse in total because the old surplus hid two shortfalls the change does not touch (this commit and
+  `c322bec8`); pt-br credit cards through tap-markets.mjs 1440 +3.46 -> +2.45 %, 390 -0.33 -> -1.00 %: HOLD.
+- **The four ranking pages (`89a96fc9`, tap-parity-008):** Economy Prime +0.18 / +0.83 %, help -0.90 / -1.01, TAP
+  fares +0.49 / +1.62, locate baggage -27.3 / -25.2 (row 145: www's tracker form, which the importer notes and does not
+  write).
+- **Lists on the way** (each uploaded by the helper since): `d926e01a` / `8d016afd` 14 READY (options, 6 of them
+  through tap-markets.mjs); `f2d71529` it-it's inspiration page, 120 READY, and 8 pt-br banners; `b036d8fa` /
+  `1604b8a3` stopover partners, 8 READY.
+- **tap-parity-009 (recorded 22:38 UTC), four fixes in code, no document change:**
+
+| row | commit | what | www / before / now (1440, 390) |
+|---|---|---|---|
+| 147 | `074e9b60` | a stopover region's subcategories beside their partners (row 137's picker) | en-pt partners 2,903 / 3,564; 25,426 / 31,895 published; 2,866 / 3,531 |
+| 146 | `53e4e78c`, `2e58f50e` | rich-text tables as www's cards per column from 1024 px, accordions per column below | fees 4,553 / 4,703; 5,466 / 7,934; 4,515 / 4,547 |
+| | | | hold baggage 4,936 / 6,445; 5,203 / 6,980; 4,844 / 6,312 |
+| | | | wheelchair 3,555 / 4,946; 3,643 / 5,367; 3,549 / 5,004 |
+| | | | by flying 2,791 / 3,838; 3,000 / 4,092; 2,831 / 3,785 |
+| | | | lounges 5,152 / 6,700; 5,397 / 7,410; 5,185 / 6,639 |
+| 148 | `bf8f58b2` | TAP's category sets keep their pills on phones, the first category shown | get-inspired 390 4,957; 5,048; 4,996 |
+| 149 | `c322bec8` | a content heading at most 790 px wide, as www's heading sections | hold baggage 1440 +38 px, Schengen +38; ten other pages unchanged |
+
+### Final section (about 02:40 CET, 2026-11-12)
+
+**Commits** (pushed; whole-repo lint exit 0 and stylelint on the theme files before each push; the tests of each change
+before it and the full suite at the end: 3,703 tests, 0 fail, 5 skipped; the 14 hosts smoked before and after each code
+push: 0 differences but search-index hashes on lufthansa / b2b, content indexes of others' publishes, and two socket
+drops, re-run clean): `4b68ad42`, `5b71be12`, `89a96fc9`, `d926e01a`, `f2d71529`, `b036d8fa`, `8d016afd`, `074e9b60`,
+`1604b8a3`, `53e4e78c`, `bf8f58b2`, `c322bec8`, `2e58f50e`, and this one. Builds: every one of them success but this one,
+which I read after the push.
+
+**The ranking at 02:00 CET** (every recorded TAP page against main's code, published documents): all within 3.5 % of www
+but for the decided rows (en-pt baggage's LUGGit frame, row 41, -18.5 / -11.0 %; en-pt's unscrolled recording, row
+127; the baggage tracker, row 145). The largest others: pt-br credit cards 1440 +3.46 % (HOLD above), fees 390 -3.32,
+Economy class pt-pt 1440 +2.85, wheelchair 390 +1.17.
+
+**Rows left:** 149's other half (a heading's description is 790 px wide on www too; the documents mark it only where the
+heading's section ends after it), the 9 HOLD rows of 139, 143.
+
+**The main checkout** is at `2e58f50e` (reset --mixed and the 83 moved files checked out; the 87 others' uncommitted
+files unchanged, checked by status and md5).
+
+**Not in git:** the drop archives, DA's copies, scratch runs, drafts, smoke runs and scripts (migration-work/parity-588/so10
+and so11, ignored), my worktree's scratch imports (gitignored), screenshots in /tmp.
+
+No upload, preview or publish by me. da-upload.mjs was not called; no DA or preview API call from tests.
+
