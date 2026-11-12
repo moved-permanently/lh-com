@@ -1177,8 +1177,12 @@ main > .section.grey.column-band {
 
 /* a column band before a column view: www stacks the views (the band, then the next view's 32px
    padding), no section gap between them (/de/de/lounges: "Lounge-News", then "Zugang zu unseren
-   Lounges" 64px under the band, ours 112; brief 540) */
-body.brand-lufthansa main > .section.grey.column-band:has(+ .section.column-view) {
+   Lounges" 64px under the band, ours 112; brief 540). Not a flush band (more of its AEM section
+   follows, the view after it is that section's): www keeps the section gap there (/de/en/rail-and-fly,
+   lh-parity-002b: "Book Rail&Fly" 130px of ink under the band at 1440, ours 38 without the gap;
+   standing order 5). No published document has a flush band before a view section (census of the
+   6,826 documents: 8 bands in 4 documents, none flush) */
+body.brand-lufthansa main > .section.grey.column-band:not(.flush):has(+ .section.column-view) {
   margin-bottom: 0;
 }
 

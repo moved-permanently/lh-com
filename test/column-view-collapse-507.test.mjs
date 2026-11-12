@@ -49,9 +49,11 @@ test('the separators right before a group open its section; two groups and a nes
   const sep = checked('<div><p>Intro</p><p>{divider-25}</p><h2>A {column-start}</h2><p>T {column-end}</p></div>');
   assert.deepEqual(sections(sep.html), ['Intro', 'AT [column-view, divider]']);
   const two = checked('<div><h2>A {column-start}</h2><p>x {column-start}</p><p>y {column-end}</p><p>a {column-end}</p><h2>B {column-start}</h2><p>b {column-end}</p><div class="section-metadata"><div><div>Style</div><div>grey</div></div></div></div>');
-  assert.deepEqual(sections(two.html), ['Axya [grey, column-view, flush]', 'Bb [grey, column-view]']);
-  assert.equal(two.stats.carrier.column, 4, 'the outer marks; the nested ones are the theme\'s');
-  assert.equal(two.stats.theme.column, 2);
+  // since standing order 5 (2026-11-12): the nested view and the outer view's parts around it are views of their own
+  // (test/nested-column-views-so5.test.mjs)
+  assert.deepEqual(sections(two.html), ['A [grey, column-view, flush]', 'xy [grey, column-view, flush]', 'a [grey, column-view, flush]', 'Bb [grey, column-view]']);
+  assert.equal(two.stats.carrier.column, 6, 'every mark a view\'s edge');
+  assert.equal(two.stats.theme.column || 0, 0);
 });
 
 test('a re-imported hub section (column-view already) is left as it is; a group across a section break or in a block keeps no carrier', () => {

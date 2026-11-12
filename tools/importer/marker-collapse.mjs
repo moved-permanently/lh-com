@@ -872,17 +872,30 @@ function columnViewSections(main, doc, marks, carrier) {
     const groups = [];
     let depth = 0;
     let cur = null;
-    own.forEach((el) => {
+    // a view inside a view (www's .column-view in a .column-view, standing order 5): the outer view's part before the
+    // inner one, the inner one and the outer's rest each a group of their own (each its view's padding); a part of
+    // nothing but mark paragraphs (two starts in a row) is no group
+    const blank = (a, b) => own.slice(own.indexOf(a), own.indexOf(b) + 1).every((x) => (x.tagName === 'P' && isEmptyP(x)) || isSepP(x));
+    let outerOf = false;
+    own.forEach((el, i) => {
       tokensOf(el).filter((t) => /^column-(start|end)/.test(t)).forEach((t) => {
         if (t.startsWith('column-start')) {
-          if (depth === 0) cur = { first: el, outer: t === 'column-start-outer' };
+          if (depth === 0) { outerOf = t === 'column-start-outer'; cur = { first: el, outer: outerOf }; }
+          else if (cur && i > 0 && cur.first !== el && !blank(cur.first, own[i - 1])) {
+            cur.last = own[i - 1]; groups.push(cur); cur = { first: el, outer: false };
+          }
           depth += 1;
         } else if (depth > 0) {
           depth -= 1;
           if (depth === 0 && cur) { cur.last = el; groups.push(cur); cur = null; }
+          else if (cur && own[i + 1]) { cur.last = el; groups.push(cur); cur = { first: own[i + 1], outer: outerOf }; }
         }
       });
     });
+    // parts of nothing but mark paragraphs: into the group before them
+    for (let i = groups.length - 1; i > 0; i -= 1) {
+      if (groups[i].first && groups[i].last && blank(groups[i].first, groups[i].last)) { groups[i - 1].last = groups[i].last; groups.splice(i, 1); }
+    }
     // an element that ends one group and starts the next belongs to the first
     groups.forEach((g, i) => { if (i && groups[i - 1].last === g.first) g.first = g.first.nextElementSibling; });
     [...groups].reverse().forEach((g) => {
