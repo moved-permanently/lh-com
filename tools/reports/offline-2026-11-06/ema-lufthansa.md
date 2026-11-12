@@ -3998,3 +3998,11 @@ push refused twice), the suite 3862 / 0 before and 3875 / 0 after the rebase, Bu
   reimport-591-ita-strollers-open.txt READY; its test written after the tool, the only one this order), and the item's
   tables as www's four-column view (ita.css: two a row from 768 px, all in one row from 992 px). With both: 1440
   3077 -> 4000 (www 4446), 390 4297 -> 6187 (7882). The 39 recorded ITA pages as served: unchanged.
+
+6fb9072e the strollers: lint 0 before and after the rebase and after the retry rebase, the suite 3884 / 0 and 3891 / 0
+after the rebase, Build success, smoke 0 differences.
+- **support/utilities/contact (-7.8 / -10.0 %):** its 26 country headings are www's heading-medium; the collapse leaves
+  them unmarked, row 31 makes them 28 px (rows-for-ema-test.md row 6 for the import). DA's copy holds the column view
+  twice (market variants, 52 H2s): a delta, tools/importer/ita-heading-marks-apply.mjs, " {heading-medium}" on each H2
+  in the two columns-media blocks (test first); reimport-591-ita-contact-headings.txt READY: 1440 3199 -> 3287 (www
+  3470), 390 6949 -> 7134 (7723). No code change.
