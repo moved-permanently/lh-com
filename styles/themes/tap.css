@@ -2915,8 +2915,9 @@ body.brand-tap main > .section:not(.hidden-heading) .default-content-wrapper > p
 /* the text cards with a picture (row 31: cards-teaser cards with text, miles-and-go's
    advantages, stopover's advantages and reasons): a card 16 px inside its column, 16 px corners,
    www's shadow, the picture on top (326 x 183), the title GT Flexa 24 / 28.8 500, the link an
-   outline pill with a chevron (42 px, Inter 15 / 500) */
-body.brand-tap .cards-teaser > ul > li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) {
+   outline pill with a chevron (42 px, Inter 15 / 500). A card of a title and its link alone too (TAP row 156: hold
+   baggage's and voar-economica's "Find out more" cards, www's same teaser card): any paragraph, at the old weight */
+body.brand-tap .cards-teaser > ul > li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) {
   margin: 16px;
   padding: 0;
   overflow: hidden;
@@ -2932,39 +2933,39 @@ body.brand-tap .cards-teaser:not(.three-up, .four-up, .phone-slider) > ul:has(> 
   row-gap: 24px;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-image {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-image {
   margin: 0;
   aspect-ratio: 326 / 183;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-image :is(picture, img) {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-image :is(picture, img) {
   height: 100%;
   object-fit: cover;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-body {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-body {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
   padding: 24px;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-body > * {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-body > * {
   margin-bottom: 8px;
 }
 
 /* a one-up card's text 40 px above its foot (www's 133 px Wi-Fi package at 1440, row 98) */
-body.brand-tap .cards-teaser.one-up li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-body {
+body.brand-tap .cards-teaser.one-up li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-body {
   padding-bottom: 40px;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-title {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-title {
   font-size: 24px;
   font-weight: 500;
   line-height: 1.2;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-cta {
   margin: auto 0 0;
   padding-top: 16px;
 }
@@ -2972,19 +2973,19 @@ body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-c
 /* (not one-up, row 98's) www's rich text without gaps between its paragraphs (its empty ones,
    24 px lines on www, the pipeline drops), 24 px to the button row, 48 px under the text of a card
    without a button (www's empty button row, pb-6; hand baggage's cards, brief 388) */
-body.brand-tap .cards-teaser:not(.one-up) li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-body > p:not(.cards-teaser-cta) {
+body.brand-tap .cards-teaser:not(.one-up) li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-body > p:not(.cards-teaser-cta) {
   margin-bottom: 0;
 }
 
-body.brand-tap .cards-teaser:not(.one-up) li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta {
+body.brand-tap .cards-teaser:not(.one-up) li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-cta {
   padding-top: 24px;
 }
 
-body.brand-tap .cards-teaser:not(.one-up) li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)):not(:has(.cards-teaser-cta)) .cards-teaser-body {
+body.brand-tap .cards-teaser:not(.one-up) li:has(> .cards-teaser-body > p:not(.cards-teaser-title)):not(:has(.cards-teaser-cta)) .cards-teaser-body {
   padding-bottom: 48px;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta-link:any-link {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-cta-link:any-link {
   box-sizing: border-box;
   align-items: center;
   gap: 8px;
@@ -2999,16 +3000,16 @@ body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-c
   text-decoration: none;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta-link:hover {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-cta-link:hover {
   background-color: #f5fff0;
   color: #424045;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta-link::before {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-cta-link::before {
   content: none;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta-link::after {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-cta-link::after {
   content: "";
   flex: none;
   width: 16px;
@@ -3996,7 +3997,7 @@ body.brand-tap .cards-teaser-tap-slider :is(.cards-teaser-prev, .cards-teaser-ne
   }
 
   /* a text card 16 px inside its column (row 31): it snaps with its column, the first at 0 */
-  body.brand-tap .cards-teaser-tap-slider > ul > li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) {
+  body.brand-tap .cards-teaser-tap-slider > ul > li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) {
     scroll-margin-inline: 16px;
   }
 
