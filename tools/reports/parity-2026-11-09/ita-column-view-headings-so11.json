@@ -1,0 +1,116 @@
+[
+ {
+  "path": "/it/en/book-and-prepare/travel-information/check-in-information/online-check-in",
+  "level": 2,
+  "text": "Choose Your Favorite Seat in All Travel Classes",
+  "size": "heading-medium"
+ },
+ {
+  "path": "/it/it/book-and-prepare/travel-information/check-in-information/online-check-in",
+  "level": 2,
+  "text": "Scegli il posto che preferisci in tutte le classi di viaggio",
+  "size": "heading-medium"
+ },
+ {
+  "path": "/it/en/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "level": 2,
+  "text": "Traveling with guide dogs and service dogs",
+  "size": "heading-small"
+ },
+ {
+  "path": "/it/en/book-and-prepare/travel-information/at-the-airport/lounges/fantasia-lounge",
+  "level": 2,
+  "text": "Traveling Alone: Services for Unaccompanied Minors",
+  "size": "heading-medium"
+ },
+ {
+  "path": "/it/en/book-and-prepare/travel-information/baggage/checked-baggage",
+  "level": 2,
+  "text": "Baggage Assistance",
+  "size": "heading-medium"
+ },
+ {
+  "path": "/it/en/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "level": 3,
+  "text": "01",
+  "size": "heading-medium"
+ },
+ {
+  "path": "/it/en/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "level": 3,
+  "text": "02",
+  "size": "heading-medium"
+ },
+ {
+  "path": "/it/en/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "level": 3,
+  "text": "03",
+  "size": "heading-medium"
+ },
+ {
+  "path": "/it/en/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "level": 2,
+  "text": "European countries that use the Entry/Exit System",
+  "size": "heading-medium"
+ },
+ {
+  "path": "/it/en/manage-my-bookings/extra-services/seats-selection/seats-selection-economy",
+  "level": 2,
+  "text": "Legroom Seat",
+  "size": "heading-small"
+ },
+ {
+  "path": "/it/en/world-of-ita-airways/discover-ita-airways/fleet/short-haul",
+  "level": 2,
+  "text": "Choose your favorite seat in all travel classes",
+  "size": "heading-small"
+ },
+ {
+  "path": "/it/en/world-of-ita-airways/discover-ita-airways/ita-airways-app",
+  "level": 2,
+  "text": "Seamlessly connected – with your personal Travel ID",
+  "size": "heading-medium"
+ },
+ {
+  "path": "/it/en/world-of-ita-airways/discover-ita-airways/ita-airways-app",
+  "level": 3,
+  "text": "Mobile check-in",
+  "size": "heading-small"
+ },
+ {
+  "path": "/it/en/world-of-ita-airways/discover-ita-airways/ita-airways-app",
+  "level": 3,
+  "text": "Keeping an eye on your baggage",
+  "size": "heading-small"
+ },
+ {
+  "path": "/it/en/world-of-ita-airways/discover-ita-airways/ita-airways-app",
+  "level": 3,
+  "text": "Faster through security",
+  "size": "heading-small"
+ },
+ {
+  "path": "/it/en/world-of-ita-airways/discover-ita-airways/ita-airways-app",
+  "level": 3,
+  "text": "Check the availability of Wi-Fi and in-flight entertainment",
+  "size": "heading-small"
+ },
+ {
+  "path": "/it/en/world-of-ita-airways/discover-ita-airways/ita-airways-app",
+  "level": 3,
+  "text": "Get information about transfers",
+  "size": "heading-small"
+ },
+ {
+  "path": "/it/en/world-of-ita-airways/discover-ita-airways/ita-airways-app",
+  "level": 2,
+  "text": "Plan your next trip",
+  "size": "heading-small"
+ },
+ {
+  "path": "/it/en/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "level": 2,
+  "text": "Airbus A321neo",
+  "size": "heading-medium"
+ }
+]
