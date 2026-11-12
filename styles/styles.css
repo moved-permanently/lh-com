@@ -2303,3 +2303,13 @@ body.brand-lufthansa main > .section.grey.flush:has(+ .section.padded) {
     margin-bottom: var(--spacing-default);
   }
 }
+
+/* a page that ends with its call to action and www's closing separator (the confirmation pages'
+   "To homepage" button or link alone in its paragraph, then {spacer-70}): the separator is the space to the footer, not our
+   section gap on top (/de/en/support/contact/contact-form-confirmation: the footer 48px lower than
+   www's). 8 recorded pages, 10.7 -> 1.0 to 4.4 % off www; after a block or a text paragraph the
+   gap stays (measured worse there); standing order 8 */
+/* stylelint-disable-next-line no-descending-specificity -- a page end after a call to action, not a column end */
+body.brand-lufthansa main > .section:not(.grey):is(:last-child, :has(+ .section.subpage-nav-container:last-child), :not(:has(~ .section:not(:empty)))):has(> .default-content-wrapper:last-child > :is(p.button-wrapper, p.link-wrapper) + p.spacer:last-child) {
+  margin-bottom: 0;
+}
