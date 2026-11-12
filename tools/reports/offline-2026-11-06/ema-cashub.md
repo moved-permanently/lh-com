@@ -3451,3 +3451,73 @@ the half-made worktree folder migration-work/parity-588/wt-push of a timed-out c
 
 No upload, preview or publish by me. da-upload.mjs was not called; no DA or preview API call from tests. Read-only GETs
 of our hosts only.
+
+
+## Standing order 15 (2026-11-12, from about 13:00 CET)
+
+Start state: nothing of mine uncommitted or unpushed in git (order 14 ended at `98538579`); outside git, as reported:
+the three held patches with the click-to-call test (finished, held for your decision: item 1 here) and order 14's
+scratch. The main checkout fast-forwarded (one commit; the 87 other jobs' files unchanged). Recordings from the drop
+only; our hosts only (every render refuses www.* and the airline hosts and counts them: 0 on TAP, 0 to 23 a page on
+Austrian, never sent); offline renders abort every request but their own archive's. No DA, no preview API, no upload.
+
+- **Item 1, rows 154, 155 and 157 (`b59279a0`), your decision.** Applied as measured, with a test for 154 / 155
+  (test/tap-text-rhythm-154.test.mjs, red first) and 157's (test/tap-click-to-call-hours-so14.test.mjs). Row 155 is
+  row 34's own last-section rule changed from 48 to 64 px (no second rule over it). The 46 tests that read tap.css or
+  the click-to-call files pass. The 50 recorded page widths, main against main with the three rows: 25 closer, 17
+  further, the sum of deviations 115.6 -> 112.2 %; voar-economica 1440 +2.08 -> -0.08 %, fees 1440 -0.83 -> +0.22;
+  lounges 1440 +0.64 -> -1.53, 390 -0.37 -> -1.57 (the two transient weather notices, not added). The three rows are
+  marked done in the parity table with these numbers. Our host serves them.
+- **Item 2, TAP's ranking.** The drift listing again (50 widths, live code), grouped by the blocks in each stretch
+  that drifts: no shared cause left that is ours and clean. The phone sliders' +20 px a slider at 390 (navigator,
+  doação) sits inside the first card of row 143's tuned slider; the narrow banner's -16 at 390 (get-inspired,
+  inspire-se) comes with our own extra notice slide; the inspiration picker's +22 at 390 is two different states (www's
+  recording opened Germany's articles); the rich-text tables and three-up card lists drift both ways by page.
+- **Item 3, the Austrian ranking** (61 recorded pages, 122 widths; the homepages left out: their destination finder
+  shows its empty state because the probe refuses www's APIs, as in standing order 4):
+
+| row | commit | cause | the recorded widths with it (homepages aside) |
+|---|---|---|---|
+| 51 | `291b579c` | a column view's title (our Columns Media text column h3) is www's heading-small: Portada 700, 28 / 30.8 px with 36 under it from 1025 px, 22 / 24.2 with 24 on phones (18 recorded h3s on 9 pages); ours the default h3, CoreSans 500 18 / 19.8 | 10 closer, 2 further (travel-id 1440 +6.77 -> +7.30 %, too tall elsewhere); entryregulations 1440 -4.51 -> -3.97, doctor-on-board 390 -3.55 -> -2.80 |
+| 52, 53 | `517187a4` | "This may also interest you" (a divider section's heading over a card carousel) heading-small, the homepages' "Discover Austrian" heading-medium as before; on phones the slider's dots 67 px under the cards and 82 over what follows (ours 23 and 56) | 5 closer, 4 further by at most 0.11 points; doctor-on-board 390 -2.80 -> -1.60, travel-id 390 -4.16 -> -3.52, online-check-in 390 -2.19 -> -1.63 |
+| 54 | `88cc9d79` | a padded column view after a block or text starts lower on www (82 px on phones, 75 from 1025 px; ours the option's 32); not after a heading, not in a section with a separator style above | 7 closer, 1 further (travel-id 1440 +7.30 -> +8.05); bangkok-airways 1440 -11.84 -> -10.68, entryregulations 390 -3.44 -> -2.75, culinary-services 390 -2.43 -> -1.89 |
+
+  Each test first (red, then green), the tests that read austrian.css (36) or the parity table run before each push,
+  each measured on all 122 widths with its code before the push. A first version of row 54 without the separator
+  exception made austrian-app 1.41 points worse; narrowed before shipping. Left on Austrian: accessible-travel (one
+  page: its sections' headings 78 px apart on ours, 192 on www, a different structure), the Schengen page 1440
+  (+21 %, one page), healthy-travel 390 (+10.7 %, one page), travel-id 1440 (+8 %, one page); the homepages need www's
+  APIs to be measured.
+- **A red test on main from my push, 13:51 to 15:16 UTC:** row 53 (`517187a4`) put the phone slider's dots spacing in
+  austrian.css, and test/carousel-dots-374 holds that brand themes set dot tokens only (the dots are styled in the
+  carousel files). It builds the theme's path as `styles/themes/${theme}.css`, so my search of test/ for "austrian.css"
+  missed it. `55714cf3` moves the same rule (same selector) into blocks/carousel-cards/carousel-cards.css, rendered the
+  same (entryregulations 390: 7,037 px); the 227 tests that name austrian or carousel-cards pass. From now on I search
+  test/ for the file's stem and every class name a new rule uses, not only the file name.
+  ema-lufthansa saw the red suite as well and loosened the test six minutes later (`a110d97c`: a theme may place the
+  row of dots with margins, never style a dot; their row 2 in rows-for-ema-cashub.md). Both fixes stand together: the
+  rule now lives in the carousel's file, which either version of the test allows, and both tests pass.
+
+### Final section (about 16:55 CET, 2026-11-12)
+
+**Commits** (pushed; whole-repo lint exit 0, read, before each push and again after each rebase; stylelint on the
+changed theme and block CSS; each change's test red first; the tests that read each changed file before its push;
+each change measured with its code on all recorded widths of its site before the push): `b59279a0` (TAP rows 154,
+155, 157), `291b579c` (Austrian row 51), `517187a4` (Austrian rows 52, 53), `88cc9d79` (Austrian row 54), `55714cf3`
+(row 53's rule moved to the carousel's file, the red test above), and this one. Full suite on `88cc9d79`: 3,854 tests,
+3,848 pass, 1 fail (carousel-dots-374, fixed by `55714cf3`), 5 skipped; on `55714cf3`: 939 files, 3,858 tests, 3,853 pass, 0 fail, 5 skipped. Builds not read (no
+GitHub CLI in this session).
+
+**Lists:** none; no document change in this order.
+
+**Rows left:** TAP: no clean shared cause left in the recordings (above); lounges' transient notices (not added, your
+decision). Austrian: accessible-travel, the Schengen page at 1440, healthy-travel at 390, travel-id at 1440 (one page
+each); the homepages need www's APIs (their destination finder's empty state in my probes).
+
+**The main checkout** fast-forwarded to origin/main after this push; the 87 other jobs' files unchanged.
+
+**Not in git:** rankings, drift listings, scans, crops, the suite listings and scripts (migration-work/parity-588/so15,
+ignored; /tmp/so15); order 14's patches stay in so14 (applied now, kept as they were).
+
+No upload, preview or publish by me. da-upload.mjs was not called; no DA or preview API call from tests. Read-only GETs
+of our hosts only.
