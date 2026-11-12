@@ -2851,3 +2851,37 @@ SWISS Senses start-of-booking pages at 390 (27 to 36), businesstogo (29.6 to 30.
   768 px a heading right after a Columns Media in a tab panel starts 83 px down (b2b.css; www's exact spacing is 77,
   which measured 8.05 against 83's 6.65): de/en 1440 20.74 -> 6.65; on the recorded pages only these two documents
   have it; phones unchanged.
+
+## Standing order 5, final section (02:43 UTC, 2026-11-12)
+
+1. Empty-paragraph spacers: shipped (6926f76b). DA's copy plus the delta (tools/importer/text-spacers-apply.mjs, data
+   text-spacers-so5.json, sized from www's gap); the Brussels import writes empty paragraphs and empty lines between
+   text as spacers and the collapse keeps a small one between running text (Brussels only). Measured on every
+   recorded Brussels (146) and B2B (153) page-width and the two Austrian controls (identical before and after).
+   reimport-so5-brussels-text-spacers.txt: 3 READY, student-fares HOLD (1440 +2.36), 7 with nothing to apply;
+   reimport-so5-b2b-text-spacers.txt: nothing to apply (every B2B case is in a Columns Media cell or a dialog).
+2. B2B ranking, shared causes (our documents rendered locally against the recordings; gate: no page-width worse by
+   more than 0.5). Served (b2b.css, on main; Build success and smoke 12 hosts 0 differ after each push): the
+   hygiene-and-safety briefing grid (4 pages, 1440 52 -> 3.7 %); the phone tab inset (26 tab pages); no section space
+   before a tab set on phones (5 Allegris pages, 5 to 10 points); the mixed teaser grid three-up (ch/en
+   discover-airlines 1440 37.1 -> 15.5); a teaser grid right under a heading from 768 px (the airline pages, 24
+   page-widths 473 -> 158 summed); a heading after a Columns Media in a tab panel (meals-on-board de/en 1440 20.7 ->
+   6.7). Full pass with the code on main, all 153 B2B page-widths: mean 19.82 -> 15.95 %, 35 better, none worse; with
+   the lists' measured documents counted 14.99.
+   Lists for the harness (DA's copy plus the delta, the scripts named in their headers, any order; the code they rely
+   on is on main): reimport-so5-brussels-text-spacers.txt (3 READY), reimport-so5-b2b-tab-picture-columns.txt (16
+   READY, 4 HOLD), reimport-so5-b2b-seatmap-links.txt (3 READY, 1 HOLD), reimport-so5-b2b-view-spacers.txt (5 READY,
+   5 HOLD). Nothing uploaded, nothing previewed.
+   Measured and not shipped: the grid rule on phones (mixed), the hygiene grid's spacing on phones (de/en 15.9 -> 9.0,
+   de/de and xx/de +1.2), tab labels on one line from 768 px (meals-on-board +1.4). Left, with reasons in the updates
+   above: the celebrating hubs, lhg-history, later H1 sizes, route-network's heading size, a long German H1 word on
+   phones, businesstogo at 390, www's text wrapping a word earlier at 390 (SWISS Senses, hygiene de/de: same font
+   sizes, not explained).
+- Process: every push had npm run lint 0 and stylelint 0 on the pushed tree, and the full suite before each code push
+  (873 to 890 files; it found two failures of mine, both tests that read a whole media block of b2b.css, fixed); after
+  a rebase that brought other agents' code, their tests and every test reading the files I touched. No request to any
+  airline host (recordings from the drop and our hosts; DA not touched). Every time in this section read from the
+  clock.
+- Not in git and why: logs/p4/so5 (scratch: the offline scans, local renders, captures, results),
+  .migration/project.json (the workspace's own change), content/, migration-work/ and the untracked
+  tools/importer/reports/* (from before this turn, not mine). My local preview servers are stopped.
