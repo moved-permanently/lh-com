@@ -3725,4 +3725,38 @@ DA or preview API; nothing uploaded, previewed or published by me.
   worse on 4 (Santorini +28 px at 1440: its beach rows are a nested view, 60 px apart on www; customer service's
   side-picture block at 390). Our documents do not mark which www view a merged block's rows came from, so no one rule:
   not shipped (its test in .scratch, dropped). Left for an importer option that keeps the view's kind.
+- **Item 4, the rankings (classified):** Cargo's rows over 2 % are at 390 and come from our brand font (row 49's
+  decision), plus the notification overview's data (-9.8 % at 1440): the fleet page +132 px at 390 in en and de adds up
+  in small steps from the title down (16, 10, 22 and 20 px where texts wrap, the footer 15 px taller), facts and figures
+  as row 50, e-booking info +2.6 %, the SDG page +2.4 %, support and contact +2.1 %. Discover's rows over 2 %: widget
+  data (offers, flight search, the homepage's finder), ema-test's markers (row 3 now in the collapse, 4d295672; the
+  pages change with their re-import), the separators (row 4) and the merged blocks' row spacing (above). Air Dolomiti
+  as after standing order 4 (over 2 %: 15 of 53, all classified), with row 115.
 
+## Final section, standing order 5 (2026-11-12, 05:40 to 10:00 CET)
+
+**Left uncommitted, and why:** `.migration/project.json` (not mine, modified before these orders). In `.scratch/` (not in
+git): the measuring scripts and their outputs, the ship logs and smoke answers, the old cleanup copy used for the
+before / after count, and two dropped draft tests (discover-row-gap-588: a rule not shipped; discover-spacing-585).
+
+**Commits** (each: `npm run lint` exit 0 before and after the rebase, stylelint 0 on the theme file touched, the full
+suite passing, `git show --stat` equal to the files given, smoke 0 differences on 14 hosts with network failures
+re-run, the GitHub Build read):
+- 52d5f939 item 1: the cleanup keeps Discover's separators between components, at 30 px (lufthansa.com and the others as
+  before); reimport-588-discover-separators.txt (16 HOLD: the collapse removes spacers of 31 px or less on Discover,
+  rows-for-ema-test.md row 4); the import bundles not rebuilt here (@adobe/aem-import-helper not in this machine's npx
+  cache). Build success.
+- b178678c AD 115: a carousel title keeps its icon on the screen (the German London page 401 -> 390 px wide at 390).
+- ed03817e TAP's FAQ-gap test follows e9b72c4d's narrowed selector (main's suite red from 05:21 to this push);
+  rows-for-ema-cashub.md row 1.
+- 8c58c5f3 Cargo row 52: the transport stories' chevrons as www's scroll links (buttons, named, the module under the
+  fixed bar). Its first run stopped at main's red TAP test (07:01 UTC, nothing committed); run again after ed03817e.
+- This commit: this final section.
+
+**Items:** 1 done as far as the cleanup goes (no document change until the collapse carries 31 px; HOLD list and row 4).
+2 Cargo: facts and figures classified (row 49's font, as row 50), the chevrons done (row 52). 3 the London page done
+(row 115); Punta Cana: the eyebrow is ema-test's (taken), the row spacing tried on 26 pages, mixed, not shipped. 4
+classified (above).
+
+**Process:** no request to an airline host (the drop's recordings and our own hosts only); no da-upload.mjs call, no DA
+or preview API; nothing uploaded, previewed or published by me.
