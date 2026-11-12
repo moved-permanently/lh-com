@@ -40,3 +40,9 @@ test('main\'s other templates as before: info marks the same views, hub none', (
   assert.equal(marks('info').found.length, marks('legal').found.length);
   assert.equal(marks('hub').found.length, 0);
 });
+
+// the app-entry template too (20 of its 24 pages hold their chapters in column views: /de/en/my-logbook 20.7 / 27.2 % off
+// www at 1440 / 390, with the marks 7.5 / 10.4 as drafts on our host; reimport-so5-app-entry-column-marks-lh-com.txt)
+test('app-entry: the same views get the same marks', () => {
+  assert.deepEqual(marks('app-entry').found, marks('legal').found);
+});

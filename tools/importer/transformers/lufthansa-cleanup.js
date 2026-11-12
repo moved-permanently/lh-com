@@ -997,8 +997,9 @@ function removeEmptyComponents(document, keepInFlow, payload) {
 // fleet (brief 461): its pages are one-column views in the page column one after another
 // (lufthansa-first-class-fleet: each aircraft 25px short without the views' padding); legal (standing order 5 of
 // 2026-11-12, item 3): 88 of its 120 pages hold their chapters in column views (/de/en/data-collection-canada: each
-// chapter heading 40-60px higher than www's without the views' padding)
-const COLUMN_MARK_TEMPLATES = ['info', 'fleet', 'legal'];
+// chapter heading 40-60px higher than www's without the views' padding); app-entry (the same, item 3): 20 of its 24
+// pages hold their chapters in column views (/de/en/my-logbook 20.7 / 27.2 % off www at 1440 / 390, with the marks 7.5 / 10.4)
+const COLUMN_MARK_TEMPLATES = ['info', 'fleet', 'legal', 'app-entry'];
 const COLUMN_ATTR = 'data-lh-column';
 const COLUMN_KINDS = '.onecolumn, .twocolumn, .threecolumn, .fourcolumn';
 
