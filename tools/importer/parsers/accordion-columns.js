@@ -431,9 +431,12 @@ export default function parse(element, { document }) {
   } else {
     expanded.forEach((k) => options.push(`open-item-${k}`));
   }
-  // an accordion without items (www's empty <maui-collapsible>, SWISS Senses de/en's before its
-  // title): no block, whose wrapper took the space between blocks (standing order 7 of 2026-11-12)
-  if (!cells.length) {
+  // Group for Business: an accordion without items (www's empty <maui-collapsible theme="b2b">,
+  // SWISS Senses de/en's before its title) is no block, whose wrapper took the space between blocks
+  // (standing order 7 of 2026-11-12). Other sites' empty ones (Austrian's tariff pages) stay as they
+  // were until a recording shows what www draws there
+  const b2b = !!element.querySelector('maui-collapsible[theme="b2b"]') || !!element.closest('[theme="b2b"]');
+  if (!cells.length && b2b) {
     element.remove();
     return;
   }

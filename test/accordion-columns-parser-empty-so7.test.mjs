@@ -2,9 +2,9 @@
 /* Standing order 7 of 2026-11-12, item 3: www's B2B pages carry empty accordion components (<div class="accordion">
    <maui-collapsible class="accordion-maui"> </maui-collapsible></div>: SWISS Senses de/en corporates-start-of-booking
    right before its title). The parser wrote them as an accordion-columns block without rows (48 in 39 of lh-b2b's
-   imported documents), whose wrapper took the space between blocks (the title 13 px under www's). An accordion without
-   an item now makes no block; one with items as before (blocks/accordion-columns.css also takes an empty block's space
-   away, for the documents already in DA).
+   imported documents), whose wrapper took the space between blocks (the title 13 px under www's). A B2B accordion
+   (theme="b2b") without an item now makes no block; one with items, and other sites' empty ones (Austrian's tariff
+   pages: no recording of them), as before. styles/themes/b2b.css takes an empty block's space away in DA's copies.
    Run: node --max-old-space-size=256 --test test/accordion-columns-parser-empty-so7.test.mjs */
 /* global globalThis */
 import test from 'node:test';
@@ -37,6 +37,11 @@ test('an accordion without items: no block, the element gone, the title stays', 
   assert.ok(document.querySelector('.accordion') === null, 'the empty accordion removed');
   assert.ok(document.querySelector('table.made') === null, 'no table');
   assert.ok(document.querySelector('h1') !== null, 'the title stays');
+});
+
+test('another site\'s empty accordion (Austrian\'s theme="os"): a block as before, until a recording shows www there', () => {
+  run('<maui-limited-width theme="os"><maui-collapsible class="accordion-maui" theme="os"> </maui-collapsible></maui-limited-width>');
+  assert.ok(created === 1, 'one block');
 });
 
 test('an accordion with an item: a block as before', () => {

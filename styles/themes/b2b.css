@@ -871,3 +871,11 @@ body.brand-b2b main > .section > div:has(> .columns-media.sidebar) + .default-co
 body.brand-b2b main .default-content-wrapper > p.column-mark.column-start-outer.after-logo {
   padding-top: 40px;
 }
+
+/* an accordion-columns block without rows (the import's <div class="accordion-columns"></div> for
+   www's empty collapsible, 14 recorded pages): no space between blocks for it (its wrapper took
+   40 px after the breadcrumb, SWISS Senses de/en's title 13 px under www's; standing order 7 of
+   2026-11-12). Only here: other sites' empty ones (Austrian's tariff pages) have no recording */
+body.brand-b2b main .accordion-columns-wrapper:has(> .accordion-columns:empty) {
+  display: none;
+}

@@ -631,13 +631,6 @@ body.brand-lufthansa main > .section > .default-content-wrapper:has(+ .accordion
   font-weight: 700;
 }
 
-/* a block without rows (the import's <div class="accordion-columns"></div> for an empty www
-   collapsible, 14 recorded B2B pages): no space between blocks for it (its wrapper took 40 px after
-   the breadcrumb, SWISS Senses de/en's title 13 px under www's; standing order 7 of 2026-11-12) */
-main .accordion-columns-wrapper:has(> .accordion-columns:empty) {
-  display: none;
-}
-
 /* ------------------------------------------------------------------ option tabs ------- */
 
 /* tabs: the accordion below 1025px (the tab bar hidden, its first item has the top border); from

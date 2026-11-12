@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-mfe.js
-  var tmp_bundle_mfe_925360_exports = {};
-  __export(tmp_bundle_mfe_925360_exports, {
-    default: () => tmp_bundle_mfe_925360_default
+  var tmp_bundle_mfe_942526_exports = {};
+  __export(tmp_bundle_mfe_942526_exports, {
+    default: () => tmp_bundle_mfe_942526_default
   });
 
   // tools/importer/parsers/micro-frontend.js
@@ -3631,7 +3631,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_mfe_925360_default = {
+  var tmp_bundle_mfe_942526_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -3671,5 +3671,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_mfe_925360_exports);
+  return __toCommonJS(tmp_bundle_mfe_942526_exports);
 })();
