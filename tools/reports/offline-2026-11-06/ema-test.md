@@ -2830,3 +2830,19 @@ SWISS Senses start-of-booking pages at 390 (27 to 36), businesstogo (29.6 to 30.
   473.3 -> 158.1, e.g. de/en brussels-airlines 22.42 -> 4.64, de/de swiss 24.23 -> 6.65, none worse. On phones the
   same rule was mixed (austrian, eurowings, discover about 10 points better, brussels, edelweiss, lufthansa, swiss,
   airdolomiti 8 to 13 worse, de/en experts +1.9): not on phones.
+
+### Update 01:25 UTC
+
+- Pushed 157b1f0f (00:36 UTC): the grid-under-a-heading rule (in a media block of its own after the full suite showed
+  test/b2b-carousel-after-text-530 reads the 64 px block whole: 884 / 885, then lint 0, stylelint 0 and the 55 tests
+  that read the theme files); Build success; smoke 12 hosts: 0 differ; our host's de/en brussels-airlines 1440 4.61 %.
+- Second full pass, all 153 recorded B2B page-widths with the code on main: mean 19.82 -> 16.04 % (34 better, none
+  worse by 0.5); with the READY lists' measured documents counted 15.41.
+- The view spacers (a cause shared by 49 documents): DA's copies before the collapse had {spacer-15} to {spacer-30}
+  right before a column view's start; the collapse drops them. DA's copy plus the delta from the census
+  (tools/importer/b2b-view-spacers-apply.mjs, data b2b-view-spacers-so5.json, list reimport-so5-b2b-view-spacers.txt),
+  measured on the 10 recorded documents: 5 READY (de/en and de/de homepage 1440 16.43 -> 5.59 and 18.44 -> 7.95, with
+  the space from 768 px only, the phones unchanged; at every width it made their 390 worse by 3.1 / 4.6;
+  lufthansa-group-airlines de/en 24.89 -> 15.88, 17.64 -> 14.18, de/de 22.01 -> 12.04, 19.36 -> 16.38; help-alliance
+  13.44 -> 10.64, 21.69 -> 19.99), 5 HOLD (japan-joint-venture 390 +0.55, video-gallery 1440 +2.54, the three
+  entertainment-on-board 390 +2.4). The 39 documents without a recording are not listed.
