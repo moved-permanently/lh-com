@@ -3797,3 +3797,9 @@ place at both widths (1577 -> 1594 / 2102 -> 2115). rows-for-ema-test.md row 5; 
 14 HOLD. Tried and dropped: www's 200 px table cells on Brussels (checked-baggage at 390 +3.0 -> -1.9 %, but
 student-fares 390 2.84 points worse, be/fr checked-baggage 390 2.69, es/es 1440 1.37): not shipped, the test in
 .scratch. brussels.css untouched (its last commit b654354e, 32 hours old).
+
+ce2e5d0c ITA rows 35 / 36, the Brussels row and HOLD list: Build success, smoke 0 differences on every host.
+Brussels P49: www's Brussels article lists have no search field or category filter (an empty column); brussels.css hides
+ours (test/brussels-blog-filter-589.test.mjs). be/en/articles 390 +2.8 -> +1.0 %, be/fr +3.4 -> +1.7 %, both closer at
+1440 too; no other recorded Brussels page has the list. **Item 3, SWISS:** 5 recorded pages, no shared cause: offers
+-93 % (the fares data, row 52) and the homepage -3.8 % at 1440 (data) as classified before, the others under 3 %.

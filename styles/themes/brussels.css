@@ -915,6 +915,12 @@ body.brand-brussels .blog-overview:not(.grid) .blog-overview-more a:any-link {
   font-weight: 400;
 }
 
+/* no search field or category filter (standing order 6 of 2026-11-12, item 2: /be/en and /be/fr/articles,
+   brussels-parity-003): www's Brussels list shows the count and an empty filter column */
+body.brand-brussels .blog-overview .blog-overview-filter {
+  display: none;
+}
+
 /* the picture cropped to 16:9, as www's (575 x 323 px at 1440, 331 x 186 px at 390) */
 body.brand-brussels .blog-overview:not(.grid) .blog-overview-image img {
   aspect-ratio: 16 / 9;
