@@ -75,8 +75,25 @@ function needsCapture(c) {
   return Boolean(c) && Boolean(c.url) && c.status !== 'missing' && !isOk(c) && (c.attempts || 0) < MAX_ATTEMPTS;
 }
 
+/**
+ * The executable of the installed playwright browser build of a kind ("chromium",
+ * "chromium_headless_shell") in dir (PLAYWRIGHT_BROWSERS_PATH): the highest revision that has
+ * `exe` (its path under the build's folder), else null. The image's builds change with it
+ * (standing order 11 of 2026-11-12: chromium-1208 became chromium-1254).
+ */
+function installedBrowser(kind, exe, dir = process.env.PLAYWRIGHT_BROWSERS_PATH) {
+  if (!dir || !fs.existsSync(dir)) return null;
+  const re = new RegExp(`^${kind}-(\\d+)$`);
+  const found = fs.readdirSync(dir).map((d) => [d, d.match(re)]).filter(([, m]) => m)
+    .sort((a, b) => Number(b[1][1]) - Number(a[1][1]))
+    .map(([d]) => path.join(dir, d, exe))
+    .find((f) => fs.existsSync(f));
+  return found || null;
+}
+
 module.exports = {
   ROOT,
+  installedBrowser,
   DEFAULT_STATE,
   getArgs,
   mkdirp,

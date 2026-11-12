@@ -34,16 +34,18 @@ process.env.PLAYWRIGHT_BROWSERS_PATH ||= '/ms-playwright';
 const path = require('path');
 const { chromium } = require('playwright-core');
 const {
-  DEFAULT_STATE, getArgs, mkdirp, writeJsonAtomic, appendJsonl, rmSafe,
+  DEFAULT_STATE, getArgs, mkdirp, writeJsonAtomic, appendJsonl, rmSafe, installedBrowser,
 } = require('./lib.js');
 
 // PARITY_CHROME=1 (or a path): the full chrome build instead of playwright's headless shell,
 // which lays text out narrower than chrome (standing order 7 of 2026-11-12: B2B's text at 390
 // wrapped a word later than www's recordings with the shell, as www's with chrome); unset: the
-// shell, as before
-const FULL_CHROME = `${process.env.PLAYWRIGHT_BROWSERS_PATH}/chromium-1208/chrome-linux64/chrome`;
+// shell, as before. The installed build, whatever its revision (standing order 11: 1208
+// became 1254); the shell from the installed builds too when playwright's own is not there
+const FULL_CHROME = installedBrowser('chromium', 'chrome-linux64/chrome');
 let CHROME = process.env.PARITY_CHROME || null;
 if (CHROME === '1') CHROME = FULL_CHROME;
+const SHELL = installedBrowser('chromium_headless_shell', 'chrome-headless-shell-linux64/chrome-headless-shell');
 
 const USAGE = 'node tools/parity/capture.js --url <url> --width <px> --out <png> [--content-width px] [--timeout 90000] [--max-height 8000] [--state dir]';
 const VIEWPORT_HEIGHT = 900;
@@ -386,13 +388,18 @@ async function main() {
   });
   mkdirp(path.dirname(out));
 
-  browser = await chromium.launch({
+  const launch = (exe) => chromium.launch({
     headless: true,
-    ...(CHROME ? { executablePath: CHROME } : {}),
+    ...(exe ? { executablePath: exe } : {}),
     handleSIGTERM: false,
     handleSIGINT: false,
     // headless chromium hides scrollbars; the live captures had one
     ignoreDefaultArgs: withScrollbar ? ['--hide-scrollbars'] : [],
+  });
+  // playwright's own shell revision not installed: the installed shell (standing order 11)
+  browser = await launch(CHROME).catch((e) => {
+    if (CHROME || !SHELL || !/Executable doesn't exist/.test(e.message)) throw e;
+    return launch(SHELL);
   });
   const context = await browser.newContext({
     viewport: { width, height: VIEWPORT_HEIGHT },
