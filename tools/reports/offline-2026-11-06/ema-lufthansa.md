@@ -3803,3 +3803,10 @@ Brussels P49: www's Brussels article lists have no search field or category filt
 ours (test/brussels-blog-filter-589.test.mjs). be/en/articles 390 +2.8 -> +1.0 %, be/fr +3.4 -> +1.7 %, both closer at
 1440 too; no other recorded Brussels page has the list. **Item 3, SWISS:** 5 recorded pages, no shared cause: offers
 -93 % (the fares data, row 52) and the homepage -3.8 % at 1440 (data) as classified before, the others under 3 %.
+
+f7ecc06f Brussels P49 (first push refused, main had moved; rebased and pushed on the second try, without the lints
+again: the GitHub Build of f7ecc06f read, success), smoke 0 differences. ITA row 37: every recorded ITA table is a
+maui-table with equalcolumns; ours took the columns by content since row 27; ita.css shares a row's width equally,
+200 px a cell at least (test/ita-table-equal-columns-589.test.mjs). group-boarding 1440 -4.7 -> -2.4 %; the 39
+recorded ITA pages at both widths with local CSS: no other change by this rule. rows-for-ema-test.md row 5 gets the
+8 separators after a block (the tab control on checked-baggage, the accordion on service-charges).

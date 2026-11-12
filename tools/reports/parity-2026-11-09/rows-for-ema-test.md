@@ -111,3 +111,7 @@ found, the evidence and what would follow www.
   THEMES.brussels). Then the documents of reimport-589-brussels-heading-spacers.txt can be re-imported and measured.
   Not traced here: an offline import of check-in-at-the-airport's raw recording (not through brussels-import.mjs's
   mapping) gave no spacer even before the collapse; ema-lufthansa checks that once the collapse carries it.
+- **Also (2026-11-12, after ce2e5d0c):** 8 more such separators follow a block, not a text: after the tab control on
+  checked-baggage in six languages (18 px before "What if I exceed the limits for checked baggage?"), after the accordion on service-charges en and nl (8 px
+  before "Optional Payment Charge"). The cleanup drops those itself on Brussels (ema-lufthansa's; it would keep them as
+  Discover's once the collapse carries a spacer between two components there: componentSpacers on THEMES.brussels).

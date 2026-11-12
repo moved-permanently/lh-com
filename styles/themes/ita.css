@@ -1007,3 +1007,30 @@ body.brand-ita main > .section:has(> .default-content-wrapper:last-child) + .sec
     margin-top: 40px;
   }
 }
+
+/* equal columns, as www's maui-table equalcolumns (ITA row 37; group-boarding at 1440, ita-parity-005: 625 / 625 px,
+   ours by content 212 / 1052): a row of 2 to 6 cells shares the width equally, each cell 200px at least (row 27) */
+body.brand-ita .table-striped tr > :first-child:nth-last-child(2),
+body.brand-ita .table-striped tr > :first-child:nth-last-child(2) ~ :is(td, th) {
+  width: calc(100% / 2);
+}
+
+body.brand-ita .table-striped tr > :first-child:nth-last-child(3),
+body.brand-ita .table-striped tr > :first-child:nth-last-child(3) ~ :is(td, th) {
+  width: calc(100% / 3);
+}
+
+body.brand-ita .table-striped tr > :first-child:nth-last-child(4),
+body.brand-ita .table-striped tr > :first-child:nth-last-child(4) ~ :is(td, th) {
+  width: calc(100% / 4);
+}
+
+body.brand-ita .table-striped tr > :first-child:nth-last-child(5),
+body.brand-ita .table-striped tr > :first-child:nth-last-child(5) ~ :is(td, th) {
+  width: calc(100% / 5);
+}
+
+body.brand-ita .table-striped tr > :first-child:nth-last-child(6),
+body.brand-ita .table-striped tr > :first-child:nth-last-child(6) ~ :is(td, th) {
+  width: calc(100% / 6);
+}
