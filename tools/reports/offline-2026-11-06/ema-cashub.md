@@ -3599,3 +3599,171 @@ ignored; /tmp/so16).
 
 No upload, preview or publish by me. da-upload.mjs was not called; no DA or preview API call from tests. Read-only GETs
 of our hosts only.
+
+
+## Standing order 17 (2026-11-12, from about 20:30 CET)
+
+Start state: nothing of mine uncommitted or unpushed in git (order 16 ended at `2a549525`). Outside git, as reported:
+order 16's scratch (migration-work/parity-588/so16, /tmp/so16) and P51's patch. The main checkout was fast-forwarded
+(the other jobs' files unchanged).
+
+Rules kept throughout:
+- Recordings from the drop only, and our hosts only. Every render refuses www.* and the airline hosts (Austrian's,
+  Lufthansa's, Miles & More's and Brussels') and counts them; none was sent.
+- Offline renders abort every request except those for their own archive.
+- No DA, no preview API, no upload.
+
+### Item 1: the Austrian Schengen page (+20.96 % at 1440)
+
+No code change was needed; list READY.
+
+- The Austrian importer already writes www's four lists as one column view. The page imports with the info template
+  (templateOf). Since `30119591` (brief 558, 2026-11-10, done for lufthansa.com's /de/en/schengen), that template's
+  Columns Media takes a three- or four-column view inside a sidebar, and the three Austrian templates share it.
+- Our document predates that commit.
+- Run on the recording's own markup, main's Austrian path (mappedOf, the info selector, the columns-media parser) gives
+  one row of four list cells.
+- The block's grid already follows www: two a row from 768 to 1024 px, four from 1025 px.
+- Pinned by test/austrian-sidebar-columns-so17.test.mjs. It was green from the start: there was nothing to make red.
+- Draft against draft:
+  - 1440: 3,547 -> 2,878 px. Live that is about 3,734 -> 3,065 against www's 3,087 (+20.96 -> about -0.7 %).
+  - 390: 4,262 -> 4,310 px (www 4,358).
+- List: reimport-so17-austrian-schengen.txt (1 READY), `9d4f68c9`.
+- It is the only such view among the 61 recorded Austrian pages.
+
+### Item 2: Brussels P50, no marker
+
+No marker is needed, because www draws no difference between short and long pages.
+
+- Order 16's "long pages are full width on www" was wrong. The recordings' measurements show the 938 px column (h1,
+  text and accordion rows; the answers 923 px) on all 18 recorded sidebar-h1 pages. That includes the conditions of
+  carriage, terms-of-use and the voucher conditions.
+- Those pages grew under order 16's rule for two other reasons, both found:
+  - Our answers are 66 % of the panel (lufthansa.com's faq); www's fill the column.
+  - Our panels are 10 / 20 px where www's are 5 / 51, and our text sits 21 px above the first question, www's 41.
+- The four held rules together, from 1025 px and in sidebar-h1 sections only: the column, the answers' width, the
+  panel spacing and that gap. Measured on main as of `98267feb` at 1440:
+  - 14 of the 32 recorded pages come closer, and the sum of the 32 deviations drops from 78.1 to 57.3 points.
+    Examples: short-notice-eu-us -8.44 -> -2.45 %, us-traveling-with-disabilities -6.45 -> -2.81, cancel-and-refund
+    -8.02 -> -4.89.
+  - Two pages move 0.2 points further away.
+  - Two pages move clearly further away, because the right width uncovers what their documents lack:
+    - aviation-services-law -0.11 -> -3.65 %: four 28 px separators in its sidebar's running text, which the cleanup
+      drops. A spacer paragraph cannot stand for them: it adds about 50 px each.
+    - the conditions of carriage -1.53 -> -6.04 %: 70 panel h3s that www sizes heading-small (item 4, P53).
+- Held, not shipped: held-P50-sidebar-h1-column.css in migration-work/parity-588/so17. The P50 row has the numbers.
+- No marker list: no document's only change would be a marker.
+
+### Item 3: Brussels P51 and the articles' bodies
+
+Found, and shipped together with P51 (`c127f596`).
+
+- The bodies were short because of the galleries, six a page (one picture left, two right). www's column view has
+  40 / 20 px padding and 20 px under its items, so the text above ends 60 px over the pictures and the text below
+  starts 40 px under them. Ours had 20 and 20.
+- Results from 768 px, with P51's picture:
+  - the-gambia 1440: 8,722 -> 8,993 px (www 9,055; -3.68 -> -0.68 %).
+  - vibrant-senegal 1440: 10,511 -> 10,841 px (www 10,887; -3.45 -> -0.42 %).
+  - The titles are at www's y. 390 is unchanged, and so are the other 30 recorded Brussels pages.
+- Both articles came out better, so both changes shipped (P51 row).
+- Left for later:
+  - The galleries' captions are plain text in our documents (imported before the parser's {caption}); a re-import
+    marks them.
+  - After that re-import, the block puts a caption that follows a paragraph of two pictures with the first picture;
+    www puts it under the last. This needs a block fix; no document has the case today.
+
+### Item 4: the next shared Brussels causes
+
+Each one had its test first (red on main) and was measured on the recorded Brussels widths before its push.
+
+- **P53, panel headings' size** (`2fca3b55`):
+  - The accordion parser dropped www's size class on panel headings. On Brussels pages it now keeps it (the cleanup
+    writes "{heading-small}"), and the theme sizes it by the heading-small tokens.
+  - No live document changes before a re-import (the 32 pages are unchanged).
+  - List: reimport-so17-brussels-panel-heading-sizes.txt, the conditions of carriage. **HOLD until the bundles are
+    rebuilt**: build-bundles.mjs could not run here (aem-import-helper is not in this checkout's npm cache, and
+    nothing was fetched).
+  - Draft against draft: 390 57,059 -> 58,073 px (www 59,474); 1440 28,041 -> 28,951 px (www 28,478).
+- **P52, an open answer's spacing on phones** (`03e3d24a`):
+  - www's text sits 5 px under the question and the next question 47 px under the text; ours were 10 and 20.
+  - Below 768 px, five pages come closer at 390 and none gets worse: terms-of-use -2.54 -> -0.21 %, the voucher
+    conditions -3.46 / -3.08 -> -0.36 / -0.05, cancel-and-refund -4.61 -> -3.70, conditions of carriage -4.06 ->
+    -3.39.
+  - From 768 px the same rule made three pages worse (P50's 66 % answers), so it is phones only.
+- **P54, the accordion questions** (`98267feb`):
+  - www's .sn collapsible header instead of lufthansa.com's 18 px bold: 20 / 24 px, regular while collapsed, bold
+    open, sn-blue-3, 13px 20px padding on phones, 13px 10px from 768 px.
+  - At 390, seven legal pages come closer (us-customer-service-plan -4.70 -> -1.23 %, special-assistance -5.01 ->
+    -2.88, us-traveling-with-disabilities -2.72 -> -1.44, short-notice-eu-us -2.48 -> -1.70 ...).
+  - The refund voucher's conditions move 0.27 points further away. Every page at 1440 is unchanged.
+- Not changed:
+  - The overview hubs' card rows, measured and not shipped. On pets, baggage and plan-your-trip, www's rows of cards
+    are 97 px apart (shadow to picture; ours 81), and after the last row there are 126 px to the footer (ours 108).
+    These are the 20 / 28 px separators between the column views, which the cleanup drops.
+    - As theme rules from 768 px, five hubs come closer at 1440: pets -2.43 -> -0.46 %, baggage -2.42 -> -0.46,
+      travel-classes -1.73 -> -0.38, plan-your-trip -1.17 -> +0.92.
+    - Two hubs get worse: meals +1.24 -> +3.35 and lounges +0.22 -> +1.56. On www, meals' rows are 81 px apart
+      despite a similar run of separators.
+    - Our documents do not tell these hubs apart; this is a question for the import (which separators www draws as
+      space), not a theme rule.
+  - israel-cancellation-policy's text is 23 px short at 390, in one list. It is not evidence: the offline render's
+    scrollbar narrows www's column, so its list geometry cannot be trusted.
+  - The Austrian ranking has no shared cause left outside the homepages, which cannot be measured (the destination
+    finder needs www's APIs). Beyond 3 % there are only bangkok-airways, healthy-travel and the Schengen page, and the
+    last two have lists.
+
+### Final section (about 23:45 CET, 2026-11-12)
+
+Work stopped before 01:30. The four items are done or held with their blockers named. The open causes left need import
+work that needs its owner's choice, not more measuring tonight.
+
+**Commits** (all pushed):
+- `9d4f68c9`: item 1's test and list.
+- `c127f596`: P51 and the article galleries.
+- `2fca3b55`: P53, panel heading sizes, in the parser and the theme.
+- `03e3d24a`: P52, phone panel spacing.
+- `98267feb`: P54, accordion questions.
+- This one: the report, and the P50 row with today's numbers.
+
+**Checks before each push:**
+- Whole-repo lint exit 0, read, and again after each rebase.
+- Stylelint exit 0 on brussels.css.
+- Each change's test red first.
+- Every test that names the changed file's stem or the rule's classes: brussels, accordion-columns, article-header,
+  stacked, heading-small; 1,123 tests at the last push, 0 fail.
+- Each change measured on the recorded Brussels widths with its code before its push: 32 pages at 1440, and 390 too
+  where the rule applies there.
+
+**Full suite** on `98267feb` (959 files): 3,910 tests, 3,905 pass, 0 fail, 5 skipped.
+
+**Builds:** not read; there is no GitHub CLI here.
+
+**Lists** (tools/reports/parity-2026-11-09/):
+- reimport-so17-austrian-schengen.txt: 1 READY.
+- reimport-so17-brussels-panel-heading-sizes.txt: 1 HOLD until the import bundles are rebuilt.
+
+**Held, not in git** (migration-work/parity-588/so17):
+- held-P50-sidebar-h1-column.css: the four P50 rules. Ready to ship on the owner's word, or once aviation-services-law's
+  separators and the conditions of carriage's panel heading sizes are in their documents.
+- held-P50-with-panel-heading-small.css.
+
+**Rows left:**
+- P50 (held, above).
+- The bundle rebuild for P53.
+- Aviation-services-law's 28 px sidebar separators (they need a stand-in other than a spacer paragraph).
+- The hubs' card-row separators: pets, baggage and plan-your-trip against meals and lounges, which the documents do not
+  tell apart.
+- The block's caption placement after a two-picture paragraph.
+- From order 16: Austrian accessible-travel from 768 px.
+
+**The main checkout** was fast-forwarded to origin/main after this push; the 87 other jobs' files are unchanged.
+
+**Not in git:**
+- In migration-work/parity-588/so17 (ignored): rankings, drift listings, crops, code copies, the suite listing and
+  scripts.
+- The service restart at about 22:55 CET cleared /tmp. It took this order's /tmp scratch (/tmp/so17, and order 14's
+  push script, now rewritten as so17/push.sh) and order 16's /tmp/so16, which the order 16 report named. Nothing in git
+  was affected. The suite and one ranking that the restart stopped were rerun.
+
+No upload, preview or publish by me. da-upload.mjs was not called, and no test called the DA or preview API. Only
+read-only GETs of our own hosts.
