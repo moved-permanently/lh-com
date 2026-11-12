@@ -7,7 +7,8 @@
 # The 120 pages imported offline from their snapshots (tools/importer/bd-snapshots, offline-importer copy) with main's and
 # the new legal bundle: the new import differs from main's by the column marks (and their separators, Theme flow-spacing)
 # alone on every page; 72 get marks. READY: the published document reads as main's import (nothing but the marks
-# changes); HOLD: the published document is newer than its snapshot.
+# changes); HOLD: the published document is newer than its snapshot. Standing order 6 (2026-11-12): three of the five HOLD
+# rows READY from the fresh capture lh-snapshots-108; the two German data-collection documents are 404 on www.
 # Run: the legal template's import (import-legal.bundle.js) offline from tools/importer/bd-snapshots for these paths.
 # Columns: status, document, what changes.
 READY	/at/de/befoerderungsbedingungen-lh	40 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
@@ -47,7 +48,9 @@ READY	/de/de/sepa-bedingungen-b	3 column marks (and Theme flow-spacing); nothing
 READY	/de/en/besondere-befoerderungsbedingungen-bus	32 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
 READY	/de/en/business-terms-and-conditions	2 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
 READY	/de/en/common/baggage-conditions	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/cookie-policy	20 column marks (and Theme flow-spacing), from the fresh capture lh-snapshots-108 (R2 drop, 2026-11-12 03:03 UTC; its sha256 as its manifest): imported offline, its text reads as the published document's, nothing but the marks changes. Import with --html-dir the archive's folder, not tools/importer/bd-snapshots (that copy is older)
 READY	/de/en/data-collection-canada	18 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/data-collection-usa	18 column marks (and Theme flow-spacing), from the fresh capture lh-snapshots-108 (R2 drop, 2026-11-12 03:03 UTC; its sha256 as its manifest): imported offline, its text reads as the published document's, nothing but the marks changes. Import with --html-dir the archive's folder, not tools/importer/bd-snapshots (that copy is older)
 READY	/de/en/data-protection-information	24 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
 READY	/de/en/datenschutz	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
 READY	/de/en/faq-data-security	2 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
@@ -65,6 +68,7 @@ READY	/gb/en/business-terms-and-conditions	2 column marks (and Theme flow-spacin
 READY	/gb/en/common/baggage-conditions	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
 READY	/gb/en/cookie-policy	20 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
 READY	/gb/en/data-collection-canada	18 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/data-collection-usa	18 column marks (and Theme flow-spacing), from the fresh capture lh-snapshots-108 (R2 drop, 2026-11-12 03:03 UTC; its sha256 as its manifest): imported offline, its text reads as the published document's, nothing but the marks changes. Import with --html-dir the archive's folder, not tools/importer/bd-snapshots (that copy is older)
 READY	/gb/en/data-protection-information	24 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
 READY	/gb/en/datenschutz	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
 READY	/gb/en/faq-data-security	2 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
@@ -77,8 +81,5 @@ READY	/gb/en/sepa-terms-and-conditions	3 column marks (and Theme flow-spacing); 
 READY	/gb/en/sepa-terms-and-conditions-b	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
 READY	/gb/en/terms-and-conditions-lh	40 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
 READY	/gb/en/terms-of-use	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
-HOLD	/at/de/datenerfassung-fuer-die-usa	18 column marks, but the snapshot is older than the published document (from word 3: "den US-EinreisebestimmungenInformieren Sie sich rechtzeitig über" / "Einreisebestimmungen in die USAInformieren Sie sich"): a re-import from it would drop newer text; needs a fresh capture
-HOLD	/de/de/datenerfassung-fuer-die-usa	18 column marks, but the snapshot is older than the published document (from word 3: "den US-EinreisebestimmungenInformieren Sie sich rechtzeitig über" / "Einreisebestimmungen in die USAInformieren Sie sich"): a re-import from it would drop newer text; needs a fresh capture
-HOLD	/de/en/cookie-policy	20 column marks, but the snapshot is older than the published document (from word 3: "30 October 2026 {full-width}Lufthansa uses browser" / "07 August 2026 {full-width}Lufthansa uses browser"): a re-import from it would drop newer text; needs a fresh capture
-HOLD	/de/en/data-collection-usa	18 column marks, but the snapshot is older than the published document (from word 36: "here.Important: Mandatory attestation required for all" / "here.Requirements for a visa-free entry into"): a re-import from it would drop newer text; needs a fresh capture
-HOLD	/gb/en/data-collection-usa	18 column marks, but the snapshot is older than the published document (from word 36: "here.Important: Mandatory attestation required for all" / "here.Requirements for a visa-free entry into"): a re-import from it would drop newer text; needs a fresh capture
+HOLD	/at/de/datenerfassung-fuer-die-usa	www answers 404 for it now (lh-snapshots-108's manifest, 2026-11-12 03:02 UTC): no fresh capture; stays as DA has it unless you decide otherwise
+HOLD	/de/de/datenerfassung-fuer-die-usa	www answers 404 for it now (lh-snapshots-108's manifest, 2026-11-12 03:02 UTC): no fresh capture; stays as DA has it unless you decide otherwise
