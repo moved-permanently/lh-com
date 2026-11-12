@@ -3248,3 +3248,69 @@ success). Recordings from the drop only; requests only to our own hosts. The 202
   the recordings in /tmp, .migration/project.json (the workspace's own), content/, migration-work/,
   tools/importer/reports/* (from before, not mine), the 2026-11-07 autostash (not mine). My local preview servers
   are stopped.
+
+## Standing order 10 (received about 18:30 UTC, 2026-11-12)
+
+State at the start: nothing of mine uncommitted or unpushed (order 9's final section, 73d93fc5, on main, Build
+success). Recordings from the drop only; requests only to our own hosts. The 2026-11-07 autostash left alone.
+
+1. **ITA's column-view heading sizes** (rows-for-ema-test.md row 6; a63e8fe2, test first). The cleanup marks a heading
+   only when its size is not its level's default, so www's H2s in heading-medium (contact's country headings) came
+   through unmarked, and the collapse turned heading-small (one step) into the default. Now ita-import.mjs's snapshot
+   step marks a column-view H2 in heading-medium, and THEMES.ita keepSizesIn keeps heading-medium and heading-small in
+   a Columns Media cell (outside a block and on other brands as before). style-markers.js deploys lh-edge: its 415
+   tests, the suite (946), Deploy lh-edge and Build success, smoke 12 hosts before and after: 0 differ. Bundles
+   rebuilt. Measured only on the ITA recordings in this workspace (ita-parity-003, -004; -002 and -005, with contact's
+   26 headings, are not here and their URLs are not in my transcripts): of their 14 column-view headings in those
+   sizes, 2 sit in a Columns Media cell in DA's copy: reimport-so10-ita-column-view-headings.txt, 2 READY (invoicing
+   390 9.14 -> 8.69, the rest unchanged). A re-import of the -005 pages brings their markers; it wants measuring
+   against -005 first. Row 31's ita.css guess can go once those pages carry their markers (row 6's done note).
+   Note: ITA's importer loads its snapshots under an offline CSP (ita-import.mjs withoutLoads), so an ITA re-import
+   requests nothing from www.
+2. **Discover's intro view** (13c5a437, test first). The import writes www's one-column view around
+   additional-services' intro as that paragraph's own marks; the Discover collapse (column views for Columns Media
+   only) dropped them. THEMES.discover columnViews.oneElementViews keeps a view that opens and closes on one paragraph
+   (style-markers.js again: 415 edge tests, the suite (950), deploy, smoke 0 differ). Of the 26 recorded Discover
+   imports only the two additional-services documents have such a view. reimport-so10-discover-intro-views.txt
+   (one-element-view-apply.mjs, the marks the documents' only change): both READY, de/de 1440 48.78 -> 30.72, 390
+   33.11 -> 26.23; de/en 47.25 -> 35.34, 23.86 -> 19.34. Also pushed: the bundles rebuilt with main's cleanup change
+   of 1b717771 (ITA row 39), which they had not carried yet (5eed8692).
+3. **Discover's ranking further.**
+   - Phone tables at www's column width (813cb624, test first): www keeps about 200 px a column at 390 and scrolls
+     sideways; ours squeezed three columns into 350 px ("Econom y"). A table of three or more columns 600 px wide
+     below 768 px: baggage 390 27.32 -> 14.25 and 28.95 -> 15.46 (both now www's length), the other four table
+     pages unchanged.
+   - The cards under the intro view from 768 px (32c51094, test first): with the intro marks in DA (the import helper
+     applied reimport-so10-discover-intro-views.txt during this order), additional-services' cards still started 40
+     px (de/en) and 12 px (de/de) above www's at 1440. From 768 px they start 40 px under such a view, in the same
+     section or the next: de/en 1440 35.33 -> 21.60, de/de 30.71 -> 26.13 (at 390 de/en read worse, so not there).
+   - An accordion panel's pictures as www's column view (42d03109, test first): families' panel pictures 93 px under
+     the text at 1440 and 76 over the next item (ours 54 / 21); at 390 46 px apart (ours 24). Against a fresh
+     baseline of all 52 page-widths: families de/de 1440 28.66 -> 14.04, 390 25.21 -> 17.78, de/en 35.55 -> 28.41,
+     24.77 -> 17.41; nothing else moved (the homepage a paired 1.0 better at 390; the offers page's capture flips
+     between 2,300 and 20,000 px with or without any rule, so its numbers are noise).
+   - Column-view headings in heading-small in a Columns Media cell (6 pages): reimport-so10-discover-cell-headings.txt,
+     5 READY, 1 HOLD (entertainment de/en 1440 +0.64); keeping that size through the collapse (keepSizesIn, as ITA)
+     is the same measurement, so Discover gets no such setting and a re-import drops these markers.
+   - Measured, not shipped: the title margin (www 60 / 36 px) again, with today's fixes: 25 better, 11 worse
+     (check-in de/de 1440 +7.4, de/en +4.6, santorini +2.5 / +1.8, airport +1.2 x2); order 6's copytext markers plus
+     the teaser gap together: 9 better, 10 worse (check-in de/de down to +1.0, families 390 +3.5). What is left on
+     those pages is the panel at 390 (families: an item title wrapping a line more on www) and the stages.
+
+## Standing order 10, final section (21:20 UTC, 2026-11-12)
+
+- Item 1 (ITA's column-view heading sizes): the import marks a column-view H2 in heading-medium and the collapse keeps
+  heading-medium and heading-small in a Columns Media cell (lh-edge deployed, smoke 0 differ);
+  reimport-so10-ita-column-view-headings.txt 2 READY. ita-parity-002 / -005 are not in this workspace, so contact and
+  the other -005 pages are not measured: a re-import brings their markers, to be checked against -005 first.
+- Item 2 (Discover's intro view): the collapse keeps a one-paragraph view (lh-edge deployed, smoke 0 differ);
+  reimport-so10-discover-intro-views.txt 2 READY, applied by the import helper during the order; the cards under it
+  from 768 px (additional-services de/en 1440 47.25 -> 21.60 over both changes).
+- Item 3 (Discover's ranking): phone tables at www's column width (baggage 390 -13 points twice), panel pictures as
+  www's column view (families -14.6 / -7.4 / -7.1 / -7.4), the cards under the intro view; the cell-heading list (5
+  READY, 1 HOLD). The title margin stays off (11 page-widths worse).
+- Also pushed: the bundles rebuilt with main's cleanup change of 1b717771, which they had not carried (5eed8692).
+- Nothing uploaded, previewed or published; da-upload.mjs not run; requests only to our own hosts.
+- Not in git and why: logs/p4/so10 (scratch: renders, captures, results, simulations, smoke files), the recordings in
+  /tmp, .migration/project.json (the workspace's own), content/, migration-work/, tools/importer/reports/* (from
+  before, not mine), the 2026-11-07 autostash (not mine). My local preview servers are stopped.
