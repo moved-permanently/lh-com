@@ -3186,3 +3186,65 @@ success). Recordings from the drop only; requests only to our own hosts.
   recordings in /tmp, .migration/project.json (the workspace's own), content/, migration-work/,
   tools/importer/reports/* (from before, not mine), an old autostash of 2026-11-07 in the stash list (not mine to
   drop unasked). My local preview servers are stopped.
+
+## Standing order 9 (received about 15:30 UTC, 2026-11-12)
+
+State at the start: nothing of mine uncommitted or unpushed (order 8's final section, 8d873b9a, on main, Build
+success). Recordings from the drop only; requests only to our own hosts. The 2026-11-07 autostash left alone.
+
+1. **The B2B heading markers a re-import drops.** Measured as a re-import would write them, without running the
+   import browser (it would load the snapshots' pictures from business.lufthansagroup.com): our host's copies of the
+   recorded pages plus every marker the cleanup writes for www's headline headings in heading-small or
+   heading-copytext-large (its rule: a class other than its level default), 157 on 63 pages, rendered with main's code
+   against the recordings at full height, full chrome (logs/p4/so9).
+   - keepSizes ['heading-small', 'heading-copytext-large'] on THEMES.b2b: 114 page-widths, 22 better, 9 worse by more
+     than 0.5 (Allegris intermediaries 390 +4.5, video-gallery 390 +4.3, Allegris corporates de/en 390 +3.9, contact
+     de/de 390 +2.2, experts de/de 390 +2.1, celebrating +1.1 to +2.0, experts de/en 1440 +0.75): off.
+   - keepSizes ['heading-copytext-large'] alone (the 10 H2s of route-network and businesstogo): 12 page-widths, 6
+     better, none worse by more than 0.16: shipped (c9aebcff, test first; style-markers.js deploys lh-edge: its 415
+     tests, the suite, Deploy lh-edge and Build success, smoke 12 hosts before and after: 0 differ). Bundles rebuilt.
+     test/discover-copytext-headings-so6 updated (it pinned B2B without keepSizes).
+   - The H3 rows of the copytext list cannot be kept by any theme setting: the cleanup writes no marker for an H3 in
+     heading-copytext-large, its own H3 default, and B2B's flow theme draws an unmarked H3 in heading-small.
+   - The four lists' headers now say it: second titles kept (section style h1-compact), H2 heading-small dropped,
+     copytext H2s kept and H3s dropped, Brussels' spacers kept.
+2. **Group for Business, further.** Two candidates measured on our host, both dropped:
+   - a title right before a column view without a margin of its own (22 recorded pages: the view's edge alone as the
+     gap, as on lhg-invoice-receipt-download): 15 better, 16 worse (contact de/de 1440 +15.1, joint-venture +6.4): www's
+     gap there is not one number.
+   - (order 8's) no end edge in a grey band: dropped then, not retried.
+   What is left in the ranking is page by page (celebrating, lhg-history, video-gallery) or waits for the lists the
+   import helper applies (the start-of-booking pages).
+3. **Discover** (ranking re-measured on main--lh-discover, full chrome: 52 page-widths, mean 22.8 %).
+   - Table cells as www's maui-table-cell (ede2ae66, test first): www's rows 166 px on baggage's allowance table at
+     1440 (36 px padding and an empty footnote line under the text), ours 140. The six recorded pages with tables:
+     baggage de/de 1440 28.80 -> 23.44, de/en 28.94 -> 24.23, the other ten page-widths unchanged.
+   - additional-services (de/de, de/en 1440, the two worst): www puts the intro in a one-column view after the title
+     and the card rows in two-column views: 60 px more under the title and 52 more over the cards at 1440. The import
+     writes the column marks (on the intro: {column-start-outer column-end-outer}); the Discover collapse carries
+     column views for Columns Media only, so DA's copy has none. That is the title-margin question again; not changed.
+   - The homepage's "Flight offers from Frankfurt" draws www's destination tiles from its offer data; ours shows the
+     fallback picture: content, not layout.
+   - Order 6's HOLD rows of reimport-so6-lh-discover-copytext-headings.txt (measured then with the headless shell)
+     re-measured with full chrome: 22 page-widths, 6 better, 13 worse (check-in de/de 1440 +9.8, entertainment de/de
+     1440 +5.6, punta-cana +3.3 / +4.3): they stay HOLD; the list's header says so. Their pages' remaining offsets
+     are the headings' surroundings (column views starting higher than www's), the same open question.
+
+## Standing order 9, final section (17:40 UTC, 2026-11-12)
+
+- Item 1: THEMES.b2b keepSizes ['heading-copytext-large'] shipped (6 of 12 page-widths better, none worse;
+  lh-edge deployed, smoke 0 differ); heading-small left off (9 page-widths worse). The four lists' headers say
+  whether a re-import keeps their markers: second titles yes, H2 heading-small no, copytext H2s yes / H3s no,
+  Brussels' spacers yes.
+- Item 2: two B2B candidates measured and dropped; what is left is page by page or waits for the lists.
+- Item 3: Discover's table cells as www's (baggage 1440 -5.4 / -4.7, nothing worse). The title margin stays off: its
+  second cause on additional-services is the intro's column view, which the Discover collapse does not carry; order
+  6's heading HOLD rows confirmed with full chrome.
+- Seen, not started (not in this order): rows-for-ema-test.md row 6 (ITA's column-view heading sizes in the
+  collapse), added at 16:20 UTC.
+- Nothing uploaded, previewed or published; da-upload.mjs not run; no import browser run (it would load the
+  snapshots' pictures from the airlines' hosts); requests only to our own hosts.
+- Not in git and why: logs/p4/so9 (scratch: renders, captures, results, the keepSizes simulation, census scripts),
+  the recordings in /tmp, .migration/project.json (the workspace's own), content/, migration-work/,
+  tools/importer/reports/* (from before, not mine), the 2026-11-07 autostash (not mine). My local preview servers
+  are stopped.
