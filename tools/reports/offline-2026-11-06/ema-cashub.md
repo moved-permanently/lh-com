@@ -3521,3 +3521,81 @@ ignored; /tmp/so15); order 14's patches stay in so14 (applied now, kept as they 
 
 No upload, preview or publish by me. da-upload.mjs was not called; no DA or preview API call from tests. Read-only GETs
 of our hosts only.
+
+
+## Standing order 16 (2026-11-12, from about 17:30 CET)
+
+Start state: nothing of mine uncommitted or unpushed in git (order 15 ended at `af064fa0`); outside git, as reported,
+order 15's scratch (migration-work/parity-588/so15, /tmp/so15). The main checkout fast-forwarded (the 87 other jobs'
+files unchanged). Recordings from the drop only; our hosts only (every render refuses www.* and the airline hosts,
+Austrian's, Lufthansa's, Miles & More's and Brussels', and counts them; none was sent); offline renders abort every
+request but their own archive's. No DA, no preview API, no upload. ema-lufthansa's `08f3e5b7` made the dots test strict
+again after my move of row 53's rule (`55714cf3`); it passes.
+
+- **Item 1, ema-adobe's column-end mark: not measured, its change is not on main** (checked at 16:27, 18:23 and 19:05
+  UTC; the importer commit since, `a63e8fe2`, is ema-test's ITA heading markers). Ready to measure when it lands: the
+  recorded Austrian pages' ranking (so16/at-rank-56.tsv) is the baseline, and the Schengen page (item 2) belongs to it.
+- **Item 2, the four Austrian single pages:**
+  - **healthy-travel 390 (+10.75 %): a document question, list READY.** The whole surplus is "This may also interest
+    you": our document's view is `carousel-cards grid` without `phone-slider`, every card stacked on phones. It predates
+    the importer's phone-slider mark (withPhoneSliders, `3c382f28`, with its tests); main's function marks this view on
+    the recording, as on entryregulations and sustainable-flying, whose documents have it. With only the option, 390
+    9,770 -> 8,888 px (www 8,822; +0.75 %), 1440 unchanged (draft against draft).
+    reimport-so16-austrian-healthy-travel.txt: 1 READY (hold if DA's copy differs beyond the option and later importer
+    changes).
+  - **travel-id 1440 (+8.05 %), row 55 (`3dc1b102`):** its tab panels of text and a picture are www's two-column view
+    from 1025 px (text 622 px left, picture beside it, heading heading-small); ours put the picture full width under
+    the text. 6,174 -> 5,733 px (www 5,714; +0.33 %); the other 121 Austrian widths unchanged.
+  - **accessible-travel 390 (-6.85 %), row 56 (`b9629484`):** its partner link tiles are www's .teaser.partner boxes on
+    phones (the recorded titles 167 / 168 px apart on one line, 192 on two; ours 78). 18,080 -> 18,919 px (www 19,409;
+    -2.52 %); the other 121 widths unchanged. From 768 px as before (no model of www's taller rows yet).
+  - **The Schengen page 1440 (+20.96 %): not changed.** The cause is clear: www's four-column view of the member-state
+    lists is four stacked lists in our document (no column structure; +607 px). The fix is in how the importer writes
+    column views, item 1's area; not guessed at with a theme rule.
+  Each with its test first (red, then green), the tests that name austrian, cards-icon-text or section-tab-panel run
+  before each push (175), every change measured on all 122 Austrian widths before its push.
+- **Item 3, Brussels** (32 recorded pages, 64 widths; ema-test's small spacers on main, `f0de599f`; my Brussels files
+  checked on origin/main before each change). Ranked worst-first and the drift listing grouped by the blocks in each
+  stretch:
+  - **P50, the sidebar-h1 legal pages' text column (13 pages): measured, not shipped.** www's text column in these sections
+    is 938 px (a 9-of-12 column) on the short legal pages, so their H1 and text wrap more than ours; as a rule for every
+    sidebar-h1 section from 1025 px it helps seven pages (short-notice-eu-us 1440 -8.44 -> -2.45 %, cancel-and-refund
+    -8.02 -> -5.01, privacy-notice-applicants +2.40 -> -0.72) and breaks the long ones, whose text is full width on www
+    (conditions of carriage 1440 -1.53 -> +20.06 %, terms-of-use +1.33 -> +18.35, the two voucher conditions -1.1 / -1.8
+    -> +13.9 / +13.2). Our documents do not tell the two kinds apart: a question for the import (a section style for
+    www's narrow sidebar column), not a theme rule.
+  - **P51, the articles' header picture (2 pages): held.** lufthansa.com's block draws it 16:9; www shows it at its own
+    2:1 from 768 px (16:9 on phones, as ours). With that, the titles at www's y (the-gambia 1440 801 against 806,
+    vibrant-senegal 800 / 805; 390 unchanged), but both pages end further from www (the-gambia 1440 -3.68 -> -4.66 %,
+    vibrant-senegal -3.45 -> -4.28 %: their bodies are 417 / 461 px short for another reason, not found today).
+    so16/held-P51-brussels-article-picture.patch with its test (not in git).
+  - **The title after the breadcrumb (4 pages): measured, not shipped.** www's H1 sits 16 to 84 px lower than ours on
+    the two legal-notices hubs, dsar-start and meals; a rule like sidebar-h1's (30 / 44 px) reaches only the two hubs
+    (the other two hold their title in other structures) and moves them apart: en 1440 -6.86 -> -3.78 %, fr +0.20 ->
+    +3.21 % (its total was near www's already). Dropped.
+  No Brussels change shipped: the two real shared causes each break other pages or totals, and the remaining stretches
+  are single pages or both signs.
+
+### Final section (about 20:10 CET, 2026-11-12)
+
+**Commits** (pushed; whole-repo lint exit 0, read, before each push and again after each rebase; stylelint on the
+changed theme CSS; each change's test red first; before each push every test that names the changed file's stem
+(austrian) or the rule's classes (cards-icon-text, section-tab-panel), 175 at the last; each change measured on all 122
+recorded Austrian widths with its code before its push): `3dc1b102` (Austrian row 55 and the healthy-travel list),
+`b9629484` (Austrian row 56), and this one. Full suite on `b9629484` (945 files): 3,871 tests, 3,866 pass, 0 fail, 5 skipped. Builds not read (no GitHub CLI here).
+
+**Lists:** reimport-so16-austrian-healthy-travel.txt (1 READY).
+
+**Held, not in git** (migration-work/parity-588/so16): P51's patch with its test.
+
+**Rows left:** item 1 when ema-adobe's change lands (then also the Schengen page's four-column lists); Brussels P50
+(an import question), P51 (held), the articles' bodies (417 / 461 px short); Austrian accessible-travel from 768 px
+(www's taller tile rows, no model yet).
+
+**The main checkout** fast-forwarded to origin/main after this push; the 87 other jobs' files unchanged.
+
+**Not in git:** rankings, drift listings, scans, crops, the suite listing and scripts (migration-work/parity-588/so16,
+ignored; /tmp/so16).
+
+No upload, preview or publish by me. da-upload.mjs was not called; no DA or preview API call from tests. Read-only GETs
+of our hosts only.
