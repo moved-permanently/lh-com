@@ -238,6 +238,10 @@ export const THEMES = {
     // a title in heading-small (www's airline pages: 21 first H1s of the census, 20 later ones),
     // two steps under the H1 default, which the collapse dropped (section style H1 compact)
     headingChoices: { h1: { compact: 'heading-small' } },
+    // keepSizes: www's H2s in heading-copytext-large (18 / 24 px bold; route-network, businesstogo)
+    // keep their marker in the collapse, which the page reads as the class (standing order 9 of
+    // 2026-11-12: 6 of 12 page-widths better, none worse); heading-small not (9 worse)
+    keepSizes: ['heading-copytext-large'],
     pageTypes: {
       // a heading right before such a block opens its column view (www: 81 of 105 marked so, the
       // brief after 550 narrows it); in a grey band no edge above a block right after a heading

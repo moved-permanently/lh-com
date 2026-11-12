@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-insights.js
-  var tmp_bundle_insights_973111_exports = {};
-  __export(tmp_bundle_insights_973111_exports, {
-    default: () => tmp_bundle_insights_973111_default
+  var tmp_bundle_insights_1135071_exports = {};
+  __export(tmp_bundle_insights_1135071_exports, {
+    default: () => tmp_bundle_insights_1135071_default
   });
 
   // tools/importer/parsers/poi-data.js
@@ -5654,6 +5654,10 @@ var CustomImportScript = (() => {
       // a title in heading-small (www's airline pages: 21 first H1s of the census, 20 later ones),
       // two steps under the H1 default, which the collapse dropped (section style H1 compact)
       headingChoices: { h1: { compact: "heading-small" } },
+      // keepSizes: www's H2s in heading-copytext-large (18 / 24 px bold; route-network, businesstogo)
+      // keep their marker in the collapse, which the page reads as the class (standing order 9 of
+      // 2026-11-12: 6 of 12 page-widths better, none worse); heading-small not (9 worse)
+      keepSizes: ["heading-copytext-large"],
       pageTypes: {
         // a heading right before such a block opens its column view (www: 81 of 105 marked so, the
         // brief after 550 narrows it); in a grey band no edge above a block right after a heading
@@ -9215,7 +9219,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_insights_973111_default = {
+  var tmp_bundle_insights_1135071_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9255,5 +9259,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_insights_973111_exports);
+  return __toCommonJS(tmp_bundle_insights_1135071_exports);
 })();
