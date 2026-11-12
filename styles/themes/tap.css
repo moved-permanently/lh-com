@@ -4298,3 +4298,25 @@ body.brand-tap main > .section:not(.section-tab-panel, :has(+ .section.section-t
 body.brand-tap main > .section.heading-section:not(.section-tab-panel, :has(+ .section.section-tabs)) > .default-content-wrapper:last-child > h2:not(h1 + h2):last-of-type ~ * {
   max-width: 790px;
 }
+
+/* TAP row 143: card lists www swipes on phones (the importer's phone-slider). www's slide is calc(100% - 56px) of the
+   row (334 px at 390), 24 px apart, the card 16 px inside it (302 px, its picture 170 px high); ours was one card the
+   column's width (358 px). Two sliders one after the other (navigator-experiences' "A decorrer"): www's cards 88 px
+   apart from one to the next, ours 190 (lufthansa.com's 91 px between two card lists, cards-teaser.css): only the
+   wrapper's 32 px. The recorded pages at 390: navigator-experiences +2.62 -> +1.88 %, get-inspired +0.79 -> -0.24,
+   donating miles -1.25 -> -0.91, pt-pt inspire-se +0.91 -> +0.95; www's dots 8 px under the slide were not taken
+   (get-inspired 0.84 points worse with them) */
+@media (width < 1025px) {
+  body.brand-tap .cards-teaser.phone-slider > ul {
+    gap: 24px;
+  }
+
+  body.brand-tap .cards-teaser.phone-slider > ul > li:nth-child(n) {
+    flex: 0 0 calc(100% - 56px);
+    margin: 0 16px 16px;
+  }
+
+  body.brand-tap .cards-teaser-wrapper:has(> .cards-teaser.phone-slider) + .cards-teaser-wrapper > .cards-teaser.phone-slider {
+    margin-top: 0;
+  }
+}
