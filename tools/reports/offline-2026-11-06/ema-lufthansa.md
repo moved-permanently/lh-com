@@ -3629,3 +3629,55 @@ the drop and our own host only. Nothing uploaded, previewed or published.
   at 390 (-1.8 -> -3.0 %: its widget form, row 111). Last night's two readings of the English in-flight entertainment
   page and flights to Europe at 1440 were noise (re-measured: -1.5 / -1.7 %).
 
+## Final section, standing order 4 (2026-11-11 20:40 CET to 2026-11-12 06:00 CET)
+
+**Left uncommitted, and why:** `.migration/project.json` (not mine, modified before these orders). In `.scratch/` (not in
+git): the drafts, the measuring scripts, the rankings (rank-d, rank-e), the ship logs and smoke answers, the unpacked
+airdolomiti-snapshots-008; the dropped draft test discover-spacing-585 (it would repeat three tests on main).
+
+**Commits tonight** (each: `npm run lint` exit code 0 and stylelint 0 on the theme file before and after the rebase, the
+full suite passing, `git show --stat` equal to the files given, smoke 0 differences on 14 hosts with network failures
+re-run, the GitHub Build read):
+- 063e7ce7 AD 107 c: the footer's room for the price bar only with the stage's card (flights to Europe 390 6743 -> 6603,
+  6264 -> 6124, 6860 -> 6720 against www's 6643 / 6131 / 6745).
+- 9520d63c lists: reimport-587-ita-two-up-status.txt (73 live already, 9 HOLD); flights to Europe at 1440 classified;
+  discover-spacing-585 dropped. Its Build is still queued at GitHub since 20:38 UTC (the runs after it ran; a3029929 and
+  later contain it and passed the same lint).
+- a3029929 AD 108: the German in-flight entertainment page's title hidden as www.airdolomiti.de's, its picture under the
+  trail (importer and theme; live since 23:39 UTC: 235 / 946 / 2489 at 1440, www 235 / 946 / 2492).
+- b28d7256 lists: the it / en flight status hints READY (airdolomiti-snapshots-008; live since 23:39 UTC).
+- 9fa0d5aa AD 109: the destination hubs' cards 20 px apart on phones (390 6421 -> 6385, 9917 -> 9629, 10416 -> 10128
+  against 6393 / 9699 / 10151).
+- 372131ff AD 110: an article's headings as www's HtmlContent (the Adriatic article at 390 5319 -> 5185, 5659 -> 5515,
+  5285 -> 5141 against 5124 / 5481 / 5134).
+- 55526a4a rows for ema-test (row 3: Discover's heading-copytext-large headings, 55 on 17 pages), the families rows READY,
+  the Discover and ITA ranking classified.
+- 49aa0991 AD 111: the timetable widget 20 px over the footer (1440 2009 / 2001 / 2005 against 1991 / 2001 / 2005).
+- 36586d28 AD 112: the assistance text's button and foot (1440 4807 / 4787 / 5033 against 4795 / 4776 / 4984).
+- 816d5ffd AD 113: www's Title as the page title (/orario-voli 1440 1991 = www's).
+- 07e07712 AD 114: the booking pages' search 30 px under the title from 930 px (1515 / 1533 / 1537 = www's).
+- eff46712 ITA 33: the cards' link line 14 to 16 px, one line on phones (limolane 390 3873 -> 3834).
+- e2766f3d the report: tonight's lists live, the ranking again (1 file, 3719 pass 0 fail, smoke 0 differences on 14
+  hosts, Build success).
+- This commit: this final section.
+
+**Lists written or changed** (tools/reports/parity-2026-11-09/, READY/HOLD per row):
+reimport-587-ita-two-up-status.txt (0 READY, 9 HOLD: no two-up wanted; 73 live named), reimport-587-ad-german-lead.txt
+(1 READY; imported), reimport-586-ad-flight-status-hints.txt (3 READY; all imported), capture-list-586-brands.txt (2
+captured), reimport-585-discover-families.txt (2 READY; not imported yet), rows-for-ema-test.md (row 3).
+
+**Archive read:** airdolomiti-snapshots-008 (129,111 bytes, f5231f10dbc1b7b4613d69a6c9e89eea886708daf7e2eb9686c8bd8e7468615e
+computed here). Probes at 20:51, 00:45 and 03:06 UTC: nothing else for Air Dolomiti, ITA or Discover.
+
+**Items:** 1 done (the footer padding with the price-bar test, the German title, the it / en hints READY and live). 2 done
+(no READY rows left: 73 live, 9 HOLD with their reason). 3 done (discover-spacing-585 dropped: repeats three shipped
+tests). 4: Air Dolomiti over 2 % 23 -> 15 of 53 (median 0.82 -> 0.64 %), the rest classified; ITA one shared cause fixed
+(row 33), the others its markers (ema-test's row 1); Discover's rows over 2 % are others' (widget data, ema-test's
+markers, the shared cleanup's separators, the families re-import).
+
+**Open, for the next session or others:** Discover's separators (lufthansa-cleanup.js drops 25 to 40 px ones; its
+owner); Discover's and ITA's lost heading markers (ema-test rows 1 to 3); the families re-import (2 READY); Air
+Dolomiti's timetable widget form on phones (en / de at 390), the assistance contacts' list spacing (offset at 1440).
+
+**Process:** no request to an airline host (recordings from the drop, our own hosts only); no da-upload.mjs call and no
+DA or preview API; nothing uploaded, previewed or published by me.
