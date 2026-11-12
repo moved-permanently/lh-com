@@ -1,0 +1,44 @@
+{
+  "/it/en/world-of-ita-airways/discover-ita-airways/fleet/long-haul": {
+    "panels": [
+      {
+        "label": "Airbus A350-900",
+        "first": "Our Airbus A350-900 is designed to provide"
+      },
+      {
+        "label": "Airbus A330 Neo",
+        "first": "The A330-900neo is a versatile and innovative"
+      },
+      {
+        "label": "Airbus A330-200",
+        "first": "The A330-200neo is a wide-body airliner configured"
+      }
+    ],
+    "end": "Choose your favorite seat in all travel"
+  },
+  "/it/en/world-of-ita-airways/discover-ita-airways/fleet/short-haul": {
+    "panels": [
+      {
+        "label": "Airbus A321 Neo",
+        "first": "Innovative, sustainable, and comfortable, our Airbus A321neo"
+      },
+      {
+        "label": "Airbus A320 Neo / A320-200",
+        "first": "With state-of-the-art technology and an elegant and"
+      },
+      {
+        "label": "Airbus A220-300",
+        "first": "The Airbus A220-300 is an aircraft designed"
+      },
+      {
+        "label": "Airbus A220-100",
+        "first": "Our A220-100 is an innovative and versatile"
+      },
+      {
+        "label": "Airbus A319",
+        "first": "The Airbus A319 is a twin-engine, narrow-body"
+      }
+    ],
+    "end": "Choose your favorite seat in all travel"
+  }
+}

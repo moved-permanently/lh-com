@@ -3860,3 +3860,21 @@ finished: it made pages worse).
 **Process:** no request to an airline host; no da-upload.mjs call, no DA or preview API from tests or by hand;
 nothing uploaded, previewed or published by me. brussels.css edited only after checking its log (last other commit
 32 hours old).
+
+## Standing order 7 of 2026-11-12 (from about 13:30 CET to 18:00 CET)
+
+**At the start:** nothing of mine uncommitted or unpushed; `.migration/project.json` (an lh-tap entry from outside my
+orders; TAP is ema-cashub's) and `.scratch/` (excluded from git: recordings, drafts, scripts, logs) left as they are.
+
+**Item 1, the fleet tabs:** a delta tool, not the importer: tools/importer/ita-tabs-apply.mjs takes DA's current copy
+and cuts it into Tab sections where each panel starts (tools/reports/parity-2026-11-09/ita-fleet-tabs-590.json: the
+labels and the first elements, read off ita-parity-005 through the import); every element keeps DA's bytes and its
+section's rows (markets, style), a section cut in two gives both pieces the rows, an empty market variant inside a panel
+gets the panel's Tab; it refuses a copy where a start is not found or that has Tab sections already
+(test/ita-tabs-apply-590.test.mjs). DA's two copies read (GET, 12:40 UTC; their text equal to the published copies):
+short-haul 12 sections -> 16 with 12 Tab rows, long-haul 15 -> 16 with 11; nothing lost (the A330-900neo market table,
+the band's variant, the market paragraph all kept). Rendered locally as it/en with main's CSS: short-haul 3524 / 5343
+(www 3511 / 5363; before 21222 / 14756), long-haul 5337 / 4915 (www 3526 / 4919; before 11414 / 8411). Both rows of
+reimport-589-ita-fleet-tabs.txt READY with the command and the expected change. Long-haul at 1440 is still tall: DA keeps
+the A350 and A330neo tables (two market variants each) and their seat maps in separate sections, so row 34's side by
+side does not reach them (next: ITA row 38, a layout change).
