@@ -3149,6 +3149,11 @@ success). Recordings from the drop only; requests only to our own hosts.
      compact): the end alone 39 of 40 page-widths better, none worse by more than 0.12; with the title the 21 at 390
      318.7 -> 181.4 summed, none worse. The same end rule on other templates that end with cards (lhg-history,
      experts, travel-classes-and-booking) read worse (ours is already shorter than www's there), so it is not general.
+   - Tried and dropped: no end edge in a grey band (the column end token-free.js adds after a band's last block; 22
+     recorded pages): 15 better, 12 worse (celebrating 1440 +9.7, contact +7.0), so that is not where travel-id's
+     band ends 30 px late. Not changed on purpose: SWISS Senses de/de and xx/de's title at 390 is 4 lines where www's
+     is 3 because www lets "LANGSTRECKENERLEBNIS" run out of the column, cut off at the edge; ours breaks the word
+     and keeps it readable (reflow), 36 px more on 4 pages.
    - The ranking re-measured on our host with order 7's fixes live (153 page-widths, full chrome): mean 14.33 -> 14.13 %
      before any of the lists above is applied (logs/p4/so8/results-b2b.tsv).
    - The lone link as an 18 px text link: re-simulated on our host with order 7's fixes live: SWISS Senses de/en
@@ -3158,3 +3163,26 @@ success). Recordings from the drop only; requests only to our own hosts.
      like order 7's tab sets; not ours to change. lhg-history x2: the collapse drops the import's column marks there
      (no carrier for a heading before Carousel Cards), so the H1 stays 42 px above www's; giving B2B such a carrier
      would change every B2B page with a heading before cards, left.
+
+## Standing order 8, final section (15:20 UTC, 2026-11-12)
+
+- Item 1: the importer checks no longer reach an airline host: a guard template first in page-templates.json
+  (validationOnly, a local snapshot path, every parser); both hooks skip it without a request (tested; run by hand).
+  The plugin cannot validate against a local file, so "skip" is what it does. After adding a parser:
+  `node tools/importer/hook-validation-guard.mjs`.
+- Item 2: Brussels' small separators before a heading: the collapse keeps them; reimport-589-brussels-heading-
+  spacers.txt 9 READY, 2 HOLD, 3 with nothing to apply (DA's copy plus the delta, text-spacers-apply.mjs).
+- Item 3, Group for Business: shipped the airline pages' end and phone title (b2b.css; 40 page-widths, 39 better,
+  none worse); lists for the import helper: reimport-so8-b2b-copytext-headings.txt (4 READY, 2 HOLD),
+  reimport-so8-b2b-h2-small.txt (8 READY, 4 HOLD; measured on top of order 7's second-title rows). The lone link's
+  text-link token not made: re-simulated, still worse on the three Allegris intermediaries pages.
+- For the import helper, in this order: reimport-so7-b2b-second-h1.txt (9 READY), reimport-so8-b2b-h2-small.txt,
+  reimport-so8-b2b-copytext-headings.txt, reimport-589-brussels-heading-spacers.txt. A re-import drops the B2B
+  heading markers again (no keepSizes on THEMES.b2b); it keeps the Brussels spacers.
+- Seen on main, not mine: test/carousel-dots-374 fails on origin/main since 517187a4 (Austrian theme: carousel dot
+  rules in austrian.css, which that test forbids); my commits do not touch it.
+- Nothing uploaded, previewed or published; da-upload.mjs not run; requests only to our own hosts.
+- Not in git and why: logs/p4/so8 (scratch: renders, captures, results, simulations, the census scripts), the
+  recordings in /tmp, .migration/project.json (the workspace's own), content/, migration-work/,
+  tools/importer/reports/* (from before, not mine), an old autostash of 2026-11-07 in the stash list (not mine to
+  drop unasked). My local preview servers are stopped.
