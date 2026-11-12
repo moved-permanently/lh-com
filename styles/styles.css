@@ -2292,6 +2292,13 @@ body.brand-lufthansa main > .section.grey.flush:has(+ .section.padded) {
   margin-bottom: 0;
 }
 
+/* ... but before a padded campaign section (the travel-class hubs' cards) the band keeps 24px: with no
+   gap the cards sat 31px higher than www's. lufthansa-travel-classes 8.2 / 14.8 -> 3.9 / 8.0 % off www
+   at 1440 / 390, lufthansa-reiseklassen 8.3 / 14.6 -> 3.9 / 7.9; standing order 11 */
+body.brand-lufthansa main > .section.grey.flush:has(+ .section.padded.campaign-section) {
+  margin-bottom: 24px;
+}
+
 /* from 768px: a padded section that ends with a padded Columns Media and is followed by an unpadded
    section (the fleet split of 1455833 and the stage intro of 7d58bb1: www's padded AEM section,
    then an unpadded one) keeps the block's 24px inside its padding, as www's component margin
