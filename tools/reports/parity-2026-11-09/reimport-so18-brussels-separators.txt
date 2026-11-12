@@ -1,0 +1,23 @@
+# ema-cashub, standing order 18 (2026-11-13), item 1: Brussels documents that a re-import with today's importer gives
+# www's separators (.separator .hr-no-layout between a text and the next headline): in the sidebar's running text the
+# cleanup has kept them since standing order 8 (the collapse with them, test/brussels-heading-spacers-so8.test.mjs);
+# in an accordion panel from 9fa98605 (the parser, the collapse and the theme; test/brussels-panel-separators-so18.test.mjs;
+# the bundles rebuilt in the same commit). Found by running the cleanup and the accordion parser on the 32 recorded
+# Brussels pages (brussels-parity-004 to -009): these three documents lack separators the importer now writes (the
+# others have them, or www has none).
+# Measured on our host, the published document with only the separators (and, for the conditions of carriage, its
+# panel heading sizes) added, draft against draft at 1440 (www.* and the airline hosts refused, none sent):
+#   aviation-services-law      main 2,679 -> 2,730 px (www 2,682): -0.11 -> +1.79 %; with P50's rules 2,635 (-1.75 %)
+#   special-assistance (it/it) main 1,428 -> 1,445 px (www 1,519): -5.99 -> -4.87 %; with P50's rules 1,474 (-2.96 %)
+#   conditions of carriage     main 28,041 -> 29,647 px (www 28,478): -1.53 -> +4.10 %; with P50's rules 28,364 (-0.40 %)
+# The re-imports and P50's theme rules (held, migration-work/parity-588/so17/held-P50-sidebar-h1-column.css) belong
+# together: with these three documents re-imported, P50 passes the 0.5-point gate on all 32 recorded pages at 1440
+# (15 closer, none further by more than 0.5 points; the sum of the deviations 81.2 -> 48.7). Without them P50 would
+# move aviation and the conditions of carriage 3.5 / 4.5 points further. ema-cashub ships P50 once the three are
+# live on our host.
+# The conditions of carriage supersedes its row in reimport-so17-brussels-panel-heading-sizes.txt: a re-import with
+# today's bundles writes both the panel heading sizes and the panel separators (57 spacers of 11 px, 70 h3s).
+# Columns: document, status, expected change.
+/ao/fr/legal-notices/aviation-services-law	READY	"{spacer-28}" before its three h2s; 1440 2,679 -> 2,730 px (2,635 with P50)
+/it/it/legal-notices/special-assistance-legal-guidelines	READY	"{spacer-28}" before "Legal guidelines for all flights (non-US)"; 1440 1,428 -> 1,445 px (1,474 with P50)
+/be/en/legal-notices/terms-and-conditions-conditions-of-carriage	READY	57 panel "{spacer-11}" and 70 panel h3s "{heading-small}"; 1440 28,041 -> 29,647 px (28,364 with P50); 390 57,059 -> 58,073 px with the sizes alone
