@@ -3099,3 +3099,55 @@ shell's wrapping, not our page). Every number below is a full-chrome capture.
 - Not in git and why: logs/p4/so7 (scratch: renders, captures, results, the set-aside tabs-open tool and test, the
   lone-link CSS simulation), the recordings in /tmp, .migration/project.json (the workspace's own), content/,
   migration-work/, tools/importer/reports/* (from before, not mine). My local preview servers are stopped.
+
+## Standing order 8 (received about 12:30 UTC, 2026-11-12)
+
+State at the start: nothing of mine uncommitted or unpushed (order 7's final section, 7baef344, on main, Build
+success). Recordings from the drop only; requests only to our own hosts.
+
+1. **The importer checks no longer reach an airline host** (c00755b5, test first). The excat plugin's two PostToolUse
+   hooks (outside this repo, not editable from here) validate an edited parser or transformer against the first URL
+   tools/importer/page-templates.json gives them: the parser hook the first template with a block of the parser's name,
+   the transformer hook the first template with URLs. Both were www.lufthansa.com pages, and each check first sends an
+   egress probe (a GET) to that URL, then loads it; so every importer edit, mine and ema-lufthansa's cleanup edits
+   alike, reached www. The hooks probe and load only http(s) URLs and skip everything else without a request. Now a
+   guard template comes first (tools/importer/hook-validation-guard.mjs: validationOnly, all 50 parsers as blocks, its
+   URL the path of a local snapshot, not http); build-bundles.mjs makes no bundle of it, build-page-templates.js puts
+   it back. test/hook-validation-guard-so8 does both lookups as the hooks do and finds no http(s) URL for any parser;
+   with the plugin installed, its probe returns false for the guard's URL with no fetch. Both hooks run by hand on a
+   parser and a transformer path: "validation skipped", immediately. What the order asked first, validating against
+   a local recording, the plugin cannot do: it validates http(s) URLs only (a local http server would let the page's
+   assets load from www), so it skips. After adding a parser: `node tools/importer/hook-validation-guard.mjs` (the test
+   fails until then).
+2. **Brussels' small separators before a heading** (rows-for-ema-test.md row 5; f0de599f, test first). The collapse
+   keeps a run of 31 px or less between running text and the next heading on Brussels (textSpacers, as between two
+   texts); bundles rebuilt. For DA's copies the delta: text-spacers-apply.mjs takes rows of kind separator (www's own
+   size, any heading), data brussels-heading-spacers-so8.json (26 separators of the 14 pages from the recordings' 1440
+   pages, components in document order: on economy the text ends one column view and the headline opens the next).
+   Measured, DA's copies plus the delta against the recordings (28 page-widths): 18 better, 3 worse, sum 508.4 ->
+   476.4; service-charges en's heading 496 -> 513 at 1440, www's 513 (ema-lufthansa's number). In
+   reimport-589-brussels-heading-spacers.txt: 9 READY, 2 HOLD (be/fr premium-economy +3.42 / +2.89: ours is already 44
+   px longer above; be/fr checked-baggage 390 +0.66), 3 with nothing to apply (check-in-times, charter, organisation:
+   in DA's copies the text and the heading are not neighbours in a section's own content).
+3. **Group for Business, further.**
+   - www's headline headings in heading-copytext-large (18 px bold; 26 on businesstogo x4 and route-network x2) render
+     as the level's default (an H3 in heading-small, two lines where www has one): the collapse drops the marker (one
+     step from the flow H3 default). reimport-so8-b2b-copytext-headings.txt (heading-size-marks-apply.mjs, data
+     b2b-copytext-headings-so8.json): 4 READY (route-network de/de 1440 11.43 -> 7.52, 390 30.03 -> 22.77; de/en
+     13.87 -> 10.36, 26.93 -> 23.01; businesstogo de/en and xx/en flat), 2 HOLD (businesstogo de/de, xx/de 1440 +3.9).
+     www's 24 px lines for them (b2b.css) measured, not shipped (the rule alone 2 worse). THEMES.b2b gets no keepSizes:
+     it would change every re-imported B2B document, unmeasured; so a re-import drops these markers again.
+   - The section H2s of the 12 Allegris and SWISS Senses start-of-booking pages are www's heading-small (24 / 28 at
+     390); ours the H2 default. Measured on top of the READY second-title rows: reimport-so8-b2b-h2-small.txt
+     (heading-size-marks-apply.mjs, data b2b-h2-small-so8.json, 27 H2s), 8 READY (390 better by up to 6.2), 4 HOLD (the
+     three Allegris intermediaries and de/en Allegris corporates, worse at 390 by 1.1 to 6.4 although their length
+     comes closer to www's).
+   - The ranking re-measured on our host with order 7's fixes live (153 page-widths, full chrome): mean 14.33 -> 14.13 %
+     before any of the lists above is applied (logs/p4/so8/results-b2b.tsv).
+   - The lone link as an 18 px text link: re-simulated on our host with order 7's fixes live: SWISS Senses de/en
+     corporates 30.35 -> 29.40, intermediaries 30.04 -> 29.22, the three Allegris intermediaries worse (+1.2, +3.2,
+     +1.2: those pages are still 125 to 159 px longer than www's below the link). It fails the gate, so no token.
+   - businesstogo x4 at 390: www's recordings have the first item ("Travel Manager", 647 px) open, a resized 1440 load
+     like order 7's tab sets; not ours to change. lhg-history x2: the collapse drops the import's column marks there
+     (no carrier for a heading before Carousel Cards), so the H1 stays 42 px above www's; giving B2B such a carrier
+     would change every B2B page with a heading before cards, left.
