@@ -3592,4 +3592,11 @@ the drop and our own host only. Nothing uploaded, previewed or published.
 - **Air Dolomiti row 112 (item 4):** the assistance text's button and foot as www's two TitleDescriptionTextCta (only
   the three assistance pages have a button in an H1 text). 1440 4807 / 4787 / 5033 against www's 4795 / 4776 / 4984
   (from 4637 / 4617 / 4863); 390 7238 / 7092 / 7772 against 7420 / 7332 / 7771.
+- **On main:** 36586d28 (AD 112; npm run lint exit 0 and stylelint 0 before and after the rebase, 3702 pass 0 fail, git
+  show --stat 4 files as given, smoke 0 differences on 14 hosts, GitHub Build success).
+- **Air Dolomiti row 113 (item 4):** www's Title as the page title: 20 px lower, its line 16 / 22 across the page
+  (compact-title sections; the hidden-title flight status pages unchanged). /orario-voli 1440 1991 = www's; 390 2260
+  against 2299 (the widget's form, as en's).
+- **Drop probe 00:45 UTC:** nothing after airdolomiti-snapshots-008 (airdolomiti-snapshots-009, -parity-007,
+  ita-snapshots-025, ita-parity-005, discover-snapshots-003, discover-parity-003: 404).
 

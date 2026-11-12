@@ -3278,13 +3278,29 @@ body.brand-airdolomiti main .default-content-wrapper:has(> h1:first-child + ul):
 /*
  * a page title from www's Title (the section's style compact-title, the importer's for a
  * lazyblock/title as the h1: the Italian timetable; parity row 50), not TitleMargin's size: light
- * 34px / 42px, 38px / 46px from 930px, 2px apart from 530px
+ * 34px / 42px, 38px / 46px from 930px, 2px apart from 530px; 20px under it (Title_h2_headline, AD row 113)
  */
 /* stylelint-disable-next-line no-descending-specificity -- www's Title, not the stages' and text blocks' titles (above) */
 body.brand-airdolomiti main > .section.compact-title .default-content-wrapper > h1:first-child {
+  margin-bottom: 20px;
   font-size: 34px;
   font-weight: 300;
   line-height: 42px;
+}
+
+/* www's Title 20px lower than a page title (its own 20px margin over the trail's 24px; AD row 113); a hidden title
+   (the flight status pages, compact-title with hidden-heading) keeps its place */
+/* stylelint-disable-next-line no-descending-specificity -- www's Title's text, not the title pages' (above) */
+body.brand-airdolomiti main > .section.compact-title:not(.hidden-heading) > .breadcrumb-wrapper + .default-content-wrapper:has(> h1:first-child) {
+  margin-top: 44px;
+}
+
+/* its subtitle (www's Title_subtitle; AD row 113): a 16px / 22px line across the page, not the lead paragraph */
+/* stylelint-disable-next-line no-descending-specificity -- www's Title's line, not the other texts' (above) */
+body.brand-airdolomiti main > .section.compact-title .default-content-wrapper > h1:first-child + p {
+  max-width: none;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 @media (width >= 530px) {
