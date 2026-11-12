@@ -1281,6 +1281,21 @@ body.brand-austrian main .default-content-wrapper > ul:has(> li > em:only-child 
   }
 }
 
+/* a padded column view after a block or text (Austrian row 54, standing order 15): www's starts lower than the option's
+   32 px (lufthansa.com's 3.2rem). entryregulations at 390: the column titles 446 px apart within a block, 489 across into
+   the padded one (ours 442 / 439); at 1440 a column's last line to its first picture 102 px (ours 59), culinary-
+   services' hero text to it 99 (ours 56). After a heading as before (no recording of that case); not in a section
+   with a separator style above (space-s to -xl: its space is www's already, austrian-app +1.41 points with it) */
+body.brand-austrian main > .section:not(.space-s, .space-m, .space-l, .space-xl) > :is(.columns-media-wrapper, .hero-banner-wrapper, .default-content-wrapper:not(:has(> :is(h1, h2, h3, h4, h5, h6):last-child))) + .columns-media-wrapper > .columns-media.padded:not(.sidebar) {
+  padding-top: 82px;
+}
+
+@media (width >= 1025px) {
+  body.brand-austrian main > .section:not(.space-s, .space-m, .space-l, .space-xl) > :is(.columns-media-wrapper, .hero-banner-wrapper, .default-content-wrapper:not(:has(> :is(h1, h2, h3, h4, h5, h6):last-child))) + .columns-media-wrapper > .columns-media.padded:not(.sidebar) {
+    padding-top: 75px;
+  }
+}
+
 /* "This may also interest you" (a divider section: its heading, then a card carousel; Austrian rows 52 and 53, standing
    order 15): www's heading heading-small, 28 / 30.8 px with 36 px under it from 1025 px, 22 / 24.2 with 24 on phones
    (entryregulations, sustainable-flying, doctor-on-board; the homepages' "Discover Austrian" stays heading-medium); on
