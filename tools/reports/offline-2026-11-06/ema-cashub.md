@@ -3367,3 +3367,87 @@ merges (content-sites, gitignored), the suite listing (so13/suite-a.txt).
 
 No upload, preview or publish by me. da-upload.mjs was not called; no DA or preview API call from tests (node --test
 sets NODE_TEST_CONTEXT, under which da-upload.mjs refuses without --dry-run or --sink).
+
+
+## Standing order 14 (2026-11-12, from about 09:10 CET)
+
+Start state: nothing of mine uncommitted or unpushed (order 13 ended at `e69c360e`); order 13's scratch outside git
+(migration-work/parity-588/so13, /tmp/so13). The main checkout fast-forwarded (3 commits; the 87 other jobs' files
+unchanged). Recordings from the drop only (tap-parity-001 to -009, austrian-parity-017); our hosts only (our renders
+refuse www.* and every airline host and count them: 0 on TAP, 1 on Austrian's check-in page, never sent; the
+recordings' offline renders abort every request but their own archive's). No DA, no preview API, no upload.
+
+Method for TAP: every recorded page and width (25 pages, 50 widths) on our host with a given code, against www's
+recorded height; and the text pairs of our default content matched with the same pairs in www's offline render
+(pairgaps: the gap between two consecutive text elements on each side).
+
+- **Item 1, plain text's rhythm (rows 154 and 155): held, as the order's bar asks.** www's rich text: paragraphs and
+  lists 16 px apart (ours 24), list items 8 with the last one's inside its list, a heading after text 64 px under it at
+  1440 and 32 at 390 (ours 40 / 24), the intro paragraph 32 over the next and the first heading. With these rules
+  231 of the 264 text pairs equal www's (77 today). The pages: 25 widths closer, 17 further, the sum of deviations
+  119.4 -> 116.6 %, but some move more than 0.5 points away because the 8 px surplus per paragraph was covering
+  shortfalls elsewhere on the same page. The page's end at 1440 (row 155: www's main 64 px over its footer, ours 48;
+  seven pages 16 to 17 px short) is one of them; alone it is 14 closer, 9 further, the worst +0.61. Together, after
+  row 156 below: 25 closer, 17 further (115.6 -> 112.9 %), only voar-economica 1440 over the bar (+2.08 -> +2.70, its
+  call-back box, row 157). The rules: so14/held-154-155-text-rhythm-end-gap.patch (not in git). No document change.
+- **Item 2, the list gap at 390: no change needed.** In feature views a list is 24 px under its paragraph on www and on
+  ours, at both widths, on the three pages that have one (leilões, voar-economica, bagagem-mao). Order 13's "74 against
+  50" was my measuring error (I measured to the "aqui" link on the list item's second line). The same data: a feature
+  view's paragraph pairs are 8 px apart on www (13 pairs, 5 pages), ours 20, brief 505's gap for the collapsed {blank}
+  lines; none of the recorded feature views has one. Not changed (the collapse is not my file).
+- **Item 3, Austrian online-check-in (`690a5d9f`, Austrian row 50).** The "Austrian App" heading is www's since
+  standing order 8 (size and both gaps, checked on the recording's screenshot). The remaining gap was the page's end:
+  the offline render cannot rebuild the maui components, so the full-page screenshots were scanned row by row. www's
+  FAQ button is 84 px over "Experience a seamless travel experience with Travel ID" (ours 34) and the Travel ID row
+  140 px over the divider line at 1440, 122 at 390 (ours 48 / 51). Two rules scoped to sections with a steps row (the
+  nine online-check-in documents), test first (test/austrian-checkin-end-so14.test.mjs; the 33 tests that read
+  austrian.css pass). at/en 1440 4,298 -> 4,440 px (www 4,477; -4.00 -> -0.83 %), 390 5,591 -> 5,712 (www 5,846;
+  -4.36 -> -2.29 %: the rest is the card carousel's end on phones, every page's); at/de and jp/ja the same +142 / +121.
+- **Item 4, the ranking.** Shipped: row 156 (`5fda6453`): a teaser card of a title and its link alone (hold baggage's
+  sports equipment, musical instruments, weapons; voar-economica's) as www's teaser card. Our 16 card rules asked for a
+  paragraph besides the CTA; the condition takes any paragraph now, at the same weight (a first try without the :not
+  lowered all 16 rules and moved 7 other pages). Hold baggage 1440 -1.38 -> 0.00 % (www's 4,936 exactly), 390 -2.00 ->
+  +0.37, voar-economica 1440 +2.85 -> +2.08; the other 47 page widths unchanged. Four tests read the old condition and
+  follow it; the 41 tests that read tap.css pass. Held: row 157, the call-back box in the opening hours (both
+  recordings inside them): www's window has no day and slot then, the field and the button side by side from 601 px.
+  The box now matches www's on both pages at both widths (lounges 1440: title to small print 295 / 289 px), but the
+  pages: voar-economica 1440 +2.08 -> -0.69 %, 390 +0.32 -> -0.74, lounges 1440 +0.64 -> -1.46, 390 -0.37 -> -1.27.
+  Lounges is short by content: www's recording (2026-11-11) has two notices our document lacks ("Due to weather
+  conditions, the Lounge will close ..." under Tejo, "... is closed on ..." under Atlântico; -52 / -60 px at 390), a
+  document question; the box's surplus had hidden it ("Tejo" wraps only in the offline render, not in the recording).
+  so14/held-157-click-to-call-in-hours.patch with its test (not in git). Looked at, not shared: hold baggage's alert
+  (one page), the info alerts elsewhere equal.
+- **All three held rows together** (154, 155 and 157 on top of row 156, measured too): 25 page widths closer, 17
+  further, the sum of deviations 115.6 -> 112.2 %, every page within the bar but lounges (1440 +0.64 -> -1.53, 390
+  -0.37 -> -1.57), which is short by www's two notices our document lacks. Whether that page counts against the bar
+  is the decision I leave to you: the three patches are ready to apply as they are (tests included).
+- Looked at and not a cause of ours: pt-br credit cards 1440 (+3.46 %): its cards are www's (325 x 409 / 411 px);
+  the extra is the heading's gap over them, which row 139's held re-import of that document addresses.
+
+### Final section (about 12:25 CET, 2026-11-12)
+
+**Commits** (pushed; whole-repo lint exit 0, read, before each push and again after each rebase; stylelint on the
+changed theme and block CSS; each change's test red first; every test that reads a changed file run before its push:
+the 33 that read austrian.css, the 41 that read tap.css; each change measured on our host with its code on all 50
+recorded TAP page widths, or on the Austrian page and two other languages): `690a5d9f` (Austrian row 50), `5fda6453`
+(TAP row 156; rows 154 and 155 recorded as held), and this one. The full suite on main at `e95380ee` (918 files, one at
+a time): 3,790 tests, 3,785 pass, 0 fail, 5 skipped. Builds not read (no GitHub CLI in this session).
+
+**Lists:** none; no document changes in this order.
+
+**Held, ready, not in git** (migration-work/parity-588/so14, with the numbers above): rows 154 and 155
+(held-154-155-text-rhythm-end-gap.patch), row 157 (held-157-click-to-call-in-hours.patch and
+tap-click-to-call-hours-so14.test.mjs).
+
+**Rows left:** the held rows above (your call on lounges); lounges' notices (www's, of 2026-11-11, likely temporary);
+the brief 505 pair gap in feature views (www 8 on every recorded pair, ours 20; the collapse's call); the card carousel's
+end on Austrian phones (-75 px on online-check-in at 390, every page's).
+
+**The main checkout** fast-forwarded to origin/main after this push; the 87 other jobs' files unchanged.
+
+**Not in git:** drafts, rankings, pair listings, scans, crops and scripts (migration-work/parity-588/so14, ignored;
+/tmp/so14), the suite listing (so14/suite-b.txt), the scratch code folders (so14/code-*). I removed one leftover of mine:
+the half-made worktree folder migration-work/parity-588/wt-push of a timed-out checkout (made again cleanly after).
+
+No upload, preview or publish by me. da-upload.mjs was not called; no DA or preview API call from tests. Read-only GETs
+of our hosts only.
