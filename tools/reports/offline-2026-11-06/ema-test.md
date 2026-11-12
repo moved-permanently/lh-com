@@ -2922,3 +2922,7 @@ State at the start: nothing of mine uncommitted or unpushed (ec81d170 on main, B
 - Not in git and why: logs/p4/so6 (scratch: the live copies of 29,035 documents, the scans, local renders and
   checks), .migration/project.json (the workspace's own), content/, migration-work/, tools/importer/reports/*
   (from before, not mine).
+- Pushed 665160ce (05:03 UTC; npm run lint 0, stylelint 0, full suite 900 / 900; Build success; smoke 12 hosts
+  before and after: 0 differ). Served check: Discover's winter-destinations, whose DA copy has held the joiner since
+  b99ee4c0, now reads "Naturliebhaber:innen:" with no joiner in the page's text on discover.turnsthe.page and on
+  aem.live. The listed pages change when the import helper applies the lists.
