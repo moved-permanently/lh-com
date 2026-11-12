@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-insights.js
-  var tmp_bundle_insights_80765_exports = {};
-  __export(tmp_bundle_insights_80765_exports, {
-    default: () => tmp_bundle_insights_80765_default
+  var tmp_bundle_insights_209225_exports = {};
+  __export(tmp_bundle_insights_209225_exports, {
+    default: () => tmp_bundle_insights_209225_default
   });
 
   // tools/importer/parsers/poi-data.js
@@ -6415,7 +6415,7 @@ var CustomImportScript = (() => {
       if (el.isConnected && !el.closest("form.cmp-form") && isEmpty(el)) el.remove();
     });
   }
-  var COLUMN_MARK_TEMPLATES = ["info", "fleet"];
+  var COLUMN_MARK_TEMPLATES = ["info", "fleet", "legal"];
   var COLUMN_ATTR = "data-lh-column";
   var COLUMN_KINDS = ".onecolumn, .twocolumn, .threecolumn, .fourcolumn";
   function columnMarksEnabled(payload) {
@@ -8530,10 +8530,19 @@ var CustomImportScript = (() => {
       const groups = [];
       let depth = 0;
       let cur = null;
-      own.forEach((el) => {
+      const blank = (a, b) => own.slice(own.indexOf(a), own.indexOf(b) + 1).every((x) => x.tagName === "P" && isEmptyP(x) || isSepP(x));
+      let outerOf = false;
+      own.forEach((el, i) => {
         tokensOf(el).filter((t) => /^column-(start|end)/.test(t)).forEach((t) => {
           if (t.startsWith("column-start")) {
-            if (depth === 0) cur = { first: el, outer: t === "column-start-outer" };
+            if (depth === 0) {
+              outerOf = t === "column-start-outer";
+              cur = { first: el, outer: outerOf };
+            } else if (cur && i > 0 && cur.first !== el && !blank(cur.first, own[i - 1])) {
+              cur.last = own[i - 1];
+              groups.push(cur);
+              cur = { first: el, outer: false };
+            }
             depth += 1;
           } else if (depth > 0) {
             depth -= 1;
@@ -8541,10 +8550,20 @@ var CustomImportScript = (() => {
               cur.last = el;
               groups.push(cur);
               cur = null;
+            } else if (cur && own[i + 1]) {
+              cur.last = el;
+              groups.push(cur);
+              cur = { first: own[i + 1], outer: outerOf };
             }
           }
         });
       });
+      for (let i = groups.length - 1; i > 0; i -= 1) {
+        if (groups[i].first && groups[i].last && blank(groups[i].first, groups[i].last)) {
+          groups[i - 1].last = groups[i].last;
+          groups.splice(i, 1);
+        }
+      }
       groups.forEach((g, i) => {
         if (i && groups[i - 1].last === g.first) g.first = g.first.nextElementSibling;
       });
@@ -9123,7 +9142,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_insights_80765_default = {
+  var tmp_bundle_insights_209225_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9163,5 +9182,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_insights_80765_exports);
+  return __toCommonJS(tmp_bundle_insights_209225_exports);
 })();

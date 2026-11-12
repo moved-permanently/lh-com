@@ -1,0 +1,84 @@
+# Standing order 5 (2026-11-12), item 3: lufthansa.com's legal pages and www's column views. 88 of the legal template's
+# 120 pages hold their chapters in column views on www (each a .column-view, 32 px above and below); the legal importer wrote no
+# column marks (lufthansa-cleanup COLUMN_MARK_TEMPLATES was info and fleet), so every chapter heading sits 26 to 60 px higher than
+# www's. Since this commit the legal template writes them, as info pages do. Measured on /de/en/data-collection-canada
+# (lh-parity-002b; drafts on our host with the published pictures): today 21.9 / 21.3 % off www at 1440 / 390, main's import
+# 21.9 / 21.3, with the marks 9.7 / 11.8.
+# The 120 pages imported offline from their snapshots (tools/importer/bd-snapshots, offline-importer copy) with main's and
+# the new legal bundle: the new import differs from main's by the column marks (and their separators, Theme flow-spacing)
+# alone on every page; 72 get marks. READY: the published document reads as main's import (nothing but the marks
+# changes); HOLD: the published document is newer than its snapshot.
+# Run: the legal template's import (import-legal.bundle.js) offline from tools/importer/bd-snapshots for these paths.
+# Columns: status, document, what changes.
+READY	/at/de/befoerderungsbedingungen-lh	40 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/at/de/besondere-befoerderungsbedingungen-bus	32 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/at/de/common/baggage-conditions	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/at/de/cookie-policy	20 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/at/de/datenerfassung-fuer-kanada	18 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/at/de/datenschutz	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/at/de/faq-data-security	2 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/at/de/faq-password-security	2 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/at/de/geschaeftsbedingungen	2 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/at/de/impressum	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/at/de/informationen-zum-datenschutz	24 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/at/de/nutzungsbedingungen	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/at/de/nutzungsbedingungen-waehrungsumrechnung	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/at/de/passenger-rights	20 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/at/de/rail-fly-bedingungen	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/at/de/sepa-bedingungen	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/at/de/sepa-bedingungen-b	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/befoerderungsbedingungen-lh	40 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/besondere-befoerderungsbedingungen-bus	32 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/common/baggage-conditions	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/cookie-policy	20 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/datenerfassung-fuer-kanada	18 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/datenschutz	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/faq-data-security	2 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/faq-password-security	2 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/geschaeftsbedingungen	2 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/impressum	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/informationen-zum-datenschutz	24 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/nutzungsbedingungen	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/nutzungsbedingungen-waehrungsumrechnung	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/passenger-rights	20 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/rail-fly-bedingungen	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/sepa-bedingungen	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/sepa-bedingungen-b	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/besondere-befoerderungsbedingungen-bus	32 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/business-terms-and-conditions	2 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/common/baggage-conditions	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/data-collection-canada	18 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/data-protection-information	24 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/datenschutz	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/faq-data-security	2 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/faq-password-security	2 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/general-conditions-currency-conversion	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/imprint	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/passenger-rights	20 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/rail-fly-terms-and-conditions	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/sepa-terms-and-conditions	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/sepa-terms-and-conditions-b	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/terms-and-conditions-lh	40 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/terms-of-use	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/besondere-befoerderungsbedingungen-bus	32 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/business-terms-and-conditions	2 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/common/baggage-conditions	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/cookie-policy	20 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/data-collection-canada	18 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/data-protection-information	24 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/datenschutz	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/faq-data-security	2 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/faq-password-security	2 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/general-conditions-currency-conversion	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/imprint	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/passenger-rights	20 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/rail-fly-terms-and-conditions	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/sepa-terms-and-conditions	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/sepa-terms-and-conditions-b	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/terms-and-conditions-lh	40 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/terms-of-use	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+HOLD	/at/de/datenerfassung-fuer-die-usa	18 column marks, but the snapshot is older than the published document (from word 3: "den US-EinreisebestimmungenInformieren Sie sich rechtzeitig über" / "Einreisebestimmungen in die USAInformieren Sie sich"): a re-import from it would drop newer text; needs a fresh capture
+HOLD	/de/de/datenerfassung-fuer-die-usa	18 column marks, but the snapshot is older than the published document (from word 3: "den US-EinreisebestimmungenInformieren Sie sich rechtzeitig über" / "Einreisebestimmungen in die USAInformieren Sie sich"): a re-import from it would drop newer text; needs a fresh capture
+HOLD	/de/en/cookie-policy	20 column marks, but the snapshot is older than the published document (from word 3: "30 October 2026 {full-width}Lufthansa uses browser" / "07 August 2026 {full-width}Lufthansa uses browser"): a re-import from it would drop newer text; needs a fresh capture
+HOLD	/de/en/data-collection-usa	18 column marks, but the snapshot is older than the published document (from word 36: "here.Important: Mandatory attestation required for all" / "here.Requirements for a visa-free entry into"): a re-import from it would drop newer text; needs a fresh capture
+HOLD	/gb/en/data-collection-usa	18 column marks, but the snapshot is older than the published document (from word 36: "here.Important: Mandatory attestation required for all" / "here.Requirements for a visa-free entry into"): a re-import from it would drop newer text; needs a fresh capture
