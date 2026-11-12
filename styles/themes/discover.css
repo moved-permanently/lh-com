@@ -556,6 +556,22 @@ body.brand-discover .table-striped tbody th {
   font-weight: 400;
 }
 
+/* table cells as www's maui-table-cell (theme four_y: 36 px padding and an empty footnote line under
+   the text; baggage's allowance table at 1440: 166 px rows, ours were 140): 40 px over the text, 67
+   under it, 10 px between its paragraphs (standing order 9 of 2026-11-12) */
+body.brand-discover .table-striped tbody td {
+  padding-top: 40px;
+  padding-bottom: 67px;
+}
+
+body.brand-discover .table-striped tbody td > p {
+  margin-bottom: 10px;
+}
+
+body.brand-discover .table-striped tbody td > p:last-child {
+  margin-bottom: 0;
+}
+
 /* brief 394: columns-media option side-picture, www's column view nested in a column (Customer
    service: the WhatsApp text beside its QR code under the column's heading): a text cell ending in a
    picture puts it beside the text from 768 px, below it on phones */
