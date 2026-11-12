@@ -2313,3 +2313,15 @@ body.brand-lufthansa main > .section.grey.flush:has(+ .section.padded) {
 body.brand-lufthansa main > .section:not(.grey):is(:last-child, :has(+ .section.subpage-nav-container:last-child), :not(:has(~ .section:not(:empty)))):has(> .default-content-wrapper:last-child > :is(p.button-wrapper, p.link-wrapper) + p.spacer:last-child) {
   margin-bottom: 0;
 }
+
+/* from 768px: a section that ends with an Accordion Columns (its column mark after it) before a plain grey
+   band: www has 20px between them, ours had our section gap on top (the upgrade pages: "Further
+   information about your upgrade" 48px lower than www's at 1440). 1440: upgrade-first-class
+   9.9 -> 6.5, upgrade-premium-economy-class 9.9 -> 6.4, upgrade-business-class-long-haul 10.2 -> 6.7,
+   upgrade-to-business-class 8.3 -> 4.7, doctor-on-board-news 8.3 -> 7.3; at 390 it measured worse on all
+   five, so phones as before; standing order 9 */
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section:not(.grey, .padded, .stage):has(> .accordion-columns-wrapper:last-child, > .accordion-columns-wrapper + .default-content-wrapper:last-child > p:only-child:empty):has(+ .section.grey:not(.flush, .column-band, .column-view)) {
+    margin-bottom: 0;
+  }
+}
