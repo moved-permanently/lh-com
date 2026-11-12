@@ -76,3 +76,13 @@ test('from 1025 px: a teaser grid mixing cards with and without a picture keeps 
   assert.equal(at > 0, true);
   assert.match(css.slice(at), /@media \(width >= 1025px\) \{\n {2}body\.brand-b2b \.carousel-cards\.grid:not\(\.two-up, \.four-up\) \.carousel-cards-track:has\(> \.carousel-cards-text-only\):has\(> :not\(\.carousel-cards-text-only\)\) \{\n {4}grid-template-columns: repeat\(3, minmax\(0, 1fr\)\);/);
 });
+
+test('from 768 px: a teaser grid right under a heading has only the heading\'s margin above it', () => {
+  const at = css.indexOf('/* right under a heading the grid is in that heading\'s column view on www');
+  const media = css.lastIndexOf('@media (width >= 768px) {', at);
+  const between = css.slice(media, at);
+  assert.equal(at > 0 && media > 0 && between.split('{').length - between.split('}').length === 1, true, 'inside the 768 px media block');
+  assert.match(css.slice(at), /body\.brand-b2b main > \.section:not\(\.grey\) \.default-content-wrapper:has\(> :is\(h1, h2, h3, h4, h5, h6\):last-child\) \+ \.carousel-cards-wrapper \{\n {4}margin-top: 0;\n {2}\}/);
+  // the general 64 px rule comes first, so this one wins at equal specificity plus its :has()
+  assert.equal(css.indexOf('.default-content-wrapper + .carousel-cards-wrapper {\n    margin-top: 64px;') < at, true);
+});

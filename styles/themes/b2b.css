@@ -519,6 +519,15 @@ body.brand-b2b main > .section:not(.grey) .default-content-wrapper + .carousel-c
   body.brand-b2b main > .section:not(.grey) .default-content-wrapper + .carousel-cards-wrapper {
     margin-top: 64px;
   }
+
+  /* right under a heading the grid is in that heading's column view on www: only the heading's own
+     margin between them (the airlines-at-a-glance pages' "<airline> Products & Services": www's cards
+     33 px under it at 1440, ours 64). Standing order 5, item 2: on the 24 recorded pages it matches at
+     1440 (the airline pages, experts, route-network) 473.3 -> 158.1 summed, the airline pages about
+     11 to 18 points better each, none worse; phones not changed (mixed there) */
+  body.brand-b2b main > .section:not(.grey) .default-content-wrapper:has(> :is(h1, h2, h3, h4, h5, h6):last-child) + .carousel-cards-wrapper {
+    margin-top: 0;
+  }
 }
 
 /* under a link (www's link component has no margin, 43b88b05) only the view's padding: 20 px, 40
