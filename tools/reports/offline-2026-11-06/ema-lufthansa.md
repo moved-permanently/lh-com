@@ -3760,3 +3760,19 @@ classified (above).
 
 **Process:** no request to an airline host (the drop's recordings and our own hosts only); no da-upload.mjs call, no DA
 or preview API; nothing uploaded, previewed or published by me.
+
+## Standing order 6 of 2026-11-12 (from about 09:40 CET to 14:00 CET)
+
+**Recordings:** the drop's shared folder (GDDocrqS7sYpHQrbIT_4NmGC; the earlier ITA probes read the wrong folder), sha256
+read here: ita-parity-005 966e59cf...0960091 (22 pages), brussels-parity-004 5131664c...0cfa2d (30), -005 79733824...5e4495
+(6), -006 de7fb8c1...0b1f0 (11); held from before brussels-parity-003, ita-parity-002 to -004, swiss-parity-003 and -005.
+The ranking: 97 rows (Brussels 53, ITA 39, SWISS 5), our hosts with main's CSS at the recordings' viewports.
+
+**Item 1, ITA (12 of 39 over 3 %):** the worst three share one cause, www's tab control: fleet/short-haul +504 %, long-haul
++224 %, ita-airways-app +108 % (the live documents have none of the Tab sections main's importer gives; the column-view
+headings already match, as ema-test found). ITA row 34: in each aircraft's tab www puts the table and the seat map side by
+side from 768 px; ita.css now does (test/ita-seat-map-columns-589.test.mjs). The rule matches none of the other 38 recorded
+pages (counted on each), so none changes; the live short-haul 21222 -> 17394 at 1440 until the re-import. The documents:
+reimport-589-ita-fleet-tabs.txt, 3 READY (the offline imports with this CSS 3545 / 5352, 3483 / 4965, 4036 / 5767 against
+www's 3511 / 5363, 3526 / 4919, 4045 / 5766). A first version of the rule laid out hidden tab panels too (short-haul draft
+5489 -> 11684); caught by the draft measurement, the rule now skips [hidden] sections.

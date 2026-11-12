@@ -981,3 +981,19 @@ body.brand-ita main > .section:has(> .default-content-wrapper:last-child):has(+ 
 body.brand-ita main > .section:has(> .default-content-wrapper:last-child) + .section.small-print {
   margin-bottom: 42px;
 }
+
+/* the fleet pages' seat maps (ITA row 34): in each aircraft's tab www puts the specifications table and the seat map
+   side by side from 768px (col-md-6, 20px apart), one under the other on phones; a section's table and the picture
+   paragraph right after it two columns, the rest of the section across both; a hidden tab panel stays hidden */
+@media (width >= 768px) {
+  body.brand-ita main > .section:not([hidden]):has(> .table-striped-wrapper + .default-content-wrapper > p:only-child > picture) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+    align-items: start;
+  }
+
+  body.brand-ita main > .section:not([hidden]):has(> .table-striped-wrapper + .default-content-wrapper > p:only-child > picture) > :not(.table-striped-wrapper, .table-striped-wrapper + .default-content-wrapper:has(> p:only-child > picture)) {
+    grid-column: 1 / -1;
+  }
+}
