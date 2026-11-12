@@ -653,9 +653,10 @@ body.brand-ita .carousel-cards:is(.grid, .four-up) .carousel-cards-body > p:has(
   margin-bottom: 20px;
 }
 
+/* the card's link line as www's btn-link: 14px at 375 to 16px at 1440, 110 % lines (ITA row 33: one line on phones) */
 body.brand-ita .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > .carousel-cards-cta {
-  font-size: 16px;
-  line-height: 17.6px;
+  font-size: clamp(14px, calc(14px + 2 * (100vw - 375px) / 1065), 16px);
+  line-height: 1.1;
 }
 
 body.brand-ita .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > p:not(.carousel-cards-cta) {

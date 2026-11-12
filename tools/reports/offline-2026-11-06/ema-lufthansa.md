@@ -3603,4 +3603,14 @@ the drop and our own host only. Nothing uploaded, previewed or published.
   show --stat 4 files as given, smoke 0 differences on 14 hosts, GitHub Build success).
 - **Air Dolomiti row 114 (item 4):** the booking pages' search 30 px under the title from 930 px, as www's (the three
   booking pages 1515 / 1533 / 1537 at 1440, www's exactly); phones unchanged (www's sticky widget there).
+- **On main:** 07e07712 (AD 114; npm run lint exit 0 and stylelint 0 before and after the rebase, 3713 pass 0 fail, git
+  show --stat 4 files as given, smoke 0 differences on 14 hosts (lufthansa-cn's after-run failed on the network, re-run:
+  0 differences), GitHub Build success).
+- **Classified, no change:** Discover's check-in pages at 390 (ema-cashub's D8): the heading-copytext-large headings
+  (rows-for-ema-test.md row 3). ITA Miles & More at 1440: heading sizes lost with their markers (row 1). Discover
+  baggage (D7): the offline render has no pictures and the tables differ, left as ema-cashub located it. Air Dolomiti's
+  parking page (-37 px at 1440): a half page with an accordion, one page, no shared cause.
+- **ITA row 33 (item 4):** the cards' link line 14 to 16 px fluid as www's btn-link (one line on phones). Limolane 390
+  3873 -> 3834 (www 3773; 42 of the rest the phone footer's font), travel insurance 4050 -> 4030; backwards-compatible
+  (theme, the grid cards' links only).
 
