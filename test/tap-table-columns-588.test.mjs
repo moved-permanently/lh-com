@@ -1,7 +1,7 @@
 /* eslint-disable max-len, import/extensions */
 /* TAP's rich-text tables (TAP row 146; tap-parity-007 lounges, tap-parity-009 fees, hold baggage, wheelchair, earn miles by
-   flying): www draws every one the same way: from 1024 px one card per column side by side (the first the row labels when
-   the table's first cell is empty; the others a grey card with a dark top line, the column's head over its values, the
+   flying): www draws every one the same way: from 1024 px one card per column side by side (the first column's the row
+   labels, also when its first cell holds text; the others a grey card with a dark top line, the column's head over its values, the
    rows as high as across the cards), below 1024 px one closed accordion per value column (its head the column's; inside,
    each row's label over its value). table-striped on brand tap now builds both views (table-striped-tap.js toColumns); a
    comparison table (✓ / ✕), a matrix, a beside table, one row or one column: as before.
@@ -55,13 +55,16 @@ test('a table with row labels: a labels card and a card per column; an accordion
   b.remove();
 });
 
-test('a table without row labels (its first cell text, lounges): a card per column, an accordion per column', () => {
-  const b = block([['Lounge A', 'Lounge B'], ['Terminal 1', 'Terminal 2']]);
+test('a first cell with text (lounges, wheelchair): its column still the labels card, an accordion per other column', () => {
+  const b = block([['Location', 'Opening hours', 'Capacity'], ['Terminal 1', 'From 5 am to midnight', '320 seats']]);
   assert.equal(toColumns(b), true);
-  assert.equal(b.querySelectorAll('.table-striped-card').length, 2);
-  assert.equal(b.querySelectorAll('.table-striped-card-labels').length, 0);
-  assert.equal(b.querySelectorAll('.table-striped-acc').length, 2);
-  assert.equal(b.querySelectorAll('.table-striped-acc-label').length, 0);
+  const cards = [...b.querySelectorAll('.table-striped-card')];
+  assert.equal(cards.length, 3);
+  assert.ok(cards[0].classList.contains('table-striped-card-labels'));
+  assert.equal(cards[0].firstElementChild.textContent, 'Location');
+  const items = [...b.querySelectorAll('.table-striped-acc')];
+  assert.deepEqual(items.map((x) => x.querySelector('button').textContent), ['Opening hours', 'Capacity']);
+  assert.deepEqual([...items[0].querySelectorAll('.table-striped-acc-label')].map((x) => x.textContent), ['Terminal 1']);
   b.remove();
 });
 

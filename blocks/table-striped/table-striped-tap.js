@@ -109,10 +109,11 @@ function content(cell, copy) {
 
 /**
  * www.flytap.com's rich-text tables (TAP row 146: every recorded one, tap-parity-007 and -009):
- * from 1024 px one card per column side by side (the first the row labels when the table's first
- * cell is empty; the others grey with a dark top line, the column's head over its values; the
- * rows as high across the cards: a subgrid), below 1024 px one closed accordion per value column
- * (its head the column's; inside, each row's label over its value). Both views are built, the
+ * from 1024 px one card per column side by side (the first column's the row labels, white, also
+ * when its first cell holds text: lounges, wheelchair; the others grey with a dark top line, the
+ * column's head over its values; the rows as high across the cards: a subgrid), below 1024 px one
+ * closed accordion per value column (its head the column's; inside, each row's label over its
+ * value). Both views are built, the
  * stylesheet shows one (table-striped.css, .table-striped.columns). A comparison table (✓ / ✕),
  * a table with notes, one row or one column: none (false).
  * @param {Element} block the undecorated table-striped block
@@ -126,12 +127,11 @@ export function toColumns(block) {
   if (rows.some((cells) => cells.some((c) => MARK.test(text(c))))) return false;
   // a cell with a note (italic after a line break: table-striped.js's (i)s) keeps the table
   if (rows.some((cells) => cells.some((c) => NOTE.test(c.innerHTML.trim())))) return false;
-  const labels = !text(rows[0][0]) && !rows[0][0].querySelector('img');
   columnSets += 1;
   const id = `table-striped-columns-${columnSets}`;
   // the accordions first (copies), then the cards take the cells' own nodes
   const items = [];
-  for (let i = labels ? 1 : 0; i < n; i += 1) {
+  for (let i = 1; i < n; i += 1) {
     const toggle = document.createElement('button');
     toggle.type = 'button';
     toggle.className = 'table-striped-acc-toggle';
@@ -139,7 +139,7 @@ export function toColumns(block) {
     toggle.append(...content(rows[0][i], true));
     const panel = div('table-striped-acc-panel', ...rows.slice(1).map((cells) => div(
       'table-striped-acc-row',
-      ...(labels ? [div('table-striped-acc-label', ...content(cells[0], true))] : []),
+      div('table-striped-acc-label', ...content(cells[0], true)),
       div('table-striped-acc-value', ...content(cells[i], true)),
     )));
     panel.id = `${id}-${i}`;
@@ -154,7 +154,7 @@ export function toColumns(block) {
   }
   const cards = [];
   for (let i = 0; i < n; i += 1) {
-    const card = div(`table-striped-card${labels && i === 0 ? ' table-striped-card-labels' : ''}`, ...rows.map((cells, r) => div(
+    const card = div(`table-striped-card${i === 0 ? ' table-striped-card-labels' : ''}`, ...rows.map((cells, r) => div(
       r === 0 ? 'table-striped-cell table-striped-cell-head' : 'table-striped-cell',
       ...content(cells[i], false),
     )));
