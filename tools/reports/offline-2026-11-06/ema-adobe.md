@@ -3367,3 +3367,58 @@ lint read 0 on a clean worktree of HEAD, stylelint on styles.css 0 (no theme fil
 
 Left out of git: logs/b600 (runners, censuses, captures, trial CSS), and the R2 archives and import workspaces under
 /tmp.
+
+### Standing order 9 (2026-11-12 13:30 to 18:00 CET)
+
+No airline-host requests, nothing uploaded, previewed or published. DA was only read (GET source, versionlist,
+versionsource). Each push: whole-repo lint read 0 on a clean worktree of HEAD, stylelint on styles.css and the theme
+files 0, the tests that read the changed files passed, Build green. Item 1's commit also passed the full suites (site
+927, lh-edge 71, failing 0).
+
+1. **Fleet stage text as body copy (23b82c9).** The hero-campaign parser now marks a lufthansa.com stage that has
+   www's body copy (.information) and no tagline (.subheadline) with the option no-subtitle. The block then leaves the
+   paragraph as body text (about 16 px at 390, not the 22 px subtitle). Other brands' importers are unchanged. The test
+   came first (hero-campaign-no-subtitle-so9). List `reimport-so9-hero-no-subtitle-lh-com.txt`:
+   - 7 READY: 320 and 32n (de/en and de/de), de/en boeing787, and the two 351 fleet pages. Each changes by the option
+     alone.
+   - 22 HOLD: the xx versions' snapshots are only in the helper's so4 archive; xx/ja stays as DA has it.
+2. **gb/en business-class twice (6f25b50).** Cause: the DA rollout project "business-class-update" (2026-11-04 05:32
+   UTC, from /gc/en saved at 05:28) was merged into gb/en's own copy and never resolved. DA keeps 25 pairs: the
+   incoming block in `<da-diff-deleted>`, gb/en's own block after it. The published page shows both.
+   - Only the stage differs in words; the newer side has "privacy and more space for you", the body copy and "Book
+     Business Class". The other 24 pairs differ by links alone (/gc/en against /gb/en).
+   - `tools/loc/merge-newer.mjs` (local files only) keeps the newer words per pair, with gb/en's links. The result
+     reads as /gc/en (words, images and blocks) with gb/en's links. The test came first (loc-merge-newer-so9).
+   - One READY row in `delta-so9-gb-en-business-class-lh-com.txt`.
+3. **Ranking further below 8 % (`ranking-so9-lh-com.txt`, 175 rows from 4 to 8 %).** All rows were measured again on
+   our host, with no HTTP 429. Shared causes, each tried on every recorded page it touches:
+   - **accordion-grey (87e2b57, served):** from 768 px, no section gap between an accordion and a plain grey band
+     after it (www 20 px, ours 68). At 1440: the four upgrade pages 10.2 / 9.9 / 9.9 / 8.3 -> 6.7 / 6.5 / 6.4 / 4.7,
+     doctor-on-board-news 8.3 -> 7.3. Phones stay as before, because the rule measured worse at 390 on all five. The
+     served captures match the trial.
+   - **list-end (HOLD, your go):** on phones, a stacked Columns Media text cell that ends with a list sits 12 px too
+     far from the next cell.
+     - Better with 24 px there: hearing-impairment 7.9 -> 6.0, visual-impairment 6.3 -> 4.3, cognitive-impairment
+       6.8 -> 5.9, passengers-with-sensory-impairment 6.7 -> 5.4.
+     - Worse on the whole page: schengen 8.5 -> 9.9, sports-baggage 5.8 -> 6.6 and payment-options 7.8 -> 8.4. On
+       schengen and sports-baggage the 12 px made up for an earlier drift; their block region scores improve (1.4 ->
+       0.2 and 6.3 -> 2.3).
+   - **stage-intro-padded (HOLD, your go):** a stage, then an unstyled intro, then a padded or grey section: ours is
+     16-17 px short.
+     - Better with 64 px under the intro: my-bookings 7.4 -> 4.6 and seat-maps 7.8 -> 4.9 at 1440; wetlease-hub and
+       travel-companion at both widths.
+     - Worse: air-baltic 4.8 -> 5.4 at 1440, the same on a second run, though its opening region improves.
+       onboard-delights (a flush stage) is left out of the rule.
+   - **intro-end (not shipped):** 24 px under an h1 / picture / text opening made accessible-travel and
+     carry-on-baggage worse.
+   - The legal column marks of standing order 5 (34 recorded page-widths against rank-582): 20 better, 11 within 0.3,
+     and 3 worse. The worse ones are imprint (7.6 -> 9.9 at 390, 4.2 -> 8.8 at 1440) and datenschutz at 1440 (3.2 ->
+     6.4); each is a single-page drift.
+   - The rest are single-page drifts, or offset-tool spikes of about 300 px.
+   - Not mine: test/carousel-dots-374 was red on main from 517187a4, with or without my changes. Another session
+     fixed it in 55714cf and a110d97, and it passes again.
+
+Left out of git:
+- logs/b601: runners, censuses, captures, trial CSS, the DA copies and the delta's output.
+- The untracked import reports of earlier runs.
+- The R2 archives and import workspaces under /tmp.
