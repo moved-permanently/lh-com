@@ -1296,6 +1296,28 @@ body.brand-austrian main > .section:not(.space-s, .space-m, .space-l, .space-xl)
   }
 }
 
+/* partner link tiles on phones (cards-icon-text partner without text: accessible-travel; Austrian row 56, standing order
+   16): www's .teaser.partner boxes, 21.5 px over the title plus the column item's 12, 24 px at the sides, 36 below, the
+   title 18 px over the box's end, 44 + 12 px to the next tile (the recorded titles 167 / 168 px apart on one line, 192
+   on two, at x 91; ours 78 apart at x 73). From 768 px as before; the icon steps with text (row 40) as before */
+@media (width < 768px) {
+  body.brand-austrian main .cards-icon-text.partner > ul:not(:has(.cards-icon-text-body > p)) {
+    row-gap: 0;
+  }
+
+  body.brand-austrian main .cards-icon-text.partner > ul > li:not(:has(.cards-icon-text-body > p)) {
+    margin-bottom: 56px;
+  }
+
+  body.brand-austrian main .cards-icon-text.partner > ul > li:not(:has(.cards-icon-text-body > p)) > .cards-icon-text-card {
+    padding: 33.5px 24px 36px;
+  }
+
+  body.brand-austrian main .cards-icon-text.partner > ul > li:not(:has(.cards-icon-text-body > p)) .cards-icon-text-title {
+    margin-bottom: 18px;
+  }
+}
+
 /* a tab panel of text and a picture (Austrian row 55, standing order 16; travel-id's "Website", "Chat assistant", "App",
    "FlyNet"): from 1025 px www's two-column view, the text 622 px wide on the left, the picture beside it, both from the
    top, the heading heading-small (austrian-parity-015 travel-id at 1440; ours had the picture full width under the
