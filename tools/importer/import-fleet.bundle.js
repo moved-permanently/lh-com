@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var tmp_bundle_fleet_1241873_exports = {};
-  __export(tmp_bundle_fleet_1241873_exports, {
-    default: () => tmp_bundle_fleet_1241873_default
+  var tmp_bundle_fleet_1244628_exports = {};
+  __export(tmp_bundle_fleet_1244628_exports, {
+    default: () => tmp_bundle_fleet_1244628_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -4311,6 +4311,21 @@ var CustomImportScript = (() => {
     }
     document.body.append(WebImporter.Blocks.getMetadataBlock(document, meta));
   }
+  function liftHeadingItems(document) {
+    const text = (el) => (el.textContent || "").replace(/[\s\u00a0\u200b]+/g, " ").trim();
+    document.querySelectorAll(":is(.twocolumn, .threecolumn, .fourcolumn) > .column-view > .row").forEach((row) => {
+      if (!row.querySelector(":scope > .column-view-item a.teaser.partner")) return;
+      const view = row.parentElement.parentElement;
+      [...row.children].forEach((item) => {
+        if (!item.matches(".column-view-item") || item.querySelector("a.teaser")) return;
+        const heads = [...item.querySelectorAll(":scope > .headline :is(h1, h2, h3, h4, h5, h6)")].filter(text);
+        const other = [...item.children].some((c) => !c.matches(".headline") && text(c));
+        if (!heads.length || other) return;
+        heads.forEach((h) => view.before(h));
+        item.remove();
+      });
+    });
+  }
   function markEmptyHeadlines(document, payload) {
     if ((payload && payload.template || {}).name !== "insights") return;
     document.querySelectorAll(".headline").forEach((headline) => {
@@ -4443,6 +4458,7 @@ var CustomImportScript = (() => {
       restoreMovingImages(document);
       markParallaxImages(document);
       markEmptyHeadlines(document, payload);
+      liftHeadingItems(document);
       const flow = columnMarksEnabled(payload);
       if (flow) {
         markColumnViews(document, payload);
@@ -6160,7 +6176,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_fleet_1241873_default = {
+  var tmp_bundle_fleet_1244628_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -6200,5 +6216,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_fleet_1241873_exports);
+  return __toCommonJS(tmp_bundle_fleet_1244628_exports);
 })();
