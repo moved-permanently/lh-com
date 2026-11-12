@@ -3275,3 +3275,95 @@ order 11's last run: 0 differences but lufthansa's sitemap and b2b's search inde
 /tmp/so12; my worktree's content-sites, gitignored), smoke runs (so10/smoke-so12-after), the red test of row 151.
 
 No upload, preview or publish by me. da-upload.mjs was not called; no DA or preview API call from tests.
+
+
+## Standing order 13 (2026-11-12, from about 06:10 CET)
+
+Start state: nothing of mine unpushed (order 12 all on origin/main, `bd7fa0de`). Uncommitted and mine: row 151's red test
+in my suite worktree, untracked (finished here, item 1); order 12's scratch in migration-work/parity-588/so12 (ignored).
+The main checkout was 32 commits behind origin/main: fast-forwarded (`merge --ff-only`; none of the 62 moved files is
+among the 87 uncommitted ones, which are other jobs' import output and stay as they were). An autostash of 2026-11-01
+(`stash@{0}`) is not mine and stays. Archives from the drop only (tap-parity-001 to -009, tap-snapshots, media);
+www's geometry from the recordings and offline renders of them (the archive under a made-up host, every other request
+aborted before it left the browser); nothing fetched from TAP's or any airline host (every render of our host refuses
+www.* and *.flytap.com and counts them: 0 in every run). DA not called: order 11's GET copies of DA's sources only.
+Read-only GETs of our host (tap.turnsthe.page: pages, sitemaps) and of three previewed pages
+(main--lh-tap--moved-permanently.aem.page, .plain.html).
+
+- **Item 1, row 151 (`e9b72c4d`):** main's importer writes a CategoryAccordion's categories as row 134's "categories"
+  tab sections, the FAQ page's too, so section-tabs.js built its tab list and the FAQ picker its pills, and the set hid
+  every category but its first. Test first (test/tap-faq-tab-sections-151.test.mjs, red for both causes), then: the
+  picker removes the tab sets its categories are in (scripts/section-tabs-sets.js removeSectionTabs: tab list,
+  toggles, roles, hidden panels; a removed set ignores later media changes; a page's other sets stay; a module without
+  aem.js so the picker's tests run as before), and tap.css's 32 px under the title no longer applies to a category's
+  own section before the next one (the shown category had 16 px less under it). On our host after the push, 1440 /
+  390: en-br 2,248 / 2,692 -> 2,064 / 2,364, pt-us 2,192 / 2,692 -> 2,064 / 2,412; en-pt 2,008 / 2,364 and pt-pt
+  2,008 / 2,412 unchanged (en-br and pt-us have one subcategory more, Special baggage: +56 px at 1440). Of the 287 FAQ
+  and Miles&Go partners pages in our host's sitemaps, only these two have tab sections. **No document change, no list.**
+- **Item 2, row 149's three HOLD rows (`954ddfba`, reimport-so13-tap-149-held.txt, 3 READY):** de-de Economy Prime
+  READY with the two breaks only (the fresh import equals DA's copy otherwise; hold it if DA's current copy differs
+  more). The two market documents first showed a tool defect: the break cuts one of DA's sections in two, and
+  keepStale / keepUncovered matched sections one by one, so the halves read as other text and the countries of an
+  older capture got DA's section besides the merged ones (fr-fr/miles-and-go: fr-ca's group of 12, the body twice).
+  Fixed in tap-markets.mjs, test first (test/tap-markets-stale-breaks-149.test.mjs): a country whose view has DA's
+  text in the same order keeps the merge (a no-break space as DA or the importer writes it), and keepExisting runs
+  both steps on the merge as written (collapsed, as DA's copies are; keepUncovered compared the uncollapsed merge, so a
+  {blank} line read as other text: that is how /fr-fr/miles-and-go/partenaires gave us the partners twice). The same
+  run, earlier code against this commit, all 209 language documents: 33 differ; in each, every country whose view
+  changes now sees exactly DA's text, none moves away from it. The helper has uploaded and previewed the three since
+  (so13-tap-149-held-01, 06:32 UTC); our host serves them: fr-fr miles-and-go 3,730 / 4,290 and en-pt donate miles
+  6,325 / 6,185, as drafted (+24 px at 1440 each, 390 unchanged); de-de Economy Prime 7,252 / 8,537, DA's later
+  "Sie reisen nicht in Economy Prime? ..." in it.
+- **Item 3, the ranking** (every recorded page, its latest recording, 25 pages at 1440 and 390, our host as it is,
+  every picture loaded), worst-first before this order's fixes: en-pt baggage 1440 -18.5 % (row 41's LUGGit frame),
+  locate baggage -17.6 / -16.2 (row 145's form), en-pt home 1440 -14.3 (row 127's unscrolled recording), en-pt baggage
+  390 -11.0 (row 41); then pt-br credit cards 1440 +3.46 (row 139's HOLD), fees 390 -3.32, pt-pt Economy 1440 +2.85,
+  hold baggage 390 -2.06, navigator-experiences 390 +1.88, Miles&Go 1440 -1.83; everything else within 1.6 %. Where
+  each page drifts: www's headings (the recordings' h1-h3) matched with ours, the steps over 12 px with our blocks in
+  them. Two causes shared by several pages, fixed, each test first and measured on all 50 page widths with the code
+  before the push:
+
+| row | commit | cause | moved (www, before, after) |
+|---|---|---|---|
+| 152 | `27537c71` | a phone table's accordion stack (row 146) let its last 16 px collapse into the gap after it; www's keeps it inside: the text after a table 32 px under it, a heading 48 (ours 16, 32) | 390: fees 4,703 / 4,547 / 4,627 (-3.32 -> -1.62 %), lounges 6,700 / 6,639 / 6,687 (-0.19), hold baggage 6,445 / 6,312 / 6,328 (-1.82), by flying 3,838 / 3,785 / 3,801 (-0.96), wheelchair 4,946 / 5,004 / 5,020 (+1.17 -> +1.50); nothing else |
+| 153 | `33c7d108` | brief 505's paragraph-pair gap (p + p, 20 px in the feature views) also took a feature view's button paragraph: 36 px under the text where www has 24 (brief 394; leilões at 1440 and 390) | 7 closer: fly business 1440 +1.56 -> +1.07, 390 +1.08 -> +0.79, leilões 1440 +1.25 -> +0.79, inspire-se +0.57 -> +0.35 / +0.95 -> +0.71, voar-economica 390 +0.53 -> +0.32, wheelchair 390 +1.50 -> +1.25; 4 short elsewhere further: leilões 390 -0.36 -> -0.72, get-inspired 390 -0.24 -> -0.48, hold baggage 390 -1.82 -> -2.00, lounges 390 -0.19 -> -0.37 |
+
+  Found, not changed (each needs a ranking run of its own, and they offset each other on the same pages): www's rich
+  text keeps paragraphs 16 px apart at both widths (fees, wheelchair; the recordings), ours 24, while www has 64 px
+  from a rich text to the next heading where ours has 40; and in a feature view at 390 www's list sits 74 px under its
+  paragraph (leilões, twice), ours 50. The brief 505 pair gap itself (20 px for www's 8 or 32 with a {blank} line)
+  stays: the collapse that drops the {blank} lines is not my file.
+
+### Final section (about 08:40 CET, 2026-11-12)
+
+**Commits** (pushed; whole-repo lint exit 0 before each push, read before the push, again after every rebase; stylelint
+on the changed theme and block CSS; each change's test red first; every change measured on our host with its code
+before the push): `e9b72c4d` (row 151), `954ddfba` (row 149's three rows and tap-markets.mjs), `27537c71` (row 152),
+`33c7d108` (row 153), and this one. Builds not read (no GitHub CLI in this session).
+
+**A red test on main from my push, 05:21 to 07:29 UTC:** test/tap-faq-gap-567.test.mjs reads tap.css for the 32 px
+rule's selector, which `e9b72c4d` narrowed. Before that push I ran the tests that import the changed modules, not those
+that read tap.css as text. Another job fixed the test at 07:29 UTC (`ed03817e`, the selector as it is now); my own fix
+of the same line was redundant and is not pushed. The full suite at the end (909 files, one at a time): 3,769 tests,
+3,763 pass, 5 skipped, 1 fail, that test, which passes on main since `ed03817e`. From now on I run every test file that
+names a changed selector before a push, not only those that import the changed code.
+
+**The ranking now** (our host, main's code, the published documents and the three row 149 documents the helper
+previewed at 06:32 UTC): the decided rows (en-pt baggage, row 41: 1440 -18.5 %, 390 -11.0; locate baggage, row 145:
+-17.6 / -16.2; en-pt home's unscrolled recording, row 127: 1440 -14.3), then pt-br credit cards 1440 +3.46 (row 139's
+HOLD), pt-pt Economy 1440 +2.85, hold baggage 390 -2.00, navigator-experiences 390 +1.88, Miles&Go 1440 -1.83, fees 390
+-1.62 (was -3.32); everything else within 1.6 %.
+
+**Rows left:** the rich-text spacing (www's paragraphs 16 px apart, ours 24; 64 px from a rich text to the next
+heading, ours 40; they offset each other and need measuring together), a feature view's list after a paragraph at 390
+(leilões only so far), the 9 HOLD rows of 139, row 145's form itself (needs TAP's service).
+
+**The main checkout** is fast-forwarded to origin/main after this push; the 87 other jobs' uncommitted files unchanged
+(checked by status).
+
+**Not in git:** the drop archives, DA's copies, scratch runs, drafts, rankings, drift listings and scripts
+(migration-work/parity-588/so13 and /tmp/so13: ignored, or outside the repository), my worktree's scratch imports and
+merges (content-sites, gitignored), the suite listing (so13/suite-a.txt).
+
+No upload, preview or publish by me. da-upload.mjs was not called; no DA or preview API call from tests (node --test
+sets NODE_TEST_CONTEXT, under which da-upload.mjs refuses without --dry-run or --sink).
