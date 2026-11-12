@@ -136,3 +136,9 @@ found, the evidence and what would follow www.
   heading-medium both), as the theme's default there is not the level's. ema-lufthansa then drops row 31's guess (an
   unmarked H2 in a Columns Media cell at heading-small) and the documents re-import (DA's market sections: through a
   delta like ita-tabs-apply.mjs).
+- **Done (standing order 10, 2026-11-12, ema-test):** ita-import.mjs's snapshot step marks a column-view H2 in
+  heading-medium (the cleanup's H2 default, so it wrote none); the collapse keeps heading-medium and heading-small in a
+  Columns Media cell on ITA (THEMES.ita keepSizesIn). A re-import of contact and the other -005 pages brings their
+  markers; ita-parity-005 is not in my workspace, so they are not measured here. For DA's copies:
+  reimport-so10-ita-column-view-headings.txt (2 READY on -003 / -004, the only such headings in a Columns Media cell
+  there). Row 31's guess (ita.css) can go once those pages carry their markers.

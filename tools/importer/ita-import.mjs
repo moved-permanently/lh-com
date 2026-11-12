@@ -233,9 +233,34 @@ export function templateOf(p, html) {
  * block named lu (its first cell) that nothing renders (/xx/it/.../emergency-contact,
  * /it/it/.../voglia-di-volare-registration-form, imported before this).
  */
+/**
+ * A snapshot whose column-view H2s in heading-medium carry their marker (rows-for-ema-test.md row 6,
+ * standing order 10 of 2026-11-12): www's column-view headlines come in heading-medium (36 px at
+ * 1440) and heading-small (28 px); the cleanup marks a heading only when its size is not its level's
+ * default, so an H2 in heading-medium (contact's country headings) came through unmarked and ita.css
+ * drew it at heading-small's size. " {heading-medium}" at the end of such an H2, once; the collapse
+ * keeps it in a Columns Media cell (THEMES.ita keepSizesIn). Headings outside a view as they are.
+ */
+export function withColumnViewHeadingSizes(html) {
+  const open = /<div\b[^>]*\bclass="column-view[ "]/g;
+  let out = '';
+  let from = 0;
+  let m = open.exec(html);
+  while (m) {
+    const end = divEnd(html, m.index);
+    const view = html.slice(m.index, end).replace(/(<h2\b[^>]*\bclass="[^"]*\bheading-medium\b[^"]*"[^>]*>)([\s\S]*?)(<\/h2>)/g, (all, start, inner, close) => (
+      /\{[a-z0-9 -]+\}\s*$/.test(inner.replace(/<[^>]+>/g, '')) ? all : `${start}${inner.replace(/\s+$/, '')} {heading-medium}${close}`));
+    out += html.slice(from, m.index) + view;
+    from = end;
+    open.lastIndex = end;
+    m = open.exec(html);
+  }
+  return out + html.slice(from);
+}
+
 export function mappedOf(html, p) {
   const noPicker = editDivs(stripScripts(html), '<div id="ui-datepicker-div"', () => '');
-  return withoutLoads(withFareTeaserConfig(withTeaserCta(withTeaserColumns(withCheckinTabs(withLinkOuts(withPlaceholder(noPicker), p))))))
+  return withoutLoads(withFareTeaserConfig(withTeaserCta(withTeaserColumns(withCheckinTabs(withLinkOuts(withPlaceholder(withColumnViewHeadingSizes(noPicker)), p))))))
     .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
 }
 

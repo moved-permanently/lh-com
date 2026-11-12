@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-hero-banner.js
-  var tmp_bundle_austrian_hero_banner_1135071_exports = {};
-  __export(tmp_bundle_austrian_hero_banner_1135071_exports, {
-    default: () => tmp_bundle_austrian_hero_banner_1135071_default
+  var tmp_bundle_austrian_hero_banner_1217818_exports = {};
+  __export(tmp_bundle_austrian_hero_banner_1217818_exports, {
+    default: () => tmp_bundle_austrian_hero_banner_1217818_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -5407,7 +5407,11 @@ var CustomImportScript = (() => {
     ita: {
       live: true,
       text: { width: "full" },
-      headingsBefore: { "carousel-cards": { h2: "heading-small" }, "cards-icon": { h2: "heading-small" } }
+      headingsBefore: { "carousel-cards": { h2: "heading-small" }, "cards-icon": { h2: "heading-small" } },
+      // keepSizesIn: in a Columns Media cell (www's column-view items) a heading keeps its marker in
+      // heading-medium or heading-small, which the page reads as the class (www has both there: 36
+      // and 28 px; rows-for-ema-test.md row 6, standing order 10 of 2026-11-12; import time only)
+      keepSizesIn: { "columns-media": ["heading-medium", "heading-small"] }
     },
     // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
     // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
@@ -8120,7 +8124,9 @@ var CustomImportScript = (() => {
       const size = tokens.find((t) => SIZE_TOKEN.test(t));
       tokens.filter((t) => t === "limited-width").forEach(() => count(stats, "theme", "heading"));
       if (!size) return;
-      if ((theme.keepSizes || []).includes(size)) {
+      const inBlock = blockOf(el, main);
+      const keptIn = inBlock && ((theme.keepSizesIn || {})[blockName(inBlock)] || []).includes(size);
+      if ((theme.keepSizes || []).includes(size) || keptIn) {
         el.append(doc.createTextNode(` {${size}}`));
         count(stats, "carrier", "heading-kept", 1);
         return;
@@ -9058,7 +9064,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_hero_banner_1135071_default = {
+  var tmp_bundle_austrian_hero_banner_1217818_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9098,5 +9104,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_hero_banner_1135071_exports);
+  return __toCommonJS(tmp_bundle_austrian_hero_banner_1217818_exports);
 })();

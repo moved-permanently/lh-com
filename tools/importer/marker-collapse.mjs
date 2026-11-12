@@ -630,7 +630,12 @@ function collapseHeadings(main, doc, stats, marks, theme) {
     // a size the theme keeps as written (Discover's heading-copytext-large: www's 16 / 18 px bold eyebrows and
     // column-view headings, in mixed sections and blocks alike; rows-for-ema-test.md row 3): the marker stays on the
     // heading, scripts.js decorateTextStyles makes it the class; the same on a second run
-    if ((theme.keepSizes || []).includes(size)) {
+    // keepSizesIn: sizes a theme keeps inside one kind of block (ITA's Columns Media cells: www's column-view
+    // headlines in heading-medium or heading-small, where the block's own default is not the level's;
+    // rows-for-ema-test.md row 6, standing order 10 of 2026-11-12)
+    const inBlock = blockOf(el, main);
+    const keptIn = inBlock && ((theme.keepSizesIn || {})[blockName(inBlock)] || []).includes(size);
+    if ((theme.keepSizes || []).includes(size) || keptIn) {
       el.append(doc.createTextNode(` {${size}}`));
       count(stats, 'carrier', 'heading-kept', 1);
       return;

@@ -213,6 +213,10 @@ export const THEMES = {
     live: true,
     text: { width: 'full' },
     headingsBefore: { 'carousel-cards': { h2: 'heading-small' }, 'cards-icon': { h2: 'heading-small' } },
+    // keepSizesIn: in a Columns Media cell (www's column-view items) a heading keeps its marker in
+    // heading-medium or heading-small, which the page reads as the class (www has both there: 36
+    // and 28 px; rows-for-ema-test.md row 6, standing order 10 of 2026-11-12; import time only)
+    keepSizesIn: { 'columns-media': ['heading-medium', 'heading-small'] },
   },
   // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
   // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
