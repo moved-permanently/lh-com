@@ -133,6 +133,26 @@
   --footer-logo-home-height: 30px; /* the logo row: small-logo.svg 130x30 */
 }
 
+/* articles from 768 px (Brussels P51, standing order 17): the header picture at its own proportions (www sets no ratio
+   on it there, lufthansa.com's block draws 16:9; the recorded articles' pictures are 2:1, and at 1440 the title was 84 /
+   85 px lower than www's: the-gambia, vibrant-senegal); the galleries (columns-media stacked: one picture left, two right)
+   40 px from the text above and below as www's column view (.column-view.flex-column padding 40 / 20 px, its items 20 px
+   below; ours 20 and 20, six galleries a page). At 1440 the-gambia -3.68 -> -0.68 %, vibrant-senegal -3.45 -> -0.42 %.
+   Phones keep 16:9 and their spacing, as www (the title 462 px, ours 469) */
+@media (width >= 768px) {
+  body.brand-brussels .article-header .article-header-media {
+    aspect-ratio: auto;
+  }
+
+  body.brand-brussels .article-header .article-header-media :is(picture, img) {
+    height: auto;
+  }
+
+  body.brand-brussels main:has(.article-header) .columns-media.stacked {
+    padding-block: 40px 20px;
+  }
+}
+
 /* page titles Brussels red (www's h1.headline.heading-large and h1.article-headline); an h1 its
    author gave a smaller style ({heading-medium}: Beobank, P40) as www's other headings */
 body.brand-brussels main h1:not(.heading-medium, .heading-small, .heading-copytext-large, .heading-copytext-medium),
