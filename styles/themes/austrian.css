@@ -1298,18 +1298,12 @@ body.brand-austrian main > .section:not(.space-s, .space-m, .space-l, .space-xl)
 
 /* "This may also interest you" (a divider section: its heading, then a card carousel; Austrian rows 52 and 53, standing
    order 15): www's heading heading-small, 28 / 30.8 px with 36 px under it from 1025 px, 22 / 24.2 with 24 on phones
-   (entryregulations, sustainable-flying, doctor-on-board; the homepages' "Discover Austrian" stays heading-medium); on
-   phones the slider's dots 67 px under the cards and 82 px over what follows (entryregulations at 390, ours 23 and 56;
-   the 24 px target keeps 8 px over its drawn dot) */
+   (entryregulations, sustainable-flying, doctor-on-board; the homepages' "Discover Austrian" stays heading-medium); the
+   phone slider's dots (row 53) are in blocks/carousel-cards/carousel-cards.css, where the dots belong */
 body.brand-austrian main > .section.divider > .default-content-wrapper:has(+ .carousel-cards-wrapper) > h2:last-child {
   margin-bottom: 24px;
   font-size: 22px;
   line-height: 1.1;
-}
-
-body.brand-austrian main .carousel-cards.phone-slider .carousel-cards-dots {
-  margin-top: 51px;
-  margin-bottom: 26px;
 }
 
 @media (width >= 1025px) {
