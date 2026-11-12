@@ -519,7 +519,9 @@ body.brand-b2b main > .section:not(.grey) .default-content-wrapper + .carousel-c
   body.brand-b2b main > .section:not(.grey) .default-content-wrapper + .carousel-cards-wrapper {
     margin-top: 64px;
   }
+}
 
+@media (width >= 768px) {
   /* right under a heading the grid is in that heading's column view on www: only the heading's own
      margin between them (the airlines-at-a-glance pages' "<airline> Products & Services": www's cards
      33 px under it at 1440, ours 64). Standing order 5, item 2: on the 24 recorded pages it matches at
