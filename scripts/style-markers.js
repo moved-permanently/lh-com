@@ -225,6 +225,9 @@ export const THEMES = {
   discover: {
     live: true,
     componentSpacers: true,
+    // keepSizes: a heading size the collapse keeps as its marker, which the page reads as the class
+    // (www's heading-copytext-large, 16 / 18 px bold: rows-for-ema-test.md row 3)
+    keepSizes: ['heading-copytext-large'],
     pageTypes: { flow: { headings: { h2: 'heading-small' }, columnViews: { blocks: ['columns-media'] } } },
   },
   // Lufthansa Group for Business: on flow pages the H3s in heading-small (www: 82 %); Columns

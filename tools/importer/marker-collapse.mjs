@@ -627,6 +627,14 @@ function collapseHeadings(main, doc, stats, marks, theme) {
     const size = tokens.find((t) => SIZE_TOKEN.test(t));
     tokens.filter((t) => t === 'limited-width').forEach(() => count(stats, 'theme', 'heading'));
     if (!size) return;
+    // a size the theme keeps as written (Discover's heading-copytext-large: www's 16 / 18 px bold eyebrows and
+    // column-view headings, in mixed sections and blocks alike; rows-for-ema-test.md row 3): the marker stays on the
+    // heading, scripts.js decorateTextStyles makes it the class; the same on a second run
+    if ((theme.keepSizes || []).includes(size)) {
+      el.append(doc.createTextNode(` {${size}}`));
+      count(stats, 'carrier', 'heading-kept', 1);
+      return;
+    }
     const w = headingWish(theme, Number(el.tagName[1]), size);
     if (w.kind === 'default') count(stats, 'theme', 'heading');
     else if (w.kind === 'none') count(stats, 'theme', 'heading-no-choice');

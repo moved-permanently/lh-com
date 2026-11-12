@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var tmp_bundle_fleet_647021_exports = {};
-  __export(tmp_bundle_fleet_647021_exports, {
-    default: () => tmp_bundle_fleet_647021_default
+  var tmp_bundle_fleet_663835_exports = {};
+  __export(tmp_bundle_fleet_663835_exports, {
+    default: () => tmp_bundle_fleet_663835_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -2673,6 +2673,9 @@ var CustomImportScript = (() => {
     discover: {
       live: true,
       componentSpacers: true,
+      // keepSizes: a heading size the collapse keeps as its marker, which the page reads as the class
+      // (www's heading-copytext-large, 16 / 18 px bold: rows-for-ema-test.md row 3)
+      keepSizes: ["heading-copytext-large"],
       pageTypes: { flow: { headings: { h2: "heading-small" }, columnViews: { blocks: ["columns-media"] } } }
     },
     // Lufthansa Group for Business: on flow pages the H3s in heading-small (www: 82 %); Columns
@@ -5352,6 +5355,11 @@ var CustomImportScript = (() => {
       const size = tokens.find((t) => SIZE_TOKEN.test(t));
       tokens.filter((t) => t === "limited-width").forEach(() => count(stats, "theme", "heading"));
       if (!size) return;
+      if ((theme.keepSizes || []).includes(size)) {
+        el.append(doc.createTextNode(` {${size}}`));
+        count(stats, "carrier", "heading-kept", 1);
+        return;
+      }
       const w = headingWish(theme, Number(el.tagName[1]), size);
       if (w.kind === "default") count(stats, "theme", "heading");
       else if (w.kind === "none") count(stats, "theme", "heading-no-choice");
@@ -6107,7 +6115,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_fleet_647021_default = {
+  var tmp_bundle_fleet_663835_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -6147,5 +6155,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_fleet_647021_exports);
+  return __toCommonJS(tmp_bundle_fleet_663835_exports);
 })();
