@@ -1094,3 +1094,34 @@ body.brand-ita .table-striped tr > :first-child:nth-last-child(6) ~ :is(td, th) 
   }
 }
 /* stylelint-enable no-descending-specificity */
+
+/* several pictures in a sidebar's media cell (ITA row 40; /it/en/world-of-ita-airways/discover-ita-airways/
+   sustainability/iris, ita-parity-005): www stacks the column's image components at its full width, about 32px apart
+   (the SDG badges 346 x 115 and the "Planet" circle 346 x 346 at 390; 306 wide in the aside at 1440); ours set them
+   side by side, each half the width */
+/* stylelint-disable no-descending-specificity -- the accordion's own picture rules above */
+body.brand-ita .columns-media.sidebar .columns-media-multi {
+  flex-direction: column;
+  gap: 32px;
+  align-items: stretch;
+}
+
+body.brand-ita .columns-media.sidebar .columns-media-multi > * {
+  flex: none;
+  width: 100%;
+}
+/* stylelint-enable no-descending-specificity */
+
+/* a padded section of only a heading, its content in the next section (ITA row 41; residents-in-sicily's "Additional
+   Information" over the Offer Conditions accordion, ita-parity-005; DA keeps the accordion in a section of its own, its
+   market variants): www's padded AEM section holds both, the accordion 29px under the heading and the section's
+   padding under it; ours drew the padding and the section gap between the two. The heading's section without its
+   bottom padding and gap; the next section draws that padding */
+body.brand-ita main > .section.padded:has(> .default-content-wrapper:only-child > :is(h2, h3):only-child) {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+body.brand-ita main > .section.padded:has(> .default-content-wrapper:only-child > :is(h2, h3):only-child) + .section {
+  padding-bottom: var(--section-padding);
+}

@@ -4006,3 +4006,55 @@ after the rebase, Build success, smoke 0 differences.
   twice (market variants, 52 H2s): a delta, tools/importer/ita-heading-marks-apply.mjs, " {heading-medium}" on each H2
   in the two columns-media blocks (test first); reimport-591-ita-contact-headings.txt READY: 1440 3199 -> 3287 (www
   3470), 390 6949 -> 7134 (7723). No code change.
+- **iris (-6.0 % at 390), ITA row 40:** www stacks the sidebar's two pictures at the column's full width, about 32 px
+  apart; ours set them side by side, half as wide. ita.css stacks a sidebar Columns Media's several pictures (test
+  first): 390 5199 -> 5530 (www 5531), 1440 unchanged.
+- **residents-in-sicily (+3.1 / +4.1 %), ITA row 41:** DA keeps the Offer Conditions accordion in a section of its own
+  (market variants) after a padded section of only "Additional Information"; www's padded section holds both. Such a
+  section loses its bottom padding and gap, the next section draws the padding (its test written after the rule, then
+  run against main's theme: red, and against the new one: green): 1440 2702 -> 2662 (www 2620), 390 3882 -> 3842 (3730).
+- The 39 recorded ITA pages with both rules (local CSS against the served pages): iris and residents closer, invoicing
+  390 +2.5 -> +2.4 %, none further. The same run shows the helper's uploads live on our host: fleet short-haul +0.4 /
+  -0.4 %, long-haul -3.6 / +0.2 %, the strollers -10.0 / -21.5 %, entry-exit-system -0.4 / -2.8 % (as the lists said).
+
+**Item 3, SWISS** (the five recorded pages, today's CSS): no cause clear enough to change. /ch/en/offers -93 % / -95 %
+is www's fare data (row 52); the homepage -3.8 % at 1440 is the flight offers block, empty for the measuring browser
+(row 11's data: 163 px of www's cards between "Current topics and news" and "Looking for more than just a flight?");
+/ch/en/prepare +2.8 % at 390: the cards match www's (97 px text boxes, 301 / 302 px apart), the rest is our last
+section's 48 px over the footer against www's 22; changing that for SWISS would move book-and-manage at 390 from -0.4 to
+about -1.9 % (worse by more than 0.5 points), so not changed.
+
+## Final section, standing order 8 (2026-11-12, 18:50 to 23:00 CET)
+
+**Commits on main** (each: whole-repo `npm run lint` exit 0 before and after the rebase and after every retry rebase,
+stylelint on ita.css when it changed, the full suite 0 failures before and, when the rebase brought commits, after it,
+`git show --stat` as given, the GitHub Build read, the smoke of 14 hosts before and after):
+- 1b717771 ITA row 39: "What data is collected?" beside its icon teasers (ita.css), kept by the import
+  (lufthansa-cleanup.js), back into DA's copy (tools/importer/ita-insert-apply.mjs); reimport-591-ita-row-39.txt READY.
+- 6fb9072e ITA row 36's rest: the strollers' fare tables as www's four-column view (ita.css); open-2 into DA's copy
+  (tools/importer/ita-block-options-apply.mjs, its test written after the tool); reimport-591-ita-strollers-open.txt
+  READY, the order 6 re-import row HOLD (it would have dropped DA's market variants; not taken yet).
+- 70fda47e the contact page's 52 column-view H2s marked heading-medium in DA's copy (tools/importer/
+  ita-heading-marks-apply.mjs); reimport-591-ita-contact-headings.txt READY. Build: read after this section was written (pushed on the third try, main busy;
+  the lints after each retry rebase 0, the suite 3897 / 0 and 3905 / 0 after the first rebase).
+- This commit: ITA rows 40 (iris: a sidebar's pictures stacked) and 41 (residents: a padded heading-only section joins the
+  next one), with this final section.
+
+**Lists for the helper** (tools/reports/parity-2026-11-09/), each DA's copy plus a delta, refused where it cannot place
+its change: reimport-591-ita-row-39.txt (1 READY), reimport-591-ita-strollers-open.txt (1 READY),
+reimport-591-ita-contact-headings.txt (1 READY); reimport-589-ita-strollers-open.txt's row now HOLD. Seen live on our
+host at 20:45 UTC: the fleet pages, the strollers and entry-exit-system with their deltas (short-haul +0.4 / -0.4 %,
+long-haul -3.6 / +0.2 %, strollers -10.0 / -21.5 %, entry-exit -0.4 / -2.8 %).
+
+**Process slips:** the strollers' block-options tool was written before its test; row 41's test after its rule (run
+red against main's theme, then green). While 6fb9072e's push retried, I put row 40's rule into ita.css with a stylelint error
+(no-descending-specificity) for about a minute; taken out before the retry's stylelint ran (exit 0 in its log), fixed
+and added again after the push. The ship script's retry path runs the lints again but not the
+suite (the suite runs after the first rebase only).
+
+**Left uncommitted, and why:** `.migration/project.json` (the lh-tap entry, not mine); everything under `.scratch/`
+(excluded from git): DA's copies read for the four documents and the deltas' outputs (DA content for the helper's run),
+the drafts, the recordings, the measuring scripts and logs.
+
+**Process:** reads only from our hosts, the drop's recordings and DA (GET of four copies from my session, not from
+tests); no request to an airline host; no da-upload.mjs call, no upload, preview or publish by me.
