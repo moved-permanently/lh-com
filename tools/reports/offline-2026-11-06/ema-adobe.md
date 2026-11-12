@@ -3149,3 +3149,79 @@ host first.
 Left out of git: logs/b597 (the census scripts and TSVs, the four DA sources read and their ruled copies, the
 look-check script). The offline import workspaces are under /tmp. The untracked tools/importer/reports/ folders are earlier
 import runs' generated reports, not this brief's.
+
+### Standing order 5 (2026-11-12 00:40 to 06:00 CET)
+
+No www or airline-host requests. Captures ran on lufthansa.turnsthe.page (the capture aborts *.lufthansa.com); offline
+imports read the snapshots only; DA was not touched. Every push: whole-repo lint read 0 on a clean worktree of HEAD,
+stylelint on styles.css 0 (no theme file touched), the suites passed (lh-edge 71, site 883 to 892 files, 0 failing),
+Build green. At the start: nothing uncommitted or unpushed but the untracked import reports; 3be21c1's Build green.
+
+1. **Scope paths (c59d63e).** The 13 market-root documents published at 23:31 CET are a new batch in lh-com.json's
+   "paths" (am/de, br/de, by/de: the bookstores and Scotland articles; ba/en/flights; se/en/fly-more-sustainabl; us/de:
+   digitale-gepaeckservices, gefaehrliche-gegenstaende, sportgepaeck, travelling-with-animals, uebergepaeck). All 13
+   answer 200 on aem.live; da-upload --dry-run allows them. The helper's sites-paths-needed.txt is not in this
+   workspace, so the batch is the 13 of the order.
+2. **Info-page switch: still not "switch".** Measured on the 12-page sample (today = the published document; each
+   state = its collapse with the theme live), % off www at 1440 / 390.
+   - **Shipped (c20d1ea): nested views and the band before a view.**
+     - Nested views: 247 starts in 193 documents. The outer view's part before the inner one, the inner view and the
+       outer view's rest are now views of their own. Collapsing the 193 documents: idempotent, no empty view.
+     - The band: on rail-and-fly (lh-parity-002b) www draws the heading 130 px under the band. On the lounges
+       (lh-parity-004b, /de/de/during-your-trip/lounges) it is 64 px, where the band is a section of its own. So a
+       flush band keeps its section gap before a view. No published document has a flush band before a view.
+     - Results: express-rail 20.4 -> 11.9 / 8.5 -> 8.0, rail-and-fly 8.0 -> 5.0 / 12.1 -> 9.1. The other ten pages
+       are unchanged; no page-width is worse.
+   - **Measured, not shipped: the gap under the last view (0 or 24 px), a view's last table (40 px) and a separator
+     inside a view.** All three are right where they act. fia-valet-service with all three ends where www does, 2.4 /
+     3.7 (main 2.5 / 5.5). green-fare's recording has no gap above or below its band, so today's two 48 px gaps are
+     the error there.
+     - But the whole-page score loses the space that made up for gaps higher on the page. The 0 px end makes
+       first-class-lounges +2.4, sports +1.8, green +1.5, admission +1.2 and digital +0.8 worse at 1440.
+     - The 24 px end makes fia +1.2 at 1440. The table and separator rules without the end rule make fia +2.5.
+     - 186 published documents end with column-spaced and 882 without, so one uniform end value fits the 882.
+     - None of these passes the 0.5 limit. The trial is in /tmp/wt-so5.
+   - **Sample now (with c20d1ea):** the 12-page sums are 63.1 at 1440 (today 66.7) and 80.2 at 390 (today 75.6).
+     These are more than 0.5 worse than today: at 1440 express-rail +1.1 and tiere +1.4; at 390 unaccompanied +1.0,
+     fia +2.1, digital +1.0 and green +0.7.
+     express-rail's rest is the newer style's coarser spacers (25 px -> none, 40 -> 60), by the migration's rule.
+3. **Ranking (ranking-so5-lh-com.txt).** The 202 rows of rank-582 at or over 10 %, measured again on our host between
+   01:45 and 02:25 CET, worst first. Each row has its template, where it starts to drift from the recording, a group
+   and READY / HOLD.
+   - **Shared cause found and fixed: templates without column marks.** www holds the chapters in column views on 88
+     of the 120 legal pages and 20 of the 24 app-entry pages. Both templates now write the marks, as info and fleet do
+     (aeb250c, 4abd4c4). As drafts on our host with the published pictures, % off www at 1440 / 390, main's import ->
+     with the marks:
+     - data-collection-canada: 21.9 / 21.3 -> 9.7 / 11.8
+     - my-logbook: 20.7 / 25.8 -> 7.5 / 10.4
+     - pre-check-in: 8.2 / 9.8 -> 3.0 / 5.6
+
+     Every page of both templates was imported offline with main's and the new bundle: the marks are the only
+     change. Lists:
+     - reimport-so5-legal-column-marks-lh-com.txt: 72 documents, 67 READY. 5 HOLD: cookie-policy and the four
+       data-collection-usa documents are newer than their snapshots and need a fresh capture.
+     - reimport-so5-app-entry-column-marks-lh-com.txt: 12 READY.
+   - **Checked, no shared cause:**
+     - campaign: no marks to write.
+     - info: the 77 ranking info pages imported again carry the marks their documents have (only travelling-healthy
+       gains 3).
+   - **HOLD groups:**
+     - fleet-in-view (the helper's so4 re-import, partly live already: 744 19.1 -> 12.4 at 390): measure after publish.
+     - Forms: the bot-check holder capture artefact (measure with nobot.js). feedbackai: www's recording keeps 145 px
+       of empty space where its app would load; ours draws none.
+     - The loungenet first-class pair: one fragment.
+     - The /100-years pages: a different component each.
+     - The travel classes: no single cause yet. economy-class's collage sits 40 px high under its intro at 1440; the
+       hero card text differs on phones.
+     - Insights and the rest of info: drift starts at different components.
+   - Other findings on the top rows:
+     - overview-manage's recording has no picture for its Check-in teaser; ours and the snapshot have one.
+     - traveltricks has no iOS / Android download buttons; www has them. In the snapshot they are maui-button-links
+       without an href (www sets it per device), so the importer leaves them out.
+
+Lists on main: ranking-so5-lh-com.txt, reimport-so5-legal-column-marks-lh-com.txt and
+reimport-so5-app-entry-column-marks-lh-com.txt (READY rows for the import helpers). Left out of git:
+- logs/b597: the runners, captures, censuses and the DA-free comparison tables. This is working material.
+- The trial worktrees /tmp/wt-so5 (the table, separator and page-end rules, measured, not shipped) and /tmp/wt-so5b.
+- The offline import workspaces under /tmp.
+- The untracked tools/importer/reports folders, which are earlier runs' generated reports.

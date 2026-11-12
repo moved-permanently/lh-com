@@ -1,7 +1,7 @@
 # Standing order 5 (2026-11-12), item 3: the lufthansa.com ranking, worst first. The rows of logs/b582/rank-582.tsv at or over
 # 10 %, each measured again on our live host (lufthansa.turnsthe.page, logs/b484/capture-d.cjs: airline hosts aborted;
 # logs/b556/nobot.js on core forms) against its www recording (logs/b538/pages.tsv, logs/b470/pages-lh.tsv), between
-# 01:00 and 01:25 UTC: 202 rows, 130 pages. "drift from": the first step of 16 px or more between www's recording and our capture
+# 00:45 and 01:25 UTC (01:45 to 02:25 CET): 202 rows, 130 pages. "drift from": the first step of 16 px or more between www's recording and our capture
 # (logs/b460/offsets.mjs) and what our page has there (logs/b597/drift-starts.mjs).
 # Groups shared by two or more pages: info (72), insights (12), 100-years (8), campaign (8), travel-classes (5), form-pages (5), legal-column-marks (5), fleet-in-view (5), legal (3), loungenet-first-class (2), app-entry-column-marks (2).
 # READY: a fix is on main and a re-import brings it (lists reimport-so5-legal-column-marks-lh-com.txt and
