@@ -471,9 +471,12 @@ const withMarkets = (sec, v) => sec.replace(/(<div><div>(?:<p>)?\s*Markets\s*(?:
 export function keepUncovered(html, existing, covered) {
   const kept = [];
   if (!existing) return { html, kept };
-  const cov = new Set(covered.map(lc));
   const ex = topSections(existing);
   const out = topSections(html);
+  // a country that sees the same text in the same order in the merge sees only sections cut
+  // elsewhere (row 134's category tabs, a heading's section, TAP rows 139 and 149): as covered
+  const named = new Set(ex.flatMap((s) => marketItems(sectionMarkets(s) || '').map((x) => x.replace(/^-/, ''))));
+  const cov = new Set([...covered.map(lc), ...[...named].filter((c) => viewText(out, c) === viewText(ex, c))]);
   const pos = (i) => {
     // the merged section standing for the existing one: the same text, else (an exclusion or
     // unmarked section) the same block at the same rank among its kind
@@ -545,6 +548,10 @@ const sees = (sec, c) => {
   const m = sectionMarkets(sec);
   return m === null || marketAllows(m, c);
 };
+// the text a country sees in a document's sections, in order, wherever the sections are cut; a
+// no-break space as written in DA's copies (&#160;) or as the importer writes it (the character)
+const viewText = (secs, c) => secs.filter((s) => sees(s, c)).map(ownText).filter(Boolean).join(' ')
+  .replace(/&(#160|#xa0|nbsp);|\u00a0/gi, ' ').replace(/\s+/g, ' ').trim();
 // a section that shows (want) or does not show a country; null: it shows no one any more
 function showFor(sec, c, want) {
   const m = sectionMarkets(sec);
@@ -592,10 +599,13 @@ function showFor(sec, c, want) {
  */
 export function keepStale(html, existing, stale, audience = null) {
   const kept = [];
-  const xs = sorted(new Set((stale || []).map(lc)));
-  if (!existing || !xs.length) return { html, kept };
+  if (!existing || !(stale || []).length) return { html, kept };
   const ex = topSections(existing).filter((s) => ownText(s));
   let out = topSections(html);
+  // a stale country that sees the same text in the same order sees only sections cut elsewhere (a
+  // heading's section ended after its description, TAP rows 139 and 149): the merge stands for it
+  const xs = sorted(new Set(stale.map(lc))).filter((c) => viewText(out, c) !== viewText(ex, c));
+  if (!xs.length) return { html, kept };
   // the page's metadata apart (back as the last section's at the end)
   const mdAt = out.findIndex((s) => metadataOf(s));
   const md = mdAt >= 0 ? metadataOf(out[mdAt]) : '';
@@ -657,6 +667,23 @@ export function keepStale(html, existing, stale, audience = null) {
     else out.push(`<div>${md}</div>`);
   }
   return { html: `${out.join('\n')}\n`, kept };
+}
+
+/**
+ * The existing copy's sections a merge keeps: keepUncovered (the countries no root covers), then
+ * keepStale (those whose captures are older than the copy), both on the merge as written (collapsed,
+ * as DA's copies are: a {blank} line the collapse takes out is no text of the page; collapseTap is
+ * idempotent and the write collapses again).
+ * @param {string} html the merged document
+ * @param {string} existing the existing document's HTML ('' without one)
+ * @param {{doc: string, covered: string[], stale: string[]}} o
+ * @returns {{html: string, kept: object[], keptStale: object[]}}
+ */
+export function keepExisting(html, existing, { doc, covered, stale }) {
+  const written = existing ? collapseTap(html, doc) : html;
+  const keep = keepUncovered(written, existing, covered);
+  const kept2 = keepStale(keep.html, existing, stale, covered);
+  return { html: kept2.html, kept: keep.kept, keptStale: kept2.kept };
 }
 
 /**
@@ -882,19 +909,17 @@ async function main() {
     const prior = existingOf(doc, localFile);
     // the countries no root of the language covers keep the existing copy's sections (brief 468)
     const covered = [home, ...countries, ...vs.map((v) => v.country)];
-    const keep = keepUncovered(html, prior.html, covered);
     // the countries whose view no capture holds (unplaced) or only one older than the existing
     // copy keep the existing copy's view (the held TAP documents of 2026-11-11)
     const older = staleCountries({
       home, roots: countries, views: vs, groups: comparison.groupsOf(doc), notes: merged.notes, at: prior.at,
     }).filter((c) => covered.map(lc).includes(c));
-    // compared as written: the existing copy is collapsed (collapseTap is idempotent, write collapses)
-    const kept2 = keepStale(older.length && prior.html ? collapseTap(keep.html, doc) : keep.html, prior.html, older, covered);
-    html = kept2.html;
+    const keep = keepExisting(html, prior.html, { doc, covered, stale: older });
+    html = keep.html;
     (report.languages[lv] ||= {})[doc] = {
       sections: marked.map((u) => ({ component: keyOf(u), variation: u._variation, markets: u.__markets })),
       ...(keep.kept.length ? { kept: keep.kept } : {}),
-      ...(kept2.kept.length ? { keptStale: kept2.kept, stale: older, existingAt: prior.at } : {}),
+      ...(keep.keptStale.length ? { keptStale: keep.keptStale, stale: older, existingAt: prior.at } : {}),
       pageMarkets: pm,
       merged: vs.map((v) => v.root),
       notes: merged.notes,
