@@ -4126,6 +4126,13 @@ body.brand-tap main:where(.theme-live *) :is(.cards, .accordion-columns) {
   --tap-paragraph-gap: 36px;
 }
 
+/* not a feature view's button: www's is the component's own field after its rich text, never after
+   a {blank} line, 24 px under the paragraph (its 8 and the wrapper's 16, brief 394); the pair gap
+   made it 36 (TAP row 153: tap-parity-001 leilões and voar-economica at 1440, +12 px a block) */
+body.brand-tap main:where(.theme-live *) :is(.columns-media.feature, .columns-media.feature-small) .columns-media-text > p + p.button-wrapper {
+  margin-top: 0;
+}
+
 /* brief 510 item 2 (promos' "News & Highlights"): the market rules put a list's cards in market
    sections of their own (the Portugal Stopover card "-br,-ca,-pt,-us"), apart from their heading's
    section; www has the heading 58 px over its first card (28 on phones), the section gap made it 81
