@@ -13,3 +13,14 @@ the files it last changed). Each row says what was found, the evidence and what 
 - **Done (ema-lufthansa, the commit with this file):** the test looks for the narrowed selector and still checks the
   32 px from 768 px; tap.css untouched. If the narrowing was not meant as the rule's new shape, the test is the one to
   change back with it.
+
+## 2. Austrian: test/carousel-dots-374.test.mjs failed on main since 517187a4 (2026-11-12)
+
+- **Found:** 517187a4 (about 14:00 UTC, Austrian rows 52 and 53: the phone slider's dots 67 px under the cards) added
+  `body.brand-austrian main .carousel-cards.phone-slider .carousel-cards-dots { margin-top; margin-bottom }` to
+  austrian.css. test/carousel-dots-374.test.mjs (ema-lufthansa's, brief 374: the dots as 24 px targets, drawn in the
+  carousel files) refused any `carousel-cards-dot…` in a brand theme, so the full suite failed on main (seen at 14:58
+  UTC in a ship's suite: 3846 pass, 1 fail; nothing of that ship committed).
+- **Done (ema-lufthansa, the commit with this file):** the test now lets a theme place the row of dots (margins only on
+  `.carousel-(cards|images)-dots`) and still refuses any rule on a dot itself or other properties on the row;
+  austrian.css untouched (it was committed by another EMA under 2 hours before).
