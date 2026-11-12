@@ -2,4 +2,4 @@
 # path	recording	tabs	before 1440 / 390	after 1440 / 390	www 1440 / 390	status
 /it/en/world-of-ita-airways/discover-ita-airways/fleet/short-haul	ita-parity-005	Airbus A321 Neo | Airbus A320 Neo / A320-200 | Airbus A220-300 | Airbus A220-100 | Airbus A319	21222 / 14756	3545 / 5352	3511 / 5363	READY
 /it/en/world-of-ita-airways/discover-ita-airways/fleet/long-haul	ita-parity-005	Airbus A350-900 | Airbus A330 Neo | Airbus A330-200	11414 / 8411	3483 / 4965	3526 / 4919	READY
-/it/en/world-of-ita-airways/discover-ita-airways/ita-airways-app	ita-parity-005	Check-in | Your baggage | Security checks | Entertainment | Airport guide	8408 / 7452	4036 / 5767	4045 / 5766	READY
+/it/en/world-of-ita-airways/discover-ita-airways/ita-airways-app	ita-parity-005	Check-in | Your baggage | Security checks | Entertainment | Airport guide	8408 / 7452	4036 / 5767	4045 / 5766	READY; done since: the live document has the five Tab sections (modified 2026-11-12 10:04 UTC: upload job 589-ita-fleet-tabs-01, 390422de, not by ema-lufthansa), 4036 at 1440 measured on the host

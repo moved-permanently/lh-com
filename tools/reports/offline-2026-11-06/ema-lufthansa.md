@@ -3776,3 +3776,24 @@ pages (counted on each), so none changes; the live short-haul 21222 -> 17394 at 
 reimport-589-ita-fleet-tabs.txt, 3 READY (the offline imports with this CSS 3545 / 5352, 3483 / 4965, 4036 / 5767 against
 www's 3511 / 5363, 3526 / 4919, 4045 / 5766). A first version of the rule laid out hidden tab panels too (short-haul draft
 5489 -> 11684); caught by the draft measurement, the rule now skips [hidden] sections.
+
+f378637a ITA row 34, Build success. The ship's smoke did not run (the wrong scratch folder given to ship3.sh); run by
+hand after the push against the last one (s588e): 0 differences on every host but lufthansa.com's at/de sitemap file
+(3 bytes, not from this push). Since: the live ita-airways-app document has its five Tab sections (job 589-ita-fleet-tabs-01, 390422de, 10:04 UTC,
+not by me): 4036 at 1440 against www's 4045, its row on the list marked done.
+
+ITA row 35: www's accordions 40 px from the components around them at 1440 (ours 24, 32 under an H2); ita.css from
+992 px (test/ita-accordion-spacing-589.test.mjs). The 39 recorded pages at 1440 with local CSS: 5 closer (pets-in-cabin
+-4.9 -> -3.0 %, flying-with-a-baby -4.0 -> -3.5 %, miles-and-more, online-check-in, entry-exit-system), checked-baggage
++1.0 -> +1.4 % (0.4 points), the rest unchanged; 390 untouched. ITA row 36: baggage-and-strollers' two items open at
+load on www; main's importer gives open-2: reimport-589-ita-strollers-open.txt, 1 READY (-30.8 / -45.5 % -> +24.9 /
+-20.6 %). Left unshared: contact -7.8 / -10 %, group-boarding -4.7 % (its own causes, not looked at).
+
+**Item 2, Brussels (17 of 53 over 3 %):** the shared cause: www's small separators (11 to 30 px, no line) between a
+text and the next headline; 47 before a headline in the recordings, 26 after a text on 14 pages (service-charges en /
+nl -6.0 / -5.9 %, checked-baggage in six languages). The import's cleanup keeps them as {spacer-N}; marker-collapse
+(ema-test's) removes them on Brussels. The service-charges document with the spacer by hand puts the heading at www's
+place at both widths (1577 -> 1594 / 2102 -> 2115). rows-for-ema-test.md row 5; reimport-589-brussels-heading-spacers.txt
+14 HOLD. Tried and dropped: www's 200 px table cells on Brussels (checked-baggage at 390 +3.0 -> -1.9 %, but
+student-fares 390 2.84 points worse, be/fr checked-baggage 390 2.69, es/es 1440 1.37): not shipped, the test in
+.scratch. brussels.css untouched (its last commit b654354e, 32 hours old).

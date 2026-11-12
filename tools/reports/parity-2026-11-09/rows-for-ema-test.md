@@ -90,3 +90,24 @@ found, the evidence and what would follow www.
   "{spacer-N}" (as textSpacers does between running text), or a theme size for Discover's separators. Then the
   documents of reimport-588-discover-separators.txt are READY.
 
+## 5. Brussels: www's small separators between a text and the next heading need a carrier in the collapse (2026-11-12)
+
+- **Found:** www.brusselsairlines.com's .separator (.hr-no-layout, no line; an inline margin-bottom of 11 to 30 px)
+  between a text component and the next headline component: the heading 48 to 51 px under the paragraph on www (28 px separators), 32
+  ours (/be/en/contact/service-charges "Ticket service fee for other countries" 513 on www at 1440, 496 ours; 598 / 585
+  at 390). In the recordings (brussels-parity-003 to -006) 47 such separators of 31 px or less before a headline,
+  26 of them after a text, on 14 pages: service-charges en and nl, checked-baggage in six languages (2 each), check-in
+  times (4), check-in at the airport (3), charter, our-company/organisation, travel-classes economy (2) and
+  premium-economy. Shared with the ranking: service-charges en / nl -6.0 / -5.9 % at 1440, checked-baggage -1.2 to
+  -2.5 % at 1440.
+- **Evidence:** the cleanup (tools/importer/transformers/lufthansa-cleanup.js, an info page) keeps such a separator
+  as "{spacer-28}" (offline, www's sidebar structure); collapseHtml with brand brussels removes "{spacer-28}" between a
+  paragraph and an H2 and between a list and an H3 (size "none"; textSpacers needs running text on both sides, and an
+  H2 is not running text; THEMES.brussels has no componentSpacers). The service-charges document with
+  "<p>{spacer-28}</p>" before the H2, served CSS: the heading at 513 at 1440 (www 513) and 598 at 390 (www 598); the page
+  1577 -> 1594 at 1440 (www 1677), 2102 -> 2115 at 390 (www 2172).
+- **What would follow www:** on Brussels, a run of 31 px or less between running text and the next heading kept as
+  one "{spacer-N}" (textSpacers with a heading counted as running text after it, or componentSpacers on
+  THEMES.brussels). Then the documents of reimport-589-brussels-heading-spacers.txt can be re-imported and measured.
+  Not traced here: an offline import of check-in-at-the-airport's raw recording (not through brussels-import.mjs's
+  mapping) gave no spacer even before the collapse; ema-lufthansa checks that once the collapse carries it.

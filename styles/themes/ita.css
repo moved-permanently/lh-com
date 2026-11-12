@@ -997,3 +997,13 @@ body.brand-ita main > .section:has(> .default-content-wrapper:last-child) + .sec
     grid-column: 1 / -1;
   }
 }
+
+/* accordions on wide screens (ITA row 35): www's accordion component 40px under a text or a headline and 40px over the
+   next component at 1440 (24 / 20 at 390; pets-in-cabin, flying-with-a-baby, group-boarding), ours the section's 24
+   (32 under an H2); from 992px (www's Bootstrap lg) 40px on both sides, on phones as before */
+@media (width >= 992px) {
+  body.brand-ita main > .section > .accordion-columns-wrapper:not(:first-child),
+  body.brand-ita main > .section > .accordion-columns-wrapper + div {
+    margin-top: 40px;
+  }
+}
