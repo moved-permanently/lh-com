@@ -14,5 +14,8 @@
 # and blocks the same; links gb/en's; test/loc-merge-newer-so9.test.mjs). Not measured on a capture (none of gb/en
 # business-class after the rollout).
 # The stage-intro re-import row of reimport-so7-stage-intro-lh-com.txt (HOLD, waits for a capture) stays separate.
+# Standing order 11 (2026-11-12): superseded by that row, now READY (a re-import from lh-snapshots-111: the page once,
+# www's newer text, the stage intro). Upload one of the two, that one if both are possible; this delta stays READY for
+# DA's copy as it is.
 # Each line: READY / HOLD, DA path, the delta, what changes on the page.
 READY	/gb/en/business-class	merge-newer --from gc/en --to gb/en --newer upstream: the 25 pairs resolved, the stage upstream (newer), the 24 others gb/en's own side	the page once instead of twice: H1 "Lufthansa Business Class: privacy and more space for you" with the body copy and "Book Business Class" (/gb/en/flight-search), as /gc/en (de/en still has the older stage title); the older stage and the other 24 duplicates go
