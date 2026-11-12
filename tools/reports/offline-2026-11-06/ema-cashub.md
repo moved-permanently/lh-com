@@ -3218,3 +3218,60 @@ and so11, ignored), my worktree's scratch imports (gitignored), screenshots in /
 
 No upload, preview or publish by me. da-upload.mjs was not called; no DA or preview API call from tests.
 
+
+## Standing order 12 (2026-11-12, from about 03:30 CET)
+
+Start state: nothing of mine unpushed (order 11 all on origin/main, `93b9b0da`). Not in order 11's final section and
+found in my suite worktree: the it-it inspiration slug with its test, uncommitted (finished here, item 1), and a red
+test without its fix (row 151 below; kept outside git). The main checkout's 87 uncommitted files are other jobs' import
+output, untouched. Archives from the drop only; www's geometry from the recordings and offline renders of them (the
+archive under a made-up host, every other request aborted); nothing fetched from TAP's or any airline host; DA not
+called (order 11's copies of DA's sources only).
+
+- **Item 1, /it-it/destinazioni/ispirati (row 150, `4d3cb43a`):** ours. Its slug was missing from INSPIRATION_SLUGS, so
+  its category fragments built no country picker (row 137) and every country of the shown category stood one under the
+  other: on our host 8,450 px at 1440 and 8,427 at 390, where en-pt, pt-pt and fr-fr are 5,557 to 5,698 and 4,996 to
+  5,202. With the slug, on our host after the push: 5,626 / 5,039. The row's draft (8,424 / 5,015, 23:03 CET) and the
+  helper's preview (8,450 / 4,981) were taken without the slug, the draft before row 148 (00:55 CET), which shows the
+  first category open on phones; that is why 390 grew after the publish. The publish child's 7,282 / 6,990 matches no
+  state I can render (fragments still loading is the likely reading). No document change.
+- **Item 2, row 149's second half (`a3068943`):** tap.css caps what follows a heading-section's last H2 at 790 px, as
+  www's container. No importer change was needed: the importer already marks every heading with its description
+  outside an accordion item (row 139); unmarked documents are imports from before row 139. Marked documents (20, live):
+  lounges' descriptions 1,120 -> 790 px, flush with the H2; no recorded height moved. Of the 66 documents marked in a
+  fresh import but not yet published so, 49 render the same and 17 wrap one description line more (+24 px at 1440, 390
+  unchanged). `reimport-so12-tap-heading-description-149.txt`: 14 READY (equal to DA's source but for the section
+  break; en-pt hold baggage, recorded, -1.86 -> -1.38 %), 3 HOLD (fr-fr miles-and-go and en-pt donate miles have
+  market sections; de-de Economy Prime's published page is not DA's copy of 2026-11-05). The helper has uploaded the
+  14 since (so12-tap-heading-description-01).
+- **Item 3, row 143 (`c39b84b5`):** www's slide geometry below 1025 px (calc(100% - 56px), 24 px apart, the card 16 px
+  inside it), shipped with what made navigator-experiences worse alone: two sliders one after the other were 190 px
+  apart card to card where www's are 88 (lufthansa.com's 91 px between two card lists; now the wrapper's 32). At 390:
+  navigator-experiences +2.62 -> +1.88 %, get-inspired +0.79 -> -0.24, donating miles -1.25 -> -0.91, pt-pt inspire-se
+  +0.91 -> +0.95; 1440 unchanged. www's dots 8 px under the slides rejected (get-inspired 0.84 points worse at best).
+- **Item 4, row 145 (`d88a6453`):** www's tracker is a React form TAP's own service answers (no form action), so it
+  cannot work on our hosts. The importer writes the title and a link box (cards one-up: www's line under the title, a
+  button to the tracker on flytap.com) in the page's language. en-pt: 1440 -27.3 -> -16.2 %, 390 -25.2 -> -17.5 %; the
+  rest is the form itself. `reimport-so12-tap-baggage-tracker-145.txt`: 8 READY (each equal to DA's source but for the
+  box).
+- **A drafting artefact found on the way:** a fresh document's local pictures carry no width / height until the
+  pipeline adds them, so lazy ones below the fold measured 0 px (hold baggage looked 560 px shorter at 390). Drafts
+  since load every picture first; all the numbers above are from such drafts.
+- **Row 151, open (found, not in the order):** a FAQ page whose categories are a tab set (en-br, pt-us) shows a tab list
+  and the picker's pills, and the tab set hides every category but the first: en-br 2,248 px at 1440 against en-pt's
+  2,008 (on our host: 1 tab list, 7 pills, 6 sections hidden). Order 11's red test is kept outside git
+  (migration-work/parity-588/so12/tap-faq-tab-sections-588.test.mjs); no fix yet.
+
+### Final section (about 05:15 CET, 2026-11-12)
+
+**Commits** (pushed; whole-repo lint exit 0 before each push, stylelint on tap.css before the theme pushes; each
+change's test red first; the full suite at the end: 3,729 tests, 0 fail, 5 skipped; smoke of the 14 hosts against
+order 11's last run: 0 differences but lufthansa's sitemap and b2b's search index, others' publishes): `4d3cb43a`,
+`a3068943`, `c39b84b5`, `d88a6453`, and this one. Builds not read (no GitHub CLI in this session).
+
+**Rows left:** 151 (above), the 9 HOLD rows of 139 and the 3 of 149's list, row 145's form itself (needs TAP's service).
+
+**Not in git:** the drop archives, DA's copies, drafts, scratch imports and scripts (migration-work/parity-588/so12 and
+/tmp/so12; my worktree's content-sites, gitignored), smoke runs (so10/smoke-so12-after), the red test of row 151.
+
+No upload, preview or publish by me. da-upload.mjs was not called; no DA or preview API call from tests.
