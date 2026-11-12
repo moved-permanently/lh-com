@@ -36,11 +36,13 @@ test('the kept marker is one the page reads as the class', () => {
 test('other sizes on Discover and other brands as before', () => {
   const small = run('<div><h1>T</h1><h2>A {heading-small}</h2><p>x</p><h2>B</h2><p>y</p></div>');
   assert.equal(small.includes('{heading-small}'), false);
-  ['lufthansa', 'b2b'].forEach((brand) => {
+  ['lufthansa'].forEach((brand) => {
     assert.equal(Boolean(themeFor(brand).keepSizes), false, brand);
     const out = run('<div><h1>T</h1><h2>A {heading-copytext-large}</h2><p>x</p><h2>B</h2><p>y</p></div>', brand);
     assert.equal(out.includes('{heading-copytext-large}'), false, brand);
   });
+  // Group for Business keeps it too since standing order 9 (test/b2b-keep-copytext-so9)
+  assert.deepEqual(themeFor('b2b').keepSizes, ['heading-copytext-large']);
 });
 
 test('the delta: a listed heading gets its marker once; the list\'s READY rows have data', async () => {
