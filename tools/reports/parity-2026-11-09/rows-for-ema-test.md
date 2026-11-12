@@ -74,3 +74,19 @@ found, the evidence and what would follow www.
   decision D should not collapse it; worth checking where it goes); ema-lufthansa's Discover theme has no unmarked rule
   for it, as an eyebrow cannot be told from a section heading without the marker.
 
+## 4. Discover: www's separators between components need a carrier in the collapse (2026-11-12)
+
+- **Found:** www.discover-airlines.com's .separator (.hr-no-layout: no line; .hr's margin-bottom 30 px on Discover)
+  adds 31 px between two components (customer service: the accordion's end to "Rebooking a flight" 71 px on www, 40
+  ours; 1 to 7 separators on 20 of the 26 recorded pages, discover-parity-001). The cleanup now keeps them for Discover
+  as "{spacer-30}" (ema-lufthansa, standing order 5, item 1, tools/importer/transformers/lufthansa-cleanup.js), but
+  collapseSeparators removes a run of 31 px or less (size "none") unless textSpacers is on and both neighbours are
+  running text; Discover's neighbours are blocks and headings (an accordion, a column view, then a headline or the
+  search bar), and THEMES.discover has no textSpacers. A Spacer M would be 60 px (SPACE.m), twice www's.
+- **Evidence:** offline: the cleanup alone on the 26 recordings (main's against the new one, Discover URLs: 16 pages
+  with new or resized markers, all "{spacer-30}" or "{divider-30}"); collapseHtml on a Discover document with
+  "{spacer-30}" between an accordion and an H2: removed; "{spacer-40}": Spacer M; "{divider-30}": Divider.
+- **What would follow www:** on Discover, a separator run of 31 px or less between two components kept as one
+  "{spacer-N}" (as textSpacers does between running text), or a theme size for Discover's separators. Then the
+  documents of reimport-588-discover-separators.txt are READY.
+

@@ -3681,3 +3681,19 @@ Dolomiti's timetable widget form on phones (en / de at 390), the assistance cont
 
 **Process:** no request to an airline host (recordings from the drop, our own hosts only); no da-upload.mjs call and no
 DA or preview API; nothing uploaded, previewed or published by me.
+
+## Standing order 5 of 2026-11-12 (from about 05:40 CET to 10:00 CET)
+
+- **Left from the last turn:** nothing unpushed; `.migration/project.json` modified (not mine). 8fdd66ca's GitHub Build
+  success; 9520d63c's still queued at GitHub (its content in later commits whose Builds passed).
+- **Item 1, Discover's separators:** lufthansa-cleanup.js's last commit was 4abd4c48 (another session, 02:14 UTC), 2 h
+  32 min before this change (checked at 04:46 UTC), so the change is here and no row was needed for it. The cleanup now
+  keeps a Discover separator between two components as "{spacer-30}" (www's .hr margin there, 30 px; lufthansa.com's
+  25), and sizes Discover's other kept separators at 30 (test/discover-separators-588.test.mjs: Discover keeps them;
+  lufthansa.com, Brussels and SWISS as before, lufthansa.com's running-text separator still 25). On the 26 recordings: 16
+  pages with new or resized markers. But nothing changes in the documents yet: the collapse (ema-test's) removes spacers
+  of 31 px or less on Discover and draws any divider the same, so every row of reimport-588-discover-separators.txt is
+  HOLD, and rows-for-ema-test.md row 4 asks for the carrier. The import bundles are not rebuilt here
+  (@adobe/aem-import-helper is not in this machine's npx cache; the bundler runs offline only, and I did not install
+  it): the next rebuild takes the change, nothing depends on it before the collapse carries the spacers.
+

@@ -659,6 +659,33 @@ function isBrusselsPage(payload) {
   }
 }
 
+function isDiscoverPage(payload) {
+  const url = (payload && ((payload.params && payload.params.originalURL) || payload.url)) || '';
+  try {
+    return /(^|\.)discover-airlines\.com$/.test(new URL(url).hostname);
+  } catch (e) {
+    return false;
+  }
+}
+
+// www.discover-airlines.com (standing order 5 of 2026-11-12, item 1: /de/en/my-bookings/manage/customer-service): its
+// separators (.hr-no-layout: no line) add their space between two components on www (.hr margin-bottom 30px there,
+// not lufthansa.com's 2.5rem = 25px: 31px from the accordion's end to the next heading), which the replica's
+// component spacing does not hold; so a run between two components keeps its markers, "{spacer-30}" (its inline
+// margin when it has one). At the start or end of its parent none (www: no margin there)
+const DISCOVER_SEPARATOR_SPACE = 30;
+
+// a Discover separator's marker: its inline margin, else Discover's 30px (not lufthansa.com's 25)
+function discoverSized(sep, marker) {
+  const inline = separatorInline(sep);
+  return marker.replace(/^(spacer|divider)-\d+/, `$1-${Math.max(inline === null ? DISCOVER_SEPARATOR_SPACE : inline, 0)}`);
+}
+
+function discoverMarkers(run) {
+  if (!run[0].previousElementSibling || !run[run.length - 1].nextElementSibling) return null;
+  return run.map((sep) => discoverSized(sep, separatorInfo(sep).marker));
+}
+
 // brusselsairlines.com (the brief after 474: /be/fr/travel-classes/business, premium-economy): a
 // default separator (2.5rem, no line) between two column views that the columns-media parser
 // merges into one block adds its space to every row on www (24 px at 1440, 34 at 390), so the
@@ -750,6 +777,7 @@ function markSeparators(document, keepInFlow, payload) {
   const cellSpacers = isLufthansaPage(payload);
   if (cellSpacers) markNoteSpacers(document);
   const brussels = isBrusselsPage(payload);
+  const discover = isDiscoverPage(payload);
   // runs of adjacent separators are kept or dropped together (40px + line + 30px)
   const runs = [];
   document.querySelectorAll('.separator').forEach((sep) => {
@@ -789,9 +817,13 @@ function markSeparators(document, keepInFlow, payload) {
     if (infos.some((i) => i.keep) || afterGrey(run[0]) || (keepInFlow && inFlow(run))
       || (template === 'hub' && (afterNestedView(run) || pictureBeforeGrey(run)))) {
       markers = infos.map((i) => i.marker);
+    } else if (discover) {
+      markers = discoverMarkers(run);
     } else if (fillGaps) {
       markers = missingSeparatorMarkers(run, keepInFlow, template);
     }
+    // Discover's kept separators (a line, after a grey band, in running text) at Discover's size too
+    if (discover && markers) markers = markers.map((m, i) => (m ? discoverSized(run[i], m) : m));
     run.forEach((sep, i) => {
       if (!sep.isConnected) return;
       if (markers && markers[i]) sep.replaceWith(document.createComment(`${SEPARATOR_COMMENT} ${markers[i]}`));
