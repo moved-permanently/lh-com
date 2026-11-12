@@ -3767,3 +3767,55 @@ work that needs its owner's choice, not more measuring tonight.
 
 No upload, preview or publish by me. da-upload.mjs was not called, and no test called the DA or preview API. Only
 read-only GETs of our own hosts.
+
+### Standing order 17, continued (from about 23:40 CET)
+
+The report and final section above were pushed in `86e5baef`, but the last turn's closing message did not reach the
+owner. Nothing of mine was left uncommitted or unpushed then: only scratch outside git
+(migration-work/parity-588/so17). The final section's "about 23:45 CET" is better read as about 23:30.
+
+- **P53's bundles: rebuilt, and the list is READY** (`abbe8429`).
+  - build-bundles.mjs ran with AEM_IMPORT_HELPER set to the aem-import-helper installed under the excat tools; the npm
+    cache has none, and nothing was fetched.
+  - All 14 bundles changed only by the panel-heading parser change (plus the bundler's tmp names).
+  - The P53 test now also checks the Brussels templates' bundles; it was red on the old bundles.
+  - reimport-so17-brussels-panel-heading-sizes.txt went from HOLD to READY, and so did P53 in the parity table.
+  - Checks: the 226 test files that read bundles, the accordion parser or the Brussels theme passed (1,193 tests,
+    0 fail); whole-repo lint exit 0 before the push.
+- **P50's aviation blocker: corrected.**
+  - The final section said a spacer paragraph adds about 50 px for each of aviation-services-law's separators. That
+    was wrong.
+  - On www, the page's h2s sit 49 px under the text above them; ours sit 32 px under.
+  - Measured from www's PNG, the list above the first h2 has the same lines as ours (2, 2, 3, 2, 2). The offline
+    render's 28 px gap there came from maui CSS that does not rebuild offline, so it is not evidence.
+  - A draft with "{spacer-28}" before the page's three h2s adds 17 px each, as www's, and takes the page under P50's
+    rules from -3.65 to -1.75 %. That is still further from www than main's -0.11, so P50 stays held.
+  - The cleanup keeps no such separator on Brussels pages yet. Doing that (Brussels, sidebar running text, before a
+    headline) is the next import step for P50.
+
+### Final section (about 00:05 CET, 2026-11-13)
+
+**Live by code** (on main, served from main):
+- Brussels P51: the articles' header picture and gallery spacing (`c127f596`).
+- Brussels P52: an open answer's spacing on phones (`03e3d24a`).
+- Brussels P54: the accordion questions (`98267feb`).
+- The P53 theme rule (`2fca3b55`). It shows only once documents carry "{heading-small}" in their panels.
+- Importer changes that are not live until re-imports: P53's parser change, now in the bundles (`abbe8429`).
+
+**Lists** (tools/reports/parity-2026-11-09/):
+- reimport-so17-austrian-schengen.txt: 1 READY.
+- reimport-so17-brussels-panel-heading-sizes.txt: 1 READY. It was HOLD until `abbe8429`.
+
+**Open:**
+- P50 (held; held-P50-sidebar-h1-column.css in migration-work/parity-588/so17). Its blockers:
+  - aviation-services-law's separators, which need a cleanup change;
+  - the conditions of carriage's re-import from the READY list.
+- The hubs' card-row separators: pets, baggage and plan-your-trip against meals and lounges, which the documents do
+  not tell apart.
+- The block's caption placement after a two-picture paragraph.
+- From order 16: Austrian accessible-travel from 768 px.
+
+**Not in git:** rankings, drafts, crops, code copies and scripts, in migration-work/parity-588/so17 (ignored).
+
+No upload, preview or publish. da-upload.mjs was not called, and no test called the DA or preview API. Only read-only
+GETs of our own hosts.
