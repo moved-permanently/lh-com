@@ -1372,3 +1372,13 @@ body.brand-brussels main .accordion-columns .accordion-columns-panel :is(h2, h3,
     padding-right: 20px;
   }
 }
+
+/* phones: an open answer 5 px under its question, the next question 47 px under its text (its last paragraph's 16 px
+   and 31 more), as www's legal pages at 390 (standing order 17, item 4; ours 10 and 20: every open panel 21 px short).
+   Not from 768 px: at 1440 the answers are 66 % of the full width there (P50, held) and three pages got worse */
+@media (width < 768px) {
+  body.brand-brussels main .accordion-columns.faq .accordion-columns-panel {
+    padding-top: 5px;
+    padding-bottom: calc(var(--spacing-default) + 31px);
+  }
+}
