@@ -2324,6 +2324,16 @@ body.brand-lufthansa main > .section.stage:not(.flush) + .section:not(.padded, .
   margin-bottom: 64px;
 }
 
+/* a column view's section (only a padded Columns Media) before a view that opens with its title (a heading
+   with the column-start mark): www has both views in one AEM section, 64px between them (their 3.2rem
+   padding), ours 88 (8px, the 48px section gap that stands for an AEM section's .mb-default, 32px).
+   /de/en/imprint 8.8 -> 7.2 at 1440, 9.9 -> 9.2 at 390; the other recorded legal pages as before. Before a
+   padded Columns Media the same is held (lufthansa-insights-imprint worse: its import dropped www's empty
+   paragraph at the end of the view before); standing order 10 */
+body.brand-lufthansa main > .section:not(.padded, .grey, .stage, .spaced, .flush, .column-view, .campaign-section):has(> .columns-media-wrapper:only-child > .columns-media.padded:not(.sidebar)):has(+ .section:not(.padded, .grey, .stage, .spaced, .flush, .column-view, .campaign-section) > .default-content-wrapper:first-child > :is(h2, h3).column-start:first-child) {
+  margin-bottom: 24px;
+}
+
 /* from 768px: a section that ends with an Accordion Columns (its column mark after it) before a plain grey
    band: www has 20px between them, ours had our section gap on top (the upgrade pages: "Further
    information about your upgrade" 48px lower than www's at 1440). 1440: upgrade-first-class
