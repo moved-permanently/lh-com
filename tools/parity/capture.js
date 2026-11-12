@@ -37,6 +37,14 @@ const {
   DEFAULT_STATE, getArgs, mkdirp, writeJsonAtomic, appendJsonl, rmSafe,
 } = require('./lib.js');
 
+// PARITY_CHROME=1 (or a path): the full chrome build instead of playwright's headless shell,
+// which lays text out narrower than chrome (standing order 7 of 2026-11-12: B2B's text at 390
+// wrapped a word later than www's recordings with the shell, as www's with chrome); unset: the
+// shell, as before
+const FULL_CHROME = `${process.env.PLAYWRIGHT_BROWSERS_PATH}/chromium-1208/chrome-linux64/chrome`;
+let CHROME = process.env.PARITY_CHROME || null;
+if (CHROME === '1') CHROME = FULL_CHROME;
+
 const USAGE = 'node tools/parity/capture.js --url <url> --width <px> --out <png> [--content-width px] [--timeout 90000] [--max-height 8000] [--state dir]';
 const VIEWPORT_HEIGHT = 900;
 /** Widgets whose content is live (or recorded) data or a video frame; masked before diffing. */
@@ -380,6 +388,7 @@ async function main() {
 
   browser = await chromium.launch({
     headless: true,
+    ...(CHROME ? { executablePath: CHROME } : {}),
     handleSIGTERM: false,
     handleSIGINT: false,
     // headless chromium hides scrollbars; the live captures had one
