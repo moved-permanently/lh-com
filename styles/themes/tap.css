@@ -3221,7 +3221,9 @@ body.brand-tap main :is(.default-content-wrapper, .columns-media-text) :is(p:not
 
 /* the footer (row 34): www's outline social glyphs (footer-tap.js, icons/tap-*.svg, drawn in
    #424045), 64 px between the page and the footer at 1440 (with the footer's 16 px at the top,
-   the rule above), 32 on phones */
+   the rule above), 32 on phones. From 1024 px the last section 64 px (TAP row 155, standing order
+   15: www's main ends 64 px over its footer at 1440 on help, tap-fares and time-to-think, and seven
+   recorded pages ended 16 to 17 px short with 48; every phone end already www's) */
 body.brand-tap .footer .footer-tap-side .footer-badges img.footer-tap-icon {
   filter: none;
 }
@@ -3232,7 +3234,7 @@ body.brand-tap main > .section:last-child {
 
 @media (width >= 1024px) {
   body.brand-tap main > .section:last-child {
-    margin-bottom: 48px;
+    margin-bottom: 64px;
   }
 }
 
@@ -4329,4 +4331,43 @@ body.brand-tap main > .section.heading-section:not(.section-tab-panel, :has(+ .s
   body.brand-tap .cards-teaser-wrapper:has(> .cards-teaser.phone-slider) + .cards-teaser-wrapper > .cards-teaser.phone-slider {
     margin-top: 0;
   }
+}
+
+/* plain text as www's rich text (TAP row 154, standing order 14: the 25 recorded pages' default content, www's offline
+   renders against ours, pair by pair): a paragraph or list 16 px over the paragraph or list after it (ours 24), list
+   items 8 apart (ours 10) and the last one's 8 inside its list (a list 24 px over a paragraph, 40 / 72 over a heading), a
+   heading after text 64 px under it from 1024 px and 32 below (ours 40 / 24); the page's intro (the paragraph right under
+   its H1) 32 px over the next paragraph and the first heading at every width. Only the gaps between text elements: a
+   paragraph before a block or another kind of heading keeps its 24 */
+body.brand-tap main .default-content-wrapper > :is(p, ul, ol):not(.button-wrapper, .link-wrapper):has(+ :is(p, ul, ol):not(.button-wrapper, .link-wrapper)) {
+  margin-bottom: 16px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- default content's list items, not a card list's */
+body.brand-tap main .default-content-wrapper li {
+  margin-bottom: 8px;
+}
+
+body.brand-tap main .default-content-wrapper > :is(ul, ol):has(+ :is(p, h2):not(.button-wrapper, .link-wrapper)) {
+  display: flow-root;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- default content's headings, not a stacked view's */
+body.brand-tap main .default-content-wrapper > :is(p, ul, ol) + h2 {
+  margin-top: 32px;
+}
+
+@media (width >= 1024px) {
+  body.brand-tap main .default-content-wrapper > :is(p, ul, ol) + h2 {
+    margin-top: 64px;
+  }
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the intro paragraph of default content, not a stacked view's picture */
+body.brand-tap main .default-content-wrapper > h1 + p:not(.button-wrapper, .link-wrapper):has(+ p:not(.button-wrapper, .link-wrapper)) {
+  margin-bottom: 32px;
+}
+
+body.brand-tap main .default-content-wrapper > :is(h1 + p + h2, h1 + p + p + h2, h1 + p + p + p + h2) {
+  margin-top: 32px;
 }
