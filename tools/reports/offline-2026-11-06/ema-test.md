@@ -2885,3 +2885,40 @@ SWISS Senses start-of-booking pages at 390 (27 to 36), businesstogo (29.6 to 30.
 - Not in git and why: logs/p4/so5 (scratch: the offline scans, local renders, captures, results),
   .migration/project.json (the workspace's own change), content/, migration-work/ and the untracked
   tools/importer/reports/* (from before this turn, not mine). My local preview servers are stopped.
+
+## Icon tokens in text (received 03:00 UTC, 2026-11-12; this section 04:40 UTC)
+
+State at the start: nothing of mine uncommitted or unpushed (ec81d170 on main, Build success).
+
+- Cause: Edge Delivery's pipeline (helix-html-pipeline rewrite-icons, read in aem-cli's copy) turns every
+  ":name:" in one text node into <span class="icon icon-name">, outside code and not after "http(s)" or "urn" in
+  the same word; the Metadata block is read into the head before that step. A name without /icons/<name>.svg is a
+  broken picture: www's German gender colon before a colon ("Mitarbeiter:innen:", "Kund:innen:",
+  "Einsteiger:innen-Tanzkurs:", "Pilot:in:"), and app configurations' "dmc:https://".
+- Sweep: every document path we know per site (the site's path list, the uploader's states, the census), 31,418
+  paths, fetched from our hosts' live sites (main--<site>--moved-permanently.aem.live), 29,035 published; every
+  icon span whose name is no file in /icons. Found on 124 documents: lh-com 85 (innen 54, innen-Tanzkurs 2, https
+  29), lh-swiss 17 (https 11, in 4, innen 2), lh-austrian 10 and lh-discover 3 (https), lh-b2b 9 (innen: meissen
+  and six more celebrating-shared-stories pages, route-network lufthansa and codeshares). None on lh-brussels,
+  lh-cargo, lh-ita, lh-tap, lh-airdolomiti. lh-swiss-mag, -mk and -sub and lh-flynet answer 404 (not published).
+  On our hosts today 71 of them show a broken icon; the 53 app configurations show none (scripts.js reads the
+  span back as ":https:"), but they are tokens too.
+- Fix (code first, then the lists): tools/importer/icon-tokens.mjs puts a WORD JOINER (U+2060, as Discover's
+  importer did for the gender colon since b99ee4c0) before the closing colon of every token that is no icon of
+  ours, so the pipeline keeps it text; real icon tokens, code and the Metadata block stay as they are; idempotent.
+  tools/importer/da-upload-sites.mjs uploadBody applies it to every upload of every site, so no import writes one
+  into DA again. scripts/icon-token-text.js (run first in decorateMain) takes the joiner out again in the browser:
+  the page's text, and the configuration an app reads, are as written. DA's copies plus the delta:
+  tools/importer/icon-tokens-apply.mjs. Over the census and the import's copies the guard changes exactly the
+  affected published documents (the 34 more of lh-com's import copies are not published) and only by joiners.
+- Measured, per document: the published copy with each token as the pipeline makes it of DA's copy plus the delta,
+  rendered locally with this code: no icon element, no joiner left in the text or the app's attributes, and the
+  token with its context exactly as in www's text (DA's copy or the import's copy, both taken from www; lh-b2b's 9
+  also found in www's snapshots b2b-snapshots-002 / -005). All 124 pass.
+- Lists (DA's copy plus the delta, all READY): reimport-1112-lh-com-icon-tokens.txt (85),
+  reimport-1112-lh-swiss-icon-tokens.txt (17), reimport-1112-lh-austrian-icon-tokens.txt (10),
+  reimport-1112-lh-b2b-icon-tokens.txt (9), reimport-1112-lh-discover-icon-tokens.txt (3). Nothing uploaded,
+  previewed or published; no request to any airline host.
+- Not in git and why: logs/p4/so6 (scratch: the live copies of 29,035 documents, the scans, local renders and
+  checks), .migration/project.json (the workspace's own), content/, migration-work/, tools/importer/reports/*
+  (from before, not mine).
