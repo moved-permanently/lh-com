@@ -45,3 +45,11 @@ test('the delta for DA\'s copies: the paragraph after the H1 gets both marks, on
   const list = fs.readFileSync(new URL('../tools/reports/parity-2026-11-09/reimport-so10-discover-intro-views.txt', import.meta.url), 'utf8');
   assert.deepEqual(listPaths(list), ['/de/de/my-bookings/services/additional-services', '/de/en/my-bookings/services/additional-services']);
 });
+
+/* From 768 px the cards after such an intro view start 40 px under it, in the same section or the next (www's view
+   gap: additional-services de/en 1440 35.33 -> 21.60, de/de 30.71 -> 26.13; at 390 it made de/en worse, so not there). */
+test('Discover from 768 px: the cards 40 px under an intro\'s one-paragraph view', async () => {
+  const fs = await import('node:fs');
+  const css = fs.readFileSync(new URL('../styles/themes/discover.css', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
+  assert.ok(css.includes('@media (width >= 768px) { body.brand-discover main .default-content-wrapper:has(> p.column-start-outer.column-end-outer:last-child) + .carousel-cards-wrapper, body.brand-discover main > .section:has(> .default-content-wrapper:last-child > p.column-start-outer.column-end-outer:last-child) + .section { margin-top: 40px; } }'));
+});

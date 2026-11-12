@@ -728,3 +728,13 @@ body.brand-discover main .accordion-columns-wrapper {
     margin-block: 40px;
   }
 }
+
+/* from 768 px the cards after an intro's one-paragraph column view (additional-services: www's
+   intro and card views, the marks kept by THEMES.discover columnViews.oneElementViews) start 40 px
+   under it, in the same section or the next (standing order 10; at 390 it read worse) */
+@media (width >= 768px) {
+  body.brand-discover main .default-content-wrapper:has(> p.column-start-outer.column-end-outer:last-child) + .carousel-cards-wrapper,
+  body.brand-discover main > .section:has(> .default-content-wrapper:last-child > p.column-start-outer.column-end-outer:last-child) + .section {
+    margin-top: 40px;
+  }
+}
