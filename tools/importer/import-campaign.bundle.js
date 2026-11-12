@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_1244628_exports = {};
-  __export(tmp_bundle_campaign_1244628_exports, {
-    default: () => tmp_bundle_campaign_1244628_default
+  var tmp_bundle_campaign_20787_exports = {};
+  __export(tmp_bundle_campaign_20787_exports, {
+    default: () => tmp_bundle_campaign_20787_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -2227,7 +2227,15 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/accordion-columns.js
-  function parse5(element, { document }) {
+  function parse5(element, { document, url, params }) {
+    let pageHost = "";
+    try {
+      pageHost = new URL(params && params.originalURL || url || "").hostname;
+    } catch (e) {
+      pageHost = "";
+    }
+    const KEEP_HEADING_SIZE = /(^|\.)brusselsairlines\.com$/.test(pageHost);
+    const HEADING_SIZES2 = ["heading-large", "heading-medium", "heading-small", "heading-copytext-large", "heading-copytext-medium"];
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
     const ZW2 = /[​-‍﻿]/g;
     const clean4 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
@@ -2511,6 +2519,8 @@ var CustomImportScript = (() => {
               h.append(img);
             }
             h.append(text);
+            const size = KEEP_HEADING_SIZE && HEADING_SIZES2.find((c) => node.classList.contains(c));
+            if (size) h.classList.add(size);
             content.push(h);
           } else if (node.matches(".richtext")) {
             content.push(...convertRichText(node));
@@ -7798,7 +7808,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_1244628_default = {
+  var tmp_bundle_campaign_20787_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -7838,5 +7848,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_1244628_exports);
+  return __toCommonJS(tmp_bundle_campaign_20787_exports);
 })();

@@ -57,3 +57,11 @@ test('the Brussels theme: a panel heading-small by the heading-small tokens (www
   const css = fs.readFileSync(new URL('../styles/themes/brussels.css', import.meta.url), 'utf8').replace(/\s+/g, ' ');
   assert.match(css, /body\.brand-brussels main \.accordion-columns \.accordion-columns-panel :is\(h2, h3, h4\)\.heading-small \{ margin-bottom: var\(--heading-margin-l\); font-size: var\(--heading-font-size-l\); line-height: var\(--heading-line-height\); \}/);
 });
+
+// the Brussels templates with an accordion parser (brussels-import.mjs templateOf; app-entry has none)
+test('the import bundles carry it (the Brussels import runs import-<template>.bundle.js)', () => {
+  ['info', 'hub', 'insights', 'flight-status', 'homepage'].forEach((t) => {
+    const code = fs.readFileSync(new URL(`../tools/importer/import-${t}.bundle.js`, import.meta.url), 'utf8');
+    assert.ok(code.includes('KEEP_HEADING_SIZE && HEADING_SIZES'), t);
+  });
+});

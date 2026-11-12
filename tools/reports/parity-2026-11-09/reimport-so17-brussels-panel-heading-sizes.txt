@@ -10,8 +10,9 @@
 # local copy; www.* and the airline hosts refused, none sent), draft against draft, with this commit's theme:
 # 390 57,059 -> 58,073 px (www 59,474; -4.06 -> -2.36 %), 1440 28,041 -> 28,951 (www 28,478; -1.53 -> +1.66 %: at
 # 1440 our answers are 66 % of the full width, P50, which the shorter headings offset; with P50's held rules -2.84 %).
-# HOLD until the import bundles carry the parser change: build-bundles.mjs could not run here (the aem-import-helper
-# package is not in this checkout's npm cache; nothing fetched), so today's bundles still write bare h3s. READY once
-# they are rebuilt (the next bundle chore, as 5eed8692 did for 1b717771).
+# READY (standing order 17, after 98267feb): the import bundles carry the parser change. They were rebuilt with
+# build-bundles.mjs and the aem-import-helper installed under the excat tools (AEM_IMPORT_HELPER; the npm cache has
+# none); the rebuild changed nothing else in them. test/brussels-panel-heading-size-so17.test.mjs checks the Brussels
+# templates' bundles. Before that commit this row was HOLD.
 # Columns: document, status, expected change.
-/be/en/legal-notices/terms-and-conditions-conditions-of-carriage	HOLD	the 70 panel h3s "{heading-small}" (28 px at 1440, 22 at 390); 390 57,059 -> 58,073 px, 1440 28,041 -> 28,951 px; held for the bundle rebuild
+/be/en/legal-notices/terms-and-conditions-conditions-of-carriage	READY	the 70 panel h3s "{heading-small}" (28 px at 1440, 22 at 390); 390 57,059 -> 58,073 px, 1440 28,041 -> 28,951 px
