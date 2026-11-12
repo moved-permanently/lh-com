@@ -3142,6 +3142,13 @@ success). Recordings from the drop only; requests only to our own hosts.
      (heading-size-marks-apply.mjs, data b2b-h2-small-so8.json, 27 H2s), 8 READY (390 better by up to 6.2), 4 HOLD (the
      three Allegris intermediaries and de/en Allegris corporates, worse at 390 by 1.1 to 6.4 although their length
      comes closer to www's).
+   - The airline pages (airlines-at-a-glance, 21 recorded pages, 40 page-widths, all 11 to 21 % at 390): their end
+     after the card grid is www's column view padding (21 px to the footer at 390, 40 at 1440; ours had the 48 px
+     section gap), and on phones the title right after the logo's view sits 64 px under it (ours 40) with the cards 25
+     under the title (ours 44). b2b.css (092ab235, test first), only on those pages (the title section's H1
+     compact): the end alone 39 of 40 page-widths better, none worse by more than 0.12; with the title the 21 at 390
+     318.7 -> 181.4 summed, none worse. The same end rule on other templates that end with cards (lhg-history,
+     experts, travel-classes-and-booking) read worse (ours is already shorter than www's there), so it is not general.
    - The ranking re-measured on our host with order 7's fixes live (153 page-widths, full chrome): mean 14.33 -> 14.13 %
      before any of the lists above is applied (logs/p4/so8/results-b2b.tsv).
    - The lone link as an 18 px text link: re-simulated on our host with order 7's fixes live: SWISS Senses de/en
