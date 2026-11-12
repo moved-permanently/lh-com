@@ -19,3 +19,11 @@ test('Discover table cells: 40 px over the text, 67 under it, 10 px between para
   assert.ok(css.includes('body.brand-discover .table-striped tbody td > p { margin-bottom: 10px; }'));
   assert.ok(css.includes('body.brand-discover .table-striped tbody td > p:last-child { margin-bottom: 0; }'));
 });
+
+/* Standing order 10: on phones www's tables keep about 200 px a column and scroll sideways (baggage at 390: "Economy |
+   Premium Economy" in view, Business beyond); ours squeezed three columns into 350 px and broke the words
+   ("Econom y"), the table 120 px too tall. A table of three or more columns 600 px wide below 768 px (its box
+   scrolls: table-striped.css): baggage 390 27.32 -> 14.25 and 28.95 -> 15.46, the other four table pages unchanged. */
+test('Discover on phones: a table of three or more columns at www\'s 200 px a column, scrolling sideways', () => {
+  assert.ok(css.includes('@media (width < 768px) { body.brand-discover .table-striped:not(.matrix) table:has(tr > :nth-child(3)) { min-width: 600px; } }'));
+});

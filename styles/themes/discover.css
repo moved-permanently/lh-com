@@ -572,6 +572,15 @@ body.brand-discover .table-striped tbody td > p:last-child {
   margin-bottom: 0;
 }
 
+/* on phones a table of three or more columns keeps www's column width (about 200 px: baggage at 390
+   shows "Economy | Premium Economy", Business beyond) and scrolls sideways in its box
+   (table-striped.css), where ours squeezed the columns and broke the words (standing order 10) */
+@media (width < 768px) {
+  body.brand-discover .table-striped:not(.matrix) table:has(tr > :nth-child(3)) {
+    min-width: 600px;
+  }
+}
+
 /* brief 394: columns-media option side-picture, www's column view nested in a column (Customer
    service: the WhatsApp text beside its QR code under the column's heading): a text cell ending in a
    picture puts it beside the text from 768 px, below it on phones */
