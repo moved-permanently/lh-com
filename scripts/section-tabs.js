@@ -12,10 +12,12 @@
  * a panel selects its tab. A section with the same `Tab` label (and set) as the one before it is a
  * part of that panel (www.austrian.com's austrian-app: a panel's text, then its image in a
  * full-bleed section; a grey box inside a panel): shown and hidden with the panel, its own section
- * style kept. Pages without such sections: nothing changes.
+ * style kept. Pages without such sections: nothing changes. A block that shows a set's sections
+ * its own way removes the set (scripts/section-tabs-sets.js removeSectionTabs; TAP's FAQ picker).
  * Styles: styles/section-tabs.css (loaded with the first set).
  */
 import { getMetadata, loadCSS, toClassName } from './aem.js';
+import { registerSet } from './section-tabs-sets.js';
 
 const DESKTOP = '(width >= 768px)';
 // the brands whose www shows every accordion item closed below 768px (business.lufthansagroup.com's
@@ -125,6 +127,8 @@ function buildSet(groups) {
     nav.classList.add('section-tabs-always');
     tabs.forEach(({ panel, parts }) => [panel, ...parts].forEach((x) => x.classList.add('section-tab-always')));
   }
+  const set = { nav, tabs, removed: false };
+  registerSet(set);
   let active = 0;
   // below 768px the first item open, or none on the closed brands; a page's own "Tabs open"
   // metadata (first | none) wins (B2B's meals-on-board and Allegris pages open the first)
@@ -135,6 +139,7 @@ function buildSet(groups) {
   // the set's own option on its Tabs row wins
   if (groups.open === 0 || groups.open === -1) open = groups.open;
   const render = () => {
+    if (set.removed) return;
     const desktop = always || media.matches;
     tabs.forEach(({
       tab, toggle, panel, parts,

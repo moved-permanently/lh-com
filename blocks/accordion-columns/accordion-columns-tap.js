@@ -9,6 +9,7 @@
  * (its categories, the partners, their accordion; brief 386). accordion-columns.js hands a TAP
  * page's FAQ blocks here; the page is built once. The look: styles/themes/tap.css (.faq-picker-*).
  */
+import { removeSectionTabs } from '../../scripts/section-tabs-sets.js';
 
 const node = (tag, attrs = {}, ...kids) => {
   const n = document.createElement(tag);
@@ -88,6 +89,9 @@ export function buildFaqPicker(main) {
   main.dataset.faqPicker = 'true';
   pickers += 1;
   const id = `faq-picker-${pickers}`;
+  // categories imported as a tab set (row 134's "categories", TAP row 151): the pills are their
+  // tabs, so the set's tab list, toggles and hidden panels go
+  removeSectionTabs(categories.flatMap((c) => c.parts.map((p) => p.closest('.section'))));
 
   // the categories: pills under the title
   const pills = categories.map((c) => node('button', { type: 'button', className: 'faq-picker-pill', 'aria-pressed': 'false' }, c.heading.textContent.trim()));

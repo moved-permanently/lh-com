@@ -4149,9 +4149,11 @@ body.brand-tap main > .section:has(> .default-content-wrapper:only-child > :is(h
 /* stylelint-enable no-descending-specificity */
 
 /* the FAQ pages' categories 32px under the title from 768px, as www's h1 pb-8 over its chips (the standing order of
-   2026-11-10, item 6: /en-pt/help/frequently-asked-questions at 1440, the title's section 64px over them); phones as before */
+   2026-11-10, item 6: /en-pt/help/frequently-asked-questions at 1440, the title's section 64px over them); phones as before.
+   Not a category's own section before the next one (categories imported as sections of their own, TAP row 151: the
+   shown one kept its 64px under it) */
 @media (width >= 768px) {
-  body.brand-tap main > .section:has(+ .section.faq-picker-section) {
+  body.brand-tap main > .section:not(.faq-picker-section):has(+ .section.faq-picker-section) {
     margin-bottom: 32px;
   }
 }
