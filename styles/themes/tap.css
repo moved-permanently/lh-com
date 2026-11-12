@@ -4289,3 +4289,12 @@ body.brand-tap :where(header:not(.tap-home)) ~ main > .section.heading-section +
 body.brand-tap main > .section:not(.section-tab-panel, :has(+ .section.section-tabs)) > .default-content-wrapper:not(:has(+ .carousel-cards-wrapper)) > h2:not(h1 + h2) {
   max-width: 790px;
 }
+
+/* TAP row 149, its second half: a heading section's description at most 790 px wide too (www's description is in the
+   heading's max-w-[790px] container: lounges' "TAP Premium Lounges in Lisbon", credit cards' "Acumule milhas ...").
+   The importer marks a heading with its description by ending its section after it (style heading-section, row 139),
+   so what follows the last H2 of its last wrapper is the description, one paragraph or more. A rich text's first
+   paragraph after a separate heading is not marked and keeps its width (1120 px on www too) */
+body.brand-tap main > .section.heading-section:not(.section-tab-panel, :has(+ .section.section-tabs)) > .default-content-wrapper:last-child > h2:not(h1 + h2):last-of-type ~ * {
+  max-width: 790px;
+}
