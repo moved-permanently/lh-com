@@ -2993,3 +2993,67 @@ with the recordings at 1440 and 390; each list's gate per document: no page-widt
 - Not in git and why: logs/p4/so6 (scratch: the Discover, ITA and Brussels renders, captures and results, the set-aside
   Brussels test), the recordings in /tmp, .migration/project.json (the workspace's own), content/, migration-work/,
   tools/importer/reports/* (from before, not mine). My local preview servers are stopped.
+
+## Standing order 7 (received about 08:10 UTC, 2026-11-12)
+
+State at the start: nothing of mine uncommitted or unpushed (order 6's final section on main, Build success).
+Recordings from the drop only (b2b-parity-001 to -006, discover-parity-001); requests only to our own hosts.
+
+**How we measure, corrected first.** tools/parity/capture.js launched playwright's default browser, the headless shell
+(chromium_headless_shell), which lays text out narrower than the full chrome build. www's recordings wrap as full chrome
+does: celebrating-shared-stories' H1 at 390 is 4 lines on www and in full chrome, 3 in the shell. PARITY_CHROME=1 (or a
+path) now launches the full build (test/parity-capture-chrome-so7; unset, as before). The 153 recorded B2B page-widths
+on our host: mean 15.04 % with the shell, 14.33 with chrome (hygiene-and-safety de/de 390 35.30 -> 15.72: it was the
+shell's wrapping, not our page). Every number below is a full-chrome capture.
+
+1. **Allegris corporates-start-of-booking, de/en 2,580 px taller at 390 than de/de.** Its two tab sets open their first
+   panel on phones (the 2026 summer schedule 1,952 px, HON Circle Member 851 px, instead of two 52 px rows): the
+   document's page Metadata has "Tabs open | first", from reimport-1110-b2b-tabs-open.txt (2026-11-10, after
+   b2b-parity-003, whose 390 page has both panels open); reimport-583 replaced that list but the row stayed in DA. Of
+   the 733 B2B documents only this one and meals-on-board carry it. www differs between the twins the same way
+   (b2b-parity-003 de/en open, -004 de/de closed; every B2B 390 recording is a resized 1440 load, so neither records a
+   phone's first load). Removing the row measured worse against the newest recording (390 21.16 -> 38.32; meals-on-board
+   19.14 -> 24.93): reimport-so7-b2b-tabs-open-row.txt, both HOLD, no code change.
+2. **Discover's title margin (www 60 / 36 px, ours 40 / 32).** Measured on the 26 recorded pages (52 page-widths): the
+   margin alone against our host 20 better, 8 worse; on top of order 6's 8 READY rows, plus the column-heading markers
+   on the four check-in documents, 19 better, 6 worse: check-in-at-the-airport de/de and de/en 1440 +0.71 each,
+   santorini 1440 de/en +1.78 and de/de +2.47, check-in de/de 1440 +3.69 (offers +38 is a capture artefact: 20,000 px
+   against 2,452). What offsets them, per page: check-in de/de, its second column wraps a line later and its teaser
+   heading sits 37 px nearer the cards than www's (64 against 27 px; that gap alone made check-in worse); airport, the
+   space from the intro to the first block is 48 px shorter than www's, so the margin moves the rest away; santorini,
+   the stage is about 20 px taller and the grey band taller, the margin itself right. Discover's column links are
+   www's maui-navigation-link size large (about 20 px bold), ours 16: that CSS tried, better at 1440, worse at 390.
+   No single second cause clears all five, so the margin is not shipped. If it ships later it needs
+   main > .section:not(.hidden-heading) h1.heading-large: the homepage's visually hidden H1 takes it too (+1.48).
+3. **The Group for Business ranking, worst first, causes on two or more pages.**
+   - Allegris start-of-booking (6 pages: de/de, de/en, xx/de, corporates and intermediaries), the cards at the page's
+     end: each card's picture is a link (<a><picture>) to the page the title and the text link to. The block moved the
+     picture and kept the emptied link as a body paragraph, which the CTA class drew as an arrow row (24 px plus 32
+     under it) above each title. Fixed in carousel-cards (e95380ee, test first: dropped only when a link of the card
+     with text goes to the same page). The 7 recorded page-widths 183.6 -> 172.3, 6 better by 1.5 to 2.3 points, de/en
+     corporates 1440 +0.17. No other recorded document of any site has a linked card picture.
+   - The same 6 pages: the second H1 ("What's next for Lufthansa Allegris") is www's h1.heading-small (24 / 28 px,
+     regular); DA's copy renders it as the title (heading-large, 72 px for two lines at 390 against 56). The import is
+     right (content-sites/lh-b2b's import of 2026-11-11 has the section style h1-compact there); DA's copy predates it.
+     DA's copy plus the delta (heading-size-marks-apply.mjs, data b2b-second-h1-so7.json):
+     reimport-so7-b2b-second-h1.txt, 5 READY (390 better by 2.4 to 4.1), 1 HOLD (de/en corporates, worse at 390 by
+     1.94: its open tab panel is about 50 px shorter than www's, which the tall H1 made up for).
+   - SWISS Senses and Allegris start-of-booking: a link alone in www's text paragraph (".richtext p > a", "Download
+     SWISS Senses (A350-900) seat map", "Download overview") is a text link on www (18 / 24 bold, two lines at 390);
+     ours draws every lone link as the navigation link (14 / 18, one line). 9 recorded pages have such paragraphs, 5
+     with one in view. Simulated with CSS on our host: SWISS Senses de/en corporates 30.25 -> 28.01, intermediaries
+     30.66 -> 29.45, the three Allegris intermediaries worse (+0.8, +2.2, +0.8: the page is already 280 px longer than
+     www's below). Not shipped; doing it would need a paragraph token of its own (scripts/style-markers.js) and the
+     importer to write it, as "copytext-large" makes the link regular.
+   - The H2s in www's column views are heading-small (24 / 28) on these pages and on celebrating-shared-stories; ours
+     the H2 default (28 / 32). The held "H2 small" delta, re-measured with chrome: 5 better, 6 worse; stays held.
+   - lhg-history de/de and de/en (1440 37.39 / 36.30, the worst after celebrating): the only recorded pages whose H1
+     is off at 1440 (the 57 recorded 1440 pages swept: www's H1 against ours, the rest within 2 px). www's H1 sits in a
+     column view, 42 px lower than ours, and the cards start 98 px lower. The import of 2026-11-11 writes the column
+     marks ({column-start-outer} on the H1, {column-end-outer} on the intro, {spacer-60}); DA's copy has none. That
+     delta rendered locally does not give www's place (the H1 stays at 193 and wraps); not listed, to look at with the
+     column-view carrier.
+   - celebrating-shared-stories de/de and de/en (390 45.05 / 44.70): the two recorded pages with a slider of cards at
+     every width. The slider starts 11 px higher than www's and its cards are 19 px shorter; the larger offsets come
+     later, section by section (-53 before the history cards, +50 at "Looking forward...", -173 before "A century of
+     iconic destinations"), no cause shared with another page found. Not changed.
