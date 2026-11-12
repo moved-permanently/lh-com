@@ -1,6 +1,166 @@
 {
   "templates": [
     {
+      "name": "_hook-validation",
+      "description": "Not a page template: the workspace's parser and transformer checks read their test URL here first, a local snapshot path (they skip it, no request to an airline host). No bundle. tools/importer/hook-validation-guard.mjs",
+      "validationOnly": true,
+      "urls": [
+        "file:tools/importer/bd-snapshots/www.lufthansa.com/de/en/check-in-deadlines.html"
+      ],
+      "blocks": [
+        {
+          "name": "accordion-columns"
+        },
+        {
+          "name": "aem-path-map"
+        },
+        {
+          "name": "aem-paths"
+        },
+        {
+          "name": "article-data"
+        },
+        {
+          "name": "article-header"
+        },
+        {
+          "name": "blog-overview"
+        },
+        {
+          "name": "booking-lookup"
+        },
+        {
+          "name": "car-rental"
+        },
+        {
+          "name": "cards-icon"
+        },
+        {
+          "name": "cards-icon-text"
+        },
+        {
+          "name": "cards-steps"
+        },
+        {
+          "name": "cards-teaser"
+        },
+        {
+          "name": "carousel-cards"
+        },
+        {
+          "name": "carousel-images"
+        },
+        {
+          "name": "carousel-lightbox"
+        },
+        {
+          "name": "checkin-deadlines"
+        },
+        {
+          "name": "columns-logos"
+        },
+        {
+          "name": "columns-media"
+        },
+        {
+          "name": "destination-finder"
+        },
+        {
+          "name": "destination-offer"
+        },
+        {
+          "name": "ejournals"
+        },
+        {
+          "name": "embed"
+        },
+        {
+          "name": "fare-teaser"
+        },
+        {
+          "name": "flash-teaser"
+        },
+        {
+          "name": "flight-search"
+        },
+        {
+          "name": "flight-search-picker"
+        },
+        {
+          "name": "flight-status"
+        },
+        {
+          "name": "form"
+        },
+        {
+          "name": "form-core"
+        },
+        {
+          "name": "help-center"
+        },
+        {
+          "name": "hero-banner"
+        },
+        {
+          "name": "hero-campaign"
+        },
+        {
+          "name": "hero-card-overlay"
+        },
+        {
+          "name": "lounge-finder"
+        },
+        {
+          "name": "media-nodes"
+        },
+        {
+          "name": "message-center"
+        },
+        {
+          "name": "micro-frontend"
+        },
+        {
+          "name": "passenger-receipt"
+        },
+        {
+          "name": "poi-data"
+        },
+        {
+          "name": "poi-map"
+        },
+        {
+          "name": "price-bar"
+        },
+        {
+          "name": "profile-nav"
+        },
+        {
+          "name": "profile-tabs"
+        },
+        {
+          "name": "related-articles"
+        },
+        {
+          "name": "search-results"
+        },
+        {
+          "name": "security-waiting-time"
+        },
+        {
+          "name": "subpage-nav"
+        },
+        {
+          "name": "table-beside"
+        },
+        {
+          "name": "table-striped"
+        },
+        {
+          "name": "video-sizes"
+        }
+      ]
+    },
+    {
       "name": "homepage",
       "description": "Market homepage: stage with flight search, fare teasers, offers and service teasers",
       "urls": [
@@ -180,7 +340,12 @@
     {
       "name": "hub",
       "description": "Overview pages linking to service and information pages",
-      "transformers": ["hub-dcep-render", "campaign-sections", "hub-column-views", "theme-separators"],
+      "transformers": [
+        "hub-dcep-render",
+        "campaign-sections",
+        "hub-column-views",
+        "theme-separators"
+      ],
       "urls": [
         "https://www.lufthansa.com/de/en/baggage",
         "https://www.lufthansa.com/de/en/additional-services",
@@ -1433,7 +1598,10 @@
     {
       "name": "campaign",
       "description": "Long editorial campaign pages (100 years, stopover, trade fairs)",
-      "transformers": ["campaign-sections", "hub-column-views"],
+      "transformers": [
+        "campaign-sections",
+        "hub-column-views"
+      ],
       "urls": [
         "https://www.lufthansa.com/de/en/100-years",
         "https://www.lufthansa.com/de/de/100-years",
@@ -1892,7 +2060,9 @@
     {
       "name": "insights",
       "description": "Lufthansa Insights magazine: overview, categories, tags, authors and articles",
-      "transformers": ["insights-flow"],
+      "transformers": [
+        "insights-flow"
+      ],
       "urls": [
         "https://www.lufthansa.com/de/de/articles/explore-the-world/be-picky-mexico-city-insidertipps",
         "https://www.lufthansa.com/at/de/articles/explore-the-world/be-picky-mexico-city-insidertipps",
