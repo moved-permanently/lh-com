@@ -3422,3 +3422,40 @@ Left out of git:
 - logs/b601: runners, censuses, captures, trial CSS, the DA copies and the delta's output.
 - The untracked import reports of earlier runs.
 - The R2 archives and import workspaces under /tmp.
+
+### Standing order 10 (2026-11-12 17:00 to 20:00 CET)
+
+No airline-host requests, nothing uploaded, previewed or published. Each push: whole-repo lint read 0 on a clean
+worktree of HEAD, stylelint on styles.css, columns-media.css and the theme files 0, every test that reads a changed
+file passed (one existing skip), Build green. Every capture on our host answered 200.
+
+1. **imprint: fixed in part (d62fa44, served); datenschutz: open.**
+   - imprint: www keeps its chapters as column views in one AEM section, 64 px apart. Ours makes each a section with a
+     padded Columns Media, 88 px apart (our section gap stands for an AEM section's .mb-default). Now a view's
+     section before a view that opens with its title (column-start heading) keeps 24 px. Live: 8.8 -> 7.2 at 1440,
+     9.9 -> 9.2 at 390. The 34 recorded legal page-widths are as before. Test first (view-after-view-so10).
+   - The same before a padded Columns Media would take imprint to 5.2 / 8.3, but it made
+     lufthansa-insights-imprint 2.6 / 1.9 worse. Its import dropped www's empty paragraph at the end of the view
+     before, a drift of its own. Held: READY once that paragraph comes back.
+   - datenschutz: www's one-column view holds the heading, the text and six navigation links, and the importer ends
+     the view on the text before them. Two fixes were measured and dropped, so nothing changed for datenschutz:
+     - Importer, end mark after the links (test first; 44 of 46 documents change by the marks alone): drafts on our
+       host made datenschutz worse, 6.4 -> 9.0 / 9.3 -> 12.2.
+     - CSS, no end padding on such a text paragraph: 20 of 43 recorded page-widths worse by more than 0.5, among
+       them data-collection-canada 1440 +3.8.
+2. **list-end and stage-intro-padded served (4670ad4), test first (list-end-stage-intro-so10).** Live captures read
+   exactly as the trial on all 21 page-widths: hearing-impairment 7.9 -> 6.0, visual-impairment 6.3 -> 4.3,
+   my-bookings 7.4 -> 4.6, seat-maps 7.8 -> 4.9. onboard-delights is as before (flush stages left out). ranking-so9's
+   rows read SERVED.
+3. **reimport-so9-hero-no-subtitle: the 22 xx rows READY (22e1b07)**, each on the condition that no-subtitle is the
+   only change. The 20 archive rows are a re-import with main's fleet bundle. The two xx/ja rows (www 404) are DA's
+   copy plus the option; their stages are a heading and body copy, as de/en's.
+4. **Below 4 % (ranking-so10-lh-com.txt, 74 rows):** no cause shared by two or more pages. 19 rows are offset-tool
+   spikes, 30 are single-page drifts, 25 have no step. Since rank-582, lufthansa-travel-classes 1440 went 2.7 ->
+   8.2: its document was republished on 11-11 and none of today's rules match it. Open.
+
+Left out of git:
+- logs/b602: runners, censuses, captures, trial CSS, drafts.
+- test/column-end-links-so10.test.mjs and its fixture: the dropped importer fix's test, which fails without it.
+- The untracked import reports of earlier runs.
+- The offline-import workspaces and archives under /tmp.
