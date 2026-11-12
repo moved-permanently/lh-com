@@ -24,3 +24,6 @@ the files it last changed). Each row says what was found, the evidence and what 
 - **Done (ema-lufthansa, the commit with this file):** the test now lets a theme place the row of dots (margins only on
   `.carousel-(cards|images)-dots`) and still refuses any rule on a dot itself or other properties on the row;
   austrian.css untouched (it was committed by another EMA under 2 hours before).
+- **Superseded the same hour:** 55714cf3 (15:13 UTC) moved row 53's spacing into blocks/carousel-cards/carousel-cards.css,
+  so austrian.css no longer names the dots and the strict test passes; a110d97c (my loosening, pushed on its retry at
+  15:25 UTC) is taken back in the next commit: the test is strict again (no theme rule names a carousel's dots).

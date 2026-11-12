@@ -29,14 +29,8 @@ for (const [block, file] of [['carousel-cards', 'blocks/carousel-cards/carousel-
   });
 }
 
-// a theme may place the row of dots (Austrian rows 52, 53, 517187a4: the phone slider's .carousel-cards-dots margins,
-// standing order 7 of 2026-11-12), never the dots themselves: no rule on a dot, and the row's rules only margins
 test('the brands\' themes and TAP\'s rules are not where the dots are changed', () => {
   for (const theme of ['swiss', 'austrian', 'ita', 'brussels', 'discover']) {
-    const css = read(`styles/themes/${theme}.css`).replace(/\/\*.*?\*\//g, '');
-    assert.doesNotMatch(css, /carousel-(cards|images)-dot(?!s)/, theme);
-    [...css.matchAll(/[^{}]*carousel-(?:cards|images)-dots[^{}]*\{([^}]*)\}/g)].forEach(([rule, body]) => {
-      body.split(';').map((d) => d.trim()).filter(Boolean).forEach((d) => assert.match(d, /^margin(-top|-bottom|-block)?:/, `${theme}: ${rule.trim().slice(0, 120)}`));
-    });
+    assert.doesNotMatch(read(`styles/themes/${theme}.css`), /carousel-(cards|images)-dot/, theme);
   }
 });

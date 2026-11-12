@@ -3889,3 +3889,84 @@ Its first ship (13:25 UTC) stopped after the suite (3822 pass, 0 fail): main had
 back after the rebase met ema-test's new lines in rows-for-ema-test.md (row 5 done: the collapse keeps Brussels' spacers
 before a heading; reimport-589-brussels-heading-spacers.txt 9 READY, 2 HOLD by ema-test) beside my uncommitted row 6;
 nothing committed or pushed, both kept, run again.
+
+2f3b248a ITA row 38: npm run lint 0 before and after the rebase, 3842 pass 0 fail, Build success, smoke 0
+differences on 14 hosts.
+
+**Item 2, the ITA ranking further** (the 39 recorded pages with today's CSS; over 3 %: the two fleet pages until the
+delta, the strollers until its re-import, contact -7.8 / -10.0 %, flying-with-a-baby -3.5 %, pets-in-cabin,
+electronic devices -3.0 % at 1440, residents-in-sicily +3.1 / +4.1 %, iris -6.0 % and entry-exit -3.4 % at 390):
+- **Column-view heading sizes (9 pages):** www's column-view H2s are heading-medium (36 px) 40 times on 9 recorded
+  pages and heading-small (28 px) 11 times on 7; the collapse leaves both unmarked and row 31 shows every unmarked one
+  small (contact: 26 headings at 28 instead of 36). Not ours to decide alone: rows-for-ema-test.md row 6 (keep the size
+  marker in a Columns Media cell on ITA); row 31's guess stays until then (flipping it would make the heading-small
+  pages worse).
+- **Tried and dropped: www's padded AEM sections after an unpadded one (7 pages).** lufthansa-sections.js opens a
+  padded section there for lufthansa.com only; for ITA too, measured by hand on two drafts: flying-with-a-baby 1440
+  3190 -> 3296 (www 3306) but 390 5134 -> 5200 (www 5126, 1.2 points worse), seats-selection-economy worse at both
+  (+1.0 -> +3.8 %, +0.9 -> +2.3 %). Not shipped; the change and its test in .scratch (the bundles could not be rebuilt
+  here either: no aem-import-helper).
+- Left, one page each: electronic devices (www stacks the three "As checked baggage / As hand baggage / On your
+  person" headings, ours sets them side by side: -47 / -74 px), business-class-medium-haul (-129 px before "Airbus
+  A321neo"), digital-newsstand (+72 px in the eJournals section), residents-in-sicily (+86 px before the footer), the
+  390 rows of +2 to +3 % (the measuring browser's footer font, +42 px, row 30's note).
+
+**Item 3, Air Dolomiti and Cargo** (the 55 AD and 22 Cargo rows of the earlier rankings, today's CSS):
+- AD: /de/homepage and /en/homepage -75 % were the rows' wrong paths (404); our /de/ and /en/ are -0.6 / -1.1 % and
+  -0.6 / -0.6 %. Three airdolomiti-parity-002 pages -12 to -14.5 % at 1440 only (Florence what-to-see,
+  schwangere-und-kinder, tiere-an-bord): their footers match ours (tiere-an-bord's at 1558, ours 1557) and www's page
+  goes 326 px on below its 831 px footer in those captures (none in -001): the capture, not the page. street-food-in-
+  munich -12 %: www shows a 1024 x 683 picture inside an H3, ours the heading-icon size (26 px), one page. The FAQ pages
+  at 390 (lounge access -4.6 %, seat reservation -3.1 %, -2.5 %): the recording's own markup rendered offline lays out
+  as ours (the lounge accordion 743 px on both, "Benötigen Sie weitere Hilfe?" at 1169 against our 1165); the live
+  capture's 1285 is its font (as row 41). No shared cause left; no change.
+- Cargo: as classified in standing order 5 (the notification overview's data -9.8 %, the brand font's wraps at 390 on
+  fleet +3.4 %, facts and figures +2.7 %, e-booking info and the SDG page +2.4 to +2.6 %). No change.
+
+## Final section, standing order 7 (2026-11-12, 13:30 to 18:00 CET)
+
+**Commits on main** (each: whole-repo `npm run lint` exit 0 before and after the rebase, stylelint on a theme when one
+changed, the full suite 0 failures, `git show --stat` as given, the GitHub Build read, the smoke of 14 hosts before and
+after; rollback `git revert <hash>`):
+- 8c8844ac item 1: tools/importer/ita-tabs-apply.mjs (DA's copy cut into Tab sections, every element's bytes and its
+  section's rows kept), the data ita-fleet-tabs-590.json, test/ita-tabs-apply-590.test.mjs; reimport-589-ita-fleet-
+  tabs.txt's short-haul and long-haul READY with the command and the expected change. Build success, smoke 0
+  differences.
+- 2f3b248a ITA row 38: scripts/section-tabs.js joins a panel's seat map to its table section on ITA (long-haul with the
+  delta 3398 / 4931 against www's 3526 / 4919). Its first ship stopped at putting the working tree back after the
+  rebase (ema-test's new lines in rows-for-ema-test.md beside my uncommitted row 6; nothing committed); run again.
+  Build success, smoke 0 differences.
+- a110d97c test/carousel-dots-374.test.mjs (mine, brief 374) let a theme place the row of dots: main's suite was red
+  since 517187a4 (Austrian rows 52, 53, another EMA's: the phone slider's .carousel-cards-dots margins); austrian.css
+  untouched; rows-for-ema-cashub.md row 2. Found when the docs ship's suite failed (3846 pass, 1 fail; nothing
+  committed). Meanwhile 55714cf3 (the other EMA, 15:13 UTC) moved the spacing into carousel-cards.css and main was
+  green again; a110d97c went out on its push retry before I saw that (the retry's rebase brought 55714cf3; the lints
+  after it 0). Not needed any more: this commit makes the test strict again. Its Build success; the smoke after it run by hand (the ship was stopped after the push): 0 differences on 14 hosts.
+- 2f3b248a went out on top of that red main: its suite ran before the rebase that brought 517187a4 in (the lints
+  after it were green); the Build does not run the suite.
+- This commit: the rankings of items 2 and 3 (above), rows-for-ema-test.md row 6, ITA row 39 (open) and this final
+  section.
+- The ship script now runs both lints again after a retry rebase as well (`.scratch`).
+
+**Lists** (tools/reports/parity-2026-11-09/): reimport-589-ita-fleet-tabs.txt, short-haul and long-haul READY as DA's
+copy plus the delta (12 and 11 Tab rows; nothing else changes; the app row done since 390422de). For the helper:
+`node tools/importer/ita-tabs-apply.mjs --data tools/reports/parity-2026-11-09/ita-fleet-tabs-590.json --docs <DA's
+current copies, <path>.html> --out <dir> --list tools/reports/parity-2026-11-09/reimport-589-ita-fleet-tabs.txt`; it
+refuses a copy where a panel start is not found or that has Tab sections already.
+
+**Rows for ema-test:** row 6 (ITA's column-view heading sizes: keep the marker in a Columns Media cell; 40 heading-medium
+on 9 recorded pages against 11 heading-small on 7). Row 5 (Brussels' spacers) was done by ema-test this afternoon.
+
+**Open, not shipped:** ITA row 39, the lost "What data is collected?" heading on entry-exit-system (the only such
+column view in 391 held recordings): back above the teasers it costs 0.55 points at 1440; it needs the heading as the
+block's first column from 768 px. Tried and dropped: ITA's padded AEM sections after an unpadded one (two pages worse).
+Left on one page each: contact (row 6), electronic devices, business-class-medium-haul, digital-newsstand, residents,
+iris (two pictures side by side in a sidebar where www stacks them), street-food-in-munich (AD: a picture inside an H3).
+
+**Left uncommitted, and why:** `.migration/project.json` (the lh-tap entry from outside my orders; TAP is ema-cashub's);
+everything under `.scratch/` (excluded from git): DA's two copies read for item 1 and their delta outputs (DA content,
+private to the helper's run), the drafts and offline imports, the recordings, the measuring scripts and logs, and the
+two dropped changes with their tests (`.scratch/offline/b567/dropped/`: the padded sections, the heading item).
+
+**Process:** reads only from our own hosts, the drop's recordings and DA (GET of the two fleet copies, from my session,
+not from tests); no request to an airline host; no da-upload.mjs call, no upload, preview or publish.

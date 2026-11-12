@@ -119,3 +119,20 @@ found, the evidence and what would follow www.
   then a heading); for DA's copies the delta (text-spacers-apply.mjs, rows of kind separator, data
   brussels-heading-spacers-so8.json). reimport-589-brussels-heading-spacers.txt: 9 READY, 2 HOLD (be/fr premium-economy,
   be/fr checked-baggage 390 +0.66), 3 with nothing to apply. service-charges en's heading at 513 at 1440, as www's.
+
+## 6. ITA: column-view heading sizes need their marker in the collapse (2026-11-12, standing order 7)
+
+- **Found:** www.ita-airways.com's column-view headlines come in two sizes: heading-medium (36 / 39.6 px at 1440) and
+  heading-small (28 / 30.8). On the H2s in column-view items of ita-parity-002 to -005: heading-medium 40 on 9 pages
+  (support/utilities/contact 26, entry-regulations 6, business-class-medium-haul 3, checked-baggage 2, lounges, the app,
+  unaccompanied minors), heading-small 11 on 7 pages. The import's collapse (marker-collapse.mjs, THEMES.ita, decision
+  D) turns a size one step from the level's default into the default, so both come out unmarked; ITA row 31
+  (ita.css) then shows every unmarked Columns Media H2 at heading-small's size (right for row 31's 12 of 13 on -003 /
+  -004, wrong for -005's contact page: 36 px headings at 28, the page -7.8 % at 1440 and -10.0 % at 390).
+- **Evidence:** an offline import of the contact recording with main's info bundle: `<h2 id="albania">Albania</h2>`, no
+  marker; our host at 1440: 28 px / 30.8, www's 36 / 39.6 (the shadow render of the recording, headline
+  heading-medium); the row step 234 px against www's 265.
+- **What would follow www:** on ITA, a heading's size marker kept inside a Columns Media cell (heading-small and
+  heading-medium both), as the theme's default there is not the level's. ema-lufthansa then drops row 31's guess (an
+  unmarked H2 in a Columns Media cell at heading-small) and the documents re-import (DA's market sections: through a
+  delta like ita-tabs-apply.mjs).
