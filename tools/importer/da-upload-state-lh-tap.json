@@ -336,14 +336,14 @@
    "preview": "2026-11-04T05:52:05.192Z"
   },
   "/pt-pt/informacoes/bagagem/bagagem-porao": {
-   "uploaded": "2026-11-04T04:41:51.152Z",
-   "mtime": 1793766916627,
-   "preview": "2026-11-04T04:41:53.859Z"
+   "uploaded": "2026-11-12T03:40:36.045Z",
+   "mtime": 1794454772451.5696,
+   "preview": "2026-11-12T03:40:38.365Z"
   },
   "/pt-pt/informacoes/bagagem/equipamento-desportivo": {
-   "uploaded": "2026-11-04T04:41:55.593Z",
-   "mtime": 1793766916677,
-   "preview": "2026-11-04T04:41:57.693Z"
+   "uploaded": "2026-11-12T03:40:40.989Z",
+   "mtime": 1794454772452.5,
+   "preview": "2026-11-12T03:40:43.367Z"
   },
   "/pt-pt/informacoes/bagagem/instrumentos-musicais": {
    "uploaded": "2026-11-04T04:41:59.039Z",
@@ -1026,9 +1026,9 @@
    "preview": "2026-11-04T04:57:15.972Z"
   },
   "/es-es/informacion/equipaje/equipaje-bodega": {
-   "uploaded": "2026-11-04T04:57:21.482Z",
-   "mtime": 1793766931830,
-   "preview": "2026-11-04T04:57:24.307Z"
+   "uploaded": "2026-11-12T03:39:56.091Z",
+   "mtime": 1794454772427.9229,
+   "preview": "2026-11-12T03:39:58.577Z"
   },
   "/es-es/informacion/equipaje/equipaje-mano": {
    "uploaded": "2026-11-04T05:58:19.253Z",
@@ -1036,9 +1036,9 @@
    "preview": "2026-11-04T05:58:21.523Z"
   },
   "/es-es/informacion/equipaje/equipo-deportivo": {
-   "uploaded": "2026-11-04T04:57:26.085Z",
-   "mtime": 1793766931871,
-   "preview": "2026-11-04T04:57:27.917Z"
+   "uploaded": "2026-11-12T03:40:01.091Z",
+   "mtime": 1794454772427.2502,
+   "preview": "2026-11-12T03:40:03.479Z"
   },
   "/es-es/informacion/equipaje/instrumentos-musicales": {
    "uploaded": "2026-11-04T04:57:29.431Z",
@@ -1506,14 +1506,14 @@
    "preview": "2026-11-04T04:49:30.096Z"
   },
   "/en-pt/information/baggage/hand-baggage": {
-   "uploaded": "2026-11-04T05:55:19.245Z",
-   "mtime": 1793771343758,
-   "preview": "2026-11-04T05:55:21.707Z"
+   "uploaded": "2026-11-12T03:39:40.931Z",
+   "mtime": 1794454772430.823,
+   "preview": "2026-11-12T03:39:43.659Z"
   },
   "/en-pt/information/baggage/hold-baggage": {
-   "uploaded": "2026-11-04T04:49:39.224Z",
-   "mtime": 1793766926502,
-   "preview": "2026-11-04T04:49:41.732Z"
+   "uploaded": "2026-11-12T03:39:46.055Z",
+   "mtime": 1794454772432.1702,
+   "preview": "2026-11-12T03:39:48.403Z"
   },
   "/en-pt/information/baggage/locate-baggage": {
    "uploaded": "2026-11-11T08:34:23.144Z",
@@ -1531,9 +1531,9 @@
    "preview": "2026-11-04T04:49:52.598Z"
   },
   "/en-pt/information/baggage/sports-equipment": {
-   "uploaded": "2026-11-04T04:49:43.205Z",
-   "mtime": 1793766926544,
-   "preview": "2026-11-04T04:49:45.121Z"
+   "uploaded": "2026-11-12T03:39:50.969Z",
+   "mtime": 1794454772431.444,
+   "preview": "2026-11-12T03:39:53.262Z"
   },
   "/en-pt/information/documentation": {
    "uploaded": "2026-11-08T09:00:04.843Z",
@@ -2231,14 +2231,14 @@
    "preview": "2026-11-04T06:01:15.188Z"
   },
   "/fr-fr/informations/bagage/bagage-en-soute": {
-   "uploaded": "2026-11-04T05:04:45.952Z",
-   "mtime": 1793766936698,
-   "preview": "2026-11-04T05:04:48.394Z"
+   "uploaded": "2026-11-12T03:40:06.448Z",
+   "mtime": 1794454772419.8164,
+   "preview": "2026-11-12T03:40:08.654Z"
   },
   "/fr-fr/informations/bagage/equipement-sportif": {
-   "uploaded": "2026-11-04T05:04:50.097Z",
-   "mtime": 1793766936737,
-   "preview": "2026-11-04T05:04:52.339Z"
+   "uploaded": "2026-11-12T03:40:11.041Z",
+   "mtime": 1794454772418.888,
+   "preview": "2026-11-12T03:40:13.156Z"
   },
   "/fr-fr/informations/bagage/instruments-musique": {
    "uploaded": "2026-11-04T05:04:53.755Z",
@@ -2921,9 +2921,9 @@
    "preview": "2026-11-08T09:02:30.558Z"
   },
   "/de-de/informationen/gepack/aufgabegepack": {
-   "uploaded": "2026-11-04T05:12:08.998Z",
-   "mtime": 1793766941817,
-   "preview": "2026-11-04T05:12:11.891Z"
+   "uploaded": "2026-11-12T03:39:35.826Z",
+   "mtime": 1794454772422.9617,
+   "preview": "2026-11-12T03:39:38.349Z"
   },
   "/de-de/informationen/gepack/gefahrliche-gegenstande": {
    "uploaded": "2026-11-04T05:12:01.653Z",
@@ -3576,9 +3576,9 @@
    "preview": "2026-11-04T05:18:43.121Z"
   },
   "/it-it/informazioni/bagaglio/attrezzatura-sportiva": {
-   "uploaded": "2026-11-04T05:18:53.353Z",
-   "mtime": 1793766946577,
-   "preview": "2026-11-04T05:18:55.174Z"
+   "uploaded": "2026-11-12T03:40:15.740Z",
+   "mtime": 1794454772458.8042,
+   "preview": "2026-11-12T03:40:18.114Z"
   },
   "/it-it/informazioni/bagaglio/bagaglio-mano": {
    "uploaded": "2026-11-04T06:06:48.321Z",
@@ -3586,9 +3586,9 @@
    "preview": "2026-11-04T06:06:50.348Z"
   },
   "/it-it/informazioni/bagaglio/bagaglio-stiva": {
-   "uploaded": "2026-11-04T05:18:49.205Z",
-   "mtime": 1793766946538,
-   "preview": "2026-11-04T05:18:51.584Z"
+   "uploaded": "2026-11-12T03:40:20.870Z",
+   "mtime": 1794454772459.436,
+   "preview": "2026-11-12T03:40:23.426Z"
   },
   "/it-it/informazioni/bagaglio/localizzare-bagagli": {
    "uploaded": "2026-11-11T08:35:43.274Z",
@@ -4511,14 +4511,14 @@
    "preview": "2026-11-04T02:11:29.124Z"
   },
   "/pt-br/informacoes/bagagem/bagagem-porao": {
-   "uploaded": "2026-11-04T02:11:30.555Z",
-   "mtime": 1793758065420,
-   "preview": "2026-11-04T02:11:33.093Z"
+   "uploaded": "2026-11-12T03:40:26.003Z",
+   "mtime": 1794454772455.2212,
+   "preview": "2026-11-12T03:40:28.715Z"
   },
   "/pt-br/informacoes/bagagem/equipamento-esportivo": {
-   "uploaded": "2026-11-04T02:11:35.628Z",
-   "mtime": 1793758065454,
-   "preview": "2026-11-04T02:11:38.315Z"
+   "uploaded": "2026-11-12T03:40:31.283Z",
+   "mtime": 1794454772455.871,
+   "preview": "2026-11-12T03:40:33.452Z"
   },
   "/pt-br/informacoes/bagagem/instrumentos-musicais": {
    "uploaded": "2026-11-04T02:11:39.806Z",
