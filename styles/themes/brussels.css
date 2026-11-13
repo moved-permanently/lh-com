@@ -153,6 +153,16 @@
   }
 }
 
+/* phones (standing order 20): a gallery right after text in its section 30 px under it, as www's column view below
+   768 px (.column-view padding-top 2rem plus its item's 1rem; text -> picture 48-51 px on www, ours 18-21: the-gambia,
+   milan-citytrip, sun-in-march). A gallery opening its section is as www's already. At 390: milan-citytrip -2.35 ->
+   -1.27 %, prague -1.10 -> -0.10, kenya -0.75 -> +0.32; sun-in-march +0.43 -> +0.92 */
+@media (width < 768px) {
+  body.brand-brussels main:has(.article-header) .default-content-wrapper + .columns-media-wrapper > .columns-media.stacked {
+    padding-top: 30px;
+  }
+}
+
 /* the articles' gallery captions once a re-import marks them (p.caption, under the last picture; standing order 19): www's
    caption Intelo bold 16 / 24 px, 15 px under the picture, a right column's two pictures 30 px apart (brussels-parity-009;
    lufthansa.com's caption 14 / 18 px 10 under, its pictures 40 apart) */
