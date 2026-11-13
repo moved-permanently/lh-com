@@ -326,6 +326,27 @@ body.brand-brussels main > .section.sidebar-h1 > .default-content-wrapper:not(.d
   }
 }
 
+/* the sidebar-h1 sections' text column (Brussels P50, standing order 19): from 1025 px www's 9-of-12 column (938 px at
+   1440 on all 18 recorded pages of the kind), the accordion answers filling it (lufthansa.com's faq: 66 %), 5 px under
+   the question, 15 px from the right, 51 above the next; the text 41 px above the first question */
+@media (width >= 1025px) {
+  body.brand-brussels main > .section.sidebar-h1 > :not(.breadcrumb-wrapper) > * {
+    max-width: calc(75% - 10px);
+  }
+
+  body.brand-brussels main > .section.sidebar-h1 .accordion-columns.faq .accordion-columns-panel :is(p, ul, ol, h2, h3, h4, h5, h6) {
+    max-width: none;
+  }
+
+  body.brand-brussels main > .section.sidebar-h1 .accordion-columns.faq .accordion-columns-panel {
+    padding: 5px 15px 51px 0;
+  }
+
+  body.brand-brussels main > .section.sidebar-h1 > .default-content-wrapper + .accordion-columns-wrapper {
+    margin-top: 40px;
+  }
+}
+
 /* a list of links in a sidebar (three or more link paragraphs in a row in a columns-media sidebar cell: the concern
    links of /contact/feedback, www's maui-navigation-link medium hyper; the brief after 588, item 3): www's 16 px
    regular, 44 px apart, an empty line's space over the list, and when the list ends the sidebar www's 57 px (67 at 390)
