@@ -257,6 +257,15 @@ body.brand-brussels .carousel-cards.grid .carousel-cards-track {
   }
 }
 
+/* the overview hubs whose intro sidebar opens a one-column view straight in the page container (option in-column: pets,
+   baggage, plan-your-trip): www's rows of cards 97 px apart there, ours 81 (meals' intro sits in an AEM section, its
+   rows 81 apart as ours); standing order 18, item 2 */
+@media (width >= 768px) {
+  body.brand-brussels main > .section:has(> .columns-media-wrapper > .columns-media.sidebar.in-column) > .carousel-cards-wrapper + .carousel-cards-wrapper > .carousel-cards.grid {
+    margin-top: 101px;
+  }
+}
+
 /* the overview pages' first card grid under the sidebar intro (brief 505): www 103 to 118 px from the
    intro to the first card at 1440 (11 of 16 recorded pages), 109 to 132 at 390; ours was 68 / 54: 40 / 64 px
    more (the margin collapses with the grid's own 20 / 16, so the value is the whole space) */
