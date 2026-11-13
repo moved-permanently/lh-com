@@ -1,0 +1,17 @@
+# ema-cashub, standing order 24 (2026-11-13), item 2: Austrian /at/de/local-page/feels-like-flying/os401crewstory. Expected
+# change: 1440 +2.62 -> +1.69 % (within 2 %), 390 +1.32 -> +0.43 %. DA's copy plus the delta, not a re-import.
+# www (austrian-parity-003, 2026-11-09; 390 resized from the 1440 load) draws the story's subheadings as
+# heading-copytext-large (CoreSans 500, 18 / 19.8 px, 24 px under them). Ours are in column-view text, where row 51's rule
+# makes an h3 www's heading-small (Portada 700, 28 / 30.8 px, 32 px around): about 19 px more a heading, +12 -> +249 px over
+# the page at 1440. The import dropped www's size class.
+# The delta: " {heading-copytext-large}" at the end of the five headings www records with that class, nothing else
+# (tools/importer/heading-size-marks-apply.mjs, data migration-work/parity-588/so24/hs-rows.json, five rows; on DA's copy,
+# read 2026-11-13 ~17:05 UTC, 11,713 bytes, sha256 1f266a4c8357..., all five found once):
+#   h3 "Zwischen Aufregung und Abenteuer", h3 "Früher selbst UM-Kind", h3 "Vom Gate bis ins Cockpit",
+#   h3 "Warum Eltern oft nervöser sind als die Kinder", h2 "Gemeinsam abheben: entspannt mit der Familie reisen".
+# Not "Ein Teddy, ein letzter Blick - und ganz viel Mut": www's recording has no heading with that text.
+# Measured as a draft (so24/host.mjs on austrian.turnsthe.page, the published copy as control = live, 7,887 / 10,114 px;
+# consent stored, www.* and the airline hosts refused, none sent): 1440 7,887 -> 7,816 (www 7,686), 390 10,114 -> 10,025
+# (www 9,982).
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, what changes on the page.
+READY	/at/de/local-page/feels-like-flying/os401crewstory.html	" {heading-copytext-large}" on the five headings above	1440 +2.62 -> +1.69 %, 390 +1.32 -> +0.43 %

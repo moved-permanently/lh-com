@@ -1,0 +1,21 @@
+# ema-cashub, standing order 24 (2026-11-13), item 2: Austrian /at/en/special-requirements. Expected change: the page within
+# 2 % of www at both widths (1440 -2.96 -> -1.22 %, 390 -2.18 -> -0.97 %). DA's copy plus the delta, not a re-import.
+# www (austrian-parity-001, 2026-11-05, each width its own load) draws the eight topics as four column views, each in its
+# own section (.section-content > .twocolumn > .column-view, 32 px padding above and below, about 35 px between the
+# sections): 99 px from one view's content to the next. DA's copy (read 2026-11-13 ~16:20 UTC, admin.da.live/source/
+# moved-permanently/lh-austrian/at/en/special-requirements.html, 5832 bytes, sha256 c4398731229b...) has them as one
+# columns-media (padded) block of four rows in one section: 66 px between the rows, so every row after the first starts
+# 33 px (1440) / 36 px (390) higher than www's. The services-on-board overview, whose two views share one section on
+# www, matches already: the merge is right there, so this is the page's structure, not a rule.
+# The delta: the block split at its rows, each part in a section of its own, nothing else (the rows, their cells and the
+# metadata block byte for byte):
+#   section 1: the H1 and columns-media (padded) with row 1 (Families | Travelling during pregnancy);
+#   section 2: columns-media (padded) with row 2 (Unaccompanied minors | Travelling with animals);
+#   section 3: columns-media (padded) with row 3 (Medical information | Accessible travel);
+#   section 4: columns-media (padded) with row 4 (Special meals | Seminars to combat fear of flying), then the metadata.
+# Measured as a draft (so24/host.mjs on austrian.turnsthe.page, the published document as control = live, 3,672 / 5,337 px;
+# consent stored, www.* and the airline hosts refused, none sent): 1440 3,672 -> 3,738 (www 3,784), 390 5,337 -> 5,403
+# (www 5,456). Our section gap gives 22 px of www's 33 per break; the rest is not a document change.
+# /at/de/besondere-anforderungen (the same structure) is within 2 % at both widths (1440 -1.07 %, 390 -0.86 %): not listed.
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, what changes on the page.
+READY	/at/en/special-requirements.html	the columns-media (padded) block split into four, one per row, each in its own section (as above)	1440 -2.96 -> -1.22 %, 390 -2.18 -> -0.97 %

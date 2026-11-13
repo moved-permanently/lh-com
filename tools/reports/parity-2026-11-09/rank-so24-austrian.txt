@@ -1,0 +1,279 @@
+# ema-cashub, standing order 24 (2026-11-13), item 2: the recorded Austrian page-widths still more than 2 % off www, grouped by
+# cause. Expected change: special-requirements (group C) and os401crewstory 1440 (K) within 2 % through their DA deltas; every other group
+# is a render condition, www's own state or one page, so no shared code rule (none passes as a cause of ours).
+# www: austrian-parity-001, -003, -005 to -011, -015 to -018 (the drop folder 3LZRr22D3-eALPPoEh4mEOYB, sha256 checked; -012 to
+# -014 recorded austrian.turnsthe.page, left out), newest recording per page and width: 242 page-widths on 121 pages.
+# 001 and 018 load each width; 003 to 017 resize the 1440 load to 390 (their manifests: resizedFrom 1440).
+# Ours: austrian.turnsthe.page as served (main, 2026-11-13 ~15:50 UTC), consent stored, every picture loaded, www.* and the
+# airline hosts refused and counted (2215 in all, none sent). Within 2 %: 144; above: 98 on 58 pages.
+# Columns: group, path, width, www px, ours px, ours vs www, the recording.
+
+## H (39 rows): the homepages: the fare teaser, destination finder and flight search take their data from www's APIs in the browser, refused in every render here (order 588, standing order 4): not comparable until a capture of our own page with the APIs allowed. Not a code or DA change
+H	/au/en/homepage	390	5262	5440	+3.38 %	austrian-parity-008
+H	/au/en/homepage	1440	4392	4073	-7.26 %	austrian-parity-008
+H	/by/en/homepage	390	5100	4992	-2.12 %	austrian-parity-008
+H	/ca/en/homepage	390	4327	4419	+2.13 %	austrian-parity-008
+H	/ca/fr/homepage	390	4785	4556	-4.79 %	austrian-parity-008
+H	/ca/fr/homepage	1440	3362	3254	-3.21 %	austrian-parity-008
+H	/ch/de/homepage	1440	4442	4097	-7.77 %	austrian-parity-008
+H	/ch/en/homepage	390	5790	5435	-6.13 %	austrian-parity-008
+H	/ch/en/homepage	1440	4744	4073	-14.14 %	austrian-parity-008
+H	/ch/fr/homepage	390	6314	6059	-4.04 %	austrian-parity-008
+H	/ch/fr/homepage	1440	5042	4870	-3.41 %	austrian-parity-008
+H	/cz/en/homepage	390	5790	5440	-6.04 %	austrian-parity-008
+H	/cz/en/homepage	1440	4744	4073	-14.14 %	austrian-parity-008
+H	/fr/en/homepage	390	5790	5440	-6.04 %	austrian-parity-008
+H	/fr/en/homepage	1440	4744	4073	-14.14 %	austrian-parity-008
+H	/gb/en/homepage	390	5790	5634	-2.69 %	austrian-parity-008
+H	/ge/en/homepage	390	5688	5108	-10.20 %	austrian-parity-008
+H	/ge/en/homepage	1440	4663	3930	-15.72 %	austrian-parity-008
+H	/it/en/homepage	390	5790	5435	-6.13 %	austrian-parity-008
+H	/it/en/homepage	1440	4744	4073	-14.14 %	austrian-parity-008
+H	/jp/en/homepage	390	5341	5901	+10.48 %	austrian-parity-008
+H	/jp/en/homepage	1440	4392	4722	+7.51 %	austrian-parity-008
+H	/md/en/homepage	390	5790	5440	-6.04 %	austrian-parity-009
+H	/md/en/homepage	1440	4744	4073	-14.14 %	austrian-parity-009
+H	/me/en/homepage	390	5262	5861	+11.38 %	austrian-parity-009
+H	/me/en/homepage	1440	4392	4722	+7.51 %	austrian-parity-009
+H	/pl/en/homepage	390	5790	5440	-6.04 %	austrian-parity-009
+H	/pl/en/homepage	1440	4744	4073	-14.14 %	austrian-parity-009
+H	/pt/en/homepage	390	5688	5529	-2.80 %	austrian-parity-009
+H	/ro/en/homepage	390	5790	5440	-6.04 %	austrian-parity-009
+H	/ro/en/homepage	1440	4744	4073	-14.14 %	austrian-parity-009
+H	/rs/en/homepage	390	5790	5440	-6.04 %	austrian-parity-009
+H	/rs/en/homepage	1440	4744	4073	-14.14 %	austrian-parity-009
+H	/ru/en/homepage	390	5100	4992	-2.12 %	austrian-parity-011
+H	/tr/en/homepage	390	5283	5906	+11.79 %	austrian-parity-010
+H	/tr/en/homepage	1440	4392	4746	+8.06 %	austrian-parity-010
+H	/ua/en/homepage	1440	4301	4400	+2.30 %	austrian-parity-010
+H	/xk/en/homepage	390	5262	5861	+11.38 %	austrian-parity-010
+H	/xk/en/homepage	1440	4392	4722	+7.51 %	austrian-parity-010
+
+## A (24 rows): the help-center app (micro-frontend help-center-web, Austrian's own) loads its stage and FAQ pictures from austrian.com/content/dam, refused here: both 0 px, the FAQ card collapses (no picture, contained). With stand-ins in www's shapes (1425 x 375, 637 x 281; no request) /at/en/contact 1440 2,337 -> 2,450 (www 2,438, +0.49 %), 390 2,886 -> 3,039 (www 3,023, +0.53 %). A visitor's browser loads them. Not a code or DA change
+A	/at/de/contact	390	3131	2994	-4.38 %	austrian-parity-007
+A	/at/de/contact	1440	2459	2358	-4.11 %	austrian-parity-007
+A	/at/de/hilfe-center	390	3131	2891	-7.67 %	austrian-parity-006
+A	/at/de/hilfe-center	1440	2459	2276	-7.44 %	austrian-parity-006
+A	/at/en/contact	390	3023	2886	-4.53 %	austrian-parity-007
+A	/at/en/contact	1440	2438	2337	-4.14 %	austrian-parity-007
+A	/at/en/help-center	390	3022	2804	-7.21 %	austrian-parity-003
+A	/at/en/help-center	1440	2438	2276	-6.64 %	austrian-parity-003
+A	/cn/zh/contact	390	3141	2877	-8.40 %	austrian-parity-007
+A	/cn/zh/contact	1440	2438	2235	-8.33 %	austrian-parity-007
+A	/es/es/contact	390	3103	2866	-7.64 %	austrian-parity-007
+A	/es/es/contact	1440	2459	2276	-7.44 %	austrian-parity-007
+A	/fr/fr/contact	390	3218	2981	-7.36 %	austrian-parity-007
+A	/fr/fr/contact	1440	2508	2367	-5.62 %	austrian-parity-007
+A	/gr/el/contact	390	3172	2989	-5.77 %	austrian-parity-007
+A	/gr/el/contact	1440	2459	2346	-4.60 %	austrian-parity-007
+A	/it/it/contact	390	3123	2866	-8.23 %	austrian-parity-007
+A	/it/it/contact	1440	2480	2318	-6.53 %	austrian-parity-007
+A	/jp/ja/contact	390	3044	2754	-9.53 %	austrian-parity-007
+A	/jp/ja/contact	1440	2459	2235	-9.11 %	austrian-parity-007
+A	/pl/pl/contact	390	3100	2835	-8.55 %	austrian-parity-007
+A	/pl/pl/contact	1440	2459	2276	-7.44 %	austrian-parity-007
+A	/ru/ru/contact	390	3232	3044	-5.82 %	austrian-parity-007
+A	/ru/ru/contact	1440	2508	2346	-6.46 %	austrian-parity-007
+
+## B (8 rows): the measuring machine's fonts: www was recorded in Chrome on macOS, these renders run on Linux. Portada / CoreSans have no Cyrillic, Greek, Chinese or Japanese glyphs (our served Portada-SemiBold is www's file, sha256 41a5e564a33e); the fallback is Arial / PingFang / Hiragino on www's side, DejaVu Sans (Cyrillic, Greek) and none (CJK) here. The drift grows view by view: ru/ru +2 -> +121 px, cn/zh -2 -> -298. Not a code or DA change
+B	/cn/zh/baggage	390	5675	5246	-7.56 %	austrian-parity-003
+B	/cn/zh/baggage	1440	4226	4048	-4.21 %	austrian-parity-003
+B	/gr/el/baggage	390	6248	6385	+2.19 %	austrian-parity-003
+B	/gr/el/baggage	1440	4441	4553	+2.52 %	austrian-parity-003
+B	/jp/ja/baggage	390	5871	5267	-10.29 %	austrian-parity-003
+B	/jp/ja/baggage	1440	4322	4072	-5.78 %	austrian-parity-003
+B	/ru/ru/baggage	390	6200	6399	+3.21 %	austrian-parity-003
+B	/ru/ru/baggage	1440	4422	4577	+3.51 %	austrian-parity-003
+
+## C (2 rows): www draws each column view in its own section (4 sections, about 35 px apart: 99 px from one view's content to the next); our import merged them into one padded columns-media block of 4 rows (66 px). DA delta READY: delta-so24-austrian-special-requirements-views.txt (1440 -2.96 -> -1.22 %, 390 -2.18 -> -0.97 %)
+C	/at/en/special-requirements	390	5456	5337	-2.18 %	austrian-parity-001
+C	/at/en/special-requirements	1440	3784	3672	-2.96 %	austrian-parity-001
+
+## C2 (1 rows): www's six separate column views: the three column-view markers of delta-so20-austrian-entryregulations-column-views.txt (/at/en READY since order 20, not yet applied)
+C2	/at/en/entryregulations	390	7236	7089	-2.03 %	austrian-parity-015
+
+## D (4 rows): mostly the flight search band in its no-API state (10 www calls refused): at 1440 -89 px of the -153 (en) / -155 (de) between the last card row and "This may also interest you"; the intro -37 (en) / -13 (de), the card rows 7 to 8 px each. Its 390 files are the 1440 load resized (austrian-parity-015)
+D	/at/de/discover/inspiration/fly-with-austrian	390	9114	8843	-2.97 %	austrian-parity-001
+D	/at/de/discover/inspiration/fly-with-austrian	1440	4649	4494	-3.33 %	austrian-parity-001
+D	/at/en/discover/inspiration/fly-with-austrian	390	8696	8383	-3.60 %	austrian-parity-001
+D	/at/en/discover/inspiration/fly-with-austrian	1440	4507	4354	-3.39 %	austrian-parity-001
+
+## E (2 rows): after "Book your flight now" (the last heading -18 px at 1440, the footer -393): the booking widget below it, 8 www calls refused: widget state
+E	/at/en/bangkok-airways	390	4604	4339	-5.76 %	austrian-parity-015
+E	/at/en/bangkok-airways	1440	3700	3305	-10.68 %	austrian-parity-015
+
+## F (2 rows): www's Italian page has about 280 px of empty white under its button (the same page in /at/de has none; text identical): www's own empty component, NOT TO DO
+F	/it/it/form-confirmation	390	1823	1629	-10.64 %	austrian-parity-005
+F	/it/it/form-confirmation	1440	1558	1400	-10.14 %	austrian-parity-005
+
+## F2 (2 rows): the same text; ours 42 px more under the button at both widths (www 91 px, ours 133: the section style Space below: M, its 61 px spacer and the section's 48). Dropping the style overshoots (a draft: 1440 -3.50 %, 390 -2.69 %): no delta
+F2	/at/de/footer-pages/help-and-contact/form-confirmation	390	1522	1566	+2.89 %	austrian-parity-005
+F2	/at/de/footer-pages/help-and-contact/form-confirmation	1440	1257	1298	+3.26 %	austrian-parity-005
+
+## G (4 rows): the form pages: bagdamage's 48 px under the title are www's empty paragraph at the top of its rich text (delta-so24-austrian-bagdamage-intro-spacer.txt, HOLD: the core form's own height changes from load to load, so the page can't be gated); cancellation-refund's first paragraph 92 px under the title inside a padded column view on www (-62 px), not checked; invoice-request-hungary 390 (a resized load) the form fields -12 to -29. No shared rule
+G	/at/en/footer-pages/help-and-contact/bagdamage	390	5779	5906	+2.20 %	austrian-parity-003
+G	/at/en/footer-pages/help-and-contact/bagdamage	1440	5012	4906	-2.11 %	austrian-parity-003
+G	/hu/en/local-page/invoice-request-hungary	390	3568	3644	+2.13 %	austrian-parity-003
+G	/il/en/legal/cancellation-refund-via-document-upload	390	4040	3740	-7.43 %	austrian-parity-003
+
+## I (2 rows): the tab panel: www keeps about 570 px of empty white under the open tab (Filme und TV) down to the footer, most likely the panel area held at the tallest tab's height (eJournals: its block and table); ours sizes to the open tab. A change to the tabs block's behaviour, not checked against the other tab pages (travel-id drifts differently): not shipped
+I	/at/de/unterhaltung-an-bord	390	3128	2676	-14.45 %	austrian-parity-003
+I	/at/de/unterhaltung-an-bord	1440	2749	2272	-17.35 %	austrian-parity-003
+
+## J (2 rows): the three column views match (-10 px); -63 px after the last view ("Internet"/"Internet") to the footer, both languages; 390 only (first loads, austrian-parity-001): not traced
+J	/at/de/book/overview-services-on-board	390	2969	2898	-2.39 %	austrian-parity-001
+J	/at/en/book/overview-services-on-board	390	2921	2850	-2.43 %	austrian-parity-001
+
+## K (6 rows): one page, not traced to a rule: see the stretch
+K	/at/de/local-page/feels-like-flying/os401crewstory	1440	7686	7887	+2.62 %	austrian-parity-003  -- www's subheadings are heading-copytext-large (18 / 19.8), ours heading-small in column-view text (28 / 30.8): DA delta READY, delta-so24-austrian-os401crewstory-heading-sizes.txt (+2.62 -> +1.69 %)
+K	/at/en/accessible-travel	390	19409	18989	-2.16 %	austrian-parity-015  -- after "At the airport" (the last heading -17 px, the footer -423)
+K	/at/en/baggage	390	6673	6485	-2.82 %	austrian-parity-003  -- no heading of www's with text to align (shadow DOM); a resized load
+K	/at/en/book-and-manage/flights/wetlease-hub	1440	3070	3004	-2.15 %	austrian-parity-003  -- between the headings +13 / -13, the footer -65
+K	/at/en/travel-id	390	6852	6698	-2.25 %	austrian-parity-015  -- the tab panel ("Austrian.com" -60) to "Good to know" (-168); a resized load
+K	/us/en/local-page/ski-campaign-2026	390	3515	3444	-2.02 %	austrian-parity-003  -- "Find your winter adventure" -86 (after the stage, 24 www calls refused); a resized load
+
+## within 2 %
+-	/al/en/local-page/black-friday	390	4424	4408	-0.36 %	austrian-parity-003
+-	/al/en/local-page/black-friday	1440	3110	3094	-0.51 %	austrian-parity-003
+-	/am/en/homepage	390	5790	5861	+1.23 %	austrian-parity-008
+-	/am/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-008
+-	/at/de/bearbeitungsgebuehren	390	4125	4107	-0.44 %	austrian-parity-003
+-	/at/de/bearbeitungsgebuehren	1440	3140	3165	+0.80 %	austrian-parity-003
+-	/at/de/besondere-anforderungen	390	5497	5450	-0.86 %	austrian-parity-001
+-	/at/de/besondere-anforderungen	1440	3736	3696	-1.07 %	austrian-parity-001
+-	/at/de/book/flights	390	4850	4831	-0.39 %	austrian-parity-001
+-	/at/de/book/flights	1440	3600	3633	+0.92 %	austrian-parity-001
+-	/at/de/book/overview-extra-services	390	5155	5130	-0.48 %	austrian-parity-001
+-	/at/de/book/overview-extra-services	1440	3669	3657	-0.33 %	austrian-parity-001
+-	/at/de/book/overview-inspiration	390	2347	2321	-1.11 %	austrian-parity-001
+-	/at/de/book/overview-inspiration	1440	1777	1750	-1.52 %	austrian-parity-001
+-	/at/de/book/overview-manage	390	5259	5243	-0.30 %	austrian-parity-001
+-	/at/de/book/overview-manage	1440	3721	3711	-0.27 %	austrian-parity-001
+-	/at/de/book/overview-manage/manage-my-bookings	390	1794	1809	+0.84 %	austrian-parity-003
+-	/at/de/book/overview-manage/manage-my-bookings	1440	1530	1537	+0.46 %	austrian-parity-003
+-	/at/de/book/overview-services-on-board	1440	2447	2423	-0.98 %	austrian-parity-001
+-	/at/de/book/overview-travel-information	390	4135	4149	+0.34 %	austrian-parity-001
+-	/at/de/book/overview-travel-information	1440	3044	3031	-0.43 %	austrian-parity-001
+-	/at/de/entryregulations	390	7712	7602	-1.43 %	austrian-parity-018
+-	/at/de/entryregulations	1440	5696	5674	-0.39 %	austrian-parity-018
+-	/at/de/fly/travel-classes	390	2889	2858	-1.07 %	austrian-parity-001
+-	/at/de/fly/travel-classes	1440	2414	2383	-1.28 %	austrian-parity-001
+-	/at/de/gepaeck	390	6754	6620	-1.98 %	austrian-parity-003
+-	/at/de/gepaeck	1440	4319	4280	-0.90 %	austrian-parity-003
+-	/at/de/homepage	390	6186	6089	-1.57 %	austrian-parity-001
+-	/at/de/homepage	1440	4934	4872	-1.26 %	austrian-parity-001
+-	/at/de/local-page/feels-like-flying/os401crewstory	390	9982	10114	+1.32 %	austrian-parity-003
+-	/at/en/accessible-travel	1440	12859	12840	-0.15 %	austrian-parity-015
+-	/at/en/additional-services	390	3554	3541	-0.37 %	austrian-parity-015
+-	/at/en/additional-services	1440	2648	2663	+0.57 %	austrian-parity-015
+-	/at/en/austrian-app	390	6707	6740	+0.49 %	austrian-parity-015
+-	/at/en/austrian-app	1440	5362	5337	-0.47 %	austrian-parity-015
+-	/at/en/baggage	1440	4319	4280	-0.90 %	austrian-parity-003
+-	/at/en/book-and-manage/flights/wetlease-hub	390	3665	3596	-1.88 %	austrian-parity-003
+-	/at/en/book/flights	390	4693	4698	+0.11 %	austrian-parity-001
+-	/at/en/book/flights	1440	3575	3609	+0.95 %	austrian-parity-001
+-	/at/en/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry	390	3808	3791	-0.45 %	austrian-parity-003
+-	/at/en/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry	1440	3471	3447	-0.69 %	austrian-parity-003
+-	/at/en/book/overview-extra-services	390	4964	4940	-0.48 %	austrian-parity-001
+-	/at/en/book/overview-extra-services	1440	3604	3618	+0.39 %	austrian-parity-001
+-	/at/en/book/overview-inspiration	390	2299	2273	-1.13 %	austrian-parity-001
+-	/at/en/book/overview-inspiration	1440	1777	1750	-1.52 %	austrian-parity-001
+-	/at/en/book/overview-manage	390	5103	5051	-1.02 %	austrian-parity-001
+-	/at/en/book/overview-manage	1440	3693	3648	-1.22 %	austrian-parity-001
+-	/at/en/book/overview-services-on-board	1440	2422	2399	-0.95 %	austrian-parity-001
+-	/at/en/book/overview-travel-information	390	4069	4084	+0.37 %	austrian-parity-001
+-	/at/en/book/overview-travel-information	1440	2996	2983	-0.43 %	austrian-parity-001
+-	/at/en/entryregulations	1440	5538	5468	-1.26 %	austrian-parity-015
+-	/at/en/fly/check-in/private-check-in-counter	390	7222	7341	+1.65 %	austrian-parity-003
+-	/at/en/fly/check-in/private-check-in-counter	1440	5965	6073	+1.81 %	austrian-parity-003
+-	/at/en/fly/on-board/culinary-services	390	9176	9003	-1.89 %	austrian-parity-017
+-	/at/en/fly/on-board/culinary-services	1440	8428	8315	-1.34 %	austrian-parity-017
+-	/at/en/fly/travel-classes	390	2889	2834	-1.90 %	austrian-parity-001
+-	/at/en/fly/travel-classes	1440	2414	2383	-1.28 %	austrian-parity-001
+-	/at/en/healthy-travel	390	8822	8888	+0.75 %	austrian-parity-015
+-	/at/en/healthy-travel	1440	6614	6711	+1.47 %	austrian-parity-015
+-	/at/en/homepage	390	6039	5921	-1.95 %	austrian-parity-001
+-	/at/en/homepage	1440	4885	4824	-1.25 %	austrian-parity-001
+-	/at/en/online-check-in	390	5846	5775	-1.21 %	austrian-parity-017
+-	/at/en/online-check-in	1440	4477	4435	-0.94 %	austrian-parity-017
+-	/at/en/plan/special-requirements/entry-regulations/immigration-regulations-schengen	390	4358	4310	-1.10 %	austrian-parity-015
+-	/at/en/plan/special-requirements/entry-regulations/immigration-regulations-schengen	1440	3087	3065	-0.71 %	austrian-parity-015
+-	/at/en/plan/special-requirements/healthy-travel/doctor-on-board	390	5857	5763	-1.60 %	austrian-parity-015
+-	/at/en/plan/special-requirements/healthy-travel/doctor-on-board	1440	4529	4496	-0.73 %	austrian-parity-015
+-	/at/en/plan/special-requirements/medical-travel-companions	390	3120	3129	+0.29 %	austrian-parity-003
+-	/at/en/plan/special-requirements/medical-travel-companions	1440	2775	2766	-0.32 %	austrian-parity-003
+-	/at/en/sustainable-flying	390	5929	5948	+0.32 %	austrian-parity-015
+-	/at/en/sustainable-flying	1440	4275	4227	-1.12 %	austrian-parity-015
+-	/at/en/travel-id	1440	5714	5733	+0.33 %	austrian-parity-015
+-	/ba/en/homepage	390	5790	5861	+1.23 %	austrian-parity-008
+-	/ba/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-008
+-	/be/en/homepage	390	5790	5861	+1.23 %	austrian-parity-008
+-	/be/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-008
+-	/bg/en/homepage	390	5790	5861	+1.23 %	austrian-parity-008
+-	/bg/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-008
+-	/by/en/homepage	1440	3473	3438	-1.01 %	austrian-parity-008
+-	/by/ru/homepage	390	5351	5265	-1.61 %	austrian-parity-008
+-	/by/ru/homepage	1440	3630	3611	-0.52 %	austrian-parity-008
+-	/ca/en/homepage	1440	3037	3067	+0.99 %	austrian-parity-008
+-	/ch/de/homepage	390	5388	5487	+1.84 %	austrian-parity-008
+-	/ch/it/homepage	390	5962	5990	+0.47 %	austrian-parity-008
+-	/ch/it/homepage	1440	4846	4847	+0.02 %	austrian-parity-008
+-	/cn/en/local-pages/tarmac-delay-contingency-plan	390	2800	2811	+0.39 %	austrian-parity-003
+-	/cn/en/local-pages/tarmac-delay-contingency-plan	1440	2241	2201	-1.78 %	austrian-parity-003
+-	/cy/en/homepage	390	5790	5861	+1.23 %	austrian-parity-008
+-	/cy/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-008
+-	/de/de/homepage	390	5916	5932	+0.27 %	austrian-parity-008
+-	/de/de/homepage	1440	4794	4770	-0.50 %	austrian-parity-008
+-	/de/en/homepage	390	5807	5861	+0.93 %	austrian-parity-008
+-	/de/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-008
+-	/dk/en/homepage	390	5790	5861	+1.23 %	austrian-parity-008
+-	/dk/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-008
+-	/eg/en/homepage	390	5790	5901	+1.92 %	austrian-parity-008
+-	/eg/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-008
+-	/es/en/homepage	390	5790	5861	+1.23 %	austrian-parity-008
+-	/es/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-008
+-	/es/es/baggage	390	6066	5998	-1.12 %	austrian-parity-003
+-	/es/es/baggage	1440	4298	4281	-0.40 %	austrian-parity-003
+-	/fr/fr/baggage	390	6012	5943	-1.15 %	austrian-parity-003
+-	/fr/fr/baggage	1440	4383	4432	+1.12 %	austrian-parity-003
+-	/gb/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-008
+-	/gr/en/homepage	390	5790	5861	+1.23 %	austrian-parity-008
+-	/gr/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-008
+-	/hr/en/homepage	390	5790	5861	+1.23 %	austrian-parity-008
+-	/hr/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-008
+-	/hu/en/local-page/invoice-request-hungary	1440	3152	3184	+1.02 %	austrian-parity-003
+-	/il/en/legal/cancellation-refund-via-document-upload	1440	3295	3292	-0.09 %	austrian-parity-003
+-	/iq/en/homepage	390	5790	5861	+1.23 %	austrian-parity-008
+-	/iq/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-008
+-	/ir/en/homepage	390	5790	5861	+1.23 %	austrian-parity-008
+-	/ir/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-008
+-	/it/it/baggage	390	6087	6022	-1.07 %	austrian-parity-003
+-	/it/it/baggage	1440	4383	4387	+0.09 %	austrian-parity-003
+-	/jo/en/homepage	390	5790	5861	+1.23 %	austrian-parity-008
+-	/jo/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-008
+-	/lt/en/homepage	390	5790	5861	+1.23 %	austrian-parity-008
+-	/lt/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-008
+-	/mk/en/homepage	390	5790	5861	+1.23 %	austrian-parity-009
+-	/mk/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-009
+-	/nl/en/homepage	390	5790	5861	+1.23 %	austrian-parity-009
+-	/nl/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-009
+-	/no/en/homepage	390	5790	5861	+1.23 %	austrian-parity-009
+-	/no/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-009
+-	/pl/pl/baggage	390	6012	5943	-1.15 %	austrian-parity-003
+-	/pl/pl/baggage	1440	4322	4305	-0.39 %	austrian-parity-003
+-	/pt/en/homepage	1440	4663	4579	-1.80 %	austrian-parity-009
+-	/ru/en/homepage	1440	3473	3438	-1.01 %	austrian-parity-011
+-	/ru/ru/homepage	390	5330	5241	-1.67 %	austrian-parity-016
+-	/ru/ru/homepage	1440	3630	3611	-0.52 %	austrian-parity-016
+-	/se/en/homepage	390	5790	5861	+1.23 %	austrian-parity-010
+-	/se/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-010
+-	/si/en/homepage	390	5790	5861	+1.23 %	austrian-parity-010
+-	/si/en/homepage	1440	4744	4722	-0.46 %	austrian-parity-010
+-	/sk/en/homepage	390	6331	6341	+0.16 %	austrian-parity-010
+-	/sk/en/homepage	1440	4966	4924	-0.85 %	austrian-parity-010
+-	/th/en/book/flights/promptpay	390	3382	3442	+1.77 %	austrian-parity-003
+-	/th/en/book/flights/promptpay	1440	2688	2655	-1.23 %	austrian-parity-003
+-	/ua/en/homepage	390	5623	5620	-0.05 %	austrian-parity-010
+-	/us/en/local-page/ski-campaign-2026	1440	2910	2853	-1.96 %	austrian-parity-003
+-	/xx/en/homepage	390	4890	4847	-0.88 %	austrian-parity-010
+-	/xx/en/homepage	1440	3524	3505	-0.54 %	austrian-parity-010

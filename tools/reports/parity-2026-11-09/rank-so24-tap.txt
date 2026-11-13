@@ -1,0 +1,61 @@
+# ema-cashub, standing order 24 (2026-11-13), item 3: TAP's 26 recorded pages at both widths (52 page-widths), the ones more
+# than 2 % off www with their causes. Expected change: none from code or DA (every cause is www's own service or state, or
+# the excepted phone slider). www: tap-parity-001, -002, -007 to -011 (the recordings of order 22's tap-390.tsv, the 1440
+# files of the same archives). Ours: tap.turnsthe.page as served (main, 2026-11-13 ~15:50 UTC), every picture loaded, www.*
+# and the airline hosts refused and counted (0 asked). Within 2 %: 45 of 52.
+# Columns: path, width, www px, ours px, ours vs www, the recording, cause.
+
+/en-pt/information/baggage	1440	2528	2077	-17.84 %	tap-parity-002	www's baggage tracker, a form on TAP's own service (row 145): not in our page; not a code or DA change
+/en-pt/information/baggage/locate-baggage	390	2148	1771	-17.55 %	tap-parity-008	www's baggage tracker, a form on TAP's own service (row 145): not in our page; not a code or DA change
+/en-pt/information/baggage/locate-baggage	1440	1839	1557	-15.33 %	tap-parity-008	www's baggage tracker, a form on TAP's own service (row 145): not in our page; not a code or DA change
+/en-pt	1440	4621	3977	-13.94 %	tap-parity-010	the stage's sliders and pickers in their recorded state (the homepages' Miles&Go pin scroll state, brief 483); www's state, not a change
+/pt-pt	1440	4621	3977	-13.94 %	tap-parity-011	the stage's sliders and pickers in their recorded state (the homepages' Miles&Go pin scroll state, brief 483); www's state, not a change
+/en-pt/information/baggage	390	3274	2913	-11.03 %	tap-parity-002	www's baggage tracker, a form on TAP's own service (row 145): not in our page; not a code or DA change
+/pt-pt/miles-and-go/promocoes/navigator-experiences	390	3931	4013	+2.09 %	tap-parity-001	the phone sliders' 16 px (row 31's card margin outweighs row 143's): EXCEPTED. Tried this order: margin-top 0 for a phone slider's cards without a CTA (navigator's offer cards) passes the gate (+2.09 -> +1.27 %, the other 25 pages at 390 unchanged, get-inspired included), but www draws both pages' slider cards with the same component (swiper-slide > group w-full p-4), so the condition is content, not the slider's layout: not shipped
+
+## within 2 %
+/en-pt	390	5067	5076	+0.18 %	tap-parity-010
+/en-pt/bookings/tap-fares	390	3326	3366	+1.20 %	tap-parity-008
+/en-pt/bookings/tap-fares	1440	3088	3089	+0.03 %	tap-parity-008
+/en-pt/destinations/get-inspired	390	5008	4976	-0.64 %	tap-parity-010
+/en-pt/destinations/get-inspired	1440	5582	5565	-0.30 %	tap-parity-010
+/en-pt/help	390	6407	6342	-1.01 %	tap-parity-008
+/en-pt/help	1440	3661	3644	-0.46 %	tap-parity-008
+/en-pt/help/frequently-asked-questions	390	2349	2364	+0.64 %	tap-parity-002
+/en-pt/help/frequently-asked-questions	1440	2009	2008	-0.05 %	tap-parity-002
+/en-pt/information/baggage/hold-baggage	390	6445	6448	+0.05 %	tap-parity-009
+/en-pt/information/baggage/hold-baggage	1440	4936	4916	-0.41 %	tap-parity-009
+/en-pt/information/documentation/schengen-visas	390	6483	6533	+0.77 %	tap-parity-007
+/en-pt/information/documentation/schengen-visas	1440	4272	4282	+0.23 %	tap-parity-007
+/en-pt/information/special-needs/wheelchair	390	4946	4993	+0.95 %	tap-parity-009
+/en-pt/information/special-needs/wheelchair	1440	3555	3539	-0.45 %	tap-parity-009
+/en-pt/manage-booking/extras/lounges	390	6700	6629	-1.06 %	tap-parity-007
+/en-pt/manage-booking/extras/lounges	1440	5152	5081	-1.38 %	tap-parity-007
+/en-pt/miles-and-go	390	4822	4831	+0.19 %	tap-parity-010
+/en-pt/miles-and-go	1440	3770	3783	+0.34 %	tap-parity-010
+/en-pt/miles-and-go/earn-miles/by-flying	390	3838	3842	+0.10 %	tap-parity-009
+/en-pt/miles-and-go/earn-miles/by-flying	1440	2791	2827	+1.29 %	tap-parity-009
+/en-pt/miles-and-go/use-miles/fees	390	4703	4711	+0.17 %	tap-parity-009
+/en-pt/miles-and-go/use-miles/fees	1440	4553	4563	+0.22 %	tap-parity-009
+/en-pt/on-board/economy-prime	390	8055	8129	+0.92 %	tap-parity-008
+/en-pt/on-board/economy-prime	1440	7167	7204	+0.52 %	tap-parity-008
+/en-pt/on-board/fly-business	390	8224	8297	+0.89 %	tap-parity-002
+/en-pt/on-board/fly-business	1440	4942	5019	+1.56 %	tap-parity-002
+/en-pt/stopover/partners	390	3564	3566	+0.06 %	tap-parity-009
+/en-pt/stopover/partners	1440	2903	2866	-1.27 %	tap-parity-009
+/pt-br/miles-and-go/ganhe-milhas/cartoes-de-credito	390	1801	1803	+0.11 %	tap-parity-007
+/pt-br/miles-and-go/ganhe-milhas/cartoes-de-credito	1440	1590	1593	+0.19 %	tap-parity-007
+/pt-br/miles-and-go/utilizar-milhas/doacao-milhas	390	4817	4800	-0.35 %	tap-parity-007
+/pt-br/miles-and-go/utilizar-milhas/doacao-milhas	1440	5326	5320	-0.11 %	tap-parity-007
+/pt-pt	390	5192	5202	+0.19 %	tap-parity-011
+/pt-pt/a-bordo/voar-economica	390	5654	5620	-0.60 %	tap-parity-001
+/pt-pt/a-bordo/voar-economica	1440	3892	3889	-0.08 %	tap-parity-001
+/pt-pt/destinos/inspire-se	390	5112	5140	+0.55 %	tap-parity-010
+/pt-pt/destinos/inspire-se	1440	5662	5690	+0.49 %	tap-parity-010
+/pt-pt/gerir-reserva/extras/upgrades/leiloes	390	3352	3336	-0.48 %	tap-parity-001
+/pt-pt/gerir-reserva/extras/upgrades/leiloes	1440	2649	2682	+1.25 %	tap-parity-001
+/pt-pt/informacoes/bagagem/bagagem-mao	390	8458	8548	+1.06 %	tap-parity-001
+/pt-pt/informacoes/bagagem/bagagem-mao	1440	4918	4893	-0.51 %	tap-parity-001
+/pt-pt/miles-and-go/promocoes/navigator-experiences	1440	4389	4395	+0.14 %	tap-parity-001
+/pt-pt/reservas/time-to-think	390	3032	3055	+0.76 %	tap-parity-001
+/pt-pt/reservas/time-to-think	1440	2209	2220	+0.50 %	tap-parity-001

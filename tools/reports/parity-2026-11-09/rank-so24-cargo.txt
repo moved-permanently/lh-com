@@ -1,0 +1,57 @@
+# ema-cashub, standing order 24 (2026-11-13), item 1: the 48 recorded Cargo page-widths before and after the footer commit (19363798 on
+# main). Expected change: 35 -> 40 within 2 %, the sum of the
+# deviations 59.15 -> 53.07 points, no page further from www by 0.5 points or more.
+# www: cargo-parity-001 (and -002 for facts-figures), as rank-so23-cargo.txt. Ours: cargo.turnsthe.page; before = order 23's
+# ranking (main with ac8f4003), now = the same with the commit's blocks/scripts/styles served locally (CODE=), consent
+# stored, www.mynewsdesk.com allowed (216 feed requests), every other www.* and airline host refused (0 asked).
+# The follow-up commit (f25a772a): /en and /de/notification-overview 1440 -0.49 -> 0.00 % (1,648 px, as www's);
+# with it the sum is 52.09 points, 40 of 48 within 2 %, 9 rows further from www than in order 23 by at most 0.30 points.
+# Worst-first by the change (the first commit alone); columns: path width: www | before | now | the change in points.
+/de/notification-overview 1440: www 1648 | before 1648 +0.00 | now 1640 -0.49 | +0.49 points
+/en/notification-overview 1440: www 1648 | before 1648 +0.00 | now 1640 -0.49 | +0.49 points
+/en/ci/sustainable-development-goals 1440: www 2363 | before 2362 -0.04 | now 2355 -0.34 | +0.30 points
+/en/industries-in-focus 390: www 5347 | before 5302 -0.84 | now 5288 -1.10 | +0.26 points
+/de/ebooking-info 1440: www 3907 | before 3906 -0.03 | now 3898 -0.23 | +0.20 points
+/en/ci/facts-figures 1440: www 4848 | before 4802 -0.95 | now 4794 -1.11 | +0.16 points
+/en/home 390: www 8389 | before 8380 -0.11 | now 8366 -0.27 | +0.16 points
+/de/ci/facts-figures 1440: www 4952 | before 4847 -2.12 | now 4839 -2.28 | +0.16 points
+/en/ci/newsroom 390: www 10631 | before 10629 -0.02 | now 10615 -0.15 | +0.13 points
+/en/notification-overview 390: www 1316 | before 1317 +0.08 | now 1318 +0.15 | +0.07 points
+/de/industries-in-focus 390: www 5434 | before 5427 -0.13 | now 5424 -0.18 | +0.05 points
+/de/ci/facts-figures 390: www 12482 | before 12823 +2.73 | now 12820 +2.71 | -0.02 points
+/de/ci/newsroom 390: www 10670 | before 10681 +0.10 | now 10678 +0.07 | -0.03 points
+/de/home 390: www 8486 | before 8491 +0.06 | now 8488 +0.02 | -0.04 points
+/de/news/142-arktische-temperaturen-an-bord 390: www 8856 | before 9033 +2.00 | now 9029 +1.95 | -0.05 points
+/de/ebooking-info 390: www 5688 | before 5834 +2.57 | now 5831 +2.51 | -0.06 points
+/de/ci/whats-up-now 390: www 2713 | before 2716 +0.11 | now 2712 -0.04 | -0.07 points
+/de/news/142-arktische-temperaturen-an-bord 1440: www 7925 | before 7995 +0.88 | now 7987 +0.78 | -0.10 points
+/en/news/142-arctic-temperatures-on-board 1440: www 7829 | before 7947 +1.51 | now 7939 +1.41 | -0.10 points
+/de/fleet-ulds/fleet 390: www 3918 | before 4050 +3.37 | now 4046 +3.27 | -0.10 points
+/de/support-and-contact 390: www 3105 | before 3159 +1.74 | now 3156 +1.64 | -0.10 points
+/de/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints 390: www 3105 | before 3159 +1.74 | now 3156 +1.64 | -0.10 points
+/de/home 1440: www 6117 | before 6168 +0.83 | now 6161 +0.72 | -0.11 points
+/en/home 1440: www 6064 | before 6116 +0.86 | now 6109 +0.74 | -0.12 points
+/en/ci/facts-figures 390: www 11916 | before 12223 +2.58 | now 12208 +2.45 | -0.13 points
+/en/news/142-arctic-temperatures-on-board 390: www 8389 | before 8516 +1.51 | now 8501 +1.34 | -0.17 points
+/de/ci/newsroom 1440: www 4430 | before 4438 +0.18 | now 4430 +0.00 | -0.18 points
+/en/ci/newsroom 1440: www 4430 | before 4438 +0.18 | now 4430 +0.00 | -0.18 points
+/de/ci/sustainable-development-goals 390: www 1870 | before 1914 +2.35 | now 1910 +2.14 | -0.21 points
+/en/ebooking-info 1440: www 3771 | before 3853 +2.17 | now 3845 +1.96 | -0.21 points
+/en/ebooking-info 390: www 5393 | before 5516 +2.28 | now 5502 +2.02 | -0.26 points
+/en/fleet-ulds/fleet 1440: www 3043 | before 3106 +2.07 | now 3098 +1.81 | -0.26 points
+/de/fleet-ulds/fleet 1440: www 3089 | before 3130 +1.33 | now 3122 +1.07 | -0.26 points
+/de/industries-in-focus 1440: www 2515 | before 2540 +0.99 | now 2533 +0.72 | -0.27 points
+/en/industries-in-focus 1440: www 2515 | before 2564 +1.95 | now 2557 +1.67 | -0.28 points
+/de/ci/sustainable-development-goals 1440: www 2363 | before 2386 +0.97 | now 2379 +0.68 | -0.29 points
+/de/ci/whats-up-now 1440: www 2732 | before 2741 +0.33 | now 2733 +0.04 | -0.29 points
+/en/ci/whats-up-now 1440: www 2732 | before 2741 +0.33 | now 2733 +0.04 | -0.29 points
+/en/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints 1440: www 2301 | before 2335 +1.48 | now 2328 +1.17 | -0.31 points
+/de/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints 1440: www 2301 | before 2335 +1.48 | now 2328 +1.17 | -0.31 points
+/en/support-and-contact 1440: www 2301 | before 2335 +1.48 | now 2328 +1.17 | -0.31 points
+/de/support-and-contact 1440: www 2301 | before 2335 +1.48 | now 2328 +1.17 | -0.31 points
+/en/fleet-ulds/fleet 390: www 3841 | before 3973 +3.44 | now 3958 +3.05 | -0.39 points
+/en/ci/whats-up-now 390: www 2674 | before 2687 +0.49 | now 2672 -0.07 | -0.42 points
+/de/notification-overview 390: www 1355 | before 1346 -0.66 | now 1358 +0.22 | -0.44 points
+/en/support-and-contact 390: www 3066 | before 3130 +2.09 | now 3116 +1.63 | -0.46 points
+/en/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints 390: www 3066 | before 3130 +2.09 | now 3116 +1.63 | -0.46 points
+/en/ci/sustainable-development-goals 390: www 1735 | before 1777 +2.42 | now 1762 +1.56 | -0.86 points

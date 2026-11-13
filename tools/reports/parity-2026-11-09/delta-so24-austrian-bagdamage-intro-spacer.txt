@@ -1,0 +1,16 @@
+# ema-cashub, standing order 24 (2026-11-13), item 2: Austrian /at/en/footer-pages/help-and-contact/bagdamage. Expected change:
+# the intro 48 px lower, as www's (the title's end to the intro 108 px at 1440, ours 60); the page-level result is not settled.
+# www (austrian-parity-003, 2026-11-09; its 390 file is the 1440 load resized): the rich text under the title starts with an
+# empty paragraph (a 24 px line and its 24 px margin), so the intro stands 108 px under the title; from the intro to the
+# form's first heading ("Your enquiry") www and ours are the same, 242 px. Our import drops the empty paragraph.
+# The delta: <p>{spacer-47}</p> right after the H1 (the title's 60 px + 47 + the marker's 1 = www's 108), nothing else.
+# Measured as a draft (so24/host.mjs on austrian.turnsthe.page with the published document, consent stored, www.* and the
+# airline hosts refused, none sent): the intro at 108 px (1440) and 84 px (390) under the title, as www's.
+# HOLD: the page height can't be read on this page. The core form's own height changes from load to load: the control
+# (the published document unchanged) measured 4,977 px at 1440 here against the ranking's 4,906 an hour earlier; at 390 the
+# "{spacer-47 from-768}" variant, which is the control's document on phones, measured 5,856 against the control's 5,906: 50 px
+# from the form alone (no "Verify you are human" challenge in any load). With the marker 1440 reads 4,977 -> 5,014 (www
+# 5,012); at 390 5,906 -> 5,904, the marker's 48 px and the form's variation together. /il/en/legal/cancellation-refund-via-document-upload has its first paragraph 92 px
+# under the title on www (inside a padded column view), not checked against ours.
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, what changes on the page.
+HOLD	/at/en/footer-pages/help-and-contact/bagdamage.html	<p>{spacer-47}</p> after the H1	the intro as www's; the page height not settled (the form varies by load)

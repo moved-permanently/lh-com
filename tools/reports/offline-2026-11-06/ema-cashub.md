@@ -4708,3 +4708,168 @@ I stopped before 17:30. The four items are done.
 - the downloads (dl/) and their extracted archives (arch/).
 
 No upload, preview or publish. da-upload.mjs was not called. DA was read once.
+
+## Standing order 24 (2026-11-13, from about 16:35 CET)
+
+**Start state:** nothing of mine was uncommitted or unpushed; order 23 had ended at `b194d3a2`, on origin. Two things in
+the main checkout are not mine and stay as they are:
+- the other jobs' import output (import-progress.json, urls-*.txt, the importer reports);
+- one comment line in blocks/notifications/notifications.css (`<style>` written as `\3c style>`), changed at 16:08 CET,
+  after my last commit. My transcript has no edit of the file after that commit. It changes no rule; I did not commit it.
+
+**Rules followed:**
+- **No airline host was requested.** Every render refused www.* (www.mynewsdesk.com allowed) and the airline hosts, and
+  counted the refusals. Cargo 0 (216 Mynewsdesk feed requests), TAP 0, Austrian 2,215 over the 242 page-widths: the
+  homepages' widgets, the help-center app and the flight search, each calling www's APIs or austrian.com's pictures.
+  None was sent. The offline renders of www's recordings abort every request outside their archive.
+- **The drop:** austrian-parity-001, -003 and -005 to -017 from Austrian's own folder, each in its own new folder,
+  extracted there (no serve.py run). sha256 checked against the drop's .sha256 file on 14 of the 15; -001 has none.
+  -018 was already here from order 23.
+- **DA:** read twice, read only (lh-austrian /at/en/special-requirements and /at/de/local-page/feels-like-flying/
+  os401crewstory). The drafts were built from the published copies, so that the control equals live.
+- No upload, preview or publish. da-upload.mjs was not called.
+
+### Item 1: the Cargo footer with the notification overview's top on phones (`19363798`, then `f25a772a`)
+
+Test first: test/cargo-footer-so24.test.mjs, 10 of 10 red on main, then green.
+
+**The footer** (cargo-parity-001's 390 and 1440 screenshots and offline renders, relative to the footer's top):
+
+| part | www | ours before | ours now |
+|---|---|---|---|
+| 390 en: field, panels, links and icons, logo strip | 48 / 125 / 277 / 430, 559 px | 58 / 142 / 283 / 444, 574 | 48 / 125 / 276 / 430, 560 |
+| 390 de (the legal links on three lines) | 598 px | 603 | 600 |
+| 1440: field's line, the titles' rule, the rule over the legal row, the strip | 90 / 156 / 352 / 417, 477 px | 99 / 166 / 365 / 425, 485 | 477 |
+
+- Below 768 px: the field 38 px tall at 48 px; the three menu panels 50 px apart between #ccc rules (www's colour; ours
+  were white at 30 %), one rule over the first; 30 px under them the legal links centred in 20 px rows 20 px apart, then
+  the social icons centred, 10 px apart, 20 px above and below. www puts the links before the icons and no rule between
+  them, so ours do too.
+- From 768 px: the field at 54 px, the column titles at 122 px (24 px lines, 10 px to their rule and to the links), the
+  rule over the legal row 11 px under the last link's gap, the legal row 64 px.
+
+**The notification overview below 1025 px**, in the same commit. With the shorter footer alone, /en at 390 would have gone
+from +0.08 to -1.06 % and /de from -0.66 to about -1.2 %. Both pages were 16 px short above the footer, and our taller
+footer was hiding it:
+- www's banner picture runs across the screen (125 px at 390); ours was 358 px wide (115 px).
+- www's breadcrumb sits straight under the picture: 56 px with its 17 / 20 px padding and #ccc rule. Ours was 20 px lower
+  and 34 px tall, without the rule.
+- Each notification's date sits 4 px under the item's top on www.
+- Now the breadcrumb is at 185 px, the title at 261, the band at 317 (441 px tall) and the footer at 758, as www's at 390.
+
+**The gate** (rank-so24-cargo.txt; the 48 page-widths, order 23's numbers against the commit's code):
+- 35 -> 40 within 2 %, the sum of the deviations 59.15 -> 53.07 points, 37 closer, 11 further.
+- The furthest move is 0.49 points: /en and /de/notification-overview at 1440, +0.00 -> -0.49 % (1,648 -> 1,640 px).
+  That page is 8 px short above the footer at 1440, as it was at 390, and the 8 px taller footer was hiding it.
+- **Follow-up, `f25a772a`:** the 8 px at 1440 are the same causes as at 390. www's banner fills the 1296 px column
+  (414 px tall; ours was drawn at its own 1220 px, 390 tall), the breadcrumb sits straight under it (ours 20 px lower), and
+  each date sits 4 px under its item's top (www's offline render at 1440: 321 -> 325). Those three rules now apply at
+  every width. /en and /de 1440: 1,640 -> 1,648 px (www 1,648), the breadcrumb at 504 and the title at 604 as www's. 390
+  unchanged. With both commits: 40 of 48 within 2 %, the sum 52.09 points; 9 rows are further from www than in order 23,
+  by at most 0.30 points (sustainable-development-goals en 1440).
+- Still above 2 %: fleet en / de 390 (+3.05 / +3.27), facts-figures de 1440 (-2.28) and en / de 390 (+2.45 / +2.71),
+  ebooking-info en / de 390 (+2.02 / +2.51), sustainable-development-goals de 390 (+2.14).
+
+### Item 2: Austrian, 98 of 242 recorded page-widths above 2 % (rank-so24-austrian.txt)
+
+www: the newest recording of each page and width from austrian-parity-001 to -018, 242 page-widths on 121 pages. -012 to
+-014 recorded our own host and are left out. Only -001 and -018 load each width; -003 to -017 resized the 1440 load to
+390 (their manifests: resizedFrom 1440). Ours: as served, consent stored. I lined up each row's headings with www's
+(by text) to find the stretch where it drifts.
+
+| group | rows | cause | change |
+|---|---|---|---|
+| H, homepages | 39 | fare teaser, destination finder and flight search take www's APIs in the browser, refused here | none: not comparable here |
+| A, contact and help center (12 pages) | 24 | the help-center app (help-center-web, Austrian's own) loads its stage and FAQ pictures from austrian.com, refused here: both 0 px, the FAQ card collapses. With stand-ins in www's shapes (no request), /at/en/contact is 2,450 / 3,039 px against www's 2,438 / 3,023 (+0.49 / +0.53 %) | none: a visitor's browser loads them |
+| B, baggage in zh, ja, el, ru | 8 | the measuring machine's fonts. Portada / CoreSans have no glyphs for these scripts; www was recorded on macOS (Arial, PingFang, Hiragino), these renders run on Linux (DejaVu Sans, no CJK font). Our served Portada-SemiBold is www's file byte for byte (sha256 41a5e564a33e). The drift grows view by view: ru +2 -> +121 px, zh -2 -> -298 | none: environment |
+| C, special-requirements | 2 | www has each of the four column views in its own section (99 px from one view's content to the next); our import merged them into one block of four rows (66 px). The services overview, whose views share one section on www, already matches, so this is the page's structure, not a rule | **DA delta READY**: 1440 -2.96 -> -1.22 %, 390 -2.18 -> -0.97 % |
+| C2, entryregulations en 390 | 1 | www's separate column views | order 20's markers (READY, not yet applied) |
+| D, fly-with-austrian en / de | 4 | mostly the flight search band in its no-API state (-89 of -153 px at 1440); the intro -37 / -13; 390 is resized | none |
+| E, bangkok-airways | 2 | the booking widget after "Book your flight now" (8 www calls refused) | none |
+| F, form-confirmation it | 2 | www's Italian page has about 280 px of empty white under its button; the same page in /at/de has none | NOT TO DO |
+| F2, form-confirmation at/de | 2 | ours 42 px more under the button (www 91, ours 133: the section style Space below: M) | none: without the style it overshoots (a draft: -3.50 / -2.69 %) |
+| G, forms (bagdamage, cancellation-refund, invoice-request-hungary) | 4 | bagdamage: www's empty paragraph under the title (48 px). The other two not traced | **DA delta HOLD** (bagdamage, below) |
+| I, unterhaltung-an-bord | 2 | www keeps about 570 px of empty white under the open tab, most likely the panel held at the tallest tab's height (eJournals); ours sizes to the open tab | none yet: a tabs-block change, to check on the other tab pages first |
+| J, services-on-board overview 390 | 2 | the views match (-10 px); -63 px after the last one | not traced |
+| K, single pages | 6 | os401crewstory 1440: www's subheadings are heading-copytext-large (18 / 19.8 px), ours heading-small in column-view text (28 / 30.8). accessible-travel 390, at/en/baggage 390, wetlease-hub, travel-id 390, ski-campaign 390: the stretch is in the list | os401crewstory: **DA delta READY** (+2.62 -> +1.69 %); the others not traced |
+
+- **No shared cause in code.** The two groups with a shared cause (A, B) are render conditions. In the others, a cause
+  that repeats (the column views' 66 px) is right on some pages and wrong on others, because it follows www's sections,
+  so it goes into the documents, not into austrian.css.
+- **delta-so24-austrian-special-requirements-views.txt** (READY): the block split at its four rows, each part in its own
+  section, nothing else. Measured as a draft from the published copy (control = live, 3,672 / 5,337 px): 3,738 / 5,403
+  (www 3,784 / 5,456). Our section gap gives 22 of www's 33 px per break.
+- **delta-so24-austrian-os401crewstory-heading-sizes.txt** (READY): " {heading-copytext-large}" on the five subheadings
+  www records with that class (heading-size-marks-apply.mjs on DA's copy: all five found once). Draft from the published
+  copy (control = live, 7,887 / 10,114 px): 7,816 / 10,025 (www 7,686 / 9,982), 1440 +2.62 -> +1.69 %, 390 +1.32 -> +0.43.
+- **delta-so24-austrian-bagdamage-intro-spacer.txt** (HOLD): `<p>{spacer-47}</p>` after the H1 puts the intro 108 px
+  under the title, as on www (ours 60). From the intro to the form's first heading the two pages are the same (242 px).
+  It's HOLD because the core form's own height changes from load to load: the unchanged control measured 4,977 px here
+  against the ranking's 4,906, and at 390 the control's document measured 5,906 and 5,856 in two loads (50 px from the
+  form alone). So the page-level gate can't be read on it.
+
+### Item 3: TAP, 7 of 52 recorded page-widths above 2 % (rank-so24-tap.txt)
+
+The 26 pages of order 22's list, both widths:
+- baggage 1440 / 390 (-17.84 / -11.03 %) and locate-baggage (-17.55 / -15.33): www's baggage tracker, a form on TAP's
+  own service (row 145). Not in our page.
+- en-pt and pt-pt at 1440 (-13.94 %): the stage's sliders and pickers in their recorded state (brief 483).
+- navigator-experiences 390 (+2.09 %): **the phone slider's 16 px, still excepted.**
+  - The cause is as order 23 found: row 31's card rule outweighs row 143's slider rule by one element, so every slider
+    card keeps a 16 px top margin.
+  - A narrower rule passes the gate: margin-top 0 only for slider cards without a CTA (navigator's offer cards). It
+    takes navigator from +2.09 to +1.27 % and leaves the other 25 pages at 390 unchanged, get-inspired included.
+  - **Not shipped.** On www both pages draw their slider cards with the same component (swiper-slide > group w-full p-4),
+    so "without a CTA" is content, not the slider's layout. The rule would leave get-inspired's cards 16 px too low and
+    match its height only by accident. Most likely the 16 px offsets a gap elsewhere on get-inspired, but I have not
+    traced that.
+
+### Final section (about 18:20 CET, 2026-11-13)
+
+I stopped before 19:30. The three items are done.
+
+**On main:**
+- `19363798`: Cargo, the footer's heights as www's, with the notification overview's top on phones (item 1). Live on
+  our host. Cargo 35 -> 40 of 48 within 2 %.
+- `f25a772a`: the notification overview's banner and breadcrumb as www's at 1440 too (1,640 -> 1,648 px, www 1,648).
+  Live on our host.
+- This commit: this order's section and its lists.
+
+**Checks before each push:**
+- Whole-repo lint exit 0 and stylelint exit 0 on cargo.css, read in the clean worktree before every push: five rounds
+  for `19363798` (origin moved during four of them), one for `f25a772a`, and the docs commit's own.
+- The tests first, red on main: test/cargo-footer-so24.test.mjs 10 of 10 red, then green; the follow-up's changed test
+  red, then green.
+- The 174 test files naming cargo, the footer's classes, notifications or the breadcrumb wrapper: 895 of 895, on each
+  base the loops rebased onto. cargo-notifications.test.mjs, which fails only in the main checkout (its local asset
+  data), passes there.
+- The full suite on the pushed `19363798` (1,027 files, one process each): 4,086 tests, 4,081 pass, 0 fail, 5 skipped.
+  `f25a772a` changes only cargo.css and that commit's own test; the 174 files passed on it.
+
+**Lists** (tools/reports/parity-2026-11-09/):
+- rank-so24-cargo.txt: the 48 Cargo page-widths, before and after.
+- rank-so24-austrian.txt: the 242 Austrian page-widths, the 98 above 2 % in 13 groups by cause.
+- rank-so24-tap.txt: the 52 TAP page-widths, the 7 above 2 % with their causes.
+- delta-so24-austrian-special-requirements-views.txt: READY (1440 -2.96 -> -1.22 %, 390 -2.18 -> -0.97).
+- delta-so24-austrian-os401crewstory-heading-sizes.txt: READY (1440 +2.62 -> +1.69 %, 390 +1.32 -> +0.43).
+- delta-so24-austrian-bagdamage-intro-spacer.txt: HOLD (the form's own height varies by load).
+
+**Open:**
+- Austrian: no shared cause in code. The two big groups are render conditions: the help-center app's austrian.com
+  pictures (24 rows) and the measuring machine's fonts for non-Latin text (8 rows). The homepages (39 rows) need www's
+  APIs to be compared.
+- unterhaltung-an-bord (-17 %): www most likely holds the tab panel at the tallest tab's height. That would be a change
+  to the tabs block, to check on the other tab pages first.
+- TAP: the phone slider's 16 px stays excepted. The one rule that passes the gate (cards without a CTA) does not follow
+  www's layout.
+- Cargo: 8 rows above 2 % (fleet, facts-figures, ebooking-info, sustainable-development-goals de 390), as traced in
+  order 23.
+- blocks/notifications/notifications.css: one comment line changed in the main checkout, not by me, left as it is.
+
+**Not in git:** in migration-work/parity-588/so24 (ignored):
+- the scripts: dl.sh, host.mjs (IMGSTUB stand-ins), footer-dump*.js, heads.js / heads-run.sh / align.py, split-views.py,
+  mkpng.mjs, png-rows.mjs, fontcheck.mjs, rank-css.sh, aus-list.py, push-loop5(wp).sh, suite.sh;
+- the rankings, logs and drafts (special-requirements, bagdamage, os401crewstory, form-confirmation, the TAP slider);
+- the downloads (dl/) and their extracted archives (arch/).
+
+No upload, preview or publish. da-upload.mjs was not called. DA was read twice, read only.
