@@ -153,6 +153,19 @@
   }
 }
 
+/* the articles' gallery captions once a re-import marks them (p.caption, under the last picture; standing order 19): www's
+   caption Intelo bold 16 / 24 px, 15 px under the picture, a right column's two pictures 30 px apart (brussels-parity-009;
+   lufthansa.com's caption 14 / 18 px 10 under, its pictures 40 apart) */
+body.brand-brussels main:has(.article-header) .columns-media .columns-media-row p.caption {
+  margin-top: 15px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+body.brand-brussels main:has(.article-header) .columns-media.stacked .columns-media-multi {
+  gap: 30px;
+}
+
 /* page titles Brussels red (www's h1.headline.heading-large and h1.article-headline); an h1 its
    author gave a smaller style ({heading-medium}: Beobank, P40) as www's other headings */
 body.brand-brussels main h1:not(.heading-medium, .heading-small, .heading-copytext-large, .heading-copytext-medium),

@@ -1,0 +1,55 @@
+# ema-cashub, standing order 19 (2026-11-13), item 2: Brussels articles whose re-import marks their gallery captions
+# ("{caption}": the columns-media parser for every brand site since the brief after 534; these documents predate it, their
+# captions plain text in the right cell). With the caption marked the block puts it under the last picture of the
+# right column (50059d38) and the theme draws it as www's: Intelo bold 16 / 24 px, 15 px under the picture, the two
+# pictures 30 px apart (styles/themes/brussels.css, test/brussels-article-captions-so19.test.mjs; this order).
+# The 44 articles are the search indexes' articles pages (be/en, be/fr, be/nl). Recorded: the-gambia (be/en) and
+# vibrant-senegal (be/fr), brussels-parity-009; measured on drafts (our host, the published page with only the captions
+# marked; www.* and the airline hosts refused, 7 requests refused and never sent each), the gate 0.5 points.
+# The other 42 are HOLD: no recording, so nothing to measure them against; their be/en pages are in
+# capture-requests-ema-cashub.txt (one per article; the fr / nl versions follow their be/en one).
+# Columns: document, status, expected change.
+/be/en/articles/bike-the-city	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/en/articles/discover-warsaw	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/en/articles/lyon	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/en/articles/manchester-football-trip	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/en/articles/milan-citytrip	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/en/articles/mini-holiday	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/en/articles/prague-fairytale-charm-with-an-edge	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/en/articles/sun-in-march	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/en/articles/tenerife	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/en/articles/the-gambia	HOLD	1440 8,993 -> 9,124 px (www 9,055: -0.68 -> +0.76 %), 390 12,987 -> 12,921 (www 13,059: -0.55 -> -1.06 %, 0.51 points further: just over the gate)
+/be/en/articles/the-ultimate-itinerary-in-kenya	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/en/articles/valencia-like-a-local	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/en/articles/vibrant-senegal	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/en/articles/vilnius-steals-your-heart	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/en/articles/your-summer-in-athens-starts-here	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/fr/articles/bike-the-city	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/fr/articles/discover-warsaw	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/fr/articles/lyon	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/fr/articles/manchester-football-trip	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/fr/articles/milan-citytrip	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/fr/articles/mini-holiday	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/fr/articles/prague-fairytale-charm-with-an-edge	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/fr/articles/sun-in-march	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/fr/articles/tenerife	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/fr/articles/the-gambia	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/fr/articles/the-ultimate-itinerary-in-kenya	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/fr/articles/valencia-like-a-local	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/fr/articles/vibrant-senegal	READY	its gallery captions marked; 1440 10,974 -> 10,981 px, 390 16,320 -> 16,301 (www 10,887 / 16,435; drafts against the live page with this order's caption rules)
+/be/fr/articles/vilnius-steals-your-heart	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/fr/articles/your-summer-in-athens-starts-here	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/nl/articles/bike-the-city	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/nl/articles/discover-warsaw	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/nl/articles/lyon	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/nl/articles/manchester-football-trip	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/nl/articles/mini-holiday	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/nl/articles/prague-fairytale-charm-with-an-edge	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/nl/articles/sun-in-march	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/nl/articles/tenerife	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/nl/articles/the-gambia	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/nl/articles/the-ultimate-itinerary-in-kenya	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/nl/articles/valencia-like-a-local	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/nl/articles/vibrant-senegal	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/nl/articles/vilnius-steals-your-heart	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/nl/articles/your-summer-in-athens-starts-here	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)

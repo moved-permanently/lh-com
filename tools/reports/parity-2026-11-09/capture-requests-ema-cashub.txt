@@ -1,0 +1,18 @@
+# Capture requests from ema-cashub (standing order 19, 2026-11-13). One path per line; widths 1440 and 390, full height.
+# The Brussels articles whose gallery captions a re-import would mark (reimport-so19-brussels-article-captions.txt): only
+# the-gambia and vibrant-senegal are recorded (brussels-parity-009), so the other articles cannot be measured against
+# www. One language version each (be/en; the fr and nl versions have the same galleries).
+# host: www.brusselsairlines.com
+/be/en/articles/bike-the-city
+/be/en/articles/discover-warsaw
+/be/en/articles/lyon
+/be/en/articles/manchester-football-trip
+/be/en/articles/milan-citytrip
+/be/en/articles/mini-holiday
+/be/en/articles/prague-fairytale-charm-with-an-edge
+/be/en/articles/sun-in-march
+/be/en/articles/tenerife
+/be/en/articles/the-ultimate-itinerary-in-kenya
+/be/en/articles/valencia-like-a-local
+/be/en/articles/vilnius-steals-your-heart
+/be/en/articles/your-summer-in-athens-starts-here
