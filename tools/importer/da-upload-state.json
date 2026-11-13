@@ -1,9 +1,9 @@
 {
  "docs": {
   "/de/en/nav": {
-   "uploaded": "2026-10-26T14:03:43.282Z",
-   "mtime": 1793022330198,
-   "preview": "2026-10-26T14:03:45.446Z"
+   "uploaded": "2026-11-13T11:44:41.645Z",
+   "mtime": 1794570229350.5098,
+   "preview": "2026-11-13T11:44:44.063Z"
   },
   "/de/en/footer": {
    "uploaded": "2026-11-05T19:12:04.322Z",
@@ -16,9 +16,9 @@
    "preview": "2026-10-22T00:18:27.306Z"
   },
   "/de/de/nav": {
-   "uploaded": "2026-10-26T14:03:46.880Z",
-   "mtime": 1793022330231,
-   "preview": "2026-10-26T14:03:48.893Z"
+   "uploaded": "2026-11-13T11:48:30.508Z",
+   "mtime": 1794570445445.6921,
+   "preview": "2026-11-13T11:48:32.476Z"
   },
   "/de/de/footer": {
    "uploaded": "2026-11-05T19:12:09.057Z",
@@ -31,9 +31,9 @@
    "preview": "2026-10-22T00:18:41.438Z"
   },
   "/at/de/nav": {
-   "uploaded": "2026-10-26T14:03:50.448Z",
-   "mtime": 1793022330263,
-   "preview": "2026-10-26T14:03:53.675Z"
+   "uploaded": "2026-11-13T11:49:57.979Z",
+   "mtime": 1794570558089.0022,
+   "preview": "2026-11-13T11:50:00.493Z"
   },
   "/at/de/footer": {
    "uploaded": "2026-11-01T17:38:25.547Z",
@@ -46,9 +46,9 @@
    "preview": "2026-10-22T00:18:53.047Z"
   },
   "/gb/en/nav": {
-   "uploaded": "2026-10-26T14:03:55.149Z",
-   "mtime": 1793022330296,
-   "preview": "2026-10-26T14:03:57.128Z"
+   "uploaded": "2026-11-13T11:40:18.530Z",
+   "mtime": 1794569973531.6985,
+   "preview": "2026-11-13T11:40:20.634Z"
   },
   "/gb/en/footer": {
    "uploaded": "2026-11-01T17:38:28.596Z",
@@ -171,9 +171,9 @@
    "preview": "2026-11-10T01:43:37.537Z"
   },
   "/de/en/lufthansa-travel-classes": {
-   "uploaded": "2026-11-09T00:00:17.716Z",
-   "mtime": 1794182320534.3696,
-   "preview": "2026-11-09T00:00:20.434Z"
+   "uploaded": "2026-11-13T11:44:37.098Z",
+   "mtime": 1794570229059.13,
+   "preview": "2026-11-13T11:44:39.206Z"
   },
   "/de/en/meetings-and-events": {
    "uploaded": "2026-11-09T17:16:18.043Z",
@@ -421,9 +421,9 @@
    "preview": "2026-11-08T10:09:01.496Z"
   },
   "/de/en/discover-lufthansa/new-onboard-experience": {
-   "uploaded": "2026-11-08T18:42:16.295Z",
-   "mtime": 1794163294017.7185,
-   "preview": "2026-11-08T18:42:19.294Z"
+   "uploaded": "2026-11-13T11:44:14.643Z",
+   "mtime": 1794570227337.9153,
+   "preview": "2026-11-13T11:44:17.058Z"
   },
   "/de/de/100-years/history/menu-on-board": {
    "uploaded": "2026-11-08T10:09:43.906Z",
@@ -431,9 +431,9 @@
    "preview": "2026-11-08T10:09:46.378Z"
   },
   "/de/de/discover-lufthansa/new-onboard-experience": {
-   "uploaded": "2026-11-08T18:42:51.024Z",
-   "mtime": 1794163294021.0068,
-   "preview": "2026-11-08T18:42:53.782Z"
+   "uploaded": "2026-11-13T11:48:03.681Z",
+   "mtime": 1794570443395.4973,
+   "preview": "2026-11-13T11:48:06.009Z"
   },
   "/de/en/boarding": {
    "uploaded": "2026-10-24T03:07:34.415Z",
@@ -521,9 +521,9 @@
    "preview": "2026-11-12T20:02:20.074Z"
   },
   "/de/en/business-class-on-short-and-medium-haul": {
-   "uploaded": "2026-11-08T10:38:36.317Z",
-   "mtime": 1794134277755.1775,
-   "preview": "2026-11-08T10:38:38.636Z"
+   "uploaded": "2026-11-13T11:44:10.238Z",
+   "mtime": 1794570226958.3606,
+   "preview": "2026-11-13T11:44:12.214Z"
   },
   "/de/en/business-services": {
    "uploaded": "2026-10-24T11:06:27.945Z",
@@ -617,9 +617,9 @@
    "edits": "[[\"<h3 id=\\\"entertainment-heading-small\\\">Entertainment {heading-small}</h3>\",\"<h3 id=\\\"entertainment-on-board-heading-small\\\">Entertainment on board {heading-small}</h3>\"]]"
   },
   "/de/en/economy-class": {
-   "uploaded": "2026-11-11T04:39:11.924Z",
-   "mtime": 1794371871640.9734,
-   "preview": "2026-11-11T04:39:14.216Z"
+   "uploaded": "2026-11-13T11:44:19.380Z",
+   "mtime": 1794570227659.2556,
+   "preview": "2026-11-13T11:44:21.667Z"
   },
   "/de/en/electronic-bag-tags": {
    "uploaded": "2026-11-07T19:12:05.967Z",
@@ -632,9 +632,9 @@
    "preview": "2026-10-26T16:32:08.397Z"
   },
   "/de/en/europa-tarife-economy-class": {
-   "uploaded": "2026-10-24T03:10:52.481Z",
-   "mtime": 1792811268129,
-   "preview": "2026-10-24T03:10:54.343Z"
+   "uploaded": "2026-11-13T11:44:24.025Z",
+   "mtime": 1794570228029.681,
+   "preview": "2026-11-13T11:44:25.655Z"
   },
   "/de/en/europcar": {
    "uploaded": "2026-11-11T06:39:36.658Z",
@@ -657,9 +657,9 @@
    "preview": "2026-10-24T03:11:03.284Z"
   },
   "/de/en/first-class": {
-   "uploaded": "2026-11-09T12:38:39.563Z",
-   "mtime": 1794227868879.1555,
-   "preview": "2026-11-09T12:38:42.216Z"
+   "uploaded": "2026-11-13T11:44:27.881Z",
+   "mtime": 1794570228345.2803,
+   "preview": "2026-11-13T11:44:30.268Z"
   },
   "/de/en/first-class-lounges": {
    "uploaded": "2026-10-24T08:34:27.885Z",
@@ -787,9 +787,9 @@
    "preview": "2026-10-24T03:13:17.087Z"
   },
   "/de/en/lufthansa-business-class-on-long-haul-routes": {
-   "uploaded": "2026-11-11T04:34:18.773Z",
-   "mtime": 1794371578040.1946,
-   "preview": "2026-11-11T04:34:20.771Z"
+   "uploaded": "2026-11-13T11:44:32.796Z",
+   "mtime": 1794570228667.569,
+   "preview": "2026-11-13T11:44:34.816Z"
   },
   "/de/en/lufthansa-corporate-customers": {
    "uploaded": "2026-11-07T16:15:24.365Z",
@@ -877,9 +877,9 @@
    "preview": "2026-10-24T08:34:48.251Z"
   },
   "/de/en/premium-economy-class": {
-   "uploaded": "2026-11-12T09:07:49.545Z",
-   "mtime": 1794474466468.8904,
-   "preview": "2026-11-12T09:07:52.115Z"
+   "uploaded": "2026-11-13T11:44:46.213Z",
+   "mtime": 1794570229816.6887,
+   "preview": "2026-11-13T11:44:48.556Z"
   },
   "/de/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg": {
    "uploaded": "2026-10-24T11:11:26.983Z",
@@ -1087,9 +1087,9 @@
    "preview": "2026-10-30T06:32:22.225Z"
   },
   "/de/en/tips-senior-travellers": {
-   "uploaded": "2026-11-09T12:38:44.669Z",
-   "mtime": 1794227868879.611,
-   "preview": "2026-11-09T12:38:47.059Z"
+   "uploaded": "2026-11-13T11:44:51.015Z",
+   "mtime": 1794570230330.9153,
+   "preview": "2026-11-13T11:44:53.374Z"
   },
   "/de/en/travel-agencies": {
    "uploaded": "2026-10-24T03:18:04.118Z",
@@ -1702,9 +1702,9 @@
    "preview": "2026-11-10T01:43:32.583Z"
   },
   "/de/de/lufthansa-reiseklassen": {
-   "uploaded": "2026-11-09T00:00:22.875Z",
-   "mtime": 1794182320534.6804,
-   "preview": "2026-11-09T00:00:25.469Z"
+   "uploaded": "2026-11-13T11:48:26.341Z",
+   "mtime": 1794570445107.3403,
+   "preview": "2026-11-13T11:48:28.363Z"
   },
   "/de/de/meetings-and-events": {
    "uploaded": "2026-11-09T17:16:23.294Z",
@@ -1897,9 +1897,9 @@
    "preview": "2026-11-12T20:02:14.377Z"
   },
   "/de/de/business-class-auf-kurz-und-mittelstrecken": {
-   "uploaded": "2026-10-24T05:15:13.295Z",
-   "mtime": 1792818794521,
-   "preview": "2026-10-24T05:15:15.431Z"
+   "uploaded": "2026-11-13T11:55:43.463Z",
+   "mtime": 1794570933694.0742,
+   "preview": "2026-11-13T11:55:45.449Z"
   },
   "/de/de/business-services": {
    "uploaded": "2026-10-24T11:06:51.356Z",
@@ -1992,9 +1992,9 @@
    "preview": "2026-11-11T04:38:35.249Z"
   },
   "/de/de/economy-class": {
-   "uploaded": "2026-11-11T04:38:42.512Z",
-   "mtime": 1794371871516.1128,
-   "preview": "2026-11-11T04:38:44.477Z"
+   "uploaded": "2026-11-13T11:48:08.355Z",
+   "mtime": 1794570443756.3696,
+   "preview": "2026-11-13T11:48:10.777Z"
   },
   "/de/de/electronic-bag-tags": {
    "uploaded": "2026-10-24T02:57:00.576Z",
@@ -2007,9 +2007,9 @@
    "preview": "2026-10-26T16:29:06.287Z"
   },
   "/de/de/europa-tarife-economy-class": {
-   "uploaded": "2026-10-24T02:57:28.599Z",
-   "mtime": 1792810512623,
-   "preview": "2026-10-24T02:57:30.730Z"
+   "uploaded": "2026-11-13T11:48:12.998Z",
+   "mtime": 1794570444156.987,
+   "preview": "2026-11-13T11:48:14.814Z"
   },
   "/de/de/europcar": {
    "uploaded": "2026-10-24T11:09:19.895Z",
@@ -2032,9 +2032,9 @@
    "preview": "2026-10-24T02:57:39.140Z"
   },
   "/de/de/first-class": {
-   "uploaded": "2026-11-09T14:02:49.633Z",
-   "mtime": 1794232821547.7856,
-   "preview": "2026-11-09T14:02:52.551Z"
+   "uploaded": "2026-11-13T11:48:16.973Z",
+   "mtime": 1794570444474.3665,
+   "preview": "2026-11-13T11:48:19.529Z"
   },
   "/de/de/first-class-lounges": {
    "uploaded": "2026-10-24T08:35:09.349Z",
@@ -2167,9 +2167,9 @@
    "preview": "2026-10-24T03:01:12.429Z"
   },
   "/de/de/lufthansa-business-class-on-long-haul-routes": {
-   "uploaded": "2026-11-11T04:34:13.430Z",
-   "mtime": 1794371578018.1042,
-   "preview": "2026-11-11T04:34:15.736Z"
+   "uploaded": "2026-11-13T11:48:21.795Z",
+   "mtime": 1794570444790.3352,
+   "preview": "2026-11-13T11:48:23.930Z"
   },
   "/de/de/lufthansa-firmenkunden": {
    "uploaded": "2026-11-07T16:54:34.128Z",
@@ -2257,9 +2257,9 @@
    "preview": "2026-10-24T08:35:26.798Z"
   },
   "/de/de/premium-economy-class": {
-   "uploaded": "2026-11-12T20:01:20.713Z",
-   "mtime": 1794513649138.249,
-   "preview": "2026-11-12T20:01:23.291Z"
+   "uploaded": "2026-11-13T11:48:34.565Z",
+   "mtime": 1794570445752.948,
+   "preview": "2026-11-13T11:48:37.302Z"
   },
   "/de/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg": {
    "uploaded": "2026-10-24T11:11:53.845Z",
@@ -2432,9 +2432,9 @@
    "preview": "2026-10-30T06:31:47.187Z"
   },
   "/de/de/tips-senior-travellers": {
-   "uploaded": "2026-11-09T12:38:49.692Z",
-   "mtime": 1794227868907.1729,
-   "preview": "2026-11-09T12:38:52.546Z"
+   "uploaded": "2026-11-13T11:48:39.513Z",
+   "mtime": 1794570446046.4531,
+   "preview": "2026-11-13T11:48:41.364Z"
   },
   "/de/de/reisebueros": {
    "uploaded": "2026-10-24T05:16:44.947Z",
@@ -3087,9 +3087,9 @@
    "preview": "2026-11-10T01:43:42.997Z"
   },
   "/at/de/lufthansa-reiseklassen": {
-   "uploaded": "2026-11-09T13:29:06.805Z",
-   "mtime": 1794230813161.9297,
-   "preview": "2026-11-09T13:29:08.879Z"
+   "uploaded": "2026-11-13T11:49:53.163Z",
+   "mtime": 1794570557761.862,
+   "preview": "2026-11-13T11:49:55.522Z"
   },
   "/at/de/meetings-and-events": {
    "uploaded": "2026-11-09T17:16:28.006Z",
@@ -3287,9 +3287,9 @@
    "preview": "2026-11-12T20:02:07.268Z"
   },
   "/at/de/business-class-auf-kurz-und-mittelstrecken": {
-   "uploaded": "2026-10-24T05:19:32.294Z",
-   "mtime": 1792818794552,
-   "preview": "2026-10-24T05:19:34.652Z"
+   "uploaded": "2026-11-13T11:55:49.869Z",
+   "mtime": 1794570935374.7346,
+   "preview": "2026-11-13T11:55:51.739Z"
   },
   "/at/de/business-services": {
    "uploaded": "2026-10-24T11:07:14.970Z",
@@ -3412,9 +3412,9 @@
    "preview": "2026-11-11T04:38:09.462Z"
   },
   "/at/de/economy-class": {
-   "uploaded": "2026-11-11T04:38:12.084Z",
-   "mtime": 1794371871386,
-   "preview": "2026-11-11T04:38:14.628Z"
+   "uploaded": "2026-11-13T11:49:35.212Z",
+   "mtime": 1794570556484.5825,
+   "preview": "2026-11-13T11:49:37.459Z"
   },
   "/at/de/electronic-bag-tags": {
    "uploaded": "2026-10-24T02:44:03.392Z",
@@ -3427,9 +3427,9 @@
    "preview": "2026-10-26T16:26:06.984Z"
   },
   "/at/de/europa-tarife-economy-class": {
-   "uploaded": "2026-10-24T02:44:13.904Z",
-   "mtime": 1792809677154,
-   "preview": "2026-10-24T02:44:16.892Z"
+   "uploaded": "2026-11-13T11:49:39.639Z",
+   "mtime": 1794570556809.2673,
+   "preview": "2026-11-13T11:49:41.583Z"
   },
   "/at/de/europcar": {
    "uploaded": "2026-10-24T11:09:45.388Z",
@@ -3452,9 +3452,9 @@
    "preview": "2026-10-24T02:44:25.969Z"
   },
   "/at/de/first-class": {
-   "uploaded": "2026-10-26T17:45:56.102Z",
-   "mtime": 1793033862984,
-   "preview": "2026-10-26T17:45:59.493Z"
+   "uploaded": "2026-11-13T11:49:43.858Z",
+   "mtime": 1794570557133.4448,
+   "preview": "2026-11-13T11:49:46.281Z"
   },
   "/at/de/lufthansa-first-class-komfort": {
    "uploaded": "2026-10-24T05:20:03.789Z",
@@ -3592,9 +3592,9 @@
    "preview": "2026-10-24T02:46:50.932Z"
   },
   "/at/de/lufthansa-business-class-on-long-haul-routes": {
-   "uploaded": "2026-11-11T04:34:08.537Z",
-   "mtime": 1794371577999.7148,
-   "preview": "2026-11-11T04:34:10.965Z"
+   "uploaded": "2026-11-13T11:49:48.667Z",
+   "mtime": 1794570557450.652,
+   "preview": "2026-11-13T11:49:50.662Z"
   },
   "/at/de/lufthansa-firmenkunden": {
    "uploaded": "2026-11-07T16:54:38.772Z",
@@ -3702,9 +3702,9 @@
    "preview": "2026-10-24T08:35:44.296Z"
   },
   "/at/de/premium-economy-class": {
-   "uploaded": "2026-11-12T20:00:57.289Z",
-   "mtime": 1794513649136.7417,
-   "preview": "2026-11-12T20:01:00.762Z"
+   "uploaded": "2026-11-13T11:50:02.800Z",
+   "mtime": 1794570558632.6487,
+   "preview": "2026-11-13T11:50:05.131Z"
   },
   "/at/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg": {
    "uploaded": "2026-10-24T11:12:21.841Z",
@@ -3877,9 +3877,9 @@
    "preview": "2026-10-30T06:30:55.572Z"
   },
   "/at/de/tips-senior-travellers": {
-   "uploaded": "2026-11-09T12:38:54.775Z",
-   "mtime": 1794227868880.754,
-   "preview": "2026-11-09T12:38:57.946Z"
+   "uploaded": "2026-11-13T11:50:07.611Z",
+   "mtime": 1794570558997.8406,
+   "preview": "2026-11-13T11:50:09.738Z"
   },
   "/at/de/reisebueros": {
    "uploaded": "2026-10-24T05:21:29.874Z",
@@ -4057,9 +4057,9 @@
    "preview": "2026-11-12T05:34:07.381Z"
   },
   "/at/de/discover-lufthansa/new-onboard-experience": {
-   "uploaded": "2026-11-08T18:43:17.736Z",
-   "mtime": 1794163294022.9915,
-   "preview": "2026-11-08T18:43:20.437Z"
+   "uploaded": "2026-11-13T11:49:30.313Z",
+   "mtime": 1794570556181.863,
+   "preview": "2026-11-13T11:49:32.887Z"
   },
   "/at/de/discover-lufthansa/take-off": {
    "uploaded": "2026-11-06T17:48:27.434Z",
@@ -4547,9 +4547,9 @@
    "preview": "2026-11-10T01:43:47.697Z"
   },
   "/gb/en/lufthansa-travel-classes": {
-   "uploaded": "2026-11-09T13:29:41.108Z",
-   "mtime": 1794230813162.4272,
-   "preview": "2026-11-09T13:29:43.364Z"
+   "uploaded": "2026-11-13T11:40:14.172Z",
+   "mtime": 1794569973203.0552,
+   "preview": "2026-11-13T11:40:16.185Z"
   },
   "/gb/en/meetings-and-events": {
    "uploaded": "2026-11-09T17:16:33.413Z",
@@ -4747,9 +4747,9 @@
    "preview": "2026-11-12T20:02:26.396Z"
   },
   "/gb/en/business-class-on-short-and-medium-haul": {
-   "uploaded": "2026-10-24T03:22:38.278Z",
-   "mtime": 1792811962466,
-   "preview": "2026-10-24T03:22:40.676Z"
+   "uploaded": "2026-11-13T11:52:43.451Z",
+   "mtime": 1794570760841.9766,
+   "preview": "2026-11-13T11:52:45.476Z"
   },
   "/gb/en/business-services": {
    "uploaded": "2026-10-24T11:07:38.589Z",
@@ -4872,9 +4872,9 @@
    "preview": "2026-11-11T04:40:01.828Z"
   },
   "/gb/en/economy-class": {
-   "uploaded": "2026-11-11T04:40:04.251Z",
-   "mtime": 1794371871887.2915,
-   "preview": "2026-11-11T04:40:06.549Z"
+   "uploaded": "2026-11-13T11:39:56.169Z",
+   "mtime": 1794569971650.8303,
+   "preview": "2026-11-13T11:39:58.375Z"
   },
   "/gb/en/electronic-bag-tags": {
    "uploaded": "2026-10-24T03:24:13.576Z",
@@ -4887,9 +4887,9 @@
    "preview": "2026-10-26T16:35:15.635Z"
   },
   "/gb/en/europa-tarife-economy-class": {
-   "uploaded": "2026-10-24T03:24:46.262Z",
-   "mtime": 1792812122752,
-   "preview": "2026-10-24T03:24:48.402Z"
+   "uploaded": "2026-11-13T11:40:00.737Z",
+   "mtime": 1794569972062.4146,
+   "preview": "2026-11-13T11:40:02.766Z"
   },
   "/gb/en/europcar": {
    "uploaded": "2026-10-24T11:10:11.787Z",
@@ -4912,9 +4912,9 @@
    "preview": "2026-10-24T03:24:56.854Z"
   },
   "/gb/en/first-class": {
-   "uploaded": "2026-10-26T17:51:24.281Z",
-   "mtime": 1793033864929,
-   "preview": "2026-10-26T17:51:27.433Z"
+   "uploaded": "2026-11-13T11:40:05.281Z",
+   "mtime": 1794569972420.9434,
+   "preview": "2026-11-13T11:40:07.696Z"
   },
   "/gb/en/first-class-comfort": {
    "uploaded": "2026-10-24T03:25:03.316Z",
@@ -5052,9 +5052,9 @@
    "preview": "2026-10-24T03:27:07.268Z"
   },
   "/gb/en/lufthansa-business-class-on-long-haul-routes": {
-   "uploaded": "2026-11-11T04:34:23.289Z",
-   "mtime": 1794371578061.2986,
-   "preview": "2026-11-11T04:34:25.702Z"
+   "uploaded": "2026-11-13T11:40:09.842Z",
+   "mtime": 1794569972883.6453,
+   "preview": "2026-11-13T11:40:11.866Z"
   },
   "/gb/en/lufthansa-corporate-customers": {
    "uploaded": "2026-11-07T16:54:44.028Z",
@@ -5162,9 +5162,9 @@
    "preview": "2026-10-24T08:37:19.580Z"
   },
   "/gb/en/premium-economy-class": {
-   "uploaded": "2026-11-12T20:01:37.531Z",
-   "mtime": 1794513649139.0452,
-   "preview": "2026-11-12T20:01:40.013Z"
+   "uploaded": "2026-11-13T11:40:23.209Z",
+   "mtime": 1794569973854.3774,
+   "preview": "2026-11-13T11:40:25.435Z"
   },
   "/gb/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg": {
    "uploaded": "2026-10-24T11:12:48.647Z",
@@ -5337,9 +5337,9 @@
    "preview": "2026-10-30T06:33:11.024Z"
   },
   "/gb/en/tips-senior-travellers": {
-   "uploaded": "2026-11-09T12:39:00.233Z",
-   "mtime": 1794227868881.2996,
-   "preview": "2026-11-09T12:39:02.912Z"
+   "uploaded": "2026-11-13T11:40:28.172Z",
+   "mtime": 1794569974159.0256,
+   "preview": "2026-11-13T11:40:30.530Z"
   },
   "/gb/en/travel-agencies": {
    "uploaded": "2026-10-24T03:41:00.145Z",
@@ -5517,9 +5517,9 @@
    "preview": "2026-11-12T05:36:57.960Z"
   },
   "/gb/en/discover-lufthansa/new-onboard-experience": {
-   "uploaded": "2026-11-09T13:29:57.413Z",
-   "mtime": 1794230900872.445,
-   "preview": "2026-11-09T13:30:00.496Z"
+   "uploaded": "2026-11-13T11:39:51.286Z",
+   "mtime": 1794569971213.1167,
+   "preview": "2026-11-13T11:39:53.705Z"
   },
   "/gb/en/discover-lufthansa/take-off": {
    "uploaded": "2026-11-06T17:48:31.186Z",
@@ -11375,24 +11375,24 @@
    "preview": "2026-10-28T03:50:25.812Z"
   },
   "/de/en/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class": {
-   "uploaded": "2026-11-06T00:45:03.845Z",
-   "mtime": 1793924810721.0105,
-   "preview": "2026-11-06T00:45:06.675Z"
+   "uploaded": "2026-11-13T11:43:54.529Z",
+   "mtime": 1794570225915.6196,
+   "preview": "2026-11-13T11:43:57.260Z"
   },
   "/de/de/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class": {
-   "uploaded": "2026-11-06T00:45:20.794Z",
-   "mtime": 1793925209258.08,
-   "preview": "2026-11-06T00:45:23.255Z"
+   "uploaded": "2026-11-13T11:47:41.617Z",
+   "mtime": 1794570441638.718,
+   "preview": "2026-11-13T11:47:43.434Z"
   },
   "/at/de/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class": {
-   "uploaded": "2026-10-28T03:10:45.669Z",
-   "mtime": 1793154362901,
-   "preview": "2026-10-28T03:10:47.900Z"
+   "uploaded": "2026-11-13T11:47:28.653Z",
+   "mtime": 1794570440566.8357,
+   "preview": "2026-11-13T11:47:30.660Z"
   },
   "/gb/en/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class": {
-   "uploaded": "2026-10-28T03:50:27.799Z",
-   "mtime": 1793156278123,
-   "preview": "2026-10-28T03:50:29.959Z"
+   "uploaded": "2026-11-13T11:44:55.980Z",
+   "mtime": 1794570230677.0535,
+   "preview": "2026-11-13T11:44:57.961Z"
   },
   "/de/en/articles/explore-flying/allegris-fox": {
    "uploaded": "2026-11-06T00:45:21.461Z",
@@ -11455,24 +11455,24 @@
    "preview": "2026-10-28T03:50:44.920Z"
   },
   "/de/en/articles/explore-flying/business-class-culinary-journey-with-johann-lafer": {
-   "uploaded": "2026-11-06T00:45:09.592Z",
-   "mtime": 1793924811357.2734,
-   "preview": "2026-11-06T00:45:12.762Z"
+   "uploaded": "2026-11-13T11:43:59.787Z",
+   "mtime": 1794570226207.516,
+   "preview": "2026-11-13T11:44:03.465Z"
   },
   "/de/de/articles/explore-flying/business-class-culinary-journey-with-johann-lafer": {
-   "uploaded": "2026-11-06T00:45:07.680Z",
-   "mtime": 1793925207917.2385,
-   "preview": "2026-11-06T00:45:11.520Z"
+   "uploaded": "2026-11-13T11:47:45.606Z",
+   "mtime": 1794570442025.1245,
+   "preview": "2026-11-13T11:47:47.704Z"
   },
   "/at/de/articles/explore-flying/business-class-culinary-journey-with-johann-lafer": {
-   "uploaded": "2026-10-28T03:11:10.785Z",
-   "mtime": 1793154369776,
-   "preview": "2026-10-28T03:11:14.489Z"
+   "uploaded": "2026-11-13T11:47:32.877Z",
+   "mtime": 1794570440901.0366,
+   "preview": "2026-11-13T11:47:35.095Z"
   },
   "/gb/en/articles/explore-flying/business-class-culinary-journey-with-johann-lafer": {
-   "uploaded": "2026-10-28T03:50:46.480Z",
-   "mtime": 1793156284369,
-   "preview": "2026-10-28T03:50:48.622Z"
+   "uploaded": "2026-11-13T11:45:00.469Z",
+   "mtime": 1794570231008.257,
+   "preview": "2026-11-13T11:45:02.462Z"
   },
   "/de/en/articles/explore-flying/celebrating-20-years-of-excellence": {
    "uploaded": "2026-11-06T00:45:55.953Z",
@@ -12640,14 +12640,14 @@
    "preview": "2026-11-06T00:50:46.691Z"
   },
   "/de/de/articles/explore-flying/what-the-hack-travel-with-kids": {
-   "uploaded": "2026-11-12T05:34:41.875Z",
-   "mtime": 1794461501255.616,
-   "preview": "2026-11-12T05:34:43.628Z"
+   "uploaded": "2026-11-13T11:47:49.943Z",
+   "mtime": 1794570442344.9397,
+   "preview": "2026-11-13T11:47:52.048Z"
   },
   "/at/de/articles/explore-flying/what-the-hack-travel-with-kids": {
-   "uploaded": "2026-11-12T05:32:05.794Z",
-   "mtime": 1794461500820.9119,
-   "preview": "2026-11-12T05:32:07.892Z"
+   "uploaded": "2026-11-13T11:47:37.431Z",
+   "mtime": 1794570441273.4907,
+   "preview": "2026-11-13T11:47:39.439Z"
   },
   "/gb/en/articles/explore-flying/what-the-hack-travel-with-kids": {
    "uploaded": "2026-10-28T03:53:36.122Z",
@@ -52265,6 +52265,26 @@
    "uploaded": "2026-11-13T10:48:10.603Z",
    "mtime": 1794566875908.087,
    "preview": "2026-11-13T10:48:13.070Z"
+  },
+  "/at/de/prepare-for-your-trip/travel-classes/business-class": {
+   "uploaded": "2026-11-13T11:49:21.883Z",
+   "mtime": 1794570555637.5728,
+   "preview": "2026-11-13T11:49:23.911Z"
+  },
+  "/de/de/prepare-for-your-trip/travel-classes/business-class": {
+   "uploaded": "2026-11-13T11:47:54.066Z",
+   "mtime": 1794570442798.5562,
+   "preview": "2026-11-13T11:47:56.482Z"
+  },
+  "/de/en/prepare-for-your-trip/travel-classes/business-class": {
+   "uploaded": "2026-11-13T11:44:05.563Z",
+   "mtime": 1794570226642.0789,
+   "preview": "2026-11-13T11:44:08.000Z"
+  },
+  "/gb/en/prepare-for-your-trip/travel-classes/business-class": {
+   "uploaded": "2026-11-13T11:42:29.784Z",
+   "mtime": 1794569970548.474,
+   "preview": "2026-11-13T11:42:32.475Z"
   }
  },
  "media": {
