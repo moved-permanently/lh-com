@@ -3446,6 +3446,15 @@ tools/importer/test-widgets.mjs, axe runs) are not changed and may do the same; 
      names the section's class now. Measured with the local code on our host's content: flight-search de/de 1440
      22.13 -> 13.83, de/en 21.16 -> 13.18, none of the 48 worse. Order 11's two phone rules do apply on the host
      (punta-cana 390 18.17 / 29.55, entertainment 26.21 / 20.09, as reported).
+   - A page title right under the breadcrumb placed as www's from 768 px (8f2570c2, test first): www's title keeps
+     60 px under it on every recorded page (ours styles.css's 40) and starts 6 px lower under the breadcrumb. Its
+     wrapper 34 px under the breadcrumb, 60 px under the title; measured with the local code on our host's content,
+     all 48 Discover page-widths: 9 better, none worse (additional-services 1440 26.12 -> 4.88 and 21.59 -> 3.24,
+     flight-search 13.83 -> 2.02 and 13.18 -> 2.13, entertainment -7.6 / -7.0, families de/en -5.8, baggage -5.3 /
+     -5.2; families de/de +0.49). Tried and not kept: the 60 px under every title, stages included (21 better, 14
+     worse: check-in 1440 +7.4, santorini +2.5, whose pages are long enough already); the phone counterpart (title 8 px
+     lower, 36 px under it: 9 better, additional-services de/de 390 +5.47, where each card row is about 10 px taller
+     than www's and the higher title had hidden that).
    - B2B H1s www writes in heading-small or heading-medium (16 on 15 recorded pages: Allegris' and SWISS Senses'
      "what's next", route-network's timetable news, japan-joint-venture): 10 carry the marker in our documents
      already, 4 documents render them heading-large. delta-so12-b2b-h1-heading-sizes.txt (DA's copy plus the delta,
@@ -3461,3 +3470,28 @@ tools/importer/test-widgets.mjs, axe runs) are not changed and may do the same; 
 4. **B2B's two gaps.** b2b-parity-006 was in the gates already; its sha256 now on record. b2b-parity-002's 4
    page-widths (lufthansa-group-airlines) back in the B2B gate (153 page-widths): de/de 1440 11.85, 390 15.26; de/en
    1440 9.87, 390 13.71 (a first measurement without www's fonts gave 20.20 / 39.69 / 10.18 / 38.57: set aside).
+
+## Standing order 12, final section (05:30 UTC, 2026-11-13)
+
+- Item 1: heading-size-marks-apply.mjs (and one-element-view-apply.mjs) keep DA's escaping byte for byte (22852472).
+  text-spacers-apply.mjs and b2b-view-spacers-apply.mjs still serialise linkedom's tree.
+- Item 2: the offers page in the Discover gate, measured band by band: 33.31 / 34.65 (de/de 1440 / 390), 33.21 /
+  36.68 (de/en); above the grid 1.8 to 5.4. Our grid is empty by design offline (prices are live only); the recording
+  ends inside its grid.
+- Item 3: the price calendar's end applies on the page now (237a0564; order 11's rule had lost to flight-search.css);
+  a title under the breadcrumb placed as www's from 768 px (8f2570c2, 9 better, none worse);
+  delta-so12-b2b-h1-heading-sizes.txt, 2 READY (route-network), 2 HOLD.
+- Item 4: b2b-parity-002's 4 page-widths in the B2B gate (11.85 / 15.26, 9.87 / 13.71); b2b-parity-006's sha256
+  matches.
+- Correction: my captures of our pages reached www.lufthansa.com (APIs and web fonts) in every order. capture.js stops
+  that now (69745426) and serves www's fonts from the drops (f337aebb); the numbers are unchanged by it.
+- A mistake of mine at the end: dropping a local trial commit with `git reset --hard` also reverted the workspace's
+  uncommitted .migration/project.json (its lh-ita and lh-austrian site entries and the libraryUrl line). I may not write
+  that file, so it is not restored; its last state is in git as the autostash commit 2d53f756
+  (`git show 2d53f756:.migration/project.json`). It needs whoever manages the workspace to put it back.
+- Nothing uploaded, previewed or published; da-upload.mjs not run; no DA or preview API call.
+- Not in git and why: logs/p4/so12 (scratch: captures, results, the band comparer, guards, the font fill-ins
+  copied from the drops and the repo), logs/p4/so11 and logs/p4/so6/cap (earlier scratch and captures), the
+  recordings in /tmp and their archives in /tmp/dl-* (the drops' private material), logs/wt-ema-test.partial-so11 (an
+  unfinished checkout), content/, migration-work/, tools/importer/reports/* (from before, not mine), the 2026-11-07
+  autostash (not mine). My local preview servers are stopped.
