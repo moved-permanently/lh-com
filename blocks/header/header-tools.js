@@ -106,3 +106,21 @@ export function cartLabels(label, lang, brand) {
   if (texts && texts.some((t) => same(label, t))) return { bar: texts[0], menu: texts[1] };
   return { bar: label, menu: label };
 }
+
+/**
+ * The option of a country list ({name, href}, the nav's ":globe:" sub-list) the locale dialog
+ * preselects: www's selector shows the page's own country (selected="DE" on de/en), on a language
+ * version its "Other countries" entry (XX; our nav's own-root link, /xx/pl/homepage). The same
+ * country and language first, then the country in another language.
+ * @param {Array<{href: string}>} countries the list in its order
+ * @param {{country: string, lang: string}} locale the page's locale
+ * @returns {number} the option's index, -1 for none (the list's first stays)
+ */
+export function currentCountry(countries, locale) {
+  const roots = countries.map((c) => {
+    const m = String(c.href || '').match(/^(?:https?:\/\/[^/]+)?\/([a-z]{2})\/([a-z]{2})(?:\/|$)/);
+    return m ? { country: m[1], lang: m[2] } : null;
+  });
+  const same = roots.findIndex((r) => r && r.country === locale.country && r.lang === locale.lang);
+  return same >= 0 ? same : roots.findIndex((r) => r && r.country === locale.country);
+}

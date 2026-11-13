@@ -12,7 +12,7 @@ import { isDemoHost } from '../../scripts/demo.js';
 import { isOwnWwwHost, brandOf } from '../../scripts/brand.js';
 import { panelTabOrder, nextInOrder } from './header-focus.js';
 import {
-  takeRole, tableRole, toolRole, cartLabels,
+  takeRole, tableRole, toolRole, cartLabels, currentCountry,
 } from './header-tools.js';
 import classifySections from './header-sections.js';
 
@@ -445,6 +445,9 @@ function buildLocaleDialog(locale, currentLabel, countries, labels, {
     const selectId = 'nav-locale-country';
     const select = el('select', { id: selectId, name: 'country' });
     countries.forEach((c) => select.append(el('option', { value: c.href }, c.name)));
+    // the page's own country preselected, as www's (else the list's first)
+    const current = currentCountry(countries, locale);
+    if (current >= 0) select.options[current].selected = true;
     other = el(
       'form',
       { className: 'nav-locale-other' },
