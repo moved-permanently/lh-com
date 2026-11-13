@@ -21,6 +21,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
+import { placesOf, insertAt } from './source-elements.mjs';
 
 const norm = (s) => (s || '').replace(/\s+/g, ' ').trim();
 const text = (el) => norm(el && el.textContent);
@@ -29,11 +30,18 @@ const text = (el) => norm(el && el.textContent);
 const key = (s) => (s || '').replace(/\{[^}]*\}/g, '').replace(/\s+/g, '');
 const isSpacer = (el) => !!el && el.tagName === 'P' && /^\{(spacer|divider)-\d{1,3}( from-768)?\}$/.test(text(el));
 
-/** The document's HTML with the rows' spacers; returns { html, results: [{ row, result }] }. */
+/**
+ * The document's HTML with the rows' spacers; returns { html, results: [{ row, result }] }. The markers go into the
+ * document's own text (source-elements.mjs), the rest of it byte for byte: DA's escaping stays as it is (standing order
+ * 13 of 2026-11-13; the tree written again changed an href's `&amp;`). Where the text and the parsed tree disagree,
+ * nothing changes ("not found in the source").
+ */
 export function applyViewSpacers(html, rows) {
   const { document } = parseHTML(`<!DOCTYPE html><html><body><main>${html}</main></body></html>`);
   const main = document.querySelector('main');
   const top = [...main.children].flatMap((s) => (s.tagName === 'DIV' ? [...s.children] : []));
+  const places = placesOf(html, top);
+  const inserts = [];
   const results = rows.map((row) => {
     const start = key(row.next && row.next.start).slice(0, 30);
     const end = key(row.prev && row.prev.end).slice(-20);
@@ -45,14 +53,16 @@ export function applyViewSpacers(html, rows) {
     if (isSpacer(at.previousElementSibling)) return { row, result: 'present' };
     // at a section's start the collapse keeps no small spacer either (the section's own gap)
     if (!at.previousElementSibling) return { row, result: 'at a section start' };
+    if (!places || top.indexOf(at) < 0) return { row, result: 'not found in the source' };
     const p = document.createElement('p');
     // from768: the space from 768 px only (styles.css hides p.spacer.from-768 on phones), where www's phone layout has none
     const marker = `{spacer-${row.px}${row.from768 ? ' from-768' : ''}}`;
     p.textContent = marker;
-    at.before(p);
+    at.before(p); // a later row sees it
+    inserts.push([places[top.indexOf(at)].start, `<p>${marker}</p>`]);
     return { row, result: marker };
   });
-  return { html: results.some((r) => r.result.startsWith('{spacer-')) ? main.innerHTML : html, results };
+  return { html: insertAt(html, inserts), results };
 }
 
 /** A list's paths: one a line, or a reimport list's rows (tab-separated), only the READY ones (its last column). */

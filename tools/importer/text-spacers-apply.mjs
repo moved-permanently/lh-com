@@ -26,6 +26,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseHTML } from 'linkedom';
+import { placesOf, insertAt } from './source-elements.mjs';
 
 const norm = (s) => (s || '').replace(/[\s\u00a0]+/g, ' ').trim();
 const text = (el) => norm(el && el.textContent);
@@ -46,11 +47,16 @@ export function spacerSize(row, margins = [20, 16]) {
 
 /**
  * Applies the rows of one document to its HTML (the .plain.html's content). Returns { html, results: [{ row, result }] }.
+ * The markers go into the document's own text (source-elements.mjs), the rest of it byte for byte: DA's escaping (an
+ * href's `&amp;`, `&nbsp;`) stays as it is (standing order 13 of 2026-11-13; the tree written again changed it). Where
+ * the text and the parsed tree disagree, nothing changes ("not found in the source").
  */
 export function applyTextSpacers(html, rows, { margins = [20, 16] } = {}) {
   const { document } = parseHTML(`<!DOCTYPE html><html><body><main>${html}</main></body></html>`);
   const main = document.querySelector('main');
   const top = [...main.children].flatMap((s) => (s.tagName === 'DIV' ? [...s.children] : []));
+  const places = placesOf(html, top);
+  const inserts = [];
   const results = rows.map((row) => {
     // the last / first 25 characters: www's paragraph may hold more lines than DA's (a <br> where DA has two paragraphs)
     const after = norm(row.after).slice(-25).trim();
@@ -80,12 +86,14 @@ export function applyTextSpacers(html, rows, { margins = [20, 16] } = {}) {
     }
     const size = spacerSize(row, margins);
     if (size.skip) return { row, result: size.skip };
+    if (!places || top.indexOf(prev) < 0) return { row, result: 'not found in the source' };
     const p = document.createElement('p');
     p.textContent = `{spacer-${size.n}}`;
-    prev.after(p);
+    prev.after(p); // a later row sees it
+    inserts.push([places[top.indexOf(prev)].end, `<p>{spacer-${size.n}}</p>`]);
     return { row, result: `{spacer-${size.n}}` };
   });
-  return { html: main.innerHTML, results };
+  return { html: insertAt(html, inserts), results };
 }
 
 /** A list's paths: one a line, or a reimport list's rows (tab-separated), only the READY ones (its last column). */
