@@ -1346,6 +1346,20 @@ body.brand-austrian main > .section:not(.space-s, .space-m, .space-l, .space-xl)
   }
 }
 
+/* a tab panel on phones (Austrian row 57, standing order 19): www's open panel (maui-tab-control-panel-responsive, an
+   accordion below 768 px) puts its content 12 px further in from each side and 24 px more under the open header
+   (travel-id at 390: the text 322 px wide, ours 346) */
+@media (width < 768px) {
+  body.brand-austrian main > .section:is(.section-tab-panel, .section-tab-part) > div:not(.section-tab-toggle) {
+    padding-right: calc(var(--layout-margin, 22px) + 12px);
+    padding-left: calc(var(--layout-margin, 22px) + 12px);
+  }
+
+  body.brand-austrian main > .section.section-tab-panel > .section-tab-toggle + div {
+    padding-top: 24px;
+  }
+}
+
 /* a tab panel of text and a picture (Austrian row 55, standing order 16; travel-id's "Website", "Chat assistant", "App",
    "FlyNet"): from 1025 px www's two-column view, the text 622 px wide on the left, the picture beside it, both from the
    top, the heading heading-small (austrian-parity-015 travel-id at 1440; ours had the picture full width under the
