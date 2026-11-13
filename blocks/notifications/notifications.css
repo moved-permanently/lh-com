@@ -1,26 +1,38 @@
-/* notifications: www.lufthansa-cargo.com's notification overview (2026-11-01): the filter (a
-   labelled select, a quarter of the width from 1025px), the list on a grey (#f5f5f5) band; per
-   item the date line (12px, #666, upper case), the headline (Head 18px / 24px), the text (14px /
-   18px) collapsed to four lines with Read more */
+/* notifications: www.lufthansa-cargo.com's notification overview (cargo-parity-001, 2026-11-06:
+   the page's own <style> and the theme's .greyBgBox / .notificationPageSection rules). The filter
+   and the list on one #f5f5f5 band the screen's width (20px in, 40px from 1025px); the filter (a
+   labelled select, 12 / 14 px label); per item, at most 856px wide, the date line (12 / 14 px,
+   #666, the date in capitals), the headline (Head 18 / 24 px, 30px over the text), the text
+   (18 / 24 px) clamped to five lines with Read more under it (#52627c, the arrow after it), 30px
+   under that the item's rule, 40px between items (standing order 23,
+   test/cargo-notifications-band-so23) */
 .notifications {
+  padding: 20px 0;
+  background-color: #f5f5f5;
+  box-shadow: 0 0 0 100vmax #f5f5f5;
+  clip-path: inset(0 -100vmax);
   color: #05164d;
 }
 
 .notifications .notifications-filter {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
   max-width: 320px;
-  margin: 20px 0;
+  margin: 0 0 30px;
 }
 
 .notifications .notifications-filter label {
+  margin-top: 2px;
   color: #666;
   font-size: 12px;
+  line-height: 14px;
 }
 
 .notifications .notifications-filter select {
-  padding: 10px 0;
+  box-sizing: border-box;
+  height: 40px;
+  padding: 0;
   border: 0;
   border-bottom: 1px solid #05164d;
   background: transparent;
@@ -30,18 +42,19 @@
 
 .notifications .notifications-list {
   margin: 0;
-  padding: 20px;
+  padding: 0;
   list-style: none;
-  background-color: #f5f5f5;
 }
 
 .notifications .notifications-item {
-  padding: 20px 0;
+  max-width: 856px;
+  margin: 0 0 40px;
+  padding: 0 0 30px;
   border-bottom: 1px solid #ccc;
 }
 
 .notifications .notifications-item:last-child {
-  border-bottom: 0;
+  margin-bottom: 0;
 }
 
 .notifications .notifications-item[hidden] {
@@ -52,52 +65,63 @@
   margin: 0 0 10px;
   color: #666;
   font-size: 12px;
-  line-height: 16px;
+  line-height: 14px;
 }
 
 .notifications .notifications-when {
   text-transform: uppercase;
 }
 
+/* www's 20px under the headline and the text's own 10px add up there (its text floats) */
 .notifications .notifications-headline {
-  margin: 0 0 10px;
+  margin: 0 0 30px;
   font-family: var(--heading-font-family);
   font-size: 18px;
   line-height: 24px;
 }
 
 .notifications .notifications-detail {
-  font-size: 14px;
-  line-height: 18px;
+  margin: 0 0 30px;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .notifications .notifications-detail > :first-child {
   margin-top: 0;
 }
 
+.notifications .notifications-detail > :last-child {
+  margin-bottom: 0;
+}
+
 .notifications .notifications-item:has(.notifications-more) .notifications-detail {
-  max-height: 72px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
   overflow: hidden;
 }
 
 .notifications .notifications-item.is-open .notifications-detail {
-  max-height: none;
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
 }
 
 .notifications .notifications-more {
-  margin-top: 10px;
+  margin: 0;
   padding: 0;
   border: 0;
   background: none;
-  color: inherit;
+  color: #52627c;
   font: inherit;
-  font-size: 14px;
+  font-size: 18px;
+  line-height: 24px;
   cursor: pointer;
 }
 
-.notifications .notifications-more::before {
+.notifications .notifications-more::after {
   content: "\2193";
-  margin-right: 8px;
+  margin-left: 8px;
 }
 
 .notifications .notifications-item.is-open .notifications-more {
@@ -105,7 +129,13 @@
 }
 
 @media (width >= 1025px) {
-  .notifications .notifications-list {
-    padding: 20px 40px;
+  /* 40px under the title (the title's own margin collapses into it) */
+  .notifications {
+    margin-top: 40px;
+    padding: 40px 0;
+  }
+
+  .notifications .notifications-filter select {
+    height: 42px;
   }
 }

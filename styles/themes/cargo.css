@@ -641,6 +641,54 @@ body.brand-cargo main > .section.hero-campaign-container:first-of-type:has(.hero
   }
 }
 
+/* standing order 23 (cargo-parity-001 /en and /de/ci/whats-up-now at 390): below 992 px www's picture header
+   (LCAGCP-lcagHeaderImageTextContainer) is the video header's layout too: the picture across the screen at 16:9
+   (220 px at 390), under it a white box 16 px in: the title 10 px lower (24/29 navy, 10 px under it), the subline
+   16 / 19.2 px, the link row 16 px under it with www's button (18 / 21.6 px, 5 px 25 px: 36 px) */
+@media (width < 992px) {
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media > picture):not(:has(video)) {
+    display: block;
+    min-height: 0;
+    padding-bottom: 0;
+    color: #05164d;
+  }
+
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media > picture):not(:has(video)) > .hero-campaign-media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+  }
+
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media > picture):not(:has(video)) > .hero-campaign-inner {
+    padding: 16px;
+    background-color: #fff;
+  }
+
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media > picture):not(:has(video)) h1 {
+    margin: 10px 0;
+    color: #05164d;
+    font-weight: 500;
+  }
+
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media > picture):not(:has(video)) .hero-campaign-subtitle {
+    margin: 0;
+    padding: 0;
+    color: #05164d;
+    font-size: 16px;
+    line-height: 19.2px;
+  }
+
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media > picture):not(:has(video)) .hero-campaign-cta {
+    padding-top: 16px;
+  }
+
+  body.brand-cargo .hero-campaign.narrow:has(> .hero-campaign-media > picture):not(:has(video)) .hero-campaign-cta .button {
+    min-height: 0;
+    padding: 5px 25px;
+    font-size: 18px;
+    line-height: 21.6px;
+  }
+}
+
 /* row 39: the card rows (cards-teaser without an option: the importer's CF9 .two-columns) on phones
    as www's: the cards stacked without a gap, 20 px under each (its More link's margin), the picture
    across the screen at 16:9 (past the 16 px page margin), the title 20 px under it; a row right after
@@ -2013,6 +2061,20 @@ body.brand-cargo main > .section.newsroom-container:has(#mnd-iframe) > .default-
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+/* the notification overview (standing order 23, cargo-parity-001): www's grey band (blocks/notifications) runs down
+   to the footer, so the block's section has no space under it */
+body.brand-cargo main > .section.notifications-container {
+  margin-bottom: 0;
+}
+
+/* from 1025px www's title stands 100px under the breadcrumb's top (its 20px padding, the rule, 40px), ours, in the
+   breadcrumb's section, 54px: the breadcrumb 66px over it (below 1025px www's 76px are ours already) */
+@media (width >= 1025px) {
+  body.brand-cargo main > .section.notifications-container > .breadcrumb-wrapper {
+    margin-bottom: 66px;
+  }
 }
 
 /* row 49 (the standing order of 2026-11-10, item 6): on phones a transport story's text module reads as www's one
