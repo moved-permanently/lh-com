@@ -3641,3 +3641,29 @@ snapshot's live resources is not checked.
    (data/recorded, de/de and de/en FRA/E: 587 offers recorded for lufthansa.com on 2026-10-21, not Discover's 591 of
    2026-11-12). Cards without their price from that recording would be a policy change (an old, other tenant's
    list shown as Discover's offers): not done; yours to decide.
+- Order 12's route-network rows are in (8af91a45, the import helper): measured on our host as predicted, 1440 7.52 ->
+  4.90 (de/de) and 10.36 -> 8.32 (de/en), 390 22.77 -> 20.34 and 23.01 -> 20.50. One capture of de/de 1440 came out
+  at 21.67 with a band of the page at 79 to 88 % (a part that did not load: the network is flaky today); two
+  recaptures 4.90. The same flake gave this morning's +17.64 on route-network in the line-height run (recaptured
+  +0.52); a band at 80 % or more where the page is otherwise in place is now my sign to recapture.
+
+## Standing order 14, final section (12:20 UTC, 2026-11-13)
+
+- Item 1 (businesstogo, b2b-parity-009): our phone default is www's; against the new recordings 12.0 to 14.5 % at
+  1440, 17.2 to 19.5 at 390. Fixed: the title in its column view (ea41c746). Held, each worse alone: the copytext
+  line height, the plain contact form, the German pages' heading marks and outer view (with all of them the German
+  pages end 142 / 242 px short of www's, cause not found).
+- Item 2: one B2B page-width more than 10 % off at 390, xx/en entertainment-on-board (no tab set in our document):
+  reimport-so14-b2b-entertainment-on-board-tabs.txt, READY (15.58 -> 11.91). The English Allegris corporates page
+  is 0.7 % longer than www's, which is as long.
+- Item 3: the offers page is its 591 priced cards; no fix without live fares or a recorded price list shown as
+  Discover's (not done, yours to decide).
+- Also: the eight site importers take EXCAT_IMPORT_SCRIPTS (983412fa); my brand-test miss from order 13 (rows 7, 8)
+  is described above; the full suite on ea41c746: 1011 files pass, lint and stylelint 0.
+- Nothing uploaded, previewed or published; da-upload.mjs not run; no request to an airline host. .migration/project.json
+  not touched. The modern-web-guidance plugin left off.
+- Not in git and why: logs/p4/so14 (scratch: captures, results, simulations, the held trials as patches in
+  logs/p4/so14/held), logs/p4/so13, so12, so11 and so6/cap (earlier scratch), the recordings in /tmp and /tmp/dl-*
+  (the drops' private material, b2b-parity-009 among them), logs/wt-ema-test.partial-so11 (an unfinished checkout),
+  content/, content-sites/, migration-work/, tools/importer/reports/* (not mine), the 2026-11-07 autostash (not mine).
+  My local preview servers are stopped.
