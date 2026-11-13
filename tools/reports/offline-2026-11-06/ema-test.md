@@ -3389,3 +3389,49 @@ earlier orders' numbers are not comparable one to one.
   tools/importer/reports/* (from before, not mine), the 2026-11-07 autostash (not mine). My local preview servers
   are stopped.
 
+## Standing order 12 (received about 02:35 UTC, 2026-11-13)
+
+State at the start: nothing of mine unpushed (order 11's final section on main). The 2026-11-07 autostash left alone.
+Drops fetched with their sha256 checked: discover-snapshots-004 (1146335d…), b2b-parity-002 (77ebf729…); b2b-parity-006
+on disk matches ad776bbe….
+
+**A correction to every earlier order: my captures of our pages reached www.lufthansa.com.** Measuring the offers page
+I listed what it requests: our page's scripts call www.lufthansa.com directly (scripts/lh-data.js direct routes; 23
+requests on /de/en/book/flights/offers: defaultAirport, catalogs, labels, the destination finder) and lh-proxy, which
+forwards to www. Neither tools/parity/capture.js nor my measuring scripts blocked them, so my captures of our pages
+in every order sent such requests from my browser (the ones I could see failed in the browser; whether www answered
+others I cannot tell now; the offers grid was empty with and without them). My earlier final sections said "no
+request to any airline host from me"; that was wrong for these page-originated requests. Fixed (69745426, test first):
+capture.js aborts, for a capture of our hosts, every request that is not to our hosts, OneTrust's consent hosts, data:
+or blob:, and blocks service workers. Chrome's --host-resolver-rules were tried first and do not work here: the
+environment's HTTP proxy resolves the host (example.com still loaded). My scratch scripts launch with a PAC that sends
+everything but our hosts to a closed port; checked on the offers page (24 requests stopped, none answered from an
+airline host) and with example.com (refused). Other tools that open our pages in a browser (the import helper's,
+tools/importer/test-widgets.mjs, axe runs) are not changed and may do the same; worth the helper's look.
+
+1. **heading-size-marks-apply.mjs keeps DA's escaping byte for byte** (22852472, test first: a fixture with an href's
+   `&amp;`, `&quot;`, `&nbsp;`, `&gt;` and DA's page frame). The tool finds the heading with linkedom as before but
+   inserts the marker into DA's source text before the heading's end tag instead of serialising linkedom's tree;
+   one-element-view-apply.mjs the same way. Still serialising linkedom's tree (same risk, not changed):
+   text-spacers-apply.mjs and b2b-view-spacers-apply.mjs.
+2. **Discover's offers page back in the gate.** Our grid stays empty on every host: its offers come from a price route
+   (lh-data.js isLiveOnlyRoute), which by design is never answered from a recording, and www cannot be asked from here.
+   So our page is 2,432 / 2,339 px (de/de 1440 / 390) and 2,494 / 2,543 (de/en) against www's 60,750 / 115,419 and
+   60,839 / 108,366. Measured whole (compare.js cannot decode 60,000-px pictures in this memory, ImageMagick's policy
+   stops at 16,000 px: a streamed band-by-band comparison, logs/p4/so12/tiled-compare.mjs, the same number as one
+   compare.js run on a normal page, 14.25 = 14.25):
+
+   | page | 1440 | 390 |
+   |---|---|---|
+   | /de/de/book/flights/offers | 33.30 | 34.65 |
+   | /de/en/book/flights/offers | 33.20 | 36.62 |
+
+   The part above the grid (header, breadcrumb, title; 278 px): 2.90 / 6.28 and 2.35 / 4.89. Note on the recording:
+   it ends inside the grid (its last 4,000 px are offer tiles, no footer), so our footer is compared with tiles. The
+   4 page-widths are in the Discover gate from now on (measured band by band); nothing in the page's CSS can close
+   a gap that is the 591 offers themselves.
+4. **B2B's two gaps.** b2b-parity-006 was in the gates already; its sha256 now on record. b2b-parity-002's 4
+   page-widths (lufthansa-group-airlines) back in the B2B gate (153 page-widths): de/de 1440 20.20, 390 39.69; de/en
+   1440 10.18, 390 38.57. At 390 ours is about 300 px longer: the section's title 102 px lower (a spacer and the view
+   mark under the intro text) and the first card title on two lines where www has one (same box, 346 px; font size
+   24.07 against 24.06 px), then 27 px per card.
