@@ -5,3 +5,12 @@
 # host: www.discover-airlines.com
 /de/de/book/flights/offers
 /de/en/book/flights/offers
+# Standing order 13 (2026-11-13): businesstogo's tab set on a phone. Every recording has 390 from the 1440 load resized
+# (b2b-parity-003, -005, -006), and they disagree on the first tab item at 390 (-006 has "Travel Manager" open, 647 px;
+# -005 none). Please record 390 as a phone's own first load (a fresh 390x844 page, nothing clicked), and 1440 as usual;
+# that decides whether our phone default (every item closed) is www's. At 390 these four are 626 px shorter than -006.
+# host: business.lufthansagroup.com
+/de/de/program/businesstogo
+/de/en/program/businesstogo
+/xx/de/program/businesstogo
+/xx/en/program/businesstogo
