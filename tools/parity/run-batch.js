@@ -22,6 +22,9 @@
  * --only: work only on job ids matching the regex (e.g. after --reset, to re-check one page).
  * --reset: marks the EDS captures (and compares) of matching ids pending again, e.g. after a fix
  *   was deployed; --recompare clears only the compares. Both just edit progress.json and exit.
+ * Cut-off captures: compare.js cuts the taller image to a capture marked cut off (capture.js's
+ *   "truncated", a source export's capture.json, a drop's manifest.json); progress keeps "cut".
+ *   After this rule came in (2026-11-13), --recompare . redoes old compares without a browser.
  * Masks: the boxes capture.js stored in the EDS (and a captured source's) <out>.json
  *   "liveBoxes" are passed to compare.js --mask, unless --no-mask.
  *
@@ -353,6 +356,7 @@ function runCompare(item) {
     heightA: r.heightA,
     heightB: r.heightB,
     heightDiffRatio: r.heightDiffRatio,
+    cut: r.cut || undefined,
     firstDivergentBand: r.firstDivergentBand,
     worstBands: r.worstBands.map(({ y, unmaskedRatio }) => ({ y, unmaskedRatio })),
     bandHeight: r.bandHeight,

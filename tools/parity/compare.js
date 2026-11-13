@@ -12,6 +12,15 @@
  *   boxes are in the cropped coordinates (those of the replica).
  * Both images are padded with white to the larger width/height, so a page that is too short or too
  * long shows up as mismatch at the bottom.
+ * A capture marked cut off (www's recordings stop at 8000 px) is the exception: the other image,
+ *   when taller, is cut to its height first, so what lies below the cut is not counted (a page
+ *   shorter than the cut still counts its missing part). Cut off means, in this order:
+ *   --a-truncated / --b-truncated; capture.js's <png>.json "truncated"; a source export's
+ *   capture.json beside the png (widths[w].file, "truncated"); a drop's manifest.json beside the
+ *   png or one folder up (pages[].widths[w].png, its measurements' scrollHeight taller than the
+ *   png). --no-cut keeps the padding. Output: "cut" {image, from, to, reason} or null,
+ *   truncatedA / truncatedB (true, false or null when unknown); heightA / heightB stay the images'
+ *   own heights.
  * --mask (repeatable): a JSON file with boxes in document coordinates, either an array of
  *   {x, y, width, height} or an object with "liveBoxes" or "boxes" (so capture.js's <out>.json can
  *   be passed as is). The boxes are painted the same grey in BOTH images before diffing, so
@@ -23,7 +32,7 @@
  *   maskedPixels, maskRatio, maskBoxes
  *   bands            [{index, y, ratio, unmaskedRatio}] per --band px horizontal strip
  *   worstBands       top 3 bands by unmaskedRatio
- *   heightDiffRatio  |heightA - heightB| / max(heightA, heightB)
+ *   heightDiffRatio  |heightA - heightB| / max(heightA, heightB) of the images compared (cut)
  *   firstDivergentBand {index, y, unmaskedRatio} of the first band above --diverge (where the
  *                    layout starts to diverge), or null
  * Also usable as a module: const { compareImages, comparePngs } = require('./compare.js').
@@ -223,6 +232,94 @@ function comparePngs(imgA, imgB, {
   return { result, diff };
 }
 
+const readJsonFile = (file) => {
+  try {
+    return JSON.parse(fs.readFileSync(file, 'utf8'));
+  } catch (e) {
+    return null;
+  }
+};
+
+/** A png's height from its header, or null (not a png). */
+function pngHeight(file) {
+  const fd = fs.openSync(file, 'r');
+  try {
+    const head = Buffer.alloc(24);
+    fs.readSync(fd, head, 0, 24, 0);
+    return head.readUInt32BE(0) === 0x89504e47 ? head.readUInt32BE(20) : null;
+  } finally {
+    fs.closeSync(fd);
+  }
+}
+
+/**
+ * Whether the capture in `file` is cut off, from its metadata: capture.js's <file>.json, a source
+ * export's capture.json beside it, a drop's manifest.json beside it or one folder up.
+ * @param {string} file the png (or jpeg)
+ * @param {number} [height] its height in px (read from a png's header when not given)
+ * @returns {boolean|null} null when no metadata names the file
+ */
+function readTruncated(file, height) {
+  const own = readJsonFile(`${file}.json`);
+  if (own && typeof own.truncated === 'boolean') return own.truncated;
+  const dir = path.dirname(file);
+  const name = path.basename(file);
+  const cap = readJsonFile(path.join(dir, 'capture.json'));
+  if (cap && cap.widths && typeof cap.widths === 'object') {
+    const w = Object.values(cap.widths).find((x) => x && x.file && path.basename(x.file) === name);
+    if (w && typeof w.truncated === 'boolean') return w.truncated;
+  }
+  const found = [dir, path.dirname(dir)].map((d) => [d, readJsonFile(path.join(d, 'manifest.json'))])
+    .find(([, m]) => m && Array.isArray(m.pages));
+  if (found) {
+    const [root, manifest] = found;
+    const rel = path.relative(root, file).split(path.sep).join('/');
+    const w = manifest.pages.flatMap((p) => Object.values((p && p.widths) || {}))
+      .find((x) => x && (x.png === rel || x.png === name));
+    if (w && w.measurements) {
+      const m = readJsonFile(path.join(root, w.measurements));
+      if (m && Number.isFinite(m.scrollHeight)) {
+        const h = Number.isFinite(height) ? height : pngHeight(file);
+        if (Number.isFinite(h)) return m.scrollHeight > h + 1;
+      }
+    }
+  }
+  return null;
+}
+
+/** Copy of the top `height` rows of img. */
+function cutRows(img, height) {
+  const out = new PNG({ width: img.width, height });
+  PNG.bitblt(img, out, 0, 0, img.width, height, 0, 0);
+  return out;
+}
+
+/**
+ * The taller image cut to the height of a cut-off one (inputs not modified).
+ * @returns {{imgA, imgB, cut: null|{image: 'a'|'b', from: number, to: number, reason: string}}}
+ */
+function cutToRecording(imgA, imgB, { truncatedA, truncatedB } = {}) {
+  if (truncatedA === true && imgB.height > imgA.height) {
+    return {
+      imgA,
+      imgB: cutRows(imgB, imgA.height),
+      cut: {
+        image: 'b', from: imgB.height, to: imgA.height, reason: 'a cut off',
+      },
+    };
+  }
+  if (truncatedB === true && imgA.height > imgB.height) {
+    return {
+      imgA: cutRows(imgA, imgB.height),
+      imgB,
+      cut: {
+        image: 'a', from: imgA.height, to: imgB.height, reason: 'b cut off',
+      },
+    };
+  }
+  return { imgA, imgB, cut: null };
+}
+
 /**
  * Compares two image files and writes the diff PNG plus <out>.json.
  * @param {{a: string, b: string, out: string, masks?: string[], threshold?: number,
@@ -232,12 +329,19 @@ function comparePngs(imgA, imgB, {
  */
 function compareImages({
   a, b, out, masks = [], threshold, bandHeight, divergeThreshold, cropA,
+  cut = true, truncatedA, truncatedB,
 }) {
   const crop = parseCrop(cropA);
-  const imgA = cropImage(readImage(a), crop);
+  const rawA = readImage(a);
+  const imgA = cropImage(rawA, crop);
   const imgB = readImage(b);
   const boxes = masks.flatMap(loadMask);
-  const { result, diff } = comparePngs(imgA, imgB, {
+  const known = (given, file, height) => (typeof given === 'boolean' ? given : readTruncated(file, height));
+  const truncA = known(truncatedA, a, rawA.height);
+  const truncB = known(truncatedB, b, imgB.height);
+  const cutImgs = cut ? cutToRecording(imgA, imgB, { truncatedA: truncA, truncatedB: truncB })
+    : { imgA, imgB, cut: null };
+  const { result, diff } = comparePngs(cutImgs.imgA, cutImgs.imgB, {
     threshold, bandHeight, divergeThreshold, masks: boxes,
   });
   const full = {
@@ -247,6 +351,11 @@ function compareImages({
     maskFiles: masks.map((m) => path.resolve(m)),
     cropA: crop,
     ...result,
+    heightA: imgA.height,
+    heightB: imgB.height,
+    truncatedA: truncA,
+    truncatedB: truncB,
+    cut: cutImgs.cut,
   };
   mkdirp(path.dirname(path.resolve(out)));
   fs.writeFileSync(out, PNG.sync.write(diff));
@@ -255,7 +364,15 @@ function compareImages({
 }
 
 module.exports = {
-  compareImages, comparePngs, readImage, loadMask, parseCrop, cropImage, DIVERGE_THRESHOLD,
+  compareImages,
+  comparePngs,
+  readImage,
+  loadMask,
+  parseCrop,
+  cropImage,
+  cutToRecording,
+  readTruncated,
+  DIVERGE_THRESHOLD,
 };
 
 if (require.main === module) {
@@ -268,7 +385,10 @@ if (require.main === module) {
     threshold: { type: 'string', default: '0.1' },
     band: { type: 'string', default: '200' },
     diverge: { type: 'string', default: String(DIVERGE_THRESHOLD) },
-  }, ['a', 'b', 'out'], 'node tools/parity/compare.js --a src.png --b eds.png --out diff.png [--crop-a top=98,right=15] [--mask boxes.json ...] [--threshold 0.1] [--band 200] [--diverge 0.3]');
+    'a-truncated': { type: 'boolean' },
+    'b-truncated': { type: 'boolean' },
+    'no-cut': { type: 'boolean', default: false },
+  }, ['a', 'b', 'out'], 'node tools/parity/compare.js --a src.png --b eds.png --out diff.png [--crop-a top=98,right=15] [--mask boxes.json ...] [--threshold 0.1] [--band 200] [--diverge 0.3] [--a-truncated] [--b-truncated] [--no-cut]');
   try {
     const res = compareImages({
       a: args.a,
@@ -279,6 +399,9 @@ if (require.main === module) {
       threshold: Number(args.threshold),
       bandHeight: Number(args.band),
       divergeThreshold: Number(args.diverge),
+      cut: !args['no-cut'],
+      truncatedA: args['a-truncated'] ? true : undefined,
+      truncatedB: args['b-truncated'] ? true : undefined,
     });
     const { bands, ...summary } = res;
     console.log(JSON.stringify(summary));

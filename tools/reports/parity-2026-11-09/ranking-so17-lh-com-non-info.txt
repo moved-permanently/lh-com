@@ -1,11 +1,11 @@
-# lufthansa.com non-info page-widths ranked by distance from www (standing order 17 of 2026-11-13, item 2). Expected change: none from this list by itself; it ranks and names causes. One per-page cause has a delta on DA's copy: /de/en/overview-manage, delta-so17-lh-com-overview-manage.txt (READY, 1440 20.65 -> 2.99, 390 39.88 -> 5.86). No code change: the shared causes found are not in our code (the capture blocks www's fares API and apps; www's recordings stop at 8000 px).
+# lufthansa.com non-info page-widths ranked by distance from www (standing order 17 of 2026-11-13, item 2). Expected change: none from this list by itself; it ranks and names causes. One per-page cause found: /de/en/overview-manage, on the owner's do-not-touch list (order 18): explained only, no delta row. No code change: the shared causes found are not in our code (the capture blocks www's fares API and apps; www's recordings stop at 8000 px).
 # measured: https://main--lh-com--moved-permanently.aem.live (headless chrome, guard on, www fonts from the drops) against the lh-parity-002a-d/003/004a/004b recordings; 410 page-widths, 378 pages minus 173 info pages (ema-adobe). "capped": www's recording stops at 8000 px; compared again with ours cut to 8000 px (compare.js pads the shorter image white).
 # columns: path	width	template	pct	pct on the first 8000 px (capped recordings)	height www	height ours	cause
 /de/en/flights	390	hub	47.39	47.39	8000	5404	live data: www's fare grid (about 80 destination tiles from its fares API); ours says no results, the API being blocked in captures
 /de/de/fluege	390	hub	47.32	47.32	8000	5370	live data: www's fare grid (about 80 destination tiles from its fares API); ours says no results, the API being blocked in captures
 /at/de/fluege	390	hub	47.27	47.27	8000	5450	live data: www's fare grid (about 80 destination tiles from its fares API); ours says no results, the API being blocked in captures
 /gb/en/flights	390	hub	46.59	46.59	8000	5243	live data: www's fare grid (about 80 destination tiles from its fares API); ours says no results, the API being blocked in captures
-/de/en/overview-manage	390	hub	39.88		4356	4506	per page: DA's copy has a picture on the Check-in card www does not show (gb/en's copy has the cell empty); delta-so17-lh-com-overview-manage.txt READY (1440 2.99, 390 5.86)
+/de/en/overview-manage	390	hub	39.88		4356	4506	per page: DA's copy has a picture on the Check-in card www does not show (gb/en's copy has the cell empty); the page is on the owner's do-not-touch list: explained only, no row (order 18)
 /de/en/flights	1440	hub	39.50	39.50	8000	4082	live data: www's fare grid (about 80 destination tiles from its fares API); ours says no results, the API being blocked in captures
 /at/de/fluege	1440	hub	39.21	39.21	8000	4057	live data: www's fare grid (about 80 destination tiles from its fares API); ours says no results, the API being blocked in captures
 /de/de/fluege	1440	hub	38.81	38.81	8000	3910	live data: www's fare grid (about 80 destination tiles from its fares API); ours says no results, the API being blocked in captures
@@ -28,7 +28,7 @@
 /de/en/articles/tags/munich	390	insights	26.88	20.84	8000	8795	unsampled: same height, diverges from y 1000
 /de/de/articles/tags/allegris	1440	insights	20.75		7467	7370	unsampled: same height, diverges from y 4800
 /at/de/articles/tags/allegris	1440	insights	20.74		7467	7370	unsampled: same height, diverges from y 4800
-/de/en/overview-manage	1440	hub	20.65		3284	3350	per page: DA's copy has a picture on the Check-in card www does not show (gb/en's copy has the cell empty); delta-so17-lh-com-overview-manage.txt READY (1440 2.99, 390 5.86)
+/de/en/overview-manage	1440	hub	20.65		3284	3350	per page: DA's copy has a picture on the Check-in card www does not show (gb/en's copy has the cell empty); the page is on the owner's do-not-touch list: explained only, no row (order 18)
 /de/en/articles/explore-flying	390	insights	20.62		6633	6791	unsampled: same height, diverges from y 5400
 /de/en/articles/explore-the-world/be-picky-barcelona-insider-tips	390	insights	20.11		7635	7698	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
 /de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day	1440	insights	19.81	19.81	8000	7927	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
