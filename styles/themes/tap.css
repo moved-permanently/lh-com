@@ -3109,6 +3109,33 @@ body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.4086 22H6L10.5249 12.2992C10.6133 12.1099 10.6133 11.8904 10.5249 11.7008L6 2H13.4086L17.9335 11.7008C18.0222 11.8904 18.0222 12.1099 17.9335 12.2992z'/%3E%3C/svg%3E") center / 16px no-repeat;
 }
 
+/* the tier cards spaced as www's card markup (the same on builds PJpl4JX and sJsYPUB; standing order 20): the card
+   component 64 px under the intro from 728 px (www's components 64 apart; the title-with-description 32 px rule does not
+   hold here: www's intro is a rich text of its own), the logo in a 72 px box (h-[72px]), 32 px from the logo to the title
+   and from the title to the list (gap-4 + mt-4), each line 24 px high (its 24 px chevron). A plain cards block only
+   (miles-and-go: 1440 -1.62 -> +0.34 %, 390 -0.68 -> +0.19) */
+@media (width >= 728px) {
+  body.brand-tap :where(header:not(.tap-home)) ~ main > .section > .default-content-wrapper + .cards-wrapper:has(> .cards:not(.one-up, .two-up, .three-up, .four-up) > ul > li > .cards-card-image) {
+    margin-top: 64px;
+  }
+}
+
+body.brand-tap .cards:not(.one-up, .two-up, .three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-image {
+  min-height: 72px;
+}
+
+body.brand-tap .cards:not(.one-up, .two-up, .three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-body {
+  margin-top: 32px;
+}
+
+body.brand-tap .cards:not(.one-up, .two-up, .three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-body > :is(h2, h3, h4) + ul {
+  margin-top: 32px;
+}
+
+body.brand-tap .cards:not(.one-up, .two-up, .three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-body li {
+  min-height: 24px;
+}
+
 body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-body > p:last-child {
   margin: 0;
   text-align: center;
