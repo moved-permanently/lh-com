@@ -16,3 +16,14 @@
 /be/en/articles/valencia-like-a-local
 /be/en/articles/vilnius-steals-your-heart
 /be/en/articles/your-summer-in-athens-starts-here
+
+# TAP (standing order 19, item 3): www's banner slides changed between its builds: the recordings of 2026-11-09 / 10
+# (tap-parity-001, -002, -004, build PJpl4JX) cap a banner at 259 px on phones; those of 2026-11-11 (-007, -009, build
+# sJsYPUB) at 310 px from 376 px (max-h-[259px] min-[376px]:max-h-[310px]). The 310 px rule brings the new-build pages
+# closer (doacao-milhas 390 -1.41 -> -0.35 %, stopover/partners -1.37 -> +0.06) and moves the old-build ones away
+# (miles-and-go -0.19 -> +0.88, inspire-se +0.55 -> +1.56); held until these pages are recorded on today's build.
+# host: www.flytap.com
+/en-pt/miles-and-go
+/pt-pt/destinos/inspire-se
+/en-pt/destinations/get-inspired
+/en-pt
