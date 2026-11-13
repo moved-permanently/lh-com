@@ -3525,3 +3525,33 @@ left as it is (yours). The 2026-11-07 autostash left alone.
      step load the airline's www on purpose (the helper's captures, through Bright Data); tools/market-diff
      (md-fetch.mjs, md-render-check.mjs, lib/browser.mjs) reads www's pages on purpose. The accessibility runs are
      scratch scripts of mine in logs/axe, not repo tools; the a11y tests use no browser.
+3. **Group for Business and Discover further** (fresh baselines on main: Discover 48 page-widths, sum 838.8, as order
+   12 left it; B2B 153, sum 1868.3). Each change measured with the local code on our host's content, all page-widths.
+   - Discover's stage under the breadcrumb (084eb894, test first): on all 12 recorded stage pages at 1440 www's stage
+     picture starts 6 px lower (y 192, ours 186, as the title in order 12); where the stage is a section of its own,
+     www's next text starts 36 px under it (ours the 56 px section gap) and the title there keeps 60 px under it.
+     From 768 px; the 36 / 60 not where a tab set follows the title's section (with it check-in-at-the-airport was
+     +0.51). 12 better, none worse (punta-cana 1440 -2.0 / -3.3, business-class -2.0 / -1.8, santorini -1.7 / -0.5,
+     check-in -0.8 / -1.6, customer-service -1.2 / -1.1, check-in-at-the-airport -0.7 / -0.7).
+   - B2B's title under the breadcrumb 2 px lower from 768 px (9e34a936, test first): 2 px higher than www's on 31 of
+     40 page-widths at 1440 and 49 of 59 at 390, its margins www's. At 1440 23 better, none worse (experts/news -6.0
+     / -5.4, about-us -2.6). At every width also 29 phone page-widths better, but SWISS Senses intermediaries xx/de
+     390 +0.76 (its title a line longer than www's: www lets LANGSTRECKENERLEBNIS overflow, ours breaks it, as
+     decided before), so phones are left.
+   - Capture request (a401b045): businesstogo's four pages at 390 as a phone's own first load; every recording takes
+     390 from the 1440 load resized, and -005 / -006 disagree on the first tab item (ours 626 px shorter than -006).
+   - Measured and not kept (gate):
+     - Discover's Columns Media rows 80 px apart from 768 px (www's rows are column views, 40 px above and below:
+       santorini's picture rows 79 / 80 px, ours 66): 5 better, 4 worse (santorini de/de 1440 +2.2, families de/de
+       +2.1); the pages already longer than www's get worse.
+     - Discover's tab set 104 px above its panel from 768 px (www's panel 104 px under the tabs on
+       check-in-at-the-airport, ours 56): business-class 1440 -7.0 / -5.5, but check-in-at-the-airport +4.8 and
+       santorini +5.0; there the headings then line up, and our large cell headings (below) misplace the rest.
+     - Discover's stage 8 px lower on phones (www 212, ours 204 on all 10): 7 better, santorini de/en 390 +0.76.
+     - A delta list for Discover's cell headings (HOLD, not written as a list): www writes 33 headings on 15 recorded
+       documents in heading-copytext-large or heading-small where ours render the default 28 / 36 px (entertainment,
+       families, check-in, check-in-at-the-airport, baggage, business-class, the homepage's and punta-cana's section
+       titles); www's sizes even differ between de/de and de/en, so they are per document. With the markers 8 better,
+       17 worse (check-in de/de 1440 +9.8, though its page now looks like www's: the cards under it then sit 41 px
+       high), with the 80 px rows too 9 better, 16 worse. These causes offset each other on most pages; one at a
+       time each fails the gate, and the gate is per page-width.
