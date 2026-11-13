@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-app-entry.js
-  var tmp_bundle_app_entry_261649_exports = {};
-  __export(tmp_bundle_app_entry_261649_exports, {
-    default: () => tmp_bundle_app_entry_261649_default
+  var tmp_bundle_app_entry_278598_exports = {};
+  __export(tmp_bundle_app_entry_278598_exports, {
+    default: () => tmp_bundle_app_entry_278598_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -2811,6 +2811,14 @@ var CustomImportScript = (() => {
       else if (variants.join(" ") === "grid four-up" && element.hasAttribute("data-import-phone-slider")) variants.push("phone-slider");
       if (variants.includes("phone-slider") && element.querySelector(".experiencefragment .teaser, .cmp-experiencefragment .teaser")) variants.push("fragment-slides");
       const block2 = WebImporter.Blocks.createBlock(document, { name: "carousel-cards", variants, cells: rows });
+      const column = element.getAttribute("data-lh-column");
+      if (column && titles.length) {
+        const wrap = document.createElement("div");
+        wrap.setAttribute("data-lh-column", column);
+        wrap.append(...titles, block2);
+        element.replaceWith(wrap);
+        return;
+      }
       element.replaceWith(...titles, block2);
       return;
     }
@@ -3533,6 +3541,19 @@ var CustomImportScript = (() => {
       if (!start || !start.matches(`${FLOW_COLUMN}, .onecolumn`) || start.querySelector(".container-gray")) return null;
       return infos.map((i) => i.marker);
     }
+    if (flow && prev && !next && prev.matches(FLOW_COLUMN) && run.every((sep) => separatorInline(sep) !== null)) {
+      const aem = parent.closest(".container-content > .section");
+      if (!aem || aem.querySelector(":scope > .mb-default")) return null;
+      let after = aem.nextElementSibling;
+      while (after && isEmpty(after)) after = after.nextElementSibling;
+      const inner = after && after.matches(".section") ? after.firstElementChild : null;
+      if (!inner || inner.classList.contains("mb-default") || inner.classList.contains("container-gray")) return null;
+      const content = inner.querySelector(":scope > .section-content");
+      if (!content || content.classList.contains("section-padding-y-regular")) return null;
+      const start = content.firstElementChild;
+      if (!start || !start.matches(FLOW_COLUMN) || !start.querySelector(":scope > .column-view.container-gray")) return null;
+      return infos.map((i) => i.marker);
+    }
     if (prev && !next && prev.matches(".headline")) {
       const aem = parent.closest(".container-content > .section");
       if (!aem || !aem.querySelector(":scope > .mb-default")) return null;
@@ -3870,7 +3891,8 @@ var CustomImportScript = (() => {
       const parent = root.parentElement;
       if (!nested && root.closest(".container-gray") && parent.matches(".section-content") && [...parent.children].filter((c) => !isEmpty(c)).length === 1) return false;
       const block = blockOf2(root);
-      if (block && block !== "columns-media") return false;
+      const cardView = block === "carousel-cards" && template.name === "info" && kind === "sc" && !nested && titled(view);
+      if (block && block !== "columns-media" && !cardView) return false;
       if (block && kind === "sc" && !nested && !titled(view)) return false;
       root.setAttribute(COLUMN_ATTR, kind);
       marked += 1;
@@ -5075,6 +5097,21 @@ var CustomImportScript = (() => {
           const own = prev && paddedBreaks.get(prev);
           if (!own || padded(s) || grey(s) || isStage(s) || s.querySelector(`hr[${BREAK}]`) || prev.querySelector(`hr[${BREAK}]`)) return;
           s.before(createBreak(document));
+          const gap = prev.querySelector(":scope > .mb-default") ? "spaced" : "flush";
+          if (!/ (spaced|flush)$/.test(own.getAttribute(SOURCE_STYLE))) own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${gap}`);
+        });
+      }
+      if (lufthansa && template.name === "info") {
+        aemSections.forEach((s, i) => {
+          const prev = aemSections[i - 1];
+          const next = aemSections[i + 1];
+          if (!prev || !next || padded(s) || grey(s) || isStage(s) || !s.querySelector(":scope > .mb-default")) return;
+          if (!padded(prev) || grey(prev) || isStage(prev) || !padded(next) || grey(next)) return;
+          const own = paddedBreaks.get(prev);
+          if (!own || s.querySelector(`hr[${BREAK}]`) || prev.querySelector(`hr[${BREAK}]`)) return;
+          const hr = createBreak(document);
+          hr.setAttribute(SOURCE_STYLE, "spaced");
+          s.before(hr);
           const gap = prev.querySelector(":scope > .mb-default") ? "spaced" : "flush";
           if (!/ (spaced|flush)$/.test(own.getAttribute(SOURCE_STYLE))) own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${gap}`);
         });
@@ -6551,7 +6588,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_app_entry_261649_default = {
+  var tmp_bundle_app_entry_278598_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -6591,5 +6628,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_app_entry_261649_exports);
+  return __toCommonJS(tmp_bundle_app_entry_278598_exports);
 })();

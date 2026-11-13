@@ -73,8 +73,8 @@ const PAGE = [
   aem('<div class="headline"><h2>Technical data</h2></div><div class="text"><p>Data</p></div>'),
 ].join('');
 
-const run = (name) => {
-  const { document } = parseHTML(`<html><body><main><div class="container-content">${PAGE}</div></main></body></html>`);
+const run = (name, page = PAGE) => {
+  const { document } = parseHTML(`<html><body><main><div class="container-content">${page}</div></main></body></html>`);
   const main = document.querySelector('main');
   document.createRange = () => rangeFor(document);
   const order = () => {
@@ -105,7 +105,9 @@ test('fleet: the unpadded AEM section after a padded one is a section of its own
   assert.ok(!s[2].style.includes('padded'), 'the unpadded one has no padding of its own');
 });
 
+// (standing order 18: on info pages an unpadded AEM section between two padded ones is split too,
+// test/info-padded-sandwich-so18; this one is the last before the page's end there)
 test('info as before: the unpadded AEM section stays with the padded one before it', () => {
-  const s = run('info');
+  const s = run('info', PAGE.slice(0, PAGE.lastIndexOf('<div class="section">')));
   assert.ok(s.some((x) => x.text === 'Characteristics New engines Quietest cabin Cabin'), JSON.stringify(s));
 });

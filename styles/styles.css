@@ -1223,6 +1223,14 @@ main > .section.padded.flush {
   margin-bottom: 0;
 }
 
+/* spaced on an unpadded section between two padded ones (importer, standing order 18): its own
+   .mb-default (2.4rem) before the next padding, not the section gap (/de/en/passengers-with-
+   sensory-impairment "Travelling with a companion", then the assistance-dog section 66px lower
+   than www's) */
+main > .section.spaced:not(.padded, .grey, .stage, .campaign-section) {
+  margin-bottom: var(--spacing-default);
+}
+
 /* full-bleed: .section-wide, no side paddings */
 main > .section.full-bleed > div {
   max-width: none;
@@ -1419,6 +1427,15 @@ body.brand-lufthansa main > .section:last-child > .default-content-wrapper:last-
   body.brand-lufthansa main > .section:last-child > div + .default-content-wrapper:last-child:has(> p.copytext-small + p.link-wrapper:last-child a[href*="/modals/"]) {
     margin-top: 73px;
   }
+}
+
+/* a separator wrapper that ends its section ("a wrapper of separator paragraphs only" above)
+   after a padded Columns Media, before a grey column band: www's view padding, then its
+   separator (.hr-no-layout's inline margin), then the band; the block's 8px bottom is inside
+   that padding too (standing order 18, /de/en/childrens-menus-on-board: "Catering on
+   board" 0 / +2px off www's at 1440 / 390, 17 / 15px higher without the separator) */
+body.brand-lufthansa main > .section:has(+ .section.grey.column-band) > .columns-media-wrapper:has(> .columns-media.padded) + .default-content-wrapper:last-child:not(:has(> :not(p.spacer))) {
+  margin-top: -24px;
 }
 
 /* separators ("{spacer-N}" / "{divider-N}" paragraphs, scripts.js): .separator .hr is a 1px

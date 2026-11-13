@@ -246,6 +246,17 @@ export default function parse(element, { document }) {
     // much lower (brief 506; the block's CSS per brand): option fragment-slides
     if (variants.includes('phone-slider') && element.querySelector('.experiencefragment .teaser, .cmp-experiencefragment .teaser')) variants.push('fragment-slides');
     const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-cards', variants, cells: rows });
+    // a titled column view the cleanup marked for its padding (data-lh-column, info: special-meals'
+    // "More information about our in-flight menus"): the title and the block stay in an element that
+    // carries the mark, so the cleanup writes "{column-start}" / "{column-end}" around them (as columns-media)
+    const column = element.getAttribute('data-lh-column');
+    if (column && titles.length) {
+      const wrap = document.createElement('div');
+      wrap.setAttribute('data-lh-column', column);
+      wrap.append(...titles, block);
+      element.replaceWith(wrap);
+      return;
+    }
     element.replaceWith(...titles, block);
     return;
   }

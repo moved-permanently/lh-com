@@ -633,6 +633,22 @@ function missingSeparatorMarkers(run, flow, template) {
     if (!start || !start.matches(`${FLOW_COLUMN}, .onecolumn`) || start.querySelector('.container-gray')) return null;
     return infos.map((i) => i.marker);
   }
+  // info (flow spacing): the same separator right after a column view, before a new AEM section without .mb-default that
+  // opens with a grey column view (standing order 18: childrens-menus-on-board's Kids Box view, then the "Catering on
+  // board" band 17px higher than www's). The band is a section of its own, so "{spacer-N}" ends the view's section
+  if (flow && prev && !next && prev.matches(FLOW_COLUMN) && run.every((sep) => separatorInline(sep) !== null)) {
+    const aem = parent.closest('.container-content > .section');
+    if (!aem || aem.querySelector(':scope > .mb-default')) return null;
+    let after = aem.nextElementSibling;
+    while (after && isEmpty(after)) after = after.nextElementSibling;
+    const inner = after && after.matches('.section') ? after.firstElementChild : null;
+    if (!inner || inner.classList.contains('mb-default') || inner.classList.contains('container-gray')) return null;
+    const content = inner.querySelector(':scope > .section-content');
+    if (!content || content.classList.contains('section-padding-y-regular')) return null;
+    const start = content.firstElementChild;
+    if (!start || !start.matches(FLOW_COLUMN) || !start.querySelector(':scope > .column-view.container-gray')) return null;
+    return infos.map((i) => i.marker);
+  }
   if (prev && !next && prev.matches('.headline')) {
     const aem = parent.closest('.container-content > .section');
     if (!aem || !aem.querySelector(':scope > .mb-default')) return null;
@@ -1103,7 +1119,11 @@ function markColumnViews(document, payload) {
     if (!nested && root.closest('.container-gray') && parent.matches('.section-content')
       && [...parent.children].filter((c) => !isEmpty(c)).length === 1) return false;
     const block = blockOf(root);
-    if (block && block !== 'columns-media') return false;
+    // carousel-cards: a titled view of an AEM section only, lufthansa.com's info template (standing order 16,
+    // special-meals' card view after the grey band; the brands' info-based templates unmeasured); its parser keeps
+    // the mark around the title and the block
+    const cardView = block === 'carousel-cards' && template.name === 'info' && kind === 'sc' && !nested && titled(view);
+    if (block && block !== 'columns-media' && !cardView) return false;
     if (block && kind === 'sc' && !nested && !titled(view)) return false;
     root.setAttribute(COLUMN_ATTR, kind);
     marked += 1;

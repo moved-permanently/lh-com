@@ -400,6 +400,27 @@ export default function transform(hookName, element, payload) {
         if (!/ (spaced|flush)$/.test(own.getAttribute(SOURCE_STYLE))) own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${gap}`);
       });
     }
+    // info (standing order 18): an unpadded AEM section with .mb-default between two padded ones (none grey, neither a
+    // stage): www draws the earlier one's bottom padding above it and only its own .mb-default (2.4rem) under it, not the
+    // padding after it plus our section gap (/de/en/passengers-with-sensory-impairment "Travelling with a companion": the
+    // next section 66px lower than www's). It starts a section of its own with style spaced (lufthansa.com's pages); the
+    // padded one before keeps spaced or flush
+    if (lufthansa && template.name === 'info') {
+      aemSections.forEach((s, i) => {
+        const prev = aemSections[i - 1];
+        const next = aemSections[i + 1];
+        if (!prev || !next || padded(s) || grey(s) || isStage(s) || !s.querySelector(':scope > .mb-default')) return;
+        // (not after a stage: its own spacing rules, tips-senior-travellers unmeasured)
+        if (!padded(prev) || grey(prev) || isStage(prev) || !padded(next) || grey(next)) return;
+        const own = paddedBreaks.get(prev);
+        if (!own || s.querySelector(`hr[${BREAK}]`) || prev.querySelector(`hr[${BREAK}]`)) return;
+        const hr = createBreak(document);
+        hr.setAttribute(SOURCE_STYLE, 'spaced');
+        s.before(hr);
+        const gap = prev.querySelector(':scope > .mb-default') ? 'spaced' : 'flush';
+        if (!/ (spaced|flush)$/.test(own.getAttribute(SOURCE_STYLE))) own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${gap}`);
+      });
+    }
     // the page title in a padded first AEM section (info: /book-and-manage/pax-receipt, whose
     // passenger receipt form is an app widget that is not imported): style padded there too, the
     // title 2rem / 4rem lower as on live (styles.css keeps the breadcrumb at the top)
