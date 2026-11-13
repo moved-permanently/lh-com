@@ -4141,3 +4141,15 @@ content for the helper's run), the CSS override folders, drafts, measuring scrip
 
 **Process, requests:** only our hosts, the drop and DA (one GET of the strollers copy from my session, not from tests);
 no request to an airline host; no da-upload.mjs call, no upload, preview or publish by me.
+
+**The last push of standing order 9 (owed, standing order 10, item 1):** the ship script's three tries for the parser
+commit were all refused (main busy; npm run lint exit 0 after each retry rebase), so it was pushed by hand: rebased
+on 8f2570c2, `npm run lint` exit 0 read, pushed as 1f6b6a94 (2026-11-13, about 05:15 UTC). After it: GitHub Build success;
+the smoke of 14 hosts 0 differences (against the ship's before-smoke); the full suite on the pushed tree 3973 pass, 0
+fail (finished 05:50 UTC, after the push, as the rebase had brought 8f2570c2 in).
+
+## Standing order 10 of 2026-11-13 (from about 07:10 CET to 12:00 CET)
+
+**At the start:** nothing of mine uncommitted or unpushed; `.migration/project.json` (the lh-tap entry from outside my
+orders) and `.scratch/` (excluded from git: swiss-parity-006 / -007, DA's strollers copy and the delta's output, drafts,
+scripts, logs) left as they are. The bundle rebuild for 1f6b6a94's parser change goes to ema-cashub.
