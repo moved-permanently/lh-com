@@ -1,0 +1,21 @@
+# ema-cashub, standing order 21 (2026-11-13), item 3: Austrian /ch/fr and /ca/fr homepages. Expected change if released:
+# an English "Stretcher transportation" heading and paragraph above the flight search, as www shows them on both French
+# roots (1440 -3.41 -> +0.87 % / -3.21 -> +3.21 %; 390 -4.04 -> +1.44 % / -4.79 -> +2.47 %). HOLD: the owner's call.
+# www (austrian-parity-008, 2026-11-10): right after the empty flash teaser (dcep-flash-teaser, no messages) and before
+# the flight search, both pages hold a separator section (15 px), a headline section (h2 heading-medium "Stretcher
+# transportation") and a text section with Lufthansa's stretcher paragraph, in English. No other recorded root has it.
+# It reads as authored by mistake (a Lufthansa medical text on Austrian's French homepages), so I do not mark it READY:
+# whether the migrated pages copy it is a decision for the content owner, not a parity fix. Our documents have neither
+# (DA's ca/fr copy read 2026-11-13; the published ch/fr and ca/fr checked on our host).
+# The delta if released: in the first section, after the flash-teaser block and before the flight-search block, nothing
+# else changed:
+#   <h2>Stretcher transportation</h2><p>Lufthansa provides stretchers which allow passengers, who for medical reasons can only be transported in a lay-down position , to travel comfortably. They may however be accompanied by another person on board. Passengers between 100cm and 200cm tall can be carried with our stretcher, with a maximum weight of 120kg. For detailed information about fees regarding specific journeys, please contact the TMC or our Medical Operations Center.</p>
+# (www's text verbatim, including its space before the comma; www's 15 px separator above the heading is not drafted.)
+# Measured as a draft (so20/draft-host2.mjs on austrian.turnsthe.page, EAGER=1; the published document as control equals
+# live; www.* and the airline hosts refused, 8 / 21 a page, none sent):
+# ch/fr: 390 6,059 -> 6,405 px (www 6,314), 1440 4,870 -> 5,086 (www 5,042).
+# ca/fr: 390 4,556 -> 4,903 px (www 4,785), 1440 3,254 -> 3,470 (www 3,362): 390 closer, 1440 as far as before (the other
+# side). ca/fr's remaining gap is order 19's inline dialog text (reimport-591-austrian-home-disclaimer.txt, STAYS).
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, what changes on the page.
+HOLD	/ch/fr/homepage.html	the heading and paragraph above, before the flight search (the owner's call: www's stray English text)	1440 -3.41 -> +0.87 %, 390 -4.04 -> +1.44 %
+HOLD	/ca/fr/homepage.html	the same	1440 -3.21 -> +3.21 %, 390 -4.79 -> +2.47 %

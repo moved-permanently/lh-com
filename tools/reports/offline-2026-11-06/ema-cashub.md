@@ -4171,3 +4171,148 @@ above or in orders 16 to 19 that needs a capture, a DA delta, an import or www's
 
 No upload, preview or publish. da-upload.mjs was not called, and no test called the DA or preview API. DA was only
 read (source and list GETs); the delta outputs are scratch files.
+
+## Standing order 21 (2026-11-13, from about 07:40 CET)
+
+**Start state:** nothing of mine was uncommitted or unpushed. Order 20 had ended at `5fdc347d`, pushed after a
+whole-repo lint exit 0 and its tests. The dirty files in the main checkout (import-progress.json, urls-*.txt, the
+importer reports) date from before Nov 10. They are other jobs' import output and stay as they are.
+
+**Rules followed:** our hosts only. Every render refused www.* and the airline hosts and counted them (17 to 22 a page);
+none was sent.
+- Read-only GETs of austrian.turnsthe.page and of DA's source API (lh-austrian: xx/en, fr/en, ca/fr homepages).
+- No upload, preview or publish. da-upload.mjs was not called.
+
+### Item 1: the import bundles, rebuilt (`9ad3ea38`)
+
+- build-bundles.mjs with AEM_IMPORT_HELPER (the aem-import-helper under the excat tools), in the clean worktree.
+- All 14 bundles were rebuilt. They change only by the two parser changes and the bundler's tmp names:
+  - 13 carry the accordion-columns parser (1f6b6a94): a table cell keeps its bold, line breaks and links.
+  - 6 carry the carousel-images parser (bce9cab4): every figure picture of a slide (info, insights, campaign and the
+    three Austrian ones).
+  - app-entry and mfe change only by tmp names.
+- test/import-bundles-parsers-so21 checks every bundle that includes either parser. It was red on the old bundles.
+- No list changes status: the lists for both changes are DA deltas, not re-imports
+  (delta-so20-brussels-athens-carousel-slide.txt, reimport-592-ita-strollers-cells.txt).
+
+### Item 2: captions on the Nov 1 snapshot shape (`e4b9b6bf`)
+
+- **The snapshot itself is not on this machine.** It is not in the drops, the Brussels snapshot folders or git.
+- **What I could check:** a snapshot taken before www's script draws the moving images holds each one as the server
+  sends it: an empty .dcep-moving-image whose data-dcep JSON has imageUrl, alt and caption.
+  - The cleanup's restoreMovingImages put back the picture from that JSON, but not the caption.
+  - So the columns-media parser and convertCaptions found no figcaption: pictures, but no "{caption}" markers. That
+    matches what the helper saw.
+- **Fixed, test first:** the caption comes back with the picture, as www's script draws it (figure > img +
+  figcaption.caption > maui-caption). Its text is decoded as maui-caption shows it.
+  - In the 1440 recordings of the drops, www draws all 39 non-empty config captions and none without one.
+  - Fixture: vibrant-senegal's first two captioned galleries from brussels-parity-009, as recorded and with each
+    moving image emptied (the server's shape).
+  - Red before the fix: the same pictures, no markers. Now both captions are marked in both shapes, plus a
+    running-text image and a check of the bundles.
+- **Reach:** none of the 3,631 local snapshots with moving images has an undrawn one, so no local import changes.
+  The bundles were rebuilt with it (only this function changes).
+- **If the helper's re-import from the Nov 1 snapshot still writes no markers,** its shape is another one: please send
+  that snapshot (be/fr vibrant-senegal) and I will build the fixture from it.
+
+### Item 3: the Austrian homepages at 390
+
+**First, a correction to my own ranking.** Six of its homepage references are not www:
+- au/en, be/en, ch/de, cz/en, ge/en and tr/en compare against austrian-parity-013 / -014. Those archives recorded our
+  own pages with www's APIs allowed (the url field: austrian.turnsthe.page).
+- So their -7 to -10 % (ch/de -10.28, cz -7.81, ge -7.86, au -7.44) is our page with the APIs refused against our page
+  with them answered. By construction that is widget state, not a gap to www.
+- The www rows below -5 % at 390 are xx/en (-8.32), pt/en (-7.93) and G2 (ch, it, fr, md, pl, ro, rs: -6.04 to
+  -6.13).
+
+**Where the www rows lose height at 390** (www's headings matched by text, so17/drift.mjs, and the recordings'
+measurements):
+- G2 (fr/en): -340 px between "Discover Austrian" and "Looking for more than just a flight?". That stretch holds the
+  carousel cards and the destination finder, ours in its empty state (383 px). Above it -16 px, the tail even. Widget
+  state only.
+- xx/en and pt/en: -145 / -147 px above "Discover Austrian". www draws this part identically on xx, pt and fr. Our
+  documents are the same there too, apart from the widgets' market values.
+  - **A layout cause:** the homepage band rules (6b64414c) waited for the footer-disclaimer patch (a link to
+    /fragments/modals/). Eight roots never get that patch, because their pages had no dialog text: at/de, at/en, cn/zh,
+    ge/en, gr/el, jp/ja, pt/en, xx/en.
+  - So those roots keep the old spacing: the flight search's 53 px top instead of 86, 48 px under it instead of 80,
+    and the fare teaser's rows.
+- xx/en's tail: -229 px. www shows the price note and the "General Conditions" button after the cards-icon block; our
+  document has neither (content).
+- pt/en's tail: -132 px (1440: -56). www draws an empty footer-disclaimer section (a separator and an empty section,
+  no note) whose space ours drops.
+
+**Shipped (`24f3a709`, test first):** the band rules now also apply to a page that opens with the flight search, the hero and
+the fare teaser.
+- That is the homepage: 58 of the 64 roots, and no other recorded page.
+- The new branch sits inside :where(), so the rules keep their weight.
+- The Canadian roots stay as they are (dialog text inline, no fare teaser; measured worse with the patch in order
+  19's list).
+- The rule reaches 8 more roots. pt/en and xx/en are the ones recorded on www, both measured on our host with the
+  published documents (control = live):
+
+| page | 390 before | 390 after | 1440 before | 1440 after |
+|---|---|---|---|---|
+| pt/en | -7.93 % | -2.80 % | -8.86 % | -1.80 % |
+| xx/en | -8.32 % | -5.69 % | -7.32 % | -4.46 % |
+
+- The other six reached roots are not recorded on www. ge/en's reference is our own capture.
+- Checks: stylelint exit 0 on austrian.css. The 147 test files naming the theme or the rules' classes passed (727 of
+  728, 1 skipped), and so did the 38 naming their other classes (115). test/austrian-home-bands-593 now expects the
+  widened condition.
+- Live on our host after the push: pt/en 5,529 / 4,579 px, as in the trial.
+
+**Lists:**
+- delta-so21-austrian-xx-home-note.txt, 1 READY. It adds www's note and link to xx/en after the cards-icon block.
+  Draft: 390 -8.32 -> -0.88 %, 1440 -7.32 -> -0.54 %; control = live (4,483 / 3,266 px).
+- delta-so21-austrian-fr-stretcher-block.txt, 2 HOLD, the owner's call. www's ch/fr and ca/fr homepages carry an
+  English "Stretcher transportation" heading and Lufthansa's stretcher paragraph above the flight search. It is static
+  authored content, apparently by mistake; ours has none.
+  - Drafted, ch/fr goes -4.04 -> +1.44 % at 390 and -3.41 -> +0.87 % at 1440.
+  - ca/fr goes -4.79 -> +2.47 % at 390; at 1440 it is as far as before (-3.21 -> +3.21 %).
+
+**The positive rows (G3: xk/en, me/en +11.38 %, jp/en +10.48 % at 390):** www's fare teaser had no deals for these
+markets at recording time ("Winter deals" at 1312, then "Conditions" at 1414). Ours draws the document's three
+fallback cards (590 px), so the +512 px above "Discover Austrian" is fare-service state.
+
+**Not changed, and why:**
+- **The destination finder on every root, and the flight search and fare teaser states:** they draw from www's
+  services, which the renders refuse.
+- **pt/en's empty band (132 px at 390, 56 at 1440):** one recorded page shows it. No spacer token draws space on phones
+  only (from-768 hides one below 768 px), so www's two heights would need new code, and one page is no evidence for
+  it. ca/en and ca/fr have the same empty sections on www, but their dialog text is still inline, and order 19's list
+  measured them worse with the patch.
+
+### Final section (about 10:45 CET, 2026-11-13)
+
+I stopped before 12:00. The three items are done.
+
+**On main:**
+- `9ad3ea38`: the 14 import bundles with bce9cab4 (carousel-images) and 1f6b6a94 (accordion-columns).
+- `e4b9b6bf`: a moving image restored from its data-dcep keeps its caption; bundles rebuilt.
+- `24f3a709`: the Austrian homepage band rules on the 8 roots that never had the dialog text.
+
+**Checks before each push:**
+- Whole-repo lint exit 0 in the clean worktree, read before every push.
+- Stylelint exit 0 on austrian.css.
+- Each change's test red first.
+- The tests naming the changed files and classes passed on the pushed base: 1,150 of 1,151 for the importer pushes,
+  732 of 733 for the theme (1 skipped each).
+- Other jobs' pushes moved origin during the checks: e4b9b6bf went in on the third checked base, 24f3a709 on the
+  fifth. Every round rebuilt (for e4b9b6bf), linted and, when origin's new commits touched code, tested again. No
+  push went out with origin moved since its lint.
+
+**Lists** (tools/reports/parity-2026-11-09/):
+- delta-so21-austrian-xx-home-note.txt: 1 READY.
+- delta-so21-austrian-fr-stretcher-block.txt: 2 HOLD (the owner's call).
+- reimport-so19-brussels-article-captions.txt: a header note on the snapshot shape.
+
+**Open:**
+- The Nov 1 vibrant-senegal snapshot, if a re-import from it still writes no caption markers.
+- The xx/en delta and the caption rows wait for the import helper.
+- The three capture requests of order 20 wait for the capture child.
+
+**Not in git:** fixtures' sources, drafts, DA scratch copies, documents read from our host, scripts and logs, in
+migration-work/parity-588/so21 (ignored).
+
+No upload, preview or publish. da-upload.mjs was not called. DA was only read (three source GETs).

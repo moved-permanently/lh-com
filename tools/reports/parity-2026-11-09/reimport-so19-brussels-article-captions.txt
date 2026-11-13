@@ -10,6 +10,11 @@
 # The READY rows' 390 numbers are measured with e0544f25 live (this order: a gallery right after text 30 px under it on
 # phones, as www's column view); before it, the captions' extra height hid that gap, so the-gambia measured 0.51 points
 # further. The "no change" rows' heights are before e0544f25 (control and draft equal either way).
+# Order 21 (e4b9b6bf, bundles rebuilt): the import helper's run on the Nov 1 snapshot of be/fr vibrant-senegal wrote no
+# "{caption}" markers. A snapshot whose moving images www's script had not drawn (an empty .dcep-moving-image, the
+# caption only in its data-dcep JSON) lost them; the cleanup now restores the caption with the picture. The Nov 1
+# snapshot is not on this machine, so that shape is reconstructed from brussels-parity-009. If a re-import from it
+# still writes no markers, please send that snapshot.
 # READY: a re-import is expected to bring the page closer (or within the gate). HOLD: re-import not recommended for
 # the captions (the reason given; "no change" means nothing measurable would change).
 # Columns: document, status, expected change.
