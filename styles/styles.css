@@ -891,6 +891,17 @@ body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .caro
   margin-bottom: 0;
 }
 
+/* not an empty last section (a document's empty trailing div) after a whole grey AEM section with
+   .mb-default (grey, not flush, not a column band or view): www keeps the gap there
+   (/de/en/book-and-manage/flights/wetlease-hub: the band 92px nearer the footer than www's;
+   standing order 19). After a flush band, and after a grey column view (/de/en/group-travel), the
+   band touches the footer on www too, as above (the second :not() argument only lifts the
+   specificity over that rule's) */
+body.brand-lufthansa main > .section.grey:not(.flush, .column-band, .column-view) + .section:last-child:not(:has(> *), :has(> .default-content-wrapper > :not(p.spacer))) {
+  margin-top: 0;
+  margin-bottom: var(--section-gap);
+}
+
 /* default content (.richtext); .section-content > :last-child > :last-child { margin-bottom: 0 },
    a trailing headline keeps its margin to the block that follows */
 main .default-content-wrapper > :last-child:not(h1, h2, h3, h4, h5, h6) {
