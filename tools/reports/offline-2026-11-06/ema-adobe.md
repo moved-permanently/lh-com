@@ -3728,3 +3728,63 @@ Left out of git:
 - logs/b606/dropped-so10: the dropped datenschutz test.
 - The untracked import reports of earlier runs.
 - /tmp: the archives, the patched importer copy and the import workspaces (ws-608*).
+
+### Standing order 17 (2026-11-13 16:25 to 17:45 CET)
+
+Nothing uploaded, previewed or published; DA was not touched. Each push: whole-repo lint read 0 on a clean worktree of
+the rebased HEAD, the tests that read the changed files passed. No change deploys lh-edge (nothing lh-edge bundles reads
+these files). Order 16 left nothing unpushed.
+
+1. **The offline default leaked prefetches; fixed in the repo (709f644, test first).**
+   - Counted with a logging proxy: a measurement copy of the default whose browser sends every request to a local proxy
+     that writes it down and refuses it, so the check itself reached no host (logs/b609).
+   - Today's default (abd3ad6e), 3 pages per importer:
+     - info (/de/en/cash-and-miles, special-meals, childrens-menus-on-board, recorded in lh-snapshots-115):
+       88 connections to shop.lufthansa.com, the booking app's `<link rel="prefetch">`. page.route never sees them.
+     - ITA (it/en homepage, help-and-contact, travel-classes) and SWISS (ch/en homepage, fly-on-board, special-care):
+       0. The snapshots are ita-parity-001 and swiss-parity-001; their hints are of kinds the routing catches.
+     - B2B, Austrian, Brussels: not sampled. This machine has none of their snapshots or recordings (only lufthansa.com
+       and Discover are in bd-snapshots).
+   - The fix (offline-importer.mjs): the snapshot's resource hints are dropped before setContent (prefetch, preload,
+     modulepreload, preconnect, dns-prefetch, prerender). The browser starts behind a dead local proxy
+     (127.0.0.1:9, loopback direct), so anything still unrouted fails on this machine. A new mark makes copies built
+     before (anyone's /tmp/excat-offline) rebuild on their next import.
+   - After the fix: 0 requests on the same 9 pages. The fixed copy as shipped imports the info sample 3/3, documents
+     byte for byte the same as before the fix.
+   - The /tmp patch from order 16 is no longer needed.
+2. **pages.csv's business-class row: the four moved paths (6c91fca, test first).**
+   - The row is now /<cc>/<ll>/prepare-for-your-trip/travel-classes/business-class for de/en, de/de, at/de and gb/en.
+   - Rebuilt from it: slug-map.json (one path), scope-paths and the cleanup's inline set (the same four paths), the
+     14 bundles (only that set and the temporary bundle names differ).
+   - importer-alias-links.test.mjs treated business-class as an alias (short path on the site, long on www). Its
+     expectation was out of date: a link to www's long path now stays at that path on the site. Its in-scope
+     short-path example is /de/en/flynet now.
+   - Left as is: the path map still maps the long path to the old short one. Scope decides first, so it has no
+     effect; it goes when the map is next regenerated.
+   - The helper's notes are taken in (the short-and-medium-haul picture, profile-nav unpublished).
+     tips-senior-travellers: DA has 1 business-class link per root where my list counted 3. I have not rechecked
+     where the 3 came from; the helper's count is DA's.
+3. **The older drift under the card marks: found, not fixed yet.**
+   - childrens-menus-on-board, 1440: matched against www's measurements (lh-snapshots-115), every title is in place
+     down to "Kids Box on European flights" (0 px). The band's title "Catering on board" is 17 px high.
+     - www ends the Kids Box AEM section with a 40 px separator (.hr-no-layout, inline margin), then starts a new
+       section with no .mb-default holding the grey band: 32 + 40 + 32 = 104 px from the view's content to the
+       band's title.
+     - Ours has no separator there: 8 (padded block) + 48 (section gap) + 32 (band) = 88.
+     - This is order 14's separator shape, but before a band instead of a column view. A {spacer-40} alone would
+       overshoot (+24 under today's rules), so it needs a measured rule with the spacer. Next step.
+   - passengers-with-sensory-impairment, 1440 (lh-parity-002b, no text measurements; offsets against our positions):
+     several drifts.
+     - The largest is +66 px between the two padded AEM sections "Travelling with a companion" and "Travelling with
+       an assistance dog". On www both have .mb-default and .section-padding-y-regular; our first carries "padded"
+       only, not the spaced style the importer gives such pairs elsewhere.
+     - Then +27, and +24 before the cabinblu sections.
+   - So the 12 card-mark rows, the importer patch and the scoped rule stay held. With the two causes above fixed,
+     childrens-menus' -17 goes, and so does sensory-impairment's largest step.
+
+Left out of git:
+- logs/b609: the logging proxy, the measurement copies' patch scripts, request logs, captures, boxes and match scripts.
+- logs/b608/held-card-marks: the held importer change (unchanged).
+- The untracked import reports of earlier runs.
+- /tmp: the importer copies (excat-offline-617*, excat-measure-617*), the staged recordings (snap-617) and the import
+  workspaces.
