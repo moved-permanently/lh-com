@@ -4090,3 +4090,11 @@ no test committed for it.
 - **fleet/long-haul (-3.6 % at 1440):** www draws a rule between the tab set and the "Choose your favorite seat" band (the
   import's divider-above, missing in DA's copy); with it 1440 -3.6 -> -2.0 %, but 390 +0.2 -> +1.4 % (worse by 1.2):
   not made.
+
+- **digital-newsstand (+2.9 / +2.9 %), ITA row 42:** www's eJournals form has 48 px outlined fields, no hint under the
+  last name and a taller login notice; ita.css sets it so (the rules drafted and measured in a CSS override folder, then
+  the test written and run red on main's theme before the theme changed): 1440 3228 -> 3209 (www 3138), 390 4182 ->
+  4163 (4066).
+- **residents-in-sicily (+1.6 / +3.0 %), ITA row 43, item 1's rest:** under a padded last section www has only the
+  section's padding; a padded last section keeps no gap (test the same way): 1440 2662 -> 2614 (www 2620), 390 3842 ->
+  3794 (3730); the 39 recorded ITA pages with the rule: no other page changes.

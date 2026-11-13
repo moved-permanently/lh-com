@@ -1125,3 +1125,35 @@ body.brand-ita main > .section.padded:has(> .default-content-wrapper:only-child 
 body.brand-ita main > .section.padded:has(> .default-content-wrapper:only-child > :is(h2, h3):only-child) + .section {
   padding-bottom: var(--section-padding);
 }
+
+/* the eJournals download form as www's (ITA row 42; /it/en/book-and-prepare/travel-information/at-the-airport/
+   digital-newsstand, ita-parity-005): www's outlined fields 48px high, the hint 12px under the first, no hint under the
+   last name, the login notice 112px with its link 19px under the copy; ours lufthansa.com's 58px underlined fields */
+body.brand-ita .ejournals {
+  --ejournals-field-height: 48px;
+}
+
+body.brand-ita .ejournals .ejournals-notice {
+  padding-bottom: 28px;
+}
+
+body.brand-ita .ejournals .ejournals-login {
+  margin-top: 19px;
+}
+
+body.brand-ita .ejournals .ejournals-hint {
+  margin-top: 12px;
+}
+
+body.brand-ita .ejournals .ejournals-hint[id^="ejournals-lastName"] {
+  display: none;
+}
+
+/* a padded last section over the footer (ITA row 43; residents-in-sicily, ita-parity-005): www's padded AEM section
+   ends the page with its own padding (40px at 1440, 20 at 390), no gap under it; ours added the section gap */
+/* stylelint-disable no-descending-specificity -- row 41's rule on the heading-only padded section above */
+body.brand-ita main > .section.padded:last-child,
+body.brand-ita main > .section.padded:has(> .default-content-wrapper:only-child > :is(h2, h3):only-child) + .section:last-child {
+  margin-bottom: 0;
+}
+/* stylelint-enable no-descending-specificity */
