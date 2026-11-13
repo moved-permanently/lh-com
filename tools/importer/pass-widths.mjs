@@ -16,6 +16,7 @@
  */
 import fs from 'node:fs';
 import { chromium } from 'playwright-core';
+import { guardContext, GUARD_CONTEXT } from '../parity/guard.mjs';
 
 const argv = process.argv.slice(2);
 const opt = (n, d) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] : d);
@@ -32,7 +33,9 @@ const pause = (ms) => new Promise((r) => { setTimeout(r, ms); });
 const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, args: ['--no-sandbox'] });
 
 async function measure(url, width) {
-  const ctx = await browser.newContext({ viewport: { width, height: 900 } });
+  const ctx = await browser.newContext({ ...GUARD_CONTEXT, viewport: { width, height: 900 } });
+  // only our hosts: the page's scripts and fonts never reach an airline host (standing order 13)
+  await guardContext(ctx);
   const page = await ctx.newPage();
   page.setDefaultTimeout(15000);
   let status = 0;

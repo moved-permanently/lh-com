@@ -91,8 +91,9 @@ function installedBrowser(kind, exe, dir = process.env.PLAYWRIGHT_BROWSERS_PATH)
   return found || null;
 }
 
-/** Our hosts: Edge Delivery's and a local server. */
-const isOwnHost = (host) => /(^|\.)aem\.(live|page)$/.test(host) || host === 'localhost' || host === '127.0.0.1';
+/** Our hosts: Edge Delivery's, lh-edge's (turnsthe.page) and a local server. */
+const isOwnHost = (host) => /(^|\.)aem\.(live|page)$/.test(host) || /(^|\.)turnsthe\.page$/.test(host)
+  || host === 'localhost' || host === '127.0.0.1';
 /** Foreign hosts a capture of our pages may reach: OneTrust's consent hosts (no airline's). */
 const CONSENT_HOSTS = ['cdn.cookielaw.org', 'geolocation.onetrust.com'];
 

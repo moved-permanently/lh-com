@@ -15,6 +15,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
+import { guardContext, GUARD_CONTEXT } from '../parity/guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -32,7 +33,9 @@ const rows = [];
 try {
   for (const p of paths) {
     for (const width of widths) {
-      const context = await browser.newContext({ viewport: { width, height: 900 } });
+      const context = await browser.newContext({ ...GUARD_CONTEXT, viewport: { width, height: 900 } });
+      // only our hosts: the page's scripts and fonts never reach an airline host (standing order 13)
+      await guardContext(context);
       const page = await context.newPage();
       page.setDefaultTimeout(15000);
       const errors = [];
