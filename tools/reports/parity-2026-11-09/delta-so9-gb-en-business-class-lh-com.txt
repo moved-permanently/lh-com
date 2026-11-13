@@ -1,0 +1,21 @@
+# Standing order 9 (2026-11-12), item 2: /gb/en/business-class holds the page twice. Cause: the DA rollout project
+# "business-class-update" (2026-11-04 05:32 UTC; its source /gc/en/business-class saved 05:28) merged into gb/en's own
+# copy (from the import of 2026-10-22 to 10-26; DA's version list). Merge keeps both sides of each differing block: the
+# incoming (upstream) block in <da-diff-deleted>, gb/en's own after it with da-diff-added (tools/loc/README.md "What
+# merge does"). Nobody resolved the 25 pairs, so the published page shows both (two H1s, every chapter twice).
+# Of the 25 pairs only the stage differs in words (upstream: "privacy and more space for you", the body copy and
+# "Book Business Class"); the other 24 differ by their links alone (/gc/en against /gb/en, one www link to /de/en/388).
+# Method: DA's current copy plus the delta, not a re-import:
+#   node tools/loc/merge-newer.mjs --in <DA copy of /gb/en/business-class.html> --out <file> --from gc/en --to gb/en --newer upstream
+# Per pair the newer version's words: the local block where the words are the same (gb/en's links and pictures), else
+# the upstream block with its links made gb/en's (link-lib.mjs, as the link step). Outside the pairs nothing changes.
+# Checked on DA's copy of 2026-11-12 12:55 UTC (GET, 44,894 bytes): 25 pairs, 1 upstream (the stage), 0 refused, 0 links
+# without a gb/en page; the result has no marks, one H1, each of the ten H2 once, and reads as /gc/en (words, images
+# and blocks the same; links gb/en's; test/loc-merge-newer-so9.test.mjs). Not measured on a capture (none of gb/en
+# business-class after the rollout).
+# The stage-intro re-import row of reimport-so7-stage-intro-lh-com.txt (HOLD, waits for a capture) stays separate.
+# Standing order 11 (2026-11-12): superseded by that row, now READY (a re-import from lh-snapshots-111: the page once,
+# www's newer text, the stage intro). Upload one of the two, that one if both are possible; this delta stays READY for
+# DA's copy as it is.
+# Each line: READY / HOLD, DA path, the delta, what changes on the page.
+READY	/gb/en/business-class	merge-newer --from gc/en --to gb/en --newer upstream: the 25 pairs resolved, the stage upstream (newer), the 24 others gb/en's own side	the page once instead of twice: H1 "Lufthansa Business Class: privacy and more space for you" with the body copy and "Book Business Class" (/gb/en/flight-search), as /gc/en (de/en still has the older stage title); the older stage and the other 24 duplicates go

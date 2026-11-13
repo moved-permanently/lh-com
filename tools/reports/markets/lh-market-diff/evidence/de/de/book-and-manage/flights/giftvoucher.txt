@@ -1,0 +1,237 @@
+root    /ae/de/book-and-manage/flights/giftvoucher
+version /de/de/book-and-manage/flights/giftvoucher
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 1:
+- <div.contentpage.pt-0>
++ <div.contentpage>
+  @role=main
+  <div.container-fluid.section-regular>
+  …
++ <h1.heading-large>
++ "Schenken Sie einen Lufthansa Gutschein"
+  <div.content-wrapper>
+  <div.container-content>
+  …
+- <div.section-content.container-fluid.section-wide>
+- <div.inspirationteaser.image.parbase.section>
+- <div.cms-inspiration-teaser.px-0.full-width-bg.inspiration-teaser-no-animation.inspiration-teaser-regular>
+- <div.dcep-moving-image>
+- <figure>
+- <maui-image>
+- <img.cq-dd-image>
+- @src=/content/dam/lh/images/local_images/local-pages/de/image%20(10)%20-%20Kopie.jpg.transform/lh-dcep-transform-width-1440/img.jpg
+- @srcset=/content/dam/lh/images/local_images/local-pages/de/image
+- @alt=Lufthansa Gutschein
+- <div.campaign-information.alignment-left.section-regular.container-fluid>
+- <h2.headline>
+- "Lufthansa Gutschein jetzt 5 % günstiger"
+- "🏷"
+- "️"
+- <h3.headline.subheadline>
+- "Angebot gültig bis zum 2. Dezember 2026."
+- <div.information>
+- <div.richtext>
+- <maui-button-link>
+- @type=primary
+- @href=https://voucher.lufthansa.com/lh/sales/new?locale={m}&discount_code=GIFT5
+- "Geschenkgutschein sichern"
+- <div.separator.section>
+- <div.hr.hr-no-layout>
+- <maui-divider>
+- <div.section>
+- <div>
+  <div.section-content.container-fluid.section-regular>
+- <div.separator.section>
+- <div.hr.hr-no-layout>
+- <maui-divider>
+- <div.ghost.section>
++ <div.text.section>
++ <div.richtext.limited-width>
++ <p>
++ "Ein Städtetrip mit guten Freunden, Strandurlaub mit der Familie oder ein romantischer Ausflug zu zweit. Verschenken Sie unvergessliche Momente mit einem Flug-Gutschein von Lufthansa."
+  <div.threecolumn.column.event.section>
+  <div.column-view.flex-column.container-gray.full-width-bg>
+  …
+- "Wählen Sie einen beliebigen Betrag zwischen 10 € und 1.000 € und sparen Sie 5 %. Zum Beispiel zahlen Sie für einen Geschenkgutschein im Wert von 500 € nur 475 €."
++ "Von kleinen bis großen Beträgen ist alles möglich - wählen Sie einen beliebigen Betrag in Euro."
+  <div.fading-dots>
+  <div.col-md-6.col-lg.column-view-item>
+  …
+- "Flüge und Zusatzservices"
++ "Vielseitig einlösbar"
+  <div.teaser-description>
+  <div.richtext.ellipsis>
+  …
+- "Einlösbar für Flüge mit Lufthansa Flugnummer (LH) und für Zusatzservices."
++ "Einlösbar für alle Flüge mit einer Lufthansa Flugnummer (beginnend mit LH) und Zusatzservices bei Bezahlung in Euro."
+  <div.fading-dots>
+  <div.col-md-6.col-lg.column-view-item>
+  …
+- "Einlösbar bis zum Ende des dritten Jahres nach dem Kauf. Kaufen Sie ihn zum Beispiel 2026, gilt er bis zum 31. Dezember 2029."
++ "Der Lufthansa Flug-Gutschein kann innerhalb von drei Jahren nach Ablauf des jeweiligen Kalenderjahres eingelöst werden."
+  <div.fading-dots>
+  <div.separator.section>
+  …
+- "1. Wählen Sie Ihren Wunschbetrag in Euro."
++ "1. Wählen Sie einen Euro-Betrag ganz nach Ihren Wünschen."
+  <p>
+  "2. Erhalten Sie Ihren Gutscheincode per E-Mail."
+  …
+- "Sie können den Lufthansa Gutschein für grenzüberschreitende Flüge ab Ländern mit Euro als Währung nutzen."
++ "4. Flüge, die in Ländern mit der Euro-Währung starten, können mit diesem Gutschein bezahlt werden."
+  <div.link.event.section>
+  <div.maui-link>
+  …
+- @href=https://www.lufthansa.com/{R}/book-and-manage/flights/lufthansa-voucher#sponsored-voucher
+- @rel=noopener noreferrer
++ @href=/{R}/book-and-manage/flights/lufthansa-voucher
+  @slot=trigger
+  @variant=hyper
+- "Nutzungsbedingungen für Lufthansa Gutscheine"
++ "Nutzungsbedingungen"
+  <div.link.event.section>
+  <div.maui-link>
+  …
+- @href=https://voucher.lufthansa.com/lh/sales/new?locale={m}&discount_code=GIFT5
++ @href=https://voucher.lufthansa.com/lh/sales/new?locale={m}
+  @type=primary
+  @target=_blank
+  …
+- @src=/content/dam/lh/images/local_images/local-pages/de/image%20(11).png.transform/lh-dcep-transform-width-1440/img.jpg
+- @srcset=/content/dam/lh/images/local_images/local-pages/de/image
++ @src=/content/dam/lh/images/frontify_variations/5/c-{n}-{n}.jpg.transform/lh-dcep-transform-width-1440/img.jpg
++ @srcset=/content/dam/lh/images/frontify_variations/5/c-{n}-{n}.jpg.transform/lh-dcep-transform-width-1440/img.jpg
+  @alt=Herzformende Hände vor einem Sonnenuntergang.
+- @title=Lufthansa Gutschein
+  <div.separator.section>
+  <div.hr.hr-no-layout>
+  …
+- <a.teaser.card>
++ <a.teaser.partner>
+  @href=https://www.lufthansa.com/{R}/book-and-manage/flights/giftvoucher#faqs
+- <div.image-wrapper>
+- <img>
+- @src=/content/dam/lh/images/local_images/local-pages/de/image%20(1).jpg.transform/lh-dcep-transform-width-1440/img.jpg
+- @alt=
+- @srcset=/content/dam/lh/images/local_images/local-pages/de/image
+- <div.card-content>
+  <h3.heading-copytext-large.teaser-heading>
++ <img.icon.icon-svg>
++ @src=/content/dam/lh/icons/Question%20mark.svg
++ @alt=
++ <div.teaser-heading-text>
+  "Häufige Fragen"
+  <div.teaser-description>
+  …
+- <a.teaser.card>
++ <a.teaser.partner>
+  @href=https://www.lufthansa.com/{R}/homepage
+- <div.image-wrapper>
+- <img>
+- @src=/content/dam/lh/images/local_images/local-pages/de/image.jpg.transform/lh-dcep-transform-width-1440/img.jpg
+- @alt=
+- @srcset=/content/dam/lh/images/local_images/local-pages/de/image.jpg.transform/lh-dcep-transform-width-1440/img.jpg
+- <div.card-content>
+  <h3.heading-copytext-large.teaser-heading>
++ <img.icon.icon-svg>
++ @src=/content/dam/lh/icons/lh-icon-voucher-present.svg
++ @alt=
++ <div.teaser-heading-text>
+  "Sie haben bereits einen Gutschein?"
+  <div.teaser-description>
+  …
+- <a.teaser.card>
++ <a.teaser.partner>
+  @href=https://voucher.lufthansa.com/lh/sales/new?locale={m}
+  @rel=noopener noreferrer
+  …
+- <div.image-wrapper>
+- <img>
+- @src=/content/dam/lh/images/local_images/local-pages/de/image%20(12).jpg.transform/lh-dcep-transform-width-1440/img.jpg
+- @alt=
+- @srcset=/content/dam/lh/images/local_images/local-pages/de/image
+- <div.card-content>
+  <h3.heading-copytext-large.teaser-heading>
++ <img.icon.icon-svg>
++ @src=/content/dam/lh/icons/PDF%20document.svg
++ @alt=
++ <div.teaser-heading-text>
+  "Digitaler Gutschein"
+  <div.teaser-description>
+  …
+- <div.ghost.section>
+- <div.ghost.section>
+- <div.ghost.section>
++ <div.headline.section>
++ <h2.headline.heading-small>
++ "Das perfekte Geschenk für jeden Anlass"
++ <div.text.section>
++ <div.richtext.limited-width>
++ <p>
++ "Das Traumziel zum Greifen nah: diese Geschenkidee weckt die Reiselust – bei Freunden, innerhalb der Familie oder bei liebgewonnen Kollegen. Mit dem Flug-Gutschein von Lufthansa machen Sie Ihren Liebsten eine ganz besondere Freude. Sie bestimmen den Wert, die beschenkte Person wählt das Ziel der Flu
++ <p>
++ "Ob nah oder fern, unser umfassendes Streckennetz mit den Drehkreuzen in Frankfurt und München bietet Flugverbindungen für alle Gelegenheiten und jeden Urlaubstyp. Das macht den Flug-Gutschein zum passenden Geschenk für diverse Anlässe – zum Geburtstag, zum Hochzeitstag, zum Schulabschluss oder einf
++ <p>
++ "Den Lufthansa Gutschein kaufen Sie mit wenigen Klicks online und genauso schnell funktioniert das Einlösen des Gutschein-Codes."
++ <p>
++ "Falls Sie es sich anders überlegt haben oder beim Kauf einen Fehler gemacht haben, können Sie den Kauf von vollständig ungenutzten Gutscheinen innerhalb von 14 Tagen nach Erhalt der Bestätigungs-E-Mail ohne Angabe von Gründen widerrufen."
++ <div.link.event.section>
++ <div.maui-link>
++ <maui-button-link>
++ @href=https://admin.vp-lhg.com/lh/sales_refunds/new?locale={m}
++ @type=secondary
++ @target=_blank
++ "Gutschein-Bestellung widerrufen"
++ <span.sr-only>
++ "Der Link wird in einem neuen Browser-Tab geöffnet"
+  <div.separator.section>
+  <div.hr.hr-no-layout>
+  …
+- "Der Gutschein ist vom Zeitpunkt seiner Erstellung bis zum Ende des Ausstellungsjahres und danach zusätzlich drei weitere Jahre gültig (z.B. Ausstellungsdatum 02.11.2026 mit Gültigkeit bis 31.12.2029)."
++ "Der Gutschein ist vom Zeitpunkt seiner Erstellung bis zum Ende des Ausstellungsjahres und danach zusätzlich drei weitere Jahre gültig (z.B. Ausstellungsdatum 21.08.2021 mit Gültigkeit bis 31.12.2024)."
+  <div.accordionitem.commonevent>
+  <maui-collapsible-item>
+  …
+- "Der Gutschein kann für grenzüberschreitende Flugtickets mit LH-Flugnummer und Zusatzleistungen wie Sitzplatzreservierungen, zusätzliche Gepäckstücke, etc. eingelöst werden. Der jeweilige Preis muss in Euro ausgewiesen sein."
++ "Der Gutschein kann für Flugtickets mit LH-Flugnummer und Zusatzleistungen wie Sitzplatzreservierungen, zusätzliche Gepäckstücke, etc. eingelöst werden. Der jeweilige Preis muss in Euro ausgewiesen sein."
+  <div.accordionitem.commonevent>
+  <maui-collapsible-item>
+  …
+- <div.accordionitem.commonevent>
+- <maui-collapsible-item>
+- @headline=Kann ich meinen Geschenkgutschein-Kauf stornieren?
+- <div>
+- <div.text>
+- <div.richtext.limited-width>
+- <p>
+- "Sie haben es sich anders überlegt? Einen noch nicht eingelösten Gutschein können Sie innerhalb von 14 Tagen nach Erhalt Ihrer Bestätigungs-E-Mail stornieren. Ganz ohne Angabe von Gründen."
+- <div.link.event>
+- <div.maui-link>
+- <maui-tooltip>
+- @strategy=fixed
+- @placement=bottom
+- @type=small
+- @show-arrow=
+- <maui-navigation-link.large>
+- @size=large
+- @href=https://admin.vp-lhg.com/lh/sales_refunds/new?locale={m}
+- @rel=noopener noreferrer
+- @slot=trigger
+- @variant=hyper
+- "Gutschein-Bestellung widerrufen"
+- <div.popover-box-tooltip>
+- @slot=box
+- "Bitte beachten Sie, dass Sie mit diesem Link eine externe Website besuchen, die möglicherweise nicht den gleichen Datenschutz-, Sicherheits- oder Barrierefreiheitsrichtlinien folgt."
+- <div.headline.section>
+- <h2.headline.heading-small>
+- "Das perfekte Geschenk für jeden Anlass"
+- <div.text.section>
+- <div.richtext.limited-width>
+- <p>
+- "Das Traumziel zum Greifen nah: diese Geschenkidee weckt die Reiselust – bei Freunden, innerhalb der Familie oder bei liebgewonnen Kollegen. Mit dem Flug-Gutschein von Lufthansa machen Sie Ihren Liebsten eine ganz besondere Freude. Sie bestimmen den Wert, die beschenkte Person wählt das Ziel der Flu
+- <p>
+- "Ob nah oder fern, unser umfassendes Streckennetz mit den Drehkreuzen in Frankfurt und München bietet Flugverbindungen für alle Gelegenheiten und jeden Urlaubstyp. Das macht den Flug-Gutschein zum passenden Geschenk für diverse Anlässe – zum Geburtstag, zum Hochzeitstag, zum Schulabschluss oder einf
+- <p>
+- "Den Lufthansa Gutschein kaufen Sie mit wenigen Klicks online und genauso schnell funktioniert das Einlösen des Gutschein-Codes."
+- <p>
+- "Falls Sie es sich anders überlegt haben oder beim Kauf einen Fehler gemacht haben, können Sie den Kauf von vollständig ungenutzten Gutscheinen innerhalb von 14 Tagen nach Erhalt der Bestätigungs-E-Mail ohne Angabe von Gründen widerrufen."

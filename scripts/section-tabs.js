@@ -7,20 +7,28 @@
  * aria-controls and a roving tabindex; arrow keys, Home and End select and focus; the panels
  * role tabpanel, aria-labelledby, the others hidden), shown from 768px; below 768px each panel is
  * an accordion item (a toggle with aria-expanded over it, the first open; on brands b2b and
- * discover all closed, as www's). A deep link (#id) into
+ * discover all closed, as www's; a brand's sets named in TAB_SETS_ON_PHONES stay tabs, TAP's
+ * categories). A deep link (#id) into
  * a panel selects its tab. A section with the same `Tab` label (and set) as the one before it is a
  * part of that panel (www.austrian.com's austrian-app: a panel's text, then its image in a
  * full-bleed section; a grey box inside a panel): shown and hidden with the panel, its own section
- * style kept. Pages without such sections: nothing changes.
+ * style kept. Pages without such sections: nothing changes. A block that shows a set's sections
+ * its own way removes the set (scripts/section-tabs-sets.js removeSectionTabs; TAP's FAQ picker).
  * Styles: styles/section-tabs.css (loaded with the first set).
  */
 import { getMetadata, loadCSS, toClassName } from './aem.js';
+import { registerSet } from './section-tabs-sets.js';
 
 const DESKTOP = '(width >= 768px)';
 // the brands whose www shows every accordion item closed below 768px (business.lufthansagroup.com's
 // Newsroom, maui-tab-control-responsive theme b2b, brief 418; www.discover-airlines.com's, theme
-// four_y, the sweep after brief 470); the others open the first
-const CLOSED_BRANDS = ['b2b', 'discover'];
+// four_y, the sweep after brief 470; www.flytap.com's content tabs, tap-parity-001/-002 at 390);
+// the others open the first
+const CLOSED_BRANDS = ['b2b', 'discover', 'tap'];
+// the sets that stay tabs below 768px too (their tab list, one panel at a time, no toggles), by
+// brand and set name: www.flytap.com's CategoryAccordion keeps its pills on phones, the first
+// category shown under them (the stopover partners and inspiration pages, TAP row 148)
+const TAB_SETS_ON_PHONES = { tap: ['categories'] };
 let setCount = 0;
 
 /**
@@ -36,16 +44,20 @@ function setsOf(main) {
     // a part that is no panel (a panel's grey box, a sidebar's intro) ends no set
     if (!label && section.classList.contains('section-part')) return;
     if (!label) { current = null; return; }
-    const name = section.dataset.tabs || '';
+    // "1, open first" | "1, closed": the set's name before the comma, its phone default after it
+    const [name, ...opts] = String(section.dataset.tabs || '').split(',').map((x) => x.trim());
     if (!current || current.name !== name) {
-      current = { name, panels: [] };
+      current = { name, panels: [], open: null };
       sets.push(current);
     }
+    const opt = opts.join(' ').toLowerCase();
+    if (/^open[\s-]*first$/.test(opt)) current.open = 0;
+    if (opt === 'closed') current.open = -1;
     const last = current.panels[current.panels.length - 1];
     if (last && String(last[0].dataset.tab).trim() === String(label).trim()) last.push(section);
     else current.panels.push([section]);
   });
-  return sets.map((s) => s.panels);
+  return sets.map((s) => Object.assign(s.panels, { open: s.open, name: s.name }));
 }
 
 function button(className, text) {
@@ -109,10 +121,26 @@ function buildSet(groups) {
   });
 
   const media = window.matchMedia(DESKTOP);
+  const brand = getMetadata('brand').trim().toLowerCase();
+  const always = (TAB_SETS_ON_PHONES[brand] || []).includes(String(groups.name || '').trim().toLowerCase());
+  if (always) {
+    nav.classList.add('section-tabs-always');
+    tabs.forEach(({ panel, parts }) => [panel, ...parts].forEach((x) => x.classList.add('section-tab-always')));
+  }
+  const set = { nav, tabs, removed: false };
+  registerSet(set);
   let active = 0;
-  let open = CLOSED_BRANDS.includes(getMetadata('brand').trim().toLowerCase()) ? -1 : 0;
+  // below 768px the first item open, or none on the closed brands; a page's own "Tabs open"
+  // metadata (first | none) wins (B2B's meals-on-board and Allegris pages open the first)
+  const pageOpen = getMetadata('tabs-open').trim().toLowerCase();
+  let open = CLOSED_BRANDS.includes(brand) ? -1 : 0;
+  if (pageOpen === 'first') open = 0;
+  if (pageOpen === 'none') open = -1;
+  // the set's own option on its Tabs row wins
+  if (groups.open === 0 || groups.open === -1) open = groups.open;
   const render = () => {
-    const desktop = media.matches;
+    if (set.removed) return;
+    const desktop = always || media.matches;
     tabs.forEach(({
       tab, toggle, panel, parts,
     }, i) => {
@@ -122,9 +150,13 @@ function buildSet(groups) {
       panel.hidden = desktop && i !== active;
       [...panel.children].filter((c) => c !== toggle)
         .forEach((c) => { c.hidden = !desktop && i !== open; });
+      // a closed item's class too: what a block puts in the panel after this (a fragment's
+      // sections) stays hidden with it (TAP's inspiration categories, TAP row 134)
+      panel.classList.toggle('section-tab-closed', !desktop && i !== open);
       parts.forEach((part) => {
         part.hidden = desktop ? i !== active : i !== open;
         [...part.children].forEach((c) => { c.hidden = !desktop && i !== open; });
+        part.classList.toggle('section-tab-closed', !desktop && i !== open);
       });
     });
   };
@@ -164,12 +196,41 @@ function buildSet(groups) {
 }
 
 /**
+ * ITA's fleet pages (ITA rows 34 and 38): www puts an aircraft's specifications table and its seat
+ * map side by side (col-md-6); DA keeps them in two sections of one panel where the table has
+ * market variants. A part that is only one picture paragraph joins the section before it when that
+ * one is only a table (the same panel; the part without a style of its own), so ita.css lays them
+ * out as one section's two columns.
+ * @param {Element[][]} panels a set's panels, each [panel, ...parts]
+ */
+function joinSeatMaps(panels) {
+  const only = (section, selector) => section.children.length === 1
+    && section.firstElementChild.matches(selector);
+  panels.forEach((sections) => {
+    for (let i = sections.length - 1; i > 0; i -= 1) {
+      const map = sections[i];
+      const table = sections[i - 1];
+      const wrapper = map.firstElementChild;
+      const lone = wrapper && wrapper.children.length === 1 && wrapper.firstElementChild.matches('p')
+        && wrapper.firstElementChild.querySelectorAll('picture').length === 1 && !wrapper.textContent.trim();
+      if (table.nextElementSibling === map && map.classList.length === 1 && only(table, '.table-striped-wrapper')
+        && only(map, '.default-content-wrapper') && lone) {
+        table.append(wrapper);
+        map.remove();
+        sections.splice(i, 1);
+      }
+    }
+  });
+}
+
+/**
  * The page's tab sets (sections with `Tab` metadata), after decorateSections and decorateBlocks.
  * @param {Element} main
  */
 export default function decorateSectionTabs(main) {
   const sets = setsOf(main);
   if (!sets.length) return;
+  if (getMetadata('brand').trim().toLowerCase() === 'ita') sets.forEach(joinSeatMaps);
   sets.forEach(buildSet);
   loadCSS(`${window.hlx?.codeBasePath || ''}/styles/section-tabs.css`);
 }

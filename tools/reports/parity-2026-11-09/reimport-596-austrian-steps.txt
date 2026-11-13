@@ -1,0 +1,10 @@
+# The brief after 596, item 2 (ema-cashub): lh-austrian documents whose numbered-steps row gets columns-media option steps (every column opens with an h2 of its number: www's online-check-in "How to get your boarding pass"), to re-import with austrian-import.mjs as of this commit (the austrian-checkin template; an offline import of the at/en recording, austrian-parity-017, writes "columns-media steps" for that row and nothing else new). The Austrian theme then sizes the numbers as www's; its rule for a list of secondary links (the app store buttons) needs no re-import (live with this commit). Measured with both added in the browser on /at/en/online-check-in against austrian-parity-017: 1440 -7.0 -> -6.3 %, 390 -7.6 -> -6.2 %. The rest of that page (www's "Austrian App" heading in heading-medium, the gap before "Good to know") is a row. Snapshot: the root's 10-30 snapshot (at/en: the recording austrian-parity-017 is newer and may be used). TSV: path, change, status.
+/at/de/online-check-in	the steps row: columns-media steps	READY
+/at/en/online-check-in	the steps row: columns-media steps	READY
+/cn/zh/online-check-in	the steps row: columns-media steps	READY
+/fr/fr/online-check-in	the steps row: columns-media steps	READY
+/gr/el/online-check-in	the steps row: columns-media steps	READY
+/it/it/online-check-in	the steps row: columns-media steps	READY
+/jp/ja/online-check-in	the steps row: columns-media steps	READY
+/pl/pl/online-check-in	the steps row: columns-media steps	READY
+/ru/ru/online-check-in	the steps row: columns-media steps	READY

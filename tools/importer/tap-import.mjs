@@ -89,15 +89,26 @@ const plainOf = (v) => (v && typeof v === 'object' ? v.plaintext : v) || '';
 
 /** The texts in the page's language (pt-pt: pt, en-pt: en). */
 const LABELS = {
-  pt: { onWww: 'Ver em flytap.com', video: 'Ver o vídeo', book: 'Pesquisar voos em flytap.com' },
-  en: { onWww: 'See on flytap.com', video: 'Watch the video', book: 'Search flights on flytap.com' },
-  es: { onWww: 'Ver en flytap.com', video: 'Ver el vídeo', book: 'Buscar vuelos en flytap.com' },
-  fr: { onWww: 'Voir sur flytap.com', video: 'Regarder la vidéo', book: 'Rechercher des vols sur flytap.com' },
-  de: { onWww: 'Auf flytap.com ansehen', video: 'Video ansehen', book: 'Flüge auf flytap.com suchen' },
-  it: { onWww: 'Vedi su flytap.com', video: 'Guarda il video', book: 'Cerca voli su flytap.com' },
-  pl: { onWww: 'Zobacz na flytap.com', video: 'Obejrzyj wideo', book: 'Szukaj lotów na flytap.com' },
+  pt: { onWww: 'Ver em flytap.com', video: 'Ver o vídeo', book: 'Pesquisar voos em flytap.com', track: 'Pesquisar em flytap.com' },
+  en: { onWww: 'See on flytap.com', video: 'Watch the video', book: 'Search flights on flytap.com', track: 'Search on flytap.com' },
+  es: { onWww: 'Ver en flytap.com', video: 'Ver el vídeo', book: 'Buscar vuelos en flytap.com', track: 'Buscar en flytap.com' },
+  fr: { onWww: 'Voir sur flytap.com', video: 'Regarder la vidéo', book: 'Rechercher des vols sur flytap.com', track: 'Rechercher sur flytap.com' },
+  de: { onWww: 'Auf flytap.com ansehen', video: 'Video ansehen', book: 'Flüge auf flytap.com suchen', track: 'Auf flytap.com suchen' },
+  it: { onWww: 'Vedi su flytap.com', video: 'Guarda il video', book: 'Cerca voli su flytap.com', track: 'Cerca su flytap.com' },
+  pl: { onWww: 'Zobacz na flytap.com', video: 'Obejrzyj wideo', book: 'Szukaj lotów na flytap.com', track: 'Wyszukaj na flytap.com' },
 };
 const labelsOf = (lang) => LABELS[lang] || LABELS.en;
+/** www's baggage tracker's line under its title (TAP row 145), by root, else by language (the roots' snapshots) */
+const TRACKER_TEXT = {
+  'pt-br': 'Verifique se sua bagagem foi embarcada em seu voo usando a etiqueta de bagagem.',
+  pt: 'Verifique se a sua bagagem foi carregada no seu voo, usando o número da etiqueta de bagagem.',
+  en: 'Check if your baggage has been loaded on your flight by using the baggage tag.',
+  es: 'Compruebe si su equipaje ha sido cargado en su vuelo utilizando la etiqueta de equipaje.',
+  fr: 'Vérifiez que vos bagages ont été transportés sur votre vol à l\'aide de l\'étiquette de bagage.',
+  de: 'Überprüfen Sie, ob Ihr Gepäck auf Ihren Flug geladen wurde, indem Sie den Gepäckaufkleber verwenden.',
+  it: 'Controlli se il suo bagaglio è stato caricato sul suo volo utilizzando l\'etichetta del bagaglio.',
+  pl: 'Sprawdź, czy Twój bagaż został załadowany na pokład samolotu, korzystając z etykiety bagażowej.',
+};
 /** Page templates out of scope: no document (their links go to www). */
 const OUT_TEMPLATES = {
   register: 'register: the TAP Miles&Go sign-up form (a form, out of scope)',
@@ -454,8 +465,11 @@ class Page {
 
   section(style = null) {
     if (this.cell) return;
-    if (!this.current.items.length) Object.assign(this.current, { style, markets: this.markets });
-    else this.sections.push({ style, items: [], markets: this.markets });
+    if (!this.current.items.length) {
+      Object.assign(this.current, {
+        style, markets: this.markets, tab: undefined, tabs: undefined,
+      });
+    } else this.sections.push({ style, items: [], markets: this.markets });
   }
 
   add(html) { if (html) this.current.items.push({ html }); }
@@ -706,7 +720,15 @@ const HANDLERS = {
   ComponentHeadingSectionModel: (s, P) => {
     if (s.lead) P.add(`<p>${esc(s.lead)}</p>`);
     P.add(P.heading(2, s.title));
-    P.add(P.rich(s.headingSectionDescription));
+    const desc = P.rich(s.headingSectionDescription);
+    P.add(desc);
+    // a heading with its description (TAP row 139): www's description 16 px under the heading and the next
+    // component 32 px under it; the heading and the description end their section, style heading-section
+    // (tap.css), so the next component starts a section. Not in a block cell or a tab's section (its Tab rows)
+    if (desc && desc.replace(/<[^>]+>/g, '').trim() && !P.cell && !P.current.tab) {
+      P.current.style = [P.current.style, 'heading-section'].filter(Boolean).join(', ');
+      P.section();
+    }
   },
   ComponentRichTextBlockModel: (s, P) => {
     P.add(P.rich(s.richTextContent));
@@ -754,7 +776,14 @@ const HANDLERS = {
       return [esc(x.question), `${richText(x.answer, P.c, 'cell')}${nested(x.sections, P)}${P.link(x.ctaUrl, x.ctaLabel)}`];
     };
     const subs = (cat) => (cat.subCategories || []).map((sub) => `${P.heading(3, sub.label)}${blockHtml('accordion-columns (faq)', (sub.items || []).map(item))}`).join('');
+    // each category a tab (TAP row 134; www's chips over one category at a time): a section of its
+    // own with the section metadata Tab (its label) and Tabs (the set), scripts/section-tabs.js
+    const tabbed = !P.cell && (s.categories || []).length > 1;
     (s.categories || []).forEach((cat) => {
+      if (tabbed) {
+        P.section();
+        Object.assign(P.current, { tab: cat.label, tabs: 'categories' });
+      }
       P.add(P.heading(2, cat.label));
       // a page over the content bus's limits (c.fragments; 1 MB, 200 images a document): the
       // category's accordions fragment documents of the locale (/<locale>/fragments/<page>/
@@ -791,6 +820,7 @@ const HANDLERS = {
       P.blocks['accordion-columns (faq)'] = (P.blocks['accordion-columns (faq)'] || 0) + (cat.subCategories || []).length;
       P.add(subs(cat));
     });
+    if (tabbed) P.section();
   },
   ComponentGenericCardListModel: (s, P) => {
     // www renders no card list's title (the meals' "To pre-choose your meal, follow the steps
@@ -845,11 +875,15 @@ const HANDLERS = {
   },
   ComponentFeatureCardModel: (s, P) => {
     // its title an H3, as www's (330 of 331; the theme's TAP H3, parity 60)
-    const text = `${P.heading(3, s.title)}${P.cardRich(s.featureCardDescription)}${P.cardRich(s.complementaryNote)}${P.link(s.ctaUrl, s.ctaLabel, 'primary')}`;
+    const text = `${P.heading(3, s.title)}${P.cardRich(s.featureCardDescription)}${P.link(s.ctaUrl, s.ctaLabel, 'primary')}`;
     // www's size: large (536 x 275, the chevron frame) the option feature, default (260 x 180)
     // feature-small; the theme lays them out (brief 394)
     const size = s.size === 'large' ? 'feature' : 'feature-small';
-    P.block(`columns-media (${size})`, [s.switchImageToRight ? [text, P.img(s.image)] : [P.img(s.image), text]]);
+    // the footnote (complementaryNote): www's small print under the card's two columns (TAP row
+    // 133), the card's second row of one text cell (the theme draws it, tap.css)
+    const note = P.cardRich(s.complementaryNote);
+    const hasNote = !!note && !!note.replace(/<[^>]+>/g, '').replace(/&nbsp;|\s/g, '');
+    P.block(`columns-media (${size})`, [s.switchImageToRight ? [text, P.img(s.image)] : [P.img(s.image), text], ...(hasNote ? [[note]] : [])]);
   },
   ComponentInfoSectionModel: (s, P) => {
     // www: a picture beside an accordion of link groups; the picture, then the accordion
@@ -972,7 +1006,15 @@ const HANDLERS = {
     });
   },
   ComponentMiles_GoCardModel: (s, P) => HANDLERS.ComponentMiles_GoCardListModel({ milesAndGoCards: [s] }, P),
-  ComponentTrackBagaggeModel: (s, P) => { P.add(P.heading(2, s.title)); P.onWww('TrackBagagge (the baggage tracking form)'); },
+  ComponentTrackBagaggeModel: (s, P) => {
+    // www's baggage tracker (TAP row 145): a React form TAP's own service answers (flight date, airline code, flight
+    // number, baggage tag number; no action), which cannot work on our hosts. The title, then a link box (cards
+    // one-up, one card): www's line under the title and a button to the tracker on flytap.com, in the page's language
+    P.add(P.heading(2, s.title));
+    P.linkedOut.add(`TrackBagagge (the baggage tracking form, a link box): ${docPath(P.c.url)}`);
+    const text = TRACKER_TEXT[P.c.locale] || TRACKER_TEXT[P.c.lang] || TRACKER_TEXT.en;
+    P.block('cards (one-up)', [[`<p>${esc(text)}</p><p><strong><a href="${attr(`${WWW}${docPath(P.c.url)}`)}">${esc(labelsOf(P.c.lang).track)}</a></strong></p>`]]);
+  },
   // the destinations map (mapa-destinos): the poi-map block on ema-test's sheet of the language
   // version (/<version>/destinations/destinations-map.json in every version; a root's document
   // its version's), before it Smartvel's grid of the same widget (Explore&Go) as ema-test's
@@ -1191,7 +1233,7 @@ export function convertPage(nd, site) {
   let h1s = 0;
   docs = docs.map((s, i) => {
     const body = iconSafe(s.items.map((it) => it.html).join(''));
-    const rows = [s.style && ['Style', s.style], s.markets && ['Markets', s.markets]].filter(Boolean);
+    const rows = [s.style && ['Style', s.style], s.markets && ['Markets', s.markets], s.tab && ['Tab', esc(s.tab)], s.tab && ['Tabs', esc(s.tabs)]].filter(Boolean);
     const sm = rows.length ? blockHtml('section-metadata', rows) : '';
     const md = i === docs.length - 1 ? blockHtml('metadata', meta) : '';
     // one H1 a page; a market section's (a variant's own) stays
@@ -1254,7 +1296,11 @@ export function deliveryMediaDirs(indexFile, top = '/tmp/lh-arch') {
 /** The media archives' files by every URL (and URL path) they were seen under. */
 export function mediaIndex(dirs) {
   const idx = new Map();
-  dirs.forEach((dir) => {
+  dirs.forEach((given) => {
+    // the call-back capture unpacked as it comes (tap-byside-001/byside/…): its byside folder
+    // (without it the click-to-call cards lost their Image rows, the held club pages of 2026-11-11)
+    const dir = !fs.existsSync(path.join(given, 'manifest.json')) && !fs.existsSync(path.join(given, 'click-to-call.json'))
+      && fs.existsSync(path.join(given, 'byside', 'click-to-call.json')) ? path.join(given, 'byside') : given;
     // a media archive's manifest, else the call-back capture's pictures (tap-byside-001)
     const m = readJson(path.join(dir, 'manifest.json'), null) || readJson(path.join(dir, 'click-to-call.json'), {}).pictures || [];
     (Array.isArray(m) ? m : m.files || []).forEach((e) => {

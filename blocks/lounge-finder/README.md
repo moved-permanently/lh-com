@@ -19,7 +19,7 @@ Any UI string can be overridden with a row of the same name ("Submit label | Sea
 
 - Form (live order and labels): heading (`form.headline.redesignHeadlineText`, "Finden Sie Ihre Lounge"), city autocomplete over GET /service/api/catalogs/lounges/cities (localized by market; typing two letters filters the names and codes, a fully typed city name counts as chosen), select with the groups Reiseklasse (First Class FIR, Business Class BUS, Economy ECO) and Vielfliegerstatus (HON Circle Member HON, Senator SEN, Frequent Traveller FTL, Star Alliance Gold STA), yellow submit button. Missing city or status: the live required texts under the fields, no request.
 - Deep link (the live "prefilled" state): `?city=FRA&status=SEN` (also `cabin=BUS|FIR`: a basic/FTL status with cabin BUS searches BUS, STA stays STA; cabin FIR searches FIR unless HON) preselects both; the visitor submits.
-- Search FIR/BUS/HON/SEN/FTL/STA: GET /service/api/catalogs/lounges/{status}/{city} (scripts/lh-api.js `loungesRequest`, `mapLounges`), directly on www.lufthansa.com with the market's X-Portal-* headers, else the exact recording, else nothing.
+- Search FIR/BUS/HON/SEN/FTL/STA: GET /service/api/catalogs/lounges/{status}/{city} (scripts/lh-api.js `loungesRequest`, `mapLounges`): on www's own hosts a same-origin call with the market's X-Portal-* headers; on our hosts www's recorded answer from /data/lounges (below), never a call to www.
 - Search ECO (lounge purchase): GET https://amp.yiluhub.com/product/v1/products?storeId=6662ff1e7d41365f96988306&airport={airport} (LON tries LHR first, NYC JFK, DTT DTW, MIL MXP, then the city code; 400 = next), then catalogs/lounges/BUS/{city}; only lounges Yilu sells (fixed Yilu→loungeid table of the live app) are listed, with "from {PRICE} {CURRENCY}" (regularPrice, else defaultPrice.price.amount / 100) and "Purchase Lounge Access" → https://lufthansa.travelintegration.com/lounges/product?loungeId={yiluId}&airportIataCode={airport}&utm_source=web-lounge-finder&utm_medium=LH&utm_campaign=lounge-voucher&utm_content=result-lounge-item-cta&touchpoint=web-lounge-finder (new tab). Yilu is called directly (3 s timeout) and is never recorded: when it does not answer, Economy shows the no-lounge message.
 - Results: "Ergebnisse (N)", one white card per lounge: square image `{Image base}/{loungeid}-square.jpg.transform/lh-dcep-transform-width-720/img.jpg` (srcset 180–2560, `fallback-square.jpg` on 404), category badge (`loungeType` with the feature label of `category`), name, location (airport, terminal; level; gate info, or `plainLocation`), opening hours table (Monday–Friday and the weekend each in one row when alike, else per day; "05:30 - 22:00 and …", closed label; `openingHours` text when the week is missing), `loungeDescription` as a warning hint, amenities (`loungefeatures`, icon + label, four per row). From 1025px details and amenities sit side by side; below, a "View amenities" / "Back to overview" button switches the card.
 - No answer at all (or an empty list): the live label `form.response.empty` ("Leider haben wir keine Informationen über Lounges in der von Ihnen ausgewählten Stadt.").
@@ -37,20 +37,16 @@ Source: `.loungefinder > .dcep-lounge-finder` (8 pages: /{de/de,de/en,at/de,gb/e
 - Section: the `.loungefinder` component gets its own section with `style | grey` (as the current static import does), placed where the live component is (after the intro image and the separator).
 - Implemented in `tools/importer/parsers/lounge-finder.js`, mapped as `.loungefinder:has(> .dcep-lounge-finder)` in the hub (lounges) and info (tips-senior-travellers) templates; the grey section comes from the sections transformer (the `.container-gray` inside the component).
 
-## Recording (for the browser agent)
+## Data on our hosts (brief 539)
 
-Recorded already (data/recorded/index.json): labels/loungefinder/lh/{de,en} and catalogs/lounges/cities for de/en, de/de, at/de, gb/en. Missing: the result answers. Record per market with the market's own X-Portal-* headers (the answers are localized), from the market's lounges page, GET:
+www's lounge API refuses our origins (CORS) and Workers (its bot rule), so on the demo hosts (scripts/demo.js: turnsthe.page, aem.page / aem.live, localhost) the three routes the finder calls are answered from www's recorded answers in the repo, `data/lounges/` (scripts/lounge-data.js through scripts/lh-data.js `lhFetch`; lufthansa.com's portal only), and www is never called. On www's own hosts nothing changes.
 
-| Market | City | URLs |
-| --- | --- | --- |
-| de/de, de/en | FRA | https://www.lufthansa.com/service/api/catalogs/lounges/{FIR,BUS,HON,SEN,FTL,STA}/FRA (6 URLs per market) |
-| de/de, de/en | MUC | https://www.lufthansa.com/service/api/catalogs/lounges/{FIR,BUS,HON,SEN,FTL,STA}/MUC |
-| at/de | VIE | https://www.lufthansa.com/service/api/catalogs/lounges/{FIR,BUS,HON,SEN,FTL,STA}/VIE |
-| gb/en | LON | https://www.lufthansa.com/service/api/catalogs/lounges/{FIR,BUS,HON,SEN,FTL,STA}/LON |
-
-That is 6 statuses × (FRA + MUC for de/de and de/en, VIE for at/de, LON for gb/en) = 36 requests. Economy (ECO) needs no catalogs URL of its own: it uses …/BUS/{city} (above) plus the Yilu product answer, which the recorder (record-live-data.mjs, lufthansa.com routes only) cannot store. Each answer is `{"lounges":[...]}`; check the shape against `mapLounges` (scripts/lh-api.js) once recorded: the fields were taken from the live selectors, no real answer has been seen yet. An empty city (`{"lounges":[]}`) is a valid answer worth recording too (the no-lounge message).
-
-Recorder: `node tools/importer/bd-record-api.mjs --set lounges` (one warm Bright Data session, the 36 URLs as page navigations with the market's X-Portal-* headers, output tools/source-export/api/bd-record-api/{cc}-{ll}.ndjson, then `node tools/importer/record-live-data.mjs`). Not recorded yet: on 2026-10-23 the Bright Data Browser API refused `setExtraHTTPHeaders` for the X-Portal-* headers ("headers forbidden"), so the run stopped before the first API URL. The results still come only from a direct live call (CORS permitting) or show the no-lounge message.
+- `labels-<ll>.json`, `cities-<ll>.json`: GET labels/loungefinder/lh/<ll> and catalogs/lounges/cities (de from /de/de, en from /de/en).
+- `<ll>/<STATUS>/<CITY>.json`: GET catalogs/lounges/<STATUS>/<CITY>, only answers with lounges; `manifest.json` lists every recorded answer with its lounge count (0: an empty answer, no file).
+- Languages: de pages read de, every other language en (labels, city names and the answers' two text fields, plainLocation and openingHours).
+- No match: a recorded empty answer and a status and city never recorded both show the finder's own `form.response.empty` label.
+- Refresh: the capture child's archives (lh-lounges-api-NNN, www's own JSON per status, city and language), then `node tools/lounges/build-lounge-data.mjs --onload <lh-lounges-api-001> --answers <dir> [--answers <dir> …]`, a commit and a push (code: live at once, no publish step). Tests: test/lounge-data-539.test.mjs.
+- www's own de label `form.response.results` reads "Leider steht unter den ausgewählten Suchkriterien keine Lounge zur Verfügung" (it means "no lounge"); the screen-reader status after a de search says that, as on www.
 
 ## Universal Editor fields
 

@@ -1,0 +1,6 @@
+# The standing order of 2026-11-10, item 2c: www recordings for the next capture window (none of the R2 drop's
+# recordings has these pages measured): the destination pages whose DescritionNews blocks reimport-567-ad-description-news
+# turns into columns-media (news), to measure www's heights at 1440 x 900 and 390 x 844 (full page, measurements, as
+# airdolomiti-parity-004).
+https://www.airdolomiti.eu/destinations/london-eu
+https://www.airdolomiti.de/reiseziele/basel-de

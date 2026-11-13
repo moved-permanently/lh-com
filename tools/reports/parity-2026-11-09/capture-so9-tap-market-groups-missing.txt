@@ -1,0 +1,178 @@
+# ema-cashub, standing order 9 (2026-11-11), item 4: TAP's market-group pages (capture-567-tap-market-groups.txt, 70
+# pages) that have no capture newer than the market comparison of 2026-11-07. Every one of the 70 is in the drop; 9
+# came in tap-snapshots-027 (2026-11-10), the other 61 only in the market archives of 2026-11-04 / -05 (016 to 020,
+# 025: its archive after each row). Those predate the comparison and DA's copies (2026-11-08), so tap-markets.mjs keeps
+# DA's view for their countries (staleCountries, since 06a13134): nothing changes for them until a newer capture
+# lands, and nothing is to be imported for them before that. For the next capture window, as the market-pages
+# archives (snapshots with __NEXT_DATA__, and the media), one row a page in capture-567's format.
+# Documents waiting (a document with a group or own page below; those whose pages all came in 027 can be merged
+# now, reimport-585-tap-market-groups-027.txt and reimport-so8-tap-markets-da-kept.txt):
+#   /de-at/buchungen/versicherung: 1 page(s) below
+#   /de-ch/buchungen/versicherung: 1 page(s) below
+#   /en-br/help: 1 page(s) below
+#   /en-br/help/frequently-asked-questions: 1 page(s) below
+#   /en-br/help/tap-refunds: 1 page(s) below
+#   /en-br/info-legal/privacidade: 1 page(s) below
+#   /en-br/legal-info/privacy: 1 page(s) below
+#   /en-br/legal-info/terms-and-conditions: 1 page(s) below
+#   /en-br/miles-and-go/gift: 1 page(s) below
+#   /en-ca/information/baggage/problems-baggage: 1 page(s) below
+#   /en-es/legal-info/conditions-of-carriage: 1 page(s) below
+#   /en-gb/legal-info/conditions-of-carriage: 1 page(s) below
+#   /en-pt/information/traveling-with-animals/service-animals: 1 page(s) below
+#   /en-pt/miles-and-go/club: 2 page(s) below; already newer: /en-ar/miles-and-go/club
+#   /en-pt/miles-and-go/partners: 5 page(s) below
+#   /en-pt/miles-and-go/promo: 1 page(s) below
+#   /en-pt/miles-and-go/promotions: 2 page(s) below
+#   /en-pt/promos: 2 page(s) below
+#   /en-us/miles-and-go/gift: 1 page(s) below
+#   /es-cl/miles-and-go/promo: 1 page(s) below
+#   /es-es/informacion-legal/condiciones-de-transporte: 2 page(s) below
+#   /es-es/miles-and-go/socios: 2 page(s) below
+#   /es-mx/miles-and-go/promo: 1 page(s) below
+#   /es-us/miles-and-go/club: 1 page(s) below
+#   /es-us/miles-and-go/gane-millas: 1 page(s) below
+#   /es-us/miles-and-go/promociones: 1 page(s) below
+#   /es-us/promos: 1 page(s) below
+#   /fr-be/reservations/assurances: 1 page(s) below
+#   /fr-ca/informations/bagage/problemes-bagages: 1 page(s) below
+#   /fr-ca/miles-and-go/gagnez-miles: 1 page(s) below
+#   /fr-sn/miles-and-go/promo: 1 page(s) below
+#   /fr-tg/miles-and-go/promo: 1 page(s) below
+#   /pt-be/info-legal/condicoes-de-transporte: 1 page(s) below
+#   /pt-ca/informacoes/bagagem/problemas-bagagem: 1 page(s) below
+#   /pt-ch/reservas/seguros: 1 page(s) below
+#   /pt-es/info-legal/condicoes-de-transporte: 1 page(s) below
+#   /pt-fr/info-legal/condicoes-de-transporte: 1 page(s) below
+#   /pt-gb/info-legal/condicoes-de-transporte: 1 page(s) below
+#   /pt-pt/miles-and-go/club: 2 page(s) below; already newer: /pt-ar/miles-and-go/club
+#   /pt-pt/miles-and-go/parceiros: 4 page(s) below
+#   /pt-pt/miles-and-go/promo: 1 page(s) below
+#   /pt-pt/miles-and-go/promocoes: 1 page(s) below
+#   /pt-pt/promos: 3 page(s) below; already newer: /pt-at/promos, /pt-pl/promos
+#   /pt-us/ajuda: 1 page(s) below
+#   /pt-us/ajuda/perguntas-frequentes: 1 page(s) below
+#   /pt-us/miles-and-go/gift: 1 page(s) below
+# Rows: 61 (28 group pages, 33 own documents' root pages).
+# group page, newest capture tap-snapshots-016 (2026-11-04), waits: /en-pt/information/traveling-with-animals/service-animals
+https://www.flytap.com/en-br/information/traveling-with-animals/service-animals
+# group page, newest capture tap-snapshots-020 (2026-11-04), waits: /en-pt/miles-and-go/club
+https://www.flytap.com/en-ao/miles-and-go/club
+# group page, newest capture tap-snapshots-017 (2026-11-04), waits: /en-pt/miles-and-go/club
+https://www.flytap.com/en-us/miles-and-go/club
+# group page, newest capture tap-snapshots-016 (2026-11-04), waits: /en-pt/miles-and-go/partners
+https://www.flytap.com/en-ao/miles-and-go/partners
+# group page, newest capture tap-snapshots-016 (2026-11-04), waits: /en-pt/miles-and-go/partners
+https://www.flytap.com/en-br/miles-and-go/partners
+# group page, newest capture tap-snapshots-016 (2026-11-04), waits: /en-pt/miles-and-go/partners
+https://www.flytap.com/en-ca/miles-and-go/partners
+# group page, newest capture tap-snapshots-018 (2026-11-04), waits: /en-pt/miles-and-go/partners
+https://www.flytap.com/en-mx/miles-and-go/partners
+# group page, newest capture tap-snapshots-017 (2026-11-04), waits: /en-pt/miles-and-go/partners
+https://www.flytap.com/en-us/miles-and-go/partners
+# group page, newest capture tap-snapshots-020 (2026-11-04), waits: /en-pt/miles-and-go/promo
+https://www.flytap.com/en-cl/miles-and-go/promo
+# group page, newest capture tap-snapshots-016 (2026-11-04), waits: /en-pt/miles-and-go/promotions
+https://www.flytap.com/en-br/miles-and-go/promotions
+# group page, newest capture tap-snapshots-017 (2026-11-04), waits: /en-pt/miles-and-go/promotions
+https://www.flytap.com/en-us/miles-and-go/promotions
+# group page, newest capture tap-snapshots-020 (2026-11-04), waits: /en-pt/promos
+https://www.flytap.com/en-ca/promos
+# group page, newest capture tap-snapshots-020 (2026-11-04), waits: /en-pt/promos
+https://www.flytap.com/en-us/promos
+# group page, newest capture tap-snapshots-020 (2026-11-04), waits: /es-es/informacion-legal/condiciones-de-transporte
+https://www.flytap.com/es-ar/informacion-legal/condiciones-de-transporte
+# group page, newest capture tap-snapshots-017 (2026-11-04), waits: /es-es/informacion-legal/condiciones-de-transporte
+https://www.flytap.com/es-us/informacion-legal/condiciones-de-transporte
+# group page, newest capture tap-snapshots-016 (2026-11-04), waits: /es-es/miles-and-go/socios
+https://www.flytap.com/es-mx/miles-and-go/socios
+# group page, newest capture tap-snapshots-017 (2026-11-04), waits: /es-es/miles-and-go/socios
+https://www.flytap.com/es-us/miles-and-go/socios
+# group page, newest capture tap-snapshots-020 (2026-11-04), waits: /pt-pt/miles-and-go/club
+https://www.flytap.com/pt-ao/miles-and-go/club
+# group page, newest capture tap-snapshots-017 (2026-11-04), waits: /pt-pt/miles-and-go/club
+https://www.flytap.com/pt-us/miles-and-go/club
+# group page, newest capture tap-snapshots-016 (2026-11-04), waits: /pt-pt/miles-and-go/parceiros
+https://www.flytap.com/pt-ao/miles-and-go/parceiros
+# group page, newest capture tap-snapshots-016 (2026-11-04), waits: /pt-pt/miles-and-go/parceiros
+https://www.flytap.com/pt-ca/miles-and-go/parceiros
+# group page, newest capture tap-snapshots-018 (2026-11-04), waits: /pt-pt/miles-and-go/parceiros
+https://www.flytap.com/pt-mx/miles-and-go/parceiros
+# group page, newest capture tap-snapshots-017 (2026-11-04), waits: /pt-pt/miles-and-go/parceiros
+https://www.flytap.com/pt-us/miles-and-go/parceiros
+# group page, newest capture tap-snapshots-020 (2026-11-04), waits: /pt-pt/miles-and-go/promo
+https://www.flytap.com/pt-cl/miles-and-go/promo
+# group page, newest capture tap-snapshots-017 (2026-11-04), waits: /pt-pt/miles-and-go/promocoes
+https://www.flytap.com/pt-us/miles-and-go/promocoes
+# group page, newest capture tap-snapshots-020 (2026-11-04), waits: /pt-pt/promos
+https://www.flytap.com/pt-ca/promos
+# group page, newest capture tap-snapshots-025 (2026-11-05), waits: /pt-pt/promos
+https://www.flytap.com/pt-es/promos
+# group page, newest capture tap-snapshots-020 (2026-11-04), waits: /pt-pt/promos
+https://www.flytap.com/pt-us/promos
+# own document, newest capture tap-snapshots-020 (2026-11-04), waits: /de-at/buchungen/versicherung
+https://www.flytap.com/de-at/buchungen/versicherung
+# own document, newest capture tap-snapshots-020 (2026-11-04), waits: /de-ch/buchungen/versicherung
+https://www.flytap.com/de-ch/buchungen/versicherung
+# own document, newest capture tap-snapshots-016 (2026-11-04), waits: /en-br/help
+https://www.flytap.com/en-br/help
+# own document, newest capture tap-snapshots-016 (2026-11-04), waits: /en-br/help/frequently-asked-questions
+https://www.flytap.com/en-br/help/frequently-asked-questions
+# own document, newest capture tap-snapshots-020 (2026-11-04), waits: /en-br/help/tap-refunds
+https://www.flytap.com/en-br/help/tap-refunds
+# own document, newest capture tap-snapshots-020 (2026-11-04), waits: /en-br/info-legal/privacidade
+https://www.flytap.com/en-br/info-legal/privacidade
+# own document, newest capture tap-snapshots-020 (2026-11-04), waits: /en-br/legal-info/privacy
+https://www.flytap.com/en-br/legal-info/privacy
+# own document, newest capture tap-snapshots-020 (2026-11-04), waits: /en-br/legal-info/terms-and-conditions
+https://www.flytap.com/en-br/legal-info/terms-and-conditions
+# own document, newest capture tap-snapshots-016 (2026-11-04), waits: /en-br/miles-and-go/gift
+https://www.flytap.com/en-br/miles-and-go/gift
+# own document, newest capture tap-snapshots-016 (2026-11-04), waits: /en-ca/information/baggage/problems-baggage
+https://www.flytap.com/en-ca/information/baggage/problems-baggage
+# own document, newest capture tap-snapshots-017 (2026-11-04), waits: /en-es/legal-info/conditions-of-carriage
+https://www.flytap.com/en-es/legal-info/conditions-of-carriage
+# own document, newest capture tap-snapshots-018 (2026-11-04), waits: /en-gb/legal-info/conditions-of-carriage
+https://www.flytap.com/en-gb/legal-info/conditions-of-carriage
+# own document, newest capture tap-snapshots-017 (2026-11-04), waits: /en-us/miles-and-go/gift
+https://www.flytap.com/en-us/miles-and-go/gift
+# own document, newest capture tap-snapshots-020 (2026-11-04), waits: /es-cl/miles-and-go/promo
+https://www.flytap.com/es-cl/miles-and-go/promo
+# own document, newest capture tap-snapshots-020 (2026-11-04), waits: /es-mx/miles-and-go/promo
+https://www.flytap.com/es-mx/miles-and-go/promo
+# own document, newest capture tap-snapshots-017 (2026-11-04), waits: /es-us/miles-and-go/club
+https://www.flytap.com/es-us/miles-and-go/club
+# own document, newest capture tap-snapshots-017 (2026-11-04), waits: /es-us/miles-and-go/gane-millas
+https://www.flytap.com/es-us/miles-and-go/gane-millas
+# own document, newest capture tap-snapshots-017 (2026-11-04), waits: /es-us/miles-and-go/promociones
+https://www.flytap.com/es-us/miles-and-go/promociones
+# own document, newest capture tap-snapshots-020 (2026-11-04), waits: /es-us/promos
+https://www.flytap.com/es-us/promos
+# own document, newest capture tap-snapshots-020 (2026-11-04), waits: /fr-be/reservations/assurances
+https://www.flytap.com/fr-be/reservations/assurances
+# own document, newest capture tap-snapshots-016 (2026-11-04), waits: /fr-ca/informations/bagage/problemes-bagages
+https://www.flytap.com/fr-ca/informations/bagage/problemes-bagages
+# own document, newest capture tap-snapshots-016 (2026-11-04), waits: /fr-ca/miles-and-go/gagnez-miles
+https://www.flytap.com/fr-ca/miles-and-go/gagnez-miles
+# own document, newest capture tap-snapshots-020 (2026-11-04), waits: /fr-sn/miles-and-go/promo
+https://www.flytap.com/fr-sn/miles-and-go/promo
+# own document, newest capture tap-snapshots-020 (2026-11-04), waits: /fr-tg/miles-and-go/promo
+https://www.flytap.com/fr-tg/miles-and-go/promo
+# own document, newest capture tap-snapshots-020 (2026-11-04), waits: /pt-be/info-legal/condicoes-de-transporte
+https://www.flytap.com/pt-be/info-legal/condicoes-de-transporte
+# own document, newest capture tap-snapshots-016 (2026-11-04), waits: /pt-ca/informacoes/bagagem/problemas-bagagem
+https://www.flytap.com/pt-ca/informacoes/bagagem/problemas-bagagem
+# own document, newest capture tap-snapshots-019 (2026-11-04), waits: /pt-ch/reservas/seguros
+https://www.flytap.com/pt-ch/reservas/seguros
+# own document, newest capture tap-snapshots-017 (2026-11-04), waits: /pt-es/info-legal/condicoes-de-transporte
+https://www.flytap.com/pt-es/info-legal/condicoes-de-transporte
+# own document, newest capture tap-snapshots-020 (2026-11-04), waits: /pt-fr/info-legal/condicoes-de-transporte
+https://www.flytap.com/pt-fr/info-legal/condicoes-de-transporte
+# own document, newest capture tap-snapshots-018 (2026-11-04), waits: /pt-gb/info-legal/condicoes-de-transporte
+https://www.flytap.com/pt-gb/info-legal/condicoes-de-transporte
+# own document, newest capture tap-snapshots-020 (2026-11-04), waits: /pt-us/ajuda
+https://www.flytap.com/pt-us/ajuda
+# own document, newest capture tap-snapshots-020 (2026-11-04), waits: /pt-us/ajuda/perguntas-frequentes
+https://www.flytap.com/pt-us/ajuda/perguntas-frequentes
+# own document, newest capture tap-snapshots-017 (2026-11-04), waits: /pt-us/miles-and-go/gift
+https://www.flytap.com/pt-us/miles-and-go/gift

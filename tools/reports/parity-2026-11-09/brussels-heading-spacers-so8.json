@@ -1,0 +1,236 @@
+[
+ {
+  "site": "brussels",
+  "path": "/be/nl/contact/service-charges",
+  "kind": "separator",
+  "after": "Via de Service Centre, Sociale media en ticketbalie: 20 EUR (voor vluchten binnen Europa) of 40 EUR (voor intercontinentale vluchten)",
+  "before": "Toeslag op ticketservice voor andere landen",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/extra-services/baggage/checked-baggage",
+  "kind": "separator",
+  "after": "Do you need to carry items that won’t fit in your carry-on baggage? Find out the checked baggage allowance for your itinerary and travel in comfort to your destination.",
+  "before": "How much baggage can I check in?",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/extra-services/baggage/checked-baggage",
+  "kind": "separator",
+  "after": "In case you didn’t buy extra baggage and you exceed your free baggage allowance, you will be charged for extra baggage at the airport.",
+  "before": "How can I buy extra baggage?",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/de/de/extra-services/baggage/checked-baggage",
+  "kind": "separator",
+  "after": "Müssen Sie Gegenstände mit sich führen, die nicht in Ihr Handgepäck passen? Erfahren Sie, wie viel Freigepäck Sie auf Ihrer Reiseroute aufgeben dürfen und reisen Sie bequem bis an Ihren Zielort.",
+  "before": "Wie viel Gepäck darf ich aufgeben?",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/de/de/extra-services/baggage/checked-baggage",
+  "kind": "separator",
+  "after": "Falls Sie kein zusätzliches Gepäck kaufen und Ihr Freigepäck die Obergrenze überschreitet, fallen am Flughafen Gebühren für zusätzliches Gepäck an.",
+  "before": "Wie kann ich zusätzliches Gepäck kaufen?",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/check-in-options-and-info/check-in-times",
+  "kind": "separator",
+  "after": "The earliest and latest check-in times depend on the airport and the destination you’re flying to. Want to avoid queues at the airport? Online check-in is your best option and is available starting 24 hours before departure.",
+  "before": "When can I check-in at Brussels Airport?",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/check-in-options-and-info/check-in-times",
+  "kind": "separator",
+  "after": "Long-haul flights: 3 hours before the scheduled departure of your flight",
+  "before": "Check-in deadline for short-haul flights",
+  "level": 3,
+  "n": 11
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/check-in-options-and-info/check-in-times",
+  "kind": "separator",
+  "after": "HON Circle, Senator, Frequent Flyer and Star Alliance Gold members: 40 minutes prior to departure",
+  "before": "Check-in deadline for long-haul flights",
+  "level": 3,
+  "n": 11
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/check-in-options-and-info/check-in-times",
+  "kind": "separator",
+  "after": "HON Circle, Senator, Frequent Flyer and Star Alliance Gold members: 60 minutes prior to departure",
+  "before": "When can I check-in when I fly from another airport?",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/contact/service-charges",
+  "kind": "separator",
+  "after": "Via the Service Centre, Social media and ticket desk: 20 EUR (for flights within Europe) or 40 EUR (for intercontinental flights)",
+  "before": "Ticket service fee for other countries",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/be/fr/travel-classes/premium-economy",
+  "kind": "separator",
+  "after": "* Exception : lorsque vous voyagez en Premium Economy Light, la franchise de bagages pour les bagages enregistrés est de 1 x 23 kg.",
+  "before": "Relaxez-vous de la tête aux pieds",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/be/fr/extra-services/baggage/checked-baggage",
+  "kind": "separator",
+  "after": "Vous devez transporter des articles qui ne rentrent pas dans votre bagage à main ? Découvrez la franchise de bagages pour votre itinéraire et voyagez confortablement jusqu’à votre destination.",
+  "before": "À combien de bagages enregistrés ai-je droit ?",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/be/fr/extra-services/baggage/checked-baggage",
+  "kind": "separator",
+  "after": "Si vous n’avez pas acheté de bagage supplémentaire et que vous dépassez votre franchise de bagages, l’excédent de bagages vous sera facturé à l’aéroport.",
+  "before": "Comment puis-je acheter des bagages supplémentaires ?",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/es/es/extra-services/baggage/checked-baggage",
+  "kind": "separator",
+  "after": "¿Necesitas llevar cosas que no caben en tu equipaje de mano? Descubre la franquicia de equipaje facturado para tu itinerario y viaja cómodamente a tu destino.",
+  "before": "¿Cuánto equipaje puedo facturar?",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/es/es/extra-services/baggage/checked-baggage",
+  "kind": "separator",
+  "after": "Si no has comprado equipaje adicional y superas tu franquicia de equipaje gratuita, se te cobrará por el exceso de equipaje en el aeropuerto.",
+  "before": "¿Cómo puedo comprar equipaje adicional?",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/book-a-flight/groups-and-charter/charter",
+  "kind": "separator",
+  "after": "Fill in the form below and receive a detailed offer based on aircraft availability.",
+  "before": "Your benefits",
+  "level": 2,
+  "n": 27
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/travel-classes/economy",
+  "kind": "separator",
+  "after": "Customise your journey according to your preferences with several add-ons. Depending on the fare you choose, these add-ons are already included in your ticket. They include your seat reservation, baggage allowance and the flexibility of your ticket.",
+  "before": "Quality on every route",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/travel-classes/economy",
+  "kind": "separator",
+  "after": "On longer flights, the new ergonomic headrest and adjustable neck support will get you the perfect rest so that you arrive at your destination refreshed and relaxed. The spacious and playful design of the cabin, inspired by the sunrise on the North Sea, represents the warmth of Belgium’s hospitality. This, combined with the new lighting ambiance tailored to all flight phases, ensures a rejuvenating sleep for jet lag-free flying across time zones. Moreover, you will be treated to hours of premium entertainment on a 10.1” screen. Feel free to plug in your own headphones or use the ones we provide.",
+  "before": "Related topics",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/be/nl/extra-services/baggage/checked-baggage",
+  "kind": "separator",
+  "after": "Wil je items meenemen die niet in je handbagage passen? Ontdek de toegestane hoeveelheid bagage voor je route en reis in alle comfort naar je bestemming.",
+  "before": "Hoeveel bagage mag ik inchecken?",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/be/nl/extra-services/baggage/checked-baggage",
+  "kind": "separator",
+  "after": "Als je geen extra bagage hebt gekocht en je overschrijdt je hoeveelheid gratis toegelaten bagage, dan worden extra kosten in rekening gebracht op de luchthaven.",
+  "before": "Hoe kan ik extra bagage kopen?",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/it/it/extra-services/baggage/checked-baggage",
+  "kind": "separator",
+  "after": "Deve trasportare degli articoli che non ci stanno nel bagaglio a mano? Scopra qual è la franchigia bagaglio per il suo itinerario e viaggi a destinazione con la massima comodità.",
+  "before": "Quanti bagagli posso presentare al check-in?",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/it/it/extra-services/baggage/checked-baggage",
+  "kind": "separator",
+  "after": "Nel caso in cui non abbia comprato un bagaglio aggiuntivo e superi la franchigia bagaglio, le sarà addebitato un supplemento per il bagaglio extra in aeroporto.",
+  "before": "Come posso acquistare un bagaglio aggiuntivo?",
+  "level": 2,
+  "n": 28
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/check-in-options-and-info/check-in-at-the-airport",
+  "kind": "separator",
+  "after": "There are several ways to check in for your flight. For your convenience, we offer multiple check-in options and ways to drop off your baggage at the airport.",
+  "before": "Express check-in",
+  "level": 2,
+  "n": 25
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/check-in-options-and-info/check-in-at-the-airport",
+  "kind": "separator",
+  "after": "With our self-service units, you can speed your way through the airport. Select or change your seat, add your frequent flyer number and print your boarding pass. If you need to check in baggage, you will also receive a baggage tag. After completing your check-in, you can drop off your bags at our self-service baggage drop-off points or hand them over at our check-in desks.",
+  "before": "Check-in at our dedicated desks",
+  "level": 2,
+  "n": 27
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/check-in-options-and-info/check-in-at-the-airport",
+  "kind": "separator",
+  "after": "Business Class passengers have a dedicated check-in counter at every airport, while at Brussels Airport there are also dedicated counters for passengers travelling in Premium Economy Class.",
+  "before": "Good to know",
+  "level": 2,
+  "n": 27
+ },
+ {
+  "site": "brussels",
+  "path": "/be/en/our-company/organisation",
+  "kind": "separator",
+  "after": "At our headquarters, b.house, hundreds of colleagues work every day to shape the Brussels Airlines story. Teams across Customer Experience, Sales, Communications, Planning & Network, Business Development, Finance, HR, IT, Procurement and Legal collaborate closely to support our operations and drive the growth, innovation and excellence of our airline.",
+  "before": "Ready to help build the future of Brussels Airlines?",
+  "level": 2,
+  "n": 30
+ }
+]

@@ -99,6 +99,12 @@ main .section.section-tab-part[hidden],
   display: none;
 }
 
+/* a closed item below 768px: everything under its toggle, also what a block adds later (a fragment) */
+.section-tab-panel.section-tab-closed > :not(.section-tab-toggle),
+.section-tab-part.section-tab-closed > * {
+  display: none;
+}
+
 /* an open item's content under its toggle */
 .section-tab-panel > .section-tab-toggle + div {
   margin-top: var(--spacing-default, 24px);
@@ -120,6 +126,23 @@ main .section.section-tab-part[hidden],
   }
 }
 
+/* lufthansa.com below 768px: www's collapsible insets a tab's label and its open content 20px
+   (/de/en/carry-on-baggage, unterhaltung-an-bord at 390: the text at x 43, ours at 23; brief 582).
+   On the 8 recorded tabbed pages without www widgets at 390: advance-seat-reservation 22.5 -> 12.0 %,
+   baggage-irregularities 18.3 -> 8.2, lufthansa-terminal-muenchen 19.7 -> 10.1, unterhaltung-an-bord
+   18.8 -> 14.8, climate-protection-projects 10.3 -> 8.0, carry-on-baggage 7.0 -> 6.4, the others the same */
+@media (width < 768px) {
+  body.brand-lufthansa main > .section.section-tab-panel > .section-tab-toggle {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  body.brand-lufthansa main > .section:is(.section-tab-panel, .section-tab-part) > div:not(.section-tab-toggle) {
+    padding-right: calc(var(--layout-margin, 22px) + 20px);
+    padding-left: calc(var(--layout-margin, 22px) + 20px);
+  }
+}
+
 @media (width >= 768px) {
   .section-tabs .section-tabs-list {
     display: flex;
@@ -128,6 +151,22 @@ main .section.section-tab-part[hidden],
 
   .section-tab-panel > .section-tab-toggle {
     display: none;
+  }
+}
+
+/* a set that stays tabs below 768px (section-tabs.js TAB_SETS_ON_PHONES): its tab list at every
+   width, no toggles */
+.section-tabs.section-tabs-always .section-tabs-list {
+  display: flex;
+}
+
+.section-tab-panel.section-tab-always > .section-tab-toggle {
+  display: none;
+}
+
+@media (width < 768px) {
+  main > .section.section-tabs.section-tabs-always {
+    display: block;
   }
 }
 

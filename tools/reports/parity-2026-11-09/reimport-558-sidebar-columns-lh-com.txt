@@ -1,0 +1,5 @@
+# Brief 558 (ema-adobe, 2026-11-10): lufthansa.com documents whose four-column view inside a sidebar becomes a Columns Media block with today's info bundle (the info template's three/four-column selector takes .sidebar-content too): /de/en/schengen's member states, four lists side by side as www's instead of one under the other. For the lufthansa.com import helper (re-import with the info template, upload, preview; the publish child publishes in the next round). Found over the 758 info pages of page-templates.json with a snapshot (logs/b558/sidebar-cols.mjs): these four only. Offline from bd-snapshots, the draft rendered on lufthansa.turnsthe.page against lh-parity-002: /de/en/schengen 11.4 -> 8.5 % at 390, 32.7 -> 8.5 % at 1440.
+/de/en/schengen
+/de/de/schengen
+/at/de/schengen
+/gb/en/schengen

@@ -1,0 +1,670 @@
+[
+ {
+  "path": "/al/de/about-us/joint-ventures/china-joint-venture",
+  "px": 30,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Mehr für Reisende {heading-small}Dank des umfangreichen Stre"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "ren Vorteilen und Services. Erkunden Sie hier Ihre Vorteile:"
+  }
+ },
+ {
+  "path": "/al/de/about-us/joint-ventures/singapore-joint-venture",
+  "px": 30,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Mehr für Reisende {heading-small}Dank des umfangreichen Stre"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "ren Vorteilen und Services. Erkunden Sie hier Ihre Vorteile:"
+  }
+ },
+ {
+  "path": "/al/de/allegris/video-gallery",
+  "px": 25,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Einführung {heading-small}https://www.youtube-nocookie.com/e"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "eue Welt des Fliegens. Wir wünschen Ihnen gute Unterhaltung."
+  }
+ },
+ {
+  "path": "/al/de/travel-management/flight-irregularities",
+  "px": 20,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "FlugstatusSollte es im Flugverkehr zu Unregelmäßigkeiten kom"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "r Erfahrung nach ist das der einfachste Weg zu einer Lösung."
+  }
+ },
+ {
+  "path": "/ca/en/homepage",
+  "px": 25,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "For companiesPartnerPlusBenefitFor travel agentseXpertsTrave"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "usiness travel smoother for you—and better for your clients."
+  }
+ },
+ {
+  "path": "/ch/en/program/experts/on-board/entertainment-on-board",
+  "px": 15,
+  "next": {
+   "tag": "H2",
+   "cls": "",
+   "start": "eJournals"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "and games ensure you enjoy plenty of variety on your flight."
+  }
+ },
+ {
+  "path": "/de/de/about-us/help-alliance",
+  "px": 30,
+  "next": {
+   "tag": "H4",
+   "cls": "",
+   "start": "Engagieren Sie sich in einem unserer Schwerpunktbereiche:"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "t eingesetzt werden, wo sie am dringendsten benötigt werden."
+  }
+ },
+ {
+  "path": "/de/de/about-us/joint-ventures/atlantic-joint-venture",
+  "px": 30,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Mehr für Reisende {heading-small}Dank des umfangreichen tran"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "raktiven Vorteilen und Services. Erkunden Sie sie alle hier:"
+  }
+ },
+ {
+  "path": "/de/de/about-us/joint-ventures/china-joint-venture",
+  "px": 30,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Mehr für Reisende {heading-small}Dank des umfangreichen Stre"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "ren Vorteilen und Services. Erkunden Sie hier Ihre Vorteile:"
+  }
+ },
+ {
+  "path": "/de/de/about-us/joint-ventures/japan-joint-venture",
+  "px": 30,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Mehr für Reisende {heading-small}Dank des umfangreichen Stre"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "ren Vorteilen und Services. Erkunden Sie hier Ihre Vorteile:"
+  }
+ },
+ {
+  "path": "/de/de/about-us/joint-ventures/singapore-joint-venture",
+  "px": 30,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Mehr für Reisende {heading-small}Dank des umfangreichen Stre"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "ren Vorteilen und Services. Erkunden Sie hier Ihre Vorteile:"
+  }
+ },
+ {
+  "path": "/de/de/about-us/lhg-history/lhg-history-experts",
+  "px": 30,
+  "next": {
+   "tag": "P",
+   "cls": "",
+   "start": ""
+  },
+  "prev": null
+ },
+ {
+  "path": "/de/de/allegris/video-gallery",
+  "px": 25,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Einführung {heading-small}https://www.youtube-nocookie.com/e"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "eue Welt des Fliegens. Wir wünschen Ihnen gute Unterhaltung."
+  }
+ },
+ {
+  "path": "/de/de/homepage",
+  "px": 25,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Für UnternehmenPartnerPlusBenefitFür ReisebüroseXpertsLuftha"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": " reibungsloser – und für Ihre Kund:innen noch besser machen."
+  },
+  "from768": true
+ },
+ {
+  "path": "/de/de/program/corporate-preferred",
+  "px": 25,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "All together moreDurch die vereinte Stärke und Reichweite vo"
+  },
+  "prev": null
+ },
+ {
+  "path": "/de/de/program/experts/baggage/dangerous-goods",
+  "px": 25,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Gefährliche Gegenstände {heading-medium}Gefährliche Gegenstä"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "eXperts Member Area"
+  }
+ },
+ {
+  "path": "/de/de/travel-management/flight-irregularities",
+  "px": 20,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "FlugstatusSollte es im Flugverkehr zu Unregelmäßigkeiten kom"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "r Erfahrung nach ist das der einfachste Weg zu einer Lösung."
+  }
+ },
+ {
+  "path": "/de/de/travel-management/tips-and-services",
+  "px": 20,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Ihre Möglichkeiten bei FlugunregelmäßigkeitenWir setzen alle"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": ""
+  }
+ },
+ {
+  "path": "/de/de/travel-solutions/lufthansa-group-airlines",
+  "px": 30,
+  "next": {
+   "tag": "H2",
+   "cls": "",
+   "start": "Lufthansa Group Airlines auf einen Blick"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "n wichtiger Akteur im europäischen und globalen Luftverkehr."
+  }
+ },
+ {
+  "path": "/de/en/about-us/help-alliance",
+  "px": 30,
+  "next": {
+   "tag": "H4",
+   "cls": "",
+   "start": "Engage in one of our focus areas:"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "artners ensure donations are used where they’re needed most."
+  }
+ },
+ {
+  "path": "/de/en/about-us/joint-ventures/atlantic-joint-venture",
+  "px": 30,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "More for travelers {heading-small}With an extensive transatl"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": " and many other benefits and services. Explore them all now:"
+  }
+ },
+ {
+  "path": "/de/en/about-us/joint-ventures/china-joint-venture",
+  "px": 30,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "More for travelers {heading-small}With an extensive and mult"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": " and many other benefits and services. Explore them all now:"
+  }
+ },
+ {
+  "path": "/de/en/about-us/joint-ventures/japan-joint-venture",
+  "px": 30,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "More for travelers {heading-small}With an extensive and mult"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": " and many other benefits and services. Explore them all now:"
+  }
+ },
+ {
+  "path": "/de/en/about-us/joint-ventures/singapore-joint-venture",
+  "px": 30,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "More for travelers {heading-small}With an extensive and mult"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": " and many other benefits and services. Explore them all now:"
+  }
+ },
+ {
+  "path": "/de/en/about-us/lhg-history/lhg-history-experts",
+  "px": 30,
+  "next": {
+   "tag": "P",
+   "cls": "",
+   "start": ""
+  },
+  "prev": null
+ },
+ {
+  "path": "/de/en/allegris/video-gallery",
+  "px": 25,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Introduction {heading-small}https://www.youtube-nocookie.com"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "n the new world of flying. We hope you find it entertaining."
+  }
+ },
+ {
+  "path": "/de/en/homepage",
+  "px": 25,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "For companiesPartnerPlusBenefitFor travel agentseXpertsLufth"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "usiness travel smoother for you—and better for your clients."
+  },
+  "from768": true
+ },
+ {
+  "path": "/de/en/program/corporate-preferred",
+  "px": 25,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "All together moreBy leveraging the combined strength and rea"
+  },
+  "prev": null
+ },
+ {
+  "path": "/de/en/program/experts/baggage/dangerous-goods",
+  "px": 25,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Dangerous goodsDangerous goods are articles or substances th"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "eXperts member area"
+  }
+ },
+ {
+  "path": "/de/en/program/experts/experts-program-benefits",
+  "px": 30,
+  "next": {
+   "tag": "H3",
+   "cls": "",
+   "start": "Subscribe to eXperts newsletter"
+  },
+  "prev": null
+ },
+ {
+  "path": "/de/en/program/experts/on-board/entertainment-on-board",
+  "px": 15,
+  "next": {
+   "tag": "H2",
+   "cls": "",
+   "start": "eJournals"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "and games ensure you enjoy plenty of variety on your flight."
+  }
+ },
+ {
+  "path": "/de/en/program/experts/on-board/travel-classes-and-booking/edelweiss",
+  "px": 30,
+  "next": {
+   "tag": "H3",
+   "cls": "",
+   "start": "The holiday begins on board"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "Route network Intercontinental"
+  }
+ },
+ {
+  "path": "/de/en/program/experts/on-board/travel-classes-and-booking/swiss",
+  "px": 25,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "SWISS FirstIn all travel classes, SWISS guests can look forw"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "SWISS Senses"
+  }
+ },
+ {
+  "path": "/de/en/travel-management/flight-irregularities",
+  "px": 20,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Flight statusShould there be any air traffic disruptions, yo"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": " our experience this is the simplest way to find a solution."
+  }
+ },
+ {
+  "path": "/de/en/travel-management/tips-and-services",
+  "px": 20,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Your options in the event of flight disruptionsWe make every"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": ""
+  }
+ },
+ {
+  "path": "/de/en/travel-solutions/lufthansa-group-airlines",
+  "px": 30,
+  "next": {
+   "tag": "H2",
+   "cls": "",
+   "start": "Lufthansa Group airlines at a glance"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "nsa Group is a major player in European and global aviation."
+  }
+ },
+ {
+  "path": "/us/en/homepage",
+  "px": 25,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "For companiesPartnerPlusBenefitFor travel agentseXpertsTrave"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "usiness travel smoother for you—and better for your clients."
+  }
+ },
+ {
+  "path": "/xx/de/about-us/joint-ventures/atlantic-joint-venture",
+  "px": 30,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Mehr für Reisende {heading-small}Dank des umfangreichen tran"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "raktiven Vorteilen und Services. Erkunden Sie sie alle hier:"
+  }
+ },
+ {
+  "path": "/xx/de/allegris/video-gallery",
+  "px": 25,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Einführung {heading-small}https://www.youtube-nocookie.com/e"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "eue Welt des Fliegens. Wir wünschen Ihnen gute Unterhaltung."
+  }
+ },
+ {
+  "path": "/xx/de/program/experts/baggage/dangerous-goods",
+  "px": 25,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Gefährliche Gegenstände {heading-medium}Gefährliche Gegenstä"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "eXperts Member Area"
+  }
+ },
+ {
+  "path": "/xx/de/travel-management/flight-irregularities",
+  "px": 20,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "FlugstatusSollte es im Flugverkehr zu Unregelmäßigkeiten kom"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "r Erfahrung nach ist das der einfachste Weg zu einer Lösung."
+  }
+ },
+ {
+  "path": "/xx/de/travel-management/tips-and-services",
+  "px": 20,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Ihre Möglichkeiten bei FlugunregelmäßigkeitenWir setzen alle"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": ""
+  }
+ },
+ {
+  "path": "/xx/en/about-us/joint-ventures/china-joint-venture",
+  "px": 30,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "More for travelers {heading-small}With an extensive and mult"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": " and many other benefits and services. Explore them all now:"
+  }
+ },
+ {
+  "path": "/xx/en/about-us/joint-ventures/singapore-joint-venture",
+  "px": 30,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "More for travelers {heading-small}With an extensive and mult"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": " and many other benefits and services. Explore them all now:"
+  }
+ },
+ {
+  "path": "/xx/en/program/experts/baggage/dangerous-goods",
+  "px": 25,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Dangerous goodsDangerous goods are articles or substances th"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "eXperts member area"
+  }
+ },
+ {
+  "path": "/xx/en/program/experts/on-board/entertainment-on-board",
+  "px": 15,
+  "next": {
+   "tag": "H2",
+   "cls": "",
+   "start": "eJournals"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "and games ensure you enjoy plenty of variety on your flight."
+  }
+ },
+ {
+  "path": "/xx/en/program/experts/on-board/travel-classes-and-booking/swiss",
+  "px": 25,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "SWISS FirstIn all travel classes, SWISS guests can look forw"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": "SWISS Senses"
+  }
+ },
+ {
+  "path": "/xx/en/travel-management/flight-irregularities",
+  "px": 20,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Flight statusShould there be any air traffic disruptions, yo"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": " our experience this is the simplest way to find a solution."
+  }
+ },
+ {
+  "path": "/xx/en/travel-management/tips-and-services",
+  "px": 20,
+  "next": {
+   "tag": "DIV",
+   "cls": "columns-media",
+   "start": "Your options in the event of flight disruptionsWe make every"
+  },
+  "prev": {
+   "tag": "P",
+   "cls": "",
+   "end": ""
+  }
+ }
+]

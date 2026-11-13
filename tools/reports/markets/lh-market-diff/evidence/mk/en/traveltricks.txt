@@ -1,0 +1,7 @@
+root    /mk/en/traveltricks
+version /de/en/traveltricks
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 8:
+- @href=/{R}/discover-lufthansa/campaigns
+- "Campaigns"
+- <maui-breadcrumb-item>

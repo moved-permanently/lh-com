@@ -1,0 +1,15 @@
+# Standing order 11 (2026-11-12), item 3: /de/en/common/imprint/lufthansa-insights-imprint. www ends two column-view
+# cells with an empty paragraph (after "Cindy Richter" in the second view's left cell, <p><br></p>; after "Patrick Amor
+# (CD)" in the third view's right cell, <p>&nbsp;</p>); the import dropped both, so each next view started 51px higher
+# than www's (27px short with our 88px between views; the rest our view gap's 24px too many hid).
+# Method: DA's copy plus the delta, not a re-import:
+#   node tools/importer/cell-end-spacers-apply.mjs --data <rows.json> --in <DA copy of the page> --out <file>
+#   rows.json: [{"end": "Cindy Richter", "n": 26}, {"end": "Patrick Amor (CD)", "n": 26}]
+# A {spacer-26} closes each of the two cells (the paragraph above keeps its 24px, the spacer draws 27px: www's 51px);
+# nothing else changes (test/cell-end-spacers-so11.test.mjs on DA's copy of 2026-11-12).
+# Measured as drafts on our host against lh-parity's recording, % off www at 1440 / 390: DA's copy 3.2 / 6.5, with the
+# delta 6.7 / 8.4, with standing order 10's view rule A 5.8 / 8.4, with both 3.4 / 6.8. Rule A ships with this row (see
+# the commit of standing order 11): until this delta is uploaded the published page reads about 5.8 / 8.4, so upload it
+# first in the next round.
+# Each line: READY / HOLD, DA path, the delta, what changes on the page.
+READY	/de/en/common/imprint/lufthansa-insights-imprint	cell-end-spacers: {spacer-26} at the end of the cells ending "Cindy Richter" and "Patrick Amor (CD)"	the third view and "Legal information" 51px lower each, as www's (with rule A: 3.4 / 6.8 % off www, today 3.2 / 6.5)

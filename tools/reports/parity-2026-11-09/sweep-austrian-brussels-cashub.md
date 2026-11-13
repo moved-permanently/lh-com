@@ -324,3 +324,16 @@ causes.
 Austrian's form has 187 documents, only 11 of them copies of a recorded page; every other Austrian template has recorded
 pages. Brussels' form has 101 documents, none recorded. The list is now in the order the capture child should take,
 most decisive first; every line has host, path and width.
+
+## The brief after 530: the empty lines, the check-in form, one more Brussels row
+
+| Commit | Brand | Row | Pages | 1440 | 390 |
+| --- | --- | --- | --- | --- | --- |
+| `f26babc0` | Brussels, Austrian | www's visible empty lines as a spacing marker, 40 / 48 px a line (nbsp-guard.mjs emptyLineSpacers; panels left out) | `reimport-536-empty-lines.txt` (7) | families +102, our-fleet +102, travel-regulations +41, extra-services +49 px (www -50 / -50 / -44 / -48 at the lines) | +98, +98, +41, +49 (www -39 / -30 / -40 / -60) |
+| `b1542743` | Brussels | the online check-in form as www's: SWISS's check-in option, www's link and hints (brussels-import.mjs withCheckinFields, brussels.css) | `reimport-536-brussels-checkin.txt` (6) | between the headings -249 → -30 px | -285 → -38 px |
+| `fa8fc4e7` | Brussels | a heading straight after text in a sidebar 50 px under it (h3 32), as www's (brussels.css) | 107 documents, 4 recorded | invoices -7.4 → -3.5 %, imprint -5.8 → -3.5 % | -3.8 → -1.2 %, -3.8 → -1.8 % |
+
+Looked at and not ruled: legal-notices' h1 (84 px; other plain-h1 pages -36 to -44) and its link-list rows (one recorded
+page); Austrian's small print under seat-reservation's buttons (3 of 8 rows); the other open Austrian rows are other
+owners' or no one rule. The ranking's rows 6 and 9 (families-and-children) and 10 (online-check-in-options) close on
+the re-imports above.

@@ -1,0 +1,34 @@
+root    /by/ru/pre-check-in
+version /content/lh/markets/xx/ru/pre-check-in
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 52:
+- @href=/{R}/check-in-deadlines
++ @href=/{R}/prepare-for-your-trip/all-check-in/check-in-information
+  @slot=trigger
+  @variant=hyper
+  …
+- @href=http://www.lufthansa.com/{R}/prepare-for-your-trip/all-check-in/check-in-berlin-tegel
+- @target=_self
+- <span>
+- "Регистрация в аэропорту Берлин-Тегель"
+- <maui-icon>
+- @slot=icon
+- @use=icon-pager-next
+- @mode=library
+- @size=small
+- <li>
+- <a.nav-link.mb-0>
+  @href=http://www.lufthansa.com/{R}/prepare-for-your-trip/all-check-in/emergency-contact
+  @target=_self
+  …
+- <maui-icon>
+- @slot=icon
+- @use=icon-pager-next
+- @mode=library
+- @size=small
+- <li>
+- <a.nav-link.mb-0>
+- @href=http://www.lufthansa.com/{R}/prepare-for-your-trip/all-check-in/check-in-information
+- @target=_self
+- <span>
+- "Сроки окончания регистрации на рейс"

@@ -1,0 +1,17 @@
+# ema-lufthansa, standing order 3 of 2026-11-11, item 1 (Air Dolomiti parity row 106): the flight status documents
+# re-imported with airdolomiti-import.mjs as it is on main. Since this commit the importer writes www's help texts under
+# the form's two fields (StatusVoli_helpText) as the flight-status block's rows "Flight number hint" and "Date hint";
+# the block (blocks/flight-status, same commit) shows the first under the flight number field (described by it), the
+# second replaces the block's own date hint. Expected change per row: those two rows in the block, nothing else.
+# Measured with a draft of /de/flug-status on our host (local code): the two texts under the fields, the page 1761 px
+# before and after at 1440 (our fields already reserve the hint line), www 1693.
+# READY: the snapshot named shows the help texts (the importer makes the change from it).
+# HOLD: no recording of that page here shows its help texts; the importer adds the rows only if the import helper's
+#   input has them. One capture-list row each in capture-list-586-brands.txt (nothing captured until Ben decides).
+# Standing order 4 (2026-11-11, 21:00 UTC): the two HOLD rows READY from airdolomiti-snapshots-008 (129,111 bytes,
+#   sha256 f5231f10dbc1b7b4613d69a6c9e89eea886708daf7e2eb9686c8bd8e7468615e as downloaded here; both files match the
+#   manifest's sha256). /de/flug-status is live with its hints since 09:43 CET.
+# Columns: document, READY/HOLD, snapshot archive (R2 drop) or reason.
+/de/flug-status	READY	airdolomiti-parity-002 (flug-status-1440.html: "Pflichtfeld. Beispiel: EN1234", "Pflichtfeld. Format: tt/mm/jjjj")
+/en/flight-status	READY	airdolomiti-snapshots-008 (www.airdolomiti.eu/flight-status.html: "Required. Example: EN1234", "Required. Format: dd/mm/yyyy"; checked offline: the two rows, text the same, the style row as live)
+/stato-volo	READY	airdolomiti-snapshots-008 (www.airdolomiti.it/stato-volo.html: "Obbligatorio. Esempio: EN1234", "Obbligatoria. Formato: gg/mm/aaaa"; checked offline: the two rows, text the same; also the section style compact-title, www's Title as the page's H1, the importer's since row 50: this document predates it)

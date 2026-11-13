@@ -25,6 +25,7 @@ import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { blockedUntil, recordBlock, connectSource } from './airdolomiti-capture.mjs';
+import { copyPath } from './airdolomiti-media.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -41,19 +42,9 @@ const pause = () => sleep(5000 + Math.floor(Math.random() * 5000));
 const sha1 = (s) => crypto.createHash('sha1').update(s).digest('hex');
 const readJson = (f, d) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : d);
 const writeJson = (f, v) => { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, `${JSON.stringify(v, null, 1)}\n`); };
-const EXT = {
-  'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/gif': 'gif', 'image/svg+xml': 'svg', 'application/pdf': 'pdf', 'video/mp4': 'mp4',
-};
 const SERVED = /^(image\/(jpeg|png|webp|gif|svg\+xml)|application\/pdf|video\/mp4)$/;
 
-/** A readable name of a file URL ('/2025/06/Monaco-Banner-D.jpg' -> 'monaco-banner-d'). */
-const baseName = (url) => decodeURIComponent(new URL(url).pathname.split('/').pop() || 'file').replace(/\.[a-z0-9]{2,4}$/i, '')
-  .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-  .toLowerCase()
-  .replace(/[^a-z0-9]+/g, '-')
-  .replace(/^-+|-+$/g, '')
-  .slice(0, 60)
-  .replace(/-+$/, '') || 'file';
+// the copies' names: airdolomiti-media.mjs (the importer finds DA's copies by them)
 
 /** The Edge Delivery name of a downloaded file, or why it stays a link to the source. */
 function settle(key, f, d) {
@@ -65,12 +56,8 @@ function settle(key, f, d) {
   f.type = type;
   f.bytes = d.bytes;
   if (f.linkSource) { f.eds = null; return; }
-  const image = /^image\//.test(type);
-  const svg = type === 'image/svg+xml';
-  f.kind = image ? 'image' : 'document';
-  f.eds = image
-    ? `/media-da/airdolomiti/${baseName(key)}-${sha1(key).slice(0, 8)}.${svg ? 'png' : EXT[type]}`
-    : `/documents/${baseName(key)}-${sha1(key).slice(0, 6)}.${EXT[type]}`;
+  f.kind = /^image\//.test(type) ? 'image' : 'document';
+  f.eds = copyPath(key, type);
 }
 
 async function download() {

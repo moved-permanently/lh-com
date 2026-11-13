@@ -242,6 +242,15 @@ main {
   }
 }
 
+/* Group for Business keeps its headings' words whole on phones, as www's (de/de partner-plus-benefit's
+   "GESCHÄFTSREISEN" on a line of its own; b2b-parity-001 at 390: de/de experts/news 35.3 -> 22.7 %,
+   partner-plus-benefit 22.9 -> 21.0, no row worse); a word longer than its line still breaks */
+@media (width < 768px) {
+  body.brand-b2b :is(h1, h2, h3, h4, h5, h6) {
+    hyphens: manual;
+  }
+}
+
 /* --heading-large-weight, --heading-large-transform: a brand theme's headline (b2b: LufthansaHead
    200 uppercase); lh-com's 700, none */
 h1 {
@@ -433,6 +442,13 @@ main .default-content-wrapper > p > a:has(> picture) {
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 19 19'%3E%3Cpath d='M12 2v14M6 10.5l6 6 6-6' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E");
 }
 
+/* lufthansa.com's Insights articles: "Back to overview" (a standalone link to the root's /articles at the
+   article's end) is www's maui-navigation-link variant back, lh-arrow-left (brief 558); links to
+   /articles on other pages keep the right arrow */
+body.brand-lufthansa main:has(.article-header) .default-content-wrapper p.link-wrapper a:any-link[href$="/articles"]::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10.7 4.3 12 5.6l-5.4 5.5H21v1.8H6.6l5.4 5.5-1.3 1.3L3 12z'/%3E%3C/svg%3E");
+}
+
 /* lufthansa.com: a link alone in its paragraph that opens a dialog (scripts/fragment-dialog.js,
    the footer disclaimer's "General Conditions"): www's maui-link-button variant dialog, 14px bold
    whale blue with the 12px dialog icon (de/en homepage 2026-11-06: 135px of ink with the icon) */
@@ -567,6 +583,15 @@ button.button {
    every breakpoint (390 capture: "Login" 107px; 1440: "A century in advertising" 250px) */
 a.button:any-link {
   width: auto;
+}
+
+/* lufthansa.com: a label that doesn't fit wraps, its lines from the left, as www's (lh-parity-004a/b at 390:
+   new-onboard-experience "Lufthansa Signature Moments for / you", 100-years/crane's three lines); one that fits stays
+   one centred line (the brief after 539) */
+body.brand-lufthansa a.button:any-link {
+  white-space: normal;
+  text-align: start;
+  text-overflow: clip;
 }
 
 @media (width >= 768px) {
@@ -858,9 +883,10 @@ body.brand-lufthansa main > .section.grey + .section.table-striped-container:has
    /de/en/airport-information's {spacer-70}, the flights pages' {spacer-25}): on www the separator is
    all there is between the band and the footer (71px at 1440), ours added the band's 48px and the
    last section's own 48px (151px). The last section takes the band's gap back (its negative top
-   margin collapses with it and the wrapper's -16px) and has none below. One :has() level: a :has()
-   nested in another drops the rule */
-body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .default-content-wrapper > :not(p.spacer))) {
+   margin collapses with it and the wrapper's -16px) and has none below. A last section with a card
+   carousel keeps its gap (the travel classes' cards: 4 px under the band, www 50; brief 539).
+   One :has() level: a :has() nested in another drops the rule */
+body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .carousel-cards-wrapper), :has(> .default-content-wrapper > :not(p.spacer))) {
   margin-top: -48px;
   margin-bottom: 0;
 }
@@ -1149,6 +1175,24 @@ main > .section.grey.column-band {
   padding: 32px 0;
 }
 
+/* a column band before a column view: www stacks the views (the band, then the next view's 32px
+   padding), no section gap between them (/de/de/lounges: "Lounge-News", then "Zugang zu unseren
+   Lounges" 64px under the band, ours 112; brief 540). Not a flush band (more of its AEM section
+   follows, the view after it is that section's): www keeps the section gap there (/de/en/rail-and-fly,
+   lh-parity-002b: "Book Rail&Fly" 130px of ink under the band at 1440, ours 38 without the gap;
+   standing order 5). No published document has a flush band before a view section (census of the
+   6,826 documents: 8 bands in 4 documents, none flush) */
+body.brand-lufthansa main > .section.grey.column-band:not(.flush):has(+ .section.column-view) {
+  margin-bottom: 0;
+}
+
+/* and the other way round: a column view before a grey column band (/de/de/lounges: "Welcome
+   Lounge", then "Kostenloses WLAN in den Lounges": the text 37px above the band, ours 84; brief
+   552) */
+body.brand-lufthansa main > .section.column-view:not(.grey):has(+ .section.grey.column-band) {
+  margin-bottom: 0;
+}
+
 /* what live has below a grey band instead of the section gap (importer, lufthansa-sections
    greyStyles): spaced, a grey AEM section before an unpadded one that starts with a headline or
    text: its .mb-default 2.4rem (onboard-delights band -> "Fresh on board" 32px of ink, was 56);
@@ -1327,6 +1371,20 @@ main > .section:not(.grey):is(:last-child, :has(+ .section.subpage-nav-container
    importer): 24px more (/de/en/lounge-companions last text 61px of ink above the footer, was 37) */
 main > .section:not(.grey):is(:last-child, :has(+ .section.subpage-nav-container:last-child)):has(> .default-content-wrapper:last-child > :is(.column-end, .column-end-outer):last-child):has(> .default-content-wrapper:last-child > .column-spaced) {
   margin-bottom: var(--spacing-default);
+}
+
+/* lufthansa.com: the same when only empty sections follow (DA's trailing <div></div>: the rule
+   above looked for the last section; lounges kept a 48px gap and the empty section's own, www's
+   footer 64px of ink under the last link at 390 and 1440, ours 87; brief 558). Plain column ends
+   before empty sections as they were (most-significant-route measured worse with 0px) */
+/* stylelint-disable-next-line no-descending-specificity -- the page end before empty sections, not the last section */
+body.brand-lufthansa main > .section:not(.grey, :empty, :last-child, :has(~ .section:not(:empty))):has(> .default-content-wrapper:last-child > .column-spaced:last-child) {
+  margin-bottom: var(--spacing-default);
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the empty sections after it, not a section with content */
+body.brand-lufthansa main > .section:has(> .default-content-wrapper:last-child > .column-spaced:last-child) ~ .section:empty {
+  margin: 0;
 }
 
 /* a padded first section (the page title in a padded AEM section, /de/en/book-and-manage/
@@ -1651,22 +1709,20 @@ body.brand-lufthansa {
   --cards-teaser-bold-cta: button;
 }
 
-/* Insights articles on phones: www's related articles end the page (.dcep-related-articles, then
-   the footer): 34px from the last card's title to the footer at 390 (the card's 10px padding and
-   the title's 24px; 40 on flying-high-christoph-quarch). Ours added the section gap: 82px. From
-   768px the pages' heights match www's (brief 507). All 24 published documents with Related
-   Articles have them in their last section; the empty section after them (the page metadata's)
-   adds no gap of its own */
-@media (width < 768px) {
-  /* stylelint-disable-next-line no-descending-specificity -- the page's end, not a campaign-section's */
-  body.brand-lufthansa main > .section.related-articles-container {
-    margin-bottom: 0;
-  }
+/* Insights articles: www's related articles end the page (.dcep-related-articles, then the
+   footer): 34px from the last card's title to the footer at 390 (the card's 10px padding and the
+   title's 24px; 40 on flying-high-christoph-quarch) and at 1440 (lh-parity-004a/b, san-diego: ours
+   83). Ours added the section gap. All 24 published documents with Related Articles have them in
+   their last section; the empty section after them (the page metadata's) adds no gap of its own
+   (brief 507 on phones; every width since the brief after 539) */
+/* stylelint-disable-next-line no-descending-specificity -- the page's end, not a campaign-section's */
+body.brand-lufthansa main > .section.related-articles-container {
+  margin-bottom: 0;
+}
 
-  /* stylelint-disable-next-line no-descending-specificity -- an empty last section, not a column view's */
-  body.brand-lufthansa main > .section.related-articles-container ~ .section:last-child:not(:has(*)) {
-    margin-bottom: 0;
-  }
+/* stylelint-disable-next-line no-descending-specificity -- an empty last section, not a column view's */
+body.brand-lufthansa main > .section.related-articles-container ~ .section:last-child:not(:has(*)) {
+  margin-bottom: 0;
 }
 
 /* the column view carrier (brief 506): a section that is one www column view (Section Metadata
@@ -1699,8 +1755,25 @@ body.brand-lufthansa main > .section.column-view.padded:not(.grey):has(.column-s
 }
 
 /* stylelint-disable-next-line no-descending-specificity -- as above */
-body.brand-lufthansa main > .section.column-view:not(.grey, :has(.column-start, .column-end, .column-start-outer, .column-end-outer)) > div:last-child > :last-child {
+body.brand-lufthansa main > .section.column-view:not(.grey, :has(.column-start, .column-end, .column-start-outer, .column-end-outer)) > div:last-child > :last-child:not(.cards-teaser.phone-slider, .columns-media.cell-slider) {
   margin-bottom: 0;
+}
+
+/* the collapse splits a view's opening separator (the hub documents' flush column-view padded
+   sections start with a Spacer / Divider block) into a section of its own that keeps the view's
+   classes: no view padding and no section gap for such a section, and none after the view before
+   it (the marks drew none there). No published document has one before the switch (census of the
+   6,826 documents, brief 582); digital-self-services switched 16.3 / 19.9 % -> 8.2 / 3.5 % (390 /
+   1440; today 7.1 / 2.9), +281 / +393 px -> +49 / +1 px */
+/* stylelint-disable-next-line no-descending-specificity -- a separator-only view section, not a campaign-section's */
+body.brand-lufthansa main > .section.column-view:not(.grey):has(> .default-content-wrapper:only-child > p.spacer:only-child) {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+body.brand-lufthansa main > .section.column-view:not(.grey) + .section.column-view:not(.grey):has(> .default-content-wrapper:only-child > p.spacer:only-child) {
+  margin-top: -48px;
 }
 
 /* the section before a view, marks or not (no :has() in this one's :has(), it would drop the rule) */
@@ -1709,8 +1782,13 @@ body.brand-lufthansa main > .section:not(.grey, .column-view):has(+ .section.col
   margin-bottom: var(--spacing-default);
 }
 
+/* not on flow pages (Theme flow-spacing) once the theme is live (the collapsed column-mark
+   documents, info and hub alike): their headings keep the full width, as www's (6,500 of the 6,978
+   H2 / H3 of the 1,862 published column-mark documents had no {limited-width}; /de/en/bid-upgrade:
+   a two-line H2 at 834px). Until then as before: 143 published documents have column-view sections
+   and flow-spacing today (economy-class, onboard-delights ... in their markets) */
 @media (width >= 1025px) {
-  body.brand-lufthansa main > .section.column-view:not(.grey, .padded, :has(.column-start, .column-end, .column-start-outer, .column-end-outer)) > .default-content-wrapper > :is(h2, h3, h4) {
+  body.brand-lufthansa:not(.theme-live.flow-spacing) main > .section.column-view:not(.grey, .padded, :has(.column-start, .column-end, .column-start-outer, .column-end-outer)) > .default-content-wrapper > :is(h2, h3, h4) {
     max-width: 66%;
   }
 }
@@ -1720,6 +1798,64 @@ body.brand-lufthansa main > .section:not(.grey, .column-view):has(+ .section.col
 /* stylelint-disable-next-line no-descending-specificity -- a campaign-section's wrapper, not a modal link's */
 body.brand-lufthansa main > .section.campaign-section > .jump-links-wrapper + .default-content-wrapper:has(> p.spacer:first-child) {
   margin-top: 0;
+}
+
+/* one row of jump links (not option columns) there: the full recordings (lh-parity-004a,
+   /gb/en/baggage, /de/de/gepaeck) put the title 87px of ink under the last link at 390 and 1440,
+   ours 80 with none: 7px (brief 556; new-onboard-experience's column links as they were) */
+/* stylelint-disable-next-line no-descending-specificity -- a campaign-section's wrapper, not a modal link's */
+body.brand-lufthansa main > .section.campaign-section > .jump-links-wrapper:has(> .jump-links:not(.columns)) + .default-content-wrapper:has(> p.spacer:first-child) {
+  margin-top: 7px;
+}
+
+/* a grey band, then a campaign section that opens with a separator and content: www's component
+   spacing (32px) under the band, then the separator; 78-80px of ink from the band's end to the
+   heading at 390 and 1440 (baggage, food-and-beverages, speisen-und-getraenke), ours 93-96 with a
+   plain band's 48px, 45-48 with a campaign band's none (brief 557). Not before a column view
+   (lounges: already as www's) */
+body.brand-lufthansa main > .section.grey:has(+ .section.campaign-section > .default-content-wrapper:first-child > p.spacer:first-child + :not(p.spacer)) {
+  margin-bottom: 32px;
+}
+
+/* a grey band right before a heading that opens an outer column view (exclusive-charter's "This
+   might also be of interest to you"): www's heading 24px of ink under the band at 390, 45 at
+   1440, ours 71 and 92: the view's own padding is the space, no section gap (brief 558) */
+/* stylelint-disable-next-line no-descending-specificity -- another band, before a column view's heading */
+body.brand-lufthansa main > .section.grey:has(+ .section > .default-content-wrapper:first-child > :is(h2, h3, h4).column-start-outer:first-child) {
+  margin-bottom: 0;
+}
+
+/* such a section padded, on phones (gepaeck's "Weitere Informationen" after its band): www's
+   heading 58px of ink under the band's end at 390, ours 82 with the section's 20px above the
+   separator: none. From 768px the 40px stay until the no-break-space re-import (the band sits
+   37px early at 1440 for Bag-Free Travel's text; brief 558) */
+@media (width < 768px) {
+  body.brand-lufthansa main > .section.grey + .section.campaign-section.padded:has(> .default-content-wrapper:first-child > p.spacer:first-child) {
+    padding-top: 0;
+  }
+}
+
+/* one row of jump links that ends its section, the next section opening with a separator (www:
+   the link list, a .separator with its own margin, the column view with its heading;
+   digital-self-services: 99px of ink from the last link to the heading at 390, ours 146): the
+   list's 31px (the default separator a list has after it) and the section gap go, the separator
+   is the space; 5px for the link list's own margin (brief 557) */
+/* stylelint-disable-next-line no-descending-specificity -- a section ending with jump links, not a column end */
+body.brand-lufthansa main > .section:has(> .jump-links-wrapper:last-child > .jump-links:not(.columns)):has(+ .section > .default-content-wrapper:first-child > p.spacer:first-child) {
+  margin-bottom: 5px;
+}
+
+body.brand-lufthansa main > .section:has(+ .section > .default-content-wrapper:first-child > p.spacer:first-child) > .jump-links-wrapper:last-child > .jump-links:not(.columns) .jump-links-list {
+  padding-bottom: 0;
+}
+
+/* a divider that opens a padded campaign section right after a campaign column view
+   (miles-and-more's "This might also interest you"): www's line 53px under the button above, the
+   heading's ink 63px under the line at 390 and 1440, ours 21 and 30: the column view's 32px on
+   both sides (brief 558) */
+body.brand-lufthansa main > .section.campaign-section.column-view + .section.campaign-section.padded > .default-content-wrapper:first-child > p.spacer.divider:first-child {
+  margin-top: 32px;
+  margin-bottom: 33px;
 }
 
 /* live's .section-content clears its floats (a table box at its end): the last component's
@@ -1769,6 +1905,14 @@ body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper
 body.brand-lufthansa main > .section.campaign-section .default-content-wrapper > p.spacer:not(.divider) {
   height: 1px;
   margin-bottom: var(--spacer-size, 25px);
+}
+
+/* a section that ends with a picture and www's separator, before a grey band (/de/de/lounges: the
+   intro picture, "{spacer-25}", the lounge finder): the picture's 40px and the separator's 26px are
+   www's whole gap (66px); the separator's margin takes the section gap back (brief 552; not
+   in campaign sections, whose separators have their own rule above) */
+body.brand-lufthansa main > .section:not(.campaign-section):has(+ .section.grey) > .default-content-wrapper:last-child > p:has(> picture) + p.spacer:last-child {
+  margin-bottom: -48px;
 }
 
 /* a wrapper of separators (live: maui-divider's 1px + the .hr's margin) takes the 24px the column
@@ -1825,12 +1969,13 @@ body.brand-lufthansa main > .section.campaign-section > .cards-teaser-wrapper:la
 
 /* a column view's title, then its cards: live's view has its 32px padding above the title, the
    first picture 40px under the title's box (baggage: ours 64 with the grid's column padding
-   too), also in a grey band of such a page; below 768px the 12px after a heading
-   (cards-teaser.css) stay */
+   too), also in a grey band of such a page. Brief 556: the full recordings (lh-parity-004a,
+   /gb/en/baggage at 1440) put each first picture 8-9px nearer the title than the 8px did: none;
+   below 768px cards-teaser.css (none either since brief 556) */
 @media (width >= 768px) {
   body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper:has(> :is(h2, h3, h4, h5, h6):last-child) + .cards-teaser-wrapper > .cards-teaser:not(.overlay, .spacious) > ul,
   body.brand-lufthansa main:has(> .section.campaign-section) > .section.column-band > .default-content-wrapper:has(> :is(h2, h3, h4, h5, h6):last-child) + .cards-teaser-wrapper > .cards-teaser:not(.overlay, .spacious) > ul {
-    padding-top: 8px;
+    padding-top: 0;
   }
 }
 
@@ -2013,6 +2158,200 @@ body.theme-live.flow-spacing main .default-content-wrapper > :not(h1, h2, h3, h4
    opens with the chapter's divider): www draws the rule 24px under the text before it (the
    paragraph's own margin), not a section gap (48px); brief 526, the pass check's articles:
    in-my-hood-chiswick-london, be-picky-barcelona-insider-tips +24px at each chapter */
+/* stylelint-disable-next-line no-descending-specificity -- articles' chapters; the divider after a campaign column view (above) is another place */
 body.brand-lufthansa.theme-live main > .section + .section > .default-content-wrapper:first-child > p.spacer.divider:first-child {
   margin-top: -24px;
+}
+
+/* a column view that opens with its divider (the collapse moves the separators right before a
+   view into the view's section): the rule at the section's top edge and the view's 32px under
+   it, as between two of www's column views (the marks drew it so); with the chapters' -24px it
+   sat 8px into the padding (/de/en/europa-tarife-economy-class: +8px at each of its six views) */
+/* stylelint-disable-next-line no-descending-specificity -- a column view's opening divider, not a campaign-section's */
+body.brand-lufthansa.theme-live main > .section.column-view:not(.grey, .padded) > .default-content-wrapper:first-child > p.spacer.divider:first-child {
+  margin-top: -32px;
+}
+
+/* the image right below the page title, when the collapse made the content after it a column view
+   of its own: the column pages' 40px under it (the marks drew it so; "pages with column markers"
+   above), not the fleet pages' end-of-section 60 / 80px (/de/en/bid-upgrade: +40px) */
+body.brand-lufthansa.theme-live main > .section:has(+ .section.column-view) > .default-content-wrapper > h1 + p:has(> picture):last-child {
+  margin-bottom: 40px;
+}
+
+/* lufthansa.com's link lists to pages (brief 582: www's .link-list ul.horizontal|responsive|vertical of
+   maui-navigation-link hyper/external, the list's "{links-horizontal}" marker): the standalone links
+   above (19px arrow, 10px to the text, up-right to other sites), no bullets, items 30px apart when
+   stacked, 20px side by side (.link-list .horizontal { flex-wrap: wrap; gap: 0 2rem }); responsive
+   stacks below 768px (/de/en/lufthansa-business-class-on-long-haul-routes, security-check-time-slot,
+   data-collection-canada at 390 and 1440, lh-parity-002) */
+/* stylelint-disable-next-line no-descending-specificity -- not the cards-teaser grid's list */
+body.brand-lufthansa main ul:is(.links-horizontal, .links-responsive, .links-vertical) {
+  display: flex;
+  flex-flow: column;
+  gap: 6px 20px;
+  padding: 0;
+  list-style: none;
+}
+
+body.brand-lufthansa main ul.links-horizontal {
+  flex-flow: row wrap;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa main ul.links-responsive {
+    flex-flow: row wrap;
+  }
+
+  /* www's .link-list .vertical { padding-left: 1.2rem } (data-collection-canada at 1440: the arrows 18px right of the text above) */
+  body.brand-lufthansa main ul.links-vertical {
+    padding-left: 12px;
+  }
+}
+
+body.brand-lufthansa main ul:is(.links-horizontal, .links-responsive, .links-vertical) > li {
+  margin: 0;
+  line-height: 24px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- a list item's link, not a paragraph's */
+body.brand-lufthansa main ul:is(.links-horizontal, .links-responsive, .links-vertical) > li > a:any-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+body.appear.brand-lufthansa main ul:is(.links-horizontal, .links-responsive, .links-vertical) > li > a:any-link:not(.button)::before {
+  content: "";
+  flex: 0 0 auto;
+  align-self: center;
+  width: 19px;
+  height: 19px;
+  margin: 0;
+  background-color: currentcolor;
+  vertical-align: baseline;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.appear.brand-lufthansa main ul:is(.links-horizontal, .links-responsive, .links-vertical) > li > a:any-link:not(.button)[href^="http"]:not([href*="//www.lufthansa.com"])::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.3 16.4 7.6 17.7 15.9 9.4v6.1h1.8V6.3H8.5v1.8h6.1z'/%3E%3C/svg%3E");
+}
+
+/* lufthansa.com: an accordion right under the page title (a section ending with its H1, the next
+   section opening with the accordion; brief 582, /de/en/discover-lufthansa/carbon-offsetting/faq-saf
+   and /de/en/book-and-manage/flights/lufthansa-voucher, the only recorded pages so): www's first
+   question follows the title's own margin (32px at 390, 40 at 1440), ours added the 48px section
+   gap. faq-saf 9.5 -> 9.3 % (390), 5.9 -> 2.8 % (1440); lufthansa-voucher 8.2 -> 5.3, 6.1 -> 3.7 */
+/* stylelint-disable-next-line no-descending-specificity -- a title section, not a column view's end */
+body.brand-lufthansa main > .section:has(> .default-content-wrapper:last-child > h1:last-child):has(+ .section > .accordion-columns-wrapper:first-child) {
+  margin-bottom: 0;
+}
+
+/* lufthansa.com: the sub-navigation's section with Style flush (the profile-nav parser writes it
+   where www's content starts right under the bar, .contentpage.pt-0; brief 582): no section gap
+   under it. Measured with the gap removed on the recorded such pages: internet-overview 22.6 ->
+   14.3 % (390), 14.6 -> 5.6 % (1440); lhg-wifi 18.0 -> 14.7, 17.9 -> 13.6; economy-class 34.2 ->
+   29.6, 22.5 -> 18.1; premium-economy-class 26.3 -> 22.0, 18.7 -> 19.7. first-class keeps its gap
+   (www's .contentpage without pt-0: removing it there 25.9 -> 32.7). body.appear: above profile-nav.css's
+   body.appear main > .section.profile-nav-container:first-of-type, which has the same specificity and
+   loads later (the first upload showed no change, 2a34772) */
+body.brand-lufthansa.appear main > .section.profile-nav-container.flush {
+  margin-bottom: 0;
+}
+
+/* the image right below the page title (the 60 / 80px rule above): 40px when the next section
+   opens an outer column view (the fleet pages since brief 461: its "{column-start-outer}"
+   padding, 20 / 40px, comes on top). /de/en/359 and /de/en/744: www's first
+   heading 225px of ink under the aircraft at 1440, ours 265; at 390 ours 19px low. 42 published
+   documents, lufthansa.com only (standing order 6) */
+body.brand-lufthansa main > .section:has(+ .section > .default-content-wrapper:first-child > .column-start-outer:first-child) > .default-content-wrapper > h1 + p:has(> picture):last-child {
+  margin-bottom: 40px;
+}
+
+/* a link whose box is a flex container (the link alone in its paragraph with its arrow, the link
+   lists, buttons, SWISS's aside lists, Austrian's em buttons): its text is an anonymous flex item
+   whose minimum width is its longest word, so a URL as link text pushed the page sideways
+   (besondere-befoerderungsbedingungen-bus at 390: scroll width 453). anywhere keeps the normal
+   breaks (www's lh-parity-002d: at the hyphens) and breaks only a word that does not fit;
+   standing order 7 */
+/* stylelint-disable no-descending-specificity -- one wrapping value for these links, not their layout */
+main p.link-wrapper > a:any-link,
+main a.button:any-link,
+body.brand-lufthansa main ul:is(.links-horizontal, .links-responsive, .links-vertical) > li > a:any-link,
+body.brand-swiss main .section-aside .default-content-wrapper :is(ul, ol) > li > a:any-link,
+body.brand-austrian main .default-content-wrapper > ul > li > em > a:any-link {
+  overflow-wrap: anywhere;
+}
+/* stylelint-enable no-descending-specificity */
+
+/* a flush grey band (its AEM section has no .mb-default) before a padded section: www has only that
+   section's top padding between them, not our section gap (economy-class, lhg-wifi,
+   travel-insurances, premium-economy-class: the content after the band 48px low; 112 published
+   documents; standing order 7). Not before an unpadded section: there the gap measured right */
+body.brand-lufthansa main > .section.grey.flush:has(+ .section.padded) {
+  margin-bottom: 0;
+}
+
+/* ... but before a padded campaign section (the travel-class hubs' cards) the band keeps 24px: with no
+   gap the cards sat 31px higher than www's. lufthansa-travel-classes 8.2 / 14.8 -> 3.9 / 8.0 % off www
+   at 1440 / 390, lufthansa-reiseklassen 8.3 / 14.6 -> 3.9 / 7.9; standing order 11 */
+body.brand-lufthansa main > .section.grey.flush:has(+ .section.padded.campaign-section) {
+  margin-bottom: 24px;
+}
+
+/* from 768px: a padded section that ends with a padded Columns Media and is followed by an unpadded
+   section (the fleet split of 1455833 and the stage intro of 7d58bb1: www's padded AEM section,
+   then an unpadded one) keeps the block's 24px inside its padding, as www's component margin
+   (/de/en/32n: "The quietest cabin" 24px higher than www's at 1440). 32n 10.0 -> 6.4, 320
+   9.1 -> 6.4, premium-economy-class 11.2 -> 10.1 at 1440; at 390 it measured worse on
+   premium-economy-class, so phones as before; standing order 8 */
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section.padded:is(.spaced, .flush):not(.grey, .campaign-section):has(+ .section:not(.padded, .grey, .stage, .campaign-section)) > .columns-media-wrapper:last-child:has(> .columns-media.padded) {
+    margin-bottom: var(--spacing-default);
+  }
+}
+
+/* a page that ends with its call to action and www's closing separator (the confirmation pages'
+   "To homepage" button or link alone in its paragraph, then {spacer-70}): the separator is the space to the footer, not our
+   section gap on top (/de/en/support/contact/contact-form-confirmation: the footer 48px lower than
+   www's). 8 recorded pages, 10.7 -> 1.0 to 4.4 % off www; after a block or a text paragraph the
+   gap stays (measured worse there); standing order 8 */
+/* stylelint-disable-next-line no-descending-specificity -- a page end after a call to action, not a column end */
+body.brand-lufthansa main > .section:not(.grey):is(:last-child, :has(+ .section.subpage-nav-container:last-child), :not(:has(~ .section:not(:empty)))):has(> .default-content-wrapper:last-child > :is(p.button-wrapper, p.link-wrapper) + p.spacer:last-child) {
+  margin-bottom: 0;
+}
+
+/* a stage (not a flush one), then a section of default content only (the intro), then a padded or grey
+   section: www's intro AEM section keeps its .mb-default above the next section's padding, 16-17px more than
+   our section gap (my-bookings, seat-maps: the third section 17px high at 1440). 1440: my-bookings
+   7.4 -> 4.6, seat-maps 7.8 -> 4.9, wetlease-hub 14.5 -> 13.4, travel-companion 8.9 -> 7.3; air-baltic
+   4.8 -> 5.4 (a later drift of its own); standing order 10 (ranking-so9 stage-intro-padded) */
+/* stylelint-disable-next-line no-descending-specificity -- an intro between a stage and a band, not a page end */
+body.brand-lufthansa main > .section.stage:not(.flush) + .section:not(.padded, .grey, .stage, .spaced, .flush, .column-view):has(> .default-content-wrapper:only-child):has(+ .section:is(.padded, .grey)) {
+  margin-bottom: 64px;
+}
+
+/* a column view's section (only a padded Columns Media) before another view (a padded Columns Media, or a
+   view that opens with its title: a heading with the column-start mark): www has both views in one AEM
+   section, 64px between them (their 3.2rem padding), ours 88 (8px, the 48px section gap that stands for an
+   AEM section's .mb-default, 32px). Before a titled view since standing order 10 (/de/en/imprint
+   8.8 -> 7.2 at 1440, 9.9 -> 9.2 at 390); before a padded Columns Media since standing order 11, with
+   lufthansa-insights-imprint's cell-end spacers (its import dropped www's empty paragraphs at the end of two
+   views): imprint 5.2 / 8.3, insights-imprint 3.4 / 6.8 against 3.2 / 6.5, the other recorded legal pages
+   as before */
+body.brand-lufthansa main > .section:not(.padded, .grey, .stage, .spaced, .flush, .column-view, .campaign-section):has(> .columns-media-wrapper:only-child > .columns-media.padded:not(.sidebar)):has(+ .section:not(.padded, .grey, .stage, .spaced, .flush, .column-view, .campaign-section) > .default-content-wrapper:first-child > :is(h2, h3).column-start:first-child),
+body.brand-lufthansa main > .section:not(.padded, .grey, .stage, .spaced, .flush, .column-view, .campaign-section):has(> .columns-media-wrapper:only-child > .columns-media.padded:not(.sidebar)):has(+ .section:not(.padded, .grey, .stage, .spaced, .flush, .column-view, .campaign-section) > .columns-media-wrapper:first-child > .columns-media.padded:not(.sidebar)) {
+  margin-bottom: 24px;
+}
+
+/* from 768px: a section that ends with an Accordion Columns (its column mark after it) before a plain grey
+   band: www has 20px between them, ours had our section gap on top (the upgrade pages: "Further
+   information about your upgrade" 48px lower than www's at 1440). 1440: upgrade-first-class
+   9.9 -> 6.5, upgrade-premium-economy-class 9.9 -> 6.4, upgrade-business-class-long-haul 10.2 -> 6.7,
+   upgrade-to-business-class 8.3 -> 4.7, doctor-on-board-news 8.3 -> 7.3; at 390 it measured worse on all
+   five, so phones as before; standing order 9 */
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section:not(.grey, .padded, .stage):has(> .accordion-columns-wrapper:last-child, > .accordion-columns-wrapper + .default-content-wrapper:last-child > p:only-child:empty):has(+ .section.grey:not(.flush, .column-band, .column-view)) {
+    margin-bottom: 0;
+  }
 }

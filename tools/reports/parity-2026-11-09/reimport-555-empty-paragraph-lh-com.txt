@@ -1,0 +1,7 @@
+# Brief 555 (ema-adobe, 2026-11-10): lufthansa.com documents whose re-import with main's hub and campaign bundles drops a "{spacer-50}" that campaign-sections wrote for an empty <p></p> (no line break: www draws nothing there), in release order, for the lufthansa.com import helper (re-import, upload, preview; the publish child publishes in the next round). Found offline over the 152 hub and campaign pages of page-templates.json with a www snapshot (4 without one: lufthansa-city/menu-card on de/en, de/de, at/de, gb/en). /gb/en/food-and-beverages against lh-parity-004b with that spacer removed in the page: 12.4 to 10.9 % at 390, 8.7 to 7.1 % at 1440. speisen-und-getraenke (de/de, at/de) also gets back its no-break spaces (9 on de/de) with the same re-import. Other brands: none (no other brand's importer runs campaign-sections).
+/de/en/food-and-beverages
+/de/de/speisen-und-getraenke
+/at/de/speisen-und-getraenke
+/gb/en/food-and-beverages
+/de/de/100-years/chronicle
+/at/de/100-years/chronicle

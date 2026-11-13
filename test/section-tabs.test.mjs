@@ -260,3 +260,99 @@ test('below 768px on brand discover: every item closed at first, as www\'s four_
   assert.deepEqual([...swiss.querySelectorAll('.section-tab-toggle')].map((t) => t.getAttribute('aria-expanded')), ['true', 'false']);
   desktop = true;
 });
+
+// the brief after a736f78e, item 1: a page's own phone default (page metadata "Tabs open": first | none). www's B2B
+// meals-on-board and Allegris pages open their first item below 768 px (b2b-parity-003 at 390), the Newsroom none
+// (b2b-parity-001); the 1440 snapshots can't tell them apart, so the page says it. Pages without the row as before.
+test('below 768px a page\'s "Tabs open" metadata: first opens the first item on a closed brand, none closes all', () => {
+  desktop = false;
+  const metas = [['brand', 'b2b'], ['tabs-open', 'first']].map(([n, c]) => { const m = document.createElement('meta'); m.name = n; m.content = c; document.head.append(m); return m; });
+  try {
+    const main = SWISS();
+    decorateSectionTabs(main);
+    assert.deepEqual([...main.querySelectorAll('.section-tab-toggle')].map((t) => t.getAttribute('aria-expanded')), ['true', 'false'], 'b2b, first');
+    metas[1].content = 'none';
+    metas[0].content = 'swiss';
+    const swiss = SWISS();
+    decorateSectionTabs(swiss);
+    assert.deepEqual([...swiss.querySelectorAll('.section-tab-toggle')].map((t) => t.getAttribute('aria-expanded')), ['false', 'false'], 'swiss, none');
+  } finally {
+    metas.forEach((m) => m.remove());
+    desktop = true;
+  }
+});
+
+// the standing order of 2026-11-10, item 5: www.flytap.com's content tabs below 768 px are an accordion with every
+// item closed (tap-parity-001/-002 at 390: 10 of the 11 recorded content-tab pages, none expanded)
+test('below 768px on brand tap: every item closed at first, as www\'s', () => {
+  desktop = false;
+  const meta = document.createElement('meta');
+  meta.name = 'brand';
+  meta.content = 'tap';
+  document.head.append(meta);
+  try {
+    const main = SWISS();
+    decorateSectionTabs(main);
+    assert.deepEqual([...main.querySelectorAll('.section-tab-toggle')].map((t) => t.getAttribute('aria-expanded')), ['false', 'false']);
+  } finally {
+    meta.remove();
+    desktop = true;
+  }
+});
+
+// the night of 2026-11-11 (TAP row 134): a closed item's panel and parts carry section-tab-closed, which the styles
+// hide everything under the toggle by, so what a block adds later (a fragment's sections, TAP's inspiration categories)
+// stays hidden; the open item and the desktop panels carry no such class
+test('below 768px a closed item\'s panel carries section-tab-closed, which hides what is added to it later', () => {
+  desktop = false;
+  try {
+    const main = SWISS();
+    decorateSectionTabs(main);
+    const panels = [...main.querySelectorAll('.section-tab-panel')];
+    assert.deepEqual(panels.map((x) => x.classList.contains('section-tab-closed')), [false, true], 'the first open, the second closed');
+    const late = document.createElement('div');
+    panels[1].append(late);
+    assert.ok(!late.hidden, 'a later child has no hidden attribute of its own');
+    const css = fs.readFileSync(new URL('../styles/section-tabs.css', import.meta.url), 'utf8');
+    assert.match(css, /\.section-tab-panel\.section-tab-closed > :not\(\.section-tab-toggle\),\s*\.section-tab-part\.section-tab-closed > \* \{\s*display: none;/, 'the class hides it');
+  } finally {
+    desktop = true;
+  }
+  const main = SWISS();
+  decorateSectionTabs(main);
+  assert.ok(![...main.querySelectorAll('.section-tab-panel')].some((x) => x.classList.contains('section-tab-closed')), 'none from 768 px');
+});
+
+// the standing order of 2026-11-10 evening, decision 2: a set's own phone default on its Tabs row ("1, open first" |
+// "1, closed"; the name is the part before the comma): b2b-parity-003 at 390 has de/en meals-on-board's and de/en
+// corporates-start-of-booking's first panels open, b2b-parity-005 every other B2B tab page closed
+test('below 768px a set\'s Tabs row option: "open first" opens its first item, "closed" none; the name before the comma', () => {
+  desktop = false;
+  const meta = document.createElement('meta');
+  meta.name = 'brand';
+  meta.content = 'b2b';
+  document.head.append(meta);
+  try {
+    const main = page([
+      ['<h1>Allegris</h1>'],
+      ['<p>Summer</p>', { tab: 'Summer', tabs: '1, open first' }],
+      ['<p>Winter</p>', { tab: 'Winter', tabs: '1, open first' }],
+      ['<p>Between</p>'],
+      ['<p>HON</p>', { tab: 'HON Circle', tabs: '2' }],
+      ['<p>Senator</p>', { tab: 'Senators', tabs: '2' }],
+    ]);
+    decorateSectionTabs(main);
+    const sets = [...main.querySelectorAll('.section-tabs')];
+    assert.equal(sets.length, 2, 'two sets');
+    assert.deepEqual([...main.querySelectorAll('.section-tab-toggle')].map((t) => t.getAttribute('aria-expanded')), ['true', 'false', 'false', 'false'], 'set 1 first open, set 2 b2b\'s default');
+  } finally {
+    meta.remove();
+    desktop = true;
+  }
+  const swiss = SWISS();
+  [...swiss.querySelectorAll('[data-tabs]')].forEach((s) => { s.dataset.tabs = '1, closed'; });
+  desktop = false;
+  decorateSectionTabs(swiss);
+  assert.deepEqual([...swiss.querySelectorAll('.section-tab-toggle')].map((t) => t.getAttribute('aria-expanded')), ['false', 'false'], 'closed on a brand that opens the first');
+  desktop = true;
+});

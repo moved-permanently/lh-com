@@ -1,0 +1,10 @@
+# The brief after 556, A: TAP's Spanish FAQ refreshed from tap-snapshots-026 (www's /es-es/ayuda/preguntas-frecuentes,
+# rendered with __NEXT_DATA__) with tap-import.mjs as it is (its marker collapse included), the version document's
+# market sections kept. The document: DA's H1 section; the generic FAQ (section metadata Markets -br,-us) from the
+# import, now with www's three new Q&As (how to reach Silver, Gold or Navigator; how to keep or renew the status; the
+# Miles&Go extras included in my trip, in two categories) and without the old wording of the "different name"
+# status question; DA's US section (Markets us) and DA's page metadata unchanged. No es root has a document of its own
+# (they are served from this version document). The US variant keeps its questions (no fresh es-us capture).
+# The exact content: content-sites/lh-tap/content/es-es/ayuda/preguntas-frecuentes.plain.html (local, not in git).
+# Uploaded, previewed and published as it stands.
+/es-es/ayuda/preguntas-frecuentes

@@ -1,0 +1,17 @@
+root    /ae/en/free2move
+version /de/en/free2move
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 47:
+- "Not yet Free2move customer?"
++ "Not a Free2move customer yet?"
+  <br>
+- "Get 40% off your first 3 trips with the code PSM-LUFTHANSA40."
+- <sup>
+- "1"
++ "Get EUR 10 starting credit."
++ <br>
+  <div.link.event.section>
+  <div.maui-link>
+  …
+- @href=https://www.free2move.com/de/en/offer/lufthansa/
++ @href=https://www.share-now.com/de/en/lufthansa/

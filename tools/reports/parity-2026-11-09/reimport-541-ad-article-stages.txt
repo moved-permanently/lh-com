@@ -1,0 +1,44 @@
+# The brief after 540, item 3 (Air Dolomiti parity row 82): the articles whose stage is a hero-card-overlay without an
+# option, imported before the importer wrote www's ReachMonaco as hero-card-overlay (destination) (the full-width picture
+# under its veil with the box in the middle): re-imported with airdolomiti-import.mjs as it is (a CardFullWidth among
+# them comes out as before). Found on airdolomiti.turnsthe.page. Release order; published as they stand.
+/de/artikel/avgeek-de/air-dolomiti-hangars-moderne-flugzeugwartung
+/de/artikel/avgeek-de/der-autopilot
+/de/artikel/avgeek-de/der-lebenszyklus-von-flugzeugen
+/de/artikel/avgeek-de/ein-tag-an-der-seite-eines-air-dolomiti-kapitaens
+/de/artikel/avgeek-de/im-cockpit-eines-air-dolomiti-flugzeugs
+/de/artikel/avgeek-de/wie-startet-man-ein-flugzeug
+/de/artikel/reiseziele/auf-entdeckungsreise-durch-das-maerchenland-deutschland
+/de/artikel/reiseziele/das-beruehmte-glockenspiel-am-muenchner-marienplatz
+/de/artikel/reiseziele/das-mainfest-in-frankfurt
+/de/artikel/reiseziele/der-karneval-von-venedig
+/de/artikel/reiseziele/die-arena-von-verona
+/de/artikel/reiseziele/die-barcolana-in-triest
+/de/artikel/reiseziele/die-muenchner-weihnachtsmaerkte
+/de/artikel/reiseziele/die-schoensten-schneeschuhwanderungen-nahe-verona
+/de/artikel/reiseziele/entdecke-streetfood-in-muenchen
+/de/artikel/reiseziele/geheimes-bologna
+/de/artikel/reiseziele/genua-in-drei-tagen
+/de/artikel/reiseziele/mit-mama-nach-italien
+/de/artikel/reiseziele/skifahren-in-der-naehe-von-venedig-cortina-dampezzo
+/de/artikel/travellers-de/wochenendtrip-mit-handgepaeck
+/en/articles/avgeek-en/a-day-with-an-air-dolomiti-captain
+/en/articles/avgeek-en/aircraft-maintenance-at-air-dolomiti-hangars
+/en/articles/avgeek-en/autopilot
+/en/articles/avgeek-en/how-do-you-start-an-aeroplane
+/en/articles/avgeek-en/inside-an-air-dolomiti-cockpit
+/en/articles/avgeek-en/the-lifecycle-of-aircraft
+/en/articles/destinations/discovering-the-fairytales-of-germany
+/en/articles/destinations/genoa-in-three-days
+/en/articles/destinations/hidden-bologna
+/en/articles/destinations/mainfest-frankfurt-2025
+/en/articles/destinations/street-food-in-munich
+/en/articles/destinations/the-barcolana-in-trieste
+/en/articles/destinations/the-best-snowshoeing-near-verona
+/en/articles/destinations/the-christmas-markets-of-munich
+/en/articles/destinations/the-mechanical-clock-in-munichs-marienplatz
+/en/articles/destinations/the-verona-arena
+/en/articles/destinations/travel-with-your-mum-through-the-wonders-of-italy
+/en/articles/destinations/venice-carnival
+/en/articles/destinations/where-to-ski-near-venice-cortina-dampezzo
+/en/articles/travellers-en/weekend-hand-luggage

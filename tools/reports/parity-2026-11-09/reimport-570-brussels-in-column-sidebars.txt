@@ -1,0 +1,105 @@
+# The standing order after 570 item 2 (ema-cashub): lh-brussels documents whose intro on www is a sidebar alone in a one-column view straight in the page container (the overview hubs), to re-import with the info bundle as of this commit, in release order. The columns-media parser now writes option in-column for that sidebar and the Brussels theme spaces it as www: the h1 44 px lower at 1440 (20 at 390) and the text 72 px under it (66 at 390; ours 28 / 26). Measured with the option on the live /be/fr/special-care/families-and-children: -9.1 -> -4.4 % at 1440, -3.7 -> -2.1 % at 390. Expected per row: +88 px at 1440 and +60 at 390 where the h1 is followed by text in the sidebar (TSV column 4: text), +44 / +20 where it is not. Snapshots: the R2 drop brussels-snapshots-NNN (column 2), all 2026-10-30; checked that each has the layout. Backwards compatible: no live page changes before its re-import. Not listed (6): pages of the same layout whose published document has no columns-media sidebar (the intro is default content), where the option does not apply: /be/en/legal-notices, /be/fr/legal-notices, /be/nl/legal-notices, /de/de/legal-notices, /it/it/legal-notices, /es/es/legal-notices. For any page whose DA copy differs from the importer's output in things the importer does not own (pictures, links, alt texts, metadata rows), the harness keeps DA's version of those. TSV: path, archive, expected 1440 / 390, text after the h1.
+/be/en/extra-services/baggage	brussels-snapshots-001	+88 / +60	text
+/be/en/book-a-flight/groups-and-charter	brussels-snapshots-001	+88 / +60	text
+/be/en/plan-your-trip	brussels-snapshots-001	+44 / +20	no text
+/be/en/check-in-options-and-info	brussels-snapshots-001	+88 / +60	text
+/be/en/plan-your-trip/airport-info	brussels-snapshots-001	+88 / +60	text
+/be/en/extra-services/lounges	brussels-snapshots-001	+88 / +60	text
+/be/en/special-care/families-and-children	brussels-snapshots-001	+88 / +60	text
+/be/en/special-care/pets	brussels-snapshots-001	+88 / +60	text
+/be/en/special-care/special-assistance	brussels-snapshots-001	+88 / +60	text
+/be/en/travel-classes	brussels-snapshots-001	+88 / +60	text
+/be/en/extra-services/meals	brussels-snapshots-001	+88 / +60	text
+/be/en/flying-with-us	brussels-snapshots-001	+44 / +20	no text
+/be/en/lufthansa-group	brussels-snapshots-001	+88 / +60	text
+/be/fr/extra-services/baggage	brussels-snapshots-002	+88 / +60	text
+/be/fr/book-a-flight/groups-and-charter	brussels-snapshots-002	+88 / +60	text
+/be/fr/plan-your-trip	brussels-snapshots-002	+44 / +20	no text
+/be/fr/check-in-options-and-info	brussels-snapshots-002	+88 / +60	text
+/be/fr/plan-your-trip/airport-info	brussels-snapshots-002	+88 / +60	text
+/be/fr/extra-services/lounges	brussels-snapshots-002	+88 / +60	text
+/be/fr/special-care/families-and-children	brussels-snapshots-002	+88 / +60	text
+/be/fr/special-care/pets	brussels-snapshots-002	+88 / +60	text
+/be/fr/special-care/special-assistance	brussels-snapshots-002	+88 / +60	text
+/be/fr/travel-classes	brussels-snapshots-002	+88 / +60	text
+/be/fr/extra-services/meals	brussels-snapshots-002	+88 / +60	text
+/be/fr/flying-with-us	brussels-snapshots-002	+44 / +20	no text
+/be/fr/lufthansa-group	brussels-snapshots-002	+88 / +60	text
+/be/en/flying-with-us/behind-the-scenes	brussels-snapshots-002	+44 / +20	no text
+/be/en/flying-with-us/social-responsibility	brussels-snapshots-003	+44 / +20	no text
+/be/en/legal-notices/us-optional-service-fees	brussels-snapshots-003	+44 / +20	no text
+/be/en/plan-your-trip/airport-info/lhg-hub-airport-info	brussels-snapshots-003	+88 / +60	text
+/be/fr/flying-with-us/behind-the-scenes	brussels-snapshots-004	+44 / +20	no text
+/be/fr/flying-with-us/social-responsibility	brussels-snapshots-004	+44 / +20	no text
+/be/fr/legal-notices/us-optional-service-fees	brussels-snapshots-004	+44 / +20	no text
+/be/fr/plan-your-trip/airport-info/lhg-hub-airport-info	brussels-snapshots-004	+88 / +60	text
+/be/nl/book-a-flight/groups-and-charter	brussels-snapshots-004	+88 / +60	text
+/be/nl/check-in-options-and-info	brussels-snapshots-005	+88 / +60	text
+/be/nl/extra-services/baggage	brussels-snapshots-005	+88 / +60	text
+/be/nl/extra-services/lounges	brussels-snapshots-005	+88 / +60	text
+/be/nl/extra-services/meals	brussels-snapshots-005	+88 / +60	text
+/be/nl/flying-with-us	brussels-snapshots-005	+44 / +20	no text
+/be/nl/flying-with-us/behind-the-scenes	brussels-snapshots-005	+44 / +20	no text
+/be/nl/flying-with-us/social-responsibility	brussels-snapshots-005	+44 / +20	no text
+/be/nl/legal-notices/us-optional-service-fees	brussels-snapshots-005	+44 / +20	no text
+/be/nl/lufthansa-group	brussels-snapshots-005	+88 / +60	text
+/be/nl/plan-your-trip	brussels-snapshots-006	+44 / +20	no text
+/be/nl/plan-your-trip/airport-info	brussels-snapshots-006	+88 / +60	text
+/be/nl/plan-your-trip/airport-info/lhg-hub-airport-info	brussels-snapshots-006	+88 / +60	text
+/be/nl/special-care/families-and-children	brussels-snapshots-006	+88 / +60	text
+/be/nl/special-care/pets	brussels-snapshots-006	+88 / +60	text
+/be/nl/special-care/special-assistance	brussels-snapshots-006	+88 / +60	text
+/be/nl/travel-classes	brussels-snapshots-006	+88 / +60	text
+/de/de/book-a-flight/groups-and-charter	brussels-snapshots-006	+88 / +60	text
+/de/de/check-in-options-and-info	brussels-snapshots-006	+88 / +60	text
+/de/de/extra-services/baggage	brussels-snapshots-006	+88 / +60	text
+/de/de/extra-services/lounges	brussels-snapshots-006	+88 / +60	text
+/de/de/extra-services/meals	brussels-snapshots-006	+88 / +60	text
+/de/de/flying-with-us	brussels-snapshots-006	+44 / +20	no text
+/de/de/flying-with-us/behind-the-scenes	brussels-snapshots-006	+44 / +20	no text
+/de/de/flying-with-us/social-responsibility	brussels-snapshots-007	+44 / +20	no text
+/de/de/legal-notices/us-optional-service-fees	brussels-snapshots-007	+44 / +20	no text
+/de/de/lufthansa-group	brussels-snapshots-007	+88 / +60	text
+/de/de/plan-your-trip	brussels-snapshots-007	+44 / +20	no text
+/de/de/plan-your-trip/airport-info	brussels-snapshots-007	+88 / +60	text
+/de/de/plan-your-trip/airport-info/lhg-hub-airport-info	brussels-snapshots-007	+88 / +60	text
+/de/de/special-care/families-and-children	brussels-snapshots-007	+88 / +60	text
+/de/de/special-care/pets	brussels-snapshots-007	+88 / +60	text
+/de/de/special-care/special-assistance	brussels-snapshots-007	+88 / +60	text
+/de/de/travel-classes	brussels-snapshots-007	+88 / +60	text
+/it/it/book-a-flight/groups-and-charter	brussels-snapshots-007	+88 / +60	text
+/it/it/check-in-options-and-info	brussels-snapshots-007	+88 / +60	text
+/it/it/extra-services/baggage	brussels-snapshots-007	+88 / +60	text
+/it/it/extra-services/lounges	brussels-snapshots-008	+88 / +60	text
+/it/it/extra-services/meals	brussels-snapshots-008	+88 / +60	text
+/it/it/flying-with-us	brussels-snapshots-008	+44 / +20	no text
+/it/it/flying-with-us/behind-the-scenes	brussels-snapshots-008	+44 / +20	no text
+/it/it/flying-with-us/social-responsibility	brussels-snapshots-008	+44 / +20	no text
+/it/it/legal-notices/us-optional-service-fees	brussels-snapshots-008	+44 / +20	no text
+/it/it/lufthansa-group	brussels-snapshots-008	+88 / +60	text
+/it/it/plan-your-trip	brussels-snapshots-008	+44 / +20	no text
+/it/it/plan-your-trip/airport-info	brussels-snapshots-008	+88 / +60	text
+/it/it/plan-your-trip/airport-info/lhg-hub-airport-info	brussels-snapshots-008	+88 / +60	text
+/it/it/special-care/families-and-children	brussels-snapshots-008	+88 / +60	text
+/it/it/special-care/pets	brussels-snapshots-008	+88 / +60	text
+/it/it/special-care/special-assistance	brussels-snapshots-009	+88 / +60	text
+/it/it/travel-classes	brussels-snapshots-009	+88 / +60	text
+/es/es/book-a-flight/groups-and-charter	brussels-snapshots-009	+88 / +60	text
+/es/es/check-in-options-and-info	brussels-snapshots-009	+88 / +60	text
+/es/es/extra-services/baggage	brussels-snapshots-009	+88 / +60	text
+/es/es/extra-services/lounges	brussels-snapshots-009	+88 / +60	text
+/es/es/extra-services/meals	brussels-snapshots-009	+88 / +60	text
+/es/es/flying-with-us	brussels-snapshots-009	+44 / +20	no text
+/es/es/flying-with-us/behind-the-scenes	brussels-snapshots-009	+44 / +20	no text
+/es/es/flying-with-us/social-responsibility	brussels-snapshots-009	+44 / +20	no text
+/es/es/legal-notices/us-optional-service-fees	brussels-snapshots-009	+44 / +20	no text
+/es/es/lufthansa-group	brussels-snapshots-009	+88 / +60	text
+/es/es/plan-your-trip	brussels-snapshots-010	+44 / +20	no text
+/es/es/plan-your-trip/airport-info	brussels-snapshots-010	+88 / +60	text
+/es/es/plan-your-trip/airport-info/lhg-hub-airport-info	brussels-snapshots-010	+88 / +60	text
+/es/es/special-care/families-and-children	brussels-snapshots-010	+88 / +60	text
+/es/es/special-care/pets	brussels-snapshots-010	+88 / +60	text
+/es/es/special-care/special-assistance	brussels-snapshots-010	+88 / +60	text
+/es/es/travel-classes	brussels-snapshots-010	+88 / +60	text
+/bf/en/our-company	brussels-snapshots-016	+88 / +60	text
+/bf/fr/our-company	brussels-snapshots-016	+88 / +60	text

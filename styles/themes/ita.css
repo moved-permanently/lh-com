@@ -535,10 +535,14 @@ body.brand-ita .footer .footer-logos .footer-logo-star-alliance-horizontal img {
     padding-bottom: 0;
   }
 
+  /* the payment and social row 27 px under the link columns, its headings' ink 28 px under the rule,
+     the icons' ink 38 px over the next one (ita-parity-004 at 1440, the brief after 540) */
   body.brand-ita .footer .footer-badges {
     flex-flow: row nowrap;
     gap: 0;
-    margin-top: 30px;
+    margin-top: 27px;
+    padding-top: 24px;
+    padding-bottom: 31px;
   }
 
   body.brand-ita .footer .footer-badge-group {
@@ -548,6 +552,12 @@ body.brand-ita .footer .footer-logos .footer-logo-star-alliance-horizontal img {
   body.brand-ita .footer .footer-badge-heading {
     font-size: 24px;
     line-height: 26.4px;
+  }
+
+  /* the logo bar 70 px, the logos' ink 25 px from its top, 26 from its bottom (ita-parity-004) */
+  body.brand-ita .footer .footer-logos-inner {
+    padding-top: 19px;
+    padding-bottom: 25px;
   }
 
   body.brand-ita .footer .footer-locale {
@@ -593,10 +603,11 @@ body.brand-ita .footer .footer-logos .footer-logo-star-alliance-horizontal img {
     margin: -30px 0 15px;
   }
 
-  /* the logo stack: 22 and 24 px apart, 28 px under it (the footer's 25, 27 and 38) */
+  /* the logo stack: 22 and 24 px apart, 25 px above and under it (the footer's 25, 27 and 38;
+     ita-parity-004, the brief after 540) */
   body.brand-ita .footer .footer-logos-inner {
-    padding-top: 26px;
-    padding-bottom: 27px;
+    padding-top: 25px;
+    padding-bottom: 24px;
   }
 
   body.brand-ita .footer .footer-logos li {
@@ -642,9 +653,10 @@ body.brand-ita .carousel-cards:is(.grid, .four-up) .carousel-cards-body > p:has(
   margin-bottom: 20px;
 }
 
+/* the card's link line as www's btn-link: 14px at 375 to 16px at 1440, 110 % lines (ITA row 33: one line on phones) */
 body.brand-ita .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > .carousel-cards-cta {
-  font-size: 16px;
-  line-height: 17.6px;
+  font-size: clamp(14px, calc(14px + 2 * (100vw - 375px) / 1065), 16px);
+  line-height: 1.1;
 }
 
 body.brand-ita .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body > p:not(.carousel-cards-cta) {
@@ -826,3 +838,322 @@ body.brand-ita .micro-frontend .topic-selection-info-cards-container.full-width-
   box-shadow: 0 0 0 100vmax #f8f8f9;
   clip-path: inset(0 -100vmax);
 }
+
+/* stylelint-disable no-descending-specificity -- the panels' paragraphs, not the card lists' (above) */
+
+/* the Miles & More status panels (ita-parity-004, the brief after 556): www's item holds its points
+   line, then a two-column view, the status card | the benefits (heading, list, link); the import
+   flattens it (the heading, the line, the list, the link, the picture last). The line first, the
+   picture next, beside the benefits from 768 px */
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > p:first-of-type {
+  grid-row: 1;
+}
+
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > p:has(> picture) {
+  grid-row: 2;
+}
+
+@media (width >= 768px) {
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 24px;
+  }
+
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > p:first-of-type {
+    grid-column: 1 / -1;
+  }
+
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > p:has(> picture) {
+    grid-column: 1;
+    grid-row: 2 / span 3;
+  }
+
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > :is(h3, ul, p:not(:first-of-type, :has(> picture))) {
+    grid-column: 2;
+  }
+}
+
+/* stylelint-enable no-descending-specificity */
+
+/* the status panels' text as www's (the sweep after 556; ita-parity-004 /it/en/profile/miles-and-more at
+   390 and 1440, www's column view: its headline heading-small, its rich text's list): the heading
+   22px to 28px with the width (www's clamp, 22.08px at 390, 28px at 1440), 1.1; the benefits a list
+   40px in with its bullets outside, the items 10px apart; on phones the picture (stacked) 45px under
+   the line and 40px over the heading; the text the column's full width (www's column view; the
+   panels' 66 % is for a panel of text alone) */
+/* stylelint-disable no-descending-specificity -- the panels' text rules (the block, the theme above) */
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > *,
+body.brand-ita .accordion-columns .accordion-columns-panel > .accordion-columns-intro:has(> h3):has(> p > picture) > * {
+  max-width: none;
+}
+
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > h3 {
+  font-size: clamp(22px, calc(22px + 6 * (100vw - 375px) / 1065), 28px);
+  line-height: 1.1;
+}
+
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > ul {
+  padding-left: 40px;
+  list-style-position: outside;
+}
+
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > ul > li + li {
+  margin-top: 10px;
+}
+
+/* from 768px the picture and the benefits 56px under the line (www's column view under its text) */
+@media (width >= 768px) {
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > p:first-of-type {
+    margin-bottom: 56px;
+  }
+}
+
+@media (width < 768px) {
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> h3):has(> p > picture) > p:has(> picture) {
+    margin: 45px 0 40px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/* tables as www's maui-table renders them (the standing order of 2026-11-10, item 6: /it/en/local-page/verona at 390, as
+   Austrian's 93374199): columns by their content, each cell 200 px at least (www's .cell-content min-width), the block
+   scrolls sideways as before */
+body.brand-ita .table-striped table {
+  table-layout: auto;
+}
+
+body.brand-ita .table-striped :is(td, th) {
+  min-width: 200px;
+}
+
+/* the status panels' spacing as www's column view (ITA row 28; ita-parity-004 at 1440, www's light DOM): 18px over the
+   line (the panel's 10 and 8 more), the heading 32px over the list, the link 16px / 24px in a 31px box, 49px under it
+   (the panel's 20 and 29 more) */
+/* stylelint-disable no-descending-specificity -- other blocks' paragraph rules above */
+body.brand-ita .accordion-columns .accordion-columns-panel > .accordion-columns-intro:has(> h3):has(> p > picture) {
+  margin-block: 8px 29px;
+}
+
+body.brand-ita .accordion-columns .accordion-columns-panel > .accordion-columns-intro:has(> h3):has(> p > picture) > h3 {
+  margin-bottom: 32px;
+}
+
+body.brand-ita .accordion-columns .accordion-columns-panel > .accordion-columns-intro:has(> h3):has(> p > picture) > p:last-child:not(:has(> picture)) {
+  margin-bottom: 0;
+  padding-block: 3.5px;
+  font-size: 16px;
+  line-height: 24px;
+}
+/* stylelint-enable no-descending-specificity */
+
+/* the flight search band between two text components (ITA row 30; /it/en/local-page/verona, ita-parity-004): www's
+   invisible separators (.hr-no-layout, 1px and 24px under it) on both sides of the flight manager, 50px from the text
+   above and 46px to the text under it at every width (the sections' 24px before) */
+body.brand-ita main > .section > .default-content-wrapper + .flight-search-wrapper.flight-search-band {
+  margin-top: 50px;
+}
+
+body.brand-ita main > .section > .flight-search-wrapper.flight-search-band + .default-content-wrapper {
+  margin-top: 46px;
+}
+
+/* a Columns Media heading in www's heading-small (ITA row 31): www's column-view headings are heading-small (28px at
+   1440, 22 at 375; 12 of 13 on ita-parity-004 / -003), which the collapse makes the level's default; unmarked H2s only,
+   not under a title option or in the sidebar layout (the page's own headings) */
+body.brand-ita main .columns-media:not(.title-large, .title-compact, .sidebar) .columns-media-text h2:not([class*="heading-"]) {
+  font-size: var(--heading-font-size-l);
+  line-height: 1.1;
+}
+
+/* small print under a text (ITA row 32): www's copytext-small is the last paragraph of the text's richtext, 24px under
+   the text and 42px over the next component (its 18px margin and the component's 24); the import gives it a section of
+   its own (Style small-print), 48px from either */
+body.brand-ita main > .section:has(> .default-content-wrapper:last-child):has(+ .section.small-print) {
+  margin-bottom: 24px;
+}
+
+body.brand-ita main > .section:has(> .default-content-wrapper:last-child) + .section.small-print {
+  margin-bottom: 42px;
+}
+
+/* the fleet pages' seat maps (ITA row 34): in each aircraft's tab www puts the specifications table and the seat map
+   side by side from 768px (col-md-6, 20px apart), one under the other on phones; a section's table and the picture
+   paragraph right after it two columns, the rest of the section across both; a hidden tab panel stays hidden */
+@media (width >= 768px) {
+  body.brand-ita main > .section:not([hidden]):has(> .table-striped-wrapper + .default-content-wrapper > p:only-child > picture) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+    align-items: start;
+  }
+
+  body.brand-ita main > .section:not([hidden]):has(> .table-striped-wrapper + .default-content-wrapper > p:only-child > picture) > :not(.table-striped-wrapper, .table-striped-wrapper + .default-content-wrapper:has(> p:only-child > picture)) {
+    grid-column: 1 / -1;
+  }
+}
+
+/* accordions on wide screens (ITA row 35): www's accordion component 40px under a text or a headline and 40px over the
+   next component at 1440 (24 / 20 at 390; pets-in-cabin, flying-with-a-baby, group-boarding), ours the section's 24
+   (32 under an H2); from 992px (www's Bootstrap lg) 40px on both sides, on phones as before */
+@media (width >= 992px) {
+  body.brand-ita main > .section > .accordion-columns-wrapper:not(:first-child),
+  body.brand-ita main > .section > .accordion-columns-wrapper + div {
+    margin-top: 40px;
+  }
+}
+
+/* equal columns, as www's maui-table equalcolumns (ITA row 37; group-boarding at 1440, ita-parity-005: 625 / 625 px,
+   ours by content 212 / 1052): a row of 2 to 6 cells shares the width equally, each cell 200px at least (row 27) */
+body.brand-ita .table-striped tr > :first-child:nth-last-child(2),
+body.brand-ita .table-striped tr > :first-child:nth-last-child(2) ~ :is(td, th) {
+  width: calc(100% / 2);
+}
+
+body.brand-ita .table-striped tr > :first-child:nth-last-child(3),
+body.brand-ita .table-striped tr > :first-child:nth-last-child(3) ~ :is(td, th) {
+  width: calc(100% / 3);
+}
+
+body.brand-ita .table-striped tr > :first-child:nth-last-child(4),
+body.brand-ita .table-striped tr > :first-child:nth-last-child(4) ~ :is(td, th) {
+  width: calc(100% / 4);
+}
+
+body.brand-ita .table-striped tr > :first-child:nth-last-child(5),
+body.brand-ita .table-striped tr > :first-child:nth-last-child(5) ~ :is(td, th) {
+  width: calc(100% / 5);
+}
+
+body.brand-ita .table-striped tr > :first-child:nth-last-child(6),
+body.brand-ita .table-striped tr > :first-child:nth-last-child(6) ~ :is(td, th) {
+  width: calc(100% / 6);
+}
+
+/* a heading beside icon teasers (ITA row 39; entry-exit-system, ita-parity-005): www's three-column view holds "What
+   data is collected?" in its first column (408px at 1440) and the four teasers two by two in the other two, 20px apart;
+   on phones the heading over them. From 768px the section is a grid on the content box: the heading (the section's
+   first wrapper, the H2 alone, right before a partner cards-icon-text; no :has() in a :has()) a third less the gaps, the teasers the rest, the section's other
+   content across both */
+@media (width >= 768px) {
+  body.brand-ita main > .section:has(> .default-content-wrapper:first-child > h2:only-child):has(> .default-content-wrapper:first-child + .cards-icon-text-wrapper > .cards-icon-text.partner) {
+    display: grid;
+    grid-template-columns: calc((100% - 40px) / 3) minmax(0, 1fr);
+    column-gap: 20px;
+    align-items: start;
+    padding-inline: max(var(--layout-margin), calc((100% - var(--content-max-width)) / 2 + var(--layout-margin)));
+  }
+
+  body.brand-ita main > .section:has(> .default-content-wrapper:first-child > h2:only-child):has(> .default-content-wrapper:first-child + .cards-icon-text-wrapper > .cards-icon-text.partner) > * {
+    grid-column: 1 / -1;
+    max-width: none;
+    padding-inline: 0;
+  }
+
+  body.brand-ita main > .section:has(> .default-content-wrapper:first-child > h2:only-child):has(> .default-content-wrapper:first-child + .cards-icon-text-wrapper > .cards-icon-text.partner) > .default-content-wrapper:first-child {
+    grid-column: 1;
+  }
+
+  body.brand-ita main > .section:has(> .default-content-wrapper:first-child > h2:only-child):has(> .default-content-wrapper:first-child + .cards-icon-text-wrapper > .cards-icon-text.partner) > .default-content-wrapper:first-child + .cards-icon-text-wrapper {
+    grid-column: 2;
+    margin-top: 0;
+  }
+
+  body.brand-ita main > .section:has(> .default-content-wrapper:first-child > h2:only-child):has(> .default-content-wrapper:first-child + .cards-icon-text-wrapper > .cards-icon-text.partner) > .default-content-wrapper:first-child + .cards-icon-text-wrapper > .cards-icon-text.partner > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* tables in an accordion item as www's four-column view (ITA row 36's rest; baggage-and-strollers, ita-parity-005):
+   www's col-md-6 col-lg items two a row from 768px, all in one row from 992px, one under the other on phones; an item
+   whose content is only tables (two or more) the same way, 24px between the rows, 20px between the columns */
+/* stylelint-disable no-descending-specificity -- the accordion's own table rules above */
+@media (width >= 768px) {
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-columns-table + .accordion-columns-table):not(:has(> :not(.accordion-columns-table))) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 20px;
+    align-items: start;
+  }
+
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-columns-table + .accordion-columns-table):not(:has(> :not(.accordion-columns-table))) > .accordion-columns-table {
+    margin: 0;
+  }
+}
+
+@media (width >= 992px) {
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-columns-table + .accordion-columns-table):not(:has(> :not(.accordion-columns-table))) {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/* several pictures in a sidebar's media cell (ITA row 40; /it/en/world-of-ita-airways/discover-ita-airways/
+   sustainability/iris, ita-parity-005): www stacks the column's image components at its full width, about 32px apart
+   (the SDG badges 346 x 115 and the "Planet" circle 346 x 346 at 390; 306 wide in the aside at 1440); ours set them
+   side by side, each half the width */
+/* stylelint-disable no-descending-specificity -- the accordion's own picture rules above */
+body.brand-ita .columns-media.sidebar .columns-media-multi {
+  flex-direction: column;
+  gap: 32px;
+  align-items: stretch;
+}
+
+body.brand-ita .columns-media.sidebar .columns-media-multi > * {
+  flex: none;
+  width: 100%;
+}
+/* stylelint-enable no-descending-specificity */
+
+/* a padded section of only a heading, its content in the next section (ITA row 41; residents-in-sicily's "Additional
+   Information" over the Offer Conditions accordion, ita-parity-005; DA keeps the accordion in a section of its own, its
+   market variants): www's padded AEM section holds both, the accordion 29px under the heading and the section's
+   padding under it; ours drew the padding and the section gap between the two. The heading's section without its
+   bottom padding and gap; the next section draws that padding */
+body.brand-ita main > .section.padded:has(> .default-content-wrapper:only-child > :is(h2, h3):only-child) {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+body.brand-ita main > .section.padded:has(> .default-content-wrapper:only-child > :is(h2, h3):only-child) + .section {
+  padding-bottom: var(--section-padding);
+}
+
+/* the eJournals download form as www's (ITA row 42; /it/en/book-and-prepare/travel-information/at-the-airport/
+   digital-newsstand, ita-parity-005): www's outlined fields 48px high, the hint 12px under the first, no hint under the
+   last name, the login notice 112px with its link 19px under the copy; ours lufthansa.com's 58px underlined fields */
+body.brand-ita .ejournals {
+  --ejournals-field-height: 48px;
+}
+
+body.brand-ita .ejournals .ejournals-notice {
+  padding-bottom: 28px;
+}
+
+body.brand-ita .ejournals .ejournals-login {
+  margin-top: 19px;
+}
+
+body.brand-ita .ejournals .ejournals-hint {
+  margin-top: 12px;
+}
+
+body.brand-ita .ejournals .ejournals-hint[id^="ejournals-lastName"] {
+  display: none;
+}
+
+/* a padded last section over the footer (ITA row 43; residents-in-sicily, ita-parity-005): www's padded AEM section
+   ends the page with its own padding (40px at 1440, 20 at 390), no gap under it; ours added the section gap */
+/* stylelint-disable no-descending-specificity -- row 41's rule on the heading-only padded section above */
+body.brand-ita main > .section.padded:last-child,
+body.brand-ita main > .section.padded:has(> .default-content-wrapper:only-child > :is(h2, h3):only-child) + .section:last-child {
+  margin-bottom: 0;
+}
+/* stylelint-enable no-descending-specificity */

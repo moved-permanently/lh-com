@@ -1,0 +1,4 @@
+{
+ "about": "www.airdolomiti.it / cms.airdolomiti.it files the pages reference but www answers 404 for (as austrian-missing-assets.json). airdolomiti-import.mjs leaves their pictures out (airdolomiti-media.mjs missingAssets): the media step cannot fetch them. Add a file only with www's answer recorded: url (without query), answer, checked (when and by whom), pages. The importer's own download state (assets/state.json, status 404) keeps leaving out the files it found missing itself.",
+ "assets": []
+}

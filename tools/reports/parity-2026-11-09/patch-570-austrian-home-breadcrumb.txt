@@ -1,0 +1,63 @@
+# The standing order after 570 item 5 (ema-cashub): lh-austrian homepages without a Breadcrumb title, the same cause as patch-570-brussels-home-breadcrumb.txt: a first-level page's breadcrumb (the back link on phones, the first crumb on desktop) takes the homepage's Breadcrumb title, else its og:title. 59 of the 64 lh-austrian homepages have none (5 have Home / Homepage). Patch only, no re-import: in DA's copy of each homepage (backup first) add the metadata row Breadcrumb title with www's label for the language (the first breadcrumb item of the R2 drop's austrian-snapshots-001..018 pages: de "Homepage", el "Αρχική σελίδα", en "Homepage", es "Página principal", fr "Page d’accueil", it "Homepage", ja "ホームページ", pl "Strona główna", ru "Главная страница", zh "主页"). TSV: the homepage document, the metadata key, the value. Also 3 homepages whose row says "Home" where www says "Homepage": the value replaced (marked in column 3).
+/al/en/homepage	Breadcrumb title	Homepage
+/am/en/homepage	Breadcrumb title	Homepage
+/au/en/homepage	Breadcrumb title	Homepage
+/ba/en/homepage	Breadcrumb title	Homepage
+/be/en/homepage	Breadcrumb title	Homepage
+/bg/en/homepage	Breadcrumb title	Homepage
+/by/en/homepage	Breadcrumb title	Homepage
+/by/ru/homepage	Breadcrumb title	Главная страница
+/ca/en/homepage	Breadcrumb title	Homepage
+/ca/fr/homepage	Breadcrumb title	Page d’accueil
+/ch/de/homepage	Breadcrumb title	Homepage
+/ch/en/homepage	Breadcrumb title	Homepage
+/ch/fr/homepage	Breadcrumb title	Page d’accueil
+/ch/it/homepage	Breadcrumb title	Homepage
+/cn/en/homepage	Breadcrumb title	Homepage
+/cn/zh/homepage	Breadcrumb title	主页
+/cy/en/homepage	Breadcrumb title	Homepage
+/cz/en/homepage	Breadcrumb title	Homepage
+/dk/en/homepage	Breadcrumb title	Homepage
+/eg/en/homepage	Breadcrumb title	Homepage
+/es/en/homepage	Breadcrumb title	Homepage
+/es/es/homepage	Breadcrumb title	Página principal
+/fr/en/homepage	Breadcrumb title	Homepage
+/fr/fr/homepage	Breadcrumb title	Page d’accueil
+/ge/en/homepage	Breadcrumb title	Homepage
+/gr/el/homepage	Breadcrumb title	Αρχική σελίδα
+/gr/en/homepage	Breadcrumb title	Homepage
+/hr/en/homepage	Breadcrumb title	Homepage
+/hu/en/homepage	Breadcrumb title	Homepage
+/il/en/homepage	Breadcrumb title	Homepage
+/iq/en/homepage	Breadcrumb title	Homepage
+/ir/en/homepage	Breadcrumb title	Homepage
+/it/en/homepage	Breadcrumb title	Homepage
+/it/it/homepage	Breadcrumb title	Homepage
+/jo/en/homepage	Breadcrumb title	Homepage
+/jp/en/homepage	Breadcrumb title	Homepage
+/jp/ja/homepage	Breadcrumb title	ホームページ
+/lt/en/homepage	Breadcrumb title	Homepage
+/md/en/homepage	Breadcrumb title	Homepage
+/me/en/homepage	Breadcrumb title	Homepage
+/mk/en/homepage	Breadcrumb title	Homepage
+/nl/en/homepage	Breadcrumb title	Homepage
+/no/en/homepage	Breadcrumb title	Homepage
+/pl/en/homepage	Breadcrumb title	Homepage
+/pl/pl/homepage	Breadcrumb title	Strona główna
+/pt/en/homepage	Breadcrumb title	Homepage
+/ro/en/homepage	Breadcrumb title	Homepage
+/rs/en/homepage	Breadcrumb title	Homepage
+/ru/en/homepage	Breadcrumb title	Homepage
+/ru/ru/homepage	Breadcrumb title	Главная страница
+/se/en/homepage	Breadcrumb title	Homepage
+/si/en/homepage	Breadcrumb title	Homepage
+/sk/en/homepage	Breadcrumb title	Homepage
+/th/en/homepage	Breadcrumb title	Homepage
+/tr/en/homepage	Breadcrumb title	Homepage
+/ua/en/homepage	Breadcrumb title	Homepage
+/us/en/homepage	Breadcrumb title	Homepage
+/xk/en/homepage	Breadcrumb title	Homepage
+/xx/en/homepage	Breadcrumb title	Homepage
+/de/de/homepage	Breadcrumb title	Homepage (today "Home": replace)
+/de/en/homepage	Breadcrumb title	Homepage (today "Home": replace)
+/gb/en/homepage	Breadcrumb title	Homepage (today "Home": replace)

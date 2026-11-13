@@ -1,0 +1,36 @@
+# ema-lufthansa's capture list for the night of 2026-11-10 (the standing order after the rule-6 sweep). For the Captures
+# child; no request to an airline host from ema-lufthansa. Priority: top to bottom.
+#
+# A. ITA, 22 pages: rendered recordings as ita-parity-004 (1440 x 900 and 390 x 844, scrolled, the full page's light
+#    DOM and its shadow DOM, measurements with every heading in the page content, not only the first ones); archive
+#    ita-parity-NNN. Why: the two-column view headings. On the recordings so far 12 of 13 column-view headings are
+#    heading-small (28 px), our documents render them at the level's default (36 px) since the token-free collapse
+#    (one step from the default goes); these pages decide how general that is (two-column views with a heading, and
+#    "Related" teaser rows), for a theme default proposed to ema-test (rows-for-ema-test.md).
+https://www.ita-airways.com/it/en/book-and-prepare/offers/territorial-continuity/residents-in-sicily
+https://www.ita-airways.com/it/en/book-and-prepare/other-requests/families-and-children/first-time-flyers
+https://www.ita-airways.com/it/en/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin
+https://www.ita-airways.com/it/en/book-and-prepare/travel-information/at-the-airport/lounges/fantasia-lounge
+https://www.ita-airways.com/it/en/book-and-prepare/travel-information/baggage/checked-baggage
+https://www.ita-airways.com/it/en/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system
+https://www.ita-airways.com/it/en/manage-my-bookings/extra-services/seats-selection/seats-selection-economy
+https://www.ita-airways.com/it/en/support/utilities/contact
+https://www.ita-airways.com/it/en/world-of-ita-airways/discover-ita-airways/fleet/long-haul
+https://www.ita-airways.com/it/en/world-of-ita-airways/discover-ita-airways/fleet/short-haul
+https://www.ita-airways.com/it/en/world-of-ita-airways/discover-ita-airways/ita-airways-app
+https://www.ita-airways.com/it/en/world-of-ita-airways/travel-classes/business-class-medium-haul
+https://www.ita-airways.com/it/en/book-and-prepare/travel-information/at-the-airport/digital-newsstand
+https://www.ita-airways.com/it/en/book-and-prepare/flight-search
+https://www.ita-airways.com/it/en/world-of-ita-airways/discover-ita-airways/sustainability/iris
+https://www.ita-airways.com/it/en/world-of-ita-airways/discover-ita-airways/fleet
+https://www.ita-airways.com/it/en/world-of-ita-airways/discover-ita-airways/network
+https://www.ita-airways.com/it/en/book-and-prepare/travel-information/baggage/electronic-devices-and-batteries
+https://www.ita-airways.com/it/en/book-and-prepare/travel-information/at-the-airport/group-boarding
+https://www.ita-airways.com/it/en/world-of-ita-airways/services-on-board/catering/meals-in-travel-classes/meals-in-economy-long-haul
+https://www.ita-airways.com/it/en/book-and-prepare/other-requests/families-and-children/flying-with-a-baby
+https://www.ita-airways.com/it/en/book-and-prepare/other-requests/families-and-children/baggage-and-strollers
+#
+# B. TAP, 1 page: www's footer with its "Cookies Settings" row open (the consent dialog it opens, a screenshot and the
+#    dialog's markup) at 1440 x 900; archive tap-parity-NNN. Why: the footer row is to open our consent dialog as www's
+#    opens its own (the decision of 2026-11-10); the recording shows what the row is, not what it opens.
+https://www.flytap.com/en-pt/help/frequently-asked-questions

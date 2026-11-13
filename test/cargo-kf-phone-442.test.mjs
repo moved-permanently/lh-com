@@ -69,6 +69,6 @@ test('the theme below 768 px: www\'s phone slider; from 768 px the desktop slide
   has(new RegExp(`${K} \\.carousel-cards\\.facts \\.carousel-cards-next \\{[^}]*order: 3;`));
   has(new RegExp(`${K} \\.carousel-cards\\.facts \\.carousel-cards-dot \\{[^}]*width: 20px;[^}]*height: 20px;[^}]*border: 2px solid #05164d;`));
   has(new RegExp(`${K} \\.carousel-cards\\.facts \\.carousel-cards-dot::before \\{[^}]*content: none;`), 'the ring alone (no inner dot of the brands\' dots)');
-  has(new RegExp(`${K} \\.carousel-cards-wrapper ~ \\.default-content-wrapper \\{[^}]*position: relative;[^}]*z-index: 2;[^}]*padding: 51px 16px 30px;`), 'the link 30 px above the foot');
+  has(new RegExp(`${K} \\.carousel-cards-wrapper ~ \\.default-content-wrapper \\{[^}]*position: relative;[^}]*z-index: 2;[^}]*padding: 32px 16px 17px;`), 'the link 32 px under the dots and 17 px above the foot (Cargo row 50)');
   has(new RegExp(`@media \\(width >= 768px\\) \\{[^@]*${K}:has\\(\\.carousel-cards\\.facts\\) \\{[^}]*display: block;[^}]*aspect-ratio: auto;[^}]*\\}[^@]*${K} :is\\(\\.carousel-cards-wrapper:has\\(> \\.carousel-cards\\.facts\\), \\.carousel-cards-wrapper ~ \\.default-content-wrapper\\) \\{[^}]*display: none;[^}]*\\}[^@]*${K} \\.carousel-images-wrapper:has\\(~ \\.carousel-cards-wrapper \\.carousel-cards\\.facts\\) \\{[^}]*display: block;`), 'from 768 px the desktop slider, no phone slides, no link');
 });

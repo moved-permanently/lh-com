@@ -1,0 +1,7 @@
+# ema-cashub, standing order 10 (2026-11-11): recordings for TAP row 139's HOLD rows (reimport-so10-tap-heading-section-139.txt):
+# one page of each family whose headings with a description follow text, as the tap-parity recordings (full page at
+# 1440 x 900 and 390 x 844, measurements, every picture waited for). For the next capture window.
+https://www.flytap.com/en-pt/manage-booking/extras/lounges
+https://www.flytap.com/en-pt/information/documentation/schengen-visas
+https://www.flytap.com/pt-br/miles-and-go/utilizar-milhas/doacao-milhas
+https://www.flytap.com/pt-br/miles-and-go/ganhe-milhas/cartoes-de-credito

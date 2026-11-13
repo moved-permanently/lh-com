@@ -44,7 +44,8 @@ test('withShareImage: only the Image row\'s dead picture changes (a body picture
 test('brussels-import.mjs applies it to every document it writes', () => {
   const src = fs.readFileSync(new URL('../tools/importer/brussels-import.mjs', import.meta.url), 'utf8');
   assert.match(src, /import \{ withShareImage \} from '\.\/brussels-share-image\.mjs';/);
-  assert.match(src, /const next = withShareImage\(withOwnLinks\(/);
+  // (the picker's group link after it: withGroupBooking, the brief after 551)
+  assert.match(src, /const next = (?:withGroupBooking\()?withShareImage\(withOwnLinks\(/);
 });
 
 test('CLI --from a folder: changed documents to --out (DA shape), changes.tsv, changed-paths.txt; resumes', () => {

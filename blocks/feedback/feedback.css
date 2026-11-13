@@ -59,6 +59,13 @@
   background-color: var(--lh-grey-1);
 }
 
+/* the answers in the help app (the rules for it below): before the selected state's */
+.feedback-form-container .feedback .feedback-option {
+  min-width: 0;
+  min-height: 48px;
+  padding: 12px 15px;
+}
+
 .feedback .feedback-option:has(input:checked) {
   background-color: var(--lh-deepblue);
   color: var(--lh-white);
@@ -74,4 +81,24 @@
 .feedback .feedback-option:has(input:focus-visible) {
   outline: 2px solid var(--focus-color);
   outline-offset: -2px;
+}
+
+/* inside the help app's own container (help-center-web's div.feedback-form-container; the
+   micro-frontend block moves the block there): www's questionnaire in the app (swiss-parity-003,
+   ita-parity-003), the question bold, the note copy-medium 14 px at most 600 px wide (SWISS's on two lines, ITA's on one), 40 px above
+   the answers (mb-5); the answers 50 px high with the border, 15 px in (above) */
+.feedback-form-container .feedback .feedback-label {
+  font-weight: 700;
+}
+
+.feedback-form-container .feedback .feedback-note {
+  max-width: 600px;
+  margin-bottom: 40px;
+  font-size: 14px;
+}
+
+/* SWISS's copy-medium is 16 / 24 px (its maui font size 2; ITA's 14): the note on two lines */
+body.maui-theme-lx .feedback-form-container .feedback .feedback-note {
+  font-size: 16px;
+  line-height: 24px;
 }

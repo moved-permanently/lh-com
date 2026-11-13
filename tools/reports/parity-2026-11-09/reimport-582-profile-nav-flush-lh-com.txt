@@ -1,0 +1,47 @@
+# Brief 582 (ema-adobe, 2026-11-10 23:15 CET): lufthansa.com documents whose page starts its content right under www's sub-navigation bar (.contentpage.pt-0). With today's bundles the profile-nav parser writes Section Metadata Style "flush" into the bar's section; styles.css then draws no gap under the bar (the site rule ships with this list; until a document is re-imported it looks as before).
+# Expected change per document: the stage (or first content) 20 px higher at 390, 25 px from 1024 px, as www. Measured with the gap removed: internet-overview 22.6 -> 14.3 % (390), 14.6 -> 5.6 % (1440); lhg-wifi 18.0 -> 14.7, 17.9 -> 13.6; economy-class 34.2 -> 29.6, 22.5 -> 18.1; premium-economy-class 26.3 -> 22.0, 18.7 -> 19.7 (1440 +1.0: its stage is 5 px taller than www's). Found in all 3,397 bd-snapshots (logs/b582/pt0-list.mjs); first-class (www 20 px under the bar) is not on it.
+# columns (tab): da_path, template
+/at/de/business-class	info
+/at/de/during-your-trip/internet-overview	info
+/at/de/during-your-trip/lhg-wifi	info
+/at/de/economy-class	info
+/at/de/flynet	info
+/at/de/premium-economy-class	info
+/az/en/prepare-for-your-trip/travel-classes/fice	info
+/de/de/business-class	info
+/de/de/during-your-trip/internet-overview	info
+/de/de/during-your-trip/lhg-wifi	info
+/de/de/economy-class	info
+/de/de/flynet	info
+/de/de/premium-economy-class	info
+/de/en/business-class	info
+/de/en/during-your-trip/internet-overview	info
+/de/en/during-your-trip/lhg-wifi	info
+/de/en/economy-class	info
+/de/en/flynet	info
+/de/en/premium-economy-class	info
+/fr/fr/business-class	info
+/fr/fr/during-your-trip/internet-overview	info
+/fr/fr/during-your-trip/lhg-wifi	info
+/fr/fr/economy-class	info
+/fr/fr/flynet	info
+/fr/fr/premium-economy-class	info
+/gb/en/business-class	info
+/gb/en/during-your-trip/internet-overview	info
+/gb/en/during-your-trip/lhg-wifi	info
+/gb/en/economy-class	info
+/gb/en/flynet	info
+/gb/en/premium-economy-class	info
+/xx/es/business-class	info
+/xx/es/during-your-trip/internet-overview	info
+/xx/es/during-your-trip/lhg-wifi	info
+/xx/es/economy-class	info
+/xx/es/flynet	info
+/xx/es/premium-economy-class	info
+/xx/fr/business-class	info
+/xx/fr/during-your-trip/internet-overview	info
+/xx/fr/during-your-trip/lhg-wifi	info
+/xx/fr/economy-class	info
+/xx/fr/flynet	info
+/xx/fr/premium-economy-class	info
+# not listed (no import report, not one of our documents): /us/de/flynet-kurzstrecke, /us/de/flynet-langstrecke, /xx/es/during-your-trip/internet-on-board, /xx/es/prepare-for-your-trip/travel-classes/business-class, /xx/fr/during-your-trip/internet-on-board, /xx/fr/prepare-for-your-trip/travel-classes/business-class

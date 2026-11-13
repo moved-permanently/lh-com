@@ -41,7 +41,7 @@ const env = () => ({
 const html = (head, main) => `<!DOCTYPE html><html><head>${head}</head><body><header></header><main>${main}</main><footer></footer></body></html>`;
 const PAGE = html(
   '<link rel="canonical" href="https://tap.turnsthe.page/de-de/an-bord"><meta property="og:url" content="https://tap.turnsthe.page/de-de/an-bord"><meta name="alternate-en" content="/en-pt/on-board"><meta name="alternate-fr" content="/fr-fr/a-bord"><meta name="alternate-pt" content="/pt-pt/a-bordo"><meta name="nav" content="/de-de/nav"><meta name="footer" content="/de-de/footer"><meta name="language" content="de">',
-  '<div><p><a href="/de-de/buchungen">Buchungen</a> <a href="/de-de/nur-deutschland">Nur DE</a> <a href="https://www.flytap.com/de-de/check-in">www</a> <a href="https://www.flytap.com/de_de/gepaeck">www_</a> <a href="/de-de#check-in">Check-in</a> <a href="https://main--lh-tap--moved-permanently.aem.live/de-de/hilfe">Hilfe</a></p><img src="https://main--lh-tap--moved-permanently.aem.live/de-de/media_1111111111111111111111111111111111111111.jpg"></div>'
+  '<div><p><a href="/de-de/reise-planen">Buchungen</a> <a href="/de-de/nur-deutschland">Nur DE</a> <a href="https://www.flytap.com/de-de/check-in">www</a> <a href="https://www.flytap.com/de_de/gepaeck">www_</a> <a href="/de-de#check-in">Check-in</a> <a href="https://main--lh-tap--moved-permanently.aem.live/de-de/hilfe">Hilfe</a></p><img src="https://main--lh-tap--moved-permanently.aem.live/de-de/media_1111111111111111111111111111111111111111.jpg"></div>'
   + '<div data-markets="-ch"><p>Nicht in der Schweiz</p></div><div data-markets="ch, at"><p>Schweiz und Österreich</p></div>',
 );
 const OWN_HOME = html('<link rel="canonical" href="https://tap.turnsthe.page/de-ch/"><meta property="og:url" content="https://tap.turnsthe.page/de-ch/"><meta name="nav" content="/de-ch/nav"><meta name="footer" content="/de-de/footer"><meta name="alternate-fr" content="/fr-fr">', '<div><h1>TAP Schweiz</h1><a href="/de-de/an-bord">An Bord</a></div>');
@@ -53,10 +53,10 @@ const DOCS = {
   '/de-ch/nav': html('', '<div><a href="/de-ch">TAP</a></div>'),
   '/de-ch/nav.plain.html': '<div><a href="/de-ch">TAP</a></div>',
   '/de-de/an-bord': PAGE,
-  '/de-de/an-bord.plain.html': '<div><a href="/de-de/buchungen">Buchungen</a></div><div data-markets="-ch"><p>Nicht CH</p></div>',
+  '/de-de/an-bord.plain.html': '<div><a href="/de-de/reise-planen">Buchungen</a></div><div data-markets="-ch"><p>Nicht CH</p></div>',
   '/de-de/buchungen/gift-card': html('<link rel="canonical" href="https://tap.turnsthe.page/de-de/buchungen/gift-card">', '<div>Gift</div>'),
   '/fr-fr/mentions-legales/droits-des-passagers-france': html('', '<div>France</div>'),
-  '/de-de/buchungen': html('<link rel="canonical" href="https://tap.turnsthe.page/de-de/buchungen">', '<div>Buchungen</div>'),
+  '/de-de/reise-planen': html('<link rel="canonical" href="https://tap.turnsthe.page/de-de/reise-planen">', '<div>Buchungen</div>'),
   '/de-de/nur-deutschland': html('<link rel="canonical" href="https://tap.turnsthe.page/de-de/nur-deutschland"><meta name="markets" content="de">', '<div>Nur DE</div>'),
   '/de-de/footer.plain.html': '<div><a href="/de-de/hilfe">Hilfe</a></div>',
   '/de-de': html('<link rel="canonical" href="https://tap.turnsthe.page/de-de">', '<div>DE home</div>'),
@@ -67,7 +67,7 @@ const INDEXES = {
   '/de-de/pages-index.json': [
     { path: '/de-de', markets: '', lastModified: '1793700000' },
     { path: '/de-de/an-bord', markets: '', lastModified: '1793700000' },
-    { path: '/de-de/buchungen', markets: '', lastModified: '1793600000' },
+    { path: '/de-de/reise-planen', markets: '', lastModified: '1793600000' },
     { path: '/de-de/nur-deutschland', markets: 'de', lastModified: '1793600000' },
     { path: '/de-de/buchungen/gift-card', markets: '', lastModified: '1793600000' },
   ],
@@ -147,7 +147,7 @@ test('a page from the language version: sections by markets, links the root\'s w
   const text = await resp.text();
   assert.doesNotMatch(text, /Nicht in der Schweiz/);
   assert.match(text, /Schweiz und Österreich/);
-  assert.deepEqual(links(text), ['/de-ch/buchungen', '/de-de/nur-deutschland', 'https://www.flytap.com/de-ch/check-in', 'https://www.flytap.com/de_ch/gepaeck', '/de-ch#check-in', '/de-ch/hilfe']);
+  assert.deepEqual(links(text), ['/de-ch/reise-planen', '/de-de/nur-deutschland', 'https://www.flytap.com/de-ch/check-in', 'https://www.flytap.com/de_ch/gepaeck', '/de-ch#check-in', '/de-ch/hilfe']);
   // the Alternate rows: the same market's root in that language where it is on (en-ch), else as they are
   assert.match(text, /<meta name="alternate-en" content="\/en-ch\/on-board">/);
   assert.match(text, /<meta name="alternate-fr" content="\/fr-fr\/a-bord">/);
@@ -180,7 +180,7 @@ test('a page the language version leaves the country out of (page markets): 404;
   assert.equal(footer.status, 200);
   assert.equal(await footer.text(), '<div><a href="/de-ch/hilfe">Hilfe</a></div>');
   const plain = await (await ask('/de-ch/an-bord.plain.html')).text();
-  assert.equal(plain, '<div><a href="/de-ch/buchungen">Buchungen</a></div>');
+  assert.equal(plain, '<div><a href="/de-ch/reise-planen">Buchungen</a></div>');
 });
 
 test('a sheet the root has no copy of (its airports, brief 340): the language version\'s, as it is; its own copy first', async () => {
@@ -225,7 +225,7 @@ test('/<root>/sitemap.xml: the language version\'s pages the country has, the ro
   assert.match(resp.headers.get('content-type'), /xml/);
   const xml = await resp.text();
   const locs = [...xml.matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => m[1]);
-  assert.deepEqual(locs, ['https://tap.turnsthe.page/de-ch', 'https://tap.turnsthe.page/de-ch/an-bord', 'https://tap.turnsthe.page/de-ch/buchungen']);
+  assert.deepEqual(locs, ['https://tap.turnsthe.page/de-ch', 'https://tap.turnsthe.page/de-ch/an-bord', 'https://tap.turnsthe.page/de-ch/reise-planen']);
   assert.match(xml, /<lastmod>2026-11-03<\/lastmod>/);
   const ca = await (await ask('/fr-ca/sitemap.xml')).text();
   assert.deepEqual([...ca.matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => m[1]), [

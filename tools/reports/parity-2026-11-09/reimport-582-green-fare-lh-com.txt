@@ -1,0 +1,4 @@
+# Brief 582 (ema-adobe, 2026-11-11 03:15 CET): www renamed the green fare ("Impact Fares: A fare that supports lower-emission aviation" / "Impact Fares: Ein Tarif, der eine emissionsärmere Luftfahrt unterstützt"); our documents still say Green Fares. www redirects /de/en/green-fare to the long path below: lh-snapshots-104 (02:36 CET) holds that page; the info template imports it offline with 94.5 % of its words (the rest: screen-reader notes). Re-import into the short da_path (the documents the site serves).
+# columns (tab): da_path, www page in the archive, template, archive
+/de/en/green-fare	/de/en/prepare-for-your-trip/travel-classes/green-fare	info	lh-snapshots-104
+/de/de/green-fare	/de/de/prepare-for-your-trip/travel-classes/green-fare	info	lh-snapshots-104

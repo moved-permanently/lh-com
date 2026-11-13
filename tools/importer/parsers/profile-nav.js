@@ -13,7 +13,10 @@ import { publicPath } from './aem-paths.js';
  * become the public paths (/de/de/first-class, aem-paths.js) so the active tab is found.
  *
  * Output: one cell with a list of links in tab order, then a section break: the block sits
- * alone in the first section (blocks/profile-nav README).
+ * alone in the first section (blocks/profile-nav README). When www's content starts right under
+ * the bar (.contentpage.pt-0: /de/en/economy-class, premium-economy-class, business-class,
+ * internet-overview, lhg-wifi, flynet; not first-class), the section's Style is flush (no section
+ * gap under it: styles.css, brief 582).
  */
 export default function parse(element, { document }) {
   const clean = (s) => (s || '').replace(/[​-‍﻿]/g, '').replace(/\s+/g, ' ').trim();
@@ -37,5 +40,7 @@ export default function parse(element, { document }) {
   // a section break of lufthansa-sections (empty sections next to it are dropped there)
   const hr = document.createElement('hr');
   hr.setAttribute('data-excat-section-break', '');
-  element.replaceWith(block, hr);
+  const flush = document.querySelector('.contentpage.pt-0')
+    ? [WebImporter.Blocks.createBlock(document, { name: 'Section Metadata', cells: { style: 'flush' } })] : [];
+  element.replaceWith(block, ...flush, hr);
 }

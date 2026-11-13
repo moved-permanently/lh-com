@@ -1,0 +1,60 @@
+# ema-cashub, standing order 10 (2026-11-11), TAP row 139: a heading with its description (www's heading component:
+# the description 16 px under it, the next component 32 px under that). tap-import.mjs now ends such a heading's section
+# after the description (style heading-section) and tap.css spaces it so; brief 388's rule already did that for a
+# heading that opens its wrapper. Of the 95 language pages with such a heading, 29 change visibly (text comes
+# right before the heading); the other 66 only change structurally and need no re-import.
+# Decided with the fresh ranking (tap-parity-001, -002, -004, drafts as delivered): no recorded page-width worse by
+# more than 0.5 points; auctions 1440 +3.1 -> +1.2 %, 390 0.0 -> -0.4 %; bagagem-mao, en-pt miles-and-go and the
+# other recorded pages unchanged. A theme-only rule (any h2 + one paragraph) was rejected: en-pt miles-and-go 0.85
+# points worse (a heading followed by a separate rich text, www's 32 px).
+# READY: the auctions page in its eight languages (measured; each fresh import equals DA's source of today, GET only,
+# but for the heading's section break and one empty paragraph DA still has, which renders nothing: main's draft of
+# auctions is the live page's height). Run: tap-import.mjs --archive tap-snapshots-001 to -015 and -023 --media every
+# media archive and tap-byside-001 --only <these paths>.
+# HOLD: the families with no recording (lounges, Schengen visas, donating miles, pt-br's credit cards): measure first
+# (capture-so10-tap-recordings-139.txt); a document with market sections re-imports through tap-markets.mjs only.
+# Recorded (tap-parity-007, the night of 2026-11-11) and measured by ema-cashub: drafts as delivered of each family's
+# recorded page with main's code before row 139 against the importer with it, against www's height (the order's test:
+# no page-width worse by more than 0.5 points):
+# - lounges (en-pt): 1440 +4.76 -> +4.60 %, 390 +8.01 -> +7.96 %: READY (8 languages);
+# - donating miles (pt-br): 1440 +0.47 -> -0.43 %, 390 -1.00 -> -1.25 %: READY (4 languages); pt-br's live page is
+#   10,541 px at 390 (www 4,817, +118.8 %): its document predates the card list's phone-slider and the hero's slider
+#   option, which this re-import brings too (4,757 px);
+# - Schengen visas (en-pt): 1440 -1.08 -> -2.20 %: HOLD (8 languages). Its heading "Manual control booth" is followed by
+#   step cards, which www starts further down than the 32 px row 139 gives (it was 23 px closer to www without it);
+#   measured again on 2026-11-12 with main's code (and row 149's 790 px headings): the heading's own gap is www's now
+#   (135 px to the cards), the page still 1.12 points worse in total: the rows' last column;
+# - pt-br credit cards: 1440 +0.06 -> -2.96 %, 390 -0.33 -> -1.00 %: HOLD (also market sections).
+# The READY documents, re-imported offline with main's code: each as DA has it but for the heading's section break
+# (and pt-br donating miles' two options above). Row 139's 32 px fits a feature card or card teaser after the
+# description, not step cards: parity row 139.
+# Columns: document, status, expected change.
+/de-de/information/dokumentations/schengen-visa	HOLD	the recorded page (en-pt) 1.12 points worse at 1440 with the change (4,264 -> 4,216 px, www 4,272), though right where it acts: heading to step cards 135 px as www (183 before, twice); the old surplus hid two shortfalls the change does not touch (the EES registration description -24 px, 790 px wide on www: parity row 149; the kiosk section -21)
+/de-de/miles-and-go/verwenden-meilen/spenden-meilen	READY	the heading over its description 16 px, the next component 32 px under it (recorded family measured: lounges / donating miles)
+/de-de/verwalten-buchungen/extras/lounges	READY	the heading over its description 16 px, the next component 32 px under it (recorded family measured: lounges / donating miles)
+/de-de/verwalten-buchungen/extras/upgrades/auktionen	READY	the heading "available auctions" 16 px over its description, the first upgrade card 32 px under it (www's)
+/en-pt/information/documentation/schengen-visas	HOLD	the recorded page (en-pt) 1.12 points worse at 1440 with the change (4,264 -> 4,216 px, www 4,272), though right where it acts: heading to step cards 135 px as www (183 before, twice); the old surplus hid two shortfalls the change does not touch (the EES registration description -24 px, 790 px wide on www: parity row 149; the kiosk section -21)
+/en-pt/manage-booking/extras/lounges	READY	the heading over its description 16 px, the next component 32 px under it (recorded family measured: lounges / donating miles)
+/en-pt/manage-booking/extras/upgrades/auctions	READY	the heading "available auctions" 16 px over its description, the first upgrade card 32 px under it (www's)
+/es-es/gestionar-reserva/extras/lounges	READY	the heading over its description 16 px, the next component 32 px under it (recorded family measured: lounges / donating miles)
+/es-es/gestionar-reserva/extras/upgrades/subastas	READY	the heading "available auctions" 16 px over its description, the first upgrade card 32 px under it (www's)
+/es-es/informacion/documentacion/visados-schengen	HOLD	the recorded page (en-pt) 1.12 points worse at 1440 with the change (4,264 -> 4,216 px, www 4,272), though right where it acts: heading to step cards 135 px as www (183 before, twice); the old surplus hid two shortfalls the change does not touch (the EES registration description -24 px, 790 px wide on www: parity row 149; the kiosk section -21)
+/es-es/miles-and-go/utilice-millas/donar-millas	READY	the heading over its description 16 px, the next component 32 px under it (recorded family measured: lounges / donating miles)
+/fr-fr/gerer-reserves/extras/encheres	READY	the heading "available auctions" 16 px over its description, the first upgrade card 32 px under it (www's)
+/fr-fr/gerer-reserves/extras/lounges	READY	the heading over its description 16 px, the next component 32 px under it (recorded family measured: lounges / donating miles)
+/fr-fr/informations/documentation/visas-schengen	HOLD	the recorded page (en-pt) 1.12 points worse at 1440 with the change (4,264 -> 4,216 px, www 4,272), though right where it acts: heading to step cards 135 px as www (183 before, twice); the old surplus hid two shortfalls the change does not touch (the EES registration description -24 px, 790 px wide on www: parity row 149; the kiosk section -21)
+/fr-fr/miles-and-go/utilisez-miles/don-miles	READY	the heading over its description 16 px, the next component 32 px under it (recorded family measured: lounges / donating miles)
+/it-it/gestire-prenotazione/extra/lounge	READY	the heading over its description 16 px, the next component 32 px under it (recorded family measured: lounges / donating miles)
+/it-it/gestire-prenotazione/extra/upgrade/aste	READY	the heading "available auctions" 16 px over its description, the first upgrade card 32 px under it (www's)
+/it-it/informazioni/documentazione/visti-schengen	HOLD	the recorded page (en-pt) 1.12 points worse at 1440 with the change (4,264 -> 4,216 px, www 4,272), though right where it acts: heading to step cards 135 px as www (183 before, twice); the old surplus hid two shortfalls the change does not touch (the EES registration description -24 px, 790 px wide on www: parity row 149; the kiosk section -21)
+/pl-pl/informacyjne/dokumenty/wizy-schengen	HOLD	the recorded page (en-pt) 1.12 points worse at 1440 with the change (4,264 -> 4,216 px, www 4,272), though right where it acts: heading to step cards 135 px as www (183 before, twice); the old surplus hid two shortfalls the change does not touch (the EES registration description -24 px, 790 px wide on www: parity row 149; the kiosk section -21)
+/pl-pl/zarzadzaj-rezerwacja/dodatki/lounges	READY	the heading over its description 16 px, the next component 32 px under it (recorded family measured: lounges / donating miles)
+/pl-pl/zarzadzaj-rezerwacja/dodatki/upgrades/aukcje	READY	the heading "available auctions" 16 px over its description, the first upgrade card 32 px under it (www's)
+/pt-br/gerenciar-reserva/extras/lounges	READY	the heading over its description 16 px, the next component 32 px under it (recorded family measured: lounges / donating miles)
+/pt-br/gerenciar-reserva/extras/upgrades/leiloes	READY	the heading "available auctions" 16 px over its description, the first upgrade card 32 px under it (www's)
+/pt-br/informacoes/documentacao/vistos-schengen	HOLD	the recorded page (en-pt) 1.12 points worse at 1440 with the change (4,264 -> 4,216 px, www 4,272), though right where it acts: heading to step cards 135 px as www (183 before, twice); the old surplus hid two shortfalls the change does not touch (the EES registration description -24 px, 790 px wide on www: parity row 149; the kiosk section -21)
+/pt-br/miles-and-go/ganhe-milhas/cartoes-de-credito	HOLD	measured again on 2026-11-12 with main's code, through tap-markets.mjs (its br section kept; DA's document but for the break) as a Brazilian visitor sees it: 1440 +3.46 -> +2.45 %, 390 -0.33 -> -1.00 % (0.67 points worse): HOLD
+/pt-br/miles-and-go/utilizar-milhas/doacao-milhas	READY	the heading over its description 16 px, the next component 32 px under it (recorded family measured: lounges / donating miles); also the hero as slider and the card list as phone-slider (the live page at 390 10,541 -> 4,757 px, www 4,817)
+/pt-pt/gerir-reserva/extras/lounges	READY	the heading over its description 16 px, the next component 32 px under it (recorded family measured: lounges / donating miles)
+/pt-pt/gerir-reserva/extras/upgrades/leiloes	READY	the heading "available auctions" 16 px over its description, the first upgrade card 32 px under it (www's)
+/pt-pt/informacoes/documentacao/vistos-schengen	HOLD	the recorded page (en-pt) 1.12 points worse at 1440 with the change (4,264 -> 4,216 px, www 4,272), though right where it acts: heading to step cards 135 px as www (183 before, twice); the old surplus hid two shortfalls the change does not touch (the EES registration description -24 px, 790 px wide on www: parity row 149; the kiosk section -21)

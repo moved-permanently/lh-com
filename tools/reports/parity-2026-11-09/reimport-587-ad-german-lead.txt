@@ -1,0 +1,12 @@
+# ema-lufthansa, standing order 4 of 2026-11-11, item 1 (Air Dolomiti parity row 108): the German in-flight
+# entertainment page re-imported with airdolomiti-import.mjs as it is on main. Since this commit a TitleDescriptionTextCta
+# with a title only (no text, no button) right before a DescritionNews becomes the page's H1 in a section styled
+# hidden-heading, lead-under-trail (www.airdolomiti.de draws that title behind its fixed bar). Expected change: the
+# section's style row (hidden-heading, lead-under-trail); the H1 the same text; nothing else (checked offline on the
+# recording: text the same, 5 lines). The theme (same commit) then hides the H1 for screen readers only and puts the
+# picture 94 px under the trail (73 from 930 px). Measured with that document on our host (local code): 1440 the
+# picture 240 -> 235 (www 235), the text 951 -> 946 (946), the page 2494 -> 2489 (2492); 390 the picture 313 -> 242
+# (242), the text 1024 -> 953 (953), the page 3405 -> 3334 (www 3337 rendered offline, 3365 live).
+# Only this page has that pattern in the recordings (adp1 = airdolomiti-parity-001, airdolomiti-parity-005 / -006).
+# Columns: document, READY/HOLD, snapshot archive (R2 drop) with www's __NEXT_DATA__.
+/de/dienstleistungen-an-bord/unterhaltung-an-bord	READY	airdolomiti-parity-005 (dienstleistungen-an-bord-unterhaltung-an-bord)

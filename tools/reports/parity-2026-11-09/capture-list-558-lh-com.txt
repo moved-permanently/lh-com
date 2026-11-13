@@ -1,0 +1,5 @@
+# Brief 558 (ema-adobe, 2026-11-10): lufthansa.com pages to capture in the next stable window (besides tools/markets/capture-lists/lh-com-market-steps-558.txt and lh-com-own-documents-priority1.txt).
+# columns (tab): www_path, why
+/de/en/articles/explore-flying	the Insights list shows an article our index does not have ("Lufthansa Stories Tour the Globe", 30 October 2026, the first card); capture the list and that article's page (its path is not in any snapshot here) so the insights import can take it
+/de/en/100-years/crane	its second column caption ("Yellow, yellower, Boeing 737 ...") sits in a slider on www: a fresh capture to see where before the column captions come in (brief 558, not shipped)
+/de/en/prepare-for-your-trip/travelling-with-children/planning-with-kids	www's text changed after our snapshot (the infant and child fare paragraphs are longer in lh-parity-002a of 2026-11-06, -190 px at 390): a fresh snapshot for a re-import

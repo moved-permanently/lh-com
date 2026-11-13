@@ -1,0 +1,15 @@
+# ema-cashub, standing order 16 (2026-11-12), item 2: Austrian /at/en/healthy-travel at 390 (+10.75 % against
+# austrian-parity-015). The whole surplus is "This may also interest you": our document's card view is `carousel-cards
+# grid` without `phone-slider`, so on phones every card stacks (1,352 px), where www shows a one-card slider with dots.
+# The document predates the importer's phone-slider mark (austrian-import.mjs withPhoneSliders, 3c382f28, 2026-11-06;
+# tests: test/austrian-teaser-cards.test.mjs, test/austrian-stacked-cards.test.mjs). Run on the recording's own markup,
+# main's withPhoneSliders marks this view, as it does on entryregulations and sustainable-flying (their documents have
+# the option already). No code change.
+# Measured on our host, the published document with only `phone-slider` added (offline: the page's main replaced by the
+# local copy; www.* and the airline hosts refused, 1 request refused and never sent): 390 9,770 -> 8,888 px (www 8,822;
+# +10.75 -> +0.75 %); 1440 unchanged (draft against draft).
+# Run: austrian-import.mjs as the helper runs it, --list with this path. A fresh document may differ from DA's copy by
+# more than the option (later importer changes since its import, e.g. its "This may also interest you" heading is an h3
+# here, an h2 on the other pages): hold it if DA's current copy differs beyond the option and such importer changes.
+# Columns: document, status, expected change.
+/at/en/healthy-travel	READY	"This may also interest you": carousel-cards grid -> grid phone-slider (one card a view with dots on phones); 390 9,770 -> 8,888 px, 1440 unchanged

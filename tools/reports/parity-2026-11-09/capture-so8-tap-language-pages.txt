@@ -1,0 +1,17 @@
+# ema-cashub, standing order 8 (2026-11-11): the pages whose current view no drop archive holds, for the held TAP
+# documents of reimport-so8-tap-markets-da-kept.txt. DA's US, Canada and Portugal Stopover sections of these pages
+# come from the market comparison's fetch of 2026-11-07, which is in no archive; the drop's newest captures of them
+# are of 2026-11-03 (the language archives tap-snapshots-001 to -005) and 2026-11-04 / -05 (-016 to -020, -025).
+# Until newer captures land, tap-markets.mjs keeps DA's views for these countries (keepStale): a capture newer than
+# DA's copy (2026-11-08) replaces them for its root and for its comparison group (market-groups.json).
+# Already on capture-567-tap-market-groups.txt and not in tap-snapshots-027 (9 of its 70 pages), the group pages
+# these documents need: en-us/miles-and-go/promotions, en-ca/promos, en-us/promos, pt-us/miles-and-go/promocoes,
+# pt-ca/promos, pt-us/promos (its lines 17 to 19, 34, 36 and 39); not repeated here.
+# New here: the language pages (their archives are of 2026-11-03; the merge takes the home market's view and every
+# unmarked section from them), as one market-pages archive (snapshots with __NEXT_DATA__, and the media).
+# Not reachable by captures alone: en-pt promos' 16 other roots (at, be, ch, cz, de, dk, es, fr, gb, ie, it, lu, nl,
+# no, pl, se) are in no comparison group; each keeps DA's view until a capture of its own lands.
+https://www.flytap.com/en-pt/miles-and-go/promotions
+https://www.flytap.com/pt-pt/miles-and-go/promocoes
+https://www.flytap.com/en-pt/promos
+https://www.flytap.com/pt-pt/promos

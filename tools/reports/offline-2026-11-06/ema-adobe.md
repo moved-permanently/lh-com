@@ -2409,3 +2409,1178 @@ before and after.
   collapse to the theme's values, Ben's rule; nothing to change.
 - For ema-test (handover item 7, token-free.js): no chapter rule above a heading that a block follows (be-picky's teaser
   section, +25 px), checked on the sample's sections.
+
+## Briefs 537 to 557 (2026-11-09/10): summary
+
+The fixes of these briefs are on main with their numbers in the commit messages; the lists are under
+tools/reports/parity-2026-11-09/. The last four on 2026-11-10 (brief 557): ae5352e (a grey band, then a
+campaign section that opens with a separator: 32 px under the band; baggage 390 5.9 -> 5.0 %, 1440 2.9
+-> 1.7 %; food-and-beverages 10.9 -> 6.6 / 7.1 -> 2.2 %; speisen-und-getraenke 12.1 -> 8.7 / 7.3 -> 2.4 %;
+not before a column view: lounges would get worse), 53d6873 (jump links ending their section, then a
+separator: digital-self-services 8.3 -> 7.1 / 7.4 -> 2.9 %), f4077ac (core form sections keep www's
+empty title and description slots: betreuungsbedarf 8.5 -> 6.9 / 5.1 -> 3.9 %, bot-check holder hidden
+in both runs), 717ae1d (the overview-manage lists withdrawn: Ben's rule keeps those documents as DA has
+them). overview-manage is reached by none of these rules.
+
+## Standing order of 2026-11-10 (10 to 12 hours, nobody else working)
+
+Started 10:19 CET. Decisions are written under each item. Nothing uploaded, previewed or published;
+no request to any airline host (the R2 drop and our own hosts only).
+
+### Item 1: the open items of brief 557
+
+- The digital-self-services separator and the grey band rule: shipped in brief 557 (53d6873, ae5352e;
+  numbers above). The 14 other documents were measured (11 with a recording; the four stopover
+  documents not: their flight search calls www's APIs).
+- **Accordion titles (0411230).** Below 768 px www insets an accordion title 20 px on both sides (text at
+  x 42 at 390), ours 12 (x 34): our titles ran wider, in fewer lines. Measured with the inset in the page
+  on all 80 recorded lufthansa.com pages with an accordion and no www widget: option spaced (45 pages)
+  net -25.2 points (lounges de/de 12.7 -> 7.1 %, onboard-delights faq 10.8 -> 2.6, cancellations
+  17.8 -> 12.3), three worse by 0.7 to 1.6 (entryprocesses, lufthansa-express-bus, group-travel, each with
+  other causes); the other 35 net +3.3 (faq limited-width 6 of 9 worse, lufthansa-voucher +3.0). A
+  48 px right padding instead of 56 was tried on the 29 pages that moved: no better overall. Decision:
+  ship for option spaced only (measured, net positive, the three worse pages named).
+- **betreuungsbedarf's remaining items (not shipped).** Causes found: (1) a form card's sub-section title
+  (legend h3.heading-copytext-large) is 20 px below 768 px on www (ours 24) and sits 12 px higher in the
+  card at 390 and 1440 (ink 24 px under the card's top, ours 36); (2) the support-type card's untitled
+  sub-section: www renders an empty legend and an empty group headline there (33 px); a rule for every
+  untitled sub-section also hit card 1 and the message card (+33 / +55), so it needs a narrower carrier;
+  (3) the Sauerstoff paragraph's link: www shows "→ https://www.lufthansa.com/de/de/gesund-reisen" (an
+  arrow icon and the address as the text, two lines), our document "/de/de/gesund-reisen": the shared
+  own-link helper writes it (ema-cashub's code, not touched). (1) alone makes card 2 exact but the page
+  8.5 % instead of 6.9 (it removes compensation), so it waits for (2). Decision: park, causes recorded.
+- **xx/ru meetings (9.4 %).** No code cause: the text is the same face and pitch; two lines break one
+  word differently because www's column is a pixel or two narrower; the remaining steps sit around the
+  two sliders (cell-slider, phone-slider). Marked cause: sliders and a 1-2 px column width.
+
+### Item 2: lufthansa.com's market importer work (the 62 rows)
+
+Read: README.md, rulings.md, import-rows-importer-work.tsv, the 59 evidence files. The R2 drop's
+archives the rows name (lh-snapshots-006, 007, 033, 065, 069, 083 to 087) were fetched into /tmp/r2 (sha256
+checked against the delivery index; data only, outside the checkout, not in git).
+
+**What exists.** Section-level `markets` is read by the site (scripts/scripts.js dropOtherMarkets) and by
+lh-edge's market route (dropMarketSections); page-level `markets` serves a donor document to the roots it
+lists (lh-edge README, "Market roots" step 3). ITA's importer writes page-level `markets` from scope.json;
+TAP's sectioned language documents come from tap-markets.mjs (brand-specific: www.flytap.com's
+personalization rules). Nothing wrote these for lufthansa.com.
+
+**The steps (22cbf7e, e8d4524).** tools/importer/market-sections.mjs: mergeMarketVariant (markets sections
+on a version page: the version's differing sections with its home market, `de` or `xx`, a covered root's
+with `-de` / `-xx`; equal sections once; the page metadata once, outside), withPageMarkets (shared
+variants), withTabsByMarket (widget settings, a Flight Search `Tabs by market` row, read by
+blocks/flight-search marketTabs: backwards compatible, no document has it yet). CLI
+tools/importer/market-steps.mjs runs a list over the documents the harness imported. Unit tests against
+documents the info bundle imports offline from lh-snapshots-083/084 and bd-snapshots.
+
+**Inputs.** The drop holds the version pages, not the roots' variants (17 root pages in archives for all
+254 rows; for the 62: the version page for nearly all, a root page for none of the variants). A stand-in
+was checked for each markets-section row: at/de for de/de, gb/en for de/en (their www pages are what the
+market shows), counting the evidence's root-only text found and version-only text absent. gb/en matches
+completely on de/en cash-and-miles (0/0, 10/10), free2move (2/2, 2/2) and medical-travel-companions (1/1,
+1/1); every at/de stand-in is partial (at/de shows its own variant: 0/0 and 0/10 on cash-and-miles), so de/de
+rows wait for a covered root's capture.
+
+**Lists.** tools/reports/markets/lh-market-diff/market-steps-558.tsv: 4 rows with inputs in the drop and
+their expected change (offline: de/en cash-and-miles, the North America promotion only for de; free2move,
+the Free2move offer text; medical-travel-companions, the CTA "Book now" vs "To the services"; xx/es
+cash-and-miles, cr/es, ec/es, pa/es, pe/es see the widget with "Vuelos" only).
+tools/markets/capture-lists/lh-com-market-steps-558.txt: the 46 www pages the other rows need.
+
+**Decisions on rows.**
+- The feedback questionnaire (row 8, 21 roots): our /de/de/feedback/feedbackai document is empty (the
+  questionnaire, an Angular app on www, is not migrated), so there is nothing to put in a markets section:
+  functional work first (rule: functional before parity before locales).
+- hideHotel on hotelangebote / hotel-offers (de/de, de/en, xx/es; 13 + 14 + 4 roots): the widget there has
+  only the hotel tab; with it hidden no tab is left. What www shows those markets is on the capture list.
+- lh-rentalcar ru/en: the Meili car rental widget's partner id (ptid 105.11) on that root; on the capture
+  list, low (priority 3, one root).
+
+**Where I disagree with rulings.md.**
+- WIDGET SETTING (65 pairs, 14 rows): 7 of the 14 rows are not market settings. Five (flughafeninformation
+  and reisen-mit-besonderen-anforderungen on mk/de; airport-information, electronic-bag-tags, upgrade-info
+  on mk/en) differ in picture order, alt text or an empty `videoUrl` placeholder only: rule D2 (media only)
+  covers them. Two (xx/fr cash-and-miles and hotel-offers for cr/fr) differ only in `.promotionTeaser`: rule
+  W1. I would move those 7 rows to IGNORE.
+- The de/de cash-and-miles widget row for be/de has no evidence of its own (the evidence file is ae/de's,
+  verdict content): unruled until be/de is captured.
+- The other classes I agree with: D1 date format (4,818: the placeholder against localized dates), W1
+  promotion teaser (466, campaign data, as ITA and TAP), L1/L2 link only, D2 media only, M1/M2 meta only,
+  and the section 8 question stays Ben's ("follow www" is what the steps write).
+
+### Item 3: the 93 priority-1 own-document rows
+
+- Each row's page type checked against the drop: 84 rows by page-templates.json (the version page's template is
+  what the import helper takes, and those version documents exist), 7 article rows by their path (insights), and
+  the 16 version pages behind the heuristic rows (companion specials, offers, sale, ski-campaign-2026, the promocode
+  terms, munich-mountains) imported offline from lh-snapshots-065/066/069 with the info, campaign and hub bundles:
+  the info bundle keeps 86 to 99 % of each page's text with the blocks it needs (hero-campaign, flight-search,
+  table-striped, accordion-columns, carousel-cards); campaign keeps 2 to 6 points more only on /dk/en/sale and
+  /cz/en/autumn-campaign22, where info keeps the fare teaser (live data) instead of its static text.
+  Decision: info for those (one template for the local offer pages; the fare teaser is www's own block there),
+  legal for the promocode terms. No page type the importer lacks: nothing to fix. The import helper's slices 1 to
+  3 (4c9d33b, 37 market-root documents of 21 roots, info and legal) are the same path.
+- tools/reports/markets/lh-market-diff/own-documents-priority1-types.tsv: the 93 rows with the template and how it
+  was confirmed.
+- The capture list tools/markets/capture-lists/lh-com-own-documents-priority1.txt is complete (93 rows, no
+  duplicate); only in/en and sa/en /flights have a root snapshot (bd-snapshots, 2026-10-21): they stay on it.
+  Not changed.
+
+### Item 4: the hub ranking (in progress)
+
+- **The ranking** (11:33 to 12:03 CET, on lufthansa.turnsthe.page against lh-parity-004a/b and -002, geo.css, core
+  form pages with the bot-check holder hidden): 112 page-widths, average 6.96 % (9.49 in the ranking of brief 539);
+  without the three marked causes (overview-manage, xx/hk, flughafeninformation) 98 rows, 5.94 % (8.82); 29 rows
+  under 3 %. File: logs/b558/rank-558.tsv (scratch).
+- **Marked causes** (no code change): /de/en/overview-manage (39.9 / 20.6 %: the blank picture slot Ben's rule
+  accepts), /xx/hk/meetings-and-events (no CJK fonts in our captures), de/de and at/de flughafeninformation at 390
+  (the long title's word break, decided), overview-travel-information at 390 on the three roots (10.1 % against
+  lh-parity-004a, whose capture has the digital assistant's chat open; 4.6 / 4.7 % against lh-parity-005 with it
+  closed), xx/ru meetings (sliders and a 1-2 px column width).
+- **e66d091 / 173451f** (the divider that opens miles-and-more's "This might also interest you" view, 32 px on both
+  sides): gb/en 12.6 -> 7.3 % at 390, 9.1 -> 2.3 % at 1440; de/de 11.9 -> 6.9, 8.9 -> 2.3.
+- **83d1a62** (the slider options' rows keep www's swiper place from 1025 px): meetings-and-events at 1440 de/de
+  9.0 -> 4.1 %, gb/en 8.9 -> 3.9 % (nine roots); onboard-delights unchanged (its media | text slides left out).
+
+### Item 5: lufthansa.com's token-free switch
+
+tools/reports/token-free/lufthansa-switch-plan-558.md. Measured on 12 published documents collapsed locally and
+rendered with the theme on (a worktree, nothing switched): baggage 5.0 / 1.7 -> 13.7 / 11.8 %, food-and-beverages
+6.6 / 2.2 -> 28.2 / 21.3, lufthansa-travel-classes 7.2 / 2.7 -> 32.8 / 15.0, digital-self-services 7.1 / 2.9 -> 16.3
+/ 19.9; the four documents without markers as today (control). Blockers, worst first: the column view carrier on
+hub pages (+261 / +385 px on digital-self-services), M at 60 px for www's 40 px separators (decision 3's cost:
+baggage +8.7 / +10.1 points; with M at 40 baggage and gepaeck are back to today), heading sizes one step from the
+default dropped (an H1 in heading-medium: +61 px on travel-classes), the bundles behind their sources (every bundle
+changes on a rebuild today). Decision: no switch, no theme change; the plan file lists the steps and checks.
+- **d51438b** (on phones a padded campaign section that opens with a separator after a grey band: no top padding):
+  de/de gepaeck 6.6 -> 4.8 % at 390. From 768 px left as it is: removing the 40 px there measured 3.4 -> 6.5 % at
+  1440, because the band sits 37 px early at 1440 (Bag-Free Travel's text, which the parked no-break-space re-import
+  changes). Decision: phones now, 1440 with that re-import.
+- **258ced5** (meetings-and-events' two sliders on phones: the logo strip and its dots, the steps' button and dots):
+  de/de 7.9 -> 6.3 %, gb/en 7.6 -> 6.0 % at 390 (nine roots).
+- **d2a7c7e** (a card grid that ends the page in a padded campaign section: 32 px under it on phones): gb/en
+  lufthansa-travel-classes 7.2 -> 5.8 %, de/de lufthansa-reiseklassen 7.2 -> 5.9 % at 390 (four documents).
+- **73db366** (a column-spaced page end before DA's trailing empty sections keeps its 24 px): de/de lounges 7.1 ->
+  6.3 % at 390, 1.8 -> 0.6 % at 1440 (four documents; plain column ends before empty sections left: most-significant-
+  route measured 6.0 -> 9.0 % with 0 px).
+- **Tried and not taken:** a row's first spacious card 40 px under the row above instead of 66 (services-at-the-airport
+  7.5 -> 5.5 %, but take-off 14.9 -> 28.8 and de/en services 8.0 -> 12.5: www's row gap differs per page, 47 or
+  79 px, with the same markup); 22 px between a spacious grid and a grey band on airport-information (the band's own
+  20 px shortfall below it made the page worse).
+- **7fdbfb0 / e9fcbe6** (on phones a divider between two spacious grids sits as www's): gb/en airport-information
+  7.8 -> 5.6 % at 390 (four documents); from 768 px left (1440 measured 5.3 -> 7.3 % with it).
+
+### Rule 6: the fresh ranking of the full recordings, worst first
+
+- **The ranking** of every lufthansa.com page in lh-parity-002a-d and -003 (296 pages, 592 page-widths) runs on our
+  host now, one capture at a time (logs/b558/rank-002.tsv, scratch). Partway (202 page-widths): info 10.1 % mean,
+  campaign 11.7, insights 11.5, legal 9.0, fleet 18.0, hub 5.8, form 4.9.
+- **Owners** as brief 497 split the templates: info, legal and form ema-lufthansa's; fleet, app-entry and flight
+  status ema-cashub's; campaign, insights, hub and homepage mine. I take mine first.
+- **c4f706e** (the Insights list filter as www's maui fields: underline, the category label above the select, 837 px
+  from 1025 px; no wrapper gap after the intro's separator): the filter's lines match www's at 390. The pages'
+  numbers move either way (explore-flying 21.7 -> 23.6 / 10.9 -> 9.5 %, explore-the-world 16.4 -> 17.4 / 15.2 ->
+  16.2) because the lists' content rules them: www lists an article our index doesn't have ("Lufthansa Stories Tour
+  the Globe", 30 October; capture list) and cards whose tags wrap differently. Decision: ship the filter (visual
+  parity of the control itself), mark the lists' content as the cause.
+- **Marked causes so far:** /de/en/100-years at 390 (its "History Overview" video: the recording holds a frame of the
+  playing video, ours the poster); /100-years/campaigns at 1440 (the poster collage's positions, a layout of its own,
+  +25 / -6 px steps); the loungenet first-class lounge pages (36 / 31 %, info: ema-lufthansa's).
+- **Captions in the 100-years column views (not shipped).** www shows the pictures' captions in the columns-media
+  sidebars of /100-years/global-network and crane ("A high-wing monoplane with an open cockpit ..."); the
+  columns-media parser drops them on lufthansa.com's own pages, by the owner's earlier call (mine). With them kept
+  (the parser's KEEP_CAPTIONS for lufthansa.com, the campaign bundle rebuilt), drafts imported offline from
+  bd-snapshots and rendered in the page: global-network 15.0 -> 15.2 % at 390, 13.6 -> 11.2 at 1440; crane 9.5 ->
+  12.0 / 7.8 -> 9.3. Mixed, so reverted: the crane's second caption sits in a slider on www and needs a look first.
+- **43fdebb** (an Insights article's "Back to overview": www's variant back, the left arrow; every article).
+- **3011959** (importer: a three- or four-column view inside a sidebar is Columns Media in the info template; the
+  Austrian templates take it with info, as austrian-templates.mjs builds them): /de/en/schengen's member lists side by
+  side; offline draft rendered 11.4 -> 8.5 % at 390, 32.7 -> 8.5 % at 1440. Re-import list
+  tools/reports/parity-2026-11-09/reimport-558-sidebar-columns-lh-com.txt (the four schengen documents).
+- **Re-import list** tools/reports/parity-2026-11-09/reimport-558-phone-slider-lh-com.txt: /de/en and /de/de
+  medical-travel-companions, imported before the phone-slider option (de/en 41.3 -> 11.3 % at 390 with it).
+- **036bfec** (on phones nested-4 icons keep the stacked empty items' space): /de/en/shopping 31.5 -> 9.0 % at 390.
+- **Tried and not taken:** an article's end (the divider after the credit 24 px nearer, the back link's section 22 px
+  nearer Related Articles): both lines match www locally, but quarch, district-zurich and essentials move -3.4 to +0.9
+  points; held.
+- **A slip:** I started a gate while the one before it was still running (16:21); the earlier one ended void
+  ("site files 0"), the later one was stopped, the worktree cleaned and one gate run again (passed). Nothing was
+  pushed off a void gate.
+
+**The rankings now** (17:23 CET, our host, geo.css):
+- Hub ranking (item 4, 112 page-widths): 9.49 % in brief 539, 6.96 this morning, **5.97 now**; without the three marked
+  causes 98 rows at **4.88 %** (5.94 this morning); 32 rows under 3 % (29). Hub goal below 6 %: met.
+- Full recordings (rule 6, 538 page-widths of 296 pages; 27 pages skipped, their widgets call www's APIs): mean
+  9.95 %, 34 under 3 %. Medians against brief 507's sweep: info 9.1 -> 8.4, insights 13.2 -> 10.9, legal 7.6 -> 7.0,
+  campaign 14.5 -> 11.2, hub 8.9 -> 5.7, form 11.1 -> 10.1, fleet 17.7 -> 17.1, app-entry 11.3 -> 11.3. Taken before
+  this afternoon's fixes; the schengen, medical-travel-companions and shopping rows move with their re-imports and
+  036bfec.
+- **Capture list** tools/reports/parity-2026-11-09/capture-list-558-lh-com.txt (the explore-flying list's new
+  article, crane's slider caption).
+- **Marked causes, rule 6** (no code change): /de/en/traveltricks at 390 (www's two app-store buttons, maui-button-link
+  without an href in every snapshot, set by www's script: the importer drops link buttons without a target);
+  /de/en/book-and-manage/stopover/* (the map: www's Google tiles against ours, a different height per zoom); the
+  insights lists (their content: new articles, tag wraps); /de/en/100-years (a playing video's frame in the recording);
+  the loungenet first-class lounge pages (an image link list with www's arrows and spacing, info: next).
+- **Tried and not taken:** a link under a picture in a Columns Media media cell (the loungenet lounges' "Services for
+  your trip") drawn as www's navigation link (its arrow, 45 px under the picture, the next picture 39 px under it):
+  the lines then match www's to 1 px, but the pages stay 35 / 32 % (the fragment's eJournals and survey items are
+  short of their link texts) and the rule reaches every media cell with a link; held for a measured sweep.
+
+### Open, for the next turn
+
+1. The re-import lists of today, for the import helper once Ben says continue: market-steps-558.tsv (4 rows, run
+   tools/importer/market-steps.mjs after the template imports), reimport-558-sidebar-columns-lh-com.txt (4),
+   reimport-558-phone-slider-lh-com.txt (2). The capture lists: lh-com-market-steps-558.txt (46),
+   capture-list-558-lh-com.txt (2), lh-com-own-documents-priority1.txt (93, unchanged).
+2. The token-free switch's blockers (lufthansa-switch-plan-558.md, B1 to B5), B5 first (rebuild the bundles).
+3. Rule 6's next rows by size: info (342 page-widths, median 8.4 %: economy-class, first-class-terminal,
+   business-class-on-long-haul-routes, premium-economy-class, first-class, entryprocesses), campaign (the 100-years
+   pages' collage, video and captions), insights (the articles' end spacing, the lists' content).
+4. betreuungsbedarf's card headings and its untitled sub-section (item 1 above).
+5. **www's horizontal link lists** (.imagelinklist > .link-list > ul.horizontal of maui navigation links: side by side,
+   arrows, no bullets) come in as plain bulleted lists when their links are not anchors (convertJumpLinks takes anchors
+   only): /de/en/lufthansa-business-class-on-long-haul-routes' two aircraft links stack with bullets (+66 to +112 px
+   there, 31 / 28.6 %). 312 de/en snapshots have a ul.horizontal (jump links and button rows among them). A carrier
+   is needed in the importer (a list the site can tell from a running-text list), then a re-import; CSS alone can't
+   tell the two lists apart.
+
+Time worked on this standing order: 10:19 to 18:40 CET (about 8 h 20 min of the 10).
+- **991c1b0** (a grey band right before an outer column view's heading has no section gap): /de/en/exclusive-charter
+  23.4 -> 14.6 % at 390, 17.1 -> 11.4 % at 1440 (the only recorded page so).
+- **Found, for the next turn:** the info stage's description on /de/en/during-your-trip/internet-overview is smaller on
+  www at 390 (x-height 11 px, 29 px apart, 32 px under the title; ours 18 px text, 24 apart, 45 under): check the
+  hero-campaign description size on phones across the stage pages before a rule.
+
+## Standing order 582 (2026-11-10 19:00 CET to 2026-11-11 09:00 CET, Captures recording)
+
+Started 19:08 CET. Left from the last turn: nothing uncommitted or unpushed (main was one commit behind
+origin/main, rebased). Nothing uploaded, previewed or published; no request to www or any airline host (the R2
+drop and our own host only).
+
+### Pages to capture (lists on main)
+
+- **19:30 CET, 18974ba:** tools/markets/capture-lists/capture-list-582-lh-com.txt, 97 rows: the priority 2 (18)
+  and 3 (79) own-document root pages of import-rows.tsv (www_path, root, da_path, the version page it differs
+  from, priority, template). /ba/en/flights and /ec/de/fluege left off (bd-snapshots hold them).
+
+### Item a: link lists to pages (a1a8e13, pushed 20:17 CET)
+
+- **Population.** My 312 of brief 558 counted every ul.horizontal, the footers' too. In the main content of the
+  3,397 lufthansa.com snapshots, www's .imagelinklist .link-list lists with links are: 539 vertical hyper (the
+  Insights tag pages, in accordions: they stay), 454 horizontal "custom" (the homepages' icon tiles: they stay),
+  71 jump links (anchor-down: the Jump Links block already), 18 button rows (app stores: they stay), and the
+  carrier's 35: horizontal hyper/external 21, responsive 7, vertical external 7, one per document.
+- **Carrier.** The cleanup (markLinkLists, lufthansa.com pages only) ends the list's last item with
+  "{links-horizontal}", "{links-responsive}" or "{links-vertical}"; the columns-media parser keeps it on the list
+  it rebuilds; LIST_TOKENS take it; styles.css (brand-scoped) draws www's .link-list rules: no bullets, the 19px
+  standalone arrow (up-right to other sites), 30px apart stacked (www 30/31 at 390, measured), 20px side by side,
+  responsive stacked below 768px, vertical 12px in from 768px (www's arrows at x 107 against the text's 89).
+- **Measured** on our host, the published document with the marker (--main, working-copy code), before -> after:
+  business-class-on-long-haul-routes 31.2 -> 28.7 % (390), 28.6 -> 22.9 % (1440); security-check-time-slot
+  4.8 -> 4.1, 5.3 -> 2.6; unterhaltung-an-bord 18.8 -> 19.3, 18.6 -> 16.5; pre-check-in 11.2 -> 11.3, 8.0 -> 8.2;
+  data-collection-canada 18.9 -> 21.3, 20.7 -> 21.9, its list region aligned 6.5 -> 2.8 and 2.2 -> 0.6 (region-cmp:
+  the page is 100 to 300 px short of www above the list, the whole-page % rewarded the bullets' extra height).
+  Shipped: the lists themselves match www; the losses are other rows' heights (open below).
+- **Left as it is:** the space under a list: ours +17 px before security-check's column start, +7 px before
+  unterhaltung-an-bord's next heading; different contexts, no single value.
+- **List:** tools/reports/parity-2026-11-09/reimport-582-link-lists-lh-com.txt, 35 documents by page type
+  (info 21, legal 7, app-entry 7: app-entry is ema-cashub's template, theirs to run), the expected change per type.
+  The de/en drafts differ from the published documents by the marker only.
+- Bundles rebuilt for it: app-entry, campaign, fleet, flight-status, form, homepage, info, insights, legal, mfe
+  (only this change each). Test test/link-lists-582.test.mjs (5). Gate: site 807, lh-edge 71, failing 0; lint
+  exit 0; smoke before/after on the eight hosts: same statuses.
+
+### Item b: tonight's archives
+
+- **R2 drop** (the index still has 155 entries, newest snapshot archive in it 088): probed 088 to 098; 097 and
+  098 are 404. sha256 computed here (logs/b582/archives.tsv; 088 matches the index):
+
+  | archive | bytes | sha256 | pages | what |
+  | --- | --- | --- | --- | --- |
+  | lh-snapshots-088 | 442,839 | 9e3ed9bc…f00214 | 9 | 2026-11-09 Insights capture (not ours) |
+  | lh-snapshots-089 | 144,010 | ac04d028…a1945 | 3 | 2026-11-09 tags/allegris (not ours) |
+  | lh-snapshots-090 | 5,596,531 | aaa840fc…cd1181 | 46 | lh-com-market-steps-558.txt, all 46 ok |
+  | lh-snapshots-091 | 574,039 | 85e34a87…7c67 | 3 | capture-list-558-lh-com.txt, all 3 ok |
+  | lh-snapshots-092 | 689,667 | b180c4c3…f7760 | 16 | own-documents-priority1 (part) |
+  | lh-snapshots-093 | 265 | b5de61c6…3b63 | 0 | lounges, 4 redirects (not ours) |
+  | lh-snapshots-094 | 6,581,251 | e6a418d2…7ade | 77 | own-documents-priority1 (the rest; 093 + 094 = all 93 ok) |
+  | lh-snapshots-095 | 303 | 6de8921a…a9fe | 0 | lounges redirects (not ours) |
+  | lh-snapshots-096 | 1,928,067 | f9287620…28a2 | 4 | during-your-trip/lounges (not ours) |
+
+- **The 46 root pages** through the market steps offline (logs/b582/steps-46.mjs: each variant and its version
+  page imported with the row's template, runRow on the drafts):
+  tools/reports/markets/lh-market-diff/market-steps-582.tsv (as pushed in 539eb4f at 20:45 CET: 39 steps, rows 2
+  and 17 with the wrong stand-in, see the correction; the corrected list came with the next commit): 43 steps
+  (15 markets-section, 25 shared-variant, 3 tabs-by-market), each with its expected change; market-steps.mjs
+  --dry-run runs all 43 on the drafts. 6 rows without a step, listed at the end of the file: 26 (a double full
+  stop only: no markets section for it), 57 and 59 (ar/fr: the promotion teaser only, rule W1 as the user ruled
+  for 58 and 60), 53 (ru/en shows two Meili widgets: open), 2 and 17 (below).
+- **Rows 45, 52, 56** (hideHotel on a hotel-only widget: de/de hotelangebote for 13 roots, de/en hotel-offers
+  for 14, xx/es hotel-offers for 4): tonight's captures show www's widget element empty there (no text at all).
+  withTabsByMarket now writes "<markets> = none" when no tab is left (558 wrote no row), and blocks/flight-search
+  reads "none" as hidden and removes the block (backwards compatible: no document has the row yet). The three
+  rows are tabs-by-market steps with hide "hotel".
+- **Correction to my 558 list.** lh-com-market-steps-558.txt named ae/de as the covered root for rows 2 and 17
+  (de/de automatic-check-in, pre-check-in), but ae/de is in a group of its own there (rows 40 and 46: ae/de,
+  am/de, ao/de). Rows 2 and 17 wait for be/de and dk/de (appended to capture-list-582-lh-com.txt); tonight's
+  ae/de pages give rows 40 and 46 instead (shared variants: the sub-navigation without "Gepäckabgabe"). Row 30
+  (de/en flight-search, no capture asked) runs with gb/en from bd-snapshots, as 558's rows 25/33/34 (gb/en is
+  not in row 29's group). The other stand-ins checked: no other markets-section row's stand-in is in a group.
+- **The 93 own-document pages** (lh-snapshots-092 and -094, all 93 ok; /no/en/local-page/ski-campaign-2026 was
+  rebuilt from the daemon's saved outerHTML after a Chrome crash) imported offline with their confirmed templates
+  (logs/b582/own-docs-93.mjs): 73 keep 90 % or more of the snapshot's main words, no maui element left, no empty
+  accordion panel. The 20 below 90 % are widget text the blocks draw themselves (Meili car rental 17 to 75 %,
+  destination finder on in/en and sa/en flights 48/51 %, fare teasers' "show more"), screen-reader link notes
+  ("will be opened in a new browser tab") and the map's keyboard help: **no importer change needed**, as expected.
+- **Capture list, second part (21:00 CET):** capture-list-582-lh-com.txt + 5 rows: /be/de and /dk/de
+  automatic-check-in and pre-check-in (rows 2, 17), /be/de/cash-and-miles (row 6, the be/de widget setting).
+- **Decisions.** markets-section: the home market sees the version's sections (de; xx for xx/ru, whose three
+  roots by/ru, kz/ru, ru/ru all show the variant), every other root the variant's (www: every covered root shows
+  the same). The cn/de check-in rows (1, 16) differ in the sub-navigation's order only: a shared variant still
+  (www's order). mk/en traveltricks (36) differs in the breadcrumb only (page metadata): a shared variant.
+- **The 7 widget-setting rows** (D2 media, W1 promotion teaser) are IGNORE in import-rows.tsv and
+  import-rows-importer-work.tsv (action "ignore (widget setting: …, brief 582)"), as the user ruled.
+
+### Item c: the token-free switch's blockers (in the plan's order)
+
+- **B5, the bundles behind their sources (a94f721, pushed 21:36 CET).** After a1a8e13 only the hub bundle was
+  behind (263 lines: columns-media's in-column and lufthansagroup branches, style-markers' H4 large choice, the
+  Brussels tab content); a rebuild of the others changes esbuild's temp names only. The 133 hub pages with a
+  bd-snapshot import byte-identically with the old and the new hub bundle (logs/b582/hub-bundle-cmp.mjs). The
+  three Austrian bundles are behind by a1a8e13's link lists (a no-op on austrian.com pages): left to their EMA.
+- **B1, the column-view carrier (measured, not shipped yet).** Found on digital-self-services: the published
+  hub documents hold each column view as a `flush column-view padded` section opening with a separator block; the
+  collapse splits that separator into a section of its own, which keeps the view's classes and so gets the view's
+  padding (20/20 px at 390, 40/40 from 768 px) and the view section after it, now without `flush`, keeps the 48 px
+  section gap. Two rules (logs/b582/try/tf-sep.js): a column-view section holding only a separator: no padding,
+  no gap; such a section right after another view: margin-top -48 px. digital-self-services after the switch:
+  16.3 / 19.9 % -> 8.2 / 3.5 % (today 7.1 / 2.9); the page +281 / +393 px -> +49 / +1 px, every heading within
+  8 px of today's. The plan's check (the 36 recorded hub and campaign pages with column marks, today against
+  switched + the two rules, at 390 and 1440) is running: logs/b582/b1sep.tsv.
+- **B3, heading near values (census done).** Of the 6,826 census documents (read from the preview through the
+  local dev server), 168 have their page title (first H1) marked {heading-medium} (campaign 40, info 26, hub 12,
+  90 without an import report), 85 later H1s (section titles) too; 74 later H1s {heading-copytext-large} and 14
+  {heading-small} (two or more steps: no H1 choice exists, the collapse drops them as well). The collapse takes a
+  one-step marker to the level's default, so all 168 titles grow to heading-large (+61 px on travel-classes).
+  Campaign has 40 marked titles of many more unmarked, so a page-type default would move the others: an "H1
+  compact" carrier instead (a lufthansa-only theme option, nearChoices, so the collapse writes the section style
+  H1 compact for those; other brands' collapses unchanged). Next: code and measure on travel-classes,
+  food-and-beverages and airport-information.
+
+### Item d: rule 6, the accordion inset
+
+- **What the old padding hid on faq-saf:** with www's 20 px inset our titles wrap line for line as www's
+  (35 lines; 33 with 12 px). The two missing lines (48 px) had made up for two section gaps: the first question
+  16 px lower than www's at 390 (8 at 1440: our 48 px gap after a section ending with the H1; www uses the
+  title's 32 / 40 px margin) and 27 px more under the last question. lufthansa-voucher shows the same pair.
+- **Measured, one change at a time:** T1, no section gap between a title-only section and an accordion
+  section (the only two recorded pages): faq-saf 9.5 -> 9.3 % (390), 5.9 -> 2.8 % (1440); lufthansa-voucher
+  8.2 -> 5.3, 6.1 -> 3.7. T2, a smaller end gap after a page-ending accordion (24 / 40 px, 12 pages): 390 net
+  +6.5 points, 1440 mostly worse: not shipped (www's end gap varies by page: 24 to 35 px at 390). T1 + the inset
+  for every accordion at 390 on all 80 pages: faq 25 pages net -14.6 (7 better, assistenzhunde 8.9 -> 9.9),
+  faq limited-width 9 pages net +6.2 (6 worse), spaced unchanged; guards faq-saf 9.5 -> 4.7, lufthansa-voucher
+  8.2 -> 7.7.
+- **Decision (1d00125):** T1, and the inset for option faq but not faq limited-width. Neither guard page gets
+  worse (both better by 0.5 and 4.8 points); re-measured on our host with the commit's CSS.
+- **B3 shipped (6c997b5, 22:45 CET):** the lufthansa theme keeps an H1 marked one step smaller as a choice
+  (nearChoices; section style H1 compact = heading-medium); other brands' collapses unchanged (the theme option
+  only lufthansa sets). Measured with the theme on: travel-classes 33.8 -> 5.8 % (390), 15.0 -> 2.7 % (1440;
+  today 7.2 / 2.7); food-and-beverages 28.2 -> 22.0, 21.3 -> 17.2 (its rest is B2's 40 px separators and B4).
+  An H1 marked heading-small (two steps) takes H1 compact too (14 later H1s in the census). Bundles rebuilt.
+- **B1 measured on the 36 pages:** the first run compared the live page with the switched page and showed
+  /gb/en/flights, /de/de/fluege and the like at 0.4 -> 46 %: an artefact of the method (the destination finder
+  draws 16,931 px of results on the live page, 2,093 px when any document is injected, today's own included). The
+  second run (logs/b582/b1all.tsv) injects today's document for "today" too and uses all of tonight's code
+  (live theme, H1 compact, the two carrier rules).
+
+### Rule 6, worst first (continued)
+
+- **/de/en/economy-class (34.2 % at 390, 22.5 at 1440) and its stage pages.** Ours draws the stage 20 px under
+  the sub-navigation bar (25 px from 1024 px); www's content wrapper is .contentpage.pt-0 on economy-class,
+  premium-economy-class, business-class, internet-overview, lhg-wifi and flynet (no space), plain .contentpage on
+  first-class (20 px). A structural rule (bar right before a stage: no gap) on the five recorded such pages:
+  internet-overview 22.6 -> 14.3 / 14.6 -> 5.6, lhg-wifi 18.0 -> 14.7 / 17.9 -> 13.6, economy-class 34.2 ->
+  29.6 / 22.5 -> 18.1, premium-economy-class 26.3 -> 22.0 / 18.7 -> 19.7, first-class 25.9 -> 32.7 / 20.2 ->
+  27.4. So a carrier (dbee1c6): the profile-nav parser writes Style flush for pt-0 pages, a flush profile-nav
+  section has no gap. List: reimport-582-profile-nav-flush-lh-com.txt (43 info documents). Also seen there, not
+  changed yet: www's bar label on phones is the section's first tab ("Lufthansa Travel Classes"), ours the page's
+  own tab; the stage description is smaller on www at 390.
+- **B1, the slider margins (628d2d8):** in a carrier view the last element loses its bottom margin; the
+  sliders' own (cell-slider 19 px, phone-slider 44 px from 1025 px) stay: meetings-and-events at 1440 after the
+  switch 8.3 -> 4.7 % (today 3.9). 15 documents have such a view today (onboard-delights' versions): unchanged.
+- **B1, where the 36 pages stand after the switch (with tonight's code, both sides injected):** the column views
+  within a point; worse by 0.5 or more: miles-and-more (+3.4 at 390, +4.5 to +14.8 at 1440: its separators
+  collapse to M and the carousel section takes h3-large, 89 px shorter), most-significant-route /
+  bedeutsamste-strecken (+2.1 / +1.1), stopover (+2.9 / +3.5), neuschwanstein (+1.2 at 390), chronicle (+1.0 at
+  1440). These are B2 (M at 60 px, Ben's decision 3) and B4 (per page), not the carrier.
+
+### Item b, continued
+
+- **lh-snapshots-097 to -099 (landed 20:25 to 20:29 CET):** 097 (12,140,512 bytes, sha256
+  0a114d31…9b76f8, 96 pages): capture-list-582's 97 own-document pages, all ok; 098 (aa2e4294…a8d1, 13
+  pages) and 099 (0c8d9797…4a09, 1 page) are other lists. The five stand-ins appended at 21:00 CET (be/de, dk/de)
+  are not captured yet.
+- **The 97 priority 2/3 own documents** imported offline with their templates (logs/b582/own-docs-97.mjs):
+  no importer change needed (the gaps below 90 % are the destination finder, Meili, video player labels, the
+  map's keyboard help and screen-reader notes). Import list: tools/reports/markets/lh-market-diff/
+  own-documents-582-p23.tsv (www_path, da_path, template, priority, version page, archive, text kept).
+- **Row 53** (ru/en lh-rentalcar): no step: tonight's ru/en has de/en's Meili settings (ptid 105.11); its
+  second Meili element sits outside the content (Meili's own mount).
+- **capture-list-558's three pages (lh-snapshots-091):** planning-with-kids imports to exactly our published
+  text (99 % of the page's words): my 558 note (www's text longer) was wrong; the page is at 4.5 % now (23.1 in
+  the 558 ranking, fixed by rules since). explore-flying lists three new articles that have neither a document
+  nor a snapshot here: appended to capture-list-582 (00:09 CET, a329c50) with the de/de list page. crane: the
+  second column caption is an image's figcaption in a two-column view item (not a slider); our document lacks it
+  (as in 558; adding column captions made crane worse against the recording then): parked.
+- **The helper's first uploads from tonight's list:** steps 38, 39 (xx/ru markets sections) and 40, 46 (ae/de
+  shared variants), 23:52 CET (1137a2e). Our host serves /xx/ru/automatic-check-in with the sections marked xx
+  and -xx, as the list says.
+
+### Rule 6: the 558 ranking's top 40 re-measured (logs/b582/rerank-top.tsv)
+
+- Down since 558 (the helper's re-imports and tonight's rules): medical-travel-companions 41.3 -> 8.9 % (390),
+  schengen 32.7 -> 8.5 (1440), shopping 31.5 -> 9.0, planning-with-kids 23.1 -> 4.5, exclusive-charter 23.4 ->
+  14.6, free2move 19.4 -> 13.2 (1440).
+- Still at the top, with their causes: overview-manage (DA as is), the loungenet first-class lounge pages
+  (36.1 / 31.3: the media cells' links, rule too broad for now), economy-class / premium-economy-class /
+  internet-overview (profile-nav flush list), first-class-terminal (no single cause: small steps across the
+  page), traveltricks (app-store buttons without href), business-class-on-long-haul-routes and
+  data-collection-canada (link-list list), feedbackai (not migrated), entryprocesses (28.5: the grey intro band
+  17 px lower, then small steps), giftvoucher (market rows 3/23), 100-years (video frame). A full fresh ranking
+  of all recorded pages is running (logs/b582/rank-582.tsv).
+- **The loungenet first-class lounge pages (139ac0a, 01:10 CET):** their six service tiles (Columns Media
+  media cells: a picture and a link) draw the link on www as a standalone navigation link 46 px under the
+  picture; ours 8 px under it without the arrow, and the eJournals tile's labelled link to box.media-carrier.de
+  became the 520 px newsstand iframe (it had made up for the spacing). scripts/media.js: a newsstand link is an
+  embed only when its text is its address (the real ones, in Embed blocks, are); columns-media.css: the media
+  cell's lone link with the arrow, 22 px under the picture below 768 px, 40 from 768. fra-first-class-lounge-b
+  36.1 -> 28.1 % (390), 31.3 -> 8.3 % (1440), muc the same (one fragment); the other recorded pages with a
+  picture-and-link cell unchanged. The CSS alone measured worse (42.1 / 33.2): both or neither.
+- **The Insights tag pages' pagination (98add57):** www's maui-pagination: 50 x 50 px buttons 10 px apart on
+  grey 245, the arrows without a box; ours 40 px, 4 px apart, no background. For pagers of at most five items:
+  tags/allegris 18.4 -> 17.5 / 22.8 -> 21.7 (and its de/de, at/de, gb/en versions by about a point); munich (two
+  pages) +0.6 at both widths (its region below was off already); six-page pagers (highlights, explore-flying)
+  measured worse with 50 px buttons: unchanged (www shortens them with an ellipsis, ours lists every page).
+- **Not shipped:** www's sub-navigation label on the travel-class pages (the hub's tab: www's own active-tab
+  quirk, the parser notes it); entryprocesses (28.5: no single cause); first-class-terminal (32.0: small steps).
+- **Tabs on phones (2a44c16, 02:17 CET):** below 768 px www's collapsible insets a tab's label and its open
+  content 20 px (carry-on-baggage, unterhaltung-an-bord: text at x 43, ours 23). Measured at 390 on the 8 recorded
+  tabbed pages without www widgets: advance-seat-reservation 22.5 -> 12.0 %, baggage-irregularities 18.3 -> 8.2,
+  lufthansa-terminal-muenchen 19.7 -> 10.1, unterhaltung-an-bord 18.8 -> 14.8, climate-protection-projects 10.3
+  -> 8.0, carry-on-baggage 7.0 -> 6.4, first-class and passengers-using-wheelchairs the same.
+- **Wide tables on phones (8232379):** www keeps a table's columns about 200 px wide and scrolls it; ours
+  squeezed four to six columns and broke words. Tables of four or more columns get the minimum width by their
+  widest row: lufthansa-guide-service 15.6 -> 8.6 % (390), security-check-time-slot 4.8 -> 4.6, the others of the
+  7 recorded such pages the same (unaccompanied-minors +0.1).
+- **green-fare:** www renamed the fare ("Impact Fares: A fare that supports lower-emission aviation"); our
+  documents still say Green Fares: de/en and de/de on capture-list-582 (02:05 CET) for a re-import.
+- **The fresh ranking (logs/b582/rank-582.tsv, 00:08 to 01:55 CET, before the lounge, pager, tab and table
+  rules and before the re-imports of tonight's lists):** 538 page-widths, mean 9.95 -> 9.67 %; medians: info 8.3,
+  campaign 11.6, insights 10.8, legal 7.0, hub 5.7, form 10.5, fleet 17.5, app-entry 11.5.
+- **A bug in my 558 market tool, found on an uploaded step (07a7558):** row 30's uploaded /de/en/flight-search
+  has a link to gb/en's fly-more-sustainabl page in its `-de` section: the variant's sections kept their own
+  root's links, and lh-edge's market route rewrites only links into the language version. Rows 38 and 39 (xx/ru,
+  variant by/ru) the same. The merge now rewrites the variant root's links (root-relative and www) to the
+  version's; the 43 rows on the offline drafts leave none behind. market-steps-582-rerun.tsv: 30, 38, 39 to run
+  again (and any markets-section row uploaded before 07a7558). Shared variants (40, 46) are fine: lh-edge
+  rewrites a donor root's links.
+- **Also checked on our host:** /xx/ru/automatic-check-in serves its sections marked `xx` / `-xx`, and
+  /de/en/flight-search `de` / `-de`, as the list says.
+- **lh-snapshots-100 to -104** (sha256 computed here, logs/b582/archives.tsv): 100 (b5d84635…9244d) de/en and gb/en
+  flight-search, row 30's pair (the step as with bd-snapshots); 101 (e965dc9f…88b1) capture-list-558's three
+  again; 102 (5bf08e52…1c20) and 103 (7900e479…7119): the three new explore-flying articles in de/en and de/de;
+  104 (4e074bc9…ac16): green-fare de/en and de/de at www's long path (the short one redirects). Lists:
+  import-582-new-articles-lh-com.txt (6 new documents, insights, 93 to 96 % of the words kept offline),
+  reimport-582-green-fare-lh-com.txt (2 documents, info, the page now "Impact Fares").
+- **lh-snapshots-105** (05:49 CET, 54b7cd73…6d37, 1 page): business-class-on-long-haul-routes fr/fr (xx/es, xx/fr 404):
+  not on my list.
+- **Still not captured:** be/de and dk/de automatic-check-in and pre-check-in (rows 2, 17), be/de cash-and-miles
+  (row 6).
+- **Profile Tabs panels (03508b5, 03:52 CET):** the airport pages' text sits in a panel beside the sidebar
+  (948 px at 1440) and its limited-width narrowed it again to 626 px; www's fills the panel.
+  lufthansa-am-flughafen-frankfurt 18.9 -> 14.0 % at 1440, the two other recorded pages with the block the same.
+- **The fresh ranking's 60 worst page-widths re-measured at 04:10 CET (logs/b582/rerank-top2.tsv), with the
+  rules shipped since:** summed 1,356.2 -> 1,237.5 points, 12 better by a point or more, none worse:
+  loungenet first-class lounges 36.1 -> 28.1 (390) and 31.3 -> 8.3 (1440, both pages), advance-seat-reservation
+  22.5 -> 12.0, baggage-irregularities 18.3 -> 8.2, lufthansa-terminal-muenchen 19.7 -> 10.1, unterhaltung-an-bord
+  18.8 -> 14.8, lufthansa-am-flughafen-frankfurt 18.9 -> 14.0, green-fare 19.2 -> 4.6 (the helper re-imported it
+  from tonight's list), tags/allegris 22.8 -> 21.7, explore-flying 22.1 -> 20.6.
+- **Not yet re-imported at 04:15 CET:** the link-list and profile-nav flush lists (no marker on our host yet).
+- **Looked at, no single cause (not changed):** business-class-on-short-and-medium-haul, miles-and-more-credit-card,
+  take-off (pictures: www shows another Travel ID image), tips-senior-travellers (its grid comes from a column view
+  that a block takes, and such views get no marks by design: the view's 32 px padding is missing; the only
+  recorded page so).
+- **The stage's information text (164f17d):** our hero-campaign made a short paragraph after the title the
+  subheadline (LufthansaHead light 22 / 28 px); on www, when only the call to action follows, it is the
+  information text (LufthansaText light 18 px): economy-class, internet-overview, 32n, boeing787 (5 of the 90
+  stages in the de snapshots). lufthansa.com only; the scores barely move (the stage photo dominates them):
+  economy-class 34.2 -> 34.1, the others the same, the text now as www's.
+- **The helper's work on tonight's lists, checked on our host at 04:35 CET:** the rerun of 30, 38, 39 (03:32 CET,
+  387599a) left no gb/en or by/ru link; the six new explore-flying articles and green-fare (03:40 CET, 20a181d)
+  answer 200; green-fare 19.2 -> 4.6 % at 390.
+
+### Final report (brief 582, written 04:40 to 08:30 CET)
+
+**Commits on main tonight (mine), with their numbers.** Every push: whole-repo lint exit 0 on the committed tree
+(after a1a8e13, see below), the full suite (site files 806 to 844, lh-edge 71, failing 0 each time), smoke on
+the ten hosts before and after anything served (same statuses every time; once, before 0f0f370, the
+"before" run crashed on lufthansa-edge and its "after" was compared with the previous run).
+
+| commit | what | measured on our host |
+| --- | --- | --- |
+| 18974ba | capture-list-582 (97 priority 2/3 own-document roots), later + 5 stand-ins, 3 + 3 articles, green-fare | (all but the five be/de, dk/de stand-ins captured in 097 to 104) |
+| a1a8e13 | link lists to pages: {links-horizontal / responsive / vertical} (importer, styles) | live after the re-import: business-class-on-long-haul-routes 31.2 -> 28.7 / 28.6 -> 22.9; security-check-time-slot 4.8 -> 3.9 / 5.3 -> 2.6; data-collection-canada's list region 6.5 -> 2.8 / 2.2 -> 0.6 |
+| cebf748 | a1a8e13's lint findings (it went out with max-len and five stylelint errors: I linted before committing) | same rendering |
+| 539eb4f, 0f0f370 | market-steps-582.tsv (43 steps), the 7 widget rows ignored; Flight Search "<markets> = none" | rows 45, 52, 56: no widget where www draws it empty |
+| a94f721 | B5: the hub bundle rebuilt from its sources | 133 hub snapshots import byte-identically |
+| f6b611b | no section gap between the page title and an accordion; the phone title inset for option faq too | faq-saf 9.5 -> 4.7 (390) / 5.9 -> 2.8; lufthansa-voucher 8.2 -> 7.7 / 6.1 -> 3.7; faq pages net -14.6 |
+| 6c997b5 | B3: H1 compact carrier (nearChoices) | after the switch: travel-classes 33.8 -> 5.8 / 15.0 -> 2.7; food-and-beverages 28.2 -> 22.0 / 21.3 -> 17.2 |
+| ae626ef, 96558f2 | profile-nav Style flush where www's content starts under the bar (.contentpage.pt-0); the rule above profile-nav.css's | live after the re-import: internet-overview 22.6 -> 14.3 / 14.6 -> 5.6; economy-class 34.1 -> 29.7 / 22.4 -> 17.9; lhg-wifi 18.0 -> 14.7 / 17.9 -> 13.6 |
+| 0346b0c, d085603 | B1: separator-only column-view sections; the carrier view's last slider margin | after the switch: digital-self-services 16.3 / 19.9 -> 8.2 / 3.5; meetings-and-events 1440 8.3 -> 4.7 |
+| 139ac0a | loungenet tiles: labelled newsstand link stays a link; media cell's lone link as www's | fra / muc first-class lounge 36.1 -> 28.1 / 31.3 -> 8.3 |
+| 50ac395 | the tag pages' pagination as www's (short pagers) | tags/allegris 18.4 -> 17.5 / 22.8 -> 21.7 (and its versions); munich +0.6 |
+| 2a44c16 | tabs on phones: label and content 20 px in | advance-seat-reservation 22.5 -> 12.0; baggage-irregularities 18.3 -> 8.2; terminal-muenchen 19.7 -> 10.1; unterhaltung-an-bord 18.8 -> 14.8 (390) |
+| 35ea5ce | wide tables on phones keep www's column width and scroll | lufthansa-guide-service 15.6 -> 8.6 (390) |
+| 1736cf4, a167dfc | market steps: the variant's links rewritten to the version's root; rerun list | 30, 38, 39 rerun by the helper (no wrong-root link left); 15 more markets-section documents uploaded earlier still link into ae/de or gb/en (rerun list of 05:35 CET); rows 2, 17 to undo |
+| 03508b5 | profile tabs: a panel's text fills the panel | lufthansa-am-flughafen-frankfurt 18.9 -> 14.0 (1440) |
+| 164f17d | the stage's information text not as a subheadline (lufthansa.com) | economy-class 34.2 -> 34.1 (text as www's) |
+| docs | the report and lists (539eb4f, 569d473, b3cb341, d0180f6, 04e49ff, a329c50, 779abb5, 10073f3, 805ec7b) | |
+
+**Lists written tonight (all on main):**
+- tools/markets/capture-lists/capture-list-582-lh-com.txt (the night's capture list: 97 + 5 + 4 + 3 + 2 rows).
+- tools/reports/parity-2026-11-09/reimport-582-link-lists-lh-com.txt (35 documents: info 21, legal 7, app-entry 7).
+- tools/reports/parity-2026-11-09/reimport-582-profile-nav-flush-lh-com.txt (43 info documents).
+- tools/reports/markets/lh-market-diff/market-steps-582.tsv (43 steps: 15 markets-section, 25 shared-variant,
+  3 tabs-by-market; 6 rows without a step and why) and market-steps-582-rerun.tsv (30, 38, 39 done at 03:32 CET;
+  since 05:35 CET the 15 other markets-section rows, and rows 2 and 17 to undo).
+- tools/reports/markets/lh-market-diff/own-documents-582-p23.tsv (the 97 priority 2/3 own documents, templates,
+  archive 097; the helper uploaded them from 097/099 in four slices at 20:46 CET).
+- tools/reports/parity-2026-11-09/import-582-new-articles-lh-com.txt (6 new Insights articles: uploaded) and
+  reimport-582-green-fare-lh-com.txt (2 documents: uploaded).
+- import-rows.tsv / import-rows-importer-work.tsv: the 7 widget-setting rows marked ignore.
+
+**Pages that still need a capture:** /be/de/automatic-check-in, /dk/de/automatic-check-in, /be/de/pre-check-in,
+/dk/de/pre-check-in (rows 2 and 17: a covered root's page; ae/de, the 558 stand-in, has its own variant),
+/be/de/cash-and-miles (row 6, the be/de widget setting). All on capture-list-582-lh-com.txt since 21:00 CET.
+
+**Not done, and why:**
+- B2 (M at 60 px against www's 40 px separators) is Ben's decision 3; B4 per page (miles-and-more's carousel
+  section, stopover, most-significant-route) after B1/B3: measured, listed above, not changed.
+- Rule 6 leftovers with their causes: overview-manage (DA as is), traveltricks (app-store buttons without
+  href), feedbackai (not migrated), 100-years (video frame), first-class-terminal and entryprocesses (small steps,
+  no single cause), take-off (another picture on www), tips-senior-travellers (a column view taken by a block gets
+  no marks: one recorded page), crane's column caption (parked since 558).
+- The accordion end gap, tried again at 05:00 CET with fresh baselines (34 px below 768 px instead of 48, the
+  12 pages that end with an accordion): faq-saf 4.7 -> 3.6, current-travel-information 10.9 -> 9.1, seat-reservations
+  9.9 -> 9.2, but faq-data-security, faq-ejournals, faq-password-security +1.3 to +1.4 each (net -0.6, and no option
+  tells them apart: current-travel-information is limited-width too). Not shipped.
+- **Found at 05:30 CET: the helper had uploaded most markets-section steps in the evening, before 1736cf4**
+  (bee7a57, a61c436, 0f2080e: from my 558 lists), so they link into the variant's root: /de/de/automatic-check-in 5
+  links into ae/de, giftvoucher (de/de, de/en) 7 each, fluege 4, flugsuche 3, pre-check-in many, cash-and-miles
+  (de/de, de/en) 1, lufthansa-express-rail-briefing 1, meetings-und-events-teilnehmer 1, /de/en/europcar 1; and rows 2
+  and 17 were made with the wrong stand-in (ae/de). market-steps-582-rerun.tsv (second version): the 15
+  markets-section rows to run again with the fixed tool (3, 5, 9, 11, 12, 14, 15, 18, 19, 23, 28, 31 and 558's 25,
+  33, 34), and rows 2 and 17 to put back to the version page alone until be/de or dk/de is captured.
+- **The helper re-imported both lists at 05:37 to 05:43 CET** (c795248: link-list markers, 31 documents;
+  2a34772: profile-nav flush, 41 documents). Live on our host at 06:30 CET: business-class-on-long-haul-routes
+  31.2 -> 28.7 % / 28.6 -> 22.9, security-check-time-slot 4.8 -> 3.9 / 5.3 -> 2.6, unterhaltung-an-bord 18.8 -> 15.4
+  / 18.6 -> 16.5 (with the tab rule), data-collection-canada 18.9 -> 21.3 / 20.7 -> 21.9 (as predicted: its list
+  region better, the page short above). The flush pages had not moved: ae626ef's rule tied with profile-nav.css's
+  on specificity and lost on order (my trial had injected it last). **96558f2** gives it body.appear: economy-class
+  34.1 -> 29.7 / 22.4 -> 17.9, internet-overview 22.6 -> 14.3 / 14.6 -> 5.6, lhg-wifi 18.0 -> 14.7 / 17.9 -> 13.6,
+  premium-economy-class 26.3 -> 22.0 / 18.7 -> 19.7; first-class unchanged (no flush, as www).
+- Waiting with the helper: market-steps-582-rerun.tsv (the 15 markets-section rows, rows 2 and 17 to undo).
+- Also looked at, marked: giftvoucher (cards and content, a market-rows page), explore-flying (our list has 83
+  results since tonight's three articles, the recording 80), the long pagers (www shows six pages as six 50 px
+  buttons at 1440; ours with 50 px buttons measured worse there because the content below moves: left as is).
+- **B1 for info pages, sampled at 06:00 CET** (the 12 recorded de/en info pages with the most column marks;
+  switched with main's code and the theme on, today injected the same way; logs/b582/b1info.tsv): 9 of 12 worse,
+  lufthansa-express-rail +9.6 at 1440, first-class-lounges +5.9 / +2.4, fia-valet-service +5.0 / +2.1,
+  bid-upgrade +5.0 at 1440, europa-tarife-economy-class +4.0 at 390, rail-and-fly +3.5 at 390,
+  digital-baggage-services +3.3 at 390; admission-rules, bid-upgrade at 390 and unaccompanied-minors at 1440
+  better. On express-rail each collapsed view (column-view flush sections) is 16 to 80 px shorter than with its
+  marks, -200 px by the page end: the carrier rules so far fit the hub pattern; info needs its own. Next work.
+- The switch plan (tools/reports/token-free/lufthansa-switch-plan-558.md) has a section 5 on where B1, B3 and B5
+  stand (6831fea).
+- My mistakes tonight: a1a8e13 pushed with lint errors (the lint read the tree before the commit; Ben fixed
+  the max-len lines in parallel); the 558 stand-in for rows 2/17 (ae/de) was in its own group; the 558 merge tool
+  left the variant root's links (fixed; 3 documents rerun, 15 on the rerun list), and the helper had uploaded
+  rows 2 and 17 with the wrong stand-in before my correction reached main.
+
+### Standing order 3, final (2026-11-11, written 19:10 CET)
+
+A service restart at about 10:00 CET stopped my session until 19:05 CET; nothing ran in between. Everything below
+reached main before that, each with lint 0, the gate passed and a green Build; no www request, no upload.
+
+1. **Scope paths:** the 86 paths in tools/importer/sites/lh-com.json, in the file's order (345cbec, on main 08:01 CET).
+2. **Marker text in cells:** lufthansa-cleanup's last afterTransform step drops a paragraph-style marker from a block
+   cell whose only content is one paragraph or bare text (all parsers; Form notes, video settings, other brands
+   unchanged; 85241fd, test on the /az/en/online-check-in snapshot, 11 bundles rebuilt). The published documents
+   (6,826) and the 440 drafts have no other such cell: reimport-596-lone-cell-markers-lh-com.txt, one READY row
+   (/az/en/online-check-in, the same as the helper's hand fix).
+3. **Slug map:** /dz/de/datenschutz-lufthansa-facebook gets no slug. www pairs it with no English page, so the map
+   holds it as a no-source-member exception (98 German roots), which keeps its path. The uploader reports it because
+   slug-write.mjs knows exceptions at their key only (71 scope paths like it): slug-596-exception-members-lh-com.txt
+   (HOLD row for ema-cashub's files; b3a1219).
+4. **Media from www:** media-596-www-files-lh-com.txt (a4b64b3). 414 www files in 626 documents, each asked of lh-edge
+   on our host: 320 READY (our copy is served; the switch step for each type), 94 HOLD (no copy). The Jorinde Voigt
+   video (de/en, de/de), its four text tracks and the loungewear article's video come first, with the steps once
+   Ben decides on the www block.
+5. **Info-page switch:** the 582 sample was measured without the Theme the collapse writes. Measured again with it,
+   then four shared causes fixed, all inert while the theme is off (850e4c1: H3 heading-small kept on flow pages,
+   a view's opening divider, the title image before a view, full-width view headings on flow pages). 12-page sums
+   at 390 / 1440: today 75.6 / 66.7, switched 88.9 / 88.0, now 83.7 / 74.6. **Not yet:** 4 of 12 still worse at
+   1440 and 6 at 390. The causes still in the way (nested views, band before a view, a separator inside a view, a
+   view's last table) are in the switch plan's section 6, with counts. Smoke on the ten hosts: same statuses
+   before and after.
+6. **Not done:** the ranking rows over 5 % (item 6). The restart took the time. Candidates seen: the six fleet pages
+   (744, 32n, 320, 359, 351, boeing787, 15 to 19 %) and six /100-years pages (14 to 17 %).
+
+Left out of git: logs/b596 (scripts, captures, census outputs: working material). Lost in the restart: /tmp was
+wiped (the trial worktrees and the R2 archives under /tmp/r2), and the measurement documents are rebuilt by
+logs/b596/prep-all.sh.
+
+### Standing order 4 (2026-11-11 21:05 CET to 2026-11-12 06:00 CET)
+
+No www or airline-host requests, nothing uploaded. Each push: whole-repo lint 0, gate passed, Build green, smoke
+on the ten hosts the same before and after.
+
+1. **Fleet and /100-years rows.** The fleet pages share one cause. Their seat-map slideshows sit inside the
+   column marks that brief 461 added, and the Carousel Lightbox margins date from before those marks. A nested
+   outer view also ended with two `{column-end-outer}` marks. The importer now gives such a slideshow the
+   option `in-view` (no margins of its own) and writes one end mark there (9b2ce55; nothing changes on a
+   document until it is re-imported). Documents as the importer now writes them, % off www at 1440 / 390:
+   744 15.7 / 19.1 -> 7.7 / 12.4, 32n 18.7 / 18.5 -> 11.3 / 9.8, 320 18.0 / 17.5 -> 11.8 / 9.1,
+   359 17.7 / 17.8 -> 5.9 / 8.8, boeing787 16.8 / 20.4 -> 8.8 / 13.0. 351 has no seat map (15.9 / 15.8, not
+   changed). List: reimport-so4-fleet-in-view-lh-com.txt, 86 documents (24 READY, 62 HOLD: no snapshot in
+   this checkout). The six /100-years pages (13.6 to 17.3 %) share no cause. Their drift starts at a
+   different component on each page (chronicle: its jump links, 37px; campaigns: the collage section,
+   +25px; menu-on-board: a heading after Columns Media, -31px; fleet: the grey table bands, -100 to -250px).
+   None is fixed.
+2. **Info-page switch:** still not "switch".
+   - Two changes are right where they act: a view's last table keeps its 40px, and a separator that is a
+     view's first component stays inside the view's padding (fia-valet-service's table and note now sit
+     where www draws them, within 6px). The table rule also improves rail-and-fly (8.0 -> 6.2 at 1440,
+     12.1 -> 10.5 at 390), tiere-als-uebergepaeck (9.5 -> 8.3) and unaccompanied-minors (6.9 -> 5.8).
+   - Both expose a fifth cause: the gap under the page's last view. The collapse drops `column-spaced`,
+     so it can't tell www's 24px from none. fia-valet-service at 1440 gets worse by 0.8 (table rule) and
+     2.5 (both), over the 0.5 limit.
+   - A blanket page-end rule made six pages worse. None of the three is shipped; the trial stays in a
+     local worktree.
+   - Nested views (247 starts in 193 documents) and the band before a view are not attempted. The band
+     rule was measured on /de/de/lounges, which has no recording to check it against.
+3. **lh-com.json's description** says what `"paths"` holds now (7d6e50e).
+4. **Ranking, the 40 worst rows re-measured** (logs/b596/rerank.tsv):
+   - Down since 582: internet-overview 22.6 -> 14.3, advance-seat-reservation 22.5 -> 12.0,
+     lufthansa-terminal-muenchen 19.7 -> 10.1 (390), economy-class 22.5 -> 17.9 and
+     business-class-on-long-haul-routes 28.6 -> 22.9 (1440).
+   - The travel-class pages (economy-class 29.7 at 390, premium-economy-class 22.0, first-class 25.9)
+     share the profile-nav flush cause: their re-import list (reimport-582-profile-nav-flush-lh-com.txt)
+     is still open.
+   - The two loungenet first-class lounge pages share a fragment (28.1 at 390). A larger link gap under
+     the tiles' pictures measured worse (28.7) and is not shipped.
+   - The rest are single pages with their causes noted before: overview-manage, traveltricks,
+     feedbackai, my-logbook, entryprocesses, first-class-terminal.
+
+Left out of git: logs/b596 (scripts, captures, censuses: working material) and the item 2 trial in
+/tmp/wt-596 (half-done, measured worse).
+
+### Brief 597 (2026-11-11 ~23:15 CET): heading ids and www's no-break spaces
+
+The helper's finding holds. Since the no-break space guard (6a61397, 2026-11-09), www's U+00A0 also reaches headings.
+Edge Delivery makes a heading's id from its text with github-slugger: only a plain space becomes `-`, a no-break space is
+dropped. "Sitzpläne&nbsp;Airbus A320-200" got `sitzpläneairbus-a320-200`, while the page's jump link (www's `#seatmaps`,
+rewritten by lufthansa-cleanup's rewriteAnchors from the text with plain spaces) points to `#sitzpläne-airbus-a320-200`.
+DA's html2md drops a document's own id attributes, so only the text decides.
+
+**The rule** (tools/importer/nbsp-guard.mjs): in a heading's text, a run of spaces holding a no-break space is one plain
+space. Everywhere else the no-break spaces stay as before.
+- guardNbsp writes it so in www's headings, before the framework's steps (the cleanup's anchors are made from the same text).
+- restoreNbsp applies it to every heading of a written document: a heading a parser built from guarded text, and any
+  document da-upload sends. A file's own id that the framework made from the old text follows the new text (a hand-made
+  id stays).
+- The 14 import bundles were rebuilt; they differ from main only in nbsp-guard's lines.
+- test/nbsp-heading-ids-597.test.mjs, on slices of /de/de/320's snapshot (test/fixtures/nbsp-heading-ids-597): the
+  heading texts, the jump link, and the pipeline's ids (aem-cli's slugger, where installed) with every anchor resolving.
+  Running text keeps its no-break spaces. With main's guard the fleet test fails (the heading keeps U+00A0).
+  test/nbsp-guard-530.test.mjs: its heading case now expects the plain space.
+- Offline import of /de/de/320 (offline-importer copy, snapshot only): main's bundle gives
+  `sitzpläneairbus-a320-200` and `sitzplänedes-airbus-a320-200-zum-download`, and the jump link misses. This change gives
+  `sitzpläne-airbus-a320-200` and `sitzpläne-des-airbus-a320-200-zum-download`, and the jump link resolves. No
+  no-break space outside headings was lost (there are none on that page).
+
+**www's look.** The anchors and www's line breaks cannot both come from the text alone. The id needs a U+0020, and Chrome
+breaks after a U+0020 even with a word joiner (U+2060) next to it: measured on brussels.turnsthe.page and
+lufthansa.turnsthe.page, the word joiner wrapped exactly like a plain space. So the rule gives up the no-break look in
+headings, as the importer did before 2026-11-09 and as the helper's hand fix did.
+- Measured on our live hosts at 1440/768/390: 14 documents wrap a heading differently with plain spaces.
+  - Cash & Miles (6 markets, 390): "Cash & / Miles".
+  - The four German Allegris start-of-booking pages (768): a dash starts a line.
+  - Brussels student-fares (390): a colon alone. Brussels checked-baggage (390).
+  - TAP inspirez-vous (768): a "!" alone.
+  - flight-disruptions /ca/en (390).
+- One wraps better: /az/en/europa-tarife-economy-class, where www puts no-break spaces between every word of an h3
+  and ours breaks "optio / n".
+- Two ways to keep the look, for your decision:
+  - Keep U+00A0 in the documents and let lufthansa-cleanup write the anchors as the pipeline's ids
+    (`#sitzpläneairbus-a320-200`). All in the importer, but the ids change from the form that is live now.
+  - Keep U+00A0, and have scripts.js re-id such headings at decoration. It already cuts marker suffixes off ids and
+    scrolls to the hash after the sections load. That is site code.
+
+**Published documents the rule changes** (tools/reports/parity-2026-11-09/reimport-597-heading-nbsp.txt):
+- I checked the 3,206 documents uploaded on any site since the guard. .plain.html on aem.live and aem.page are the same
+  for all of them.
+- 67 have a no-break space in a heading: lh-com 42, lh-b2b 13, lh-tap 6, lh-austrian 3, lh-brussels 2, lh-swiss 1. The
+  rule changes the ids of 54 of them, when they are re-imported or uploaded.
+- No anchor that resolves today would stop resolving.
+- **READY, 4 broken today** (an in-page anchor misses):
+  - lh-austrian /es/es/plan/special-requirements/travelling-with-animals
+  - lh-brussels /be/fr/local-page/student-fares
+  - lh-com /de/en/book-and-manage/flights/giftvoucher (3 links to its FAQ)
+  - lh-com /ca/en/flight-disruptions
+  - headingSpaces on their DA sources (read with GET only) changes 1 or 2 heading lines each, and every anchor then
+    resolves.
+
+Note for the next ranking: the travel-class pages of reimport-582-profile-nav-flush-lh-com.txt have been live since round
+237 (2026-11-11 05:44 CET). My standing order 4 section counted them as waiting, which was wrong; measure them on the live
+host first.
+
+Left out of git: logs/b597 (the census scripts and TSVs, the four DA sources read and their ruled copies, the
+look-check script). The offline import workspaces are under /tmp. The untracked tools/importer/reports/ folders are earlier
+import runs' generated reports, not this brief's.
+
+### Standing order 5 (2026-11-12 00:40 to 06:00 CET)
+
+No www or airline-host requests. Captures ran on lufthansa.turnsthe.page (the capture aborts *.lufthansa.com); offline
+imports read the snapshots only; DA was not touched. Every push: whole-repo lint read 0 on a clean worktree of HEAD,
+stylelint on styles.css 0 (no theme file touched), the suites passed (lh-edge 71, site 883 to 892 files, 0 failing),
+Build green. At the start: nothing uncommitted or unpushed but the untracked import reports; 3be21c1's Build green.
+
+1. **Scope paths (c59d63e).** The 13 market-root documents published at 23:31 CET are a new batch in lh-com.json's
+   "paths" (am/de, br/de, by/de: the bookstores and Scotland articles; ba/en/flights; se/en/fly-more-sustainabl; us/de:
+   digitale-gepaeckservices, gefaehrliche-gegenstaende, sportgepaeck, travelling-with-animals, uebergepaeck). All 13
+   answer 200 on aem.live; da-upload --dry-run allows them. The helper's sites-paths-needed.txt is not in this
+   workspace, so the batch is the 13 of the order.
+2. **Info-page switch: still not "switch".** Measured on the 12-page sample (today = the published document; each
+   state = its collapse with the theme live), % off www at 1440 / 390.
+   - **Shipped (c20d1ea): nested views and the band before a view.**
+     - Nested views: 247 starts in 193 documents. The outer view's part before the inner one, the inner view and the
+       outer view's rest are now views of their own. Collapsing the 193 documents: idempotent, no empty view.
+     - The band: on rail-and-fly (lh-parity-002b) www draws the heading 130 px under the band. On the lounges
+       (lh-parity-004b, /de/de/during-your-trip/lounges) it is 64 px, where the band is a section of its own. So a
+       flush band keeps its section gap before a view. No published document has a flush band before a view.
+     - Results: express-rail 20.4 -> 11.9 / 8.5 -> 8.0, rail-and-fly 8.0 -> 5.0 / 12.1 -> 9.1. The other ten pages
+       are unchanged; no page-width is worse.
+   - **Measured, not shipped: the gap under the last view (0 or 24 px), a view's last table (40 px) and a separator
+     inside a view.** All three are right where they act. fia-valet-service with all three ends where www does, 2.4 /
+     3.7 (main 2.5 / 5.5). green-fare's recording has no gap above or below its band, so today's two 48 px gaps are
+     the error there.
+     - But the whole-page score loses the space that made up for gaps higher on the page. The 0 px end makes
+       first-class-lounges +2.4, sports +1.8, green +1.5, admission +1.2 and digital +0.8 worse at 1440.
+     - The 24 px end makes fia +1.2 at 1440. The table and separator rules without the end rule make fia +2.5.
+     - 186 published documents end with column-spaced and 882 without, so one uniform end value fits the 882.
+     - None of these passes the 0.5 limit. The trial is in /tmp/wt-so5.
+   - **Sample now (with c20d1ea):** the 12-page sums are 63.1 at 1440 (today 66.7) and 80.2 at 390 (today 75.6).
+     These are more than 0.5 worse than today: at 1440 express-rail +1.1 and tiere +1.4; at 390 unaccompanied +1.0,
+     fia +2.1, digital +1.0 and green +0.7.
+     express-rail's rest is the newer style's coarser spacers (25 px -> none, 40 -> 60), by the migration's rule.
+3. **Ranking (ranking-so5-lh-com.txt).** The 202 rows of rank-582 at or over 10 %, measured again on our host between
+   01:45 and 02:25 CET, worst first. Each row has its template, where it starts to drift from the recording, a group
+   and READY / HOLD.
+   - **Shared cause found and fixed: templates without column marks.** www holds the chapters in column views on 88
+     of the 120 legal pages and 20 of the 24 app-entry pages. Both templates now write the marks, as info and fleet do
+     (aeb250c, 4abd4c4). As drafts on our host with the published pictures, % off www at 1440 / 390, main's import ->
+     with the marks:
+     - data-collection-canada: 21.9 / 21.3 -> 9.7 / 11.8
+     - my-logbook: 20.7 / 25.8 -> 7.5 / 10.4
+     - pre-check-in: 8.2 / 9.8 -> 3.0 / 5.6
+
+     Every page of both templates was imported offline with main's and the new bundle: the marks are the only
+     change. Lists:
+     - reimport-so5-legal-column-marks-lh-com.txt: 72 documents, 67 READY. 5 HOLD: cookie-policy and the four
+       data-collection-usa documents are newer than their snapshots and need a fresh capture.
+     - reimport-so5-app-entry-column-marks-lh-com.txt: 12 READY.
+   - **Checked, no shared cause:**
+     - campaign: no marks to write.
+     - info: the 77 ranking info pages imported again carry the marks their documents have (only travelling-healthy
+       gains 3).
+   - **HOLD groups:**
+     - fleet-in-view (the helper's so4 re-import, partly live already: 744 19.1 -> 12.4 at 390): measure after publish.
+     - Forms: the bot-check holder capture artefact (measure with nobot.js). feedbackai: www's recording keeps 145 px
+       of empty space where its app would load; ours draws none.
+     - The loungenet first-class pair: one fragment.
+     - The /100-years pages: a different component each.
+     - The travel classes: no single cause yet. economy-class's collage sits 40 px high under its intro at 1440; the
+       hero card text differs on phones.
+     - Insights and the rest of info: drift starts at different components.
+   - Other findings on the top rows:
+     - overview-manage's recording has no picture for its Check-in teaser; ours and the snapshot have one.
+     - traveltricks has no iOS / Android download buttons; www has them. In the snapshot they are maui-button-links
+       without an href (www sets it per device), so the importer leaves them out.
+
+Lists on main: ranking-so5-lh-com.txt, reimport-so5-legal-column-marks-lh-com.txt and
+reimport-so5-app-entry-column-marks-lh-com.txt (READY rows for the import helpers). Left out of git:
+- logs/b597: the runners, captures, censuses and the DA-free comparison tables. This is working material.
+- The trial worktrees /tmp/wt-so5 (the table, separator and page-end rules, measured, not shipped) and /tmp/wt-so5b.
+- The offline import workspaces under /tmp.
+- The untracked tools/importer/reports folders, which are earlier runs' generated reports.
+
+### Standing order 6 (2026-11-12 04:00 to 08:00 CET)
+
+No www or airline-host requests, nothing uploaded or previewed. The only R2 read was the drop's newest archive,
+lh-snapshots-108. Each push: whole-repo lint read 0 on a clean worktree of HEAD, stylelint on styles.css 0, the suites
+passed (site 896, lh-edge 71, failing 0), Build green.
+
+1. **Fleet pages (1455833; list reimport-so6-fleet-sections-lh-com.txt).** The 8 recorded fleet pages measured on our
+   live host after the so4 publish, % off www at 1440 / 390: 359 5.9 / 8.8, 320 11.8 / 9.1, 32n 11.3 / 9.8,
+   744 7.7 / 12.4, boeing787 8.8 / 12.7, 351 15.9 / 15.8, first-class-fleet 8.2 / 4.2, seat-maps 7.8 / 7.2.
+   Two causes are shared by two pages each:
+   - **The title image before an outer column view.** Its 60 / 80 px and the view's own 20 / 40 px padding added up:
+     the first heading sat 40 px lower than www's on 359 and 744. styles.css now gives it 40 px there (lufthansa.com
+     only; 42 published documents have the shape). Measured on the live host after the push: 359 3.7 / 7.6,
+     744 5.0 / 11.4. No re-import needed.
+   - **A padded AEM section followed by an unpadded one** stayed one section, so its padding came after both
+     ("The quietest cabin" 62 px high on 32n). For fleet pages the unpadded one now starts a section of its own.
+     Drafts on our host: 320 8.8 / 7.8, 32n 9.8 / 9.1. Of the 32 fleet pages with snapshots, only the 320 and 32n
+     pages change; the rest import byte for byte as before.
+     - 4 READY: de/en and de/de, 320 and 32n.
+     - 26 HOLD: at/de and gb/en have snapshots older than the published documents; the xx language versions have
+       their snapshots only in the helper's so4 archive; xx/ja stays as DA has it.
+
+   Not shared: 351 (no seat map) and boeing787 (small steps through the page).
+2. **Info-page switch: no rule shipped. 12-page totals unchanged at 63.1 / 80.2 (today 66.7 / 75.6).** Measured
+   again on HEAD: today, and the switched base (HEAD's collapse with the theme live). The six page-widths one by one:
+   - **tiere-als-uebergepaeck at 1440 and fia-valet-service at 390:** a view's last table loses www's 40 px under it.
+     The table rule fixes both (tiere 9.5 -> 8.3, today 8.1; fia 5.5 -> 3.8, today 3.4), and the totals go to
+     62.2 / 78.1. Not shipped: it makes fia at 1440 +0.8 and rail-and-fly at 1440 +0.6 worse. On both, the table's
+     40 px is right where it acts (rail-and-fly at "conditions of use" goes from 33 px off www to 7). The pages then end
+     too long, because the switched page keeps a 48 px section gap under its last view.
+   - **digital-baggage-services at 390:** exactly that gap under the last view. The end rule brings it to today's
+     5.3. Not shipped: even with column-spaced carried through as `spaced` (24 px), express-rail, first-class-lounges,
+     admission-rules and sports-baggage get worse by 1.0 to 1.3 at 1440. Their 48 px was making up for space missing
+     higher up.
+   - **unaccompanied-minors at 390:** the block headings marked {heading-small} come out as their level's default, by
+     the one-step rule ("collapse minor differences"). Two H2s in the first Columns Media wrap to more lines, +83 px.
+     No fix by the rule.
+   - **green-fare at 390:** the switched page draws its band as www does (34 px above, 36 below; today 82 / 80). The
+     page is short further down (the table region and one heading split into two lines instead of www's three), the
+     same as today, where the two 48 px gaps had made up for it. No switch-specific cause.
+   - **lufthansa-express-rail at 1440:** a trailing small-print paragraph split off into a view of its own (+64 px), the
+     theme's 32 px heading gap, and the coarser spacers (25 px -> none, 40 -> 60).
+     - Joining the split small print back into its view made express-rail +2.0 and unaccompanied, sports and tiere
+       worse. On www the gap there is larger than today's, so the split is closer to www.
+     - Left as it is.
+3. **Legal HOLD rows (b736122).** lh-snapshots-108 landed at 03:03 UTC. Its sha256 matches its manifest.
+   - cookie-policy (de/en) and data-collection-usa (de/en, gb/en): imported offline, each one's text reads as the
+     published document's, and the column marks come in. Now READY in reimport-so5-legal-column-marks-lh-com.txt
+     (70 READY): import from the archive's folder, not tools/importer/bd-snapshots (older copies there).
+   - The two German datenerfassung-fuer-die-usa documents: www answers 404 (the archive's manifest), so they stay HOLD
+     as DA has them.
+
+Left out of git: logs/b598 (runners, captures, comparison tables), the /tmp worktrees (wt-so6: the table, end-gap,
+spaced and small-print trials, measured, not shipped), the offline import workspaces and the R2 archives under /tmp/r2.
+
+### Standing order 7 (2026-11-12 06:10 to 10:00 CET)
+
+No airline-host requests, nothing uploaded or previewed; R2 reads only (lh-snapshots-109). Each push: whole-repo
+lint read 0 on a clean worktree of HEAD, stylelint on styles.css 0 (no theme file touched), the suites passed (site 900
+and more, lh-edge 71, failing 0), Build green.
+
+1. **datenerfassung-fuer-die-usa (at/de, de/de): no new German path found.** Every link to the old slug in the
+   archives held here is in the 2026-10-22 captures (the de/de and at/de entryprocesses hubs). No capture after that
+   (R2 drop 089 to 109, tools/importer/bd-snapshots) links a German US entry page, and the English pages carry no
+   language alternates. A fresh capture of /de/de/entryprocesses and /at/de/entryprocesses would show the new path.
+   Both rows stay HOLD as DA has them.
+2. **passenger-rights (at/de, de/de): release them.** The style row "flush, column-band, grey" doesn't come from the
+   column marks. Importing lh-snapshots-109 with the legal bundle from before the marks (aeb250c~1) gives the same
+   row. It is lufthansa-sections' grey-band rule reading www's markup:
+   - column-band: the band is a column view of its own, as the published /de/en and /gb/en pages already have.
+   - flush: the German pages' AEM section has no .mb-default; the English ones have it.
+3. **Long link text (0e2a3ad).** besondere-befoerderungsbedingungen-bus scrolled sideways at 390 on 16 documents
+   (/de/en, /gb/en, /at/de, /de/de and 12 xx versions), and so did /xx/fr's Facebook-page privacy statement.
+   - Cause: a link alone in its paragraph (inline-flex for its arrow) with a URL as its text. In a flex box,
+     break-word can't shrink the text's minimum width.
+   - www breaks link text at its hyphens and lets an unbreakable rest run past the edge (lh-parity-002d).
+   - The fix: overflow-wrap: anywhere on the flex text links (link-wrapper, the link lists, buttons, SWISS's aside
+     lists, Austrian's em buttons).
+   - Scans at 390 on our hosts:
+     - 157 lufthansa.com pages with a 30+ character link word: 17 scrolled sideways before, none since the push.
+     - 364 such pages of the nine brand sites: none scrolls.
+   - Of the 57 recorded pages with such links, only bayerischer-hof 1440 moves (14.2 -> 14.6).
+4. **Ranking (ranking-so7-lh-com.txt).** The 87 rows at or over 14 %, measured again on our host, read as in order 5.
+   Two causes shared by recorded pages, both shipped in 595b219:
+   - **The intro after a stage loses its padding.** www's stage is followed by a padded intro with .mb-default and
+     then an unpadded section. The intro's bottom padding went missing ("Your personal space" 40 px high on
+     premium-economy-class). Drafts: premium-economy-class 19.4 / 19.5 -> 8.0 / 16.9, hearing-impairment
+     8.4 / 7.1 -> 5.8 / 6.5, visual-impairment 9.8 / 6.1 -> 7.7 / 6.3, passengers-with-sensory-impairment
+     5.6 / 6.5 -> 6.0 / 6.7.
+     - An intro without .mb-default stays as before (first-class-terminal measured +6.7 at 1440).
+     - List reimport-so7-stage-intro-lh-com.txt: 14 READY, 6 HOLD (the business-class pages: a shape without a
+       recording; two snapshots older than published).
+   - **A flush grey band before a padded section** kept our 48 px gap; www has only the padded section's top padding.
+     Served on push, nothing to import: economy-class 17.9 / 29.7 -> 15.9 / 28.1, lhg-wifi 13.6 / 14.7 -> 11.8 / 13.5,
+     travel-insurances 15.1 / 14.6 -> 10.1 / 11.0.
+     - premium-economy-class reads 20.7 at 1440 (+1.0) until its re-import brings the intro rule.
+     - The same rule before an unpadded section split 35 better against 35 worse, so it is not shipped.
+   - **Measured, not shipped:** the fleet split (a padded AEM section, then an unpadded one) applied to info pages.
+     It made four recorded pages worse by 1.0 to 1.7 (advice-for-travellers, air-baltic, ana and its FAQ).
+
+Lists on main: reimport-so7-stage-intro-lh-com.txt, ranking-so7-lh-com.txt, and the legal list's notes for items 1
+and 2. Left out of git: logs/b599 (scanners, censuses, captures, trials) and the R2 archives and import workspaces
+under /tmp.
+
+### Standing order 8 (2026-11-12 10:05 to 14:00 CET)
+
+No airline-host requests, nothing uploaded or previewed. The only R2 read was lh-snapshots-047. Each push: whole-repo
+lint read 0 on a clean worktree of HEAD, stylelint on styles.css 0 (no theme file touched), the suites passed (site
+913 and more, lh-edge 71, failing 0), and every test that reads styles.css passed after the rebase. Build green.
+
+1. **Fleet h1: www has none on these pages, so nothing changes.** www's stage-style fleet pages (320, 32n, boeing787,
+   351) mark their title as h2.headline inside the stage: in the 2026-10-22 snapshots and in lh-snapshots-047
+   (2026-11-03, xx/ja 351). 359, 744 and lufthansa-first-class-fleet have an h1, and so do our documents. The
+   recordings agree on the look (the same stage title at 1440); they hold no markup.
+2. **The six HOLD rows of reimport-so7-stage-intro-lh-com.txt** now say what would make them READY:
+   - de/en, de/de, at/de business-class: a 1440 / 390 recording of a business-class page, or your go on the measured
+     mechanism. Their text reads as main's import.
+   - gb/en business-class: a fresh capture. The published document holds the page twice (two H1s, each of its ten H2
+     chapters twice, an older and a newer version). It is the only such document of the 6,826.
+   - at/de and gb/en passengers-with-sensory-impairment: fresh captures. The published documents carry www's newer
+     text.
+3. **Ranking below 14 % (ranking-so8-lh-com.txt).** The 110 rows from 8 to 14 %, measured again on our host. 17
+   captures got HTTP 429 from our host and were re-run slowly; they read as before. Shared causes:
+   - **page-end-cta (cdea086, served):** the confirmation pages and refund end with a call to action and www's
+     closing separator, and our last section added its 48 px gap.
+     - contact-form-confirmation: 10.1 / 10.2 -> 1.0 / 4.1
+     - the other six: 5.7-10.6 -> 1.6-2.1 at 1440, 3.2-5.0 at 390
+     - The same rule after a block or a text paragraph made 18 page-widths worse, so the gap stays there.
+   - **padded-block-margin (39f6f7f, served):** from 768 px, a padded section that ends with a padded Columns Media
+     before an unpadded section keeps the block's 24 px, as www's component margin. 32n 10.0 -> 6.4, 320 9.1 -> 6.4,
+     premium-economy-class 11.2 -> 10.1 at 1440. Phones stay as before (premium-economy-class measured worse at 390).
+     The margin on every such section made 23 page-widths worse.
+   - **fleet-hero-information (HOLD):** on 32n and boeing787 at 390 the stage text is www's .information body text
+     (about 16 px), but the hero block takes a lone paragraph after the heading as its subtitle (22 px heading face).
+     The importer writes www's .subheadline and .information alike. It needs a parser mark and a re-import.
+   - **article-lead-font (HOLD):** two Insights articles; the recording draws the lead in a fallback face, one line
+     more. A recording artefact.
+   - premium-economy-class's stage-intro re-import is live: 19.7 -> 11.2 at 1440.
+
+Left out of git: logs/b600 (runners, censuses, captures, trial CSS), and the R2 archives and import workspaces under
+/tmp.
+
+### Standing order 9 (2026-11-12 13:30 to 18:00 CET)
+
+No airline-host requests, nothing uploaded, previewed or published. DA was only read (GET source, versionlist,
+versionsource). Each push: whole-repo lint read 0 on a clean worktree of HEAD, stylelint on styles.css and the theme
+files 0, the tests that read the changed files passed, Build green. Item 1's commit also passed the full suites (site
+927, lh-edge 71, failing 0).
+
+1. **Fleet stage text as body copy (23b82c9).** The hero-campaign parser now marks a lufthansa.com stage that has
+   www's body copy (.information) and no tagline (.subheadline) with the option no-subtitle. The block then leaves the
+   paragraph as body text (about 16 px at 390, not the 22 px subtitle). Other brands' importers are unchanged. The test
+   came first (hero-campaign-no-subtitle-so9). List `reimport-so9-hero-no-subtitle-lh-com.txt`:
+   - 7 READY: 320 and 32n (de/en and de/de), de/en boeing787, and the two 351 fleet pages. Each changes by the option
+     alone.
+   - 22 HOLD: the xx versions' snapshots are only in the helper's so4 archive; xx/ja stays as DA has it.
+2. **gb/en business-class twice (6f25b50).** Cause: the DA rollout project "business-class-update" (2026-11-04 05:32
+   UTC, from /gc/en saved at 05:28) was merged into gb/en's own copy and never resolved. DA keeps 25 pairs: the
+   incoming block in `<da-diff-deleted>`, gb/en's own block after it. The published page shows both.
+   - Only the stage differs in words; the newer side has "privacy and more space for you", the body copy and "Book
+     Business Class". The other 24 pairs differ by links alone (/gc/en against /gb/en).
+   - `tools/loc/merge-newer.mjs` (local files only) keeps the newer words per pair, with gb/en's links. The result
+     reads as /gc/en (words, images and blocks) with gb/en's links. The test came first (loc-merge-newer-so9).
+   - One READY row in `delta-so9-gb-en-business-class-lh-com.txt`.
+3. **Ranking further below 8 % (`ranking-so9-lh-com.txt`, 175 rows from 4 to 8 %).** All rows were measured again on
+   our host, with no HTTP 429. Shared causes, each tried on every recorded page it touches:
+   - **accordion-grey (87e2b57, served):** from 768 px, no section gap between an accordion and a plain grey band
+     after it (www 20 px, ours 68). At 1440: the four upgrade pages 10.2 / 9.9 / 9.9 / 8.3 -> 6.7 / 6.5 / 6.4 / 4.7,
+     doctor-on-board-news 8.3 -> 7.3. Phones stay as before, because the rule measured worse at 390 on all five. The
+     served captures match the trial.
+   - **list-end (HOLD, your go):** on phones, a stacked Columns Media text cell that ends with a list sits 12 px too
+     far from the next cell.
+     - Better with 24 px there: hearing-impairment 7.9 -> 6.0, visual-impairment 6.3 -> 4.3, cognitive-impairment
+       6.8 -> 5.9, passengers-with-sensory-impairment 6.7 -> 5.4.
+     - Worse on the whole page: schengen 8.5 -> 9.9, sports-baggage 5.8 -> 6.6 and payment-options 7.8 -> 8.4. On
+       schengen and sports-baggage the 12 px made up for an earlier drift; their block region scores improve (1.4 ->
+       0.2 and 6.3 -> 2.3).
+   - **stage-intro-padded (HOLD, your go):** a stage, then an unstyled intro, then a padded or grey section: ours is
+     16-17 px short.
+     - Better with 64 px under the intro: my-bookings 7.4 -> 4.6 and seat-maps 7.8 -> 4.9 at 1440; wetlease-hub and
+       travel-companion at both widths.
+     - Worse: air-baltic 4.8 -> 5.4 at 1440, the same on a second run, though its opening region improves.
+       onboard-delights (a flush stage) is left out of the rule.
+   - **intro-end (not shipped):** 24 px under an h1 / picture / text opening made accessible-travel and
+     carry-on-baggage worse.
+   - The legal column marks of standing order 5 (34 recorded page-widths against rank-582): 20 better, 11 within 0.3,
+     and 3 worse. The worse ones are imprint (7.6 -> 9.9 at 390, 4.2 -> 8.8 at 1440) and datenschutz at 1440 (3.2 ->
+     6.4); each is a single-page drift.
+   - The rest are single-page drifts, or offset-tool spikes of about 300 px.
+   - Not mine: test/carousel-dots-374 was red on main from 517187a4, with or without my changes. Another session
+     fixed it in 55714cf and a110d97, and it passes again.
+
+Left out of git:
+- logs/b601: runners, censuses, captures, trial CSS, the DA copies and the delta's output.
+- The untracked import reports of earlier runs.
+- The R2 archives and import workspaces under /tmp.
+
+### Standing order 10 (2026-11-12 17:00 to 20:00 CET)
+
+No airline-host requests, nothing uploaded, previewed or published. Each push: whole-repo lint read 0 on a clean
+worktree of HEAD, stylelint on styles.css, columns-media.css and the theme files 0, every test that reads a changed
+file passed (one existing skip), Build green. Every capture on our host answered 200.
+
+1. **imprint: fixed in part (d62fa44, served); datenschutz: open.**
+   - imprint: www keeps its chapters as column views in one AEM section, 64 px apart. Ours makes each a section with a
+     padded Columns Media, 88 px apart (our section gap stands for an AEM section's .mb-default). Now a view's
+     section before a view that opens with its title (column-start heading) keeps 24 px. Live: 8.8 -> 7.2 at 1440,
+     9.9 -> 9.2 at 390. The 34 recorded legal page-widths are as before. Test first (view-after-view-so10).
+   - The same before a padded Columns Media would take imprint to 5.2 / 8.3, but it made
+     lufthansa-insights-imprint 2.6 / 1.9 worse. Its import dropped www's empty paragraph at the end of the view
+     before, a drift of its own. Held: READY once that paragraph comes back.
+   - datenschutz: www's one-column view holds the heading, the text and six navigation links, and the importer ends
+     the view on the text before them. Two fixes were measured and dropped, so nothing changed for datenschutz:
+     - Importer, end mark after the links (test first; 44 of 46 documents change by the marks alone): drafts on our
+       host made datenschutz worse, 6.4 -> 9.0 / 9.3 -> 12.2.
+     - CSS, no end padding on such a text paragraph: 20 of 43 recorded page-widths worse by more than 0.5, among
+       them data-collection-canada 1440 +3.8.
+2. **list-end and stage-intro-padded served (4670ad4), test first (list-end-stage-intro-so10).** Live captures read
+   exactly as the trial on all 21 page-widths: hearing-impairment 7.9 -> 6.0, visual-impairment 6.3 -> 4.3,
+   my-bookings 7.4 -> 4.6, seat-maps 7.8 -> 4.9. onboard-delights is as before (flush stages left out). ranking-so9's
+   rows read SERVED.
+3. **reimport-so9-hero-no-subtitle: the 22 xx rows READY (22e1b07)**, each on the condition that no-subtitle is the
+   only change. The 20 archive rows are a re-import with main's fleet bundle. The two xx/ja rows (www 404) are DA's
+   copy plus the option; their stages are a heading and body copy, as de/en's.
+4. **Below 4 % (ranking-so10-lh-com.txt, 74 rows):** no cause shared by two or more pages. 19 rows are offset-tool
+   spikes, 30 are single-page drifts, 25 have no step. Since rank-582, lufthansa-travel-classes 1440 went 2.7 ->
+   8.2: its document was republished on 11-11 and none of today's rules match it. Open.
+
+Left out of git:
+- logs/b602: runners, censuses, captures, trial CSS, drafts.
+- test/column-end-links-so10.test.mjs and its fixture: the dropped importer fix's test, which fails without it.
+- The untracked import reports of earlier runs.
+- The offline-import workspaces and archives under /tmp.
+
+### Standing order 11 (2026-11-12 20:00 to 01:00 CET)
+
+No airline-host requests, nothing uploaded, previewed or published. DA was only read (GET source). Recordings came from
+lh-snapshots-110 and -111 only, sha256 checked. Each push: whole-repo lint read 0 on a clean worktree of the rebased HEAD,
+stylelint on styles.css, columns-media.css and the theme files 0, the tests that read the changed files passed (one
+existing skip), Build green. The helper pushed every few minutes, so a push took up to six rebase-and-lint rounds.
+
+1. **Stage-intro HOLD rows READY (reimport-so7-stage-intro-lh-com.txt).** Each new snapshot was imported with main's
+   info bundle and with lufthansa-sections.js from before 7d58bb1; the sections alone differ. Each row says what else
+   changes against DA's copy:
+   - All six: the stages' no-subtitle option.
+   - business-class: the page's last chapter as a section of its own; the helper's usual pipeline steps (metadata
+     rows, DAM video name).
+   - at/de business-class: www's newer German text (147 words).
+   - gb/en business-class: replaces the doubled copy with www's newer English text; supersedes the delta-so9 row.
+   - at/de sensory-impairment: one link where DA's own slug gesund-reisen must stay.
+
+   The list notes that www moved /<cc>/<ll>/business-class to /prepare-for-your-trip/travel-classes/business-class
+   and our documents keep the old path. It also notes what 110 holds for the READY twins: at/de and gb/en
+   premium-economy-class and the hearing and visual twins carry newer text.
+
+   /de/en/business-class on 111's recordings, % off www at 1440 / 390:
+   - Published before: 29.4 / 15.8.
+   - Drafts: 23.1 / 19.9 without the stage-intro change, 19.0 / 18.6 with it.
+   - Live since the helper's upload: 21.3 / 17.6. At 390 the last chapter's own section adds 48 px near the end.
+2. **lufthansa-travel-classes (b8ab4f0, served).** Standing order 7's flush-grey-band rule took the gap before the
+   cards' padded campaign section. That band keeps 24px now (test first). Live, the four travel-class hubs are at 3.9
+   / 7.9-8.0 (de/en was 8.2 / 14.8). gepaeck and menu-on-board are as before.
+3. **insights-imprint and the held rule A (783764a, served).** tools/importer/cell-end-spacers-apply.mjs (test first on
+   DA's copy) puts {spacer-26} where www ends two cells with an empty paragraph; READY row in
+   delta-so11-insights-imprint-cell-spacers-lh-com.txt. Drafts, % off www at 1440 / 390:
+   - Today: 3.2 / 6.5.
+   - With rule A: 5.8 / 8.4.
+   - With the delta and rule A: 3.4 / 6.8.
+
+   Rule A ships with it. Live: imprint 7.2 / 9.2 -> 5.2 / 8.3; insights-imprint reads 5.8 / 8.4 until the delta is
+   uploaded (the row asks for it first). The other recorded legal pages are unchanged.
+4. **datenschutz: still open.** I found no clear third approach (ranking-so10's row says why).
+
+Pushed at the start of standing order 12 (the session ended before this section's push). Since then, checked at 23:35
+CET: the helper published the 16 stage-intro pages, among them /gb/en/business-class once (one H1). The insights-imprint
+delta is not live yet, so that page reads about 5.8 / 8.4 until it is.
+
+Left out of git:
+- logs/b603: runners, comparisons, captures, drafts, DA copies.
+- test/column-end-links-so10.test.mjs and its fixture: still the dropped fix's test.
+- The untracked import reports of earlier runs.
+- /tmp: the R2 archives (r2-110, r2-111), the base bundle and the offline-import workspaces.
+
+### Standing order 12 (2026-11-12 23:35 to 2026-11-13 05:00 CET)
+
+No requests to www or any airline host, nothing uploaded, previewed or published. Each push: whole-repo lint read 0 on a
+clean worktree of the rebased HEAD, stylelint on styles.css, columns-media.css and the theme files 0, the tests that
+read the changed files passed (one existing skip), Build green. No change this round deploys lh-edge (lists and the
+report only).
+
+1. **Order 11 finished.** Its final section is on main (9133cc5); the delta row's list has been there since 783764a.
+   The push was held up first by a lint worktree the interrupted session had left locked (unlocked and pruned; it held
+   no work). Since then the helper published the insights-imprint delta: live 3.2 / 6.5 (before rule A) -> 3.4 / 6.8
+   with rule A and the delta, as the drafts said; imprint 5.2 / 8.3.
+2. **Ranking (ranking-so12-lh-com.txt).** The 202 page-widths of ranking-so5 (10 % and over), measured again; every
+   capture was HTTP 200. The first run failed at the browser launch: after the restart only Chromium build 1254 is
+   installed, and the repo's playwright-core looks for 1208. logs/b604/capture-d.cjs takes the installed build; scores
+   match the old build (imprint 5.2 % both). Each step was paired with our section boundary or block. Shared causes:
+   - column-band-plain (HOLD): a grey column band before an unstyled section keeps our 48 px gap; www mostly has none.
+     Narrowed to leave out the shapes where www keeps it, on the 54 recorded page-widths: 22 better by more than 0.5
+     (entryprocesses 28.5 / 16.9 -> 17.4 / 6.5, doctor-on-board 9.9 -> 3.5, special-meals 9.9 -> 5.1) and 7 worse
+     (childrens-menus-on-board, with-children-at-the-airport, ana and flight-disruptions at 390, passenger-rights at
+     1440). www's markup is the same on childrens-menus-on-board and special-meals, so fresh recordings decide.
+   - plain-grey (not shipped): the same after a plain grey band, 19 better and 25 worse.
+   - fleet-carousel (text metrics) and related-articles (live content): no rule.
+   - The re-imports moved many rows since so5: my-logbook 20.7 -> 4.6 at 1440, data-collection-usa 18.7 -> 4.7 at
+     390, premium-economy-class 19.7 -> 10.1 at 1440.
+   - datenschutz stays open.
+3. **Capture request (capture-requests-ema-adobe.txt, on main):** the five worse pages of column-band-plain and two
+   references (special-meals, entryprocesses), each at 1440 and 390.
+
+Left out of git:
+- logs/b604: runners, captures, trial CSS, the patched capture and DOM-check scripts.
+- test/column-end-links-so10.test.mjs and its fixture: the dropped fix's test.
+- The untracked import reports of earlier runs.
+- /tmp: the R2 archives and the import workspaces.
+
+### Standing order 13 (2026-11-13 04:40 to 10:00 CET)
+
+No requests to any airline host, nothing uploaded, previewed or published. Each push: whole-repo lint read 0 on a clean
+worktree of the rebased HEAD, stylelint on styles.css, columns-media.css and the theme files 0, the tests that read the
+changed files passed (one existing skip), Build green. No change deploys lh-edge.
+
+1. **The column-band rule on the fresh recordings: still held.** lh-snapshots-115 was checked: sha256 as given, every
+   PNG as wide as its viewport and as tall as its measured scrollHeight, recorded 2026-11-13 02:34-02:36 UTC (the
+   README's first line names an older archive). Against the old recordings, www is unchanged on five of the seven pages;
+   with-children-at-the-airport is 135-163 px shorter and special-meals changed at 390. Rule on the fresh recordings,
+   % off www at 1440 / 390:
+   - childrens-menus-on-board 13.2 / 16.5 -> 17.2 / 20.0
+   - ana 390 8.0 -> 10.3, flight-disruptions 390 11.7 -> 14.1, passenger-rights 1440 3.6 -> 4.5
+   - with-children-at-the-airport now better (12.7 / 13.4 -> 10.0 / 11.5)
+   - special-meals 9.8 -> 5.0 and entryprocesses 16.7 / 28.3 -> 6.3 / 16.4 as before
+
+   Four page-widths still worse by more than 0.5, so the rule stays held. What differs in www's markup is in
+   ranking-so12's header: our documents write one shape for several www shapes. special-meals and entryprocesses have no
+   space beyond the band's padding. childrens-menus-on-board has a separator before a new AEM section without
+   .mb-default; ana's band is a whole grey AEM section with .mb-default; flight-disruptions' band is a view inside one
+   section; passenger-rights' is nested in another view.
+
+   Rendered locally without scripts (my own server), www has the same 72 px under the band on childrens-menus-on-board
+   and special-meals, and ours 89 on both. So the difference on the recordings comes from www's scripted components. A
+   fix needs the importer to keep the section boundary and the separator as www draws them.
+2. **The next rows of ranking-so12.**
+   - **airline-tiles (bc8398e, served, test first):** a picture later in a text cell before a lone link keeps 40px,
+     like www's image component. On the three recorded documents, live as the trial: feedback-and-contact-airlines
+     14.3 / 7.1 -> 9.4 / 3.5, report-baggage 13.9 / 14.0 -> 9.1 / 10.6, delayed-baggage-lhg 13.7 / 6.7 -> 9.1 / 4.0.
+   - **Measured and not shipped:**
+     - phone row gap 46 px instead of 66: 15 better, 25 worse
+     - 0 or 16 px before a flush grey band: 25-26 better, 15-16 worse, mostly the column-band rule's pages again
+   - **Single pages:** first-class's stages, feedbackai (a live widget's space), the fleet slider's text metrics, and
+     the Insights articles' live related articles.
+   - No new capture request: the open question needs www's scripted render, which the recordings already are.
+
+Left out of git:
+- logs/b605: runners, captures, trial CSS, the local render scripts.
+- test/column-end-links-so10.test.mjs and its fixture: the dropped fix's test.
+- The untracked import reports of earlier runs.
+- /tmp: the archives (r2-110, r2-111, r2-115) and the import workspaces.

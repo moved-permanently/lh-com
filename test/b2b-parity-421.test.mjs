@@ -81,7 +81,8 @@ test('row 21: www\'s line heights: the large headline size x 1.2 - 2.4 px (48 at
   assert.match(css, new RegExp(`${c} > h1, ${c} > :is\\(h1, h2, h3, h4, h5, h6\\)\\.heading-large \\{ line-height: calc\\(var\\(--heading-font-size-xxl\\) \\* 1\\.2 - 2\\.4px\\); \\}`));
   assert.match(css, new RegExp(`${c} > h2:not\\(\\[class\\*="heading-"\\]\\), ${c} > :is\\(h1, h2, h3, h4, h5, h6\\)\\.heading-medium \\{ line-height: calc\\(var\\(--heading-font-size-xl\\) \\* 1\\.5 - 10px\\); \\}`));
   assert.match(css, new RegExp(`${c} > :is\\(h1, h2, h3, h4, h5, h6\\)\\.heading-small \\{ line-height: calc\\(var\\(--heading-font-size-l\\) \\+ 4px\\); \\}`));
-  assert.match(css, /body\.brand-b2b main \.hotline-finder :is\(h3, h4\), [^{]+> :is\(h3, h4\):not\(\[class\*="heading-"\]\) \{ line-height: 24px; \}/);
+  // a card H3 without a size class has heading-small's line since (test/b2b-card-h3.test.mjs); card H4s keep 24 px
+  assert.match(css, /body\.brand-b2b main \.hotline-finder :is\(h3, h4\), body\.brand-b2b main \.default-content-wrapper > :is\(h3, h4\):not\(\[class\*="heading-"\]\), body\.brand-b2b main \.columns-media-text > h4:not\(\[class\*="heading-"\]\) \{ line-height: 24px; \}/);
 });
 
 test('row 21: the blocks\' type as www\'s: the cards\' titles their size + 4 px (28 / 32, 24 / 28), the carousel cards\' titles and copy 24 px (not 19.8 and 27)', () => {

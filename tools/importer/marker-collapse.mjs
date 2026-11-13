@@ -29,7 +29,7 @@
  *   theme (THEMES columnViews.blocks: Discover's, B2B's).
  * - heading size: within one step of the context's default (the brand's and page type's, as the
  *   site will see it: a page with column marks is a flow page) the default; two or more steps a
- *   level-scoped section style (h2-large, h2-compact, h3-large; on every section of the page the
+ *   level-scoped section style (h2-large, h2-compact, h3-large, h4-large; on every section of the page the
  *   page's Headings row) or, in a block, its title option (title-large, title-compact); a size
  *   without a choice of its level goes (counted). The level never changes. limited-width goes.
  * - text width: the brand's default (running text two thirds; ITA the whole width); a section whose
@@ -608,7 +608,13 @@ function headingWish(theme, level, size) {
   const def = theme.headings[`h${level}`];
   const idx = (s) => (s === 'copytext-large' ? HEADING_SIZES.length : HEADING_SIZES.indexOf(s));
   const steps = size === 'copytext-large' ? idx(size) - idx(def) : sizeSteps(def, size);
-  if (steps === null || Math.abs(steps) <= 1) return { kind: 'default' };
+  if (steps === null) return { kind: 'default' };
+  if (Math.abs(steps) <= 1) {
+    // a theme may keep a one-step size as a choice (lufthansa.com's H1 in heading-medium, brief 582)
+    const near = ((theme.nearChoices || {})[`h${level}`] || {})[size];
+    const kept = near && ((theme.headingChoices || {})[`h${level}`] || {})[near];
+    return kept ? { kind: 'choice', choice: near } : { kind: 'default' };
+  }
   const choice = steps < 0 ? 'large' : 'compact';
   const has = ((theme.headingChoices || {})[`h${level}`] || {})[choice];
   return has ? { kind: 'choice', choice } : { kind: 'none' };
@@ -621,6 +627,19 @@ function collapseHeadings(main, doc, stats, marks, theme) {
     const size = tokens.find((t) => SIZE_TOKEN.test(t));
     tokens.filter((t) => t === 'limited-width').forEach(() => count(stats, 'theme', 'heading'));
     if (!size) return;
+    // a size the theme keeps as written (Discover's heading-copytext-large: www's 16 / 18 px bold eyebrows and
+    // column-view headings, in mixed sections and blocks alike; rows-for-ema-test.md row 3): the marker stays on the
+    // heading, scripts.js decorateTextStyles makes it the class; the same on a second run
+    // keepSizesIn: sizes a theme keeps inside one kind of block (ITA's Columns Media cells: www's column-view
+    // headlines in heading-medium or heading-small, where the block's own default is not the level's;
+    // rows-for-ema-test.md row 6, standing order 10 of 2026-11-12)
+    const inBlock = blockOf(el, main);
+    const keptIn = inBlock && ((theme.keepSizesIn || {})[blockName(inBlock)] || []).includes(size);
+    if ((theme.keepSizes || []).includes(size) || keptIn) {
+      el.append(doc.createTextNode(` {${size}}`));
+      count(stats, 'carrier', 'heading-kept', 1);
+      return;
+    }
     const w = headingWish(theme, Number(el.tagName[1]), size);
     if (w.kind === 'default') count(stats, 'theme', 'heading');
     else if (w.kind === 'none') count(stats, 'theme', 'heading-no-choice');
@@ -866,17 +885,30 @@ function columnViewSections(main, doc, marks, carrier) {
     const groups = [];
     let depth = 0;
     let cur = null;
-    own.forEach((el) => {
+    // a view inside a view (www's .column-view in a .column-view, standing order 5): the outer view's part before the
+    // inner one, the inner one and the outer's rest each a group of their own (each its view's padding); a part of
+    // nothing but mark paragraphs (two starts in a row) is no group
+    const blank = (a, b) => own.slice(own.indexOf(a), own.indexOf(b) + 1).every((x) => (x.tagName === 'P' && isEmptyP(x)) || isSepP(x));
+    let outerOf = false;
+    own.forEach((el, i) => {
       tokensOf(el).filter((t) => /^column-(start|end)/.test(t)).forEach((t) => {
         if (t.startsWith('column-start')) {
-          if (depth === 0) cur = { first: el, outer: t === 'column-start-outer' };
+          if (depth === 0) { outerOf = t === 'column-start-outer'; cur = { first: el, outer: outerOf }; }
+          else if (cur && i > 0 && cur.first !== el && !blank(cur.first, own[i - 1])) {
+            cur.last = own[i - 1]; groups.push(cur); cur = { first: el, outer: false };
+          }
           depth += 1;
         } else if (depth > 0) {
           depth -= 1;
           if (depth === 0 && cur) { cur.last = el; groups.push(cur); cur = null; }
+          else if (cur && own[i + 1]) { cur.last = el; groups.push(cur); cur = { first: own[i + 1], outer: outerOf }; }
         }
       });
     });
+    // parts of nothing but mark paragraphs: into the group before them
+    for (let i = groups.length - 1; i > 0; i -= 1) {
+      if (groups[i].first && groups[i].last && blank(groups[i].first, groups[i].last)) { groups[i - 1].last = groups[i].last; groups.splice(i, 1); }
+    }
     // an element that ends one group and starts the next belongs to the first
     groups.forEach((g, i) => { if (i && groups[i - 1].last === g.first) g.first = g.first.nextElementSibling; });
     [...groups].reverse().forEach((g) => {
@@ -913,6 +945,16 @@ function collapseColumns(main, doc, stats, marks, theme) {
   }
   const outer = new Map();
   marks.forEach((tokens, el) => {
+    // a view that opens and closes on one running-text element (Discover's intro in a one-column view after the
+    // title, additional-services; THEMES columnViews.oneElementViews, standing order 10 of 2026-11-12): both marks
+    // stay on it, the page draws them as the view's padding; the same on a second run
+    if (theme.columnViews.oneElementViews && tokens.includes('column-start-outer') && tokens.includes('column-end-outer')
+      && el.tagName === 'P' && isRunningText(el) && !blockOf(el, main)) {
+      el.append(doc.createTextNode(' {column-start-outer column-end-outer}'));
+      count(stats, 'carrier', 'column', 2);
+      tokens.filter((t) => COLUMN.test(t) && t !== 'column-start-outer' && t !== 'column-end-outer').forEach(() => count(stats, 'theme', 'column'));
+      return;
+    }
     tokens.filter((t) => COLUMN.test(t)).forEach((t) => {
       if (t === 'column-start-outer' || t === 'column-end-outer') {
         const s = sectionOf(el.tagName === 'LI' ? el.parentElement : el, main);
@@ -943,13 +985,23 @@ function isBoldHeading(el) {
 function collapseSeparators(main, doc, stats, ctx) {
   // the page type's gaps the theme draws (THEMES rules: sections-m, rule-before-info-box,
   // ruled-chapters)
-  const { rules } = themeFor(ctx.brand, ctx.pageType);
+  const { rules, textSpacers = false, componentSpacers = false } = themeFor(ctx.brand, ctx.pageType);
   const isSep = (el) => !!el && el.tagName === 'P' && SEPARATOR.test(textOf(el));
   const parse = (el) => textOf(el).match(SEPARATOR);
   // in block cells, or nested in any other element of the page (an importer's tab panel before
   // its sections): no carrier there; the space goes
+  // (on a theme with textSpacers, Brussels: one of 31 px or less between running text and a heading stays, as in
+  // default content: www's separators before an accordion panel's headings, standing order 18)
   main.querySelectorAll(':scope > div > * p').forEach((p) => {
     if (!isSep(p)) return;
+    const m = parse(p);
+    const prev = p.previousElementSibling;
+    const next = p.nextElementSibling;
+    if (textSpacers && m[1] === 'spacer' && !m[3] && Number(m[2]) <= 31 && prev && isRunningText(prev)
+      && !SEPARATOR.test(textOf(prev)) && next && /^H[1-6]$/.test(next.tagName)) {
+      count(stats, 'carrier', 'text-spacer-in-block');
+      return;
+    }
     count(stats, 'theme', 'separator-in-block');
     p.remove();
   });
@@ -987,6 +1039,32 @@ function collapseSeparators(main, doc, stats, ctx) {
       const atStart = !content(before) && now.slice(0, first).every((el) => !content(el));
       const atEnd = now.slice(lastAt + 1).every((el) => !content(el));
       const remove = () => run.els.forEach((el) => el.remove());
+      // a small space between two running-text elements (www's empty paragraph: nbsp-guard.mjs emptyParagraphSpacers)
+      // stays as one {spacer-N} on a theme with textSpacers (standing order 5 of 2026-11-11, item 1); the same on a second run
+      const prose = (el) => !!el && isRunningText(el) && !/^\s*\{[^}]*\}\s*$/.test(textOf(el));
+      // and between running text and the next heading (www.brusselsairlines.com's .separator .hr-no-layout between a
+      // text and a headline, the cleanup's "{spacer-28}": the heading 48 to 51 px under the text on www;
+      // rows-for-ema-test.md row 5, standing order 8 of 2026-11-12)
+      const heading = (el) => !!el && /^H[1-6]$/.test(el.tagName);
+      if (size === 'none' && textSpacers && !tablet && prose(before) && (prose(after) || heading(after))) {
+        const keep = doc.createElement('p');
+        keep.textContent = `{spacer-${px}}`;
+        run.els[0].before(keep);
+        remove();
+        count(stats, 'carrier', 'text-spacer', run.els.length);
+        return;
+      }
+      // a small space between two components (Discover's separators, www's .hr 30 px + 1: the cleanup's "{spacer-30}")
+      // stays as one {spacer-N} on a theme with componentSpacers, not at a section's start or end (www: no margin
+      // there; rows-for-ema-test.md row 4, standing order 6 of 2026-11-12); the same on a second run
+      if (size === 'none' && componentSpacers && !tablet && !atStart && !atEnd && content(before) && content(after)) {
+        const keep = doc.createElement('p');
+        keep.textContent = `{spacer-${px}}`;
+        run.els[0].before(keep);
+        remove();
+        count(stats, 'carrier', 'component-spacer', run.els.length);
+        return;
+      }
       if (size === 'none') { remove(); count(stats, 'theme', 'separator', run.els.length); return; }
       if (tablet) {
         const b = doc.createElement('div');

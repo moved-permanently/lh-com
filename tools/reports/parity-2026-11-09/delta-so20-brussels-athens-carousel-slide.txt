@@ -1,0 +1,23 @@
+# ema-cashub, standing order 20 (2026-11-13), item 3: Brussels your-summer-in-athens-starts-here. Expected change: section
+# 5's carousel shows its first slide's second picture under the first, as www does (1440 -5.68 -> +1.93 % off www, 390
+# -2.12 -> +0.97). DA's copy plus the delta, not a re-import.
+# www (brussels-parity-010) has a two-slide carousel under "5. Dive into the Vibrant Atmosphere of Monastiraki and Psiri".
+# Its first slide holds two image components, one under the other, 30 px apart: the street (Monastiraki1920-1080), then
+# SN-Blog-Athens-Monastiraki1; the second slide is Monastiraki21920-1080. The import kept the first picture of each
+# slide, so DA's copies have the street and Monastiraki2 only. The section was 552 px short at 1440 (www 1,375 px from
+# its heading to the next, ours 823) and 205 px at 390. Of the recorded Brussels pages it is the only slide with two
+# pictures.
+# The block draws a cell's second picture under the first since bce9cab4 (this order; it changes no page until a
+# document has one: none of the 1,035 local documents with the block does). The importer's parser keeps them too; the
+# import bundles take it at their next build.
+# The delta: in the carousel-images block whose first picture is .../blog/Monastiraki1920-1080.jpg..., right after that
+# picture, in the same cell, nothing else changed (one insertion of 177 bytes):
+#   <picture><img src="https://www.brusselsairlines.com/content/dam/bel/images/blog/SN-Blog-Athens-Monastiraki1.jpg.transform/lh-dcep-transform-width-2560/img.jpg" alt=""></picture>
+# Measured as a draft (our host, the published copy with a local stand-in of the picture's proportions, 1920 x 1269:
+# www draws it 876 x 579; every picture loaded, www.* and the airline hosts refused, 7 a page, none sent): 1440 7,540 ->
+# 8,148 px (www 7,994), 390 6,934 -> 7,153 (www 7,084); the slide 874 x 492 + 874 x 578, as www's. The rest of the page
+# is 98 px over www at 1440, which the missing picture hid.
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-brussels), the delta, what changes on the page.
+READY	/be/en/articles/your-summer-in-athens-starts-here.html	the picture above, after the street's in section 5's carousel	1440 -5.68 -> +1.93 %, 390 -2.12 -> +0.97 %
+READY	/be/fr/articles/your-summer-in-athens-starts-here.html	the same (follows be/en: the same two pictures in that carousel)	as be/en
+READY	/be/nl/articles/your-summer-in-athens-starts-here.html	the same (follows be/en: the same two pictures in that carousel)	as be/en

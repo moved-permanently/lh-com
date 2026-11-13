@@ -105,6 +105,9 @@
    Scoped to body.brand-discover (set by scripts/brand.js), which also outranks the blocks' own
    rules that load after this file; Lufthansa's underlined fields stay on every other site. */
 body.brand-discover {
+  /* headings 36px over what follows at 1440 as www's headlines, 24 on phones (Discover row 44; 36 from 1281px below) */
+  --heading-margin-l: calc(24px + 12 * (100vw - 375px) / 1065);
+  --heading-margin-xl: calc(28px + 8 * (100vw - 375px) / 1065);
   --discover-field-height: 50px;
   --discover-field-border: 1px solid rgb(0 62 123 / 80%);
   --discover-field-fill: #e9f2fb;
@@ -502,8 +505,10 @@ body.brand-discover .footer .footer-legal .footer-link {
     display: none;
   }
 
+  /* a wrapping row as www's: short links side by side, 24px apart (Discover row 47) */
   body.brand-discover .footer .footer-legal {
-    row-gap: 24px;
+    flex-direction: row;
+    gap: 24px;
     padding: 60px 0 41px 12px;
   }
 
@@ -549,6 +554,49 @@ body.brand-discover .footer .footer-legal .footer-link {
 /* brief 394: table row headers (a short first cell, blocks/table-striped) regular as www's cells */
 body.brand-discover .table-striped tbody th {
   font-weight: 400;
+}
+
+/* table cells as www's maui-table-cell (theme four_y: 36 px padding and an empty footnote line under
+   the text; baggage's allowance table at 1440: 166 px rows, ours were 140): 40 px over the text, 67
+   under it, 10 px between its paragraphs (standing order 9 of 2026-11-12) */
+body.brand-discover .table-striped tbody td {
+  padding-top: 40px;
+  padding-bottom: 67px;
+}
+
+body.brand-discover .table-striped tbody td > p {
+  margin-bottom: 10px;
+}
+
+body.brand-discover .table-striped tbody td > p:last-child {
+  margin-bottom: 0;
+}
+
+/* on phones a table of three or more columns keeps www's column width (about 200 px: baggage at 390
+   shows "Economy | Premium Economy", Business beyond) and scrolls sideways in its box
+   (table-striped.css), where ours squeezed the columns and broke the words (standing order 10) */
+@media (width < 768px) {
+  body.brand-discover .table-striped:not(.matrix) table:has(tr > :nth-child(3)) {
+    min-width: 600px;
+  }
+}
+
+/* pictures in an accordion panel sit in www's column view (families' "Baggage regulations for
+   children": 93 px under the text's last line at 1440, 76 to the next item's rule; at 390 the
+   stacked pictures 46 px apart, 73 under the text, 57 over the next item; ours 54 / 21 and 24):
+   the panel's picture grid with that spacing (standing order 10) */
+body.brand-discover .accordion-columns .accordion-columns-grid {
+  row-gap: 46px;
+  margin-top: 55px;
+  margin-bottom: 36px;
+}
+
+@media (width >= 768px) {
+  body.brand-discover .accordion-columns .accordion-columns-grid {
+    row-gap: 32px;
+    margin-top: 75px;
+    margin-bottom: 55px;
+  }
 }
 
 /* brief 394: columns-media option side-picture, www's column view nested in a column (Customer
@@ -634,5 +682,102 @@ body.brand-discover main .columns-media-wrapper + .columns-media-wrapper {
 @media (width >= 768px) {
   body.brand-discover main .columns-media-wrapper + .columns-media-wrapper {
     margin-top: 80px;
+  }
+}
+
+/* the accordions' panel text as www's rich text (Discover row 43, ema-cashub's D1 b): 12px further in than the title,
+   paragraphs and lists 36px apart, lists 40px in with their items 10px apart (the block puts the text in the intro) */
+body.brand-discover main .accordion-columns-panel > .accordion-columns-intro {
+  padding-inline: 12px;
+}
+
+body.brand-discover main .accordion-columns-panel > .accordion-columns-intro > :is(p, ul, ol):not(:last-child) {
+  margin-bottom: 36px;
+}
+
+body.brand-discover main .accordion-columns-panel > .accordion-columns-intro :is(ul, ol) {
+  padding-left: 40px;
+}
+
+body.brand-discover main .accordion-columns-panel > .accordion-columns-intro li {
+  margin-bottom: 10px;
+}
+
+/* headings 36px over what follows from 1281px as www's headlines (Discover row 44) */
+@media (width >= 1281px) {
+  body.brand-discover {
+    --heading-margin-l: 36px;
+    --heading-margin-xl: 36px;
+  }
+}
+
+/* column-view rows 80px apart from 768px also with a column mark between their blocks (Discover row 45) */
+@media (width >= 768px) {
+  body.brand-discover main .columns-media-wrapper + .default-content-wrapper:has(> p.column-mark:only-child) + .columns-media-wrapper {
+    margin-top: 40px;
+  }
+}
+
+/* the accordions 40px over and under them from 768px, 20px under them on phones, as www's maui-collapsible (Discover row 46) */
+body.brand-discover main .accordion-columns-wrapper {
+  margin-bottom: 20px;
+}
+
+@media (width >= 768px) {
+  body.brand-discover main .accordion-columns-wrapper {
+    margin-block: 40px;
+  }
+}
+
+/* from 768 px the cards after an intro's one-paragraph column view (additional-services: www's
+   intro and card views, the marks kept by THEMES.discover columnViews.oneElementViews) start 40 px
+   under it, in the same section or the next (standing order 10; at 390 it read worse) */
+@media (width >= 768px) {
+  body.brand-discover main .default-content-wrapper:has(> p.column-start-outer.column-end-outer:last-child) + .carousel-cards-wrapper,
+  body.brand-discover main > .section:has(> .default-content-wrapper:last-child > p.column-start-outer.column-end-outer:last-child) + .section {
+    margin-top: 40px;
+  }
+}
+
+/* from 768 px a page that ends with the flight search (the price calendar) keeps 54 px under it:
+   www's footer about 46 px under the search box at 1440, ours 20 (standing order 11; at 390 the
+   section gap is there already). The section's class keeps it above flight-search.css's
+   standalone rule (margin-bottom 0 at the same specificity, loaded later; standing order 12) */
+@media (width >= 768px) {
+  body.brand-discover main > .section.flight-search-container:last-child:has(> .flight-search-wrapper:last-child) {
+    margin-bottom: 54px;
+  }
+}
+
+/* on phones a column view right after a text paragraph starts about the paragraph's margin under it,
+   as www's (Punta Cana: 36 px from "Fly from Frankfurt ..." to the next view's heading, ours 56): an
+   8 px edge there instead of the outer view's 20 (standing order 11) */
+@media (width < 768px) {
+  body.brand-discover main .default-content-wrapper > p:not(.column-mark, .spacer) + p.column-mark.column-start-outer {
+    padding-top: 8px;
+  }
+}
+
+/* on phones a Columns Media row after a row with a picture starts 26 px under it, as www's stacked
+   column views (Punta Cana's and entertainment's picture-and-text rows; ours had the block's 66 px
+   row gap); rows of two texts keep it (families, customer-service: measured worse) (standing
+   order 11) */
+@media (width < 768px) {
+  body.brand-discover main .columns-media > .columns-media-row:has(> .columns-media-media) + .columns-media-row {
+    margin-top: -40px;
+  }
+}
+
+/* a page title right under the breadcrumb as www's from 768 px: 6 px lower (www's title at y 192,
+   ours 186) and 60 px above what follows (www's h1.heading-large on every recorded page; styles.css's
+   --heading-margin-xxl gave 40). Not on phones nor under a stage (measured worse there), nor on the
+   offers page, whose title keeps 26 px above the destination finder (standing order 12) */
+@media (width >= 768px) {
+  body.brand-discover main > .section.breadcrumb-container:not(.destination-finder-container) > .breadcrumb-wrapper + .default-content-wrapper:has(> h1.heading-large:first-child) {
+    margin-top: 34px;
+  }
+
+  body.brand-discover main > .section.breadcrumb-container:not(.destination-finder-container) > .breadcrumb-wrapper + .default-content-wrapper:has(> h1.heading-large:first-child) > h1.heading-large:first-child {
+    margin-bottom: 60px;
   }
 }

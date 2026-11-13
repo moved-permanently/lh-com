@@ -1,0 +1,8 @@
+root    /at/en/common/terms-and-conditions/terms-and-conditions-promocode
+version /de/en/common/terms-and-conditions/terms-and-conditions-promocode
+verdict differs (content)
+title   version: Terms of Use of the FLYUS20 Promo Code | Lufthansa
+        root:    terms-and-conditions-promocode | Lufthansa
+diff (- version only, + root only; = shared), from token 27:
+- "The promo code is valid only for flights departing from Germany, Austria, Switzerland or Belgium to the US.."
++ "The promo code is valid only for flights departing from Germany, Austria, Switzerland or Belgium to the US."

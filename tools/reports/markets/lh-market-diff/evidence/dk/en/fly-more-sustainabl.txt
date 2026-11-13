@@ -1,0 +1,78 @@
+root    /dk/en/fly-more-sustainabl
+version /de/en/fly-more-sustainabl
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 210:
++ <div.ghost>
++ <div.headline>
++ <h2.headline.heading-small>
++ "Let’s make a difference. Let’s support climate protection together. Make your flight carbon neutral with your next booking."
++ <div.onecolumn.column.event>
++ <div.column-view.flex-column>
++ <div>
++ <h3.heading-small>
++ "Three options, one goal: climate protection"
++ <div.row>
++ <div.col-lg.column-view-item>
++ <div.accordion.commonevent>
++ <maui-collapsible.accordion-maui>
++ <div.accordionitem.commonevent>
++ <maui-collapsible-item>
++ @headline=1. Promote innovative fuel technology
++ @expanded=
++ <div>
++ <div.text>
++ <div.richtext>
++ <p>
++ "Sustainable aviation fuel (SAF) is not produced from fossil-based raw materials, but from used cooking oils"
++ "&"
++ "fats or from agricultural waste. In comparison to conventional kerosene, SAF saves approximately 80% of carbon emissions and therefore"
++ <strong>
++ "immediately reduces"
++ "your flight-related CO₂ emissions. We use the quantity of SAF required to achieve full carbon reduction."
++ <p>
++ "The raw materials used to create SAF do not take away from human or animal food and are subject to strict sustainability criteria which are audited independently. All sustainable aviation fuels used by the Lufthansa Group meet the EU’s Renewable Energy Directive 2 (RED II)."
++ <div.link.event>
++ <div.maui-link>
++ <maui-navigation-link.large>
++ @size=large
++ @href=https://lufthansa.compensaid.com/en/projects/sustainable-aviation-fuel
++ @rel=noopener noreferrer
++ @slot=trigger
++ @target=_blank
++ @variant=external
++ "More information about SAF"
++ <span.sr-only>
++ "The link will be opened in a new browser tab"
++ <div.accordionitem.commonevent>
++ <maui-collapsible-item>
++ @headline=2. Carbon offsetting through high-quality climate protection projects
++ <div>
++ <div.text>
++ <div.richtext>
++ <p>
++ "The Lufthansa Group promotes climate protection projects worldwide in collaboration with myclimate and climate Austria. Examples include the restoration of peatlands in Germany, the construction of biogas plants in Brazil, the use of energy-saving cookers for people in Rwanda or Kenya or the protec
++ <strong>
++ "over the long term"
++ ", either CO₂ emissions are reduced or removed from the atmosphere. Environmental projects outside of Europe are certified to the highest international standards: Gold Standard or Plan Vivo. Furthermore, the effects and quality of local, European environmental projects are ensured by the domestic st
++ <p>
++ "With your contribution, not only do you help with climate protection, but you also contribute to more biodiversity and improved living conditions for local people."
++ <div.link.event>
++ <div.maui-link>
++ <maui-navigation-link.large>
++ @size=large
++ @href=https://lufthansa.compensaid.com/projects/portfolio
++ @rel=noopener noreferrer
++ @slot=trigger
++ @target=_blank
++ @variant=external
++ "More information about climate protection projects"
++ <span.sr-only>
++ "The link will be opened in a new browser tab"
++ <div.accordionitem.commonevent>
++ <maui-collapsible-item>
++ @headline=3. The ideal combination
++ <div>
++ <div.text>
++ <div.richtext>
++ <p>
++ "With this option, you ensure that one part of your contribution goes towards climate protection projects and the other towards the use of Sustainable Aviation Fuel (SAF). This is how to choose an efficient combination for carbon neutral travel."

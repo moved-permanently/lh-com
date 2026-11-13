@@ -31,10 +31,10 @@ const fixture = `<main><div>
 </div></main>`;
 const doc = () => parseHTML(`<html><body>${fixture}</body></html>`).document;
 
-test('the guard: no-break spaces in a paragraph, a heading, a link text and a table cell become the stand-in; the empty line and attributes stay', () => {
+test('the guard: no-break spaces in a paragraph, a link text and a table cell become the stand-in, in a heading a plain space (brief 597); the empty line and attributes stay', () => {
   const d = doc();
   guardNbsp(d.body);
-  assert.equal(d.querySelector('h2').textContent, `Kilimandjaro,${STAND_IN}Tanzanie`);
+  assert.equal(d.querySelector('h2').textContent, 'Kilimandjaro, Tanzanie', 'a heading: a plain space (its id as the page\'s anchors, brief 597)');
   assert.equal(d.querySelector('p').textContent, `Distance${STAND_IN}: 6${STAND_IN}773${STAND_IN}km`);
   assert.equal(d.querySelector('a').textContent, `Réservez${STAND_IN}maintenant`);
   assert.equal(d.querySelector('td').textContent, `9${STAND_IN}h${STAND_IN}15${STAND_IN}min`);
@@ -56,7 +56,7 @@ test('through the framework\'s own steps (where the plugin is on disk): the empt
   const md = MDUtils.cleanupMarkdown(d.querySelector('main').textContent);
   assert.ok(md.includes(`6${STAND_IN}773${STAND_IN}km`), 'cleanupMarkdown leaves the stand-in');
   const back = restoreNbsp(md);
-  assert.ok(back.includes(`6${NB}773${NB}km`) && back.includes(`Kilimandjaro,${NB}Tanzanie`) && back.includes(`Réservez${NB}maintenant`) && back.includes(`9${NB}h${NB}15${NB}min`));
+  assert.ok(back.includes(`6${NB}773${NB}km`) && back.includes('Kilimandjaro, Tanzanie') && back.includes(`Réservez${NB}maintenant`) && back.includes(`9${NB}h${NB}15${NB}min`));
   assert.ok(!back.includes(STAND_IN));
   // without the guard, as today: every no-break space a plain space
   const today = doc();

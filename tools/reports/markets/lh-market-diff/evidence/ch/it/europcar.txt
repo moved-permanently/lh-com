@@ -1,0 +1,65 @@
+root    /ch/it/europcar
+version /content/lh/markets/xx/it/europcar
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 24:
++ <div.onecolumn.column.event>
++ <div.column-view.flex-column.container-gray.full-width-bg>
++ <div>
++ <h2.heading-medium>
++ "Disposizioni in vigore per aumentare la sicurezza"
++ <div.row>
++ <div.col-lg.column-view-item>
++ <div.text>
++ <div.richtext.limited-width>
++ <p>
++ "Per continuare a garantirle la massima sicurezza nel servizio, Europcar in collaborazione con Bureau Veritas ha adottato nelle proprie sedi norme igieniche ancora più stringenti."
++ <div.link.event>
++ <div.maui-link>
++ <maui-tooltip>
++ @strategy=fixed
++ @placement=bottom
++ @type=small
++ @show-arrow=
++ <maui-navigation-link.large>
++ @size=large
++ @href=https://www.europcar.com/travel-with-confidence
++ @rel=noopener noreferrer
++ @slot=trigger
++ @target=_blank
++ @variant=external
++ "Per saperne di più sul «Safety Program» di Europcar"
++ <span.sr-only>
++ "Il link sarà aperto in una nuova scheda del browser"
++ <div.popover-box-tooltip>
++ @slot=box
++ "Le ricordiamo che con questo link sta visitando un sito Internet esterno che potrebbe non seguire le stesse politiche in termini di privacy, sicurezza e accessibilità."
++ <div.text>
++ <div.richtext.limited-width>
++ <p>
++ "Può viaggiare in tutta tranquillità, sapendo che Europcar si attiene scrupolosamente alle norme igieniche e al distanziamento grazie all’adozione di processi senza contatto fisico."
++ <div.link.event>
++ <div.maui-link>
++ <maui-tooltip>
++ @strategy=fixed
++ @placement=bottom
++ @type=small
++ @show-arrow=
++ <maui-navigation-link.large>
++ @size=large
++ @href=https://www.europcar.com/travel-with-confidence#travel-with-confidence
++ @rel=noopener noreferrer
++ @slot=trigger
++ @target=_blank
++ @variant=external
++ "Per saperne di più sui processi senza contatto fisico di Europcar"
++ <span.sr-only>
++ "Il link sarà aperto in una nuova scheda del browser"
++ <div.popover-box-tooltip>
++ @slot=box
++ "Le ricordiamo che con questo link sta visitando un sito Internet esterno che potrebbe non seguire le stesse politiche in termini di privacy, sicurezza e accessibilità."
++ <div.separator>
++ <div.hr>
++ <maui-divider>
++ <div.separator>
++ <div.hr.hr-no-layout>
++ <maui-divider>

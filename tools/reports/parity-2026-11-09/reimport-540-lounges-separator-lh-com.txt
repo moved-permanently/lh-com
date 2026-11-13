@@ -1,0 +1,5 @@
+# Brief 540 (ema-adobe, 2026-11-09): the four lounges hub documents, in release order, for the lufthansa.com harness (re-import with main's hub bundle, upload, preview; the publish child publishes in the next round). The hub cleanup now keeps www's separator between the nested two-column view ("Zugang zu unseren Lounges") and the heading "Unsere Lounges in der Übersicht" ("{spacer-25}"); with the column-band rule on main the drafts are 12.8 % at 1440 and 14.7 % at 390 against lh-parity-004a (published today: 10.7 % / 15.9 %, the rule alone 15.8 % / 15.5 %), the page 55 / 36 px from www's height (was 125 / 106).
+/de/de/lounges
+/de/en/lounges
+/at/de/lounges
+/gb/en/lounges

@@ -17,10 +17,10 @@ import cardsIconTextParser from './parsers/cards-icon-text.js';
 import embedParser from './parsers/embed.js';
 import lufthansaCleanupTransformer from './transformers/lufthansa-cleanup.js';
 import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
+import hubDcepRenderTransformer from './transformers/hub-dcep-render.js';
 import campaignSectionsTransformer from './transformers/campaign-sections.js';
 import hubColumnViewsTransformer from './transformers/hub-column-views.js';
 import themeSeparatorsTransformer from './transformers/theme-separators.js';
-import hubDcepRenderTransformer from './transformers/hub-dcep-render.js';
 // token-free styling (the brief after 493): the document's markers collapsed, the last step
 import { collapseMain, brandOfHost } from './marker-collapse.mjs';
 // www's no-break spaces through the framework's steps (the brief after 527): guarded in onLoad, restored after

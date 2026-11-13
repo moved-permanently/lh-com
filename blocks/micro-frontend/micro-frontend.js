@@ -86,6 +86,8 @@ const OWN_HOST_BRANDS = {
  * release: www's design system release the app's page loads (else DESIGN_SYSTEM_VERSION).
  * shows: blocks after the app in its section that show what the app shows itself (a fallback the
  * importer writes outside the block): removed once the app renders, kept where it does not.
+ * slots: blocks after the app in its section that www shows inside the app ({block, slot}: the
+ * block's name, the app's element for it): moved there once the app has drawn it.
  */
 export const APPS = {
   'trip-management': {
@@ -109,6 +111,9 @@ export const APPS = {
     },
     // www's topic list is the app's own; the importer writes it after the block as the fallback
     shows: ['accordion-columns'],
+    // www's questionnaire ("Is there a topic missing?") in the app's own container, between the
+    // topic list and the FAQs card (swiss-parity-003, ita-parity-003); ours stays empty there
+    slots: [{ block: 'feedback', slot: '.feedback-form-container' }],
   },
   // lufthansa.com's compensation claim (support/fast-compensation/compensation-flight-disruptions,
   // 2026-11-01) and SWISS's (/<root>/fast-compensation): a module with chunks next to it, on www's
@@ -329,6 +334,41 @@ function shownAfter(block, shows = []) {
 }
 
 /**
+ * Moves the blocks after the block in its section that the app has a place for (slots) into that
+ * place in the app's element (its light DOM); returns how many moved.
+ * @param {Element} element the app's element
+ * @param {Element} block the micro-frontend block
+ * @param {{block: string, slot: string}[]} slots
+ * @returns {number}
+ */
+export function placeInSlots(element, block, slots = []) {
+  if (!element || !slots || !slots.length) return 0;
+  let moved = 0;
+  slots.forEach(({ block: name, slot }) => {
+    const place = element.querySelector(slot);
+    const [wrapper] = shownAfter(block, [name]);
+    if (!place || !wrapper) return;
+    place.append(wrapper);
+    moved += 1;
+  });
+  return moved;
+}
+
+/** placeInSlots as soon as the app has drawn its places, looked at until the deadline. */
+function watchSlots(element, block, slots, deadline) {
+  if (!slots || !slots.length) return;
+  const check = () => {
+    if (!element.isConnected) return;
+    if (slots.every(({ slot }) => element.querySelector(slot))) {
+      placeInSlots(element, block, slots);
+      return;
+    }
+    if (Date.now() < deadline) setTimeout(check, FALLBACK_TIMING.every);
+  };
+  check();
+}
+
+/**
  * Shows the app in place of the fallback once it renders (and removes the blocks after it that
  * show the same, shows), else removes it at the deadline.
  */
@@ -356,7 +396,7 @@ export default async function decorate(block) {
   const deadline = Date.now() + FALLBACK_TIMING.wait;
   const fallback = takeFallback(block);
   const plan = mountPlan(block, brandEntry(), getLocale());
-  const { shows } = appOf(block) || {};
+  const { shows, slots } = appOf(block) || {};
   block.replaceChildren();
   if (fallback) block.append(fallback);
   if (!plan) return;
@@ -386,6 +426,9 @@ export default async function decorate(block) {
     }
     block.append(element);
     if (fallback) watchApp(element, fallback, deadline, shows);
+    // the app's places for blocks after it: its topic selection draws after the fallback's deadline
+    // where the topics load slowly, so they are looked for twice as long
+    watchSlots(element, block, slots, deadline + FALLBACK_TIMING.wait);
   };
   // without a fallback as before: the block waits for the app; with one the fallback shows at once
   if (fallback) mount();

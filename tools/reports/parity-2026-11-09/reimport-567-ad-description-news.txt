@@ -1,0 +1,35 @@
+# The standing order of 2026-11-10, item 2c (Air Dolomiti parity row 92): the destination pages' text on phones.
+# The text block under the stage (www's TitleDescriptionTextCta) is 22 / 37.4 px at every width since row 83 (checked at
+# 390 x 844 on bari, bari-de, cagliari, billund-de, basel, prag, london-eu, francoforte, amsterdam). The 16 / 27.2 px
+# text left is www's DescritionNews (a picture across the page over its text), which these live documents hold as a
+# plain columns-media: imported before the importer wrote columns-media (news) (80458997, 2026-11-07); the brief-541
+# re-imports patched only the block classes and the stage. Found on airdolomiti.turnsthe.page (each page's live
+# document: a plain columns-media in the section after the destination stage, every row a picture and its text; the
+# 83 local destination documents as candidates). Re-imported with airdolomiti-import.mjs as it is on main, from the
+# helper's snapshots. Expected change per row: those blocks as columns-media (news), the theme's rules since brief 456
+# (www's DescritionNews: the picture across the page 600 px high with a 10 px radius, 50 px over the text; the title
+# 28.08 / 36 navy; the text 19.44 / 33 px grey; from 930 px a centred 50vw column); the pages grow (london-eu with the
+# option on its live document: 390 x 844 8761 -> 10132 px, 1440 6023 -> 7384). Count per row: blocks, rows each.
+# Release order; published as they stand.
+/de/reiseziele/basel-de	2	1+1 rows
+/de/reiseziele/biarritz-de	2	1+1 rows
+/de/reiseziele/birmingham-de	2	1+1 rows
+/de/reiseziele/bordeaux-de	2	1+1 rows
+/de/reiseziele/figari-de	2	1+1 rows
+/de/reiseziele/ljubljana-laibach	2	1+1 rows
+/de/reiseziele/london	1	1 rows
+/de/reiseziele/luxemburg	3	1+1+1 rows
+/de/reiseziele/prag	2	1+1 rows
+/de/reiseziele/rijeka-de	2	1+1 rows
+/de/reiseziele/zuerich	2	1+1 rows
+/en/destinations/basel	2	1+1 rows
+/en/destinations/biarritz	2	1+1 rows
+/en/destinations/birmingham	2	1+1 rows
+/en/destinations/bordeaux	2	1+1 rows
+/en/destinations/figari	2	1+1 rows
+/en/destinations/ljubljana	2	1+1 rows
+/en/destinations/london-eu	2	1+1 rows
+/en/destinations/luxembourg	3	1+1+1 rows
+/en/destinations/prague	2	1+1 rows
+/en/destinations/rijeka	2	1+1 rows
+/en/destinations/zurich	2	1+1 rows

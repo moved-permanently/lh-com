@@ -1,0 +1,14 @@
+# ema-cashub, standing order 10 (2026-11-11), item 5: TAP's ranking against www can only cover pages someone recorded
+# (tap-parity-001, -002, -004: 13 pages). After rows 138 to 141 every recorded page is within 3 % of www at 1440 and 390
+# but for the decided rows (en-pt baggage's LUGGit frame, row 41; en-pt's unscrolled recording, row 127). These four
+# en-pt pages hold every component type of TAP's 879 language pages that no recorded page has (in brackets the pages
+# that use it), so they would extend the ranking to the rest of the site. As the tap-parity recordings: full page at
+# 1440 x 900 and 390 x 844, measurements, every picture waited for. For the next capture window.
+# /en-pt/on-board/economy-prime: CardInfoBlock (122), BannerVideo (22), Table (20)
+https://www.flytap.com/en-pt/on-board/economy-prime
+# /en-pt/help: ContactsByCountry (8)
+https://www.flytap.com/en-pt/help
+# /en-pt/bookings/tap-fares: TabsItemsList (8)
+https://www.flytap.com/en-pt/bookings/tap-fares
+# /en-pt/information/baggage/locate-baggage: TrackBagagge (8, www's baggage tracker)
+https://www.flytap.com/en-pt/information/baggage/locate-baggage

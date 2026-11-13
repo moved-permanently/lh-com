@@ -664,6 +664,14 @@ export default async function decorate(block) {
       number.placeholder = labels['flight number label'];
       numberLabel.htmlFor = number.id;
       numberWrap.append(numberLabel, number);
+      // an authored help text under the field (row Flight number hint: Air Dolomiti's www text)
+      const numberHint = text('flight-number-hint');
+      if (numberHint) {
+        const hintEl = el('p', 'flight-status-hint', numberHint);
+        hintEl.id = `${number.id}-hint`;
+        number.setAttribute('aria-describedby', hintEl.id);
+        numberWrap.append(hintEl);
+      }
       const setError = withError(number.id, number, numberWrap);
       const date = dateField('number');
       form.append(airline.wrap, numberWrap, date.wrap, makeSubmit());

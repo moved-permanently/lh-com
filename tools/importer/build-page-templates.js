@@ -73,4 +73,7 @@ const templates = Object.entries(TEMPLATES).map(([name, t]) => template(
 
 const out = { ...existing, metadata: { ...(existing.metadata || {}), projectType: 'da' }, templates };
 fs.writeFileSync(OUT, `${JSON.stringify(out, null, 2)}\n`);
+// the guard the workspace's importer checks read first (no request to an airline host)
+require('child_process').execFileSync('node', [path.join(__dirname, 'hook-validation-guard.mjs')], { stdio: 'inherit' });
+
 templates.forEach((t) => console.log(`${t.name}: ${t.urls.length} urls, rep ${t.urls[0]}, ${t.blocks.length} blocks`));

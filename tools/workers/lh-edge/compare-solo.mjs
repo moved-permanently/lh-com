@@ -14,6 +14,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
+import { guardContext, GUARD_CONTEXT } from '../../parity/guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const require = createRequire(import.meta.url);
@@ -76,7 +77,11 @@ const results = [];
 const browser = await chromium.launch({ headless: true });
 try {
   for (const [p, ref] of entries) {
-    const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+    const context = await browser.newContext({ ...GUARD_CONTEXT, viewport: { width: 390, height: 844 } });
+    // only our hosts: the page's scripts and fonts never reach an airline host (standing order 13; lh-edge
+    // itself still asks www for what it serves)
+    await guardContext(context);
+    const page = await context.newPage();
     page.setDefaultTimeout(15000);
     const r = { path: p, wwwStatus: ref.status };
     try {
@@ -135,7 +140,7 @@ try {
     } catch (e) {
       r.error = e.message.split('\n')[0];
     } finally {
-      await page.close();
+      await context.close();
     }
     // a 404 on www stays 404, except where the alias sheet goes further than www (the five English
     // page names in de/de and at/de that the replica maps to its German page)

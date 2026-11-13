@@ -13,7 +13,7 @@
  * ".uplift-animation" white card, "narrow" for ".inspiration-teaser-narrow".
  * No label rows: the pause/play labels are block defaults, the source has no authored labels.
  */
-export default function parse(element, { document }) {
+export default function parse(element, { document, url, params }) {
   const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
   const clean = (s) => (s || '').replace(/[\u200B-\u200D\uFEFF]/g, '').replace(/\u00A0/g, ' ').replace(/\s+/g, ' ').trim();
   const visibleText = (node) => {
@@ -165,6 +165,15 @@ export default function parse(element, { document }) {
   if (teaser.classList.contains('inspiration-teaser-narrow')) variants.push('narrow');
   // regular (.inspiration-teaser-regular: 640px high, gb/en ski-campaign-2026)
   if (teaser.classList.contains('inspiration-teaser-regular')) variants.push('regular');
+  // no-subtitle (standing order 9): www's stage text is body copy (.information) and there is no tagline (.subheadline),
+  // so the paragraph after the heading stays text (the block would take a short one as its subtitle: the fleet stages
+  // of 32n and boeing787 showed their body copy at 22 px in the heading face on phones)
+  const hasTagline = [...info.querySelectorAll('.subheadline')].some((sub) => sub !== heading && visibleText(sub));
+  const hasInfo = [...info.querySelectorAll('.information .richtext, .information')].some((rt) => visibleText(rt));
+  // lufthansa.com pages only (the other brands' importers keep their stages as their EMAs tuned them)
+  const pageUrl = (params && params.originalURL) || url || '';
+  const lufthansaPage = /^https?:\/\/(www\.)?lufthansa\.com\//.test(pageUrl);
+  if (lufthansaPage && !hasTagline && hasInfo) variants.push('no-subtitle');
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'hero-campaign', variants, cells });
   element.replaceWith(block);

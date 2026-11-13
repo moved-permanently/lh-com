@@ -20,7 +20,8 @@
  * - a one-column view holding column views as a columns-media block of option nested, its rows
  *   as www's nested views (withNestedColumnMarkers, withNestedColumns; the brief after 526);
  * - a tab set holding blocks (the Newsroom's categories: maui-tab-control-responsive) as Tab
- *   sections, swiss-import.mjs's withTabMarkers and splitTabSections (scripts/section-tabs.js);
+ *   sections, swiss-import.mjs's withTabMarkers and splitTabSections (scripts/section-tabs.js); a
+ *   panel without a name as a part of the panel after it (withNamedTabPanels);
  * - the pre-login search: the search bar and the results widget as one search-results block
  *   (the site search, /<root>/search-index.json);
  * - the core forms get a form config row with the lh-forms id b2b-<page> and their success page
@@ -96,6 +97,24 @@ export function withEmails(html) {
 }
 
 /**
+ * A column view of text only (no picture, embed, form, teaser, table, accordion, nested view) whose
+ * items each open with a heading, or one text item beside an empty one (meals-on-board: the text in
+ * www's left half; an image component without its picture yet is not empty).
+ */
+export function isTabTextColumns(el) {
+  if (/<img\b|<iframe\b|<form\b|class="(?:teaser|table|accordion)\b/.test(el) || /<div class="(?:one|two|three|four)column/.test(el.slice(1))) return false;
+  const { document } = parseHTML(`<html><body>${el}</body></html>`);
+  const items = [...document.querySelectorAll('.column-view-item')];
+  if (items.length < 2) return false;
+  const blank = items.filter((it) => !clean(it.textContent) && !it.querySelector('.image, .videoViewer, picture, video'));
+  if (items.length === 2 && blank.length === 1 && clean(items.find((it) => !blank.includes(it)).textContent)) return true;
+  return items.every((it) => {
+    const first = [...it.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li')].find((x) => clean(x.textContent));
+    return !!first && /^H[1-6]$/.test(first.tagName);
+  });
+}
+
+/**
  * B2B's components: the classes the templates' B2B selectors take (the column row of icon
  * modules, the stage, the inspirational stage), the author quote as its text and name.
  */
@@ -106,6 +125,17 @@ export function withB2bComponents(html) {
     out = editDivs(out, `<div class="${col}`, (el) => (/class="iconmodule\b/.test(el) && !/<div class="(?:two|three|four)column/.test(el.slice(1))
       ? el.replace(`<div class="${col}`, `<div class="b2b-iconmodules ${col}`) : el));
   });
+  // a two-column view of text beside an iframe component (help-alliance's YouTube video, the brief
+  // after 4c9cd359): the template keeps iframes out of Columns Media (lufthansa.com's forms and
+  // maps); the class is the template's B2B selector, the parser makes the iframe its embed cell
+  out = editDivs(out, '<div class="twocolumn', (el) => (/<div class="iframe\b[^"]*"[^>]*>\s*<div class="iframe-wrapper/.test(el)
+    && !/<div class="(?:one|two|three|four)column/.test(el.slice(1)) && !/<form\b|class="(?:table|accordion|teaser)\b/.test(el)
+    ? el.replace('<div class="twocolumn', '<div class="b2b-embed-columns twocolumn') : el));
+  // a tab panel's text-only two- or three-column view whose items open with a heading (the Allegris
+  // start-of-booking pages' FRA / MUC lists, the standing order of 2026-11-10 evening): the
+  // template's B2B selector makes it a Columns Media, its items side by side as www's
+  out = out.replace(/<maui-tab-control-panel-responsive\b[\s\S]*?<\/maui-tab-control-panel-responsive>/g, (panel) => ['twocolumn', 'threecolumn']
+    .reduce((acc, col) => editDivs(acc, `<div class="${col}`, (el) => (isTabTextColumns(el) ? el.replace(`<div class="${col}`, `<div class="b2b-tab-columns ${col}`) : el)), panel));
   out = editDivs(out, '<div class="stage ', (el) => (/class="stage-teaser"/.test(el) ? el.replace('<div class="stage ', '<div class="b2b-stage stage ') : el));
   out = out.replace(/<div class="inspirationalstage(["\s])/g, '<div class="b2b-inspirationalstage inspirationalstage$1');
   out = editDivs(out, '<div class="authorquote', (el) => {
@@ -242,6 +272,40 @@ export const LOCAL_IMAGES = Object.fromEntries([
   '01_Founding Star Alliance_Teaser-1440x960', '02_Deepening ties-2010_Teaser-1440x512', '02_Deepening ties-2012_Teaser-1440x512',
   '02_Deepening ties-2017_Teaser-1440x512', '02_Deepening ties-2017-2_Teaser-1440x512',
 ].map((f) => [`${WEBHUB}/${f}.svg`, `/media-da/b2b/${f.replace(/ /g, '-').toLowerCase()}.png`]));
+
+/**
+ * An SVG that only wraps one PNG picture (the Joint Ventures teasers: an <image> with a data: PNG,
+ * nothing drawn): that picture's bytes, else null.
+ */
+export function embeddedRaster(svg) {
+  const images = svg.match(/<image\b/g) || [];
+  if (images.length !== 1 || /<(?:path|rect|circle|ellipse|polygon|polyline|line|text)\b/.test(svg)) return null;
+  const m = svg.match(/data:image\/png;base64,([A-Za-z0-9+/=\s]+)/);
+  return m ? Buffer.from(m[1].replace(/\s+/g, ''), 'base64') : null;
+}
+
+/**
+ * LOCAL_IMAGES' files from the capture's SVGs (assets: b2b-studio's content-sites/lh-b2b/assets/svg,
+ * www's file names): the picture an SVG wraps, as www shows it (the airline tails transparent on the
+ * grey band; renderings on white were RGB). An SVG not there, or one that draws, leaves its file as
+ * it is. Returns the media paths written. The brief after d9cf2340, item 4.
+ */
+export function writeLocalImages(assets, content, fsx = fs, snapshots = '') {
+  const written = [];
+  Object.entries(LOCAL_IMAGES).forEach(([www, media]) => {
+    // the capture's assets first, else a snapshot tree at www's path (b2b-snapshots-014's layout)
+    const svg = [path.join(assets, path.basename(www)), snapshots && path.join(snapshots, www)].find((f) => f && fsx.existsSync(f));
+    if (!svg) return;
+    const png = embeddedRaster(fsx.readFileSync(svg, 'utf8'));
+    if (!png) return;
+    const to = path.join(content, media);
+    if (fsx.existsSync(to) && Buffer.compare(fsx.readFileSync(to), png) === 0) return;
+    fsx.mkdirSync(path.dirname(to), { recursive: true });
+    fsx.writeFileSync(to, png);
+    written.push(media);
+  });
+  return written;
+}
 
 /** A document's images Edge Delivery refuses (LOCAL_IMAGES) as their PNG renderings. */
 export const withLocalImages = (doc) => doc.replace(/<img src="(?:https:\/\/business\.lufthansagroup\.com)?(\/content\/dam\/[^"?]+\.svg)"/g, (m, src) => {
@@ -431,6 +495,31 @@ export function withTabPanels(doc) {
   }
 }
 
+/**
+ * A tab panel without a name (meals-on-board's eighth, "Lufthansa Business Class: New catering
+ * concept": www draws an empty tab before "Lufthansa") as a part of the panel after it, the last
+ * one of the one before it: withTabMarkers would write it without a Tab label, which splits the
+ * set (scripts/section-tabs.js). One set of labelled tabs, nothing hidden, no tab without a name.
+ * The brief after d9cf2340, item 3.
+ */
+export function withNamedTabPanels(html) {
+  if (!html.includes('<div class="tabs panelcontainer')) return html;
+  const PANEL = /<maui-tab-control-panel-responsive\b[^>]*>/g;
+  const nameOf = (tag) => ((tag.match(/\sname="([^"]*)"/) || [])[1] || '').replace(/\s+/g, ' ').trim();
+  return editDivs(html, '<div class="tabs panelcontainer', (el) => {
+    const names = [...el.matchAll(PANEL)].map((m) => nameOf(m[0]));
+    if (!names.some((n) => !n) || names.every((n) => !n)) return el;
+    const fill = names.map((n, i) => n || names.slice(i + 1).find(Boolean) || names.slice(0, i).reverse().find(Boolean));
+    let k = 0;
+    return el.replace(PANEL, (tag) => {
+      const name = fill[k];
+      k += 1;
+      if (nameOf(tag)) return tag;
+      return /\sname="[^"]*"/.test(tag) ? tag.replace(/\sname="[^"]*"/, ` name="${name}"`) : tag.replace('<maui-tab-control-panel-responsive', `<maui-tab-control-panel-responsive name="${name}"`);
+    });
+  });
+}
+
 /** The template of a page: lh-com's info template (B2B has no homepage widgets of lh-com's). */
 // www's main content ending with a separator: its inline margin-bottom (in px)
 const END_SEPARATOR = /<div class="separator[^"]*">\s*<div aria-hidden="true" style="margin-bottom:\s*(\d+)px;?"[^>]*>\s*<maui-divider[^>]*>\s*<\/maui-divider>\s*<\/div>\s*<\/div>(?:\s|<\/div>|<!--[\s\S]*?-->)*(?:<\/main>\s*)?(?:<link[^>]*>\s*)*<footer/;
@@ -471,18 +560,35 @@ export function withEndSpacer(doc, html = '') {
  * Products & Services" as an h2; the brief after 463): its first h2 is the page's h1, its id and
  * size marker kept, so it looks as before; an h2 without a size marker gets {heading-medium} (an
  * unmarked h2's size; an unmarked h1 is the page title's: the brief after 467). A document with an
- * h1, or without an h2, as it is.
+ * h1, or without an h2, as it is. The import's own collapse (in the browser, before this step) takes
+ * an h2's marker one step from the h2 default away (heading-small): then the size of www's heading
+ * of the same text (html, the snapshot), so the airline pages' titles stay heading-small (the
+ * standing order of 2026-11-10 evening, decision 3).
  */
-export function withPageHeading(doc) {
+const plainText = (s) => String(s || '').replace(/<[^>]+>/g, '').replace(/\{[^}]*\}/g, '')
+  .replace(/&nbsp;|&#xa0;|&#160;|\u00a0/gi, ' ')
+  .replace(/&amp;|&#x26;|&#38;/gi, '&')
+  .replace(/\s+/g, ' ')
+  .trim();
+const wwwSizeOf = (html, text) => {
+  const want = plainText(text);
+  if (!want) return '';
+  const hit = [...String(html || '').matchAll(/<h[1-6]\b[^>]*class="([^"]*)"[^>]*>([\s\S]*?)<\/h[1-6]>/g)]
+    .find((h) => /\bheading-[a-z-]+/.test(h[1]) && plainText(h[2]) === want);
+  return hit ? hit[1].match(/\bheading-[a-z-]+/)[0] : '';
+};
+
+export function withPageHeading(doc, html = '') {
   if (/<h1[\s>]/.test(doc)) return doc;
   const m = doc.match(/<h2(\s[^>]*)?>([\s\S]*?)<\/h2>/);
   if (!m) return doc;
   let text = m[2];
   if (!/\{[^}]*\bheading-[a-z-]+[^}]*\}\s*$/.test(text)) {
+    const size = wwwSizeOf(html, text) || 'heading-medium';
     const group = text.match(/\{([^}]*)\}\s*$/);
     text = group
-      ? `${text.slice(0, group.index)}{heading-medium ${group[1].trim()}}`
-      : `${text.trimEnd()} {heading-medium}`;
+      ? `${text.slice(0, group.index)}{${size} ${group[1].trim()}}`
+      : `${text.trimEnd()} {${size}}`;
   }
   return `${doc.slice(0, m.index)}<h1${m[1] || ''}>${text}</h1>${doc.slice(m.index + m[0].length)}`;
 }
@@ -490,7 +596,7 @@ export function withPageHeading(doc) {
 export const templateOf = () => 'info';
 
 /** A snapshot as the import reads it. */
-export const mappedOf = (html) => withoutLoads(withSearch(withNestedColumnMarkers(withStageColumnMarkers(withTabMarkers(withB2bComponents(withHotlines(withEmails(withoutHelperLinks(withPlaceholder(stripScripts(html))))))))))
+export const mappedOf = (html) => withoutLoads(withSearch(withNestedColumnMarkers(withStageColumnMarkers(withTabMarkers(withNamedTabPanels(withB2bComponents(withHotlines(withEmails(withoutHelperLinks(withPlaceholder(stripScripts(html)))))))))))
   .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, ''));
 
 const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
@@ -576,7 +682,7 @@ if (isMain) {
       const html = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       const markets = scope.documents[src]?.markets || [];
       // a tab set's panels as Tab sections (the markers withTabMarkers left, scripts/section-tabs.js)
-      const next = withPageHeading(withEndSpacer(withB2bMetadata(withHotlineFinder(withB2bQuotes(withB2bForm(withNestedColumns(withStageColumns(withTabPanels(splitTabSections(doc)))), p, html), html), labelsOf(hotlineRecord, p.split('/')[2]), imageOf(hotlineRecord)), p, html, markets), html));
+      const next = withPageHeading(withEndSpacer(withB2bMetadata(withHotlineFinder(withB2bQuotes(withB2bForm(withNestedColumns(withStageColumns(withTabPanels(splitTabSections(doc)))), p, html), html), labelsOf(hotlineRecord, p.split('/')[2]), imageOf(hotlineRecord)), p, html, markets), html), html);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
@@ -592,6 +698,10 @@ if (isMain) {
       const next = withOwnLinks(withLocalImages(relativeDamLinks(doc)), HOST, pages, aliases).doc;
       if (next !== doc) fs.writeFileSync(f, next);
     });
+    // the pictures LOCAL_IMAGES points to, from the capture's SVGs (www's own, transparent where it is)
+    const media = made.some((p) => /\/media-da\/b2b\//.test(fs.readFileSync(path.join(W, 'content', `${p}.plain.html`), 'utf8')))
+      ? writeLocalImages(path.join(W, 'assets/svg'), path.join(W, 'content'), fs, SNAP) : [];
+    if (media.length) console.log(`local images from the SVGs: ${media.join(' ')} (upload them with the documents)`);
     // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)
     collapseDocs(withRestoredNbsp(made.map((p) => path.join(W, 'content', `${p}.plain.html`)), fs), { brand: 'b2b', content: path.join(W, 'content') });
     fs.writeFileSync(path.join(W, 'runs', `${name}-import.json`), `${JSON.stringify({

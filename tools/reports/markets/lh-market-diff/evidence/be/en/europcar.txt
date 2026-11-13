@@ -1,0 +1,18 @@
+root    /be/en/europcar
+version /de/en/europcar
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 21:
++ <div.text>
++ <div.richtext.limited-width>
++ <p>
++ "Lufthansa and Europcar – a global player and Europe’s leading car rental company have joined together to give you a rewarding and smooth travel experience."
++ <br>
+  <div.image.parbase>
+  <div.meilicarrental>
+  …
+- <div.separator>
+- <div.hr>
+- <maui-divider>
+- <div.separator>
+- <div.hr.hr-no-layout>
+- <maui-divider>

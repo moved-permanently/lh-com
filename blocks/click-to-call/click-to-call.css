@@ -85,6 +85,11 @@
   margin-top: 3px;
 }
 
+/* in the opening hours www's window has no day and slot (TAP row 157; the row's own display would win over hidden) */
+.click-to-call .click-to-call-when[hidden] {
+  display: none;
+}
+
 .click-to-call .click-to-call-phone-row > *,
 .click-to-call .click-to-call-when > * {
   box-sizing: border-box;
@@ -293,6 +298,23 @@
   .click-to-call .click-to-call-button {
     width: 42%;
     margin-top: 10px;
+  }
+
+  /* in the hours the telephone and the button side by side (www: the field, 24 px, a 164 px button; tap-parity-001
+     voar-economica and tap-parity-007 lounges at 1440) */
+  .click-to-call .click-to-call-form.in-hours {
+    display: flex;
+    align-items: center;
+  }
+
+  .click-to-call .click-to-call-form.in-hours .click-to-call-phone-row {
+    flex: 1 1 auto;
+  }
+
+  .click-to-call .click-to-call-form.in-hours .click-to-call-button {
+    flex: 0 0 164px;
+    width: auto;
+    margin: 0 0 0 24px;
   }
 
   .click-to-call .click-to-call-schedule {

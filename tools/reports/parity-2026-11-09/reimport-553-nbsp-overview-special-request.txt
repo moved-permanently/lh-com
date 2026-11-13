@@ -1,0 +1,5 @@
+# Brief 553 (ema-adobe, 2026-11-10): overview-special-request on its four roots, in release order, for the lufthansa.com harness (re-import with main's hub bundle, upload, preview; the publish child publishes in the next round). The live documents (2026-11-05) predate 6a61397: www's no-break spaces ("with our&nbsp;practical") became plain spaces, so the cards' text wraps a line shorter than www's at 390 (-27 px at the first card). Today's hub bundle keeps them (2-3 per document). Draft of /gb/en with them against lh-parity-004b at 390: 18.2 % to 5.8 %, 3909 to 3936 px (www 3936). No code change. Every lufthansa.com document imported before 6a61397 lost its no-break spaces the same way; this list is only the four pages measured here.
+/de/en/overview-special-request
+/de/de/overview-special-request
+/at/de/overview-special-request
+/gb/en/overview-special-request

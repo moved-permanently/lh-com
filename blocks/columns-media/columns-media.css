@@ -68,6 +68,25 @@ body.brand-lufthansa .columns-media.separated {
   margin-bottom: 36px;
 }
 
+/* lufthansa.com on phones: 34px under a video cell (www's video component; new-onboard-experience at 390:
+   lh-parity-004a/b), the image's 50px stays (the brief after 539) */
+@media (width < 768px) {
+  body.brand-lufthansa .columns-media .columns-media-row > .columns-media-media:not(:last-child):has(.media-video) {
+    margin-bottom: 34px;
+  }
+}
+
+/* lufthansa.com on phones: a stacked text cell that ends with a list 24px above the next cell (www zeroes the
+   list's margin, the column-view item keeps its own; the 36px above stand for a closing link). 390:
+   hearing-impairment 7.9 -> 6.0, visual-impairment 6.3 -> 4.3, cognitive-impairment 6.8 -> 5.9,
+   passengers-with-sensory-impairment 6.7 -> 5.4; schengen and sports-baggage worse on the whole page (their
+   own earlier drifts), their blocks better; standing order 10 (ranking-so9 list-end) */
+@media (width < 768px) {
+  body.brand-lufthansa .columns-media:not(.slider, .sidebar) .columns-media-row > .columns-media-text:not(:last-child):has(> :is(ul, ol):last-child) {
+    margin-bottom: 24px;
+  }
+}
+
 /* wide-media stacks media first, 40px above the text */
 .columns-media.wide-media .columns-media-media-last > .columns-media-media {
   order: -1;
@@ -297,6 +316,13 @@ body.brand-brussels .columns-media .columns-media-text > p.spacer {
 
 .columns-media .columns-media-row > .columns-media-text :is(h3, h4):has(> picture) ~ p:not(.link-wrapper, .button-wrapper):has(+ p:is(.link-wrapper, .button-wrapper)) {
   margin-bottom: 50px;
+}
+
+/* lufthansa.com: an image cell's 4rem under a picture later in the cell before a lone link (the group airlines'
+   tiles: heading, logo, link; feedback-and-contact-airlines 14.3 -> 9.4 % off www at 390, report-baggage
+   13.9 -> 9.1, delayed-baggage-lhg 13.7 -> 9.1); standing order 13 */
+body.brand-lufthansa .columns-media .columns-media-text > p:has(> picture):not(:first-child):has(+ p.link-wrapper) {
+  margin-bottom: 40px;
 }
 
 /* a link alone in its paragraph: maui-navigation-link size large, variant hyper; links one
@@ -740,11 +766,11 @@ main > .section > .columns-media-wrapper:has(> .columns-media.sidebar) + .defaul
 
 /* lh-b2b (business.lufthansagroup.com's two-column teasers: heading, linked image, button): a
    linked picture right under the cell's heading is the cell's picture, full width as www's, not
-   a badge */
+   a badge; 40 px under it as www's image component (the homepages, at 1440 and 390) */
 /* stylelint-disable-next-line no-descending-specificity -- a brand's rule after the shared ones */
 body.brand-b2b .columns-media .columns-media-text > :is(h2, h3) + p:has(> a > picture) {
   display: block;
-  margin: 0 0 24px;
+  margin: 0 0 40px;
 }
 
 /* stylelint-disable-next-line no-descending-specificity -- a brand's rule after the shared ones */
@@ -1549,4 +1575,75 @@ body.brand-lufthansa .columns-media .columns-media-row > div > blockquote > * + 
   .columns-media .columns-media-row > div > p.cell-three-quarters {
     width: calc(75% - 10px);
   }
+}
+
+/* lufthansa.com, option cell-slider of pictures only from 1025px (its row): www's logo strip on
+   meetings-and-events 16px lower and 19px more under it than ours at 1440 (its swiper's place;
+   brief 558); media | text slides (onboard-delights' Dallmayr band) as they were */
+@media (width >= 1025px) {
+  body.brand-lufthansa .columns-media.cell-slider:not(:has(.columns-media-text)) {
+    margin-top: 16px;
+    margin-bottom: 19px;
+  }
+}
+
+/* the same strip below 1025px, where it is a slider: www's strip 61px under the picture above, its
+   dots 78px under the logos, the text 46px under the dots at 390; ours 45, 87 and 66 (brief 558) */
+@media (width < 1025px) {
+  body.brand-lufthansa .columns-media.cell-slider:not(:has(.columns-media-text)) {
+    margin-top: 16px;
+  }
+
+  body.brand-lufthansa .columns-media.cell-slider:not(:has(.columns-media-text)) .columns-media-dots {
+    margin-top: -47px;
+    margin-bottom: 10px;
+  }
+}
+
+/* lufthansa.com, option nested-4 on phones (shopping's "Your benefits at a glance"): the nested
+   view's three empty items stack under the icon and keep their margins, the text 202px of ink
+   under the icon at 390 on www, ours 159 with 62px (brief 558; nested-2 and 768px up as before) */
+@media (width < 768px) {
+  body.brand-lufthansa .columns-media.nested-4 .columns-media-text > p:has(> picture, > a > picture):first-child {
+    margin-bottom: 105px;
+  }
+}
+
+/* lufthansa.com: a media cell's link alone under its picture (the loungenet first-class lounges'
+   service tiles, brief 582): www's standalone navigation link (19px arrow, up-right to other sites)
+   46px under the picture at 1440 (ours 8), 22px margin below 768px. With the eJournals tile a
+   link again (scripts/media.js): /content/lh/markets/de/en/during-your-trip/lounges/loungenet/
+   fra-first-class-lounge-b 36.1 -> 28.1 % (390), 31.3 -> 8.3 % (1440); the 11 other recorded
+   pages with such a cell measure the same (their cells are not media cells) */
+/* stylelint-disable-next-line no-descending-specificity -- a media cell's lone link, not a cargo feature list's */
+body.brand-lufthansa main .columns-media .columns-media-media > p:has(> picture) + p.link-wrapper:last-child {
+  margin-top: 22px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa main .columns-media .columns-media-media > p:has(> picture) + p.link-wrapper:last-child {
+    margin-top: 40px;
+  }
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- a media cell's lone link, not a cargo feature list's */
+body.brand-lufthansa main .columns-media .columns-media-media > p:has(> picture) + p.link-wrapper:last-child > a:any-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- a media cell's lone link, not a cargo feature list's */
+body.brand-lufthansa main .columns-media .columns-media-media > p:has(> picture) + p.link-wrapper:last-child > a:any-link::before {
+  content: "";
+  flex: 0 0 auto;
+  align-self: center;
+  width: 19px;
+  height: 19px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.brand-lufthansa main .columns-media .columns-media-media > p:has(> picture) + p.link-wrapper:last-child > a:any-link[href^="http"]:not([href*="//www.lufthansa.com"])::before {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.3 16.4 7.6 17.7 15.9 9.4v6.1h1.8V6.3H8.5v1.8h6.1z'/%3E%3C/svg%3E");
 }

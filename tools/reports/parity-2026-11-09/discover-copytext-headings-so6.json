@@ -1,0 +1,242 @@
+[
+ {
+  "path": "/de/de/book/baggage",
+  "level": 3,
+  "text": "Economy Light Tarif",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/book/special-requests/families",
+  "level": 3,
+  "text": "Kids Entertainment auf der Langstrecke",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/book/special-requests/families",
+  "level": 3,
+  "text": "Kids Entertainment auf der Kurz- und Mittelstrecke",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/discover/services-on-board/entertainment",
+  "level": 3,
+  "text": "Entertainment auf der Langstrecke",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/discover/services-on-board/entertainment",
+  "level": 3,
+  "text": "Entertainment auf der Kurz- & Mittelstrecke (Europa & Nordafrika)",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/discover/services-on-board/entertainment",
+  "level": 3,
+  "text": "Kopfhörer",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/discover/services-on-board/entertainment",
+  "level": 3,
+  "text": "Steckdosen & USB-Anschlüsse",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/discover/travel-classes/business-class",
+  "level": 3,
+  "text": "Drei Gänge Gaumenfreude",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/discover/travel-classes/business-class",
+  "level": 3,
+  "text": "Grenzenloses Entertainment",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/discover/travel-classes/business-class",
+  "level": 3,
+  "text": "Machen Sie es sich bequem",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/my-bookings/check-in",
+  "level": 2,
+  "text": "Online Check-in mit Buchungscode",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/my-bookings/check-in",
+  "level": 3,
+  "text": "Online Check-in mit Code des Reiseveranstalters",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/my-bookings/check-in/check-in-at-the-airport",
+  "level": 2,
+  "text": "Economy Check-in Frankfurt",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/my-bookings/check-in/check-in-at-the-airport",
+  "level": 3,
+  "text": "Priority Check-in Frankfurt",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/my-bookings/check-in/check-in-at-the-airport",
+  "level": 3,
+  "text": "Reisen mit Tieren und Sperrgepäck",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/my-bookings/check-in/check-in-at-the-airport",
+  "level": 3,
+  "text": "Vorabend Check-in Frankfurt",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/travel-inspiration/inspiration/destinations/punta-cana",
+  "level": 2,
+  "text": "Ihr Traumziel in der Karibik",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/travel-inspiration/inspiration/destinations/punta-cana",
+  "level": 2,
+  "text": "Wissenswertes",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/travel-inspiration/inspiration/destinations/santorini",
+  "level": 2,
+  "text": "Ein Traum für Fans von Sonne und Meer",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/travel-inspiration/inspiration/destinations/santorini",
+  "level": 2,
+  "text": "Auf zum Red Beach",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/travel-inspiration/inspiration/destinations/santorini",
+  "level": 2,
+  "text": "Perivolos Beach: Sandstrand auf der Insel der Steil- und Kiesküsten",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/de/travel-inspiration/inspiration/destinations/santorini",
+  "level": 2,
+  "text": "White Beach: Nur mit dem Boot zu erreichen",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/en/book/baggage",
+  "level": 3,
+  "text": "Economy Light fare",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/en/book/special-requests/families",
+  "level": 3,
+  "text": "Kids’ entertainment on long-haul flights",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/en/book/special-requests/families",
+  "level": 3,
+  "text": "Kids’ entertainment on short and medium-haul flights",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/en/discover/travel-classes/business-class",
+  "level": 3,
+  "text": "The courses of culinary delights",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/en/discover/travel-classes/business-class",
+  "level": 3,
+  "text": "Unlimited entertainment",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/en/discover/travel-classes/business-class",
+  "level": 3,
+  "text": "Get comfortable",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/en/my-bookings/check-in",
+  "level": 2,
+  "text": "Online check-in with booking code",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/en/my-bookings/check-in",
+  "level": 3,
+  "text": "Online check-in with tour operator’s code",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/en/my-bookings/check-in/check-in-at-the-airport",
+  "level": 2,
+  "text": "Economy check-in Frankfurt",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/en/my-bookings/check-in/check-in-at-the-airport",
+  "level": 3,
+  "text": "Priority check-in Frankfurt",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/en/my-bookings/check-in/check-in-at-the-airport",
+  "level": 3,
+  "text": "Traveling with animals and bulky baggage",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/en/my-bookings/check-in/check-in-at-the-airport",
+  "level": 3,
+  "text": "Late-night check-in Frankfurt",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/en/travel-inspiration/inspiration/destinations/punta-cana",
+  "level": 2,
+  "text": "Your dream destination in the Caribbean",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/en/travel-inspiration/inspiration/destinations/punta-cana",
+  "level": 2,
+  "text": "Useful to know",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/en/travel-inspiration/inspiration/destinations/santorini",
+  "level": 2,
+  "text": "A dream for lovers of the sun and sea",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/en/travel-inspiration/inspiration/destinations/santorini",
+  "level": 2,
+  "text": "Head to the Red Beach",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/en/travel-inspiration/inspiration/destinations/santorini",
+  "level": 2,
+  "text": "Perivolos Beach: sandy beach on the island of cliffs and gravel coasts",
+  "size": "heading-copytext-large"
+ },
+ {
+  "path": "/de/en/travel-inspiration/inspiration/destinations/santorini",
+  "level": 2,
+  "text": "White Beach: only accessible by boat",
+  "size": "heading-copytext-large"
+ }
+]

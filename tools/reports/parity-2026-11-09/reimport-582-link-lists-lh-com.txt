@@ -1,0 +1,38 @@
+# Brief 582 (ema-adobe, 2026-11-10): lufthansa.com documents whose link lists to pages (www's .imagelinklist .link-list ul.horizontal | responsive | vertical of maui-navigation-link hyper/external) get the "{links-horizontal}", "{links-responsive}" or "{links-vertical}" marker on the list's last item with today's bundles (lufthansa-cleanup markLinkLists, the columns-media parser keeps it). The site draws the marked lists (styles.css) from the commit that brings this list; until a document is re-imported it looks as before.
+# Found by running the cleanup over all 3,397 lufthansa.com snapshots in bd-snapshots (logs/b582/offline-check.mjs): 35 documents, one list each; the drafts of the de/en five differ from the published documents only by the marker (logs/b582/draft-vs-doc.mjs). Market roots without own documents get the language version's.
+# columns (tab): da_path, template, layout, expected change (per page type: the first row of each type carries it)
+/at/de/unterhaltung-an-bord	info	horizontal	security-check-time-slot / zeitfenster-sicherheitskontrolle (the app downloads) and unterhaltung-an-bord (music and audiobooks, in the Entertainment tab): no bullets, the 19px arrow (up-right for other sites), side by side 20px apart, wrapping (de/en security-check: 4.8 -> 4.1 % at 390, 5.3 -> 2.6 % at 1440; unterhaltung-an-bord: 18.8 -> 19.3 % at 390, the page short of www above it, the list itself now www's 30px pitch, 18.6 -> 16.5 % at 1440).
+/at/de/zeitfenster-sicherheitskontrolle	info	horizontal	
+/de/de/unterhaltung-an-bord	info	horizontal	
+/de/de/zeitfenster-sicherheitskontrolle	info	horizontal	
+/de/en/security-check-time-slot	info	horizontal	
+/de/en/unterhaltung-an-bord	info	horizontal	
+/fr/fr/security-check-time-slot	info	horizontal	
+/fr/fr/unterhaltung-an-bord	info	horizontal	
+/gb/en/security-check-time-slot	info	horizontal	
+/gb/en/unterhaltung-an-bord	info	horizontal	
+/xx/es/security-check-time-slot	info	horizontal	
+/xx/es/unterhaltung-an-bord	info	horizontal	
+/xx/fr/security-check-time-slot	info	horizontal	
+/xx/fr/unterhaltung-an-bord	info	horizontal	
+/at/de/lufthansa-business-class-on-long-haul-routes	info	responsive	lufthansa-business-class-on-long-haul-routes (a two-column view, Columns Media): the two aircraft links lose their bullets and take the 19px arrow; stacked 30px apart below 768px, side by side 20px apart from 768px (de/en: 31.2 -> 28.7 % at 390, 28.6 -> 22.9 % at 1440, measured with the marked document on our host). fr/fr, xx/es, xx/fr hold the two links as paragraphs today: they become the list (same lines below 768px, one row from 768px).
+/de/de/lufthansa-business-class-on-long-haul-routes	info	responsive	
+/de/en/lufthansa-business-class-on-long-haul-routes	info	responsive	
+/fr/fr/lufthansa-business-class-on-long-haul-routes	info	responsive	
+/gb/en/lufthansa-business-class-on-long-haul-routes	info	responsive	
+/xx/es/lufthansa-business-class-on-long-haul-routes	info	responsive	
+/xx/fr/lufthansa-business-class-on-long-haul-routes	info	responsive	
+/at/de/datenerfassung-fuer-kanada	legal	vertical	data-collection-canada / datenerfassung-fuer-kanada ("The most important links", five external links): no bullets, the up-right arrow, stacked 30px apart, 12px in from 768px (de/en, the list's region aligned: 6.5 -> 2.8 % at 390, 2.2 -> 0.6 % at 1440; the whole page 18.9 -> 21.3 % and 20.7 -> 21.9 %: it is 100 to 300px short of www above the list already, region-cmp and offsets in the report).
+/de/de/datenerfassung-fuer-kanada	legal	vertical	
+/de/en/data-collection-canada	legal	vertical	
+/fr/fr/data-collection-canada	legal	vertical	
+/gb/en/data-collection-canada	legal	vertical	
+/xx/es/data-collection-canada	legal	vertical	
+/xx/fr/data-collection-canada	legal	vertical	
+/at/de/pre-check-in	app-entry	horizontal	pre-check-in ("To online check-in", one link): the bullet goes, the link at the text's left edge with the 19px arrow (de/en: 11.2 -> 11.3 % at 390, 8.0 -> 8.2 % at 1440: the list is 3px shorter on a page already short of www; the link's own place now www's). app-entry is ema-cashub's template: theirs to run.
+/de/de/pre-check-in	app-entry	horizontal	
+/de/en/pre-check-in	app-entry	horizontal	
+/fr/fr/pre-check-in	app-entry	horizontal	
+/gb/en/pre-check-in	app-entry	horizontal	
+/xx/es/pre-check-in	app-entry	horizontal	
+/xx/fr/pre-check-in	app-entry	horizontal	

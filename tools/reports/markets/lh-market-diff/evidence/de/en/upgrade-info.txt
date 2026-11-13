@@ -1,0 +1,5 @@
+root    /mk/en/upgrade-info
+version /de/en/upgrade-info
+verdict differs (widget)
+diff (- version only, + root only; = shared), from token 1:
+~ @data-dcep (JSON, version -> root): .videoUrl: "/content/~/markets/{R}" -> ""

@@ -1,0 +1,8 @@
+# Brief 582 (ema-adobe, 2026-11-11 01:50 CET): new lufthansa.com Insights articles (www's /de/en/articles/explore-flying lists them; no document here yet) for the import helper: the insights template from the archive named here. Offline (logs/b500/offline-import.mjs): 93 to 96 % of each page's words kept (the gaps: video player labels, the related-article teasers the block draws from the index). The de/de versions (same slugs) from lh-snapshots-103 (captured 02:35 CET; 93 to 95 % of the words kept offline). The Insights lists and tag pages show them once they are published (the query index fills on publish).
+# columns (tab): www_path, da_path, template, archive
+/de/en/articles/explore-flying/what-the-hack-sleep-on-a-plane	/de/en/articles/explore-flying/what-the-hack-sleep-on-a-plane	insights	lh-snapshots-102
+/de/en/articles/explore-flying/first-class-collectible-loungewear-cdlp-jorinde-voigt	/de/en/articles/explore-flying/first-class-collectible-loungewear-cdlp-jorinde-voigt	insights	lh-snapshots-102
+/de/en/articles/explore-flying/welcome-to-my-world-jorinde-voigt	/de/en/articles/explore-flying/welcome-to-my-world-jorinde-voigt	insights	lh-snapshots-102
+/de/de/articles/explore-flying/what-the-hack-sleep-on-a-plane	/de/de/articles/explore-flying/what-the-hack-sleep-on-a-plane	insights	lh-snapshots-103
+/de/de/articles/explore-flying/first-class-collectible-loungewear-cdlp-jorinde-voigt	/de/de/articles/explore-flying/first-class-collectible-loungewear-cdlp-jorinde-voigt	insights	lh-snapshots-103
+/de/de/articles/explore-flying/welcome-to-my-world-jorinde-voigt	/de/de/articles/explore-flying/welcome-to-my-world-jorinde-voigt	insights	lh-snapshots-103

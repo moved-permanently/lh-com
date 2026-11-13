@@ -4015,7 +4015,10 @@ var CustomImportScript = (() => {
     },
     headingChoices: {
       h2: { large: "heading-large", compact: "heading-copytext-large" },
-      h3: { large: "heading-medium" }
+      h3: { large: "heading-medium" },
+      // an H4 two steps over its default too (www's heading-medium card titles: B2B's Joint
+      // Ventures, the brief after d9cf2340; without it the collapse dropped the size)
+      h4: { large: "heading-medium" }
     },
     // running text: two thirds of the content width from 1025px ('full': the whole width); body
     // text 18px (copytext-large), small print 14px
@@ -4049,31 +4052,43 @@ var CustomImportScript = (() => {
     },
     // Austrian: the paragraph right after the page title is the intro (copytext-large, Portada
     // 18/27); flow pages set their H3s in heading-small (www: 87 % of them)
-    austrian: { rules: ["intro-after-h1"], pageTypes: { flow: { headings: { h3: "heading-small" } } } },
+    austrian: { live: true, rules: ["intro-after-h1"], pageTypes: { flow: { headings: { h3: "heading-small" } } } },
     // Brussels: flow pages set their H3s in heading-small (www: 72 %); a service page's H2s are the
     // default (www: 89 % unmarked, heading-medium; no longer heading-small)
-    brussels: { pageTypes: { flow: { headings: { h3: "heading-small" } } } },
+    brussels: { live: true, pageTypes: { flow: { headings: { h3: "heading-small" } } } },
     // ITA: running text over the whole width
     ita: { live: true, text: { width: "full" } },
     // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
     // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
     // (a heading right before them starts the group's column view, as its marker did)
-    swiss: { rules: ["teaser-groups"], pageTypes: { flow: { headings: { h2: "heading-small" } } } },
+    swiss: { live: true, rules: ["teaser-groups"], pageTypes: { flow: { headings: { h2: "heading-small" } } } },
     // Discover: on flow pages the H2s in heading-small (www: 86 %) and a Columns Media a column view
     // of its own (www: 26 of 33 not at a section's start)
-    discover: { pageTypes: { flow: { headings: { h2: "heading-small" }, columnViews: { blocks: ["columns-media"] } } } },
+    discover: { live: true, pageTypes: { flow: { headings: { h2: "heading-small" }, columnViews: { blocks: ["columns-media"] } } } },
     // Lufthansa Group for Business: on flow pages the H3s in heading-small (www: 82 %); Columns
     // Media, Carousel Images and Quote column views of their own, also at a section's end (www: 558
     // of 789 Columns Media not at a section's start, 749 of 962 with an edge below)
     b2b: {
+      live: true,
       pageTypes: {
-        flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true } }
+        // a heading right before such a block opens its column view (www: 81 of 105 marked so, the
+        // brief after 550 narrows it); in a grey band no edge above a block right after a heading
+        // (www: none of 146 bands has column marks; travel-id's and contact's headings sit on it)
+        flow: {
+          headings: { h3: "heading-small" },
+          columnViews: {
+            blocks: ["columns-media", "carousel-images", "quote"],
+            endEdge: true,
+            startAtHeading: true,
+            bandHeadings: true
+          }
+        }
       }
     },
     // Air Dolomiti: the base theme (between B2B's and TAP's entries, next to no switch line)
     airdolomiti: { live: true },
     // TAP: the base theme (an entry of its own, so its switch is one line as every brand's)
-    tap: {},
+    tap: { live: true },
     // Lufthansa Cargo: the base theme
     cargo: {}
   };

@@ -1184,3 +1184,9 @@ body.brand-swiss main .columns-media-wrapper + .default-content-wrapper:has(> :i
     margin-top: 64px;
   }
 }
+
+/* the grid cards' text 40px over the card's foot as www's .card-content (20px / 40px; SWISS row 53); a card ending in its link
+   row keeps its 8px */
+body.brand-swiss .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-text-only, .carousel-cards-wide) .carousel-cards-body:not(:has(> .carousel-cards-cta:last-child)) {
+  padding-bottom: 40px;
+}

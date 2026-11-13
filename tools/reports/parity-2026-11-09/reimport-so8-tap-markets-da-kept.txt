@@ -1,0 +1,30 @@
+# ema-cashub, standing order 8 (2026-11-11): the TAP language documents the Brands D import helper held (nothing
+# uploaded for them). The helper's nine notes are six documents (en-pt club, pt-pt club and pt-pt promos of
+# reimport-585-tap-market-groups-027.txt are three of the six below).
+# Causes (checked offline on the drop's archives against DA's copies read on 2026-11-11, GET only):
+# - promotions, promocoes, promos: DA's US and Canada sections (the American Express card, the "Going to Europe?
+#   Portugal included" cards) and the other roots' Portugal Stopover card came from the market comparison's fetch of
+#   2026-11-07 (spliced into DA by 461596e5; DA's copies are of 2026-11-08). The drop's captures of en-us, pt-us, en-ca,
+#   pt-ca, en-gb, en-es and the language pages are of 2026-11-03 to -05, before those cards, and the step counted every
+#   root with the page as covered, so the older view replaced DA's. Fixed in tools/importer/tap-markets.mjs
+#   (keepStale, staleCountries): a country no capture newer than the existing copy covers (its own, or its comparison
+#   group's first captured member's) keeps exactly what the existing copy shows it; the home market as merged.
+# - club: the step drops nothing; the call-back card's Image and Mobile image rows go when tap-byside-001 is passed as
+#   unpacked (its pictures are in its byside folder). Fixed in tools/importer/tap-import.mjs mediaIndex (the archive
+#   root works too).
+# Run: tap-markets.mjs as for reimport-585 (--archive the language archives, --market-archive tap-snapshots-016 to
+# -022, -025, -027, --media every media archive and tap-byside-001, --sitemaps tap-sitemaps-001 and -002, --pages
+# tap-market-pages.json) plus --existing <folder>: DA's current copies of these six documents, saved read-only just
+# before the run with their time (curl -s -R -o <folder>/<doc>.html https://admin.da.live/source/moved-permanently/lh-tap/<doc>.html).
+# Without --existing the step reads the checkout's local copies: in the main checkout those of the four market
+# documents equal DA's, but pt-pt club's local copy is of 2026-11-04 (DA's has the slider since reimport-tap-480).
+# Checked with the fixed code on these inputs: for every country the document is served to (home + the language's
+# roots with the page), what it sees against DA's copy, as listed per row. The run's report (runs/<name>-import.json)
+# names the kept sections per document (keptStale).
+# Columns: document, status, expected change against DA's copy of 2026-11-08.
+/en-pt/miles-and-go/promotions	READY	every root as on DA (the [us] American Express section kept); the page metadata's Image www's share picture again (book-a-flight-spend-miles; DA's holds the call-back card's background there)
+/pt-pt/miles-and-go/promocoes	READY	as en-pt promotions
+/en-pt/promos	READY	every root as on DA (no capture of an English root is newer than DA's copy); DA's Portugal Stopover card for every market but br, ca, pt, us written for the 16 roots that see it, the [ca] and [us] "Going to Europe?" cards as one [ca,us] section
+/pt-pt/promos	READY	the 14 roots of pt-at's group (at,be,ch,cz,de,dk,fr,gb,ie,it,lu,nl,no,se) get "Onde irá passar a noite de ano novo?" in place of "Natal ao estilo de Nova Iorque" (pt-at and pt-pl of tap-snapshots-027, 2026-11-10, newer than DA's copy), with pl in the same section; ca and us as on DA ("Vai para a Europa? Portugal incluído" as one [ca,us] section); every other root as on DA
+/en-pt/miles-and-go/club	READY	none (the document as DA has it, byte for byte after the media host)
+/pt-pt/miles-and-go/club	READY	none (as en-pt club)

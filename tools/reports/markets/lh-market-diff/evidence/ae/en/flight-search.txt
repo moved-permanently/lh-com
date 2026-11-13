@@ -1,0 +1,43 @@
+root    /ae/en/flight-search
+version /de/en/flight-search
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 153:
+- @src=/content/dam/lh/images/local_variations/c-{n}-mam-cc-generic-1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg
+- @srcset=/content/dam/lh/images/local_variations/c-{n}-mam-cc-generic-1920x1080.jpg.transform/lh-dcep-transform-width-1440/img.jpg
+- @alt=Miles & More credit card on the table
++ @src=/content/dam/lh/images/local_variations/c-{n}-carbon-offsetting-header-visual.jpg.transform/lh-dcep-transform-width-1440/img.jpg
++ @srcset=/content/dam/lh/images/local_variations/c-{n}-carbon-offsetting-header-visual.jpg.transform/lh-dcep-transform-width-1440/img.jpg
++ @alt=Erfahren Sie mehr über CO₂-Emissionen kompensieren // Find out more about offset carbon emissions
+  <div.headline.section>
+  <h3.headline.heading-copytext-large>
+- "Miles"
+- "&"
+- "More Credit Card"
++ "More sustainable flying"
+  <div.text.section>
+  <div.richtext>
+  …
+- "Earn miles where others just pay, and bring awards within easy reach."
++ "Make flying more sustainable and reduce the CO₂ emissions of your travels. From now on you have the possibility to offset your flight simply, individually and directly with your booking."
+  <div.link.event.section>
+  <div.maui-link>
+- <maui-tooltip>
+- @strategy=fixed
+- @placement=bottom
+- @type=small
+- @show-arrow=
+  <maui-navigation-link.large>
+  @size=large
+- @href=https://www.miles-and-more-kreditkarte.com/?kid=e.1200.09.22&kidc=public-website-lhcom
+- @rel=noopener noreferrer
++ @href=/{R}/fly-more-sustainabl
+  @slot=trigger
+- @target=_blank
+  @variant=hyper
+- "Learn more"
+- <span.sr-only>
+- "The link will be opened in a new browser tab"
+- <div.popover-box-tooltip>
+- @slot=box
+- "Please note that with this link you are visiting an external website that may not follow the same privacy, security or accessibility policies."
++ "To the CO₂ compensation of your flight"

@@ -1,0 +1,27 @@
+root    /ae/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-briefing
+version /de/de/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-rail-briefing
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 124:
+- "Während der Zugfahrt führen Sie Ihr Gepäck bitte selbst mit. Für die Gepäckabgabe und -abholung am"
++ "Während der Zugfahrt führen Sie Ihr Gepäck bitte selbst mit. Für eine komfortable Gepäckaufgabe und -abholung am Flughafen Frankfurt steht Ihnen das"
+  <b>
+- "Flughafen Frankfurt"
+- "nutzen Sie die regulären Check-in und Gepäckausgabebereiche im Terminal."
++ "AIRail Terminal"
++ "zur Verfügung."
+  <div.col-md-6.col-lg.column-view-item>
+  <div.imagelinklist.event.section>
+  …
+- "Nach Ihrer Ankunft in Frankfurt geben Sie Ihr Gepäck in den regulären Check-in-Bereichen des Terminals auf. Je nach Reiseklasse stehen Ihnen Gepäckabgabe-Automaten oder Check-in-Schalter zur Verfügung."
++ "Nach Ihrer Ankunft in Frankfurt befinden sich die"
++ <b>
++ "Self Bag Drop-Automaten"
++ "direkt im AIRail Terminal – nur wenige Schritte vom Fernbahnhof entfernt."
+  <div.separator.section>
+  <div.hr.hr-no-layout>
+  …
+- "Nach Ihrer Landung in Frankfurt holen Sie Ihr Gepäck an der regulären Gepäckausgabe im Terminal ab. Anschließend folgen Sie bitte der Beschilderung zu Ihrer Weiterreise mit Lufthansa Express Rail."
++ "Die Gepäckausgabe für Express Rail Verbindungen liegt ebenfalls bequem im"
++ <b>
++ "AIRail Terminal"
++ ", in unmittelbarer Nähe zum Fernbahnhof."

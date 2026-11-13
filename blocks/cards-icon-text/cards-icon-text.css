@@ -157,6 +157,14 @@
   margin: 0;
 }
 
+/* lufthansa.com on phones: the next tile's title 74px of ink under the last description line
+   (gb/en digital-self-services at 390, lh-parity-004a), ours 65 with 30px (brief 556) */
+@media (width < 768px) {
+  body.brand-lufthansa .cards-icon-text.partner > ul {
+    row-gap: 39px;
+  }
+}
+
 .cards-icon-text.partner .cards-icon-text-card {
   padding-top: 12px;
   color: var(--lh-deepblue);

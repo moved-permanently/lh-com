@@ -1,0 +1,109 @@
+# The standing order after 584 (ema-cashub): pages for the Captures child, rendered at 1440 and 390 each, in priority order (record from the top; the later rows matter less). Brussels as brussels-parity-NNN, Austrian as austrian-parity-NNN.
+# Priority 1 - Brussels overview hubs of the in-column sidebar layout (reimport-570-brussels-in-column-sidebars, 104 documents): a sample in every language to check the expected heights (the h1 44 / 20 px lower, the text 72 / 66 px under it) before and after its re-import.
+https://www.brusselsairlines.com/be/en/travel-classes 1440 390 # 1: in-column hub
+https://www.brusselsairlines.com/be/fr/extra-services/baggage 1440 390 # 2: in-column hub
+https://www.brusselsairlines.com/be/nl/special-care/pets 1440 390 # 3: in-column hub
+https://www.brusselsairlines.com/de/de/extra-services/lounges 1440 390 # 4: in-column hub
+https://www.brusselsairlines.com/it/it/extra-services/meals 1440 390 # 5: in-column hub
+https://www.brusselsairlines.com/es/es/plan-your-trip 1440 390 # 6: in-column hub
+# Priority 2 - Brussels pages whose h1 opens a sidebar inside an AEM section (the open row: our h1 44 / 30 px higher on cancel-and-refund and service-charges, 30 / 16 on dsar-start): other languages and two more pages of the type, to tell the cases apart.
+https://www.brusselsairlines.com/be/fr/my-bookings/cancel-and-refund-requests 1440 390 # 7: section sidebar h1
+https://www.brusselsairlines.com/be/nl/contact/service-charges 1440 390 # 8: section sidebar h1
+https://www.brusselsairlines.com/de/de/legal-notices/dsar-start 1440 390 # 9: section sidebar h1
+https://www.brusselsairlines.com/be/en/contact 1440 390 # 10: section sidebar h1
+https://www.brusselsairlines.com/be/fr/contact/feedback 1440 390 # 11: section sidebar h1
+# Priority 3 - Austrian: the 48 roots without any recording (austrian-parity-003 has 16), their homepage each, for the ranking of all 64 roots (footer, header, homepage blocks per market).
+https://www.austrian.com/am/en/homepage 1440 390 # 12: Austrian root /am/en
+https://www.austrian.com/au/en/homepage 1440 390 # 13: Austrian root /au/en
+https://www.austrian.com/ba/en/homepage 1440 390 # 14: Austrian root /ba/en
+https://www.austrian.com/be/en/homepage 1440 390 # 15: Austrian root /be/en
+https://www.austrian.com/bg/en/homepage 1440 390 # 16: Austrian root /bg/en
+https://www.austrian.com/by/en/homepage 1440 390 # 17: Austrian root /by/en
+https://www.austrian.com/by/ru/homepage 1440 390 # 18: Austrian root /by/ru
+https://www.austrian.com/ca/en/homepage 1440 390 # 19: Austrian root /ca/en
+https://www.austrian.com/ca/fr/homepage 1440 390 # 20: Austrian root /ca/fr
+https://www.austrian.com/ch/de/homepage 1440 390 # 21: Austrian root /ch/de
+https://www.austrian.com/ch/en/homepage 1440 390 # 22: Austrian root /ch/en
+https://www.austrian.com/ch/fr/homepage 1440 390 # 23: Austrian root /ch/fr
+https://www.austrian.com/ch/it/homepage 1440 390 # 24: Austrian root /ch/it
+https://www.austrian.com/cy/en/homepage 1440 390 # 25: Austrian root /cy/en
+https://www.austrian.com/cz/en/homepage 1440 390 # 26: Austrian root /cz/en
+https://www.austrian.com/de/de/homepage 1440 390 # 27: Austrian root /de/de
+https://www.austrian.com/de/en/homepage 1440 390 # 28: Austrian root /de/en
+https://www.austrian.com/dk/en/homepage 1440 390 # 29: Austrian root /dk/en
+https://www.austrian.com/eg/en/homepage 1440 390 # 30: Austrian root /eg/en
+https://www.austrian.com/es/en/homepage 1440 390 # 31: Austrian root /es/en
+https://www.austrian.com/fr/en/homepage 1440 390 # 32: Austrian root /fr/en
+https://www.austrian.com/gb/en/homepage 1440 390 # 33: Austrian root /gb/en
+https://www.austrian.com/ge/en/homepage 1440 390 # 34: Austrian root /ge/en
+https://www.austrian.com/gr/en/homepage 1440 390 # 35: Austrian root /gr/en
+https://www.austrian.com/hr/en/homepage 1440 390 # 36: Austrian root /hr/en
+https://www.austrian.com/iq/en/homepage 1440 390 # 37: Austrian root /iq/en
+https://www.austrian.com/ir/en/homepage 1440 390 # 38: Austrian root /ir/en
+https://www.austrian.com/it/en/homepage 1440 390 # 39: Austrian root /it/en
+https://www.austrian.com/jo/en/homepage 1440 390 # 40: Austrian root /jo/en
+https://www.austrian.com/jp/en/homepage 1440 390 # 41: Austrian root /jp/en
+https://www.austrian.com/lt/en/homepage 1440 390 # 42: Austrian root /lt/en
+https://www.austrian.com/md/en/homepage 1440 390 # 43: Austrian root /md/en
+https://www.austrian.com/me/en/homepage 1440 390 # 44: Austrian root /me/en
+https://www.austrian.com/mk/en/homepage 1440 390 # 45: Austrian root /mk/en
+https://www.austrian.com/nl/en/homepage 1440 390 # 46: Austrian root /nl/en
+https://www.austrian.com/no/en/homepage 1440 390 # 47: Austrian root /no/en
+https://www.austrian.com/pl/en/homepage 1440 390 # 48: Austrian root /pl/en
+https://www.austrian.com/pt/en/homepage 1440 390 # 49: Austrian root /pt/en
+https://www.austrian.com/ro/en/homepage 1440 390 # 50: Austrian root /ro/en
+https://www.austrian.com/rs/en/homepage 1440 390 # 51: Austrian root /rs/en
+https://www.austrian.com/ru/en/homepage 1440 390 # 52: Austrian root /ru/en
+https://www.austrian.com/se/en/homepage 1440 390 # 53: Austrian root /se/en
+https://www.austrian.com/si/en/homepage 1440 390 # 54: Austrian root /si/en
+https://www.austrian.com/sk/en/homepage 1440 390 # 55: Austrian root /sk/en
+https://www.austrian.com/tr/en/homepage 1440 390 # 56: Austrian root /tr/en
+https://www.austrian.com/ua/en/homepage 1440 390 # 57: Austrian root /ua/en
+https://www.austrian.com/xk/en/homepage 1440 390 # 58: Austrian root /xk/en
+https://www.austrian.com/xx/en/homepage 1440 390 # 59: Austrian root /xx/en
+# Priority 4 (added after brief 588, item 2) - Brussels legal notices' pages whose h1 opens a sidebar left to default content (reimport-588-brussels-sidebar-h1.txt, 84 documents WAITING): one page per kind, to measure our h1 against www's before their re-import; and the legal-notices hub at 390 (in-column, its 390 not recorded).
+https://www.brusselsairlines.com/ao/fr/legal-notices/aviation-services-law 1440 390 # 60: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/brussels-airlines-responsible-disclosure-statement 1440 390 # 61: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/israel-cancellation-policy 1440 390 # 62: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/liability 1440 390 # 63: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/privacy-notice-applicants 1440 390 # 64: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/refund-for-cancelled-flights 1440 390 # 65: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/short-notice-eu-us 1440 390 # 66: sidebar-h1 kind
+https://www.brusselsairlines.com/it/it/legal-notices/special-assistance-legal-guidelines 1440 390 # 67: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/terms-and-conditions-conditions-of-carriage 1440 390 # 68: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/terms-of-use 1440 390 # 69: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/travel-id 1440 390 # 70: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/us-contingency-plan-for-lengthy-tarmac-delays 1440 390 # 71: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/us-customer-service-plan 1440 390 # 72: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/us-traveling-with-disabilities 1440 390 # 73: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-compensation-voucher 1440 390 # 74: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-refund-voucher 1440 390 # 75: sidebar-h1 kind
+https://www.brusselsairlines.com/be/en/legal-notices 1440 390 # 76: in-column legal notices hub (390)
+# Priority 5 (added after brief 588, item 5) - OUR host's Austrian homepages with www's APIs allowed (the fare teaser's and the destination finder's data come from www's APIs in the browser; ema-cashub refuses every www request, so ours render their empty state and the 48-root ranking cannot compare those bands): banner accepted, nothing opened, as the www recordings. One root of each group of the ranking (ranking-588-austrian-brussels-discover.md).
+https://austrian.turnsthe.page/be/en/homepage 1440 390 # 77: our host, group of /be/en
+https://austrian.turnsthe.page/cz/en/homepage 1440 390 # 78: our host, group of /cz/en
+https://austrian.turnsthe.page/tr/en/homepage 1440 390 # 79: our host, group of /tr/en
+https://austrian.turnsthe.page/ge/en/homepage 1440 390 # 80: our host, group of /ge/en
+# Priority 6 (added after brief 591, item 2) - the payment methods table of Brussels' our-payment-methods (www draws it in an iframe of webv4.brusselsairlines.com; all six languages use the same page): its rendered HTML is what the Brussels import needs (withPaymentTable reads content-sites/lh-brussels/assets/fop/<file>.html, the table only), the 1440 and 390 recordings of the iframe page as for any page.
+https://webv4.brusselsairlines.com/prod/content/v3assets/misc/fop/new/fop_standalone_1_en.html 1440 390 # 81: Brussels payment methods table (iframe page)
+# Priority 7 (added after brief 591, items 1 and 3) - our own host with www's APIs allowed, as rows 77-80: the two homepages whose finder patch is on HOLD (patch-591-austrian-finder-rows.txt). Then www pages: one page of each of the ten largest kinds the Austrian grey-band rule reaches (a columns-media block in a grey section: 32 px above and below, as www's column view; 138 documents, only wetlease-hub and culinary-services recorded), to check it.
+https://austrian.turnsthe.page/au/en/homepage 1440 390 # 82: our host, finder patch HOLD
+https://austrian.turnsthe.page/ch/de/homepage 1440 390 # 83: our host, finder patch HOLD
+https://www.austrian.com/at/en/austrian-app 1440 390 # 84: grey-band rule, kind of 20 documents
+https://www.austrian.com/at/en/accessible-travel 1440 390 # 85: grey-band rule, kind of 11 documents
+https://www.austrian.com/at/en/bangkok-airways 1440 390 # 86: grey-band rule, kind of 10 documents
+https://www.austrian.com/at/en/entryregulations 1440 390 # 87: grey-band rule, kind of 10 documents
+https://www.austrian.com/at/en/plan/special-requirements/entry-regulations/immigration-regulations-schengen 1440 390 # 88: grey-band rule, kind of 10 documents
+https://www.austrian.com/at/en/plan/special-requirements/healthy-travel/doctor-on-board 1440 390 # 89: grey-band rule, kind of 10 documents
+https://www.austrian.com/at/en/travel-id 1440 390 # 90: grey-band rule, kind of 10 documents
+https://www.austrian.com/at/en/sustainable-flying 1440 390 # 91: grey-band rule, kind of 10 documents
+https://www.austrian.com/at/en/additional-services 1440 390 # 92: grey-band rule, kind of 9 documents
+https://www.austrian.com/at/en/healthy-travel 1440 390 # 93: grey-band rule, kind of 9 documents
+# Priority 8 (added after brief 594) - Austrian ru/ru homepage, to measure its footer-disclaimer patch (reimport-591-austrian-home-disclaimer.txt) as by/ru.
+https://www.austrian.com/ru/ru/homepage 1440 390 # 94: Austrian root /ru/ru (disclaimer patch)
+# Priority 9 (added after brief 595, before 08:00 CET) - recorded pages whose 390 recording is missing (their recordings were 1440 only), for the morning's rankings: Austrian at/en online-check-in first.
+https://www.austrian.com/at/en/online-check-in 1440 390 # 95: 390 missing
+https://www.austrian.com/at/en/fly/on-board/culinary-services 1440 390 # 96: 390 missing
+https://www.brusselsairlines.com/be/fr/legal-notices 1440 390 # 97: 390 missing
+https://www.brusselsairlines.com/be/en/articles/the-gambia 1440 390 # 98: 390 missing
+https://www.brusselsairlines.com/be/fr/articles/vibrant-senegal 1440 390 # 99: 390 missing

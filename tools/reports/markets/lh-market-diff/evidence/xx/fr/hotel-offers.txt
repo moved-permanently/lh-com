@@ -1,0 +1,5 @@
+root    /ar/fr/hotel-offers
+version /content/lh/markets/xx/fr/hotel-offers
+verdict differs (widget)
+diff (- version only, + root only; = shared), from token 2:
+~ @data-dcep (JSON, version -> root): .promotionTeaser.alignment: "left" -> "right"; .promotionTeaser.displayText: "Le Wi-Fi de Lufthansa Group avec Starlink" -> "Jusqu’à -50 % pour les enfants"; .promotionTeaser.linkModeConfig.label: "En savoir plus sur notre Wi-Fi" -> "Découvrez plus"; .promotionTeaser.linkModeConfig.movingImage.imageUrl: "/content/dam/lh/images/local_images/during-your-trip/lhg-wifi/1094_79e_{n}.jpg" -> "/content/dam/lh/images/frontify_variations/6/c-{n}-LH_Kids_Airport_OscarBravo29.jpg"; .promotionTeaser.linkModeConfig.movingImage.srcset: "/content/dam/lh/images/local_images/during-your-trip/lhg-wifi/1094_79e_{n}.jpg.transform/lh-dcep-transform-width-1440/img.jpg 1440w,/content/dam/lh/images/local_images/during-your-trip/lh; .promotionTeaser.linkModeConfig.url: "/content/~/markets/{R}/during-your-trip/lhg-wifi" -> "/content/~/markets/{R}/local-page/family-promo-2026"; .promotionTeaser.title: "Stay connected at any altitude" -> "En famille, loin de tout"

@@ -713,6 +713,89 @@ body.brand-cargo .footer .footer-logos li:nth-child(3) {
   }
 }
 
+/* row 46 (the brief after 531): from 1025 px a story's text blocks 50 px under a picture module and
+   50 px over the next one, as www's (cargo-parity-001's 142 story at 1440; the wrappers' 20 px
+   before); phones as before */
+@media (width >= 1025px) {
+  body.brand-cargo main > .section > .hero-card-overlay-wrapper:has(> .hero-card-overlay.light) + div,
+  body.brand-cargo main > .section > div:not(.hero-card-overlay-wrapper) + .hero-card-overlay-wrapper:has(> .hero-card-overlay.light) {
+    margin-top: 50px;
+  }
+}
+
+/* row 47 (the brief after 540): a story's own chrome as www's story template (cargo-parity-001's 142
+   story): "Transport Stories Home" in its grey label with the stories' icon under the breadcrumb
+   (hero-card-overlay.js adds it), 28 px over the first picture; from 1025 px a 38 px navy chevron
+   at the foot of every module (www's story-scrollLink, 3 px over the module's edge), the last one up; buttons
+   (hero-card-overlay.js storyChevrons, row 52) that scroll to the next module, the last one to the first (the
+   module's top under the fixed bar);
+   the closing text (the partner links and the photos' credits) is www's twelfth module, its chevron the up one */
+body.brand-cargo .hero-card-overlay-stories-wrapper {
+  margin-top: 22px;
+}
+
+body.brand-cargo .hero-card-overlay-stories {
+  margin: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the label's link, not the header's */
+body.brand-cargo .hero-card-overlay-stories a {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 25px;
+  padding: 0 5px 0 35px;
+  background-color: #d3d3d3;
+  background-image: url("/icons/cargo-stories.svg");
+  background-repeat: no-repeat;
+  background-position: 8px center;
+  color: #05164d;
+  font-size: 14px;
+  line-height: 25px;
+  text-decoration: none;
+}
+
+/* the chevrons are www's from 1025px only (hidden on phones there too) */
+body.brand-cargo .story-chevron {
+  display: none;
+}
+
+@media (width >= 1025px) {
+  body.brand-cargo main > .section:has(> .hero-card-overlay-wrapper > .hero-card-overlay.light) > :is(.hero-card-overlay-wrapper, .columns-media-wrapper, .default-content-wrapper:last-child) {
+    position: relative;
+    scroll-margin-top: var(--nav-height);
+  }
+
+  body.brand-cargo main > .section:has(> .hero-card-overlay-wrapper > .hero-card-overlay.light) > :is(.hero-card-overlay-wrapper, .columns-media-wrapper, .default-content-wrapper:last-child) > .story-chevron {
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    z-index: 2;
+    width: 38px;
+    height: 38px;
+    margin-left: -19px;
+    padding: 0;
+    border: 0;
+    background: #006 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2.5' d='M2 5l6 6 6-6'/%3E%3C/svg%3E") center / 16px no-repeat;
+    cursor: pointer;
+  }
+
+
+  body.brand-cargo main > .section:has(> .hero-card-overlay-wrapper > .hero-card-overlay.light) > :is(.hero-card-overlay-wrapper, .columns-media-wrapper, .default-content-wrapper:last-child) > .story-chevron-first {
+    rotate: 180deg;
+  }
+
+  /* a text module's at the foot of its 50 px before the next picture, on that picture's edge */
+  body.brand-cargo main > .section:has(> .hero-card-overlay-wrapper > .hero-card-overlay.light) > .columns-media-wrapper:has(+ .hero-card-overlay-wrapper) > .story-chevron {
+    bottom: -51px;
+  }
+
+  body.brand-cargo main > .section:has(> .hero-card-overlay-wrapper > .hero-card-overlay.light) > :is(.hero-card-overlay-wrapper, .columns-media-wrapper, .default-content-wrapper:last-child) > .story-chevron:focus-visible {
+    outline: 2px solid #006;
+    outline-offset: 2px;
+  }
+}
+
 /* row 42 (the brief after 509): a gallery's dots onto the next line, centred, as www's inline-block
    owl dots (one dot a picture: the industry galleries ran past the screen at 390) */
 body.brand-cargo .carousel-images .carousel-images-dots {
@@ -730,6 +813,11 @@ body.brand-cargo .carousel-images .carousel-images-dots {
 body.brand-cargo main > .section > .hero-card-overlay-wrapper:has(> .hero-card-overlay.light) {
   max-width: 1354px;
   margin-inline: auto;
+}
+
+/* (row 47) the first picture 28 px under the stories' label */
+body.brand-cargo main > .section > div.hero-card-overlay-stories-wrapper + .hero-card-overlay-wrapper:has(> .hero-card-overlay.light) {
+  margin-top: 28px;
 }
 
 /* (one column as wide as the block: sized by the content it grew to the card's longest title word,
@@ -946,11 +1034,14 @@ body.brand-cargo main > .section.image-list .accordion-columns-panel {
   }
 }
 
-/* row 18 (round 3): the history timeline (carousel-cards (timeline)) as www's: white cards, the
-   year 36 px, the title 16 px bold, the text 13/22. On phones the cards down a navy line at the
-   left, a dot beside each; from 768 px a third of the row each, above and below a white line in
-   turn (each slide a grid of three rows: its card in the first or the last, the line and its dot
-   in the middle one), the arrows round at the line's ends, no dots row. The band grey where it has
+/* row 18 (round 3): the history timeline (carousel-cards (timeline)) as www's: white cards (a 1 px
+   #ccc border, 10 px corners, 20 px in), the year 40 / 48 px, the title 18 / 21.6 px bold, the text
+   15 / 22.5 px, 10 px apart, at every width (cargo-parity-002, the brief after 531). On phones the
+   cards down a navy line at the left, a dot beside each; from 768 px a third of the row each, above
+   and below a white line in turn (each slide a grid of three rows: its card in the first or the
+   last, the line and its dot in the middle one, 80 px between the cards and 48 px under the lower
+   one: www's script makes the lower row 48 px taller), the arrows round at the line's ends, no dots
+   row. The band grey where it has
    no photo; www's photo (History_Slider_BG.jpg, section timeline, brief 439) covers it behind the
    cards at every width (the rules shared with key facts below) */
 body.brand-cargo main .section:has(.carousel-cards.timeline) {
@@ -980,35 +1071,37 @@ body.brand-cargo .carousel-cards.timeline .carousel-cards-image {
 body.brand-cargo .carousel-cards.timeline .carousel-cards-body {
   box-sizing: border-box;
   padding: 20px;
-  border-radius: 4px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
   background-color: #fff;
-  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%);
   color: #333;
 }
 
 body.brand-cargo .carousel-cards.timeline .carousel-cards-body > * {
-  margin: 0 0 12px;
-  font-size: 13px;
-  line-height: 22px;
+  margin: 0 0 10px;
+  font-size: 15px;
+  line-height: 22.5px;
 }
 
 body.brand-cargo .carousel-cards.timeline .carousel-cards-body > :last-child {
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
 body.brand-cargo .carousel-cards.timeline .carousel-cards-body > p:first-child {
   color: #05164d;
   font-family: var(--heading-font-family);
-  font-size: 36px;
+  font-size: 40px;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 48px;
 }
 
 body.brand-cargo .carousel-cards.timeline .carousel-cards-body > :is(h2, h3, h4) {
+  margin: 10px 0;
   color: #333;
-  font-size: 16px;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
   font-weight: 700;
-  line-height: 20px;
+  line-height: 21.6px;
 }
 
 body.brand-cargo .carousel-cards.timeline .carousel-cards-dots {
@@ -1070,25 +1163,6 @@ body.brand-cargo .carousel-cards.timeline :is(.carousel-cards-prev, .carousel-ca
     flex: none;
   }
 
-  body.brand-cargo .carousel-cards.timeline .carousel-cards-body {
-    padding: 24px 20px;
-    border-radius: 8px;
-  }
-
-  body.brand-cargo .carousel-cards.timeline .carousel-cards-body > * {
-    font-size: 16px;
-    line-height: 24px;
-  }
-
-  body.brand-cargo .carousel-cards.timeline .carousel-cards-body > p:first-child {
-    font-size: 42px;
-  }
-
-  body.brand-cargo .carousel-cards.timeline .carousel-cards-body > :is(h2, h3, h4) {
-    font-size: 18px;
-    line-height: 24px;
-  }
-
   body.brand-cargo .carousel-cards.timeline .carousel-cards-nav {
     display: none;
   }
@@ -1103,7 +1177,9 @@ body.brand-cargo .carousel-cards.timeline :is(.carousel-cards-prev, .carousel-ca
   body.brand-cargo .carousel-cards.timeline .carousel-cards-slide {
     display: grid;
     flex-basis: calc(100% / 3);
-    grid-template-rows: 1fr 40px 1fr;
+    grid-template-rows: 1fr 80px 1fr;
+    box-sizing: border-box;
+    padding-bottom: 48px;
   }
 
   body.brand-cargo .carousel-cards.timeline .carousel-cards-body {
@@ -1128,7 +1204,9 @@ body.brand-cargo .carousel-cards.timeline :is(.carousel-cards-prev, .carousel-ca
     background-color: #fff;
   }
 
+  /* on the line: the middle of the slide above its 48 px under the lower card */
   body.brand-cargo .carousel-cards.timeline .carousel-cards-slide::after {
+    top: calc(50% - 34px);
     left: calc(50% - 10px);
   }
 
@@ -1742,7 +1820,7 @@ body.brand-cargo main > .section.key-facts .carousel-cards-wrapper ~ .default-co
   position: relative;
   z-index: 2;
   margin: 0;
-  padding: 51px 16px 30px;
+  padding: 32px 16px 17px; /* the link 32px under the dots' row, 17px over the foot (Cargo row 50) */
 }
 
 /* stylelint-disable-next-line no-descending-specificity -- the key facts link, not a slide's or a card's text */
@@ -1915,4 +1993,41 @@ body.brand-cargo .cards-teaser.mosaic .cards-teaser-body a {
    of lower specificity) */
 body.brand-cargo main > .section.key-facts .carousel-cards-wrapper ~ .default-content-wrapper a:any-link {
   color: #05164d;
+}
+
+/* the newsroom once Mynewsdesk's app is there (blocks/newsroom, after consent; cargo-parity-001 /en/ci/newsroom at 1440
+   and 390, the standing order of 2026-11-10, item 5): www shows the app right under the header, its own "Latest news"
+   its first heading, and the footer 23px under it; the page's "Newsroom" title for screen readers only (visually
+   hidden, not removed). Without the app (the flag off, no consent: the link to the newsroom) the title stays */
+body.brand-cargo main > .section.newsroom-container:has(#mnd-iframe) {
+  margin-top: 0;
+  margin-bottom: 23px;
+}
+
+body.brand-cargo main > .section.newsroom-container:has(#mnd-iframe) > .default-content-wrapper > h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* row 49 (the standing order of 2026-11-10, item 6): on phones a transport story's text module reads as www's one
+   text (story-textWrap: its columns one column below 768 px, the text running on): the import's two cells stacked
+   without the cells' 36 px between them (cargo-parity-001's 142 story at 390: five modules, 180 px) */
+@media (width < 768px) {
+  body.brand-cargo main > .section:has(.hero-card-overlay.light) .columns-media .columns-media-row > .columns-media-text:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
+/* row 51: on phones a text-and-picture row shows its picture first, as www's Text-Image-horizontal-CF5 (order-first
+   below 768px); not in a transport story's sections (row 41) */
+@media (width < 768px) {
+  body.brand-cargo main > .section:not(:has(.hero-card-overlay.light)) .columns-media .columns-media-row.columns-media-media-last > .columns-media-media {
+    order: -1;
+  }
 }

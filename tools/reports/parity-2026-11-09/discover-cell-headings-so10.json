@@ -1,0 +1,110 @@
+[
+ {
+  "path": "/de/en/my-bookings/check-in/check-in-at-the-airport",
+  "level": 2,
+  "text": "Check-in at Frankfurt Airport",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/en/discover/services-on-board/entertainment",
+  "level": 2,
+  "text": "Onboard Cloud",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/en/discover/services-on-board/entertainment",
+  "level": 2,
+  "text": "Discover FlyNet®",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/en/discover/services-on-board/entertainment",
+  "level": 2,
+  "text": "Experience the excitement of football above the clouds",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/en/discover/services-on-board/entertainment",
+  "level": 3,
+  "text": "Entertainment on long-haul flights",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/en/discover/services-on-board/entertainment",
+  "level": 3,
+  "text": "Entertainment on short & medium-haul flights (Europe & North Africa)",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/en/my-bookings/manage/customer-service",
+  "level": 3,
+  "text": "Do you have a request before your trip?",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/en/my-bookings/manage/customer-service",
+  "level": 3,
+  "text": "Do you have any feedback or complaints after your flight?",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/en/my-bookings/manage/customer-service",
+  "level": 3,
+  "text": "You can also contact us via WhatsApp",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/en/my-bookings/manage/customer-service",
+  "level": 3,
+  "text": "Is your baggage delayed or was it damaged?",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/de/my-bookings/check-in/check-in-at-the-airport",
+  "level": 2,
+  "text": "Check-in am Flughafen Frankfurt",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/de/discover/services-on-board/entertainment",
+  "level": 2,
+  "text": "Onboard Cloud",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/de/discover/services-on-board/entertainment",
+  "level": 2,
+  "text": "Discover FlyNet®",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/de/discover/services-on-board/entertainment",
+  "level": 2,
+  "text": "Fußballfieber über den Wolken erleben",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/de/my-bookings/manage/customer-service",
+  "level": 3,
+  "text": "Sie haben ein Anliegen vor Ihrer Reise?",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/de/my-bookings/manage/customer-service",
+  "level": 3,
+  "text": "Auch über WhatsApp für Sie erreichbar",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/de/my-bookings/manage/customer-service",
+  "level": 3,
+  "text": "Sie haben nach Ihrem Flug Feedback oder Beschwerden?",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/de/my-bookings/manage/customer-service",
+  "level": 3,
+  "text": "Ihr Gepäck ist verspätet oder wurde beschädigt?",
+  "size": "heading-small"
+ }
+]

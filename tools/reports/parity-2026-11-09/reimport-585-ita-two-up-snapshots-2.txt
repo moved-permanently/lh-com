@@ -1,0 +1,45 @@
+# ema-lufthansa, the night of 2026-11-11: the D rows of reimport-585-ita-two-up-snapshots.txt (31 rows without a
+# snapshot then) against ita-snapshots-023 (32 pages, 23:48 UTC; 1,274,950 bytes,
+# 89f1609a5a188d415398ff69225a239c1e857db96b55e760e7cb16e8cecd71e8 as downloaded here), each imported offline with
+# main's ita-import.mjs and its bundle (every request aborted).
+# Expected change per row in A: the "Related" grid "two-up", nothing else.
+#
+# A. From ita-snapshots-023, the offline import gives "two-up" (25 rows):
+/br/pt/book-and-prepare/other-requests/accessible-travel
+/br/pt/book-and-prepare/other-requests/families-and-children/unaccompained-minors
+/br/pt/manage-my-bookings/manage/manage-my-bookings
+/br/pt/manage-my-bookings/manage/view-and-manage-flight
+/br/pt/manage-my-bookings/partners/airport-transfer
+/de/de/manage-my-bookings/extra-services/travel-insurance
+/de/de/manage-my-bookings/manage/manage-my-bookings
+/de/de/manage-my-bookings/manage/view-and-manage-flight
+/de/de/manage-my-bookings/partners/airport-transfer
+/es/es/book-and-prepare/other-requests/accessible-travel
+/es/es/manage-my-bookings/manage/manage-my-bookings
+/es/es/manage-my-bookings/manage/view-and-manage-flight
+/es/es/manage-my-bookings/partners/airport-transfer
+/fr/fr/manage-my-bookings/extra-services/travel-insurance
+/fr/fr/manage-my-bookings/manage/manage-my-bookings
+/fr/fr/manage-my-bookings/manage/view-and-manage-flight
+/fr/fr/manage-my-bookings/partners/airport-transfer
+/gr/el/manage-my-bookings/manage/manage-my-bookings
+/gr/el/manage-my-bookings/manage/view-and-manage-flight
+/gr/el/manage-my-bookings/partners/airport-transfer
+/jp/ja/manage-my-bookings/manage/manage-my-bookings
+/jp/ja/manage-my-bookings/manage/view-and-manage-flight
+/jp/ja/manage-my-bookings/partners/airport-transfer
+/nl/nl/manage-my-bookings/manage/manage-my-bookings
+/nl/nl/manage-my-bookings/manage/view-and-manage-flight
+#
+# B. From ita-snapshots-023, no two-up (www's view has three cards: a phone slider), so these 7 rows leave the
+#    two-up lists:
+# /br/pt/book-and-prepare/digital-services
+# /de/de/book-and-prepare/digital-services
+# /es/es/book-and-prepare/digital-services
+# /fr/fr/book-and-prepare/digital-services
+# /gr/el/book-and-prepare/digital-services
+# /jp/ja/book-and-prepare/digital-services
+# /nl/nl/book-and-prepare/digital-services
+#
+# Not in ita-snapshots-023 (1): /nl/nl/manage-my-bookings/partners/airport-transfer
+# In ita-snapshots-023 but not a D row (2): /de/de/manage-my-bookings/extra-services/travel-insurance, /fr/fr/manage-my-bookings/extra-services/travel-insurance

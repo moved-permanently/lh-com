@@ -16,7 +16,9 @@ import { fileURLToPath } from 'node:url';
 const dir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(dir, '../..');
 const { templates } = JSON.parse(fs.readFileSync(path.join(dir, 'page-templates.json'), 'utf8'));
-const names = process.argv.slice(2).length ? process.argv.slice(2) : templates.map((t) => t.name);
+// the hook-validation guard (hook-validation-guard.mjs) is no page template: no bundle
+const pages = templates.filter((t) => !t.validationOnly);
+const names = process.argv.slice(2).length ? process.argv.slice(2) : pages.map((t) => t.name);
 
 let failed = 0;
 names.forEach((name) => {

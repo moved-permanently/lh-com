@@ -143,6 +143,15 @@
   line-height: 110%;
 }
 
+/* phones: the last tile's label without its 10px, as www's column view drops its last item's last
+   margin (additional-services at 390: 37px from the last label to the next section, ours 47;
+   brief 553; lufthansa.com only: the brands draw their own tiles) */
+@media (width < 768px) {
+  body.brand-lufthansa .cards-icon.usp > ul > li:last-child .cards-icon-label {
+    margin-bottom: 0;
+  }
+}
+
 @media (width >= 768px) {
   .cards-icon.usp > ul {
     grid-template-columns: repeat(2, minmax(0, 1fr));

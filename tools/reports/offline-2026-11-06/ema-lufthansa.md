@@ -2637,3 +2637,1507 @@ snapshots on this disk, DA's copy (item 2), fixtures only (item 3).
 - **TAP by hand:** 40 pages, all 200, the same as the brief after 523.
 - **Not in git:** the clean copy, the fixtures, the dry-run output and the logs, all in the ignored scratch folder.
   They are local run material.
+
+## The brief after 531
+
+At the start of this turn only .migration/project.json was uncommitted (local tool state, kept out of git); nothing was
+unpushed. Main's lint was red at the start (a 129-character line in lh-edge, ema-adobe's); 3891be5a fixed it before
+my first push, and every push here ran the whole repository's lint first. Nothing was uploaded or published. The six
+recordings came from the R2 drop, each checked against its sha256 and unpacked into its own folder (scratch, not in
+git). No test reaches the uploader. Measured on our hosts (swiss, ita, cargo, discover, airdolomiti, b2b
+.turnsthe.page), with the local CSS or code injected where a change was pending, against the recordings.
+
+**Requests outside our hosts:**
+- Two probes of the help app (before I closed the gap) let the app's FAQs picture load from www.ita-airways.com and
+  swiss.com. The measuring scripts now make every brand host and its subdomains unresolvable.
+- The trial import of Discover's excess-baggage page ran offline (the site is flagged bot-protected, so the
+  importer used the recording, not www). Its browser may still have asked www.discover-airlines.com and
+  www.lufthansa.com for the recording's linked scripts, styles and pictures. I did not run the bulk importer again.
+
+### 1. The rows that waited for a recording
+
+| Commit | Row | What | Measured (ours before -> after, www) |
+| --- | --- | --- | --- |
+| 15db2b5e | SWISS 48 | the help app's question "Is there a topic missing?" moved into the app's own container (between the topics and the FAQs card), as www | SWISS /ch/en/help-center 1440 1964 -> 2082 (2116), 390 2170 -> 2336 (2326), with the patched document; ITA it/en 1440 2320 -> 2296 (2254) |
+| 785620e5 | SWISS 49 | the question's sizes in the app (bold question, 14 px note in half the column, 40 px over 50 px answers) | SWISS 1440 2082 -> 2107 (2116); ITA 1440 2296 -> 2304 (2254) |
+| e6e28ebd | AD 76 | the destination hub's booking strip sticks as www's: fixed under the header from 1025 px, a navy band under the 80 px header on phones; the header stays on those pages | 1440 4855 -> 4733 (4677), the h1 432 -> 310 (310); 390 9501 -> 9575 (9699) |
+| c866fc17 | Cargo 45 | the history timeline's texts as www's at every width, 80 px between the card rows and 48 px under the lower one | 1440 4547 -> 4802 (4848); 390 12398 -> 12248 (11916) |
+| 3b421062 | AD 77 | the flight status pages as www's half page (the form beside the card), www's page title (under its header) a hidden h1 | /de/flug-status 1440 2307 -> 1761 (1693) |
+| 87337c3e | Discover 42 | excess-baggage: the importer as it is makes www's tabs, the text beside its picture and the two-up cards; the document was older than the tab sections | 1440 5700 -> 2523 (2705), with that document; 5575 with Discover's theme live since 17:26 |
+
+- **Help apps:** the SWISS help-center document lacks the feedback block that its twin contact-us has: a patch
+  (patch-535-swiss-help-feedback.txt). ITA's rest (+2.2 % at 1440, +3.7 % at 390) is the footer and the page around the
+  app, not the app.
+- **Cargo:** www's script measures the timeline cards taller than it draws them (its timeline 1404 px, ours now
+  1223): no rule reproduces that.
+- **Air Dolomiti:**
+  - www's header shrinks to 80 px when scrolled (its bar then at 30); ours stays 120.
+  - Of the three pages not recorded before, flug-status is fixed. schwangere-und-kinder is -1.3 % to the footer.
+    tiere-an-bord is -4.9 % (its accordions start 24 px higher; the rest is not traced).
+  - street-food-in-munich is -6.7 % to the footer (not traced).
+- **B2B row 36 at 390** (b2b-parity-002, the published documents since round 130): de/en 5312 / 5286 (+0.5 %), de/de
+  5432 / 5454 (-0.4 %); nothing to do.
+
+### 2. The next ranking rows
+
+| Commit | Row | What | Measured |
+| --- | --- | --- | --- |
+| 2fa27f77 | AD 78 | the destination article lists (what to see, do, eat) from 930 px: the title and text centred as www's CenteredBlock, the cards 179 px under it | florence/what-to-see: the text 252-1188 px as www's, the footer 934 -> 1021 (1108; www's pagination row left) |
+| 8c03a4fe | Cargo 46 | the transport stories' text 50 px from the picture modules from 1025 px | 142 en 7561 -> 7921 (7829), de 7609 -> 7969 (7925) |
+
+- **B2B:** the next rows (partner-plus-benefit, experts) are spacing that the documents' style markers and spacers
+  draw (40 px under the title where www has 80). Group for Business' collapse pass (e28605e2) is uploaded and
+  previewed, not published. Ranking again after it publishes is the right order (ema-test's markers; not touched).
+- **Discover:** no open ranking row of its own after the brief after 518 (offers: data; families: the footer,
+  ema-adobe's). Other documents imported before 515475be may lack their tabs as excess-baggage did. That needs their
+  recordings to check.
+
+### Documents (4; each published as it stands, nothing waits at preview for a later step)
+
+- patch-535-swiss-help-feedback.txt (1): /ch/en/help-center, DA's copy plus contact-us's feedback block.
+- reimport-535-ad-flight-status.txt (2): /de/flug-status, /en/flight-status.
+- reimport-535-discover-excess-baggage.txt (1): /de/en/book/baggage/excess-baggage, from discover-parity-002.
+
+### Checks
+
+- **Smoke:** after each push, every brand's smoke was compared with the run before it: 0 differences. After
+  2fa27f77 and 8c03a4fe, Austrian's two hosts and B2B failed to fetch once (network); their reruns show 0 differences.
+  After 8c03a4fe, Brussels' /de/en/search-index.json changed (an index; others' content).
+- **TAP by hand:** 40 pages, all 200, the same as the brief after 526.
+- **Not in git:** the recordings, the clean copies, the trial import's output and the logs. They stay in the ignored
+  scratch folder as local run material.
+
+### The brief after 531, continued (after the report above)
+
+ITA, TAP and Discover are live with their token-free styling since 536's start (2377993b, ace9e7ee, bbe699f9): ITA and
+Discover are measured as they are on live.
+
+| Commit | Row | What | Measured |
+| --- | --- | --- | --- |
+| 1d87c05c | SWISS 50 | the help app's section to the footer as www's: 24 px on ITA, 30 px on SWISS (was 48) | ITA live 1440 2304 -> 2280 (www 2254), the footer 1484 -> 1460 (1459), 390 3164 -> 3140 (3052); SWISS contact-us the footer 30 px under the card as www's |
+| 5bae2c03 | AD 79 | the FAQ half page's accordions 75 px over the next section | tiere-an-bord the footer 1482 -> 1557 (1558); schwangere-und-kinder 1075 -> 1108 (1089) |
+| 6e1171db | AD 80 | the header 80 px once scrolled, the logo 40 px; the hub's strip under it at 30 | after 900 px: the bar 80, the logo 16-56 (www 16-55), the strip at 30 (30) |
+
+- **Left:**
+  - ITA's help page at 390 is +2.9 % (its footer, 49 px taller than www's, is ITA's).
+  - SWISS's help card ends 28 px higher than www's (www's note wraps to two lines).
+  - Air Dolomiti street-food-in-munich is -6.7 % to the footer. It's a post's own layout (the stage card's width, the
+    lead texts' column, www's picture rows), not traced.
+  - Florence's pagination row is still missing.
+  - Cargo stories at 390 are still about +3 %.
+  - B2B waits for its pass.
+- **Documents:** the same 4 as above.
+
+## The standing order of 2026-11-10 (Air Dolomiti, ITA, TAP, SWISS, Cargo)
+
+The list in order, each item finished, committed and pushed before the next (whole-repo lint, the suite, smoke before
+and after on served code). Nothing uploaded, previewed or published by me; re-imports are list files under
+tools/reports/parity-2026-11-09 and wait for the helpers. No request to an airline host: recordings from the R2 drop,
+measurements on our own hosts with the airline hosts unresolvable. Decisions by the existing rules are written under
+each item.
+
+Before the order (the brief after 566, on main): dbbbc719 (AD 88, the text block's foot), ef0ddc38 (AD 89, the price bar
+pinned), 5651bc79 and 67bf4437 (ITA 24 and 25), all with lint, the suite and smoke at 0 differences on 14 hosts.
+
+### Item 1: the Air Dolomiti phone strip and breadcrumb (done)
+
+5ea6e536 (AD row 90), as the user answered: on the destination pages' top below 530 px the search strip without room or
+card (still rendered, so the header's plane opens its panel over the window, the focus back on the plane), the
+breadcrumb visually hidden (still a named nav), the stage 90 px under the header. The articles keep their visible
+trail (www's is dark over their title). 390 x 844: bari-de 8194 -> 7996 (www 8097, every carousel heading within 1 px),
+bari, Munich and cagliari -198 each; every page at 1440 and the article, homepage and fleet at 390 unchanged.
+
+### Item 2a: Air Dolomiti pictures by DA's copies
+
+- **Found:** the importer writes a picture's local copy when its own download step has it, else www's
+  cms.airdolomiti.it address; the helper then patched the page to DA's copy. DA's copies are named from the www URL alone
+  (/media-da/airdolomiti/<readable name>-<sha1 of the URL, 8>.<ext>) and lh-airdolomiti's upload state lists all 1811,
+  so no request is needed to find one: of airdolomiti-parity-004 bari-de's picture URLs, 31 resolve to DA copies.
+- **Change:** tools/importer/airdolomiti-media.mjs (the naming, shared with airdolomiti-assets.mjs, which now uses it;
+  daCopyOf; missingAssets). The import writes DA's copy for any picture it has not downloaded and DA has (a resized copy's
+  original too); a picture DA lacks keeps www's address as before (the helper's download step takes it). A /media-da path
+  the upload state knows is linked without a local file (da-upload's mediaStep: known).
+- **404s:** tools/importer/airdolomiti-missing-assets.json, Austrian's pattern (url, www's answer, when, pages); the
+  import leaves a listed picture out and keeps the card. It starts empty: no www answer is recorded on this machine, and
+  I make no requests. The importer's own download state still leaves out what it found 404 itself.
+- **Kind:** importer only; no live page changes, no re-import needed (the live documents hold DA's copies already).
+- **Test:** test/airdolomiti-da-copies-567.test.mjs (fails on the old importer).
+- **On main:** 156f3b65 (lint 0, 3400 pass 0 fail, smoke 0 differences on 14 hosts).
+
+### Item 2b: the two Air Dolomiti airport pages
+
+- **Why they were held:** false positives of reimport-557-ad-carousel-count.txt. Their carousel ("Related articles")
+  has no "see all" link on www (showMoreText empty); the paragraph after it is the map link, which my scan took for one.
+- **Recording:** airdolomiti-snapshots-003.tar.gz from the R2 drop (S0cxjp folder, sha256 b6daf243... as downloaded; no
+  delivery checksum is recorded for it, both files match the manifest's own sha256), Frankfurt 05:36 and Munich 05:39 UTC.
+- **The import against the live documents** (run offline on the snapshots):
+  - Frankfurt: www's new AiRail closure notice (an h2 and two paragraphs).
+  - Both: the text block as columns-media (news) and the title section compact-title, as www's description-news and
+    Title h1; the newsletter section style; DA's picture copies.
+  - Munich's text is unchanged (only a space between the bold labels and their text, from the markup).
+  - The links are as now. The missing /de prefix in the offline run is this machine's missing paths.json, not a change.
+- **Decision** ("www's text and links, DA's local picture copies"): re-import both. The Alternate rows stay: www still lists
+  it and en (Frankfurt) and it and de (Munich), as our rows. The news and compact-title variants stay: www shows both.
+- **List:** reimport-567-ad-airports.txt (2 rows, the snapshot archive, the expected change per row). Parity row 91.
+
+### Item 2c: the destination pages' text size on phones
+
+- **Measured at 390 x 844:** the text block under the stage (www's TitleDescriptionTextCta) is 22 / 37.4 px since row 83 on
+  all 9 pages checked. The 16 / 27.2 px text left is www's DescritionNews (a picture across the page over its text):
+  22 live documents hold it as a plain columns-media, imported before 80458997 wrote columns-media (news). The variant has
+  www's look since brief 456 (the picture 600 px, the text 19.44 / 33).
+- **Decision:** no code change; re-import. London with the variant on its live document: 390 x 844 8761 -> 10132 px,
+  1440 6023 -> 7384 (the 600 px pictures, as www's rule). No recording measures www's London or Basel: both on a capture list.
+- **Lists:** reimport-567-ad-description-news.txt (22 pages), capture-567-ad-description-news.txt (2). Parity row 92.
+- **Note:** an earlier offline import run here made an empty folder content-sites/lh-airdolomiti/content/media-da/airdolomiti
+  (git-ignored, left as it is).
+- **On main:** b51dfc86 (lint 0, 3402 pass 0 fail, smoke 0 differences on 14 hosts).
+
+### Item 3: TAP
+
+- **3a, /en-pt at 1440 (row 127):** the change from 4,836 to 4,000 px was ours, not www's: ed2c5846 (row 121) pinned the
+  Miles&Go cards as www's while scrolling. www's recordings (tap-parity-001 and -002) are 4,621 px because they did not
+  scroll (www's GSAP pin-spacer keeps 1,580 px until scrolled through); scrolled, www is 4,041 (brief 483). Ours 4,000:
+  -1 %. Nothing to follow.
+- **3b, get-inspired (row 128):** tap-parity-002's recording marked unreliable (about 1,500 pictures not loaded; www 5,582
+  px against our 39,589), out of the ranking. No other recording in the drop has the page (tap-parity-001 has none,
+  sha256 d3a98bb2... as downloaded). capture-567-tap-get-inspired.txt for the next window.
+- **3c, the market comparison's import rows (row 129):** the comparison's rulings file is not on main (work/market-diff/tap
+  is Ben's), so I worked from its import-list.tsv (387 rows), which has the same kinds of rows:
+  - version-local pages ("home-market section"): 16 language pages, by the comparison's variant hash 34 groups;
+  - the shared promo variant: en and pt /miles-and-go/promo, 8 roots each (the "16 shared promo" rows);
+  - own documents: 34 rows of 21 roots;
+  - the alerts page left out (the comparison's summary: the alerts come from the Message Center, nothing to import);
+  - the lacks rows: Ben's 14 in 5f33ef7e; a 15th is not in the files on main;
+  - the en-pt club page: three groups (55 roots, ao, us) like pt-pt's; its implicit market_us variation still goes by
+    the rule path, which comes first.
+  - **Step:** tap-markets.mjs read no such decisions: where no rule explains a difference it kept the language version
+    for every market. Now tools/markets/tap-market-groups.mjs writes market-groups.json from the comparison, and the step
+    gives a group whose capture differs its own section (its countries) and the language version's section to every other
+    market; a group without a capture is noted and keeps the language version; the own documents join the roots' own
+    pages (the CLI converts them from the roots' captures). ITA's and SWISS's pattern: one document with Markets sections.
+  - **Kind:** importer and data only; nothing live changes before the run. The own documents are served once
+    tools/reports/tap/markets.json and scripts/tap-markets.js (lh-edge's table, ema-adobe's deploy) follow the run.
+  - **Lists:** reimport-567-tap-markets.txt (17 language documents and 34 root documents, the groups per row),
+    capture-567-tap-market-groups.txt (70: one root per group and each own document's page).
+  - **Test:** test/tap-market-groups-567.test.mjs (fails on the old step); test/tap-markets.test.mjs unchanged and passing.
+- **On main:** 6e4af88b (lint 0, 3416 pass 0 fail, smoke 0 differences on 14 hosts).
+
+### Item 4: SWISS
+
+- **The offers row (SWISS row 52):** the "mapping error" is the sweep's: our finder asks www.lufthansa.com's /service/api
+  (SWISS has no serviceOrigin), and the sweep's browser blocks airline hosts, so our page always showed "No results"
+  (2,218 px against www's 32,382). Fixed in the sweep: the row is out of the height ranking as not measurable offline.
+  Whether visitors get cards is check-567-swiss-offers.txt for the next window (row 35 had it open as data).
+- **SWISS ranking (the 5 recorded pages, live today, 390 at www's 844 px window):** homepage 4,246 / 5,194 (www 4,413 /
+  5,086: -3.8 % / +2.1 %), book-and-manage 1,249 / 1,709 (1,272 / 1,776: -1.8 % / -3.8 %), prepare -0.9 % / -0.6 %,
+  help-center 0.0 % / +0.9 %. Nothing over 5 %: the homepage goes into the fresh ranking (item 6).
+- **The SWISS document that would change on its own next import:** not found from the files on this machine. No report
+  on main names it, the machine has one SWISS snapshot and one local document (no dry run possible), and the nearest lead
+  (b01's grand-suite request page, markets ch) has no local copy to compare. Marked blocked: it needs the helper's note
+  naming the document. Not asked now (rule 5); I went on.
+- **On main:** 2fd7f5a8 (lint 0, 3421 pass 0 fail, smoke 0 differences on 14 hosts).
+
+### Item 5: Cargo
+
+- **5a, the newsroom feed (Cargo row 48):** with every consent group accepted Mynewsdesk's app loads in the measuring
+  browser: its frame is 3,840 px on both, so the newsroom was +2.8 % only from what we put around it. www has the app
+  right under the header and no page title over it; ours had "Newsroom" (68 px with its margin) and the section's 25 px
+  above, 48 px below (www 23). While the app is mounted the section sits under the header and 23 px over the footer, and
+  the title is visually hidden (still read). 1440 4,556 -> 4,438 (www 4,430); 390 10,736 -> 10,629 (10,631); de alike.
+  Served code, backwards compatible: without the app (flag off, no consent) nothing changes.
+- **On main:** 9c004e6f (lint 0, 3427 pass 0 fail, smoke 0 differences on 14 hosts).
+- **5b, "Transport Stories Home" and the chevrons (Cargo row 47):** both live since 9c6dcefa; the label and its picture
+  gap as www's. Left from row 47: 11 chevrons against www's 12. www's twelfth module is the story's closing text (the
+  partner links and the photos' credits) with the up chevron; ours held it as a text block without one. The chevron set
+  now includes the section's closing text block: 12, the last picture's down, the credits' up, the height unchanged
+  (7,947 px at 1440). **Process slip:** I edited cargo.css while 9c004e6f's ship was running, so that commit took the
+  chevron selectors with the newsroom rule, and its test update stayed behind; main's
+  test/cargo-story-chrome-541.test.mjs failed one test until the next commit, which carries the test. The served change
+  had been measured before (smoke after 9c004e6f: 0 differences on 14 hosts). From here on I edit no file of a running
+  ship's list.
+- **5c, the collapse keeping the play button's text:** checked, no change needed. marker-collapse.mjs (ema-test's,
+  read only) gates Cargo until its theme is live; with the gate forced open a video's {controls round-play-button} marker
+  goes and the link's text stays as it is (a bare URL or "Watch the video"), as its own rules say.
+- **On main:** 221b672b, the test with its CSS again (lint 0, 3429 pass 0 fail, smoke 0 differences on 14 hosts).
+- **5d, the token-free run for Cargo:** the plan is tools/reports/token-free/cargo-plan-567.md, the pass itself
+  harness-pass-cargo.md (written 2026-11-09). The switch is THEMES.cargo.live on token-free-cargo-live, as the other
+  brands had it: nothing changes live before the pass's documents. Of the two conditions:
+  - the collapse keeping the video links' text is met (checked above);
+  - the branch up to main is not: it is 199 commits behind and 3 ahead, and main has Cargo theme changes since
+    (9c004e6f, 9c6dcefa). That is ema-test's (I don't touch the token-free branches).
+  - The list is DA's own census at the pass (yesterday's: 22 documents, 30 markers, all to the theme).
+  - The order also keeps Cargo's re-imports out of the window between the pass and the switch.
+- **5e, Cargo's ranking (the 11 recorded pages in en and de, live today, 390 at 844 px):** notification-overview -9.8 % at
+  1440 (data: www's header picture, as before); the 142 story +4.0 % / +3.7 % at 390 (de / en); fleet +3.4 % at 390;
+  everything else within 3 % at both widths (the newsroom +0.2 % / 0.0 % after row 48). Nothing over 5 % but the data
+  row: the story and the fleet go into the fresh ranking (item 6).
+- **On main:** 22902ff0 (lint 0, 3443 pass 0 fail, smoke 0 differences on 14 hosts).
+
+### Item 6: the fresh ranking (AD, ITA, TAP, SWISS, Cargo)
+
+Taken from the newest recordings in the R2 drop (Air Dolomiti parity-001/002/004, ITA parity-004, TAP parity-002, SWISS
+parity-005, Cargo parity-001/002), every recorded page re-measured on its live host with main's code (1440 x 900 and
+390 x 844 as the recordings), worst first. SWISS and Cargo are above (items 4 and 5e); the Air Dolomiti, ITA and TAP rows
+follow when their run is through.
+
+- **Cargo row 49, the transport stories on phones:** the import's two text cells stacked 36 px apart; www's story text
+  runs on. Below 768 px they join: 390 en 8,696 -> 8,516 (www 8,389), de 9,213 -> 9,033 (8,856). The rest is the text
+  face: www's older LufthansaTextWeb is narrower. Decided by the rules: Cargo keeps the brand font (a switch would change
+  every Cargo page for 1.5 to 2 % in narrow columns).
+- **On main:** 1946c9f2 (lint 0, 3447 pass 0 fail). Smoke after it: 8 hosts 0 differences; on the other 6 one check
+  differs, the same DAM file (/content/dam/lh/images/mobileapp/Lufthansa%20Insights%20V2.png) flipping 404 <-> 503
+  (lh-edge's DAM route, dam-aem-unavailable: its upstream unavailable at times), in both directions across hosts:
+  transient, not the Cargo CSS.
+- **The ranking (94 rows re-measured; the stale /it/... and /en/homepage, /de/homepage rows of the first sweep's wrong
+  mapping left out, they answer 404; get-inspired and SWISS offers out as unmeasurable):** worst first:
+  1. ITA /it/en/profile/miles-and-more 1440 +15.9 % (since its re-import 45cd42f8): fixed below (ITA row 26).
+  2. TAP /en-pt/information/baggage -16.9 % / -11.0 %: LUGGit's iframe, decided (TAP row 41).
+  3. Air Dolomiti florence/what-to-see -13.8 % at 1440: waits for its re-import (row 81's list).
+  4. Air Dolomiti /de/reisenformationen/schwangere-und-kinder -13.6 % and tiere-an-bord -12.0 % at 1440 (390 0.0 %).
+  5. TAP /en-pt -13.4 % at 1440: the unscrolled capture (row 127).
+  6. ITA /it/en/local-page/verona +7.6 % at 390; Air Dolomiti's support pages and baggage -6 to -7 % at 390.
+  Everything else within 5.6 %.
+- **ITA row 26:** the re-imported Miles & More panels hold the picture second (line, picture, heading, list, link), so
+  rows 21's and 23's rules, built on a document with the picture last, matched nothing. The panel and its picture are
+  now found wherever the picture paragraph is. Live 1440 4,527 -> 4,038 (www 3,906), 390 5,286 -> 5,718 (5,759).
+- **On main:** 2d80c816 (lint 0, 3448 pass 0 fail, smoke 0 differences on 14 hosts).
+- **Air Dolomiti's FAQ half pages at 1440 (schwangere-und-kinder -13.6 %, tiere-an-bord -12.0 %; 390 exact):** www's
+  recording (airdolomiti-parity-002) has about 326 px of empty white under its footer (its body runs past the content);
+  our headings and the footer start match (the title 186 against 190, the footer 1,108 against 1,089). A recording
+  artefact, nothing to match.
+- **ITA row 27, the tables:** Verona's flight table at 390 squeezed four columns into 346 px. www's maui-table keeps
+  each cell 200 px at least and scrolls; as Austrian's 93374199, the ITA theme now does the same: 390 3,804 -> 3,555 (www
+  3,536), 1440 unchanged.
+- **On main:** 38aaadd6 (lint 0, 3450 pass 0 fail, smoke 0 differences on 14 hosts).
+- **Air Dolomiti row 93, the link tile pages (support and baggage, de, en, it):** two causes. From 930 px the
+  destination article lists' rule (a title and one line over three-up cards) took these pages too, centring the title.
+  Under the tiles, www's grid keeps 150 px at every width and ours had 48. The article lists' rule now leaves out the
+  tile cards, and the tiles' section keeps 150 px. All six pages within about 2 % at both widths (support en 390 -6.2 % ->
+  -0.7 %, de -7.4 % -> -2.2 %, baggage de -6.4 % -> -1.9 %); Florence's article list and the homepage unchanged.
+- **On main:** 95e8f01b (lint 0, 3454 pass 0 fail, smoke 0 differences on 14 hosts).
+- **Air Dolomiti row 94, the posts' text column:** the theme's 1200 px rule had lost to lh-com's article rule since
+  c20b77ea (that rule's :not() holds a :has(), so it counts more), and the posts' text was a centred 912 px column. The
+  theme's rules now carry the same :has(). 1440: the three Adriatic articles within 0.6 % (de 4,496 -> 4,285 against
+  4,262). street-food-in-munich went 5,830 -> 5,467 against www's 6,173: its column is www's now; its stage and quiz card
+  (row 82) are the rest, next in line.
+- **On main:** 8df03876 (lint 0, 3457 pass 0 fail, smoke 0 differences on 14 hosts).
+- **Rows classified, no change** (the rest of the ranking is under 5 %):
+  - street-food-in-munich at 1440 (-11 % since row 94): www's h3s hold whole passages and a photo (179 against 120 px,
+    898 against 466); content structure of that post, not a theme rule (row 74's kind).
+  - Air Dolomiti manage booking (+4.7 / +5.0 % at 1440): the importer drops www's empty paragraphs, so the theme's blank
+    line between every paragraph gives 66 px where www has none between the last three; the form's fields 9 px taller
+    each. An importer change and three re-imports for 3 %: noted, not done.
+  - Air Dolomiti assistance (-5.1 % at 390): offline, www's accordion items have our heights; the recording's differ by
+    the live font's line breaks. The 75 px before the accordions is the title's place, which varies by www's template
+    (-24 on support, -44 here): not one rule.
+  - SWISS homepage (-3.8 % at 1440): the gap is the flight offers, whose data our host asks of www.lufthansa.com (blocked
+    in the measuring browser), as the offers page (row 52).
+- **ITA row 28:** after row 26 the Miles & More panels showed two more causes. The block's own 66 % rule from 1025 px won
+  over the panels' full width, and the panels were each 46 px short of www's spacing. Both fixed; each panel's pitch is now
+  www's at both widths (1440 3,827 against 3,906; 390 5,865 against 5,759).
+- **On main:** fe73084f (lint 0, 3461 pass 0 fail, smoke 0 differences on 14 hosts).
+- **TAP row 130, the FAQ pages:** the categories 32 px under the title from 768 px, as www's (the title's section had kept
+  64). 1440 2,079 -> 2,047 (www 2,009) on en-pt, pt-pt and es-es; phones already www's.
+- **Cargo's pages at 390 (+2 to +3 %), tried and not changed:** our last section's 48 px before the footer is part of
+  it on the fleet page (www about 20), but taking it away for every Cargo page on phones moved industries-in-focus away
+  from www (-0.8 % -> -1.7 %) while fleet, ebooking-info and the SDG page came closer: not one rule, so left.
+- **On main:** bf81faa5 (lint 0, 3464 pass 0 fail, smoke 0 differences on 14 hosts).
+- **ITA row 29, the teaser cards' link line:** www shows "→ Learn More About …" at the foot of every teaser card; the
+  import left it out (the shared parser keeps it only on marked cards, which ITA's import did not mark). Fixed in the
+  importer (backwards-compatible: tooling only, nothing served changes). Together with row 17's two-up, the
+  travel-insurance page comes out at www's height (1440 3,093 against 3,091; 390 4,061 against 4,059). Re-import list:
+  reimport-567-ita-teaser-cta.txt, 1,193 documents (852 also on the two-up list, one run gives both).
+- **On main:** 30b37eab (lint 0, 3469 pass 0 fail, smoke 0 differences on 14 hosts).
+- **A measuring note for ITA on phones:** our ITA footer measures 1,313 px at 390 against www's 1,271 on every recorded
+  page. Not a real difference: the legal links are Arial (as www's), and the measuring browser has no Arial (DejaVu Sans,
+  wider), so one row of links wraps. ITA's 390 numbers in the ranking are about 42 px too tall on our side.
+- **ITA row 30, the flight search band on the local pages:** www has an invisible separator on each side of the flight
+  search (50 px above, 46 px below); ours had 24 px. Theme rule (backwards-compatible: two margins). Verona's sections
+  now sit as www's ("Operating flights" 1,746 against 1,745 at 390); 1440 2,356 -> 2,404 against 2,444.
+- **On main:** c0f901f7 (lint 0, 3472 pass 0 fail, smoke 0 differences on 14 hosts; its first push met another
+  session's push, rebased and pushed again, the after-smoke run by hand).
+- **Air Dolomiti row 95, the in-flight entertainment pages' top:** www's picture starts at the page's top under the
+  fixed bar with the trail on it; ours sat 186 px lower under its own trail row. Theme rule (backwards-compatible: the
+  hidden-heading lead only). The title is now at www's 650 px at both widths. The page totals go from +3.6 % to -4.3 % (en,
+  1440) because the blank lines between the paragraphs are missing: next item, row 96.
+
+- **Process note:** the first run of this commit's checks failed on a test I had already written for the next change
+  (test first, but placed in test/ while another change was being checked); nothing was committed. Tests for a next
+  change now wait outside test/ until their own run.
+- **TAP row 131, the footer:** www's footer links are 14 px (ours 16, so one wrapped) and its cards start at the
+  footer's top (ours 16 px lower from 1024 px). Theme rule (backwards-compatible). Every TAP page at 1440 is 39 px
+  shorter and the footer's rows sit as www's; the FAQ page is now 2,008 against www's 2,009.
+- **On main:** c14f8348 (AD 95) and cbe045dd (TAP 131), each lint 0, the full suite passing (3480 / 3481), smoke 0
+  differences on 14 hosts.
+- **Air Dolomiti row 96, the lead's paragraphs:** www's authors put blank lines between them with line breaks the import
+  leaves out; the theme now gives a blank line between two paragraphs (the brand default). The in-flight entertainment
+  pages are within 1.5 % at both widths (it 1440 2,397 against 2,400).
+- **Classified, no change:**
+  - Air Dolomiti's German footer at 390: the recording's is 28 px taller than ours on every German page, but www's own
+    page rendered here is 1,046 px as ours: the recording's live font wraps one more line. Not a difference in the code.
+  - Air Dolomiti's title on phones: www's sits 24 px lower on the booking, baggage, timetable and support pages (4 px on
+    the text pages, 44 on assistance), with the content under it where ours is: a template's spacing, not one rule.
+  - ITA two-column headings (invoicing's "Flight Certification" 36 px against www's heading-small 28): the importer's
+    parser keeps www's class (checked on the recording), but the live document has no size marker; the cause is
+    between the parser and the upload and needs a scratch import, which I did not run (a failed snapshot import falls
+    through to a live request to www). Open.
+- **On main:** 960a4643 (AD 96; lint 0, 3483 pass 0 fail, smoke 0 differences on 14 hosts).
+- **Air Dolomiti row 97, the trail on the title pages from 1025 px:** www's trail sits right under the bar; ours had 16 px
+  over it, so those pages were 16 px lower. Theme rule (backwards-compatible: a variable on the title pages' trail); the
+  title is at www's 170 on the six pages, the FAQ and stage pages are left as they were (already www's).
+
+
+## Rule 6, where it stands (2026-11-10, 17:10 UTC; about 8.8 hours of the standing order)
+
+- **On main from this stretch** (each lint 0, the full suite passing, smoke 0 differences on 14 hosts before and after):
+  bf81faa5 TAP 130, 30b37eab ITA 29 (importer), c0f901f7 ITA 30, c14f8348 AD 95, cbe045dd TAP 131, 960a4643 AD 96,
+  7c66580c AD 97.
+- **New lists:** reimport-567-ita-teaser-cta.txt (1,193 ITA documents; 852 also on the two-up list, one run gives
+  both), capture-567-ad-news-de.txt (one page). Nothing imported, uploaded, previewed or published.
+- **Open, worst-first, for the next session:**
+  1. ITA two-column headings: the live documents lack www's size markers (invoicing's "Flight Certification" 36 px
+     against 28); the parser keeps the class on the recording's markup, so the loss is later in the import. Needs a
+     scratch import that cannot fall through to a live request to www.
+  2. Cargo /ci/facts-figures at 390 (+2.7 %): our page shows the board and compliance sections in a different
+     arrangement from www's; the recording's headings list stops early, so it needs a section-by-section comparison.
+  3. Air Dolomiti's title on phones on the title pages (www 24 px lower, the content under it where ours is) and the
+     Adriatic article's title at 1440 (206 against 170).
+  4. TAP's footer document has no "Cookies Settings" row (a consent button on www) and "© 2026, TAP." is not bold.
+- **Measuring notes:** ITA's 390 heights carry +42 px from the measuring browser's Arial fallback in the footer; Air
+  Dolomiti's German recording has a 28 px taller footer from its live font. Neither is a code difference.
+- **Left out of git, with the reason:** .migration/project.json (modified before this session, not mine to commit);
+  the recordings, scans, drafts and screenshots under .scratch/ and /tmp (scratch material, recordings are private).
+
+## The standing order of the night of 2026-11-10 (from 19:00 CET; the user's items a to e)
+
+- **Start:** nothing of mine was uncommitted or unpushed; .migration/project.json was already modified before the last
+  session and is not mine. main pulled (3b84865d).
+- **Capture list (within the first two hours):** tools/reports/parity-2026-11-09/capture-list-585-brands.txt, A: 22 ITA
+  pages (column-view headings, rendered recordings as ita-parity-004, archive ita-parity-NNN), B: TAP's FAQ page with
+  www's "Cookies Settings" dialog open (archive tap-parity-NNN).
+- **Item a, where ITA's two-column heading size is lost:** an offline test import of the recording's invoicing page
+  (.scratch/offline/tools/offline-import.mjs: setContent, every request aborted, the airline hosts unresolvable;
+  ita-import.mjs mappedOf, import-info.bundle.js; 0 requests left the browser) gives "Flight Certification" without
+  a marker, while lh-com's columns-media parser alone keeps www's h2.heading-small. The size goes in the bundle's last
+  step, marker-collapse.mjs collapseMain (THEMES.ita live): a size one step from the level's default becomes the
+  default, decision D of tools/reports/token-free/ita-pass-check.md. Not a bug in the importer: a plan decision that
+  www's column views contradict (12 of 13 column-view headings on ita-parity-004 / -003 are heading-small). Decision:
+  ema-test's files stay as they are; the row and its evidence go to ema-test
+  (tools/reports/parity-2026-11-09/rows-for-ema-test.md, row 1), and the part the ITA theme can do safely is ITA row
+  31 (next commit).
+- **On main:** 564f24a7 (the capture list, rows-for-ema-test.md, the report; lint 0, 3488 pass 0 fail, smoke 0
+  differences on 14 hosts).
+- **ITA row 31:** an unmarked Columns Media H2 in www's heading-small size (28 px at 1440, 22 at 375). Theme rule,
+  backwards-compatible (an unmarked heading in that block only; a marked one keeps its size). Contact -88 px at 1440,
+  the others a few px (the picture sets the row's height); the "Related" headings stay with ema-test (row 1 there).
+- **New archives in the R2 drop** (probed after the newest I knew; sha256 computed here):
+  - airdolomiti-snapshots-004: 240,103 bytes, b09b5f267d263ca7418d7c9331d21ad725d54e117a9edd2b9b9de75ee0bd0cd1, 3 pages
+    (unterhaltung-an-bord, london-eu, basel-de; 18:07 UTC);
+  - airdolomiti-parity-005: 14,036,855 bytes, 9c78554e04392823f4dccefe7bd693384ee01c00b3b450259e845c2b5b8176f4, the
+    same 3 pages rendered;
+  - tap-snapshots-027: 934,760 bytes, 2182dde3ce0cd6e3935fd7723b7e64d3e570e803923a68bfc55228fbdd941388, 9 pages of list
+    "e" (not the 70 market-group pages yet);
+  - tap-parity-003: 385,967 bytes, 35c64c09dafc73f92afa1fc167f7586092c5b7b62fa716bdd13a9b3943aedfeb, 0 pages (1 not
+    recorded);
+  - tap-parity-004: 13,053,116 bytes, 9cdb21ba8ed013c6e533c07f5eb23687d71cd07d2aade2e8d048f92cf88e49a3, get-inspired at
+    1440 and 390.
+- **The German in-flight entertainment page (capture-567-ad-news-de, now recorded):** www.airdolomiti.de shows the
+  trail in its own row and the picture at 235 px with no visible title over it (the title is the subtitle under the
+  picture), unlike en / it in airdolomiti-parity-001 (the picture from the page's top under the bar). Ours already
+  matches it in height at 1440 (picture 240, text 951, footer 1,659 against 235, 946, 1,657) but shows the document's
+  H1 in the white space over the picture. Decision: not a re-import with the hidden-heading style yet (row 95 would then
+  pull the picture under the bar, which www.airdolomiti.de does not do); en and it go on the next capture list to see
+  whether www.airdolomiti.eu / .it now show the German layout too.
+- **Air Dolomiti row 98, the title on phones (decision 1):** 24 px over the title on the title pages below 768 px, as
+  www's (backwards-compatible: one theme rule). The title at www's 170 on the six recorded title pages.
+
+- **On main:** 4fd7c695 (ITA 31; lint 0, 3493 pass 0 fail). Smoke after the push: 0 differences on 12 hosts; Discover's
+  run before the push failed to connect (socket closed), re-run by hand: 0 differences against the last run;
+  lufthansa-edge's sitemap_lh.xml.gz changed (another session's sitemap, not code).
+- **Air Dolomiti row 99, the post title (decision 1):** the title at www's 170 at 1440 and 152 at 390 (www 150);
+  backwards-compatible (the post's trail and header spacing in the theme). The posts' totals at 1440 within 0.3 %.
+- **TAP row 132 (decision 2):** "© 2026, TAP." in bold as on www (footer-tap.js, TAP only; backwards-compatible: the
+  other brands' notes unchanged). The "Cookies Settings" row is open: the site has no consent dialog to open (no
+  OneTrust id, no fallback for TAP), our consent code removes such a row where there is none, and the row would be a
+  footer document change (no upload in this order).
+- **Item b, Cargo Facts & Figures at 390, section by section (Cargo row 50):** the key facts band was 25 px over www's
+  shape (the link's spacing): fixed, backwards-compatible (theme). The board's accordion matches. The timeline (+250 px
+  over 40 cards) is our brand font wrapping one line more in about half the cards; the font is row 49's decision
+  (www uses the older LufthansaTextWeb), so it stays.
+- **Discover row 43 (ema-cashub's D1 b):** the accordions' panel text spaced as www's rich text (36 px between
+  paragraphs and lists, list items 10 px apart, 12 px in); backwards-compatible (theme). families +92 px at 1440,
+  +140 at 390 (de and en). discover-parity-001 fetched here: 108,747,903 bytes,
+  b08cb37e203ac49b7fae32f01f442e504eb75fd210630ce9dfb34020a2b330eb.
+
+- **On main:** 1367b1d5 (AD 98; its first push was refused, pushed after a fresh lint 0, 3500 pass 0 fail and smoke:
+  0 differences on 13 hosts, SWISS's after-run failed to connect and was re-run by hand: 0 differences). Main's whole-repo
+  lint was red from 18:48 to about 19:40 UTC (another session's link-list rules in styles/styles.css); I held the push
+  until it was green again.
+- **Four items in one push** (each its own commit and files; lint, the full suite and smoke once on the tree with all
+  four, as main moves fast tonight): AD 99, TAP 132, Cargo 50, Discover 43.
+- **On main:** 0ba9fe13 (AD 99), bd8e6ac4 (TAP 132), 48f721cd (Cargo 50), 7a0e7014 (Discover 43): lint 0, 3513 pass 0
+  fail. My new multi-commit script ran its before-smoke against the wrong directory (an argument shift), so this push had
+  no before-smoke of its own; the after-smoke compared with the previous push's after-state: 0 differences on all 14
+  hosts (SWISS re-run by hand). Script fixed.
+- **TAP's cookie row, recorded (tap-parity-005: 502,829 bytes,
+  6786ed4c4e2455a724066f221b924a00b6d3f7e62f9b3a0f53e8392453a5c83b):** www's "Cookies settings" is OneTrust's
+  ot-sdk-show-settings button and opens OneTrust's preference center (#onetrust-pc-sdk). So www.flytap.com does run
+  OneTrust now (scripts/brands.js still says it runs none). Our TAP site has no OneTrust id (that comes from the site's
+  metadata) and no fallback banner, so the row stays open: it needs TAP's OneTrust domain in the site metadata (a
+  document change) or a fallback banner for TAP (a new banner on every TAP page). Not decided here; open.
+- **AD row 100 (the trail on one line, as www's), Discover rows 44 to 46 (heading margins, column rows, accordions):**
+  four commits, one push (below).
+- **On main:** 2a291f2f (AD 100), f3e44340 (Discover 44), d76a3d39 (Discover 45), a46f654d (Discover 46): lint 0, 3521
+  pass 0 fail, smoke 0 differences on 14 hosts before and after.
+- **Item d, TAP's market groups:** tap-snapshots-027 (above) holds the first 9 of the 70 pages of
+  capture-567-tap-market-groups.txt (list "e"; 18:13 UTC). Checked offline against our documents
+  (.scratch scripts, nothing fetched from www): each captured root differs from our language version where the
+  comparison said (en-ao / pt-ao payment methods without the language version's Santander link; the club, partners,
+  service-animals and promos pages with the root's own links), and fr-ca/promos is an own document as listed. So the
+  list's decisions hold for these 9; no correction list. Our language documents on the host have no market sections
+  yet (no "markets" cells), so the harness's job 567-tap-markets-01 has not reached these pages' previews, or ran
+  without their captures (then they are noted unplaced in its report, as the list says). Decision: a follow-up list of
+  the pages whose captures landed, for a re-run with them as --market-archive, once more of the 70 are in (the later
+  archives tonight); not written yet.
+- **Capture list 2:** tools/reports/parity-2026-11-09/capture-list-585-brands-2.txt (A: Air Dolomiti's en and it
+  in-flight entertainment pages, rendered; B: Discover's families pages de and en as snapshots for D1 a).
+- **On main:** 3cb59675 (capture list 2, the report).
+- **SWISS row 53:** the grid cards' text 40 px over the card's foot as www's (backwards-compatible: theme). book-and-manage
+  now within 0.4 % at both widths. Left on purpose: SWISS's footer legal row keeps 24 px lines on phones (www 15), an
+  accessibility decision (target spacing), +18 px on every SWISS phone page.
+- **Tried and not shipped, Discover's column-view H3s (ema-cashub's D4, entertainment +5.9 % at 390):** www sets most of
+  them in heading-copytext-large (34 of 44 on discover-parity-001) and some in heading-small (10, all on customer
+  service); ours render them in the block's own heading size since the collapse took the markers. A theme rule for one
+  size made entertainment and check-in closer and customer service and families further (customer service 390 -188 ->
+  -276): not one rule. Row 2 for ema-test (rows-for-ema-test.md).
+
+- **On main:** 33a18bae (SWISS 53; lint 0, the suite passing, smoke 0 differences on 14 hosts).
+- **airdolomiti-snapshots-005** (266,868 bytes, 1c90f7c0baee0cbc83389543c8326f167d00895d51f3cf5c33806ca05c80bbe6, 21:37
+  UTC): the rows of reimport-567-ad-description-news.txt captured at www.airdolomiti.it with our document paths
+  (/de/reiseziele/…, /en/destinations/…): 16 redirects, 1 error page, 3 of .it's copies. Not what the re-import reads.
+  Capture list 3 (tools/reports/parity-2026-11-09/capture-list-585-brands-3.txt) gives those 20 rows at www's own hosts
+  (www.airdolomiti.de without /de, www.airdolomiti.eu without /en).
+- **On main:** aa6bcd6f (capture list 3).
+- **ITA's teaser re-import, read back on our host (22:25 UTC):** the harness's jobs 567-ita-teaser-cta-01 to -13b are
+  on preview. Of reimport-ita-two-up.txt's 872 documents, 772 now show "grid two-up" and the link lines; 82 have the
+  link lines but still a plain grid (travel-insurance among them: 1440 3,001 against www's 3,091, a two-up draft gave
+  3,093). An offline import of ita-parity-004's travel-insurance with main's importer gives "grid two-up", so the
+  harness's input for those 82 differs from www's page as recorded (older snapshots, or a nested column view).
+  New list: tools/reports/parity-2026-11-09/reimport-585-ita-two-up-82.txt (expected change: two-up only), and capture
+  list 4 (tools/reports/parity-2026-11-09/capture-list-585-brands-4.txt): fresh snapshots of its 49 it/en and it/it
+  rows.
+- **Classified, no change:** Air Dolomiti's German FAQ page at 390 (lounge-zutritt -4.6 %): the recording's accordion
+  titles wrap to three lines where www's own page rendered here wraps to two as ours (the live font's line breaks,
+  as the German footer). TAP fly-business +2.3 % at 1440: www's footnote "*Exceptionally…" is a small-print paragraph
+  under the two columns, ours sits in the text column (a document's structure: the importer's columns step; noted for a
+  later importer item).
+- **On main:** the 82-documents list and capture list 4 (the commit after aa6bcd6f).
+- **New archives** (sha256 computed here):
+  - airdolomiti-parity-006 (3,771,522 bytes, cd64901eac37fdb59231ca26c6beebd9162814f7f8e3be9ea72e5232615ef0c1): the
+    en and it in-flight entertainment pages tonight. Both still show the picture from the page's top under the bar, the
+    title at 650 at both widths: AD row 95 stands for .eu and .it. www.airdolomiti.de's page has its own layout (the trail
+    in a row of its own, the picture at 235): our German page matches its heights already; its visible H1 over the
+    picture stays until a German-specific decision (the hidden-heading style would pull the picture under the bar,
+    which .de does not do). Decision: leave the German document as it is; recorded here.
+  - airdolomiti-snapshots-006 (1,373,758 bytes, 9b12e2f408b67d88b5617c4950550d0eec6c2e3d8f96da98c8b0689da00d3eff): 16
+    of the news rows at www.airdolomiti.it/de/… and /en/…, this time answered 200 with the German and English pages
+    (canonical www.airdolomiti.de / .eu). With snapshots-005's 3 and -004's 2 that is 21 of the 22 rows of
+    reimport-567-ad-description-news.txt (all but /de/reiseziele/london), usable once filed under their canonical host
+    and path. Capture list 3 is then only needed for /de/reiseziele/london (www.airdolomiti.de/reiseziele/london).
+  - discover-snapshots-002 (91,498 bytes, 5d93626434df8f085575c321411ac638f87e3cf535885b32a9e21082c56b7536): the
+    families pages; www's list items are four times our documents' (510 against 126 characters, de). New list:
+    tools/reports/parity-2026-11-09/reimport-585-discover-families.txt.
+  - ita-snapshots-020 (137,430 bytes, c6e3b8ab879df026c4afb37fbd0af266ca659d6ef318142272f2163bc15c8307): 55 pages, 51
+    error pages; not from my lists.
+- **Cargo row 51:** on phones a text-and-picture row shows its picture first, as www's (backwards-compatible: theme,
+  outside the transport stories). Heights unchanged; the order as www's.
+- **ita-snapshots-021** (2,168,688 bytes, bf2501ca41589b55839f5d467dda182513c3dd70dcf652df52a973bf25797511; 52 pages,
+  21:44 UTC, not from my lists) holds 12 of the 82 rows of reimport-585-ita-two-up-82.txt, travel-insurance among them:
+  its page through main's importer offline gives "carousel-cards grid two-up" (the view is a plain .twocolumn). So for
+  those 12 a re-import from ita-snapshots-021 gives two-up; the other 70 wait for capture list 4 or the harness's own
+  check of its inputs.
+- **The fresh ranking pass (rank-c, our pages now against the recordings' heights, 121 rows):** the rows over 4 % are
+  all classified (TAP baggage's LUGGit frame, TAP's unscrolled en-pt capture, Cargo's notification overview data, Air
+  Dolomiti florence's re-import, the FAQ half pages' white space, street-food's content, ITA's rows waiting for the
+  two-up re-import); the rest is under 3.5 %, most of it Cargo's phone pages (+2 to +3.4 %).
+- **Discover row 47:** on phones the footer's legal links wrap as a row as www's (short links side by side), every
+  Discover page 62 px shorter at 390; backwards-compatible (theme, phones only; the footer from 768 px is ema-adobe's).
+- **Process:** my pushes from 21:30 to 23:00 UTC went onto a main whose stylelint was red from another session's Brussels
+  rules (fixed in a6d34148); my ship script had read the whole-repo lint before its rebase only. From now on the lint is
+  read again on the rebased tree right before the commit and push (.scratch tool ship2.sh), and a red lint holds the push.
+- **New archives from my lists** (sha256 computed here):
+  - ita-snapshots-022 (capture list 4; 49 pages ok, 23:09 UTC; 2,028,213 bytes,
+    8945892afc3b06422e8013d9aa2d8d1943087bbc0a7ba3b54f739141d351beb2). Each page imported offline with main's
+    ita-import.mjs and its bundle: 47 give the "Related" grid "two-up"; the two digital-services pages give a
+    three-card phone slider (www's view has three cards), so they leave the two-up lists. New list:
+    tools/reports/parity-2026-11-09/reimport-585-ita-two-up-snapshots.txt (A 47 rows from ita-snapshots-022, B 2 rows
+    out, C 2 rows from ita-snapshots-021, D 31 rows without a snapshot tonight). Capture list 5
+    (tools/reports/parity-2026-11-09/capture-list-585-brands-5.txt) asks for D's 31 pages.
+  - airdolomiti-snapshots-007 (capture list 3; 20 pages ok at www.airdolomiti.de / .eu, 23:25 UTC; 1,727,817 bytes,
+    20f76507199d9e22b7c6930e9f0e427be39676e9a2612325b645fd4b5b412e9f): with snapshots-004's two, all 22 rows of
+    reimport-567-ad-description-news.txt now have www's page at its own host.
+- **Classified, no change (Discover, ema-cashub's rows):** D6 homepage and D5 flight search at 1440: the flight
+  offers widget's destination tiles (prices) come from an offers service our measuring browser does not reach (data,
+  as SWISS's offers row 52); D9 additional services -3.9 % at 1440: www's space between the title and its intro
+  differs by page (40 to 100 px against our 40 to 80), not one rule.
+
+- **On main:** eda09545 (the two-up rows by snapshot, capture list 5; smoke 0 differences on 14 hosts).
+- **ita-snapshots-023** (32 pages, 23:48 UTC; 1,274,950 bytes,
+  89f1609a5a188d415398ff69225a239c1e857db96b55e760e7cb16e8cecd71e8): capture list 5's pages, each imported offline:
+  25 give two-up, 7 a three-card phone slider (they leave the two-up lists), one D row is not in it
+  (/nl/nl/manage-my-bookings/partners/airport-transfer). New list:
+  tools/reports/parity-2026-11-09/reimport-585-ita-two-up-snapshots-2.txt. With the first, 72 of the 82 rows now have
+  a snapshot that gives two-up, 9 are three-card views on www (no change), 1 has no snapshot.
+- **TAP fly-business's footnote** (www's small print under the two columns, ours in the text cell): an importer item
+  (tap-import.mjs's ComponentFeatureCardModel puts complementaryNote in the cell); only the two fly-business documents
+  (en-pt, pt-pt) carry one among the language documents, so it stays a noted row (TAP row 133, open), not tonight's work.
+- **Item d, TAP's market groups, the first 9 captures:** tools/reports/parity-2026-11-09/reimport-585-tap-market-groups-027.txt
+  lists the language documents whose groups tap-snapshots-027 now covers (8 rows: en-pt payment methods and club,
+  fr-fr partners, pt-pt service animals, club, promos (two groups), payment methods) for a re-run of tap-markets.mjs
+  with it as a --market-archive. Job 567-tap-markets-01 uploaded the own documents and two fragments only; the language
+  documents still have no market sections on our host. No correction of reimport-567-tap-markets.txt: the captures
+  match its decisions. The other 61 pages of the 70 have not landed (tap-snapshots-028 not in the drop at 00:45 UTC).
+- **TAP row 133** (open, importer): a feature card's footnote, see above.
+- **Classified (Cargo's phone pages, +2 to +3.4 %):** ebooking-info's step cards and headings differ by a few px each
+  where the text wraps (our brand font against www's older LufthansaTextWeb, row 49's decision); no single rule.
+- **AD row 101:** an H2 in a lead's (columns-media news) text at the text's size as www's DescritionNews rich text
+  (backwards-compatible: theme; every news block on the destination pages).
+- **AD row 102:** the importer writes a text-only DescritionNews (no picture, no subtitle) as a one-cell columns-media
+  (news), as www draws it (backwards-compatible: tooling only). Re-import list reimport-585-ad-news-text.txt, 22 documents
+  (london-eu at 390 within 0.2 % of www with it).
+
+- **On main:** 4dd0b125 (AD 101; lint 0 before and after the rebase, the suite passing, smoke 0 differences on 14 hosts).
+- **ita-snapshots-024** (1 page, 23:56 UTC; 38,542 bytes, 8b93bf762e5c4cc4c794d165a73687a8a70a7a595bcaab583c1990611158feef):
+  /nl/nl/manage-my-bookings/partners/airport-transfer, the one row missing from ita-snapshots-023; offline it gives
+  two-up. So all 73 two-up rows of the 82 now have a snapshot that gives it (the other 9 are three-card views on www).
+  On our host at 01:00 UTC 38 of the 872 two-up documents still lacked it (the harness's jobs 585-ita-two-up-* were
+  running); travel-insurance is now 3,084 at 1440 against www's 3,091.
+- **Air Dolomiti's re-imported news pages** (reimport-567-ad-description-news.txt, on our host since tonight): london-eu
+  1440 7,483 (www 7,514), basel-de 390 12,010 (12,014) against tonight's airdolomiti-parity-005.
+- **Shared section tabs (scripts/section-tabs.js, styles/section-tabs.css):** below 768 px a closed tab item now also
+  carries the class section-tab-closed, which hides everything under its toggle, so content a block adds after the
+  tabs are built (a fragment's sections) stays hidden with it; before, a fragment loaded into a closed panel showed.
+  Backwards-compatible (the same items closed as before; only late content now follows them). Found on TAP's
+  inspiration page with its categories drafted as tabs (row 134): at 390 the page 42,817 -> 9,311 px with it.
+- **TAP row 134, the inspiration pages' categories as tabs:** the importer writes each category as a Tab section
+  (backwards-compatible: tooling only). Drafted, en-pt get-inspired goes from 39,550 to 8,321 px at 1440 and from 42,994
+  to 9,311 at 390 (www 5,582 / 4,957). Re-import list reimport-585-tap-inspiration-tabs.txt (6 pages).
+
+- **On main:** 54ba3351 (the shared section tabs; lint 0 before and after the rebase, the suite passing; smoke 0
+  differences on 11 hosts; lufthansa, -cn and -edge differ only in /sitemap/sitemap_lh_de_en.xml, the de/en articles
+  another session previewed tonight, not code).
+- **On main:** 6fb199db (TAP 134's importer; lint 0 before and after the rebase, 3579 pass 0 fail, smoke 0 differences on
+  14 hosts).
+- **TAP row 135 / shared scripts.js:** a fragment no longer gets the page's breadcrumb (buildBreadcrumb ran on every main
+  it decorated, fragments included). Backwards-compatible: the page's own trail as before; duplicate trails inside
+  fragment blocks go, on every brand (for ema-adobe and ema-cashub to know: lufthansa.com's and Austrian's pages with
+  fragment blocks and a Parent lose their second trail).
+- **On main:** 666ce6e7 (the fragment breadcrumb; lint 0 before and after the rebase, 3591 pass 0 fail, smoke 0
+  differences on 14 hosts).
+- **TAP row 136:** the inspiration categories' tabs as www's pills, the titles centred (backwards-compatible: theme rules
+  for the set "categories" only). Open (row 137): the countries beside the articles, www's FAQ picker's second level; it
+  needs the picker to work with fragment-loaded accordions (the inspiration pages are fragment pages), not tonight.
+- **On main:** f205aa9d (TAP 136; lint 0 before and after the rebase, the suite passing, smoke 0 differences on 14 hosts).
+- **TAP row 137:** the inspiration categories' countries as www's list beside the chosen country's articles (the FAQ
+  picker's second level, now also in the inspiration fragments). Backwards-compatible (TAP's inspiration fragments only).
+  With rows 134 to 137 and the re-import, en-pt get-inspired at 1440 is 6,194 px against www's 5,582 (from 39,550).
+- **TAP's inspiration page, where it stands:** main's code alone (rows 135 to 137) takes en-pt get-inspired from 39,550
+  to 19,942 px at 1440 and from 42,994 to 19,564 at 390; with the re-import of reimport-585-tap-inspiration-tabs.txt
+  (categories as tabs, and the phone sliders the live documents predate) drafts give 6,194 / 5,177 against www's 5,582 /
+  4,957. The list's header now names the phone sliders too.
+
+- **On main:** 8ceb28a5 (TAP 137; lint 0 before and after the rebase, 3598 pass 0 fail, smoke 0 differences on 14 hosts).
+- **On main:** 35da8237 (docs: TAP's inspiration list names the phone sliders; lint 0 before and after the rebase, 3609
+  pass 0 fail, smoke 0 differences on 11 hosts; lufthansa and lufthansa-edge each one sitemap line changed,
+  sitemap_lh_at_de.xml.gz 45,966 -> 45,976 bytes: published content, not code).
+- **Drop probe 04:45 UTC:** airdolomiti-snapshots-008, -parity-007, tap-snapshots-028 to -030, tap-parity-007,
+  ita-snapshots-025, ita-parity-005, discover-snapshots-003, discover-parity-003, cargo-parity-004, cargo-snapshots-015
+  and swiss-snapshots-048 not there (404); nothing new tonight. cargo-snapshots-006 to -014 and cargo-parity-002 / -003
+  are in the drop from 9 November (14:31 to 16:30 UTC), before tonight's captures and not from my lists.
+- **ITA row 32:** small print under a text 24 px under it and 42 px over the next section, as www's (backwards-compatible:
+  theme, ITA's small-print sections after a text only). Invoicing at 1440 2492 -> 2462 (www 2437), 390 3730 -> 3700.
+- **On main:** 7391aff2 (ITA 32; lint 0 before and after the rebase, 3611 pass 0 fail, smoke 0 differences on 14
+  hosts). Served (main's CSS only): invoicing at 1440 "Flight Certification" 1273 (www 1274), the page 2462.
+- **ITA, the space under the last section:** www 0 or 24 px between the last component and the footer, ours 0 to 48
+  on the 14 recorded pages (an empty last section on three); mixed by page, no one rule: classified, no change.
+- **Air Dolomiti row 103:** the text under the manage-booking form keeps its last three paragraphs together, as www's
+  (backwards-compatible: theme, that text only). 1440 it 2239 -> 2167 (www 2147), en 2373 -> 2301 (2281), de 2365 ->
+  2299 (2312); 390 it 3114 -> 3037 (3012), en 3153 -> 3076 (3051), de 3327 -> 3261 (3264).
+- **Measuring note:** host-eval.mjs routes the checkout's CSS unless NO_LOCAL_CSS is set; the served checks from here on
+  use NO_LOCAL_CSS=1 (ITA 32 re-checked that way above).
+- **Classified, no change (the second ranking pass, after AD 103):** Air Dolomiti /de/flug-status +4.0 % at 1440 (1761
+  against 1693): our form is 44 px shorter (www writes a help text under each field, ours has none) and under it are
+  the shared block's separator and 106 px (lh-com's layout) against www's 53; taking only the space out leaves the page
+  4.7 % short until the form has the help texts, so it stays (row 77's note). Air Dolomiti /de/unsere-dienste/lounge-zutritt
+  -4.6 % at 390: the recording rendered offline is 3,125 px with its footer at 2,079, ours 3,118 / 2,072; the 3,269 is the
+  live fonts' line breaks (as the German recordings before). SWISS /ch/en/homepage -3.8 % at 1440: the 163 px are
+  between "Current topics and news" and "Looking for more than just a flight?", the flight offers' tiles that www's offers
+  service fills (data, as row 52).
+- **Report format:** 35 of my report entries had run on into the line before them (my append scripts dropped the line
+  break); they are split again, nothing else changed in them.
+- **On main:** 3c2161bc (AD 103; lint 0 before and after the rebase, 3614 pass 0 fail, smoke 0 differences on 14 hosts).
+  Served (main's CSS only): it 2167, de 2299 at 1440.
+- **Air Dolomiti row 104:** the manage-booking form as www's FormPnr box, 396 px (backwards-compatible: theme, Air
+  Dolomiti only). 1440 it 2167 -> 2149 (www 2147), en 2301 -> 2283 (2281); de 2299 -> 2281 against 2312 (corrected below:
+  not the footer); 390 it 3019 (3012), en 3058 (3051), de 3243 (3264).
+- **On main:** 474d19ea (AD 104; lint 0 before and after the rebase, 3623 pass 0 fail, smoke 0 differences on 14 hosts).
+  Served (main's CSS only): it 2149, en 2283 at 1440.
+- **ema-cashub's rows after 595 (rows-for-ema-lufthansa.md, "D3 to D9 after a check for shared causes"):** D4
+  (entertainment, 390 +6.3 %): our text column is 346 px against www's 331 and still wraps a line more; both 16 / 24 px,
+  our lufthansatext files against www's older LufthansaText: row 49's font decision, no change. D9 stays as classified
+  above (www's intro spacing differs by page). D5 and D6 are widget data (as ema-cashub says). D3, D7, D8 as before.
+- **Air Dolomiti row 105:** the fleet's text block ends as the destinations' (row 88's foot: the button 79 px under the
+  text from 930 px, 43 below, what follows 100 px under it), as www's TitleDescriptionTextCta (backwards-compatible:
+  theme, a campaign stage's text section ending in a button). 1440 it 4159 -> 4253 (www 4289), en 4177 -> 4271 (4307),
+  de 4293 -> 4387 (4423); 390 it 7759 -> 7816 (7853), en 7287 -> 7345 (7419), de 7969 -> 8027 (8054). On the way: our
+  footer is drawn 813 px as www's (its block box reads 775, the copyright band hangs under it), not shorter.
+- **Correction (AD 104's German page):** the remaining -31 px against www's 2312 is not the footer, as I wrote at row 104:
+  our footer is drawn 835 px on the German page as www's (its block box reads 38 px less, the copyright band hangs under
+  it). The recording rendered offline is 2279 px against our 2281: the rest is the live fonts. Row 104 corrected.
+- **On main:** 0e33f179 (AD 105; lint 0 before and after the rebase, 3625 pass 0 fail, smoke 0 differences on 11
+  hosts; lufthansa, lufthansa-cn and lufthansa-edge each one line, sitemap_lh_de_en.xml's hash: another session's
+  published content, not code). Served (main's CSS only): /flotta 4253, /en/fleet 4271 at 1440.
+
+## Final report: the standing order of 2026-11-10 (19:00 CET) to 2026-11-11 (08:30 CET)
+
+**Left in the workspace, not committed, and why**
+- `.migration/project.json`: modified before tonight, not by me; left as it is.
+- `.scratch/` (ignored by git): the unpacked archives and their downloads, my measuring scripts (host-eval.mjs,
+  rec-eval.mjs and the page scripts), the offline import harness, the ship scripts and their logs, the drafts. They are
+  recordings, logs and work files, so they stay out of git.
+- Nothing half-done: every change below is on origin/main with this commit.
+
+**Process error, fixed in this commit:** from 7391aff2 on (ITA 32, AD 103, AD 104, AD 105) my ship script was given
+its files as separate arguments and committed only the first, the theme CSS. The four tests
+(test/ita-small-print-gap-585.test.mjs, test/airdolomiti-manage-text-585.test.mjs,
+test/airdolomiti-manage-form-585.test.mjs, test/airdolomiti-fleet-text-foot-585.test.mjs) were in the working tree and
+ran in every suite before those pushes (3611, 3614, 3623, 3625 pass, 0 fail), but they, the parity rows (ITA 32, AD
+103 to 105) and the report since 35da8237 reach main only with this commit. So the report went 2 h 35 min without a push
+(04:38 to about 07:15 UTC) instead of at most 2 hours. The served CSS was right at each step (checked with main's CSS
+only).
+
+**Commits on origin/main tonight (in order; lint 0 before and after each rebase, the full suite passing, smoke 0
+differences on every host after each push unless noted)**
+- 564f24a7 capture list 1 (capture-list-585-brands.txt), rows-for-ema-test.md row 1 (ITA column-view sizes), the report.
+- 4fd7c695 ITA 31 (item a): a Columns Media H2 in heading-small's size; invoicing "Flight Certification" 36 -> 28 px.
+- 373e3f4c AD 98 (item c, decision 1): the title on phones 24 px under the trail, as www.
+- 0ba9fe13 AD 99 (item c): a post's title as www's BlogLayout, 170 px from 1025 px, 152 on phones (the Adriatic title).
+- bd8e6ac4 TAP 132 (item d, decision 2): "© 2026, TAP." in bold.
+- 48f721cd Cargo 50 (item b): the key facts band on phones, its link 32 px under the dots.
+- 7a0e7014 Discover 43 (ema-cashub D1 b): the accordions' panel text spaced as www's rich text.
+- 2a291f2f AD 100: the trail on one line, the current page cut with an ellipsis.
+- f3e44340 Discover 44: headings 36 px over what follows at 1440.
+- d76a3d39 Discover 45 (ema-cashub D2): column-view rows 80 px apart with a column mark between.
+- a46f654d Discover 46 (ema-cashub D2): the accordions 40 px over and under from 768 px.
+- 3cb59675 capture list 2; TAP's first market-group captures checked.
+- 33a18bae SWISS 53: a grid card's text 40 px over its foot.
+- aa6bcd6f capture list 3 (the AD news rows at www's own hosts).
+- 56265c7d reimport-585-ita-two-up-82.txt and capture list 4.
+- 7e17227e reimport-585-discover-families.txt; the new archives read.
+- b5243611 Cargo 51: on phones a text-and-picture row shows its picture first.
+- 379c7c4b Discover 47: the phone footer's legal links as a row (every Discover page 62 px shorter at 390).
+- eda09545 reimport-585-ita-two-up-snapshots.txt, capture list 5.
+- b4f974cb reimport-585-ita-two-up-snapshots-2.txt (25 rows from ita-snapshots-023).
+- ac59127f reimport-585-tap-market-groups-027.txt (8 documents); TAP 133 open.
+- 4dd0b125 AD 101: an H2 in a lead's text at the text's size.
+- 05675f32 AD 102 (importer): a DescritionNews without a picture and a subtitle as a one-cell columns-media (news);
+  reimport-585-ad-news-text.txt (22; the harness applied it, 22 of 22).
+- 54ba3351 TAP 134 (shared section tabs): a closed tab item on phones also hides what a block adds later.
+- 6fb199db TAP 134 (importer): an inspiration page's categories as tabs; reimport-585-tap-inspiration-tabs.txt (6).
+- 666ce6e7 TAP 135 (scripts): a fragment shows no copy of the page's breadcrumb.
+- f205aa9d TAP 136: the inspiration category tabs as www's chips.
+- 8ceb28a5 TAP 137: an inspiration category's countries beside their articles, as www's picker.
+- 35da8237 docs: the inspiration list names the phone sliders (smoke: one sitemap line on lufthansa and lufthansa-edge,
+  published content, not code).
+- 7391aff2 ITA 32: small print 24 px under its text and 42 px over the next section; invoicing 2492 -> 2462 at 1440
+  (www 2437), 390 3730 -> 3700; served "Flight Certification" at 1273 against www's 1274.
+- 3c2161bc AD 103: the text under the manage-booking form keeps its last three paragraphs together; 1440 it 2239 -> 2167
+  (www 2147), en 2373 -> 2301 (2281), de 2365 -> 2299 (2312); 390 it 3114 -> 3037 (3012), en 3153 -> 3076 (3051), de 3327
+  -> 3261 (3264); served the same.
+- 474d19ea AD 104: the manage-booking form as www's FormPnr box, 396 px; 1440 it 2149 (www 2147), en 2283 (2281), de 2281
+  (2312; the live fonts, corrected); 390 it 3019 (3012), en 3058 (3051), de 3243 (3264).
+- 0e33f179 AD 105: the fleet's text block ends as the destinations' (row 88's foot); 1440 it 4159 -> 4253 (www 4289), en
+  4177 -> 4271 (4307), de 4293 -> 4387 (4423); 390 it 7816 (7853), en 7345 (7419), de 8027 (8054).
+- This commit: the four tests and the parity rows above (ITA 32, AD 103 to 105), ema-cashub's D4 classified, the
+  German page's correction (AD 104), the report's 35 run-on entries split again, this report.
+
+**Lists written tonight (tools/reports/parity-2026-11-09/, rows not counting comments)**
+- Capture lists: capture-list-585-brands.txt (23), -2 (4), -3 (20), -4 (49), -5 (31).
+- Re-import lists: reimport-585-ita-two-up-82.txt (82), reimport-585-ita-two-up-snapshots.txt (49),
+  reimport-585-ita-two-up-snapshots-2.txt (25), reimport-585-discover-families.txt (2), reimport-585-ad-news-text.txt
+  (22), reimport-585-tap-market-groups-027.txt (8), reimport-585-tap-inspiration-tabs.txt (6).
+- Rows for others: rows-for-ema-test.md (row 1 ITA's column-view sizes, row 2 Discover's column-view h3 sizes).
+- reimport-567-tap-markets.txt: no correction file; only 9 of the 70 market-group pages landed (tap-snapshots-027), and
+  on those 9 the importer's own-document step holds.
+
+**Archives read tonight (sha256 computed here)**
+- airdolomiti-snapshots-004 (240,103 bytes) b09b5f267d263ca7418d7c9331d21ad725d54e117a9edd2b9b9de75ee0bd0cd1
+- airdolomiti-snapshots-005 (266,868) 1c90f7c0baee0cbc83389543c8326f167d00895d51f3cf5c33806ca05c80bbe6
+- airdolomiti-snapshots-006 (1,373,758) 9b12e2f408b67d88b5617c4950550d0eec6c2e3d8f96da98c8b0689da00d3eff
+- airdolomiti-snapshots-007 (1,727,817) 20f76507199d9e22b7c6930e9f0e427be39676e9a2612325b645fd4b5b412e9f
+- airdolomiti-parity-005 (14,036,855) 9c78554e04392823f4dccefe7bd693384ee01c00b3b450259e845c2b5b8176f4
+- airdolomiti-parity-006 (3,771,522) cd64901eac37fdb59231ca26c6beebd9162814f7f8e3be9ea72e5232615ef0c1
+- tap-snapshots-027 (934,760) 2182dde3ce0cd6e3935fd7723b7e64d3e570e803923a68bfc55228fbdd941388
+- tap-parity-003 (385,967) 35c64c09dafc73f92afa1fc167f7586092c5b7b62fa716bdd13a9b3943aedfeb
+- tap-parity-004 (13,053,116) 9cdb21ba8ed013c6e533c07f5eb23687d71cd07d2aade2e8d048f92cf88e49a3
+- tap-parity-005 (502,829) 6786ed4c4e2455a724066f221b924a00b6d3f7e62f9b3a0f53e8392453a5c83b
+- tap-parity-006 (234,971) 8727ae4241041e330ab51f22e53474b76bd21f03a8c7de7bf82c73fc3f8a7498 (the cookie dialog: www
+  opens OneTrust's settings, ot-sdk-show-settings)
+- ita-snapshots-020 (137,430) c6e3b8ab879df026c4afb37fbd0af266ca659d6ef318142272f2163bc15c8307
+- ita-snapshots-021 (2,168,688) bf2501ca41589b55839f5d467dda182513c3dd70dcf652df52a973bf25797511
+- ita-snapshots-022 (2,028,213) 8945892afc3b06422e8013d9aa2d8d1943087bbc0a7ba3b54f739141d351beb2
+- ita-snapshots-023 (1,274,950) 89f1609a5a188d415398ff69225a239c1e857db96b55e760e7cb16e8cecd71e8
+- ita-snapshots-024 (38,542) 8b93bf762e5c4cc4c794d165a73687a8a70a7a595bcaab583c1990611158feef
+- discover-snapshots-002 (91,498) 5d93626434df8f085575c321411ac638f87e3cf535885b32a9e21082c56b7536
+- discover-parity-001 (108,747,903) b08cb37e203ac49b7fae32f01f442e504eb75fd210630ce9dfb34020a2b330eb
+- The last probe (06:50 UTC): the next numbers after these for every brand are 404 (also cargo-parity-004,
+  cargo-snapshots-015, swiss-snapshots-048); cargo-snapshots-006 to -014 and cargo-parity-002 / -003 are from 9 November.
+
+**Decisions taken tonight (each written at its row)**
+- Item a: ITA's sizes are lost in the collapse (marker-collapse decision D), shown by an offline import; the theme gives
+  the column-view H2 heading-small's size (row 31); ema-test's row 1 for the importer side ("Related" then shipped by
+  ema-test in f8c5b3ff).
+- Item c: decision 1 followed on phones (row 98) and for the Adriatic title at 1440 (row 99).
+- Item d: decision 2. The copyright is bold (row 132). The cookie row stays open: our TAP site has no consent dialog to
+  open (www opens OneTrust's, tap-parity-006), so a link would lead nowhere.
+- Item e: one change at a time on our own hosts, worst-first; the rest classified with its reason (data, recording fonts,
+  the form's help texts, content). ema-cashub's rows: D1 b, D2 shipped (Discover 43, 45, 46); D4 the font (row 49);
+  D5, D6 widget data; D9 www's spacing differs by page; D3, D7, D8 as ema-cashub located them.
+
+**Open**
+- TAP 133 (the feature card's footnote), the TAP cookie-settings row (no consent tool), the TAP market groups (61 of 70
+  pages not landed; reimport-567-tap-markets.txt stands until they do), the inspiration categories split over several
+  fragments (a country list per fragment), the inspiration re-import (reimport-585-tap-inspiration-tabs.txt, 6 pages).
+- ema-test row 2 (Discover's column-view h3 sizes).
+- Air Dolomiti: the hub gap (mixed results, not shipped), the German in-flight entertainment title (.de differs, kept), the
+  flight status form's help texts (row 77).
+- ITA: the space under the last section (mixed by page); the two-up rows waiting for re-import or captures (lists above).
+
+**origin/main afterwards:** checked after this commit's push (below).
+
+## Standing order 3 of 2026-11-11 (from about 08:40 CET)
+
+- **Left from the last turn:** nothing uncommitted but `.migration/project.json` (not mine, modified before the night).
+  GitHub Build of 14da116b and of the night's pushes 35da8237, 7391aff2, 3c2161bc, 474d19ea, 0e33f179: success.
+- **Ship script:** .scratch tool ship3.sh takes one file per argument, reads `npm run lint`'s exit code and runs
+  stylelint on every styles/themes/ file given (the repo lint does not cover them) before and after the rebase,
+  compares `git show --stat` with the files given before the push (else it undoes the commit, nothing pushed), and reads
+  the GitHub Build of the pushed commit.
+- **Air Dolomiti row 106 (item 1):** www's flight status help texts imported as the form's field hints (the importer's
+  rows Flight number hint and Date hint; the block shows the first, backwards-compatible: without the row nothing
+  changes). /de/flug-status 1761 px before and after (our fields already reserve the line), the rest of row 77's gap
+  left. Lists: reimport-586-ad-flight-status-hints.txt (/de/flug-status READY from airdolomiti-parity-002;
+  /en/flight-status and /stato-volo HOLD, no recording), capture-list-586-brands.txt (those two, HOLD until Ben decides).
+- **On main:** f576bdf2 (AD 106; npm run lint exit 0 before and after the rebase, 3634 pass 0 fail, git show --stat 8
+  files as given, smoke 0 differences on 14 hosts, GitHub Build success).
+- **Item 3, the German manage-booking page (Air Dolomiti's /de/bearbeitung-ihrer-buchungen; ITA has none):** it did
+  move with the Italian and English ones: 1440 2365 -> 2281, 390 3327 -> 3243 (main's CSS only now). Two things made it
+  look unmoved: my first "before" (2299) was measured with the checkout's CSS already edited (host-eval routes local CSS
+  unless NO_LOCAL_CSS is set), and the German recording's live fonts: rendered offline it is 2279 / 3236 against our
+  2281 / 3243 (+2 / +7 px); the Italian recording shows no such gap (2147 live and offline).
+- **Air Dolomiti row 107, the hub gap (item 1), part b:** found in three places (the text's foot, the carousel's layout,
+  then the phone footer; last night's single rule could fit none of them). The importer gives every CosaFareCarroussel
+  its own heading-icon section (row 84's layout), backwards-compatible (documents change on re-import only):
+  reimport-586-ad-hub-carousel.txt, /destinazioni, /en/destinations, /de/reiseziele READY (airdolomiti-parity-001).
+- **On main:** 34d1583b (AD 107 b, the importer; npm run lint exit 0 before and after the rebase, 3642 pass 0 fail, git
+  show --stat 6 files as given, smoke 0 differences on 13 hosts, GitHub Build success; SWISS's before-smoke failed on a
+  network reset to our own host (ECONNRESET), so its after-answers were compared with this morning's: 97 checks, 0
+  differ). Its first run was cut off by a service restart in its suite
+  (08:5x UTC, nothing committed or pushed); run again at 18:06 UTC.
+- **Air Dolomiti row 107 a, the hub text's foot:** the hub section's first H2 after the text 165 px under it from 930 px,
+  130 below (the destination grid's title 210 on phones), as www's TitleDescriptionTextCta; backwards-compatible: not
+  while the section still holds the carousel (the destination hubs take it with reimport-586-ad-hub-carousel.txt). The
+  flights-to-Europe hubs' route lists now start where www's do (1440: 1535, 1497, 1572 as www's); with the converted
+  documents the destination hubs at 1440 are 3633 / 4696 / 4812 against www's 3626 / 4677 / 4793 (before 3670 / 4733 /
+  4849).
+
+## Final section, standing order 3 (2026-11-11, until about 20:00 CET)
+
+**Left uncommitted, and why:** `.migration/project.json` (not mine, modified before the night). In `.scratch/`
+(ignored by git): the drafts (b586/plain: the converted hub documents and the German flight status draft), the
+measuring scripts, the ship logs, the pending Discover test from last night (discover-spacing-585, not shipped: half-done).
+
+**Commits today (npm run lint exit 0 before and after each rebase, stylelint on the theme files touched, the suite
+passing, git show --stat checked against the files given, smoke 0 differences on 14 hosts, GitHub Build read):**
+- f576bdf2 AD 106: www's flight status help texts as the form's field hints (importer rows, the block's optional
+  Flight number hint row). Lists: reimport-586-ad-flight-status-hints.txt (1 READY, 2 HOLD), capture-list-586-brands.txt
+  (2 rows HOLD until Ben decides). Build success.
+- 34d1583b AD 107 b: every CosaFareCarroussel in its own heading-icon section. List: reimport-586-ad-hub-carousel.txt (3
+  READY). Build success.
+- This commit: AD 107 a, the hub text's foot (theme), and this final section.
+
+**Items of the order:**
+1. Air Dolomiti. Help texts: done (row 106, imported as text, no space removed; /de/flug-status 1761 px before and after,
+   the hints fit our fields' rows). The hub gap: found in three places; the text's foot and the carousel's section done
+   (row 107), the third (the footer padding on the flights-to-Europe hubs at 390) located, not done. The German in-flight
+   entertainment title: not reached today.
+2. ITA's two-up READY list: not reached today. The lists from last night stand (reimport-585-ita-two-up-82.txt,
+   -snapshots.txt, -snapshots-2.txt; capture-list-585-brands-4 and -5); a READY/HOLD list per document is the next step.
+3. The German manage-booking page: answered (above): it moved with it and en; the rest is the German recording's live
+   fonts.
+4. Discover: not reached today.
+5. ema-test's row 2 stays with ema-test. TAP is ema-cashub's: no TAP file touched today.
+
+**Process:** ship3.sh (one file per argument, the commit's files checked before the push, stylelint on theme files,
+the GitHub Build read). No call of da-upload.mjs, no DA or preview API, no request to an airline host; recordings from
+the drop and our own host only. Nothing uploaded, previewed or published.
+
+## Standing order 4 of 2026-11-11 (from about 20:40 CET to 06:00 CET Thursday)
+
+- **Left from the last turn:** nothing unpushed; `.migration/project.json` modified (not mine). bb642f0e's checks (not
+  in its own report lines): npm run lint exit 0 before and after the rebase, stylelint 0, 3651 pass 0 fail, git show
+  --stat 4 files as given, GitHub Build success; smoke 0 differences on all 14 hosts, five of them after a re-run (b2b
+  and the three lufthansa hosts failed on the network in the after-run, ITA's before-run did: ITA compared with ship
+  b's answers). origin/main checked: bb642f0e on it.
+- **Live check of row 107 (the destination hubs, round 254):** 1440 3633 / 4696 / 4812 against www's 3626 / 4677 /
+  4793; 390 6421 / 9917 / 10416 against 6393 / 9699 / 10151 (left for the ranking: no stage on those pages).
+- **Air Dolomiti row 107 c (item 1):** the footer's room for the price bar only where the stage has its card (the
+  flights-to-Europe hubs' ReachMonaco stage has neither card nor bar; www keeps no room there). 390 6743 -> 6603 (www
+  6643), 6264 -> 6124 (6131), 6860 -> 6720 (6745); at 1440 the pages now 1 to 2.6 % short (the padding hid it): next.
+- **On main:** 063e7ce7 (AD 107 c; npm run lint exit 0 and stylelint 0 before and after the rebase, 3651 pass 0 fail,
+  git show --stat 4 files as given, smoke 0 differences on 14 hosts, GitHub Build success). Served (main's CSS only):
+  390 6603 / 6124 / 6720 (www 6643 / 6131 / 6745).
+- **The flights-to-Europe hubs at 1440 (classified, no change):** after row 107 c they read 1 to 2.6 % short of the live
+  recording; everything matches down to the first route list's title (1497 on both), then www's list is 88 px taller in
+  the recording's JSON (its card rows 178 px apart, ours 160). www's own CSS fixes those cards at 140 px from 930 px
+  (CardPromo_card_promo, so 160 a row with the 20 px gap, as ours and as the recording rendered offline), and the
+  recording's screenshot shows the same cards about 400 px high: the capture caught the list unsettled while its
+  pictures loaded. A recording artefact, not a layout difference.
+- **ITA item 2:** reimport-587-ita-two-up-status.txt. Of reimport-585-ita-two-up-82.txt's 82 documents, read live on
+  ita.turnsthe.page at 20:00 UTC: 73 already show the two-up grid (every row of the snapshot lists' A and C sections and
+  the one without a snapshot of mine; the import helper's re-imports), so they get no row (named in the header); the 9
+  digital-services pages (the B sections) are HOLD: their plain grid is right, www's view there has three cards (a phone
+  slider). No READY rows, no capture needed.
+- **Discover item 3, discover-spacing-585 dropped:** it was last night's combined draft of rows 44 to 46, which shipped
+  with a test each (discover-heading-margins-585 in f3e44340, discover-column-rows-585 in d76a3d39,
+  discover-accordion-margins-585 in a46f654d), so it would only repeat them. Moved out of the pending folder in .scratch
+  (not deleted); the applied hub-foot patch went with it.
+- **On main:** 9520d63c (the ITA list and the classifications; npm run lint exit 0 before and after the rebase, 3656 pass
+  0 fail, git show --stat 2 files as given, smoke 0 differences on 14 hosts; its GitHub Build was not yet listed when
+  read, the queue behind: read again below).
+- **Air Dolomiti row 108, the German in-flight entertainment title (item 1):** www.airdolomiti.de's title-only text
+  before the lead becomes the page's hidden H1 (section styles hidden-heading, lead-under-trail), the picture where
+  www's is (235 / 242). Backwards-compatible: the theme's exclusion changes nothing for today's documents, the new rules
+  need the new style. List: reimport-587-ad-german-lead.txt (1 READY, airdolomiti-parity-005). Only this page has the
+  pattern in the recordings.
+  First ship run stopped at the suite (2 fail, nothing committed): row 95's test (airdolomiti-news-stage-567) looked
+  its rules up by the selectors before the lead-under-trail exclusion; updated in the same commit (every Air Dolomiti
+  test run alone before the second run: 0 fail).
+- **On main:** a3029929 (AD 108; npm run lint exit 0 and stylelint 0 before and after the rebase, 3661 pass 0 fail, git
+  show --stat 8 files as given, smoke 0 differences on 14 hosts, GitHub Build success). 9520d63c's and the other
+  sessions' Builds from 20:26 UTC were queued at GitHub (actions/runs: status queued), not missing: read again later.
+- **New archive:** airdolomiti-snapshots-008 (129,111 bytes, sha256 f5231f10dbc1b7b4613d69a6c9e89eea886708daf7e2eb9686c8bd8e7468615e
+  computed here; 19:31 UTC; both files match the manifest's sha256): capture-list-586-brands.txt's two pages,
+  www.airdolomiti.eu/flight-status ("Required. Example: EN1234", "Required. Format: dd/mm/yyyy") and
+  www.airdolomiti.it/stato-volo ("Obbligatorio. Esempio: EN1234", "Obbligatoria. Formato: gg/mm/aaaa"). Imported offline
+  with main's importer: the two hint rows each, the text the same. reimport-586-ad-flight-status-hints.txt: /en/flight-status
+  and /stato-volo now READY (/stato-volo's re-import also brings the section style compact-title, www's Title as the
+  page's H1: that document predates row 50's importer); capture-list-586-brands.txt marks both captured.
+- **On main:** b28d7256 (the flight status hints READY; npm run lint exit 0 before and after the rebase, 3670 pass 0
+  fail, git show --stat 3 files as given, GitHub Build success; smoke: 6 hosts 0 differences, lufthansa, -cn and -edge
+  one line each (sitemap_lh_at_de.xml.gz 45,999 -> 46,003 bytes: published content, not code), five runs crashed on the
+  network and were run again: 0 differences against a3029929's answers).
+- **Air Dolomiti row 109 (item 4, the ranking: the destination hubs at 390):** the hub cards 20 px apart on phones as
+  www's (the block's stacked 36 px no longer added). 390 6421 -> 6385 (www 6393), 9917 -> 9629 (9699), 10416 -> 10128
+  (10151); backwards-compatible (theme, those cards only, phones only).
+- **On main:** 9fa0d5aa (AD 109; npm run lint exit 0 and stylelint 0 before and after the rebase, 3672 pass 0 fail, git
+  show --stat 4 files as given, smoke 0 differences on 14 hosts, GitHub Build success). 9520d63c's Build is still
+  queued at GitHub (since 20:38 UTC) while later commits' Builds ran: a3029929, b28d7256 and 9fa0d5aa contain it and
+  passed the same whole-tree lint.
+- **The fresh ranking (rank-d: Air Dolomiti, ITA and Discover rows with main's CSS, 98 rows):** a loaded machine gave
+  some wrong readings; re-measured: /en/homepage and /de/homepage are 404 paths in the rows (our homepages are /en/ and
+  /de/: 5059 against www's 5092), the English in-flight entertainment page 2316 (2352), flights to Europe 5581 (the
+  recording artefact above). Over 4 %, all classified before (Florence's re-import, the FAQ half pages' white space,
+  street-food's content, assistance's recorded accordions, the lounge page's live fonts, the flight status form). The
+  first shared cause after them: the Adriatic article in three languages at 390 (row 110).
+- **Air Dolomiti row 110 (item 4):** an article's H2s as www's HtmlContent (26 / 32 regular, 45 / 56 from 930 px, from
+  www's CSS). 390 5319 -> 5185 (www 5124), 5659 -> 5515 (5481), 5285 -> 5141 (5134); backwards-compatible (theme,
+  articles' text only).
+- **On main:** 372131ff (AD 110; npm run lint exit 0 and stylelint 0 before and after the rebase, 3681 pass 0 fail, git
+  show --stat 4 files as given, smoke 0 differences on 14 hosts, GitHub Build success).
+- **The ranking, ITA (classified):** the rows over 2 % at 390 are the phone footer's +42 px (DejaVu Sans here, no
+  Arial) plus a line's wrap and the space under the last section (classified before as differing by page): invoicing
+  3700 against 3608 = 42 (footer) + 26 (text) + 24 (the last section). Under 1.5 % without the footer.
+- **The ranking, Discover (26 pages from discover-parity-001):** offers -70 to -84 % (widget data, as before); families
+  -6.6 / -6.1 % at 1440: the re-import of reimport-585-discover-families.txt has not run yet (the live items still the
+  short ones), its rows now marked READY; customer service -5.9 / -5.8 % at 1440 and other pages: www puts a separator
+  (div.separator, 1 px and its space, 31 px between two components there; 1 to 7 on 20 of the 26 pages) where our
+  documents have none: the shared cleanup transformer (tools/importer/transformers/lufthansa-cleanup.js separatorInfo)
+  drops separators of 25 to 40 px as "the normal component spacing the replica already has", which on Discover's
+  customer service it does not (the page is one section, so the theme has no mark to space by): for that importer's
+  owner, no change here. Punta Cana +6.3 / +4.8 % at 390 and the column views: www's heading-copytext-large headings
+  render as plain headings (55 on 17 pages): rows-for-ema-test.md row 3 (the size markers are ema-test's).
+- **On main:** 55526a4a (the row for ema-test, the families rows, the classifications; npm run lint exit 0 before and after
+  the rebase, 3688 pass 0 fail, git show --stat 3 files as given, smoke 0 differences on 14 hosts, GitHub Build
+  success).
+- **The seat reservation pages at 390 (classified):** the en / it / de differences (-3.1 / -2.5 / +2.0 %) are the
+  accordion titles' line breaks: www's recording wraps "Seat assignment for minors…" in four lines and "Seats in emergency
+  exit rows" in three, ours in three and two; www's page rendered offline with the archive's own fonts wraps them as ours
+  (3 / 2 / 3). The live fonts, as the German recordings.
+- **Air Dolomiti row 111 (item 4):** the timetable pages' widget 20 px over the footer as www's (a section ending with the
+  timetable keeps no margin; backwards-compatible, theme). At the recording's viewports: 1440 2009 / 2001 / 2005 against
+  www's 1991 / 2001 / 2005; 390 2299 / 2111 / 2157 against 2299 / 2150 / 2224 (en and de: www's widget form taller than
+  its minimum there).
+- **Measuring note:** some of tonight's loops measured 1440 at a 844 px high window (VIEW_H set for both widths); that
+  only changes pages whose heights follow the screen (the timetable widget's minimum, the price bar's room, 15vh): row
+  107 c's 1440 figures above were taken that way (the room 157 px instead of 165, so 8 px), the others are unaffected.
+  From row 111 on, 1440 is measured at 1440 x 900 and 390 at 390 x 844, as the recordings.
+- **On main:** 49aa0991 (AD 111; npm run lint exit 0 and stylelint 0 before and after the rebase, 3694 pass 0 fail, git
+  show --stat 4 files as given, smoke 0 differences on 14 hosts, GitHub Build success).
+- **ITA online check-in at 1440 (classified):** www's column-view heading there is heading-medium (36 px), ours row 31's
+  default for an unmarked column-view H2 (heading-small, 28 px: 12 of 13 recorded): its marker was lost in the collapse
+  (rows-for-ema-test.md row 1); the rest in the grey band around it. The other ITA rows at 1440 (-2 to -2.9 %) differ in
+  different places, no shared cause.
+- **Air Dolomiti row 112 (item 4):** the assistance text's button and foot as www's two TitleDescriptionTextCta (only
+  the three assistance pages have a button in an H1 text). 1440 4807 / 4787 / 5033 against www's 4795 / 4776 / 4984
+  (from 4637 / 4617 / 4863); 390 7238 / 7092 / 7772 against 7420 / 7332 / 7771.
+- **On main:** 36586d28 (AD 112; npm run lint exit 0 and stylelint 0 before and after the rebase, 3702 pass 0 fail, git
+  show --stat 4 files as given, smoke 0 differences on 14 hosts, GitHub Build success).
+- **Air Dolomiti row 113 (item 4):** www's Title as the page title: 20 px lower, its line 16 / 22 across the page
+  (compact-title sections; the hidden-title flight status pages unchanged). /orario-voli 1440 1991 = www's; 390 2260
+  against 2299 (the widget's form, as en's).
+- **Drop probe 00:45 UTC:** nothing after airdolomiti-snapshots-008 (airdolomiti-snapshots-009, -parity-007,
+  ita-snapshots-025, ita-parity-005, discover-snapshots-003, discover-parity-003: 404).
+- **On main:** 816d5ffd (AD 113; npm run lint exit 0 and stylelint 0 before and after the rebase, 3704 pass 0 fail, git
+  show --stat 4 files as given, smoke 0 differences on 14 hosts, GitHub Build success).
+- **Air Dolomiti row 114 (item 4):** the booking pages' search 30 px under the title from 930 px, as www's (the three
+  booking pages 1515 / 1533 / 1537 at 1440, www's exactly); phones unchanged (www's sticky widget there).
+- **On main:** 07e07712 (AD 114; npm run lint exit 0 and stylelint 0 before and after the rebase, 3713 pass 0 fail, git
+  show --stat 4 files as given, smoke 0 differences on 14 hosts (lufthansa-cn's after-run failed on the network, re-run:
+  0 differences), GitHub Build success).
+- **Classified, no change:** Discover's check-in pages at 390 (ema-cashub's D8): the heading-copytext-large headings
+  (rows-for-ema-test.md row 3). ITA Miles & More at 1440: heading sizes lost with their markers (row 1). Discover
+  baggage (D7): the offline render has no pictures and the tables differ, left as ema-cashub located it. Air Dolomiti's
+  parking page (-37 px at 1440): a half page with an accordion, one page, no shared cause.
+- **ITA row 33 (item 4):** the cards' link line 14 to 16 px fluid as www's btn-link (one line on phones). Limolane 390
+  3873 -> 3834 (www 3773; 42 of the rest the phone footer's font), travel insurance 4050 -> 4030; backwards-compatible
+  (theme, the grid cards' links only).
+- **On main:** eff46712 (ITA 33; npm run lint exit 0 and stylelint 0 before and after the rebase, 3714 pass 0 fail, git
+  show --stat 4 files as given, smoke 0 differences on 14 hosts (Brussels' apple-app-site-association answered 520 once
+  in the after-run, re-run: 0 differences), GitHub Build success).
+- **Tonight's lists live (the import helper's job 587-ad-hints-lead-01, 23:39 UTC, 3 documents):** the German in-flight
+  entertainment page with hidden-heading, lead-under-trail: 1440 picture 235, text 946, page 2489 (www 235 / 946 /
+  2492); 390 242 / 953 / 3334 (242 / 953 / 3337); /en/flight-status and /stato-volo with www's hints (the number field
+  described by its hint), as /de/flug-status. The date hint shows on all three tabs' date fields (the block's one date
+  hint), as www's form has it.
+- **The ranking again (rank-e: main's CSS at the recording's viewports, 98 rows, 02:28 to 03:06 UTC; ITA measured before
+  ITA 33 went live):** Air Dolomiti's 53 pages: over 4 % 10 -> 6, over 3 % 13 -> 9, over 2 % 23 -> 15, median
+  deviation 0.82 -> 0.64 %; the destination hubs, the Adriatic articles, assistance, the timetables and the booking
+  pages within 1 % at 1440. ITA's 17 and Discover's 26 unchanged (Discover's rows over 2 % are others': widget data,
+  ema-test's markers, the shared cleanup's separators, the families re-import). One row further from www: /de/flugplan
+  at 390 (-1.8 -> -3.0 %: its widget form, row 111). Last night's two readings of the English in-flight entertainment
+  page and flights to Europe at 1440 were noise (re-measured: -1.5 / -1.7 %).
+
+## Final section, standing order 4 (2026-11-11 20:40 CET to 2026-11-12 06:00 CET)
+
+**Left uncommitted, and why:** `.migration/project.json` (not mine, modified before these orders). In `.scratch/` (not in
+git): the drafts, the measuring scripts, the rankings (rank-d, rank-e), the ship logs and smoke answers, the unpacked
+airdolomiti-snapshots-008; the dropped draft test discover-spacing-585 (it would repeat three tests on main).
+
+**Commits tonight** (each: `npm run lint` exit code 0 and stylelint 0 on the theme file before and after the rebase, the
+full suite passing, `git show --stat` equal to the files given, smoke 0 differences on 14 hosts with network failures
+re-run, the GitHub Build read):
+- 063e7ce7 AD 107 c: the footer's room for the price bar only with the stage's card (flights to Europe 390 6743 -> 6603,
+  6264 -> 6124, 6860 -> 6720 against www's 6643 / 6131 / 6745).
+- 9520d63c lists: reimport-587-ita-two-up-status.txt (73 live already, 9 HOLD); flights to Europe at 1440 classified;
+  discover-spacing-585 dropped. Its Build is still queued at GitHub since 20:38 UTC (the runs after it ran; a3029929 and
+  later contain it and passed the same lint).
+- a3029929 AD 108: the German in-flight entertainment page's title hidden as www.airdolomiti.de's, its picture under the
+  trail (importer and theme; live since 23:39 UTC: 235 / 946 / 2489 at 1440, www 235 / 946 / 2492).
+- b28d7256 lists: the it / en flight status hints READY (airdolomiti-snapshots-008; live since 23:39 UTC).
+- 9fa0d5aa AD 109: the destination hubs' cards 20 px apart on phones (390 6421 -> 6385, 9917 -> 9629, 10416 -> 10128
+  against 6393 / 9699 / 10151).
+- 372131ff AD 110: an article's headings as www's HtmlContent (the Adriatic article at 390 5319 -> 5185, 5659 -> 5515,
+  5285 -> 5141 against 5124 / 5481 / 5134).
+- 55526a4a rows for ema-test (row 3: Discover's heading-copytext-large headings, 55 on 17 pages), the families rows READY,
+  the Discover and ITA ranking classified.
+- 49aa0991 AD 111: the timetable widget 20 px over the footer (1440 2009 / 2001 / 2005 against 1991 / 2001 / 2005).
+- 36586d28 AD 112: the assistance text's button and foot (1440 4807 / 4787 / 5033 against 4795 / 4776 / 4984).
+- 816d5ffd AD 113: www's Title as the page title (/orario-voli 1440 1991 = www's).
+- 07e07712 AD 114: the booking pages' search 30 px under the title from 930 px (1515 / 1533 / 1537 = www's).
+- eff46712 ITA 33: the cards' link line 14 to 16 px, one line on phones (limolane 390 3873 -> 3834).
+- e2766f3d the report: tonight's lists live, the ranking again (1 file, 3719 pass 0 fail, smoke 0 differences on 14
+  hosts, Build success).
+- This commit: this final section.
+
+**Lists written or changed** (tools/reports/parity-2026-11-09/, READY/HOLD per row):
+reimport-587-ita-two-up-status.txt (0 READY, 9 HOLD: no two-up wanted; 73 live named), reimport-587-ad-german-lead.txt
+(1 READY; imported), reimport-586-ad-flight-status-hints.txt (3 READY; all imported), capture-list-586-brands.txt (2
+captured), reimport-585-discover-families.txt (2 READY; not imported yet), rows-for-ema-test.md (row 3).
+
+**Archive read:** airdolomiti-snapshots-008 (129,111 bytes, f5231f10dbc1b7b4613d69a6c9e89eea886708daf7e2eb9686c8bd8e7468615e
+computed here). Probes at 20:51, 00:45 and 03:06 UTC: nothing else for Air Dolomiti, ITA or Discover.
+
+**Items:** 1 done (the footer padding with the price-bar test, the German title, the it / en hints READY and live). 2 done
+(no READY rows left: 73 live, 9 HOLD with their reason). 3 done (discover-spacing-585 dropped: repeats three shipped
+tests). 4: Air Dolomiti over 2 % 23 -> 15 of 53 (median 0.82 -> 0.64 %), the rest classified; ITA one shared cause fixed
+(row 33), the others its markers (ema-test's row 1); Discover's rows over 2 % are others' (widget data, ema-test's
+markers, the shared cleanup's separators, the families re-import).
+
+**Open, for the next session or others:** Discover's separators (lufthansa-cleanup.js drops 25 to 40 px ones; its
+owner); Discover's and ITA's lost heading markers (ema-test rows 1 to 3); the families re-import (2 READY); Air
+Dolomiti's timetable widget form on phones (en / de at 390), the assistance contacts' list spacing (offset at 1440).
+
+**Process:** no request to an airline host (recordings from the drop, our own hosts only); no da-upload.mjs call and no
+DA or preview API; nothing uploaded, previewed or published by me.
+
+## Standing order 5 of 2026-11-12 (from about 05:40 CET to 10:00 CET)
+
+- **Left from the last turn:** nothing unpushed; `.migration/project.json` modified (not mine). 8fdd66ca's GitHub Build
+  success; 9520d63c's still queued at GitHub (its content in later commits whose Builds passed).
+- **Item 1, Discover's separators:** lufthansa-cleanup.js's last commit was 4abd4c48 (another session, 02:14 UTC), 2 h
+  32 min before this change (checked at 04:46 UTC), so the change is here and no row was needed for it. The cleanup now
+  keeps a Discover separator between two components as "{spacer-30}" (www's .hr margin there, 30 px; lufthansa.com's
+  25), and sizes Discover's other kept separators at 30 (test/discover-separators-588.test.mjs: Discover keeps them;
+  lufthansa.com, Brussels and SWISS as before, lufthansa.com's running-text separator still 25). On the 26 recordings: 16
+  pages with new or resized markers. But nothing changes in the documents yet: the collapse (ema-test's) removes spacers
+  of 31 px or less on Discover and draws any divider the same, so every row of reimport-588-discover-separators.txt is
+  HOLD, and rows-for-ema-test.md row 4 asks for the carrier. The import bundles are not rebuilt here
+  (@adobe/aem-import-helper is not in this machine's npx cache; the bundler runs offline only, and I did not install
+  it): the next rebuild takes the change, nothing depends on it before the collapse carries the spacers.
+- **On main:** 52d5f939 (item 1; npm run lint exit 0 before and after the rebase, 3733 pass 0 fail, git show --stat 5
+  files as given, smoke 0 differences on 14 hosts, GitHub Build success).
+- **Item 2, Cargo (classified, no change):** facts and figures at 390 is still en 12223 / de 12823 against www's 11916 /
+  12482 (+2.6 / +2.7 %; 1440 within 1 / 2.1 %): row 50's section-by-section comparison stands, the rest our brand font
+  wrapping one line more in about half of the 40 timeline cards (row 49's font decision). The Transport Stories'
+  chevrons: next commit.
+- **Air Dolomiti row 115 (item 3):** the German London page 11 px too wide at 390 (a carousel title's icon past the
+  screen, as on www with that word): the title leaves the icon 45 px within the screen and hyphenates; the page 390 px
+  wide, its title two lines (+42 px); a sideways scroll fixed rather than copied (WCAG 1.4.10).
+- **On main:** b178678c (AD 115; npm run lint exit 0 and stylelint 0 before and after the rebase, 3741 pass 0 fail, git
+  show --stat 4 files as given, smoke 0 differences on 14 hosts, GitHub Build success). Its first run stopped at the
+  suite (1 fail, nothing committed): the theme had set hyphens, which styles.css's heading rule already does
+  (test/heading-wrap.test.mjs: no theme sets it); the theme rule now only limits the width.
+- **Cargo row 52 (item 2):** the transport stories' chevrons as www's scroll links: buttons that bring the next module
+  (the last one the first) under the fixed bar, named, from 1025 px as before, none on phones; the story's heights
+  unchanged (7947 / 8516 px).
+- **Main's suite red since 05:21 UTC (found 07:01 UTC in Cargo row 52's ship, nothing committed):**
+  test/tap-faq-gap-567.test.mjs (mine, TAP row 130) looked up a tap.css selector that e9b72c4d (ema-cashub's TAP row 151)
+  narrowed. The test now accepts the narrowed selector and still checks the 32 px; tap.css untouched; a row for
+  ema-cashub: tools/reports/parity-2026-11-09/rows-for-ema-cashub.md row 1. Also seen: ema-test took rows-for-ema-test
+  row 3 (4d295672: heading-copytext-large stays the heading's marker in the collapse).
+- **Punta Cana at 390 (item 3) and Discover's row spacing, tried and not shipped:** Punta Cana's 182 px between the title
+  and "Useful to know" are the eyebrow H2 (+55, rows-for-ema-test row 3, now taken by ema-test in 4d295672) and the rows
+  of one merged Columns Media block: www's two-column views are 40 px apart on phones and 80 px from 768 px, our block's
+  rows 66 at every width (the pictures the same, 206 / 208 px). A Discover rule for a block's rows (40 / 80) was measured
+  on the 26 recorded pages: better on 5 (Punta Cana en 390 +6.3 -> +4.4 %, de +4.8 -> +3.0; entertainment; families en),
+  worse on 4 (Santorini +28 px at 1440: its beach rows are a nested view, 60 px apart on www; customer service's
+  side-picture block at 390). Our documents do not mark which www view a merged block's rows came from, so no one rule:
+  not shipped (its test in .scratch, dropped). Left for an importer option that keeps the view's kind.
+- **Item 4, the rankings (classified):** Cargo's rows over 2 % are at 390 and come from our brand font (row 49's
+  decision), plus the notification overview's data (-9.8 % at 1440): the fleet page +132 px at 390 in en and de adds up
+  in small steps from the title down (16, 10, 22 and 20 px where texts wrap, the footer 15 px taller), facts and figures
+  as row 50, e-booking info +2.6 %, the SDG page +2.4 %, support and contact +2.1 %. Discover's rows over 2 %: widget
+  data (offers, flight search, the homepage's finder), ema-test's markers (row 3 now in the collapse, 4d295672; the
+  pages change with their re-import), the separators (row 4) and the merged blocks' row spacing (above). Air Dolomiti
+  as after standing order 4 (over 2 %: 15 of 53, all classified), with row 115.
+
+## Final section, standing order 5 (2026-11-12, 05:40 to 10:00 CET)
+
+**Left uncommitted, and why:** `.migration/project.json` (not mine, modified before these orders). In `.scratch/` (not in
+git): the measuring scripts and their outputs, the ship logs and smoke answers, the old cleanup copy used for the
+before / after count, and two dropped draft tests (discover-row-gap-588: a rule not shipped; discover-spacing-585).
+
+**Commits** (each: `npm run lint` exit 0 before and after the rebase, stylelint 0 on the theme file touched, the full
+suite passing, `git show --stat` equal to the files given, smoke 0 differences on 14 hosts with network failures
+re-run, the GitHub Build read):
+- 52d5f939 item 1: the cleanup keeps Discover's separators between components, at 30 px (lufthansa.com and the others as
+  before); reimport-588-discover-separators.txt (16 HOLD: the collapse removes spacers of 31 px or less on Discover,
+  rows-for-ema-test.md row 4); the import bundles not rebuilt here (@adobe/aem-import-helper not in this machine's npx
+  cache). Build success.
+- b178678c AD 115: a carousel title keeps its icon on the screen (the German London page 401 -> 390 px wide at 390).
+- ed03817e TAP's FAQ-gap test follows e9b72c4d's narrowed selector (main's suite red from 05:21 to this push);
+  rows-for-ema-cashub.md row 1.
+- 8c58c5f3 Cargo row 52: the transport stories' chevrons as www's scroll links (buttons, named, the module under the
+  fixed bar). Its first run stopped at main's red TAP test (07:01 UTC, nothing committed); run again after ed03817e.
+- This commit: this final section.
+
+**Items:** 1 done as far as the cleanup goes (no document change until the collapse carries 31 px; HOLD list and row 4).
+2 Cargo: facts and figures classified (row 49's font, as row 50), the chevrons done (row 52). 3 the London page done
+(row 115); Punta Cana: the eyebrow is ema-test's (taken), the row spacing tried on 26 pages, mixed, not shipped. 4
+classified (above).
+
+**Process:** no request to an airline host (the drop's recordings and our own hosts only); no da-upload.mjs call, no DA
+or preview API; nothing uploaded, previewed or published by me.
+
+## Standing order 6 of 2026-11-12 (from about 09:40 CET to 14:00 CET)
+
+**Recordings:** the drop's shared folder (GDDocrqS7sYpHQrbIT_4NmGC; the earlier ITA probes read the wrong folder), sha256
+read here: ita-parity-005 966e59cf...0960091 (22 pages), brussels-parity-004 5131664c...0cfa2d (30), -005 79733824...5e4495
+(6), -006 de7fb8c1...0b1f0 (11); held from before brussels-parity-003, ita-parity-002 to -004, swiss-parity-003 and -005.
+The ranking: 97 rows (Brussels 53, ITA 39, SWISS 5), our hosts with main's CSS at the recordings' viewports.
+
+**Item 1, ITA (12 of 39 over 3 %):** the worst three share one cause, www's tab control: fleet/short-haul +504 %, long-haul
++224 %, ita-airways-app +108 % (the live documents have none of the Tab sections main's importer gives; the column-view
+headings already match, as ema-test found). ITA row 34: in each aircraft's tab www puts the table and the seat map side by
+side from 768 px; ita.css now does (test/ita-seat-map-columns-589.test.mjs). The rule matches none of the other 38 recorded
+pages (counted on each), so none changes; the live short-haul 21222 -> 17394 at 1440 until the re-import. The documents:
+reimport-589-ita-fleet-tabs.txt, 3 READY (the offline imports with this CSS 3545 / 5352, 3483 / 4965, 4036 / 5767 against
+www's 3511 / 5363, 3526 / 4919, 4045 / 5766). A first version of the rule laid out hidden tab panels too (short-haul draft
+5489 -> 11684); caught by the draft measurement, the rule now skips [hidden] sections.
+
+f378637a ITA row 34, Build success. The ship's smoke did not run (the wrong scratch folder given to ship3.sh); run by
+hand after the push against the last one (s588e): 0 differences on every host but lufthansa.com's at/de sitemap file
+(3 bytes, not from this push). Since: the live ita-airways-app document has its five Tab sections (job 589-ita-fleet-tabs-01, 390422de, 10:04 UTC,
+not by me): 4036 at 1440 against www's 4045, its row on the list marked done.
+
+ITA row 35: www's accordions 40 px from the components around them at 1440 (ours 24, 32 under an H2); ita.css from
+992 px (test/ita-accordion-spacing-589.test.mjs). The 39 recorded pages at 1440 with local CSS: 5 closer (pets-in-cabin
+-4.9 -> -3.0 %, flying-with-a-baby -4.0 -> -3.5 %, miles-and-more, online-check-in, entry-exit-system), checked-baggage
++1.0 -> +1.4 % (0.4 points), the rest unchanged; 390 untouched. ITA row 36: baggage-and-strollers' two items open at
+load on www; main's importer gives open-2: reimport-589-ita-strollers-open.txt, 1 READY (-30.8 / -45.5 % -> +24.9 /
+-20.6 %). Left unshared: contact -7.8 / -10 %, group-boarding -4.7 % (its own causes, not looked at).
+
+**Item 2, Brussels (17 of 53 over 3 %):** the shared cause: www's small separators (11 to 30 px, no line) between a
+text and the next headline; 47 before a headline in the recordings, 26 after a text on 14 pages (service-charges en /
+nl -6.0 / -5.9 %, checked-baggage in six languages). The import's cleanup keeps them as {spacer-N}; marker-collapse
+(ema-test's) removes them on Brussels. The service-charges document with the spacer by hand puts the heading at www's
+place at both widths (1577 -> 1594 / 2102 -> 2115). rows-for-ema-test.md row 5; reimport-589-brussels-heading-spacers.txt
+14 HOLD. Tried and dropped: www's 200 px table cells on Brussels (checked-baggage at 390 +3.0 -> -1.9 %, but
+student-fares 390 2.84 points worse, be/fr checked-baggage 390 2.69, es/es 1440 1.37): not shipped, the test in
+.scratch. brussels.css untouched (its last commit b654354e, 32 hours old).
+
+ce2e5d0c ITA rows 35 / 36, the Brussels row and HOLD list: Build success, smoke 0 differences on every host.
+Brussels P49: www's Brussels article lists have no search field or category filter (an empty column); brussels.css hides
+ours (test/brussels-blog-filter-589.test.mjs). be/en/articles 390 +2.8 -> +1.0 %, be/fr +3.4 -> +1.7 %, both closer at
+1440 too; no other recorded Brussels page has the list. **Item 3, SWISS:** 5 recorded pages, no shared cause: offers
+-93 % (the fares data, row 52) and the homepage -3.8 % at 1440 (data) as classified before, the others under 3 %.
+
+f7ecc06f Brussels P49 (first push refused, main had moved; rebased and pushed on the second try, without the lints
+again: the GitHub Build of f7ecc06f read, success), smoke 0 differences. ITA row 37: every recorded ITA table is a
+maui-table with equalcolumns; ours took the columns by content since row 27; ita.css shares a row's width equally,
+200 px a cell at least (test/ita-table-equal-columns-589.test.mjs). group-boarding 1440 -4.7 -> -2.4 %; the 39
+recorded ITA pages at both widths with local CSS: no other change by this rule. rows-for-ema-test.md row 5 gets the
+8 separators after a block (the tab control on checked-baggage, the accordion on service-charges).
+
+## Final section, standing order 6 (2026-11-12, 09:40 to 14:00 CET)
+
+**Recordings** (the drop's shared folder GDDocrqS7sYpHQrbIT_4NmGC, sha256 computed here; only the drop and our own
+hosts were asked, no airline host):
+- ita-parity-005: 50,246,817 bytes, 966e59cfa922994b5708a66ee7b0b53cfec67cf373764d60b1c09af170960091, 22 pages;
+- brussels-parity-004: 91,676,646 bytes, 5131664c4882f3aaed4962e333178eb26ddc2d01a4ce351ae3ae9321820cfa2d, 30 pages;
+- brussels-parity-005: 26,399,650 bytes, 7973382445d0b0d5dbd47bf8608602c0c33036aff0af05fd060824785f5e4495, 6 pages;
+- brussels-parity-006: 21,161,069 bytes, de7fb8c1859f4e98fbd40228ddc411d17925ddd0c44d47ea37b5aac4eca2b1f0, 11 pages;
+- held from before: brussels-parity-003 (10 pages), ita-parity-002 to -004, swiss-parity-003 and -005.
+
+**Commits on main** (each: whole-repo `npm run lint` exit 0 and stylelint on the theme touched, before and after
+the rebase; the full suite 0 failures; the GitHub Build read; rollback `git revert <hash>`):
+- f378637a ITA row 34: the fleet seat maps beside their tables from 768 px; reimport-589-ita-fleet-tabs.txt. Build
+  success. Its smoke did not run (the wrong scratch folder given to the ship script); run by hand after the push: 0
+  differences but lufthansa.com's at/de sitemap file (not from the push).
+- ce2e5d0c ITA rows 35 (accordions 40 px from their neighbours from 992 px) and 36 (strollers, a document);
+  reimport-589-ita-strollers-open.txt; rows-for-ema-test.md row 5; reimport-589-brussels-heading-spacers.txt. Build
+  success, smoke 0 differences.
+- f7ecc06f Brussels P49: the article lists without the search field and category filter. Build success, smoke 0
+  differences (the first push refused, main had moved: rebased and pushed without the lints again).
+- f3efe91e ITA row 37: table columns of equal width; row 5's addendum (the separators after a block). Build
+  success, smoke 0 differences.
+- This commit: this final section.
+
+**Lists** (tools/reports/parity-2026-11-09/, READY / HOLD per row): reimport-589-ita-fleet-tabs.txt 3 READY
+(ita-airways-app done since: upload job 589-ita-fleet-tabs-01, 390422de, not mine; short-haul and long-haul wait);
+reimport-589-ita-strollers-open.txt 1 READY; reimport-589-brussels-heading-spacers.txt 14 HOLD (the collapse removes
+the spacers: rows-for-ema-test.md row 5).
+
+**Items:**
+1. ITA: the worst three shared www's tab control (two re-imports wait, one done); rows 34 to 37 shipped; no recorded
+   ITA page further from www by more than 0.4 points (checked-baggage at 1440 with row 35). Left, each on one page:
+   contact -7.8 / -10 %, electronic devices -3.0 % (the icon grid at the top), residents-in-sicily +3.1 %, the
+   strollers' tables two per row at 1440 (after the re-import).
+2. Brussels: the shared cause (www's small separators before a heading, 14 pages) is the collapse's (ema-test's row
+   5); P49 shipped (2 pages). Tried and dropped: 200 px table cells (student-fares 2.84 points worse at 390).
+   Classified before: payment methods P41, cancel-and-refund P39 (the chat), the homepages P38. Left, one page each:
+   our-company fr +6.7 % at 390 (the facts block and the fleet cards), local-page/offers -9 %, families-and-children
+   fr -6.8 %, rebooking-request-birthright +6.1 %.
+3. SWISS: 5 recorded pages, no shared cause (offers and the homepage are data, as classified).
+
+**Left uncommitted, and why:** `.migration/project.json` (an lh-tap entry from outside this order; TAP is
+ema-cashub's); everything under `.scratch/` (excluded from git): the drop's archives (recordings), the offline imports
+and drafts, the measuring scripts and logs, and the dropped Brussels table test (`.scratch/offline/b567/dropped/`, not
+finished: it made pages worse).
+
+**Process:** no request to an airline host; no da-upload.mjs call, no DA or preview API from tests or by hand;
+nothing uploaded, previewed or published by me. brussels.css edited only after checking its log (last other commit
+32 hours old).
+
+## Standing order 7 of 2026-11-12 (from about 13:30 CET to 18:00 CET)
+
+**At the start:** nothing of mine uncommitted or unpushed; `.migration/project.json` (an lh-tap entry from outside my
+orders; TAP is ema-cashub's) and `.scratch/` (excluded from git: recordings, drafts, scripts, logs) left as they are.
+
+**Item 1, the fleet tabs:** a delta tool, not the importer: tools/importer/ita-tabs-apply.mjs takes DA's current copy
+and cuts it into Tab sections where each panel starts (tools/reports/parity-2026-11-09/ita-fleet-tabs-590.json: the
+labels and the first elements, read off ita-parity-005 through the import); every element keeps DA's bytes and its
+section's rows (markets, style), a section cut in two gives both pieces the rows, an empty market variant inside a panel
+gets the panel's Tab; it refuses a copy where a start is not found or that has Tab sections already
+(test/ita-tabs-apply-590.test.mjs). DA's two copies read (GET, 12:40 UTC; their text equal to the published copies):
+short-haul 12 sections -> 16 with 12 Tab rows, long-haul 15 -> 16 with 11; nothing lost (the A330-900neo market table,
+the band's variant, the market paragraph all kept). Rendered locally as it/en with main's CSS: short-haul 3524 / 5343
+(www 3511 / 5363; before 21222 / 14756), long-haul 5337 / 4915 (www 3526 / 4919; before 11414 / 8411). Both rows of
+reimport-589-ita-fleet-tabs.txt READY with the command and the expected change. Long-haul at 1440 is still tall: DA keeps
+the A350 and A330neo tables (two market variants each) and their seat maps in separate sections, so row 34's side by
+side does not reach them (next: ITA row 38, a layout change).
+
+8c8844ac item 1 (the delta tool, the data, both rows READY): npm run lint 0 before and after the rebase, 3807 pass 0
+fail, Build success, smoke 0 differences on 14 hosts. ITA row 38: scripts/section-tabs.js, on ITA, a panel part that is
+only one picture joins the table-only section before it, so row 34's two columns reach DA's split sections
+(test/ita-tab-seat-maps-590.test.mjs): long-haul with the delta 5337 -> 3398 at 1440 (www 3526), 390 4931 (4919);
+the 39 recorded ITA pages with local code: none changes. The ship script now runs both lints again after a retry
+rebase too (the slip of f7ecc06f).
+Its first ship (13:25 UTC) stopped after the suite (3822 pass, 0 fail): main had moved, and putting the working tree
+back after the rebase met ema-test's new lines in rows-for-ema-test.md (row 5 done: the collapse keeps Brussels' spacers
+before a heading; reimport-589-brussels-heading-spacers.txt 9 READY, 2 HOLD by ema-test) beside my uncommitted row 6;
+nothing committed or pushed, both kept, run again.
+
+2f3b248a ITA row 38: npm run lint 0 before and after the rebase, 3842 pass 0 fail, Build success, smoke 0
+differences on 14 hosts.
+
+**Item 2, the ITA ranking further** (the 39 recorded pages with today's CSS; over 3 %: the two fleet pages until the
+delta, the strollers until its re-import, contact -7.8 / -10.0 %, flying-with-a-baby -3.5 %, pets-in-cabin,
+electronic devices -3.0 % at 1440, residents-in-sicily +3.1 / +4.1 %, iris -6.0 % and entry-exit -3.4 % at 390):
+- **Column-view heading sizes (9 pages):** www's column-view H2s are heading-medium (36 px) 40 times on 9 recorded
+  pages and heading-small (28 px) 11 times on 7; the collapse leaves both unmarked and row 31 shows every unmarked one
+  small (contact: 26 headings at 28 instead of 36). Not ours to decide alone: rows-for-ema-test.md row 6 (keep the size
+  marker in a Columns Media cell on ITA); row 31's guess stays until then (flipping it would make the heading-small
+  pages worse).
+- **Tried and dropped: www's padded AEM sections after an unpadded one (7 pages).** lufthansa-sections.js opens a
+  padded section there for lufthansa.com only; for ITA too, measured by hand on two drafts: flying-with-a-baby 1440
+  3190 -> 3296 (www 3306) but 390 5134 -> 5200 (www 5126, 1.2 points worse), seats-selection-economy worse at both
+  (+1.0 -> +3.8 %, +0.9 -> +2.3 %). Not shipped; the change and its test in .scratch (the bundles could not be rebuilt
+  here either: no aem-import-helper).
+- Left, one page each: electronic devices (www stacks the three "As checked baggage / As hand baggage / On your
+  person" headings, ours sets them side by side: -47 / -74 px), business-class-medium-haul (-129 px before "Airbus
+  A321neo"), digital-newsstand (+72 px in the eJournals section), residents-in-sicily (+86 px before the footer), the
+  390 rows of +2 to +3 % (the measuring browser's footer font, +42 px, row 30's note).
+
+**Item 3, Air Dolomiti and Cargo** (the 55 AD and 22 Cargo rows of the earlier rankings, today's CSS):
+- AD: /de/homepage and /en/homepage -75 % were the rows' wrong paths (404); our /de/ and /en/ are -0.6 / -1.1 % and
+  -0.6 / -0.6 %. Three airdolomiti-parity-002 pages -12 to -14.5 % at 1440 only (Florence what-to-see,
+  schwangere-und-kinder, tiere-an-bord): their footers match ours (tiere-an-bord's at 1558, ours 1557) and www's page
+  goes 326 px on below its 831 px footer in those captures (none in -001): the capture, not the page. street-food-in-
+  munich -12 %: www shows a 1024 x 683 picture inside an H3, ours the heading-icon size (26 px), one page. The FAQ pages
+  at 390 (lounge access -4.6 %, seat reservation -3.1 %, -2.5 %): the recording's own markup rendered offline lays out
+  as ours (the lounge accordion 743 px on both, "Benötigen Sie weitere Hilfe?" at 1169 against our 1165); the live
+  capture's 1285 is its font (as row 41). No shared cause left; no change.
+- Cargo: as classified in standing order 5 (the notification overview's data -9.8 %, the brand font's wraps at 390 on
+  fleet +3.4 %, facts and figures +2.7 %, e-booking info and the SDG page +2.4 to +2.6 %). No change.
+
+## Final section, standing order 7 (2026-11-12, 13:30 to 18:00 CET)
+
+**Commits on main** (each: whole-repo `npm run lint` exit 0 before and after the rebase, stylelint on a theme when one
+changed, the full suite 0 failures, `git show --stat` as given, the GitHub Build read, the smoke of 14 hosts before and
+after; rollback `git revert <hash>`):
+- 8c8844ac item 1: tools/importer/ita-tabs-apply.mjs (DA's copy cut into Tab sections, every element's bytes and its
+  section's rows kept), the data ita-fleet-tabs-590.json, test/ita-tabs-apply-590.test.mjs; reimport-589-ita-fleet-
+  tabs.txt's short-haul and long-haul READY with the command and the expected change. Build success, smoke 0
+  differences.
+- 2f3b248a ITA row 38: scripts/section-tabs.js joins a panel's seat map to its table section on ITA (long-haul with the
+  delta 3398 / 4931 against www's 3526 / 4919). Its first ship stopped at putting the working tree back after the
+  rebase (ema-test's new lines in rows-for-ema-test.md beside my uncommitted row 6; nothing committed); run again.
+  Build success, smoke 0 differences.
+- a110d97c test/carousel-dots-374.test.mjs (mine, brief 374) let a theme place the row of dots: main's suite was red
+  since 517187a4 (Austrian rows 52, 53, another EMA's: the phone slider's .carousel-cards-dots margins); austrian.css
+  untouched; rows-for-ema-cashub.md row 2. Found when the docs ship's suite failed (3846 pass, 1 fail; nothing
+  committed). Meanwhile 55714cf3 (the other EMA, 15:13 UTC) moved the spacing into carousel-cards.css and main was
+  green again; a110d97c went out on its push retry before I saw that (the retry's rebase brought 55714cf3; the lints
+  after it 0). Not needed any more: this commit makes the test strict again. Its Build success; the smoke after it run by hand (the ship was stopped after the push): 0 differences on 14 hosts.
+- 2f3b248a went out on top of that red main: its suite ran before the rebase that brought 517187a4 in (the lints
+  after it were green); the Build does not run the suite.
+- This commit: the rankings of items 2 and 3 (above), rows-for-ema-test.md row 6, ITA row 39 (open) and this final
+  section.
+- The ship script now runs both lints again after a retry rebase as well (`.scratch`).
+
+**Lists** (tools/reports/parity-2026-11-09/): reimport-589-ita-fleet-tabs.txt, short-haul and long-haul READY as DA's
+copy plus the delta (12 and 11 Tab rows; nothing else changes; the app row done since 390422de). For the helper:
+`node tools/importer/ita-tabs-apply.mjs --data tools/reports/parity-2026-11-09/ita-fleet-tabs-590.json --docs <DA's
+current copies, <path>.html> --out <dir> --list tools/reports/parity-2026-11-09/reimport-589-ita-fleet-tabs.txt`; it
+refuses a copy where a panel start is not found or that has Tab sections already.
+
+**Rows for ema-test:** row 6 (ITA's column-view heading sizes: keep the marker in a Columns Media cell; 40 heading-medium
+on 9 recorded pages against 11 heading-small on 7). Row 5 (Brussels' spacers) was done by ema-test this afternoon.
+
+**Open, not shipped:** ITA row 39, the lost "What data is collected?" heading on entry-exit-system (the only such
+column view in 391 held recordings): back above the teasers it costs 0.55 points at 1440; it needs the heading as the
+block's first column from 768 px. Tried and dropped: ITA's padded AEM sections after an unpadded one (two pages worse).
+Left on one page each: contact (row 6), electronic devices, business-class-medium-haul, digital-newsstand, residents,
+iris (two pictures side by side in a sidebar where www stacks them), street-food-in-munich (AD: a picture inside an H3).
+
+**Left uncommitted, and why:** `.migration/project.json` (the lh-tap entry from outside my orders; TAP is ema-cashub's);
+everything under `.scratch/` (excluded from git): DA's two copies read for item 1 and their delta outputs (DA content,
+private to the helper's run), the drafts and offline imports, the recordings, the measuring scripts and logs, and the
+two dropped changes with their tests (`.scratch/offline/b567/dropped/`: the padded sections, the heading item).
+
+**Process:** reads only from our own hosts, the drop's recordings and DA (GET of the two fleet copies, from my session,
+not from tests); no request to an airline host; no da-upload.mjs call, no upload, preview or publish.
+
+## Standing order 8 of 2026-11-12 (from about 18:50 CET to 23:00 CET)
+
+**At the start:** nothing of mine uncommitted or unpushed; `.migration/project.json` (the lh-tap entry from outside my
+orders) and `.scratch/` (excluded from git: DA's copies and the tools' outputs from them, recordings, drafts, scripts,
+logs, the dropped changes) left as they are.
+
+**Item 1, ITA row 39:** the layout first (test first): from 768 px a section whose first wrapper is the H2 alone right
+before a partner cards-icon-text is a grid on the content box, the heading a third less the gaps, the teasers two by two
+beside it. The first version nested a :has() in a :has(), which the browser drops (the draft measured unchanged); now
+two :has() side by side, and the test refuses a nested one. The heading back: in the import (lufthansa-cleanup.js
+liftHeadingItems, the step of standing order 7 that was held back) and, for DA's copy with its market sections,
+tools/importer/ita-insert-apply.mjs (one element before the section-level element whose text starts as given; refuses a
+copy where that element is not found once or the text is there already). DA's copy read (GET, 17:55 UTC; its text equal
+to the published copy). With the delta and the CSS: the heading at x 88, 408 px wide, the teasers at x 516 and 944, as
+www's; 1440 5449 (unchanged; www 5469), 390 8993 -> 9052 (www 9309). The layout matches no section on the 39 recorded
+ITA pages as served. reimport-591-ita-row-39.txt: 1 READY.
+
+1b717771 ITA row 39: npm run lint 0 before and after the rebase and after each of two retry rebases (main busy: the
+push refused twice), the suite 3862 / 0 before and 3875 / 0 after the rebase, Build success, smoke 0 differences.
+
+**Item 2, the worst single ITA pages:**
+- **baggage-and-strollers (-30.8 / -45.5 %):** the order 6 row would have re-imported a document whose DA copy holds the
+  fare accordion twice (market variants): HOLD there now (the helper had not taken it: the en page's last upload is of
+  2026-11-10). DA's copy plus a delta instead (tools/importer/ita-block-options-apply.mjs: open-2 on both blocks;
+  reimport-591-ita-strollers-open.txt READY; its test written after the tool, the only one this order), and the item's
+  tables as www's four-column view (ita.css: two a row from 768 px, all in one row from 992 px). With both: 1440
+  3077 -> 4000 (www 4446), 390 4297 -> 6187 (7882). The 39 recorded ITA pages as served: unchanged.
+
+6fb9072e the strollers: lint 0 before and after the rebase and after the retry rebase, the suite 3884 / 0 and 3891 / 0
+after the rebase, Build success, smoke 0 differences.
+- **support/utilities/contact (-7.8 / -10.0 %):** its 26 country headings are www's heading-medium; the collapse leaves
+  them unmarked, row 31 makes them 28 px (rows-for-ema-test.md row 6 for the import). DA's copy holds the column view
+  twice (market variants, 52 H2s): a delta, tools/importer/ita-heading-marks-apply.mjs, " {heading-medium}" on each H2
+  in the two columns-media blocks (test first); reimport-591-ita-contact-headings.txt READY: 1440 3199 -> 3287 (www
+  3470), 390 6949 -> 7134 (7723). No code change.
+- **iris (-6.0 % at 390), ITA row 40:** www stacks the sidebar's two pictures at the column's full width, about 32 px
+  apart; ours set them side by side, half as wide. ita.css stacks a sidebar Columns Media's several pictures (test
+  first): 390 5199 -> 5530 (www 5531), 1440 unchanged.
+- **residents-in-sicily (+3.1 / +4.1 %), ITA row 41:** DA keeps the Offer Conditions accordion in a section of its own
+  (market variants) after a padded section of only "Additional Information"; www's padded section holds both. Such a
+  section loses its bottom padding and gap, the next section draws the padding (its test written after the rule, then
+  run against main's theme: red, and against the new one: green): 1440 2702 -> 2662 (www 2620), 390 3882 -> 3842 (3730).
+- The 39 recorded ITA pages with both rules (local CSS against the served pages): iris and residents closer, invoicing
+  390 +2.5 -> +2.4 %, none further. The same run shows the helper's uploads live on our host: fleet short-haul +0.4 /
+  -0.4 %, long-haul -3.6 / +0.2 %, the strollers -10.0 / -21.5 %, entry-exit-system -0.4 / -2.8 % (as the lists said).
+
+**Item 3, SWISS** (the five recorded pages, today's CSS): no cause clear enough to change. /ch/en/offers -93 % / -95 %
+is www's fare data (row 52); the homepage -3.8 % at 1440 is the flight offers block, empty for the measuring browser
+(row 11's data: 163 px of www's cards between "Current topics and news" and "Looking for more than just a flight?");
+/ch/en/prepare +2.8 % at 390: the cards match www's (97 px text boxes, 301 / 302 px apart), the rest is our last
+section's 48 px over the footer against www's 22; changing that for SWISS would move book-and-manage at 390 from -0.4 to
+about -1.9 % (worse by more than 0.5 points), so not changed.
+
+## Final section, standing order 8 (2026-11-12, 18:50 to 23:00 CET)
+
+**Commits on main** (each: whole-repo `npm run lint` exit 0 before and after the rebase and after every retry rebase,
+stylelint on ita.css when it changed, the full suite 0 failures before and, when the rebase brought commits, after it,
+`git show --stat` as given, the GitHub Build read, the smoke of 14 hosts before and after):
+- 1b717771 ITA row 39: "What data is collected?" beside its icon teasers (ita.css), kept by the import
+  (lufthansa-cleanup.js), back into DA's copy (tools/importer/ita-insert-apply.mjs); reimport-591-ita-row-39.txt READY.
+- 6fb9072e ITA row 36's rest: the strollers' fare tables as www's four-column view (ita.css); open-2 into DA's copy
+  (tools/importer/ita-block-options-apply.mjs, its test written after the tool); reimport-591-ita-strollers-open.txt
+  READY, the order 6 re-import row HOLD (it would have dropped DA's market variants; not taken yet).
+- 70fda47e the contact page's 52 column-view H2s marked heading-medium in DA's copy (tools/importer/
+  ita-heading-marks-apply.mjs); reimport-591-ita-contact-headings.txt READY. Build: read after this section was written (pushed on the third try, main busy;
+  the lints after each retry rebase 0, the suite 3897 / 0 and 3905 / 0 after the first rebase).
+- This commit: ITA rows 40 (iris: a sidebar's pictures stacked) and 41 (residents: a padded heading-only section joins the
+  next one), with this final section.
+
+**Lists for the helper** (tools/reports/parity-2026-11-09/), each DA's copy plus a delta, refused where it cannot place
+its change: reimport-591-ita-row-39.txt (1 READY), reimport-591-ita-strollers-open.txt (1 READY),
+reimport-591-ita-contact-headings.txt (1 READY); reimport-589-ita-strollers-open.txt's row now HOLD. Seen live on our
+host at 20:45 UTC: the fleet pages, the strollers and entry-exit-system with their deltas (short-haul +0.4 / -0.4 %,
+long-haul -3.6 / +0.2 %, strollers -10.0 / -21.5 %, entry-exit -0.4 / -2.8 %).
+
+**Process slips:** the strollers' block-options tool was written before its test; row 41's test after its rule (run
+red against main's theme, then green). While 6fb9072e's push retried, I put row 40's rule into ita.css with a stylelint error
+(no-descending-specificity) for about a minute; taken out before the retry's stylelint ran (exit 0 in its log), fixed
+and added again after the push. The ship script's retry path runs the lints again but not the
+suite (the suite runs after the first rebase only).
+
+**Left uncommitted, and why:** `.migration/project.json` (the lh-tap entry, not mine); everything under `.scratch/`
+(excluded from git): DA's copies read for the four documents and the deltas' outputs (DA content for the helper's run),
+the drafts, the recordings, the measuring scripts and logs.
+
+**Process:** reads only from our hosts, the drop's recordings and DA (GET of four copies from my session, not from
+tests); no request to an airline host; no da-upload.mjs call, no upload, preview or publish by me.
+
+6697f832 ITA rows 40 and 41 with standing order 8's final section: its first ship was stopped by the service restart
+during the suite (nothing committed); run again: lint 0 before and after the rebase and after both retry rebases, the
+suite 3917 / 0 before and after the rebase, Build success, smoke 0 differences.
+
+## Standing order 9 of 2026-11-13 (from about 00:40 CET to 06:00 CET)
+
+**At the start:** nothing of mine uncommitted or unpushed; `.migration/project.json` (the lh-tap entry from outside my
+orders) and `.scratch/` (excluded from git) left as they are. The browser build changed with the restart (1208 -> 1254):
+every measurement of this order against a fresh baseline taken with it (the 44 recorded ITA and SWISS pages, 00:05 UTC).
+
+**Capture requests:** tools/reports/parity-2026-11-09/capture-requests-ema-lufthansa.txt: SWISS /ch/en/offers and
+/ch/en/homepage at 1440 and 390, waiting for the fare cards to be there and their number to stay the same.
+
+**Item 1, the last section's gap to the footer:** one change on both brands, the last section 20 px over the footer
+instead of 48 (body.brand-ita / body.brand-swiss main > .section:last-child), measured on the 44 recorded pages with the
+rule in a CSS override folder: 21 pages further from www by more than 0.5 points, mostly at 1440 (corporate-b2b -2.1 ->
+-4.0 %, flight-search -0.8 -> -2.3 %, SWISS book-and-manage -0.2 -> -2.4 % / -0.4 -> -2.0 %), the 390 rows mostly
+closer. www's own gap is no one value: measured in the recordings' own markup, 40 px at 1440 and 20 at 390 under a
+padded section (residents-in-sicily), 56 under a row of teasers (corporate-b2b), 32 (travel-insurance). Not shipped;
+no test committed for it.
+
+**Item 2, the worst single ITA pages** (the fresh baseline):
+- **baggage-and-strollers (-10.0 / -21.5 %):** www's fare tables write each cell as a bold label, a line break and the
+  value ("<b>Baggage</b><br>No baggage<br><br><br>"); the import flattened them ("BaggageNo baggage", one line that reads
+  wrong; DA's copy the same). The parser that writes these cells (tools/importer/parsers/accordion-columns.js) was
+  changed by another EMA under 2 hours ago, so not touched; DA's copy plus a delta instead,
+  tools/importer/ita-cells-apply.mjs (test first): the 37 matching cells get www's cell HTML;
+  reimport-592-ita-strollers-cells.txt READY: 1440 4000 -> 4189 (www 4446), 390 6187 -> 6754 (7882).
+- **fleet/long-haul (-3.6 % at 1440):** www draws a rule between the tab set and the "Choose your favorite seat" band (the
+  import's divider-above, missing in DA's copy); with it 1440 -3.6 -> -2.0 %, but 390 +0.2 -> +1.4 % (worse by 1.2):
+  not made.
+
+- **digital-newsstand (+2.9 / +2.9 %), ITA row 42:** www's eJournals form has 48 px outlined fields, no hint under the
+  last name and a taller login notice; ita.css sets it so (the rules drafted and measured in a CSS override folder, then
+  the test written and run red on main's theme before the theme changed): 1440 3228 -> 3209 (www 3138), 390 4182 ->
+  4163 (4066).
+- **residents-in-sicily (+1.6 / +3.0 %), ITA row 43, item 1's rest:** under a padded last section www has only the
+  section's padding; a padded last section keeps no gap (test the same way): 1440 2662 -> 2614 (www 2620), 390 3842 ->
+  3794 (3730); the 39 recorded ITA pages with the rule: no other page changes.
+
+- **The parser behind the strollers' cells:** tools/importer/parsers/accordion-columns.js (its 2 hours since the other
+  EMA's commit past) now keeps a cell's inline content (bold as <strong>, the line breaks, links, emphasis) when the
+  cell has no paragraphs (test/accordion-columns-cell-markup-592.test.mjs, red on main's parser, green after; the
+  parser's other tests in the suite). The import bundles not rebuilt (no aem-import-helper on this machine), as before:
+  the next bundle build carries it.
+
+**Item 3, SWISS:** the drop's swiss-parity-006 (78,146,198 bytes, sha256
+8b7cc9588d5e0bf02a76089251d319558a5a9f444ddcdec5589cebc22232e85b) and -007 (78,047,279 bytes,
+4fe10159573434f2c33e56466d067c5a5adb91a2e209d4883e22d4f1c1239c5a), recorded 01:39 and 02:02 UTC: /ch/en/offers is
+51,105 px at 1440 and 85,796 at 390 in both (005: 32,382 / 31,953, so that one was a list still loading), about 500
+fare cards (998 "CHF"); the homepage 4,413 / 5,086 in both, as in 005. Ours stays 2,218 / 1,521 on offers: our finder
+shows "No results for your current origin selection" without www's fare data. Data, not layout: nothing to change in
+code (row 52 stands, its numbers now from 007). The homepage's -3.8 % at 1440 is its flight offers block, the same
+data. /ch/en/prepare +2.8 % at 390: our last section's 48 px over the footer, www's 22; a SWISS rule for it fails the
+gate on book-and-manage (-0.4 -> -2.0 % at 390, -0.2 -> -2.4 % at 1440, item 1's run). No SWISS change this order.
+
+## Final section, standing order 9 (2026-11-13, 00:40 to 06:00 CET)
+
+**Commits on main** (each: whole-repo `npm run lint` exit 0 before and after the rebase and after every retry rebase,
+stylelint on ita.css when it changed, the full suite 0 failures before and, when the rebase brought commits, after it,
+`git show --stat` as given, the GitHub Build read, the smoke of 14 hosts before and after):
+- 86cc84ec capture-requests-ema-lufthansa.txt (SWISS offers and homepage). Build success. The user's captures came as
+  swiss-parity-006 and -007 (above).
+- 34db076f the strollers' 37 table cells as www's into DA's copy (tools/importer/ita-cells-apply.mjs);
+  reimport-592-ita-strollers-cells.txt READY.
+- 18116ebc ITA rows 42 (the eJournals form) and 43 (a padded last section without the gap to the footer).
+- This commit: the accordion-columns parser's cells, this final section.
+
+**Not shipped:** item 1's shared 20 px gap (21 pages worse; www's gap depends on what ends the page); long-haul's rule
+before the band (390 worse by 1.2); no SWISS change (data, or the gate).
+
+**Process:** the browser build changed with the service restart (1208 -> 1254): every number of this order against a
+fresh baseline (00:05 UTC). Rows 42 and 43: the rules drafted and measured in a CSS override folder first, the tests
+written before the theme changed and run red on main's theme. The ship script's retry path runs the lints again, not
+the suite.
+
+**Left uncommitted, and why:** `.migration/project.json` (the lh-tap entry, not mine); everything under `.scratch/`
+(excluded from git): the drop's swiss-parity-006 and -007, DA's copy of the strollers page and the delta's output (DA
+content for the helper's run), the CSS override folders, drafts, measuring scripts and logs.
+
+**Process, requests:** only our hosts, the drop and DA (one GET of the strollers copy from my session, not from tests);
+no request to an airline host; no da-upload.mjs call, no upload, preview or publish by me.

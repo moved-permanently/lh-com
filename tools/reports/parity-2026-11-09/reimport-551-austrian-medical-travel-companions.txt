@@ -1,0 +1,10 @@
+# The brief after 551 item 1 (ema-cashub): lh-austrian's medical-travel-companions documents to re-import with today's importer, in release order (the recorded /at/en first, then its language documents). www (austrian-parity-003, 390) shows 'This may also be of interest to you' as a swiper, one card and dots; the published document stacks the three cards. Today's austrian-import.mjs writes the view as carousel-cards (phone-slider) (withPhoneSliders, from www's .carousel with its .hidden-lg-up swiper copy); the published documents are older. Measured on the live host against the recording: 390 3,724 -> about 2,924 px against www's 3,120 (+19.4 -> about -6.3 %), 1440 unchanged (2,682, -3.4 %). A document whose snapshot has no such view imports unchanged. Not listed: the healthy-travel/medical-travel-companions documents (another page; none recorded).
+/at/en/plan/special-requirements/medical-travel-companions
+/cn/zh/medical-travel-companions
+/es/es/medical-travel-companions
+/fr/fr/medical-travel-companions
+/gr/el/medical-travel-companions
+/it/it/medical-travel-companions
+/jp/ja/medical-travel-companions
+/pl/pl/medical-travel-companions
+/ru/ru/medical-travel-companions

@@ -281,10 +281,13 @@ export default async function decorate(block) {
           cell.querySelectorAll('picture').forEach((pic) => {
             const link = pic.closest('a');
             const media = link && link.querySelectorAll('picture').length === 1 ? link : pic;
-            // "{caption}" paragraph right after the image's paragraph: image and caption together
+            // "{caption}" paragraph right after the image's paragraph: image and caption together;
+            // after a paragraph of several pictures it is the last one's (the parser's image
+            // components without a caption, then the last one's caption: www's under the last)
             const para = pic.closest('p');
             const caption = para && para.nextElementSibling;
-            if (caption && caption.matches('p.caption')) {
+            const last = !para || [...para.querySelectorAll('picture')].pop() === pic;
+            if (last && caption && caption.matches('p.caption')) {
               const item = document.createElement('div');
               item.className = 'columns-media-item';
               item.append(media, caption);

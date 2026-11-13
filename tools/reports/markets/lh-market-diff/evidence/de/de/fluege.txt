@@ -1,0 +1,56 @@
+root    /ae/de/fluege
+version /de/de/fluege
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 183:
+- <div.separator>
+- <div.hr.hr-no-layout>
+- <maui-divider>
+- <div.separator>
+- <div.hr.hr-no-layout>
+- <maui-divider>
+- <div.separator>
+- <div.hr.hr-no-layout>
+- <maui-divider>
+  <div.threecolumn.column.event>
+  <div.column-view.flex-column>
+  …
+- @href=https://lufthansa.park.aero?utm_source=lhcom&utm_medium=product-teaser&utm_campaign=lh-promo
++ @href=https://lufthansa.travel-regulations.com/?language={m}&apptarget=external
+  @rel=noopener noreferrer
+- @target=_blank
+  @title=Bitte beachten Sie, dass Sie mit diesem Link eine externe Website besuchen, die möglicherweise nicht den gleichen Datenschutz-, Sicherheits- oder Barrierefreiheitsrichtlinien folgt.
+  <div.image-wrapper>
+  …
+- @src=/content/dam/lh/images/promos/lh_promo_parkaero_june_1920x960.jpg.transform/lh-dcep-transform-width-1440/img.jpg
+- @alt=ParkAero Service
+- @title=ParkAero Service
+- @srcset=/content/dam/lh/images/promos/lh_promo_parkaero_june_1920x960.jpg.transform/lh-dcep-transform-width-1440/img.jpg
++ @src=/content/dam/lh/images/pixels_variations/c-{n}-{n}.jpg.transform/lh-dcep-transform-width-1440/img.jpg
++ @alt=
++ @srcset=/content/dam/lh/images/pixels_variations/c-{n}-{n}.jpg.transform/lh-dcep-transform-width-1440/img.jpg
+  <div.card-content>
+  <h3.heading-copytext-large.teaser-heading>
+- "Parken am Terminal"
++ "Einreisebestimmungen"
+  <div.teaser-description>
+  <div.richtext.ellipsis>
+  …
+- "Parkplatz direkt am Terminal buchen, sparen und jetzt doppelt Meilen sammeln!"
++ "Die aktuellen Bestimmungen für Ihr Reiseziel finden Sie nach Eingabe Ihres Ab- und Zielflughafens hier."
+  <div.fading-dots>
+- <span.sr-only>
+- "Der Link wird in einem neuen Browser-Tab geöffnet"
+  <div.col-md-6.col-lg.column-view-item>
+  <div.teaser.event.section>
+  …
+- <div.separator>
+- <div.hr>
+- <maui-divider>
+  <div.onecolumn.column.event>
+  <div.column-view.flex-column>
+  …
+- <div.tabs.panelcontainer>
+- <div.maui-tab-control-jquery>
+- <maui-tab-control-responsive>
+- @navigation-mode=deeplink
+- @spreadtabs=

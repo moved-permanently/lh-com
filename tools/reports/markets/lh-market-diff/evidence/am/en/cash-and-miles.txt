@@ -1,0 +1,30 @@
+root    /am/en/cash-and-miles
+version /de/en/cash-and-miles
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 44:
+- <div.onecolumn.column.event>
+- <div.column-view.flex-column.container-gray.full-width-bg>
+- <div>
+- <h2.heading-medium.limited-width>
+- "Promotion: Discover North America now and save up to 30% on miles"
+- <div.row>
+- <div.col-lg.column-view-item>
+- <div.text>
+- <div.richtext.limited-width>
+- <p>
+- "Make your travel dreams come true and discover the USA, Canada or Mexico! With Cash"
+- "&"
+- "Miles, you can now save up to 30% on miles compared with the regular mileage value.*"
+- <p>
+- "Simply redeem your miles"
+- <b>
+- "from 2. to 30.11.2026"
+- "when booking your flight with Cash"
+- "&"
+- "Miles and"
+- <b>
+- "save up to 30% on miles"
+- ". The offer applies to travel with Austrian Airlines, Brussels Airlines, Discover Airlines, Lufthansa and SWISS from 2.11. to 16.12.2026 in Economy Class. Please note that the number of miles displayed for redemption during the booking process already includes this reduction."
+- <p>
+- <p.copytext-small>
+- "*This promotion applies to bookings made from 2. to 30.11.2026 for Economy Class flights to North America (USA, Canada and Mexico) operated by Austrian Airlines, Brussels Airlines, Discover Airlines, Lufthansa and SWISS, with travel from 2.11. to 16.12.2026. The mileage discount of up to 30% may va

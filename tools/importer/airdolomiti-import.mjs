@@ -47,6 +47,7 @@ import { snapshotFile, urlKey } from './airdolomiti-capture.mjs';
 import { alternateRows, snapshotHead } from './airdolomiti-alternates.mjs';
 import collapseDocs from './collapse-docs.mjs';
 import { withRestoredNbsp } from './nbsp-guard.mjs';
+import { daCopyOf, missingAssets } from './airdolomiti-media.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const W = path.join(root, 'content-sites/lh-airdolomiti');
@@ -254,6 +255,10 @@ function flightStatusRows(page) {
   const labels = [...form.querySelectorAll('label')].map(t).filter(Boolean);
   if (labels[0]) rows.push(['Flight number label', labels[0]]);
   if (labels[1]) rows.push(['Date label', labels[1]]);
+  // www's help texts under the two fields (StatusVoli_helpText: "Pflichtfeld. Beispiel: EN1234", the date's format)
+  const helps = [...form.querySelectorAll('[class*="StatusVoli_helpText"]')].map(t).filter(Boolean);
+  if (helps[0]) rows.push(['Flight number hint', helps[0]]);
+  if (helps[1]) rows.push(['Date hint', helps[1]]);
   const submit = t(form.querySelector('button[type="submit"]'));
   if (submit) rows.push(['Submit label', submit]);
   return rows;
@@ -398,6 +403,13 @@ export function newsletterStrip(rendered, { label, href }) {
 
 // Air Dolomiti's current travel information pages (the Message Center's cti-pages.json rows)
 const CTI_PAGES = ['www.airdolomiti.it/informazioni-aggiornate', 'www.airdolomiti.eu/current-flight-information', 'www.airdolomiti.de/fluginformationen'];
+
+/** A section style added to the current section once. */
+function addStyle(page, style) {
+  const styles = (page.current.style || '').split(/,\s*/).filter(Boolean);
+  if (!styles.includes(style)) styles.push(style);
+  page.current.style = styles.join(', ');
+}
 
 /* ------------------------------------------------------------------ site data ---------- */
 
@@ -546,6 +558,12 @@ export class Page {
       const key = im.url.replace(/[?#].*$/, '');
       files[key] = { ...(files[key] || { kind: 'image', pages: [] }), maxWidth: opts.maxWidth };
     }
+    // a file www answers 404 for (airdolomiti-missing-assets.json, its answer recorded): left out
+    const listed = im.url.replace(/[?#].*$/, '');
+    if (missingAssets().has(listed)) {
+      this.note(`image ${listed.split('/').pop()}: 404 on www (airdolomiti-missing-assets.json), left out`);
+      return '';
+    }
     let src = this.file(im.url, 'image');
     if (!src) {
       const key = im.url.replace(/[?#].*$/, '');
@@ -564,6 +582,15 @@ export class Page {
           if (gone) return '';
         }
       }
+    }
+    if (!src) {
+      // not downloaded here: DA's copy when DA has one (its name is the URL's: airdolomiti-media.mjs), also
+      // a resized copy's original, so the document holds no www address (the import helper had patched
+      // them to DA's copies after every import; the standing order of 2026-11-10, item 2a)
+      const key = im.url.replace(/[?#].*$/, '');
+      const original = key.replace(/-\d+x\d+(?=\.[a-z0-9]+$)/i, '');
+      src = daCopyOf(key) || (original !== key ? daCopyOf(original) : null);
+      if (src) { this.missing.delete(key); this.missing.delete(original); }
     }
     return `<picture><img src="${attr(src || im.url)}" alt="${attr(im.alt)}"></picture>`;
   }
@@ -900,7 +927,7 @@ const HANDLERS = {
   'lazyblock/title': (a, page) => {
     // www's Title as the page's title (the Italian timetable): its smaller size, the section's
     // style compact-title (the theme; parity row 50), not TitleMargin's
-    if (a.tag === 'h1') page.current.style = page.current.style ? `${page.current.style}, compact-title` : 'compact-title';
+    if (a.tag === 'h1') addStyle(page, 'compact-title');
     titleLine(a, page);
   },
   'lazyblock/title-margin': (a, page) => titleLine(a, page),
@@ -911,7 +938,20 @@ const HANDLERS = {
     ...a, description: a.subTitle || a.description, ctaText: a.ctaText || a.textCta, url: a.url || a.ctaUrl,
   }, page, 'primary'),
   // www's CTA here is its outline button (style_btn_outline, 9 of 9 in the archive; brief 456)
-  'lazyblock/title-description-text-cta': (a, page) => titleText(a, page, 'secondary'),
+  'lazyblock/title-description-text-cta': (a, page) => {
+    // www.airdolomiti.de's lead (the German in-flight entertainment page, AD row 108): a title alone (no text, no
+    // button) right before a DescritionNews; www draws it behind the fixed bar (y 20), so on screen the page has no
+    // title over its picture: the page's H1 for screen readers (hidden-heading), the lead under the trail's own row
+    // (lead-under-trail: the theme's row 95 pull under the bar not applied)
+    const next = page.nextBlock;
+    if (a.title && !plain(a.description || a.text || '') && !(a.url && a.ctaText) && next && next.name === 'lazyblock/description-news') {
+      page.add(`<h1>${esc(plain(a.title))}</h1>`);
+      addStyle(page, 'hidden-heading');
+      addStyle(page, 'lead-under-trail');
+      return;
+    }
+    titleText(a, page, 'secondary');
+  },
   'lazyblock/cardfullwidth': (a, page) => {
     page.section();
     page.block('hero-card-overlay', [[page.img(a.backgroundImage || a.backgroundImageLeft)], [`${page.heading(a.tag || 'h2', a.title)}${rich(a.subtitle, page)}${a.urlBtn ? page.link(a.urlBtn, a.ctaText, 'primary') : ''}`]]);
@@ -949,19 +989,22 @@ const HANDLERS = {
     page.add(showMoreLink(a, page));
   },
   'lazyblock/cosa-fare-carroussel': (a, page) => {
-    // www's small picture inline before the heading: a section of its own with the style
-    // heading-icon, the picture in a paragraph before the H2
+    // a section of its own with the style heading-icon (the theme's MiniCardSlider row, AD rows 84
+    // and 107), www's small picture inline before the heading in a paragraph before the H2; the
+    // hubs' carousel has no picture and gets the section too
     const icon = imageOf(a.icon);
     // (at most 200 px wide: the style moves only a small picture; www shows it at 40 px)
     const iconHtml = icon ? page.img(icon, { maxWidth: 200 }) : '';
-    if (iconHtml) { page.section('heading-icon'); page.add(`<p>${iconHtml}</p>`); }
+    page.section('heading-icon');
+    if (iconHtml) page.add(`<p>${iconHtml}</p>`);
     page.add(page.heading(a.tag || 'h2', a.header || a.title));
     if (a.description) page.add(rich(a.description, page));
     page.block('carousel-cards', (a.cardList || []).map((c) => cardRow(page, {
       image: c.topImage || c.image, tag: a.tagCard, title: c.title, text: c.date, url: c.Url || c.url, label: c.ctaText || c.title,
     })));
-    if (a.showMoreTextUrl && a.showMoreText) page.add(page.link(a.showMoreTextUrl, a.showMoreText));
-    if (iconHtml) page.section();
+    // www's "Zeige alles (4)": the link with the number of cards, as the offers' (the sweep after 556)
+    page.add(showMoreLink(a, page));
+    page.section();
   },
   'lazyblock/gridtwocolumns': (a, page) => {
     // www's per-card theme (CardDefault theme_business, theme_sustainability; none or general: the
@@ -1014,12 +1057,19 @@ const HANDLERS = {
     // with its picture, www's DescritionNews: the picture across the page, the text under it (the
     // theme's option news; brief 456)
     if (im) page.block('columns-media (news)', [[im, text]]);
+    // without a picture and a subtitle, www's DescritionNews text alone (19.44 / 33 in its 50vw
+    // column, the destinations' first text; AD row 101): the block's text, one cell; with a
+    // subtitle (a page's first title, row 68) the text in the page as before
+    else if (!a.subtitle && text) page.block('columns-media (news)', [[text]]);
     else page.add(text);
   },
   'lazyblock/half-page': (a, page, b) => {
     const card = `${page.heading(a.tag || 'h3', a.cardTitle)}${a.cardSubtitle ? `<p>${esc(plain(a.cardSubtitle))}</p>` : ''}${a.urlBtn ? page.link(a.urlBtn, a.textBtn, 'primary') : ''}${a.urlLink ? page.link(a.urlLink, plain(a.textImage) || a.textLink) : ''}`;
-    // a flight status page: its title, the flight-status block (www's form), then the card
+    // a flight status page: its title, the flight-status block (www's form), then the card. www's page
+    // title before the half page sits under its fixed header (y 20, airdolomiti-parity-002): the
+    // section's h1 stays for screen readers and search, hidden (the half page's title shows)
     if (page.tool === 'status') {
+      if (page.current.items.some((i) => (i.html || '').includes('<h1'))) addStyle(page, 'hidden-heading');
       (b.innerBlocks || []).forEach((x) => render(x, page, 'top'));
       page.block('flight-status', flightStatusRows(page).map(([k, v]) => [k, esc(v)]));
       if (a.img) page.block('columns-media', [[page.img(a.img), card]]); else page.add(card);
@@ -1321,7 +1371,9 @@ export function convert(rendered, sourceUrl) {
   // the current travel information pages (cti-pages.json): the Message Center's notices above
   // their accordion
   const cti = CTI_PAGES.includes(sourceKey(sourceUrl));
-  (post.blocks || []).forEach((b) => {
+  (post.blocks || []).forEach((b, i) => {
+    // the next top-level block, for a handler that depends on it (the title-only text before a lead)
+    page.nextBlock = (post.blocks || [])[i + 1] || null;
     if (cti && !page.messagesPlaced && b.name === 'lazyblock/tariffe-list') {
       page.block('message-center', [['Types', 'irreg, tech-outage']]);
       page.messagesPlaced = true;

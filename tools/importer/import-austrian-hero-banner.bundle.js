@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-hero-banner.js
-  var tmp_bundle_austrian_hero_banner_1720268_exports = {};
-  __export(tmp_bundle_austrian_hero_banner_1720268_exports, {
-    default: () => tmp_bundle_austrian_hero_banner_1720268_default
+  var tmp_bundle_austrian_hero_banner_262010_exports = {};
+  __export(tmp_bundle_austrian_hero_banner_262010_exports, {
+    default: () => tmp_bundle_austrian_hero_banner_262010_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -1141,7 +1141,8 @@ var CustomImportScript = (() => {
     const block = WebImporter.Blocks.createBlock(document, { name: "profile-nav", cells: [[ul]] });
     const hr = document.createElement("hr");
     hr.setAttribute("data-excat-section-break", "");
-    element.replaceWith(block, hr);
+    const flush = document.querySelector(".contentpage.pt-0") ? [WebImporter.Blocks.createBlock(document, { name: "Section Metadata", cells: { style: "flush" } })] : [];
+    element.replaceWith(block, ...flush, hr);
   }
 
   // tools/importer/parsers/subpage-nav.js
@@ -2076,6 +2077,23 @@ var CustomImportScript = (() => {
       row.rules = mask ? [`mask=${mask}`] : [];
       add(row);
     }
+    function pickerDate(box) {
+      const field = box.querySelector("input.forms-datepicker");
+      if (!field) return;
+      const wrapper = wrapperOf(box);
+      const format = attr((wrapper || box).querySelector('input[name="date-format"]'), "value");
+      const mask = /^[dmy]+([./-])[dmy]+\1[dmy]+$/i.test(format) ? format.split(/[./-]/).map((g) => ({ d: "DD", m: "MM", y: "YYYY" })[g[0].toLowerCase()]).join(format.match(/[./-]/)[0]) : "";
+      const label = field.id ? box.querySelector(`label[for="${field.id}"]`) : null;
+      add({
+        label: text(label || box.querySelector("label")) || attr(field, "placeholder"),
+        type: "date",
+        name: nameOf(field),
+        required: requiredOf(field, wrapper),
+        message: messageOf(field, wrapper, false),
+        constraint: attr(wrapper, "data-cmp-constraint-message"),
+        rules: mask ? [`mask=${mask}`] : []
+      });
+    }
     function street(box) {
       const field = box.querySelector('input:not([type="hidden"])');
       if (!field) return;
@@ -2157,7 +2175,8 @@ var CustomImportScript = (() => {
         type: "checkbox",
         name: nameOf(boxes[0]),
         required: required ? "yes" : "",
-        options: boxes.map((b) => `${clean3(b.getAttribute("value") || "")}=${attr(b, "label") || text(b) || attr(b, "data-aria-label")}`),
+        // a box checked at load (Brussels' "this account is an Euro account") keeps it: the block's {selected}
+        options: boxes.map((b) => `${clean3(b.getAttribute("value") || "")}=${attr(b, "label") || text(b) || attr(b, "data-aria-label")}${has(b, "checked") ? " {selected}" : ""}`),
         message: attr(boxes[0], "data-customerror") || attr(wrapper, "data-cmp-required-message"),
         rules: targets.length ? [`toggles=${targets.join(", ")}`] : []
       });
@@ -2299,6 +2318,7 @@ var CustomImportScript = (() => {
       if (add_) rules.push(`add=${add_}`);
       if (removeBtn) rules.push(`remove=${attr(removeBtn, "aria-label")}`);
       if (remaining) rules.push(`remaining=${remaining}`);
+      if (sub.classList.contains("collapse") || sub.classList.contains("d-none")) rules.push("hidden");
       add({
         label: legend.replace(/(\d+)(?!.*\d)/, "{n}"),
         type: "fieldset",
@@ -2390,6 +2410,10 @@ var CustomImportScript = (() => {
       }
       if (el.matches(".streetAddress")) {
         street(el);
+        return;
+      }
+      if (el.matches("div.input") && el.querySelector("input.forms-datepicker")) {
+        pickerDate(el);
         return;
       }
       if (el.matches("maui-input")) {
@@ -2688,8 +2712,214 @@ var CustomImportScript = (() => {
     element.replaceWith(block);
   }
 
-  // tools/importer/parsers/hero-card-overlay.js
+  // tools/importer/parsers/destination-finder.js
+  function parseGrid(element, finder, document) {
+    const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
+    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const visibleText = (node) => {
+      if (!node) return "";
+      const clone = node.cloneNode(true);
+      clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
+      return clean3(clone.textContent);
+    };
+    const para = (text) => {
+      const p = document.createElement("p");
+      p.textContent = text;
+      return p;
+    };
+    const linkPara = (href, label) => {
+      const p = document.createElement("p");
+      const a = document.createElement("a");
+      a.href = href;
+      a.textContent = label;
+      p.append(a);
+      return p;
+    };
+    let props = {};
+    try {
+      props = JSON.parse(finder.getAttribute("data-dcep") || "{}") || {};
+    } catch (e) {
+      props = {};
+    }
+    const value = (v) => v === null || v === void 0 ? "" : clean3(String(v));
+    const cells = [];
+    const addRow = (key, v) => {
+      if (v === null || v === void 0) return;
+      if (typeof v === "string" && !v) return;
+      if (Array.isArray(v) && !v.length) return;
+      cells.push([key, v]);
+    };
+    addRow("Trip duration", value(props.tripDuration));
+    addRow("Highlighted offers", value(props.maxHighlightedOffers));
+    addRow("Highlight priority", value(props.priorityOfHighlightingOffers).split(",").map((s) => s.trim()).filter(Boolean).join(", "));
+    const sds = finder.querySelector('.df-sds-link-button[href], maui-button-link[icon="ai"][href]');
+    const sdsHref = value(props.aiSearchUrl) || sds && sds.getAttribute("href");
+    const sdsLabel = visibleText(sds) || sds && clean3(sds.getAttribute("label"));
+    if (sdsHref && sdsLabel) addRow("Smart search", [linkPara(sdsHref, sdsLabel)]);
+    const redirect = value(props.baseRedirectUrl);
+    if (redirect) addRow("Destination page", [linkPara(redirect, redirect.replace(/^.*\//, "") || redirect)]);
+    if (/^[A-Za-z]{3}$/.test(value(props.preselectedOrigin))) addRow("Default origin", value(props.preselectedOrigin).toUpperCase());
+    const copies = [...finder.querySelectorAll("maui-copy")].filter((c) => !c.closest("maui-card, .df-filters, maui-modal"));
+    const disclaimerNode = copies.find((c) => /^\*/.test(visibleText(c)));
+    const disclaimer = visibleText(disclaimerNode) || clean3((finder.querySelector("maui-price-display[conditions]") || { getAttribute: () => "" }).getAttribute("conditions"));
+    if (disclaimer) addRow("Disclaimer", [para(disclaimer)]);
+    const trigger = finder.querySelector(".disclaimerandconditions maui-link-button, .disclaimerandconditions button, .disclaimerandconditions a");
+    const triggerLabel = visibleText(trigger);
+    if (triggerLabel) {
+      const p = document.createElement("p");
+      const strong = document.createElement("strong");
+      strong.textContent = triggerLabel;
+      p.append(strong);
+      addRow("Conditions", [p]);
+    }
+    const out = [];
+    const headline = finder.querySelector('maui-headline[type="h1"]') || finder.querySelector("maui-headline");
+    const headingText2 = visibleText(headline);
+    if (headingText2) {
+      const h1 = document.createElement("h1");
+      h1.textContent = headingText2;
+      out.push(h1);
+    }
+    out.push(WebImporter.Blocks.createBlock(document, { name: "Destination Finder (grid)", cells }));
+    element.replaceWith(...out);
+  }
   function parse13(element, { document }) {
+    const grid = element.matches(".dcep-destination-finder") ? element : element.querySelector(".dcep-destination-finder");
+    if (grid) {
+      parseGrid(element, grid, document);
+      return;
+    }
+    const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
+    const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
+    const visibleText = (node) => {
+      if (!node) return "";
+      const clone = node.cloneNode(true);
+      clone.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
+      return clean3(clone.textContent);
+    };
+    const attr = (node, name) => clean3(node ? node.getAttribute(name) : "");
+    const code = (v) => /^[A-Za-z]{3}$/.test(clean3(v)) ? clean3(v).toUpperCase() : "";
+    const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src);
+    const para = (text) => {
+      const p = document.createElement("p");
+      p.textContent = text;
+      return p;
+    };
+    const linkPara = (href, label) => {
+      const p = document.createElement("p");
+      const a = document.createElement("a");
+      a.href = href;
+      a.textContent = label;
+      p.append(a);
+      return p;
+    };
+    const queryOf = (href) => {
+      try {
+        return new URL(href, "https://www.lufthansa.com/").searchParams;
+      } catch (e) {
+        return new URLSearchParams();
+      }
+    };
+    let props = {};
+    const propsHost = element.querySelector("[data-dcep]") || (element.hasAttribute("data-dcep") ? element : null);
+    if (propsHost) {
+      try {
+        props = JSON.parse(propsHost.getAttribute("data-dcep")) || {};
+      } catch (e) {
+        props = {};
+      }
+    }
+    const cells = [];
+    const addRow = (key, value) => {
+      if (value === null || value === void 0) return;
+      if (typeof value === "string" && !value) return;
+      if (Array.isArray(value) && !value.length) return;
+      cells.push([key, value]);
+    };
+    const headline = element.querySelector(".inlinetextdropdown maui-headline, .fareteaser-recommendation-headline maui-headline, maui-headline");
+    let headingText2 = "";
+    if (headline) {
+      const clone = headline.cloneNode(true);
+      clone.querySelectorAll(`.inlinetextautocomplete, .selectable, input, label, button, ${SR_ONLY2}`).forEach((n) => n.remove());
+      headingText2 = clean3(clone.textContent);
+    }
+    addRow("Heading", headingText2);
+    const originInput = element.querySelector('.inlinetextautocomplete input:not([type="hidden"]), .autocomplete-airport input:not([type="hidden"])');
+    const cards = [...element.querySelectorAll(".swiper-slide a.ftde-card[href], a.ftde-card[href]")].filter((a, i, all) => all.indexOf(a) === i);
+    const destinationCards = cards.filter((a) => a.getAttribute("data-testid") !== "destination-finder-card" && a.querySelector("maui-price-display, .ftde-card-price"));
+    const firstQuery = destinationCards.length ? queryOf(destinationCards[0].getAttribute("href")) : new URLSearchParams();
+    const originCode = code(props.preselectedOrigin) || code(firstQuery.get("OriginCode"));
+    const originName = attr(originInput, "value") || visibleText(element.querySelector(".inlinetextautocomplete-measure"));
+    if (originCode) addRow("Default origin", originName && !code(originName) ? `${originName} (${originCode})` : originCode);
+    const originLabel = visibleText(element.querySelector(".inlinetextautocomplete label, .autocomplete-airport label")) || attr(originInput, "placeholder");
+    addRow("Origin input label", originLabel);
+    const chips = [...element.querySelectorAll(".trip-type-chips maui-chip, maui-chip-list maui-chip")].filter((c, i, all) => all.indexOf(c) === i).map((c) => attr(c, "label") || visibleText(c)).filter(Boolean);
+    const tripTypes = [...new Set(chips)];
+    addRow("Trip types", tripTypes.join(", "));
+    if (props.isOneWayDefault === true && tripTypes[1]) addRow("Default trip type", tripTypes[1]);
+    addRow("Trip duration", clean3(firstQuery.get("TripDuration")));
+    if (props.airlineWhitelistingEnabled === true) addRow("Airline whitelist", "yes");
+    addRow("Price label", attr(element.querySelector("maui-price-display[label]"), "label"));
+    const finder = cards.find((a) => a.getAttribute("data-testid") === "destination-finder-card") || cards.find((a) => !a.querySelector("maui-price-display, .ftde-card-price"));
+    if (finder) {
+      const content = [];
+      const img = [...finder.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
+      if (img) {
+        const image = document.createElement("img");
+        image.src = img.getAttribute("src");
+        image.alt = img.getAttribute("alt") || "";
+        content.push(image);
+      }
+      const copy = visibleText(finder.querySelector("maui-copy, p"));
+      if (copy) content.push(para(copy));
+      const nav = finder.querySelector("maui-navigation-link[href], maui-button-link[href]");
+      const label = visibleText(nav) || attr(finder, "aria-label");
+      const href = nav && nav.getAttribute("href") || finder.getAttribute("href");
+      if (href && label) content.push(linkPara(href, label));
+      addRow("Finder card", content);
+    }
+    const cta = element.querySelector(".ftde-footer-cta maui-button-link[href], .ftde-footer-cta a[href], .recommender-footer maui-button-link[href]");
+    if (cta && visibleText(cta)) addRow("CTA", [linkPara(cta.getAttribute("href"), visibleText(cta))]);
+    const disclaimerNode = element.querySelector(".recommender-footer .disclaimer maui-copy, .recommender-footer .disclaimer p");
+    const disclaimer = visibleText(disclaimerNode) || attr(element.querySelector("maui-price-display[conditions]"), "conditions");
+    if (disclaimer) addRow("Disclaimer", [para(disclaimer)]);
+    const conditions = [];
+    const trigger = element.querySelector(".disclaimerandconditions maui-link-button, .disclaimerandconditions button, .disclaimerandconditions a");
+    const triggerLabel = visibleText(trigger);
+    const triggerHref = trigger && trigger.getAttribute("href");
+    if (triggerLabel) {
+      if (triggerHref && !triggerHref.startsWith("#")) {
+        conditions.push(linkPara(triggerHref, triggerLabel));
+      } else {
+        const p = document.createElement("p");
+        const strong = document.createElement("strong");
+        strong.textContent = triggerLabel;
+        p.append(strong);
+        conditions.push(p);
+      }
+    }
+    if (trigger) {
+      const dialogs = [...document.querySelectorAll("maui-modal")].filter((m) => !element.contains(m) && m.querySelector(":scope > .richtext") && !m.querySelector("maui-button, maui-button-link, form, input"));
+      const owners = [...document.querySelectorAll(".disclaimerandconditions")].map((d) => d.closest('[class*="fareteaser"].section, .section') || d).filter((o, i, all) => all.indexOf(o) === i);
+      const index = Math.max(0, owners.findIndex((o) => o === element || o.contains(element) || element.contains(o)));
+      const dialog = dialogs[Math.min(index, dialogs.length - 1)];
+      if (dialog) {
+        dialog.querySelectorAll(".richtext p, .richtext li").forEach((node) => {
+          if (!visibleText(node)) return;
+          const p = document.createElement("p");
+          p.innerHTML = node.innerHTML;
+          p.querySelectorAll(SR_ONLY2).forEach((n) => n.remove());
+          conditions.push(p);
+        });
+      }
+    }
+    addRow("Conditions", conditions);
+    const block = WebImporter.Blocks.createBlock(document, { name: "destination-finder", cells });
+    element.replaceWith(block);
+  }
+
+  // tools/importer/parsers/hero-card-overlay.js
+  function parse14(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -2753,15 +2983,15 @@ var CustomImportScript = (() => {
       content.push(p);
     }
     const headingSource = card.querySelector(".display-text, h1, h2, h3");
-    const headingText = visibleText(headingSource);
-    if (headingText) {
+    const headingText2 = visibleText(headingSource);
+    if (headingText2) {
       const h = document.createElement(headingSource && /^H[1-3]$/.test(headingSource.tagName) ? headingSource.tagName : "h2");
-      h.textContent = headingText;
+      h.textContent = headingText2;
       content.push(h);
     }
     card.querySelectorAll(".mst-text, .mst-description, .mst-card p").forEach((t) => {
       const text = visibleText(t);
-      if (text && text !== eyebrowText && text !== headingText) {
+      if (text && text !== eyebrowText && text !== headingText2) {
         const p = document.createElement("p");
         p.textContent = text;
         content.push(p);
@@ -2832,7 +3062,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/hero-campaign.js
-  function parse14(element, { document }) {
+  function parse15(element, { document, url, params }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean3 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -2962,12 +3192,17 @@ var CustomImportScript = (() => {
     if (info.classList.contains("uplift-animation") || teaser.classList.contains("inspiration-teaser-uplift-animation")) variants.push("card");
     if (teaser.classList.contains("inspiration-teaser-narrow")) variants.push("narrow");
     if (teaser.classList.contains("inspiration-teaser-regular")) variants.push("regular");
+    const hasTagline = [...info.querySelectorAll(".subheadline")].some((sub) => sub !== heading && visibleText(sub));
+    const hasInfo = [...info.querySelectorAll(".information .richtext, .information")].some((rt) => visibleText(rt));
+    const pageUrl = params && params.originalURL || url || "";
+    const lufthansaPage = /^https?:\/\/(www\.)?lufthansa\.com\//.test(pageUrl);
+    if (lufthansaPage && !hasTagline && hasInfo) variants.push("no-subtitle");
     const block = WebImporter.Blocks.createBlock(document, { name: "hero-campaign", variants, cells });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/carousel-images.js
-  function parse15(element, { document }) {
+  function parse16(element, { document }) {
     const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const isBroken3 = (src) => !src || /^(data|blob):/i.test(src) || /(^|\/)undefined(\.transform|$|\/)/.test(src);
     const slides = [...element.querySelectorAll(".swiper-slide")].filter((s) => !s.classList.contains("swiper-slide-duplicate"));
@@ -2975,9 +3210,15 @@ var CustomImportScript = (() => {
     slides.forEach((slide) => {
       const source = [...slide.querySelectorAll("img")].find((i) => !isBroken3(i.getAttribute("src")));
       if (!source) return;
-      const img = document.createElement("img");
-      img.src = source.getAttribute("src");
-      img.alt = clean3(source.getAttribute("alt"));
+      const toImg = (from) => {
+        const i = document.createElement("img");
+        i.src = from.getAttribute("src");
+        i.alt = clean3(from.getAttribute("alt"));
+        return i;
+      };
+      const img = toImg(source);
+      const more = [...slide.querySelectorAll("figure img")].filter((i) => i !== source && !isBroken3(i.getAttribute("src")));
+      const media = more.length ? [img, ...more.map(toImg)] : img;
       let captionCell = "";
       const figcaption = slide.querySelector("figcaption, .caption");
       if (figcaption && clean3(figcaption.textContent)) {
@@ -2993,7 +3234,7 @@ var CustomImportScript = (() => {
         });
         if (parts.length) captionCell = parts;
       }
-      cells.push([img, captionCell]);
+      cells.push([media, captionCell]);
     });
     if (!cells.length) {
       element.remove();
@@ -3286,7 +3527,15 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/accordion-columns.js
-  function parse16(element, { document }) {
+  function parse17(element, { document, url, params }) {
+    let pageHost = "";
+    try {
+      pageHost = new URL(params && params.originalURL || url || "").hostname;
+    } catch (e) {
+      pageHost = "";
+    }
+    const KEEP_HEADING_SIZE = /(^|\.)brusselsairlines\.com$/.test(pageHost);
+    const HEADING_SIZES2 = ["heading-large", "heading-medium", "heading-small", "heading-copytext-large", "heading-copytext-medium"];
     const SR_ONLY2 = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
     const ZW2 = /[​-‍﻿]/g;
     const clean3 = (s) => (s || "").replace(ZW2, "").replace(/\s+/g, " ").trim();
@@ -3407,6 +3656,40 @@ var CustomImportScript = (() => {
       });
       return out;
     };
+    const inlineNodes = (root) => {
+      const out = [];
+      [...root.childNodes].forEach((n) => {
+        if (n.nodeType === 3) {
+          const text = n.textContent.replace(/[ \t\r\n]+/g, " ");
+          if (text) out.push(document.createTextNode(text));
+          return;
+        }
+        if (n.nodeType !== 1 || n.matches(SR_ONLY2)) return;
+        if (n.tagName === "BR") {
+          out.push(document.createElement("br"));
+          return;
+        }
+        if (/^(B|STRONG)$/.test(n.tagName)) {
+          const strong = document.createElement("strong");
+          strong.append(...inlineNodes(n));
+          out.push(strong);
+          return;
+        }
+        if (/^(EM|I)$/.test(n.tagName)) {
+          const em = document.createElement("em");
+          em.append(...inlineNodes(n));
+          out.push(em);
+          return;
+        }
+        if (n.tagName === "A" || /^MAUI-.*LINK$/.test(n.tagName) && n.getAttribute("href")) {
+          const link = makeLink(n);
+          if (link) out.push(link);
+          return;
+        }
+        out.push(...inlineNodes(n));
+      });
+      return out;
+    };
     const convertTable = (node) => {
       const table = document.createElement("table");
       const rowEls = [...node.querySelectorAll("maui-table-row, tr")].filter((r) => !r.parentElement.closest("maui-table-row, tr"));
@@ -3418,7 +3701,12 @@ var CustomImportScript = (() => {
           const wrap = document.createElement("div");
           [...cellEl.childNodes].forEach((n) => wrap.append(n.cloneNode(true)));
           const nodes = convertRichText(wrap);
-          if (nodes.length === 1 && nodes[0].tagName === "P") cell.append(...nodes[0].childNodes);
+          const inline = !wrap.querySelector("p, ul, ol, h1, h2, h3, h4, h5, h6, div, table") && wrap.querySelector("b, strong, br");
+          if (inline) {
+            const kept = inlineNodes(wrap);
+            while (kept.length && kept[0].nodeType === 3 && !kept[0].textContent.trim()) kept.shift();
+            cell.append(...kept);
+          } else if (nodes.length === 1 && nodes[0].tagName === "P") cell.append(...nodes[0].childNodes);
           else if (nodes.length) cell.append(...nodes);
           else cell.textContent = visibleText(cellEl);
           tr.append(cell);
@@ -3526,6 +3814,19 @@ var CustomImportScript = (() => {
       out.push(table);
       return out;
     };
+    const separatorBefore = (node, root) => {
+      let el = node.closest(".headline") || node;
+      while (el && el !== root) {
+        let prev = el.previousSibling;
+        while (prev && prev.nodeType === 3 && !prev.nodeValue.trim()) prev = prev.previousSibling;
+        if (prev) {
+          const m = prev.nodeType === 8 && prev.nodeValue.trim().match(/^lh-separator ((?:spacer|divider)-\d{1,3})$/);
+          return m ? m[1] : "";
+        }
+        el = el.parentElement;
+      }
+      return "";
+    };
     const convertPanel = (panel) => {
       const content = [];
       const columns = panelColumns(panel);
@@ -3560,6 +3861,12 @@ var CustomImportScript = (() => {
           } else if (/^H[1-6]$/.test(node.tagName)) {
             const text = visibleText(node);
             if (!text) return;
+            const spacer = KEEP_HEADING_SIZE && separatorBefore(node, part);
+            if (spacer) {
+              const sp = document.createElement("p");
+              sp.textContent = `{${spacer}}`;
+              content.push(sp);
+            }
             const h = document.createElement(columns.length ? "h3" : node.tagName);
             const icon = node.closest("a.teaser") && node.querySelector("img");
             const src = icon && icon.getAttribute("src");
@@ -3570,6 +3877,8 @@ var CustomImportScript = (() => {
               h.append(img);
             }
             h.append(text);
+            const size = KEEP_HEADING_SIZE && HEADING_SIZES2.find((c) => node.classList.contains(c));
+            if (size) h.classList.add(size);
             content.push(h);
           } else if (node.matches(".richtext")) {
             content.push(...convertRichText(node));
@@ -3607,13 +3916,18 @@ var CustomImportScript = (() => {
     } else {
       expanded.forEach((k) => options.push(`open-item-${k}`));
     }
+    const b2b = !!element.querySelector('maui-collapsible[theme="b2b"]') || !!element.closest('[theme="b2b"]');
+    if (!cells.length && b2b) {
+      element.remove();
+      return;
+    }
     const blockName2 = options.length ? `accordion-columns (${options.join(", ")})` : "accordion-columns";
     const block = WebImporter.Blocks.createBlock(document, { name: blockName2, cells });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/table-striped.js
-  function parse17(element, { document }) {
+  function parse18(element, { document }) {
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean3 = (s) => (s || "").replace(/[\u200B-\u200D\uFEFF]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const cellContent = (cell) => {
@@ -3644,7 +3958,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-icon-text.js
-  function parse18(element, { document }) {
+  function parse19(element, { document }) {
     const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
     const modules = [...element.querySelectorAll(".icon-module")];
     if (modules.length) {
@@ -3771,7 +4085,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-icon.js
-  function parse19(element, { document }) {
+  function parse20(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -3825,7 +4139,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-cards.js
-  function parse20(element, { document }) {
+  function parse21(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -4038,7 +4352,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/cards-teaser.js
-  function parse21(element, { document }) {
+  function parse22(element, { document }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style';
     const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/ /g, " ").replace(/\s+/g, " ").trim();
@@ -4091,6 +4405,11 @@ var CustomImportScript = (() => {
         run.append(n.cloneNode(true));
       });
       flush();
+      if (rt.classList && rt.classList.contains("limited-width")) {
+        out.forEach((n) => {
+          if (/^(P|UL|OL)$/.test(n.tagName)) n.classList.add("limited-width");
+        });
+      }
       return out;
     };
     const MAUI = "maui-navigation-link[href], maui-button-link[href], maui-link[href], a[href]";
@@ -4146,6 +4465,7 @@ var CustomImportScript = (() => {
       return !outer || !element.contains(outer);
     });
     const cells = [];
+    const conditions = [];
     items.forEach((item) => {
       let media = null;
       const body = [];
@@ -4174,6 +4494,9 @@ var CustomImportScript = (() => {
           const link = comp.querySelector("a.stage-teaser-link[href], a[href]");
           const sub = visibleText(comp.querySelector(".stage-teaser-subheadline"));
           const label = visibleText(comp.querySelector(".stage-teaser-overlay-bottom"));
+          const trigger = comp.querySelector(".stage-teaser > maui-link-button.modal-trigger");
+          const condition = trigger && visibleText(trigger);
+          if (condition) conditions.push(condition);
           if (lone) {
             if (sub) {
               const p = document.createElement("p");
@@ -4238,15 +4561,27 @@ var CustomImportScript = (() => {
         const rows = [...block.querySelectorAll("tr")].slice(1);
         const lastRow = [...prev.querySelectorAll("tr")].pop();
         rows.forEach((r) => lastRow.parentNode.append(r));
+        conditions.forEach((t) => {
+          const p = document.createElement("p");
+          p.className = "copytext-small";
+          p.textContent = t;
+          element.before(p);
+        });
         element.remove();
         return;
       }
     }
-    element.replaceWith(...titles, block);
+    const smallPrint = conditions.map((t) => {
+      const p = document.createElement("p");
+      p.className = "copytext-small";
+      p.textContent = t;
+      return p;
+    });
+    element.replaceWith(...titles, block, ...smallPrint);
   }
 
   // tools/importer/parsers/columns-media.js
-  function parse22(element, { document, url, params }) {
+  function parse23(element, { document, url, params }) {
     const BLOCK_TAGS = /^(P|UL|OL|H[1-6]|TABLE|DIV|BLOCKQUOTE|PRE|DL)$/;
     const SKIP = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], script, style, noscript';
     const SKIP_COMPONENTS = '.separator, .sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"], .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-notification, .swiper-slide-duplicate, script, style, noscript';
@@ -4260,6 +4595,13 @@ var CustomImportScript = (() => {
       return clean3(c.textContent);
     };
     const ARTICLE = !!element.closest(".article-details-page");
+    let pageHost = "";
+    try {
+      pageHost = new URL(params && params.originalURL || url || "").hostname;
+    } catch (e) {
+      pageHost = "";
+    }
+    const KEEP_CAPTIONS = ARTICLE || pageHost !== "www.lufthansa.com";
     const isBroken3 = (src) => !src || /(^|\/)undefined(\.transform|$|\/)/.test(src) || /^(data|blob):/i.test(src);
     const isBr2 = (n) => n && n.nodeType === 1 && n.tagName === "BR";
     const isBlank = (n) => n && n.nodeType === 3 && !clean3(n.nodeValue);
@@ -4413,7 +4755,7 @@ var CustomImportScript = (() => {
       return out;
     };
     const captionPara = (comp) => {
-      if (!ARTICLE) return null;
+      if (!KEEP_CAPTIONS) return null;
       const fc = comp.querySelector("figcaption");
       const text = fc && visibleText(fc.querySelector("maui-caption") || fc);
       if (!text) return null;
@@ -4526,6 +4868,7 @@ var CustomImportScript = (() => {
         const cl = child.classList;
         if (cl.contains("imagelinklist")) {
           child.querySelectorAll(".link-list").forEach((ll) => {
+            var _a;
             const h = ll.querySelector("h1, h2, h3, h4, h5, h6");
             if (h) {
               const head = document.createElement(h.tagName.toLowerCase());
@@ -4554,6 +4897,8 @@ var CustomImportScript = (() => {
                 li.append(a);
                 list.append(li);
               });
+              const layout = (_a = ll.querySelector(":scope > ul[data-lh-links]")) == null ? void 0 : _a.getAttribute("data-lh-links");
+              if (layout && list.lastElementChild) list.lastElementChild.append(` {links-${layout}}`);
               if (list.children.length) out.push(list);
             }
           });
@@ -4707,6 +5052,14 @@ var CustomImportScript = (() => {
       const sideView = item && item.classList.contains("column-view-item") && item.children.length === 1 && item.parentElement && item.parentElement.classList.contains("row") && item.parentElement.children.length === 1 && item.parentElement.parentElement;
       const oneColumn = sideView && sideView.classList.contains("column-view") && sideView.parentElement;
       const ownSidebar = !!oneColumn && oneColumn.matches(".onecolumn.column") && oneColumn.children.length === 1 && !!oneColumn.parentElement && oneColumn.parentElement.classList.contains("section-content") && !oneColumn.hasAttribute("data-lh-column") && !ARTICLE && !element.closest(".container-gray");
+      const hasContent2 = (el) => !!clean3(el.textContent) || !!el.querySelector("img, picture, video, iframe");
+      const opensItem = !!item && item.classList.contains("column-view-item") && [...item.children].find(hasContent2) === element;
+      const hubRow = opensItem && item.parentElement && item.parentElement.classList.contains("row") && item.parentElement.children.length === 1 && item.parentElement;
+      const hubView = hubRow && hubRow.parentElement && hubRow.parentElement.classList.contains("column-view") && hubRow.parentElement;
+      const hubColumn = hubView && hubView.parentElement;
+      if (hubColumn && pageHost === "www.brusselsairlines.com" && hubColumn.matches(".onecolumn.column") && hubColumn.children.length === 1 && !!hubColumn.parentElement && hubColumn.parentElement.classList.contains("container-content") && !ARTICLE) {
+        variants.push("in-column");
+      }
       if (ownSidebar) {
         variants.push("padded");
         const meaningful3 = (el) => !!clean3(el.textContent) || !!el.querySelector("img, picture, video, iframe");
@@ -4739,7 +5092,7 @@ var CustomImportScript = (() => {
       const loneImage = items.length > 1 && filled.length === 1 && filled[0].every(isImage);
       const halfAlone = element.matches(".twocolumn") && items.length === 2 && filled.length === 1;
       const pageUrl = params && params.originalURL || url || "";
-      const lufthansa = /^https?:\/\/([^/]+\.)?lufthansa\.com\//.test(pageUrl);
+      const lufthansa = /^https?:\/\/([^/]+\.)?(lufthansa|austrian|brusselsairlines|lufthansagroup)\.com\//.test(pageUrl);
       const partial = lufthansa && element.matches(".threecolumn, .fourcolumn") && filled.length > 0 && filled.length < items.length;
       const row = (hasEmbed || nestedView || loneImage || halfAlone || partial) && filled.length ? collected.map((c) => c.length ? c : "") : filled;
       if (row.length) cells.push(row);
@@ -4757,6 +5110,10 @@ var CustomImportScript = (() => {
       if (own && !titles.length && !ARTICLE && !element.closest(".container-gray") && !view.classList.contains("container-gray")) variants.push("padded");
     }
     if (!cells.length && !titles.length) return;
+    if (pageHost === "www.austrian.com" && !variants.includes("sidebar") && cells.length && cells.every((row) => row.length > 1 && row.every((cell) => {
+      const first = Array.isArray(cell) ? cell.find((n) => n && n.nodeType === 1) : null;
+      return !!first && first.tagName === "H2" && /^\d{1,2}$/.test(clean3(first.textContent));
+    }))) variants.push("steps");
     const block = WebImporter.Blocks.createBlock(document, { name: "columns-media", variants, cells });
     const headerText = (t) => clean3((t.querySelector("tr") || t).textContent).toLowerCase().replace(/\s*\(([^)]*)\)$/, (m, list) => {
       const rest = list.split(",").map((v) => v.trim()).filter((v) => v && v !== "separated");
@@ -4807,7 +5164,7 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/embed.js
-  function parse23(element, { document }) {
+  function parse24(element, { document }) {
     if (!element.isConnected || !element.parentElement || element.parentElement.closest("table")) return;
     const href = embedUrl(element);
     if (!href) return;
@@ -4819,7 +5176,7 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/lounge-finder.js
   var DEFAULT_IMAGE_BASE = "/content/dam/lh/images/lounges";
-  function parse24(element, { document }) {
+  function parse25(element, { document }) {
     const host = element.matches(".dcep-lounge-finder") ? element : element.querySelector(".dcep-lounge-finder");
     let config = {};
     try {
@@ -4835,31 +5192,31 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/security-waiting-time.js
-  function parse25(element, { document }) {
+  function parse26(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "security-waiting-time", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/checkin-deadlines.js
-  function parse26(element, { document }) {
+  function parse27(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "checkin-deadlines", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/ejournals.js
-  function parse27(element, { document }) {
+  function parse28(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "ejournals", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/passenger-receipt.js
-  function parse28(element, { document }) {
+  function parse29(element, { document }) {
     const block = WebImporter.Blocks.createBlock(document, { name: "passenger-receipt", cells: [] });
     element.replaceWith(block);
   }
 
   // tools/importer/parsers/fare-teaser.js
-  function parse29(element, { document }) {
+  function parse30(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
     const visibleText = (node) => {
@@ -4991,13 +5348,13 @@ var CustomImportScript = (() => {
     }
     addRow("Conditions", conditions);
     const headline = element.querySelector("maui-headline, h2, h3");
-    const headingText = visibleText(headline) || clean3(props.headline);
+    const headingText2 = visibleText(headline) || clean3(props.headline);
     const block = WebImporter.Blocks.createBlock(document, { name: "fare-teaser", cells });
-    if (headingText) {
+    if (headingText2) {
       const type = attr(headline, "type").toLowerCase();
       const level = /^h[1-6]$/.test(type) ? type : headline && /^H[1-6]$/.test(headline.tagName) ? headline.tagName.toLowerCase() : "h2";
       const heading = document.createElement(level);
-      heading.textContent = headingText;
+      heading.textContent = headingText2;
       element.replaceWith(heading, block);
     } else {
       element.replaceWith(block);
@@ -5009,7 +5366,7 @@ var CustomImportScript = (() => {
   var styleMarker = (tokens) => new RegExp(`\\s*\\{((?:${tokens})(?: (?:${tokens}))*)\\}\\s*$`);
   var HEADING_TOKENS = `heading-(?:large|medium|small|copytext-large|copytext-medium)|copytext-large|limited-width|${COLUMN_MARK}`;
   var PARAGRAPH_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\\d{1,3}|${COLUMN_MARK}`;
-  var LIST_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|${COLUMN_MARK}`;
+  var LIST_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|links-(?:horizontal|responsive|vertical)|${COLUMN_MARK}`;
   var HEADING_STYLE = styleMarker(HEADING_TOKENS);
   var PARAGRAPH_STYLE = styleMarker(PARAGRAPH_TOKENS);
   var LIST_STYLE = styleMarker(LIST_TOKENS);
@@ -5055,7 +5412,10 @@ var CustomImportScript = (() => {
     },
     headingChoices: {
       h2: { large: "heading-large", compact: "heading-copytext-large" },
-      h3: { large: "heading-medium" }
+      h3: { large: "heading-medium" },
+      // an H4 two steps over its default too (www's heading-medium card titles: B2B's Joint
+      // Ventures, the brief after d9cf2340; without it the collapse dropped the size)
+      h4: { large: "heading-medium" }
     },
     // running text: two thirds of the content width from 1025px ('full': the whole width); body
     // text 18px (copytext-large), small print 14px
@@ -5075,7 +5435,22 @@ var CustomImportScript = (() => {
       // from the column marks, ema-adobe's hub transformer on import; styles.css "the column view
       // carrier")
       columnViews: { carrier: "column-view" },
+      // page titles in heading-medium (www's smaller H1: 168 of the 6,826 census
+      // documents' first H1s, 85 later H1s; brief 582, the switch plan's B3): one step from
+      // the H1 default, which the collapse would take, so a choice of their own the collapse
+      // keeps (section style H1 compact)
+      headingChoices: { h1: { compact: "heading-medium" } },
+      nearChoices: { h1: { "heading-medium": "compact" } },
       pageTypes: {
+        // flow pages (the info pages; a page with column marks is one): an H3 in heading-small is
+        // a choice of its own (H3 large draws heading-small here, not heading-medium): www's H3s
+        // there are heading-small 924 times, unmarked 432, heading-medium 106 (the 1,862 published
+        // column-mark documents, standing order 3); the collapse took the H3 default before (bold
+        // 24px for www's light 28px). nearChoices replaces the brand's, so the H1's again
+        flow: {
+          headingChoices: { h3: { large: "heading-small" } },
+          nearChoices: { h1: { "heading-medium": "compact" }, h3: { "heading-small": "large" } }
+        },
         // Insights articles: a rule above an info box (Columns Media) after any content but a
         // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
         article: { rules: ["rule-before-info-box", "ruled-chapters"] },
@@ -5089,31 +5464,82 @@ var CustomImportScript = (() => {
     },
     // Austrian: the paragraph right after the page title is the intro (copytext-large, Portada
     // 18/27); flow pages set their H3s in heading-small (www: 87 % of them)
-    austrian: { rules: ["intro-after-h1"], pageTypes: { flow: { headings: { h3: "heading-small" } } } },
+    austrian: { live: true, rules: ["intro-after-h1"], pageTypes: { flow: { headings: { h3: "heading-small" } } } },
     // Brussels: flow pages set their H3s in heading-small (www: 72 %); a service page's H2s are the
     // default (www: 89 % unmarked, heading-medium; no longer heading-small)
-    brussels: { pageTypes: { flow: { headings: { h3: "heading-small" } } } },
+    // textSpacers: a spacer of 31 px or less between two text elements (www's empty paragraph,
+    // nbsp-guard.mjs emptyParagraphSpacers) stays as {spacer-N} in the collapse (standing order 5
+    // of 2026-11-11, item 1; import time only, nothing served reads it)
+    brussels: {
+      live: true,
+      textSpacers: true,
+      pageTypes: { flow: { headings: { h3: "heading-small" } } }
+    },
     // ITA: running text over the whole width
-    ita: { live: true, text: { width: "full" } },
+    // ITA: a section's H2 right before a teaser grid in heading-small (www's column view; DA: 923 of
+    // 1,029 H2s before Carousel Cards, every one of 67 before Cards Icon; rows-for-ema-test row 1)
+    ita: {
+      live: true,
+      text: { width: "full" },
+      headingsBefore: { "carousel-cards": { h2: "heading-small" }, "cards-icon": { h2: "heading-small" } },
+      // keepSizesIn: in a Columns Media cell (www's column-view items) a heading keeps its marker in
+      // heading-medium or heading-small, which the page reads as the class (www has both there: 36
+      // and 28 px; rows-for-ema-test.md row 6, standing order 10 of 2026-11-12; import time only)
+      keepSizesIn: { "columns-media": ["heading-medium", "heading-small"] }
+    },
     // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
     // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
     // (a heading right before them starts the group's column view, as its marker did)
-    swiss: { rules: ["teaser-groups"], pageTypes: { flow: { headings: { h2: "heading-small" } } } },
+    swiss: { live: true, rules: ["teaser-groups"], pageTypes: { flow: { headings: { h2: "heading-small" } } } },
     // Discover: on flow pages the H2s in heading-small (www: 86 %) and a Columns Media a column view
     // of its own (www: 26 of 33 not at a section's start)
-    discover: { pageTypes: { flow: { headings: { h2: "heading-small" }, columnViews: { blocks: ["columns-media"] } } } },
+    // componentSpacers: a separator of 31 px or less between two components (www's .hr, 30 px + 1)
+    // stays as {spacer-N} in the collapse (rows-for-ema-test.md row 4; import time only)
+    discover: {
+      live: true,
+      componentSpacers: true,
+      // oneElementViews: a column view that opens and closes on one paragraph (www's intro in a
+      // one-column view after the title) keeps its marks in the collapse (standing order 10 of
+      // 2026-11-12; import time only)
+      columnViews: { oneElementViews: true },
+      // keepSizes: a heading size the collapse keeps as its marker, which the page reads as the class
+      // (www's heading-copytext-large, 16 / 18 px bold: rows-for-ema-test.md row 3)
+      keepSizes: ["heading-copytext-large"],
+      pageTypes: { flow: { headings: { h2: "heading-small" }, columnViews: { blocks: ["columns-media"] } } }
+    },
     // Lufthansa Group for Business: on flow pages the H3s in heading-small (www: 82 %); Columns
     // Media, Carousel Images and Quote column views of their own, also at a section's end (www: 558
     // of 789 Columns Media not at a section's start, 749 of 962 with an edge below)
     b2b: {
+      live: true,
+      // a title in heading-small (www's airline pages: 21 first H1s of the census, 20 later ones),
+      // two steps under the H1 default, which the collapse dropped (section style H1 compact)
+      headingChoices: { h1: { compact: "heading-small" } },
+      // keepSizes: www's H2s in heading-copytext-large (18 / 24 px bold; route-network, businesstogo)
+      // keep their marker in the collapse, which the page reads as the class (standing order 9 of
+      // 2026-11-12: 6 of 12 page-widths better, none worse); heading-small not (9 worse)
+      keepSizes: ["heading-copytext-large"],
       pageTypes: {
-        flow: { headings: { h3: "heading-small" }, columnViews: { blocks: ["columns-media", "carousel-images", "quote"], endEdge: true } }
+        // a heading right before such a block opens its column view (www: 81 of 105 marked so, the
+        // brief after 550 narrows it); in a grey band no edge above a block right after a heading
+        // (www: none of 146 bands has column marks; travel-id's and contact's headings sit on it)
+        flow: {
+          headings: { h3: "heading-small" },
+          columnViews: {
+            blocks: ["columns-media", "carousel-images", "quote"],
+            endEdge: true,
+            startAtHeading: true,
+            bandHeadings: true,
+            sidebarNoView: true,
+            startAfterLogo: true
+          }
+        }
       }
     },
     // Air Dolomiti: the base theme (between B2B's and TAP's entries, next to no switch line)
     airdolomiti: { live: true },
     // TAP: the base theme (an entry of its own, so its switch is one line as every brand's)
-    tap: {},
+    tap: { live: true },
     // Lufthansa Cargo: the base theme
     cargo: {}
   };
@@ -5476,7 +5902,13 @@ var CustomImportScript = (() => {
   function removeScreenReaderOnly(document) {
     document.querySelectorAll("maui-tooltip").forEach((tip) => {
       const trigger = tip.querySelector('[slot="trigger"]');
-      if (trigger && (trigger.tagName === "A" || trigger.hasAttribute("href") || trigger.querySelector("[href]"))) {
+      if (!trigger) {
+        const item = tip.closest("li");
+        tip.remove();
+        if (item && !item.textContent.trim() && !item.querySelector("img, picture, svg, a, [href]")) item.remove();
+        return;
+      }
+      if (trigger.tagName === "A" || trigger.hasAttribute("href") || trigger.querySelector("[href]")) {
         tip.querySelectorAll(':scope > [slot="box"]').forEach((box) => box.remove());
       }
     });
@@ -5553,6 +5985,16 @@ var CustomImportScript = (() => {
   function isBlockComponent(el) {
     return !!el && !el.matches(`${FLOW_COMPONENT}, .separator`);
   }
+  function afterNestedView(run) {
+    const prev = run[0].previousElementSibling;
+    const next = run[run.length - 1].nextElementSibling;
+    return !!prev && !!next && prev.matches(FLOW_COLUMN) && next.matches(".headline") && !!run[0].parentElement && run[0].parentElement.matches(".column-view-item");
+  }
+  function pictureBeforeGrey(run) {
+    const prev = run[0].previousElementSibling;
+    const next = run[run.length - 1].nextElementSibling;
+    return !!prev && !!next && prev.matches(".image:not(:has(video, .videoViewer))") && (next.matches(".container-gray") || !!next.querySelector(".container-gray"));
+  }
   function missingSeparatorMarkers(run, flow, template) {
     const first = run[0];
     const last = run[run.length - 1];
@@ -5615,6 +6057,23 @@ var CustomImportScript = (() => {
     } catch (e) {
       return false;
     }
+  }
+  function isDiscoverPage(payload) {
+    const url = payload && (payload.params && payload.params.originalURL || payload.url) || "";
+    try {
+      return /(^|\.)discover-airlines\.com$/.test(new URL(url).hostname);
+    } catch (e) {
+      return false;
+    }
+  }
+  var DISCOVER_SEPARATOR_SPACE = 30;
+  function discoverSized(sep, marker) {
+    const inline = separatorInline(sep);
+    return marker.replace(/^(spacer|divider)-\d+/, `$1-${Math.max(inline === null ? DISCOVER_SEPARATOR_SPACE : inline, 0)}`);
+  }
+  function discoverMarkers(run) {
+    if (!run[0].previousElementSibling || !run[run.length - 1].nextElementSibling) return null;
+    return run.map((sep) => discoverSized(sep, separatorInfo(sep).marker));
   }
   var SEPARATED = "data-lh-separated";
   function betweenColumnViews(run) {
@@ -5679,6 +6138,7 @@ var CustomImportScript = (() => {
     const cellSpacers = isLufthansaPage(payload);
     if (cellSpacers) markNoteSpacers(document);
     const brussels = isBrusselsPage(payload);
+    const discover = isDiscoverPage(payload);
     const runs = [];
     document.querySelectorAll(".separator").forEach((sep) => {
       const last = runs[runs.length - 1];
@@ -5711,11 +6171,14 @@ var CustomImportScript = (() => {
       const separated = brussels && betweenColumnViews(run) || cellSpacers && lhBetweenColumnViews(run);
       if (separated) separated.setAttribute(SEPARATED, "true");
       let markers = null;
-      if (infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run)) {
+      if (infos.some((i) => i.keep) || afterGrey(run[0]) || keepInFlow && inFlow(run) || template === "hub" && (afterNestedView(run) || pictureBeforeGrey(run))) {
         markers = infos.map((i) => i.marker);
+      } else if (discover) {
+        markers = discoverMarkers(run);
       } else if (fillGaps) {
         markers = missingSeparatorMarkers(run, keepInFlow, template);
       }
+      if (discover && markers) markers = markers.map((m, i) => m ? discoverSized(run[i], m) : m);
       run.forEach((sep, i) => {
         if (!sep.isConnected) return;
         if (markers && markers[i]) sep.replaceWith(document.createComment(`${SEPARATOR_COMMENT} ${markers[i]}`));
@@ -5852,7 +6315,7 @@ var CustomImportScript = (() => {
       if (el.isConnected && !el.closest("form.cmp-form") && isEmpty(el)) el.remove();
     });
   }
-  var COLUMN_MARK_TEMPLATES = ["info", "fleet"];
+  var COLUMN_MARK_TEMPLATES = ["info", "fleet", "legal", "app-entry"];
   var COLUMN_ATTR = "data-lh-column";
   var COLUMN_KINDS = ".onecolumn, .twocolumn, .threecolumn, .fourcolumn";
   function columnMarksEnabled(payload) {
@@ -5932,6 +6395,8 @@ var CustomImportScript = (() => {
   function placeColumnMarks(document) {
     const roots = [...document.querySelectorAll(`[${COLUMN_ATTR}]`)];
     let placed = 0;
+    const ownEnds = /* @__PURE__ */ new Map();
+    inViewSlideshows(roots);
     roots.forEach((root) => {
       const suffix = root.getAttribute(COLUMN_ATTR) === "cc" ? "-outer" : "";
       const spaced = root.getAttribute(COLUMN_ATTR) === "sc-spaced";
@@ -5953,12 +6418,43 @@ var CustomImportScript = (() => {
       if (inline(last) && addMarkerToken(last, `column-end${suffix}`)) {
         if (spaced) addMarkerToken(last, "column-spaced");
       } else {
-        root.append(own(`column-end${suffix}${spaced ? " column-spaced" : ""}`));
+        const end = own(`column-end${suffix}${spaced ? " column-spaced" : ""}`);
+        root.append(end);
+        ownEnds.set(end, end.textContent);
       }
       placed += 1;
     });
+    dropNestedOuterEnds(ownEnds);
     roots.forEach((root) => root.removeAttribute(COLUMN_ATTR));
     return placed;
+  }
+  function inViewSlideshows(roots) {
+    roots.forEach((root) => {
+      root.querySelectorAll("table").forEach((table) => {
+        const head = table.querySelector("tr > th, tr > td");
+        const name = head ? cleanText(head) : "";
+        const m = name.match(/^carousel[- ]lightbox\s*(?:\(([^)]*)\))?$/i);
+        if (!m) return;
+        const opts = (m[1] || "").split(",").map((o) => o.trim()).filter(Boolean);
+        if (opts.includes("in-view")) return;
+        head.textContent = `${name.replace(/\s*\(.*$/, "")} (${[...opts, "in-view"].join(", ")})`;
+      });
+    });
+  }
+  function dropNestedOuterEnds(ownEnds) {
+    ownEnds.forEach((token, inner) => {
+      if (token !== "{column-end-outer}" || !inner.isConnected) return;
+      let el = inner;
+      while (el.parentElement) {
+        let next = el.nextElementSibling;
+        while (next && !cleanText(next) && !next.querySelector("img, picture, table, video, iframe")) next = next.nextElementSibling;
+        if (next) {
+          if (ownEnds.get(next) === token && next.parentElement.contains(inner)) inner.remove();
+          return;
+        }
+        el = el.parentElement;
+      }
+    });
   }
   var MOBILE_COPY = ".hidden-lg-up, .hidden-md-up, .d-md-none, .d-lg-none, .visible-xs";
   var DESKTOP_COPY = ".hidden-md-down, .hidden-sm-down, .d-none.d-md-block, .d-none.d-lg-block, .d-none.d-md-flex, .d-none.d-lg-flex";
@@ -6121,6 +6617,61 @@ var CustomImportScript = (() => {
       converted += 1;
     });
     return converted;
+  }
+  var LINK_LIST_LAYOUTS = ["horizontal", "responsive", "vertical"];
+  var LINK_LIST_LINK = "maui-navigation-link[href], maui-link[href], a[href], maui-button-link[href]";
+  function markLinkLists(document, payload) {
+    if (!isLufthansaPage(payload)) return 0;
+    let marked = 0;
+    document.querySelectorAll(".imagelinklist .link-list > ul").forEach((ul) => {
+      const layout = LINK_LIST_LAYOUTS.find((c) => ul.classList.contains(c));
+      if (!layout || ul.closest(".accordion, maui-collapsible, footer, header")) return;
+      const items = [...ul.children].filter((li) => li.tagName === "LI");
+      const links = [];
+      const ok = items.every((li) => {
+        const found = [...li.querySelectorAll(LINK_LIST_LINK)].filter((l) => !l.parentElement.closest(LINK_LIST_LINK));
+        const rest = li.cloneNode(true);
+        rest.querySelectorAll(`${LINK_LIST_LINK}, [slot="box"]`).forEach((l) => l.remove());
+        if (cleanText(rest) || rest.querySelector("img, picture, svg, video, iframe, input, button")) return false;
+        if (!found.length) return true;
+        if (found.length > 1) return false;
+        links.push(found[0]);
+        return true;
+      });
+      if (!ok || !links.length) return;
+      const pageLink = (l) => l.tagName === "MAUI-NAVIGATION-LINK" && ["hyper", "external"].includes(l.getAttribute("variant")) && !l.querySelector("img, picture, svg") && cleanText(l);
+      if (!links.every(pageLink)) return;
+      links[links.length - 1].closest("li").append(` {links-${layout}}`);
+      ul.setAttribute("data-lh-links", layout);
+      marked += 1;
+    });
+    return marked;
+  }
+  var CELL_TEXT_TOKEN = /^(?:copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\d{1,3}|column-(?:(?:start|end)(?:-outer)?|spaced))$/;
+  var TRAILING_TOKENS = /\s*\{([a-z0-9 -]+)\}\s*$/;
+  function dropLoneCellMarkers(document, payload) {
+    if (!isLufthansaPage(payload)) return 0;
+    let dropped = 0;
+    document.querySelectorAll("table").forEach((table) => {
+      const name = cleanText(table.querySelector("tr > th, tr > td") || table).toLowerCase();
+      if (/^(section )?metadata$/.test(name) || /^form\b/.test(name)) return;
+      table.querySelectorAll(":scope > tbody > tr > td, :scope > tr > td").forEach((td) => {
+        const els = [...td.children];
+        const bare = [...td.childNodes].some((c) => c.nodeType === 3 && c.nodeValue.trim());
+        let holder = null;
+        if (els.length === 1 && els[0].tagName === "P" && !bare) [holder] = els;
+        else if (!els.length && bare) holder = td;
+        if (!holder || holder.querySelector("img, picture, video, iframe")) return;
+        const walker = document.createTreeWalker(holder, 4);
+        let last = null;
+        for (let n = walker.nextNode(); n; n = walker.nextNode()) if (n.nodeValue.trim()) last = n;
+        const m = last && last.nodeValue.match(TRAILING_TOKENS);
+        if (!m || !m[1].trim().split(/\s+/).every((t) => CELL_TEXT_TOKEN.test(t))) return;
+        last.nodeValue = last.nodeValue.slice(0, m.index);
+        dropped += 1;
+      });
+    });
+    return dropped;
   }
   var MAUI_LINK = "maui-button-link[href], maui-navigation-link[href], maui-link[href]";
   function convertMauiLinks(document) {
@@ -6571,6 +7122,21 @@ var CustomImportScript = (() => {
     }
     document.body.append(WebImporter.Blocks.getMetadataBlock(document, meta));
   }
+  function liftHeadingItems(document) {
+    const text = (el) => (el.textContent || "").replace(/[\s\u00a0\u200b]+/g, " ").trim();
+    document.querySelectorAll(":is(.twocolumn, .threecolumn, .fourcolumn) > .column-view > .row").forEach((row) => {
+      if (!row.querySelector(":scope > .column-view-item a.teaser.partner")) return;
+      const view = row.parentElement.parentElement;
+      [...row.children].forEach((item) => {
+        if (!item.matches(".column-view-item") || item.querySelector("a.teaser")) return;
+        const heads = [...item.querySelectorAll(":scope > .headline :is(h1, h2, h3, h4, h5, h6)")].filter(text);
+        const other = [...item.children].some((c) => !c.matches(".headline") && text(c));
+        if (!heads.length || other) return;
+        heads.forEach((h) => view.before(h));
+        item.remove();
+      });
+    });
+  }
   function markEmptyHeadlines(document, payload) {
     if ((payload && payload.template || {}).name !== "insights") return;
     document.querySelectorAll(".headline").forEach((headline) => {
@@ -6697,11 +7263,13 @@ var CustomImportScript = (() => {
       removeMobileDuplicates(document);
       rewriteAnchors(document, pagePath);
       convertJumpLinks(document);
+      markLinkLists(document, payload);
       convertAuthorQuotes(document);
       padCarouselSections(document);
       restoreMovingImages(document);
       markParallaxImages(document);
       markEmptyHeadlines(document, payload);
+      liftHeadingItems(document);
       const flow = columnMarksEnabled(payload);
       if (flow) {
         markColumnViews(document, payload);
@@ -6727,6 +7295,7 @@ var CustomImportScript = (() => {
       convertCaptions(document);
       markParagraphStyles(document);
       placeColumnMarks(document);
+      dropLoneCellMarkers(document, payload);
       addPageMetadata(document, payload);
     }
   }
@@ -6977,6 +7546,16 @@ var CustomImportScript = (() => {
         const gap = prev.querySelector(":scope > .mb-default") ? "spaced" : "flush";
         own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${gap}`);
       });
+      if (template.name === "fleet" || template.base === "fleet") {
+        aemSections.forEach((s, i) => {
+          const prev = aemSections[i - 1];
+          const own = prev && paddedBreaks.get(prev);
+          if (!own || padded(s) || grey(s) || isStage(s) || s.querySelector(`hr[${BREAK}]`) || prev.querySelector(`hr[${BREAK}]`)) return;
+          s.before(createBreak(document));
+          const gap = prev.querySelector(":scope > .mb-default") ? "spaced" : "flush";
+          if (!/ (spaced|flush)$/.test(own.getAttribute(SOURCE_STYLE))) own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${gap}`);
+        });
+      }
       const first = aemSections[0];
       if ((template.name === "info" || template.base === "info") && first && padded(first) && !grey(first) && first.querySelector("h1") && !first.querySelector(".inspirationteaser, .stage")) {
         const hr = createBreak(document);
@@ -6995,6 +7574,20 @@ var CustomImportScript = (() => {
         s.before(start);
         if (next) next.before(createBreak(document));
       });
+      if (lufthansa && (["fleet", "info"].includes(template.name) || ["fleet", "info"].includes(template.base))) {
+        aemSections.forEach((s, i) => {
+          const next = aemSections[i + 1];
+          const after = aemSections[i + 2];
+          if (!stage(s) || !next || !after || !padded(next) || grey(next) || stage(next) || padded(after) || grey(after) || stage(after)) return;
+          if (!next.querySelector(":scope > .mb-default")) return;
+          const hr = next.previousElementSibling;
+          if (!hr || !hr.hasAttribute(BREAK) || hr.getAttribute(SOURCE_STYLE)) return;
+          hr.setAttribute(SOURCE_STYLE, "padded spaced");
+          const own = s.previousElementSibling;
+          if (own && own.hasAttribute(BREAK)) own.setAttribute(SOURCE_STYLE, own.getAttribute(SOURCE_STYLE).split(" ").filter((x) => x !== "before-padded").join(" "));
+          if (!(after.previousElementSibling && after.previousElementSibling.hasAttribute(BREAK)) && !after.querySelector(`hr[${BREAK}]`)) after.before(createBreak(document));
+        });
+      }
       const blockSelectors = (template.blocks || []).flatMap((b) => b.instances || []);
       const taken = (el) => blockSelectors.some((sel) => {
         try {
@@ -7005,7 +7598,9 @@ var CustomImportScript = (() => {
       });
       document.querySelectorAll("maui-tab-control-responsive").forEach((control) => {
         const panels = [...control.querySelectorAll(TAB_PANEL)].filter((p) => p.closest("maui-tab-control-responsive") === control);
-        if (!panels.length || taken(control) || !panels.some((p) => p.querySelector(TAB_CONTENT))) return;
+        const tabUrl = payload && (payload.params && payload.params.originalURL || payload.url) || "";
+        const content = /^https?:\/\/www\.brusselsairlines\.com\//.test(tabUrl) ? `${TAB_CONTENT}, .table` : TAB_CONTENT;
+        if (!panels.length || taken(control) || !panels.some((p) => p.querySelector(content))) return;
         panels.forEach((panel, i) => {
           const hr = createBreak(document);
           hr.setAttribute(TAB, (panel.getAttribute("name") || "").trim() || `Tab ${i + 1}`);
@@ -7606,7 +8201,12 @@ var CustomImportScript = (() => {
     const def = theme.headings[`h${level}`];
     const idx = (s) => s === "copytext-large" ? HEADING_SIZES.length : HEADING_SIZES.indexOf(s);
     const steps = size === "copytext-large" ? idx(size) - idx(def) : sizeSteps(def, size);
-    if (steps === null || Math.abs(steps) <= 1) return { kind: "default" };
+    if (steps === null) return { kind: "default" };
+    if (Math.abs(steps) <= 1) {
+      const near = ((theme.nearChoices || {})[`h${level}`] || {})[size];
+      const kept = near && ((theme.headingChoices || {})[`h${level}`] || {})[near];
+      return kept ? { kind: "choice", choice: near } : { kind: "default" };
+    }
     const choice = steps < 0 ? "large" : "compact";
     const has = ((theme.headingChoices || {})[`h${level}`] || {})[choice];
     return has ? { kind: "choice", choice } : { kind: "none" };
@@ -7618,6 +8218,13 @@ var CustomImportScript = (() => {
       const size = tokens.find((t) => SIZE_TOKEN.test(t));
       tokens.filter((t) => t === "limited-width").forEach(() => count(stats, "theme", "heading"));
       if (!size) return;
+      const inBlock = blockOf(el, main);
+      const keptIn = inBlock && ((theme.keepSizesIn || {})[blockName(inBlock)] || []).includes(size);
+      if ((theme.keepSizes || []).includes(size) || keptIn) {
+        el.append(doc.createTextNode(` {${size}}`));
+        count(stats, "carrier", "heading-kept", 1);
+        return;
+      }
       const w = headingWish(theme, Number(el.tagName[1]), size);
       if (w.kind === "default") count(stats, "theme", "heading");
       else if (w.kind === "none") count(stats, "theme", "heading-no-choice");
@@ -7855,10 +8462,19 @@ var CustomImportScript = (() => {
       const groups = [];
       let depth = 0;
       let cur = null;
-      own.forEach((el) => {
+      const blank = (a, b) => own.slice(own.indexOf(a), own.indexOf(b) + 1).every((x) => x.tagName === "P" && isEmptyP(x) || isSepP(x));
+      let outerOf = false;
+      own.forEach((el, i) => {
         tokensOf(el).filter((t) => /^column-(start|end)/.test(t)).forEach((t) => {
           if (t.startsWith("column-start")) {
-            if (depth === 0) cur = { first: el, outer: t === "column-start-outer" };
+            if (depth === 0) {
+              outerOf = t === "column-start-outer";
+              cur = { first: el, outer: outerOf };
+            } else if (cur && i > 0 && cur.first !== el && !blank(cur.first, own[i - 1])) {
+              cur.last = own[i - 1];
+              groups.push(cur);
+              cur = { first: el, outer: false };
+            }
             depth += 1;
           } else if (depth > 0) {
             depth -= 1;
@@ -7866,10 +8482,20 @@ var CustomImportScript = (() => {
               cur.last = el;
               groups.push(cur);
               cur = null;
+            } else if (cur && own[i + 1]) {
+              cur.last = el;
+              groups.push(cur);
+              cur = { first: own[i + 1], outer: outerOf };
             }
           }
         });
       });
+      for (let i = groups.length - 1; i > 0; i -= 1) {
+        if (groups[i].first && groups[i].last && blank(groups[i].first, groups[i].last)) {
+          groups[i - 1].last = groups[i].last;
+          groups.splice(i, 1);
+        }
+      }
       groups.forEach((g, i) => {
         if (i && groups[i - 1].last === g.first) g.first = g.first.nextElementSibling;
       });
@@ -7904,6 +8530,12 @@ var CustomImportScript = (() => {
     }
     const outer = /* @__PURE__ */ new Map();
     marks.forEach((tokens, el) => {
+      if (theme.columnViews.oneElementViews && tokens.includes("column-start-outer") && tokens.includes("column-end-outer") && el.tagName === "P" && isRunningText(el) && !blockOf(el, main)) {
+        el.append(doc.createTextNode(" {column-start-outer column-end-outer}"));
+        count(stats, "carrier", "column", 2);
+        tokens.filter((t) => COLUMN.test(t) && t !== "column-start-outer" && t !== "column-end-outer").forEach(() => count(stats, "theme", "column"));
+        return;
+      }
       tokens.filter((t) => COLUMN.test(t)).forEach((t) => {
         if (t === "column-start-outer" || t === "column-end-outer") {
           const s = sectionOf(el.tagName === "LI" ? el.parentElement : el, main);
@@ -7928,11 +8560,18 @@ var CustomImportScript = (() => {
     return kids.length === 1 && kids[0].nodeType === 1 && /^(STRONG|B)$/.test(kids[0].tagName) && !!textOf(kids[0]) && !kids[0].querySelector("a, img, picture");
   }
   function collapseSeparators(main, doc, stats, ctx) {
-    const { rules } = themeFor(ctx.brand, ctx.pageType);
+    const { rules, textSpacers = false, componentSpacers = false } = themeFor(ctx.brand, ctx.pageType);
     const isSep = (el) => !!el && el.tagName === "P" && SEPARATOR.test(textOf(el));
-    const parse30 = (el) => textOf(el).match(SEPARATOR);
+    const parse31 = (el) => textOf(el).match(SEPARATOR);
     main.querySelectorAll(":scope > div > * p").forEach((p) => {
       if (!isSep(p)) return;
+      const m = parse31(p);
+      const prev = p.previousElementSibling;
+      const next = p.nextElementSibling;
+      if (textSpacers && m[1] === "spacer" && !m[3] && Number(m[2]) <= 31 && prev && isRunningText(prev) && !SEPARATOR.test(textOf(prev)) && next && /^H[1-6]$/.test(next.tagName)) {
+        count(stats, "carrier", "text-spacer-in-block");
+        return;
+      }
       count(stats, "theme", "separator-in-block");
       p.remove();
     });
@@ -7951,7 +8590,7 @@ var CustomImportScript = (() => {
         const now = [...sec.children];
         const first = now.indexOf(run.els[0]);
         const lastAt = now.indexOf(run.els[run.els.length - 1]);
-        const seps = run.els.map(parse30);
+        const seps = run.els.map(parse31);
         const divider = seps.some((m) => m[1] === "divider");
         const px = seps.reduce((a, m) => a + Number(m[2]), 0);
         const tablet = seps.every((m) => m[3]);
@@ -7965,6 +8604,24 @@ var CustomImportScript = (() => {
         const atStart = !content(before) && now.slice(0, first).every((el) => !content(el));
         const atEnd = now.slice(lastAt + 1).every((el) => !content(el));
         const remove = () => run.els.forEach((el) => el.remove());
+        const prose = (el) => !!el && isRunningText(el) && !/^\s*\{[^}]*\}\s*$/.test(textOf(el));
+        const heading = (el) => !!el && /^H[1-6]$/.test(el.tagName);
+        if (size === "none" && textSpacers && !tablet && prose(before) && (prose(after) || heading(after))) {
+          const keep = doc.createElement("p");
+          keep.textContent = `{spacer-${px}}`;
+          run.els[0].before(keep);
+          remove();
+          count(stats, "carrier", "text-spacer", run.els.length);
+          return;
+        }
+        if (size === "none" && componentSpacers && !tablet && !atStart && !atEnd && content(before) && content(after)) {
+          const keep = doc.createElement("p");
+          keep.textContent = `{spacer-${px}}`;
+          run.els[0].before(keep);
+          remove();
+          count(stats, "carrier", "component-spacer", run.els.length);
+          return;
+        }
         if (size === "none") {
           remove();
           count(stats, "theme", "separator", run.els.length);
@@ -8175,16 +8832,22 @@ var CustomImportScript = (() => {
   var NBSP_ALL = /\u00a0/g;
   var NBSP_BLANK = /^[\s\u00a0]*$/;
   var NBSP_SKIP_TAGS = /* @__PURE__ */ new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEMPLATE"]);
+  var HEADING_TAGS = /* @__PURE__ */ new Set(["H1", "H2", "H3", "H4", "H5", "H6"]);
+  var SPACE_RUN = /(?: |\u00a0|\u2007|&nbsp;|&#160;|&#xa0;|&#8199;|&#x2007;|&numsp;)+/gi;
+  var HAS_NB = /\u00a0|\u2007|&nbsp;|&#160;|&#xa0;|&#8199;|&#x2007;|&numsp;/i;
+  var headingText = (text) => String(text).replace(SPACE_RUN, (run) => HAS_NB.test(run) ? " " : run);
   function guardNbsp(root) {
-    const visit = (el) => {
+    const visit = (el, inHeading) => {
       if (!el || NBSP_SKIP_TAGS.has(el.tagName) || NBSP_BLANK.test(el.textContent || "")) return;
+      const heading = inHeading || HEADING_TAGS.has(el.tagName);
       [...el.childNodes].forEach((n) => {
         if (n.nodeType === 3) {
-          if (n.nodeValue.includes("\xA0")) n.nodeValue = n.nodeValue.replace(NBSP_ALL, NBSP_STAND_IN);
-        } else if (n.nodeType === 1) visit(n);
+          if (!n.nodeValue.includes("\xA0")) return;
+          n.nodeValue = heading ? headingText(n.nodeValue) : n.nodeValue.replace(NBSP_ALL, NBSP_STAND_IN);
+        } else if (n.nodeType === 1) visit(n, heading);
       });
     };
-    visit(root);
+    visit(root, false);
     return root;
   }
 
@@ -8271,6 +8934,12 @@ var CustomImportScript = (() => {
         ]
       },
       {
+        "name": "destination-finder",
+        "instances": [
+          ".fareteaserdynamicevo"
+        ]
+      },
+      {
         "name": "hero-card-overlay",
         "instances": [
           ".b2b-stage"
@@ -8338,9 +9007,13 @@ var CustomImportScript = (() => {
           ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))",
           ".sidebar:has(> .airem-sidebar > .sidebar-aside img):has(> .airem-sidebar > .sidebar-content .twocolumn):not(:has(.threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table, .sidebar-aside .twocolumn))",
           ':is(.section-content, .container-content, .sidebar-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe:not(.video-player > iframe), maui-navigation-link[variant="anchor-down"]))',
+          ":is(.section-content, .container-content) > .twocolumn.b2b-embed-columns",
+          ":is(.twocolumn, .threecolumn).b2b-tab-columns",
           ':is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
+          '.sidebar-content > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
           ":is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn) .image img):not(:has(.column-view-item .column-view-item :is(.text, .headline, .link, .teaser))):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe))",
           ':is(.section-content, .container-content, maui-tab-control-panel-responsive > div) > .onecolumn > .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"]))',
+          ':is(.section-content, .container-content) > .onecolumn > .column-view > .row > .column-view-item > .twocolumn:has(> .column-view > .row > .column-view-item > .image img):has(> .column-view > .row > .column-view-item > .twocolumn):not(:has(.threecolumn, .fourcolumn, .onecolumn, .table, .teaser, .poimapping, .stage, .slideshow, .accordion, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant="anchor-down"])):not(:has(> .column-view > .row > .column-view-item > .twocolumn .twocolumn)):not(:has(> .column-view > .row > .column-view-item > .twocolumn > .column-view > .row > .column-view-item > :not(.link)))',
           ':is(.section-content, .container-content, maui-tab-control-panel-responsive > div) > .onecolumn > .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > .image img):has(maui-navigation-link[variant="anchor-down"]):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe))',
           ".videoViewer, .image:has(video)",
           ":is(.section-content, .container-content) > .twocolumn:has(> .column-view > .carousel > .hidden-md-down > .row > .column-view-item > .headline):has(> .column-view > .carousel > .hidden-md-down > .row > .column-view-item > .image img):not(:has(.teaser, .table, .accordion, .tabs, .sidebar, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, form, iframe))",
@@ -8457,23 +9130,24 @@ var CustomImportScript = (() => {
     "form-core": parse10,
     "car-rental": parse11,
     "flight-search": parse12,
-    "hero-card-overlay": parse13,
-    "hero-campaign": parse14,
-    "carousel-images": parse15,
-    "accordion-columns": parse16,
-    "table-striped": parse17,
-    "cards-icon-text": parse18,
-    "cards-icon": parse19,
-    "carousel-cards": parse20,
-    "cards-teaser": parse21,
-    "columns-media": parse22,
-    "embed": parse23,
-    "lounge-finder": parse24,
-    "security-waiting-time": parse25,
-    "checkin-deadlines": parse26,
-    "ejournals": parse27,
-    "passenger-receipt": parse28,
-    "fare-teaser": parse29
+    "destination-finder": parse13,
+    "hero-card-overlay": parse14,
+    "hero-campaign": parse15,
+    "carousel-images": parse16,
+    "accordion-columns": parse17,
+    "table-striped": parse18,
+    "cards-icon-text": parse19,
+    "cards-icon": parse20,
+    "carousel-cards": parse21,
+    "cards-teaser": parse22,
+    "columns-media": parse23,
+    "embed": parse24,
+    "lounge-finder": parse25,
+    "security-waiting-time": parse26,
+    "checkin-deadlines": parse27,
+    "ejournals": parse28,
+    "passenger-receipt": parse29,
+    "fare-teaser": parse30
   };
   var transformers = [transform, transform2];
   function executeTransformers(hookName, element, payload) {
@@ -8497,7 +9171,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_hero_banner_1720268_default = {
+  var tmp_bundle_austrian_hero_banner_262010_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -8537,5 +9211,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_hero_banner_1720268_exports);
+  return __toCommonJS(tmp_bundle_austrian_hero_banner_262010_exports);
 })();

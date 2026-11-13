@@ -1,0 +1,21 @@
+# The standing order of 2026-11-10, item 2b (Air Dolomiti parity row 91): the two airport pages the carousel-count list
+# (reimport-557-ad-carousel-count.txt) held. They were false positives there: their carousel ("Related articles") has
+# no "see all" link on www (showMoreText empty); the paragraph after it is the map link. Decided by the rule "www's text
+# and links, DA's local picture copies": re-imported with airdolomiti-import.mjs as it is on main (since the item-2a
+# commit it writes DA's picture copies itself, no patch needed). Snapshot archive: airdolomiti-snapshots-003.tar.gz
+# (R2 drop, S0cxjp_4Yl8ABoeoIgJKtq4s; sha256 b6daf24322d026375b9567234fb6a6c286703dfe12a6d59a1109b24f59cb8bd4 as
+# downloaded, no delivery checksum recorded; both files match the manifest's sha256, recorded 2026-11-10 05:36 and
+# 05:39 UTC). Release order; published as they stand.
+#
+# Expected change per row (the import run offline on the snapshot against the live document):
+# - /de/flughaefen/frankfurt-de: www's new notice under the stage, "Wichtige Information: Schließung des AiRail
+#   Terminals am Flughafen Frankfurt ab 26. Oktober 2026" (h2) and its two paragraphs; the text block as
+#   columns-media (news) (www's description-news); the title section compact-title (www's Title h1); the newsletter
+#   section style; the pictures DA's copies (francoforte-mainbanner-d-6, fra-hp-inverno, frankfurt, fra-hp-ita-scaled);
+#   the links as now; the Alternate rows kept (www still lists it /aeroporti/francoforte, en /en/airports/frankfurt-eu).
+# - /en/airports/munich: no text change (the lines' labels and text one space apart, from the markup); the same
+#   variants (columns-media (news), compact-title, newsletter); the pictures DA's copies (monaco-mainbanner-d-13,
+#   monacodibaviera-dolomiti, verona-istock-594468704-scaled, flr2-hp-destinations); the links as now; the Alternate
+#   rows kept (www still lists it /aeroporti/monaco-di-baviera, de /de/flughaefen/muenchen).
+/de/flughaefen/frankfurt-de
+/en/airports/munich

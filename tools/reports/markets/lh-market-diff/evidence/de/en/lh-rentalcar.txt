@@ -1,0 +1,5 @@
+root    /ru/en/lh-rentalcar
+version /de/en/lh-rentalcar
+verdict differs (widget)
+diff (- version only, + root only; = shared), from token 3:
++ @data-dcep={"meiliUrl":"https://direct-ux.meili.travel/index.js","ptid":"105.11"}

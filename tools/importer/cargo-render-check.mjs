@@ -9,6 +9,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { guardContext, GUARD_CONTEXT } from '../parity/guard.mjs';
 
 const EXCAT = process.env.EXCAT_ROOT || '/home/node/.excat-marketplaces/excat-marketplace';
 const pw = await import(path.join(EXCAT, 'excat/skills/excat-scrape-webpage/scripts/node_modules/playwright/index.js'));
@@ -17,7 +18,9 @@ const [base, list] = process.argv.slice(2);
 const paths = fs.readFileSync(list, 'utf8').split(/\r?\n/).filter(Boolean);
 const browser = await chromium.launch();
 for (const p of paths) {
-  const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const context = await browser.newContext({ ...GUARD_CONTEXT, viewport: { width: 1440, height: 900 } });
+  // only our hosts: the page's scripts and fonts never reach an airline host (standing order 13)
+  await guardContext(context);
   const page = await context.newPage();
   page.setDefaultTimeout(15000);
   const errors = [];

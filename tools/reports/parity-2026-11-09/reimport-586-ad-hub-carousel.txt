@@ -1,0 +1,16 @@
+# ema-lufthansa, standing order 3 of 2026-11-11, item 1 ("the hub gap", Air Dolomiti parity row 107): the destination
+# hubs re-imported with airdolomiti-import.mjs as it is on main. Since this commit every CosaFareCarroussel gets a section
+# of its own with the style heading-icon (before: only with www's title icon), so the hubs' "Useful information to plan
+# your journey" carousel leaves the destination grid's section and takes row 84's MiniCardSlider layout. Expected change
+# per row: one section break before the carousel's title and a section-metadata Style heading-icon after its "show
+# more" line; no text, link or picture changes (checked offline on the three recordings: text the same, 101 / 31 / 104
+# lines). The theme's hub foot (row 107, next commit) waits for this re-import on these three hubs.
+# Measured with the three converted recordings on our host (local code, both commits): 1440 /destinazioni 3670 -> 3633
+# (www 3626), /en/destinations 4733 -> 4696 (4677), /de/reiseziele 4849 -> 4812 (4793); 390 6080 -> 6421 (6393), 9575 ->
+# 9917 (9699), 10075 -> 10416 (10151: our phone footer is 140 px taller than www's on every page, a row of its own).
+# Only these three documents have a CosaFareCarroussel without an icon (the 48 recorded pages' __NEXT_DATA__); the
+# destination pages' carousels already had their section and stay the same.
+# Columns: document, READY/HOLD, snapshot archive (R2 drop) with www's __NEXT_DATA__.
+/destinazioni	READY	airdolomiti-parity-001 (it-destinazioni)
+/en/destinations	READY	airdolomiti-parity-001 (en-destinations)
+/de/reiseziele	READY	airdolomiti-parity-001 (de-reiseziele)
