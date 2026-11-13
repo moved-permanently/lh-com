@@ -867,6 +867,35 @@ body.brand-austrian main :is(.default-content-wrapper, .columns-media-text) > :i
   }
 }
 
+/* standing order 26, item 3: a heading marked heading-copytext-large is www's heading-copytext-large (CoreSans 500,
+   16 px / 110 % with 0.19 px letter spacing, 18 px without it from 768 px; 12 px below it, 24 from 1281 px) with no space
+   of its own above it (www: the paragraph's 24 px before its headline component), not styles.css's (the heading font,
+   700, 20 px, 32 px above). os401crewstory's six story headings (24 px each too tall at 390), sustainable-flying's three,
+   accessible-travel's two; ranked on the 242 Austrian page-widths: os401crewstory closer at both widths (with its six
+   marks), the other two further by at most 0.42 points, nothing else moves. The fare teaser's title keeps its rule. */
+body.brand-austrian main > .section:not(.fare-teaser-container) :is(h1, h2, h3, h4, h5, h6).heading-copytext-large {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 0.19px;
+}
+
+@media (width >= 768px) {
+  body.brand-austrian main > .section:not(.fare-teaser-container) :is(h1, h2, h3, h4, h5, h6).heading-copytext-large {
+    font-size: 18px;
+    letter-spacing: 0;
+  }
+}
+
+@media (width >= 1281px) {
+  body.brand-austrian main > .section:not(.fare-teaser-container) :is(h1, h2, h3, h4, h5, h6).heading-copytext-large {
+    margin-bottom: 24px;
+  }
+}
+
 /* the parity sweep of the brief after 471: the fare teaser's title ("Winter deals") is www's maui-headline
    format heading-xl, Portada 500 28 / 30.8 (36 / 39.6 from 1025 px), 20 px above the fares */
 body.brand-austrian main .section.fare-teaser-container > .default-content-wrapper > :is(h2, h3):last-child {

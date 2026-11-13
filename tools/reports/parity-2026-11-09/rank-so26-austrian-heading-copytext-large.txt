@@ -1,0 +1,17 @@
+# ema-cashub, standing order 26 (2026-11-14), item 3: Austrian headings marked heading-copytext-large drawn as www's. Expected change
+# (shipped, austrian.css): on the 242 Austrian page-widths only the three pages with such headings move; os401crewstory (with
+# its delta's six marks) closer at both widths, accessible-travel and sustainable-flying further by at most 0.42 points (their
+# headings are www's heading-copytext-large too: the excess is elsewhere on those pages). Nothing else moves: the homepages'
+# "Winter deals" (fare teaser) keeps its rule.
+# Ours: austrian.turnsthe.page as served (2026-11-14 ~01:00 / 01:45 CET, item 1's commit live) and the same with the rule added
+# after load, os401crewstory as a draft with six marks; consent stored, pictures eager; www.* and the airline hosts refused and
+# counted (none sent). 11 rows of the 390 run did not render the first time (our host answered nothing for a minute: 844 px,
+# 0 requests); they were rendered again in both states and are the same in both. Checked again with the commit's code served
+# locally: the same heights.
+# Columns: status, path, width, www px, ours px, vs www, with the rule px, vs www, change in points (+ = further), headings.
+READY	/at/de/local-page/feels-like-flying/os401crewstory	390	9982	10114	+1.32 %	9909	-0.73 %	-0.59	6 (with the delta)
+READY	/at/de/local-page/feels-like-flying/os401crewstory	1440	7686	7887	+2.62 %	7764	+1.01 %	-1.61	6 (with the delta)
+READY	/at/en/accessible-travel	390	19409	18989	-2.16 %	18956	-2.33 %	+0.17	2
+READY	/at/en/accessible-travel	1440	12859	12840	-0.15 %	12827	-0.25 %	+0.10	2
+READY	/at/en/sustainable-flying	390	5929	5948	+0.32 %	5885	-0.74 %	+0.42	3
+READY	/at/en/sustainable-flying	1440	4275	4227	-1.12 %	4214	-1.43 %	+0.31	3

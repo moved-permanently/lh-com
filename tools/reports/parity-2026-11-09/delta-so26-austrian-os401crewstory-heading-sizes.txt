@@ -1,0 +1,23 @@
+# ema-cashub, standing order 26 (2026-11-14), item 3: Austrian /at/de/local-page/feels-like-flying/os401crewstory, the story's
+# headings as www's. Expected change, both widths closer to www: 1440 +2.62 -> +1.01 %, 390 +1.32 -> -0.73 % (with this order's
+# heading rule, live from its commit on; with the marks alone 1440 +1.54 %, 390 +0.39 %). DA's copy plus the delta, not a
+# re-import; it replaces delta-so24-austrian-os401crewstory-heading-sizes.txt (five marks, held at publish).
+# Why the marks shortened the page at 390 (the held publish, 9,988 -> 9,899 px against "www 10,025"):
+# - The 89 px are right. Stretch by stretch, every marked heading came closer to www's (www 390: CoreSans 500 16 / 17.6 px,
+#   12 px below; ours Portada 22 / 24.3 px with 32 above and 24 below, two lines on three of them). www's large copy text
+#   is not taller on phones: it is smaller (16 px, 18 from 768 px) with 12 px under it below 1281 px.
+# - 10,025 px is not www: it is the draft's own 390 height in order 24's file. www's recording (austrian-parity-003, the 1440
+#   load resized) is 9,982 px.
+# - 9,988 px is live without one picture: "Gemeinsam abheben"'s picture (1920 x 780) is lazy and measures 0 x 0 until it
+#   loads, so a render that does not scroll is 141 px short (here: 9,973 without loading it, 10,114 with every picture).
+# - Measured with every picture loaded, the five marks took 390 from +1.32 to +0.43 % and 1440 from +2.62 to +1.69 %; both
+#   closer. At 1440 the renders repeat to the pixel here (three loads each: 7,887 and 7,816 px).
+# The delta: " {heading-copytext-large}" at the end of the six headings www writes with that class (austrian-parity-003, 1440
+#   and 390 markup): the five of order 24 and h3 "Ein Teddy, ein letzter Blick - und ganz viel Mut" (www's text ends in
+#   &nbsp;, which kept it out of order 24's measurement list).
+# Measured as drafts (so24/host.mjs on austrian.turnsthe.page; the published copy, which equals order 24's control, as
+# control = live 10,114 / 7,887 px; consent stored, pictures eager; www.* and the airline hosts refused: 0 here): six marks
+# 10,021 / 7,804; with the heading rule (the commit's code served locally) 9,909 / 7,764 (www 9,982 / 7,686).
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, 390, 1440.
+
+READY	/at/de/local-page/feels-like-flying/os401crewstory.html	" {heading-copytext-large}" at the end of h3 "Zwischen Aufregung und Abenteuer", h3 "Früher selbst UM-Kind", h3 "Vom Gate bis ins Cockpit", h3 "Warum Eltern oft nervöser sind als die Kinder", h3 "Ein Teddy, ein letzter Blick - und ganz viel Mut", h2 "Gemeinsam abheben: entspannt mit der Familie reisen"	390 +1.32 -> -0.73 %	1440 +2.62 -> +1.01 %
