@@ -859,6 +859,16 @@ body.brand-b2b main figure.image-caption > figcaption {
   max-width: 800px;
 }
 
+/* from 768 px a page title right under the breadcrumb 2 px lower, as www's (31 of 40 recorded
+   page-widths at 1440 had it 2 px higher, its margins as www's: 23 better, none worse). On phones
+   the same 2 px (49 of 59) helped 29 and made one worse by 0.76 (SWISS Senses intermediaries xx/de,
+   whose title takes a line more than www's); not there (standing order 13) */
+@media (width >= 768px) {
+  body.brand-b2b main > .section.breadcrumb-container > .breadcrumb-wrapper + .default-content-wrapper:has(> h1:first-child) {
+    margin-top: 26px;
+  }
+}
+
 /* www's sidebar component is no column view (scripts/token-free.js columnViews.sidebarNoView): the
    column view after it starts right at its foot, its own padding the space (route-network) */
 body.brand-b2b main > .section > div:has(> .columns-media.sidebar) + .default-content-wrapper:has(> p.column-mark.column-start-outer:first-child) {
