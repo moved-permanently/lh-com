@@ -4701,3 +4701,20 @@ body.brand-airdolomiti .columns-media.news .columns-media-text h2 {
   font-weight: 400;
   line-height: 33px;
 }
+
+/* a photo inside a heading, after its text (www's HtmlContent: street-food-in-munich's H3 ends with a 1024 x 683 picture
+   at 1440, airdolomiti-parity-005; the archistar articles' airport photos in their H4s): its own size, at most the
+   column, on its own line. styles.css draws a heading's picture as a 26 px icon; one that opens its heading stays so */
+/* stylelint-disable-next-line no-descending-specificity -- a heading's picture, not the cards' (above) */
+body.brand-airdolomiti main .default-content-wrapper :is(h2, h3, h4, h5, h6):not(:has(> picture:first-child)) > picture {
+  display: block;
+  position: static;
+  margin-right: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- a heading's picture, not the cards' (above) */
+body.brand-airdolomiti main .default-content-wrapper :is(h2, h3, h4, h5, h6):not(:has(> picture:first-child)) > picture img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
