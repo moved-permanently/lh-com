@@ -747,3 +747,12 @@ body.brand-discover main .accordion-columns-wrapper {
     margin-bottom: 54px;
   }
 }
+
+/* on phones a column view right after a text paragraph starts about the paragraph's margin under it,
+   as www's (Punta Cana: 36 px from "Fly from Frankfurt ..." to the next view's heading, ours 56): an
+   8 px edge there instead of the outer view's 20 (standing order 11) */
+@media (width < 768px) {
+  body.brand-discover main .default-content-wrapper > p:not(.column-mark, .spacer) + p.column-mark.column-start-outer {
+    padding-top: 8px;
+  }
+}
