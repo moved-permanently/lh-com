@@ -1318,6 +1318,34 @@ body.brand-austrian main > .section:not(.space-s, .space-m, .space-l, .space-xl)
   }
 }
 
+/* the same tiles from 768 px (Austrian row 56, standing order 18): www's .teaser.partner box is the same at every width
+   (padding 2.15rem 2.4rem 3.6rem, the heading 1.8rem over the box's end), the title at the heading-small size (28 / 30.8
+   px at 1440), the rows 34.5 px apart (245 px pitch with four-line titles), the first row 115 px under the picture above
+   (accessible-travel 1440: ours 24, rows 125 apart). Each row of four is a block of its own */
+@media (width >= 768px) {
+  body.brand-austrian main :not(.cards-icon-text-wrapper) + .cards-icon-text-wrapper > .cards-icon-text.partner:not(:has(.cards-icon-text-body > p)) {
+    margin-top: 90px;
+  }
+
+  body.brand-austrian main .cards-icon-text-wrapper + .cards-icon-text-wrapper > .cards-icon-text.partner:not(:has(.cards-icon-text-body > p)) {
+    margin-top: 34.5px;
+  }
+
+  body.brand-austrian main .cards-icon-text.partner > ul:not(:has(.cards-icon-text-body > p)) {
+    row-gap: 34.5px;
+  }
+
+  body.brand-austrian main .cards-icon-text.partner > ul > li:not(:has(.cards-icon-text-body > p)) > .cards-icon-text-card {
+    padding: 33.5px 24px 36px;
+  }
+
+  body.brand-austrian main .cards-icon-text.partner > ul > li:not(:has(.cards-icon-text-body > p)) .cards-icon-text-title {
+    margin-bottom: 18px;
+    font-size: var(--heading-font-size-l);
+    line-height: var(--heading-line-height);
+  }
+}
+
 /* a tab panel of text and a picture (Austrian row 55, standing order 16; travel-id's "Website", "Chat assistant", "App",
    "FlyNet"): from 1025 px www's two-column view, the text 622 px wide on the left, the picture beside it, both from the
    top, the heading heading-small (austrian-parity-015 travel-id at 1440; ours had the picture full width under the
