@@ -767,3 +767,17 @@ body.brand-discover main .accordion-columns-wrapper {
     margin-top: -40px;
   }
 }
+
+/* a page title right under the breadcrumb as www's from 768 px: 6 px lower (www's title at y 192,
+   ours 186) and 60 px above what follows (www's h1.heading-large on every recorded page; styles.css's
+   --heading-margin-xxl gave 40). Not on phones nor under a stage (measured worse there), nor on the
+   offers page, whose title keeps 26 px above the destination finder (standing order 12) */
+@media (width >= 768px) {
+  body.brand-discover main > .section.breadcrumb-container:not(.destination-finder-container) > .breadcrumb-wrapper + .default-content-wrapper:has(> h1.heading-large:first-child) {
+    margin-top: 34px;
+  }
+
+  body.brand-discover main > .section.breadcrumb-container:not(.destination-finder-container) > .breadcrumb-wrapper + .default-content-wrapper:has(> h1.heading-large:first-child) > h1.heading-large:first-child {
+    margin-bottom: 60px;
+  }
+}
