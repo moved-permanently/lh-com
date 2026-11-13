@@ -118,10 +118,39 @@ function ownHostFilter(url) {
     || isOwnHost(u.hostname) || CONSENT_HOSTS.includes(u.hostname);
 }
 
+/**
+ * The local copy of a web font a capture of our pages asks a foreign host for: styles/fonts.css
+ * and the brand themes load their fonts from our path first (404 on aem.live), then from the
+ * airline's www (/digitalhangar/design-system/...). The recording drops hold www's files at the
+ * same paths, so PARITY_FONTS points capture.js at them. The file for a font URL (.woff2, .woff,
+ * .ttf, .otf) under one of dirs at the URL's path (query ignored), else null; never a file
+ * outside the directories.
+ * @param {URL} u the request URL
+ * @param {string[]} dirs directories holding www's paths (a drop's root)
+ * @returns {string|null}
+ */
+function mirroredFont(u, dirs) {
+  let rel;
+  try {
+    rel = decodeURIComponent(u.pathname);
+  } catch (e) {
+    return null;
+  }
+  if (!/\.(woff2?|ttf|otf)$/i.test(rel)) return null;
+  const found = dirs.map((dir) => {
+    const root = path.resolve(dir);
+    const file = path.resolve(root, `.${path.posix.normalize(`/${rel}`)}`);
+    return file.startsWith(`${root}${path.sep}`) && fs.existsSync(file) && fs.statSync(file).isFile()
+      ? file : null;
+  }).find(Boolean);
+  return found || null;
+}
+
 module.exports = {
   ROOT,
   installedBrowser,
   ownHostFilter,
+  mirroredFont,
   DEFAULT_STATE,
   getArgs,
   mkdirp,

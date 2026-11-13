@@ -35,7 +35,7 @@ const path = require('path');
 const { chromium } = require('playwright-core');
 const {
   DEFAULT_STATE, getArgs, mkdirp, writeJsonAtomic, appendJsonl, rmSafe, installedBrowser,
-  ownHostFilter,
+  ownHostFilter, mirroredFont,
 } = require('./lib.js');
 
 // PARITY_CHROME=1 (or a path): the full chrome build instead of playwright's headless shell,
@@ -47,6 +47,9 @@ const FULL_CHROME = installedBrowser('chromium', 'chrome-linux64/chrome');
 let CHROME = process.env.PARITY_CHROME || null;
 if (CHROME === '1') CHROME = FULL_CHROME;
 const SHELL = installedBrowser('chromium_headless_shell', 'chrome-headless-shell-linux64/chrome-headless-shell');
+// a capture of our pages never reaches an airline host (standing order 12); the web fonts it
+// would load from one come from these directories (":"-separated: recording drops, www's paths)
+const FONT_DIRS = (process.env.PARITY_FONTS || '').split(':').filter(Boolean);
 
 const USAGE = 'node tools/parity/capture.js --url <url> --width <px> --out <png> [--content-width px] [--timeout 90000] [--max-height 8000] [--state dir]';
 const VIEWPORT_HEIGHT = 900;
@@ -410,7 +413,14 @@ async function main() {
     ...(allowHost ? { serviceWorkers: 'block' } : {}),
   });
   // a capture of our pages: its scripts never reach an airline host (standing order 12)
-  if (allowHost) await context.route((u) => !allowHost(u), (route) => route.abort('blockedbyclient'));
+  // (a web font from the airline's www: www's file from PARITY_FONTS, the recording drops)
+  if (allowHost) {
+    await context.route((u) => !allowHost(u), (route) => {
+      const font = mirroredFont(new URL(route.request().url()), FONT_DIRS);
+      return font ? route.fulfill({ path: font, headers: { 'Access-Control-Allow-Origin': '*' } })
+        : route.abort('blockedbyclient');
+    });
+  }
   await context.addInitScript(initScript, {
     key: CONSENT_KEY, groups: CONSENT_GROUPS, showcaseKey: SHOWCASE_KEY, scrollbar: withScrollbar,
   });

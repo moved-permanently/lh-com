@@ -45,11 +45,47 @@ test('ownHostFilter: none for a target that is not ours (a recording of www)', (
   assert.equal(ownHostFilter('not a url'), null);
 });
 
-test('capture.js aborts the other requests and blocks service workers for our pages', () => {
+/* Then: styles/fonts.css and the brand themes load their web fonts from our path first (404 on aem.live) and then from
+   the airline's www (https://www.lufthansa.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/...):
+   aborted, the text fell back to a system font (Discover's punta-cana at 390 344 px longer, 29.55 -> 48.18). The
+   recording drops hold www's font files at the same paths (<drop>/digitalhangar/...); PARITY_FONTS (directories,
+   ":"-separated) answers a font request from them: lib.js mirroredFont(u, dirs) is the file for a font URL (.woff2,
+   .woff, .ttf, .otf) found under one of the directories at the URL's path, else null. Anything else stays aborted. */
+test('mirroredFont: a font URL answered from a directory holding the same path, nothing else', () => {
+  const { mirroredFont } = require('../tools/parity/lib.js');
+  const os = require('node:os');
+  const path = require('node:path');
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'fonts-'));
+  const a = path.join(root, 'a');
+  const b = path.join(root, 'b');
+  const rel = 'digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/lufthansa';
+  fs.mkdirSync(path.join(b, rel), { recursive: true });
+  fs.mkdirSync(a, { recursive: true });
+  fs.writeFileSync(path.join(b, rel, 'LufthansaHeadWeb-Bold.woff2'), 'x');
+  fs.writeFileSync(path.join(b, rel, 'notes.txt'), 'x');
+  fs.writeFileSync(path.join(root, 'secret.woff2'), 'x');
+  const font = `https://www.lufthansa.com/${rel}/LufthansaHeadWeb-Bold.woff2`;
+  assert.equal(mirroredFont(new URL(font), [a, b]), path.join(b, rel, 'LufthansaHeadWeb-Bold.woff2'));
+  // the query string does not matter, the host does not either (the same path on swiss.com is its own file)
+  assert.equal(mirroredFont(new URL(`${font}?v=1`), [a, b]), path.join(b, rel, 'LufthansaHeadWeb-Bold.woff2'));
+  assert.equal(mirroredFont(new URL(`https://www.lufthansa.com/${rel}/LufthansaTextWeb-Bold.woff2`), [a, b]), null);
+  assert.equal(mirroredFont(new URL(`https://www.lufthansa.com/${rel}/notes.txt`), [a, b]), null);
+  assert.equal(mirroredFont(new URL('https://www.lufthansa.com/service/api/catalogs/regions'), [a, b]), null);
+  // never outside the directories
+  assert.equal(mirroredFont(new URL('https://www.lufthansa.com/b/%2E%2E/secret.woff2'), [b]), null);
+  assert.equal(mirroredFont(new URL('https://www.lufthansa.com/..%2Fsecret.woff2'), [b]), null);
+  assert.equal(mirroredFont(new URL(font), []), null);
+  fs.rmSync(root, { recursive: true, force: true });
+});
+
+test('capture.js answers mirrored fonts, aborts the other requests and blocks service workers for our pages', () => {
   const src = fs.readFileSync(new URL('../tools/parity/capture.js', import.meta.url), 'utf8');
   assert.match(src, /const allowHost = ownHostFilter\(url\);/);
   assert.match(src, /\.\.\.\(allowHost \? \{ serviceWorkers: 'block' \} : \{\}\)/);
-  assert.match(src, /if \(allowHost\) await context\.route\(\(u\) => !allowHost\(u\), \(route\) => route\.abort\('blockedbyclient'\)\);/);
+  assert.match(src, /if \(allowHost\) \{\s+await context\.route\(\(u\) => !allowHost\(u\), \(route\) => \{/);
+  assert.match(src, /const font = mirroredFont\(new URL\(route\.request\(\)\.url\(\)\), FONT_DIRS\);/);
+  assert.match(src, /return font \? route\.fulfill\(\{ path: font, headers: \{ 'Access-Control-Allow-Origin': '\*' \} \}\)\s+: route\.abort\('blockedbyclient'\);/);
+  assert.match(src, /const FONT_DIRS = \(process\.env\.PARITY_FONTS \|\| ''\)\.split\(':'\)\.filter\(Boolean\);/);
   // routed before the first page opens
   assert.ok(src.indexOf('context.route(') < src.indexOf('context.newPage()'));
 });
