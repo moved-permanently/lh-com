@@ -741,9 +741,10 @@ body.brand-discover main .accordion-columns-wrapper {
 
 /* from 768 px a page that ends with the flight search (the price calendar) keeps 54 px under it:
    www's footer about 46 px under the search box at 1440, ours 20 (standing order 11; at 390 the
-   section gap is there already) */
+   section gap is there already). The section's class keeps it above flight-search.css's
+   standalone rule (margin-bottom 0 at the same specificity, loaded later; standing order 12) */
 @media (width >= 768px) {
-  body.brand-discover main > .section:last-child:has(> .flight-search-wrapper:last-child) {
+  body.brand-discover main > .section.flight-search-container:last-child:has(> .flight-search-wrapper:last-child) {
     margin-bottom: 54px;
   }
 }
