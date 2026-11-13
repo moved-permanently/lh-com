@@ -508,6 +508,28 @@ body.brand-b2b .columns-media.stage.light .columns-media-text > p:has(> a.button
   }
 }
 
+/* the option equal-cells (a delta writes it: businesstogo's feature block, delta-so17-b2b-businesstogo-nested.txt):
+   from 768 px a nested row gives each cell it shows an equal column, an empty cell none, as www's col-md-6 (the text
+   622 px at 1440, ours a third: 408); B2B's cell spacers ({spacer-N} in a text cell, the delta's room under www's zoom
+   pictures) N + 1 px, as lufthansa.com's (standing order 17) */
+@media (width >= 768px) {
+  body.brand-b2b .columns-media.nested.equal-cells > .columns-media-row {
+    grid-template-columns: none;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+  }
+
+  body.brand-b2b .columns-media.nested.equal-cells > .columns-media-row > :empty {
+    display: none;
+  }
+}
+
+body.brand-b2b .columns-media .columns-media-text > p.spacer {
+  box-sizing: content-box;
+  height: calc(var(--spacer-size, 25px) + 1px);
+  margin: 0;
+}
+
 /* a card carousel right under text in a white section: www's column view with its 4rem above it
    (64 px from 768 px, 44 on phones; about-us, celebrating-shared-stories: ours the section's
    24; the brief after 526, row 35); in a grey band the band's padding spaces it */
