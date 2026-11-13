@@ -4432,8 +4432,7 @@ refused in both runs.
 
 ### Item 3: a code rule for the rows left
 
-**Shipped locally, test first, held:** Air Dolomiti, a photo inside a heading after its text. It is not pushed: main's
-suite is red from another job (below).
+**Shipped (`265e7364`, test first):** Air Dolomiti, a photo inside a heading after its text.
 - **Cause:** www draws street-food-in-munich's H3 ("Last but not least, the Wiener Markt…") with its 1024 x 683 picture
   at the end. styles.css sizes every default-content heading's picture as a 26 px icon, so ours drew it 26 x 26.
 - **The rule:** airdolomiti.css draws a heading's picture that does not open the heading at its own size, at most the
@@ -4447,14 +4446,25 @@ suite is red from another job (below).
   - The other 96 recorded Air Dolomiti page-widths: unchanged, so the gate holds.
   - The en archistar article (not recorded) at 1440: 2,542 -> 4,348 px, its photos 1200 x 799, 650 x 350,
     1200 x 814. A recording of it is requested to confirm that www draws them the same way.
-- **Checks:** stylelint exit 0 on airdolomiti.css. Whole-repo lint exit 0 in the clean worktree on c813a384. The 162
-  test files naming airdolomiti or the heading-picture rule: 724 of 725 passed. The one failure is not this change (below).
+  - At 390 the three archistar articles and street-food draw their photos 351 px wide (the column); none of the four
+    pages scrolls sideways (scrollWidth 390).
+- **Live on our host** after the push: street-food-in-munich 6,048 px at 1440, as in the trial.
+- **Checks:** stylelint exit 0 on airdolomiti.css.
+  - The full suite on origin/main plus the commit (1,010 files): 4,025 tests, 4,019 pass, 1 fail, 5 skipped. The fail
+    was main's (below).
+  - In the push loop: whole-repo lint exit 0 on each of the three bases, read before the push.
+  - The 162 test files naming airdolomiti or the heading-picture rule: 725 of 725 on the first base and again on the
+    third. The second base brought only docs and upload states, which none of those tests names, so none ran again for it.
+  - It went in on the third base: other jobs' pushes moved origin during the first two rounds' checks.
 
-**Main's suite has been red since 08:41 UTC, from another job's commit.** test/brand.test.mjs fails on b2b.css's
+**Main's suite was red from 08:41 to 11:09 UTC, from another job's commit.** test/brand.test.mjs failed on b2b.css's
 `body.brand-b2b.theme-live.flow-spacing main …` rule from `1a5da3f9` (ema-test, standing order 13, item 3). The test
-wants every theme selector to start with `body.brand-<key> `. The test and b2b.css are the same on origin/main as in my
-run. b2b.css is ema-test's, so I did not touch it. It is row 7 of rows-for-ema-test.md, with tap.css's
-`main:where(.theme-live *)` form and its weight caveat. My commit waits until main is green.
+wanted every theme selector to start with `body.brand-<key> `.
+- b2b.css is ema-test's, so I did not touch it. I wrote it up as row 7 of rows-for-ema-test.md and held my commit.
+- ema-lufthansa's `8177ff19` (11:09 UTC) changed the test to accept the brand's body with more classes (its row 8).
+  My commit went in after that.
+- My own theme passes the test's scope check either way: 634 selectors, none outside body.brand-airdolomiti
+  (so22/scope-check.mjs, the test's rule run on each theme; b2b's one rule was the only one outside its scope).
 
 **The other rows outside 2 %, no code rule I can measure here:**
 - **Air Dolomiti:** the FAQ pages and the assistance pages at 390, and booking at 390, are as ema-lufthansa classified
@@ -4468,3 +4478,64 @@ run. b2b.css is ema-test's, so I did not touch it. It is row 7 of rows-for-ema-t
   - whats-up-now at 390 (-2.5 / -2.2 %) was never traced, and without the recording I can't trace it: requested.
 - capture-requests-ema-cashub.txt: /at/de/entryregulations (018 not in the drop), street-food-in-munich and the en
   archistar article, Cargo whats-up-now en / de.
+
+**TAP, tried and not shipped: the phone sliders' spacing** (navigator-experiences +2.09 % at 390).
+- **The cause:** from tap-parity-011 rendered offline with its own CSS, www's first card sits 29 px under its heading;
+  ours sits 49 px under it. A tap.css rule (`li:has(> .cards-teaser-body > p…)`, `5fda6453`) outweighs row 143's
+  `margin: 0 16px 16px` and keeps a 16 px top margin on each card.
+- **Measured** on the 26 recorded TAP pages at 390 (25 as before, plus /pt-pt from -011), main against main with the
+  rule:
+
+| change | navigator-experiences | get-inspired | inspire-se | doacao-milhas | sum of the deviations |
+|---|---|---|---|---|---|
+| main | +2.09 % | -0.64 | +0.55 | -0.35 | 43.59 points |
+| the card's top margin 0 | +0.86 | -1.60 | -0.39 | -0.69 | 43.51 |
+| and the dots 25 px under it | -0.51 | -2.68 | -1.45 | -1.06 | 45.66 |
+
+- **Not shipped:** get-inspired moves 0.96 points further away with the first change, which breaks the 0.5-point gate.
+  As order 15 found, no shared rule.
+- The rest of the 26 pages: unchanged by either change.
+
+### Final section (about 13:45 CET, 2026-11-13)
+
+I stopped before 15:00. The three items are done as far as the drop allows.
+
+**On main:**
+- `265e7364`: Air Dolomiti, a photo inside a heading after its text drawn as a photo (street-food-in-munich 1440
+  -12.02 -> -2.02 %; the other 96 recorded Air Dolomiti page-widths unchanged). Live on our host.
+- `e3fe5afd`: this section's first part, with its four lists, before the code push.
+- This commit: item 3's result, the TAP slider trial and this final section.
+
+**Checks before each push:**
+- Whole-repo lint exit 0 in the clean worktree, read before every push: twice for the docs, three times for the theme
+  commit (origin moved twice during its checks).
+- Stylelint exit 0 on airdolomiti.css.
+- The theme commit's test red first.
+- The 162 test files naming its files and classes: 725 of 725 on the base it went in on.
+- The full suite on origin/main plus the commit: 4,025 tests, 4,019 pass, 5 skipped. The one failure was main's own
+  brand test, red from 08:41 to 11:09 UTC (row 7 of rows-for-ema-test.md; fixed by ema-lufthansa's `8177ff19`). I
+  held the commit until then.
+
+**Lists** (tools/reports/parity-2026-11-09/):
+- switch-so22-airdolomiti-cargo.txt: the 145 page-widths before and after the two switches, all unchanged.
+- delta-so22-tap-navigator-card.txt: 1 HOLD (a dated offer card; its picture isn't in DA; the page comes no closer).
+- delta-so20-austrian-entryregulations-column-views.txt: /at/de still HOLD (austrian-parity-018 404).
+- capture-requests-ema-cashub.txt: /at/de/entryregulations; Air Dolomiti street-food-in-munich and the en archistar
+  article; Cargo whats-up-now en / de.
+- rows-for-ema-test.md row 7 (the red brand test, since fixed: ema-lufthansa's row 8).
+
+**Open:**
+- austrian-parity-018: 404 on every try from 09:44 to 12:36 UTC.
+- The Air Dolomiti and Cargo archives: no longer in the drop. Without them the open rows can't be traced against
+  www's DOM: whats-up-now, and www's 390 height of street-food-in-munich. Whether www draws the archistar photos as
+  street-food's is not checked either.
+- Cargo's newsroom and homepage rows measure without Mynewsdesk's feed (www.mynewsdesk.com, refused as a www host).
+  Allowing that one host would give their real numbers; it is not an airline host. Your call.
+
+**Not in git:** in migration-work/parity-588/so22 (ignored): the scripts (host.mjs, rank.sh, push-loop2.sh /
+push-loop4.sh, suite.sh, scope-check.mjs), the rankings and logs, the drafts and DA reads (Cargo ebooking-info and its
+backups, TAP navigator-experiences). Also there: wt-main, a worktree checkout that the tool's 2-minute limit cut short.
+It is a partial file copy, not registered with git, and nothing uses it. The capture is in
+so10/arch/tap-parity-011.
+
+No upload, preview or publish. da-upload.mjs was not called. DA was only read (five source GETs).
