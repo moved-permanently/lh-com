@@ -17,7 +17,9 @@
 # live on our host.
 # The conditions of carriage supersedes its row in reimport-so17-brussels-panel-heading-sizes.txt: a re-import with
 # today's bundles writes both the panel heading sizes and the panel separators (57 spacers of 11 px, 70 h3s).
+# Update 2026-11-13 01:20 CET: the conditions of carriage is live with its panel heading sizes (the so17 list) but
+# without the panel separators; its row stays READY for them. aviation-services-law and special-assistance not yet re-imported.
 # Columns: document, status, expected change.
 /ao/fr/legal-notices/aviation-services-law	READY	"{spacer-28}" before its three h2s; 1440 2,679 -> 2,730 px (2,635 with P50)
 /it/it/legal-notices/special-assistance-legal-guidelines	READY	"{spacer-28}" before "Legal guidelines for all flights (non-US)"; 1440 1,428 -> 1,445 px (1,474 with P50)
-/be/en/legal-notices/terms-and-conditions-conditions-of-carriage	READY	57 panel "{spacer-11}" and 70 panel h3s "{heading-small}"; 1440 28,041 -> 29,647 px (28,364 with P50); 390 57,059 -> 58,073 px with the sizes alone
+/be/en/legal-notices/terms-and-conditions-conditions-of-carriage	READY	57 panel "{spacer-11}" (its 70 panel h3s' "{heading-small}" are live since the helper's re-import of the so17 list: 1440 28,951 px measured at 01:20 CET); 1440 28,951 -> 29,647 px (28,364 with P50)

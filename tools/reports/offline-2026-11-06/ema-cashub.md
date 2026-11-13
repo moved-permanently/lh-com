@@ -3819,3 +3819,82 @@ owner. Nothing of mine was left uncommitted or unpushed then: only scratch outsi
 
 No upload, preview or publish. da-upload.mjs was not called, and no test called the DA or preview API. Only read-only
 GETs of our own hosts.
+
+## Standing order 18 (2026-11-13, from about 00:00 CET)
+
+**Start state:** nothing of mine was uncommitted or unpushed. Order 17 had ended at `389480d8`; its scratch is outside
+git, in migration-work/parity-588/so17.
+
+**Rules followed:** our hosts only (every render refuses www.* and the airline hosts and counts them; none was sent),
+the drop's recordings, no upload, preview or publish. No capture requests were needed.
+
+- **Item 1, Brussels P50 and www's separators.**
+  - The cleanup already keeps the separators www shows in the sidebar's running text (since standing order 8), for
+    example aviation-services-law's three before its h2s. The documents predate that.
+  - In accordion panels the cleanup kept them too, but they were lost later: the accordion parser dropped its
+    placeholder, and the collapse removed any separator in a block cell. The conditions of carriage has 57 such 11 px
+    separators before its panel h3s. `9fa98605` fixes this for Brussels, test first: the parser writes
+    "<p>{spacer-N}</p>" before the panel heading, the collapse keeps it (Brussels' textSpacers), and the theme draws
+    it. The bundles were rebuilt in the same commit.
+  - List: reimport-so18-brussels-separators.txt, 3 READY (aviation-services-law, special-assistance-legal-guidelines,
+    the conditions of carriage).
+  - **P50, again with the 0.5-point gate:** with those three documents re-imported (drafts), P50's held rules pass at
+    1440. 15 of the 32 recorded pages come closer, none moves further by more than 0.5 points, and the sum of the
+    deviations drops from 81.2 to 48.7.
+  - With today's documents the gate still fails: aviation-services-law would go -0.11 -> -3.65 %. P50 stays held
+    until the three documents are live (P50 row).
+- **Item 2, the hub card rows** (`459f4934`): no new marker was needed. On www, the hubs whose intro opens a
+  one-column view straight in the page container (pets, baggage, plan-your-trip) put their rows 97 px apart; meals'
+  intro sits in an AEM section and its rows are 81 apart, as ours. The importer's existing sidebar option in-column
+  already tells the two kinds apart, so the theme follows it from 768 px.
+  - At 1440: pets -2.43 -> -1.50 %, baggage -2.42 -> -1.50, plan-your-trip -1.17 -> -0.18. The other 29 pages are
+    unchanged.
+  - Not taken: the 18 px under the last row, because it moved lounges +0.22 -> +1.56.
+  - No list: no document changes.
+- **Item 3, gallery captions** (`50059d38`, block code): after a paragraph of several pictures, the caption now goes
+  under the last picture, as on www. No local document has this case today (3,445 with captions scanned); the Brussels
+  articles get it once a re-import marks their captions.
+- **Item 4, Austrian accessible-travel from 768 px** (`c5cd1475`): the partner tiles now use www's box at every width,
+  with the title at the heading-small size, rows 34.5 px apart, and the first row 115 px under the picture.
+  - accessible-travel 1440: -2.44 -> -0.15 %. The other 60 recorded Austrian pages at 1440 are unchanged; phones are
+    as before.
+
+**Checks before each push:**
+- Whole-repo lint exit 0, read before every push.
+- Stylelint exit 0 on brussels.css and austrian.css.
+- Each change's test red first.
+- Every test that names the changed file's stem or the rule's classes passed: 1,746 tests for the panel separators
+  and captions, 1,562 for the theme rules; 0 fail.
+- Each change was measured on the recorded pages of its brand at 1440. 390 is unaffected: the rules apply from
+  768 px, and the importer changes do not touch live documents.
+
+**A lint gap, found on the way:** `eslint .` does not lint .mjs files. Run directly, marker-collapse.mjs shows two
+older brace-style errors (lines from 2026-11-09 and 2026-11-12, not mine); left as found.
+
+### Final section (about 01:30 CET, 2026-11-13)
+
+**Live by code** (on main):
+- Brussels P55, the hub card rows (`459f4934`).
+- Austrian row 56 from 768 px (`c5cd1475`).
+- The columns-media caption placement (`50059d38`).
+- The Brussels panel spacer rule (`9fa98605`). It shows only once documents carry the panel separators.
+- Importer changes in the bundles, taking effect with re-imports: the panel separators (`9fa98605`) and, since order
+  17, the panel heading sizes (`abbe8429`).
+
+**What the helper's re-imports show at 01:20 CET**, measured on our hosts:
+- The Austrian Schengen page is live as its list said: 1440 3,065 px (www 3,087, -0.71 %); 390 4,310 px (www 4,358).
+- The conditions of carriage is live with its panel heading sizes: 1440 28,951 px (+1.66 %); 390 58,542 px (www
+  59,474, -1.57 %). It does not have the panel separators yet.
+
+**Lists** (tools/reports/parity-2026-11-09/):
+- reimport-so18-brussels-separators.txt: 3 READY. The conditions of carriage's row now asks for the separators only.
+
+**Open:**
+- P50 (held). It ships once those three documents are live, by the gate above.
+- The hubs' 18 px under the last row (lounges).
+- The Brussels articles' caption markers, which need a re-import.
+
+**Not in git:** rankings, drafts, crops, code copies and scripts, in migration-work/parity-588/so17 (ignored).
+
+No upload, preview or publish. da-upload.mjs was not called, and no test called the DA or preview API. Only
+read-only GETs of our own hosts.
