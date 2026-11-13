@@ -1,0 +1,174 @@
+[
+ {
+  "path": "/de/de/program/businesstogo",
+  "inserts": [
+   {
+    "before": "<h1 id=\"businesstogo-is-your-go-to\">",
+    "text": "<p>{column-start-outer}</p><p>{column-start-outer}</p>"
+   },
+   {
+    "after": "src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-1-startpage-de-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture>",
+    "text": "<p>{spacer-39}</p>"
+   },
+   {
+    "after": "src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-2-flightresults-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>",
+    "text": "<p>{spacer-39}</p>"
+   },
+   {
+    "after": "src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-3-travelpolicy-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>",
+    "text": "<p>{spacer-39}</p>"
+   },
+   {
+    "after": "src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-4-travelermap-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>",
+    "text": "<p>{spacer-39}</p>"
+   },
+   {
+    "after": "<h2 id=\"case-study-für-höchstleistungen-das-reisemanagement-optimieren\">Case Study: Für Höchstleistungen das Reisemanagement optimieren",
+    "text": " {heading-medium}"
+   },
+   {
+    "after": "<h2 id=\"frequently-asked-questions-faq\">Frequently Asked Questions (FAQ)",
+    "text": " {heading-copytext-large}"
+   },
+   {
+    "after": "<h3 id=\"mehr-effizienz-und-eine-bessere-user-experience\">Mehr Effizienz und eine bessere User Experience:",
+    "text": " {heading-copytext-large}"
+   },
+   {
+    "after": "<h3 id=\"maximale-kostenersparnis-und-prämien\">Maximale Kostenersparnis und Prämien:",
+    "text": " {heading-copytext-large}"
+   },
+   {
+    "after": "<h3 id=\"gewinnen-sie-kontrolle-und-flexibilität\">Gewinnen Sie Kontrolle und Flexibilität:",
+    "text": " {heading-copytext-large}"
+   },
+   {
+    "after": "<h3 id=\"priorisieren-sie-die-sicherheit-ihrer-reisenden\">Priorisieren Sie die Sicherheit Ihrer Reisenden:",
+    "text": " {heading-copytext-large}"
+   },
+   {
+    "after": "<div class=\"columns-media divider-above nested",
+    "text": " equal-cells"
+   },
+   {
+    "before": "<div><div><h2 id=\"case-study",
+    "text": "</div><div class=\"columns-media divider-above nested equal-cells\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/de/program/businesstogo",
+  "inserts": [
+   {
+    "before": "<h1 id=\"businesstogo-is-your-go-to\">",
+    "text": "<p>{column-start-outer}</p><p>{column-start-outer}</p>"
+   },
+   {
+    "after": "src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-1-startpage-de-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture>",
+    "text": "<p>{spacer-39}</p>"
+   },
+   {
+    "after": "src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-2-flightresults-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>",
+    "text": "<p>{spacer-39}</p>"
+   },
+   {
+    "after": "src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-3-travelpolicy-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>",
+    "text": "<p>{spacer-39}</p>"
+   },
+   {
+    "after": "src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-4-travelermap-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>",
+    "text": "<p>{spacer-39}</p>"
+   },
+   {
+    "after": "<h2 id=\"case-study-für-höchstleistungen-das-reisemanagement-optimieren\">Case Study: Für Höchstleistungen das Reisemanagement optimieren",
+    "text": " {heading-medium}"
+   },
+   {
+    "after": "<h2 id=\"frequently-asked-questions-faq\">Frequently Asked Questions (FAQ)",
+    "text": " {heading-copytext-large}"
+   },
+   {
+    "after": "<h3 id=\"mehr-effizienz-und-eine-bessere-user-experience\">Mehr Effizienz und eine bessere User Experience:",
+    "text": " {heading-copytext-large}"
+   },
+   {
+    "after": "<h3 id=\"maximale-kostenersparnis-und-prämien\">Maximale Kostenersparnis und Prämien:",
+    "text": " {heading-copytext-large}"
+   },
+   {
+    "after": "<h3 id=\"gewinnen-sie-kontrolle-und-flexibilität\">Gewinnen Sie Kontrolle und Flexibilität:",
+    "text": " {heading-copytext-large}"
+   },
+   {
+    "after": "<h3 id=\"priorisieren-sie-die-sicherheit-ihrer-reisenden\">Priorisieren Sie die Sicherheit Ihrer Reisenden:",
+    "text": " {heading-copytext-large}"
+   },
+   {
+    "after": "<div class=\"columns-media divider-above nested",
+    "text": " equal-cells"
+   },
+   {
+    "before": "<div><div><h2 id=\"case-study",
+    "text": "</div><div class=\"columns-media divider-above nested equal-cells\">"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/program/businesstogo",
+  "inserts": [
+   {
+    "after": "src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-1-startpage-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture>",
+    "text": "<p>{spacer-39}</p>"
+   },
+   {
+    "after": "src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-2-flightresults-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>",
+    "text": "<p>{spacer-39}</p>"
+   },
+   {
+    "after": "src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-3-travelpolicy-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>",
+    "text": "<p>{spacer-39}</p>"
+   },
+   {
+    "after": "src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-4-travelermap-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>",
+    "text": "<p>{spacer-39}</p>"
+   },
+   {
+    "after": "<h2 id=\"unlock-smarter-business-travel--with-businesstogos-integrated-platform\">Unlock smarter business travel – with BusinessToGo’s integrated platform",
+    "text": " {heading-medium}"
+   },
+   {
+    "after": "<h2 id=\"case-study-optimizing-travel-management-for-peak-performance\">Case Study: Optimizing Travel Management for Peak Performance",
+    "text": " {heading-medium}"
+   }
+  ]
+ },
+ {
+  "path": "/xx/en/program/businesstogo",
+  "inserts": [
+   {
+    "after": "src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-1-startpage-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture>",
+    "text": "<p>{spacer-39}</p>"
+   },
+   {
+    "after": "src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-2-flightresults-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>",
+    "text": "<p>{spacer-39}</p>"
+   },
+   {
+    "after": "src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-3-travelpolicy-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>",
+    "text": "<p>{spacer-39}</p>"
+   },
+   {
+    "after": "src=\"https://business.lufthansagroup.com/content/dam/b2bneo/images/BusinessToGo/btg-4-travelermap-en-1440x815.png.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p>",
+    "text": "<p>{spacer-39}</p>"
+   },
+   {
+    "after": "<h2 id=\"unlock-smarter-business-travel--with-businesstogos-integrated-platform\">Unlock smarter business travel – with BusinessToGo’s integrated platform",
+    "text": " {heading-medium}"
+   },
+   {
+    "after": "<h2 id=\"case-study-optimizing-travel-management-for-peak-performance\">Case Study: Optimizing Travel Management for Peak Performance",
+    "text": " {heading-medium}"
+   }
+  ]
+ }
+]
