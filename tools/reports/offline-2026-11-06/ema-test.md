@@ -3404,9 +3404,17 @@ others I cannot tell now; the offers grid was empty with and without them). My e
 request to any airline host from me"; that was wrong for these page-originated requests. Fixed (69745426, test first):
 capture.js aborts, for a capture of our hosts, every request that is not to our hosts, OneTrust's consent hosts, data:
 or blob:, and blocks service workers. Chrome's --host-resolver-rules were tried first and do not work here: the
-environment's HTTP proxy resolves the host (example.com still loaded). My scratch scripts launch with a PAC that sends
-everything but our hosts to a closed port; checked on the offers page (24 requests stopped, none answered from an
-airline host) and with example.com (refused). Other tools that open our pages in a browser (the import helper's,
+environment's HTTP proxy resolves the host (example.com still loaded). The page's web fonts came from www too: styles/fonts.css and the brand themes try our path first (404 on aem.live) and
+then https://www.lufthansa.com/digitalhangar/... (and swiss.com, austrian.com and so on), so with the block the text
+fell back to a system font (punta-cana 390 29.55 -> 48.18). Fixed (f337aebb, test first): PARITY_FONTS points
+capture.js at directories holding www's paths, the drops' fonts/ (www's own files; the repo's Lufthansa woff2 copies
+are byte-identical to them), and a font request is answered from there (lib.js mirroredFont, never a file outside the
+directories); two faces the drops lack (v1.38.0 HeadWeb-Thin.woff2, mausy TextWeb-Light.woff2) come from the drop's
+.woff and the repo's copy. With that a punta-cana capture and a B2B airline-page capture are byte-identical to order
+11's, the fresh baselines below match order 11 page-width for page-width (Discover 47 of 48, homepage de/de 1440
++1.48; B2B all but the 7 airline pages order 11's card fix moved), and no capture asked an airline host for anything
+(0 of 249 with an aborted font). My scratch scripts use the same filter (logs/p4/so12/guard.mjs) or a PAC that sends
+everything but our hosts to a closed port. Other tools that open our pages in a browser (the import helper's,
 tools/importer/test-widgets.mjs, axe runs) are not changed and may do the same; worth the helper's look.
 
 1. **heading-size-marks-apply.mjs keeps DA's escaping byte for byte** (22852472, test first: a fixture with an href's
@@ -3416,22 +3424,40 @@ tools/importer/test-widgets.mjs, axe runs) are not changed and may do the same; 
    text-spacers-apply.mjs and b2b-view-spacers-apply.mjs.
 2. **Discover's offers page back in the gate.** Our grid stays empty on every host: its offers come from a price route
    (lh-data.js isLiveOnlyRoute), which by design is never answered from a recording, and www cannot be asked from here.
-   So our page is 2,432 / 2,339 px (de/de 1440 / 390) and 2,494 / 2,543 (de/en) against www's 60,750 / 115,419 and
+   So our page is 2,432 / 2,321 px (de/de 1440 / 390) and 2,494 / 2,483 (de/en) against www's 60,750 / 115,419 and
    60,839 / 108,366. Measured whole (compare.js cannot decode 60,000-px pictures in this memory, ImageMagick's policy
    stops at 16,000 px: a streamed band-by-band comparison, logs/p4/so12/tiled-compare.mjs, the same number as one
    compare.js run on a normal page, 14.25 = 14.25):
 
    | page | 1440 | 390 |
    |---|---|---|
-   | /de/de/book/flights/offers | 33.30 | 34.65 |
-   | /de/en/book/flights/offers | 33.20 | 36.62 |
+   | /de/de/book/flights/offers | 33.31 | 34.65 |
+   | /de/en/book/flights/offers | 33.21 | 36.68 |
 
-   The part above the grid (header, breadcrumb, title; 278 px): 2.90 / 6.28 and 2.35 / 4.89. Note on the recording:
+   The part above the grid (header, breadcrumb, title; 278 / 275 px): 2.14 / 5.35 and 1.81 / 4.36. Note on the recording:
    it ends inside the grid (its last 4,000 px are offer tiles, no footer), so our footer is compared with tiles. The
    4 page-widths are in the Discover gate from now on (measured band by band); nothing in the page's CSS can close
    a gap that is the 591 offers themselves.
+3. **Group for Business and Discover further** (fresh baselines on our hosts, captures as above: B2B 153
+   page-widths, mean 12.21 %; Discover 48 without the offers page, mean 19.75 %).
+   - Order 11's price calendar end never applied on the page (237a0564, test first): blocks/flight-search's
+     `body.appear main > .section.flight-search-container:has(.flight-search.standalone)` sets that margin to 0 at the
+     same specificity and loads after the theme; order 11 had measured a trial appended after every sheet. The rule
+     names the section's class now. Measured with the local code on our host's content: flight-search de/de 1440
+     22.13 -> 13.83, de/en 21.16 -> 13.18, none of the 48 worse. Order 11's two phone rules do apply on the host
+     (punta-cana 390 18.17 / 29.55, entertainment 26.21 / 20.09, as reported).
+   - B2B H1s www writes in heading-small or heading-medium (16 on 15 recorded pages: Allegris' and SWISS Senses'
+     "what's next", route-network's timetable news, japan-joint-venture): 10 carry the marker in our documents
+     already, 4 documents render them heading-large. delta-so12-b2b-h1-heading-sizes.txt (DA's copy plus the delta,
+     heading-size-marks-apply.mjs, 84d98c5c): route-network de/de 1440 7.52 -> 4.90, 390 22.77 -> 20.34, de/en 10.36
+     -> 8.32, 23.01 -> 20.50 READY; japan-joint-venture (1440 +0.77) and allegris corporates de/en (390 +1.94) HOLD.
+     xx/de's two SWISS Senses pages have the heading as an H2 (not listed). THEMES.b2b keeps only
+     heading-copytext-large in the collapse, so a later re-import may drop these markers.
+   - Looked at, not changed: Discover's baggage table (de/de, de/en; www's maui-table): its rows are as tall as www's
+     (166 px), the page's 50 to 60 px deficit at 1440 builds up above it (-6 at the title, -27 at the intro view);
+     business-class's tables sit in a tab set and check-in-at-the-airport's in a closed tab. businesstogo 390 (-626 px
+     on 4 page-widths) is the recording's tab default (the brief after 583's evening order: -006 opens the first
+     panel at 390, B2B's default closes every item).
 4. **B2B's two gaps.** b2b-parity-006 was in the gates already; its sha256 now on record. b2b-parity-002's 4
-   page-widths (lufthansa-group-airlines) back in the B2B gate (153 page-widths): de/de 1440 20.20, 390 39.69; de/en
-   1440 10.18, 390 38.57. At 390 ours is about 300 px longer: the section's title 102 px lower (a spacer and the view
-   mark under the intro text) and the first card title on two lines where www has one (same box, 346 px; font size
-   24.07 against 24.06 px), then 27 px per card.
+   page-widths (lufthansa-group-airlines) back in the B2B gate (153 page-widths): de/de 1440 11.85, 390 15.26; de/en
+   1440 9.87, 390 13.71 (a first measurement without www's fonts gave 20.20 / 39.69 / 10.18 / 38.57: set aside).
