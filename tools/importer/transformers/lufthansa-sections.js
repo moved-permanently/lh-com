@@ -409,14 +409,29 @@ export default function transform(hookName, element, payload) {
       aemSections.forEach((s, i) => {
         const prev = aemSections[i - 1];
         const next = aemSections[i + 1];
-        if (!prev || !next || padded(s) || grey(s) || isStage(s) || !s.querySelector(':scope > .mb-default')) return;
+        // (standing order 19) a padded AEM section with .mb-default right before a grey AEM section without one: its
+        // .mb-default between its padding and the band, not our section gap (sensory-impairment's assistance-dog
+        // section, then "Please tell us in advance": 29px lower than www's). Before a grey section with .mb-default our
+        // gap is right already (cognitive-impairment: +8px, 24px too high with the token)
+        if (prev && grey(s) && !s.querySelector(':scope > .mb-default') && padded(prev) && !grey(prev) && !isStage(prev) && prev.querySelector(':scope > .mb-default')) {
+          const own = paddedBreaks.get(prev);
+          if (own && !/ (spaced|flush)$/.test(own.getAttribute(SOURCE_STYLE))) own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} spaced`);
+          return;
+        }
+        // (not an author quote alone in its AEM section: the cleanup's quote spacers stand for that spacing,
+        // first-class-terminal 25.2 -> 27.1 % off www with the split)
+        if (!prev || !next || padded(s) || grey(s) || isStage(s) || loneQuote(s) || !s.querySelector(':scope > .mb-default')) return;
         // (not after a stage: its own spacing rules, tips-senior-travellers unmeasured)
         if (!padded(prev) || grey(prev) || isStage(prev) || !padded(next) || grey(next)) return;
         const own = paddedBreaks.get(prev);
-        if (!own || s.querySelector(`hr[${BREAK}]`) || prev.querySelector(`hr[${BREAK}]`)) return;
+        // (standing order 19) the padded one right after the stage has no break of this loop: the stage rules below
+        // give it one and its gap (sensory-impairment's "Invisible – but real", then "Assistance on your trip")
+        const stageNeighbour = !own && i >= 2 && isStage(aemSections[i - 2]);
+        if ((!own && !stageNeighbour) || s.querySelector(`hr[${BREAK}]`) || prev.querySelector(`hr[${BREAK}]`)) return;
         const hr = createBreak(document);
         hr.setAttribute(SOURCE_STYLE, 'spaced');
         s.before(hr);
+        if (!own) return;
         const gap = prev.querySelector(':scope > .mb-default') ? 'spaced' : 'flush';
         if (!/ (spaced|flush)$/.test(own.getAttribute(SOURCE_STYLE))) own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${gap}`);
       });

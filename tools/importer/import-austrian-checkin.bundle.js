@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-checkin.js
-  var tmp_bundle_austrian_checkin_278598_exports = {};
-  __export(tmp_bundle_austrian_checkin_278598_exports, {
-    default: () => tmp_bundle_austrian_checkin_278598_default
+  var tmp_bundle_austrian_checkin_356936_exports = {};
+  __export(tmp_bundle_austrian_checkin_356936_exports, {
+    default: () => tmp_bundle_austrian_checkin_356936_default
   });
 
   // tools/importer/parsers/booking-lookup.js
@@ -7762,13 +7762,20 @@ var CustomImportScript = (() => {
         aemSections.forEach((s, i) => {
           const prev = aemSections[i - 1];
           const next = aemSections[i + 1];
-          if (!prev || !next || padded(s) || grey(s) || isStage(s) || !s.querySelector(":scope > .mb-default")) return;
+          if (prev && grey(s) && !s.querySelector(":scope > .mb-default") && padded(prev) && !grey(prev) && !isStage(prev) && prev.querySelector(":scope > .mb-default")) {
+            const own2 = paddedBreaks.get(prev);
+            if (own2 && !/ (spaced|flush)$/.test(own2.getAttribute(SOURCE_STYLE))) own2.setAttribute(SOURCE_STYLE, `${own2.getAttribute(SOURCE_STYLE)} spaced`);
+            return;
+          }
+          if (!prev || !next || padded(s) || grey(s) || isStage(s) || loneQuote(s) || !s.querySelector(":scope > .mb-default")) return;
           if (!padded(prev) || grey(prev) || isStage(prev) || !padded(next) || grey(next)) return;
           const own = paddedBreaks.get(prev);
-          if (!own || s.querySelector(`hr[${BREAK}]`) || prev.querySelector(`hr[${BREAK}]`)) return;
+          const stageNeighbour = !own && i >= 2 && isStage(aemSections[i - 2]);
+          if (!own && !stageNeighbour || s.querySelector(`hr[${BREAK}]`) || prev.querySelector(`hr[${BREAK}]`)) return;
           const hr = createBreak(document);
           hr.setAttribute(SOURCE_STYLE, "spaced");
           s.before(hr);
+          if (!own) return;
           const gap = prev.querySelector(":scope > .mb-default") ? "spaced" : "flush";
           if (!/ (spaced|flush)$/.test(own.getAttribute(SOURCE_STYLE))) own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${gap}`);
         });
@@ -9401,7 +9408,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_checkin_278598_default = {
+  var tmp_bundle_austrian_checkin_356936_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9441,5 +9448,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_checkin_278598_exports);
+  return __toCommonJS(tmp_bundle_austrian_checkin_356936_exports);
 })();
