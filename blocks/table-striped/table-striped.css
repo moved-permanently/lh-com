@@ -479,7 +479,7 @@
   width: 100%;
   min-height: 56px;
   margin: 0;
-  padding: 16px;
+  padding: 20px 16px; /* www: the label 20 px under the header's border (TAP row 159) */
   border: 0;
   background: none;
   color: inherit;
