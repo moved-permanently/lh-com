@@ -4428,3 +4428,64 @@ helper's run), the CSS override folders with the drafts, the measuring scripts a
 - No request to an airline host, no da-upload.mjs call, no upload, preview or publish by me.
 - The invoicing row from standing order 11 was wrong: a draft method that can't show how a page ends. It is now HOLD
   with the reason, and page endings are judged on the published page only.
+
+## Standing order 13 of 2026-11-13 (from about 20:10 CET to 23:30 CET)
+
+**At the start:** 5d7a8ad0 (ITA rows 50 and 51 and standing order 12's report) was still in its ship when order 12's
+turn ended. It had passed lint 0, stylelint 0 and the suite 4091 / 0 on the commit, then been rebased onto 759263dc
+(ema-adobe's card-marks merge) as f02d3406, with lint and stylelint 0 after the rebase; the suite on the rebased tree was
+running. Nothing else of mine was uncommitted. `.migration/project.json` (the lh-tap entry) and `.scratch/` (excluded
+from git) left as they are.
+
+**Item 1, the push:** pushed as b8246d79 (2026-11-13, about 19:35 UTC).
+- The suite on the tree rebased onto 759263dc: 4106 pass, 0 fail.
+- ship6.sh's four push tries were refused while main kept moving; lint and stylelint were 0 after each retry rebase,
+  and the commit stayed local.
+- push-loop.sh then rebased on fb0d6455, read `npm run lint` exit 0, and pushed on its second round; stylelint on
+  ita.css 0.
+- After the push: GitHub Build success. The full suite on the pushed tree: 4118 pass, 0 fail.
+- The smoke of 14 hosts against the before-push smoke: 11 hosts 0 differences. On lufthansa, lufthansa-cn and
+  lufthansa-edge three content answers changed: /de/en/search-index.json, sitemap_lh_de_en.xml and
+  sitemap_lh_at_de.xml.gz. They follow publishes after 18:47 UTC; the commit has no worker or index change.
+
+Row 50's delta is in tools/reports/parity-2026-11-09/reimport-596-ita-short-haul-note.txt: the name starts with
+reimport-, its row is READY, and its header names the tool command and the only expected change.
+
+**Item 2, Austrian recordings outside rank-so24-austrian.txt: none to rank.**
+- The drop (folder 3LZRr22D3-eALPPoEh4mEOYB, read from our R2 only) holds austrian-parity-001, -003 and -005 to -018.
+  -002, -004 and -019 onward answer 404. Downloaded here, the sha256 prefixes agree with ema-cashub's report.
+- Their manifests list 242 www page-widths, and rank-so24-austrian.txt lists all 242 (none missing, none extra).
+- The three it leaves out, -012 to -014, recorded austrian.turnsthe.page, so there's no www height to rank against.
+- austrian-snapshots-001 to -018 are the import's HTML captures: no heights or widths, and no picture files. Rendered
+  here they can't be ranked against our pages (on ITA the missing pictures alone came to 391 to 676 px at 1440).
+- No Austrian code rule or delta row this order. ema-cashub's 242 page-widths and their groups are left to them.
+
+**Item 3:** not reopened. None of rank-so24's cause groups is one of the four ITA pages' causes:
+- H: data; A: the help-center app's pictures; B: the measuring machine's fonts.
+- C / C2: column views merged into one block, per-page DA deltas.
+- D / E: the flight search and booking widget states; F / F2 / G: one page each.
+- I: a tab panel held at its tallest tab; J / K: not traced.
+ITA's electronic-devices (icon list columns), digital-newsstand (the eJournals section), flying-with-a-baby (padded AEM
+sections after an unpadded one) and corporate-b2b (the teaser cards' pictures) stay as classified in standing order 12.
+
+## Final section, standing order 13 (2026-11-13, 20:10 to 23:30 CET)
+
+**Commits on main:**
+- b8246d79 (standing order 12's 5d7a8ad0, rebased): ITA row 50 (business-class-medium-haul's "Please Note:" delta,
+  READY), ITA row 51 (contact's stacked columns on phones), the capture requests, standing order 12's report.
+- This commit: this order's report only.
+
+**Lists:** no new list this order. Row 50's list is reimport-596-ita-short-haul-note.txt (READY), where the helper's
+watcher sees it.
+
+**Not done, and why:**
+- No Austrian ranking: every www page-width the drop records is in ema-cashub's rank-so24-austrian.txt, and the
+  snapshot captures carry no heights.
+- ITA's four single-page causes not reopened: no shared cause with item 2.
+
+**Left uncommitted, and why:** `.migration/project.json` (the lh-tap entry, not mine). `.scratch/` is excluded from git:
+the drop's Austrian archives (b597-drop, about 435 MB: parity -001, -003, -005 to -018, snapshots -017 and -018), the
+logs and the scripts.
+
+**Process:** reads only from our hosts and the drop (R2). No request to an airline host, no da-upload.mjs call, no
+upload, preview or publish by me.
