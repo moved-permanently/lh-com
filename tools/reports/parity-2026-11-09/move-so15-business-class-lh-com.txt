@@ -1,0 +1,126 @@
+# Standing order 15 (2026-11-13), item 3. Expected change: the business-class pages move from /<cc>/<ll>/business-class to
+# /<cc>/<ll>/prepare-for-your-trip/travel-classes/business-class, as www moved them (www redirects the old address there, lh-snapshots-111);
+# the old address redirects to the new one; every link to the old address points to the new one. Nothing moves before
+# this list is published; the rows of one root go together (move, both redirect rows, its links), and the helper re-reads
+# the links from DA at the time (this list counts the local mirror of 2026-11-13: logs/b607/bc-links.tsv).
+# - READY: de/en, de/de, at/de, gb/en (www's redirect captured) and their loc sources gc/en, gc/de.
+# - HOLD: fr/fr and the eleven xx language versions with a business-class document: www's move for them is not captured.
+#   The roots answered from a language version (pl/pl and the others) follow their version.
+# - Not moved: /lhg/.../dest/cy/<city>/business-class and /of1/knowledge/business-class (other pages of that name); their
+#   links to /de/en/business-class are link rows above.
+# - In the repo, with the move (not before): tools/migration-scope/pages.csv's business-class row (the four new paths),
+#   so the loc tools and the link step pair the new paths; no code names these paths otherwise.
+# - The sub-pages' redirect rows (/<cc>/<ll>/prepare-for-your-trip/travel-classes/business-class/business-class-long-haul, .../business-class-short-haul ->
+#   our slugs) stay as they are.
+# A link row that names a moved document (its own profile navigation) applies to it at its new path.
+# Columns: status, kind (move, redirect, link), path or document, change, why.
+READY	move	/de/en/business-class	/de/en/prepare-for-your-trip/travel-classes/business-class	move the DA document; www redirects it (lh-snapshots-111, 2026-11-12)
+READY	redirect	/redirects: delete the row /de/en/prepare-for-your-trip/travel-classes/business-class -> /de/en/business-class		our sheet sends the new path to the old one today: with the document at the new path it would loop
+READY	redirect	/redirects: add /de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class		the old address keeps working, as on www
+READY	link	/de/en/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class	/de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/de/en/articles/explore-flying/business-class-culinary-journey-with-johann-lafer	/de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/de/en/business-class	/de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/de/en/business-class-on-short-and-medium-haul	/de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/de/en/discover-lufthansa/new-onboard-experience	/de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/de/en/economy-class	/de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/de/en/europa-tarife-economy-class	/de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/de/en/first-class	/de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/de/en/lufthansa-business-class-on-long-haul-routes	/de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/de/en/lufthansa-travel-classes	/de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/de/en/nav	/de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/de/en/premium-economy-class	/de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/de/en/tips-senior-travellers	/de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class	3 link(s), relative
+READY	link	/gb/en/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class	/de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gb/en/articles/explore-flying/business-class-culinary-journey-with-johann-lafer	/de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/lhg/de/en/dest/cy/new-york/business-class	/de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/lhg/de/en/dest/cy/tokyo/business-class	/de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/library/blocks/profile-nav	/de/en/business-class -> /de/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	move	/de/de/business-class	/de/de/prepare-for-your-trip/travel-classes/business-class	move the DA document; www redirects it (lh-snapshots-111, 2026-11-12)
+READY	redirect	/redirects: delete the row /de/de/prepare-for-your-trip/travel-classes/business-class -> /de/de/business-class		our sheet sends the new path to the old one today: with the document at the new path it would loop
+READY	redirect	/redirects: add /de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class		the old address keeps working, as on www
+READY	link	/at/de/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/at/de/articles/explore-flying/business-class-culinary-journey-with-johann-lafer	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/at/de/articles/explore-flying/what-the-hack-travel-with-kids	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/de/de/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/de/de/articles/explore-flying/business-class-culinary-journey-with-johann-lafer	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/de/de/articles/explore-flying/what-the-hack-travel-with-kids	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/de/de/business-class	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/de/de/business-class-auf-kurz-und-mittelstrecken	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/de/de/discover-lufthansa/new-onboard-experience	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/de/de/economy-class	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/de/de/europa-tarife-economy-class	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/de/de/first-class	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/de/de/lufthansa-business-class-on-long-haul-routes	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/de/de/lufthansa-reiseklassen	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/de/de/nav	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/de/de/premium-economy-class	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/de/de/tips-senior-travellers	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	3 link(s), relative
+READY	link	/lhg/de/de/dest/cy/new-york/business-class	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/lhg/de/de/dest/cy/tokio/business-class	/de/de/business-class -> /de/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	move	/at/de/business-class	/at/de/prepare-for-your-trip/travel-classes/business-class	move the DA document; www redirects it (lh-snapshots-111, 2026-11-12)
+READY	redirect	/redirects: delete the row /at/de/prepare-for-your-trip/travel-classes/business-class -> /at/de/business-class		our sheet sends the new path to the old one today: with the document at the new path it would loop
+READY	redirect	/redirects: add /at/de/business-class -> /at/de/prepare-for-your-trip/travel-classes/business-class		the old address keeps working, as on www
+READY	link	/at/de/business-class	/at/de/business-class -> /at/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/at/de/business-class-auf-kurz-und-mittelstrecken	/at/de/business-class -> /at/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/at/de/discover-lufthansa/new-onboard-experience	/at/de/business-class -> /at/de/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/at/de/economy-class	/at/de/business-class -> /at/de/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/at/de/europa-tarife-economy-class	/at/de/business-class -> /at/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/at/de/first-class	/at/de/business-class -> /at/de/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/at/de/lufthansa-business-class-on-long-haul-routes	/at/de/business-class -> /at/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/at/de/lufthansa-reiseklassen	/at/de/business-class -> /at/de/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/at/de/nav	/at/de/business-class -> /at/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/at/de/premium-economy-class	/at/de/business-class -> /at/de/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/at/de/tips-senior-travellers	/at/de/business-class -> /at/de/prepare-for-your-trip/travel-classes/business-class	3 link(s), relative
+READY	move	/gb/en/business-class	/gb/en/prepare-for-your-trip/travel-classes/business-class	move the DA document; www redirects it (lh-snapshots-111, 2026-11-12)
+READY	redirect	/redirects: delete the row /gb/en/prepare-for-your-trip/travel-classes/business-class -> /gb/en/business-class		our sheet sends the new path to the old one today: with the document at the new path it would loop
+READY	redirect	/redirects: add /gb/en/business-class -> /gb/en/prepare-for-your-trip/travel-classes/business-class		the old address keeps working, as on www
+READY	link	/gb/en/business-class	/gb/en/business-class -> /gb/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gb/en/business-class-on-short-and-medium-haul	/gb/en/business-class -> /gb/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gb/en/discover-lufthansa/new-onboard-experience	/gb/en/business-class -> /gb/en/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/gb/en/economy-class	/gb/en/business-class -> /gb/en/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/gb/en/europa-tarife-economy-class	/gb/en/business-class -> /gb/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gb/en/first-class	/gb/en/business-class -> /gb/en/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/gb/en/lufthansa-business-class-on-long-haul-routes	/gb/en/business-class -> /gb/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gb/en/lufthansa-travel-classes	/gb/en/business-class -> /gb/en/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/gb/en/nav	/gb/en/business-class -> /gb/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gb/en/premium-economy-class	/gb/en/business-class -> /gb/en/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/gb/en/tips-senior-travellers	/gb/en/business-class -> /gb/en/prepare-for-your-trip/travel-classes/business-class	3 link(s), relative
+READY	move	/gc/en/business-class	/gc/en/prepare-for-your-trip/travel-classes/business-class	move the DA document; the loc source of /de/en: moves with it (rollouts pair the same path)
+READY	link	/gc/en/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class	/gc/en/business-class -> /gc/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gc/en/articles/explore-flying/business-class-culinary-journey-with-johann-lafer	/gc/en/business-class -> /gc/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gc/en/business-class	/gc/en/business-class -> /gc/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gc/en/business-class-on-short-and-medium-haul	/gc/en/business-class -> /gc/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gc/en/discover-lufthansa/new-onboard-experience	/gc/en/business-class -> /gc/en/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/gc/en/economy-class	/gc/en/business-class -> /gc/en/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/gc/en/europa-tarife-economy-class	/gc/en/business-class -> /gc/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gc/en/first-class	/gc/en/business-class -> /gc/en/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/gc/en/lufthansa-business-class-on-long-haul-routes	/gc/en/business-class -> /gc/en/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gc/en/lufthansa-travel-classes	/gc/en/business-class -> /gc/en/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/gc/en/premium-economy-class	/gc/en/business-class -> /gc/en/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/gc/en/tips-senior-travellers	/gc/en/business-class -> /gc/en/prepare-for-your-trip/travel-classes/business-class	3 link(s), relative
+READY	move	/gc/de/business-class	/gc/de/prepare-for-your-trip/travel-classes/business-class	move the DA document; the loc source of /de/de: moves with it (rollouts pair the same path)
+READY	link	/gc/de/articles/explore-flying/allegris-first-class-reasons-for-allegris-first-class	/gc/de/business-class -> /gc/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gc/de/articles/explore-flying/business-class-culinary-journey-with-johann-lafer	/gc/de/business-class -> /gc/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gc/de/articles/explore-flying/what-the-hack-travel-with-kids	/gc/de/business-class -> /gc/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gc/de/business-class	/gc/de/business-class -> /gc/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gc/de/business-class-auf-kurz-und-mittelstrecken	/gc/de/business-class -> /gc/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gc/de/discover-lufthansa/new-onboard-experience	/gc/de/business-class -> /gc/de/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/gc/de/economy-class	/gc/de/business-class -> /gc/de/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/gc/de/europa-tarife-economy-class	/gc/de/business-class -> /gc/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gc/de/first-class	/gc/de/business-class -> /gc/de/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/gc/de/lufthansa-business-class-on-long-haul-routes	/gc/de/business-class -> /gc/de/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/gc/de/lufthansa-reiseklassen	/gc/de/business-class -> /gc/de/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/gc/de/premium-economy-class	/gc/de/business-class -> /gc/de/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/gc/de/tips-senior-travellers	/gc/de/business-class -> /gc/de/prepare-for-your-trip/travel-classes/business-class	3 link(s), relative
+HOLD	move	/fr/fr/business-class	/fr/fr/prepare-for-your-trip/travel-classes/business-class	www's move not seen for this root yet (lh-snapshots-111 has the four only): capture-requests-ema-adobe.txt; then as the rows above, with its link rows (logs/b607/bc-links.tsv)
+HOLD	move	/xx/el/business-class	/xx/el/prepare-for-your-trip/travel-classes/business-class	www's move not seen for this root yet (lh-snapshots-111 has the four only): capture-requests-ema-adobe.txt; then as the rows above, with its link rows (logs/b607/bc-links.tsv)
+HOLD	move	/xx/es/business-class	/xx/es/prepare-for-your-trip/travel-classes/business-class	www's move not seen for this root yet (lh-snapshots-111 has the four only): capture-requests-ema-adobe.txt; then as the rows above, with its link rows (logs/b607/bc-links.tsv)
+HOLD	move	/xx/fr/business-class	/xx/fr/prepare-for-your-trip/travel-classes/business-class	www's move not seen for this root yet (lh-snapshots-111 has the four only): capture-requests-ema-adobe.txt; then as the rows above, with its link rows (logs/b607/bc-links.tsv)
+HOLD	move	/xx/hk/business-class	/xx/hk/prepare-for-your-trip/travel-classes/business-class	www's move not seen for this root yet (lh-snapshots-111 has the four only): capture-requests-ema-adobe.txt; then as the rows above, with its link rows (logs/b607/bc-links.tsv)
+HOLD	move	/xx/it/business-class	/xx/it/prepare-for-your-trip/travel-classes/business-class	www's move not seen for this root yet (lh-snapshots-111 has the four only): capture-requests-ema-adobe.txt; then as the rows above, with its link rows (logs/b607/bc-links.tsv)
+HOLD	move	/xx/ja/business-class	/xx/ja/prepare-for-your-trip/travel-classes/business-class	www's move not seen for this root yet (lh-snapshots-111 has the four only): capture-requests-ema-adobe.txt; then as the rows above, with its link rows (logs/b607/bc-links.tsv)
+HOLD	move	/xx/ko/business-class	/xx/ko/prepare-for-your-trip/travel-classes/business-class	www's move not seen for this root yet (lh-snapshots-111 has the four only): capture-requests-ema-adobe.txt; then as the rows above, with its link rows (logs/b607/bc-links.tsv)
+HOLD	move	/xx/pl/business-class	/xx/pl/prepare-for-your-trip/travel-classes/business-class	www's move not seen for this root yet (lh-snapshots-111 has the four only): capture-requests-ema-adobe.txt; then as the rows above, with its link rows (logs/b607/bc-links.tsv)
+HOLD	move	/xx/pt/business-class	/xx/pt/prepare-for-your-trip/travel-classes/business-class	www's move not seen for this root yet (lh-snapshots-111 has the four only): capture-requests-ema-adobe.txt; then as the rows above, with its link rows (logs/b607/bc-links.tsv)
+HOLD	move	/xx/ru/business-class	/xx/ru/prepare-for-your-trip/travel-classes/business-class	www's move not seen for this root yet (lh-snapshots-111 has the four only): capture-requests-ema-adobe.txt; then as the rows above, with its link rows (logs/b607/bc-links.tsv)
+HOLD	move	/xx/zh/business-class	/xx/zh/prepare-for-your-trip/travel-classes/business-class	www's move not seen for this root yet (lh-snapshots-111 has the four only): capture-requests-ema-adobe.txt; then as the rows above, with its link rows (logs/b607/bc-links.tsv)

@@ -1,12 +1,18 @@
-# ema-adobe capture requests, standing order 12 (2026-11-13): www.lufthansa.com paths, each at 1440 and 390 (full-page
-# recordings with their measurement sidecar). Why: ranking-so12-lh-com.txt, column-band-plain (HOLD). A grey column band
-# before an unstyled section has no gap on www on 22 recorded page-widths and has one on these five, with the same markup;
-# fresh recordings show whether www's layout changed since. special-meals and entryprocesses are the references (the
-# rule matches their recordings).
-/de/en/childrens-menus-on-board
-/de/en/with-children-at-the-airport
-/de/en/book-and-manage/flights/ana
-/de/en/flight-disruptions
-/de/en/passenger-rights
-/de/en/special-meals
-/de/en/entryprocesses
+# ema-adobe capture requests, standing order 15 (2026-11-13): www.lufthansa.com paths, each at 1440 and 390 (full-page
+# recordings with their measurement sidecar; the manifest's finalUrl is what matters here). Why:
+# move-so15-business-class-lh-com.txt, the HOLD rows: www moved /<cc>/<ll>/business-class to
+# /<cc>/<ll>/prepare-for-your-trip/travel-classes/business-class for de/en, de/de, at/de and gb/en (lh-snapshots-111);
+# whether it did so for fr/fr and the language versions is not captured. A redirect in the manifest makes the row READY.
+# (Standing order 12's seven paths were captured as lh-snapshots-115.)
+/fr/fr/business-class
+/xx/el/business-class
+/xx/es/business-class
+/xx/fr/business-class
+/xx/hk/business-class
+/xx/it/business-class
+/xx/ja/business-class
+/xx/ko/business-class
+/xx/pl/business-class
+/xx/pt/business-class
+/xx/ru/business-class
+/xx/zh/business-class
