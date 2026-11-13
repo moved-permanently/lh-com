@@ -5210,9 +5210,12 @@ indices:
       headings:
         select: main h1, main h2, main h3
         values: textContent(el)
+      # the first 5,500 words (words() around textContent joins the list into one value): a long page's row in
+      # Greek / Cyrillic (two bytes a character) went past the index's row size and the page left the index
+      # (privacy-statement, conditions-of-carriage; test/swiss-language-index-rows-595.test.mjs)
       content:
         select: main p, main li, main div > a
-        values: textContent(el)
+        values: words(textContent(el), 0, 5500)
       parent:
         select: head > meta[name="parent"]
         value: attribute(el, "content")
@@ -5354,9 +5357,12 @@ indices:
       headings:
         select: main h1, main h2, main h3
         values: textContent(el)
+      # the first 5,500 words (words() around textContent joins the list into one value): a long page's row in
+      # Greek / Cyrillic (two bytes a character) went past the index's row size and the page left the index
+      # (privacy-statement, conditions-of-carriage; test/swiss-language-index-rows-595.test.mjs)
       content:
         select: main p, main li, main div > a
-        values: textContent(el)
+        values: words(textContent(el), 0, 5500)
       parent:
         select: head > meta[name="parent"]
         value: attribute(el, "content")

@@ -1,4 +1,4 @@
-/* eslint-disable max-len, import/no-extraneous-dependencies -- dev tooling; js-yaml is a dev dependency */
+/* eslint-disable max-len, import/no-extraneous-dependencies, import/extensions -- dev tooling; js-yaml is a dev dependency */
 /* SWISS's language versions' indexes (helix-query.yaml language-ch-<ll>, lh-edge src/sites.js
    SITE_INDEX_PATHS): the market roots answer from them (their markets column), so each has
    search-be-en's columns; their target is /ch/<ll>/language-index.json, never a
@@ -9,8 +9,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import yaml from 'js-yaml';
+import { withoutSwissContentCap } from './query-later.mjs';
 
-const { indices } = yaml.load(fs.readFileSync('helix-query.yaml', 'utf8'));
+// SWISS's ch/el and ch/ru content cap (standing order 11) read as before (test/query-later.mjs)
+const indices = withoutSwissContentCap(yaml.load(fs.readFileSync('helix-query.yaml', 'utf8')).indices);
 const LANGS = ['en', 'de', 'fr', 'it', 'es', 'zh', 'pt', 'el', 'ja', 'ru'];
 
 test('language-ch-<ll>: SWISS\'s ten ch roots, nav, footer, fragments and confirmations out, search-be-en\'s columns, target language-index.json', () => {

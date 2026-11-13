@@ -20,6 +20,7 @@ import {
 } from '../scripts/locale.js';
 import { formatArticleDate } from '../scripts/articles.js';
 import { buildTable } from '../tools/markets/build-locale-table.mjs';
+import { withoutSwissContentCap } from './query-later.mjs';
 
 const BEFORE = '27a3318';
 
@@ -85,7 +86,8 @@ test('hreflang as www\'s sitemaps give it per root; every other row of the table
 });
 
 test('xx/zh\'s query indexes: search-xx-zh as xx/es\'s, its lean copies after xx/hk\'s; no other index changed', () => {
-  const { indices } = yaml.load(fs.readFileSync('helix-query.yaml', 'utf8'));
+  // SWISS's ch/el and ch/ru content cap (standing order 11) read as before (test/query-later.mjs)
+  const indices = withoutSwissContentCap(yaml.load(fs.readFileSync('helix-query.yaml', 'utf8')).indices);
   const { indices: old } = yaml.load(show(BEFORE, 'helix-query.yaml'));
   const zh = indices['search-xx-zh'];
   assert.ok(zh, 'search-xx-zh');

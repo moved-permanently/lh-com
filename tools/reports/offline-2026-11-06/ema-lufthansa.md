@@ -4207,3 +4207,27 @@ the recordings (swiss-parity-006 / -007 and the earlier drops), DA's strollers a
 
 **Process:** reads only from our hosts, the drop's recordings and DA (one GET of the pets copy from my session, not from
 tests); no request to an airline host; no da-upload.mjs call, no upload, preview or publish by me.
+
+**The last push of standing order 10 (owed):** the ship's retry rebase met ema-cashub's row 7 in rows-for-ema-test.md
+(the same red brand test); both kept (theirs row 7, mine row 8), the report's reference amended, rebased on e3fe5afd,
+`npm run lint` exit 0 read, pushed by hand as 8177ff19 (about 11:20 UTC). After it: Build success, the smoke of 14
+hosts 0 differences, the full suite on the pushed tree 4021 pass, 0 fail.
+
+## Standing order 11 of 2026-11-13 (from about 13:40 CET to 16:30 CET)
+
+**At the start:** nothing of mine uncommitted or unpushed; `.migration/project.json` (the lh-tap entry) and `.scratch/`
+(excluded from git) left as they are.
+
+**Item 3, SWISS's ch/el search index:** /ch/el/language-index.json (268 rows) lacks /ch/el/terms-conditions/privacy-
+statement and /conditions-of-carriage, which /ch/el/sitemap-index.json (the same include and exclude in helix-query.yaml)
+lists; ch/ru lacks conditions-of-carriage the same way; the eight other ch/<ll> indexes hold every page of their sitemap
+index. The pages are published (200, noindex as their ch/it twins, which are indexed). The row carries the page's running
+text, and Greek and Cyrillic take two bytes a character: those rows would be 99 to 135 KB (privacy-statement 98,991
+bytes of text in el, conditions-of-carriage 129,254 in el and 122,533 in ru); the largest row that is there is 89,838
+bytes (ch/ru's privacy statement), so the index leaves the page out. Fixed in helix-query.yaml (test first,
+test/swiss-language-index-rows-595.test.mjs): language-ch-el's and language-ch-ru's content keeps the page's first
+5,500 words (words() around textContent joins the list into one value), about 75 KB; the other eight languages as
+before (their longest rows 72 KB). The seven tests that compare the indexes with an older commit read the cap as
+before through test/query-later.mjs; the five that compare with HEAD pass once it is committed, so this step was
+committed before its suite ran (.scratch/offline/tools/ship6.sh). The rows come with the next index job or publish of
+those pages (an index fills on publish or an index job): not done by me.

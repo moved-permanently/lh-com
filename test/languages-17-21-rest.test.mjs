@@ -18,6 +18,7 @@ import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import yaml from 'js-yaml';
 import { leanDefinitions, ROOTS } from '../tools/markets/lean-indexes.mjs';
+import { withoutSwissContentCap } from './query-later.mjs';
 
 const BEFORE = 'c41ea1fa';
 const LANGS = ['it', 'el', 'ja', 'ko', 'pl'];
@@ -43,7 +44,8 @@ function table(src, name) {
 const show = (rev, file) => (rev ? execFileSync('git', ['show', `${rev}:${file}`], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }) : fs.readFileSync(file, 'utf8'));
 
 test('the query indexes of xx/it, xx/el, xx/ja, xx/ko, xx/pl: as xx/zh\'s, after them; every other index as before', () => {
-  const { indices } = yaml.load(show(null, 'helix-query.yaml'));
+  // SWISS's ch/el and ch/ru content cap (standing order 11) read as before (test/query-later.mjs)
+  const indices = withoutSwissContentCap(yaml.load(show(null, 'helix-query.yaml')).indices);
   const { indices: old } = yaml.load(show(BEFORE, 'helix-query.yaml'));
   const swap = (def, l) => JSON.parse(JSON.stringify(def).replace(/xx\/zh/g, `xx/${l}`).replace(/xx-zh/g, `xx-${l}`));
   LANGS.forEach((l) => {

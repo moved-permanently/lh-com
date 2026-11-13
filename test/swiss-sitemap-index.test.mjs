@@ -1,4 +1,4 @@
-/* eslint-disable max-len, import/no-extraneous-dependencies -- dev tooling; js-yaml is a dev dependency */
+/* eslint-disable max-len, import/no-extraneous-dependencies, import/extensions -- dev tooling; js-yaml is a dev dependency */
 /* SWISS's sitemap indexes (brief 349, helix-query.yaml sitemap-ch-<ll>): per language version the
    few columns a sitemap needs (robots: the page's own page-robots, as language-ch-<ll>; the last
    modification), the same pages as language-ch-<ll> (its include and exclude), target
@@ -10,8 +10,10 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import yaml from 'js-yaml';
+import { withoutSwissContentCap } from './query-later.mjs';
 
-const { indices } = yaml.load(fs.readFileSync('helix-query.yaml', 'utf8'));
+// SWISS's ch/el and ch/ru content cap (standing order 11) read as before (test/query-later.mjs)
+const indices = withoutSwissContentCap(yaml.load(fs.readFileSync('helix-query.yaml', 'utf8')).indices);
 const LANGS = ['en', 'de', 'fr', 'it', 'es', 'zh', 'pt', 'el', 'ja', 'ru'];
 
 test('sitemap-ch-<ll>: the language index\'s pages, robots and lastModified only, target sitemap-index.json', () => {

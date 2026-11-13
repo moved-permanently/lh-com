@@ -18,6 +18,7 @@ import { LANGUAGE_VERSIONS } from '../scripts/locale-table.js';
 import { getLocale, liveOwnRoots, LOCALE_TABLE } from '../scripts/locale.js';
 import { formatArticleDate } from '../scripts/articles.js';
 import { buildTable } from '../tools/markets/build-locale-table.mjs';
+import { withoutSwissContentCap } from './query-later.mjs';
 
 const BEFORE = '4865efb';
 
@@ -74,7 +75,8 @@ test('the rows: xx/ru the language version (own documents, hreflang ru), by/ru, 
 });
 
 test('xx/ru\'s query indexes: search-xx-ru as xx/es\'s, its lean copies after xx/pt\'s; no other index changed', () => {
-  const { indices } = yaml.load(fs.readFileSync('helix-query.yaml', 'utf8'));
+  // SWISS's ch/el and ch/ru content cap (standing order 11) read as before (test/query-later.mjs)
+  const indices = withoutSwissContentCap(yaml.load(fs.readFileSync('helix-query.yaml', 'utf8')).indices);
   const { indices: old } = yaml.load(show(BEFORE, 'helix-query.yaml'));
   const es = indices['search-xx-es'];
   const ru = indices['search-xx-ru'];
