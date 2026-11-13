@@ -1450,6 +1450,32 @@ body.brand-austrian main .columns-media:not(.steps) .columns-media-text > h3 {
   }
 }
 
+/* standing order 26, item 1: a column view's empty last item on phones. Below 768 px www gives every column-view item
+   12 px of padding above and 12 px of margin below, an empty one too, so the item before an empty last item keeps 44 px
+   under it (its 12, the empty item's 12, its last child's 20; austrian-parity-001 book/flights, overview-services-on-board,
+   fly/travel-classes; -003 es/es baggage, the empty item removed from www's markup offline). columns-media.css hides the
+   empty cell and takes the margin off the cell before it; here that cell keeps its stacked spacing (36 / 50 px).
+   Ranked on the 120 Austrian page-widths at 390: 11 closer, 4 further, by more than 0.5 points only fly/travel-classes de
+   (its Premium Economy paragraph one line longer on the measuring machine than in www's PNG) and gr/el, ru/ru baggage
+   (the Linux fonts for Greek and Cyrillic) */
+@media (width < 768px) {
+  body.brand-austrian main .columns-media .columns-media-row > .columns-media-text:has(+ div:empty:last-child) {
+    margin-bottom: 36px;
+  }
+
+  body.brand-austrian main .columns-media .columns-media-row > .columns-media-media:has(+ div:empty:last-child) {
+    margin-bottom: 50px;
+  }
+}
+
+/* the end of a page whose last AEM section has no space below: www ends it with the column view's 32 px, and with
+   .mb-default's 36 px more where the section has it (special-requirements, overview-extra-services). Ours ends with the
+   padded block's 8 px and the section gap. A flush last section (Section Metadata style "flush", www without
+   .mb-default) keeps 24 px of it: /at/en and /at/de book/flights, 24 px shorter at both widths, as www */
+body.brand-austrian main > .section.flush:last-child:not(.grey):has(> .columns-media-wrapper:last-child > .columns-media.padded) {
+  margin-bottom: 24px;
+}
+
 /* the end of online-check-in (standing order 14; the nine documents with option steps: the steps row, the App part, the
    FAQ button, the Travel ID row, then the divider section): against austrian-parity-017's full-page screenshots, www's
    FAQ button 84 px over "Experience a seamless travel experience with Travel ID" (ours 34: the H2's 32 over the

@@ -1,0 +1,19 @@
+# ema-cashub, standing order 26 (2026-11-13/14), item 1: Austrian /at/en and /at/de book/flights, the page's end. Expected change: both
+# pages 24 px shorter at both widths, closer to www: 1440 en +0.95 -> +0.28 %, de +0.92 -> +0.25 %; 390 (with this order's
+# empty-item rule, live from its commit on) en +0.87 -> +0.36 %, de +0.35 -> -0.14 %. DA's copy plus the delta, not a re-import.
+# Apply only after the code commit of standing order 26 is on main (austrian.css: a flush last section that ends with a padded
+# columns-media block keeps 24 px below it); before it the style changes nothing.
+# www (austrian-parity-001, both widths): the page's last AEM section has no .mb-default, so it ends with the column view's 32 px
+# padding and nothing else (special-requirements and overview-extra-services have .mb-default: 32 + 36 px). Ours ends with the
+# padded block's 8 px and the section gap (48 px): 24 px more than www on these two pages.
+# The delta: a Section Metadata block with Style "flush" in the section that holds the columns-media block (DA's copy: the section
+# that also holds the page's Metadata block; the empty section after it stays). Nothing else.
+# Measured as drafts (so24/host.mjs on austrian.turnsthe.page with the commit's two rules added after load, consent stored,
+# pictures eager; www.* and the airline hosts refused: 0 here): the published document as control equals live (en 4698 / 3609,
+# de 4831 / 3633 px); with the delta en 4710 / 3585 and de 4843 / 3609 (www 4693 / 3575 and 4850 / 3600).
+# DA's copies read 2026-11-14 ~01:00 CET (GET, read only; en 4,665 bytes, de 4,731): the columns-media block last in the
+# section with content, as published.
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, 390 -> delta (with the code), 1440 -> delta.
+
+READY	/at/en/book/flights.html	add <div class="section-metadata"><div><div>Style</div><div>flush</div></div></div> to the section holding the columns-media block	390 +0.87 -> +0.36 %	1440 +0.95 -> +0.28 %
+READY	/at/de/book/flights.html	add <div class="section-metadata"><div><div>Style</div><div>flush</div></div></div> to the section holding the columns-media block	390 +0.35 -> -0.14 %	1440 +0.92 -> +0.25 %
