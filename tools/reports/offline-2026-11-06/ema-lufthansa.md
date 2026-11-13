@@ -4167,3 +4167,43 @@ own markup; each rule then through the gate on all 39 pages against a baseline t
 **Item 3:** support/utilities/contact (-5.3 / -7.6 %): www's rows are column views of their own, padded, 89 px from a
 row's last text to the next heading; ours 66 (lufthansa.com's padded block). ITA row 45: 1440 3287 -> 3471 (www 3470),
 390 7134 -> 7318 (7723); no other recorded page changes.
+- **pets-in-cabin (-3.0 % at 1440), ITA row 46:** www draws "Refunds" and the guide dogs' band as two grey bands, 40 px
+  of white between them (20 on phones); DA's copy has consecutive grey sections, which our styles join. DA's copy plus a
+  delta: tools/importer/ita-insert-apply.mjs gets a row option `section` (a whole section before the section a given
+  element opens; test first), here a section of style gap with two spacers and the band's markets;
+  reimport-594-ita-pets-band-gap.txt READY: 1440 4550 -> 4681 (www 4693), 390 6695 -> 6805 (6747).
+- Looked at and left (one page each, or no clear cause): fleet/long-haul -3.6 % at 1440 (www's rule above the "Choose
+  your favorite seat" band sits outside the grey band from 768 px only; our divider-above draws it inside the band, at
+  every width: 1440 closer by 1.6, 390 further by 1.2); group-boarding (two empty headings, <h2></h2><h3></h3>, close
+  www's intro text and add 16 px; the only page of the 39 with them; its second table and FAQ heading -67 px, unclear);
+  corporate-b2b (the teaser cards' images, -24 px); electronic devices (www's icon list two columns of 4 and 3, ours a
+  3-column grid: ours taller there, so changing it makes the page shorter still). SWISS: no page with a layout cause
+  that passes (prepare's 390 footer gap fails on book-and-manage); offers and the homepage are the fare data
+  (swiss-parity-006 / -007). No capture request this order. Also surveyed: the "Related" heading to its cards on the
+  39 pages (www 32 / 24 px, ours the same on all but flying-with-a-baby: www 64 / 56, ours 32 / 24; one page, its
+  heading in an accordion section; left).
+
+## Final section, standing order 10 (2026-11-13, 07:10 to 12:00 CET)
+
+**Commits on main** (each: whole-repo `npm run lint` exit 0 before and after the rebase and after every retry rebase,
+stylelint on ita.css when it changed, the full suite 0 failures before and, when the rebase brought commits, after it,
+`git show --stat` as given, the GitHub Build read, the smoke of 14 hosts before and after):
+- 3dec2b5f the owed line on standing order 9's last hand push (lint 0, Build success, smoke 0 differences, the suite on
+  the pushed tree 3973 / 0). Build success, smoke 0 differences.
+- 88461909 ITA rows 44 (the footer 32 px under a row of teasers, on phones) and 45 (padded column views 89 px between
+  rows: contact -5.3 -> 0.0 % at 1440, -7.6 -> -5.2 % at 390). Pushed on the third try (main busy; lint 0 after each
+  retry rebase; the suite 4001 / 0 after the first rebase). Build success, smoke 0 differences.
+- This commit: ITA row 46, pets-in-cabin's two grey bands kept apart through a delta on DA's copy (ita-insert-apply.mjs's
+  new row option section; reimport-594-ita-pets-band-gap.txt READY), with test/brand.test.mjs accepting a brand's body
+  with more classes (main's suite red since ema-test's 1a5da3f9: B2B's body.brand-b2b.theme-live...; rows-for-ema-test.md
+  row 8, beside ema-cashub's row 7 on the same failure; found when the pets ship's suite after its rebase failed, 4015 / 1, nothing committed) and this final section.
+
+**Not shipped (failed the gate):** the teaser-row ending from 768 px (5 pages), the grey band ending (5 of 6 pages), the
+plain text ending (1 page). Their drafts stay in `.scratch/` (not finished work).
+
+**Left uncommitted, and why:** `.migration/project.json` (the lh-tap entry, not mine); `.scratch/` (excluded from git):
+the recordings (swiss-parity-006 / -007 and the earlier drops), DA's strollers and pets copies and the deltas' output
+(DA content for the helper's run), the CSS override folders with the drafts above, the gap survey, scripts and logs.
+
+**Process:** reads only from our hosts, the drop's recordings and DA (one GET of the pets copy from my session, not from
+tests); no request to an airline host; no da-upload.mjs call, no upload, preview or publish by me.

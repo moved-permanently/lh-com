@@ -63,7 +63,12 @@ test('brand: lh-com loads no theme; the theme files are tokens, font faces and r
       .filter((s) => s !== ':root')
       .flatMap(selectorList);
     const scope = `body.brand-${key}`;
-    selectors.forEach((s) => assert.ok(s === scope || s.startsWith(`${scope} `), `${key}: ${s} outside ${scope}`));
+    // the brand's body may carry more classes or states (B2B's body.brand-b2b.theme-live,
+    // 1a5da3f9): the same element, still the brand's
+    selectors.forEach((s) => {
+      const rest = s.slice(scope.length);
+      assert.ok(s.startsWith(scope) && (rest === '' || /^[ .:[]/.test(rest)), `${key}: ${s} outside ${scope}`);
+    });
   });
 });
 

@@ -4,7 +4,9 @@
  * DA's copies hold market sections a re-import drops). Per document a list of rows (--data, JSON: { "<path>": [{
  * before, html, text }] }): `html` goes right before the section-level element (a section's own child) whose text
  * starts with `before`. Refused, and the document left as it is: `before` found nowhere or more than once, or `text`
- * (the inserted element's text) in the document already, so a second run changes nothing.
+ * (the inserted element's text) in the document already, so a second run changes nothing. With `section: true` the HTML
+ * (a whole section) goes right before the section whose first element is that element (standing order 10: a section of
+ * style gap between two grey bands); refused when the element is not its section's first.
  *
  * Usage: node tools/importer/ita-insert-apply.mjs --data rows.json --docs <dir> --out <dir> [--list a reimport list
  *   (its READY rows)]
@@ -29,7 +31,9 @@ function sectionLevel(html) {
   children(main).forEach((s) => {
     if (s.tag !== 'div') return;
     const at = s.html.indexOf('>') + 1;
-    children(s.html.slice(at, -6)).forEach((c) => out.push({ start: base + s.start + at + c.start, html: c.html }));
+    children(s.html.slice(at, -6)).forEach((c, i) => out.push({
+      start: base + s.start + at + c.start, html: c.html, first: i === 0, sectionStart: base + s.start,
+    }));
   });
   return out;
 }
@@ -37,7 +41,7 @@ function sectionLevel(html) {
 /**
  * The document with each row's HTML in place, or as it was with the problems.
  * @param {string} html DA's copy
- * @param {{before: string, html: string, text: string}[]} rows
+ * @param {{before: string, html: string, text: string, section?: boolean}[]} rows
  */
 export function applyInserts(html, rows) {
   const problems = [];
@@ -48,7 +52,8 @@ export function applyInserts(html, rows) {
     if (whole.includes(r.text)) { problems.push(`"${r.text}" is in the document already`); return; }
     const hits = els.filter((e) => textOf(e.html).startsWith(r.before));
     if (hits.length !== 1) { problems.push(`"${r.before}": ${hits.length} section-level elements start with it`); return; }
-    at.push({ start: hits[0].start, html: r.html });
+    if (r.section && !hits[0].first) { problems.push(`"${r.before}": not its section's first element`); return; }
+    at.push({ start: r.section ? hits[0].sectionStart : hits[0].start, html: r.html });
   });
   if (problems.length) return { html, problems };
   let out = html;

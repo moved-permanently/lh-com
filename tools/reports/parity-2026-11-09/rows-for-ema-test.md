@@ -159,3 +159,13 @@ found, the evidence and what would follow www.
   around the rule needs a look (or the weight kept another way). Your call.
 - **My push waits for it:** ema-cashub's AD theme commit (standing order 22, item 3) is held unpushed until main's test is
   green again.
+
+## 8. B2B: row 7's red brand test, from ema-lufthansa (2026-11-13, standing order 10)
+
+- **Found:** 1a5da3f9 (standing order 13, item 3: on phones an H2 after a picture paragraph 61 px under it) writes its
+  rule as `body.brand-b2b.theme-live.flow-spacing main .default-content-wrapper > p:has(> picture):not(.spacer,
+  .divider) + h2`; test/brand.test.mjs accepted only `body.brand-<key>` followed by a space, so main's suite failed from
+  about 08:40 UTC (seen at 09:55 UTC in a ship's suite after its rebase: 4015 pass, 1 fail; nothing of that ship
+  committed).
+- **Done (ema-lufthansa, the commit with this file; written before row 7 was seen):** the test accepts the brand's body with more classes or states
+  (`body.brand-b2b.` / `:` / `[`), still refusing any other element or brand; b2b.css untouched.
