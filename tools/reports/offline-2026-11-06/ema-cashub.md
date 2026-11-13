@@ -4016,3 +4016,158 @@ named above that needs a capture, an import or www's services rather than a them
 
 No upload, preview or publish. da-upload.mjs was not called, and no test called the DA or preview API. Only read-only
 GETs of our own hosts and the Brussels site on aem.live.
+
+
+## Standing order 20 (2026-11-13, from about 04:40 CET)
+
+**Start state:** nothing of mine was uncommitted or unpushed. Order 19 had ended at `d3d6f7f6`. Its scratch is outside
+git, in migration-work/parity-588/so17, including held-tap-banner-310.css, which waited for the TAP captures.
+
+**Rules followed:** our hosts only. Every render refused www.* and the airline hosts and counted them (0 to 9 a page);
+none was sent. No upload, preview or publish.
+- Read-only GETs of brussels / tap / austrian.turnsthe.page, main--lh-brussels--moved-permanently.aem.live and DA's
+  source and list API (lh-austrian, lh-brussels).
+- The two archives came from r2.dev. Both sha256 matched; each was extracted into its own new folder, and its
+  serve.py was not run.
+
+### Item 1: the Brussels article captions, measured against brussels-parity-010
+
+- **Method:** order 19's (published document, draft with only www's captions marked, our host, every picture
+  loaded). The method reproduces order 19's numbers exactly (the-gambia 8,993 / 12,921 px).
+- **9 of the 13 recordings have no gallery captions:** every caption field in www's page data is empty, and our
+  documents have none to mark (discover-warsaw, lyon, manchester-football-trip, milan-citytrip, prague, tenerife,
+  valencia, vilnius, athens). HOLD, no change.
+- **bike-the-city, mini-holiday, sun-in-march:** their captions are already italic paragraphs right under their
+  pictures, which the page draws as captions (16 / 24 bold, 15 px under). Marked, the drafts are the same height at
+  both widths. HOLD, no change.
+- **the-ultimate-itinerary-in-kenya: READY.** 3 of its 11 captions follow a picture strip.
+  - 1440: -0.55 -> +0.74 % (0.19 points further, inside the gate).
+  - 390: +0.32 -> +0.43 (with item 3's phone rule).
+- **the-gambia: now READY.** Item 3's phone rule (`e0544f25`) showed why it measured 0.51 points further in order 19.
+  The captions' extra height had hidden a 30 px gap above each gallery on phones. With the rule live, its caption
+  draft goes from +0.60 to +0.09 % at 390; 1440 is -0.68 -> +0.76.
+- **fr / nl:** each follows its recorded language version. Their documents have the same captions and pictures
+  (checked per article; nl/mini-holiday has 3 of the 5 pictures, all of them italic). vibrant-senegal's be/en and
+  be/nl follow its recorded be/fr.
+- **List:** reimport-so19-brussels-article-captions.txt, 9 READY (kenya, the-gambia, vibrant-senegal x 3), 35 HOLD.
+
+### Item 2: TAP banner height, shipped (`e21a2ef7`, then `6a5bedac`)
+
+- tap-parity-010 matches the order's values: 358 x 310 at 390 on all four pages; 404 at 1440, 740 on /en-pt.
+- **One thing to know about the capture:** the manifest marks every 390 file `resizedFrom: 1440`, with one loadedAt
+  per page, so these are not separate first loads. That does not matter here: www's cap is a width rule
+  (min-[376px]:max-h-[310px]). It is noted in capture-requests-ema-cashub.txt.
+- **`e21a2ef7`, the held rule** (the narrow slider's slide 310 px from 376 to 767 px), test first. Measured on the 25
+  recorded TAP pages at 390, the four re-recorded ones on tap-parity-010:
+  - get-inspired -1.66 -> -0.64 %, miles-and-go -1.74 -> -0.68, stopover/partners -1.37 -> +0.06, doacao-milhas
+    -1.41 -> -0.35.
+  - inspire-se -0.45 -> +0.55 (0.10 points further, inside the gate). The other 20 are unchanged.
+  - Sum of the deviations 47.86 -> 43.51 points.
+- **`6a5bedac`, the home stage too:** tap-parity-010 shows the /en-pt home stage at 310 as well. The rule now holds
+  for every TAP slide: /en-pt -0.83 -> +0.18 %, the other 24 unchanged.
+
+### Item 3: the largest deviations left
+
+**Shipped (each test first, measured on its brand's recorded pages):**
+
+- **Brussels, `e0544f25`: on phones a gallery right after text sits 30 px under it.** www's CSS (in the capture):
+  .column-view { padding-top: 2rem } plus its item's padding-top 1rem below 768 px. Our P51 rule covers 768 px and
+  up only. On phones www has 48 to 51 px between text and picture, ours 18 to 21. A gallery that opens its section is
+  as www's already, so the rule is only for one right after text. At 390, on the 15 recorded articles:
+  - Closer: milan-citytrip -2.35 -> -1.27 %, prague -1.10 -> -0.10, manchester -1.20 -> -0.75, kenya -0.75 ->
+    +0.32, vibrant-senegal -0.70 -> +0.40, tenerife -0.61 -> +0.30, bike-the-city -0.27 -> +0.23.
+  - Further: sun-in-march +0.43 -> +0.92 (0.49 points; its gap is now www's, the overshoot is elsewhere on that page)
+    and the-gambia -0.55 -> +0.60 (0.05).
+  - Sum 12.60 -> 9.53 points. A first version for every gallery broke the gate (sun-in-march +0.98, mini-holiday
+    +0.54) and was not shipped.
+- **Brussels, `bce9cab4`: a carousel slide of two pictures.** On www, your-summer-in-athens' carousel under
+  "5. Dive into ... Monastiraki and Psiri" has a first slide of two image components, one under the other, 30 px
+  apart. The parser kept the first picture of each slide and the block drew one per row, so that section was 552 px
+  short at 1440 (the page -5.68 %).
+  - The parser now keeps every figure picture of a slide; the block draws them one under the other.
+  - Measured as a draft with the picture added: 1440 -5.68 -> +1.93 %, 390 -2.12 -> +0.97.
+  - It changes no page by itself: none of the 1,035 local documents with the block has a cell of two pictures.
+  - Not rebuilt: the import bundles. They pick up the parser at their next build.
+- **TAP, `1a04c5bc`: the Miles&Go tier cards spaced as www's card markup.** The markup is the same on both builds.
+  - www has: the card component 64 px under the intro from 728 px, the logo in a 72 px box, 32 px from the logo to the
+    title and from the title to the list, and each line 24 px high. Ours had 32, 65, 16, 16 and 21.
+  - Row 158's title-with-description rule gave the 32 px, but here www's intro is a rich text of its own.
+  - Only a plain cards block with pictures, which among the recorded pages is /en-pt/miles-and-go: 1440 -1.62 ->
+    +0.34 %, 390 -0.68 -> +0.19.
+- **Austrian, `de5084b2`: the grey band in www's .container-gray, #e7e7e7.** Ours was lufthansa.com's #f6f6f6. On
+  the band, the outlined button is transparent as www's .btn-secondary (ours was white). Colour only: heights
+  unchanged, and the band and the button sample 231, 231, 231 as in www's PNG.
+
+**Delta lists on DA's copy (tools/reports/parity-2026-11-09/):**
+
+- **delta-so20-austrian-entryregulations-column-views.txt.**
+  - /at/en READY: three column-view markers at www's view edges (the intro picture ends its view, "General
+    information" starts the next, the link before the second H2 ends it).
+  - Measured: 1440 -3.29 -> -1.26 %, every heading within 27 px of www's but the last (they were 85 to 182 px off);
+    390 -2.75 -> -2.03.
+  - A fourth marker reaches -0.54 % at 1440, but it pulls the USA / Canada pair 40 px off its heading, so it is not
+    in the list.
+  - /at/de HOLD: same structure, not recorded; capture requested.
+  - The H2 marker goes in with heading-size-marks-apply.mjs (checked on scratch copies); the two paragraph markers
+    have no tool and go in by hand.
+- **delta-so20-brussels-athens-carousel-slide.txt.** READY for en, fr and nl: the slide's second picture
+  (SN-Blog-Athens-Monastiraki1), after the street's, one insertion of 177 bytes. It shows with `bce9cab4`.
+
+**Measured, not changed:**
+
+- The Austrian grey bands' spacing: no shared cause. On the 11 recorded pages with a band, our first text sits 42 px
+  above to 49 px below www's, depending on the block inside.
+- travel-id 390 (-2.25 %): three separate gaps around its FAQ and grey band (28, 36 and 31 px).
+- bike-the-city 1440 (-2.28 %): small steps (header -41, each caption step -11, one text stretch -38).
+- As before: the Austrian homepages (their destination finder needs www's APIs), bangkok-airways (flight search
+  widget), TAP's baggage tracker, the /en-pt stage's pickers and voar-economica's click-to-call (outside Lisbon hours),
+  and the Brussels legal hubs and service-charges (causes in orders 16 to 19).
+
+**A method note:** order 19's draft script wraps every picture in a <picture> again. That leaves the published
+pictures that already carry <source> elements nested, so the Austrian draft of the published copy came out 185 px
+short. The Austrian drafts here used a copy that leaves such pictures alone (so20/draft-host2.mjs), and its controls
+equal the live renders. The Brussels drafts were not affected: their controls equal the live renders.
+
+**Capture requests** (capture-requests-ema-cashub.txt, the 17 recorded ones taken out):
+- /at/de/entryregulations.
+- TAP /pt-pt/miles-and-go/promocoes/navigator-experiences (recorded on the old build, its cards differ).
+- TAP /pt-pt (a second home stage on today's build).
+
+### Final section (about 07:05 CET, 2026-11-13)
+
+I stopped before 09:00. The three items are done. Every page left above 2 % on the three brands has a cause named
+above or in orders 16 to 19 that needs a capture, a DA delta, an import or www's services rather than a theme rule.
+
+**Live by code** (on main; theme, block and parser changes):
+- TAP: the banner slide 310 px from 376 px (`e21a2ef7`, `6a5bedac`) and the tier cards (`1a04c5bc`).
+- Brussels: a gallery after text on phones (`e0544f25`) and a carousel slide of two pictures (`bce9cab4`; no page
+  changes until the delta).
+- Austrian: the grey band's colour (`de5084b2`).
+
+**Checks before each push:**
+- Whole-repo lint exit 0, read before every push in a clean worktree. Two pushes found origin moved and were
+  rebased and linted again.
+- Stylelint exit 0 on the changed theme and block CSS.
+- Each change's test red first.
+- The tests that name the changed files or classes passed.
+- Each change was measured on its brand's recorded pages at the widths it touches.
+
+**Full suite** on `bce9cab4` (991 files): 3,981 tests, 3,976 pass, 0 fail, 5 skipped. `1a04c5bc` came after it; the
+289 tests naming its files and classes passed.
+
+**Lists** (tools/reports/parity-2026-11-09/):
+- reimport-so19-brussels-article-captions.txt: 9 READY, 35 HOLD.
+- delta-so20-austrian-entryregulations-column-views.txt: 1 READY, 1 HOLD.
+- delta-so20-brussels-athens-carousel-slide.txt: 3 READY.
+- capture-requests-ema-cashub.txt: 3 paths.
+
+**Open:**
+- The two delta lists and the caption re-imports wait for the import helper.
+- The import bundles have not been rebuilt with the carousel parser.
+- /at/de/entryregulations, navigator-experiences and /pt-pt wait for captures.
+
+**Not in git:** rankings, drafts, crops, code copies, DA scratch copies and scripts, in migration-work/parity-588/so20
+(ignored). The captures are in migration-work/parity-588/drop/brussels-parity-010 and so10/arch/tap-parity-010.
+
+No upload, preview or publish. da-upload.mjs was not called, and no test called the DA or preview API. DA was only
+read (source and list GETs); the delta outputs are scratch files.

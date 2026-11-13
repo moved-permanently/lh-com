@@ -1,29 +1,18 @@
-# Capture requests from ema-cashub (standing order 19, 2026-11-13). One path per line; widths 1440 and 390, full height.
-# The Brussels articles whose gallery captions a re-import would mark (reimport-so19-brussels-article-captions.txt): only
-# the-gambia and vibrant-senegal are recorded (brussels-parity-009), so the other articles cannot be measured against
-# www. One language version each (be/en; the fr and nl versions have the same galleries).
-# host: www.brusselsairlines.com
-/be/en/articles/bike-the-city
-/be/en/articles/discover-warsaw
-/be/en/articles/lyon
-/be/en/articles/manchester-football-trip
-/be/en/articles/milan-citytrip
-/be/en/articles/mini-holiday
-/be/en/articles/prague-fairytale-charm-with-an-edge
-/be/en/articles/sun-in-march
-/be/en/articles/tenerife
-/be/en/articles/the-ultimate-itinerary-in-kenya
-/be/en/articles/valencia-like-a-local
-/be/en/articles/vilnius-steals-your-heart
-/be/en/articles/your-summer-in-athens-starts-here
+# Capture requests from ema-cashub (standing order 20, 2026-11-13). One path per line; widths 1440 and 390, full height,
+# each width its own first load if possible (tap-parity-010's 390 files are resizes of the 1440 load, manifest
+# resizedFrom: fine for these pages, whose banner heights come from www's width rules).
+# Recorded since order 19, thank you: the 13 Brussels articles (brussels-parity-010) and the 4 TAP pages on build
+# sJsYPUBdTcbw1x_UTnNBp (tap-parity-010); no longer requested.
 
-# TAP (standing order 19, item 3): www's banner slides changed between its builds: the recordings of 2026-11-09 / 10
-# (tap-parity-001, -002, -004, build PJpl4JX) cap a banner at 259 px on phones; those of 2026-11-11 (-007, -009, build
-# sJsYPUB) at 310 px from 376 px (max-h-[259px] min-[376px]:max-h-[310px]). The 310 px rule brings the new-build pages
-# closer (doacao-milhas 390 -1.41 -> -0.35 %, stopover/partners -1.37 -> +0.06) and moves the old-build ones away
-# (miles-and-go -0.19 -> +0.88, inspire-se +0.55 -> +1.56); held until these pages are recorded on today's build.
+# Austrian (delta-so20-austrian-entryregulations-column-views.txt): the German version of the page whose delta is READY in
+# English; the same structure, so a recording would let its row go READY too.
+# host: www.austrian.com
+/at/de/entryregulations
+
+# TAP: navigator-experiences was recorded on 2026-11-09 (tap-parity-001, build PJpl4JX) and its offer cards no longer
+# match our document (+2.09 % at 390, +0.14 at 1440); a recording on today's build settles whether the cards changed.
+# /pt-pt: the home stage at 390 is 310 px on today's build on /en-pt (tap-parity-010); one more market's homepage
+# confirms the stage rule for the other TAP homepages (none of them is recorded).
 # host: www.flytap.com
-/en-pt/miles-and-go
-/pt-pt/destinos/inspire-se
-/en-pt/destinations/get-inspired
-/en-pt
+/pt-pt/miles-and-go/promocoes/navigator-experiences
+/pt-pt

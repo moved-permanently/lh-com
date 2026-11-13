@@ -1,55 +1,59 @@
-# ema-cashub, standing order 19 (2026-11-13), item 2: Brussels articles whose re-import marks their gallery captions
-# ("{caption}": the columns-media parser for every brand site since the brief after 534; these documents predate it, their
-# captions plain text in the right cell). With the caption marked the block puts it under the last picture of the
-# right column (50059d38) and the theme draws it as www's: Intelo bold 16 / 24 px, 15 px under the picture, the two
-# pictures 30 px apart (styles/themes/brussels.css, test/brussels-article-captions-so19.test.mjs; this order).
-# The 44 articles are the search indexes' articles pages (be/en, be/fr, be/nl). Recorded: the-gambia (be/en) and
-# vibrant-senegal (be/fr), brussels-parity-009; measured on drafts (our host, the published page with only the captions
-# marked; www.* and the airline hosts refused, 7 requests refused and never sent each), the gate 0.5 points.
-# The other 42 are HOLD: no recording, so nothing to measure them against; their be/en pages are in
-# capture-requests-ema-cashub.txt (one per article; the fr / nl versions follow their be/en one).
+# ema-cashub, standing orders 19 and 20 (2026-11-13), Brussels articles: expected change on re-import: the gallery
+# captions marked "{caption}" (the columns-media parser for every brand site since the brief after 534; these documents
+# predate it), so a caption after a picture strip goes under the strip's last picture, drawn as www's: Intelo bold
+# 16 / 24 px, 15 px under the picture, the two pictures 30 px apart (styles/themes/brussels.css, ebb8051f).
+# The 44 articles are the search indexes' articles pages (be/en, be/fr, be/nl). Order 19 measured the-gambia and
+# vibrant-senegal (brussels-parity-009); order 20 the other 13 be/en articles (brussels-parity-010, 1440 and 390). Each on
+# a draft: our host (brussels.turnsthe.page), the published document with only www's captions marked, every picture
+# loaded; www.* and the airline hosts refused and never sent (0 or 7 a page). Gate: no width 0.5 points further from www.
+# The fr and nl rows follow their recorded language version; their documents have the same captions and pictures.
+# The READY rows' 390 numbers are measured with e0544f25 live (this order: a gallery right after text 30 px under it on
+# phones, as www's column view); before it, the captions' extra height hid that gap, so the-gambia measured 0.51 points
+# further. The "no change" rows' heights are before e0544f25 (control and draft equal either way).
+# READY: a re-import is expected to bring the page closer (or within the gate). HOLD: re-import not recommended for
+# the captions (the reason given; "no change" means nothing measurable would change).
 # Columns: document, status, expected change.
-/be/en/articles/bike-the-city	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/en/articles/discover-warsaw	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/en/articles/lyon	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/en/articles/manchester-football-trip	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/en/articles/milan-citytrip	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/en/articles/mini-holiday	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/en/articles/prague-fairytale-charm-with-an-edge	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/en/articles/sun-in-march	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/en/articles/tenerife	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/en/articles/the-gambia	HOLD	1440 8,993 -> 9,124 px (www 9,055: -0.68 -> +0.76 %), 390 12,987 -> 12,921 (www 13,059: -0.55 -> -1.06 %, 0.51 points further: just over the gate)
-/be/en/articles/the-ultimate-itinerary-in-kenya	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/en/articles/valencia-like-a-local	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/en/articles/vibrant-senegal	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/en/articles/vilnius-steals-your-heart	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/en/articles/your-summer-in-athens-starts-here	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/fr/articles/bike-the-city	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/fr/articles/discover-warsaw	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/fr/articles/lyon	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/fr/articles/manchester-football-trip	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/fr/articles/milan-citytrip	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/fr/articles/mini-holiday	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/fr/articles/prague-fairytale-charm-with-an-edge	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/fr/articles/sun-in-march	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/fr/articles/tenerife	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/fr/articles/the-gambia	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/fr/articles/the-ultimate-itinerary-in-kenya	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/fr/articles/valencia-like-a-local	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/fr/articles/vibrant-senegal	READY	its gallery captions marked; 1440 10,974 -> 10,981 px, 390 16,320 -> 16,301 (www 10,887 / 16,435; drafts against the live page with this order's caption rules)
-/be/fr/articles/vilnius-steals-your-heart	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/fr/articles/your-summer-in-athens-starts-here	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/nl/articles/bike-the-city	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/nl/articles/discover-warsaw	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/nl/articles/lyon	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/nl/articles/manchester-football-trip	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/nl/articles/mini-holiday	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/nl/articles/prague-fairytale-charm-with-an-edge	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/nl/articles/sun-in-march	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/nl/articles/tenerife	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/nl/articles/the-gambia	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/nl/articles/the-ultimate-itinerary-in-kenya	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/nl/articles/valencia-like-a-local	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/nl/articles/vibrant-senegal	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/nl/articles/vilnius-steals-your-heart	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
-/be/nl/articles/your-summer-in-athens-starts-here	HOLD	not recorded: no measurement against www (capture requested, capture-requests-ema-cashub.txt)
+/be/en/articles/bike-the-city	HOLD	no change: its 6 captions are already italic paragraphs right under their pictures, which the page draws as captions (16 / 24 px bold, 15 px under); marked, the draft is the same height (1440 3,989, 390 5,965 px)
+/be/en/articles/discover-warsaw	HOLD	no change: www shows no gallery captions on this page (brussels-parity-010, every caption field empty), so a re-import has nothing to mark
+/be/en/articles/lyon	HOLD	no change: www shows no gallery captions on this page (brussels-parity-010, every caption field empty), so a re-import has nothing to mark
+/be/en/articles/manchester-football-trip	HOLD	no change: www shows no gallery captions on this page (brussels-parity-010, every caption field empty), so a re-import has nothing to mark
+/be/en/articles/milan-citytrip	HOLD	no change: www shows no gallery captions on this page (brussels-parity-010, every caption field empty), so a re-import has nothing to mark
+/be/en/articles/mini-holiday	HOLD	no change: its 5 captions are already italic paragraphs right under their pictures, which the page draws as captions (16 / 24 px bold, 15 px under); marked, the draft is the same height (1440 3,886, 390 5,621 px)
+/be/en/articles/prague-fairytale-charm-with-an-edge	HOLD	no change: www shows no gallery captions on this page (brussels-parity-010, every caption field empty), so a re-import has nothing to mark
+/be/en/articles/sun-in-march	HOLD	no change: its 5 captions are already italic paragraphs right under their pictures, which the page draws as captions (16 / 24 px bold, 15 px under); marked, the draft is the same height (1440 4,128, 390 6,122 px)
+/be/en/articles/tenerife	HOLD	no change: www shows no gallery captions on this page (brussels-parity-010, every caption field empty), so a re-import has nothing to mark
+/be/en/articles/the-gambia	READY	1440 8,993 -> 9,124 px (www 9,055: -0.68 -> +0.76 %, 0.08 points further), 390 13,137 -> 13,071 (www 13,059: +0.60 -> +0.09 %, with e0544f25; order 19 measured it 0.51 points further before that rule; brussels-parity-009)
+/be/en/articles/the-ultimate-itinerary-in-kenya	READY	its 3 captions after a picture strip marked (the other 8 already italic paragraphs drawn as captions): they move under the strip's last picture. 1440 8,862 -> 8,977 px (www 8,911: -0.55 -> +0.74 %, 0.19 points further, inside the gate), 390 14,043 -> 14,058 (www 13,998: +0.32 -> +0.43 %, 0.11 further; with e0544f25)
+/be/en/articles/valencia-like-a-local	HOLD	no change: www shows no gallery captions on this page (brussels-parity-010, every caption field empty), so a re-import has nothing to mark
+/be/en/articles/vibrant-senegal	READY	follows /be/fr/articles/vibrant-senegal (recorded; the same 7 columns-media blocks, 22 pictures, 5 italic captions and 1 after a strip)
+/be/en/articles/vilnius-steals-your-heart	HOLD	no change: www shows no gallery captions on this page (brussels-parity-010, every caption field empty), so a re-import has nothing to mark
+/be/en/articles/your-summer-in-athens-starts-here	HOLD	no change: www shows no gallery captions on this page (brussels-parity-010, every caption field empty), so a re-import has nothing to mark
+/be/fr/articles/bike-the-city	HOLD	follows /be/en/articles/bike-the-city (the same captions and pictures)
+/be/fr/articles/discover-warsaw	HOLD	follows /be/en/articles/discover-warsaw (the same captions and pictures)
+/be/fr/articles/lyon	HOLD	follows /be/en/articles/lyon (the same captions and pictures)
+/be/fr/articles/manchester-football-trip	HOLD	follows /be/en/articles/manchester-football-trip (the same captions and pictures)
+/be/fr/articles/milan-citytrip	HOLD	follows /be/en/articles/milan-citytrip (the same captions and pictures)
+/be/fr/articles/mini-holiday	HOLD	follows /be/en/articles/mini-holiday (the same captions and pictures)
+/be/fr/articles/prague-fairytale-charm-with-an-edge	HOLD	follows /be/en/articles/prague-fairytale-charm-with-an-edge (the same captions and pictures)
+/be/fr/articles/sun-in-march	HOLD	follows /be/en/articles/sun-in-march (the same captions and pictures)
+/be/fr/articles/tenerife	HOLD	follows /be/en/articles/tenerife (the same captions and pictures)
+/be/fr/articles/the-gambia	READY	follows /be/en/articles/the-gambia (the same captions and pictures)
+/be/fr/articles/the-ultimate-itinerary-in-kenya	READY	follows /be/en/articles/the-ultimate-itinerary-in-kenya (the same captions and pictures)
+/be/fr/articles/valencia-like-a-local	HOLD	follows /be/en/articles/valencia-like-a-local (the same captions and pictures)
+/be/fr/articles/vibrant-senegal	READY	its gallery captions marked; 1440 10,974 -> 10,981 px (www 10,887), 390 16,500 -> 16,481 (www 16,435: +0.40 -> +0.28 %, with e0544f25; brussels-parity-009)
+/be/fr/articles/vilnius-steals-your-heart	HOLD	follows /be/en/articles/vilnius-steals-your-heart (the same captions and pictures)
+/be/fr/articles/your-summer-in-athens-starts-here	HOLD	follows /be/en/articles/your-summer-in-athens-starts-here (the same captions and pictures)
+/be/nl/articles/bike-the-city	HOLD	follows /be/en/articles/bike-the-city (the same captions and pictures)
+/be/nl/articles/discover-warsaw	HOLD	follows /be/en/articles/discover-warsaw (the same captions and pictures)
+/be/nl/articles/lyon	HOLD	follows /be/en/articles/lyon (the same captions and pictures)
+/be/nl/articles/manchester-football-trip	HOLD	follows /be/en/articles/manchester-football-trip (the same captions and pictures)
+/be/nl/articles/mini-holiday	HOLD	follows /be/en/articles/mini-holiday: 3 of the 5 pictures, every caption an italic paragraph, so no change
+/be/nl/articles/prague-fairytale-charm-with-an-edge	HOLD	follows /be/en/articles/prague-fairytale-charm-with-an-edge (the same captions and pictures)
+/be/nl/articles/sun-in-march	HOLD	follows /be/en/articles/sun-in-march (the same captions and pictures)
+/be/nl/articles/tenerife	HOLD	follows /be/en/articles/tenerife (the same captions and pictures)
+/be/nl/articles/the-gambia	READY	follows /be/en/articles/the-gambia (the same captions and pictures)
+/be/nl/articles/the-ultimate-itinerary-in-kenya	READY	follows /be/en/articles/the-ultimate-itinerary-in-kenya (the same captions and pictures)
+/be/nl/articles/valencia-like-a-local	HOLD	follows /be/en/articles/valencia-like-a-local (the same captions and pictures)
+/be/nl/articles/vibrant-senegal	READY	follows /be/fr/articles/vibrant-senegal (recorded; the same 7 columns-media blocks, 22 pictures, 5 italic captions and 1 after a strip)
+/be/nl/articles/vilnius-steals-your-heart	HOLD	follows /be/en/articles/vilnius-steals-your-heart (the same captions and pictures)
+/be/nl/articles/your-summer-in-athens-starts-here	HOLD	follows /be/en/articles/your-summer-in-athens-starts-here (the same captions and pictures)
