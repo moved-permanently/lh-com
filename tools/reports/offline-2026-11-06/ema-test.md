@@ -3735,3 +3735,5 @@ State at the start: nothing of mine unpushed (order 14's final section on main).
   (built importer copies), /tmp/cmp (the comparison workspaces), the recordings in /tmp and /tmp/dl-* (the drops'
   private material), logs/wt-ema-test.partial-so11 (an unfinished checkout), content/, content-sites/, migration-work/,
   tools/importer/reports/* (not mine), the 2026-11-07 autostash (not mine). My local preview servers are stopped.
+- Postscript (14:35 UTC): the helper applied the tab delta (8897d6ce); the published xx/en page measures as
+  predicted, 390 11.88 %, 2,063 px (www 2,039), its 36 tab sections in place.
