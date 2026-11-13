@@ -1190,3 +1190,17 @@ body.brand-swiss main .columns-media-wrapper + .default-content-wrapper:has(> :i
 body.brand-swiss .carousel-cards:is(.grid, .four-up) .carousel-cards-slide:not(.carousel-cards-text-only, .carousel-cards-wide) .carousel-cards-body:not(:has(> .carousel-cards-cta:last-child)) {
   padding-bottom: 40px;
 }
+
+/* a page that ends with plain-view teasers (SWISS row 54; standing order 12, item 2; the importer's option plain-view:
+   the special requests and travel information hubs, /ch/en/prepare in swiss-parity-005): www's footer 20px under the
+   last teaser on phones, 40px from 768px; ours kept the section gap (48px). Grids without plain-view as before
+   (book-and-manage: www 52px) */
+body.brand-swiss main > .section:last-child:has(> .carousel-cards-wrapper:last-child > .carousel-cards.plain-view) {
+  margin-bottom: 20px;
+}
+
+@media (width >= 768px) {
+  body.brand-swiss main > .section:last-child:has(> .carousel-cards-wrapper:last-child > .carousel-cards.plain-view) {
+    margin-bottom: 40px;
+  }
+}

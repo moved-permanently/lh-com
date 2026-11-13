@@ -1184,3 +1184,17 @@ body.brand-ita .columns-media.padded {
     margin-bottom: 64px;
   }
 }
+
+/* accordion table cells on phones (ITA row 49; standing order 12, item 1; baggage-and-strollers' fare tables,
+   ita-parity-005): www's maui-table cells pad the header cell 24px / 16px and the others 32px / 16px below 768px; the
+   block's 16px / 12px there (from 768px its 32px / 20px is www's). Strollers 390 -19.65 -> -11.13 %; the 38 other
+   recorded ITA pages unchanged */
+@media (width < 768px) {
+  body.brand-ita .accordion-columns .accordion-columns-table th {
+    padding: 24px 16px;
+  }
+
+  body.brand-ita .accordion-columns .accordion-columns-table td {
+    padding: 32px 16px;
+  }
+}

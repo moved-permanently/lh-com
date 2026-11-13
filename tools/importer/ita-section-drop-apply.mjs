@@ -8,6 +8,9 @@
  * { "<path>": { band } }): the empty last section goes when the section before it holds the metadata block only and the
  * one before that is the band (its text starts with `band`). Refused, and the document left as it is, otherwise (so a
  * second run changes nothing). Every other byte as DA's.
+ * Standing order 12: on the published page this changes nothing. Publishing moves the metadata block to the head and
+ * leaves its section empty at the end of main, so the band is still not the last section (invoicing, published 15:58
+ * UTC, as before). The measurements behind the row kept the metadata block in main. The tool stays for its refusals.
  *
  * Usage: node tools/importer/ita-section-drop-apply.mjs --data rows.json --docs <dir> --out <dir> [--list a reimport list
  *   (its READY rows)]

@@ -58,7 +58,7 @@ test('fantasia-lounge: the gap section with "{spacer-65 from-768}" right before 
   assert.equal(r.html, doc.replace(band, `${rows[0].html}${band}`));
 });
 
-test('the data and the list agree: READY rows for the two pages, the four others HOLD with a reason', () => {
+test('the data and the list agree: fantasia-lounge READY; invoicing HOLD since standing order 12 (publishing leaves the metadata section empty at the end, so the drop changes nothing there); the four others HOLD', () => {
   const lines = fs.readFileSync(LIST, 'utf8').split('\n');
   assert.match(lines[0], /ita-section-drop-apply\.mjs --data tools\/reports\/parity-2026-11-09\/ita-section-drops-595\.json/);
   assert.match(lines[0], /ita-insert-apply\.mjs --data tools\/reports\/parity-2026-11-09\/ita-inserts-595\.json/);
@@ -67,6 +67,7 @@ test('the data and the list agree: READY rows for the two pages, the four others
   const drops = JSON.parse(fs.readFileSync(new URL('../tools/reports/parity-2026-11-09/ita-section-drops-595.json', import.meta.url), 'utf8'));
   const inserts = JSON.parse(fs.readFileSync(new URL('../tools/reports/parity-2026-11-09/ita-inserts-595.json', import.meta.url), 'utf8'));
   const ready = rows.filter((r) => /^READY\b/.test(r[r.length - 1])).map((r) => r[0]).sort();
-  assert.deepEqual(ready, [...Object.keys(drops), ...Object.keys(inserts)].sort());
+  assert.deepEqual(ready, Object.keys(inserts).sort());
+  Object.keys(drops).forEach((p) => assert.ok(rows.some((r) => r[0] === p && /^HOLD \(corrected in standing order 12/.test(r[r.length - 1])), p));
   rows.filter((r) => !ready.includes(r[0])).forEach((r) => assert.match(r[r.length - 1], /^HOLD \(.+\)$/, r[0]));
 });
