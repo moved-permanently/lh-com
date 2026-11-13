@@ -6,7 +6,7 @@
  * one image at a time, e.g. /de/en/100-years/chronicle, /de/en/discover-lufthansa/new-onboard-experience).
  *
  * Output (blocks/carousel-images README, EDS carousel convention): 2 columns, one row per slide:
- *   cell 1: the image only (figure img, alt kept)
+ *   cell 1: the image only (figure img, alt kept); a slide of several image components: each of them, in order
  *   cell 2: the caption (figcaption.caption > maui-caption) as a paragraph; empty without one
  * Swiper loop copies (.swiper-slide-duplicate) are skipped. The swiper's aria messages
  * ("Previous slide", ...) are library defaults; the block uses its own locale labels.
@@ -21,9 +21,17 @@ export default function parse(element, { document }) {
   slides.forEach((slide) => {
     const source = [...slide.querySelectorAll('img')].find((i) => !isBroken(i.getAttribute('src')));
     if (!source) return;
-    const img = document.createElement('img');
-    img.src = source.getAttribute('src');
-    img.alt = clean(source.getAttribute('alt'));
+    const toImg = (from) => {
+      const i = document.createElement('img');
+      i.src = from.getAttribute('src');
+      i.alt = clean(from.getAttribute('alt'));
+      return i;
+    };
+    const img = toImg(source);
+    // several image components in one slide, one under the other (Brussels' your-summer-in-athens-starts-here: the
+    // street, then the aerial view; standing order 20): every figure picture of the slide, in order
+    const more = [...slide.querySelectorAll('figure img')].filter((i) => i !== source && !isBroken(i.getAttribute('src')));
+    const media = more.length ? [img, ...more.map(toImg)] : img;
     let captionCell = '';
     const figcaption = slide.querySelector('figcaption, .caption');
     if (figcaption && clean(figcaption.textContent)) {
@@ -46,7 +54,7 @@ export default function parse(element, { document }) {
         });
       if (parts.length) captionCell = parts;
     }
-    cells.push([img, captionCell]);
+    cells.push([media, captionCell]);
   });
 
   if (!cells.length) {

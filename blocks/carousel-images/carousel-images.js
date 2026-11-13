@@ -113,10 +113,23 @@ function readRows(block) {
     const img = row.querySelector('img');
     if (img) {
       const picture = img.closest('picture') || img;
-      const holder = picture.parentElement && picture.parentElement.tagName === 'P'
-        && !cleanText(picture.parentElement) ? picture.parentElement : picture;
+      // its paragraph goes with it when it holds only this picture (one paragraph can hold
+      // a slide's two pictures, standing order 20)
+      const alone = (p) => p && p.tagName === 'P' && !cleanText(p) && p.querySelectorAll('img').length === 1;
+      const holder = alone(picture.parentElement) ? picture.parentElement : picture;
       const link = img.closest('a[href]');
+      const imageCell = cells.find((c) => c.contains(img));
       holder.remove();
+      // more pictures in the image's cell (a slide of several image components, one under the
+      // other: Brussels' your-summer-in-athens-starts-here, standing order 20), in order
+      const others = imageCell ? [...imageCell.querySelectorAll('img')] : [];
+      const more = others.map((other) => {
+        const pic = other.closest('picture') || other;
+        const own = alone(pic.parentElement) ? pic.parentElement : pic;
+        const a = other.closest('a[href]');
+        own.remove();
+        return { img: other, alt: stripZeroWidth(other.alt || ''), href: a ? a.getAttribute('href') : '' };
+      });
       const caption = [];
       cells.forEach((cell) => {
         [...cell.childNodes].forEach((node) => {
@@ -126,7 +139,7 @@ function readRows(block) {
         });
       });
       slides.push({
-        img, alt: stripZeroWidth(img.alt || ''), href: link ? link.getAttribute('href') : '', caption,
+        img, alt: stripZeroWidth(img.alt || ''), href: link ? link.getAttribute('href') : '', caption, more,
       });
       return;
     }
@@ -134,6 +147,16 @@ function readRows(block) {
     if (LABEL_KEYS.includes(key)) config[key] = { text: cleanText(cells[1]) };
   });
   return { config, slides };
+}
+
+/** A slide's picture, in its link if it has one. */
+function slidePicture({ img, alt, href }) {
+  const picture = keepImageSize(img, createOptimizedPicture(img.src, alt, false, BREAKPOINTS));
+  if (!href) return picture;
+  const a = el('a');
+  a.href = href;
+  a.append(picture);
+  return a;
 }
 
 function buildSlide(slide, label) {
@@ -144,16 +167,8 @@ function buildSlide(slide, label) {
   li.setAttribute('aria-label', label);
   const figure = el('figure', 'carousel-images-figure');
   const media = el('div', 'carousel-images-image');
-  const optimized = createOptimizedPicture(slide.img.src, slide.alt, false, BREAKPOINTS);
-  const picture = keepImageSize(slide.img, optimized);
-  if (slide.href) {
-    const a = el('a');
-    a.href = slide.href;
-    a.append(picture);
-    media.append(a);
-  } else {
-    media.append(picture);
-  }
+  media.append(slidePicture(slide));
+  (slide.more || []).forEach((other) => media.append(slidePicture(other)));
   figure.append(media);
   if (slide.caption.length) {
     const caption = el('figcaption', 'carousel-images-caption');

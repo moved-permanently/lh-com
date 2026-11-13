@@ -66,6 +66,12 @@
   height: auto;
 }
 
+/* a slide of several pictures, one under the other: 30 px apart (www's image components in one slide,
+   brussels' your-summer-in-athens-starts-here at 1440 and 390; standing order 20) */
+.carousel-images .carousel-images-image > :is(picture, a) + :is(picture, a) {
+  margin-top: 30px;
+}
+
 /* 2:1 reserved until an image without width/height attributes has loaded */
 .carousel-images .carousel-images-image img:not([width]) {
   aspect-ratio: auto 2 / 1;
