@@ -344,6 +344,16 @@ body.brand-tap .hero-campaign-tap .hero-campaign-slide {
   }
 }
 
+/* the banner slider from 376 px: 310 px, as www's build sJsYPUB (max-h-[259px] min-[376px]:max-h-[310px]; 358 x 310 at
+   390 on miles-and-go, inspire-se, get-inspired, tap-parity-010; standing order 20). The home stage (no narrow) keeps
+   259. At 390: get-inspired -1.66 -> -0.64 %, miles-and-go -1.74 -> -0.68, stopover/partners -1.37 -> +0.06,
+   doacao-milhas -1.41 -> -0.35, inspire-se -0.45 -> +0.55 */
+@media (width >= 376px) and (width < 768px) {
+  body.brand-tap .hero-campaign-tap.narrow .hero-campaign-slide {
+    height: 310px;
+  }
+}
+
 /* www: linear-gradient(90deg, rgba(5,5,5,.4) 3.08%, transparent) over the picture */
 body.brand-tap .hero-campaign-tap .hero-campaign-slide .hero-campaign-media::after {
   background: linear-gradient(90deg, rgb(5 5 5 / 40%) 3.08%, rgb(255 255 255 / 0%) 100%);
