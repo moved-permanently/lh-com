@@ -1,0 +1,11 @@
+# Capture requests from ema-lufthansa (standing order 9, 2026-11-13). One path per line; widths 1440 and 390, full height,
+# the measurements json with the recording (as swiss-parity-005).
+# host: www.swiss.com
+# /ch/en/offers: swiss-parity-005 has www 32,382 px at 1440 against our 2,218 (our finder shows "No results for your
+# current origin selection" without www's fare data); the recording may hold a list still loading while the capture
+# scrolled. Wait for the destination grid's cards with fares to be there and their number to stay the same for 5 s
+# (scroll to the end and back first), the origin as www sets it for ch/en (Zurich); note the origin and the card count.
+/ch/en/offers
+# /ch/en/homepage: the "Flight offers from" block (cards Bangkok, Barcelona, Berlin, ...) -163 px against ours at 1440:
+# wait for its cards with prices, as above.
+/ch/en/homepage
