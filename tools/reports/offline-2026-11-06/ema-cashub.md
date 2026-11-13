@@ -4953,11 +4953,11 @@ applied by the helper (`2963b294`): 1440 3,738 px as served, as the draft predic
 ### Final section (about 20:15 CET, 2026-11-13)
 
 **Shipped:** no code. This commit holds the lists, one delta file (13 READY rows, 6 HOLD) and this section.
+The helper applied the 13 READY rows at about 20:13 CET (`c7eba679`). Checked as served, three of them equal their drafts:
+overview-services-on-board en / de 390 at 2,874 / 2,922 px (www 2,921 / 2,969) and wetlease-hub 1440 at 3,020 (www 3,070).
 
 **For you to decide:**
 - Switching on `austrian-ife-carousel` (an author's flags sheet row): it brings unterhaltung-an-bord within 2 % at both widths.
-- Applying the 13 READY trailing-separator rows to DA's copies, by the helper, after checking each copy's end; the
-  Adobe credential option looks off for reading DA.
 - The empty-item rule follows www's layout, but it fails the gate on book/flights en 390 and two font rows. Whether
   those can count as exceptions is your call.
 
