@@ -53,3 +53,11 @@ test('Discover from 768 px: the cards 40 px under an intro\'s one-paragraph view
   const css = fs.readFileSync(new URL('../styles/themes/discover.css', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
   assert.ok(css.includes('@media (width >= 768px) { body.brand-discover main .default-content-wrapper:has(> p.column-start-outer.column-end-outer:last-child) + .carousel-cards-wrapper, body.brand-discover main > .section:has(> .default-content-wrapper:last-child > p.column-start-outer.column-end-outer:last-child) + .section { margin-top: 40px; } }'));
 });
+
+/* Standing order 12: the delta keeps DA's own escaping byte for byte (an href's &amp;), the marks its only change. */
+test('the delta for DA\'s copies keeps everything else byte for byte', async () => {
+  const { applyOneElementView } = await import('../tools/importer/one-element-view-apply.mjs');
+  const da = '<body><header></header><main><div>\n  <h1 id="x">Additional services</h1>\n  <p>Everything ready? <a href="/de/en/x?a=1&amp;b=2">More&nbsp;here</a></p>\n</div></main><footer></footer></body>';
+  const { html, result } = applyOneElementView(da, { path: '/x', text: 'Everything ready?' });
+  assert.ok(result === 'marked' && html === da.replace('here</a></p>', 'here</a> {column-start-outer column-end-outer}</p>'), html);
+});

@@ -21,12 +21,21 @@ const MARKS = ' {column-start-outer column-end-outer}';
 export function applyOneElementView(html, row) {
   const { document } = parseHTML(`<!DOCTYPE html><html><body><main>${html}</main></body></html>`);
   const main = document.querySelector('main');
-  const h1 = main.querySelector(':scope > div > h1');
+  // a section's H1 (DA's copies come with their page frame, <body><header><main>; .plain.html without it)
+  const h1 = main.querySelector('div > h1');
   const p = h1 && h1.nextElementSibling;
   if (!p || p.tagName !== 'P' || !norm(p.textContent).startsWith(norm(row.text).slice(0, 40))) return { html, result: 'not found' };
   if (/\{[^}]*\}\s*$/.test(p.textContent)) return { html, result: 'present' };
-  p.append(document.createTextNode(MARKS));
-  return { html: main.innerHTML, result: 'marked' };
+  // into the source's own text, the rest byte for byte (DA's &amp; and &nbsp; stay; standing order 12): the n-th
+  // H1's closing tag, the paragraph right after it, its closing tag
+  const n = [...main.querySelectorAll('h1')].indexOf(h1);
+  const open = /<h1[\s>]/gi;
+  let m;
+  for (let i = 0; i <= n; i += 1) m = open.exec(html);
+  const h1End = m ? html.toLowerCase().indexOf('</h1>', m.index) : -1;
+  const pEnd = h1End < 0 ? -1 : html.toLowerCase().indexOf('</p>', h1End);
+  if (pEnd < 0) return { html, result: 'not found in the source' };
+  return { html: html.slice(0, pEnd) + MARKS + html.slice(pEnd), result: 'marked' };
 }
 
 /** A list's paths: one a line, or a reimport list's rows (tab-separated), only the READY ones (its last column). */

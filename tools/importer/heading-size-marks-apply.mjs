@@ -17,19 +17,38 @@ import { parseHTML } from 'linkedom';
 const key = (s) => (s || '').replace(/\{[^}]*\}\s*$/, '').replace(/\s+/g, ' ').trim().toLowerCase();
 const MARKED = /\{[^}]*\}\s*$/;
 
-/** The document's HTML with the rows' markers; returns { html, results: [{ row, result }] }. */
+/**
+ * The document's HTML with the rows' markers; returns { html, results: [{ row, result }] }. The markers go into the
+ * document's own text (before the heading's closing tag), the rest of it byte for byte: DA's entity escaping (an
+ * href's `&amp;`, `&nbsp;`) and whitespace stay as they are (standing order 12 of 2026-11-13: serialising the
+ * document again through linkedom wrote an href's `&amp;` as a bare `&`).
+ */
 export function applyHeadingSizeMarks(html, rows) {
   const { document } = parseHTML(`<!DOCTYPE html><html><body><main>${html}</main></body></html>`);
   const main = document.querySelector('main');
+  const inserts = []; // [level, index among that level's headings in document order, text]
   const results = rows.map((row) => {
-    const hits = [...main.querySelectorAll(`h${row.level}`)].filter((h) => key(h.textContent) === key(row.text));
+    const all = [...main.querySelectorAll(`h${row.level}`)];
+    const hits = all.filter((h) => key(h.textContent) === key(row.text));
     if (hits.length !== 1) return { row, result: hits.length ? 'ambiguous' : 'not found' };
     const [h] = hits;
     if (MARKED.test(h.textContent)) return { row, result: 'present' };
-    h.append(document.createTextNode(` {${row.size}}`));
+    inserts.push([row.level, all.indexOf(h), ` {${row.size}}`]);
+    h.append(document.createTextNode(` {${row.size}}`)); // a later row on the same heading sees it
     return { row, result: `{${row.size}}` };
   });
-  return { html: results.some((r) => r.result.startsWith('{')) ? main.innerHTML : html, results };
+  // the n-th <hN ...> of the source and its closing tag (headings do not nest); insert from the end
+  const at = inserts.map(([level, n, text]) => {
+    const open = new RegExp(`<h${level}[\\s>]`, 'gi');
+    let m;
+    for (let i = 0; i <= n; i += 1) m = open.exec(html);
+    const close = m ? html.toLowerCase().indexOf(`</h${level}>`, m.index) : -1;
+    return [close, text];
+  });
+  if (at.some(([close]) => close < 0)) return { html, results: results.map((r) => (r.result.startsWith('{') ? { ...r, result: 'not found in the source' } : r)) };
+  let out = html;
+  at.sort((a, b) => b[0] - a[0]).forEach(([close, text]) => { out = out.slice(0, close) + text + out.slice(close); });
+  return { html: out, results };
 }
 
 /** A list's paths: one a line, or a reimport list's rows (tab-separated), only the READY ones (its last column). */
