@@ -20,7 +20,8 @@ test('EXCAT_IMPORT_SCRIPTS_SOURCE: the scripts copied from there, its utils besi
     const src = path.join(plugin, 'skills/excat-content-import/scripts');
     fs.mkdirSync(path.join(src, 'node_modules'), { recursive: true });
     fs.mkdirSync(path.join(plugin, 'utils'), { recursive: true });
-    fs.writeFileSync(path.join(src, 'run-bulk-import.js'), `async function run(page, url, savedHtml) {\n${SET}\n  await page.goto(url, {});\n}\n`);
+    // (its launch arguments too: the copy puts a dead proxy first since standing order 17)
+    fs.writeFileSync(path.join(src, 'run-bulk-import.js'), `async function launchBrowser() {\n  const args = [\n  ];\n  return args;\n}\nasync function run(page, url, savedHtml) {\n${SET}\n  await page.goto(url, {});\n}\n`);
     fs.writeFileSync(path.join(src, 'other.js'), 'export const x = 1;\n');
     fs.writeFileSync(path.join(plugin, 'utils/playwright-browser.js'), 'export const y = 2;\n');
     const dest = path.join(tmp, 'out');

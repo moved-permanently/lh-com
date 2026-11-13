@@ -16,7 +16,9 @@ import { fileURLToPath } from 'node:url';
 
 export const STOCK_SCRIPTS = '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-content-import/scripts';
 /** The comment offline-importer.mjs writes into the copy's run-bulk-import.js. */
-export const OFFLINE_MARK = 'offline copy (tools/importer/offline-importer.mjs): no request leaves the browser';
+// (standing order 17: resource hints dropped and a dead proxy; copies with the older mark are rebuilt)
+export const OFFLINE_MARK = 'offline copy (tools/importer/offline-importer.mjs): no request leaves the browser, '
+  + 'no resource hints, a dead proxy';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 
