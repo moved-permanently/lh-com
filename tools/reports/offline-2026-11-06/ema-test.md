@@ -3538,6 +3538,12 @@ left as it is (yours). The 2026-11-07 autostash left alone.
      / -5.4, about-us -2.6). At every width also 29 phone page-widths better, but SWISS Senses intermediaries xx/de
      390 +0.76 (its title a line longer than www's: www lets LANGSTRECKENERLEBNIS overflow, ours breaks it, as
      decided before), so phones are left.
+   - B2B on phones: an H2 right after a picture paragraph 61 px under it (1a5da3f9, test first): www's news hubs
+     (de/de, de/en, xx/de, xx/en) start their H2 61 px under the intro picture, ours 40. The four hubs at 390 -4.3
+     to -4.8, none worse. At 1440 www's gap is the same, but there the hubs' tab set and grey band below take 68 px
+     more than www's (the tabs closer under the H2 on www, the band right under the tabs) and made up for it: with
+     the rule de/de, de/en 1440 +10, so not there; B2B's tab sets are spaced differently from page to page on www
+     (order 11), so no rule for that.
    - Capture request (a401b045): businesstogo's four pages at 390 as a phone's own first load; every recording takes
      390 from the 1440 load resized, and -005 / -006 disagree on the first tab item (ours 626 px shorter than -006).
    - Measured and not kept (gate):
@@ -3555,3 +3561,25 @@ left as it is (yours). The 2026-11-07 autostash left alone.
        17 worse (check-in de/de 1440 +9.8, though its page now looks like www's: the cards under it then sit 41 px
        high), with the 80 px rows too 9 better, 16 worse. These causes offset each other on most pages; one at a
        time each fails the gate, and the gate is per page-width.
+
+## Standing order 13, final section (09:20 UTC, 2026-11-13)
+
+- Item 1: text-spacers-apply.mjs and b2b-view-spacers-apply.mjs keep DA's escaping byte for byte (31971681); neither
+  needs to rewrite the document. All four delta tools now insert into DA's text.
+- Item 2: tools/parity/guard.mjs in the six other tools that open our pages (62c00753); turnsthe.page counts as ours;
+  lh-edge redeployed by it, smoke 0 differ on 12 hosts. Left with reasons: test-widgets (no browser), the offline
+  importer (aborts already), the Studio tools (snapshot only), bd-session and the batches' capture step and
+  market-diff (www on purpose).
+- Item 3: Discover's stage under the breadcrumb (084eb894, 12 better); B2B's title 2 px lower from 768 px (9e34a936,
+  23 better at 1440); B2B's H2 after a picture on phones (1a5da3f9, the four news hubs -4.3 to -4.8); a capture
+  request for businesstogo at 390 (a401b045). Measured and not kept: Discover's 80 px rows, its tab set gap, its
+  phone stage, B2B's title at 390, the 1440 half of the news rule, and the Discover cell-heading list (33 headings
+  on 15 documents, HOLD: 17 of 30 page-widths worse; the causes offset each other there).
+- Nothing uploaded, previewed or published; da-upload.mjs not run; no DA or preview API call; no request to an
+  airline host (every capture and scratch browser guarded, www's fonts from the drops). .migration/project.json
+  left as it is.
+- Not in git and why: logs/p4/so13 (scratch: captures, results, censuses, the published copies and their
+  marked versions, the held trials as patches in logs/p4/so13/held), logs/p4/so12, so11 and so6/cap (earlier
+  scratch and captures), the recordings in /tmp and their archives in /tmp/dl-* (the drops' private material),
+  logs/wt-ema-test.partial-so11 (an unfinished checkout), content/, migration-work/, tools/importer/reports/* (not
+  mine), the 2026-11-07 autostash (not mine). My local preview servers are stopped.
