@@ -344,12 +344,12 @@ body.brand-tap .hero-campaign-tap .hero-campaign-slide {
   }
 }
 
-/* the banner slider from 376 px: 310 px, as www's build sJsYPUB (max-h-[259px] min-[376px]:max-h-[310px]; 358 x 310 at
-   390 on miles-and-go, inspire-se, get-inspired, tap-parity-010; standing order 20). The home stage (no narrow) keeps
-   259. At 390: get-inspired -1.66 -> -0.64 %, miles-and-go -1.74 -> -0.68, stopover/partners -1.37 -> +0.06,
-   doacao-milhas -1.41 -> -0.35, inspire-se -0.45 -> +0.55 */
+/* a slide from 376 px: 310 px, as www's build sJsYPUB (max-h-[259px] min-[376px]:max-h-[310px]; 358 x 310 at 390 on
+   miles-and-go, inspire-se, get-inspired and the /en-pt home stage, tap-parity-010; standing order 20). At 390:
+   get-inspired -1.66 -> -0.64 %, miles-and-go -1.74 -> -0.68, stopover/partners -1.37 -> +0.06, doacao-milhas -1.41
+   -> -0.35, /en-pt -0.83 -> +0.18, inspire-se -0.45 -> +0.55 */
 @media (width >= 376px) and (width < 768px) {
-  body.brand-tap .hero-campaign-tap.narrow .hero-campaign-slide {
+  body.brand-tap .hero-campaign-tap .hero-campaign-slide {
     height: 310px;
   }
 }
