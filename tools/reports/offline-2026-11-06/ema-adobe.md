@@ -3542,3 +3542,45 @@ Left out of git:
 - test/column-end-links-so10.test.mjs and its fixture: the dropped fix's test.
 - The untracked import reports of earlier runs.
 - /tmp: the R2 archives and the import workspaces.
+
+### Standing order 13 (2026-11-13 04:40 to 10:00 CET)
+
+No requests to any airline host, nothing uploaded, previewed or published. Each push: whole-repo lint read 0 on a clean
+worktree of the rebased HEAD, stylelint on styles.css, columns-media.css and the theme files 0, the tests that read the
+changed files passed (one existing skip), Build green. No change deploys lh-edge.
+
+1. **The column-band rule on the fresh recordings: still held.** lh-snapshots-115 was checked: sha256 as given, every
+   PNG as wide as its viewport and as tall as its measured scrollHeight, recorded 2026-11-13 02:34-02:36 UTC (the
+   README's first line names an older archive). Against the old recordings, www is unchanged on five of the seven pages;
+   with-children-at-the-airport is 135-163 px shorter and special-meals changed at 390. Rule on the fresh recordings,
+   % off www at 1440 / 390:
+   - childrens-menus-on-board 13.2 / 16.5 -> 17.2 / 20.0
+   - ana 390 8.0 -> 10.3, flight-disruptions 390 11.7 -> 14.1, passenger-rights 1440 3.6 -> 4.5
+   - with-children-at-the-airport now better (12.7 / 13.4 -> 10.0 / 11.5)
+   - special-meals 9.8 -> 5.0 and entryprocesses 16.7 / 28.3 -> 6.3 / 16.4 as before
+
+   Four page-widths still worse by more than 0.5, so the rule stays held. What differs in www's markup is in
+   ranking-so12's header: our documents write one shape for several www shapes. special-meals and entryprocesses have no
+   space beyond the band's padding. childrens-menus-on-board has a separator before a new AEM section without
+   .mb-default; ana's band is a whole grey AEM section with .mb-default; flight-disruptions' band is a view inside one
+   section; passenger-rights' is nested in another view.
+
+   Rendered locally without scripts (my own server), www has the same 72 px under the band on childrens-menus-on-board
+   and special-meals, and ours 89 on both. So the difference on the recordings comes from www's scripted components. A
+   fix needs the importer to keep the section boundary and the separator as www draws them.
+2. **The next rows of ranking-so12.**
+   - **airline-tiles (bc8398e, served, test first):** a picture later in a text cell before a lone link keeps 40px,
+     like www's image component. On the three recorded documents, live as the trial: feedback-and-contact-airlines
+     14.3 / 7.1 -> 9.4 / 3.5, report-baggage 13.9 / 14.0 -> 9.1 / 10.6, delayed-baggage-lhg 13.7 / 6.7 -> 9.1 / 4.0.
+   - **Measured and not shipped:**
+     - phone row gap 46 px instead of 66: 15 better, 25 worse
+     - 0 or 16 px before a flush grey band: 25-26 better, 15-16 worse, mostly the column-band rule's pages again
+   - **Single pages:** first-class's stages, feedbackai (a live widget's space), the fleet slider's text metrics, and
+     the Insights articles' live related articles.
+   - No new capture request: the open question needs www's scripted render, which the recordings already are.
+
+Left out of git:
+- logs/b605: runners, captures, trial CSS, the local render scripts.
+- test/column-end-links-so10.test.mjs and its fixture: the dropped fix's test.
+- The untracked import reports of earlier runs.
+- /tmp: the archives (r2-110, r2-111, r2-115) and the import workspaces.
