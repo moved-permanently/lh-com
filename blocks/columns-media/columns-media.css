@@ -318,6 +318,13 @@ body.brand-brussels .columns-media .columns-media-text > p.spacer {
   margin-bottom: 50px;
 }
 
+/* lufthansa.com: an image cell's 4rem under a picture later in the cell before a lone link (the group airlines'
+   tiles: heading, logo, link; feedback-and-contact-airlines 14.3 -> 9.4 % off www at 390, report-baggage
+   13.9 -> 9.1, delayed-baggage-lhg 13.7 -> 9.1); standing order 13 */
+body.brand-lufthansa .columns-media .columns-media-text > p:has(> picture):not(:first-child):has(+ p.link-wrapper) {
+  margin-bottom: 40px;
+}
+
 /* a link alone in its paragraph: maui-navigation-link size large, variant hyper; links one
    below the other 50px apart (.maui-link { margin-bottom: 2.4rem }, 26px link box) */
 .columns-media .columns-media-text p.link-wrapper {
