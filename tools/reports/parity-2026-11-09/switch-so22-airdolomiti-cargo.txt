@@ -1,0 +1,162 @@
+# ema-cashub, standing order 22 (2026-11-13), item 2: Air Dolomiti's and Cargo's token-free switches (main c5dcf4b8,
+# de2056ca), every recorded page-width before and after, at the recordings' viewports (1440 x 900, 390 x 844).
+# After: the brand host as served (main at 9749537e: the switch on, the collapsed documents as published).
+# Before: the same host and documents with one file swapped in, scripts/style-markers.js with `airdolomiti: {}` and
+# `cargo: {}` (main's otherwise; checked: body.theme-live and the theme's heading classes are gone), plus, for the two
+# recorded documents the collapse changed (Cargo /en and /de ebooking-info), the document as backed up before the pass
+# (DA's /.token-free-backup/2026-11-cargo/, which differs from DA's copy only by the two {controls round-play-button}
+# markers): drafted with the markers and the switch off, 3,853 / 5,516 and 3,906 / 5,834 px, as live. Air Dolomiti's three
+# collapsed documents (the newsletter forms) are not recorded.
+# www's heights: the brand sweep's (sweep-brands.md, airdolomiti-parity-001 and cargo-parity-001), facts-figures from
+# cargo-parity-002 (en 1440 4,848, 390 11,916; de 390 12,482), and street-food-in-munich at 1440 from the AD parity rows
+# (6,173). The archives themselves are no longer in the drop (404) and not on this machine, so no row was re-read from
+# a recording. Our side: so22/host.mjs (every picture loaded; www.* and the airline hosts refused, AD 516 and Cargo 8
+# requests over both runs, none sent).
+# Result: all 145 page-widths are the same height to the pixel with the switch on and off; nothing moved by 0.5 points or
+# by any amount. Sums of the deviations: Air Dolomiti 71.97 -> 71.97 points (97 page-widths), Cargo 525.83 -> 525.83 (48).
+# Columns: brand, path, width, www, before px, after px, before %, after %, moved (points).
+airdolomiti	/en/articles/destinations/street-food-in-munich	1440	6173	5431	5431	-12.02	-12.02	+0.00
+airdolomiti	/de/unsere-dienste/lounge-zutritt	390	3269	3118	3118	-4.62	-4.62	+0.00
+airdolomiti	/en/assistance	390	7332	7092	7092	-3.27	-3.27	+0.00
+airdolomiti	/en/travel-info/seat-reservation	390	3899	3777	3777	-3.13	-3.13	+0.00
+airdolomiti	/informazioni-per-il-viaggio/prenotazione-del-posto	390	3854	3757	3757	-2.52	-2.52	+0.00
+airdolomiti	/assistenza	390	7420	7238	7238	-2.45	-2.45	+0.00
+airdolomiti	/de/buchung	390	2317	2267	2267	-2.16	-2.16	+0.00
+airdolomiti	/servizi/parcheggi-convenzionati	1440	1825	1788	1788	-2.03	-2.03	+0.00
+airdolomiti	/en/services/lounges	390	3223	3158	3158	-2.02	-2.02	+0.00
+airdolomiti	/de/reisenformationen/sitzplatzreservierung	390	4035	4116	4116	+2.01	+2.01	+0.00
+airdolomiti	/destinazioni/monaco-di-baviera	390	10440	10233	10233	-1.98	-1.98	+0.00
+airdolomiti	/en/flights-europe	1440	5676	5581	5581	-1.67	-1.67	+0.00
+airdolomiti	/voli-europa	1440	5226	5142	5142	-1.61	-1.61	+0.00
+airdolomiti	/en/services-on-board/in-flight-entertainment-system	1440	2352	2316	2316	-1.53	-1.53	+0.00
+airdolomiti	/servizi/parcheggi-convenzionati	390	2712	2674	2674	-1.40	-1.40	+0.00
+airdolomiti	/de/bearbeitung-ihrer-buchungen	1440	2312	2281	2281	-1.34	-1.34	+0.00
+airdolomiti	/en/articles/destinations/where-the-adriatic-becomes-wild	390	5124	5185	5185	+1.19	+1.19	+0.00
+airdolomiti	/en/services-on-board/in-flight-entertainment-system	390	3296	3260	3260	-1.09	-1.09	+0.00
+airdolomiti	/de	390	6554	6484	6484	-1.07	-1.07	+0.00
+airdolomiti	/servizi-a-bordo/sistema-di-intrattenimento-a-bordo	390	3555	3518	3518	-1.04	-1.04	+0.00
+airdolomiti	/de/reiseziele/bari-de	390	8078	7996	7996	-1.02	-1.02	+0.00
+airdolomiti	/en/fleet	390	7419	7345	7345	-1.00	-1.00	+0.00
+airdolomiti	/de/betreuung	1440	4984	5033	5033	+0.98	+0.98	+0.00
+airdolomiti	/en/booking	390	2289	2267	2267	-0.96	-0.96	+0.00
+airdolomiti	/prenotazioni	390	2349	2327	2327	-0.94	-0.94	+0.00
+airdolomiti	/de/unterstutzung-und-kontakte	390	1948	1930	1930	-0.92	-0.92	+0.00
+airdolomiti	/de/dienstleistungen-an-bord/unterhaltung-an-bord	390	3365	3334	3334	-0.92	-0.92	+0.00
+airdolomiti	/en/destinations/bari	1440	6850	6912	6912	+0.91	+0.91	+0.00
+airdolomiti	/destinazioni/monaco-di-baviera	1440	7177	7115	7115	-0.86	-0.86	+0.00
+airdolomiti	/flotta	1440	4289	4253	4253	-0.84	-0.84	+0.00
+airdolomiti	/en/fleet	1440	4307	4271	4271	-0.84	-0.84	+0.00
+airdolomiti	/de/flotte	1440	4423	4387	4387	-0.81	-0.81	+0.00
+airdolomiti	/de/gepaeck	390	2244	2226	2226	-0.80	-0.80	+0.00
+airdolomiti	/articoli/destinazioni/dove-ladriatico-si-fa-selvaggio	1440	4086	4055	4055	-0.76	-0.76	+0.00
+airdolomiti	/en/articles/destinations/where-the-adriatic-becomes-wild	1440	4131	4100	4100	-0.75	-0.75	+0.00
+airdolomiti	/de/artikel/reiseziele/die-wilde-seite-der-adria	1440	4262	4231	4231	-0.73	-0.73	+0.00
+airdolomiti	/en/destinations	390	9699	9629	9629	-0.72	-0.72	+0.00
+airdolomiti	/de/artikel	390	6132	6091	6091	-0.67	-0.67	+0.00
+airdolomiti	/de/flugplan	390	2224	2209	2209	-0.67	-0.67	+0.00
+airdolomiti	/de	1440	5096	5063	5063	-0.65	-0.65	+0.00
+airdolomiti	/en	1440	5092	5059	5059	-0.65	-0.65	+0.00
+airdolomiti	/	1440	5074	5041	5041	-0.65	-0.65	+0.00
+airdolomiti	/en	390	6484	6442	6442	-0.65	-0.65	+0.00
+airdolomiti	/	390	6514	6472	6472	-0.64	-0.64	+0.00
+airdolomiti	/de/bearbeitung-ihrer-buchungen	390	3264	3243	3243	-0.64	-0.64	+0.00
+airdolomiti	/de/artikel/reiseziele/die-wilde-seite-der-adria	390	5481	5515	5515	+0.62	+0.62	+0.00
+airdolomiti	/en/flight-timetables	390	2150	2163	2163	+0.60	+0.60	+0.00
+airdolomiti	/voli-europa	390	6643	6603	6603	-0.60	-0.60	+0.00
+airdolomiti	/orario-voli	390	2299	2312	2312	+0.57	+0.57	+0.00
+airdolomiti	/en/support-and-contacts	390	1874	1884	1884	+0.53	+0.53	+0.00
+airdolomiti	/supporto-e-contatti	390	1934	1944	1944	+0.52	+0.52	+0.00
+airdolomiti	/supporto-e-contatti	1440	1953	1963	1963	+0.51	+0.51	+0.00
+airdolomiti	/de/unterstutzung-und-kontakte	1440	1975	1985	1985	+0.51	+0.51	+0.00
+airdolomiti	/en/support-and-contacts	1440	1971	1981	1981	+0.51	+0.51	+0.00
+airdolomiti	/flotta	390	7853	7816	7816	-0.47	-0.47	+0.00
+airdolomiti	/de/artikel	1440	2786	2773	2773	-0.47	-0.47	+0.00
+airdolomiti	/en/articles	1440	2782	2769	2769	-0.47	-0.47	+0.00
+airdolomiti	/articoli	1440	2764	2751	2751	-0.47	-0.47	+0.00
+airdolomiti	/en/baggage	390	2172	2182	2182	+0.46	+0.46	+0.00
+airdolomiti	/bagagli	390	2186	2196	2196	+0.46	+0.46	+0.00
+airdolomiti	/bagagli	1440	2243	2253	2253	+0.45	+0.45	+0.00
+airdolomiti	/en/destinations/bari	390	8130	8094	8094	-0.44	-0.44	+0.00
+airdolomiti	/de/gepaeck	1440	2295	2305	2305	+0.44	+0.44	+0.00
+airdolomiti	/en/baggage	1440	2261	2271	2271	+0.44	+0.44	+0.00
+airdolomiti	/en/destinations	1440	4677	4696	4696	+0.41	+0.41	+0.00
+airdolomiti	/de/reiseziele	1440	4793	4812	4812	+0.40	+0.40	+0.00
+airdolomiti	/de/fluege-in-europa	390	6745	6720	6720	-0.37	-0.37	+0.00
+airdolomiti	/de/flotte	390	8054	8027	8027	-0.34	-0.34	+0.00
+airdolomiti	/assistenza	1440	4795	4807	4807	+0.25	+0.25	+0.00
+airdolomiti	/gestione-prenotazione-volo	390	3012	3019	3019	+0.23	+0.23	+0.00
+airdolomiti	/en/assistance	1440	4776	4787	4787	+0.23	+0.23	+0.00
+airdolomiti	/en/manage-flight-booking	390	3051	3058	3058	+0.23	+0.23	+0.00
+airdolomiti	/en/articles	390	6159	6147	6147	-0.19	-0.19	+0.00
+airdolomiti	/articoli	390	6219	6207	6207	-0.19	-0.19	+0.00
+airdolomiti	/de/reiseziele	390	10151	10170	10170	+0.19	+0.19	+0.00
+airdolomiti	/destinazioni	1440	3626	3633	3633	+0.19	+0.19	+0.00
+airdolomiti	/articoli/destinazioni/dove-ladriatico-si-fa-selvaggio	390	5134	5141	5141	+0.14	+0.14	+0.00
+airdolomiti	/destinazioni	390	6393	6385	6385	-0.13	-0.13	+0.00
+airdolomiti	/servizi-a-bordo/sistema-di-intrattenimento-a-bordo	1440	2400	2397	2397	-0.12	-0.12	+0.00
+airdolomiti	/de/dienstleistungen-an-bord/unterhaltung-an-bord	1440	2492	2489	2489	-0.12	-0.12	+0.00
+airdolomiti	/en/flights-europe	390	6131	6124	6124	-0.11	-0.11	+0.00
+airdolomiti	/gestione-prenotazione-volo	1440	2147	2149	2149	+0.09	+0.09	+0.00
+airdolomiti	/en/manage-flight-booking	1440	2281	2283	2283	+0.09	+0.09	+0.00
+airdolomiti	/de/unsere-dienste/lounge-zutritt	1440	2031	2030	2030	-0.05	-0.05	+0.00
+airdolomiti	/en/services/lounges	1440	2027	2026	2026	-0.05	-0.05	+0.00
+airdolomiti	/de/fluege-in-europa	1440	5707	5709	5709	+0.04	+0.04	+0.00
+airdolomiti	/informazioni-per-il-viaggio/prenotazione-del-posto	1440	2351	2350	2350	-0.04	-0.04	+0.00
+airdolomiti	/de/reisenformationen/sitzplatzreservierung	1440	2759	2758	2758	-0.04	-0.04	+0.00
+airdolomiti	/en/travel-info/seat-reservation	1440	2539	2538	2538	-0.04	-0.04	+0.00
+airdolomiti	/de/reiseziele/bari-de	1440	5925	5923	5923	-0.03	-0.03	+0.00
+airdolomiti	/de/betreuung	390	7771	7772	7772	+0.01	+0.01	+0.00
+airdolomiti	/de/flugplan	1440	2005	2005	2005	+0.00	+0.00	+0.00
+airdolomiti	/en/flight-timetables	1440	2001	2001	2001	+0.00	+0.00	+0.00
+airdolomiti	/orario-voli	1440	1991	1991	1991	+0.00	+0.00	+0.00
+airdolomiti	/prenotazioni	1440	1515	1515	1515	+0.00	+0.00	+0.00
+airdolomiti	/de/buchung	1440	1537	1537	1537	+0.00	+0.00	+0.00
+airdolomiti	/en/booking	1440	1533	1533	1533	+0.00	+0.00	+0.00
+cargo	/de/ci/newsroom	390	10670	844	844	-92.09	-92.09	+0.00
+cargo	/en/ci/newsroom	390	10631	844	844	-92.06	-92.06	+0.00
+cargo	/de/ci/newsroom	1440	4430	900	900	-79.68	-79.68	+0.00
+cargo	/en/ci/newsroom	1440	4430	900	900	-79.68	-79.68	+0.00
+cargo	/de/contact-us?reason=General%20request&subreason=Feedback%20%2F%20Complaints	390	3105	2385	2385	-23.19	-23.19	+0.00
+cargo	/en/contact-us?reason=General%20request&subreason=Feedback%20%2F%20Complaints	390	3066	2356	2356	-23.16	-23.16	+0.00
+cargo	/en/contact-us?reason=General%20request&subreason=Feedback%20%2F%20Complaints	1440	2301	1938	1938	-15.78	-15.78	+0.00
+cargo	/de/contact-us?reason=General%20request&subreason=Feedback%20%2F%20Complaints	1440	2301	1938	1938	-15.78	-15.78	+0.00
+cargo	/de/home	390	8486	7640	7640	-9.97	-9.97	+0.00
+cargo	/de/notification-overview	1440	1648	1486	1486	-9.83	-9.83	+0.00
+cargo	/en/notification-overview	1440	1648	1486	1486	-9.83	-9.83	+0.00
+cargo	/en/home	390	8389	7577	7577	-9.68	-9.68	+0.00
+cargo	/en/fleet-ulds/fleet	390	3841	3973	3973	+3.44	+3.44	+0.00
+cargo	/de/fleet-ulds/fleet	390	3918	4050	4050	+3.37	+3.37	+0.00
+cargo	/de/home	1440	6117	5920	5920	-3.22	-3.22	+0.00
+cargo	/de/notification-overview	390	1355	1312	1312	-3.17	-3.17	+0.00
+cargo	/en/home	1440	6064	5892	5892	-2.84	-2.84	+0.00
+cargo	/de/ci/facts-figures	390	12482	12823	12823	+2.73	+2.73	+0.00
+cargo	/en/ci/facts-figures	390	11916	12223	12223	+2.58	+2.58	+0.00
+cargo	/de/ebooking-info	390	5688	5834	5834	+2.57	+2.57	+0.00
+cargo	/de/ci/whats-up-now	390	2713	2645	2645	-2.51	-2.51	+0.00
+cargo	/en/notification-overview	390	1316	1283	1283	-2.51	-2.51	+0.00
+cargo	/en/ci/sustainable-development-goals	390	1735	1777	1777	+2.42	+2.42	+0.00
+cargo	/de/ci/sustainable-development-goals	390	1870	1914	1914	+2.35	+2.35	+0.00
+cargo	/en/ebooking-info	390	5393	5516	5516	+2.28	+2.28	+0.00
+cargo	/en/ci/whats-up-now	390	2674	2616	2616	-2.17	-2.17	+0.00
+cargo	/en/ebooking-info	1440	3771	3853	3853	+2.17	+2.17	+0.00
+cargo	/de/ci/facts-figures	1440	4952	4847	4847	-2.12	-2.12	+0.00
+cargo	/en/support-and-contact	390	3066	3130	3130	+2.09	+2.09	+0.00
+cargo	/en/fleet-ulds/fleet	1440	3043	3106	3106	+2.07	+2.07	+0.00
+cargo	/de/news/142-arktische-temperaturen-an-bord	390	8856	9033	9033	+2.00	+2.00	+0.00
+cargo	/en/industries-in-focus	1440	2515	2564	2564	+1.95	+1.95	+0.00
+cargo	/de/support-and-contact	390	3105	3159	3159	+1.74	+1.74	+0.00
+cargo	/en/news/142-arctic-temperatures-on-board	1440	7829	7947	7947	+1.51	+1.51	+0.00
+cargo	/en/news/142-arctic-temperatures-on-board	390	8389	8516	8516	+1.51	+1.51	+0.00
+cargo	/en/support-and-contact	1440	2301	2335	2335	+1.48	+1.48	+0.00
+cargo	/de/support-and-contact	1440	2301	2335	2335	+1.48	+1.48	+0.00
+cargo	/de/fleet-ulds/fleet	1440	3089	3130	3130	+1.33	+1.33	+0.00
+cargo	/de/industries-in-focus	1440	2515	2540	2540	+0.99	+0.99	+0.00
+cargo	/de/ci/sustainable-development-goals	1440	2363	2386	2386	+0.97	+0.97	+0.00
+cargo	/en/ci/facts-figures	1440	4848	4802	4802	-0.95	-0.95	+0.00
+cargo	/de/news/142-arktische-temperaturen-an-bord	1440	7925	7995	7995	+0.88	+0.88	+0.00
+cargo	/en/industries-in-focus	390	5347	5302	5302	-0.84	-0.84	+0.00
+cargo	/de/ci/whats-up-now	1440	2732	2741	2741	+0.33	+0.33	+0.00
+cargo	/en/ci/whats-up-now	1440	2732	2741	2741	+0.33	+0.33	+0.00
+cargo	/de/industries-in-focus	390	5434	5427	5427	-0.13	-0.13	+0.00
+cargo	/en/ci/sustainable-development-goals	1440	2363	2362	2362	-0.04	-0.04	+0.00
+cargo	/de/ebooking-info	1440	3907	3906	3906	-0.03	-0.03	+0.00

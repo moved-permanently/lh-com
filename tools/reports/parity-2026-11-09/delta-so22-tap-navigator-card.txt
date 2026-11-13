@@ -1,0 +1,28 @@
+# ema-cashub, standing order 22 (2026-11-13), item 1: TAP /pt-pt/miles-and-go/promocoes/navigator-experiences against
+# tap-parity-011 (build sJsYPUBdTcbw1x_UTnNBp, 2026-11-13 06:33 UTC, each width its own first load).
+# What the recording settles: www's cards did not change between builds. tap-parity-001 (build PJpl4JX, 2026-11-09) and
+# -011 have the same page (4,389 px at 1440, 3,931 at 390) and the same cards:
+#   "A decorrer": Bilhetes VIP Portugal x Dinamarca, Workshop personalizado com a Chef Rita Magro, Menu de Degustação com
+#   6 momentos | Menu de Degustação com Harmonização Vinícola, Pacheca Flamour Experience, Novas experiências em breve
+#   (two sliders of three); "Experiências passadas": four cards, as ours.
+# Our document (DA's copy read 2026-11-13 ~09:10 UTC, admin.da.live/source/moved-permanently/lh-tap/pt-pt/miles-and-go/
+# promocoes/navigator-experiences.html, 7,669 bytes) has the five other "A decorrer" cards in two sliders of 3 + 2; it has
+# no "Bilhetes VIP Portugal x Dinamarca" card.
+# The delta: in the first cards-teaser (three-up, phone-slider) after <h2>A decorrer</h2>, a new first card (www's text):
+#   <div><div><img src="[picture]" alt="Card Jogo Seleção Nacional"></div><div><h3>Bilhetes VIP Portugal x Dinamarca</h3>
+#   <p>Acompanhe a Seleção Portuguesa frente à <strong>Dinamarca</strong>, no dia <strong>14 de novembro, às 19h45</strong>,
+#   no <strong>Estádio Municipal de Braga</strong>, com <strong>um bilhete duplo VIP</strong> e viva de perto toda a emoção
+#   de apoiar Portugal numa experiência única.</p><p><strong><em>29.000 milhas</em></strong></p></div></div>
+#   and the first block's third card ("Menu de Degustação com Harmonização Vinícola") moved to the front of the second block.
+# Measured as a draft (so22/host.mjs on tap.turnsthe.page, EAGER=1, the Workshop card's picture in its place: the same
+# 1280 x 720 shape; the published document as control equals live, 4,395 / 4,013 px; www.* and the airline hosts refused,
+# none sent): 1440 4,395 -> 4,366 px (www 4,389: +0.14 -> -0.52 %), 390 4,013 -> 4,013 (+2.09 %, unchanged).
+# So the card is not what keeps 390 at +2.09 %: that is the phone sliders' own spacing (the card titles 19 px lower in the
+# first slider, 30 px more between the two "A decorrer" sliders, 12 more to "Experiências passadas", 21 in the last
+# slider: 82 px), as standing order 15 found.
+# HOLD, the owner's call: the card is a dated offer (the match is on 14 November 2026, 19:45, tomorrow) that www will
+# move to "Experiências passadas" or drop; its picture (lp_navigator_experiences_generic_card_1280x720_selecao.jpg) is on
+# TAP's media host, not in DA and not in the capture, so it needs a media upload too. And at 1440 the page moves 0.38
+# points further from www with it (inside the 0.5 gate, but no closer).
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-tap), the delta, what changes on the page.
+HOLD	/pt-pt/miles-and-go/promocoes/navigator-experiences.html	the card above as the first "A decorrer" card, the sliders 3 + 3	1440 +0.14 -> -0.52 %, 390 +2.09 % unchanged

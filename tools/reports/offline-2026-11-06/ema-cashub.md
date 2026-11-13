@@ -4316,3 +4316,155 @@ I stopped before 12:00. The three items are done.
 migration-work/parity-588/so21 (ignored).
 
 No upload, preview or publish. da-upload.mjs was not called. DA was only read (three source GETs).
+
+## Standing order 22 (2026-11-13, from about 10:40 CET)
+
+**Start state:** nothing of mine was uncommitted or unpushed. Order 21 had ended at `baf85167`, on origin. The dirty
+files in the main checkout (import-progress.json, urls-*.txt, the importer reports) are other jobs' import output and
+stay as they are.
+
+**Rules followed:** our hosts only. Every render refused www.* and the airline hosts and counted the requests (Air
+Dolomiti 516 over both runs, Cargo 8, TAP 0); none was sent.
+- Read-only GETs of airdolomiti / cargo / tap.turnsthe.page and of DA's source API (lh-cargo: two ebooking-info copies
+  and their two backups under /.token-free-backup/2026-11-cargo/; lh-tap: navigator-experiences).
+- The drop: tap-parity-011, sha256 matched, extracted into its own new folder, its serve.py not run.
+- No upload, preview or publish. da-upload.mjs was not called.
+
+### Item 1: the three captures
+
+- **austrian-parity-018 is not in the drop.** Its address answered 404 on seven tries from 09:44 to 10:41 UTC. The file
+  that came back is a 27 KB "Not Found" page, not the archive (sha256 62c1c0b2…, not 7f703b26…). tap-parity-011 in the
+  same folder answered 200. So delta-so20-austrian-entryregulations-column-views.txt's /at/de row stays **HOLD**, and
+  the path stays in capture-requests-ema-cashub.txt.
+- **tap-parity-011, /pt-pt (the stage rule):** www's stage is 358 x 310 at 390 and 740 at 1440. Ours is the same:
+  358 x 310 at 390 and 1376 x 740 at 1440. The page at 390 is 5,202 px against www's 5,192 (+0.19 %).
+  - So the 310 px rule (`6a5bedac`) holds on a second market's homepage.
+  - At 1440, -13.9 % (3,977 against 4,621) is the homepages' known Miles&Go pin scroll state (tap.css, brief 483).
+- **tap-parity-011, navigator-experiences (the offer cards):**
+  - www's cards did not change between builds. tap-parity-001 (PJpl4JX, 9 November) and -011 have the same page
+    (4,389 / 3,931 px) and the same cards.
+  - What differs is content: www's "A decorrer" has six cards in two sliders of three; ours has five (3 + 2), without
+    "Bilhetes VIP Portugal x Dinamarca".
+  - Drafted with that card (the sliders 3 + 3; the control equals live, 4,395 / 4,013): 1440 +0.14 -> -0.52 %, 390
+    unchanged at +2.09 %.
+  - So the cards are not what keeps 390 at +2.09 %. That is the phone sliders' own spacing (19 px in the first slider,
+    30 between the two, 12 to the next heading, 21 in the last), as order 15 found.
+  - Navigator has no hero-campaign slide, so the stage rule doesn't reach it, as www's page has none of the banner
+    max-height classes.
+  - delta-so22-tap-navigator-card.txt: **1 HOLD, the owner's call.** The card is a dated offer (the match is on
+    14 November, 19:45). Its picture is on TAP's media host, not in DA or the capture. And the page comes no closer.
+- **The manifest:** -011 marks each width `loadedSeparately`; its README still says the 390 files are resizes (the old
+  template's text). On -010, thank you for the correction: my order 20 note that its 390 files were resizes of the 1440
+  load was wrong (the manifest's packing bug); they were first loads, so order 20's 310 px numbers stand as measured.
+
+### Item 2: Air Dolomiti and Cargo, before and after the switch
+
+**The recordings:** airdolomiti-parity-001 to -007 and cargo-parity-001 to -005 are no longer in the drop (404), and
+none is on this machine. So www's side is the www heights already in the committed reports:
+- the brand sweep's (sweep-brands.md: airdolomiti-parity-001, 48 pages, and cargo-parity-001, 24);
+- facts-figures from cargo-parity-002;
+- street-food-in-munich at 1440 from the AD parity rows.
+
+**Method:**
+- **After:** each host as served (main with the switch on, the collapsed documents as published).
+- **Before:** the same host and documents with one file swapped in, scripts/style-markers.js with `airdolomiti: {}`
+  and `cargo: {}`. Checked: body.theme-live and the theme's heading classes are gone with it.
+- **The collapsed documents:** two of the recorded ones changed in the collapse, Cargo's en and de ebooking-info.
+  Their DA backups differ from DA's copies only by the two `{controls round-play-button}` markers. Drafted with the
+  markers and the switch off, they are 3,853 / 5,516 and 3,906 / 5,834 px, as live. Air Dolomiti's three collapsed
+  documents (the newsletter forms) are not recorded.
+
+**Result: nothing moved.** All 145 page-widths are the same height to the pixel before and after. No row moved by 0.5
+points or by any amount, so there is nothing to fix or to list. The whole table is in
+tools/reports/parity-2026-11-09/switch-so22-airdolomiti-cargo.txt.
+
+| brand | page-widths | within 2 % | sum of the deviations before | after |
+|---|---|---|---|---|
+| Air Dolomiti | 97 | 87 | 71.97 points | 71.97 |
+| Cargo | 48 | 18 | 525.83 points | 525.83 |
+
+**Air Dolomiti, the rows outside 2 % (the same before and after):**
+
+| page | width | www | ours | % |
+|---|---|---|---|---|
+| /en/articles/destinations/street-food-in-munich | 1440 | 6,173 | 5,431 | -12.02 (item 3: -2.02) |
+| /de/unsere-dienste/lounge-zutritt | 390 | 3,269 | 3,118 | -4.62 |
+| /en/assistance | 390 | 7,332 | 7,092 | -3.27 |
+| /en/travel-info/seat-reservation | 390 | 3,899 | 3,777 | -3.13 |
+| /informazioni-per-il-viaggio/prenotazione-del-posto | 390 | 3,854 | 3,757 | -2.52 |
+| /assistenza | 390 | 7,420 | 7,238 | -2.45 |
+| /de/buchung | 390 | 2,317 | 2,267 | -2.16 |
+| /servizi/parcheggi-convenzionati | 1440 | 1,825 | 1,788 | -2.03 |
+| /en/services/lounges | 390 | 3,223 | 3,158 | -2.02 |
+| /de/reisenformationen/sitzplatzreservierung | 390 | 4,035 | 4,116 | +2.01 |
+
+**Cargo, the rows outside 2 % (the same before and after):**
+
+| page | width | www | ours | % |
+|---|---|---|---|---|
+| /de/ci/newsroom, /en/ci/newsroom | 390 | 10,670 / 10,631 | 844 | -92.1 |
+| /de/ci/newsroom, /en/ci/newsroom | 1440 | 4,430 | 900 | -79.7 |
+| /de and /en contact-us (the feedback view) | 390 | 3,105 / 3,066 | 2,385 / 2,356 | -23.2 |
+| /de and /en contact-us (the feedback view) | 1440 | 2,301 | 1,938 | -15.8 |
+| /de/home, /en/home | 390 | 8,486 / 8,389 | 7,640 / 7,577 | -10.0 / -9.7 |
+| /de and /en notification-overview | 1440 | 1,648 | 1,486 | -9.8 |
+| /en/fleet-ulds/fleet, /de/… | 390 | 3,841 / 3,918 | 3,973 / 4,050 | +3.4 |
+| /de/home | 1440 | 6,117 | 5,920 | -3.2 |
+| /de/notification-overview | 390 | 1,355 | 1,312 | -3.2 |
+| /en/home | 1440 | 6,064 | 5,892 | -2.8 |
+| /de and /en ci/facts-figures | 390 | 12,482 / 11,916 | 12,823 / 12,223 | +2.7 / +2.6 |
+| /de/ebooking-info | 390 | 5,688 | 5,834 | +2.6 |
+| /de and /en ci/whats-up-now | 390 | 2,713 / 2,674 | 2,645 / 2,616 | -2.5 / -2.2 |
+| /en/notification-overview | 390 | 1,316 | 1,283 | -2.5 |
+| /en and /de ci/sustainable-development-goals | 390 | 1,735 / 1,870 | 1,777 / 1,914 | +2.4 |
+| /en/ebooking-info | 390 / 1440 | 5,393 / 3,771 | 5,516 / 3,853 | +2.3 / +2.2 |
+| /de/ci/facts-figures | 1440 | 4,952 | 4,847 | -2.1 |
+| /en/support-and-contact | 390 | 3,066 | 3,130 | +2.1 |
+| /en/fleet-ulds/fleet | 1440 | 3,043 | 3,106 | +2.1 |
+
+**A measuring note for the Cargo rows:** the newsroom's app and the homepage's "Latest news" read Mynewsdesk at
+www.mynewsdesk.com. Mynewsdesk is not an airline host, but the renders refuse every www.* host, so its request was
+refused in both runs.
+- The newsroom draws only its title (844 / 900 px, the window); ema-lufthansa's row 48 measured 4,438 / 10,629 with
+  the app.
+- The homepages' news cards are empty (the block 0 px high), which is most of their -10 % at 390.
+- Both sides had it the same way, so the before and after comparison stands. These six rows are no gap in our code.
+
+### Item 3: a code rule for the rows left
+
+**Shipped locally, test first, held:** Air Dolomiti, a photo inside a heading after its text. It is not pushed: main's
+suite is red from another job (below).
+- **Cause:** www draws street-food-in-munich's H3 ("Last but not least, the Wiener Markt…") with its 1024 x 683 picture
+  at the end. styles.css sizes every default-content heading's picture as a 26 px icon, so ours drew it 26 x 26.
+- **The rule:** airdolomiti.css draws a heading's picture that does not open the heading at its own size, at most the
+  column, on its own line. A picture that opens its heading (the 4 icon headings in Air Dolomiti's documents) stays the
+  icon. Test: test/airdolomiti-heading-photo-so22.test.mjs, red on main's theme first.
+- **Reach:** 9 headings in the 1,569 local Air Dolomiti documents. They are street-food-in-munich (en) and the
+  archistar airport articles (airport photos: three each in it and en, two in de).
+- **Measured** on airdolomiti.turnsthe.page with the theme swapped in:
+  - street-food-in-munich 1440: 5,431 -> 6,048 px (www 6,173): -12.02 -> -2.02 %. At 390: 7,021 -> 7,197 (www's 390
+    height is not in a committed report).
+  - The other 96 recorded Air Dolomiti page-widths: unchanged, so the gate holds.
+  - The en archistar article (not recorded) at 1440: 2,542 -> 4,348 px, its photos 1200 x 799, 650 x 350,
+    1200 x 814. A recording of it is requested to confirm that www draws them the same way.
+- **Checks:** stylelint exit 0 on airdolomiti.css. Whole-repo lint exit 0 in the clean worktree on c813a384. The 162
+  test files naming airdolomiti or the heading-picture rule: 724 of 725 passed. The one failure is not this change (below).
+
+**Main's suite has been red since 08:41 UTC, from another job's commit.** test/brand.test.mjs fails on b2b.css's
+`body.brand-b2b.theme-live.flow-spacing main …` rule from `1a5da3f9` (ema-test, standing order 13, item 3). The test
+wants every theme selector to start with `body.brand-<key> `. The test and b2b.css are the same on origin/main as in my
+run. b2b.css is ema-test's, so I did not touch it. It is row 7 of rows-for-ema-test.md, with tap.css's
+`main:where(.theme-live *)` form and its weight caveat. My commit waits until main is green.
+
+**The other rows outside 2 %, no code rule I can measure here:**
+- **Air Dolomiti:** the FAQ pages and the assistance pages at 390, and booking at 390, are as ema-lufthansa classified
+  them in its standing orders 3 to 7 and AD row 114 (each its own cause, measured against the recordings' markup).
+  - The FAQ and assistance pages: the live font's line breaks in the recording.
+  - Booking: www's sticky widget on phones.
+- **Cargo:**
+  - the feedback view waits for its re-import (reimport-490-cargo.txt);
+  - notification-overview's header picture is not in DA;
+  - fleet, facts-figures, ebooking-info and the SDG pages: the brand font's wraps at 390, ema-lufthansa's row 49 decision;
+  - whats-up-now at 390 (-2.5 / -2.2 %) was never traced, and without the recording I can't trace it: requested.
+- capture-requests-ema-cashub.txt: /at/de/entryregulations (018 not in the drop), street-food-in-munich and the en
+  archistar article, Cargo whats-up-now en / de.

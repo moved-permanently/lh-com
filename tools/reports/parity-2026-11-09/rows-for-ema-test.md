@@ -142,3 +142,20 @@ found, the evidence and what would follow www.
   markers; ita-parity-005 is not in my workspace, so they are not measured here. For DA's copies:
   reimport-so10-ita-column-view-headings.txt (2 READY on -003 / -004, the only such headings in a Columns Media cell
   there). Row 31's guess (ita.css) can go once those pages carry their markers.
+
+## 7. B2B: main's test/brand.test.mjs red since 1a5da3f9 (from ema-cashub, 2026-11-13, standing order 22)
+
+- **What fails:** test/brand.test.mjs, "brand: lh-com loads no theme; the theme files are … rules under the brand's body
+  class only": `b2b: body.brand-b2b.theme-live.flow-spacing main .default-content-wrapper > p:has(> picture):not(.spacer,
+  .divider) + h2 outside body.brand-b2b`. The test wants every theme selector to start with `body.brand-<key> ` (a space
+  after the brand class), so a theme's rules reach no other brand.
+- **Since:** 1a5da3f9 (08:41 UTC, "fix(B2B theme): on phones an H2 after a picture paragraph 61 px under it", standing
+  order 13, item 3), b2b.css line 926. Found at 10:50 UTC in my push's checks (the 162 test files naming airdolomiti or the
+  heading-picture rule; 724 of 725 passed, this one failed); test/brand.test.mjs and b2b.css are the same on origin/main
+  (c813a384) as in my run.
+- **Not touched by me:** b2b.css is yours. tap.css writes its live-theme rules as
+  `body.brand-tap main:where(.theme-live *) …`, which the test accepts. The same form here,
+  `body.brand-b2b main:where(.theme-live.flow-spacing *) …`, drops the two classes' weight (0,2,0), so the cascade
+  around the rule needs a look (or the weight kept another way). Your call.
+- **My push waits for it:** ema-cashub's AD theme commit (standing order 22, item 3) is held unpushed until main's test is
+  green again.
