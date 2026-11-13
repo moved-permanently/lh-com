@@ -1198,3 +1198,13 @@ body.brand-ita .columns-media.padded {
     padding: 32px 16px;
   }
 }
+
+/* stacked country columns on phones (ITA row 51; standing order 12, item 1; /it/en/support/utilities/contact,
+   ita-parity-005): www keeps 62px between the stacked columns of a row, each a heading-medium H2 with its lines; ours
+   38 (the text's 36px margin, the row grid without a gap). Contact 390 -5.24 -> +0.82 %; entry-exit-system -2.46 ->
+   -2.20 %; the 37 other recorded ITA pages unchanged (without the H2 condition 3 pages went further); 1440 as before */
+@media (width < 768px) {
+  body.brand-ita .columns-media.padded .columns-media-row > .columns-media-text:not(:last-child):has(> h2.heading-medium:first-child) {
+    margin-bottom: 60px;
+  }
+}

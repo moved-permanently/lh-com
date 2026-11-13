@@ -4320,3 +4320,111 @@ for the helper's run), the drafts and CSS override folders, the measuring script
 
 **Process:** reads only from our hosts, the drop's recordings and DA (GETs of eight copies from my session, not from
 tests). No request to an airline host. No da-upload.mjs call, no upload, preview or publish by me.
+
+## Standing order 12 of 2026-11-13 (from about 17:10 CET to 20:00 CET)
+
+**At the start:** nothing of mine uncommitted or unpushed. a46a6996 (standing order 11's last commit) was pushed on the
+second try: lint 0 and stylelint 0 after the retry rebase, the suite 4064 / 0 before and after the rebase, GitHub Build
+success, the smoke of 14 hosts 0 differences. `.migration/project.json` (the lh-tap entry) and `.scratch/` (excluded
+from git) left as they are.
+
+**Correction to standing order 11, invoicing (ITA row 47).** The helper's job publish-595-ita-grey-endings-01 brought
+the drop to DA and previewed it at 15:58 UTC, but the published page is unchanged: 2462 / 3696, and it still ends with
+an empty section. Publishing moves the metadata block to the head and leaves its section empty at the end of main.
+That section, not DA's trailing `<div></div>`, keeps the band from being main's last section. My drafts held the
+metadata block inside main, so they measured an ending that publishing never produces. Corrected:
+- reimport-595-ita-grey-endings.txt: invoicing is HOLD, with the reason; the list test and the tool's header say so.
+- DA's copy without the empty section is harmless and can stay.
+- fantasia-lounge (the spacer section) works as measured: published 3754 at 1440 (www 3759).
+- Drafts no longer judge a page's ending.
+
+**Item 1, ITA: every recorded page-width more than 2 % off www** (fresh ranking, main's CSS, 16:01 UTC; 15 page-widths
+on 13 pages), by cause:
+- **Fonts:**
+  - invoicing 390 +2.44 % and help-and-contact 390 +2.75 %. www's own recording, rendered here, is as tall as ours
+    (3691 / 3696 and 3192 / 3136): the difference to the live capture is the capture's font, as the 390 rows of
+    standing order 8.
+  - Also part of contact 390 and entry-exit-system 390 (their recordings render 385 and 295 px taller here than live).
+- **Document:**
+  - business-class-medium-haul 1440 -2.67 %: www's "Short haul" tab ends with a "Please Note:" box; DA's copy has its
+    paragraph without the heading, in both market variants. ITA row 50, reimport-596-ita-short-haul-note.txt READY:
+    1440 4887 -> 4938 (www 5021), 390 6631 -> 6677 (6741). New tool tools/importer/ita-fragment-insert-apply.mjs, test
+    first. www's grey box around the note stays a difference.
+  - baggage-and-strollers 1440 -7.60 %, and 390 after row 49: www's fare cells end with empty lines
+    ("...<br><br><br>", 81 px a cell). DA's copy has them (ita-cells-592), but publishing drops trailing breaks, so
+    the document can't carry them.
+  - group-boarding 1440 -2.40 %: www's two empty headings (16 px). Empty headings don't survive publishing either.
+    The rest is images (below).
+- **Code:**
+  - baggage-and-strollers 390 -19.65 %: www pads its accordion table cells 24 / 16 px (header) and 32 / 16 px on
+    phones, ours 16 / 12. ITA row 49, shipped: 390 6333 -> 7005 (www 7882); the 38 other pages unchanged.
+  - contact 390 -5.24 %: on phones www keeps 62 px between a row's stacked country columns, ours 38 (row 45 set the
+    89 px between rows). ITA row 51, test first: below 768 px a padded columns-media text column that opens with a
+    heading-medium H2 and isn't its row's last keeps 60 px under it.
+    - Result: contact 390 7318 -> 7786 (www 7723, +0.82 %); entry-exit-system 390 -2.46 -> -2.20 %; the other 37
+      pages unchanged at 390; 1440 as before.
+    - Without the H2 condition three pages went further (residents-in-sicily +1.72 -> +3.00 %,
+      seats-selection-economy, ita-airways-app), so that version wasn't shipped.
+  - electronic-devices 1440 -3.04 % / 390 -2.30 %: www's icon list is two columns of 4 and 3 at 1440, ours a 3-column
+    grid. Ours is already the taller one there (291 px against about 190), so matching www makes the page shorter
+    still. The 1440 rest is pictures (live www 620 px over its recording). One page; left.
+  - digital-newsstand 1440 +2.26 %: +72 px in the eJournals section (one page, row 42's form). Left.
+  - flying-with-a-baby 1440 -2.54 % after row 48: www's padded AEM sections. The importer change for them failed the
+    gate in standing order 8 (390 further); left.
+  - corporate-b2b 1440 -2.08 %: the teaser cards' images, 24 px (one page).
+- **Images, not measurable offline:** fleet/long-haul 1440 -3.63 %, alghero 1440 -2.02 %, and the rest of group-boarding
+  and corporate-b2b. www's recordings, rendered here, lay out as ours wherever there is no picture (long-haul's
+  headings within 7 px down to the band); the 391 to 676 px that live www adds at 1440 are the pictures, whose files
+  the recordings don't hold. Capture request: those four pages at 1440 with their pictures
+  (capture-requests-ema-lufthansa.txt).
+
+**Item 2, SWISS** (the offers page and the homepage left out, fare data): of the 3 other recorded pages, one
+page-width over 2 %:
+- /ch/en/prepare 390 +2.83 %: it ends with plain-view teasers. www's footer sits 20 px under them (40 from 768 px),
+  ours 48. SWISS row 54, shipped: 1440 1277 -> 1269 (www 1268), 390 1781 -> 1753 (1732). book-and-manage, whose grid
+  has no plain-view, keeps 48 (www 52); that difference is why standing order 9's shared rule failed.
+- book-and-manage and help-center are within 1 %.
+
+**Item 3, the 4 held grey-band endings:** item 1 found the cause they share with invoicing: the emptied metadata
+section after the band, which keeps the 48 px section gap where styles.css means 24. A rule that treats the band as the
+last section takes 24 px off each of them: invoicing closer at both widths, but unaccompanied minors 1440, checked-
+baggage 390, long-haul 1440 and short-haul 390 further. It fails the gate (as in standing orders 10 and 11), so they stay
+held, and invoicing with them.
+
+## Final section, standing order 12 (2026-11-13, 17:10 to 20:00 CET)
+
+**Commits on main.** Each one: whole-repo `npm run lint` exit 0 before and after the rebase and after every retry
+rebase; stylelint on the changed themes; the full suite 0 failures on the commit and again after a rebase that brought
+commits; `git show --stat` as given; the GitHub Build read; the smoke of 14 hosts before and after.
+- 69cc9a8a: ITA row 49 (accordion table cells on phones), SWISS row 54 (plain-view endings), and the invoicing
+  correction.
+  - Checks: suite 4068 / 0, then 4091 / 0 after the rebase. The first push was refused (main busy); lint and
+    stylelint were 0 after the retry rebase and the second try went through. Build success.
+  - Smoke: 11 hosts 0 differences against the before-smoke. Austrian, B2B and ITA failed both runs on the network
+    (fetch failed), so I reran them after the push and compared with their smoke after a46a6996. Austrian and ITA show
+    0 differences. On B2B only its 4 search-index.json answers changed, which follows ema-test's lhg-history publish.
+- This commit:
+  - ITA row 51: contact's stacked columns on phones.
+  - ITA row 50: business-class-medium-haul's "Please Note:" heading as a delta on DA's copy (new tool
+    ita-fragment-insert-apply.mjs; reimport-596-ita-short-haul-note.txt READY).
+  - The capture requests for the four picture pages, and this report.
+
+**Lists:** reimport-596-ita-short-haul-note.txt (1 READY, data ita-fragments-596.json); reimport-595-ita-grey-endings.txt
+corrected (invoicing HOLD, fantasia-lounge READY and published); capture-requests-ema-lufthansa.txt with four ITA pages
+at 1440 with their pictures (collected, not run).
+
+**Not shipped:**
+- contact's column rule without the H2 condition: three pages went further.
+- A rule for the band before the emptied metadata section: 4 of the 6 grey endings go further.
+- electronic-devices' icon list as www's: it makes the page shorter.
+- digital-newsstand, flying-with-a-baby and corporate-b2b: single-page causes, or ones that failed the gate before.
+
+**Left uncommitted, and why:** `.migration/project.json` (the lh-tap entry, not mine). `.scratch/` is excluded from git:
+the recordings, DA's copies read today (invoicing, business-class-medium-haul) and the delta's output (DA content for the
+helper's run), the CSS override folders with the drafts, the measuring scripts and their logs.
+
+**Process:**
+- Reads only from our hosts, the drop's recordings and DA: two GETs from my session, not from tests.
+- No request to an airline host, no da-upload.mjs call, no upload, preview or publish by me.
+- The invoicing row from standing order 11 was wrong: a draft method that can't show how a page ends. It is now HOLD
+  with the reason, and page endings are judged on the published page only.

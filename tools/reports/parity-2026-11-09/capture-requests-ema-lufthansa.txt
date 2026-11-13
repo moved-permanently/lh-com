@@ -9,3 +9,11 @@
 # /ch/en/homepage: the "Flight offers from" block (cards Bangkok, Barcelona, Berlin, ...) -163 px against ours at 1440:
 # wait for its cards with prices, as above.
 /ch/en/homepage
+# Standing order 12 (2026-11-13): ITA pages whose 1440 difference is in their pictures, which the parity recordings
+# don't hold (www's recording rendered here lays out as ours where there is no picture). Width 1440 (390 as well if it
+# comes free), full height, with the picture files (as assets) and the measurements json.
+# host: www.ita-airways.com
+/it/en/world-of-ita-airways/discover-ita-airways/fleet/long-haul
+/it/en/book-and-prepare/offers/territorial-continuity/alghero
+/it/en/book-and-prepare/travel-information/at-the-airport/group-boarding
+/it/en/corporate-b2b
