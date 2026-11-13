@@ -2452,6 +2452,13 @@ body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-
   line-height: 30px;
 }
 
+/* a help card without text (standing order 26, item 2): www always writes the card's paragraph, an empty one too, and its
+   40 px margin collapses with the headline's 10, so the button stays 40 px under the headline (/servizi/parcheggi-
+   convenzionati, AeroPark: ours 10 px, the page 30 px short at 1440 and 390) */
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-text h3:has(+ .button-wrapper) {
+  margin-bottom: 40px;
+}
+
 body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-text .button-wrapper {
   margin: 0;
 }
@@ -3169,6 +3176,158 @@ body.brand-airdolomiti .columns-media.news .columns-media-text p + p {
   body.brand-airdolomiti .columns-media.news .columns-media-text {
     width: 50vw;
     margin-inline: auto;
+  }
+}
+
+/*
+ * the quiz card (columns-media, option quiz: www's Quiz, an article's "Destinations" teaser whose questions load on www;
+ * standing order 26, item 2; 86 local documents): a #f7f7f7 card with a 10 px radius, 90vw wide (95vw from 930 px, at
+ * most 1440 px from 1450 px) and 30 px (35) above what follows; below 930 px the picture 180 px high over the text, from
+ * 930 px 30 % wide on the right at its own height; the text 12 px in (40 from 930 px), 20 px between its parts, the
+ * title 35 / 40 (60 / 72 from 930 px), the text 16 / 30 (18 / 30), the start an outlined button (1 px #1f1f1f, 20 px 30
+ * px, 16 / 24 600, www's arrow). street-food-in-munich: the card 566 px high at 1440 (ours was 773), the footer at www's
+ * 4,851 px; 446 at 390 (www 440)
+ */
+body.brand-airdolomiti main .columns-media.quiz {
+  width: 90vw;
+  max-width: none;
+  margin: 0 0 30px calc(50% - 45vw);
+  padding: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the quiz card's, not the help card's or the bands' (above) */
+body.brand-airdolomiti main .columns-media.quiz .columns-media-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  overflow: hidden;
+  margin: 0;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the quiz card's, not the help card's or the bands' (above) */
+body.brand-airdolomiti main .columns-media.quiz .columns-media-row > div {
+  margin: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the quiz card's, not the help card's or the bands' (above) */
+body.brand-airdolomiti main .columns-media.quiz .columns-media-media {
+  width: 100%;
+}
+
+body.brand-airdolomiti main .columns-media.quiz .columns-media-media :is(picture, img) {
+  display: block;
+  width: 100%;
+  height: 180px;
+  max-width: none;
+  object-fit: cover;
+  object-position: left;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the quiz card's, not the help card's or the bands' (above) */
+body.brand-airdolomiti main .columns-media.quiz .columns-media-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  padding: 0 12px 24px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+body.brand-airdolomiti main .columns-media.quiz .columns-media-text > * {
+  max-width: none;
+  margin: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the quiz card's, not the help card's or the bands' (above) */
+body.brand-airdolomiti main .columns-media.quiz .columns-media-text > h2 {
+  margin-top: 12px;
+  font-size: 35px;
+  line-height: 40px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the quiz card's, not the help card's or the bands' (above) */
+body.brand-airdolomiti main .columns-media.quiz .columns-media-text > p:not(.button-wrapper) {
+  font-size: 16px;
+  line-height: 30px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the quiz card's, not the help card's or the bands' (above) */
+body.brand-airdolomiti main .columns-media.quiz .columns-media-text a.button {
+  display: inline-flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 0;
+  margin: 0;
+  padding: 20px 30px;
+  border: 1px solid #1f1f1f;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #1f1f1f;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+body.brand-airdolomiti main .columns-media.quiz .columns-media-text a.button::after {
+  content: "";
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cpath d='M26.73 13.33H13.53L2 0h13.2zM2 28h13.2l11.53-13.33H13.53z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main .columns-media.quiz {
+    width: 95vw;
+    margin-left: calc(50% - 47.5vw);
+  }
+
+  body.brand-airdolomiti main .columns-media.quiz .columns-media-row {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  body.brand-airdolomiti main .columns-media.quiz .columns-media-media {
+    flex: 0 0 30%;
+    width: 30%;
+  }
+
+  body.brand-airdolomiti main .columns-media.quiz .columns-media-media :is(picture, img) {
+    height: auto;
+  }
+
+  body.brand-airdolomiti main .columns-media.quiz .columns-media-text {
+    flex-grow: 1;
+    padding: 40px;
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  body.brand-airdolomiti main .columns-media.quiz .columns-media-text > h2 {
+    font-size: 60px;
+    line-height: 72px;
+    letter-spacing: 1.8px;
+  }
+
+  body.brand-airdolomiti main .columns-media.quiz .columns-media-text > p:not(.button-wrapper) {
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+
+@media (width >= 1450px) {
+  body.brand-airdolomiti main .columns-media.quiz {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto 35px;
   }
 }
 

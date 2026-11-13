@@ -1,0 +1,105 @@
+# ema-cashub, standing order 26 (2026-11-14), item 2: Air Dolomiti's quiz cards (an article's "Destinations" teaser). Expected
+# change: on each page the card as www's Quiz: a #f7f7f7 card, 566 px high at 1440 on street-food-in-munich (ours 773: the
+# page 201 px shorter, its footer at www's 4,851 px) and 446 at 390 (ours 722; www 440). The 85 other pages are not recorded.
+# DA's copy plus the delta, not a re-import. Apply only after the code commit of standing order 26, item 2 is on main
+# (airdolomiti.css: Columns Media option quiz); before it the option draws the card as now.
+# www: the quiz is its own component (Quiz, LzbBlockQuiz: the questions load on www after "start"). The importer writes its
+# intro as a Columns Media of [picture | title, text, start link]; from this order on as Columns Media (quiz).
+# The delta: the block's name "Columns Media" -> "Columns Media (quiz)" on the block that holds the start link (the label in
+# the third column), nothing else. In the .plain.html: <div class="columns-media"> -> <div class="columns-media quiz">.
+# Built from the local documents (content-sites/lh-airdolomiti, 86 with the start link, all in the same shape: [picture |
+# h2, p, p > strong > a]) and checked against the published copies on airdolomiti.turnsthe.page (2026-11-14 ~01:30 CET): all
+# 86 have the plain block there. DA's copies were not read: a read-only loop over them was stopped by the session's remote-
+# content guard, so check each DA copy for the plain block first.
+# Measured as a draft (street-food-in-munich, the published copy with the option, the commit's code served locally; consent
+# stored, pictures eager; www.* and the airline hosts refused: 0): the control equals live (6,048 / 7,197 px); with the
+# delta 5,847 / 6,927. www's recording ends 491 / 466 px below its footer with an unstyled chat widget (the most of any Air
+# Dolomiti recording), so the page heights read -2.02 -> -5.28 % at 1440; the footer's top reads 5,052 -> 4,851 (www 4,851)
+# and 6,011 -> 5,741 at 390 (www's 390 is the 1440 load resized: 5,589).
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-airdolomiti), the delta, the start link's label, the title.
+READY	/articoli/avgeek/come-si-accende-un-aereo.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Sei un vero AVGeek?
+READY	/articoli/avgeek/dentro-il-cockpit-di-un-aereo-air-dolomiti.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Sei un vero AVGeek?
+READY	/articoli/avgeek/discover-embraer-e195-e-e190.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Sei un vero AVGeek?
+READY	/articoli/avgeek/gli-pneumatici-degli-aerei.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Sei un vero AVGeek?
+READY	/articoli/avgeek/il-ciclo-di-vita-degli-aerei.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Sei un vero AVGeek?
+READY	/articoli/avgeek/il-decollo-verticale.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Sei un vero AVGeek?
+READY	/articoli/avgeek/perche-il-comandante-siede-a-sinistra.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Sei un vero AVGeek?
+READY	/articoli/avgeek/pilota-automatico.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Sei un vero AVGeek?
+READY	/articoli/avgeek/una-giornata-con-un-comandante-air-dolomiti.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Sei un vero AVGeek?
+READY	/articoli/destinazioni/alla-scoperta-della-germania-fiabesca.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/articoli/destinazioni/bologna-segreta.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/articoli/destinazioni/dove-sciare-vicino-venezia-cortina-dampezzo.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/articoli/destinazioni/estate-sulle-alpi-calcaree-nord-tirolesi-lincredibile-zugspitze.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/articoli/destinazioni/genova-in-tre-giorni.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/articoli/destinazioni/i-mercatini-di-natale-a-monaco-di-baviera.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/articoli/destinazioni/il-famoso-carillon-di-marienplatz-a-monaco-di-baviera.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/articoli/destinazioni/il-mainfest-di-francoforte-2025.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/articoli/destinazioni/in-viaggio-con-andrea-lorenzon-alias-cartoni-morti.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/articoli/destinazioni/in-viaggio-con-mamma-tra-le-meraviglie-ditalia.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/articoli/destinazioni/la-barcolana-di-trieste.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/articoli/destinazioni/larena-di-verona.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/articoli/destinazioni/le-migliori-ciaspolate-vicino-verona.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/articoli/destinazioni/le-piu-belle-ferrate-vicino-torino.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/articoli/destinazioni/o-zapft-is-il-nuovo-oktoberfest.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/articoli/destinazioni/primavera-in-sardegna-tutte-le-meraviglie-dellisola-in-questa-stagione.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/articoli/destinazioni/street-food-a-monaco-di-baviera.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/articoli/destinazioni/un-viaggio-tra-le-4-meraviglie-unesco-pugliesi.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/articoli/destinazioni/visitare-venezia-durante-la-mostra-del-cinema.html	Columns Media -> Columns Media (quiz) on the block with "Inizia il quiz"	Inizia il quiz	Destinazioni
+READY	/de/artikel/avgeek-de/der-autopilot.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Bist du ein echter AVGeek?
+READY	/de/artikel/avgeek-de/der-lebenszyklus-von-flugzeugen.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Bist du ein echter AVGeek?
+READY	/de/artikel/avgeek-de/der-senkrechtstart.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Bist du ein echter AVGeek?
+READY	/de/artikel/avgeek-de/ein-tag-an-der-seite-eines-air-dolomiti-kapitaens.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Bist du ein echter AVGeek?
+READY	/de/artikel/avgeek-de/entdecke-die-embraer-e195-und-e190.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Bist du ein echter AVGeek?
+READY	/de/artikel/avgeek-de/flugzeugreifen.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Bist du ein echter AVGeek?
+READY	/de/artikel/avgeek-de/im-cockpit-eines-air-dolomiti-flugzeugs.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Bist du ein echter AVGeek?
+READY	/de/artikel/avgeek-de/warum-sitzt-der-flugkapitaen-links.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Bist du ein echter AVGeek?
+READY	/de/artikel/avgeek-de/wie-fliegen-aerostaten.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Bist du ein echter AVGeek?
+READY	/de/artikel/avgeek-de/wie-startet-man-ein-flugzeug.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Bist du ein echter AVGeek?
+READY	/de/artikel/reiseziele/auf-entdeckungsreise-durch-das-maerchenland-deutschland.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Traumziele
+READY	/de/artikel/reiseziele/das-beruehmte-glockenspiel-am-muenchner-marienplatz.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Traumziele
+READY	/de/artikel/reiseziele/das-mainfest-in-frankfurt.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Traumziele
+READY	/de/artikel/reiseziele/der-sardische-fruehling-alle-wunder-sardiniens-in-einer-saison.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Traumziele
+READY	/de/artikel/reiseziele/die-arena-von-verona.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Traumziele
+READY	/de/artikel/reiseziele/die-barcolana-in-triest.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Traumziele
+READY	/de/artikel/reiseziele/die-muenchner-weihnachtsmaerkte.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Traumziele
+READY	/de/artikel/reiseziele/die-schoensten-klettersteige-rund-um-turin.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Traumziele
+READY	/de/artikel/reiseziele/die-schoensten-schneeschuhwanderungen-nahe-verona.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Traumziele
+READY	/de/artikel/reiseziele/eine-reise-zu-den-vier-unesco-welterbestaetten-in-apulien.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Traumziele
+READY	/de/artikel/reiseziele/entdecke-streetfood-in-muenchen.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Traumziele
+READY	/de/artikel/reiseziele/geheimes-bologna.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Traumziele
+READY	/de/artikel/reiseziele/genua-in-drei-tagen.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Traumziele
+READY	/de/artikel/reiseziele/mit-mama-nach-italien.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Traumziele
+READY	/de/artikel/reiseziele/ozapft-is-das-muenchner-oktoberfest.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Traumziele
+READY	/de/artikel/reiseziele/skifahren-in-der-naehe-von-venedig-cortina-dampezzo.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Traumziele
+READY	/de/artikel/reiseziele/sommer-in-den-nordtiroler-kalkalpen-faszination-zugspitze.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Traumziele
+READY	/de/artikel/reiseziele/unterwegs-mit-andrea-lorenzon-entdecke-muenchen-und-frankfurt-neu.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Destinazioni
+READY	/de/artikel/reiseziele/venedig-im-glanz-der-filmfestspiele.html	Columns Media -> Columns Media (quiz) on the block with "Quiz starten"	Quiz starten	Traumziele
+READY	/en/articles/avgeek-en/a-day-with-an-air-dolomiti-captain.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Are you a true AVGeek?
+READY	/en/articles/avgeek-en/aircraft-tyres.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Are you a true AVGeek?
+READY	/en/articles/avgeek-en/autopilot.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Are you a true AVGeek?
+READY	/en/articles/avgeek-en/discover-embraer-e195-e-e190-2.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Are you a true AVGeek?
+READY	/en/articles/avgeek-en/how-do-aerostats-fly.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Are you a true AVGeek?
+READY	/en/articles/avgeek-en/how-do-you-start-an-aeroplane.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Are you a true AVGeek?
+READY	/en/articles/avgeek-en/inside-an-air-dolomiti-cockpit.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Are you a true AVGeek?
+READY	/en/articles/avgeek-en/the-lifecycle-of-aircraft.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Are you a true AVGeek?
+READY	/en/articles/avgeek-en/vertical-takeoff.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Are you a true AVGeek?
+READY	/en/articles/avgeek-en/why-does-the-captain-sit-on-the-left.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Are you a true AVGeek?
+READY	/en/articles/destinations/a-journey-through-apulias-4-unesco-wonders.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinations
+READY	/en/articles/destinations/discovering-the-fairytales-of-germany.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinations
+READY	/en/articles/destinations/genoa-in-three-days.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinations
+READY	/en/articles/destinations/hidden-bologna.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinations
+READY	/en/articles/destinations/mainfest-frankfurt-2025.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinazioni
+READY	/en/articles/destinations/on-tour-with-andrea-lorenzon-aka-cartoni-morti.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinations
+READY	/en/articles/destinations/ozapft-is-its-time-for-oktoberfest.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinations
+READY	/en/articles/destinations/spring-in-sardinia-all-the-wonders-of-the-island-during-this-season.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinations
+READY	/en/articles/destinations/street-food-in-munich.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinations
+READY	/en/articles/destinations/summer-in-the-north-tyrol-limestone-alps-the-incredible-zugspitze.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinations
+READY	/en/articles/destinations/the-barcolana-in-trieste.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinations
+READY	/en/articles/destinations/the-best-snowshoeing-near-verona.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinations
+READY	/en/articles/destinations/the-christmas-markets-of-munich.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinations
+READY	/en/articles/destinations/the-mechanical-clock-in-munichs-marienplatz.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinations
+READY	/en/articles/destinations/the-most-beautiful-via-ferratas-near-turin.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinations
+READY	/en/articles/destinations/the-verona-arena.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinations
+READY	/en/articles/destinations/travel-with-your-mum-through-the-wonders-of-italy.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinations
+READY	/en/articles/destinations/visit-venice-during-the-film-festival.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinations
+READY	/en/articles/destinations/where-to-ski-near-venice-cortina-dampezzo.html	Columns Media -> Columns Media (quiz) on the block with "Start quiz"	Start quiz	Destinations

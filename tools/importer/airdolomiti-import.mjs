@@ -677,7 +677,8 @@ function shortcodeOf(kind, n, page, mode) {
   }
   const rows = quizRows(page, n);
   if (!rows) return [];
-  return mode === 'top' ? [{ block: 'columns-media', rows }] : [rows[0].join('')];
+  // www's Quiz card (a grey card, the picture on the right from 930 px): Columns Media (quiz) (standing order 26)
+  return mode === 'top' ? [{ block: 'columns-media (quiz)', rows }] : [rows[0].join('')];
 }
 
 /**

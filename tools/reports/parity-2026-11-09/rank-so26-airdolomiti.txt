@@ -1,0 +1,15 @@
+# ema-cashub, standing order 26 (2026-11-14), item 2: Air Dolomiti's two open cards. Expected change: the help card rule (shipped)
+# moves only /servizi/parcheggi-convenzionati (the one help card without text among the 98 recorded page-widths), 30 px closer
+# at both widths; the quiz option (shipped, applied through delta-so26-airdolomiti-quiz-cards.txt) draws street-food-in-munich's
+# card as www's: its footer at www's at 1440. The other 96 page-widths do not change (the rule matches nothing there: counted
+# in each render; no recorded page but street-food has a quiz).
+# Ours: airdolomiti.turnsthe.page as served (2026-11-14 ~00:30 CET) and with the rules added after load; street-food as a
+# draft with the option; consent stored, pictures eager; www.* and the airline hosts refused and counted (0 on these rows).
+# www: airdolomiti-parity-001 (parcheggi; 390 resized from the 1440 load, its fresh offline layout 2,712 px) and -002
+# (street-food). street-food is read at the footer's top: its recording has 491 / 466 px of an unstyled chat widget below the
+# footer (page heights: 1440 -2.02 -> -5.28 %, 390 +1.35 -> -2.45 %).
+# Columns: status, path, width, measure, www, ours before, vs www, ours after, vs www, what.
+READY	/servizi/parcheggi-convenzionati	1440	page height	1825	1788	-2.03 %	1818	-0.38 %	help card: 40 px from the headline to the button (www's empty paragraph's margin)
+READY	/servizi/parcheggi-convenzionati	390	page height	2712	2674	-1.40 %	2704	-0.29 %	the same
+READY	/en/articles/destinations/street-food-in-munich	1440	footer top	4851	5052	+4.14 %	4851	+0.00 %	the quiz card as www's (566 px, ours 773)
+READY	/en/articles/destinations/street-food-in-munich	390	footer top	5589	6011	+7.55 %	5741	+2.72 %	the quiz card 446 px (www 440, ours 722); www's 390 is the 1440 load resized
