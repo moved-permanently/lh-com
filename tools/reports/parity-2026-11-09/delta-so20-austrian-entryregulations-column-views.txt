@@ -20,4 +20,12 @@
 #   What is left at 390 lies below the views (the FAQ and the section after it), not a view question.
 # Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, what changes on the page.
 READY	/at/en/entryregulations.html	markers 1-3 above	1440: the headings within 27 px of www's (-3.29 -> -1.26 %); 390: -2.75 -> -2.03 %
-HOLD	/at/de/entryregulations.html	markers 1-3 above (the same structure: the same 5 sections, blocks and paragraph order)	not recorded: nothing to measure it against; requested in capture-requests-ema-cashub.txt
+READY	/at/de/entryregulations.html	markers 1-3 above (the same structure: the same 5 sections, blocks and paragraph order; marker 3 closes the link "Zu den aktuellen Reiseinformationen für österreichische Staatsbürger")	1440: -2.35 -> -0.39 %, the headings 86 -> 19 px off www's on average; 390: -2.10 -> -1.43 %, 71 -> 27 px (standing order 23, below)
+# Standing order 23 (2026-11-13), /at/de against austrian-parity-018 (sha256 7f703b26…, www.austrian.com/at/de/
+# entryregulations, each width its own first load): www 5,696 px at 1440, 7,712 at 390. DA's copy read again
+# (2026-11-13 ~13:15 UTC): byte for byte the order 20 copy. Drafts on austrian.turnsthe.page (so20/draft-host2.mjs,
+# EAGER=1; www.* and the airline hosts refused, 0 sent); the published copy as control equals live (5,562 / 7,550 px):
+#   as is      5,562 / 7,550 px (-2.35 / -2.10 %), headings off by 86 / 71 px on average
+#   this delta 5,674 / 7,602 px (-0.39 / -1.43 %), 19 / 27 px; at 1440 every heading within 22 px but the
+#   two after "Aktuelle Einreisebestimmungen" (+42, +51); at 390 the largest gap is "Länderspezifische Bestimmungen" (-66)
+#   What is left at 390 lies below the views (the Austria and country sections), as on /at/en.

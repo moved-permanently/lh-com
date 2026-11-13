@@ -1,0 +1,20 @@
+# ema-cashub, standing order 23 (2026-11-13), item 3: Air Dolomiti's page-widths outside 2 % in order 22, main as served on
+# airdolomiti.turnsthe.page (every picture loaded; www.* and the airline hosts refused: 8 refused, 0 sent). www recorded: the
+# manifests' scrollHeight (airdolomiti-parity-001; street-food: -002). www fresh: the recording's own 390 / 1440 markup laid
+# out offline with its own CSS and fonts (so23/rec-render.mjs; every request answered from the archive or aborted).
+# airdolomiti-parity-001's 390 files are its 1440 load resized (its README). Calibration on 5 recorded 390 pages already
+# within 2 %: fresh = recorded on 3 (it-gestione-prenotazione-volo, en-support-and-contacts, en-fleet), -1.9 % on de-betreuung,
+# +2.5 % on de-artikel. The other 86 Air Dolomiti page-widths were not measured again: this order changes no Air Dolomiti code.
+# These 11 rows on main: the same heights as order 22's table.
+path	width	www recorded	www fresh (offline)	ours	vs recorded %	vs fresh %
+/de/buchung	390	2317	2289	2267	-2.16	-0.96
+/en/assistance	390	7332	7100	7092	-3.27	-0.11
+/en/travel-info/seat-reservation	390	3899	3784	3777	-3.13	-0.18
+/assistenza	390	7420	7247	7238	-2.45	-0.12
+/de/unsere-dienste/lounge-zutritt	390	3269	3125	3118	-4.62	-0.22
+/informazioni-per-il-viaggio/prenotazione-del-posto	390	3854	3738	3757	-2.52	+0.51
+/de/reisenformationen/sitzplatzreservierung	390	4035	4008	4116	+2.01	+2.69
+/en/services/lounges	390	3223	3165	3158	-2.02	-0.22
+/servizi/parcheggi-convenzionati	1440	1825	1826	1788	-2.03	-2.08
+/en/articles/destinations/street-food-in-munich	1440	6173	-	6048	-2.02	-
+/en/articles/destinations/street-food-in-munich	390	7101	-	7197	+1.35	-

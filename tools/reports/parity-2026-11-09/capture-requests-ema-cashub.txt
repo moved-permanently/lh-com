@@ -1,23 +1,29 @@
-# Capture requests from ema-cashub (standing order 22, 2026-11-13). One path per line; widths 1440 and 390, full height,
+# Capture requests from ema-cashub (standing order 23, 2026-11-13). One path per line; widths 1440 and 390, full height,
 # each width its own first load.
-# Recorded since order 21, thank you: TAP /pt-pt and /pt-pt/miles-and-go/promocoes/navigator-experiences
-# (tap-parity-011); no longer requested.
+# Recorded or settled since order 22, thank you (the brands' own drop folders):
+# - /at/de/entryregulations (austrian-parity-018): measured, the delta row READY.
+# - street-food-in-munich (airdolomiti-parity-002: 390 is 7,101 px) and Cargo whats-up-now (cargo-parity-001: traced and
+#   fixed); no longer requested.
 
-# Austrian (delta-so20-austrian-entryregulations-column-views.txt): austrian-parity-018 is not in the drop. Its address
-# (r2.dev/GDDocrqS7sYpHQrbIT_4NmGC/austrian-parity-018.tar.gz) answered 404 on seven tries from 09:44 to 10:41 UTC
-# (tap-parity-011 in the same folder answered 200), so /at/de stays HOLD. Please put the archive in the drop again, or record the page again.
-# host: www.austrian.com
-/at/de/entryregulations
-
-# Air Dolomiti and Cargo: the archives of the earlier recordings (airdolomiti-parity-001 to -006, cargo-parity-001 to
-# -004) are no longer in the drop (404), and they are not on this machine, so www's DOM and boxes can't be read here.
-# These pages hold the open rows:
-# - street-food-in-munich: 390's www height is not in any committed report (the AD parity rows give only 1440).
-# - airports-designed-by-archistars: the airport photos inside H4s, as street-food's H3 photo (shipped in order 22); a recording settles whether www draws them the same way.
-# - Cargo whats-up-now: -2.5 / -2.2 % at 390, never traced.
+# Air Dolomiti: airdolomiti-parity-001's 390 files are the 1440 load resized (its README: "One load per page ... then the
+# same load resized to 390"). Laid out fresh from their own markup and CSS (offline, no request), www's pages are 0.7 to
+# 4.4 % shorter than the recorded 390 heights, and ours are within 1 % of that on 7 of the 9 open 390 rows
+# (rank-so23-airdolomiti.txt). A first load at 390 would settle which height is www's.
+# host: www.airdolomiti.de
+/de/unsere-dienste/lounge-zutritt
+/de/buchung
+/de/reisenformationen/sitzplatzreservierung
+# host: www.airdolomiti.eu
+/en/assistance
+/en/travel-info/seat-reservation
+/en/services/lounges
 # host: www.airdolomiti.it
-/en/articles/destinations/street-food-in-munich
+/assistenza
+/informazioni-per-il-viaggio/prenotazione-del-posto
+
+# Air Dolomiti, the archistar airport photos: not in the recordings. www's snapshot of the article
+# (content-sites/lh-airdolomiti/snapshots, the same alignnone images inside H4s) laid out with airdolomiti-parity-002's
+# CSS (the same build's stylesheets) draws them 1200 x 799, 650 x 350 and 1200 x 814 at 1440, 350 wide at 390: as ours
+# since 265e7364. A live recording would confirm it on the page itself.
+# host: www.airdolomiti.eu
 /en/articles/dyk/airports-designed-by-archistars
-# host: www.lufthansa-cargo.com
-/en/ci/whats-up-now
-/de/ci/whats-up-now

@@ -25,4 +25,5 @@
 # TAP's media host, not in DA and not in the capture, so it needs a media upload too. And at 1440 the page moves 0.38
 # points further from www with it (inside the 0.5 gate, but no closer).
 # Columns: status, DA path (admin.da.live/source/moved-permanently/lh-tap), the delta, what changes on the page.
-HOLD	/pt-pt/miles-and-go/promocoes/navigator-experiences.html	the card above as the first "A decorrer" card, the sliders 3 + 3	1440 +0.14 -> -0.52 %, 390 +2.09 % unchanged
+# Standing order 23 (2026-11-13): the owner's call is made. The card expires tomorrow, so it stays out: NOT TO DO.
+NOT TO DO	/pt-pt/miles-and-go/promocoes/navigator-experiences.html	the card above as the first "A decorrer" card, the sliders 3 + 3	1440 +0.14 -> -0.52 %, 390 +2.09 % unchanged

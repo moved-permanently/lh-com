@@ -1,0 +1,36 @@
+# ema-cashub, standing order 23 (2026-11-13), items 2 and 3: the Cargo and Air Dolomiti page-widths still outside 2 %
+# after this order's code, one row each, with what the recordings show (cargo-parity-001 / -002, airdolomiti-parity-001 /
+# -002, from the brands' own drop folders; www's markup rendered offline with the archive's own CSS and fonts, every
+# request answered from the archive or aborted). None has a document delta: no row here changes DA.
+# Columns: status, brand, path, width, www, ours, %, the cause found.
+# NO DELTA = the cause is known and is not a document change; OPEN = not traced to one cause here.
+#
+# Cargo (ours with this order's code; rank-so23-cargo.txt)
+NO DELTA	cargo	/en/fleet-ulds/fleet	390	3841	3973	+3.44	row 51's remainder: www's picture the screen's width, check marks on the list, a rule over the download link, and our wider brand face
+NO DELTA	cargo	/de/fleet-ulds/fleet	390	3918	4050	+3.37	as /en
+NO DELTA	cargo	/de/ci/facts-figures	390	12482	12823	+2.73	row 50 (3): the timeline cards in our brand face wrap one line more in about half the 40 cards; the face is row 49's decision (the group's brand font)
+NO DELTA	cargo	/en/ci/facts-figures	390	11916	12223	+2.58	as /de
+NO DELTA	cargo	/de/ebooking-info	390	5688	5834	+2.57	the brand face's wraps (row 49's decision)
+NO DELTA	cargo	/en/ci/sustainable-development-goals	390	1735	1777	+2.42	the brand face's wraps (row 49's decision)
+NO DELTA	cargo	/de/ci/sustainable-development-goals	390	1870	1914	+2.35	as /en
+NO DELTA	cargo	/en/ebooking-info	390	5393	5516	+2.28	as /de
+OPEN	cargo	/en/ebooking-info	1440	3771	3853	+2.17	not traced (de at 1440: -0.03 %)
+OPEN	cargo	/en/support-and-contact	390	3066	3130	+2.09	not traced (de: +1.74 %); the feedback view (the same page with the form's dialog over it) the same
+OPEN	cargo	/de/ci/facts-figures	1440	4952	4847	-2.12	not traced (en at 1440: within 2 %)
+OPEN	cargo	/en/fleet-ulds/fleet	1440	3043	3106	+2.07	not traced (de: +1.33 %)
+#
+# Air Dolomiti (main as served; rank-so23-airdolomiti.txt). airdolomiti-parity-001's 390 files are its 1440 load resized
+# (its README), so a 390 row compares ours with a resized page. Laid out fresh offline from that markup and CSS, www is
+# shorter on these pages, and ours is within 1 % of it on 7 of the 9 rows. Checked on 5 recorded 390 pages that are
+# already within 2 %: the fresh layout equals the recorded height on 3, and differs on 2 (-1.9, +2.5 %), so it is a
+# pointer, not a measurement: first loads at 390 are requested (capture-requests-ema-cashub.txt).
+NO DELTA	airdolomiti	/de/unsere-dienste/lounge-zutritt	390	3269	3118	-4.62	the resize: in the recording the three lounge titles (34 / 57.8 px) take one line more each than www's own markup laid out fresh (3,125 px, ours -0.22 %)
+NO DELTA	airdolomiti	/en/assistance	390	7332	7092	-3.27	the resize: fresh 7,100 px (ours -0.11 %)
+NO DELTA	airdolomiti	/en/travel-info/seat-reservation	390	3899	3777	-3.13	the resize: fresh 3,784 px (ours -0.18 %)
+NO DELTA	airdolomiti	/informazioni-per-il-viaggio/prenotazione-del-posto	390	3854	3757	-2.52	the resize: fresh 3,738 px (ours +0.51 %)
+NO DELTA	airdolomiti	/assistenza	390	7420	7238	-2.45	the resize: fresh 7,247 px (ours -0.12 %)
+NO DELTA	airdolomiti	/de/buchung	390	2317	2267	-2.16	the resize: fresh 2,289 px (ours -0.96 %)
+NO DELTA	airdolomiti	/en/services/lounges	390	3223	3158	-2.02	the resize: fresh 3,165 px (ours -0.22 %)
+NO DELTA	airdolomiti	/de/reisenformationen/sitzplatzreservierung	390	4035	4116	+2.01	two FAQ titles one line longer (+58 px each): www lets the long word ("Sitzplatzreservierung", "Sitzplatzänderungen") run past its 332 px button (overflow-wrap normal); ours breaks it (overflow-wrap anywhere) so nothing overflows. Not changed: matching www would make the word overflow its box
+OPEN	airdolomiti	/servizi/parcheggi-convenzionati	1440	1825	1788	-2.03	the promo card (www CardPromoCta): www keeps an empty paragraph between the headline and the button, 30 px; ours has none. One recorded card has an empty paragraph (6 recorded cards have text, and they match), so a code rule for cards without text could not be checked against a second page
+OPEN	airdolomiti	/en/articles/destinations/street-food-in-munich	1440	6173	6048	-2.02	the article's "Destinations" card: www's heading 558 px under "Pretzels and bratwurst…" and the next H3 414 px under it, ours 380 and 797; not traced to one rule. 390 is now recorded (airdolomiti-parity-002: 7,101 px; ours 7,197, +1.35 %)

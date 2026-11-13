@@ -4539,3 +4539,111 @@ It is a partial file copy, not registered with git, and nothing uses it. The cap
 so10/arch/tap-parity-011.
 
 No upload, preview or publish. da-upload.mjs was not called. DA was only read (five source GETs).
+
+## Standing order 23 (2026-11-13, from about 14:10 CET)
+
+**Start state:** nothing of mine was uncommitted or unpushed. Order 22 had ended at `dadb074e`, on origin. The dirty
+files in the main checkout (import-progress.json, urls-*.txt, the importer reports) are other jobs' import output and
+stay as they are.
+
+**Rules followed:**
+- **No airline host was requested.** Every render refused www.* (except www.mynewsdesk.com, which this order allows)
+  and the airline hosts, and counted the refusals: Cargo 0, Air Dolomiti 8 (/de/buchung), Austrian 0. None was sent.
+- **Mynewsdesk:** 216 requests to www.mynewsdesk.com in the Cargo ranking. The newsroom app's own script comes from
+  lufthansa-cargo-ag-com.mynewsdesk.com / lufthansa-cargo-ag.mynewsdesk.com (Mynewsdesk's hosts, as authored in the
+  block); those are not www.* and were never refused.
+- **The drops:** the brands' own folders.
+  - Downloaded: austrian-parity-018, airdolomiti-parity-001 to -006, airdolomiti-snapshots-001 to -008, cargo-parity-001
+    to -003 and cargo-snapshots-001 to -014. airdolomiti-parity-007/-008 and cargo-parity-004 to -014 answered 404.
+  - sha256 checked on 19 of the 32 archives: austrian-parity-018 against your 7f703b26…, the others against the drop's
+    .sha256 files. The other 13 have no .sha256 file in the drop (airdolomiti-parity-003/-004, cargo-parity-001,
+    airdolomiti-snapshots-001 to -008, cargo-snapshots-001/-002). cargo-parity-001's 48 heights equal the committed
+    sweep's to the pixel.
+  - Each archive was extracted into its own new folder. No serve.py was run.
+- **DA:** read once (lh-austrian /at/de/entryregulations, unchanged since order 20).
+- No upload, preview or publish. da-upload.mjs was not called.
+
+### Item 1: /at/de/entryregulations against austrian-parity-018: READY
+
+- www: 5,696 px at 1440 and 7,712 at 390, each width loaded on its own.
+- Drafts on austrian.turnsthe.page; the control matches live (5,562 / 7,550).
+
+| /at/de | 1440 | 390 | headings off www's, mean |
+|---|---|---|---|
+| as is | 5,562 (-2.35 %) | 7,550 (-2.10 %) | 86 / 71 px |
+| the three column-view markers (order 20's delta) | 5,674 (-0.39 %) | 7,602 (-1.43 %) | 19 / 27 px |
+
+- At 1440 every heading is within 22 px of www's, except the two after "Aktuelle Einreisebestimmungen" (+42, +51).
+- delta-so20-austrian-entryregulations-column-views.txt: both rows are READY now.
+
+### Item 2: Cargo, 18 -> 35 of 48 within 2 %
+
+**Two measuring corrections first (no code):**
+- **Consent and the Mynewsdesk feed.** The renders now store "Accept all" (www's recordings were taken after it,
+  per their README) and allow www.mynewsdesk.com. The newsroom (en/de, 1440/390) comes within +0.18 % and the homepages
+  within +0.9 %; order 22 had them at -92 to -3 %.
+- **The feedback view's address.** The four rows measured /<ll>/contact-us (the form's own page). www's view is Support
+  & Contact with the form as a dialog (row 36). On that address, with the dialog open and both choices preselected
+  (checked), they come to +1.48 % at 1440 and +1.74 / +2.09 % at 390.
+- **Result:** 29 of 48 within 2 %, the sum of the deviations 525.83 -> 87.83 points.
+
+**Shipped (`ac8f4003`, tests first: red on main 8 of 8 and 3 of 4):**
+- **The notification overview** (/en and /de/notification-overview).
+  - www's markup and its own `<style>`, rendered offline with the archive's CSS: since our block was written, the
+    filter and list sit on one full-width #f5f5f5 band down to the footer (40 px in from 1025 px, 20 below).
+  - Each item is at most 856 px wide, the text 18 / 24 px clamped to five lines (-webkit-line-clamp: 5), Read more
+    #52627c with the arrow after it.
+  - From 1025 px the title stands 100 px under the breadcrumb's top.
+  - Ours had a grey card in the column, 14 / 18 px text cut at 72 px, and 48 px of section margin before the footer.
+  - The fix: blocks/notifications/notifications.css (a Cargo-only block), plus two section rules in cargo.css.
+  - 1440 -9.83 -> 0.00 % (1,648 px as www's), 390 -2.51 / -3.17 -> +0.08 / -0.66 %.
+- **The company pages' picture header on phones** (whats-up-now, en/de; also the social pages, which are not recorded).
+  - Below 992 px www lays out its picture header like the video header (row 38): the picture at 16:9 (220 px), a white
+    box under it with the title, the 16 / 19.2 px subline and its 36 px button (171 px).
+  - Ours drew a 320 px picture with the text on it. The new box is 279 + 171 px, as www's.
+  - 390 -2.17 / -2.51 -> +0.49 / +0.11 %.
+- **The gate:** the other 42 page-widths are the same to the pixel. Live on our host after the push:
+  notification-overview 1,648 px at 1440, whats-up-now 2,687 at 390, as in the trial.
+
+**Checks:**
+- Stylelint exit 0 on both CSS files.
+- In the push loop (clean worktree): whole-repo lint exit 0 on both bases, read before the push.
+- The 157 test files naming cargo, notifications or hero-campaign: 901 of 901 on the first base. The second base
+  brought only data, so nothing ran again.
+- The full suite on the pushed commit: below.
+
+**The 13 rows left** (rows-so23-cargo-airdolomiti.txt):
+- **Eight: no document delta.** At 390 ours is taller on fleet, facts-figures, ebooking-info and the SDG pages. The
+  causes are row 49's brand face decision and row 51's remainder, as ema-lufthansa classified them.
+- **Four are open:** ebooking-info en 1440 +2.17, support-and-contact en 390 +2.09 (de +1.74), facts-figures de 1440
+  -2.12, fleet en 1440 +2.07. Each language's other copy is within 2 %, so they are not traced here.
+- rank-so23-cargo.txt has all 48 rows: order 22's numbers, with consent and the feed, and now.
+
+### Item 3: Air Dolomiti
+
+- **The 390 rows are resizes.** airdolomiti-parity-001's 390 files are its 1440 load resized (its README). Laid out
+  fresh offline from their own markup and CSS, www's pages are shorter, and ours is within 1 % of that on 7 of the 9
+  open 390 rows. An example is lounge-zutritt: recorded 3,269, fresh 3,125, ours 3,118. Its three lounge titles take
+  one line more each in the recording than in the fresh layout.
+  - I checked the method on 5 recorded 390 pages that are already within 2 %. The fresh height equals the recorded one
+    on 3, and differs on 2 (-1.9 %, +2.5 %).
+  - So it is a pointer, not a measurement. First loads at 390 are requested; no code was changed for these rows.
+- **de/sitzplatzreservierung 390 (+2.01 %; +2.69 % against the fresh layout):** two FAQ titles are one 58 px line
+  longer each. www lets the long word ("Sitzplatzreservierung") run past its 332 px button (overflow-wrap normal); ours
+  breaks it (overflow-wrap anywhere). Not changed, because matching www would make the word overflow its box.
+- **parcheggi-convenzionati 1440 (-2.03 %):** www's promo card keeps an empty paragraph between the headline and the
+  button: 30 px. Only one recorded card is like that (the 6 with text match ours), so a rule for such cards could not
+  be checked on a second page. Open.
+- **street-food-in-munich:** 390 is now recorded (airdolomiti-parity-002: 7,101 px). Ours is 7,197, +1.35 %, with
+  order 22's photo rule. At 1440 the -2.02 % comes from the article's "Destinations" card: www places it 178 px lower,
+  with 383 px less under it. Its offline render doesn't draw the card, so this is not traced. Open.
+- **The archistar airport photos:** not in the recordings. I took www's snapshot of the article (the same alignnone
+  images inside H4s) and laid it out with airdolomiti-parity-002's CSS (the same build). It draws them 1200 x 799,
+  650 x 350 and 1200 x 814 at 1440 and 350 wide at 390, as ours since `265e7364`. A live recording is still requested
+  to confirm.
+- rank-so23-airdolomiti.txt: the 11 rows (recorded, fresh, ours).
+
+### Item 4: TAP navigator-experiences: NOT TO DO
+
+The dated match-ticket card stays out (it expires tomorrow). delta-so22-tap-navigator-card.txt: the row is marked
+NOT TO DO.
