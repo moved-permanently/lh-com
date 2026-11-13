@@ -23,6 +23,21 @@
 #   a 40 px separator, then a column view), yet the recordings show the gap on one and not on the other: the
 #   recordings of the worse pages may be older than www's layout. Fresh recordings asked for in
 #   capture-requests-ema-adobe.txt; READY with them if they agree, or with your go on the mechanism.
+#   Standing order 13: measured again on the fresh recordings lh-snapshots-115 (2026-11-13 02:34-02:36 UTC, sha256
+#   checked, measurement files matching the pictures; www unchanged since the old recordings except
+#   with-children-at-the-airport and special-meals at 390). Now -> narrowed rule, 1440 / 390: childrens-menus-on-board
+#   13.2 / 16.5 -> 17.2 / 20.0, with-children-at-the-airport 12.7 / 13.4 -> 10.0 / 11.5 (better now), ana 9.2 / 8.0 ->
+#   6.9 / 10.3, flight-disruptions 10.7 / 11.7 -> 6.0 / 14.1, passenger-rights 3.6 / 8.0 -> 4.5 / 7.5, special-meals
+#   9.8 / 20.9 -> 5.0 / 19.8, entryprocesses 16.7 / 28.3 -> 6.3 / 16.4. Four page-widths still worse by more than 0.5:
+#   held. What differs in www's markup: our documents write the same "grey column band, then an unstyled section" for
+#   different www shapes. On special-meals the band's AEM section has no .mb-default and the next AEM section is a column
+#   view; on entryprocesses the band sits in a section with .mb-default and a titled column view follows in that section;
+#   both have no space beyond the band's own padding. childrens-menus-on-board has a separator and then a new AEM section
+#   without .mb-default; ana's band is a whole grey AEM section with .mb-default before a padded section; on
+#   flight-disruptions the band is a column view inside one section, followed by a separator and text in that section;
+#   on passenger-rights the band is nested in another column view. Those keep space under the band. A rule needs the
+#   importer to tell these shapes apart (a mark where www's band is followed by a new AEM section with .mb-default
+#   or by more of its own section); until then the rule stays held.
 #   (/de/en/flights 390 read 47.3 in the narrowed run: a capture of 5404 px instead of 8000, its live content; the
 #   rule does not match it, the other runs read 0.5.)
 # - plain-grey (not shipped): the same before an unstyled section after a plain grey band (not a column band, flush or
