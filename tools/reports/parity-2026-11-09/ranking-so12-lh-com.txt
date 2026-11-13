@@ -40,6 +40,21 @@
 #   or by more of its own section); until then the rule stays held.
 #   (/de/en/flights 390 read 47.3 in the narrowed run: a capture of 5404 px instead of 8000, its live content; the
 #   rule does not match it, the other runs read 0.5.)
+# Standing order 13, the next rows:
+# - airline-tiles (SERVED, bc8398e): the group airlines' tiles (a heading, the airline's logo, a lone link): www's logo is
+#   an image component with 4rem below it, ours gave a later picture the paragraph's 24px. 40px there; the three recorded
+#   documents, % off www at 390 / 1440: feedback-and-contact-airlines 14.3 / 7.1 -> 9.4 / 3.5, report-baggage 13.9 / 14.0
+#   -> 9.1 / 10.6, delayed-baggage-lhg 13.7 / 6.7 -> 9.1 / 4.0; live as the trial. Test first.
+# - phone-row-gap (not shipped): aviation-group's phone rows 15-20 px too far apart (66 px); 46 px for every multi-row
+#   Columns Media on phones: 15 better, 25 worse of 49 (sum +23.1). 66 stays.
+# - before-flush-band (not shipped): a plain or padded section before a flush grey band 31-34 px too far above it on
+#   travel-insurances and miles-and-more-credit-card. On the 52 recorded page-widths with that shape: 0 px 25 better /
+#   16 worse, 16 px 26 / 15. The worse pages are mostly the column-band rule's (childrens-menus-on-board, rail-and-fly,
+#   lufthansa-express-rail): spacing on both sides of www's grey views comes from AEM section boundaries our import does
+#   not keep. Rendered locally from lh-snapshots-115 without scripts, www has 72 px from the band to the next title on
+#   both childrens-menus-on-board and special-meals (the separator's 40, the view's 32) and ours 89 on both, while the
+#   recordings put them apart: www's scripted components (maui-divider in shadow DOM) take part, and a decision needs
+#   the importer to keep the section boundary and the separator as www draws them, not another CSS value.
 # - plain-grey (not shipped): the same before an unstyled section after a plain grey band (not a column band, flush or
 #   view band; menus-on-long-haul-flights +47 px): its 28 recorded documents, 56 page-widths, now -> no gap: 19 better,
 #   25 worse by more than 0.5 (articles/highlights 2.9 -> 7.2 at 1440, doctor-on-board-news 7.3 -> 11.1), sum -2.9.
@@ -120,18 +135,18 @@
 14.3	14.7	/de/en/during-your-trip/lhg-wifi	390	h 6043/6237	drift from y 5280 (28 px): accordion-columns.faq | h2 Frequently Asked Questions	single	HOLD	single page: no cause shared with another recorded page at this step
 14.3	14.3	/de/en/during-your-trip/internet-overview	390	h 4671/4713	drift from y 3840 (32 px): hero-campaign.regular, columns-media.padded | h1 Your connection above the clou / h2 Our internet options at a glan	single	HOLD	single page: no cause shared with another recorded page at this step
 14.3	14.3	/de/en/book-and-manage/flights/giftvoucher	1440	h 4431/4334	drift from y 160 (-52 px): hero-campaign.regular	column-band-plain	HOLD	a grey column band before an unstyled section: the narrowed rule (no gap) 14.3 -> 14.3; held, see the header
-14.3	14.3	/de/en/support/feedback-and-contact-airlines	390	h 4183/3985	drift from y 1040 (-16 px): columns-media.padded	single	HOLD	single page: no cause shared with another recorded page at this step
+14.3	14.3	/de/en/support/feedback-and-contact-airlines	390	h 4183/3985	drift from y 1040 (-16 px): columns-media.padded	airline-tiles	SERVED	standing order 13: the group airlines' tiles, a picture later in a text cell before a lone link keeps 40px (columns-media.css, bc8398e); live as the trial
 14.2	14.2	/de/en/book-and-manage/stopover/neuschwanstein	1440	h 2999/3050	a one-step jump at y 2720 (316 px): the offset tool	single	HOLD	single page: no cause shared with another recorded page at this step
 14.2	14.2	/de/en/lufthansa-express-bus	390	h 7755/7917	a one-step jump at y 7360 (310 px): the offset tool	single	HOLD	single page: no cause shared with another recorded page at this step
 14.1	14.1	/de/en/prepare-for-your-trip/baggage/electronic-devices-and-batteries	390	h 7096/7221	drift from y 1040 (16 px): cards-icon-text.partner	column-band-plain	HOLD	a grey column band before an unstyled section: the narrowed rule (no gap) 14.1 -> 9.9; held, see the header
 14.0	14.0	/de/en/lufthansa-am-flughafen-frankfurt	1440	h 4115/3972	drift from y 2640 (-30 px): profile-tabs.content | h2 Accessible travel	single	HOLD	single page: no cause shared with another recorded page at this step
 14.0	14.0	/de/en/lufthansa-aviation-group	390	h 3807/3831	drift from y 1200 (19 px): columns-media | h2 Lufthansa Cargo	single	HOLD	single page: no cause shared with another recorded page at this step
-14.0	14.0	/de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage	1440	h 2679/2538	drift from y 1920 (-21 px): columns-media	single	HOLD	single page: no cause shared with another recorded page at this step
+14.0	14.0	/de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage	1440	h 2679/2538	drift from y 1920 (-21 px): columns-media	airline-tiles	SERVED	standing order 13: the group airlines' tiles, a picture later in a text cell before a lone link keeps 40px (columns-media.css, bc8398e); live as the trial
 13.9	13.9	/de/en/advance-seat-reservation	1440	h 8000/8000	drift from y 1120 (16 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
-13.9	13.9	/de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage	390	h 4933/4726	drift from y 1040 (-16 px): columns-media	single	HOLD	single page: no cause shared with another recorded page at this step
+13.9	13.9	/de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage	390	h 4933/4726	drift from y 1040 (-16 px): columns-media	airline-tiles	SERVED	standing order 13: the group airlines' tiles, a picture later in a text cell before a lone link keeps 40px (columns-media.css, bc8398e); live as the trial
 13.8	13.8	/de/en/100-years/fleet	1440	h 8000/8000	drift from y 4800 (-81 px): table-striped.beside	single	HOLD	single page: no cause shared with another recorded page at this step
 13.8	13.8	/de/en/cancellations-and-refunds	1440	h 2396/2309	drift from y 1680 (-25 px): columns-media | h2 This might also be of interest	single	HOLD	single page: no cause shared with another recorded page at this step
-13.7	13.7	/de/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	390	h 4442/4249	drift from y 1040 (-17 px): columns-media.padded	single	HOLD	single page: no cause shared with another recorded page at this step
+13.7	13.7	/de/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	390	h 4442/4249	drift from y 1040 (-17 px): columns-media.padded	airline-tiles	SERVED	standing order 13: the group airlines' tiles, a picture later in a text cell before a lone link keeps 40px (columns-media.css, bc8398e); live as the trial
 13.6	13.6	/de/en/100-years/global-network	1440	h 8000/8000	drift from y 7200 (-40 px): columns-media.sidebar | h2 Olympics and world war: Schedu	single	HOLD	single page: no cause shared with another recorded page at this step
 13.6	13.6	/de/en/articles/highlights/allegris-premium-economy-san-diego	1440	h 6730/6755	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
 13.5	13.5	/de/en/articles/authors/florian-tomberg	1440	h 3437/3322	drift from y 1040 (-25 px):  | h1 Florian Tomberg / h1 All articles from Florian Tomb	single	HOLD	single page: no cause shared with another recorded page at this step
