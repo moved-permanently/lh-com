@@ -895,13 +895,14 @@ body.brand-b2b main > .section.h1-compact:last-child:has(> .carousel-cards-wrapp
 }
 
 /* on phones the airline page's title right after the logo's view, the cards under it, as www's:
-   64 px under the view's end (ours 20 + 20), the cards 25 px under the title (ours 44) */
+   64 px under the view's end (ours 20 + 20), the cards 25 px under the title (ours 44); the cards'
+   25 px after any view (standing order 11: the titles after a text view too) */
 @media (width < 768px) {
   body.brand-b2b main > .section.h1-compact > .breadcrumb-wrapper + .default-content-wrapper + .columns-media-wrapper + .default-content-wrapper:has(+ .carousel-cards-wrapper) > p.column-mark.column-end-outer:first-child + h1:last-child {
     margin-top: 44px;
   }
 
-  body.brand-b2b main > .section.h1-compact > .breadcrumb-wrapper + .default-content-wrapper + .columns-media-wrapper + .default-content-wrapper:has(> p.column-mark.column-end-outer:first-child + h1:last-child) + .carousel-cards-wrapper {
+  body.brand-b2b main > .section.h1-compact > .default-content-wrapper:has(> p.column-mark.column-end-outer:first-child + h1:last-child) + .carousel-cards-wrapper {
     margin-top: 25px;
   }
 }
