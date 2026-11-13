@@ -2173,26 +2173,31 @@ body.brand-cargo main > .section.notifications-container {
   }
 }
 
-/* below 1025px (standing order 24, cargo-parity-001 at 390): www's banner picture across the screen (125px at 390),
-   the breadcrumb straight under it, 56px with its 17 / 20px padding and #ccc rule, the title 20px under that; each
-   notification's date 4px under the item's top. Ours: the picture 358px wide, 20px over a 34px breadcrumb without
-   a rule (12px short above the band, 4px per item) */
+/* standing order 24 (cargo-parity-001 at 390 and 1440): www's banner picture the column's width (1296px at 1440,
+   414px tall; ours drew it at its own 1220px, 390 tall), the breadcrumb straight under it (ours 20px lower), each
+   notification's date 4px under the item's top */
+body.brand-cargo main > .section.notifications-container > .default-content-wrapper:first-child:has(> p > picture) img {
+  width: 100%;
+}
+
+body.brand-cargo main > .section.notifications-container > .breadcrumb-wrapper {
+  margin-top: 0;
+}
+
+body.brand-cargo main > .section.notifications-container .notifications .notifications-item {
+  padding-top: 4px;
+}
+
+/* below 1025px: the banner across the screen (125px at 390; ours 358px wide), the breadcrumb 56px with its 17 / 20px
+   padding and #ccc rule (ours 34px without a rule), the title 20px under that */
 @media (width < 1025px) {
   body.brand-cargo main > .section.notifications-container > .default-content-wrapper:first-child:has(> p > picture) {
     padding-inline: 0;
   }
 
-  body.brand-cargo main > .section.notifications-container > .breadcrumb-wrapper {
-    margin-top: 0;
-  }
-
   body.brand-cargo main > .section.notifications-container > .breadcrumb-wrapper .breadcrumb nav {
     padding: 17px 0 20px;
     border-bottom: 1px solid #ccc;
-  }
-
-  body.brand-cargo main > .section.notifications-container .notifications .notifications-item {
-    padding-top: 4px;
   }
 }
 

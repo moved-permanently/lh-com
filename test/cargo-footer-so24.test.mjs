@@ -107,13 +107,15 @@ test('from 768 px: the titles 24 px lines, 10 px to their rule and 10 px to the 
 
 const N = 'body.brand-cargo main > .section.notifications-container';
 
-test('the notification overview below 1025 px: the banner across the screen, the breadcrumb under it with www\'s padding and rule', () => {
+test('the notification overview below 1025 px: the banner across the screen, the breadcrumb with www\'s padding and rule', () => {
   assert.equal(decls(theme, `${N} > .default-content-wrapper:first-child:has(> p > picture)`, BELOW)['padding-inline'], '0');
-  assert.equal(decls(theme, `${N} > .breadcrumb-wrapper`, BELOW)['margin-top'], '0');
   const nav = decls(theme, `${N} > .breadcrumb-wrapper .breadcrumb nav`, BELOW);
   assert.deepEqual([nav.padding, nav['border-bottom']], ['17px 0 20px', '1px solid #ccc']);
 });
 
-test('the notification overview below 1025 px: each date 4 px under its item\'s top', () => {
-  assert.equal(decls(theme, `${N} .notifications .notifications-item`, BELOW)['padding-top'], '4px');
+test('the notification overview at every width: the banner the column\'s width (1296 px at 1440, 414 px tall), the breadcrumb straight under it, each date 4 px under its item\'s top', () => {
+  assert.equal(decls(theme, `${N} > .default-content-wrapper:first-child:has(> p > picture) img`).width, '100%');
+  assert.equal(decls(theme, `${N} > .breadcrumb-wrapper`)['margin-top'], '0');
+  assert.equal(decls(theme, `${N} .notifications .notifications-item`)['padding-top'], '4px');
+  assert.equal(decls(theme, `${N} > .breadcrumb-wrapper`, BELOW)['margin-top'], undefined, 'one rule for every width');
 });
