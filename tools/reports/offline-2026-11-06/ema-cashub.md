@@ -4873,3 +4873,109 @@ I stopped before 19:30. The three items are done.
 - the downloads (dl/) and their extracted archives (arch/).
 
 No upload, preview or publish. da-upload.mjs was not called. DA was read twice, read only.
+
+
+## Standing order 25 (2026-11-13, from about 18:40 CET)
+
+**Carried over:** nothing from order 24 was uncommitted or unpushed (main = origin/main at 620b32ad). The working tree's
+other changes (import-progress.json, the urls-*.txt lists, importer reports, a 2026-11-01 autostash) belong to other jobs
+and were left alone. The comment line in blocks/notifications/notifications.css was left as it is.
+
+### Item 1: the tallest-tab hypothesis does not hold (tabs-so25-tallest-tab.txt)
+
+- **Correction to order 24:** unterhaltung-an-bord's rows (group I) were already traced, in this report's item 3 on
+  unterhaltung-an-bord (`6b77d7a0`). www's open tab "Filme und TV" holds the in-flight entertainment film carousel, a
+  520 px iframe of www.austrian-inflightentertainment.com. The import turns it into the link "Carousel". The
+  `austrian-ife-carousel` embed puts it back, and it is built and switched off. My "tallest tab" guess in order 24 was wrong.
+- **Re-checked today:** with the flag on (flags.json answered locally, nothing published) it is 2,773 px against www's
+  2,749 at 1440 (-17.35 -> +0.87 %), and 3,177 against 3,128 at 390 (-14.45 -> +1.57 %). The vendor's frame was refused.
+  To switch it on, an author adds `austrian-ife-carousel | on` to lh-austrian's /config/flags sheet and publishes the sheet.
+- **www's mechanism:** maui-tab-control-panel's shadow style is `.maui-tab-control-panel:not(.active) { display: none }`,
+  with no inline height in the snapshots. The open panel alone sets the area's height.
+- **Measured on every recorded tab page:** 31 pages, 62 page-widths (Austrian, Brussels, Discover, SWISS, TAP). Air
+  Dolomiti's and Cargo's recorded pages have no tab set on our side. At 1440, 15 page-widths have a tab taller than the
+  open one. Holding the area at that height moves 14 of them further from www, up to +121 % (SWISS recraft), and
+  unterhaltung-an-bord itself to +59.84 %. The one exception is Brussels nl checked-baggage, 17 px closer.
+- **Result:** the tabs block stays as it is. No test, no code.
+
+### Item 2: Austrian, how a page ends (delta-so25-austrian-trailing-separator.txt and three lists)
+
+One shared cause, the end of pages that end with a column view, in two parts.
+
+**The trailing separator (DA delta rows, 13 READY):**
+- On www, a separator often sits alone in the page's last AEM section, after the last column view: 48 or 40 px, no line.
+  lufthansa-cleanup.js drops it, because it keeps only separators of 50 px and more.
+- So www ends with the view's 32 px padding plus the separator: 80 / 72 px. Ours ends with the padded block's 8 px and
+  the section's 48: 56 px.
+- Measured from the last ink to the footer, www's PNG against a screenshot of ours (tails-so25-austrian-page-end.txt),
+  on the 58 recorded page-widths that end with a separator: ours is 24 px short with 48 and 16 to 29 with 40.
+- **The delta:** one `{spacer-39}` (48 px) or `{spacer-31}` (40 px) paragraph at the end of the last section. A wrapper of
+  spacers only at a section's end adds N + 1 - 16 px, so N = the separator's margin - 9.
+- **Measured as drafts** on the 19 recorded pages (38 page-widths): every control equals live, and the delta adds
+  exactly 24 / 16 px.
+  - **13 pages come closer at both widths.** Among them, overview-services-on-board 390 comes within 2 % (J: de -2.39 ->
+    -1.58 %, en -2.43 -> -1.61 %) and wetlease-hub 1440 too (K: -2.15 -> -1.63 %).
+  - **6 are HOLD:** overview-travel-information de/en 390, fr, it, gr and ru baggage move further by 0.38 to 0.59 points
+    at one width. Their end then matches www's, so the excess is elsewhere on those pages (gr and ru: the Linux fonts).
+- Built from the published documents. DA's copies could not be read (admin.da.live answered 401, so the Adobe
+  credential option looks off), so the file asks the helper to check each DA copy's end first.
+
+**The empty last item at 390 (code, not shipped; rank-so25-austrian-empty-items.txt):**
+- Below 768 px, www gives every column-view item 12 px of padding above and 12 px of margin below, empty ones too.
+  Removing the empty last item from www's markup, laid out offline on four pages, takes 44 px off each.
+- Ours hides an empty cell below 768 px and takes the margin off the cell before it.
+- **The candidate** (Austrian only, the cell before keeps its stacked 36 / 50 px) was ranked on the 121 page-widths at
+  390: 70 -> 72 within 2 %, the sum 373.81 -> 366.04 points, 13 closer.
+- **It fails the gate on 3:** /at/en/book/flights +0.11 -> +0.87 %, and ru/ru and gr/el baggage (+0.58 points each,
+  already too tall from the fonts).
+
+**The state after the deltas, simulated (rank-so25-austrian-after-deltas.txt):** the 19 pages as their drafts, all 242
+page-widths, plus the empty-item rule and a second rule. The second rule ends a last padded column view without a spacer
+24 px earlier, as book/flights suggests.
+- 147 -> 150 within 2 %, the sum 767.26 -> 749.64 points; J at -0.37 / -0.38 %.
+- **The second rule is wrong.** special-requirements, besondere-anforderungen and overview-extra-services already end
+  11 to 12 px short of www without a separator, and they move 0.63 to 0.65 points further. Dropped.
+- The empty-item rule still moves book/flights en 390 and the font rows further. Not shipped.
+
+**Groups not reworked:** C, C2, F, F2, G and the rest of K. C and C2 have their DA deltas READY from orders 20 and 24.
+
+### Item 3: Cargo's 8 rows (rows-so25-cargo.txt)
+
+- Seven rows are the brand font's line breaks at 390 (row 49).
+- **/de/ci/facts-figures at 1440 (-2.28 %) has another cause:** the history timeline's geometry.
+  - Everything above the timeline matches www, and so does every card text's height.
+  - www puts the cards above the axis in cells of one shared height, with 16 px of padding and collapsing margins. Ours
+    has 80 px of padding, cards sized to their content (the axis 62 px higher) and 10 px more per heading.
+  - Hence de -112 px and en -54 px (en -1.11 %, within 2 %).
+  - Traced, not changed. A rule would set the timeline as www's, checked against the stacked layout at 390.
+
+### Final section (about 20:15 CET, 2026-11-13)
+
+**Shipped:** no code. This commit holds the lists, one delta file (13 READY rows, 6 HOLD) and this section.
+
+**For you to decide:**
+- Switching on `austrian-ife-carousel` (an author's flags sheet row): it brings unterhaltung-an-bord within 2 % at both widths.
+- Applying the 13 READY trailing-separator rows to DA's copies, by the helper, after checking each copy's end; the
+  Adobe credential option looks off for reading DA.
+- The empty-item rule follows www's layout, but it fails the gate on book/flights en 390 and two font rows. Whether
+  those can count as exceptions is your call.
+
+**Open:**
+- The importer rule for the trailing separator (lufthansa-cleanup.js, Austrian pages), so a re-import keeps it.
+- book/flights' 24 px longer end (www: no separator).
+- Cargo's timeline geometry.
+- The DA deltas READY from order 24 (special-requirements, os401crewstory) are still with the helper.
+
+**Rules followed:**
+- **No airline host was requested.** Every render refused www.* and the airline hosts and counted the refusals: item 1
+  48 + 18; item 2 1,098 + 1,117 (the 390 runs), 206 (heading tails), 132 (ink gaps), 18 (drafts), 2,212 + 2,188 (the
+  simulation); Cargo 0. None was sent.
+- The offline layouts of www's recordings answer every request from the archive or abort it. No archive was downloaded;
+  all were already extracted from orders 10 to 24.
+- **DA:** 19 read attempts (GET, read only), all answered 401. Our documents were read from austrian.turnsthe.page and
+  cargo.turnsthe.page.
+- No upload, preview or publish. da-upload.mjs was not called.
+
+**Not in git** (scratch under /tmp/so25, not in the repo): the scripts (tabh.mjs, flagon.mjs, trail.py, tailcmp.mjs,
+inkgap.mjs, mkdelta.py, drafts.sh, rank-after.sh, the probes *.js, cand1.css, cand2.css), the drafts and the rankings
+and their logs.

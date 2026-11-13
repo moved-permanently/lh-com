@@ -1,0 +1,35 @@
+# ema-cashub, standing order 25 (2026-11-13), item 3: Cargo's 8 page-widths still more than 2 % off www after order 24 (40 of 48
+# within). Expected change: none in this order. Seven are the brand font's line breaks at 390 (ema-lufthansa's row 49 decision, as
+# traced in order 23); one, /de/ci/facts-figures 1440, has another cause: the history timeline's geometry (carousel-cards (timeline),
+# styles/themes/cargo.css row 18), traced below, not changed (one block on the two facts-figures pages; en at 1440 within 2 %).
+# Numbers: order 24's (rank-so24-cargo.txt, main with f25a772a). www: cargo-parity-001. Ours: cargo.turnsthe.page as served (main,
+# 2026-11-13 ~20:00 CET), consent stored, every picture loaded, www.mynewsdesk.com allowed, every other www.* and airline host
+# refused (0 asked). www's boxes: the recording's measurements, and its markup laid out offline with its own CSS (so23/rec-render.mjs,
+# every request answered from the archive or aborted), whose timeline section measures 1,540 / 1,436 px, as recorded.
+# Columns: status, path, width, www px, ours px, ours vs www, the cause.
+
+FONT	/de/fleet-ulds/fleet	390	3918	4046	+3.27 %	the brand font's wraps at 390 (row 49)
+FONT	/en/fleet-ulds/fleet	390	3841	3958	+3.05 %	as /de
+FONT	/de/ci/facts-figures	390	12482	12820	+2.71 %	the timeline cards in our face wrap one line more in about half the 40 cards (row 50 (3))
+FONT	/en/ci/facts-figures	390	11916	12208	+2.45 %	as /de
+FONT	/de/ebooking-info	390	5688	5831	+2.51 %	the brand font's wraps at 390 (row 49)
+FONT	/en/ebooking-info	390	5393	5502	+2.02 %	as /de
+FONT	/de/ci/sustainable-development-goals	390	1870	1910	+2.14 %	the brand font's wraps at 390 (row 49)
+TRACED	/de/ci/facts-figures	1440	4952	4839	-2.28 %	the timeline's geometry, not the font (below)
+
+# /de/ci/facts-figures 1440, ours against www (en in brackets):
+# - the sections above the timeline match: the board section 1639 + 648 px on both; the timeline section starts at 2287 on both.
+# - the timeline section: www 1,540 px (1,436), ours 1,428 (1,382): -112 (-54); the footer -113 (-54). Every card text is as tall
+#   as www's (the same lines: 68, 90, 68, 68 px; the headings 43 / 22 px), so no wrap difference.
+# - www (LCAGCP-lcagEventSlider, timeline--horizontal): 16 px padding above and below; the cards above the axis are table cells of
+#   one shared height (686 px, en 638; the content bottom-aligned in it, 20 px padding, the item 40 px under it), the cards below
+#   start at the axis; the year (h1 40 / 48 px) and the heading after it collapse their 10 px margins, as do a text and the
+#   heading after it.
+# - ours (carousel-cards timeline): 80 px padding above and below; the cards above the axis size to their own content (the
+#   tallest, 2001, starts 130 px into the section, www's 202), so the axis sits 62 px higher (the cards below: year 751 / www 813);
+#   the margins do not collapse (+10 px per year and heading, and per text and heading: the 2019 card's three headings 164 / 141
+#   px apart, www's 154 / 132).
+# - So the difference depends on the tallest card above the axis (its text: de 2001, 469 px; en 446) and on how many headings a
+#   card has, which is why de is -2.28 % and en -1.11 %. A rule would set the block's geometry as www's (a shared height for the
+#   cards above the axis from the tallest one, 16 px padding, collapsing margins), checked against the 390 layout (stacked) and
+#   the en page.

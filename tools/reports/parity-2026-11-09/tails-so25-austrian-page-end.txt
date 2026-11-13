@@ -1,0 +1,89 @@
+# ema-cashub, standing order 25 (2026-11-13), item 2: how Austrian's pages end. Expected change: none (a finding; the fix needs the
+# trailing separator in the documents, an importer marker and DA delta rows, not done in this order).
+# Per recorded page-width: the space between the last ink and the footer's top, www's recorded full-page PNG (read from disk) against
+# a full-page screenshot of ours (austrian.turnsthe.page as served, main, 2026-11-13 ~19:20 CET; consent stored, pictures eager; www.*
+# and the airline hosts refused and counted, 132, none sent). www's last component before the footer: SEPn = a separator alone in
+# the last AEM section with n px under it (? = no inline margin); - = none (a sample of the other pages, 390).
+# www's offline layout of overview-services-on-board (austrian-parity-001): the last view's 32 px padding + the separator's 48 px
+# (1440: 80 px under the view); ours: the padded block's 8 px + the section's 48 px (56 px). The homepages (widgets) are left out.
+# Columns: www's end, path, width, www gap px, ours gap px, ours - www, the recording.
+
+SEP48	/at/de/book/overview-inspiration	390	87	63	-24	austrian-parity-001/at-de-book-overview-inspiration-390
+SEP48	/at/de/book/overview-inspiration	1440	86	61	-25	austrian-parity-001/at-de-book-overview-inspiration-1440
+SEP40	/at/de/book/overview-manage	390	75	60	-15	austrian-parity-001/at-de-book-overview-manage-390
+SEP40	/at/de/book/overview-manage	1440	76	59	-17	austrian-parity-001/at-de-book-overview-manage-1440
+SEP48	/at/de/book/overview-services-on-board	390	130	63	-67	austrian-parity-001/at-de-book-overview-services-on-board-390
+SEP48	/at/de/book/overview-services-on-board	1440	86	61	-25	austrian-parity-001/at-de-book-overview-services-on-board-1440
+SEP48	/at/de/book/overview-travel-information	390	91	55	-36	austrian-parity-001/at-de-book-overview-travel-information-390
+SEP48	/at/de/book/overview-travel-information	1440	103	53	-50	austrian-parity-001/at-de-book-overview-travel-information-1440
+SEP48	/at/de/fly/travel-classes	390	134	55	-79	austrian-parity-001/at-de-fly-travel-classes-390
+SEP48	/at/de/fly/travel-classes	1440	102	53	-49	austrian-parity-001/at-de-fly-travel-classes-1440
+SEP70	/at/de/footer-pages/help-and-contact/form-confirmation	390	91	133	+42	austrian-parity-005/at-de-footer-pages-help-and-contact-form-confirmation-390
+SEP70	/at/de/footer-pages/help-and-contact/form-confirmation	1440	91	133	+42	austrian-parity-005/at-de-footer-pages-help-and-contact-form-confirmation-1440
+SEP48	/at/de/gepaeck	390	145	75	-70	austrian-parity-003/at-de-gepaeck-390
+SEP48	/at/de/gepaeck	1440	77	75	-2	austrian-parity-003/at-de-gepaeck-1440
+SEP48	/at/en/baggage	390	145	75	-70	austrian-parity-003/at-en-baggage-390
+SEP48	/at/en/baggage	1440	77	75	-2	austrian-parity-003/at-en-baggage-1440
+SEP40	/at/en/bangkok-airways	390	100	88	-12	austrian-parity-015/at-en-bangkok-airways-390
+SEP40	/at/en/bangkok-airways	1440	101	78	-23	austrian-parity-015/at-en-bangkok-airways-1440
+SEP40	/at/en/book-and-manage/flights/wetlease-hub	390	77	48	-29	austrian-parity-003/at-en-book-and-manage-flights-wetlease-hub-390
+SEP40	/at/en/book-and-manage/flights/wetlease-hub	1440	77	48	-29	austrian-parity-003/at-en-book-and-manage-flights-wetlease-hub-1440
+SEP40	/at/en/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry	390	77	48	-29	austrian-parity-003/at-en-book-groups-and-enterprises-exclusive-charter-exclusive-charter-enquiry-390
+SEP40	/at/en/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry	1440	77	48	-29	austrian-parity-003/at-en-book-groups-and-enterprises-exclusive-charter-exclusive-charter-enquiry-1440
+SEP48	/at/en/book/overview-inspiration	390	87	63	-24	austrian-parity-001/at-en-book-overview-inspiration-390
+SEP48	/at/en/book/overview-inspiration	1440	86	61	-25	austrian-parity-001/at-en-book-overview-inspiration-1440
+SEP40	/at/en/book/overview-manage	390	111	59	-52	austrian-parity-001/at-en-book-overview-manage-390
+SEP40	/at/en/book/overview-manage	1440	111	59	-52	austrian-parity-001/at-en-book-overview-manage-1440
+SEP48	/at/en/book/overview-services-on-board	390	130	63	-67	austrian-parity-001/at-en-book-overview-services-on-board-390
+SEP48	/at/en/book/overview-services-on-board	1440	86	61	-25	austrian-parity-001/at-en-book-overview-services-on-board-1440
+SEP48	/at/en/book/overview-travel-information	390	88	52	-36	austrian-parity-001/at-en-book-overview-travel-information-390
+SEP48	/at/en/book/overview-travel-information	1440	100	51	-49	austrian-parity-001/at-en-book-overview-travel-information-1440
+SEP300	/at/en/fly/on-board/culinary-services	390	93	56	-37	austrian-parity-017/at-en-fly-on-board-culinary-services-390
+SEP300	/at/en/fly/on-board/culinary-services	1440	33	56	+23	austrian-parity-017/at-en-fly-on-board-culinary-services-1440
+SEP48	/at/en/fly/travel-classes	390	134	55	-79	austrian-parity-001/at-en-fly-travel-classes-390
+SEP48	/at/en/fly/travel-classes	1440	102	53	-49	austrian-parity-001/at-en-fly-travel-classes-1440
+SEP48	/cn/zh/baggage	390	130	63	-67	austrian-parity-003/cn-zh-baggage-390
+SEP48	/cn/zh/baggage	1440	85	61	-24	austrian-parity-003/cn-zh-baggage-1440
+SEP48	/es/es/baggage	390	131	63	-68	austrian-parity-003/es-es-baggage-390
+SEP48	/es/es/baggage	1440	83	59	-24	austrian-parity-003/es-es-baggage-1440
+SEP48	/fr/fr/baggage	390	127	59	-68	austrian-parity-003/fr-fr-baggage-390
+SEP48	/fr/fr/baggage	1440	83	59	-24	austrian-parity-003/fr-fr-baggage-1440
+SEP48	/gr/el/baggage	390	127	60	-67	austrian-parity-003/gr-el-baggage-390
+SEP48	/gr/el/baggage	1440	84	60	-24	austrian-parity-003/gr-el-baggage-1440
+SEP?	/hu/en/local-page/invoice-request-hungary	390	2	48	+46	austrian-parity-003/hu-en-local-page-invoice-request-hungary-390
+SEP?	/hu/en/local-page/invoice-request-hungary	1440	2	48	+46	austrian-parity-003/hu-en-local-page-invoice-request-hungary-1440
+SEP48	/it/it/baggage	390	128	59	-69	austrian-parity-003/it-it-baggage-390
+SEP48	/it/it/baggage	1440	83	59	-24	austrian-parity-003/it-it-baggage-1440
+SEP350	/it/it/form-confirmation	390	371	193	-178	austrian-parity-005/it-it-form-confirmation-390
+SEP350	/it/it/form-confirmation	1440	371	193	-178	austrian-parity-005/it-it-form-confirmation-1440
+SEP48	/jp/ja/baggage	390	129	63	-66	austrian-parity-003/jp-ja-baggage-390
+SEP48	/jp/ja/baggage	1440	85	61	-24	austrian-parity-003/jp-ja-baggage-1440
+SEP48	/pl/pl/baggage	390	127	59	-68	austrian-parity-003/pl-pl-baggage-390
+SEP48	/pl/pl/baggage	1440	83	59	-24	austrian-parity-003/pl-pl-baggage-1440
+SEP48	/ru/ru/baggage	390	127	60	-67	austrian-parity-003/ru-ru-baggage-390
+SEP48	/ru/ru/baggage	1440	83	60	-23	austrian-parity-003/ru-ru-baggage-1440
+SEP80	/th/en/book/flights/promptpay	390	101	133	+32	austrian-parity-003/th-en-book-flights-promptpay-390
+SEP80	/th/en/book/flights/promptpay	1440	101	133	+32	austrian-parity-003/th-en-book-flights-promptpay-1440
+SEP?	/us/en/local-page/ski-campaign-2026	390	112	104	-8	austrian-parity-003/us-en-local-page-ski-campaign-2026-390
+SEP?	/us/en/local-page/ski-campaign-2026	1440	51	54	+3	austrian-parity-003/us-en-local-page-ski-campaign-2026-1440
+-	/al/en/local-page/black-friday	390	24	48	+24	austrian-parity-003/al-en-local-page-black-friday-390
+-	/at/de/besondere-anforderungen	390	71	59	-12	austrian-parity-001/at-de-besondere-anforderungen-390
+-	/at/de/book/overview-extra-services	390	71	59	-12	austrian-parity-001/at-de-book-overview-extra-services-390
+-	/at/de/contact	390	125	138	+13	austrian-parity-007/at-de-contact-390
+-	/at/de/entryregulations	390	82	56	-26	austrian-parity-018/at-de-entryregulations-390
+-	/at/de/local-page/feels-like-flying/os401crewstory	390	28	75	+47	austrian-parity-003/at-de-local-page-feels-like-flying-os401crewstory-390
+-	/at/en/accessible-travel	390	77	56	-21	austrian-parity-015/at-en-accessible-travel-390
+-	/at/en/austrian-app	390	70	59	-11	austrian-parity-015/at-en-austrian-app-390
+-	/at/en/book/overview-extra-services	390	74	63	-11	austrian-parity-001/at-en-book-overview-extra-services-390
+-	/at/en/discover/inspiration/fly-with-austrian	390	81	56	-25	austrian-parity-001/at-en-discover-inspiration-fly-with-austrian-390
+-	/at/en/fly/check-in/private-check-in-counter	390	59	2	-57	austrian-parity-003/at-en-fly-check-in-private-check-in-counter-390
+-	/at/en/healthy-travel	390	82	56	-26	austrian-parity-015/at-en-healthy-travel-390
+-	/at/en/online-check-in	390	82	56	-26	austrian-parity-017/at-en-online-check-in-390
+-	/at/en/plan/special-requirements/healthy-travel/doctor-on-board	390	82	48	-34	austrian-parity-015/at-en-plan-special-requirements-healthy-travel-doctor-on-board-390
+-	/at/en/special-requirements	390	70	59	-11	austrian-parity-001/at-en-special-requirements-390
+-	/at/en/travel-id	390	82	56	-26	austrian-parity-015/at-en-travel-id-390
+-	/cn/zh/contact	390	124	139	+15	austrian-parity-007/cn-zh-contact-390
+-	/fr/fr/contact	390	125	138	+13	austrian-parity-007/fr-fr-contact-390
+-	/il/en/legal/cancellation-refund-via-document-upload	390	36	48	+12	austrian-parity-003/il-en-legal-cancellation-refund-via-document-upload-390
+-	/jp/ja/contact	390	124	139	+15	austrian-parity-007/jp-ja-contact-390
+-	/ru/ru/contact	390	122	137	+15	austrian-parity-007/ru-ru-contact-390

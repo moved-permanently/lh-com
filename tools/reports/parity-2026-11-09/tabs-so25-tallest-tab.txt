@@ -1,0 +1,75 @@
+# ema-cashub, standing order 25 (2026-11-13), item 1: does www keep a tab set's area at its tallest tab's height? Expected change: none.
+# The hypothesis does not hold: no code change, the tabs block (scripts/section-tabs.js) stays as it is; unterhaltung-an-bord's rows
+# (group I of rank-so24-austrian.txt) are the austrian-ife-carousel flag, off (built in 6b77d7a0; on: 1440 -17.35 -> +0.87 %, 390 -14.45 -> +1.57 %).
+# Pages: every recorded page whose page on our host has a tab set (data-tab sections): 31 pages, 62 page-widths, Austrian, Brussels,
+# Discover, SWISS, TAP (Air Dolomiti's and Cargo's recorded pages have none on our side). www: the newest recording per page and width.
+# Mechanism on www: maui-tab-control-panel's shadow style .maui-tab-control-panel:not(.active) { display: none } and no inline height in
+# the snapshots (austrian-parity-003 unterhaltung-an-bord-1440.shadow.html): the open panel alone sets the area's height.
+# Ours: <brand>.turnsthe.page as served (main, 2026-11-13 ~19:00 CET), consent stored, pictures eager; per set every tab opened in turn
+# (1440) and the page measured; www.* and the airline hosts refused and counted (48 in all, none sent).
+# Columns: brand, path, width, www px, ours px, ours vs www, + px if held at the tallest tab, that vs www, the recording.
+# Result at 1440: 15 page-widths have a taller tab than the open one; held at it, 14 of 15 move further from www (Brussels nl checked-baggage
+# -1.60 -> -1.18 %, 17 px, the one closer), up to +121 %; unterhaltung-an-bord itself would be +59.84 % (eJournals is 2122 px taller).
+
+austrian	/at/de/missing-baggage	390	6522	6682	+2.45 %	-	- (phones: accordion)	austrian-parity-002a
+austrian	/at/de/missing-baggage	1440	4603	4645	+0.91 %	+0	+0.91 %	austrian-parity-002a
+austrian	/at/de/unterhaltung-an-bord	390	3128	2676	-14.45 %	-	- (phones: accordion)	austrian-parity-003
+austrian	/at/de/unterhaltung-an-bord	1440	2749	2272	-17.35 %	+2122	+59.84 %	austrian-parity-003
+austrian	/at/en/austrian-app	390	6707	6740	+0.49 %	-	- (phones: accordion)	austrian-parity-015
+austrian	/at/en/austrian-app	1440	5362	5337	-0.47 %	+0	-0.47 %	austrian-parity-015
+austrian	/at/en/online-check-in	390	5846	5775	-1.21 %	-	- (phones: accordion)	austrian-parity-017
+austrian	/at/en/online-check-in	1440	4477	4435	-0.94 %	+0	-0.94 %	austrian-parity-017
+austrian	/at/en/plan/special-requirements/travelling-with-animals	390	8674	8402	-3.14 %	-	- (phones: accordion)	austrian-parity-002a
+austrian	/at/en/plan/special-requirements/travelling-with-animals	1440	6122	5778	-5.62 %	+1001	+10.73 %	austrian-parity-002a
+austrian	/at/en/travel-id	390	6852	6698	-2.25 %	-	- (phones: accordion)	austrian-parity-015
+austrian	/at/en/travel-id	1440	5714	5733	+0.33 %	+169	+3.29 %	austrian-parity-015
+brussels	/be/en/extra-services/baggage/checked-baggage	390	5430	5643	+3.92 %	-	- (phones: accordion)	brussels-parity-005
+brussels	/be/en/extra-services/baggage/checked-baggage	1440	3938	3915	-0.58 %	+0	-0.58 %	brussels-parity-005
+brussels	/be/fr/extra-services/baggage/checked-baggage	390	5841	5919	+1.34 %	-	- (phones: accordion)	brussels-parity-005
+brussels	/be/fr/extra-services/baggage/checked-baggage	1440	4016	3918	-2.44 %	+0	-2.44 %	brussels-parity-005
+brussels	/be/fr/extra-services/baggage/problems-with-your-baggage	390	3789	3781	-0.21 %	-	- (phones: accordion)	brussels-parity-004
+brussels	/be/fr/extra-services/baggage/problems-with-your-baggage	1440	2619	2600	-0.73 %	+0	-0.73 %	brussels-parity-004
+brussels	/be/fr/flying-with-us/new-destinations	390	4833	4559	-5.67 %	-	- (phones: accordion)	brussels-parity-002b
+brussels	/be/fr/flying-with-us/new-destinations	1440	4623	4521	-2.21 %	+5497	+116.70 %	brussels-parity-002b
+brussels	/be/fr/travel-classes/business	390	8976	8796	-2.01 %	-	- (phones: accordion)	brussels-parity-003
+brussels	/be/fr/travel-classes/business	1440	6458	6449	-0.14 %	+0	-0.14 %	brussels-parity-003
+brussels	/be/nl/extra-services/baggage/checked-baggage	390	5612	5801	+3.37 %	-	- (phones: accordion)	brussels-parity-005
+brussels	/be/nl/extra-services/baggage/checked-baggage	1440	3992	3928	-1.60 %	+17	-1.18 %	brussels-parity-005
+brussels	/de/de/extra-services/baggage/checked-baggage	390	5655	5849	+3.43 %	-	- (phones: accordion)	brussels-parity-005
+brussels	/de/de/extra-services/baggage/checked-baggage	1440	3992	3928	-1.60 %	+0	-1.60 %	brussels-parity-005
+brussels	/es/es/extra-services/baggage/checked-baggage	390	5605	5818	+3.80 %	-	- (phones: accordion)	brussels-parity-005
+brussels	/es/es/extra-services/baggage/checked-baggage	1440	4016	4000	-0.40 %	+0	-0.40 %	brussels-parity-005
+brussels	/it/it/extra-services/baggage/checked-baggage	390	5624	5746	+2.17 %	-	- (phones: accordion)	brussels-parity-005
+brussels	/it/it/extra-services/baggage/checked-baggage	1440	4016	3952	-1.59 %	+0	-1.59 %	brussels-parity-005
+discover	/de/de/discover/travel-classes/business-class	390	3071	3075	+0.13 %	-	- (phones: accordion)	discover-parity-001
+discover	/de/de/discover/travel-classes/business-class	1440	4203	4127	-1.81 %	+0	-1.81 %	discover-parity-001
+discover	/de/de/my-bookings/check-in/check-in-at-the-airport	390	2117	2094	-1.09 %	-	- (phones: accordion)	discover-parity-001
+discover	/de/de/my-bookings/check-in/check-in-at-the-airport	1440	4079	4077	-0.05 %	+0	-0.05 %	discover-parity-001
+discover	/de/de/travel-inspiration/inspiration/destinations/santorini	390	9275	9479	+2.20 %	-	- (phones: accordion)	discover-parity-001
+discover	/de/de/travel-inspiration/inspiration/destinations/santorini	1440	7666	7790	+1.62 %	+50	+2.27 %	discover-parity-001
+discover	/de/en/discover/travel-classes/business-class	390	3194	3218	+0.75 %	-	- (phones: accordion)	discover-parity-001
+discover	/de/en/discover/travel-classes/business-class	1440	4235	4116	-2.81 %	+0	-2.81 %	discover-parity-001
+discover	/de/en/my-bookings/check-in/check-in-at-the-airport	390	2303	2298	-0.22 %	-	- (phones: accordion)	discover-parity-001
+discover	/de/en/my-bookings/check-in/check-in-at-the-airport	1440	4033	4031	-0.05 %	+0	-0.05 %	discover-parity-001
+discover	/de/en/travel-inspiration/inspiration/destinations/santorini	390	9123	9324	+2.20 %	-	- (phones: accordion)	discover-parity-001
+discover	/de/en/travel-inspiration/inspiration/destinations/santorini	1440	7656	7732	+0.99 %	+50	+1.65 %	discover-parity-001
+swiss	/ch/de/fly/on-board/entertainment-on-board	390	2837	2625	-7.47 %	-	- (phones: accordion)	swiss-parity-002b
+swiss	/ch/de/fly/on-board/entertainment-on-board	1440	2554	2470	-3.29 %	+2056	+77.21 %	swiss-parity-002b
+swiss	/ch/de/fly/on-board/swiss-business	390	6821	6703	-1.73 %	-	- (phones: accordion)	swiss-parity-002a
+swiss	/ch/de/fly/on-board/swiss-business	1440	4655	4724	+1.48 %	+138	+4.45 %	swiss-parity-002a
+swiss	/ch/de/fly/on-board/swiss-economy	390	6755	6708	-0.70 %	-	- (phones: accordion)	swiss-parity-002b
+swiss	/ch/de/fly/on-board/swiss-economy	1440	3989	4018	+0.73 %	+445	+11.88 %	swiss-parity-002b
+swiss	/ch/de/prepare/baggage/baggage-irregularities	390	5081	5020	-1.20 %	-	- (phones: accordion)	swiss-parity-002b
+swiss	/ch/de/prepare/baggage/baggage-irregularities	1440	3841	3857	+0.42 %	+0	+0.42 %	swiss-parity-002b
+swiss	/ch/en/book-and-manage/swiss-choice/advance-seat-reservation	390	9348	9592	+2.61 %	-	- (phones: accordion)	swiss-parity-002b
+swiss	/ch/en/book-and-manage/swiss-choice/advance-seat-reservation	1440	7124	6838	-4.01 %	+604	+4.46 %	swiss-parity-002b
+swiss	/ch/en/discover/swiss-recraft-collection	390	5441	5259	-3.34 %	-	- (phones: accordion)	swiss-parity-002b
+swiss	/ch/en/discover/swiss-recraft-collection	1440	4053	4106	+1.31 %	+4858	+121.17 %	swiss-parity-002b
+swiss	/ch/en/prepare/special-care/animals-travelling	390	7771	7562	-2.69 %	-	- (phones: accordion)	swiss-parity-002b
+swiss	/ch/en/prepare/special-care/animals-travelling	1440	5121	5016	-2.05 %	+0	-2.05 %	swiss-parity-002b
+tap	/en-pt/destinations/get-inspired	390	5008	4976	-0.64 %	-	- (phones: accordion)	tap-parity-010
+tap	/en-pt/destinations/get-inspired	1440	5582	5565	-0.30 %	+616	+10.73 %	tap-parity-010
+tap	/en-pt/stopover/partners	390	3564	3566	+0.06 %	-	- (phones: accordion)	tap-parity-009
+tap	/en-pt/stopover/partners	1440	2903	2866	-1.27 %	+680	+22.15 %	tap-parity-009
+tap	/pt-pt/destinos/inspire-se	390	5112	5140	+0.55 %	-	- (phones: accordion)	tap-parity-010
+tap	/pt-pt/destinos/inspire-se	1440	5662	5690	+0.49 %	+616	+11.37 %	tap-parity-010

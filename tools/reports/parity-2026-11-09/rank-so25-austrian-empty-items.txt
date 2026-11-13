@@ -1,0 +1,42 @@
+# ema-cashub, standing order 25 (2026-11-13), item 2: Austrian's column views at 390, an empty last item. Expected change: none
+# (not shipped: the candidate fails the 0.5 gate on 3 of 121 page-widths). With it: 70 -> 72 within 2 %, the sum of the deviations
+# 373.81 -> 366.04 points, 13 page-widths closer, 3 further by more than 0.5 points (below).
+# www (below 768px): .column-view>.row>.column-view-item { margin-bottom: 1.2rem; padding-top: 1.2rem } on every item, an empty one
+# too; only the last item of a section's last view loses its margin (and its last child's). Removing the empty last item from www's
+# markup laid out offline (austrian-parity-001 book/flights en, overview-services-on-board en, fly/travel-classes en; -003 es/es
+# baggage) takes 44 px off each: its 12 px padding, the item before it 12 px margin and its last child's 20. Ours: columns-media.css
+# hides an empty cell below 768px and takes the margin off the cell before it (div:has(+ div:empty:last-child) { margin-bottom: 0 }).
+# The candidate (a stylesheet added after load, not committed): body.brand-austrian, below 768px, the cell before an empty last cell
+# keeps its stacked spacing (text 36 px, media 50 px), 8 px short of www's 44.
+# Further by more than 0.5 points: /at/en/book/flights (its tail after the last heading is 21 px longer than www's with the rule, de 21
+# too, while de's whole page moves -0.39 -> +0.35 %: www ends that page with the view's 32 px padding and no separator, ours with
+# 8 + 48 px, a second cause, the page's end, see below), ru/ru and gr/el baggage (+3.21 / +2.19 % already: group B, the Linux fonts
+# for Cyrillic and Greek, a render condition).
+# The page's end (the second cause): a page that ends with a column view ends on www with the view's 32 px padding plus the trailing
+# separator's 0 / 40 / 48 px (a separator alone in the last AEM section, dropped by lufthansa-cleanup.js as under 50 px); ours always
+# with the padded block's 8 + the section's 48 px. On the 58 recorded page-widths that end with a separator, the space from the last
+# ink to the footer (www's PNG against a screenshot of ours) is 24 / 25 px short at 1440 with 48 px (overview-*, baggage en/de as
+# 1440 -2), 29 with 40 (wetlease-hub, exclusive-charter), and at 390 another 42 to 44 with an empty last item (this list's rule).
+# It needs the separator in the documents (an importer marker, then DA delta rows): not done in this order.
+# Ours: austrian.turnsthe.page as served (main, 2026-11-13 ~19:30 CET) and the same with the candidate, consent stored, pictures
+# eager, www.* and the airline hosts refused and counted (1098 / 1117, none sent). Width 390 only (the rule is below 768px).
+# Columns: path, width, www px, ours px, ours vs www, with the candidate px, vs www, the change in points (+ = further), the recording.
+
+/at/en/book/flights	390	4693	4698	+0.11 %	4734	+0.87 %	+0.77	austrian-parity-001/at-en-book-flights-390
+/ru/ru/baggage	390	6200	6399	+3.21 %	6435	+3.79 %	+0.58	austrian-parity-003/ru-ru-baggage-390
+/gr/el/baggage	390	6248	6385	+2.19 %	6421	+2.77 %	+0.58	austrian-parity-003/gr-el-baggage-390
+/at/de/book/flights	390	4850	4831	-0.39 %	4867	+0.35 %	-0.04	austrian-parity-001/at-de-book-flights-390
+/at/en/fly/on-board/culinary-services	390	9176	9003	-1.89 %	9053	-1.34 %	-0.54	austrian-parity-017/at-en-fly-on-board-culinary-services-390
+/it/it/baggage	390	6087	6022	-1.07 %	6058	-0.48 %	-0.59	austrian-parity-003/it-it-baggage-390
+/es/es/baggage	390	6066	5998	-1.12 %	6034	-0.53 %	-0.59	austrian-parity-003/es-es-baggage-390
+/fr/fr/baggage	390	6012	5943	-1.15 %	5979	-0.55 %	-0.60	austrian-parity-003/fr-fr-baggage-390
+/pl/pl/baggage	390	6012	5943	-1.15 %	5979	-0.55 %	-0.60	austrian-parity-003/pl-pl-baggage-390
+/jp/ja/baggage	390	5871	5267	-10.29 %	5303	-9.67 %	-0.61	austrian-parity-003/jp-ja-baggage-390
+/cn/zh/baggage	390	5675	5246	-7.56 %	5282	-6.93 %	-0.63	austrian-parity-003/cn-zh-baggage-390
+/il/en/legal/cancellation-refund-via-document-upload	390	4040	3669	-9.18 %	3705	-8.29 %	-0.89	austrian-parity-003/il-en-legal-cancellation-refund-via-document-upload-390
+/at/de/fly/travel-classes	390	2889	2858	-1.07 %	2894	+0.17 %	-0.90	austrian-parity-001/at-de-fly-travel-classes-390
+/at/de/book/overview-services-on-board	390	2969	2898	-2.39 %	2934	-1.18 %	-1.21	austrian-parity-001/at-de-book-overview-services-on-board-390
+/at/en/book/overview-services-on-board	390	2921	2850	-2.43 %	2886	-1.20 %	-1.23	austrian-parity-001/at-en-book-overview-services-on-board-390
+/at/en/fly/travel-classes	390	2889	2834	-1.90 %	2870	-0.66 %	-1.25	austrian-parity-001/at-en-fly-travel-classes-390
+
+# unchanged by the candidate: 105 page-widths (no empty last cell in a stacked row)

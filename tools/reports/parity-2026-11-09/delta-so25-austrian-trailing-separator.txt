@@ -1,0 +1,40 @@
+# ema-cashub, standing order 25 (2026-11-13), item 2: Austrian pages that end with a column view and, on www, a trailing separator.
+# Expected change: 13 pages closer to www at both widths, among them overview-services-on-board 390 within 2 % (J: de -2.39 ->
+# -1.58 %, en -2.43 -> -1.61 %) and wetlease-hub 1440 within 2 % (K: -2.15 -> -1.63 %); 6 pages HOLD (below). DA's copy plus the
+# delta, not a re-import.
+# www: a separator alone in the page's last AEM section (.separator > .hr.hr-no-layout, inline margin-bottom 48 or 40 px) after
+# the last column view (its 32 px padding below): 80 / 72 px under the view. The import drops it (lufthansa-cleanup.js keeps
+# separators of 50 px and more); ours ends with the padded block's 8 px and the section's 48 (56 px). Measured from the last ink
+# to the footer (tails-so25-austrian-page-end.txt): ours 24 px short with 48, 16 to 29 with 40.
+# The delta: one paragraph "{spacer-N}" at the end of the last section (after the columns-media block), N = the separator's
+# margin - 9: a wrapper of spacers only at a section's end adds N + 1 - 16 px (styles.css), so {spacer-39} adds 24 px and
+# {spacer-31} 16 (32 + S - 56). Nothing else changes.
+# Measured as drafts (so24/host.mjs on austrian.turnsthe.page, consent stored, pictures eager; www.* and the airline hosts refused,
+# 18, none sent): the published document as control equals live on all 38 page-widths; the delta adds exactly 24 / 16 px.
+# Built from the published documents (austrian.turnsthe.page, 2026-11-13 ~19:45 CET). DA's copies were not read: admin.da.live
+# answered 401 (the Adobe credential option is off). Before applying, check that DA's copy ends as the published one (the
+# columns-media block last in the last section with content; wetlease-hub: then an empty section).
+# HOLD: the page moves further from www by more than 0.5 points at one width; the tail is then www's, the excess is elsewhere
+# on the page (overview-travel-information 390 already +0.34 / +0.37 %; fr, it 1440; gr, ru: the Linux fonts for Greek and
+# Cyrillic, group B).
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, 390 live -> delta, 1440 live -> delta.
+
+READY	/at/de/book/overview-inspiration.html	append <p>{spacer-39}</p> to the last section with content (www: trailing separator 48 px)	390 -1.11 -> -0.09 %	1440 -1.52 -> -0.17 %
+READY	/at/de/book/overview-manage.html	append <p>{spacer-31}</p> to the last section with content (www: trailing separator 40 px)	390 -0.30 -> +0.00 %	1440 -0.27 -> +0.16 %
+READY	/at/de/book/overview-services-on-board.html	append <p>{spacer-39}</p> to the last section with content (www: trailing separator 48 px)	390 -2.39 -> -1.58 %	1440 -0.98 -> +0.00 %
+HOLD	/at/de/book/overview-travel-information.html	append <p>{spacer-39}</p> to the last section with content (www: trailing separator 48 px)	390 +0.34 -> +0.92 %	1440 -0.43 -> +0.36 %
+READY	/at/de/fly/travel-classes.html	append <p>{spacer-39}</p> to the last section with content (www: trailing separator 48 px)	390 -1.07 -> -0.24 %	1440 -1.28 -> -0.29 %
+READY	/at/en/book-and-manage/flights/wetlease-hub.html	append <p>{spacer-31}</p> to the last section with content (www: trailing separator 40 px)	390 -1.88 -> -1.45 %	1440 -2.15 -> -1.63 %
+READY	/at/en/book/overview-inspiration.html	append <p>{spacer-39}</p> to the last section with content (www: trailing separator 48 px)	390 -1.13 -> -0.09 %	1440 -1.52 -> -0.17 %
+READY	/at/en/book/overview-manage.html	append <p>{spacer-31}</p> to the last section with content (www: trailing separator 40 px)	390 -1.02 -> -0.71 %	1440 -1.22 -> -0.79 %
+READY	/at/en/book/overview-services-on-board.html	append <p>{spacer-39}</p> to the last section with content (www: trailing separator 48 px)	390 -2.43 -> -1.61 %	1440 -0.95 -> +0.04 %
+HOLD	/at/en/book/overview-travel-information.html	append <p>{spacer-39}</p> to the last section with content (www: trailing separator 48 px)	390 +0.37 -> +0.96 %	1440 -0.43 -> +0.37 %
+READY	/at/en/fly/travel-classes.html	append <p>{spacer-39}</p> to the last section with content (www: trailing separator 48 px)	390 -1.90 -> -1.07 %	1440 -1.28 -> -0.29 %
+READY	/cn/zh/baggage.html	append <p>{spacer-39}</p> to the last section with content (www: trailing separator 48 px)	390 -7.56 -> -7.14 %	1440 -4.21 -> -3.64 %
+READY	/es/es/baggage.html	append <p>{spacer-39}</p> to the last section with content (www: trailing separator 48 px)	390 -1.12 -> -0.73 %	1440 -0.40 -> +0.16 %
+HOLD	/fr/fr/baggage.html	append <p>{spacer-39}</p> to the last section with content (www: trailing separator 48 px)	390 -1.15 -> -0.75 %	1440 +1.12 -> +1.67 %
+HOLD	/gr/el/baggage.html	append <p>{spacer-39}</p> to the last section with content (www: trailing separator 48 px)	390 +2.19 -> +2.58 %	1440 +2.52 -> +3.06 %
+HOLD	/it/it/baggage.html	append <p>{spacer-39}</p> to the last section with content (www: trailing separator 48 px)	390 -1.07 -> -0.67 %	1440 +0.09 -> +0.64 %
+READY	/jp/ja/baggage.html	append <p>{spacer-39}</p> to the last section with content (www: trailing separator 48 px)	390 -10.29 -> -9.88 %	1440 -5.78 -> -5.23 %
+READY	/pl/pl/baggage.html	append <p>{spacer-39}</p> to the last section with content (www: trailing separator 48 px)	390 -1.15 -> -0.75 %	1440 -0.39 -> +0.16 %
+HOLD	/ru/ru/baggage.html	append <p>{spacer-39}</p> to the last section with content (www: trailing separator 48 px)	390 +3.21 -> +3.60 %	1440 +3.51 -> +4.05 %
