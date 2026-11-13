@@ -14,3 +14,11 @@
 /de/en/program/businesstogo
 /xx/de/program/businesstogo
 /xx/en/program/businesstogo
+# Standing order 16 (2026-11-13): meals-on-board's tab set on a phone. Its recording (b2b-parity-003) takes 390 from the
+# 1440 load resized; there the first item ("Special meals & catering") is open and its header and content sit 22 / 23 px
+# lower than ours, each section of the panel 10 px further apart (390: ours 5.4 % shorter than www's). Please record 390
+# as a phone's own first load (a fresh 390x844 page, nothing clicked), and 1440 as usual, as for businesstogo
+# (b2b-parity-009): whether the first item is open there, and its spacing, decides the fix.
+# host: business.lufthansagroup.com
+/de/en/program/experts/on-board/meals-on-board
+/ch/en/program/experts/on-board/meals-on-board
