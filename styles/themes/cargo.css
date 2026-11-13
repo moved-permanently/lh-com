@@ -54,12 +54,14 @@
   --breadcrumb-current-color: #666;
   --breadcrumb-chevron-color: #666;
 
-  /* footer (row 6): titles 18/24 bold, links 14/18 regular 11 px apart */
+  /* footer (row 6): titles 18/24 bold, links 14/18 regular 11 px apart; the phone panels' rules #ccc (standing
+     order 24: cargo-parity-001's 390 screenshots) */
   --footer-heading-size: 18px;
   --footer-link-size: 14px;
   --footer-link-weight: 400;
   --footer-link-line-height: 18px;
   --footer-link-gap: 11px;
+  --footer-toggle-line: #ccc;
 }
 
 @media (width >= 768px) {
@@ -382,6 +384,13 @@ body.brand-cargo .header .nav-wrapper.is-hidden {
   transform: none;
 }
 
+/* standing order 24: the footer's heights as www's (cargo-parity-001's 390 and 1440 screenshots, relative to the
+   footer's top; ours were 574 / 603 / 485 px against www's 559 / 598 / 477). The field 38 px tall with its line, at
+   48 px on phones and 54 px from 768 px (the footer's 40 px and its margin) */
+body.brand-cargo .footer .footer-search input {
+  height: 36px;
+}
+
 /* row 27: the footer search focused as www's: the field white with its glow, whale blue text and
    underline, 10 px inside */
 body.brand-cargo .footer .footer-search input:focus {
@@ -391,6 +400,93 @@ body.brand-cargo .footer .footer-search input:focus {
   border-bottom: 2px solid #52627c;
   color: #52627c;
   padding-left: 10px;
+}
+
+/* below 768 px: the menu panels from 125 px, 50 px apart between #ccc rules (one over the first), 30 px under them
+   the legal links centred in 20 px rows 20 px apart, then the social icons centred, 10 px apart, 20 px above and
+   below; no rule between the links and the icons (www: legalLinks, then socialIcons) */
+@media (width < 768px) {
+  body.brand-cargo .footer .footer-inner.has-extras {
+    grid-template-areas:
+      'search'
+      'columns'
+      'legal'
+      'badges'
+      'locale'
+      'note';
+  }
+
+  body.brand-cargo .footer .footer-search {
+    margin: 8px 0 39px;
+  }
+
+  body.brand-cargo .footer .footer-column-heading {
+    line-height: 24px;
+  }
+
+  body.brand-cargo .footer .footer-column-toggle {
+    padding: 13px 20px 12px;
+  }
+
+  body.brand-cargo .footer .footer-column:first-child .footer-column-toggle {
+    border-top: 1px solid var(--footer-toggle-line);
+  }
+
+  body.brand-cargo .footer .footer-columns {
+    margin-bottom: 30px;
+  }
+
+  body.brand-cargo .footer .footer-divider {
+    display: none;
+  }
+
+  body.brand-cargo .footer .footer-legal {
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+  }
+
+  body.brand-cargo .footer .footer-legal li {
+    box-sizing: border-box;
+    height: 20px;
+    padding-top: 2px;
+  }
+
+  body.brand-cargo .footer .footer-legal .footer-link {
+    margin-bottom: 0;
+  }
+
+  body.brand-cargo .footer .footer-badges {
+    justify-content: center;
+    padding: 20px 0;
+    border-top: 0;
+  }
+
+  body.brand-cargo .footer .footer-badges ul {
+    gap: 10px;
+  }
+}
+
+/* from 768 px: the column titles at 122 px (24 px lines, 10 px to their rule, 10 px to the links), the rule over
+   the legal row 11 px under the last link's 11 px gap (www's 20 px under the link), the legal row 64 px */
+@media (width >= 768px) {
+  body.brand-cargo .footer .footer-search {
+    margin: 14px 0 30px;
+  }
+
+  body.brand-cargo .footer .footer-column-title {
+    line-height: 24px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+
+  body.brand-cargo .footer .footer-columns {
+    padding-bottom: 11px;
+  }
+
+  body.brand-cargo .footer .footer-legal {
+    padding: 20px 0 15px;
+  }
 }
 
 /* row 24: boxed cards (cards-teaser (boxed), www's lcagCard: the industries): a white card with
@@ -2070,10 +2166,33 @@ body.brand-cargo main > .section.notifications-container {
 }
 
 /* from 1025px www's title stands 100px under the breadcrumb's top (its 20px padding, the rule, 40px), ours, in the
-   breadcrumb's section, 54px: the breadcrumb 66px over it (below 1025px www's 76px are ours already) */
+   breadcrumb's section, 54px: the breadcrumb 66px over it */
 @media (width >= 1025px) {
   body.brand-cargo main > .section.notifications-container > .breadcrumb-wrapper {
     margin-bottom: 66px;
+  }
+}
+
+/* below 1025px (standing order 24, cargo-parity-001 at 390): www's banner picture across the screen (125px at 390),
+   the breadcrumb straight under it, 56px with its 17 / 20px padding and #ccc rule, the title 20px under that; each
+   notification's date 4px under the item's top. Ours: the picture 358px wide, 20px over a 34px breadcrumb without
+   a rule (12px short above the band, 4px per item) */
+@media (width < 1025px) {
+  body.brand-cargo main > .section.notifications-container > .default-content-wrapper:first-child:has(> p > picture) {
+    padding-inline: 0;
+  }
+
+  body.brand-cargo main > .section.notifications-container > .breadcrumb-wrapper {
+    margin-top: 0;
+  }
+
+  body.brand-cargo main > .section.notifications-container > .breadcrumb-wrapper .breadcrumb nav {
+    padding: 17px 0 20px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  body.brand-cargo main > .section.notifications-container .notifications .notifications-item {
+    padding-top: 4px;
   }
 }
 

@@ -115,5 +115,5 @@ test('from 1025 px the title 100 px under the breadcrumb\'s top, as www\'s: the 
   const theme = read('styles/themes/cargo.css');
   const sel = 'body.brand-cargo main > .section.notifications-container > .breadcrumb-wrapper';
   assert.equal(decls(theme, sel, WIDE)['margin-bottom'], '66px');
-  assert.equal(decls(theme, sel)['margin-bottom'], undefined, 'below 1025 px www\'s 76 px are ours already');
+  assert.equal(decls(theme, sel)['margin-bottom'], undefined, 'below 1025 px the breadcrumb\'s own rules (standing order 24)');
 });
