@@ -682,6 +682,15 @@ body.brand-austrian main > .section.grey.in-column {
   padding: 48px 0 60px;
 }
 
+/* the grey band in www's .container-gray, #e7e7e7 (rgb(231, 231, 231) in austrian-parity-015: entryregulations,
+   travel-id; ours was lufthansa.com's #f6f6f6), its outlined buttons without a fill as www's .btn-secondary
+   (transparent: the band shows through; ours white). Standing order 20; colour only */
+body.brand-austrian main > .section.grey {
+  --button-secondary-surface: transparent;
+
+  background-color: var(--lh-grey-2);
+}
+
 @media (width >= 768px) {
   body.brand-austrian main > .section.grey.in-column {
     padding-bottom: 72px;
