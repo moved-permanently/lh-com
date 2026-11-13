@@ -1,0 +1,10 @@
+{
+  "/it/en/book-and-prepare/travel-information/at-the-airport/lounges/fantasia-lounge": [
+    {
+      "before": "Traveling Alone: Services for Unaccompanied Minors",
+      "html": "<div><p>{spacer-65 from-768}</p><div class=\"section-metadata\"><div><div><p>style</p></div><div><p>gap</p></div></div></div></div>",
+      "text": "{spacer-65 from-768}",
+      "section": true
+    }
+  ]
+}

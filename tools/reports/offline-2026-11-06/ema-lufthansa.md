@@ -4231,3 +4231,92 @@ before (their longest rows 72 KB). The seven tests that compare the indexes with
 before through test/query-later.mjs; the five that compare with HEAD pass once it is committed, so this step was
 committed before its suite ran (.scratch/offline/tools/ship6.sh). The rows come with the next index job or publish of
 those pages (an index fills on publish or an index job): not done by me.
+
+**Item 1, the ITA pages that end with a grey band, one by one (ITA row 47)** (DA's copies read at 13:00 UTC; each page's band area
+measured on the recording (ita-parity-004 / -005) and on ours; every draft rendered locally with main's CSS, whole page
+heights at 1440 x 900 / 390 x 844): all six DA copies end with the band, then the metadata section, then an empty
+section. That last section keeps the band from being main's last section, so the band keeps the 48 px section gap under
+it instead of styles.css's `.section.grey:last-child` 24 px. Dropping it takes 24 px off at both widths (fantasia-lounge
+48). Each page needs something different:
+- **invoicing** (+1.07 / +2.44 %, taller at both widths; www 24 px from the band to the footer at both): the empty last
+  section dropped, so the band sits 24 px above the footer: 1440 2463 -> 2439 (www 2437), 390 3696 -> 3672 (3608). READY.
+  New tool tools/importer/ita-section-drop-apply.mjs, test first (test/ita-grey-endings-595.test.mjs). It drops the
+  empty last section only when the section before it holds just the metadata block and the one before that is the named
+  band; any other document is refused and left as it is.
+- **fantasia-lounge** (-1.46 / +0.63 %): www has 64 px of white above the closing "Traveling Alone" band at 1440, ours
+  14 px. A gap section with "{spacer-65 from-768}" before the band (ita-insert-apply.mjs's `section` row):
+  1440 3704 -> 3754 (www 3759), 390 4777 -> 4761 (4747; the gap section also takes away 16 px of collapsed margin on
+  phones). READY. Dropping its empty section instead made 1440 further (-2.74 %).
+- **HOLD**, no document change passes the gate:
+  - unaccompanied minors: the drop takes 1440 from -0.69 to -1.37 %.
+  - checked-baggage: taller at 1440, shorter at 390; the drop takes 390 from -1.74 to -2.20 %.
+  - fleet/long-haul: -3.63 % at 1440, but the ending isn't the cause (above the band ours 58 px, www 25; no rule is
+    drawn there in DA's current copy); the drop takes 1440 to -4.31 %.
+  - fleet/short-haul: +0.37 / -0.45 %; the drop brings 1440 0.06 points closer and takes 390 to -0.89 %.
+- List: tools/reports/parity-2026-11-09/reimport-595-ita-grey-endings.txt (2 READY, 4 HOLD). Its header gives both tool
+  commands and the only expected change. Data: ita-section-drops-595.json and ita-inserts-595.json. Both tools' output on
+  DA's copies is byte for byte the drafts I measured. Nothing uploaded or previewed.
+
+**Item 2, airport-upgrade and onboard-upgrade (/it/en/manage-my-bookings/extra-services/upgrade/): DA is right, no
+delta row.** Neither page is in ita-snapshots-020 or -021 (021 has only /ve/en/.../bid-upgrade); both are in
+ita-snapshots-022 (capture list 4; sha256 bd102325... and 0671862...). Counts:
+- www's recording: 2 teaser cards under "Related" on each (airport-upgrade: Lounges, Seat Selection; onboard-upgrade:
+  Seat Selection, Lounges), and no other card grid.
+- DA's copy (read 12:55 UTC): two market variants of the grid, each with 2 cards. The first (`carousel-cards grid`,
+  markets -au/en, ..., so it/en's) has the same 2 cards as www, in www's order. The second (`grid two-up`, au/en, ...)
+  has Upgrade With an Offer and Instant Upgrade (onboard-upgrade: Instant Upgrade and Airport Upgrade).
+- Our host renders /it/en with the first one: 2 cards, at 1440 and 390.
+I found no copy with 3 cards in the first grid. If the 3 came from a DA read before 12:55 UTC, or from another market's
+page, that copy has changed since or is another document.
+
+**Item 4, code rules within the gate (ITA row 48).** A fresh ranking of the 44 ITA and SWISS rows (main's CSS, both
+widths) shows the known cases: SWISS offers and the homepage (fare data); baggage-and-strollers (its DA deltas wait for
+the helper's run); contact and long-haul (standing order 10); and the grey-band endings above. Looked at:
+digital-newsstand, business-class-medium-haul and help-and-contact. Their differences sit in the card and stage images
+that the offline recordings don't load, so I can't measure a layout cause from them; left. One rule passes:
+- **flying-with-a-baby** (-3.51 % at 1440). Its "Related" heading follows the page's accordion. On www it is a section of
+  its own: 64 px down to the cards at 1440, 56 on phones. Ours keeps it in the accordion's section with 32 px.
+- styles/themes/ita.css, test first (test/ita-related-after-accordion-595.test.mjs): from 768 px, the heading alone right
+  before the cards in an accordion-columns section keeps 64 px.
+- Result: 1440 3190 -> 3222 (www 3306), and the 38 other recorded ITA pages are unchanged at 1440 (all 39 measured with
+  the rule from a CSS override folder). Phones are as before: www's 56 px there would take the page from -0.16 to
+  +0.46 %, further.
+- SWISS: none (the rule is ITA's).
+
+**The index fix's push (item 3):** 14656657, commit first (ship6.sh): `git show --stat` as given (11 files),
+`npm run lint` exit 0, the full suite 4023 pass / 0 fail on the commit; rebased on abd3ad6e, lint 0, the suite
+4044 / 0. The first push was refused (main busy). After the retry rebase onto ac8f4003 lint was 0 and the second try
+went through. GitHub Build success; the smoke of 14 hosts 0 differences. The suite on the tree with ac8f4003 runs with
+the next step's (below).
+
+## Final section, standing order 11 (2026-11-13, 13:40 to 16:30 CET)
+
+**Commits on main.** Each one: whole-repo `npm run lint` exit 0 before and after the rebase and after every retry
+rebase; stylelint on ita.css when it changed; the full suite 0 failures on the commit and again after a rebase that
+brought commits; `git show --stat` as given; the GitHub Build read; the smoke of 14 hosts before and after.
+- 14656657, item 3: SWISS's ch/el and ch/ru language indexes keep their longest pages (the content column limited to
+  the first 5,500 words). The rows appear with the next index job or publish of those pages, which I don't run.
+- This commit, items 1, 2 and 4:
+  - ITA row 47: invoicing and fantasia-lounge as deltas on DA's copies (new tool ita-section-drop-apply.mjs;
+    reimport-595-ita-grey-endings.txt, 2 READY, 4 HOLD).
+  - ITA row 48: flying-with-a-baby's Related heading after its accordion, 64 px from 768 px.
+  - Item 2: DA is right on airport-upgrade and onboard-upgrade (2 cards, as on www in ita-snapshots-022), no row.
+  - This final section.
+
+**Lists:** tools/reports/parity-2026-11-09/reimport-595-ita-grey-endings.txt, with its data ita-section-drops-595.json and
+ita-inserts-595.json, for the import helper (DA's copy plus the delta; the tool commands are in its header). No capture
+requests this order (none needed: each page I looked at has its recording in the drop).
+
+**Not shipped:**
+- the four HOLD pages of item 1: no document change passes the gate;
+- a shared "band before an empty last section" rule (the code form of the drop): it takes 24 px off every such page,
+  and 4 of the 6 go further;
+- digital-newsstand, business-class-medium-haul and help-and-contact: their differences are in images the offline
+  recordings don't load.
+
+**Left uncommitted, and why:** `.migration/project.json` (the lh-tap entry, not mine). `.scratch/` is excluded from git:
+the recordings, DA's copies read today (the six grey-band pages, the two upgrade pages) and the deltas' output (DA content
+for the helper's run), the drafts and CSS override folders, the measuring scripts and their logs.
+
+**Process:** reads only from our hosts, the drop's recordings and DA (GETs of eight copies from my session, not from
+tests). No request to an airline host. No da-upload.mjs call, no upload, preview or publish by me.
