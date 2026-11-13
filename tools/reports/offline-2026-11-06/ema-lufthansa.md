@@ -4058,3 +4058,35 @@ the drafts, the recordings, the measuring scripts and logs.
 
 **Process:** reads only from our hosts, the drop's recordings and DA (GET of four copies from my session, not from
 tests); no request to an airline host; no da-upload.mjs call, no upload, preview or publish by me.
+
+6697f832 ITA rows 40 and 41 with standing order 8's final section: its first ship was stopped by the service restart
+during the suite (nothing committed); run again: lint 0 before and after the rebase and after both retry rebases, the
+suite 3917 / 0 before and after the rebase, Build success, smoke 0 differences.
+
+## Standing order 9 of 2026-11-13 (from about 00:40 CET to 06:00 CET)
+
+**At the start:** nothing of mine uncommitted or unpushed; `.migration/project.json` (the lh-tap entry from outside my
+orders) and `.scratch/` (excluded from git) left as they are. The browser build changed with the restart (1208 -> 1254):
+every measurement of this order against a fresh baseline taken with it (the 44 recorded ITA and SWISS pages, 00:05 UTC).
+
+**Capture requests:** tools/reports/parity-2026-11-09/capture-requests-ema-lufthansa.txt: SWISS /ch/en/offers and
+/ch/en/homepage at 1440 and 390, waiting for the fare cards to be there and their number to stay the same.
+
+**Item 1, the last section's gap to the footer:** one change on both brands, the last section 20 px over the footer
+instead of 48 (body.brand-ita / body.brand-swiss main > .section:last-child), measured on the 44 recorded pages with the
+rule in a CSS override folder: 21 pages further from www by more than 0.5 points, mostly at 1440 (corporate-b2b -2.1 ->
+-4.0 %, flight-search -0.8 -> -2.3 %, SWISS book-and-manage -0.2 -> -2.4 % / -0.4 -> -2.0 %), the 390 rows mostly
+closer. www's own gap is no one value: measured in the recordings' own markup, 40 px at 1440 and 20 at 390 under a
+padded section (residents-in-sicily), 56 under a row of teasers (corporate-b2b), 32 (travel-insurance). Not shipped;
+no test committed for it.
+
+**Item 2, the worst single ITA pages** (the fresh baseline):
+- **baggage-and-strollers (-10.0 / -21.5 %):** www's fare tables write each cell as a bold label, a line break and the
+  value ("<b>Baggage</b><br>No baggage<br><br><br>"); the import flattened them ("BaggageNo baggage", one line that reads
+  wrong; DA's copy the same). The parser that writes these cells (tools/importer/parsers/accordion-columns.js) was
+  changed by another EMA under 2 hours ago, so not touched; DA's copy plus a delta instead,
+  tools/importer/ita-cells-apply.mjs (test first): the 37 matching cells get www's cell HTML;
+  reimport-592-ita-strollers-cells.txt READY: 1440 4000 -> 4189 (www 4446), 390 6187 -> 6754 (7882).
+- **fleet/long-haul (-3.6 % at 1440):** www draws a rule between the tab set and the "Choose your favorite seat" band (the
+  import's divider-above, missing in DA's copy); with it 1440 -3.6 -> -2.0 %, but 390 +0.2 -> +1.4 % (worse by 1.2):
+  not made.
