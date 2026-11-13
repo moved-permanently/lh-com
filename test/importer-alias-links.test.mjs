@@ -7,6 +7,8 @@
    itself (imported at /de/en/flynet, canonical www's long path) links its own sections by the long
    path: the in-page anchors stayed on www (www's …/internet-on-board#portal) instead of the
    heading ids (#our-complimentary-flynet-portal).
+   Standing order 17 (2026-11-13): business-class moved to the long path on the site too (pages.csv), so a link to
+   www's long path stays at that path on the site; the in-scope short path of the second test is /de/en/flynet now.
    Run: node --max-old-space-size=256 --test test/importer-alias-links.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -29,16 +31,16 @@ test('a link to an alias page\'s long path goes to the site\'s alias page', () =
     '<p><a href="https://www.lufthansa.com/de/en/book-and-manage/digital-self-services/digital-travel-companion">Companion</a></p>',
     '<p><a href="https://www.lufthansa.com/de/en/during-your-trip/lounges">Lounges</a></p>',
   ].join(''));
-  assert.deepEqual(hrefs, ['/de/en/business-class', '/de/en/freigepaeck-regeln?x=1#y', '/de/en/flynet', '/de/en/digital-travel-companion', '/de/en/lounges']);
+  assert.deepEqual(hrefs, ['/de/en/prepare-for-your-trip/travel-classes/business-class', '/de/en/freigepaeck-regeln?x=1#y', '/de/en/flynet', '/de/en/digital-travel-companion', '/de/en/lounges']);
 });
 
 test('other long paths stay as before', () => {
   const hrefs = page(
     'https://www.lufthansa.com/de/en/economy-class',
     'https://www.lufthansa.com/de/en/economy-class',
-    '<p><a href="https://www.lufthansa.com/de/en/prepare-for-your-trip/travel-classes/not-a-page">x</a></p><p><a href="https://www.lufthansa.com/de/en/business-class">y</a></p>',
+    '<p><a href="https://www.lufthansa.com/de/en/prepare-for-your-trip/travel-classes/not-a-page">x</a></p><p><a href="https://www.lufthansa.com/de/en/flynet">y</a></p>',
   );
-  assert.deepEqual(hrefs, ['https://www.lufthansa.com/de/en/prepare-for-your-trip/travel-classes/not-a-page', '/de/en/business-class']);
+  assert.deepEqual(hrefs, ['https://www.lufthansa.com/de/en/prepare-for-your-trip/travel-classes/not-a-page', '/de/en/flynet']);
 });
 
 test('the alias page\'s links to its own sections by the long path become in-page anchors', () => {
