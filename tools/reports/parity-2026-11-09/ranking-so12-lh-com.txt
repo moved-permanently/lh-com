@@ -38,6 +38,21 @@
 #   on passenger-rights the band is nested in another column view. Those keep space under the band. A rule needs the
 #   importer to tell these shapes apart (a mark where www's band is followed by a new AEM section with .mb-default
 #   or by more of its own section); until then the rule stays held.
+#   Standing order 14: the importer can tell the four www shapes apart from the snapshots (logs/b606/band-shapes.py:
+#   separator then a new section, a whole grey section, a view followed by text in its section, a nested band), but the
+#   spacing directly under the band does not follow them. At the band boundary the rule leaves no step on 34 of the 48
+#   page-widths it touches (logs/b606/in-place.mjs), in every shape: childrens-menus-on-board (separator, new section)
+#   +49 -> 0, flight-disruptions and passenger-rights (view, then text) +49 -> 0, doctor-on-board +48 -> 0. Where a step
+#   is left it comes from what our documents write after the band, not from the shape: special-meals -34 / -30 (the
+#   next view became a Carousel Cards block, and its title "More information about our in-flight menus" has no
+#   column-start mark, so the view's 32px are missing; childrens-menus-on-board's title has it), ana 390 -45 (a whole
+#   grey AEM section with .mb-default: www keeps its 24px), arrival-services -15, fly-more-sustainabl -32. The whole-page
+#   losses are drifts elsewhere on those pages that the 48px gap was covering: childrens-menus-on-board -58 px above
+#   the band (the importer drops the 40px separator that ends the AEM section under "Order now", where www keeps its
+#   inline margin before a new section without .mb-default; and 17px under the Kids Box view), passenger-rights -60 at
+#   y 2400, flight-disruptions -35 before its band at 390. So no per-shape split and no delta list: the rule is right in
+#   place; it waits for those drifts (the end-of-section separator, the column mark on views that become blocks) or for
+#   your go on the in-place evidence.
 #   (/de/en/flights 390 read 47.3 in the narrowed run: a capture of 5404 px instead of 8000, its live content; the
 #   rule does not match it, the other runs read 0.5.)
 # Standing order 13, the next rows:
