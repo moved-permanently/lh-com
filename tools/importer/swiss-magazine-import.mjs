@@ -43,7 +43,8 @@ const HOST = 'www.swiss.com';
 export const W = path.join(root, 'content-sites/lh-swiss-mag');
 const SNAP = path.join(W, 'snapshots-src', HOST);
 const MAPPED = path.join(W, 'snapshots');
-const CI = '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-content-import/scripts';
+// EXCAT_IMPORT_SCRIPTS: the network-blocked copy (tools/importer/offline-importer.mjs); imports read snapshots only
+const CI = process.env.EXCAT_IMPORT_SCRIPTS || '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-content-import/scripts';
 export const MAGAZINE_PATH = /^\/magazine\/(de|en)(\/|$)/;
 
 /** The capture's magazine pages: www paths of the snapshots under snapshots-src. */

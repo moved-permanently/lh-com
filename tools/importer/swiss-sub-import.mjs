@@ -41,7 +41,8 @@ const HOST = 'www.swiss.com';
 export const W = path.join(root, 'content-sites/lh-swiss-sub');
 const SNAP = path.join(W, 'snapshots-src', HOST);
 const MAPPED = path.join(W, 'snapshots');
-const CI = '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-content-import/scripts';
+// EXCAT_IMPORT_SCRIPTS: the network-blocked copy (tools/importer/offline-importer.mjs); imports read snapshots only
+const CI = process.env.EXCAT_IMPORT_SCRIPTS || '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-content-import/scripts';
 // the sub-sites' path prefixes (scripts/site-languages.js SUB_SITES)
 export const SUB_SITE_NAMES = SUB_SITES.swiss.map((s) => s.name);
 const SUB_PATH = new RegExp(`^/(?:${SUB_SITE_NAMES.join('|')})/[a-z]{2}(?:/|$)`);

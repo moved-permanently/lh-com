@@ -49,7 +49,8 @@ const opt = (n) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] :
 const HOST = 'www.ita-airways.com';
 const W = path.join(root, 'content-sites/lh-ita');
 const SNAP = path.join(root, 'tools/importer/bd-snapshots', HOST);
-const CI = '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-content-import/scripts';
+// EXCAT_IMPORT_SCRIPTS: the network-blocked copy (tools/importer/offline-importer.mjs); imports read snapshots only
+const CI = process.env.EXCAT_IMPORT_SCRIPTS || '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-content-import/scripts';
 // the source pages' own lufthansa.com URLs on a placeholder host during the import (as Discover)
 export const PLACEHOLDER = 'www.lufthansa-com.invalid';
 const MAPPED = path.join(W, 'snapshots');
