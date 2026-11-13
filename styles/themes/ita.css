@@ -1157,3 +1157,19 @@ body.brand-ita main > .section.padded:has(> .default-content-wrapper:only-child 
   margin-bottom: 0;
 }
 /* stylelint-enable no-descending-specificity */
+
+/* the footer gap under a row of teasers on phones (ITA row 44; standing order 10, item 2): www's footer 32px under the
+   "Related" cards on 19 of the 27 recorded ITA pages that end with them (56 on 6, 52 / 72 on 2), ours 48; from 768px the
+   same 32px failed the 0.5-point gate on 5 pages short for other causes, so on phones only */
+@media (width < 768px) {
+  body.brand-ita main > .section:last-child:has(> .carousel-cards-wrapper:last-child) {
+    margin-bottom: 32px;
+  }
+}
+
+/* padded column views in rows (ITA row 45; /it/en/support/utilities/contact, ita-parity-005): www's rows are column
+   views of their own, each padded 32px above and below, the next row's heading 89px under the last text of the one
+   before; lufthansa.com's padded block keeps 66px */
+body.brand-ita .columns-media.padded {
+  gap: 89px;
+}

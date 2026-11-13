@@ -4153,3 +4153,17 @@ fail (finished 05:50 UTC, after the push, as the rebase had brought 8f2570c2 in)
 **At the start:** nothing of mine uncommitted or unpushed; `.migration/project.json` (the lh-tap entry from outside my
 orders) and `.scratch/` (excluded from git: swiss-parity-006 / -007, DA's strollers copy and the delta's output, drafts,
 scripts, logs) left as they are. The bundle rebuild for 1f6b6a94's parser change goes to ema-cashub.
+
+**Item 2, the ITA footer gap by cause** (www's gap and ours on the 39 recorded ITA pages at both widths, the recordings'
+own markup; each rule then through the gate on all 39 pages against a baseline taken with main's CSS this morning):
+- **teaser rows** (27 pages end with the "Related" cards): www 32 px on 19, 56 on 6, 52 / 72 on 2; ours 48. At both
+  widths 5 pages at 1440 further by more than 0.5 points (corporate-b2b, flight-search, fco-lin, first-time-flyers,
+  travel-insurance: short for other causes); at 390 none further than 0.39. Shipped below 768 px only (ITA row 44).
+- **grey band endings** (6 pages): ours 80 px (the band's 32 px padding and the 48 px gap), www 24 to 45; the band's gap
+  0: 5 of the 6 pages further (unaccompanied minors 1440 by 1.37, fantasia lounge 1.28, checked-baggage 390 0.92). Not
+  shipped. (Found on the way: such pages end with an empty trailing section, whose margin collapses with the band's.)
+- **plain text endings** (health-and-safety-at-work): 24 px, the page 1440 further by 0.88. Not shipped.
+
+**Item 3:** support/utilities/contact (-5.3 / -7.6 %): www's rows are column views of their own, padded, 89 px from a
+row's last text to the next heading; ours 66 (lufthansa.com's padded block). ITA row 45: 1440 3287 -> 3471 (www 3470),
+390 7134 -> 7318 (7723); no other recorded page changes.
