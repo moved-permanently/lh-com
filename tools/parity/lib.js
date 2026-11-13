@@ -91,9 +91,37 @@ function installedBrowser(kind, exe, dir = process.env.PLAYWRIGHT_BROWSERS_PATH)
   return found || null;
 }
 
+/** Our hosts: Edge Delivery's and a local server. */
+const isOwnHost = (host) => /(^|\.)aem\.(live|page)$/.test(host) || host === 'localhost' || host === '127.0.0.1';
+/** Foreign hosts a capture of our pages may reach: OneTrust's consent hosts (no airline's). */
+const CONSENT_HOSTS = ['cdn.cookielaw.org', 'geolocation.onetrust.com'];
+
+/**
+ * For a capture of one of our pages (aem.live, aem.page, localhost), the test of the request
+ * URLs it may load: our hosts, the consent hosts, data: and blob: URLs. Its scripts call
+ * www.lufthansa.com directly (scripts/lh-data.js) and lh-proxy, which forwards to www; a capture
+ * must never reach an airline host (standing order 12 of 2026-11-13). Chrome's
+ * --host-resolver-rules do not stop them behind an HTTP proxy, so capture.js aborts the others in
+ * the browser. Null for any other target (a recording of www): nothing aborted, as before.
+ * @param {string} url the page captured
+ * @returns {((u: URL) => boolean)|null}
+ */
+function ownHostFilter(url) {
+  let host;
+  try {
+    host = new URL(url).hostname;
+  } catch (e) {
+    return null;
+  }
+  if (!isOwnHost(host)) return null;
+  return (u) => u.protocol === 'data:' || u.protocol === 'blob:'
+    || isOwnHost(u.hostname) || CONSENT_HOSTS.includes(u.hostname);
+}
+
 module.exports = {
   ROOT,
   installedBrowser,
+  ownHostFilter,
   DEFAULT_STATE,
   getArgs,
   mkdirp,

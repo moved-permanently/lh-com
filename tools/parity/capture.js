@@ -35,6 +35,7 @@ const path = require('path');
 const { chromium } = require('playwright-core');
 const {
   DEFAULT_STATE, getArgs, mkdirp, writeJsonAtomic, appendJsonl, rmSafe, installedBrowser,
+  ownHostFilter,
 } = require('./lib.js');
 
 // PARITY_CHROME=1 (or a path): the full chrome build instead of playwright's headless shell,
@@ -387,6 +388,7 @@ async function main() {
     url, width, out, pid: process.pid, startedAt: new Date(started).toISOString(),
   });
   mkdirp(path.dirname(out));
+  const allowHost = ownHostFilter(url);
 
   const launch = (exe) => chromium.launch({
     headless: true,
@@ -405,7 +407,10 @@ async function main() {
     viewport: { width, height: VIEWPORT_HEIGHT },
     deviceScaleFactor: 1,
     userAgent: desktopUserAgent(browser.version()),
+    ...(allowHost ? { serviceWorkers: 'block' } : {}),
   });
+  // a capture of our pages: its scripts never reach an airline host (standing order 12)
+  if (allowHost) await context.route((u) => !allowHost(u), (route) => route.abort('blockedbyclient'));
   await context.addInitScript(initScript, {
     key: CONSENT_KEY, groups: CONSENT_GROUPS, showcaseKey: SHOWCASE_KEY, scrollbar: withScrollbar,
   });
