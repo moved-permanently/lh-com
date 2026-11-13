@@ -17,6 +17,14 @@
   list-style: none;
 }
 
+/* stacked (www's ul.responsive): one link per line below 768px, side by side from 768px
+   (/de/en/flight-disruptions at 390: four lines on www, two here before; standing order 20) */
+@media (width < 768px) {
+  .jump-links.stacked .jump-links-list {
+    flex-direction: column;
+  }
+}
+
 .jump-links .jump-links-list li {
   display: flex;
   margin: 0;

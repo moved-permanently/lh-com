@@ -1434,6 +1434,29 @@ function rewriteAnchors(document, pagePath) {
 
 const JUMP_LINK = '[variant="anchor-down"][href]';
 
+/**
+ * Standing order 20: www's visible empty line, a paragraph of only no-break spaces between two text paragraphs or lists of
+ * one rich text (/de/en/passenger-rights after the compensation list, /de/en/wheelchair-batteries): a line and a
+ * paragraph margin on www, 56px at 1440 and 390, which the framework drops: "{spacer-56}" instead (the column-mark
+ * templates). Not in an accordion or tab panel (nothing shows there at 1440: the brief after 530), not at a rich text's
+ * start or end, not next to another empty line. Returns the count.
+ */
+const EMPTY_LINE_PX = 56;
+function markEmptyLines(document) {
+  const isText = (el) => !!el && ((el.tagName === 'P' && !!cleanText(el) && !/^\{[^}]*\}$/.test(cleanText(el))) || /^(UL|OL)$/.test(el.tagName));
+  let n = 0;
+  document.querySelectorAll('p').forEach((p) => {
+    if (![...p.children].every((c) => c.tagName === 'BR')) return;
+    const t = p.textContent || '';
+    if (!t.includes('\u00a0') || t.replace(/[\s\u00a0]/g, '')) return;
+    if (p.closest('.accordion, .accordionitem, maui-collapsible-item, maui-tab-control-panel-responsive, .tabs')) return;
+    if (!isText(p.previousElementSibling) || !isText(p.nextElementSibling)) return;
+    p.replaceChildren(document.createTextNode(`{spacer-${EMPTY_LINE_PX}}`));
+    n += 1;
+  });
+  return n;
+}
+
 /** Whether a component shows nothing but its jump links (no other text, images or links). */
 function onlyJumpLinks(el) {
   const links = [...el.querySelectorAll('[href]')];
@@ -1457,7 +1480,7 @@ function jumpLinksBlock(document, links, variants) {
 /**
  * Jump links (maui-navigation-link variant="anchor-down") -> "Jump Links" block
  * (blocks/jump-links): a link list (.imagelinklist > .link-list > ul.horizontal|.responsive) of
- * only such links -> one row that wraps; a column view whose items hold only such links (one
+ * only such links -> one row that wraps (ul.responsive: option "stacked", one per line below 768px); a column view whose items hold only such links (one
  * per item: /new-onboard-experience, /100-years/chronicle) -> option "columns". Other anchor
  * links (sidebar next to the intro, single links in text) stay links. Runs after
  * rewriteAnchors (the hrefs point to the heading ids) and before the parsers. Returns the count.
@@ -1467,7 +1490,8 @@ function convertJumpLinks(document) {
   document.querySelectorAll('.imagelinklist').forEach((list) => {
     const links = list.isConnected && onlyJumpLinks(list);
     if (!links) return;
-    list.replaceChildren(jumpLinksBlock(document, links, []));
+    // ul.responsive: one link per line below 768px on www (option stacked; standing order 20, /de/en/flight-disruptions)
+    list.replaceChildren(jumpLinksBlock(document, links, list.querySelector('ul.responsive') ? ['stacked'] : []));
     converted += 1;
   });
   document.querySelectorAll('.twocolumn, .threecolumn, .fourcolumn').forEach((col) => {
@@ -2370,6 +2394,7 @@ export default function transform(hookName, element, payload) {
       markColumnViews(document, payload);
       markFlowSpacing(document);
     }
+    if (flow) markEmptyLines(document); // before the empty components go
     removeEmptyComponents(document, flow, payload);
     normalizeImages(document, true);
   }

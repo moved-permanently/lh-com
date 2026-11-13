@@ -202,6 +202,10 @@ function greyStyles(region, template) {
     if (first && first.nodeType === 1 && !inner.matches('.container-gray')
       && !content.classList.contains('section-padding-y-regular')
       && first.matches('.headline, .text') && !first.querySelector('.container-gray')) styles.push('spaced');
+    // (standing order 20) info and legal: before a padded AEM section (not grey): before-padded, as the stages before one; no CSS draws
+    // it on a grey section, the grey band rule skips such a band (/de/en/book-and-manage/flights/ana: our gap right at
+    // 390, short at 1440, no single value fits both widths)
+    else if (['info', 'legal'].includes(template.name) && inner && !inner.matches('.container-gray') && content && content.classList.contains('section-padding-y-regular')) styles.push('before-padded');
   } else if (!whole && region.parentElement && region.parentElement.matches('.section-content')
     && template.name !== 'info') {
     const next = firstComponent(region.nextSibling);

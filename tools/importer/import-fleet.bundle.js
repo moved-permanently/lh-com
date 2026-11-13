@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var tmp_bundle_fleet_356936_exports = {};
-  __export(tmp_bundle_fleet_356936_exports, {
-    default: () => tmp_bundle_fleet_356936_default
+  var tmp_bundle_fleet_395326_exports = {};
+  __export(tmp_bundle_fleet_395326_exports, {
+    default: () => tmp_bundle_fleet_395326_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -3890,6 +3890,21 @@ var CustomImportScript = (() => {
     return rewritten;
   }
   var JUMP_LINK = '[variant="anchor-down"][href]';
+  var EMPTY_LINE_PX = 56;
+  function markEmptyLines(document) {
+    const isText = (el) => !!el && (el.tagName === "P" && !!cleanText(el) && !/^\{[^}]*\}$/.test(cleanText(el)) || /^(UL|OL)$/.test(el.tagName));
+    let n = 0;
+    document.querySelectorAll("p").forEach((p) => {
+      if (![...p.children].every((c) => c.tagName === "BR")) return;
+      const t = p.textContent || "";
+      if (!t.includes("\xA0") || t.replace(/[\s\u00a0]/g, "")) return;
+      if (p.closest(".accordion, .accordionitem, maui-collapsible-item, maui-tab-control-panel-responsive, .tabs")) return;
+      if (!isText(p.previousElementSibling) || !isText(p.nextElementSibling)) return;
+      p.replaceChildren(document.createTextNode(`{spacer-${EMPTY_LINE_PX}}`));
+      n += 1;
+    });
+    return n;
+  }
   function onlyJumpLinks(el) {
     const links = [...el.querySelectorAll("[href]")];
     if (!links.length || !links.every((l) => l.matches(JUMP_LINK))) return null;
@@ -3912,7 +3927,7 @@ var CustomImportScript = (() => {
     document.querySelectorAll(".imagelinklist").forEach((list) => {
       const links = list.isConnected && onlyJumpLinks(list);
       if (!links) return;
-      list.replaceChildren(jumpLinksBlock(document, links, []));
+      list.replaceChildren(jumpLinksBlock(document, links, list.querySelector("ul.responsive") ? ["stacked"] : []));
       converted += 1;
     });
     document.querySelectorAll(".twocolumn, .threecolumn, .fourcolumn").forEach((col) => {
@@ -4581,6 +4596,7 @@ var CustomImportScript = (() => {
         markColumnViews(document, payload);
         markFlowSpacing(document);
       }
+      if (flow) markEmptyLines(document);
       removeEmptyComponents(document, flow, payload);
       normalizeImages(document, true);
     }
@@ -4714,6 +4730,7 @@ var CustomImportScript = (() => {
       const content = inner && inner.querySelector(":scope > .section-content");
       const first = content && firstComponent(content.firstChild);
       if (first && first.nodeType === 1 && !inner.matches(".container-gray") && !content.classList.contains("section-padding-y-regular") && first.matches(".headline, .text") && !first.querySelector(".container-gray")) styles.push("spaced");
+      else if (["info", "legal"].includes(template.name) && inner && !inner.matches(".container-gray") && content && content.classList.contains("section-padding-y-regular")) styles.push("before-padded");
     } else if (!whole && region.parentElement && region.parentElement.matches(".section-content") && template.name !== "info") {
       const next = firstComponent(region.nextSibling);
       if (next && next.nodeType === 1 && titledColumnView(next)) styles.push("before-column");
@@ -6322,7 +6339,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_fleet_356936_default = {
+  var tmp_bundle_fleet_395326_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -6362,5 +6379,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_fleet_356936_exports);
+  return __toCommonJS(tmp_bundle_fleet_395326_exports);
 })();
