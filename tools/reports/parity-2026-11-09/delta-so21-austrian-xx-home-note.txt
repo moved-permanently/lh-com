@@ -1,0 +1,22 @@
+# ema-cashub, standing order 21 (2026-11-13), item 3: Austrian /xx/en/homepage. Expected change: the page ends with www's
+# price note and its "General Conditions" link after the cards-icon block ("Looking for more than just a flight?"), as
+# www and the other 55 roots have it (1440 -7.32 -> -0.54 % off www, 390 -8.32 -> -0.88 %). DA's copy plus the delta,
+# not a re-import.
+# www (austrian-parity-010, 2026-11-10) shows the note and the button (its dialog text in the DOM, the button at y 3764 of
+# 4890 at 390). reimport-591-austrian-home-disclaimer.txt left xx/en out ("no dialog text on the page" in the snapshot it
+# was imported from), so DA's copy has neither: the tail is 229 px short at 390 and 136 px at 1440. The text is fr/en's,
+# word for word as www's on both roots; /xx/en/fragments/modals/general-conditions is on our host (200).
+# The delta (DA's copy read 2026-11-13 08:00 UTC, admin.da.live/source/moved-permanently/lh-austrian/xx/en/homepage.html,
+# 8,516 bytes): in the cards-icon section, right after the block's closing tag and before the section's, nothing else
+# changed (one insertion, the markup as DA's fr/en copy writes it):
+#   <p>*The prices incl. all taxes, fees, carrier surcharges may vary and serve as a guide for your selection.</p><p><a href="/xx/en/fragments/modals/general-conditions">General Conditions</a></p>
+# i.e. "All extra services</a></div></div></div></div>\n<div><div class="metadata">" becomes
+# "All extra services</a></div></div></div><p>…</p><p><a …>General Conditions</a></p></div>\n<div><div class="metadata">".
+# Measured as a draft (so20/draft-host2.mjs on austrian.turnsthe.page, EAGER=1; the published document as control equals
+# live: 4,483 / 3,266 px; www.* and the airline hosts refused, 18-19 a page, none sent): 390 4,483 -> 4,847 px (www
+# 4,890), 1440 3,266 -> 3,505 (www 3,524). The same with or without item 3's theme change (the link turns the homepage
+# band rules on either way). The rest at 390 is the flight search's and fare teaser's state without www's services.
+# Not in this list: pt/en (www has no note there either), ca/en and ca/fr (their dialog text inline: "STAYS" in
+# reimport-591-austrian-home-disclaimer.txt).
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, what changes on the page.
+READY	/xx/en/homepage.html	the note and the link above, after the cards-icon block	1440 -7.32 -> -0.54 %, 390 -8.32 -> -0.88 %

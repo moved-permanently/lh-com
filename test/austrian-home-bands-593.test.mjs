@@ -12,10 +12,11 @@ const end = css.indexOf('/* numbered steps', start);
 const block = css.slice(css.indexOf('*/', start) + 2, end > 0 ? end : undefined);
 const rules = block.replace(/\/\*[\s\S]*?\*\//g, '').split('}').map((r) => r.trim()).filter((r) => r.includes('{') && !r.startsWith('@media'));
 
-test('every rule of the set needs the patched document (a link to /fragments/modals/)', () => {
+// standing order 21 also lets a homepage that never had the dialog text inline have them (test/austrian-home-bands-so21)
+test('every rule of the set needs the patched document (a link to /fragments/modals/) or such a homepage', () => {
   const selectors = rules.map((r) => r.replace(/^@media[^{]*\{/, '').split('{')[0].trim()).filter(Boolean);
   assert.ok(selectors.length >= 14);
-  assert.ok(selectors.every((s) => s.startsWith('body.brand-austrian main:has(a[href*="/fragments/modals/"])')));
+  assert.ok(selectors.every((s) => s.startsWith('body.brand-austrian main:has(a[href*="/fragments/modals/"], :where(')));
 });
 
 test('the values measured on the bands', () => {
