@@ -4021,7 +4021,7 @@ var CustomImportScript = (() => {
     // TAP: the base theme (an entry of its own, so its switch is one line as every brand's)
     tap: { live: true },
     // Lufthansa Cargo: the base theme
-    cargo: {}
+    cargo: { live: true }
   };
   var mergeTheme = (a, b) => __spreadProps(__spreadValues(__spreadValues({}, a), b), {
     headings: __spreadValues(__spreadValues({}, a.headings), b.headings || {}),
