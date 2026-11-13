@@ -1,0 +1,6 @@
+# Expected change: /de/en/discover-lufthansa/lufthansa-fleet/351's seat map slideshow as wide as its section from 768 px (option wide, as www draws it: about 1200 px; ours half the row). Phones unchanged.
+# Standing order 18 (2026-11-13), item 2, lufthansa.com (lh-com). From the ranking (ranking-so18-lh-com-non-info.txt): www's 351 page shows its seat map at the content's width; boeing787's at half, as ours, so the option goes on this page's document, not into code.
+# Method: DA's copy plus the delta: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/lh-com-fleet-351-wide-so18.json --list tools/reports/parity-2026-11-09/delta-so18-lh-com-fleet-351-wide.txt --docs <DA copies> --out <dir> (--check to only report). The anchor is found once in DA's copy of 2026-11-14 00:50 CET; without the insert the result is DA's copy byte for byte.
+# Measured: our published copy as it is and with the option, rendered locally (aem up --html-folder, the head's metas as its metadata), against lh-parity-002c; the copy as it is gives the published numbers.
+# Each line: READY / HOLD, DA path, recording, the change, the result (1440, 390: before -> after %).
+READY	/de/en/discover-lufthansa/lufthansa-fleet/351	lh-parity-002c	carousel-lightbox wide	1440 17.76 -> 15.14; 390 15.53 -> 15.53

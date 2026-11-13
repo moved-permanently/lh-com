@@ -534,6 +534,29 @@ function whenNear(block, fn) {
 }
 
 /**
+ * lufthansa.com's sidebar view with the map in its main column (the stopover detail pages:
+ * .airem-sidebar, the map under the text, beside the aside; on phones between the text and the
+ * aside). The documents author the map right after the Columns Media sidebar: it goes to the end
+ * of the sidebar's first cell (its last row's), the sidebar takes the class with-map (its
+ * spacing, columns-media.css) and the map's empty wrapper goes.
+ * @returns {boolean} whether the map was moved
+ */
+export function intoSidebar(block) {
+  const wrapper = block.parentElement;
+  if (!document.body.classList.contains('brand-lufthansa')) return false;
+  if (!wrapper || !wrapper.classList.contains('poi-map-wrapper')) return false;
+  const prev = wrapper.previousElementSibling;
+  const sidebar = prev && prev.classList.contains('columns-media-wrapper')
+    && prev.querySelector(':scope > .columns-media.sidebar');
+  const cell = sidebar && sidebar.querySelector(':scope > div:last-child > div:first-child');
+  if (!cell) return false;
+  cell.append(block);
+  sidebar.classList.add('with-map');
+  if (!wrapper.children.length) wrapper.remove();
+  return true;
+}
+
+/**
  * Map of points of interest with pins, zoom buttons and a bubble per point.
  * @param {Element} block
  * @returns {Promise<void>} resolves when the map is drawn or the block hidden (at once in a
@@ -541,6 +564,7 @@ function whenNear(block, fn) {
  */
 export default function decorate(block) {
   instanceCount += 1;
+  intoSidebar(block);
   const locale = getLocale();
   const { config, points: authored } = readPoiMapRows(block);
   const settings = readPoiMapSettings(config);

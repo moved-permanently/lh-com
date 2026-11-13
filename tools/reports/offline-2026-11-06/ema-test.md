@@ -3857,3 +3857,28 @@ State at the start: nothing of mine unpushed (order 15's final section and its p
   /tmp/excat-offline, /tmp/excat-noairline and /tmp/cmp (built importer copies), logs/wt-ema-test.partial-so11 (an
   unfinished checkout), content/, migration-work/, tools/importer/reports/* (not mine), the 2026-11-07 autostash (not
   mine). My local preview servers are stopped.
+
+## Standing order 18 (received about 22:35 UTC, 2026-11-13, overnight)
+
+State at the start: nothing of mine uncommitted or unpushed (order 17's final section on main, Build success).
+Correction applied first: /de/en/overview-manage is on the owner's do-not-touch list. delta-so17-lh-com-overview-manage.txt
+now holds no row (withdrawn, the finding as an explanation only); the ranking says the same. No row for that page.
+
+1. **The comparison cuts to a recording marked cut off** (58620eac, test first: test/parity-compare-cut-so18.test.mjs).
+   The rule is in tools/parity/compare.js, which every EMA's ranking calls (run-batch.js, the measure scripts): when
+   one capture is marked cut off and the other is taller, the taller one is cut to its height before the pixels are
+   compared, so nothing below www's cut counts. A page shorter than the cut still counts what it lacks.
+   - Cut off means, in this order: `--a-truncated` / `--b-truncated` (or `truncatedA` / `truncatedB` in
+     `compareImages`); capture.js's `<png>.json` `"truncated"`; a source export's `capture.json` beside the png
+     (`widths[w].file`, `"truncated"`: the lh-parity drops); a drop's `manifest.json` beside the png or one folder up
+     (`pages[].widths[w].png` whose `measurements` scrollHeight is taller than the png: the b2b/discover/ita drops).
+     `--no-cut` (`cut: false`) keeps the old padding.
+   - How to call it: nothing changes. `node tools/parity/compare.js --a <www png> --b <ours png> --out <diff.png>
+     [--mask <ours png>.json]` finds the marks itself; run-batch.js passes its captures as before and keeps `cut` in
+     progress.json (`--recompare .` redoes old compares without a browser). The result json keeps `heightA` /
+     `heightB` as the images' own heights and adds `cut` ({image, from, to, reason} or null) and `truncatedA` /
+     `truncatedB` (true, false, null when unknown); `heightDiffRatio` is of the images compared.
+   - Census: the lh-parity drops have 159 recordings marked cut off (002a 33, 002b 40, 002c 31, 002d 24, 004a 9,
+     004b 22, 003 none); the b2b-parity 001-009, discover-parity-001 and ita-parity-002/005 drops none, so their
+     rankings do not change. On order 17's 410 lufthansa.com page-widths the tool cuts 77 (the other 9 of the 86 are
+     shorter than 8000 px on ours) and gives order 17's scratch numbers exactly (0 of 410 differ).

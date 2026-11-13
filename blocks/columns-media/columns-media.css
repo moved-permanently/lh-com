@@ -126,6 +126,19 @@ body.brand-lufthansa .columns-media.separated {
   display: none;
 }
 
+/* a sidebar with the map in its first cell (poi-map.js intoSidebar, the stopover detail pages):
+   www's view ends with its columns, 45px from the aside to the next section on phones (ours 87),
+   from 768px 43px from the map (ours 118, the cell's 40px below the map too) */
+body.brand-lufthansa .columns-media.sidebar.with-map {
+  padding-bottom: 0;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa .columns-media.sidebar.with-map .columns-media-row > div:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
 /* sidebar in a one-column view of its own (options sidebar padded, importer; 100-years "Under the
    symbol of the crane"): the column view's 3.2rem above and below the .airem-sidebar. 52px above
    after another component (20 + 32; 72 from 768px), 24px less when the block opens its section

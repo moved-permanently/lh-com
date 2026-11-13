@@ -6,7 +6,7 @@
    Run: node --test test/text-inserts-apply-so17.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { applyTextInserts, removeTextInserts } from '../tools/importer/text-inserts-apply.mjs';
+import { applyTextInserts, removeTextInserts, listPaths } from '../tools/importer/text-inserts-apply.mjs';
 
 const DA = '<body><header></header><main><div><h1 id="t">Title &amp; more</h1><div class="columns-media divider-above nested"><div><div><p><picture><img src="https://x/a-1440x815.png" alt=""></picture></p><h3 id="h">Heading</h3></div></div><div><div><h2 id="cs">Case</h2></div></div></div></div></main><footer></footer></body>';
 const INSERTS = [
@@ -34,4 +34,9 @@ test('an anchor not found once changes nothing; a second run changes nothing', (
   const again = applyTextInserts(once, INSERTS);
   assert.equal(again.html, once);
   assert.ok(again.results.every((r) => r === 'present'));
+});
+
+test('a list\'s READY rows, READY / HOLD first (order 18) or last (order 17)', () => {
+  const txt = ['# header', 'READY\t/a\tx', 'HOLD\t/b\tx', '/c\trec\tchange\tREADY', '/d\trec\tchange\tHOLD (why)'].join('\n');
+  assert.deepEqual(listPaths(txt), ['/a', '/c']);
 });

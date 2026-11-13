@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/discover-lufthansa/lufthansa-fleet/351",
+  "inserts": [
+   {
+    "after": "<div class=\"carousel-lightbox",
+    "text": " wide"
+   }
+  ]
+ }
+]

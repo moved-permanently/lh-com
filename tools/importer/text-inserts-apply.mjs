@@ -43,9 +43,12 @@ export function removeTextInserts(html, inserts) {
   }, html);
 }
 
-const listPaths = (txt) => txt.split('\n').map((l) => l.split('\t'))
-  .filter((c) => c[0].trim().startsWith('/') && (c.length === 1 || /^READY\b/.test(c[c.length - 1].trim())))
-  .map((c) => c[0].trim());
+/** A list's READY paths: READY / HOLD, then the path (order 18), or the path, READY last (17). */
+export const listPaths = (txt) => txt.split('\n').map((l) => l.split('\t').map((c) => c.trim()))
+  .map((c) => (/^(READY|HOLD)\b/.test(c[0]) ? { path: c[1] || '', ready: /^READY\b/.test(c[0]) }
+    : { path: c[0], ready: c.length === 1 || /^READY\b/.test(c[c.length - 1]) }))
+  .filter((r) => r.path.startsWith('/') && r.ready)
+  .map((r) => r.path);
 
 const main = () => {
   const args = process.argv.slice(2);

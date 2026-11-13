@@ -33,6 +33,18 @@
   touch-action: pan-x pan-y;
 }
 
+/* the map in a sidebar's first cell (intoSidebar): on phones 72px to the aside under it (with the
+   cell's 40px), from 768px nothing under it (www's view ends with the map) */
+body.brand-lufthansa .columns-media.sidebar .poi-map .poi-map-view {
+  margin-bottom: 32px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa .columns-media.sidebar .poi-map .poi-map-view {
+    margin-bottom: 0;
+  }
+}
+
 .poi-map .poi-map-view.is-dragging {
   cursor: grabbing;
 }
