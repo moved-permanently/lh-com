@@ -3710,3 +3710,28 @@ State at the start: nothing of mine unpushed (order 14's final section on main).
    - The only other recorded pages with a nested block are travel-solutions/lufthansa-group-airlines (de/de, de/en),
      whose rows are 83 px apart from 768 px (the brief after 526, row 36). A fix belongs in the nested option's layout (each picture a
      view of its own on phones, the text cell half the row from 768 px); measured below if time allowed.
+   Not measured in the end: the nested block's pictures sit inside its text cells (businesstogo) and its cells are
+   shaped otherwise on lufthansa-group-airlines, so a phone rule for "each picture a view of its own" would be fitted
+   to one page; and on businesstogo every single change so far was made up for elsewhere. Next step if wanted: the
+   nested option's cell layout from 768 px (the text cell half the row, as www's col-md-6) measured on the two pages.
+
+## Standing order 15, final section (14:25 UTC, 2026-11-13)
+
+- Item 1: the offline bulk importer is the default for all ten importers, the stock one only on EXCAT_IMPORT_STOCK=1
+  (abd3ad6e); 27 sampled documents byte for byte the same as from the stock importer with only airline hosts
+  aborted; what only the true stock importer loads named above (fonts, two widget stylesheets, preload links).
+- Item 2: delta-so15-b2b-entertainment-tabs.txt, READY, with tab-sections-apply.mjs (214b7dbf); the gate holds on DA's
+  copy; 390 15.54 -> 11.88.
+- Item 3: the German businesstogo pages' missing height is in their nested feature block: on phones the spacing
+  around its pictures (www's pictures each in a view of its own: about -250 px), from 768 px its text cell a third
+  of the row instead of half (two H2s on four lines, the picture rows shorter: net -142).
+- Before this section: the tests that read the themes folder 938 pass; the full suite on 928072f4 1017 files pass,
+  lint and stylelint 0.
+- Nothing uploaded, previewed or published; DA read only (two copies, GET); da-upload.mjs not run; no request to an
+  airline host (DA's xx/en pictures, which point at business.lufthansagroup.com, swapped for published media before
+  rendering). .migration/project.json not touched; Discover's offers page left for the owner.
+- Not in git and why: logs/p4/so15 (scratch: the importer comparison and its no-airline copy, DA's two copies as read,
+  renders, captures, the trials), logs/p4/so14 to so6 (earlier scratch), /tmp/excat-offline and /tmp/excat-noairline
+  (built importer copies), /tmp/cmp (the comparison workspaces), the recordings in /tmp and /tmp/dl-* (the drops'
+  private material), logs/wt-ema-test.partial-so11 (an unfinished checkout), content/, content-sites/, migration-work/,
+  tools/importer/reports/* (not mine), the 2026-11-07 autostash (not mine). My local preview servers are stopped.
