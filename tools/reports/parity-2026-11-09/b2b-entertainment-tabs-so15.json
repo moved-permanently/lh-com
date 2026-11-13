@@ -1,0 +1,39 @@
+[
+ {
+  "path": "/xx/en/program/experts/on-board/entertainment-on-board",
+  "tabs": [
+   {
+    "name": "Air Dolomiti",
+    "start": "In-Flight Entertainment System"
+   },
+   {
+    "name": "Austrian Airlines",
+    "start": "Austrian FlyNet – Wi-Fi on board"
+   },
+   {
+    "name": "Brussels Airlines",
+    "start": "In-flight service"
+   },
+   {
+    "name": "Discover Airlines",
+    "start": "Discover Airlines"
+   },
+   {
+    "name": "Edelweiss Air",
+    "start": "Films, music, and games provide variety and entertainment"
+   },
+   {
+    "name": "Eurowings",
+    "start": "Internet and Entertainment on board"
+   },
+   {
+    "name": "Lufthansa",
+    "start": "Even more digital entertainment on Lufthansa flights"
+   },
+   {
+    "name": "SWISS",
+    "start": "SWISS now offers free internet chat on all long-haul flights"
+   }
+  ]
+ }
+]

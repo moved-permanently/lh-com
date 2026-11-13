@@ -9,7 +9,7 @@ import fs from 'node:fs';
 
 const list = fs.readFileSync(new URL('../tools/reports/parity-2026-11-09/reimport-so14-b2b-entertainment-on-board-tabs.txt', import.meta.url), 'utf8');
 
-test('the list: its expected change first, one READY row, better at 390', () => {
+test('the list: its expected change first, one row, better at 390, on HOLD since order 15', () => {
   assert.match(list.split('\n')[0], /^# Expected change: \/xx\/en\/program\/experts\/on-board\/entertainment-on-board gets its airline tab set/);
   const rows = list.split('\n').filter((l) => l.startsWith('/')).map((l) => l.split('\t'));
   assert.equal(rows.length, 1);
@@ -18,5 +18,6 @@ test('the list: its expected change first, one READY row, better at 390', () => 
   assert.equal(rec, 'b2b-parity-004');
   const [, a, b] = result.match(/390 ([\d.]+) -> ([\d.]+)/);
   assert.ok(Number(b) < Number(a));
-  assert.equal(verdict, 'READY');
+  // standing order 15: HOLD, superseded by the delta on DA's copy (delta-so15-b2b-entertainment-tabs.txt)
+  assert.match(verdict, /^HOLD \(superseded by delta-so15-b2b-entertainment-tabs\.txt/);
 });
