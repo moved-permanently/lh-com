@@ -1,0 +1,13 @@
+# Standing order 15 (2026-11-13), item 1. Expected change: a new document /pl/pl/register-animal-cabin (pl/pl's own form
+# page, brief 582's own-document row; DA has none, lh-edge answers the path from xx/pl's today) with the form mapping the
+# other lufthansa.com forms have: config rows form = register-animal-cabin (the lh-forms worker's form id), success = pl/pl's
+# confirmation page, error = /error.html (as de/en's, a www link). Nothing else of the site changes.
+# Made with tools/markets/root-docs.mjs --from xx/pl --to pl/pl --doc register-animal-cabin (as the roots' navs and footers):
+# xx/pl's document with its links made pl/pl's (6 links into pl/pl, 1 www link to www's pl/pl, none left without a page);
+# the file is content/pl/pl/register-animal-cabin.plain.html in the workspace (with its metadata block). The form id and the
+# locale the block sends (pl-pl) pass the worker (test/form-config-so15); the confirmation path answers 200 on our host
+# (served from xx/pl's). Recipients: the worker's own configuration, not in the repo, DA or this list.
+# If you import it from brief 582's archive (lh-snapshots-097) instead, the form parser writes the same three rows (its
+# success from www's :redirect into /content/lh/markets/pl/pl/), then compare the two before choosing.
+# Columns: status, DA path, what to do, what changes.
+READY	/pl/pl/register-animal-cabin	upload content/pl/pl/register-animal-cabin.plain.html as the DA document (body/main wrapped), preview, publish	pl/pl's form page with its own document: its confirmation link pl/pl's (/pl/pl/prepare-for-your-trip/baggage/travelling-with-animals/register-animal/confirmation), the form posts register-animal-cabin with locale pl-pl
