@@ -3508,3 +3508,37 @@ Left out of git:
 - test/column-end-links-so10.test.mjs and its fixture: still the dropped fix's test.
 - The untracked import reports of earlier runs.
 - /tmp: the R2 archives (r2-110, r2-111), the base bundle and the offline-import workspaces.
+
+### Standing order 12 (2026-11-12 23:35 to 2026-11-13 05:00 CET)
+
+No requests to www or any airline host, nothing uploaded, previewed or published. Each push: whole-repo lint read 0 on a
+clean worktree of the rebased HEAD, stylelint on styles.css, columns-media.css and the theme files 0, the tests that
+read the changed files passed (one existing skip), Build green. No change this round deploys lh-edge (lists and the
+report only).
+
+1. **Order 11 finished.** Its final section is on main (9133cc5); the delta row's list has been there since 783764a.
+   The push was held up first by a lint worktree the interrupted session had left locked (unlocked and pruned; it held
+   no work). Since then the helper published the insights-imprint delta: live 3.2 / 6.5 (before rule A) -> 3.4 / 6.8
+   with rule A and the delta, as the drafts said; imprint 5.2 / 8.3.
+2. **Ranking (ranking-so12-lh-com.txt).** The 202 page-widths of ranking-so5 (10 % and over), measured again; every
+   capture was HTTP 200. The first run failed at the browser launch: after the restart only Chromium build 1254 is
+   installed, and the repo's playwright-core looks for 1208. logs/b604/capture-d.cjs takes the installed build; scores
+   match the old build (imprint 5.2 % both). Each step was paired with our section boundary or block. Shared causes:
+   - column-band-plain (HOLD): a grey column band before an unstyled section keeps our 48 px gap; www mostly has none.
+     Narrowed to leave out the shapes where www keeps it, on the 54 recorded page-widths: 22 better by more than 0.5
+     (entryprocesses 28.5 / 16.9 -> 17.4 / 6.5, doctor-on-board 9.9 -> 3.5, special-meals 9.9 -> 5.1) and 7 worse
+     (childrens-menus-on-board, with-children-at-the-airport, ana and flight-disruptions at 390, passenger-rights at
+     1440). www's markup is the same on childrens-menus-on-board and special-meals, so fresh recordings decide.
+   - plain-grey (not shipped): the same after a plain grey band, 19 better and 25 worse.
+   - fleet-carousel (text metrics) and related-articles (live content): no rule.
+   - The re-imports moved many rows since so5: my-logbook 20.7 -> 4.6 at 1440, data-collection-usa 18.7 -> 4.7 at
+     390, premium-economy-class 19.7 -> 10.1 at 1440.
+   - datenschutz stays open.
+3. **Capture request (capture-requests-ema-adobe.txt, on main):** the five worse pages of column-band-plain and two
+   references (special-meals, entryprocesses), each at 1440 and 390.
+
+Left out of git:
+- logs/b604: runners, captures, trial CSS, the patched capture and DOM-check scripts.
+- test/column-end-links-so10.test.mjs and its fixture: the dropped fix's test.
+- The untracked import reports of earlier runs.
+- /tmp: the R2 archives and the import workspaces.

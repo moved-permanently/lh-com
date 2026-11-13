@@ -25,6 +25,9 @@
 #   capture-requests-ema-adobe.txt; READY with them if they agree, or with your go on the mechanism.
 #   (/de/en/flights 390 read 47.3 in the narrowed run: a capture of 5404 px instead of 8000, its live content; the
 #   rule does not match it, the other runs read 0.5.)
+# - plain-grey (not shipped): the same before an unstyled section after a plain grey band (not a column band, flush or
+#   view band; menus-on-long-haul-flights +47 px): its 28 recorded documents, 56 page-widths, now -> no gap: 19 better,
+#   25 worse by more than 0.5 (articles/highlights 2.9 -> 7.2 at 1440, doctor-on-board-news 7.3 -> 11.1), sum -2.9.
 # - fleet-carousel: the fleet pages' "Other aircraft" slider at 390 (320, 32n, boeing787, 351): www's cards 30 px
 #   taller (equal heights from the tallest card, its description one line longer on www at the same width): text
 #   metrics, no rule.
