@@ -162,6 +162,42 @@ export default function parse(element, { document, url, params }) {
     return out;
   };
 
+  /**
+   * A table cell's inline content (www's fare tables, standing order 9 of 2026-11-13: "<b>Baggage</b><br>No baggage"):
+   * bold as <strong>, the line breaks, links and emphasis; other inline tags give their content; spaces folded.
+   */
+  const inlineNodes = (root) => {
+    const out = [];
+    [...root.childNodes].forEach((n) => {
+      if (n.nodeType === 3) {
+        const text = n.textContent.replace(/[ \t\r\n]+/g, ' ');
+        if (text) out.push(document.createTextNode(text));
+        return;
+      }
+      if (n.nodeType !== 1 || n.matches(SR_ONLY)) return;
+      if (n.tagName === 'BR') { out.push(document.createElement('br')); return; }
+      if (/^(B|STRONG)$/.test(n.tagName)) {
+        const strong = document.createElement('strong');
+        strong.append(...inlineNodes(n));
+        out.push(strong);
+        return;
+      }
+      if (/^(EM|I)$/.test(n.tagName)) {
+        const em = document.createElement('em');
+        em.append(...inlineNodes(n));
+        out.push(em);
+        return;
+      }
+      if (n.tagName === 'A' || (/^MAUI-.*LINK$/.test(n.tagName) && n.getAttribute('href'))) {
+        const link = makeLink(n);
+        if (link) out.push(link);
+        return;
+      }
+      out.push(...inlineNodes(n));
+    });
+    return out;
+  };
+
   /** A Lufthansa <maui-table> (div.table) as a plain <table>; its head row as <th> cells. */
   const convertTable = (node) => {
     const table = document.createElement('table');
@@ -177,8 +213,14 @@ export default function parse(element, { document, url, params }) {
           const wrap = document.createElement('div');
           [...cellEl.childNodes].forEach((n) => wrap.append(n.cloneNode(true)));
           const nodes = convertRichText(wrap);
-          // a cell of plain text stays text; paragraphs and lists stay as they are
-          if (nodes.length === 1 && nodes[0].tagName === 'P') cell.append(...nodes[0].childNodes);
+          // a cell of inline content with bold or line breaks keeps them (www's fare tables); a cell of plain text
+          // stays text; paragraphs and lists stay as they are
+          const inline = !wrap.querySelector('p, ul, ol, h1, h2, h3, h4, h5, h6, div, table') && wrap.querySelector('b, strong, br');
+          if (inline) {
+            const kept = inlineNodes(wrap);
+            while (kept.length && kept[0].nodeType === 3 && !kept[0].textContent.trim()) kept.shift();
+            cell.append(...kept);
+          } else if (nodes.length === 1 && nodes[0].tagName === 'P') cell.append(...nodes[0].childNodes);
           else if (nodes.length) cell.append(...nodes);
           else cell.textContent = visibleText(cellEl);
           tr.append(cell);

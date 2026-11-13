@@ -4098,3 +4098,46 @@ no test committed for it.
 - **residents-in-sicily (+1.6 / +3.0 %), ITA row 43, item 1's rest:** under a padded last section www has only the
   section's padding; a padded last section keeps no gap (test the same way): 1440 2662 -> 2614 (www 2620), 390 3842 ->
   3794 (3730); the 39 recorded ITA pages with the rule: no other page changes.
+
+- **The parser behind the strollers' cells:** tools/importer/parsers/accordion-columns.js (its 2 hours since the other
+  EMA's commit past) now keeps a cell's inline content (bold as <strong>, the line breaks, links, emphasis) when the
+  cell has no paragraphs (test/accordion-columns-cell-markup-592.test.mjs, red on main's parser, green after; the
+  parser's other tests in the suite). The import bundles not rebuilt (no aem-import-helper on this machine), as before:
+  the next bundle build carries it.
+
+**Item 3, SWISS:** the drop's swiss-parity-006 (78,146,198 bytes, sha256
+8b7cc9588d5e0bf02a76089251d319558a5a9f444ddcdec5589cebc22232e85b) and -007 (78,047,279 bytes,
+4fe10159573434f2c33e56466d067c5a5adb91a2e209d4883e22d4f1c1239c5a), recorded 01:39 and 02:02 UTC: /ch/en/offers is
+51,105 px at 1440 and 85,796 at 390 in both (005: 32,382 / 31,953, so that one was a list still loading), about 500
+fare cards (998 "CHF"); the homepage 4,413 / 5,086 in both, as in 005. Ours stays 2,218 / 1,521 on offers: our finder
+shows "No results for your current origin selection" without www's fare data. Data, not layout: nothing to change in
+code (row 52 stands, its numbers now from 007). The homepage's -3.8 % at 1440 is its flight offers block, the same
+data. /ch/en/prepare +2.8 % at 390: our last section's 48 px over the footer, www's 22; a SWISS rule for it fails the
+gate on book-and-manage (-0.4 -> -2.0 % at 390, -0.2 -> -2.4 % at 1440, item 1's run). No SWISS change this order.
+
+## Final section, standing order 9 (2026-11-13, 00:40 to 06:00 CET)
+
+**Commits on main** (each: whole-repo `npm run lint` exit 0 before and after the rebase and after every retry rebase,
+stylelint on ita.css when it changed, the full suite 0 failures before and, when the rebase brought commits, after it,
+`git show --stat` as given, the GitHub Build read, the smoke of 14 hosts before and after):
+- 86cc84ec capture-requests-ema-lufthansa.txt (SWISS offers and homepage). Build success. The user's captures came as
+  swiss-parity-006 and -007 (above).
+- 34db076f the strollers' 37 table cells as www's into DA's copy (tools/importer/ita-cells-apply.mjs);
+  reimport-592-ita-strollers-cells.txt READY.
+- 18116ebc ITA rows 42 (the eJournals form) and 43 (a padded last section without the gap to the footer).
+- This commit: the accordion-columns parser's cells, this final section.
+
+**Not shipped:** item 1's shared 20 px gap (21 pages worse; www's gap depends on what ends the page); long-haul's rule
+before the band (390 worse by 1.2); no SWISS change (data, or the gate).
+
+**Process:** the browser build changed with the service restart (1208 -> 1254): every number of this order against a
+fresh baseline (00:05 UTC). Rows 42 and 43: the rules drafted and measured in a CSS override folder first, the tests
+written before the theme changed and run red on main's theme. The ship script's retry path runs the lints again, not
+the suite.
+
+**Left uncommitted, and why:** `.migration/project.json` (the lh-tap entry, not mine); everything under `.scratch/`
+(excluded from git): the drop's swiss-parity-006 and -007, DA's copy of the strollers page and the delta's output (DA
+content for the helper's run), the CSS override folders, drafts, measuring scripts and logs.
+
+**Process, requests:** only our hosts, the drop and DA (one GET of the strollers copy from my session, not from tests);
+no request to an airline host; no da-upload.mjs call, no upload, preview or publish by me.
