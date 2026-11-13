@@ -348,3 +348,23 @@
     margin-bottom: 70px;
   }
 }
+
+/* in-view (the importer's option for a slideshow inside a www column view: its marks are the view's
+   padding, 40px above at every width, the view's end below): no margins of its own; the margins
+   above were measured on documents without marks (fleet pages before brief 461). Two stacked
+   below 768px stay 40px apart. /de/en/744: the deck labels 40px, the next heading 79px closer */
+.carousel-lightbox.in-view.in-view,
+.carousel-lightbox-pair > .carousel-lightbox-wrapper > .carousel-lightbox.in-view.in-view {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.carousel-lightbox-wrapper + .carousel-lightbox-wrapper > .carousel-lightbox.in-view.in-view {
+  margin-top: 40px;
+}
+
+@media (width >= 768px) {
+  .carousel-lightbox-pair > .carousel-lightbox-wrapper + .carousel-lightbox-wrapper > .carousel-lightbox.in-view.in-view {
+    margin-top: 0;
+  }
+}

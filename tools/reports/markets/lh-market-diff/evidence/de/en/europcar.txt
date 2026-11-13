@@ -1,0 +1,16 @@
+root    /ae/en/europcar
+version /de/en/europcar
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 24:
+- <div.text>
+- <div.richtext>
+- <p>
+- <p.copytext-medium>
+- "You will be entering your data for this reservation directly into the external car rental platform of Meili Travel Technology Ltd. (Ireland) which is displayed in our website. Please see the privacy policy of Meili Travel Technology Ltd. for more information on the handling of your personal data. P
+- <p>
+- <div.separator>
+- <div.hr>
+- <maui-divider>
+- <div.separator>
+- <div.hr.hr-no-layout>
+- <maui-divider>

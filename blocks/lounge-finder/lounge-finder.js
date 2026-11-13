@@ -20,8 +20,9 @@ import { markSource } from '../../scripts/lh-data.js';
  * (Yilu, the live travelintegration shop), then catalogs/lounges/BUS/{city}, keeping the
  * lounges Yilu sells, with price and a "Purchase Lounge Access" link to
  * lufthansa.travelintegration.com/lounges/product.
- * The /service/api routes go directly to www.lufthansa.com (catalogs/ and labels/ are direct
- * routes of scripts/lh-data.js), the recordings as fallback (exact request only); Yilu is
+ * On www's own hosts the /service/api routes are same-origin calls. On our hosts (brief 539) the
+ * labels, cities and searches come from www's recorded answers under /data/lounges
+ * (scripts/lounge-data.js; de and en, other languages read en) and www is never called; Yilu is
  * called directly and never recorded.
  * ------------------------------------------------------------------------------------------- */
 

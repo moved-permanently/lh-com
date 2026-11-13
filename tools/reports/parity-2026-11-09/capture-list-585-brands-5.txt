@@ -1,0 +1,36 @@
+# ema-lufthansa's fifth capture list for the night of 2026-11-10: the other roots' rows of reimport-585-ita-two-up-82.txt.
+# For the Captures child; no request to an airline host from ema-lufthansa.
+# Why: capture list 4's 49 it/en and it/it pages (ita-snapshots-022) give "two-up" through main's importer for 47 of them
+# (reimport-585-ita-two-up-snapshots.txt); these are the 82-list's rows on the other roots, which have no snapshot
+# tonight. Full HTML snapshots as ita-snapshots-022, archive ita-snapshots-NNN.
+https://www.ita-airways.com/br/pt/book-and-prepare/digital-services
+https://www.ita-airways.com/br/pt/book-and-prepare/other-requests/accessible-travel
+https://www.ita-airways.com/br/pt/book-and-prepare/other-requests/families-and-children/unaccompained-minors
+https://www.ita-airways.com/br/pt/manage-my-bookings/manage/manage-my-bookings
+https://www.ita-airways.com/br/pt/manage-my-bookings/manage/view-and-manage-flight
+https://www.ita-airways.com/br/pt/manage-my-bookings/partners/airport-transfer
+https://www.ita-airways.com/de/de/book-and-prepare/digital-services
+https://www.ita-airways.com/de/de/manage-my-bookings/manage/manage-my-bookings
+https://www.ita-airways.com/de/de/manage-my-bookings/manage/view-and-manage-flight
+https://www.ita-airways.com/de/de/manage-my-bookings/partners/airport-transfer
+https://www.ita-airways.com/es/es/book-and-prepare/digital-services
+https://www.ita-airways.com/es/es/book-and-prepare/other-requests/accessible-travel
+https://www.ita-airways.com/es/es/manage-my-bookings/manage/manage-my-bookings
+https://www.ita-airways.com/es/es/manage-my-bookings/manage/view-and-manage-flight
+https://www.ita-airways.com/es/es/manage-my-bookings/partners/airport-transfer
+https://www.ita-airways.com/fr/fr/book-and-prepare/digital-services
+https://www.ita-airways.com/fr/fr/manage-my-bookings/manage/manage-my-bookings
+https://www.ita-airways.com/fr/fr/manage-my-bookings/manage/view-and-manage-flight
+https://www.ita-airways.com/fr/fr/manage-my-bookings/partners/airport-transfer
+https://www.ita-airways.com/gr/el/book-and-prepare/digital-services
+https://www.ita-airways.com/gr/el/manage-my-bookings/manage/manage-my-bookings
+https://www.ita-airways.com/gr/el/manage-my-bookings/manage/view-and-manage-flight
+https://www.ita-airways.com/gr/el/manage-my-bookings/partners/airport-transfer
+https://www.ita-airways.com/jp/ja/book-and-prepare/digital-services
+https://www.ita-airways.com/jp/ja/manage-my-bookings/manage/manage-my-bookings
+https://www.ita-airways.com/jp/ja/manage-my-bookings/manage/view-and-manage-flight
+https://www.ita-airways.com/jp/ja/manage-my-bookings/partners/airport-transfer
+https://www.ita-airways.com/nl/nl/book-and-prepare/digital-services
+https://www.ita-airways.com/nl/nl/manage-my-bookings/manage/manage-my-bookings
+https://www.ita-airways.com/nl/nl/manage-my-bookings/manage/view-and-manage-flight
+https://www.ita-airways.com/nl/nl/manage-my-bookings/partners/airport-transfer

@@ -1,0 +1,40 @@
+root    /cn/de/automatic-check-in
+version /de/de/automatic-check-in
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 173:
+- @href=http://www.lufthansa.com/{R}/prepare-for-your-trip/all-check-in/check-in-information
++ @href=http://www.lufthansa.com/{R}/prepare-for-your-trip/all-check-in/online-check-in-info
+  @target=_self
+  <span>
+- "Annahmeschlusszeiten"
++ "Online Check-in"
+  <maui-icon>
+  @slot=icon
+  …
++ <li.active>
++ <span.mb-0>
++ "Automatischer Check-in"
++ <i.lh.icon>
+  <li>
+  <a.nav-link.mb-0>
+- @href=http://www.lufthansa.com/{R}/prepare-for-your-trip/all-check-in/online-check-in-info
++ @href=http://www.lufthansa.com/{R}/prepare-for-your-trip/all-check-in/pre-check-in
+  @target=_self
+  <span>
+- "Online Check-in"
++ "Vorabend Check-in"
+  <maui-icon>
+  @slot=icon
+  …
+- <li.active>
+- <span.mb-0>
+- "Automatischer Check-in"
+- <i.lh.icon>
+  <li>
+  <a.nav-link.mb-0>
+- @href=http://www.lufthansa.com/{R}/prepare-for-your-trip/all-check-in/pre-check-in
++ @href=http://www.lufthansa.com/{R}/prepare-for-your-trip/all-check-in/baggage-drop
+  @target=_self
+  <span>
+- "Vorabend Check-in"
++ "Gepäckabgabe"

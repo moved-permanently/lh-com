@@ -205,7 +205,8 @@ test('rows 28 to 33: FAQ questions, link tiles, the picture above the title, tex
   assert.match(part, /\.accordion-columns\.faq \.accordion-columns-title \{\s*padding: 12px 40px 12px 0;[^}]*font-family: var\(--body-font-family\);[^}]*font-weight: 600;/);
   assert.match(part, /body\.brand-tap \.cards-icon:not\(\.cards-icon-tap\) \.cards-icon-tile \{[^}]*min-height: 72px;[^}]*background-color: #f7f7f8;/);
   assert.match(part, /\.default-content-wrapper > p:has\(\+ h1\) > picture img \{\s*width: 100%;\s*height: 380px;\s*object-fit: cover;/);
-  assert.match(part, /\.cards-teaser > ul > li:has\(> \.cards-teaser-body > p:not\(\.cards-teaser-cta\)\) \{\s*margin: 16px;[^}]*box-shadow: 0 8px 16px rgb\(0 0 0 \/ 10%\);/);
+  // the card rules' condition since TAP row 156 (standing order 14): any paragraph, a CTA alone too, at the old weight
+  assert.match(part, /\.cards-teaser > ul > li:has\(> \.cards-teaser-body > p:not\(\.cards-teaser-title\)\) \{\s*margin: 16px;[^}]*box-shadow: 0 8px 16px rgb\(0 0 0 \/ 10%\);/);
   assert.match(part, /\.cards-teaser-cta-link:any-link \{[^}]*border: 1px solid #65c922;[^}]*border-radius: 999px;/);
   assert.match(part, /li:has\(> \.cards-card-image\) \{\s*--tap-tier: #55aa1c;[^}]*border-top: 8px solid var\(--tap-tier\);/);
   ['#a4a6a8', '#ae975d', '#47454a'].forEach((c) => assert.equal(part.includes(`--tap-tier: ${c};`), true, c));

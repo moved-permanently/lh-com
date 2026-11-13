@@ -161,6 +161,28 @@ export default function parse(element, { document, url, params }) {
     add(row);
   }
 
+  // www's older date field (div.input > label + input.forms-datepicker, the jQuery date picker; Brussels' feedback
+  // forms' "Flight Date", SWISS's forms): a date row, its mask from the hidden date-format ("dd/mm/yy" -> DD/MM/YYYY)
+  function pickerDate(box) {
+    const field = box.querySelector('input.forms-datepicker');
+    if (!field) return;
+    const wrapper = wrapperOf(box);
+    const format = attr((wrapper || box).querySelector('input[name="date-format"]'), 'value');
+    const mask = /^[dmy]+([./-])[dmy]+\1[dmy]+$/i.test(format)
+      ? format.split(/[./-]/).map((g) => ({ d: 'DD', m: 'MM', y: 'YYYY' })[g[0].toLowerCase()]).join(format.match(/[./-]/)[0])
+      : '';
+    const label = field.id ? box.querySelector(`label[for="${field.id}"]`) : null;
+    add({
+      label: text(label || box.querySelector('label')) || attr(field, 'placeholder'),
+      type: 'date',
+      name: nameOf(field),
+      required: requiredOf(field, wrapper),
+      message: messageOf(field, wrapper, false),
+      constraint: attr(wrapper, 'data-cmp-constraint-message'),
+      rules: mask ? [`mask=${mask}`] : [],
+    });
+  }
+
   function street(box) {
     const field = box.querySelector('input:not([type="hidden"])');
     if (!field) return;
@@ -250,7 +272,8 @@ export default function parse(element, { document, url, params }) {
       type: 'checkbox',
       name: nameOf(boxes[0]),
       required: required ? 'yes' : '',
-      options: boxes.map((b) => `${clean(b.getAttribute('value') || '')}=${attr(b, 'label') || text(b) || attr(b, 'data-aria-label')}`),
+      // a box checked at load (Brussels' "this account is an Euro account") keeps it: the block's {selected}
+      options: boxes.map((b) => `${clean(b.getAttribute('value') || '')}=${attr(b, 'label') || text(b) || attr(b, 'data-aria-label')}${has(b, 'checked') ? ' {selected}' : ''}`),
       message: attr(boxes[0], 'data-customerror') || attr(wrapper, 'data-cmp-required-message'),
       rules: targets.length ? [`toggles=${targets.join(', ')}`] : [],
     });
@@ -391,6 +414,8 @@ export default function parse(element, { document, url, params }) {
     if (add_) rules.push(`add=${add_}`);
     if (removeBtn) rules.push(`remove=${attr(removeBtn, 'aria-label')}`);
     if (remaining) rules.push(`remaining=${remaining}`);
+    // hidden until a checkbox shows it (Brussels' "Show additional passengers": .collapse, data-target)
+    if (sub.classList.contains('collapse') || sub.classList.contains('d-none')) rules.push('hidden');
     add({
       label: legend.replace(/(\d+)(?!.*\d)/, '{n}'),
       type: 'fieldset',
@@ -455,6 +480,7 @@ export default function parse(element, { document, url, params }) {
     if (el.matches('maui-stepper')) { stepper(el); return; }
     if (el.matches('maui-autocomplete')) { autocomplete(el); return; }
     if (el.matches('.streetAddress')) { street(el); return; }
+    if (el.matches('div.input') && el.querySelector('input.forms-datepicker')) { pickerDate(el); return; }
     if (el.matches('maui-input')) { input(el); return; }
     if (el.matches('section.forms-filedrop')) { file(el); return; }
     if (el.matches('div.upload') && el.querySelector('input.forms-file-upload')) { upload(el); return; }

@@ -1,0 +1,7 @@
+# The standing order after 570 (ema-cashub): pages to record in the next capture window (rendered, www requests by the capture child only), 1440 and 390 each. Item 4: Brussels checked-baggage's tab control "Europe / Intercontinental" (panels with a table) has no rendered recording; the R2 drop's snapshot (2026-10-30) shows the control in every language. To confirm before its re-import: www shows the tab control at both widths and in each language (the German B2B pages did not). reimport-570-brussels-tab-tables.txt waits for this.
+https://www.brusselsairlines.com/be/en/extra-services/baggage/checked-baggage 1440 390 # 1: tab control Europe / Intercontinental
+https://www.brusselsairlines.com/be/fr/extra-services/baggage/checked-baggage 1440 390 # 2: En Europe / Intercontinental
+https://www.brusselsairlines.com/be/nl/extra-services/baggage/checked-baggage 1440 390 # 3: Europa / Intercontinentaal
+https://www.brusselsairlines.com/de/de/extra-services/baggage/checked-baggage 1440 390 # 4: Europa / Interkontinental
+https://www.brusselsairlines.com/it/it/extra-services/baggage/checked-baggage 1440 390 # 5: Europa / Intercontinentale
+https://www.brusselsairlines.com/es/es/extra-services/baggage/checked-baggage 1440 390 # 6: Europa / Intercontinental

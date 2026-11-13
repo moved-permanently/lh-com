@@ -22,7 +22,14 @@ import { viewerNodes, embedNodes } from './media-nodes.js';
  * Source links carry an icon <em class="lh lh-arrow-right">, zero-width characters and an
  * sr-only "opens in a new tab" span; those are dropped.
  */
-export default function parse(element, { document }) {
+export default function parse(element, { document, url, params }) {
+  // Brussels pages: a panel heading keeps www's size class (h3.headline.heading-small, the cleanup's markHeadingStyles
+  // writes "{heading-small}"): the conditions of carriage's 70 article subheadings (standing order 17); other brands
+  // as before
+  let pageHost = '';
+  try { pageHost = new URL((params && params.originalURL) || url || '').hostname; } catch (e) { pageHost = ''; }
+  const KEEP_HEADING_SIZE = /(^|\.)brusselsairlines\.com$/.test(pageHost);
+  const HEADING_SIZES = ['heading-large', 'heading-medium', 'heading-small', 'heading-copytext-large', 'heading-copytext-medium'];
   const SR_ONLY = '.sr-only, .visually-hidden, maui-screen-reader-label, [slot="box"]';
   const ZW = /[​-‍﻿]/g;
   const clean = (s) => (s || '').replace(ZW, '').replace(/\s+/g, ' ').trim();
@@ -155,6 +162,42 @@ export default function parse(element, { document }) {
     return out;
   };
 
+  /**
+   * A table cell's inline content (www's fare tables, standing order 9 of 2026-11-13: "<b>Baggage</b><br>No baggage"):
+   * bold as <strong>, the line breaks, links and emphasis; other inline tags give their content; spaces folded.
+   */
+  const inlineNodes = (root) => {
+    const out = [];
+    [...root.childNodes].forEach((n) => {
+      if (n.nodeType === 3) {
+        const text = n.textContent.replace(/[ \t\r\n]+/g, ' ');
+        if (text) out.push(document.createTextNode(text));
+        return;
+      }
+      if (n.nodeType !== 1 || n.matches(SR_ONLY)) return;
+      if (n.tagName === 'BR') { out.push(document.createElement('br')); return; }
+      if (/^(B|STRONG)$/.test(n.tagName)) {
+        const strong = document.createElement('strong');
+        strong.append(...inlineNodes(n));
+        out.push(strong);
+        return;
+      }
+      if (/^(EM|I)$/.test(n.tagName)) {
+        const em = document.createElement('em');
+        em.append(...inlineNodes(n));
+        out.push(em);
+        return;
+      }
+      if (n.tagName === 'A' || (/^MAUI-.*LINK$/.test(n.tagName) && n.getAttribute('href'))) {
+        const link = makeLink(n);
+        if (link) out.push(link);
+        return;
+      }
+      out.push(...inlineNodes(n));
+    });
+    return out;
+  };
+
   /** A Lufthansa <maui-table> (div.table) as a plain <table>; its head row as <th> cells. */
   const convertTable = (node) => {
     const table = document.createElement('table');
@@ -170,8 +213,14 @@ export default function parse(element, { document }) {
           const wrap = document.createElement('div');
           [...cellEl.childNodes].forEach((n) => wrap.append(n.cloneNode(true)));
           const nodes = convertRichText(wrap);
-          // a cell of plain text stays text; paragraphs and lists stay as they are
-          if (nodes.length === 1 && nodes[0].tagName === 'P') cell.append(...nodes[0].childNodes);
+          // a cell of inline content with bold or line breaks keeps them (www's fare tables); a cell of plain text
+          // stays text; paragraphs and lists stay as they are
+          const inline = !wrap.querySelector('p, ul, ol, h1, h2, h3, h4, h5, h6, div, table') && wrap.querySelector('b, strong, br');
+          if (inline) {
+            const kept = inlineNodes(wrap);
+            while (kept.length && kept[0].nodeType === 3 && !kept[0].textContent.trim()) kept.shift();
+            cell.append(...kept);
+          } else if (nodes.length === 1 && nodes[0].tagName === 'P') cell.append(...nodes[0].childNodes);
           else if (nodes.length) cell.append(...nodes);
           else cell.textContent = visibleText(cellEl);
           tr.append(cell);
@@ -321,6 +370,21 @@ export default function parse(element, { document }) {
     return out;
   };
 
+  /** The cleanup's separator placeholder ("lh-separator spacer-N") right before a node's component, or ''. */
+  const separatorBefore = (node, root) => {
+    let el = node.closest('.headline') || node;
+    while (el && el !== root) {
+      let prev = el.previousSibling;
+      while (prev && prev.nodeType === 3 && !prev.nodeValue.trim()) prev = prev.previousSibling;
+      if (prev) {
+        const m = prev.nodeType === 8 && prev.nodeValue.trim().match(/^lh-separator ((?:spacer|divider)-\d{1,3})$/);
+        return m ? m[1] : '';
+      }
+      el = el.parentElement;
+    }
+    return '';
+  };
+
   /** Panel content: column by column (heading + links), or the rich text as a whole. */
   const convertPanel = (panel) => {
     const content = [];
@@ -359,6 +423,15 @@ export default function parse(element, { document }) {
         } else if (/^H[1-6]$/.test(node.tagName)) {
           const text = visibleText(node);
           if (!text) return;
+          // Brussels: the cleanup's separator placeholder right before the heading's component (www's
+          // .separator .hr-no-layout between a text and the next headline, the conditions of carriage's
+          // 11 px) as a spacer paragraph before the heading (standing order 18)
+          const spacer = KEEP_HEADING_SIZE && separatorBefore(node, part);
+          if (spacer) {
+            const sp = document.createElement('p');
+            sp.textContent = `{${spacer}}`;
+            content.push(sp);
+          }
           const h = document.createElement(columns.length ? 'h3' : node.tagName);
           // the icon of a teaser without a target (a.teaser.partner > h4.teaser-heading >
           // img.icon-svg + .teaser-heading-text, /gefaehrliche-gegenstaende): kept in the heading
@@ -372,6 +445,8 @@ export default function parse(element, { document }) {
             h.append(img);
           }
           h.append(text);
+          const size = KEEP_HEADING_SIZE && HEADING_SIZES.find((c) => node.classList.contains(c));
+          if (size) h.classList.add(size);
           content.push(h);
         } else if (node.matches('.richtext')) {
           content.push(...convertRichText(node));
@@ -430,6 +505,15 @@ export default function parse(element, { document }) {
     options.push(expanded.length === 1 ? 'open-first' : `open-${expanded.length}`);
   } else {
     expanded.forEach((k) => options.push(`open-item-${k}`));
+  }
+  // Group for Business: an accordion without items (www's empty <maui-collapsible theme="b2b">,
+  // SWISS Senses de/en's before its title) is no block, whose wrapper took the space between blocks
+  // (standing order 7 of 2026-11-12). Other sites' empty ones (Austrian's tariff pages) stay as they
+  // were until a recording shows what www draws there
+  const b2b = !!element.querySelector('maui-collapsible[theme="b2b"]') || !!element.closest('[theme="b2b"]');
+  if (!cells.length && b2b) {
+    element.remove();
+    return;
   }
   const blockName = options.length ? `accordion-columns (${options.join(', ')})` : 'accordion-columns';
 

@@ -97,7 +97,8 @@ test('rows 12, 13 and 15, the breadcrumb, the menu pages\' cards and the info pa
   has(css, /body\.brand-ita \.carousel-cards:is\(\.grid, \.four-up\) \.carousel-cards-slide:not\(\.carousel-cards-wide\) \.carousel-cards-body > :is\(h1, h2, h3, h4, h5, h6\) \{ font-size: clamp\(22px, calc\(22px \+ 6 \* \(100vw - 375px\) \/ 1065\), 28px\); line-height: 1\.1; \}/);
   has(css, /body\.brand-ita \.carousel-cards:is\(\.grid, \.four-up\) \.carousel-cards-slide:not\(\.carousel-cards-wide\) \.carousel-cards-body > p:not\(\.carousel-cards-cta\) \{ font-size: 16px; line-height: 24px; \}/);
   has(css, /body\.brand-ita \.carousel-cards:is\(\.grid, \.four-up\) \.carousel-cards-body > p:has\(\+ \.carousel-cards-cta\) \{ margin-bottom: 20px; \}/);
-  has(css, /body\.brand-ita \.carousel-cards:is\(\.grid, \.four-up\) \.carousel-cards-slide:not\(\.carousel-cards-wide\) \.carousel-cards-body > \.carousel-cards-cta \{ font-size: 16px; line-height: 17\.6px; \}/, 'the link row 16/17.6 bold');
+  // www's btn-link: 14 px at 375 to 16 at 1440, line-height 1.1 (ITA row 33: one line on phones, as www's)
+  has(css, /body\.brand-ita \.carousel-cards:is\(\.grid, \.four-up\) \.carousel-cards-slide:not\(\.carousel-cards-wide\) \.carousel-cards-body > \.carousel-cards-cta \{ font-size: clamp\(14px, calc\(14px \+ 2 \* \(100vw - 375px\) \/ 1065\), 16px\); line-height: 1\.1; \}/, 'the link row 14 to 16 px bold, 1.1');
   has(css, /body\.brand-ita \.accordion-columns\.faq \.accordion-columns-item \{ margin-bottom: 8px; border: 1px solid #d1d1d5; border-radius: 8px; box-shadow: 0 3px 6px #0b23401a; \}/);
   has(css, /body\.brand-ita \.accordion-columns\.faq \.accordion-columns-title \{ padding: 12px 48px 12px 16px; font-size: calc\(20px \* var\(--a11y-scale, 1\)\); line-height: calc\(28px \* var\(--a11y-scale, 1\)\); \}/);
 });

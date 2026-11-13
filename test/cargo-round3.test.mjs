@@ -91,17 +91,17 @@ test('row 18: www\'s image lists (section image-list: Meet the Executive Board, 
   has(css, new RegExp(`@media \\(width >= 768px\\) \\{[^@]*${S} \\.accordion-columns-panel :is\\(p, ul, ol, h2, h3, h4, h5, h6\\) \\{[^}]*max-width: none;`), 'the panel\'s text across it (not the faq answers\' 66 %)');
 });
 
-test('row 18: the history timeline (carousel-cards (timeline)) as www\'s: white cards (the year 36 px, the title 16 px bold, the text 13/22), on phones down a navy line at the left with a dot per card, from 768 px a third of the row each, above and below a white line in turn with a dot under each; no dots row, the arrows round at the line\'s ends; a grey band behind it (www\'s photo is not in lh-cargo\'s DA)', () => {
+test('row 18: the history timeline (carousel-cards (timeline)) as www\'s: white cards (the year 40 px, the title 18 px bold, the text 15/22.5 since the brief after 531), on phones down a navy line at the left with a dot per card, from 768 px a third of the row each, above and below a white line in turn with a dot under each; no dots row, the arrows round at the line\'s ends; a grey band behind it (www\'s photo is not in lh-cargo\'s DA)', () => {
   const css = cargo();
   const T = 'body\\.brand-cargo \\.carousel-cards\\.timeline';
   has(css, /body\.brand-cargo main \.section:has\(\.carousel-cards\.timeline\) \{[^}]*margin-bottom: 0;[^}]*padding: 80px 0;[^}]*background-color: #8a8a8a;/);
   has(css, new RegExp(`${T} \\.carousel-cards-slide(, [^{]*)? \\{[^}]*overflow: visible;[^}]*border: 0;[^}]*background: none;[^}]*box-shadow: none;`));
-  has(css, new RegExp(`${T} \\.carousel-cards-body \\{[^}]*padding: 20px;[^}]*border-radius: 4px;[^}]*background-color: #fff;`));
-  has(css, new RegExp(`${T} \\.carousel-cards-body > p:first-child \\{[^}]*font-size: 36px;`));
+  has(css, new RegExp(`${T} \\.carousel-cards-body \\{[^}]*padding: 20px;[^}]*border-radius: 10px;[^}]*background-color: #fff;`));
+  has(css, new RegExp(`${T} \\.carousel-cards-body > p:first-child \\{[^}]*font-size: 40px;`));
   has(css, new RegExp(`${T} \\.carousel-cards-dots \\{[^}]*display: none;`));
   has(css, new RegExp(`@media \\(width < 768px\\) \\{[^@]*${T} \\.carousel-cards-track \\{[^}]*flex-direction: column;[^}]*overflow: visible;`));
   has(css, new RegExp(`@media \\(width < 768px\\) \\{[^@]*${T} \\.carousel-cards-track::before \\{[^}]*width: 3px;[^}]*background-color: #05164d;`));
-  has(css, new RegExp(`@media \\(width >= 768px\\) \\{[^@]*${T} \\.carousel-cards-slide \\{[^}]*display: grid;[^}]*flex-basis: calc\\(100% / 3\\);[^}]*grid-template-rows: 1fr 40px 1fr;`));
+  has(css, new RegExp(`@media \\(width >= 768px\\) \\{[^@]*${T} \\.carousel-cards-slide \\{[^}]*display: grid;[^}]*flex-basis: calc\\(100% / 3\\);[^}]*grid-template-rows: 1fr 80px 1fr;`));
   has(css, new RegExp(`@media \\(width >= 768px\\) \\{[^@]*${T} \\.carousel-cards-slide:nth-child\\(even\\) \\.carousel-cards-body \\{[^}]*grid-row: 3;[^}]*align-self: start;`));
   has(css, new RegExp(`@media \\(width >= 768px\\) \\{[^@]*${T} \\.carousel-cards-slide::before \\{[^}]*grid-row: 2;[^}]*background-color: #fff;`));
   has(css, new RegExp(`${T} \\.carousel-cards-slide::after \\{[^}]*border: 3px solid #05164d;[^}]*border-radius: 50%;`));

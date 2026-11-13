@@ -56,4 +56,6 @@ https://www.austrian.com/ru/ru/baggage 1440 390 # 53: the snapshot for the boxed
 https://www.austrian.com/gr/el/baggage 1440 390 # 54: the snapshot for the boxed-teaser re-import of this copy (as /at/en/baggage above; decides only this document)
 https://www.austrian.com/jp/ja/baggage 1440 390 # 55: the snapshot for the boxed-teaser re-import of this copy (as /at/en/baggage above; decides only this document)
 https://www.austrian.com/cn/zh/baggage 1440 390 # 56: the snapshot for the boxed-teaser re-import of this copy (as /at/en/baggage above; decides only this document)
-# 56 pages, 107 page captures (a width each): at 10 seconds a capture about 18 minutes.
+https://www.austrian.com/it/it/footer-pages/help-and-contact/form-confirmation 1440 390 # 57 (the brief after 539 item 2): whether www shows a blank of about 350 px above the title; the import wrote {spacer-350} from a separator's inline margin there on 7 of the 9 language copies (it, cn, es, gr, jp, pl, ru), the collapse dropped it (-11 to -13.5 %)
+https://www.austrian.com/at/de/footer-pages/help-and-contact/form-confirmation 1440 390 # 58: the same page in a language the pass did not flag (at/de, fr/fr), to compare
+# 58 pages, 111 page captures (a width each): at 10 seconds a capture about 19 minutes.

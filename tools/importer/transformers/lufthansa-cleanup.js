@@ -391,7 +391,15 @@ function removeScreenReaderOnly(document) {
   // "You are visiting an external website" tooltips attached to links (not info tooltips).
   document.querySelectorAll('maui-tooltip').forEach((tip) => {
     const trigger = tip.querySelector('[slot="trigger"]');
-    if (trigger && (trigger.tagName === 'A' || trigger.hasAttribute('href') || trigger.querySelector('[href]'))) {
+    // a tooltip without a trigger: www never shows its box (nothing to hover or focus; Austrian
+    // /online-check-in's app links, the brief after 566), so it goes, and a list item it leaves empty
+    if (!trigger) {
+      const item = tip.closest('li');
+      tip.remove();
+      if (item && !item.textContent.trim() && !item.querySelector('img, picture, svg, a, [href]')) item.remove();
+      return;
+    }
+    if (trigger.tagName === 'A' || trigger.hasAttribute('href') || trigger.querySelector('[href]')) {
       tip.querySelectorAll(':scope > [slot="box"]').forEach((box) => box.remove());
     }
   });
@@ -550,6 +558,27 @@ function isBlockComponent(el) {
   return !!el && !el.matches(`${FLOW_COMPONENT}, .separator`);
 }
 
+// hub: a separator right after a column view nested in a view's item, before a headline
+// (/de/de/lounges: the two-column "Zugang zu unseren Lounges", then "Unsere Lounges in der
+// Übersicht"): the heading has no margin of its own above on pages with column marks, so the
+// separator's space is all there is (brief 540: the heading 25 px too high without it)
+function afterNestedView(run) {
+  const prev = run[0].previousElementSibling;
+  const next = run[run.length - 1].nextElementSibling;
+  return !!prev && !!next && prev.matches(FLOW_COLUMN) && next.matches('.headline')
+    && !!run[0].parentElement && run[0].parentElement.matches('.column-view-item');
+}
+
+// hub: a separator between a picture and a grey component (/de/de/lounges: the intro picture,
+// then the lounge finder's .container-gray): the replica's section gap alone is 16 px short of
+// www's picture margin and separator (brief 552: 50 px to the grey band, www 66)
+function pictureBeforeGrey(run) {
+  const prev = run[0].previousElementSibling;
+  const next = run[run.length - 1].nextElementSibling;
+  return !!prev && !!next && prev.matches('.image:not(:has(video, .videoViewer))')
+    && (next.matches('.container-gray') || !!next.querySelector('.container-gray'));
+}
+
 /** The markers for a dropped run the replica has no stand-in for, or null (see above). */
 function missingSeparatorMarkers(run, flow, template) {
   const first = run[0];
@@ -628,6 +657,33 @@ function isBrusselsPage(payload) {
   } catch (e) {
     return false;
   }
+}
+
+function isDiscoverPage(payload) {
+  const url = (payload && ((payload.params && payload.params.originalURL) || payload.url)) || '';
+  try {
+    return /(^|\.)discover-airlines\.com$/.test(new URL(url).hostname);
+  } catch (e) {
+    return false;
+  }
+}
+
+// www.discover-airlines.com (standing order 5 of 2026-11-12, item 1: /de/en/my-bookings/manage/customer-service): its
+// separators (.hr-no-layout: no line) add their space between two components on www (.hr margin-bottom 30px there,
+// not lufthansa.com's 2.5rem = 25px: 31px from the accordion's end to the next heading), which the replica's
+// component spacing does not hold; so a run between two components keeps its markers, "{spacer-30}" (its inline
+// margin when it has one). At the start or end of its parent none (www: no margin there)
+const DISCOVER_SEPARATOR_SPACE = 30;
+
+// a Discover separator's marker: its inline margin, else Discover's 30px (not lufthansa.com's 25)
+function discoverSized(sep, marker) {
+  const inline = separatorInline(sep);
+  return marker.replace(/^(spacer|divider)-\d+/, `$1-${Math.max(inline === null ? DISCOVER_SEPARATOR_SPACE : inline, 0)}`);
+}
+
+function discoverMarkers(run) {
+  if (!run[0].previousElementSibling || !run[run.length - 1].nextElementSibling) return null;
+  return run.map((sep) => discoverSized(sep, separatorInfo(sep).marker));
 }
 
 // brusselsairlines.com (the brief after 474: /be/fr/travel-classes/business, premium-economy): a
@@ -721,6 +777,7 @@ function markSeparators(document, keepInFlow, payload) {
   const cellSpacers = isLufthansaPage(payload);
   if (cellSpacers) markNoteSpacers(document);
   const brussels = isBrusselsPage(payload);
+  const discover = isDiscoverPage(payload);
   // runs of adjacent separators are kept or dropped together (40px + line + 30px)
   const runs = [];
   document.querySelectorAll('.separator').forEach((sep) => {
@@ -757,11 +814,16 @@ function markSeparators(document, keepInFlow, payload) {
     const separated = (brussels && betweenColumnViews(run)) || (cellSpacers && lhBetweenColumnViews(run));
     if (separated) separated.setAttribute(SEPARATED, 'true');
     let markers = null;
-    if (infos.some((i) => i.keep) || afterGrey(run[0]) || (keepInFlow && inFlow(run))) {
+    if (infos.some((i) => i.keep) || afterGrey(run[0]) || (keepInFlow && inFlow(run))
+      || (template === 'hub' && (afterNestedView(run) || pictureBeforeGrey(run)))) {
       markers = infos.map((i) => i.marker);
+    } else if (discover) {
+      markers = discoverMarkers(run);
     } else if (fillGaps) {
       markers = missingSeparatorMarkers(run, keepInFlow, template);
     }
+    // Discover's kept separators (a line, after a grey band, in running text) at Discover's size too
+    if (discover && markers) markers = markers.map((m, i) => (m ? discoverSized(run[i], m) : m));
     run.forEach((sep, i) => {
       if (!sep.isConnected) return;
       if (markers && markers[i]) sep.replaceWith(document.createComment(`${SEPARATOR_COMMENT} ${markers[i]}`));
@@ -965,8 +1027,11 @@ function removeEmptyComponents(document, keepInFlow, payload) {
  * styles.css then keeps 24px below the last section instead of none.
  */
 // fleet (brief 461): its pages are one-column views in the page column one after another
-// (lufthansa-first-class-fleet: each aircraft 25px short without the views' padding)
-const COLUMN_MARK_TEMPLATES = ['info', 'fleet'];
+// (lufthansa-first-class-fleet: each aircraft 25px short without the views' padding); legal (standing order 5 of
+// 2026-11-12, item 3): 88 of its 120 pages hold their chapters in column views (/de/en/data-collection-canada: each
+// chapter heading 40-60px higher than www's without the views' padding); app-entry (the same, item 3): 20 of its 24
+// pages hold their chapters in column views (/de/en/my-logbook 20.7 / 27.2 % off www at 1440 / 390, with the marks 7.5 / 10.4)
+const COLUMN_MARK_TEMPLATES = ['info', 'fleet', 'legal', 'app-entry'];
 const COLUMN_ATTR = 'data-lh-column';
 const COLUMN_KINDS = '.onecolumn, .twocolumn, .threecolumn, .fourcolumn';
 
@@ -1056,6 +1121,8 @@ function addMarkerToken(el, token) {
 function placeColumnMarks(document) {
   const roots = [...document.querySelectorAll(`[${COLUMN_ATTR}]`)];
   let placed = 0;
+  const ownEnds = new Map(); // a root's own end paragraph -> its token
+  inViewSlideshows(roots);
   // outer column views first (document order), so a nested one adds its own marker
   roots.forEach((root) => {
     const suffix = root.getAttribute(COLUMN_ATTR) === 'cc' ? '-outer' : '';
@@ -1078,12 +1145,58 @@ function placeColumnMarks(document) {
     if (inline(last) && addMarkerToken(last, `column-end${suffix}`)) {
       if (spaced) addMarkerToken(last, 'column-spaced');
     } else {
-      root.append(own(`column-end${suffix}${spaced ? ' column-spaced' : ''}`));
+      const end = own(`column-end${suffix}${spaced ? ' column-spaced' : ''}`);
+      root.append(end);
+      ownEnds.set(end, end.textContent);
     }
     placed += 1;
   });
+  dropNestedOuterEnds(ownEnds);
   roots.forEach((root) => root.removeAttribute(COLUMN_ATTR));
   return placed;
+}
+
+/**
+ * Standing order 4: a Carousel Lightbox (the fleet pages' seat maps) inside a marked column view gets
+ * the option in-view: the view's marks are its spacing, blocks/carousel-lightbox.css drops the block's
+ * own margins (measured on documents without marks, before brief 461) for it. /de/en/744 15.7 -> 7.7 %
+ * at 1440, 19.1 -> 12.4 at 390; 359 17.7 -> 5.9 / 17.8 -> 8.8.
+ */
+function inViewSlideshows(roots) {
+  roots.forEach((root) => {
+    root.querySelectorAll('table').forEach((table) => {
+      const head = table.querySelector('tr > th, tr > td');
+      const name = head ? cleanText(head) : '';
+      const m = name.match(/^carousel[- ]lightbox\s*(?:\(([^)]*)\))?$/i);
+      if (!m) return;
+      const opts = (m[1] || '').split(',').map((o) => o.trim()).filter(Boolean);
+      if (opts.includes('in-view')) return;
+      head.textContent = `${name.replace(/\s*\(.*$/, '')} (${[...opts, 'in-view'].join(', ')})`;
+    });
+  });
+}
+
+/**
+ * Standing order 4: an outer view nested in an outer view that ends where its outer view ends (the
+ * fleet pages' seat-map view in the section's view): www pads each .column-view 2rem below, our one
+ * {column-end-outer} draws those 40px, so the inner view's own end paragraph goes (two drew 80px).
+ * The views inside a section (column-end) as before: www's last nested view has no padding there.
+ */
+function dropNestedOuterEnds(ownEnds) {
+  ownEnds.forEach((token, inner) => {
+    if (token !== '{column-end-outer}' || !inner.isConnected) return;
+    // walk up while the paragraph's branch is the last content of its parent
+    let el = inner;
+    while (el.parentElement) {
+      let next = el.nextElementSibling;
+      while (next && !cleanText(next) && !next.querySelector('img, picture, table, video, iframe')) next = next.nextElementSibling;
+      if (next) {
+        if (ownEnds.get(next) === token && next.parentElement.contains(inner)) inner.remove();
+        return;
+      }
+      el = el.parentElement;
+    }
+  });
 }
 
 /* ------------------------------------------- desktop/mobile copies ----------------- */
@@ -1309,6 +1422,91 @@ function convertJumpLinks(document) {
     converted += 1;
   });
   return converted;
+}
+
+/**
+ * lufthansa.com's link lists to pages (brief 582): www's .imagelinklist > .link-list > ul.horizontal,
+ * .responsive or .vertical of maui-navigation-link variant="hyper" or "external" (the standalone
+ * arrow links, side by side and wrapping, stacked below 768px, or stacked), one link per item.
+ * They came in as bulleted running-text lists (/de/en/lufthansa-business-class-on-long-haul-routes'
+ * two aircraft links, /de/en/security-check-time-slot's app downloads). The list's last item ends
+ * with "{links-horizontal}", "{links-responsive}" or "{links-vertical}" (scripts.js: the list's
+ * class, styles.css draws them as www does); data-lh-links keeps the layout for parsers that
+ * rebuild the list (columns-media). Lists in accordions (the Insights tag lists), icon tiles
+ * (variant custom), buttons, images and jump links (convertJumpLinks, before) stay as they were.
+ * Runs before convertMauiLinks. Returns the count.
+ */
+const LINK_LIST_LAYOUTS = ['horizontal', 'responsive', 'vertical'];
+const LINK_LIST_LINK = 'maui-navigation-link[href], maui-link[href], a[href], maui-button-link[href]';
+
+function markLinkLists(document, payload) {
+  if (!isLufthansaPage(payload)) return 0;
+  let marked = 0;
+  document.querySelectorAll('.imagelinklist .link-list > ul').forEach((ul) => {
+    const layout = LINK_LIST_LAYOUTS.find((c) => ul.classList.contains(c));
+    if (!layout || ul.closest('.accordion, maui-collapsible, footer, header')) return;
+    const items = [...ul.children].filter((li) => li.tagName === 'LI');
+    const links = [];
+    const ok = items.every((li) => {
+      const found = [...li.querySelectorAll(LINK_LIST_LINK)].filter((l) => !l.parentElement.closest(LINK_LIST_LINK));
+      const rest = li.cloneNode(true);
+      rest.querySelectorAll(`${LINK_LIST_LINK}, [slot="box"]`).forEach((l) => l.remove());
+      if (cleanText(rest) || rest.querySelector('img, picture, svg, video, iframe, input, button')) return false;
+      if (!found.length) return true; // an item holding only a link's tooltip box
+      if (found.length > 1) return false;
+      links.push(found[0]);
+      return true;
+    });
+    if (!ok || !links.length) return;
+    const pageLink = (l) => l.tagName === 'MAUI-NAVIGATION-LINK' && ['hyper', 'external'].includes(l.getAttribute('variant'))
+      && !l.querySelector('img, picture, svg') && cleanText(l);
+    if (!links.every(pageLink)) return;
+    // at the end of the item (a later step unwraps the external links' tooltips to their trigger)
+    links[links.length - 1].closest("li").append(` {links-${layout}}`);
+    ul.setAttribute('data-lh-links', layout);
+    marked += 1;
+  });
+  return marked;
+}
+
+/**
+ * A block cell whose only content is one paragraph (or bare text) ending with a paragraph-style
+ * marker (standing order 3: "{copytext-medium}" on /az/en/online-check-in's Columns Media text
+ * cell): Edge Delivery unwraps a cell's lone <p>, so scripts/style-markers.js, which reads
+ * paragraphs, never consumes the marker and it shows as text. The marker goes (the cell's text
+ * takes the block's own size). Only the paragraph tokens (text size and width, caption, parallax,
+ * narrow, indent, column marks); a video's settings after its link ("{controls ...}"), the cell
+ * marks on picture paragraphs ("{cell-half-start}") and the Form block's cells (it reads them) stay. lufthansa.com pages; after every
+ * parser and marker step (the last of afterTransform). Returns the count.
+ */
+const CELL_TEXT_TOKEN = /^(?:copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\d{1,3}|column-(?:(?:start|end)(?:-outer)?|spaced))$/;
+const TRAILING_TOKENS = /\s*\{([a-z0-9 -]+)\}\s*$/;
+
+function dropLoneCellMarkers(document, payload) {
+  if (!isLufthansaPage(payload)) return 0;
+  let dropped = 0;
+  document.querySelectorAll('table').forEach((table) => {
+    const name = cleanText(table.querySelector('tr > th, tr > td') || table).toLowerCase();
+    // the Form block reads its note rows' markers itself (blocks/form/form.js renderNote: group-travel's
+    // "{copytext-small}" note)
+    if (/^(section )?metadata$/.test(name) || /^form\b/.test(name)) return;
+    table.querySelectorAll(':scope > tbody > tr > td, :scope > tr > td').forEach((td) => {
+      const els = [...td.children];
+      const bare = [...td.childNodes].some((c) => c.nodeType === 3 && c.nodeValue.trim());
+      let holder = null;
+      if (els.length === 1 && els[0].tagName === 'P' && !bare) [holder] = els;
+      else if (!els.length && bare) holder = td;
+      if (!holder || holder.querySelector('img, picture, video, iframe')) return;
+      const walker = document.createTreeWalker(holder, 4); // NodeFilter.SHOW_TEXT
+      let last = null;
+      for (let n = walker.nextNode(); n; n = walker.nextNode()) if (n.nodeValue.trim()) last = n;
+      const m = last && last.nodeValue.match(TRAILING_TOKENS);
+      if (!m || !m[1].trim().split(/\s+/).every((t) => CELL_TEXT_TOKEN.test(t))) return;
+      last.nodeValue = last.nodeValue.slice(0, m.index);
+      dropped += 1;
+    });
+  });
+  return dropped;
 }
 
 /* ------------------------------------------------------- maui links ----------------- */
@@ -1900,6 +2098,31 @@ function addPageMetadata(document, payload) {
   document.body.append(WebImporter.Blocks.getMetadataBlock(document, meta));
 }
 
+/* ---------------------------------------------------- a heading item beside teasers ---------- */
+
+/**
+ * A column item that is only a headline in a column view of partner teasers (ITA row 39, standing
+ * order 8 of 2026-11-12; entry-exit-system: "What data is collected?", h2 heading-large, in the
+ * first item, four icon teasers in the next ones): the cards-icon-text parser builds its block of
+ * the teasers and the item went with it. Its heading goes before the column view, with its
+ * classes, as a column view's own title does (ita.css sets it beside the teasers from 768px).
+ */
+function liftHeadingItems(document) {
+  const text = (el) => (el.textContent || '').replace(/[\s\u00a0\u200b]+/g, ' ').trim();
+  document.querySelectorAll(':is(.twocolumn, .threecolumn, .fourcolumn) > .column-view > .row').forEach((row) => {
+    if (!row.querySelector(':scope > .column-view-item a.teaser.partner')) return;
+    const view = row.parentElement.parentElement;
+    [...row.children].forEach((item) => {
+      if (!item.matches('.column-view-item') || item.querySelector('a.teaser')) return;
+      const heads = [...item.querySelectorAll(':scope > .headline :is(h1, h2, h3, h4, h5, h6)')].filter(text);
+      const other = [...item.children].some((c) => !c.matches('.headline') && text(c));
+      if (!heads.length || other) return;
+      heads.forEach((h) => view.before(h));
+      item.remove();
+    });
+  });
+}
+
 /* -------------------------------------------------------------- empty headlines ---------- */
 
 /**
@@ -2077,6 +2300,7 @@ export default function transform(hookName, element, payload) {
     removeMobileDuplicates(document);
     rewriteAnchors(document, pagePath);
     convertJumpLinks(document);
+    markLinkLists(document, payload);
     convertAuthorQuotes(document);
     padCarouselSections(document);
     restoreMovingImages(document);
@@ -2084,6 +2308,7 @@ export default function transform(hookName, element, payload) {
     // info: column views for their padding markers, and flow spacing: the separators in running
     // text are kept (headings have no margin of their own above, styles.css)
     markEmptyHeadlines(document, payload); // before the empty components go
+    liftHeadingItems(document); // before the parsers take the teasers' column view
     const flow = columnMarksEnabled(payload);
     if (flow) {
       markColumnViews(document, payload);
@@ -2110,6 +2335,7 @@ export default function transform(hookName, element, payload) {
     convertCaptions(document);
     markParagraphStyles(document);
     placeColumnMarks(document); // after the style markers, which skip marked elements
+    dropLoneCellMarkers(document, payload); // last: every parser and marker step has run
     addPageMetadata(document, payload);
   }
 }

@@ -27,6 +27,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
+import { guardContext, GUARD_CONTEXT } from '../parity/guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -74,7 +75,9 @@ async function capture(base, outDir, prefix, sitekey, pages = PAGES) {
   const browser = await chromium.launch({ executablePath, headless: true });
   try {
     for (const pagePath of Object.values(pages).flat()) {
-      const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, locale: 'en-GB' });
+      const context = await browser.newContext({ ...GUARD_CONTEXT, viewport: { width: 1440, height: 1000 }, locale: 'en-GB' });
+      // only our hosts: the page's scripts and fonts never reach an airline host (standing order 13)
+      await guardContext(context);
       // --sitekey: the same Turnstile key on every host (the real key renders only on main's
       // preview and the live hosts; scripts/lh-forms.js reads localStorage lh-forms-sitekey)
       if (sitekey) await context.addInitScript((k) => window.localStorage.setItem('lh-forms-sitekey', k), sitekey);

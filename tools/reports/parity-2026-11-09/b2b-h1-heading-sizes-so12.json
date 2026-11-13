@@ -1,0 +1,32 @@
+[
+ {
+  "path": "/de/de/travel-management/route-network",
+  "level": 1,
+  "text": "Flugplan-News der Lufthansa Group Airlines",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/en/travel-management/route-network",
+  "level": 1,
+  "text": "Lufthansa Group network and timetable updates",
+  "size": "heading-small"
+ },
+ {
+  "path": "/de/en/about-us/joint-ventures/japan-joint-venture",
+  "level": 1,
+  "text": "Sustainability",
+  "size": "heading-medium"
+ },
+ {
+  "path": "/de/en/about-us/joint-ventures/japan-joint-venture",
+  "level": 1,
+  "text": "Route network",
+  "size": "heading-medium"
+ },
+ {
+  "path": "/de/en/allegris/corporates-start-of-booking",
+  "level": 1,
+  "text": "What's next for Lufthansa Allegris",
+  "size": "heading-small"
+ }
+]

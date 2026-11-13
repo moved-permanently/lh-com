@@ -1,0 +1,56 @@
+# ema-lufthansa's fourth capture list for the night of 2026-11-10: snapshots for reimport-585-ita-two-up-82.txt.
+# For the Captures child; no request to an airline host from ema-lufthansa.
+# Why: 82 ITA documents are still without "two-up" after tonight's re-import, though main's importer gives it from
+# ita-parity-004's recording of one of them (travel-insurance). Their snapshots may be older than www's page (the
+# it/en and it/it pages came from the Studio's ita-snapshots-001 to -006, October). These are the it/en and it/it rows
+# (49 of the 82): full HTML snapshots as ita-snapshots-019 (www's rendered page, its light DOM), archive
+# ita-snapshots-NNN; the harness re-imports from them (the list's header says what changes).
+https://www.ita-airways.com/it/en/book-and-prepare/digital-services
+https://www.ita-airways.com/it/en/book-and-prepare/flightpass/all-destinations
+https://www.ita-airways.com/it/en/book-and-prepare/flightpass/fco-lin
+https://www.ita-airways.com/it/en/book-and-prepare/other-requests/accessible-travel
+https://www.ita-airways.com/it/en/book-and-prepare/other-requests/accessible-travel-us
+https://www.ita-airways.com/it/en/book-and-prepare/other-requests/families-and-children/baggage-and-strollers
+https://www.ita-airways.com/it/en/book-and-prepare/other-requests/families-and-children/families-onboard-seats
+https://www.ita-airways.com/it/en/book-and-prepare/other-requests/families-and-children/unaccompained-minors
+https://www.ita-airways.com/it/en/book-and-prepare/other-requests/pregnancy
+https://www.ita-airways.com/it/en/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin
+https://www.ita-airways.com/it/en/book-and-prepare/other-requests/travelling-with-pets/pets-travel-documents
+https://www.ita-airways.com/it/en/book-and-prepare/travel-information/at-the-airport/digital-newsstand
+https://www.ita-airways.com/it/en/book-and-prepare/travel-information/at-the-airport/group-boarding
+https://www.ita-airways.com/it/en/book-and-prepare/travel-information/at-the-airport/meet-and-greet
+https://www.ita-airways.com/it/en/book-and-prepare/travel-information/at-the-airport/priority/priority-gates
+https://www.ita-airways.com/it/en/book-and-prepare/travel-information/at-the-airport/priority/qpass
+https://www.ita-airways.com/it/en/book-and-prepare/travel-information/baggage/electronic-devices-and-batteries
+https://www.ita-airways.com/it/en/book-and-prepare/travel-information/baggage/restricted-and-prohibited-items
+https://www.ita-airways.com/it/en/book-and-prepare/travel-information/check-in-information/online-check-in
+https://www.ita-airways.com/it/en/manage-my-bookings/extra-services/travel-insurance
+https://www.ita-airways.com/it/en/manage-my-bookings/extra-services/upgrade/airport-upgrade
+https://www.ita-airways.com/it/en/manage-my-bookings/extra-services/upgrade/fixed-price-upgrade
+https://www.ita-airways.com/it/en/manage-my-bookings/extra-services/upgrade/onboard-upgrade
+https://www.ita-airways.com/it/en/manage-my-bookings/manage/change-and-refund
+https://www.ita-airways.com/it/en/manage-my-bookings/manage/manage-my-bookings
+https://www.ita-airways.com/it/en/manage-my-bookings/manage/view-and-manage-flight
+https://www.ita-airways.com/it/en/manage-my-bookings/partners/airport-in-the-city
+https://www.ita-airways.com/it/en/manage-my-bookings/partners/airport-transfer
+https://www.ita-airways.com/it/en/manage-my-bookings/partners/airport-transfer/ferrotramviaria
+https://www.ita-airways.com/it/en/manage-my-bookings/partners/hotel
+https://www.ita-airways.com/it/en/world-of-ita-airways/discover-ita-airways/network
+https://www.ita-airways.com/it/en/world-of-ita-airways/discover-ita-airways/sustainability/decarbonisation
+https://www.ita-airways.com/it/en/world-of-ita-airways/discover-ita-airways/sustainability/digital-newsstand
+https://www.ita-airways.com/it/en/world-of-ita-airways/discover-ita-airways/sustainability/female-talent
+https://www.ita-airways.com/it/en/world-of-ita-airways/discover-ita-airways/sustainability/iris
+https://www.ita-airways.com/it/en/world-of-ita-airways/discover-ita-airways/sustainability/next-generation-fleet
+https://www.ita-airways.com/it/en/world-of-ita-airways/discover-ita-airways/sustainability/social-partnership
+https://www.ita-airways.com/it/en/world-of-ita-airways/services-on-board/catering/children-meals
+https://www.ita-airways.com/it/en/world-of-ita-airways/services-on-board/connectivity-on-board
+https://www.ita-airways.com/it/en/world-of-ita-airways/services-on-board/entertainment-on-board
+https://www.ita-airways.com/it/en/world-of-ita-airways/travel-classes/business-class-medium-haul
+https://www.ita-airways.com/it/en/world-of-ita-airways/travel-classes/business-long-haul
+https://www.ita-airways.com/it/it/book-and-prepare/digital-services
+https://www.ita-airways.com/it/it/book-and-prepare/other-requests/accessible-travel
+https://www.ita-airways.com/it/it/manage-my-bookings/extra-services/travel-insurance
+https://www.ita-airways.com/it/it/manage-my-bookings/manage/change-and-refund
+https://www.ita-airways.com/it/it/manage-my-bookings/manage/manage-my-bookings
+https://www.ita-airways.com/it/it/manage-my-bookings/manage/view-and-manage-flight
+https://www.ita-airways.com/it/it/manage-my-bookings/partners/airport-transfer

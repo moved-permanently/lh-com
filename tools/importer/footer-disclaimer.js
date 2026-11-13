@@ -23,7 +23,10 @@ export function localeBase(pagePath) {
   return m ? `/${m[1]}/${m[2]}` : null;
 }
 
-const clean = (s) => String(s || '').replace(/\s+/g, ' ').trim();
+// zero-width characters of www's text (U+200B, U+200C, U+200D, U+FEFF: twelve in front of
+// "Указанные" in Austrian's and SWISS's Russian dialogs, the brief after 596): never written
+const ZERO_WIDTH = /[\u200B-\u200D\uFEFF]/g;
+const clean = (s) => String(s || '').replace(ZERO_WIDTH, '').replace(/\s+/g, ' ').trim();
 
 /**
  * The disclaimer of a page: its note, the modal's label and the modal, or null.
@@ -58,7 +61,7 @@ const escapeHtml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
 /** The modal's text as plain markup: paragraphs and lists, links kept (href only). */
 function modalBody(modal) {
   const inline = (node) => [...node.childNodes].map((n) => {
-    if (n.nodeType === 3) return escapeHtml(n.nodeValue.replace(/\s+/g, ' '));
+    if (n.nodeType === 3) return escapeHtml(n.nodeValue.replace(ZERO_WIDTH, '').replace(/\s+/g, ' '));
     if (n.nodeType !== 1) return '';
     const tag = n.tagName.toLowerCase();
     const inner = inline(n);

@@ -473,6 +473,35 @@
   padding: 30px 20px;
 }
 
+/* lufthansa.com on phones: www's card sits in a .col-12, 22px from both edges at 390 (346px), not
+   bleeding the column padding as .container-white.row.px-4 does (ours 366px: labels and the
+   consent text in fewer lines; betreuungsbedarf, special-needs; brief 556) */
+@media (width < 768px) {
+  body.brand-lufthansa .form.core .form-step-card {
+    margin-inline: 0;
+  }
+}
+
+/* lufthansa.com: www's .form-section always renders its h2 and its description p, empty when the
+   section has none: a section without a title starts its card 39px (390) / 33px (from 768px)
+   lower, a title without a description has 5px more under it below 768px (betreuungsbedarf,
+   special-needs; brief 557) */
+body.brand-lufthansa .form.core .form-step:not(:has(> .form-step-intro)) {
+  padding-top: 69px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa .form.core .form-step:not(:has(> .form-step-intro)) {
+    padding-top: 63px;
+  }
+}
+
+@media (width < 768px) {
+  body.brand-lufthansa .form.core .form-step-intro:not(:has(> .form-step-description)) > .form-step-title {
+    margin-bottom: 37px;
+  }
+}
+
 .form.core .form-fields {
   display: block;
   padding: 0;

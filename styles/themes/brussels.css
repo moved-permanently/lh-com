@@ -133,6 +133,49 @@
   --footer-logo-home-height: 30px; /* the logo row: small-logo.svg 130x30 */
 }
 
+/* articles from 768 px (Brussels P51, standing order 17): the header picture at its own proportions (www sets no ratio
+   on it there, lufthansa.com's block draws 16:9; the recorded articles' pictures are 2:1, and at 1440 the title was 84 /
+   85 px lower than www's: the-gambia, vibrant-senegal); the galleries (columns-media stacked: one picture left, two right)
+   40 px from the text above and below as www's column view (.column-view.flex-column padding 40 / 20 px, its items 20 px
+   below; ours 20 and 20, six galleries a page). At 1440 the-gambia -3.68 -> -0.68 %, vibrant-senegal -3.45 -> -0.42 %.
+   Phones keep 16:9 and their spacing, as www (the title 462 px, ours 469) */
+@media (width >= 768px) {
+  body.brand-brussels .article-header .article-header-media {
+    aspect-ratio: auto;
+  }
+
+  body.brand-brussels .article-header .article-header-media :is(picture, img) {
+    height: auto;
+  }
+
+  body.brand-brussels main:has(.article-header) .columns-media.stacked {
+    padding-block: 40px 20px;
+  }
+}
+
+/* phones (standing order 20): a gallery right after text in its section 30 px under it, as www's column view below
+   768 px (.column-view padding-top 2rem plus its item's 1rem; text -> picture 48-51 px on www, ours 18-21: the-gambia,
+   milan-citytrip, sun-in-march). A gallery opening its section is as www's already. At 390: milan-citytrip -2.35 ->
+   -1.27 %, prague -1.10 -> -0.10, kenya -0.75 -> +0.32; sun-in-march +0.43 -> +0.92 */
+@media (width < 768px) {
+  body.brand-brussels main:has(.article-header) .default-content-wrapper + .columns-media-wrapper > .columns-media.stacked {
+    padding-top: 30px;
+  }
+}
+
+/* the articles' gallery captions once a re-import marks them (p.caption, under the last picture; standing order 19): www's
+   caption Intelo bold 16 / 24 px, 15 px under the picture, a right column's two pictures 30 px apart (brussels-parity-009;
+   lufthansa.com's caption 14 / 18 px 10 under, its pictures 40 apart) */
+body.brand-brussels main:has(.article-header) .columns-media .columns-media-row p.caption {
+  margin-top: 15px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+body.brand-brussels main:has(.article-header) .columns-media.stacked .columns-media-multi {
+  gap: 30px;
+}
+
 /* page titles Brussels red (www's h1.headline.heading-large and h1.article-headline); an h1 its
    author gave a smaller style ({heading-medium}: Beobank, P40) as www's other headings */
 body.brand-brussels main h1:not(.heading-medium, .heading-small, .heading-copytext-large, .heading-copytext-medium),
@@ -237,6 +280,15 @@ body.brand-brussels .carousel-cards.grid .carousel-cards-track {
   }
 }
 
+/* the overview hubs whose intro sidebar opens a one-column view straight in the page container (option in-column: pets,
+   baggage, plan-your-trip): www's rows of cards 97 px apart there, ours 81 (meals' intro sits in an AEM section, its
+   rows 81 apart as ours); standing order 18, item 2 */
+@media (width >= 768px) {
+  body.brand-brussels main > .section:has(> .columns-media-wrapper > .columns-media.sidebar.in-column) > .carousel-cards-wrapper + .carousel-cards-wrapper > .carousel-cards.grid {
+    margin-top: 101px;
+  }
+}
+
 /* the overview pages' first card grid under the sidebar intro (brief 505): www 103 to 118 px from the
    intro to the first card at 1440 (11 of 16 recorded pages), 109 to 132 at 390; ours was 68 / 54: 40 / 64 px
    more (the margin collapses with the grid's own 20 / 16, so the value is the whole space) */
@@ -247,6 +299,107 @@ body.brand-brussels main > .section > .columns-media-wrapper:has(> .columns-medi
 @media (width >= 768px) {
   body.brand-brussels main > .section > .columns-media-wrapper:has(> .columns-media.sidebar) + .carousel-cards-wrapper > .carousel-cards.grid {
     margin-top: 60px;
+  }
+}
+
+/* a page that ends with a core form (/my-bookings/emergency-contact, /contact/feedback/general/other; the brief after
+   570c): www's grey band ends 40 px under the button and the footer starts there; no section gap under it */
+body.brand-brussels main > .section:last-child:has(> .form-wrapper:last-child > .form.core) {
+  margin-bottom: 0;
+}
+
+/* a sidebar that opens a one-column view straight in the page container (columns-media option in-column, written by
+   the importer from the standing order after 570; the overview hubs' intro): www's column view puts the h1 44 px
+   lower (20 at 390). The text under the h1 stays at the brand's gap (www 28 / 26 on the six hubs of
+   brussels-parity-006; families-and-children's 72 / 66 is an empty line of that page, the brief after 588) */
+body.brand-brussels main > .section > .columns-media-wrapper:has(> .columns-media.sidebar.in-column) {
+  margin-top: calc(var(--spacing-default) + 20px);
+}
+
+@media (width >= 1025px) {
+  body.brand-brussels main > .section > .columns-media-wrapper:has(> .columns-media.sidebar.in-column) {
+    margin-top: calc(var(--spacing-default) + 44px);
+  }
+}
+
+/* section style sidebar-h1 (written by the Brussels import from the brief after 588: www's h1 opens a sidebar whose
+   content imports as default content, cancel-and-refund-requests, service-charges, the legal notices' pages): the h1
+   44 px lower (30 at 390), as on www (226 / 236 px on the four recorded pages, ours 182 / 206). Only when the h1 opens
+   the section's first text; a picture before it (check-in-at-the-airport) leaves it as it is */
+body.brand-brussels main > .section.sidebar-h1 > .default-content-wrapper:not(.default-content-wrapper ~ .default-content-wrapper):has(> h1:first-child) {
+  padding-top: 30px;
+}
+
+@media (width >= 1025px) {
+  body.brand-brussels main > .section.sidebar-h1 > .default-content-wrapper:not(.default-content-wrapper ~ .default-content-wrapper):has(> h1:first-child) {
+    padding-top: 44px;
+  }
+}
+
+/* the sidebar-h1 sections' text column (Brussels P50, standing order 19): from 1025 px www's 9-of-12 column (938 px at
+   1440 on all 18 recorded pages of the kind), the accordion answers filling it (lufthansa.com's faq: 66 %), 5 px under
+   the question, 15 px from the right, 51 above the next; the text 41 px above the first question */
+@media (width >= 1025px) {
+  body.brand-brussels main > .section.sidebar-h1 > :not(.breadcrumb-wrapper) > * {
+    max-width: calc(75% - 10px);
+  }
+
+  body.brand-brussels main > .section.sidebar-h1 .accordion-columns.faq .accordion-columns-panel :is(p, ul, ol, h2, h3, h4, h5, h6) {
+    max-width: none;
+  }
+
+  body.brand-brussels main > .section.sidebar-h1 .accordion-columns.faq .accordion-columns-panel {
+    padding: 5px 15px 51px 0;
+  }
+
+  body.brand-brussels main > .section.sidebar-h1 > .default-content-wrapper + .accordion-columns-wrapper {
+    margin-top: 40px;
+  }
+}
+
+/* a list of links in a sidebar (three or more link paragraphs in a row in a columns-media sidebar cell: the concern
+   links of /contact/feedback, www's maui-navigation-link medium hyper; the brief after 588, item 3): www's 16 px
+   regular, 44 px apart, an empty line's space over the list, and when the list ends the sidebar www's 57 px (67 at 390)
+   from the last link to the footer. Measured on be/fr and be/en contact/feedback (brussels-parity-006, -004): the
+   footer at www's y at 1440 (both) and 390 (fr; en -25 px). Single link paragraphs (chase-the-sun, contact-form-error,
+   feedback/general/other) are not a list: unchanged */
+body.brand-brussels .columns-media.sidebar > div > div > p.link-wrapper:is(:has(+ p.link-wrapper + p.link-wrapper), p.link-wrapper + p.link-wrapper:has(+ p.link-wrapper), p.link-wrapper + p.link-wrapper + p.link-wrapper) {
+  margin-bottom: 20px;
+}
+
+body.brand-brussels .columns-media.sidebar > div > div > p.link-wrapper:is(:has(+ p.link-wrapper + p.link-wrapper), p.link-wrapper + p.link-wrapper:has(+ p.link-wrapper), p.link-wrapper + p.link-wrapper + p.link-wrapper):last-child {
+  margin-bottom: 0;
+}
+
+body.brand-brussels .columns-media.sidebar > div > div > p.link-wrapper:is(:has(+ p.link-wrapper + p.link-wrapper), p.link-wrapper + p.link-wrapper:has(+ p.link-wrapper), p.link-wrapper + p.link-wrapper + p.link-wrapper) > a {
+  font-size: var(--body-font-size-s, 16px);
+  font-weight: 400;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the first of a link list after other content (comment only, lint) */
+body.brand-brussels .columns-media.sidebar > div > div > :not(p.link-wrapper) + p.link-wrapper:has(+ p.link-wrapper + p.link-wrapper) {
+  margin-top: 22px;
+}
+
+body.brand-brussels .columns-media.sidebar:has(> div > div > p.link-wrapper + p.link-wrapper + p.link-wrapper:last-child) {
+  padding-bottom: 0;
+}
+
+body.brand-brussels main > .section:has(> .columns-media-wrapper:last-child > .columns-media.sidebar > div > div > p.link-wrapper + p.link-wrapper + p.link-wrapper:last-child) {
+  margin-bottom: 49px;
+}
+
+@media (width >= 1025px) {
+  body.brand-brussels .columns-media.sidebar > div > div > :not(p.link-wrapper) + p.link-wrapper:has(+ p.link-wrapper + p.link-wrapper) {
+    margin-top: 69px;
+  }
+
+  body.brand-brussels .columns-media.sidebar > div > div:has(> p.link-wrapper + p.link-wrapper + p.link-wrapper:last-child) {
+    padding-bottom: 0;
+  }
+
+  body.brand-brussels main > .section:has(> .columns-media-wrapper:last-child > .columns-media.sidebar > div > div > p.link-wrapper + p.link-wrapper + p.link-wrapper:last-child) {
+    margin-bottom: 39px;
   }
 }
 
@@ -731,6 +884,7 @@ body.brand-brussels main > .section.padded:has(> .default-content-wrapper:last-c
 
 /* the heading after an accordion in its section: 41 px below the accordion from 768 px, 21 on phones, as
    www (ours the default content's 20 / 16); a spaced accordion keeps lh-com's 40 px below */
+/* stylelint-disable-next-line no-descending-specificity -- after an accordion, not the sidebar-h1 section's first text (comment only, lint) */
 body.brand-brussels main .accordion-columns-wrapper:not(:has(> .spaced)) + .default-content-wrapper:has(> :is(h2, h3):first-child) {
   margin-top: 21px;
 }
@@ -829,8 +983,15 @@ body.brand-brussels .blog-overview:not(.grid) .blog-overview-description {
   line-height: 24px;
 }
 
+/* stylelint-disable-next-line no-descending-specificity -- the blog overview's links, not the sidebar's link list (comment only, lint) */
 body.brand-brussels .blog-overview:not(.grid) .blog-overview-more a:any-link {
   font-weight: 400;
+}
+
+/* no search field or category filter (standing order 6 of 2026-11-12, item 2: /be/en and /be/fr/articles,
+   brussels-parity-003): www's Brussels list shows the count and an empty filter column */
+body.brand-brussels .blog-overview .blog-overview-filter {
+  display: none;
 }
 
 /* the picture cropped to 16:9, as www's (575 x 323 px at 1440, 331 x 186 px at 390) */
@@ -982,5 +1143,335 @@ body.brand-brussels .fare-teaser .fare-teaser-price {
 
   body.brand-brussels .footer .footer-logos-inner > ul > li:nth-child(2) {
     margin-bottom: 30px;
+  }
+}
+
+/* the online check-in (booking-lookup my-bookings checkin, the brief after 530 item 2; brussels-import.mjs
+   withCheckinFields): www's quick actions with the Check-in panel only (online-check-in-options: be fr,
+   en and nl, de, it, es). Its fields are maui-input boxes, 48 px, #f8f8f8 with a 1 px border, 4 px corners, the
+   label inside, 20 px apart, the hint 7 px under its field (13/15 px, three lines at www's widths) and
+   20 px above the next; Connexion 20 px above the first field. From 1025 px the fields are 255 px (www's
+   col-lg-4) and the tab bar's indicator is red. Below 768 px the row stays in the text column (not across
+   the viewport as lh-com's), its title 18 px Intelo Bold sn-blue-3, the panel 32 px below it, 40 px in
+   from both sides, the button as wide as the fields, 56 px under it; the form 44 px under the text before
+   it and 70 px (from 768 px 72) over the next heading */
+/* stylelint-disable no-descending-specificity -- another component than the flight search above */
+body.brand-brussels .booking-lookup.checkin {
+  --booking-lookup-field-height: 48px;
+  --booking-lookup-field-reserve: 20px;
+
+  margin: 44px 0 72px;
+}
+
+body.brand-brussels .booking-lookup.checkin .booking-lookup-tab {
+  color: var(--lh-marble-blue);
+}
+
+body.brand-brussels .booking-lookup.checkin .booking-lookup-login {
+  margin-bottom: 20px;
+}
+
+body.brand-brussels .booking-lookup.checkin .booking-lookup-field::after {
+  content: none;
+}
+
+body.brand-brussels .booking-lookup.checkin .booking-lookup-field input {
+  padding: 17px 11px 3px;
+  border: 1px solid var(--lh-grey-8);
+  border-radius: 4px;
+  background-color: var(--lh-grey-1);
+}
+
+body.brand-brussels .booking-lookup.checkin .booking-lookup-field input[aria-invalid="true"] {
+  border-color: var(--lh-red);
+}
+
+body.brand-brussels .booking-lookup.checkin .booking-lookup-field label {
+  top: 5px;
+  left: 11px;
+  right: 11px;
+}
+
+body.brand-brussels .booking-lookup.checkin .booking-lookup-field:has(> input:placeholder-shown:not(:focus)) label {
+  top: 10px;
+  line-height: 28px;
+}
+
+body.brand-brussels .booking-lookup.checkin .booking-lookup-hint {
+  margin: 7px 0 20px;
+  color: var(--lh-grey-8);
+  font-size: 13px;
+  line-height: 15px;
+}
+
+body.brand-brussels .booking-lookup.checkin .booking-lookup-field:last-of-type .booking-lookup-hint {
+  margin-bottom: 24px;
+}
+
+@media (width >= 1025px) {
+  body.brand-brussels .booking-lookup.checkin .booking-lookup-field {
+    max-width: 255px;
+  }
+
+  body.brand-brussels .booking-lookup.checkin .booking-lookup-tab[aria-selected="true"] {
+    border-bottom-color: var(--brand-color);
+  }
+}
+
+@media (width < 768px) {
+  body.brand-brussels .booking-lookup.checkin {
+    margin: 44px 0 70px;
+  }
+
+  body.brand-brussels .booking-lookup.checkin .booking-lookup-tab {
+    padding-block: 12px;
+    font-size: 18px;
+  }
+
+  body.brand-brussels .booking-lookup.checkin .booking-lookup-tabs ~ .booking-lookup-panel {
+    padding: 32px 40px 56px;
+  }
+
+  body.brand-brussels .booking-lookup.checkin .booking-lookup-field {
+    max-width: none;
+  }
+
+  body.brand-brussels .booking-lookup.checkin .booking-lookup-submit {
+    width: 100%;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/* a heading straight after text in a sidebar's text (columns-media sidebar: invoices, upgrades, the imprint; the brief
+   after 530, item 3; 107 documents): www's headline component 50 px under the paragraph at 1440 for an h2 (45 on phones), 32 for an h3
+   (28); ours had the paragraph's 20 (16). The margins collapse with the paragraph's */
+body.brand-brussels main .columns-media.sidebar .columns-media-text > p:not(.column-mark) + h2 {
+  margin-top: 45px;
+}
+
+body.brand-brussels main .columns-media.sidebar .columns-media-text > p:not(.column-mark) + h3 {
+  margin-top: 28px;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels main .columns-media.sidebar .columns-media-text > p:not(.column-mark) + h2 {
+    margin-top: 50px;
+  }
+
+  body.brand-brussels main .columns-media.sidebar .columns-media-text > p:not(.column-mark) + h3 {
+    margin-top: 32px;
+  }
+}
+
+/* the core forms as www's (maui theme sn; the brief after 534 item 2, /be/en/contact/feedback/general/other,
+   brussels-parity-004 at 1440): each band's headline Intelo Bold 36 / 39.6, its description bold 18 / 19.8 beside the
+   card; the subsection titles (Bank account 1, Flight 1) bold 18 / 19.8; the fields 335 x 50 boxes (1 px sngrey8
+   border, 4 px corners, #f8f8f8 fill), the label inside, 11 px from the left, 24 px to the next field; the checkboxes
+   and radios in sn-blue-3 */
+body.brand-brussels .form.core {
+  --form-field-height: 50px;
+  --form-control-border: var(--lh-marble-blue);
+}
+
+body.brand-brussels .form.core .form-step-title {
+  margin-bottom: 22px; /* the card under a band's title: see the titled band below (the brief after 570) */
+  font-weight: 700;
+}
+
+body.brand-brussels .form.core .form-step-description {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+body.brand-brussels .form.core .form-subsection-title {
+  color: inherit;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+body.brand-brussels .form.core :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number, .form-field-date, .form-field-select, .form-field-region, .form-field-autocomplete) > .form-control {
+  padding: 19px 11px 5px;
+  border: 1px solid var(--lh-grey-8);
+  border-radius: 4px;
+  background-color: var(--lh-grey-1);
+  line-height: 24px;
+}
+
+body.brand-brussels .form.core :is(.form-field-select, .form-field-region) > .form-control,
+body.brand-brussels .form.core .form-field-autocomplete > .form-control {
+  background-position: right 12px center;
+}
+
+body.brand-brussels .form.core :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number, .form-field-date, .form-field-select, .form-field-region, .form-field-autocomplete) > .form-label {
+  top: 6px;
+  left: 12px;
+  right: 12px;
+}
+
+body.brand-brussels .form.core .form-field:where(:has(> .form-control[placeholder=" "]:placeholder-shown:not(:focus))) > .form-label,
+body.brand-brussels .form.core .form-field-empty > .form-label {
+  top: 13px;
+  line-height: 24px;
+}
+
+body.brand-brussels .form.core .form-optional {
+  top: 13px;
+}
+
+body.brand-brussels .form.core :is(.form-field-text, .form-field-email, .form-field-tel, .form-field-number)::after {
+  content: none;
+}
+
+body.brand-brussels .form.core textarea.form-control {
+  border: 1px solid var(--lh-grey-8);
+  border-radius: 4px;
+  background-color: var(--lh-grey-1);
+}
+
+body.brand-brussels .form.core .form-field-invalid .form-control,
+body.brand-brussels .form.core .form-control:user-invalid {
+  border-color: var(--lh-red);
+}
+
+@media (width >= 1025px) {
+  body.brand-brussels .form.core .form-step-description {
+    font-size: 18px;
+    line-height: 1.1;
+  }
+}
+
+/* a core form without bands (no step row; /il/en/rebooking-request-birthright, the only one of the 101; the brief after
+   566): www draws its fields straight on the grey band from its left edge, no white card, the note 40 px under the band's
+   top, the fields at the band's content edge (88 px at 1440, 22 at 390) and the button 56 px under the last field (the
+   field's 24 px and the actions' 30) */
+body.brand-brussels .form.core .form-step-plain {
+  padding-top: 40px;
+  padding-bottom: 0;
+}
+
+body.brand-brussels .form.core .form-step-plain .form-step-card {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+/* a core form band with a title (h2; /be/en/contact/feedback/general/other, the brief after 570): www's white card 26 px
+   under the title at 1440, 22 at 390, the description right on the card at 390, the first field 20 px inside the card and
+   the card's bottom 20 px under the last field's margin (ours had 32 / 10 / 30 / 30), the card in the page column at 390;
+   bands without a title (a description beside the card: /my-bookings/emergency-contact) as before; the title's 22 px are
+   in its rule above */
+body.brand-brussels .form.core .form-step:has(> .form-step-intro > .form-step-title) .form-step-description {
+  margin-bottom: 0;
+}
+
+body.brand-brussels .form.core .form-step:has(> .form-step-intro > .form-step-title) .form-step-card {
+  margin-inline: 0;
+  padding: 20px;
+}
+
+@media (width >= 1025px) {
+  body.brand-brussels .form.core .form-step-title {
+    margin-bottom: 26px;
+  }
+}
+
+/* a core form band without a title (a description beside the card: /my-bookings/emergency-contact, the brief after
+   570c): www's band 56 px above the card at 1440 (51 at 390), the first field 35 px inside it, the card's bottom 20 px
+   under the last field's margin, 96 px between cards, the card in the page column at 390 (ours 30 / 30 / 30, 70) */
+body.brand-brussels .form.core .form-step:not(.form-step-plain, :has(> .form-step-intro > .form-step-title)) {
+  padding-top: 51px;
+}
+
+body.brand-brussels .form.core .form-step:not(.form-step-plain, :has(> .form-step-intro > .form-step-title)) .form-step-card {
+  margin-inline: 0;
+  padding: 35px 20px 20px;
+}
+
+@media (width >= 1025px) {
+  body.brand-brussels .form.core .form-step:not(.form-step-plain, :has(> .form-step-intro > .form-step-title)) {
+    padding-top: 56px;
+  }
+}
+
+/* an accordion's panel text as www's (the brief after 593, item 4): in every Brussels recording www's accordion panels
+   hold plain paragraphs (920 of 944), 18 / 24 px (ours lh-com's faq 16 px), and on phones the panel 20 px in from
+   each side (ours 12). Measured with the rule added on the 35 recorded Brussels pages with an accordion: the pages
+   with open panels better at both widths (terms-of-use -4.4 -> +1.3 % / -12.9 -> -2.5 %, conditions of carriage
+   -6.6 -> -1.5 % / -15.8 -> -4.1 %, the two voucher conditions, problems-with-your-baggage -2.5 -> -0.7 % / -5.1 ->
+   -1.4 %), the others unchanged. www's wider panel text at 1440 (923 px from the column's edge) not taken: with it
+   four pages got worse */
+body.brand-brussels main .accordion-columns.faq .accordion-columns-panel :is(p, li) {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/* the questions as www's .sn collapsible header (shadow CSS: 20 / 24 px, regular while collapsed, bold open, sn-blue-3;
+   padding 13px 20px on phones, 13px 10px from 768 px, the 24 px chevron in it; standing order 17, item 4): on phones
+   www's questions wrap onto more lines than lufthansa.com's 18 px bold ones (at 390 seven legal pages closer, e.g.
+   us-customer-service-plan -4.70 -> -1.23 %; 1440 unchanged) */
+body.brand-brussels main .accordion-columns .accordion-columns-title {
+  padding-right: 44px;
+  padding-left: 20px;
+  color: var(--lh-marble-blue);
+  font-size: calc(20px * var(--a11y-scale, 1));
+  font-weight: 400;
+}
+
+body.brand-brussels main .accordion-columns .accordion-columns-title::after {
+  right: 20px;
+}
+
+body.brand-brussels main .accordion-columns .accordion-columns-item[open] > .accordion-columns-title {
+  font-weight: 700;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels main .accordion-columns .accordion-columns-title {
+    padding-right: 34px;
+    padding-left: 10px;
+  }
+
+  body.brand-brussels main .accordion-columns .accordion-columns-title::after {
+    right: 10px;
+  }
+}
+
+/* a separator in a panel ("{spacer-N}" before a panel heading, written by the importer from standing order 18: www's
+   .separator .hr-no-layout between a text and the next headline, 11 px on the conditions of carriage) as in default
+   content */
+body.brand-brussels main .accordion-columns-panel p.spacer {
+  box-sizing: content-box;
+  height: calc(var(--spacer-size, 25px) + 1px);
+  margin: 0;
+}
+
+/* a panel heading with www's size (h3.headline.heading-small in an accordion panel: 28 / 30.8 px with 22 px below at
+   1440, 22 / 24.2 px with 18 below at 390, as the heading-small tokens; the importer keeps the class as
+   "{heading-small}" on Brussels pages from standing order 17: the conditions of carriage's 70 article subheadings,
+   ours 18 / 19.8 px with 20 below) */
+body.brand-brussels main .accordion-columns .accordion-columns-panel :is(h2, h3, h4).heading-small {
+  margin-bottom: var(--heading-margin-l);
+  font-size: var(--heading-font-size-l);
+  line-height: var(--heading-line-height);
+}
+
+@media (width < 768px) {
+  body.brand-brussels main .accordion-columns.faq .accordion-columns-panel {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* phones: an open answer 5 px under its question, the next question 47 px under its text (its last paragraph's 16 px
+   and 31 more), as www's legal pages at 390 (standing order 17, item 4; ours 10 and 20: every open panel 21 px short).
+   Not from 768 px: at 1440 the answers are 66 % of the full width there (P50, held) and three pages got worse */
+@media (width < 768px) {
+  body.brand-brussels main .accordion-columns.faq .accordion-columns-panel {
+    padding-top: 5px;
+    padding-bottom: calc(var(--spacing-default) + 31px);
   }
 }

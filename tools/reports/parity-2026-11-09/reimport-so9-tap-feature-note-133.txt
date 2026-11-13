@@ -1,0 +1,38 @@
+# ema-cashub, standing order 9 (2026-11-11), TAP row 133: a feature card's footnote (www's complementaryNote, small print
+# under the card's two columns). tap-import.mjs (ComponentFeatureCardModel) now writes it as the card's second row, one
+# text cell, which tap.css draws the whole width at 14 / 24 px, 8 px under the card's first row (the rule is live with
+# the code; a document changes only when re-imported).
+# The night's note named two documents (fly-business, en-pt and pt-pt). The language archives (tap-snapshots-001 to
+# -015, checked against the index) hold a note on three pages in all eight language versions: fly-business,
+# locate-baggage, special meals (24 documents). Auctions' note is only a line break, so it writes nothing (no change).
+# Run: tap-import.mjs --archive tap-snapshots-001 to -015 and -023 (the index's order) --media every media archive and
+# tap-byside-001 --only <these paths>. Checked offline (2026-11-11): each fresh document equals DA's source of today
+# (GET only) except that the note leaves the text cell for the card's second row; no document has market sections
+# and no market root has a copy of its own, so a language re-import loses nothing.
+# Measured with the structure simulated on our host (/en-pt/on-board/fly-business against tap-parity-002): the note at
+# 1008 px at 1440 as www's, the page 5055 -> 5019 px (www 4942); 390 8325 -> 8313 (www 8224).
+# Columns: document, status, expected change.
+/pt-pt/a-bordo/voar-executiva	READY	the feature card's footnote as its second row (small print under the card)
+/pt-pt/informacoes/bagagem/localizar-bagagem	READY	the feature card's footnote as its second row (small print under the card)
+/pt-pt/a-bordo/refeicoes/especiais	READY	the feature card's footnote as its second row (small print under the card)
+/en-pt/on-board/fly-business	READY	the feature card's footnote as its second row (small print under the card)
+/en-pt/information/baggage/locate-baggage	READY	the feature card's footnote as its second row (small print under the card)
+/en-pt/on-board/meals/special-meals	READY	the feature card's footnote as its second row (small print under the card)
+/es-es/a-bordo/volar-business	READY	the feature card's footnote as its second row (small print under the card)
+/es-es/informacion/equipaje/localizar-equipaje	READY	the feature card's footnote as its second row (small print under the card)
+/es-es/a-bordo/comidas/comidas-especiales	READY	the feature card's footnote as its second row (small print under the card)
+/fr-fr/a-bord/voyager-business	READY	the feature card's footnote as its second row (small print under the card)
+/fr-fr/informations/bagage/localiser-bagages	READY	the feature card's footnote as its second row (small print under the card)
+/fr-fr/a-bord/repas/repas-speciaux	READY	the feature card's footnote as its second row (small print under the card)
+/de-de/an-bord/fliegen-business	READY	the feature card's footnote as its second row (small print under the card)
+/de-de/informationen/gepack/gepack-finden	READY	the feature card's footnote as its second row (small print under the card)
+/de-de/an-bord/mahlzeiten/sondermahlzeiten	READY	the feature card's footnote as its second row (small print under the card)
+/it-it/a-bordo/volare-business	READY	the feature card's footnote as its second row (small print under the card)
+/it-it/informazioni/bagaglio/localizzare-bagagli	READY	the feature card's footnote as its second row (small print under the card)
+/it-it/a-bordo/pasti/pasti-speciali	READY	the feature card's footnote as its second row (small print under the card)
+/pl-pl/na-pokladzie/lot-business	READY	the feature card's footnote as its second row (small print under the card)
+/pl-pl/informacja/bagaz/zlokalizowac-bagaz	READY	the feature card's footnote as its second row (small print under the card)
+/pl-pl/na-pokladzie/posilki/posilki-specjalne	READY	the feature card's footnote as its second row (small print under the card)
+/pt-br/a-bordo/voar-executiva	READY	the feature card's footnote as its second row (small print under the card)
+/pt-br/informacoes/bagagem/localizar-bagagem	READY	the feature card's footnote as its second row (small print under the card)
+/pt-br/a-bordo/refeicoes-especiais	READY	the feature card's footnote as its second row (small print under the card)

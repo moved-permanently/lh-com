@@ -39,9 +39,9 @@ test('the table: markets.json\'s 137 roots with www\'s currency and airport, own
   const www = JSON.parse(fs.readFileSync('tools/markets/tap/www-markets.json', 'utf8'));
   assert.equal(Object.keys(TAP_MARKETS).length, 137);
   assert.deepEqual(Object.keys(TAP_MARKETS).sort(), Object.keys(list.roots).sort());
-  // www's forms (sign-up, complaint, Miles&Go information, suggestion) are no documents: lacks
+  // www's forms (sign-up, complaint, Miles&Go information, suggestion) are no documents: lacks; the 14 pages www redirects away on a root (market-diff rulings 2026-11-09: de-ch /buchungen ...) are lacks too
   const FORMS_DE = ['/hilfe/anfragen-reklamationen/anregung-oder-kompliment', '/hilfe/anfragen-reklamationen/informationen-miles-go', '/hilfe/anfragen-reklamationen/reklamationen'];
-  assert.deepEqual(TAP_MARKETS['de-ch'], ['de', 'ch', 'de-de', 'CHF', 'GVA', 'Deutsch (Schweiz)', [], ['/buchungen/gift-card', ...FORMS_DE, '/rechtliche-informationen/schlichtungsstelle', '/registrierung']]);
+  assert.deepEqual(TAP_MARKETS['de-ch'], ['de', 'ch', 'de-de', 'CHF', 'GVA', 'Deutsch (Schweiz)', [], ['/buchungen', '/buchungen/gift-card', ...FORMS_DE, '/rechtliche-informationen/schlichtungsstelle', '/registrierung']]);
   assert.deepEqual(TAP_MARKETS['fr-ca'], ['fr', 'ca', 'fr-fr', 'CAD', 'YYZ', 'Français (Canada)',
     ['/mentions-legales/droits-passagers-canada', '/mentions-legales/plan-accessibilite-canada', '/miles-and-go/gagnez-miles/cartes-de-credit'],
     ['/aide/demandes-reclamations/informations-miles-go', '/aide/demandes-reclamations/reclamation', '/aide/demandes-reclamations/suggestion-ou-compliment', '/inscription',

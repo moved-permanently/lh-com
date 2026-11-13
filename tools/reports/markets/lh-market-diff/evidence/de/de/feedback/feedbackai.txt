@@ -1,0 +1,8 @@
+root    /ao/de/feedback/feedbackai
+version /de/de/feedback/feedbackai
+verdict differs (widget)
+diff (- version only, + root only; = shared), from token 0:
+- <feedback-questionnaire>
+  @data-dcep={"id":"{id}"}
+- @data-public-endpoint=
+- @data-api-gateway=https://api.travelid.lufthansa.com/feedback-eye/v1

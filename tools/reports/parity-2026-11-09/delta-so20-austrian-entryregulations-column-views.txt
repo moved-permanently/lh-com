@@ -1,0 +1,23 @@
+# ema-cashub, standing order 20 (2026-11-13), item 3: Austrian entryregulations. Expected change: www's first three
+# column views drawn as views, so "General information" and "Entry regulations for individual destinations" start where
+# www's do (1440 -3.29 -> -1.26 % off www, 390 -2.75 -> -2.03). DA's copy plus the delta, not a re-import.
+# www (austrian-parity-015) draws the intro, "General information" and the two-column views as separate column views,
+# each with its own padding. DA's copy keeps them in one section as default content followed by two columns-media
+# blocks, so at 1440 "General information" was 45 px too high and every heading after it 85 to 182 px.
+# The delta: three column-view markers at www's view edges, nothing else (the rest of DA's copy byte for byte):
+#   1. " {column-end-outer}" at the end of the picture paragraph right after the intro (the intro view ends),
+#   2. " {column-start-outer}" at the end of the first H2 ("General information" / "Allgemeine Informationen"):
+#      tools/importer/heading-size-marks-apply.mjs, row { path, level: 2, text, size: "column-start-outer" },
+#   3. " {column-end-outer}" at the end of the paragraph before the second H2 (the link "To up-to-date travel
+#      information for Austrian citizens" / "Zu den aktuellen Reiseinformationen für österreichische Staatsbürger").
+#   Markers 1 and 3 have no tool yet: put them in by hand, at the end of the paragraph's text (inside </p>).
+# Measured as drafts on our host (austrian.turnsthe.page, the published copy with the markers, every picture loaded,
+# www.* and the airline hosts refused, 0 sent), heading by heading against www's measurements at 1440 / 390:
+#   as is      5,356 / 7,037 px (-3.29 / -2.75 %), headings off by 101 / 119 px on average
+#   this delta 5,468 / 7,089 px (-1.26 / -2.03 %), 15 / 76 px; at 1440 every heading within 27 px but the last (-70)
+#   Not taken: a fourth marker on "Entry regulations for individual destinations" gives 5,508 px (-0.54 %) but puts
+#   the USA / Canada pair 40 px under it, where www and our copy keep them together (that pair +33 px, Austria +67).
+#   What is left at 390 lies below the views (the FAQ and the section after it), not a view question.
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, what changes on the page.
+READY	/at/en/entryregulations.html	markers 1-3 above	1440: the headings within 27 px of www's (-3.29 -> -1.26 %); 390: -2.75 -> -2.03 %
+HOLD	/at/de/entryregulations.html	markers 1-3 above (the same structure: the same 5 sections, blocks and paragraph order)	not recorded: nothing to measure it against; requested in capture-requests-ema-cashub.txt

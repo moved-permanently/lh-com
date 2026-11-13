@@ -1,0 +1,22 @@
+# ema-lufthansa, the night of 2026-11-11 (item d; TAP parity row 129): the first market-group captures, for a re-run of
+# tap-markets.mjs with them. tap-snapshots-027 (R2 drop, 934,760 bytes,
+# 2182dde3ce0cd6e3935fd7723b7e64d3e570e803923a68bfc55228fbdd941388 as downloaded here; 9 pages of
+# capture-567-tap-market-groups.txt, 18:13 UTC) as a --market-archive. Job 567-tap-markets-01 (19:29 UTC) uploaded the
+# own documents and two fragments, none of these language documents: they still have no market sections on our host.
+# Checked offline against our documents (nothing fetched from www): each captured root differs from the language
+# version where the comparison said, so reimport-567-tap-markets.txt's decisions hold for them; no correction.
+# Expected change per row: the language document gains the market section of the group the captured root stands for
+# (its unit with the group's countries), the language version's section for every other market; other groups of the
+# same page stay unplaced until their captures land.
+# Columns: language document, captured root, group kind, roots in the group.
+/en-pt/bookings/payment-methods	en-ao	version-local	58
+/en-pt/miles-and-go/club	en-ar	version-local	55
+/fr-fr/miles-and-go/partenaires	fr-ci	version-local	8
+/pt-pt/informacoes/viajar-com-animais/animais-assistencia	pt-ao	version-local	56
+/pt-pt/miles-and-go/club	pt-ar	version-local	55
+/pt-pt/promos	pt-at	version-local	14
+/pt-pt/promos	pt-pl	version-local	1
+/pt-pt/reservas/modalidades-de-pagamento	pt-ao	version-local	57
+# Own documents among the captures (already uploaded by job 567-tap-markets-01 from earlier input; a refresh from
+# this capture changes nothing listed here):
+# /fr-ca/promos

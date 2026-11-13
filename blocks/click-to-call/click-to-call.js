@@ -1,11 +1,12 @@
 /*
  * click-to-call: TAP's call-back card as www.flytap.com draws it (BySide's window in the page,
- * CoreMedia Engagement Cloud; tools/reports/tap/parity.md row 66, the capture tap-byside-001):
- * a light green card with the title, the text, the telephone with its country code, the day and
- * the half-hour slot, the button and the schedule line, the wide picture at the right (the phone
- * one on top on phones), the small print under the card, and BySide's floating button at the
- * bottom right, which scrolls to the card. The button reads the in-hours label during the opening
- * hours (Lisbon time) and the other one outside them, as www. www's form sends the number to
+ * CoreMedia Engagement Cloud; tools/reports/tap/parity.md row 66, the capture tap-byside-001): a
+ * light green card with the title, the text, the telephone with its country code, the day and the
+ * half-hour slot, the button and the schedule line, the wide picture at the right (the phone one
+ * on top on phones), the small print under the card, and BySide's floating button at the bottom
+ * right, which scrolls to the card. The button reads the in-hours label during the opening hours
+ * (Lisbon time) and the other one outside them, as www; in the hours the telephone and the button
+ * alone (the day and the slot only outside them, TAP row 157). www's form sends the number to
  * TAP's call-back service; the replica's forms stay on TAP's site, so the button opens the Link
  * (the same page on www) in a new tab and nothing typed here is sent. The table: README.md.
  */
@@ -103,8 +104,9 @@ const inline = (cell) => {
 
 /**
  * @param {Element} block
+ * @param {{now?: () => Date}} [options] the clock (tests; the page's own otherwise)
  */
-export default async function decorate(block) {
+export default async function decorate(block, { now = () => new Date() } = {}) {
   const rows = {};
   [...block.querySelectorAll(':scope > div')].forEach((row) => {
     const [key, value] = row.children;
@@ -130,23 +132,29 @@ export default async function decorate(block) {
   const days = val('days').split(',').map((d) => d.trim()).filter(Boolean);
   const hours = parseHours(rows.hours ? rows.hours.textContent : '');
   const submit = node('button', { type: 'submit', className: 'click-to-call-submit' });
-  const label = () => {
-    submit.textContent = inOpeningHours(new Date(), hours) ? val('button') : val('button outside hours');
-  };
-  label();
+  const when = node(
+    'div',
+    { className: 'click-to-call-when' },
+    select('click-to-call-day', names.day, days.map((d, i) => [String(i), d])),
+    select('click-to-call-time', names.time, slotsOf(rows.slots ? rows.slots.textContent : '').map((t) => [t, t])),
+  );
   const form = node(
     'form',
     { className: 'click-to-call-form' },
     node('div', { className: 'click-to-call-phone-row' }, select('click-to-call-code', names.code, COUNTRY_CODES.map((c, i) => [`${c}-${i}`, `(+${c})`])), tel),
-    node(
-      'div',
-      { className: 'click-to-call-when' },
-      select('click-to-call-day', names.day, days.map((d, i) => [String(i), d])),
-      select('click-to-call-time', names.time, slotsOf(rows.slots ? rows.slots.textContent : '').map((t) => [t, t])),
-    ),
+    when,
     node('div', { className: 'click-to-call-button' }, submit),
   );
-  // the label follows the hours while the page stays open
+  // in the hours www's window has the telephone and the button alone (TAP row 157: the day and the
+  // slot only to schedule a call outside them); the label and the row follow the hours while the
+  // page stays open
+  const label = () => {
+    const open = inOpeningHours(now(), hours);
+    submit.textContent = open ? val('button') : val('button outside hours');
+    form.classList.toggle('in-hours', open);
+    when.hidden = open;
+  };
+  label();
   form.addEventListener('focusin', label);
   // TAP's call-back service is www's: its page takes over (nothing typed here is sent)
   form.addEventListener('submit', (e) => {

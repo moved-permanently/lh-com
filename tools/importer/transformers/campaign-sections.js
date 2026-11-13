@@ -22,7 +22,7 @@
  * with our section gap between) and the cleanup's spacers for a padded neighbour's padding
  * around a quote alone in its AEM section and after a one-slide carousel (lufthansa-cleanup
  * QUOTE_SPACERS, padCarouselSections): that padding is now the neighbour's own.
- * onLoad: an empty paragraph that ends a text component of such a section (<p><br></p>, the intro of
+ * onLoad: an empty paragraph with a line break that ends a text component of such a section (<p><br></p>, the intro of
  * 100-years/campaigns: its line and the paragraph margin, 51px at 1440 and 390) becomes
  * "{spacer-50}" (50 + 1 px), and each empty separator among its components (sectionSeparators) a
  * text component with "{spacer-N}" (lufthansa-cleanup would drop those under 50px).
@@ -132,7 +132,8 @@ export default function transform(hookName, element, payload) {
     // before helix-importer's preprocessing drops empty paragraphs
     campaignSections(document).forEach((s) => {
       s.querySelectorAll('.text > .richtext > p:last-child').forEach((p) => {
-        if ((p.textContent || '').replace(/[\s\u00a0\u200b]/g, '') || p.querySelector(MEDIA) || !p.previousElementSibling) return;
+        // only a line break draws a line on www (<p><br></p>); an empty <p></p> draws nothing (brief 555)
+        if ((p.textContent || '').replace(/[\s\u00a0\u200b]/g, '') || p.querySelector(MEDIA) || !p.previousElementSibling || !p.querySelector('br')) return;
         p.closest('.text').after(spacerComponent(document, 50));
         p.remove();
       });

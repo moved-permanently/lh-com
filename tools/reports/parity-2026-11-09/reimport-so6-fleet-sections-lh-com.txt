@@ -1,0 +1,44 @@
+# Standing order 6 (2026-11-12), item 1: the fleet pages after the so4 re-import, measured on our live host against the
+# recordings (% off www at 1440 / 390, logs/b598/rank.tsv): 359 5.9 / 8.8, 320 11.8 / 9.1, 32n 11.3 / 9.8, 744 7.7 / 12.4,
+# boeing787 8.8 / 12.7, 351 15.9 / 15.8, lufthansa-first-class-fleet 8.2 / 4.2, seat-maps 7.8 / 7.2.
+# Two causes shared by two pages each, both fixed:
+# - The title image ends the first section with 60 / 80 px, and the next section's outer column view adds its own
+#   padding (359 and 744: their first heading 40 px low at 1440). styles.css: 40 px there. This is served on push and
+#   needs no re-import (42 published documents have the shape): 359 -> 3.7 / 7.6, 744 -> 5.0 / 11.4.
+# - A padded AEM section followed by an unpadded one: lufthansa-sections kept them together, so the padding came after
+#   both ("The quietest cabin" 62 px high on 32n). For fleet pages the unpadded one now starts a section of its own.
+#   Drafts on our host (the published pictures swapped in): 320 -> 8.8 / 7.8, 32n -> 9.8 / 9.1. The rows below need a
+#   re-import with main's fleet bundle. Of the 32 fleet pages with snapshots here, only the 320 and 32n pages of de/en,
+#   de/de, at/de and gb/en change; the other 24 import byte for byte as before.
+# Not shared: 351 (no seat map; its drift starts at the features block), boeing787 (small steps through the page).
+# Columns: status, document, what changes.
+READY	/de/de/320	the padded AEM section and the unpadded one after it as two sections (8 -> 9 sections); the published text reads as main's import of the snapshot (tools/importer/bd-snapshots)
+READY	/de/de/32n	the padded AEM section and the unpadded one after it as two sections (8 -> 9 sections); the published text reads as main's import of the snapshot (tools/importer/bd-snapshots)
+READY	/de/en/320	the padded AEM section and the unpadded one after it as two sections (7 -> 8 sections); the published text reads as main's import of the snapshot (tools/importer/bd-snapshots)
+READY	/de/en/32n	the padded AEM section and the unpadded one after it as two sections (7 -> 9 sections); the published text reads as main's import of the snapshot (tools/importer/bd-snapshots)
+HOLD	/at/de/320	the split applies (8 -> 9 sections), but this checkout's snapshot is older than the published document (its lead text is missing): re-import from the helper's newer so4 archive with main's fleet bundle
+HOLD	/at/de/32n	the split applies (8 -> 9 sections), but this checkout's snapshot is older than the published document (its lead text is missing): re-import from the helper's newer so4 archive with main's fleet bundle
+HOLD	/gb/en/320	the split applies (7 -> 8 sections), but this checkout's snapshot is older than the published document (its lead text is missing): re-import from the helper's newer so4 archive with main's fleet bundle
+HOLD	/gb/en/32n	the split applies (7 -> 9 sections), but this checkout's snapshot is older than the published document (its lead text is missing): re-import from the helper's newer so4 archive with main's fleet bundle
+HOLD	/xx/el/320	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/el/32n	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/es/320	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/es/32n	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/fr/320	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/fr/32n	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/hk/320	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/hk/32n	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/it/320	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/it/32n	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/ja/320	xx/ja: stays as DA has it (www answers 404; standing order 6)
+HOLD	/xx/ja/32n	xx/ja: stays as DA has it (www answers 404; standing order 6)
+HOLD	/xx/ko/320	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/ko/32n	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/pl/320	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/pl/32n	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/pt/320	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/pt/32n	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/ru/320	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/ru/32n	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/zh/320	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages
+HOLD	/xx/zh/32n	its snapshot is not in this checkout nor in the R2 drop's archives 089 to 108 (the helper's so4 archive): re-import with main's fleet bundle; expect one or two sections more, as on the de/en, de/de, at/de, gb/en pages

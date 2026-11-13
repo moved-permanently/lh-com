@@ -1,0 +1,29 @@
+# ema-lufthansa, standing order 5 of 2026-11-12, item 1: the Discover documents whose import the cleanup's Discover
+# separators change (tools/importer/transformers/lufthansa-cleanup.js, this commit: a separator between two components
+# kept as "{spacer-30}", Discover's .hr margin; kept ones at 30 px, not lufthansa.com's 25). Measured on the 26 recorded
+# pages (discover-parity-001; main's cleanup against this one, both with the Discover URL; the import helper's other
+# Discover documents follow the same rule).
+# Every row HOLD: what reaches the document is the same as now. marker-collapse.mjs (THEMES.discover live, no
+# textSpacers) removes separators of 31 px or less, and a divider becomes the Divider block at any size, so the new and
+# the resized markers all go in the collapse. They reach the documents once the collapse carries Discover's 31 px
+# separators (rows-for-ema-test.md row 4); then these rows are READY (customer service en: the accordion's end to
+# "Rebooking a flight" 40 -> 71 px, www 71).
+# The import bundles are not rebuilt in this commit: @adobe/aem-import-helper is not in this machine's npx cache (the
+# bundler runs offline only); the next rebuild takes the change; nothing depends on it until then.
+# Columns: document, READY/HOLD, recording, the cleanup's markers before -> now, reason.
+/de/de/book/baggage	HOLD	discover-parity-001 (de-de-book-baggage)	[] -> [{spacer-30}]	no document change until the collapse carries 31 px separators (rows-for-ema-test.md row 4)
+/de/de/book/special-requests/families	HOLD	discover-parity-001 (de-de-book-special-requests-families)	[{spacer-25}] -> [{spacer-30} {spacer-30} {spacer-30}]	no document change until the collapse carries 31 px separators (rows-for-ema-test.md row 4)
+/de/de/discover/services-on-board/entertainment	HOLD	discover-parity-001 (de-de-discover-services-on-board-entertainment)	[{spacer-25}] -> [{spacer-30} {spacer-30} {spacer-30}]	no document change until the collapse carries 31 px separators (rows-for-ema-test.md row 4)
+/de/de/my-bookings/check-in	HOLD	discover-parity-001 (de-de-my-bookings-check-in)	[{spacer-25}] -> [{spacer-30}]	no document change until the collapse carries 31 px separators (rows-for-ema-test.md row 4)
+/de/de/my-bookings/check-in/check-in-at-the-airport	HOLD	discover-parity-001 (de-de-my-bookings-check-in-check-in-at-the-airport)	[] -> [{spacer-30}]	no document change until the collapse carries 31 px separators (rows-for-ema-test.md row 4)
+/de/de/my-bookings/manage/customer-service	HOLD	discover-parity-001 (de-de-my-bookings-manage-customer-service)	[{spacer-25 from-768} {spacer-105 from-768} {spacer-25} {spacer-25}] -> [{spacer-30 from-768} {spacer-105 from-768} {spacer-30} {spacer-30} {spacer-30} {spacer-30}]	no document change until the collapse carries 31 px separators (rows-for-ema-test.md row 4)
+/de/de/travel-inspiration/inspiration/destinations/punta-cana	HOLD	discover-parity-001 (de-de-travel-inspiration-inspiration-destinations-punta-cana)	[{spacer-25} {spacer-25}] -> [{spacer-30} {spacer-30}]	no document change until the collapse carries 31 px separators (rows-for-ema-test.md row 4)
+/de/de/travel-inspiration/inspiration/destinations/santorini	HOLD	discover-parity-001 (de-de-travel-inspiration-inspiration-destinations-santorini)	[{spacer-25} {divider-25} {divider-25} {spacer-25} {spacer-25}] -> [{spacer-30} {divider-30} {divider-30} {spacer-30} {spacer-30}]	no document change until the collapse carries 31 px separators (rows-for-ema-test.md row 4)
+/de/en/book/baggage	HOLD	discover-parity-001 (de-en-book-baggage)	[] -> [{spacer-30}]	no document change until the collapse carries 31 px separators (rows-for-ema-test.md row 4)
+/de/en/book/special-requests/families	HOLD	discover-parity-001 (de-en-book-special-requests-families)	[{spacer-25}] -> [{spacer-30} {spacer-30} {spacer-30}]	no document change until the collapse carries 31 px separators (rows-for-ema-test.md row 4)
+/de/en/discover/services-on-board/entertainment	HOLD	discover-parity-001 (de-en-discover-services-on-board-entertainment)	[{spacer-25}] -> [{spacer-30} {spacer-30} {spacer-30}]	no document change until the collapse carries 31 px separators (rows-for-ema-test.md row 4)
+/de/en/my-bookings/check-in	HOLD	discover-parity-001 (de-en-my-bookings-check-in)	[{spacer-25}] -> [{spacer-30}]	no document change until the collapse carries 31 px separators (rows-for-ema-test.md row 4)
+/de/en/my-bookings/check-in/check-in-at-the-airport	HOLD	discover-parity-001 (de-en-my-bookings-check-in-check-in-at-the-airport)	[] -> [{spacer-30}]	no document change until the collapse carries 31 px separators (rows-for-ema-test.md row 4)
+/de/en/my-bookings/manage/customer-service	HOLD	discover-parity-001 (de-en-my-bookings-manage-customer-service)	[{spacer-25} {spacer-25}] -> [{spacer-30} {spacer-30} {spacer-30} {spacer-30}]	no document change until the collapse carries 31 px separators (rows-for-ema-test.md row 4)
+/de/en/travel-inspiration/inspiration/destinations/punta-cana	HOLD	discover-parity-001 (de-en-travel-inspiration-inspiration-destinations-punta-cana)	[{spacer-25} {spacer-25}] -> [{spacer-30} {spacer-30}]	no document change until the collapse carries 31 px separators (rows-for-ema-test.md row 4)
+/de/en/travel-inspiration/inspiration/destinations/santorini	HOLD	discover-parity-001 (de-en-travel-inspiration-inspiration-destinations-santorini)	[{spacer-25} {divider-25} {divider-25} {spacer-25} {spacer-25}] -> [{spacer-30} {divider-30} {divider-30} {spacer-30} {spacer-30}]	no document change until the collapse carries 31 px separators (rows-for-ema-test.md row 4)

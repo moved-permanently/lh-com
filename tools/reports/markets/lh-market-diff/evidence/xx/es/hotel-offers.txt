@@ -1,0 +1,5 @@
+root    /cr/es/hotel-offers
+version /content/lh/markets/xx/es/hotel-offers
+verdict differs (widget)
+diff (- version only, + root only; = shared), from token 2:
+~ @data-dcep (JSON, version -> root): .hideHotel: false -> true

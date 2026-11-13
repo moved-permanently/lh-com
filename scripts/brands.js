@@ -150,6 +150,16 @@ export const BRANDS = {
       // tag manager loads it (Tealium os-main tag 110, 2026-11-01): scripts/site-embeds.js, on the
       // pages with the metadata chat-button
       'chat-button': { script: 'https://www.austrian.com/digitalassistant/support/webchat_init.js' },
+      // the in-flight entertainment's film carousel as www's unterhaltung-an-bord pages embed
+      // it (an iframe of www.austrian-inflightentertainment.com, 520 px high, the same widget in
+      // all ten languages: the 10-30 snapshots, austrian-parity-003): scripts/site-embeds.js, in
+      // place of the import's link to the page on www (the flag off: that link, as today)
+      'austrian-ife-carousel': {
+        src: 'https://www.austrian-inflightentertainment.com/external-widgets?id=12441&type=film-carousel&lang=de',
+        height: 520,
+        path: '/unterhaltung-an-bord',
+        www: 'www.austrian.com',
+      },
     },
     consentLinks: {
       en: {
@@ -228,6 +238,15 @@ export const BRANDS = {
       'chat-button': {
         script: 'https://www.brusselsairlines.com/digitalassistant/support/webchat_init.js',
         languages: ['en', 'fr', 'nl', 'de', 'it', 'es'],
+      },
+      // the payment methods' country picker as www's our-payment-methods pages embed it (an iframe
+      // of webv4.brusselsairlines.com, 750 px high, the same page in all six languages: the
+      // brussels-parity-004 / -008 recordings): scripts/site-embeds.js, in place of the import's
+      // link to the page on www (the flag off: that link, as today)
+      'brussels-payment-picker': {
+        src: 'https://webv4.brusselsairlines.com/prod/content/v3assets/misc/fop/new/fop_standalone_1_en.html',
+        height: 750,
+        path: '/book-a-flight/our-payment-methods',
       },
     },
     www: 'www.brusselsairlines.com',

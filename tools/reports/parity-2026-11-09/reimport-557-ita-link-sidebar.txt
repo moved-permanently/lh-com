@@ -1,0 +1,6 @@
+# The brief after 556 (ITA parity row 22): www's sidebar box of a heading over links (airem-sidebar, "More about Miles &
+# More", ita-parity-004) beside the content, now written by ita-import.mjs (ita-link-sidebar.mjs withLinkListSidebar).
+# The page below is the one recorded with it; any other ITA page whose snapshot has such a box gets it on its next
+# re-import. If the harness has not run reimport-556-ita-miles-and-more.txt yet, one re-import does both (the open
+# accordions and the sidebar). Release order; published as it stands.
+/it/en/profile/miles-and-more

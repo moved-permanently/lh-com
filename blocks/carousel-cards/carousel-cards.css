@@ -644,6 +644,14 @@ body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-disco
   background: none;
 }
 
+/* Austrian's phone slider (Austrian row 53, standing order 15): www's dots 67 px under the cards and 82 px over what
+   follows (austrian-parity-015 entryregulations at 390; ours were 23 and 56); the 24 px target keeps 8 px over its
+   drawn dot. Hidden from 1025 px as below */
+body.brand-austrian main .carousel-cards.phone-slider .carousel-cards-dots {
+  margin-top: 51px;
+  margin-bottom: 26px;
+}
+
 /* option phone-slider (brief 404): from 1025px the block is a grid (carousel-cards.js toggles grid
    and four-up by width); the carousel's arrows and dots belong to the narrow widths only */
 .carousel-cards.phone-slider.grid :is(.carousel-cards-nav, .carousel-cards-dots) {
@@ -813,5 +821,14 @@ body.brand-cargo .carousel-cards.slides .carousel-cards-dots {
 @media (width < 768px) {
   body.brand-lufthansa .carousel-cards.phone-slider.fragment-slides .carousel-cards-dots {
     margin-top: 38px;
+  }
+}
+
+/* lufthansa.com on phones: a card grid that ends the page in a padded campaign section
+   (lufthansa-travel-classes' "Discover more"): www's footer 81px under the last card's text at
+   390, ours 49 (brief 558) */
+@media (width < 768px) {
+  body.brand-lufthansa main > .section.campaign-section.padded:last-of-type > .carousel-cards-wrapper:last-child > .carousel-cards.grid:not(.phone-slider) {
+    margin-bottom: 32px;
   }
 }

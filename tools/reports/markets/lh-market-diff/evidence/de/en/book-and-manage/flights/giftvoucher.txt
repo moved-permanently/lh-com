@@ -1,0 +1,251 @@
+root    /ae/en/book-and-manage/flights/giftvoucher
+version /de/en/book-and-manage/flights/giftvoucher
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 1:
+- <div.contentpage.pt-0>
++ <div.contentpage>
+  @role=main
+  <div.container-fluid.section-regular>
+  …
++ <h1.heading-large>
++ "Give a Lufthansa Gift Card"
+  <div.content-wrapper>
+  <div.container-content>
+  …
+- <div.section-content.container-fluid.section-wide>
+- <div.inspirationteaser.image.parbase.section>
+- <div.cms-inspiration-teaser.px-0.full-width-bg.inspiration-teaser-no-animation.inspiration-teaser-regular>
+- <div.dcep-moving-image>
+- <figure>
+- <maui-image>
+- <img.cq-dd-image>
+- @src=/content/dam/lh/images/local_images/local-pages/de/image%20(10).jpg.transform/lh-dcep-transform-width-1440/img.jpg
+- @srcset=/content/dam/lh/images/local_images/local-pages/de/image
+- @alt=Lufthansa Gift Card
+- <div.campaign-information.alignment-left.section-regular.container-fluid>
+- <h2.headline>
+- "Give a Lufthansa Gift Card and save 5%"
+- "🏷"
+- "️"
+- <h3.headline.subheadline>
+- "Offer valid until 2 December 2026."
+- <div.information>
+- <div.richtext>
+- <maui-button-link>
+- @type=primary
+- @href=https://voucher.lufthansa.com/lh/sales/new?locale={m}&discount_code=GIFT5
+- "Get a Gift Card"
+- <div.separator.section>
+- <div.hr.hr-no-layout>
+- <maui-divider>
+- <div.section>
+- <div>
+- <div.section-content.container-fluid.section-regular.section-padding-y-regular>
++ <div.section-content.container-fluid.section-regular>
++ <div.text.section>
++ <div.richtext.limited-width>
++ <p>
++ "A city break with good friends, a beach holiday with family or a romantic trip for two. Treat your loved ones to unforgettable moments with a Lufthansa Gift Card."
+  <div.threecolumn.column.event.section>
+  <div.column-view.flex-column.container-gray.full-width-bg>
+  …
+- "Choose any amount between 10€ and 1000€ and save 5%. For example, pay €475 for a €500 Gift Card."
++ "From small to large amounts, anything is possible – choose a flexible amount in Euros."
+  <div.fading-dots>
+  <div.col-md-6.col-lg.column-view-item>
+  …
+- "Flights and extras"
++ "Many ways to redeem"
+  <div.teaser-description>
+  <div.richtext.ellipsis>
+  …
+- "Redeem it for flights with an LH flight number and additional services."
++ "Redeemable for any flight with a Lufthansa flight number (starting with LH) and additional services when paying in EUR."
+  <div.fading-dots>
+  <div.col-md-6.col-lg.column-view-item>
+  …
+- "Use it until the end of the third year after purchase. For example, if you buy it in 2026, it’s valid until 31 December 2029."
++ "The Lufthansa Gift Card can be redeemed within three years after the end of the calendar year of purchase."
+  <div.fading-dots>
+- <div.section>
+- <div>
+- <div.section-content.container-fluid.section-regular>
+- <div.ghost.section>
+- <div.ghost.section>
+  <div.separator.section>
+  <div.hr.hr-no-layout>
+  …
+- "3. Book a flight on lufthansa.com and redeem your Gift Card code."
++ "3. Book a flight, and redeem your Gift Card on lufthansa.com."
+  <p>
+- "You can use the Gift Card to pay for cross-border flights departing from a Eurozone country."
++ "4. Flights departing from countries using the EUR currency can be paid for with this Gift Card."
+  <div.link.event.section>
+  <div.maui-link>
+  …
+- @href=https://www.lufthansa.com/{R}/book-and-manage/flights/lufthansa-voucher#sponsored-voucher
+- @rel=noopener noreferrer
++ @href=/{R}/book-and-manage/flights/lufthansa-voucher
+  @slot=trigger
+  @variant=hyper
+  …
+- @href=https://voucher.lufthansa.com/lh/sales/new?locale={m}&discount_code=GIFT5
++ @href=https://voucher.lufthansa.com/lh/sales/new?locale={m}
+  @type=primary
+  @target=_blank
+  …
+- @src=/content/dam/lh/images/local_images/local-pages/de/LHA_GiftCard_Visual_1920x960px%201.png.transform/lh-dcep-transform-width-1440/img.jpg
+- @srcset=/content/dam/lh/images/local_images/local-pages/de/LHA_GiftCard_Visual_1920x960px
++ @src=/content/dam/lh/images/frontify_variations/5/c-{n}-{n}.jpg.transform/lh-dcep-transform-width-1440/img.jpg
++ @srcset=/content/dam/lh/images/frontify_variations/5/c-{n}-{n}.jpg.transform/lh-dcep-transform-width-1440/img.jpg
+  @alt=Hands forming a heart shape against a bright sunlit background.
+- @title=wrapped giftcard
+  <div.separator.section>
+  <div.hr.hr-no-layout>
+  …
+- "Get or redeem a Gift Card"
++ "Get a Gift Card"
+  <div.row>
+  <div.col-md-6.col-lg.column-view-item>
+  …
+- <a.teaser.card>
++ <a.teaser.partner>
+  @href=https://www.lufthansa.com/{R}/book-and-manage/flights/giftvoucher#faqs
+- <div.image-wrapper>
+- <img>
+- @src=/content/dam/lh/images/local_images/local-pages/de/image%20(1).jpg.transform/lh-dcep-transform-width-1440/img.jpg
+- @alt=
+- @srcset=/content/dam/lh/images/local_images/local-pages/de/image
+- <div.card-content>
+  <h3.heading-copytext-large.teaser-heading>
++ <img.icon.icon-svg>
++ @src=/content/dam/lh/icons/Question%20mark.svg
++ @alt=
++ <div.teaser-heading-text>
+  "Frequently asked questions"
+  <div.teaser-description>
+  …
+- "Find answers on payment, redemption and validity"
++ "Here you’ll find answers to the most frequently asked questions relating to our Gift Card"
+  <div.fading-dots>
+  <div.teaser-link-text>
+  …
+- <a.teaser.card>
++ <a.teaser.partner>
+  @href=https://www.lufthansa.com/{R}/homepage
+- <div.image-wrapper>
+- <img>
+- @src=/content/dam/lh/images/local_images/local-pages/de/image.jpg.transform/lh-dcep-transform-width-1440/img.jpg
+- @alt=
+- @srcset=/content/dam/lh/images/local_images/local-pages/de/image.jpg.transform/lh-dcep-transform-width-1440/img.jpg
+- <div.card-content>
+  <h3.heading-copytext-large.teaser-heading>
++ <img.icon.icon-svg>
++ @src=/content/dam/lh/icons/lh-icon-voucher-present.svg
++ @alt=
++ <div.teaser-heading-text>
+  "Do you already have a Gift Card?"
+  <div.teaser-description>
+  …
+- "Simply redeem your Gift Card on lufthansa.com when you book your flights"
++ "Simply redeem your Gift Card on lufthansa.com."
+  <div.fading-dots>
+  <div.teaser-link-text>
+  …
+- <a.teaser.card>
++ <a.teaser.partner>
+  @href=https://voucher.lufthansa.com/lh/sales/new?locale={m}
+  @rel=noopener noreferrer
+  …
+- <div.image-wrapper>
+- <img>
+- @src=/content/dam/lh/images/local_images/local-pages/de/image%20(12).jpg.transform/lh-dcep-transform-width-1440/img.jpg
+- @alt=woman on a plane
+- @srcset=/content/dam/lh/images/local_images/local-pages/de/image
+- <div.card-content>
+  <h3.heading-copytext-large.teaser-heading>
+- "Arrives in your inbox"
++ <img.icon.icon-svg>
++ @src=/content/dam/lh/icons/PDF%20document.svg
++ @alt=
++ <div.teaser-heading-text>
++ "Digital Gift Card"
+  <div.teaser-description>
+  <div.richtext.ellipsis>
+  …
+- <div.ghost.section>
+- <div.ghost.section>
+- <div.ghost.section>
++ <div.headline.section>
++ <h2.headline.heading-small>
++ "The perfect gift for any occasion"
++ <div.text.section>
++ <div.richtext.limited-width>
++ <p>
++ "The dream destination is within reach: this gift idea will spark the urge to travel, either with friends, as a family or with loved colleagues. Give your loved ones a very special treat with the Lufthansa Gift Card. You determine the value, the recipient selects the destination of the flight."
++ <p>
++ "Near or far, our comprehensive route network with its hubs in Frankfurt and Munich offers flight connections for all occasions and every type of holiday. This makes a flight Gift Card the perfect gift for various occasions, be it for birthdays, weddings, graduations or simply as a thoughtful gift."
++ <p>
++ "You can buy the Lufthansa Gift Card online with just a few clicks and the Gift Card code can be redeemed just as quickly too."
++ <p>
++ "If you have changed your mind or made a mistake with your purchase you can cancel the purchase of a completely unused Gift Card within 14 days of receiving the confirmation email without giving any reason."
++ <div.link.event.section>
++ <div.maui-link>
++ <maui-button-link>
++ @href=https://admin.vp-lhg.com/lh/sales_refunds/new?locale={m}
++ @type=secondary
++ @target=_blank
++ "Withdraw your Gift Card order"
++ <span.sr-only>
++ "The link will be opened in a new browser tab"
+  <div.separator.section>
+  <div.hr.hr-no-layout>
+  …
+- "The Gift Card is valid from the time of issue until three years after the end of the year in which it was issued (e.g. issue date 02.11.2026 with validity until 31.12.2029)."
++ "The Gift Card is valid from the time of issue until three years after the end of the year in which it was issued (e.g. issue date 21.8.2021 with validity until 31.12.2024)."
+  <div.accordionitem.commonevent>
+  <maui-collapsible-item>
+  …
+- "You can redeem the Gift Card for cross-border tickets with a Lufthansa flight number and for additional services such as advance seat reservations, additional baggage, etc. The applicable price must be shown in euros."
++ "You can redeem the Gift Card for tickets with a Lufthansa flight number and for additional services such as advance seat reservations, additional baggage, etc. The applicable price must be shown in euros."
+  <div.accordionitem.commonevent>
+  <maui-collapsible-item>
+  …
+- <div.accordionitem.commonevent>
+- <maui-collapsible-item>
+- @headline=Can I cancel my purchase?
+- <div>
+- <div.text>
+- <div.richtext.limited-width>
+- <p>
+- "Changed your mind? You can cancel an unused Gift Card within 14 days of receiving your confirmation email. No reason needed."
+- <div.link.event>
+- <div.maui-link>
+- <maui-tooltip>
+- @strategy=fixed
+- @placement=bottom
+- @type=small
+- @show-arrow=
+- <maui-navigation-link.large>
+- @size=large
+- @href=https://admin.vp-lhg.com/lh/sales_refunds/new?locale={m}
+- @rel=noopener noreferrer
+- @slot=trigger
+- @variant=hyper
+- "Withdraw Gift Card order"
+- <div.popover-box-tooltip>
+- @slot=box
+- "Please note that with this link you are visiting an external website that may not follow the same privacy, security or accessibility policies."
+- <div.headline.section>
+- <h2.headline.heading-small>
+- "The perfect gift for any occasion"
+- <div.text.section>
+- <div.richtext.limited-width>
+- <p>
+- "The dream destination is within reach: this gift idea will spark the urge to travel, either with friends, as a family or with loved colleagues. Give your loved ones a very special treat with the Lufthansa Gift Card. You determine the value, the recipient selects the destination of the flight."
+- <p>
+- "Near or far, our comprehensive route network with its hubs in Frankfurt and Munich offers flight connections for all occasions and every type of holiday. This makes a flight Gift Card the perfect gift for various occasions, be it for birthdays, weddings, graduations or simply as a thoughtful gift."
+- <p>
+- "You can buy the Lufthansa Gift Card online with just a few clicks and the Gift Card code can be redeemed just as quickly too."
+- <p>
+- "If you have changed your mind or made a mistake with your purchase you can cancel the purchase of a completely unused Gift Card within 14 days of receiving the confirmation email without giving any reason."

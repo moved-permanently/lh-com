@@ -1,0 +1,6 @@
+# The brief after 531, item 1 (Air Dolomiti parity row 77): the flight status pages re-imported with airdolomiti-import.mjs
+# from their __NEXT_DATA__ (airdolomiti-parity-002 has /flug-status; /flight-status is the same page type): www's page
+# title kept as the hidden h1 (section style hidden-heading), the half page's title the visible h2. Release order;
+# uploaded, previewed and published as they stand.
+/de/flug-status
+/en/flight-status

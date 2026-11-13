@@ -353,10 +353,22 @@ function decorateStage(block, labels, {
       block.setAttribute('role', 'region');
       block.setAttribute('aria-labelledby', heading.id);
     }
-    // subtitle: a short plain paragraph directly after the heading (longer ones are body text)
+    // subtitle: a short plain paragraph directly after the heading (longer ones are body text).
+    // lufthansa.com: followed by nothing but the call to action it is www's information text
+    // (.information .richtext: economy-class, internet-overview, 32n, boeing787; the subheadlines
+    // stand alone or before more text: 100-years, best-price-alert; brief 582)
     const next = heading.nextElementSibling;
-    if (next && next.tagName === 'P' && !next.querySelector('a, picture')
-      && cleanText(next).length <= SUBTITLE_MAX_LENGTH) {
+    const onlyCta = (p) => {
+      const rest = [];
+      for (let n = p.nextElementSibling; n; n = n.nextElementSibling) rest.push(n);
+      return rest.length === 1 && rest[0].tagName === 'P' && rest[0].querySelector('a[href]')
+        && cleanText(rest[0]) === [...rest[0].querySelectorAll('a[href]')].map((x) => cleanText(x)).join(' ').trim();
+    };
+    const lufthansa = document.body.classList.contains('brand-lufthansa');
+    // option no-subtitle (the importer: www's stage has body copy, no tagline): no subtitle
+    const noSubtitle = block.classList.contains('no-subtitle');
+    if (next && next.tagName === 'P' && !noSubtitle && !next.querySelector('a, picture')
+      && cleanText(next).length <= SUBTITLE_MAX_LENGTH && !(lufthansa && onlyCta(next))) {
       next.classList.add('hero-campaign-subtitle');
     }
   }

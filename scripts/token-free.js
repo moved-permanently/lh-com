@@ -58,6 +58,17 @@ function isTabPanel(section) {
   return !!meta && [...meta.children].some((row) => (row.firstElementChild?.textContent || '').trim().toLowerCase() === 'tab');
 }
 
+/** A block row's cells with content (a view's empty items, kept as empty cells, aren't cards). */
+const filledCells = (row) => [...(row?.children || [])].filter((c) => c.textContent.trim() || c.querySelector('img, picture, video, iframe')).length;
+
+/** A grey band: its Section Metadata style (or its class, once decorated) says grey. */
+function isBand(section) {
+  if (section.classList.contains('grey')) return true;
+  const meta = [...section.children].find((el) => isBlock(el) && blockName(el) === 'section-metadata');
+  const row = meta && [...meta.children].find((r) => (r.firstElementChild?.textContent || '').trim().toLowerCase() === 'style');
+  return !!row && /(^|,)\s*grey\s*(,|$)/i.test(row.lastElementChild?.textContent || '');
+}
+
 /** A space or divider choice as a separator paragraph (null: none). */
 function separatorFor(space, divider) {
   if (divider) return separatorParagraph(DIVIDER_SPACE, true);
@@ -237,7 +248,13 @@ function applyThemeRules(main, theme) {
   sections.forEach((section, i) => {
     own(section).forEach((el) => {
       const level = /^H([1-6])$/.exec(el.tagName);
-      if (level) addUnmarked(el, theme.headings[`h${level[1]}`], MARKED_SIZE);
+      if (level) {
+        // headingsBefore: the level's size right before a given block (ITA's H2 over a teaser grid)
+        let next = el.nextElementSibling;
+        while (next && isMeta(next)) next = next.nextElementSibling;
+        const before = next && isBlock(next) && ((theme.headingsBefore || {})[blockName(next)] || {})[`h${level[1]}`];
+        addUnmarked(el, before || theme.headings[`h${level[1]}`], MARKED_SIZE);
+      }
       if (theme.text.width === 'full' && TEXT.includes(el.tagName) && !isSeparator(el)
         && !(el.tagName === 'P' && hasPicture(el) && !el.textContent.trim())) addUnmarked(el, 'full-width', MARKED_WIDTH);
     });
@@ -263,15 +280,57 @@ function applyThemeRules(main, theme) {
     // .blocks: www's column view around the block, its padding above and below as the markers drew
     // it): not in a tab panel; no edge above at the section's start, none below at its end (the
     // section's padding) unless columnViews.endEdge; never twice (a marker's edge stays)
-    const { blocks = [], endEdge = false } = theme.columnViews;
+    // bandHeadings: in a grey band (no column marks on www) a heading right before the block sits
+    // on it, no edge above the block or the heading
+    const {
+      blocks = [], endEdge = false, startAtHeading = false, bandHeadings = false,
+      sidebarNoView = false, startAfterLogo = false,
+    } = theme.columnViews;
     if (blocks.length && !isTabPanel(section)) {
       section.querySelectorAll(':scope > div[class]').forEach((block) => {
         if (!blocks.includes(blockName(block))) return;
-        let prev = block.previousElementSibling;
+        // sidebarNoView: a sidebar Columns Media is www's sidebar component, no column view (B2B:
+        // none of the census' 15 sidebars has a column mark)
+        if (sidebarNoView && block.classList.contains('sidebar')) return;
+        // startAtHeading: a heading right before the block is the view's first item (www's column
+        // view starts at it), so the edge goes above the heading; only a Columns Media of two
+        // or more cells side by side, not a stage or sidebar one, not after a divider, not one
+        // whose cells have H4 headings (www: 81 headings whose view starts at them, none of the
+        // 23 before a one-cell, stage or sidebar Columns Media, none of the 18 after a divider
+        // or before H4 card headings, where the view starts below the heading)
+        let start = block;
+        const heading = block.previousElementSibling;
+        const sideBySide = blockName(block) === 'columns-media' && !block.classList.contains('stage')
+          && !block.classList.contains('sidebar') && filledCells(block.firstElementChild) >= 2
+          && !block.querySelector('h4');
+        const afterDivider = (el) => el && (el.matches('p.divider') || (isBlock(el) && blockName(el) === 'divider'));
+        if (startAtHeading && sideBySide && !isBand(section) && /^H[2-4]$/.test(heading?.tagName || '')
+          && !afterDivider(heading.previousElementSibling)) start = heading;
+        let prev = start.previousElementSibling;
         while (prev && isMeta(prev)) prev = prev.previousElementSibling;
         let next = block.nextElementSibling;
         while (next && isMeta(next)) next = next.nextElementSibling;
-        if (prev && !isColumnMark(prev)) block.before(columnMark('column-start-outer'));
+        const onBandHeading = bandHeadings && isBand(section) && /^H[2-4]$/.test(heading?.tagName || '');
+        // startAfterLogo: right after a one-picture Columns Media (an airline page's logo
+        // stage, its empty cells aside) the next Columns Media opens a view of its own, its
+        // edge below the logo's (B2B's census: 8 of 8 such pairs marked end and start)
+        const logoBefore = (mark) => {
+          let b = mark && mark.previousElementSibling;
+          while (b && isMeta(b)) b = b.previousElementSibling;
+          const cells = b && blockName(b) === 'columns-media' ? [...(b.firstElementChild?.children || [])] : [];
+          const full = cells.filter((c) => c.textContent.trim() || c.querySelector('img, picture'));
+          return b && b.children.length === 1 && full.length === 1 && !full[0].textContent.trim() && !!full[0].querySelector('picture');
+        };
+        // only on a page of the new version (its title's section H1 compact, which
+        // reimport-583-b2b-teaser-grids.txt writes): today's documents as they are
+        const afterLogo = startAfterLogo && !!section.parentElement?.querySelector(':scope > .h1-compact')
+          && blockName(block) === 'columns-media' && start === block
+          && isColumnMark(prev) && prev.classList.contains('column-end-outer') && logoBefore(prev);
+        if (prev && (!isColumnMark(prev) || afterLogo) && !onBandHeading) {
+          const mark = columnMark('column-start-outer');
+          if (afterLogo) mark.classList.add('after-logo');
+          start.before(mark);
+        }
         if ((next || endEdge) && !isColumnMark(next)) block.after(columnMark('column-end-outer'));
       });
     }

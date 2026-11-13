@@ -18,7 +18,8 @@ test('row 98: one-up one card a row at every width (cards-teaser and cards), 24 
   assert.equal(at > css.indexOf('body.brand-tap .cards.four-up > ul {'), true);
   assert.equal(/\.one-up > ul \{\s*grid-template-columns: repeat/.test(css), false);
   // www's 133 px package at 1440: the text 40 px above the card's foot
-  assert.match(css, /body\.brand-tap \.cards-teaser\.one-up li:has\(> \.cards-teaser-body > p:not\(\.cards-teaser-cta\)\) \.cards-teaser-body \{\s*padding-bottom: 40px;/);
+  // the card rules' condition since TAP row 156 (standing order 14): any paragraph, a CTA alone too, at the old weight
+  assert.match(css, /body\.brand-tap \.cards-teaser\.one-up li:has\(> \.cards-teaser-body > p:not\(\.cards-teaser-title\)\) \.cards-teaser-body \{\s*padding-bottom: 40px;/);
 });
 
 test('row 23: the bar stays on screen as www\'s (never hidden on scroll; the homepage\'s rises with the page to 16 px from the top, from 1025 px)', () => {

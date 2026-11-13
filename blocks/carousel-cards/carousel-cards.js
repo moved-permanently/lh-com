@@ -139,6 +139,20 @@ function buildSlide(cells) {
     li.classList.add('carousel-cards-video');
   }
 
+  // a picture's link the picture leaves empty when it moves to the image, whose page a link of the
+  // card with text goes to as well (Allegris start-of-booking's cards: <a href><picture></a>, the
+  // title and the text linked too): no paragraph of the body, which drew an arrow row 24 px tall
+  // 32 px above the title (www: the whole card is one link; standing order 7 of 2026-11-12)
+  const textHrefs = new Set(cells.flatMap((c) => [...c.querySelectorAll('a[href]')])
+    .filter((a) => a.textContent.trim()).map((a) => a.getAttribute('href')));
+  const emptiedLink = (node) => {
+    if (node.nodeType !== Node.ELEMENT_NODE || node.textContent.trim()) return false;
+    if (node.querySelector('img, picture, svg, video, iframe')) return false;
+    const links = node.matches('a[href]') ? [node] : [...node.querySelectorAll('a[href]')];
+    return links.length > 0 && !links.includes(videoLink)
+      && links.every((a) => textHrefs.has(a.getAttribute('href')));
+  };
+
   cells.forEach((cell) => {
     const token = cleanText(cell).toLowerCase();
     if (WIDTH_TOKENS.includes(token) && !cell.querySelector('picture, img, a')) {
@@ -156,6 +170,7 @@ function buildSlide(cells) {
     [...cell.childNodes].forEach((node) => {
       if (node.nodeType === Node.TEXT_NODE && !node.textContent.trim()) return;
       if (node.nodeType === Node.ELEMENT_NODE && !node.textContent.trim() && !node.querySelector('img, a')) return;
+      if (emptiedLink(node)) return;
       body.append(node);
     });
   });

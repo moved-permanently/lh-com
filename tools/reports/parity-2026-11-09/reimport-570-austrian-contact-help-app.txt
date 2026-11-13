@@ -1,0 +1,11 @@
+# The brief after 570 item 1 (ema-cashub): lh-austrian's /contact documents, which carry the same help app as /at/en/help-center (micro-frontend help-center-web), for the help app's feedback questionnaire "Is there a topic missing?" (Yes / No) that www shows after the topics; in release order. The importer writes the Feedback block only from a rendered questionnaire (feedback-questionnaire with its label and answers); an empty element is dropped. Snapshots in the R2 drop (austrian-snapshots-001 to -018, all of 2026-10-30, checked 2026-11-10): /at/de/contact (austrian-snapshots-002) and /at/en/contact (-001) are there, but their questionnaire is empty (not rendered when captured), so a re-import from them adds nothing; the other eight are in no archive. All ten need a capture with the help app rendered (wait until "Is there a topic missing?" shows): capture request sent to the user. Until then this list is waiting. For any page whose DA copy differs from the importer's output in things the importer does not own (pictures, links, alt texts, metadata rows), the harness keeps DA's version of those. TSV: DA path, snapshot state.
+/at/de/contact	austrian-snapshots-002, questionnaire empty: capture
+/at/en/contact	austrian-snapshots-001, questionnaire empty: capture
+/cn/zh/contact	no snapshot: capture
+/es/es/contact	no snapshot: capture
+/fr/fr/contact	no snapshot: capture
+/gr/el/contact	no snapshot: capture
+/it/it/contact	no snapshot: capture
+/jp/ja/contact	no snapshot: capture
+/pl/pl/contact	no snapshot: capture
+/ru/ru/contact	no snapshot: capture

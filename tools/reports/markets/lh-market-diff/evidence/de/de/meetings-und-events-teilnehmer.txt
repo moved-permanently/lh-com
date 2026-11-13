@@ -1,0 +1,15 @@
+root    /ae/de/meetings-und-events-teilnehmer
+version /de/de/meetings-und-events-teilnehmer
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 143:
+- <li>
+- <a.nav-link.mb-0>
+- @href=http://www.lufthansa.com/{R}/business-services/for-corporate-customers/meetings-and-events/exklusives-event-angebot-dubai
+- @target=_self
+- <span>
+- "Exklusives Event Angebot Dubai"
+- <maui-icon>
+- @slot=icon
+- @use=icon-pager-next
+- @mode=library
+- @size=small

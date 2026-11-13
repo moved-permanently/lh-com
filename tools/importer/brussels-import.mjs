@@ -24,7 +24,8 @@
  * - the flight search hands off to shop.brusselsairlines.com from Brussels (withFlightSearch);
  * - the flight search picker's texts in the page's language from www's label state (withBookingLabels);
  * - the check-in entry becomes the booking-lookup block (withCheckinTabs), its hand-off the page
- *   on www (withCheckinHandoff); the booking login's "Enter booking code" opens the page on www;
+ *   on www (withCheckinHandoff); the quick actions' check-in panel as SWISS's check-in option with
+ *   www's link and hints (withCheckinFields); the booking login's "Enter booking code" opens the page on www;
  * - two-column teaser rows import as carousel-cards (withTeaserColumns);
  * - metadata (withItaMetadata): the root's nav and footer, `markets` (scope.json), www's noindex;
  * - links to www's DAM files become site-relative edsDamPath links (brussels-dam.mjs);
@@ -48,7 +49,7 @@ import { withShareImage } from './brussels-share-image.mjs';
 import { stripScripts } from './excat-plugin.mjs';
 import { withHiddenH1 } from './discover-import.mjs';
 import collapseDocs from './collapse-docs.mjs';
-import { withRestoredNbsp, emptyLineSpacers } from './nbsp-guard.mjs';
+import { withRestoredNbsp, emptyLineSpacers, emptyParagraphSpacers } from './nbsp-guard.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -228,6 +229,11 @@ export function spliceGalleries(doc, fleetDoc) {
 // www's visible empty lines (<p>&nbsp;</p>, about 40 px each on www) as the spacing marker the collapse turns into a
 // Spacer block (the brief after 530, item 1; nbsp-guard.mjs emptyLineSpacers)
 export const withEmptyLineSpacers = (html) => emptyLineSpacers(html, { parse: parseHTML, size: 40 });
+// www's empty paragraphs between two text paragraphs (<p></p>: one paragraph margin, 20 px at 1440 and 16 at 390, so 17
+// for our paragraph's own margin and the marker's 1 px; <p><br></p>: a line, as an empty line's 40), which the framework
+// drops (standing order 5 of 2026-11-11, item 1; nbsp-guard.mjs emptyParagraphSpacers; the collapse keeps the small one
+// between running text, THEMES.brussels textSpacers)
+export const withEmptyParagraphSpacers = (html) => emptyParagraphSpacers(html, { parse: parseHTML, emptySize: 17, brSize: 40 });
 
 export function withCheckinTabs(html) {
   if (/class="tabs[ "][^>]*>\s*<div class="checkinpassengerreceiptentry/.test(html)) return html;
@@ -298,6 +304,40 @@ export const withSidebarContent = (html) => editDivs(html, '<div class="sidebar 
 });
 
 /**
+ * A sidebar whose content opens with the page's h1 and holds what keeps it from lh-com's columns-media sidebar
+ * (accordions, a table, a link list: cancel-and-refund-requests, service-charges) and no column view (those are
+ * withSidebarContent's): its content imports as default content, the h1 44 px higher than www's at 1440 (30 at 390;
+ * the brief after 588, item 2: every recorded page of the kind, brussels-parity-004 and -006). A marker paragraph
+ * before the h1; withSidebarH1Style gives its section the style sidebar-h1 (the Brussels theme's offset) and removes
+ * it. Not a sidebar in a column view's item (/be/fr/legal-notices: in-column, its 390 px not recorded).
+ */
+export const SIDEBAR_H1 = 'brussels-sidebar-h1';
+const LEFT_TO_CONTENT = /<div class="(?:accordion|table|imagelinklist)[ "]/;
+const OPENS_WITH_H1 = /^\s*(?:<!--[\s\S]*?-->\s*)*<div class="headline[ "][^>]*>\s*(?:<!--[\s\S]*?-->\s*)*<h1\b/;
+export const withSidebarH1 = (html) => {
+  let out = '';
+  let from = 0;
+  let i = html.indexOf('<div class="sidebar ', from);
+  while (i >= 0) {
+    const end = divEnd(html, i);
+    let el = html.slice(i, end);
+    const inItem = /<div class="[^"]*\bcolumn-view-item\b[^"]*">\s*$/.test(html.slice(Math.max(0, i - 400), i));
+    const c = el.indexOf('<div class="sidebar-content"');
+    if (c >= 0 && !inItem) {
+      const body = el.indexOf('>', c) + 1;
+      const content = el.slice(body, divEnd(el, c) - '</div>'.length);
+      if (!COLUMN_VIEWS.test(content) && LEFT_TO_CONTENT.test(content) && OPENS_WITH_H1.test(content)) {
+        el = `${el.slice(0, body)}${sidebarMarker(SIDEBAR_H1)}${el.slice(body)}`;
+      }
+    }
+    out += html.slice(from, i) + el;
+    from = end;
+    i = html.indexOf('<div class="sidebar ', from);
+  }
+  return out + html.slice(from);
+};
+
+/**
  * A three- or four-column view of headlines only in a sidebar's content (new-destinations' facts: "Vols par semaine" / "2",
  * "Distance" / "6 773 km", ...): lh-com's info importer maps such a view into columns-media under .section-content or
  * .container-content only, so in the sidebar its headlines came in stacked. It gets a container-content wrapper of its own;
@@ -359,6 +399,29 @@ export function withSidebarSections(doc) {
   return out + doc.slice(from);
 }
 
+const SIDEBAR_H1_MARK = new RegExp(`<p>${SIDEBAR_H1}(?: [{][^}<]*[}])?</p>\\s*`);
+
+/** The section with withSidebarH1's marker gets the style sidebar-h1; the marker goes (the brief after 588). */
+export function withSidebarH1Style(doc) {
+  const mark = doc.match(SIDEBAR_H1_MARK);
+  if (!mark) return doc;
+  let i = doc.indexOf('<div');
+  while (i >= 0) {
+    const close = divEnd(doc, i);
+    if (mark.index > i && mark.index < close) {
+      const section = doc.slice(i, close).replace(SIDEBAR_H1_MARK, '');
+      const open = section.indexOf('>') + 1;
+      let body = section.slice(open, -'</div>'.length);
+      const m = body.lastIndexOf(META_OPEN);
+      const meta = m >= 0 && balanced(body.slice(0, m)) ? body.slice(m, divEnd(body, m)) : '';
+      if (meta) body = body.slice(0, m) + body.slice(m + meta.length);
+      return `${doc.slice(0, i)}${section.slice(0, open)}${body}${withSectionStyle(meta, 'sidebar-h1')}</div>${doc.slice(close)}`;
+    }
+    i = doc.indexOf('<div', close);
+  }
+  return doc.replace(SIDEBAR_H1_MARK, '');
+}
+
 /**
  * The flight search picker's texts in the page's language (www's label state, a script the import
  * strips first: brief 448) on the body as data-lh-booking-labels, for lh-com's flight-search
@@ -376,6 +439,36 @@ export function withBookingLabels(html) {
 export const withCheckinHandoff = (doc, p) => doc
   // the login widget's "Enter booking code" (lh-com: its own dialog) opens the page on www
   .split('href="#booking-code"').join(`href="https://${HOST}${p}"`).replace(/<div class="booking-lookup(?: [^"]*)?">/g, (m) => (/Submit URL/.test(doc) ? m : `${m}<div><div>Submit URL</div><div>https://${HOST}${p}</div></div>`));
+
+/**
+ * The check-in form as www's (the brief after 530, item 2): www's quick actions with the Check-in panel only
+ * (online-check-in-options) are its check-in component SWISS has: a row that opens and closes on phones, the Connexion
+ * link, the booking code and the names with a hint under each. lh-com's import writes a plain booking-lookup of its
+ * fields; the booking-lookup gets SWISS's option (my-bookings, checkin) and rows of www's link (Login link, after the
+ * tab) and hints (after their labels). brussels.css draws the option as www. A snapshot without that panel, and any
+ * other booking-lookup (the manage bookings form), as they are.
+ */
+export function withCheckinFields(doc, html) {
+  if (!doc.includes('<div class="booking-lookup">')) return doc;
+  const { document } = parseHTML(html);
+  const panels = [...document.querySelectorAll('.dcep-quick-actions maui-tab-control-panel, .dcep-quick-actions [role="tabpanel"]')];
+  const panel = panels.length === 1 && panels[0].getAttribute('data-key') === 'checkIn' ? panels[0] : null;
+  if (!panel) return doc;
+  const clean = (s) => (s || '').replace(/\s+/g, ' ').trim();
+  const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+  const row = (k, v) => (v ? `<div><div>${k}</div><div>${v}</div></div>` : '');
+  const hintOf = (name) => esc(clean(panel.querySelector(`maui-input[id$="-flm-checkin-fktnCheckinRequest-${name}"]`)?.getAttribute('hint')));
+  const link = panel.querySelector('maui-navigation-link[href], a[href]');
+  const login = link && clean(link.textContent) ? `<a href="${esc(link.getAttribute('href'))}">${esc(clean(link.textContent))}</a>` : '';
+  const after = (out, key, add) => (add ? out.replace(new RegExp(`(<div><div>${key}</div><div>[^<]*</div></div>)`), (m) => `${m}${add}`) : out);
+  return editDivs(doc, '<div class="booking-lookup">', (el) => {
+    let out = el.replace('<div class="booking-lookup">', '<div class="booking-lookup my-bookings checkin">');
+    out = after(out, 'Tab', row('Login link', login));
+    out = after(out, 'Reference label', row('Reference hint', hintOf('fileKey')));
+    out = after(out, 'First name label', row('First name hint', hintOf('firstName')));
+    return after(out, 'Last name label', row('Last name hint', hintOf('lastName')));
+  });
+}
 
 // the core forms: a proposed lh-forms id per page name (brussels-<page>; lh-forms does not know
 // them yet, so the form pages stay on preview)
@@ -475,6 +568,20 @@ export function withFlightSearch(doc, p) {
   });
 }
 
+/**
+ * The flight-search picker's Group booking link: the page's own root's groups page, relative (the brief after 551, the
+ * harness). www's flight manager names another root's group page or none (data-dcep groupBookingsUrl: student-fares
+ * /content/lh/markets/sg/en, offers /es/en, the campaign pages /content/sn/gc/<ll> or /content/sn/markets/be/en), which
+ * the picker made /<cc>/<ll>/group-travel and site-postprocess a www link. The page's own link on www (its nav and
+ * footer) is /<cc>/<ll>/book-a-flight/groups-and-charter/groups, which our site serves on every root. The last link
+ * step, so site-postprocess and withOwnLinks leave it as it is.
+ */
+export function withGroupBooking(doc, p) {
+  const key = (String(p).match(/^\/[a-z]{2}\/[a-z]{2}(?=\/|$)/) || [])[0];
+  if (!key) return doc;
+  return doc.replace(/(<div>\s*Group booking\s*<\/div>\s*<div>\s*<a href=")[^"]*(")/g, `$1${key}/book-a-flight/groups-and-charter/groups$2`);
+}
+
 // www's destination finder titles its offers itself (maui-headline type h1). A capture with the
 // widget rendered keeps the title in the import; the others (be/en, be/fr our-destinations) left
 // the page without one (axe page-has-heading-one). The labels www's captures show, per language.
@@ -550,8 +657,8 @@ if (isMain) {
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
     // the Studio's snapshots keep www's scripts, which must not run in the import browser)
     // (the form's jQuery UI date picker, appended to the body and hidden on www, is no content)
-    const mapped = withEmptyLineSpacers(withoutLoads(withTeaserCta(withPhoneSliders(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withFactColumns(withSidebarContent(withoutTestForms(editDivs(stripScripts(withBookingLabels(html)), '<div id="ui-datepicker-div"', () => ''))))))), p)))))))
-      .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
+    const mapped = withEmptyParagraphSpacers(withEmptyLineSpacers(withoutLoads(withTeaserCta(withPhoneSliders(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withFactColumns(withSidebarContent(withSidebarH1(withoutTestForms(editDivs(stripScripts(withBookingLabels(html)), '<div id="ui-datepicker-div"', () => '')))))))), p)))))))
+      .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, ''));
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     if (/<div class="slideshow/.test(mapped)) {
       const fleetCopy = path.join(GALLERY_W, 'snapshots', HOST, `${p}.html`);
@@ -643,7 +750,7 @@ if (isMain) {
         ? spliceGalleries(doc, fs.existsSync(fleetDoc) ? fs.readFileSync(fleetDoc, 'utf8') : '') : doc;
       const snap = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
       // (one h1 per document after the finder's title: withPageH1, brief 448)
-      const next = withPageH1(withSidebarSections(withItaMetadata(withCheckinHandoff(withFlightSearch(withFinderTitle(withItaForm(galleried, p, snap), p), p), p), p, snap, markets)), snap);
+      const next = withPageH1(withSidebarH1Style(withSidebarSections(withItaMetadata(withCheckinHandoff(withCheckinFields(withFlightSearch(withFinderTitle(withItaForm(galleried, p, snap), p), p), snap), p), p, snap, markets))), snap);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);
@@ -666,8 +773,9 @@ if (isMain) {
     made.forEach((p) => {
       const f = path.join(W, 'content', `${p}.plain.html`);
       const doc = fs.readFileSync(f, 'utf8');
-      // a share image www doesn't serve: Brussels' own logo (brussels-share-image.mjs)
-      const next = withShareImage(withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages, aliases, { linkOut: linkOutDocs.has(p) ? p : null, served }).doc);
+      // a share image www doesn't serve: Brussels' own logo (brussels-share-image.mjs); the picker's group link
+      // the root's groups page (withGroupBooking)
+      const next = withGroupBooking(withShareImage(withOwnLinks(withLocalImages(relativeDamLinks(doc.split(`https://${LINK_OUT}`).join(`https://${HOST}`))), HOST, pages, aliases, { linkOut: linkOutDocs.has(p) ? p : null, served }).doc), p);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     // the last step: no import writes style markers (token-free styling, tools/importer/marker-collapse.mjs)

@@ -157,7 +157,8 @@ test('tap.css: www\'s buttons and bullets, two cards in view from 728 px and thr
   assert.match(part, /@media \(width >= 1024px\) \{\s*body\.brand-tap \.cards-teaser-tap-slider \{\s*padding-inline: 32px;\s*\}\s*body\.brand-tap \.cards-teaser-tap-slider > ul \{\s*grid-auto-columns: calc\(\(100% - 2 \* 24px\) \/ 3\);\s*\}\s*\}/);
   assert.match(part, /@media \(width >= 1280px\) \{\s*body\.brand-tap \.cards-teaser-tap-slider \{\s*padding-inline: 60px;\s*\}\s*\}/);
   // a text card inside its column snaps with the column (the first at 0: previous unavailable)
-  assert.match(part, /> ul > li:has\(> \.cards-teaser-body > p:not\(\.cards-teaser-cta\)\) \{\s*scroll-margin-inline: 16px;\s*\}/);
+  // the card rules' condition since TAP row 156 (standing order 14): any paragraph, a CTA alone too, at the old weight
+  assert.match(part, /> ul > li:has\(> \.cards-teaser-body > p:not\(\.cards-teaser-title\)\) \{\s*scroll-margin-inline: 16px;\s*\}/);
   // the button: 40 px, #f7f7f8, the unavailable one #eaeaeb at 30 %, Material's chevron at weight 300
   assert.match(part, /:is\(\.cards-teaser-prev, \.cards-teaser-next\) \{[^}]*width: 40px;[^}]*height: 40px;[^}]*border-radius: 9999px;[^}]*background-color: #f7f7f8;[^}]*color: #424045;/);
   assert.match(part, /:is\(\.cards-teaser-prev, \.cards-teaser-next\)\[aria-disabled="true"\] \{\s*background-color: #eaeaeb;\s*cursor: default;\s*opacity: 0\.3;\s*\}/);

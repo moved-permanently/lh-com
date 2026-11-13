@@ -268,3 +268,18 @@ test('without the Format row (today\'s pages) and on other brands: route and air
     assert.ok(!p.el.querySelector('.flight-status-results'));
   }
 });
+
+test('a Flight number hint row shows under the number field and describes it; without the row no hint (AD row 106)', async () => {
+  const p = await statusPage([...ROWS, ['Flight number hint', 'Campo obbligatorio. Esempio: EN1234']]);
+  const input = p.el.querySelector('input[name="flightNumber"]');
+  const hint = input.parentElement.querySelector('.flight-status-hint');
+  assert.ok(hint, 'the hint');
+  assert.equal(hint.textContent, 'Campo obbligatorio. Esempio: EN1234');
+  assert.equal(input.getAttribute('aria-describedby'), hint.id);
+  submit(input.closest('form'));
+  assert.equal(input.getAttribute('aria-describedby').split(' ').at(-1), hint.id, 'the error first, the hint kept');
+  const q = await statusPage(ROWS);
+  const plainInput = q.el.querySelector('input[name="flightNumber"]');
+  assert.ok(!plainInput.parentElement.querySelector('.flight-status-hint'));
+  assert.ok(!plainInput.hasAttribute('aria-describedby'));
+});

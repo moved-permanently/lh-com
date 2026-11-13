@@ -682,6 +682,15 @@ body.brand-austrian main > .section.grey.in-column {
   padding: 48px 0 60px;
 }
 
+/* the grey band in www's .container-gray, #e7e7e7 (rgb(231, 231, 231) in austrian-parity-015: entryregulations,
+   travel-id; ours was lufthansa.com's #f6f6f6), its outlined buttons without a fill as www's .btn-secondary
+   (transparent: the band shows through; ours white). Standing order 20; colour only */
+body.brand-austrian main > .section.grey {
+  --button-secondary-surface: transparent;
+
+  background-color: var(--lh-grey-2);
+}
+
 @media (width >= 768px) {
   body.brand-austrian main > .section.grey.in-column {
     padding-bottom: 72px;
@@ -1035,6 +1044,18 @@ body.brand-austrian .form.core .form-step {
   padding: 72px 0 36px;
 }
 
+/* a band with a headline (the brief after 534 item 2: exclusive-charter-enquiry, private-check-in-counter,
+   invoice-request-hungary; austrian-parity-003): www's headline is 36 px under the band's top and bold, the card
+   about 76 px under it, so the next band's headline sits 72 px under a card (ours 108); bands without a headline
+   (notfallkontakt) keep the 72 px above */
+body.brand-austrian .form.core .form-step:has(.form-step-title) {
+  padding-top: 36px;
+}
+
+body.brand-austrian .form.core .form-step-title {
+  font-weight: 700;
+}
+
 body.brand-austrian .form.core .form-step-description {
   font-size: 16px;
   font-weight: 500;
@@ -1107,5 +1128,369 @@ body.brand-austrian .form.core .form-control:user-invalid {
 @media (width >= 1025px) {
   body.brand-austrian .form.core :is(.form-step-description, .form-subsection-title) {
     font-size: 18px;
+  }
+}
+
+/* tables as www's maui-table renders them (the standing order after 570 item 1: /at/de/bearbeitungsgebuehren at 390):
+   columns by their content, each cell 200 px at least (.cell-content min-width; no rendered table has equalcolumns), the
+   block scrolls sideways as before */
+body.brand-austrian .table-striped table {
+  table-layout: auto;
+}
+
+body.brand-austrian .table-striped :is(td, th) {
+  min-width: 200px;
+}
+
+/* a stage section that ends with a flight-search band (gb/en and us/en ski-campaign-2026; the standing order after 570
+   item 3): www's closing title heading-small at 28 px (22 at 390), 90 px under the fare teaser and 58 px over the band
+   at 1440, and 54 px from the band to the footer */
+body.brand-austrian main > .section.stage > .default-content-wrapper:has(> h3:only-child):has(+ .flight-search-wrapper.flight-search-band:last-child) > h3 {
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+@media (width >= 1025px) {
+  body.brand-austrian main > .section.stage > .default-content-wrapper:has(> h3:only-child):has(+ .flight-search-wrapper.flight-search-band:last-child) {
+    margin-top: calc(var(--spacing-default) + 36px);
+  }
+
+  body.brand-austrian main > .section.stage > .default-content-wrapper:has(> h3:only-child):has(+ .flight-search-wrapper.flight-search-band:last-child) > h3 {
+    margin-bottom: 36px;
+    font-size: 28px;
+  }
+
+  body.brand-austrian main > .section.stage:last-child:has(> .flight-search-wrapper.flight-search-band:last-child) {
+    margin-bottom: 54px;
+  }
+}
+
+/* the closing band on phones (the decision of 584): www shows the flight search on white, without the band picture,
+   80 px under the title and 107 px above the footer (us/en ski-campaign-2026 at 390) */
+@media (width < 768px) {
+  body.brand-austrian main > .section.stage:last-child > .flight-search-wrapper.flight-search-band:last-child {
+    min-height: 0;
+    padding-top: 80px;
+    padding-bottom: 107px;
+  }
+
+  body.brand-austrian main > .section.stage:last-child > .flight-search-wrapper.flight-search-band:last-child > .flight-search-background {
+    display: none;
+  }
+
+  body.brand-austrian main > .section.stage:last-child > .flight-search-wrapper.flight-search-band:last-child > .flight-search.standalone {
+    margin-top: 0;
+  }
+}
+
+/* the homepage's quick actions (the brief after 591, item 1): on every Austrian homepage www has a quick-actions
+   section right after the stage (.quickaction, all four actions hidden for a visitor, then a divider with 30 px under
+   it and an empty profile component, .mb-default): 43 px of space before the next section at 1440 that ours has not
+   (the 64 roots' snapshots and the 48 recordings of austrian-parity-008 to -011 all have it). Nothing to import: the
+   space on the page that opens with the flight search (the homepages only: 64 of 2,398 Austrian documents). Below
+   1025 px our stage card is taller than www's and takes that space already (the stage to the next heading within
+   7 px at 390): not there */
+@media (width >= 1025px) {
+  body.brand-austrian main:has(> .section.flight-search-container:first-child) > .section.hero-card-overlay-container {
+    margin-bottom: calc(var(--section-gap) + 43px);
+  }
+}
+
+/* a column view in a grey band (the brief after 591, item 3): on www a column view in a .container-gray section
+   keeps its 3.2rem above and below (wetlease-hub's partner card, culinary-services); the importer gives
+   columns-media option padded only outside grey (the section style is to carry it, and these documents' sections are
+   only grey). Measured with the rule added on every recorded Austrian page it reaches: wetlease-hub -3.5 -> -2.1 %
+   (1440), -3.0 -> -1.9 % (390); culinary-services -1.8 -> -1.0 % (1440). 138 documents
+   (reach-591-austrian-grey-column-view.txt). Not www's 24 px of white under a grey band that ends the page: it made
+   bearbeitungsgebuehren 0.8 points worse. Not in a flush grey band (the brief after 593, austrian-parity-015): there www's column
+   view has no space above (bangkok-airways' block heading at www's y without it), and schengen and healthy-travel got worse */
+body.brand-austrian main > .section.grey:not(.flush) > .columns-media-wrapper > .columns-media:not(.padded, .sidebar) {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+/* the homepage after its footer-disclaimer patch (the brief after 593, item 1): www's spacing on the bands that were
+   short, measured on austrian-parity-013 / -014 (our homepages with www's APIs) against austrian-parity-008 to -010.
+   Only where the document has today's disclaimer form (the note and a link to /{cc}/{ll}/fragments/modals/..., which
+   reimport-591-austrian-home-disclaimer.txt writes): a document as published today is not changed. The flight search's
+   top (+24 / +33 px) and under it (+4 / +32), the fare teaser (heading +16 / +15, rows +4, conditions +30, then +23 /
+   +11), before the finder (+86 / +81), under the finder (+142 / +82) and before the note at the page's end (+41 / +90
+   over the cards-icon wrapper's 24). be/en with the APIs: 1440 -3.7 -> +0.1 %, 390 +1.7 -> +1.2 % */
+body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.flight-search-container:first-child:has(+ .section.hero-card-overlay-container) .flight-search.block { padding-top: 86px; }
+body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.flight-search-container:first-child:has(+ .section.hero-card-overlay-container) { margin-bottom: 80px; }
+body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.fare-teaser-container > .default-content-wrapper:has(+ .fare-teaser-wrapper) > :last-child { margin-bottom: 35px; }
+/* stylelint-disable-next-line declaration-block-single-line-max-declarations -- one line as its neighbours (test/austrian-home-bands-593 reads it so) */
+body.brand-austrian main:has(a[href*="/fragments/modals/"]) .fare-teaser .fare-teaser-list { row-gap: 24px; margin-bottom: 60px; }
+body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.fare-teaser-container:has(.fare-teaser-footer) { margin-bottom: calc(var(--section-gap) + 11px); }
+body.brand-austrian main:has(a[href*="/fragments/modals/"]):has(> .section.flight-search-container:first-child) > .section.carousel-cards-container:has(+ .section.destination-finder-container) { margin-bottom: calc(var(--section-gap) + 81px); }
+body.brand-austrian main:has(a[href*="/fragments/modals/"]):has(> .section.flight-search-container:first-child) > .section.destination-finder-container:not(:has(> .default-content-wrapper)) { margin-bottom: calc(var(--section-gap) + 82px); }
+body.brand-austrian main:has(a[href*="/fragments/modals/"]):has(> .section.flight-search-container:first-child) > .section > .cards-icon-wrapper + .default-content-wrapper { margin-top: 114px; }
+
+@media (width >= 1025px) {
+  body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.flight-search-container:first-child:has(+ .section.hero-card-overlay-container) .flight-search.block { padding-top: 59px; }
+  body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.flight-search-container:first-child:has(+ .section.hero-card-overlay-container) { margin-bottom: 44px; }
+  body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.fare-teaser-container > .default-content-wrapper:has(+ .fare-teaser-wrapper) > :last-child { margin-bottom: 36px; }
+  body.brand-austrian main:has(a[href*="/fragments/modals/"]) > .section.fare-teaser-container:has(.fare-teaser-footer) { margin-bottom: calc(var(--section-gap) + 23px); }
+  body.brand-austrian main:has(a[href*="/fragments/modals/"]):has(> .section.flight-search-container:first-child) > .section.carousel-cards-container:has(+ .section.destination-finder-container) { margin-bottom: calc(var(--section-gap) + 86px); }
+  body.brand-austrian main:has(a[href*="/fragments/modals/"]):has(> .section.flight-search-container:first-child) > .section.destination-finder-container:not(:has(> .default-content-wrapper)) { margin-bottom: calc(var(--section-gap) + 142px); }
+  body.brand-austrian main:has(a[href*="/fragments/modals/"]):has(> .section.flight-search-container:first-child) > .section > .cards-icon-wrapper + .default-content-wrapper { margin-top: 65px; }
+}
+
+/* numbered steps (columns-media option steps, written by the importer from the brief after 596 on Austrian pages: every
+   column opens with an h2 of its number, www's heading-large "1" .. "4" over a heading-copytext-large title;
+   online-check-in's "How to get your boarding pass", nine languages): www's number 36 / 39.6 px with 36 px under it on
+   phones, 48 / 52.8 px with 60 px from 1025 px; the title 12 / 24 px over its text. And a list of secondary links (the
+   cleanup's <em> links of www's image link list of maui-button-link secondary: the app store links): www's row of
+   secondary buttons, 12 px apart (the theme's button tokens). Measured with both on the live page (the option added in
+   the browser), against austrian-parity-017: 1440 -7.0 -> -6.3 %, 390 -7.6 -> -6.2 % */
+body.brand-austrian main .columns-media.steps > div > div > h2:first-child {
+  font-size: 36px;
+  line-height: 39.6px;
+  margin-bottom: 36px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- a step's title, not the stage band's h3 of the closing band rule */
+body.brand-austrian main .columns-media.steps > div > div > h2:first-child + h3 {
+  margin-bottom: 12px;
+}
+
+body.brand-austrian main .default-content-wrapper > ul:has(> li > em:only-child > a:only-child):not(:has(> li > :not(em), > li > em > :not(a))) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+body.brand-austrian main .default-content-wrapper > ul:has(> li > em:only-child > a:only-child):not(:has(> li > :not(em), > li > em > :not(a))) > li > em > a {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--button-min-height, 50px);
+  padding: 11px 30px;
+  border: 2px solid var(--button-secondary-color, var(--lh-deepblue));
+  border-radius: var(--button-radius, var(--radius-s));
+  background-color: var(--button-secondary-surface, var(--lh-white));
+  color: var(--button-secondary-color, var(--lh-deepblue));
+  font-style: normal;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+@media (width >= 1025px) {
+  body.brand-austrian main .columns-media.steps > div > div > h2:first-child {
+    font-size: 48px;
+    line-height: 52.8px;
+    margin-bottom: 60px;
+  }
+
+  body.brand-austrian main .columns-media.steps > div > div > h2:first-child + h3 {
+    margin-bottom: 24px;
+  }
+}
+
+/* a padded column view after a block or text (Austrian row 54, standing order 15): www's starts lower than the option's
+   32 px (lufthansa.com's 3.2rem). entryregulations at 390: the column titles 446 px apart within a block, 489 across into
+   the padded one (ours 442 / 439); at 1440 a column's last line to its first picture 102 px (ours 59), culinary-
+   services' hero text to it 99 (ours 56). After a heading as before (no recording of that case); not in a section
+   with a separator style above (space-s to -xl: its space is www's already, austrian-app +1.41 points with it) */
+body.brand-austrian main > .section:not(.space-s, .space-m, .space-l, .space-xl) > :is(.columns-media-wrapper, .hero-banner-wrapper, .default-content-wrapper:not(:has(> :is(h1, h2, h3, h4, h5, h6):last-child))) + .columns-media-wrapper > .columns-media.padded:not(.sidebar) {
+  padding-top: 82px;
+}
+
+@media (width >= 1025px) {
+  body.brand-austrian main > .section:not(.space-s, .space-m, .space-l, .space-xl) > :is(.columns-media-wrapper, .hero-banner-wrapper, .default-content-wrapper:not(:has(> :is(h1, h2, h3, h4, h5, h6):last-child))) + .columns-media-wrapper > .columns-media.padded:not(.sidebar) {
+    padding-top: 75px;
+  }
+}
+
+/* partner link tiles on phones (cards-icon-text partner without text: accessible-travel; Austrian row 56, standing order
+   16): www's .teaser.partner boxes, 21.5 px over the title plus the column item's 12, 24 px at the sides, 36 below, the
+   title 18 px over the box's end, 44 + 12 px to the next tile (the recorded titles 167 / 168 px apart on one line, 192
+   on two, at x 91; ours 78 apart at x 73). From 768 px as before; the icon steps with text (row 40) as before */
+@media (width < 768px) {
+  body.brand-austrian main .cards-icon-text.partner > ul:not(:has(.cards-icon-text-body > p)) {
+    row-gap: 0;
+  }
+
+  body.brand-austrian main .cards-icon-text.partner > ul > li:not(:has(.cards-icon-text-body > p)) {
+    margin-bottom: 56px;
+  }
+
+  body.brand-austrian main .cards-icon-text.partner > ul > li:not(:has(.cards-icon-text-body > p)) > .cards-icon-text-card {
+    padding: 33.5px 24px 36px;
+  }
+
+  body.brand-austrian main .cards-icon-text.partner > ul > li:not(:has(.cards-icon-text-body > p)) .cards-icon-text-title {
+    margin-bottom: 18px;
+  }
+}
+
+/* the same tiles from 768 px (Austrian row 56, standing order 18): www's .teaser.partner box is the same at every width
+   (padding 2.15rem 2.4rem 3.6rem, the heading 1.8rem over the box's end), the title at the heading-small size (28 / 30.8
+   px at 1440), the rows 34.5 px apart (245 px pitch with four-line titles), the first row 115 px under the picture above
+   (accessible-travel 1440: ours 24, rows 125 apart). Each row of four is a block of its own */
+@media (width >= 768px) {
+  body.brand-austrian main :not(.cards-icon-text-wrapper) + .cards-icon-text-wrapper > .cards-icon-text.partner:not(:has(.cards-icon-text-body > p)) {
+    margin-top: 90px;
+  }
+
+  body.brand-austrian main .cards-icon-text-wrapper + .cards-icon-text-wrapper > .cards-icon-text.partner:not(:has(.cards-icon-text-body > p)) {
+    margin-top: 34.5px;
+  }
+
+  body.brand-austrian main .cards-icon-text.partner > ul:not(:has(.cards-icon-text-body > p)) {
+    row-gap: 34.5px;
+  }
+
+  body.brand-austrian main .cards-icon-text.partner > ul > li:not(:has(.cards-icon-text-body > p)) > .cards-icon-text-card {
+    padding: 33.5px 24px 36px;
+  }
+
+  body.brand-austrian main .cards-icon-text.partner > ul > li:not(:has(.cards-icon-text-body > p)) .cards-icon-text-title {
+    margin-bottom: 18px;
+    font-size: var(--heading-font-size-l);
+    line-height: var(--heading-line-height);
+  }
+}
+
+/* and on phones the first row of tiles 94 px under the block above (standing order 19: www's first title 128 px under the
+   picture at 390, ours 58) */
+@media (width < 768px) {
+  body.brand-austrian main :not(.cards-icon-text-wrapper) + .cards-icon-text-wrapper > .cards-icon-text.partner:not(:has(.cards-icon-text-body > p)) {
+    margin-top: 94px;
+  }
+}
+
+/* a tab panel on phones (Austrian row 57, standing order 19): www's open panel (maui-tab-control-panel-responsive, an
+   accordion below 768 px) puts its content 12 px further in from each side and 24 px more under the open header
+   (travel-id at 390: the text 322 px wide, ours 346) */
+@media (width < 768px) {
+  body.brand-austrian main > .section:is(.section-tab-panel, .section-tab-part) > div:not(.section-tab-toggle) {
+    padding-right: calc(var(--layout-margin, 22px) + 12px);
+    padding-left: calc(var(--layout-margin, 22px) + 12px);
+  }
+
+  body.brand-austrian main > .section.section-tab-panel > .section-tab-toggle + div {
+    padding-top: 24px;
+  }
+}
+
+/* a tab panel of text and a picture (Austrian row 55, standing order 16; travel-id's "Website", "Chat assistant", "App",
+   "FlyNet"): from 1025 px www's two-column view, the text 622 px wide on the left, the picture beside it, both from the
+   top, the heading heading-small (austrian-parity-015 travel-id at 1440; ours had the picture full width under the
+   text). Phones as before */
+@media (width >= 1025px) {
+  body.brand-austrian main > .section.section-tab-panel > .default-content-wrapper:has(> p:last-child > picture:only-child) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+    align-items: start;
+  }
+
+  body.brand-austrian main > .section.section-tab-panel > .default-content-wrapper:has(> p:last-child > picture:only-child) > * {
+    grid-column: 1;
+  }
+
+  body.brand-austrian main > .section.section-tab-panel > .default-content-wrapper:has(> p:last-child > picture:only-child) > p:last-child {
+    grid-column: 2;
+    grid-row: 1 / span 20;
+    margin: 0;
+  }
+
+  body.brand-austrian main > .section.section-tab-panel > .default-content-wrapper:has(> p:last-child > picture:only-child) > h3:first-child {
+    margin-bottom: 36px;
+    font-family: var(--heading-font-family);
+    font-size: 28px;
+    font-weight: var(--heading-light-weight);
+    line-height: 1.1;
+  }
+}
+
+/* "This may also interest you" (a divider section: its heading, then a card carousel; Austrian rows 52 and 53, standing
+   order 15): www's heading heading-small, 28 / 30.8 px with 36 px under it from 1025 px, 22 / 24.2 with 24 on phones
+   (entryregulations, sustainable-flying, doctor-on-board; the homepages' "Discover Austrian" stays heading-medium); the
+   phone slider's dots (row 53) are in blocks/carousel-cards/carousel-cards.css, where the dots belong */
+body.brand-austrian main > .section.divider > .default-content-wrapper:has(+ .carousel-cards-wrapper) > h2:last-child {
+  margin-bottom: 24px;
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+@media (width >= 1025px) {
+  body.brand-austrian main > .section.divider > .default-content-wrapper:has(+ .carousel-cards-wrapper) > h2:last-child {
+    margin-bottom: 36px;
+    font-size: 28px;
+  }
+}
+
+/* a column view's title (our Columns Media's text column h3; Austrian row 51, standing order 15): www's maui headline
+   heading-small, Portada 700 28 / 30.8 px with 36 px under it from 1025 px, 22 / 24.2 with 24 on phones (18 of the
+   recordings' h3s, austrian-parity-015: entryregulations, bangkok-airways, travel-id and six more pages); ours the
+   default h3, CoreSans 500 18 / 19.8 with 32. The numbered steps keep their own rule */
+/* stylelint-disable-next-line no-descending-specificity -- a column view's title, not the stage band's closing h3 */
+body.brand-austrian main .columns-media:not(.steps) .columns-media-text > h3 {
+  margin-bottom: 24px;
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  font-weight: var(--heading-light-weight);
+  line-height: 1.1;
+}
+
+@media (width >= 1025px) {
+  body.brand-austrian main .columns-media:not(.steps) .columns-media-text > h3 {
+    margin-bottom: 36px;
+    font-size: 28px;
+  }
+}
+
+/* the end of online-check-in (standing order 14; the nine documents with option steps: the steps row, the App part, the
+   FAQ button, the Travel ID row, then the divider section): against austrian-parity-017's full-page screenshots, www's
+   FAQ button 84 px over "Experience a seamless travel experience with Travel ID" (ours 34: the H2's 32 over the
+   button's 24) and the Travel ID row 140 px over the divider line at 1440, 122 at 390 (ours 48 / 51: the section's 48) */
+body.brand-austrian main > .section:has(.columns-media.steps) .accordion-columns-wrapper + .default-content-wrapper > .button-wrapper + h2 {
+  margin-top: 82px;
+}
+
+body.brand-austrian main > .section:has(.columns-media.steps) + .section.divider {
+  margin-top: 119px;
+}
+
+@media (width >= 1025px) {
+  body.brand-austrian main > .section:has(.columns-media.steps) + .section.divider {
+    margin-top: 140px;
+  }
+}
+
+/* the app part under the numbered steps (standing order 8; online-check-in, nine languages, the only documents with
+   option steps): www's "Austrian App" heading is heading-medium (36 / 39.6 px with 36 px under it from 1025 px, 28 /
+   30.8 px with 24 on phones; ours the collapse's h3), 65 px under the steps row at 1440 and 61 at 390 (ours 24 / 23),
+   and "Good to know" 133 / 145 px under the store buttons (ours 85: the spacer of www's 80 px divider margin).
+   Measured on the live page against austrian-parity-017 (its measurements and full-page rows): both gaps as www's at
+   1440 and 390; the page 4196 -> 4298 px at 1440 (www 4477), 5486 -> 5591 at 390 (www 5846) */
+/* stylelint-disable-next-line no-descending-specificity -- the app heading after the steps, not the stage band's h3 */
+body.brand-austrian main .columns-media-wrapper:has(> .columns-media.steps) + .default-content-wrapper > h3:first-child {
+  padding-top: 38px;
+  font-size: 28px;
+  line-height: 30.8px;
+  margin-bottom: 24px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the heading after the store buttons, not the one after the FAQ button */
+body.brand-austrian main .columns-media-wrapper:has(> .columns-media.steps) + .default-content-wrapper > .spacer + h2 {
+  margin-top: 60px;
+}
+
+@media (width >= 1025px) {
+  body.brand-austrian main .columns-media-wrapper:has(> .columns-media.steps) + .default-content-wrapper > h3:first-child {
+    padding-top: 41px;
+    font-size: 36px;
+    line-height: 39.6px;
+    margin-bottom: 36px;
+  }
+
+  body.brand-austrian main .columns-media-wrapper:has(> .columns-media.steps) + .default-content-wrapper > .spacer + h2 {
+    margin-top: 48px;
   }
 }

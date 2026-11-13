@@ -1,0 +1,565 @@
+root    /dz/de/datenschutz-lufthansa-facebook
+version /de/de/datenschutz-lufthansa-facebook
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 1:
++ <div.maui-breadcrumb>
++ <maui-breadcrumb>
++ @aria-label=Breadcrumb
++ <maui-breadcrumb-item>
++ @href=/{R}/homepage
++ "Home"
++ <maui-breadcrumb-item>
++ @href=/{R}/datenschutz
++ "Datenschutz"
++ <maui-breadcrumb-item>
++ @href=/{R}/datenschutz-lufthansa-facebook
++ "Datenschutzhinweis für die Lufthansa Facebook Seite"
+  <div.contentpage.container.container-fluid>
+  @role=main
+  …
+- <div.link.event>
+- <div.maui-link>
+- <maui-navigation-link.large>
+- @size=large
+- @href=/{R}/datenschutz-lufthansa-facebook#1
+- @slot=trigger
+- @variant=lh lh-arrow-down
+- "1. Allgemeines"
+- <div.link.event>
+- <div.maui-link>
+- <maui-navigation-link.large>
+- @size=large
+- @href=/{R}/datenschutz-lufthansa-facebook#2
+- @slot=trigger
+- @variant=lh lh-arrow-down
+- "2. Verantwortlicher"
+- <div.link.event>
+- <div.maui-link>
+- <maui-navigation-link.large>
+- @size=large
+- @href=/{R}/datenschutz-lufthansa-facebook#3
+- @slot=trigger
+- @variant=lh lh-arrow-down
+- "3. Kontaktdaten der Datenschutzbeauftragten"
+- <div.link.event>
+- <div.maui-link>
+- <maui-navigation-link.large>
+- @size=large
+- @href=/{R}/datenschutz-lufthansa-facebook#4
+- @slot=trigger
+- @variant=lh lh-arrow-down
+- "4. Umfang und Art und Weise der Datenverarbeitung"
+- <div.link.event>
+- <div.maui-link>
+- <maui-navigation-link.large>
+- @size=large
+- @href=/{R}/datenschutz-lufthansa-facebook#5
+- @slot=trigger
+- @variant=lh lh-arrow-down
+- "5. Rechtsgrundlagen und Zwecke"
+- <div.link.event>
+- <div.maui-link>
+- <maui-navigation-link.large>
+- @size=large
+- @href=/{R}/datenschutz-lufthansa-facebook#6
+- @slot=trigger
+- @variant=lh lh-arrow-down
+- "6. Datenlöschung und Speicherdauer"
+- <div.link.event>
+- <div.maui-link>
+- <maui-navigation-link.large>
+- @size=large
+- @href=/{R}/datenschutz-lufthansa-facebook#7
+- @slot=trigger
+- @variant=lh lh-arrow-down
+- "7. Ihre Rechte"
+- <div.onecolumn.column.event>
+- <div.column-view.flex-column>
+- <div.row>
+- <div.col-lg.column-view-item>
+  <div.headline>
+  <h2.headline.heading-medium.limited-width>
+  …
+- "Mit diesem Datenschutzhinweis informieren wir Sie nachfolgend über die Verarbeitung Ihrer personenbezogenen Daten auf der Lufthansa Facebook Seite."
+- <br>
+- "Die Facebook Seite ist unter folgendem Link erreichbar:"
+- <br>
+- <div.link.event>
+- <div.maui-link>
+- <maui-tooltip>
+- @strategy=fixed
+- @placement=bottom
+- @type=small
+- @show-arrow=
+- <maui-navigation-link.large>
+- @size=large
++ "Mit diesem Datenschutzhinweis informieren wir Sie nachfolgend über die Verarbeitung Ihrer personenbezogenen Daten auf der Lufthansa Facebook Seite. Die Facebook Seite ist unter folgendem Link erreichbar:"
++ <p>
++ <a>
+  @href=https://de-de.facebook.com/Lufthansa/
+- @rel=noopener noreferrer
+- @slot=trigger
+  @target=_blank
+- @variant=lh lh-arrow-top-right
++ @linkscheme=External
++ @rel=noopener noreferer noreferrer
++ <em.lh.lh-arrow-top-right>
+  "https://de-de.facebook.com/Lufthansa/"
+  <span.sr-only>
+  …
+- <div.popover-box-tooltip>
+- @slot=box
+- "Bitte beachten Sie, dass Sie mit diesem Link eine externe Website besuchen, die möglicherweise nicht den gleichen Datenschutz-, Sicherheits- oder Barrierefreiheitsrichtlinien folgt."
+- <div.text>
+- <div.richtext.limited-width>
+  <p>
+- "Für die Deutsche Lufthansa AG ist der Schutz Ihrer personenbezogenen Daten ein wichtiges Anliegen. Die Deutsche Lufthansa AG verarbeitet Ihre personenbezogenen Daten entsprechend dem anwendbaren Datenschutzrecht, insbesondere nach den Vorgaben der Datenschutz-Grundverordnung (VO 2016/679; DSGVO). D
+- <div.link.event>
+- <div.maui-link>
+- <maui-tooltip>
+- @strategy=fixed
+- @placement=bottom
+- @type=small
+- @show-arrow=
+- <maui-navigation-link.large>
+- @size=large
++ "Für die Deutsche Lufthansa AG ist der Schutz Ihrer personenbezogenen Daten ein wichtiges Anliegen. Die Deutsche Lufthansa AG verarbeitet Ihre personenbezogenen Daten entsprechend dem anwendbaren Datenschutzrecht, insbesondere nach den Vorgaben der Datenschutz-Grundverordnung (VO 2016/679; DSGVO). D
++ <p>
++ <a>
+  @href=https://de-de.facebook.com/about/privacy/update
+- @rel=noopener noreferrer
+- @slot=trigger
+  @target=_blank
+- @variant=lh lh-arrow-top-right
++ @linkscheme=External
++ @rel=noopener noreferer noreferrer
++ <em.lh.lh-arrow-top-right>
+  "https://de-de.facebook.com/about/privacy/update"
+  <span.sr-only>
+  …
+- <div.popover-box-tooltip>
+- @slot=box
+- "Bitte beachten Sie, dass Sie mit diesem Link eine externe Website besuchen, die möglicherweise nicht den gleichen Datenschutz-, Sicherheits- oder Barrierefreiheitsrichtlinien folgt."
+  <div.onecolumn.column.event>
+  <div.column-view.flex-column>
+  …
+- "Die Deutsche Lufthansa AG ist Verantwortlicher für die Verarbeitung nach Art. 24 DSGVO. Soweit die Deutsche Lufthansa AG und Facebook gemeinsam Verantwortliche nach Maßgabe des Art. 26 Abs. 1 DSGVO sind, gilt die entsprechend abgeschlossene Vereinbarung:"
+- <div.link.event>
+- <div.maui-link>
+- <maui-tooltip>
+- @strategy=fixed
+- @placement=bottom
+- @type=small
+- @show-arrow=
+- <maui-navigation-link.large>
+- @size=large
++ "Die Deutsche Lufthansa AG ist Verantwortlicher für die Verarbeitung nach Art. 24 DSGVO. Soweit die Deutsche Lufthansa AG und Facebook gemeinsam Verantwortliche nach Maßgabe des Art. 26 Abs. 1 DSGVO sind, dann gilt die entsprechend abgeschlossene Vereinbarung:"
++ <br>
++ <br>
++ <a>
++ @linkscheme=External
++ @rel=noopener noreferer noreferrer
+  @href=https://www.facebook.com/legal/terms/page_controller_addendum
+- @rel=noopener noreferrer
+- @slot=trigger
+  @target=_blank
+- @variant=lh lh-arrow-top-right
++ <em.lh.lh-arrow-top-right>
+  "https://www.facebook.com/legal/terms/page_controller_addendum"
+  <span.sr-only>
+  …
+- <div.popover-box-tooltip>
+- @slot=box
+- "Bitte beachten Sie, dass Sie mit diesem Link eine externe Website besuchen, die möglicherweise nicht den gleichen Datenschutz-, Sicherheits- oder Barrierefreiheitsrichtlinien folgt."
+- <div.text>
+- <div.richtext.limited-width>
+  <p>
+  "Nähere Informationen zu dieser Vereinbarung sind unter folgendem Link abrufbar (Abschnitt „Verantwortlichkeit für deine zum Erstellen von Seiten-Insights verwendeten Informationen“):"
+- <div.link.event>
+- <div.maui-link>
+- <maui-tooltip>
+- @strategy=fixed
+- @placement=bottom
+- @type=small
+- @show-arrow=
+- <maui-navigation-link.large>
+- @size=large
+- @href=https://de-de.facebook.com/legal/terms/information_about_page_insights_data
+- @rel=noopener noreferrer
+- @slot=trigger
++ <p>
++ <a>
++ @linkscheme=External
++ @rel=noopener noreferer noreferrer
++ @href=https://www.facebook.com/legal/terms/page_controller_addendum
+  @target=_blank
+- @variant=lh lh-arrow-top-right
++ <em.lh.lh-arrow-top-right>
+  "https://de-de.facebook.com/legal/terms/information_about_page_insights_data"
+  <span.sr-only>
+  …
+- <div.popover-box-tooltip>
+- @slot=box
+- "Bitte beachten Sie, dass Sie mit diesem Link eine externe Website besuchen, die möglicherweise nicht den gleichen Datenschutz-, Sicherheits- oder Barrierefreiheitsrichtlinien folgt."
+- <div.table.event>
+- <div.cms-table-maui-wrapper>
+- <maui-table>
+- <maui-table-caption>
+- <maui-table-body>
+- <maui-table-row>
+- <maui-table-cell>
+- <b>
+- "Kontaktdaten"
+- <maui-table-row>
+- <maui-table-cell>
++ <p>
++ "Kontaktdaten:"
++ <p>
++ <strong>
++ """
++ "Lufthansa"
++ """
++ <p>
+  "Deutsche Lufthansa AG"
+  <br>
+  …
+- <br>
+  <a>
+- @linkmode=mailto:
+- @rel=noopener noreferer
+  @href=mailto:datenschutz&#64;dlh.de
++ @linkscheme=Hyperlink
++ @rel=noopener noreferer
++ @linkmode=mailto:
++ <em.lh.lh-arrow-right>
+  "datenschutz"
+  "@"
+  …
+- <br>
+- <br>
+- <b>
+- "„Lufthansa“"
+- <maui-table-cell>
++ <p>
++ <strong>
++ """
++ "Facebook"
++ """
++ <p>
+  "Facebook Ireland Ltd."
+  <br>
+  …
+- <br>
++ <a>
++ @title=Please note that with this link you are visiting an external website that may not follow the same privacy,security or accessibility policies.
++ @linkscheme=External
++ @rel=noopener noreferer noreferrer
++ @href=https://www.facebook.com/help/
++ @target=_blank
+  <em.lh.lh-arrow-top-right>
+- "https://www.facebook.com/help/contact/2061665240770586"
++ "https://www.facebook.com/help/"
+  <span.sr-only>
+  "Der Link wird in einem neuen Browser-Tab geöffnet"
+- <br>
+- <br>
+- <b>
+- "„Facebook”"
+- <maui-table-row>
+- <maui-table-cell>
+- "zusammen"
+- <b>
+- "„wir”, „uns”"
+  <div.onecolumn.column.event>
+  <div.column-view.flex-column>
+  …
+- <div.table.event>
+- <div.cms-table-maui-wrapper>
+- <maui-table>
+- <maui-table-caption>
+- <maui-table-body>
+- <maui-table-row>
+- <maui-table-cell>
++ <div.text>
++ <div.richtext.limited-width>
++ <p>
+  "Kontaktdaten der Datenschutzbeauftragten:"
+- <maui-table-row>
+- <maui-table-cell>
++ <br>
++ <br>
+  "Konzerndatenschutzbeauftragte der Lufthansa Group"
+  <br>
+  …
+- "E-Mail:"
++ "Kontakt:"
+  <a>
+- @linkmode=mailto:
+- @rel=noopener noreferer
+  @href=mailto:datenschutz&#64;dlh.de
++ @linkscheme=Hyperlink
++ @rel=noopener noreferer
++ @linkmode=mailto:
++ <em.lh.lh-arrow-right>
+  "datenschutz"
+  "@"
+  …
+- <br>
+- <maui-table-cell>
+- "Datenschutzbeauftragter der Facebook Ireland Ltd."
++ <p>
++ "Datenschutzbeauftragter der Facebook Ireland Ltd:"
+  <br>
+  <a>
+- @linkscheme=External
+- @rel=noopener noreferer noreferrer
+  @href=https://www.facebook.com/help/contact/540977946302970
+  @target=_blank
++ @linkscheme=External
++ @rel=noopener noreferer noreferrer
+  <em.lh.lh-arrow-top-right>
+  "https://www.facebook.com/help/contact/540977946302970"
+  …
+- <br>
+  <div.onecolumn.column.event>
+  <div.column-view.flex-column>
+  …
+- <p>
+- <div.text>
+- <div.richtext.limited-width>
+  <ul>
+  <li>
+  …
++ <br>
+  <ul>
+  <li>
+  …
+- <div.link.event>
+- <div.maui-link>
+- <maui-tooltip>
+- @strategy=fixed
+- @placement=bottom
+- @type=small
+- @show-arrow=
+- <maui-navigation-link.large>
+- @size=large
++ <p>
++ <a>
+  @href=https://de-de.facebook.com/legal/terms/information_about_page_insights_data
+- @rel=noopener noreferrer
+- @slot=trigger
+  @target=_blank
+- @variant=lh lh-arrow-top-right
++ @linkscheme=External
++ @rel=noopener noreferer noreferrer
++ <em.lh.lh-arrow-top-right>
+  "https://de-de.facebook.com/legal/terms/information_about_page_insights_data"
+  <span.sr-only>
+  …
+- <div.popover-box-tooltip>
+- @slot=box
+- "Bitte beachten Sie, dass Sie mit diesem Link eine externe Website besuchen, die möglicherweise nicht den gleichen Datenschutz-, Sicherheits- oder Barrierefreiheitsrichtlinien folgt."
+- <div.text>
+- <div.richtext.limited-width>
+  <p>
+  "Zur effizienten Bearbeitung der Nachrichten von Facebook-Nutzern werden diese, sowie die Stammdaten des zugehörigen Profils, auch außerhalb der Lufthansa Facebook Seite in durch Lufthansa verantworte
+  …
+- <br>
+  <div.onecolumn.column.event>
+  <div.column-view.flex-column>
+  …
+- <br>
+- <br>
+- <strong>
++ <p>
++ <b>
+  "Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung; Durchführung vorvertraglicher Maßnahmen)"
+  <p>
+  …
+- <br>
+  "Die Anzahl und Kategorie der verarbeiteten Daten hängt davon ab, was Sie Lufthansa zur Verfügung stellen. Um Ihr Anliegen bearbeiten zu können, kann es ggfs. erforderlich sein, dass Lufthansa weitere
+  <ul>
+  …
+- <strong>
+- <br>
+  <p>
+- <strong>
++ <b>
+  "Art. 6 Abs. 1 lit. f DSGVO (Wahrung berechtigter Interessen)"
+- <br>
+- <br>
++ <p>
+  "Lufthansa verarbeitet Ihre personenbezogenen Daten überdies zur Wahrung ihrer berechtigten Interessen. Der Zweck der Verarbeitung ist im Folgenden:"
+- <br>
+  <ul>
+  <li>
+  …
+- <br>
+  <div.headline>
+- <h2.headline.heading-small.limited-width>
++ <h3.headline.heading-small>
+  "5.2 Facebook"
+  <div.text>
+  …
+- @linkscheme=External
+- @rel=noopener noreferer noreferrer
+  @href=https://de-de.facebook.com/about/privacy/update
+  @target=_blank
++ @linkscheme=External
++ @rel=noopener noreferer noreferrer
+  <em.lh.lh-arrow-top-right>
+  "https://de-de.facebook.com/about/privacy/update"
+  …
++ <span.sr-only>
++ "Der Link wird in einem neuen Browser-Tab geöffnet"
+  <li>
+  "Detailinformationen zu den Rechtsgrundlagen"
+  …
+- @linkscheme=External
+- @rel=noopener noreferer noreferrer
+  @href=https://www.facebook.com/about/privacy/legal_bases
+  @target=_blank
++ @linkscheme=External
++ @rel=noopener noreferer noreferrer
+  <em.lh.lh-arrow-top-right>
+  "https://www.facebook.com/about/privacy/legal_bases"
+  …
+- <br>
+  <div.onecolumn.column.event>
+  <div.column-view.flex-column>
+  …
+- <h1.headline.heading-medium.limited-width>
++ <h2.headline.heading-medium.limited-width>
+  "6. Datenlöschung und Speicherdauer"
+  <div.text>
+  …
+- <br>
++ <p>
+  "Für Informationen zu Datenlöschung und Speicherdauer von Facebook schauen Sie bitte unter:"
+- <br>
+- <br>
++ <p>
+  <a>
+- @linkscheme=External
+- @rel=noopener noreferer noreferrer
+  @href=https://de-de.facebook.com/about/privacy/update
+  @target=_blank
++ @linkscheme=External
++ @rel=noopener noreferer noreferrer
+  <em.lh.lh-arrow-top-right>
+  "https://de-de.facebook.com/about/privacy/update"
+  …
+- <p>
+  "(Abschnitt „Datenspeicherung, Deaktivierung und Löschung von Konten“)"
+- <br>
+  <div.onecolumn.column.event>
+  <div.column-view.flex-column>
+  …
+- <h2.headline.heading-medium.limited-width>
++ <h2.headline.heading-medium>
+  "7. Ihre Rechte"
+  <div.text>
+  …
+- "Um Ihre Rechte gegenüber Lufthansa geltend zu machen kontaktieren Sie"
+- <a>
+- @linkmode=mailto:
+- @linkscheme=Default
+- @rel=noopener noreferer noreferrer
+- @href=mailto:datenauskunft&#64;dlh.de
+- @target=_blank
+- "datenauskunft"
++ "Um Ihre Rechte gegenüber Lufthansa geltend zu machen kontaktieren Sie datenauskunft"
+  "@"
+- "dlh.de"
+- <span.sr-only>
+- "Der Link wird in einem neuen Browser-Tab geöffnet"
+- "; gegenüber Facebook nutzen Sie den folgenden Link:"
+- <br>
++ "dlh.de; gegenüber Facebook nutzen Sie den folgenden Link:"
++ <p>
+  <a>
+- @linkscheme=External
+- @rel=noopener noreferer noreferrer
+  @href=https://www.facebook.com/help/contact/308592359910928
+  @target=_blank
++ @linkscheme=External
++ @rel=noopener noreferer noreferrer
+  <em.lh.lh-arrow-top-right>
+  "https://www.facebook.com/help/contact/308592359910928"
+  …
+- <br>
+- <div.table.event>
+- <div.cms-table-maui-wrapper>
+- <maui-table>
+- <maui-table-caption>
+- <maui-table-body>
+- <maui-table-row>
+- <maui-table-cell>
++ <p>
+  "Für"
+  <b>
+  …
+- <maui-table-cell>
+- "Für"
+- <b>
+- "Facebook"
+- ":"
+- <maui-table-row>
+- <maui-table-cell>
++ <p>
+  <b>
+- "Landesbeauftragte für Datenschutz und"
+- <br>
+- "Informationsfreiheit Nordrhein-Westfalen"
+- <br>
++ "Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen"
++ <p>
+  "Postfach 20 04 44"
+  <br>
+  …
+- <br>
++ <p>
+  "Kavalleriestr. 2-4"
+  <br>
+  …
+- @linkmode=mailto:
+- @rel=noopener noreferer
+  @href=mailto:poststelle&#64;ldi.nrw.de
++ @linkscheme=External
++ @rel=noopener noreferer
++ @linkmode=mailto:
++ <em.lh.lh-arrow-top-right>
+  "poststelle"
+  "@"
+  …
+- <maui-table-cell>
++ <p>
++ "Für"
+  <b>
++ "Facebook"
++ ":"
++ <p>
++ <b>
+  "Data Protection Commission"
+- <br>
++ <p>
+  "Canal House"
+  <br>
+  …
+- "E-Mail"
++ "E-Mail:"
+  <a>
+- @linkmode=mailto:
+- @rel=noopener noreferer noreferrer
+  @href=mailto:info&#64;dataprotection.ie
+- @target=_blank
++ @linkscheme=External
++ @rel=noopener noreferer
++ @linkmode=mailto:
++ <em.lh.lh-arrow-top-right>
+  "info"
+  "@"
+  …
+- <span.sr-only>
+- "Der Link wird in einem neuen Browser-Tab geöffnet"
+- <br>

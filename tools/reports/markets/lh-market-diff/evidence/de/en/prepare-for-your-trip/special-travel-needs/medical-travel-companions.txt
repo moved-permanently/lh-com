@@ -1,0 +1,10 @@
+root    /ae/en/prepare-for-your-trip/special-travel-needs/medical-travel-companions
+version /de/en/prepare-for-your-trip/special-travel-needs/medical-travel-companions
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 62:
+- @href=https://amtras.de/en/lufthansa-medical-flight-attendants/
++ @href=https://bookings.medicaltravelcompanions.com/aff/LH/prsfks7v
+  @type=primary
+  @target=_blank
+- "Book now"
++ "To the services"

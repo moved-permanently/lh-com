@@ -1,0 +1,33 @@
+# ema-lufthansa, the night of 2026-11-11 (AD row 101): Air Dolomiti documents with a text-only DescritionNews (no
+# picture, no subtitle: the destinations' first text), re-imported with airdolomiti-import.mjs as it is on main (since
+# this commit it writes that text as a one-cell columns-media (news)). Expected change per row: that text (and its H2)
+# leaves the section's default content for a columns-media (news) block of its own (the theme then sets it 19.44 / 33
+# in the 50vw column, its H2 at the text's size, as www's); nothing else. Measured with a draft of the change on our host:
+# london-eu 390 10,231 -> 9,952 (www 9,973), 1440 7,483 -> 7,459 (7,514); basel-de 1440 8,021 -> 8,041 (8,164), 390
+# 12,010 -> 11,753 (12,014: the text block as www's; the rest of the page differs elsewhere).
+# The rows below are those tonight's snapshots show it on (archive per row; sha256 of the archives in the running
+# report); the importer makes the same change on every other document whose snapshot has such a block, so a re-import
+# of all destination documents carries it.
+# Columns: document, blocks, snapshot archive (R2 drop).
+/de/reiseziele/basel-de	1	airdolomiti-snapshots-004
+/de/reiseziele/biarritz-de	1	airdolomiti-snapshots-007
+/de/reiseziele/birmingham-de	1	airdolomiti-snapshots-007
+/de/reiseziele/bordeaux-de	1	airdolomiti-snapshots-007
+/de/reiseziele/figari-de	1	airdolomiti-snapshots-007
+/de/reiseziele/ljubljana-laibach	1	airdolomiti-snapshots-007
+/de/reiseziele/london	1	airdolomiti-snapshots-007
+/de/reiseziele/luxemburg	1	airdolomiti-snapshots-007
+/de/reiseziele/prag	1	airdolomiti-snapshots-007
+/de/reiseziele/rijeka-de	1	airdolomiti-snapshots-007
+/de/reiseziele/zuerich	1	airdolomiti-snapshots-007
+/en/destinations/basel	1	airdolomiti-snapshots-007
+/en/destinations/biarritz	1	airdolomiti-snapshots-007
+/en/destinations/birmingham	1	airdolomiti-snapshots-007
+/en/destinations/bordeaux	1	airdolomiti-snapshots-007
+/en/destinations/figari	1	airdolomiti-snapshots-007
+/en/destinations/ljubljana	1	airdolomiti-snapshots-007
+/en/destinations/london-eu	1	airdolomiti-snapshots-004
+/en/destinations/luxembourg	1	airdolomiti-snapshots-007
+/en/destinations/prague	1	airdolomiti-snapshots-007
+/en/destinations/rijeka	1	airdolomiti-snapshots-007
+/en/destinations/zurich	1	airdolomiti-snapshots-007

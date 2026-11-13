@@ -1,0 +1,89 @@
+# Standing order 4 item 1 (ema-adobe, 2026-11-11 22:00 CET): lufthansa.com fleet documents a re-import changes with the fleet bundle of this commit. A seat-map slideshow (Carousel Lightbox) inside a column view gets the option in-view, so the view's marks are its spacing (the block's own margins date from before the fleet pages had marks, brief 461). A nested outer view that ends with its outer view writes one {column-end-outer}, not two. Measured on the five recorded pages, documents as the importer now writes them, % off www at 1440 / 390: 744 15.7 / 19.1 -> 7.7 / 12.4; 32n 18.7 / 18.5 -> 11.3 / 9.8; 320 18.0 / 17.5 -> 11.8 / 9.1; 359 17.7 / 17.8 -> 5.9 / 8.8; boeing787 16.8 / 20.4 -> 8.8 / 13.0. The other 81 documents are those pages' versions in other markets and further aircraft (no recording). The fleet template is ema-cashub's; nothing changes on a document before it is re-imported.
+# READY: the page's snapshot is in this checkout (tools/importer/bd-snapshots/www.lufthansa.com<www path>.html). HOLD: no snapshot here; re-import from the helper's newest archive of that page (www is blocked for new captures).
+# columns (tab): status, da_path, template, source, slideshows in views, nested outer ends
+READY	/at/de/320	fleet	bd-snapshots	1	0
+READY	/at/de/32n	fleet	bd-snapshots	1	0
+READY	/at/de/359	fleet	bd-snapshots	1	1
+READY	/at/de/744	fleet	bd-snapshots	2	1
+READY	/at/de/boeing787	fleet	bd-snapshots	1	0
+HOLD	/at/de/crn	fleet	no snapshot here	0	1
+HOLD	/at/de/e9n-1	fleet	no snapshot here	0	1
+HOLD	/at/de/e9n-2	fleet	no snapshot here	0	1
+READY	/de/de/320	fleet	bd-snapshots	1	0
+READY	/de/de/32n	fleet	bd-snapshots	1	0
+READY	/de/de/359	fleet	bd-snapshots	1	1
+READY	/de/de/744	fleet	bd-snapshots	2	1
+READY	/de/de/boeing787	fleet	bd-snapshots	1	0
+HOLD	/de/de/crn	fleet	no snapshot here	0	1
+HOLD	/de/de/e9n-1	fleet	no snapshot here	0	1
+HOLD	/de/de/e9n-2	fleet	no snapshot here	0	1
+READY	/de/en/320	fleet	bd-snapshots	1	0
+READY	/de/en/32n	fleet	bd-snapshots	1	0
+READY	/de/en/359	fleet	bd-snapshots	1	1
+READY	/de/en/744	fleet	bd-snapshots	2	1
+READY	/de/en/boeing787	fleet	bd-snapshots	1	0
+HOLD	/de/en/crn	fleet	no snapshot here	0	1
+HOLD	/de/en/e9n-1	fleet	no snapshot here	0	1
+HOLD	/de/en/e9n-2	fleet	no snapshot here	0	1
+READY	/gb/en/320	fleet	bd-snapshots	1	0
+READY	/gb/en/32n	fleet	bd-snapshots	1	0
+READY	/gb/en/359	fleet	bd-snapshots	1	1
+READY	/gb/en/744	fleet	bd-snapshots	2	1
+READY	/gb/en/boeing787	fleet	bd-snapshots	1	0
+HOLD	/gb/en/crn	fleet	no snapshot here	0	1
+HOLD	/gb/en/e9n-1	fleet	no snapshot here	0	1
+HOLD	/gb/en/e9n-2	fleet	no snapshot here	0	1
+HOLD	/xx/el/320	fleet	no snapshot here	1	0
+HOLD	/xx/el/32n	fleet	no snapshot here	1	0
+HOLD	/xx/el/crn	fleet	no snapshot here	0	1
+HOLD	/xx/el/e9n-1	fleet	no snapshot here	0	1
+HOLD	/xx/el/e9n-2	fleet	no snapshot here	0	1
+READY	/xx/es/320	fleet	bd-snapshots	1	0
+READY	/xx/es/32n	fleet	bd-snapshots	1	0
+HOLD	/xx/es/crn	fleet	no snapshot here	0	1
+HOLD	/xx/es/e9n-1	fleet	no snapshot here	0	1
+HOLD	/xx/es/e9n-2	fleet	no snapshot here	0	1
+READY	/xx/fr/320	fleet	bd-snapshots	1	0
+READY	/xx/fr/32n	fleet	bd-snapshots	1	0
+HOLD	/xx/fr/crn	fleet	no snapshot here	0	1
+HOLD	/xx/fr/e9n-1	fleet	no snapshot here	0	1
+HOLD	/xx/fr/e9n-2	fleet	no snapshot here	0	1
+HOLD	/xx/hk/320	fleet	no snapshot here	1	0
+HOLD	/xx/hk/32n	fleet	no snapshot here	1	0
+HOLD	/xx/hk/crn	fleet	no snapshot here	0	1
+HOLD	/xx/hk/e9n-1	fleet	no snapshot here	0	1
+HOLD	/xx/hk/e9n-2	fleet	no snapshot here	0	1
+HOLD	/xx/it/320	fleet	no snapshot here	1	0
+HOLD	/xx/it/32n	fleet	no snapshot here	1	0
+HOLD	/xx/ja/320	fleet	no snapshot here	1	0
+HOLD	/xx/ja/32n	fleet	no snapshot here	1	0
+HOLD	/xx/ja/discover-lufthansa/lufthansa-fleet/319	fleet	no snapshot here	0	1
+HOLD	/xx/ja/discover-lufthansa/lufthansa-fleet/31w	fleet	no snapshot here	0	1
+HOLD	/xx/ja/discover-lufthansa/lufthansa-fleet/32a	fleet	no snapshot here	0	1
+HOLD	/xx/ja/discover-lufthansa/lufthansa-fleet/32h	fleet	no snapshot here	0	1
+HOLD	/xx/ja/discover-lufthansa/lufthansa-fleet/32v	fleet	no snapshot here	0	1
+HOLD	/xx/ja/discover-lufthansa/lufthansa-fleet/33q	fleet	no snapshot here	0	1
+HOLD	/xx/ja/discover-lufthansa/lufthansa-fleet/73g	fleet	no snapshot here	0	1
+HOLD	/xx/ja/discover-lufthansa/lufthansa-fleet/74p	fleet	no snapshot here	0	1
+HOLD	/xx/ja/discover-lufthansa/lufthansa-fleet/crn	fleet	no snapshot here	0	1
+HOLD	/xx/ja/discover-lufthansa/lufthansa-fleet/e9f	fleet	no snapshot here	0	1
+HOLD	/xx/ja/discover-lufthansa/lufthansa-fleet/e9n	fleet	no snapshot here	0	1
+HOLD	/xx/ko/320	fleet	no snapshot here	1	0
+HOLD	/xx/ko/32n	fleet	no snapshot here	1	0
+HOLD	/xx/pl/320	fleet	no snapshot here	1	0
+HOLD	/xx/pl/32n	fleet	no snapshot here	1	0
+HOLD	/xx/pl/crn	fleet	no snapshot here	0	1
+HOLD	/xx/pl/e9n-1	fleet	no snapshot here	0	1
+HOLD	/xx/pl/e9n-2	fleet	no snapshot here	0	1
+HOLD	/xx/pt/320	fleet	no snapshot here	1	0
+HOLD	/xx/pt/32n	fleet	no snapshot here	1	0
+HOLD	/xx/pt/crn	fleet	no snapshot here	0	1
+HOLD	/xx/pt/e9n-1	fleet	no snapshot here	0	1
+HOLD	/xx/pt/e9n-2	fleet	no snapshot here	0	1
+HOLD	/xx/ru/320	fleet	no snapshot here	1	0
+HOLD	/xx/ru/32n	fleet	no snapshot here	1	0
+HOLD	/xx/zh/320	fleet	no snapshot here	1	0
+HOLD	/xx/zh/32n	fleet	no snapshot here	1	0
+HOLD	/xx/zh/crn	fleet	no snapshot here	0	1
+HOLD	/xx/zh/e9n-1	fleet	no snapshot here	0	1
+HOLD	/xx/zh/e9n-2	fleet	no snapshot here	0	1

@@ -34,8 +34,22 @@ process.env.PLAYWRIGHT_BROWSERS_PATH ||= '/ms-playwright';
 const path = require('path');
 const { chromium } = require('playwright-core');
 const {
-  DEFAULT_STATE, getArgs, mkdirp, writeJsonAtomic, appendJsonl, rmSafe,
+  DEFAULT_STATE, getArgs, mkdirp, writeJsonAtomic, appendJsonl, rmSafe, installedBrowser,
+  ownHostFilter, mirroredFont,
 } = require('./lib.js');
+
+// PARITY_CHROME=1 (or a path): the full chrome build instead of playwright's headless shell,
+// which lays text out narrower than chrome (standing order 7 of 2026-11-12: B2B's text at 390
+// wrapped a word later than www's recordings with the shell, as www's with chrome); unset: the
+// shell, as before. The installed build, whatever its revision (standing order 11: 1208
+// became 1254); the shell from the installed builds too when playwright's own is not there
+const FULL_CHROME = installedBrowser('chromium', 'chrome-linux64/chrome');
+let CHROME = process.env.PARITY_CHROME || null;
+if (CHROME === '1') CHROME = FULL_CHROME;
+const SHELL = installedBrowser('chromium_headless_shell', 'chrome-headless-shell-linux64/chrome-headless-shell');
+// a capture of our pages never reaches an airline host (standing order 12); the web fonts it
+// would load from one come from these directories (":"-separated: recording drops, www's paths)
+const FONT_DIRS = (process.env.PARITY_FONTS || '').split(':').filter(Boolean);
 
 const USAGE = 'node tools/parity/capture.js --url <url> --width <px> --out <png> [--content-width px] [--timeout 90000] [--max-height 8000] [--state dir]';
 const VIEWPORT_HEIGHT = 900;
@@ -377,19 +391,36 @@ async function main() {
     url, width, out, pid: process.pid, startedAt: new Date(started).toISOString(),
   });
   mkdirp(path.dirname(out));
+  const allowHost = ownHostFilter(url);
 
-  browser = await chromium.launch({
+  const launch = (exe) => chromium.launch({
     headless: true,
+    ...(exe ? { executablePath: exe } : {}),
     handleSIGTERM: false,
     handleSIGINT: false,
     // headless chromium hides scrollbars; the live captures had one
     ignoreDefaultArgs: withScrollbar ? ['--hide-scrollbars'] : [],
   });
+  // playwright's own shell revision not installed: the installed shell (standing order 11)
+  browser = await launch(CHROME).catch((e) => {
+    if (CHROME || !SHELL || !/Executable doesn't exist/.test(e.message)) throw e;
+    return launch(SHELL);
+  });
   const context = await browser.newContext({
     viewport: { width, height: VIEWPORT_HEIGHT },
     deviceScaleFactor: 1,
     userAgent: desktopUserAgent(browser.version()),
+    ...(allowHost ? { serviceWorkers: 'block' } : {}),
   });
+  // a capture of our pages: its scripts never reach an airline host (standing order 12)
+  // (a web font from the airline's www: www's file from PARITY_FONTS, the recording drops)
+  if (allowHost) {
+    await context.route((u) => !allowHost(u), (route) => {
+      const font = mirroredFont(new URL(route.request().url()), FONT_DIRS);
+      return font ? route.fulfill({ path: font, headers: { 'Access-Control-Allow-Origin': '*' } })
+        : route.abort('blockedbyclient');
+    });
+  }
   await context.addInitScript(initScript, {
     key: CONSENT_KEY, groups: CONSENT_GROUPS, showcaseKey: SHOWCASE_KEY, scrollbar: withScrollbar,
   });

@@ -1215,6 +1215,13 @@ function renderRepeat(row, template, ctx, renderRow) {
   const total = Math.max(1, Math.min(row.rules.repeat || 1, 50));
   const host = el('div', 'form-repeat');
   if (row.name) host.dataset.repeat = row.name;
+  // Rules hidden: the whole section waits for a checkbox's toggles (Brussels'
+  // "Show additional passengers")
+  if (row.rules.hidden && row.name) {
+    host.dataset.section = row.name;
+    host.dataset.initialHidden = 'true';
+    setSectionVisible(host, false, false);
+  }
   const names = new Set(template.map((r) => r.name).filter(Boolean));
   const copies = [];
   for (let n = 1; n <= total; n += 1) {
@@ -1286,7 +1293,9 @@ function renderRepeat(row, template, ctx, renderRow) {
  * Selects: the section named as the chosen option's value shows, the others listed hide.
  */
 function setupToggles(form, ctx) {
-  const sections = (name) => form.querySelectorAll(`fieldset[data-section="${CSS.escape(name)}"]`);
+  const sections = (name) => form.querySelectorAll(
+    `fieldset[data-section="${CSS.escape(name)}"], .form-repeat[data-section="${CSS.escape(name)}"]`,
+  );
   ctx.toggles.forEach(({ wrapper, targets }) => {
     const select = wrapper.querySelector('select');
     if (select) {

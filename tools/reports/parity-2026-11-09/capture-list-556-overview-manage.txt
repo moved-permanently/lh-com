@@ -1,0 +1,5 @@
+# WITHDRAWN (brief 557, 2026-11-10): Ben's standing rule keeps the overview-manage documents exactly as DA has them (no re-import, no upload from us); the blank picture slot is accepted. Not for the import helper; kept for the record, the path commented out.
+# Brief 556 (ema-adobe, 2026-11-10): lufthansa.com pages that need a fresh www snapshot (and a 390 / 1440 recording) before a re-import can be decided: www dropped the "Check-in" card's picture on /de/en/overview-manage between 2026-10-21 and 2026-11-06; these three have only 2026-10-22 snapshots, which still hold it, and no recording. Named after the 08:00 CET capture window of 2026-11-10 had closed: for the next window.
+# /de/de/overview-manage
+# /at/de/overview-manage
+# /gb/en/overview-manage

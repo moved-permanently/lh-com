@@ -72,6 +72,14 @@
   margin-bottom: 0;
 }
 
+/* {limited-width} text (www's .richtext.limited-width { width: 66% } from 1025px; the parser
+   keeps the class: /de/de/meetings-and-events' steps, three lines of 256px in a 410px card) */
+@media (width >= 1025px) {
+  .cards-teaser .cards-teaser-body > :is(p, ul, ol).limited-width {
+    max-width: 66%;
+  }
+}
+
 /* title: h3.headline.heading-small (also h2.heading-small next to h3 cards on /online-check-in).
    The title rules are :where() (one class), so a size marker ({heading-small}, main
    h3.heading-small in styles.css) wins, e.g. my-bookings three-up cards with 28px light titles */
@@ -163,6 +171,19 @@ body.brand-lufthansa .cards-teaser-wrapper + .cards-teaser-wrapper > .cards-teas
   body.brand-lufthansa .cards-teaser.spacious:not(.overlay, .three-up, .four-up) > ul > li:nth-child(2n + 3) {
     margin-top: 66px;
   }
+
+  /* pages with the digital assistant (Theme digital-assistant): 45px from the link to the next
+     row's picture on www, as within a row (overview-travel-information at 390, lh-parity-005 and
+     -002; brief 544) */
+  body.brand-lufthansa.digital-assistant .cards-teaser.spacious:not(.overlay, .three-up, .four-up) > ul > li:nth-child(2n + 3) {
+    margin-top: 41px;
+  }
+
+  /* a row's first card without a picture: its title 50px under the link above on www
+     (services-am-flughafen's "Boarding" at 390, ours 76; brief 554) */
+  body.brand-lufthansa .cards-teaser.spacious:not(.overlay, .three-up, .four-up) > ul > li.cards-teaser-text-only:nth-child(2n + 3) {
+    margin-top: 40px;
+  }
 }
 
 body.brand-lufthansa .cards-teaser-wrapper + .cards-teaser-wrapper > .cards-teaser.spacious {
@@ -182,10 +203,11 @@ body.brand-lufthansa main > .section:has(> .cards-teaser-wrapper:last-child > .c
 /* a grid right after a heading on phones (brief 467): www's column view has no top padding below
    768px, its items 12px, so the heading's margin and 12px put the first picture 40px under the
    heading (/de/en/baggage at 390; ours was 60px with the 32px above); after a text, and from 768px,
-   the 32px stay */
+   the 32px stay. Brief 556: the full recordings at 390 (gb/en baggage, de/de gepaeck) put the
+   picture 13-14px nearer the heading than 12px did, on all three grids: no padding */
 @media (width < 768px) {
   body.brand-lufthansa main .default-content-wrapper:has(> :is(h2, h3, h4, h5, h6):last-child) + .cards-teaser-wrapper > .cards-teaser:not(.overlay, .spacious) > ul {
-    padding-top: 12px;
+    padding-top: 0;
   }
 }
 
@@ -665,4 +687,39 @@ body.brand-cargo .cards-teaser.overlay.fleet .cards-teaser-cta-link:any-link {
 .cards-teaser .cards-teaser-pager button:focus-visible {
   outline: 2px solid var(--focus-color, #05164d);
   outline-offset: 2px;
+}
+
+/* lufthansa.com, option phone-slider from 1025px (its rows): www's swiper keeps its pagination's
+   place under the rows (meetings-and-events' steps: the next view's heading 132px of ink under the
+   button at 1440, ours 88; brief 558); spacious rows (digital-self-services) as they were */
+@media (width >= 1025px) {
+  body.brand-lufthansa .cards-teaser.phone-slider:not(.spacious) {
+    margin-bottom: 44px;
+  }
+}
+
+/* lufthansa.com, option phone-slider: the card's button 49px of ink under its text on www
+   (meetings-and-events' first step, 390 and 1440), ours 28; below 1025px the next section's
+   heading 84px under the dots, ours 53 (spacious phone-sliders as they were; brief 558) */
+body.brand-lufthansa .cards-teaser.phone-slider .cards-teaser-cta-button {
+  margin-top: 21px;
+}
+
+@media (width < 1025px) {
+  body.brand-lufthansa .cards-teaser.phone-slider:not(.spacious) .cards-teaser-dots {
+    margin-bottom: 31px;
+  }
+}
+
+/* lufthansa.com on phones: a divider between two spacious grids (airport-information's airport
+   cards): www's line 25px of ink under the last link, the next picture 46px under the line at
+   390; ours 12 and 70 (brief 558; from 768px as before, 1440 measured worse with it) */
+@media (width < 768px) {
+  body.brand-lufthansa main .cards-teaser-wrapper:has(> .cards-teaser.spacious) + .default-content-wrapper:not(:has(> :not(p.spacer.divider))) {
+    margin-top: 21px;
+  }
+
+  body.brand-lufthansa main .cards-teaser-wrapper:has(> .cards-teaser.spacious) + .default-content-wrapper:not(:has(> :not(p.spacer.divider))) + .cards-teaser-wrapper {
+    margin-top: 0;
+  }
 }

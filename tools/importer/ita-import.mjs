@@ -20,7 +20,8 @@
  *   ITA's roots to lh-com's), `markets` (the market roots with the same page, from scope.json),
  *   www's robots value on noindex pages;
  * - www's Quick Links sidebar (info pages): the content and the box as sections side by side
- *   (ita-quick-links.mjs withQuickLinksSidebar, the box a cards-teaser);
+ *   (ita-quick-links.mjs withQuickLinksSidebar, the box a cards-teaser; a box of a heading over links:
+ *   ita-link-sidebar.mjs withLinkListSidebar);
  * - links to www's DAM files become site-relative edsDamPath links (ita-dam.mjs relativeDamLinks;
  *   the files are copied with ita-dam.mjs --list --download --upload --switch).
  * Pages whose snapshot is missing are listed.
@@ -37,6 +38,7 @@ import {
 } from './own-links.mjs';
 import { relativeDamLinks } from './ita-dam.mjs';
 import { withQuickLinksSidebar } from './ita-quick-links.mjs';
+import { withLinkListSidebar } from './ita-link-sidebar.mjs';
 import { stripScripts } from './excat-plugin.mjs';
 import collapseDocs from './collapse-docs.mjs';
 import { withRestoredNbsp } from './nbsp-guard.mjs';
@@ -140,6 +142,13 @@ export const withTeaserColumns = (html) => editDivs(html, '<div class="twocolumn
   return el.replace(/^<div class="twocolumn([^"]*)"/, '<div class="threecolumn$1" data-import-two-up=""').replace('data-identifier="twocolumn"', 'data-identifier="threecolumn"');
 });
 
+/**
+ * A snapshot whose teaser cards are marked data-import-cta: www shows their link line (.teaser
+ * .teaser-link-text is display:block, "→ Learn More About Choosing Your Seat" at the card's foot),
+ * which lh-com's carousel-cards parser keeps only on a marked card (ITA row 29; as austrian-import.mjs).
+ */
+export const withTeaserCta = (html) => html.replace(/(<a\b[^>]*class="teaser card[^"]*")(?![^>]*data-import-cta)/g, '$1 data-import-cta=""');
+
 // the booking-lookup's hand-off: www's check-in app is not reachable from the replica (and its
 // target is not in the page), so a valid search opens the same page on www, nothing in the URL
 export const withCheckinHandoff = (doc, p) => doc
@@ -224,9 +233,34 @@ export function templateOf(p, html) {
  * block named lu (its first cell) that nothing renders (/xx/it/.../emergency-contact,
  * /it/it/.../voglia-di-volare-registration-form, imported before this).
  */
+/**
+ * A snapshot whose column-view H2s in heading-medium carry their marker (rows-for-ema-test.md row 6,
+ * standing order 10 of 2026-11-12): www's column-view headlines come in heading-medium (36 px at
+ * 1440) and heading-small (28 px); the cleanup marks a heading only when its size is not its level's
+ * default, so an H2 in heading-medium (contact's country headings) came through unmarked and ita.css
+ * drew it at heading-small's size. " {heading-medium}" at the end of such an H2, once; the collapse
+ * keeps it in a Columns Media cell (THEMES.ita keepSizesIn). Headings outside a view as they are.
+ */
+export function withColumnViewHeadingSizes(html) {
+  const open = /<div\b[^>]*\bclass="column-view[ "]/g;
+  let out = '';
+  let from = 0;
+  let m = open.exec(html);
+  while (m) {
+    const end = divEnd(html, m.index);
+    const view = html.slice(m.index, end).replace(/(<h2\b[^>]*\bclass="[^"]*\bheading-medium\b[^"]*"[^>]*>)([\s\S]*?)(<\/h2>)/g, (all, start, inner, close) => (
+      /\{[a-z0-9 -]+\}\s*$/.test(inner.replace(/<[^>]+>/g, '')) ? all : `${start}${inner.replace(/\s+$/, '')} {heading-medium}${close}`));
+    out += html.slice(from, m.index) + view;
+    from = end;
+    open.lastIndex = end;
+    m = open.exec(html);
+  }
+  return out + html.slice(from);
+}
+
 export function mappedOf(html, p) {
   const noPicker = editDivs(stripScripts(html), '<div id="ui-datepicker-div"', () => '');
-  return withoutLoads(withFareTeaserConfig(withTeaserColumns(withCheckinTabs(withLinkOuts(withPlaceholder(noPicker), p)))))
+  return withoutLoads(withFareTeaserConfig(withTeaserCta(withTeaserColumns(withCheckinTabs(withLinkOuts(withPlaceholder(withColumnViewHeadingSizes(noPicker)), p))))))
     .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
 }
 
@@ -317,7 +351,9 @@ if (isMain) {
       const doc = fs.readFileSync(f, 'utf8');
       const src = Object.keys(out).find((k) => docName(k) === p);
       const markets = scope.documents[src]?.markets || [];
-      const next = withQuickLinksSidebar(withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p), p), p), p, fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8'), markets));
+      const snapshot = fs.readFileSync(path.join(SNAP, `${src}.html`), 'utf8');
+      // www's sidebar: a box of cards (ita-quick-links.mjs), a heading over links (ita-link-sidebar.mjs)
+      const next = withLinkListSidebar(withQuickLinksSidebar(withItaMetadata(withCheckinHandoff(withFlightSearch(withItaForm(doc, p), p), p), p, snapshot, markets)), snapshot);
       if (next !== doc) fs.writeFileSync(f, next);
     });
     const mapOnly = path.join(W, 'runs', `${name}-upload.txt`);

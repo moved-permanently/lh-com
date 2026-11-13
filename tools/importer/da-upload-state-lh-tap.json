@@ -46,9 +46,9 @@
    "preview": "2026-11-04T05:49:39.784Z"
   },
   "/pt-pt/promos": {
-   "uploaded": "2026-11-08T02:11:23.210Z",
-   "mtime": 1794103851165,
-   "preview": "2026-11-08T02:11:25.697Z"
+   "uploaded": "2026-11-11T21:32:14.029Z",
+   "mtime": 1794432729680.5007,
+   "preview": "2026-11-11T21:32:16.952Z"
   },
   "/pt-pt/reservas": {
    "uploaded": "2026-11-04T04:36:46.997Z",
@@ -81,14 +81,14 @@
    "preview": "2026-11-04T04:37:08.044Z"
   },
   "/pt-pt/ajuda/perguntas-frequentes": {
-   "uploaded": "2026-11-08T07:16:03.938Z",
-   "mtime": 1794122157831,
-   "preview": "2026-11-08T07:16:06.794Z"
+   "uploaded": "2026-11-09T22:14:45.997Z",
+   "mtime": 1794262473209.3123,
+   "preview": "2026-11-09T22:14:49.137Z"
   },
   "/pt-pt/destinos/inspire-se": {
-   "uploaded": "2026-11-04T04:37:14.322Z",
-   "mtime": 1793766910960,
-   "preview": "2026-11-04T04:37:16.960Z"
+   "uploaded": "2026-11-11T18:57:12.617Z",
+   "mtime": 1794420376701.7034,
+   "preview": "2026-11-11T18:57:15.128Z"
   },
   "/pt-pt/gerir-reserva/extras": {
    "uploaded": "2026-11-04T05:49:55.389Z",
@@ -156,59 +156,59 @@
    "preview": "2026-11-04T02:27:07.364Z"
   },
   "/pt-pt/fragments/inspire-se/aventura": {
-   "uploaded": "2026-11-04T03:47:18.114Z",
-   "mtime": 1793759169230,
-   "preview": "2026-11-04T03:47:24.431Z"
+   "uploaded": "2026-11-11T18:53:10.690Z",
+   "mtime": 1794420376753.7146,
+   "preview": "2026-11-11T18:53:13.195Z"
   },
   "/pt-pt/fragments/inspire-se/compras": {
-   "uploaded": "2026-11-04T03:47:26.060Z",
-   "mtime": 1793759169286,
-   "preview": "2026-11-04T03:47:29.605Z"
+   "uploaded": "2026-11-11T18:53:16.252Z",
+   "mtime": 1794420376712.3992,
+   "preview": "2026-11-11T18:53:18.214Z"
   },
   "/pt-pt/fragments/inspire-se/cultura": {
-   "uploaded": "2026-11-04T03:47:31.461Z",
-   "mtime": 1793759169374,
-   "preview": "2026-11-04T03:47:38.992Z"
+   "uploaded": "2026-11-11T18:53:22.122Z",
+   "mtime": 1794420376762.3254,
+   "preview": "2026-11-11T18:53:24.230Z"
   },
   "/pt-pt/fragments/inspire-se/familia": {
-   "uploaded": "2026-11-04T03:47:54.124Z",
-   "mtime": 1793759169538,
-   "preview": "2026-11-04T03:47:58.614Z"
+   "uploaded": "2026-11-11T18:53:27.504Z",
+   "mtime": 1794420376751.6309,
+   "preview": "2026-11-11T18:53:29.580Z"
   },
   "/pt-pt/fragments/inspire-se/gastronomia": {
-   "uploaded": "2026-11-04T03:48:00.020Z",
-   "mtime": 1793759169604,
-   "preview": "2026-11-04T03:48:03.862Z"
+   "uploaded": "2026-11-11T18:53:32.926Z",
+   "mtime": 1794420376710.8635,
+   "preview": "2026-11-11T18:53:34.982Z"
   },
   "/pt-pt/fragments/inspire-se/multi-destinos": {
-   "uploaded": "2026-11-04T03:48:05.350Z",
-   "mtime": 1793759169668,
-   "preview": "2026-11-04T03:48:09.015Z"
+   "uploaded": "2026-11-11T18:53:37.881Z",
+   "mtime": 1794420376720.5637,
+   "preview": "2026-11-11T18:53:40.123Z"
   },
   "/pt-pt/fragments/inspire-se/natureza": {
-   "uploaded": "2026-11-04T03:48:10.581Z",
-   "mtime": 1793759169739,
-   "preview": "2026-11-04T03:48:16.811Z"
+   "uploaded": "2026-11-11T18:53:42.819Z",
+   "mtime": 1794420376736.6968,
+   "preview": "2026-11-11T18:53:44.866Z"
   },
   "/pt-pt/fragments/inspire-se/noite": {
-   "uploaded": "2026-11-04T03:48:18.479Z",
-   "mtime": 1793759169808,
-   "preview": "2026-11-04T03:48:22.609Z"
+   "uploaded": "2026-11-11T18:53:47.577Z",
+   "mtime": 1794420376788.239,
+   "preview": "2026-11-11T18:53:49.815Z"
   },
   "/pt-pt/fragments/inspire-se/praia": {
-   "uploaded": "2026-11-04T03:48:24.079Z",
-   "mtime": 1793759169880,
-   "preview": "2026-11-04T03:48:28.926Z"
+   "uploaded": "2026-11-11T18:53:53.302Z",
+   "mtime": 1794420376714.2256,
+   "preview": "2026-11-11T18:53:55.344Z"
   },
   "/pt-pt/fragments/inspire-se/relax": {
-   "uploaded": "2026-11-04T03:48:36.025Z",
-   "mtime": 1793759169949,
-   "preview": "2026-11-04T03:48:38.904Z"
+   "uploaded": "2026-11-11T18:53:58.199Z",
+   "mtime": 1794420376711.6606,
+   "preview": "2026-11-11T18:54:00.529Z"
   },
   "/pt-pt/fragments/inspire-se/romance": {
-   "uploaded": "2026-11-04T03:48:40.401Z",
-   "mtime": 1793759170029,
-   "preview": "2026-11-04T03:48:46.342Z"
+   "uploaded": "2026-11-11T18:54:03.299Z",
+   "mtime": 1794420376728.2388,
+   "preview": "2026-11-11T18:54:05.249Z"
   },
   "/pt-pt/a-bordo/altitude-film-festival": {
    "uploaded": "2026-11-04T04:38:16.655Z",
@@ -246,9 +246,9 @@
    "preview": "2026-11-04T04:43:20.062Z"
   },
   "/pt-pt/a-bordo/refeicoes/especiais": {
-   "uploaded": "2026-11-04T04:43:21.663Z",
-   "mtime": 1793766917712,
-   "preview": "2026-11-04T04:43:24.057Z"
+   "uploaded": "2026-11-11T08:34:11.157Z",
+   "mtime": 1794386013030.5874,
+   "preview": "2026-11-11T08:34:14.000Z"
   },
   "/pt-pt/a-bordo/refeicoes/local-stars": {
    "uploaded": "2026-11-04T04:43:10.214Z",
@@ -261,9 +261,9 @@
    "preview": "2026-11-04T05:50:42.699Z"
   },
   "/pt-pt/a-bordo/voar-executiva": {
-   "uploaded": "2026-11-04T05:50:44.646Z",
-   "mtime": 1793771337809,
-   "preview": "2026-11-04T05:50:47.487Z"
+   "uploaded": "2026-11-11T08:33:59.876Z",
+   "mtime": 1794386013031.0854,
+   "preview": "2026-11-11T08:34:02.836Z"
   },
   "/pt-pt/a-bordo/wi-fi": {
    "uploaded": "2026-11-04T05:50:49.499Z",
@@ -286,9 +286,9 @@
    "preview": "2026-11-04T04:41:20.887Z"
   },
   "/pt-pt/gerir-reserva/extras/lounges": {
-   "uploaded": "2026-11-04T04:41:22.335Z",
-   "mtime": 1793766916047,
-   "preview": "2026-11-04T04:41:24.940Z"
+   "uploaded": "2026-11-11T21:33:51.268Z",
+   "mtime": 1794432755336.3328,
+   "preview": "2026-11-11T21:33:53.968Z"
   },
   "/pt-pt/gerir-reserva/extras/lugar-lado-livre": {
    "uploaded": "2026-11-04T05:51:58.154Z",
@@ -311,9 +311,9 @@
    "preview": "2026-11-04T04:44:22.548Z"
   },
   "/pt-pt/gerir-reserva/extras/upgrades/leiloes": {
-   "uploaded": "2026-11-04T04:44:13.730Z",
-   "mtime": 1793766918454,
-   "preview": "2026-11-04T04:44:15.636Z"
+   "uploaded": "2026-11-11T20:36:33.583Z",
+   "mtime": 1794429353145.9478,
+   "preview": "2026-11-11T20:36:35.794Z"
   },
   "/pt-pt/gerir-reserva/extras/upgrades/preco-fixo": {
    "uploaded": "2026-11-04T05:53:09.720Z",
@@ -336,14 +336,14 @@
    "preview": "2026-11-04T05:52:05.192Z"
   },
   "/pt-pt/informacoes/bagagem/bagagem-porao": {
-   "uploaded": "2026-11-04T04:41:51.152Z",
-   "mtime": 1793766916627,
-   "preview": "2026-11-04T04:41:53.859Z"
+   "uploaded": "2026-11-12T03:40:36.045Z",
+   "mtime": 1794454772451.5696,
+   "preview": "2026-11-12T03:40:38.365Z"
   },
   "/pt-pt/informacoes/bagagem/equipamento-desportivo": {
-   "uploaded": "2026-11-04T04:41:55.593Z",
-   "mtime": 1793766916677,
-   "preview": "2026-11-04T04:41:57.693Z"
+   "uploaded": "2026-11-12T03:40:40.989Z",
+   "mtime": 1794454772452.5,
+   "preview": "2026-11-12T03:40:43.367Z"
   },
   "/pt-pt/informacoes/bagagem/instrumentos-musicais": {
    "uploaded": "2026-11-04T04:41:59.039Z",
@@ -351,9 +351,9 @@
    "preview": "2026-11-04T04:42:01.334Z"
   },
   "/pt-pt/informacoes/bagagem/localizar-bagagem": {
-   "uploaded": "2026-11-04T05:52:06.841Z",
-   "mtime": 1793771340473,
-   "preview": "2026-11-04T05:52:08.769Z"
+   "uploaded": "2026-11-12T04:02:24.530Z",
+   "mtime": 1794456140597.499,
+   "preview": "2026-11-12T04:02:27.084Z"
   },
   "/pt-pt/informacoes/bagagem/problemas-bagagem": {
    "uploaded": "2026-11-04T04:42:02.812Z",
@@ -486,9 +486,9 @@
    "preview": "2026-11-04T05:30:38.576Z"
   },
   "/pt-pt/miles-and-go/acumular-milhas/dia-a-dia": {
-   "uploaded": "2026-11-04T05:53:02.579Z",
-   "mtime": 1793771341425,
-   "preview": "2026-11-04T05:53:04.714Z"
+   "uploaded": "2026-11-11T23:40:00.741Z",
+   "mtime": 1794440393737.061,
+   "preview": "2026-11-11T23:40:03.771Z"
   },
   "/pt-pt/miles-and-go/club": {
    "uploaded": "2026-11-08T04:44:56.467Z",
@@ -526,9 +526,9 @@
    "preview": "2026-11-08T04:45:10.780Z"
   },
   "/pt-pt/miles-and-go/parceiros": {
-   "uploaded": "2026-11-04T05:51:41.646Z",
-   "mtime": 1793771340138,
-   "preview": "2026-11-04T05:51:48.236Z"
+   "uploaded": "2026-11-10T19:25:04.014Z",
+   "mtime": 1794338620594.0525,
+   "preview": "2026-11-10T19:25:09.810Z"
   },
   "/pt-pt/miles-and-go/promo": {
    "uploaded": "2026-11-08T04:45:13.704Z",
@@ -536,9 +536,9 @@
    "preview": "2026-11-08T04:45:16.332Z"
   },
   "/pt-pt/miles-and-go/promocoes": {
-   "uploaded": "2026-11-08T00:00:53.804Z",
-   "mtime": 1794096020478,
-   "preview": "2026-11-08T00:00:55.993Z"
+   "uploaded": "2026-11-11T07:33:03.675Z",
+   "mtime": 1794382365811.043,
+   "preview": "2026-11-11T07:33:06.198Z"
   },
   "/pt-pt/miles-and-go/promocoes/navigator-experiences": {
    "uploaded": "2026-11-08T03:01:17.280Z",
@@ -636,9 +636,9 @@
    "preview": "2026-11-04T04:39:11.379Z"
   },
   "/pt-pt/stopover/parceiros": {
-   "uploaded": "2026-11-04T04:39:16.197Z",
-   "mtime": 1793766913637,
-   "preview": "2026-11-04T04:39:18.476Z"
+   "uploaded": "2026-11-11T23:36:17.495Z",
+   "mtime": 1794440157895.1685,
+   "preview": "2026-11-11T23:36:20.274Z"
   },
   "/pt-pt/fragments/inspire-se/cultura-2": {
    "uploaded": "2026-11-04T03:47:40.482Z",
@@ -681,9 +681,9 @@
    "preview": "2026-11-04T05:58:51.285Z"
   },
   "/es-es/a-bordo/comidas/comidas-especiales": {
-   "uploaded": "2026-11-04T04:58:42.357Z",
-   "mtime": 1793766932578,
-   "preview": "2026-11-04T04:58:44.396Z"
+   "uploaded": "2026-11-11T08:34:48.801Z",
+   "mtime": 1794386013004.1685,
+   "preview": "2026-11-11T08:34:51.242Z"
   },
   "/es-es/a-bordo/comidas/economy-prime": {
    "uploaded": "2026-11-04T04:58:38.529Z",
@@ -706,9 +706,9 @@
    "preview": "2026-11-04T04:54:39.412Z"
   },
   "/es-es/a-bordo/volar-business": {
-   "uploaded": "2026-11-04T05:57:35.177Z",
-   "mtime": 1793771344817,
-   "preview": "2026-11-04T05:57:37.466Z"
+   "uploaded": "2026-11-11T08:34:36.515Z",
+   "mtime": 1794386013004.902,
+   "preview": "2026-11-11T08:34:39.323Z"
   },
   "/es-es/a-bordo/volar-economica": {
    "uploaded": "2026-11-04T05:57:31.312Z",
@@ -731,9 +731,9 @@
    "preview": "2026-11-04T04:52:21.160Z"
   },
   "/es-es/ayuda/preguntas-frecuentes": {
-   "uploaded": "2026-11-04T04:53:16.901Z",
-   "mtime": 1793766928758,
-   "preview": "2026-11-04T04:53:20.016Z"
+   "uploaded": "2026-11-10T01:13:09.688Z",
+   "mtime": 1794273168253.7017,
+   "preview": "2026-11-10T01:13:13.265Z"
   },
   "/es-es/ayuda/reembolsos-tap": {
    "uploaded": "2026-11-04T04:53:09.439Z",
@@ -756,9 +756,9 @@
    "preview": "2026-11-08T04:45:58.880Z"
   },
   "/es-es/destinos/inspirate": {
-   "uploaded": "2026-11-08T09:22:01.825Z",
-   "mtime": 1794128090296.0715,
-   "preview": "2026-11-08T09:22:04.107Z"
+   "uploaded": "2026-11-11T18:57:29.729Z",
+   "mtime": 1794420375647.542,
+   "preview": "2026-11-11T18:57:32.914Z"
   },
   "/es-es/footer": {
    "uploaded": "2026-11-04T02:27:21.703Z",
@@ -871,9 +871,9 @@
    "preview": "2026-11-04T04:56:53.560Z"
   },
   "/es-es/gestionar-reserva/extras/lounges": {
-   "uploaded": "2026-11-04T04:56:54.834Z",
-   "mtime": 1793766931532,
-   "preview": "2026-11-04T04:56:57.583Z"
+   "uploaded": "2026-11-11T21:33:00.785Z",
+   "mtime": 1794432755306.5757,
+   "preview": "2026-11-11T21:33:03.872Z"
   },
   "/es-es/gestionar-reserva/extras/upgrades": {
    "uploaded": "2026-11-08T09:00:51.623Z",
@@ -891,9 +891,9 @@
    "preview": "2026-11-04T05:59:10.452Z"
   },
   "/es-es/gestionar-reserva/extras/upgrades/subastas": {
-   "uploaded": "2026-11-04T04:59:22.031Z",
-   "mtime": 1793766932998,
-   "preview": "2026-11-04T04:59:24.458Z"
+   "uploaded": "2026-11-11T20:36:06.967Z",
+   "mtime": 1794429353136.907,
+   "preview": "2026-11-11T20:36:08.849Z"
   },
   "/es-es/info-legal/acessibilidade": {
    "uploaded": "2026-11-04T05:56:58.067Z",
@@ -1026,9 +1026,9 @@
    "preview": "2026-11-04T04:57:15.972Z"
   },
   "/es-es/informacion/equipaje/equipaje-bodega": {
-   "uploaded": "2026-11-04T04:57:21.482Z",
-   "mtime": 1793766931830,
-   "preview": "2026-11-04T04:57:24.307Z"
+   "uploaded": "2026-11-12T03:39:56.091Z",
+   "mtime": 1794454772427.9229,
+   "preview": "2026-11-12T03:39:58.577Z"
   },
   "/es-es/informacion/equipaje/equipaje-mano": {
    "uploaded": "2026-11-04T05:58:19.253Z",
@@ -1036,9 +1036,9 @@
    "preview": "2026-11-04T05:58:21.523Z"
   },
   "/es-es/informacion/equipaje/equipo-deportivo": {
-   "uploaded": "2026-11-04T04:57:26.085Z",
-   "mtime": 1793766931871,
-   "preview": "2026-11-04T04:57:27.917Z"
+   "uploaded": "2026-11-12T03:40:01.091Z",
+   "mtime": 1794454772427.2502,
+   "preview": "2026-11-12T03:40:03.479Z"
   },
   "/es-es/informacion/equipaje/instrumentos-musicales": {
    "uploaded": "2026-11-04T04:57:29.431Z",
@@ -1046,9 +1046,9 @@
    "preview": "2026-11-04T04:57:31.640Z"
   },
   "/es-es/informacion/equipaje/localizar-equipaje": {
-   "uploaded": "2026-11-04T05:58:22.827Z",
-   "mtime": 1793771345300,
-   "preview": "2026-11-04T05:58:24.881Z"
+   "uploaded": "2026-11-12T04:02:34.136Z",
+   "mtime": 1794456140588.5388,
+   "preview": "2026-11-12T04:02:36.495Z"
   },
   "/es-es/informacion/equipaje/problemas-equipaje": {
    "uploaded": "2026-11-04T04:57:33.169Z",
@@ -1186,9 +1186,9 @@
    "preview": "2026-11-04T05:59:01.308Z"
   },
   "/es-es/miles-and-go/utilice-millas/donar-millas": {
-   "uploaded": "2026-11-08T04:46:40.304Z",
-   "mtime": 1794113086914.3826,
-   "preview": "2026-11-08T04:46:42.196Z"
+   "uploaded": "2026-11-11T21:33:06.630Z",
+   "mtime": 1794432755304.0615,
+   "preview": "2026-11-11T21:33:09.184Z"
   },
   "/es-es/miles-and-go/utilice-millas/donar-millas/millas-donadas": {
    "uploaded": "2026-11-04T05:59:11.750Z",
@@ -1286,9 +1286,9 @@
    "preview": "2026-11-04T05:56:39.149Z"
   },
   "/es-es/stopover/socios": {
-   "uploaded": "2026-11-04T04:55:29.652Z",
-   "mtime": 1793766930721,
-   "preview": "2026-11-04T04:55:31.572Z"
+   "uploaded": "2026-11-11T23:36:05.322Z",
+   "mtime": 1794440157705.6624,
+   "preview": "2026-11-11T23:36:08.432Z"
   },
   "/pt-pt/fragments/inspire-se/praia-2": {
    "uploaded": "2026-11-04T03:48:30.654Z",
@@ -1376,19 +1376,19 @@
    "preview": "2026-11-08T04:45:27.833Z"
   },
   "/en-pt/destinations/get-inspired": {
-   "uploaded": "2026-11-04T04:45:30.138Z",
-   "mtime": 1793766922488,
-   "preview": "2026-11-04T04:45:32.667Z"
+   "uploaded": "2026-11-11T18:57:06.774Z",
+   "mtime": 1794420375850.622,
+   "preview": "2026-11-11T18:57:10.154Z"
   },
   "/en-pt/fragments/get-inspired/adventure": {
-   "uploaded": "2026-11-04T02:45:41.532Z",
-   "mtime": 1793759187735,
-   "preview": "2026-11-04T02:45:48.111Z"
+   "uploaded": "2026-11-11T18:52:13.584Z",
+   "mtime": 1794420375796.0637,
+   "preview": "2026-11-11T18:52:15.607Z"
   },
   "/en-pt/fragments/get-inspired/beach": {
-   "uploaded": "2026-11-04T02:45:50.324Z",
-   "mtime": 1793759188380,
-   "preview": "2026-11-04T02:45:56.869Z"
+   "uploaded": "2026-11-11T18:52:18.803Z",
+   "mtime": 1794420375845.5059,
+   "preview": "2026-11-11T18:52:21.189Z"
   },
   "/en-pt/fragments/get-inspired/beach-2": {
    "uploaded": "2026-11-04T02:45:58.570Z",
@@ -1396,9 +1396,9 @@
    "preview": "2026-11-04T02:46:00.786Z"
   },
   "/en-pt/fragments/get-inspired/culture": {
-   "uploaded": "2026-11-04T02:46:02.555Z",
-   "mtime": 1793759187877,
-   "preview": "2026-11-04T02:46:10.354Z"
+   "uploaded": "2026-11-11T18:52:24.008Z",
+   "mtime": 1794420375777.3604,
+   "preview": "2026-11-11T18:52:26.454Z"
   },
   "/en-pt/fragments/get-inspired/culture-2": {
    "uploaded": "2026-11-04T02:46:11.921Z",
@@ -1411,44 +1411,44 @@
    "preview": "2026-11-04T02:46:24.414Z"
   },
   "/en-pt/fragments/get-inspired/family": {
-   "uploaded": "2026-11-04T02:46:26.000Z",
-   "mtime": 1793759188049,
-   "preview": "2026-11-04T02:46:30.583Z"
+   "uploaded": "2026-11-11T18:52:29.263Z",
+   "mtime": 1794420375818.9915,
+   "preview": "2026-11-11T18:52:31.342Z"
   },
   "/en-pt/fragments/get-inspired/gastronomy": {
-   "uploaded": "2026-11-04T02:46:32.232Z",
-   "mtime": 1793759188111,
-   "preview": "2026-11-04T02:46:36.565Z"
+   "uploaded": "2026-11-11T18:52:34.484Z",
+   "mtime": 1794420375764.5588,
+   "preview": "2026-11-11T18:52:36.848Z"
   },
   "/en-pt/fragments/get-inspired/multi-city": {
-   "uploaded": "2026-11-04T02:46:38.396Z",
-   "mtime": 1793759188174,
-   "preview": "2026-11-04T02:46:42.249Z"
+   "uploaded": "2026-11-11T18:52:40.669Z",
+   "mtime": 1794420375801.7668,
+   "preview": "2026-11-11T18:52:42.454Z"
   },
   "/en-pt/fragments/get-inspired/nature": {
-   "uploaded": "2026-11-04T02:46:43.999Z",
-   "mtime": 1793759188243,
-   "preview": "2026-11-04T02:46:52.171Z"
+   "uploaded": "2026-11-11T18:52:45.772Z",
+   "mtime": 1794420375766.178,
+   "preview": "2026-11-11T18:52:47.801Z"
   },
   "/en-pt/fragments/get-inspired/night": {
-   "uploaded": "2026-11-04T02:46:53.717Z",
-   "mtime": 1793759188313,
-   "preview": "2026-11-04T02:46:57.051Z"
+   "uploaded": "2026-11-11T18:52:50.624Z",
+   "mtime": 1794420375821.411,
+   "preview": "2026-11-11T18:52:52.648Z"
   },
   "/en-pt/fragments/get-inspired/relax": {
-   "uploaded": "2026-11-04T02:46:58.456Z",
-   "mtime": 1793759188447,
-   "preview": "2026-11-04T02:47:01.760Z"
+   "uploaded": "2026-11-11T18:52:55.281Z",
+   "mtime": 1794420375763.8916,
+   "preview": "2026-11-11T18:52:57.207Z"
   },
   "/en-pt/fragments/get-inspired/romance": {
-   "uploaded": "2026-11-04T02:47:03.274Z",
-   "mtime": 1793759188527,
-   "preview": "2026-11-04T02:47:10.329Z"
+   "uploaded": "2026-11-11T18:53:00.071Z",
+   "mtime": 1794420375783.3333,
+   "preview": "2026-11-11T18:53:02.184Z"
   },
   "/en-pt/fragments/get-inspired/shopping": {
-   "uploaded": "2026-11-04T02:47:11.756Z",
-   "mtime": 1793759187793,
-   "preview": "2026-11-04T02:47:14.437Z"
+   "uploaded": "2026-11-11T18:53:04.863Z",
+   "mtime": 1794420375773.0693,
+   "preview": "2026-11-11T18:53:07.886Z"
   },
   "/en-pt/help": {
    "uploaded": "2026-11-04T04:44:27.773Z",
@@ -1461,9 +1461,9 @@
    "preview": "2026-11-04T05:53:42.665Z"
   },
   "/en-pt/help/frequently-asked-questions": {
-   "uploaded": "2026-11-08T07:15:58.957Z",
-   "mtime": 1794122157600,
-   "preview": "2026-11-08T07:16:02.438Z"
+   "uploaded": "2026-11-09T22:14:37.508Z",
+   "mtime": 1794262473206.71,
+   "preview": "2026-11-09T22:14:41.960Z"
   },
   "/en-pt/help/requests-complaints": {
    "uploaded": "2026-11-04T04:45:22.559Z",
@@ -1506,19 +1506,19 @@
    "preview": "2026-11-04T04:49:30.096Z"
   },
   "/en-pt/information/baggage/hand-baggage": {
-   "uploaded": "2026-11-04T05:55:19.245Z",
-   "mtime": 1793771343758,
-   "preview": "2026-11-04T05:55:21.707Z"
+   "uploaded": "2026-11-12T03:39:40.931Z",
+   "mtime": 1794454772430.823,
+   "preview": "2026-11-12T03:39:43.659Z"
   },
   "/en-pt/information/baggage/hold-baggage": {
-   "uploaded": "2026-11-04T04:49:39.224Z",
-   "mtime": 1793766926502,
-   "preview": "2026-11-04T04:49:41.732Z"
+   "uploaded": "2026-11-12T03:39:46.055Z",
+   "mtime": 1794454772432.1702,
+   "preview": "2026-11-12T03:39:48.403Z"
   },
   "/en-pt/information/baggage/locate-baggage": {
-   "uploaded": "2026-11-04T05:55:23.228Z",
-   "mtime": 1793771343788,
-   "preview": "2026-11-04T05:55:25.039Z"
+   "uploaded": "2026-11-12T04:02:29.661Z",
+   "mtime": 1794456140590.8833,
+   "preview": "2026-11-12T04:02:31.734Z"
   },
   "/en-pt/information/baggage/musical-instruments": {
    "uploaded": "2026-11-04T04:49:46.586Z",
@@ -1531,9 +1531,9 @@
    "preview": "2026-11-04T04:49:52.598Z"
   },
   "/en-pt/information/baggage/sports-equipment": {
-   "uploaded": "2026-11-04T04:49:43.205Z",
-   "mtime": 1793766926544,
-   "preview": "2026-11-04T04:49:45.121Z"
+   "uploaded": "2026-11-12T03:39:50.969Z",
+   "mtime": 1794454772431.444,
+   "preview": "2026-11-12T03:39:53.262Z"
   },
   "/en-pt/information/documentation": {
    "uploaded": "2026-11-08T09:00:04.843Z",
@@ -1721,9 +1721,9 @@
    "preview": "2026-11-08T00:36:22.924Z"
   },
   "/en-pt/manage-booking/extras/lounges": {
-   "uploaded": "2026-11-08T00:36:24.652Z",
-   "mtime": 1794098157434,
-   "preview": "2026-11-08T00:36:27.251Z"
+   "uploaded": "2026-11-11T21:32:54.076Z",
+   "mtime": 1794432755310.5127,
+   "preview": "2026-11-11T21:32:57.739Z"
   },
   "/en-pt/manage-booking/extras/seats": {
    "uploaded": "2026-11-08T00:36:29.073Z",
@@ -1736,9 +1736,9 @@
    "preview": "2026-11-08T09:00:31.891Z"
   },
   "/en-pt/manage-booking/extras/upgrades/auctions": {
-   "uploaded": "2026-11-04T04:52:00.430Z",
-   "mtime": 1793766927946,
-   "preview": "2026-11-04T04:52:02.321Z"
+   "uploaded": "2026-11-11T20:36:01.964Z",
+   "mtime": 1794429353140.0308,
+   "preview": "2026-11-11T20:36:04.165Z"
   },
   "/en-pt/manage-booking/extras/upgrades/fixed-price": {
    "uploaded": "2026-11-04T05:56:14.396Z",
@@ -1776,9 +1776,9 @@
    "preview": "2026-11-04T05:30:42.743Z"
   },
   "/en-pt/miles-and-go/earn-miles/day-by-day": {
-   "uploaded": "2026-11-04T04:51:45.703Z",
-   "mtime": 1793766927787,
-   "preview": "2026-11-04T04:51:48.116Z"
+   "uploaded": "2026-11-11T23:40:06.446Z",
+   "mtime": 1794440393051.81,
+   "preview": "2026-11-11T23:40:08.827Z"
   },
   "/en-pt/miles-and-go/gift": {
    "uploaded": "2026-11-04T04:48:26.177Z",
@@ -1801,9 +1801,9 @@
    "preview": "2026-11-08T04:45:43.797Z"
   },
   "/en-pt/miles-and-go/partners": {
-   "uploaded": "2026-11-04T05:54:58.011Z",
-   "mtime": 1793771343580,
-   "preview": "2026-11-04T05:55:03.246Z"
+   "uploaded": "2026-11-10T19:24:54.900Z",
+   "mtime": 1794338620465.7388,
+   "preview": "2026-11-10T19:25:00.043Z"
   },
   "/en-pt/miles-and-go/promo": {
    "uploaded": "2026-11-08T04:45:46.785Z",
@@ -1811,9 +1811,9 @@
    "preview": "2026-11-08T04:45:49.157Z"
   },
   "/en-pt/miles-and-go/promotions": {
-   "uploaded": "2026-11-08T00:36:43.341Z",
-   "mtime": 1794098157651,
-   "preview": "2026-11-08T00:36:45.171Z"
+   "uploaded": "2026-11-11T07:32:58.266Z",
+   "mtime": 1794382365796.372,
+   "preview": "2026-11-11T07:33:00.826Z"
   },
   "/en-pt/miles-and-go/promotions/navigator-experiences": {
    "uploaded": "2026-11-08T03:01:35.261Z",
@@ -1841,9 +1841,9 @@
    "preview": "2026-11-04T05:56:06.406Z"
   },
   "/en-pt/miles-and-go/use-miles/donate-miles": {
-   "uploaded": "2026-11-08T04:45:51.716Z",
-   "mtime": 1794113086760.8335,
-   "preview": "2026-11-08T04:45:54.010Z"
+   "uploaded": "2026-11-12T06:32:16.171Z",
+   "mtime": 1794465121208.495,
+   "preview": "2026-11-12T06:32:18.434Z"
   },
   "/en-pt/miles-and-go/use-miles/donate-miles/donated-miles": {
    "uploaded": "2026-11-04T05:56:17.530Z",
@@ -1896,9 +1896,9 @@
    "preview": "2026-11-04T04:46:49.639Z"
   },
   "/en-pt/on-board/fly-business": {
-   "uploaded": "2026-11-04T05:54:30.602Z",
-   "mtime": 1793771342619,
-   "preview": "2026-11-04T05:54:32.817Z"
+   "uploaded": "2026-11-11T08:34:17.257Z",
+   "mtime": 1794386013008.2869,
+   "preview": "2026-11-11T08:34:19.763Z"
   },
   "/en-pt/on-board/fly-economy": {
    "uploaded": "2026-11-08T00:36:55.092Z",
@@ -1931,9 +1931,9 @@
    "preview": "2026-11-04T04:50:58.280Z"
   },
   "/en-pt/on-board/meals/special-meals": {
-   "uploaded": "2026-11-04T04:51:07.584Z",
-   "mtime": 1793766927383,
-   "preview": "2026-11-04T04:51:10.151Z"
+   "uploaded": "2026-11-11T08:34:30.009Z",
+   "mtime": 1794386013009.411,
+   "preview": "2026-11-11T08:34:33.433Z"
   },
   "/en-pt/on-board/wi-fi": {
    "uploaded": "2026-11-04T05:54:34.134Z",
@@ -1941,9 +1941,9 @@
    "preview": "2026-11-04T05:54:35.848Z"
   },
   "/en-pt/promos": {
-   "uploaded": "2026-11-08T02:11:27.511Z",
-   "mtime": 1794103851426,
-   "preview": "2026-11-08T02:11:29.893Z"
+   "uploaded": "2026-11-11T07:33:08.748Z",
+   "mtime": 1794382365824.2988,
+   "preview": "2026-11-11T07:33:10.818Z"
   },
   "/en-pt/stopover": {
    "uploaded": "2026-11-04T05:53:32.825Z",
@@ -1951,9 +1951,9 @@
    "preview": "2026-11-04T05:53:35.087Z"
   },
   "/en-pt/stopover/partners": {
-   "uploaded": "2026-11-04T04:47:39.304Z",
-   "mtime": 1793766925147,
-   "preview": "2026-11-04T04:47:41.641Z"
+   "uploaded": "2026-11-11T23:36:24.165Z",
+   "mtime": 1794440157715.205,
+   "preview": "2026-11-11T23:36:45.695Z"
   },
   "/fr-fr": {
    "uploaded": "2026-11-04T06:42:01.711Z",
@@ -2006,14 +2006,14 @@
    "preview": "2026-11-04T05:06:01.248Z"
   },
   "/fr-fr/a-bord/repas/repas-speciaux": {
-   "uploaded": "2026-11-04T05:06:10.596Z",
-   "mtime": 1793766937496,
-   "preview": "2026-11-04T05:06:12.996Z"
+   "uploaded": "2026-11-11T08:35:05.828Z",
+   "mtime": 1794386012988.4255,
+   "preview": "2026-11-11T08:35:08.811Z"
   },
   "/fr-fr/a-bord/voyager-business": {
-   "uploaded": "2026-11-04T06:00:22.874Z",
-   "mtime": 1793771346267,
-   "preview": "2026-11-04T06:00:24.913Z"
+   "uploaded": "2026-11-11T08:34:54.498Z",
+   "mtime": 1794386012989.2986,
+   "preview": "2026-11-11T08:34:57.387Z"
   },
   "/fr-fr/a-bord/voyager-economique": {
    "uploaded": "2026-11-04T06:00:19.990Z",
@@ -2056,14 +2056,14 @@
    "preview": "2026-11-04T06:42:07.094Z"
   },
   "/fr-fr/destinations": {
-   "uploaded": "2026-11-04T04:59:50.601Z",
-   "mtime": 1793766933299,
-   "preview": "2026-11-04T04:59:52.871Z"
+   "uploaded": "2026-11-11T23:37:26.325Z",
+   "mtime": 1794440241898.2554,
+   "preview": "2026-11-11T23:37:30.150Z"
   },
   "/fr-fr/destinations/inspirez-vous": {
-   "uploaded": "2026-11-04T05:00:40.857Z",
-   "mtime": 1793766934052,
-   "preview": "2026-11-04T05:00:43.674Z"
+   "uploaded": "2026-11-11T18:57:24.309Z",
+   "mtime": 1794420375534.6123,
+   "preview": "2026-11-11T18:57:27.048Z"
   },
   "/fr-fr/footer": {
    "uploaded": "2026-11-04T02:27:29.640Z",
@@ -2071,19 +2071,19 @@
    "preview": "2026-11-04T02:27:31.930Z"
   },
   "/fr-fr/fragments/inspirez-vous/achats": {
-   "uploaded": "2026-11-04T03:01:47.618Z",
-   "mtime": 1793759197825,
-   "preview": "2026-11-04T03:01:51.580Z"
+   "uploaded": "2026-11-11T18:55:13.427Z",
+   "mtime": 1794420375441.867,
+   "preview": "2026-11-11T18:55:16.375Z"
   },
   "/fr-fr/fragments/inspirez-vous/aventure": {
-   "uploaded": "2026-11-04T03:01:53.454Z",
-   "mtime": 1793759197759,
-   "preview": "2026-11-04T03:01:59.124Z"
+   "uploaded": "2026-11-11T18:55:19.000Z",
+   "mtime": 1794420375445.5928,
+   "preview": "2026-11-11T18:55:21.146Z"
   },
   "/fr-fr/fragments/inspirez-vous/culture": {
-   "uploaded": "2026-11-04T03:02:00.863Z",
-   "mtime": 1793759197894,
-   "preview": "2026-11-04T03:02:05.876Z"
+   "uploaded": "2026-11-11T18:55:23.992Z",
+   "mtime": 1794420375455.3962,
+   "preview": "2026-11-11T18:55:26.309Z"
   },
   "/fr-fr/fragments/inspirez-vous/culture-2": {
    "uploaded": "2026-11-04T03:02:07.628Z",
@@ -2096,34 +2096,34 @@
    "preview": "2026-11-04T03:30:51.855Z"
   },
   "/fr-fr/fragments/inspirez-vous/famille": {
-   "uploaded": "2026-11-04T03:30:53.596Z",
-   "mtime": 1793759198069,
-   "preview": "2026-11-04T03:30:58.468Z"
+   "uploaded": "2026-11-11T18:55:32.326Z",
+   "mtime": 1794420375449.9524,
+   "preview": "2026-11-11T18:55:34.483Z"
   },
   "/fr-fr/fragments/inspirez-vous/gastronomie": {
-   "uploaded": "2026-11-04T03:31:00.010Z",
-   "mtime": 1793759198132,
-   "preview": "2026-11-04T03:31:06.089Z"
+   "uploaded": "2026-11-11T18:55:38.024Z",
+   "mtime": 1794420375492.941,
+   "preview": "2026-11-11T18:55:40.389Z"
   },
   "/fr-fr/fragments/inspirez-vous/multi-destinations": {
-   "uploaded": "2026-11-04T03:31:07.757Z",
-   "mtime": 1793759198186,
-   "preview": "2026-11-04T03:31:10.920Z"
+   "uploaded": "2026-11-11T18:55:43.401Z",
+   "mtime": 1794420375500.6306,
+   "preview": "2026-11-11T18:55:45.476Z"
   },
   "/fr-fr/fragments/inspirez-vous/nature": {
-   "uploaded": "2026-11-04T03:31:12.599Z",
-   "mtime": 1793759198259,
-   "preview": "2026-11-04T03:31:18.912Z"
+   "uploaded": "2026-11-11T18:55:48.328Z",
+   "mtime": 1794420375444.4011,
+   "preview": "2026-11-11T18:55:50.459Z"
   },
   "/fr-fr/fragments/inspirez-vous/nuit": {
-   "uploaded": "2026-11-04T03:31:20.694Z",
-   "mtime": 1793759198326,
-   "preview": "2026-11-04T03:31:25.834Z"
+   "uploaded": "2026-11-11T18:55:53.137Z",
+   "mtime": 1794420375461.1333,
+   "preview": "2026-11-11T18:55:56.441Z"
   },
   "/fr-fr/fragments/inspirez-vous/plage": {
-   "uploaded": "2026-11-04T03:31:27.644Z",
-   "mtime": 1793759198421,
-   "preview": "2026-11-04T03:31:33.598Z"
+   "uploaded": "2026-11-11T18:56:00.235Z",
+   "mtime": 1794420375527.608,
+   "preview": "2026-11-11T18:56:02.284Z"
   },
   "/fr-fr/fragments/inspirez-vous/plage-2": {
    "uploaded": "2026-11-04T03:31:35.092Z",
@@ -2131,14 +2131,14 @@
    "preview": "2026-11-04T03:31:37.719Z"
   },
   "/fr-fr/fragments/inspirez-vous/relaxation": {
-   "uploaded": "2026-11-04T03:31:39.218Z",
-   "mtime": 1793759198483,
-   "preview": "2026-11-04T03:31:42.046Z"
+   "uploaded": "2026-11-11T18:56:04.839Z",
+   "mtime": 1794420375510.975,
+   "preview": "2026-11-11T18:56:06.849Z"
   },
   "/fr-fr/fragments/inspirez-vous/romance": {
-   "uploaded": "2026-11-04T03:31:43.800Z",
-   "mtime": 1793759198556,
-   "preview": "2026-11-04T03:31:49.945Z"
+   "uploaded": "2026-11-11T18:56:09.900Z",
+   "mtime": 1794420375462.864,
+   "preview": "2026-11-11T18:56:11.806Z"
   },
   "/fr-fr/gerer-reserves": {
    "uploaded": "2026-11-04T04:59:54.213Z",
@@ -2161,9 +2161,9 @@
    "preview": "2026-11-04T06:01:03.312Z"
   },
   "/fr-fr/gerer-reserves/extras/encheres": {
-   "uploaded": "2026-11-04T05:04:23.666Z",
-   "mtime": 1793766936460,
-   "preview": "2026-11-04T05:04:25.954Z"
+   "uploaded": "2026-11-11T20:36:11.968Z",
+   "mtime": 1794429353125.642,
+   "preview": "2026-11-11T20:36:14.027Z"
   },
   "/fr-fr/gerer-reserves/extras/fast-track": {
    "uploaded": "2026-11-04T05:04:10.967Z",
@@ -2171,9 +2171,9 @@
    "preview": "2026-11-04T05:04:13.202Z"
   },
   "/fr-fr/gerer-reserves/extras/lounges": {
-   "uploaded": "2026-11-04T05:04:14.872Z",
-   "mtime": 1793766936365,
-   "preview": "2026-11-04T05:04:17.445Z"
+   "uploaded": "2026-11-11T21:33:12.225Z",
+   "mtime": 1794432755290.3071,
+   "preview": "2026-11-11T21:33:14.696Z"
   },
   "/fr-fr/gerer-reserves/extras/siege-voisin-libre": {
    "uploaded": "2026-11-04T06:01:09.080Z",
@@ -2231,14 +2231,14 @@
    "preview": "2026-11-04T06:01:15.188Z"
   },
   "/fr-fr/informations/bagage/bagage-en-soute": {
-   "uploaded": "2026-11-04T05:04:45.952Z",
-   "mtime": 1793766936698,
-   "preview": "2026-11-04T05:04:48.394Z"
+   "uploaded": "2026-11-12T03:40:06.448Z",
+   "mtime": 1794454772419.8164,
+   "preview": "2026-11-12T03:40:08.654Z"
   },
   "/fr-fr/informations/bagage/equipement-sportif": {
-   "uploaded": "2026-11-04T05:04:50.097Z",
-   "mtime": 1793766936737,
-   "preview": "2026-11-04T05:04:52.339Z"
+   "uploaded": "2026-11-12T03:40:11.041Z",
+   "mtime": 1794454772418.888,
+   "preview": "2026-11-12T03:40:13.156Z"
   },
   "/fr-fr/informations/bagage/instruments-musique": {
    "uploaded": "2026-11-04T05:04:53.755Z",
@@ -2246,9 +2246,9 @@
    "preview": "2026-11-04T05:04:55.960Z"
   },
   "/fr-fr/informations/bagage/localiser-bagages": {
-   "uploaded": "2026-11-04T06:01:16.529Z",
-   "mtime": 1793771346845,
-   "preview": "2026-11-04T06:01:19.093Z"
+   "uploaded": "2026-11-12T04:02:38.843Z",
+   "mtime": 1794456140580.1077,
+   "preview": "2026-11-12T04:02:40.897Z"
   },
   "/fr-fr/informations/bagage/objets-dangereux": {
    "uploaded": "2026-11-04T05:04:38.268Z",
@@ -2421,14 +2421,14 @@
    "preview": "2026-11-04T06:00:00.992Z"
   },
   "/fr-fr/miles-and-go": {
-   "uploaded": "2026-11-08T04:46:55.937Z",
-   "mtime": 1794113086926.236,
-   "preview": "2026-11-08T04:46:58.343Z"
+   "uploaded": "2026-11-12T06:32:07.685Z",
+   "mtime": 1794465120913.602,
+   "preview": "2026-11-12T06:32:10.273Z"
   },
   "/fr-fr/miles-and-go/boutique-miles": {
-   "uploaded": "2026-11-04T05:03:39.640Z",
-   "mtime": 1793766935977,
-   "preview": "2026-11-04T05:03:41.670Z"
+   "uploaded": "2026-11-11T23:37:33.321Z",
+   "mtime": 1794440241900.734,
+   "preview": "2026-11-11T23:37:35.903Z"
   },
   "/fr-fr/miles-and-go/club": {
    "uploaded": "2026-11-08T04:47:01.630Z",
@@ -2496,9 +2496,9 @@
    "preview": "2026-11-04T06:01:55.525Z"
   },
   "/fr-fr/miles-and-go/utilisez-miles/don-miles": {
-   "uploaded": "2026-11-08T04:47:27.339Z",
-   "mtime": 1794113086963.6035,
-   "preview": "2026-11-08T04:47:29.926Z"
+   "uploaded": "2026-11-11T21:33:17.555Z",
+   "mtime": 1794432755287.2644,
+   "preview": "2026-11-11T21:33:23.021Z"
   },
   "/fr-fr/miles-and-go/utilisez-miles/don-miles/miles-donnes": {
    "uploaded": "2026-11-04T06:02:07.652Z",
@@ -2596,9 +2596,9 @@
    "preview": "2026-11-04T05:59:28.989Z"
   },
   "/fr-fr/stopover/partenaires": {
-   "uploaded": "2026-11-04T05:02:49.094Z",
-   "mtime": 1793766935568,
-   "preview": "2026-11-04T05:02:51.060Z"
+   "uploaded": "2026-11-11T23:36:11.736Z",
+   "mtime": 1794440157672.185,
+   "preview": "2026-11-11T23:36:14.079Z"
   },
   "/de-de/nav": {
    "uploaded": "2026-11-04T02:27:33.854Z",
@@ -2626,14 +2626,14 @@
    "preview": "2026-11-04T05:09:18.374Z"
   },
   "/de-de/an-bord/economy-prime": {
-   "uploaded": "2026-11-04T05:09:20.434Z",
-   "mtime": 1793766939850,
-   "preview": "2026-11-04T05:09:23.124Z"
+   "uploaded": "2026-11-12T06:32:23.026Z",
+   "mtime": 1794465120954.036,
+   "preview": "2026-11-12T06:32:25.387Z"
   },
   "/de-de/an-bord/fliegen-business": {
-   "uploaded": "2026-11-04T06:03:29.733Z",
-   "mtime": 1793771347884,
-   "preview": "2026-11-04T06:03:31.855Z"
+   "uploaded": "2026-11-11T08:35:16.549Z",
+   "mtime": 1794386012993.4111,
+   "preview": "2026-11-11T08:35:20.077Z"
   },
   "/de-de/an-bord/fliegen-economy": {
    "uploaded": "2026-11-04T06:03:26.219Z",
@@ -2666,9 +2666,9 @@
    "preview": "2026-11-04T05:13:23.049Z"
   },
   "/de-de/an-bord/mahlzeiten/sondermahlzeiten": {
-   "uploaded": "2026-11-04T05:13:30.756Z",
-   "mtime": 1793766942914,
-   "preview": "2026-11-04T05:13:32.501Z"
+   "uploaded": "2026-11-11T08:35:31.439Z",
+   "mtime": 1794386012994.577,
+   "preview": "2026-11-11T08:35:33.984Z"
   },
   "/de-de/an-bord/unterhaltung": {
    "uploaded": "2026-11-04T05:09:24.643Z",
@@ -2726,9 +2726,9 @@
    "preview": "2026-11-04T05:10:12.932Z"
   },
   "/de-de/buchungen/zahlungsmethoden": {
-   "uploaded": "2026-11-04T05:09:51.208Z",
-   "mtime": 1793766940133,
-   "preview": "2026-11-04T05:09:53.850Z"
+   "uploaded": "2026-11-11T23:40:17.905Z",
+   "mtime": 1794440392740.047,
+   "preview": "2026-11-11T23:40:21.895Z"
   },
   "/de-de/check-in-informationen": {
    "uploaded": "2026-11-04T05:07:11.902Z",
@@ -2921,9 +2921,9 @@
    "preview": "2026-11-08T09:02:30.558Z"
   },
   "/de-de/informationen/gepack/aufgabegepack": {
-   "uploaded": "2026-11-04T05:12:08.998Z",
-   "mtime": 1793766941817,
-   "preview": "2026-11-04T05:12:11.891Z"
+   "uploaded": "2026-11-12T03:39:35.826Z",
+   "mtime": 1794454772422.9617,
+   "preview": "2026-11-12T03:39:38.349Z"
   },
   "/de-de/informationen/gepack/gefahrliche-gegenstande": {
    "uploaded": "2026-11-04T05:12:01.653Z",
@@ -2931,9 +2931,9 @@
    "preview": "2026-11-04T05:12:03.785Z"
   },
   "/de-de/informationen/gepack/gepack-finden": {
-   "uploaded": "2026-11-04T06:04:18.869Z",
-   "mtime": 1793771348416,
-   "preview": "2026-11-04T06:04:20.540Z"
+   "uploaded": "2026-11-12T04:02:43.265Z",
+   "mtime": 1794456140582.7236,
+   "preview": "2026-11-12T04:02:45.580Z"
   },
   "/de-de/informationen/gepack/handgepack": {
    "uploaded": "2026-11-04T06:04:15.088Z",
@@ -3081,9 +3081,9 @@
    "preview": "2026-11-04T05:14:08.410Z"
   },
   "/de-de/miles-and-go/verwenden-meilen/spenden-meilen": {
-   "uploaded": "2026-11-08T04:48:13.223Z",
-   "mtime": 1794113087018.433,
-   "preview": "2026-11-08T04:48:16.183Z"
+   "uploaded": "2026-11-11T21:32:40.801Z",
+   "mtime": 1794432755294.0996,
+   "preview": "2026-11-11T21:32:44.730Z"
   },
   "/de-de/miles-and-go/verwenden-meilen/spenden-meilen/gespendete-meilen": {
    "uploaded": "2026-11-04T06:05:07.814Z",
@@ -3171,9 +3171,9 @@
    "preview": "2026-11-08T04:48:21.368Z"
   },
   "/de-de/reiseziele/inspirieren": {
-   "uploaded": "2026-11-08T09:22:06.675Z",
-   "mtime": 1794128090401.2769,
-   "preview": "2026-11-08T09:22:08.802Z"
+   "uploaded": "2026-11-11T18:57:35.582Z",
+   "mtime": 1794420375645.472,
+   "preview": "2026-11-11T18:57:38.229Z"
   },
   "/de-de/stopover": {
    "uploaded": "2026-11-04T06:02:25.504Z",
@@ -3181,9 +3181,9 @@
    "preview": "2026-11-04T06:02:27.812Z"
   },
   "/de-de/stopover/partner": {
-   "uploaded": "2026-11-04T05:10:18.509Z",
-   "mtime": 1793766940458,
-   "preview": "2026-11-04T05:10:20.704Z"
+   "uploaded": "2026-11-11T23:36:48.734Z",
+   "mtime": 1794440157683.8228,
+   "preview": "2026-11-11T23:36:50.952Z"
   },
   "/de-de/verwalten-buchungen": {
    "uploaded": "2026-11-04T05:07:20.297Z",
@@ -3216,9 +3216,9 @@
    "preview": "2026-11-04T06:04:13.650Z"
   },
   "/de-de/verwalten-buchungen/extras/lounges": {
-   "uploaded": "2026-11-04T05:11:43.365Z",
-   "mtime": 1793766941511,
-   "preview": "2026-11-04T05:11:45.921Z"
+   "uploaded": "2026-11-11T21:32:48.666Z",
+   "mtime": 1794432755297.2053,
+   "preview": "2026-11-11T21:32:51.335Z"
   },
   "/de-de/verwalten-buchungen/extras/sitzplatze": {
    "uploaded": "2026-11-04T05:11:47.698Z",
@@ -3231,9 +3231,9 @@
    "preview": "2026-11-08T09:02:51.932Z"
   },
   "/de-de/verwalten-buchungen/extras/upgrades/auktionen": {
-   "uploaded": "2026-11-04T05:14:09.862Z",
-   "mtime": 1793766943385,
-   "preview": "2026-11-04T05:14:11.787Z"
+   "uploaded": "2026-11-11T20:35:56.515Z",
+   "mtime": 1794429353130.0737,
+   "preview": "2026-11-11T20:35:59.098Z"
   },
   "/de-de/verwalten-buchungen/extras/upgrades/festpreis": {
    "uploaded": "2026-11-04T06:05:04.225Z",
@@ -3311,14 +3311,14 @@
    "preview": "2026-11-04T05:20:06.771Z"
   },
   "/it-it/a-bordo/pasti/pasti-speciali": {
-   "uploaded": "2026-11-04T05:20:16.085Z",
-   "mtime": 1793766947360,
-   "preview": "2026-11-04T05:20:18.085Z"
+   "uploaded": "2026-11-11T08:35:49.268Z",
+   "mtime": 1794386013038.8376,
+   "preview": "2026-11-11T08:35:51.722Z"
   },
   "/it-it/a-bordo/volare-business": {
-   "uploaded": "2026-11-04T06:06:17.965Z",
-   "mtime": 1793771349337,
-   "preview": "2026-11-04T06:06:19.875Z"
+   "uploaded": "2026-11-11T08:35:37.497Z",
+   "mtime": 1794386013039.3333,
+   "preview": "2026-11-11T08:35:40.229Z"
   },
   "/it-it/a-bordo/volare-economy": {
    "uploaded": "2026-11-04T06:06:14.788Z",
@@ -3361,29 +3361,29 @@
    "preview": "2026-11-04T06:42:13.425Z"
   },
   "/it-it/destinazioni": {
-   "uploaded": "2026-11-04T05:14:35.986Z",
-   "mtime": 1793766943675,
-   "preview": "2026-11-04T05:14:38.340Z"
+   "uploaded": "2026-11-11T23:37:40.760Z",
+   "mtime": 1794440241927.5222,
+   "preview": "2026-11-11T23:37:43.617Z"
   },
   "/it-it/destinazioni/ispirati": {
-   "uploaded": "2026-11-04T05:15:18.596Z",
-   "mtime": 1793766944386,
-   "preview": "2026-11-04T05:15:21.027Z"
+   "uploaded": "2026-11-11T23:53:10.921Z",
+   "mtime": 1794441185637.3867,
+   "preview": "2026-11-11T23:53:13.889Z"
   },
   "/it-it/fragments/ispirati/acquisti": {
-   "uploaded": "2026-11-04T03:37:34.827Z",
-   "mtime": 1793759206265,
-   "preview": "2026-11-04T03:37:38.756Z"
+   "uploaded": "2026-11-11T23:51:39.030Z",
+   "mtime": 1794441093879.7546,
+   "preview": "2026-11-11T23:51:40.881Z"
   },
   "/it-it/fragments/ispirati/aventura": {
-   "uploaded": "2026-11-04T03:37:40.306Z",
-   "mtime": 1793759206210,
-   "preview": "2026-11-04T03:37:46.779Z"
+   "uploaded": "2026-11-11T23:51:44.689Z",
+   "mtime": 1794441093855.6802,
+   "preview": "2026-11-11T23:51:46.781Z"
   },
   "/it-it/fragments/ispirati/cultura": {
-   "uploaded": "2026-11-04T03:37:48.835Z",
-   "mtime": 1793759206337,
-   "preview": "2026-11-04T03:37:55.841Z"
+   "uploaded": "2026-11-11T23:51:49.893Z",
+   "mtime": 1794441093865.7163,
+   "preview": "2026-11-11T23:51:51.894Z"
   },
   "/it-it/fragments/ispirati/cultura-2": {
    "uploaded": "2026-11-04T03:37:57.174Z",
@@ -3396,44 +3396,44 @@
    "preview": "2026-11-04T03:38:09.029Z"
   },
   "/it-it/fragments/ispirati/famiglia": {
-   "uploaded": "2026-11-04T03:38:10.814Z",
-   "mtime": 1793759206510,
-   "preview": "2026-11-04T03:38:15.317Z"
+   "uploaded": "2026-11-11T23:51:55.193Z",
+   "mtime": 1794441093829.237,
+   "preview": "2026-11-11T23:51:57.228Z"
   },
   "/it-it/fragments/ispirati/gastronomia": {
-   "uploaded": "2026-11-04T03:38:16.789Z",
-   "mtime": 1793759206571,
-   "preview": "2026-11-04T03:38:20.811Z"
+   "uploaded": "2026-11-11T23:52:00.138Z",
+   "mtime": 1794441093807.4622,
+   "preview": "2026-11-11T23:52:02.265Z"
   },
   "/it-it/fragments/ispirati/natureza": {
-   "uploaded": "2026-11-04T03:38:22.699Z",
-   "mtime": 1793759206685,
-   "preview": "2026-11-04T03:38:27.805Z"
+   "uploaded": "2026-11-11T23:52:05.270Z",
+   "mtime": 1794441093838.5562,
+   "preview": "2026-11-11T23:52:07.236Z"
   },
   "/it-it/fragments/ispirati/piu-destinazioni": {
-   "uploaded": "2026-11-04T03:38:29.075Z",
-   "mtime": 1793759206623,
-   "preview": "2026-11-04T03:38:32.698Z"
+   "uploaded": "2026-11-11T23:52:09.959Z",
+   "mtime": 1794441093876.048,
+   "preview": "2026-11-11T23:52:11.948Z"
   },
   "/it-it/fragments/ispirati/rilassati": {
-   "uploaded": "2026-11-04T03:38:34.032Z",
-   "mtime": 1793759206885,
-   "preview": "2026-11-04T03:38:36.457Z"
+   "uploaded": "2026-11-11T23:52:14.778Z",
+   "mtime": 1794441093876.8416,
+   "preview": "2026-11-11T23:52:17.021Z"
   },
   "/it-it/fragments/ispirati/romanticismo": {
-   "uploaded": "2026-11-04T03:38:38.034Z",
-   "mtime": 1793759206958,
-   "preview": "2026-11-04T03:38:44.702Z"
+   "uploaded": "2026-11-11T23:52:19.781Z",
+   "mtime": 1794441093831.656,
+   "preview": "2026-11-11T23:52:21.590Z"
   },
   "/it-it/fragments/ispirati/sera": {
-   "uploaded": "2026-11-04T03:38:46.145Z",
-   "mtime": 1793759206753,
-   "preview": "2026-11-04T03:38:51.408Z"
+   "uploaded": "2026-11-11T23:52:24.501Z",
+   "mtime": 1794441093829.9417,
+   "preview": "2026-11-11T23:52:26.777Z"
   },
   "/it-it/fragments/ispirati/spiaggia": {
-   "uploaded": "2026-11-04T03:38:52.987Z",
-   "mtime": 1793759206820,
-   "preview": "2026-11-04T03:38:59.000Z"
+   "uploaded": "2026-11-11T23:52:30.138Z",
+   "mtime": 1794441093828.2998,
+   "preview": "2026-11-11T23:52:32.386Z"
   },
   "/it-it/fragments/ispirati/spiaggia-2": {
    "uploaded": "2026-11-04T03:39:00.666Z",
@@ -3466,9 +3466,9 @@
    "preview": "2026-11-04T06:06:39.578Z"
   },
   "/it-it/gestire-prenotazione/extra/lounge": {
-   "uploaded": "2026-11-04T05:18:21.020Z",
-   "mtime": 1793766946244,
-   "preview": "2026-11-04T05:18:23.248Z"
+   "uploaded": "2026-11-11T21:33:26.090Z",
+   "mtime": 1794432755344.465,
+   "preview": "2026-11-11T21:33:28.412Z"
   },
   "/it-it/gestire-prenotazione/extra/posti": {
    "uploaded": "2026-11-04T05:18:24.867Z",
@@ -3486,9 +3486,9 @@
    "preview": "2026-11-08T09:03:02.902Z"
   },
   "/it-it/gestire-prenotazione/extra/upgrade/aste": {
-   "uploaded": "2026-11-04T05:20:23.406Z",
-   "mtime": 1793766947454,
-   "preview": "2026-11-04T05:20:25.544Z"
+   "uploaded": "2026-11-11T20:36:17.678Z",
+   "mtime": 1794429353153.1921,
+   "preview": "2026-11-11T20:36:19.879Z"
   },
   "/it-it/gestire-prenotazione/extra/upgrade/gratuito": {
    "uploaded": "2026-11-04T05:20:30.800Z",
@@ -3576,9 +3576,9 @@
    "preview": "2026-11-04T05:18:43.121Z"
   },
   "/it-it/informazioni/bagaglio/attrezzatura-sportiva": {
-   "uploaded": "2026-11-04T05:18:53.353Z",
-   "mtime": 1793766946577,
-   "preview": "2026-11-04T05:18:55.174Z"
+   "uploaded": "2026-11-12T03:40:15.740Z",
+   "mtime": 1794454772458.8042,
+   "preview": "2026-11-12T03:40:18.114Z"
   },
   "/it-it/informazioni/bagaglio/bagaglio-mano": {
    "uploaded": "2026-11-04T06:06:48.321Z",
@@ -3586,14 +3586,14 @@
    "preview": "2026-11-04T06:06:50.348Z"
   },
   "/it-it/informazioni/bagaglio/bagaglio-stiva": {
-   "uploaded": "2026-11-04T05:18:49.205Z",
-   "mtime": 1793766946538,
-   "preview": "2026-11-04T05:18:51.584Z"
+   "uploaded": "2026-11-12T03:40:20.870Z",
+   "mtime": 1794454772459.436,
+   "preview": "2026-11-12T03:40:23.426Z"
   },
   "/it-it/informazioni/bagaglio/localizzare-bagagli": {
-   "uploaded": "2026-11-04T06:06:51.639Z",
-   "mtime": 1793771349712,
-   "preview": "2026-11-04T06:06:53.350Z"
+   "uploaded": "2026-11-12T04:02:48.264Z",
+   "mtime": 1794456140604.7344,
+   "preview": "2026-11-12T04:02:50.641Z"
   },
   "/it-it/informazioni/bagaglio/problemi-bagaglio": {
    "uploaded": "2026-11-04T05:19:00.400Z",
@@ -3731,9 +3731,9 @@
    "preview": "2026-11-04T05:17:21.616Z"
   },
   "/it-it/prenotazioni/metodi-di-pagamento": {
-   "uploaded": "2026-11-04T05:17:06.621Z",
-   "mtime": 1793766945564,
-   "preview": "2026-11-04T05:17:09.498Z"
+   "uploaded": "2026-11-11T23:40:11.504Z",
+   "mtime": 1794440393872.1897,
+   "preview": "2026-11-11T23:40:14.671Z"
   },
   "/it-it/prenotazioni/ponte-aerea": {
    "uploaded": "2026-11-04T05:17:11.682Z",
@@ -3766,9 +3766,9 @@
    "preview": "2026-11-04T06:05:27.734Z"
   },
   "/it-it/stopover/partner": {
-   "uploaded": "2026-11-04T05:17:35.135Z",
-   "mtime": 1793766945893,
-   "preview": "2026-11-04T05:17:37.232Z"
+   "uploaded": "2026-11-11T23:36:53.690Z",
+   "mtime": 1794440157924.4536,
+   "preview": "2026-11-11T23:36:56.256Z"
   },
   "/pl-pl/nav": {
    "uploaded": "2026-11-04T02:27:50.021Z",
@@ -3841,9 +3841,9 @@
    "preview": "2026-11-04T05:24:44.087Z"
   },
   "/pl-pl/informacja/bagaz/zlokalizowac-bagaz": {
-   "uploaded": "2026-11-04T06:08:58.590Z",
-   "mtime": 1793771350759,
-   "preview": "2026-11-04T06:09:00.295Z"
+   "uploaded": "2026-11-12T04:02:53.021Z",
+   "mtime": 1794456140585.5916,
+   "preview": "2026-11-12T04:02:55.248Z"
   },
   "/pl-pl/informacja/floty-tap": {
    "uploaded": "2026-11-04T05:22:05.169Z",
@@ -3991,9 +3991,9 @@
    "preview": "2026-11-04T05:25:25.176Z"
   },
   "/pl-pl/miejsca-docelowe": {
-   "uploaded": "2026-11-04T05:20:46.348Z",
-   "mtime": 1793766947696,
-   "preview": "2026-11-04T05:20:48.710Z"
+   "uploaded": "2026-11-11T23:37:47.871Z",
+   "mtime": 1794440241903.0947,
+   "preview": "2026-11-11T23:37:50.308Z"
   },
   "/pl-pl/na-pokladzie": {
    "uploaded": "2026-11-04T06:07:35.056Z",
@@ -4011,9 +4011,9 @@
    "preview": "2026-11-04T05:22:29.702Z"
   },
   "/pl-pl/na-pokladzie/lot-business": {
-   "uploaded": "2026-11-04T06:08:23.842Z",
-   "mtime": 1793771350399,
-   "preview": "2026-11-04T06:08:26.315Z"
+   "uploaded": "2026-11-11T08:36:05.405Z",
+   "mtime": 1794386012999.551,
+   "preview": "2026-11-11T08:36:07.844Z"
   },
   "/pl-pl/na-pokladzie/lot-ekonomicznej": {
    "uploaded": "2026-11-04T06:08:20.348Z",
@@ -4031,9 +4031,9 @@
    "preview": "2026-11-04T05:25:54.533Z"
   },
   "/pl-pl/na-pokladzie/posilki/posilki-specjalne": {
-   "uploaded": "2026-11-04T05:25:56.291Z",
-   "mtime": 1793766950801,
-   "preview": "2026-11-04T05:25:58.397Z"
+   "uploaded": "2026-11-11T08:36:17.294Z",
+   "mtime": 1794386012998.9038,
+   "preview": "2026-11-11T08:36:19.356Z"
   },
   "/pl-pl/na-pokladzie/rozrywka": {
    "uploaded": "2026-11-04T05:22:31.308Z",
@@ -4081,9 +4081,9 @@
    "preview": "2026-11-04T05:23:21.400Z"
   },
   "/pl-pl/rezerwacje/metody-platnosci": {
-   "uploaded": "2026-11-04T05:22:58.345Z",
-   "mtime": 1793766949093,
-   "preview": "2026-11-04T05:23:01.284Z"
+   "uploaded": "2026-11-11T23:40:24.648Z",
+   "mtime": 1794440392815.7502,
+   "preview": "2026-11-11T23:40:27.722Z"
   },
   "/pl-pl/rezerwacje/stawki-tap": {
    "uploaded": "2026-11-04T05:22:54.662Z",
@@ -4121,9 +4121,9 @@
    "preview": "2026-11-04T06:07:39.948Z"
   },
   "/pl-pl/stopover/partnerzy": {
-   "uploaded": "2026-11-04T05:23:23.252Z",
-   "mtime": 1793766949412,
-   "preview": "2026-11-04T05:23:25.138Z"
+   "uploaded": "2026-11-11T23:36:59.178Z",
+   "mtime": 1794440157694.2957,
+   "preview": "2026-11-11T23:37:01.039Z"
   },
   "/pl-pl/zarzadzaj-rezerwacja": {
    "uploaded": "2026-11-04T05:20:50.404Z",
@@ -4146,9 +4146,9 @@
    "preview": "2026-11-04T05:24:07.243Z"
   },
   "/pl-pl/zarzadzaj-rezerwacja/dodatki/lounges": {
-   "uploaded": "2026-11-04T05:24:08.983Z",
-   "mtime": 1793766949725,
-   "preview": "2026-11-04T05:24:11.642Z"
+   "uploaded": "2026-11-11T21:33:31.403Z",
+   "mtime": 1794432755300.779,
+   "preview": "2026-11-11T21:33:34.848Z"
   },
   "/pl-pl/zarzadzaj-rezerwacja/dodatki/miejsca": {
    "uploaded": "2026-11-04T05:24:13.647Z",
@@ -4166,9 +4166,9 @@
    "preview": "2026-11-08T09:04:05.588Z"
   },
   "/pl-pl/zarzadzaj-rezerwacja/dodatki/upgrades/aukcje": {
-   "uploaded": "2026-11-04T05:26:00.142Z",
-   "mtime": 1793766951147,
-   "preview": "2026-11-04T05:26:02.048Z"
+   "uploaded": "2026-11-11T20:36:22.575Z",
+   "mtime": 1794429353133.594,
+   "preview": "2026-11-11T20:36:24.908Z"
   },
   "/pl-pl/zarzadzaj-rezerwacja/dodatki/upgrades/bezplatna": {
    "uploaded": "2026-11-04T05:26:07.402Z",
@@ -4211,14 +4211,14 @@
    "preview": "2026-11-04T02:08:17.493Z"
   },
   "/pt-br/a-bordo/refeicoes": {
-   "uploaded": "2026-11-04T02:08:19.069Z",
-   "mtime": 1793758063680,
-   "preview": "2026-11-04T02:08:21.447Z"
+   "uploaded": "2026-11-11T23:38:41.591Z",
+   "mtime": 1794440313233.8098,
+   "preview": "2026-11-11T23:38:43.999Z"
   },
   "/pt-br/a-bordo/refeicoes-especiais": {
-   "uploaded": "2026-11-04T02:08:22.879Z",
-   "mtime": 1793758063722,
-   "preview": "2026-11-04T02:08:25.312Z"
+   "uploaded": "2026-11-11T08:36:34.029Z",
+   "mtime": 1794386013034.6758,
+   "preview": "2026-11-11T08:36:36.094Z"
   },
   "/pt-br/a-bordo/refeicoes/classe-economica": {
    "uploaded": "2026-11-04T02:08:26.923Z",
@@ -4246,9 +4246,9 @@
    "preview": "2026-11-04T02:08:46.418Z"
   },
   "/pt-br/a-bordo/voar-executiva": {
-   "uploaded": "2026-11-04T02:08:48.401Z",
-   "mtime": 1793758063845,
-   "preview": "2026-11-04T02:08:50.746Z"
+   "uploaded": "2026-11-11T08:36:22.231Z",
+   "mtime": 1794386013035.3965,
+   "preview": "2026-11-11T08:36:24.296Z"
   },
   "/pt-br/a-bordo/wi-fi": {
    "uploaded": "2026-11-04T02:31:02.254Z",
@@ -4286,14 +4286,14 @@
    "preview": "2026-11-04T02:09:19.899Z"
   },
   "/pt-br/destinos": {
-   "uploaded": "2026-11-04T02:09:21.398Z",
-   "mtime": 1793758061915,
-   "preview": "2026-11-04T02:09:23.983Z"
+   "uploaded": "2026-11-11T23:37:53.275Z",
+   "mtime": 1794440241921.641,
+   "preview": "2026-11-11T23:37:56.701Z"
   },
   "/pt-br/destinos/inspire-se": {
-   "uploaded": "2026-11-04T02:09:25.672Z",
-   "mtime": 1793758062727,
-   "preview": "2026-11-04T02:09:28.494Z"
+   "uploaded": "2026-11-11T18:57:18.017Z",
+   "mtime": 1794420376794.6638,
+   "preview": "2026-11-11T18:57:20.639Z"
   },
   "/pt-br/footer": {
    "uploaded": "2026-11-04T02:09:30.184Z",
@@ -4301,19 +4301,19 @@
    "preview": "2026-11-04T02:09:33.130Z"
   },
   "/pt-br/fragments/inspire-se/aventura": {
-   "uploaded": "2026-11-04T01:44:22.769Z",
-   "mtime": 1793756308640,
-   "preview": "2026-11-04T01:44:31.576Z"
+   "uploaded": "2026-11-11T18:54:08.248Z",
+   "mtime": 1794420376844.5566,
+   "preview": "2026-11-11T18:54:11.540Z"
   },
   "/pt-br/fragments/inspire-se/compras": {
-   "uploaded": "2026-11-04T01:45:05.979Z",
-   "mtime": 1793756308673,
-   "preview": "2026-11-04T01:45:10.652Z"
+   "uploaded": "2026-11-11T18:54:14.495Z",
+   "mtime": 1794420376803.9492,
+   "preview": "2026-11-11T18:54:18.406Z"
   },
   "/pt-br/fragments/inspire-se/cultura": {
-   "uploaded": "2026-11-04T01:46:31.618Z",
-   "mtime": 1793756308714,
-   "preview": "2026-11-04T01:46:40.646Z"
+   "uploaded": "2026-11-11T18:54:21.507Z",
+   "mtime": 1794420376852.9795,
+   "preview": "2026-11-11T18:54:23.876Z"
   },
   "/pt-br/fragments/inspire-se/cultura-2": {
    "uploaded": "2026-11-04T01:47:47.875Z",
@@ -4326,34 +4326,34 @@
    "preview": "2026-11-04T01:48:06.266Z"
   },
   "/pt-br/fragments/inspire-se/familia": {
-   "uploaded": "2026-11-04T01:48:11.129Z",
-   "mtime": 1793756308815,
-   "preview": "2026-11-04T01:48:16.414Z"
+   "uploaded": "2026-11-11T18:54:26.544Z",
+   "mtime": 1794420376839.5437,
+   "preview": "2026-11-11T18:54:29.040Z"
   },
   "/pt-br/fragments/inspire-se/gastronomia": {
-   "uploaded": "2026-11-04T01:48:20.084Z",
-   "mtime": 1793756308848,
-   "preview": "2026-11-04T01:48:25.375Z"
+   "uploaded": "2026-11-11T18:54:32.548Z",
+   "mtime": 1794420376802.7756,
+   "preview": "2026-11-11T18:54:36.019Z"
   },
   "/pt-br/fragments/inspire-se/multi-destinos": {
-   "uploaded": "2026-11-04T01:48:55.453Z",
-   "mtime": 1793756308886,
-   "preview": "2026-11-04T01:48:59.328Z"
+   "uploaded": "2026-11-11T18:54:39.006Z",
+   "mtime": 1794420376813.1882,
+   "preview": "2026-11-11T18:54:41.671Z"
   },
   "/pt-br/fragments/inspire-se/natureza": {
-   "uploaded": "2026-11-04T01:49:03.943Z",
-   "mtime": 1793756308925,
-   "preview": "2026-11-04T01:49:12.108Z"
+   "uploaded": "2026-11-11T18:54:44.778Z",
+   "mtime": 1794420376828.1094,
+   "preview": "2026-11-11T18:54:47.329Z"
   },
   "/pt-br/fragments/inspire-se/noite": {
-   "uploaded": "2026-11-04T01:49:18.992Z",
-   "mtime": 1793756308966,
-   "preview": "2026-11-04T01:49:24.231Z"
+   "uploaded": "2026-11-11T18:54:50.460Z",
+   "mtime": 1794420376879.7317,
+   "preview": "2026-11-11T18:54:53.733Z"
   },
   "/pt-br/fragments/inspire-se/praia": {
-   "uploaded": "2026-11-04T01:49:33.256Z",
-   "mtime": 1793756309008,
-   "preview": "2026-11-04T01:49:40.675Z"
+   "uploaded": "2026-11-11T18:54:56.525Z",
+   "mtime": 1794420376806,
+   "preview": "2026-11-11T18:54:59.417Z"
   },
   "/pt-br/fragments/inspire-se/praia-2": {
    "uploaded": "2026-11-04T01:49:42.054Z",
@@ -4361,14 +4361,14 @@
    "preview": "2026-11-04T01:49:44.426Z"
   },
   "/pt-br/fragments/inspire-se/relax": {
-   "uploaded": "2026-11-04T01:49:45.726Z",
-   "mtime": 1793756309053,
-   "preview": "2026-11-04T01:49:49.226Z"
+   "uploaded": "2026-11-11T18:55:02.750Z",
+   "mtime": 1794420376803.4517,
+   "preview": "2026-11-11T18:55:05.562Z"
   },
   "/pt-br/fragments/inspire-se/romance": {
-   "uploaded": "2026-11-04T01:49:50.574Z",
-   "mtime": 1793756309098,
-   "preview": "2026-11-04T01:49:57.125Z"
+   "uploaded": "2026-11-11T18:55:08.250Z",
+   "mtime": 1794420376820.8853,
+   "preview": "2026-11-11T18:55:10.263Z"
   },
   "/pt-br/gerenciar-reserva": {
    "uploaded": "2026-11-04T02:09:34.703Z",
@@ -4406,14 +4406,14 @@
    "preview": "2026-11-04T02:10:01.931Z"
   },
   "/pt-br/gerenciar-reserva/extras/lounges": {
-   "uploaded": "2026-11-04T02:10:04.959Z",
-   "mtime": 1793758065129,
-   "preview": "2026-11-04T02:10:08.584Z"
+   "uploaded": "2026-11-11T21:33:39.013Z",
+   "mtime": 1794432755341.8203,
+   "preview": "2026-11-11T21:33:42.908Z"
   },
   "/pt-br/gerenciar-reserva/extras/upgrades": {
-   "uploaded": "2026-11-04T02:10:10.147Z",
-   "mtime": 1793758065218,
-   "preview": "2026-11-04T02:10:12.356Z"
+   "uploaded": "2026-11-11T23:39:27.771Z",
+   "mtime": 1794440313239.6375,
+   "preview": "2026-11-11T23:39:30.134Z"
   },
   "/pt-br/gerenciar-reserva/extras/upgrades/gratuito": {
    "uploaded": "2026-11-04T02:31:22.661Z",
@@ -4421,9 +4421,9 @@
    "preview": "2026-11-04T02:31:24.768Z"
   },
   "/pt-br/gerenciar-reserva/extras/upgrades/leiloes": {
-   "uploaded": "2026-11-04T02:10:16.869Z",
-   "mtime": 1793758066465,
-   "preview": "2026-11-04T02:10:19.282Z"
+   "uploaded": "2026-11-11T20:36:28.622Z",
+   "mtime": 1794429353149.467,
+   "preview": "2026-11-11T20:36:30.811Z"
   },
   "/pt-br/gerenciar-reserva/extras/upgrades/preco-fixo": {
    "uploaded": "2026-11-04T02:10:21.296Z",
@@ -4446,9 +4446,9 @@
    "preview": "2026-11-04T02:10:36.248Z"
   },
   "/pt-br/informacoes-legais": {
-   "uploaded": "2026-11-04T02:10:37.932Z",
-   "mtime": 1793758061971,
-   "preview": "2026-11-04T02:10:40.348Z"
+   "uploaded": "2026-11-11T23:38:36.667Z",
+   "mtime": 1794440313228.746,
+   "preview": "2026-11-11T23:38:39.040Z"
   },
   "/pt-br/informacoes-legais/acessibilidade": {
    "uploaded": "2026-11-04T02:10:42.006Z",
@@ -4496,9 +4496,9 @@
    "preview": "2026-11-04T02:11:16.177Z"
   },
   "/pt-br/informacoes/bagagem": {
-   "uploaded": "2026-11-04T02:11:17.621Z",
-   "mtime": 1793758063267,
-   "preview": "2026-11-04T02:11:19.999Z"
+   "uploaded": "2026-11-11T23:38:52.642Z",
+   "mtime": 1794440313236.8784,
+   "preview": "2026-11-11T23:39:14.290Z"
   },
   "/pt-br/informacoes/bagagem/armas-municao": {
    "uploaded": "2026-11-04T02:11:21.661Z",
@@ -4511,14 +4511,14 @@
    "preview": "2026-11-04T02:11:29.124Z"
   },
   "/pt-br/informacoes/bagagem/bagagem-porao": {
-   "uploaded": "2026-11-04T02:11:30.555Z",
-   "mtime": 1793758065420,
-   "preview": "2026-11-04T02:11:33.093Z"
+   "uploaded": "2026-11-12T03:40:26.003Z",
+   "mtime": 1794454772455.2212,
+   "preview": "2026-11-12T03:40:28.715Z"
   },
   "/pt-br/informacoes/bagagem/equipamento-esportivo": {
-   "uploaded": "2026-11-04T02:11:35.628Z",
-   "mtime": 1793758065454,
-   "preview": "2026-11-04T02:11:38.315Z"
+   "uploaded": "2026-11-12T03:40:31.283Z",
+   "mtime": 1794454772455.871,
+   "preview": "2026-11-12T03:40:33.452Z"
   },
   "/pt-br/informacoes/bagagem/instrumentos-musicais": {
    "uploaded": "2026-11-04T02:11:39.806Z",
@@ -4531,9 +4531,9 @@
    "preview": "2026-11-04T02:11:46.056Z"
   },
   "/pt-br/informacoes/bagagem/localizar-bagagem": {
-   "uploaded": "2026-11-04T02:11:47.498Z",
-   "mtime": 1793758065553,
-   "preview": "2026-11-04T02:11:49.602Z"
+   "uploaded": "2026-11-12T04:02:57.566Z",
+   "mtime": 1794456140601.3884,
+   "preview": "2026-11-12T04:02:59.615Z"
   },
   "/pt-br/informacoes/bagagem/problemas-bagagem": {
    "uploaded": "2026-11-04T02:11:51.154Z",
@@ -4546,9 +4546,9 @@
    "preview": "2026-11-04T02:11:58.189Z"
   },
   "/pt-br/informacoes/documentacao": {
-   "uploaded": "2026-11-04T02:11:59.598Z",
-   "mtime": 1793758063437,
-   "preview": "2026-11-04T02:12:01.988Z"
+   "uploaded": "2026-11-11T23:38:47.230Z",
+   "mtime": 1794440313236.0762,
+   "preview": "2026-11-11T23:38:49.429Z"
   },
   "/pt-br/informacoes/documentacao/parceria-ucs": {
    "uploaded": "2026-11-04T02:12:03.879Z",
@@ -4596,9 +4596,9 @@
    "preview": "2026-11-04T02:12:38.691Z"
   },
   "/pt-br/informacoes/necessidades-especiais": {
-   "uploaded": "2026-11-04T02:12:40.239Z",
-   "mtime": 1793758063409,
-   "preview": "2026-11-04T02:12:42.407Z"
+   "uploaded": "2026-11-11T23:39:22.405Z",
+   "mtime": 1794440313237.6218,
+   "preview": "2026-11-11T23:39:24.988Z"
   },
   "/pt-br/informacoes/necessidades-especiais/cadeira-rodas": {
    "uploaded": "2026-11-04T02:12:44.123Z",
@@ -4626,9 +4626,9 @@
    "preview": "2026-11-04T02:13:05.299Z"
   },
   "/pt-br/informacoes/viajar-com-animais": {
-   "uploaded": "2026-11-04T02:13:06.927Z",
-   "mtime": 1793758063471,
-   "preview": "2026-11-04T02:13:09.531Z"
+   "uploaded": "2026-11-11T23:39:16.803Z",
+   "mtime": 1794440313235.453,
+   "preview": "2026-11-11T23:39:19.111Z"
   },
   "/pt-br/informacoes/viajar-com-animais/animais-auxiliares": {
    "uploaded": "2026-11-04T02:13:11.250Z",
@@ -4656,9 +4656,9 @@
    "preview": "2026-11-04T02:13:29.799Z"
   },
   "/pt-br/miles-and-go/estatutos/for-life": {
-   "uploaded": "2026-11-04T02:13:31.350Z",
-   "mtime": 1793758066198,
-   "preview": "2026-11-04T02:13:33.694Z"
+   "uploaded": "2026-11-11T23:39:32.926Z",
+   "mtime": 1794440313232.446,
+   "preview": "2026-11-11T23:39:35.097Z"
   },
   "/pt-br/miles-and-go/ganhe-milhas": {
    "uploaded": "2026-11-04T02:13:35.227Z",
@@ -4686,14 +4686,14 @@
    "preview": "2026-11-04T02:13:53.669Z"
   },
   "/pt-br/miles-and-go/loja-de-milhas": {
-   "uploaded": "2026-11-04T02:13:55.254Z",
-   "mtime": 1793758064721,
-   "preview": "2026-11-04T02:13:57.504Z"
+   "uploaded": "2026-11-11T23:38:00.146Z",
+   "mtime": 1794440241924.0984,
+   "preview": "2026-11-11T23:38:02.570Z"
   },
   "/pt-br/miles-and-go/miles-and-go-pets": {
-   "uploaded": "2026-11-04T02:31:34.712Z",
-   "mtime": 1793759438436,
-   "preview": "2026-11-04T02:31:36.999Z"
+   "uploaded": "2026-11-11T23:38:14.244Z",
+   "mtime": 1794440241925.7925,
+   "preview": "2026-11-11T23:38:16.568Z"
   },
   "/pt-br/miles-and-go/parceiros": {
    "uploaded": "2026-11-04T02:14:04.287Z",
@@ -4701,9 +4701,9 @@
    "preview": "2026-11-04T02:14:07.872Z"
   },
   "/pt-br/miles-and-go/promo": {
-   "uploaded": "2026-11-04T02:14:09.642Z",
-   "mtime": 1793758064874,
-   "preview": "2026-11-04T02:14:12.237Z"
+   "uploaded": "2026-11-11T23:38:06.909Z",
+   "mtime": 1794440241924.8945,
+   "preview": "2026-11-11T23:38:09.397Z"
   },
   "/pt-br/miles-and-go/promocoes": {
    "uploaded": "2026-11-04T02:14:13.937Z",
@@ -4721,9 +4721,9 @@
    "preview": "2026-11-04T02:31:41.225Z"
   },
   "/pt-br/miles-and-go/utilizar-milhas/doacao-milhas": {
-   "uploaded": "2026-11-04T02:31:43.066Z",
-   "mtime": 1793759438945,
-   "preview": "2026-11-04T02:31:45.825Z"
+   "uploaded": "2026-11-11T21:33:45.527Z",
+   "mtime": 1794432755339.5474,
+   "preview": "2026-11-11T21:33:48.237Z"
   },
   "/pt-br/miles-and-go/utilizar-milhas/doacao-milhas/milhas-doadas": {
    "uploaded": "2026-11-04T02:14:31.284Z",
@@ -4771,9 +4771,9 @@
    "preview": "2026-11-04T02:15:05.939Z"
   },
   "/pt-br/reservas/metodos-de-pagamento": {
-   "uploaded": "2026-11-04T02:15:07.364Z",
-   "mtime": 1793758064194,
-   "preview": "2026-11-04T02:15:10.284Z"
+   "uploaded": "2026-11-11T23:40:30.775Z",
+   "mtime": 1794440393828.872,
+   "preview": "2026-11-11T23:40:33.998Z"
   },
   "/pt-br/reservas/ponte-aerea": {
    "uploaded": "2026-11-04T02:15:11.811Z",
@@ -4811,9 +4811,9 @@
    "preview": "2026-11-04T02:32:02.454Z"
   },
   "/pt-br/stopover/parceiros": {
-   "uploaded": "2026-11-04T02:15:40.151Z",
-   "mtime": 1793758064459,
-   "preview": "2026-11-04T02:15:49.298Z"
+   "uploaded": "2026-11-11T23:37:04.119Z",
+   "mtime": 1794440157913.7388,
+   "preview": "2026-11-11T23:37:06.167Z"
   },
   "/pt-pt/fragments/parceiros/acores": {
    "uploaded": "2026-11-04T04:39:19.668Z",
@@ -6139,6 +6139,2886 @@
    "uploaded": "2026-11-08T09:19:58.930Z",
    "mtime": 1794128090413.452,
    "preview": "2026-11-08T09:20:01.052Z"
+  },
+  "/en-pt/fragments/partners/market-9c0d89": {
+   "uploaded": "2026-11-10T19:24:24.822Z",
+   "mtime": 1794338655152.6624,
+   "preview": "2026-11-10T19:24:27.445Z"
+  },
+  "/pt-pt/fragments/parceiros/market-b4e65f": {
+   "uploaded": "2026-11-10T19:24:29.736Z",
+   "mtime": 1794338655154.2288,
+   "preview": "2026-11-10T19:24:31.943Z"
+  },
+  "/de-at/buchungen/versicherung": {
+   "uploaded": "2026-11-10T19:25:12.147Z",
+   "mtime": 1794338620663.8389,
+   "preview": "2026-11-10T19:25:14.264Z"
+  },
+  "/de-ch/buchungen/versicherung": {
+   "uploaded": "2026-11-10T19:25:16.353Z",
+   "mtime": 1794338620680.5125,
+   "preview": "2026-11-10T19:25:18.826Z"
+  },
+  "/en-br/help": {
+   "uploaded": "2026-11-10T19:25:20.793Z",
+   "mtime": 1794338620697.0745,
+   "preview": "2026-11-10T19:25:23.375Z"
+  },
+  "/en-br/help/frequently-asked-questions": {
+   "uploaded": "2026-11-11T20:33:39.591Z",
+   "mtime": 1794429215877.6987,
+   "preview": "2026-11-11T20:33:43.477Z"
+  },
+  "/en-br/help/tap-refunds": {
+   "uploaded": "2026-11-10T19:25:30.663Z",
+   "mtime": 1794338620726.3462,
+   "preview": "2026-11-10T19:25:32.872Z"
+  },
+  "/en-br/info-legal/privacidade": {
+   "uploaded": "2026-11-10T19:25:35.161Z",
+   "mtime": 1794338620739.8513,
+   "preview": "2026-11-10T19:25:37.690Z"
+  },
+  "/en-br/legal-info/privacy": {
+   "uploaded": "2026-11-10T19:25:39.710Z",
+   "mtime": 1794338620754.7954,
+   "preview": "2026-11-10T19:25:42.075Z"
+  },
+  "/en-br/legal-info/terms-and-conditions": {
+   "uploaded": "2026-11-10T19:25:44.041Z",
+   "mtime": 1794338620768.8064,
+   "preview": "2026-11-10T19:25:46.463Z"
+  },
+  "/en-br/miles-and-go/gift": {
+   "uploaded": "2026-11-10T19:25:48.464Z",
+   "mtime": 1794338620782.292,
+   "preview": "2026-11-10T19:25:51.260Z"
+  },
+  "/en-ca/information/baggage/problems-baggage": {
+   "uploaded": "2026-11-10T19:25:55.625Z",
+   "mtime": 1794338620797.699,
+   "preview": "2026-11-10T19:25:58.255Z"
+  },
+  "/en-es/legal-info/conditions-of-carriage": {
+   "uploaded": "2026-11-10T19:26:00.426Z",
+   "mtime": 1794338620815.2578,
+   "preview": "2026-11-10T19:26:03.072Z"
+  },
+  "/en-gb/legal-info/conditions-of-carriage": {
+   "uploaded": "2026-11-10T19:26:05.050Z",
+   "mtime": 1794338620829.2063,
+   "preview": "2026-11-10T19:26:07.609Z"
+  },
+  "/en-us/miles-and-go/gift": {
+   "uploaded": "2026-11-10T19:26:09.823Z",
+   "mtime": 1794338620844.3257,
+   "preview": "2026-11-10T19:26:12.252Z"
+  },
+  "/es-cl/miles-and-go/promo": {
+   "uploaded": "2026-11-10T19:26:14.991Z",
+   "mtime": 1794338620858.9075,
+   "preview": "2026-11-10T19:26:22.510Z"
+  },
+  "/es-mx/miles-and-go/promo": {
+   "uploaded": "2026-11-10T19:26:24.878Z",
+   "mtime": 1794338620874.0083,
+   "preview": "2026-11-10T19:26:28.665Z"
+  },
+  "/es-us/miles-and-go/club": {
+   "uploaded": "2026-11-10T19:26:30.712Z",
+   "mtime": 1794338620889.095,
+   "preview": "2026-11-10T19:26:33.272Z"
+  },
+  "/es-us/miles-and-go/gane-millas": {
+   "uploaded": "2026-11-10T19:26:35.526Z",
+   "mtime": 1794338620903.8015,
+   "preview": "2026-11-10T19:26:38.129Z"
+  },
+  "/es-us/miles-and-go/promociones": {
+   "uploaded": "2026-11-11T20:33:52.549Z",
+   "mtime": 1794429216520.1174,
+   "preview": "2026-11-11T20:33:55.249Z"
+  },
+  "/es-us/promos": {
+   "uploaded": "2026-11-11T21:32:19.514Z",
+   "mtime": 1794432729841.265,
+   "preview": "2026-11-11T21:32:21.800Z"
+  },
+  "/fr-be/reservations/assurances": {
+   "uploaded": "2026-11-10T19:26:49.383Z",
+   "mtime": 1794338620949.043,
+   "preview": "2026-11-10T19:26:51.555Z"
+  },
+  "/fr-ca/informations/bagage/problemes-bagages": {
+   "uploaded": "2026-11-10T19:26:53.626Z",
+   "mtime": 1794338620963.9404,
+   "preview": "2026-11-10T19:26:56.238Z"
+  },
+  "/fr-ca/miles-and-go/gagnez-miles": {
+   "uploaded": "2026-11-10T19:26:58.278Z",
+   "mtime": 1794338620979.3718,
+   "preview": "2026-11-10T19:27:01.238Z"
+  },
+  "/fr-ca/promos": {
+   "uploaded": "2026-11-10T19:27:03.426Z",
+   "mtime": 1794338620995.8882,
+   "preview": "2026-11-10T19:27:05.568Z"
+  },
+  "/fr-sn/miles-and-go/promo": {
+   "uploaded": "2026-11-10T19:27:07.584Z",
+   "mtime": 1794338621020.3047,
+   "preview": "2026-11-10T19:27:11.676Z"
+  },
+  "/fr-tg/miles-and-go/promo": {
+   "uploaded": "2026-11-10T19:27:13.649Z",
+   "mtime": 1794338621036.8867,
+   "preview": "2026-11-10T19:27:16.146Z"
+  },
+  "/pt-be/info-legal/condicoes-de-transporte": {
+   "uploaded": "2026-11-10T19:27:18.199Z",
+   "mtime": 1794338621051.5356,
+   "preview": "2026-11-10T19:27:20.645Z"
+  },
+  "/pt-ca/informacoes/bagagem/problemas-bagagem": {
+   "uploaded": "2026-11-10T19:27:22.835Z",
+   "mtime": 1794338621066.6533,
+   "preview": "2026-11-10T19:27:25.301Z"
+  },
+  "/pt-ch/reservas/seguros": {
+   "uploaded": "2026-11-10T19:27:27.191Z",
+   "mtime": 1794338621080.9702,
+   "preview": "2026-11-10T19:27:29.120Z"
+  },
+  "/pt-es/info-legal/condicoes-de-transporte": {
+   "uploaded": "2026-11-10T19:27:31.595Z",
+   "mtime": 1794338621101.3923,
+   "preview": "2026-11-10T19:27:34.253Z"
+  },
+  "/pt-fr/info-legal/condicoes-de-transporte": {
+   "uploaded": "2026-11-10T19:27:36.538Z",
+   "mtime": 1794338621117.5151,
+   "preview": "2026-11-10T19:27:39.433Z"
+  },
+  "/pt-gb/info-legal/condicoes-de-transporte": {
+   "uploaded": "2026-11-10T19:27:41.488Z",
+   "mtime": 1794338621131.8342,
+   "preview": "2026-11-10T19:27:44.174Z"
+  },
+  "/pt-us/ajuda": {
+   "uploaded": "2026-11-10T19:27:46.053Z",
+   "mtime": 1794338621144.9946,
+   "preview": "2026-11-10T19:27:48.406Z"
+  },
+  "/pt-us/ajuda/perguntas-frequentes": {
+   "uploaded": "2026-11-11T20:33:46.183Z",
+   "mtime": 1794429215628.955,
+   "preview": "2026-11-11T20:33:48.785Z"
+  },
+  "/pt-us/miles-and-go/gift": {
+   "uploaded": "2026-11-10T19:27:54.865Z",
+   "mtime": 1794338621172.7144,
+   "preview": "2026-11-10T19:27:57.446Z"
+  },
+  "/en-pt/fragments/get-inspired/1-dia-pelo-romantismo-de-toulouse": {
+   "uploaded": "2026-11-11T18:06:47.691Z",
+   "mtime": 1794420375840.2957,
+   "preview": "2026-11-11T18:06:50.326Z"
+  },
+  "/en-pt/fragments/get-inspired/10-basicos-de-salvador-da-bahia": {
+   "uploaded": "2026-11-11T18:06:52.563Z",
+   "mtime": 1794420375806.4546,
+   "preview": "2026-11-11T18:06:56.096Z"
+  },
+  "/en-pt/fragments/get-inspired/10-coisas-a-fazer-em-porto-alegre": {
+   "uploaded": "2026-11-11T18:06:58.717Z",
+   "mtime": 1794420375842.8955,
+   "preview": "2026-11-11T18:07:01.763Z"
+  },
+  "/en-pt/fragments/get-inspired/10-simbolos-de-manchester": {
+   "uploaded": "2026-11-11T18:07:03.765Z",
+   "mtime": 1794420375771.7488,
+   "preview": "2026-11-11T18:07:06.180Z"
+  },
+  "/en-pt/fragments/get-inspired/2-dias-na-bolonha-medieval": {
+   "uploaded": "2026-11-11T18:07:08.297Z",
+   "mtime": 1794420375787.3726,
+   "preview": "2026-11-11T18:07:10.598Z"
+  },
+  "/en-pt/fragments/get-inspired/3-atracoes-culturais-que-nao-pode-perder-em-recife": {
+   "uploaded": "2026-11-11T18:07:13.199Z",
+   "mtime": 1794420375775.7224,
+   "preview": "2026-11-11T18:07:15.735Z"
+  },
+  "/en-pt/fragments/get-inspired/3-atracoes-emblematicas-que-nao-pode-perder-em-dublin": {
+   "uploaded": "2026-11-11T18:07:17.920Z",
+   "mtime": 1794420375825.5042,
+   "preview": "2026-11-11T18:07:20.323Z"
+  },
+  "/en-pt/fragments/get-inspired/3-lugares-fora-da-caixa-para-conhecer-em-viena": {
+   "uploaded": "2026-11-11T18:07:23.164Z",
+   "mtime": 1794420375760.1436,
+   "preview": "2026-11-11T18:07:25.396Z"
+  },
+  "/en-pt/fragments/get-inspired/3-lugares-no-subsolo-para-explorar-em-napoles": {
+   "uploaded": "2026-11-11T18:07:27.418Z",
+   "mtime": 1794420375807.9875,
+   "preview": "2026-11-11T18:07:30.341Z"
+  },
+  "/en-pt/fragments/get-inspired/3-mercados-de-natal-que-nao-pode-perder-na-belgica": {
+   "uploaded": "2026-11-11T18:07:32.176Z",
+   "mtime": 1794420375838.0386,
+   "preview": "2026-11-11T18:07:35.323Z"
+  },
+  "/en-pt/fragments/get-inspired/3-praias-que-tem-mesmo-de-conhecer-em-fernando-de-noronha": {
+   "uploaded": "2026-11-11T18:07:37.626Z",
+   "mtime": 1794420375795.4043,
+   "preview": "2026-11-11T18:07:39.899Z"
+  },
+  "/en-pt/fragments/get-inspired/3-trilhos-que-tem-mesmo-de-fazer-em-tenerife": {
+   "uploaded": "2026-11-11T18:07:41.974Z",
+   "mtime": 1794420375843.596,
+   "preview": "2026-11-11T18:07:44.019Z"
+  },
+  "/en-pt/fragments/get-inspired/4-cenotes-que-nao-pode-perder-perto-de-cancun": {
+   "uploaded": "2026-11-11T18:07:46.142Z",
+   "mtime": 1794420375811.4666,
+   "preview": "2026-11-11T18:07:48.325Z"
+  },
+  "/en-pt/fragments/get-inspired/4-faces-da-mesma-escandinavia": {
+   "uploaded": "2026-11-11T18:07:50.319Z",
+   "mtime": 1794420375792.0798,
+   "preview": "2026-11-11T18:07:52.774Z"
+  },
+  "/en-pt/fragments/get-inspired/5-atracoes-em-belem-do-para": {
+   "uploaded": "2026-11-11T18:07:54.893Z",
+   "mtime": 1794420375771.2766,
+   "preview": "2026-11-11T18:07:57.314Z"
+  },
+  "/en-pt/fragments/get-inspired/5-locais-que-nao-pode-perder-em-toronto": {
+   "uploaded": "2026-11-11T18:07:59.397Z",
+   "mtime": 1794420375836.1067,
+   "preview": "2026-11-11T18:08:02.017Z"
+  },
+  "/en-pt/fragments/get-inspired/5-lugares-imperdiveis-na-guine-bissau": {
+   "uploaded": "2026-11-11T18:08:03.894Z",
+   "mtime": 1794420375811.969,
+   "preview": "2026-11-11T18:08:05.949Z"
+  },
+  "/en-pt/fragments/get-inspired/a-boleia-dos-festivais-de-verao-na-europa": {
+   "uploaded": "2026-11-11T18:08:08.182Z",
+   "mtime": 1794420375822.9456,
+   "preview": "2026-11-11T18:08:10.315Z"
+  },
+  "/en-pt/fragments/get-inspired/a-cidade-das-cem-torres": {
+   "uploaded": "2026-11-11T18:08:12.362Z",
+   "mtime": 1794420375817.026,
+   "preview": "2026-11-11T18:08:14.670Z"
+  },
+  "/en-pt/fragments/get-inspired/a-descoberta-de-oviedo-gijon-e-aviles": {
+   "uploaded": "2026-11-11T18:08:17.094Z",
+   "mtime": 1794420375819.7886,
+   "preview": "2026-11-11T18:08:19.697Z"
+  },
+  "/en-pt/fragments/get-inspired/a-descoberta-dos-museus-de-florenca": {
+   "uploaded": "2026-11-11T18:08:21.931Z",
+   "mtime": 1794420375782.7969,
+   "preview": "2026-11-11T18:08:25.539Z"
+  },
+  "/en-pt/fragments/get-inspired/a-filha-do-iluminismo": {
+   "uploaded": "2026-11-11T18:08:27.540Z",
+   "mtime": 1794420375775.2295,
+   "preview": "2026-11-11T18:08:30.007Z"
+  },
+  "/en-pt/fragments/get-inspired/a-tradicional-e-vanguardista-agadir": {
+   "uploaded": "2026-11-11T18:08:32.345Z",
+   "mtime": 1794420375785.7063,
+   "preview": "2026-11-11T18:08:34.698Z"
+  },
+  "/en-pt/fragments/get-inspired/alagoas-imenso-azul": {
+   "uploaded": "2026-11-11T18:08:38.036Z",
+   "mtime": 1794420375821.9526,
+   "preview": "2026-11-11T18:08:40.820Z"
+  },
+  "/en-pt/fragments/get-inspired/aldeias-no-interior-de-portugal-tesouros-prontos-a-descobrir": {
+   "uploaded": "2026-11-11T18:08:42.990Z",
+   "mtime": 1794420375797.648,
+   "preview": "2026-11-11T18:08:45.344Z"
+  },
+  "/en-pt/fragments/get-inspired/alemanha-berlim-maior-que-a-vida": {
+   "uploaded": "2026-11-11T18:08:47.573Z",
+   "mtime": 1794420375826.8171,
+   "preview": "2026-11-11T18:08:50.150Z"
+  },
+  "/en-pt/fragments/get-inspired/algarve-um-sonho-de-verao": {
+   "uploaded": "2026-11-11T18:08:53.572Z",
+   "mtime": 1794420375800.0647,
+   "preview": "2026-11-11T18:08:55.856Z"
+  },
+  "/en-pt/fragments/get-inspired/amesterdao-labirintos-de-agua": {
+   "uploaded": "2026-11-11T18:08:57.948Z",
+   "mtime": 1794420375778.6982,
+   "preview": "2026-11-11T18:09:01.181Z"
+  },
+  "/en-pt/fragments/get-inspired/as-1001-surpresas-de-maputo": {
+   "uploaded": "2026-11-11T18:09:03.340Z",
+   "mtime": 1794420375803.2937,
+   "preview": "2026-11-11T18:09:05.795Z"
+  },
+  "/en-pt/fragments/get-inspired/as-5-melhores-coisas-para-fazer-em-alicante": {
+   "uploaded": "2026-11-11T18:09:08.232Z",
+   "mtime": 1794420375844.9895,
+   "preview": "2026-11-11T18:09:10.385Z"
+  },
+  "/en-pt/fragments/get-inspired/as-sete-colinas-de-lisboa": {
+   "uploaded": "2026-11-11T18:09:12.800Z",
+   "mtime": 1794420375813.3738,
+   "preview": "2026-11-11T18:09:15.323Z"
+  },
+  "/en-pt/fragments/get-inspired/belem-colonial-misteriosa-tropical": {
+   "uploaded": "2026-11-11T18:09:17.414Z",
+   "mtime": 1794420375829.925,
+   "preview": "2026-11-11T18:09:19.905Z"
+  },
+  "/en-pt/fragments/get-inspired/belo-horizonte-uma-cidade-mais-que-completa": {
+   "uploaded": "2026-11-11T18:09:24.333Z",
+   "mtime": 1794420375786.3525,
+   "preview": "2026-11-11T18:09:26.708Z"
+  },
+  "/en-pt/fragments/get-inspired/bicicleta-em-copenhaga": {
+   "uploaded": "2026-11-11T18:09:29.083Z",
+   "mtime": 1794420375801.0662,
+   "preview": "2026-11-11T18:09:31.688Z"
+  },
+  "/en-pt/fragments/get-inspired/boston-uma-cidade-fora-do-comum": {
+   "uploaded": "2026-11-11T18:09:34.213Z",
+   "mtime": 1794420375794.1174,
+   "preview": "2026-11-11T18:09:36.865Z"
+  },
+  "/en-pt/fragments/get-inspired/braga-uma-cidade-com-vitalidade-historica": {
+   "uploaded": "2026-11-11T18:09:38.760Z",
+   "mtime": 1794420375830.9788,
+   "preview": "2026-11-11T18:09:41.270Z"
+  },
+  "/en-pt/fragments/get-inspired/carnaval-no-mundo": {
+   "uploaded": "2026-11-11T18:09:43.382Z",
+   "mtime": 1794420375788.564,
+   "preview": "2026-11-11T18:09:46.386Z"
+  },
+  "/en-pt/fragments/get-inspired/casablanca-o-coracao-marroquino": {
+   "uploaded": "2026-11-11T18:09:48.867Z",
+   "mtime": 1794420375776.5427,
+   "preview": "2026-11-11T18:09:51.186Z"
+  },
+  "/en-pt/fragments/get-inspired/celebriamo-veneza": {
+   "uploaded": "2026-11-11T18:09:53.539Z",
+   "mtime": 1794420375815.6306,
+   "preview": "2026-11-11T18:09:56.123Z"
+  },
+  "/en-pt/fragments/get-inspired/chicago-verticalidade": {
+   "uploaded": "2026-11-11T18:09:59.086Z",
+   "mtime": 1794420375828.2698,
+   "preview": "2026-11-11T18:10:01.606Z"
+  },
+  "/en-pt/fragments/get-inspired/como-um-conto-de-fadas": {
+   "uploaded": "2026-11-11T18:10:03.751Z",
+   "mtime": 1794420375802.764,
+   "preview": "2026-11-11T18:10:06.218Z"
+  },
+  "/en-pt/fragments/get-inspired/conheca-as-10-melhores-praias-do-ceara": {
+   "uploaded": "2026-11-11T18:10:08.353Z",
+   "mtime": 1794420375818.5188,
+   "preview": "2026-11-11T18:10:10.941Z"
+  },
+  "/en-pt/fragments/get-inspired/corunha-a-historia-que-os-edificios-contam": {
+   "uploaded": "2026-11-11T18:10:13.183Z",
+   "mtime": 1794420375790.3262,
+   "preview": "2026-11-11T18:10:16.127Z"
+  },
+  "/en-pt/fragments/get-inspired/cultura-a-solta-nas-ruas-de-sao-paulo": {
+   "uploaded": "2026-11-11T18:10:18.185Z",
+   "mtime": 1794420375820.3528,
+   "preview": "2026-11-11T18:10:20.543Z"
+  },
+  "/en-pt/fragments/get-inspired/da-rua-a-discoteca": {
+   "uploaded": "2026-11-11T18:10:22.618Z",
+   "mtime": 1794420375793.2307,
+   "preview": "2026-11-11T18:10:25.266Z"
+  },
+  "/en-pt/fragments/get-inspired/de-malaga-com-paixao": {
+   "uploaded": "2026-11-11T18:10:27.454Z",
+   "mtime": 1794420375812.6343,
+   "preview": "2026-11-11T18:10:30.255Z"
+  },
+  "/en-pt/fragments/get-inspired/descubra-a-essencia-do-porto-e-norte-de-portugal": {
+   "uploaded": "2026-11-11T18:10:32.761Z",
+   "mtime": 1794420375789.3616,
+   "preview": "2026-11-11T18:10:35.042Z"
+  },
+  "/en-pt/fragments/get-inspired/destinos-romanticos-multidestino": {
+   "uploaded": "2026-11-11T18:10:36.924Z",
+   "mtime": 1794420375839.1255,
+   "preview": "2026-11-11T18:10:39.139Z"
+  },
+  "/en-pt/fragments/get-inspired/doce-balanco-a-caminho-do-mar": {
+   "uploaded": "2026-11-11T18:10:41.156Z",
+   "mtime": 1794420375781.4187,
+   "preview": "2026-11-11T18:10:43.569Z"
+  },
+  "/en-pt/fragments/get-inspired/dois-pequenos-paraisos-na-terra-sao-tome-e-principe": {
+   "uploaded": "2026-11-11T18:10:46.354Z",
+   "mtime": 1794420375820.867,
+   "preview": "2026-11-11T18:10:48.615Z"
+  },
+  "/en-pt/fragments/get-inspired/entre-os-rios-a-arte-e-a-ficcao": {
+   "uploaded": "2026-11-11T18:10:50.497Z",
+   "mtime": 1794420375846.989,
+   "preview": "2026-11-11T18:10:53.048Z"
+  },
+  "/en-pt/fragments/get-inspired/fatima-e-os-seus-misterios": {
+   "uploaded": "2026-11-11T18:10:55.089Z",
+   "mtime": 1794420375846.3477,
+   "preview": "2026-11-11T18:10:58.055Z"
+  },
+  "/en-pt/fragments/get-inspired/fogo-a-ilha-em-forma-de-vulcao": {
+   "uploaded": "2026-11-11T18:11:00.135Z",
+   "mtime": 1794420375816.4204,
+   "preview": "2026-11-11T18:11:03.031Z"
+  },
+  "/en-pt/fragments/get-inspired/guimaraes-o-berco-de-portugal": {
+   "uploaded": "2026-11-11T18:11:04.962Z",
+   "mtime": 1794420375784.2402,
+   "preview": "2026-11-11T18:11:07.178Z"
+  },
+  "/en-pt/fragments/get-inspired/historias-cores-e-gentes-da-ilha-terceira": {
+   "uploaded": "2026-11-11T18:15:48.964Z",
+   "mtime": 1794420375773.8892,
+   "preview": "2026-11-11T18:15:51.931Z"
+  },
+  "/en-pt/fragments/get-inspired/ilha-de-sao-miguel-onde-as-tradicoes-marcam-o-presente": {
+   "uploaded": "2026-11-11T18:15:54.249Z",
+   "mtime": 1794420375761.5332,
+   "preview": "2026-11-11T18:15:56.899Z"
+  },
+  "/en-pt/fragments/get-inspired/jardins-a-beira-do-lago": {
+   "uploaded": "2026-11-11T18:15:59.143Z",
+   "mtime": 1794420375779.4253,
+   "preview": "2026-11-11T18:16:01.518Z"
+  },
+  "/en-pt/fragments/get-inspired/las-fallas-valencia-em-fogo": {
+   "uploaded": "2026-11-11T18:16:04.047Z",
+   "mtime": 1794420375831.8772,
+   "preview": "2026-11-11T18:16:06.428Z"
+  },
+  "/en-pt/fragments/get-inspired/londres-historica-vibrante-e-cosmopolita": {
+   "uploaded": "2026-11-11T18:16:08.410Z",
+   "mtime": 1794420375759.362,
+   "preview": "2026-11-11T18:16:10.728Z"
+  },
+  "/en-pt/fragments/get-inspired/luanda-danca-numa-angola-que-canta": {
+   "uploaded": "2026-11-11T18:16:12.931Z",
+   "mtime": 1794420375772.5566,
+   "preview": "2026-11-11T18:16:15.305Z"
+  },
+  "/en-pt/fragments/get-inspired/madeira-em-movimento": {
+   "uploaded": "2026-11-11T18:16:17.377Z",
+   "mtime": 1794420375769.942,
+   "preview": "2026-11-11T18:16:19.653Z"
+  },
+  "/en-pt/fragments/get-inspired/madrid-a-alegria-de-viver": {
+   "uploaded": "2026-11-11T18:16:22.371Z",
+   "mtime": 1794420375760.8765,
+   "preview": "2026-11-11T18:16:24.467Z"
+  },
+  "/en-pt/fragments/get-inspired/marraquexe-viagem-a-um-universo-fascinante": {
+   "uploaded": "2026-11-11T18:16:26.828Z",
+   "mtime": 1794420375780.572,
+   "preview": "2026-11-11T18:16:29.281Z"
+  },
+  "/en-pt/fragments/get-inspired/marrocos-errachidia-ouarzazate": {
+   "uploaded": "2026-11-11T18:16:31.354Z",
+   "mtime": 1794420375797.1357,
+   "preview": "2026-11-11T18:16:33.578Z"
+  },
+  "/en-pt/fragments/get-inspired/mexer-ate-cair": {
+   "uploaded": "2026-11-11T18:16:35.624Z",
+   "mtime": 1794420375784.859,
+   "preview": "2026-11-11T18:16:38.114Z"
+  },
+  "/en-pt/fragments/get-inspired/mocambique-o-mais-belo-litoral-de-africa": {
+   "uploaded": "2026-11-11T18:16:39.971Z",
+   "mtime": 1794420375841.2502,
+   "preview": "2026-11-11T18:16:42.502Z"
+  },
+  "/en-pt/fragments/get-inspired/na-rota-da-pizza": {
+   "uploaded": "2026-11-11T18:16:44.480Z",
+   "mtime": 1794420375841.8235,
+   "preview": "2026-11-11T18:16:46.550Z"
+  },
+  "/en-pt/fragments/get-inspired/natal-a-cidade-do-sol": {
+   "uploaded": "2026-11-11T18:16:49.614Z",
+   "mtime": 1794420375799.477,
+   "preview": "2026-11-11T18:16:51.997Z"
+  },
+  "/en-pt/fragments/get-inspired/no-trilho-dos-excentricos-visionarios": {
+   "uploaded": "2026-11-11T18:16:53.970Z",
+   "mtime": 1794420375844.1926,
+   "preview": "2026-11-11T18:16:56.424Z"
+  },
+  "/en-pt/fragments/get-inspired/noruega-existe-mesmo-um-pais-assim": {
+   "uploaded": "2026-11-11T18:16:58.746Z",
+   "mtime": 1794420375809.4165,
+   "preview": "2026-11-11T18:17:00.888Z"
+  },
+  "/en-pt/fragments/get-inspired/o-glamour-de-nice-e-da-riviera-francesa": {
+   "uploaded": "2026-11-11T18:17:03.384Z",
+   "mtime": 1794420375762.2988,
+   "preview": "2026-11-11T18:17:05.825Z"
+  },
+  "/en-pt/fragments/get-inspired/o-natal-em-zurique": {
+   "uploaded": "2026-11-11T18:17:07.787Z",
+   "mtime": 1794420375827.4653,
+   "preview": "2026-11-11T18:17:11.021Z"
+  },
+  "/en-pt/fragments/get-inspired/o-outro-lado-da-maca": {
+   "uploaded": "2026-11-11T18:17:13.349Z",
+   "mtime": 1794420375763.2222,
+   "preview": "2026-11-11T18:17:16.422Z"
+  },
+  "/en-pt/fragments/get-inspired/o-que-fazer-em-sao-paulo": {
+   "uploaded": "2026-11-11T18:17:18.597Z",
+   "mtime": 1794420375765.5774,
+   "preview": "2026-11-11T18:17:20.773Z"
+  },
+  "/en-pt/fragments/get-inspired/o-que-tem-as-praias-do-brasil": {
+   "uploaded": "2026-11-11T18:17:22.870Z",
+   "mtime": 1794420375808.8088,
+   "preview": "2026-11-11T18:17:25.514Z"
+  },
+  "/en-pt/fragments/get-inspired/obidos-uma-das-7-maravilhas-de-portugal": {
+   "uploaded": "2026-11-11T18:17:27.388Z",
+   "mtime": 1794420375804.1548,
+   "preview": "2026-11-11T18:17:29.992Z"
+  },
+  "/en-pt/fragments/get-inspired/paisagens-de-sal": {
+   "uploaded": "2026-11-11T18:17:32.184Z",
+   "mtime": 1794420375807.368,
+   "preview": "2026-11-11T18:17:34.466Z"
+  },
+  "/en-pt/fragments/get-inspired/paraiso-em-tons-de-azul-e-dourado": {
+   "uploaded": "2026-11-11T18:17:36.484Z",
+   "mtime": 1794420375798.4446,
+   "preview": "2026-11-11T18:17:38.860Z"
+  },
+  "/en-pt/fragments/get-inspired/paraisos-da-europa": {
+   "uploaded": "2026-11-11T18:17:41.166Z",
+   "mtime": 1794420375777.8748,
+   "preview": "2026-11-11T18:17:43.361Z"
+  },
+  "/en-pt/fragments/get-inspired/passeio-pela-europa-vinhateira": {
+   "uploaded": "2026-11-11T18:17:45.865Z",
+   "mtime": 1794420375836.795,
+   "preview": "2026-11-11T18:17:48.268Z"
+  },
+  "/en-pt/fragments/get-inspired/passeio-por-lisboa": {
+   "uploaded": "2026-11-11T18:17:50.519Z",
+   "mtime": 1794420375824.0254,
+   "preview": "2026-11-11T18:17:52.939Z"
+  },
+  "/en-pt/fragments/get-inspired/porto-onde-queremos-voltar-sempre": {
+   "uploaded": "2026-11-11T18:17:55.111Z",
+   "mtime": 1794420375814.1077,
+   "preview": "2026-11-11T18:17:57.193Z"
+  },
+  "/en-pt/fragments/get-inspired/portugal-o-pais-onde-o-sol-mora": {
+   "uploaded": "2026-11-11T18:17:59.231Z",
+   "mtime": 1794420375804.7798,
+   "preview": "2026-11-11T18:18:01.851Z"
+  },
+  "/en-pt/fragments/get-inspired/que-segredos-guarda-brasilia": {
+   "uploaded": "2026-11-11T18:18:03.992Z",
+   "mtime": 1794420375770.4224,
+   "preview": "2026-11-11T18:18:06.431Z"
+  },
+  "/en-pt/fragments/get-inspired/recife-e-olinda-irmas-banhadas-pelo-atlantico": {
+   "uploaded": "2026-11-11T18:18:08.949Z",
+   "mtime": 1794420375839.6733,
+   "preview": "2026-11-11T18:18:12.605Z"
+  },
+  "/en-pt/fragments/get-inspired/reiquiavique": {
+   "uploaded": "2026-11-11T18:18:14.977Z",
+   "mtime": 1794420375848.2366,
+   "preview": "2026-11-11T18:18:17.920Z"
+  },
+  "/en-pt/fragments/get-inspired/roma-nao-foi-feita-num-milenio": {
+   "uploaded": "2026-11-11T18:18:20.273Z",
+   "mtime": 1794420375815.0447,
+   "preview": "2026-11-11T18:18:22.230Z"
+  },
+  "/en-pt/fragments/get-inspired/rota-das-aldeias-historicas-de-portugal": {
+   "uploaded": "2026-11-11T18:18:24.277Z",
+   "mtime": 1794420375774.4597,
+   "preview": "2026-11-11T18:18:26.806Z"
+  },
+  "/en-pt/fragments/get-inspired/sabores-tipicamente-portugueses": {
+   "uploaded": "2026-11-11T18:18:28.738Z",
+   "mtime": 1794420375823.4963,
+   "preview": "2026-11-11T18:18:31.368Z"
+  },
+  "/en-pt/fragments/get-inspired/salvador-cenarios-que-falam-por-si": {
+   "uploaded": "2026-11-11T18:18:34.162Z",
+   "mtime": 1794420375769.257,
+   "preview": "2026-11-11T18:18:36.326Z"
+  },
+  "/en-pt/fragments/get-inspired/santiago-de-compostela-caminhos-antigos-e-novos": {
+   "uploaded": "2026-11-11T18:18:38.774Z",
+   "mtime": 1794420375791.1208,
+   "preview": "2026-11-11T18:18:41.341Z"
+  },
+  "/en-pt/fragments/get-inspired/sao-vicente-ilha-das-artes-e-do-bem-receber": {
+   "uploaded": "2026-11-11T18:18:43.452Z",
+   "mtime": 1794420375835.3704,
+   "preview": "2026-11-11T18:18:45.790Z"
+  },
+  "/en-pt/fragments/get-inspired/sempre-em-festa": {
+   "uploaded": "2026-11-11T18:18:47.754Z",
+   "mtime": 1794420375798.9133,
+   "preview": "2026-11-11T18:18:50.364Z"
+  },
+  "/en-pt/fragments/get-inspired/serra-da-estrela-no-topo-do-mundo": {
+   "uploaded": "2026-11-11T18:18:52.862Z",
+   "mtime": 1794420375829.3225,
+   "preview": "2026-11-11T18:18:55.709Z"
+  },
+  "/en-pt/fragments/get-inspired/sintra-mistica-vizinha-de-lisboa": {
+   "uploaded": "2026-11-11T18:18:58.026Z",
+   "mtime": 1794420375824.8042,
+   "preview": "2026-11-11T18:19:00.322Z"
+  },
+  "/en-pt/fragments/get-inspired/tomar-cidade-templaria": {
+   "uploaded": "2026-11-11T18:19:02.755Z",
+   "mtime": 1794420375768.2583,
+   "preview": "2026-11-11T18:19:05.138Z"
+  },
+  "/en-pt/fragments/get-inspired/top-12-de-recife": {
+   "uploaded": "2026-11-11T18:19:07.450Z",
+   "mtime": 1794420375832.679,
+   "preview": "2026-11-11T18:19:10.532Z"
+  },
+  "/en-pt/fragments/get-inspired/um-sonho-cancun-e-tudo-o-que-a-rodeia": {
+   "uploaded": "2026-11-11T18:19:12.707Z",
+   "mtime": 1794420375758.8105,
+   "preview": "2026-11-11T18:19:16.376Z"
+  },
+  "/en-pt/fragments/get-inspired/uma-aventura-pela-en-2": {
+   "uploaded": "2026-11-11T18:19:19.375Z",
+   "mtime": 1794420375787.9565,
+   "preview": "2026-11-11T18:19:21.598Z"
+  },
+  "/en-pt/fragments/get-inspired/valencia-uma-festa-para-os-sentidos": {
+   "uploaded": "2026-11-11T18:19:23.760Z",
+   "mtime": 1794420375834.2764,
+   "preview": "2026-11-11T18:19:26.024Z"
+  },
+  "/en-pt/fragments/get-inspired/vamos-a-praia-multidestino": {
+   "uploaded": "2026-11-11T18:19:28.358Z",
+   "mtime": 1794420375817.5413,
+   "preview": "2026-11-11T18:19:30.870Z"
+  },
+  "/en-pt/fragments/get-inspired/varsovia-um-rio-que-divide-a-historia": {
+   "uploaded": "2026-11-11T18:19:32.742Z",
+   "mtime": 1794420375847.5464,
+   "preview": "2026-11-11T18:19:35.012Z"
+  },
+  "/en-pt/fragments/get-inspired/verao-de-sonho-nas-ilhas-espanholas": {
+   "uploaded": "2026-11-11T18:19:37.043Z",
+   "mtime": 1794420375837.5266,
+   "preview": "2026-11-11T18:19:39.615Z"
+  },
+  "/en-pt/fragments/get-inspired/viajar-de-aviao-com-criancas": {
+   "uploaded": "2026-11-11T18:19:41.611Z",
+   "mtime": 1794420375833.5276,
+   "preview": "2026-11-11T18:19:43.760Z"
+  },
+  "/en-pt/fragments/get-inspired/viena-o-paraiso-dos-melomanos": {
+   "uploaded": "2026-11-11T18:19:45.724Z",
+   "mtime": 1794420375767.5945,
+   "preview": "2026-11-11T18:19:48.225Z"
+  },
+  "/en-pt/fragments/get-inspired/vigo-um-lugar-que-sabe-a-mar": {
+   "uploaded": "2026-11-11T18:19:50.225Z",
+   "mtime": 1794420375849.0603,
+   "preview": "2026-11-11T18:19:52.696Z"
+  },
+  "/en-pt/fragments/get-inspired/viver-e-dancar-em-sevilha": {
+   "uploaded": "2026-11-11T18:19:55.275Z",
+   "mtime": 1794420375758.1501,
+   "preview": "2026-11-11T18:19:57.725Z"
+  },
+  "/en-pt/fragments/get-inspired/washington-d-c-mergulho-direto-na-historia": {
+   "uploaded": "2026-11-11T18:19:59.935Z",
+   "mtime": 1794420375805.7058,
+   "preview": "2026-11-11T18:20:02.434Z"
+  },
+  "/pt-pt/fragments/inspire-se/1-dia-pelo-romantismo-de-toulouse": {
+   "uploaded": "2026-11-11T18:21:31.508Z",
+   "mtime": 1794420376783.81,
+   "preview": "2026-11-11T18:21:33.800Z"
+  },
+  "/pt-pt/fragments/inspire-se/10-basicos-de-salvador-da-bahia": {
+   "uploaded": "2026-11-11T18:21:36.025Z",
+   "mtime": 1794420376752.8506,
+   "preview": "2026-11-11T18:21:38.534Z"
+  },
+  "/pt-pt/fragments/inspire-se/10-coisas-a-fazer-em-porto-alegre": {
+   "uploaded": "2026-11-11T18:21:40.583Z",
+   "mtime": 1794420376785.7026,
+   "preview": "2026-11-11T18:21:43.048Z"
+  },
+  "/pt-pt/fragments/inspire-se/10-simbolos-de-manchester": {
+   "uploaded": "2026-11-11T18:21:44.932Z",
+   "mtime": 1794420376717.8367,
+   "preview": "2026-11-11T18:21:47.190Z"
+  },
+  "/pt-pt/fragments/inspire-se/2-dias-na-bolonha-medieval": {
+   "uploaded": "2026-11-11T18:21:50.035Z",
+   "mtime": 1794420376731.4707,
+   "preview": "2026-11-11T18:21:52.191Z"
+  },
+  "/pt-pt/fragments/inspire-se/3-atracoes-culturais-que-nao-pode-perder-em-recife": {
+   "uploaded": "2026-11-11T18:21:54.176Z",
+   "mtime": 1794420376722.976,
+   "preview": "2026-11-11T18:21:56.167Z"
+  },
+  "/pt-pt/fragments/inspire-se/3-atracoes-emblematicas-que-nao-pode-perder-em-dublin": {
+   "uploaded": "2026-11-11T18:21:58.397Z",
+   "mtime": 1794420376770.7954,
+   "preview": "2026-11-11T18:22:00.580Z"
+  },
+  "/pt-pt/fragments/inspire-se/3-lugares-fora-da-caixa-para-conhecer-em-viena": {
+   "uploaded": "2026-11-11T18:22:02.798Z",
+   "mtime": 1794420376707.095,
+   "preview": "2026-11-11T18:22:05.026Z"
+  },
+  "/pt-pt/fragments/inspire-se/3-lugares-no-subsolo-para-explorar-em-napoles": {
+   "uploaded": "2026-11-11T18:22:06.900Z",
+   "mtime": 1794420376754.1357,
+   "preview": "2026-11-11T18:22:09.100Z"
+  },
+  "/pt-pt/fragments/inspire-se/3-mercados-de-natal-que-nao-pode-perder-na-belgica": {
+   "uploaded": "2026-11-11T18:22:10.906Z",
+   "mtime": 1794420376781.4402,
+   "preview": "2026-11-11T18:22:13.771Z"
+  },
+  "/pt-pt/fragments/inspire-se/3-praias-que-tem-mesmo-de-conhecer-em-fernando-de-noronha": {
+   "uploaded": "2026-11-11T18:22:15.760Z",
+   "mtime": 1794420376741.0164,
+   "preview": "2026-11-11T18:22:19.104Z"
+  },
+  "/pt-pt/fragments/inspire-se/3-trilhos-que-tem-mesmo-de-fazer-em-tenerife": {
+   "uploaded": "2026-11-11T18:22:21.105Z",
+   "mtime": 1794420376786.336,
+   "preview": "2026-11-11T18:22:23.711Z"
+  },
+  "/pt-pt/fragments/inspire-se/4-cenotes-que-nao-pode-perder-perto-de-cancun": {
+   "uploaded": "2026-11-11T18:22:25.593Z",
+   "mtime": 1794420376756.8904,
+   "preview": "2026-11-11T18:22:27.598Z"
+  },
+  "/pt-pt/fragments/inspire-se/4-faces-da-mesma-escandinavia": {
+   "uploaded": "2026-11-11T18:22:29.495Z",
+   "mtime": 1794420376737.9756,
+   "preview": "2026-11-11T18:22:31.751Z"
+  },
+  "/pt-pt/fragments/inspire-se/5-atracoes-em-belem-do-para": {
+   "uploaded": "2026-11-11T18:22:33.690Z",
+   "mtime": 1794420376716.989,
+   "preview": "2026-11-11T18:22:36.314Z"
+  },
+  "/pt-pt/fragments/inspire-se/5-locais-que-nao-pode-perder-em-toronto": {
+   "uploaded": "2026-11-11T18:22:38.206Z",
+   "mtime": 1794420376778.925,
+   "preview": "2026-11-11T18:22:40.429Z"
+  },
+  "/pt-pt/fragments/inspire-se/5-lugares-imperdiveis-na-guine-bissau": {
+   "uploaded": "2026-11-11T18:22:42.418Z",
+   "mtime": 1794420376757.393,
+   "preview": "2026-11-11T18:22:44.945Z"
+  },
+  "/pt-pt/fragments/inspire-se/a-boleia-dos-festivais-de-verao-na-europa": {
+   "uploaded": "2026-11-11T18:22:46.889Z",
+   "mtime": 1794420376768.4536,
+   "preview": "2026-11-11T18:22:48.919Z"
+  },
+  "/pt-pt/fragments/inspire-se/a-cidade-das-cem-torres": {
+   "uploaded": "2026-11-11T18:22:51.010Z",
+   "mtime": 1794420376764.1697,
+   "preview": "2026-11-11T18:22:54.062Z"
+  },
+  "/pt-pt/fragments/inspire-se/a-descoberta-de-oviedo-gijon-e-aviles": {
+   "uploaded": "2026-11-11T18:22:55.988Z",
+   "mtime": 1794420376765.9177,
+   "preview": "2026-11-11T18:22:58.208Z"
+  },
+  "/pt-pt/fragments/inspire-se/a-descoberta-dos-museus-de-florenca": {
+   "uploaded": "2026-11-11T18:23:00.344Z",
+   "mtime": 1794420376727.6638,
+   "preview": "2026-11-11T18:23:02.914Z"
+  },
+  "/pt-pt/fragments/inspire-se/a-filha-do-iluminismo": {
+   "uploaded": "2026-11-11T18:23:04.740Z",
+   "mtime": 1794420376722.0427,
+   "preview": "2026-11-11T18:23:07.184Z"
+  },
+  "/pt-pt/fragments/inspire-se/a-tradicional-e-vanguardista-agadir": {
+   "uploaded": "2026-11-11T18:23:09.097Z",
+   "mtime": 1794420376730.274,
+   "preview": "2026-11-11T18:23:11.338Z"
+  },
+  "/pt-pt/fragments/inspire-se/alagoas-imenso-azul": {
+   "uploaded": "2026-11-11T18:23:14.678Z",
+   "mtime": 1794420376767.4639,
+   "preview": "2026-11-11T18:25:42.885Z"
+  },
+  "/pt-pt/fragments/inspire-se/aldeias-no-interior-de-portugal-tesouros-prontos-a-descobrir": {
+   "uploaded": "2026-11-11T18:23:24.946Z",
+   "mtime": 1794420376742.3298,
+   "preview": "2026-11-11T18:23:27.227Z"
+  },
+  "/pt-pt/fragments/inspire-se/alemanha-berlim-maior-que-a-vida": {
+   "uploaded": "2026-11-11T18:23:29.073Z",
+   "mtime": 1794420376771.564,
+   "preview": "2026-11-11T18:23:31.329Z"
+  },
+  "/pt-pt/fragments/inspire-se/algarve-um-sonho-de-verao": {
+   "uploaded": "2026-11-11T18:23:33.122Z",
+   "mtime": 1794420376745.8616,
+   "preview": "2026-11-11T18:23:35.431Z"
+  },
+  "/pt-pt/fragments/inspire-se/amesterdao-labirintos-de-agua": {
+   "uploaded": "2026-11-11T18:23:37.742Z",
+   "mtime": 1794420376724.8516,
+   "preview": "2026-11-11T18:23:40.967Z"
+  },
+  "/pt-pt/fragments/inspire-se/as-1001-surpresas-de-maputo": {
+   "uploaded": "2026-11-11T18:23:43.103Z",
+   "mtime": 1794420376749.6267,
+   "preview": "2026-11-11T18:23:45.322Z"
+  },
+  "/pt-pt/fragments/inspire-se/as-5-melhores-coisas-para-fazer-em-alicante": {
+   "uploaded": "2026-11-11T18:23:47.239Z",
+   "mtime": 1794420376787.639,
+   "preview": "2026-11-11T18:23:49.674Z"
+  },
+  "/pt-pt/fragments/inspire-se/as-sete-colinas-de-lisboa": {
+   "uploaded": "2026-11-11T18:23:51.686Z",
+   "mtime": 1794420376759.2246,
+   "preview": "2026-11-11T18:23:54.115Z"
+  },
+  "/pt-pt/fragments/inspire-se/belem-colonial-misteriosa-tropical": {
+   "uploaded": "2026-11-11T18:23:55.987Z",
+   "mtime": 1794420376774.2654,
+   "preview": "2026-11-11T18:23:58.591Z"
+  },
+  "/pt-pt/fragments/inspire-se/belo-horizonte-uma-cidade-mais-que-completa": {
+   "uploaded": "2026-11-11T18:24:00.678Z",
+   "mtime": 1794420376730.8047,
+   "preview": "2026-11-11T18:24:02.851Z"
+  },
+  "/pt-pt/fragments/inspire-se/bicicleta-em-copenhaga": {
+   "uploaded": "2026-11-11T18:24:04.716Z",
+   "mtime": 1794420376746.4385,
+   "preview": "2026-11-11T18:24:07.195Z"
+  },
+  "/pt-pt/fragments/inspire-se/boston-uma-cidade-fora-do-comum": {
+   "uploaded": "2026-11-11T18:24:09.399Z",
+   "mtime": 1794420376740.5034,
+   "preview": "2026-11-11T18:24:11.672Z"
+  },
+  "/pt-pt/fragments/inspire-se/braga-uma-cidade-com-vitalidade-historica": {
+   "uploaded": "2026-11-11T18:24:13.673Z",
+   "mtime": 1794420376774.9973,
+   "preview": "2026-11-11T18:24:15.897Z"
+  },
+  "/pt-pt/fragments/inspire-se/carnaval-no-mundo": {
+   "uploaded": "2026-11-11T18:24:17.783Z",
+   "mtime": 1794420376733.388,
+   "preview": "2026-11-11T18:24:19.555Z"
+  },
+  "/pt-pt/fragments/inspire-se/casablanca-o-coracao-marroquino": {
+   "uploaded": "2026-11-11T18:24:21.544Z",
+   "mtime": 1794420376723.593,
+   "preview": "2026-11-11T18:24:23.599Z"
+  },
+  "/pt-pt/fragments/inspire-se/celebriamo-veneza": {
+   "uploaded": "2026-11-11T18:24:25.472Z",
+   "mtime": 1794420376761.7058,
+   "preview": "2026-11-11T18:24:27.792Z"
+  },
+  "/pt-pt/fragments/inspire-se/chicago-verticalidade": {
+   "uploaded": "2026-11-11T18:24:30.119Z",
+   "mtime": 1794420376773.1306,
+   "preview": "2026-11-11T18:24:33.440Z"
+  },
+  "/pt-pt/fragments/inspire-se/como-um-conto-de-fadas": {
+   "uploaded": "2026-11-11T18:24:35.674Z",
+   "mtime": 1794420376748.6248,
+   "preview": "2026-11-11T18:24:37.990Z"
+  },
+  "/pt-pt/fragments/inspire-se/conheca-as-10-melhores-praias-do-ceara": {
+   "uploaded": "2026-11-11T18:24:40.028Z",
+   "mtime": 1794420376765.1726,
+   "preview": "2026-11-11T18:24:42.321Z"
+  },
+  "/pt-pt/fragments/inspire-se/corunha-a-historia-que-os-edificios-contam": {
+   "uploaded": "2026-11-11T18:24:44.601Z",
+   "mtime": 1794420376735.0322,
+   "preview": "2026-11-11T18:24:46.932Z"
+  },
+  "/pt-pt/fragments/inspire-se/cultura-a-solta-nas-ruas-de-sao-paulo": {
+   "uploaded": "2026-11-11T18:24:49.045Z",
+   "mtime": 1794420376766.3633,
+   "preview": "2026-11-11T18:24:51.489Z"
+  },
+  "/pt-pt/fragments/inspire-se/da-rua-a-discoteca": {
+   "uploaded": "2026-11-11T18:24:53.691Z",
+   "mtime": 1794420376739.3489,
+   "preview": "2026-11-11T18:24:56.343Z"
+  },
+  "/pt-pt/fragments/inspire-se/de-malaga-com-paixao": {
+   "uploaded": "2026-11-11T18:24:58.396Z",
+   "mtime": 1794420376758.4277,
+   "preview": "2026-11-11T18:25:00.533Z"
+  },
+  "/pt-pt/fragments/inspire-se/descubra-a-essencia-do-porto-e-norte-de-portugal": {
+   "uploaded": "2026-11-11T18:25:02.660Z",
+   "mtime": 1794420376734.5208,
+   "preview": "2026-11-11T18:25:04.947Z"
+  },
+  "/pt-pt/fragments/inspire-se/destinos-romanticos-multidestino": {
+   "uploaded": "2026-11-11T18:25:06.898Z",
+   "mtime": 1794420376782.4744,
+   "preview": "2026-11-11T18:25:09.187Z"
+  },
+  "/pt-pt/fragments/inspire-se/doce-balanco-a-caminho-do-mar": {
+   "uploaded": "2026-11-11T18:25:11.155Z",
+   "mtime": 1794420376726.9663,
+   "preview": "2026-11-11T18:25:13.341Z"
+  },
+  "/pt-pt/fragments/inspire-se/dois-pequenos-paraisos-na-terra-sao-tome-e-principe": {
+   "uploaded": "2026-11-11T18:25:15.238Z",
+   "mtime": 1794420376766.9048,
+   "preview": "2026-11-11T18:25:17.230Z"
+  },
+  "/pt-pt/fragments/inspire-se/entre-os-rios-a-arte-e-a-ficcao": {
+   "uploaded": "2026-11-11T18:25:19.127Z",
+   "mtime": 1794420376789.9924,
+   "preview": "2026-11-11T18:25:21.459Z"
+  },
+  "/pt-pt/fragments/inspire-se/fatima-e-os-seus-misterios": {
+   "uploaded": "2026-11-11T18:25:23.366Z",
+   "mtime": 1794420376789.036,
+   "preview": "2026-11-11T18:25:25.762Z"
+  },
+  "/pt-pt/fragments/inspire-se/fogo-a-ilha-em-forma-de-vulcao": {
+   "uploaded": "2026-11-11T18:25:28.178Z",
+   "mtime": 1794420376763.0388,
+   "preview": "2026-11-11T18:25:30.308Z"
+  },
+  "/pt-pt/fragments/inspire-se/guimaraes-o-berco-de-portugal": {
+   "uploaded": "2026-11-11T18:25:32.444Z",
+   "mtime": 1794420376728.7468,
+   "preview": "2026-11-11T18:25:34.564Z"
+  },
+  "/pt-pt/fragments/inspire-se/historias-cores-e-gentes-da-ilha-terceira": {
+   "uploaded": "2026-11-11T18:26:55.002Z",
+   "mtime": 1794420376719.9165,
+   "preview": "2026-11-11T18:26:57.247Z"
+  },
+  "/pt-pt/fragments/inspire-se/ilha-de-sao-miguel-onde-as-tradicoes-marcam-o-presente": {
+   "uploaded": "2026-11-11T18:26:59.288Z",
+   "mtime": 1794420376708.4807,
+   "preview": "2026-11-11T18:27:01.864Z"
+  },
+  "/pt-pt/fragments/inspire-se/jardins-a-beira-do-lago": {
+   "uploaded": "2026-11-11T18:27:04.031Z",
+   "mtime": 1794420376725.5151,
+   "preview": "2026-11-11T18:27:06.372Z"
+  },
+  "/pt-pt/fragments/inspire-se/las-fallas-valencia-em-fogo": {
+   "uploaded": "2026-11-11T18:27:08.578Z",
+   "mtime": 1794420376775.5205,
+   "preview": "2026-11-11T18:27:10.903Z"
+  },
+  "/pt-pt/fragments/inspire-se/londres-historica-vibrante-e-cosmopolita": {
+   "uploaded": "2026-11-11T18:27:13.494Z",
+   "mtime": 1794420376706.4863,
+   "preview": "2026-11-11T18:27:15.912Z"
+  },
+  "/pt-pt/fragments/inspire-se/luanda-danca-numa-angola-que-canta": {
+   "uploaded": "2026-11-11T18:27:18.219Z",
+   "mtime": 1794420376718.4817,
+   "preview": "2026-11-11T18:27:20.468Z"
+  },
+  "/pt-pt/fragments/inspire-se/madeira-em-movimento": {
+   "uploaded": "2026-11-11T18:27:22.794Z",
+   "mtime": 1794420376715.979,
+   "preview": "2026-11-11T18:27:24.994Z"
+  },
+  "/pt-pt/fragments/inspire-se/madrid-a-alegria-de-viver": {
+   "uploaded": "2026-11-11T18:27:27.254Z",
+   "mtime": 1794420376707.894,
+   "preview": "2026-11-11T18:27:29.613Z"
+  },
+  "/pt-pt/fragments/inspire-se/marraquexe-viagem-a-um-universo-fascinante": {
+   "uploaded": "2026-11-11T18:27:32.423Z",
+   "mtime": 1794420376726.2043,
+   "preview": "2026-11-11T18:27:34.533Z"
+  },
+  "/pt-pt/fragments/inspire-se/marrocos-errachidia-ouarzazate": {
+   "uploaded": "2026-11-11T18:27:36.532Z",
+   "mtime": 1794420376741.811,
+   "preview": "2026-11-11T18:27:39.436Z"
+  },
+  "/pt-pt/fragments/inspire-se/mexer-ate-cair": {
+   "uploaded": "2026-11-11T18:27:42.240Z",
+   "mtime": 1794420376729.6345,
+   "preview": "2026-11-11T18:27:45.024Z"
+  },
+  "/pt-pt/fragments/inspire-se/mocambique-o-mais-belo-litoral-de-africa": {
+   "uploaded": "2026-11-11T18:27:47.756Z",
+   "mtime": 1794420376784.4272,
+   "preview": "2026-11-11T18:27:50.229Z"
+  },
+  "/pt-pt/fragments/inspire-se/na-rota-da-pizza": {
+   "uploaded": "2026-11-11T18:27:53.361Z",
+   "mtime": 1794420376785.0454,
+   "preview": "2026-11-11T18:27:55.862Z"
+  },
+  "/pt-pt/fragments/inspire-se/natal-a-cidade-do-sol": {
+   "uploaded": "2026-11-11T18:27:58.967Z",
+   "mtime": 1794420376745.208,
+   "preview": "2026-11-11T18:28:01.210Z"
+  },
+  "/pt-pt/fragments/inspire-se/no-trilho-dos-excentricos-visionarios": {
+   "uploaded": "2026-11-11T18:28:03.301Z",
+   "mtime": 1794420376787.1643,
+   "preview": "2026-11-11T18:28:05.358Z"
+  },
+  "/pt-pt/fragments/inspire-se/noruega-existe-mesmo-um-pais-assim": {
+   "uploaded": "2026-11-11T18:28:08.388Z",
+   "mtime": 1794420376756.3396,
+   "preview": "2026-11-11T18:28:10.845Z"
+  },
+  "/pt-pt/fragments/inspire-se/o-glamour-de-nice-e-da-riviera-francesa": {
+   "uploaded": "2026-11-11T18:28:12.707Z",
+   "mtime": 1794420376709.5815,
+   "preview": "2026-11-11T18:28:15.050Z"
+  },
+  "/pt-pt/fragments/inspire-se/o-natal-em-zurique": {
+   "uploaded": "2026-11-11T18:28:17.029Z",
+   "mtime": 1794420376772.436,
+   "preview": "2026-11-11T18:28:19.677Z"
+  },
+  "/pt-pt/fragments/inspire-se/o-outro-lado-da-maca": {
+   "uploaded": "2026-11-11T18:28:22.183Z",
+   "mtime": 1794420376710.3064,
+   "preview": "2026-11-11T18:28:24.683Z"
+  },
+  "/pt-pt/fragments/inspire-se/o-que-fazer-em-sao-paulo": {
+   "uploaded": "2026-11-11T18:28:26.631Z",
+   "mtime": 1794420376712.9407,
+   "preview": "2026-11-11T18:28:28.759Z"
+  },
+  "/pt-pt/fragments/inspire-se/o-que-tem-as-praias-do-brasil": {
+   "uploaded": "2026-11-11T18:28:30.648Z",
+   "mtime": 1794420376754.6985,
+   "preview": "2026-11-11T18:28:33.144Z"
+  },
+  "/pt-pt/fragments/inspire-se/obidos-uma-das-7-maravilhas-de-portugal": {
+   "uploaded": "2026-11-11T18:28:35.236Z",
+   "mtime": 1794420376750.2922,
+   "preview": "2026-11-11T18:28:37.233Z"
+  },
+  "/pt-pt/fragments/inspire-se/paisagens-de-sal": {
+   "uploaded": "2026-11-11T18:28:39.666Z",
+   "mtime": 1794420376753.2485,
+   "preview": "2026-11-11T18:28:41.981Z"
+  },
+  "/pt-pt/fragments/inspire-se/paraiso-em-tons-de-azul-e-dourado": {
+   "uploaded": "2026-11-11T18:28:44.017Z",
+   "mtime": 1794420376744.1306,
+   "preview": "2026-11-11T18:28:46.337Z"
+  },
+  "/pt-pt/fragments/inspire-se/paraisos-da-europa": {
+   "uploaded": "2026-11-11T18:28:48.590Z",
+   "mtime": 1794420376724.0923,
+   "preview": "2026-11-11T18:28:50.947Z"
+  },
+  "/pt-pt/fragments/inspire-se/passeio-pela-europa-vinhateira": {
+   "uploaded": "2026-11-11T18:28:53.495Z",
+   "mtime": 1794420376779.6372,
+   "preview": "2026-11-11T18:28:55.670Z"
+  },
+  "/pt-pt/fragments/inspire-se/passeio-por-lisboa": {
+   "uploaded": "2026-11-11T18:28:57.454Z",
+   "mtime": 1794420376769.5745,
+   "preview": "2026-11-11T18:28:59.800Z"
+  },
+  "/pt-pt/fragments/inspire-se/porto-onde-queremos-voltar-sempre": {
+   "uploaded": "2026-11-11T18:29:01.795Z",
+   "mtime": 1794420376759.9019,
+   "preview": "2026-11-11T18:29:03.988Z"
+  },
+  "/pt-pt/fragments/inspire-se/portugal-o-pais-onde-o-sol-mora": {
+   "uploaded": "2026-11-11T18:29:07.638Z",
+   "mtime": 1794420376751.0713,
+   "preview": "2026-11-11T18:29:10.167Z"
+  },
+  "/pt-pt/fragments/inspire-se/que-segredos-guarda-brasilia": {
+   "uploaded": "2026-11-11T18:29:12.474Z",
+   "mtime": 1794420376716.536,
+   "preview": "2026-11-11T18:29:15.271Z"
+  },
+  "/pt-pt/fragments/inspire-se/recife-e-olinda-irmas-banhadas-pelo-atlantico": {
+   "uploaded": "2026-11-11T18:29:17.219Z",
+   "mtime": 1794420376783.1812,
+   "preview": "2026-11-11T18:29:19.621Z"
+  },
+  "/pt-pt/fragments/inspire-se/reiquiavique": {
+   "uploaded": "2026-11-11T18:29:21.596Z",
+   "mtime": 1794420376791.4585,
+   "preview": "2026-11-11T18:29:23.531Z"
+  },
+  "/pt-pt/fragments/inspire-se/roma-nao-foi-feita-num-milenio": {
+   "uploaded": "2026-11-11T18:29:25.939Z",
+   "mtime": 1794420376761.177,
+   "preview": "2026-11-11T18:29:28.085Z"
+  },
+  "/pt-pt/fragments/inspire-se/rota-das-aldeias-historicas-de-portugal": {
+   "uploaded": "2026-11-11T18:29:30.598Z",
+   "mtime": 1794420376721.2673,
+   "preview": "2026-11-11T18:29:32.777Z"
+  },
+  "/pt-pt/fragments/inspire-se/sabores-tipicamente-portugueses": {
+   "uploaded": "2026-11-11T18:29:34.745Z",
+   "mtime": 1794420376769.119,
+   "preview": "2026-11-11T18:29:37.014Z"
+  },
+  "/pt-pt/fragments/inspire-se/salvador-cenarios-que-falam-por-si": {
+   "uploaded": "2026-11-11T18:29:39.409Z",
+   "mtime": 1794420376715.257,
+   "preview": "2026-11-11T18:29:41.857Z"
+  },
+  "/pt-pt/fragments/inspire-se/santiago-de-compostela-caminhos-antigos-e-novos": {
+   "uploaded": "2026-11-11T18:29:43.871Z",
+   "mtime": 1794420376736.1787,
+   "preview": "2026-11-11T18:29:46.407Z"
+  },
+  "/pt-pt/fragments/inspire-se/sao-vicente-ilha-das-artes-e-do-bem-receber": {
+   "uploaded": "2026-11-11T18:29:48.340Z",
+   "mtime": 1794420376778.227,
+   "preview": "2026-11-11T18:29:50.515Z"
+  },
+  "/pt-pt/fragments/inspire-se/sempre-em-festa": {
+   "uploaded": "2026-11-11T18:29:53.127Z",
+   "mtime": 1794420376744.683,
+   "preview": "2026-11-11T18:29:55.336Z"
+  },
+  "/pt-pt/fragments/inspire-se/serra-da-estrela-no-topo-do-mundo": {
+   "uploaded": "2026-11-11T18:29:57.328Z",
+   "mtime": 1794420376773.682,
+   "preview": "2026-11-11T18:29:59.107Z"
+  },
+  "/pt-pt/fragments/inspire-se/sintra-mistica-vizinha-de-lisboa": {
+   "uploaded": "2026-11-11T18:30:02.592Z",
+   "mtime": 1794420376770.1165,
+   "preview": "2026-11-11T18:30:05.112Z"
+  },
+  "/pt-pt/fragments/inspire-se/tomar-cidade-templaria": {
+   "uploaded": "2026-11-11T18:30:07.611Z",
+   "mtime": 1794420376714.7715,
+   "preview": "2026-11-11T18:30:10.114Z"
+  },
+  "/pt-pt/fragments/inspire-se/top-12-de-recife": {
+   "uploaded": "2026-11-11T18:30:12.388Z",
+   "mtime": 1794420376776.5164,
+   "preview": "2026-11-11T18:31:19.432Z"
+  },
+  "/pt-pt/fragments/inspire-se/um-sonho-cancun-e-tudo-o-que-a-rodeia": {
+   "uploaded": "2026-11-11T18:30:22.898Z",
+   "mtime": 1794420376705.9988,
+   "preview": "2026-11-11T18:30:25.632Z"
+  },
+  "/pt-pt/fragments/inspire-se/uma-aventura-pela-en-2": {
+   "uploaded": "2026-11-11T18:30:28.183Z",
+   "mtime": 1794420376732.5994,
+   "preview": "2026-11-11T18:30:30.391Z"
+  },
+  "/pt-pt/fragments/inspire-se/valencia-uma-festa-para-os-sentidos": {
+   "uploaded": "2026-11-11T18:30:32.540Z",
+   "mtime": 1794420376777.5466,
+   "preview": "2026-11-11T18:30:35.269Z"
+  },
+  "/pt-pt/fragments/inspire-se/vamos-a-praia-multidestino": {
+   "uploaded": "2026-11-11T18:30:37.353Z",
+   "mtime": 1794420376764.7363,
+   "preview": "2026-11-11T18:30:39.875Z"
+  },
+  "/pt-pt/fragments/inspire-se/varsovia-um-rio-que-divide-a-historia": {
+   "uploaded": "2026-11-11T18:30:42.113Z",
+   "mtime": 1794420376790.7788,
+   "preview": "2026-11-11T18:30:44.651Z"
+  },
+  "/pt-pt/fragments/inspire-se/verao-de-sonho-nas-ilhas-espanholas": {
+   "uploaded": "2026-11-11T18:30:47.220Z",
+   "mtime": 1794420376780.733,
+   "preview": "2026-11-11T18:30:49.338Z"
+  },
+  "/pt-pt/fragments/inspire-se/viajar-de-aviao-com-criancas": {
+   "uploaded": "2026-11-11T18:30:51.508Z",
+   "mtime": 1794420376776.998,
+   "preview": "2026-11-11T18:30:53.664Z"
+  },
+  "/pt-pt/fragments/inspire-se/viena-o-paraiso-dos-melomanos": {
+   "uploaded": "2026-11-11T18:30:55.579Z",
+   "mtime": 1794420376713.7625,
+   "preview": "2026-11-11T18:30:57.688Z"
+  },
+  "/pt-pt/fragments/inspire-se/vigo-um-lugar-que-sabe-a-mar": {
+   "uploaded": "2026-11-11T18:31:00.497Z",
+   "mtime": 1794420376792.2883,
+   "preview": "2026-11-11T18:31:02.252Z"
+  },
+  "/pt-pt/fragments/inspire-se/viver-e-dancar-em-sevilha": {
+   "uploaded": "2026-11-11T18:31:04.608Z",
+   "mtime": 1794420376705.0737,
+   "preview": "2026-11-11T18:31:07.156Z"
+  },
+  "/pt-pt/fragments/inspire-se/washington-d-c-mergulho-direto-na-historia": {
+   "uploaded": "2026-11-11T18:31:09.365Z",
+   "mtime": 1794420376752.2993,
+   "preview": "2026-11-11T18:31:11.447Z"
+  },
+  "/pt-br/fragments/inspire-se/1-dia-pelo-romantismo-de-toulouse": {
+   "uploaded": "2026-11-11T18:32:08.775Z",
+   "mtime": 1794420376875.9348,
+   "preview": "2026-11-11T18:32:11.173Z"
+  },
+  "/pt-br/fragments/inspire-se/10-basicos-de-salvador-da-bahia": {
+   "uploaded": "2026-11-11T18:32:13.094Z",
+   "mtime": 1794420376843.3145,
+   "preview": "2026-11-11T18:32:15.686Z"
+  },
+  "/pt-br/fragments/inspire-se/10-coisas-a-fazer-em-porto-alegre": {
+   "uploaded": "2026-11-11T18:32:17.660Z",
+   "mtime": 1794420376877.6213,
+   "preview": "2026-11-11T18:32:20.099Z"
+  },
+  "/pt-br/fragments/inspire-se/10-simbolos-de-manchester": {
+   "uploaded": "2026-11-11T18:32:21.880Z",
+   "mtime": 1794420376811.3582,
+   "preview": "2026-11-11T18:32:23.921Z"
+  },
+  "/pt-br/fragments/inspire-se/2-dias-na-bolonha-medieval": {
+   "uploaded": "2026-11-11T18:32:25.902Z",
+   "mtime": 1794420376824.5051,
+   "preview": "2026-11-11T18:32:28.305Z"
+  },
+  "/pt-br/fragments/inspire-se/3-atracoes-culturais-que-nao-pode-perder-em-recife": {
+   "uploaded": "2026-11-11T18:32:30.331Z",
+   "mtime": 1794420376815.796,
+   "preview": "2026-11-11T18:32:32.585Z"
+  },
+  "/pt-br/fragments/inspire-se/3-atracoes-emblematicas-que-nao-pode-perder-em-dublin": {
+   "uploaded": "2026-11-11T18:32:34.650Z",
+   "mtime": 1794420376861.0754,
+   "preview": "2026-11-11T18:32:36.579Z"
+  },
+  "/pt-br/fragments/inspire-se/3-lugares-fora-da-caixa-para-conhecer-em-viena": {
+   "uploaded": "2026-11-11T18:32:39.485Z",
+   "mtime": 1794420376798.603,
+   "preview": "2026-11-11T18:32:41.993Z"
+  },
+  "/pt-br/fragments/inspire-se/3-lugares-no-subsolo-para-explorar-em-napoles": {
+   "uploaded": "2026-11-11T18:32:43.741Z",
+   "mtime": 1794420376845.716,
+   "preview": "2026-11-11T18:32:46.241Z"
+  },
+  "/pt-br/fragments/inspire-se/3-mercados-de-natal-que-nao-pode-perder-na-belgica": {
+   "uploaded": "2026-11-11T18:32:48.092Z",
+   "mtime": 1794420376874.2227,
+   "preview": "2026-11-11T18:32:50.340Z"
+  },
+  "/pt-br/fragments/inspire-se/3-praias-que-tem-mesmo-de-conhecer-em-fernando-de-noronha": {
+   "uploaded": "2026-11-11T18:32:52.301Z",
+   "mtime": 1794420376831.074,
+   "preview": "2026-11-11T18:32:55.414Z"
+  },
+  "/pt-br/fragments/inspire-se/3-trilhos-que-tem-mesmo-de-fazer-em-tenerife": {
+   "uploaded": "2026-11-11T18:32:57.606Z",
+   "mtime": 1794420376878.2327,
+   "preview": "2026-11-11T18:32:59.780Z"
+  },
+  "/pt-br/fragments/inspire-se/4-cenotes-que-nao-pode-perder-perto-de-cancun": {
+   "uploaded": "2026-11-11T18:33:01.512Z",
+   "mtime": 1794420376847.4028,
+   "preview": "2026-11-11T18:33:03.720Z"
+  },
+  "/pt-br/fragments/inspire-se/4-faces-da-mesma-escandinavia": {
+   "uploaded": "2026-11-11T18:33:05.548Z",
+   "mtime": 1794420376828.6594,
+   "preview": "2026-11-11T18:33:08.017Z"
+  },
+  "/pt-br/fragments/inspire-se/5-atracoes-em-belem-do-para": {
+   "uploaded": "2026-11-11T18:33:10.638Z",
+   "mtime": 1794420376810.7886,
+   "preview": "2026-11-11T18:33:13.209Z"
+  },
+  "/pt-br/fragments/inspire-se/5-locais-que-nao-pode-perder-em-toronto": {
+   "uploaded": "2026-11-11T18:33:15.183Z",
+   "mtime": 1794420376872.5347,
+   "preview": "2026-11-11T18:33:17.651Z"
+  },
+  "/pt-br/fragments/inspire-se/5-lugares-imperdiveis-na-guine-bissau": {
+   "uploaded": "2026-11-11T18:33:19.524Z",
+   "mtime": 1794420376848.2786,
+   "preview": "2026-11-11T18:33:21.889Z"
+  },
+  "/pt-br/fragments/inspire-se/a-boleia-dos-festivais-de-verao-na-europa": {
+   "uploaded": "2026-11-11T18:33:24.198Z",
+   "mtime": 1794420376858.2595,
+   "preview": "2026-11-11T18:33:26.533Z"
+  },
+  "/pt-br/fragments/inspire-se/a-cidade-das-cem-torres": {
+   "uploaded": "2026-11-11T18:33:28.645Z",
+   "mtime": 1794420376854.2134,
+   "preview": "2026-11-11T18:33:31.402Z"
+  },
+  "/pt-br/fragments/inspire-se/a-descoberta-de-oviedo-gijon-e-aviles": {
+   "uploaded": "2026-11-11T18:33:33.364Z",
+   "mtime": 1794420376855.8625,
+   "preview": "2026-11-11T18:33:35.690Z"
+  },
+  "/pt-br/fragments/inspire-se/a-descoberta-dos-museus-de-florenca": {
+   "uploaded": "2026-11-11T18:33:37.594Z",
+   "mtime": 1794420376820.2158,
+   "preview": "2026-11-11T18:33:40.618Z"
+  },
+  "/pt-br/fragments/inspire-se/a-filha-do-iluminismo": {
+   "uploaded": "2026-11-11T18:33:42.415Z",
+   "mtime": 1794420376815.06,
+   "preview": "2026-11-11T18:33:45.704Z"
+  },
+  "/pt-br/fragments/inspire-se/a-tradicional-e-vanguardista-agadir": {
+   "uploaded": "2026-11-11T18:33:47.666Z",
+   "mtime": 1794420376822.9888,
+   "preview": "2026-11-11T18:33:49.968Z"
+  },
+  "/pt-br/fragments/inspire-se/alagoas-imenso-azul": {
+   "uploaded": "2026-11-11T18:33:51.813Z",
+   "mtime": 1794420376857.5022,
+   "preview": "2026-11-11T18:33:54.525Z"
+  },
+  "/pt-br/fragments/inspire-se/aldeias-no-interior-de-portugal-tesouros-prontos-a-descobrir": {
+   "uploaded": "2026-11-11T18:33:56.342Z",
+   "mtime": 1794420376832.4756,
+   "preview": "2026-11-11T18:33:58.588Z"
+  },
+  "/pt-br/fragments/inspire-se/alemanha-berlim-maior-que-a-vida": {
+   "uploaded": "2026-11-11T18:34:00.543Z",
+   "mtime": 1794420376861.752,
+   "preview": "2026-11-11T18:34:02.596Z"
+  },
+  "/pt-br/fragments/inspire-se/algarve-um-sonho-de-verao": {
+   "uploaded": "2026-11-11T18:34:04.423Z",
+   "mtime": 1794420376835.2742,
+   "preview": "2026-11-11T18:36:20.363Z"
+  },
+  "/pt-br/fragments/inspire-se/amesterdao-labirintos-de-agua": {
+   "uploaded": "2026-11-11T18:34:17.545Z",
+   "mtime": 1794420376817.873,
+   "preview": "2026-11-11T18:34:19.836Z"
+  },
+  "/pt-br/fragments/inspire-se/as-1001-surpresas-de-maputo": {
+   "uploaded": "2026-11-11T18:34:21.766Z",
+   "mtime": 1794420376837.7122,
+   "preview": "2026-11-11T18:34:24.312Z"
+  },
+  "/pt-br/fragments/inspire-se/as-5-melhores-coisas-para-fazer-em-alicante": {
+   "uploaded": "2026-11-11T18:34:26.180Z",
+   "mtime": 1794420376879.31,
+   "preview": "2026-11-11T18:34:28.387Z"
+  },
+  "/pt-br/fragments/inspire-se/as-sete-colinas-de-lisboa": {
+   "uploaded": "2026-11-11T18:34:30.394Z",
+   "mtime": 1794420376849.7156,
+   "preview": "2026-11-11T18:34:32.578Z"
+  },
+  "/pt-br/fragments/inspire-se/belem-colonial-misteriosa-tropical": {
+   "uploaded": "2026-11-11T18:34:34.463Z",
+   "mtime": 1794420376867.0117,
+   "preview": "2026-11-11T18:34:37.075Z"
+  },
+  "/pt-br/fragments/inspire-se/belo-horizonte-uma-cidade-mais-que-completa": {
+   "uploaded": "2026-11-11T18:34:39.268Z",
+   "mtime": 1794420376823.7212,
+   "preview": "2026-11-11T18:34:41.497Z"
+  },
+  "/pt-br/fragments/inspire-se/bicicleta-em-copenhaga": {
+   "uploaded": "2026-11-11T18:34:43.795Z",
+   "mtime": 1794420376836.0842,
+   "preview": "2026-11-11T18:34:46.219Z"
+  },
+  "/pt-br/fragments/inspire-se/boston-uma-cidade-fora-do-comum": {
+   "uploaded": "2026-11-11T18:34:48.325Z",
+   "mtime": 1794420376830.2954,
+   "preview": "2026-11-11T18:34:50.930Z"
+  },
+  "/pt-br/fragments/inspire-se/braga-uma-cidade-com-vitalidade-historica": {
+   "uploaded": "2026-11-11T18:34:52.939Z",
+   "mtime": 1794420376867.8442,
+   "preview": "2026-11-11T18:34:55.206Z"
+  },
+  "/pt-br/fragments/inspire-se/carnaval-no-mundo": {
+   "uploaded": "2026-11-11T18:34:56.970Z",
+   "mtime": 1794420376825.769,
+   "preview": "2026-11-11T18:34:59.308Z"
+  },
+  "/pt-br/fragments/inspire-se/casablanca-o-coracao-marroquino": {
+   "uploaded": "2026-11-11T18:35:01.272Z",
+   "mtime": 1794420376816.539,
+   "preview": "2026-11-11T18:35:03.386Z"
+  },
+  "/pt-br/fragments/inspire-se/celebriamo-veneza": {
+   "uploaded": "2026-11-11T18:35:05.189Z",
+   "mtime": 1794420376852.0693,
+   "preview": "2026-11-11T18:35:07.492Z"
+  },
+  "/pt-br/fragments/inspire-se/chicago-verticalidade": {
+   "uploaded": "2026-11-11T18:35:09.716Z",
+   "mtime": 1794420376865.3071,
+   "preview": "2026-11-11T18:35:11.502Z"
+  },
+  "/pt-br/fragments/inspire-se/como-um-conto-de-fadas": {
+   "uploaded": "2026-11-11T18:35:13.525Z",
+   "mtime": 1794420376837.1155,
+   "preview": "2026-11-11T18:35:15.769Z"
+  },
+  "/pt-br/fragments/inspire-se/conheca-as-10-melhores-praias-do-ceara": {
+   "uploaded": "2026-11-11T18:35:17.625Z",
+   "mtime": 1794420376855.1824,
+   "preview": "2026-11-11T18:35:20.100Z"
+  },
+  "/pt-br/fragments/inspire-se/corunha-a-historia-que-os-edificios-contam": {
+   "uploaded": "2026-11-11T18:35:21.927Z",
+   "mtime": 1794420376826.8584,
+   "preview": "2026-11-11T18:35:24.077Z"
+  },
+  "/pt-br/fragments/inspire-se/cultura-a-solta-nas-ruas-de-sao-paulo": {
+   "uploaded": "2026-11-11T18:35:26.266Z",
+   "mtime": 1794420376856.408,
+   "preview": "2026-11-11T18:35:28.550Z"
+  },
+  "/pt-br/fragments/inspire-se/da-rua-a-discoteca": {
+   "uploaded": "2026-11-11T18:35:30.607Z",
+   "mtime": 1794420376829.3284,
+   "preview": "2026-11-11T18:35:32.951Z"
+  },
+  "/pt-br/fragments/inspire-se/de-malaga-com-paixao": {
+   "uploaded": "2026-11-11T18:35:35.090Z",
+   "mtime": 1794420376848.908,
+   "preview": "2026-11-11T18:35:37.244Z"
+  },
+  "/pt-br/fragments/inspire-se/descubra-a-essencia-do-porto-e-norte-de-portugal": {
+   "uploaded": "2026-11-11T18:35:39.092Z",
+   "mtime": 1794420376826.29,
+   "preview": "2026-11-11T18:35:41.297Z"
+  },
+  "/pt-br/fragments/inspire-se/destinos-romanticos-multidestino": {
+   "uploaded": "2026-11-11T18:35:43.337Z",
+   "mtime": 1794420376874.8506,
+   "preview": "2026-11-11T18:35:45.285Z"
+  },
+  "/pt-br/fragments/inspire-se/doce-balanco-a-caminho-do-mar": {
+   "uploaded": "2026-11-11T18:35:47.118Z",
+   "mtime": 1794420376819.7278,
+   "preview": "2026-11-11T18:35:49.182Z"
+  },
+  "/pt-br/fragments/inspire-se/dois-pequenos-paraisos-na-terra-sao-tome-e-principe": {
+   "uploaded": "2026-11-11T18:35:51.151Z",
+   "mtime": 1794420376856.8875,
+   "preview": "2026-11-11T18:35:53.825Z"
+  },
+  "/pt-br/fragments/inspire-se/entre-os-rios-a-arte-e-a-ficcao": {
+   "uploaded": "2026-11-11T18:35:55.713Z",
+   "mtime": 1794420376881.2002,
+   "preview": "2026-11-11T18:35:57.908Z"
+  },
+  "/pt-br/fragments/inspire-se/fatima-e-os-seus-misterios": {
+   "uploaded": "2026-11-11T18:36:00.068Z",
+   "mtime": 1794420376880.2363,
+   "preview": "2026-11-11T18:36:02.336Z"
+  },
+  "/pt-br/fragments/inspire-se/fogo-a-ilha-em-forma-de-vulcao": {
+   "uploaded": "2026-11-11T18:36:04.722Z",
+   "mtime": 1794420376853.463,
+   "preview": "2026-11-11T18:36:06.657Z"
+  },
+  "/pt-br/fragments/inspire-se/guimaraes-o-berco-de-portugal": {
+   "uploaded": "2026-11-11T18:36:08.625Z",
+   "mtime": 1794420376821.475,
+   "preview": "2026-11-11T18:36:12.221Z"
+  },
+  "/pt-br/fragments/inspire-se/historias-cores-e-gentes-da-ilha-terceira": {
+   "uploaded": "2026-11-11T18:37:09.689Z",
+   "mtime": 1794420376812.4646,
+   "preview": "2026-11-11T18:37:12.242Z"
+  },
+  "/pt-br/fragments/inspire-se/ilha-de-sao-miguel-onde-as-tradicoes-marcam-o-presente": {
+   "uploaded": "2026-11-11T18:37:13.960Z",
+   "mtime": 1794420376799.6829,
+   "preview": "2026-11-11T18:37:15.980Z"
+  },
+  "/pt-br/fragments/inspire-se/jardins-a-beira-do-lago": {
+   "uploaded": "2026-11-11T18:37:18.078Z",
+   "mtime": 1794420376818.4265,
+   "preview": "2026-11-11T18:37:20.724Z"
+  },
+  "/pt-br/fragments/inspire-se/las-fallas-valencia-em-fogo": {
+   "uploaded": "2026-11-11T18:37:22.709Z",
+   "mtime": 1794420376868.3564,
+   "preview": "2026-11-11T18:37:25.329Z"
+  },
+  "/pt-br/fragments/inspire-se/londres-historica-vibrante-e-cosmopolita": {
+   "uploaded": "2026-11-11T18:37:27.984Z",
+   "mtime": 1794420376798.1484,
+   "preview": "2026-11-11T18:37:30.351Z"
+  },
+  "/pt-br/fragments/inspire-se/luanda-danca-numa-angola-que-canta": {
+   "uploaded": "2026-11-11T18:37:32.497Z",
+   "mtime": 1794420376811.9487,
+   "preview": "2026-11-11T18:37:34.374Z"
+  },
+  "/pt-br/fragments/inspire-se/madeira-em-movimento": {
+   "uploaded": "2026-11-11T18:37:36.350Z",
+   "mtime": 1794420376808.3313,
+   "preview": "2026-11-11T18:37:38.727Z"
+  },
+  "/pt-br/fragments/inspire-se/madrid-a-alegria-de-viver": {
+   "uploaded": "2026-11-11T18:37:41.413Z",
+   "mtime": 1794420376799.168,
+   "preview": "2026-11-11T18:37:43.580Z"
+  },
+  "/pt-br/fragments/inspire-se/marraquexe-viagem-a-um-universo-fascinante": {
+   "uploaded": "2026-11-11T18:37:45.431Z",
+   "mtime": 1794420376819.1274,
+   "preview": "2026-11-11T18:37:48.082Z"
+  },
+  "/pt-br/fragments/inspire-se/marrocos-errachidia-ouarzazate": {
+   "uploaded": "2026-11-11T18:37:49.886Z",
+   "mtime": 1794420376831.7324,
+   "preview": "2026-11-11T18:37:52.385Z"
+  },
+  "/pt-br/fragments/inspire-se/mexer-ate-cair": {
+   "uploaded": "2026-11-11T18:37:56.331Z",
+   "mtime": 1794420376822.2773,
+   "preview": "2026-11-11T18:37:58.800Z"
+  },
+  "/pt-br/fragments/inspire-se/mocambique-o-mais-belo-litoral-de-africa": {
+   "uploaded": "2026-11-11T18:38:00.719Z",
+   "mtime": 1794420376876.446,
+   "preview": "2026-11-11T18:38:02.861Z"
+  },
+  "/pt-br/fragments/inspire-se/na-rota-da-pizza": {
+   "uploaded": "2026-11-11T18:38:05.442Z",
+   "mtime": 1794420376877.0955,
+   "preview": "2026-11-11T18:38:08.177Z"
+  },
+  "/pt-br/fragments/inspire-se/natal-a-cidade-do-sol": {
+   "uploaded": "2026-11-11T18:38:11.012Z",
+   "mtime": 1794420376834.468,
+   "preview": "2026-11-11T18:38:48.376Z"
+  },
+  "/pt-br/fragments/inspire-se/no-trilho-dos-excentricos-visionarios": {
+   "uploaded": "2026-11-11T18:38:50.599Z",
+   "mtime": 1794420376878.8896,
+   "preview": "2026-11-11T18:38:53.025Z"
+  },
+  "/pt-br/fragments/inspire-se/noruega-existe-mesmo-um-pais-assim": {
+   "uploaded": "2026-11-11T18:38:55.187Z",
+   "mtime": 1794420376846.9229,
+   "preview": "2026-11-11T18:38:57.350Z"
+  },
+  "/pt-br/fragments/inspire-se/o-glamour-de-nice-e-da-riviera-francesa": {
+   "uploaded": "2026-11-11T18:38:59.174Z",
+   "mtime": 1794420376800.775,
+   "preview": "2026-11-11T18:39:01.998Z"
+  },
+  "/pt-br/fragments/inspire-se/o-natal-em-zurique": {
+   "uploaded": "2026-11-11T18:39:04.418Z",
+   "mtime": 1794420376862.539,
+   "preview": "2026-11-11T18:39:07.037Z"
+  },
+  "/pt-br/fragments/inspire-se/o-outro-lado-da-maca": {
+   "uploaded": "2026-11-11T18:39:08.783Z",
+   "mtime": 1794420376801.8538,
+   "preview": "2026-11-11T18:39:11.254Z"
+  },
+  "/pt-br/fragments/inspire-se/o-que-fazer-em-sao-paulo": {
+   "uploaded": "2026-11-11T18:39:13.330Z",
+   "mtime": 1794420376804.6338,
+   "preview": "2026-11-11T18:39:15.617Z"
+  },
+  "/pt-br/fragments/inspire-se/o-que-tem-as-praias-do-brasil": {
+   "uploaded": "2026-11-11T18:39:17.527Z",
+   "mtime": 1794420376846.2039,
+   "preview": "2026-11-11T18:39:19.813Z"
+  },
+  "/pt-br/fragments/inspire-se/obidos-uma-das-7-maravilhas-de-portugal": {
+   "uploaded": "2026-11-11T18:39:21.639Z",
+   "mtime": 1794420376838.2666,
+   "preview": "2026-11-11T18:39:23.708Z"
+  },
+  "/pt-br/fragments/inspire-se/paisagens-de-sal": {
+   "uploaded": "2026-11-11T18:39:25.661Z",
+   "mtime": 1794420376843.995,
+   "preview": "2026-11-11T18:39:27.950Z"
+  },
+  "/pt-br/fragments/inspire-se/paraiso-em-tons-de-azul-e-dourado": {
+   "uploaded": "2026-11-11T18:39:29.917Z",
+   "mtime": 1794420376833.2292,
+   "preview": "2026-11-11T18:39:32.451Z"
+  },
+  "/pt-br/fragments/inspire-se/paraisos-da-europa": {
+   "uploaded": "2026-11-11T18:39:34.314Z",
+   "mtime": 1794420376817.119,
+   "preview": "2026-11-11T18:39:36.169Z"
+  },
+  "/pt-br/fragments/inspire-se/passeio-pela-europa-vinhateira": {
+   "uploaded": "2026-11-11T18:39:38.264Z",
+   "mtime": 1794420376873.2346,
+   "preview": "2026-11-11T18:39:40.758Z"
+  },
+  "/pt-br/fragments/inspire-se/passeio-por-lisboa": {
+   "uploaded": "2026-11-11T18:39:42.495Z",
+   "mtime": 1794420376859.4119,
+   "preview": "2026-11-11T18:39:44.487Z"
+  },
+  "/pt-br/fragments/inspire-se/porto-onde-queremos-voltar-sempre": {
+   "uploaded": "2026-11-11T18:39:46.336Z",
+   "mtime": 1794420376850.2214,
+   "preview": "2026-11-11T18:39:48.370Z"
+  },
+  "/pt-br/fragments/inspire-se/portugal-o-pais-onde-o-sol-mora": {
+   "uploaded": "2026-11-11T18:39:50.393Z",
+   "mtime": 1794420376838.9197,
+   "preview": "2026-11-11T18:39:52.960Z"
+  },
+  "/pt-br/fragments/inspire-se/que-segredos-guarda-brasilia": {
+   "uploaded": "2026-11-11T18:39:55.038Z",
+   "mtime": 1794420376808.9001,
+   "preview": "2026-11-11T18:39:57.018Z"
+  },
+  "/pt-br/fragments/inspire-se/recife-e-olinda-irmas-banhadas-pelo-atlantico": {
+   "uploaded": "2026-11-11T18:39:58.808Z",
+   "mtime": 1794420376875.3313,
+   "preview": "2026-11-11T18:40:01.134Z"
+  },
+  "/pt-br/fragments/inspire-se/reiquiavique": {
+   "uploaded": "2026-11-11T18:40:03.343Z",
+   "mtime": 1794420376882.4792,
+   "preview": "2026-11-11T18:40:05.511Z"
+  },
+  "/pt-br/fragments/inspire-se/roma-nao-foi-feita-num-milenio": {
+   "uploaded": "2026-11-11T18:40:07.370Z",
+   "mtime": 1794420376851.5469,
+   "preview": "2026-11-11T18:40:09.753Z"
+  },
+  "/pt-br/fragments/inspire-se/rota-das-aldeias-historicas-de-portugal": {
+   "uploaded": "2026-11-11T18:40:11.704Z",
+   "mtime": 1794420376814.4705,
+   "preview": "2026-11-11T18:40:14.342Z"
+  },
+  "/pt-br/fragments/inspire-se/sabores-tipicamente-portugueses": {
+   "uploaded": "2026-11-11T18:40:16.160Z",
+   "mtime": 1794420376858.9055,
+   "preview": "2026-11-11T18:40:18.365Z"
+  },
+  "/pt-br/fragments/inspire-se/salvador-cenarios-que-falam-por-si": {
+   "uploaded": "2026-11-11T18:40:20.372Z",
+   "mtime": 1794420376807.2961,
+   "preview": "2026-11-11T18:40:23.296Z"
+  },
+  "/pt-br/fragments/inspire-se/santiago-de-compostela-caminhos-antigos-e-novos": {
+   "uploaded": "2026-11-11T18:40:25.330Z",
+   "mtime": 1794420376827.5164,
+   "preview": "2026-11-11T18:40:27.542Z"
+  },
+  "/pt-br/fragments/inspire-se/sao-vicente-ilha-das-artes-e-do-bem-receber": {
+   "uploaded": "2026-11-11T18:40:29.484Z",
+   "mtime": 1794420376872.038,
+   "preview": "2026-11-11T18:40:31.743Z"
+  },
+  "/pt-br/fragments/inspire-se/sempre-em-festa": {
+   "uploaded": "2026-11-11T18:40:33.504Z",
+   "mtime": 1794420376833.9353,
+   "preview": "2026-11-11T18:40:35.511Z"
+  },
+  "/pt-br/fragments/inspire-se/serra-da-estrela-no-topo-do-mundo": {
+   "uploaded": "2026-11-11T18:40:37.494Z",
+   "mtime": 1794420376866.4014,
+   "preview": "2026-11-11T18:40:39.517Z"
+  },
+  "/pt-br/fragments/inspire-se/sintra-mistica-vizinha-de-lisboa": {
+   "uploaded": "2026-11-11T18:40:41.742Z",
+   "mtime": 1794420376860.6125,
+   "preview": "2026-11-11T18:40:44.537Z"
+  },
+  "/pt-br/fragments/inspire-se/tomar-cidade-templaria": {
+   "uploaded": "2026-11-11T18:40:46.569Z",
+   "mtime": 1794420376806.6172,
+   "preview": "2026-11-11T18:40:48.782Z"
+  },
+  "/pt-br/fragments/inspire-se/top-12-de-recife": {
+   "uploaded": "2026-11-11T18:40:50.721Z",
+   "mtime": 1794420376869.1138,
+   "preview": "2026-11-11T18:40:53.419Z"
+  },
+  "/pt-br/fragments/inspire-se/um-sonho-cancun-e-tudo-o-que-a-rodeia": {
+   "uploaded": "2026-11-11T18:40:55.340Z",
+   "mtime": 1794420376797.5898,
+   "preview": "2026-11-11T18:40:57.941Z"
+  },
+  "/pt-br/fragments/inspire-se/uma-aventura-pela-en-2": {
+   "uploaded": "2026-11-11T18:40:59.805Z",
+   "mtime": 1794420376825.224,
+   "preview": "2026-11-11T18:41:02.192Z"
+  },
+  "/pt-br/fragments/inspire-se/valencia-uma-festa-para-os-sentidos": {
+   "uploaded": "2026-11-11T18:41:04.073Z",
+   "mtime": 1794420376870.9153,
+   "preview": "2026-11-11T18:41:05.949Z"
+  },
+  "/pt-br/fragments/inspire-se/vamos-a-praia-multidestino": {
+   "uploaded": "2026-11-11T18:41:08.801Z",
+   "mtime": 1794420376854.643,
+   "preview": "2026-11-11T18:41:11.107Z"
+  },
+  "/pt-br/fragments/inspire-se/varsovia-um-rio-que-divide-a-historia": {
+   "uploaded": "2026-11-11T18:41:12.895Z",
+   "mtime": 1794420376881.881,
+   "preview": "2026-11-11T18:41:14.991Z"
+  },
+  "/pt-br/fragments/inspire-se/verao-de-sonho-nas-ilhas-espanholas": {
+   "uploaded": "2026-11-11T18:41:16.831Z",
+   "mtime": 1794420376873.7727,
+   "preview": "2026-11-11T18:41:18.922Z"
+  },
+  "/pt-br/fragments/inspire-se/viajar-de-aviao-com-criancas": {
+   "uploaded": "2026-11-11T18:41:20.711Z",
+   "mtime": 1794420376870.131,
+   "preview": "2026-11-11T18:41:23.315Z"
+  },
+  "/pt-br/fragments/inspire-se/viena-o-paraiso-dos-melomanos": {
+   "uploaded": "2026-11-11T18:41:25.101Z",
+   "mtime": 1794420376805.3384,
+   "preview": "2026-11-11T18:41:26.948Z"
+  },
+  "/pt-br/fragments/inspire-se/vigo-um-lugar-que-sabe-a-mar": {
+   "uploaded": "2026-11-11T18:41:28.848Z",
+   "mtime": 1794420376883.275,
+   "preview": "2026-11-11T18:41:30.880Z"
+  },
+  "/pt-br/fragments/inspire-se/viver-e-dancar-em-sevilha": {
+   "uploaded": "2026-11-11T18:41:32.933Z",
+   "mtime": 1794420376796.8386,
+   "preview": "2026-11-11T18:41:35.124Z"
+  },
+  "/pt-br/fragments/inspire-se/washington-d-c-mergulho-direto-na-historia": {
+   "uploaded": "2026-11-11T18:41:36.865Z",
+   "mtime": 1794420376840.1716,
+   "preview": "2026-11-11T18:41:39.060Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/1-dia-pelo-romantismo-de-toulouse": {
+   "uploaded": "2026-11-11T18:42:30.492Z",
+   "mtime": 1794420375523.1172,
+   "preview": "2026-11-11T18:42:32.761Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/10-basicos-de-salvador-da-bahia": {
+   "uploaded": "2026-11-11T18:42:34.712Z",
+   "mtime": 1794420375485.838,
+   "preview": "2026-11-11T18:42:37.022Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/10-coisas-a-fazer-em-porto-alegre": {
+   "uploaded": "2026-11-11T18:42:38.934Z",
+   "mtime": 1794420375527.0356,
+   "preview": "2026-11-11T18:42:40.779Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/10-simbolos-de-manchester": {
+   "uploaded": "2026-11-11T18:42:42.553Z",
+   "mtime": 1794420375449.3574,
+   "preview": "2026-11-11T18:42:45.021Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/2-dias-na-bolonha-medieval": {
+   "uploaded": "2026-11-11T18:42:46.971Z",
+   "mtime": 1794420375467.3801,
+   "preview": "2026-11-11T18:42:49.061Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/3-atracoes-culturais-que-nao-pode-perder-em-recife": {
+   "uploaded": "2026-11-11T18:42:51.274Z",
+   "mtime": 1794420375454.0444,
+   "preview": "2026-11-11T18:42:53.779Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/3-atracoes-emblematicas-que-nao-pode-perder-em-dublin": {
+   "uploaded": "2026-11-11T18:42:55.486Z",
+   "mtime": 1794420375504.203,
+   "preview": "2026-11-11T18:42:59.277Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/3-lugares-fora-da-caixa-para-conhecer-em-viena": {
+   "uploaded": "2026-11-11T18:43:03.368Z",
+   "mtime": 1794420375439.7402,
+   "preview": "2026-11-11T18:43:05.637Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/3-lugares-no-subsolo-para-explorar-em-napoles": {
+   "uploaded": "2026-11-11T18:43:07.527Z",
+   "mtime": 1794420375486.8503,
+   "preview": "2026-11-11T18:43:09.682Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/3-mercados-de-natal-que-nao-pode-perder-na-belgica": {
+   "uploaded": "2026-11-11T18:43:11.782Z",
+   "mtime": 1794420375520.4634,
+   "preview": "2026-11-11T18:43:14.900Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/3-praias-que-tem-mesmo-de-conhecer-em-fernando-de-noronha": {
+   "uploaded": "2026-11-11T18:43:16.618Z",
+   "mtime": 1794420375475.6907,
+   "preview": "2026-11-11T18:43:18.747Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/3-trilhos-que-tem-mesmo-de-fazer-em-tenerife": {
+   "uploaded": "2026-11-11T18:43:20.584Z",
+   "mtime": 1794420375528.1677,
+   "preview": "2026-11-11T18:43:23.011Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/4-cenotes-que-nao-pode-perder-perto-de-cancun": {
+   "uploaded": "2026-11-11T18:43:24.832Z",
+   "mtime": 1794420375488.4282,
+   "preview": "2026-11-11T18:43:27.081Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/4-faces-da-mesma-escandinavia": {
+   "uploaded": "2026-11-11T18:43:28.784Z",
+   "mtime": 1794420375472.9854,
+   "preview": "2026-11-11T18:43:31.530Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/5-atracoes-em-belem-do-para": {
+   "uploaded": "2026-11-11T18:43:33.628Z",
+   "mtime": 1794420375448.7405,
+   "preview": "2026-11-11T18:43:35.997Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/5-locais-que-nao-pode-perder-em-toronto": {
+   "uploaded": "2026-11-11T18:43:38.014Z",
+   "mtime": 1794420375517.7036,
+   "preview": "2026-11-11T18:43:40.465Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/5-lugares-imperdiveis-na-guine-bissau": {
+   "uploaded": "2026-11-11T18:43:42.177Z",
+   "mtime": 1794420375489.1353,
+   "preview": "2026-11-11T18:43:44.935Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/a-boleia-dos-festivais-de-verao-na-europa": {
+   "uploaded": "2026-11-11T18:43:47.060Z",
+   "mtime": 1794420375499.199,
+   "preview": "2026-11-11T18:43:49.718Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/a-cidade-das-cem-torres": {
+   "uploaded": "2026-11-11T18:43:51.997Z",
+   "mtime": 1794420375494.66,
+   "preview": "2026-11-11T18:43:54.837Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/a-descoberta-de-oviedo-gijon-e-aviles": {
+   "uploaded": "2026-11-11T18:43:56.803Z",
+   "mtime": 1794420375497.022,
+   "preview": "2026-11-11T18:43:59.114Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/a-descoberta-dos-museus-de-florenca": {
+   "uploaded": "2026-11-11T18:44:01.081Z",
+   "mtime": 1794420375462.174,
+   "preview": "2026-11-11T18:44:04.084Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/a-filha-do-iluminismo": {
+   "uploaded": "2026-11-11T18:44:05.840Z",
+   "mtime": 1794420375453.1904,
+   "preview": "2026-11-11T18:44:08.105Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/a-tradicional-e-vanguardista-agadir": {
+   "uploaded": "2026-11-11T18:44:09.838Z",
+   "mtime": 1794420375465.5144,
+   "preview": "2026-11-11T18:44:11.873Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/alagoas-imenso-azul": {
+   "uploaded": "2026-11-11T18:44:14.313Z",
+   "mtime": 1794420375498.663,
+   "preview": "2026-11-11T18:44:16.587Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/aldeias-no-interior-de-portugal-tesouros-prontos-a-descobrir": {
+   "uploaded": "2026-11-11T18:44:18.422Z",
+   "mtime": 1794420375477.1401,
+   "preview": "2026-11-11T18:44:20.646Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/alemanha-berlim-maior-que-a-vida": {
+   "uploaded": "2026-11-11T18:44:22.528Z",
+   "mtime": 1794420375506.4639,
+   "preview": "2026-11-11T18:44:25.018Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/algarve-um-sonho-de-verao": {
+   "uploaded": "2026-11-11T18:44:26.972Z",
+   "mtime": 1794420375479.7334,
+   "preview": "2026-11-11T18:44:29.050Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/amesterdao-labirintos-de-agua": {
+   "uploaded": "2026-11-11T18:44:30.758Z",
+   "mtime": 1794420375456.844,
+   "preview": "2026-11-11T18:44:33.313Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/as-1001-surpresas-de-maputo": {
+   "uploaded": "2026-11-11T18:44:35.091Z",
+   "mtime": 1794420375483.1292,
+   "preview": "2026-11-11T18:44:37.443Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/as-5-melhores-coisas-para-fazer-em-alicante": {
+   "uploaded": "2026-11-11T18:44:39.463Z",
+   "mtime": 1794420375529.3557,
+   "preview": "2026-11-11T18:44:41.372Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/as-sete-colinas-de-lisboa": {
+   "uploaded": "2026-11-11T18:44:43.260Z",
+   "mtime": 1794420375490.717,
+   "preview": "2026-11-11T18:44:45.006Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/belem-colonial-misteriosa-tropical": {
+   "uploaded": "2026-11-11T18:44:46.989Z",
+   "mtime": 1794420375509.239,
+   "preview": "2026-11-11T18:44:49.466Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/belo-horizonte-uma-cidade-mais-que-completa": {
+   "uploaded": "2026-11-11T18:44:51.368Z",
+   "mtime": 1794420375466.7092,
+   "preview": "2026-11-11T18:44:53.589Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/bicicleta-em-copenhaga": {
+   "uploaded": "2026-11-11T18:44:55.571Z",
+   "mtime": 1794420375481.7412,
+   "preview": "2026-11-11T18:44:57.916Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/boston-uma-cidade-fora-do-comum": {
+   "uploaded": "2026-11-11T18:44:59.659Z",
+   "mtime": 1794420375475.0244,
+   "preview": "2026-11-11T18:45:02.076Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/braga-uma-cidade-com-vitalidade-historica": {
+   "uploaded": "2026-11-11T18:45:04.008Z",
+   "mtime": 1794420375512.194,
+   "preview": "2026-11-11T18:45:06.445Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/carnaval-no-mundo": {
+   "uploaded": "2026-11-11T18:45:08.965Z",
+   "mtime": 1794420375469.458,
+   "preview": "2026-11-11T18:45:11.304Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/casablanca-o-coracao-marroquino": {
+   "uploaded": "2026-11-11T18:45:13.778Z",
+   "mtime": 1794420375454.7664,
+   "preview": "2026-11-11T18:45:16.292Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/celebriamo-veneza": {
+   "uploaded": "2026-11-11T18:45:18.271Z",
+   "mtime": 1794420375493.4458,
+   "preview": "2026-11-11T18:45:20.635Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/chicago-verticalidade": {
+   "uploaded": "2026-11-11T18:45:22.691Z",
+   "mtime": 1794420375507.9072,
+   "preview": "2026-11-11T18:45:25.098Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/como-um-conto-de-fadas": {
+   "uploaded": "2026-11-11T18:45:26.912Z",
+   "mtime": 1794420375482.518,
+   "preview": "2026-11-11T18:45:29.287Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/conheca-as-10-melhores-praias-do-ceara": {
+   "uploaded": "2026-11-11T18:45:31.602Z",
+   "mtime": 1794420375496.0894,
+   "preview": "2026-11-11T18:45:34.176Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/corunha-a-historia-que-os-edificios-contam": {
+   "uploaded": "2026-11-11T18:45:35.994Z",
+   "mtime": 1794420375471.163,
+   "preview": "2026-11-11T18:45:38.421Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/cultura-a-solta-nas-ruas-de-sao-paulo": {
+   "uploaded": "2026-11-11T18:45:41.435Z",
+   "mtime": 1794420375497.6367,
+   "preview": "2026-11-11T18:45:43.582Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/da-rua-a-discoteca": {
+   "uploaded": "2026-11-11T18:45:45.751Z",
+   "mtime": 1794420375474.251,
+   "preview": "2026-11-11T18:45:48.081Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/de-malaga-com-paixao": {
+   "uploaded": "2026-11-11T18:45:49.994Z",
+   "mtime": 1794420375489.9133,
+   "preview": "2026-11-11T18:45:53.318Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/descubra-a-essencia-do-porto-e-norte-de-portugal": {
+   "uploaded": "2026-11-11T18:45:55.276Z",
+   "mtime": 1794420375470.4004,
+   "preview": "2026-11-11T18:45:59.705Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/destinos-romanticos-multidestino": {
+   "uploaded": "2026-11-11T18:46:01.578Z",
+   "mtime": 1794420375521.6575,
+   "preview": "2026-11-11T18:46:04.310Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/doce-balanco-a-caminho-do-mar": {
+   "uploaded": "2026-11-11T18:46:06.210Z",
+   "mtime": 1794420375460.4375,
+   "preview": "2026-11-11T18:46:08.505Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/dois-pequenos-paraisos-na-terra-sao-tome-e-principe": {
+   "uploaded": "2026-11-11T18:46:10.487Z",
+   "mtime": 1794420375498.0752,
+   "preview": "2026-11-11T18:46:12.865Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/entre-os-rios-a-arte-e-a-ficcao": {
+   "uploaded": "2026-11-11T18:46:14.906Z",
+   "mtime": 1794420375530.492,
+   "preview": "2026-11-11T18:46:17.792Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/fatima-e-os-seus-misterios": {
+   "uploaded": "2026-11-11T18:46:20.188Z",
+   "mtime": 1794420375529.8667,
+   "preview": "2026-11-11T18:46:22.788Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/fogo-a-ilha-em-forma-de-vulcao": {
+   "uploaded": "2026-11-11T18:46:24.703Z",
+   "mtime": 1794420375494.0945,
+   "preview": "2026-11-11T18:46:27.814Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/guimaraes-o-berco-de-portugal": {
+   "uploaded": "2026-11-11T18:46:29.559Z",
+   "mtime": 1794420375463.605,
+   "preview": "2026-11-11T18:46:32.017Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/historias-cores-e-gentes-da-ilha-terceira": {
+   "uploaded": "2026-11-11T18:47:19.501Z",
+   "mtime": 1794420375451.1326,
+   "preview": "2026-11-11T18:47:21.942Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/ilha-de-sao-miguel-onde-as-tradicoes-marcam-o-presente": {
+   "uploaded": "2026-11-11T18:47:23.931Z",
+   "mtime": 1794420375440.9253,
+   "preview": "2026-11-11T18:47:26.012Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/jardins-a-beira-do-lago": {
+   "uploaded": "2026-11-11T18:47:28.088Z",
+   "mtime": 1794420375458.025,
+   "preview": "2026-11-11T18:47:30.719Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/las-fallas-valencia-em-fogo": {
+   "uploaded": "2026-11-11T18:47:32.579Z",
+   "mtime": 1794420375513.1023,
+   "preview": "2026-11-11T18:47:34.926Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/londres-historica-vibrante-e-cosmopolita": {
+   "uploaded": "2026-11-11T18:47:36.898Z",
+   "mtime": 1794420375439.0454,
+   "preview": "2026-11-11T18:47:39.176Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/luanda-danca-numa-angola-que-canta": {
+   "uploaded": "2026-11-11T18:47:41.012Z",
+   "mtime": 1794420375450.6072,
+   "preview": "2026-11-11T18:47:43.194Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/madeira-em-movimento": {
+   "uploaded": "2026-11-11T18:47:45.093Z",
+   "mtime": 1794420375447.6458,
+   "preview": "2026-11-11T18:47:47.317Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/madrid-a-alegria-de-viver": {
+   "uploaded": "2026-11-11T18:47:49.248Z",
+   "mtime": 1794420375440.3767,
+   "preview": "2026-11-11T18:47:51.428Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/marraquexe-viagem-a-um-universo-fascinante": {
+   "uploaded": "2026-11-11T18:47:53.162Z",
+   "mtime": 1794420375459.071,
+   "preview": "2026-11-11T18:47:55.706Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/marrocos-errachidia-ouarzazate": {
+   "uploaded": "2026-11-11T18:47:57.639Z",
+   "mtime": 1794420375476.5984,
+   "preview": "2026-11-11T18:48:00.844Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/mexer-ate-cair": {
+   "uploaded": "2026-11-11T18:48:02.671Z",
+   "mtime": 1794420375464.8044,
+   "preview": "2026-11-11T18:48:04.920Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/mocambique-o-mais-belo-litoral-de-africa": {
+   "uploaded": "2026-11-11T18:48:12.094Z",
+   "mtime": 1794420375524.0022,
+   "preview": "2026-11-11T18:48:14.423Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/na-rota-da-pizza": {
+   "uploaded": "2026-11-11T18:48:16.284Z",
+   "mtime": 1794420375525.6482,
+   "preview": "2026-11-11T18:48:18.188Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/natal-a-cidade-do-sol": {
+   "uploaded": "2026-11-11T18:48:20.584Z",
+   "mtime": 1794420375478.9998,
+   "preview": "2026-11-11T18:48:23.090Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/no-trilho-dos-excentricos-visionarios": {
+   "uploaded": "2026-11-11T18:48:25.012Z",
+   "mtime": 1794420375528.8618,
+   "preview": "2026-11-11T18:48:27.507Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/noruega-existe-mesmo-um-pais-assim": {
+   "uploaded": "2026-11-11T18:48:29.755Z",
+   "mtime": 1794420375487.9954,
+   "preview": "2026-11-11T18:48:32.101Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/o-glamour-de-nice-e-da-riviera-francesa": {
+   "uploaded": "2026-11-11T18:48:34.032Z",
+   "mtime": 1794420375442.6138,
+   "preview": "2026-11-11T18:48:36.380Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/o-natal-em-zurique": {
+   "uploaded": "2026-11-11T18:48:38.264Z",
+   "mtime": 1794420375507.2146,
+   "preview": "2026-11-11T18:48:40.966Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/o-outro-lado-da-maca": {
+   "uploaded": "2026-11-11T18:48:42.744Z",
+   "mtime": 1794420375443.3337,
+   "preview": "2026-11-11T18:48:44.876Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/o-que-fazer-em-sao-paulo": {
+   "uploaded": "2026-11-11T18:48:46.876Z",
+   "mtime": 1794420375443.8252,
+   "preview": "2026-11-11T18:48:48.907Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/o-que-tem-as-praias-do-brasil": {
+   "uploaded": "2026-11-11T18:48:52.219Z",
+   "mtime": 1794420375487.3723,
+   "preview": "2026-11-11T18:48:54.113Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/obidos-uma-das-7-maravilhas-de-portugal": {
+   "uploaded": "2026-11-11T18:48:55.936Z",
+   "mtime": 1794420375483.7964,
+   "preview": "2026-11-11T18:48:58.051Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/paisagens-de-sal": {
+   "uploaded": "2026-11-11T18:48:59.886Z",
+   "mtime": 1794420375486.3513,
+   "preview": "2026-11-11T18:49:01.879Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/paraiso-em-tons-de-azul-e-dourado": {
+   "uploaded": "2026-11-11T18:49:03.962Z",
+   "mtime": 1794420375477.7935,
+   "preview": "2026-11-11T18:49:08.447Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/paraisos-da-europa": {
+   "uploaded": "2026-11-11T18:49:10.433Z",
+   "mtime": 1794420375456.0525,
+   "preview": "2026-11-11T18:49:12.733Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/passeio-pela-europa-vinhateira": {
+   "uploaded": "2026-11-11T18:49:14.770Z",
+   "mtime": 1794420375518.7922,
+   "preview": "2026-11-11T18:49:16.916Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/passeio-por-lisboa": {
+   "uploaded": "2026-11-11T18:49:18.736Z",
+   "mtime": 1794420375501.7356,
+   "preview": "2026-11-11T18:49:21.415Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/porto-onde-queremos-voltar-sempre": {
+   "uploaded": "2026-11-11T18:49:23.301Z",
+   "mtime": 1794420375491.5378,
+   "preview": "2026-11-11T18:49:25.597Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/portugal-o-pais-onde-o-sol-mora": {
+   "uploaded": "2026-11-11T18:49:27.470Z",
+   "mtime": 1794420375484.3386,
+   "preview": "2026-11-11T18:49:29.885Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/que-segredos-guarda-brasilia": {
+   "uploaded": "2026-11-11T18:49:32.086Z",
+   "mtime": 1794420375448.2134,
+   "preview": "2026-11-11T18:49:34.295Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/recife-e-olinda-irmas-banhadas-pelo-atlantico": {
+   "uploaded": "2026-11-11T18:49:36.340Z",
+   "mtime": 1794420375522.4934,
+   "preview": "2026-11-11T18:49:38.064Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/reiquiavique": {
+   "uploaded": "2026-11-11T18:49:39.926Z",
+   "mtime": 1794420375532.5159,
+   "preview": "2026-11-11T18:49:43.357Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/roma-nao-foi-feita-num-milenio": {
+   "uploaded": "2026-11-11T18:49:45.299Z",
+   "mtime": 1794420375492.3696,
+   "preview": "2026-11-11T18:49:48.148Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/rota-das-aldeias-historicas-de-portugal": {
+   "uploaded": "2026-11-11T18:49:49.905Z",
+   "mtime": 1794420375452.4233,
+   "preview": "2026-11-11T18:49:52.297Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/sabores-tipicamente-portugueses": {
+   "uploaded": "2026-11-11T18:49:54.192Z",
+   "mtime": 1794420375500.0483,
+   "preview": "2026-11-11T18:49:56.239Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/salvador-cenarios-que-falam-por-si": {
+   "uploaded": "2026-11-11T18:49:58.046Z",
+   "mtime": 1794420375447.0437,
+   "preview": "2026-11-11T18:50:00.177Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/santiago-de-compostela-caminhos-antigos-e-novos": {
+   "uploaded": "2026-11-11T18:50:02.373Z",
+   "mtime": 1794420375471.9614,
+   "preview": "2026-11-11T18:50:04.322Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/sao-vicente-ilha-das-artes-e-do-bem-receber": {
+   "uploaded": "2026-11-11T18:50:06.189Z",
+   "mtime": 1794420375516.7507,
+   "preview": "2026-11-11T18:50:08.394Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/sempre-em-festa": {
+   "uploaded": "2026-11-11T18:50:10.302Z",
+   "mtime": 1794420375478.3088,
+   "preview": "2026-11-11T18:50:13.779Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/serra-da-estrela-no-topo-do-mundo": {
+   "uploaded": "2026-11-11T18:50:15.718Z",
+   "mtime": 1794420375508.5981,
+   "preview": "2026-11-11T18:50:19.497Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/sintra-mistica-vizinha-de-lisboa": {
+   "uploaded": "2026-11-11T18:50:21.431Z",
+   "mtime": 1794420375502.5605,
+   "preview": "2026-11-11T18:50:23.742Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/tomar-cidade-templaria": {
+   "uploaded": "2026-11-11T18:50:25.813Z",
+   "mtime": 1794420375446.4863,
+   "preview": "2026-11-11T18:50:28.533Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/top-12-de-recife": {
+   "uploaded": "2026-11-11T18:50:30.424Z",
+   "mtime": 1794420375514.5454,
+   "preview": "2026-11-11T18:50:32.879Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/um-sonho-cancun-e-tudo-o-que-a-rodeia": {
+   "uploaded": "2026-11-11T18:50:34.721Z",
+   "mtime": 1794420375438.331,
+   "preview": "2026-11-11T18:50:37.209Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/uma-aventura-pela-en-2": {
+   "uploaded": "2026-11-11T18:50:39.271Z",
+   "mtime": 1794420375468.2625,
+   "preview": "2026-11-11T18:50:41.990Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/valencia-uma-festa-para-os-sentidos": {
+   "uploaded": "2026-11-11T18:50:46.402Z",
+   "mtime": 1794420375515.886,
+   "preview": "2026-11-11T18:50:48.564Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/vamos-a-praia-multidestino": {
+   "uploaded": "2026-11-11T18:50:50.360Z",
+   "mtime": 1794420375495.4714,
+   "preview": "2026-11-11T18:50:53.401Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/varsovia-um-rio-que-divide-a-historia": {
+   "uploaded": "2026-11-11T18:50:55.363Z",
+   "mtime": 1794420375531.5684,
+   "preview": "2026-11-11T18:50:57.837Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/verao-de-sonho-nas-ilhas-espanholas": {
+   "uploaded": "2026-11-11T18:50:59.689Z",
+   "mtime": 1794420375519.757,
+   "preview": "2026-11-11T18:51:01.888Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/viajar-de-aviao-com-criancas": {
+   "uploaded": "2026-11-11T18:51:03.863Z",
+   "mtime": 1794420375515.2888,
+   "preview": "2026-11-11T18:51:06.092Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/viena-o-paraiso-dos-melomanos": {
+   "uploaded": "2026-11-11T18:51:08.126Z",
+   "mtime": 1794420375445.016,
+   "preview": "2026-11-11T18:51:10.225Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/vigo-um-lugar-que-sabe-a-mar": {
+   "uploaded": "2026-11-11T18:51:13.713Z",
+   "mtime": 1794420375533.2463,
+   "preview": "2026-11-11T18:51:16.888Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/viver-e-dancar-em-sevilha": {
+   "uploaded": "2026-11-11T18:51:18.855Z",
+   "mtime": 1794420375437.6997,
+   "preview": "2026-11-11T18:51:21.472Z"
+  },
+  "/fr-fr/fragments/inspirez-vous/washington-d-c-mergulho-direto-na-historia": {
+   "uploaded": "2026-11-11T18:51:23.398Z",
+   "mtime": 1794420375485.1453,
+   "preview": "2026-11-11T18:51:25.747Z"
+  },
+  "/it-it/fragments/ispirati/1-dia-pelo-romantismo-de-toulouse": {
+   "uploaded": "2026-11-11T23:41:30.745Z",
+   "mtime": 1794440486108.0527,
+   "preview": "2026-11-11T23:41:33.095Z"
+  },
+  "/it-it/fragments/ispirati/10-basicos-de-salvador-da-bahia": {
+   "uploaded": "2026-11-11T23:41:34.912Z",
+   "mtime": 1794440486062.3,
+   "preview": "2026-11-11T23:41:37.520Z"
+  },
+  "/it-it/fragments/ispirati/10-coisas-a-fazer-em-porto-alegre": {
+   "uploaded": "2026-11-11T23:41:39.539Z",
+   "mtime": 1794440486110.4841,
+   "preview": "2026-11-11T23:41:42.098Z"
+  },
+  "/it-it/fragments/ispirati/10-simbolos-de-manchester": {
+   "uploaded": "2026-11-11T23:41:45.328Z",
+   "mtime": 1794440486023.326,
+   "preview": "2026-11-11T23:41:47.949Z"
+  },
+  "/it-it/fragments/ispirati/2-dias-na-bolonha-medieval": {
+   "uploaded": "2026-11-11T23:41:50.189Z",
+   "mtime": 1794440486041.871,
+   "preview": "2026-11-11T23:41:52.390Z"
+  },
+  "/it-it/fragments/ispirati/3-atracoes-culturais-que-nao-pode-perder-em-recife": {
+   "uploaded": "2026-11-11T23:41:55.477Z",
+   "mtime": 1794440486028.5906,
+   "preview": "2026-11-11T23:41:57.683Z"
+  },
+  "/it-it/fragments/ispirati/3-atracoes-emblematicas-que-nao-pode-perder-em-dublin": {
+   "uploaded": "2026-11-11T23:41:59.738Z",
+   "mtime": 1794440486088.872,
+   "preview": "2026-11-11T23:42:02.291Z"
+  },
+  "/it-it/fragments/ispirati/3-lugares-fora-da-caixa-para-conhecer-em-viena": {
+   "uploaded": "2026-11-11T23:42:06.180Z",
+   "mtime": 1794440486012.182,
+   "preview": "2026-11-11T23:42:08.509Z"
+  },
+  "/it-it/fragments/ispirati/3-lugares-no-subsolo-para-explorar-em-napoles": {
+   "uploaded": "2026-11-11T23:42:10.791Z",
+   "mtime": 1794440486064.6672,
+   "preview": "2026-11-11T23:42:12.985Z"
+  },
+  "/it-it/fragments/ispirati/3-mercados-de-natal-que-nao-pode-perder-na-belgica": {
+   "uploaded": "2026-11-11T23:42:15.333Z",
+   "mtime": 1794440486105.092,
+   "preview": "2026-11-11T23:42:17.854Z"
+  },
+  "/it-it/fragments/ispirati/3-praias-que-tem-mesmo-de-conhecer-em-fernando-de-noronha": {
+   "uploaded": "2026-11-11T23:42:19.730Z",
+   "mtime": 1794440486051.296,
+   "preview": "2026-11-11T23:42:21.937Z"
+  },
+  "/it-it/fragments/ispirati/3-trilhos-que-tem-mesmo-de-fazer-em-tenerife": {
+   "uploaded": "2026-11-11T23:42:23.960Z",
+   "mtime": 1794440486111.179,
+   "preview": "2026-11-11T23:42:26.235Z"
+  },
+  "/it-it/fragments/ispirati/4-cenotes-que-nao-pode-perder-perto-de-cancun": {
+   "uploaded": "2026-11-11T23:42:28.411Z",
+   "mtime": 1794440486067.303,
+   "preview": "2026-11-11T23:42:30.729Z"
+  },
+  "/it-it/fragments/ispirati/4-faces-da-mesma-escandinavia": {
+   "uploaded": "2026-11-11T23:42:32.754Z",
+   "mtime": 1794440486048.7935,
+   "preview": "2026-11-11T23:42:34.714Z"
+  },
+  "/it-it/fragments/ispirati/5-atracoes-em-belem-do-para": {
+   "uploaded": "2026-11-11T23:42:36.751Z",
+   "mtime": 1794440486022.7126,
+   "preview": "2026-11-11T23:42:39.182Z"
+  },
+  "/it-it/fragments/ispirati/5-locais-que-nao-pode-perder-em-toronto": {
+   "uploaded": "2026-11-11T23:42:41.010Z",
+   "mtime": 1794440486101.9902,
+   "preview": "2026-11-11T23:42:43.190Z"
+  },
+  "/it-it/fragments/ispirati/5-lugares-imperdiveis-na-guine-bissau": {
+   "uploaded": "2026-11-11T23:42:45.003Z",
+   "mtime": 1794440486068.2434,
+   "preview": "2026-11-11T23:42:47.330Z"
+  },
+  "/it-it/fragments/ispirati/a-boleia-dos-festivais-de-verao-na-europa": {
+   "uploaded": "2026-11-11T23:42:49.144Z",
+   "mtime": 1794440486082.229,
+   "preview": "2026-11-11T23:42:51.633Z"
+  },
+  "/it-it/fragments/ispirati/a-cidade-das-cem-torres": {
+   "uploaded": "2026-11-11T23:42:53.822Z",
+   "mtime": 1794440486075.701,
+   "preview": "2026-11-11T23:42:55.977Z"
+  },
+  "/it-it/fragments/ispirati/a-descoberta-de-oviedo-gijon-e-aviles": {
+   "uploaded": "2026-11-11T23:42:58.238Z",
+   "mtime": 1794440486078.6062,
+   "preview": "2026-11-11T23:43:00.429Z"
+  },
+  "/it-it/fragments/ispirati/a-descoberta-dos-museus-de-florenca": {
+   "uploaded": "2026-11-11T23:43:02.553Z",
+   "mtime": 1794440486034.1833,
+   "preview": "2026-11-11T23:43:04.741Z"
+  },
+  "/it-it/fragments/ispirati/a-filha-do-iluminismo": {
+   "uploaded": "2026-11-11T23:43:06.779Z",
+   "mtime": 1794440486027.9219,
+   "preview": "2026-11-11T23:43:09.082Z"
+  },
+  "/it-it/fragments/ispirati/a-tradicional-e-vanguardista-agadir": {
+   "uploaded": "2026-11-11T23:43:10.794Z",
+   "mtime": 1794440486036.8433,
+   "preview": "2026-11-11T23:43:12.956Z"
+  },
+  "/it-it/fragments/ispirati/alagoas-imenso-azul": {
+   "uploaded": "2026-11-11T23:43:14.710Z",
+   "mtime": 1794440486081.4692,
+   "preview": "2026-11-11T23:43:16.966Z"
+  },
+  "/it-it/fragments/ispirati/aldeias-no-interior-de-portugal-tesouros-prontos-a-descobrir": {
+   "uploaded": "2026-11-11T23:43:18.840Z",
+   "mtime": 1794440486052.907,
+   "preview": "2026-11-11T23:43:21.180Z"
+  },
+  "/it-it/fragments/ispirati/alemanha-berlim-maior-que-a-vida": {
+   "uploaded": "2026-11-11T23:43:23.174Z",
+   "mtime": 1794440486089.6619,
+   "preview": "2026-11-11T23:43:25.336Z"
+  },
+  "/it-it/fragments/ispirati/algarve-um-sonho-de-verao": {
+   "uploaded": "2026-11-11T23:43:27.289Z",
+   "mtime": 1794440486055.6138,
+   "preview": "2026-11-11T23:43:29.505Z"
+  },
+  "/it-it/fragments/ispirati/amesterdao-labirintos-de-agua": {
+   "uploaded": "2026-11-11T23:43:31.791Z",
+   "mtime": 1794440486030.738,
+   "preview": "2026-11-11T23:43:34.176Z"
+  },
+  "/it-it/fragments/ispirati/as-1001-surpresas-de-maputo": {
+   "uploaded": "2026-11-11T23:43:36.023Z",
+   "mtime": 1794440486058.252,
+   "preview": "2026-11-11T23:43:38.293Z"
+  },
+  "/it-it/fragments/ispirati/as-5-melhores-coisas-para-fazer-em-alicante": {
+   "uploaded": "2026-11-11T23:43:40.623Z",
+   "mtime": 1794440486112.7664,
+   "preview": "2026-11-11T23:43:43.140Z"
+  },
+  "/it-it/fragments/ispirati/as-sete-colinas-de-lisboa": {
+   "uploaded": "2026-11-11T23:43:44.987Z",
+   "mtime": 1794440486069.6416,
+   "preview": "2026-11-11T23:43:47.258Z"
+  },
+  "/it-it/fragments/ispirati/belem-colonial-misteriosa-tropical": {
+   "uploaded": "2026-11-11T23:43:49.239Z",
+   "mtime": 1794440486094.7283,
+   "preview": "2026-11-11T23:43:51.767Z"
+  },
+  "/it-it/fragments/ispirati/belo-horizonte-uma-cidade-mais-que-completa": {
+   "uploaded": "2026-11-11T23:43:53.975Z",
+   "mtime": 1794440486039.6277,
+   "preview": "2026-11-11T23:43:56.625Z"
+  },
+  "/it-it/fragments/ispirati/bicicleta-em-copenhaga": {
+   "uploaded": "2026-11-11T23:43:58.639Z",
+   "mtime": 1794440486056.471,
+   "preview": "2026-11-11T23:44:00.866Z"
+  },
+  "/it-it/fragments/ispirati/boston-uma-cidade-fora-do-comum": {
+   "uploaded": "2026-11-11T23:44:03.949Z",
+   "mtime": 1794440486050.3018,
+   "preview": "2026-11-11T23:44:06.080Z"
+  },
+  "/it-it/fragments/ispirati/braga-uma-cidade-com-vitalidade-historica": {
+   "uploaded": "2026-11-11T23:44:08.116Z",
+   "mtime": 1794440486096.1704,
+   "preview": "2026-11-11T23:44:10.664Z"
+  },
+  "/it-it/fragments/ispirati/carnaval-no-mundo": {
+   "uploaded": "2026-11-11T23:44:12.663Z",
+   "mtime": 1794440486043.6606,
+   "preview": "2026-11-11T23:44:14.845Z"
+  },
+  "/it-it/fragments/ispirati/casablanca-o-coracao-marroquino": {
+   "uploaded": "2026-11-11T23:44:16.677Z",
+   "mtime": 1794440486029.227,
+   "preview": "2026-11-11T23:44:18.865Z"
+  },
+  "/it-it/fragments/ispirati/celebriamo-veneza": {
+   "uploaded": "2026-11-11T23:44:20.655Z",
+   "mtime": 1794440486072.3408,
+   "preview": "2026-11-11T23:44:22.934Z"
+  },
+  "/it-it/fragments/ispirati/chicago-verticalidade": {
+   "uploaded": "2026-11-11T23:44:24.688Z",
+   "mtime": 1794440486091.9768,
+   "preview": "2026-11-11T23:44:26.661Z"
+  },
+  "/it-it/fragments/ispirati/como-um-conto-de-fadas": {
+   "uploaded": "2026-11-11T23:44:28.559Z",
+   "mtime": 1794440486057.129,
+   "preview": "2026-11-11T23:44:30.852Z"
+  },
+  "/it-it/fragments/ispirati/conheca-as-10-melhores-praias-do-ceara": {
+   "uploaded": "2026-11-11T23:44:33.274Z",
+   "mtime": 1794440486077.7976,
+   "preview": "2026-11-11T23:44:35.750Z"
+  },
+  "/it-it/fragments/ispirati/corunha-a-historia-que-os-edificios-contam": {
+   "uploaded": "2026-11-11T23:44:37.790Z",
+   "mtime": 1794440486045.6462,
+   "preview": "2026-11-11T23:44:40.255Z"
+  },
+  "/it-it/fragments/ispirati/cultura-a-solta-nas-ruas-de-sao-paulo": {
+   "uploaded": "2026-11-11T23:44:42.951Z",
+   "mtime": 1794440486079.7737,
+   "preview": "2026-11-11T23:44:45.322Z"
+  },
+  "/it-it/fragments/ispirati/da-rua-a-discoteca": {
+   "uploaded": "2026-11-11T23:44:47.151Z",
+   "mtime": 1794440486049.5947,
+   "preview": "2026-11-11T23:44:49.191Z"
+  },
+  "/it-it/fragments/ispirati/de-malaga-com-paixao": {
+   "uploaded": "2026-11-11T23:44:51.194Z",
+   "mtime": 1794440486069.0188,
+   "preview": "2026-11-11T23:44:53.806Z"
+  },
+  "/it-it/fragments/ispirati/descubra-a-essencia-do-porto-e-norte-de-portugal": {
+   "uploaded": "2026-11-11T23:44:56.144Z",
+   "mtime": 1794440486044.8662,
+   "preview": "2026-11-11T23:44:58.341Z"
+  },
+  "/it-it/fragments/ispirati/destinos-romanticos-multidestino": {
+   "uploaded": "2026-11-11T23:45:00.222Z",
+   "mtime": 1794440486106.12,
+   "preview": "2026-11-11T23:45:02.653Z"
+  },
+  "/it-it/fragments/ispirati/doce-balanco-a-caminho-do-mar": {
+   "uploaded": "2026-11-11T23:45:04.449Z",
+   "mtime": 1794440486033.4783,
+   "preview": "2026-11-11T23:45:06.671Z"
+  },
+  "/it-it/fragments/ispirati/dois-pequenos-paraisos-na-terra-sao-tome-e-principe": {
+   "uploaded": "2026-11-11T23:45:08.466Z",
+   "mtime": 1794440486080.5781,
+   "preview": "2026-11-11T23:45:11.034Z"
+  },
+  "/it-it/fragments/ispirati/entre-os-rios-a-arte-e-a-ficcao": {
+   "uploaded": "2026-11-11T23:45:13.576Z",
+   "mtime": 1794440486114.2778,
+   "preview": "2026-11-11T23:45:15.724Z"
+  },
+  "/it-it/fragments/ispirati/fatima-e-os-seus-misterios": {
+   "uploaded": "2026-11-11T23:45:17.869Z",
+   "mtime": 1794440486113.5315,
+   "preview": "2026-11-11T23:45:20.297Z"
+  },
+  "/it-it/fragments/ispirati/fogo-a-ilha-em-forma-de-vulcao": {
+   "uploaded": "2026-11-11T23:45:22.377Z",
+   "mtime": 1794440486074.5737,
+   "preview": "2026-11-11T23:45:24.609Z"
+  },
+  "/it-it/fragments/ispirati/guimaraes-o-berco-de-portugal": {
+   "uploaded": "2026-11-11T23:45:26.627Z",
+   "mtime": 1794440486035.1514,
+   "preview": "2026-11-11T23:45:29.176Z"
+  },
+  "/it-it/fragments/ispirati/historias-cores-e-gentes-da-ilha-terceira": {
+   "uploaded": "2026-11-11T23:46:11.068Z",
+   "mtime": 1794440766219.908,
+   "preview": "2026-11-11T23:46:13.641Z"
+  },
+  "/it-it/fragments/ispirati/ilha-de-sao-miguel-onde-as-tradicoes-marcam-o-presente": {
+   "uploaded": "2026-11-11T23:46:15.422Z",
+   "mtime": 1794440766204.364,
+   "preview": "2026-11-11T23:46:18.541Z"
+  },
+  "/it-it/fragments/ispirati/jardins-a-beira-do-lago": {
+   "uploaded": "2026-11-11T23:46:20.348Z",
+   "mtime": 1794440766225.9116,
+   "preview": "2026-11-11T23:46:22.665Z"
+  },
+  "/it-it/fragments/ispirati/las-fallas-valencia-em-fogo": {
+   "uploaded": "2026-11-11T23:46:24.760Z",
+   "mtime": 1794440766295.268,
+   "preview": "2026-11-11T23:46:27.122Z"
+  },
+  "/it-it/fragments/ispirati/londres-historica-vibrante-e-cosmopolita": {
+   "uploaded": "2026-11-11T23:46:29.240Z",
+   "mtime": 1794440766202.037,
+   "preview": "2026-11-11T23:46:31.374Z"
+  },
+  "/it-it/fragments/ispirati/luanda-danca-numa-angola-que-canta": {
+   "uploaded": "2026-11-11T23:46:33.301Z",
+   "mtime": 1794440766219.0632,
+   "preview": "2026-11-11T23:46:35.537Z"
+  },
+  "/it-it/fragments/ispirati/madeira-em-movimento": {
+   "uploaded": "2026-11-11T23:46:37.658Z",
+   "mtime": 1794440766211.4521,
+   "preview": "2026-11-11T23:46:40.057Z"
+  },
+  "/it-it/fragments/ispirati/madrid-a-alegria-de-viver": {
+   "uploaded": "2026-11-11T23:46:41.857Z",
+   "mtime": 1794440766203.7354,
+   "preview": "2026-11-11T23:46:44.102Z"
+  },
+  "/it-it/fragments/ispirati/marraquexe-viagem-a-um-universo-fascinante": {
+   "uploaded": "2026-11-11T23:46:46.335Z",
+   "mtime": 1794440766226.735,
+   "preview": "2026-11-11T23:46:48.637Z"
+  },
+  "/it-it/fragments/ispirati/marrocos-errachidia-ouarzazate": {
+   "uploaded": "2026-11-11T23:46:50.438Z",
+   "mtime": 1794440766247.2903,
+   "preview": "2026-11-11T23:46:52.593Z"
+  },
+  "/it-it/fragments/ispirati/mexer-ate-cair": {
+   "uploaded": "2026-11-11T23:46:54.364Z",
+   "mtime": 1794440766231.7876,
+   "preview": "2026-11-11T23:46:56.826Z"
+  },
+  "/it-it/fragments/ispirati/mocambique-o-mais-belo-litoral-de-africa": {
+   "uploaded": "2026-11-11T23:46:58.843Z",
+   "mtime": 1794440766307.4639,
+   "preview": "2026-11-11T23:47:01.129Z"
+  },
+  "/it-it/fragments/ispirati/na-rota-da-pizza": {
+   "uploaded": "2026-11-11T23:47:03.775Z",
+   "mtime": 1794440766308.0771,
+   "preview": "2026-11-11T23:47:06.266Z"
+  },
+  "/it-it/fragments/ispirati/natal-a-cidade-do-sol": {
+   "uploaded": "2026-11-11T23:47:08.510Z",
+   "mtime": 1794440766250.6787,
+   "preview": "2026-11-11T23:47:10.607Z"
+  },
+  "/it-it/fragments/ispirati/no-trilho-dos-excentricos-visionarios": {
+   "uploaded": "2026-11-11T23:47:13.014Z",
+   "mtime": 1794440766311.5134,
+   "preview": "2026-11-11T23:47:15.968Z"
+  },
+  "/it-it/fragments/ispirati/noruega-existe-mesmo-um-pais-assim": {
+   "uploaded": "2026-11-11T23:47:17.916Z",
+   "mtime": 1794440766263.5535,
+   "preview": "2026-11-11T23:47:19.961Z"
+  },
+  "/it-it/fragments/ispirati/o-glamour-de-nice-e-da-riviera-francesa": {
+   "uploaded": "2026-11-11T23:47:21.819Z",
+   "mtime": 1794440766205.6482,
+   "preview": "2026-11-11T23:47:23.714Z"
+  },
+  "/it-it/fragments/ispirati/o-natal-em-zurique": {
+   "uploaded": "2026-11-11T23:47:26.133Z",
+   "mtime": 1794440766285.6338,
+   "preview": "2026-11-11T23:47:28.727Z"
+  },
+  "/it-it/fragments/ispirati/o-outro-lado-da-maca": {
+   "uploaded": "2026-11-11T23:47:30.788Z",
+   "mtime": 1794440766206.4329,
+   "preview": "2026-11-11T23:47:32.886Z"
+  },
+  "/it-it/fragments/ispirati/o-que-fazer-em-sao-paulo": {
+   "uploaded": "2026-11-11T23:47:34.630Z",
+   "mtime": 1794440766208.0215,
+   "preview": "2026-11-11T23:47:36.746Z"
+  },
+  "/it-it/fragments/ispirati/o-que-tem-as-praias-do-brasil": {
+   "uploaded": "2026-11-11T23:47:38.468Z",
+   "mtime": 1794440766262.8362,
+   "preview": "2026-11-11T23:47:40.488Z"
+  },
+  "/it-it/fragments/ispirati/obidos-uma-das-7-maravilhas-de-portugal": {
+   "uploaded": "2026-11-11T23:47:42.247Z",
+   "mtime": 1794440766255.2915,
+   "preview": "2026-11-11T23:47:44.658Z"
+  },
+  "/it-it/fragments/ispirati/paisagens-de-sal": {
+   "uploaded": "2026-11-11T23:47:46.573Z",
+   "mtime": 1794440766259.6055,
+   "preview": "2026-11-11T23:47:48.785Z"
+  },
+  "/it-it/fragments/ispirati/paraiso-em-tons-de-azul-e-dourado": {
+   "uploaded": "2026-11-11T23:47:50.584Z",
+   "mtime": 1794440766249.0852,
+   "preview": "2026-11-11T23:47:52.490Z"
+  },
+  "/it-it/fragments/ispirati/paraisos-da-europa": {
+   "uploaded": "2026-11-11T23:47:54.200Z",
+   "mtime": 1794440766224.3494,
+   "preview": "2026-11-11T23:47:56.345Z"
+  },
+  "/it-it/fragments/ispirati/passeio-pela-europa-vinhateira": {
+   "uploaded": "2026-11-11T23:47:58.115Z",
+   "mtime": 1794440766301.913,
+   "preview": "2026-11-11T23:48:00.486Z"
+  },
+  "/it-it/fragments/ispirati/passeio-por-lisboa": {
+   "uploaded": "2026-11-11T23:48:02.568Z",
+   "mtime": 1794440766281.8464,
+   "preview": "2026-11-11T23:48:04.891Z"
+  },
+  "/it-it/fragments/ispirati/porto-onde-queremos-voltar-sempre": {
+   "uploaded": "2026-11-11T23:48:06.772Z",
+   "mtime": 1794440766268.353,
+   "preview": "2026-11-11T23:48:09.975Z"
+  },
+  "/it-it/fragments/ispirati/portugal-o-pais-onde-o-sol-mora": {
+   "uploaded": "2026-11-11T23:48:11.797Z",
+   "mtime": 1794440766256.5422,
+   "preview": "2026-11-11T23:48:14.149Z"
+  },
+  "/it-it/fragments/ispirati/que-segredos-guarda-brasilia": {
+   "uploaded": "2026-11-11T23:48:16.289Z",
+   "mtime": 1794440766214.4397,
+   "preview": "2026-11-11T23:48:18.459Z"
+  },
+  "/it-it/fragments/ispirati/recife-e-olinda-irmas-banhadas-pelo-atlantico": {
+   "uploaded": "2026-11-11T23:48:20.303Z",
+   "mtime": 1794440766305.784,
+   "preview": "2026-11-11T23:48:22.579Z"
+  },
+  "/it-it/fragments/ispirati/reiquiavique": {
+   "uploaded": "2026-11-11T23:48:24.366Z",
+   "mtime": 1794440766316.5945,
+   "preview": "2026-11-11T23:48:26.526Z"
+  },
+  "/it-it/fragments/ispirati/roma-nao-foi-feita-num-milenio": {
+   "uploaded": "2026-11-11T23:48:28.308Z",
+   "mtime": 1794440766269.1138,
+   "preview": "2026-11-11T23:48:30.500Z"
+  },
+  "/it-it/fragments/ispirati/rota-das-aldeias-historicas-de-portugal": {
+   "uploaded": "2026-11-11T23:48:32.879Z",
+   "mtime": 1794440766220.8423,
+   "preview": "2026-11-11T23:48:35.139Z"
+  },
+  "/it-it/fragments/ispirati/sabores-tipicamente-portugueses": {
+   "uploaded": "2026-11-11T23:48:37.389Z",
+   "mtime": 1794440766281.0083,
+   "preview": "2026-11-11T23:48:39.787Z"
+  },
+  "/it-it/fragments/ispirati/salvador-cenarios-que-falam-por-si": {
+   "uploaded": "2026-11-11T23:48:41.580Z",
+   "mtime": 1794440766210.7432,
+   "preview": "2026-11-11T23:48:43.866Z"
+  },
+  "/it-it/fragments/ispirati/santiago-de-compostela-caminhos-antigos-e-novos": {
+   "uploaded": "2026-11-11T23:48:46.022Z",
+   "mtime": 1794440766241.77,
+   "preview": "2026-11-11T23:48:48.317Z"
+  },
+  "/it-it/fragments/ispirati/sao-vicente-ilha-das-artes-e-do-bem-receber": {
+   "uploaded": "2026-11-11T23:48:50.779Z",
+   "mtime": 1794440766299.7778,
+   "preview": "2026-11-11T23:48:53.153Z"
+  },
+  "/it-it/fragments/ispirati/sempre-em-festa": {
+   "uploaded": "2026-11-11T23:48:54.938Z",
+   "mtime": 1794440766249.8323,
+   "preview": "2026-11-11T23:48:57.638Z"
+  },
+  "/it-it/fragments/ispirati/serra-da-estrela-no-topo-do-mundo": {
+   "uploaded": "2026-11-11T23:48:59.588Z",
+   "mtime": 1794440766287.2078,
+   "preview": "2026-11-11T23:49:01.726Z"
+  },
+  "/it-it/fragments/ispirati/sintra-mistica-vizinha-de-lisboa": {
+   "uploaded": "2026-11-11T23:49:03.453Z",
+   "mtime": 1794440766283.126,
+   "preview": "2026-11-11T23:49:05.473Z"
+  },
+  "/it-it/fragments/ispirati/tomar-cidade-templaria": {
+   "uploaded": "2026-11-11T23:49:07.378Z",
+   "mtime": 1794440766209.9634,
+   "preview": "2026-11-11T23:49:09.673Z"
+  },
+  "/it-it/fragments/ispirati/top-12-de-recife": {
+   "uploaded": "2026-11-11T23:49:11.454Z",
+   "mtime": 1794440766296.363,
+   "preview": "2026-11-11T23:49:13.795Z"
+  },
+  "/it-it/fragments/ispirati/um-sonho-cancun-e-tudo-o-que-a-rodeia": {
+   "uploaded": "2026-11-11T23:49:15.813Z",
+   "mtime": 1794440766201.2656,
+   "preview": "2026-11-11T23:49:18.041Z"
+  },
+  "/it-it/fragments/ispirati/uma-aventura-pela-en-2": {
+   "uploaded": "2026-11-11T23:49:20.108Z",
+   "mtime": 1794440766237.9316,
+   "preview": "2026-11-11T23:49:22.187Z"
+  },
+  "/it-it/fragments/ispirati/valencia-uma-festa-para-os-sentidos": {
+   "uploaded": "2026-11-11T23:49:24.044Z",
+   "mtime": 1794440766298.5437,
+   "preview": "2026-11-11T23:49:26.341Z"
+  },
+  "/it-it/fragments/ispirati/vamos-a-praia-multidestino": {
+   "uploaded": "2026-11-11T23:49:28.644Z",
+   "mtime": 1794440766273.0159,
+   "preview": "2026-11-11T23:49:31.006Z"
+  },
+  "/it-it/fragments/ispirati/varsovia-um-rio-que-divide-a-historia": {
+   "uploaded": "2026-11-11T23:49:32.711Z",
+   "mtime": 1794440766315.7349,
+   "preview": "2026-11-11T23:49:35.149Z"
+  },
+  "/it-it/fragments/ispirati/verao-de-sonho-nas-ilhas-espanholas": {
+   "uploaded": "2026-11-11T23:49:37.181Z",
+   "mtime": 1794440766303.0293,
+   "preview": "2026-11-11T23:49:39.376Z"
+  },
+  "/it-it/fragments/ispirati/viajar-de-aviao-com-criancas": {
+   "uploaded": "2026-11-11T23:49:41.149Z",
+   "mtime": 1794440766297.2468,
+   "preview": "2026-11-11T23:49:43.231Z"
+  },
+  "/it-it/fragments/ispirati/viena-o-paraiso-dos-melomanos": {
+   "uploaded": "2026-11-11T23:49:45.083Z",
+   "mtime": 1794440766208.9968,
+   "preview": "2026-11-11T23:49:47.379Z"
+  },
+  "/it-it/fragments/ispirati/vigo-um-lugar-que-sabe-a-mar": {
+   "uploaded": "2026-11-11T23:49:49.422Z",
+   "mtime": 1794440766317.3472,
+   "preview": "2026-11-11T23:49:51.797Z"
+  },
+  "/it-it/fragments/ispirati/viver-e-dancar-em-sevilha": {
+   "uploaded": "2026-11-11T23:49:53.912Z",
+   "mtime": 1794440766199.8838,
+   "preview": "2026-11-11T23:49:56.495Z"
+  },
+  "/it-it/fragments/ispirati/washington-d-c-mergulho-direto-na-historia": {
+   "uploaded": "2026-11-11T23:49:58.293Z",
+   "mtime": 1794440766257.353,
+   "preview": "2026-11-11T23:50:00.213Z"
   }
  },
  "media": {

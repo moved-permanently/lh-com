@@ -1,0 +1,25 @@
+# ema-cashub, standing order 13 (2026-11-12), TAP row 149: the three HOLD rows of reimport-so12-tap-heading-description-149.txt
+# (a heading's description at most 790 px wide; tap.css caps what follows a heading-section's last H2, the importer ends
+# the heading's section after its description, style heading-section). The expected change is that section break only.
+# Measured offline: the drop's archives (nothing fetched from TAP's hosts), DA's copies of order 11 (GET, saved with DA's
+# time; none read since), drafts on our host with main's code, every picture loaded, the documents' home markets.
+#
+# The two documents with market sections re-import through tap-markets.mjs, run as for reimport-so8 / -so10 (--archive
+# tap-snapshots-001 to -015 and -023, --market-archive tap-snapshots-016 to -022, -025, -027 to -029, --media every media
+# archive and tap-byside-001, --sitemaps tap-sitemaps-001 and -002, --pages tap-market-pages.json, --existing DA's copies
+# saved just before the run, curl -R; a first run whose allowlist stays). Run it only with this commit's tap-markets.mjs:
+# with the earlier code the break cut DA's section in two, keepStale took that for other text and gave the 12 countries of
+# fr-ca's group DA's section besides the merged ones (/fr-fr/miles-and-go: the body twice, 7,913 -> 15,003 bytes). Now a
+# country that sees the same text in the same order as in DA's copy keeps the merge (keepStale and keepUncovered), the
+# merge compared as written (collapsed, as DA's copies are). Test: test/tap-markets-stale-breaks-149.test.mjs.
+# The same run, earlier code against this commit, all 209 language documents: 33 differ; in each, every country whose
+# view changes now sees exactly DA's text (the earlier code gave it a DA section on top of the merged one), none moves away
+# from DA's view. Only the two documents below are for upload; the others are for no list of mine.
+# de-de Economy Prime has no market sections: tap-import.mjs as for reimport-so12 (--only this path). Its fresh document
+# equals DA's copy (GET 2026-11-11, DA's time 2026-11-09 15:34 UTC) but for the two breaks; its published page is older than
+# that copy (it lacks "Sie reisen nicht in Economy Prime? ..."), so the upload also publishes DA's own later edit. If DA's
+# current copy differs from the fresh document by more than the two breaks, hold it.
+# Columns: document, status, expected change against DA's current copy.
+/fr-fr/miles-and-go	READY	through tap-markets.mjs (this commit): the heading-section break after "Plus de 100 partenaires dans le monde entier ..." (the cards-icon "Tous" a section of its own), every country; nothing else (the [-br] hero section as on DA). Drafts, home market fr: 1440 3,706 -> 3,730 px, 390 4,290 -> 4,290
+/en-pt/miles-and-go/use-miles/donate-miles	READY	through tap-markets.mjs (this commit): the heading-section break after "Partner organizations" and its description (the partners' cards-teaser a section of its own), every country; DA's [pt] / [-pt] sections as they are. Drafts, home market pt: 1440 6,301 -> 6,325 px, 390 6,185 -> 6,185
+/de-de/an-bord/economy-prime	READY	tap-import.mjs: the heading-section breaks after "Economy Prime" ("Sehen Sie sich die Unterschiede ...", before the table) and after "Business und Economy" ("Entdecken Sie unsere anderen Reiseklassen ...", before the cards); nothing else. Order 12's drafts: two descriptions +24 px each at 1440, 390 unchanged

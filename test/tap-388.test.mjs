@@ -29,7 +29,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 
 const css = fs.readFileSync(new URL('../styles/themes/tap.css', import.meta.url), 'utf8');
-const card = 'body\\.brand-tap \\.cards-teaser:not\\(\\.one-up\\) li:has\\(> \\.cards-teaser-body > p:not\\(\\.cards-teaser-cta\\)\\)';
+// the card rules' condition since TAP row 156 (standing order 14): any paragraph, a CTA alone too, at the old weight
+const card = 'body\\.brand-tap \\.cards-teaser:not\\(\\.one-up\\) li:has\\(> \\.cards-teaser-body > p:not\\(\\.cards-teaser-title\\)\\)';
 const fc = 'body\\.brand-tap \\.columns-media\\.feature';
 
 test('the text cards as www\'s: no gap between paragraphs, 24 px to the button, 48 px under the text without one', () => {
@@ -37,7 +38,7 @@ test('the text cards as www\'s: no gap between paragraphs, 24 px to the button, 
   assert.match(css, new RegExp(`${card} \\.cards-teaser-cta \\{\\s*padding-top: 24px;\\s*\\}`));
   assert.match(css, new RegExp(`${card}:not\\(:has\\(\\.cards-teaser-cta\\)\\) \\.cards-teaser-body \\{\\s*padding-bottom: 48px;\\s*\\}`));
   // row 98's one-up cards keep theirs (40 px under the text)
-  assert.match(css, /body\.brand-tap \.cards-teaser\.one-up li:has\(> \.cards-teaser-body > p:not\(\.cards-teaser-cta\)\) \.cards-teaser-body \{\s*padding-bottom: 40px;/);
+  assert.match(css, /body\.brand-tap \.cards-teaser\.one-up li:has\(> \.cards-teaser-body > p:not\(\.cards-teaser-title\)\) \.cards-teaser-body \{\s*padding-bottom: 40px;/);
 });
 
 test('the feature card\'s text as www\'s: list items without gaps, 40 px from the list to the button, 24 px under the column', () => {

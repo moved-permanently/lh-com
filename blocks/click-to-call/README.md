@@ -37,6 +37,9 @@ for assistive tech come from the page's language.
   card's left edge), the phone picture on top up to 600 px; the small print under the card.
 - The button reads Button during the opening hours (Hours, Lisbon time) and Button outside hours
   otherwise, as www; the label is set on load and again when a field takes the focus.
+- During the opening hours the day and the slot are hidden, as in www's window (the form has the
+  class `in-hours`): from 601 px the telephone and the button side by side, the button under the
+  telephone up to 600 px. Outside them the day and the slot show, to schedule the call.
 - www's form sends the number to TAP's call-back service (BySide). The replica's forms stay on
   TAP's site: the button opens Link (the page on www) in a new tab, and nothing typed here is
   sent anywhere.

@@ -63,3 +63,13 @@ body.maui-theme-lh main > .section:first-of-type:has(.micro-frontend help-center
     margin-top: 56px;
   }
 }
+
+/* the help app's section to the footer as www's (ita-parity-003, swiss-parity-003, at 1440 and 390):
+   ITA's footer 24 px under the FAQs card, SWISS's 30 px (the section's own 48 px before) */
+body.maui-theme-az main > .section:last-child:has(.micro-frontend help-center-web) {
+  margin-bottom: 24px;
+}
+
+body.maui-theme-lx main > .section:last-child:has(.micro-frontend help-center-web) {
+  margin-bottom: 30px;
+}

@@ -1,0 +1,82 @@
+# Standing order 10 (2026-11-12), item 4: the lufthansa.com ranking below 4 %: the 74 rows of logs/b582/rank-582.tsv under
+# 4 %, measured again on our live host (lufthansa.turnsthe.page, airline hosts aborted) with 8 s between captures,
+# 17:56 to 18:22 UTC: every capture HTTP 200. "drift from": the first persisting step of 16 px or more (offsets.mjs).
+# No cause shared by two or more recorded pages in this band: the steps of about 300 px at y 800-960 (1440) are the
+# offset tool, the rest drift at a component of their own. Three rows got worse since rank-582 by more than 1.5:
+# lufthansa-travel-classes 1440 (2.7 -> 8.2, republished document, open), datenschutz 1440 (item 1, open) and
+# tiere-als-handgepaeck 1440 (2.2 -> 4.5, single page).
+# Columns: new %, old % (582), document, width, heights (www/ours), drift, group, status, why.
+8.2	2.7	/de/en/lufthansa-travel-classes	1440	h 3295/3266	drift from y 2080 (-31 px): hero-banner, columns-media.padded, columns-media | h1 Find your favourite place abov / h2 First Class	single	SERVED	standing order 11: standing order 7's flush-grey-band rule took the gap before the cards' padded campaign section (the cards 31 px high); that band keeps 24px now (b8ab4f0): live 3.9 % (390: 14.8 -> 8.0), as de/de, at/de lufthansa-reiseklassen and gb/en
+6.4	3.2	/de/en/datenschutz	1440	h 1523/1556	no step of 16 px or more that persists	spread	HOLD	item 1 of standing order 10: the column end before its links; the importer and CSS fixes tried measured worse (see the report): open after standing order 11 too (no third approach: the CSS variant that helped at 1440 cost at 390 and on other pages; nothing in our markup tells its link run apart)
+4.5	2.2	/de/en/tiere-als-handgepaeck	1440	h 4245/4195	drift from y 880 (-270 px): accordion-columns.faq.spaced, subpage-nav | h2 Registering your animal for ca	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift
+3.9	3.9	/de/en/book-and-manage/additional-services/get-your-guide	390	h 2305/2310	drift from y 960 (313 px):  | h2 4 miles for every euro spent	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift
+3.9	3.9	/de/en/meetings-and-events	1440	h 3534/3504	drift from y 1840 (-174 px): cards-teaser.three-up.phone-slider | h2 Benefits	single	HOLD	single page: no cause shared with another recorded page at this step
+3.8	3.8	/de/en/sixt	1440	h 3001/2991	drift from y 960 (-366 px): car-rental	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift
+3.7	3.8	/de/en/terms-and-conditions-lh	1440	h 8000/8000	drift from y 1280 (369 px): -	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift
+3.7	3.7	/de/en/affiliatemarketing	1440	h 2826/2808	drift from y 2080 (45 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+3.7	3.7	/de/en/book-and-manage/flights/lufthansa-voucher	1440	h 1095/1102	drift from y 880 (42 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+3.7	3.7	/de/en/partner	1440	h 2666/2684	drift from y 1920 (22 px): columns-media.padded | h2 Lufthansa Affiliate Marketing	single	HOLD	single page: no cause shared with another recorded page at this step
+3.6	3.6	/de/en/first-class-lounges	390	h 6137/6115	drift from y 5200 (-124 px): subpage-nav	single	HOLD	single page: no cause shared with another recorded page at this step
+3.6	3.6	/de/en/lufthansa-at-vienna-airport	1440	h 2490/2507	drift from y 1760 (21 px): accordion-columns.faq.spaced | h2 Services at a glance / h2 More information about Vienna 	single	HOLD	single page: no cause shared with another recorded page at this step
+3.6	3.6	/de/en/prepare-for-your-trip/travelling-with-children/planning-with-kids	1440	h 3256/3276	drift from y 2560 (21 px): breadcrumb, columns-media.padded | h1 Planning a trip with children / h2 Important information about fl	single	HOLD	single page: no cause shared with another recorded page at this step
+3.6	3.6	/de/en/register-animal-cabin	1440	h 5508/5544	drift from y 960 (-82 px): form.core	single	HOLD	single page: no cause shared with another recorded page at this step
+3.5	3.5	/de/en/first-class-lounges	1440	h 4022/3995	drift from y 3120 (-28 px): accordion-columns.faq.spaced | h2 First Class Lounges worldwide / h2 Pre-flight dinner in New York	single	HOLD	single page: no cause shared with another recorded page at this step
+3.5	3.5	/de/en/secure-flight	390	h 2055/2060	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+3.4	3.4	/de/en/automatic-check-in	1440	h 2987/2980	drift from y 2240 (-16 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+3.4	3.4	/de/en/electronic-bag-tags	1440	h 2877/2858	drift from y 1760 (-20 px): breadcrumb, columns-media | h1 Electronic bag tags / h2 How to use electronic bag tags	single	HOLD	single page: no cause shared with another recorded page at this step
+3.4	3.4	/de/en/fia-valet-service	390	h 4897/4906	drift from y 4080 (62 px): subpage-nav	single	HOLD	single page: no cause shared with another recorded page at this step
+3.4	3.4	/de/en/lufthansa-at-berlin-airport	1440	h 2913/2919	drift from y 880 (-310 px): -	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift
+3.4	3.4	/de/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk	1440	h 2551/2566	drift from y 1840 (19 px):  | h2 Travellers who require a visa 	single	HOLD	single page: no cause shared with another recorded page at this step
+3.3	3.3	/de/en/addresses-worldwide	1440	h 1257/1249	drift from y 960 (-41 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+3.3	3.3	/de/en/fliegen-mit-baby	390	h 2876/2885	drift from y 2480 (309 px): -	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift
+3.3	3.3	/de/en/lufthansa-at-zuerich-airport	1440	h 2544/2558	drift from y 880 (-307 px):  | h2 Terminal 1 at Zurich Airport	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift
+3.3	3.3	/de/en/online-check-in-info	1440	h 2668/2655	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+3.2	3.2	/de/en/anmeldung-tiere-frachtraum	1440	h 6445/6429	drift from y 960 (-105 px): form.core	single	HOLD	single page: no cause shared with another recorded page at this step
+3.2	3.2	/de/en/book-and-manage/pax-receipt/invoices-different-countries	1440	h 2059/2045	drift from y 480 (-23 px):  | h1 Invoices for different countri / h2 Choose a country	single	HOLD	single page: no cause shared with another recorded page at this step
+3.2	3.2	/de/en/common/imprint/lufthansa-insights-imprint	1440	h 2903/2908	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+3.2	3.2	/de/en/lufthansa-at-duesseldorf-airport	1440	h 2879/2900	drift from y 2160 (21 px):  | h2 Further information about the 	single	HOLD	single page: no cause shared with another recorded page at this step
+3.2	3.2	/de/en/lufthansa-at-duesseldorf-airport	390	h 3895/3902	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+3.2	3.2	/de/en/passenger-receipt-90	1440	h 3317/3337	drift from y 880 (-310 px): form.core	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift
+3.2	3.2	/de/en/prepare-for-your-trip/travel-classes/economy-basic	1440	h 4101/4082	drift from y 2720 (24 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+3.1	3.1	/de/en/admission-rules	1440	h 7245/7205	drift from y 4720 (-18 px):  | h2 Entry to the Lufthansa Group c	single	HOLD	single page: no cause shared with another recorded page at this step
+3.1	3.1	/de/en/all-check-in	1440	h 2794/2817	drift from y 2080 (22 px): breadcrumb, columns-media, columns-media.padded | h1 Check-in made easy / h2 Use our online check-in at hom	single	HOLD	single page: no cause shared with another recorded page at this step
+3.1	3.1	/de/en/first-class-comfort	390	h 3403/3408	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+3.1	3.1	/de/en/prepare-for-your-trip/baggage/baggage-conditions	390	h 3394/3414	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+3.0	3.1	/de/en/cookie-policy	1440	h 8000/8000	drift from y 1920 (-371 px): table-striped.header	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift
+3.0	3.0	/de/en/book-and-manage/cancellation-and-refund/refund/refund-form	1440	h 3928/3913	drift from y 960 (156 px): form.core | h2 Request ticket refund manually	single	HOLD	single page: no cause shared with another recorded page at this step
+3.0	3.0	/de/en/dangerous-dogs	1440	h 2406/2408	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+2.9	2.9	/de/en/articles/highlights	1440	h 6838/6844	drift from y 1600 (43 px): breadcrumb, columns-media, blog-overview | h1 Lufthansa Insights – Highlight / h2 More freedom and elegance on b	single	HOLD	single page: no cause shared with another recorded page at this step
+2.8	2.8	/de/en/articles/tags	390	h 2469/2476	drift from y 960 (-141 px): accordion-columns.faq.column	single	HOLD	single page: no cause shared with another recorded page at this step
+2.8	2.8	/de/en/discover-lufthansa/carbon-offsetting/faq-saf	1440	h 1760/1767	drift from y 1440 (275 px): -	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift
+2.8	2.8	/de/en/services-on-board	1440	h 2789/2781	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+2.8	2.8	/de/en/upgrade-info	1440	h 2255/2260	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+2.8	2.8	/de/en/upgrades-at-online-check-in	1440	h 3250/3257	drift from y 2000 (48 px):  | h2 Please note	single	HOLD	single page: no cause shared with another recorded page at this step
+2.7	2.7	/de/en/overview-flights	1440	h 2703/2719	drift from y 2000 (16 px): cards-teaser | h1 Flights / h2 Your trip starts here	single	HOLD	single page: no cause shared with another recorded page at this step
+2.7	2.7	/de/en/travel-agencies	1440	h 1737/1731	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+2.6	2.6	/de/en/during-your-trip/food-and-beverages/onboard-delights/faq	390	h 2453/2459	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+2.6	2.6	/de/en/overview-travel-information	390	h 3950/3957	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+2.5	2.5	/de/en/overview-special-request	1440	h 2754/2746	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+2.4	2.4	/de/en/culinaryjourney	1440	h 1586/1587	drift from y 880 (62 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+2.4	2.4	/de/en/first-class-personal-assistant	390	h 3095/3101	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+2.4	2.4	/de/en/miles-and-more	1440	h 3406/3410	drift from y 880 (-276 px):  | h2 Broaden your horizons and trav	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift
+2.3	2.3	/de/en/bid-upgrade	1440	h 3888/3889	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+2.2	2.2	/de/en/articles/highlights	390	h 8000/8000	drift from y 1920 (16 px): blog-overview	single	HOLD	single page: no cause shared with another recorded page at this step
+2.2	2.2	/de/en/food-and-beverages	1440	h 5085/5087	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+2.2	2.2	/de/en/meetings-and-events-organisers	1440	h 2888/2886	drift from y 960 (-326 px): -	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift
+2.1	2.1	/de/en/meetings-and-events-delegates	1440	h 2312/2314	drift from y 880 (-243 px):  | h2 Flight booking for event deleg	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift
+2.0	2.0	/de/en/fia-valet-service	1440	h 3456/3462	drift from y 1040 (-372 px):  | h2 Dropping off your vehicle	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift
+2.0	2.0	/de/en/fmg-valet-parking-service	1440	h 2956/2959	drift from y 960 (-261 px):  | h2 Dropping off your vehicle	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift
+1.9	1.9	/de/en/overview-travel-information	1440	h 2840/2842	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+1.8	1.8	/de/en/boarding	1440	h 3181/3185	drift from y 1040 (273 px): table-striped	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift
+1.7	1.7	/de/en/baggage	1440	h 4630/4627	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+1.7	1.7	/de/en/group-travel-and-charter	1440	h 1521/1520	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+1.6	1.6	/de/en/travelling-with-animals	1440	h 2654/2655	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+1.5	1.5	/de/en/lh-rentalcar	1440	h 2376/2375	drift from y 960 (42 px): car-rental | h1 Search	single	HOLD	single page: no cause shared with another recorded page at this step
+1.5	1.5	/de/en/secure-flight	1440	h 1247/1247	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+1.4	1.4	/de/en/services-at-the-airport	1440	h 2822/2824	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+1.2	1.2	/de/en/100-years/history	1440	h 8000/8000	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+1.2	1.2	/de/en/articles/tags	1440	h 1986/1988	drift from y 960 (286 px): accordion-columns.faq.column | h2 Explore more	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift
+1.1	1.1	/de/en/during-your-trip/food-and-beverages/onboard-delights/faq	1440	h 1936/1936	drift from y 960 (381 px): accordion-columns.faq.limited-width.spaced	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift
+1.1	1.1	/de/en/prepare-for-your-trip/special-travel-needs/medical-travel-companions	1440	h 2544/2545	no step of 16 px or more that persists	spread	HOLD	differences spread over the page, no drift step
+1.0	1.0	/de/en/book-and-manage/additional-services/get-your-guide	1440	h 1969/1969	drift from y 960 (-150 px):  | h2 4 miles for every euro spent	single	HOLD	single page: no cause shared with another recorded page at this step
+1.0	1.0	/de/en/first-class-personal-assistant	1440	h 2210/2210	drift from y 960 (-298 px): -	spike	HOLD	a one-step jump of about 300 px: the offset tool matching repeated rows, not a drift

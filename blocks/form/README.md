@@ -121,7 +121,7 @@ row with Rules `repeat=4` (copies in total), `add=add another flight` (link text
 are authored once, with base names (`carrier`, not `carrier_1`): the block renders copies 1..N with
 names `carrier_1`..`carrier_N` (a region's `country=` follows), shows copy 1, adds the next one on
 the link, lets the last shown copy be removed again (cleared) and hides link and counter when all
-are shown. Hidden copies are not validated.
+are shown. Hidden copies are not validated. With the Rules flag `hidden` the whole section starts hidden and a checkbox's `toggles=` its Name shows it (copy 1 and the add link) and hides and clears it again (Brussels' "Show additional passengers", live `forms-repeatable-section collapse` with the checkbox's `data-target`).
 
 UI text overrides: a row with Type `label`, Name = key, Label = text. Keys and defaults (English /
 German): sent message = This is a preview form. Nothing has been sent. / Dies ist ein

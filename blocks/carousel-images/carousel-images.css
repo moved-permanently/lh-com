@@ -66,6 +66,12 @@
   height: auto;
 }
 
+/* a slide of several pictures, one under the other: 30 px apart (www's image components in one slide,
+   brussels' your-summer-in-athens-starts-here at 1440 and 390; standing order 20) */
+.carousel-images .carousel-images-image > :is(picture, a) + :is(picture, a) {
+  margin-top: 30px;
+}
+
 /* 2:1 reserved until an image without width/height attributes has loaded */
 .carousel-images .carousel-images-image img:not([width]) {
   aspect-ratio: auto 2 / 1;
@@ -213,6 +219,19 @@ body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-disco
 
 body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-discover, .brand-cargo, .brand-lufthansa, .brand-b2b) .carousel-images .carousel-images-dot[aria-current="true"] {
   background: none;
+}
+
+/* lufthansa.com from 768px: www draws the dot 58px under the last slide's image or caption (lh-parity-004a/b:
+   crane, destinations, new-onboard-experience, san-diego); the 24px target's 8px above the drawn dot and the caption's
+   bottom padding made it 65 / 77 (the brief after 539). On phones the recordings don't settle it: as before */
+@media (width >= 768px) {
+  body.brand-lufthansa .carousel-images .carousel-images-dots {
+    margin-top: 50px;
+  }
+
+  body.brand-lufthansa .carousel-images .carousel-images-caption {
+    padding-bottom: 0;
+  }
 }
 
 /* Insights articles: the swiper sits in the article card (.article-content col-md-10

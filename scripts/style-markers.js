@@ -16,8 +16,10 @@ export const styleMarker = (tokens) => new RegExp(`\\s*\\{((?:${tokens})(?: (?:$
 
 export const HEADING_TOKENS = `heading-(?:large|medium|small|copytext-large|copytext-medium)|copytext-large|limited-width|${COLUMN_MARK}`;
 export const PARAGRAPH_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|caption|parallax|narrow|indent-\\d{1,3}|${COLUMN_MARK}`;
-// lists: the text sizes as on paragraphs too (SWISS's sports-equipment lists: "{copytext-medium}")
-export const LIST_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|${COLUMN_MARK}`;
+// lists: the text sizes as on paragraphs too (SWISS's sports-equipment lists: "{copytext-medium}");
+// lufthansa.com's link lists to pages (www's .link-list ul.horizontal|responsive|vertical,
+// brief 582): "{links-horizontal}"
+export const LIST_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-width|links-(?:horizontal|responsive|vertical)|${COLUMN_MARK}`;
 
 export const HEADING_STYLE = styleMarker(HEADING_TOKENS);
 export const PARAGRAPH_STYLE = styleMarker(PARAGRAPH_TOKENS);
@@ -141,6 +143,9 @@ const BASE_THEME = {
   headingChoices: {
     h2: { large: 'heading-large', compact: 'heading-copytext-large' },
     h3: { large: 'heading-medium' },
+    // an H4 two steps over its default too (www's heading-medium card titles: B2B's Joint
+    // Ventures, the brief after d9cf2340; without it the collapse dropped the size)
+    h4: { large: 'heading-medium' },
   },
   // running text: two thirds of the content width from 1025px ('full': the whole width); body
   // text 18px (copytext-large), small print 14px
@@ -161,7 +166,22 @@ export const THEMES = {
     // from the column marks, ema-adobe's hub transformer on import; styles.css "the column view
     // carrier")
     columnViews: { carrier: 'column-view' },
+    // page titles in heading-medium (www's smaller H1: 168 of the 6,826 census
+    // documents' first H1s, 85 later H1s; brief 582, the switch plan's B3): one step from
+    // the H1 default, which the collapse would take, so a choice of their own the collapse
+    // keeps (section style H1 compact)
+    headingChoices: { h1: { compact: 'heading-medium' } },
+    nearChoices: { h1: { 'heading-medium': 'compact' } },
     pageTypes: {
+      // flow pages (the info pages; a page with column marks is one): an H3 in heading-small is
+      // a choice of its own (H3 large draws heading-small here, not heading-medium): www's H3s
+      // there are heading-small 924 times, unmarked 432, heading-medium 106 (the 1,862 published
+      // column-mark documents, standing order 3); the collapse took the H3 default before (bold
+      // 24px for www's light 28px). nearChoices replaces the brand's, so the H1's again
+      flow: {
+        headingChoices: { h3: { large: 'heading-small' } },
+        nearChoices: { h1: { 'heading-medium': 'compact' }, h3: { 'heading-small': 'large' } },
+      },
       // Insights articles: a rule above an info box (Columns Media) after any content but a
       // heading; chapters (an H2 / H3 or a bold paragraph) as sections, a rule between them
       article: { rules: ['rule-before-info-box', 'ruled-chapters'] },
@@ -175,31 +195,77 @@ export const THEMES = {
   },
   // Austrian: the paragraph right after the page title is the intro (copytext-large, Portada
   // 18/27); flow pages set their H3s in heading-small (www: 87 % of them)
-  austrian: { rules: ['intro-after-h1'], pageTypes: { flow: { headings: { h3: 'heading-small' } } } },
+  austrian: { live: true, rules: ['intro-after-h1'], pageTypes: { flow: { headings: { h3: 'heading-small' } } } },
   // Brussels: flow pages set their H3s in heading-small (www: 72 %); a service page's H2s are the
   // default (www: 89 % unmarked, heading-medium; no longer heading-small)
-  brussels: { pageTypes: { flow: { headings: { h3: 'heading-small' } } } },
+  // textSpacers: a spacer of 31 px or less between two text elements (www's empty paragraph,
+  // nbsp-guard.mjs emptyParagraphSpacers) stays as {spacer-N} in the collapse (standing order 5
+  // of 2026-11-11, item 1; import time only, nothing served reads it)
+  brussels: {
+    live: true,
+    textSpacers: true,
+    pageTypes: { flow: { headings: { h3: 'heading-small' } } },
+  },
   // ITA: running text over the whole width
-  ita: { live: true, text: { width: 'full' } },
+  // ITA: a section's H2 right before a teaser grid in heading-small (www's column view; DA: 923 of
+  // 1,029 H2s before Carousel Cards, every one of 67 before Cards Icon; rows-for-ema-test row 1)
+  ita: {
+    live: true,
+    text: { width: 'full' },
+    headingsBefore: { 'carousel-cards': { h2: 'heading-small' }, 'cards-icon': { h2: 'heading-small' } },
+    // keepSizesIn: in a Columns Media cell (www's column-view items) a heading keeps its marker in
+    // heading-medium or heading-small, which the page reads as the class (www has both there: 36
+    // and 28 px; rows-for-ema-test.md row 6, standing order 10 of 2026-11-12; import time only)
+    keepSizesIn: { 'columns-media': ['heading-medium', 'heading-small'] },
+  },
   // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
   // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
   // (a heading right before them starts the group's column view, as its marker did)
-  swiss: { rules: ['teaser-groups'], pageTypes: { flow: { headings: { h2: 'heading-small' } } } },
+  swiss: { live: true, rules: ['teaser-groups'], pageTypes: { flow: { headings: { h2: 'heading-small' } } } },
   // Discover: on flow pages the H2s in heading-small (www: 86 %) and a Columns Media a column view
   // of its own (www: 26 of 33 not at a section's start)
-  discover: { pageTypes: { flow: { headings: { h2: 'heading-small' }, columnViews: { blocks: ['columns-media'] } } } },
+  // componentSpacers: a separator of 31 px or less between two components (www's .hr, 30 px + 1)
+  // stays as {spacer-N} in the collapse (rows-for-ema-test.md row 4; import time only)
+  discover: {
+    live: true,
+    componentSpacers: true,
+    // oneElementViews: a column view that opens and closes on one paragraph (www's intro in a
+    // one-column view after the title) keeps its marks in the collapse (standing order 10 of
+    // 2026-11-12; import time only)
+    columnViews: { oneElementViews: true },
+    // keepSizes: a heading size the collapse keeps as its marker, which the page reads as the class
+    // (www's heading-copytext-large, 16 / 18 px bold: rows-for-ema-test.md row 3)
+    keepSizes: ['heading-copytext-large'],
+    pageTypes: { flow: { headings: { h2: 'heading-small' }, columnViews: { blocks: ['columns-media'] } } },
+  },
   // Lufthansa Group for Business: on flow pages the H3s in heading-small (www: 82 %); Columns
   // Media, Carousel Images and Quote column views of their own, also at a section's end (www: 558
   // of 789 Columns Media not at a section's start, 749 of 962 with an edge below)
   b2b: {
+    live: true,
+    // a title in heading-small (www's airline pages: 21 first H1s of the census, 20 later ones),
+    // two steps under the H1 default, which the collapse dropped (section style H1 compact)
+    headingChoices: { h1: { compact: 'heading-small' } },
+    // keepSizes: www's H2s in heading-copytext-large (18 / 24 px bold; route-network, businesstogo)
+    // keep their marker in the collapse, which the page reads as the class (standing order 9 of
+    // 2026-11-12: 6 of 12 page-widths better, none worse); heading-small not (9 worse)
+    keepSizes: ['heading-copytext-large'],
     pageTypes: {
-      flow: { headings: { h3: 'heading-small' }, columnViews: { blocks: ['columns-media', 'carousel-images', 'quote'], endEdge: true } },
+      // a heading right before such a block opens its column view (www: 81 of 105 marked so, the
+      // brief after 550 narrows it); in a grey band no edge above a block right after a heading
+      // (www: none of 146 bands has column marks; travel-id's and contact's headings sit on it)
+      flow: {
+        headings: { h3: 'heading-small' },
+        columnViews: {
+          blocks: ['columns-media', 'carousel-images', 'quote'], endEdge: true, startAtHeading: true, bandHeadings: true, sidebarNoView: true, startAfterLogo: true,
+        },
+      },
     },
   },
   // Air Dolomiti: the base theme (between B2B's and TAP's entries, next to no switch line)
   airdolomiti: {},
   // TAP: the base theme (an entry of its own, so its switch is one line as every brand's)
-  tap: {},
+  tap: { live: true },
   // Lufthansa Cargo: the base theme
   cargo: { live: true },
 };
@@ -269,9 +335,11 @@ export const SECTION_STYLES = {
   'divider-below': { dividerBelow: true },
   'wide-text': { width: 'full' },
   'small-print': { size: 'small' },
+  'h1-compact': { headings: { h1: 'compact' } },
   'h2-large': { headings: { h2: 'large' } },
   'h2-compact': { headings: { h2: 'compact' } },
   'h3-large': { headings: { h3: 'large' } },
+  'h4-large': { headings: { h4: 'large' } },
   // the section's own images in a 500 px window (Insights' parallax), its quotes narrow (centred)
   parallax: { image: 'parallax' },
   narrow: { quote: 'narrow' },
@@ -292,9 +360,11 @@ export const SECTION_STYLE_LABELS = {
   'divider-below': 'Divider below',
   'wide-text': 'Wide text',
   'small-print': 'Small print',
+  'h1-compact': 'H1 compact',
   'h2-large': 'H2 large',
   'h2-compact': 'H2 compact',
   'h3-large': 'H3 large',
+  'h4-large': 'H4 large',
   parallax: 'Parallax image',
   narrow: 'Narrow quote',
   padded: 'Padded',

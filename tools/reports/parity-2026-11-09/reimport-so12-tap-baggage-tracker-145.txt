@@ -1,0 +1,22 @@
+# ema-cashub, standing order 12 (2026-11-12), TAP row 145: www's baggage tracker (ComponentTrackBagaggeModel) on the
+# locate-baggage pages. www's form is a React app TAP's own service answers (flight date, airline code, flight number,
+# baggage tag number; the form has no action), so it cannot work on our hosts. tap-import.mjs now writes the title and
+# a link box (cards one-up, one card: www's line under the title and a button to the tracker on flytap.com, the page's
+# own www URL) in the page's language, from the roots' snapshots; before, the title and a bare "See on flytap.com"
+# paragraph. Test: test/tap-baggage-tracker-145.test.mjs.
+# Measured: main's importer with this commit (tap-import.mjs --archive tap-snapshots-001 to -015 and -023 --media every
+# media archive and tap-byside-001 --only <these paths>): each document equal to DA's source (order 11's copies, GET
+# only) but for the box (the bare link paragraph replaced). Recorded (tap-parity-008, en-pt), drafts on our host with
+# main's code, every picture loaded: 1440 www 1,839, published 1,337 (-27.3 %), re-imported 1,541 (-16.2 %); 390 www
+# 2,148, published 1,607 (-25.2 %), re-imported 1,771 (-17.5 %). The rest is the form itself (row 145 stays open for it).
+# The box: white, 24 px corners, TAP's card shadow; the button TAP's green pill (40 px). No market sections.
+# READY: all 8. Run as above with --only <these paths>.
+# Columns: document, status, expected change.
+/pt-pt/informacoes/bagagem/localizar-bagagem	READY	the tracker as a link box to flytap.com (www's line and a "Pesquisar em flytap.com" button) in place of the bare link
+/en-pt/information/baggage/locate-baggage	READY	the tracker as a link box to flytap.com (www's line and a "Search on flytap.com" button) in place of the bare link
+/es-es/informacion/equipaje/localizar-equipaje	READY	the tracker as a link box to flytap.com (www's line and a "Buscar en flytap.com" button) in place of the bare link
+/fr-fr/informations/bagage/localiser-bagages	READY	the tracker as a link box to flytap.com (www's line and a "Rechercher sur flytap.com" button) in place of the bare link
+/de-de/informationen/gepack/gepack-finden	READY	the tracker as a link box to flytap.com (www's line and a "Auf flytap.com suchen" button) in place of the bare link
+/it-it/informazioni/bagaglio/localizzare-bagagli	READY	the tracker as a link box to flytap.com (www's line and a "Cerca su flytap.com" button) in place of the bare link
+/pl-pl/informacja/bagaz/zlokalizowac-bagaz	READY	the tracker as a link box to flytap.com (www's line and a "Wyszukaj na flytap.com" button) in place of the bare link
+/pt-br/informacoes/bagagem/localizar-bagagem	READY	the tracker as a link box to flytap.com (www's line and a "Pesquisar em flytap.com" button) in place of the bare link

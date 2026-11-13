@@ -1,0 +1,6 @@
+# The brief after 531, item 1 (Discover parity row 42): re-imported with discover-import.mjs as it is, from the
+# recording discover-parity-002 (its de-en-book-baggage-excess-baggage-1440.html as the snapshot
+# tools/importer/bd-snapshots/www.discover-airlines.com/de/en/book/baggage/excess-baggage.html). The document was
+# imported before the tab sections (515475be): www's two tabs, the text beside its picture and the two teaser cards came
+# as one column. Release order; uploaded, previewed and published as it stands.
+/de/en/book/baggage/excess-baggage

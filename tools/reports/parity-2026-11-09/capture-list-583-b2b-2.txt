@@ -1,0 +1,13 @@
+# Capture list 2 (lh-b2b, the standing order of 2026-11-10 evening, decision 3; written 00:40 UTC): pages to record at 1440 x 900 and 390 x 844 (rendered DOM, screenshot, measurements; archive b2b-parity-NNN), business.lufthansagroup.com/<path>.html, in this order (the first ones matter most if the window closes). Why: tonight's changes touch these and no recording exists: the sidebar change (c35b1d7d, served), the tab-column list (reimport-583-b2b-tab-columns.txt) and the teaser-grid list (reimport-583-b2b-teaser-grids.txt); with recordings I can check them against www after the harness applies the lists.
+/de/en/travel-solutions/our-european-fares
+/de/en/program/experts/on-board/entertainment-on-board
+/de/en/allegris/intermediaries-start-of-booking
+/de/en/about-us/joint-ventures
+/de/en/travel-solutions/lufthansa-group-wifi
+/de/en/program/experts/route-network/lufthansa/kuala-lumpur
+/de/en/about-us/lhg-history/lhg-history-booking
+/de/en/program
+/de/en/travel-management
+/de/en/news/celebrating-shared-stories/sap
+/de/de/allegris/corporates-start-of-booking
+/de/de/travel-solutions/our-european-fares

@@ -14,6 +14,7 @@ import poiMapParser from './parsers/poi-map.js';
 import formCoreParser from './parsers/form-core.js';
 import carRentalParser from './parsers/car-rental.js';
 import flightSearchParser from './parsers/flight-search.js';
+import destinationFinderParser from './parsers/destination-finder.js';
 import heroCardOverlayParser from './parsers/hero-card-overlay.js';
 import heroCampaignParser from './parsers/hero-campaign.js';
 import carouselImagesParser from './parsers/carousel-images.js';
@@ -120,6 +121,12 @@ const PAGE_TEMPLATE = {
       ]
     },
     {
+      "name": "destination-finder",
+      "instances": [
+        ".fareteaserdynamicevo"
+      ]
+    },
+    {
       "name": "hero-card-overlay",
       "instances": [
         ".b2b-stage"
@@ -187,9 +194,13 @@ const PAGE_TEMPLATE = {
         ".sidebar:not(:has(.twocolumn, .threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table))",
         ".sidebar:has(> .airem-sidebar > .sidebar-aside img):has(> .airem-sidebar > .sidebar-content .twocolumn):not(:has(.threecolumn, .fourcolumn, .onecolumn, .poimapping, .messagecenterwrapper, .videoViewer, .teaser, .imagelinklist, .authorquote, .accordion, .table, .sidebar-aside .twocolumn))",
         ":is(.section-content, .container-content, .sidebar-content) > .twocolumn:not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe:not(.video-player > iframe), maui-navigation-link[variant=\"anchor-down\"]))",
+        ":is(.section-content, .container-content) > .twocolumn.b2b-embed-columns",
+        ":is(.twocolumn, .threecolumn).b2b-tab-columns",
         ":is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant=\"anchor-down\"]))",
+        ".sidebar-content > :is(.threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant=\"anchor-down\"]))",
         ":is(.section-content, .container-content) > :is(.threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn) .image img):not(:has(.column-view-item .column-view-item :is(.text, .headline, .link, .teaser))):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe))",
         ":is(.section-content, .container-content, maui-tab-control-panel-responsive > div) > .onecolumn > .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant=\"anchor-down\"]))",
+        ":is(.section-content, .container-content) > .onecolumn > .column-view > .row > .column-view-item > .twocolumn:has(> .column-view > .row > .column-view-item > .image img):has(> .column-view > .row > .column-view-item > .twocolumn):not(:has(.threecolumn, .fourcolumn, .onecolumn, .table, .teaser, .poimapping, .stage, .slideshow, .accordion, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe, maui-navigation-link[variant=\"anchor-down\"])):not(:has(> .column-view > .row > .column-view-item > .twocolumn .twocolumn)):not(:has(> .column-view > .row > .column-view-item > .twocolumn > .column-view > .row > .column-view-item > :not(.link)))",
         ":is(.section-content, .container-content, maui-tab-control-panel-responsive > div) > .onecolumn > .column-view > .row > .column-view-item > :is(.twocolumn, .threecolumn, .fourcolumn):has(> .column-view > .row > .column-view-item > .image img):has(maui-navigation-link[variant=\"anchor-down\"]):not(:has(.table, .teaser, .poimapping, .stage, .slideshow, .accordion, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, .sidebar, .experiencefragment, .video, .carousel, .tabs, form, .messagecenterwrapper, .authorquote, iframe))",
         ".videoViewer, .image:has(video)",
         ":is(.section-content, .container-content) > .twocolumn:has(> .column-view > .carousel > .hidden-md-down > .row > .column-view-item > .headline):has(> .column-view > .carousel > .hidden-md-down > .row > .column-view-item > .image img):not(:has(.teaser, .table, .accordion, .tabs, .sidebar, .onecolumn, .twocolumn, .threecolumn, .fourcolumn, form, iframe))",
@@ -307,6 +318,7 @@ const parsers = {
   'form-core': formCoreParser,
   'car-rental': carRentalParser,
   'flight-search': flightSearchParser,
+  'destination-finder': destinationFinderParser,
   'hero-card-overlay': heroCardOverlayParser,
   'hero-campaign': heroCampaignParser,
   'carousel-images': carouselImagesParser,

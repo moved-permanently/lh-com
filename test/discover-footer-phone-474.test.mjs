@@ -26,6 +26,7 @@ test('Follow us 14/28, 36 px over the icons; the legal links 60 px under them, 2
   assert.ok(phone.includes('body.brand-discover .footer .footer-column-badges { padding-top: 0; }'));
   assert.ok(phone.includes('body.brand-discover .footer .footer-badge-heading { margin-bottom: 36px; font-size: 14px; line-height: 28px; }'));
   assert.ok(phone.includes('body.brand-discover .footer .footer-divider { display: none; }'));
-  assert.ok(phone.includes('body.brand-discover .footer .footer-legal { row-gap: 24px; padding: 60px 0 41px 12px; }'));
+  // a wrapping row since Discover row 47 (short links side by side, 24 px apart, as www's)
+  assert.ok(phone.includes('body.brand-discover .footer .footer-legal { flex-direction: row; gap: 24px; padding: 60px 0 41px 12px; }'));
   assert.ok(phone.includes('body.brand-discover .footer .footer-logos-inner { padding-bottom: 97px; }'), 'the logo band 115 px dark sky blue, then 63 px night sky blue');
 });

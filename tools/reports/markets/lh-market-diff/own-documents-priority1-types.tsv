@@ -1,0 +1,95 @@
+# Brief 558 item 3 (ema-adobe, 2026-11-10): the 93 priority-1 own-document rows of import-rows.tsv, the template the import helper takes for each and how it was confirmed. www_path as in tools/markets/capture-lists/lh-com-own-documents-priority1.txt (that list is complete: 93 rows, no duplicate; only in/en and sa/en /flights have a root snapshot, bd-snapshots of 2026-10-21, old enough to capture again).
+www_path	root	version page	template	confirmed by
+/pt/en/companion-special-business-class	pt/en	/ae/en/companion-special-business-class	info	offline import of the version page /ae/en/companion-special-business-class from its snapshot: text kept info 98%, campaign 98%, hub 98%
+/eg/en/companion-special-jun2021	eg/en	/ae/en/companion-special-jun2021	info	offline import of the version page /ae/en/companion-special-jun2021 from its snapshot: text kept info 99%, campaign 99%, hub 99%
+/sa/en/offers-to-europe	sa/en	/ae/en/offers-to-europe	info	offline import of the version page /ae/en/offers-to-europe from its snapshot: text kept info 96%, campaign 96%, hub 98%
+/sa/en/promotion-code-information	sa/en	/ae/en/promotion-code-information	info	offline import of the version page /ae/en/promotion-code-information from its snapshot: text kept info 99%, campaign 99%, hub 99%
+/sa/en/special-offers-to-north-america	sa/en	/ae/en/special-offers-to-north-america	info	offline import of the version page /ae/en/special-offers-to-north-america from its snapshot: text kept info 96%, campaign 96%, hub 99%
+/pt/en/companion-special-first-class	pt/en	/at/en/companion-special-first-class	info	offline import of the version page /at/en/companion-special-first-class from its snapshot: text kept info 98%, campaign 98%, hub 98%
+/dk/en/local-page/companion-special-in-business-class	dk/en	/bg/en/local-page/companion-special-in-business-class	info	offline import of the version page /bg/en/local-page/companion-special-in-business-class from its snapshot: text kept info 98%, campaign 98%, hub 98%
+/hu/en/local-page/companion-special-in-business-class	hu/en	/bg/en/local-page/companion-special-in-business-class	info	offline import of the version page /bg/en/local-page/companion-special-in-business-class from its snapshot: text kept info 98%, campaign 98%, hub 98%
+/no/en/local-page/companion-special-in-business-class	no/en	/bg/en/local-page/companion-special-in-business-class	info	offline import of the version page /bg/en/local-page/companion-special-in-business-class from its snapshot: text kept info 98%, campaign 98%, hub 98%
+/pl/en/local-page/companion-special-in-business-class	pl/en	/bg/en/local-page/companion-special-in-business-class	info	offline import of the version page /bg/en/local-page/companion-special-in-business-class from its snapshot: text kept info 98%, campaign 98%, hub 98%
+/pt/en/local-page/companion-special-in-business-class	pt/en	/bg/en/local-page/companion-special-in-business-class	info	offline import of the version page /bg/en/local-page/companion-special-in-business-class from its snapshot: text kept info 98%, campaign 98%, hub 98%
+/se/en/local-page/companion-special-in-business-class	se/en	/bg/en/local-page/companion-special-in-business-class	info	offline import of the version page /bg/en/local-page/companion-special-in-business-class from its snapshot: text kept info 98%, campaign 98%, hub 98%
+/sa/en/promotion-code-information-kaust	sa/en	/bh/en/promotion-code-information-kaust	info	offline import of the version page /bh/en/promotion-code-information-kaust from its snapshot: text kept info 99%, campaign 99%, hub 99%
+/dk/en/local-page/ski-campaign-2026	dk/en	/br/en/local-page/ski-campaign-2026	info	offline import of the version page /br/en/local-page/ski-campaign-2026 from its snapshot: text kept info 94%, campaign 93%, hub 94%
+/il/en/local-page/ski-campaign-2026	il/en	/br/en/local-page/ski-campaign-2026	info	offline import of the version page /br/en/local-page/ski-campaign-2026 from its snapshot: text kept info 94%, campaign 93%, hub 94%
+/nl/en/local-page/ski-campaign-2026	nl/en	/br/en/local-page/ski-campaign-2026	info	offline import of the version page /br/en/local-page/ski-campaign-2026 from its snapshot: text kept info 94%, campaign 93%, hub 94%
+/no/en/local-page/ski-campaign-2026	no/en	/br/en/local-page/ski-campaign-2026	info	offline import of the version page /br/en/local-page/ski-campaign-2026 from its snapshot: text kept info 94%, campaign 93%, hub 94%
+/se/en/local-page/ski-campaign-2026	se/en	/br/en/local-page/ski-campaign-2026	info	offline import of the version page /br/en/local-page/ski-campaign-2026 from its snapshot: text kept info 94%, campaign 93%, hub 94%
+/us/en/local-page/ski-campaign-2026	us/en	/br/en/local-page/ski-campaign-2026	info	offline import of the version page /br/en/local-page/ski-campaign-2026 from its snapshot: text kept info 94%, campaign 93%, hub 94%
+/us/en/best-price-search	us/en	/ca/en/best-price-search	info	offline import of the version page /ca/en/best-price-search from its snapshot: text kept info 98%, campaign 98%, hub 98%
+/us/en/local-page/flightreservation-priceguarantee	us/en	/ca/en/local-page/flightreservation-priceguarantee	info	offline import of the version page /ca/en/local-page/flightreservation-priceguarantee from its snapshot: text kept info 95%, campaign 95%, hub 95%
+/pl/en/autumn-campaign22	pl/en	/cz/en/autumn-campaign22	info	offline import of the version page /cz/en/autumn-campaign22 from its snapshot: text kept info 91%, campaign 96%, hub 96%
+/nl/de/articles/explore-the-world/copenhagen-what-i-have-learned	nl/de	/de/de/articles/explore-the-world/copenhagen-what-i-have-learned	insights	page-templates.json maps the version page /de/de/articles/explore-the-world/copenhagen-what-i-have-learned to insights
+/us/de/assistenzhunde	us/de	/de/de/assistenzhunde	info	page-templates.json maps the version page /de/de/assistenzhunde to info
+/ch/de/book-and-manage/additional-services/travel-insurances	ch/de	/de/de/book-and-manage/additional-services/travel-insurances	info	page-templates.json maps the version page /de/de/book-and-manage/additional-services/travel-insurances to info
+/gb/de/book-and-manage/additional-services/travel-insurances	gb/de	/de/de/book-and-manage/additional-services/travel-insurances	info	page-templates.json maps the version page /de/de/book-and-manage/additional-services/travel-insurances to info
+/us/de/book-and-manage/additional-services/travel-insurances	us/de	/de/de/book-and-manage/additional-services/travel-insurances	info	page-templates.json maps the version page /de/de/book-and-manage/additional-services/travel-insurances to info
+/us/de/dangerous-dogs	us/de	/de/de/dangerous-dogs	info	page-templates.json maps the version page /de/de/dangerous-dogs to info
+/nl/de/flugsuche	nl/de	/de/de/flugsuche	app-entry	page-templates.json maps the version page /de/de/flugsuche to app-entry
+/us/de/fmg-valet-parking-service	us/de	/de/de/fmg-valet-parking-service	info	page-templates.json maps the version page /de/de/fmg-valet-parking-service to info
+/gb/de/hertz	gb/de	/de/de/hertz	info	page-templates.json maps the version page /de/de/hertz to info
+/it/de/mietwagenangebote	it/de	/de/de/mietwagenangebote	info	page-templates.json maps the version page /de/de/mietwagenangebote to info
+/us/de/mobility-partner-program-healthcare	us/de	/de/de/mobility-partner-program-healthcare	info	page-templates.json maps the version page /de/de/mobility-partner-program-healthcare to info
+/us/de/munich-fair	us/de	/de/de/munich-fair	campaign	page-templates.json maps the version page /de/de/munich-fair to campaign
+/be/de/nutzungsbedingungen	be/de	/de/de/nutzungsbedingungen	legal	page-templates.json maps the version page /de/de/nutzungsbedingungen to legal
+/be/de/passenger-rights	be/de	/de/de/passenger-rights	legal	page-templates.json maps the version page /de/de/passenger-rights to legal
+/es/de/passenger-rights	es/de	/de/de/passenger-rights	legal	page-templates.json maps the version page /de/de/passenger-rights to legal
+/us/de/reisen-mit-besonderen-anforderungen	us/de	/de/de/reisen-mit-besonderen-anforderungen	info	page-templates.json maps the version page /de/de/reisen-mit-besonderen-anforderungen to info
+/us/de/services-am-flughafen-muenchen	us/de	/de/de/services-am-flughafen-muenchen	info	page-templates.json maps the version page /de/de/services-am-flughafen-muenchen to info
+/us/de/sixt	us/de	/de/de/sixt	info	page-templates.json maps the version page /de/de/sixt to info
+/us/de/tiere-als-handgepaeck	us/de	/de/de/tiere-als-handgepaeck	info	page-templates.json maps the version page /de/de/tiere-als-handgepaeck to info
+/us/de/tiere-als-uebergepaeck	us/de	/de/de/tiere-als-uebergepaeck	info	page-templates.json maps the version page /de/de/tiere-als-uebergepaeck to info
+/pt/en/addresses-worldwide	pt/en	/de/en/addresses-worldwide	info	page-templates.json maps the version page /de/en/addresses-worldwide to info
+/il/en/articles/explore-flying/lufthansa-insights-art	il/en	/de/en/articles/explore-flying/lufthansa-insights-art	insights	page-templates.json maps the version page /de/en/articles/explore-flying/lufthansa-insights-art to insights
+/th/en/articles/explore-the-world/be-picky-istanbul-insider-tips	th/en	/de/en/articles/explore-the-world/be-picky-istanbul-insider-tips	insights	page-templates.json maps the version page /de/en/articles/explore-the-world/be-picky-istanbul-insider-tips to insights
+/es/en/articles/explore-the-world/essentials-amsterdam-facts	es/en	/de/en/articles/explore-the-world/essentials-amsterdam-facts	insights	page-templates.json maps the version page /de/en/articles/explore-the-world/essentials-amsterdam-facts to insights
+/hk/en/articles/explore-the-world/on-the-scene-food-trends-amsterdam	hk/en	/de/en/articles/explore-the-world/on-the-scene-food-trends-amsterdam	insights	page-templates.json maps the version page /de/en/articles/explore-the-world/on-the-scene-food-trends-amsterdam to insights
+/jp/en/articles/explore-the-world/on-the-scene-urban-farming-singapore	jp/en	/de/en/articles/explore-the-world/on-the-scene-urban-farming-singapore	insights	page-templates.json maps the version page /de/en/articles/explore-the-world/on-the-scene-urban-farming-singapore to insights
+/es/en/articles/explore-the-world/what-i-learned-living-in-la	es/en	/de/en/articles/explore-the-world/what-i-learned-living-in-la	insights	page-templates.json maps the version page /de/en/articles/explore-the-world/what-i-learned-living-in-la to insights
+/ch/en/book-and-manage/additional-services/travel-insurances	ch/en	/de/en/book-and-manage/additional-services/travel-insurances	info	page-templates.json maps the version page /de/en/book-and-manage/additional-services/travel-insurances to info
+/us/en/book-and-manage/additional-services/travel-insurances	us/en	/de/en/book-and-manage/additional-services/travel-insurances	info	page-templates.json maps the version page /de/en/book-and-manage/additional-services/travel-insurances to info
+/ca/en/cash-and-miles	ca/en	/de/en/cash-and-miles	info	page-templates.json maps the version page /de/en/cash-and-miles to info
+/cn/en/cash-and-miles	cn/en	/de/en/cash-and-miles	info	page-templates.json maps the version page /de/en/cash-and-miles to info
+/il/en/cash-and-miles	il/en	/de/en/cash-and-miles	info	page-templates.json maps the version page /de/en/cash-and-miles to info
+/jp/en/cash-and-miles	jp/en	/de/en/cash-and-miles	info	page-templates.json maps the version page /de/en/cash-and-miles to info
+/th/en/cash-and-miles	th/en	/de/en/cash-and-miles	info	page-templates.json maps the version page /de/en/cash-and-miles to info
+/us/en/cash-and-miles	us/en	/de/en/cash-and-miles	info	page-templates.json maps the version page /de/en/cash-and-miles to info
+/ch/en/common/terms-and-conditions/terms-and-conditions-promocode	ch/en	/de/en/common/terms-and-conditions/terms-and-conditions-promocode	legal	offline import of the version page /de/en/common/terms-and-conditions/terms-and-conditions-promocode from its snapshot: text kept info 99%, campaign 99%, hub 99% (legal by its path, a terms page: the legal template)
+/us/en/digital-self-services	us/en	/de/en/digital-self-services	hub	page-templates.json maps the version page /de/en/digital-self-services to hub
+/ca/en/discover-lufthansa/flightreservation-priceguarantee	ca/en	/de/en/discover-lufthansa/flightreservation-priceguarantee	info	page-templates.json maps the version page /de/en/discover-lufthansa/flightreservation-priceguarantee to info
+/us/en/discover-lufthansa/flightreservation-priceguarantee	us/en	/de/en/discover-lufthansa/flightreservation-priceguarantee	info	page-templates.json maps the version page /de/en/discover-lufthansa/flightreservation-priceguarantee to info
+/pt/en/first-class-lounges	pt/en	/de/en/first-class-lounges	info	page-templates.json maps the version page /de/en/first-class-lounges to info
+/pt/en/first-class-valet-parking-service	pt/en	/de/en/first-class-valet-parking-service	info	page-templates.json maps the version page /de/en/first-class-valet-parking-service to info
+/ca/en/flight-disruptions	ca/en	/de/en/flight-disruptions	info	page-templates.json maps the version page /de/en/flight-disruptions to info
+/ca/en/flight-search	ca/en	/de/en/flight-search	app-entry	page-templates.json maps the version page /de/en/flight-search to app-entry
+/cn/en/flight-search	cn/en	/de/en/flight-search	app-entry	page-templates.json maps the version page /de/en/flight-search to app-entry
+/il/en/flight-search	il/en	/de/en/flight-search	app-entry	page-templates.json maps the version page /de/en/flight-search to app-entry
+/jp/en/flight-search	jp/en	/de/en/flight-search	app-entry	page-templates.json maps the version page /de/en/flight-search to app-entry
+/th/en/flight-search	th/en	/de/en/flight-search	app-entry	page-templates.json maps the version page /de/en/flight-search to app-entry
+/us/en/flight-search	us/en	/de/en/flight-search	app-entry	page-templates.json maps the version page /de/en/flight-search to app-entry
+/in/en/flights	in/en	/de/en/flights	hub	page-templates.json maps the version page /de/en/flights to hub
+/sa/en/flights	sa/en	/de/en/flights	hub	page-templates.json maps the version page /de/en/flights to hub
+/no/en/fly-more-sustainabl	no/en	/de/en/fly-more-sustainabl	info	page-templates.json maps the version page /de/en/fly-more-sustainabl to info
+/pt/en/flying-with-small-children	pt/en	/de/en/flying-with-small-children	info	page-templates.json maps the version page /de/en/flying-with-small-children to info
+/at/en/free2move	at/en	/de/en/free2move	info	page-templates.json maps the version page /de/en/free2move to info
+/dk/en/hertz	dk/en	/de/en/hertz	info	page-templates.json maps the version page /de/en/hertz to info
+/be/en/imprint	be/en	/de/en/imprint	legal	page-templates.json maps the version page /de/en/imprint to legal
+/it/en/lh-rentalcar	it/en	/de/en/lh-rentalcar	info	page-templates.json maps the version page /de/en/lh-rentalcar to info
+/us/en/lufthansa-terminal-muenchen	us/en	/de/en/lufthansa-terminal-muenchen	info	page-templates.json maps the version page /de/en/lufthansa-terminal-muenchen to info
+/us/en/lufthansa-travel-classes	us/en	/de/en/lufthansa-travel-classes	hub	page-templates.json maps the version page /de/en/lufthansa-travel-classes to hub
+/be/en/passenger-rights	be/en	/de/en/passenger-rights	legal	page-templates.json maps the version page /de/en/passenger-rights to legal
+/ca/en/passenger-rights	ca/en	/de/en/passenger-rights	legal	page-templates.json maps the version page /de/en/passenger-rights to legal
+/es/en/passenger-rights	es/en	/de/en/passenger-rights	legal	page-templates.json maps the version page /de/en/passenger-rights to legal
+/il/en/refund	il/en	/de/en/refund	info	page-templates.json maps the version page /de/en/refund to info
+/us/en/refund	us/en	/de/en/refund	info	page-templates.json maps the version page /de/en/refund to info
+/be/en/terms-of-use	be/en	/de/en/terms-of-use	legal	page-templates.json maps the version page /de/en/terms-of-use to legal
+/es/en/unaccompanied-minors	es/en	/de/en/unaccompanied-minors	info	page-templates.json maps the version page /de/en/unaccompanied-minors to info
+/no/en/companion-special-2024	no/en	/dk/en/companion-special-2024	info	offline import of the version page /dk/en/companion-special-2024 from its snapshot: text kept info 96%, campaign 96%, hub 96%
+/se/en/companion-special-2024	se/en	/dk/en/companion-special-2024	info	offline import of the version page /dk/en/companion-special-2024 from its snapshot: text kept info 96%, campaign 96%, hub 96%
+/nl/en/sale	nl/en	/dk/en/sale	info	offline import of the version page /dk/en/sale from its snapshot: text kept info 88%, campaign 94%, hub 94%
+/no/en/sale	no/en	/dk/en/sale	info	offline import of the version page /dk/en/sale from its snapshot: text kept info 88%, campaign 94%, hub 94%
+/se/en/sale	se/en	/dk/en/sale	info	offline import of the version page /dk/en/sale from its snapshot: text kept info 88%, campaign 94%, hub 94%
+/us/de/munich-mountains	us/de	/mk/de/munich-mountains	info	offline import of the version page /mk/de/munich-mountains from its snapshot: text kept info 86%, campaign 86%, hub 85%

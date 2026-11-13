@@ -344,6 +344,16 @@ body.brand-tap .hero-campaign-tap .hero-campaign-slide {
   }
 }
 
+/* a slide from 376 px: 310 px, as www's build sJsYPUB (max-h-[259px] min-[376px]:max-h-[310px]; 358 x 310 at 390 on
+   miles-and-go, inspire-se, get-inspired and the /en-pt home stage, tap-parity-010; standing order 20). At 390:
+   get-inspired -1.66 -> -0.64 %, miles-and-go -1.74 -> -0.68, stopover/partners -1.37 -> +0.06, doacao-milhas -1.41
+   -> -0.35, /en-pt -0.83 -> +0.18, inspire-se -0.45 -> +0.55 */
+@media (width >= 376px) and (width < 768px) {
+  body.brand-tap .hero-campaign-tap .hero-campaign-slide {
+    height: 310px;
+  }
+}
+
 /* www: linear-gradient(90deg, rgba(5,5,5,.4) 3.08%, transparent) over the picture */
 body.brand-tap .hero-campaign-tap .hero-campaign-slide .hero-campaign-media::after {
   background: linear-gradient(90deg, rgb(5 5 5 / 40%) 3.08%, rgb(255 255 255 / 0%) 100%);
@@ -1765,12 +1775,17 @@ body.brand-tap .footer .footer-tap-links .footer-column-links {
   padding: 12px 0 0;
 }
 
+/* the links www's text-body-s, 14px / 21px, 44px from one to the next, none under the last (TAP row 131) */
 body.brand-tap .footer .footer-tap-links .footer-link {
-  margin-bottom: 20px;
+  margin-bottom: 23px;
   color: #020817;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 21px;
+}
+
+body.brand-tap .footer .footer-tap-links li:last-child > .footer-link {
+  margin-bottom: 0;
 }
 
 body.brand-tap .footer .footer-tap-links .footer-link:hover {
@@ -1888,7 +1903,7 @@ body.brand-tap .footer .footer-tap-partner img {
     grid-template-areas: "links side" "bar bar";
     grid-template-columns: minmax(0, 1fr) 280px;
     gap: 16px 24px;
-    padding-top: 16px;
+    padding-top: 0; /* the cards at the footer's top, as www's (TAP row 131) */
   }
 
   body.brand-tap .footer .footer-tap-links,
@@ -2910,8 +2925,9 @@ body.brand-tap main > .section:not(.hidden-heading) .default-content-wrapper > p
 /* the text cards with a picture (row 31: cards-teaser cards with text, miles-and-go's
    advantages, stopover's advantages and reasons): a card 16 px inside its column, 16 px corners,
    www's shadow, the picture on top (326 x 183), the title GT Flexa 24 / 28.8 500, the link an
-   outline pill with a chevron (42 px, Inter 15 / 500) */
-body.brand-tap .cards-teaser > ul > li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) {
+   outline pill with a chevron (42 px, Inter 15 / 500). A card of a title and its link alone too (TAP row 156: hold
+   baggage's and voar-economica's "Find out more" cards, www's same teaser card): any paragraph, at the old weight */
+body.brand-tap .cards-teaser > ul > li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) {
   margin: 16px;
   padding: 0;
   overflow: hidden;
@@ -2927,39 +2943,39 @@ body.brand-tap .cards-teaser:not(.three-up, .four-up, .phone-slider) > ul:has(> 
   row-gap: 24px;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-image {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-image {
   margin: 0;
   aspect-ratio: 326 / 183;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-image :is(picture, img) {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-image :is(picture, img) {
   height: 100%;
   object-fit: cover;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-body {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-body {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
   padding: 24px;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-body > * {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-body > * {
   margin-bottom: 8px;
 }
 
 /* a one-up card's text 40 px above its foot (www's 133 px Wi-Fi package at 1440, row 98) */
-body.brand-tap .cards-teaser.one-up li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-body {
+body.brand-tap .cards-teaser.one-up li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-body {
   padding-bottom: 40px;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-title {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-title {
   font-size: 24px;
   font-weight: 500;
   line-height: 1.2;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-cta {
   margin: auto 0 0;
   padding-top: 16px;
 }
@@ -2967,19 +2983,19 @@ body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-c
 /* (not one-up, row 98's) www's rich text without gaps between its paragraphs (its empty ones,
    24 px lines on www, the pipeline drops), 24 px to the button row, 48 px under the text of a card
    without a button (www's empty button row, pb-6; hand baggage's cards, brief 388) */
-body.brand-tap .cards-teaser:not(.one-up) li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-body > p:not(.cards-teaser-cta) {
+body.brand-tap .cards-teaser:not(.one-up) li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-body > p:not(.cards-teaser-cta) {
   margin-bottom: 0;
 }
 
-body.brand-tap .cards-teaser:not(.one-up) li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta {
+body.brand-tap .cards-teaser:not(.one-up) li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-cta {
   padding-top: 24px;
 }
 
-body.brand-tap .cards-teaser:not(.one-up) li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)):not(:has(.cards-teaser-cta)) .cards-teaser-body {
+body.brand-tap .cards-teaser:not(.one-up) li:has(> .cards-teaser-body > p:not(.cards-teaser-title)):not(:has(.cards-teaser-cta)) .cards-teaser-body {
   padding-bottom: 48px;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta-link:any-link {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-cta-link:any-link {
   box-sizing: border-box;
   align-items: center;
   gap: 8px;
@@ -2994,16 +3010,16 @@ body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-c
   text-decoration: none;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta-link:hover {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-cta-link:hover {
   background-color: #f5fff0;
   color: #424045;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta-link::before {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-cta-link::before {
   content: none;
 }
 
-body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) .cards-teaser-cta-link::after {
+body.brand-tap .cards-teaser li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) .cards-teaser-cta-link::after {
   content: "";
   flex: none;
   width: 16px;
@@ -3091,6 +3107,33 @@ body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image
   height: 21px;
   background-color: var(--tap-tier);
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.4086 22H6L10.5249 12.2992C10.6133 12.1099 10.6133 11.8904 10.5249 11.7008L6 2H13.4086L17.9335 11.7008C18.0222 11.8904 18.0222 12.1099 17.9335 12.2992z'/%3E%3C/svg%3E") center / 16px no-repeat;
+}
+
+/* the tier cards spaced as www's card markup (the same on builds PJpl4JX and sJsYPUB; standing order 20): the card
+   component 64 px under the intro from 728 px (www's components 64 apart; the title-with-description 32 px rule does not
+   hold here: www's intro is a rich text of its own), the logo in a 72 px box (h-[72px]), 32 px from the logo to the title
+   and from the title to the list (gap-4 + mt-4), each line 24 px high (its 24 px chevron). A plain cards block only
+   (miles-and-go: 1440 -1.62 -> +0.34 %, 390 -0.68 -> +0.19) */
+@media (width >= 728px) {
+  body.brand-tap :where(header:not(.tap-home)) ~ main > .section > .default-content-wrapper + .cards-wrapper:has(> .cards:not(.one-up, .two-up, .three-up, .four-up) > ul > li > .cards-card-image) {
+    margin-top: 64px;
+  }
+}
+
+body.brand-tap .cards:not(.one-up, .two-up, .three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-image {
+  min-height: 72px;
+}
+
+body.brand-tap .cards:not(.one-up, .two-up, .three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-body {
+  margin-top: 32px;
+}
+
+body.brand-tap .cards:not(.one-up, .two-up, .three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-body > :is(h2, h3, h4) + ul {
+  margin-top: 32px;
+}
+
+body.brand-tap .cards:not(.one-up, .two-up, .three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-body li {
+  min-height: 24px;
 }
 
 body.brand-tap .cards:not(.three-up, .four-up) > ul > li:has(> .cards-card-image) .cards-card-body > p:last-child {
@@ -3215,7 +3258,9 @@ body.brand-tap main :is(.default-content-wrapper, .columns-media-text) :is(p:not
 
 /* the footer (row 34): www's outline social glyphs (footer-tap.js, icons/tap-*.svg, drawn in
    #424045), 64 px between the page and the footer at 1440 (with the footer's 16 px at the top,
-   the rule above), 32 on phones */
+   the rule above), 32 on phones. From 1024 px the last section 64 px (TAP row 155, standing order
+   15: www's main ends 64 px over its footer at 1440 on help, tap-fares and time-to-think, and seven
+   recorded pages ended 16 to 17 px short with 48; every phone end already www's) */
 body.brand-tap .footer .footer-tap-side .footer-badges img.footer-tap-icon {
   filter: none;
 }
@@ -3226,7 +3271,7 @@ body.brand-tap main > .section:last-child {
 
 @media (width >= 1024px) {
   body.brand-tap main > .section:last-child {
-    margin-bottom: 48px;
+    margin-bottom: 64px;
   }
 }
 
@@ -3588,8 +3633,12 @@ body.brand-tap main .faq-picker-category > .default-content-wrapper > h2 {
   text-align: center;
 }
 
-/* the subcategories' headings for assistive tech only (www's are 1 px) */
-body.brand-tap .faq-picker-section .faq-picker-sub-heading {
+/* the subcategories' headings for assistive tech only (www's are 1 px). Every heading the picker took over (only
+   accordion-columns-tap.js gives this class), not only those in a section it marked: in an inspiration category the
+   picker's sections are a fragment's, whose class stays behind when the fragment's content moves into the page, so the
+   13 country headings showed under the picker (TAP row 141: en-pt get-inspired 6,317 -> 5,557 px at 1440, www 5,582;
+   pt-pt inspire-se 6,454 -> 5,694, www 5,662; every other recorded page as before) */
+body.brand-tap main .faq-picker-sub-heading {
   position: absolute;
   overflow: hidden;
   width: 1px;
@@ -3767,6 +3816,20 @@ body.brand-tap :where(header:not(.tap-home)) ~ main > .section > div:not(.breadc
   body.brand-tap :where(header:not(.tap-home)) ~ main > .section > div:not(.breadcrumb-wrapper) + div {
     margin-top: 64px;
   }
+}
+
+/* a rich-text table as www's cards (table-striped columns, TAP row 146): 32 px under the heading
+   before it from 728 px (www's heading section to its rich text), and the text after it in the
+   same rich text 16 px under it (its gap-4; tap-parity-009 fees at 1440: the five tables were
+   48 px further down each) */
+@media (width >= 728px) {
+  body.brand-tap :where(header:not(.tap-home)) ~ main > .section > .default-content-wrapper:has(> :last-child:is(h2, h3)) + .table-striped-wrapper:has(> .table-striped.columns) {
+    margin-top: 32px;
+  }
+}
+
+body.brand-tap :where(header:not(.tap-home)) ~ main > .section > .table-striped-wrapper:has(> .table-striped.columns) + .default-content-wrapper:not(:has(> :first-child:is(h1, h2, h3, h4))) {
+  margin-top: 16px;
 }
 
 /* a three-up card without a button (the buy-ticket steps): www keeps 48 px under its text, the
@@ -3973,7 +4036,7 @@ body.brand-tap .cards-teaser-tap-slider :is(.cards-teaser-prev, .cards-teaser-ne
   }
 
   /* a text card 16 px inside its column (row 31): it snaps with its column, the first at 0 */
-  body.brand-tap .cards-teaser-tap-slider > ul > li:has(> .cards-teaser-body > p:not(.cards-teaser-cta)) {
+  body.brand-tap .cards-teaser-tap-slider > ul > li:has(> .cards-teaser-body > p:not(.cards-teaser-title)) {
     scroll-margin-inline: 16px;
   }
 
@@ -4103,6 +4166,13 @@ body.brand-tap main:where(.theme-live *) :is(.cards, .accordion-columns) {
   --tap-paragraph-gap: 36px;
 }
 
+/* not a feature view's button: www's is the component's own field after its rich text, never after
+   a {blank} line, 24 px under the paragraph (its 8 and the wrapper's 16, brief 394); the pair gap
+   made it 36 (TAP row 153: tap-parity-001 leilões and voar-economica at 1440, +12 px a block) */
+body.brand-tap main:where(.theme-live *) :is(.columns-media.feature, .columns-media.feature-small) .columns-media-text > p + p.button-wrapper {
+  margin-top: 0;
+}
+
 /* brief 510 item 2 (promos' "News & Highlights"): the market rules put a list's cards in market
    sections of their own (the Portugal Stopover card "-br,-ca,-pt,-us"), apart from their heading's
    section; www has the heading 58 px over its first card (28 on phones), the section gap made it 81
@@ -4124,3 +4194,230 @@ body.brand-tap main > .section:has(> .default-content-wrapper:only-child > :is(h
 }
 
 /* stylelint-enable no-descending-specificity */
+
+/* the FAQ pages' categories 32px under the title from 768px, as www's h1 pb-8 over its chips (the standing order of
+   2026-11-10, item 6: /en-pt/help/frequently-asked-questions at 1440, the title's section 64px over them); phones as before.
+   Not a category's own section before the next one (categories imported as sections of their own, TAP row 151: the
+   shown one kept its 64px under it) */
+@media (width >= 768px) {
+  body.brand-tap main > .section:not(.faq-picker-section):has(+ .section.faq-picker-section) {
+    margin-bottom: 32px;
+  }
+}
+
+/* the inspiration pages' category tabs (row 134's set "categories") as www's chips, as the FAQ picker's (row 65) */
+body.brand-tap main > .section.section-tabs:has(+ .section-tab-panel[data-tabs="categories"]) .section-tabs-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: min(720px, calc(100% - 2 * var(--layout-margin)));
+  margin: 32px auto 0;
+  border: 0;
+}
+
+body.brand-tap main > .section.section-tabs:has(+ .section-tab-panel[data-tabs="categories"]) [role="tab"] {
+  flex: 0 0 auto;
+  min-height: 40px;
+  margin: 0;
+  padding: 0 24px;
+  border: 1px solid #e0dfe2;
+  border-radius: 999px;
+  background-color: #fff;
+  color: #424045;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+body.brand-tap main > .section.section-tabs:has(+ .section-tab-panel[data-tabs="categories"]) [role="tab"][aria-selected="true"] {
+  border-color: #65c922;
+  background-color: #65c922;
+  color: #000;
+}
+
+body.brand-tap main > .section.section-tabs:has(+ .section-tab-panel[data-tabs="categories"]) [role="tab"][aria-selected="true"]::after {
+  content: none;
+}
+
+body.brand-tap main > .section.section-tab-panel[data-tabs="categories"] > .default-content-wrapper:first-of-type > h2:first-child {
+  margin-top: 64px;
+  font-size: calc(28px * var(--a11y-scale, 1));
+  line-height: 1.2;
+  text-align: center;
+}
+
+@media (width >= 1024px) {
+  body.brand-tap main > .section.section-tabs:has(+ .section-tab-panel[data-tabs="categories"]) .section-tabs-list {
+    gap: 16px;
+  }
+}
+
+/* the set's title right before the chips centred, as www's */
+body.brand-tap main > .section:has(+ .section.section-tabs + .section-tab-panel[data-tabs="categories"]) > .default-content-wrapper:last-child > h2:last-child {
+  text-align: center;
+}
+
+/* TAP row 133, a feature card's footnote (complementaryNote): www's small print under the card's two columns,
+   text-body-s (14 px on a 24 px line, the body's colour; on phones under the text). The importer writes it as the
+   card's second row, one text cell (no other TAP feature card has such a row): the whole width, 8 px under the first
+   row. /en-pt/on-board/fly-business against tap-parity-002: the note at 1008 px at 1440 as www's (ours 988, in the
+   text cell, two lines), 1516 at 390 (www 1519); the page 5055 -> 5019 px at 1440 (www 4942), 8325 -> 8313 at 390
+   (www 8224) */
+body.brand-tap .columns-media:is(.feature, .feature-small):has(> .columns-media-row > .columns-media-text:only-child) {
+  row-gap: 8px;
+}
+
+body.brand-tap .columns-media:is(.feature, .feature-small) > .columns-media-row:has(> .columns-media-text:only-child) {
+  grid-template-columns: minmax(0, 1fr);
+  padding-bottom: 0;
+}
+
+/* (the note's cell and paragraphs named through their row: more specific than the feature cards' text rules) */
+body.brand-tap main .columns-media:is(.feature, .feature-small) > .columns-media-row:has(> .columns-media-text:only-child) > .columns-media-text {
+  padding-bottom: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- a feature card's note, never a Cards Teaser text (line 2975's) */
+body.brand-tap main .columns-media:is(.feature, .feature-small) > .columns-media-row:has(> .columns-media-text:only-child) > .columns-media-text > p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+/* TAP row 138, text cards one a row (the importer's cards one-up: www's itemsPerRow 1 of SimpleGenericCardModel, the
+   time-to-think steps in all eight languages): www's card as its other text cards (row 27's title: text-title-xs
+   medium, 24 / 28.8, 8 px above the text), 32 px under the heading over them, and its button row's 48 px under the text
+   when there is no button (mt-12 of an empty row, then the card's 24 px). /pt-pt/reservas/time-to-think against
+   tap-parity-001: every step title within 8 px of www's at 1440 (ours were 20 px, up to 38 px off); the page 2,117 ->
+   2,196 px at 1440 (www 2,209), 2,945 -> 3,063 at 390 (www 3,032; one paragraph wraps to one line more on ours) */
+body.brand-tap main .default-content-wrapper:has(> :is(h2, h3):last-child) + .cards-wrapper:has(> .cards.one-up) {
+  margin-top: 32px;
+}
+
+body.brand-tap .cards.one-up .cards-card-body > :is(h2, h3, h4):first-child {
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+body.brand-tap .cards-wrapper > .cards.one-up > ul > li:not(:has(a)) > .cards-card-body {
+  padding-bottom: 48px;
+}
+
+body.brand-tap .cards-wrapper > .cards.one-up > ul > li:not(:has(a)) > .cards-card-body > :last-child {
+  margin-bottom: 0;
+}
+
+/* TAP row 139, a heading with its description (www's heading component, as brief 388's rule above for a heading that
+   opens its wrapper): the importer ends the heading's section after the description, style heading-section, so the
+   heading after other text in its wrapper gets www's 16 px to its description and 32 px to the next component too. Only
+   real descriptions are marked: a heading followed by a separate rich text (www's 32 px) is not (a rule on h2 + p alone
+   made en-pt miles-and-go 0.85 points worse). Auctions against tap-parity-001, drafts as delivered: 1440 +3.1 -> +1.2 %,
+   390 0.0 -> -0.4 %; the other recorded pages unchanged */
+body.brand-tap :where(header:not(.tap-home)) ~ main > .section.heading-section {
+  margin-bottom: 32px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- a margin; line 4190's rule centres the inspiration title (text-align) */
+body.brand-tap :where(header:not(.tap-home)) ~ main > .section.heading-section > .default-content-wrapper:last-child > h2:nth-last-child(2):has(+ p:last-child) {
+  margin-bottom: 16px;
+}
+
+body.brand-tap :where(header:not(.tap-home)) ~ main > .section.heading-section + .section > :first-child {
+  margin-top: 0;
+}
+
+/* a content heading at most 790 px wide, as www's heading sections (their container max-w-[790px], left: 64 of the 95
+   H2s of the tap-parity recordings; the others are cards', pickers' and centred titles). A long one wraps as www's:
+   Schengen visas' "Travel to Europe: pre-register before departure / ...", hold baggage's "Baby and children baggage
+   allowed in the aircraft' cabin" (39 px each at 1440). Centred titles keep their width: the H2 after an H1, a
+   carousel's, a category set's, a tab panel's */
+/* stylelint-disable-next-line no-descending-specificity -- a max-width; the earlier H2 rules set margins, sizes, alignment */
+body.brand-tap main > .section:not(.section-tab-panel, :has(+ .section.section-tabs)) > .default-content-wrapper:not(:has(+ .carousel-cards-wrapper)) > h2:not(h1 + h2) {
+  max-width: 790px;
+}
+
+/* TAP row 149, its second half: a heading section's description at most 790 px wide too (www's description is in the
+   heading's max-w-[790px] container: lounges' "TAP Premium Lounges in Lisbon", credit cards' "Acumule milhas ...").
+   The importer marks a heading with its description by ending its section after it (style heading-section, row 139),
+   so what follows the last H2 of its last wrapper is the description, one paragraph or more. A rich text's first
+   paragraph after a separate heading is not marked and keeps its width (1120 px on www too) */
+body.brand-tap main > .section.heading-section:not(.section-tab-panel, :has(+ .section.section-tabs)) > .default-content-wrapper:last-child > h2:not(h1 + h2):last-of-type ~ * {
+  max-width: 790px;
+}
+
+/* TAP row 143: card lists www swipes on phones (the importer's phone-slider). www's slide is calc(100% - 56px) of the
+   row (334 px at 390), 24 px apart, the card 16 px inside it (302 px, its picture 170 px high); ours was one card the
+   column's width (358 px). Two sliders one after the other (navigator-experiences' "A decorrer"): www's cards 88 px
+   apart from one to the next, ours 190 (lufthansa.com's 91 px between two card lists, cards-teaser.css): only the
+   wrapper's 32 px. The recorded pages at 390: navigator-experiences +2.62 -> +1.88 %, get-inspired +0.79 -> -0.24,
+   donating miles -1.25 -> -0.91, pt-pt inspire-se +0.91 -> +0.95; www's dots 8 px under the slide were not taken
+   (get-inspired 0.84 points worse with them) */
+@media (width < 1025px) {
+  body.brand-tap .cards-teaser.phone-slider > ul {
+    gap: 24px;
+  }
+
+  body.brand-tap .cards-teaser.phone-slider > ul > li:nth-child(n) {
+    flex: 0 0 calc(100% - 56px);
+    margin: 0 16px 16px;
+  }
+
+  body.brand-tap .cards-teaser-wrapper:has(> .cards-teaser.phone-slider) + .cards-teaser-wrapper > .cards-teaser.phone-slider {
+    margin-top: 0;
+  }
+}
+
+/* plain text as www's rich text (TAP row 154, standing order 14: the 25 recorded pages' default content, www's offline
+   renders against ours, pair by pair): a paragraph or list 16 px over the paragraph or list after it (ours 24), list
+   items 8 apart (ours 10) and the last one's 8 inside its list (a list 24 px over a paragraph, 40 / 72 over a heading), a
+   heading after text 64 px under it from 1024 px and 32 below (ours 40 / 24); the page's intro (the paragraph right under
+   its H1) 32 px over the next paragraph and the first heading at every width. Only the gaps between text elements: a
+   paragraph before a block or another kind of heading keeps its 24 */
+body.brand-tap main .default-content-wrapper > :is(p, ul, ol):not(.button-wrapper, .link-wrapper):has(+ :is(p, ul, ol):not(.button-wrapper, .link-wrapper)) {
+  margin-bottom: 16px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- default content's list items, not a card list's */
+body.brand-tap main .default-content-wrapper li {
+  margin-bottom: 8px;
+}
+
+body.brand-tap main .default-content-wrapper > :is(ul, ol):has(+ :is(p, h2):not(.button-wrapper, .link-wrapper)) {
+  display: flow-root;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- default content's headings, not a stacked view's */
+body.brand-tap main .default-content-wrapper > :is(p, ul, ol) + h2 {
+  margin-top: 32px;
+}
+
+@media (width >= 1024px) {
+  body.brand-tap main .default-content-wrapper > :is(p, ul, ol) + h2 {
+    margin-top: 64px;
+  }
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the intro paragraph of default content, not a stacked view's picture */
+body.brand-tap main .default-content-wrapper > h1 + p:not(.button-wrapper, .link-wrapper):has(+ p:not(.button-wrapper, .link-wrapper)) {
+  margin-bottom: 32px;
+}
+
+body.brand-tap main .default-content-wrapper > :is(h1 + p + h2, h1 + p + p + h2, h1 + p + p + p + h2) {
+  margin-top: 32px;
+}
+
+/* a section title with its description at the end of a text section (www's title component: the description div.mt-4
+   16 px under the heading, the component md:-mb-8 pulling the next section 32 px nearer; TAP row 158, standing order 19;
+   /pt-br/miles-and-go/ganhe-milhas/cartoes-de-credito's card row 48 px low at 1440) */
+@media (width >= 768px) {
+  body.brand-tap main > .section:has(> .default-content-wrapper:last-child > h2:nth-last-child(2) + p:last-child) {
+    margin-bottom: 36px;
+  }
+
+  body.brand-tap main > .section > .default-content-wrapper:last-child > h2:nth-last-child(2):has(+ p:last-child) {
+    margin-bottom: 16px;
+  }
+}

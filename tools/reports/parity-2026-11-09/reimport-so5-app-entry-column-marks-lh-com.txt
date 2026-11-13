@@ -1,0 +1,23 @@
+# Standing order 5 (2026-11-12), item 3: lufthansa.com's app-entry pages and www's column views. 20 of the app-entry template's
+# 24 pages hold their chapters in column views on www; the importer wrote no column marks for them (lufthansa-cleanup
+# COLUMN_MARK_TEMPLATES), so each chapter sat higher than www's (/de/en/my-logbook: its first chapter 49 px high at 390).
+# The app-entry template now writes them, as info, fleet and legal. Drafts on our host with the published pictures, % off
+# www at 1440 / 390, main's import -> with the marks: my-logbook 20.7 / 25.8 -> 7.5 / 10.4 (today 20.7 / 27.2), pre-check-in
+# 8.2 / 9.8 -> 3.0 / 5.6 (today - / 11.3).
+# The 24 pages imported offline from their snapshots with main's and the new app-entry bundle: the new import differs from
+# main's by the column marks (their separators, Theme flow-spacing) alone; 12 get marks. READY: the published
+# document reads as main's import; HOLD: the published document is newer than its snapshot.
+# Run: the app-entry template's import (import-app-entry.bundle.js) offline from tools/importer/bd-snapshots for these paths.
+# Columns: status, document, what changes.
+READY	/at/de/mein-logbuch	9 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/at/de/online-check-in	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/at/de/pre-check-in	5 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/mein-logbuch	9 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/online-check-in	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/de/pre-check-in	5 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/my-logbook	9 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/online-check-in	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/de/en/pre-check-in	5 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/my-logbook	9 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/online-check-in	3 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot
+READY	/gb/en/pre-check-in	5 column marks (and Theme flow-spacing); nothing else changes: the published text reads as main's import of the snapshot

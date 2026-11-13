@@ -84,6 +84,25 @@
   transform: rotate(180deg);
 }
 
+/* lufthansa.com on phones: www's header insets the title 20px on both sides (text at x 42 at 390,
+   ours 34: wider titles in fewer lines; lounges' Lounge-News); 12px from 768px as above. Option
+   spaced only: on 45 recorded pages net -25 points (3 pages +0.7 to +1.6); without spaced 33
+   pages net +3.3 (limited-width ones 6 of 9 worse), left as they were (brief 557). Option faq too
+   (brief 582: what the 12px hid on faq-saf were the section gaps around it, styles.css "an
+   accordion right under the page title"; with that rule, 25 faq pages at 390 net -14.6 points,
+   7 better, assistenzhunde +1.0; faq-saf 9.5 -> 4.7 %, lufthansa-voucher 8.2 -> 7.7). faq
+   limited-width keeps 12px: www insets those less (6 of 9 worse, net +6.2) */
+@media (width < 768px) {
+  body.brand-lufthansa .accordion-columns:is(.spaced, .faq:not(.limited-width)) .accordion-columns-title {
+    padding-right: 56px;
+    padding-left: 20px;
+  }
+
+  body.brand-lufthansa .accordion-columns:is(.spaced, .faq:not(.limited-width)) .accordion-columns-title::after {
+    right: 20px;
+  }
+}
+
 /* panel: content area of maui-collapsible-item (aligned with the 12px header inset) */
 .accordion-columns .accordion-columns-panel {
   padding: 10px 12px 20px;

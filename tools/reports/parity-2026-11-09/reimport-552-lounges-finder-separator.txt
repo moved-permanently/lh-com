@@ -1,0 +1,5 @@
+# Brief 552 (ema-adobe, 2026-11-10): the four lounges hub documents, in release order, a second pass for the lufthansa.com harness (re-import with main's hub bundle, upload, preview; the publish child publishes in the next round). The hub cleanup now also keeps www's 25 px separator between the intro picture and the lounge finder's grey band ("{spacer-25}"); styles.css takes the section gap back there. The first pass (22:14 CET, the separator before "Unsere Lounges in der Übersicht") stays. The rule of e05cf07 alone (live) does not close it: 11.0 % at 1440 and 15.7-16.0 % at 390, the picture 16 px too close to the band (18 at 390). Drafts with this pass against lh-parity-004a: 1.8 % at 1440 (www 5963 / 5910 px, the drafts +25), 12.7-13.0 % at 390 (+6); at 390 the finder band stays 20 px short.
+/de/de/lounges
+/de/en/lounges
+/at/de/lounges
+/gb/en/lounges

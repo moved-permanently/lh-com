@@ -1,0 +1,7 @@
+# The brief after 556 (ITA parity row 21): www's Miles & More status accordions are open at load (maui-collapsible-item
+# expanded on all three: Frequent Traveller, Senator, HON Circle Member; ita-parity-004). The shared parser writes that
+# as accordion-columns (faq, open-3) since a904be82 (2026-11-08); this document came from an earlier import (all three
+# closed). Re-imported with ita-import.mjs as it is (its marker collapse included). Its language twins (the same page
+# in the other languages) have the same component; add them if the harness's ITA scope has them. Release order;
+# published as it stands.
+/it/en/profile/miles-and-more

@@ -1,0 +1,230 @@
+# Standing order 9 (2026-11-12), item 3: the lufthansa.com ranking further below 8 %: the 175 rows of logs/b582/rank-582.tsv
+# from 4 to 8 % (all /de/en; 6-8 % 13:05 to 13:34 UTC, 5-6 % 14:20 to 14:39, 4-5 % 15:10 to 15:23), measured again on our live host
+# (lufthansa.turnsthe.page, airline hosts aborted) with 8 s between captures (logs/b600/rank-slow.sh): no HTTP 429. "drift from": the first
+# step of 16 px or more between www's recording and our capture that persists (offsets.mjs; a step that returns at the
+# next one is the tool matching repeated rows) and what our page has there.
+# Causes shared by two or more pages, each tried as CSS injected into captures of every recorded page it touches,
+# before and after in the same run (logs/b601):
+# - accordion-grey (SERVED from 768px, 87e2b57): a section ending with an Accordion Columns (its column mark after it)
+#   before a plain grey band: www 20 px between them, ours 68 ("Further information about your upgrade" 48 px low).
+#   The 5 recorded documents of that shape, 1440: upgrade-business-class-long-haul 10.2 -> 6.7, upgrade-first-class
+#   9.9 -> 6.5, upgrade-premium-economy-class 9.9 -> 6.4, upgrade-to-business-class 8.3 -> 4.7, doctor-on-board-news
+#   8.3 -> 7.3. At 390 worse on all five (+1.3 to +2.5; the heights matched www's already): phones as before. Captured
+#   again once served (15:11 UTC): upgrade-first-class 6.5 (1440) / 5.3 (390, as before), upgrade-to-business-class 4.7 (1440).
+# - list-end (SERVED since standing order 10, 4670ad4; was HOLD for a go; live 2026-11-12 17:16 UTC as the trial): on phones a stacked Columns Media text cell that ends with
+#   a list keeps our 36 px to the next cell (www's 2.4rem link margin + 1rem item margin); www zeroes the list's margin
+#   (the item's last descendants) and is 12 px closer. The 9 recorded pages with such cells, 390, whole page % before ->
+#   after (24 px there): hearing-impairment 7.9 -> 6.0, visual-impairment 6.3 -> 4.3, cognitive-impairment 6.8 -> 5.9,
+#   passengers-with-sensory-impairment 6.7 -> 5.4, lufthansa-business-class-on-long-haul-routes 28.7 -> 27.0,
+#   passengers-using-wheelchairs 7.5 -> 7.7, payment-options-at-the-airport 7.8 -> 8.4, schengen 8.5 -> 9.9,
+#   sports-baggage 5.8 -> 6.6. Right in place on all but payment-options: each list cell's +12 px step goes (offsets),
+#   region scores of the block: sports-baggage 6.3 -> 2.3, schengen 1.4 -> 0.2, hearing-impairment 6.7 -> 0.4;
+#   payment-options 4.0 -> 4.2 (its cells open with an H2, and that block was 13 px high already). schengen and
+#   sports-baggage lose on the whole page because the 12 px made up for an earlier drift (schengen -90 px from y 2160,
+#   sports-baggage -19 px at its small print). Three page-widths worse by more than 0.5: not shipped. READY with your go
+#   on the mechanism (or with the rule leaving out cells before an H2, payment-options would stay as it is; schengen
+#   and sports-baggage would still be worse on the whole page).
+# - stage-intro-padded (SERVED since standing order 10, 4670ad4, flush stages left out; live as the trial, onboard-delights
+#   as before): a stage section, then a section of default content only
+#   (no metadata), then a padded or grey section. Ours puts the 48 px section gap under the intro, www about 16 px more
+#   (my-bookings and seat-maps at 1440: -17 px at the third section). The 6 recorded documents of that shape, % before
+#   -> after (64 px under the intro), 1440 / 390: my-bookings 7.4 -> 4.6 / 11.5 -> 10.1, seat-maps 7.8 -> 4.9 /
+#   7.2 -> 7.4, wetlease-hub 14.5 -> 13.4 / 17.6 -> 17.4, travel-companion 8.9 -> 7.3 / 12.2 -> 11.3, air-baltic
+#   4.8 -> 5.4 / 5.8 -> 5.6, onboard-delights 10.9 -> 15.0 / 12.9 -> 15.9. onboard-delights' stage is a flush one
+#   (another case): leaving out flush stages, the selector no longer matches it (checked on our host). air-baltic at
+#   1440 is better in its opening (region 0-2400: 2.6 -> 2.4) and worse on the whole page because the 16 px made up
+#   for a drift further down. One page-width worse by more than 0.5 (+0.6): not shipped. READY with your go.
+# - intro-end (not shipped): a breadcrumb section with the h1, a picture and text only; www's intro AEM section keeps
+#   .mb-default (24 px) to the next section, ours the 48 px section gap (accessible-travel +23, carry-on-baggage +24 at
+#   390). With 24 px there: accessible-travel 6.2 -> 7.5 (390), 5.9 -> 8.1 (1440); carry-on-baggage 6.4 -> 6.0,
+#   18.8 -> 19.7; doctor-on-board 11.4 -> 10.4, 9.9 -> 8.8; meetings-and-events-organisers unchanged. Worse elsewhere.
+# - footer-spike: about 300 px one-step jumps that return at the next step (common, partner, travel-agencies,
+#   services-on-board, faq-password-security and the upgrade pages' subpage navigation at 390): the offset tool, not the page.
+# The two rules as measured (logs/b601/list-end.css, si-pad.css; stage-intro-padded here with flush stages left out):
+#   @media (width < 768px) { body.brand-lufthansa .columns-media:not(.slider, .sidebar) .columns-media-row >
+#     .columns-media-text:not(:last-child):has(> :is(ul, ol):last-child) { margin-bottom: 24px; } }
+#   body.brand-lufthansa main > .section.stage:not(.flush) + .section:not(.padded, .grey, .stage, .spaced, .flush,
+#     .column-view):has(> .default-content-wrapper:only-child):has(+ .section:is(.padded, .grey)) { margin-bottom: 64px; }
+# The legal list of standing order 5 (reimport-so5-legal-column-marks, 70 READY), its 34 recorded page-widths captured
+# again (15:24 to 15:36 UTC) against rank-582 (2026-11-11, before the marks): 20 better by more than 0.3 (data-collection-usa
+# 18.7 -> 4.7 at 390, 14.4 -> 4.3 at 1440; faq-data-security 8.2 -> 1.0, passenger-rights 10.5 -> 3.8 at 1440), 11 within
+# 0.3, three worse: /de/en/imprint 7.6 -> 9.9 / 4.2 -> 8.8 (each of its sections of one padded Columns Media 24 px lower
+# than www's next view: +8, +24, +25, +15 px at 1440) and /de/en/datenschutz at 1440 3.2 -> 6.4 (+20 and +14 px in its
+# one-section opening). Single pages each, no shared cause found.
+# Everything else drifts at a component of its own (single) or has no step (spread): no shared cause in this band.
+# Columns: new %, old % (582), document, width, heights (www/ours), drift, group, status, why.
+14.8	5.8	/de/en/lufthansa-travel-classes	390	h 4688/4664	drift from y 2560 (-30 px): columns-media.padded, columns-media | h2 Economy Class / h2 More enjoyment, more comfort, 	single	HOLD	single page: no cause shared with another recorded page at this step
+9.9	7.6	/de/en/imprint	390	h 4067/4166	drift from y 320 (16 px): breadcrumb, columns-media.padded | h1 Legal notice	single	HOLD	single page: no cause shared with another recorded page at this step
+8.8	4.2	/de/en/imprint	1440	h 2466/2539	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+8.0	7.4	/de/en/europa-tarife-economy-class	390	h 7419/7407	drift from y 4880 (-50 px): table-striped	single	HOLD	single page: no cause shared with another recorded page at this step
+7.9	7.9	/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment	390	h 8000/8000	drift from y 7440 (-53 px): columns-media.padded | h2 Do you have any questions or n	list-end	SERVED	a stacked Columns Media text cell ending with a list sits 12 px too far from the next cell on phones; the measured rule (24 px there) served since standing order 10 (4670ad4); schengen, sports-baggage and payment-options worse on the whole page (drifts of their own): see the header
+7.8	7.8	/de/en/100-years/chronicle	390	h 8000/8000	drift from y 7600 (23 px): columns-media.padded, carousel-images | h2 1927 / h2 1929	single	HOLD	single page: no cause shared with another recorded page at this step
+7.8	7.8	/de/en/100-years/crane	1440	h 8000/8000	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+7.8	7.8	/de/en/articles/authors/florian-tomberg	390	h 3801/3802	drift from y 2960 (-102 px): carousel-cards.four-up.authors	single	HOLD	single page: no cause shared with another recorded page at this step
+7.8	7.8	/de/en/mobility-partner-program-healthcare	1440	h 3576/3506	drift from y 960 (-400 px):  | h2 Health & Medical Agreement / h2 The Lufthansa partnership	single	HOLD	single page: no cause shared with another recorded page at this step
+7.8	7.8	/de/en/payment-options-at-the-airport	390	h 3340/3291	drift from y 2480 (-42 px): profile-tabs.content | h2 Please note:	list-end	SERVED	a stacked Columns Media text cell ending with a list sits 12 px too far from the next cell on phones; the measured rule (24 px there) served since standing order 10 (4670ad4); schengen, sports-baggage and payment-options worse on the whole page (drifts of their own): see the header
+7.8	7.8	/de/en/seat-maps	1440	h 4894/4861	drift from y 3120 (-18 px): columns-media.padded | h2 Airbus / h2 Boeing	stage-intro-padded	SERVED	a stage, an unstyled intro section, then a padded or grey section: the third section 16-17 px high; the measured rule (64 px under the intro) served since standing order 10 (4670ad4); air-baltic 1440 +0.6 (a later drift of its own): see the header
+7.8	7.8	/de/en/special-needs	1440	h 5271/5123	drift from y 1440 (-305 px): form.core	single	HOLD	single page: no cause shared with another recorded page at this step
+7.8	7.8	/de/en/terms-of-service-group	390	h 3976/3997	drift from y 880 (-277 px): columns-media.padded | h2 Austrian Airlines	single	HOLD	single page: no cause shared with another recorded page at this step
+7.7	7.7	/de/en/book-and-manage/flights/lufthansa-voucher	390	h 1333/1366	drift from y 480 (28 px): breadcrumb, accordion-columns.faq | h1 Terms of use for Lufthansa Gif	single	HOLD	single page: no cause shared with another recorded page at this step
+7.7	7.7	/de/en/common	390	h 1113/1135	drift from y 720 (309 px): -	footer-spike	HOLD	a one-step jump of about 300 px that returns at the next step: offsets.mjs matching repeated rows, not a drift
+7.7	7.7	/de/en/mobility-partner-program-healthcare	390	h 4741/4703	drift from y 3920 (-21 px): subpage-nav	single	HOLD	single page: no cause shared with another recorded page at this step
+7.7	7.7	/de/en/passenger-receipt-90	390	h 4018/4054	drift from y 2000 (-345 px): form.core	single	HOLD	single page: no cause shared with another recorded page at this step
+7.7	7.7	/de/en/services-munich-airport	390	h 2089/2079	drift from y 960 (255 px): accordion-columns.faq.spaced | h2 Munich Airport	single	HOLD	single page: no cause shared with another recorded page at this step
+7.7	7.7	/de/en/uebergepaeck	390	h 4747/4811	drift from y 3760 (-310 px): subpage-nav	single	HOLD	single page: no cause shared with another recorded page at this step
+7.5	7.5	/de/en/anmeldung-tiere-frachtraum	390	h 8000/8000	drift from y 960 (250 px): form.core | h2 General information	single	HOLD	single page: no cause shared with another recorded page at this step
+7.5	7.5	/de/en/discover-lufthansa/new-onboard-experience	390	h 8000/8000	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+7.5	7.5	/de/en/passenger-rights	390	h 8000/8000	drift from y 4000 (-59 px):  | h2 Validity / h2 Delays	single	HOLD	single page: no cause shared with another recorded page at this step
+7.5	7.5	/de/en/passengers-using-wheelchairs	390	h 8000/8000	drift from y 7760 (48 px): columns-media, columns-media.sidebar | h2 Please let us know in advance	list-end	SERVED	a stacked Columns Media text cell ending with a list sits 12 px too far from the next cell on phones; the measured rule (24 px there) served since standing order 10 (4670ad4); schengen, sports-baggage and payment-options worse on the whole page (drifts of their own): see the header
+7.5	7.5	/de/en/upgrade-to-business-class	390	h 3725/3706	drift from y 1680 (-35 px): breadcrumb | h1 One journey, countless possibi / h2 How to book your upgrade on fl	accordion-grey	HOLD	an accordion before a plain grey band: the rule measured worse at 390 (the page heights matched www already), phones as before
+7.4	7.4	/de/en/common/accessibility-statement	390	h 8000/8000	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+7.4	7.4	/de/en/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge	1440	h 2279/2217	drift from y 1440 (-53 px): table-striped	single	HOLD	single page: no cause shared with another recorded page at this step
+7.4	7.4	/de/en/faq-ejournals	1440	h 1566/1537	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+7.4	7.4	/de/en/lufthansa-group-star-alliance-and-partner-airlines	1440	h 6036/6003	drift from y 880 (-183 px):  | h2 Lufthansa Group	single	HOLD	single page: no cause shared with another recorded page at this step
+7.4	7.4	/de/en/my-bookings	1440	h 3647/3574	drift from y 2960 (-56 px): carousel-cards.grid, cards-teaser, cards-teaser.three-up	stage-intro-padded	SERVED	a stage, an unstyled intro section, then a padded or grey section: the third section 16-17 px high; the measured rule (64 px under the intro) served since standing order 10 (4670ad4); air-baltic 1440 +0.6 (a later drift of its own): see the header
+7.3	7.3	/de/en/book-and-manage/flights/helvetic	390	h 7455/7466	drift from y 6640 (48 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+7.3	7.3	/de/en/frankfurt-fair	390	h 5310/5305	drift from y 2000 (28 px): cards-teaser.spacious	single	HOLD	single page: no cause shared with another recorded page at this step
+7.3	7.3	/de/en/prepare-for-your-trip/baggage/baggage-irregularities/faq-damaged-baggage	1440	h 2238/2287	drift from y 1200 (25 px): accordion-columns.faq.limited-width.spaced | h2 Claims handling	single	HOLD	single page: no cause shared with another recorded page at this step
+7.2	7.2	/de/en/check-in-baggage	390	h 3293/3311	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+7.2	7.2	/de/en/miles-and-more	390	h 4188/4146	drift from y 3360 (-82 px): carousel-cards.phone-slider.fragment-slides.four-up	single	HOLD	single page: no cause shared with another recorded page at this step
+7.2	7.2	/de/en/seat-maps	390	h 5741/5725	drift from y 3760 (-26 px): columns-media.padded | h2 Boeing	single	HOLD	single page: no cause shared with another recorded page at this step
+7.2	7.2	/de/en/travel-agencies	390	h 2313/2307	drift from y 1920 (309 px): -	footer-spike	HOLD	a one-step jump of about 300 px that returns at the next step: offsets.mjs matching repeated rows, not a drift
+7.1	7.1	/de/en/flying-with-small-children	1440	h 3393/3427	drift from y 2160 (23 px): accordion-columns.faq | h2 This may also be of interest t	single	HOLD	single page: no cause shared with another recorded page at this step
+7.1	7.1	/de/en/support/feedback-and-contact-airlines	1440	h 1986/1943	drift from y 800 (-16 px): breadcrumb, columns-media.padded | h1 Welcome to the Lufthansa Group	single	HOLD	single page: no cause shared with another recorded page at this step
+7.0	6.6	/de/en/articles/explore-flying/inflight-entertainment-vr-experience	1440	h 7854/7904	drift from y 7120 (27 px): related-articles	single	HOLD	single page: no cause shared with another recorded page at this step
+6.9	7.4	/de/en/terms-and-conditions-lh	390	h 8000/8000	drift from y 960 (176 px):  | h2 General Conditions of Carriage	single	HOLD	single page: no cause shared with another recorded page at this step
+6.9	6.9	/de/en/common/accessibility-statement	1440	h 6502/6600	drift from y 880 (-372 px):  | h2 Description of applicable requ	single	HOLD	single page: no cause shared with another recorded page at this step
+6.9	6.9	/de/en/europcar	390	h 4331/4354	drift from y 160 (23 px):  | h1 Search / h1 Conquer the world from the air	single	HOLD	single page: no cause shared with another recorded page at this step
+6.9	6.9	/de/en/food-and-beverages	390	h 6683/6736	drift from y 5840 (30 px): accordion-columns.faq	single	HOLD	single page: no cause shared with another recorded page at this step
+6.8	6.8	/de/en/all-check-in	390	h 3323/3354	drift from y 2480 (26 px): breadcrumb, columns-media, columns-media.padded | h1 Check-in made easy / h2 Use our online check-in at hom	single	HOLD	single page: no cause shared with another recorded page at this step
+6.8	6.8	/de/en/automatic-check-in	390	h 4537/4497	drift from y 2000 (-27 px): breadcrumb | h1 Automated check-in / h2 Automated check-in for Lufthan	single	HOLD	single page: no cause shared with another recorded page at this step
+6.8	6.8	/de/en/partner	390	h 3435/3425	drift from y 3040 (309 px): -	footer-spike	HOLD	a one-step jump of about 300 px that returns at the next step: offsets.mjs matching repeated rows, not a drift
+6.8	6.8	/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment	390	h 8000/8000	drift from y 6720 (-38 px): columns-media.padded, columns-media.sidebar | h2 Do you have any questions or n / h2 Hidden Disabilities Sunflower	list-end	SERVED	a stacked Columns Media text cell ending with a list sits 12 px too far from the next cell on phones; the measured rule (24 px there) served since standing order 10 (4670ad4); schengen, sports-baggage and payment-options worse on the whole page (drifts of their own): see the header
+6.8	6.8	/de/en/travelling-healthy	1440	h 3846/3909	drift from y 1520 (48 px):  | h2 Medical Equipment	single	HOLD	single page: no cause shared with another recorded page at this step
+6.7	6.7	/de/en/additional-services	390	h 8000/8000	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+6.7	6.7	/de/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	390	h 3555/3568	drift from y 2720 (23 px):  | h2 Conditions when changing a sea / h2 General conditions	single	HOLD	single page: no cause shared with another recorded page at this step
+6.7	6.7	/de/en/common/compensation-voucher	1440	h 4206/4136	drift from y 320 (16 px):  | h1 Terms of Use for the Lufthansa / h2 1. General	single	HOLD	single page: no cause shared with another recorded page at this step
+6.7	6.7	/de/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440	h 2714/2675	drift from y 2000 (164 px): columns-media.padded	single	HOLD	single page: no cause shared with another recorded page at this step
+6.7	6.5	/de/en/passengers-with-sensory-impairment	390	h 8000/8000	drift from y 3280 (23 px): columns-media.padded	list-end	SERVED	a stacked Columns Media text cell ending with a list sits 12 px too far from the next cell on phones; the measured rule (24 px there) served since standing order 10 (4670ad4); schengen, sports-baggage and payment-options worse on the whole page (drifts of their own): see the header
+6.6	6.8	/de/en/100-years/cabin-design	1440	h 8000/8000	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+6.6	6.6	/de/en/100-years/history	390	h 8000/8000	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+6.6	6.6	/de/en/lufthansa-first-class-entertainment	1440	h 3099/3064	drift from y 2400 (-16 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+6.6	6.6	/de/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk	390	h 3066/3097	drift from y 2240 (20 px):  | h2 Travellers who require a visa 	single	HOLD	single page: no cause shared with another recorded page at this step
+6.6	6.6	/de/en/travel-id-terms-conditions	390	h 8000/8000	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+6.5	6.5	/de/en/book-and-manage/pax-receipt/invoices-different-countries	390	h 2271/2262	drift from y 960 (-201 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+6.5	6.5	/de/en/common/imprint/lufthansa-insights-imprint	390	h 4837/4822	drift from y 4000 (17 px):  | h2 Legal information	single	HOLD	single page: no cause shared with another recorded page at this step
+6.5	6.5	/de/en/payment-options-at-the-airport	1440	h 2542/2477	drift from y 1840 (-67 px): columns-media.padded, profile-tabs.content | h2 Please note:	single	HOLD	single page: no cause shared with another recorded page at this step
+6.4	7.0	/de/en/carry-on-baggage	390	h 8000/8000	drift from y 3520 (-37 px): columns-media.link-list	intro-end	HOLD	the h1 / picture / text opening: www keeps 24 px (.mb-default) under it, ours the 48 px section gap; the measured rule made accessible-travel (both widths) and carry-on-baggage 1440 worse: not shipped
+6.4	6.4	/de/en/group-travel	390	h 8000/8000	drift from y 5360 (-49 px): form.core	single	HOLD	single page: no cause shared with another recorded page at this step
+6.4	6.4	/de/en/travelling-with-special-requirements	1440	h 2119/2103	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+6.4	5.9	/de/en/articles/explore-flying/essentials-future-of-flying	1440	h 5733/5784	drift from y 5040 (27 px): related-articles	single	HOLD	single page: no cause shared with another recorded page at this step
+6.3	6.3	/de/en/feedback-past-flight	1440	h 5979/6124	drift from y 1040 (64 px): form.core	single	HOLD	single page: no cause shared with another recorded page at this step
+6.3	6.1	/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment	390	h 8000/8000	drift from y 3760 (-30 px): columns-media.padded, columns-media.sidebar	list-end	SERVED	a stacked Columns Media text cell ending with a list sits 12 px too far from the next cell on phones; the measured rule (24 px there) served since standing order 10 (4670ad4); schengen, sports-baggage and payment-options worse on the whole page (drifts of their own): see the header
+6.2	6.2	/de/en/accessible-travel	390	h 8000/8000	drift from y 5440 (-31 px): columns-media.sidebar, columns-media | h2 Please tell us in advance / h2 Here’s how to notify us of you	intro-end	HOLD	the h1 / picture / text opening: www keeps 24 px (.mb-default) under it, ours the 48 px section gap; the measured rule made accessible-travel (both widths) and carry-on-baggage 1440 worse: not shipped
+6.2	6.2	/de/en/check-in-baggage	1440	h 3440/3445	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+6.2	6.2	/de/en/discover-lufthansa/lufthansa-group-airlines/ita-airways	1440	h 3770/3757	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+6.2	6.2	/de/en/discover-lufthansa/new-onboard-experience	1440	h 8000/8000	drift from y 880 (64 px): jump-links.columns	single	HOLD	single page: no cause shared with another recorded page at this step
+6.2	6.2	/de/en/meetings-and-events-organisers	390	h 4061/4089	drift from y 3200 (27 px): subpage-nav | h2 Requirements / h2 Benefits for event organisers	intro-end	HOLD	the h1 / picture / text opening: www keeps 24 px (.mb-default) under it, ours the 48 px section gap; the measured rule made accessible-travel (both widths) and carry-on-baggage 1440 worse: not shipped
+6.1	7.7	/de/en/sepa-terms-and-conditions-b	390	h 2728/2730	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+6.1	6.3	/de/en/cookie-policy	390	h 8000/8000	drift from y 720 (28 px): breadcrumb, jump-links | h1 Cookie Policy / h2 What are cookies and how do th	single	HOLD	single page: no cause shared with another recorded page at this step
+6.1	6.1	/de/en/discover-lufthansa/carbon-offsetting/saf	1440	h 3573/3629	drift from y 2880 (24 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+6.1	6.1	/de/en/munich-fair	390	h 3143/3157	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+6.1	6.1	/de/en/prepare-for-your-trip/baggage/baggage-conditions	1440	h 2124/2154	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+6.1	6.1	/de/en/support/contact/passenger-duty-united-kingdom	390	h 2566/2603	drift from y 1760 (24 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+6.0	6.0	/de/en/digital-baggage-services	1440	h 3751/3720	drift from y 1280 (-27 px): breadcrumb, subpage-nav | h1 Digital baggage services / h2 Baggage receipt and baggage st	single	HOLD	single page: no cause shared with another recorded page at this step
+6.0	6.0	/de/en/electronic-bag-tags	390	h 3797/3813	drift from y 2400 (78 px): columns-media	single	HOLD	single page: no cause shared with another recorded page at this step
+6.0	6.0	/de/en/hertz	1440	h 2994/3016	drift from y 400 (93 px): car-rental	single	HOLD	single page: no cause shared with another recorded page at this step
+6.0	6.0	/de/en/meetings-and-events	390	h 3869/3864	drift from y 1360 (270 px): cards-teaser.three-up.phone-slider	single	HOLD	single page: no cause shared with another recorded page at this step
+6.0	6.0	/de/en/meetings-and-events-delegates	390	h 2878/2909	drift from y 2000 (26 px): breadcrumb, subpage-nav | h1 Meetings & Events: Information / h2 Flight booking for event deleg	single	HOLD	single page: no cause shared with another recorded page at this step
+6.0	6.0	/de/en/most-significant-route	390	h 2783/2780	drift from y 2000 (47 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+6.0	6.0	/de/en/upgrade-options	1440	h 3531/3559	drift from y 2560 (43 px): columns-media | h2 Upgrade to First Class	single	HOLD	single page: no cause shared with another recorded page at this step
+6.0	5.6	/de/en/passengers-with-sensory-impairment	1440	h 8000/8000	drift from y 4800 (45 px): columns-media | h2 Do you have any questions or d	single	HOLD	single page: no cause shared with another recorded page at this step
+5.9	6.0	/de/en/general-conditions-currency-conversion	1440	h 1968/1927	drift from y 1120 (-41 px):  | h2 Refunds / h2 Other credit card charges	single	HOLD	single page: no cause shared with another recorded page at this step
+5.9	5.9	/de/en/accessible-travel	1440	h 5529/5505	drift from y 4800 (18 px): carousel-cards.grid.four-up	intro-end	HOLD	the h1 / picture / text opening: www keeps 24 px (.mb-default) under it, ours the 48 px section gap; the measured rule made accessible-travel (both widths) and carry-on-baggage 1440 worse: not shipped
+5.9	5.9	/de/en/book-and-manage/cancellation-and-refund/refund/refund-form	390	h 4978/4982	drift from y 1440 (-26 px): form.core | h2 Request ticket refund manually	single	HOLD	single page: no cause shared with another recorded page at this step
+5.9	5.9	/de/en/children-on-board	390	h 3639/3666	drift from y 2800 (21 px): breadcrumb, columns-media.padded | h1 On board with children and bab / h2 Your little ones are our big p	single	HOLD	single page: no cause shared with another recorded page at this step
+5.9	5.9	/de/en/lufthansa-at-zuerich-airport	390	h 3051/3047	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+5.9	5.9	/de/en/security-fast-lanes	390	h 3495/3554	drift from y 2640 (62 px): subpage-nav	single	HOLD	single page: no cause shared with another recorded page at this step
+5.9	5.9	/de/en/sports-baggage	1440	h 4884/4808	drift from y 2560 (-35 px): columns-media	single	HOLD	single page: no cause shared with another recorded page at this step
+5.8	5.8	/de/en/additional-services	1440	h 6773/6766	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+5.8	5.8	/de/en/book-and-manage/flights/air-baltic	390	h 8000/8000	drift from y 4960 (-47 px): columns-media.padded | h2 What stays the same on airBalt / h2 What might change when flying 	single	HOLD	single page: no cause shared with another recorded page at this step
+5.8	5.8	/de/en/fly-more-sustainabl	1440	h 4133/4185	drift from y 1040 (30 px):  | h1 More sustainable flying / h2 Your options to support more s	single	HOLD	single page: no cause shared with another recorded page at this step
+5.8	5.8	/de/en/overview-special-request	390	h 3936/3936	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+5.8	5.8	/de/en/sports-baggage	390	h 7690/7693	drift from y 1520 (-19 px): breadcrumb | h1 Sports baggage and special bag / h2 Registration of sports equipme	single	HOLD	single page: no cause shared with another recorded page at this step
+5.8	5.6	/de/en/general-conditions-currency-conversion	390	h 2807/2772	drift from y 1840 (-43 px): breadcrumb | h1 General terms and conditions f / h2 Refunds	single	HOLD	single page: no cause shared with another recorded page at this step
+5.7	5.7	/de/en/discover-lufthansa/carbon-offsetting/environmental-cost-surcharge	390	h 2835/2834	drift from y 1680 (-172 px): table-striped	single	HOLD	single page: no cause shared with another recorded page at this step
+5.7	5.7	/de/en/online-check-in-info	390	h 3001/3001	drift from y 2160 (-34 px): columns-media | h2 Information on passenger right	single	HOLD	single page: no cause shared with another recorded page at this step
+5.7	5.7	/de/en/overview-flights	390	h 3517/3506	drift from y 2720 (-17 px): cards-teaser | h1 Flights / h2 Your trip starts here	single	HOLD	single page: no cause shared with another recorded page at this step
+5.7	5.7	/de/en/services-at-frankfurt-airport	390	h 3232/3232	drift from y 2400 (62 px): subpage-nav	single	HOLD	single page: no cause shared with another recorded page at this step
+5.7	5.7	/de/en/travelling-with-children	1440	h 5297/5299	drift from y 4080 (40 px): columns-media.padded, embed | h2 On-board entertainment	single	HOLD	single page: no cause shared with another recorded page at this step
+5.6	5.6	/de/en/admission-rules	390	h 8000/8000	drift from y 4800 (-371 px): table-striped	single	HOLD	single page: no cause shared with another recorded page at this step
+5.6	5.6	/de/en/airport-information	390	h 5465/5480	drift from y 4320 (-20 px):  | h2 Buying a ticket, help and assi	single	HOLD	single page: no cause shared with another recorded page at this step
+5.6	5.6	/de/en/common/agb-extra-services-at-online-check-in	1440	h 2330/2286	drift from y 960 (-310 px):  | h2 Seat selection in online check	single	HOLD	single page: no cause shared with another recorded page at this step
+5.6	5.6	/de/en/services-on-board	390	h 3993/3991	drift from y 3600 (309 px): -	footer-spike	HOLD	a one-step jump of about 300 px that returns at the next step: offsets.mjs matching repeated rows, not a drift
+5.6	5.5	/de/en/unaccompanied-minors	390	h 8000/8000	drift from y 3360 (-26 px):  | h2 Important travel documents and	single	HOLD	single page: no cause shared with another recorded page at this step
+5.5	5.5	/de/en/advance-seat-reservations-terms-and-conditions	390	h 2521/2534	drift from y 480 (24 px): breadcrumb | h1 FAQs seat reservations	single	HOLD	single page: no cause shared with another recorded page at this step
+5.5	5.5	/de/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	1440	h 2636/2675	drift from y 1920 (23 px):  | h2 General conditions	single	HOLD	single page: no cause shared with another recorded page at this step
+5.5	5.5	/de/en/lufthansa-at-vienna-airport	390	h 3001/2999	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+5.5	5.5	/de/en/upgrade-info	390	h 3246/3261	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+5.5	5.5	/de/en/upgrade-premium-economy-class	390	h 3683/3691	drift from y 2880 (282 px): subpage-nav	accordion-grey	HOLD	an accordion before a plain grey band: the rule measured worse at 390 (the page heights matched www already), phones as before
+5.4	5.4	/de/en/addresses-worldwide	390	h 1399/1417	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+5.3	5.3	/de/en/airport-information	1440	h 3232/3210	drift from y 2320 (-129 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+5.3	5.3	/de/en/digital-baggage-services	390	h 4836/4869	drift from y 4000 (28 px): subpage-nav | h2 Baggage	single	HOLD	single page: no cause shared with another recorded page at this step
+5.3	5.3	/de/en/faq-ejournals	390	h 1999/2012	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+5.3	5.3	/de/en/first-class-valet-parking-service	1440	h 1728/1755	drift from y 1040 (-41 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+5.3	5.3	/de/en/prepare-for-your-trip/getting-to-and-from-the-airport/lufthansa-express-bus-briefing	1440	h 2521/2488	drift from y 1040 (-26 px): columns-media.padded	single	HOLD	single page: no cause shared with another recorded page at this step
+5.3	5.3	/de/en/security-fast-lanes	1440	h 3053/3006	drift from y 2320 (-43 px): accordion-columns.faq.spaced	single	HOLD	single page: no cause shared with another recorded page at this step
+5.3	5.3	/de/en/services-at-frankfurt-airport	1440	h 2275/2273	drift from y 960 (-204 px): columns-media.padded | h2 Additional services at Frankfu	single	HOLD	single page: no cause shared with another recorded page at this step
+5.3	5.3	/de/en/upgrade-first-class	390	h 3764/3772	drift from y 2960 (282 px): subpage-nav	accordion-grey	HOLD	an accordion before a plain grey band: the rule measured worse at 390 (the page heights matched www already), phones as before
+5.2	5.2	/de/en/upgrades-at-online-check-in	390	h 3904/3936	drift from y 2480 (51 px): accordion-columns.faq.spaced | h2 Upgrade benefits / h2 Please note	single	HOLD	single page: no cause shared with another recorded page at this step
+5.1	5.1	/de/en/first-class-valet-parking-service	390	h 2465/2483	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+5.1	5.1	/de/en/upgrade-business-class-long-haul	390	h 3613/3622	drift from y 2800 (282 px): subpage-nav	accordion-grey	HOLD	an accordion before a plain grey band: the rule measured worse at 390 (the page heights matched www already), phones as before
+5.1	4.9	/de/en/rail-fly-terms-and-conditions	1440	h 3017/3000	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+5.0	5.0	/de/en/baggage	390	h 7339/7340	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+5.0	5.0	/de/en/fliegen-mit-baby	1440	h 2265/2233	drift from y 1280 (-41 px): breadcrumb, accordion-columns.faq, subpage-nav | h1 What should I be aware of when / h2 Important information about pr	single	HOLD	single page: no cause shared with another recorded page at this step
+5.0	5.0	/de/en/group-travel	1440	h 7474/7628	drift from y 3280 (92 px): form.core	single	HOLD	single page: no cause shared with another recorded page at this step
+5.0	5.0	/de/en/support/contact/passenger-duty-united-kingdom	1440	h 1814/1842	drift from y 1120 (25 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+4.9	4.9	/de/en/prepare-for-your-trip/baggage/sport-baggage/register-ammunition	1440	h 4204/4255	drift from y 880 (-104 px): form.core	single	HOLD	single page: no cause shared with another recorded page at this step
+4.8	4.8	/content/lh/markets/de/en/during-your-trip/lounges/loungenet	1440	h 916/924	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+4.8	4.8	/de/en/boarding	390	h 4483/4510	drift from y 3440 (-30 px): table-striped | h2 Further boarding services	single	HOLD	single page: no cause shared with another recorded page at this step
+4.8	4.8	/de/en/book-and-manage/flights/air-baltic	1440	h 6493/6547	drift from y 4400 (-181 px): columns-media	single	HOLD	single page: no cause shared with another recorded page at this step
+4.8	4.8	/de/en/book-and-manage/pax-receipt	1440	h 2088/2113	drift from y 1360 (27 px):  | h2 Invoices for different countri	single	HOLD	single page: no cause shared with another recorded page at this step
+4.8	4.8	/de/en/first-class-comfort	1440	h 2785/2793	drift from y 880 (27 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+4.8	4.8	/de/en/travel-expense-management	390	h 3548/3589	drift from y 2720 (30 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+4.7	4.7	/de/en/discover-lufthansa/carbon-offsetting/faq-saf	390	h 2473/2505	drift from y 2080 (309 px): -	footer-spike	HOLD	a one-step jump of about 300 px that returns at the next step: offsets.mjs matching repeated rows, not a drift
+4.7	4.7	/de/en/discover-lufthansa/flightreservation-priceguarantee	1440	h 3743/3728	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+4.7	4.7	/de/en/fmg-valet-parking-service	390	h 3729/3737	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+4.5	5.4	/de/en/tiere-als-handgepaeck	390	h 5330/5348	drift from y 3440 (-60 px): table-striped.header | h2 Checklist	single	HOLD	single page: no cause shared with another recorded page at this step
+4.5	4.5	/de/en/book-and-manage/flights/helvetic	1440	h 5260/5276	drift from y 4560 (48 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+4.5	4.5	/de/en/business-services	1440	h 951/959	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+4.5	4.5	/de/en/children-on-board	1440	h 2380/2404	drift from y 1680 (24 px): breadcrumb, columns-media.padded | h1 On board with children and bab / h2 Your little ones are our big p	single	HOLD	single page: no cause shared with another recorded page at this step
+4.5	4.5	/de/en/common	1440	h 951/959	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+4.5	4.5	/de/en/passengers-using-wheelchairs	1440	h 8000/8000	drift from y 1840 (-41 px): jump-links, columns-media.padded | h2 WCHR – wheelchair assistance t / h2 WCHS – wheelchair assistance t	single	HOLD	single page: no cause shared with another recorded page at this step
+4.5	4.5	/de/en/prepare-for-your-trip/travelling-with-children/planning-with-kids	390	h 4750/4780	drift from y 3920 (24 px): breadcrumb, columns-media.padded | h1 Planning a trip with children / h2 Important information about fl	single	HOLD	single page: no cause shared with another recorded page at this step
+4.5	4.5	/de/en/services-munich-airport	1440	h 1922/1907	drift from y 720 (-16 px): breadcrumb, accordion-columns.faq.spaced, subpage-nav | h1 Services at Munich Airport / h2 Munich Airport	single	HOLD	single page: no cause shared with another recorded page at this step
+4.5	4.5	/de/en/travelling-with-animals	390	h 3813/3846	drift from y 3040 (212 px): subpage-nav	single	HOLD	single page: no cause shared with another recorded page at this step
+4.5	4.4	/de/en/data-protection-information	1440	h 8000/8000	drift from y 1120 (-27 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+4.4	4.4	/de/en/terms-of-service-group	1440	h 2237/2229	drift from y 1520 (-27 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+4.4	4.4	/de/en/uebergepaeck	1440	h 3210/3190	drift from y 2400 (25 px): accordion-columns.faq.spaced	single	HOLD	single page: no cause shared with another recorded page at this step
+4.3	4.3	/de/en/lufthansa-guide-service	1440	h 3850/3802	drift from y 2240 (-27 px): table-striped	single	HOLD	single page: no cause shared with another recorded page at this step
+4.2	5.8	/de/en/europa-tarife-economy-class	1440	h 5442/5472	drift from y 1280 (285 px):  | h2 Economy Light	single	HOLD	single page: no cause shared with another recorded page at this step
+4.2	4.2	/de/en/book-and-manage/digital-self-services/airline-apps	1440	h 1690/1687	drift from y 880 (347 px): columns-media	single	HOLD	single page: no cause shared with another recorded page at this step
+4.2	4.2	/de/en/lounge-companions	1440	h 3473/3499	drift from y 1760 (26 px): table-striped | h2 People accompanying Frequent T	single	HOLD	single page: no cause shared with another recorded page at this step
+4.2	4.2	/de/en/lufthansa-first-class-entertainment	390	h 3806/3793	drift from y 2480 (-20 px): breadcrumb | h1 Entertainment world / h2 When your flight time turns in	single	HOLD	single page: no cause shared with another recorded page at this step
+4.2	4.2	/de/en/lufthansa-first-class-fleet	390	h 4241/4269	drift from y 2880 (22 px): breadcrumb, accordion-columns.faq.spaced | h1 Lufthansa First Class fleet / h2 Lufthansa Allegris First Class	single	HOLD	single page: no cause shared with another recorded page at this step
+4.1	4.1	/de/en/prepare-for-your-trip/current-travel-information	1440	h 1261/1270	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+4.0	4.3	/de/en/besondere-befoerderungsbedingungen-bus	1440	h 8000/8000	drift from y 480 (18 px): breadcrumb | h1 Special Conditions of Carriage	single	HOLD	single page: no cause shared with another recorded page at this step
+4.0	4.0	/de/en/group-travel-and-charter	390	h 1991/1996	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+4.0	4.0	/de/en/travel-id-terms-conditions	1440	h 8000/8000	drift from y 6000 (16 px):  | h2 9. Data security	single	HOLD	single page: no cause shared with another recorded page at this step
+4.0	4.0	/de/en/with-children-at-the-airport	1440	h 3131/3144	drift from y 1280 (-25 px): columns-media.padded	single	HOLD	single page: no cause shared with another recorded page at this step
+3.9	4.8	/de/en/security-check-time-slot	390	h 2956/2977	drift from y 1600 (-43 px): table-striped	single	HOLD	single page: no cause shared with another recorded page at this step
+3.8	5.5	/de/en/faq-password-security	390	h 1589/1595	drift from y 880 (-313 px): -	footer-spike	HOLD	a one-step jump of about 300 px that returns at the next step: offsets.mjs matching repeated rows, not a drift
+3.7	7.0	/de/en/sepa-terms-and-conditions	390	h 2472/2477	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+3.3	6.1	/de/en/faq-data-security	390	h 1550/1556	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+3.2	5.9	/de/en/refund	390	h 3193/3202	drift from y 960 (118 px): -	single	HOLD	single page: no cause shared with another recorded page at this step
+2.9	4.9	/de/en/sepa-terms-and-conditions-b	1440	h 1902/1900	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+2.6	5.3	/de/en/security-check-time-slot	1440	h 2837/2852	drift from y 2160 (217 px): table-striped	single	HOLD	single page: no cause shared with another recorded page at this step
+2.2	4.9	/de/en/terms-of-use	1440	h 3671/3668	drift from y 880 (-257 px):  | h2 2. Proprietary rights	single	HOLD	single page: no cause shared with another recorded page at this step
+1.7	5.7	/de/en/refund	1440	h 2415/2419	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step
+1.0	5.2	/de/en/sepa-terms-and-conditions	1440	h 1794/1795	drift from y 880 (26 px):  | h2 Authorisation to be included i	single	HOLD	single page: no cause shared with another recorded page at this step
+0.9	7.7	/de/en/faq-password-security	1440	h 1330/1330	no step of 16 px or more that persists	spread	HOLD	differences spread over the page (fonts, line breaks), no drift step

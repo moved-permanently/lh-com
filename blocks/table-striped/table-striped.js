@@ -93,6 +93,18 @@ export default async function decorate(block, opts = {}) {
     const { toComparison } = await import('./table-striped-tap.js');
     if (await toComparison(block, opts)) return;
   }
+  // brand tap: www.flytap.com's rich-text tables, a card per column from 1024 px and an accordion
+  // per column below it (TAP row 146, ./table-striped-tap.js toColumns)
+  if (isTap() && !block.matches('.matrix, .beside, .beside-end')) {
+    const { toColumns } = await import('./table-striped-tap.js');
+    if (toColumns(block)) {
+      cleanTextNodes(block);
+      decorateExternalLinks(block);
+      const cards = block.querySelector('.table-striped-cards');
+      if (cards) keepScrollFocusable(cards);
+      return;
+    }
+  }
   // option beside / beside-end (the campaign template's spec tables, www's /de/en/100-years/fleet,
   // brief 478): the first row is the column beside the table (its first cell) and what the table's
   // own column has above the table (a second cell)

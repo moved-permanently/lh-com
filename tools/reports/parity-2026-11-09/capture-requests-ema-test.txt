@@ -1,0 +1,7 @@
+# Capture requests from ema-test (standing order 11, 2026-11-12). One path per line; widths 1440 and 390, full height.
+# The offers page's recording (discover-parity-001) and our captures of it both flip between about 2,300 and 20,000 px
+# (the offer list loads in pages as the capture scrolls), so its parity numbers are noise; a fresh recording with the
+# list settled (all offers loaded, or none, and the same both times) would make it measurable.
+# host: www.discover-airlines.com
+/de/de/book/flights/offers
+/de/en/book/flights/offers

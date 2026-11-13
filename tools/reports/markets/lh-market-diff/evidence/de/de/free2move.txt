@@ -1,0 +1,25 @@
+root    /ae/de/free2move
+version /de/de/free2move
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 49:
+- "Sichern Sie sich 40 % auf Ihre ersten 3 Fahrten mit dem Code PSM-LUFTHANSA40."
+- <sup>
+- "1"
++ "10€ Startguthaben sichern."
++ <br>
+  <div.link.event.section>
+  <div.maui-link>
+  …
+- @href=https://www.free2move.com/de/de/offer/lufthansa/
++ @href=https://www.share-now.com/de/de/lufthansa/
+  @type=primary
+  @target=_blank
+  …
+- <div.text>
+- <div.richtext>
+- <p>
+- <p.copytext-small>
+- "*Ab 39,99 €/Tag"
+- "+"
+- "0,19€/km inkl. Benzin, Parken, Versicherung."
+- <p>

@@ -18,6 +18,27 @@ const div = (className, ...children) => {
   return e;
 };
 
+// www's copyright line: "© 2026, TAP." in bold before "All rights reserved." (the footer
+// document has it bold; the shared footer builds its note from the paragraphs' text)
+const COPYRIGHT = /^(\s*©\s*\d{4},\s*TAP\.)/;
+
+/**
+ * The note paragraph's leading "© <year>, TAP." in <strong> (TAP row 132); a paragraph with
+ * bold text of its own, or without that start, stays as it is.
+ * @param {Element} p
+ */
+export function boldCopyright(p) {
+  if (!p || p.querySelector('strong, b')) return;
+  const first = p.firstChild;
+  if (!first || first.nodeType !== 3) return;
+  const m = first.nodeValue.match(COPYRIGHT);
+  if (!m) return;
+  const strong = document.createElement('strong');
+  strong.textContent = m[1].trim();
+  first.nodeValue = first.nodeValue.slice(m[1].length);
+  p.insertBefore(strong, first);
+}
+
 /**
  * @param {Element} block the decorated footer block
  */
@@ -45,6 +66,7 @@ export default function layoutTapFooter(block) {
   const starImg = star ? star.querySelector('img') : null;
   if (starImg) starImg.src = `${window.hlx?.codeBasePath || ''}/icons/tap-star-alliance.svg`;
   const side = div('footer-tap-side', home ? div('footer-tap-logo', home) : null, badges);
+  if (note) note.querySelectorAll(':scope > p').forEach(boldCopyright);
   const bar = div('footer-tap-bar', note, star ? div('footer-tap-partner', star) : null);
   inner.querySelectorAll(':scope > .footer-divider').forEach((hr) => hr.remove());
   inner.classList.add('footer-tap');

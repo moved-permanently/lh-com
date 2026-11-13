@@ -1,0 +1,39 @@
+# ema-cashub, standing order 12 (2026-11-12), TAP row 149's second half: a heading section's description at most 790 px
+# wide, as www's (its max-w-[790px] container holds the heading and the description). No importer change was needed:
+# tap-import.mjs already marks every heading with its description outside an accordion item (row 139: its section ends
+# after the description, style heading-section); tap.css now caps what follows that section's last H2 (test:
+# test/tap-heading-description-790-588.test.mjs). Documents already marked (row 139's 20 READY rows, uploaded) change
+# with the code alone: lounges' two descriptions 1,120 -> 790 px, no recorded page's height moved (auctions, lounges,
+# donating miles as published; Schengen visas and pt-br credit cards as main's drafts: 0 px).
+# The documents it touches: the 66 language pages with such a heading whose published copy is not marked yet (row
+# 139's "structural only" pages; its 9 HOLD rows stay as they are, 0 px with this change). Drafted on our host at 1440
+# with the cap and without: 49 render the same (no re-import for this row); 17 wrap one description onto a second line
+# (+24 px), as www's 790 px container does. Those 17, below.
+# Measured: main's importer (tap-import.mjs --archive tap-snapshots-001 to -015 and -023 --media every media archive and
+# tap-byside-001 --only <paths>), each fresh document against DA's source (the 841 copies of order 11, GET only) and
+# against the published page, drafted on our host with this commit's code, as delivered (every picture loaded: local
+# pictures carry no width / height before the pipeline adds them, so lazy ones measured 0 px in a first pass).
+# Recorded (tap-parity-009): en-pt hold baggage 1440 www 4,936, published 4,844 (-1.86 %), re-imported 4,868 (-1.38 %);
+# 390 6,312 both (www 6,445). The family's other pages (hold baggage, sports equipment, hand baggage) the same +24 at
+# 1440 and 0 at 390.
+# READY: equal to DA's source but for the heading's section break. Run as above with --only <these paths>.
+# HOLD: fr-fr miles-and-go and en-pt donate miles have market sections: through tap-markets.mjs only, not drafted so;
+# de-de Economy Prime: the published page is not DA's copy of 2026-11-05 (below).
+# Columns: document, status, expected change.
+/de-de/informationen/gepack/aufgabegepack	READY	the heading's description 790 px wide (one more line), its section ended after it: 1440 4,912 -> 4,936 px, 390 6,693 -> 6,693
+/en-pt/information/baggage/hand-baggage	READY	the heading's description 790 px wide (one more line), its section ended after it: 1440 4,733 -> 4,757 px, 390 8,201 -> 8,201
+/en-pt/information/baggage/hold-baggage	READY	the heading's description 790 px wide (one more line), its section ended after it: 1440 4,844 -> 4,868 px, 390 6,312 -> 6,312
+/en-pt/information/baggage/sports-equipment	READY	the heading's description 790 px wide (one more line), its section ended after it: 1440 3,420 -> 3,444 px, 390 4,485 -> 4,485
+/es-es/informacion/equipaje/equipaje-bodega	READY	the heading's description 790 px wide (one more line), its section ended after it: 1440 4,993 -> 5,017 px, 390 6,697 -> 6,697
+/es-es/informacion/equipaje/equipo-deportivo	READY	the heading's description 790 px wide (one more line), its section ended after it: 1440 3,429 -> 3,453 px, 390 4,706 -> 4,706
+/fr-fr/informations/bagage/bagage-en-soute	READY	the heading's description 790 px wide (one more line), its section ended after it: 1440 4,867 -> 4,891 px, 390 6,688 -> 6,688
+/fr-fr/informations/bagage/equipement-sportif	READY	the heading's description 790 px wide (one more line), its section ended after it: 1440 3,465 -> 3,489 px, 390 4,783 -> 4,783
+/it-it/informazioni/bagaglio/attrezzatura-sportiva	READY	the heading's description 790 px wide (one more line), its section ended after it: 1440 3,372 -> 3,396 px, 390 4,638 -> 4,638
+/it-it/informazioni/bagaglio/bagaglio-stiva	READY	the heading's description 790 px wide (one more line), its section ended after it: 1440 4,831 -> 4,855 px, 390 6,525 -> 6,525
+/pt-br/informacoes/bagagem/bagagem-porao	READY	the heading's description 790 px wide (one more line), its section ended after it: 1440 4,881 -> 4,905 px, 390 6,609 -> 6,609
+/pt-br/informacoes/bagagem/equipamento-esportivo	READY	the heading's description 790 px wide (one more line), its section ended after it: 1440 3,465 -> 3,489 px, 390 4,817 -> 4,817
+/pt-pt/informacoes/bagagem/bagagem-porao	READY	the heading's description 790 px wide (one more line), its section ended after it: 1440 4,780 -> 4,804 px, 390 6,585 -> 6,585
+/pt-pt/informacoes/bagagem/equipamento-desportivo	READY	the heading's description 790 px wide (one more line), its section ended after it: 1440 3,465 -> 3,489 px, 390 4,748 -> 4,748
+/fr-fr/miles-and-go	HOLD	market sections (Markets -br): re-import through tap-markets.mjs only; drafted without them 1440 3,706 -> 3,714, 390 4,290 unchanged
+/de-de/an-bord/economy-prime	HOLD	the fresh import equals DA's copy of 2026-11-05, but the published page lacks its "Sie reisen nicht in Economy Prime? Dann buchen Sie doch einfach einen Freier Nachbarsitz ..." and a paragraph split: DA changed since; read DA's source again first. Two descriptions +24 px each at 1440
+/en-pt/miles-and-go/use-miles/donate-miles	HOLD	market sections (Markets pt; the published page shows 7 lines a plain import lacks: "TAP Donate Miles", "Meet the three new partner organizations!" and its text): through tap-markets.mjs only, not drafted so

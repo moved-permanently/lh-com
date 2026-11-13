@@ -1,0 +1,15 @@
+root    /mk/de/uebergepaeck
+version /de/de/uebergepaeck
+verdict differs (content)
+diff (- version only, + root only; = shared), from token 1465:
++ @href=http://www.lufthansa.com/{R}/prepare-for-your-trip/baggage/prize-zone
++ @target=_self
++ <span>
++ "Destinationen und Preiszonen"
++ <maui-icon>
++ @slot=icon
++ @use=icon-pager-next
++ @mode=library
++ @size=small
++ <li>
++ <a.nav-link.mb-0>

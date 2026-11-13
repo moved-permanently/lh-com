@@ -1,0 +1,93 @@
+# ema-lufthansa, standing order 4 of 2026-11-11, item 2: reimport-585-ita-two-up-82.txt and its two snapshot lists
+# (reimport-585-ita-two-up-snapshots.txt, -snapshots-2.txt) as one READY/HOLD row per document. Read on ita.turnsthe.page
+# (our host) at 20:00 UTC, each document's .plain.html: its "Related" grid's classes.
+# Result: of the 82 documents, 73 are live with "carousel-cards grid two-up" already (the import helper's re-imports:
+#   every row of the snapshot lists' A and C sections, and the one without a snapshot of mine), so they get no row here
+#   (named at the end of this header); 9 are the B sections' digital-services pages, live as a plain grid, which is
+#   right for them: www's view there holds three cards (a phone slider), so no re-import for two-up (HOLD, reason given).
+# READY rows: none. Nothing waits for a capture.
+# Columns: document, READY/HOLD, snapshot (R2 drop) and section, reason.
+/br/pt/book-and-prepare/digital-services	HOLD	ita-snapshots-023 B	no two-up wanted: www's view has three cards (a phone slider); live: plain grid, as it should be
+/de/de/book-and-prepare/digital-services	HOLD	ita-snapshots-023 B	no two-up wanted: www's view has three cards (a phone slider); live: plain grid, as it should be
+/es/es/book-and-prepare/digital-services	HOLD	ita-snapshots-023 B	no two-up wanted: www's view has three cards (a phone slider); live: plain grid, as it should be
+/fr/fr/book-and-prepare/digital-services	HOLD	ita-snapshots-023 B	no two-up wanted: www's view has three cards (a phone slider); live: plain grid, as it should be
+/gr/el/book-and-prepare/digital-services	HOLD	ita-snapshots-023 B	no two-up wanted: www's view has three cards (a phone slider); live: plain grid, as it should be
+/it/en/book-and-prepare/digital-services	HOLD	ita-snapshots-022 B	no two-up wanted: www's view has three cards (a phone slider); live: plain grid, as it should be
+/it/it/book-and-prepare/digital-services	HOLD	ita-snapshots-022 B	no two-up wanted: www's view has three cards (a phone slider); live: plain grid, as it should be
+/jp/ja/book-and-prepare/digital-services	HOLD	ita-snapshots-023 B	no two-up wanted: www's view has three cards (a phone slider); live: plain grid, as it should be
+/nl/nl/book-and-prepare/digital-services	HOLD	ita-snapshots-023 B	no two-up wanted: www's view has three cards (a phone slider); live: plain grid, as it should be
+#
+# Live already with two-up (no row):
+#   /br/pt/book-and-prepare/other-requests/accessible-travel  (ita-snapshots-023 A)
+#   /br/pt/book-and-prepare/other-requests/families-and-children/unaccompained-minors  (ita-snapshots-023 A)
+#   /br/pt/manage-my-bookings/manage/manage-my-bookings  (ita-snapshots-023 A)
+#   /br/pt/manage-my-bookings/manage/view-and-manage-flight  (ita-snapshots-023 A)
+#   /br/pt/manage-my-bookings/partners/airport-transfer  (ita-snapshots-023 A)
+#   /de/de/manage-my-bookings/extra-services/travel-insurance  (ita-snapshots-021 C)
+#   /de/de/manage-my-bookings/manage/manage-my-bookings  (ita-snapshots-023 A)
+#   /de/de/manage-my-bookings/manage/view-and-manage-flight  (ita-snapshots-023 A)
+#   /de/de/manage-my-bookings/partners/airport-transfer  (ita-snapshots-023 A)
+#   /es/es/book-and-prepare/other-requests/accessible-travel  (ita-snapshots-023 A)
+#   /es/es/manage-my-bookings/manage/manage-my-bookings  (ita-snapshots-023 A)
+#   /es/es/manage-my-bookings/manage/view-and-manage-flight  (ita-snapshots-023 A)
+#   /es/es/manage-my-bookings/partners/airport-transfer  (ita-snapshots-023 A)
+#   /fr/fr/manage-my-bookings/extra-services/travel-insurance  (ita-snapshots-021 C)
+#   /fr/fr/manage-my-bookings/manage/manage-my-bookings  (ita-snapshots-023 A)
+#   /fr/fr/manage-my-bookings/manage/view-and-manage-flight  (ita-snapshots-023 A)
+#   /fr/fr/manage-my-bookings/partners/airport-transfer  (ita-snapshots-023 A)
+#   /gr/el/manage-my-bookings/manage/manage-my-bookings  (ita-snapshots-023 A)
+#   /gr/el/manage-my-bookings/manage/view-and-manage-flight  (ita-snapshots-023 A)
+#   /gr/el/manage-my-bookings/partners/airport-transfer  (ita-snapshots-023 A)
+#   /it/en/book-and-prepare/flightpass/all-destinations  (ita-snapshots-022 A)
+#   /it/en/book-and-prepare/flightpass/fco-lin  (ita-snapshots-022 A)
+#   /it/en/book-and-prepare/other-requests/accessible-travel  (ita-snapshots-022 A)
+#   /it/en/book-and-prepare/other-requests/accessible-travel-us  (ita-snapshots-022 A)
+#   /it/en/book-and-prepare/other-requests/families-and-children/baggage-and-strollers  (ita-snapshots-022 A)
+#   /it/en/book-and-prepare/other-requests/families-and-children/families-onboard-seats  (ita-snapshots-022 A)
+#   /it/en/book-and-prepare/other-requests/families-and-children/unaccompained-minors  (ita-snapshots-022 A)
+#   /it/en/book-and-prepare/other-requests/pregnancy  (ita-snapshots-022 A)
+#   /it/en/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin  (ita-snapshots-022 A)
+#   /it/en/book-and-prepare/other-requests/travelling-with-pets/pets-travel-documents  (ita-snapshots-022 A)
+#   /it/en/book-and-prepare/travel-information/at-the-airport/digital-newsstand  (ita-snapshots-022 A)
+#   /it/en/book-and-prepare/travel-information/at-the-airport/group-boarding  (ita-snapshots-022 A)
+#   /it/en/book-and-prepare/travel-information/at-the-airport/meet-and-greet  (ita-snapshots-022 A)
+#   /it/en/book-and-prepare/travel-information/at-the-airport/priority/priority-gates  (ita-snapshots-022 A)
+#   /it/en/book-and-prepare/travel-information/at-the-airport/priority/qpass  (ita-snapshots-022 A)
+#   /it/en/book-and-prepare/travel-information/baggage/electronic-devices-and-batteries  (ita-snapshots-022 A)
+#   /it/en/book-and-prepare/travel-information/baggage/restricted-and-prohibited-items  (ita-snapshots-022 A)
+#   /it/en/book-and-prepare/travel-information/check-in-information/online-check-in  (ita-snapshots-022 A)
+#   /it/en/manage-my-bookings/extra-services/travel-insurance  (ita-snapshots-022 A)
+#   /it/en/manage-my-bookings/extra-services/upgrade/airport-upgrade  (ita-snapshots-022 A)
+#   /it/en/manage-my-bookings/extra-services/upgrade/fixed-price-upgrade  (ita-snapshots-022 A)
+#   /it/en/manage-my-bookings/extra-services/upgrade/onboard-upgrade  (ita-snapshots-022 A)
+#   /it/en/manage-my-bookings/manage/change-and-refund  (ita-snapshots-022 A)
+#   /it/en/manage-my-bookings/manage/manage-my-bookings  (ita-snapshots-022 A)
+#   /it/en/manage-my-bookings/manage/view-and-manage-flight  (ita-snapshots-022 A)
+#   /it/en/manage-my-bookings/partners/airport-in-the-city  (ita-snapshots-022 A)
+#   /it/en/manage-my-bookings/partners/airport-transfer  (ita-snapshots-022 A)
+#   /it/en/manage-my-bookings/partners/airport-transfer/ferrotramviaria  (ita-snapshots-022 A)
+#   /it/en/manage-my-bookings/partners/hotel  (ita-snapshots-022 A)
+#   /it/en/world-of-ita-airways/discover-ita-airways/network  (ita-snapshots-022 A)
+#   /it/en/world-of-ita-airways/discover-ita-airways/sustainability/decarbonisation  (ita-snapshots-022 A)
+#   /it/en/world-of-ita-airways/discover-ita-airways/sustainability/digital-newsstand  (ita-snapshots-022 A)
+#   /it/en/world-of-ita-airways/discover-ita-airways/sustainability/female-talent  (ita-snapshots-022 A)
+#   /it/en/world-of-ita-airways/discover-ita-airways/sustainability/iris  (ita-snapshots-022 A)
+#   /it/en/world-of-ita-airways/discover-ita-airways/sustainability/next-generation-fleet  (ita-snapshots-022 A)
+#   /it/en/world-of-ita-airways/discover-ita-airways/sustainability/social-partnership  (ita-snapshots-022 A)
+#   /it/en/world-of-ita-airways/services-on-board/catering/children-meals  (ita-snapshots-022 A)
+#   /it/en/world-of-ita-airways/services-on-board/connectivity-on-board  (ita-snapshots-022 A)
+#   /it/en/world-of-ita-airways/services-on-board/entertainment-on-board  (ita-snapshots-022 A)
+#   /it/en/world-of-ita-airways/travel-classes/business-class-medium-haul  (ita-snapshots-022 A)
+#   /it/en/world-of-ita-airways/travel-classes/business-long-haul  (ita-snapshots-022 A)
+#   /it/it/book-and-prepare/other-requests/accessible-travel  (ita-snapshots-022 A)
+#   /it/it/manage-my-bookings/extra-services/travel-insurance  (ita-snapshots-022 A)
+#   /it/it/manage-my-bookings/manage/change-and-refund  (ita-snapshots-022 A)
+#   /it/it/manage-my-bookings/manage/manage-my-bookings  (ita-snapshots-022 A)
+#   /it/it/manage-my-bookings/manage/view-and-manage-flight  (ita-snapshots-022 A)
+#   /it/it/manage-my-bookings/partners/airport-transfer  (ita-snapshots-022 A)
+#   /jp/ja/manage-my-bookings/manage/manage-my-bookings  (ita-snapshots-023 A)
+#   /jp/ja/manage-my-bookings/manage/view-and-manage-flight  (ita-snapshots-023 A)
+#   /jp/ja/manage-my-bookings/partners/airport-transfer  (ita-snapshots-023 A)
+#   /nl/nl/manage-my-bookings/manage/manage-my-bookings  (ita-snapshots-023 A)
+#   /nl/nl/manage-my-bookings/manage/view-and-manage-flight  (ita-snapshots-023 A)
+#   /nl/nl/manage-my-bookings/partners/airport-transfer  (-)

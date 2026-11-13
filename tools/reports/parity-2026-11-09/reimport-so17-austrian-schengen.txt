@@ -1,0 +1,20 @@
+# ema-cashub, standing order 17 (2026-11-12), item 1: Austrian
+# /at/en/plan/special-requirements/entry-regulations/immigration-regulations-schengen at 1440 (+20.96 % against
+# austrian-parity-015). www's member states are four lists side by side (.sidebar-content > .fourcolumn, col-md-6 col-lg:
+# two a row from 768 px, four from 1025 px); our document has the four lists one under the other.
+# The document predates 30119591 (brief 558, 2026-11-10): lufthansa.com's info template, which the Austrian importer uses
+# for this page (templateOf), takes a three- or four-column view inside a sidebar as Columns Media since. Run on the
+# recording's own markup, main's Austrian path (mappedOf, the info selector, the columns-media parser) writes one Columns
+# Media row of the four lists; pinned by test/austrian-sidebar-columns-so17.test.mjs. No code change. The block's grid
+# already follows www (two a row from 768 to 1024 px, four from 1025 px).
+# Measured on our host, the published document with only the four lists made that block (offline: the page's main
+# replaced by the local copy; www.* and the airline hosts refused, none sent), draft against draft: 1440 3,547 -> 2,878 px
+# (-669; the live page 3,734, so about 3,065 against www's 3,087: +20.96 -> about -0.7 %); 390 4,262 -> 4,310 px (www
+# 4,358; -2.20 -> -1.10 %). 768 / 1024 (not recorded): the block two rows of two, 479 px.
+# The only Austrian page of the drop with such a view (all 61 recorded pages scanned); Austrian's other documents not
+# scanned here (no snapshots in this checkout): the helper's snapshot scan may find more.
+# Run: austrian-import.mjs as the helper runs it, --list with this path. A fresh document may differ from DA's copy by
+# more than the block (later importer changes since its import): hold it if DA's current copy differs beyond the block
+# and such importer changes.
+# Columns: document, status, expected change.
+/at/en/plan/special-requirements/entry-regulations/immigration-regulations-schengen	READY	the member states: four lists one under the other -> one Columns Media row of four (two a row 768-1024 px); 1440 about 3,734 -> 3,065 px, 390 4,262 -> 4,310 px

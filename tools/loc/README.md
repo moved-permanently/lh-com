@@ -20,6 +20,7 @@ Files here:
 | `link-step.mjs`, `link-lib.mjs` | makes a target locale's links its own after a rollout or a translation; dry run report `tools/reports/loc-link-step.md` |
 | `slug-step.mjs`, `slug-lib.mjs`, `slug-map.json` | moves German translations onto the 72 pages with their own German slug; prints the at/de rollout project's URLs (`--rollout-urls`); dry run report `tools/reports/loc-slug-step.md` |
 | `clear-review.mjs` | with `--linked-images`: removes the mark of links around a picture before a rollout; without: removes a page's `da-metadata` block (the review record) on purpose. Labelled DA version first, read-back after, dry run by default |
+| `merge-newer.mjs` | local files only: a merged page's marks resolved block by block by the newer side (`--newer upstream\|local`, from DA's version lists): the local block where the words are the same, else the newer block (an upstream one with its links made the market's). First use: /gb/en/business-class (standing order 9, list `tools/reports/parity-2026-11-09/delta-so9-gb-en-business-class-lh-com.txt`) |
 | `block-check.mjs`, `review-lib.mjs` | read only: every heading, paragraph, image and block of a target's copy from before a step that is missing after it |
 | `marker-check.mjs` | read only: the style markers (`{caption}`, `{heading-small}`, `{divider-25}` …) of each translated page against its English source; report `tools/reports/loc-marker-check.md` |
 | `da-nx.mjs` | loads the app's code at the pinned commit for check-config and the slug step |

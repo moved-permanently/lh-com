@@ -232,6 +232,7 @@ body.brand-airdolomiti .hero-campaign .hero-campaign-content h1 {
 /* breadcrumb: www's trail "Home | Orario Voli" at every width, 15px midnight navy, the parents
    semibold, a 1px bar with 11px either side between the items */
 body.brand-airdolomiti .breadcrumb ol {
+  flex-wrap: nowrap;
   font-size: 15px;
   line-height: 26px;
   text-transform: capitalize;
@@ -270,6 +271,17 @@ body.brand-airdolomiti .breadcrumb li:not(.breadcrumb-current) > span {
 body.brand-airdolomiti .breadcrumb .breadcrumb-current {
   color: var(--lh-midnight);
   font-weight: 400;
+}
+
+/* one row as www's Breadcrumbs (AD row 100): a parent may break inside itself, the current page ends in an ellipsis */
+body.brand-airdolomiti .breadcrumb li:last-child {
+  min-width: 0;
+}
+
+body.brand-airdolomiti .breadcrumb li:last-child > * {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /*
@@ -1021,8 +1033,8 @@ body.brand-airdolomiti .article-header .article-header-byline {
     margin-inline: 0;
   }
 
-  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container) > .default-content-wrapper > :is(p, ul, ol, h2, h3, h4, h5, h6),
-  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container) > .default-content-wrapper > p:is(:has(> picture), :has(> a > picture), .caption) {
+  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container, :has(> .carousel-cards-wrapper > .carousel-cards:not(.article))) > .default-content-wrapper > :is(p, ul, ol, h2, h3, h4, h5, h6),
+  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container, :has(> .carousel-cards-wrapper > .carousel-cards:not(.article))) > .default-content-wrapper > p:is(:has(> picture), :has(> a > picture), .caption) {
     max-width: 1200px;
     margin-inline: 0;
   }
@@ -1031,12 +1043,12 @@ body.brand-airdolomiti .article-header .article-header-byline {
 /* the token-free caption (scripts/token-free.js: a figure of the image paragraph and its
    figcaption) as those paragraphs: 1200px from the left, the caption the figure's width */
 @media (width >= 768px) {
-  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container) > .default-content-wrapper > figure.image-caption {
+  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container, :has(> .carousel-cards-wrapper > .carousel-cards:not(.article))) > .default-content-wrapper > figure.image-caption {
     max-width: 1200px;
     margin-inline: 0;
   }
 
-  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container) > .default-content-wrapper > figure.image-caption > figcaption {
+  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container, :has(> .carousel-cards-wrapper > .carousel-cards:not(.article))) > .default-content-wrapper > figure.image-caption > figcaption {
     max-width: none;
   }
 }
@@ -1463,10 +1475,12 @@ body.brand-airdolomiti main > .section.newsletter > .newsletter-signup-wrapper {
     padding: 0;
   }
 
-  /* the logo row: over the dark band, the logo white on its left */
+  /* the logo row: over the dark band, the logo white on its left; the footer's box down to the
+     company line under the band (38px: the line was outside it, the brief after 566) */
   body.brand-airdolomiti footer .footer .footer-logos {
     position: relative;
     margin-top: -168px;
+    margin-bottom: 38px;
     height: 130px;
     background: none;
     pointer-events: none;
@@ -2145,6 +2159,38 @@ body.brand-airdolomiti main:has(.manage-booking) .manage-booking-wrapper ~ .defa
   text-align: center;
 }
 
+/* (AD row 103) www's blank lines there are empty paragraphs after the first two only: the phone paragraph, the opening
+   hours and the footnote follow one another (it, en, de); the footnote's <sup> inside its 33px line */
+/* stylelint-disable-next-line no-descending-specificity -- the text under the form, not the promo cards' */
+body.brand-airdolomiti main:has(.manage-booking) .manage-booking-wrapper ~ .default-content-wrapper > p:is(:nth-last-of-type(2), :nth-last-of-type(3)) {
+  margin-bottom: 0;
+}
+
+body.brand-airdolomiti main:has(.manage-booking) .manage-booking-wrapper ~ .default-content-wrapper > p > sup {
+  line-height: 0;
+}
+
+/* the form's rhythm as www's FormPnr box (AD row 104): 50px over and under, the rows 20px apart, a label 17.28px / 24px
+   8px over its field, the button 4px further in (396px high at every width) */
+body.brand-airdolomiti .manage-booking .manage-booking-form {
+  gap: 20px;
+  padding-block: 50px;
+}
+
+body.brand-airdolomiti .manage-booking .manage-booking-field {
+  gap: 8px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- the form's labels, not the flight search's */
+body.brand-airdolomiti .manage-booking .manage-booking-field label {
+  font-size: 17.28px;
+  line-height: 24px;
+}
+
+body.brand-airdolomiti .manage-booking .manage-booking-submit {
+  margin-block: 4px;
+}
+
 /* a title followed by more than one paragraph (www's TitleDescriptionTextCta: the destinations,
    flights and assistance hubs; the fleet's text under its stage, a heading and its paragraphs): its rich text 22px / 37.4px with a blank line between the
    paragraphs and under the title (www's empty paragraphs), from 930px in a centred column of
@@ -2184,6 +2230,29 @@ body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p) > :is(ul,
     margin-inline: calc((100% - 70vw) / 2);
   }
 }
+
+/* the text's button and foot as www's TitleDescriptionTextCta (AD row 112, the assistance pages: www's title, text and
+   "Request assistance" then the contacts in a second block, ours one text): the button 43px under the text (79px from
+   930px, row 88's), the text going on 100px under it (www's box margin), an accordion 90px under the text */
+/* stylelint-disable no-descending-specificity -- the text's button and foot, after the text's rules (above) */
+body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p) > p.button-wrapper {
+  margin-top: 43px;
+}
+
+body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p) > p.button-wrapper:not(:last-child) {
+  margin-bottom: 100px;
+}
+
+body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p):has(+ .accordion-columns-wrapper) {
+  margin-bottom: 90px;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p) > p.button-wrapper {
+    margin-top: 79px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
 
 /* a section heading ends the text block (flights to Europe's "Flights from Frankfurt": www's
    styles_title, its line 16px / 22px across the page; brief 452) */
@@ -2252,6 +2321,31 @@ body.brand-airdolomiti main > .section.hero-campaign-container + .section > .def
   }
 }
 
+/* the hub text's foot (AD row 107, "the hub gap"): www's TitleDescriptionTextCta ends 165px over the next component
+   from 930px (its rich text's 25px, the empty small text's 50px, its 90px margin), 130px below; the destinations'
+   grid adds 80px on phones (210px). Here the next component's title is the hub section's first H2 after the text
+   (destinations' "Scopri le nostre destinazioni", flights to Europe's "Voli per Francoforte"); not while the hub's
+   carousel is still in that section (documents before row 107's re-import: their carousel has no layout of its own) */
+/* stylelint-disable no-descending-specificity -- the hub text's headings, not the other blocks' */
+body.brand-airdolomiti main > .section.cards-teaser-container:not(:has(> .carousel-cards-wrapper)) > .default-content-wrapper:first-child:has(> h1 ~ p ~ p) > :is(p, ul, ol) + h2 {
+  margin-top: 130px;
+}
+
+body.brand-airdolomiti main > .section.cards-teaser-container:not(:has(> .carousel-cards-wrapper)) > .default-content-wrapper:first-child:has(> h1 ~ p ~ p) > :is(p, ul, ol) + h2:last-child {
+  margin-top: 210px;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section.cards-teaser-container:not(:has(> .carousel-cards-wrapper)) > .default-content-wrapper:first-child:has(> h1 ~ p ~ p) > :is(p, ul, ol) + h2 {
+    margin-top: 165px;
+  }
+
+  body.brand-airdolomiti main > .section.cards-teaser-container:not(:has(> .carousel-cards-wrapper)) > .default-content-wrapper:first-child:has(> h1 ~ p ~ p) > :is(p, ul, ol) + h2:last-child {
+    margin-top: 165px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
 /*
  * the pages with the FAQ accordions and the help card (www's HalfPage, Title_h2_headline,
  * TogleTariffe and CardPromoCta: lounges, seat reservation, parking; the accordions' look on every
@@ -2262,23 +2356,30 @@ body.brand-airdolomiti main > .section.hero-campaign-container + .section > .def
  * radius): its text 40px 25px in (the title bold 37.8px / 40px, the text 19.44px / 30px, the
  * button across it), the picture under it (225px); 410px wide from 530px. From 930px the card
  * beside the title and the accordions (their column half the width, 65% from 1230px, 55% from
- * 1330px), at its end.
+ * 1330px), at its end. The flight status pages (the flight-status form and the card, brief after 531,
+ * airdolomiti-parity-002) the same: www's half page; their title the h2 after the hidden h1 (www's page
+ * title sits under its header).
  */
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .default-content-wrapper h1 {
+/* stylelint-disable no-descending-specificity -- the half pages' title and line, after other pages' */
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .default-content-wrapper h1,
+body.brand-airdolomiti main > .section.flight-status-container.columns-media-container .default-content-wrapper h1 + h2 {
   margin-bottom: 20px;
   font-size: 34px;
   line-height: 42px;
 }
+/* stylelint-enable no-descending-specificity */
 
-/* stylelint-disable-next-line no-descending-specificity -- another page type's paragraphs (the cards above) */
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .default-content-wrapper h1 + p {
+/* stylelint-disable no-descending-specificity -- another page type's paragraphs (the cards above) */
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .default-content-wrapper h1 + p,
+body.brand-airdolomiti main > .section.flight-status-container.columns-media-container .default-content-wrapper h1 + h2 + p {
   max-width: none;
   margin-bottom: 0;
   font-size: 16px;
   line-height: 22px;
 }
+/* stylelint-enable no-descending-specificity */
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container > .accordion-columns-wrapper {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container > .accordion-columns-wrapper {
   margin-top: 20px;
 }
 
@@ -2318,7 +2419,7 @@ body.brand-airdolomiti main .accordion-columns.faq .accordion-columns-panel {
   line-height: 22px;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media-row {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-row {
   display: flex;
   flex-direction: column-reverse;
   align-items: stretch;
@@ -2327,15 +2428,15 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
   background-color: #f4f4f4;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media-row > div {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-row > div {
   margin: 0;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media-text {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-text {
   padding: 40px 25px;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media-text h3 {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-text h3 {
   margin: 0 0 10px;
   color: #002e54;
   font-size: 37.8px;
@@ -2344,18 +2445,18 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
 }
 
 /* stylelint-disable-next-line no-descending-specificity -- the help card's text, not the fleet's (above) */
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media-text p:not(.button-wrapper) {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-text p:not(.button-wrapper) {
   max-width: none;
   margin: 0 0 40px;
   font-size: 19.44px;
   line-height: 30px;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media-text .button-wrapper {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-text .button-wrapper {
   margin: 0;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media-text .button {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-text .button {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2368,7 +2469,7 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
   line-height: 24px;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media-text .button::after {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-text .button::after {
   content: "";
   flex: 0 0 20px;
   width: 20px;
@@ -2378,7 +2479,7 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cpath d='M26.73 13.33H13.53L2 0h13.2zM2 28h13.2l11.53-13.33H13.53z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
-body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media-media :is(picture, img) {
+body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media-media :is(picture, img) {
   display: block;
   width: 100%;
   height: 225px;
@@ -2388,24 +2489,25 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
 
 /* below 930px the card under the accordions, 110px on (www's TogleTariffe margin) */
 @media (width < 930px) {
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container > .columns-media-wrapper {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container > .columns-media-wrapper {
     margin-top: 110px;
   }
 }
 
 @media (width >= 530px) {
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .default-content-wrapper h1 {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .default-content-wrapper h1,
+  body.brand-airdolomiti main > .section.flight-status-container.columns-media-container .default-content-wrapper h1 + h2 {
     letter-spacing: 2px;
   }
 
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .columns-media {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .columns-media {
     max-width: 410px;
     margin-inline: auto;
   }
 }
 
 @media (width >= 930px) {
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container {
     display: grid;
     grid-template-columns: minmax(0, 50%) minmax(0, 1fr);
     grid-template-rows: auto auto 1fr;
@@ -2415,7 +2517,7 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
     padding-inline: var(--layout-margin);
   }
 
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container > div {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container > div {
     grid-column: 1;
     box-sizing: border-box;
     max-width: none;
@@ -2423,11 +2525,11 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
     padding-inline: 0;
   }
 
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container > .breadcrumb-wrapper {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container > .breadcrumb-wrapper {
     grid-column: 1 / -1;
   }
 
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container > .columns-media-wrapper {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container > .columns-media-wrapper {
     grid-column: 2;
     grid-row: 2 / span 2;
     justify-self: end;
@@ -2435,7 +2537,8 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
     margin-top: 4px;
   }
 
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container .default-content-wrapper h1 {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .default-content-wrapper h1,
+  body.brand-airdolomiti main > .section.flight-status-container.columns-media-container .default-content-wrapper h1 + h2 {
     font-size: 38px;
     line-height: 46px;
   }
@@ -2446,15 +2549,50 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
   }
 }
 
+
+/* the half page's end where the accordions are the longer column (tiere-an-bord, airdolomiti-parity-002;
+   the brief after 531): www's newsletter 127 px under the last accordion's line, ours 52 */
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container > .accordion-columns-wrapper {
+    margin-bottom: 75px;
+  }
+}
+
 @media (width >= 1230px) {
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container {
     grid-template-columns: minmax(0, 65%) minmax(0, 1fr);
   }
 }
 
 @media (width >= 1330px) {
-  body.brand-airdolomiti main > .section.accordion-columns-container.columns-media-container {
+  body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container {
     grid-template-columns: minmax(0, 55%) minmax(0, 1fr);
+  }
+}
+
+/* the destination article lists (what to see, do, eat: the title and its text over the article
+   cards) as www's TitleDescriptionCta, a CenteredBlock (airdolomiti-parity-002, florence/what-to-see
+   at 1440; the brief after 531): the title 38 / 46 px light centred 10 px over the text, the text
+   16 / 27.2 px justified in the middle 65 % of the screen (936 px at 1440), the cards 179 px under it. From 930 px (phones as before) */
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section.breadcrumb-container.cards-teaser-container > .default-content-wrapper:has(> h1:first-child + p:last-child):has(+ .cards-teaser-wrapper > .cards-teaser.three-up):not(:has(+ .cards-teaser-wrapper > .cards-teaser.three-up > ul > li > .cards-teaser-image + .cards-teaser-body > .cards-teaser-title:first-child + .cards-teaser-cta:last-child)) {
+    margin-bottom: 179px;
+  }
+
+  body.brand-airdolomiti main > .section.breadcrumb-container.cards-teaser-container > .default-content-wrapper:has(> h1:first-child + p:last-child):has(+ .cards-teaser-wrapper > .cards-teaser.three-up):not(:has(+ .cards-teaser-wrapper > .cards-teaser.three-up > ul > li > .cards-teaser-image + .cards-teaser-body > .cards-teaser-title:first-child + .cards-teaser-cta:last-child)) > h1 {
+    margin-bottom: 10px;
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 46px;
+    text-align: center;
+  }
+
+  body.brand-airdolomiti main > .section.breadcrumb-container.cards-teaser-container > .default-content-wrapper:has(> h1:first-child + p:last-child):has(+ .cards-teaser-wrapper > .cards-teaser.three-up):not(:has(+ .cards-teaser-wrapper > .cards-teaser.three-up > ul > li > .cards-teaser-image + .cards-teaser-body > .cards-teaser-title:first-child + .cards-teaser-cta:last-child)) > p {
+    max-width: 65vw;
+    margin-inline: auto;
+    font-size: 16px;
+    line-height: 27.2px;
+    text-align: justify;
   }
 }
 
@@ -2464,11 +2602,12 @@ body.brand-airdolomiti main > .section.accordion-columns-container.columns-media
  * from 930px) under a 50% dark veil; the line and the title centred in a light box (www's marble
  * at 60%, 10px in), the line 23.76px / 30px, the title light 37.8px / 40px (64.8px / 72px from
  * 930px, the box 70% wide); the section links as www's pills 70px under it; from 530px the price
- * and the button on a white bar (135px) at the stage's foot, the price semibold 28.08px / 32px 80px
- * in, the button 80px from the right (www's fixed bar at the screen's foot, here at the stage's)
+ * and the button on a white bar (15vh) fixed at the window's foot as www's (the brief after 566), the
+ * price semibold 28.08px / 32px 80px in, the button 80px from the right
  */
 body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination {
   isolation: isolate;
+  z-index: 4;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -2612,17 +2751,14 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-ov
 }
 
 @media (width >= 530px) {
-  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination {
-    padding-bottom: 135px;
-  }
-
   body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination::after {
     content: "";
-    position: absolute;
+    position: fixed;
     right: 0;
     bottom: 0;
     left: 0;
-    height: 135px;
+    z-index: 1;
+    height: 15vh;
     background-color: #fff;
     box-shadow: 0 12px 25px rgb(0 0 0 / 5%);
   }
@@ -2632,10 +2768,10 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-ov
   }
 
   body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow, .hero-card-overlay-cta) {
-    position: absolute;
-    bottom: 51px;
+    position: fixed;
+    bottom: calc(7.5vh - 16px);
     left: 50px;
-    z-index: 1;
+    z-index: 2;
     max-width: calc(50% - 50px);
     margin: 0;
     font-size: 28.08px;
@@ -2645,14 +2781,14 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-ov
   }
 
   /* two lines (brief 482): the first 66px above the bar's foot, the second (17.28px / 30px, www's
-     #1f1f1f) 36px above it, as www's h4 and text at 1440 */
+     #1f1f1f) 36px above it, as www's h4 and text at 1440 (the pair centred in the 15vh bar) */
   body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow, .hero-card-overlay-cta):has(+ p:not(.hero-card-overlay-cta)) {
-    bottom: 66px;
+    bottom: calc(7.5vh - 1px);
   }
 
   body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow, .hero-card-overlay-cta) + p:not(.hero-card-overlay-cta) {
     display: block;
-    bottom: 36px;
+    bottom: calc(7.5vh - 31px);
     color: #1f1f1f;
     font-size: 17.28px;
     font-weight: 400;
@@ -2660,10 +2796,10 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-ov
   }
 
   body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-cta {
-    position: absolute;
+    position: fixed;
     right: 50px;
-    bottom: 35px;
-    z-index: 1;
+    bottom: calc(7.5vh - 32.5px);
+    z-index: 2;
     margin: 0;
   }
 }
@@ -2707,13 +2843,15 @@ body.brand-airdolomiti .cards-teaser.three-up:not(.routes) > ul:has(> li > .card
  * the destination hub's cards (cards-teaser three-up: picture, title, line and the city's link), as
  * www's CardNews: white with a soft shadow, a 10px radius, 470px high, the picture 60% of it (its
  * own 10px radius), 25px 15px in, the title regular 20px / 26px, the line at the foot grey 14px /
- * 18px underlined; the card one link (the city's, its name the link's name)
+ * 18px underlined; the card one link (the city's, its name the link's name); no margin of its own: the grid's 20px
+ * gap alone parts them, not the block's 36px between stacked cards below 768px (AD row 109)
  */
 body.brand-airdolomiti .cards-teaser.three-up:not(.routes) > ul > li:has(> .cards-teaser-image + .cards-teaser-body > .cards-teaser-title:first-child + p:not(.cards-teaser-cta) + .cards-teaser-cta:last-child) {
   position: relative;
   display: flex;
   flex-direction: column;
   height: 470px;
+  margin-top: 0;
   overflow: hidden;
   border-radius: 10px;
   background-color: #fff;
@@ -3020,6 +3158,13 @@ body.brand-airdolomiti .columns-media.news .columns-media-text p {
   line-height: 33px;
 }
 
+/* a blank line (33px, the text's line) between two paragraphs: www's authors start them with line breaks or put an
+   &nbsp; paragraph between, which the import leaves out; the brand's text default (row 35) (AD row 96) */
+/* stylelint-disable-next-line no-descending-specificity -- the lead's text, not the promo cards' (above) */
+body.brand-airdolomiti .columns-media.news .columns-media-text p + p {
+  margin-top: 33px;
+}
+
 @media (width >= 930px) {
   body.brand-airdolomiti .columns-media.news .columns-media-text {
     width: 50vw;
@@ -3133,13 +3278,29 @@ body.brand-airdolomiti main .default-content-wrapper:has(> h1:first-child + ul):
 /*
  * a page title from www's Title (the section's style compact-title, the importer's for a
  * lazyblock/title as the h1: the Italian timetable; parity row 50), not TitleMargin's size: light
- * 34px / 42px, 38px / 46px from 930px, 2px apart from 530px
+ * 34px / 42px, 38px / 46px from 930px, 2px apart from 530px; 20px under it (Title_h2_headline, AD row 113)
  */
 /* stylelint-disable-next-line no-descending-specificity -- www's Title, not the stages' and text blocks' titles (above) */
 body.brand-airdolomiti main > .section.compact-title .default-content-wrapper > h1:first-child {
+  margin-bottom: 20px;
   font-size: 34px;
   font-weight: 300;
   line-height: 42px;
+}
+
+/* www's Title 20px lower than a page title (its own 20px margin over the trail's 24px; AD row 113); a hidden title
+   (the flight status pages, compact-title with hidden-heading) keeps its place */
+/* stylelint-disable-next-line no-descending-specificity -- www's Title's text, not the title pages' (above) */
+body.brand-airdolomiti main > .section.compact-title:not(.hidden-heading) > .breadcrumb-wrapper + .default-content-wrapper:has(> h1:first-child) {
+  margin-top: 44px;
+}
+
+/* its subtitle (www's Title_subtitle; AD row 113): a 16px / 22px line across the page, not the lead paragraph */
+/* stylelint-disable-next-line no-descending-specificity -- www's Title's line, not the other texts' (above) */
+body.brand-airdolomiti main > .section.compact-title .default-content-wrapper > h1:first-child + p {
+  max-width: none;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 @media (width >= 530px) {
@@ -3155,11 +3316,69 @@ body.brand-airdolomiti main > .section.compact-title .default-content-wrapper > 
   }
 }
 
+/* the timetable pages' foot (AD row 111): www's WidgetFullPage ends 20px over the footer (the block's margin, row 60);
+   the section that ends with it keeps no margin of its own, which would win over the 20px */
+/* stylelint-disable-next-line no-descending-specificity -- the timetable's section, not the carousels' (above) */
+body.brand-airdolomiti main > .section:has(> .flight-timetable-wrapper:last-child) {
+  margin-bottom: 0;
+}
+
+/* the booking pages' search 30px under the title (www's TitleMargin before DisplayBookingWidget; AD row 114): a title
+   section followed by the full search (not the hubs' and destinations' strip) keeps 30px, not the sections' 48px, from
+   930px (on phones www's widget is its own sticky layout) */
+@media (width >= 930px) {
+  /* stylelint-disable-next-line no-descending-specificity -- the booking title's section, not the other sections' (above) */
+  body.brand-airdolomiti main > .section:has(> .default-content-wrapper:last-child > h1:last-child):has(+ .section.flight-search-container .flight-search:not(.strip)) {
+    margin-bottom: 30px;
+  }
+}
+
 /* the booking strip under the header (flight-search airdolomiti, option strip; brief 452): www's
    widget there has no trip type tabs in its row (its phone panel keeps them) */
 @media (width >= 1025px) {
   body.brand-airdolomiti .flight-search.airdolomiti.strip .flight-search-trip-tabs {
     display: none;
+  }
+}
+
+/* the strip right after the breadcrumb (the destination hub) stays at the top as the page scrolls, as
+   www's DisplayBookingWidget (airdolomiti-parity-002, stuck and unstuck): on phones a navy band after
+   the breadcrumb, 58 px over the "Book your flight" pill and 44 under it, that sticks under the 80 px
+   header; from 1025 px fixed under the 120 px header, its trip tab row behind the header's lower 50 px
+   and the breadcrumb under it. The section's boxes join main's flow so the strip sticks past it, its
+   space to the next section the strip's own (www's h1 20 px under the band, 31 px under the fields) */
+body.brand-airdolomiti main > .section.breadcrumb-container:has(> .flight-search-wrapper > .flight-search.airdolomiti.strip) {
+  display: contents;
+}
+
+body.brand-airdolomiti main > .section > .breadcrumb-wrapper + .flight-search-wrapper:has(> .flight-search.airdolomiti.strip) {
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+  margin-bottom: 20px;
+  padding: 58px var(--layout-margin) 44px;
+  background-color: #05164d;
+}
+
+/* www's header stays at the top on these pages (its strip under it); ours hid while scrolling down */
+body.brand-airdolomiti header:has(~ main .breadcrumb-wrapper + .flight-search-wrapper > .flight-search.airdolomiti.strip) .header .nav-wrapper.is-hidden {
+  transform: none;
+}
+
+@media (width >= 1025px) {
+  body.brand-airdolomiti main > .section > .breadcrumb-wrapper + .flight-search-wrapper:has(> .flight-search.airdolomiti.strip) {
+    top: 70px;
+    margin-top: -92px;
+    margin-bottom: 34px;
+    padding: 0 var(--layout-margin);
+    background-color: #fff;
+    box-shadow: 0 0 0 100vmax #fff;
+    clip-path: inset(0 -100vmax);
+  }
+
+  /* under the scrolled 80 px bar (the header's is-scrolled), as www's (its bar then at 30) */
+  body.brand-airdolomiti header:has(.nav-wrapper.is-scrolled) ~ main > .section > .breadcrumb-wrapper + .flight-search-wrapper:has(> .flight-search.airdolomiti.strip) {
+    top: 30px;
   }
 }
 
@@ -3786,3 +4005,699 @@ body.brand-airdolomiti footer .footer .footer-badge-group:nth-child(2) a[href] i
 }
 
 /* stylelint-enable no-descending-specificity */
+
+/* the destinations' text block under the stage (www's TitleDescriptionTextCta after HeroSecond:
+   /destinations/bari, /de/reiseziele/bari-de, /destinazioni/monaco-di-baviera; the sweep after 556):
+   the section after a destination stage whose card holds the city as the H1 (the articles' stage
+   holds an h2, www's HtmlContent under it at 16px); as the hubs' block above: the title 38px / 46px
+   (42px / 50px from 930px) with a blank line under it, the text, its lists and its headings (www's
+   paragraph__large, its h2s too) 22px / 37.4px a blank line apart, from 930px a centred 70vw column */
+/* stylelint-disable no-descending-specificity -- another page type's text (the hubs' above) */
+body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section > .default-content-wrapper:first-child > h2:first-child {
+  margin-bottom: 37.4px;
+  font-size: 38px;
+  line-height: 46px;
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section > .default-content-wrapper:first-child > p:not(.button-wrapper),
+body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section > .default-content-wrapper:first-child > :is(ul, ol),
+body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section > .default-content-wrapper:first-child > h2:not(:first-child) {
+  max-width: none;
+  margin: 0 0 37.4px;
+  font-size: 22px;
+  line-height: 37.4px;
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section > .default-content-wrapper:first-child > :is(ul, ol) {
+  padding-left: 1.625em;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section > .default-content-wrapper:first-child > h2:first-child {
+    font-size: 42px;
+    line-height: 50px;
+  }
+
+  body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section > .default-content-wrapper:first-child > :is(h2, ul, ol, p:not(.button-wrapper), p.button-wrapper) {
+    margin-inline: calc((100% - 70vw) / 2);
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/*
+ * the destinations' carousels (www's CosaFareCarroussel: "Ausflüge & Tipps", "Sehenswürdigkeiten",
+ * "Essen"; the importer's carousel-cards without an option in a heading-icon section), as www's
+ * MiniCardSlider of CardNews cards at 390 and 1440 (airdolomiti-parity-001 /de/reiseziele/bari-de;
+ * the sweep after 556): the map icon 10px after the title (30px); the line under it 19.44px / 32px;
+ * the cards 470px high (the picture 60%, a 10px radius; the title 20px / 26px regular, at most three
+ * lines, 25px 15px in), white with www's faint shadow, the whole card one link; 325px wide 2.5vw
+ * apart (30vw from 930px, 466.67px 20px apart from 1450px); no dots. Below 930px "Zeige alles" and
+ * the two arrows (40px circles, 10px apart) in a row 49px under the cards, 100px over the next
+ * title; from 930px at the right end of the line's row, the next title 80px under the cards.
+ */
+/* stylelint-disable no-descending-specificity -- another option's carousels (the offers', the destinations' above) */
+body.brand-airdolomiti main > .section.heading-icon:has(> .carousel-cards-wrapper > .carousel-cards:not(.promo, .destinations)) {
+  position: relative;
+  margin-bottom: 101px;
+}
+
+/* (AD row 115) the icon's 45px (10px and an icon up to 35px wide) within the screen (www's lets it run past the column into the page margin, not past the
+   screen): a word too long for the rest then hyphenates by styles.css's heading rule (phones, the page's language) */
+body.brand-airdolomiti main > .section.heading-icon:has(> .carousel-cards-wrapper > .carousel-cards:not(.promo, .destinations)) > .default-content-wrapper:first-child > h2 {
+  position: relative;
+  width: fit-content;
+  max-width: calc(100% + var(--layout-margin) - 45px);
+  margin: 0;
+}
+
+/* the icon out of the line (www's flex row lets it run past a long word rather than wrap it) */
+body.brand-airdolomiti main > .section.heading-icon:has(> .carousel-cards-wrapper > .carousel-cards:not(.promo, .destinations)) > .default-content-wrapper:first-child > h2 .heading-icon-image {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin: 0 0 0 10px;
+  transform: translateY(-50%);
+}
+
+body.brand-airdolomiti main > .section.heading-icon:has(> .carousel-cards-wrapper > .carousel-cards:not(.promo, .destinations)) > .default-content-wrapper:first-child > h2 .heading-icon-image img {
+  width: auto;
+  max-width: none;
+  height: 30px;
+}
+
+body.brand-airdolomiti main > .section.heading-icon:has(> .carousel-cards-wrapper > .carousel-cards:not(.promo, .destinations)) > .default-content-wrapper:first-child > p {
+  margin: 0;
+  font-size: 19.44px;
+  line-height: 32px;
+}
+
+body.brand-airdolomiti main > .section.heading-icon > .carousel-cards-wrapper:has(> .carousel-cards:not(.promo, .destinations)) {
+  margin-top: 15px;
+}
+
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) {
+  position: relative;
+  padding-bottom: 81px;
+}
+
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-viewport {
+  position: static;
+}
+
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-track {
+  gap: 2.5vw;
+}
+
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-slide {
+  position: relative;
+  flex: 0 0 325px;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 470px;
+  border: 0;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 12px 25px rgb(0 0 0 / 5%);
+}
+
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-image {
+  flex: none;
+  aspect-ratio: auto;
+  height: 60%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-body {
+  box-sizing: border-box;
+  flex: none;
+  height: 40%;
+  padding: 25px 15px;
+}
+
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-body > :is(h2, h3, h4) {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0;
+  color: var(--lh-deepblue);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-body > p:not(.carousel-cards-cta) {
+  margin: 0;
+  color: #757575;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+/* the card's link over the whole card, its text for screen readers */
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-cta {
+  position: static;
+  margin: 0;
+}
+
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-cta a:any-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  color: transparent;
+  font-size: 0;
+}
+
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-cta a:any-link::before {
+  content: none;
+}
+
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-slide:has(.carousel-cards-cta a:hover) .carousel-cards-body > :is(h2, h3, h4) {
+  text-decoration: underline;
+}
+
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-dots {
+  display: none;
+}
+
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-nav {
+  inset: auto 0 0 auto;
+  display: flex;
+  gap: 10px;
+}
+
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-nav[hidden] {
+  display: none;
+}
+
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) :is(.carousel-cards-prev, .carousel-cards-next) {
+  position: static;
+  display: flex;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--lh-grey-3);
+  border-radius: 50%;
+  background-color: #fff;
+  color: var(--lh-deepblue);
+  pointer-events: auto;
+}
+
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) :is(.carousel-cards-prev, .carousel-cards-next)::before {
+  width: 22px;
+  height: 22px;
+}
+
+body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) :is(.carousel-cards-prev, .carousel-cards-next):disabled {
+  visibility: visible;
+  color: var(--lh-grey-3);
+  cursor: default;
+}
+
+/* "Zeige alles": on the arrows' row, on the left (15.12px / 20px, underlined) */
+body.brand-airdolomiti main > .section.heading-icon > .carousel-cards-wrapper:has(> .carousel-cards:not(.promo, .destinations)) + .default-content-wrapper {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin-top: -40px;
+}
+
+body.brand-airdolomiti main > .section.heading-icon > .carousel-cards-wrapper:has(> .carousel-cards:not(.promo, .destinations)) + .default-content-wrapper p {
+  margin: 0;
+}
+
+body.brand-airdolomiti main > .section.heading-icon > .carousel-cards-wrapper:has(> .carousel-cards:not(.promo, .destinations)) + .default-content-wrapper a:any-link {
+  color: var(--lh-deepblue);
+  font-size: 15.12px;
+  font-weight: 400;
+  line-height: 20px;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+body.brand-airdolomiti main > .section.heading-icon > .carousel-cards-wrapper:has(> .carousel-cards:not(.promo, .destinations)) + .default-content-wrapper a:any-link::before {
+  content: none;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section.heading-icon:has(> .carousel-cards-wrapper > .carousel-cards:not(.promo, .destinations)) {
+    margin-bottom: 72px;
+  }
+
+  body.brand-airdolomiti main > .section.heading-icon:has(> .carousel-cards-wrapper > .carousel-cards:not(.promo, .destinations)) > .default-content-wrapper:first-child > p {
+    width: 70%;
+    margin-top: 11px;
+  }
+
+  body.brand-airdolomiti main > .section.heading-icon > .carousel-cards-wrapper:has(> .carousel-cards:not(.promo, .destinations)) {
+    margin-top: 36px;
+  }
+
+  body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) {
+    position: static;
+    padding-bottom: 0;
+  }
+
+  body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-slide {
+    flex-basis: 30vw;
+  }
+
+  body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-nav {
+    inset: 60px calc(max(0px, (100% - var(--content-max-width)) / 2) + var(--layout-margin)) auto auto;
+  }
+
+  body.brand-airdolomiti main > .section.heading-icon > .carousel-cards-wrapper:has(> .carousel-cards:not(.promo, .destinations)) + .default-content-wrapper {
+    position: absolute;
+    top: 60px;
+    right: calc(max(0px, (100% - var(--content-max-width)) / 2) + var(--layout-margin) + 109px);
+    width: auto;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media (width >= 1450px) {
+  body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-track {
+    gap: 20px;
+  }
+
+  body.brand-airdolomiti main > .section.heading-icon .carousel-cards:not(.promo, .destinations) .carousel-cards-slide {
+    flex-basis: 466.67px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/*
+ * the destinations' band (hero-campaign narrow with an h2: www's HeroMiddleNotCta, "Discover Bari"
+ * on /destinations/bari; airdolomiti-parity-001 at 1440 and 390, the sweep after 556): 140vh high
+ * (1260px at 1440 x 900), the photo without the stages' veil, 100px above and under it; a box of
+ * www's marble at 60 % (10px in, a 10px radius) across the band 25px in (85px from 930px), centred
+ * up and down, navy: the line 22px / 30px at 85 % of the box (90 % from 930px) 32px over the title
+ * (42px), the title light 34px / 42px at 75 % (38px / 46px at 80 % from 930px) 68px over the box's
+ * end (60px). The section by its block and without an h1: no :has() inside :has()
+ */
+/* stylelint-disable no-descending-specificity -- the page stages' rules (an h1) above */
+body.brand-airdolomiti main > .section.hero-campaign-container:has(> .hero-campaign-wrapper > .hero-campaign.narrow):not(:has(.hero-campaign-content h1)) {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+body.brand-airdolomiti main > .section > .hero-campaign-wrapper > .hero-campaign.narrow:not(:has(.hero-campaign-content h1)) {
+  min-height: 140vh;
+}
+
+body.brand-airdolomiti main > .section > .hero-campaign-wrapper > .hero-campaign.narrow:not(:has(.hero-campaign-content h1)) .hero-campaign-media::after {
+  background: none;
+}
+
+body.brand-airdolomiti main > .section > .hero-campaign-wrapper > .hero-campaign.narrow:not(:has(.hero-campaign-content h1)) .hero-campaign-inner {
+  box-sizing: border-box;
+  justify-content: stretch;
+  width: 100%;
+  padding: 0 25px;
+  text-align: start;
+}
+
+body.brand-airdolomiti main > .section > .hero-campaign-wrapper > .hero-campaign.narrow:not(:has(.hero-campaign-content h1)) .hero-campaign-content {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  border-radius: 10px;
+  background-color: hsl(26deg 26% 95% / 60%);
+  padding: 10px;
+  color: var(--lh-deepblue);
+}
+
+body.brand-airdolomiti main > .section > .hero-campaign-wrapper > .hero-campaign.narrow:not(:has(.hero-campaign-content h1)) .hero-campaign-content > p {
+  width: 85%;
+  margin: 0 0 32px;
+  padding: 0;
+  color: inherit;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+body.brand-airdolomiti main > .section > .hero-campaign-wrapper > .hero-campaign.narrow:not(:has(.hero-campaign-content h1)) .hero-campaign-content > h2 {
+  width: 75%;
+  margin: 0 0 68px;
+  color: inherit;
+  font-size: 34px;
+  font-weight: 300;
+  line-height: 42px;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section > .hero-campaign-wrapper > .hero-campaign.narrow:not(:has(.hero-campaign-content h1)) .hero-campaign-inner {
+    padding: 0 85px;
+  }
+
+  body.brand-airdolomiti main > .section > .hero-campaign-wrapper > .hero-campaign.narrow:not(:has(.hero-campaign-content h1)) .hero-campaign-content > p {
+    width: 90%;
+    margin-bottom: 42px;
+  }
+
+  body.brand-airdolomiti main > .section > .hero-campaign-wrapper > .hero-campaign.narrow:not(:has(.hero-campaign-content h1)) .hero-campaign-content > h2 {
+    width: 80%;
+    margin-bottom: 60px;
+    font-size: 38px;
+    line-height: 46px;
+  }
+}
+
+@media (width >= 1450px) {
+  body.brand-airdolomiti main > .section > .hero-campaign-wrapper > .hero-campaign.narrow:not(:has(.hero-campaign-content h1)) .hero-campaign-content {
+    max-width: 1440px;
+    margin-inline: auto;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/*
+ * the post cards as www's CardPost at every width (www's GridBlog; airdolomiti-parity-001 /articles at
+ * 390, the sweep after 556): 470px high, the picture 60 % of it (282px), the text below; the grid
+ * option's 443 / 282 picture is that only at three to the row (1440). Below 930px the posts 170px
+ * under the hub's categories (www's GridBlog box: margin-top 170px, none from 930px)
+ */
+/* stylelint-disable no-descending-specificity -- the grid option's cards (the block) and the hub's list above */
+body.brand-airdolomiti .blog-overview.grid .blog-overview-card {
+  height: 470px;
+}
+
+body.brand-airdolomiti .blog-overview.grid .blog-overview-image {
+  flex: none;
+  height: 60%;
+  aspect-ratio: auto;
+}
+
+@media (width < 930px) {
+  body.brand-airdolomiti main .default-content-wrapper:has(> h1:first-child + ul):has(+ .blog-overview-wrapper) > ul {
+    margin-bottom: 170px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/* the destinations' text block's foot as www's TitleDescriptionTextCta (airdolomiti-parity-004
+   /reiseziele/bari-de, the brief after 566): its button 43px under the text (79px from 930px: www's rich
+   text's 25px and the empty small text's 50px), the next section's title 100px under it */
+/* stylelint-disable no-descending-specificity -- the text block's rules above */
+body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section {
+  margin-bottom: 100px;
+}
+
+body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section > .default-content-wrapper:first-child > p.button-wrapper {
+  margin-top: 43px;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination h1) + .section > .default-content-wrapper:first-child > p.button-wrapper {
+    margin-top: 79px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/* an article's headings as www's HtmlContent (AD row 110: .HtmlContent_innerContent h2): 26px / 32px regular with 12px
+   over them, from 930px 45px / 56px 0.9px apart; an article's text: the sections after a stage whose card holds an H2
+   (the articles' "Fly with us"; the destination pages' card holds their H1) */
+/* stylelint-disable no-descending-specificity -- an article's headings, after the other pages' */
+body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > h2) > .section:not(.hero-card-overlay-container) > .default-content-wrapper > h2 {
+  margin-top: 12px;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > h2) > .section:not(.hero-card-overlay-container) > .default-content-wrapper > h2 {
+    font-size: 45px;
+    line-height: 56px;
+    letter-spacing: 0.9px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/* the fleet's text block's foot as the destinations' (AD row 105: www's TitleDescriptionTextCta under the fleet's
+   stage, /flotta, /en/fleet, /de/flotte): a campaign stage's text section (an H2 and its paragraphs) ending in a button,
+   the button 43px under the text (79px from 930px), what follows 100px under it */
+/* stylelint-disable no-descending-specificity -- the text block's rules above */
+body.brand-airdolomiti main > .section.hero-campaign-container + .section:has(> .default-content-wrapper:first-child > h2:first-child ~ p ~ p.button-wrapper:last-child) {
+  margin-bottom: 100px;
+}
+
+body.brand-airdolomiti main > .section.hero-campaign-container + .section:has(> .default-content-wrapper:first-child > h2:first-child ~ p ~ p.button-wrapper:last-child) > .default-content-wrapper:first-child > p.button-wrapper:last-child {
+  margin-top: 43px;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section.hero-campaign-container + .section:has(> .default-content-wrapper:first-child > h2:first-child ~ p ~ p.button-wrapper:last-child) > .default-content-wrapper:first-child > p.button-wrapper:last-child {
+    margin-top: 79px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/*
+ * the destination pages' price bar pinned to the window's foot as www's (HeroSecond; airdolomiti-parity-004
+ * /reiseziele/bari-de, scroll-log.json: fixed at every sampled offset 0, 600, 1500, the middle and the foot,
+ * opacity 1, no transform). From 530px the white bar 15vh high across the window (135px at 1440 x 900, y 765
+ * to 900), its price and button centred up and down in it as before, the stage without the bar's 135px; on
+ * phones www's button card instead (div HeroSecond_btn_solid_diferent_wrapper: y 782 to 828 of 844): white,
+ * 90vw wide 16px over the window's foot, the price 28.08px / 32px semibold turquoise and the arrow, the whole
+ * card the booking link (its name the button's). The stage 100px over the next section (www's
+ * margin-bottom). Every stage with the option (www's HeroSecond with its box: the destinations' and the
+ * articles' "Fly with us"; not the flights-to-Europe stage, a hero-campaign). The page's foot 140px (15vh +
+ * 30px from 530px) longer under the footer, as www's body padding on those pages (the bar never over the
+ * footer's end; the brand's rules start at its body class, so the room is the footer's padding); only where the
+ * stage has its card, so the bar (AD row 107 c: the flights-to-Europe hubs' ReachMonaco stage has none, www no room).
+ * The stage a stacking context over the sections after it (z-index 4: under the search lists, 5 and 10,
+ * and the header)
+ */
+body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card) ~ footer {
+  padding-bottom: 140px;
+}
+
+/* stylelint-disable no-descending-specificity -- the stage's bar rules above */
+body.brand-airdolomiti main > .section.hero-card-overlay-container:has(.hero-card-overlay.destination) {
+  margin-bottom: 100px;
+}
+
+@media (width < 530px) {
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card > p:not(.hero-card-overlay-eyebrow, .hero-card-overlay-cta) {
+    position: fixed;
+    right: 5vw;
+    bottom: 16px;
+    left: 5vw;
+    z-index: 1;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    height: 96px;
+    margin: 0;
+    padding: 20px 30px;
+    border: 4px solid #fff;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 12px 25px rgb(0 0 0 / 5%);
+    color: #00798a;
+    font-size: 28.08px;
+    font-weight: 600;
+    line-height: 32px;
+    text-align: left;
+  }
+
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-cta {
+    margin: 0;
+  }
+
+  /* the button the whole card, its label for screen readers, www's arrow 30px in from the right */
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-cta a:any-link {
+    position: fixed;
+    right: 5vw;
+    bottom: 16px;
+    left: 5vw;
+    z-index: 2;
+    display: block;
+    box-sizing: border-box;
+    height: 96px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: transparent;
+    font-size: 0;
+  }
+
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-cta a:any-link::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 34px;
+    width: 28px;
+    height: 28px;
+    background-color: #00798a;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cpath d='M26.73 13.33H13.53L2 0h13.2zM2 28h13.2l11.53-13.33H13.53z'/%3E%3C/svg%3E") center / contain no-repeat;
+    transform: translateY(-50%);
+  }
+
+  body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-cta a:any-link:focus-visible {
+    outline: 4px solid #2b6db0;
+    outline-offset: -4px;
+  }
+}
+
+@media (width >= 530px) {
+  body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination .hero-card-overlay-card) ~ footer {
+    padding-bottom: calc(15vh + 30px);
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/*
+ * phones on the destination pages' top (the search strip's section, then the stage; below 530px; airdolomiti-parity-004 /reiseziele/bari-de at
+ * 390 x 844, the brief after 566): www shows no search strip and no breadcrumb above the stage, its stage
+ * 90px under the 80px header (y 170). The articles keep their breadcrumb (www's dark trail over the title). www's breadcrumb is in its markup (nav "Navigationspfad", white on
+ * the white above the stage): ours visually hidden, still read by screen readers. The search strip stays
+ * in the page with no room and without its card, so the header's plane button still opens its panel
+ * (the form fixed over the window); the pinned price card links to the booking too
+ */
+/* stylelint-disable no-descending-specificity -- the strip's and the breadcrumb's rules above */
+@media (width < 530px) {
+  body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination) > .section:has(> .flight-search-wrapper > .flight-search.airdolomiti.strip) > .breadcrumb-wrapper {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination) > .section:has(> .flight-search-wrapper > .flight-search.airdolomiti.strip) > .flight-search-wrapper {
+    position: static;
+    margin: 0;
+    padding: 0;
+  }
+
+  body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination) > .section:has(> .flight-search-wrapper > .flight-search.airdolomiti.strip) > .flight-search-wrapper > .flight-search.airdolomiti.strip .flight-search-open {
+    display: none;
+  }
+
+  body.brand-airdolomiti main:has(> .section.hero-card-overlay-container .hero-card-overlay.destination) > .section:has(> .flight-search-wrapper > .flight-search.airdolomiti.strip) + .section.hero-card-overlay-container {
+    margin-top: 90px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/* the link tiles' grid 150px over what follows (www's GridThreeScroll: margin 20px auto 150px at every width; support,
+   baggage; the standing order of 2026-11-10, item 6) */
+body.brand-airdolomiti main > .section:has(> .cards-teaser-wrapper > .cards-teaser.three-up > ul > li > .cards-teaser-image + .cards-teaser-body > .cards-teaser-title:first-child + .cards-teaser-cta:last-child) {
+  margin-bottom: 150px;
+}
+
+/* the lead with its picture at the page's top (columns-media news, www's DescritionNews; AD row 95): the picture from the
+   page's top, its first part under the fixed bar, the trail on it under the bar (16px higher from 930px), the title 50px
+   under the picture at 650px as www's at both widths; a page whose title shows (a section without the hidden-heading
+   style) keeps its title over the picture */
+body.brand-airdolomiti main > .section.hidden-heading:not(.lead-under-trail):first-child:has(> .columns-media-wrapper > .columns-media.news) > .breadcrumb-wrapper:first-child {
+  position: absolute;
+  top: var(--nav-height);
+  left: 0;
+  z-index: 3;
+  width: 100%;
+}
+
+body.brand-airdolomiti main > .section.hidden-heading:not(.lead-under-trail):first-child > .breadcrumb-wrapper:first-child + .default-content-wrapper:has(+ .columns-media-wrapper > .columns-media.news) {
+  margin-top: 0;
+}
+
+body.brand-airdolomiti main > .section.hidden-heading:not(.lead-under-trail):first-child > .breadcrumb-wrapper:first-child ~ .columns-media-wrapper:has(> .columns-media.news) {
+  margin-top: calc(-1 * var(--nav-height));
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section.hidden-heading:not(.lead-under-trail):first-child:has(> .columns-media-wrapper > .columns-media.news) > .breadcrumb-wrapper:first-child {
+    top: calc(var(--nav-height) - 16px);
+  }
+}
+
+/* www.airdolomiti.de's lead (AD row 108, the German in-flight entertainment page): the trail in a row of its own, the
+   picture 94px under it (73px from 930px), no title on screen (www's title sits behind the fixed bar): section styles
+   hidden-heading (the H1 for screen readers) and lead-under-trail (row 95's pull under the bar not applied) */
+/* stylelint-disable no-descending-specificity -- the German lead's wrappers, after row 95's */
+body.brand-airdolomiti main > .section.hidden-heading.lead-under-trail > .breadcrumb-wrapper + .default-content-wrapper:has(+ .columns-media-wrapper > .columns-media.news) {
+  margin-top: 0;
+}
+
+body.brand-airdolomiti main > .section.hidden-heading.lead-under-trail > .breadcrumb-wrapper ~ .columns-media-wrapper:has(> .columns-media.news) {
+  margin-top: 94px;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section.hidden-heading.lead-under-trail > .breadcrumb-wrapper ~ .columns-media-wrapper:has(> .columns-media.news) {
+    margin-top: 73px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/* the trail over a page title from 1025px (AD row 97): right under the bar as www's (its text at 132, the title at 170);
+   not on the FAQ half pages (www's title there 20px lower), a stage's or the hidden-heading lead's trail */
+@media (width >= 1025px) {
+  body.brand-airdolomiti main > .section:not(.hidden-heading, :has(.accordion-columns.faq)) > .breadcrumb-wrapper:has(+ .default-content-wrapper > h1:first-child) {
+    --breadcrumb-top: 0;
+  }
+}
+
+/* the title on phones on the title pages (AD row 98): 24px lower than right under the trail, as www's (its title at 170
+   against our 146 at 390, the text under it as ours); padding, as a margin would collapse into the trail's; row 97's scope */
+@media (width < 768px) {
+  body.brand-airdolomiti main > .section:not(.hidden-heading, :has(.accordion-columns.faq)) > .breadcrumb-wrapper + .default-content-wrapper:has(> h1:first-child) {
+    padding-top: 24px;
+  }
+}
+
+/* a post's title as www's BlogLayout (AD row 99): the trail right under the bar and the title at 170 from 1025px, the
+   title at 150 on phones; lh-com's 25px over a post's trail out, from 1025px the breadcrumb's 16px too */
+/* stylelint-disable no-descending-specificity -- a post's trail, not a stage's (above) */
+body.brand-airdolomiti main > .section:first-of-type > .breadcrumb-wrapper:has(+ .article-header-wrapper) {
+  padding-top: 0;
+}
+
+@media (width < 768px) {
+  body.brand-airdolomiti main > .section > .breadcrumb-wrapper + .article-header-wrapper {
+    margin-top: 28px; /* under the one-line trail (row 100) */
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-airdolomiti main > .section:first-of-type > .breadcrumb-wrapper:has(+ .article-header-wrapper) {
+    --breadcrumb-top: 0;
+  }
+
+  body.brand-airdolomiti main > .section > .breadcrumb-wrapper + .article-header-wrapper {
+    margin-top: 24px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/* an H2 in the lead's text (www's DescritionNews rich text, a text-only lead on the destinations; AD row 101) at the
+   text's size, a blank line under it */
+/* stylelint-disable-next-line no-descending-specificity -- the lead's heading, not other blocks' (above) */
+body.brand-airdolomiti .columns-media.news .columns-media-text h2 {
+  margin: 0 0 33px;
+  color: #494949;
+  font-family: var(--body-font-family);
+  font-size: 19.44px;
+  font-weight: 400;
+  line-height: 33px;
+}

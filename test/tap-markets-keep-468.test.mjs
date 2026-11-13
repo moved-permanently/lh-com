@@ -63,5 +63,11 @@ test('nothing to keep: the merged document as it is; no existing document: the s
 
 test('the CLI keeps them when it writes a merged language document over a local copy', () => {
   const js = fs.readFileSync(new URL('../tools/importer/tap-markets.mjs', import.meta.url), 'utf8');
-  assert.match(js, /keepUncovered\(html, fs\.existsSync\(localFile\) \? fs\.readFileSync\(localFile, 'utf8'\) : '', \[home, \.\.\.countries, \.\.\.vs\.map\(\(v\) => v\.country\)\]\)/);
+  // the existing copy: DA's as saved (--existing), else the local copy (standing order 8 of 2026-11-11)
+  assert.match(js, /const f = \[\.\.\.files, localFile\]\.find\(\(x\) => fs\.existsSync\(x\)\);/);
+  assert.match(js, /const prior = existingOf\(doc, localFile\);/);
+  assert.match(js, /const covered = \[home, \.\.\.countries, \.\.\.vs\.map\(\(v\) => v\.country\)\];/);
+  // both keeps through keepExisting, on the merge as written (TAP row 149, standing order 13)
+  assert.match(js, /const keep = keepExisting\(html, prior\.html, \{ doc, covered, stale: older \}\);\n\s*html = keep\.html;/);
+  assert.match(js, /const written = existing \? collapseTap\(html, doc\) : html;\n\s*const keep = keepUncovered\(written, existing, covered\);\n\s*const kept2 = keepStale\(keep\.html, existing, stale, covered\);/);
 });
