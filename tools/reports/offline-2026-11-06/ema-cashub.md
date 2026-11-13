@@ -4619,6 +4619,25 @@ stay as they are.
   -2.12, fleet en 1440 +2.07. Each language's other copy is within 2 %, so they are not traced here.
 - rank-so23-cargo.txt has all 48 rows: order 22's numbers, with consent and the feed, and now.
 
+**The next shared cause, measured, not shipped: the footer.**
+- www's footer is 559 / 561 px at 390 on the 12 English pages, 598 / 600 on the 12 German ones, and 477 at 1440. Ours
+  is 574, 603 and 485.
+- At 390 (en), relative to the footer's top:
+  - www's three menu panels start at +125; ours at +142 (the search field's 18 / 43 px margins).
+  - The panels are 50 px each against our 47.
+  - From the panels' end to the logo strip, www's legal links then social icons take 153 px; ours (icons, rule, links)
+    take 161.
+- Simulated on the 48 rows (each height minus its page's footer difference): 35 -> 40 within 2 %, the sum 59.13 ->
+  54.35 points.
+- **It breaks the gate on one page:** /en/notification-overview at 390 goes from +0.08 to -1.06 % (0.98 points). That
+  page is 12 px short above the footer (at 390 www's breadcrumb is 56 px with its rule; the title is 20 px under it),
+  and the taller footer has been hiding that.
+- The German footer is only 3 to 5 px taller than www's: its labels wrap more on both sides. So spacing rules that take
+  15 px out of the English footer would make the German one about 10 px shorter than www's. They would need checking
+  on both languages, not only on the 15 px.
+- So the footer needs that page's 390 spacing in the same commit, plus several footer rules (spacing, the panels, the
+  order of links and icons) and a full suite run. I did not start it this order. It is the first thing to do next.
+
 ### Item 3: Air Dolomiti
 
 - **The 390 rows are resizes.** airdolomiti-parity-001's 390 files are its 1440 load resized (its README). Laid out
@@ -4647,3 +4666,45 @@ stay as they are.
 
 The dated match-ticket card stays out (it expires tomorrow). delta-so22-tap-navigator-card.txt: the row is marked
 NOT TO DO.
+
+### Final section (about 16:00 CET, 2026-11-13)
+
+I stopped before 17:30. The four items are done.
+
+**On main:**
+- `ac8f4003`: Cargo, the notification overview on www's band and the picture header on phones. Live on our host.
+  Cargo is now 35 of 48 within 2 % (18 at order 22, 29 with the measuring corrections).
+- `44ab9c89`: this section's items 1 to 4 with their lists.
+- This commit: the footer finding (above), one traced Cargo row and this final section.
+
+**Checks before each push:**
+- Whole-repo lint exit 0 in the clean worktree, read before every push: twice for the code commit (origin moved once
+  during its checks), twice for the docs.
+- Stylelint exit 0 on cargo.css and notifications.css.
+- The code commit's two tests were red on main first (8 of 8, 3 of 4).
+- The 157 test files naming cargo, notifications or hero-campaign: 901 of 901.
+- The full suite on the pushed `ac8f4003` (1,019 files, one process each): 4,060 tests, 4,055 pass, 0 fail, 5 skipped.
+  cargo-notifications.test.mjs, which fails only in the main checkout (its local asset data), passes there.
+
+**Lists** (tools/reports/parity-2026-11-09/):
+- delta-so20-austrian-entryregulations-column-views.txt: /at/de READY (/at/en was already READY).
+- delta-so22-tap-navigator-card.txt: NOT TO DO.
+- rank-so23-cargo.txt: the 48 Cargo page-widths, order 22, with consent and the feed, and now.
+- rank-so23-airdolomiti.txt: the 11 open Air Dolomiti rows, recorded, fresh and ours.
+- rows-so23-cargo-airdolomiti.txt: the rows left, each with its cause (none is a DA change).
+- capture-requests-ema-cashub.txt: first loads at 390 for the 8 Air Dolomiti pages; the archistar article.
+
+**Open:**
+- The Cargo footer (the next shared cause, above): 35 -> 40 within 2 % if it matched www's. It needs the notification
+  page's 390 spacing in the same commit, and a check of both languages.
+- Air Dolomiti: first loads at 390 would settle the 7 rows that look like resize effects. Parcheggi's empty promo
+  paragraph and street-food's Destinations card are not traced to a rule.
+- Four Cargo rows at about 2 %, each within 2 % in its other language.
+
+**Not in git:** in migration-work/parity-588/so23 (ignored):
+- the scripts: dl.sh, host.mjs / rank.sh (consent, Mynewsdesk), rec-render.mjs (offline with assets.json), chain.js,
+  head-match.py, footer-sim.py, push-loop4(-wp).sh, suite.sh;
+- the rankings, logs and drafts (entry/ctl and entry/D4 for /at/de);
+- the downloads (dl/) and their extracted archives (arch/).
+
+No upload, preview or publish. da-upload.mjs was not called. DA was read once.

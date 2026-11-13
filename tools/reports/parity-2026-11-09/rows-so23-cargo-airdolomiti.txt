@@ -14,7 +14,7 @@ NO DELTA	cargo	/de/ebooking-info	390	5688	5834	+2.57	the brand face's wraps (row
 NO DELTA	cargo	/en/ci/sustainable-development-goals	390	1735	1777	+2.42	the brand face's wraps (row 49's decision)
 NO DELTA	cargo	/de/ci/sustainable-development-goals	390	1870	1914	+2.35	as /en
 NO DELTA	cargo	/en/ebooking-info	390	5393	5516	+2.28	as /de
-OPEN	cargo	/en/ebooking-info	1440	3771	3853	+2.17	not traced (de at 1440: -0.03 %)
+OPEN	cargo	/en/ebooking-info	1440	3771	3853	+2.17	heading by heading: the "Boost your booking with Add-on Services" section 31 px taller and the next one 31 px (in de as well, where the shorter German intro hides them: -0.03 %), the footer 8 px (485 against www's 477, every Cargo page at 1440)
 OPEN	cargo	/en/support-and-contact	390	3066	3130	+2.09	not traced (de: +1.74 %); the feedback view (the same page with the form's dialog over it) the same
 OPEN	cargo	/de/ci/facts-figures	1440	4952	4847	-2.12	not traced (en at 1440: within 2 %)
 OPEN	cargo	/en/fleet-ulds/fleet	1440	3043	3106	+2.07	not traced (de: +1.33 %)
