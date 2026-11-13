@@ -3773,3 +3773,27 @@ State at the start: nothing of mine unpushed (order 15's final section and its p
      and content sit 22 / 23 px lower and each section of the panel 10 px further apart. Its recording (-003) takes
      390 from a 1440 load resized, so a phone's own first load decides: capture request (be2f1361).
    - xx/en entertainment-on-board, the order 14 outlier, is +1.2 % now (the tab delta is live).
+   - Postscript (17:45 UTC): the helper applied the READY lhg-history row (1b802144); the published de/en page
+     measures as simulated, 1440 27.76 % (27.77), 390 23.97 %.
+
+## Standing order 16, final section (18:10 UTC, 2026-11-13; resumed after the model service's 503)
+
+- Item 1 (nested option from 768 px): www's widths for the option (halves for two cells, thirds for three) are right
+  but HOLD: on the German businesstogo pages they cost 6 points at 1440, because in the same block www has more space
+  around the pictures (120 / 85 / 181 px where ours has 83 / 46 / 83) and our feature titles are unmarked; the
+  lufthansa-group-airlines pages do not change. Patch in logs/p4/so16/held.
+- Item 2 (phone side): no rule for the option; lufthansa-group-airlines already matches www on phones, businesstogo's
+  picture spacing is its document's shape on www (per-page delta, not written today).
+- Item 3 (above 5 % in height): Discover none; B2B lhg4b-search-prelogin (a viewport artefact, nothing to fix),
+  lhg-history (delta-so16-b2b-lhg-history-title-view.txt: de/en READY and now live as predicted, de/de HOLD),
+  meals-on-board (capture request for a phone's first load).
+- Before this section: the tests that read the themes folder 962 pass; the full suite on 2efccc84 1027 files pass,
+  lint and stylelint 0.
+- Nothing uploaded, previewed or published; DA read only (lhg-history de/de, de/en); da-upload.mjs not run; no
+  request to an airline host (DA's pictures pointing at business.lufthansagroup.com swapped for published media
+  before rendering). .migration/project.json not touched; Discover's offers page still with the owner.
+- Not in git and why: logs/p4/so16 (scratch: baselines, the nested trial and its patch, DA's two copies as read,
+  renders, captures), logs/p4/so15 to so6 (earlier scratch), /tmp/excat-offline, /tmp/excat-noairline and /tmp/cmp
+  (built importer copies and comparison workspaces), the recordings in /tmp and /tmp/dl-* (the drops' private
+  material), logs/wt-ema-test.partial-so11 (an unfinished checkout), content/, content-sites/, migration-work/,
+  tools/importer/reports/* (not mine), the 2026-11-07 autostash (not mine). My local preview servers are stopped.
