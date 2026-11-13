@@ -3584,3 +3584,39 @@ Left out of git:
 - test/column-end-links-so10.test.mjs and its fixture: the dropped fix's test.
 - The untracked import reports of earlier runs.
 - /tmp: the archives (r2-110, r2-111, r2-115) and the import workspaces.
+
+### Standing order 14 (2026-11-13 08:05 to 13:00 CET)
+
+No requests to any airline host, nothing uploaded, previewed or published; DA was only read. Each push: whole-repo lint
+read 0 on a clean worktree of the rebased HEAD, stylelint 0, every test reading a changed file passed, Build green. No
+change deploys lh-edge. The restart had cleared /tmp's importer copy and the npx cache: offline imports now use a
+snapshot-only copy of the content-import script (/tmp/excat-offline-614, patched to skip a page rather than go live) and
+the bundles the plugin's aem-import-helper.
+
+1. **The grey band, at the import.** The importer can tell www's four shapes apart from the snapshots
+   (logs/b606/band-shapes.py), but the spacing under the band does not follow them. Measured in place (where the runs
+   with and without the rule first differ), the rule leaves no step at the band on 34 of 48 page-widths, in every shape.
+   The leftovers come from what our documents write after the band:
+   - special-meals: the next view became a Carousel Cards block whose title has no column-start mark;
+   - ana: a whole grey section with .mb-default keeps 24 px.
+
+   The whole-page losses are drifts the band's gap had been covering, so there is no per-shape delta. One of them is
+   now fixed (f4f1113, served from 0faa1e6). A 40 px separator that ends an AEM section before a new section's view
+   keeps its inline margin on www; the cleanup dropped it as normal spacing.
+   - The importer keeps it now (test first; four documents of the 914 flow-template snapshots have the shape).
+   - delta-so14-view-spacer-lh-com.txt: 4 READY. childrens-menus-on-board as drafts against lh-snapshots-115:
+     13.2 / 16.5 -> 4.3 / 7.7 % off www.
+
+   With it, the band rule removes exactly the band's +49 px step there, but a -32 px step right below (the Baby food
+   view) shows; the rule stays held (ranking-so12's header).
+2. **The locale note's code parts: all done already.** The query indexes of xx/it, xx/el, xx/ja, xx/ko and xx/pl have
+   been on main since 613708c (2026-11-06); lean-indexes.mjs --check reports 62 lean indexes as the full ones. Every root
+   answered from a language version has its nav and footer live: the six hk/zh roots, ao/pt, br/pt, pt/pt, by/ru, kz/ru,
+   ru/ru, and the it, el, ja, ko and pl roots, 38 documents. Each nav links into its own root and each footer carries the
+   root's label. root-docs-check-so14-lh-com.txt lists them; nothing for the helper to write.
+
+Left out of git:
+- logs/b606: runners, captures, drafts, DA copies, the band-shape and census scripts.
+- logs/b606/dropped-so10: the dropped datenschutz fix's test and fixture, moved out of test/ (the push loop ran it).
+- The untracked import reports of earlier runs.
+- /tmp: the archives, the snapshot-only importer copy and the import workspaces.
