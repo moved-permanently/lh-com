@@ -4937,7 +4937,8 @@ page-widths, plus the empty-item rule and a second rule. The second rule ends a 
   11 to 12 px short of www without a separator, and they move 0.63 to 0.65 points further. Dropped.
 - The empty-item rule still moves book/flights en 390 and the font rows further. Not shipped.
 
-**Groups not reworked:** C, C2, F, F2, G and the rest of K. C and C2 have their DA deltas READY from orders 20 and 24.
+**Groups not reworked:** C2, F, F2, G and the rest of K. C2's delta is READY from order 20. C (special-requirements) was
+applied by the helper (`2963b294`): 1440 3,738 px as served, as the draft predicted.
 
 ### Item 3: Cargo's 8 rows (rows-so25-cargo.txt)
 
@@ -4964,7 +4965,8 @@ page-widths, plus the empty-item rule and a second rule. The second rule ends a 
 - The importer rule for the trailing separator (lufthansa-cleanup.js, Austrian pages), so a re-import keeps it.
 - book/flights' 24 px longer end (www: no separator).
 - Cargo's timeline geometry.
-- The DA deltas READY from order 24 (special-requirements, os401crewstory) are still with the helper.
+- From order 24: special-requirements was applied (`2963b294`). os401crewstory went back to DA's pre-mark copy, HOLD
+  (`64badf9b`: 9,988 -> 9,899 px at 390, 89 px further from www's 10,025).
 
 **Rules followed:**
 - **No airline host was requested.** Every render refused www.* and the airline hosts and counted the refusals: item 1
