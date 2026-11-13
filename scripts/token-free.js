@@ -304,7 +304,11 @@ function applyThemeRules(main, theme) {
           && !block.classList.contains('sidebar') && filledCells(block.firstElementChild) >= 2
           && !block.querySelector('h4');
         const afterDivider = (el) => el && (el.matches('p.divider') || (isBlock(el) && blockName(el) === 'divider'));
-        if (startAtHeading && sideBySide && !isBand(section) && /^H[2-4]$/.test(heading?.tagName || '')
+        // an H1 too before a title-compact block: www's view begins at the page title
+        // (businesstogo, standing order 14: the only such pair of the recorded pages)
+        const titleView = heading?.tagName === 'H1' && block.classList.contains('title-compact');
+        if (startAtHeading && sideBySide && !isBand(section)
+          && (/^H[2-4]$/.test(heading?.tagName || '') || titleView)
           && !afterDivider(heading.previousElementSibling)) start = heading;
         let prev = start.previousElementSibling;
         while (prev && isMeta(prev)) prev = prev.previousElementSibling;
