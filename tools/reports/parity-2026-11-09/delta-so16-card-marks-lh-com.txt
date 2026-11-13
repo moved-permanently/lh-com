@@ -1,0 +1,42 @@
+# Standing order 16 (2026-11-13), item 3. Expected change: on each page below, the card view's title (the heading right
+# before a Carousel Cards block) gets "column-start" in its marker and a {column-end} paragraph follows the block
+# ("column-end column-spaced" where the view ends the page); nothing else. All HOLD: the change fails the 0.5 gate on
+# childrens-menus-on-board (both widths) and passengers-with-sensory-impairment (1440); nothing to upload.
+# Why: www pads every column view of an AEM section 3.2rem above and below. Where the view became a Carousel Cards block
+# the importer wrote no marks (it marked only views that stay default content or become Columns Media), so the title sat
+# 32px higher and what follows the block 32px higher than www's. The importer change (held, logs/b608/held-card-marks):
+# info template only, test first; of the 173 recorded info snapshots, imported offline before/after, these 12 change and
+# only at these places.
+# On the three pages whose card view follows a grey column band (special-meals, onboard-delights, childrens-menus), the
+# marks only help together with the band rule scoped to that shape (a column band before a section that opens with a
+# separator and a column-start title: no section gap; logs/b608/scoped.css). That rule alone hits childrens-menus'
+# "Baby food" view today. % off www (B = this delta + the scoped rule, A = today):
+#   special-meals 9.8 / 20.9 -> 8.9 / 21.0, onboard-delights 10.9 / 19.8 -> 10.3 / 19.8,
+#   childrens-menus 4.3 / 7.7 -> 7.2 / 9.6 (FAIL; the rule alone 9.9 / 12.3, the marks alone 8.9 / 11.8)
+# The other nine (no band before the view; the rule does not match there), A -> B at 1440 / 390:
+#   tips-senior-travellers 26.3 / 20.9 -> 23.6 / 18.6, travel-companion 7.3 / 11.8 -> 5.8 / 9.1,
+#   hearing-impairment 5.8 / 13.9 -> 4.4 / 13.3, accessible-travel 5.9 -> 4.2 (390 the same),
+#   advice-...-usa 9.6 / 16.7 -> 8.1 / 16.8, visual-impairment 7.7 / 14.0 -> 6.5 / 13.9,
+#   wheelchairs and cognitive-impairment the same, passengers-with-sensory-impairment 11.0 -> 11.7 at 1440 (FAIL).
+# Both FAILs are compensation: offsets.mjs shows the views in place with the delta (childrens-menus -17px from y=2000 to
+# the end, sensory-impairment +110 from y=6640 to the end); today's steps at the band and the card view had offset that
+# earlier drift. Measured as drafts on our host against www's recordings (lh-snapshots-115; lh-parity-002a/b for the
+# others; the 390 recordings stop at 8,000px, above most card views).
+# For DA's copies, when released: node tools/importer/carousel-marks-apply.mjs --data <rows.json> --in <DA copy> --out <file>
+#   rows.json: [{"heading": "<the heading text without its marker>", "end": "column-end" | "column-end column-spaced"}]
+# Checked on the published copies of 2026-11-13: placed once in each, nothing else changed (test/carousel-marks-apply-so16).
+# The gb/en, de/de, at/de and xx copies of these pages are not in this list: the census over the other 577 info
+# snapshots waits for the release.
+# Columns: status, DA path, the delta, what changes on the page.
+HOLD	/de/en/special-meals	card-marks: "More information about our in-flight menus" + column-start; {column-end column-spaced} after the block	with the scoped band rule only: the cards' title 48px lower than today, in place (9.8 / 20.9 -> 8.9 / 21.0)
+HOLD	/de/en/onboard-delights	card-marks: "More information about our on-board menus" + column-start; {column-end column-spaced} after the block	with the scoped band rule only (10.9 / 19.8 -> 10.3 / 19.8)
+HOLD	/de/en/childrens-menus-on-board	card-marks: "More information about our in-flight menus" + column-start; {column-end} after the block	FAIL: 4.3 / 7.7 -> 7.2 / 9.6 (in place; the -17px drift above y=2000 is no longer offset)
+HOLD	/de/en/tips-senior-travellers	card-marks: "Just relax and enjoy your trip", "More information about your travel preparations", "More offers for you" + column-start; {column-end} after each block	the three card views 32px lower, their padding below as www's (26.3 / 20.9 -> 23.6 / 18.6)
+HOLD	/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/travel-companion	card-marks: "Further information on travel and health" + column-start; {column-end} after the block	7.3 / 11.8 -> 5.8 / 9.1
+HOLD	/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/hearing-impairment	card-marks: "Further information on travel and health" + column-start; {column-end} after the block	5.8 / 13.9 -> 4.4 / 13.3
+HOLD	/de/en/accessible-travel	card-marks: "Further information on travel and health" + column-start; {column-end} after the block	5.9 / 15.7 -> 4.2 / 15.7
+HOLD	/de/en/advice-for-travellers-with-special-needs-to-and-from-the-usa	card-marks: "Further information on travel and health" + column-start; {column-end column-spaced} after the block	9.6 / 16.7 -> 8.1 / 16.8
+HOLD	/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/visual-impairment	card-marks: "Further information on travel and health" + column-start; {column-end} after the block	7.7 / 14.0 -> 6.5 / 13.9
+HOLD	/de/en/passengers-using-wheelchairs	card-marks: "Further information on travel and health" + column-start; {column-end} after the block	10.0 / 6.7, unchanged
+HOLD	/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment	card-marks: "Further information on travel and health" + column-start; {column-end} after the block	12.9 / 10.2, unchanged
+HOLD	/de/en/passengers-with-sensory-impairment	card-marks: "Further information on travel and health" + column-start; {column-end} after the block	FAIL at 1440: 11.0 -> 11.7 (in place; the +110px drift above is no longer offset), 390 5.0 unchanged

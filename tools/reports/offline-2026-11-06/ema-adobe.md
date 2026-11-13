@@ -3656,3 +3656,75 @@ Left out of git:
 - logs/b607: runners, scans, DA copies, the link census and the list scripts.
 - The untracked import reports of earlier runs.
 - /tmp: the archives, the snapshot-only importer copy and the import workspaces.
+
+### Standing order 16 (2026-11-13 12:20 to 15:30 CET)
+
+Nothing uploaded, previewed or published; DA was only read. Each push: whole-repo lint read 0 on a clean worktree of
+the rebased HEAD, the tests that read the changed files passed. No change deploys lh-edge.
+
+**Requests to airline hosts: the offline imports made some.** The snapshot-only importer copy (/tmp/excat-offline-614)
+loads a snapshot with setContent. That page then fetched every absolute www URL in the snapshot.
+- This session's first two runs (stopped as soon as I saw it) logged 2,968 script requests to www.lufthansa.com and
+  1,486 prefetches to shop.lufthansa.com. Chromium sends these, then blocks the answer (CORS). Images load without a log
+  line, so the real count is higher.
+- Order 14's runs did the same: its workspace log has 32 for 2 pages. The earlier offline imports (orders 11 to 14,
+  logs/b603 and b606 offline-import.sh, the 914 flow snapshots included) used this copy too.
+- Fixed in the copy: every http(s) request of the offline path is aborted, and the snapshot's resource hints are
+  dropped (prefetches bypass Playwright's routing). 348 page imports after the fix logged no airline request. The copy
+  lives in /tmp, which a restart empties: logs/b608/patch-offline.py and patch-offline-2.py patch a new copy.
+
+1. **test/brand.test.mjs: broken by 1a5da3f, already fixed by 8177ff1.**
+   - 1a5da3f's B2B theme rule qualifies the brand body (body.brand-b2b.theme-live.flow-spacing ...). The test's
+     selector check read that as outside body.brand-b2b.
+   - The Air Dolomiti and Cargo switches (c5dcf4b, de2056c) touch only style-markers.js, the bundles and their tests.
+   - The expectation was out of date. 8177ff1 (another session, 11:09 UTC) changed it: the brand's own body with more
+     classes or states is accepted; other elements and other brands are still refused. Main passes 4/4.
+   - The test name you quoted is the old one: since 0594841 (11-06) it reads "Cargo marks the body and loads its theme".
+   - B2B theme file not touched; nothing to commit.
+2. **"Afryka Południowa": the header's country select, not the form's (562c3bc, test first).**
+   - The pl/pl form document has no select. What showed it was the locale dialog's "Other countries" select, built
+     from the nav's 98-country list with nothing preselected, so its first entry showed.
+   - The same on xx/pl and on every other root with a country list. de/de and de/en have no list.
+   - www preselects the page's country (selected="DE" on de/en, lh-snapshots-115). Its list ends with XX "Other
+     countries" for the language versions; no xx recording exists, so that part is inferred.
+   - Now (header-tools.js currentCountry, every locale and brand): the same country and language first, then the
+     country in another language. On a language version, the own-root "Other countries" link. A list without the
+     country keeps its first entry.
+   - Checked on our host: pl/pl "Polska", xx/pl "Inne kraje", xx/es "Otros paises".
+   - Content note: pl/pl's "Inne kraje" links to /pl/pl/homepage (root-docs.mjs rewrote xx/pl's link); xx/pl would
+     be www's target. Not changed.
+3. **Column marks for the views that become other blocks: measured, held (delta-so16-card-marks-lh-com.txt, 12 HOLD).**
+   - The importer marked only column views that stay default content or become Columns Media. A titled view that
+     becomes Carousel Cards (special-meals' "More information about our in-flight menus") got no "{column-start}" /
+     "{column-end}", so it lacks www's 3.2rem above and below.
+   - Fix written and tested: lufthansa-cleanup + the carousel-cards parser, lufthansa.com's info template only.
+     Offline before/after over the 173 recorded info snapshots: 12 documents change, only there.
+   - Where the card view follows a grey column band (special-meals, onboard-delights, childrens-menus), the marks only
+     help together with a band rule scoped to that shape (no section gap before a separator and a column-start
+     title). With the marks alone: childrens-menus 4.3 / 7.7 -> 8.9 / 11.8, onboard-delights 10.9 -> 12.5 at 1440.
+   - The gate, today -> with the marks (+ the scoped rule where it matches), % off www at 1440 / 390:
+     - better: tips-senior-travellers 26.3 / 20.9 -> 23.6 / 18.6, travel-companion 7.3 / 11.8 -> 5.8 / 9.1,
+       hearing-impairment 5.8 / 13.9 -> 4.4 / 13.3, accessible-travel 5.9 -> 4.2, advice-...-usa 9.6 -> 8.1,
+       visual-impairment 7.7 -> 6.5, special-meals 9.8 -> 8.9, onboard-delights 10.9 -> 10.3 (390 within 0.1);
+     - unchanged: wheelchairs, cognitive-impairment;
+     - worse: childrens-menus 4.3 / 7.7 -> 7.2 / 9.6 (the scoped rule alone already hits its "Baby food" view today:
+       9.9 / 12.3), passengers-with-sensory-impairment 11.0 -> 11.7 at 1440.
+   - Both failures are compensation. The offsets put every changed view in place: childrens-menus -17 px constant from
+     y=2000, sensory-impairment +110 from y=6640. Today's steps at the band and the cards had offset that earlier
+     drift. So, as with the band rule in orders 13 and 14: right in place, held by the 0.5 gate.
+   - Committed: tools/importer/carousel-marks-apply.mjs (the rows for DA's copies; checked on the published copies and
+     order 14's DA copy: placed once, nothing else changed) and its test.
+   - Held out of git: the importer patch, its test and the scoped CSS (logs/b608/held-card-marks, with a README).
+   - Next for these pages: the drift above (childrens-menus near y=2000 at 1440, sensory-impairment's +110). Then this
+     list, the patch and the scoped rule can go together; the census of the other 577 info snapshots comes with them.
+   - ana: a different shape. Its band is a whole grey AEM section with .mb-default, and www's next AEM section (FAQ
+     headline + accordion) is padded (.section-padding-y-regular); ours is unstyled. The general band rule there:
+     9.2 / 8.0 -> 6.9 / 10.3. The mark would be the stages' before-padded on the band (no CSS reads it on a grey
+     section today), and the band rule would skip such bands. Not written: the band rule stays held.
+
+Left out of git:
+- logs/b608: runners, drafts, captures, published copies, import diffs, the patch scripts for the importer copy.
+- logs/b608/held-card-marks: the held importer change, its test and fixture.
+- logs/b606/dropped-so10: the dropped datenschutz test.
+- The untracked import reports of earlier runs.
+- /tmp: the archives, the patched importer copy and the import workspaces (ws-608*).
