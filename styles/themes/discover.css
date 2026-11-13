@@ -756,3 +756,13 @@ body.brand-discover main .accordion-columns-wrapper {
     padding-top: 8px;
   }
 }
+
+/* on phones a Columns Media row after a row with a picture starts 26 px under it, as www's stacked
+   column views (Punta Cana's and entertainment's picture-and-text rows; ours had the block's 66 px
+   row gap); rows of two texts keep it (families, customer-service: measured worse) (standing
+   order 11) */
+@media (width < 768px) {
+  body.brand-discover main .columns-media > .columns-media-row:has(> .columns-media-media) + .columns-media-row {
+    margin-top: -40px;
+  }
+}
