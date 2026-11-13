@@ -3823,13 +3823,37 @@ State at the start: nothing of mine unpushed (order 15's final section and its p
      www's recording shows its fare grid (about 80 destination tiles from its fares API), ours "no results", the API
      being blocked in captures. Insights articles with a price bar (34): www's sticky fare bar is drawn into the
      first screen, ours hides it without a fare (about 150 px; the rest of these pages unsampled).
-   - Live blocks without their app or data (18): e.g. culinaryjourney (micro-frontend culinary-hub, blank main in
-     the capture), online-check-in (booking-lookup).
+   - Live blocks (18) whose app or data the capture blocks: sampled culinaryjourney (micro-frontend culinary-hub,
+     main blank in our capture); tagged by block, their share unsampled: stopover and flight-search (flight-search),
+     all-it-takes-is-a-yes (fare-teaser), the homepage, timetable-and-flight-status.
    - Per page (1): /de/en/overview-manage. Its locale sibling gb/en scores 2.67 / 5.87 against the same recording
      heights, de/en 20.65 / 39.88; DA's de/en copy has a picture on the Check-in card that www does not show and the
      option spacious, gb/en's has the cell empty. delta-so17-lh-com-overview-manage.txt READY: 1440 20.65 -> 2.99,
      390 39.88 -> 5.86 (our published copy with the change rendered locally; as it is it gives the published
      numbers exactly). No other page has locale siblings more than 8 points apart.
-   - No shared cause in our code found: the remaining 255 page-widths above 5 % (hub 77, campaign 67, legal 38,
-     insights 35, form 14, fleet 12) are ranked with height and first diverging band but not sampled tonight.
+   - Capture (1): /xx/hk/meetings-and-events (390 33.4 %): the capture machine has no CJK font, our Chinese text
+     renders as boxes on shorter lines (www's recording had one). The only CJK page in the ranking.
+   - No shared cause in our code found: the remaining 253 page-widths above 5 % (hub 75, campaign 63, legal 38,
+     insights 35, form 14, fleet 12, others 16) are ranked with height and first diverging band but not sampled tonight.
      Sampled 100-years/destinations matches www section by section to 8000 px (12.5 % there).
+
+## Standing order 17, final section (20:30 UTC, 2026-11-13)
+
+- Item 1 (nested option with www's picture spacing): done and pushed. The option equal-cells and B2B cell spacers
+  in b2b.css (inert until the delta is in), text-inserts-apply.mjs, and delta-so17-b2b-businesstogo-nested.txt with
+  4 READY rows on businesstogo (de/de, xx/de, de/en, xx/en: 0.1 to 1.8 points better at each width).
+- Item 2 (lufthansa.com outside the info layout): ranking-so17-lh-com-non-info.txt, 410 page-widths, 317 above 5 %.
+  The causes found are not in our code: www's recordings stop at 8000 px (86, about 6.5 points of their distance),
+  live data and apps blocked in captures (60), no CJK font on the capture machine (1 page). One per-page delta:
+  /de/en/overview-manage, READY (1440 20.65 -> 2.99, 390 39.88 -> 5.86). 253 page-widths above 5 % unsampled.
+- Before this section: the tests that read the themes folder 970 pass (1 skipped); the full suite on 1a4500b1 1043
+  files pass, lint and stylelint 0; Build success on 1a4500b1.
+- Nothing uploaded, previewed or published; DA read only (businesstogo's four copies, overview-manage de/en and
+  gb/en); da-upload.mjs not run; no request to an airline host (requests to our own hosts and DA only).
+  .migration/project.json not touched; Discover's offers page still with the owner.
+- Not in git and why: logs/p4/so17 (scratch: www rendered offline, DA's copies as read, the render folders, the
+  captures' measurement tables, the capped recompare, the side-by-side tool), logs/p4/so6/cap/lh-com-lh17 (our
+  captures), logs/p4/so16 to so6 (earlier scratch), the recordings in /tmp/x-* (the drops' private material),
+  /tmp/excat-offline, /tmp/excat-noairline and /tmp/cmp (built importer copies), logs/wt-ema-test.partial-so11 (an
+  unfinished checkout), content/, migration-work/, tools/importer/reports/* (not mine), the 2026-11-07 autostash (not
+  mine). My local preview servers are stopped.
