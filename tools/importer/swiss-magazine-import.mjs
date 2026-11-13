@@ -37,14 +37,16 @@ import { withDaImages } from './swiss-sub-dam.mjs';
 import { docName } from './import-magazine.js';
 import collapseDocs from './collapse-docs.mjs';
 import { withRestoredNbsp } from './nbsp-guard.mjs';
+import { bulkImporterScripts } from './bulk-importer.mjs';
+import { stripScripts } from './excat-plugin.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const HOST = 'www.swiss.com';
 export const W = path.join(root, 'content-sites/lh-swiss-mag');
 const SNAP = path.join(W, 'snapshots-src', HOST);
 const MAPPED = path.join(W, 'snapshots');
-// EXCAT_IMPORT_SCRIPTS: the network-blocked copy (tools/importer/offline-importer.mjs); imports read snapshots only
-const CI = process.env.EXCAT_IMPORT_SCRIPTS || '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-content-import/scripts';
+// the bulk importer: the network-blocked copy unless EXCAT_IMPORT_SCRIPTS or EXCAT_IMPORT_STOCK=1 (bulk-importer.mjs)
+const CI = () => bulkImporterScripts();
 export const MAGAZINE_PATH = /^\/magazine\/(de|en)(\/|$)/;
 
 /** The capture's magazine pages: www paths of the snapshots under snapshots-src. */
@@ -239,7 +241,6 @@ if (isMain) {
   const urls = list
     ? fs.readFileSync(path.resolve(root, list), 'utf8').split('\n').map((u) => u.trim()).filter(Boolean)
     : [...pages].sort().map((p) => `https://${HOST}${p}`);
-  const { stripScripts } = await import(path.join(CI, '../../excat-scrape-webpage/scripts/strip-scripts.js'));
   const out = {};
   const missing = [];
   const outside = [];
@@ -261,7 +262,7 @@ if (isMain) {
   if (argv.includes('--dry-run')) process.exit(0);
   const listFile = path.join(W, `urls-${name}.txt`);
   fs.writeFileSync(listFile, `${Object.keys(out).map((p) => `https://${HOST}${p}`).join('\n')}\n`);
-  const log = execFileSync('node', [`${CI}/run-bulk-import.js`, '--import-script', 'tools/importer/import-magazine.bundle.js', '--urls', listFile, '--force', '--html-dir', MAPPED], {
+  const log = execFileSync('node', [`${CI()}/run-bulk-import.js`, '--import-script', 'tools/importer/import-magazine.bundle.js', '--urls', listFile, '--force', '--html-dir', MAPPED], {
     cwd: root, env: { ...process.env, WORKSPACE_PATH: W, BD_ENDPOINT: '' }, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 64 * 1024 * 1024,
   });
   log.split('\n').filter((x) => /Snapshot import failed|falling through to live/i.test(x)).forEach((x) => console.log(`WARNING (live fallback): ${x.trim()}`));

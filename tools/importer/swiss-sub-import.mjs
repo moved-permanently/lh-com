@@ -35,14 +35,16 @@ import { postprocess } from './site-postprocess.mjs';
 import { SUB_SITES } from '../../scripts/site-languages.js';
 import collapseDocs from './collapse-docs.mjs';
 import { withRestoredNbsp } from './nbsp-guard.mjs';
+import { bulkImporterScripts } from './bulk-importer.mjs';
+import { stripScripts } from './excat-plugin.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const HOST = 'www.swiss.com';
 export const W = path.join(root, 'content-sites/lh-swiss-sub');
 const SNAP = path.join(W, 'snapshots-src', HOST);
 const MAPPED = path.join(W, 'snapshots');
-// EXCAT_IMPORT_SCRIPTS: the network-blocked copy (tools/importer/offline-importer.mjs); imports read snapshots only
-const CI = process.env.EXCAT_IMPORT_SCRIPTS || '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-content-import/scripts';
+// the bulk importer: the network-blocked copy unless EXCAT_IMPORT_SCRIPTS or EXCAT_IMPORT_STOCK=1 (bulk-importer.mjs)
+const CI = () => bulkImporterScripts();
 // the sub-sites' path prefixes (scripts/site-languages.js SUB_SITES)
 export const SUB_SITE_NAMES = SUB_SITES.swiss.map((s) => s.name);
 const SUB_PATH = new RegExp(`^/(?:${SUB_SITE_NAMES.join('|')})/[a-z]{2}(?:/|$)`);
@@ -163,7 +165,6 @@ if (isMain) {
   const list = opt('list');
   const name = path.basename(list).replace(/\.txt$/, '');
   const urls = fs.readFileSync(path.resolve(root, list), 'utf8').split('\n').map((u) => u.trim()).filter(Boolean);
-  const { stripScripts } = await import(path.join(CI, '../../excat-scrape-webpage/scripts/strip-scripts.js'));
   const out = {};
   const missing = [];
   urls.forEach((u) => {
@@ -182,7 +183,7 @@ if (isMain) {
   if (argv.includes('--dry-run')) process.exit(0);
   const listFile = path.join(W, `urls-${name}-info.txt`);
   fs.writeFileSync(listFile, `${Object.keys(out).map((p) => `https://${HOST}${p}`).join('\n')}\n`);
-  const log = execFileSync('node', [`${CI}/run-bulk-import.js`, '--import-script', 'tools/importer/import-info.bundle.js', '--urls', listFile, '--force', '--html-dir', MAPPED], {
+  const log = execFileSync('node', [`${CI()}/run-bulk-import.js`, '--import-script', 'tools/importer/import-info.bundle.js', '--urls', listFile, '--force', '--html-dir', MAPPED], {
     cwd: root, env: { ...process.env, WORKSPACE_PATH: W, BD_ENDPOINT: '' }, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 64 * 1024 * 1024,
   });
   log.split('\n').filter((x) => /Snapshot import failed|falling through to live/i.test(x)).forEach((x) => console.log(`WARNING (live fallback): ${x.trim()}`));

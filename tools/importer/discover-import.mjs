@@ -33,6 +33,7 @@ import { fileURLToPath } from 'node:url';
 import { relativeDamLinks } from './discover-dam.mjs';
 import collapseDocs from './collapse-docs.mjs';
 import { withRestoredNbsp } from './nbsp-guard.mjs';
+import { bulkImporterScripts } from './bulk-importer.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argv = process.argv.slice(2);
@@ -40,8 +41,8 @@ const opt = (n) => (argv.includes(`--${n}`) ? argv[argv.indexOf(`--${n}`) + 1] :
 const HOST = 'www.discover-airlines.com';
 const W = path.join(root, 'content-sites/lh-discover');
 const SNAP = path.join(root, 'tools/importer/bd-snapshots', HOST);
-// EXCAT_IMPORT_SCRIPTS: the network-blocked copy (tools/importer/offline-importer.mjs); imports read snapshots only
-const CI = process.env.EXCAT_IMPORT_SCRIPTS || '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-content-import/scripts';
+// the bulk importer: the network-blocked copy unless EXCAT_IMPORT_SCRIPTS or EXCAT_IMPORT_STOCK=1 (bulk-importer.mjs)
+const CI = () => bulkImporterScripts();
 // the import reads copies of the snapshots whose own lufthansa.com URLs (real Lufthansa links,
 // e.g. on gift-voucher and offers) point at a placeholder host: lh-com's importers turn relative
 // URLs into www.lufthansa.com ones, which site-postprocess.mjs maps to Discover's host; it turns
@@ -305,7 +306,7 @@ if (isMain) {
     Object.entries(byTemplate).forEach(([t, l]) => {
       const listFile = path.join(W, `urls-${name}-${t}.txt`);
       fs.writeFileSync(listFile, `${l.join('\n')}\n`);
-      const log = execFileSync('node', [`${CI}/run-bulk-import.js`, '--import-script', `tools/importer/import-${t}.bundle.js`, '--urls', listFile, '--force', '--html-dir', MAPPED], {
+      const log = execFileSync('node', [`${CI()}/run-bulk-import.js`, '--import-script', `tools/importer/import-${t}.bundle.js`, '--urls', listFile, '--force', '--html-dir', MAPPED], {
         cwd: root, env: { ...process.env, WORKSPACE_PATH: W }, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 64 * 1024 * 1024,
       });
       const lines = log.split('\n').filter((x) => /imported|failed|error/i.test(x) && !/wss:|endpoint/i.test(x));

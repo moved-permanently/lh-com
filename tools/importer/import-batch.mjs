@@ -15,10 +15,11 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 // eslint-disable-next-line import/extensions
 import { withRestoredNbsp } from './nbsp-guard.mjs';
+import { bulkImporterScripts } from './bulk-importer.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-// EXCAT_IMPORT_SCRIPTS: the network-blocked copy (tools/importer/offline-importer.mjs); imports read snapshots only
-const CI = process.env.EXCAT_IMPORT_SCRIPTS || '/home/node/.excat-marketplaces/excat-marketplace/excat/skills/excat-content-import/scripts';
+// the bulk importer: the network-blocked copy unless EXCAT_IMPORT_SCRIPTS or EXCAT_IMPORT_STOCK=1 (bulk-importer.mjs)
+const CI = () => bulkImporterScripts();
 const argv = process.argv.slice(2);
 const template = argv[0];
 const opt = (name, def) => (argv.includes(`--${name}`) ? argv[argv.indexOf(`--${name}`) + 1] : def);
@@ -63,7 +64,7 @@ const groups = exportDir
   : [[BD, todo]];
 groups.filter(([, list]) => list.length).forEach(([dir, list]) => {
   fs.writeFileSync(urlsFile, `${list.join('\n')}\n`);
-  const run = spawnSync('node', [`${CI}/run-bulk-import.js`, '--import-script', bundle, '--urls', urlsFile, '--force', '--html-dir', dir], {
+  const run = spawnSync('node', [`${CI()}/run-bulk-import.js`, '--import-script', bundle, '--urls', urlsFile, '--force', '--html-dir', dir], {
     cwd: root, encoding: 'utf8', timeout: 540000, maxBuffer: 64 * 1024 * 1024,
   });
   if (run.status !== 0) console.error((run.stderr || '').split('\n').slice(-15).join('\n'));
