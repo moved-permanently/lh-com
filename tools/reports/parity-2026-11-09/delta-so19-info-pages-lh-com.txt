@@ -1,0 +1,12 @@
+# Standing order 19 (2026-11-13), item 3: per-page causes among the recorded lufthansa.com info pages furthest from www.
+# Expected change: on /de/en/traveltricks, two buttons after the "Step 1: Download the Lufthansa app" text ("Go to iOS
+# download", "Go to Android download", www's .imagelinklist maui-button-link secondary, a 20px separator between them);
+# nothing else. HOLD: www sets their targets by script (no href in the snapshot's maui-button-link, none in the
+# recording's markup), so the document cannot link them yet; with the two store URLs the row is a plain content row.
+# Measured: traveltricks 31.6 % off www at 390 (ours 213px short by "Step 2", about 150px of it these buttons); 1440
+# 20.2 (www shows them there too).
+# The shared causes found in this order went into code (main): the link-list icon headings' size (fb0d645), the end
+# gap after a whole grey section (06f0e68); the general grey-band rule stays held (see the final section of
+# tools/reports/offline-2026-11-06/ema-adobe.md).
+# Columns: status, DA path, the delta, what changes on the page.
+HOLD	/de/en/traveltricks	after the Step 1 text: <p><em><a href="<iOS store URL>">Go to iOS download</a></em></p>, <p>{spacer-20}</p>, <p><em><a href="<Android store URL>">Go to Android download</a></em></p> (secondary buttons: em around the link)	the two buttons as www's; everything below them about 150px lower at 390: needs the two store URLs first

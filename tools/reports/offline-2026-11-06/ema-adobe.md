@@ -3857,3 +3857,67 @@ Left out of git:
 - logs/b610: drafts, captures, boxes, census scripts and results, the list builder.
 - /tmp: the import workspaces (ws-617-so18*), the importer copies.
 - The untracked import reports of earlier runs.
+
+### Standing order 19 (2026-11-13 19:45 to 22:00 CET)
+
+Nothing uploaded, previewed or published; DA was not touched; branch so18-scoped-band-rule was merged by you
+(759263d), not by me. Each push: whole-repo lint read 0 on a clean worktree of the rebased HEAD, stylelint 0, the tests
+reading the changed files passed. No change deploys lh-edge. Order 18 left nothing unpushed.
+
+1. **The live pages against the predictions: all within 0.3 points but one, which is better.**
+   - The 12 gate pages, live on our host after the merge and the 45 rows, % off www at 1440 / 390:
+     accessible-travel 4.2 / 15.7, advice-...-usa 8.1 / 16.8, wheelchairs 10.0 / 6.7, cognitive 12.9 / 10.2,
+     hearing 4.4 / 13.3, travel-companion 5.8 / 9.1, visual 6.5 / 13.9, tips-senior 23.6 / 18.6, onboard-delights
+     10.3 / 19.8, special-meals 8.9 / 21.0, sensory-impairment 7.7 / 3.9 (with the two style rows): each exactly its
+     prediction.
+   - childrens-menus 0.7 / 5.9: 390 is 1.5 better than predicted (7.4). Same layout (the offsets are identical down the
+     page); the difference is pixels in the Carousel Cards rows (y 3,800-4,100), the draft's card pictures.
+   - The three already-marked copies (no recording): gb/en special-meals, de/de and at/de sondermahlzeiten, captured
+     before the merge (18:41-18:43 UTC, the merge commit 18:43:39) and after it: each exactly one -48 px step at the
+     band at both widths, nothing else changed, as predicted.
+2. **The two sensory-impairment gaps in the importer (79134a9, test first).**
+   - "Assistance on your trip": the padded section before it follows the stage, whose rules give it its break later,
+     so order 18's rule found none. It now starts a section of its own with spaced all the same.
+   - The padded assistance-dog section (.mb-default) before a grey AEM section without .mb-default: padded spaced.
+   - Census: all 750 info snapshots imported offline with HEAD's and the new bundle. The first version changed 16
+     documents; the gate on the recorded ones narrowed it:
+     - first-class-terminal 25.2 -> 27.1 at 1440: the split landed before its author quote, which the cleanup's quote
+       spacers already stand for. Now excluded.
+     - cognitive-impairment 12.9 -> 13.1: its grey section has .mb-default of its own, and there our gap is right
+       (+8 px today, -16 with the token). Now excluded.
+     - medical-travel-companions: no visible change (1.1 / 8.9 both).
+   - Now 8 documents change: sensory-impairment in four roots (DA's copies already have these as order 18's rows,
+     live 7.7 / 3.9 as predicted) and medical-travel-companions in four (no visible change). No new rows.
+3. **The next info pages by distance from www.** The 40 worst recorded info page-widths of ranking-so12, measured live
+   again. Order 12's numbers mostly stand; the card-mark pages moved (childrens-menus 390 16.5 -> 5.9). My first pass
+   showed four pages worse; that was my capture height (12,000 px against 8,000 px recordings), and redone at 8,000
+   they are as in order 12.
+   - **Shipped (shared causes, each with its gate):**
+     - Columns Media's link-list icon headings at www's .heading-copytext-large size (fluid, 24 px at 1440), not
+       18 px (fb0d645): carry-on-baggage 18.8 / 6.4 -> 16.1 / 6.5, lufthansa-express-rail 10.9 / 8.2 -> 6.8 / 7.7.
+       These are the only recorded pages with the option; lufthansa.com only, the brands keep 18 px.
+     - A page that ends with a whole grey AEM section with .mb-default and an empty last section keeps www's gap
+       before the footer (06f0e68). The separator rule had pulled the band onto the footer.
+       - wetlease-hub 13.4 / 17.4 -> 10.3 / 14.9 (working copy on our host).
+       - Not after a flush band (11 of the 15 recorded pages with that ending; correct there) or a grey column band
+         or view (group-travel's band touches the footer on www: 4.9 -> 5.5 with the first version).
+       - 100-years/campaigns also changes; its recording ends above the page end.
+   - **The general grey-band rule (logs/b604/cbn.css), gated again after order 18:** 51 page-widths, 22 better,
+     3 worse, sum about -86. entryprocesses 28.6 / 17.0 -> 16.4 / 6.3, the long-haul business-class page
+     23.3 -> 13.9 at 1440, arrival-services 15.2 -> 10.4, doctor-on-board 8.2 -> 3.5. gb/en flights left out: its
+     A captures were broken (5,243 px of 8,000). Still held:
+     - flight-disruptions 390 (+2.4) and passenger-rights 1440 (+0.9): compensation. The offsets put each band in
+       place with the rule; today's +49 steps there offset a -35 drift above and a -24 step at "Up to date with the
+       app" (flight-disruptions), and a -60 step below the band (passenger-rights).
+     - ana 390 (+2.3): the band needs half the gap. Today's 48 px gives +23, the rule's 0 gives -25. That is the
+       existing grey "spaced" (www's next AEM section is padded). Next step: the importer gives such a whole grey
+       section spaced, and the rule skips spaced bands.
+   - **Per-page (delta-so19-info-pages-lh-com.txt, 1 HOLD):** traveltricks lacks www's two store buttons ("Go to iOS
+     / Android download"). www sets their targets by script, so they are in neither the snapshot nor the recording;
+     the row needs the two URLs. Seen but not fixed: menus-on-long-haul's band gap (the band rule's case) and
+     flight-disruptions' "Up to date with the app" spacing (column views outside AEM sections).
+
+Left out of git:
+- logs/b611: the measurement and ranking runs, captures, crops, gates, census scripts and results, debug bundles.
+- /tmp: the import workspaces (ws-617-so19*) and the importer copies.
+- The untracked import reports of earlier runs.
