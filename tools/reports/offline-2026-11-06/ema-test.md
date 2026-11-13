@@ -3583,3 +3583,61 @@ left as it is (yours). The 2026-11-07 autostash left alone.
   scratch and captures), the recordings in /tmp and their archives in /tmp/dl-* (the drops' private material),
   logs/wt-ema-test.partial-so11 (an unfinished checkout), content/, migration-work/, tools/importer/reports/* (not
   mine), the 2026-11-07 autostash (not mine). My local preview servers are stopped.
+
+## Standing order 14 (received about 10:10 UTC, 2026-11-13)
+
+State at the start: nothing of mine unpushed (order 13's final section on main). .migration/project.json left alone.
+b2b-parity-009 fetched, sha256 0e3a9ec9… checked. Its fonts are in my captures' font copies.
+
+**A miss of mine first (rows 7 and 8 of rows-for-ema-test.md):** 1a5da3f9 (order 13) wrote its B2B rule as
+`body.brand-b2b.theme-live.flow-spacing …`, which test/brand.test.mjs refused (every theme selector must start
+`body.brand-<key> `), so main's suite was red from about 08:40 UTC until ema-lufthansa relaxed the test (8177ff19), and
+ema-cashub held a push for it. I had run every test naming b2b.css; brand.test.mjs reads the themes folder by listing
+it, so it was not among them. Since then I also run every test that reads the themes folder (935 tests pass on
+main's head now) and the full suite before the final section. Sorry for the hold-up.
+
+Also a correction to order 13, item 2: eight site importers (ita, b2b, austrian, brussels, swiss, swiss-market,
+swiss-magazine, swiss-sub) named excat's bulk importer by its install path, so they could not run on the offline copy
+whose render reaches no airline host; only discover-import and import-batch could. They take EXCAT_IMPORT_SCRIPTS now
+(983412fa, test first); unset, the install path as before. For the import helper: set it to the offline copy
+(tools/importer/offline-importer.mjs prints its path) for any import. Whether an import's output changes without the
+snapshot's live resources is not checked.
+
+1. **businesstogo against b2b-parity-009** (each width its own first load). With our phone default (every item
+   closed): 1440 14.45 / 11.98 / 14.44 / 12.00 (de/de, de/en, xx/de, xx/en), 390 19.46 / 17.19 / 19.45 / 17.29
+   (against -006 these were 29.6 to 30.1 at 390); heights within 15 to 42 px of www's.
+   - Fixed (ea41c746, test first): www's column view begins at the page title (the title under the view's 40 / 20
+     px padding, the cells 32 px under it); ours started the view after the title, the title 40 / 22 px higher.
+     token-free.js's startAtHeading takes an H1 too before a title-compact Columns Media (only businesstogo has
+     one after an H1). The title now 2 px from www's at both widths; all 153 B2B page-widths none better or worse
+     by more than 0.05 but businesstogo de/en, xx/en 1440 +0.17.
+   - Left, with the numbers (each one alone or two together worse):
+     - Our copytext-large headings are 18 / 20.7 px (B2B's line-height 1.15), www's 18 / 24. On all 153: 5 better
+       (businesstogo 390 about -1.0), route-network worse at both widths (1440 +0.52 / +0.59, 390 +0.98), where our
+       H1 is still the large one; with order 12's READY marks applied there (simulated) it is still worse (+0.6 to
+       +1.1: that page is 110 px longer than www's at 390 already). HOLD.
+     - www's contact form is plain (fields on white, the text area 44 px under the field above and 110 px tall, a
+       narrow button at the left, 92 / 112 px to the next title); ours is the form block's card (123 / 103 px
+       longer). With www's form alone all eight page-widths are worse (de/de 1440 14.40 -> 17.19): our page then
+       ends 87 px shorter than www's. With the line height as well, de/en 390 -1.85, de/de still +2.3 / +1.5.
+     - The German pages differ from the English ones on www: the two-column view sits in a one-column view (the title
+       40 px lower at 1440), and the feature titles, the case study's title and the FAQ title are written smaller
+       (16 heading marks on the four documents; the English ones' two change nothing). With marks, form, line height
+       and the outer view together the German pages are 142 / 242 px shorter than www's and worse (1440 16.65, 390
+       22.87): more of the German page's height is missing elsewhere, not found today.
+2. **B2B pages long on phones.** Of the 153 recorded page-widths only one differs from www's height at 390 by more than
+   10 %: xx/en entertainment-on-board, 19,534 px against 2,039. Our xx/en document has no tab sections (an older
+   import: no data-tab, no Air Dolomiti panel), so all airlines' content is laid out open; its snapshot and www's
+   recording have the tab set, as de/en's and ch/en's documents do. reimport-so14-b2b-entertainment-on-board-tabs.txt
+   (c813a384): a re-import of that document, READY; simulated with de/en's document at the xx/en path (www's two have
+   the same text): 15.58 -> 11.91, 2,063 px. Next by height: lhg4b-search-prelogin de/de, de/en +6.6 % (56 px);
+   everything else within 5 %. The English Allegris page for corporates is 10,188 px at 390 on ours and 10,113 on
+   www's (+0.7 %): www's English page is that long too (its German one is 7,406 on both).
+3. **Discover's offers page (33 to 37 % off).** The cause is the grid itself: www's recording holds 591 fare cards
+   (60,750 px at 1440, 108,366 to 115,419 at 390); ours draws none, because the offers come from a price route
+   (destinationfinder/destination/finder), which by design is never answered from a recording, and www cannot be
+   asked from here. The part above the grid is 1.8 to 5.4 % off. No fix without live fares: the page's own shape
+   is the list of priced cards, and the only offline source of its cards is the recorded price answer
+   (data/recorded, de/de and de/en FRA/E: 587 offers recorded for lufthansa.com on 2026-10-21, not Discover's 591 of
+   2026-11-12). Cards without their price from that recording would be a policy change (an old, other tenant's
+   list shown as Discover's offers): not done; yours to decide.
