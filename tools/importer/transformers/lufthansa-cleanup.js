@@ -947,8 +947,13 @@ function padCarouselSections(document) {
 /**
  * Moving images www's script did not render in the import browser (an image path with a
  * character outside Latin-1, e.g. ".../Eat-See-Do-Minneapolis–St-Paul/...", ".../hong-kong’s-
- * skyline-.../..."): the image from the component's data-dcep (imageUrl at the 2560 rendition,
- * alt), so the parsers find it as on the pages where it rendered.
+ * skyline-.../...", or a snapshot taken before the script ran: the Nov 1 Brussels articles): the
+ * image from the component's data-dcep (imageUrl at the 2560 rendition, alt), so the parsers find
+ * it as on the pages where it rendered. A non-empty config caption comes back with it as www's
+ * script draws it (figure > img + figcaption.caption > maui-caption; the 39 config captions of the
+ * 1440 recordings all drawn, none without one), for the parsers' and convertCaptions' "{caption}".
+ * Its text as maui-caption shows it: decodeEntityText leaves the markup entities ("&amp;"), and
+ * any tag is dropped.
  */
 function restoreMovingImages(document) {
   let restored = 0;
@@ -961,7 +966,21 @@ function restoreMovingImages(document) {
     const img = document.createElement('img');
     img.setAttribute('src', new URL(src.replace(/lh-dcep-transform-width-\d+/, 'lh-dcep-transform-width-2560'), `${LIVE_ORIGIN}/`).href);
     img.setAttribute('alt', String(cfg.alt || '').trim());
-    comp.append(img);
+    const scratch = document.createElement('div');
+    scratch.innerHTML = String(cfg.caption || '');
+    const caption = scratch.textContent.replace(/\s+/g, ' ').trim();
+    if (caption) {
+      const figure = document.createElement('figure');
+      const fc = document.createElement('figcaption');
+      fc.className = 'caption';
+      const inner = document.createElement('maui-caption');
+      inner.textContent = caption;
+      fc.append(inner);
+      figure.append(img, fc);
+      comp.append(figure);
+    } else {
+      comp.append(img);
+    }
     restored += 1;
   });
   return restored;

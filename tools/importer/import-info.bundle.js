@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_262010_exports = {};
-  __export(tmp_bundle_info_262010_exports, {
-    default: () => tmp_bundle_info_262010_default
+  var tmp_bundle_info_291824_exports = {};
+  __export(tmp_bundle_info_291824_exports, {
+    default: () => tmp_bundle_info_291824_default
   });
 
   // tools/importer/parsers/search-results.js
@@ -6219,7 +6219,21 @@ var CustomImportScript = (() => {
       const img = document.createElement("img");
       img.setAttribute("src", new URL(src.replace(/lh-dcep-transform-width-\d+/, "lh-dcep-transform-width-2560"), `${LIVE_ORIGIN}/`).href);
       img.setAttribute("alt", String(cfg.alt || "").trim());
-      comp.append(img);
+      const scratch = document.createElement("div");
+      scratch.innerHTML = String(cfg.caption || "");
+      const caption = scratch.textContent.replace(/\s+/g, " ").trim();
+      if (caption) {
+        const figure = document.createElement("figure");
+        const fc = document.createElement("figcaption");
+        fc.className = "caption";
+        const inner = document.createElement("maui-caption");
+        inner.textContent = caption;
+        fc.append(inner);
+        figure.append(img, fc);
+        comp.append(figure);
+      } else {
+        comp.append(img);
+      }
       restored += 1;
     });
     return restored;
@@ -9093,7 +9107,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_262010_default = {
+  var tmp_bundle_info_291824_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9133,5 +9147,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_262010_exports);
+  return __toCommonJS(tmp_bundle_info_291824_exports);
 })();
