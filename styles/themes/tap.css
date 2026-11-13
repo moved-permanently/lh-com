@@ -4371,3 +4371,16 @@ body.brand-tap main .default-content-wrapper > h1 + p:not(.button-wrapper, .link
 body.brand-tap main .default-content-wrapper > :is(h1 + p + h2, h1 + p + p + h2, h1 + p + p + p + h2) {
   margin-top: 32px;
 }
+
+/* a section title with its description at the end of a text section (www's title component: the description div.mt-4
+   16 px under the heading, the component md:-mb-8 pulling the next section 32 px nearer; TAP row 158, standing order 19;
+   /pt-br/miles-and-go/ganhe-milhas/cartoes-de-credito's card row 48 px low at 1440) */
+@media (width >= 768px) {
+  body.brand-tap main > .section:has(> .default-content-wrapper:last-child > h2:nth-last-child(2) + p:last-child) {
+    margin-bottom: 36px;
+  }
+
+  body.brand-tap main > .section > .default-content-wrapper:last-child > h2:nth-last-child(2):has(+ p:last-child) {
+    margin-bottom: 16px;
+  }
+}
