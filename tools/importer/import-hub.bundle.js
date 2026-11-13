@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-hub.js
-  var tmp_bundle_hub_28487_exports = {};
-  __export(tmp_bundle_hub_28487_exports, {
-    default: () => tmp_bundle_hub_28487_default
+  var tmp_bundle_hub_262010_exports = {};
+  __export(tmp_bundle_hub_262010_exports, {
+    default: () => tmp_bundle_hub_262010_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -3286,6 +3286,40 @@ var CustomImportScript = (() => {
       });
       return out;
     };
+    const inlineNodes = (root) => {
+      const out = [];
+      [...root.childNodes].forEach((n) => {
+        if (n.nodeType === 3) {
+          const text = n.textContent.replace(/[ \t\r\n]+/g, " ");
+          if (text) out.push(document.createTextNode(text));
+          return;
+        }
+        if (n.nodeType !== 1 || n.matches(SR_ONLY2)) return;
+        if (n.tagName === "BR") {
+          out.push(document.createElement("br"));
+          return;
+        }
+        if (/^(B|STRONG)$/.test(n.tagName)) {
+          const strong = document.createElement("strong");
+          strong.append(...inlineNodes(n));
+          out.push(strong);
+          return;
+        }
+        if (/^(EM|I)$/.test(n.tagName)) {
+          const em = document.createElement("em");
+          em.append(...inlineNodes(n));
+          out.push(em);
+          return;
+        }
+        if (n.tagName === "A" || /^MAUI-.*LINK$/.test(n.tagName) && n.getAttribute("href")) {
+          const link = makeLink(n);
+          if (link) out.push(link);
+          return;
+        }
+        out.push(...inlineNodes(n));
+      });
+      return out;
+    };
     const convertTable = (node) => {
       const table = document.createElement("table");
       const rowEls = [...node.querySelectorAll("maui-table-row, tr")].filter((r) => !r.parentElement.closest("maui-table-row, tr"));
@@ -3297,7 +3331,12 @@ var CustomImportScript = (() => {
           const wrap = document.createElement("div");
           [...cellEl.childNodes].forEach((n) => wrap.append(n.cloneNode(true)));
           const nodes = convertRichText(wrap);
-          if (nodes.length === 1 && nodes[0].tagName === "P") cell.append(...nodes[0].childNodes);
+          const inline = !wrap.querySelector("p, ul, ol, h1, h2, h3, h4, h5, h6, div, table") && wrap.querySelector("b, strong, br");
+          if (inline) {
+            const kept = inlineNodes(wrap);
+            while (kept.length && kept[0].nodeType === 3 && !kept[0].textContent.trim()) kept.shift();
+            cell.append(...kept);
+          } else if (nodes.length === 1 && nodes[0].tagName === "P") cell.append(...nodes[0].childNodes);
           else if (nodes.length) cell.append(...nodes);
           else cell.textContent = visibleText(cellEl);
           tr.append(cell);
@@ -7753,7 +7792,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_hub_28487_default = {
+  var tmp_bundle_hub_262010_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -7793,5 +7832,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_hub_28487_exports);
+  return __toCommonJS(tmp_bundle_hub_262010_exports);
 })();
