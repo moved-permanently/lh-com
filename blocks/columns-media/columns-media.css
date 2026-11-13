@@ -796,6 +796,13 @@ body.brand-b2b .columns-media .columns-media-text > :is(h2, h3) + p > a > pictur
   line-height: 110%;
 }
 
+/* lufthansa.com: .heading-copytext-large is fluid there, 24px at 1440, 20px at 390 (standing order
+   19: carry-on baggage's "1 item of carry-on baggage" wraps on www; 18.8 -> 16.1 % off www at 1440,
+   lufthansa-express-rail 10.9 -> 6.8); the brands keep 18px (unmeasured) */
+body.brand-lufthansa .columns-media.link-list .columns-media-row > .columns-media-text :is(h3, h4):has(> picture) {
+  font-size: var(--heading-font-size-m);
+}
+
 .columns-media.link-list .columns-media-row > .columns-media-text :is(h3, h4) > picture {
   position: relative;
   top: auto;
