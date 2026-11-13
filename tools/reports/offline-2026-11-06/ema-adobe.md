@@ -3788,3 +3788,72 @@ Left out of git:
 - The untracked import reports of earlier runs.
 - /tmp: the importer copies (excat-offline-617*, excat-measure-617*), the staged recordings (snap-617) and the import
   workspaces.
+
+### Standing order 18 (2026-11-13 18:10 to 20:30 CET)
+
+Nothing uploaded, previewed or published; DA was not touched. Each push: whole-repo lint read 0 on a clean worktree of
+the rebased HEAD, stylelint 0, the tests reading the changed files passed (916). No change deploys lh-edge. Order 17
+left nothing unpushed.
+
+1. **childrens-menus: the separator before the grey band (81d0558, test first).**
+   - www ends the Kids Box section (no .mb-default) with a 40 px separator right after the view, then the band.
+   - The importer keeps that separator now, as {spacer-N} at the section's end (lufthansa-cleanup, the sibling of
+     order 14's case: after a column view, before a section that opens with a grey column view). Only the four
+     childrens-menus/kindermenues snapshots have the shape (census of the 914 flow snapshots).
+   - The spacer alone overshot by 8 / 10 px: a separator wrapper that ends its section already pulls up 16 px, and
+     the padded Columns Media's 8 px bottom is inside www's view padding too. The measured rule (styles.css): such a
+     wrapper after a padded Columns Media before a grey column band pulls up 24 px. "Catering on board" then sits
+     0 / +2 px off www's (was -17 / -15).
+   - That uncovered the next step: the band to "Baby food", +48 px. That is the scoped band rule's case. Order 17's
+     "-32" there came from my matching: it compared our heading box, which includes the column-start padding, with
+     www's text.
+   - Delta tool: tools/importer/section-end-spacer-apply.mjs (DA's format and the published one; test first).
+2. **sensory-impairment: the padded sections (81d0558, test first).** First a correction to order 17's report: on
+   www the companion section is unpadded. The sections are Sunflower (padded, no .mb-default), then "Travelling with
+   a companion" (unpadded, .mb-default), then the assistance dog (padded, .mb-default). Our importer had merged
+   Sunflower and the companion text into one padded section, so its bottom padding came after the companion text,
+   plus our 48 px gap where www has 24.
+   - Measured (% off www, 1440): your "padded spaced" on the merged section 11.0 -> 10.1. Fleet's split (the
+     companion text its own section) with a 24 px gap under it 9.4, the step gone.
+   - So the importer splits an unpadded AEM section with .mb-default between two padded ones, gives it style spaced,
+     and the padded one before keeps spaced or flush (lufthansa-sections, lufthansa.com's info pages, not after a
+     stage). styles.css gives a plain spaced section its 24 px; no published section has that class combination
+     today.
+   - Census over the 750 info snapshots: the shape is on 16 documents. The importer changes only the four
+     sensory-impairment ones. On tips-senior-travellers the padded section before is a stage: excluded, unmeasured.
+     On first-class-terminal and miles-and-more-credit-card it was already a section of its own.
+   - The +24 and +27 steps share the cause (our gap where www has one .mb-default):
+     - "Assistance on your trip" (unpadded, .mb-default, between two padded sections) as spaced: the +24 step
+       goes, 10.2 / 4.9 -> 8.8 / 4.0;
+     - the padded assistance-dog section before the grey band as padded spaced: the +29 step goes, 7.7 / 3.9.
+   - For these two the importer paths differ: the first section is cut by the stage rules (my attempt did not reach
+     it, reverted), and the second would touch every padded section before a grey band. So they are delta rows
+     (tools/importer/section-style-apply.mjs) and, next, an importer change with its own census and gate.
+   - Delta tools: section-split-apply.mjs and section-style-apply.mjs. On the offline import of the page before the
+     change, the split tool gives the import after it, except the order of two style words.
+3. **The card marks with 1 and 2 in place: through the 0.5 gate (delta-so18-card-marks-band-sections-lh-com.txt, 45
+   READY, 1 HOLD).**
+   - The held importer change (order 16) is on main now (81d0558), with its test.
+   - The gate, today -> everything together, % off www at 1440 / 390 (24 page-widths, none worse by more than 0.1):
+     - childrens-menus 4.3 / 7.7 -> 0.7 / 7.4
+     - tips-senior-travellers 26.3 / 20.9 -> 23.6 / 18.6
+     - travel-companion 7.3 / 11.8 -> 5.8 / 9.1
+     - hearing-impairment 5.8 / 13.9 -> 4.4 / 13.3
+     - accessible-travel 5.9 -> 4.2
+     - advice-...-usa 9.6 -> 8.1
+     - visual-impairment 7.7 -> 6.5
+     - special-meals 9.8 -> 8.9
+     - onboard-delights 10.9 -> 10.3
+     - sensory-impairment 11.0 / 5.0 -> 10.2 / 4.9, with the two style rows 7.7 / 3.9
+     - wheelchairs and cognitive-impairment the same
+   - Which documents: the 577 unrecorded info snapshots imported offline with HEAD's bundle and 81d0558's. 49
+     documents change; 6 already carry the marks in DA's copy (an older import wrote the view as default content);
+     the local page south-africa-winter-promotion is HOLD (its title an h1, not recorded).
+   - **The scoped band rule is on branch so18-scoped-band-rule (46cbe28, lint 0, the 101 tests reading styles.css pass), not main.** It matches childrens-menus' published copy
+     today, so merged before the rows it would make that page worse. The list says which rows go with the merge
+     (the five band pages per root) and that the merge also reaches the three already-marked special-meals copies.
+
+Left out of git:
+- logs/b610: drafts, captures, boxes, census scripts and results, the list builder.
+- /tmp: the import workspaces (ws-617-so18*), the importer copies.
+- The untracked import reports of earlier runs.

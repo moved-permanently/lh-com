@@ -1,3 +1,4 @@
+# SUPERSEDED by delta-so18-card-marks-band-sections-lh-com.txt (standing order 18): these 12 rows and the other roots' passed the 0.5 gate there, with the band separator and the padded split.
 # Standing order 16 (2026-11-13), item 3. Expected change: on each page below, the card view's title (the heading right
 # before a Carousel Cards block) gets "column-start" in its marker and a {column-end} paragraph follows the block
 # ("column-end column-spaced" where the view ends the page); nothing else. All HOLD: the change fails the 0.5 gate on
