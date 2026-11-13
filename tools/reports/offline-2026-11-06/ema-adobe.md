@@ -3620,3 +3620,39 @@ Left out of git:
 - logs/b606/dropped-so10: the dropped datenschutz fix's test and fixture, moved out of test/ (the push loop ran it).
 - The untracked import reports of earlier runs.
 - /tmp: the archives, the snapshot-only importer copy and the import workspaces.
+
+### Standing order 15 (2026-11-13 10:40 to 15:00 CET)
+
+No requests to any airline host, nothing uploaded, previewed or published; DA was only read. Each push: whole-repo lint
+read 0 on a clean worktree of the rebased HEAD, the tests that read the changed files passed. No change deploys lh-edge.
+test/brand.test.mjs fails on origin/main since 1a5da3f (another session's B2B theme rule, a selector it reads as outside
+body.brand-b2b); it reads none of my changes, so my push ran my own tests only.
+
+1. **/pl/pl/register-animal-cabin (publish-so15-pl-pl-form-lh-com.txt, 1 READY).** DA has no pl/pl document; lh-edge
+   answers the path from xx/pl's. pl/pl's document is xx/pl's copied with root-docs.mjs, so its config rows are as the
+   other lufthansa.com forms':
+   - form = register-animal-cabin (in lh-forms' FORMS and FORM_IDS);
+   - success = pl/pl's confirmation (answers 200 on our host);
+   - error as de/en's.
+
+   The locale it sends (pl-pl) passes the worker. Test first (form-config-so15); no code change was needed.
+   Recipients: the worker's own configuration only. The file: content/pl/pl/register-animal-cabin.plain.html.
+2. **besondere-befoerderungsbedingungen-bus sideways: already fixed (0e2a3ad, 2026-11-12, standing order 7).** A URL as
+   the text of a link alone in its paragraph (an inline-flex box) set the minimum width. Checked again at 390 with the
+   real fonts, accordions open:
+   - de/en, de/de, at/de, gb/en and the 11 xx versions that have the page: scroll width 390;
+   - the 17 recorded documents with a 30+ character link word: 390 too; what passes the edge sits in its own scroller
+     (image carousels, a table).
+3. **The business-class move (move-so15-business-class-lh-com.txt, 110 rows).**
+   - READY for de/en, de/de, at/de, gb/en (www's redirect captured) and their loc sources gc/en, gc/de: each document to
+     /<cc>/<ll>/prepare-for-your-trip/travel-classes/business-class.
+   - Redirect rows: our sheet sends the new path to the old one today; delete that row, add old -> new.
+   - Link rows: 84 documents of the local mirror (navs, the travel-class pages, articles, the library's profile-nav).
+   - pages.csv changes with the move, not before.
+   - HOLD: fr/fr and the eleven xx versions, whose move on www is not captured. Their paths are in
+     capture-requests-ema-adobe.txt (collected, not run).
+
+Left out of git:
+- logs/b607: runners, scans, DA copies, the link census and the list scripts.
+- The untracked import reports of earlier runs.
+- /tmp: the archives, the snapshot-only importer copy and the import workspaces.
