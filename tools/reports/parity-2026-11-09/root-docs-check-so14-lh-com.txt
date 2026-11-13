@@ -1,0 +1,46 @@
+# Standing order 14 (2026-11-13), item 2: the locale notes' open code parts, checked on main and our live host
+# (main--lh-com--moved-permanently.aem.live) on 2026-11-13 08:20 UTC. Expected change: none, nothing for the helper to write.
+# - Query indexes of xx/it, xx/el, xx/ja, xx/ko, xx/pl: on main since 613708c (2026-11-06): search-xx-<ll>,
+#   market-model-xx-<ll>, market-llms-xx-<ll> each; tools/markets/lean-indexes.mjs --check: "62 lean indexes as the
+#   full ones" (exit 0).
+# - Root navs and footers (root-docs.mjs --from xx/<ll> --to <root>): every root answered from a language version has
+#   both, live (200), its links in its own root (no /xx/ links) and its own label in the footer. The 38 documents:
+# Columns: status, document, nav: links into the root, footer label.
+LIVE	/ao/pt/nav	57 links into /ao/pt	
+LIVE	/ao/pt/footer		Angola | Português
+LIVE	/br/pt/nav	57 links into /br/pt	
+LIVE	/br/pt/footer		Brasil | Português
+LIVE	/by/ru/nav	55 links into /by/ru	
+LIVE	/by/ru/footer		Belarus | Русский
+LIVE	/ch/it/nav	59 links into /ch/it	
+LIVE	/ch/it/footer		Svizzera | Italiano
+LIVE	/cn/hk/nav	57 links into /cn/hk	
+LIVE	/cn/hk/footer		China (Mainland) | 繁體中文
+LIVE	/cn/zh/nav	59 links into /cn/zh	
+LIVE	/cn/zh/footer		中国内地 (China Mainland) | 简体中文
+LIVE	/cy/el/nav	60 links into /cy/el	
+LIVE	/cy/el/footer		Κύπρος | Ελληνικά
+LIVE	/gr/el/nav	60 links into /gr/el	
+LIVE	/gr/el/footer		Ελλάδα | Ελληνικά
+LIVE	/hk/hk/nav	57 links into /hk/hk	
+LIVE	/hk/hk/footer		Hong Kong, China | 繁體中文
+LIVE	/hk/zh/nav	59 links into /hk/zh	
+LIVE	/hk/zh/footer		中国香港 (Hong Kong, China) | 简体中文
+LIVE	/it/it/nav	59 links into /it/it	
+LIVE	/it/it/footer		Italia | Italiano
+LIVE	/jp/ja/nav	59 links into /jp/ja	
+LIVE	/jp/ja/footer		Japan | 日本語
+LIVE	/kr/ko/nav	59 links into /kr/ko	
+LIVE	/kr/ko/footer		대한민국 | 한국어
+LIVE	/kz/ru/nav	55 links into /kz/ru	
+LIVE	/kz/ru/footer		Kazakhstan | Русский
+LIVE	/pl/pl/nav	59 links into /pl/pl	
+LIVE	/pl/pl/footer		Polska | Polski
+LIVE	/pt/pt/nav	57 links into /pt/pt	
+LIVE	/pt/pt/footer		Portugal | Português
+LIVE	/ru/ru/nav	55 links into /ru/ru	
+LIVE	/ru/ru/footer		Russian Federation | Русский
+LIVE	/tw/hk/nav	57 links into /tw/hk	
+LIVE	/tw/hk/footer		Taiwan, China | 繁體中文
+LIVE	/tw/zh/nav	59 links into /tw/zh	
+LIVE	/tw/zh/footer		中国台湾 (Taiwan, China) | 简体中文
