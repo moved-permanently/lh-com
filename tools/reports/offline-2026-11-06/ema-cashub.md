@@ -3898,3 +3898,121 @@ older brace-style errors (lines from 2026-11-09 and 2026-11-12, not mine); left 
 
 No upload, preview or publish. da-upload.mjs was not called, and no test called the DA or preview API. Only
 read-only GETs of our own hosts.
+
+
+## Standing order 19 (2026-11-13, from about 01:30 CET)
+
+**Start state:** nothing of mine was uncommitted or unpushed. Order 18 had ended at `eb7361f4`; its scratch is outside
+git, in migration-work/parity-588/so17.
+
+**Rules followed:** our hosts only (every render refuses www.* and the airline hosts and counts them; none was sent),
+the drop's and so10's recordings, no upload, preview or publish. Read-only GETs of the Brussels site on aem.live.
+lh-brussels.aem.live itself answers 404 for these paths; the documents are served at
+main--lh-brussels--moved-permanently.aem.live.
+
+### Item 1: Brussels P50, shipped (`b86e1186`)
+
+- The three separator documents are live on aem.live (last-modified 2026-11-13 00:34 GMT): aviation-services-law with
+  4 spacers, special-assistance-legal-guidelines with 1, the conditions of carriage with 57 panel spacers.
+- Measured against the live documents at 1440, the 0.5-point gate holds: 15 of the 32 recorded pages come closer,
+  none moves further by more than 0.5 points (responsible-disclosure and us-customer-service-plan by 0.2 each), and
+  the sum of the deviations drops from 78.7 to 46.3 points.
+- Examples: short-notice-eu-us -8.44 -> -2.45 %, the conditions of carriage +4.06 -> -0.44, cancel-and-refund -8.02
+  -> -4.89, aviation-services-law +1.79 -> -1.75.
+- The committed rules' place in the theme was checked against the ranked copy on five pages: identical heights.
+- 390 is unchanged (the rules apply from 1025 px).
+
+### Item 2: the Brussels articles' gallery captions
+
+- **Theme** (`ebb8051f`, test first): www's article caption is Intelo bold 16 / 24 px, 15 px under its picture, with
+  a right column's two pictures 30 px apart. Ours were lufthansa.com's: 14 / 18 px, 10 px under, 40 px apart.
+  - Live now on vibrant-senegal, which already has picture strips and three captions: 1440 -0.42 -> +0.80 %, 390
+    -1.33 -> -0.70. the-gambia is unchanged.
+- **List:** reimport-so19-brussels-article-captions.txt covers the 44 articles in the Brussels search indexes.
+  - vibrant-senegal (be/fr): READY.
+  - the-gambia (be/en): HOLD. Its draft at 390 is 0.51 points further from www (-0.55 -> -1.06 %); 1440 is -0.68 ->
+    +0.76.
+  - The other 42: HOLD, because they are not recorded. Their be/en versions are in
+    capture-requests-ema-cashub.txt.
+
+### Item 3: the worst single TAP pages, largest first
+
+Ranked on today's main, both widths.
+
+- **Not changed** (cause found but not fixable here):
+  - The baggage hub and locate-baggage (-17.8 / -17.6 / -15.3 %): www's baggage tracker, a form on TAP's service (row
+    145).
+  - en-pt at 1440 (-13.9 %): the stage's sliders and pickers.
+  - voar-economica at 1440 (+3.47 %): the click-to-call box shows its out-of-hours form at night (Lisbon), while
+    www's recording was made in hours (row 157).
+  - navigator-experiences at 390: its current cards differ from the recording's.
+- **Row 158** (`205f8d3a`): a section title with its description at the end of a text section (www's title
+  component, md:-mb-8).
+  - At 1440: cartoes-de-credito +2.96 -> +0.19 %, schengen-visas +0.51 -> +0.23, hold-baggage -0.49 -> -0.41.
+    Lounges, leiloes and doacao-milhas move 0.15 points further each.
+- **Row 159** (`ce9a00af`): a phone table's accordion headers as www's, 20 px padding instead of 16.
+  - At 390: fees -1.62 -> +0.17 %, by-flying -1.07 -> +0.10, lounges -0.67 -> -0.16, hold-baggage -0.25 -> +0.05.
+    Wheelchair moves +0.73 -> +0.95.
+- **Held, with capture requests:** the phone banner's height. www's newer build (sJsYPUB, the recordings of 11
+  November) caps a banner slide at 310 px from 376 px; the older build (PJpl4JX, 9 and 10 November) caps it at 259.
+  - The 310 rule brings the new-build pages closer: doacao-milhas 390 -1.41 -> -0.35 %, stopover/partners -1.37 ->
+    +0.06.
+  - It moves the old-build recordings away: miles-and-go -0.19 -> +0.88, inspire-se +0.55 -> +1.56.
+  - Those four pages are requested on today's build (capture-requests-ema-cashub.txt, `06020018`). The rule is
+    held-tap-banner-310.css in migration-work/parity-588/so17.
+
+### Item 4: Austrian
+
+- **Not changed** (cause found but not fixable here):
+  - bangkok-airways (-10.7 % at 1440): its flight search widget needs www's APIs (8 requests refused).
+  - entryregulations (-3.29 % at 1440): www has separate column views with their own spacing where our document has
+    one default-content section. That is an import question, not one theme cause.
+- **Row 57** (`071c9a92`): a tab panel's content on phones is 12 px further in from each side and 24 px more under
+  the open header, as www's accordion-style panel.
+  - At 390: travel-id -2.79 -> -2.25 %, online-check-in -1.63 -> -1.21. austrian-app moves -0.04 -> +0.49.
+- **Row 56 on phones** (`ff68c228`): the first row of partner tiles is 94 px under the block above.
+  - accessible-travel 390 -2.52 -> -2.16 %.
+- **Measured, not shipped:** accessible-travel's second intro paragraph is copytext-large on www. The collapse drops
+  that marker because it is within 2 px of the body size. Keeping it adds 15 px, the only such case among the 61
+  recorded pages, so it is left.
+
+### Final section (about 04:05 CET, 2026-11-13)
+
+I stopped before 07:00. The four items are done, and every page left above 2 % on the three brands has a cause
+named above that needs a capture, an import or www's services rather than a theme rule.
+
+**Live by code** (on main):
+- Brussels P50 (`b86e1186`).
+- The Brussels article captions' style (`ebb8051f`).
+- TAP rows 158 (`205f8d3a`) and 159 (`ce9a00af`).
+- Austrian rows 57 (`071c9a92`) and 56 on phones (`ff68c228`).
+
+**Checks before each push:**
+- Whole-repo lint exit 0, read before every push.
+- Stylelint exit 0 on the changed theme and block CSS.
+- Each change's test red first.
+- The tests that name the changed files or classes passed.
+- Each change was measured on its brand's recorded pages at the widths it touches.
+
+**Full suite** on `06020018` (978 files): 3,948 tests, 3,943 pass, 0 fail, 5 skipped.
+
+**Lists** (tools/reports/parity-2026-11-09/):
+- reimport-so19-brussels-article-captions.txt: 1 READY, 43 HOLD.
+
+**Capture requests:** capture-requests-ema-cashub.txt.
+- 13 Brussels articles (be/en).
+- 4 TAP pages recorded on www's older build.
+
+**Held, not in git** (migration-work/parity-588/so17):
+- held-tap-banner-310.css, until the TAP captures are in.
+
+**Open:**
+- The TAP banner height (waits for the captures).
+- the-gambia's caption re-import (0.51 points).
+- Austrian entryregulations' column views (import).
+- The hubs' 18 px under the last row (lounges).
+
+**Not in git:** rankings, drafts, crops, code copies and scripts, in migration-work/parity-588/so17 (ignored).
+
+No upload, preview or publish. da-upload.mjs was not called, and no test called the DA or preview API. Only read-only
+GETs of our own hosts and the Brussels site on aem.live.
