@@ -1193,6 +1193,15 @@ body.brand-lufthansa main > .section.column-view:not(.grey):has(+ .section.grey.
   margin-bottom: 0;
 }
 
+/* a column band whose AEM section ends with a separator before a new section's column view (its title
+   "{column-start}"): www has the band, the separator and the view's 32px padding, no section gap
+   (/de/en/special-meals and childrens-menus-on-board: the card view's title 48px lower than www's
+   with the gap, in place without it; standing order 16). A flush band too: the separator ends its
+   section, the view is the next one's (not rail-and-fly's view of the same section above) */
+body.brand-lufthansa main > .section.grey.column-band:has(+ .section > .default-content-wrapper:first-child > p.spacer:first-child + :is(h2, h3, h4).column-start) {
+  margin-bottom: 0;
+}
+
 /* what live has below a grey band instead of the section gap (importer, lufthansa-sections
    greyStyles): spaced, a grey AEM section before an unpadded one that starts with a headline or
    text: its .mb-default 2.4rem (onboard-delights band -> "Fresh on board" 32px of ink, was 56);
