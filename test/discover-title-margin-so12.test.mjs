@@ -19,7 +19,8 @@ test('Discover from 768 px: a title under the breadcrumb 34 px under it and 60 p
   assert.ok(css.includes(`@media (width >= 768px) { ${SECTION} { margin-top: 34px; } ${SECTION} > h1.heading-large:first-child { margin-bottom: 60px; } }`));
 });
 
-test('not on phones, not under a stage', () => {
+test('not on phones, not under a stage by this rule (order 13 gives the title after a stage-only section its own)', () => {
   assert.ok(!/body\.brand-discover main \.default-content-wrapper > h1\.heading-large[^{]*\{ margin-bottom: 36px; \}/.test(css));
-  assert.equal(css.split('margin-bottom: 60px').length, 2);
+  assert.equal(css.split('margin-bottom: 60px').length, 3);
+  assert.ok(css.includes('+ .section > .default-content-wrapper:first-child > h1.heading-large { margin-bottom: 60px; }'));
 });

@@ -781,3 +781,25 @@ body.brand-discover main .accordion-columns-wrapper {
     margin-bottom: 60px;
   }
 }
+
+/* the stage picture under the breadcrumb as www's from 768 px: 6 px lower (www's at y 192, ours
+   186, as the title's), and a full-bleed stage section of its own 36 px above the next (www's
+   text 36 px under the picture, ours the 56 px section gap; standing order 13). Not where a tab set
+   follows the title's section: there www's panel starts 104 px under the tabs, ours 56, and moving
+   the content up made check-in-at-the-airport worse */
+@media (width >= 768px) {
+  body.brand-discover main > .section.breadcrumb-container:not(.destination-finder-container) > .breadcrumb-wrapper + .default-content-wrapper:has(> p:first-child > picture) {
+    margin-top: 34px;
+  }
+
+  body.brand-discover main > .section.breadcrumb-container:not(.destination-finder-container).full-bleed:has(> .breadcrumb-wrapper + .default-content-wrapper:last-child > p:only-child > picture):not(:has(+ .section + .section.section-tabs)) {
+    margin-bottom: 36px;
+  }
+
+  /* the title in the section after it keeps www's 60 px too (order 12 left titles under a stage
+     at 40; with the stage at 40 the content under such a title sat 51 px high) */
+  body.brand-discover main > .section.breadcrumb-container:not(.destination-finder-container).full-bleed:has(> .breadcrumb-wrapper + .default-content-wrapper:last-child > p:only-child > picture):not(:has(+ .section + .section.section-tabs)) + .section > .default-content-wrapper:first-child > h1.heading-large {
+    margin-bottom: 60px;
+  }
+}
+
