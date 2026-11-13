@@ -1,0 +1,414 @@
+# lufthansa.com non-info page-widths ranked by distance from www (standing order 17 of 2026-11-13, item 2). Expected change: none from this list by itself; it ranks and names causes. One per-page cause has a delta on DA's copy: /de/en/overview-manage, delta-so17-lh-com-overview-manage.txt (READY, 1440 20.65 -> 2.99, 390 39.88 -> 5.86). No code change: the shared causes found are not in our code (the capture blocks www's fares API and apps; www's recordings stop at 8000 px).
+# measured: https://main--lh-com--moved-permanently.aem.live (headless chrome, guard on, www fonts from the drops) against the lh-parity-002a-d/003/004a/004b recordings; 410 page-widths, 378 pages minus 173 info pages (ema-adobe). "capped": www's recording stops at 8000 px; compared again with ours cut to 8000 px (compare.js pads the shorter image white).
+# columns: path	width	template	pct	pct on the first 8000 px (capped recordings)	height www	height ours	cause
+/de/en/flights	390	hub	47.39	47.39	8000	5404	live data: www's fare grid (about 80 destination tiles from its fares API); ours says no results, the API being blocked in captures
+/de/de/fluege	390	hub	47.32	47.32	8000	5370	live data: www's fare grid (about 80 destination tiles from its fares API); ours says no results, the API being blocked in captures
+/at/de/fluege	390	hub	47.27	47.27	8000	5450	live data: www's fare grid (about 80 destination tiles from its fares API); ours says no results, the API being blocked in captures
+/gb/en/flights	390	hub	46.59	46.59	8000	5243	live data: www's fare grid (about 80 destination tiles from its fares API); ours says no results, the API being blocked in captures
+/de/en/overview-manage	390	hub	39.88		4356	4506	per page: DA's copy has a picture on the Check-in card www does not show (gb/en's copy has the cell empty); delta-so17-lh-com-overview-manage.txt READY (1440 2.99, 390 5.86)
+/de/en/flights	1440	hub	39.50	39.50	8000	4082	live data: www's fare grid (about 80 destination tiles from its fares API); ours says no results, the API being blocked in captures
+/at/de/fluege	1440	hub	39.21	39.21	8000	4057	live data: www's fare grid (about 80 destination tiles from its fares API); ours says no results, the API being blocked in captures
+/de/de/fluege	1440	hub	38.81	38.81	8000	3910	live data: www's fare grid (about 80 destination tiles from its fares API); ours says no results, the API being blocked in captures
+/gb/en/flights	1440	hub	38.32	38.32	8000	3921	live data: www's fare grid (about 80 destination tiles from its fares API); ours says no results, the API being blocked in captures
+/de/en/lufthansa-city/culinaryjourney	390	campaign	38.09		1736	1420	live block (micro-frontend) without its data or app in captures (www's hosts and APIs are blocked); rest unsampled
+/de/en/online-check-in	390	app-entry	37.43		5650	4070	unsampled: ours shorter, diverges from y 600
+/xx/hk/meetings-and-events	390	?	33.36		3531	3095	unsampled: ours shorter, diverges from y 400
+/de/en/culinaryjourney	390	campaign	32.65		1911	1620	live block (micro-frontend) without its data or app in captures (www's hosts and APIs are blocked); rest unsampled
+/de/en/articles/explore-the-world/picture-perfect-austin	390	insights	32.84	30.18	8000	10448	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/feedback/feedbackai	1440	form	29.56		1027	900	unsampled: ours shorter, diverges from y 200
+/at/de/flughafeninformation	390	hub	24.73		5882	5942	unsampled: same height, diverges from y 400
+/de/de/flughafeninformation	390	hub	24.73		5882	5942	unsampled: same height, diverges from y 400
+/de/en/feedback/feedbackai	390	form	24.71		1153	1031	unsampled: ours shorter, diverges from y 200
+/de/en/articles/explore-the-world/picture-perfect-austin	1440	insights	22.21		7969	7976	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day	1440	insights	22.17		7608	7468	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/100-years	390	campaign	24.46	22.02	8000	9963	unsampled: same height, diverges from y 1400
+/de/en/articles/tags/allegris	1440	insights	21.76		7492	7334	unsampled: same height, diverges from y 4800
+/de/en/articles/explore-the-world/know-before-you-go-algiers	390	insights	21.04		7470	7550	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/articles/explore-the-world/know-before-you-go-berlin	390	insights	20.90		7415	7496	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/articles/tags/munich	390	insights	26.88	20.84	8000	8795	unsampled: same height, diverges from y 1000
+/de/de/articles/tags/allegris	1440	insights	20.75		7467	7370	unsampled: same height, diverges from y 4800
+/at/de/articles/tags/allegris	1440	insights	20.74		7467	7370	unsampled: same height, diverges from y 4800
+/de/en/overview-manage	1440	hub	20.65		3284	3350	per page: DA's copy has a picture on the Check-in card www does not show (gb/en's copy has the cell empty); delta-so17-lh-com-overview-manage.txt READY (1440 2.99, 390 5.86)
+/de/en/articles/explore-flying	390	insights	20.62		6633	6791	unsampled: same height, diverges from y 5400
+/de/en/articles/explore-the-world/be-picky-barcelona-insider-tips	390	insights	20.11		7635	7698	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day	1440	insights	19.81	19.81	8000	7927	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/discover-lufthansa/take-off	1440	campaign	19.62		4512	4578	unsampled: same height, diverges from y 2000
+/de/en/articles/explore-the-world/eat-see-do-algiers	390	insights	21.52	19.18	8000	8437	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/articles/explore-the-world/what-i-learned-living-in-barcelona	390	insights	24.75	19.16	8000	9042	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/gb/en/articles/tags/allegris	1440	insights	19.13		7492	7386	unsampled: same height, diverges from y 4800
+/de/en/articles/explore-the-world/eat-see-do-berlin	390	insights	23.18	18.26	8000	9870	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/discover-lufthansa/lufthansa-fleet/351	1440	fleet	17.76		7761	7579	unsampled: same height, diverges from y 3200
+/de/en/articles/tags/allegris	390	insights	17.70		7897	7795	unsampled: same height, diverges from y 5800
+/de/en/100-years/campaigns	390	campaign	24.56	17.38	8000	15308	unsampled: same height, diverges from y 1600
+/de/en/articles/explore-the-world	390	insights	20.57	17.37	8000	8359	unsampled: same height, diverges from y 7000
+/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day	390	insights	23.01	17.36	8000	10525	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/feedback	390	form	16.64		3698	3476	unsampled: ours shorter, diverges from y 2600
+/de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day	390	insights	19.66	16.37	8000	11855	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/articles/explore-the-world	1440	insights	16.26		6344	6258	unsampled: same height, diverges from y 5200
+/de/en/discover-lufthansa/lufthansa-fleet/351	390	fleet	20.67	15.53	8000	8763	unsampled: same height, diverges from y 4400
+/de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips	390	insights	15.52		5101	5119	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/100-years/campaigns	1440	campaign	27.56	15.44	8000	16455	unsampled: same height, diverges from y 1600
+/de/en/100-years/chronicle	1440	campaign	21.51	15.40	8000	20000	unsampled: same height, diverges from y 1600
+/de/en/articles/tags/munich	1440	insights	15.39		7421	7482	unsampled: same height, diverges from y 2400
+/de/en/articles/explore-the-world/in-my-hood-chiswick-london	1440	insights	15.32		5212	5057	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/lufthansa-city/culinaryjourney	1440	campaign	15.28		1359	1271	live block (micro-frontend) without its data or app in captures (www's hosts and APIs are blocked); rest unsampled
+/de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich	390	insights	15.21		6746	6799	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/100-years/global-network	390	campaign	19.17	15.20	8000	18795	unsampled: same height, diverges from y 1600
+/de/en/100-years/cabin-design	390	campaign	19.52	15.09	8000	19610	unsampled: same height, diverges from y 3200
+/de/en/discover-lufthansa/take-off	390	campaign	15.05		6888	6873	unsampled: same height, diverges from y 800
+/de/en/articles/highlights/allegris-premium-economy-san-diego	390	insights	14.90		7206	7330	unsampled: same height, diverges from y 1200
+/de/en/articles/explore-flying/anniversary-super-crane-special	390	insights	19.84	14.89	8000	10136	unsampled: same height, diverges from y 2000
+/de/en/articles/explore-the-world/in-my-hood-chiswick-london	390	insights	14.87		7210	7168	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/book-and-manage/stopover	390	campaign	16.65	14.80	8000	17448	live block (flight-search) without its data or app in captures (www's hosts and APIs are blocked); rest unsampled
+/de/en/100-years/history/menu-on-board	1440	campaign	25.25	14.65	8000	12296	unsampled: same height, diverges from y 5200
+/de/en/articles/explore-flying/essentials-future-of-flying	390	insights	14.64		5715	5896	unsampled: same height, diverges from y 3400
+/de/en/book-and-manage/stopover/bayerischer-hof	1440	campaign	14.63		2935	2980	unsampled: same height, diverges from y 2000
+/gb/en/articles/highlights/all-it-takes-is-a-yes	390	insights	14.44		7444	7473	live block (fare-teaser) without its data or app in captures (www's hosts and APIs are blocked); rest unsampled
+/de/en/articles/highlights/all-it-takes-is-a-yes	390	insights	14.23		7444	7473	live block (fare-teaser) without its data or app in captures (www's hosts and APIs are blocked); rest unsampled
+/de/en/book-and-manage/stopover/neuschwanstein	1440	campaign	14.23		2999	3050	unsampled: same height, diverges from y 600
+/de/en/online-check-in	1440	app-entry	14.03		3564	3631	unsampled: same height, diverges from y 2400
+/de/en/articles/explore-the-world/essentials-barcelona-facts	390	insights	13.97		5986	6082	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/100-years/fleet	1440	campaign	19.00	13.86	8000	20000	unsampled: same height, diverges from y 5600
+/de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich	1440	insights	13.86		5162	5070	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/gb/en/articles/highlights/allegris-premium-economy-san-diego	390	insights	13.72		7206	7330	unsampled: same height, diverges from y 4800
+/de/en/100-years/global-network	1440	campaign	26.38	13.66	8000	16715	unsampled: same height, diverges from y 4000
+/de/en/articles/highlights/allegris-premium-economy-san-diego	1440	insights	13.60		6730	6755	unsampled: same height, diverges from y 1400
+/de/en/articles/authors/florian-tomberg	1440	insights	13.56		3437	3322	unsampled: same height, diverges from y 2600
+/de/en/100-years	1440	campaign	17.60	13.49	8000	8464	unsampled: same height, diverges from y 1400
+/de/de/articles/highlights/all-it-takes-is-a-yes	390	insights	13.47		7952	7981	live block (fare-teaser) without its data or app in captures (www's hosts and APIs are blocked); rest unsampled
+/at/de/articles/highlights/all-it-takes-is-a-yes	390	insights	13.46		7952	7981	live block (fare-teaser) without its data or app in captures (www's hosts and APIs are blocked); rest unsampled
+/de/en/common/compensation-voucher	390	legal	13.38		6707	6492	unsampled: same height, diverges from y 5600
+/de/en/data-collection-canada	390	legal	13.38		5488	5413	unsampled: same height, diverges from y 3800
+/de/en/articles/explore-the-world/be-picky-barcelona-insider-tips	1440	insights	13.33		5062	5010	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/feedback	1440	form	13.33		3075	2897	unsampled: ours shorter, diverges from y 2200
+/de/en/articles/explore-the-world/what-i-learned-living-in-frankfurt	390	insights	13.26		6027	6106	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/at/de/articles/highlights/allegris-premium-economy-san-diego	390	insights	12.98		7820	7914	unsampled: same height, diverges from y 5400
+/de/en/flight-search	1440	app-entry	12.95		2064	2111	live block (flight-search) without its data or app in captures (www's hosts and APIs are blocked); rest unsampled
+/de/en/articles/explore-the-world/stop-over-tokyo	390	insights	12.92		7337	7393	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/munich-fair	1440	campaign	12.84		2322	2451	unsampled: ours longer, diverges from y 1600
+/de/en/farealert/best-price-alert	390	form	12.77		5363	5321	unsampled: same height, diverges from y 2800
+/de/en/articles/explore-the-world/what-i-learned-living-in-barcelona	1440	insights	12.76		5915	5850	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/gb/en/articles/tags/allegris	390	insights	12.68		7897	7867	unsampled: same height, diverges from y 5800
+/de/de/articles/highlights/allegris-premium-economy-san-diego	390	insights	12.58		7820	7887	unsampled: same height, diverges from y 5400
+/de/en/articles/explore-the-world/on-the-scene-food-trends-istanbul	1440	insights	12.52		5289	5158	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/at/de/100-years/destinations	1440	campaign	30.27	12.47	8000	20000	unsampled: same height, diverges from y 4800
+/de/de/100-years/destinations	1440	campaign	30.27	12.46	8000	20000	unsampled: same height, diverges from y 4800
+/de/en/100-years/destinations	390	campaign	22.93	12.43	8000	20000	unsampled: same height, diverges from y 4200
+/gb/en/100-years/destinations	390	campaign	22.93	12.43	8000	20000	unsampled: same height, diverges from y 4200
+/at/de/articles/tags/allegris	390	insights	12.10	12.39	8000	8128	unsampled: same height, diverges from y 6000
+/de/en/book-and-manage/stopover/zugspitze	390	campaign	12.38		3991	4040	unsampled: same height, diverges from y 3000
+/at/de/100-years/destinations	390	campaign	22.98	12.37	8000	20000	unsampled: same height, diverges from y 4400
+/de/de/100-years/destinations	390	campaign	22.98	12.37	8000	20000	unsampled: same height, diverges from y 4400
+/gb/en/100-years/destinations	1440	campaign	30.50	12.28	8000	20000	unsampled: same height, diverges from y 4800
+/de/en/100-years/destinations	1440	campaign	30.49	12.27	8000	20000	unsampled: same height, diverges from y 4800
+/de/en/articles/explore-flying/flying-high-christoph-quarch	390	insights	12.24		6410	6379	unsampled: same height, diverges from y 2400
+/de/en/advance-seat-reservations-terms-and-conditions	1440	legal	12.18		1602	1681	unsampled: same height, diverges from y 800
+/de/en/book-and-manage/stopover	1440	campaign	15.85	12.15	8000	13090	live block (flight-search) without its data or app in captures (www's hosts and APIs are blocked); rest unsampled
+/at/de/articles/highlights/allegris-premium-economy-san-diego	1440	insights	11.86		6921	7012	unsampled: same height, diverges from y 1400
+/de/de/articles/highlights/allegris-premium-economy-san-diego	1440	insights	11.86		6921	7012	unsampled: same height, diverges from y 1400
+/de/en/data-collection-canada	1440	legal	11.86		4277	4140	unsampled: same height, diverges from y 3000
+/de/en/book-and-manage/stopover/zugspitze	1440	campaign	11.69		3055	3097	unsampled: same height, diverges from y 2200
+/de/en/boeing787	390	fleet	13.41	11.63	8000	8366	unsampled: same height, diverges from y 3000
+/de/en/common/agb-extra-services-at-online-check-in	390	legal	11.58		2630	2558	unsampled: same height, diverges from y 2400
+/de/en/articles/explore-the-world/eat-see-do-algiers	1440	insights	11.49		6548	6528	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/744	390	fleet	11.37		3255	3341	unsampled: same height, diverges from y 2400
+/de/en/farealert/best-price-alert	1440	form	11.37		4372	4271	unsampled: same height, diverges from y 1800
+/de/de/articles/tags/allegris	390	insights	10.88	11.14	8000	8128	unsampled: same height, diverges from y 7000
+/de/en/articles/explore-the-world/stop-over-tokyo	1440	insights	11.07		6251	6220	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/articles/explore-the-world/on-the-scene-food-trends-istanbul	390	insights	11.05		7097	7088	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/xx/hk/meetings-and-events	1440	?	10.86		3385	3247	unsampled: same height, diverges from y 2600
+/at/de/bedeutsamste-strecken	1440	campaign	10.79		2475	2415	unsampled: same height, diverges from y 1600
+/de/de/bedeutsamste-strecken	1440	campaign	10.79		2475	2415	unsampled: same height, diverges from y 1600
+/de/en/100-years/history/menu-on-board	390	campaign	17.36	10.79	8000	11889	unsampled: same height, diverges from y 3400
+/de/en/articles/highlights/all-it-takes-is-a-yes	1440	insights	10.76		6737	6745	live block (fare-teaser) without its data or app in captures (www's hosts and APIs are blocked); rest unsampled
+/gb/en/articles/highlights/all-it-takes-is-a-yes	1440	insights	10.76		6737	6745	live block (fare-teaser) without its data or app in captures (www's hosts and APIs are blocked); rest unsampled
+/de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history	390	insights	16.58	10.72	8000	11727	unsampled: same height, diverges from y 9000
+/de/en/articles/explore-the-world/in-my-hood-district-zurich	390	insights	10.50	10.66	8000	8111	unsampled: same height
+/de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage	1440	form	10.61		2679	2586	unsampled: same height, diverges from y 1800
+/de/en/feedback-past-flight	390	form	10.57		6942	7171	unsampled: same height, diverges from y 6000
+/de/en/culinaryjourney	1440	campaign	10.53		1586	1524	live block (micro-frontend) without its data or app in captures (www's hosts and APIs are blocked); rest unsampled
+/de/en/articles/explore-flying/inflight-entertainment-vr-experience	390	insights	16.19	10.50	8000	10381	unsampled: same height, diverges from y 1400
+/de/en/book-and-manage/stopover/neuschwanstein	390	campaign	10.41		3727	3746	unsampled: same height, diverges from y 600
+/de/en/most-significant-route	1440	campaign	10.38		2583	2523	unsampled: same height, diverges from y 1800
+/gb/en/most-significant-route	1440	campaign	10.38		2583	2523	unsampled: same height, diverges from y 1800
+/gb/en/baggage	390	hub	10.19		7339	7292	unsampled: same height, diverges from y 4200
+/de/en/baggage	390	hub	10.18		7339	7292	unsampled: same height, diverges from y 4200
+/de/en/my-bookings	390	app-entry	10.10		5334	5258	unsampled: same height, diverges from y 4400
+/de/en/articles/explore-the-world/in-my-hood-district-zurich	1440	insights	10.06		5455	5364	unsampled: same height, diverges from y 4600
+/at/de/overview-travel-information	390	hub	10.04		4041	4048	unsampled: same height, diverges from y 0
+/de/de/overview-travel-information	390	hub	10.04		4041	4048	unsampled: same height, diverges from y 0
+/gb/en/overview-travel-information	390	hub	10.01		3950	3957	unsampled: same height, diverges from y 0
+/fr/fr/meetings-and-events	390	?	9.99		4336	4351	unsampled: same height, diverges from y 600
+/de/en/frankfurt-fair	1440	campaign	9.96		3524	3407	unsampled: same height, diverges from y 2600
+/gb/en/frankfurt-fair	1440	campaign	9.95		3524	3407	unsampled: same height, diverges from y 2600
+/de/en/common/seatreservation-condtions/seat-reservations	390	legal	9.87		4095	4167	unsampled: same height, diverges from y 3200
+/at/de/gepaeck	390	hub	9.86		7511	7473	unsampled: same height, diverges from y 4400
+/de/de/gepaeck	390	hub	9.86		7511	7473	unsampled: same height, diverges from y 4400
+/gb/en/articles/highlights/allegris-premium-economy-san-diego	1440	insights	9.83		6730	6755	unsampled: same height, diverges from y 1400
+/at/de/articles/highlights/all-it-takes-is-a-yes	1440	insights	9.78		6791	6799	live block (fare-teaser) without its data or app in captures (www's hosts and APIs are blocked); rest unsampled
+/de/de/articles/highlights/all-it-takes-is-a-yes	1440	insights	9.78		6791	6799	live block (fare-teaser) without its data or app in captures (www's hosts and APIs are blocked); rest unsampled
+/de/en/prepare-for-your-trip/baggage/sport-baggage/register-ammunition	390	form	9.78		5998	6118	unsampled: same height, diverges from y 5200
+/de/en/common/privacy-statement/privacy-statement-group	390	legal	9.77		1881	1924	unsampled: same height
+/de/en/common/seatreservation-condtions/seat-reservations	1440	legal	9.74		2884	2812	unsampled: same height, diverges from y 2000
+/de/en/articles/explore-the-world/essentials-frankfurt-facts	390	insights	9.73		5001	5038	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/100-years/crane	390	campaign	14.95	9.61	8000	10981	unsampled: same height, diverges from y 7600
+/gb/en/100-years/crane	390	campaign	14.94	9.61	8000	10981	unsampled: same height, diverges from y 7600
+/at/de/100-years/crane	390	campaign	15.12	9.58	8000	11407	unsampled: same height, diverges from y 2400
+/de/de/100-years/crane	390	campaign	15.11	9.58	8000	11407	unsampled: same height, diverges from y 2400
+/de/en/articles/explore-the-world/what-i-learned-living-in-frankfurt	1440	insights	9.53		4526	4494	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/my-logbook	390	app-entry	9.44		3445	3441	unsampled: same height
+/de/en/datenschutz	390	legal	9.34		1789	1846	unsampled: same height
+/de/en/articles/explore-flying/anniversary-super-crane-special	1440	insights	9.25		7218	7290	unsampled: same height, diverges from y 1800
+/de/en/articles/explore-the-world/eat-see-do-berlin	1440	insights	9.21		7064	7123	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/besondere-befoerderungsbedingungen-bus	390	legal	10.67	9.19	8000	15385	unsampled: same height, diverges from y 14600
+/de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips	1440	insights	9.17		3841	3808	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage	390	form	9.13		4933	4854	unsampled: same height, diverges from y 4000
+/de/en/special-needs	390	hub	9.13		6966	6856	unsampled: same height, diverges from y 6000
+/de/en/320	390	fleet	9.05		6758	6730	unsampled: same height, diverges from y 5200
+/de/en/business-terms-and-conditions	390	legal	9.05		2897	2876	unsampled: same height
+/de/en/rail-fly-terms-and-conditions	390	legal	8.95		5144	5131	unsampled: same height
+/de/en/book-and-manage/stopover/bayerischer-hof	390	campaign	8.91		4036	4051	unsampled: same height, diverges from y 600
+/de/en/homepage	1440	homepage	8.77		5065	4988	live block (destination-finder, fare-teaser, flight-search) without its data or app in captures (www's hosts and APIs are blocked); rest unsampled
+/at/de/frankfurt-fair	1440	campaign	8.67		3501	3410	unsampled: same height, diverges from y 2600
+/de/de/frankfurt-fair	1440	campaign	8.67		3501	3410	unsampled: same height, diverges from y 2600
+/de/en/articles/explore-the-world/essentials-frankfurt-facts	1440	insights	8.66		5130	5152	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/100-years/fleet	390	campaign	10.44	8.59	8000	20000	unsampled: same height, diverges from y 5800
+/de/en/common/privacy-statement/privacy-statement-group	1440	legal	8.52		1476	1434	unsampled: same height
+/de/en/data-protection-information	390	legal	6.09	8.51	8000	20000	unsampled: same height
+/de/en/articles/explore-the-world/know-before-you-go-berlin	1440	insights	8.48		7488	7475	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/imprint	390	legal	8.48		4067	4118	unsampled: same height
+/at/de/discover-lufthansa/new-onboard-experience	390	campaign	24.45	8.47	8000	18846	unsampled: same height, diverges from y 8000
+/de/de/discover-lufthansa/new-onboard-experience	390	campaign	24.44	8.47	8000	18846	unsampled: same height, diverges from y 8000
+/de/en/register-animal-cabin	390	form	8.36		7485	7556	unsampled: same height, diverges from y 6600
+/de/en/homepage	390	homepage	8.34		6175	6120	live block (destination-finder, fare-teaser, flight-search) without its data or app in captures (www's hosts and APIs are blocked); rest unsampled
+/at/de/gepaeck	1440	hub	8.32		4727	4679	unsampled: same height, diverges from y 2800
+/de/de/gepaeck	1440	hub	8.32		4727	4679	unsampled: same height, diverges from y 2800
+/de/en/32n	390	fleet	8.31		6954	6937	unsampled: same height, diverges from y 2600
+/de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history	1440	insights	15.09	8.25	8000	9852	unsampled: same height, diverges from y 8000
+/de/en/digital-self-services	390	hub	8.25		5489	5519	unsampled: same height, diverges from y 4200
+/de/en/lufthansa-first-class-fleet	1440	fleet	8.22		4157	4218	unsampled: same height, diverges from y 3400
+/de/en/digital-self-services	1440	hub	8.13		4430	4513	unsampled: same height, diverges from y 3400
+/de/en/100-years/chronicle	390	campaign	11.19	8.11	8000	20000	unsampled: same height, diverges from y 7200
+/at/de/100-years/crane	1440	campaign	12.75	8.02	8000	9755	unsampled: same height, diverges from y 4800
+/de/de/100-years/crane	1440	campaign	12.75	8.02	8000	9755	unsampled: same height, diverges from y 4800
+/de/en/articles/explore-the-world/know-before-you-go-algiers	1440	insights	8.02		7447	7434	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/lufthansa-travel-classes	390	hub	8.00		4688	4688	unsampled: same height
+/gb/en/lufthansa-travel-classes	390	hub	8.00		4688	4688	unsampled: same height
+/de/en/terms-of-service-group	390	legal	7.97		3976	3997	unsampled: same height
+/at/de/lufthansa-reiseklassen	390	hub	7.96		4787	4787	unsampled: same height
+/de/de/lufthansa-reiseklassen	390	hub	7.96		4787	4787	unsampled: same height
+/de/en/services-at-the-airport	390	hub	7.95		3411	3382	unsampled: same height
+/xx/ru/meetings-and-events	390	?	7.93		4378	4346	unsampled: same height
+/de/en/special-needs	1440	hub	7.85		5271	5123	unsampled: same height, diverges from y 4400
+/at/de/frankfurt-fair	390	campaign	7.84		5439	5435	unsampled: same height
+/de/de/frankfurt-fair	390	campaign	7.84		5439	5435	unsampled: same height
+/de/en/articles/authors/florian-tomberg	390	insights	7.84		3801	3802	unsampled: same height
+/de/en/100-years/crane	1440	campaign	12.57	7.83	8000	9782	unsampled: same height, diverges from y 4800
+/gb/en/100-years/crane	1440	campaign	12.56	7.83	8000	9782	unsampled: same height, diverges from y 4800
+/de/en/100-years/cabin-design	1440	campaign	21.59	7.80	8000	16930	unsampled: same height, diverges from y 3800
+/de/en/passenger-rights	390	legal	13.59	7.78	8000	9152	unsampled: same height, diverges from y 8400
+/de/de/speisen-und-getraenke	390	hub	7.72		7101	7107	unsampled: same height
+/de/en/359	390	fleet	7.71		3019	3061	unsampled: same height, diverges from y 600
+/de/en/common	390	legal	7.71		1113	1135	unsampled: same height
+/de/en/anmeldung-tiere-frachtraum	390	form	13.29	7.66	8000	8742	unsampled: same height, diverges from y 7800
+/de/en/discover-lufthansa/new-onboard-experience	390	campaign	24.28	7.60	8000	18227	unsampled: same height, diverges from y 8000
+/gb/en/discover-lufthansa/new-onboard-experience	390	campaign	24.27	7.59	8000	18227	unsampled: same height, diverges from y 8000
+/de/en/book-and-manage/booking-services/manage-my-bookings	390	app-entry	7.49		1517	1542	unsampled: same height
+/de/en/frankfurt-fair	390	campaign	7.47		5310	5305	unsampled: same height
+/gb/en/frankfurt-fair	390	campaign	7.47		5310	5305	unsampled: same height
+/de/en/seat-maps	390	fleet	7.44		5741	5741	unsampled: same height
+/at/de/speisen-und-getraenke	390	hub	7.42		7101	7107	unsampled: same height
+/gb/en/services-at-the-airport	390	hub	7.41		3411	3409	unsampled: same height, diverges from y 2200
+/de/en/common/accessibility-statement	390	legal	12.39	7.37	8000	9971	unsampled: same height, diverges from y 9200
+/de/en/pre-check-in	390	app-entry	7.37		3554	3521	unsampled: same height
+/gb/en/miles-and-more	390	hub	7.30		4188	4146	unsampled: same height
+/de/en/miles-and-more	390	hub	7.29		4188	4146	unsampled: same height
+/at/de/services-am-flughafen	390	hub	7.23		3622	3619	unsampled: same height, diverges from y 2400
+/de/de/services-am-flughafen	390	hub	7.23		3622	3619	unsampled: same height, diverges from y 2400
+/de/en/terms-and-conditions-lh	390	legal	5.47	7.13	8000	20000	unsampled: same height
+/de/en/baggage	1440	hub	7.12		4630	4579	unsampled: same height
+/gb/en/baggage	1440	hub	7.12		4630	4579	unsampled: same height
+/at/de/digital-self-services	390	hub	7.11		5651	5631	unsampled: same height
+/de/de/digital-self-services	390	hub	7.11		5651	5631	unsampled: same height
+/de/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	390	legal	7.08		3555	3568	unsampled: same height
+/de/en/common/accessibility-statement	1440	legal	7.05		6502	6600	unsampled: same height, diverges from y 5800
+/at/de/miles-and-more	390	hub	7.04		4511	4469	unsampled: same height
+/de/de/miles-and-more	390	hub	7.04		4511	4469	unsampled: same height
+/gb/en/digital-self-services	390	hub	7.03		5489	5469	unsampled: same height, diverges from y 4200
+/de/en/travel-id-terms-conditions	390	legal	9.07	7.02	8000	16563	unsampled: same height, diverges from y 15800
+/gb/en/special-needs	390	hub	7.00		6966	7025	unsampled: same height, diverges from y 6000
+/de/en/common/imprint/lufthansa-insights-imprint	390	legal	6.97		4837	4876	unsampled: same height
+/de/de/betreuungsbedarf	390	hub	6.96		7247	7244	unsampled: same height
+/de/en/articles/explore-flying/inflight-entertainment-vr-experience	1440	insights	6.96		7854	7904	unsampled: same height
+/de/en/common/compensation-voucher	1440	legal	6.89		4206	4136	unsampled: same height, diverges from y 3400
+/de/de/additional-services	390	hub	9.57	6.79	8000	8440	unsampled: same height, diverges from y 8000
+/at/de/additional-services	390	hub	9.57	6.78	8000	8440	unsampled: same height, diverges from y 8000
+/de/en/business-terms-and-conditions	1440	legal	6.78		1790	1763	unsampled: same height
+/de/en/food-and-beverages	390	hub	6.75		6683	6736	unsampled: same height
+/gb/en/food-and-beverages	390	hub	6.75		6683	6736	unsampled: same height
+/at/de/betreuungsbedarf	390	hub	6.64		7247	7271	unsampled: same height
+/gb/en/additional-services	390	hub	8.70	6.64	8000	8372	unsampled: same height, diverges from y 8000
+/de/en/100-years/history	390	campaign	14.30	6.63	8000	11691	unsampled: same height, diverges from y 7000
+/de/en/additional-services	390	hub	8.69	6.63	8000	8372	unsampled: same height, diverges from y 8000
+/de/en/articles/explore-flying/flying-high-christoph-quarch	1440	insights	6.46		5407	5408	unsampled: same height
+/de/en/320	1440	fleet	6.45		6415	6403	unsampled: same height, diverges from y 3600
+/de/en/articles/explore-flying/essentials-future-of-flying	1440	insights	6.43		5733	5784	unsampled: same height
+/at/de/meetings-and-events	390	hub	6.39		4130	4125	unsampled: same height
+/de/de/meetings-and-events	390	hub	6.39		4130	4125	unsampled: same height
+/xx/es/meetings-and-events	390	?	6.39		4090	4085	unsampled: same height
+/de/en/feedback-past-flight	1440	form	6.38		5979	6124	unsampled: same height, diverges from y 5200
+/xx/fr/meetings-and-events	390	?	6.37		4336	4331	unsampled: same height
+/de/en/datenschutz	1440	legal	6.36		1523	1556	unsampled: same height
+/gb/en/during-your-trip/lounges	390	?	6.35		6637	6643	unsampled: same height
+/de/en/during-your-trip/lounges	390	?	6.34		6637	6643	unsampled: same height
+/de/en/boeing787	1440	fleet	6.33		7544	7530	unsampled: same height
+/de/en/terms-of-use	390	legal	6.32		5735	5711	unsampled: same height
+/at/de/during-your-trip/lounges	390	?	6.26		6867	6873	unsampled: same height
+/de/de/during-your-trip/lounges	390	?	6.26		6867	6873	unsampled: same height
+/de/en/32n	1440	fleet	6.22		6501	6489	unsampled: same height
+/de/en/munich-fair	390	campaign	6.22		3143	3157	unsampled: same height
+/de/en/cookie-policy	390	legal	9.35	6.19	8000	12411	unsampled: same height, diverges from y 11600
+/de/en/discover-lufthansa/new-onboard-experience	1440	campaign	27.68	6.18	8000	15128	unsampled: same height, diverges from y 8000
+/gb/en/discover-lufthansa/new-onboard-experience	1440	campaign	27.68	6.18	8000	15128	unsampled: same height, diverges from y 8000
+/de/en/prepare-for-your-trip/baggage/baggage-conditions	1440	legal	6.15		2124	2154	unsampled: same height
+/de/en/timetable-and-flight-status	390	flight-status	6.12		3861	3875	live block (flight-status) without its data or app in captures (www's hosts and APIs are blocked); rest unsampled
+/de/en/general-conditions-currency-conversion	390	legal	6.11		2807	2772	unsampled: same height
+/de/en/sepa-terms-and-conditions-b	390	legal	6.08		2728	2730	unsampled: same height
+/gb/en/most-significant-route	390	campaign	6.05		2783	2780	unsampled: same height
+/de/en/book-and-manage/cancellation-and-refund/refund/refund-form	390	form	6.04		4978	4982	unsampled: same height
+/de/en/most-significant-route	390	campaign	6.04		2783	2780	unsampled: same height
+/gb/en/meetings-and-events	390	hub	6.04		3869	3864	unsampled: same height
+/de/en/meetings-and-events	390	hub	6.03		3869	3864	unsampled: same height
+/at/de/bedeutsamste-strecken	390	campaign	6.02		2878	2875	unsampled: same height
+/de/de/bedeutsamste-strecken	390	campaign	6.02		2878	2875	unsampled: same height
+/de/en/pre-check-in	1440	app-entry	6.02		2386	2345	unsampled: same height
+/de/en/general-conditions-currency-conversion	1440	legal	5.99		1968	1927	unsampled: same height
+/xx/pt/meetings-and-events	390	?	5.97		4171	4188	unsampled: same height
+/gb/en/overview-manage	390	hub	5.87		4356	4381	unsampled: same height
+/at/de/overview-manage	390	hub	5.79		4455	4479	unsampled: same height
+/de/de/overview-manage	390	hub	5.79		4455	4479	unsampled: same height
+/de/en/additional-services	1440	hub	5.77		6773	6766	unsampled: same height
+/de/en/overview-special-request	390	hub	5.77		3936	3936	unsampled: same height
+/gb/en/additional-services	1440	hub	5.77		6773	6766	unsampled: same height
+/gb/en/overview-special-request	390	hub	5.77		3936	3936	unsampled: same height
+/de/en/common/agb-extra-services-at-online-check-in	1440	legal	5.72		2330	2286	unsampled: same height, diverges from y 2200
+/at/de/additional-services	1440	hub	5.70		6773	6766	unsampled: same height
+/de/de/additional-services	1440	hub	5.70		6773	6766	unsampled: same height
+/gb/en/overview-flights	390	hub	5.70		3517	3506	unsampled: same height
+/de/en/overview-flights	390	hub	5.68		3517	3506	unsampled: same height
+/at/de/overview-flights	390	hub	5.67		3612	3601	unsampled: same height
+/de/de/overview-flights	390	hub	5.67		3612	3601	unsampled: same height
+/gb/en/airport-information	390	hub	5.67		5465	5480	unsampled: same height
+/de/en/airport-information	390	hub	5.65		5465	5480	unsampled: same height
+/at/de/overview-special-request	390	hub	5.62		4027	4028	unsampled: same height
+/de/de/overview-special-request	390	hub	5.62		4027	4028	unsampled: same height
+/de/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	1440	legal	5.58		2636	2675	unsampled: same height
+/at/de/overview-travel-information	1440	hub	5.56		2840	2842	unsampled: same height
+/de/de/overview-travel-information	1440	hub	5.56		2840	2842	unsampled: same height
+/gb/en/services-on-board	390	hub	5.55		3993	3991	unsampled: same height
+/de/en/articles/explore-the-world/essentials-barcelona-facts	1440	insights	5.54		5395	5412	live data: www's sticky fare bar drawn in the first screen (ours hides it without a fare, the API being blocked; about 150 px of the first screen, the rest unsampled)
+/de/en/services-on-board	390	hub	5.54		3993	3991	unsampled: same height
+/at/de/services-an-bord	390	hub	5.50		4088	4086	unsampled: same height
+/de/de/services-an-bord	390	hub	5.50		4088	4086	unsampled: same height
+/de/en/advance-seat-reservations-terms-and-conditions	390	legal	5.45		2521	2534	unsampled: same height
+/gb/en/overview-travel-information	1440	hub	5.43		2840	2842	unsampled: same height
+/de/en/airport-information	1440	hub	5.38		3232	3210	unsampled: same height
+/gb/en/airport-information	1440	hub	5.38		3232	3210	unsampled: same height
+/de/en/rail-fly-terms-and-conditions	1440	legal	5.29		3017	3000	unsampled: same height
+/de/en/imprint	1440	legal	5.26		2466	2491	unsampled: same height
+/at/de/flughafeninformation	1440	hub	5.10		3281	3261	unsampled: same height
+/de/de/flughafeninformation	1440	hub	5.10		3281	3261	unsampled: same height
+/de/en/prepare-for-your-trip/baggage/sport-baggage/register-ammunition	1440	form	5.00		4204	4255	at or under 5 %
+/de/en/744	1440	fleet	4.99		3319	3342	at or under 5 %
+/de/en/seat-maps	1440	fleet	4.87		4894	4877	at or under 5 %
+/de/en/data-collection-usa	390	legal	4.77		7392	7398	at or under 5 %
+/de/en/data-protection-information	1440	legal	7.15	4.75	8000	15805	at or under 5 % on the first 8000 px (www's recording stops there; compare.js counted ours below it as mismatch)
+/de/en/my-logbook	1440	app-entry	4.62		3111	3110	at or under 5 %
+/de/en/my-bookings	1440	app-entry	4.58		3647	3590	at or under 5 %
+/de/en/common	1440	legal	4.49		951	959	at or under 5 %
+/xx/fr/meetings-and-events	1440	?	4.48		3721	3691	at or under 5 %
+/xx/ru/meetings-and-events	1440	?	4.48		3695	3665	at or under 5 %
+/at/de/discover-lufthansa/new-onboard-experience	1440	campaign	26.32	4.47	8000	15411	at or under 5 % on the first 8000 px (www's recording stops there; compare.js counted ours below it as mismatch)
+/de/de/discover-lufthansa/new-onboard-experience	1440	campaign	26.32	4.47	8000	15411	at or under 5 % on the first 8000 px (www's recording stops there; compare.js counted ours below it as mismatch)
+/fr/fr/meetings-and-events	1440	?	4.45		3721	3691	at or under 5 %
+/de/en/terms-of-service-group	1440	legal	4.39		2237	2229	at or under 5 %
+/de/en/data-collection-usa	1440	legal	4.37		5295	5318	at or under 5 %
+/xx/pt/meetings-and-events	1440	?	4.23		3641	3611	at or under 5 %
+/de/en/lufthansa-first-class-fleet	390	fleet	4.22		4241	4269	at or under 5 %
+/xx/es/meetings-and-events	1440	?	4.19		3614	3584	at or under 5 %
+/at/de/meetings-and-events	1440	hub	4.17		3615	3585	at or under 5 %
+/de/de/meetings-and-events	1440	hub	4.17		3615	3585	at or under 5 %
+/de/en/travel-id-terms-conditions	1440	legal	9.64	4.17	8000	9633	at or under 5 % on the first 8000 px (www's recording stops there; compare.js counted ours below it as mismatch)
+/de/en/besondere-befoerderungsbedingungen-bus	1440	legal	10.03	4.16	8000	9258	at or under 5 % on the first 8000 px (www's recording stops there; compare.js counted ours below it as mismatch)
+/at/de/betreuungsbedarf	1440	hub	4.04		5387	5347	at or under 5 %
+/de/de/betreuungsbedarf	1440	hub	4.04		5387	5347	at or under 5 %
+/de/en/flight-search	390	app-entry	4.02		3403	3419	at or under 5 %
+/de/en/meetings-and-events	1440	hub	4.00		3534	3504	at or under 5 %
+/gb/en/meetings-and-events	1440	hub	4.00		3534	3504	at or under 5 %
+/de/en/timetable-and-flight-status	1440	flight-status	3.95		3075	3090	at or under 5 %
+/de/en/faq-password-security	390	legal	3.94		1589	1595	at or under 5 %
+/de/en/passenger-rights	1440	legal	3.91		5804	5818	at or under 5 %
+/at/de/lufthansa-reiseklassen	1440	hub	3.89		3295	3290	at or under 5 %
+/de/de/lufthansa-reiseklassen	1440	hub	3.89		3295	3290	at or under 5 %
+/de/en/lufthansa-travel-classes	1440	hub	3.85		3295	3290	at or under 5 %
+/gb/en/lufthansa-travel-classes	1440	hub	3.85		3295	3290	at or under 5 %
+/de/en/terms-and-conditions-lh	1440	legal	2.78	3.79	8000	20000	at or under 5 % on the first 8000 px (www's recording stops there; compare.js counted ours below it as mismatch)
+/de/en/359	1440	fleet	3.72		3409	3430	at or under 5 %
+/de/en/sepa-terms-and-conditions	390	legal	3.68		2472	2477	at or under 5 %
+/de/en/register-animal-cabin	1440	form	3.65		5508	5544	at or under 5 %
+/de/en/faq-data-security	390	legal	3.60		1550	1556	at or under 5 %
+/de/de/overview-manage	1440	hub	3.51		3311	3327	at or under 5 %
+/de/en/common/imprint/lufthansa-insights-imprint	1440	legal	3.44		2903	2911	at or under 5 %
+/de/en/prepare-for-your-trip/baggage/baggage-conditions	390	legal	3.38		3394	3414	at or under 5 %
+/de/en/anmeldung-tiere-frachtraum	1440	form	3.22		6445	6429	at or under 5 %
+/de/en/cookie-policy	1440	legal	8.54	3.08	8000	9862	at or under 5 % on the first 8000 px (www's recording stops there; compare.js counted ours below it as mismatch)
+/de/en/book-and-manage/cancellation-and-refund/refund/refund-form	1440	form	3.07		3928	3913	at or under 5 %
+/gb/en/special-needs	1440	hub	2.97		5271	5286	at or under 5 %
+/at/de/digital-self-services	1440	hub	2.94		4548	4541	at or under 5 %
+/de/de/digital-self-services	1440	hub	2.94		4548	4541	at or under 5 %
+/gb/en/digital-self-services	1440	hub	2.92		4471	4463	at or under 5 %
+/de/en/articles/highlights	1440	insights	2.91		6838	6844	at or under 5 %
+/de/en/sepa-terms-and-conditions-b	1440	legal	2.90		1902	1900	at or under 5 %
+/gb/en/services-on-board	1440	hub	2.87		2789	2781	at or under 5 %
+/de/en/services-on-board	1440	hub	2.86		2789	2781	at or under 5 %
+/at/de/overview-manage	1440	hub	2.83		3311	3327	at or under 5 %
+/at/de/overview-flights	1440	hub	2.75		2730	2746	at or under 5 %
+/de/de/overview-flights	1440	hub	2.75		2730	2746	at or under 5 %
+/de/en/articles/tags	390	insights	2.75		2469	2476	at or under 5 %
+/de/en/overview-flights	1440	hub	2.75		2703	2719	at or under 5 %
+/gb/en/overview-flights	1440	hub	2.75		2703	2719	at or under 5 %
+/at/de/services-an-bord	1440	hub	2.74		2856	2847	at or under 5 %
+/de/de/services-an-bord	1440	hub	2.74		2856	2847	at or under 5 %
+/gb/en/overview-manage	1440	hub	2.67		3284	3300	at or under 5 %
+/de/en/miles-and-more	1440	hub	2.50		3406	3410	at or under 5 %
+/de/en/overview-travel-information	390	hub	2.50		3950	3957	at or under 5 %
+/at/de/miles-and-more	1440	hub	2.46		3487	3491	at or under 5 %
+/de/de/miles-and-more	1440	hub	2.45		3487	3491	at or under 5 %
+/at/de/overview-special-request	1440	hub	2.43		2781	2773	at or under 5 %
+/de/de/overview-special-request	1440	hub	2.43		2781	2773	at or under 5 %
+/de/en/overview-special-request	1440	hub	2.43		2754	2746	at or under 5 %
+/gb/en/overview-special-request	1440	hub	2.43		2754	2746	at or under 5 %
+/at/de/speisen-und-getraenke	1440	hub	2.40		5112	5114	at or under 5 %
+/de/de/speisen-und-getraenke	1440	hub	2.40		5112	5114	at or under 5 %
+/gb/en/miles-and-more	1440	hub	2.40		3406	3410	at or under 5 %
+/de/en/articles/explore-flying	1440	insights	2.34		5525	5523	at or under 5 %
+/de/en/terms-of-use	1440	legal	2.30		3671	3668	at or under 5 %
+/de/en/food-and-beverages	1440	hub	2.18		5085	5087	at or under 5 %
+/gb/en/food-and-beverages	1440	hub	2.18		5085	5087	at or under 5 %
+/de/en/book-and-manage/booking-services/manage-my-bookings	1440	app-entry	2.17		1422	1425	at or under 5 %
+/de/en/articles/highlights	390	insights	26.43	2.05	8000	9497	at or under 5 % on the first 8000 px (www's recording stops there; compare.js counted ours below it as mismatch)
+/de/en/overview-travel-information	1440	hub	1.82		2840	2842	at or under 5 %
+/at/de/services-am-flughafen	1440	hub	1.45		2849	2851	at or under 5 %
+/de/de/services-am-flughafen	1440	hub	1.44		2849	2851	at or under 5 %
+/de/en/services-at-the-airport	1440	hub	1.36		2822	2824	at or under 5 %
+/gb/en/services-at-the-airport	1440	hub	1.35		2822	2824	at or under 5 %
+/de/en/100-years/history	1440	campaign	8.82	1.24	8000	9520	at or under 5 % on the first 8000 px (www's recording stops there; compare.js counted ours below it as mismatch)
+/de/en/articles/tags	1440	insights	1.14		1986	1988	at or under 5 %
+/de/en/sepa-terms-and-conditions	1440	legal	1.10		1794	1795	at or under 5 %
+/de/en/faq-data-security	1440	legal	1.05		1324	1324	at or under 5 %
+/de/en/faq-password-security	1440	legal	0.98		1330	1330	at or under 5 %
+/at/de/during-your-trip/lounges	1440	?	0.73		5963	5964	at or under 5 %
+/de/de/during-your-trip/lounges	1440	?	0.73		5963	5964	at or under 5 %
+/de/en/during-your-trip/lounges	1440	?	0.72		5910	5911	at or under 5 %
+/gb/en/during-your-trip/lounges	1440	?	0.71		5910	5911	at or under 5 %
+# groups: unsampled 255; at or under 5 % 93; live data 42; live block 18; per page 2

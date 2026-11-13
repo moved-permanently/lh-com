@@ -3797,3 +3797,39 @@ State at the start: nothing of mine unpushed (order 15's final section and its p
   (built importer copies and comparison workspaces), the recordings in /tmp and /tmp/dl-* (the drops' private
   material), logs/wt-ema-test.partial-so11 (an unfinished checkout), content/, content-sites/, migration-work/,
   tools/importer/reports/* (not mine), the 2026-11-07 autostash (not mine). My local preview servers are stopped.
+
+## Standing order 17 (received about 18:10 UTC, 2026-11-13)
+
+1. The nested option as one change (pushed: 15a20246 code, 16592e14 list).
+   - www's businesstogo page rendered offline from b2b-parity-009 (logs/p4/so17/www-render.mjs: the drop's own HTML
+     and CSS under its URL, grey placeholders for pictures, nothing requested) gives www's geometry: a zoom picture
+     keeps 80 px under it (its lightbox button 40, the wrapper 40; ours 40). Picture to heading 85 px on www, 46 ours.
+   - Code (styles/themes/b2b.css): the option equal-cells (from 768 px each shown cell an equal column, an empty
+     cell none: www's col-md-6, text 622 px against our third, 408) and B2B cell spacers N + 1 px as lufthansa.com's.
+     Both are inert until the delta is in: no B2B document had a cell spacer or the option. On all 153 B2B
+     page-widths the code alone changes only lhg-history de/en, from order 16's live delta.
+   - Delta on DA's copies (tools/importer/text-inserts-apply.mjs, plain inserts at anchors found once; without them
+     DA's copy byte for byte): {spacer-39} under the four zoom pictures, www's heading sizes, and on the German pages
+     the outer view, equal-cells and the case study under its own divider. delta-so17-b2b-businesstogo-nested.txt,
+     4 READY: de/de 1440 15.78 -> 14.86, 390 19.02 -> 17.18; xx/de 15.77 -> 14.87, 19.01 -> 17.17; de/en
+     13.53 -> 13.46, 18.05 -> 16.99; xx/en 13.55 -> 13.47, 18.15 -> 17.03. lufthansa-group-airlines unchanged.
+2. lufthansa.com outside the info layout: ranking-so17-lh-com-non-info.txt (410 page-widths of 205 pages on our main
+   host against the lh-parity drops; 317 above 5 %).
+   - Measurement: 86 of www's recordings stop at 8000 px and compare.js pads the shorter image white, so all of ours
+     below 8000 px counted as mismatch. Cut to the same 8000 px they average 13.8 % instead of 20.3 % (8 fall to 5 %
+     or less); the list keeps both numbers. Proposal, not done tonight: measure.sh cuts ours to a recording marked
+     truncated.
+   - Live data (42): the four flights hubs (/de/en/flights, /de/de/fluege, /at/de/fluege, /gb/en/flights, 38-47 %):
+     www's recording shows its fare grid (about 80 destination tiles from its fares API), ours "no results", the API
+     being blocked in captures. Insights articles with a price bar (34): www's sticky fare bar is drawn into the
+     first screen, ours hides it without a fare (about 150 px; the rest of these pages unsampled).
+   - Live blocks without their app or data (18): e.g. culinaryjourney (micro-frontend culinary-hub, blank main in
+     the capture), online-check-in (booking-lookup).
+   - Per page (1): /de/en/overview-manage. Its locale sibling gb/en scores 2.67 / 5.87 against the same recording
+     heights, de/en 20.65 / 39.88; DA's de/en copy has a picture on the Check-in card that www does not show and the
+     option spacious, gb/en's has the cell empty. delta-so17-lh-com-overview-manage.txt READY: 1440 20.65 -> 2.99,
+     390 39.88 -> 5.86 (our published copy with the change rendered locally; as it is it gives the published
+     numbers exactly). No other page has locale siblings more than 8 points apart.
+   - No shared cause in our code found: the remaining 255 page-widths above 5 % (hub 77, campaign 67, legal 38,
+     insights 35, form 14, fleet 12) are ranked with height and first diverging band but not sampled tonight.
+     Sampled 100-years/destinations matches www section by section to 8000 px (12.5 % there).
