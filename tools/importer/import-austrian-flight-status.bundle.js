@@ -5552,7 +5552,7 @@ var CustomImportScript = (() => {
       }
     },
     // Air Dolomiti: the base theme (between B2B's and TAP's entries, next to no switch line)
-    airdolomiti: {},
+    airdolomiti: { live: true },
     // TAP: the base theme (an entry of its own, so its switch is one line as every brand's)
     tap: { live: true },
     // Lufthansa Cargo: the base theme
