@@ -3495,3 +3495,33 @@ tools/importer/test-widgets.mjs, axe runs) are not changed and may do the same; 
   recordings in /tmp and their archives in /tmp/dl-* (the drops' private material), logs/wt-ema-test.partial-so11 (an
   unfinished checkout), content/, migration-work/, tools/importer/reports/* (from before, not mine), the 2026-11-07
   autostash (not mine). My local preview servers are stopped.
+
+## Standing order 13 (received about 05:40 UTC, 2026-11-13)
+
+State at the start: nothing of mine unpushed (order 12's final section, 5683c461, on main); .migration/project.json
+left as it is (yours). The 2026-11-07 autostash left alone.
+
+1. **text-spacers-apply.mjs and b2b-view-spacers-apply.mjs keep DA's escaping byte for byte** (31971681, test first: a
+   fixture with an href's `&amp;`, `&quot;`, `&nbsp;`, `&ndash;`, `&gt;`, an alt's `&lt;`, a comment). Neither needs to
+   write the whole document: each puts one `<p>{spacer-N}</p>` before or after a section's own child. They find the
+   place with linkedom as before and insert into DA's text; tools/importer/source-elements.mjs maps a section's
+   children to their offsets (an attribute value may hold ">"; comments, void and raw-text elements skipped), and
+   where text and tree disagree nothing changes ("not found in the source"). On 64 published copies (order 5's data,
+   their markers taken out): the same results and tree as before, the source kept; the old tools had changed the
+   bytes of 46 of the 48 documents they marked.
+2. **The other tools that open our pages in a browser** (62c00753, test first): tools/parity/guard.mjs (guardContext,
+   GUARD_CONTEXT), capture.js's block for ESM tools: only our hosts (aem.live, aem.page, now also lh-edge's
+   turnsthe.page, localhost) and OneTrust's consent hosts, a web font from PARITY_FONTS, everything else aborted,
+   service workers blocked. Checked in a real browser (offers page: 4 fonts from the drops, www and lh-proxy stopped)
+   and with cargo-render-check on lh-cargo. compare-solo.mjs sits under lh-edge's folder, so the push redeployed
+   lh-edge: its tests (415) passed, the smoke on the 12 hosts before and after, 0 differ.
+   - Changed: tools/importer/cargo-render-check.mjs, ita-shots.mjs, austrian-shots.mjs, pass-widths.mjs,
+     tools/markets/compare-roots.mjs, tools/workers/lh-edge/compare-solo.mjs (lh-edge itself still asks www for what
+     it serves; only the browser is held); tools/parity/capture.js now also guards a capture of a turnsthe.page host.
+   - Left, with the reason: tools/importer/test-widgets.mjs opens no browser (fetch stubbed; my order 12 named it
+     wrongly); tools/importer/offline-importer.mjs's copy of the bulk importer aborts every request already (the
+     stock excat importer is outside the repo); ita-, austrian-, brussels- and swiss-studio.mjs render a snapshot
+     under its URL with JavaScript off and every other request aborted; bd-session.mjs and the *-batch.mjs capture
+     step load the airline's www on purpose (the helper's captures, through Bright Data); tools/market-diff
+     (md-fetch.mjs, md-render-check.mjs, lib/browser.mjs) reads www's pages on purpose. The accessibility runs are
+     scratch scripts of mine in logs/axe, not repo tools; the a11y tests use no browser.
