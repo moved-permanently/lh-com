@@ -3737,3 +3737,39 @@ State at the start: nothing of mine unpushed (order 14's final section on main).
   tools/importer/reports/* (not mine), the 2026-11-07 autostash (not mine). My local preview servers are stopped.
 - Postscript (14:35 UTC): the helper applied the tab delta (8897d6ce); the published xx/en page measures as
   predicted, 390 11.88 %, 2,063 px (www 2,039), its 36 tab sections in place.
+
+## Standing order 16 (received about 15:05 UTC, 2026-11-13)
+
+State at the start: nothing of mine unpushed (order 15's final section and its postscript on main).
+.migration/project.json left alone; Discover's offers page left for the owner.
+
+1. **The nested option from 768 px: HOLD.** The block took --columns-media-cols (3) for every row, so businesstogo
+   de/de's intro and case-study rows (text, a picture, an empty third cell) got thirds, the text 408 px where www's
+   col-md-6 is 622. A rule for the option (each shown cell an equal column, an empty cell none: halves for two,
+   thirds for three) gives www's widths (checked: 622 / 622, the feature row 408 x 3), test first; on all 153 B2B
+   page-widths against a fresh baseline: lufthansa-group-airlines unchanged (its rows are halves already), the two
+   German businesstogo pages 1440 14.40 -> 20.49 and 14.39 -> 20.50, 146 px shorter. Not shipped (patch in
+   logs/p4/so16/held). Why: in the same block our over-tall H2s (four lines in a third, two in a half) had made up
+   for space www has around the pictures: row 1 to the picture row www 120 px / ours 83, picture to its heading
+   85 / 46, the last row to the case study 181 / 83, and the feature H3s on two lines (no size marks in the German
+   documents) where www's take one.
+2. **The phone side: no rule for the option.** lufthansa-group-airlines, the other nested page, already has www's
+   spacing (picture to heading 45 px on both, text to link 29 / 30); businesstogo's www pictures sit in nested
+   picture views with their own padding (picture to heading 85 there). A rule for the option would fit one page and
+   break the other; businesstogo's spacing is its document's shape on www, a per-page delta (cell spacers and the
+   held heading marks), not done today.
+3. **Page-widths more than 5 % off www's height** (fresh baseline on our host; heights, as order 14's 10 % list):
+   Discover none of 48 (the offers page aside). B2B five:
+   - lhg4b-search-prelogin de/de, de/en 390 (+6.6 %): not the page: it is shorter than the screen, and my captures'
+     viewport is 900 px where www's 390 recordings use 844, so both pictures are the viewport. Our footer ends at the
+     page's end; nothing to fix.
+   - about-us/lhg-history de/en 1440 (-5.1 %; de/de -4.9 %): www's title sits in a column view whose marks the
+     collapse dropped (order 8). delta-so16-b2b-lhg-history-title-view.txt with tools/importer/title-view-apply.mjs
+     (7b345189; the test was written before the tool but first run after it): a {column-start-outer} paragraph
+     before the one H1, into DA's text. Simulated on DA's copies (read only): de/en 1440 36.97 -> 27.77, 390 32.95
+     -> 23.97, READY; de/de 1440 35.91 -> 26.97 but 390 7.85 -> 21.36, HOLD (our title a line longer than www's:
+     the long-word decision).
+   - meals-on-board de/en, ch/en 390 (-5.4 %): its first tab item is open on phones (on www too); www's open header
+     and content sit 22 / 23 px lower and each section of the panel 10 px further apart. Its recording (-003) takes
+     390 from a 1440 load resized, so a phone's own first load decides: capture request (be2f1361).
+   - xx/en entertainment-on-board, the order 14 outlier, is +1.2 % now (the tab delta is live).
