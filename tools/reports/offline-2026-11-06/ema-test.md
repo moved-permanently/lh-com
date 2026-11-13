@@ -3314,3 +3314,78 @@ success). Recordings from the drop only; requests only to our own hosts. The 202
 - Not in git and why: logs/p4/so10 (scratch: renders, captures, results, simulations, smoke files), the recordings in
   /tmp, .migration/project.json (the workspace's own), content/, migration-work/, tools/importer/reports/* (from
   before, not mine), the 2026-11-07 autostash (not mine). My local preview servers are stopped.
+
+## Standing order 11 (received about 21:35 UTC, 2026-11-12; resumed 22:30 UTC after the interruption)
+
+State at the start: nothing of mine unpushed (order 10's final section, 06a04d5e, on main). The interruption wiped
+/tmp: the drops downloaded again (logs/p4/so11/fetch-drops.sh: ita-parity-002 / -005, discover-parity-001,
+b2b-parity-001, -003, -004 with the sha256 on record, b2b-parity-006 with none on record; b2b-parity-002's URL is not
+in my transcripts, so its 4 page-widths are left out). The capture request for Discover's offers page (order 11's
+note) pushed: capture-requests-ema-test.txt. The 2026-11-07 autostash left alone.
+
+Found on the way and fixed first: the image's playwright browsers moved from chromium-1208 to chromium-1254 (Chrome
+158) while tools/parity/capture.js named 1208, so PARITY_CHROME=1 failed to launch, and so did its default (the
+repo's playwright-core 1.58 expects its own shell revision). My measuring script compared whatever picture was on
+disk when a capture failed, so a first run after the switch gave old numbers: set aside, and the script now drops the
+old picture first and writes "error" (logs/p4/so11/measure.sh). capture.js finds the installed builds (lib.js
+installedBrowser; 508c37a1, test first, both modes checked with a real capture). Every number below is Chrome 158;
+earlier orders' numbers are not comparable one to one.
+
+1. **ITA's column-view headings on ita-parity-002 / -005.** From each recorded page's html, the column-view headlines in
+   heading-medium or heading-small (77 on 21 pages) that our document has in a Columns Media cell (43 on 11), where a
+   re-import with order 10's markers keeps them. Contact first: its 24 are in DA's copy already (ema-lufthansa's
+   70fda47e), so a re-import changes nothing there; with them 1440 15.70, 390 20.70, without 20.20 / 24.78.
+   reimport-so11-ita-column-view-headings.txt for the other 10 (DA's copy plus the delta, 22 page-widths): 8 READY, 2
+   HOLD (fantasia-lounge 390 +2.01, seats-selection-economy 390 +0.96). A re-import of the two HOLD documents brings
+   their markers too; the list says so.
+   (Where I re-measured a page-width that had not changed since order 10, Chrome 158 gave the same number as 145 to
+   two decimals, so the earlier orders' numbers hold after all.)
+2. **Group for Business** (ranking re-measured on our host: 149 page-widths, mean 12.69 %).
+   - The airline pages' cards 25 px under the title on phones after any view (cfc3d4c1, test first): order 8 had it
+     only after the logo's view; on austrian-airlines', eurowings' and discover-airlines' pages the title follows a
+     text view and www has the same 25 px there. The 21 airline pages at 390: 181.4 -> 108.5 summed, 7 better, none
+     worse.
+   - The panel picture-grid rule (order 10, Discover): none of the 84 recorded B2B pages has a picture grid in an
+     accordion panel (census on our host), so there is nothing for it to change or to measure there; not added.
+   - Discover's phone row gap (below) tried on B2B too: 84 page-widths at 390, none better, 6 worse (japan-joint-venture
+     +6.6, homepage +5.2 / +3.6, alliances +4.1): B2B's views keep their 40 px rhythm; not added.
+   - Looked at, not changed: SWISS Senses start-of-booking at 390, the gap after the section tab set (www 21 px
+     before the second title, ours 48): Allegris' pages have the same tab set with www's 47 px after it, so it is no
+     rule of the tab set; celebrating, lhg-history and businesstogo as in order 8.
+3. **Discover.**
+   - The price calendar's end from 768 px (72de3fff, test first): www's footer 46 px under the flight search, ours
+     20: flight-search de/de 1440 22.13 -> 13.83, de/en 21.16 -> 13.18 (a trial at every width made 390 worse).
+   - On phones a column view right after a text paragraph with an 8 px edge (955590ff, test first): www's view
+     starts about the paragraph's margin under it (Punta Cana 36 px, ours 56). No edge at all: 6 better, 2 worse
+     (customer-service +0.66 / +0.54); 8 px: 6 better, none worse (punta-cana -1.9 / -0.9, entertainment -0.9 / -1.3,
+     families -2.2 / -1.3).
+   - On phones a Columns Media row after a row with a picture starts 26 px under it (b20c5b42, test first): www's
+     stacked column views, ours the block's 66 px row gap. Every row 26 px apart: 4 better, 3 worse (families +3.4
+     / +2.7, customer-service +1.1: rows of two texts); only after a row with a picture: punta-cana 33.90 -> 18.17
+     and 40.74 -> 29.55, entertainment 31.25 -> 26.21 and 21.86 -> 20.09, the rest unchanged.
+   - The offers page: capture request pushed (its recording and ours flip between 2,300 and 20,000 px; it is left out
+     of every gate above).
+   - Tried and dropped: an accordion 40 px under a column view's end (families' text view, then its accordion: www 40
+     px more): 4 better, 7 worse (families de/de 390 +6.3, de/en 390 +5.6, de/de 1440 +4.1); the families panel,
+     the cards after an intro view at 390 and the title margin stay as they are.
+
+## Standing order 11, final section (02:10 UTC, 2026-11-13)
+
+- Item 1 (ITA on ita-parity-002 / -005): contact's markers are in DA already (ema-lufthansa's delta), with them 1440
+  15.70 / 390 20.70 against 20.20 / 24.78 without; reimport-so11-ita-column-view-headings.txt for the other 10
+  documents, 8 READY, 2 HOLD (fantasia-lounge, seats-selection-economy, worse at 390).
+- Item 2 (Group for Business): the airline pages' cards 25 px under the title on phones after any view (the 21
+  airline pages at 390 181.4 -> 108.5); the panel picture-grid rule has nothing to change on B2B's recorded pages;
+  Discover's phone row gap measured worse there.
+- Item 3 (Discover): the price calendar's end (flight-search 1440 -8.3 / -8.0), an 8 px view edge after text on
+  phones, picture rows 26 px apart on phones (punta-cana 390 -15.7 / -11.2, entertainment -5.0 / -1.8).
+- Also: capture.js finds the installed browser builds (the image moved to chromium-1254); the capture request for
+  Discover's offers page is in capture-requests-ema-test.txt.
+- Nothing uploaded, previewed or published; da-upload.mjs not run; no request to any airline host from me (the
+  drops come from R2).
+- Not in git and why: logs/p4/so11 (scratch: renders, captures, results, simulations, the drop fetcher), the
+  recordings in /tmp and their archives in /tmp/dl-*, logs/wt-ema-test.partial-so11 (a checkout the network file
+  system did not finish, set aside), .migration/project.json (the workspace's own), content/, migration-work/,
+  tools/importer/reports/* (from before, not mine), the 2026-11-07 autostash (not mine). My local preview servers
+  are stopped.
+
