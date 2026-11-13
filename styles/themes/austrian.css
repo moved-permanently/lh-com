@@ -1346,6 +1346,14 @@ body.brand-austrian main > .section:not(.space-s, .space-m, .space-l, .space-xl)
   }
 }
 
+/* and on phones the first row of tiles 94 px under the block above (standing order 19: www's first title 128 px under the
+   picture at 390, ours 58) */
+@media (width < 768px) {
+  body.brand-austrian main :not(.cards-icon-text-wrapper) + .cards-icon-text-wrapper > .cards-icon-text.partner:not(:has(.cards-icon-text-body > p)) {
+    margin-top: 94px;
+  }
+}
+
 /* a tab panel on phones (Austrian row 57, standing order 19): www's open panel (maui-tab-control-panel-responsive, an
    accordion below 768 px) puts its content 12 px further in from each side and 24 px more under the open header
    (travel-id at 390: the text 322 px wide, ours 346) */

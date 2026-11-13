@@ -29,3 +29,9 @@ test('from 768 px the tiles as www\'s boxes: 33.5 / 24 / 36 px, the title at the
 test('phones: row 56\'s rules as they were', () => {
   assert.ok(css.includes(`@media (width < 768px) { body.brand-austrian main .cards-icon-text.partner > ul:not(:has(.cards-icon-text-body > p)) { row-gap: 0; } ${LI} { margin-bottom: 56px; }`));
 });
+
+// standing order 19, item 4: on phones the first row 94 px under the block above as well (www: the first title 128 px
+// under the picture at 390, ours 58): accessible-travel 390 -2.52 -> -2.16 %, the other 60 recorded pages unchanged
+test('phones: the first row of tiles 94 px under the block above', () => {
+  assert.ok(css.includes('@media (width < 768px) { body.brand-austrian main :not(.cards-icon-text-wrapper) + .cards-icon-text-wrapper > .cards-icon-text.partner:not(:has(.cards-icon-text-body > p)) { margin-top: 94px; } }'));
+});
