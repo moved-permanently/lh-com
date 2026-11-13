@@ -3667,3 +3667,46 @@ snapshot's live resources is not checked.
   (the drops' private material, b2b-parity-009 among them), logs/wt-ema-test.partial-so11 (an unfinished checkout),
   content/, content-sites/, migration-work/, tools/importer/reports/* (not mine), the 2026-11-07 autostash (not mine).
   My local preview servers are stopped.
+
+## Standing order 15 (received about 13:10 UTC, 2026-11-13)
+
+State at the start: nothing of mine unpushed (order 14's final section on main). .migration/project.json left alone.
+
+1. **The offline bulk importer is the default** (abd3ad6e, test first): tools/importer/bulk-importer.mjs picks it for
+   the eight site importers, discover-import and the info import (import-batch): EXCAT_IMPORT_SCRIPTS when set; the
+   stock importer only with EXCAT_IMPORT_STOCK=1; else the network-blocked copy, built in /tmp/excat-offline when
+   missing, unpatched or older than the stock one, chosen when an import runs (not when a module loads, so tests
+   build nothing). The three SWISS importers loaded strip-scripts.js relative to the stock install, which the copy
+   lacks; they take it from excat-plugin.mjs now, as the others do.
+   Check on 27 recorded pages (3 per importer; discover-import has no snapshots on disk, so it is not sampled):
+   every document byte for byte the same from the offline copy as from the stock importer with only the airline hosts
+   aborted (the closest run the rules allow: logs/p4/so15/noairline-importer.mjs). What only the true stock importer
+   would still have loaded from an airline host on those pages: canonical, modulepreload and prefetch links (nothing
+   that runs or styles), the brands' *-fonts.css (font faces only) and, on one Austrian and one lh-com page, the
+   digital assistant's widget stylesheet; the pages' own styles are inline in the snapshots and their relative
+   resources load in neither (setContent on a blank page).
+2. **xx/en entertainment-on-board's tab set as a delta on DA's copy** (214b7dbf, test first):
+   tools/importer/tab-sections-apply.mjs, delta-so15-b2b-entertainment-tabs.txt, READY; the order 14 re-import row on
+   HOLD, superseded. Per tab the heading it starts at (www's panels); every section of a tab gets DA's tab rows (Tab,
+   Tabs: 1, as de/en's copy writes them); four of DA's sections hold several airlines and are split where a tab
+   starts, the part before keeping a verbatim copy of the section's rows (section 0's Style wide-text twice). On DA's
+   copy (read from DA, nothing written): 37 inserts; without them DA's copy byte for byte; 2,998 DA words before and
+   after; the 14 markets rows, 18 links and 15 pictures (the Austrian FlyNet one among them) kept. Rendered locally:
+   390 15.54 -> 11.88 %, 2,063 px (www 2,039). Found on the way: DA's xx/en copy points its pictures at
+   business.lufthansagroup.com (the published page has them as media, the preview copies them); in my render both
+   copies got the published media paths, so no airline host was asked.
+3. **Where the German businesstogo pages lose their height** (with every held change of order 14 together: heading
+   marks, the outer view, the plain form, the copytext line height). Their feature block is a Columns Media of the
+   option nested (three rows of three cells: the text, then pictures; the English pages' block is not nested):
+   - On phones, around the pictures: www puts every picture in a column view of its own, 40 px above and below it;
+     ours stacks the cells with the block's gaps. First item: footnote to first picture www 80 px, ours 40; picture
+     to picture 80 / 66; last picture to the next title 85 / 46; with the footnote's size (www 13 px, ours 17) -89 px;
+     the next three items -37, -38 and -75 to the case study; the intro to "Lösungen für alle" -44 (the intro view's
+     own end). Together about -250 px: the -242.
+   - From 768 px the nested block's text cell is a third of the row (408 px) where www's is half (622): its two H2s
+     ("Optimieren Sie Ihre Geschäftsreisen", the case study) take four lines instead of two (+76 px each), and the
+     picture rows are shorter (the feature row -52, the last one to the case study -90); the intro to "Lösungen für
+     alle" -65. Net -142.
+   - The only other recorded pages with a nested block are travel-solutions/lufthansa-group-airlines (de/de, de/en),
+     whose rows are 83 px apart from 768 px (the brief after 526, row 36). A fix belongs in the nested option's layout (each picture a
+     view of its own on phones, the text cell half the row from 768 px); measured below if time allowed.
