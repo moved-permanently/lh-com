@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-flight-status.js
-  var tmp_bundle_flight_status_291824_exports = {};
-  __export(tmp_bundle_flight_status_291824_exports, {
-    default: () => tmp_bundle_flight_status_291824_default
+  var tmp_bundle_flight_status_195725_exports = {};
+  __export(tmp_bundle_flight_status_195725_exports, {
+    default: () => tmp_bundle_flight_status_195725_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -2064,6 +2064,19 @@ var CustomImportScript = (() => {
     if (template === "campaign" && run.length === 1 && prev && next && prev.matches(".text")) {
       if (next.matches(".image:not(:has(video, .videoViewer))")) return [infos[0].marker];
       if (next.matches(".carousel")) return [infos[0].marker.replace(/^spacer-\d+/, `spacer-${Math.max(spaces[0] - 24, 0)}`)];
+    }
+    if (flow && prev && !next && prev.matches(".text, .link") && run.every((sep) => separatorInline(sep) !== null)) {
+      const aem = parent.closest(".container-content > .section");
+      if (!aem || aem.querySelector(":scope > .mb-default")) return null;
+      let after = aem.nextElementSibling;
+      while (after && isEmpty(after)) after = after.nextElementSibling;
+      const inner = after && after.matches(".section") ? after.firstElementChild : null;
+      if (!inner || inner.classList.contains("mb-default") || inner.classList.contains("container-gray")) return null;
+      const content = inner.querySelector(":scope > .section-content");
+      if (!content || content.classList.contains("section-padding-y-regular")) return null;
+      const start = content.firstElementChild;
+      if (!start || !start.matches(`${FLOW_COLUMN}, .onecolumn`) || start.querySelector(".container-gray")) return null;
+      return infos.map((i) => i.marker);
     }
     if (prev && !next && prev.matches(".headline")) {
       const aem = parent.closest(".container-content > .section");
@@ -5018,7 +5031,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_flight_status_291824_default = {
+  var tmp_bundle_flight_status_195725_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5058,5 +5071,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_flight_status_291824_exports);
+  return __toCommonJS(tmp_bundle_flight_status_195725_exports);
 })();

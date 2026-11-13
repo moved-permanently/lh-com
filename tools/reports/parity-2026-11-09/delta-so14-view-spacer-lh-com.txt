@@ -1,0 +1,17 @@
+# Standing order 14 (2026-11-13), item 1. Expected change: a {spacer-40} paragraph right before the "Kids Box" column
+# view, nothing else. www ends the AEM section above that view with a 40px separator (.hr-no-layout with an inline
+# margin, which beats www's last-component reset), then starts a new section without .mb-default; the import had dropped
+# separators under 50px there as normal component spacing, so the view sat 40px higher than www's. The importer keeps
+# it since this commit (lufthansa-cleanup missingSeparatorMarkers, info/fleet/legal/app-entry; test/end-separator-so14):
+# of the 914 flow-template snapshots only these four documents have the shape. For DA's copies:
+#   node tools/importer/view-spacer-apply.mjs --data <rows.json> --in <DA copy> --out <file>
+#   rows.json: [{"heading": "Kids Box on European flights", "n": 40}] (en), [{"heading": "Kids Box auf Europaflügen", "n": 40}] (de)
+# Checked on DA's copies of 2026-11-13: placed once in each, nothing else changed (test/view-spacer-so14).
+# Measured as drafts on our host (DA's copy -> with the delta) against the fresh recordings lh-snapshots-115, % off www at
+# 1440 / 390: /de/en/childrens-menus-on-board 13.2 / 16.5 -> 4.3 / 7.7. The other three have no recording; their copies
+# have the same structure at that place (the text, then the view).
+# Columns: status, DA path, the delta, what changes on the page.
+READY	/de/en/childrens-menus-on-board	view-spacer: {spacer-40} before "Kids Box on European flights" (after the "Order now" button)	the Kids Box view and everything below 40px lower, as www's: 13.2 / 16.5 -> 4.3 / 7.7 % off www
+READY	/gb/en/childrens-menus-on-board	view-spacer: {spacer-40} before "Kids Box on European flights"	as de/en (not recorded; the same text-then-view place)
+READY	/de/de/kindermenues-an-bord	view-spacer: {spacer-40} before "Kids Box auf Europaflügen"	as de/en (not recorded; the same text-then-view place)
+READY	/at/de/kindermenues-an-bord	view-spacer: {spacer-40} before "Kids Box auf Europaflügen"	as de/en (not recorded; the same text-then-view place)

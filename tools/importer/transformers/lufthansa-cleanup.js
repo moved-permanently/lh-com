@@ -616,6 +616,23 @@ function missingSeparatorMarkers(run, flow, template) {
     if (next.matches('.image:not(:has(video, .videoViewer))')) return [infos[0].marker];
     if (next.matches('.carousel')) return [infos[0].marker.replace(/^spacer-\d+/, `spacer-${Math.max(spaces[0] - 24, 0)}`)];
   }
+  // info (flow spacing): a separator that ends its AEM section after a text or link component, before a new AEM section
+  // without .mb-default and padding that starts with a column view: its inline margin beats www's last-component reset,
+  // so it stays (standing order 14: /de/en/childrens-menus-on-board "Kids Box on European flights" 40px lower than ours).
+  // Our sections merge there, so "{spacer-N}" lands between the text and the view
+  if (flow && prev && !next && prev.matches('.text, .link') && run.every((sep) => separatorInline(sep) !== null)) {
+    const aem = parent.closest('.container-content > .section');
+    if (!aem || aem.querySelector(':scope > .mb-default')) return null;
+    let after = aem.nextElementSibling;
+    while (after && isEmpty(after)) after = after.nextElementSibling;
+    const inner = after && after.matches('.section') ? after.firstElementChild : null;
+    if (!inner || inner.classList.contains('mb-default') || inner.classList.contains('container-gray')) return null;
+    const content = inner.querySelector(':scope > .section-content');
+    if (!content || content.classList.contains('section-padding-y-regular')) return null;
+    const start = content.firstElementChild;
+    if (!start || !start.matches(`${FLOW_COLUMN}, .onecolumn`) || start.querySelector('.container-gray')) return null;
+    return infos.map((i) => i.marker);
+  }
   if (prev && !next && prev.matches('.headline')) {
     const aem = parent.closest('.container-content > .section');
     if (!aem || !aem.querySelector(':scope > .mb-default')) return null;
