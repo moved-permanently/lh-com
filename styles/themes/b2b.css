@@ -916,3 +916,14 @@ body.brand-b2b main > .section.h1-compact:last-child:has(> .carousel-cards-wrapp
     margin-top: 25px;
   }
 }
+
+/* on phones an H2 right after a picture paragraph in a section's own content 61 px under it, as
+   www's news hubs (the intro picture's end to the H2: www 61, ours the paragraph's 40): the four hubs
+   at 390 -4.3 to -4.8. At 1440 www's gap is the same, but there the hubs' tab set and cards below
+   are 21 px taller than www's and made up for it (with the rule de/de, de/en 1440 +10): not there
+   (standing order 13) */
+@media (width < 768px) {
+  body.brand-b2b.theme-live.flow-spacing main .default-content-wrapper > p:has(> picture):not(.spacer, .divider) + h2 {
+    margin-top: 61px;
+  }
+}
