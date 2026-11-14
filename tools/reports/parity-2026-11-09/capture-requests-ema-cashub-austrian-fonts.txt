@@ -1,0 +1,22 @@
+# Capture requests from ema-cashub (standing order 30, 2026-11-14): the font files www loads for zh, ja, el and ru.
+# Read from the recordings (assets.json and each page's fontsLoaded): /cn/zh, /jp/ja, /gr/el and /ru/ru baggage
+# (austrian-parity-003) and contact (austrian-parity-007), and /ru/ru/homepage (austrian-parity-016).
+# Finding: www loads no font for these scripts. These pages load the same files as every Austrian page (the list below).
+# The recordings already hold all of them, and our served Portada and CoreSans have the same sha256 as www's.
+# Portada and CoreSans have no Greek, Cyrillic or CJK glyphs. www's stacks are "CoreSans|Portada, Arial, Helvetica,
+# MAMMilesSymbol, sans-serif", so on the recording's macOS, Arial drew Greek and Cyrillic and the system fallback
+# (PingFang for zh, Hiragino for ja) drew CJK. This machine has neither: Greek and Cyrillic fall to DejaVu Sans, and it
+# has no CJK font (fc-list :lang=zh is empty).
+# So fetching these URLs will not move the zh / ja / el / ru rows. What would: the fonts that drew the text, which www
+# does not serve. Arial and the macOS fonts are licensed, so that is your call. One option is metric-compatible open
+# fonts for the render machine: Liberation Sans (Arial's metrics) and Noto Sans CJK SC / JP. That is close, not equal.
+# One URL per line, as asked (each under mausy-v1.40.1; -018 loads the same bytes from mausy-v1.41.0):
+https://www.austrian.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/austrian/Portada-Regular.woff2
+https://www.austrian.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/austrian/Portada-Regular.otf
+https://www.austrian.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/austrian/Portada-SemiBold.woff2
+https://www.austrian.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/austrian/Portada-SemiBold.otf
+https://www.austrian.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/austrian/CoreSansRegular.woff2
+https://www.austrian.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/austrian/CoreSansMedium.woff2
+https://www.austrian.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/mmg/LufthansaMAMTextWeb-Regular.woff
+https://www.austrian.com/digitalhangar/design-system/releases/mausy-v1.40.1/standalone/fonts/mmg/LufthansaMAMTextWeb-Bold.woff
+https://www.austrian.com/etc/designs/os/clientlib-all/vite/fonts/os-iconfont.woff2

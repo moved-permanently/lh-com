@@ -1,0 +1,13 @@
+# Capture requests from ema-cashub (standing order 30, 2026-11-14): the help-center pictures finish-austrian.txt holds.
+# The help-center app (help-center-web 4.3.x) draws two pictures, the stage (main.png) and the FAQ card (faq.png), from
+# these absolute URLs on all 12 held pages (24 page-widths): /at/de/contact, /at/de/hilfe-center, /at/en/contact,
+# /at/en/help-center, /cn/zh/contact, /es/es/contact, /fr/fr/contact, /gr/el/contact, /it/it/contact, /jp/ja/contact,
+# /pl/pl/contact, /ru/ru/contact (austrian-parity-003, -006, -007: the same two URLs in every shadow DOM). No recording
+# holds the files (in no archive's assets.json), so our renders use stand-ins (IMGSTUB).
+# Format: URL <tab> DA path in lh-austrian (the brand's media-da folder, as /media-da/austrian/paypal-white.png). The
+# URL host is austrian.com as the app writes it; it may redirect to www.austrian.com. Please keep the file's bytes as
+# served and give its sha256.
+# The app requests the austrian.com URLs itself, so a DA copy does not change what visitors see; it replaces the
+# stand-ins in our renders and is there for a later rewrite of the app's picture URLs (not planned).
+https://austrian.com/content/dam/aua/images/local_images/help-center/main.png	/media-da/austrian/help-center/main.png
+https://austrian.com/content/dam/aua/images/local_images/help-center/faq.png	/media-da/austrian/help-center/faq.png
