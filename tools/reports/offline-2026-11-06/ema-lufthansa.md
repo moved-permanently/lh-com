@@ -4805,3 +4805,50 @@ bar.
   the tested fragment tool; the new tests check the data and the lists.
 - The gate as applied this order: one width closer by more than 0.5 points, and no page further by more than 0.5 (the
   owner's reading in item 1).
+
+## Final section, standing order 16 (2026-11-14, 07:10 to 12:00 CET)
+
+**Commits on main.** Each one: whole-repo `npm run lint` exit 0 before and after the rebase and after every retry rebase;
+stylelint on ita.css when it changed; the full suite 0 failures on the commit and again after a rebase that brought
+commits; the GitHub Build read; the smoke of 14 hosts before and after.
+- 063fc4ac: standing order 15's final commit (6d4e5929), pushed with the push loop. Build success; smoke 0 differences
+  except the at/de sitemap (content).
+- a1087710: columns-wrap-apply.mjs and our-european-fares' row READY by the owner's decision. Suite 4206 / 0, then
+  4219 / 0 after the rebase; Build success; smoke 0 differences except the at/de sitemap.
+- b9b9ea54: ITA rows 52 to 54, the entry-exit-system and flying-with-a-baby delta rows, finish-ita.txt,
+  rows-for-ema-test.md row 9, this order's report section.
+  - Checks: suite 4227 / 0 on the commit, 4227 / 0 after the rebase. The first push was refused; lint and stylelint 0
+    after the retry rebase (onto aa8e3b68, lufthansa.com's card stage), and the second try went through.
+  - Build success; smoke 0 differences except the at/de sitemap.
+  - Served after the push, as drafted: long-haul 1440 3508 (www 3526), short-haul 3517 (www 3511), alghero 2321 (www
+    2328), digital-newsstand 3193 (www 3138); 390 unchanged (4931, 5339, 3549, 4147).
+- This commit: this final section.
+
+**Lists (tools/reports/parity-2026-11-09/):**
+- delta-so15-b2b-european-fares-status-columns.txt (READY, the owner's decision);
+- delta-so16-ita-entry-exit-heading.txt (READY);
+- delta-so16-ita-flying-with-a-baby-spacers.txt (READY);
+- finish-ita.txt: 5 rows READY, the rest explained;
+- finish-b2b.txt: our-european-fares READY;
+- rows-for-ema-test.md row 9 (Group for Business's theme causes, for ema-test).
+
+**Not shipped:**
+- The ITA tab bar rule for every tab set: it took ita-airways-app further (-0.22 -> -1.29 %).
+- A spacer for baggage-and-strollers' empty cell lines: a paragraph in a table cell can't be checked without publishing.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: the lh-tap entry, not mine, left as it is by your rule.
+- `.scratch/` (outside git): DA's copies read today (B2B our-european-fares and travel-management, ITA entry-exit-system
+  and flying-with-a-baby) and the deltas' output; the CSS override folders (the fleet, alghero and eJournals drafts);
+  the measuring scripts, the screenshots' crops and the logs.
+
+**Process:**
+- The ITA commit's first ship (95103370) passed its suite (4224 / 0), but its rebase stopped. At 07:24 UTC
+  `.migration/project.json` was rewritten by another process while the ship's `git stash` reset the tree ("unable to
+  unlink old '.migration/project.json'"), and the script undid the commit with nothing pushed. The file still holds the
+  same lh-tap entry; I didn't touch it, and the second ship (everything in one commit) went through.
+- This final section's first write was refused by the workspace's guard (an append with a here-document chained to the
+  ship); nothing ran, and the section was written as a file edit and shipped on its own.
+- The tests for the two ITA delta rows were written after their lists; both rows reuse the tested fragment tool.
+- Reads only from our hosts, the drop's recordings and DA (GETs from my session, not from tests). No request to an
+  airline host, no da-upload.mjs call, no upload, preview or publish by me.
