@@ -431,19 +431,70 @@ function renderDestination(dest, state, labels, locale, context) {
   return li;
 }
 
+/** The conditions dialog's close button, by the page's language (the compare dialog's wording). */
+const CONDITIONS_CLOSE_LABELS = {
+  en: 'Close',
+  de: 'Schließen',
+  fr: 'Fermer',
+  it: 'Chiudi',
+  es: 'Cerrar',
+  nl: 'Sluiten',
+  pt: 'Fechar',
+  el: 'Κλείσιμο',
+  ja: '閉じる',
+  ru: 'Закрыть',
+  zh: '关闭',
+  pl: 'Zamknij',
+  ko: '닫기',
+};
+let conditionsCount = 0;
+
 /**
- * Conditions authored as a title paragraph plus text: the title becomes a disclosure
- * (the live site opens the text in a dialog from a "Conditions" link button).
+ * Conditions authored as a title paragraph plus text: as on www (.disclaimerandconditions, a
+ * maui-link-button of variant dialog), the title becomes a "Conditions" link button that opens the
+ * text in a modal dialog with the title as its heading and a close button; the text no longer
+ * takes room in the page (standing order 15 of 2026-11-14, item 1).
+ * @param {Element} conditions the conditions wrapper
+ * @param {string} [closeLabel] the close button's label; default by the page's language
  */
-function decorateConditions(conditions) {
+export function decorateConditions(conditions, closeLabel) {
   const [title, ...rest] = [...conditions.children];
   if (!title || !rest.length || title.querySelector('a') || !title.textContent.trim()) return;
-  const details = el('details');
-  const summary = el('summary', 'destination-finder-conditions-toggle', title.textContent.trim());
+  conditionsCount += 1;
+  const id = `destination-finder-conditions-${conditionsCount}`;
+  const label = title.textContent.trim();
+  const toggle = el('button', 'destination-finder-conditions-toggle', label);
+  toggle.type = 'button';
+  toggle.setAttribute('aria-haspopup', 'dialog');
+  toggle.setAttribute('aria-controls', id);
+  const dialog = el('dialog', 'destination-finder-conditions-dialog');
+  dialog.id = id;
+  const heading = el('h2', 'destination-finder-conditions-heading', label);
+  heading.id = `${id}-heading`;
+  dialog.setAttribute('aria-labelledby', heading.id);
+  const close = el('button', 'destination-finder-conditions-close');
+  close.type = 'button';
+  const lang = String((document.documentElement && document.documentElement.lang) || 'en').slice(0, 2);
+  close.setAttribute('aria-label', closeLabel || CONDITIONS_CLOSE_LABELS[lang] || CONDITIONS_CLOSE_LABELS.en);
+  close.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2" fill="none"/></svg>';
   const body = el('div', 'destination-finder-conditions-body');
   body.append(...rest);
-  details.append(summary, body);
-  conditions.replaceChildren(details);
+  const header = el('div', 'destination-finder-conditions-header');
+  header.append(heading, close);
+  dialog.append(header, body);
+  toggle.addEventListener('click', () => {
+    if (typeof dialog.showModal === 'function') dialog.showModal();
+    else dialog.setAttribute('open', '');
+    close.focus();
+  });
+  close.addEventListener('click', () => {
+    if (typeof dialog.close === 'function') dialog.close();
+    else dialog.removeAttribute('open');
+    toggle.focus();
+  });
+  // a click on the backdrop (the dialog itself, outside its content) closes it as well
+  dialog.addEventListener('click', (e) => { if (e.target === dialog) close.click(); });
+  conditions.replaceChildren(toggle, dialog);
 }
 
 /**
@@ -460,7 +511,7 @@ function fillNotes(footer, notes, conditionsData, title) {
   }
   let conditions = notes.querySelector('.destination-finder-conditions');
   const paragraphs = htmlToParagraphs(conditionsData.html);
-  if (paragraphs.length && (!conditions || !conditions.querySelector('details'))) {
+  if (paragraphs.length && (!conditions || !conditions.querySelector('dialog, details'))) {
     const authored = conditions ? conditions.textContent.trim() : '';
     if (authored.length <= 60) {
       if (!conditions) {
