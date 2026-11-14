@@ -796,6 +796,23 @@ main > .section > .breadcrumb-wrapper + .article-header-wrapper {
   margin-top: 19px;
 }
 
+/* an Insights article: the header's section 40px above the body, as www's (8 to 10px less than
+   the section gap; the price bar's empty section between them collapses into it). From 768px
+   also a body section of text and the next one opening with a stacked Columns Media 16px further
+   apart than the section gap (www 67px, ours 51). Standing order 18, the 82 recorded insights
+   page-widths: at 390 25 better, none worse; at 1440 (both rules) 26 better, none worse; the
+   header rule alone at 1440 made 9 worse, the drift the second rule takes away */
+body.brand-lufthansa main:has(.article-header) > .section.full-bleed,
+body.brand-lufthansa main:has(.article-header) > .section.full-bleed + .section.price-bar-container {
+  margin-bottom: 40px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa main:has(.article-header) > .section:has(> .default-content-wrapper:last-child) + .section:has(> .columns-media-wrapper:first-child > .columns-media.stacked) {
+    margin-top: calc(var(--section-gap) + 16px);
+  }
+}
+
 /* lufthansa.com homepage stage (brief 460): www's quick actions row below the stage (empty for a
    guest) ends with a transparent .separator (margin-bottom 30px), so the next section starts 32px
    lower than the section gap at every width (de/en 2026-11-06: "Winter deals" 87px below the stage
