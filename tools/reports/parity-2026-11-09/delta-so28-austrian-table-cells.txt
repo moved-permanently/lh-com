@@ -1,0 +1,21 @@
+# ema-cashub, standing order 28 (2026-11-14): DA rows that keep www's empty paragraphs in the table cells of accessible-travel
+# and bearbeitungsgebuehren, before the 24 px table rule. Expected change: none. No such row can be written, and
+# bearbeitungsgebuehren's cells hold no empty paragraphs at all (order 27 said they did: wrong).
+# - Our pipeline drops empty paragraphs: the ITA page /message-center/details/naples-operational-update/en carries "<p></p><p>..."
+#   in its imported copy, and ita.turnsthe.page and main--lh-ita--moved-permanently.aem.page serve it without them. A cell
+#   "<p></p><p></p><p>ATR72-600 ...</p><p></p><p></p>" would arrive as "ATR72-600 ...". "<p>&nbsp;</p>" survives, but as a full
+#   24 px line, not www's zero-height paragraph with its 10 px margin.
+# - www (austrian-parity-015, laid out offline from the archive): accessible-travel's second table ("Aircraft type | Cargo door",
+#   7 body rows) has five paragraphs per cell, the empty ones 0 px high, each with a 10 px margin below: 20 px more per row
+#   than the text alone (row boxes 92 / 116 px for one / two lines). Its first table has none.
+# - bearbeitungsgebuehren (austrian-parity-003): only the contact table ("Land | Telefonnummer | Öffnungszeiten") is open on load;
+#   its cells hold plain text. The rule takes 48 px off it (3 rows x 16), which is right: the stretch from "Sie haben noch Fragen"
+#   to "Das könnte Sie auch interessieren" is 69 px longer than www's at 1440 (65 at 390). The page gets further with the rule
+#   because it is 80 px short above that table (www's column views, delta-so28-austrian-band-end-rows.txt).
+# The rule measured today with candidate table-os3 (drafts as order 27: so27/rank.sh, a stylesheet added after load; control =
+# live 12,827 / 18,956, 6,144 / 7,412, 3,165 / 4,107 px).
+# Columns: status, page, what, 1440, 390, note.
+
+HOLD	/at/en/accessible-travel	the empty paragraphs in the cargo-door table's cells	-	-	cannot be authored in DA (dropped by the pipeline). Code would be the only way, e.g. a table option that gives body cells www's 10 px above and below the text: +140 px on this page. Not drafted: your decision was rows first
+HOLD	/at/de/bearbeitungsgebuehren	the empty paragraphs	-	-	none on www: nothing to write. The page's own rows are in delta-so28-austrian-band-end-rows.txt (V1 READY, V3 waits for the rule)
+HOLD	(code) styles/themes/austrian.css	the 24 px table rule (order 27, candidate table-os3)	accessible-travel -0.25 -> -1.49 % (12,827 -> 12,667 px); bearbeitungsgebuehren +0.80 -> -0.73 % (with V1 + C live: +0.29 -> -1.24 %); private-check-in-counter +1.81 -> +0.17 % (Turnstile's 71 px left out)	accessible-travel -2.33 -> -3.03 % (18,956 -> 18,821 px); bearbeitungsgebuehren -0.44 -> -1.60 % (with V1 + C live: -0.82 -> -1.99 %); private-check-in-counter +1.65 -> +0.29 %	not shipped: its gate was the empty-paragraph rows, which cannot be written. Shipping it means either accepting accessible-travel's 1.2 points at 1440 and 0.7 at 390 or adding the table option above

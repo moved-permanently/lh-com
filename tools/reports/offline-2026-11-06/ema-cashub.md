@@ -5301,3 +5301,86 @@ draft.sh, mkcand.py, mksf.py, mkba.py, mkere.py, mkerd.py, ba.sh, ere.sh, erd.sh
 incol.py, outline.py, skel.py, wwwheads.py, wwwels.py, crop.mjs, the probes *.js), the candidate stylesheets
 (table-os*.css, fullbleed.css, textend.css, incol*.css, views.css), the drafts (cand/), the baselines, rankings, heading probes,
 screenshots and crops and their logs, and the published copies read from our hosts (pub/).
+
+## Standing order 28 (2026-11-14, from about 07:10 CET)
+
+**Carried over:** nothing of mine was uncommitted or unpushed (main and origin both at `0e8f39f0`). The checkout's 88
+dirty entries (import-progress.json, the urls-*.txt lists, the importer reports, the notifications.css comment line, the
+2026-11-01 autostash) belong to other jobs and were left alone; the same 88 before and after each move of the checkout.
+
+A new baseline of all 242 recorded Austrian page-widths as served (07:10 CET, `0e8f39f0`; consent stored, pictures eager,
+www.* and the airline hosts refused and counted: 2,342 in the pass, none sent). Since order 27's only the rows the helper
+applied moved, each as drafted, plus Turnstile's 71 px on two forms.
+
+### Your three decisions
+
+- **Table cells: no row can be written** (delta-so28-austrian-table-cells.txt, all HOLD).
+  - Our pipeline drops empty paragraphs. The ITA page /message-center/details/naples-operational-update/en has
+    `<p></p><p>...` in its import, and ita.turnsthe.page and aem.page serve it without them. `<p>&nbsp;</p>` survives, but as
+    a 24 px line, not www's zero-height paragraph with its 10 px margin.
+  - **Correction to order 27:** bearbeitungsgebuehren's cells hold no empty paragraphs. Only its contact table is open on load,
+    in plain text. The 24 px rule takes 48 px off it, which is right: that stretch is 69 px longer than www's. The page gets
+    further only because it is 80 px short above the table (www's column views, next item).
+  - accessible-travel's cargo-door table has them: five paragraphs per cell, +20 px a row on www (laid out offline from
+    austrian-parity-015). Only code could draw that (a table option). The rule stays HOLD. Measured today with table-os3:
+    accessible-travel -0.25 -> -1.49 % / -2.33 -> -3.03 %, private-check-in-counter +1.81 -> +0.17 % / +1.65 -> +0.29 %
+    (Turnstile left out).
+- **Grey band end** (delta-so28-austrian-band-end-rows.txt), re-measured with control = live:
+  - doctor-on-board READY: order 27's A1 + A2 + C, unchanged. 1440 -0.02 -> +0.51 % (0.49 further), 390 -1.06 -> -0.65 %.
+  - bearbeitungsgebuehren READY: a column-start on "Auf dem Ticket ausgewiesene Bearbeitungsgebühren" (www's first of three
+    column views), the intro as copytext-large (below) and the band end. 1440 +0.80 -> +0.48 %, 390 -0.44 -> +0.12 %: closer at
+    both widths. A column-start on "Sie haben noch Fragen ..." (www's third view) waits for the table rule. With both, every
+    heading is within 16 px at 1440.
+  - medical-travel-companions skipped: 390 0.51 points further.
+  - The band rule in code stays unshipped, because it would reach medical-travel-companions too.
+- **austrian-app's 150 px above the band: not one clear row, left as you said.** www (austrian-parity-015) nests the top in a
+  view within a view. The 152 px at 1440 is four separate gaps:
+  - 60 px between the stage picture and the first H2 (the two views' padding);
+  - 31 px after the first paragraph (a separator www hides below 768 px; 0 at 390);
+  - 20 px at "How to download directly" (www's separator is taller than our Spacer block);
+  - 31 px (74 at 390) at the image row and the views' ends before the band.
+
+  Each would be its own mark, two of them sized to fit. The rule for the gap after an in-column band stays HOLD.
+
+### Item 1: /at/de/entryregulations at 1440: closer
+
+As served now: 5,705 / 7,618 px, in three identical renders per width (also with lazy pictures, and without consent). That is
+exactly the draft. www (austrian-parity-018) is 5,696 px, so the page went from -22 px (-0.39 %) to +9 px (+0.16 %). The
+stretch from "Länderspezifische Bestimmungen" to "Das könnte Sie auch interessieren" is now 667 px against www's 671 (it was
+636). The headings above are as before (the 14 px at "Länderspezifische" is older).
+
+The +52 comes from your check's "before" figure: all 24 of my renders of the old copy gave 5,674, not 5,650, and your "after"
+(5,702) is within 3 px of mine. Nothing to restore.
+
+### Item 2: Austrian's finish line (finish-austrian.txt)
+
+**The totals:** 242 page-widths on 121 pages, 149 within 2 %. The 93 above sit on 53 pages, each with its status: 5 READY
+(DA rows), 88 HOLD.
+
+| cause | page-widths |
+|---|---|
+| widgets on the homepages: fare teaser, destination finder, flight search; the positive ones are the fare service's fallback deal cards | 39 |
+| blocked pictures: the help-center app's austrian.com pictures on the contact and help-center pages | 24 |
+| fonts for zh, ja, el, ru (baggage) | 8 |
+| widgets elsewhere: bangkok-airways, ski-campaign | 3 |
+| Turnstile's 71 px on the forms; without it within 2 % | 5 |
+| owner decisions: the IFE carousel flag on unterhaltung-an-bord, the cancellation upload widget | 3 |
+| missing recording: 390 rows that are resized 1440 loads | 2 |
+| form-confirmation's own white | 4 |
+
+The 5 READY rows are fly-with-austrian en / de at both widths and accessible-travel at 390. All five stay above 2 %: the
+flight search widget, the resized recording.
+
+**On the way: the intro paragraph** (delta-so28-austrian-intro-copytext.txt).
+- **What is wrong:** on 21 recorded pages www sets 22 paragraphs as p.copytext-large (Portada 18 / 27) that our published
+  copies do not mark. The importer keeps that mark only on paragraphs with a link, and the collapse drops it as body size.
+- **Already right:** the theme's intro-after-h1 rule already draws 16 of the 22.
+- **The rest, as DA rows:** 4 READY (fly-with-austrian en / de, sustainable-flying, accessible-travel's second intro
+  paragraph), all closer at both widths. bearbeitungsgebuehren's mark is in its band row. private-check-in-counter's mark is
+  HOLD: further, the page is already too tall.
+- **Shipped and reverted:** a code rule (`9eb4d876`: the intro after an H1-only section). On the recordings it reached exactly
+  the four pages with that layout, all copytext-large on www. It was live as ranked. Site-wide it reaches 99 of the 2,459
+  Austrian documents. www snapshots on disk for 10 of them split 5 / 5: extra-services, travel-insurances and
+  electronic-devices-and-batteries (three languages) have a plain intro. It is the author's choice, not the layout. Reverted
+  in `0b45b1ac` (on main from about 08:20 to 08:45 CET; the four pages measured back at their baseline), the pages get DA rows instead.
+- **Lesson:** a rule checked only on the recorded documents needs a site-wide reach check before it ships.

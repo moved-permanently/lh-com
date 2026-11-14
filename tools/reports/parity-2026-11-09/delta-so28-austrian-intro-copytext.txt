@@ -1,0 +1,28 @@
+# ema-cashub, standing order 28 (2026-11-14), found on the way to the finish line: www's intro paragraphs (p.copytext-large,
+# Portada 18 / 27) that ours draws as body text (CoreSans 16 / 24). Expected change: fly-with-austrian en 1440 -3.39 -> -2.66 %,
+# 390 -3.60 -> -3.12 %; fly-with-austrian de -3.33 -> -3.14 %, -2.97 -> -2.48 %; sustainable-flying -0.68 -> -0.54 %, -0.20 ->
+# +0.00 %; accessible-travel -0.25 -> -0.20 %, -2.33 -> -2.26 %; bearbeitungsgebuehren's mark is part of its band row
+# (delta-so28-austrian-band-end-rows.txt). No other recorded page-width moves.
+# How: 22 paragraphs on 21 recorded pages are p.copytext-large on www (no link) and unmarked in our published copies. The importer
+# keeps copytext-large only on paragraphs with a link (lufthansa-cleanup.js markParagraphStyles: Lufthansa's copytext-large is
+# its body size), and the collapse drops the mark as within 2 px of Austrian's 16 px body (marker-collapse.mjs, BODY_PX). The
+# theme's rule intro-after-h1 already draws 16 of them (the paragraph right after the H1: drafted with the mark, those pages
+# do not move). Of the 6 left, 4 open the section after an H1-only section and 2 are a second intro paragraph; exclusive-
+# charter's "Address" (a form label) has no paragraph of its own here.
+# A code rule for the first group was shipped and reverted (9eb4d876, reverted in 0b45b1ac): on the recordings it
+# reached exactly these four documents, but site-wide it reaches 99 of the 2,459 Austrian documents, and the www snapshots on
+# disk (parity-517/ws-austrian, parity-570/snapshots) show five of those with a plain intro (extra-services, travel-insurances,
+# electronic-devices-and-batteries at/de, at/en, fr/fr) against five p.copytext-large (bearbeitungsgebuehren, fly-with-austrian
+# en / de, company, sustainable-flying). An author's choice, not a structure: hence DA rows.
+# Measured as drafts from the published copies on austrian.turnsthe.page (so27/rank.sh with a draft folder, so24/host.mjs,
+# EAGER=1 CONSENT=1; control = live; www.* and the airline hosts refused and counted: 10 per fly-with-austrian render, 0 / 1
+# otherwise, none sent).
+# The collapse drops these marks: upload them without it, or check the served copy draws the paragraph at 18 / 27.
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the change, 1440, 390, note.
+
+READY	/at/en/discover/inspiration/fly-with-austrian.html	" {copytext-large}" at the end of the intro paragraph "Travel with Austrian and experience Austrian hospitality. ... on your next trip."	-3.39 -> -2.66 % (4,354 -> 4,387 px, www 4,507)	-3.60 -> -3.12 % (8,383 -> 8,425 px, www 8,696)	the title is alone in its section, so the theme's rule does not reach the intro. Still above 2 %: the flight search band in its no-API state (finish-austrian.txt)
+READY	/at/de/discover/inspiration/fly-with-austrian.html	" {copytext-large}" at the end of the intro paragraph "Reisen Sie mit Austrian und erleben Sie österreichische Gastfreundschaft. ... mit uns abzuheben."	-3.33 -> -3.14 % (4,494 -> 4,503 px, www 4,649)	-2.97 -> -2.48 % (8,843 -> 8,888 px, www 9,114)	as en
+READY	/at/en/sustainable-flying.html	" {copytext-large}" at the end of the paragraph "Together, we can make a difference and reduce your individual flight related CO₂ emissions. ..."	-0.68 -> -0.54 % (4,246 -> 4,252 px, www 4,275)	-0.20 -> +0.00 % (5,917 -> 5,929 px, www 5,929)	the title's section and a dk / no section come before it
+READY	/at/en/accessible-travel.html	" {copytext-large}" at the end of the second paragraph "Our service package for passengers with restricted mobility or sensory perception on direct flights to or from the USA ..."	-0.25 -> -0.20 % (12,827 -> 12,833 px, www 12,859)	-2.33 -> -2.26 % (18,956 -> 18,971 px, www 19,409)	www's intro is two p.copytext-large paragraphs; the theme's rule draws only the first
+HOLD	/at/en/fly/check-in/private-check-in-counter.html	" {copytext-large}" at the end of the second paragraph "Whether you are travelling as part of a club or association ..."	+3.00 -> +3.59 % (Turnstile's 71 px included; without it +1.81 -> +2.40 %)	+2.63 -> +2.92 %	right by www (two intro paragraphs) but the page is already too tall: its table rows (www 24 px a cell, ours 32: the table rule, HOLD) and more. Even with the table rule it moves further (+0.17 -> +0.75 % at 1440). Not traced further
+HOLD	(code) scripts/token-free.js	the intro after an H1-only section as a theme rule	-	-	shipped 9eb4d876 and reverted (see above): wrong on extra-services, travel-insurances and electronic-devices-and-batteries per www's snapshots
