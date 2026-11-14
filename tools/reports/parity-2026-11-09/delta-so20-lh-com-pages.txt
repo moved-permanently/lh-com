@@ -26,14 +26,14 @@ HOLD	/de/de/additional-services	as de/en ("Unterwegs gut versorgt")	1440 5.70 ->
 HOLD	/at/de/additional-services	as de/de	1440 5.70 -> 8.36; 390 6.78 -> 8.80	fix wrong, compensation below at 390
 HOLD	/de/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	{spacer-15} before "Enhance your travel experience" (www 16 / 16 px more)	1440 5.62 -> 6.34; 390 10.56 -> 12.67	compensation above at 390 (+20 px), fix wrong at 1440
 HOLD	/de/en/articles/tags/munich	{spacer-16} before the caption "© Westend61 / Maria Maar" and {spacer-15} before "Insider Tips" (www 17 / 14-17 px more)	1440 15.40 -> 21.76; 390 20.85 -> 23.14	fix wrong: the steps are where the photos meet, not spacing
-HOLD	/de/en/common/privacy-statement/privacy-statement-group	{spacer-35 from-768} and {spacer-34 from-768} before the two addresses	1440 7.11 -> 15.07	fix wrong
-HOLD	/de/en/common/seatreservation-condtions/seat-reservations	{spacer-24 from-768} before "My booking"	1440 7.97 -> 11.76	compensation below (+61 px)
-HOLD	/de/de/100-years/destinations	{spacer-52 from-768} before "Rio de Janeiro"	1440 24.18 -> 27.89	fix wrong (the folder render of the campaign pages differs from the host: 390 37.3 % against 12.4)
-HOLD	/at/de/100-years/destinations	as de/de	1440 24.20 -> 27.92	fix wrong
-HOLD	/de/de/bedeutsamste-strecken	{spacer-53 from-768} before the Dubai list	1440 7.62 -> 10.90	fix wrong
-HOLD	/at/de/bedeutsamste-strecken	as de/de	1440 7.62 -> 10.90	fix wrong
-HOLD	/de/en/frankfurt-fair	{spacer-40 from-768} before the terms note	1440 17.61 -> 19.55	compensation above (+206 px)
-HOLD	/gb/en/frankfurt-fair	as de/en	1440 17.60 -> 19.54	compensation above
-HOLD	/de/en/100-years/crane	{spacer-45 from-768} before "Ultimately, continuity prevails"	1440 25.29 -> 25.89	compensation above (+259 px); de/de, at/de, gb/en the same or within
-HOLD	/de/en/100-years/chronicle	{spacer-35 from-768} before the tabs	1440 15.93 -> 15.81	within 0.5: nothing gained
-HOLD	/de/en/100-years/global-network	{spacer-28 from-768} before the quote	1440 26.94 -> 27.00	within 0.5: nothing gained
+HOLD	/de/en/common/privacy-statement/privacy-statement-group	{spacer-35 from-768} and {spacer-34 from-768} before the two addresses	1440 7.11 -> 15.07	fix wrong; order 21 with the fonts: READY in delta-so21-lh-com-recheck.txt
+HOLD	/de/en/common/seatreservation-condtions/seat-reservations	{spacer-24 from-768} before "My booking"	1440 7.97 -> 11.76	compensation below (+61 px); order 21 with the fonts: READY in delta-so21-lh-com-recheck.txt
+HOLD	/de/de/100-years/destinations	{spacer-52 from-768} before "Rio de Janeiro"	1440 24.18 -> 27.89	fix wrong (the folder render of the campaign pages differs from the host: 390 37.3 % against 12.4); order 21 with the fonts: READY in delta-so21-lh-com-recheck.txt
+HOLD	/at/de/100-years/destinations	as de/de	1440 24.20 -> 27.92	fix wrong; order 21 with the fonts: READY in delta-so21-lh-com-recheck.txt
+HOLD	/de/de/bedeutsamste-strecken	{spacer-53 from-768} before the Dubai list	1440 7.62 -> 10.90	fix wrong; order 21 with the fonts: 1440 2.77 -> 5.44, compensation removed: still HOLD
+HOLD	/at/de/bedeutsamste-strecken	as de/de	1440 7.62 -> 10.90	fix wrong; order 21 with the fonts: 1440 2.77 -> 5.44, compensation removed: still HOLD
+HOLD	/de/en/frankfurt-fair	{spacer-40 from-768} before the terms note	1440 17.61 -> 19.55	compensation above (+206 px); order 21 with the fonts: READY in delta-so21-lh-com-recheck.txt
+HOLD	/gb/en/frankfurt-fair	as de/en	1440 17.60 -> 19.54	compensation above; order 21 with the fonts: READY in delta-so21-lh-com-recheck.txt
+HOLD	/de/en/100-years/crane	{spacer-45 from-768} before "Ultimately, continuity prevails"	1440 25.29 -> 25.89	compensation above (+259 px); de/de, at/de, gb/en the same or within; order 21 with the fonts: 1440 7.84 -> 9.35, compensation removed: still HOLD
+HOLD	/de/en/100-years/chronicle	{spacer-35 from-768} before the tabs	1440 15.93 -> 15.81	within 0.5: nothing gained; order 21 with the fonts: the 1440 capture fails (20,000 px page), 390 8.11 -> 7.45: still HOLD
+HOLD	/de/en/100-years/global-network	{spacer-28 from-768} before the quote	1440 26.94 -> 27.00	within 0.5: nothing gained; order 21 with the fonts: 1440 13.66 -> 13.51, within 0.5: still HOLD

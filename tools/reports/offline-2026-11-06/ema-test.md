@@ -4188,3 +4188,9 @@ State at the start: nothing of mine uncommitted or unpushed (order 20's final se
      know-before-you-go-berlin, florian-tomberg (steps that later boundaries cancel); anniversary-super-crane-special
      (its divider's +25 cancels a 1440-only -31 under the article header); allegris-premium-economy-san-diego (ours 16
      px longer between two headings); 100-years/crane (held in order 20).
+   - Order 20's eleven 1440 rows held after the restart (batch 5, fallback fonts) measured again with the fonts:
+     six are READY in delta-so21-lh-com-recheck.txt (privacy-statement-group 8.53 -> 6.68, seat-reservations
+     9.74 -> 4.93, 100-years/destinations de/de, at/de 12.46 -> 0.77, frankfurt-fair de/en, gb/en 9.96 -> 7.74; 390
+     unchanged on all). bedeutsamste-strecken (de/de, at/de) and crane stay held (compensation removed), global-network
+     (within 0.5) and chronicle (its 1440 capture fails on a 20,000 px page) too; their rows in delta-so20-lh-com-pages.txt
+     say so.

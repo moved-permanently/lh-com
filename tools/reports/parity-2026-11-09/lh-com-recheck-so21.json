@@ -1,0 +1,60 @@
+[
+  {
+    "path": "/de/en/common/privacy-statement/privacy-statement-group",
+    "inserts": [
+      {
+        "before": "<p><a href=\"/de/en/data-protection-information\">To the Lufth",
+        "text": "<p>{spacer-35 from-768}</p>"
+      },
+      {
+        "before": "<p><a href=\"https://www.swiss.com/ch/en/terms-conditions/pri",
+        "text": "<p>{spacer-34 from-768}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/common/seatreservation-condtions/seat-reservations",
+    "inserts": [
+      {
+        "before": "<h2 id=\"my-booking-heading-small\">My booking {heading-small}",
+        "text": "<p>{spacer-24 from-768}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/de/de/100-years/destinations",
+    "inserts": [
+      {
+        "before": "<div class=\"columns-media padded\"><div><div><h2 id=\"rio-de-j",
+        "text": "<p>{spacer-52 from-768}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/at/de/100-years/destinations",
+    "inserts": [
+      {
+        "before": "<div class=\"columns-media padded\"><div><div><h2 id=\"rio-de-j",
+        "text": "<p>{spacer-52 from-768}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/frankfurt-fair",
+    "inserts": [
+      {
+        "before": "<p>* Terms and conditions correspond to published fares<br>\n",
+        "text": "<p>{spacer-40 from-768}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/gb/en/frankfurt-fair",
+    "inserts": [
+      {
+        "before": "<p>* Terms and conditions correspond to published fares<br>\n",
+        "text": "<p>{spacer-40 from-768}</p>"
+      }
+    ]
+  }
+]
