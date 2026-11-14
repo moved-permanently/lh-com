@@ -1,0 +1,10 @@
+{
+  "/it/en/book-and-prepare/travel-information/baggage/electronic-devices-and-batteries": [
+    { "before": "<h2 id=\"travel-safely-with-lithium-batteries\">", "html": "<p>{spacer-32}</p>", "count": 1 },
+    { "before": "<div class=\"section-metadata\"><div><div><p>style</p></div><div><p>column-band, grey</p></div></div><div><div><p>markets</p></div><div><p>-au/en, -be/en, -bg/en, -eg/en, -gh/en, -hr/en, -il/en, -in/en, -mt/en, -mv/en</p></div></div></div></div><div><p>If you would like to bring", "html": "<p>{spacer-13}</p>", "count": 1 },
+    { "before": "<p>If you would like to bring", "html": "<p>{divider-4}</p>", "count": 1 },
+    { "before": "</h3><ul>\n<li>All lithium batteries", "html": " {heading-small}", "count": 1 },
+    { "before": "<p><a href=\"/content/dam/ita/documents/pdf/book-and-prepare/travel-information/baggage/electronic-devices-and-batteries/summary-of-dangerous-goods.pdf\">", "html": "<p>{divider-12}</p>", "count": 1 },
+    { "before": "<h2 id=\"related\">", "html": "<p>{spacer-37}</p>", "count": 1 }
+  ]
+}

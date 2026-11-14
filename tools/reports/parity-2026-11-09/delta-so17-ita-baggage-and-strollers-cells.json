@@ -1,0 +1,10 @@
+{
+  "/it/en/book-and-prepare/other-requests/families-and-children/baggage-and-strollers": [
+    { "from": "<strong>Folding stroller<br></strong>Yes, in the hold", "to": "<strong>Folding stroller</strong><br>Yes, in the hold", "count": 12 },
+    { "from": "<strong>Car seat or infant carrier<br></strong>Yes, in the hold", "to": "<strong>Car seat or infant carrier</strong><br>Yes, in the hold", "count": 4 },
+    { "from": "<th>Light fare and lap seat<br>&nbsp;</th>", "to": "<th><p>Light fare and lap seat</p><p>{spacer-27}</p></th>", "count": 2 },
+    { "from": "<td><strong>Baggage</strong><br>No baggage<br><br><br></td>", "to": "<td><p><strong>Baggage</strong><br>No baggage</p><p>{spacer-54}</p></td>", "count": 2 },
+    { "from": "<td><strong>Baggage</strong><br>1 piece of hand luggage up to 8kg<br><br>&nbsp;</td>", "to": "<td><p><strong>Baggage</strong><br>1 piece of hand luggage up to 8kg</p><p>{spacer-54}</p></td>", "count": 4 },
+    { "from": "<td><strong>Baggage</strong><br>1 carry-on bag up to 8kg<br>1 checked bag up to 23kg<br>&nbsp;&nbsp;<br>&nbsp;</td>", "to": "<td><p><strong>Baggage</strong><br>1 carry-on bag up to 8kg<br>1 checked bag up to 23kg</p><p>{spacer-54}</p></td>", "count": 2 }
+  ]
+}

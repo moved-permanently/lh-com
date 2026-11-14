@@ -1268,3 +1268,13 @@ body.brand-ita .columns-media.padded {
     margin-bottom: 32px;
   }
 }
+
+/* a spacer paragraph in a table cell (ITA row 55; standing order 17, item 1): www's fare cells end with empty lines
+   ("...<br><br><br>"), which publishing drops; DA's copy writes them as "{spacer-54}" after the cell's text
+   (delta-so17-ita-baggage-and-strollers-cells.txt). styles.css sizes spacers in default content only, so in a cell it
+   had none. baggage-and-strollers 1440 4108 -> 4237 (www 4446), 390 7005 -> 7530 (www 7882); no other recorded ITA page
+   has a spacer in a cell */
+body.brand-ita main :is(td, th) > p.spacer {
+  height: var(--spacer-size);
+  margin: 0;
+}
