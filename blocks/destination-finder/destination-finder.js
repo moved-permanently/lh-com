@@ -814,6 +814,50 @@ const GRID_BADGE_LABELS = {
 const GRID_BEST_PRICE_LABELS = { en: 'Best price', de: 'Bestpreis' };
 
 /**
+ * A brand's own offers page on its www site (by the brand's www host): where the grid sends the
+ * visitor when the price call fails (standing order 22: Discover's grid said "we do not offer any
+ * destinations" then, which is wrong). Brands without an entry keep "no results for origin".
+ */
+const OWN_OFFERS_PAGES = { 'www.discover-airlines.com': '/book/flights/offers' };
+const OFFERS_UNAVAILABLE_LABELS = {
+  en: {
+    heading: 'The offers cannot be shown right now',
+    text: 'You will find all current offers on the {BRAND} website:',
+    link: 'To the offers on {HOST}',
+  },
+  de: {
+    heading: 'Die Angebote können gerade nicht angezeigt werden',
+    text: 'Alle aktuellen Angebote finden Sie auf der Website von {BRAND}:',
+    link: 'Zu den Angeboten auf {HOST}',
+  },
+};
+
+/**
+ * The message of a grid whose price call failed (source 'none'), on a brand with its own offers
+ * page: its texts and the link to that page (the page's language root, its query kept), else
+ * null (an answer without offers, lufthansa.com and the other brands: "no results for origin").
+ * @param {{source: string, offers: Array}} loaded the grid's answer
+ * @param {Object|null} brand the page's brand entry (scripts/locale.js brandEntry)
+ * @param {Object} locale getLocale() result
+ * @param {string} [search] the page's query
+ * @returns {{heading: string, text: string, linkText: string, href: string}|null}
+ */
+export function offersUnavailable(loaded, brand, locale, search = '') {
+  if (!brand || !brand.www || loaded.source !== 'none' || loaded.offers.length) return null;
+  const path = OWN_OFFERS_PAGES[brand.www];
+  if (!path) return null;
+  const own = OFFERS_UNAVAILABLE_LABELS[locale.lang] || OFFERS_UNAVAILABLE_LABELS.en;
+  const host = brand.www.replace(/^www\./, '');
+  const fill = (s) => s.replace('{BRAND}', brand.name).replace('{HOST}', host);
+  return {
+    heading: fill(own.heading),
+    text: fill(own.text),
+    linkText: fill(own.link),
+    href: `https://${brand.www}${locale.root ? `/${locale.root}` : ''}${path}${search || ''}`,
+  };
+}
+
+/**
  * Defaults of the grid's strings (the live English labels and German equivalents); the live
  * labels replace them, any authored row of the same name replaces both.
  */
@@ -2066,7 +2110,17 @@ async function decorateGrid(block, uid) {
     shown = 0;
     showMore();
     message.hidden = true;
-    if (!loaded.offers.length) {
+    const unavailable = offersUnavailable(loaded, brand, locale, window.location.search);
+    if (unavailable) {
+      // no answer: not "no destinations", but the brand's own offers page
+      showMessage(unavailable.heading, unavailable.text);
+      const link = el('a', 'destination-finder-message-link', unavailable.linkText);
+      link.href = unavailable.href;
+      const p = el('p');
+      p.append(link);
+      message.append(p);
+      decorateExternalLinks(message);
+    } else if (!loaded.offers.length) {
       showMessage(labels['no results for origin heading'], labels['no results for origin']);
     } else if (!filtered.length) {
       showMessage(labels['no results for filters heading'], labels['no results for filters']);

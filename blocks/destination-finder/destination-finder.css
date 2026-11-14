@@ -1240,3 +1240,8 @@ main > .section > .destination-finder-wrapper:has(> .destination-finder.grid) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
+/* the link to the brand's own offers page when the price call failed (standing order 22) */
+.destination-finder.grid .destination-finder-message p + p {
+  margin-top: 8px;
+}
