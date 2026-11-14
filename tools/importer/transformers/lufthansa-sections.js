@@ -451,6 +451,24 @@ export default function transform(hookName, element, payload) {
         // (not an author quote alone in its AEM section: the cleanup's quote spacers stand for that spacing,
         // first-class-terminal 25.2 -> 27.1 % off www with the split)
         if (!prev || !next || padded(s) || grey(s) || isStage(s) || loneQuote(s) || !s.querySelector(':scope > .mb-default')) return;
+        // (standing order 26) such an unpadded AEM section that holds a grey band after its first component (the
+        // business-class pages: the two-column view "Arrive refreshed on short-haul routes", then the grey band of column
+        // views) after a padded one: the part before the band starts a section of its own, without a style (www draws the
+        // padded section's bottom padding above it; drafts of xx/el split there, against lh-snapshots-117: 25.5 / 27.4 ->
+        // 13.2 / 17.5 % at 1440 / 390; spaced 16.0 / 20.4)
+        const content = s.querySelector(':scope > div > .section-content');
+        const firstBreak = s.querySelector(`hr[${BREAK}]`);
+        if (firstBreak && content && firstBreak.parentElement === content && isGrey(firstBreak) && firstBreak.previousElementSibling
+          && padded(prev) && !grey(prev) && !isStage(prev) && !prev.querySelector(`hr[${BREAK}]`)) {
+          const own = paddedBreaks.get(prev);
+          const stageNeighbour = !own && i >= 2 && isStage(aemSections[i - 2]);
+          if (!own && !stageNeighbour) return;
+          s.before(createBreak(document));
+          if (!own) return;
+          const gap = prev.querySelector(':scope > .mb-default') ? 'spaced' : 'flush';
+          if (!/ (spaced|flush)$/.test(own.getAttribute(SOURCE_STYLE))) own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${gap}`);
+          return;
+        }
         // (not after a stage: its own spacing rules, tips-senior-travellers unmeasured)
         if (!padded(prev) || grey(prev) || isStage(prev) || !padded(next) || grey(next)) return;
         const own = paddedBreaks.get(prev);

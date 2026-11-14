@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-mfe.js
-  var tmp_bundle_mfe_1073603_exports = {};
-  __export(tmp_bundle_mfe_1073603_exports, {
-    default: () => tmp_bundle_mfe_1073603_default
+  var tmp_bundle_mfe_1183500_exports = {};
+  __export(tmp_bundle_mfe_1183500_exports, {
+    default: () => tmp_bundle_mfe_1183500_default
   });
 
   // tools/importer/parsers/micro-frontend.js
@@ -2496,6 +2496,18 @@ var CustomImportScript = (() => {
             return;
           }
           if (!prev || !next || padded(s) || grey(s) || isStage(s) || loneQuote(s) || !s.querySelector(":scope > .mb-default")) return;
+          const content = s.querySelector(":scope > div > .section-content");
+          const firstBreak = s.querySelector(`hr[${BREAK}]`);
+          if (firstBreak && content && firstBreak.parentElement === content && isGrey(firstBreak) && firstBreak.previousElementSibling && padded(prev) && !grey(prev) && !isStage(prev) && !prev.querySelector(`hr[${BREAK}]`)) {
+            const own2 = paddedBreaks.get(prev);
+            const stageNeighbour2 = !own2 && i >= 2 && isStage(aemSections[i - 2]);
+            if (!own2 && !stageNeighbour2) return;
+            s.before(createBreak(document));
+            if (!own2) return;
+            const gap2 = prev.querySelector(":scope > .mb-default") ? "spaced" : "flush";
+            if (!/ (spaced|flush)$/.test(own2.getAttribute(SOURCE_STYLE))) own2.setAttribute(SOURCE_STYLE, `${own2.getAttribute(SOURCE_STYLE)} ${gap2}`);
+            return;
+          }
           if (!padded(prev) || grey(prev) || isStage(prev) || !padded(next) || grey(next)) return;
           const own = paddedBreaks.get(prev);
           const stageNeighbour = !own && i >= 2 && isStage(aemSections[i - 2]);
@@ -3865,7 +3877,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_mfe_1073603_default = {
+  var tmp_bundle_mfe_1183500_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -3905,5 +3917,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_mfe_1073603_exports);
+  return __toCommonJS(tmp_bundle_mfe_1183500_exports);
 })();
