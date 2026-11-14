@@ -1,0 +1,13 @@
+# Standing order 21 (2026-11-14), item 1: rebook's two rows of delta-so20-info-pages-2-lh-com.txt again. Expected change,
+# per document: the section holding "Not sure which applies?" is split right before that heading, the part before keeps
+# its styles (none), the part from the heading on becomes a section with style padded (as www's padded AEM section and as
+# a fresh import writes it). Nothing else of the document changes.
+# Tool: tools/importer/section-split-apply.mjs (the section split tool, not paragraph-spacer-apply), as on main since
+# 5a19c44 (2026-11-14 01:55 UTC). That version takes "before": "" (nothing added to the part before) and any "style",
+# padded included; test/section-split-so18.test.mjs covers this row in DA's format. The version before (81d0558) answers
+# "bad row" for "before": "". That matches the rejection reported, so the helper's copy was older than 5a19c44.
+# Dry run of the main version on the published copies (aem.live, 2026-11-14 04:05 UTC): both rows "placed", 2 lines changed
+# each (the section closed before the heading, a padded section opened). Measured in order 20 as a draft at 1440 / 390:
+# 15.9 / 15.1 -> 10.7 / 14.0, the page as tall as www's. gb/en and at/de have the split already.
+READY	/de/en/book-and-manage/rebook	section-split-apply {"heading": "Not sure which applies?", "before": "", "style": "padded"}	"Not sure which applies?" a padded section of its own
+READY	/de/de/book-and-manage/rebook	section-split-apply {"heading": "Sie sind sich nicht sicher, welche Situation auf Sie zutrifft?", "before": "", "style": "padded"}	as de/en

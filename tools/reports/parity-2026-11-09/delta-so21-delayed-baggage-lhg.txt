@@ -1,0 +1,25 @@
+# Standing order 21 (2026-11-14), item 3: delayed-baggage-lhg's airline-card rows. Expected change, per document: the
+# Columns Media block is split right before the row that opens with "SWISS" and before the row "Lufthansa City"; a
+# {spacer-100} paragraph goes between the blocks, and the two {spacer-100} paragraphs after the block (where the old
+# import put them) are gone. The three blocks keep the block's options (padded). Nothing else of the document changes.
+# Tool: tools/importer/block-split-apply.mjs (new in this order; test/block-split-so21.test.mjs). Apply each document's
+# two rows in this order. A row whose heading is not found, or that finds no {spacer-100} after its block, changes
+# nothing. Importer since 5915ea9: a fresh import writes the same (test/columns-media-kept-spacer-so21).
+# Dry run on the published copies (aem.live, 2026-11-14): 6 documents "placed, placed", 1 block -> 3, 2 spacers -> 2, none
+# at the end; fr/fr has no published copy (404), so its rows stay HOLD until its DA copy can be checked.
+# Measured in order 20 as a draft at 390 / 1440 against www's recordings: 9.1 / 4.0 -> 8.0 / 2.9 % (de/en).
+# Supersedes the HOLD rows of delta-so20-info-pages-3-lh-com.txt for this page.
+READY	/de/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	block-split-apply {"block": "columns-media", "heading": "SWISS", "spacer": "spacer-100"}	the block split at this row, a {spacer-100} moved from after the block into the gap
+READY	/de/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	block-split-apply {"block": "columns-media", "heading": "Lufthansa City", "spacer": "spacer-100"}	the block split at this row, a {spacer-100} moved from after the block into the gap
+READY	/gb/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	block-split-apply {"block": "columns-media", "heading": "SWISS", "spacer": "spacer-100"}	the block split at this row, a {spacer-100} moved from after the block into the gap
+READY	/gb/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	block-split-apply {"block": "columns-media", "heading": "Lufthansa City", "spacer": "spacer-100"}	the block split at this row, a {spacer-100} moved from after the block into the gap
+READY	/de/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	block-split-apply {"block": "columns-media", "heading": "SWISS", "spacer": "spacer-100"}	the block split at this row, a {spacer-100} moved from after the block into the gap
+READY	/de/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	block-split-apply {"block": "columns-media", "heading": "Lufthansa City", "spacer": "spacer-100"}	the block split at this row, a {spacer-100} moved from after the block into the gap
+READY	/at/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	block-split-apply {"block": "columns-media", "heading": "SWISS", "spacer": "spacer-100"}	the block split at this row, a {spacer-100} moved from after the block into the gap
+READY	/at/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	block-split-apply {"block": "columns-media", "heading": "Lufthansa City", "spacer": "spacer-100"}	the block split at this row, a {spacer-100} moved from after the block into the gap
+HOLD	/fr/fr/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	block-split-apply {"block": "columns-media", "heading": "SWISS", "spacer": "spacer-100"}	the block split at this row, a {spacer-100} moved from after the block into the gap
+HOLD	/fr/fr/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	block-split-apply {"block": "columns-media", "heading": "Lufthansa City", "spacer": "spacer-100"}	the block split at this row, a {spacer-100} moved from after the block into the gap
+READY	/xx/fr/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	block-split-apply {"block": "columns-media", "heading": "SWISS", "spacer": "spacer-100"}	the block split at this row, a {spacer-100} moved from after the block into the gap
+READY	/xx/fr/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	block-split-apply {"block": "columns-media", "heading": "Lufthansa City", "spacer": "spacer-100"}	the block split at this row, a {spacer-100} moved from after the block into the gap
+READY	/xx/es/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	block-split-apply {"block": "columns-media", "heading": "SWISS", "spacer": "spacer-100"}	the block split at this row, a {spacer-100} moved from after the block into the gap
+READY	/xx/es/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	block-split-apply {"block": "columns-media", "heading": "Lufthansa City", "spacer": "spacer-100"}	the block split at this row, a {spacer-100} moved from after the block into the gap
