@@ -6054,3 +6054,107 @@ tab pages), a census for a shared block (baggage's card pitch, carousel-cards), 
   and the moved files were checked out, none of them a dirty one.
 
 **Not in git** (scratch under /tmp/so32): the scripts, the drafts, the archives, the census and the logs.
+
+## Standing order 33 (2026-11-14, from about 21:40 CET)
+
+**Carried over:** nothing of mine was uncommitted or unpushed. Order 32's last commit, `df45dee4`, was on origin. The
+checkout's 88 dirty entries belong to other jobs (import-progress.json, the urls-*.txt lists, the importer reports, the
+notifications.css comment line) and were left alone, as was the 1 November autostash.
+
+### Item 1: TAP homepages
+
+Held as you explained: read at the page's end (-1.58 %). Nothing changed; no render needed.
+
+### Item 3: the shared card block site-wide (gate-so33-austrian-two-up-cards.txt)
+
+**The census.**
+- Every brand's published documents: the upload states on origin, nav, footer and fragments left out, 27,713 paths. Each
+  served copy was fetched once from its brand's host: 25,672 served. Of lufthansa.com's paths, 2,041 answer 404 and 22
+  redirect; they are not published there.
+- 5,957 documents use carousel-cards: Austrian 904, lufthansa.com 1,493, ITA 1,303, Brussels 809, SWISS 723,
+  Air Dolomiti 270, B2B 189, TAP 145, Discover 113, Cargo 8.
+
+**The cause is CSS, not fonts.**
+- www's `a.teaser.card` (its own stylesheets, at every width):
+  - the card text 3.2rem 3rem;
+  - the link's 24 px line with 3.6rem under it;
+  - the copy tracked 0.19 px;
+  - the title tracked 0.25 px below 768 px.
+- Ours (row 18): 30 px round, a 25 px link line, the body's 0.05 px.
+- So each card with a link is 7 px short. The tracking is why www's copies wrap a line earlier (baggage's first card: 6
+  lines on www, 5 here). Order 32 put that line down to fonts. That was wrong.
+
+**Card by card.** I compared all 832 Austrian documents with a grid or phone slider against www's newest snapshots,
+matched on the titles:
+- 1,283 cards have the link line on both sides;
+- 31 have it on neither;
+- none has it on ours only;
+- 12 cards on 2 pages are not teasers on www;
+- 74 cards have no snapshot.
+
+**A gap the census found:** 897 cards on 363 documents have www's link line ("To accessible travel") and ours do not. Those
+documents predate the importer's `data-import-cta`. Drafted on the two recorded pages (healthy-travel, os401crewstory),
+the lines move all four page-widths further from www, because those pages are already too tall elsewhere. No row: HOLD,
+for a re-import decision.
+
+**The gate:** the 15 recorded Austrian pages with such cards, both widths, against www.
+- **The whole rule on every grid** brings 20 page-widths closer. fly-with-austrian de 1440 moves into 2 % (-3.14 ->
+  -1.96 %), and en 390 goes from -3.12 to -2.00 %. But 10 page-widths move further, by 4 to 34 px (0.05 to 0.83 points).
+  Your gate rules that out.
+- **The tracking everywhere, the padding on two-up only:** 2 page-widths further. Also ruled out.
+- **Shipped, `7b97c06d`:** all of it on two-up grids only. That is 14 documents (baggage, gepaeck, extra-services ×11,
+  familien, check-in), and every card on them has www's link line. Results:
+  - baggage 390: -2.83 -> -1.08 %;
+  - baggage 1440: -0.90 -> -0.09 %;
+  - gepaeck: the same at both widths.
+  - Nothing else can move: 0 further, 0 out of 2 %.
+  - Live from ~22:42 CET as gated (baggage 6,602, gepaeck 6,683 at 390).
+- The rule is in the Austrian theme, which only Austrian pages load, so no other brand's 4,053 documents with the block
+  can change. They were not rendered.
+
+### Item 2: Austrian's tab sets closed on phones (gate-so33-austrian-tabs-closed.txt)
+
+austrian-parity-020 came from the Captures child: the 390 first loads of austrian-app, online-check-in and
+unterhaltung-an-bord, each its own load (the README has the old resize text again; the manifest is right). None of the
+three opens a tab, and neither does travel-id in -019.
+
+**The rule, `d69365d8`:** brand austrian joins section-tabs.js's CLOSED_BRANDS. A page's "Tabs open" row and a set's
+", open first" still win.
+- **Census:** 110 Austrian documents have tab sets. 109 use the brand's default; travel-id has its own "Tabs open | none".
+  None asks for the first open.
+- **Gate at 390, against the first loads:**
+  - austrian-app: +9.33 -> +0.55 %;
+  - online-check-in: +9.90 -> -1.69 %;
+  - unterhaltung-an-bord: +56.6 -> +5.20 %. What is left is your film-carousel decision.
+  - travel-id: unchanged.
+- **1440:** unchanged to the px.
+- **Live** from ~22:52 CET as gated.
+- The old rows read the 1440 loads resized, with the first tab open. That is why austrian-app and online-check-in looked
+  within 2 %.
+
+### Item 4: the largest widths above 2 %
+
+**Austrian:**
+- The largest rows are widgets: the homepages' fare teaser, destination finder and flight search, and bangkok-airways'
+  booking widget, all on refused APIs. Then the font rows (explained) and the owner rows.
+- The largest the recordings can trace is cancellation-refund 1440 (-2.25 %); see gate-so33-austrian-form-checkbox.txt.
+  - The upload widget is 53 px of it (the owner decision).
+  - The consent label is one line: www's maui-checkbox for theme os is 16 / 20 px with 0.45 px tracking, ours 16 / 24 px
+    with 0.05 px.
+  - About 21 px is www's empty group headline.
+- **A drafted label rule:**
+  - cancellation-refund 1440 goes into 2 % (-1.88 %), and three other form page-widths move closer;
+  - but two 390 rows move further (invoice-request-hungary +0.14 -> -0.42 %, cancellation-refund -8.29 -> -8.49 %), and
+    both read against a resize.
+  - HOLD. Their first loads are requested (capture-requests-ema-cashub.txt).
+
+**Air Dolomiti:**
+- Every row above 2 % is a decision or a widget:
+  - the German FAQ titles (your call, order 30);
+  - the archistar article (left, as you decided);
+  - flug-status and the destination pages' flight search (refused APIs).
+- No row or rule.
+
+**Cargo:**
+- fleet, facts-figures, ebooking-info and the SDG pages are the brand font's wraps (ema-lufthansa's row 49 decision).
+- No row or rule.

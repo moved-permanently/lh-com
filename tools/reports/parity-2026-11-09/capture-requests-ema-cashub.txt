@@ -1,17 +1,18 @@
-# Capture requests from ema-cashub (standing order 32, 2026-11-14, ~20:30 CET). One line per page: the URL (host and path),
+# Capture requests from ema-cashub (standing order 33, 2026-11-14, ~23:10 CET). One line per page: the URL (host and path),
 # the widths, why. Default as you wrote: full height, each width its own first load (no 390 from a resized 1440 load),
 # banner accepted, nothing opened.
-# Settled since order 31, thank you: austrian-parity-019 (the 12 help-center and contact pages, the cn/en tarmac page, the six
-# rows read against resized 390s, it/it form-confirmation), airdolomiti-parity-008 (the IFE page), tap-parity-012 to -014 (the
-# two homepages, unscrolled and scrolled to the end and back). Read in finish-austrian.txt, finish-tap.txt and the delta files
-# of orders 31 and 32.
+# Settled since order 32, thank you: austrian-parity-020 (the 390 first loads of austrian-app, online-check-in and
+# unterhaltung-an-bord). None of the three opens a tab on a phone, as travel-id in -019, so Austrian's tab sets are closed on
+# phones (d69365d8, gate-so33-austrian-tabs-closed.txt). The README still has the old "after a resize" text; the manifest's
+# loadedSeparately is right.
 #
-# Austrian, the tab sets on phones. austrian-parity-019's /at/en/travel-id 390 opens no panel of its tab set on a first load
-# (delta-so32-austrian-travel-id-tabs-closed.txt); the resized 390s kept the 1440 load's first tab open. The three other
-# recorded Austrian pages with a tab set have only resized 390s. Their first loads decide whether "closed on phones" is
-# Austrian's default (one brand rule) or a per-page row.
-https://www.austrian.com/at/en/austrian-app	390	tab set on a phone's first load: open or closed? (its 390 is a resize, -015)
-https://www.austrian.com/at/en/online-check-in	390	tab set on a phone's first load: open or closed? (its 390 is a resize, -017)
-https://www.austrian.com/at/de/unterhaltung-an-bord	390	tab set on a phone's first load: open or closed? (its 390 is a resize, -003; the rows are OWNER)
+# Austrian, the core form's checkbox label (gate-so33-austrian-form-checkbox.txt, HOLD). The drafted rule (www's maui-checkbox
+# label, theme os: 16 / 20 px, 0.45 px tracking, gap 12) brings cancellation-refund 1440 into 2 % and three other form
+# page-widths closer, but two 390 rows read against a resize get further. Their first loads decide it. Please record after
+# Turnstile's check has settled (it draws 71 px about 10 s into a load), or say in the manifest whether it was shown.
+https://www.austrian.com/hu/en/local-page/invoice-request-hungary	390	the form's checkbox labels on a phone's first load (its 390 is a resize, -003)
+https://www.austrian.com/il/en/legal/cancellation-refund-via-document-upload	390	the same (its 390 is a resize, -003; the upload widget row is OWNER)
+https://www.austrian.com/at/en/fly/check-in/private-check-in-counter	390	the same (its 390 is a resize; the table-cell row stays HOLD)
 # Not requested: rows that need www's APIs in our renders (the flight search, fare teasers, destination finder, flight
-# status, TAP's baggage tracker): a capture records www's answers, ours stay refused; and the font rows (explained).
+# status, TAP's baggage tracker): a capture records www's answers, ours stay refused; the font rows (explained); and the
+# owner decisions (unterhaltung-an-bord's film carousel, Air Dolomiti's German FAQ titles, the archistar article).

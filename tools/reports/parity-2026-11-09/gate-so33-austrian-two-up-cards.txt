@@ -1,0 +1,64 @@
+# ema-cashub, standing order 33 (2026-11-14, ~21:40-22:45 CET), item 3: the shared card block (carousel-cards) site-wide, and
+# the rule for baggage 390's 7 px a card. Census: every brand's published documents (the upload states on origin/main, nav,
+# footer and fragments left out: 27,713 paths), each served copy fetched once from its brand's turnsthe.page host (25,672
+# served; 2,041 lufthansa.com paths answer 404 and 22 a redirect, 1 failed: not published there). Documents with carousel-cards:
+#   airdolomiti 270 of 1,563; austrian 904 of 2,271 (grid 459, grid phone-slider 369, plain 72, grid two-up 14 (one also with space-m), grid four-up 2);
+#   b2b 189 of 729; brussels 809 of 1,605; cargo 8 of 978; discover 113 of 557; ita 1,303 of 2,441; lufthansa 1,493 of 9,814;
+#   swiss 723 of 4,661; tap 145 of 1,053. 5,957 documents in all.
+# The cause (www's own CSS, austrian-parity-019's stylesheets): a.teaser.card .card-content padding 3.2rem 3rem, .teaser-link-text
+#   padding 0 2.4rem 3.6rem around a 24 px line, .desc-inline letter-spacing .19px, .teaser-heading .25px (0 from 768 px), at every
+#   width. Ours (row 18): 30 px all round, the link's line 25 px, the text tracked 0.05 px (the body token). Per card with a link
+#   www is 7 px taller (2 above the title, 5 below the link), and its copy wraps earlier (baggage's first card 6 lines, ours 5).
+# The rule is in styles/themes/austrian.css, which only Austrian pages load (scripts/brand.js loads the brand's theme; every
+#   host's pages carry their own brand, austrian only on austrian.turnsthe.page), so no other brand's page can change: their
+#   4,053 documents with the block were not rendered.
+# Card by card (www's newest snapshot of each of the 832 Austrian documents with a grid / phone-slider, austrian-snapshots-001 to
+#   -018, light DOM; ours the served copies; matched on the title; snap-census): LL 1,283 (both with the link line), NN 31
+#   (neither), NL 897 (www's card has its link line, ours does not: the documents predate the importer's data-import-cta;
+#   363 documents), LN 0, X 12 (2 pages: help-flight-irregularities de / en, six cards not teasers on www), no snapshot 74.
+# Gate: the 15 recorded Austrian pages with such cards, both widths (30 page-widths), each rendered as served with origin's
+#   theme (control) and with each version as a code override (so24/host.mjs, CODE=, EAGER=1 CONSENT=1; www.* and the airline
+#   hosts refused and counted, none sent; a failed load, the page no taller than the screen, rendered again).
+#   v2: the whole card rule on every grid / phone-slider picture card. 10 page-widths further from www (4 to 34 px, by 0.05 to
+#     0.83 points), none out of 2 %; 12 closer, fly-with-austrian de 1440 into 2 % (-3.14 -> -1.96 %).
+#   v3: the tracking on every card, the padding on two-up only: 2 further (bearbeitungsgebuehren 390, os401crewstory 1440).
+#   v4 (shipped, 7b97c06d, test/austrian-two-up-teaser-cards-so33.test.mjs): all of it on two-up grids only (14 documents:
+#     baggage / gepaeck, extra-services x11, familien, check-in; every card LL in the census): baggage and gepaeck closer at
+#     both widths, nothing else can move. 0 further, 0 out of 2 %. As served after the push (~22:42 CET): baggage 390 6,602,
+#     gepaeck 390 6,683, as the gate.
+# The NL cards (www's link line missing in ours), drafted on the two recorded pages with them (the line from www's snapshot,
+#   the card's title link; the served copy otherwise): healthy-travel 1440 +0.86 -> +1.72 %, 390 +0.43 -> +1.08 %;
+#   os401crewstory 1440 +1.01 -> +1.76 %, 390 -0.73 -> +1.21 %. All four further from www (the pages are taller elsewhere):
+#   no row, HOLD with the 363 documents for a re-import decision.
+# Columns: path, width, www, control, v2, v3, v4, the page's card kinds (snapshot census).
+/at/de/bearbeitungsgebuehren	1440	3140	3155 (+0.48 %)	3162 (+0.70 %, +7 px) FURTHER	3155 (+0.48 %, +0 px)	3155 (= control, no two-up)	LL 1 NN 1
+/at/de/bearbeitungsgebuehren	390	4125	4130 (+0.12 %)	4164 (+0.95 %, +34 px) FURTHER	4157 (+0.78 %, +27 px) FURTHER	4130 (= control, no two-up)	LL 1 NN 1
+/at/de/discover/inspiration/fly-with-austrian	1440	4649	4503 (-3.14 %)	4558 (-1.96 %, +55 px)	4530 (-2.56 %, +27 px)	4503 (= control, no two-up)	LL 12
+/at/de/discover/inspiration/fly-with-austrian	390	9114	8888 (-2.48 %)	9012 (-1.12 %, +124 px)	8942 (-1.89 %, +54 px)	8888 (= control, no two-up)	LL 12
+/at/de/entryregulations	1440	5696	5705 (+0.16 %)	5712 (+0.28 %, +7 px) FURTHER	5705 (+0.16 %, +0 px)	5705 (= control, no two-up)	LL 3
+/at/de/entryregulations	390	7712	7618 (-1.22 %)	7625 (-1.13 %, +7 px)	7618 (-1.22 %, +0 px)	7618 (= control, no two-up)	LL 3
+/at/de/gepaeck	1440	4319	4280 (-0.90 %)	4315 (-0.09 %, +35 px)	4315 (-0.09 %, +35 px)	4315 (-0.09 %, +35 px)	LL 9
+/at/de/gepaeck	390	6754	6620 (-1.98 %)	6683 (-1.05 %, +63 px)	6683 (-1.05 %, +63 px)	6683 (-1.05 %, +63 px)	LL 9
+/at/de/local-page/feels-like-flying/os401crewstory	1440	7686	7764 (+1.01 %)	7795 (+1.42 %, +31 px) FURTHER	7791 (+1.37 %, +27 px) FURTHER	7764 (= control, no two-up)	NL 3
+/at/de/local-page/feels-like-flying/os401crewstory	390	9982	9909 (-0.73 %)	9948 (-0.34 %, +39 px)	9936 (-0.46 %, +27 px)	9909 (= control, no two-up)	NL 3
+/at/en/accessible-travel	1440	12859	12857 (-0.02 %)	12864 (+0.04 %, +7 px) FURTHER	12857 (-0.02 %, +0 px)	12857 (= control, no two-up)	LL 3
+/at/en/accessible-travel	390	19409	18971 (-2.26 %)	18978 (-2.22 %, +7 px)	18971 (-2.26 %, +0 px)	18971 (= control, no two-up)	LL 3
+/at/en/baggage	1440	4319	4280 (-0.90 %)	4315 (-0.09 %, +35 px)	4315 (-0.09 %, +35 px)	4315 (-0.09 %, +35 px)	LL 9
+/at/en/baggage	390	6674	6485 (-2.83 %)	6602 (-1.08 %, +117 px)	6602 (-1.08 %, +117 px)	6602 (-1.08 %, +117 px)	LL 9
+/at/en/discover/inspiration/fly-with-austrian	1440	4507	4387 (-2.66 %)	4415 (-2.04 %, +28 px)	4387 (-2.66 %, +0 px)	4387 (= control, no two-up)	LL 12
+/at/en/discover/inspiration/fly-with-austrian	390	8696	8425 (-3.12 %)	8522 (-2.00 %, +97 px)	8452 (-2.81 %, +27 px)	8425 (= control, no two-up)	LL 12
+/at/en/entryregulations	1440	5538	5523 (-0.27 %)	5530 (-0.14 %, +7 px)	5523 (-0.27 %, +0 px)	5523 (= control, no two-up)	LL 3
+/at/en/entryregulations	390	7236	7108 (-1.77 %)	7115 (-1.67 %, +7 px)	7108 (-1.77 %, +0 px)	7108 (= control, no two-up)	LL 3
+/at/en/healthy-travel	1440	6614	6671 (+0.86 %)	6644 (+0.45 %, -27 px)	6640 (+0.39 %, -31 px)	6671 (= control, no two-up)	NL 3
+/at/en/healthy-travel	390	8822	8860 (+0.43 %)	8864 (+0.48 %, +4 px) FURTHER	8860 (+0.43 %, +0 px)	8860 (= control, no two-up)	NL 3
+/at/en/online-check-in	1440	4477	4435 (-0.94 %)	4442 (-0.78 %, +7 px)	4435 (-0.94 %, +0 px)	4435 (= control, no two-up)	LL 3
+/at/en/online-check-in	390	5846	5775 (-1.21 %)	5782 (-1.09 %, +7 px)	5775 (-1.21 %, +0 px)	5775 (= control, no two-up)	LL 3
+/at/en/plan/special-requirements/healthy-travel/doctor-on-board	1440	4529	4552 (+0.51 %)	4559 (+0.66 %, +7 px) FURTHER	4552 (+0.51 %, +0 px)	4552 (= control, no two-up)	LL 3
+/at/en/plan/special-requirements/healthy-travel/doctor-on-board	390	5857	5819 (-0.65 %)	5826 (-0.53 %, +7 px)	5819 (-0.65 %, +0 px)	5819 (= control, no two-up)	LL 3
+/at/en/plan/special-requirements/medical-travel-companions	1440	2775	2766 (-0.32 %)	2773 (-0.07 %, +7 px)	2766 (-0.32 %, +0 px)	2766 (= control, no two-up)	LL 2
+/at/en/plan/special-requirements/medical-travel-companions	390	3120	3129 (+0.29 %)	3136 (+0.51 %, +7 px) FURTHER	3129 (+0.29 %, +0 px)	3129 (= control, no two-up)	LL 2
+/at/en/sustainable-flying	1440	4275	4252 (-0.54 %)	4259 (-0.37 %, +7 px)	4252 (-0.54 %, +0 px)	4252 (= control, no two-up)	LL 3
+/at/en/sustainable-flying	390	5929	5929 (+0.00 %)	5936 (+0.12 %, +7 px) FURTHER	5929 (+0.00 %, +0 px)	5929 (= control, no two-up)	LL 3
+/at/en/travel-id	1440	5714	5733 (+0.33 %)	5740 (+0.46 %, +7 px) FURTHER	5733 (+0.33 %, +0 px)	5733 (= control, no two-up)	LL 3
+/at/en/travel-id	390	6190	6062 (-2.07 %)	6069 (-1.95 %, +7 px)	6062 (-2.07 %, +0 px)	6062 (= control, no two-up)	LL 3
+# v2: 10 further or out, 20 closer; v3: 2 further or out, 9 closer; v4: 0 further or out, 4 closer

@@ -1,0 +1,28 @@
+# ema-cashub, standing order 33 (2026-11-14, ~22:30-22:55 CET), item 2: Austrian's tab sets closed on phones (d69365d8,
+# scripts/section-tabs.js: brand austrian in CLOSED_BRANDS; test/austrian-tabs-closed-phones-so33.test.mjs).
+# Evidence: www's 390 first loads (each width its own load, manifest loadedSeparately): austrian-parity-019 /at/en/travel-id,
+#   austrian-parity-020 (recorded 2026-11-14 20:32-20:33 UTC) /at/en/austrian-app, /at/en/online-check-in,
+#   /at/de/unterhaltung-an-bord. In all four www's maui-tab-control-responsive opens no panel (manifest tabItems: open [],
+#   anyOpen false; tab set heights 372 / 135 / 160 px). The README's "390 from the same load after a resize" is the old
+#   template; the manifest is right.
+# Census: Austrian's served documents (austrian.turnsthe.page, the 2,271 of the upload state, fetched 2026-11-14 ~21:50 CET):
+#   110 have tab sets (sections with Tab). 109 follow the brand's default (no "Tabs open" page row, no set option), so they
+#   change below 768 px from the first item open to none. 1 has its own "Tabs open | none" (/at/en/travel-id, order 32's
+#   row): unchanged. No document says "Tabs open | first" or ", open first".
+# From 768 px the sets are tabs (the active tab shown); the phone default is not read there, so 1440 cannot change.
+# Gate: the four recorded Austrian pages with a tab set, both widths, with origin's section-tabs.js (control) and with the
+#   rule, each as a code override (so24/host.mjs CODE=, EAGER=1 CONSENT=1; www.* and the airline hosts refused and counted:
+#   4 a render at most, none sent); the four 390s again as served after the push (~22:52 CET): equal to the rule column
+#   to the px.
+# www at 390 is the first load (the old rows read the 1440 loads resized: austrian-app 6,707, online-check-in 5,846,
+#   unterhaltung-an-bord 3,128, travel-id 6,852; with the first tab open, as ours was).
+# path	width	www	control	rule (= as served)	change
+/at/en/austrian-app	390	6165 (austrian-parity-020)	6740 (+9.33 %)	6199 (+0.55 %)	-541 px
+/at/en/online-check-in	390	5255 (austrian-parity-020)	5775 (+9.90 %)	5166 (-1.69 %)	-609 px
+/at/de/unterhaltung-an-bord	390	1847 (austrian-parity-020)	2892 (+56.58 %)	1943 (+5.20 %)	-949 px; OWNER: the film carousel stays off, DA's note in its place (order 29)
+/at/en/travel-id	390	6190 (austrian-parity-019)	6062 (-2.07 %)	6062 (-2.07 %)	+0 px (its page row "Tabs open | none")
+/at/en/austrian-app	1440	5362 (austrian-parity-015)	5337 (-0.47 %)	5337 (-0.47 %)	+0 px
+/at/en/online-check-in	1440	4477 (austrian-parity-017)	4435 (-0.94 %)	4435 (-0.94 %)	+0 px
+/at/de/unterhaltung-an-bord	1440	2749 (austrian-parity-003)	2368 (-13.86 %)	2368 (-13.86 %)	+0 px; OWNER (as above)
+/at/en/travel-id	1440	5714 (austrian-parity-015)	5733 (+0.33 %)	5733 (+0.33 %)	+0 px
+# 8 page-widths: 3 closer (two into 2 %), 5 unchanged, 0 further.

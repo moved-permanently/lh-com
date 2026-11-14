@@ -1,0 +1,30 @@
+# ema-cashub, standing order 33 (2026-11-14, ~22:55-23:05 CET), item 4: the largest Austrian width above 2 % that the
+# recordings can trace, /il/en/legal/cancellation-refund-via-document-upload 1440 (-2.25 % without Turnstile's 71 px), and a
+# drafted rule for it. HOLD: not shipped.
+# Trace (austrian-parity-003's 1440 load against ours as served, both screenshots of the form's end):
+#   - the upload: www's own widget is 53 px taller than our drop zone (the terms heading 2,124 on www, 2,071 ours): the 390
+#     row's owner decision (design, order 27), so it stays;
+#   - the consent checkbox's label: www's maui-checkbox, theme os (mausy-v1.40.1 austrian.css: .os .label 16 px, line height
+#     20 px, letter-spacing 0.45 px; .checkbox.has-label label gap 12 px), ours the form block's core option (16 / 24 px,
+#     0.05 px, gap 10): www's label takes 3 lines at 1440, ours 2; the rest (about 21 px above the box) is www's empty
+#     h3.form-group-headline over the group, not traced further.
+# Draft (styles/themes/austrian.css, as a code override; Turnstile's challenge subtracted where the load drew it):
+#   body.brand-austrian .form.core .form-option:has(> input[type="checkbox"]) { gap: 12px; line-height: 20px;
+#     letter-spacing: 0.45px; }
+# Gate: the five recorded Austrian pages with a form block, both widths (so24/host.mjs, EAGER=1 CONSENT=1; www.* and the
+#   airline hosts refused and counted, at most 1 a render, none sent). Census: 187 Austrian documents have a form block.
+# path	width	www	control	rule	change
+/at/en/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry	1440	3471	3447 (-0.69 %)	3447 (-0.69 %)	+0 px
+/at/en/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry	390	3808	3791 (-0.45 %)	3791 (-0.45 %)	+0 px
+/at/en/fly/check-in/private-check-in-counter	1440	5965	6073 (+1.81 %)	6073 (+1.81 %)	+0 px
+/at/en/fly/check-in/private-check-in-counter	390	7222 (resized)	7341 (+1.65 %)	7321 (+1.37 %)	-20 px
+/at/en/footer-pages/help-and-contact/bagdamage	1440	5012	4954 (-1.16 %)	4966 (-0.92 %)	+12 px
+/at/en/footer-pages/help-and-contact/bagdamage	390	5788 (-019, first load)	5883 (+1.64 %)	5863 (+1.30 %)	-20 px
+/hu/en/local-page/invoice-request-hungary	1440	3152	3113 (-1.24 %)	3125 (-0.86 %)	+12 px
+/hu/en/local-page/invoice-request-hungary	390	3568 (resized)	3573 (+0.14 %)	3553 (-0.42 %)	-20 px FURTHER
+/il/en/legal/cancellation-refund-via-document-upload	1440	3295	3221 (-2.25 %)	3233 (-1.88 %)	+12 px, into 2 %
+/il/en/legal/cancellation-refund-via-document-upload	390	4040 (resized)	3705 (-8.29 %)	3697 (-8.49 %)	-8 px FURTHER
+# 10 page-widths: 5 closer (one into 2 %), 3 unchanged, 2 further, both against a 390 that is the 1440 load resized (a
+# pointer). At 1440 the label's tracking adds the line www has; at 390 its 20 px lines take back more than the tracking
+# adds. Held until the 390 first loads of invoice-request-hungary and cancellation-refund (capture-requests-ema-cashub.txt)
+# say whether www's 390 is shorter too.
