@@ -4091,3 +4091,14 @@ deploys lh-edge. Order 20 left nothing unpushed. /de/en/overview-manage: no row.
        "Get or redeem a Gift Card". A re-import of the de version would bring them; its top-flush row stays HOLD.
    - Live after the pushes: baggage 5.0 / 1.7, onboard-delights 11.0 / 4.8, lufthansa-express-bus 12.9 / 9.2, as
      measured before the push.
+   - The helper applied four of this order's lists and published them (states 13c0d44, 68dfbed, e52eeed, e4b918b).
+     Live, % at 1440 / 390, all exactly as predicted:
+     - rebook: 10.7 / 14.0, with the tool version on main; item 1 is done.
+     - delayed-baggage-lhg: 2.9 / 8.0.
+     - wetlease-hub: 7.1 / 8.7.
+     - lhg-wifi: 10.3 / 13.5.
+     - involuntary-rebooking: 6.8 / 8.7.
+   - cancellations-and-refunds 1440: 60 px short from its accordion to "This might also be of interest to you" (13.8 ->
+     4.1 with that space injected), right at 390 (worse with it). On www a 20 px separator follows the accordion at the
+     end of its column, so the accordion keeps its bottom margin. Census of the www snapshots: only this page (7
+     documents). Its width-dependent value can't be read without www's CSS: HOLD.
