@@ -1,0 +1,19 @@
+# ema-cashub, standing order 26 (2026-11-14), item 4: Austrian /at/en/plan/special-requirements/healthy-travel/doctor-on-board, the
+# first column view after the picture. Expected change, both widths closer to www: 1440 -0.73 -> -0.02 %, 390 -1.60 -> -1.06 %.
+# DA's copy plus the delta, not a re-import.
+# www (austrian-parity-015): the intro and its picture are components of the AEM section; "Your benefits" opens a onecolumn
+# column view, so the heading sits 68 px under the picture (the picture's 36 px and the view's 32). The import wrote the view
+# as default content: ours 40 px. The same on healthy-travel and medical-travel-companions (both HOLD, below).
+# The delta: " {column-start}" at the end of the H2 "Your benefits", nothing else.
+# Measured as a draft (so24/host.mjs on austrian.turnsthe.page; the published copy as control = live 4,496 / 5,763 px; consent
+# stored, pictures eager; www.* and the airline hosts refused: 1 each, none sent): 4,528 / 5,795 px (www 4,529 / 5,857; www's
+# 390 is the 1440 load resized). A {spacer-27} paragraph gives the same 28 px; the marker is www's structure.
+# A CSS rule for every heading after a picture was ranked and dropped (rank-so26-austrian-next.txt): www's heading after a
+# picture does not always open a view (os401crewstory, private-check-in-counter: 36 px).
+# HOLD: the page moves further from www at one width with the same 28 / 32 px (the excess is elsewhere on the page).
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, 390, 1440.
+
+READY	/at/en/plan/special-requirements/healthy-travel/doctor-on-board.html	" {column-start}" at the end of H2 "Your benefits"	390 -1.60 -> -1.06 %	1440 -0.73 -> -0.02 %
+HOLD	/at/en/healthy-travel.html	" {column-start}" at the end of H2 "Medical flight clearance"	390 +0.75 -> +1.07 % (28 px, the CSS proxy)	1440 +1.47 -> +1.89 % (the page is 97 px long elsewhere: +78 between "Medical travel companions" and "Traveller's thrombosis", +41 after "Keeping medications cool")
+HOLD	/at/en/plan/special-requirements/medical-travel-companions.html	" {column-start}" at the end of H2 "Services at a glance" and <p>{column-end}</p> after its last paragraph (www's view, both ends)	390 +0.29 -> +2.34 % alone; +0.80 % with the grey band end (HOLD, rank-so26-austrian-next.txt)	1440 -0.32 -> +2.02 % alone; +0.25 % with the grey band end
+HOLD	/at/en/austrian-app.html	" {column-start}" at the end of H2 "With the Austrian app you have" (www: a view nested in a view)	390 +0.49 -> +0.91 % (the CSS proxy)	1440 -0.47 -> +0.06 %
