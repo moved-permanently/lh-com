@@ -46,5 +46,41 @@
     "text": "<p>{spacer-30}</p>"
    }
   ]
+ },
+ {
+  "path": "/de/en/common/agb-extra-services-at-online-check-in",
+  "inserts": [
+   {
+    "before": "<ul>\n<li>Flight cancellations</li>\n<li>Involuntary rebooking",
+    "text": "<p>{spacer-24}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/business-terms-and-conditions",
+  "inserts": [
+   {
+    "before": "<ul>\n<li>You grant permission to the Deutsche Lufthansa AG, ",
+    "text": "<p>{spacer-25}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/data-protection-information",
+  "inserts": [
+   {
+    "before": "<h3 id=\"representative-in-switzerland\">Representative in Swi",
+    "text": "<p>{spacer-26}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/pre-check-in",
+  "inserts": [
+   {
+    "before": "<p><a href=\"/de/en/check-in-deadlines\">Find out whether your",
+    "text": "<p>{spacer-33}</p>"
+   }
+  ]
  }
 ]

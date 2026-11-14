@@ -6,8 +6,20 @@ READY	/de/en/feedback/feedbackai	{spacer-134} in the empty section (www keeps ab
 READY	/de/en/feedback	{spacer-33} after each of the four links before a heading (www 31 to 39 px more there at both widths)	1440 13.34 -> 2.51; 390 16.64 -> 8.46	2 better
 READY	/de/en/data-collection-canada	{spacer-30} before "This might also be of interest to you" (www 47 / 22 px more)	1440 11.86 -> 9.53; 390 13.38 -> 9.74	2 better
 READY	/de/en/100-years/fleet	{spacer-30} before "Focke-Wulf A 17a Möwe" (www 33 / 28 px more)	1440 13.86 -> 12.37; 390 8.59 -> 8.60	1 better, 1 within
+READY	/de/en/common/agb-extra-services-at-online-check-in	{spacer-24} before the "Flight cancellations" list (www 26 / 23 px more)	1440 5.72 -> 3.77; 390 11.58 -> 10.19	2 better
+READY	/de/en/business-terms-and-conditions	{spacer-25} before the "You grant permission" list (www 26 / 27 px more)	1440 6.79 -> 2.58; 390 9.05 -> 5.13	2 better
+READY	/de/en/data-protection-information	{spacer-26} before "Representative in Switzerland" (www 27 / 27 px more)	1440 4.75 -> 4.81; 390 8.52 -> 5.42	1 better, 1 within
+READY	/de/en/pre-check-in	{spacer-33} before "Find out whether your departure airport" (www 36 / 32 px more)	1440 6.02 -> 3.34; 390 7.37 -> 4.99	2 better
 HOLD	/de/en/common/compensation-voucher	{spacer-16} before each numbered heading (www 22 to 26 px more at 390, 6 to 20 at 1440)	1440 6.89 -> 16.05; 390 13.38 -> 10.44	fix wrong at 1440: the gaps differ per width
 HOLD	/de/en/100-years/history/menu-on-board	{spacer-29} before "The table settings" (www 31 / 29 px more)	1440 14.66 -> 2.43; 390 10.79 -> 17.16	compensation removed at 390: ours 30 px long above it at 390 only
 HOLD	/de/en/100-years/cabin-design	{spacer-14} before "The Senator Service was also transferred" (www 14 / 16 px more)	1440 7.68 -> 9.22; 390 15.08 -> 16.26	fix wrong: the spacer adds more than the step
 HOLD	/de/de/flughafeninformation	{spacer-20} before "Zahlungsmöglichkeiten am Flughafen" (www 21 / 21 px more)	1440 5.11 -> 3.21; 390 24.73 -> 25.33	compensation removed at 390: the H1's extra line on phones (project rule) above it
 HOLD	/at/de/flughafeninformation	{spacer-20} before "Zahlungsmöglichkeiten am Flughafen"	1440 5.11 -> 3.21; 390 24.73 -> 25.33	as de/de
+HOLD	/de/en/additional-services	{spacer-9} before "Well looked after on your trip" (www 10 / 10 px more)	1440 5.77 -> 8.46; 390 6.63 -> 8.69	fix wrong: the spacer at a section's start adds more than its size
+HOLD	/gb/en/additional-services	as de/en	1440 5.77 -> 8.46; 390 6.64 -> 8.69	fix wrong
+HOLD	/de/de/additional-services	as de/en ("Unterwegs gut versorgt")	1440 5.70 -> 8.36; 390 6.79 -> 8.80	fix wrong, compensation below at 390
+HOLD	/at/de/additional-services	as de/de	1440 5.70 -> 8.36; 390 6.78 -> 8.80	fix wrong, compensation below at 390
+HOLD	/de/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	{spacer-15} before "Enhance your travel experience" (www 16 / 16 px more)	1440 5.62 -> 6.34; 390 10.56 -> 12.67	compensation above at 390 (+20 px), fix wrong at 1440
+HOLD	/de/en/seat-maps	{spacer-23} before "Boeing" (www 25 / 24 px more)	1440 4.88 -> 3.41; 390 7.44 -> 8.75	compensation above at 390 (+18 px)
+HOLD	/de/en/airport-information	{spacer-20} before "Payment options at the airport" (www 20 / 21 px more)	1440 5.38 -> 3.76; 390 5.65 -> 6.53	compensation above at 390 (+30 px)
+HOLD	/gb/en/airport-information	as de/en	1440 5.38 -> 3.76; 390 5.67 -> 6.55	compensation above at 390
