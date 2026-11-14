@@ -11,8 +11,13 @@
  * .plain.html. A row whose heading is not found, is found more than once, opens its section, or whose section is split
  * there already, changes nothing. Everything else stays byte for byte.
  *
+ * A row may name a block instead ({block, heading, before, style}; standing order 25, the business-class pages): the
+ * section is split right before its direct-child block whose class list starts with `block` and whose first heading
+ * starts with `heading`. Such a row may give style "" (the part from the block on gets no style).
+ *
  * Usage: node tools/importer/section-split-apply.mjs --data rows.json --in <DA copy.html> --out <file>
  *   rows.json: [{ "heading": "Travelling with a companion.", "before": "flush", "style": "spaced" }]
+ *   or [{ "block": "columns-media", "heading": "Arrive relaxed", "before": "", "style": "" }]
  * Reads and writes local files only; the upload is the import helper's.
  */
 import fs from 'node:fs';
@@ -57,16 +62,44 @@ function childHeadings(body) {
   return out;
 }
 
+/** The direct-child blocks of a section's body whose class list starts with `name`: [{ at, text }] (text: the
+ * block's first heading). */
+function childBlocks(body, name) {
+  const out = [];
+  const re = /<(\/?)(div|h[1-6])\b([^>]*)>/g;
+  let depth = 0;
+  let cur = null;
+  for (let m = re.exec(body); m; m = re.exec(body)) {
+    if (m[2] === 'div') {
+      if (!m[1]) {
+        depth += 1;
+        const cls = (m[3].match(/class="([^"]*)"/) || [])[1] || '';
+        if (depth === 2 && cls.split(/\s+/)[0] === name) cur = { at: m.index, text: null };
+      } else {
+        depth -= 1;
+        if (depth === 1 && cur) { out.push(cur); cur = null; }
+      }
+    } else if (!m[1] && cur && cur.text === null) {
+      const close = body.indexOf(`</${m[2]}>`, m.index);
+      cur.text = text(body.slice(m.index, close));
+    }
+  }
+  return out.map((b) => ({ ...b, text: b.text || '' }));
+}
+
 /** The document with the rows' splits: { html, results: [{ row, result }] }. */
 export function applySectionSplit(html, rows) {
   let out = html;
   const results = rows.map((row) => {
-    if (!['flush', 'spaced', ''].includes(row.before || '') || !row.style) return { row, result: 'bad row' };
+    if (!['flush', 'spaced', ''].includes(row.before || '')) return { row, result: 'bad row' };
+    if (row.block !== undefined && !/^[a-z0-9-]+$/.test(row.block)) return { row, result: 'bad row' };
+    if (!row.style && !(row.block && row.style === '')) return { row, result: 'bad row' };
+    const own = row.style ? [row.style] : [];
     const before = row.before ? [row.before] : [];
     const main = out.indexOf('<main>');
     const from = main >= 0 ? main + 6 : 0;
     const to = main >= 0 ? out.indexOf('</main>', from) : out.length;
-    const hits = sections(out, from, to).flatMap((s) => childHeadings(out.slice(s.start, s.end))
+    const hits = sections(out, from, to).flatMap((s) => (row.block ? childBlocks(out.slice(s.start, s.end), row.block) : childHeadings(out.slice(s.start, s.end)))
       .filter((h) => h.text.startsWith(row.heading)).map((h) => ({ s, h })));
     if (!hits.length) return { row, result: 'not found' };
     if (hits.length > 1) return { row, result: 'found more than once' };
@@ -86,19 +119,19 @@ export function applySectionSplit(html, rows) {
       const metaAt = body.lastIndexOf(m[0]);
       const firstStyles = [...styles, ...before];
       first = `${body.slice(0, at)}${firstStyles.length ? meta(firstStyles) : ''}</div>\n`;
-      second = `<div>${body.slice(at, metaAt)}${meta([row.style])}${body.slice(metaAt + m[0].length)}`;
+      second = `<div>${body.slice(at, metaAt)}${own.length ? meta(own) : ''}${body.slice(metaAt + m[0].length)}`;
     } else if (main >= 0) {
       // DA's format, a section without styles: the part before as it is, the rest a section with its own block
       if (before.length) first = `${body.slice(0, at)}${meta(before)}</div>\n`;
       else first = `${body.slice(0, at)}</div>\n`;
       const close = body.lastIndexOf('</div>');
-      second = `<div>${body.slice(at, close)}${meta([row.style])}${body.slice(close)}`;
+      second = `<div>${body.slice(at, close)}${own.length ? meta(own) : ''}${body.slice(close)}`;
     } else {
       const cls = open.match(/class="([^"]*)"/);
       const styles = cls ? cls[1].split(/\s+/).filter(Boolean) : [];
       const firstStyles = [...styles, ...before];
       first = `${firstStyles.length ? `<div class="${firstStyles.join(' ')}">` : '<div>'}${body.slice(open.length, at).replace(/\s*$/, '\n')}</div>\n`;
-      second = `<div class="${row.style}">\n${body.slice(at)}`;
+      second = `${own.length ? `<div class="${row.style}">` : '<div>'}\n${body.slice(at)}`;
     }
     out = `${out.slice(0, s.start)}${first}${second}${out.slice(s.end)}`;
     return { row, result: 'placed' };
@@ -110,5 +143,5 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   const arg = (k) => { const i = process.argv.indexOf(`--${k}`); return i > 0 ? process.argv[i + 1] : undefined; };
   const r = applySectionSplit(fs.readFileSync(arg('in'), 'utf8'), JSON.parse(fs.readFileSync(arg('data'), 'utf8')));
   fs.writeFileSync(arg('out'), r.html);
-  r.results.forEach(({ row, result }) => console.log(`${row.heading} (${row.before} | ${row.style}): ${result}`));
+  r.results.forEach(({ row, result }) => console.log(`${row.block ? `${row.block} ` : ''}${row.heading} (${row.before} | ${row.style}): ${result}`));
 }
