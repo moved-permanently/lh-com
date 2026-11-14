@@ -28,6 +28,11 @@
  * document-coordinate boxes of live-data widgets and of video stages
  * (LIVE_SELECTORS) to <out>.json "liveBoxes"; compare.js --mask paints them out. "contentBoxes":
  * main's sections, elements and block items (compare.js names the drift's largest step by them).
+ * PARITY_ANSWERS=<file>: Discover's offers grid's price call (www.lufthansa.com destinationfinder
+ *   FRA/E, months 0_11, RETURN, X-Portal FOUR_Y; lib.js ANSWERABLE) and its preflight answered
+ *   from a recorded answer (a plain file or a HAR), every other airline request still refused;
+ *   never the 21 October recording (data/recorded/ or 2026-10-21: refused). <out>.json
+ *   "recordedAnswers": the file, its recording dates and how often the call was answered.
  */
 const started = Date.now();
 process.env.PLAYWRIGHT_BROWSERS_PATH ||= '/ms-playwright';
@@ -36,7 +41,7 @@ const path = require('path');
 const { chromium } = require('playwright-core');
 const {
   DEFAULT_STATE, getArgs, mkdirp, writeJsonAtomic, appendJsonl, rmSafe, installedBrowser,
-  ownHostFilter, mirroredFont,
+  ownHostFilter, mirroredFont, loadRecordedAnswers, recordedAnswer,
 } = require('./lib.js');
 
 // PARITY_CHROME=1 (or a path): the full chrome build instead of playwright's headless shell,
@@ -51,6 +56,16 @@ const SHELL = installedBrowser('chromium_headless_shell', 'chrome-headless-shell
 // a capture of our pages never reaches an airline host (standing order 12); the web fonts it
 // would load from one come from these directories (":"-separated: recording drops, www's paths)
 const FONT_DIRS = (process.env.PARITY_FONTS || '').split(':').filter(Boolean);
+// PARITY_ANSWERS=<file>: the one airline call a capture may have answered from a recording, the
+// offers grid's price call (lib.js ANSWERABLE; standing order 22): today's answer as the Captures
+// child recorded it, never the 21 October recording (loadRecordedAnswers throws for it)
+const ANSWERS_FILE = process.env.PARITY_ANSWERS || '';
+const ANSWERS = ANSWERS_FILE ? loadRecordedAnswers(ANSWERS_FILE) : null;
+const answered = {
+  file: ANSWERS_FILE || null,
+  recordedAt: ANSWERS ? ANSWERS.map((a) => a.recordedAt) : [],
+  served: 0,
+};
 
 const USAGE = 'node tools/parity/capture.js --url <url> --width <px> --out <png> [--content-width px] [--timeout 90000] [--max-height 8000] [--state dir]';
 const VIEWPORT_HEIGHT = 900;
@@ -469,6 +484,14 @@ async function main() {
   // (a web font from the airline's www: www's file from PARITY_FONTS, the recording drops)
   if (allowHost) {
     await context.route((u) => !allowHost(u), (route) => {
+      const request = route.request();
+      const answer = recordedAnswer({
+        url: request.url(), method: request.method(), headers: request.headers(),
+      }, ANSWERS);
+      if (answer) {
+        if (request.method() === 'GET') answered.served += 1;
+        return route.fulfill(answer);
+      }
       const font = mirroredFont(new URL(route.request().url()), FONT_DIRS);
       return font ? route.fulfill({ path: font, headers: { 'Access-Control-Allow-Origin': '*' } })
         : route.abort('blockedbyclient');
@@ -542,6 +565,7 @@ async function main() {
     truncated: metrics.scrollHeight > maxHeight,
     cookieDialog: cookie,
     waits,
+    ...(ANSWERS ? { recordedAnswers: answered } : {}),
     capturedAt: new Date().toISOString(),
     ...metrics,
     liveSelectors: LIVE_SELECTORS,

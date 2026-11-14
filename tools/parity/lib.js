@@ -147,8 +147,115 @@ function mirroredFont(u, dirs) {
   return found || null;
 }
 
+/**
+ * The one airline call a capture of our pages may have answered from a recording (standing order
+ * 22): Discover's offers grid's price call, www.lufthansa.com's destinationfinder FRA/E for
+ * months 0_11, RETURN, under X-Portal FOUR_Y. Every other request to an airline host stays
+ * refused.
+ */
+const ANSWERABLE = {
+  host: 'www.lufthansa.com',
+  path: '/service/api/destinationfinder/destination/finder/FRA/E',
+  query: { months: '0_11', tripType: 'RETURN' },
+  portal: 'FOUR_Y',
+};
+
+function isAnswerable(rawUrl, portal) {
+  let u;
+  try {
+    u = new URL(rawUrl);
+  } catch (e) {
+    return false;
+  }
+  if (u.protocol !== 'https:' || u.hostname !== ANSWERABLE.host) return false;
+  if (u.pathname !== ANSWERABLE.path) return false;
+  const keys = [...u.searchParams.keys()];
+  const want = Object.keys(ANSWERABLE.query);
+  if (keys.length !== want.length) return false;
+  if (!want.every((k) => u.searchParams.get(k) === ANSWERABLE.query[k])) return false;
+  return portal === undefined || String(portal).toUpperCase() === ANSWERABLE.portal;
+}
+
+/**
+ * The recorded answers of PARITY_ANSWERS: a plain file ({recordedAt, url, portal, status, body}
+ * or a list of them) or a HAR (log.entries). Throws for a file under the site's data/recorded/
+ * (the 21 October recording), an answer recorded on 2026-10-21 or without a recording date, and
+ * an answer that is not the offers page's price call (ANSWERABLE).
+ * @param {string} file
+ * @returns {{status: number, contentType: string, body: string, recordedAt: string}[]}
+ */
+function loadRecordedAnswers(file) {
+  const abs = path.resolve(file);
+  const recorded = path.join(ROOT, 'data', 'recorded');
+  if (abs === recorded || abs.startsWith(`${recorded}${path.sep}`)) {
+    throw new Error(`${file}: the site's data/recorded (the 21 October recording) is never a parity answer`);
+  }
+  const data = JSON.parse(fs.readFileSync(abs, 'utf8'));
+  const header = (list, name) => {
+    const h = (list || []).find((x) => String(x.name).toLowerCase() === name);
+    return h ? h.value : undefined;
+  };
+  const raw = data && data.log && Array.isArray(data.log.entries)
+    ? data.log.entries.map((e) => ({
+      recordedAt: e.startedDateTime,
+      url: e.request.url,
+      method: e.request.method,
+      portal: header(e.request.headers, 'x-portal'),
+      status: e.response.status,
+      contentType: (e.response.content && e.response.content.mimeType) || header(e.response.headers, 'content-type'),
+      body: e.response.content ? e.response.content.text : '',
+    }))
+    : [].concat(data);
+  return raw.map((a) => {
+    const at = a.recordedAt ? new Date(a.recordedAt) : null;
+    if (!at || Number.isNaN(at.getTime())) throw new Error(`${file}: an answer without a recording date`);
+    if (at.toISOString().startsWith('2026-10-21')) throw new Error(`${file}: an answer of the 21 October recording`);
+    if ((a.method && a.method !== 'GET') || !isAnswerable(a.url, a.portal === undefined ? '' : a.portal)) {
+      throw new Error(`${file}: ${a.url} (portal ${a.portal}) is not the offers page's price call`);
+    }
+    return {
+      status: Number(a.status) || 200,
+      contentType: a.contentType || 'application/json',
+      body: typeof a.body === 'string' ? a.body : JSON.stringify(a.body),
+      recordedAt: at.toISOString(),
+    };
+  });
+}
+
+/**
+ * The recorded answer to one browser request ({url, method, headers} with lower-case header
+ * names), or null: the price call (GET, X-Portal FOUR_Y) from the newest answer, its CORS
+ * preflight (OPTIONS) with 204, nothing else.
+ */
+function recordedAnswer(request, answers) {
+  if (!answers || !answers.length) return null;
+  const headers = request.headers || {};
+  const cors = { 'access-control-allow-origin': '*' };
+  if (request.method === 'OPTIONS' && isAnswerable(request.url)) {
+    return {
+      status: 204,
+      headers: {
+        ...cors,
+        'access-control-allow-methods': 'GET',
+        'access-control-allow-headers': headers['access-control-request-headers'] || '*',
+      },
+      body: '',
+    };
+  }
+  if (request.method !== 'GET' || !isAnswerable(request.url, headers['x-portal'] || '')) return null;
+  const newest = [...answers].sort((a, b) => b.recordedAt.localeCompare(a.recordedAt))[0];
+  return {
+    status: newest.status,
+    headers: { ...cors, 'content-type': newest.contentType },
+    body: newest.body,
+  };
+}
+
 module.exports = {
   ROOT,
+  ANSWERABLE,
+  loadRecordedAnswers,
+  recordedAnswer,
   installedBrowser,
   ownHostFilter,
   mirroredFont,
