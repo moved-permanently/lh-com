@@ -5400,3 +5400,50 @@ flight search widget, the resized recording.
 - doctor-on-board and bearbeitungsgebuehren are recorded as uploaded and previewed, but aem.page, aem.live and turnsthe.page
   still serve the old copies. DA's source of bearbeitungsgebuehren (one GET) has neither the column-start nor the intro mark.
   Both rows are still READY as written.
+
+### Final section (about 10:15 CET, 2026-11-14)
+
+**On main:**
+- `9eb4d876`: the intro after an H1-only section. Reverted in `0b45b1ac`: it was on main for about 25 minutes, and the four
+  pages it reached measured back at their baseline afterwards.
+- `5ece5a32`: this order's first lists and section part.
+- `b77ae6db`: Austrian tables in equal columns from 1025 px (austrian.css and its test).
+- `f9c4e432`: the lists and the section part after it.
+- This commit: this section and the finish list's wording.
+
+**Checks before each push** (clean worktrees wt-push and wt, origin/main at each round):
+- Whole-repo `npm run lint` exit 0 every round, and stylelint exit 0 on austrian.css for `b77ae6db`.
+- New tests red on main first: the intro test 2 of 4 red, the equal-columns test 1 of 2.
+- The related tests on each code push, 0 failures: 922 tests for `9eb4d876`, 918 for `0b45b1ac`, 975 for `b77ae6db`. Each push
+  took two to five rounds because origin moved during the checks.
+- **The full suite** on `0b45b1ac`: 1,077 files, 4,221 tests, 0 failures, 5 skipped. Again on `f9c4e432` (with `b77ae6db`):
+  1,086 files, 4,239 tests, 0 failures, 5 skipped.
+
+**For you to decide:**
+- The 24 px table rule: the empty-paragraph rows can't be written. Ship it accepting accessible-travel's 1.2 points at 1440 and 0.7 at 390,
+  add a cell option for its cargo-door table, or leave it.
+- The other languages of fly-with-austrian, bearbeitungsgebuehren (service-charges) and company: www's snapshot confirms
+  the large intro on at/en company, but none of them is recorded.
+- doctor-on-board and bearbeitungsgebuehren: the helper's 08:59 upload left both unchanged in DA and on our hosts. The rows
+  are still READY.
+
+**Open:**
+- The importer keeps copytext-large only on paragraphs with a link, and the collapse drops it as body size on Austrian pages.
+  A re-import or collapse pass would undo the four intro rows.
+- The cn footer's public security emblem (waits for stable).
+- medical-travel-companions' band end (0.01 points over your gate), austrian-app's four gaps, and the in-column band rule
+  that depends on them.
+
+**Rules followed:**
+- **No airline host was requested.** Every render refused www.* and the airline hosts and counted the refusals: 2,342, 2,336
+  and 2,355 on the three full passes, 0 to 22 per draft. None was sent. The www snapshots and recordings were read from disk
+  or laid out offline from their archives (every request answered from the archive or aborted).
+- **DA:** one GET (bearbeitungsgebuehren's source). Everything else was read from austrian.turnsthe.page and the aem.page /
+  aem.live copies.
+- No upload, preview or publish. da-upload.mjs was not called.
+
+**Not in git** (scratch under /tmp/so28, not in the repo): the scripts (drafts.sh, drafts-code.sh, cmpheads.py, mkbea.py,
+mkctl.py, ctl-scan.py, reach-intro.py, sitewide.py, sitewide-www.py, mkfinish.py, wwwcells.py, push-loop.sh, push-docs.sh,
+push-code2.sh, suite.sh, the probes *.js), the candidate stylesheets (tab24*.css, eq*.css), the drafts (cand/, ctl/, acc/,
+acc2/), the baselines and rankings (base/, rule/, rule2/), the published copies read from our hosts (pubs/, site/: 2,459
+documents) and the logs.
