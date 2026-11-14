@@ -449,6 +449,20 @@ main > .section > .accordion-columns-wrapper:has(+ .default-content-wrapper > p.
   }
 }
 
+/* lufthansa.com: a {heading-small} group heading (h2) right after a spaced accordion in the same
+   section has only the accordion's margin above it on www (4rem from 768px, 2rem below on phones),
+   not the block gap as well (standing order 22: faq-damaged-baggage 7.4 / 12.3 -> 1.2 / 3.0 % at
+   1440 / 390; this shape only there) */
+body.brand-lufthansa main > .section > .accordion-columns-wrapper:has(> .accordion-columns.spaced) + .default-content-wrapper:has(> h2.heading-small:first-child) {
+  margin-top: 0;
+}
+
+@media (width < 768px) {
+  body.brand-lufthansa main > .section > .accordion-columns-wrapper:has(+ .default-content-wrapper > h2.heading-small:first-child) > .accordion-columns.spaced {
+    padding-bottom: 20px;
+  }
+}
+
 /* column (parser: the accordion alone in a column of a column view, .col-md-6.col-lg): a run of
    such accordions shares a row (div.accordion-columns-row, block JS), stacked 10px apart on mobile
    (.column-view-item margin-bottom 1rem), 2 per row from 768px, all of them (up to 4) from 1025px,
