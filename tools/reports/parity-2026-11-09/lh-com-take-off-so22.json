@@ -1,0 +1,15 @@
+[
+  {
+    "path": "/de/en/discover-lufthansa/take-off",
+    "inserts": [
+      {
+        "replace": "<div class=\"cards-teaser spacious\">",
+        "text": "<div class=\"cards-teaser\">"
+      },
+      {
+        "before": "<p>Board your flight and enjoy the journey.",
+        "text": "<p>{spacer-15}</p>"
+      }
+    ]
+  }
+]
