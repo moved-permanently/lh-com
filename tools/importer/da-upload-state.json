@@ -34187,9 +34187,9 @@
    "preview": "2026-11-03T11:49:58.099Z"
   },
   "/xx/pt/discover-lufthansa/new-onboard-experience": {
-   "uploaded": "2026-11-08T06:47:49.489Z",
-   "mtime": 1794119095768.9197,
-   "preview": "2026-11-08T06:47:51.871Z"
+   "uploaded": "2026-11-14T12:55:32.447Z",
+   "mtime": 1794660922056.613,
+   "preview": "2026-11-14T12:55:34.534Z"
   },
   "/xx/pt/discover-lufthansa/take-off": {
    "uploaded": "2026-11-06T17:48:11.621Z",
@@ -34217,9 +34217,9 @@
    "preview": "2026-11-14T06:34:17.717Z"
   },
   "/xx/pt/economy-class": {
-   "uploaded": "2026-11-06T11:07:46.980Z",
-   "mtime": 1793961167149,
-   "preview": "2026-11-06T11:07:49.118Z"
+   "uploaded": "2026-11-14T12:55:37.627Z",
+   "mtime": 1794660922366.493,
+   "preview": "2026-11-14T12:55:39.830Z"
   },
   "/xx/pt/electronic-bag-tags": {
    "uploaded": "2026-11-03T11:50:19.700Z",
@@ -34232,9 +34232,9 @@
    "preview": "2026-11-03T11:50:24.220Z"
   },
   "/xx/pt/europa-tarife-economy-class": {
-   "uploaded": "2026-11-03T14:19:56.577Z",
-   "mtime": 1793715572623,
-   "preview": "2026-11-03T14:19:58.551Z"
+   "uploaded": "2026-11-14T12:55:42.620Z",
+   "mtime": 1794660922718.2266,
+   "preview": "2026-11-14T12:55:44.547Z"
   },
   "/xx/pt/europcar": {
    "uploaded": "2026-11-03T11:50:31.268Z",
@@ -34297,9 +34297,9 @@
    "preview": "2026-11-03T11:51:05.016Z"
   },
   "/xx/pt/first-class": {
-   "uploaded": "2026-11-09T12:40:51.829Z",
-   "mtime": 1794227868902.7383,
-   "preview": "2026-11-09T12:40:54.623Z"
+   "uploaded": "2026-11-14T12:55:47.402Z",
+   "mtime": 1794660923084.0872,
+   "preview": "2026-11-14T12:55:49.524Z"
   },
   "/xx/pt/fliegen-mit-baby": {
    "uploaded": "2026-11-03T12:07:51.732Z",
@@ -34487,9 +34487,9 @@
    "preview": "2026-11-06T11:03:43.313Z"
   },
   "/xx/pt/lufthansa-reiseklassen": {
-   "uploaded": "2026-11-03T14:20:17.148Z",
-   "mtime": 1793715571387,
-   "preview": "2026-11-03T14:20:19.095Z"
+   "uploaded": "2026-11-14T12:55:52.426Z",
+   "mtime": 1794660923423.9717,
+   "preview": "2026-11-14T12:55:54.471Z"
   },
   "/xx/pt/lufthansa-terminal-muenchen": {
    "uploaded": "2026-11-08T06:30:43.363Z",
@@ -34627,9 +34627,9 @@
    "preview": "2026-11-03T12:09:49.005Z"
   },
   "/xx/pt/premium-economy-class": {
-   "uploaded": "2026-11-06T11:08:04.589Z",
-   "mtime": 1793961167263,
-   "preview": "2026-11-06T11:08:06.786Z"
+   "uploaded": "2026-11-14T12:55:57.530Z",
+   "mtime": 1794660923893.2336,
+   "preview": "2026-11-14T12:56:00.220Z"
   },
   "/xx/pt/prepare-for-your-trip/baggage/baggage-conditions": {
    "uploaded": "2026-11-03T12:09:53.603Z",
@@ -34872,9 +34872,9 @@
    "preview": "2026-11-03T12:12:31.635Z"
   },
   "/xx/pt/tips-senior-travellers": {
-   "uploaded": "2026-11-09T12:40:57.100Z",
-   "mtime": 1794227868901.9983,
-   "preview": "2026-11-09T12:40:59.560Z"
+   "uploaded": "2026-11-14T12:56:02.840Z",
+   "mtime": 1794660924262.2864,
+   "preview": "2026-11-14T12:56:05.446Z"
   },
   "/xx/pt/travel-agencies": {
    "uploaded": "2026-11-03T12:12:36.445Z",
@@ -52330,6 +52330,11 @@
    "uploaded": "2026-11-14T12:54:05.802Z",
    "mtime": 1794660840175.9363,
    "preview": "2026-11-14T12:54:07.891Z"
+  },
+  "/xx/pt/prepare-for-your-trip/travel-classes/business-class": {
+   "uploaded": "2026-11-14T12:55:27.192Z",
+   "mtime": 1794660921734.8157,
+   "preview": "2026-11-14T12:55:29.234Z"
   }
  },
  "media": {
