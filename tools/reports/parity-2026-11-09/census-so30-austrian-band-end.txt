@@ -9,8 +9,8 @@
 # "flush column-band grey") would reach the 122 yes pages (124 with the 2 unchecked) and none of the 10.
 # How: www's snapshots on disk (parity-570/snapshots, austrian-snapshots-001 to -018: www's DOM after load, read with tar),
 # the newest per page, laid out offline at 1440 and 390 (so23/rec-render.mjs: no JavaScript, every request answered from
-# austrian-parity-003's archive or aborted, none sent). Snapshots -001 to -017 name two older vite stylesheets that no disk
-# holds, so they were pointed at -003's (index.RX_vDayz.css, app.e89d97c1.css). Read per page: the lowest grey container
+# austrian-parity-003's archive or aborted, none sent). Snapshots -001 to -015 name two older vite stylesheets that no disk
+# holds (-016 to -018 name the recordings' own), so they were pointed at -003's (index.RX_vDayz.css, app.e89d97c1.css). Read per page: the lowest grey container
 # (.container-gray) above the footer, the white between its bottom and the footer's top, and what www draws there.
 # Checked first against three recorded pages whose band end is known from the recordings (bearbeitungsgebuehren,
 # doctor-on-board and medical-travel-companions: www's band touches the footer at both widths). All three read gap 0 at

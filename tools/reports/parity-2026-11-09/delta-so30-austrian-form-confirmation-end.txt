@@ -1,0 +1,20 @@
+# ema-cashub, standing order 30 (2026-11-14), item 3: Austrian /at/de/footer-pages/help-and-contact/form-confirmation
+# (finish-austrian.txt: +3.26 % / +2.89 %, HOLD since order 24, F2).
+# The page is one section: "Vielen Dank", a sentence and the link "Zur Startseite", with the section style Space below: M
+# (served as class space-below-m).
+# www (austrian-parity-005; its 390 is the 1440 load resized): the link's bottom is 91 px above the footer. Ours with the
+# style: 133 px (+42). Without it: 48 px (the page -3.50 % / -2.69 %, order 24). Space below has no smaller step than M
+# (style-markers.js: M and L only), so a style alone cannot give www's 91 px.
+# The row: the style out, and a spacer paragraph after the link, sized to www's 91 px.
+# Drafts on austrian.turnsthe.page (so24/host.mjs, <main> replaced by the copy served at 16:30 CET plus the change; consent
+# stored, pictures eager; www.* and the airline hosts refused and counted: 0 a render). The link's bottom / the footer's top
+# / the page, at 1440 and then 390:
+#   www: - / 443 / 1,257; and - / 457 / 1,522
+#   live: 352 / 485 / 1,298 (+3.26 %); and 366 / 499 / 1,566 (+2.89 %)
+#   without the style: - / 400 / 1,213 (-3.50 %); and - / 414 / 1,481 (-2.69 %)
+#   the row ({spacer-19}): 352 / 444 / 1,257 (0.00 %); and 366 / 458 / 1,525 (+0.20 %)
+#   {spacer-20}: 1,258 / 1,526, one px over.
+# Upload without the collapse (tools/importer/marker-collapse.mjs drops a spacer of 31 px or less), or check the served copy
+# ends the section with a p.spacer of 19 px.
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, what changes on the page.
+READY	/at/de/footer-pages/help-and-contact/form-confirmation.html	two changes in its one section: (1) the section style "Space below: M" removed (its Section Metadata, the section's only style); (2) a paragraph "{spacer-19}" right after the paragraph "Zur Startseite"	the footer 1 px below www's at both widths; the page 1,298 -> 1,257 px at 1440 (www 1,257), 1,566 -> 1,525 at 390 (www 1,522): +3.26 -> 0.00 %, +2.89 -> +0.20 %

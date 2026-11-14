@@ -7,7 +7,7 @@
 # paragraph's second break is missing: 33 px at both widths.
 # A spacer marker does not work here: inside the Columns Media (news) block, "{spacer-N}" draws 0 px high. Measured as a
 # draft, see below.
-# Drafts on airdolomiti.turnsthe.page (so24/host.mjs, <main> replaced by the copy served at 16:30 CET plus the change;
+# Drafts on airdolomiti.turnsthe.page (so24/host.mjs, <main> replaced by the copy served at 16:15 CET plus the change;
 # consent stored, pictures eager; www.* and the airline hosts refused and counted: 0 a render). Footer tops:
 #   www 1,521 / 2,250 (1440 / 390); live 1,485 / 2,214 (-2.37 / -1.60 %); the row 1,518 / 2,247 (-0.20 / -0.13 %).
 # The third paragraph is then 363 / 726 px high, as www's 396 / 760 less our 33 px margin.

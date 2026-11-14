@@ -5606,3 +5606,120 @@ All four items are done; the rest of the time went into the reach of what is hel
   4,552 / 5,819 px and bearbeitungsgebuehren 3,155 / 4,130, exactly the drafts: the 48 px are gone.
 - `63eb72c1`, the 35 intro marks, and `e3ceb0bc`, the eight carousel notes: all 86 page-widths at their drafted heights,
   every intro paragraph at 18 / 27 (the mark survived) and every note visible in italics.
+
+## Standing order 30 (2026-11-14, from about 15:35 CET)
+
+**Carried over:** nothing of mine was uncommitted or unpushed (order 29's last commit, `9c9d39b7`, was on origin). The
+checkout's 88 dirty entries (import-progress.json, the urls-*.txt lists, the importer reports, the notifications.css line)
+belong to other jobs and were left alone; the checkout was moved with `reset --mixed` after each push, the count unchanged.
+
+### Item 2 first: the two request files (`92c70370`, pushed at about 15:50 CET; `5b52aa8f`)
+
+- **capture-requests-ema-cashub-austrian-pictures.txt:** the help-center app draws two pictures, `main.png` and `faq.png`
+  (austrian.com/content/dam/aua/images/local_images/help-center/), the same two on all 12 held pages. No archive holds them.
+  DA paths: /media-da/austrian/help-center/. The app requests the austrian.com URLs itself, so a DA copy replaces our
+  renders' stand-ins and changes nothing for visitors.
+- **Added in `5b52aa8f`:** the cn footer's public security emblem (icon-beian.svg, for /cn/en/footer; the cn/zh footer has no
+  such link on www or here). That one would show to visitors once its footer row is written.
+- **capture-requests-ema-cashub-austrian-fonts.txt:** www loads no font for zh, ja, el or ru. Those pages load the same nine
+  files as every Austrian page (Portada, CoreSans, the MAM symbol fonts, os-iconfont), all on disk already. The glyphs came
+  from the recording Mac: Arial for Greek and Cyrillic, PingFang / Hiragino for CJK. Fetching the URLs will not move the
+  font rows. The file names the open fonts that come close (Liberation Sans, Noto Sans CJK): your call.
+
+### Item 1: your three decisions
+
+**Air Dolomiti FAQ titles, A without the German pages: shipped (`0f9a40bc`, rank-so30-airdolomiti.txt).**
+- The rule: `.accordion-columns.faq .accordion-columns-title:not(:lang(de)) { gap: 24px }`, with
+  test/airdolomiti-faq-title-measure-so30.test.mjs.
+- Gate: all 108 recorded Air Dolomiti page-widths (54 pages, airdolomiti-parity-001 to -007), at the footer's top.
+  - 5 closer, all into 2 %: seat-reservation -4.31 -> -0.28 %, en/assistance -3.82 -> -0.14 %, prenotazione-del-posto
+    -3.53 -> +0.69 %, lounges -2.99 -> -0.32 %, assistenza -2.88 -> -0.13 %.
+  - 103 unchanged to the px, none further, no page wider than the screen; the rule matched 0 titles on the German pages.
+- As served after the push: the 20 FAQ page-widths equal the gate's rule column to the px.
+- Site-wide (order 29's model): all 434 non-German titles take www's line count. The 46 German titles that differ stay as
+  they are today.
+
+**Archistar row:** left, as you said.
+
+**Band rule: not shipped; the census says no on 10 of its pages (census-so30-austrian-band-end.txt).**
+- How: www's snapshots of the 364 pages (360 on disk), laid out offline at both widths with a recording's CSS. Checked first
+  on the three recorded band pages: gap 0 at both widths, as recorded.
+- Overall: www's band touches the footer on 288 pages, not on 72.
+- In the rule's own reach (flush bands): yes on 122, no on 10, 2 unchecked. The 10 are handgepaeck in ten languages, where
+  www ends with white text and ours with a flush grey section.
+- **Per-page rows instead (delta-so30-austrian-band-end-rows.txt):** C' drafted on all 122 yes pages. Each draft is exactly
+  48 px shorter at 1440, with the band on the footer at both widths. 102 READY; 20 HOLD:
+  - the doctor-on-board and medical-travel-companions pages. On the recorded /at/en pages, the band end alone made the page
+    worse; the column views above it were needed too.
+  - The nine doctor-on-board locales are written with /at/en's four live changes instead
+    (delta-so30-austrian-doctor-on-board-locales.txt, 9 READY). www's structure is identical on all ten snapshots. Every
+    draft is +56 px with the band on the footer.
+  - The medical-travel-companions family stays HOLD: it needs order 27's view row A, which is HOLD.
+
+### Item 3: the remaining rows
+
+**Austrian (finish-austrian.txt now 9 READY, 82 HOLD, 2 OWNER):**
+- **bagdamage (delta-so30-austrian-bagdamage-intro.txt), READY.** Measured by its parts this time:
+  - the change: order 24's spacer after the H1, plus the intro marked copytext-large (with the spacer it is no longer the
+    H1's next paragraph);
+  - the intro lands at www's px and size at both widths;
+  - page: 1440 -2.11 -> -1.16 %, 390 +0.97 -> +1.80 %, still within 2 %. The 390 rest is in the form (+72 px; www's 390 is
+    a pointer).
+- **form-confirmation /at/de (delta-so30-austrian-form-confirmation-end.txt), READY.** The change: Space below: M out and a
+  {spacer-19} after the link. That gives www's 91 px under it. Page: 1,257 / 1,525 px (www 1,257 / 1,522): +3.26 -> 0.00 %,
+  +2.89 -> +0.20 %.
+- **The rest of the list:** APIs, pictures, fonts, owner decisions, the 24 px table rule (HOLD, as you said), or 390
+  pointers. Nothing left to do there without www.
+
+**Air Dolomiti:**
+- **in-flight-entertainment-system (delta-so30-airdolomiti-ife-line-break.txt), READY.** www's paragraphs open with line
+  breaks, which our import drops; one is missing. A line break at the paragraph's start: 1440 -2.37 -> -0.20 %, 390
+  -1.60 -> -0.13 %. A spacer marker draws 0 px inside the news block. Check that the served copy keeps the `<br>`.
+- **Traced, no row:**
+  - bearbeitung-ihrer-buchungen 1440 -2.10 %: one paragraph wraps a line later than www's at the same width, size and font.
+    Restoring www's no-break spaces changes nothing.
+  - street-food-in-munich 390 +2.72 %: two causes in this one document that cancel at 1440. www's H3 inline boxes have
+    44.2 px lines; one H3 is 16 px running text in a span.
+- **Not mine:** the flight status and destination widgets (APIs).
+
+### Final section (about 17:10 CET, 2026-11-14)
+
+All three items are done. I stopped there rather than run to 19:30: what is left on both lists needs www's APIs, the
+captures or one of your decisions.
+
+**On main:**
+- `92c70370`, `5b52aa8f`: the request files;
+- `0f9a40bc`: the Air Dolomiti rule and its test;
+- `215e51e6`: rank-so30-airdolomiti.txt, the census, the bagdamage and IFE rows, finish-austrian.txt;
+- this commit: the band-end rows, the doctor-on-board locale rows, the form-confirmation row, time corrections in the
+  order 30 files, and the bagdamage row's collapse note.
+  - Correction to `215e51e6`: that row said the copytext-large mark survives the upload's collapse. It does not
+    (marker-collapse.mjs drops it, and drops spacers of 31 px or less): upload without the collapse, as order 29's marks.
+
+**Checks:**
+- Whole-repo `npm run lint`: exit 0 before every push. The Air Dolomiti push also passed stylelint on airdolomiti.css.
+- The 125 test files that read the report folders: 658 tests, 0 failures, on round 1 of each docs push.
+- The Air Dolomiti and accordion tests: 1,217 tests, 0 failures.
+- **The full suite** on origin/main with the rule (`a6dec8d8`, the wt worktree, one process per file): 1,104 files,
+  4,283 tests, 0 failures, 5 skipped.
+
+**For you to decide:**
+- The narrower band rule (flush column views and column bands only). The census says yes on all 122 pages it would reach,
+  none of the 10. Not shipped, because you asked for yes on every page.
+- Fonts for the render machine (Liberation Sans, Noto Sans CJK), if you want the non-Latin rows measured closer.
+
+**Ready for the helper (none applied by me):**
+- 102 band-end rows and the nine doctor-on-board locale rows. Check after each upload that the served copy ends with the
+  band.
+- bagdamage and form-confirmation: upload without the collapse.
+- The IFE line break: check that the `<br>` survives.
+
+**Rules followed:**
+- **No airline host was requested.** Every render refused www.* and the airline hosts and counted the refusals: 965 in the
+  logged renders (the Air Dolomiti gate 582, the band drafts 367, doctor-on-board 16, the others 0), none sent.
+- The offline layouts of www's snapshots answered only from the recording on disk and aborted everything else.
+- No DA request at all this order: the copies came from aem.page.
+- No upload, preview or publish. da-upload.mjs was not called. Background jobs were stopped by pid.
+
+**Not in git** (scratch under /tmp/so30): the scripts, the drafts (cand/), the extracted snapshots (snaproot/, valroot/,
+dobsnap/), the rankings and the logs.

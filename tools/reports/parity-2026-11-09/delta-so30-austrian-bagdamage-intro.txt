@@ -7,8 +7,11 @@
 # after the H1.
 # Order 24's delta (<p>{spacer-47}</p> after the H1) alone moves the intro to www's place. But the intro is then no longer the
 # H1's next paragraph and falls to 16 / 24 (97 / 193 px high, www 109 / 244). So the row also marks it " {copytext-large}"
-# (order 29's marker, which survives the upload's collapse).
-# Drafts on austrian.turnsthe.page (so24/host.mjs, <main> replaced by the copy served at 16:00 CET plus the change; consent
+# (order 29's marker).
+# Upload without the collapse (tools/importer/marker-collapse.mjs): it drops the copytext-large mark (within 2 px of the
+# body size, BODY_PX) and turns {spacer-47} into a 60 px Spacer (M). Or check the served copy: a p.spacer of 47 px after the
+# H1 and the intro at 18 / 27. (Correction, 16:45 CET: this note said the mark survives the collapse; it does not.)
+# Drafts on austrian.turnsthe.page (so24/host.mjs, <main> replaced by the copy served at 15:50 CET plus the change; consent
 # stored, pictures eager; www.* and the airline hosts refused and counted: 0 a render). Control = live, three loads each, the
 # same px every time, no Turnstile challenge in any load. Offsets are tops in px: title end, intro, "Fields marked *",
 # "Did you receive your damaged ...", the footer's top, the page.

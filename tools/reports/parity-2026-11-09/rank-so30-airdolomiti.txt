@@ -8,10 +8,10 @@
 # The gate is read at the footer's top (www's recorded chat widget sits below the footer), www's from each recording's
 # measurements. Ours: airdolomiti.turnsthe.page as served (so24/host.mjs, EAGER=1 CONSENT=1; www.* and the airline hosts
 # refused and counted, at most 10 a render on the homepages and the destination pages, none sent), each page-width twice:
-# as served at 14:40 CET (main before the rule) and with the rule added as a stylesheet after load.
+# as served at 15:40-15:55 CET (main before the rule) and with the rule added as a stylesheet after load.
 # Result: 5 page-widths closer, all into 2 %; 103 unchanged to the px; none further; none wider than the screen (scrollWidth
 # equal everywhere). Matched titles counted in each render: 0 on the 37 German page-widths.
-# After the push, the 20 FAQ page-widths as served (no stylesheet added, 16:45 CET): equal to the gate's rule column to the px.
+# After the push, the 20 FAQ page-widths as served (no stylesheet added, 16:20 CET): equal to the gate's rule column to the px.
 # Site-wide (order 29's model of the 632 FAQ titles in the 76 local documents, laid out at 390 by www's logic): all 434 titles
 # on the 51 non-German documents now take www's line count (before: 98 titles on 36 documents a line short, -5,896 px). The
 # German titles keep today's: 46 titles on 19 documents differ from www, -1,040 px. Unscoped, A would have given 22 titles
