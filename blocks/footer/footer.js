@@ -12,7 +12,8 @@ import { isOwnWwwHost } from '../../scripts/brand.js';
  *  1. ":search: [search page link](label)" and ":globe: Country | Language"
  *  2. link columns: heading + list of links, repeated (accordions below 768px)
  *  3. legal row: list of links (a picture in a link, before its text, is drawn with it: Austrian's
- *     cn/en public security emblem)
+ *     cn/en public security emblem; DA's form, a picture-only link then a text link to the same
+ *     address, is one link)
  *  4. logos: list of linked logos (images or icon tokens such as :star-alliance:,
  *     :lufthansa-group:, :iata-cargo-iq:)
  * Optional sections, marked with section metadata (Style), for brand sites (lh-ita):
@@ -298,7 +299,18 @@ function buildColumns(section, labels) {
 function buildLegal(section, labels) {
   if (!section) return null;
   const list = el('ul', { className: 'footer-legal' });
-  section.querySelectorAll('li a[href], p a[href]').forEach((a) => {
+  const anchors = [...section.querySelectorAll('li a[href], p a[href]')];
+  // Document Authoring keeps a picture and text in one link as two links to the same address
+  // (the cn footer's emblem, standing order 32): the picture goes into the text's link
+  const merged = anchors.filter((a, i) => {
+    const next = anchors[i + 1];
+    const pic = a.querySelector('picture') || a.querySelector('img');
+    if (!pic || a.textContent.trim() || !next || next.getAttribute('href') !== a.getAttribute('href')) return true;
+    if (next.querySelector('picture, img') || !next.textContent.trim()) return true;
+    next.prepend(pic);
+    return false;
+  });
+  merged.forEach((a) => {
     const link = footerLink(a, 'footer-link', labels, uiIcon('arrow-right'));
     // a picture in the link (the cn footer's public security emblem): www's image-text, the
     // picture and the text on a line of their own under the arrow
