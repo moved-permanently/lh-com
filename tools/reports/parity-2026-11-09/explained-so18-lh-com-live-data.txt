@@ -1,0 +1,15 @@
+# Expected change: none. These lufthansa.com page-widths differ from www because of live data or a live app our captures block (www's hosts and APIs are not requested); nothing to fix in code or documents. Standing order 18 (2026-11-14), item 2.
+# Checked: the price-bar articles are not in it: masking www's sticky fare bar in its first screen (1440 y 800-900, 390 y 720-900) moves them by less than 1 point (logs/p4/so18/results-farebar.tsv), so their distance is spacing (ranking-so18). Maps neither: masking the map box moves the map pages by under 0.3 points.
+# columns: READY / HOLD	path	width	pct	cause
+HOLD	/de/en/flights	390	47.39	www's fare grid (about 80 destination tiles from its fares API) fills the page; ours says no results, the API not requested in captures
+HOLD	/de/de/fluege	390	47.32	www's fare grid (about 80 destination tiles from its fares API) fills the page; ours says no results, the API not requested in captures
+HOLD	/at/de/fluege	390	47.27	www's fare grid (about 80 destination tiles from its fares API) fills the page; ours says no results, the API not requested in captures
+HOLD	/gb/en/flights	390	46.59	www's fare grid (about 80 destination tiles from its fares API) fills the page; ours says no results, the API not requested in captures
+HOLD	/de/en/flights	1440	39.50	www's fare grid (about 80 destination tiles from its fares API) fills the page; ours says no results, the API not requested in captures
+HOLD	/at/de/fluege	1440	39.21	www's fare grid (about 80 destination tiles from its fares API) fills the page; ours says no results, the API not requested in captures
+HOLD	/de/de/fluege	1440	38.81	www's fare grid (about 80 destination tiles from its fares API) fills the page; ours says no results, the API not requested in captures
+HOLD	/gb/en/flights	1440	38.32	www's fare grid (about 80 destination tiles from its fares API) fills the page; ours says no results, the API not requested in captures
+HOLD	/de/en/lufthansa-city/culinaryjourney	390	38.09	the micro-frontend culinary-hub (www's menu app, its API gateway api.travelid.lufthansa.com) draws www's menu form; ours stays blank, the app's hosts not requested in captures
+HOLD	/de/en/culinaryjourney	390	32.65	the micro-frontend culinary-hub (www's menu app, its API gateway api.travelid.lufthansa.com) draws www's menu form; ours stays blank, the app's hosts not requested in captures
+HOLD	/de/en/lufthansa-city/culinaryjourney	1440	15.28	the micro-frontend culinary-hub (www's menu app, its API gateway api.travelid.lufthansa.com) draws www's menu form; ours stays blank, the app's hosts not requested in captures
+HOLD	/de/en/culinaryjourney	1440	10.53	the micro-frontend culinary-hub (www's menu app, its API gateway api.travelid.lufthansa.com) draws www's menu form; ours stays blank, the app's hosts not requested in captures

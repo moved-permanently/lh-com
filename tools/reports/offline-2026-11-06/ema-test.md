@@ -3882,3 +3882,55 @@ now holds no row (withdrawn, the finding as an explanation only); the ranking sa
      004b 22, 003 none); the b2b-parity 001-009, discover-parity-001 and ita-parity-002/005 drops none, so their
      rankings do not change. On order 17's 410 lufthansa.com page-widths the tool cuts 77 (the other 9 of the 86 are
      shorter than 8000 px on ours) and gives order 17's scratch numbers exactly (0 of 410 differ).
+2. **lufthansa.com's non-info page-widths with the cut** (ranking-so18-lh-com-non-info.txt, READY / HOLD first;
+   explained-so18-lh-com-live-data.txt). Fresh captures of our main host (23:00-00:10 UTC), compare.js with the cut:
+   410 page-widths, 408 listed (/de/en/overview-manage left out, do-not-touch), 315 above 5 %.
+   - **A new reading: spacing, not content.** logs/p4/so18/aligned.cjs sets each 100 px window of www's recording
+     against ours at its best vertical offset and counts the pixels that still differ. Of the 410, 356 differ by 3 %
+     or less once aligned, 32 by 3 to 5 %, 22 by more. So for almost every row above 5 % what is drawn matches www and
+     the distance is where it sits: small offsets (6 to 30 px) that add up and put every photo below them out of line
+     (one picture 10 px off is a picture's worth of mismatch). The offset steps between well-matching windows are tied
+     to the boundary of our page where they happen (steps2.py, contentBoxes from a copy of the capture); the ranking
+     names the largest three per row.
+   - **Groups above 5 %:** spacing drift 242 (hub 63, campaign 51, insights 50, legal 38, fleet 11, form 10, other 19);
+     spacing drift with small drawn differences 31 (www's sticky fare bar, a map's tiles, an overlay teaser's shade,
+     a phone picture's crop); explained: live data 12; fixed in code 6; recording artefacts 4; another EMA's rule 4;
+     per page 9 (one with its delta); capture 2; project rule 2; drawn differently, not sampled, 3.
+   - **Fixed in code, gate passed (507cda33, test first):** the stopover detail pages (168 documents) had the map
+     under their sidebar block, full width; www draws it in the sidebar's text column. poi-map.js intoSidebar moves
+     it there (lufthansa.com only), with-map takes www's spacing. Local render before / after, every width better:
+     bayerischer-hof 14.63 -> 11.16 / 8.91 -> 7.24, neuschwanstein 14.23 -> 10.09 / 10.41 -> 6.15, zugspitze
+     11.69 -> 8.95 / 12.38 -> 12.21. No other page has a map after a sidebar (census of content/).
+   - **Per-page delta, READY:** delta-so18-lh-com-fleet-351-wide.txt, 351's seat map slideshow option wide (www's is
+     as wide as the content, boeing787's half like ours): 1440 17.76 -> 15.14, 390 unchanged. text-inserts-apply.mjs
+     now also reads READY / HOLD in a list's first column.
+   - **Explained: live data (12):** the four flights hubs at both widths (www's fare grid of about 80 destinations,
+     ours "no results"), the two culinaryjourney pages at both widths (the culinary-hub micro-frontend, blank in our
+     capture). Checked and not live data: the 17 price-bar articles (masking www's fare bar moves them by under one
+     point) and the map pages (masking the map moves them by under 0.3).
+   - **Tried and held (the gate):**
+     - Articles, the header 40 px above the body (ours 48; www's 8 to 10 px less on the 24 article page-widths where the step shows) and
+       body sections 24 px apart below 768 px (ours 48; +24 to 28 px at 15 such boundaries): of 82 insights page-widths 29
+       better, 23 worse by more than 0.5 (the body gap at 1440 is wrong; at 390 only, still 8 worse, the a-perfect-day
+       pages +5). Each correction is right where it is measured and uncovers the next drift further down.
+     - Form sub-section titles on the fluid scale (20 px at 390 where ours is 24; www's glyphs 16 px against our 18):
+       3 better and 3 worse by more than 0.5 (betreuungsbedarf de/de / at/de 390 +1.0 / +0.7, special-needs de/en 390 +1.1).
+   - **Recorded causes, HOLD:**
+     - baggage de/en, gb/en (both widths): 47 to 48 px less white between the padded Columns Media and the grey band,
+       from styles.css' margin-top -24px for a separator wrapper after a padded Columns Media before a grey column band
+       (ema-adobe's rule, measured on childrens-menus-on-board, whose www markup differs): for ema-adobe and the owner.
+     - Recording artefacts: overview-travel-information 390 (www's chat assistant open over the first screen);
+       online-check-in 390 (the recording is a 1440 load resized, capture.json loadedBy resize, so its first check-in
+       tab stays open; a phone's own load shows the items closed as ours, 7775b3f8). Every 390 recording of the
+       lh-parity drops is a resized load; phone-only first states need phone loads (capture request below).
+     - flughafeninformation de/de, at/de 390: our H1 hyphenates (project rule, test/heading-wrap.test.mjs), www's runs
+       past the column, 40 px.
+     - /xx/hk/meetings-and-events: no CJK font on the capture machine.
+     - Per page: take-off (www's text changed after the import: "Impact Fares" for "Green Fares"; the link target is
+       in no recording we have as HTML), 100-years 390 (www's first card shows another picture), feedbackai (an empty
+       app page; www keeps about 145 px), tags/allegris (no "Conditions" under the wide teaser in DA's copy; target
+       unknown), picture-perfect-austin 390 (www's phone pictures are other crops of the photos).
+     - The overlay teasers (cards-teaser overlay, wide): www's shade is darker across the middle (estimated alpha
+       about 0.6 where ours fades to 0 by 70 %); www's stage-teaser CSS is in no drop, so not changed.
+   - **Capture requests (collected, not run):** www's lufthansa.com CSS for .stage-teaser / .gradient-black-horizontal
+     (the overlay shade); phone first loads at 390 for online-check-in and meals-on-board (order 16).
