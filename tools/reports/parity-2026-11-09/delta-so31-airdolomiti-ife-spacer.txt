@@ -21,5 +21,6 @@
 # Check after the upload: the served copy (.plain.html) has <p>{spacer-33}</p> right before "The new solution offers", and
 # the page as served shows the paragraph 33 px lower (footer top 1,518 / 2,247 with the code commit live).
 # 390 is airdolomiti-parity-006's 1440 load resized (a pointer): requested as a first load (capture-requests-ema-cashub.txt).
+# Standing order 32: uploaded (f1199c24) and live. airdolomiti-parity-008 (2026-11-14 18:39 UTC, each width its own first load): www's footer top 1,521 / 2,250 and page 2,352 / 3,296, as the rows read; ours as served 1,518 / 2,247 (-0.20 / -0.13 %), page 2,349 / 3,293 (-0.13 / -0.09 %). The row is done.
 # Columns: status, DA path (admin.da.live/source/moved-permanently/lh-airdolomiti), the delta, what changes on the page.
 READY	/en/services-on-board/in-flight-entertainment-system.html	in the Columns Media (news) block's text: a new paragraph "{spacer-33}" right before the paragraph "The new solution offers a better, more efficient service ..." (no line break at that paragraph's start: if order 30's <br> is still in DA, take it out)	the paragraph one 33 px line lower, as www's; footer top 1440 -2.37 -> -0.20 %, 390 -1.60 -> -0.13 %; upload without the collapse; needs the code commit live

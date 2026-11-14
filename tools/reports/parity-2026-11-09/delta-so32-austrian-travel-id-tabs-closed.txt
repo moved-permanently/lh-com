@@ -1,0 +1,23 @@
+# ema-cashub, standing order 32 (2026-11-14), item 2: Austrian /at/en/travel-id at 390 (finish-austrian.txt: -2.25 % against
+# austrian-parity-015, whose 390 is its 1440 load resized).
+# austrian-parity-019 (18:37 UTC today) loads 390 x 844 on its own (manifest: loadedSeparately): www's page is 6,190 px, not
+# the resize's 6,852. Its tab set (maui-tab-control-responsive: Website, Chat assistant, App, FlyNet, Miles & More) has no
+# panel active on a phone's first load (no "active" attribute on any maui-tab-control-panel-responsive; all five toggles 53 px,
+# from 2,144); -015's 390 kept the 1440 load's first tab active (its "Website" panel open, 715 px).
+# Ours opens the first item below 768 px (scripts/section-tabs.js, the default outside b2b, discover and tap): 6,698 px
+# (+8.21 %). From 768 px the first tab stays selected, as www's 1440 (5,733 / 5,714, +0.33 %, unchanged).
+# The same form as ITA's long-haul row (delta-so19-ita-long-haul-tabs-closed.txt) and B2B's meals-on-board: the page's
+# Metadata row "Tabs open | none" (scripts/section-tabs.js reads tabs-open; no code change).
+# Drafts on austrian.turnsthe.page (so24/host.mjs with the page's <head> meta added; <main> the copy served at ~20:20 CET;
+# consent stored, pictures eager; www.* and the airline hosts refused and counted: 0 a render). Control (the unchanged copy
+# the same way): 5,733 / 6,698, live to the px.
+#   the row, 1440: page 5,733 (unchanged), footer top 4,919 (unchanged).
+#   the row, 390: page 6,698 -> 6,062 (www 6,190; +8.21 -> -2.07 %), footer top 5,631 -> 4,995 (www 5,124; +9.89 -> -2.52 %).
+# What stays at 390 (headings against -019's): 60 px before the tab set (www's "Website" toggle at 2,144, ours 2,084) and
+# about 80 px between the FAQ heading and "Good to know" (www 2,922, ours 2,779); below that the page is +15 px. Order 21's
+# three gaps (28, 36 and 31 px) were read against the resize; these are the first load's. No row for them yet.
+# The other Austrian pages with a tab set (austrian-app, online-check-in, unterhaltung-an-bord) have only resized 390s, so a
+# brand default (austrian in CLOSED_BRANDS) is not proposed on one page's evidence: first loads are requested
+# (capture-requests-ema-cashub.txt).
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, what changes on the page.
+READY	/at/en/travel-id.html	the page Metadata block: a row "Tabs open" | "none" (add the block's row; the page keeps every other metadata row)	390: page 6,698 -> 6,062 (www 6,190: +8.21 -> -2.07 %), footer top 5,631 -> 4,995 (www 5,124: +9.89 -> -2.52 %); 1440 unchanged (5,733, +0.33 %)

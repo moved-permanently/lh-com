@@ -1,0 +1,19 @@
+# ema-cashub, standing order 32 (2026-11-14), item 2: Austrian /it/it/form-confirmation (finish-austrian.txt: -10.14 % /
+# -10.64 %, HOLD since order 24: "www's Italian page keeps about 280 px of empty white under its button ... the page or that
+# load?").
+# austrian-parity-019 loads each width on its own (18:38 UTC today): 1,558 / 1,823 px, footer top 723 / 737, as
+# austrian-parity-005. So it is the page, not that load: www's separator after the link is authored with
+# style="margin-bottom: 350px" (div.hr.hr-no-layout); /at/de's same page has 70px.
+# The document: one section with the style Space below: L (space-below-l), "Grazie", a sentence and the link "Torna alla
+# homepage". The row: as /at/de's (delta-so30-austrian-form-confirmation-end.txt), the style out and a spacer paragraph after
+# the link, sized to www's footer top.
+# Drafts on austrian.turnsthe.page (so24/host.mjs, <main> replaced; consent stored, pictures eager; www.* and the airline
+# hosts refused and counted: 0 a render). Control (the copy served at ~20:20 CET, unchanged): 1,400 / 1,629, footer top
+# 545 / 559, live to the px.
+#   the row ({spacer-298}): 1440 page 1,578 (www 1,558: -10.14 -> +1.28 %), footer top 723 (www 723);
+#                           390 page 1,807 (www 1,823: -10.64 -> -0.88 %), footer top 737 (www 737).
+#   The page's end differs from www's only by the Italian footer (ours 855 / 1,070 px, www 835 / 1,086).
+# A spacer of 298 px is above marker-collapse's 31 px, so the collapse keeps it; check the served copy ends the section with
+# a p.spacer of 298 px.
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, what changes on the page.
+READY	/it/it/form-confirmation.html	two changes in its one section: (1) the section style "Space below: L" removed (its Section Metadata, the section's only style); (2) a paragraph "{spacer-298}" right after the paragraph "Torna alla homepage"	the footer at www's top at both widths (723 / 737); the page 1,400 -> 1,578 px at 1440 (www 1,558), 1,629 -> 1,807 at 390 (www 1,823): -10.14 -> +1.28 %, -10.64 -> -0.88 %

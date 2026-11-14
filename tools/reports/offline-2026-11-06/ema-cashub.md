@@ -5874,3 +5874,121 @@ now requested, or one of your decisions.
 
 **Not in git** (scratch under /tmp/so31): the scripts, the drafts, the extracted recordings and the media archive, the
 censuses, the gate runs and the logs.
+
+## Standing order 32 (2026-11-14, from about 19:40 CET)
+
+**Carried over:** nothing of mine was uncommitted or unpushed. Order 31's last commit, `4d9bf845`, was on origin. The
+checkout's 88 dirty entries belong to other jobs (import-progress.json, the urls-*.txt lists, the importer reports, the
+notifications.css comment line) and were left alone, as was the 1 November autostash.
+
+### Item 1: the regression sweep (sweep-so32-regression.txt)
+
+Every recorded page-width of the four brands was measured as served at ~19:35-20:05 CET (origin/main `7439fad2`), each
+against its last row:
+- Austrian: 242, against finish-austrian.txt (the other 149 from order 27's pass behind it).
+- Air Dolomiti: 108, against rank-so31-airdolomiti.txt, at the footer's top as that list reads.
+- TAP: 52, against finish-tap.txt / rank-so24-tap.txt.
+- Cargo: 48, against rank-so24-cargo.txt, with f25a772a's two notification-overview rows.
+
+Air Dolomiti and Cargo have no finish-*.txt, so their last full rankings are their lists. A regression is a width out of
+2 % now that was within at its row, or a width further from www by 0.5 points or more.
+
+**Result: no regression.** No commit moved a page-width away from www.
+
+| brand | widths | within 2 %: row / now | moved |
+|---|---|---|---|
+| Austrian | 242 | 149 / 159 | 50 (the help-center pictures, live DA rows, the bot check) |
+| Air Dolomiti | 108 | 98 / 99 | 2 (the IFE spacer row, live as drafted) |
+| TAP | 52 | 45 / 44 | 4 (see below) |
+| Cargo | 48 | 40 / 40 | 0 |
+
+The numbers flagged 5 rows. Each was a render condition, and each read exactly as its row when measured again:
+- **/ir/en/homepage 1440:** a failed load (900 px, 0 refusals). Rendered again: 4,722, as the row.
+- **cancellation-refund 1440 / 390, bagdamage 390:** Turnstile's bot check (`.form-bot-check`). It was 71 px in one load
+  and 0 in the other. Probed 15 s after load, the check is 71 px and the pages read 3,292 / 3,776, as the rows.
+  - This exposed a row the list did not show. cancellation-refund 1440 is −2.25 % without the check. It was within 2 %
+    only because the earlier load carried the 71 px. It is now a HOLD row on finish-austrian.txt, with the 390 row's
+    cause (www's upload widget, owner decision).
+- **TAP voar-economica 1440 (+3.47 %), and lounges and voar-economica at 390:**
+  - The cause is TAP's call-back card (click-to-call, TAP row 157). Outside Lisbon's opening hours (Mon–Fri 09:00–24:00)
+    it shows the day and slot rows, as www's does. This sweep ran on a Saturday; the rows were measured on Friday at
+    15:50 UTC.
+  - With the page's clock set to that Friday (Playwright's clock, so32/host-clock.mjs), all four widths read their rows
+    to the px.
+  - Not a commit: the code of `b194d3a2` and `58620eac`, served locally, draws the same 4,027 px.
+
+Refusals counted: 2,201 Austrian, 291 Air Dolomiti, 0 TAP, 0 Cargo (Cargo's feed: www.mynewsdesk.com allowed). None was
+sent.
+
+### Item 2: the archives
+
+The drop folders had austrian-parity-019 (19 pages), airdolomiti-parity-008 (IFE) and tap-parity-012 to -014. Each was
+checked against its .sha256 and extracted into its own folder. Nothing was run from inside them.
+- The manifests say "one page load per width" and `loadedSeparately: true`. The README text is the old template ("from the
+  same load after a resize"); the manifests are right.
+- Recorded today between 19:32 and 19:46 CET.
+
+**Help-center and contact pages (24 widths):**
+- www's page heights and footer tops equal the rows' recordings to the px at both widths. The one exception is
+  /at/en/help-center 390: 3,023 against 3,022.
+- The note texts are the same in all 12 languages.
+- So the 390 gate read against a resize holds:
+  - the pictures (`70c60a7d`): live, and as gated;
+  - the ten note rows: their drafts stand. The helper uploaded them at 19:55 CET (`7787e422`); they were not in the
+    served copies at ~20:15.
+
+**The cn/en emblem:**
+- First loads: 2,242 / 2,803 px, footer 883 / 1,175 px (the resize had 1,174).
+- The drafted footer (882 / 1,179) stands.
+- Uploaded at 19:56 CET (`01db0303`), not yet served at ~20:15 (footer 813 px).
+
+**The 390 rows read against resizes:**
+- **at/de form-confirmation:** www 1,522, as the resize. The row is live since ~20:15: 1,257 / 1,525 px and footer top
+  444 / 458, against www's 443 / 457, as drafted.
+- **bagdamage:** www 5,788 (the resize 5,779). The intro row is live. Ours is 5,883 without the bot check: +1.64 %.
+- **accessible-travel:** www 19,409, as the resize. The "missing recording" cause is gone. What stays is the cargo-door
+  table's empty cell paragraphs, as on its row.
+- **baggage:** www 6,674 (the resize 6,673), so −2.83 % stays. Traced:
+  - the ten stacked teaser cards are about 7 px shorter each (from one text box to the next: www 411, ours 404);
+  - some descriptions wrap one line less (the first card: 6 lines on www, 5 on ours);
+  - together about 190 px.
+
+  The 7 px is carousel-cards' layout, a shared block, so it needs a site-wide census before any rule. HOLD.
+- **travel-id: READY (delta-so32-austrian-travel-id-tabs-closed.txt).**
+  - www's first load is 6,190 px, not the resize's 6,852.
+  - On a phone, www opens no panel of its tab set (`maui-tab-control-responsive`; no panel carries `active`). The
+    resize kept the 1440 load's first tab open.
+  - Ours opens the first item below 768 px (+8.21 %).
+  - The row is the page Metadata row "Tabs open | none", the same form as ITA's long-haul row and B2B's meals-on-board.
+  - Draft: 6,698 → 6,062 (−2.07 %), 1440 unchanged. Control equals live.
+  - What stays: 12 to 56 px steps through the page, one of them the FAQ heading's extra line on www.
+- **it/it form-confirmation: READY (delta-so32-austrian-it-form-confirmation-white.txt).**
+  - The first loads keep the 280 px of white, so the white belongs to the page, not to one load.
+  - www's separator after the link is authored with `margin-bottom: 350px` (/at/de's has 70px).
+  - The row, in /at/de's form: the style Space below: L out, and `{spacer-298}` after the link.
+  - Draft: the footer at www's top at both widths (723 / 737). The page goes from −10.14 / −10.64 % to +1.28 / −0.88 %;
+    what is left is the Italian footer's height. The collapse keeps a 298 px spacer.
+
+**Air Dolomiti IFE:** www 1,521 / 2,250 at the footer's top, as the rows. Ours as served is 1,518 / 2,247 (−0.20 /
+−0.13 %). The row is live and done.
+
+**TAP homepages:**
+- At the top, www is 4,621 px: on the first load, and again when scrolled back to the top. At the end it is 4,041, and it
+  stays there while at the end. The difference is GSAP's pin-spacer for the Miles&Go cards.
+- Ours is 3,977 in every state: −1.58 % at the end, −13.94 % at the top. Held as explained.
+- At 390: pt-pt 5,192, as the row; en-pt 5,067 and 5,099 on two first loads. Ours is within 0.5 %.
+
+**Lists:**
+- finish-austrian.txt: 36 READY, 56 HOLD, 2 OWNER. It has one new row (cancellation-refund 1440).
+- finish-tap.txt: the homepages' rows carry the recorded numbers.
+- The order 31 delta files carry their gate lines.
+- capture-requests-ema-cashub.txt is rewritten. It asks for the 390 first loads of the three other Austrian pages with a
+  tab set (austrian-app, online-check-in, unterhaltung-an-bord). Those decide whether "closed on phones" becomes
+  Austrian's default (one rule) or stays a per-page row. One page is not enough evidence for a brand default.
+
+### Item 3: the rest the recordings open
+
+- **Austrian:** the new recordings opened four rows: travel-id, it/it form-confirmation, baggage and accessible-travel.
+  travel-id and it/it now have READY delta rows. baggage is traced, but its remaining step is a shared block's. For
+  accessible-travel the cause is now the table cells alone.
+- **Air Dolomiti:** the archive held only the IFE page, which is done. Nothing else on its list waited for a recording.

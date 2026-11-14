@@ -1,0 +1,465 @@
+# ema-cashub, standing order 32 (2026-11-14, ~19:40-20:45 CET), item 1: the regression sweep after today's shared changes (lufthansa.com long-title
+# script 0126d539, card stage 49fe7aa1 / app-store badges, the live-prices flag gate c87ab57d, the footer logo-row pick 70c60a7d, the Discover card fix
+# 63c891ea / 091fab04). Every recorded page-width of Austrian (242), Air Dolomiti (108), TAP (52) and Cargo (48) as served at ~18:35-19:00 UTC
+# (origin/main 7439fad2; so24/host.mjs, EAGER=1 CONSENT=1, www.* and the airline hosts refused and counted, www.mynewsdesk.com allowed for
+# Cargo's feed), against each one's last row: finish-austrian.txt (its rows; the other 149 from order 27's pass behind it), rank-so31-airdolomiti.txt
+# (footer top, as that list reads), finish-tap.txt / rank-so24-tap.txt, rank-so24-cargo.txt (the two notification-overview 1440 rows at
+# 1,648 after f25a772a). Air Dolomiti and Cargo have no finish-*.txt; their last full rankings are their lists.
+# A regression = out of 2 % now while within at the last row, or further from www by 0.5 points or more.
+# Result: 0 regressions. 5 rows flagged by the numbers, each a render condition (a failed load, Turnstile's bot check, TAP's call-back card
+# outside its opening hours), each measured again as its row and equal to it to the px. No commit moved a page-width away from www.
+# austrian: 242 page-widths; within 2 %: 149 at the last rows, 159 now; 50 moved; refusals 2201, none sent.
+# airdolomiti: 108 page-widths; within 2 %: 98 at the last rows, 99 now; 2 moved; refusals 291, none sent.
+# tap: 52 page-widths; within 2 %: 45 at the last rows, 44 now; 4 moved; refusals 0, none sent.
+# cargo: 48 page-widths; within 2 %: 40 at the last rows, 40 now; 0 moved; refusals 0, none sent.
+# Columns: brand, path, width, metric, www, last row, now, last vs www, now vs www, refusals, list, note.
+austrian	/al/en/local-page/black-friday	1440	height	3110	3094	3094	-0.51 %	-0.51 %	8	so27 v-all (within 2 %)	
+austrian	/al/en/local-page/black-friday	390	height	4424	4408	4408	-0.36 %	-0.36 %	8	so27 v-all (within 2 %)	
+austrian	/am/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	17	so27 v-all (within 2 %)	
+austrian	/am/en/homepage	390	height	5790	5861	5861	+1.23 %	+1.23 %	17	so27 v-all (within 2 %)	
+austrian	/at/de/bearbeitungsgebuehren	1440	height	3140	3165	3155	+0.80 %	+0.48 %	0	so27 v-all (within 2 %)	small move, within 0.5 points of the row or closer
+austrian	/at/de/bearbeitungsgebuehren	390	height	4125	4107	4130	-0.44 %	+0.12 %	0	so27 v-all (within 2 %)	small move, within 0.5 points of the row or closer
+austrian	/at/de/besondere-anforderungen	1440	height	3736	3718	3729	-0.48 %	-0.19 %	0	so27 v-all (within 2 %)	small move, within 0.5 points of the row or closer
+austrian	/at/de/besondere-anforderungen	390	height	5497	5472	5483	-0.45 %	-0.25 %	0	so27 v-all (within 2 %)	small move, within 0.5 points of the row or closer
+austrian	/at/de/book/flights	1440	height	3600	3609	3609	+0.25 %	+0.25 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/book/flights	390	height	4850	4843	4843	-0.14 %	-0.14 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/book/overview-extra-services	1440	height	3669	3657	3657	-0.33 %	-0.33 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/book/overview-extra-services	390	height	5155	5130	5130	-0.48 %	-0.48 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/book/overview-inspiration	1440	height	1777	1774	1774	-0.17 %	-0.17 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/book/overview-inspiration	390	height	2347	2345	2345	-0.09 %	-0.09 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/book/overview-manage	1440	height	3721	3727	3727	+0.16 %	+0.16 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/book/overview-manage	390	height	5259	5259	5259	+0.00 %	+0.00 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/book/overview-manage/manage-my-bookings	1440	height	1530	1537	1537	+0.46 %	+0.46 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/book/overview-manage/manage-my-bookings	390	height	1794	1809	1809	+0.84 %	+0.84 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/book/overview-services-on-board	1440	height	2447	2447	2447	+0.00 %	+0.00 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/book/overview-services-on-board	390	height	2969	2958	2958	-0.37 %	-0.37 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/book/overview-travel-information	1440	height	3044	3031	3031	-0.43 %	-0.43 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/book/overview-travel-information	390	height	4135	4149	4149	+0.34 %	+0.34 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/contact	1440	height	2459	2358	2470	-4.11 %	+0.45 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/at/de/contact	390	height	3131	2994	3146	-4.38 %	+0.48 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/at/de/discover/inspiration/fly-with-austrian	1440	height	4649	4494	4503	-3.33 %	-3.14 %	10	finish-austrian	small move, within 0.5 points of the row or closer
+austrian	/at/de/discover/inspiration/fly-with-austrian	390	height	9114	8843	8888	-2.97 %	-2.48 %	10	finish-austrian	small move, within 0.5 points of the row or closer
+austrian	/at/de/entryregulations	1440	height	5696	5705	5705	+0.16 %	+0.16 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/entryregulations	390	height	7712	7618	7618	-1.22 %	-1.22 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/fly/travel-classes	1440	height	2414	2407	2407	-0.29 %	-0.29 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/fly/travel-classes	390	height	2889	2918	2918	+1.00 %	+1.00 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/footer-pages/help-and-contact/form-confirmation	1440	height	1257	1298	1298	+3.26 %	+3.26 %	0	finish-austrian	
+austrian	/at/de/footer-pages/help-and-contact/form-confirmation	390	height	1522	1566	1566	+2.89 %	+2.89 %	0	finish-austrian	
+austrian	/at/de/gepaeck	1440	height	4319	4280	4280	-0.90 %	-0.90 %	1	so27 v-all (within 2 %)	
+austrian	/at/de/gepaeck	390	height	6754	6620	6620	-1.98 %	-1.98 %	1	so27 v-all (within 2 %)	
+austrian	/at/de/hilfe-center	1440	height	2459	2276	2388	-7.44 %	-2.89 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/at/de/hilfe-center	390	height	3131	2891	3043	-7.67 %	-2.81 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/at/de/homepage	1440	height	4934	4872	4872	-1.26 %	-1.26 %	17	so27 v-all (within 2 %)	
+austrian	/at/de/homepage	390	height	6186	6089	6089	-1.57 %	-1.57 %	19	so27 v-all (within 2 %)	
+austrian	/at/de/local-page/feels-like-flying/os401crewstory	1440	height	7686	7764	7764	+1.01 %	+1.01 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/local-page/feels-like-flying/os401crewstory	390	height	9982	9909	9909	-0.73 %	-0.73 %	0	so27 v-all (within 2 %)	
+austrian	/at/de/unterhaltung-an-bord	1440	height	2749	2368	2368	-13.86 %	-13.86 %	4	finish-austrian	
+austrian	/at/de/unterhaltung-an-bord	390	height	3128	2892	2892	-7.54 %	-7.54 %	4	finish-austrian	
+austrian	/at/en/accessible-travel	1440	height	12859	12827	12857	-0.25 %	-0.02 %	1	so27 v-all (within 2 %)	small move, within 0.5 points of the row or closer
+austrian	/at/en/accessible-travel	390	height	19409	18956	18971	-2.33 %	-2.26 %	1	finish-austrian	small move, within 0.5 points of the row or closer
+austrian	/at/en/additional-services	1440	height	2648	2663	2663	+0.57 %	+0.57 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/additional-services	390	height	3554	3541	3541	-0.37 %	-0.37 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/austrian-app	1440	height	5362	5337	5337	-0.47 %	-0.47 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/austrian-app	390	height	6707	6740	6740	+0.49 %	+0.49 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/baggage	1440	height	4319	4280	4280	-0.90 %	-0.90 %	1	so27 v-all (within 2 %)	
+austrian	/at/en/baggage	390	height	6673	6485	6485	-2.82 %	-2.82 %	1	finish-austrian	
+austrian	/at/en/bangkok-airways	1440	height	3700	3305	3305	-10.68 %	-10.68 %	8	finish-austrian	
+austrian	/at/en/bangkok-airways	390	height	4604	4339	4339	-5.76 %	-5.76 %	8	finish-austrian	
+austrian	/at/en/book-and-manage/flights/wetlease-hub	1440	height	3070	3020	3020	-1.63 %	-1.63 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/book-and-manage/flights/wetlease-hub	390	height	3665	3612	3612	-1.45 %	-1.45 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/book/flights	1440	height	3575	3585	3585	+0.28 %	+0.28 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/book/flights	390	height	4693	4710	4710	+0.36 %	+0.36 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry	1440	height	3471	3518	3447	+1.35 %	-0.69 %	0	so27 v-all (within 2 %)	the bot check, 0 here (71 px in the row)
+austrian	/at/en/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry	390	height	3808	3862	3791	+1.42 %	-0.45 %	0	so27 v-all (within 2 %)	the bot check, 0 here (71 px in the row)
+austrian	/at/en/book/overview-extra-services	1440	height	3604	3618	3618	+0.39 %	+0.39 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/book/overview-extra-services	390	height	4964	4940	4940	-0.48 %	-0.48 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/book/overview-inspiration	1440	height	1777	1774	1774	-0.17 %	-0.17 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/book/overview-inspiration	390	height	2299	2297	2297	-0.09 %	-0.09 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/book/overview-manage	1440	height	3693	3664	3664	-0.79 %	-0.79 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/book/overview-manage	390	height	5103	5067	5067	-0.71 %	-0.71 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/book/overview-services-on-board	1440	height	2422	2423	2423	+0.04 %	+0.04 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/book/overview-services-on-board	390	height	2921	2910	2910	-0.38 %	-0.38 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/book/overview-travel-information	1440	height	2996	2983	2983	-0.43 %	-0.43 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/book/overview-travel-information	390	height	4069	4084	4084	+0.37 %	+0.37 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/contact	1440	height	2438	2337	2449	-4.14 %	+0.45 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/at/en/contact	390	height	3023	2886	3039	-4.53 %	+0.53 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/at/en/discover/inspiration/fly-with-austrian	1440	height	4507	4354	4387	-3.39 %	-2.66 %	10	finish-austrian	closer to www
+austrian	/at/en/discover/inspiration/fly-with-austrian	390	height	8696	8383	8425	-3.60 %	-3.12 %	10	finish-austrian	small move, within 0.5 points of the row or closer
+austrian	/at/en/entryregulations	1440	height	5538	5523	5523	-0.27 %	-0.27 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/entryregulations	390	height	7236	7108	7108	-1.77 %	-1.77 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/fly/check-in/private-check-in-counter	1440	height	5965	6144	6073	+3.00 %	+1.81 %	1	finish-austrian	the bot check, 0 here (the row's note subtracts it: +1.81 %)
+austrian	/at/en/fly/check-in/private-check-in-counter	390	height	7222	7412	7341	+2.63 %	+1.65 %	1	finish-austrian	the bot check, 0 here (the row's note subtracts it: +1.65 %)
+austrian	/at/en/fly/on-board/culinary-services	1440	height	8428	8374	8374	-0.64 %	-0.64 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/fly/on-board/culinary-services	390	height	9176	9053	9053	-1.34 %	-1.34 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/fly/travel-classes	1440	height	2414	2407	2407	-0.29 %	-0.29 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/fly/travel-classes	390	height	2889	2894	2894	+0.17 %	+0.17 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/footer-pages/help-and-contact/bagdamage	1440	height	5012	4906	5025	-2.11 %	+0.26 %	0	finish-austrian	closer: order 30's intro row live (+48 px), this load with the 71 px bot check (without: 4,954, -1.16 %)
+austrian	/at/en/footer-pages/help-and-contact/bagdamage	390	height	5779	5906	5954	+2.20 %	+3.03 %	0	finish-austrian	not a move: the intro row of order 30 is live (+48 px as drafted) and this load has the 71 px bot check; without it 5,883 (+1.80 % here, +1.64 % against austrian-parity-019's first load)
+austrian	/at/en/healthy-travel	1440	height	6614	6671	6671	+0.86 %	+0.86 %	1	so27 v-all (within 2 %)	
+austrian	/at/en/healthy-travel	390	height	8822	8860	8860	+0.43 %	+0.43 %	1	so27 v-all (within 2 %)	
+austrian	/at/en/help-center	1440	height	2438	2276	2388	-6.64 %	-2.05 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/at/en/help-center	390	height	3022	2804	2957	-7.21 %	-2.15 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/at/en/homepage	1440	height	4885	4824	4824	-1.25 %	-1.25 %	17	so27 v-all (within 2 %)	
+austrian	/at/en/homepage	390	height	6039	5921	5921	-1.95 %	-1.95 %	19	so27 v-all (within 2 %)	
+austrian	/at/en/online-check-in	1440	height	4477	4435	4435	-0.94 %	-0.94 %	1	so27 v-all (within 2 %)	
+austrian	/at/en/online-check-in	390	height	5846	5775	5775	-1.21 %	-1.21 %	1	so27 v-all (within 2 %)	
+austrian	/at/en/plan/special-requirements/entry-regulations/immigration-regulations-schengen	1440	height	3087	3065	3065	-0.71 %	-0.71 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/plan/special-requirements/entry-regulations/immigration-regulations-schengen	390	height	4358	4310	4310	-1.10 %	-1.10 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/plan/special-requirements/healthy-travel/doctor-on-board	1440	height	4529	4528	4552	-0.02 %	+0.51 %	1	so27 v-all (within 2 %)	small move, within 0.5 points of the row or closer
+austrian	/at/en/plan/special-requirements/healthy-travel/doctor-on-board	390	height	5857	5795	5819	-1.06 %	-0.65 %	1	so27 v-all (within 2 %)	small move, within 0.5 points of the row or closer
+austrian	/at/en/plan/special-requirements/medical-travel-companions	1440	height	2775	2766	2766	-0.32 %	-0.32 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/plan/special-requirements/medical-travel-companions	390	height	3120	3129	3129	+0.29 %	+0.29 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/special-requirements	1440	height	3784	3738	3771	-1.22 %	-0.34 %	0	so27 v-all (within 2 %)	closer to www
+austrian	/at/en/special-requirements	390	height	5456	5403	5436	-0.97 %	-0.37 %	0	so27 v-all (within 2 %)	closer to www
+austrian	/at/en/sustainable-flying	1440	height	4275	4246	4252	-0.68 %	-0.54 %	0	so27 v-all (within 2 %)	small move, within 0.5 points of the row or closer
+austrian	/at/en/sustainable-flying	390	height	5929	5917	5929	-0.20 %	+0.00 %	0	so27 v-all (within 2 %)	small move, within 0.5 points of the row or closer
+austrian	/at/en/travel-id	1440	height	5714	5733	5733	+0.33 %	+0.33 %	0	so27 v-all (within 2 %)	
+austrian	/at/en/travel-id	390	height	6852	6698	6698	-2.25 %	-2.25 %	0	finish-austrian	
+austrian	/au/en/homepage	1440	height	4392	4073	4073	-7.26 %	-7.26 %	19	finish-austrian	
+austrian	/au/en/homepage	390	height	5262	5440	5440	+3.38 %	+3.38 %	21	finish-austrian	
+austrian	/ba/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	19	so27 v-all (within 2 %)	
+austrian	/ba/en/homepage	390	height	5790	5861	5861	+1.23 %	+1.23 %	19	so27 v-all (within 2 %)	
+austrian	/be/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	21	so27 v-all (within 2 %)	
+austrian	/be/en/homepage	390	height	5790	5861	5861	+1.23 %	+1.23 %	21	so27 v-all (within 2 %)	
+austrian	/bg/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	21	so27 v-all (within 2 %)	
+austrian	/bg/en/homepage	390	height	5790	5861	5861	+1.23 %	+1.23 %	22	so27 v-all (within 2 %)	
+austrian	/by/en/homepage	1440	height	3473	3438	3438	-1.01 %	-1.01 %	19	so27 v-all (within 2 %)	
+austrian	/by/en/homepage	390	height	5100	4992	4992	-2.12 %	-2.12 %	18	finish-austrian	
+austrian	/by/ru/homepage	1440	height	3630	3611	3611	-0.52 %	-0.52 %	19	so27 v-all (within 2 %)	
+austrian	/by/ru/homepage	390	height	5351	5265	5265	-1.61 %	-1.61 %	19	so27 v-all (within 2 %)	
+austrian	/ca/en/homepage	1440	height	3037	3067	3067	+0.99 %	+0.99 %	8	so27 v-all (within 2 %)	
+austrian	/ca/en/homepage	390	height	4327	4419	4419	+2.13 %	+2.13 %	8	finish-austrian	
+austrian	/ca/fr/homepage	1440	height	3362	3254	3254	-3.21 %	-3.21 %	8	finish-austrian	
+austrian	/ca/fr/homepage	390	height	4785	4556	4556	-4.79 %	-4.79 %	8	finish-austrian	
+austrian	/ch/de/homepage	1440	height	4442	4097	4097	-7.77 %	-7.77 %	17	finish-austrian	
+austrian	/ch/de/homepage	390	height	5388	5487	5487	+1.84 %	+1.84 %	21	so27 v-all (within 2 %)	
+austrian	/ch/en/homepage	1440	height	4744	4073	4073	-14.14 %	-14.14 %	21	finish-austrian	
+austrian	/ch/en/homepage	390	height	5790	5435	5435	-6.13 %	-6.13 %	21	finish-austrian	
+austrian	/ch/fr/homepage	1440	height	5042	4870	4870	-3.41 %	-3.41 %	21	finish-austrian	
+austrian	/ch/fr/homepage	390	height	6314	6059	6059	-4.04 %	-4.04 %	19	finish-austrian	
+austrian	/ch/it/homepage	1440	height	4846	4847	4847	+0.02 %	+0.02 %	19	so27 v-all (within 2 %)	
+austrian	/ch/it/homepage	390	height	5962	5990	5990	+0.47 %	+0.47 %	21	so27 v-all (within 2 %)	
+austrian	/cn/en/local-pages/tarmac-delay-contingency-plan	1440	height	2241	2201	2201	-1.78 %	-1.78 %	0	so27 v-all (within 2 %)	
+austrian	/cn/en/local-pages/tarmac-delay-contingency-plan	390	height	2800	2811	2811	+0.39 %	+0.39 %	0	so27 v-all (within 2 %)	
+austrian	/cn/zh/baggage	1440	height	4226	4072	4072	-3.64 %	-3.64 %	0	finish-austrian	
+austrian	/cn/zh/baggage	390	height	5675	5306	5306	-6.50 %	-6.50 %	0	finish-austrian	
+austrian	/cn/zh/contact	1440	height	2438	2235	2347	-8.33 %	-3.73 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/cn/zh/contact	390	height	3141	2877	3029	-8.40 %	-3.57 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/cy/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	19	so27 v-all (within 2 %)	
+austrian	/cy/en/homepage	390	height	5790	5861	5861	+1.23 %	+1.23 %	21	so27 v-all (within 2 %)	
+austrian	/cz/en/homepage	1440	height	4744	4073	4073	-14.14 %	-14.14 %	19	finish-austrian	
+austrian	/cz/en/homepage	390	height	5790	5440	5440	-6.04 %	-6.04 %	21	finish-austrian	
+austrian	/de/de/homepage	1440	height	4794	4770	4770	-0.50 %	-0.50 %	19	so27 v-all (within 2 %)	
+austrian	/de/de/homepage	390	height	5916	5932	5932	+0.27 %	+0.27 %	19	so27 v-all (within 2 %)	
+austrian	/de/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	21	so27 v-all (within 2 %)	
+austrian	/de/en/homepage	390	height	5807	5861	5861	+0.93 %	+0.93 %	21	so27 v-all (within 2 %)	
+austrian	/dk/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	19	so27 v-all (within 2 %)	
+austrian	/dk/en/homepage	390	height	5790	5861	5861	+1.23 %	+1.23 %	21	so27 v-all (within 2 %)	
+austrian	/eg/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	21	so27 v-all (within 2 %)	
+austrian	/eg/en/homepage	390	height	5790	5901	5901	+1.92 %	+1.92 %	17	so27 v-all (within 2 %)	
+austrian	/es/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	21	so27 v-all (within 2 %)	
+austrian	/es/en/homepage	390	height	5790	5861	5861	+1.23 %	+1.23 %	22	so27 v-all (within 2 %)	
+austrian	/es/es/baggage	1440	height	4298	4305	4305	+0.16 %	+0.16 %	1	so27 v-all (within 2 %)	
+austrian	/es/es/baggage	390	height	6066	6058	6058	-0.13 %	-0.13 %	1	so27 v-all (within 2 %)	
+austrian	/es/es/contact	1440	height	2459	2276	2388	-7.44 %	-2.89 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/es/es/contact	390	height	3103	2866	3018	-7.64 %	-2.74 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/fr/en/homepage	1440	height	4744	4073	4073	-14.14 %	-14.14 %	17	finish-austrian	
+austrian	/fr/en/homepage	390	height	5790	5440	5440	-6.04 %	-6.04 %	19	finish-austrian	
+austrian	/fr/fr/baggage	1440	height	4383	4432	4432	+1.12 %	+1.12 %	1	so27 v-all (within 2 %)	
+austrian	/fr/fr/baggage	390	height	6012	5979	5979	-0.55 %	-0.55 %	1	so27 v-all (within 2 %)	
+austrian	/fr/fr/contact	1440	height	2508	2367	2479	-5.62 %	-1.16 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/fr/fr/contact	390	height	3218	2981	3133	-7.36 %	-2.64 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/gb/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	19	so27 v-all (within 2 %)	
+austrian	/gb/en/homepage	390	height	5790	5634	5634	-2.69 %	-2.69 %	21	finish-austrian	
+austrian	/ge/en/homepage	1440	height	4663	3930	3930	-15.72 %	-15.72 %	19	finish-austrian	
+austrian	/ge/en/homepage	390	height	5688	5108	5108	-10.20 %	-10.20 %	19	finish-austrian	
+austrian	/gr/el/baggage	1440	height	4441	4553	4553	+2.52 %	+2.52 %	0	finish-austrian	
+austrian	/gr/el/baggage	390	height	6248	6421	6421	+2.77 %	+2.77 %	0	finish-austrian	
+austrian	/gr/el/contact	1440	height	2459	2346	2458	-4.60 %	-0.04 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/gr/el/contact	390	height	3172	2989	3142	-5.77 %	-0.95 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/gr/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	21	so27 v-all (within 2 %)	
+austrian	/gr/en/homepage	390	height	5790	5861	5861	+1.23 %	+1.23 %	21	so27 v-all (within 2 %)	
+austrian	/hr/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	21	so27 v-all (within 2 %)	
+austrian	/hr/en/homepage	390	height	5790	5861	5861	+1.23 %	+1.23 %	21	so27 v-all (within 2 %)	
+austrian	/hu/en/local-page/invoice-request-hungary	1440	height	3152	3184	3113	+1.02 %	-1.24 %	0	so27 v-all (within 2 %)	the bot check: 71 px in the row's load, 0 here; within 2 % either way
+austrian	/hu/en/local-page/invoice-request-hungary	390	height	3568	3644	3644	+2.13 %	+2.13 %	0	finish-austrian	
+austrian	/il/en/legal/cancellation-refund-via-document-upload	1440	height	3295	3292	3221	-0.09 %	-2.25 %	0	so27 v-all (within 2 %)	not a move: Turnstile's bot check (.form-bot-check) was 0 px in this load and 71 px in the row's; probed 15 s after load it is 71 px and the page 3,292, the row to the px. Without it the page is -2.25 %: a row out of 2 % the list did not show (finish-austrian.txt, HOLD)
+austrian	/il/en/legal/cancellation-refund-via-document-upload	390	height	4040	3776	3705	-6.53 %	-8.29 %	0	finish-austrian	not a move: the same bot check (71 px in the row's load, 0 here; 15 s after load 3,776, the row to the px); the row's own note gives -8.29 % without it
+austrian	/iq/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	19	so27 v-all (within 2 %)	
+austrian	/iq/en/homepage	390	height	5790	5861	5861	+1.23 %	+1.23 %	17	so27 v-all (within 2 %)	
+austrian	/ir/en/homepage	1440	height	4744	4722	900	-0.46 %	-81.03 %	0	so27 v-all (within 2 %)	not a move: this load failed (900 px, 0 refusals, the footer at 113); rendered again 4,722 px, the row to the px
+austrian	/ir/en/homepage	390	height	5790	5861	5861	+1.23 %	+1.23 %	21	so27 v-all (within 2 %)	
+austrian	/it/en/homepage	1440	height	4744	4073	4073	-14.14 %	-14.14 %	19	finish-austrian	
+austrian	/it/en/homepage	390	height	5790	5435	5435	-6.13 %	-6.13 %	21	finish-austrian	
+austrian	/it/it/baggage	1440	height	4383	4387	4387	+0.09 %	+0.09 %	1	so27 v-all (within 2 %)	
+austrian	/it/it/baggage	390	height	6087	6058	6058	-0.48 %	-0.48 %	1	so27 v-all (within 2 %)	
+austrian	/it/it/contact	1440	height	2480	2318	2430	-6.53 %	-2.02 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/it/it/contact	390	height	3123	2866	3018	-8.23 %	-3.36 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/it/it/form-confirmation	1440	height	1558	1400	1400	-10.14 %	-10.14 %	0	finish-austrian	
+austrian	/it/it/form-confirmation	390	height	1823	1629	1629	-10.64 %	-10.64 %	0	finish-austrian	
+austrian	/jo/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	19	so27 v-all (within 2 %)	
+austrian	/jo/en/homepage	390	height	5790	5861	5861	+1.23 %	+1.23 %	19	so27 v-all (within 2 %)	
+austrian	/jp/en/homepage	1440	height	4392	4722	4722	+7.51 %	+7.51 %	23	finish-austrian	
+austrian	/jp/en/homepage	390	height	5341	5901	5901	+10.48 %	+10.48 %	26	finish-austrian	
+austrian	/jp/ja/baggage	1440	height	4322	4096	4096	-5.23 %	-5.23 %	0	finish-austrian	
+austrian	/jp/ja/baggage	390	height	5871	5327	5327	-9.27 %	-9.27 %	0	finish-austrian	
+austrian	/jp/ja/contact	1440	height	2459	2235	2347	-9.11 %	-4.55 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/jp/ja/contact	390	height	3044	2754	2906	-9.53 %	-4.53 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/lt/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	19	so27 v-all (within 2 %)	
+austrian	/lt/en/homepage	390	height	5790	5861	5861	+1.23 %	+1.23 %	19	so27 v-all (within 2 %)	
+austrian	/md/en/homepage	1440	height	4744	4073	4073	-14.14 %	-14.14 %	21	finish-austrian	
+austrian	/md/en/homepage	390	height	5790	5440	5440	-6.04 %	-6.04 %	21	finish-austrian	
+austrian	/me/en/homepage	1440	height	4392	4722	4722	+7.51 %	+7.51 %	21	finish-austrian	
+austrian	/me/en/homepage	390	height	5262	5861	5861	+11.38 %	+11.38 %	19	finish-austrian	
+austrian	/mk/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	20	so27 v-all (within 2 %)	
+austrian	/mk/en/homepage	390	height	5790	5861	5861	+1.23 %	+1.23 %	22	so27 v-all (within 2 %)	
+austrian	/nl/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	19	so27 v-all (within 2 %)	
+austrian	/nl/en/homepage	390	height	5790	5861	5861	+1.23 %	+1.23 %	21	so27 v-all (within 2 %)	
+austrian	/no/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	21	so27 v-all (within 2 %)	
+austrian	/no/en/homepage	390	height	5790	5861	5861	+1.23 %	+1.23 %	19	so27 v-all (within 2 %)	
+austrian	/pl/en/homepage	1440	height	4744	4073	4073	-14.14 %	-14.14 %	21	finish-austrian	
+austrian	/pl/en/homepage	390	height	5790	5440	5440	-6.04 %	-6.04 %	21	finish-austrian	
+austrian	/pl/pl/baggage	1440	height	4322	4329	4329	+0.16 %	+0.16 %	0	so27 v-all (within 2 %)	
+austrian	/pl/pl/baggage	390	height	6012	6003	6003	-0.15 %	-0.15 %	0	so27 v-all (within 2 %)	
+austrian	/pl/pl/contact	1440	height	2459	2276	2388	-7.44 %	-2.89 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/pl/pl/contact	390	height	3100	2835	2987	-8.55 %	-3.65 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/pt/en/homepage	1440	height	4663	4579	4579	-1.80 %	-1.80 %	22	so27 v-all (within 2 %)	
+austrian	/pt/en/homepage	390	height	5688	5529	5529	-2.80 %	-2.80 %	22	finish-austrian	
+austrian	/ro/en/homepage	1440	height	4744	4073	4073	-14.14 %	-14.14 %	21	finish-austrian	
+austrian	/ro/en/homepage	390	height	5790	5440	5440	-6.04 %	-6.04 %	21	finish-austrian	
+austrian	/rs/en/homepage	1440	height	4744	4073	4073	-14.14 %	-14.14 %	19	finish-austrian	
+austrian	/rs/en/homepage	390	height	5790	5440	5440	-6.04 %	-6.04 %	17	finish-austrian	
+austrian	/ru/en/homepage	1440	height	3473	3438	3438	-1.01 %	-1.01 %	18	so27 v-all (within 2 %)	
+austrian	/ru/en/homepage	390	height	5100	4992	4992	-2.12 %	-2.12 %	18	finish-austrian	
+austrian	/ru/ru/baggage	1440	height	4422	4577	4577	+3.51 %	+3.51 %	0	finish-austrian	
+austrian	/ru/ru/baggage	390	height	6200	6435	6435	+3.79 %	+3.79 %	0	finish-austrian	
+austrian	/ru/ru/contact	1440	height	2508	2346	2458	-6.46 %	-1.99 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/ru/ru/contact	390	height	3232	3044	3197	-5.82 %	-1.08 %	3	finish-austrian	closer: the help-center pictures (70c60a7d), as order 31's gate
+austrian	/ru/ru/homepage	1440	height	3630	3611	3611	-0.52 %	-0.52 %	19	so27 v-all (within 2 %)	
+austrian	/ru/ru/homepage	390	height	5330	5241	5241	-1.67 %	-1.67 %	19	so27 v-all (within 2 %)	
+austrian	/se/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	21	so27 v-all (within 2 %)	
+austrian	/se/en/homepage	390	height	5790	5861	5861	+1.23 %	+1.23 %	19	so27 v-all (within 2 %)	
+austrian	/si/en/homepage	1440	height	4744	4722	4722	-0.46 %	-0.46 %	21	so27 v-all (within 2 %)	
+austrian	/si/en/homepage	390	height	5790	5861	5861	+1.23 %	+1.23 %	19	so27 v-all (within 2 %)	
+austrian	/sk/en/homepage	1440	height	4966	4924	4924	-0.85 %	-0.85 %	21	so27 v-all (within 2 %)	
+austrian	/sk/en/homepage	390	height	6331	6341	6341	+0.16 %	+0.16 %	21	so27 v-all (within 2 %)	
+austrian	/th/en/book/flights/promptpay	1440	height	2688	2655	2655	-1.23 %	-1.23 %	10	so27 v-all (within 2 %)	
+austrian	/th/en/book/flights/promptpay	390	height	3382	3442	3442	+1.77 %	+1.77 %	11	so27 v-all (within 2 %)	
+austrian	/tr/en/homepage	1440	height	4392	4746	4746	+8.06 %	+8.06 %	22	finish-austrian	
+austrian	/tr/en/homepage	390	height	5283	5906	5906	+11.79 %	+11.79 %	21	finish-austrian	
+austrian	/ua/en/homepage	1440	height	4301	4400	4400	+2.30 %	+2.30 %	19	finish-austrian	
+austrian	/ua/en/homepage	390	height	5623	5620	5620	-0.05 %	-0.05 %	21	so27 v-all (within 2 %)	
+austrian	/us/en/local-page/ski-campaign-2026	1440	height	2910	2853	2853	-1.96 %	-1.96 %	22	so27 v-all (within 2 %)	
+austrian	/us/en/local-page/ski-campaign-2026	390	height	3515	3444	3444	-2.02 %	-2.02 %	24	finish-austrian	
+austrian	/xk/en/homepage	1440	height	4392	4722	4722	+7.51 %	+7.51 %	21	finish-austrian	
+austrian	/xk/en/homepage	390	height	5262	5861	5861	+11.38 %	+11.38 %	21	finish-austrian	
+austrian	/xx/en/homepage	1440	height	3524	3505	3505	-0.54 %	-0.54 %	18	so27 v-all (within 2 %)	
+austrian	/xx/en/homepage	390	height	4890	4847	4847	-0.88 %	-0.88 %	18	so27 v-all (within 2 %)	
+airdolomiti	/	1440	ftop	4261	4228	4228	-0.77 %	-0.77 %	10	rank-so31-airdolomiti	
+airdolomiti	/	390	ftop	5408	5366	5366	-0.78 %	-0.78 %	10	rank-so31-airdolomiti	
+airdolomiti	/articoli	1440	ftop	1951	1938	1938	-0.67 %	-0.67 %	0	rank-so31-airdolomiti	
+airdolomiti	/articoli	390	ftop	5113	5101	5101	-0.23 %	-0.23 %	0	rank-so31-airdolomiti	
+airdolomiti	/articoli/destinazioni/dove-ladriatico-si-fa-selvaggio	1440	ftop	3108	3077	3077	-1.00 %	-1.00 %	0	rank-so31-airdolomiti	
+airdolomiti	/articoli/destinazioni/dove-ladriatico-si-fa-selvaggio	390	ftop	3889	3895	3895	+0.15 %	+0.15 %	0	rank-so31-airdolomiti	
+airdolomiti	/assistenza	1440	ftop	3982	3994	3994	+0.30 %	+0.30 %	0	rank-so31-airdolomiti	
+airdolomiti	/assistenza	390	ftop	6314	6306	6306	-0.13 %	-0.13 %	0	rank-so31-airdolomiti	
+airdolomiti	/bagagli	1440	ftop	1430	1440	1440	+0.70 %	+0.70 %	0	rank-so31-airdolomiti	
+airdolomiti	/bagagli	390	ftop	1080	1090	1090	+0.93 %	+0.93 %	0	rank-so31-airdolomiti	
+airdolomiti	/de	1440	ftop	4261	4228	4228	-0.77 %	-0.77 %	10	rank-so31-airdolomiti	
+airdolomiti	/de	390	ftop	5480	5438	5438	-0.77 %	-0.77 %	10	rank-so31-airdolomiti	
+airdolomiti	/de/artikel	1440	ftop	1951	1938	1938	-0.67 %	-0.67 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/artikel	390	ftop	5058	5045	5045	-0.26 %	-0.26 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/artikel/reiseziele/die-wilde-seite-der-adria	1440	ftop	3262	3231	3231	-0.95 %	-0.95 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/artikel/reiseziele/die-wilde-seite-der-adria	390	ftop	4268	4329	4329	+1.43 %	+1.43 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/bearbeitung-ihrer-buchungen	1440	ftop	1477	1446	1446	-2.10 %	-2.10 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/bearbeitung-ihrer-buchungen	390	ftop	2191	2197	2197	+0.27 %	+0.27 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/betreuung	1440	ftop	4149	4198	4198	+1.18 %	+1.18 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/betreuung	390	ftop	6698	6726	6726	+0.42 %	+0.42 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/buchung	1440	ftop	702	702	702	+0.00 %	+0.00 %	8	rank-so31-airdolomiti	
+airdolomiti	/de/buchung	390	ftop	1243	1221	1221	-1.77 %	-1.77 %	8	rank-so31-airdolomiti	
+airdolomiti	/de/dienstleistungen-an-bord/unterhaltung-an-bord	1440	ftop	1657	1654	1654	-0.18 %	-0.18 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/dienstleistungen-an-bord/unterhaltung-an-bord	390	ftop	2291	2288	2288	-0.13 %	-0.13 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/flotte	1440	ftop	3588	3552	3552	-1.00 %	-1.00 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/flotte	390	ftop	6980	6981	6981	+0.01 %	+0.01 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/fluege-in-europa	1440	ftop	4872	4874	4874	+0.04 %	+0.04 %	8	rank-so31-airdolomiti	
+airdolomiti	/de/fluege-in-europa	390	ftop	5671	5674	5674	+0.05 %	+0.05 %	8	rank-so31-airdolomiti	
+airdolomiti	/de/flug-status	1440	ftop	858	926	926	+7.93 %	+7.93 %	1	rank-so31-airdolomiti	
+airdolomiti	/de/flugplan	1440	ftop	1170	1170	1170	+0.00 %	+0.00 %	1	rank-so31-airdolomiti	
+airdolomiti	/de/flugplan	390	ftop	1150	1163	1163	+1.13 %	+1.13 %	1	rank-so31-airdolomiti	
+airdolomiti	/de/gepaeck	1440	ftop	1460	1470	1470	+0.68 %	+0.68 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/gepaeck	390	ftop	1170	1180	1180	+0.85 %	+0.85 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/reisenformationen/schwangere-und-kinder	1440	ftop	1089	1108	1108	+1.74 %	+1.74 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/reisenformationen/sitzplatzreservierung	1440	ftop	1924	1923	1923	-0.05 %	-0.05 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/reisenformationen/sitzplatzreservierung	390	ftop	2962	3070	3070	+3.65 %	+3.65 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/reisenformationen/tiere-an-bord	1440	ftop	1558	1557	1557	-0.06 %	-0.06 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/reiseziele	1440	ftop	3958	3977	3977	+0.48 %	+0.48 %	8	rank-so31-airdolomiti	
+airdolomiti	/de/reiseziele	390	ftop	9077	9124	9124	+0.52 %	+0.52 %	8	rank-so31-airdolomiti	
+airdolomiti	/de/reiseziele/bari-de	1440	ftop	4924	4923	4923	-0.02 %	-0.02 %	8	rank-so31-airdolomiti	
+airdolomiti	/de/reiseziele/bari-de	390	ftop	6883	6810	6810	-1.06 %	-1.06 %	8	rank-so31-airdolomiti	
+airdolomiti	/de/reiseziele/basel-de	1440	ftop	7164	7041	7041	-1.72 %	-1.72 %	8	rank-so31-airdolomiti	
+airdolomiti	/de/reiseziele/basel-de	390	ftop	10800	10567	10567	-2.16 %	-2.16 %	8	rank-so31-airdolomiti	
+airdolomiti	/de/unsere-dienste/lounge-zutritt	1440	ftop	1196	1195	1195	-0.08 %	-0.08 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/unsere-dienste/lounge-zutritt	390	ftop	2195	2072	2072	-5.60 %	-5.60 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/unterstutzung-und-kontakte	1440	ftop	1140	1150	1150	+0.88 %	+0.88 %	0	rank-so31-airdolomiti	
+airdolomiti	/de/unterstutzung-und-kontakte	390	ftop	874	884	884	+1.14 %	+1.14 %	0	rank-so31-airdolomiti	
+airdolomiti	/destinazioni	1440	ftop	2813	2820	2820	+0.25 %	+0.25 %	8	rank-so31-airdolomiti	
+airdolomiti	/destinazioni	390	ftop	5287	5279	5279	-0.15 %	-0.15 %	8	rank-so31-airdolomiti	
+airdolomiti	/destinazioni/monaco-di-baviera	1440	ftop	6199	6137	6137	-1.00 %	-1.00 %	8	rank-so31-airdolomiti	
+airdolomiti	/destinazioni/monaco-di-baviera	390	ftop	9194	8987	8987	-2.25 %	-2.25 %	8	rank-so31-airdolomiti	
+airdolomiti	/en	1440	ftop	4261	4228	4228	-0.77 %	-0.77 %	10	rank-so31-airdolomiti	
+airdolomiti	/en	390	ftop	5438	5396	5396	-0.77 %	-0.77 %	10	rank-so31-airdolomiti	
+airdolomiti	/en/articles	1440	ftop	1951	1938	1938	-0.67 %	-0.67 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/articles	390	ftop	5113	5101	5101	-0.23 %	-0.23 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/articles/destinations/street-food-in-munich	1440	ftop	4851	4851	4851	+0.00 %	+0.00 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/articles/destinations/street-food-in-munich	390	ftop	5589	5741	5741	+2.72 %	+2.72 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/articles/destinations/where-the-adriatic-becomes-wild	1440	ftop	3135	3104	3104	-0.99 %	-0.99 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/articles/destinations/where-the-adriatic-becomes-wild	390	ftop	3938	3999	3999	+1.55 %	+1.55 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/articles/dyk/airports-designed-by-archistars	1440	ftop	3718	3517	3517	-5.41 %	-5.41 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/articles/dyk/airports-designed-by-archistars	390	ftop	3628	3695	3695	+1.85 %	+1.85 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/assistance	1440	ftop	3944	3956	3956	+0.30 %	+0.30 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/assistance	390	ftop	6286	6277	6277	-0.14 %	-0.14 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/baggage	1440	ftop	1430	1440	1440	+0.70 %	+0.70 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/baggage	390	ftop	1126	1136	1136	+0.89 %	+0.89 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/booking	1440	ftop	702	702	702	+0.00 %	+0.00 %	8	rank-so31-airdolomiti	
+airdolomiti	/en/booking	390	ftop	1243	1221	1221	-1.77 %	-1.77 %	8	rank-so31-airdolomiti	
+airdolomiti	/en/destinations	1440	ftop	3846	3865	3865	+0.49 %	+0.49 %	8	rank-so31-airdolomiti	
+airdolomiti	/en/destinations	390	ftop	8653	8583	8583	-0.81 %	-0.81 %	8	rank-so31-airdolomiti	
+airdolomiti	/en/destinations/bari	1440	ftop	5854	5916	5916	+1.06 %	+1.06 %	8	rank-so31-airdolomiti	
+airdolomiti	/en/destinations/bari	390	ftop	6944	6908	6908	-0.52 %	-0.52 %	8	rank-so31-airdolomiti	
+airdolomiti	/en/destinations/florence/what-to-see	1440	ftop	1108	1105	1105	-0.27 %	-0.27 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/destinations/london-eu	1440	ftop	6518	6432	6432	-1.32 %	-1.32 %	8	rank-so31-airdolomiti	
+airdolomiti	/en/destinations/london-eu	390	ftop	8787	8588	8588	-2.26 %	-2.26 %	8	rank-so31-airdolomiti	
+airdolomiti	/en/fleet	1440	ftop	3476	3440	3440	-1.04 %	-1.04 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/fleet	390	ftop	6373	6299	6299	-1.16 %	-1.16 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/flight-timetables	1440	ftop	1170	1170	1170	+0.00 %	+0.00 %	1	rank-so31-airdolomiti	
+airdolomiti	/en/flight-timetables	390	ftop	1104	1117	1117	+1.18 %	+1.18 %	1	rank-so31-airdolomiti	
+airdolomiti	/en/flights-europe	1440	ftop	4845	4750	4750	-1.96 %	-1.96 %	8	rank-so31-airdolomiti	
+airdolomiti	/en/flights-europe	390	ftop	5086	5078	5078	-0.16 %	-0.16 %	8	rank-so31-airdolomiti	
+airdolomiti	/en/manage-flight-booking	1440	ftop	1450	1452	1452	+0.14 %	+0.14 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/manage-flight-booking	390	ftop	2005	2012	2012	+0.35 %	+0.35 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/services-on-board/in-flight-entertainment-system	1440	ftop	1521	1485	1518	-2.37 %	-0.20 %	0	rank-so31-airdolomiti	the IFE spacer row (delta-so31-airdolomiti-ife-spacer.txt) live, as drafted
+airdolomiti	/en/services-on-board/in-flight-entertainment-system	390	ftop	2250	2214	2247	-1.60 %	-0.13 %	0	rank-so31-airdolomiti	the IFE spacer row live, as drafted
+airdolomiti	/en/services/lounges	1440	ftop	1196	1195	1195	-0.08 %	-0.08 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/services/lounges	390	ftop	2177	2170	2170	-0.32 %	-0.32 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/support-and-contacts	1440	ftop	1140	1150	1150	+0.88 %	+0.88 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/support-and-contacts	390	ftop	828	838	838	+1.21 %	+1.21 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/travel-info/seat-reservation	1440	ftop	1708	1707	1707	-0.06 %	-0.06 %	0	rank-so31-airdolomiti	
+airdolomiti	/en/travel-info/seat-reservation	390	ftop	2854	2846	2846	-0.28 %	-0.28 %	0	rank-so31-airdolomiti	
+airdolomiti	/flotta	1440	ftop	3476	3440	3440	-1.04 %	-1.04 %	0	rank-so31-airdolomiti	
+airdolomiti	/flotta	390	ftop	6747	6710	6710	-0.55 %	-0.55 %	0	rank-so31-airdolomiti	
+airdolomiti	/gestione-prenotazione-volo	1440	ftop	1334	1336	1336	+0.15 %	+0.15 %	0	rank-so31-airdolomiti	
+airdolomiti	/gestione-prenotazione-volo	390	ftop	1906	1913	1913	+0.37 %	+0.37 %	0	rank-so31-airdolomiti	
+airdolomiti	/informazioni-per-il-viaggio/prenotazione-del-posto	1440	ftop	1538	1537	1537	-0.07 %	-0.07 %	0	rank-so31-airdolomiti	
+airdolomiti	/informazioni-per-il-viaggio/prenotazione-del-posto	390	ftop	2748	2767	2767	+0.69 %	+0.69 %	0	rank-so31-airdolomiti	
+airdolomiti	/orario-voli	1440	ftop	1178	1178	1178	+0.00 %	+0.00 %	1	rank-so31-airdolomiti	
+airdolomiti	/orario-voli	390	ftop	1193	1206	1206	+1.09 %	+1.09 %	1	rank-so31-airdolomiti	
+airdolomiti	/prenotazioni	1440	ftop	702	702	702	+0.00 %	+0.00 %	8	rank-so31-airdolomiti	
+airdolomiti	/prenotazioni	390	ftop	1243	1221	1221	-1.77 %	-1.77 %	8	rank-so31-airdolomiti	
+airdolomiti	/servizi-a-bordo/sistema-di-intrattenimento-a-bordo	1440	ftop	1587	1584	1584	-0.19 %	-0.19 %	0	rank-so31-airdolomiti	
+airdolomiti	/servizi-a-bordo/sistema-di-intrattenimento-a-bordo	390	ftop	2449	2412	2412	-1.51 %	-1.51 %	0	rank-so31-airdolomiti	
+airdolomiti	/servizi/parcheggi-convenzionati	1440	ftop	1012	1005	1005	-0.69 %	-0.69 %	0	rank-so31-airdolomiti	
+airdolomiti	/servizi/parcheggi-convenzionati	390	ftop	1606	1598	1598	-0.50 %	-0.50 %	0	rank-so31-airdolomiti	
+airdolomiti	/supporto-e-contatti	1440	ftop	1140	1150	1150	+0.88 %	+0.88 %	0	rank-so31-airdolomiti	
+airdolomiti	/supporto-e-contatti	390	ftop	828	838	838	+1.21 %	+1.21 %	0	rank-so31-airdolomiti	
+airdolomiti	/voli-europa	1440	ftop	4413	4329	4329	-1.90 %	-1.90 %	8	rank-so31-airdolomiti	
+airdolomiti	/voli-europa	390	ftop	5537	5497	5497	-0.72 %	-0.72 %	8	rank-so31-airdolomiti	
+tap	/en-pt	1440	height	4621	3977	3977	-13.94 %	-13.94 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt	390	height	5067	5076	5076	+0.18 %	+0.18 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/bookings/tap-fares	1440	height	3088	3089	3089	+0.03 %	+0.03 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/bookings/tap-fares	390	height	3326	3366	3366	+1.20 %	+1.20 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/destinations/get-inspired	1440	height	5582	5565	5565	-0.30 %	-0.30 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/destinations/get-inspired	390	height	5008	4976	4976	-0.64 %	-0.64 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/help	1440	height	3661	3644	3644	-0.46 %	-0.46 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/help	390	height	6407	6342	6342	-1.01 %	-1.01 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/help/frequently-asked-questions	1440	height	2009	2008	2008	-0.05 %	-0.05 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/help/frequently-asked-questions	390	height	2349	2364	2364	+0.64 %	+0.64 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/information/baggage	1440	height	2528	2077	2077	-17.84 %	-17.84 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/information/baggage	390	height	3274	2913	2913	-11.03 %	-11.03 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/information/baggage/hold-baggage	1440	height	4936	4916	4916	-0.41 %	-0.41 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/information/baggage/hold-baggage	390	height	6445	6448	6448	+0.05 %	+0.05 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/information/baggage/locate-baggage	1440	height	1839	1557	1557	-15.33 %	-15.33 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/information/baggage/locate-baggage	390	height	2148	1771	1771	-17.55 %	-17.55 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/information/documentation/schengen-visas	1440	height	4272	4282	4282	+0.23 %	+0.23 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/information/documentation/schengen-visas	390	height	6483	6533	6533	+0.77 %	+0.77 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/information/special-needs/wheelchair	1440	height	3555	3539	3539	-0.45 %	-0.45 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/information/special-needs/wheelchair	390	height	4946	4993	4993	+0.95 %	+0.95 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/manage-booking/extras/lounges	1440	height	5152	5081	5189	-1.38 %	+0.72 %	0	finish-tap / rank-so24-tap	the call-back card outside the opening hours (see voar-economica 1440)
+tap	/en-pt/manage-booking/extras/lounges	390	height	6700	6629	6689	-1.06 %	-0.16 %	0	finish-tap / rank-so24-tap	the call-back card outside the opening hours (see voar-economica 1440)
+tap	/en-pt/miles-and-go	1440	height	3770	3783	3783	+0.34 %	+0.34 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/miles-and-go	390	height	4822	4831	4831	+0.19 %	+0.19 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/miles-and-go/earn-miles/by-flying	1440	height	2791	2827	2827	+1.29 %	+1.29 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/miles-and-go/earn-miles/by-flying	390	height	3838	3842	3842	+0.10 %	+0.10 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/miles-and-go/use-miles/fees	1440	height	4553	4563	4563	+0.22 %	+0.22 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/miles-and-go/use-miles/fees	390	height	4703	4711	4711	+0.17 %	+0.17 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/on-board/economy-prime	1440	height	7167	7204	7204	+0.52 %	+0.52 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/on-board/economy-prime	390	height	8055	8129	8129	+0.92 %	+0.92 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/on-board/fly-business	1440	height	4942	5019	5019	+1.56 %	+1.56 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/on-board/fly-business	390	height	8224	8297	8297	+0.89 %	+0.89 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/stopover/partners	1440	height	2903	2866	2866	-1.27 %	-1.27 %	0	finish-tap / rank-so24-tap	
+tap	/en-pt/stopover/partners	390	height	3564	3566	3566	+0.06 %	+0.06 %	0	finish-tap / rank-so24-tap	
+tap	/pt-br/miles-and-go/ganhe-milhas/cartoes-de-credito	1440	height	1590	1593	1593	+0.19 %	+0.19 %	0	finish-tap / rank-so24-tap	
+tap	/pt-br/miles-and-go/ganhe-milhas/cartoes-de-credito	390	height	1801	1803	1803	+0.11 %	+0.11 %	0	finish-tap / rank-so24-tap	
+tap	/pt-br/miles-and-go/utilizar-milhas/doacao-milhas	1440	height	5326	5320	5320	-0.11 %	-0.11 %	0	finish-tap / rank-so24-tap	
+tap	/pt-br/miles-and-go/utilizar-milhas/doacao-milhas	390	height	4817	4800	4800	-0.35 %	-0.35 %	0	finish-tap / rank-so24-tap	
+tap	/pt-pt	1440	height	4621	3977	3977	-13.94 %	-13.94 %	0	finish-tap / rank-so24-tap	
+tap	/pt-pt	390	height	5192	5202	5202	+0.19 %	+0.19 %	0	finish-tap / rank-so24-tap	
+tap	/pt-pt/a-bordo/voar-economica	1440	height	3892	3889	4027	-0.08 %	+3.47 %	0	finish-tap / rank-so24-tap	not a move: TAP's call-back card (click-to-call, TAP row 157) shows the day and slot rows outside Lisbon's opening hours (Mon-Fri 09:00-24:00), as www's; measured on a Saturday, the row on a Friday at 15:50 UTC. With the page's clock at that time (Playwright clock): 3,889 / 5,620 and lounges 5,081 / 6,629, the rows to the px. Not a commit: the code of b194d3a2 and 58620eac served locally draws the same 4,027
+tap	/pt-pt/a-bordo/voar-economica	390	height	5654	5620	5680	-0.60 %	+0.46 %	0	finish-tap / rank-so24-tap	the call-back card outside the opening hours (see the 1440 row)
+tap	/pt-pt/destinos/inspire-se	1440	height	5662	5690	5690	+0.49 %	+0.49 %	0	finish-tap / rank-so24-tap	
+tap	/pt-pt/destinos/inspire-se	390	height	5112	5140	5140	+0.55 %	+0.55 %	0	finish-tap / rank-so24-tap	
+tap	/pt-pt/gerir-reserva/extras/upgrades/leiloes	1440	height	2649	2682	2682	+1.25 %	+1.25 %	0	finish-tap / rank-so24-tap	
+tap	/pt-pt/gerir-reserva/extras/upgrades/leiloes	390	height	3352	3336	3336	-0.48 %	-0.48 %	0	finish-tap / rank-so24-tap	
+tap	/pt-pt/informacoes/bagagem/bagagem-mao	1440	height	4918	4893	4893	-0.51 %	-0.51 %	0	finish-tap / rank-so24-tap	
+tap	/pt-pt/informacoes/bagagem/bagagem-mao	390	height	8458	8548	8548	+1.06 %	+1.06 %	0	finish-tap / rank-so24-tap	
+tap	/pt-pt/miles-and-go/promocoes/navigator-experiences	1440	height	4389	4395	4395	+0.14 %	+0.14 %	0	finish-tap / rank-so24-tap	
+tap	/pt-pt/miles-and-go/promocoes/navigator-experiences	390	height	3931	4013	4013	+2.09 %	+2.09 %	0	finish-tap / rank-so24-tap	
+tap	/pt-pt/reservas/time-to-think	1440	height	2209	2220	2220	+0.50 %	+0.50 %	0	finish-tap / rank-so24-tap	
+tap	/pt-pt/reservas/time-to-think	390	height	3032	3055	3055	+0.76 %	+0.76 %	0	finish-tap / rank-so24-tap	
+cargo	/de/ci/facts-figures	1440	height	4952	4839	4839	-2.28 %	-2.28 %	0	rank-so24-cargo	
+cargo	/de/ci/facts-figures	390	height	12482	12820	12820	+2.71 %	+2.71 %	0	rank-so24-cargo	
+cargo	/de/ci/newsroom	1440	height	4430	4430	4430	+0.00 %	+0.00 %	0	rank-so24-cargo	
+cargo	/de/ci/newsroom	390	height	10670	10678	10678	+0.07 %	+0.07 %	0	rank-so24-cargo	
+cargo	/de/ci/sustainable-development-goals	1440	height	2363	2379	2379	+0.68 %	+0.68 %	0	rank-so24-cargo	
+cargo	/de/ci/sustainable-development-goals	390	height	1870	1910	1910	+2.14 %	+2.14 %	0	rank-so24-cargo	
+cargo	/de/ci/whats-up-now	1440	height	2732	2733	2733	+0.04 %	+0.04 %	0	rank-so24-cargo	
+cargo	/de/ci/whats-up-now	390	height	2713	2712	2712	-0.04 %	-0.04 %	0	rank-so24-cargo	
+cargo	/de/ebooking-info	1440	height	3907	3898	3898	-0.23 %	-0.23 %	0	rank-so24-cargo	
+cargo	/de/ebooking-info	390	height	5688	5831	5831	+2.51 %	+2.51 %	0	rank-so24-cargo	
+cargo	/de/fleet-ulds/fleet	1440	height	3089	3122	3122	+1.07 %	+1.07 %	0	rank-so24-cargo	
+cargo	/de/fleet-ulds/fleet	390	height	3918	4046	4046	+3.27 %	+3.27 %	0	rank-so24-cargo	
+cargo	/de/home	1440	height	6117	6161	6161	+0.72 %	+0.72 %	0	rank-so24-cargo	
+cargo	/de/home	390	height	8486	8488	8488	+0.02 %	+0.02 %	0	rank-so24-cargo	
+cargo	/de/industries-in-focus	1440	height	2515	2533	2533	+0.72 %	+0.72 %	0	rank-so24-cargo	
+cargo	/de/industries-in-focus	390	height	5434	5424	5424	-0.18 %	-0.18 %	0	rank-so24-cargo	
+cargo	/de/news/142-arktische-temperaturen-an-bord	1440	height	7925	7987	7987	+0.78 %	+0.78 %	0	rank-so24-cargo	
+cargo	/de/news/142-arktische-temperaturen-an-bord	390	height	8856	9029	9029	+1.95 %	+1.95 %	0	rank-so24-cargo	
+cargo	/de/notification-overview	1440	height	1648	1648	1648	+0.00 %	+0.00 %	0	rank-so24-cargo	
+cargo	/de/notification-overview	390	height	1355	1358	1358	+0.22 %	+0.22 %	0	rank-so24-cargo	
+cargo	/de/support-and-contact	1440	height	2301	2328	2328	+1.17 %	+1.17 %	0	rank-so24-cargo	
+cargo	/de/support-and-contact	390	height	3105	3156	3156	+1.64 %	+1.64 %	0	rank-so24-cargo	
+cargo	/de/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	1440	height	2301	2328	2328	+1.17 %	+1.17 %	0	rank-so24-cargo	
+cargo	/de/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	390	height	3105	3156	3156	+1.64 %	+1.64 %	0	rank-so24-cargo	
+cargo	/en/ci/facts-figures	1440	height	4848	4794	4794	-1.11 %	-1.11 %	0	rank-so24-cargo	
+cargo	/en/ci/facts-figures	390	height	11916	12208	12208	+2.45 %	+2.45 %	0	rank-so24-cargo	
+cargo	/en/ci/newsroom	1440	height	4430	4430	4430	+0.00 %	+0.00 %	0	rank-so24-cargo	
+cargo	/en/ci/newsroom	390	height	10631	10615	10615	-0.15 %	-0.15 %	0	rank-so24-cargo	
+cargo	/en/ci/sustainable-development-goals	1440	height	2363	2355	2355	-0.34 %	-0.34 %	0	rank-so24-cargo	
+cargo	/en/ci/sustainable-development-goals	390	height	1735	1762	1762	+1.56 %	+1.56 %	0	rank-so24-cargo	
+cargo	/en/ci/whats-up-now	1440	height	2732	2733	2733	+0.04 %	+0.04 %	0	rank-so24-cargo	
+cargo	/en/ci/whats-up-now	390	height	2674	2672	2672	-0.07 %	-0.07 %	0	rank-so24-cargo	
+cargo	/en/ebooking-info	1440	height	3771	3845	3845	+1.96 %	+1.96 %	0	rank-so24-cargo	
+cargo	/en/ebooking-info	390	height	5393	5502	5502	+2.02 %	+2.02 %	0	rank-so24-cargo	
+cargo	/en/fleet-ulds/fleet	1440	height	3043	3098	3098	+1.81 %	+1.81 %	0	rank-so24-cargo	
+cargo	/en/fleet-ulds/fleet	390	height	3841	3958	3958	+3.05 %	+3.05 %	0	rank-so24-cargo	
+cargo	/en/home	1440	height	6064	6109	6109	+0.74 %	+0.74 %	0	rank-so24-cargo	
+cargo	/en/home	390	height	8389	8366	8366	-0.27 %	-0.27 %	0	rank-so24-cargo	
+cargo	/en/industries-in-focus	1440	height	2515	2557	2557	+1.67 %	+1.67 %	0	rank-so24-cargo	
+cargo	/en/industries-in-focus	390	height	5347	5288	5288	-1.10 %	-1.10 %	0	rank-so24-cargo	
+cargo	/en/news/142-arctic-temperatures-on-board	1440	height	7829	7939	7939	+1.41 %	+1.41 %	0	rank-so24-cargo	
+cargo	/en/news/142-arctic-temperatures-on-board	390	height	8389	8501	8501	+1.34 %	+1.34 %	0	rank-so24-cargo	
+cargo	/en/notification-overview	1440	height	1648	1648	1648	+0.00 %	+0.00 %	0	rank-so24-cargo	
+cargo	/en/notification-overview	390	height	1316	1318	1318	+0.15 %	+0.15 %	0	rank-so24-cargo	
+cargo	/en/support-and-contact	1440	height	2301	2328	2328	+1.17 %	+1.17 %	0	rank-so24-cargo	
+cargo	/en/support-and-contact	390	height	3066	3116	3116	+1.63 %	+1.63 %	0	rank-so24-cargo	
+cargo	/en/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	1440	height	2301	2328	2328	+1.17 %	+1.17 %	0	rank-so24-cargo	
+cargo	/en/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	390	height	3066	3116	3116	+1.63 %	+1.63 %	0	rank-so24-cargo	
