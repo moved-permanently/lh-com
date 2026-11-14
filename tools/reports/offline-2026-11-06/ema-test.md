@@ -4197,11 +4197,34 @@ State at the start: nothing of mine uncommitted or unpushed (order 20's final se
      The same two rows on the sibling locales, READY in the same list: destinations de/en, gb/en 12.27 -> 0.81 and
      frankfurt-fair de/de, at/de 8.67 -> 6.61 at 1440 (390 unchanged; folder base equal to the host's).
      The first six were published by the owner (d999e1af) and measure on the host as in the folder trial (6 better, 6
-     within, 0 worse); the four sibling rows came after that publish; the owner's harness has them in preview (c1c70163), not yet live at
-     12:05 CET, so they are not measured on the host.
+     within, 0 worse); the four sibling rows came after that publish and were published later (c1c70163); on the host they measure as
+     in the folder trial (4 better, 4 within, 0 worse).
    - delta-so21-lh-com-a-perfect-day.txt: the two "A Perfect Day" articles (Barcelona, Berlin), five {spacer-N from-768}
      each where www is 14 to 40 px lower at 1440 (live base plus the folder delta: 14.92 -> 9.44, 13.48 -> 8.60; 390
      unchanged). A spacer at a wrapper's end uncovers the last element's 24 px margin: the photo-block spacers are 15,
      not 39 (the 39 trial looked better in the folder only because it cancelled the pictures the folder does not draw).
      The same effect on Chiswick's published pair (+64 at 1440, +44 at 390 in place of +40 / +20): both widths still
      measure better live, and a tighter pair measured worse, so that row stays; its list says so.
+   - The A Perfect Day rows were published by the owner (d9f95c89); on the host Barcelona 14.92 -> 3.52 and Berlin
+     13.48 -> 3.07 at 1440, 390 unchanged (the live gain is larger than the rows' folder estimate).
+
+## Standing order 21, final section (11:30 UTC, 2026-11-14)
+
+- Item 1: the three Group for Business rows held for the recording are READY on b2b-parity-007 (travel-management
+  with the links-responsive rule, e47e1637; lufthansa-group-wifi; program).
+- Item 2: 24 lufthansa.com page rows READY in four lists (delta-so21-lh-com-articles.txt 8, -pages.txt 4,
+  -a-perfect-day.txt 2, -recheck.txt 10 of order 20's held rows and their siblings), every page off the other lists
+  on main. The owner has published all of them; measured again on the host each is better or within 0.5 at both
+  widths (better / within, page-widths: articles 7 / 9, pages 7 / 1, recheck 10 / 10, A Perfect Day 2 / 2; none worse). One shared rule tried, not
+  shipped; the pages looked at without a row are named above.
+- Item 3: the header corrected; no wrapper-drop rule (it would undo a measured gain); end spacers go in the last wrapper.
+- Before this section: the full suite on 04482ac3 1094 files pass, lint and stylelint 0; the tests that read the
+  themes folder 1002 pass (1 skipped); Build success on 944849bf and 04482ac3.
+- Nothing uploaded, previewed or published by me; DA read only (the pages of the rows); da-upload.mjs not run;
+  requests only to our own hosts, DA, R2 (the drops) and GitHub's API. .migration/project.json not touched;
+  /de/en/overview-manage has no row; Discover's offers page still with the owner. The meals-on-board, businesstogo
+  phone and offers recordings have not come yet: those rows stay explained.
+- Not in git and why: logs/p4/so21 and logs/p4/so20 (scratch: capture and gate folders, the published and DA copies
+  as read, trial edits, the boundary finders), our captures under logs/p4/so6/cap, the recordings and font drops in
+  /tmp/x-* (the drops' private material), content/, migration-work/, tools/importer/reports/* (not mine). My preview
+  servers are stopped and the two trial worktrees removed.
