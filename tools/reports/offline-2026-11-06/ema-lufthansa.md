@@ -4942,3 +4942,90 @@ tool's 10-minute limit and was stopped after lint (exit 0). `.migration/project.
 - **The gate** as the owner reads it: one width closer by more than 0.5 points, no page further by 0.5 or more.
 - **Hosts:** reads only from our hosts, the drop's recordings and DA (GETs from my session). No request to an airline
   host, no da-upload.mjs call, no upload, preview or publish by me.
+
+## Standing order 18 (2026-11-14, about 13:25 to 18:00 CET), with its final section
+
+**At the start:** nothing of mine uncommitted or unpushed (order 17's final commit c5485031 was on main).
+`.migration/project.json` was modified, not by me, and is left as it is.
+
+**Item 1, the recordings:** both fetched from the drop into new folders. Their sha256 match yours (swiss-parity-008
+ddfc8ea6..., ita-parity-006 143f63b1...), and they were unpacked after checking for unsafe paths. Nothing in them was
+run; our own servers and scripts read them. Both are 1440 loads; their 390 files are resizes.
+
+**Item 2, SWISS (6aea4180, 8a044cb5 and this commit):**
+- **Cards counted separately.** Our renders block www, so our pages draw no fares. Each page was measured with www's
+  own recorded cards as the fares answer, given inside the measuring browser by a scratch copy of the measuring
+  script. Nothing was sent to www.
+  - /ch/en/offers: all 498 cards (code, city, country, price, "Recommended").
+  - The homepages: the 15 priced cards.
+- **/ch/en/offers, READY (SWISS row 54, 6aea4180):**
+  - With the 498 cards ours was 47396 / 79127 (www 51105 / 90776): 371 px a row at 1440, www 398.
+  - www's tile has "Compare cities" under its price, is 378 px tall, and its rows are 20 px apart.
+  - Row 54 gives SWISS gridCompare (scripts/brands.js; the finder-compare test now pins Discover and SWISS) and
+    www's tile sizes and price type (swiss.css).
+  - 1440 -7.26 -> -0.61 %, 390 -12.83 -> -0.07 %. Served after the deploy: 50791 / 90709, as drafted.
+  - It's the only recorded SWISS page with the grid.
+- **HOLD in swiss-so18-offers-homepage.txt:**
+  - **"Best offers" H1:** www's finder draws it; our page has no H1 at all. The delta row is closer by only
+    0.18 / 0.06 points, under the gate, so it's yours to decide.
+  - **Smart destination search:** the button links to a page that isn't migrated (ours answers 404).
+  - **"All offers & destinations":** authored as a secondary button where www's is primary and full width; no
+    height change, so it isn't a row.
+- **Homepages, READY:**
+  - **Not the cards:** the recorded fares add only 29 / 16 px.
+  - **SWISS row 55 (8a044cb5), from 768 px:** www's space around the slider. ch/en 1440 -3.56 -> -0.97 %, ch/de
+    -4.06 -> -1.50 %.
+  - **SWISS row 56 (this commit):** the slider's disclaimer for screen readers only and no Conditions link there, as
+    www's (ours drew the disclaimer twice). ch/en 390 +2.44 -> +0.92 %, ch/de +2.47 -> +0.56 %.
+  - The offers grid and the other recorded SWISS pages are unchanged.
+- **Medication Transport, live:** ch/en 390 6171 (-0.52 %), ch/de 6414 (-0.14 %), READY in finish-swiss.txt.
+- **Magazine pages:** your decision on the ad slots, unchanged.
+
+**Item 3, ITA (8a044cb5):**
+- **baggage-and-strollers, READY (ITA row 56).**
+  - Not the header type alone, which by itself is -8 / +31 px. It's www's maui-table: the header row white between
+    two lines, 144 px, in www's 22 px light type, and 32 px of white before the first row (ours had a grey header row).
+  - From 768 px, 80 px under a panel's last table.
+  - A cell's paragraph right before a spacer has no margin.
+  - 1440 -4.70 -> -0.76 %, 390 -4.47 -> +0.14 %; served after the deploy 4412 / 7893, as drafted.
+  - checked-baggage and electronic-devices, the other recorded pages with accordion tables, are unchanged.
+  - Held: the "No baggage" spacer from 54 to 81 px. www draws three empty lines there (order 17's row counted two),
+    but carrying them isn't closer (390 +0.14 -> +0.48 %).
+- **ita-parity-006:**
+  - alghero, group-boarding and corporate-b2b are recorded as before and are within 2 % at 390.
+  - long-haul at 390 has www's fleet accordion closed; it was open in -005, and ours opens it as -005 did. A new
+    HOLD row: www's own state.
+- **Further down finish-ita:** help-and-contact and invoicing (fonts) and group-boarding stay explained.
+
+**Checks:**
+- **6aea4180:** suite 4257 / 0, then 4261 / 0 after the rebase; pushed on the second try. Build success; smoke 0
+  differences.
+- **8a044cb5:** suite 4266 / 0, then 4270 / 0 after the rebase; lint and stylelint 0 after each retry rebase; pushed on
+  the third try. Build success; smoke: only content differed (B2B's and Discover's search indexes, lufthansa.com's de/en
+  sitemap).
+- **This commit:** the folder-reading tests and the full suite in its ship.
+
+**Lists (tools/reports/parity-2026-11-09/):**
+- swiss-so18-offers-homepage.txt;
+- delta-so18-swiss-offers-h1.json (HOLD);
+- ita-so18-rows.txt;
+- delta-so18-ita-strollers-no-baggage-line.json (HOLD);
+- finish-swiss.txt and finish-ita.txt.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git):
+  - the two recordings;
+  - DA's copies read today (SWISS ch/en offers 12:26 UTC, ITA baggage-and-strollers 13:17 UTC);
+  - the fares answers built from the recordings and the scratch measuring script that serves them in the browser;
+  - CSS drafts, screenshots, crops and logs.
+
+**Process:**
+- **Recordings' screenshots:** the offers page's 51105 px screenshot repeats its first rows lower down, so the page's
+  end was read from the measurement file, not the picture.
+- **Measuring with fares:** the fares answer stays a measuring aid in scratch. Nothing in the repository serves
+  recorded prices.
+- **Test first:** each new rule was run red before its rule existed. One of my own assertions was wrong (it found
+  row 50's 768 px block first) and was fixed in the test.
+- **Hosts:** reads only from our hosts, the drop and DA (GETs from my session). No request to an airline host, no
+  da-upload.mjs call, no upload, preview or publish by me.
