@@ -3946,3 +3946,33 @@ now holds no row (withdrawn, the finding as an explanation only); the ranking sa
        about 0.6 where ours fades to 0 by 70 %); www's stage-teaser CSS is in no drop, so not changed.
    - **Capture requests (collected, not run):** www's lufthansa.com CSS for .stage-teaser / .gradient-black-horizontal
      (the overlay shade); phone first loads at 390 for online-check-in and meals-on-board (order 16).
+
+## Standing order 18, final section (02:30 UTC, 2026-11-14)
+
+- Correction applied: /de/en/overview-manage (do-not-touch) has no row; delta-so17-lh-com-overview-manage.txt is
+  withdrawn and the page is left out of the new ranking.
+- Item 1 (the cut in the shared tool): tools/parity/compare.js cuts the taller capture to one marked cut off
+  (58620eac). Callers change nothing; `--a-truncated` / `--b-truncated` / `--no-cut` as above. On order 17's 410
+  page-widths it gives the scratch numbers exactly.
+- Item 2 (the page-widths above 5 % with the cut): ranking-so18-lh-com-non-info.txt and
+  explained-so18-lh-com-live-data.txt. Spacing drift is the cause of most rows: 356 of 410 page-widths match www to
+  3 % or less once each window is aligned. Two shared fixes passed the gate and are live as rendered (checked on the
+  main host: inflight-entertainment-vr-experience 390 2.12 %, neuschwanstein 390 6.15 %): the stopover pages' map
+  in their sidebar (507cda33, 6 page-widths) and the Insights article spacing (6e971abb, 51 page-widths better, none
+  worse). One per-page delta READY (351's seat map wide). Held by the gate: the article body gap on phones, form
+  sub-section titles, the footer's locale row on phones. Live data: the flights hubs' fare grid and the culinary-hub
+  app only; the fare bar and the maps were checked and are not the cause.
+- For the owner: the 0.5 gate on whole-page pixels holds back fixes that are right where they are measured whenever
+  another drift further down had compensated (the article header alone at 1440, the footer on short pages). Reading
+  the drift profile (aligned.cjs's windows) next to the pct would tell those apart; a suggestion, not used tonight.
+- Before this section: the tests that read the themes folder 982 pass (1 skipped); the full suite on ca752cba
+  1059 files pass, lint and stylelint 0; Build success on 507cda33 and 6e971abb.
+- Nothing uploaded, previewed or published; DA read only (351 de/en); da-upload.mjs not run; requests only to our
+  own hosts, DA and GitHub's API, none to an airline host. .migration/project.json not touched; Discover's offers
+  page still with the owner.
+- Not in git and why: logs/p4/so18 (scratch: the fresh captures' tables, aligned.cjs, steps2.py, the trials'
+  tables, the held footer test in held/, DA's 351 copy as read), logs/p4/so6/cap/lh-com-lh18 and the trial capture
+  folders (our captures), the recordings in /tmp/x-* (the drops' private material), logs/p4/so17 to so6 (earlier
+  scratch), logs/wt-ema-test.partial-so11 (an unfinished checkout), content/, migration-work/,
+  tools/importer/reports/* (not mine), the 2026-11-07 autostash (not mine). My preview servers are stopped and my
+  three trial worktrees removed.
