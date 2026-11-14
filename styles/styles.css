@@ -1235,8 +1235,11 @@ body.brand-lufthansa main > .section.grey.column-band:has(+ .section > .default-
    entryprocesses 28.6 / 17.0 -> 16.4 / 6.3 % off www at 390 / 1440, arrival-services, doctor-on-board).
    Not a band that ends with a list, not before a section that opens with its own column-start
    paragraph or the sub-page navigation (those keep their gap on www), not a band before a padded AEM
-   section on www (before-padded: /de/en/book-and-manage/flights/ana, our gap right at 390) */
-body.brand-lufthansa main > .section.grey.column-band:not(:has(> .default-content-wrapper:last-child > :is(ul, ol):last-child)):has(+ .section:not(.grey, .padded, .stage, .spaced, .flush, .column-view, .column-band, .campaign-section, .gap) > .default-content-wrapper:first-child):not(:has(+ .section > .default-content-wrapper:first-child > p.column-start:first-child), :has(+ .section > .subpage-nav-wrapper), .before-padded) {
+   section on www (before-padded: /de/en/book-and-manage/flights/ana, our gap right at 390), not a
+   spaced band before a heading (its 24px: entry-exit-system's FAQ title; before a paragraph, online-check-in,
+   www has none) */
+body.brand-lufthansa main > .section.grey.column-band:not(:has(> .default-content-wrapper:last-child > :is(ul, ol):last-child)):has(+ .section:not(.grey, .padded, .stage, .spaced, .flush, .column-view, .column-band, .campaign-section, .gap) > .default-content-wrapper:first-child):not(:has(+ .section > .default-content-wrapper:first-child > p.column-start:first-child), :has(+ .section > .subpage-nav-wrapper), .before-padded,
+  .spaced:has(+ .section > .default-content-wrapper:first-child > :is(h2, h3, h4):first-child)) {
   margin-bottom: 0;
 }
 

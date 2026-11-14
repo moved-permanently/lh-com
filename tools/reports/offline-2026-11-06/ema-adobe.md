@@ -3980,3 +3980,21 @@ Left out of git:
 - logs/b612: the gates, captures, crops, census scripts and results, the trial stylesheets, the drafts and dry runs.
 - /tmp: the import workspaces (ws-617-so20*) and the importer copies.
 - The untracked import reports of earlier runs.
+
+Addendum (after the merge, 2026-11-14 03:30 to 04:15 CET):
+- The owner merged so20-grey-band-rule as a9d5a50, together with the WITH-branch rows. Live on our host, the gate's
+  pages (54 captures) all came within 0.3 of the predictions.
+- delta-so20-info-pages-2-lh-com.txt, live: wheelchair-batteries 4.4 / 6.8 % at 1440 / 390 and first-class-terminal
+  8.2 / 22.9, both as predicted. rebook's padded split is not published yet.
+- entry-exit-system came out 10.6 / 16.3 against the predicted 9.7 / 15.3. It is not a gate page.
+  - The cause is the merged band rule. Its band is "spaced" (the importer's 24px when the next section opens with a
+    headline or text), and the rule took that 24px away above the FAQ title.
+  - Keeping the 24px on every spaced band made online-check-in worse at 1440 (10.7 -> 14.2). Its next section opens
+    with a paragraph.
+  - Census of the published copies (9,919 documents, read from aem.live): 31 have a spaced grey column band. They are
+    the 15 language versions of entry-exit-system (the next section opens with an h2) and the 16 of online-check-in (a
+    paragraph). None of the gate's pages has one.
+  - Fix in styles/styles.css (this push): the rule skips a spaced band whose next section opens with a heading. With
+    working-copy code, entry-exit-system is 9.7 / 15.3 (as predicted) and online-check-in 10.7 at 1440 (unchanged; its
+    390 recording is not usable, 5650 against our 4046px). This needs no rows. Test: test/grey-band-rule-so20.test.mjs.
+- Left out of git: logs/b612 (the census, its copies and the captures).
