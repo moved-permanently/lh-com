@@ -41987,9 +41987,9 @@
    "preview": "2026-11-05T20:33:02.176Z"
   },
   "/xx/ja/lufthansa-reiseklassen": {
-   "uploaded": "2026-11-05T20:33:04.319Z",
-   "mtime": 1793910630209.849,
-   "preview": "2026-11-05T20:33:07.002Z"
+   "uploaded": "2026-11-14T12:51:40.522Z",
+   "mtime": 1794660671721.3562,
+   "preview": "2026-11-14T12:51:42.500Z"
   },
   "/xx/ja/online-check-in": {
    "uploaded": "2026-11-05T20:33:08.827Z",
@@ -42417,9 +42417,9 @@
    "preview": "2026-11-05T20:39:54.768Z"
   },
   "/xx/ja/discover-lufthansa/new-onboard-experience": {
-   "uploaded": "2026-11-08T06:42:31.179Z",
-   "mtime": 1794119095469.7605,
-   "preview": "2026-11-08T06:42:33.602Z"
+   "uploaded": "2026-11-14T12:51:21.050Z",
+   "mtime": 1794660670306.998,
+   "preview": "2026-11-14T12:51:23.038Z"
   },
   "/xx/ja/discover-lufthansa/take-off": {
    "uploaded": "2026-11-05T20:40:02.010Z",
@@ -42447,9 +42447,9 @@
    "preview": "2026-11-14T06:33:49.461Z"
   },
   "/xx/ja/economy-class": {
-   "uploaded": "2026-11-07T13:58:16.486Z",
-   "mtime": 1794059719383,
-   "preview": "2026-11-07T13:58:18.569Z"
+   "uploaded": "2026-11-14T12:51:25.852Z",
+   "mtime": 1794660670635.6785,
+   "preview": "2026-11-14T12:51:27.975Z"
   },
   "/xx/ja/electronic-bag-tags": {
    "uploaded": "2026-11-05T20:40:30.408Z",
@@ -42462,9 +42462,9 @@
    "preview": "2026-11-05T20:40:37.333Z"
   },
   "/xx/ja/europa-tarife-economy-class": {
-   "uploaded": "2026-11-05T20:40:39.712Z",
-   "mtime": 1793910630270.9631,
-   "preview": "2026-11-05T20:40:42.299Z"
+   "uploaded": "2026-11-14T12:51:30.377Z",
+   "mtime": 1794660670978.9224,
+   "preview": "2026-11-14T12:51:32.432Z"
   },
   "/xx/ja/europcar": {
    "uploaded": "2026-11-05T20:40:44.480Z",
@@ -42502,9 +42502,9 @@
    "preview": "2026-11-05T20:41:12.917Z"
   },
   "/xx/ja/first-class": {
-   "uploaded": "2026-11-09T12:40:07.186Z",
-   "mtime": 1794227868896.1392,
-   "preview": "2026-11-09T12:40:10.170Z"
+   "uploaded": "2026-11-14T12:51:35.129Z",
+   "mtime": 1794660671354.3064,
+   "preview": "2026-11-14T12:51:38.379Z"
   },
   "/xx/ja/first-class-lounges": {
    "uploaded": "2026-11-05T20:41:21.073Z",
@@ -42857,9 +42857,9 @@
    "preview": "2026-11-05T20:46:47.953Z"
   },
   "/xx/ja/premium-economy-class": {
-   "uploaded": "2026-11-07T13:58:24.307Z",
-   "mtime": 1794059719486,
-   "preview": "2026-11-07T13:58:26.120Z"
+   "uploaded": "2026-11-14T12:51:49.582Z",
+   "mtime": 1794660672423.9805,
+   "preview": "2026-11-14T12:51:51.812Z"
   },
   "/xx/ja/prepare-for-your-trip/airport-information/vienna-airport": {
    "uploaded": "2026-11-05T20:46:55.928Z",
@@ -43112,9 +43112,9 @@
    "preview": "2026-11-05T20:50:58.816Z"
   },
   "/xx/ja/tips-senior-travellers": {
-   "uploaded": "2026-11-09T12:40:12.811Z",
-   "mtime": 1794227868895.558,
-   "preview": "2026-11-09T12:40:15.371Z"
+   "uploaded": "2026-11-14T12:51:54.855Z",
+   "mtime": 1794660672760.9456,
+   "preview": "2026-11-14T12:51:57.364Z"
   },
   "/xx/ja/travel-expense-management": {
    "uploaded": "2026-11-05T20:51:06.576Z",
@@ -43202,9 +43202,9 @@
    "preview": "2026-11-05T20:52:22.606Z"
   },
   "/xx/ja/nav": {
-   "uploaded": "2026-11-05T20:52:24.646Z",
-   "mtime": 1793910630347.9712,
-   "preview": "2026-11-05T20:52:26.965Z"
+   "uploaded": "2026-11-14T12:51:44.873Z",
+   "mtime": 1794660672064.8284,
+   "preview": "2026-11-14T12:51:47.156Z"
   },
   "/xx/ja/footer": {
    "uploaded": "2026-11-05T20:52:28.852Z",
@@ -52315,6 +52315,11 @@
    "uploaded": "2026-11-14T12:49:45.859Z",
    "mtime": 1794660579852.958,
    "preview": "2026-11-14T12:49:47.711Z"
+  },
+  "/xx/ja/prepare-for-your-trip/travel-classes/business-class": {
+   "uploaded": "2026-11-14T12:51:16.064Z",
+   "mtime": 1794660669955.1575,
+   "preview": "2026-11-14T12:51:18.609Z"
   }
  },
  "media": {
