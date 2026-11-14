@@ -813,6 +813,57 @@ body.brand-lufthansa main:has(.article-header) > .section.full-bleed + .section.
   }
 }
 
+/* the article body's gaps (standing order 19): www's body is one column whose gaps depend on what
+   meets, ours a section gap at every section boundary. From the drift steps per kind of boundary
+   on the recorded articles: below 768px a section opening with a divider after text, and the
+   section after an article slider, 28px closer; from 768px text to text 24px closer, text or a
+   list to an H2 16px further, after an article slider 9px closer. The price bar's section when it
+   holds a spacer 20px (23px from 768px) above the body, an article's map with its list beside it
+   41px (75px) more below it. Gate on the 82 recorded insights page-widths: 32 better, 1 worse
+   (stop-over-tokyo 390 +0.54, its own delta row) */
+body.brand-lufthansa main:has(.article-header) > .section.full-bleed + .section.price-bar-container:has(> .default-content-wrapper > p.spacer) {
+  margin-bottom: 20px;
+}
+
+body.brand-lufthansa main:has(.article-header) .poi-map.poi-map-with-aside {
+  margin-bottom: 41px;
+}
+
+@media (width < 768px) {
+  body.brand-lufthansa main:has(.article-header) > .section:has(> .default-content-wrapper:last-child > :is(p, ul):last-child) + .section:has(> .default-content-wrapper:first-child > p.spacer.divider:first-child) {
+    margin-top: -28px;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity -- other boundaries than the rule above; the order as gated */
+  body.brand-lufthansa main:has(.article-header) > .section:has(> .carousel-cards-wrapper:last-child > .carousel-cards.article) + .section {
+    margin-top: -28px;
+  }
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa main:has(.article-header) > .section:not(.price-bar-container):has(> .default-content-wrapper:last-child > p:last-child) + .section:has(> .default-content-wrapper:first-child > p:first-child:not(.spacer)) {
+    margin-top: -24px;
+  }
+
+  body.brand-lufthansa main:has(.article-header) > .section.full-bleed + .section.price-bar-container:has(> .default-content-wrapper > p.spacer) {
+    margin-bottom: 23px;
+  }
+
+  body.brand-lufthansa main:has(.article-header) .poi-map.poi-map-with-aside {
+    margin-bottom: 75px;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity -- other boundaries than the rule above; the order as gated */
+  body.brand-lufthansa main:has(.article-header) > .section:has(> .default-content-wrapper:last-child > :is(p, ul):last-child) + .section:has(> .default-content-wrapper:first-child > h2:first-child) {
+    margin-top: calc(var(--section-gap) + 16px);
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity -- other boundaries than the rule above; the order as gated */
+  body.brand-lufthansa main:has(.article-header) > .section:has(> .carousel-cards-wrapper:last-child > .carousel-cards.article) + .section {
+    margin-top: -9px;
+  }
+}
+
 /* lufthansa.com homepage stage (brief 460): www's quick actions row below the stage (empty for a
    guest) ends with a transparent .separator (margin-bottom 30px), so the next section starts 32px
    lower than the section gap at every width (de/en 2026-11-06: "Winter deals" 87px below the stage

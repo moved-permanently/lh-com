@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/articles/explore-the-world/stop-over-tokyo",
+  "inserts": [
+   {
+    "before": "<p>{divider-25}</p><p><strong>About</strong></p>",
+    "text": "<p>{spacer-27}</p>"
+   }
+  ]
+ }
+]
