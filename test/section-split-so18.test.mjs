@@ -37,3 +37,12 @@ test('not found, found twice, or the heading opens its section: nothing changes'
   assert.equal(again.results[0].result, 'opens its section');
   assert.equal(again.html, once);
 });
+
+test('standing order 20: before "" keeps the first part as it is; a DA section without a metadata block', () => {
+  const doc = '<main><div><p>Select the situation</p><h2>Not sure which applies?</h2><p>We are here to help</p></div></main>';
+  const r = applySectionSplit(doc, [{ heading: 'Not sure which applies?', before: '', style: 'padded' }]);
+  assert.equal(r.results[0].result, 'placed');
+  assert.equal(r.html, `<main><div><p>Select the situation</p></div>\n<div><h2>Not sure which applies?</h2><p>We are here to help</p>${meta('padded')}</div></main>`);
+  const plain = '<div>\n  <p>Select</p>\n  <h2>Not sure which applies?</h2>\n</div>\n';
+  assert.equal(applySectionSplit(plain, [{ heading: 'Not sure', before: '', style: 'padded' }]).html, '<div>\n  <p>Select</p>\n</div>\n<div class="padded">\n  <h2>Not sure which applies?</h2>\n</div>\n');
+});

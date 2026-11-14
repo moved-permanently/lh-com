@@ -1460,6 +1460,67 @@ function markEmptyLines(document) {
   return n;
 }
 
+/**
+ * Standing order 20: www's blank lines from <br> runs in a rich-text paragraph: a run of two and more before the
+ * paragraph's text (<p><br><br>The following conditions…: two blank lines; a single one shows nothing: the imprint) or three and more inside it (a line break, then blank lines:
+ * /de/en/wheelchair-batteries, 54px each pair at 1440 and 390). The framework keeps at most a line break. onLoad notes
+ * the count on the paragraph that follows the run (LINES_BEFORE; an inner run splits the paragraph there) and drops the
+ * run; beforeTransform writes "{spacer-(27 x n)}" before it on the column-mark templates. Not in accordion or tab panels.
+ */
+const BR_LINE_PX = 27;
+const LINES_BEFORE = 'data-lh-lines-before';
+function markBrLines(document) {
+  const panel = '.accordion, .accordionitem, maui-collapsible-item, maui-tab-control-panel-responsive, .tabs';
+  const blank = (n) => n.nodeType === 3 && !n.nodeValue.replace(/[\s\u00a0]/g, '');
+  const isBr = (n) => n.nodeType === 1 && n.tagName === 'BR';
+  let count = 0;
+  [...document.querySelectorAll('.richtext > p, .text p')].forEach((para) => {
+    if (para.closest(panel) || !para.parentElement) return;
+    const nodes = [...para.childNodes];
+    // the run before the text
+    let i = 0;
+    let lead = 0;
+    while (i < nodes.length && (isBr(nodes[i]) || blank(nodes[i]))) { if (isBr(nodes[i])) lead += 1; i += 1; }
+    // (two and more: a single <br> before the text measured as nothing on www, the Insights imprint)
+    if (lead >= 2 && i < nodes.length) {
+      nodes.slice(0, i).forEach((n) => n.remove());
+      para.setAttribute(LINES_BEFORE, String(lead));
+      count += 1;
+    }
+    // runs of three and more inside: the paragraph split, the rest marked
+    let cur = para;
+    let run = [];
+    [...cur.childNodes].forEach((n) => {
+      if (isBr(n) || (run.length && blank(n))) { run.push(n); return; }
+      const brs = run.filter(isBr).length;
+      if (brs >= 3 && n.previousSibling) {
+        const rest = document.createElement('p');
+        let m = n;
+        while (m) { const next = m.nextSibling; rest.append(m); m = next; }
+        run.forEach((r) => r.remove());
+        rest.setAttribute(LINES_BEFORE, String(brs - 1));
+        cur.after(rest);
+        cur = rest;
+        count += 1;
+      }
+      run = [];
+    });
+  });
+  return count;
+}
+
+/** The noted blank lines as "{spacer-(27 x n)}" before their paragraph (flow), else only the notes gone. */
+function placeBrLines(document, flow) {
+  document.querySelectorAll(`[${LINES_BEFORE}]`).forEach((el) => {
+    const n = Number(el.getAttribute(LINES_BEFORE));
+    el.removeAttribute(LINES_BEFORE);
+    if (!flow || !n) return;
+    const p = document.createElement('p');
+    p.textContent = `{spacer-${n * BR_LINE_PX}}`;
+    el.before(p);
+  });
+}
+
 /** The marked empty lines as "{spacer-56}" (flow: the column-mark templates), else only the marks gone. */
 function placeEmptyLines(document, flow) {
   let n = 0;
@@ -2372,6 +2433,7 @@ export default function transform(hookName, element, payload) {
   if (hookName === 'onLoad') {
     markEmptyFirstParagraphs(document);
     markEmptyLines(document); // before helix-importer's preprocessing drops the empty paragraphs
+    markBrLines(document); // before the framework collapses the <br> runs
     return;
   }
 
@@ -2413,6 +2475,7 @@ export default function transform(hookName, element, payload) {
       markFlowSpacing(document);
     }
     placeEmptyLines(document, flow); // (marked in onLoad) before the empty components go
+    placeBrLines(document, flow); // (noted in onLoad)
     removeEmptyComponents(document, flow, payload);
     normalizeImages(document, true);
   }

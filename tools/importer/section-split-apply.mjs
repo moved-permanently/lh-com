@@ -5,8 +5,9 @@
  * since then (lufthansa-sections, test/info-padded-sandwich-so18); this is the delta for the documents imported before.
  * Per row ({heading, before, style}): the section (a top-level div of main, or of the document for a .plain.html)
  * holding a direct-child heading whose text starts with `heading` (not its first element) is split right before that
- * heading. The part before keeps the section's styles plus `before` ("flush" or "spaced"); the part from the heading on
- * gets `style` ("spaced"). Styles are the section-metadata block in DA's format, the section's classes in a published
+ * heading. The part before keeps the section's styles plus `before` ("flush", "spaced", or "" for nothing more); the
+ * part from the heading on gets `style` ("spaced"; "padded" for /de/en/book-and-manage/rebook's "Not sure which
+ * applies?", a padded AEM section on www that an older import kept in the section before). Styles are the section-metadata block in DA's format, the section's classes in a published
  * .plain.html. A row whose heading is not found, is found more than once, opens its section, or whose section is split
  * there already, changes nothing. Everything else stays byte for byte.
  *
@@ -60,7 +61,8 @@ function childHeadings(body) {
 export function applySectionSplit(html, rows) {
   let out = html;
   const results = rows.map((row) => {
-    if (!['flush', 'spaced'].includes(row.before) || !row.style) return { row, result: 'bad row' };
+    if (!['flush', 'spaced', ''].includes(row.before || '') || !row.style) return { row, result: 'bad row' };
+    const before = row.before ? [row.before] : [];
     const main = out.indexOf('<main>');
     const from = main >= 0 ? main + 6 : 0;
     const to = main >= 0 ? out.indexOf('</main>', from) : out.length;
@@ -72,23 +74,30 @@ export function applySectionSplit(html, rows) {
     const body = out.slice(s.start, s.end);
     const open = out.slice(s.start, s.openEnd);
     // the heading's line start in a pretty-printed copy (its indentation goes with it)
-    let at = h.at;
+    let { at } = h;
     while (at > 0 && /[ \t]/.test(body[at - 1])) at -= 1;
     if (!body.slice(open.length, at).replace(/\s+/g, '')) return { row, result: 'opens its section' };
     let first;
     let second;
     const m = body.match(META);
     if (m) {
-      // DA's format: the metadata block ends the section; both parts get one
+      // DA's format: the metadata block ends the section; both parts get one (the first none when it has no styles left)
       const styles = m[1].split(',').map((x) => x.trim()).filter(Boolean);
       const metaAt = body.lastIndexOf(m[0]);
-      first = `${body.slice(0, at)}${meta([...styles, row.before])}</div>\n`;
+      const firstStyles = [...styles, ...before];
+      first = `${body.slice(0, at)}${firstStyles.length ? meta(firstStyles) : ''}</div>\n`;
       second = `<div>${body.slice(at, metaAt)}${meta([row.style])}${body.slice(metaAt + m[0].length)}`;
+    } else if (main >= 0) {
+      // DA's format, a section without styles: the part before as it is, the rest a section with its own block
+      if (before.length) first = `${body.slice(0, at)}${meta(before)}</div>\n`;
+      else first = `${body.slice(0, at)}</div>\n`;
+      const close = body.lastIndexOf('</div>');
+      second = `<div>${body.slice(at, close)}${meta([row.style])}${body.slice(close)}`;
     } else {
       const cls = open.match(/class="([^"]*)"/);
       const styles = cls ? cls[1].split(/\s+/).filter(Boolean) : [];
-      if (!m && main >= 0) return { row, result: 'no section-metadata in DA format' };
-      first = `${styles.length || row.before ? `<div class="${[...styles, row.before].join(' ')}">` : '<div>'}${body.slice(open.length, at).replace(/\s*$/, '\n')}</div>\n`;
+      const firstStyles = [...styles, ...before];
+      first = `${firstStyles.length ? `<div class="${firstStyles.join(' ')}">` : '<div>'}${body.slice(open.length, at).replace(/\s*$/, '\n')}</div>\n`;
       second = `<div class="${row.style}">\n${body.slice(at)}`;
     }
     out = `${out.slice(0, s.start)}${first}${second}${out.slice(s.end)}`;

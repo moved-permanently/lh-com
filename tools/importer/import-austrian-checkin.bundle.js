@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-checkin.js
-  var tmp_bundle_austrian_checkin_454130_exports = {};
-  __export(tmp_bundle_austrian_checkin_454130_exports, {
-    default: () => tmp_bundle_austrian_checkin_454130_default
+  var tmp_bundle_austrian_checkin_486165_exports = {};
+  __export(tmp_bundle_austrian_checkin_486165_exports, {
+    default: () => tmp_bundle_austrian_checkin_486165_default
   });
 
   // tools/importer/parsers/booking-lookup.js
@@ -6802,6 +6802,64 @@ var CustomImportScript = (() => {
     });
     return n;
   }
+  var BR_LINE_PX = 27;
+  var LINES_BEFORE = "data-lh-lines-before";
+  function markBrLines(document) {
+    const panel = ".accordion, .accordionitem, maui-collapsible-item, maui-tab-control-panel-responsive, .tabs";
+    const blank = (n) => n.nodeType === 3 && !n.nodeValue.replace(/[\s\u00a0]/g, "");
+    const isBr2 = (n) => n.nodeType === 1 && n.tagName === "BR";
+    let count2 = 0;
+    [...document.querySelectorAll(".richtext > p, .text p")].forEach((para) => {
+      if (para.closest(panel) || !para.parentElement) return;
+      const nodes = [...para.childNodes];
+      let i = 0;
+      let lead = 0;
+      while (i < nodes.length && (isBr2(nodes[i]) || blank(nodes[i]))) {
+        if (isBr2(nodes[i])) lead += 1;
+        i += 1;
+      }
+      if (lead >= 2 && i < nodes.length) {
+        nodes.slice(0, i).forEach((n) => n.remove());
+        para.setAttribute(LINES_BEFORE, String(lead));
+        count2 += 1;
+      }
+      let cur = para;
+      let run = [];
+      [...cur.childNodes].forEach((n) => {
+        if (isBr2(n) || run.length && blank(n)) {
+          run.push(n);
+          return;
+        }
+        const brs = run.filter(isBr2).length;
+        if (brs >= 3 && n.previousSibling) {
+          const rest = document.createElement("p");
+          let m = n;
+          while (m) {
+            const next = m.nextSibling;
+            rest.append(m);
+            m = next;
+          }
+          run.forEach((r) => r.remove());
+          rest.setAttribute(LINES_BEFORE, String(brs - 1));
+          cur.after(rest);
+          cur = rest;
+          count2 += 1;
+        }
+        run = [];
+      });
+    });
+    return count2;
+  }
+  function placeBrLines(document, flow) {
+    document.querySelectorAll(`[${LINES_BEFORE}]`).forEach((el) => {
+      const n = Number(el.getAttribute(LINES_BEFORE));
+      el.removeAttribute(LINES_BEFORE);
+      if (!flow || !n) return;
+      const p = document.createElement("p");
+      p.textContent = `{spacer-${n * BR_LINE_PX}}`;
+      el.before(p);
+    });
+  }
   function placeEmptyLines(document, flow) {
     let n = 0;
     document.querySelectorAll(`[${EMPTY_LINE}]`).forEach((el) => {
@@ -7473,6 +7531,7 @@ var CustomImportScript = (() => {
     if (hookName === "onLoad") {
       markEmptyFirstParagraphs(document);
       markEmptyLines(document);
+      markBrLines(document);
       return;
     }
     if (hookName === "beforeTransform") {
@@ -7507,6 +7566,7 @@ var CustomImportScript = (() => {
         markFlowSpacing(document);
       }
       placeEmptyLines(document, flow);
+      placeBrLines(document, flow);
       removeEmptyComponents(document, flow, payload);
       normalizeImages(document, true);
     }
@@ -9442,7 +9502,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_checkin_454130_default = {
+  var tmp_bundle_austrian_checkin_486165_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9482,5 +9542,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_checkin_454130_exports);
+  return __toCommonJS(tmp_bundle_austrian_checkin_486165_exports);
 })();
