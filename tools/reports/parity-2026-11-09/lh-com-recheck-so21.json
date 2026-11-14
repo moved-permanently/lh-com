@@ -40,6 +40,24 @@
     ]
   },
   {
+    "path": "/de/en/100-years/destinations",
+    "inserts": [
+      {
+        "before": "<div class=\"columns-media padded\"><div><div><h2 id=\"rio-de-j",
+        "text": "<p>{spacer-52 from-768}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/gb/en/100-years/destinations",
+    "inserts": [
+      {
+        "before": "<div class=\"columns-media padded\"><div><div><h2 id=\"rio-de-j",
+        "text": "<p>{spacer-52 from-768}</p>"
+      }
+    ]
+  },
+  {
     "path": "/de/en/frankfurt-fair",
     "inserts": [
       {
@@ -53,6 +71,24 @@
     "inserts": [
       {
         "before": "<p>* Terms and conditions correspond to published fares<br>\n",
+        "text": "<p>{spacer-40 from-768}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/de/de/frankfurt-fair",
+    "inserts": [
+      {
+        "before": "<p>* Konditionen analog",
+        "text": "<p>{spacer-40 from-768}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/at/de/frankfurt-fair",
+    "inserts": [
+      {
+        "before": "<p>* Konditionen analog",
         "text": "<p>{spacer-40 from-768}</p>"
       }
     ]

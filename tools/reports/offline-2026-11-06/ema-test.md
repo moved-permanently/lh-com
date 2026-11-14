@@ -4194,3 +4194,5 @@ State at the start: nothing of mine uncommitted or unpushed (order 20's final se
      unchanged on all). bedeutsamste-strecken (de/de, at/de) and crane stay held (compensation removed), global-network
      (within 0.5) and chronicle (its 1440 capture fails on a 20,000 px page) too; their rows in delta-so20-lh-com-pages.txt
      say so.
+     The same two rows on the sibling locales, READY in the same list: destinations de/en, gb/en 12.27 -> 0.81 and
+     frankfurt-fair de/de, at/de 8.67 -> 6.61 at 1440 (390 unchanged; folder base equal to the host's).
