@@ -125,11 +125,12 @@ export default function parse(element, { document, url, params }) {
     }
     half = Number(row.getAttribute('data-lh-slideshows')) > 1;
   }
-  // Brussels: a slideshow in its section (not in a multi-column view) runs the content's width on
-  // www (be/fr/travel-classes/business: about 1,250 px at 1440): option wide
+  // Brussels and lufthansa.com: a slideshow in its section (not in a multi-column view) runs the
+  // content's width on www (be/fr/travel-classes/business: about 1,250 px at 1440; fleet 351's seat
+  // map, standing order 24): option wide
   let host = '';
   try { host = new URL((params && params.originalURL) || url || '').hostname; } catch (e) { host = ''; }
-  const wide = !half && !(column && layout) && /(^|\.)brusselsairlines\.com$/.test(host);
+  const wide = !half && !(column && layout) && /(^|\.)(brusselsairlines|lufthansa)\.com$/.test(host);
   const variants = half ? ['half'] : (wide ? ['wide'] : []);
   const block = WebImporter.Blocks.createBlock(document, { name: 'carousel-lightbox', variants, cells });
   element.replaceWith(block);

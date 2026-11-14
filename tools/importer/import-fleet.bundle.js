@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-fleet.js
-  var tmp_bundle_fleet_1006752_exports = {};
-  __export(tmp_bundle_fleet_1006752_exports, {
-    default: () => tmp_bundle_fleet_1006752_default
+  var tmp_bundle_fleet_1043029_exports = {};
+  __export(tmp_bundle_fleet_1043029_exports, {
+    default: () => tmp_bundle_fleet_1043029_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -1103,7 +1103,7 @@ var CustomImportScript = (() => {
     } catch (e) {
       host = "";
     }
-    const wide = !half && !(column && layout) && /(^|\.)brusselsairlines\.com$/.test(host);
+    const wide = !half && !(column && layout) && /(^|\.)(brusselsairlines|lufthansa)\.com$/.test(host);
     const variants = half ? ["half"] : wide ? ["wide"] : [];
     const block = WebImporter.Blocks.createBlock(document, { name: "carousel-lightbox", variants, cells });
     element.replaceWith(block);
@@ -6458,7 +6458,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_fleet_1006752_default = {
+  var tmp_bundle_fleet_1043029_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -6498,5 +6498,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_fleet_1006752_exports);
+  return __toCommonJS(tmp_bundle_fleet_1043029_exports);
 })();

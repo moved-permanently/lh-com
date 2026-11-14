@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-insights.js
-  var tmp_bundle_insights_1006752_exports = {};
-  __export(tmp_bundle_insights_1006752_exports, {
-    default: () => tmp_bundle_insights_1006752_default
+  var tmp_bundle_insights_1043029_exports = {};
+  __export(tmp_bundle_insights_1043029_exports, {
+    default: () => tmp_bundle_insights_1043029_default
   });
 
   // tools/importer/parsers/poi-data.js
@@ -9539,7 +9539,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_insights_1006752_default = {
+  var tmp_bundle_insights_1043029_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9579,5 +9579,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_insights_1006752_exports);
+  return __toCommonJS(tmp_bundle_insights_1043029_exports);
 })();
