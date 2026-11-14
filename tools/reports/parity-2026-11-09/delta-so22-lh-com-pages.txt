@@ -1,0 +1,8 @@
+# Expected change: none from these rows (standing order 22, item 3): lufthansa.com page-widths further down the ranking, each looked at on the fresh captures with fonts (logs/p4/so21, ~10:50 CET) and held with its reason. The READY row of the same pass is delta-so22-lh-com-take-off.txt.
+# Each line: READY / HOLD, path, what was tried or found, the result (1440, 390: before -> after %, folder render on our code on main, gate.mjs), the reason.
+HOLD	/de/en/munich-fair	www sets "Messe München events" and "Lufthansa Mobility – a Messe München partner" side by side (a two-column view); ours stacks them (130 px longer at 1440). Tried: the two sections as a two-cell Columns Media	1440 12.84 -> 2.99; 390 6.22 -> 7.21	gate.mjs: compensation removed at 390 (the stacked cells sit 9 px further apart than the two sections, which uncovers the grey band's +16 above); a phone gap of Columns Media's text cells, not a row
+HOLD	/de/en/online-check-in	390 34.00 %: the booking lookup and the column view below it are laid out differently (aligned 20.6 %), no spacing step	-	not a row
+HOLD	/de/en/100-years	1440 -25 px at the "Under the symbol of the crane" block, cancelled under its video stage; 390 the stage itself	-	live video stage; not a row
+HOLD	/de/en/articles/highlights/all-it-takes-is-a-yes	the mismatch is in the overlay cards' pictures (60-80 % windows), the offsets within 20 px	-	pictures, not spacing
+HOLD	/de/en/farealert/best-price-alert	1440 -20 / -28 / -39 px inside the Columns Media steps (01, 02, 03), 390 the same smaller: the block's row heights	-	a block's rows, not a row
+HOLD	/de/en/book-and-manage/stopover	map and video stage; 1440 -32 px at "Take a creative break", 390 other steps	-	local render differs (map); not one spacing

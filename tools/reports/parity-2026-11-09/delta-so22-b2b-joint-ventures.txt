@@ -2,5 +2,6 @@
 # 390 effect: none (the marker narrows text from 1025 px only), as measured.
 # Method: DA's copy (moved-permanently/lh-b2b) plus the inserts: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/b2b-joint-ventures-so22.json --list tools/reports/parity-2026-11-09/delta-so22-b2b-joint-ventures.txt --docs <DA copies> --out <dir> (--check to only report). Every anchor (each text's last words and its </p>) is found once in DA's copy of 2026-11-14 ~15:20 CET; without the inserts the result is DA's copy byte for byte.
 # Measured: the published copy as it is and with the markers, rendered from one local folder on our code on main (aem up --html-folder, B2B's main host; the base 5,017 px as finish-b2b.txt's host measure), against b2b-parity-003; tools/parity/gate.mjs: 1 better, 1 within, 0 worse.
+# Published by the owner (c7648b01). On the host with the fonts: 1440 11.59 (5,113 px), 390 14.14, as the folder trial.
 # Each line: READY / HOLD, DA path, the change, the result (1440, 390: before -> after %), the gate.
 READY	/de/en/about-us/lhg-history/lhg-history-alliances-and-joint-ventures	{limited-width} on the four joint-venture texts (Atlantic, Europe Japan, Europe China, Europe Singapore Pacific): www's .richtext.limited-width	1440 22.11 -> 11.59 (5,017 -> 5,113 px, www 5,171); 390 14.14 -> 14.14	1 better, 1 within (gate.mjs)
