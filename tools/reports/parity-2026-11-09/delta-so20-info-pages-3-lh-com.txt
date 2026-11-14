@@ -1,0 +1,21 @@
+# Standing order 20 (2026-11-14), item 2, after the merge: the next lufthansa.com info page-widths of ranking-so12 (the 30
+# after order 19's 40, live on our host 2026-11-14 03:20 to 03:35 UTC, logs/b612/rank2-live.tsv). Expected change, once
+# the importer change is made: delayed-baggage-lhg's merged Columns Media split where www has a 100px separator between
+# its column views (before SWISS and before Lufthansa City), with {spacer-100} between the blocks, and the two
+# {spacer-100} at the page end dropped. Nothing else of a document changes. The last row (lufthansa-at-berlin-airport)
+# is a finding with no change.
+# The cause: the columns-media parser merges an untitled column view into the block before it across a kept separator
+# (50 px and more), and the separator's spacer lands after the merged block. Census of the 3,397 www snapshots: kept
+# spacers between two merged views only on this page (7 documents). Kept lines (divider-25) between views are on 221
+# airport-information documents, air-baltic and flight-disruptions; those are not part of this change.
+# HOLD: no tool splits a block at a row, and the parser change needs its own offline-import gate.
+# Measured as a draft on our host (the published copy split by hand, logs/b612/db-split.py) against www's recordings,
+# % off www at 390 / 1440: 9.1 / 4.0 -> 8.0 / 2.9.
+HOLD	/de/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	(the parser change, then a re-import)	the Columns Media split at "SWISS" and "Lufthansa City", {spacer-100} between the blocks
+HOLD	/gb/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	(the parser change, then a re-import)	the same
+HOLD	/de/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	(the parser change, then a re-import)	the same
+HOLD	/at/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	(the parser change, then a re-import)	the same
+HOLD	/fr/fr/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	(the parser change, then a re-import)	the same
+HOLD	/xx/fr/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	(the parser change, then a re-import)	the same
+HOLD	/xx/es/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	(the parser change, then a re-import)	the same
+HOLD	/de/en/lufthansa-at-berlin-airport	(none: not a row)	the picture above "Extras" (frontify c-784170484-63601007): www's snapshot has it, but neither www recording draws it (1440: the third column opens with the heading; 390: nothing between the visitors' terrace link and "Extras"). Ours draws it, 155 px at 390. Whether www's file is broken needs a request to www, so it stays HOLD (no guess)

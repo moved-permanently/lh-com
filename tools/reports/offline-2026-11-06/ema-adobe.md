@@ -3998,3 +3998,23 @@ Addendum (after the merge, 2026-11-14 03:30 to 04:15 CET):
     working-copy code, entry-exit-system is 9.7 / 15.3 (as predicted) and online-check-in 10.7 at 1440 (unchanged; its
     390 recording is not usable, 5650 against our 4046px). This needs no rows. Test: test/grey-band-rule-so20.test.mjs.
 - Left out of git: logs/b612 (the census, its copies and the captures).
+
+Final section (2026-11-14 ~05:20 CET):
+- Pushed this order: the general band rule (merged by the owner, a9d5a50) and its spaced-before-a-heading exception
+  (061a089, live). entry-exit-system is now 9.7 / 15.3 live, as predicted.
+- Item 2, the next 30 info page-widths of ranking-so12, live on our host (logs/b612/rank2-live.tsv). Most steps are
+  inside a section (text and row heights), and no section transition is shared by two pages.
+  delta-so20-info-pages-3-lh-com.txt has 8 HOLD rows:
+  - delayed-baggage-lhg (7 documents): the columns-media parser merges column views across www's 100px separators,
+    and their spacers land at the page end. A hand-split draft measures 9.1 / 4.0 -> 8.0 / 2.9 % at 390 / 1440. The
+    parser change (no merge across a kept spacer) needs its own offline-import gate, so it is the next order's.
+  - lufthansa-at-berlin-airport: a picture www's recordings never draw (155 px at 390). Unverified without a request
+    to www.
+- Still HOLD:
+  - traveltricks (the store URLs);
+  - premium-economy-class's padded end section;
+  - giftvoucher's doubled page (the loc merge tool).
+- rebook's padded split (delta-so20-info-pages-2, READY) is not published yet.
+- /de/en/overview-manage: no row.
+- Left out of git: logs/b612 (census copies of the published documents, captures, drafts, trial stylesheets), the /tmp
+  import workspaces, and the untracked import reports of earlier runs.
