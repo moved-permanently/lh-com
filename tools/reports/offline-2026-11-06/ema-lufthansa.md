@@ -4700,3 +4700,53 @@ numbers: business-class-medium-haul and contact are now within 2 %.
 - **Six rows located only** (2.1 to 3.8 %): lhg-ita-airways, alliances-and-joint-ventures, experts,
   partner-plus-benefit (390, a resized load), video-gallery, about-us (390, a resized load).
 - **No B2B code change:** B2B's documents and its open rows are ema-test's.
+
+**Group for Business, more rows traced (after a14a574c):**
+- experts: the newsletter section, 145 px under its button on www, ours 82.
+- alliances-and-joint-ventures: www's narrower item columns, so its texts run longer.
+- lhg-ita-airways and sap's intro: fonts. Our paragraphs run a line longer at the same 800 px column as www's
+  `.b2b-neo p` (80rem); macOS against Linux.
+- about-us: the card list's line breaks.
+
+- partner-plus-benefit 390 and video-gallery 1440: spread over their sections, just over 2 %, no single cause.
+
+finish-b2b.txt now: 35 HOLD, each explained; none "not traced".
+
+## Final section, standing order 15 (2026-11-14, 04:10 to 09:00 CET)
+
+**Commits on main.** Each one: whole-repo `npm run lint` exit 0 before and after the rebase and after every retry
+rebase; the full suite 0 failures on the commit and again after a rebase that brought commits; `git show --stat` as
+given; the GitHub Build read; the smoke of 14 hosts before and after.
+- cdcbe2d9: standing order 14's last commit (bfe1f887), pushed with the push loop. Build success, smoke 0 differences
+  except content.
+- 871e8e48: the destination finder's conditions in a dialog (142 page-widths unchanged), and Brussels ke/en's
+  conditions as a link to their dialog (delta READY, fr/fr HOLD). Suite 4175 / 0, then 4180 / 0; Build success; smoke 0
+  differences except a lufthansa.com sitemap (content).
+- 2fbbf2b8 (a14a574c rebased): finish-ita.txt, finish-b2b.txt, the European fares HOLD row, this order's report. Suite 4188 / 0 on the commit, 4197 / 0 after the rebase. Pushed on the fourth try (main busy; lint 0 after each retry rebase). Build success; the smoke of 14 hosts 0 differences except a lufthansa.com sitemap (content).
+- This commit: finish-b2b.txt with the rows traced since a14a574c, and this final section.
+
+**Finish lines this order:**
+- ITA: 78 recorded page-widths, 65 within 2 %, 13 explained.
+- Group for Business: 181 recorded page-widths, 146 within 2 %, 35 explained.
+
+**Lists:**
+- finish-ita.txt and finish-b2b.txt;
+- delta-so15-brussels-conditions-link.txt (ke/en READY, fr/fr HOLD);
+- delta-so15-b2b-european-fares-status-columns.txt (HOLD, for the owner).
+
+**Not shipped (failed the gate):**
+- The fleet seat-map columns at 622 px: long-haul within 2 %, short-haul further.
+- fr/fr's conditions link: 1440 further.
+- our-european-fares' columns row: 390 further by 0.27 points.
+
+**Left uncommitted, and why:** `.migration/project.json` (the lh-tap entry, not mine). `.scratch/` is excluded from git:
+- the B2B drop archives downloaded here (b599-drop: b2b-parity-001 to -009);
+- DA's copies read today (Brussels fr/fr, ke/en, be/en homepages, B2B our-european-fares) and the deltas' output;
+- the CSS override folders (the fleet drafts), the measuring scripts, the screenshots' crops and logs.
+
+**Process:**
+- Reads only from our hosts, the drop (our R2) and DA (GETs from my session, not from tests).
+- No request to an airline host: www's layouts were read from the recordings' own screenshots and measurements.
+- No da-upload.mjs call, no upload, preview or publish by me.
+- `scripts/` and other EMAs' recent files untouched, except the shared destination-finder block (its last change 7
+  days ago).
