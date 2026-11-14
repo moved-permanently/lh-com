@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* The offers grid's order and badges on Discover (blocks/destination-finder grid, brand flag
    BRANDS.discover.gridBadges): as www's Discover component (dcep-destination-finder, sort
    "Recommended"): the highlighted offers (Highlighted offers, Highlight priority: topDeal, then
@@ -94,6 +95,8 @@ beforeEach(() => {
   commonAnswer = COMMON;
   mock.timers.enable({ apis: ['setTimeout', 'Date'], now: Date.parse('2026-11-02T12:00:00Z') });
   globalThis.fetch = async (url) => {
+    // the site's flag live-prices on (scripts/live-prices.js, standing order 23)
+    if (String(url) === '/config/flags.json') return new Response(JSON.stringify({ data: [{ flag: 'live-prices', value: 'on' }] }), { status: 200, headers: { 'content-type': 'application/json' } });
     const href = String(url);
     if (href.includes('/data/recorded/')) return new Response(JSON.stringify({ entries: {} }));
     calls.push(href);

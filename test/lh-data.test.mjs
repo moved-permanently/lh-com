@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* Direct calls to www (scripts/lh-data.js): one retry, then only the failing route is skipped.
    Run: node --test test/*.test.mjs */
 /* global globalThis */
@@ -24,6 +25,8 @@ beforeEach(() => {
   calls = [];
   plan = {};
   globalThis.fetch = async (url) => {
+    // the site's flag live-prices on (scripts/live-prices.js, standing order 23)
+    if (String(url) === '/config/flags.json') return new Response(JSON.stringify({ data: [{ flag: 'live-prices', value: 'on' }] }), { status: 200, headers: { 'content-type': 'application/json' } });
     const href = String(url);
     if (href.startsWith('/data/recorded/')) {
       // no recordings in this test: the index is empty
@@ -73,6 +76,8 @@ test('a route that fails twice is skipped; other routes stay live', async () => 
 
 test('a 4xx answer is neither retried nor blocking', async () => {
   globalThis.fetch = async (url) => {
+    // the site's flag live-prices on (scripts/live-prices.js, standing order 23)
+    if (String(url) === '/config/flags.json') return new Response(JSON.stringify({ data: [{ flag: 'live-prices', value: 'on' }] }), { status: 200, headers: { 'content-type': 'application/json' } });
     if (String(url).startsWith('/data/recorded/')) return new Response('{"entries":{}}');
     calls.push(String(url));
     return new Response('{}', { status: 404, headers: { 'content-type': 'application/json' } });

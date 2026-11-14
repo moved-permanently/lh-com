@@ -9,6 +9,7 @@ import {
 } from '../../scripts/lh-api.js';
 import { attachDamFallback } from '../../scripts/dam-path.js';
 import { markSource, priceRetryDelay } from '../../scripts/lh-data.js';
+import { livePricesOn, livePricesOffNotice } from '../../scripts/live-prices.js';
 import { bookInApp } from '../../scripts/app-bridge.js';
 
 /* ---------------------------------------------------------------------------------------------
@@ -396,6 +397,13 @@ export default async function decorate(block) {
   // the cards' images need scripts/dam-path.js (lh-api damPathReady): loading while the rest runs
   const damReady = damPathReady();
   const locale = getLocale();
+  // the site's live prices off (flag live-prices, scripts/live-prices.js): one line and a link to
+  // the airline's own page, no price call
+  if (!(await livePricesOn())) {
+    block.replaceChildren(livePricesOffNotice(locale));
+    block.dataset.lhSource = 'none';
+    return;
+  }
   const config = readConfigRows(block);
   let labels = resolveLabels(DEFAULT_LABELS, config, locale.lang);
   const settings = readFareTeaserSettings(config, locale);

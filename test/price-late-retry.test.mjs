@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* One late try per price widget per page load (blocks/fare-teaser, blocks/destination-finder slider
    and grid; scripts/lh-data.js priceRetryDelay): when a widget's price call failed on every
    attempt (www's Cloudflare challenged the preflights of a fresh tab: brussels.turnsthe.page and
@@ -59,6 +60,8 @@ beforeEach(() => {
   plan = [];
   mock.timers.enable({ apis: ['setTimeout', 'Date'], now: NOW });
   globalThis.fetch = async (url) => {
+    // the site's flag live-prices on (scripts/live-prices.js, standing order 23)
+    if (String(url) === '/config/flags.json') return new Response(JSON.stringify({ data: [{ flag: 'live-prices', value: 'on' }] }), { status: 200, headers: { 'content-type': 'application/json' } });
     const href = String(url);
     if (href.includes('/data/recorded/')) return new Response(JSON.stringify({ entries: {} }));
     if (href.includes(FINDER)) {

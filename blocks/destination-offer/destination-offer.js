@@ -10,6 +10,7 @@ import {
   formatFare,
 } from '../../scripts/lh-api.js';
 import { markSource } from '../../scripts/lh-data.js';
+import { livePricesOn, livePricesOffNotice } from '../../scripts/live-prices.js';
 import { isLibraryPath } from '../../scripts/library-page.js';
 import { buildShopHandoff, submitShopHandoff } from '../../scripts/shop-handoff.js';
 
@@ -803,6 +804,9 @@ export default async function decorate(block) {
   const route = routeOf(window.location.search, window.location.pathname, { tripDuration: parseInt(text('trip-duration'), 10) });
   block.replaceChildren();
   block.setAttribute('aria-busy', 'true');
+  // the site's live prices off (flag live-prices): the page without its price calendar, which
+  // shows one line and a link to the airline's own page (scripts/live-prices.js)
+  const pricesOn = await livePricesOn();
 
   const sources = {};
   const livePromise = fetchLabels(['singleOfferDisplay'], locale).catch(() => ({ labels: {}, sources: {} }));
@@ -946,6 +950,9 @@ export default async function decorate(block) {
   daysBox.setAttribute('aria-live', 'polite');
   const note = el('p', 'destination-offer-note');
   calendar.append(classWrap, monthsBox, daysBox, note);
+  if (!pricesOn) {
+    calendar.replaceChildren(calendar.firstChild, livePricesOffNotice(locale));
+  }
 
   const state = { cabin: route.cabin, months, month: '' };
   const book = (date) => {

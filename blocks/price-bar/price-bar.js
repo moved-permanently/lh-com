@@ -7,6 +7,7 @@ import {
   mapTeaserPrice, mapLocaleData, formatFare,
 } from '../../scripts/lh-api.js';
 import { markSource } from '../../scripts/lh-data.js';
+import { livePricesOn, livePricesOffNotice } from '../../scripts/live-prices.js';
 import { isLibraryPath } from '../../scripts/library-page.js';
 
 /* ---------------------------------------------------------------------------------------------
@@ -174,6 +175,13 @@ function observeVisibility(block) {
 
 export default async function decorate(block) {
   const locale = getLocale();
+  // the site's live prices off (flag live-prices, scripts/live-prices.js): one line and a link to
+  // the airline's own page, no price call
+  if (!(await livePricesOn())) {
+    block.replaceChildren(livePricesOffNotice(locale));
+    block.dataset.lhSource = 'none';
+    return;
+  }
   const config = readConfigRows(block);
   let labels = resolveLabels(DEFAULT_LABELS, config, locale.lang);
   const settings = readPriceBarSettings(config);

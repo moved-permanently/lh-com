@@ -5,6 +5,7 @@ import {
   securityWaitingTimeAirportsRequest, securityWaitingTimeRequest,
 } from '../../scripts/lh-api.js';
 import { markSource, priceRetryDelay } from '../../scripts/lh-data.js';
+import { livePricesOn, livePricesOffNotice } from '../../scripts/live-prices.js';
 import { brandWwwHost } from '../../scripts/brand.js';
 
 /*
@@ -343,6 +344,13 @@ export default async function decorate(block) {
   const config = readConfigRows(block);
   let labels = resolveLabels(DEFAULT_LABELS, config, locale.lang);
   const page = livePage(config);
+  // the site's live prices off (flag live-prices, scripts/live-prices.js): one line and a link to
+  // the airline's own page, no price call
+  if (!(await livePricesOn())) {
+    block.replaceChildren(livePricesOffNotice(locale, 'waiting-times', page));
+    block.dataset.lhSource = 'none';
+    return;
+  }
   const authoredAirport = ((pick(config, 'airport') || {}).text || '').trim().toUpperCase();
   const preselected = (new URLSearchParams(window.location.search).get('airport') || authoredAirport)
     .trim().toUpperCase();

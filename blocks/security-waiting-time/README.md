@@ -28,3 +28,5 @@ Single block table, 2 columns, label | value. Every row is optional: an empty bl
 ## Universal Editor fields
 
 N/A (Document Authoring project)
+
+Live prices behind the site flag `live-prices` (scripts/live-prices.js, standing order 23): with the flag off (no row, "off", no sheet) the block sends no price call and shows one line with a link to the airline's own page for that function (the Live page row, else this page on the airline's www).

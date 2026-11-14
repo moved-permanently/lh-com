@@ -46,3 +46,5 @@ N/A (Document Authoring project)
 ## App web view
 
 In the Lufthansa app (the `groupapp` bridge, `scripts/app-bridge.js`), a click on a destination posts `DestinationFinderBookingRequest` (`{type, targetURL, parameters: [{key, values}], newWindow, methodGet}`, from the link) to the app instead of navigating; in a browser the link works as before. The fare alert is not built (see above); `requestFareAlertLogin()` in `scripts/app-bridge.js` sends `FareAlertLoginRequest` the way www does (only on `.solo_continue` pages) for when it is.
+
+Live prices behind the site flag `live-prices` (scripts/live-prices.js, standing order 23): with the flag off (no row, "off", no sheet) the block sends no price call and shows one line with a link to the airline's own page for that function (the grid: in its message box; Discover keeps its link to its offers page).

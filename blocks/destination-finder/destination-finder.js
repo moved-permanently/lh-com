@@ -14,6 +14,7 @@ import {
 } from '../../scripts/lh-api.js';
 import { attachDamFallback } from '../../scripts/dam-path.js';
 import { markSource, priceRetryDelay } from '../../scripts/lh-data.js';
+import { livePricesOn, livePricesOffNotice, ownOffersPath } from '../../scripts/live-prices.js';
 import {
   createCompare, loadFlightInfo, COMPARE_LABELS, COMPARE_LIVE_LABELS,
 } from './finder-compare.js';
@@ -814,11 +815,10 @@ const GRID_BADGE_LABELS = {
 const GRID_BEST_PRICE_LABELS = { en: 'Best price', de: 'Bestpreis' };
 
 /**
- * A brand's own offers page on its www site (by the brand's www host): where the grid sends the
- * visitor when the price call fails (standing order 22: Discover's grid said "we do not offer any
- * destinations" then, which is wrong). Brands without an entry keep "no results for origin".
+ * The grid's message when its price call failed or the site's live prices are off, on a brand
+ * with its own offers page (scripts/live-prices.js ownOffersPath; standing order 22: Discover's
+ * grid said "we do not offer any destinations" then, which is wrong).
  */
-const OWN_OFFERS_PAGES = { 'www.discover-airlines.com': '/book/flights/offers' };
 const OFFERS_UNAVAILABLE_LABELS = {
   en: {
     heading: 'The offers cannot be shown right now',
@@ -844,7 +844,7 @@ const OFFERS_UNAVAILABLE_LABELS = {
  */
 export function offersUnavailable(loaded, brand, locale, search = '') {
   if (!brand || !brand.www || loaded.source !== 'none' || loaded.offers.length) return null;
-  const path = OWN_OFFERS_PAGES[brand.www];
+  const path = ownOffersPath(brand);
   if (!path) return null;
   const own = OFFERS_UNAVAILABLE_LABELS[locale.lang] || OFFERS_UNAVAILABLE_LABELS.en;
   const host = brand.www.replace(/^www\./, '');
@@ -1784,6 +1784,8 @@ async function decorateGrid(block, uid) {
   };
   // every request starts now; the filters are built once the labels are there
   const contextPromise = loadFinderContext(locale);
+  // the site's flag live-prices (scripts/live-prices.js): off, the grid shows its link instead
+  const pricesOnPromise = livePricesOn();
   const wwwBadges = gridBadges();
   const gridContextPromise = loadGridContext(locale, { badges: wwwBadges });
   const cityOf = (origins, origin) => {
@@ -1811,6 +1813,7 @@ async function decorateGrid(block, uid) {
   }, config, locale.lang);
   // a brand page: the airline filter names the brand ("Lufthansa only" on lh-com)
   const brand = brandEntry();
+  const pricesOn = await pricesOnPromise;
   if (brand && labels['tenant only label']) {
     labels['tenant only label'] = labels['tenant only label'].replace('Lufthansa', brand.name);
   }
@@ -2111,7 +2114,12 @@ async function decorateGrid(block, uid) {
     showMore();
     message.hidden = true;
     const unavailable = offersUnavailable(loaded, brand, locale, window.location.search);
-    if (unavailable) {
+    if (!pricesOn && !unavailable) {
+      // the site's live prices off, no offers page of the brand's own: one line and the
+      // airline's page (scripts/live-prices.js)
+      message.replaceChildren(livePricesOffNotice(locale));
+      message.hidden = false;
+    } else if (unavailable) {
       // no answer: not "no destinations", but the brand's own offers page
       showMessage(unavailable.heading, unavailable.text);
       const link = el('a', 'destination-finder-message-link', unavailable.linkText);
@@ -2179,7 +2187,7 @@ async function decorateGrid(block, uid) {
   let reload;
   const lateTry = (result, forQuery) => {
     clearTimeout(lateTimer);
-    if (result.source === 'live' || lateDone) return;
+    if (result.source === 'live' || lateDone || !pricesOn) return;
     const { route } = destinationFinderOffersRequest(forQuery);
     lateTimer = setTimeout(() => {
       lateDone = true;
@@ -2358,6 +2366,13 @@ export default async function decorate(block) {
     return;
   }
   const locale = getLocale();
+  // the site's live prices off (flag live-prices, scripts/live-prices.js): one line and a link to
+  // the airline's own page, no price call
+  if (!(await livePricesOn())) {
+    block.replaceChildren(livePricesOffNotice(locale));
+    block.dataset.lhSource = 'none';
+    return;
+  }
   const config = readConfigRows(block);
   const labels = resolveLabels(withAnnouncements(DEFAULT_LABELS), config, locale.lang);
   const text = (...keys) => (pick(config, ...keys) || {}).text || '';

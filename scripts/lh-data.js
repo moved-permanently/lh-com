@@ -31,6 +31,8 @@
  *    routes neither obey nor set that memo: their own backoff as above.
  * 3. Recorded: the responses recorded at import time under /data/recorded/ (never for prices:
  *    PRICE_ROUTES answer live or not at all).
+ * The price routes are called only on a site whose flag live-prices is on (scripts/live-prices.js);
+ * off, lhFetch sends nothing for them and fails.
  */
 import {
   getLocale, LOCALE_TABLE, LIVE_ORIGIN, siteLocales, portalOf,
@@ -38,6 +40,7 @@ import {
 import { FALLBACK_LANGUAGE_VERSION } from './locale-table.js';
 import { isDemoHost } from './demo.js';
 import { isLoungeRoute, loungeAnswer } from './lounge-data.js';
+import { livePricesOn } from './live-prices.js';
 
 // the lh-com tenant's OF1 hosts (OF1's edge proxy in front of the site and its preview): the
 // widgets call www there as on the demo hosts; elsewhere they stay production (scripts/demo.js)
@@ -554,6 +557,11 @@ function proxyRequest(origin, route, { method, body, market }) {
 export async function lhFetch(route, {
   method = 'GET', body, market = getLocale().key, exact = false, origin: wwwOrigin,
 } = {}) {
+  // the site's live prices behind its flag live-prices (scripts/live-prices.js, standing order 23):
+  // off, no price call leaves the browser and the widget shows its link to the airline's page
+  if (PRICE_ROUTES.test(route) && !(await livePricesOn())) {
+    throw new Error(`no live answer for ${route}: live-prices is off on this site`);
+  }
   // a production host (scripts/demo.js) is www itself: every route same-origin with the market's
   // X-Portal-* headers, no proxy, no tester overrides, no recorded answers (a failing call fails)
   if (!isWidgetDemoHost()) {

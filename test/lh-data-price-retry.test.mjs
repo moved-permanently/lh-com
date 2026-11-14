@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* Price routes (scripts/lh-data.js PRICE_ROUTES) after a failed call: www's Cloudflare challenges
    a share of the CORS preflights (403 text/html, cf-mitigated: challenge; the browser reports
    "Failed to fetch"), often the first ones of a fresh tab (brussels.turnsthe.page, 2026-11-01:
@@ -37,6 +38,8 @@ beforeEach(() => {
   plan = {};
   mock.timers.enable({ apis: ['Date'], now: NOW });
   globalThis.fetch = async (url, init = {}) => {
+    // the site's flag live-prices on (scripts/live-prices.js, standing order 23)
+    if (String(url) === '/config/flags.json') return new Response(JSON.stringify({ data: [{ flag: 'live-prices', value: 'on' }] }), { status: 200, headers: { 'content-type': 'application/json' } });
     const href = String(url);
     if (href.startsWith('/data/recorded/')) return new Response(JSON.stringify({ entries: {} }), { status: 200 });
     calls.push(href);

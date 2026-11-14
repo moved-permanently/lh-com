@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* The destination finder's offers on a brand page (blocks/destination-finder): the slider lists the
    offers the brand operates (isTenantAirlineOperating under its X-Portal) when its block asks for
    it, as www's component does with airlineWhitelistingEnabled (the Airline whitelist row:
@@ -59,6 +60,8 @@ beforeEach(() => {
   window.sessionStorage.clear();
   calls = [];
   globalThis.fetch = async (url) => {
+    // the site's flag live-prices on (scripts/live-prices.js, standing order 23)
+    if (String(url) === '/config/flags.json') return new Response(JSON.stringify({ data: [{ flag: 'live-prices', value: 'on' }] }), { status: 200, headers: { 'content-type': 'application/json' } });
     const href = String(url);
     if (href.includes('/data/recorded/')) return new Response(JSON.stringify({ entries: {} }));
     calls.push(href);

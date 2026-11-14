@@ -106,6 +106,8 @@ beforeEach(() => {
   };
   mock.timers.enable({ apis: ['setTimeout', 'Date'], now: NOW });
   globalThis.fetch = async (url, init = {}) => {
+    // the site's flag live-prices on (scripts/live-prices.js, standing order 23)
+    if (String(url) === '/config/flags.json') return new Response(JSON.stringify({ data: [{ flag: 'live-prices', value: 'on' }] }), { status: 200, headers: { 'content-type': 'application/json' } });
     const href = String(url);
     if (href.includes('/data/recorded/')) return json({ entries: {} });
     calls.push({

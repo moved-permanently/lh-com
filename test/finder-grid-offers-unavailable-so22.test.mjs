@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* Standing order 22 of 2026-11-14, item 2a: Discover's offers grid when the price call fails
    (blocks/destination-finder grid). The grid reads www.lufthansa.com's destinationfinder from the
    visitor's browser (X-Portal FOUR_Y) and shows the 591 offers there; when that call fails (no
@@ -48,6 +49,8 @@ beforeEach(() => {
   window.sessionStorage.clear();
   mock.timers.enable({ apis: ['setTimeout', 'Date'], now: Date.parse('2026-11-14T12:00:00Z') });
   globalThis.fetch = async (url) => {
+    // the site's flag live-prices on (scripts/live-prices.js, standing order 23)
+    if (String(url) === '/config/flags.json') return new Response(JSON.stringify({ data: [{ flag: 'live-prices', value: 'on' }] }), { status: 200, headers: { 'content-type': 'application/json' } });
     const href = String(url);
     if (href.includes('/data/recorded/')) return new Response(JSON.stringify({ entries: {} }));
     const json = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json' } });
