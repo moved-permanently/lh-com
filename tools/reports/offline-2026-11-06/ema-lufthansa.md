@@ -4633,3 +4633,70 @@ the commit and again after a rebase that brought commits; the GitHub Build read;
 - No da-upload.mjs call, no upload, preview or publish by me.
 - A measurement glitch: one footer failed to load during the first ranking. Every row over 2 % was measured twice before
   being listed.
+
+## Standing order 15 of 2026-11-14 (from about 04:10 CET to 09:00 CET)
+
+**At the start, and item 0:** bfe1f887 (Brussels' list fully explained, standing order 14's final section) was still
+in its ship when order 14's turn ended. Its suite passed on the commit (4166 / 0). I stopped the ship before its
+rebase and pushed with the rebase-lint-push loop: on 061a089d, `npm run lint` exit 0, pushed as cdcbe2d9 on the first
+round. After it:
+- GitHub Build success;
+- the smoke of 14 hosts: 0 differences except the /de/en search index on the three lufthansa.com hosts (content).
+  Austrian CN failed once on the network; I reran it and it showed 0 differences.
+
+Nothing else of mine was uncommitted. `.migration/project.json` (the lh-tap entry) and `.scratch/` left as they are.
+
+**Item 1, the fares' conditions in a dialog (871e8e48).**
+- **The cause on ke/en and fr/fr is the document, not the block.** The conditions title and the whole text are default
+  content after the cards-icon band (about 520 px at 390). be/en's document has only the title, as a link to
+  /be/en/modals/general-conditions, which scripts/fragment-dialog.js opens as a dialog, as www.
+- **The shared block, as asked (test first, test/destination-finder-conditions-dialog-599.test.mjs):** the destination
+  finder's own conditions (its Conditions row) were a disclosure opening in place. They are now a "Conditions" link
+  button that opens a modal dialog, with:
+  - the title as the dialog's heading, the text, and a close button labelled in the page's language;
+  - focus moving into the dialog and back to the toggle, and the toggle keeping its class (the brands' styles stay).
+  - Checked in a browser on be/en, served after the push: the dialog opens as a modal with the 678-character text,
+    and closes.
+- **Its gate:** 142 recorded page-widths that use the block (Austrian 44 pages, Brussels 5, Discover 4, SWISS 3,
+  lufthansa.com's 15 homepages), served against the local code at both widths. None changed by more than 2 px (the
+  closed dialog takes the disclosure's one line).
+- **The documents (new tool tools/importer/conditions-link-apply.mjs, test first;
+  delta-so15-brussels-conditions-link.txt):** the page-text title and text become the title as a link to the market's
+  /modals/general-conditions; both modal documents exist on our host with the same text.
+  - ke/en READY: 1440 +6.50 -> +1.92 %, 390 +4.30 -> -3.81 %.
+  - fr/fr HOLD by the gate: 390 +5.44 -> -4.08 % (closer), but 1440 +1.26 -> -4.34 % (further). At 1440 the page was
+    close only because the finder's empty state, with www's API refused, is shorter elsewhere.
+- **Checks:** suite 4175 / 0 on the commit, 4180 / 0 after the rebase. The first push was refused (main busy); lint 0
+  after the retry rebase, and the second try went through. GitHub Build success; the smoke of 14 hosts 0 differences
+  except a lufthansa.com sitemap (content).
+
+**Item 2, ITA's finish line (finish-ita.txt):** 78 recorded page-widths (ita-parity-002 to -005), 65 within 2 %, 13
+above, each explained and located against www's live measurement. Rows 49 to 51 of standing order 12 are in the
+numbers: business-class-medium-haul and contact are now within 2 %.
+- **New causes this order:**
+  - fleet/long-haul 1440 (-3.63 %): ITA row 34's seat-map grid keeps the page's 88 px on both sides of each column, so
+    the seat map is 534 px wide where www's is 622. A draft with both columns at 622 px takes long-haul to -0.51 % but
+    short-haul from +0.37 to +3.50 % (its small map offsets about 160 px it has more elsewhere), so it isn't shipped.
+  - alghero 1440: the closing flight-search band keeps 42 px under its button, www 82; the only recorded page with that
+    ending.
+  - electronic-devices: its three side-by-side blocks (www stacks them) and its lithium section.
+- **The rest:** as standing order 12 (fonts, documents that publishing can't carry, one-page causes).
+- **No code or DA change this order.**
+
+**Item 3, Group for Business's finish line (finish-b2b.txt):** 181 recorded page-widths (b2b-parity-001 to -009; -003 to
+-008 resize the 1440 load to 390), 146 within 2 %, 35 above.
+- **ema-test's causes, cited:** the tab sets' open state and the resized 390 recordings (Allegris start-of-booking,
+  meals-on-board, entertainment-on-board); lhg-history's title view delta; businesstogo's nested option; and
+  lufthansa-group-airlines.
+- **Traced tonight through the recordings' screenshots:**
+  - our-european-fares 1440 (+8.67 %): a text-and-picture section stacked in DA's copy, where www sets them side by
+    side. delta-so15-b2b-european-fares-status-columns.txt, HOLD by the gate: 1440 to +1.11 %, but 390 +0.67 ->
+    +0.94 %. For the owner.
+  - kuala-lumpur: www's flight table rows drawn about 280 px tall in the recording (www's state).
+  - travel-management: five links stacked as a list where www sets them in one row.
+  - lufthansa-group-wifi: the stage, and the space under the intro's button.
+  - sap: the interview's text column and its facts band.
+  - program: the grey bonus band's spacing.
+- **Six rows located only** (2.1 to 3.8 %): lhg-ita-airways, alliances-and-joint-ventures, experts,
+  partner-plus-benefit (390, a resized load), video-gallery, about-us (390, a resized load).
+- **No B2B code change:** B2B's documents and its open rows are ema-test's.
