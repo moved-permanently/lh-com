@@ -4018,3 +4018,50 @@ Final section (2026-11-14 ~05:20 CET):
 - /de/en/overview-manage: no row.
 - Left out of git: logs/b612 (census copies of the published documents, captures, drafts, trial stylesheets), the /tmp
   import workspaces, and the untracked import reports of earlier runs.
+
+### Standing order 21 (2026-11-14 05:05 to 10:00 CET)
+
+Nothing uploaded, previewed or published; DA only read (giftvoucher's copy and version list); no request to an airline
+host (offline imports through the fixed default copy, captures with the airline hosts aborted). Each push: whole-repo
+lint read 0 on a clean worktree of the rebased HEAD, stylelint 0, the tests reading the changed files passed. No change
+deploys lh-edge. Order 20 left nothing unpushed. /de/en/overview-manage: no row.
+
+1. **rebook**: the rows were right for the tool on main. section-split-apply.mjs has taken `"before": ""` with style
+   padded since 5a19c44 (2026-11-14 01:55 UTC), and test/section-split-so18 covers rebook's row. The version before it
+   (81d0558) answers "bad row", which matches the rejection, so the helper's copy was older (the rows name the section
+   split tool, not the paragraph tool). delta-so21-rebook-lh-com.txt: the 2 rows READY, the tool version named, dry
+   run "placed" on both published copies.
+2. **Baggage** (fff28cf, live): order 18's separator-wrapper rule (-24px before a grey column band) now leaves a band
+   that opens with a heading. On www that grey view is a component of the same AEM section, with its own title.
+   - Live: /de/en/baggage 10.2 / 7.1 -> 5.0 / 1.7 % at 390 / 1440, as tall as www's; gb/en the same.
+   - Census of the 9,912 published copies: the rule reaches 39 documents, 4 change (baggage, gepaeck).
+     childrens-menus-on-board, first-class and 100-years/cabin-design are unchanged.
+3. **delayed-baggage-lhg** (5915ea9): the columns-media parser no longer merges column views across a kept spacer on
+   lufthansa.com.
+   - Census of the www snapshots: 4 documents with such a spacer. In offline imports before and after, only this page
+     changes (1 block -> 3, the {spacer-100} between the rows).
+   - The same split as a draft: 9.1 / 4.0 -> 8.0 / 2.9.
+   - New tool block-split-apply.mjs. delta-so21-delayed-baggage-lhg.txt: 12 READY; fr/fr's 2 HOLD (no published copy).
+4. **premium-economy-class, giftvoucher, the ranking.**
+   - premium-economy-class 390: its padded end section is right where it acts (20 of the 46 px it is short). The page
+     read worse because the card stage above was 22 px taller than www's.
+     - Cause: www centres the card and its 2.4rem margin in the 810 px stage without padding; we kept 24 px above and
+       below.
+     - Census of the 73 published card stages at 390: 10 overflow, all premium-economy-class versions.
+     - The fix and the 4 padded rows go together on branch so21-card-stage, since neither passes the gate alone:
+       together 15.5 / 10.1 -> 13.4 / 8.0. Preview: so21-card-stage--lh-com--moved-permanently.aem.page/de/en/premium-economy-class.
+       List: delta-so21-card-stage-lh-com.txt. Not merged by me.
+   - giftvoucher is not doubled. Its de sections ("markets: de", brief 582's market step) are www's promotion
+     version for the de market, and DA's copy has no merge marks. Order 20's finding was wrong.
+   - Its remaining top step is shared (6f41a99): www pages whose .contentpage has pt-0, that open with a stage and have
+     no profile navigation, start right under the header. The importer writes style top-flush there, and styles.css
+     drops our 25 px.
+     - wetlease-hub 10.3 / 14.9 -> 7.1 / 8.7.
+     - Census: wetlease-hub, south-africa-winter-promotion, black-friday (10 documents); the offline imports change
+       only those.
+     - delta-so21-top-flush-lh-com.txt: 9 READY, 3 HOLD (giftvoucher's 2, worse at 1440 alone because of its later
+       steps; fr/fr wetlease-hub, not published).
+   - Tried and held:
+     - www's 200 px columns for two- and three-column tables at 390: mixed on the 17 recorded pages (lounge-companions
+       13.2 -> 7.2, but 32n 8.3 -> 13.7, fia-valet 3.4 -> 5.0); reverted.
+     - special-meals' 21 % is not its tables (each scrolls inside its 840 px box; the trial changed nothing there).
