@@ -200,6 +200,18 @@
   }
 }
 
+/* and the stage stays 810px high: a taller card overflows it, as on www (premium-economy-class's
+   German card at 390: its title above the stage's picture on www, ours 894px high and the page below
+   84px low; standing order 23, lh-snapshots-116: de/de, at/de 20.2 -> 12.9 %). A card that fits is
+   placed as before (810px was its minimum) */
+@media (width < 768px) {
+  body.brand-lufthansa .hero-campaign.card {
+    height: 810px;
+    min-height: 0;
+    overflow: visible;
+  }
+}
+
 /* option narrow: .inspiration-teaser-narrow .dcep-moving-image img { height: 35rem } */
 .hero-campaign.narrow {
   min-height: 350px;
