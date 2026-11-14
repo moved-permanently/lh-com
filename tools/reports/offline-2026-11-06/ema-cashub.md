@@ -6158,3 +6158,74 @@ three opens a tab, and neither does travel-id in -019.
 **Cargo:**
 - fleet, facts-figures, ebooking-info and the SDG pages are the brand font's wraps (ema-lufthansa's row 49 decision).
 - No row or rule.
+
+### After the pushes: the Austrian sweep (sweep-so33-austrian.txt)
+
+All 242 recorded Austrian page-widths were measured as served at ~22:55-23:35 CET, against their rows in
+sweep-so32-regression.txt.
+- 176 are within 2 %, against 157 at the rows.
+- 40 moved, each explained:
+  - this order's two rules;
+  - order 32's rows, live after that sweep (the notes, the form-confirmations, travel-id, the cn/en emblem);
+  - Turnstile in the reference loads;
+  - a failed reference load (/ir/en/homepage).
+- **One regression, not from this job:** /at/en/sustainable-flying is 24 px shorter at both widths (1440 -0.54 -> -1.10 %,
+  390 0.00 -> -0.40 %, both within 2 %).
+  - The cause is `38c55335` (standing order 26, lufthansa.com), which adds
+    `main > .section[data-markets]:first-of-type { margin-top: 0; }` to styles.css for every brand.
+  - Main's code without that commit, served locally, draws the row's 4,252 px.
+  - 160 served documents open with a market section: Austrian 5, TAP 118, ITA 18, SWISS 9, Brussels 7, B2B 2, Discover 1.
+    TAP's two recorded ones (the FAQ page and miles-and-go) draw their rows to the px.
+  - Not reverted: it is another job's code.
+
+### Final section (about 23:50 CET, 2026-11-14)
+
+All four items are done. I stopped here, before 03:00. Everything left on the lists needs captures (the form pages'
+390 first loads) or a decision from you (below).
+
+**On main:**
+- `7b97c06d`: the two-up teaser cards, with test/austrian-two-up-teaser-cards-so33.test.mjs.
+- `d69365d8`: Austrian's tab sets closed on phones, with test/austrian-tabs-closed-phones-so33.test.mjs.
+- `706d633e`: the card census and two-up gate, the tabs gate, the checkbox HOLD, the finish list, the capture requests,
+  and this section up to item 4.
+- This commit: the sweep, the decision table for the card rule everywhere (gate-so33-austrian-cards-everywhere.txt), and
+  this final section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 before each push. Before the tabs push it first failed on one 101-character
+  comment line; I fixed it and ran lint again (exit 0).
+- **Stylelint** on styles/themes/austrian.css: exit 0. `npm run lint` does not cover the themes folder.
+- **Folder-reading tests:**
+  - the card push: 386 files reading the themes or the card classes, 1,317 tests, 0 failures;
+  - the tabs push: 28 files reading the tab sets, 125 tests, 0 failures;
+  - the docs push: 129 files reading tools/reports, 669 tests, 0 failures.
+- **New tests:** each is red on the code before its commit (3 of 4 and 1 of 2 tests fail) and green after.
+- **Full suite** on `706d633e` (the wt worktree, one process per file): 1,129 files, 4,351 tests, 0 failures. On
+  `7b97c06d` it was 1,127 files, 4,345 tests, 0 failures.
+
+**For you:**
+- **The teaser-card rule on every Austrian grid** (gate-so33-austrian-cards-everywhere.txt, measured on today's served
+  code):
+  - 17 page-widths closer. fly-with-austrian de 1440 and travel-id 390 move into 2 %, and fly-with-austrian en 390 goes to
+    -2.00 %.
+  - 9 page-widths further, by 4 to 34 px (at most 0.83 points), none out of 2 %. Those pages are taller than www's
+    elsewhere; the cards themselves match www's.
+  - Your gate rules it out, so it is two-up only. Tell me if you want it everywhere.
+- **The missing link lines:** 897 cards on 363 Austrian documents lack www's link line. Those documents predate the
+  importer's `data-import-cta`. A re-import would add them, but on the two recorded pages they move all four page-widths
+  further, for the same reason. HOLD, your call.
+- **38c55335's market-section rule** reaches every brand (above). The lufthansa.com job may want to scope it.
+- **Captures** (capture-requests-ema-cashub.txt): the 390 first loads of invoice-request-hungary, cancellation-refund and
+  private-check-in-counter. They decide the checkbox label rule.
+
+**Rules followed:**
+- **No airline host was requested.** Every render refused www.* and the airline hosts and counted the refusals; none was
+  sent.
+- **The census** read only our turnsthe.page hosts, each served copy once.
+- **The archive** (austrian-parity-020) came from Austrian's drop folder. Its sha256 matched the .sha256 file, and it was
+  extracted into its own folder. Nothing was run from inside it or from www's snapshots, which were read as data only.
+- **No DA request, no upload, preview or publish.** da-upload.mjs was not called.
+- **The checkout** keeps the other jobs' 88 dirty entries untouched. Every push went from the wt-push worktree.
+
+**Not in git** (scratch under /tmp/so33): the scripts, the served copies, the snapshots, the drafts, the archive and the
+logs.

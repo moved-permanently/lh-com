@@ -1,0 +1,43 @@
+# ema-cashub, standing order 33 (2026-11-14, ~23:45 CET): for your decision, not shipped. The teaser-card rule of 7b97c06d
+# (www's a.teaser.card: the text 32 px from the card's top, the link's line 36 px over its end, the copy tracked 0.19 px, the
+# title 0.25 px below 768 px) on every Austrian grid / phone-slider picture card, not only on two-up grids. Measured again on
+# today's served code (with 7b97c06d, d69365d8 and 38c55335): control = as served, rule = the same with the rule added to the
+# Austrian theme (so24/host.mjs CODE=, EAGER=1 CONSENT=1; www.* and the airline hosts refused and counted, none sent;
+# Turnstile's challenge subtracted). 832 Austrian documents have such cards; card by card against www's snapshots 1,283 have
+# www's shape exactly with the rule (LL), 31 too (NN), 897 lack www's link line in our documents (NL, the rule adds 4 of
+# www's ~64 px), none would get a link www has not (gate-so33-austrian-two-up-cards.txt).
+# Result on the 30 recorded page-widths: 17 closer (fly-with-austrian de 1440 -3.14 -> -1.96 % and travel-id 390 -2.07 ->
+# -1.95 % into 2 %; fly-with-austrian en 390 -3.12 -> -2.00 %), 9 further by 4 to 34 px (0.05 to 0.83 points; none out of
+# 2 %), 4 unchanged (the two-up pages, which have it). The further pages are taller than www's elsewhere (healthy-travel's
+# sections step +-30 px against www's from the first H2 on); the cards themselves are www's.
+# path	width	www	as served	with the rule	change	vs www
+/at/de/bearbeitungsgebuehren	1440	3140	3155 (+0.48 %)	3162 (+0.70 %)	+7 px	FURTHER
+/at/de/bearbeitungsgebuehren	390	4125	4130 (+0.12 %)	4164 (+0.95 %)	+34 px	FURTHER
+/at/de/discover/inspiration/fly-with-austrian	1440	4649	4503 (-3.14 %)	4558 (-1.96 %)	+55 px	closer
+/at/de/discover/inspiration/fly-with-austrian	390	9114	8888 (-2.48 %)	9012 (-1.12 %)	+124 px	closer
+/at/de/entryregulations	1440	5696	5705 (+0.16 %)	5712 (+0.28 %)	+7 px	FURTHER
+/at/de/entryregulations	390	7712	7618 (-1.22 %)	7625 (-1.13 %)	+7 px	closer
+/at/de/gepaeck	1440	4319	4315 (-0.09 %)	4315 (-0.09 %)	+0 px	
+/at/de/gepaeck	390	6754	6683 (-1.05 %)	6683 (-1.05 %)	+0 px	
+/at/de/local-page/feels-like-flying/os401crewstory	1440	7686	7764 (+1.01 %)	7795 (+1.42 %)	+31 px	FURTHER
+/at/de/local-page/feels-like-flying/os401crewstory	390	9982	9909 (-0.73 %)	9948 (-0.34 %)	+39 px	closer
+/at/en/accessible-travel	1440	12859	12857 (-0.02 %)	12864 (+0.04 %)	+7 px	FURTHER
+/at/en/accessible-travel	390	19409	18971 (-2.26 %)	18978 (-2.22 %)	+7 px	closer
+/at/en/baggage	1440	4319	4315 (-0.09 %)	4315 (-0.09 %)	+0 px	
+/at/en/baggage	390	6674	6602 (-1.08 %)	6602 (-1.08 %)	+0 px	
+/at/en/discover/inspiration/fly-with-austrian	1440	4507	4387 (-2.66 %)	4415 (-2.04 %)	+28 px	closer
+/at/en/discover/inspiration/fly-with-austrian	390	8696	8425 (-3.12 %)	8522 (-2.00 %)	+97 px	closer
+/at/en/entryregulations	1440	5538	5523 (-0.27 %)	5530 (-0.14 %)	+7 px	closer
+/at/en/entryregulations	390	7236	7108 (-1.77 %)	7115 (-1.67 %)	+7 px	closer
+/at/en/healthy-travel	1440	6614	6671 (+0.86 %)	6644 (+0.45 %)	-27 px	closer
+/at/en/healthy-travel	390	8822	8860 (+0.43 %)	8864 (+0.48 %)	+4 px	FURTHER
+/at/en/online-check-in	1440	4477	4435 (-0.94 %)	4442 (-0.78 %)	+7 px	closer
+/at/en/online-check-in	390	5255	5166 (-1.69 %)	5173 (-1.56 %)	+7 px	closer
+/at/en/plan/special-requirements/healthy-travel/doctor-on-board	1440	4529	4552 (+0.51 %)	4559 (+0.66 %)	+7 px	FURTHER
+/at/en/plan/special-requirements/healthy-travel/doctor-on-board	390	5857	5819 (-0.65 %)	5826 (-0.53 %)	+7 px	closer
+/at/en/plan/special-requirements/medical-travel-companions	1440	2775	2766 (-0.32 %)	2773 (-0.07 %)	+7 px	closer
+/at/en/plan/special-requirements/medical-travel-companions	390	3120	3129 (+0.29 %)	3136 (+0.51 %)	+7 px	FURTHER
+/at/en/sustainable-flying	1440	4275	4228 (-1.10 %)	4235 (-0.94 %)	+7 px	closer
+/at/en/sustainable-flying	390	5929	5905 (-0.40 %)	5912 (-0.29 %)	+7 px	closer
+/at/en/travel-id	1440	5714	5733 (+0.33 %)	5740 (+0.46 %)	+7 px	FURTHER
+/at/en/travel-id	390	6190	6062 (-2.07 %)	6069 (-1.95 %)	+7 px	closer
