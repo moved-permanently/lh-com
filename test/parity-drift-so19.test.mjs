@@ -7,9 +7,9 @@
      drift.largestStep: the largest change of offset between two windows that match well (under 2 %), with A's y,
      B's y and, when B's capture json has contentBoxes (capture.js), the element of B that starts there.
    - gate.mjs: base and trial compare json per page-width; the 0.5 gate as before, and for a page-width worse by more
-     than 0.5 the reason: "compensation removed" when, going down the page, the first window whose offset changed
-     comes closer to www (the fix is right there) and the page gets further from www only below it (a drift that
-     the old offset had cancelled), else "fix wrong" (the first change already takes the page further from www).
+     than 0.5 the reason: going down the page, the first window whose offset changed is where the trial acts; when
+     its local step (against the window above) comes closer to 0, "compensation removed" (by a drift below, or by
+     the offset the page carries in from above), else "fix wrong".
    Run: node --test test/parity-drift-so19.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -94,5 +94,11 @@ test('gateVerdict: better, same, worse because a compensating drift went, worse 
   const wrong = res(9, [0, 0, 0, 20, 20, 20, 10, 10, 10, 10]);
   assert.equal(gateVerdict(base, wrong).verdict, 'worse: fix wrong');
   assert.equal(gateVerdict(base, res(7, [0, 0, 0, 0, 0, 0, -10, -10, -10, -10])).verdict, 'better');
+  // ours 20 px long from 100 on, then 4 px short at 300 (the drift above cancels part of it); the trial removes the
+  // -4 step: right where it acts, and the page is further from www right there
+  const above = gateVerdict(res(8, [0, 20, 20, 16, 16, 16]), res(9, [0, 20, 20, 20, 20, 20]));
+  assert.equal(above.verdict, 'worse: compensation removed');
+  assert.equal(above.compensation, 'above');
+  assert.equal(above.offsetAbove, 20);
   assert.equal(gateVerdict(base, res(8.3, [0, 0, 0, 10, 10, 10, 0, 0, 0, 0])).verdict, 'same');
 });

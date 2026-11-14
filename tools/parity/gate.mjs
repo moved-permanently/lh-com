@@ -13,12 +13,14 @@
  *   worse: not in the drift
  * Reading the drift profiles (compare.js "drift", the offset of ours to www per 100 px window of
  * www) top-down, the first window whose offset changed by 4 px or more is where the trial acts
- * (windows that match badly, 10 % or more once aligned, are skipped):
- *   - it comes closer to www there, and further down a window gets further from www than before:
- *     "compensation removed" - the fix is right where it acts and uncovered a drift below
- *     (uncoveredAt) that the old offset had cancelled; fix that one too and gate the pair;
- *   - it gets further from www there: "fix wrong";
- *   - no offset changed, or none got worse: "not in the drift" (what is drawn differs).
+ * (windows that match badly, 10 % or more once aligned, are skipped). Its local step (the offset's
+ * change against the window above) tells whether the fix is right there:
+ *   - the step comes closer to 0 and the page still gets further from www: "compensation
+ *     removed" - below (uncoveredAt: a drift further down that the old step had cancelled) or
+ *     above (the offset the page carries into the fix had the other sign); fix that drift too
+ *     and gate the pair;
+ *   - the step grows: "fix wrong";
+ *   - no offset changed, or none got further from www: "not in the drift" (what is drawn differs).
  * The gate itself is unchanged: it passes when no page-width is worse by more than --gate points.
  * Exit code 0 when the gate passes, 1 when not, 2 on bad input.
  */
@@ -42,19 +44,33 @@ export function gateVerdict(base, trial, { gate = 0.5 } = {}) {
   const bw = (base.drift && base.drift.windows) || [];
   const tw = new Map(((trial.drift && trial.drift.windows) || []).map((w) => [w[0], w]));
   const both = bw.map((w) => [w, tw.get(w[0])]).filter(([b, t]) => t && b[2] < BAD && t[2] < BAD);
-  const first = both.find(([b, t]) => Math.abs(Math.abs(t[1]) - Math.abs(b[1])) >= CHANGED);
-  if (!first) return { ...out, verdict: 'worse: not in the drift' };
-  const [fb, ft] = first;
-  if (Math.abs(ft[1]) > Math.abs(fb[1])) return { ...out, verdict: 'worse: fix wrong', fixAt: fb[0] };
-  const below = both.find(([b, t]) => b[0] > fb[0] && Math.abs(t[1]) >= Math.abs(b[1]) + CHANGED);
-  if (!below) return { ...out, verdict: 'worse: not in the drift', fixAt: fb[0] };
+  const i = both.findIndex(([b, t]) => Math.abs(t[1] - b[1]) >= CHANGED);
+  if (i < 0) return { ...out, verdict: 'worse: not in the drift' };
+  const [fb, ft] = both[i];
+  // the local step where the trial acts: the offset's change against the window above
+  const [pb, pt] = i ? both[i - 1] : [[0, 0], [0, 0]];
+  const stepBase = fb[1] - pb[1];
+  const stepTrial = ft[1] - pt[1];
+  if (Math.abs(stepTrial) > Math.abs(stepBase) - CHANGED / 2) {
+    return { ...out, verdict: 'worse: fix wrong', fixAt: fb[0] };
+  }
+  // right where it acts: the page gets further from www there (a drift above cancelled the step)
+  // or further down
+  const j = both.findIndex(([b, t], k) => k >= i && Math.abs(t[1]) >= Math.abs(b[1]) + CHANGED);
+  if (j < 0) return { ...out, verdict: 'worse: not in the drift', fixAt: fb[0] };
+  if (j === i) {
+    return {
+      ...out, verdict: 'worse: compensation removed', fixAt: fb[0], compensation: 'above', offsetAbove: pb[1],
+    };
+  }
   return {
     ...out,
     verdict: 'worse: compensation removed',
     fixAt: fb[0],
-    uncoveredAt: below[0][0],
-    offsetBefore: below[0][1],
-    offsetAfter: below[1][1],
+    compensation: 'below',
+    uncoveredAt: both[j][0][0],
+    offsetBefore: both[j][0][1],
+    offsetAfter: both[j][1][1],
   };
 }
 
@@ -91,9 +107,11 @@ function main() {
   }).filter(Boolean);
   rows.sort((p, q) => q.delta - p.delta).forEach((r) => {
     let where = r.fixAt !== undefined ? `\tacts at www y ${r.fixAt}` : '';
-    if (r.verdict === 'worse: compensation removed') {
+    if (r.compensation === 'below') {
       const d = r.offsetAfter - r.offsetBefore;
       where += `, uncovers ${d >= 0 ? '+' : ''}${d} px at www y ${r.uncoveredAt}`;
+    } else if (r.compensation === 'above') {
+      where += `, the drift above it (${r.offsetAbove >= 0 ? '+' : ''}${r.offsetAbove} px) had cancelled the step`;
     }
     console.log(`${r.label}\t${r.base} -> ${r.trial}\t${r.delta >= 0 ? '+' : ''}${r.delta}\t${r.verdict}${where}`);
   });
