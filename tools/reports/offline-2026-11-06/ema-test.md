@@ -4134,3 +4134,33 @@ running then was measured again.
   as read, the trial edits), our captures under logs/p4/so6/cap, the recordings in /tmp/x-* (the drops' private
   material), logs/p4/so19 and earlier (scratch), content/, migration-work/, tools/importer/reports/* (not mine). My
   preview servers are stopped and the trial worktrees removed.
+
+## Standing order 21 (received about 09:10 UTC, 2026-11-14)
+
+State at the start: nothing of mine uncommitted or unpushed (order 20's final section on main, Build success).
+
+- **A correction to order 20 first.** After the restart three drops that carry www's mausy-v1.40.1 text fonts
+  (discover-parity-001, ita-parity-002 and -005) were not downloaded again, so the captures of 08:00 to 09:00 UTC
+  ran with fallback fonts for LufthansaText Regular / Bold and LufthansaHead Light / Bold (the capture's routed log
+  lists them as aborted). Base and trial had the same fonts, so the gates compared like with like, but the numbers
+  differ from captures with the fonts (businesstogo en 390 24.65 against 16.10). The drops are back; the pages whose
+  rows went live after the restart were measured again on the host with the fonts, against their pre-change host
+  captures: businesstogo de/de, xx/de 1440 -1.52, 390 -0.02; de/en, xx/en 1440 -1.60, 390 -2.59; program/experts
+  1440 -1.84, 390 +0.20; report-baggage 1440 -5.26, 390 0.00. All better or within 0.5: the rows hold. The HOLD rows of
+  order 20's last batch (eleven 1440 rows) were measured without the fonts; their reasons stand as gate results of
+  that run only.
+1. **Group for Business on b2b-parity-007** (sha256 ebf091db... as given; its HTML and CSS are in the drop):
+   - travel-management: www's five airline links are a .link-list .responsive (li inline-flex, 2rem apart, regular
+     weight). b2b.css draws a list with the existing {links-responsive} marker so, and drops the theme's separator
+     after it at its section's end (e47e1637, test first: test/b2b-links-responsive-so21.test.mjs; no B2B document
+     has the marker yet). delta-so21-b2b-travel-management.txt adds it: 1440 34.73 -> 12.90, 390 42.76 -> 21.76.
+   - lufthansa-group-wifi: the four card titles are www's h3.heading-copytext-large (18 px bold): delta-so21-b2b-wifi.txt
+     1440 21.05 -> 19.62, 390 19.76 -> 18.22. Its title and at-a-glance heading 41 / 38 px low are the theme's column
+     views (an outer view's 40 px edge mark plus the heading's margin), a rule for B2B's flow pages: HOLD.
+   - program: the intro's style space-below-m and the end Spacer block, which www does not have: delta-so21-b2b-program.txt
+     1440 18.32 -> 15.63, 390 22.26 -> 20.59.
+3. **End spacers from 768 px.** A {spacer-N from-768} after a page's last block opens a default-content wrapper whose
+   48 px gap shows on phones (lufthansa-group-airlines +48 at 390, included in its gate). delta-so20-b2b-pages.txt's
+   header now says so. A rule that drops a wrapper of hidden spacers only would take those 48 px away again, which the
+   gate measured as better there (de/de 390 15.26 -> 13.90 with them), so no rule: future end spacers go inside the
+   page's last default-content wrapper, and each header states the 390 effect.
