@@ -812,3 +812,16 @@ body.brand-discover .table-striped table:not(:has(tr > :nth-child(2))) tbody td 
   padding-top: 37px;
   padding-bottom: 38px;
 }
+
+/* the search bar (dcep-search-bar, customer service's FAQ search): the same pill as the results
+   page's field, 400 px wide (discover-parity-001: 400 x 51 px, the text 23 px in) (standing order 25) */
+body.brand-discover .search-bar .search-bar-form {
+  align-items: center;
+  box-sizing: border-box;
+  max-width: 400px;
+  height: var(--discover-field-height);
+  padding: 0 6px 0 var(--discover-field-inline);
+  border: var(--discover-field-border);
+  border-radius: var(--discover-field-radius);
+  background-color: var(--discover-field-fill);
+}
