@@ -1,0 +1,22 @@
+# ema-cashub, standing order 27 (2026-11-14), item 4: Austrian /at/en and /at/de entryregulations, the footnote under the FAQ
+# ("* Austrian Airlines always endeavours ..."). Expected change, both pages closer at both widths: en 1440 -1.26 -> -0.27 %,
+# 390 -2.03 -> -1.77 % (www 5,538 / 7,236, austrian-parity-015, the 390 a resized load); de 1440 -0.39 -> +0.16 %, 390
+# -1.43 -> -1.22 % (www 5,696 / 7,712, -018). DA's copies plus the delta, not a re-import.
+# Why: down to the FAQ the page sits at www's y (www's first question 3,502 px, ours 3,503). After it www has 275 px to "This
+# may also interest you", ours 202 (-61 / -73 px): www's footnote is small print (CoreSans 14 / 21 px) in a column view of its
+# own (82 px under the FAQ's last line, 87 above the separator), ours body text (16 / 24) right under the FAQ (37 / 60 px).
+# With the row, at 1440 that stretch is within 12 px of www's; at 390 it is 28 px longer than the resized load.
+# The view's edges are marker paragraphs of their own: on the footnote itself together with {copytext-small} the size mark
+# was not applied (one marker per element), and the view without small print overshoots at 390 by 73 px (5,532 / 7,153 px).
+# Small print alone makes both widths further (5,459 / 7,044 px).
+# Measured as drafts (so24/host.mjs on austrian.turnsthe.page, the published copy as control = live 5,468 / 7,089 px; consent
+# stored, pictures eager; www.* and the airline hosts refused: 0); heading offsets at the text's top. The page already has
+# order 20's column markers (applied 14f88670, fdc842d3), so these add no page-wide spacing change.
+# /at/de/entryregulations has the same footnote ("* Austrian Airlines setzt alles daran ...") and the same short stretch
+# (-35 px at 1440): the same row, control = live 5,674 / 7,602 px, with it 5,705 / 7,618 (www 5,696 / 7,712, austrian-parity-018,
+# each width its own load). At 390 that stretch is then 27 px longer than www's (en: +28): on phones our view or the space
+# before the separator is a little taller than www's; not traced further.
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, 1440, 390.
+
+READY	/at/en/entryregulations.html	before the paragraph "* Austrian Airlines always endeavours ..." a paragraph "{column-start}"; " {copytext-small}" at the end of that paragraph; after it a paragraph "{column-end}"	1440 -1.26 -> -0.27 % (5,468 -> 5,523 px, www 5,538)	390 -2.03 -> -1.77 % (7,089 -> 7,108 px, www 7,236)
+READY	/at/de/entryregulations.html	before the paragraph "* Austrian Airlines setzt alles daran ..." a paragraph "{column-start}"; " {copytext-small}" at the end of that paragraph; after it a paragraph "{column-end}"	1440 -0.39 -> +0.16 % (5,674 -> 5,705 px, www 5,696)	390 -1.43 -> -1.22 % (7,602 -> 7,618 px, www 7,712; the stretch +27 px)
