@@ -1,0 +1,26 @@
+# Standing order 25 (2026-11-14), item 1: giftvoucher's de cards, for the local harness (it runs the import from the
+# archives). Replaces reimport-so24-giftvoucher-de-lh-com.txt.
+# Why so24 wrote no third cells: the cleanup's beforeTransform (markSeparators) drops the 10 px separator between a card
+# and its navigation-link component before the parsers run, so the parser's card / separator / link condition never
+# held in the bundle. Now the cleanup's onLoad marks that link component (data-lh-card-link) while the separator is still
+# there, and the parser takes a marked link. The block also takes a cell whose link comes without its paragraph (the
+# import writes <div><a>).
+# Checked through the whole bundle, the way the harness runs it (main's info bundle at this commit, run-bulk-import
+# offline from the archives, sha256 checked: 083 5e10888e...a76e, 084 39e8116d...2772):
+# - /de/en (083): "Visit the FAQs" -> #frequently-asked-questions-about-lufthansa-gift-card (the link step's anchor to the
+#   FAQ heading), "Redeem on Lufthansa.com" -> /de/en/homepage, "Buy Gift Card now" ->
+#   https://voucher.lufthansa.com/lh/sales/new?locale=en, each the third cell of its card's row;
+# - /de/de (084): "Zu den FAQs", "Auf Lufthansa.com einlösen" -> /de/de/homepage, "Gutschein kaufen" ->
+#   https://voucher.lufthansa.com/lh/sales/new?locale=de.
+# Expected change: those three third cells in the de version's card block (carousel-cards grid, "Get or redeem a Gift
+# Card"). Nothing else of the document changes. Take only the three cells into DA's copy; the rest of the re-import
+# (top-flush on the stage, column marks, absolute www links, www picture hosts) stays out, as before.
+# Census: the shape (card, separator, link component in one column-view item) is in none of the local www snapshots; no
+# published card row has a bare-link cell; offline imports of lufthansa-travel-classes and flying-with-small-children
+# before and after: byte for byte the same. Tests: test/carousel-cards-link-below-cleanup-so25 (083's card view through
+# onLoad, beforeTransform and the parser), test/carousel-cards-link-below-so24.
+# Gate: a draft of DA's published de/en copy with the three cells as the import writes them, working-copy code, against
+# lh-parity-002a: 14.3 / 23.4 -> 13.2 / 19.8 % at 1440 / 390.
+# status	document	tool	expected change	gate
+READY	/de/en/book-and-manage/flights/giftvoucher	re-import of the de sections (lh-snapshots-083, main's info bundle); only the three cards' third cells into DA's copy	the three lines under the de cards	draft 14.3 / 23.4 -> 13.2 / 19.8 at 1440 / 390
+READY	/de/de/book-and-manage/flights/giftvoucher	re-import of the de sections (lh-snapshots-084, main's info bundle); only the three cards' third cells into DA's copy	as de/en ("Zu den FAQs", "Auf Lufthansa.com einlösen", "Gutschein kaufen")	not recorded

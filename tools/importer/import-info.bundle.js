@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-info.js
-  var tmp_bundle_info_1043029_exports = {};
-  __export(tmp_bundle_info_1043029_exports, {
-    default: () => tmp_bundle_info_1043029_default
+  var tmp_bundle_info_1073603_exports = {};
+  __export(tmp_bundle_info_1073603_exports, {
+    default: () => tmp_bundle_info_1073603_default
   });
 
   // tools/importer/parsers/search-results.js
@@ -4073,10 +4073,10 @@ var CustomImportScript = (() => {
   function linkBelow(card) {
     const teaser = card.closest(".teaser.section") || card;
     const item = card.closest(".column-view-item");
-    const sep = teaser.nextElementSibling;
-    const comp = sep && sep.nextElementSibling;
-    if (!item || !sep || !comp || sep.parentElement !== item || !sep.matches(".separator")) return null;
-    if (!comp.matches(".link")) return null;
+    const next = teaser.nextElementSibling;
+    const comp = next && next.matches(".separator") ? next.nextElementSibling : next;
+    if (!item || !comp || comp.parentElement !== item || !comp.matches(".link")) return null;
+    if (!comp.hasAttribute("data-lh-card-link") && !(next && next.matches(".separator"))) return null;
     const nav = comp.querySelector("maui-navigation-link[href], a[href]");
     if (!nav) return null;
     const label = [...nav.childNodes].filter((n) => n.nodeType === 3 || !(n.classList && n.classList.contains("sr-only"))).map((n) => n.textContent).join(" ").replace(/\s+/g, " ").trim();
@@ -6080,6 +6080,18 @@ var CustomImportScript = (() => {
   function isEmptyParagraph(p) {
     return !!p && p.tagName === "P" && !p.textContent.replace(/\u00A0/g, " ").trim() && !p.querySelector("img, br");
   }
+  function markCardLinks(document) {
+    document.querySelectorAll(".column-view-item a.teaser.card").forEach((card) => {
+      const item = card.closest(".column-view-item");
+      const teaser = card.closest(".teaser.section") || card;
+      const sep = teaser.nextElementSibling;
+      const comp = sep && sep.nextElementSibling;
+      if (!item || teaser.parentElement !== item || !sep || !comp) return;
+      if (!sep.matches(".separator") || !comp.matches(".link") || comp.parentElement !== item) return;
+      if (!comp.querySelector("maui-navigation-link[href], a[href]")) return;
+      comp.setAttribute("data-lh-card-link", "");
+    });
+  }
   function markEmptyFirstParagraphs(document) {
     document.querySelectorAll(`${CELL_ITEM} > .text`).forEach((comp) => {
       const rich = comp.querySelector(":scope > .richtext");
@@ -7332,6 +7344,7 @@ var CustomImportScript = (() => {
       markEmptyFirstParagraphs(document);
       markEmptyLines(document);
       markBrLines(document);
+      markCardLinks(document);
       return;
     }
     if (hookName === "beforeTransform") {
@@ -9300,7 +9313,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_info_1043029_default = {
+  var tmp_bundle_info_1073603_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9340,5 +9353,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_info_1043029_exports);
+  return __toCommonJS(tmp_bundle_info_1073603_exports);
 })();

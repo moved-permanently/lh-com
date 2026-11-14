@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-mfe.js
-  var tmp_bundle_mfe_758595_exports = {};
-  __export(tmp_bundle_mfe_758595_exports, {
-    default: () => tmp_bundle_mfe_758595_default
+  var tmp_bundle_mfe_1073603_exports = {};
+  __export(tmp_bundle_mfe_1073603_exports, {
+    default: () => tmp_bundle_mfe_1073603_default
   });
 
   // tools/importer/parsers/micro-frontend.js
@@ -884,6 +884,18 @@ var CustomImportScript = (() => {
   var EMPTY_FIRST = "data-lh-empty-first";
   function isEmptyParagraph(p) {
     return !!p && p.tagName === "P" && !p.textContent.replace(/\u00A0/g, " ").trim() && !p.querySelector("img, br");
+  }
+  function markCardLinks(document) {
+    document.querySelectorAll(".column-view-item a.teaser.card").forEach((card) => {
+      const item = card.closest(".column-view-item");
+      const teaser = card.closest(".teaser.section") || card;
+      const sep = teaser.nextElementSibling;
+      const comp = sep && sep.nextElementSibling;
+      if (!item || teaser.parentElement !== item || !sep || !comp) return;
+      if (!sep.matches(".separator") || !comp.matches(".link") || comp.parentElement !== item) return;
+      if (!comp.querySelector("maui-navigation-link[href], a[href]")) return;
+      comp.setAttribute("data-lh-card-link", "");
+    });
   }
   function markEmptyFirstParagraphs(document) {
     document.querySelectorAll(`${CELL_ITEM} > .text`).forEach((comp) => {
@@ -2137,6 +2149,7 @@ var CustomImportScript = (() => {
       markEmptyFirstParagraphs(document);
       markEmptyLines(document);
       markBrLines(document);
+      markCardLinks(document);
       return;
     }
     if (hookName === "beforeTransform") {
@@ -3852,7 +3865,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_mfe_758595_default = {
+  var tmp_bundle_mfe_1073603_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -3892,5 +3905,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_mfe_758595_exports);
+  return __toCommonJS(tmp_bundle_mfe_1073603_exports);
 })();

@@ -757,6 +757,25 @@ function isEmptyParagraph(p) {
 }
 
 /**
+ * onLoad (standing order 25): www's line under a card (giftvoucher's de cards, lh-snapshots-083): in a
+ * column-view item, the card's teaser component, a separator, then a navigation-link component. The
+ * separator goes in beforeTransform (markSeparators: under 50px), so the link component is marked here
+ * (data-lh-card-link) for the carousel-cards parser, which writes it under its card.
+ */
+function markCardLinks(document) {
+  document.querySelectorAll('.column-view-item a.teaser.card').forEach((card) => {
+    const item = card.closest('.column-view-item');
+    const teaser = card.closest('.teaser.section') || card;
+    const sep = teaser.nextElementSibling;
+    const comp = sep && sep.nextElementSibling;
+    if (!item || teaser.parentElement !== item || !sep || !comp) return;
+    if (!sep.matches('.separator') || !comp.matches('.link') || comp.parentElement !== item) return;
+    if (!comp.querySelector('maui-navigation-link[href], a[href]')) return;
+    comp.setAttribute('data-lh-card-link', '');
+  });
+}
+
+/**
  * onLoad (the import script's, before helix-importer's preprocessing drops empty paragraphs): a text
  * component of a column item whose rich text opens with an empty paragraph is marked (EMPTY_FIRST), for
  * markNoteSpacers in beforeTransform.
@@ -2434,6 +2453,7 @@ export default function transform(hookName, element, payload) {
     markEmptyFirstParagraphs(document);
     markEmptyLines(document); // before helix-importer's preprocessing drops the empty paragraphs
     markBrLines(document); // before the framework collapses the <br> runs
+    markCardLinks(document); // before markSeparators drops the separator between a card and its line
     return;
   }
 

@@ -157,6 +157,18 @@ function buildSlide(cells) {
   // navigation-link component after the card: giftvoucher's de cards, standing order 24), drawn
   // under the card box, not in it
   const below = el('div', 'carousel-cards-below');
+  // a lone link in a cell comes without its paragraph from the document (the import's <div><a>)
+  const loneLinks = (cell) => {
+    const isLink = (c) => c.tagName === 'A' && c.getAttribute('href');
+    if (!cell.children.length || ![...cell.children].every(isLink)) return;
+    const text = (n) => n.nodeType === Node.TEXT_NODE && n.textContent.trim();
+    if ([...cell.childNodes].some(text)) return;
+    [...cell.children].forEach((a) => {
+      const p = el('p');
+      a.replaceWith(p);
+      p.append(a);
+    });
+  };
   const linksOnly = (cell) => cell.children.length > 0 && [...cell.children].every((c) => c.tagName === 'P'
     && c.querySelector('a[href]') && !c.querySelector('picture, img')
     && cleanText(c) === [...c.querySelectorAll('a[href]')].map((a) => cleanText(a)).join(' '));
@@ -168,6 +180,7 @@ function buildSlide(cells) {
       return;
     }
     // (the text cell's heading is in the body by now)
+    if (index > 0 && body.querySelector('h1, h2, h3, h4, h5, h6')) loneLinks(cell);
     if (index > 0 && linksOnly(cell) && body.querySelector('h1, h2, h3, h4, h5, h6')) {
       [...cell.children].forEach((p) => {
         p.classList.add('carousel-cards-cta');

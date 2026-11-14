@@ -44,10 +44,12 @@ import { viewerNodes } from './media-nodes.js';
 function linkBelow(card) {
   const teaser = card.closest('.teaser.section') || card;
   const item = card.closest('.column-view-item');
-  const sep = teaser.nextElementSibling;
-  const comp = sep && sep.nextElementSibling;
-  if (!item || !sep || !comp || sep.parentElement !== item || !sep.matches('.separator')) return null;
-  if (!comp.matches('.link')) return null;
+  const next = teaser.nextElementSibling;
+  // the import's DOM: the cleanup's onLoad marked the link component (data-lh-card-link) before its
+  // beforeTransform dropped the separator (standing order 25); a DOM with the separator still in place too
+  const comp = next && next.matches('.separator') ? next.nextElementSibling : next;
+  if (!item || !comp || comp.parentElement !== item || !comp.matches('.link')) return null;
+  if (!comp.hasAttribute('data-lh-card-link') && !(next && next.matches('.separator'))) return null;
   const nav = comp.querySelector('maui-navigation-link[href], a[href]');
   if (!nav) return null;
   const label = [...nav.childNodes].filter((n) => n.nodeType === 3 || !(n.classList && n.classList.contains('sr-only')))
