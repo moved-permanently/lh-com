@@ -281,9 +281,9 @@
    "preview": "2026-11-05T20:07:09.143Z"
   },
   "/at/en/service-charges": {
-   "uploaded": "2026-11-08T03:00:27.879Z",
-   "mtime": 1794105209665.3362,
-   "preview": "2026-11-08T03:00:30.501Z"
+   "uploaded": "2026-11-14T13:16:04.378Z",
+   "mtime": 1794662077864.6313,
+   "preview": "2026-11-14T13:16:06.752Z"
   },
   "/at/en/footer-pages/subscribe-newsletter": {
    "uploaded": "2026-10-31T12:17:00.340Z",
@@ -296,9 +296,9 @@
    "preview": "2026-11-07T17:31:14.374Z"
   },
   "/at/en/company": {
-   "uploaded": "2026-11-07T03:53:21.598Z",
-   "mtime": 1794023479570,
-   "preview": "2026-11-07T03:53:23.628Z"
+   "uploaded": "2026-11-14T13:15:58.444Z",
+   "mtime": 1794662077863.8616,
+   "preview": "2026-11-14T13:16:01.223Z"
   },
   "/at/en/sustainable-flying": {
    "uploaded": "2026-11-14T07:59:46.111Z",
@@ -521,9 +521,9 @@
    "preview": "2026-11-07T03:53:01.934Z"
   },
   "/at/de/accessible-travel": {
-   "uploaded": "2026-11-07T17:30:24.652Z",
-   "mtime": 1794069604331,
-   "preview": "2026-11-07T17:30:26.782Z"
+   "uploaded": "2026-11-14T13:15:53.364Z",
+   "mtime": 1794662077863.0442,
+   "preview": "2026-11-14T13:15:55.787Z"
   },
   "/at/de/gesundes-reisen": {
    "uploaded": "2026-11-09T13:49:48.798Z",
@@ -2311,9 +2311,9 @@
    "preview": "2026-10-31T04:55:21.589Z"
   },
   "/fr/fr/accessible-travel": {
-   "uploaded": "2026-11-07T17:33:10.320Z",
-   "mtime": 1794069606267,
-   "preview": "2026-11-07T17:33:12.406Z"
+   "uploaded": "2026-11-14T13:16:50.900Z",
+   "mtime": 1794662077872.7388,
+   "preview": "2026-11-14T13:16:53.022Z"
   },
   "/fr/fr/additional-baggage": {
    "uploaded": "2026-11-08T01:46:32.270Z",
@@ -2581,9 +2581,9 @@
    "preview": "2026-11-10T05:16:37.925Z"
   },
   "/fr/fr/company": {
-   "uploaded": "2026-11-08T01:47:41.462Z",
-   "mtime": 1794100760003.0786,
-   "preview": "2026-11-08T01:47:43.646Z"
+   "uploaded": "2026-11-14T13:16:55.833Z",
+   "mtime": 1794662077873.3613,
+   "preview": "2026-11-14T13:16:57.662Z"
   },
   "/fr/fr/contact-form-baggage": {
    "uploaded": "2026-11-08T03:12:14.596Z",
@@ -2676,9 +2676,9 @@
    "preview": "2026-11-08T01:47:58.694Z"
   },
   "/fr/fr/discover/inspiration/fly-with-austrian": {
-   "uploaded": "2026-11-08T01:48:01.652Z",
-   "mtime": 1794100760005.564,
-   "preview": "2026-11-08T01:48:03.546Z"
+   "uploaded": "2026-11-14T13:17:00.477Z",
+   "mtime": 1794662077874.7595,
+   "preview": "2026-11-14T13:17:02.931Z"
   },
   "/fr/fr/economy-class": {
    "uploaded": "2026-11-08T01:48:06.363Z",
@@ -3236,9 +3236,9 @@
    "preview": "2026-11-08T01:51:09.679Z"
   },
   "/fr/fr/service-charges": {
-   "uploaded": "2026-11-08T03:15:13.606Z",
-   "mtime": 1794105209888.8352,
-   "preview": "2026-11-08T03:15:16.278Z"
+   "uploaded": "2026-11-14T13:17:05.957Z",
+   "mtime": 1794662077875.2952,
+   "preview": "2026-11-14T13:17:08.149Z"
   },
   "/fr/fr/service-provider": {
    "uploaded": "2026-10-31T12:53:34.991Z",
@@ -3341,9 +3341,9 @@
    "preview": "2026-11-08T01:51:57.944Z"
   },
   "/it/it/accessible-travel": {
-   "uploaded": "2026-11-07T17:34:26.515Z",
-   "mtime": 1794069607273,
-   "preview": "2026-11-07T17:34:28.312Z"
+   "uploaded": "2026-11-14T13:17:30.285Z",
+   "mtime": 1794662077880.9272,
+   "preview": "2026-11-14T13:17:32.439Z"
   },
   "/it/it/additional-baggage": {
    "uploaded": "2026-11-08T01:57:19.627Z",
@@ -3616,9 +3616,9 @@
    "preview": "2026-10-31T13:08:42.451Z"
   },
   "/it/it/company": {
-   "uploaded": "2026-11-08T01:58:30.551Z",
-   "mtime": 1794100760088.0781,
-   "preview": "2026-11-08T01:58:32.698Z"
+   "uploaded": "2026-11-14T13:17:35.977Z",
+   "mtime": 1794662077881.535,
+   "preview": "2026-11-14T13:17:38.167Z"
   },
   "/it/it/contact-form-baggage": {
    "uploaded": "2026-11-08T03:22:28.060Z",
@@ -3711,9 +3711,9 @@
    "preview": "2026-11-08T01:58:48.159Z"
   },
   "/it/it/discover/inspiration/fly-with-austrian": {
-   "uploaded": "2026-11-08T01:58:51.097Z",
-   "mtime": 1794100760090.902,
-   "preview": "2026-11-08T01:58:53.529Z"
+   "uploaded": "2026-11-14T13:17:41.303Z",
+   "mtime": 1794662077882.5598,
+   "preview": "2026-11-14T13:17:43.166Z"
   },
   "/it/it/economy-class": {
    "uploaded": "2026-11-08T01:58:56.439Z",
@@ -4266,9 +4266,9 @@
    "preview": "2026-11-08T02:02:09.030Z"
   },
   "/it/it/service-charges": {
-   "uploaded": "2026-11-08T03:25:19.319Z",
-   "mtime": 1794105210103.2866,
-   "preview": "2026-11-08T03:25:21.642Z"
+   "uploaded": "2026-11-14T13:17:46.291Z",
+   "mtime": 1794662077883.149,
+   "preview": "2026-11-14T13:17:55.909Z"
   },
   "/it/it/service-provider": {
    "uploaded": "2026-10-31T13:14:50.513Z",
@@ -4366,9 +4366,9 @@
    "preview": "2026-11-08T02:02:52.522Z"
   },
   "/ru/ru/accessible-travel": {
-   "uploaded": "2026-11-07T17:36:30.862Z",
-   "mtime": 1794069608671,
-   "preview": "2026-11-07T17:36:32.974Z"
+   "uploaded": "2026-11-14T13:18:40.182Z",
+   "mtime": 1794662077893.5002,
+   "preview": "2026-11-14T13:18:42.203Z"
   },
   "/ru/ru/additional-baggage": {
    "uploaded": "2026-11-08T02:13:48.599Z",
@@ -4631,9 +4631,9 @@
    "preview": "2026-10-31T13:40:31.492Z"
   },
   "/ru/ru/company": {
-   "uploaded": "2026-11-08T02:15:00.228Z",
-   "mtime": 1794100760171.1665,
-   "preview": "2026-11-08T02:15:02.573Z"
+   "uploaded": "2026-11-14T13:18:45.716Z",
+   "mtime": 1794662077894.0503,
+   "preview": "2026-11-14T13:18:47.583Z"
   },
   "/ru/ru/contact-form-baggage": {
    "uploaded": "2026-11-08T03:37:21.982Z",
@@ -4726,9 +4726,9 @@
    "preview": "2026-11-08T02:15:18.136Z"
   },
   "/ru/ru/discover/inspiration/fly-with-austrian": {
-   "uploaded": "2026-11-08T02:15:21.203Z",
-   "mtime": 1794100760172.6638,
-   "preview": "2026-11-08T02:15:24.076Z"
+   "uploaded": "2026-11-14T13:18:50.728Z",
+   "mtime": 1794662077895.105,
+   "preview": "2026-11-14T13:18:52.661Z"
   },
   "/ru/ru/economy-class": {
    "uploaded": "2026-11-08T02:15:27.044Z",
@@ -5271,9 +5271,9 @@
    "preview": "2026-11-08T02:18:25.394Z"
   },
   "/ru/ru/service-charges": {
-   "uploaded": "2026-11-08T03:40:24.970Z",
-   "mtime": 1794105210343.715,
-   "preview": "2026-11-08T03:40:27.541Z"
+   "uploaded": "2026-11-14T13:18:55.449Z",
+   "mtime": 1794662077895.6243,
+   "preview": "2026-11-14T13:18:57.665Z"
   },
   "/ru/ru/service-provider": {
    "uploaded": "2026-10-31T13:46:37.994Z",
@@ -5371,9 +5371,9 @@
    "preview": "2026-11-08T02:19:03.682Z"
   },
   "/es/es/accessible-travel": {
-   "uploaded": "2026-11-07T17:32:31.707Z",
-   "mtime": 1794069605834,
-   "preview": "2026-11-07T17:32:33.612Z"
+   "uploaded": "2026-11-14T13:16:30.546Z",
+   "mtime": 1794662077868.8643,
+   "preview": "2026-11-14T13:16:32.798Z"
   },
   "/es/es/additional-baggage": {
    "uploaded": "2026-11-08T01:40:49.412Z",
@@ -5641,9 +5641,9 @@
    "preview": "2026-10-31T12:37:23.979Z"
   },
   "/es/es/company": {
-   "uploaded": "2026-11-08T01:42:00.935Z",
-   "mtime": 1794100759964.3103,
-   "preview": "2026-11-08T01:42:03.407Z"
+   "uploaded": "2026-11-14T13:16:36.092Z",
+   "mtime": 1794662077869.344,
+   "preview": "2026-11-14T13:16:38.440Z"
   },
   "/es/es/contact-form-baggage": {
    "uploaded": "2026-11-08T03:07:26.515Z",
@@ -5736,9 +5736,9 @@
    "preview": "2026-11-08T01:42:19.655Z"
   },
   "/es/es/discover/inspiration/fly-with-austrian": {
-   "uploaded": "2026-11-08T01:42:22.570Z",
-   "mtime": 1794100759966.3506,
-   "preview": "2026-11-08T01:42:25.354Z"
+   "uploaded": "2026-11-14T13:16:41.286Z",
+   "mtime": 1794662077871.0305,
+   "preview": "2026-11-14T13:16:43.202Z"
   },
   "/es/es/economy-class": {
    "uploaded": "2026-11-08T01:42:28.157Z",
@@ -6286,9 +6286,9 @@
    "preview": "2026-11-08T01:45:47.515Z"
   },
   "/es/es/service-charges": {
-   "uploaded": "2026-11-08T03:10:18.699Z",
-   "mtime": 1794105209807.153,
-   "preview": "2026-11-08T03:10:20.967Z"
+   "uploaded": "2026-11-14T13:16:45.958Z",
+   "mtime": 1794662077871.6707,
+   "preview": "2026-11-14T13:16:48.190Z"
   },
   "/es/es/service-provider": {
    "uploaded": "2026-10-31T12:43:34.401Z",
@@ -6386,9 +6386,9 @@
    "preview": "2026-11-08T01:46:29.290Z"
   },
   "/gr/el/accessible-travel": {
-   "uploaded": "2026-11-07T17:33:48.696Z",
-   "mtime": 1794069606705,
-   "preview": "2026-11-07T17:33:50.711Z"
+   "uploaded": "2026-11-14T13:17:11.532Z",
+   "mtime": 1794662077876.7722,
+   "preview": "2026-11-14T13:17:13.204Z"
   },
   "/gr/el/additional-baggage": {
    "uploaded": "2026-11-08T01:52:00.849Z",
@@ -6661,9 +6661,9 @@
    "preview": "2026-10-31T12:57:45.961Z"
   },
   "/gr/el/company": {
-   "uploaded": "2026-11-08T01:53:12.008Z",
-   "mtime": 1794100760048.91,
-   "preview": "2026-11-08T01:53:14.327Z"
+   "uploaded": "2026-11-14T13:17:16.106Z",
+   "mtime": 1794662077877.558,
+   "preview": "2026-11-14T13:17:17.844Z"
   },
   "/gr/el/contact-form-baggage": {
    "uploaded": "2026-11-08T03:17:16.649Z",
@@ -6756,9 +6756,9 @@
    "preview": "2026-11-08T01:53:30.667Z"
   },
   "/gr/el/discover/inspiration/fly-with-austrian": {
-   "uploaded": "2026-11-08T01:53:33.750Z",
-   "mtime": 1794100760052.756,
-   "preview": "2026-11-08T01:53:36.130Z"
+   "uploaded": "2026-11-14T13:17:20.670Z",
+   "mtime": 1794662077879.1067,
+   "preview": "2026-11-14T13:17:22.595Z"
   },
   "/gr/el/economy-class": {
    "uploaded": "2026-11-08T01:53:39.060Z",
@@ -7306,9 +7306,9 @@
    "preview": "2026-11-08T01:56:33.942Z"
   },
   "/gr/el/service-charges": {
-   "uploaded": "2026-11-08T03:20:20.836Z",
-   "mtime": 1794105209970.3506,
-   "preview": "2026-11-08T03:20:23.219Z"
+   "uploaded": "2026-11-14T13:17:25.333Z",
+   "mtime": 1794662077879.5942,
+   "preview": "2026-11-14T13:17:27.609Z"
   },
   "/gr/el/service-provider": {
    "uploaded": "2026-10-31T13:03:43.327Z",
@@ -7406,9 +7406,9 @@
    "preview": "2026-11-08T01:57:11.130Z"
   },
   "/jp/ja/accessible-travel": {
-   "uploaded": "2026-11-07T17:35:07.714Z",
-   "mtime": 1794069607742,
-   "preview": "2026-11-07T17:35:09.467Z"
+   "uploaded": "2026-11-14T13:17:58.801Z",
+   "mtime": 1794662077883.9763,
+   "preview": "2026-11-14T13:18:01.539Z"
   },
   "/jp/ja/additional-baggage": {
    "uploaded": "2026-11-08T02:02:55.387Z",
@@ -7691,9 +7691,9 @@
    "preview": "2026-10-31T13:18:54.013Z"
   },
   "/jp/ja/company": {
-   "uploaded": "2026-11-08T02:04:11.690Z",
-   "mtime": 1794100760120.0203,
-   "preview": "2026-11-08T02:04:14.350Z"
+   "uploaded": "2026-11-14T13:18:04.555Z",
+   "mtime": 1794662077884.8286,
+   "preview": "2026-11-14T13:18:06.627Z"
   },
   "/jp/ja/contact-form-baggage": {
    "uploaded": "2026-11-08T03:27:16.271Z",
@@ -7786,9 +7786,9 @@
    "preview": "2026-11-08T02:04:29.917Z"
   },
   "/jp/ja/discover/inspiration/fly-with-austrian": {
-   "uploaded": "2026-11-08T02:04:33.005Z",
-   "mtime": 1794100760121.5684,
-   "preview": "2026-11-08T02:04:35.360Z"
+   "uploaded": "2026-11-14T13:18:09.768Z",
+   "mtime": 1794662077885.8794,
+   "preview": "2026-11-14T13:18:12.164Z"
   },
   "/jp/ja/economy-class": {
    "uploaded": "2026-11-08T02:04:38.291Z",
@@ -8346,9 +8346,9 @@
    "preview": "2026-11-08T02:07:40.955Z"
   },
   "/jp/ja/service-charges": {
-   "uploaded": "2026-11-08T03:30:19.711Z",
-   "mtime": 1794105210182.7712,
-   "preview": "2026-11-08T03:30:22.146Z"
+   "uploaded": "2026-11-14T13:18:14.987Z",
+   "mtime": 1794662077886.2922,
+   "preview": "2026-11-14T13:18:16.933Z"
   },
   "/jp/ja/service-provider": {
    "uploaded": "2026-10-31T13:25:04.891Z",
@@ -8446,9 +8446,9 @@
    "preview": "2026-11-08T02:08:18.723Z"
   },
   "/pl/pl/accessible-travel": {
-   "uploaded": "2026-11-07T17:35:51.714Z",
-   "mtime": 1794069608215,
-   "preview": "2026-11-07T17:35:54.062Z"
+   "uploaded": "2026-11-14T13:18:19.962Z",
+   "mtime": 1794662077888.6033,
+   "preview": "2026-11-14T13:18:21.950Z"
   },
   "/pl/pl/additional-baggage": {
    "uploaded": "2026-11-08T02:08:27.337Z",
@@ -8721,9 +8721,9 @@
    "preview": "2026-10-31T13:29:44.270Z"
   },
   "/pl/pl/company": {
-   "uploaded": "2026-11-08T02:09:38.194Z",
-   "mtime": 1794100760144.705,
-   "preview": "2026-11-08T02:09:40.457Z"
+   "uploaded": "2026-11-14T13:18:25.117Z",
+   "mtime": 1794662077889.5857,
+   "preview": "2026-11-14T13:18:27.134Z"
   },
   "/pl/pl/contact-form-baggage": {
    "uploaded": "2026-11-08T03:32:26.138Z",
@@ -8816,9 +8816,9 @@
    "preview": "2026-11-08T02:09:56.331Z"
   },
   "/pl/pl/discover/inspiration/fly-with-austrian": {
-   "uploaded": "2026-11-08T02:09:59.153Z",
-   "mtime": 1794100760147.5535,
-   "preview": "2026-11-08T02:10:01.892Z"
+   "uploaded": "2026-11-14T13:18:30.423Z",
+   "mtime": 1794662077891.2864,
+   "preview": "2026-11-14T13:18:32.392Z"
   },
   "/pl/pl/economy-class": {
    "uploaded": "2026-11-08T02:10:04.816Z",
@@ -9366,9 +9366,9 @@
    "preview": "2026-11-08T02:13:06.649Z"
   },
   "/pl/pl/service-charges": {
-   "uploaded": "2026-11-08T03:35:25.391Z",
-   "mtime": 1794105210267.2502,
-   "preview": "2026-11-08T03:35:27.431Z"
+   "uploaded": "2026-11-14T13:18:35.229Z",
+   "mtime": 1794662077891.8105,
+   "preview": "2026-11-14T13:18:37.499Z"
   },
   "/pl/pl/service-provider": {
    "uploaded": "2026-10-31T13:36:30.308Z",
@@ -9466,9 +9466,9 @@
    "preview": "2026-11-08T02:13:45.454Z"
   },
   "/cn/zh/accessible-travel": {
-   "uploaded": "2026-11-07T17:31:50.690Z",
-   "mtime": 1794069605270,
-   "preview": "2026-11-07T17:31:52.859Z"
+   "uploaded": "2026-11-14T13:16:09.853Z",
+   "mtime": 1794662077865.8206,
+   "preview": "2026-11-14T13:16:12.079Z"
   },
   "/cn/zh/additional-baggage": {
    "uploaded": "2026-11-08T01:35:13.546Z",
@@ -9741,9 +9741,9 @@
    "preview": "2026-11-10T05:15:50.506Z"
   },
   "/cn/zh/company": {
-   "uploaded": "2026-11-08T01:36:34.117Z",
-   "mtime": 1794100759924.7742,
-   "preview": "2026-11-08T01:36:36.387Z"
+   "uploaded": "2026-11-14T13:16:14.905Z",
+   "mtime": 1794662077866.4832,
+   "preview": "2026-11-14T13:16:16.823Z"
   },
   "/cn/zh/contact-form-baggage": {
    "uploaded": "2026-11-08T03:02:26.171Z",
@@ -9836,9 +9836,9 @@
    "preview": "2026-11-08T01:36:52.416Z"
   },
   "/cn/zh/discover/inspiration/fly-with-austrian": {
-   "uploaded": "2026-11-08T01:36:55.146Z",
-   "mtime": 1794100759928.01,
-   "preview": "2026-11-08T01:36:57.782Z"
+   "uploaded": "2026-11-14T13:16:19.505Z",
+   "mtime": 1794662077867.4634,
+   "preview": "2026-11-14T13:16:22.018Z"
   },
   "/cn/zh/economy-class": {
    "uploaded": "2026-11-08T01:37:00.929Z",
@@ -10401,9 +10401,9 @@
    "preview": "2026-11-08T01:40:08.391Z"
   },
   "/cn/zh/service-charges": {
-   "uploaded": "2026-11-08T03:05:21.431Z",
-   "mtime": 1794105209730.8684,
-   "preview": "2026-11-08T03:05:24.376Z"
+   "uploaded": "2026-11-14T13:16:25.348Z",
+   "mtime": 1794662077867.878,
+   "preview": "2026-11-14T13:16:27.541Z"
   },
   "/cn/zh/service-provider": {
    "uploaded": "2026-10-31T12:32:34.345Z",
