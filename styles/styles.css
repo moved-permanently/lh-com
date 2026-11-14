@@ -2069,6 +2069,20 @@ body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper
   }
 }
 
+/* lufthansa.com: an author quote alone in its section before a stage: www's AEM section adds its .mb-default and the
+   quote's empty subline under the quote's margin, 32px more than ours before the stage (/de/en/first-class: text to
+   stage 99 / 122px at 390 / 1440, ours 67 / 88). Standing order 26: first-class 25.9 / 20.2 -> 22.2 / 15.0 % at
+   390 / 1440 (injected); census: the fifteen first-class documents */
+body.brand-lufthansa main > .section:not(.campaign-section):has(+ .section.stage) > .default-content-wrapper:only-child > blockquote:only-child {
+  margin-bottom: 92px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section:not(.campaign-section):has(+ .section.stage) > .default-content-wrapper:only-child > blockquote:only-child {
+    margin-bottom: 112px;
+  }
+}
+
 /* a picture before more content: the image component's 4rem */
 body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper > p:has(> picture):not(:last-child) {
   margin-bottom: 40px;
