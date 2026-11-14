@@ -24,7 +24,7 @@
 
 /de/unsere-dienste/lounge-zutritt	390	2195	2072	-5.60 %	two titles one line short (57 px each: "Lounge am Flughafen München / Frankfurt"), see TITLE	2188 (-0.32 %)	2188 (-0.32 %)	HOLD (your call: A or B)
 /en/travel-info/seat-reservation	390	2854	2731	-4.31 %	TITLE: "Seat assignment for minors ...", "Seats in emergency exit rows" one line short each	2846 (-0.28 %)	2846 (-0.28 %)	HOLD (A or B)
-/en/assistance	390	6286	6046	-3.82 %	TITLE (the first title is 59 px low: +103 in the intro, not traced; then the titles -242)	6277 (-0.14 %)	6277 (-0.14 %)	HOLD (A or B)
+/en/assistance	390	6286	6046	-3.82 %	TITLE (-242 px in the titles). Above them, two causes that cancel: the H1 is 44 px high (www's TitleDescriptionTextCta title sits at 190 px, its plain title layout at 150 as on lounges; ours 146 on both), and the intro is 103 px long (www's rich text has no paragraph margins and spaces with empty <p>&nbsp;</p> lines of 37.4 px, which our import drops; ours gives every paragraph a 37.4 px margin, so the bold run-in lines "Why is it important ..." and "Customer Service contact details ..." get a gap www does not have). Not rows: fixing one without the other moves the page further	6277 (-0.14 %)	6277 (-0.14 %)	HOLD (A or B)
 /informazioni-per-il-viaggio/prenotazione-del-posto	390	2748	2651	-3.53 %	TITLE	2767 (+0.69 %)	2767 (+0.69 %)	HOLD (A or B)
 /en/services/lounges	390	2177	2112	-2.99 %	TITLE ("Lounge companions access" and the end, -38)	2170 (-0.32 %)	2170 (-0.32 %)	HOLD (A or B)
 /assistenza	390	6315	6132	-2.90 %	TITLE	6306 (-0.14 %)	6306 (-0.14 %)	HOLD (A or B)
@@ -32,7 +32,7 @@
 /de/betreuung	390	6698	6726	+0.42 %	within; LONG with A: "Gesundheitsdokumentation" (444 px) widens www's title to 462 px (www's page is 490 px wide at 390)	6842 (+2.15 %)	6726 (+0.42 %; our page 513 px wide)	HOLD (A or B)
 /servizi/parcheggi-convenzionati	390	1606	1598	-0.50 %	within; its FAQ titles are one line	1598	1598	-
 /de/buchung	390	1243	1221	-1.77 %	within at the footer's top (page -2.16 %: the German footer's 28 px, a font-rendering wrap); the flight search is a widget (8 requests refused)	-	-	-
-/en/articles/dyk/airports-designed-by-archistars	1440	3718	3517	-5.41 %	TEXT: www's article text is WordPress text with newlines, drawn with white-space: pre-wrap (HtmlContent_innerContent); one newline is a line break, a blank line a gap. Our import makes one paragraph of it (-44 px by the second H3, more after each picture caption). Also www's H1 takes two lines (ours one: -63 px at the first H3), and 60 px more white before the footer	-	-	HOLD (importer)
+/en/articles/dyk/airports-designed-by-archistars	1440	3718	3517	-5.41 %	TEXT: www's article text is WordPress text with newlines, drawn with white-space: pre-wrap (HtmlContent_innerContent); one newline is a line break, a blank line a gap. Our import makes one paragraph of it (-44 px by the second H3, more after each picture caption). Also www's H1 takes two lines (ours one: -63 px at the first H3), and 60 px more white before the footer	-	-	HOLD (one document)
 /en/articles/dyk/airports-designed-by-archistars	390	3628	3695	+1.85 %	within 2 %; the same text and ending as at 1440. At 1440 the three pictures are as wide as www's (order 23's snapshot layout holds there)	-	-	-
 # 1440: the nine pages' footer tops are within 1.2 % (de/betreuung +1.18 %, the others within 0.7 %); A and B change none of them.
 # TITLE, the cause on six pages: www's FAQ title (TogleTariffe_h3_hedline: 34 / 57.8 px light, padding-right 20 px, the arrow in
@@ -47,6 +47,16 @@
 #   that shrinks to its button: the text span and a 29 px arrow image, padding-right 20 px) takes the word's width and the
 #   arrow image shrinks to about 2 px: "Sitzplatzreservierung" 354 px, "Gesundheitsdokumentation" 462 px.
 # Reach: the FAQ accordion is on 10 of the 49 recorded Air Dolomiti pages (the nine above and parcheggi); 1440 does not move.
+# Site-wide (the 1,569 local documents of content-sites/lh-airdolomiti: 76 have the FAQ accordion, 632 titles), each title
+# laid out at 390 in our font by www's logic (302 px, a title widening to its longest word) against ours:
+#   now: 144 titles on 54 documents have another line count than www's, -6,936 px in all (ours shorter);
+#   A:   22 titles on 11 German documents still differ (a word longer than 302 px broken), +1,445 px in all;
+#   B:   www's line count on every title; 12 German documents wider than the screen (21 titles with a word over 321 px).
 # Neither shipped: A makes two pages worse, B copies www's sideways overflow. Your call.
-# LONG and TEXT are not code rules: TEXT needs the importer to keep the article text's newlines (a <br> per newline, a new
-# paragraph per blank line) and a re-import of the WordPress articles; not started (it reaches every article document).
+# LONG is not a rule of its own (see A / B). TEXT is this one document: of the 41 www pages on disk with the article layout
+# (the snapshots and -007), only this article's text is bare WordPress text with newlines; the other articles' text is in <p>
+# elements at 16 / 27.2, as ours. www draws the bare text at 16 / 24 (HtmlContent_innerContent, pre-wrap). A DA row splitting
+# our paragraphs at www's newlines (3 paragraphs and 2 <br> in the intro, 2 paragraphs in the Shenzhen text, 1 <br> in the
+# Munich text; drafted from the served copy, our own markup cut, nothing of www's copied): 1440 -5.41 -> -2.74 % at the footer's
+# top (3,616 px; the second H3 -107 -> -32), 390 +1.85 -> +5.32 % (3,821): our lines stay 27.2 px, www's are 24, and no
+# marker sets a paragraph's line height. HOLD: closer at 1440, further at 390.

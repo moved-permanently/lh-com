@@ -28,6 +28,9 @@ READY	/at/de/bearbeitungsgebuehren.html	one row, three changes: (V1) " {column-s
 HOLD	/at/de/bearbeitungsgebuehren.html	(V3) " {column-start}" at the end of h3 "Sie haben noch Fragen zu unseren Bearbeitungsgebühren?"	-	-	unchanged from order 28: waits for the 24 px table rule (HOLD, your decision of order 29)
 HOLD	/at/en/plan/special-requirements/medical-travel-companions.html	order 27's A + the band end, now as C'	-	-	unchanged from order 28 (390 0.51 points further); its end is the same metadata section, so C' is what its band end would need
 # 464 of the 2,271 published Austrian pages (order 28's copies from our hosts; nav, footers and fragments left out) end with
-# such an emptied metadata section; the others carry the metadata table in their last content section. Order 26's band rule in
+# an empty section (the metadata's on both band pages read in DA; the others not read in DA); the rest end with content. Order 26's band rule in
 # code (no gap under a grey band before an empty last section) would do what C' does on the band pages among them; it stays
 # unshipped because it reaches medical-travel-companions (HOLD above).
+# Its reach, read from the served .html of those 464 pages on aem.page (the section classes; 464 GETs to our host): 364 end with a
+# grey band before the emptied metadata section, 134 of them flush (no gap at all under the band then; the 230 others keep
+# the band's 24 px). On the three recorded band pages www's band touches the footer; the others are not recorded.

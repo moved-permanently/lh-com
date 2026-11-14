@@ -5471,7 +5471,7 @@ served copy ends with that section's text, and its metadata is in the head.
 **The rows again:** C becomes C', "move the metadata table into the band's section" (delete the section break before it).
 Drafted again with today's code: doctor-on-board 4,552 / 5,819 px and bearbeitungsgebuehren 3,155 / 4,130, as order 28.
 Each row asks for a check after the upload that the served copy ends with the band. 464 of the 2,271 published Austrian
-pages end with such an emptied metadata section.
+pages end with an empty section (the metadata's on both band pages read in DA; the others not read).
 
 ### Item 2: Air Dolomiti's phone rows against airdolomiti-parity-007 (rank-so29-airdolomiti.txt)
 
@@ -5503,6 +5503,9 @@ wrong, and so was my reading that ours matched www within 1 %.
   word longer than the line and www lets it overflow: sitzplatzreservierung +3.65 -> +5.60 %, betreuung +0.42 -> +2.15 %.
 - (B) A plus `overflow-wrap: normal`, exactly as www: all nine rows within 0.7 %. But betreuung then scrolls sideways at
   513 px and sitzplatzreservierung at 401 px. www's own betreuung is 490 px wide, and its arrow shrinks to about 2 px.
+- **Site-wide** (76 local documents with the FAQ accordion, 632 titles, laid out at 390 by www's logic): today 144 titles
+  on 54 documents take other line counts than www's (-6,936 px in all). With A, 22 titles on 11 German documents still
+  differ (+1,445 px). With B, none differ, but 12 German documents get wider than the screen.
 
 **The rest:**
 - The German footer's 28 px is a font-rendering wrap. www's "RECHTLICHE INFORMATIONEN" breaks one pixel earlier beside the
@@ -5510,7 +5513,10 @@ wrong, and so was my reading that ours matched www within 1 %.
 - **The archistar article** (new in -007): 1440 -5.41 % at the footer's top, 390 +1.85 %.
   - www draws its WordPress text with `white-space: pre-wrap`: each newline is a line break, each blank line a gap.
   - Our import makes one paragraph of it. www's H1 also takes two lines at 1440.
-  - An importer change and a re-import of every WordPress article would be needed. HOLD, not started.
+  - Only this document is like that: of the 41 www pages on disk with the article layout, the others hold their text in
+    `<p>` at 16 / 27.2, as ours. This one is bare text, which www draws at 16 / 24.
+  - A DA row splitting our paragraphs at www's newlines (drafted): 1440 -5.41 -> -2.74 %, 390 +1.85 -> +5.32 %. Our lines
+    stay 27.2 px and no marker sets a line height, so it is HOLD.
 
 ### Item 3: the film carousel stays off (delta-so29-austrian-ife-note.txt, finish-austrian.txt)
 
@@ -5541,3 +5547,56 @@ fly-with-austrian pages at 18 / 27 already.
 
 Each row is drafted: the paragraph at 18 / 27 at both widths, +3 to +51 px. No row went to a page without a snapshot. The
 24 px table rule stays HOLD, as you said.
+
+### Final section (about 15:00 CET, 2026-11-14)
+
+All four items are done; the rest of the time went into the reach of what is held (below).
+
+**On main:**
+- `adad6f86`: items 1 to 4, the four new lists and finish-austrian.txt.
+- This commit: this section, plus three things added to the lists after the push:
+  - the FAQ title rule's site-wide reach, and en/assistance's two cancelling causes (rank-so29-airdolomiti.txt);
+  - the archistar finding narrowed to one document, with its drafted row (HOLD), corrected in item 2 above;
+  - the band rule's reach (delta-so29-austrian-band-end-rows.txt).
+
+**Checks before each push** (the clean worktree wt, origin/main at each round):
+- Whole-repo `npm run lint` exit 0 every round: four rounds for `adad6f86`, because origin moved during three of them.
+- No theme or block file changed, so stylelint had nothing to check.
+- The 122 test files that read the report folders: 658 tests, 0 failures on round 1. Later rounds: origin's new commits were
+  data only, so no test needed re-running.
+- **The full suite** on origin/main at `adad6f86` (wt-push, one process per file): 1,094 files, 4,258 tests, 0 failures,
+  5 skipped.
+
+**For you to decide:**
+- **Air Dolomiti's FAQ titles:** (A) a 24 px gap, (B) A plus no word break, as www, or leave them. Site-wide, A leaves 22
+  titles on 11 German documents too tall. B matches every title, but 12 German documents scroll sideways, as www's own
+  betreuung does.
+- **The archistar article's row:** closer at 1440 (-5.41 -> -2.74 %), further at 390 (+1.85 -> +5.32 %).
+- **The band rule in code:** 364 published pages end with a grey band before the emptied metadata section, 134 of them
+  flush. Only three are recorded.
+
+**Ready for the helper** (none applied by me):
+- The two band rows with C', each with a check that the served copy ends with the band.
+- The eight carousel notes.
+- The 35 intro marks. The collapse drops the mark, so upload without it.
+
+**Open:**
+- Air Dolomiti: the German footer's one-pixel wrap and en/assistance's H1 and intro (both traced, no row).
+- Austrian: the 24 px table rule (HOLD, as you said), the cn footer's emblem, medical-travel-companions' band end.
+
+**Rules followed:**
+- **No airline host was requested.** Every render refused www.* and the airline hosts and counted the refusals: 481 over the
+  279 logged renders (fly-with-austrian 10 a render, the carousel pages 4, de/buchung 8, most 0), none sent. The www
+  recordings and snapshots were read from disk. The -007 archive came from the brand's R2 folder (sha256 as given).
+- **DA:** five GETs, one per page: doctor-on-board, bearbeitungsgebuehren, es/en/retain-your-status, and /at/de and /at/en
+  unterhaltung-an-bord. Everything else came from aem.page and turnsthe.page, including 464 served .html reads for the reach.
+- No upload, preview or publish. da-upload.mjs was not called.
+- One slip: a `pkill -f` by pattern matched my own shell and ended only that command. The ranking loop it was meant for had
+  already stopped (empty rows from a blank stylesheet). The processes listed by pid afterwards were all mine; I stopped by pid
+  from then on.
+
+**Not in git** (scratch under /tmp/so29, not in the repo):
+- the scripts (*.py, *.sh, *.mjs, the probes *.js) and the candidate stylesheets (ad-gap*.css);
+- the drafts (cand/, intro-cand/, ife-cand/, arch-cand/);
+- the extracted recording (rec007/, dl/) and the extracted snapshots (snaps/);
+- the published copies read from our hosts (pub/, adpub/), the rankings, crops, screenshots and logs.
