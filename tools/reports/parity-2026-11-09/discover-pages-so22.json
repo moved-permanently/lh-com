@@ -1,0 +1,11 @@
+[
+  {
+    "path": "/de/en/book/baggage/excess-baggage",
+    "inserts": [
+      {
+        "replace": "<h4 id=\"this-might-also-be-of-interest-to-you\">This might also be of interest to you</h4>",
+        "text": "<p>{spacer-0 from-768}</p><p>{divider-40}</p><h4 id=\"this-might-also-be-of-interest-to-you\">This might also be of interest to you {heading-small}</h4><p>{spacer-35}</p>"
+      }
+    ]
+  }
+]
