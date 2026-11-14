@@ -4047,3 +4047,27 @@ State at the start: nothing of mine uncommitted or unpushed (order 18's final se
      not before a slideshow section): 2 better (320 -1.05, 351 -0.90), 1 worse (boeing787 +0.68, compensation: its
      sidebar to padded Columns Media +25 px, per page; 100-years/crane has the same boundary at 0). Round 3 (the
      carousel rule alone): nothing gained. Not shipped.
+
+## Standing order 19, final section (05:35 UTC, 2026-11-14)
+
+- Item 1: compare.js writes the aligned drift profile next to the percentage (drift.js), capture.js the content
+  boxes, and tools/parity/gate.mjs runs the 0.5 gate over two folders of compare json, naming for each worse row
+  "compensation removed" (below or above, with where) or "fix wrong" (3ff33adb, 6bbbd25e). Other EMAs: the same
+  compare.js and run-batch.js calls; then `node tools/parity/gate.mjs --base <dir> --trial <dir>`.
+- Item 2: the article body gaps shipped as a pair (9d1350ed, with delta-so19-lh-com-tokyo-divider.txt, which is
+  already on the published copy: stop-over-tokyo 390 measures 10.50 on the main host, its base). Form titles and
+  the footer's locale row held: their compensations are per page.
+- Item 3: the H1 gap rule (c2157165; 16 of 26 better, none worse); the fleet boundaries held (boeing787's own +25 px).
+  shared-causes-so19-lh-com.txt lists them with their gates. Checked on the main host: imprint 390 7.15 %,
+  know-before-you-go-berlin 390 9.37 % (as rendered locally).
+- The baggage rule (47-48 px above the grey band) is left to ema-adobe as ordered.
+- Before this section: the tests that read the themes folder 987 pass (1 skipped); the full suite on 61f34c95 1069
+  files pass, lint and stylelint 0; Build success on 3ff33adb, 6bbbd25e, 9d1350ed, c2157165.
+- Nothing uploaded, previewed or published; DA read only (stop-over-tokyo); da-upload.mjs not run; requests only to
+  our own hosts, DA and GitHub's API. .migration/project.json not touched; /de/en/overview-manage has no row;
+  Discover's offers page still with the owner.
+- Not in git and why: logs/p4/so19 (scratch: the gate folders, the trial tables and scripts, DA's tokyo copy as
+  read, the local tokyo renders), the trial captures under logs/p4/so6/cap (ours), logs/p4/so18 (order 18's
+  scratch, its held footer test), the recordings in /tmp/x-* (the drops' private material), content/,
+  migration-work/, tools/importer/reports/* (not mine). My preview servers are stopped and the trial worktrees
+  removed.
