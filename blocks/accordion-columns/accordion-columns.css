@@ -443,9 +443,23 @@ main > .section > .accordion-columns-wrapper:has(+ .default-content-wrapper > p.
   padding-bottom: 0;
 }
 
+/* option column-end-gap (a delta row; www: a separator after the accordion at the end of its
+   column, so the accordion keeps its margin): www's space before the column end, the separator's
+   21px, from 768px with the accordion's 4rem (standing order 22, /de/en/cancellations-and-refunds:
+   13.8 / 12.3 -> 3.5 / 11.1 % at 1440 / 390) */
+main > .section > .accordion-columns-wrapper:has(+ .default-content-wrapper > p.column-mark:is(.column-end, .column-end-outer):first-child) > .accordion-columns.spaced.column-end-gap {
+  padding-bottom: 21px;
+}
+
 @media (width >= 768px) {
   .accordion-columns.spaced {
     padding-top: 40px;
+  }
+}
+
+@media (width >= 768px) {
+  main > .section > .accordion-columns-wrapper:has(+ .default-content-wrapper > p.column-mark:is(.column-end, .column-end-outer):first-child) > .accordion-columns.spaced.column-end-gap {
+    padding-bottom: 61px;
   }
 }
 

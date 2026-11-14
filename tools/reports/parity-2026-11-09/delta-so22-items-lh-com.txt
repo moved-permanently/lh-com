@@ -1,0 +1,14 @@
+# Standing order 22 (2026-11-14): per-page rows. Expected change, per row: only what the row names, nothing else of the
+# document. Columns: status, document, tool and row, what changes, gate (tools/parity/gate.mjs or the draft, % off www).
+# cancellations-and-refunds (item 3): its accordion gets option column-end-gap. On www a 20 px separator follows the
+# accordion at the end of its column, so the accordion keeps its margin. blocks/accordion-columns draws www's space there:
+# 21 px, 61 px from 768 px (in code on main with this list, inert without the option). Census of the 3,397 www snapshots:
+# this shape on this page only. Dry runs: "placed" on the published copy and on DA's copy (read only), only the block's
+# class. fr/fr is not published: HOLD.
+READY	/de/en/cancellations-and-refunds	block-option-apply {"block": "accordion-columns", "text": "I would like to cancel my trip and get a", "add": "column-end-gap"}	accordion option column-end-gap	de/en draft (working-copy code) 13.8 / 12.3 -> 3.5 / 7.7 at 1440 / 390
+READY	/gb/en/cancellations-and-refunds	block-option-apply {"block": "accordion-columns", "text": "I would like to cancel my trip and get a", "add": "column-end-gap"}	accordion option column-end-gap	de/en draft (working-copy code) 13.8 / 12.3 -> 3.5 / 7.7 at 1440 / 390
+READY	/de/de/cancellations-and-refunds	block-option-apply {"block": "accordion-columns", "text": "Ich möchte meine Reise stornieren und ei", "add": "column-end-gap"}	accordion option column-end-gap	de/en draft (working-copy code) 13.8 / 12.3 -> 3.5 / 7.7 at 1440 / 390
+READY	/at/de/cancellations-and-refunds	block-option-apply {"block": "accordion-columns", "text": "Ich möchte meine Reise stornieren und ei", "add": "column-end-gap"}	accordion option column-end-gap	de/en draft (working-copy code) 13.8 / 12.3 -> 3.5 / 7.7 at 1440 / 390
+READY	/xx/fr/cancellations-and-refunds	block-option-apply {"block": "accordion-columns", "text": "Je souhaite annuler mon voyage et obteni", "add": "column-end-gap"}	accordion option column-end-gap	de/en draft (working-copy code) 13.8 / 12.3 -> 3.5 / 7.7 at 1440 / 390
+READY	/xx/es/cancellations-and-refunds	block-option-apply {"block": "accordion-columns", "text": "Me gustaría cancelar mi viaje y obtener ", "add": "column-end-gap"}	accordion option column-end-gap	de/en draft (working-copy code) 13.8 / 12.3 -> 3.5 / 7.7 at 1440 / 390
+HOLD	/fr/fr/cancellations-and-refunds	block-option-apply {"block": "accordion-columns", "text": "(its first question)", "add": "column-end-gap"}	accordion option column-end-gap	not published: no copy to dry-run
