@@ -1168,14 +1168,45 @@ body.brand-austrian .form.core .form-control:user-invalid {
 }
 
 /* tables as www's maui-table renders them (the standing order after 570 item 1: /at/de/bearbeitungsgebuehren at 390):
-   columns by their content, each cell 200 px at least (.cell-content min-width; no rendered table has equalcolumns), the
-   block scrolls sideways as before */
+   columns by their content, each cell 200 px at least (.cell-content min-width; at 390 www renders its tables without
+   equalColumns, at 1440 with it: below), the block scrolls sideways as before */
 body.brand-austrian .table-striped table {
   table-layout: auto;
 }
 
 body.brand-austrian .table-striped :is(td, th) {
   min-width: 200px;
+}
+
+/* on wide screens equal columns, as www's (standing order 28): every recorded Austrian maui-table carries equalcolumns and
+   is rendered at 1440 as .equalColumns (table-layout: fixed), at 390 by its content as above; all 58 tables of the on-disk
+   www snapshots carry it too. A row of 2 to 6 cells shares the width equally, each cell 200 px at least (ITA's rule, row
+   37); accessible-travel 1440 -0.25 -> -0.06 %, the only recorded page-width it moves */
+@media (width >= 1025px) {
+  body.brand-austrian .table-striped tr > :first-child:nth-last-child(2),
+  body.brand-austrian .table-striped tr > :first-child:nth-last-child(2) ~ :is(td, th) {
+    width: calc(100% / 2);
+  }
+
+  body.brand-austrian .table-striped tr > :first-child:nth-last-child(3),
+  body.brand-austrian .table-striped tr > :first-child:nth-last-child(3) ~ :is(td, th) {
+    width: calc(100% / 3);
+  }
+
+  body.brand-austrian .table-striped tr > :first-child:nth-last-child(4),
+  body.brand-austrian .table-striped tr > :first-child:nth-last-child(4) ~ :is(td, th) {
+    width: calc(100% / 4);
+  }
+
+  body.brand-austrian .table-striped tr > :first-child:nth-last-child(5),
+  body.brand-austrian .table-striped tr > :first-child:nth-last-child(5) ~ :is(td, th) {
+    width: calc(100% / 5);
+  }
+
+  body.brand-austrian .table-striped tr > :first-child:nth-last-child(6),
+  body.brand-austrian .table-striped tr > :first-child:nth-last-child(6) ~ :is(td, th) {
+    width: calc(100% / 6);
+  }
 }
 
 /* a picture in a full-bleed section fills the width, as www's .image-wrapper.full-width-bg (standing order 27, item 4):
