@@ -1204,3 +1204,41 @@ body.brand-swiss main > .section:last-child:has(> .carousel-cards-wrapper:last-c
     margin-bottom: 40px;
   }
 }
+
+/* SWISS row 54 (standing order 18): the offers grid as www's SWISS grid (swiss-parity-008, /ch/en/offers, 498 cards from
+   Zurich; with gridCompare in scripts/brands.js). www's tile is 378 px tall with "Compare cities" under its price, 14 px over
+   the tile's foot; the rows 20 px apart (398 a row at 1440, 358 at 390); the price red, its label 16/22 px bold and the price
+   20 px, as the SWISS fare teaser's. Counted with the recording's cards answered in the measuring browser: 1440 -7.26 ->
+   -0.61 %, 390 -12.83 -> -0.07 %; the only recorded SWISS page with the grid */
+body.brand-swiss .destination-finder.grid .destination-finder-grid {
+  row-gap: 20px;
+}
+
+body.brand-swiss .destination-finder.grid .destination-finder-tile-offer {
+  color: #c00;
+}
+
+body.brand-swiss .destination-finder.grid .destination-finder-tile-price-label {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+body.brand-swiss .destination-finder.grid .destination-finder-tile-price {
+  font-size: 20px;
+  line-height: 22px;
+}
+
+body.brand-swiss .destination-finder.grid .destination-finder-compare {
+  bottom: 14px;
+}
+
+body.brand-swiss .destination-finder.grid .destination-finder-tile-compare .destination-finder-tile-body {
+  padding-bottom: 55px;
+}
+
+@media (width >= 768px) {
+  body.brand-swiss .destination-finder.grid .destination-finder-tile-compare .destination-finder-tile-body {
+    padding-bottom: 40px;
+  }
+}

@@ -51,9 +51,11 @@ const tick = (box) => {
   box.dispatchEvent(new window.Event('change', { bubbles: true }));
 };
 
-test('the switch: Discover only', () => {
-  assert.equal(BRANDS.discover.gridCompare, true);
-  Object.keys(BRANDS).filter((k) => k !== 'discover').forEach((k) => assert.equal(Boolean(BRANDS[k].gridCompare), false, k));
+// SWISS since standing order 18 of ema-lufthansa (2026-11-14): www's SWISS grid has the same "Compare cities" (swiss-parity-008)
+test('the switch: Discover and SWISS only', () => {
+  const on = ['discover', 'swiss'];
+  on.forEach((k) => assert.equal(BRANDS[k].gridCompare, true, k));
+  Object.keys(BRANDS).filter((k) => !on.includes(k)).forEach((k) => assert.equal(Boolean(BRANDS[k].gridCompare), false, k));
 });
 
 test('www\'s flight information texts: the duration and the stops', () => {

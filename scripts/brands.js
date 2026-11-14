@@ -332,6 +332,9 @@ export const BRANDS = {
     // lh-backends has tenant LX (its cd329fe); www's AEM paths: /content/lx/markets/<cc>/<ll>/...
     backends: true,
     aemContent: 'lx',
+    // gridCompare: the offers grid's "Compare cities" as www's SWISS grid (swiss-parity-008,
+    // /ch/en/offers; SWISS row 54, styles/themes/swiss.css)
+    gridCompare: true,
     portal: 'LX',
     hub: 'ZRH',
     airline: 'LX',
