@@ -1,0 +1,15 @@
+# Standing order 21 (2026-11-14), item 4: premium-economy-class. Expected change, per document: the section whose first
+# heading is "Lufthansa First Class" (the page's last) gets style padded, as www's padded AEM section and as a fresh
+# import writes it. Nothing else of the document changes. Tool: tools/importer/section-style-apply.mjs.
+# WITH branch so21-card-stage: its code change (blocks/hero-campaign: below 768px a lufthansa.com card stage has no
+# vertical padding, as www's 810 px stage centres the card) and these rows go live together. Neither passes the gate
+# alone on de/en at 390 (row alone 15.5 -> 16.9, code alone 15.5 -> 16.5); together 15.5 / 10.1 -> 13.4 / 8.0 % at
+# 390 / 1440 (drafts with the branch's code).
+# Census of the 73 published card stages at 390 (logs/b613/card-census.tsv): only premium-economy-class's tall cards
+# overflow the 810 px stage and change with the code, in 10 language versions (de/en, gb/en, de/de, at/de; xx/el, fr, it,
+# pl, pt, ru: 22 to 48 px shorter). The xx versions and fr/fr have the padded end section already ("there already").
+# Dry run on the published copies: the four rows "placed", only the section's class.
+WITH branch	/de/en/premium-economy-class	section-style-apply {"heading": "Lufthansa First Class", "add": "padded"}	the last section padded
+WITH branch	/gb/en/premium-economy-class	section-style-apply {"heading": "Lufthansa First Class", "add": "padded"}	as de/en (not recorded)
+WITH branch	/de/de/premium-economy-class	section-style-apply {"heading": "Lufthansa First Class", "add": "padded"}	as de/en (not recorded)
+WITH branch	/at/de/premium-economy-class	section-style-apply {"heading": "Lufthansa First Class", "add": "padded"}	as de/en (not recorded)

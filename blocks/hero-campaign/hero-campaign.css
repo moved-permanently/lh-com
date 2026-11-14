@@ -190,6 +190,16 @@
   outline-color: var(--focus-color);
 }
 
+/* lufthansa.com, below 768px: www centres the card and its 2.4rem margin in the 810px stage without
+   padding above or below, so a tall card keeps the stage at 810px (/de/en/premium-economy-class "A
+   diverse culinary offering on board": 13px above the card, 37px below on www, ours 24 / 48 and the
+   stage 22px taller). A card that fits is placed as before (economy-class, 100-years: 141 / 164) */
+@media (width < 768px) {
+  body.brand-lufthansa .hero-campaign.card .hero-campaign-inner {
+    padding-block: 0;
+  }
+}
+
 /* option narrow: .inspiration-teaser-narrow .dcep-moving-image img { height: 35rem } */
 .hero-campaign.narrow {
   min-height: 350px;
