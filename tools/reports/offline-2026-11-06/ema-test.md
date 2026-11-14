@@ -4071,3 +4071,48 @@ State at the start: nothing of mine uncommitted or unpushed (order 18's final se
   scratch, its held footer test), the recordings in /tmp/x-* (the drops' private material), content/,
   migration-work/, tools/importer/reports/* (not mine). My preview servers are stopped and the trial worktrees
   removed.
+
+## Standing order 20 (received about 06:10 UTC, 2026-11-14; resumed after a restart at 08:00 UTC)
+
+State at the start: nothing of mine uncommitted or unpushed. The restart at about 07:35 UTC wiped /tmp (recordings,
+worktrees): the drops were downloaded again from the briefs' R2 links into their own folders (lh-parity's sha256 as
+order 17's, b2b-parity-001 as sweep-brands.md's; -002 to -009 have none on record), a batch of 1440 rows that was
+running then was measured again.
+
+1. **Group for Business** (b2b-so20-ema-test-rows.txt: ema-test's rows of finish-b2b.txt and rows-for-ema-test.md
+   row 9, READY or explained).
+   - lufthansa-group-airlines de/de, de/en: the page ends 73 px nearer the footer at 1440; {spacer-72 from-768} at the
+     end (delta-so20-b2b-pages.txt, READY, live): 1440 10.71 -> 5.40 / 8.69 -> 7.26, 390 better too.
+   - businesstogo (4 pages): www's contact form is plain; ours drew lufthansa.com's grey band and card. b2b.css rule
+     (09e57746, test first: test/b2b-plain-form-so20.test.mjs) with the German pages' row (delta-so20-b2b-businesstogo-
+     form.txt: {spacer-140} before their form heading, READY): the German pages run about 140 px short above the form,
+     which the band had cancelled (gate.mjs: compensation removed). The pair: 6 better, 2 within, none worse.
+   - program/experts (row 9): {spacer-62 from-768} under the newsletter (delta-so20-b2b-program-experts.txt, READY):
+     1440 16.87 -> 14.98 on the folder render (its base differs from the host's: the news cards are not drawn there).
+   - Row 9's travel-management, lufthansa-group-wifi and program: their recording (b2b-parity-007) is not in this
+     workspace, so HOLD. The tab pages (meals-on-board, corporates and intermediaries start-of-booking,
+     entertainment-on-board) stay explained: their 390 recordings are resized 1440 loads (capture request).
+2. **lufthansa.com per-page rows** (delta-so20-lh-com-pages.txt: 16 READY, 19 HOLD, each with its gate numbers).
+   - The fleet pair (b302661c): boeing787's own +25 px as a row (its second Columns Media without padded;
+     delta-so20-lh-com-fleet-pair.txt) with the fleet rules: 4 better, none worse. text-inserts-apply.mjs learned
+     { replace, text } for it.
+   - The places: logs/p4/so20/both-short.py lists the boundaries where ours is short of www at both widths in the drift
+     steps; a spacer there is sized for the margins it stops from collapsing. Where only 1440 is short, a
+     {spacer-N from-768} (scripts' separator option, not drawn on phones) leaves 390 as it is: that turned six held rows
+     READY (menu-on-board 14.66 -> 2.43, the flughafeninformation and airport-information pages, seat-maps).
+   - READY: feedbackai, feedback, data-collection-canada, 100-years/fleet, agb-extra-services-at-online-check-in,
+     business-terms-and-conditions, data-protection-information, pre-check-in, special-needs (an untitled step before
+     "Flight details", as gb/en's copy), menu-on-board, flughafeninformation de/de at/de, airport-information de/en gb/en,
+     seat-maps, report-baggage. With boeing787: 17 pages.
+   - special-needs, checked after it went live: the published form has the same 69 rows (fields, notes, steps, config) in the same order as
+     DA's copy before the change, plus the untitled step row; it equals gb/en's apart from its market's confirmation path.
+   - Held by the gate (fix wrong or a compensation the row cannot reach): compensation-voucher, cabin-design,
+     additional-services (4 locales), conditions-seat-reservation, articles/tags/munich, privacy-statement-group,
+     seat-reservations, 100-years destinations / crane / chronicle / global-network, bedeutsamste-strecken, frankfurt-fair.
+   - Measuring: the published copies rendered from one local folder on our code (aem up --html-folder) equal the
+     published host's numbers on text pages, but not on pages with maps, video stages or news cards (the 100-years
+     pages, the a-perfect-day articles: up to 20 points apart). Rows there are not written from folder renders.
+3. **The held pairs:** the footer's locale row stays held (advance-seat-reservations-terms-and-conditions' own drift:
+   the row for it, its Columns Media without padded, is 1440 12.19 -> 7.85 but 390 5.45 -> 8.55); the form titles stay
+   held (special-needs' card is now its row; betreuungsbedarf de/de, at/de 390 still uncover -14 px among the checkbox
+   groups, not a row's place).
