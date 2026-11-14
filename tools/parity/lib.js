@@ -206,8 +206,12 @@ function loadRecordedAnswers(file) {
       throw new Error(`${bodyFile}: its sha256 ${digest} is not the record's ${data.sha256}`);
     }
     data.requests.forEach((r) => {
+      const root = /^https?:\/\/[^/]+\/[a-z]{2}\/([a-z]{2})(?:\/|$)/.exec(data.pageUrl || '');
       Object.assign(r, {
-        recordedAt: r.at, portal: r.xPortalRequestHeader, body: text,
+        recordedAt: r.at,
+        portal: r.xPortalRequestHeader,
+        body: text,
+        language: root ? root[1] : undefined,
       });
     });
   }
@@ -217,6 +221,7 @@ function loadRecordedAnswers(file) {
       url: e.request.url,
       method: e.request.method,
       portal: header(e.request.headers, 'x-portal'),
+      language: header(e.request.headers, 'x-portal-language'),
       status: e.response.status,
       contentType: (e.response.content && e.response.content.mimeType) || header(e.response.headers, 'content-type'),
       body: e.response.content ? e.response.content.text : '',
@@ -234,6 +239,8 @@ function loadRecordedAnswers(file) {
       contentType: a.contentType || 'application/json',
       body: typeof a.body === 'string' ? a.body : JSON.stringify(a.body),
       recordedAt: at.toISOString(),
+      // the answer's names are in the page's language (X-Portal-Language): that language only
+      language: a.language ? String(a.language).toLowerCase() : null,
     };
   });
 }
@@ -259,7 +266,10 @@ function recordedAnswer(request, answers) {
     };
   }
   if (request.method !== 'GET' || !isAnswerable(request.url, headers['x-portal'] || '')) return null;
-  const newest = [...answers].sort((a, b) => b.recordedAt.localeCompare(a.recordedAt))[0];
+  const lang = String(headers['x-portal-language'] || '').toLowerCase();
+  const fitting = answers.filter((a) => !a.language || !lang || a.language === lang);
+  if (!fitting.length) return null;
+  const newest = [...fitting].sort((a, b) => b.recordedAt.localeCompare(a.recordedAt))[0];
   return {
     status: newest.status,
     headers: { ...cors, 'content-type': newest.contentType },

@@ -107,3 +107,17 @@ test('the Captures child\'s request record and its body file: answered, the body
   fs.writeFileSync(file, JSON.stringify(record({ requests: [{ ...record().requests[0], at: '2026-10-21T18:26:45Z' }] })));
   assert.throws(() => loadRecordedAnswers(file), /21 October/);
 });
+
+// standing order 23: the answer names its cities and countries in the page's language (www sends
+// X-Portal-Language): an answer recorded on a de/en page answers en requests only, never de/de's
+test('an answer of one language never answers another language\'s page', () => {
+  const answers = loadRecordedAnswers(write('lang.json', plain({ language: 'en' })));
+  assert.ok(recordedAnswer(req(URL_OK, 'GET', { 'x-portal': 'FOUR_Y', 'x-portal-language': 'en' }), answers));
+  assert.equal(recordedAnswer(req(URL_OK, 'GET', { 'x-portal': 'FOUR_Y', 'x-portal-language': 'de' }), answers), null);
+  // the Captures child's record: the language from its page's root (/de/en/...)
+  const har2 = har('2026-11-14T12:31:02Z');
+  har2.log.entries[0].request.headers.push({ name: 'X-Portal-Language', value: 'de' });
+  const deOnly = loadRecordedAnswers(write('de.har', har2));
+  assert.equal(recordedAnswer(req(URL_OK, 'GET', { 'x-portal': 'FOUR_Y', 'x-portal-language': 'en' }), deOnly), null);
+  assert.ok(recordedAnswer(req(URL_OK, 'GET', { 'x-portal': 'FOUR_Y', 'x-portal-language': 'de' }), deOnly));
+});

@@ -29,3 +29,9 @@
 /de/en/allegris/corporates-start-of-booking
 /de/de/allegris/corporates-start-of-booking
 /de/en/allegris/intermediaries-start-of-booking
+# Standing order 23 (2026-11-14): Discover's offers page in German. discover-snapshots-005 is the price answer of a de/en
+# load (X-Portal-Language en: English names); the de/de page asks with X-Portal-Language de and www answers German
+# names. Please record the same answer from one load of https://discover.turnsthe.page/de/de/book/flights/offers
+# (destinationfinder FRA/E, 0_11, RETURN, X-Portal FOUR_Y), as for -005.
+# host: discover.turnsthe.page (our page; the answer from www.lufthansa.com as the page asks for it)
+/de/de/book/flights/offers
