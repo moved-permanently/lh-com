@@ -3920,6 +3920,11 @@ now holds no row (withdrawn, the finding as an explanation only); the ranking sa
        apart below 768 px (ours 48; +24 to 28 px at 15 boundaries): with it, 8 of 41 worse at 390 (the a-perfect-day
        pages +5): www's boundaries differ page by page there. A correction right where it is measured can uncover
        the next drift further down; the drift profile (aligned windows) tells the two apart, the pct alone does not.
+     - The footer on phones: about 100 page-widths at 390 have a 6 to 7 px step 100 to 250 px under the footer's
+       top; in the navy area www has 46 / 45 px around the "Germany | English" row, ours 42 / 42. The locale row's
+       margin 36px 0 35px below 768 px (lufthansa.com): of 119 page-widths measured before the run was stopped, 46
+       lower, 2 worse by more than 0.5 (the short pages /de/en/common +0.54, advance-seat-reservations-terms-and-conditions
+       +0.83), sum -3.4. Not shipped; test and rule in logs/p4/so18/held.
      - Form sub-section titles on the fluid scale (20 px at 390 where ours is 24; www's glyphs 16 px against our 18):
        3 better and 3 worse by more than 0.5 (betreuungsbedarf de/de / at/de 390 +1.0 / +0.7, special-needs de/en 390 +1.1).
    - **Recorded causes, HOLD:**
