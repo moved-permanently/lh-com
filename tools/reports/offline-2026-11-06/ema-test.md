@@ -4196,3 +4196,6 @@ State at the start: nothing of mine uncommitted or unpushed (order 20's final se
      say so.
      The same two rows on the sibling locales, READY in the same list: destinations de/en, gb/en 12.27 -> 0.81 and
      frankfurt-fair de/de, at/de 8.67 -> 6.61 at 1440 (390 unchanged; folder base equal to the host's).
+     The first six were published by the owner (d999e1af) and measure on the host as in the folder trial (6 better, 6
+     within, 0 worse); the four sibling rows came after that publish; the owner's harness has them in preview (c1c70163), not yet live at
+     12:05 CET, so they are not measured on the host.
