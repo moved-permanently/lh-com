@@ -803,3 +803,12 @@ body.brand-discover main .accordion-columns-wrapper {
   }
 }
 
+
+/* a one-column table (Business Class's benefit lists, its tab panels): www's maui-table rows 99 px
+   (37 px over the line, 38 under it), not the 67 px footnote line of the tables with columns
+   (discover-parity-003: stripes 99 px apart; ours were 132). Census of the recorded Discover pages:
+   business-class de/de and de/en only (two tables each) (standing order 22) */
+body.brand-discover .table-striped table:not(:has(tr > :nth-child(2))) tbody td {
+  padding-top: 37px;
+  padding-bottom: 38px;
+}

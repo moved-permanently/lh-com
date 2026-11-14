@@ -7,5 +7,75 @@
         "text": "<p>{spacer-0 from-768}</p><p>{divider-40}</p><h4 id=\"this-might-also-be-of-interest-to-you\">This might also be of interest to you {heading-small}</h4><p>{spacer-35}</p>"
       }
     ]
+  },
+  {
+    "path": "/de/en/discover/travel-classes/business-class",
+    "inserts": [
+      {
+        "before": "<div class=\"table-striped\"><div><div>✓ 2 items",
+        "text": "<p>{spacer-44}</p>"
+      },
+      {
+        "before": "<div class=\"table-striped\"><div><div>✓ Earlier flight",
+        "text": "<p>{spacer-44}</p>"
+      },
+      {
+        "replace": "<h3 id=\"unlimited-entertainment\">Unlimited entertainment</h3>",
+        "text": "<h3 id=\"unlimited-entertainment\">Unlimited entertainment {heading-copytext-large}</h3>"
+      },
+      {
+        "replace": "<h3 id=\"get-comfortable\">Get comfortable</h3>",
+        "text": "<h3 id=\"get-comfortable\">Get comfortable {heading-copytext-large}</h3>"
+      },
+      {
+        "replace": "<h3 id=\"delicious-meals\">Delicious meals</h3>",
+        "text": "<h3 id=\"delicious-meals\">Delicious meals {heading-copytext-large}</h3>"
+      },
+      {
+        "replace": "<h3 id=\"unlimited-entertainment-1\">Unlimited entertainment</h3>",
+        "text": "<h3 id=\"unlimited-entertainment-1\">Unlimited entertainment {heading-copytext-large}</h3>"
+      },
+      {
+        "replace": "<h3 id=\"get-comfortable-1\">Get comfortable</h3>",
+        "text": "<h3 id=\"get-comfortable-1\">Get comfortable {heading-copytext-large}</h3>"
+      }
+    ]
+  },
+  {
+    "path": "/de/de/discover/travel-classes/business-class",
+    "inserts": [
+      {
+        "before": "<div class=\"table-striped\"><div><div><strong>✓</strong> 2 Handgepäck",
+        "text": "<p>{spacer-44}</p>"
+      },
+      {
+        "before": "<div class=\"table-striped\"><div><div><strong>✓</strong> Früherer Flug",
+        "text": "<p>{spacer-44}</p>"
+      },
+      {
+        "replace": "<h3 id=\"drei-gänge-gaumenfreude\">Drei Gänge Gaumenfreude</h3>",
+        "text": "<h3 id=\"drei-gänge-gaumenfreude\">Drei Gänge Gaumenfreude {heading-copytext-large}</h3>"
+      },
+      {
+        "replace": "<h3 id=\"grenzenloses-entertainment\">Grenzenloses Entertainment</h3>",
+        "text": "<h3 id=\"grenzenloses-entertainment\">Grenzenloses Entertainment {heading-copytext-large}</h3>"
+      },
+      {
+        "replace": "<h3 id=\"machen-sie-es-sich-bequem\">Machen Sie es sich bequem</h3>",
+        "text": "<h3 id=\"machen-sie-es-sich-bequem\">Machen Sie es sich bequem {heading-copytext-large}</h3>"
+      },
+      {
+        "replace": "<h3 id=\"köstliche-mahlzeiten\">Köstliche Mahlzeiten</h3>",
+        "text": "<h3 id=\"köstliche-mahlzeiten\">Köstliche Mahlzeiten {heading-copytext-large}</h3>"
+      },
+      {
+        "replace": "<h3 id=\"grenzenloses-entertainment-1\">Grenzenloses Entertainment</h3>",
+        "text": "<h3 id=\"grenzenloses-entertainment-1\">Grenzenloses Entertainment {heading-copytext-large}</h3>"
+      },
+      {
+        "replace": "<h3 id=\"machen-sie-es-sich-bequem-1\">Machen Sie es sich bequem</h3>",
+        "text": "<h3 id=\"machen-sie-es-sich-bequem-1\">Machen Sie es sich bequem {heading-copytext-large}</h3>"
+      }
+    ]
   }
 ]
