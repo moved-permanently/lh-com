@@ -4365,3 +4365,46 @@ State at the start: nothing of mine uncommitted or unpushed (order 22's final se
 - Not in git and why: logs/p4/so23, logs/p4/so22 (scratch: captures, gate folders, crops, scan scripts), our
   captures under logs/p4/so6/cap, the drops in /tmp/x-* and /tmp/dl-* (private material), content/,
   migration-work/, tools/importer/reports/* (not mine). Preview servers stopped, trial worktrees removed.
+
+## Standing order 24 (received about 18:15 UTC, 2026-11-14)
+
+State at the start: nothing of mine uncommitted or unpushed (order 23's final section on main, Build success).
+
+1. **Allegris on b2b-parity-012** (sha256 as given; each width its own first load): delta-so24-b2b-allegris.txt.
+   - corporates-start-of-booking de/en: the page Metadata row "Tabs open | first" out (www opens no item on a phone):
+     390 37.55 -> 24.25 (10,147 -> 7,464 px, www 7,326), 1440 unchanged. Census: of the 12 Allegris documents (DA
+     upload state, every head checked on our host) only this one carries the row.
+   - intermediaries-start-of-booking de/en: www has no space between "Where does Lufthansa Allegris fly?" and the
+     first tab set and 119 px under its open panel (ours 58): the intro's style space-below-m out, {spacer-59} at
+     the end of both panels: 1440 15.52 -> 11.84, 390 unchanged.
+   - corporates de/de: the same change made 1440 worse (fix wrong): held; within 1 % at 390 (7,467 / 7,407).
+2. **Discover, finish-discover.txt's rows without a new recording**: delta-so24-discover-pages.txt. check-in de/en
+   READY (its four sub-headings heading-copytext-large as www's: 390 25.36 -> 15.66); de/de held (1440 worse in
+   every variant tried: the loss is inside the two check-in cards); customer-service held (the H2 markers change
+   nothing; its -120 / -206 px are the FAQ accordion and small steps). The others need recordings (offers de/de,
+   the homepages, flight-search's calendar: requested), are owner decisions (entertainment's font, the destination
+   pages' eyebrow gap) or have no single cause (santorini; punta-cana measured again: +55 at the eyebrow, then
+   +16 / +40 / +42 px steps in the accordion and the booking teaser).
+3. **lufthansa.com rollouts and fr/fr**: the 28 recorded at/de / gb/en pages no list covers (fr/fr's one recorded
+   page is covered), measured on the host and ranked (delta-so24-lh-com-rollouts.txt): no step a row or a scoped
+   rule fixes; gb/en flights' price grid needs an LHR answer (requested), gepaeck's grey band is a band rule
+   (ema-adobe's area), the rest drawn content or held earlier.
+
+## Standing order 24, final section (19:00 UTC, 2026-11-14)
+
+- Item 1: Allegris corporates de/en and intermediaries de/en READY on b2b-parity-012, de/de corporates held; the
+  Allegris census done (one document had the row).
+- Item 2: Discover check-in de/en READY; de/de check-in and customer-service held with their tries; the rest wait
+  for recordings or are owner decisions.
+- Item 3: no rollout row; the 56 page-widths ranked with reasons; a capture request for gb/en flights' prices.
+- I close early (about 3 hours before 23:30 CET): what remains needs the requested recordings or lies in another
+  EMA's areas.
+- Before this section: the full suite on c7458b4b (this section before these lines) 1116 files pass, lint and
+  stylelint 0; the tests that read the themes folder 1022 pass (1 skipped); lint read before every push.
+- Nothing uploaded, previewed or published by me; DA read only (the pages of the rows); da-upload.mjs not run;
+  requests only to our own hosts, DA, R2 (the drop) and GitHub's API. .migration/project.json not touched;
+  /de/en/overview-manage (and its gb/en, at/de siblings) has no row.
+- Not in git and why: logs/p4/so23 (scratch: captures, gate folders, crops, DA copies as read, trial edits), our
+  captures under logs/p4/so6/cap and logs/p4/so20 (the folder-render results), the drops in /tmp/x-* and /tmp/dl-*
+  (private material), content/, migration-work/, tools/importer/reports/* (not mine). Preview servers stopped,
+  the trial worktrees removed.
