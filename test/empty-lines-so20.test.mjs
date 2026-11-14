@@ -5,6 +5,8 @@
    ours, 5 with it). The framework dropped it; the cleanup writes "{spacer-56}" now (the column-mark templates: info,
    legal, fleet, app-entry). Not in accordion or tab panels (nothing shows there at 1440, the brief after 530), not at a
    rich text's start or end, not next to another empty line. The info and legal snapshots with one: 8 documents.
+   helix-importer drops empty paragraphs between onLoad and beforeTransform: onLoad marks the text before the line, and
+   the test drops them as the import does.
    Input: passenger-rights' text component (test/fixtures/empty-lines-so20).
    Run: node --max-old-space-size=256 --test test/empty-lines-so20.test.mjs */
 /* global globalThis */
@@ -24,6 +26,9 @@ const run = (html, template = 'legal') => {
   const payload = {
     document, url: URL_PR, params: { originalURL: URL_PR }, template: { name: template, blocks: [] },
   };
+  transform('onLoad', document.body, payload);
+  // helix-importer's preprocessing between onLoad and the transforms: it drops empty paragraphs
+  [...document.querySelectorAll('p')].filter((p) => !(p.textContent || '').replace(/[\s\u00a0]/g, '') && !p.querySelector('img, picture')).forEach((p) => p.remove());
   transform('beforeTransform', document.body, payload);
   transform('afterTransform', document.body, payload);
   const all = [...document.querySelectorAll('body *')].filter((e) => !e.children.length && e.textContent.trim());

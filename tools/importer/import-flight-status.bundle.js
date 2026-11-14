@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-flight-status.js
-  var tmp_bundle_flight_status_395326_exports = {};
-  __export(tmp_bundle_flight_status_395326_exports, {
-    default: () => tmp_bundle_flight_status_395326_default
+  var tmp_bundle_flight_status_448576_exports = {};
+  __export(tmp_bundle_flight_status_448576_exports, {
+    default: () => tmp_bundle_flight_status_448576_default
   });
 
   // tools/importer/parsers/flight-status.js
@@ -2667,8 +2667,9 @@ var CustomImportScript = (() => {
   }
   var JUMP_LINK = '[variant="anchor-down"][href]';
   var EMPTY_LINE_PX = 56;
+  var EMPTY_LINE = "data-lh-empty-line";
   function markEmptyLines(document) {
-    const isText = (el) => !!el && (el.tagName === "P" && !!cleanText(el) && !/^\{[^}]*\}$/.test(cleanText(el)) || /^(UL|OL)$/.test(el.tagName));
+    const isText = (el) => !!el && (el.tagName === "P" && !!(el.textContent || "").replace(/[\s\u00a0]/g, "") && !/^\s*\{[^}]*\}\s*$/.test(el.textContent) || /^(UL|OL)$/.test(el.tagName));
     let n = 0;
     document.querySelectorAll("p").forEach((p) => {
       if (![...p.children].every((c) => c.tagName === "BR")) return;
@@ -2676,7 +2677,19 @@ var CustomImportScript = (() => {
       if (!t.includes("\xA0") || t.replace(/[\s\u00a0]/g, "")) return;
       if (p.closest(".accordion, .accordionitem, maui-collapsible-item, maui-tab-control-panel-responsive, .tabs")) return;
       if (!isText(p.previousElementSibling) || !isText(p.nextElementSibling)) return;
-      p.replaceChildren(document.createTextNode(`{spacer-${EMPTY_LINE_PX}}`));
+      p.previousElementSibling.setAttribute(EMPTY_LINE, "");
+      n += 1;
+    });
+    return n;
+  }
+  function placeEmptyLines(document, flow) {
+    let n = 0;
+    document.querySelectorAll(`[${EMPTY_LINE}]`).forEach((el) => {
+      el.removeAttribute(EMPTY_LINE);
+      if (!flow) return;
+      const p = document.createElement("p");
+      p.textContent = `{spacer-${EMPTY_LINE_PX}}`;
+      el.after(p);
       n += 1;
     });
     return n;
@@ -3339,6 +3352,7 @@ var CustomImportScript = (() => {
     const document = payload && payload.document || element.ownerDocument || element;
     if (hookName === "onLoad") {
       markEmptyFirstParagraphs(document);
+      markEmptyLines(document);
       return;
     }
     if (hookName === "beforeTransform") {
@@ -3372,7 +3386,7 @@ var CustomImportScript = (() => {
         markColumnViews(document, payload);
         markFlowSpacing(document);
       }
-      if (flow) markEmptyLines(document);
+      placeEmptyLines(document, flow);
       removeEmptyComponents(document, flow, payload);
       normalizeImages(document, true);
     }
@@ -5084,7 +5098,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_flight_status_395326_default = {
+  var tmp_bundle_flight_status_448576_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5124,5 +5138,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_flight_status_395326_exports);
+  return __toCommonJS(tmp_bundle_flight_status_448576_exports);
 })();

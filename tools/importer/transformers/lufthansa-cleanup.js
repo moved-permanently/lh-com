@@ -1439,11 +1439,14 @@ const JUMP_LINK = '[variant="anchor-down"][href]';
  * one rich text (/de/en/passenger-rights after the compensation list, /de/en/wheelchair-batteries): a line and a
  * paragraph margin on www, 56px at 1440 and 390, which the framework drops: "{spacer-56}" instead (the column-mark
  * templates). Not in an accordion or tab panel (nothing shows there at 1440: the brief after 530), not at a rich text's
- * start or end, not next to another empty line. Returns the count.
+ * start or end, not next to another empty line. helix-importer's preprocessing drops empty paragraphs before
+ * beforeTransform, so onLoad marks the text element before each such line (EMPTY_LINE) and beforeTransform writes the
+ * spacer after it (placeEmptyLines). Returns the count.
  */
 const EMPTY_LINE_PX = 56;
+const EMPTY_LINE = 'data-lh-empty-line';
 function markEmptyLines(document) {
-  const isText = (el) => !!el && ((el.tagName === 'P' && !!cleanText(el) && !/^\{[^}]*\}$/.test(cleanText(el))) || /^(UL|OL)$/.test(el.tagName));
+  const isText = (el) => !!el && ((el.tagName === 'P' && !!(el.textContent || '').replace(/[\s\u00a0]/g, '') && !/^\s*\{[^}]*\}\s*$/.test(el.textContent)) || /^(UL|OL)$/.test(el.tagName));
   let n = 0;
   document.querySelectorAll('p').forEach((p) => {
     if (![...p.children].every((c) => c.tagName === 'BR')) return;
@@ -1451,7 +1454,21 @@ function markEmptyLines(document) {
     if (!t.includes('\u00a0') || t.replace(/[\s\u00a0]/g, '')) return;
     if (p.closest('.accordion, .accordionitem, maui-collapsible-item, maui-tab-control-panel-responsive, .tabs')) return;
     if (!isText(p.previousElementSibling) || !isText(p.nextElementSibling)) return;
-    p.replaceChildren(document.createTextNode(`{spacer-${EMPTY_LINE_PX}}`));
+    p.previousElementSibling.setAttribute(EMPTY_LINE, '');
+    n += 1;
+  });
+  return n;
+}
+
+/** The marked empty lines as "{spacer-56}" (flow: the column-mark templates), else only the marks gone. */
+function placeEmptyLines(document, flow) {
+  let n = 0;
+  document.querySelectorAll(`[${EMPTY_LINE}]`).forEach((el) => {
+    el.removeAttribute(EMPTY_LINE);
+    if (!flow) return;
+    const p = document.createElement('p');
+    p.textContent = `{spacer-${EMPTY_LINE_PX}}`;
+    el.after(p);
     n += 1;
   });
   return n;
@@ -2354,6 +2371,7 @@ export default function transform(hookName, element, payload) {
 
   if (hookName === 'onLoad') {
     markEmptyFirstParagraphs(document);
+    markEmptyLines(document); // before helix-importer's preprocessing drops the empty paragraphs
     return;
   }
 
@@ -2394,7 +2412,7 @@ export default function transform(hookName, element, payload) {
       markColumnViews(document, payload);
       markFlowSpacing(document);
     }
-    if (flow) markEmptyLines(document); // before the empty components go
+    placeEmptyLines(document, flow); // (marked in onLoad) before the empty components go
     removeEmptyComponents(document, flow, payload);
     normalizeImages(document, true);
   }
