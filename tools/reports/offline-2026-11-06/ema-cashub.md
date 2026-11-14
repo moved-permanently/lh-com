@@ -5447,3 +5447,97 @@ mkctl.py, ctl-scan.py, reach-intro.py, sitewide.py, sitewide-www.py, mkfinish.py
 push-code2.sh, suite.sh, the probes *.js), the candidate stylesheets (tab24*.css, eq*.css), the drafts (cand/, ctl/, acc/,
 acc2/), the baselines and rankings (base/, rule/, rule2/), the published copies read from our hosts (pubs/, site/: 2,459
 documents) and the logs.
+
+## Standing order 29 (2026-11-14, from about 13:25 CET)
+
+**Carried over:** nothing of mine was uncommitted or unpushed (main and origin both had `b311244f`; origin has moved on
+since). The checkout's 88 dirty entries (import-progress.json, the urls-*.txt lists, the importer reports, the
+notifications.css line) belong to other jobs and were left alone.
+
+### Item 1: the band end's 48 px (delta-so29-austrian-band-end-rows.txt, two rows READY again)
+
+**Where the 48 px come from:** the metadata block's section. It is neither the band's own end nor the flush rule.
+- DA's copy (one GET per page, the old copies) ends with the grey band's section, then a section holding only the metadata
+  table, then an empty `<div></div>`.
+- The pipeline drops that trailing empty div. It turns the metadata table into `<meta>` tags, and that leaves the table's
+  section empty: that is the `<div></div>` the served copy ends with.
+- That emptied section keeps its 48 px gap under the band, so `.section.grey.flush:last-child` never matches.
+- Order 28's change C deleted DA's trailing empty div, which is never served. My drafts had deleted the served copy's empty
+  section, which no such DA edit produces: exactly the 48 px at both widths on both pages.
+
+**Proof:** /es/en/retain-your-status carries its metadata table at the end of its last content section (DA, one GET). Its
+served copy ends with that section's text, and its metadata is in the head.
+
+**The rows again:** C becomes C', "move the metadata table into the band's section" (delete the section break before it).
+Drafted again with today's code: doctor-on-board 4,552 / 5,819 px and bearbeitungsgebuehren 3,155 / 4,130, as order 28.
+Each row asks for a check after the upload that the served copy ends with the band. 464 of the 2,271 published Austrian
+pages end with such an emptied metadata section.
+
+### Item 2: Air Dolomiti's phone rows against airdolomiti-parity-007 (rank-so29-airdolomiti.txt)
+
+**What the archive holds at 390:**
+- Its measurement files are airdolomiti-parity-001's, unchanged except "url" and "at" (every box equal to the pixel).
+- The manifest says each width was its own load, but the README still says the 390s are the resized 1440 load.
+- The new data are the 390 PNGs and probes: first loads at 390 with the consent banner open, cut where the footer starts
+  (the mobile footer was not yet in the page).
+
+**What it settles:** on all nine pages that first-load height equals -001's footer top to the pixel. The resize changed
+nothing above the footer, so the recorded 390 heights stand. Order 23's "fresh" offline layouts (0.7 to 4.4 % shorter) were
+wrong, and so was my reading that ours matched www within 1 %.
+
+**Measured at the footer's top** (ours as served, nothing refused but de/buchung's flight search):
+- Too short: lounge-zutritt -5.60 %, seat-reservation -4.31 %, en/assistance -3.82 %, prenotazione-del-posto -3.53 %,
+  lounges -2.99 %, assistenza -2.90 %.
+- Too tall: sitzplatzreservierung +3.65 %.
+- Within 2 %: betreuung +0.42 %, parcheggi -0.50 %, buchung -1.77 %.
+- 1440 is within 1.2 % on all of them.
+
+**The cause on six pages: the FAQ title's text measure.**
+- www's title shrinks to its text plus a 29 px arrow plus 20 px padding, so a wrapped title has 302 px for its text at 390.
+  "Online Check-in" in our font is 254 px and www's title box is 303. Same font, same size.
+- Ours leaves 326 px (the 25 px arrow, gap 0). "Lounge am Flughafen München" therefore takes two lines here and three on
+  www, 57 px per title.
+
+**The rule is HOLD, your call between two versions:**
+- (A) `gap: 24px` on the title: six rows within 0.7 %, 1440 unchanged. Two German pages get further, because ours breaks a
+  word longer than the line and www lets it overflow: sitzplatzreservierung +3.65 -> +5.60 %, betreuung +0.42 -> +2.15 %.
+- (B) A plus `overflow-wrap: normal`, exactly as www: all nine rows within 0.7 %. But betreuung then scrolls sideways at
+  513 px and sitzplatzreservierung at 401 px. www's own betreuung is 490 px wide, and its arrow shrinks to about 2 px.
+
+**The rest:**
+- The German footer's 28 px is a font-rendering wrap. www's "RECHTLICHE INFORMATIONEN" breaks one pixel earlier beside the
+  same arrow in the same 310 px row. Nothing to do.
+- **The archistar article** (new in -007): 1440 -5.41 % at the footer's top, 390 +1.85 %.
+  - www draws its WordPress text with `white-space: pre-wrap`: each newline is a line break, each blank line a gap.
+  - Our import makes one paragraph of it. www's H1 also takes two lines at 1440.
+  - An importer change and a re-import of every WordPress article would be needed. HOLD, not started.
+
+### Item 3: the film carousel stays off (delta-so29-austrian-ife-note.txt, finish-austrian.txt)
+
+- **The note:** read from DA for /at/de and /at/en (one GET each). It is `<p><em>…</em></p>` right after the carousel
+  link's paragraph, and it quotes the page's "Programm entdecken" / "Discover the programme" link.
+- **The eight translations** (cn/zh, es/es, fr/fr, gr/el, it/it, jp/ja, pl/pl, ru/ru), 8 READY rows for the local harness:
+  - each quotes that locale's own link text, checked against the served copy;
+  - each uses the language's quotation marks and the pages' formal address;
+  - French has its no-break spaces, checked in the file's bytes.
+- **Drafted:** the note is italic 16 / 24 under the link in the open tab's panel, +48 to +120 px at 1440 and +96 to
+  +288 at 390.
+- **finish-austrian.txt:** the two /at/de rows now have status OWNER (a new status, explained in the header). They are
+  measured as served with the note: 2,368 / 2,892 px, -13.86 / -7.54 %.
+
+### Item 4: the intro marks on the other languages (delta-so29-austrian-intro-copytext-locales.txt, 35 READY)
+
+**Correction to order 28:** I wrote that the other languages had no www copy on disk. They do: parity-570's snapshot
+archives (read with tar) hold these pages for ten locales. All 48 snapshots set the intro as p.copytext-large.
+
+**What already draws large:** ours as served draws sustainable-flying, accessible-travel's first paragraph and both at/
+fly-with-austrian pages at 18 / 27 already.
+
+**The rows:** the 35 paragraphs still at 16 / 24 get " {copytext-large}":
+- accessible-travel's second paragraph on 9 locales;
+- company on 9, including at/en (order 28's HOLD row, now backed by its snapshot);
+- fly-with-austrian on 8;
+- service-charges on 9.
+
+Each row is drafted: the paragraph at 18 / 27 at both widths, +3 to +51 px. No row went to a page without a snapshot. The
+24 px table rule stays HOLD, as you said.

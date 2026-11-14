@@ -1,0 +1,33 @@
+# ema-cashub, standing order 29 (2026-11-14), item 1: the two band-end rows of delta-so28-austrian-band-end-rows.txt written
+# again. They were published and rolled back: on austrian.turnsthe.page both pages came out exactly 48 px taller than drafted at
+# both widths (doctor-on-board 4,600 / 5,867 against 4,552 / 5,819; bearbeitungsgebuehren 3,203 / 4,178 against 3,155 / 4,130).
+# Where the 48 px come from: not the band's own end, and not the flush rule. The empty section that stays under the band is the
+# metadata block's section.
+# - DA's copy (one GET each, the old copies) ends: the grey band's section (its section-metadata "flush, column-view, grey" /
+#   "flush, column-band, grey"), then a section holding only the metadata table, then an empty <div></div>.
+# - The pipeline drops the trailing empty <div></div>, and turns the metadata table into <meta> tags, which leaves its section
+#   empty. That emptied section is the <div></div> at the end of the served copy (aem.page, .plain.html and .html). It keeps its
+#   48 px section gap under the band, so styles.css's "main > .section.grey.flush:last-child { margin-bottom: 0 }" never applies.
+# - order 28's change C ("delete the empty last section") deleted DA's trailing <div></div>, which was never served: the page
+#   kept the metadata's section and its 48 px. The drafts had deleted the served copy's empty section, which no DA edit of
+#   that kind produces.
+# - Proof that a metadata table inside the last content section leaves no section behind: /es/en/retain-your-status (DA: the
+#   table at the end of the last content section, then the same trailing <div></div>; served: the page ends with that section's
+#   text, its metadata as <meta> tags: brand, nav, theme).
+# The change is now C': move the metadata table into the grey band's section (delete the section break between the band and
+# the metadata table, so the table sits after the band's section-metadata). Nothing else in the band changes; the trailing
+# empty <div></div> may stay. What it serves is the drafted copy (the band is the last section): drafted again today, the
+# same heights as order 28's drafts.
+# Measured as drafts on austrian.turnsthe.page (so24/host.mjs, <main> replaced by the published copy plus the change; consent
+# stored, pictures eager; www.* and the airline hosts refused and counted: 1 per doctor-on-board render, 0 otherwise, none
+# sent). Control = live: 4,528 / 5,795 and 3,165 / 4,107 px. www: austrian-parity-015 / -003 (their 390s are the 1440 loads resized).
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the change, 1440, 390, note.
+
+READY	/at/en/plan/special-requirements/healthy-travel/doctor-on-board.html	one row, three changes: (A1) the Columns Media in "Are you a doctor and interested ..." becomes "Columns Media (padded)"; (A2) " {column-start}" at the end of h2 "Contact"; (C') move the metadata table into the grey band's section ("This may also interest you", section-metadata "flush, column-view, grey"): delete the section break between that band and the metadata table	www 4529, live 4528 (-0.02 %) -> 4552 (+0.51 %, 0.49 points further)	www 5857, live 5795 (-1.06 %) -> 5819 (-0.65 %, 0.41 closer)	as order 28's row with C' for C. Published with C it served 4,600 / 5,867 (+1.57 / +0.17 %): the metadata's section and its 48 px under the band. After the upload, check that the served copy ends with the band (no <div></div> after it)
+READY	/at/de/bearbeitungsgebuehren.html	one row, three changes: (V1) " {column-start}" at the end of h2 "Auf dem Ticket ausgewiesene Bearbeitungsgebühren"; (I) " {copytext-large}" at the end of the intro paragraph "Wir wollen Preise transparent ... übersichtlich zusammengefasst."; (C') move the metadata table into the grey band's section ("Das könnte Sie auch interessieren", section-metadata "flush, column-band, grey"): delete the section break between that band and the metadata table	www 3140, live 3165 (+0.80 %) -> 3155 (+0.48 %, 0.32 points closer)	www 4125, live 4107 (-0.44 %) -> 4130 (+0.12 %, 0.32 closer)	as order 28's row with C' for C. Published with C it served 3,203 / 4,178 (+2.01 / +1.29 %). The collapse drops the intro mark (delta-so28-austrian-intro-copytext.txt): upload without it, or check the served copy draws the paragraph at 18 / 27. After the upload, check that the served copy ends with the band
+HOLD	/at/de/bearbeitungsgebuehren.html	(V3) " {column-start}" at the end of h3 "Sie haben noch Fragen zu unseren Bearbeitungsgebühren?"	-	-	unchanged from order 28: waits for the 24 px table rule (HOLD, your decision of order 29)
+HOLD	/at/en/plan/special-requirements/medical-travel-companions.html	order 27's A + the band end, now as C'	-	-	unchanged from order 28 (390 0.51 points further); its end is the same metadata section, so C' is what its band end would need
+# 464 of the 2,271 published Austrian pages (order 28's copies from our hosts; nav, footers and fragments left out) end with
+# such an emptied metadata section; the others carry the metadata table in their last content section. Order 26's band rule in
+# code (no gap under a grey band before an empty last section) would do what C' does on the band pages among them; it stays
+# unshipped because it reaches medical-travel-companions (HOLD above).

@@ -1,0 +1,52 @@
+# ema-cashub, standing order 29 (2026-11-14), item 2: the Air Dolomiti phone rows held since order 23, measured against
+# airdolomiti-parity-007 (sha256 927ea09b...673da as given; 9 pages, recorded 2026-11-14 08:54-08:57 UTC).
+# What the archive holds at 390 (checked file by file before measuring):
+# - manifest.json: "one page load per width (viewport set before the load)", loadedSeparately true on every width. Its README
+#   still says "the 390x844 files come from the same load after a resize" (the -001 template text).
+# - measurements/<page>-390.json (and -1440.json) are airdolomiti-parity-001's files: every key is equal to the box (header,
+#   h1-h3, footer, links, scrollHeight) except "url" (/buchung -> /de/buchung) and "at". They are the old resized load.
+# - The new data at 390 are the PNGs and measurements/<page>-390-probe.json: a first load at 390x844 (innerWidth 390), with
+#   the consent banner still open (rows ~300-840 of every 390 PNG; the PNGs differ from -001's there). Its scrollHeight and
+#   the PNG's height end where the footer starts: the mobile footer was not yet in the page (its markup is in the .html,
+#   written later).
+# - That first-load content height equals -001's footer top on all nine pages to the pixel (de/buchung 1,243; en/assistance
+#   6,286; assistenza 6,314; lounge-zutritt 2,195; ...). So the resize changed nothing above the footer, and the recorded
+#   390 heights stand. Order 23's "www fresh" offline layouts (0.7 to 4.4 % shorter) were wrong; ours was within 1 % of
+#   those, not of www.
+# Gate: the footer's top (the recordings' chat widget sits below the footer: ad-chat-widget-below-footer). www's footer top at
+# 390 = the probe's height; at 1440 = the measurement's footer box. www's footers: de 1,074 px, eu 1,046, it 1,106 at 390;
+# ours de 1,046, en 1,046, it 1,106. The German 28 px: www wraps "RECHTLICHE INFORMATIONEN" in two lines beside its 25 px
+# arrow, ours keeps one (284 px of text + 25 in the 310 px row; www's CSS is the same: 19.44 px uppercase, the arrow in a
+# space-between row). A pixel of font rendering on the recording's machine, not a rule.
+# Ours: as served on airdolomiti.turnsthe.page (so24/host.mjs, EAGER=1 CONSENT=1; www.* and the airline hosts refused and
+# counted: 8 on de/buchung, 0 on the others; none sent), the code deployed from main at the time (origin/main 0669b52b when fetched at 13:19 CET; this order changes no code).
+# Columns: path, width, www footer top, ours, vs www, cause, (A) gap 24 px, (B) gap 24 px + no word break, status.
+
+/de/unsere-dienste/lounge-zutritt	390	2195	2072	-5.60 %	two titles one line short (57 px each: "Lounge am Flughafen München / Frankfurt"), see TITLE	2188 (-0.32 %)	2188 (-0.32 %)	HOLD (your call: A or B)
+/en/travel-info/seat-reservation	390	2854	2731	-4.31 %	TITLE: "Seat assignment for minors ...", "Seats in emergency exit rows" one line short each	2846 (-0.28 %)	2846 (-0.28 %)	HOLD (A or B)
+/en/assistance	390	6286	6046	-3.82 %	TITLE (the first title is 59 px low: +103 in the intro, not traced; then the titles -242)	6277 (-0.14 %)	6277 (-0.14 %)	HOLD (A or B)
+/informazioni-per-il-viaggio/prenotazione-del-posto	390	2748	2651	-3.53 %	TITLE	2767 (+0.69 %)	2767 (+0.69 %)	HOLD (A or B)
+/en/services/lounges	390	2177	2112	-2.99 %	TITLE ("Lounge companions access" and the end, -38)	2170 (-0.32 %)	2170 (-0.32 %)	HOLD (A or B)
+/assistenza	390	6315	6132	-2.90 %	TITLE	6306 (-0.14 %)	6306 (-0.14 %)	HOLD (A or B)
+/de/reisenformationen/sitzplatzreservierung	390	2962	3070	+3.65 %	LONG: "Sitzplatzreservierung" (332 px) and "Sitzplatzänderungen" are one line on www (the word overflows its title), two here	3128 (+5.60 %)	2954 (-0.27 %; our page 401 px wide)	HOLD (A or B)
+/de/betreuung	390	6698	6726	+0.42 %	within; LONG with A: "Gesundheitsdokumentation" (444 px) widens www's title to 462 px (www's page is 490 px wide at 390)	6842 (+2.15 %)	6726 (+0.42 %; our page 513 px wide)	HOLD (A or B)
+/servizi/parcheggi-convenzionati	390	1606	1598	-0.50 %	within; its FAQ titles are one line	1598	1598	-
+/de/buchung	390	1243	1221	-1.77 %	within at the footer's top (page -2.16 %: the German footer's 28 px, a font-rendering wrap); the flight search is a widget (8 requests refused)	-	-	-
+/en/articles/dyk/airports-designed-by-archistars	1440	3718	3517	-5.41 %	TEXT: www's article text is WordPress text with newlines, drawn with white-space: pre-wrap (HtmlContent_innerContent); one newline is a line break, a blank line a gap. Our import makes one paragraph of it (-44 px by the second H3, more after each picture caption). Also www's H1 takes two lines (ours one: -63 px at the first H3), and 60 px more white before the footer	-	-	HOLD (importer)
+/en/articles/dyk/airports-designed-by-archistars	390	3628	3695	+1.85 %	within 2 %; the same text and ending as at 1440. At 1440 the three pictures are as wide as www's (order 23's snapshot layout holds there)	-	-	-
+# 1440: the nine pages' footer tops are within 1.2 % (de/betreuung +1.18 %, the others within 0.7 %); A and B change none of them.
+# TITLE, the cause on six pages: www's FAQ title (TogleTariffe_h3_hedline: 34 / 57.8 px light, padding-right 20 px, the arrow in
+# its row) leaves 302 px for the text in a wrapped title at 390 (351 - 49: a one-line title shrinks to its text + 49 px, e.g.
+# "Online Check-in" 254 + 49 = 303 px, "Business Class" 228 + 49 = 277; our font's widths, the same font). Ours leaves
+# 326 px (351 - the 25 px arrow, gap 0), so "Flughafen München" (318 px) fits a line here and wraps on www.
+# (A) airdolomiti.css: .accordion-columns.faq .accordion-columns-title { gap: 24px } (302 px). Six rows within 0.7 %, two German
+#   rows further, because ours still breaks a word longer than the line (overflow-wrap: anywhere): sitzplatzreservierung
+#   +3.65 -> +5.60 %, betreuung +0.42 -> +2.15 %.
+# (B) A + overflow-wrap: normal, as www: every row within 0.7 %, but a long word then widens the title past the screen, as on
+#   www: our de/betreuung 513 px wide and sitzplatzreservierung 401 px at 390 (sideways scrolling). On www the title (an h2
+#   that shrinks to its button: the text span and a 29 px arrow image, padding-right 20 px) takes the word's width and the
+#   arrow image shrinks to about 2 px: "Sitzplatzreservierung" 354 px, "Gesundheitsdokumentation" 462 px.
+# Reach: the FAQ accordion is on 10 of the 49 recorded Air Dolomiti pages (the nine above and parcheggi); 1440 does not move.
+# Neither shipped: A makes two pages worse, B copies www's sideways overflow. Your call.
+# LONG and TEXT are not code rules: TEXT needs the importer to keep the article text's newlines (a <br> per newline, a new
+# paragraph per blank line) and a re-import of the WordPress articles; not started (it reaches every article document).
