@@ -3976,3 +3976,29 @@ now holds no row (withdrawn, the finding as an explanation only); the ranking sa
   scratch), logs/wt-ema-test.partial-so11 (an unfinished checkout), content/, migration-work/,
   tools/importer/reports/* (not mine), the 2026-11-07 autostash (not mine). My preview servers are stopped and my
   three trial worktrees removed.
+
+## Standing order 19 (received about 03:10 UTC, 2026-11-14)
+
+State at the start: nothing of mine uncommitted or unpushed (order 18's final section on main, Build success).
+
+1. **The drift profile in compare.js, and the gate's reasons** (test first: test/parity-drift-so19.test.mjs).
+   - tools/parity/drift.js (new, required by compare.js): per 100 px window of A (www) the offset at which B (ours)
+     matches best and what still differs there; compare.js writes it as `drift` in its `<out>.json`: `windows`
+     `[[y, offset, mismatch %]]`, `aligned` (% once aligned) and `largestStep` `{y, yB, from, to, step, at}` (the
+     largest offset change between two well-matching windows; `at` the element of ours that starts there, from the
+     capture's `contentBoxes`, which tools/parity/capture.js now writes). The percentage is unchanged; `--no-drift`
+     (`drift: false`) leaves the profile out. It costs about 2 s per compare at 1440 x 8000.
+   - tools/parity/gate.mjs (new): `node tools/parity/gate.mjs --base <dir> --trial <dir>` (compare json files paired
+     by name; run-batch's `<diff>.json` files work as they are) or `--pairs pairs.tsv` (label, base json, trial json).
+     The 0.5 gate as before (exit 0 when it passes); each page-width worse by more than 0.5 gets a reason: going down
+     the page, the first window whose offset changed by 4 px or more is where the trial acts. "worse: compensation
+     removed" when it comes closer to www there and further down a window gets further from www than before (the
+     line names both places and the px uncovered: fix that drift too and gate the pair); "worse: fix wrong" when the
+     first change already takes the page further from www; "worse: not in the drift" when no offset got worse (what
+     is drawn differs). Windows that match badly once aligned (10 % or more) are skipped.
+   - How the other EMAs read it: nothing changes in how compare.js or run-batch.js is called; the gate run is the new
+     command above on the two folders of compare json. run-batch's progress keeps `drift.aligned` and
+     `drift.largestStep` per page-width.
+   - On order 18's held article trial (the header rule alone at 1440): 9 worse, 8 "compensation removed" (acts at
+     www y 1200-1300, uncovers -8 px 100 to 800 px below: the stacked Columns Media boundary that 6e971abb then fixed),
+     1 "fix wrong" (anniversary-super-crane-special, better with the pair).

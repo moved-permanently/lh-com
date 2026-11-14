@@ -35,6 +35,10 @@
  *   heightDiffRatio  |heightA - heightB| / max(heightA, heightB) of the images compared (cut)
  *   firstDivergentBand {index, y, unmaskedRatio} of the first band above --diverge (where the
  *                    layout starts to diverge), or null
+ *   drift            the aligned drift profile (drift.js; --no-drift leaves it out): windows
+ *                    [[y, offset, mismatch %]] per 100 px of A, aligned %, largestStep {y, yB,
+ *                    from, to, step, at} (at: the element of ours there, from <b>.json's
+ *                    contentBoxes, capture.js). tools/parity/gate.mjs reads two of these.
  * Also usable as a module: const { compareImages, comparePngs } = require('./compare.js').
  */
 const fs = require('fs');
@@ -42,6 +46,7 @@ const path = require('path');
 const { PNG } = require('pngjs');
 const pixelmatch = require('pixelmatch').default;
 const { getArgs, writeJsonAtomic, mkdirp } = require('./lib.js');
+const { driftProfile, boxAt } = require('./drift.js');
 
 const DIFF_COLOR = [255, 0, 0];
 const MASK_COLOR = [128, 128, 128];
@@ -164,7 +169,7 @@ const round = (n) => Math.round(n * 1e5) / 1e5;
  * @returns {{result: Object, diff: PNG}} metrics and the diff image
  */
 function comparePngs(imgA, imgB, {
-  threshold = 0.1, bandHeight = 200, masks = [], divergeThreshold = DIVERGE_THRESHOLD,
+  threshold = 0.1, bandHeight = 200, masks = [], divergeThreshold = DIVERGE_THRESHOLD, drift = true,
 } = {}) {
   const width = Math.max(imgA.width, imgB.width);
   const height = Math.max(imgA.height, imgB.height);
@@ -175,6 +180,9 @@ function comparePngs(imgA, imgB, {
     paint(a, map, MASK_COLOR);
     paint(b, map, MASK_COLOR);
   }
+  // the drift profile on the painted images, over A's own height (not its white padding)
+  const driftResult = drift
+    ? driftProfile({ width, height: imgA.height, data: a.data }, b) : undefined;
   const diff = new PNG({ width, height });
   const mismatched = pixelmatch(a.data, b.data, diff.data, width, height, {
     threshold, diffColor: DIFF_COLOR, includeAA: false,
@@ -229,6 +237,7 @@ function comparePngs(imgA, imgB, {
       .slice(0, 3).filter((x) => x.unmaskedRatio > 0),
     bands,
   };
+  if (driftResult) result.drift = driftResult;
   return { result, diff };
 }
 
@@ -329,7 +338,7 @@ function cutToRecording(imgA, imgB, { truncatedA, truncatedB } = {}) {
  */
 function compareImages({
   a, b, out, masks = [], threshold, bandHeight, divergeThreshold, cropA,
-  cut = true, truncatedA, truncatedB,
+  cut = true, truncatedA, truncatedB, drift = true,
 }) {
   const crop = parseCrop(cropA);
   const rawA = readImage(a);
@@ -342,8 +351,15 @@ function compareImages({
   const cutImgs = cut ? cutToRecording(imgA, imgB, { truncatedA: truncA, truncatedB: truncB })
     : { imgA, imgB, cut: null };
   const { result, diff } = comparePngs(cutImgs.imgA, cutImgs.imgB, {
-    threshold, bandHeight, divergeThreshold, masks: boxes,
+    threshold, bandHeight, divergeThreshold, masks: boxes, drift,
   });
+  // the element of ours where the largest step sits (B's capture json, capture.js contentBoxes)
+  const step = result.drift && result.drift.largestStep;
+  if (step) {
+    const meta = readJsonFile(`${b}.json`);
+    const at = meta && boxAt(meta.contentBoxes, step.yB);
+    if (at) step.at = at;
+  }
   const full = {
     a: path.resolve(a),
     b: path.resolve(b),
@@ -388,7 +404,8 @@ if (require.main === module) {
     'a-truncated': { type: 'boolean' },
     'b-truncated': { type: 'boolean' },
     'no-cut': { type: 'boolean', default: false },
-  }, ['a', 'b', 'out'], 'node tools/parity/compare.js --a src.png --b eds.png --out diff.png [--crop-a top=98,right=15] [--mask boxes.json ...] [--threshold 0.1] [--band 200] [--diverge 0.3] [--a-truncated] [--b-truncated] [--no-cut]');
+    'no-drift': { type: 'boolean', default: false },
+  }, ['a', 'b', 'out'], 'node tools/parity/compare.js --a src.png --b eds.png --out diff.png [--crop-a top=98,right=15] [--mask boxes.json ...] [--threshold 0.1] [--band 200] [--diverge 0.3] [--a-truncated] [--b-truncated] [--no-cut] [--no-drift]');
   try {
     const res = compareImages({
       a: args.a,
@@ -400,10 +417,14 @@ if (require.main === module) {
       bandHeight: Number(args.band),
       divergeThreshold: Number(args.diverge),
       cut: !args['no-cut'],
+      drift: !args['no-drift'],
       truncatedA: args['a-truncated'] ? true : undefined,
       truncatedB: args['b-truncated'] ? true : undefined,
     });
     const { bands, ...summary } = res;
+    if (summary.drift) {
+      summary.drift = { aligned: summary.drift.aligned, largestStep: summary.drift.largestStep };
+    }
     console.log(JSON.stringify(summary));
   } catch (e) {
     console.error(`compare failed: ${e.message}`);

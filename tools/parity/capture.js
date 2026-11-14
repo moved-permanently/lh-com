@@ -26,7 +26,8 @@
  * After scrolling it waits for blocks,
  * web fonts, visible images and the end of one-shot SVG (SMIL) animations, and writes the
  * document-coordinate boxes of live-data widgets and of video stages
- * (LIVE_SELECTORS) to <out>.json "liveBoxes"; compare.js --mask paints them out.
+ * (LIVE_SELECTORS) to <out>.json "liveBoxes"; compare.js --mask paints them out. "contentBoxes":
+ * main's sections, elements and block items (compare.js names the drift's largest step by them).
  */
 const started = Date.now();
 process.env.PLAYWRIGHT_BROWSERS_PATH ||= '/ms-playwright';
@@ -297,6 +298,58 @@ async function matchContentWidth(page) {
 }
 
 /** Document-coordinate boxes of the live-data widgets, clipped to the capture, deduplicated. */
+/**
+ * Document boxes of main's sections, their elements (a block, or each default-content element)
+ * and a block's items, plus the footer's top: compare.js names the element of ours where the
+ * drift profile's largest step sits from them (contentBoxes in <out>.json).
+ */
+function collectContentBoxes() {
+  const boxes = [];
+  const text = (el, n) => (el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, n);
+  document.querySelectorAll('main > .section').forEach((sec, si) => {
+    const r = sec.getBoundingClientRect();
+    boxes.push({
+      k: 'section', si, cls: sec.className, y: Math.round(r.top + window.scrollY), h: Math.round(r.height),
+    });
+    sec.querySelectorAll(':scope > div').forEach((w) => {
+      const kids = w.matches('.default-content-wrapper') ? [...w.children] : [w.firstElementChild || w];
+      kids.forEach((el) => {
+        const b = el.getBoundingClientRect();
+        if (!b.height) return;
+        const cs = getComputedStyle(el);
+        boxes.push({
+          k: 'el',
+          si,
+          tag: el.tagName.toLowerCase(),
+          cls: String(el.className || '').slice(0, 80),
+          y: Math.round(b.top + window.scrollY),
+          h: Math.round(b.height),
+          mt: cs.marginTop,
+          mb: cs.marginBottom,
+          text: text(el, 60),
+        });
+        if (!el.classList.contains('block')) return;
+        el.querySelectorAll(':scope > ul > li, :scope > div, :scope > ol > li').forEach((it) => {
+          const ib = it.getBoundingClientRect();
+          if (!ib.height) return;
+          boxes.push({
+            k: 'item',
+            si,
+            tag: it.tagName.toLowerCase(),
+            cls: String(it.className || '').slice(0, 60),
+            y: Math.round(ib.top + window.scrollY),
+            h: Math.round(ib.height),
+            text: text(it, 50),
+          });
+        });
+      });
+    });
+  });
+  const f = document.querySelector('footer');
+  if (f) boxes.push({ k: 'footer', y: Math.round(f.getBoundingClientRect().top + window.scrollY) });
+  return boxes;
+}
+
 function collectLiveBoxes({ selectors, maxH }) {
   const docWidth = document.documentElement.clientWidth;
   const seen = new Set();
@@ -448,6 +501,7 @@ async function main() {
   const liveBoxes = await page.evaluate(collectLiveBoxes, {
     selectors: LIVE_SELECTORS, maxH: height,
   });
+  const contentBoxes = await page.evaluate(collectContentBoxes).catch(() => []);
   // the clip is the layout width, so a visible scrollbar is never part of the image
   const shotWidth = Math.min(metrics.clientWidth, layout.viewportWidth);
   // The full-page screenshot stretches the viewport to the document height, and chromium then
@@ -492,6 +546,7 @@ async function main() {
     ...metrics,
     liveSelectors: LIVE_SELECTORS,
     liveBoxes,
+    contentBoxes,
   });
 }
 

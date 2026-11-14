@@ -25,6 +25,8 @@
  * Cut-off captures: compare.js cuts the taller image to a capture marked cut off (capture.js's
  *   "truncated", a source export's capture.json, a drop's manifest.json); progress keeps "cut".
  *   After this rule came in (2026-11-13), --recompare . redoes old compares without a browser.
+ * Drift: compare.js's aligned drift profile; progress keeps its aligned % and largest step, the
+ *   diff's <diff>.json the windows (tools/parity/gate.mjs --base / --trial read those).
  * Masks: the boxes capture.js stored in the EDS (and a captured source's) <out>.json
  *   "liveBoxes" are passed to compare.js --mask, unless --no-mask.
  *
@@ -357,6 +359,7 @@ function runCompare(item) {
     heightB: r.heightB,
     heightDiffRatio: r.heightDiffRatio,
     cut: r.cut || undefined,
+    drift: r.drift ? { aligned: r.drift.aligned, largestStep: r.drift.largestStep } : undefined,
     firstDivergentBand: r.firstDivergentBand,
     worstBands: r.worstBands.map(({ y, unmaskedRatio }) => ({ y, unmaskedRatio })),
     bandHeight: r.bandHeight,
