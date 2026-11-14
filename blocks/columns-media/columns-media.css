@@ -1637,6 +1637,28 @@ body.brand-lufthansa .columns-media .columns-media-row > div > blockquote > * + 
   }
 }
 
+/* lufthansa.com, option nested-2 on phones (passengers-with-sensory-impairment's app badges): www's
+   nested view is .col-md-6.col-lg, so below 768px each picture takes the whole cell, one under the
+   other, the image's 4rem and the item's 1rem between them; ours kept them side by side, small
+   (standing order 23, lh-snapshots-116: at/de, de/de, gb/en 13.5 -> 8.6 % at 390) */
+@media (width < 768px) {
+  body.brand-lufthansa .columns-media.nested-2 .columns-media-multi {
+    flex-direction: column;
+    gap: 50px;
+    align-items: stretch;
+  }
+
+  body.brand-lufthansa .columns-media.nested-2 .columns-media-multi > * {
+    flex: none;
+    width: 100%;
+  }
+
+  body.brand-lufthansa .columns-media.nested-2 .columns-media-multi img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 /* lufthansa.com: a media cell's link alone under its picture (the loungenet first-class lounges'
    service tiles, brief 582): www's standalone navigation link (19px arrow, up-right to other sites)
    46px under the picture at 1440 (ours 8), 22px margin below 768px. With the eJournals tile a
