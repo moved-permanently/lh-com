@@ -4252,3 +4252,60 @@ code: 49fe7aa, 71 lh-edge files and 1,100 site files, 0 failing. No change deplo
   - the untracked import reports of earlier runs.
 - Live after the pushes, as measured before them: premium-economy-class de/de 12.9 and passengers-with-sensory-impairment
   de/de 8.6 at 390.
+
+### Standing order 24 (2026-11-14 16:45 to 21:00 CET)
+
+No uploads, previews or publishes; DA not read; no request to an airline host (captures with the airline hosts
+aborted). `.migration/project.json` untouched. Order 23 left nothing unpushed. Each push: whole-repo lint read 0 on a
+clean worktree of the rebased HEAD, stylelint 0 on the changed block and theme files, the tests reading the changed files
+passed; the full suite on the final code: 40d1424, 71 lh-edge files and 1,110 site files, 0 failing. No change deploys lh-edge. /de/en/overview-manage: no row.
+
+1. **Long words in page titles on phones** (0126d53). Below 768 px lufthansa.com headings keep their words whole, as
+   www's: no automatic hyphenation, overflow-wrap normal.
+   - The break point is the screen edge, not the line: a word only a little wider than its line runs into the 22 px page
+     margin, as www's "Reisebestimmungen" (350 px on a 346 px line). If the break came at the line instead, this word
+     would split and entryprocesses would gain nothing.
+   - A heading whose text would reach past the viewport (sideways scroll) gets class heading-break-words from
+     scripts/heading-words.js (measured when the fonts are ready and on resize); its overlong word then breaks.
+   - Census: the 168 titles with a Latin word of 19+ letters (69 used as h1, 105 as h2), each as h1 and as h2 at 390
+     with the working-copy code: 336 tries, 0 sideways scrolls. 241 whole (24 of them up to 16 px into the margin), 95
+     broken inside the overlong word.
+   - Gate (gate.mjs, working-copy code, 390): the 15 lh-snapshots-116 pages give entryprocesses de/de, at/de
+     24.8 -> 4.2 and the visual-impairment pages 7.9 -> 7.4, the rest the same; the 62 ranked page-widths all the same (gate passes). Live after the push: entryprocesses de/de, at/de 4.2 at 390.
+2. **giftvoucher** (77417ea). The harness's answer (a navigation-link component after a separator, after each card in
+   its column-view item) is now in the importer.
+   - The carousel-cards parser writes that link as a cell of its own after the text cell.
+   - The block draws such a cell 10 px under the card box, with www's icon per link type (anchor down, internal right,
+     external up-right).
+   - Census: the shape is in none of the local snapshots, and no published card row has such a cell. Offline imports
+     of two card pages are byte for byte the same.
+   - Draft of the de/en copy with the three cells: 14.3 / 23.4 -> 13.2 / 19.8 at 1440 / 390.
+   - reimport-so24-giftvoucher-de-lh-com.txt: 2 READY rows for the harness. Only the cards' third cells go into DA's
+     copy, nothing else of the re-import.
+3. **Card-row gap on phones: still HOLD**; neither compensating drift can be fixed without a new tool.
+   - online-check-in-info's page end: about 310 documents end with such a block, but on the pages the rule improves,
+     www has no extra space there (order 23's variant 6 made them worse). The 24 px are this page's own and phone-only.
+     A per-page row needs a phone-only spacer, which the content markers don't have (adding one changes
+     scripts/style-markers.js, which lh-edge bundles too).
+   - report-baggage: within its rows the stacked airline items are short of www's spacing while the rows are long.
+     That is a second stacked-spacing difference in the same blocks, which the row rule then uncovers.
+4. **The xx business-class pages**, the largest cause: at 1440 every language is 90 to 144 px short near the page
+   end.
+   - "Μια πολυτελής αναβάθμιση" (and its translations) is a two-column view on www, merged into the four-column card
+     block below it, so its row takes quarter columns.
+   - Split as a draft, the row matches www's half and half, but the page reads worse: at 1440 it removes compensation
+     (ours is 103 px short above it), and at 390 gate.mjs says fix wrong.
+   - The drift above sits inside blocks (the intro text's wrapping, the picture carousel's slide size, a picture and
+     text row's picture): block work with a census and a gate across the pages that use them, next order.
+5. **Further down the ranking** (ema-test's lists on main hold none of these pages). Fleet 351's seat map runs the
+   content's width on www, but ours took half (lh-snapshots-116 de/de).
+   - The carousel-lightbox parser now gives a lufthansa.com slideshow outside a multi-column view option wide, as it did
+     for Brussels (40d1424).
+   - Census: 351's documents and first-class-lounges', which import no slideshow block; offline imports of 351 and 359:
+     only 351's class changes.
+   - de/de draft 14.8 / 16.2 -> 13.7 / 16.2. delta-so24-items-lh-com.txt: 15 READY block-option-apply rows (the other
+     351 versions; de/en had order 18's row).
+- Left out of git:
+  - logs/b616: captures, census scripts and results, drafts, trial stylesheets;
+  - /tmp/so23 (the archives);
+  - the untracked import reports of earlier runs.
