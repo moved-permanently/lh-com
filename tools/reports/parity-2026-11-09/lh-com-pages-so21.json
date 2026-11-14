@@ -1,0 +1,54 @@
+[
+  {
+    "path": "/de/en/digital-self-services",
+    "inserts": [
+      {
+        "replace": "Other services</a></div></div></div><div class=\"spacer\">",
+        "text": "Other services</a></div></div></div></div>\n<div><div class=\"spacer\">"
+      },
+      {
+        "replace": "ailable 24 hours a day, 7 days a week.</p></div></div></div><p>{column-end-outer}</p><div class=\"divider\">",
+        "text": "ailable 24 hours a day, 7 days a week.</p></div></div></div><p>{column-end-outer}</p><div class=\"section-metadata\"><div><div>style</div><div>flush, column-view, padded</div></div></div></div>\n<div><div class=\"divider\">"
+      },
+      {
+        "replace": "ation precisely where your baggage is.</p></div></div></div><p>{column-end-outer}</p><div class=\"divider\">",
+        "text": "ation precisely where your baggage is.</p></div></div></div><p>{column-end-outer}</p><div class=\"section-metadata\"><div><div>style</div><div>flush, column-view, padded</div></div></div></div>\n<div><div class=\"divider\">"
+      },
+      {
+        "replace": "her in the cabin or in the cargo hold.</p></div></div></div><p>{column-end-outer}</p><div class=\"divider\">",
+        "text": "her in the cabin or in the cargo hold.</p></div></div></div><p>{column-end-outer}</p><div class=\"section-metadata\"><div><div>style</div><div>flush, column-view, padded</div></div></div></div>\n<div><div class=\"divider\">"
+      },
+      {
+        "replace": "advance and enjoy them on your flight.</p></div></div></div><p>{column-end-outer}</p><div class=\"divider\">",
+        "text": "advance and enjoy them on your flight.</p></div></div></div><p>{column-end-outer}</p><div class=\"section-metadata\"><div><div>style</div><div>flush, column-view, padded</div></div></div></div>\n<div><div class=\"divider\">"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/100-years/campaigns",
+    "inserts": [
+      {
+        "replace": "<p>{spacer-50}</p>",
+        "text": "<p>{spacer-26}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/lufthansa-first-class-fleet",
+    "inserts": [
+      {
+        "replace": "<p>{spacer-70}</p>",
+        "text": "<p>{spacer-34}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/articles/explore-the-world/in-my-hood-chiswick-london",
+    "inserts": [
+      {
+        "after": "The Chiswick Cinema is the perfect spot for movie lovers.</li>\n</ol>",
+        "text": "<p>{spacer-19}</p><p>{spacer-19 from-768}</p>"
+      }
+    ]
+  }
+]
