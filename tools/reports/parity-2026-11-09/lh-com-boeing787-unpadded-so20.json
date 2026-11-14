@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/boeing787",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media padded\"><div><div><h2 id=\"feel-comfortable-day-and-night\">",
+    "text": "<div class=\"columns-media\"><div><div><h2 id=\"feel-comfortable-day-and-night\">"
+   }
+  ]
+ }
+]

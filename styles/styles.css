@@ -820,6 +820,20 @@ body.brand-lufthansa main:has(.article-header) > .section.full-bleed + .section.
   }
 }
 
+/* lufthansa.com's fleet pages from 768px (standing order 20; the drift steps of 320, 32n, boeing787,
+   lufthansa-fleet/351): a Columns Media sidebar before a padded section opening with an H2 14px
+   further (not before a slideshow section), the card carousel after the grey column view 16px
+   further. With boeing787's own row (delta-so20-lh-com-fleet-pair.txt): 4 of 7 better, none worse */
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section.grey.column-view:has(> .columns-media-wrapper:last-child > .columns-media:not(.sidebar)) + .section:has(> .default-content-wrapper:first-child > h2:first-child):has(> .carousel-cards-wrapper) {
+    margin-top: calc(var(--section-gap) + 16px);
+  }
+
+  body.brand-lufthansa main > .section:has(> .columns-media-wrapper:last-child > .columns-media.sidebar) + .section.padded:has(> .default-content-wrapper:first-child > h2:first-child):not(:has(> .carousel-lightbox-wrapper)) {
+    margin-top: calc(var(--section-gap) + 14px);
+  }
+}
+
 /* the article body's gaps (standing order 19): www's body is one column whose gaps depend on what
    meets, ours a section gap at every section boundary. From the drift steps per kind of boundary
    on the recorded articles: below 768px a section opening with a divider after text, and the

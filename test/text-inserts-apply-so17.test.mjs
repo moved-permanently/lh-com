@@ -40,3 +40,12 @@ test('a list\'s READY rows, READY / HOLD first (order 18) or last (order 17)', (
   const txt = ['# header', 'READY\t/a\tx', 'HOLD\t/b\tx', '/c\trec\tchange\tREADY', '/d\trec\tchange\tHOLD (why)'].join('\n');
   assert.deepEqual(listPaths(txt), ['/a', '/c']);
 });
+
+test("{ replace, text }: the anchor taken away for text; the gate gives DA's copy back; a second run is present", () => {
+  const list = [{ replace: '<div class="columns-media divider-above nested">', text: '<div class="columns-media divider-above">' }, { before: '<h1 id="t">', text: '<p>x</p>' }];
+  const { html, results, inserts } = applyTextInserts(DA, list);
+  assert.ok(results.every((r) => r === 'inserted'));
+  assert.ok(html.includes('<p>x</p><h1 id="t">') && html.includes('<div class="columns-media divider-above"><div>') && !html.includes('nested'));
+  assert.equal(removeTextInserts(html, inserts), DA);
+  assert.ok(applyTextInserts(html, list).results.every((r) => r === 'present'));
+});
