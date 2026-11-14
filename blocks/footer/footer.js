@@ -201,11 +201,29 @@ async function buildSearch(top, labels) {
   return form;
 }
 
+/**
+ * The market button's text: on a Group for Business page (brand b2b) a footer label of the form
+ * "DE | EN" names the page's own root, as www's ("CH | EN" on ch/en, "XX | DE" on xx/de: those
+ * pages use the de/en or de/de footer; standing order 22, b2b-parity-009 / -010). Any other
+ * label, a page without a root and every other brand: the footer's own text.
+ * @param {string} label the footer's text
+ * @param {{root?: string}} locale getLocale() result
+ * @param {string} brand the page's brand metadata
+ * @returns {string}
+ */
+export function marketLabel(label, locale, brand) {
+  if (brand !== 'b2b') return label;
+  const own = /^[A-Z]{2} ?\| ?[A-Z]{2}$/.test(String(label).trim());
+  const root = /^([a-z]{2})\/([a-z]{2})$/.exec((locale && locale.root) || '');
+  if (!own || !root) return label;
+  return `${root[1].toUpperCase()} | ${root[2].toUpperCase()}`;
+}
+
 async function buildLocale(top, labels) {
   const para = top && [...top.querySelectorAll('p')].find((p) => !p.querySelector('a[href]'));
   if (!para) return null;
   const iconName = takeIconName(para) || 'globe';
-  const label = text(para);
+  const label = marketLabel(text(para), getLocale(), getMetadata('brand'));
   if (!label) return null;
   const button = el(
     'button',
