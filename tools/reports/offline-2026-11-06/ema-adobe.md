@@ -4065,3 +4065,29 @@ deploys lh-edge. Order 20 left nothing unpushed. /de/en/overview-manage: no row.
      - www's 200 px columns for two- and three-column tables at 390: mixed on the 17 recorded pages (lounge-companions
        13.2 -> 7.2, but 32n 8.3 -> 13.7, fia-valet 3.4 -> 5.0); reverted.
      - special-meals' 21 % is not its tables (each scrolls inside its 840 px box; the trial changed nothing there).
+   - More from the ranking (the 30 page-widths after order 19's 40), in code:
+     - The FAQ heading and its accordion in one padded section (e8e16b9). www's padded AEM section holds both, but the
+       info template's break before the accordion split them.
+       - Drafts: lhg-wifi 11.5 / 14.3 -> 10.3 / 13.5, involuntary-rebooking 7.6 / 9.9 -> 6.8 / 8.7.
+       - The 750 info snapshots imported offline before and after: 12 change (those two and flynet, 4 roots each).
+       - Joined, ana (no padded written there) and advance-seat-reservation (grey) measured worse, so they stay as
+         before.
+       - New tool section-join-apply.mjs. delta-so21-faq-join-lh-com.txt: 32 READY. flynet has no recording, so it
+         gets no row; a re-import writes it.
+     - An in-column grey band whose column ends in the next section: no section gap under it (e8e16b9). That is
+       lufthansa-express-bus's 4 documents: 14.5 / 10.1 -> 12.9 / 9.2.
+     - A labelled YouTube link in running content stays www's button or link (bc4c932). onboard-delights' "To the
+       interview" had become a player: 12.9 / 10.3 -> 11.0 / 4.8. A media cell's lone labelled link stays the player
+       (SWISS's cards). The importer writes www's players as their address.
+   - Found, not fixed:
+     - child-in-businessclass 390: www's lightbox pictures are narrower (about 260 of 346 px, with the magnifier
+       icon), +27 px per picture.
+     - lufthansa-am-flughafen-frankfurt 1440: 26 px less above the headings in its tab panels.
+     - aviation-group, corporate-customers, check-in-with-the-family, free2move: steps under 40 px with no shared
+       cause.
+     - giftvoucher 1440 with top-flush: its de (promotion) sections, which brief 582's market step took from an older
+       capture, have the cards' links on their titles and lack www's links under the cards ("Visit the FAQs",
+       "Redeem on lufthansa.com", "Buy Gift Card now"; the -de version has them). That is -45 px, plus 30 px less above
+       "Get or redeem a Gift Card". A re-import of the de version would bring them; its top-flush row stays HOLD.
+   - Live after the pushes: baggage 5.0 / 1.7, onboard-delights 11.0 / 4.8, lufthansa-express-bus 12.9 / 9.2, as
+     measured before the push.
