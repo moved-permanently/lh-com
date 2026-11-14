@@ -1,0 +1,33 @@
+# ema-cashub, standing order 27 (2026-11-14), item 1: Austrian /at/de/local-page/feels-like-flying/os401crewstory, the six
+# marks written again after rendering on our own hosts. Expected change, both widths closer to www and within 2 %: 1440
+# 7,887 -> 7,764 px (+2.62 -> +1.01 %), 390 10,114 -> 9,909 px (+1.32 -> -0.73 %; www 7,686 / 9,982). The delta is
+# order 26's, unchanged; this file replaces delta-so26-austrian-os401crewstory-heading-sizes.txt.
+# How it was measured: main--lh-austrian--moved-permanently.aem.live as served (live, unmarked; it is byte for byte the copy on
+# aem.page and austrian.turnsthe.page) and the same page with <main> replaced by the marked document; e362ba47 live; consent
+# stored; www.* and every airline host refused and counted. Three ways: no scroll, scrolled to the bottom in half-screen
+# steps, every lazy picture eager; three identical runs per width.
+#                       1440 live / marked     390 live / marked
+#   scrolled or eager   7,887 / 7,764          10,114 / 9,909     (also: one jump to the bottom; aem.page; turnsthe.page;
+#                                                                  DPR 2 or 3 with phone emulation; viewport 664 to 1,000 px
+#                                                                  high; a 1440 load resized to 390: all the same)
+#   not scrolled        7,374 / 7,251           9,973 / 9,768     (pictures lazy, never loaded)
+#   publish check       7,885 / 7,762           9,988 / 9,747
+# What differs from the publish check (two things; the host and the theme do not, see below):
+# - At 390 its figures sit 15 / 21 px from my renders in which "Gemeinsam abheben"'s picture never loaded
+#   (media_153aab545344..., the paragraph before the divider, 1920 x 780, lazy). That picture measures 0 x 0 until it loads,
+#   so every 390 figure without it is 141 px short. Its "live 6 px off www" was that missing picture hiding our +132 px.
+#   At 1440 the check matches my loaded renders within 2 px, so it loads the picture there.
+# - The other 15 to 36 px at 390 I could not reproduce (375 and 382 px wide, phone emulation and DPR all give other figures).
+#   Lines wrapping one later or earlier on the checking machine (the travel-classes kind of row) would explain them.
+# - Not the host: with the fonts loaded, aem.live and turnsthe.page give the same height in all 24 renders. Not consent (no
+#   change with or without). Not a cached theme: e362ba47 was on origin at 00:19 UTC, the marks went up at 00:23, and the
+#   old style would make the marked page longer, not shorter.
+# - One trap for any check on aem.page / aem.live: styles/fonts.css takes CoreSans and Portada from the site's own host
+#   (lh-edge's digitalhangar route, only on turnsthe.page) and falls back to www.austrian.com. With airline hosts refused
+#   they fail there and the page is drawn in Arial: 8,039 / 10,739 px live. Here they were answered from turnsthe.page's
+#   copy of the file (the www request was never sent).
+# For the check before publishing: at 390, read whether that picture loaded (naturalWidth > 0) and compare only renders in
+# which it did.
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, 390, 1440.
+
+READY	/at/de/local-page/feels-like-flying/os401crewstory.html	" {heading-copytext-large}" at the end of h3 "Zwischen Aufregung und Abenteuer", h3 "Früher selbst UM-Kind", h3 "Vom Gate bis ins Cockpit", h3 "Warum Eltern oft nervöser sind als die Kinder", h3 "Ein Teddy, ein letzter Blick - und ganz viel Mut", h2 "Gemeinsam abheben: entspannt mit der Familie reisen"	390 +1.32 -> -0.73 % (10,114 -> 9,909 px, www 9,982; scrolled, three runs)	1440 +2.62 -> +1.01 % (7,887 -> 7,764 px, www 7,686)

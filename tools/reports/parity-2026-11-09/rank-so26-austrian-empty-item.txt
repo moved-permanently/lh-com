@@ -2,7 +2,8 @@
 # without www's .mb-default. Expected change (shipped, austrian.css): 15 of 120 Austrian page-widths at 390 move, 11 closer;
 # within 2 % 72 -> 72, the sum of the deviations 356.59 -> 351.00 points; at 1440 only the two book/flights pages (with their
 # delta) move, 24 px closer. The Greek and Russian baggage rows are measured with the wrong fonts and do not count for the gate
-# (decision of standing order 26).
+# (decision of standing order 26); nor does /at/de/fly/travel-classes at 390, a Latin line wrapped later by the measuring
+# machine's fonts (decision of standing order 27).
 # The empty item: below 768 px www gives every column-view item 12 px of padding above and 12 px of margin below, an empty one
 # too: 44 px under the item before an empty last item, on book/flights as well (laid out offline from www's markup). Ours keeps
 # the cell's stacked 36 / 50 px. book/flights en got worse for two other reasons: the measuring machine breaks "Use our Green
@@ -14,7 +15,7 @@
 # Columns: status, path, width, www px, ours px, vs www, with the rules px, vs www, change in points (+ = further), note.
 READY	/at/de/book/flights	390	4850	4831	-0.39 %	4843	-0.14 %	-0.25	with the flush delta; without it +0.35 %
 READY	/at/de/book/overview-services-on-board	390	2969	2922	-1.58 %	2958	-0.37 %	-1.21	closer
-HOLD	/at/de/fly/travel-classes	390	2889	2882	-0.24 %	2918	+1.00 %	+0.76	its Premium Economy paragraph wraps to 5 lines here, 4 in www's PNG (+24 px, the measuring machine); without that line 2,894 px, +0.17 %, closer
+READY	/at/de/fly/travel-classes	390	2889	2882	-0.24 %	2918	+1.00 %	+0.76	its Premium Economy paragraph wraps to 5 lines here, 4 in www's PNG (+24 px, the measuring machine); without that line 2,894 px, +0.17 %, closer. Counted as a font-wrap row like the Greek and Russian ones (decision of standing order 27): b50f266f stays
 READY	/at/en/book/flights	390	4693	4698	+0.11 %	4710	+0.36 %	+0.26	with the flush delta (delta-so26-austrian-book-flights-flush.txt); without it +0.87 %: +23 px from "Use our Green Fares ..." (347.25 px of text in the 346 px column here, 3 lines in www's PNG) and +24 px from the end
 READY	/at/en/book/overview-services-on-board	390	2921	2874	-1.61 %	2910	-0.38 %	-1.23	closer
 READY	/at/en/fly/on-board/culinary-services	390	9176	9003	-1.89 %	9053	-1.34 %	-0.54	closer
