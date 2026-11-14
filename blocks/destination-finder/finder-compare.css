@@ -267,3 +267,22 @@
     left: 24px;
   }
 }
+
+/* Discover's offers grid, settled (discover-snapshots-004 against the same day's prices,
+   discover-snapshots-005): the "Compare cities" control 10 px over the card's bottom edge (its
+   label's middle 21 px over it); from 768 px the card 20 px shorter, the control 40 px under the
+   price (ours 51; rows 400 px apart on www, ours 420), on phones the card 5 px shorter, the control
+   55 px under the price (rows 358 px apart on www, ours 363) (standing order 23) */
+body.brand-discover .destination-finder .destination-finder-compare {
+  bottom: 10px;
+}
+
+body.brand-discover .destination-finder.grid .destination-finder-tile-compare .destination-finder-tile-body {
+  padding-bottom: calc(10px + 24px + 33px);
+}
+
+@media (width >= 768px) {
+  body.brand-discover .destination-finder.grid .destination-finder-tile-compare .destination-finder-tile-body {
+    padding-bottom: calc(10px + 24px + 18px);
+  }
+}
