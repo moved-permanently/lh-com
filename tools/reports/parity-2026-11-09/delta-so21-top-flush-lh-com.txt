@@ -1,0 +1,27 @@
+# Standing order 21 (2026-11-14), item 4: www's .contentpage.pt-0 pages that open with a stage and have no profile
+# navigation. Expected change, per document: the first section (the stage) gets the style top-flush, so it starts right
+# under the header (styles.css), not 25px below it as every other page. Nothing else of the document changes.
+# Tool: tools/importer/section-style-apply.mjs, row {heading: the stage's heading, add: "top-flush"}. The importer writes
+# it since this order (lufthansa-sections, test/stage-top-flush-so21). Census of the 3,397 www snapshots: pt-0 on 70
+# pages; without the profile navigation and opening with a stage: wetlease-hub (7), south-africa-winter-promotion (2),
+# black-friday (1). culinaryjourney opens with a headline and is not part of it. Offline imports before and after:
+# only those pages change, by that style.
+# Dry run on the published copies (aem.live, 2026-11-14): every READY row "placed", only the first section's class.
+# fr/fr wetlease-hub has no published copy (404): HOLD. Measured with working-copy styles at 1440 / 390:
+# wetlease-hub 10.3 / 14.9 -> 7.1 / 8.7 %.
+# giftvoucher: its de market sections (from brief 582's market step, "markets: de") are www's pt-0 promotion version.
+# Nothing is doubled: each market sees one version, and no merge marks are in DA's copy (order 20's finding was wrong).
+# Its top-flush row alone measured 14.3 / 23.4 -> 15.5 / 23.2, worse at 1440: the -33 and -45 px steps further down
+# (the carousel and accordion sections) then show. HOLD until those are traced.
+READY	/xx/es/book-and-manage/flights/wetlease-hub	section-style-apply {"heading": "Vuelos en arrendamiento con tripulación de Lufthansa", "add": "top-flush"}	the stage right under the header (style top-flush)
+READY	/xx/es/local-page/black-friday	section-style-apply {"heading": "Black Friday 2026: ofertas de vuelos de Lufthansa", "add": "top-flush"}	the stage right under the header (style top-flush)
+READY	/xx/fr/book-and-manage/flights/wetlease-hub	section-style-apply {"heading": "Vols Lufthansa en wet lease", "add": "top-flush"}	the stage right under the header (style top-flush)
+READY	/de/de/book-and-manage/flights/wetlease-hub	section-style-apply {"heading": "Lufthansa Wetlease-Flüge", "add": "top-flush"}	the stage right under the header (style top-flush)
+READY	/de/de/local-page/south-africa-winter-promotion	section-style-apply {"heading": "Sparen Sie 30 € pro Reisendem* nach Südafrika", "add": "top-flush"}	the stage right under the header (style top-flush)
+READY	/de/en/book-and-manage/flights/wetlease-hub	section-style-apply {"heading": "Lufthansa wet lease flights", "add": "top-flush"}	the stage right under the header (style top-flush)
+READY	/de/en/local-page/south-africa-winter-promotion	section-style-apply {"heading": "Save €30 per traveller* to South Africa", "add": "top-flush"}	the stage right under the header (style top-flush)
+READY	/gb/en/book-and-manage/flights/wetlease-hub	section-style-apply {"heading": "Lufthansa wet lease flights", "add": "top-flush"}	the stage right under the header (style top-flush)
+READY	/at/de/book-and-manage/flights/wetlease-hub	section-style-apply {"heading": "Lufthansa Wetlease-Flüge", "add": "top-flush"}	the stage right under the header (style top-flush)
+HOLD	/de/en/book-and-manage/flights/giftvoucher	section-style-apply {"heading": "Give a Lufthansa Gift Card and save 5% 🏷️", "add": "top-flush"}	the stage right under the header (style top-flush)
+HOLD	/de/de/book-and-manage/flights/giftvoucher	section-style-apply {"heading": "Lufthansa Gutschein jetzt 5 % günstiger 🏷️", "add": "top-flush"}	the stage right under the header (style top-flush)
+HOLD	/fr/fr/book-and-manage/flights/wetlease-hub	section-style-apply {"heading": "(the stage heading of its DA copy)", "add": "top-flush"}	no published copy to dry-run (404)

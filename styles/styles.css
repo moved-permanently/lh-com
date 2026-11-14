@@ -780,6 +780,13 @@ body.appear main > .section:first-of-type:not(.breadcrumb-container) {
   margin-top: 25px;
 }
 
+/* style top-flush (the importer: www's .contentpage.pt-0 on a page that opens with a stage, no
+   profile navigation): the stage right under the header (standing order 21: /de/en/book-and-manage/
+   flights/wetlease-hub and giftvoucher's de version 25px lower than www's) */
+body.appear main > .section.top-flush:first-of-type:not(.breadcrumb-container) {
+  margin-top: 0;
+}
+
 /* the breadcrumb at the start of a full-bleed first section (Insights category stage) keeps
    the content column; so does the article header panel (live .article-content sits in
    .container-content), whose feature image breaks out by itself (.article-header-media) */

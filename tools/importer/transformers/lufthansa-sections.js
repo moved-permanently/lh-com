@@ -463,6 +463,10 @@ export default function transform(hookName, element, payload) {
       const styles = ['stage'];
       if (!s.querySelector(':scope > .mb-default')) styles.push('flush');
       if (next && padded(next) && !grey(next)) styles.push('before-padded');
+      // (standing order 21) www's .contentpage.pt-0 on a page that opens with this stage, without the profile navigation
+      // (parsers/profile-nav.js has its own flush): the stage right under the header, not our 25px (styles.css;
+      // /de/en/book-and-manage/flights/wetlease-hub 10.3 / 14.9 -> 7.1 / 8.7 % at 1440 / 390)
+      if (lufthansa && i === 0 && document.querySelector('.contentpage.pt-0') && !document.querySelector('maui-sub-navigation')) styles.push('top-flush');
       // (standing order 20) a padded AEM section without .mb-default right before the stage: www has its padding and
       // nothing more there, not our section gap (flush; /de/en/first-class-terminal: "Cigar Lounge", then the stage
       // "Everything you need" 48px lower than www's; economy-class). With .mb-default as before (spaced measured worse:
