@@ -4246,8 +4246,10 @@ discover-parity-003, discover-snapshots-004); their serve.py not run.
      px against 7,283 / 6,685. Nothing to change (b2b-so20-ema-test-rows.txt).
    - Discover (discover-parity-003, with pictures): excess-baggage's teaser row is not its pictures but www's
      separator after the accordions and a heading-small headline; delta-so22-discover-pages.txt ({spacer-0 from-768},
-     {divider-40}, {heading-small}, {spacer-35}): 1440 33.40 -> 8.87, 390 36.03 -> 23.34. business-class held:
-     steps that cancel across its striped table.
+     {divider-40}, {heading-small}, {spacer-35}): 1440 33.40 -> 8.87, 390 36.03 -> 23.34. business-class (de/en, de/de):
+     its benefit lists are one-column tables, whose rows www draws 99 px high (ours 132): a Discover theme rule for
+     one-column tables (20d4ed2c, test first) and rows for both pages ({spacer-44} at each tab panel's start, the
+     benefit headings heading-copytext-large): 1440 23.93 -> 12.62, 17.95 -> 8.40, 390 unchanged.
    - The settled offers page (discover-snapshots-004) waits for item 2b's recorded answer.
 2. **Discover's offers page.**
    a. When the price call fails the grid said "For this selected origin we do not offer any destinations". On a
@@ -4274,3 +4276,30 @@ discover-parity-003, discover-snapshots-004); their serve.py not run.
      test/b2b-footer-market-label-so22.test.mjs; local render: CH | EN, XX | DE, DE | EN).
    - The owner published meals-on-board, the joint ventures, excess-baggage and take-off; on the hosts with the fonts
      each measures as its folder trial.
+   - Also held with reasons (delta-so22-lh-com-pages.txt): feedback-past-flight's form, longer field by field (a core
+     form rule with a census, next to trace).
+
+## Standing order 22, final section (15:30 UTC, 2026-11-14)
+
+- Item 1: meals-on-board de/en, Discover excess-baggage and business-class (de/en, de/de, with the one-column
+  table rule) READY; businesstogo's phone question answered (nothing to change); ch/en and xx/en meals-on-board
+  explained; the Allegris start-of-booking pages wait for a phone recording (requested).
+- Item 2: a. the offers grid links to Discover's offers page when the price call fails (live on the host);
+  b. capture.js answers the price call from PARITY_ANSWERS, never from the 21 October recording. The offers page
+  is not gated yet: the Captures child's archive has not come. When it does: our grid loads 48 offers at a time as
+  it is scrolled, the recording has all 591 (60,750 px at 1440), so the capture must scroll until the grid is
+  settled, and the compare runs over our capture's height.
+- Item 3: take-off READY; the joint-venture texts READY ({limited-width}, no B2B CSS); B2B's footer market button
+  names the page's root (6e0835f6, live: CH | EN, XX | DE); munich-fair and six more held with their reasons.
+- The owner published meals-on-board, the joint ventures, excess-baggage and take-off; on the hosts each measures
+  as its folder trial. business-class's rows came later and are not published.
+- Before this section: the full suite on ca121f4e (this section's text before these test lines) 1104 files pass, lint
+  and stylelint 0; the tests that read the themes folder 1015 pass (1 skipped); lint read before every push; Build
+  success on 2b8675e9, 4da19b89 and 6e0835f6 (later ones checked after the push).
+- Nothing uploaded, previewed or published by me; DA read only (the pages of the rows); da-upload.mjs not run;
+  requests only to our own hosts, DA, R2 (the drops) and GitHub's API. .migration/project.json not touched;
+  /de/en/overview-manage has no row.
+- Not in git and why: logs/p4/so22, logs/p4/so21, logs/p4/so20 (scratch: capture and gate folders, the published
+  and DA copies as read, trial edits, the scan scripts), our captures under logs/p4/so6/cap, the recordings and
+  font drops in /tmp/x-* and /tmp/dl-* (the drops' private material), content/, migration-work/,
+  tools/importer/reports/* (not mine). My preview servers are stopped and the trial worktrees removed.

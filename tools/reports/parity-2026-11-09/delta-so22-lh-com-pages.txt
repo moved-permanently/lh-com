@@ -6,3 +6,4 @@ HOLD	/de/en/100-years	1440 -25 px at the "Under the symbol of the crane" block, 
 HOLD	/de/en/articles/highlights/all-it-takes-is-a-yes	the mismatch is in the overlay cards' pictures (60-80 % windows), the offsets within 20 px	-	pictures, not spacing
 HOLD	/de/en/farealert/best-price-alert	1440 -20 / -28 / -39 px inside the Columns Media steps (01, 02, 03), 390 the same smaller: the block's row heights	-	a block's rows, not a row
 HOLD	/de/en/book-and-manage/stopover	map and video stage; 1440 -32 px at "Take a creative break", 390 other steps	-	local render differs (map); not one spacing
+HOLD	/de/en/feedback-past-flight	the form runs longer field by field (1440 +144 px over 5,979, 390 +229 over 6,942; small steps of 5 to 30 px at the fields, no one place)	-	the core form's field spacing is shared by every lufthansa.com form: a rule with a census of the recorded form pages, not a row; next to trace
