@@ -4039,3 +4039,11 @@ State at the start: nothing of mine uncommitted or unpushed (order 18's final se
      390 7.71 -> 5.01, 1440 4.49 -> 1.38), 10 within, none worse.
    - Seen and not shipped: fleet pages at 390 (link paragraphs +38 on 3 pages; the seat-map link lists' line pitch
      and the gap to "Technical data", +30 on 744), hub 390 h2 to an FAQ accordion -33 (one page in two locales).
+   - **Fleet boundaries: HOLD** (shared-causes-so19-lh-com.txt lists all of this order's causes with their gates).
+     From 768 px a Columns Media sidebar before a padded section opening with an H2 is 14 px nearer on ours (320,
+     32n, boeing787, 351), and the card carousel after the grey column view 16 px nearer (the same four). Round 1
+     (with a table-to-band rule): 1 better, 3 worse (munich's carousel "fix wrong"; 32n's slideshow section +37;
+     the table rule's margin did not collapse). Round 2 (carousel rule after a grey column view only, sidebar rule
+     not before a slideshow section): 2 better (320 -1.05, 351 -0.90), 1 worse (boeing787 +0.68, compensation: its
+     sidebar to padded Columns Media +25 px, per page; 100-years/crane has the same boundary at 0). Round 3 (the
+     carousel rule alone): nothing gained. Not shipped.
