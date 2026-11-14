@@ -145,5 +145,14 @@
     "text": "<p>{spacer-24 from-768}</p>"
    }
   ]
+ },
+ {
+  "path": "/de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
+  "inserts": [
+   {
+    "before": "<div class=\"columns-media\"><div><div><h3 id=\"austrian-airlin",
+    "text": "<p>{spacer-39 from-768}</p>"
+   }
+  ]
  }
 ]

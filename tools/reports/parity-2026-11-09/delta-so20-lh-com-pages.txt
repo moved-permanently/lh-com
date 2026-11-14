@@ -1,6 +1,6 @@
 # Expected change: lufthansa.com pages whose own drift a row on DA's copy takes away at both widths (standing order 20, item 2): a spacer where ours is short of www at the same place at 1440 and 390 (the drift steps of the fresh captures, logs/p4/so20/both-short.py), sized for the margins it stops from collapsing, or a {spacer-N from-768} (not drawn on phones) where only 1440 is short. READY rows pass gate.mjs at both widths; HOLD rows do not, with the gate's reason.
 # Method: DA's copy plus the inserts: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/lh-com-pages-so20.json --list tools/reports/parity-2026-11-09/delta-so20-lh-com-pages.txt --docs <DA copies> --out <dir> (--check to only report). Every anchor is found once in DA's copy of 2026-11-14 ~08:45 CET; without the inserts the result is DA's copy byte for byte.
-# Measured: our published copies as they are and with the change, rendered from one local folder on our code (aem up --html-folder; the base numbers equal the published host's, except feedbackai, whose empty document the folder draws blank: its base is the host's capture), against the lh-parity recordings. ranking-so18 worst first; pages whose cause is live data, a recording artefact, the do-not-touch list or a shared rule are left out.
+# Measured: our published copies as they are and with the change, rendered from one local folder on our code (aem up --html-folder; the base numbers equal the published host's, except feedbackai, whose empty document the folder draws blank: its base is the host's capture, and report-baggage, named in its row), against the lh-parity recordings. ranking-so18 worst first; pages whose cause is live data, a recording artefact, the do-not-touch list or a shared rule are left out.
 # Each line: READY / HOLD, DA path, the change, the result (1440, 390: before -> after %), the gate.
 READY	/de/en/feedback/feedbackai	{spacer-134} in the empty section (www keeps about 145 px under the breadcrumb of this empty app page)	1440 29.56 -> 7.77; 390 24.71 -> 7.08	2 better
 READY	/de/en/feedback	{spacer-33} after each of the four links before a heading (www 31 to 39 px more there at both widths)	1440 13.34 -> 2.51; 390 16.64 -> 8.46	2 better
@@ -17,6 +17,7 @@ READY	/at/de/flughafeninformation	as de/de	1440 5.11 -> 3.21; 390 24.73 -> 24.73
 READY	/de/en/airport-information	{spacer-19 from-768} before "Payment options at the airport" (www 20 px more at 1440)	1440 5.38 -> 3.89; 390 5.65 -> 5.65	1 better, 1 within
 READY	/gb/en/airport-information	as de/en	1440 5.38 -> 3.89; 390 5.67 -> 5.67	1 better, 1 within
 READY	/de/en/seat-maps	{spacer-24 from-768} before "Boeing" (www 25 px more at 1440)	1440 4.88 -> 3.60; 390 7.44 -> 7.44	1 better, 1 within
+READY	/de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage	{spacer-39 from-768} before the Austrian Airlines block (www 40 px more at 1440)	1440 8.87 -> 5.44; 390 10.92 -> 10.92 (the folder render's base; the host measures 10.61 / 10.92)	1 better, 1 within
 HOLD	/de/en/common/compensation-voucher	{spacer-16} before each numbered heading (www 22 to 26 px more at 390, 6 to 20 at 1440)	1440 6.89 -> 16.05; 390 13.38 -> 10.44	fix wrong at 1440: the gaps differ per width
 HOLD	/de/en/100-years/cabin-design	{spacer-14} before "The Senator Service was also transferred" (www 14 / 16 px more)	1440 7.68 -> 9.22; 390 15.08 -> 16.26	fix wrong: the spacer adds more than the step
 HOLD	/de/en/additional-services	{spacer-9} before "Well looked after on your trip" (www 10 / 10 px more)	1440 5.77 -> 8.46; 390 6.63 -> 8.69	fix wrong: the spacer at a section's start adds more than its size
@@ -25,3 +26,14 @@ HOLD	/de/de/additional-services	as de/en ("Unterwegs gut versorgt")	1440 5.70 ->
 HOLD	/at/de/additional-services	as de/de	1440 5.70 -> 8.36; 390 6.78 -> 8.80	fix wrong, compensation below at 390
 HOLD	/de/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	{spacer-15} before "Enhance your travel experience" (www 16 / 16 px more)	1440 5.62 -> 6.34; 390 10.56 -> 12.67	compensation above at 390 (+20 px), fix wrong at 1440
 HOLD	/de/en/articles/tags/munich	{spacer-16} before the caption "© Westend61 / Maria Maar" and {spacer-15} before "Insider Tips" (www 17 / 14-17 px more)	1440 15.40 -> 21.76; 390 20.85 -> 23.14	fix wrong: the steps are where the photos meet, not spacing
+HOLD	/de/en/common/privacy-statement/privacy-statement-group	{spacer-35 from-768} and {spacer-34 from-768} before the two addresses	1440 7.11 -> 15.07	fix wrong
+HOLD	/de/en/common/seatreservation-condtions/seat-reservations	{spacer-24 from-768} before "My booking"	1440 7.97 -> 11.76	compensation below (+61 px)
+HOLD	/de/de/100-years/destinations	{spacer-52 from-768} before "Rio de Janeiro"	1440 24.18 -> 27.89	fix wrong (the folder render of the campaign pages differs from the host: 390 37.3 % against 12.4)
+HOLD	/at/de/100-years/destinations	as de/de	1440 24.20 -> 27.92	fix wrong
+HOLD	/de/de/bedeutsamste-strecken	{spacer-53 from-768} before the Dubai list	1440 7.62 -> 10.90	fix wrong
+HOLD	/at/de/bedeutsamste-strecken	as de/de	1440 7.62 -> 10.90	fix wrong
+HOLD	/de/en/frankfurt-fair	{spacer-40 from-768} before the terms note	1440 17.61 -> 19.55	compensation above (+206 px)
+HOLD	/gb/en/frankfurt-fair	as de/en	1440 17.60 -> 19.54	compensation above
+HOLD	/de/en/100-years/crane	{spacer-45 from-768} before "Ultimately, continuity prevails"	1440 25.29 -> 25.89	compensation above (+259 px); de/de, at/de, gb/en the same or within
+HOLD	/de/en/100-years/chronicle	{spacer-35 from-768} before the tabs	1440 15.93 -> 15.81	within 0.5: nothing gained
+HOLD	/de/en/100-years/global-network	{spacer-28 from-768} before the quote	1440 26.94 -> 27.00	within 0.5: nothing gained

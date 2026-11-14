@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/program/experts",
+  "inserts": [
+   {
+    "before": "<h2 id=\"explore-content-by-airline\">",
+    "text": "<p>{spacer-62 from-768}</p>"
+   }
+  ]
+ }
+]
