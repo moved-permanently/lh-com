@@ -4575,3 +4575,61 @@ status is the first column or a later one (test first).
   only sitemap_lh_at_de.xml.gz changed (content).
 - Served: service-charges 390 2137, israel-cancellation-policy 1440 1666, cancel-and-refund be/fr 1440 1684, as measured
   in the draft.
+
+**Brussels, the open rows closed (after 585d29b1).** The 11 rows still open in 585d29b1's finish-brussels.txt are now each
+explained. I traced them against www's live measurement and, where www's measurement has no positions (card lists),
+against the recording's own screenshot (cropped here, no request):
+- **my-bookings 390 (en, fr):** +46 px from the H1 to the first card, +3 px per card, +95 px under the last card. www keeps
+  83 px there, against 187 to 248 on other short pages, which is why the teaser-ending rule failed.
+- **connecting-africa 1440:** www's "Related topics" opens its own section, about 160 px under the cards; DA's copy keeps
+  the page in one section. A section break as a delta (drafted) gives 1440 -2.54 -> +1.36 %, but 390 +0.71 -> +1.14 %,
+  further, so no row.
+- **student-fares 1440:** the app band's heading on two lines and its buttons stacked (www: one line, side by side).
+- **our-company:** www cuts the cards' text after three lines.
+- **economy 390:** www keeps 93 px of grey under the last card, ours 68.
+- **unsubscribe-failure:** the space under its button, on a 940 px page.
+- **bike-the-city:** the article's gallery is 114 px shorter.
+- **travel-classes (be/fr) and the legal hub:** the H1 is 36 / 84 px lower on www.
+- **business (be/fr) and core-values:** spread over the sections, 13 to 86 px each, no single cause.
+
+finish-brussels.txt now: 5 READY (P56), 64 HOLD, each with its explanation; none "not traced".
+
+## Final section, standing order 14 (2026-11-13/14, 23:35 to 06:00 CET)
+
+**Commits on main.** Each one: commit first (ship6.sh, `git show --stat` as given); whole-repo `npm run lint` exit 0
+before and after the rebase and after every retry rebase; stylelint on the changed theme; the full suite 0 failures on
+the commit and again after a rebase that brought commits; the GitHub Build read; the smoke of 14 hosts before and after.
+- 80e248f1: Brussels P56, the delta tools' list reader, the SWISS HOLD delta row.
+  - Suite 4124 / 0, then 4157 / 0 after the rebase, and 4159 / 0 on its pushed code (the next commit's suite).
+  - Build success, smoke 0 differences except one lufthansa.com sitemap (content).
+- 8807bb45: the four finish lists, the capture requests, this order's report. Suite 4159 / 0 on the commit (its code = 80e248f1's), 4166 / 0 after the rebase. Pushed on the second try (lint 0 after the retry rebase). Build success; the smoke of 14 hosts 0 differences.
+- This commit: finish-brussels.txt with the open rows explained, and this final section.
+
+**The finish lines:**
+- Brussels: 206 recorded page-widths, 137 within 2 %, 5 brought within 2 % by P56, 64 explained.
+- Discover: 53, 33 within 2 %, 20 explained.
+- SWISS: 56, 41 within 2 %, 15 explained, one of them a HOLD delta row waiting for the picture.
+- TAP: 52, 45 within 2 %, 7 explained (ema-cashub's causes).
+- No page-width above 2 % is left without a status. Lists: finish-brussels.txt, finish-discover.txt,
+  finish-swiss.txt, finish-tap.txt, delta-so14-swiss-medication-transport-picture.txt (HOLD).
+
+**Not shipped (failed the gate), with their drafts in `.scratch/`:**
+- the sidebar-h1 ending for every sidebar page (five legal pages further);
+- Brussels' phone table cells (student-fares and be/fr checked-baggage further);
+- Brussels' phone teaser ending (16 pages further);
+- connecting-africa's section break (390 further).
+
+**Left uncommitted, and why:** `.migration/project.json` (the lh-tap entry, not mine). `.scratch/` is excluded from git:
+- the 13 drop archives downloaded tonight (b598-drop: Brussels -001, -003, -007 to -010; SWISS -001, -004; TAP -007
+  to -011);
+- DA's copies read tonight (SWISS overview-extra-services, Brussels homepages and connecting-africa) and the deltas'
+  output;
+- the CSS override folders with the drafts, the held table test, the measuring scripts, the screenshots' crops and logs.
+
+**Process:**
+- Reads only from our hosts, the drop (our R2) and DA: GETs from my session, not from tests, plus one 404 check for the
+  SWISS picture.
+- No request to an airline host: www's pictures were seen only in the recordings' own screenshots.
+- No da-upload.mjs call, no upload, preview or publish by me.
+- A measurement glitch: one footer failed to load during the first ranking. Every row over 2 % was measured twice before
+  being listed.
