@@ -1,0 +1,23 @@
+[
+  {
+    "path": "/de/en/about-us/lhg-history/lhg-history-alliances-and-joint-ventures",
+    "inserts": [
+      {
+        "replace": "across the Atlantic Ocean.</p>",
+        "text": "across the Atlantic Ocean. {limited-width}</p>"
+      },
+      {
+        "replace": "over 50 destinations in Japan.</p>",
+        "text": "over 50 destinations in Japan. {limited-width}</p>"
+      },
+      {
+        "replace": "between Europe and China.</p>",
+        "text": "between Europe and China. {limited-width}</p>"
+      },
+      {
+        "replace": "Singapore, Malaysia, and Australia.</p>",
+        "text": "Singapore, Malaysia, and Australia. {limited-width}</p>"
+      }
+    ]
+  }
+]
