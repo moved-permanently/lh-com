@@ -268,6 +268,13 @@
   }
 }
 
+/* Discover's offers cards: the text 13 px in from the card's edges, as www's (ours 10); on the
+   German phone page "Hin- und Rückflug ab" then wraps on two lines in every card, as www's (de/de at
+   390 108,518 -> 115,213 px, www 115,419; discover-snapshots-006) (standing order 25) */
+body.brand-discover .destination-finder.grid .destination-finder-tile-body {
+  padding-inline: 13px;
+}
+
 /* Discover's offers grid, settled (discover-snapshots-004 against the same day's prices,
    discover-snapshots-005): the "Compare cities" control 10 px over the card's bottom edge (its
    label's middle 21 px over it); from 768 px the card 20 px shorter, the control 40 px under the

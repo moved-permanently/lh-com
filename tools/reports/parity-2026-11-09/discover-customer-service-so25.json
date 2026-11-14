@@ -1,0 +1,20 @@
+[
+  {
+    "path": "/de/en/my-bookings/manage/customer-service",
+    "inserts": [
+      {
+        "after": "uptions\">Assistance in case of delay or cancellation</a></p></div></div></div>",
+        "text": "<p>{divider-40}</p><div class=\"search-bar\"><div><div><a href=\"/de/en/help/search-result\">Enter search term</a></div></div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/de/de/my-bookings/manage/customer-service",
+    "inserts": [
+      {
+        "after": "-disruptions\">Hilfe bei Verspätung oder Annullierung</a></p></div></div></div>",
+        "text": "<p>{divider-40}</p><div class=\"search-bar\"><div><div><a href=\"/de/de/help/search-result\">Suchbegriff eingeben</a></div></div></div>"
+      }
+    ]
+  }
+]
