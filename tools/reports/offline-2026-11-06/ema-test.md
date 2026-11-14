@@ -3894,7 +3894,7 @@ now holds no row (withdrawn, the finding as an explanation only); the ranking sa
      names the largest three per row.
    - **Groups above 5 %:** spacing drift 242 (hub 63, campaign 51, insights 50, legal 38, fleet 11, form 10, other 19);
      spacing drift with small drawn differences 31 (www's sticky fare bar, a map's tiles, an overlay teaser's shade,
-     a phone picture's crop); explained: live data 12; fixed in code 6; recording artefacts 4; another EMA's rule 4;
+     a phone picture's crop); explained: live data 12; fixed in code 6 (stopover) and 51 in part (articles, 6e971abb; the groups above as measured before it); recording artefacts 4; another EMA's rule 4;
      per page 9 (one with its delta); capture 2; project rule 2; drawn differently, not sampled, 3.
    - **Fixed in code, gate passed (507cda33, test first):** the stopover detail pages (168 documents) had the map
      under their sidebar block, full width; www draws it in the sidebar's text column. poi-map.js intoSidebar moves
@@ -3908,11 +3908,18 @@ now holds no row (withdrawn, the finding as an explanation only); the ranking sa
      ours "no results"), the two culinaryjourney pages at both widths (the culinary-hub micro-frontend, blank in our
      capture). Checked and not live data: the 17 price-bar articles (masking www's fare bar moves them by under one
      point) and the map pages (masking the map moves them by under 0.3).
+   - **Fixed in code, gate passed (6e971abb, test first): Insights articles.** The drift steps: www's body starts 8 to
+     10 px higher under the article header (24 article page-widths at both widths), and from 768 px a text section
+     before one opening with a stacked Columns Media is 67 px from it on www, 51 on ours. styles.css: the header's
+     section 40 px above the body; from 768 px that boundary 16 px more. On the 82 recorded insights page-widths, local
+     render before / after: 390 25 better by more than 0.5, none worse (one +1.26 on a page the rules cannot reach was
+     capture variance; recaptured at the base number); 1440 26 better, none worse. Up to 8.4 points
+     (inflight-entertainment-vr-experience 390 10.50 -> 2.12, 7-people-who-shaped-lufthansa-history 1440 8.25 -> 1.67).
    - **Tried and held (the gate):**
-     - Articles, the header 40 px above the body (ours 48; www's 8 to 10 px less on the 24 article page-widths where the step shows) and
-       body sections 24 px apart below 768 px (ours 48; +24 to 28 px at 15 such boundaries): of 82 insights page-widths 29
-       better, 23 worse by more than 0.5 (the body gap at 1440 is wrong; at 390 only, still 8 worse, the a-perfect-day
-       pages +5). Each correction is right where it is measured and uncovers the next drift further down.
+     - The same header rule at 1440 without the second rule: 9 of 41 worse (the 16 px it uncovers). Body sections 24 px
+       apart below 768 px (ours 48; +24 to 28 px at 15 boundaries): with it, 8 of 41 worse at 390 (the a-perfect-day
+       pages +5): www's boundaries differ page by page there. A correction right where it is measured can uncover
+       the next drift further down; the drift profile (aligned windows) tells the two apart, the pct alone does not.
      - Form sub-section titles on the fluid scale (20 px at 390 where ours is 24; www's glyphs 16 px against our 18):
        3 better and 3 worse by more than 0.5 (betreuungsbedarf de/de / at/de 390 +1.0 / +0.7, special-needs de/en 390 +1.1).
    - **Recorded causes, HOLD:**
