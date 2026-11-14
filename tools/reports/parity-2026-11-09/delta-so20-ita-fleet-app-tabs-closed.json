@@ -1,0 +1,16 @@
+{
+ "/it/en/world-of-ita-airways/discover-ita-airways/fleet/short-haul": [
+  {
+   "before": "<div><div>Breadcrumb title</div><div>Short/Medium-Haul</div></div>",
+   "html": "<div><div>Tabs open</div><div>none</div></div>",
+   "count": 1
+  }
+ ],
+ "/it/en/world-of-ita-airways/discover-ita-airways/ita-airways-app": [
+  {
+   "before": "<div><div>Parent title</div><div>Home &gt; Discover ITA Airways</div></div>",
+   "html": "<div><div>Tabs open</div><div>none</div></div>",
+   "count": 1
+  }
+ ]
+}
