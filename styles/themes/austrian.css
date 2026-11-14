@@ -779,6 +779,35 @@ body.brand-austrian .carousel-cards:is(.grid, .phone-slider) .carousel-cards-sli
   line-height: 27px;
 }
 
+/* standing order 33: the two-up grid's picture cards (www's context teasers two a row: baggage, extra-services, check-in,
+   familien) as www's a.teaser.card at every width. Its own CSS: .card-content 3.2rem 3rem, .teaser-link-text
+   0 2.4rem 3.6rem around its 24 px line, .desc-inline tracked 0.19 px, .teaser-heading 0.25 px below 768 px and 0 from
+   it. So the title 32 px under the picture, the copy's end 32 px over the link, the link's line 36 px over the card's
+   end (ours is 25 px high: 3 px under it). /at/en/baggage at 390 was 7 px short a card and wrapped a line less in some
+   copies (-2.83 -> -1.08 %; 1440 -0.90 -> -0.09 %). Scoped to two-up: on the other grids the same card is right, but
+   10 recorded page-widths that are taller than www's elsewhere got 4 to 34 px further (standing order 33's gate) */
+body.brand-austrian .carousel-cards.grid.two-up .carousel-cards-slide:not(.carousel-cards-wide, .carousel-cards-text-only) .carousel-cards-body {
+  padding: 32px 30px;
+}
+
+body.brand-austrian .carousel-cards.grid.two-up .carousel-cards-slide:not(.carousel-cards-wide, .carousel-cards-text-only) .carousel-cards-body > .carousel-cards-cta {
+  padding-bottom: 3px;
+}
+
+body.brand-austrian .carousel-cards.grid.two-up .carousel-cards-slide:not(.carousel-cards-wide, .carousel-cards-text-only) .carousel-cards-body > p:not(.carousel-cards-cta, .carousel-cards-eyebrow) {
+  letter-spacing: 0.19px;
+}
+
+body.brand-austrian .carousel-cards.grid.two-up .carousel-cards-slide:not(.carousel-cards-wide, .carousel-cards-text-only) .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+  letter-spacing: 0.25px;
+}
+
+@media (width >= 768px) {
+  body.brand-austrian .carousel-cards.grid.two-up .carousel-cards-slide:not(.carousel-cards-wide, .carousel-cards-text-only) .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+    letter-spacing: 0;
+  }
+}
+
 /* row 41: picture cards with a text-only card among them (/at/de/bearbeitungsgebuehren: Tarifvergleich
    has no picture) three a row from 1025 px, as www's three-column view; lh-com's login cards (all
    text-only) stay two a row */
