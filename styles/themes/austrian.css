@@ -1354,6 +1354,14 @@ body.brand-austrian main > .section:not(.space-s, .space-m, .space-l, .space-xl)
   }
 }
 
+/* a section that opens with a padded Columns Media right after a section that ends with one (standing order 27, item 4):
+   www has 99 px from one column view's content to the next (each view its own AEM section, special-requirements), ours
+   88 with the 48 px section gap; as padding, a margin would collapse into the gap. Only special-requirements and
+   besondere-anforderungen match among the recorded pages: en 1440 -1.22 -> -0.34 %, 390 -0.97 -> -0.37 % */
+body.brand-austrian main > .section:has(> .columns-media-wrapper:last-child > .columns-media.padded:not(.sidebar)) + .section > .columns-media-wrapper:first-child > .columns-media.padded:not(.sidebar) {
+  padding-top: 43px;
+}
+
 /* partner link tiles on phones (cards-icon-text partner without text: accessible-travel; Austrian row 56, standing order
    16): www's .teaser.partner boxes, 21.5 px over the title plus the column item's 12, 24 px at the sides, 36 below, the
    title 18 px over the box's end, 44 + 12 px to the next tile (the recorded titles 167 / 168 px apart on one line, 192
