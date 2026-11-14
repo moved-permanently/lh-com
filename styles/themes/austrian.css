@@ -1171,6 +1171,14 @@ body.brand-austrian .table-striped :is(td, th) {
   min-width: 200px;
 }
 
+/* a picture in a full-bleed section fills the width, as www's .image-wrapper.full-width-bg (standing order 27, item 4):
+   culinary-services' 1,277 px media stood 1,277 px wide at 1440 (459 px high, www 1,440 x 518); 1440 -1.34 -> -0.64 %,
+   the only recorded page-width it moves (at 390 such pictures already fill the width) */
+body.brand-austrian main > .section.full-bleed > .default-content-wrapper > p > picture > img {
+  width: 100%;
+  height: auto;
+}
+
 /* a stage section that ends with a flight-search band (gb/en and us/en ski-campaign-2026; the standing order after 570
    item 3): www's closing title heading-small at 28 px (22 at 390), 90 px under the fare teaser and 58 px over the band
    at 1440, and 54 px from the band to the footer */
