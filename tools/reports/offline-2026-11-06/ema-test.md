@@ -4164,3 +4164,27 @@ State at the start: nothing of mine uncommitted or unpushed (order 20's final se
    header now says so. A rule that drops a wrapper of hidden spacers only would take those 48 px away again, which the
    gate measured as better there (de/de 390 15.26 -> 13.90 with them), so no rule: future end spacers go inside the
    page's last default-content wrapper, and each header states the 390 effect.
+2. **lufthansa.com, further down the ranking.** ema-adobe's lists on main (and every other list of order 19 on) were
+   read first: 121 paths left out, 147 candidate pages kept, captured fresh on the host with the drops' fonts (294
+   page-widths, logs/p4/so21). Two lists, all rows READY:
+   - delta-so21-lh-com-articles.txt (941ac1b3): eight Explore the World articles. At 1440 www draws the last divider,
+     right before the "Ready to discover ... Book a flight" teaser, 16 to 18 px lower than ours; at 390 not. A
+     {spacer-16 from-768} right before that divider, inside the existing wrapper (no new wrapper, nothing on phones).
+     The local render draws no parallax pictures, so each row gives the live page as base plus the folder delta, and
+     says so. The owner's harness has since published them (39b3955e); measured again on the host against the
+     captures before: 7 better (1440 -0.77 to -2.16), 9 within 0.5, 0 worse; the estimates hold or were short.
+   - delta-so21-lh-com-pages.txt (f8865288): de/en/digital-self-services had all its column views in one section; its
+     DA copy with the inserts equals gb/en's apart from locale paths and pictures (1440 8.13 -> 3.45, 390 8.25 ->
+     7.01). 100-years/campaigns' intro spacer 50 -> 26 (15.44 / 17.38 -> 4.93 / 10.46), lufthansa-first-class-fleet's
+     end spacer 70 -> 34 (8.22 -> 6.64 at 1440, 390 within), in-my-hood-chiswick-london two spacers before its teaser
+     (a map page: live base plus the folder delta, 9.56 / 11.22 -> 6.44 / 9.14).
+   - Not shipped: a rule for articles (a section opening with a divider after text, 17 px more from 768 px). On the
+     41 insights rows at 1440 it left these pages unchanged and made 9 page-widths worse: wrong shape. The right
+     shape (the divider right before the teaser) has a-perfect-day-barcelona-in-one-day without the step, so per page.
+   - Looked at, no row (the drift there is not one spacing): tags/allegris in four locales (the step is at the end of
+     the blog overview, whose list comes from the query index, and more steps follow in the grey band and cards);
+     de/de and at/de digital-self-services (a -44 that comes back within 100 px); meetings-and-events (a 187 px step
+     at a column end); zugspitze and gepaeck (a block's height that the next boundary cancels); a-perfect-day-*,
+     know-before-you-go-berlin, florian-tomberg (steps that later boundaries cancel); anniversary-super-crane-special
+     (its divider's +25 cancels a 1440-only -31 under the article header); allegris-premium-economy-san-diego (ours 16
+     px longer between two headings); 100-years/crane (held in order 20).
