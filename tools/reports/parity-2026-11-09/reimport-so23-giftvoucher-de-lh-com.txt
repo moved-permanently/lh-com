@@ -1,0 +1,28 @@
+# Standing order 23 (2026-11-14), item 2: giftvoucher's de cards ("Visit the FAQs", "Redeem on lufthansa.com", "Buy Gift
+# Card now" under the cards on www). Replaces reimport-so22-giftvoucher-de-lh-com.txt, which the harness put back on HOLD.
+# Expected change once the cause is in the importer: the de version's three cards get www's line under the card, as a
+# link to the card's target. Nothing else of the document changes. A re-import should not also bring top-flush on the
+# stage, column marks, absolute www links and www picture hosts: compare with DA's copy and keep only the cards.
+# Why HOLD (no code change yet):
+# - The carousel-cards parser already keeps a card's .teaser-link-text as a link under the card when the card carries
+#   data-import-cta (Austrian's mechanism, austrian-import.mjs). Keeping it on every lufthansa.com card would be wrong:
+#   www's CSS hides it (app.css: .teaser .teaser-link-text { display: none }, its icon too; lh-snapshots-116's css), and
+#   recordings show it hidden on cards of the same structure (a.teaser.card > image-wrapper, card-content > heading,
+#   description, teaser-link-text): /de/en/lufthansa-travel-classes 2026-11-06 ("Discover Allegris" not drawn),
+#   /de/de/discover-lufthansa/lufthansa-fleet/351 today ("Flugzeug entdecken" not drawn). Census of the local www
+#   snapshots: 100 grid cards and 299 swiper cards with a link text; a blanket rule would add a line under each.
+# - On giftvoucher's recording (lh-parity-002a, 2026-11-06) the three lines sit below the card boxes with three different
+#   icons by link type (down arrow for the #faqs anchor, right arrow internal, up-right external). That is how www draws
+#   its navigation-link component, not the card's link text (one icon-hyperlink icon, hidden). So in the de version
+#   something other than the plain .teaser-link-text draws them. The evidence diff of brief 582
+#   (tools/reports/markets/lh-market-diff/evidence/de/en/book-and-manage/flights/giftvoucher.txt) elides the shared
+#   tokens, so it does not show what.
+# For the harness (it has lh-snapshots-083): in /de/en/book-and-manage/flights/giftvoucher, what holds "Visit the FAQs"?
+#   - a maui-navigation-link / div.link component after each a.teaser.card in its column-view item: the parser should
+#     take that link component under the card (a rule for every card followed by one);
+#   - or the .teaser-link-text itself, with a class or attribute on the card, its view or the page that the hidden ones
+#     lack: the importer marks such cards data-import-cta (then the parser's existing path keeps the line).
+#   Either answer turns this into an importer rule with a test and a census; then this list goes READY.
+# status	document	tool	expected change	gate
+HOLD	/de/en/book-and-manage/flights/giftvoucher	re-import of the de sections (lh-snapshots-083) after the importer rule	the three lines under the de cards	recorded 1440: cards' lines missing (about 45 px); 14.3 / 23.4 today at 1440 / 390
+HOLD	/de/de/book-and-manage/flights/giftvoucher	re-import of the de sections (lh-snapshots-084) after the importer rule	as de/en	not recorded
