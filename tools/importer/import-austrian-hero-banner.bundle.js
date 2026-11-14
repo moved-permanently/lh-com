@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-hero-banner.js
-  var tmp_bundle_austrian_hero_banner_758595_exports = {};
-  __export(tmp_bundle_austrian_hero_banner_758595_exports, {
-    default: () => tmp_bundle_austrian_hero_banner_758595_default
+  var tmp_bundle_austrian_hero_banner_1006752_exports = {};
+  __export(tmp_bundle_austrian_hero_banner_1006752_exports, {
+    default: () => tmp_bundle_austrian_hero_banner_1006752_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -4139,6 +4139,25 @@ var CustomImportScript = (() => {
   }
 
   // tools/importer/parsers/carousel-cards.js
+  function linkBelow(card) {
+    const teaser = card.closest(".teaser.section") || card;
+    const item = card.closest(".column-view-item");
+    const sep = teaser.nextElementSibling;
+    const comp = sep && sep.nextElementSibling;
+    if (!item || !sep || !comp || sep.parentElement !== item || !sep.matches(".separator")) return null;
+    if (!comp.matches(".link")) return null;
+    const nav = comp.querySelector("maui-navigation-link[href], a[href]");
+    if (!nav) return null;
+    const label = [...nav.childNodes].filter((n) => n.nodeType === 3 || !(n.classList && n.classList.contains("sr-only"))).map((n) => n.textContent).join(" ").replace(/\s+/g, " ").trim();
+    if (!label) return null;
+    const doc = card.ownerDocument;
+    const p = doc.createElement("p");
+    const a = doc.createElement("a");
+    a.href = nav.getAttribute("href");
+    a.textContent = label;
+    p.append(a);
+    return p;
+  }
   function parse21(element, { document }) {
     const SR_ONLY2 = ".sr-only, .visually-hidden, maui-screen-reader-label";
     const clean3 = (s) => (s || "").replace(/[​-‍﻿]/g, "").replace(/\s+/g, " ").trim();
@@ -4292,7 +4311,8 @@ var CustomImportScript = (() => {
           content.push(p);
         }
         if (!imageCell && !content.length) return;
-        rows.push([imageCell, content.length ? content : ""]);
+        const below = linkBelow(card);
+        rows.push(below ? [imageCell, content.length ? content : "", below] : [imageCell, content.length ? content : ""]);
       });
       let variants = [];
       if (isArticle) variants = ["article"];
@@ -9358,7 +9378,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_hero_banner_758595_default = {
+  var tmp_bundle_austrian_hero_banner_1006752_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9398,5 +9418,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_hero_banner_758595_exports);
+  return __toCommonJS(tmp_bundle_austrian_hero_banner_1006752_exports);
 })();

@@ -37,6 +37,31 @@ import { viewerNodes } from './media-nodes.js';
  * bold link (yellow button); the booking code maui-button opens a dialog on live that the
  * replica does not have: italic link (outlined button) to "#booking-code".
  */
+/**
+ * www's link under a card: the card's teaser component, then in the same column-view item a separator and a
+ * navigation-link component (giftvoucher's de cards). A <p> with the link, or null.
+ */
+function linkBelow(card) {
+  const teaser = card.closest('.teaser.section') || card;
+  const item = card.closest('.column-view-item');
+  const sep = teaser.nextElementSibling;
+  const comp = sep && sep.nextElementSibling;
+  if (!item || !sep || !comp || sep.parentElement !== item || !sep.matches('.separator')) return null;
+  if (!comp.matches('.link')) return null;
+  const nav = comp.querySelector('maui-navigation-link[href], a[href]');
+  if (!nav) return null;
+  const label = [...nav.childNodes].filter((n) => n.nodeType === 3 || !(n.classList && n.classList.contains('sr-only')))
+    .map((n) => n.textContent).join(' ').replace(/\s+/g, ' ').trim();
+  if (!label) return null;
+  const doc = card.ownerDocument;
+  const p = doc.createElement('p');
+  const a = doc.createElement('a');
+  a.href = nav.getAttribute('href');
+  a.textContent = label;
+  p.append(a);
+  return p;
+}
+
 export default function parse(element, { document }) {
   const SR_ONLY = '.sr-only, .visually-hidden, maui-screen-reader-label';
   const clean = (s) => (s || '').replace(/[​-‍﻿]/g, '').replace(/\s+/g, ' ').trim();
@@ -217,7 +242,11 @@ export default function parse(element, { document }) {
         content.push(p);
       }
       if (!imageCell && !content.length) return;
-      rows.push([imageCell, content.length ? content : '']);
+      // www's line under the card (giftvoucher's de cards, lh-snapshots-083): in the card's column-view item, a
+      // separator, then a navigation-link component; the card's own .teaser-link-text stays hidden. Its own cell
+      // after the text cell: the block draws it under the card box (standing order 24)
+      const below = linkBelow(card);
+      rows.push(below ? [imageCell, content.length ? content : '', below] : [imageCell, content.length ? content : '']);
     });
 
     // articles: three cards in the article column; column views: cards in rows (".fourcolumn"

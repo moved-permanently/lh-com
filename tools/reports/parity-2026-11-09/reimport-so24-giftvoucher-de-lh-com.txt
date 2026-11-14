@@ -1,0 +1,22 @@
+# Standing order 24 (2026-11-14), item 2: giftvoucher's de cards, for the local harness (it runs the import from the
+# archives). Replaces reimport-so23-giftvoucher-de-lh-com.txt.
+# Expected change: the de version's three cards (carousel-cards grid, "Get or redeem a Gift Card") get www's line under
+# each card as a third cell of their row: "Visit the FAQs" -> /de/en/book-and-manage/flights/giftvoucher#faqs,
+# "Redeem on Lufthansa.com" -> /de/en/homepage, "Buy Gift Card now" -> https://voucher.lufthansa.com/lh/sales/new?locale=en
+# (de/de: the German texts and links of lh-snapshots-084). Nothing else of the document changes.
+# Code on main with this list:
+# - the carousel-cards parser takes www's navigation-link component that follows a card in its column-view item after
+#   a separator, as a cell of its own (the harness's answer on lh-snapshots-083; test/carousel-cards-link-below-so24);
+# - the block draws a cell of only links after the text cell 10 px under the card box, with www's icon per link
+#   (anchor down, internal right, external up-right).
+# The card's own hidden .teaser-link-text stays out ("Continue"). Census: the shape is in none of the local snapshots;
+# the published carousel-cards rows have no such cell today, so nothing else changes; offline imports of
+# lufthansa-travel-classes and flying-with-small-children before and after: byte for byte the same.
+# How: re-import the de sections with main's info bundle, then take into DA's copy only the three cards' third cells;
+# keep everything else as DA's. The harness's last run also brought top-flush on the stage, column marks, absolute www
+# links and, on de/de, www picture hosts: leave those out.
+# Gate: a draft of DA's published de/en copy with the three cells added, working-copy code, against the recording
+# lh-parity-002a: 14.3 / 23.4 -> 13.2 / 19.8 % at 1440 / 390.
+# status	document	tool	expected change	gate
+READY	/de/en/book-and-manage/flights/giftvoucher	re-import of the de sections (lh-snapshots-083, main's info bundle); only the cards' third cells into DA's copy	the three lines under the de cards	draft 14.3 / 23.4 -> 13.2 / 19.8 at 1440 / 390
+READY	/de/de/book-and-manage/flights/giftvoucher	re-import of the de sections (lh-snapshots-084, main's info bundle); only the cards' third cells into DA's copy	as de/en, with the German lines	not recorded

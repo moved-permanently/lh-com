@@ -153,10 +153,26 @@ function buildSlide(cells) {
       && links.every((a) => textHrefs.has(a.getAttribute('href')));
   };
 
-  cells.forEach((cell) => {
+  // a cell of only link paragraphs after the card's text cell: www's line under the card (a
+  // navigation-link component after the card: giftvoucher's de cards, standing order 24), drawn
+  // under the card box, not in it
+  const below = el('div', 'carousel-cards-below');
+  const linksOnly = (cell) => cell.children.length > 0 && [...cell.children].every((c) => c.tagName === 'P'
+    && c.querySelector('a[href]') && !c.querySelector('picture, img')
+    && cleanText(c) === [...c.querySelectorAll('a[href]')].map((a) => cleanText(a)).join(' '));
+
+  cells.forEach((cell, index) => {
     const token = cleanText(cell).toLowerCase();
     if (WIDTH_TOKENS.includes(token) && !cell.querySelector('picture, img, a')) {
       li.classList.add(`carousel-cards-${token}`);
+      return;
+    }
+    // (the text cell's heading is in the body by now)
+    if (index > 0 && linksOnly(cell) && body.querySelector('h1, h2, h3, h4, h5, h6')) {
+      [...cell.children].forEach((p) => {
+        p.classList.add('carousel-cards-cta');
+        below.append(p);
+      });
       return;
     }
     const picture = cell.querySelector('picture');
@@ -194,6 +210,10 @@ function buildSlide(cells) {
   if (image.children.length) li.append(image);
   else li.classList.add('carousel-cards-text-only');
   if (body.children.length || !videoLink) li.append(body);
+  if (below.children.length) {
+    li.classList.add('carousel-cards-has-below');
+    li.append(below);
+  }
   return li;
 }
 
