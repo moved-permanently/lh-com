@@ -33,6 +33,19 @@ export function applyFragments(html, rows) {
   return { html: out, problems };
 }
 
+/**
+ * The paths of a list's READY rows, in either layout: READY / HOLD as the first column and the path second (standing
+ * order 14), or the path first and the status in a later column (the older lists). Comment lines and HOLD rows never.
+ * @param {string} text the list file
+ * @returns {string[]}
+ */
+export function readyPaths(text) {
+  return text.split('\n').filter((l) => l.trim() && !l.startsWith('#')).map((l) => l.split('\t')).flatMap((c) => {
+    if (/^(READY|HOLD)\b/.test(c[0])) return c[0].startsWith('READY') ? [c[1].trim()] : [];
+    return c.slice(1).some((v) => /^READY\b/.test(v)) ? [c[0].trim()] : [];
+  });
+}
+
 const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
   const argv = process.argv.slice(2);
@@ -40,8 +53,7 @@ if (isMain) {
   const data = JSON.parse(fs.readFileSync(opt('data'), 'utf8'));
   let paths = Object.keys(data);
   if (opt('list')) {
-    const lines = fs.readFileSync(opt('list'), 'utf8').split('\n').filter((l) => l.trim() && !l.startsWith('#'));
-    const ready = lines.filter((l) => /\tREADY\b/.test(l)).map((l) => l.split('\t')[0].trim());
+    const ready = readyPaths(fs.readFileSync(opt('list'), 'utf8'));
     paths = paths.filter((p) => ready.includes(p));
   }
   let problems = 0;

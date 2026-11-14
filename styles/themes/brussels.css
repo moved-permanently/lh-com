@@ -1475,3 +1475,18 @@ body.brand-brussels main .accordion-columns .accordion-columns-panel :is(h2, h3,
     padding-bottom: calc(var(--spacing-default) + 31px);
   }
 }
+
+/* sidebar-h1 pages that end with a link line (Brussels P56; standing order 14 of 2026-11-13/14, item 1): on www the
+   footer starts 60 to 82px under such a page's last link at 1440, 70 to 116px on phones (refund-for-cancelled-flights,
+   service-charges, cancel-and-refund-requests; their recordings rendered here), ours 48 (the section gap). Seven
+   recorded pages closer at both widths, none further; a sidebar section that ends with an accordion or a spacer keeps
+   48px (with them the rule took five legal pages further) */
+body.brand-brussels main > .section.sidebar-h1:last-child:has(> .default-content-wrapper:last-child > p:last-child > a:only-child) {
+  margin-bottom: 70px;
+}
+
+@media (width >= 768px) {
+  body.brand-brussels main > .section.sidebar-h1:last-child:has(> .default-content-wrapper:last-child > p:last-child > a:only-child) {
+    margin-bottom: 60px;
+  }
+}

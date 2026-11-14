@@ -1,0 +1,16 @@
+{
+  "/ch/en/book-and-manage/overview-extra-services": [
+    {
+      "before": "</div><div><h3 id=\"medication-transport\">",
+      "html": "<picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_variations/c-1009756376-LX048_Visual_Medication_Transport_Page_1440×480px.jpg\" alt=\"\"></picture>",
+      "count": 1
+    }
+  ],
+  "/ch/de/book-and-manage/overview-extra-services": [
+    {
+      "before": "</div><div><h3 id=\"medikamententransport\">",
+      "html": "<picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_variations/c-1009756376-LX048_Visual_Medication_Transport_Page_1440×480px.jpg\" alt=\"\"></picture>",
+      "count": 1
+    }
+  ]
+}
