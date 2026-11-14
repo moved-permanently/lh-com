@@ -1,0 +1,32 @@
+# Standing order 20 (2026-11-14), item 2: the next lufthansa.com info pages from the fresh live ranking, per-page causes and
+# the documents of this order's later importer change. Expected change: per document below, only what its row names: www's
+# blank lines from <br> runs as {spacer-54} before the paragraph after them (wheelchair-batteries: the importer writes
+# them since this order, the census of the 870 info and legal snapshots: these 4 documents); a padded AEM section of www
+# split off as a section of its own (rebook: "Not sure which applies?", a fresh import writes it, DA's copy is older);
+# style flush on padded sections before a padded one or a stage (first-class-terminal: a fresh import writes them, DA's
+# copy is older). Nothing else of a document changes. None of these depends on a branch.
+# Measured as drafts on our host against www's recordings (% off www at 1440 / 390, today -> with the row):
+#   wheelchair-batteries (with delta-so20's two empty lines) 14.9 / 14.4 -> 4.4 / 6.8, its height www's at both widths;
+#   rebook 15.9 / 15.1 -> 10.7 / 14.0, its height www's; first-class-terminal (with delta-so20's Cigar Lounge row, live)
+#   12.7 / 28.4 -> 8.2 / 22.9. The other roots are not recorded; their copies have the same place (each row placed once
+#   on its published copy of 2026-11-14).
+# HOLD: premium-economy-class's last section as padded (a fresh import writes it): 10.1 / 15.5 -> 8.0 / 16.9, worse at 390;
+# giftvoucher: DA's copy holds the page twice (the promotion version with the "save 5%" stage, then the regular one): an
+# unresolved rollout merge for tools/loc/merge-newer.mjs and DA's version list, not a row; traveltricks stays as in
+# delta-so19-info-pages-lh-com.txt (the store URLs). miles-and-more-credit-card's padded end section (a fresh import writes
+# it) has no heading to anchor a row: a re-import of the page would bring it.
+# For DA's copies: node tools/importer/<tool>.mjs --data <[row]> --in <DA copy> --out <file> (tests: delta-tools-so20,
+# section-split-so18, section-style-so18).
+# Columns: status, DA path, the tool and its row, what changes on the page.
+READY	/de/en/wheelchair-batteries	paragraph-spacer-apply {"text": "The following conditions must be observed", "n": 54, "all": true}	www's two blank lines before each of the three "The following conditions…" paragraphs: 14.9 / 14.4 -> 4.4 / 6.8 with delta-so20's empty lines
+READY	/gb/en/wheelchair-batteries	paragraph-spacer-apply {"text": "The following conditions must be observed", "n": 54, "all": true}	as de/en (not recorded)
+READY	/de/de/rollstuhlbatterien	paragraph-spacer-apply {"text": "Folgende Vorgaben sind einzuhalten", "n": 54, "all": true}	as de/en (not recorded)
+READY	/at/de/rollstuhlbatterien	paragraph-spacer-apply {"text": "Folgende Vorgaben sind einzuhalten", "n": 54, "all": true}	as de/en (not recorded)
+READY	/de/en/book-and-manage/rebook	section-split-apply {"heading": "Not sure which applies?", "before": "", "style": "padded"}	"Not sure which applies?" a padded section of its own, as www's AEM section: 15.9 / 15.1 -> 10.7 / 14.0
+READY	/de/de/book-and-manage/rebook	section-split-apply {"heading": "Sie sind sich nicht sicher, welche Situation auf Sie zutrifft?", "before": "", "style": "padded"}	as de/en (not recorded; gb/en and at/de have it already)
+READY	/de/en/first-class-terminal	section-style-apply {"heading": "First-class drinks", "add": "flush"} | section-style-apply {"heading": "From the lounge straight to boarding", "add": "flush"}	no section gap after the two padded sections without .mb-default: 12.7 / 28.4 -> 8.2 / 22.9
+READY	/gb/en/first-class-terminal	section-style-apply {"heading": "First-class drinks", "add": "flush"} | section-style-apply {"heading": "From the lounge straight to boarding", "add": "flush"}	as de/en (not recorded)
+READY	/de/de/first-class-terminal	section-style-apply {"heading": "Erstklassige Drinks", "add": "flush"} | section-style-apply {"heading": "Von der Lounge direkt an Bord", "add": "flush"}	as de/en (not recorded)
+READY	/at/de/first-class-terminal	section-style-apply {"heading": "Erstklassige Drinks", "add": "flush"} | section-style-apply {"heading": "Von der Lounge direkt an Bord", "add": "flush"}	as de/en (not recorded)
+HOLD	/de/en/premium-economy-class	section-style-apply {"heading": "Lufthansa First Class", "add": "padded"}	the last section padded, as a fresh import writes it: 10.1 / 15.5 -> 8.0 / 16.9, worse at 390
+HOLD	/de/en/book-and-manage/flights/giftvoucher	(none: the merge tool)	DA's copy holds the page twice, the promotion and the regular version: an unresolved rollout merge (tools/loc/merge-newer.mjs decides by DA's version list)

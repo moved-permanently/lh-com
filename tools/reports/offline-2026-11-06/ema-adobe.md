@@ -3921,3 +3921,62 @@ Left out of git:
 - logs/b611: the measurement and ranking runs, captures, crops, gates, census scripts and results, debug bundles.
 - /tmp: the import workspaces (ws-617-so19*) and the importer copies.
 - The untracked import reports of earlier runs.
+
+### Standing order 20 (2026-11-13 23:35 to 2026-11-14 06:00 CET)
+
+Nothing uploaded, previewed or published; DA was not touched; no request to an airline host (every import offline through
+the fixed default copy, every capture with the airline hosts aborted). Each push: whole-repo lint read 0 on a clean
+worktree of the rebased HEAD, stylelint 0, the tests reading the changed files passed. No change deploys lh-edge. Order
+19 left nothing unpushed. /de/en/overview-manage: no row.
+
+1. **The general grey-band rule: through the 0.5 gate on all 51 page-widths, on branch so20-grey-band-rule.**
+   - ana (book-and-manage/flights/ana): measured at the text, our 48px gap is right at 390 (the FAQ title 1px off
+     www's) and 23px short at 1440. 0, 24 and 24 + the section padding each fail one width, so there is no single CSS
+     value. Its band (a whole grey AEM section with .mb-default before a padded AEM section on www) gets style
+     before-padded from the importer (info, legal; 93c2365). No CSS draws it on a grey section; the rule skips it.
+   - flight-disruptions 390: the -61px drift at the top is the jump links. www's ul.responsive stacks them below 768px,
+     ours drew two a line. Option stacked now (cleanup + blocks/jump-links, 93c2365): 23 documents. Alone it makes 390
+     worse (11.7 -> 13.6, the old compensation); with the rule 9.3.
+   - passenger-rights 1440: the -57px step is www's empty line after the compensation list (<p>&nbsp;</p>, 56px on www,
+     dropped by the framework). The cleanup writes {spacer-56}: 8 documents. Correction: my first version (93c2365) ran
+     after helix-importer's preprocessing had removed the empty paragraphs, so a real import wrote nothing (its test
+     skipped that step). 1b5bc2d marks the line in onLoad, and the test now drops empty paragraphs as the import does.
+     Checked on the offline imports.
+   - The gate, live on our host with these rows as drafts: 51 page-widths, 21 better, none worse by more than 0.5, about
+     -90 points. Some examples: entryprocesses 28.6 / 17.0 -> 16.4 / 6.3, the long-haul business-class page 23.3 / 27.6
+     -> 13.9 / 21.3, arrival-services 15.2 / 13.1 -> 10.4 / 9.8, doctor-on-board 8.2 / 11.5 -> 3.5 / 6.9. The flights pages
+     needed a second capture (one first capture broken).
+   - The rule is on branch so20-grey-band-rule (one commit on main, lint 0, the 309 stylesheet tests pass). It reaches
+     ana's published copy today, so it merges with the WITH-branch rows of delta-so20-grey-band-and-info-pages-lh-com.txt
+     (ana, flight-disruptions and its language versions, passenger-rights), as order 18's did.
+   - Held: the column-end-before-band rule (passenger-rights' +45px into the band; arrival-services 15.2 -> 6.8): it
+     made green-fare worse (2.9 / 4.6 -> 4.0 / 5.8) and doctor-on-board worse than without it.
+2. **The next info pages from the ranking.**
+   - Shipped in code, each with its census and gate:
+     - A padded AEM section without .mb-default right before a stage gets flush (88fc3cd): first-class-terminal
+       14.9 / 32.0 -> 12.7 / 28.4, economy-class 15.9 / 28.1 -> 13.5 / 22.9. With .mb-default (spaced)
+       tips-senior-travellers got worse: as before.
+     - Untitled partner cards (Icon Text Cards: the icon line, then the description 51px in, as www's; entry-exit-system
+       13.0 / 18.5 -> 9.7 / 15.3; 88fc3cd, lufthansa.com only).
+     - www's blank lines from <br> runs (two and more before a paragraph's text, three and more inside it) as
+       {spacer-54} (this push). wheelchair-batteries 14.9 / 14.4 -> 4.4 / 6.8 with its empty lines, the page as tall as
+       www's. A single leading <br> measured as nothing (the Insights imprint) and is left out. Census of the 870 info and
+       legal snapshots: the 4 wheelchair-batteries documents.
+   - Rows (delta-so20-grey-band-and-info-pages-lh-com.txt: 57 READY; delta-so20-info-pages-2-lh-com.txt: 10 READY, 2
+     HOLD).
+     - A fresh import of the 29 ranked info pages against their published copies showed DA's copies older than the
+       importer: rebook's padded "Not sure which applies?" (15.9 / 15.1 -> 10.7 / 14.0) and first-class-terminal's two
+       flush sections (12.7 / 28.4 -> 8.2 / 22.9) as rows.
+     - premium-economy-class's padded end section HOLD (worse at 390).
+     - miles-and-more-credit-card's end section (no heading to anchor a row): a re-import.
+   - Found, not fixed:
+     - giftvoucher: DA's copy holds the page twice, the promotion version and the regular one, an unresolved rollout
+       merge for the loc merge tool.
+     - travelling-healthy and economy-class 390: drift that builds over the page (row heights, text wrapping).
+     - menus-on-long-haul's band in-column: no change measured.
+3. **traveltricks** stays HOLD (the store URLs; delta-so19-info-pages-lh-com.txt).
+
+Left out of git:
+- logs/b612: the gates, captures, crops, census scripts and results, the trial stylesheets, the drafts and dry runs.
+- /tmp: the import workspaces (ws-617-so20*) and the importer copies.
+- The untracked import reports of earlier runs.
