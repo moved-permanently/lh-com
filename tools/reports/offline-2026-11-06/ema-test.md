@@ -4292,7 +4292,8 @@ discover-parity-003, discover-snapshots-004); their serve.py not run.
 - Item 3: take-off READY; the joint-venture texts READY ({limited-width}, no B2B CSS); B2B's footer market button
   names the page's root (6e0835f6, live: CH | EN, XX | DE); munich-fair and six more held with their reasons.
 - The owner published meals-on-board, the joint ventures, excess-baggage and take-off; on the hosts each measures
-  as its folder trial. business-class's rows came later and are not published.
+  as its folder trial. business-class's rows were published last (a6dec8d8): on the host de/en 1440 21.61 ->
+  9.87, de/de 8.41, 390 unchanged (20.73, 20.80).
 - Before this section: the full suite on ca121f4e (this section's text before these test lines) 1104 files pass, lint
   and stylelint 0; the tests that read the themes folder 1015 pass (1 skipped); lint read before every push; Build
   success on 2b8675e9, 4da19b89 and 6e0835f6 (later ones checked after the push).
