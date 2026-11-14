@@ -511,7 +511,11 @@ export function decorateMedia(root) {
       anchor.replaceWith(buildVideo(link, picture || null));
       if (prevPara && !prevPara.children.length) prevPara.remove();
       found = true;
-    } else if (isEmbedLink(link)) {
+    } else if (isEmbedLink(link) && (embedFor(link.href).type !== 'youtube' || isUrlText(link))) {
+      // in running content a labelled YouTube link is www's button or link: the importer
+      // writes www's players as their address (standing order 21: onboard-delights'
+      // "To the interview" became a player under the text); a media cell's lone labelled
+      // link stays the player (SWISS's cards)
       const embed = buildEmbed(link);
       p.replaceWith(embed);
       found = true;
