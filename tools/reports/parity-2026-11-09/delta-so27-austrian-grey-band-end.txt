@@ -1,0 +1,25 @@
+# ema-cashub, standing order 27 (2026-11-14), item 3: the grey band that ends the page (medical-travel-companions,
+# doctor-on-board, bearbeitungsgebuehren). Expected change: none yet; every row is HOLD. No row above a band passes on its own:
+# the 48 px of white under each band hide what is missing above it, so each fix above the band makes the page longer than
+# www's. Only "the rows plus the band end" places the headings where www's are; even then each page moves further at one
+# width by about 0.5 points (below). Your call: the combinations as DA rows, or wait.
+# Ours: austrian.turnsthe.page; drafts = the published copy plus the change (so24/host.mjs, <main> replaced); consent stored,
+# pictures eager; www.* and the airline hosts refused and counted (0 / 1 / 0 per render, none sent). Control = live on all
+# three (2,766 / 3,129; 4,528 / 5,795; 3,165 / 4,107 px at 1440 / 390). Heading offsets read at the text's top (a
+# {column-start} heading's 32 px padding is above its text). www: austrian-parity-003 / -015 (the 390s are 1440 loads
+# resized: pointers).
+# The band end: each document ends with an empty section after the band, so styles.css's ".section.grey.flush:last-child"
+# never applies and 48 px of white stay above the footer (www's band touches it). Deleting that empty section in DA does what
+# the code rule (order 26's candidate: .section.grey.flush + .section:empty:last-child) would do. The rule reaches exactly
+# these three of the 121 recorded Austrian documents. Its gate is the rows below, as they stand. A re-import writes the
+# empty section again; the rule would survive that, a DA edit would not.
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the change, 1440, 390 (www, live, the change
+# alone, and where noted with the others), note.
+
+HOLD	/at/en/plan/special-requirements/medical-travel-companions.html	A: " {column-start}" at the end of h2 "Services at a glance"; a paragraph "{column-end}" right after "More information about medical travel companions"	www 2775, live 2766 (-0.32 %), A alone 2830 (+1.98 %); A + C 2782 (+0.25 %)	www 3120, live 3129 (+0.29 %), A alone 3193 (+2.34 %); A + C 3145 (+0.80 %)	www's text sits in a one-column view: "Services at a glance" 28 px lower (390: 39), the band 23 px lower (16). A alone overshoots by 64 px; with C each heading is within 13 px of www's at 1440. A + C: 1440 0.07 points closer, 390 0.51 further. The {column-start} alone: 2798 (+0.83 %) / 3161 (+1.31 %)
+HOLD	/at/en/plan/special-requirements/medical-travel-companions.html	C: delete the empty last section (the section break after the grey band's Section Metadata)	C alone 2718 (-2.05 %)	C alone 3081 (-1.25 %)	fails alone; see A
+HOLD	/at/en/plan/special-requirements/healthy-travel/doctor-on-board.html	A1: the Columns Media in "Are you a doctor and interested ..." becomes "Columns Media (padded)"	www 4529, live 4528 (-0.02 %), A1 alone 4568 (+0.86 %); A1 + A2 4600 (+1.57 %); A1 + A2 + C 4552 (+0.51 %)	www 5857, live 5795 (-1.06 %), A1 alone 5835 (-0.38 %); A1 + A2 5867 (+0.17 %); A1 + A2 + C 5819 (-0.65 %)	www nests a three-column view in the grey one-column view: its 32 px above the items (ours -32 at 1440; with A1, 0). A1 + A2 + C: every heading within 15 px of www's at 1440; 1440 0.49 points further, 390 0.41 closer. The column-start on "Your benefits" (live, ea87d504) is right: that heading now sits at www's y
+HOLD	/at/en/plan/special-requirements/healthy-travel/doctor-on-board.html	A2: " {column-start}" at the end of h2 "Contact"	A2 alone 4560 (+0.68 %)	A2 alone 5827 (-0.51 %)	www's Contact is a white one-column view of its own: 43 px lower (with A2, 11). Its "{column-end}" too would overshoot by 32 px (Contact -> band +47): not part of the row
+HOLD	/at/en/plan/special-requirements/healthy-travel/doctor-on-board.html	C: delete the empty last section (after the grey band "This may also interest you")	C alone 4480 (-1.08 %)	C alone 5747 (-1.88 %)	fails alone; see A1
+HOLD	/at/de/bearbeitungsgebuehren.html	C: delete the empty last section (after the grey band "Das könnte Sie auch interessieren")	www 3140, live 3165 (+0.80 %), C alone 3117 (-0.73 %)	www 4125, live 4107 (-0.44 %), C alone 4059 (-1.60 %)	nothing short above the band in all: -30 and -44 px in the fee views are made up by +69 px in the contact part, whose 61 px spacer is www's separator (net -5 / -13 px). 1440 0.07 points closer, 390 1.16 further
+HOLD	(code) styles/themes/austrian.css	the band rule: body.brand-austrian main > .section.grey.flush:has(+ .section:empty:last-child) { margin-bottom: 0 } and the empty section without margins	the same as C on each page	the same as C	reaches these three documents only (121 recorded). test/austrian-grey-column-view-591 forbids a different rule (order 591's 24 px of white under the band), not this one. Not shipped: its gate is the A rows, which are HOLD
