@@ -49,3 +49,53 @@
 # answer that call too, today they answer Discover's FRA call only).
 # host: lufthansa.turnsthe.page
 /gb/en/flights
+# Standing order 26 (2026-11-14), item 3: lufthansa.com's other offers grids. Every page below has a Destination
+# Finder (grid) block without an authored origin; in our renders its grid draws no prices (headless loads refuse
+# www.lufthansa.com), so its cards, sort, badges and Compare cities cannot be gated. /gb/en/flights is answered
+# (lufthansa-api-001) and gated (delta-so26-lh-com-flights.txt). Please record, as lufthansa-api-001, one load of our
+# page each at 1440 (index.json with every /service/api call, its X-Portal header, status and body; the bodies as
+# received). The call I expect is destinationfinder/destination/finder/{origin}/E?months=0_11&tripType=RETURN with
+# X-Portal LH and the page's X-Portal-Site and -Language; {origin} is the market's default airport (www's
+# defaultAirport, else the home airport given here): please keep whatever origin the page asks for. Prices are per
+# market and language (currency, names), so each page needs its own load; de/en and de/de both ask FRA.
+# Correction to my standing order 23 request for Discover's homepages above: the fare teaser asks no
+# fareteaser/offers call; its prices come from the destinationfinder answer (discover-snapshots-006 shows it).
+# First, the three with a www recording to gate against (lh-parity-004a/004b).
+# expected calls (origin, site, language): de/en FRA, DE, en; de/de FRA, DE, de; at/de VIE, AT, de
+# host: lufthansa.turnsthe.page
+/de/en/flights
+/de/de/fluege
+/at/de/fluege
+# Then the others. They have no www recording yet; to gate them a www load at 1440 and 390 each is needed as well
+# (as lh-parity-004a), on the same day as the answer if possible.
+# expected calls (origin, site, language): ch/de ZRH, CH, de; ba/en SJJ, BA, en; in/en DEL, IN, en; lb/en BEY, LB, en; sa/en RUH, SA, en; it/de MIL, IT, de; it/en MIL, IT, en; jp/en TYO, JP, en; pl/de WAW, PL, de; pl/en WAW, PL, en; pt/de LIS, PT, de; pt/en LIS, PT, en; ru/en FRA, RU, en; xx/fr FRA, XX, fr; xx/es FRA, XX, es; xx/pt FRA, XX, pt; pt/pt LIS, PT, pt; xx/ru FRA, XX, ru; xx/hk FRA, XX, hk; xx/zh FRA, XX, zh; xx/it FRA, XX, it; it/it MIL, IT, it; xx/el FRA, XX, el; xx/ja FRA, XX, ja; jp/ja TYO, JP, ja; xx/ko FRA, XX, ko; xx/pl FRA, XX, pl; pl/pl WAW, PL, pl; se/en STO, SE, en
+# host: lufthansa.turnsthe.page
+/ch/de/fluege
+/ba/en/flights
+/in/en/flights
+/lb/en/flights
+/sa/en/flights
+/it/de/fluege
+/it/en/flights
+/jp/en/flights
+/pl/de/fluege
+/pl/en/flights
+/pt/de/fluege
+/pt/en/flights
+/ru/en/flights
+/xx/fr/flights
+/xx/es/flights
+/xx/pt/flights
+/pt/pt/flights
+/xx/ru/flights
+/xx/hk/flights
+/xx/zh/flights
+/xx/it/flights
+/it/it/flights
+/xx/el/flights
+/xx/ja/flights
+/jp/ja/flights
+/xx/ko/flights
+/xx/pl/flights
+/pl/pl/flights
+/se/en/yes3
