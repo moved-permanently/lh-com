@@ -5088,6 +5088,10 @@ sits between them. 390 is a pointer on -003 to -017 (resized loads).
 - **Resized 390 rows** (accessible-travel, at/en/baggage, travel-id, ski-campaign): all within 2 % at 1440. They are
   pointers; first loads at 390 would settle them.
 - entryregulations: order 20's view markers are applied (`14f88670`, `fdc842d3`).
+- **The real 390 loads** (21 page-widths from -001 / -018, scanned the same way after the final section below was first
+  pushed): one more pattern, plain Columns Media blocks of www's two-column views (travel-classes, overview-travel-
+  information). They are +28 px at each view boundary and -16 to -32 px at the page's end, which cancel. As padded
+  blocks (drafts) all four pages get 40 px longer at both widths: nothing to do.
 
 ### Final section (about 02:00 CET, 2026-11-14)
 
