@@ -1,0 +1,23 @@
+[
+  {
+    "path": "/de/en/my-bookings/check-in",
+    "inserts": [
+      {
+        "replace": "<h2 id=\"online-check-in-with-booking-code\">Online check-in with booking code</h2>",
+        "text": "<h2 id=\"online-check-in-with-booking-code\">Online check-in with booking code {heading-copytext-large}</h2>"
+      },
+      {
+        "replace": "<h3 id=\"online-check-in-with-tour-operators-code\">Online check-in with tour operator’s code</h3>",
+        "text": "<h3 id=\"online-check-in-with-tour-operators-code\">Online check-in with tour operator’s code {heading-copytext-large}</h3>"
+      },
+      {
+        "replace": "<h4 id=\"check-in-at-the-airport\">Check-in at the airport</h4>",
+        "text": "<h4 id=\"check-in-at-the-airport\">Check-in at the airport {heading-copytext-large}</h4>"
+      },
+      {
+        "replace": "<h4 id=\"you-might-also-be-interested-in-this\">You might also be interested in this</h4>",
+        "text": "<h4 id=\"you-might-also-be-interested-in-this\">You might also be interested in this {heading-copytext-large}</h4>"
+      }
+    ]
+  }
+]
