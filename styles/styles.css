@@ -787,8 +787,9 @@ main > .section[data-markets] + .section {
 }
 
 /* the page's first section: none above it to be flush with (standing order 26: /de/de/fluege's
-   breadcrumb 24 px under gb/en's) */
-main > .section[data-markets]:first-of-type {
+   breadcrumb 24 px under gb/en's); lufthansa.com only, where it was gated (on Austrian's
+   /at/en/sustainable-flying it took 24 px www has: ema-cashub's standing order 33 sweep) */
+body.brand-lufthansa main > .section[data-markets]:first-of-type {
   margin-top: 0;
 }
 
