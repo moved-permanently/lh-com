@@ -1,0 +1,14 @@
+# ema-cashub, standing order 27 (2026-11-14), item 4: Austrian /at/en/sustainable-flying, "One click, three options ..." opens
+# a column view on www. Expected change, both widths closer: 1440 4,214 -> 4,246 px (-1.43 -> -0.68 %), 390 5,885 -> 5,917 px
+# (-0.74 -> -0.20 %; www 4,275 / 5,929, the 390 a resized load). DA's copy plus the delta, not a re-import.
+# Why: between "We offer you the opportunity ..." and that heading www has 337 px, ours 282 (-55): www's heading opens the
+# view of the three option cards, about 92 px of white from the list to its text, ours 39. The marker gives the view's
+# 32 px; every heading below it moves 32 px with it, and nothing else on the page changes (one marker turns the whole page
+# to view spacing; drafted, not added up).
+# Not in the row: a heading-small mark (www's heading is 31 px tall, ours 40): alone it makes the page shorter at both widths
+# (4,205 / 5,837 px).
+# Measured as drafts (so24/host.mjs on austrian.turnsthe.page, the published copy as control = live 4,214 / 5,885 px;
+# consent stored, pictures eager; www.* and the airline hosts refused: 0); heading offsets read at the text's top.
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, 1440, 390.
+
+READY	/at/en/sustainable-flying.html	" {column-start}" at the end of h2 "One click, three options for more sustainable flying"	1440 -1.43 -> -0.68 % (4,214 -> 4,246 px, www 4,275)	390 -0.74 -> -0.20 % (5,885 -> 5,917 px, www 5,929)
