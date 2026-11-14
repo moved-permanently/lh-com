@@ -4342,3 +4342,26 @@ State at the start: nothing of mine uncommitted or unpushed (order 22's final se
    beverages, miles-and-more) have no step of 15 px or more left: their mismatch is drawn content.
    - The flag's no-row sites: lh-cargo's and lh-airdolomiti's importers emit no price widget, and no lh-tap or
      lh-flynet page has one, so no page there changes.
+   - Also tried on the offers grid: www's blue-grey card edge (rgb 178 197 215 against our light ring): worse at
+     both widths (37.72 -> 38.12, 56.13 -> 56.42), not shipped. lufthansa.com's accessibility statement: its
+     limited-width headings 16 px nearer the text above on www at 1440 (the only such page among the captures; no
+     token takes space away), held.
+
+## Standing order 23, final section (17:30 UTC, 2026-11-14)
+
+- Item 1: the live price calls behind live-prices, c87ab57d on main (rollback: revert it); slow sheets read
+  patiently (15 s second read), answered sheets final. The flags as published: on for lh-com, lh-discover, lh-ita,
+  lh-austrian, lh-brussels, lh-swiss (both demo hosts serve the sheet), off on lh-tap and lh-flynet, no row on
+  lh-b2b, lh-cargo, lh-airdolomiti; none of the off or no-row sites has a price widget.
+- Item 2: Discover's offers page gated on the same day's prices; the cards' fix (63c891ea) live; de/de held until
+  a German answer comes (requested); capture.js settles the grid and answers a page in its own language only.
+- Item 3: no lufthansa.com row this order: the form rule and the next pages down are explained in
+  delta-so22-lh-com-pages.txt and above; ema-adobe's areas left alone.
+- Before this section: the full suite on aacbf5c3 (this section before these lines) 1114 files pass, lint and
+  stylelint 0; the tests that read the themes folder 1019 pass (1 skipped); lint read before every push.
+- Nothing uploaded, previewed or published by me; DA not touched this order; da-upload.mjs not run; requests only
+  to our own hosts, R2 (the drop) and GitHub's API (every airline host refused in my browsers, the price call
+  answered from the recording). .migration/project.json not touched; /de/en/overview-manage has no row.
+- Not in git and why: logs/p4/so23, logs/p4/so22 (scratch: captures, gate folders, crops, scan scripts), our
+  captures under logs/p4/so6/cap, the drops in /tmp/x-* and /tmp/dl-* (private material), content/,
+  migration-work/, tools/importer/reports/* (not mine). Preview servers stopped, trial worktrees removed.
