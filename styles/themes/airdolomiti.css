@@ -2398,6 +2398,14 @@ body.brand-airdolomiti main .accordion-columns.faq .accordion-columns-title {
   line-height: 57.8px;
 }
 
+/* the title's text measure as www's (standing order 30): www's title leaves 302 px for a wrapped text at 390 (its 29 px arrow
+   and 20 px padding), ours 326 with gap 0, so titles took a line less (airdolomiti-parity-001 / -007: up to -4.31 % at 390).
+   Not on German pages: www lets a word longer than the line overflow there (Sitzplatzreservierung, Gesundheitsdokumentation)
+   and ours breaks it, so the narrower measure makes those titles taller than www's */
+body.brand-airdolomiti main .accordion-columns.faq .accordion-columns-title:not(:lang(de)) {
+  gap: 24px;
+}
+
 body.brand-airdolomiti main .accordion-columns.faq .accordion-columns-title::after {
   position: static;
   flex: 0 0 25px;
