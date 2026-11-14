@@ -4309,3 +4309,76 @@ passed; the full suite on the final code: 40d1424, 71 lh-edge files and 1,110 si
   - logs/b616: captures, census scripts and results, drafts, trial stylesheets;
   - /tmp/so23 (the archives);
   - the untracked import reports of earlier runs.
+
+### Standing order 25 (2026-11-14 19:05 to 23:30 CET)
+
+No uploads, previews or publishes; DA read only (GETs of the ten xx business-class copies for the dry run); no request
+to an airline host. `.migration/project.json` untouched. Plugins off. Order 24 left nothing unpushed. Each push: whole-repo lint read 0 on a
+clean worktree of the rebased HEAD, stylelint 0 on the changed block and theme files, the tests reading the changed
+files and folders passed; the full suite on the final code: d2edd00, 71 lh-edge files and 1,124 site files, 0 failing. No change deploys lh-edge. /de/en/overview-manage: no row.
+
+1. **giftvoucher** (091fab0). Order 24's card lines never reached the parser: the cleanup's beforeTransform drops the
+   10 px separator between a card and its link before the parsers run.
+   - The cleanup's onLoad now marks that link while the separator is still there, and the parser takes a marked link.
+     The block also takes a link cell without its paragraph (the import writes `<div><a>`).
+   - Tested through the cleanup and the parser on 083's card view (test/carousel-cards-link-below-cleanup-so25), then
+     through the whole bundle on lh-snapshots-083 and -084: the three lines are third cells in both.
+   - reimport-so25-giftvoucher-de-lh-com.txt: 2 READY rows. The harness has applied them (a8be13f); live de/en now 13.2 /
+     19.8 % at 1440 / 390 (was 14.3 / 23.4), as the draft said.
+2. **The xx business-class pages.**
+   - Paragraph wrapping (834 × 189) and the carousel's slides (1050 px) match www's: not causes.
+   - The carousel (a07423b). www has 70 px between the intro text and the carousel; ours had 29.
+     - Variant 1 (40 px above every lufthansa.com carousel from 768 px) made 9 de/en pages worse.
+     - The rule now takes only a carousel right after a text paragraph (no spacer mark) in a plain section, articles
+       left out.
+     - Gate: the 11 xx pages better at 1440 by 1.4 to 4.1 points (390 the same); de/en economy-class 13.5 -> 11.3; the
+       100-years pages, first-class-terminal, stopover and new-onboard-experience the same.
+     - Without the article exclusion, stop-over-tokyo and allegris-premium-economy-san-diego were worse; working-copy
+       captures with it give them their old values.
+     - Census: 75 published documents outside articles, plus the eleven moved xx documents.
+   - The merged two-column row: **order 24's cause was wrong.** The importer does not merge it.
+     - An offline import of 117's xx/el with main's info bundle writes the upgrade row and the card row in separate
+       sections, as xx/es's copy has them.
+     - Ten of the eleven copies are an old import, moved from /xx/<ll>/business-class: no flush under the bar
+       (brief 582), before-padded on the first stage, the intro section unstyled, the merged row, and stages without
+       no-subtitle.
+     - I wrote a columns-media rule (no merge across view kinds) and its test, ran the census over the 3,397 snapshots
+       (1 document differed, es/es local-page/todos-los-colores-a-bordo, whose published copy has no columns-media block), and reverted both.
+   - delta-so25-xx-business-class-lh-com.txt (f622eac): 99 READY rows that bring the ten copies to the current import's
+     sections and options.
+     - New tool options: section-style-apply `{block, add}` and `{heading, remove}`; block-split-apply
+       `"break": "section"` and `"trim": true`; with tests.
+     - Dry run on DA's copies and on the published copies: every row placed; the outline is then xx/es's.
+     - Gate (drafts with all rows, working-copy code): 16 of 20 page-widths better (1440 by 2.2 to 5.9, 390 by 0.8 to
+       3.3), 4 the same, 0 worse.
+     - The rows only gain together. On xx/el, flush alone goes 27.7 -> 31.5 at 1440: the 25 px it takes off the top
+       stood for space ours lacks lower down. With every row: 25.5.
+     - The harness applied the list within the hour (7e77ac5); all ten copies now have flush.
+     - Live with the carousel rule and the rows, as the drafts said: xx/el 31.8 / 28.3 -> 25.5 / 27.4 and xx/fr 39.1 /
+       34.2 -> 31.3 / 30.9 at 1440 / 390, against this morning.
+   - What was left on xx/el at 1440 with those rows, against www's headings: the top matched (+1 px). The view under the
+     carousel was 65 px short and the carousel 41 px short above it.
+   - The intro section (36f7e69). www has the intro and its carousel in a padded AEM section and the first two-column
+     view in the unpadded one after it. All sixteen published business-class copies hold both in one section.
+     - delta-so25-business-class-intro-split-lh-com.txt: 14 READY rows and 2 HOLD. Each splits that section before
+       the view with section-split-apply, which now takes a block (`{block, heading}`, style "" allowed); with a test.
+     - Dry run on DA's copies and the published copies: every row placed.
+     - Gate (on top of the first list): 18 of 22 page-widths better. At 1440 by 5.6 to 13.9 points (xx/el 25.5 ->
+       13.2, the page as tall as www's); at 390 by 2.8 to 9.9. ja and ko at 390 the same.
+     - hk and zh at 390 are worse by compensation removed (+1.4, +1.5), and the gate fails on those two. The capture
+       machine has no CJK font, so their text runs on other lines. Their rows are HOLD until a capture with CJK fonts,
+       or your call (their 1440 gains 11.6).
+     - A fresh import writes the same one section. I tried extending lufthansa-sections' padded split to a grey band
+       after the view, but my synthetic test page splits on HEAD already, so it does not reproduce the merge. Not
+       shipped; finding the real condition is next order's work.
+     - The same shape (a carousel right before a Columns Media block in one section) is on 100-years/cabin-design (16
+       copies), the xx new-onboard-experience pages (9) and it/it/fox. Not compared with www; no rows.
+   - Still left: the carousel 41 px short above it (www: text, a separator, the carousel; ours 40 px). A larger margin
+     would only pass with the rows applied: a trial on the live pages once they are.
+3. **Card-row gap on phones: HOLD, unchanged.** No file that lh-edge bundles changed.
+4. **Further down the ranking.** ema-test's lists on main hold none of these pages. Item 2 took the evening; no further
+   page this order.
+- Left out of git:
+  - logs/b617, logs/b618: captures, drafts, census scripts and results, trial stylesheets, gate runs;
+  - /tmp/so23 and /tmp/so25 (the archives and the offline import workspaces);
+  - the untracked import reports of earlier runs.
