@@ -4102,3 +4102,38 @@ deploys lh-edge. Order 20 left nothing unpushed. /de/en/overview-manage: no row.
      4.1 with that space injected), right at 390 (worse with it). On www a 20 px separator follows the accordion at the
      end of its column, so the accordion keeps its bottom margin. Census of the www snapshots: only this page (7
      documents). Its width-dependent value can't be read without www's CSS: HOLD.
+   - faq-damaged-baggage: 44 px (390) and 24 px (1440) too much below each accordion before a group heading. A trial
+     (no block gap there, 20 px under the accordion on phones) gives 7.4 / 12.3 -> 1.1 / 3.0. But it makes
+     faq-baggage-delay (8.3 / 8.2 -> 14.2 / 15.7), security-fast-lanes and climate-protection-projects worse, and their
+     markup has the same shape (heading-small on two of them). HOLD; nothing in our markup tells them apart.
+
+Final section (2026-11-14 ~08:50 CET):
+- Pushed this order, all on main except one branch; nothing left unpushed:
+  - baggage's band rule (fff28cf);
+  - the kept-spacer merge (5915ea9);
+  - top-flush (6f41a99);
+  - the FAQ join and the in-column band (e8e16b9);
+  - labelled YouTube links (bc4c932);
+  - two new delta tools (block-split-apply, section-join-apply);
+  - five lists: delta-so21-rebook, -delayed-baggage-lhg, -top-flush, -faq-join, -card-stage.
+- Live and as measured: baggage, onboard-delights, express-bus. Also rebook, delayed-baggage-lhg, wetlease-hub, lhg-wifi
+  and involuntary-rebooking, after the helper applied and published their rows.
+- Waiting for the owner: branch so21-card-stage (the 390 card stage with premium-economy-class's 4 padded rows, WITH
+  branch, 15.5 / 10.1 -> 13.4 / 8.0). I did not merge it.
+- HOLD:
+  - giftvoucher's top-flush row (its de cards need a re-import of the de version);
+  - fr/fr wetlease-hub and fr/fr delayed-baggage-lhg (not published);
+  - lufthansa-at-berlin-airport's picture;
+  - cancellations-and-refunds' accordion gap at 1440;
+  - faq-damaged-baggage;
+  - the two- and three-column table width;
+  - traveltricks (the store URLs).
+- The next 30 info page-widths of ranking-so12, live 2026-11-14 08:00 CET (logs/b613/rank3-live.tsv), worst first:
+  climate-protection-projects 1440 12.2, faq-damaged-baggage 390 12.0, medikamenten-transport 390 12.0,
+  advance-seat-reservation 390 12.0, menus-travel-classes 390 11.9, hertz 390 11.6.
+- /de/en/overview-manage: no row.
+- Left out of git:
+  - logs/b613: the published-copy census (9,912 documents), captures, drafts, trial stylesheets, dry runs on the
+    published and DA copies;
+  - /tmp: the import workspaces (ws-617-so21-*), the bundle builder (/tmp/p2/aih);
+  - the untracked import reports of earlier runs.
