@@ -322,6 +322,8 @@ export default function transform(hookName, element, payload) {
   const document = (payload && payload.document) || element.ownerDocument || element;
 
   if (hookName === 'beforeTransform') {
+    // the template's plain breaks before an accordion (see the FAQ step after the padded sections)
+    const accordionBreaks = [];
     if (useSections) {
       for (let i = sections.length - 1; i >= 0; i -= 1) {
         const section = sections[i];
@@ -333,6 +335,7 @@ export default function transform(hookName, element, payload) {
         if (styled) hr.setAttribute(MARKER, section.id);
         if (i === 0) hr.setAttribute(FIRST, 'true');
         el.parentNode.insertBefore(hr, el);
+        if (!styled && el.matches('.accordion')) accordionBreaks.push([hr, el]);
       }
     }
     SOURCE_STYLES.forEach(([source, style]) => {
@@ -391,6 +394,29 @@ export default function transform(hookName, element, payload) {
       const gap = prev.querySelector(':scope > .mb-default') ? 'spaced' : 'flush';
       own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${gap}`);
     });
+    // (standing order 21) lufthansa.com: an accordion whose AEM section is padded here (style padded) with only headings
+    // before it stays in that section, as www's FAQ heading and accordion share the padding. Split by the template's
+    // break, the heading had a padded section of its own (/de/en/during-your-trip/lhg-wifi 11.5 / 14.3 -> 10.3 / 13.5 %
+    // at 1440 / 390, book-and-manage/rebook/involuntary-rebooking 7.6 / 9.9 -> 6.8 / 8.7). Not where no padded is
+    // written (ana after its grey band: joined 390 +0.5) nor in a grey section (advance-seat-reservation: 1440 +0.6)
+    if (lufthansa) {
+      accordionBreaks.forEach(([hr, el]) => {
+        const aem = el.closest('.container-content > .section');
+        const content = el.parentElement;
+        if (!aem || !paddedBreaks.has(aem) || !content || !content.matches('.section-content') || content.closest('.container-gray')) return;
+        const before = [];
+        for (let n = hr.previousElementSibling; n; n = n.previousElementSibling) before.push(n);
+        if (!before.length || !before.every((n) => n.matches('.headline'))) return;
+        hr.remove();
+        // the padded step left the gap word out for a padded section after this one (a break inside it): set it now
+        const i = aemSections.indexOf(aem);
+        const after = aemSections[i + 1];
+        const own = paddedBreaks.get(aem);
+        if (after && paddedBreaks.has(after) && !aem.querySelector(`hr[${BREAK}]`) && !/ (spaced|flush)$/.test(own.getAttribute(SOURCE_STYLE))) {
+          own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${aem.querySelector(':scope > .mb-default') ? 'spaced' : 'flush'}`);
+        }
+      });
+    }
     // fleet (standing order 6): an unpadded AEM section right after a padded one is not that one's content; www draws the
     // padded section's bottom padding and its .mb-default between them (/de/en/32n: "The quietest cabin" 62px higher
     // than www's, the space back under it). It starts a section of its own; the padded one keeps spaced or flush

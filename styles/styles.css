@@ -1311,6 +1311,14 @@ body.brand-lufthansa main > .section.grey.column-band:has(+ .section > .default-
   margin-bottom: 0;
 }
 
+/* a grey band inside a column view (style in-column) whose column ends in the next section ("{column-end}" first):
+   www has the column's padding there, inside the view, not our section gap as well (standing order 21,
+   /de/en/lufthansa-express-bus: "Book Lufthansa Express Bus" 50px lower than www's; 14.5 / 10.1 -> 12.9 / 9.2 % at
+   390 / 1440). Census of the published copies: express-bus's 4 documents */
+body.brand-lufthansa main > .section.grey.in-column:has(+ .section > .default-content-wrapper:first-child > p.column-end:first-child) {
+  margin-bottom: 0;
+}
+
 /* a grey column band before an unstyled section that opens with default content: www has the band's
    own padding there, not our section gap (ranking-so12's column-band-plain; standing orders 13 to 20:
    entryprocesses 28.6 / 17.0 -> 16.4 / 6.3 % off www at 390 / 1440, arrival-services, doctor-on-board).

@@ -1,0 +1,44 @@
+# Standing order 21 (2026-11-14), item 4: the FAQ heading and its accordion in one section. Expected change, per document:
+# the section that holds only the FAQ heading (style padded) takes the Accordion Columns of the section after it, which
+# goes. The padded style stays, and nothing else of the document changes.
+# Tool: tools/importer/section-join-apply.mjs (new in this order; test/section-join-so21.test.mjs). It refuses a next
+# section with styles or section metadata (markets included). The importer writes the joined section since this order
+# (lufthansa-sections, test/faq-join-so21).
+# Census of the 9,912 published copies: a padded section of only a heading before the accordion's section on lhg-wifi and
+# involuntary-rebooking, 16 language versions each. Dry run on the published copies: all 32 "placed"; de/en's result is
+# byte for byte the draft measured. Drafts at 1440 / 390: lhg-wifi 11.5 / 14.3 -> 10.3 / 13.5 %, involuntary-rebooking
+# 7.6 / 9.9 -> 6.8 / 8.7.
+# Not part of it: ana (its FAQ heading section has no padded; joined 390 +0.5) and advance-seat-reservation (its FAQ in a
+# grey section; joined 1440 +0.6).
+READY	/at/de/book-and-manage/rebook/involuntary-rebooking	section-join-apply {"heading": "Häufig gestellte Fragen und Antworten", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/at/de/during-your-trip/lhg-wifi	section-join-apply {"heading": "Häufig gestellte Fragen", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/de/de/book-and-manage/rebook/involuntary-rebooking	section-join-apply {"heading": "Häufig gestellte Fragen und Antworten", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/de/de/during-your-trip/lhg-wifi	section-join-apply {"heading": "Häufig gestellte Fragen", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/de/en/book-and-manage/rebook/involuntary-rebooking	section-join-apply {"heading": "Frequently asked questions", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/de/en/during-your-trip/lhg-wifi	section-join-apply {"heading": "Frequently Asked Questions", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/fr/fr/book-and-manage/rebook/involuntary-rebooking	section-join-apply {"heading": "FAQ", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/fr/fr/during-your-trip/lhg-wifi	section-join-apply {"heading": "Questions fréquentes", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/gb/en/book-and-manage/rebook/involuntary-rebooking	section-join-apply {"heading": "Frequently asked questions", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/gb/en/during-your-trip/lhg-wifi	section-join-apply {"heading": "Frequently Asked Questions", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/el/book-and-manage/rebook/involuntary-rebooking	section-join-apply {"heading": "Συχνές Ερωτήσεις", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/el/during-your-trip/lhg-wifi	section-join-apply {"heading": "Συχνές Ερωτήσεις", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/es/book-and-manage/rebook/involuntary-rebooking	section-join-apply {"heading": "Preguntas frecuentes", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/es/during-your-trip/lhg-wifi	section-join-apply {"heading": "Preguntas más frecuentes", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/fr/book-and-manage/rebook/involuntary-rebooking	section-join-apply {"heading": "FAQ", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/fr/during-your-trip/lhg-wifi	section-join-apply {"heading": "Questions fréquentes", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/hk/book-and-manage/rebook/involuntary-rebooking	section-join-apply {"heading": "常見問題及答案", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/hk/during-your-trip/lhg-wifi	section-join-apply {"heading": "常見問題集", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/it/book-and-manage/rebook/involuntary-rebooking	section-join-apply {"heading": "Domande frequenti", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/it/during-your-trip/lhg-wifi	section-join-apply {"heading": "Domande frequenti", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/ja/book-and-manage/rebook/involuntary-rebooking	section-join-apply {"heading": "よくあるご質問：", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/ja/during-your-trip/lhg-wifi	section-join-apply {"heading": "よくあるご質問", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/ko/book-and-manage/rebook/involuntary-rebooking	section-join-apply {"heading": "자주 묻는 질문", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/ko/during-your-trip/lhg-wifi	section-join-apply {"heading": "자주 묻는 질문", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/pl/book-and-manage/rebook/involuntary-rebooking	section-join-apply {"heading": "Często zadawane pytania", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/pl/during-your-trip/lhg-wifi	section-join-apply {"heading": "Często zadawane pytania", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/pt/book-and-manage/rebook/involuntary-rebooking	section-join-apply {"heading": "FAQ", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/pt/during-your-trip/lhg-wifi	section-join-apply {"heading": "Perguntas mais frequentes", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/ru/book-and-manage/rebook/involuntary-rebooking	section-join-apply {"heading": "Часто задаваемые вопросы", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/ru/during-your-trip/lhg-wifi	section-join-apply {"heading": "Часто задаваемые вопросы", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/zh/book-and-manage/rebook/involuntary-rebooking	section-join-apply {"heading": "常见问题与解答", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section
+READY	/xx/zh/during-your-trip/lhg-wifi	section-join-apply {"heading": "常见问题", "block": "accordion-columns"}	the FAQ heading and its accordion in one padded section

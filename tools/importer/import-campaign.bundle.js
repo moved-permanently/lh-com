@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-campaign.js
-  var tmp_bundle_campaign_733874_exports = {};
-  __export(tmp_bundle_campaign_733874_exports, {
-    default: () => tmp_bundle_campaign_733874_default
+  var tmp_bundle_campaign_758595_exports = {};
+  __export(tmp_bundle_campaign_758595_exports, {
+    default: () => tmp_bundle_campaign_758595_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -6118,6 +6118,7 @@ var CustomImportScript = (() => {
     const useSections = sections.length >= 2 || sections.length === 1 && hasStyle(sections[0]);
     const document = payload && payload.document || element.ownerDocument || element;
     if (hookName === "beforeTransform") {
+      const accordionBreaks = [];
       if (useSections) {
         for (let i = sections.length - 1; i >= 0; i -= 1) {
           const section = sections[i];
@@ -6129,6 +6130,7 @@ var CustomImportScript = (() => {
           if (styled) hr.setAttribute(MARKER, section.id);
           if (i === 0) hr.setAttribute(FIRST, "true");
           el.parentNode.insertBefore(hr, el);
+          if (!styled && el.matches(".accordion")) accordionBreaks.push([hr, el]);
         }
       }
       SOURCE_STYLES.forEach(([source, style]) => {
@@ -6168,6 +6170,23 @@ var CustomImportScript = (() => {
         const gap = prev.querySelector(":scope > .mb-default") ? "spaced" : "flush";
         own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${gap}`);
       });
+      if (lufthansa) {
+        accordionBreaks.forEach(([hr, el]) => {
+          const aem = el.closest(".container-content > .section");
+          const content = el.parentElement;
+          if (!aem || !paddedBreaks.has(aem) || !content || !content.matches(".section-content") || content.closest(".container-gray")) return;
+          const before2 = [];
+          for (let n = hr.previousElementSibling; n; n = n.previousElementSibling) before2.push(n);
+          if (!before2.length || !before2.every((n) => n.matches(".headline"))) return;
+          hr.remove();
+          const i = aemSections.indexOf(aem);
+          const after = aemSections[i + 1];
+          const own = paddedBreaks.get(aem);
+          if (after && paddedBreaks.has(after) && !aem.querySelector(`hr[${BREAK}]`) && !/ (spaced|flush)$/.test(own.getAttribute(SOURCE_STYLE))) {
+            own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} ${aem.querySelector(":scope > .mb-default") ? "spaced" : "flush"}`);
+          }
+        });
+      }
       if (template.name === "fleet" || template.base === "fleet") {
         aemSections.forEach((s, i) => {
           const prev = aemSections[i - 1];
@@ -8047,7 +8066,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_campaign_733874_default = {
+  var tmp_bundle_campaign_758595_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -8087,5 +8106,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_campaign_733874_exports);
+  return __toCommonJS(tmp_bundle_campaign_758595_exports);
 })();
