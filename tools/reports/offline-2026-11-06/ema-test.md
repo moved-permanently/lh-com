@@ -4002,3 +4002,40 @@ State at the start: nothing of mine uncommitted or unpushed (order 18's final se
    - On order 18's held article trial (the header rule alone at 1440): 9 worse, 8 "compensation removed" (acts at
      www y 1200-1300, uncovers -8 px 100 to 800 px below: the stacked Columns Media boundary that 6e971abb then fixed),
      1 "fix wrong" (anniversary-super-crane-special, better with the pair).
+   - Refined in the same order (6bbbd25e): the verdict reads the local step where the trial acts (the offset's
+     change against the window above), so a fix that is right there but meets a drift above it (the page carrying
+     an offset of the other sign into it) is "compensation removed (above)", not "fix wrong".
+2. **The three held fixes, each with its compensations** (gate.mjs over local renders, base and trial from the same
+   code but the trial's files).
+   - **Article body gaps (shipped as a pair, 9d1350ed, test first: test/article-body-gaps-so19.test.mjs).** Order
+     18's rule (every body section 24 px closer on phones) was mostly "fix wrong": www's gaps depend on what meets.
+     logs/p4/so19/bounds.py grouped the drift step at each section boundary by its two sides: below 768 px a
+     section opening with a divider after text +27 / +28 on 10 boundaries and the section after an article slider
+     +28 / +29 on 5; from 768 px text to text +23 / +24 on 4, text or a list to an H2 -16 / -17 on 5, after a slider
+     +9 / +11 on 4. Round 1 (those only): 18 better, 8 worse, all "compensation removed". Round 2 fixed what they
+     named: the price bar's section when it holds a spacer (+20 / +17: 20 / 23 px below it) and an article map with
+     its list beside it (www 41 / 75 px more below it); 28 better, 4 worse. Round 3 (text to text from 768 px only;
+     a list before an H2 too): 32 better, 49 within 0.5, 1 worse: stop-over-tokyo 390 +0.54, compensation above (its
+     divider after the photo credits sits 28 px lower on www). delta-so19-lh-com-tokyo-divider.txt READY
+     ({spacer-27} before it; rendered from one local folder on the code before and with the rules: 390 23.19 ->
+     23.19, 1440 19.26 -> 18.37). Until that row is in, tokyo 390 is 0.54 worse.
+   - **Form sub-section titles: HOLD.** The worse rows' compensations are per page: special-needs de/en 390
+     (www puts "Flight details" in a card of its own, ours keeps it in the card above: 150 px), betreuungsbedarf
+     de/de, at/de 390 (uncovers -14 px at www y 3100 among repeated radio options, where the alignment is not
+     reliable). No shared pair.
+   - **Footer's locale row on phones: HOLD.** Both worse rows are "compensation above": short pages whose main is
+     longer than www's (/de/en/common: a title-only page, its H1 to footer 16 px more than www; the FAQ
+     advance-seat-reservations-terms-and-conditions: +22 px from its intro to its padded Columns Media), which the
+     footer's 7 px had cancelled. The first is item 3's rule (now in); the second is per page, so the footer stays held.
+3. **The next shared causes, worst first** (logs/p4/so19/bounds-all.py over the fresh captures' drift profiles,
+   by template and boundary kind, pages counted without their locale).
+   - **A first section ending with its H1 before a section that is not flush (shipped, test first:
+     test/h1-section-gap-so19.test.mjs).** Ours had the section gap (48 px) under the H1, www the H1's own margin
+     (32 / 40 px), as ours before a flush section: +16 at 390 on 8 page-widths, +8 at 1440 on 5, 0 before flush
+     sections. The rule takes --heading-margin-xxl. On the stopover pages the sidebar with the map then sat 16 px
+     high on phones (compensation removed: its top had cancelled the step): 36 px above it below 768 px. Gate on
+     the 24 recorded page-widths with that structure (16 non-info; the 4 info pages with it, 8 page-widths,
+     measured too) and /de/en/common's 2 (a title-only page, the rule reaches it too): 16 better (up to 5.4; common
+     390 7.71 -> 5.01, 1440 4.49 -> 1.38), 10 within, none worse.
+   - Seen and not shipped: fleet pages at 390 (link paragraphs +38 on 3 pages; the seat-map link lists' line pitch
+     and the gap to "Technical data", +30 on 744), hub 390 h2 to an FAQ accordion -33 (one page in two locales).

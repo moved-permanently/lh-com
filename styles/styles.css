@@ -864,6 +864,15 @@ body.brand-lufthansa main:has(.article-header) .poi-map.poi-map-with-aside {
   }
 }
 
+/* a first section that ends with its H1 (breadcrumb and title) before a section that is not flush:
+   www has the H1's own margin there (32px at 390, 40px at 1440), as ours before a flush section;
+   ours had the 48px section gap. Standing order 19: 16 of the 26 recorded page-widths with it
+   better, none worse (with the stopover sidebar's 36px on phones, columns-media.css) */
+/* stylelint-disable-next-line no-descending-specificity -- the conditions in :where(), so the band rules below keep winning */
+body.brand-lufthansa main > .section:first-child:where(:has(> .default-content-wrapper:last-child > h1:last-child):not(:has(+ .section.flush))) {
+  margin-bottom: var(--heading-margin-xxl);
+}
+
 /* lufthansa.com homepage stage (brief 460): www's quick actions row below the stage (empty for a
    guest) ends with a transparent .separator (margin-bottom 30px), so the next section starts 32px
    lower than the section gap at every width (de/en 2026-11-06: "Winter deals" 87px below the stage

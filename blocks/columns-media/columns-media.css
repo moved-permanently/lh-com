@@ -139,6 +139,14 @@ body.brand-lufthansa .columns-media.sidebar.with-map {
   }
 }
 
+/* on phones 36px above it (www's sidebar view under the page title; ours 16px higher once the
+   title section keeps the H1's margin, styles.css, standing order 19) */
+@media (width < 768px) {
+  body.brand-lufthansa .columns-media.sidebar.with-map {
+    padding-top: 36px;
+  }
+}
+
 /* sidebar in a one-column view of its own (options sidebar padded, importer; 100-years "Under the
    symbol of the crane"): the column view's 3.2rem above and below the .airem-sidebar. 52px above
    after another component (20 + 32; 72 from 768px), 24px less when the block opens its section
