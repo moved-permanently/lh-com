@@ -16,5 +16,5 @@ HOLD	/de/en/program/businesstogo	390	+3.13 %	www's contact form is plain (fields
 HOLD	/xx/en/program/businesstogo	390	+3.13 %	as de/en	held
 HOLD	/de/en/program/businesstogo	1440	+2.94 %	as de/en	held
 HOLD	/xx/en/program/businesstogo	1440	+2.94 %	as de/en	held
-HOLD	/de/de/travel-solutions/lufthansa-group-airlines	1440	-3.02 %	the page ends 73 px nearer the footer than www's at 1440 (www 123 px under the last link, ours 50); not the nested option	a spacer row for it: de/en 1440 8.69 -> 7.26 but 390 13.71 -> 15.01 (fix wrong: at 390 the end is right); held
-HOLD	/de/en/travel-solutions/lufthansa-group-airlines	1440	-2.47 %	as de/de	held
+READY	/de/de/travel-solutions/lufthansa-group-airlines	1440	-3.02 %	the page ends 73 px nearer the footer than www's at 1440 (www 123 px under the last link, ours 50); not the nested option	delta-so20-b2b-pages.txt: {spacer-72 from-768} at the end (a spacer for both widths was wrong at 390): 1440 10.71 -> 5.40, 390 15.26 -> 13.90
+READY	/de/en/travel-solutions/lufthansa-group-airlines	1440	-2.47 %	as de/de	delta-so20-b2b-pages.txt: 1440 8.69 -> 7.26, 390 13.71 -> 12.88

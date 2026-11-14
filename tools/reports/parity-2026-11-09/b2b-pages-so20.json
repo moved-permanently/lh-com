@@ -1,0 +1,20 @@
+[
+ {
+  "path": "/de/en/travel-solutions/lufthansa-group-airlines",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<p>{spacer-72 from-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/travel-solutions/lufthansa-group-airlines",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<p>{spacer-72 from-768}</p>"
+   }
+  ]
+ }
+]

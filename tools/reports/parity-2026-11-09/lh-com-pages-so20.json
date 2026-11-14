@@ -82,5 +82,68 @@
     "text": "<p>{spacer-33}</p>"
    }
   ]
+ },
+ {
+  "path": "/de/en/special-needs",
+  "inserts": [
+   {
+    "before": "<div><div>Flight details</div><div>fieldset</div>",
+    "text": "<div><div></div><div>step</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/100-years/history/menu-on-board",
+  "inserts": [
+   {
+    "before": "<h2 id=\"the-table-settings-heading-small\">The table settings",
+    "text": "<p>{spacer-30 from-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/flughafeninformation",
+  "inserts": [
+   {
+    "before": "<h3 id=\"zahlungsmöglichkeiten-am-flughafen\">Zahlungsmöglichk",
+    "text": "<p>{spacer-20 from-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/flughafeninformation",
+  "inserts": [
+   {
+    "before": "<h3 id=\"zahlungsmöglichkeiten-am-flughafen\">Zahlungsmöglichk",
+    "text": "<p>{spacer-20 from-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/airport-information",
+  "inserts": [
+   {
+    "before": "<h3 id=\"payment-options-at-the-airport\">Payment options at t",
+    "text": "<p>{spacer-19 from-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/airport-information",
+  "inserts": [
+   {
+    "before": "<h3 id=\"payment-options-at-the-airport\">Payment options at t",
+    "text": "<p>{spacer-19 from-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/seat-maps",
+  "inserts": [
+   {
+    "before": "<h2 id=\"boeing-heading-large\">Boeing {heading-large}</h2><di",
+    "text": "<p>{spacer-24 from-768}</p>"
+   }
+  ]
  }
 ]

@@ -1,4 +1,4 @@
-# Expected change: lufthansa.com pages whose own drift a row on DA's copy takes away at both widths (standing order 20, item 2): a spacer where ours is short of www at the same place at 1440 and 390 (the drift steps of the fresh captures, logs/p4/so20/both-short.py), sized for the margins it stops from collapsing. READY rows pass gate.mjs at both widths; HOLD rows do not, with the gate's reason.
+# Expected change: lufthansa.com pages whose own drift a row on DA's copy takes away at both widths (standing order 20, item 2): a spacer where ours is short of www at the same place at 1440 and 390 (the drift steps of the fresh captures, logs/p4/so20/both-short.py), sized for the margins it stops from collapsing, or a {spacer-N from-768} (not drawn on phones) where only 1440 is short. READY rows pass gate.mjs at both widths; HOLD rows do not, with the gate's reason.
 # Method: DA's copy plus the inserts: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/lh-com-pages-so20.json --list tools/reports/parity-2026-11-09/delta-so20-lh-com-pages.txt --docs <DA copies> --out <dir> (--check to only report). Every anchor is found once in DA's copy of 2026-11-14 ~08:45 CET; without the inserts the result is DA's copy byte for byte.
 # Measured: our published copies as they are and with the change, rendered from one local folder on our code (aem up --html-folder; the base numbers equal the published host's, except feedbackai, whose empty document the folder draws blank: its base is the host's capture), against the lh-parity recordings. ranking-so18 worst first; pages whose cause is live data, a recording artefact, the do-not-touch list or a shared rule are left out.
 # Each line: READY / HOLD, DA path, the change, the result (1440, 390: before -> after %), the gate.
@@ -10,16 +10,18 @@ READY	/de/en/common/agb-extra-services-at-online-check-in	{spacer-24} before the
 READY	/de/en/business-terms-and-conditions	{spacer-25} before the "You grant permission" list (www 26 / 27 px more)	1440 6.79 -> 2.58; 390 9.05 -> 5.13	2 better
 READY	/de/en/data-protection-information	{spacer-26} before "Representative in Switzerland" (www 27 / 27 px more)	1440 4.75 -> 4.81; 390 8.52 -> 5.42	1 better, 1 within
 READY	/de/en/pre-check-in	{spacer-33} before "Find out whether your departure airport" (www 36 / 32 px more)	1440 6.02 -> 3.34; 390 7.37 -> 4.99	2 better
+READY	/de/en/special-needs	a step of its own (an untitled form step row) before the "Flight details" fieldset, as gb/en's copy has it: www draws Flight details as a card of its own	1440 7.85 -> 2.95; 390 9.13 -> 7.00 (gb/en's numbers)	2 better
+READY	/de/en/100-years/history/menu-on-board	{spacer-30 from-768} before "The table settings" (www 31 px more at 1440; at 390 the spacer is not drawn: the page is 30 px long above it there)	1440 14.66 -> 2.43; 390 10.79 -> 10.79	1 better, 1 within
+READY	/de/de/flughafeninformation	{spacer-20 from-768} before "Zahlungsmöglichkeiten am Flughafen" (www 21 px more; on phones the H1's extra line cancels it)	1440 5.11 -> 3.21; 390 24.73 -> 24.73	1 better, 1 within
+READY	/at/de/flughafeninformation	as de/de	1440 5.11 -> 3.21; 390 24.73 -> 24.73	1 better, 1 within
+READY	/de/en/airport-information	{spacer-19 from-768} before "Payment options at the airport" (www 20 px more at 1440)	1440 5.38 -> 3.89; 390 5.65 -> 5.65	1 better, 1 within
+READY	/gb/en/airport-information	as de/en	1440 5.38 -> 3.89; 390 5.67 -> 5.67	1 better, 1 within
+READY	/de/en/seat-maps	{spacer-24 from-768} before "Boeing" (www 25 px more at 1440)	1440 4.88 -> 3.60; 390 7.44 -> 7.44	1 better, 1 within
 HOLD	/de/en/common/compensation-voucher	{spacer-16} before each numbered heading (www 22 to 26 px more at 390, 6 to 20 at 1440)	1440 6.89 -> 16.05; 390 13.38 -> 10.44	fix wrong at 1440: the gaps differ per width
-HOLD	/de/en/100-years/history/menu-on-board	{spacer-29} before "The table settings" (www 31 / 29 px more)	1440 14.66 -> 2.43; 390 10.79 -> 17.16	compensation removed at 390: ours 30 px long above it at 390 only
 HOLD	/de/en/100-years/cabin-design	{spacer-14} before "The Senator Service was also transferred" (www 14 / 16 px more)	1440 7.68 -> 9.22; 390 15.08 -> 16.26	fix wrong: the spacer adds more than the step
-HOLD	/de/de/flughafeninformation	{spacer-20} before "Zahlungsmöglichkeiten am Flughafen" (www 21 / 21 px more)	1440 5.11 -> 3.21; 390 24.73 -> 25.33	compensation removed at 390: the H1's extra line on phones (project rule) above it
-HOLD	/at/de/flughafeninformation	{spacer-20} before "Zahlungsmöglichkeiten am Flughafen"	1440 5.11 -> 3.21; 390 24.73 -> 25.33	as de/de
 HOLD	/de/en/additional-services	{spacer-9} before "Well looked after on your trip" (www 10 / 10 px more)	1440 5.77 -> 8.46; 390 6.63 -> 8.69	fix wrong: the spacer at a section's start adds more than its size
 HOLD	/gb/en/additional-services	as de/en	1440 5.77 -> 8.46; 390 6.64 -> 8.69	fix wrong
 HOLD	/de/de/additional-services	as de/en ("Unterwegs gut versorgt")	1440 5.70 -> 8.36; 390 6.79 -> 8.80	fix wrong, compensation below at 390
 HOLD	/at/de/additional-services	as de/de	1440 5.70 -> 8.36; 390 6.78 -> 8.80	fix wrong, compensation below at 390
 HOLD	/de/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	{spacer-15} before "Enhance your travel experience" (www 16 / 16 px more)	1440 5.62 -> 6.34; 390 10.56 -> 12.67	compensation above at 390 (+20 px), fix wrong at 1440
-HOLD	/de/en/seat-maps	{spacer-23} before "Boeing" (www 25 / 24 px more)	1440 4.88 -> 3.41; 390 7.44 -> 8.75	compensation above at 390 (+18 px)
-HOLD	/de/en/airport-information	{spacer-20} before "Payment options at the airport" (www 20 / 21 px more)	1440 5.38 -> 3.76; 390 5.65 -> 6.53	compensation above at 390 (+30 px)
-HOLD	/gb/en/airport-information	as de/en	1440 5.38 -> 3.76; 390 5.67 -> 6.55	compensation above at 390
+HOLD	/de/en/articles/tags/munich	{spacer-16} before the caption "© Westend61 / Maria Maar" and {spacer-15} before "Insider Tips" (www 17 / 14-17 px more)	1440 15.40 -> 21.76; 390 20.85 -> 23.14	fix wrong: the steps are where the photos meet, not spacing
