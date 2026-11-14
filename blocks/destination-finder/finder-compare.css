@@ -293,3 +293,21 @@ body.brand-discover .destination-finder.grid .destination-finder-tile-compare .d
     padding-bottom: calc(10px + 24px + 18px);
   }
 }
+
+/* lufthansa.com's offers grid (standing order 26): www's /gb/en/flights (lh-parity-004a) has the
+   control's middle 21 px over the card's bottom edge and the card about 50 px under its price
+   (rows 395 px apart at 1440, 334 on phones; ours 427 and 367 with the defaults) */
+body.brand-lufthansa .destination-finder .destination-finder-compare {
+  bottom: 10px;
+}
+
+body.brand-lufthansa .destination-finder.grid .destination-finder-tile-compare .destination-finder-tile-body {
+  padding-bottom: calc(10px + 24px + 12px);
+}
+
+/* www's lufthansa.com checkbox is 24 px (its box 791-815 px at 1440, 964-987 at 390) */
+body.brand-lufthansa .destination-finder .destination-finder-compare-checkbox {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+}

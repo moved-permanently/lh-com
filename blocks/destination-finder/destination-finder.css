@@ -1245,3 +1245,74 @@ main > .section > .destination-finder-wrapper:has(> .destination-finder.grid) {
 .destination-finder.grid .destination-finder-message p + p {
   margin-top: 8px;
 }
+
+/* lufthansa.com's grid on phones as www's /gb/en/flights at 390 (lh-parity-004a; standing order 26):
+   the smart search over the origin, no "Where to fly" heading in sight, "Filters" and the sort on
+   one row over the cards (destination-finder.js destination-finder-phone-bar) */
+@media (width < 768px) {
+  .destination-finder.grid.destination-finder-phone-bar .destination-finder-filters > .destination-finder-smart-search {
+    display: flex;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .destination-finder.grid.destination-finder-phone-bar .destination-finder-filters > section:first-of-type > .destination-finder-filter-heading {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .destination-finder.grid.destination-finder-phone-bar .destination-finder-filters-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .destination-finder.grid.destination-finder-phone-bar .destination-finder-filters-bar .destination-finder-sort label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .destination-finder.grid.destination-finder-phone-bar .destination-finder-filters-bar .destination-finder-sort select {
+    min-width: 0;
+    min-height: 32px;
+    padding: 4px 24px 4px 0;
+    border-bottom: 0;
+    color: var(--lh-whale-blue);
+    font-size: var(--body-font-size-s);
+    font-weight: 700;
+    text-align: right;
+    background-size: 16px;
+  }
+
+  .destination-finder.grid.destination-finder-phone-bar .destination-finder-toolbar {
+    margin-bottom: 0;
+  }
+}
+
+/* lufthansa.com's offer cards as www's /gb/en/flights (lh-parity-004a; standing order 26): the
+   city 13 px under the picture, "Round trip from" 31-32 px under the country (ours 15-16 and
+   36-37); rows 395 px apart at 1440, as www's (ours 401) */
+body.brand-lufthansa .destination-finder.grid .destination-finder-tile-body {
+  padding-top: 8px;
+}
+
+body.brand-lufthansa .destination-finder.grid .destination-finder-tile-offer {
+  padding-top: 12px;
+}
+
+/* on phones the country 24 px under the city (ours 26): rows 334 px apart, as www's (ours 342) */
+@media (width < 768px) {
+  body.brand-lufthansa .destination-finder.grid .destination-finder-tile-country {
+    margin-top: 2px;
+  }
+}

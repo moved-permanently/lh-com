@@ -561,7 +561,7 @@ const HIGHLIGHT_PRIORITY = ['topDeal', 'previouslySeen', 'kClass'];
 const GRID_PAGE_SIZE = 48;
 /** Activities shown before the "more" toggle, like the live filter. */
 const VISIBLE_ACTIVITIES = 3;
-const GRID_SORTS = ['topDeal', 'price', 'alphabet'];
+const GRID_SORTS = ['topDeal', 'kClass', 'price', 'alphabet'];
 
 /**
  * Settings of an authored grid block (the live component's data-dcep: tripDuration,
@@ -627,22 +627,43 @@ export function highlightKinds(picked, priority = HIGHLIGHT_PRIORITY) {
 }
 
 /**
+ * lufthansa.com (no brand entry): www's lufthansa.com grids are Discover's component, badges,
+ * sorts and "Compare cities" (parity recordings of gb/en, de/en, de/de and at/de; standing order
+ * 26, 2026-11-14).
+ */
+const LH_COM_GRID = { gridBadges: true, gridCompare: true };
+
+/**
  * Whether the grid orders and badges as www's grid of the page's brand (BRANDS gridBadges:
- * Discover): www's sort "Recommended" lifts only the top deals, the other highlights keep their
- * place by price with a "Best price" badge; the badges are given over the whole answer.
+ * Discover; lufthansa.com): www's sort "Recommended" lifts only the top deals, the other highlights
+ * keep their place by price with a "Best price" badge; "Best price" lifts the k-class highlights;
+ * the badges are given over the whole answer.
  */
 export function gridBadges(brand = brandEntry()) {
-  return Boolean(brand && brand.gridBadges);
+  return Boolean((brand || LH_COM_GRID).gridBadges);
 }
 
-/** Whether the offers grid has www's "Compare cities" (BRANDS gridCompare: Discover). */
+/** Whether the grid has www's "Compare cities" (gridCompare: Discover, SWISS; lufthansa.com). */
 export function gridCompare(brand = brandEntry()) {
-  return Boolean(brand && brand.gridCompare);
+  return Boolean((brand || LH_COM_GRID).gridCompare);
 }
 
 /**
- * Sort orders of the live grid: 'topDeal' (Recommended: the highlighted offers by price, then
- * all others by price), 'price' (ascending), 'alphabet' (city name in the page language).
+ * The sort www's grid opens with (gridBadges): "Recommended" when a highlighted offer is a top
+ * deal, else "Best price" when one is a k-class offer (www's /gb/en/flights: London's answer has
+ * no top deal, its grid opens sorted by "Best price").
+ * @param {Map} kinds result of highlightKinds
+ * @returns {string} 'topDeal' | 'kClass'
+ */
+export function openingGridSort(kinds) {
+  const values = [...kinds.values()];
+  return !values.includes('topDeal') && values.includes('kClass') ? 'kClass' : 'topDeal';
+}
+
+/**
+ * Sort orders of the live grid: 'topDeal' (Recommended) and 'kClass' (Best price, a gridBadges
+ * grid): the lifted offers given by price, then all others by price; 'price' (ascending),
+ * 'alphabet' (city name in the page language).
  */
 export function sortGridOffers(offers, sort, highlighted = [], lang = 'en') {
   const byPrice = (a, b) => a.price - b.price;
@@ -788,6 +809,7 @@ const GRID_LIVE_LABELS = Object.fromEntries(Object.entries({
   'results heading': 'resultSection.srResultListGlobalMode',
   'sort label': 'resultSection.sortFilter',
   'sort recommended label': 'resultSection.sortTop',
+  'sort kclass label': 'resultSection.sortKClass',
   'sort price label': 'resultSection.sortPrice',
   'sort alphabet label': 'resultSection.sortAlphabet',
   'sorted label': 'resultSection.srSortingChanged',
@@ -2008,14 +2030,20 @@ async function decorateGrid(block, uid) {
   const resultsHeading = el('h2', 'destination-finder-sr-only', labels['results heading']);
   resultsHeading.id = `${uid}-results-heading`;
   const toolbar = el('div', 'destination-finder-toolbar');
+  // www's Best price sort on a gridBadges grid (its text as the badge's without the labels)
+  const bestPriceText = GRID_BEST_PRICE_LABELS[locale.lang] || GRID_BEST_PRICE_LABELS.en;
   const sort = selectField(`${uid}-sort`, labels['sort label'], [
-    ['topDeal', labels['sort recommended label']], ['price', labels['sort price label']],
-    ['alphabet', labels['sort alphabet label']],
+    ['topDeal', labels['sort recommended label']],
+    ...(wwwBadges ? [['kClass', labels['sort kclass label'] || bestPriceText]] : []),
+    ['price', labels['sort price label']], ['alphabet', labels['sort alphabet label']],
   ], state.sort);
+  // a sort picked by hand stays; else each answer opens with www's (openingGridSort)
+  let sortPicked = false;
   sort.field.classList.add('destination-finder-sort');
   toolbar.append(sort.field);
+  let smart = null;
   if (settings.smartSearch) {
-    const smart = el('a', 'button secondary destination-finder-smart-search');
+    smart = el('a', 'button secondary destination-finder-smart-search');
     smart.href = settings.smartSearch.href;
     smart.innerHTML = SPARKLE_ICON;
     smart.append(el('span', '', settings.smartSearch.text || labels['smart search label']));
@@ -2039,6 +2067,26 @@ async function decorateGrid(block, uid) {
   fillNotes(footer, notes, context.conditions);
   decorateExternalLinks(footer);
 
+  // lufthansa.com on phones as www's (/gb/en/flights at 390; standing order 26): the smart search
+  // over the origin, "Filters" and the sort on one row; from 768 px both in the toolbar
+  if (!brandEntry()) {
+    block.classList.add('destination-finder-phone-bar');
+    const bar = el('div', 'destination-finder-filters-bar');
+    filters.insertBefore(bar, toggle);
+    bar.append(toggle);
+    const phone = window.matchMedia ? window.matchMedia('(width < 768px)') : { matches: false };
+    const place = () => {
+      if (phone.matches) {
+        if (smart) filters.insertBefore(smart, where);
+        bar.append(sort.field);
+      } else {
+        toolbar.prepend(sort.field);
+        if (smart) toolbar.append(smart);
+      }
+    };
+    place();
+    if (phone.addEventListener) phone.addEventListener('change', place);
+  }
   results.append(resultsHeading, toolbar, message, grid, moreWrap, status, footer);
   if (compare) results.append(compare.element);
   const layout = el('div', 'destination-finder-layout');
@@ -2099,9 +2147,13 @@ async function decorateGrid(block, uid) {
       const picked = highlightedOffers(loaded.offers, settings.maxHighlighted, settings.priority);
       const kinds = highlightKinds(picked, settings.priority);
       const shownOffers = new Set(filtered);
-      const top = picked.filter((o) => kinds.get(o) === 'topDeal' && shownOffers.has(o));
-      const bestPrice = labels['best price label']
-        || GRID_BEST_PRICE_LABELS[locale.lang] || GRID_BEST_PRICE_LABELS.en;
+      if (!sortPicked) {
+        state.sort = openingGridSort(kinds);
+        sort.select.value = state.sort;
+      }
+      // Recommended lifts the top deals, Best price the k-class highlights
+      const top = picked.filter((o) => kinds.get(o) === state.sort && shownOffers.has(o));
+      const bestPrice = labels['best price label'] || bestPriceText;
       badges = new Map(picked.map((o) => [o, kinds.get(o) === 'kClass' ? bestPrice : labels['recommended label']]));
       sorted = sortGridOffers(filtered, state.sort, top, locale.lang);
     } else {
@@ -2298,6 +2350,7 @@ async function decorateGrid(block, uid) {
   });
   sort.select.addEventListener('change', () => {
     state.sort = GRID_SORTS.includes(sort.select.value) ? sort.select.value : GRID_SORTS[0];
+    sortPicked = true;
     render();
     announce(fillLabel(labels['sorted label'], {
       OPTION: sort.select.options[sort.select.selectedIndex].textContent,

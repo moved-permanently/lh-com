@@ -786,6 +786,12 @@ main > .section[data-markets] + .section {
   margin-top: var(--spacing-default);
 }
 
+/* the page's first section: none above it to be flush with (standing order 26: /de/de/fluege's
+   breadcrumb 24 px under gb/en's) */
+main > .section[data-markets]:first-of-type {
+  margin-top: 0;
+}
+
 /* .contentpage { padding-top: 2.5rem }: AEM pages start 25px below the header on every
    breakpoint. A leading breadcrumb sits above .contentpage and brings its own offset (17px +
    18px box + 25px = h1 box 60px below the header, as nav padding + 24px section spacing here);
@@ -2172,6 +2178,14 @@ body.brand-lufthansa main > .section > .default-content-wrapper:has(> h1:last-ch
   body.brand-lufthansa main > .section > .default-content-wrapper:has(> h1:last-child):has(+ .destination-finder-wrapper > .destination-finder.grid) > h1 {
     margin-bottom: 94px;
   }
+}
+
+/* www's German flights pages have the title where any page's title is, not inside the finder's
+   padded section (/de/de/fluege, /at/de/fluege: 40 px higher at 1440 and 20 at 390 than /gb/en's;
+   standing order 26) */
+/* stylelint-disable-next-line no-descending-specificity -- a title's wrapper, not a modal link's */
+html[lang="de"] body.brand-lufthansa main > .section > .default-content-wrapper:has(> h1:last-child):has(+ .destination-finder-wrapper > .destination-finder.grid) {
+  padding-top: 0;
 }
 
 /* jump links in a column view of their own ([links | empty], 100-years/chronicle): below 768px

@@ -1,0 +1,13 @@
+# Expected change: none in any document (standing order 26, item 1). /gb/en/flights gated with lufthansa-api-001 (sha256 as given: one load of our page at 1440; its finder answer destinationfinder/destination/finder/LHR/E, X-Portal LH, 319 offers, no top deal; tools/parity PARITY_ANSWERS reads its index), against www's recording of 2026-11-09 (lh-parity-004a, capped at 8,000 px). No row helps: with the answer the order and prices were already www's, the differences were code.
+# Found: www's lufthansa.com grid is Discover's component: the sort opens with "Best price" when no highlight is a top deal (ours "Recommended"), the k-class highlights badged "Best price" (ours "Recommended"), "Compare cities" on every card (ours none), cards 395 px apart at 1440 and 334 on phones; on phones the smart search over the origin and "Filters" with the sort on one row (ours 104 px longer above the cards). The code (blocks/destination-finder, tests first): lufthansa.com takes Discover's badges, sorts and Compare cities, the sort www opens with (openingGridSort), the phone toolbar and www's card spacing (body.brand-lufthansa); styles/styles.css: a market-only first section without the 24 px over it (/de/de/fluege's breadcrumb 24 px low), and German pages without brief 500's padding over the finder's title (www's German flights pages have the title where any page has it).
+# Gate: tools/parity/gate.mjs, local renders of main and of the change (aem up, the published content), the same day's answer on gb/en, no answer on the others (their grids show the no-prices message: see capture-requests-ema-test.txt).
+# Each line: path, width, base → change (mismatch %), the gate, the recording.
+/gb/en/flights	1440	42.32 → 31.26	better	lh-parity-004a, answered (lufthansa-api-001)
+/gb/en/flights	390	51.13 → 29.37	better	lh-parity-004a, answered
+/de/de/fluege	1440	39.23 → 38.53	better	lh-parity-004a, no answer
+/de/de/fluege	390	46.61 → 46.71	within 0.5	lh-parity-004a, no answer
+/at/de/fluege	1440	39.47 → 39.10	within 0.5	lh-parity-004a, no answer
+/at/de/fluege	390	46.20 → 45.07	better	lh-parity-004a, no answer
+/de/en/flights	1440	39.38 → 39.38	within 0.5	lh-parity-004b, no answer
+/de/en/flights	390	46.12 → 46.52	within 0.5	lh-parity-004b, no answer
+# The other recorded pages of lh-parity-004a I checked have no market-only first section and no finder title: unchanged by the two styles.css rules.
