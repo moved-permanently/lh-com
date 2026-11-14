@@ -1242,3 +1242,14 @@ body.brand-swiss .destination-finder.grid .destination-finder-tile-compare .dest
     padding-bottom: 40px;
   }
 }
+
+/* SWISS row 55 (standing order 18): from 768px the homepage's "Flight offers from" slider keeps www's space around it
+   (swiss-parity-008, ch/en 1440: about 50px more above its heading, 65px more under its buttons); phones as before (ours
+   taller there already). With the recording's 15 priced cards: ch/en 1440 -3.56 -> -0.97 %, ch/de -4.06 -> -1.50 %; 390
+   unchanged; the offers grid excluded */
+@media (width >= 768px) {
+  body.brand-swiss main > .section.destination-finder-container:not(:has(.destination-finder.grid)) {
+    padding-top: 50px;
+    padding-bottom: 65px;
+  }
+}

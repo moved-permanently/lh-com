@@ -1278,3 +1278,36 @@ body.brand-ita main :is(td, th) > p.spacer {
   height: var(--spacer-size);
   margin: 0;
 }
+
+/* ITA row 56 (standing order 18, item 3): an accordion panel made only of tables (baggage-and-strollers' fare tables,
+   ita-parity-005) as www's ITA maui-table: the header row white between two 1px lines, 144px tall, in www's column header
+   type (.az.columnheader: 22px, line height 110%, light); 32px of white before the first body row (ours had a grey header
+   row on the cells); from 768px www's 80px under the panel's last table (ours 24). A cell's paragraph right before a spacer
+   has no margin: www's empty lines follow the text. Strollers 1440 -4.70 -> -0.76 %, 390 -4.47 -> +0.14 %; checked-baggage
+   and electronic-devices (the other recorded pages with accordion tables) unchanged */
+/* stylelint-disable-next-line no-descending-specificity -- a table cell's paragraph, not the cards' text above */
+body.brand-ita main :is(td, th) > p:has(+ p.spacer) {
+  margin-bottom: 0;
+}
+
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-columns-table + .accordion-columns-table):not(:has(> :not(.accordion-columns-table))) > .accordion-columns-table thead tr {
+  background-color: transparent;
+}
+
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-columns-table + .accordion-columns-table):not(:has(> :not(.accordion-columns-table))) > .accordion-columns-table th {
+  height: 144px;
+  box-shadow: inset 0 1px 0 #d1d1d5, inset 0 -1px 0 #d1d1d5;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-columns-table + .accordion-columns-table):not(:has(> :not(.accordion-columns-table))) > .accordion-columns-table thead + tbody tr:first-child > * {
+  border-top: 32px solid var(--background-color, #fff);
+}
+
+@media (width >= 768px) {
+  body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-columns-table + .accordion-columns-table):not(:has(> :not(.accordion-columns-table))) {
+    padding-bottom: 56px;
+  }
+}
