@@ -1,0 +1,40 @@
+[
+  {
+    "path": "/de/en/homepage",
+    "inserts": [
+      {
+        "replace": "<h2 id=\"economy-class-offers\">Economy Class Offers</h2>",
+        "text": "<p>{spacer-1 from-768}</p><h2 id=\"economy-class-offers\">Economy Class Offers {heading-small}</h2>"
+      },
+      {
+        "replace": "<h2 id=\"explore-more-topics\">Explore more topics</h2>",
+        "text": "<h2 id=\"explore-more-topics\">Explore more topics {heading-small}</h2>"
+      },
+      {
+        "before": "<div class=\"destination-finder\">",
+        "text": "<p>{spacer-28}</p>"
+      },
+      {
+        "replace": "<h2 id=\"looking-for-more-than-just-a-flight\">Looking for more than just a flight?</h2>",
+        "text": "<p>{spacer-61}</p><h2 id=\"looking-for-more-than-just-a-flight\">Looking for more than just a flight? {heading-small}</h2>"
+      }
+    ]
+  },
+  {
+    "path": "/de/de/homepage",
+    "inserts": [
+      {
+        "replace": "<h2 id=\"flugangebote\">Flugangebote</h2>",
+        "text": "<p>{spacer-1 from-768}</p><h2 id=\"flugangebote\">Flugangebote {heading-small}</h2>"
+      },
+      {
+        "replace": "<h2 id=\"entdecken-sie-weitere-themen\">Entdecken Sie weitere Themen</h2>",
+        "text": "<h2 id=\"entdecken-sie-weitere-themen\">Entdecken Sie weitere Themen {heading-small}</h2>"
+      },
+      {
+        "replace": "<h2 id=\"suchen-sie-mehr-als-nur-einen-flug\">Suchen Sie mehr als nur einen Flug?</h2>",
+        "text": "<p>{spacer-61}</p><h2 id=\"suchen-sie-mehr-als-nur-einen-flug\">Suchen Sie mehr als nur einen Flug? {heading-small}</h2>"
+      }
+    ]
+  }
+]
