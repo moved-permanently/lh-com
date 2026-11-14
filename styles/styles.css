@@ -251,6 +251,22 @@ main {
   }
 }
 
+/* lufthansa.com keeps its headings' words whole on phones too, as www's: a word a little wider than
+   its line runs into the page margin (/de/de/entryprocesses "Reisebestimmungen", 350px on a 346px
+   line: 24.8 -> 4.2 % at 390). A heading whose text would reach past the viewport, so the page
+   would scroll sideways, gets class heading-break-words from scripts/heading-words.js: its overlong
+   word breaks there as the last resort (standing order 24) */
+@media (width < 768px) {
+  body.brand-lufthansa main :is(h1, h2, h3, h4, h5, h6) {
+    hyphens: manual;
+    overflow-wrap: normal;
+  }
+
+  body.brand-lufthansa main :is(h1, h2, h3, h4, h5, h6).heading-break-words {
+    overflow-wrap: break-word;
+  }
+}
+
 /* --heading-large-weight, --heading-large-transform: a brand theme's headline (b2b: LufthansaHead
    200 uppercase); lh-com's 700, none */
 h1 {

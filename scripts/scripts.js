@@ -539,6 +539,12 @@ async function loadLazy(doc) {
   const main = doc.querySelector('main');
   await loadSections(main);
 
+  // lufthansa.com: headings keep their words whole on phones; one that would push the page sideways
+  // breaks inside its overlong word (scripts/heading-words.js, styles.css)
+  if (document.body.classList.contains('brand-lufthansa')) {
+    import('./heading-words.js').then(({ default: keepHeadingWords }) => keepHeadingWords(document));
+  }
+
   // links to /modals/ open their documents as dialogs (the General Conditions)
   import('./fragment-dialog.js').then(({ initFragmentDialogs }) => initFragmentDialogs(document));
 
