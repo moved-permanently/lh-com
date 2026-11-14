@@ -1213,6 +1213,17 @@ body.brand-lufthansa main > .section.grey.column-band:has(+ .section > .default-
   margin-bottom: 0;
 }
 
+/* a grey column band before an unstyled section that opens with default content: www has the band's
+   own padding there, not our section gap (ranking-so12's column-band-plain; standing orders 13 to 20:
+   entryprocesses 28.6 / 17.0 -> 16.4 / 6.3 % off www at 390 / 1440, arrival-services, doctor-on-board).
+   Not a band that ends with a list, not before a section that opens with its own column-start
+   paragraph or the sub-page navigation (those keep their gap on www), not a band before a padded AEM
+   section on www (before-padded: /de/en/book-and-manage/flights/ana, our gap right at 390) */
+body.brand-lufthansa main > .section.grey.column-band:not(:has(> .default-content-wrapper:last-child > :is(ul, ol):last-child)):has(+ .section:not(.grey, .padded, .stage, .spaced, .flush, .column-view, .column-band, .campaign-section, .gap) > .default-content-wrapper:first-child):not(:has(+ .section > .default-content-wrapper:first-child > p.column-start:first-child), :has(+ .section > .subpage-nav-wrapper), .before-padded) {
+  margin-bottom: 0;
+}
+
+
 /* what live has below a grey band instead of the section gap (importer, lufthansa-sections
    greyStyles): spaced, a grey AEM section before an unpadded one that starts with a headline or
    text: its .mb-default 2.4rem (onboard-delights band -> "Fresh on board" 32px of ink, was 56);
