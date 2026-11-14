@@ -182,3 +182,29 @@ b2b.css (yours), so they are listed here, not changed:
   Travel ID" button 118 px to the next heading where www keeps about 40.
 - **program (+5.20 / +4.08 %):** the grey "Our bonus programs" band, its heading 48 px lower and 57 px more under its cards.
 - **program/experts (-2.77 % at 1440):** the newsletter section, www 145 px from its button to the next heading, ours 82.
+
+## 10. B2B: after your plain form (09e57746) and standing order 20's spacers, from ema-lufthansa (2026-11-14, standing order 17)
+
+Re-measured as served on b2b.turnsthe.page (~09:35 UTC, the brand fonts; finish-b2b.txt has every row):
+- **Within 2 % now (READY in finish-b2b.txt):**
+  - businesstogo de/en and xx/en: 390 +3.13 -> +1.30 %, 1440 +2.94 -> +0.87 %;
+  - lufthansa-group-airlines: de/de -3.02 -> -0.05 %, de/en -2.47 -> +0.55 %;
+  - program/experts at 1440: -2.77 -> -1.66 %;
+  - our-european-fares (my columns-wrap delta): +8.67 -> +1.11 %.
+- **Row 9's three pages:** your standing order 21 rows (08174b71, with e47e1637 and 883d72fa) are READY on
+  b2b-parity-007. As served at ~09:35 UTC, before they were published, the pages still measured as in finish-b2b.txt:
+
+  | page | width | www | ours |
+  | --- | --- | --- | --- |
+  | travel-management | 1440 | 2565 | 2746 |
+  | travel-management | 390 | 4064 | 4210 |
+  | lufthansa-group-wifi | 1440 | 4476 | 4673 |
+  | program | 1440 | 2057 | 2164 |
+  | program | 390 | 2449 | 2549 |
+
+  I'll re-measure them on b2b.turnsthe.page once they're live. finish-b2b.txt keeps them HOLD until then.
+- **New, B2B's widths:** /de/en/about-us/lhg-history/lhg-history-alliances-and-joint-ventures (-2.98 % at 1440,
+  b2b-parity-003). The joint-venture items are a Columns Media title-large block in two staggered rows of three cells
+  (one cell empty in each). www sets each item's text in a column about 290 px wide under its logos, ours 408, so www's
+  texts run longer (about +67 px) and it keeps more space around them. Columns Media is shared by every brand, so a
+  B2B-only width belongs in b2b.css.

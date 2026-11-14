@@ -4852,3 +4852,93 @@ commits; the GitHub Build read; the smoke of 14 hosts before and after.
 - The tests for the two ITA delta rows were written after their lists; both rows reuse the tested fragment tool.
 - Reads only from our hosts, the drop's recordings and DA (GETs from my session, not from tests). No request to an
   airline host, no da-upload.mjs call, no upload, preview or publish by me.
+
+## Standing order 17 (2026-11-14, about 09:40 to 13:00 CET), with its final section
+
+**At the start:** order 16's final section was committed as b8a63dc5 but not pushed: its ship's suite ran past the
+tool's 10-minute limit and was stopped after lint (exit 0). `.migration/project.json` was modified, not by me.
+
+**Item 0, order 16's final section (803ceb07):**
+- The section was written (b8a63dc5): what shipped, the served fleet heights after b9b9ea54 (long-haul 3508 / 4931,
+  short-haul 3517 / 5339), and what was left unpushed.
+- The suite ran on its own in the background: 4229 / 0. Pushed with the push loop on the second round, lint exit 0 in
+  both rounds. Build success.
+- Smoke against the one after b9b9ea54: 0 differences except B2B's search index and the lufthansa.com de/en sitemap
+  (content). The loop's rebase brought only report commits, so the suite wasn't run again.
+
+**Item 1, ITA's finish list (01085185 and this commit):**
+- **electronic-devices-and-batteries, READY.**
+  - The 107 px weren't the accordions, which match www's to 1 px an item. They were the section after them, from
+    "Travel safely with lithium batteries" to "Related": www 818, ours 711.
+  - Six insertions on DA's copy: the band's empty opening text, the band's end, two dividers, a heading-small H3, and
+    the space before "Related".
+  - 1440 -3.04 -> -0.31 %, 390 -2.30 -> -0.39 %.
+- **baggage-and-strollers: delta row READY, the page HOLD (still above 2 %).**
+  - 16 bold labels are served run together with their value ("Folding strollerYes, in the hold"), because publishing
+    drops a break at the end of bold text. The rows move the break out of the bold.
+  - 10 cells end with empty lines that publishing drops. They become spacer paragraphs; a paragraph in a cell
+    publishes, as electronic-devices' cells show.
+  - New tool: tools/importer/ita-fragment-replace-apply.mjs (exact strings, byte for byte reversible with --revert;
+    test first). New rule: ITA row 55, which gives a spacer in a table cell its size. None of the 39 recorded ITA
+    pages has one today.
+  - Measured on DA's copy with publishing's two drops applied (that copy reproduces the served page):
+    390 -11.13 -> -4.47 %, 1440 -7.60 -> -4.70 %. Left: www's header cells in 22 px type.
+- **corporate-b2b, READY.** Not the pictures (www's are 407 x 203, ours 406 x 203) but the space above the cards:
+  www 57 px, ours 25. "{spacer-31 from-768}" takes 1440 from -2.08 to +0.07 %; 390 unchanged.
+- **Explained, no change:**
+  - group-boarding: www's tables are 50/50 like ours, with the same variants; the rows differ by a few px each. The
+    empty headings' 16 px alone would be 0.35 points, under the gate.
+  - help-and-contact and invoicing: fonts, as before.
+- **Checks for 01085185:**
+  - Suite 4248 / 0 on the commit, 4254 / 0 after the rebase. The first push was refused; lint and stylelint 0 after
+    the retry rebase, then pushed. Build success.
+  - Smoke: 0 differences except B2B's search index (content).
+  - After the rebase brought 5ec0afd7 (another order's grey-band rule in styles.css), the three drafts were
+    re-measured on the served code: unchanged.
+- **Live since order 16, as drafted:** entry-exit-system 5467 / 9157, flying-with-a-baby 3264 at 1440.
+- **Found, not changed:**
+  - Bold text also runs into its value on seats-selection-economy (2), economy (2), and electronic-devices' section
+    for other markets (5). In those DA copies the break was already lost at import.
+  - On economy, restoring it measured -0.16 -> +1.32 % at 1440, which fails the gate. On seats-selection-economy it
+    changes no height, and www has the price as its own paragraph.
+
+**Item 2, Group for Business:**
+- The 35 rows were re-measured as served on b2b.turnsthe.page (~09:35 UTC). 8 are within 2 % now (READY in
+  finish-b2b.txt):
+  - our-european-fares on my delta: +8.67 -> +1.11 %;
+  - businesstogo de/en and xx/en at both widths (ema-test's plain form, 09e57746);
+  - lufthansa-group-airlines de/de and de/en, and experts at 1440 (ema-test's order-20 spacers).
+- Nothing left is mine. The remaining causes are in ema-test's theme or documents, or are fonts, www's state, or
+  resized recordings.
+- rows-for-ema-test.md row 10 records the re-measure and ema-test's order-21 rows for row 9's three pages (READY on
+  b2b-parity-007, not yet served at 09:35). It also adds a new B2B cause: the joint-venture items' column widths
+  (Columns Media title-large, www 290 px, ours 408).
+
+**Lists (tools/reports/parity-2026-11-09/):**
+- delta-so17-ita-electronic-devices-lithium.txt (READY);
+- delta-so17-ita-baggage-and-strollers-cells.txt (READY, with ITA row 55);
+- delta-so17-ita-corporate-b2b-cards-gap.txt (READY);
+- finish-ita.txt (header and six rows);
+- finish-b2b.txt (header and eight rows READY);
+- rows-for-ema-test.md row 10.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git):
+  - DA's copies read today (electronic-devices 08:38, baggage-and-strollers 08:46, seats-selection-economy and
+    economy, corporate-b2b 09:37 UTC) and the tools' output;
+  - the drafts and the measuring-only publish emulation;
+  - the cell, bold and B2B scans, the screenshots' crops and the logs.
+
+**Process:**
+- **Ships in the background.** The ship script runs longer than the tool's 10-minute limit, so the ships and the suite
+  now run in the background and are polled.
+- **Test first.** All four new tests were run red before their tool, data or rule existed. Two of my own assertions
+  were wrong and were fixed in the test, not in the data:
+  - the test document repeated an anchor that the band's end contains;
+  - a check expected an insertion right before an anchor that the next row's divider splits.
+- **Spacers** render 1 px taller than their number. The first electronic-devices draft over-corrected (+164 against
+  +107) and was redrawn.
+- **The gate** as the owner reads it: one width closer by more than 0.5 points, no page further by 0.5 or more.
+- **Hosts:** reads only from our hosts, the drop's recordings and DA (GETs from my session). No request to an airline
+  host, no da-upload.mjs call, no upload, preview or publish by me.
