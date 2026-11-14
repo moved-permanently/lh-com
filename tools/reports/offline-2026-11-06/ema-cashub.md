@@ -5139,3 +5139,165 @@ heads-all.sh, push26.sh, push26b.sh, suite.sh, quizscan.py, quizlist.py, mkquizd
 endkind.sh, runs.sh, the probes *.js), the candidate stylesheets (flush.css, hcl.css, quiz.css, ad-promo.css, pich.css,
 greyend.css), the drafts (fl/, os6/, sfq/, dob*/, mtc*/), the rankings and their logs, and the published copies read
 from our hosts (pub-ad/).
+
+
+## Standing order 27 (2026-11-14, from about 03:05 CET)
+
+**Carried over:** nothing of mine was uncommitted or unpushed (order 26 ended at `75cdc958`, on origin). The main checkout
+still stood at `e2ff4e68` because order 26 pushed from the push worktree; I moved it to origin with reset --mixed and a
+checkout of the 97 moved files (none of them dirty). Its other changes (import-progress.json, the urls-*.txt lists, the
+importer reports, the notifications.css comment line) belong to other jobs and were left alone: 88 dirty entries before
+and after.
+
+### Item 1: os401crewstory, what differs from the publish check (delta-so27-austrian-os401crewstory-heading-sizes.txt)
+
+Rendered on main--lh-austrian--moved-permanently.aem.live, live (unmarked) and the same page with my six marks, three ways
+(no scroll, scrolled in half-screen steps, every picture eager), three identical runs per width:
+
+| render | 1440 live / marked | 390 live / marked |
+|---|---|---|
+| scrolled or eager (also: one jump to the bottom, aem.page, turnsthe.page, DPR 2 / 3 with phone emulation, viewport 664 to 1,000 px high, a 1440 load resized to 390) | 7,887 / 7,764 | 10,114 / 9,909 |
+| not scrolled (lazy pictures never load) | 7,374 / 7,251 | 9,973 / 9,768 |
+| the publish check | 7,885 / 7,762 | 9,988 / 9,747 |
+
+- **At 1440 the check and my drafts agree** (2 px). The host, consent and the theme make no difference: with the fonts
+  loaded, aem.live, aem.page and turnsthe.page gave the same height in all 24 renders, and `e362ba47` was on origin at
+  00:19 UTC, 4 minutes before the helper uploaded the marks (00:23).
+- **At 390 the check's figures sit 15 / 21 px from my renders in which "Gemeinsam abheben"'s picture never loaded**
+  (media_153aab545344..., the paragraph before the divider). It measures 0 x 0 until it loads, so a 390 render without it
+  is 141 px short. The check's "live 6 px off www" was that missing picture hiding our +132 px. The other 15 to 36 px I could
+  not reproduce (375 and 382 px wide, phone emulation, DPR): lines wrapping differently on the checking machine would do it.
+- **A trap for any check on aem.page / aem.live:** styles/fonts.css takes CoreSans and Portada from the site's own host
+  (lh-edge's digitalhangar route, only on turnsthe.page; 404 on aem.live) and falls back to www.austrian.com. With airline
+  hosts refused, those renders are in Arial: 8,039 / 10,739 px live. My renders answered the font requests from
+  turnsthe.page's copy (the www request was never sent).
+- **The row, written again:** the same six marks, READY (1440 +2.62 -> +1.01 %, 390 +1.32 -> -0.73 %), with a note for the
+  check: at 390, read whether that picture loaded. The helper applied it at 03:49 CET (`8d8782ca`). Live now: 7,764 / 9,909 px,
+  as drafted.
+
+### Item 2: /at/de/fly/travel-classes at 390
+
+Your decision is in the list (rank-so26-austrian-empty-item.txt: READY, a font-wrap row like the Greek and Russian ones);
+`b50f266f` stays.
+
+### Item 3: the grey band that ends the page (delta-so27-austrian-grey-band-end.txt, all HOLD)
+
+**No row above a band passes on its own.** The 48 px of white under each band hide what is missing above it, so every
+fix above the band makes the page longer than www's. Measured as drafts (control = live on all three), heading offsets at
+the text's top (a {column-start} heading's 32 px padding sits above its text):
+
+- **medical-travel-companions** (www 2,775 / 3,120): the view markers on "Services at a glance" alone 2,830 / 3,193 px
+  (+1.98 / +2.34 %); with the empty last section deleted 2,782 / 3,145 (+0.25 / +0.80 %). Every heading is then within 13 px
+  of www's at 1440; 1440 0.07 points closer, 390 0.51 further.
+- **doctor-on-board** (www 4,529 / 5,857; live 4,528 / 5,795): order 26's live column-start is right ("Your benefits" at www's
+  y). Still short: 32 px in the grey "Are you a doctor ..." band (www nests a three-column view: Columns Media (padded)
+  closes it) and 43 px before "Contact" (www's own view: a column-start closes 32). Each alone is further at 1440 (+0.86 /
+  +0.68 %); all three with the end deleted 4,552 / 5,819 (+0.51 / -0.65 %), every heading within 15 px: 1440 0.49 further,
+  390 0.41 closer.
+- **bearbeitungsgebuehren** is not short above its band (-30 and -44 px in the fee views, +69 in the contact part, whose
+  61 px spacer is www's separator: net -5 / -13). Deleting the end alone: 1440 0.07 closer, 390 1.16 further.
+- **The band rule** (order 26's candidate) reaches exactly these three of the 121 recorded documents and does what
+  deleting the empty section does. Not shipped: its gate is the rows above, which are HOLD.
+
+### Item 4: Austrian's next groups (rank-so27-austrian-next.txt)
+
+A new baseline of all 242 page-widths as served (about 04:00 CET), the rows beyond 1 % outside fonts, widgets and blocked
+pictures, traced worst first by heading offsets and pixel runs in www's PNG and ours.
+
+- **Shipped, `6c8d141e`:** a picture in an Austrian full-bleed section fills the width, as www's full-width-bg. On
+  culinary-services the media file is 1,277 px wide and stood at that width at 1440 (www 1,440 x 518). The only one of the
+  242 page-widths it moves: 1440 -1.34 -> -0.64 %, live as measured (8,374 px).
+- **Shipped, `9824959e`:** an in-column grey band that ends with a link line keeps 32 px under it. On healthy-travel,
+  www's grey ends about 44 px under "Find out more about Medical Travel Companions", ours 84 (the in-column 72 px from
+  brief 462, measured on a band that ends with text). It is the only recorded in-column band the rule reaches: 1440 +1.47
+  -> +0.86 %, 390 +0.75 -> +0.43 %.
+- **Shipped, `11129bc9`:** a section that opens with a padded Columns Media right after a section that ends with one
+  keeps www's 99 px between the two views (ours 88; order 24's "22 of 33 px per break"). As padding: an 11 px margin
+  collapsed into the section gap and changed nothing (the first ranking). Only the two special-requirements pages match:
+  en 1440 -1.22 -> -0.34 %, 390 -0.97 -> -0.37 %; de -0.48 -> -0.19 %, -0.45 -> -0.25 %.
+- **HOLD, your call: after an in-column band.** www has no section gap before the space-m section that follows (its spacer
+  is the separator's space). The rule is right where it acts on both pages it reaches (austrian-app's step +100 -> +52 px;
+  healthy-travel with both rules +0.14 / -0.11 %), but austrian-app gets 0.90 points further at 1440: it is 150 px short
+  above the band (order 26's view in a view).
+- **DA deltas READY** (all drafted from the published copy, control = live):
+  - sustainable-flying (delta-so27-austrian-sustainable-flying-view.txt): "One click, three options ..." opens a column view
+    on www (92 px of white from the list to its text, ours 39). A column-start: 1440 -1.43 -> -0.68 %, 390 -0.74 -> -0.20 %.
+    Applied by the helper (`ceaaafba`), live as drafted.
+  - besondere-anforderungen (delta-so27-austrian-besondere-anforderungen-views.txt): order 24 split the English page in four
+    views and left the German one out. Only its fourth view starts too high (-32 / -36 px): one split. 1440 -1.07 -> -0.48 %,
+    390 -0.86 -> -0.45 %. Applied by the helper (`9b25d081`), live as drafted (3,718 / 5,472 px).
+  - entryregulations en / de (delta-so27-austrian-entryregulations-footnote.txt): the FAQ footnote is small print in a view of
+    its own on www (-61 / -35 px at 1440). Marker paragraphs around it and " {copytext-small}" on it: en 1440 -1.26 -> -0.27 %,
+    390 -2.03 -> -1.77 %; de +0.16 / -1.22 % (from -0.39 / -1.43). At 390 that stretch is then 27 / 28 px longer than www's.
+    One element takes one marker: {copytext-small} with {column-start} on the same paragraph was not applied. Applied by the
+    helper (`8e8724c7`); both pages live as drafted.
+- **HOLD, your call: the table rows.** www's maui-table pads every cell 24 px (ours 32): private-check-in-counter's seven
+  rows 72 px on www, 88 here. The rule brings that page from +1.81 to +0.17 % (1440) and +1.65 to +0.29 % (390), counted
+  without Turnstile's 71 px. It moves accessible-travel 1.31 points further at 1440 (-0.25 -> -1.56 %) and
+  bearbeitungsgebuehren 1.16 at 390, because www's cells there hold empty paragraphs around the text
+  (`<p></p><p></p><p>ATR72-600&nbsp;<br>(Braathens)</p><p></p><p></p>`, about 70 px more a row), which the import drops.
+- **HOLD: the cn footer.** www's "沪公网安备 31010102005102号" link holds the public security emblem in a block of its own, so
+  that link and "Change Privacy Settings" take two more lines (+70 px). Our cn footer has the link without the emblem. The
+  file is in no recording archive, and fetching it would be a request to www.
+- **The +71 px on four form pages** (private-check-in-counter, exclusive-charter-enquiry, bagdamage, invoice-request-hungary)
+  against order 26's ranking: Turnstile's challenge (.form-bot-check, 71 px, from about 10 s into a headless load); that run
+  read them before it appeared. Subtracted, not hidden.
+- **Traced, nothing to do:** promptpay and ski-campaign (the fare teaser and flight search: widgets); wetlease-hub and
+  additional-services end differently on www (77 px of white under one band, none under the other; wetlease's lighter grey
+  is its screenshot: laid out from www's CSS it is #e7e7e7 as ours); private-check-in-counter's padded view after text is
+  43 px too low, and the view without the option loses 83, so no row; fr/fr baggage (+1.12 %) is its footer's French lines
+  wrapping later here (+41 px, the content 8 px off).
+- **Ranked and dropped:** a page that ends with plain text keeping www's 24 px to the footer: it reaches only tarmac-delay and
+  moves it further at both widths (the missing emblem's 70 px).
+- **The real 390 loads** (19 page-widths of -001 / -018, homepages left out): all within 1 % except the widget pages and
+  /at/de/entryregulations (-1.43 %, its footnote row above; plus a heading that wraps one line later on the measuring
+  machine). The pages that end with the closing card carousel are -57, -32 and -13 px to the footer: no shared gap.
+
+### Final section (about 07:00 CET, 2026-11-14)
+
+**On main:**
+- `bdfa802c`: items 1 and 2 (os401crewstory's row written again; travel-classes counted as a font-wrap row).
+- `92c7a7f0`: item 3 (the grey band end, all HOLD).
+- `6c8d141e`: item 4, the full-bleed picture (austrian.css and its test).
+- `acfc08c2`, `adde5479`, `3f5671a9`: item 4's lists (four READY DA rows on four pages, all applied by the helper and live as
+  drafted; the HOLD rows).
+- `9824959e`: item 4, the in-column band that ends with a link line (austrian.css and its test).
+- `11129bc9`: item 4, the stacked padded views (austrian.css and its test).
+- This commit: this section and the list's last rows.
+
+**Checks before each push** (the clean push worktree, origin/main at each round):
+- Whole-repo lint exit 0 every round; stylelint exit 0 on austrian.css for the three theme commits.
+- Tests first, red on main: austrian-full-bleed-picture-so27 1 of 2 red, austrian-in-column-link-end-so27 2 of 3,
+  austrian-stacked-views-so27 1 of 2 (the others guard what must not change).
+- The related test files on each code push: 178 (6c8d141e: 791 tests), 185 (9824959e: 815 tests) and 388 (11129bc9: 1,634
+  tests), 0 failures.
+- **The full suite** on origin/main with 6c8d141e (ceaaafba): 1,061 files, 4,176 tests, 0 failures, 5 skipped.
+  Again on origin/main with all three rules (11129bc9): 1,071 files, 4,206 tests, 0 failures, 5 skipped.
+- Most pushes took more than one round (the in-column rule five): origin moved during the checks.
+
+**For you to decide:**
+- The Austrian table rows at www's 24 px (item 4): right by www's CSS and closest on private-check-in-counter, further on
+  accessible-travel (1440) and bearbeitungsgebuehren (390) because of their cells' empty paragraphs.
+- The grey band end (item 3): each page only matches www with the rows above the band and the end together; even then each
+  moves about 0.5 points further at one width.
+- The section gap after an in-column band (item 4): right where it acts, austrian-app further at 1440.
+
+**Open:**
+- The cn footer's public security emblem (the file is not in any archive and would have to come from www).
+- The empty paragraphs in www's table cells (the import drops them).
+- The 27 / 28 px at 390 after the entryregulations footnote view; tarmac-delay's 30 px of text above the footer.
+
+**Rules followed:**
+- **No airline host was requested.** Every render refused www.* and the airline hosts, and counted the refusals: about 2,250
+  to 2,340 per full Austrian pass (the homepages' widgets, the help-center app, the flight search; four passes), 1,147 on the
+  1440 pass, 12 per table / in-column run, 32 over 54 drafts, 0 on the 36 crew-story renders. None was sent. On aem.live the
+  four font requests to www.austrian.com were answered from austrian.turnsthe.page's copy of the same files, never sent.
+  The offline layouts of www's recordings answer every request from the archive or abort it.
+- **DA:** not read this order. Our documents were read from austrian.turnsthe.page and the aem.page / aem.live copies.
+- No upload, preview or publish. da-upload.mjs was not called.
+
+**Not in git** (scratch under /tmp/so27, not in the repo): the scripts (hs.mjs, matrix.sh, jump.sh, emu.sh, emu2.sh,
+draft.sh, mkcand.py, mksf.py, mkba.py, mkere.py, mkerd.py, ba.sh, ere.sh, erd.sh, pcc.sh, rank.sh, reach.py, tables.py,
+incol.py, outline.py, skel.py, wwwheads.py, wwwels.py, crop.mjs, the probes *.js), the candidate stylesheets
+(table-os*.css, fullbleed.css, textend.css, incol*.css, views.css), the drafts (cand/), the baselines, rankings, heading probes,
+screenshots and crops and their logs, and the published copies read from our hosts (pub/).
