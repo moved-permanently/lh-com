@@ -1311,3 +1311,14 @@ body.brand-ita .accordion-columns .accordion-columns-intro:has(> .accordion-colu
     padding-bottom: 56px;
   }
 }
+
+/* ITA row 57 (standing order 19, item 1): below 768px a tab set's sections without the market variants' top margin
+   (styles.css: main > .section[data-markets] + .section): long-haul's hidden market-variant tables pushed the next closed
+   accordion item 24px down (www's items 10px apart; ours touch elsewhere). Long-haul with its Tabs open row (www's
+   phone first load, ita-parity-006) 2897 -> 2849 (www 2809); short-haul -0.45 -> -0.90 %, ita-airways-app unchanged;
+   1440 unchanged */
+@media (width < 768px) {
+  body.brand-ita main > .section:is(.section-tab-panel, .section-tab-part):is([data-markets], [data-markets] + .section) {
+    margin-top: 0;
+  }
+}

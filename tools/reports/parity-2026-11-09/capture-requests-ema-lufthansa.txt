@@ -27,3 +27,13 @@
 # delta-so14-swiss-medication-transport-picture.txt (HOLD until the picture is in DA's media):
 # host: www.swiss.com
 /content/dam/lx/images/local_variations/c-1009756376-LX048_Visual_Medication_Transport_Page_1440×480px.jpg
+# ITA, standing order 19 (2026-11-14): 390 x 844 only, each page LOADED AT THAT SIZE (a phone's first load, as
+# ita-parity-006; not a resize of the 1440 load), full height, the measurements json. Their 390 recordings so far are
+# resizes: the tab sets' phone default (all closed, as long-haul's first load, or the first open) and the phone heights
+# of help-and-contact and invoicing are unknown. long-haul again, to see the closed accordion is www's steady default.
+# host: www.ita-airways.com
+/it/en/world-of-ita-airways/discover-ita-airways/fleet/short-haul
+/it/en/world-of-ita-airways/discover-ita-airways/ita-airways-app
+/it/en/world-of-ita-airways/discover-ita-airways/fleet/long-haul
+/it/en/help-and-contact
+/it/en/support/utilities/invoicing
