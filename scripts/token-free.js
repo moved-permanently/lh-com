@@ -263,15 +263,6 @@ function applyThemeRules(main, theme) {
       section.querySelectorAll(':scope > h1 + p').forEach((p) => {
         if (p.textContent.trim() && !hasPicture(p)) addUnmarked(p, 'copytext-large', MARKED_SIZE);
       });
-      // the title alone in its section (the breadcrumb aside): the intro opens the next section,
-      // a market section passed over (www's p.copytext-large on all four recorded documents of the
-      // kind: fly-with-austrian en / de, bearbeitungsgebuehren, sustainable-flying; order 28)
-      const title = [...section.children].filter((el) => !isMeta(el) && blockName(el) !== 'breadcrumb');
-      if (title.length === 1 && title[0].tagName === 'H1') {
-        const next = sections.slice(i + 1).find((s) => !s.hasAttribute('data-markets'));
-        const p = next && [...next.children].find((el) => !isMeta(el));
-        if (p && p.tagName === 'P' && p.textContent.trim() && !hasPicture(p)) addUnmarked(p, 'copytext-large', MARKED_SIZE);
-      }
     }
     // what follows the section's first element (its metadata aside)
     const afterFirst = first && first.nextElementSibling;
