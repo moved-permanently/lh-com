@@ -1,0 +1,18 @@
+# Standing order 22 (2026-11-14), item 3: giftvoucher's de market version, for the local harness (it runs the import from
+# the archives; I did not: lh-snapshots-083/084 are not on this machine). Expected change: in /de/en and /de/de
+# book-and-manage/flights/giftvoucher, the sections with "markets: de" (the 5 % promotion) re-imported with main's info
+# bundle from lh-snapshots-083 (de/en) and -084 (de/de). Then brief 582's markets-section step again
+# (tools/loc/market-steps.mjs of 1736cf4 or later, market-steps-582-rerun.tsv rows 3 and 23: "de|-de" against the ae
+# variant). The "-de" sections and everything else stay as DA's.
+# Why: the de version's three cards ("Frequently asked questions", "Do you already have a Gift Card?", "Arrives in your
+# inbox") have their links on the titles in DA's copy and lack www's links under the cards ("Visit the FAQs",
+# "Redeem on lufthansa.com", "Buy Gift Card now"). The recording lh-parity-002a (www /de/en, 2026-11-06 03:09 UTC, the
+# de market's promotion version) shows those three links. The -de version (from lh-snapshots-090) has them already.
+# Measured on the published copy at 1440: that part is about 45 px short, plus 30 px above "Get or redeem a Gift Card".
+# With delta-so21-top-flush's giftvoucher row alone the page reads worse (14.3 -> 15.5), so that row waits for this
+# re-import: apply it after, then measure both together (gate.mjs on /de/en 1440 / 390).
+# Not checked here: the importer's output for lh-snapshots-083 itself (the archive is not local). If the re-import still
+# puts the links on the titles, the cause is the snapshot's card markup, and the row goes back to HOLD.
+# status	document	tool	expected change	gate
+READY	/de/en/book-and-manage/flights/giftvoucher	re-import (info bundle, lh-snapshots-083), then market-steps.mjs row 23	the de version's cards with www's three links under them	before: 14.3 / 23.4 at 1440 / 390 (published); measure after, then the top-flush row
+READY	/de/de/book-and-manage/flights/giftvoucher	re-import (info bundle, lh-snapshots-084), then market-steps.mjs row 3	as de/en (its German link texts as in the snapshot)	not recorded; as de/en

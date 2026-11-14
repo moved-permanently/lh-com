@@ -4137,3 +4137,62 @@ Final section (2026-11-14 ~08:50 CET):
     published and DA copies;
   - /tmp: the import workspaces (ws-617-so21-*), the bundle builder (/tmp/p2/aih);
   - the untracked import reports of earlier runs.
+
+### Standing order 22 (2026-11-14 09:15 to 13:00 CET)
+
+No uploads, previews or publishes; DA only read (dry runs on DA's copies of cancellations-and-refunds); no request to an
+airline host (captures with the airline hosts aborted). Order 21 left nothing unpushed. Each push: whole-repo lint read
+0 on a clean worktree of the rebased HEAD, stylelint 0 on the changed theme and block files, the tests reading the changed
+files passed. The full suite (logs/b200/suites.sh) ran on e16fe41 (71 lh-edge files, 1,088 site files, 0 failing) and
+again on the final HEAD (5ec0afd: 71 lh-edge files, 1,089 site files, 0 failing). No change deploys lh-edge. /de/en/overview-manage and Discover's offers page: no
+row. Every gate below is tools/parity/gate.mjs (% off www, base -> trial).
+
+1. **faq-damaged-baggage** (80681ae): a {heading-small} group heading (h2) right after a spaced accordion has only the
+   accordion's margin above it.
+   - Census of the 9,912 published copies: the shape is on faq-damaged-baggage only (15 documents, 30 places).
+   - The h3 heading-small titles of accordion lists (security-fast-lanes, climate-protection-projects) are another
+     shape and stay as before.
+   - Gate: 7.41 / 12.31 -> 1.15 / 3.02 at 1440 / 390. faq-baggage-delay, carry-on-baggage, security-fast-lanes and
+     climate-protection-projects are the same (8 page-widths).
+2. **The ranking.**
+   - Fixed in code:
+     - The lead picture after the title's intro fills the content width, as www's image component (img.w-100)
+       does (0270534).
+       - climate-protection-projects 12.22 -> 4.01 at 1440, travel-expense-management 10.62 -> 2.12,
+         most-significant-route 10.33 -> 2.56 (with its versions); 390 and the article pages are the same.
+       - Census: 55 such pictures narrower than the column, all stored 900 px and wider. The narrow pictures (svg
+         icons, fare-teaser tiles, which www does not stretch) sit elsewhere.
+     - No section gap under any grey band whose column ends in the next section (5ec0afd; it widens order 21's
+       express-bus rule). menus-on-long-haul-flights 10.99 / 18.26 -> 4.45 / 15.32. Census: 21 documents.
+   - Held: the Columns Media row gap on phones. www has about 24 px less between stacked rows at 390 (42 instead of
+     our 66), and it explains the largest drift on many pages, but no condition found so far passes the gate:
+     - every row, on 62 recorded page-widths at 390: 10 better (business-class-on-short-and-medium-haul 19.5 -> 7.3,
+       lufthansa-corporate-customers 13.6 -> 4.0, menus-travel-classes 12.0 -> 4.0), 9 worse (the loungenet
+       first-class lounges +6.8, tips-senior-travellers +3.9, express-rail-briefing +2.5);
+     - only after a row that ends with a text cell: 9 better, 6 worse (the lounges and tips-senior-travellers back to
+       the same; express-rail-briefing, express-bus-briefing and travelling-with-children still worse).
+     - The next order can start from the two gate runs (logs/b614/rgw, rg2).
+   - Looked at, no cause found:
+     - medikamenten-transport, advance-seat-reservation 390, express-bus-briefing, hertz: alternating steps (the
+       matcher on repeated rows).
+     - exclusive-charter: a column band on its grey box is better at 1440 (11.5 -> 9.0), worse at 390 (14.7 -> 19.9).
+     - child-in-businessclass: www's lightbox pictures are smaller (+27 / -24 px a row at 390 / 1440); the fleet
+       pages share them.
+     - The form confirmation page: 48 px more before the footer.
+     - sixt: inside the car-rental widget.
+3. **The HOLDs.**
+   - cancellations-and-refunds, now READY: option column-end-gap (e16fe41). On www a 20 px separator follows the
+     accordion at its column's end, so the accordion keeps its margin; www has 21 px there, 61 px from 768 px.
+     - Census: this page only.
+     - delta-so22-items-lh-com.txt: 6 READY block-option-apply rows, dry-run "placed" on the published and on DA's
+       copies; fr/fr HOLD, not published.
+     - Draft: 13.8 / 12.3 -> 3.5 / 7.7.
+   - Two- and three-column tables: no shape found that isn't mixed. www's markup is the same on the pages that got
+     better and worse (maui-table equalcolumns); its widths follow the content. Automatic table layout below 768 px
+     failed the gate (boarding +7.7, fia-valet +2.5, 32n +0.6). HOLD.
+   - giftvoucher: the recording (lh-parity-002a, the de market's version) has www's three card links.
+     reimport-so22-giftvoucher-de-lh-com.txt: 2 READY re-import rows for the local harness (lh-snapshots-083 / -084,
+     then market-steps rows 23 and 3). The top-flush row waits for that re-import.
+- Left out of git:
+  - logs/b614: captures, trial stylesheets, census scripts, dry runs, DA reads;
+  - the untracked import reports of earlier runs.
