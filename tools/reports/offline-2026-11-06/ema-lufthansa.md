@@ -4750,3 +4750,58 @@ given; the GitHub Build read; the smoke of 14 hosts before and after.
 - No da-upload.mjs call, no upload, preview or publish by me.
 - `scripts/` and other EMAs' recent files untouched, except the shared destination-finder block (its last change 7
   days ago).
+
+## Standing order 16 of 2026-11-14 (from about 07:10 CET to 12:00 CET)
+
+**At the start, and item 0:** 6d4e5929 (standing order 15's final commit) was still in its ship (its suite 4202 / 0 had
+passed). I stopped it before its rebase and pushed with the rebase-lint-push loop: on 0e8f39f0, `npm run lint` exit 0,
+pushed as 063fc4ac on the first round. Build success; the smoke of 14 hosts 0 differences except the lufthansa.com
+at/de sitemap (content). Nothing else of mine was uncommitted. `.migration/project.json` and `.scratch/` left as they
+are.
+
+**Item 1, our-european-fares, READY by your decision (a1087710):**
+- **New tool:** tools/importer/columns-wrap-apply.mjs, test first. The section's heading and paragraphs become the first
+  cell, its closing picture paragraph the second, of one Columns Media row; every other byte as DA's.
+  - It refuses a document it can't place the row in, so a second run changes nothing.
+  - `--revert` takes a written copy back to DA's bytes (tested; also run on DA's copy).
+- **The row:** the tool's output on DA's copy (read 06:10 UTC, unchanged since 04:30) is the measured draft byte for
+  byte. The list header records your decision: 1440 +8.67 -> +1.11 %, 390 +0.67 -> +0.94 %, inside the 0.5 gate.
+  finish-b2b.txt marks the row READY.
+- **Checks:** suite 4206 / 0, then 4219 / 0 after the rebase. Pushed on the second try (lint 0 after the retry rebase).
+  Build success; smoke 0 differences except the at/de sitemap (content).
+
+**Item 2, the ITA fleet seat maps (ITA row 52, test first):** what short-haul needed was its own shape plus www's tab
+bar.
+- **Row 34's grid on the content width:** each column keeps only its outer padding and the table fills its column
+  (www's 622 px each).
+- **The map level with its heading:** on short-haul the "Specifications" heading closes the text right above the table,
+  and www draws the map level with it; ours 74 px lower, so that shape moves the picture 50 px up. Long-haul's heading
+  is in the section before and its picture stays.
+- **www's tab bar over a specifications panel:** 45 px tabs, 14 px uppercase labels, the text 48 px under the bar. This
+  is scoped: applied to every ITA tab bar, it took ita-airways-app further.
+- **Result:** long-haul 1440 -3.63 -> -0.51 %, short-haul +0.37 -> +0.17 % (both closer); the 37 other recorded ITA
+  pages unchanged at 1440; phones as before.
+
+**Item 3, explained rows fixed after all (worst first):**
+- **ITA row 53 (test first):** alghero ends with the flight-search band; from 768 px 40 px of padding under it (www 82 px
+  to the footer, ours 42). 1440 -2.02 -> -0.30 %.
+- **entry-exit-system (delta-so16-ita-entry-exit-heading.txt READY):** "What data is collected?" as www's heading-large
+  H2 (DA's copy lacked the size marker). 390 -2.20 -> -1.63 %, 1440 -0.37 -> -0.04 %.
+- **flying-with-a-baby (delta-so16-ita-flying-with-a-baby-spacers.txt READY):** two spacers from 768 px where www's
+  padded sections are. 1440 -2.54 -> -1.27 %, 390 -0.16 -> -0.31 % (inside the gate).
+- **ITA row 54 (test first):** 32 px under the eJournals form from 768 px (www 32, ours 48). digital-newsstand 1440
+  +2.26 -> +1.75 %.
+- **Still explained, no fix:**
+  - baggage-and-strollers: the cells' trailing empty lines; a spacer in a table cell can't be checked without publishing.
+  - electronic-devices: spread over its lithium section, and its icon blocks.
+  - help-and-contact and invoicing: fonts.
+  - group-boarding: www's tables rendered here are as tall as ours.
+  - corporate-b2b: the teaser pictures.
+- **Group for Business:** the remaining causes are ema-test's theme (b2b.css): travel-management's link list, wifi,
+  program and experts. They are in rows-for-ema-test.md row 9; the others are fonts, www's state, or spread.
+
+**Process notes:**
+- The tests for the two ITA delta rows (entry-exit, flying-with-a-baby) were written after their lists. Both rows reuse
+  the tested fragment tool; the new tests check the data and the lists.
+- The gate as applied this order: one width closer by more than 0.5 points, and no page further by more than 0.5 (the
+  owner's reading in item 1).

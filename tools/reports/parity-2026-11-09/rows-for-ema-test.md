@@ -169,3 +169,16 @@ found, the evidence and what would follow www.
   committed).
 - **Done (ema-lufthansa, the commit with this file; written before row 7 was seen):** the test accepts the brand's body with more classes or states
   (`body.brand-b2b.` / `:` / `[`), still refusing any other element or brand; b2b.css untouched.
+
+## 9. B2B: theme causes found on Group for Business's finish line, from ema-lufthansa (2026-11-14, standing order 16)
+
+Each located against www's live measurement and the recording's own screenshot (finish-b2b.txt has the numbers). They need
+b2b.css (yours), so they are listed here, not changed:
+- **travel-management (+7.06 % at 1440, +3.59 % at 390, b2b-parity-007):** under the intro, a list of five links only
+  ("Travel information <airline>") stacks as a list on ours (5 x 34 px) where www sets the links in one row; about +136 px,
+  and about 60 px more space under them. A rule for a list whose items are each one link only, as www's row of link
+  buttons, would need the gate across B2B's recorded pages.
+- **lufthansa-group-wifi (+4.40 % at 1440):** the video stage about 43 px taller, and under the intro's "Learn more about
+  Travel ID" button 118 px to the next heading where www keeps about 40.
+- **program (+5.20 / +4.08 %):** the grey "Our bonus programs" band, its heading 48 px lower and 57 px more under its cards.
+- **program/experts (-2.77 % at 1440):** the newsletter section, www 145 px from its button to the next heading, ours 82.

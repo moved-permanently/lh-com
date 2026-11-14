@@ -1208,3 +1208,63 @@ body.brand-ita .columns-media.padded {
     margin-bottom: 60px;
   }
 }
+
+/* the fleet pages' specifications table and seat map as www's from 768px (ITA row 52; standing order 16, item 2;
+   ita-parity-005): row 34's grid kept the page's 88px on both sides of each column (table 532px, seat map 534 x 890;
+   www's col-md-6 columns 622px each on the content width, the map 622 x 1037); each column keeps its outer padding only
+   and the table fills its column. Where the text ends with its heading right before the table (short-haul's
+   "Specifications"), www's map is level with that heading: the picture's column 50px higher. www's tab bar over a
+   specifications panel: 45px tabs, 14px uppercase labels, the text 48px under the bar (scoped: every ITA tab bar took
+   ita-airways-app further). long-haul 1440 -3.63 -> -0.51 %, short-haul +0.37 -> +0.17 %; the 37 other recorded ITA pages
+   unchanged; phones as before */
+@media (width >= 768px) {
+  body.brand-ita main > .section:not([hidden]):has(> .table-striped-wrapper + .default-content-wrapper > p:only-child > picture) > .table-striped-wrapper {
+    justify-self: stretch;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    padding-right: 0;
+  }
+
+  body.brand-ita main > .section:not([hidden]):has(> .table-striped-wrapper + .default-content-wrapper > p:only-child > picture) > .table-striped-wrapper :is(.table-striped, table) {
+    width: 100%;
+  }
+
+  body.brand-ita main > .section:not([hidden]):has(> .table-striped-wrapper + .default-content-wrapper > p:only-child > picture) > .table-striped-wrapper + .default-content-wrapper {
+    padding-left: 0;
+  }
+
+  body.brand-ita main > .section:not([hidden]) > .default-content-wrapper:has(> h2:last-child) + .table-striped-wrapper + .default-content-wrapper:has(> p:only-child > picture) {
+    margin-top: -50px;
+  }
+
+  body.brand-ita main > .section.section-tabs:has(+ .section.table-striped-container) {
+    margin-bottom: 24px;
+  }
+
+  body.brand-ita main > .section.section-tabs:has(+ .section.table-striped-container) [role="tab"] {
+    padding: 12px 24px;
+    font-size: 14px;
+    line-height: 21px;
+    text-transform: uppercase;
+  }
+}
+
+/* a page that ends with the flight-search band (ITA row 53; standing order 16, item 3; alghero, ita-parity-004): from 768px
+   www keeps 82px from the band's "Find flights" button to the footer, ours 42 (the last section's margin is 0 by an earlier
+   rule): 40px of padding under the band. 1440 -2.02 -> -0.30 %; phones as before (www 70, ours 68) */
+@media (width >= 768px) {
+  body.brand-ita main > .section.flight-search-container:last-child {
+    padding-bottom: 40px;
+  }
+}
+
+/* the eJournals form's section (ITA row 54; standing order 16, item 3; digital-newsstand, ita-parity-005): from 768px www's
+   next heading starts 32px under the form's button, ours 48 (the section gap); phones as before (www 52, ours 48).
+   1440 +2.26 -> +1.75 % */
+@media (width >= 768px) {
+  body.brand-ita main > .section.ejournals-container:not(:last-child) {
+    margin-bottom: 32px;
+  }
+}
