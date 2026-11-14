@@ -697,6 +697,13 @@ body.brand-austrian main > .section.grey {
   }
 }
 
+/* an in-column band that ends with a link line keeps 32 px under it (standing order 27, item 4): healthy-travel's
+   "Medical Travel Companions" band, www's grey about 44 px under the link's text, ours 84 with the 72 px above;
+   1440 +1.47 -> +0.86 %, 390 +0.75 -> +0.43 %, the only recorded in-column band it reaches */
+body.brand-austrian main > .section.grey.in-column:has(> .default-content-wrapper:last-child > p.link-wrapper:last-child) {
+  padding-bottom: 32px;
+}
+
 /* the grey band 48 px above and below the card (www's topic-selection-info-cards-container) */
 body.brand-austrian main .section.grey:has(.columns-media.panel) {
   padding-top: 48px;
