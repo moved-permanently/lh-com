@@ -5600,3 +5600,9 @@ All four items are done; the rest of the time went into the reach of what is hel
 - the drafts (cand/, intro-cand/, ife-cand/, arch-cand/);
 - the extracted recording (rec007/, dl/) and the extracted snapshots (snaps/);
 - the published copies read from our hosts (pub/, adpub/), the rankings, crops, screenshots and logs.
+
+**After the push (about 15:40 CET): the helper's three commits, measured as served** (austrian.turnsthe.page, as drafted):
+- `37d3ec3b`, the two band rows with C': both pages now end with the band, which touches the footer. doctor-on-board is
+  4,552 / 5,819 px and bearbeitungsgebuehren 3,155 / 4,130, exactly the drafts: the 48 px are gone.
+- `63eb72c1`, the 35 intro marks, and `e3ceb0bc`, the eight carousel notes: all 86 page-widths at their drafted heights,
+  every intro paragraph at 18 / 27 (the mark survived) and every note visible in italics.
