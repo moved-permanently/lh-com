@@ -1,0 +1,50 @@
+[
+ {
+  "path": "/de/en/feedback/feedbackai",
+  "inserts": [
+   {
+    "replace": "<div></div></main>",
+    "text": "<div><p>{spacer-134}</p></div></main>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/feedback",
+  "inserts": [
+   {
+    "after": "Request compensation</a></p>",
+    "text": "<p>{spacer-33}</p>"
+   },
+   {
+    "after": "Apply for expense reimbursement</a></p>",
+    "text": "<p>{spacer-33}</p>"
+   },
+   {
+    "after": "Send feedback</a></p>",
+    "text": "<p>{spacer-33}</p>"
+   },
+   {
+    "after": "Learn more about refunds</a></p>",
+    "text": "<p>{spacer-33}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/data-collection-canada",
+  "inserts": [
+   {
+    "before": "<h2 id=\"this-might-also-be-of-interest-to-you-column-start-outer\">",
+    "text": "<p>{spacer-30}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/100-years/fleet",
+  "inserts": [
+   {
+    "before": "<h2 id=\"focke-wulf-a-17a-möwe-gull\">",
+    "text": "<p>{spacer-30}</p>"
+   }
+  ]
+ }
+]

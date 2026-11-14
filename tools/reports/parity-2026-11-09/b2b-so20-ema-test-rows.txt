@@ -1,0 +1,20 @@
+# Expected change: none from this list itself; ema-test's rows of ema-lufthansa's finish-b2b.txt (the Group for Business page-widths above 2 % that cite ema-test's causes or HOLD rows), each with what ema-test did about it in standing order 20: READY (a change is in or ready) or HOLD (explained, with why not).
+# Standing order 20 (2026-11-14), item 1. Gated with tools/parity/gate.mjs on local renders (aem up --html-folder of our published copies, B2B's main host; the base numbers equal the published host's) against the b2b-parity drops in this workspace (-001 to -004, -006, -009; -005, -007 and -008 are not here: the rows only in those recordings are explained from finish-b2b.txt's own measurements).
+# Each line: READY / HOLD, path, width, finish-b2b's ours vs www, what ema-test found, the result or the reason.
+HOLD	/de/en/program/experts/on-board/meals-on-board	390	+167.47 %	recording artefact: www's 390 recording is a 1440 load resized; our document's 'Tabs open | first' row opens the first panels as a phone's first load does (reimport-so7-b2b-tabs-open-row.txt)	needs a phone's first load of www (capture request, collected, not run)
+HOLD	/de/en/allegris/corporates-start-of-booking	390	+38.76 %	as meals-on-board: the tab sets' first panels on a phone's own load	capture request
+HOLD	/de/de/allegris/corporates-start-of-booking	390	-28.15 %	as meals-on-board	capture request
+HOLD	/de/en/allegris/intermediaries-start-of-booking	390	-22.82 %	as meals-on-board	capture request
+HOLD	/de/en/program/experts/on-board/entertainment-on-board	390	-31.94 %	the tab set's open state differs between www's loads (its 390 a resized 1440 load); xx/en's tab delta is live (delta-so15-b2b-entertainment-tabs.txt)	capture request
+HOLD	/de/en/program/experts/on-board/entertainment-on-board	1440	+29.71 %	as at 390	capture request
+HOLD	/xx/en/program/experts/on-board/meals-on-board	390	-5.41 %	the first tab item open on phones on www too; the recording a resized load (order 16)	capture request
+HOLD	/ch/en/program/experts/on-board/meals-on-board	390	-5.41 %	as xx/en	capture request
+HOLD	/de/de/about-us/lhg-history	1440	-6.29 %	the title view delta (delta-so16-b2b-lhg-history-title-view.txt) is right at 1440 but costs 390 13.5 points (our long German title a line longer on phones: the project's hyphenation rule)	not changed: the rule is the owner's
+HOLD	/de/en/about-us/lhg-history	1440	-2.84 %	the title view delta is live; the rest not traced to one cause	-
+HOLD	/de/en/news/lhg-ita-airways	1440	+3.79 %	fonts: our paragraphs a line longer at the same 800 px column (macOS Chrome against Linux; ema-test's earlier finding)	not a document or code change
+HOLD	/de/en/program/businesstogo	390	+3.13 %	www's contact form is plain (fields in the content column, no grey band, no card, the button under the fields, 96 / 116 px under it); ours draws lufthansa.com's grey band and card. A B2B rule for it (b2b.css trial): the English pages 390 16.10 -> 13.51, 1440 12.25 -> 10.65 (gate passes), but the German businesstogo pages 4 x +3.5 (gate.mjs: compensation removed: their page above the form is about 150 px short of www's over many small steps, which the grey band had cancelled)	held: the German pages' own drift first
+HOLD	/xx/en/program/businesstogo	390	+3.13 %	as de/en	held
+HOLD	/de/en/program/businesstogo	1440	+2.94 %	as de/en	held
+HOLD	/xx/en/program/businesstogo	1440	+2.94 %	as de/en	held
+HOLD	/de/de/travel-solutions/lufthansa-group-airlines	1440	-3.02 %	the page ends 73 px nearer the footer than www's at 1440 (www 123 px under the last link, ours 50); not the nested option	a spacer row for it: de/en 1440 8.69 -> 7.26 but 390 13.71 -> 15.01 (fix wrong: at 390 the end is right); held
+HOLD	/de/en/travel-solutions/lufthansa-group-airlines	1440	-2.47 %	as de/de	held
