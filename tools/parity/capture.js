@@ -33,6 +33,7 @@
  *   from a recorded answer (a plain file or a HAR), every other airline request still refused;
  *   never the 21 October recording (data/recorded/ or 2026-10-21: refused). <out>.json
  *   "recordedAnswers": the file, its recording dates and how often the call was answered.
+ * PARITY_SETTLE_GRID=1: the offers grid drawn complete (every offer) before the shot (settleGrid).
  */
 const started = Date.now();
 process.env.PLAYWRIGHT_BROWSERS_PATH ||= '/ms-playwright';
@@ -156,6 +157,38 @@ process.once('SIGTERM', () => abort('killed by SIGTERM', 124));
 process.once('SIGINT', () => abort('killed by SIGINT', 130));
 
 const sleep = (ms) => new Promise((r) => { setTimeout(r, ms); });
+
+// PARITY_SETTLE_GRID=1: the offers grid drawn complete before the shot (standing order 23: www's
+// settled recording of Discover's offers page has all its offers; our grid draws 48 at a time as it
+// is scrolled)
+const SETTLE_GRID = Boolean(process.env.PARITY_SETTLE_GRID);
+
+/**
+ * Scrolls to the page's end until the offers grid has drawn every offer (its "show more" box
+ * hidden, the tile count unchanged three times; at most 400 rounds), then back to the top.
+ * @returns {Promise<{tiles: number, rounds: number}>}
+ */
+async function settleGrid(page) {
+  let last = -1;
+  let same = 0;
+  let rounds = 0;
+  for (; rounds < 400 && same < 3; rounds += 1) {
+    // eslint-disable-next-line no-await-in-loop, no-undef
+    const st = await page.evaluate(() => {
+      window.scrollTo(0, document.documentElement.scrollHeight);
+      const more = document.querySelector('.destination-finder-more');
+      return { tiles: document.querySelectorAll('.destination-finder-tile').length, done: !more || more.hidden };
+    });
+    if (st.done && st.tiles === last) same += 1;
+    else same = 0;
+    last = st.tiles;
+    // eslint-disable-next-line no-await-in-loop
+    await sleep(250);
+  }
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await sleep(500);
+  return { tiles: last, rounds };
+}
 
 async function dismissCookieDialog(page) {
   // OneTrust injects its banner asynchronously; give it a short moment to show up
@@ -515,6 +548,7 @@ async function main() {
     ? await matchContentWidth(page) : { viewportWidth: width, clientWidth: width };
   const waits = { blocks: await waitForBlocks(page), fonts: await waitForFonts(page) };
   await scrollThrough(page);
+  if (SETTLE_GRID) waits.grid = await settleGrid(page);
   waits.images = await waitForImages(page);
   waits.fontsAfterScroll = await waitForFonts(page);
   waits.svgAnimations = await waitForSvgAnimations(page);
