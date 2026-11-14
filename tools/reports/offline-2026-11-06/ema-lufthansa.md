@@ -5103,3 +5103,54 @@ its ship.
   is taken as the difference between the two drafts.
 - **Hosts:** reads only from our hosts, the drop's recordings and DA (GETs from my session). No request to an airline
   host, no da-upload.mjs call, no upload, preview or publish by me.
+
+## Standing order 20 (2026-11-14, about 20:40 to 01:00 CET), with its final section
+
+**At the start:** nothing of mine uncommitted or unpushed (order 19's final commit bb0b5940 was on main).
+`.migration/project.json` was modified, not by me, and is left as it is.
+
+**Item 1, ITA's phone first loads (90fd38c3):**
+- ita-parity-008's sha256 matches yours. Each of its five pages was loaded at 390 x 844 (manifest: loadedSeparately).
+- **delta-so20-ita-fleet-app-tabs-closed.txt (READY):** short-haul's and ita-airways-app's "Tabs open | none", as
+  long-haul's. short-haul +79.86 -> +2.00 %, ita-airways-app +11.74 -> +2.23 %; 1440 unchanged.
+- **help-and-contact (+2.65 %) and invoicing (+2.44 %), gated against their first loads:**
+  - ITA's footer at 390 is 42 px taller than www's on every page (www 1271, ours 1313): its legal list has a row
+    more. Without it they'd be +1.28 / +1.27 %.
+  - The footer block was changed by another session tonight (bdabccff), so I didn't touch it. Explained; it's the
+    next ITA phone step.
+- **Checks:** suite 4324 / 0, then 4336 / 0 after the rebase; pushed on the second try. Build success; smoke: only
+  Discover's search index (content).
+
+**Item 2, Group for Business (2ab1f933 and this commit):**
+- **Load methods from the manifests:** b2b-parity-001 (its README: one load per page and width) and -009 are phone
+  first loads; -002 to -008 are resizes of their 1440 loads.
+- **All 102 B2B 390 page-widths re-measured as served:** 15 above 2 %.
+- **Requested as phone first loads (capture-requests-ema-lufthansa.txt):** the seven resized ones that no first load
+  covers yet: entertainment-on-board, help-alliance, programs-and-groups (de/en, xx/en, gb/en), kuala-lumpur and
+  program.
+- **Left to ema-test's first loads:** meals-on-board (b2b-parity-010) and the Allegris pages (-012), worked in their
+  order 22 and 24 lists.
+- **Explained, first loads:** de/de partner-plus-benefit and about-us (spread; the cards' text a line shorter).
+- **All 79 B2B 1440 page-widths re-measured:** 9 above 2 %.
+  - **de/en entertainment-on-board's +29.71 %:** www sets the In-Flight Entertainment section's text and picture side
+    by side under its heading; DA's copy stacks them. columns-wrap-apply.mjs gets an option headingAbove (test first,
+    reversible byte for byte). delta-so20-b2b-entertainment-columns.txt (READY) takes 1440 to -4.87 %; 390 unchanged.
+  - **The others:** ema-test's rows of today (program, wifi, travel-management, lhg-history), fonts (lhg-ita-airways,
+    sap: a paragraph a line longer), www's state (kuala-lumpur's tall table rows), spread (video-gallery).
+- I stayed off Discover, lufthansa.com and ema-adobe's and ema-cashub's areas; their lists on main were read first.
+
+**Checks of this commit:** lint before it, the folder-reading tests, and the full suite in its ship.
+
+**Lists:**
+- delta-so20-ita-fleet-app-tabs-closed.txt;
+- delta-so20-b2b-entertainment-columns.txt;
+- finish-ita.txt and finish-b2b.txt;
+- capture-requests-ema-lufthansa.txt (seven B2B phone first loads).
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git): ita-parity-008; DA's copies read today (ITA short-haul and ita-airways-app 19:33, B2B
+  entertainment-on-board 20:47 UTC); drafts, rankings, crops and logs.
+
+**Hosts:** reads only from our hosts, the drop's recordings and DA (GETs from my session). No request to an airline
+host, no da-upload.mjs call, no upload, preview or publish by me.
