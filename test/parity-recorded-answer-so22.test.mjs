@@ -80,3 +80,30 @@ test('never the 21 October recording, never an undated answer, never another cal
   const inRepo = path.join(ROOT, 'data/recorded/index.json');
   assert.throws(() => loadRecordedAnswers(inRepo), /data\/recorded/);
 });
+
+// standing order 23: the Captures child's archive (discover-snapshots-005): api/<name>.request.json
+// ({ requests: [{ url, method, status, at, contentType, xPortalRequestHeader }], sha256 }) next to
+// api/<name>.json, the body as received; the body is checked against the record's sha256
+test('the Captures child\'s request record and its body file: answered, the body checked against its sha256', async () => {
+  const { createHash } = await import('node:crypto');
+  const api = fs.mkdtempSync(path.join(os.tmpdir(), 'parity-answer-api-'));
+  const body = JSON.stringify(BODY);
+  fs.writeFileSync(path.join(api, 'destinationfinder-FRA-E.json'), body);
+  const record = (over = {}) => ({
+    pageUrl: 'https://discover.turnsthe.page/de/en/book/flights/offers',
+    requests: [{
+      url: URL_OK, method: 'GET', status: 200, at: '2026-11-14T12:19:01.439Z', contentType: 'application/json', xPortalRequestHeader: 'FOUR_Y', error: null,
+    }],
+    sha256: createHash('sha256').update(body).digest('hex'),
+    ...over,
+  });
+  const file = path.join(api, 'destinationfinder-FRA-E.request.json');
+  fs.writeFileSync(file, JSON.stringify(record()));
+  const got = recordedAnswer(req(URL_OK), loadRecordedAnswers(file));
+  assert.equal(got.status, 200);
+  assert.deepEqual(JSON.parse(got.body), BODY);
+  fs.writeFileSync(file, JSON.stringify(record({ sha256: '0'.repeat(64) })));
+  assert.throws(() => loadRecordedAnswers(file), /sha256/);
+  fs.writeFileSync(file, JSON.stringify(record({ requests: [{ ...record().requests[0], at: '2026-10-21T18:26:45Z' }] })));
+  assert.throws(() => loadRecordedAnswers(file), /21 October/);
+});

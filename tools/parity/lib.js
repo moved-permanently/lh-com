@@ -1,6 +1,7 @@
 /**
  * Small helpers shared by the parity scripts (capture, compare, run-batch).
  */
+const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const { parseArgs } = require('util');
@@ -195,6 +196,21 @@ function loadRecordedAnswers(file) {
     const h = (list || []).find((x) => String(x.name).toLowerCase() === name);
     return h ? h.value : undefined;
   };
+  // the Captures child's archive (standing order 23): <name>.request.json, its body in <name>.json,
+  // checked against the record's sha256
+  if (data && Array.isArray(data.requests) && /\.request\.json$/.test(abs)) {
+    const bodyFile = abs.replace(/\.request\.json$/, '.json');
+    const text = fs.readFileSync(bodyFile, 'utf8');
+    const digest = crypto.createHash('sha256').update(text).digest('hex');
+    if (data.sha256 && digest !== data.sha256) {
+      throw new Error(`${bodyFile}: its sha256 ${digest} is not the record's ${data.sha256}`);
+    }
+    data.requests.forEach((r) => {
+      Object.assign(r, {
+        recordedAt: r.at, portal: r.xPortalRequestHeader, body: text,
+      });
+    });
+  }
   const raw = data && data.log && Array.isArray(data.log.entries)
     ? data.log.entries.map((e) => ({
       recordedAt: e.startedDateTime,
@@ -205,7 +221,7 @@ function loadRecordedAnswers(file) {
       contentType: (e.response.content && e.response.content.mimeType) || header(e.response.headers, 'content-type'),
       body: e.response.content ? e.response.content.text : '',
     }))
-    : [].concat(data);
+    : [].concat(data && Array.isArray(data.requests) ? data.requests : data);
   return raw.map((a) => {
     const at = a.recordedAt ? new Date(a.recordedAt) : null;
     if (!at || Number.isNaN(at.getTime())) throw new Error(`${file}: an answer without a recording date`);
