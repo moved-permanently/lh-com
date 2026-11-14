@@ -2514,3 +2514,17 @@ body.brand-lufthansa main > .section:not(.padded, .grey, .stage, .spaced, .flush
     margin-bottom: 0;
   }
 }
+
+/* lufthansa.com: also the lead picture after the title's intro (a paragraph, or a subheading and
+   a paragraph): www's image component, img.w-100, the full content width also when the stored file
+   is smaller (/de/en/discover-lufthansa/carbon-offsetting/climate-protection-projects 960px stored,
+   most-significant-route 1144, travel-expense-management 1143; standing order 22: 12.2 / 10.3 /
+   10.6 -> 4.0 / 2.6 / 2.1 % at 1440). Census: 55 such pictures narrower than the column, all
+   stored 900px and wider; the narrow ones elsewhere (svg icons, fare-teaser tiles, which www does
+   not stretch) stay as they are. At the end: its specificity comes after the picture rules above */
+/* stylelint-disable no-descending-specificity -- lufthansa.com's lead pictures; the brand rules above are other pictures */
+body.brand-lufthansa main .default-content-wrapper > h1 + p:not(:has(> picture)) + p:has(> picture:only-child) img,
+body.brand-lufthansa main .default-content-wrapper > h1 + :is(h2, h3) + p:not(:has(> picture)) + p:has(> picture:only-child) img {
+  width: 100%;
+}
+/* stylelint-enable no-descending-specificity */
