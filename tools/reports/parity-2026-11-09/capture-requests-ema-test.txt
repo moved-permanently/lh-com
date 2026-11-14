@@ -43,3 +43,9 @@
 # host: discover.turnsthe.page
 /de/en/homepage
 /de/de/homepage
+# Standing order 24 (2026-11-14): lufthansa.com's offers grid in the UK. /gb/en/flights draws no prices in our renders
+# (its grid asks www.lufthansa.com's destinationfinder for LHR/E, X-Portal LH, language en) and ends 4,100 px short at
+# 1440. Please record that answer from one load of our page, as discover-snapshots-005 (our parity tools then need to
+# answer that call too, today they answer Discover's FRA call only).
+# host: lufthansa.turnsthe.page
+/gb/en/flights
