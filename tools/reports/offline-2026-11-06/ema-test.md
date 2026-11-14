@@ -4304,3 +4304,36 @@ discover-parity-003, discover-snapshots-004); their serve.py not run.
   and DA copies as read, trial edits, the scan scripts), our captures under logs/p4/so6/cap, the recordings and
   font drops in /tmp/x-* and /tmp/dl-* (the drops' private material), content/, migration-work/,
   tools/importer/reports/* (not mine). My preview servers are stopped and the trial worktrees removed.
+
+## Standing order 23 (received about 15:55 UTC, 2026-11-14)
+
+State at the start: nothing of mine uncommitted or unpushed (order 22's final section on main, Build success).
+
+1. **Live prices behind the site flag live-prices** (c87ab57d, on main after tests first, lint and the full suite
+   on b7a0eb31: 1107 files pass). Every call of PRICE_ROUTES goes through lhFetch, which now sends it only when the
+   site's flag is on; off (no row, "off", no sheet) it sends nothing and fails. Each price widget then shows one
+   line and a link to the airline's own page for that function (scripts/live-prices.js): the fare teaser, the
+   destination finder's slider and grid (Discover's grid keeps order 22's link to its offers page), the price
+   bar, the security waiting times (their Live page row, else the page on www) and the destination page's price
+   calendar (the rest of the page stays). Discover links to its offers page; lufthansa.com and the other brands
+   to this page on their www.
+   - A slow sheet: the price widgets read the flag patiently (isFlagOn's patient option): a first read that
+     times out (3 s) or fails on the network is read once more, waiting up to 15 s; a sheet that answers (404, no
+     row, "off") is final. Every other flag keeps the 3 s rule.
+   - Checked in a real browser: a local lufthansa.com homepage sends its price calls with the live sheet, none
+     with the sheet answered "off" (the fare teaser and the finder then show the line); after the merge the live
+     lufthansa.com homepage and Discover's offers page still send theirs. No page of the flag-off sites (lh-tap,
+     lh-flynet) has a price widget, as their sheets' descriptions say.
+2. **Discover's offers page, gated** on discover-snapshots-005 (sha256 as given): PARITY_ANSWERS takes its request
+   record and body file (checked against the record's sha256), and the capture scrolls until the grid has drawn
+   all 591 offers. Against discover-snapshots-004 the offers, their order and their prices match; www's cards are
+   shorter. 63c891ea (test first): the "Compare cities" control 10 px over the card's edge, the card 20 px shorter
+   from 768 px and 5 px shorter on phones (Discover only): de/en 1440 63,569 -> 60,609 px (www 60,839), 390
+   109,970 -> 108,490 (108,366); gate.mjs better at both widths. de/de is held: the recording is a de/en load
+   (English names); the tools now answer a page only with its own language's recording (d9db6629), and a
+   German answer is requested.
+3. **lufthansa.com**: ema-adobe's areas left alone (phone titles, giftvoucher, card-row gaps, xx business-class).
+   feedback-past-flight's form traced (www's cards 10 px tighter, its repeat titles 20 px further above their
+   fields), but as a core form rule it made 9 of the other 14 recorded form page-widths worse (the titles alone 13
+   of 16): no rule, held. The next pages down the ranking (new-onboard-experience, travel classes, food and
+   beverages, miles-and-more) have no step of 15 px or more left: their mismatch is drawn content.
