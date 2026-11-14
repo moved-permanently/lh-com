@@ -1,0 +1,13 @@
+# ema-cashub, standing order 27 (2026-11-14), item 4: Austrian /at/de/besondere-anforderungen, the German special-requirements
+# page. Expected change, both widths closer: 1440 3,696 -> 3,718 px (-1.07 -> -0.48 %), 390 5,450 -> 5,472 px (-0.86 -> -0.45 %;
+# www 3,736 / 5,497, austrian-parity-001, each width its own load). DA's copy plus the delta, not a re-import.
+# Why: order 24 split the English page into four views (delta-so24-austrian-special-requirements-views.txt, applied
+# 2963b294) and left this one out (within 2 %). Its headings show only one short step: rows 1 to 3 sit where www's do, and
+# "Spezialmenüs" starts 32 px (390: 36) too high, where www's fourth view opens a section of its own. So the row is
+# narrower than the English one: one split, not three. With it the step is -10 / -14 px (our section gap gives 22 of
+# www's 33 px per break, as on the English page).
+# Measured as drafts (so24/host.mjs on austrian.turnsthe.page, the published copy as control = live 3,696 / 5,450 px;
+# consent stored, pictures eager; www.* and the airline hosts refused: 0); heading offsets at the text's top.
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, 1440, 390.
+
+READY	/at/de/besondere-anforderungen.html	the Columns Media (padded) block split after its third row (Medizinische Informationen | Barrierefreies Reisen): the fourth row (Spezialmenüs | Seminare gegen Flugangst) becomes a Columns Media (padded) of its own in a new section after it; the rows, their cells and the page's metadata unchanged	1440 -1.07 -> -0.48 % (3,696 -> 3,718 px, www 3,736)	390 -0.86 -> -0.45 % (5,450 -> 5,472 px, www 5,497)
