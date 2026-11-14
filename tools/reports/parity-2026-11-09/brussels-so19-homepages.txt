@@ -1,0 +1,12 @@
+# ema-lufthansa, standing order 19 (2026-11-14), item 3: Brussels' pages with the "Flight offers from" slider (the census of the 103 recorded pages: the be/en, be/fr, fr/fr and ke/en homepages and be/en local-page/offers), measured with their cards counted (standing order 18's method: www's recorded slider cards answered inside the measuring browser, nothing sent to www; each page's fare teaser then keeps the routes www drew, the ones with a fare). Their rows in finish-brussels.txt said "live data"; counted, the finder's empty state had hidden the real differences. Expected change: Brussels P57 (styles/themes/brussels.css, in this commit): from 768 px www's space around the slider, as SWISS row 55; with it fr/fr's conditions row of standing order 15 (delta-so15-brussels-conditions-link.txt, READY now: publish it with this commit, as P57 alone takes fr/fr further at 1440). Phones unchanged. Gated on the five pages together; the numbers as served (main ~18:30 UTC) with the counted answers, P57 with the checkout's CSS, the conditions row's change measured on DA's copy (read 18:17 UTC). A note on the method: answering every teaser route with a fare made ke/en's teaser draw 11 routes where www draws 6 (the rest have no fare); with ke/en's recorded cards only it draws www's 6.
+# status	path	width	www px	ours px (counted)	with the change	note
+READY	/be/en/homepage	1440	4110	3951 (-3.87 %)	4066 (-1.07 %)	P57; left: the "Current topics" cards 67 px shorter than www's (www's newer news content)
+HOLD	/be/en/homepage	390	5294	5094 (-3.78 %)	5094	the cards -108, above "Winter deals" -38; phones unchanged by P57
+READY	/be/fr/homepage	1440	4197	4053 (-3.43 %)	4168 (-0.69 %)	P57
+HOLD	/be/fr/homepage	390	5482	5311 (-3.12 %)	5311	as be/en at 390
+READY	/fr/fr/homepage	1440	4214	4270 (+1.33 %)	4149 (-1.54 %)	P57 (+115) with the conditions row (-236): 0.21 points further, inside the gate; P57 alone +4.06 %
+READY	/fr/fr/homepage	390	5464	5761 (+5.44 %)	5241 (-4.08 %)	the conditions row (-520 px); the rest the cards (-144)
+READY	/ke/en/homepage	1440	4110	3923 (-4.55 %)	4038 (-1.75 %)	P57; its conditions are a link already (live)
+HOLD	/ke/en/homepage	390	5227	5028 (-3.81 %)	5028	the cards and the slider (www's taller cards row); phones unchanged by P57
+HOLD	/be/en/local-page/offers	1440	4630	3945 (-14.79 %)	4060 (-12.31 %)	closer with P57; the rest the flight-search widget's no-API state (www's search form, not measurable here)
+HOLD	/be/en/local-page/offers	390	6229	5481 (-12.01 %)	5481	as at 1440

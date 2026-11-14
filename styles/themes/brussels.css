@@ -1490,3 +1490,15 @@ body.brand-brussels main > .section.sidebar-h1:last-child:has(> .default-content
     margin-bottom: 60px;
   }
 }
+
+/* Brussels P57 (standing order 19): from 768px the "Flight offers from" slider keeps www's space around it, as SWISS row
+   55 (50px above its heading, 65px under its buttons); phones as before. Counted with each page's recorded cards
+   (brussels-so19-homepages.txt): be/en 1440 -3.87 -> -1.07 %, be/fr -3.43 -> -0.69 %, ke/en -4.55 -> -1.75 %, be/en
+   local-page/offers -14.79 -> -12.31 %; fr/fr with its conditions row (delta-so15-brussels-conditions-link.txt) +1.33 ->
+   -1.54 %; the offers grid excluded */
+@media (width >= 768px) {
+  body.brand-brussels main > .section.destination-finder-container:not(:has(.destination-finder.grid)) {
+    padding-top: 50px;
+    padding-bottom: 65px;
+  }
+}

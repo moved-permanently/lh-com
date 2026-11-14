@@ -5029,3 +5029,77 @@ run; our own servers and scripts read them. Both are 1440 loads; their 390 files
   row 50's 768 px block first) and was fixed in the test.
 - **Hosts:** reads only from our hosts, the drop and DA (GETs from my session). No request to an airline host, no
   da-upload.mjs call, no upload, preview or publish by me.
+
+## Standing order 19 (2026-11-14, about 17:10 to 22:00 CET), with its final section
+
+**At the start:** nothing of mine uncommitted or unpushed (order 18's final commit 9c6c2a1c was on main).
+`.migration/project.json` was modified, not by me, and is left as it is.
+
+**A correction first.** Order 18 read swiss-parity-008 and ita-parity-006 as 1440 loads with resized 390 files. That
+came from their README, which repeats the old method. Their manifests say each width is its own first load
+(loadedSeparately). The order 18 lists are corrected (ita-so18-rows.txt, swiss-so18-offers-homepage.txt,
+finish-swiss.txt), and this order works from the manifests.
+
+**Item 1, ITA long-haul at 390 (f241188f):**
+- ita-parity-006's 390 is www's phone first load, with the fleet accordion closed. ita-parity-005's open first item
+  came from a resize of its 1440 load, where the fleet is tabs.
+- Our block can follow it. scripts/section-tabs.js opens the first item below 768 px and selects the first tab from
+  768 px, and a page's "Tabs open | none" closes it on phones.
+- **delta-so19-ita-long-haul-tabs-closed.txt (READY):** that metadata row on long-haul.
+- **ITA row 57:** below 768 px, no market-variant top margin inside a tab set. A hidden market-variant table pushed
+  the next closed item 24 px down.
+- 390 +75.54 -> +1.42 %; 1440 unchanged.
+- **Census:** short-haul -0.45 -> -0.90 % (within the gate), ita-airways-app unchanged. Their 390 recordings are
+  resizes, so their phone default is unknown and they get no row. Their phone first loads are in
+  capture-requests-ema-lufthansa.txt.
+- **Checks:** suite 4284 / 0, then 4305 / 0 after the rebase; lint and stylelint 0 after each retry rebase, pushed on
+  the fourth try. Build success; smoke: only lufthansa.com's at/de sitemap (content).
+
+**Item 2, the rest of finish-ita:**
+- **help-and-contact and invoicing (390):** their recordings are resizes, so www's phone height is uncertain. Phone
+  first loads are requested.
+- **group-boarding (1440):** www's maui-table header rows are 112 px with 32 px before the first row; ours 81 with
+  40. Giving ITA's header tables www's numbers doesn't move this page (its header row is built otherwise) and takes
+  digital-newsstand (+1.75 -> +2.49 %), checked-baggage and verona further. Not changed; explained.
+
+**Item 3, SWISS and Brussels:**
+- **Re-measured as served:** all 56 SWISS and 206 Brussels page-widths (SWISS re-collected with swiss-parity-008).
+  None is above 2 % without a row in its finish list. Every moved row moved closer.
+- **SWISS:** what's left above 2 % is the offers page as served (counted within 2 %, order 18) and the magazine pages
+  (your answer of 7 Nov: the ad slots stay out).
+- **Brussels:** the slider pages' "live data" rows weren't right. Counted with their recorded cards, the finder's
+  empty state had hidden real differences.
+  - **Brussels P57 (this commit):** from 768 px www's space around the slider, as SWISS row 55.
+  - **fr/fr's conditions row of order 15 is READY now.** It was held "until the finder's data can be measured",
+    which it now is. Publish it with this commit: P57 alone takes fr/fr to +4.06 % at 1440.
+  - **1440, counted:** be/en -3.87 -> -1.07 %, be/fr -3.43 -> -0.69 %, ke/en -4.55 -> -1.75 % (READY); fr/fr with
+    its row +1.33 -> -1.54 % (READY); be/en local-page/offers -14.79 -> -12.31 % (its flight-search widget otherwise).
+  - **390:** unchanged by P57; fr/fr -520 px with its row (+5.44 -> -4.08 %); the others explained (the cards).
+- **The method, tightened:** the fares answer feeds the fare teaser too.
+  - Pricing every teaser route made ke/en draw 11 routes where www draws 6 (the rest have no fare). With ke/en's own
+    recorded cards it draws www's 6.
+  - Order 18's SWISS homepage numbers stand: re-measured with the teasers' routes answered, they're the same.
+- **Recordings:** none needed beyond the ITA phone first loads above.
+
+**Checks of this commit:** lint and stylelint before it, the folder-reading tests (214 / 0), and the full suite in
+its ship.
+
+**Lists (tools/reports/parity-2026-11-09/):**
+- delta-so19-ita-long-haul-tabs-closed.txt (READY);
+- brussels-so19-homepages.txt;
+- delta-so15-brussels-conditions-link.txt (fr/fr READY);
+- finish-ita.txt, finish-brussels.txt and finish-swiss.txt;
+- capture-requests-ema-lufthansa.txt (five ITA phone first loads).
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git): DA's copies read today (ITA long-haul 16:04, Brussels fr/fr 18:17 UTC); the fares
+  answers and the measuring scripts that serve them in the browser or write metadata into the head; CSS drafts,
+  rankings, screenshots and logs.
+
+**Process:**
+- **The README misreading** is the order's main correction: the load method is read from the manifests now.
+- **Draft heights:** fr/fr's draft heights on DA's copy differ from the served page, as in order 15, so its change
+  is taken as the difference between the two drafts.
+- **Hosts:** reads only from our hosts, the drop's recordings and DA (GETs from my session). No request to an airline
+  host, no da-upload.mjs call, no upload, preview or publish by me.
