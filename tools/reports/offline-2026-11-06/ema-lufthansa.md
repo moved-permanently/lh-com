@@ -5154,3 +5154,50 @@ its ship.
 
 **Hosts:** reads only from our hosts, the drop's recordings and DA (GETs from my session). No request to an airline
 host, no da-upload.mjs call, no upload, preview or publish by me.
+
+## Standing order 21 (2026-11-15, about 00:10 to 06:00 CET), with its final section
+
+**At the start:** nothing of mine uncommitted or unpushed (order 20's final commit 0a70038b was on main).
+`.migration/project.json` was modified, not by me, and is left as it is.
+
+**Item 1, b2b-parity-013 (the seven phone first loads; sha256 matches; manifest: loadedSeparately):**
+- **programs-and-groups PNGs:** de/en and xx/en are whole pages, tab set then footer (1364 px). gb/en is another page
+  under the same title, its article above the tab set (7043).
+- **The first loads equal the old resized recordings within 1 px,** except entertainment-on-board (www 2039; ours
+  +1.18 %, within 2 %).
+- **programs-and-groups de/en and xx/en, READY (this commit):** a B2B phone rule (b2b.css, test first). A tab set
+  right after a section ending with a picture keeps www's 67 px under it (ours 30). Only these two of the 102 recorded
+  B2B pages have the shape. 390 -3.01 -> -0.29 %; 1440 and gb/en unchanged.
+- **Explained:**
+  - help-alliance (-4.24 %): www's iframe component keeps its video 315 px tall on phones; ours draws the 16:9 player,
+    as www's video component on sap and video-gallery. DA's copies don't tell the two apart, so a marker would be
+    needed.
+  - gb/en programs-and-groups (-2.53 %): www's nested column views keep about 20 px under each stacked item; ours is
+    ema-test's nested Columns Media (rows-for-ema-test.md row 11).
+  - kuala-lumpur (+2.43 %): www's state, as at 1440.
+  - program (-2.25 %): ema-test's order 21 rows.
+
+**Item 2, ITA's footer on phones: no change.**
+- ema-cashub's bdabccff joins Austrian cn/en's split emblem link and doesn't touch ITA.
+- Our legal list isn't a row longer in content: it holds www's 12 links and wraps like www's.
+- The measuring browser has no Arial. "arial" falls back to DejaVu Sans, which sets "Data protection" at 107 px where
+  Arial needs about 88. So two links that share a row on www take two rows here: 8 rows against www's 7, +42 px.
+- www's links are LufthansaText falling back to Arial, the same as our theme. On a phone with Arial ours draws www's 7
+  rows.
+- Changing the footer would make real phones wrong. help-and-contact, invoicing, short-haul and ita-airways-app are
+  within 2 % without the artifact (finish-ita.txt).
+
+**Item 3:** nothing else on B2B or ITA is fixable by a row or a scoped rule with the recordings I have. The B2B 1440
+rows are ema-test's (program, wifi, travel-management, lhg-history), fonts, www's state, or spread. No captures needed
+beyond what's recorded.
+
+**Checks of this commit:** lint and stylelint before it, the folder-reading tests, and the full suite in its ship.
+
+**Lists:** finish-b2b.txt, finish-ita.txt, rows-for-ema-test.md row 11.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git): b2b-parity-013, drafts, crops and logs.
+
+**Hosts:** reads only from our hosts, the drop's recordings and DA (no DA read this order). No request to an airline
+host, no da-upload.mjs call, no upload, preview or publish by me.

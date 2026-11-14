@@ -1015,3 +1015,13 @@ body.brand-b2b main ul.links-responsive > li > a:any-link {
 body.brand-b2b main .default-content-wrapper > ul.links-responsive + p.spacer:last-child {
   display: none;
 }
+
+/* standing order 21 of ema-lufthansa (2026-11-15): below 768px a tab set right after a section that ends with a picture
+   keeps www's 67px under the picture (b2b-parity-013, de/en and xx/en programs-and-groups, phone first loads: www's first
+   tab at 553, ours 514). Of the 102 recorded B2B pages only these two have the shape; 390 -3.01 -> -0.29 %, 1440 unchanged.
+   The margin replaces the previous section's 30px (collapsed), so it is www's whole gap */
+@media (width < 768px) {
+  body.brand-b2b main > .section:has(> .default-content-wrapper:last-child > p:last-child > picture) + .section.section-tabs + .section.section-tab-panel {
+    margin-top: 67px;
+  }
+}

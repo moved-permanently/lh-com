@@ -208,3 +208,12 @@ Re-measured as served on b2b.turnsthe.page (~09:35 UTC, the brand fonts; finish-
   (one cell empty in each). www sets each item's text in a column about 290 px wide under its logos, ours 408, so www's
   texts run longer (about +67 px) and it keeps more space around them. Columns Media is shared by every brand, so a
   B2B-only width belongs in b2b.css.
+
+## 11. B2B: the nested Columns Media on phones, from ema-lufthansa (2026-11-15, standing order 21)
+
+/gb/en/program/experts/programs-and-groups at 390 against b2b-parity-013 (a phone first load; www 7043, ours 6865, -2.53 %):
+the article under "Book -a-Group" is www's nested column views (a twocolumn view per item inside a column view); on phones
+each stacked column-view item keeps its bottom margin, so www's headings sit about 20 px lower at each item (81 px from
+"Book -a-Group" to "Group travel with ITA Airways...", ours 60), -175 px by the tab set. Ours is Columns Media nested
+(your option, held for the German businesstogo pages), whose stacked cells touch on phones. A phone margin for the
+nested cells would be yours to gate with businesstogo; nothing changed here.
