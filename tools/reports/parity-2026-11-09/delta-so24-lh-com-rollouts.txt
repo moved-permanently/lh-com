@@ -1,5 +1,5 @@
 # Expected change: none from this list itself (standing order 24, item 3): the recorded page-widths of the rollouts (at/de, gb/en) and fr/fr that no list on main covers (every delta, reimport and move list read on main first, ema-adobe's included: 425 paths), measured on the host with the fonts (logs/p4/so23, 2026-11-14 ~19:40 CET), ranked as served. fr/fr has one recorded page (meetings-and-events), already covered. Steps of 15 px or more located per page (drift against the recording); a row or a scoped rule only where one boundary carries the difference.
-# Result: none of the 28 pages has a step a row fixes without uncovering another (or in ema-adobe's areas: the grey bands, the cards); each with its reason below.
+# Result: none of the 26 pages has a step a row fixes without uncovering another (or in ema-adobe's areas: the grey bands, the cards); each with its reason below.
 # Each line: HOLD, path, width, mismatch % as served, www / ours px, the reason.
 HOLD	/at/de/fluege	390	47.27	8000 / 5450	no step of 15 px or more; the mismatch is drawn content (pictures, text wrap)
 HOLD	/gb/en/flights	390	46.51	8000 / 5195	live data: its offers grid (destinationfinder LHR/E under X-Portal LH) has no prices in our renders, so the page ends 4,100 px (1440) / 2,800 px (390) short of www (both recordings cut at 8,000); a same-day LHR answer would let it be gated (capture request; the parity tools answer Discover's FRA call only, so that is also a tool change)
@@ -28,8 +28,6 @@ HOLD	/at/de/articles/highlights/allegris-premium-economy-san-diego	390	6.67	7820
 HOLD	/at/de/betreuungsbedarf	390	6.64	7247 / 7271	no step of 15 px or more; the mismatch is drawn content (pictures, text wrap)
 HOLD	/gb/en/during-your-trip/lounges	390	6.35	6637 / 6643	-37 px at 390 in the lounge finder (its recorded lounge data, a block matter)
 HOLD	/at/de/during-your-trip/lounges	390	6.26	6867 / 6873	no step of 15 px or more; the mismatch is drawn content (pictures, text wrap)
-HOLD	/gb/en/overview-manage	390	5.87	4356 / 4381	not touched (overview-manage's family stays out of rows, as /de/en/overview-manage)
-HOLD	/at/de/overview-manage	390	5.79	4455 / 4479	as gb/en
 HOLD	/gb/en/overview-flights	390	5.70	3517 / 3506	no step of 15 px or more; the mismatch is drawn content (pictures, text wrap)
 HOLD	/at/de/overview-flights	390	5.67	3612 / 3601	no step of 15 px or more; the mismatch is drawn content (pictures, text wrap)
 HOLD	/at/de/overview-travel-information	1440	5.56	2840 / 2842	no step of 15 px or more; the mismatch is drawn content (pictures, text wrap)
@@ -45,11 +43,9 @@ HOLD	/gb/en/special-needs	1440	2.97	5271 / 5286	no step of 15 px or more; the mi
 HOLD	/at/de/digital-self-services	1440	2.94	4548 / 4541	-41 px at the last column end, back within 100 px at "Das könnte Sie auch interessieren" (as de/de in order 21)
 HOLD	/gb/en/digital-self-services	1440	2.92	4471 / 4463	as at/de (gb/en has its column sections; de/en got them in order 21)
 HOLD	/gb/en/services-on-board	1440	2.87	2789 / 2781	no step of 15 px or more; the mismatch is drawn content (pictures, text wrap)
-HOLD	/at/de/overview-manage	1440	2.83	3311 / 3327	as gb/en
 HOLD	/at/de/overview-flights	1440	2.75	2730 / 2746	no step of 15 px or more; the mismatch is drawn content (pictures, text wrap)
 HOLD	/gb/en/overview-flights	1440	2.75	2703 / 2719	no step of 15 px or more; the mismatch is drawn content (pictures, text wrap)
 HOLD	/at/de/services-an-bord	1440	2.74	2856 / 2847	no step of 15 px or more; the mismatch is drawn content (pictures, text wrap)
-HOLD	/gb/en/overview-manage	1440	2.67	3284 / 3300	not touched (overview-manage's family stays out of rows, as /de/en/overview-manage)
 HOLD	/at/de/miles-and-more	1440	2.46	3487 / 3491	no step of 15 px; drawn content
 HOLD	/gb/en/miles-and-more	1440	2.40	3406 / 3410	+32 px at 390 in the carousel cards (the cards' pictures)
 HOLD	/gb/en/baggage	1440	1.72	4630 / 4627	within 0.1 % in height; no step of 15 px
