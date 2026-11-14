@@ -11,7 +11,8 @@ import { isOwnWwwHost } from '../../scripts/brand.js';
  * Lufthansa footer. Footer document (/{cc}/{ll}/footer), one section each:
  *  1. ":search: [search page link](label)" and ":globe: Country | Language"
  *  2. link columns: heading + list of links, repeated (accordions below 768px)
- *  3. legal row: list of links
+ *  3. legal row: list of links (a picture in a link, before its text, is drawn with it: Austrian's
+ *     cn/en public security emblem)
  *  4. logos: list of linked logos (images or icon tokens such as :star-alliance:,
  *     :lufthansa-group:, :iata-cargo-iq:)
  * Optional sections, marked with section metadata (Style), for brand sites (lh-ita):
@@ -158,7 +159,14 @@ function classifySections(fragment) {
   const sections = all.filter((s) => !marks.includes(s));
   const columns = sections.find((s) => s.querySelector('h2, h3, h4, h5, h6') && s.querySelector('ul'));
   const top = sections.find((s) => s !== columns && !s.querySelector('ul'));
-  const logos = sections.find((s) => ![columns, top].includes(s) && s.querySelector('img, picture'));
+  // the logos: the first section with pictures; one whose links are mostly text is the legal row
+  // with an emblem in a link (Austrian's cn/en footer) when a section of picture links follows
+  const pictured = sections.filter((s) => ![columns, top].includes(s) && s.querySelector('img, picture'));
+  const mostlyPictures = (s) => {
+    const links = [...s.querySelectorAll('a[href]')];
+    return links.filter((a) => a.querySelector('img, picture, .icon')).length * 2 >= links.length;
+  };
+  const logos = pictured.find(mostlyPictures) || pictured[0];
   const legal = sections.find((s) => ![columns, top, logos].includes(s) && s.querySelector('ul'));
   return {
     top, columns, legal, logos, badges, notes, wordmarks, brandRows,
@@ -291,7 +299,25 @@ function buildLegal(section, labels) {
   if (!section) return null;
   const list = el('ul', { className: 'footer-legal' });
   section.querySelectorAll('li a[href], p a[href]').forEach((a) => {
-    list.append(el('li', {}, footerLink(a, 'footer-link', labels, uiIcon('arrow-right'))));
+    const link = footerLink(a, 'footer-link', labels, uiIcon('arrow-right'));
+    // a picture in the link (the cn footer's public security emblem): www's image-text, the
+    // picture and the text on a line of their own under the arrow
+    const pic = a.querySelector('picture') || a.querySelector('img');
+    if (pic) {
+      const img = pic.tagName === 'IMG' ? pic : pic.querySelector('img');
+      if (img) {
+        img.loading = 'lazy';
+        img.alt = '';
+        img.setAttribute('aria-hidden', 'true');
+        img.classList.add('footer-link-image');
+      }
+      const label = link.querySelector(':scope > span:not(.footer-sr-only)');
+      const both = el('span', { className: 'footer-link-image-text' }, pic);
+      label.before(both);
+      both.append(label);
+      link.classList.add('footer-link-has-image');
+    }
+    list.append(el('li', pic ? { className: 'footer-legal-has-image' } : {}, link));
   });
   return list.children.length ? list : null;
 }

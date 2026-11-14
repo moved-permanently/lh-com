@@ -833,3 +833,46 @@
   background-color: currentcolor;
   mask: url('/icons/lock.svg') center / contain no-repeat;
 }
+
+/* ---------------------------------------------- legal link with a picture ------------ */
+
+/* a legal link with a picture (the cn/en footer's public security emblem; www's image-text,
+   austrian-parity-003): the arrow on a line of its own, the picture (27 px, 5 px before the text)
+   and the text on the next; in a row of links (from 768 px) the item takes the rest of its row, so
+   the next link starts a new one */
+@media (width >= 768px) {
+  .footer .footer-legal .footer-legal-has-image {
+    flex: 1 1 auto;
+  }
+
+  .footer .footer-legal .footer-legal-has-image + li {
+    flex-basis: 100%;
+  }
+}
+
+.footer .footer-legal .footer-link-has-image {
+  flex-wrap: wrap;
+  align-items: flex-start;
+  row-gap: 0;
+}
+
+.footer .footer-legal .footer-link-has-image > .lh-icon {
+  /* one line of the link's text high, as www's arrow glyph */
+  margin-block: calc((1lh - 16px) / 2);
+}
+
+.footer .footer-legal .footer-link-image-text {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+}
+
+.footer .footer-legal .footer-link-image-text picture {
+  display: flex;
+}
+
+.footer .footer-legal .footer-link-image {
+  width: 27px;
+  height: 27px;
+  margin-right: 5px;
+}

@@ -39,7 +39,20 @@ const BRAND_DESIGN_SYSTEMS = {
   // maui-theme-os makes the design system load Austrian's fonts and icons (os-fonts.css,
   // icon.library.OS.js), its head has X-Line b, its help center is 4.3.2
   'www.austrian.com': {
-    release: 'mausy-v1.40.1', theme: 'austrian', themeClass: 'maui-theme-os', meta: { 'X-Line': 'b' }, apps: { 'help-center-web': '4.3.2' },
+    release: 'mausy-v1.40.1',
+    theme: 'austrian',
+    themeClass: 'maui-theme-os',
+    meta: { 'X-Line': 'b' },
+    apps: { 'help-center-web': '4.3.2' },
+    // the help center's stage and FAQ card pictures: the app writes them from its compiled-in
+    // baseImageUrl (austrian.com/content/dam); the same bytes (brand-media-004, sha256 be9a605a…,
+    // 7eb54ced…) are in lh-austrian's DA and published under these names (standing order 31)
+    pictures: {
+      'help-center-web': {
+        'https://austrian.com/content/dam/aua/images/local_images/help-center/main.png': '/media-da/austrian/help-center/media_162d642a0ea6253af0793f4bed963218ac649b385.png',
+        'https://austrian.com/content/dam/aua/images/local_images/help-center/faq.png': '/media-da/austrian/help-center/media_1a45234493606ceea57e1dbad76ba5d605a45155a.png',
+      },
+    },
   },
   // www's help pages (ita-parity-001, it/en and it/it): its body's maui-theme-az makes the design
   // system load ITA's fonts and icons (az-fonts.css, icon.library.AZ.js; else Lufthansa's), its
@@ -257,6 +270,9 @@ export function mountPlan(block, brand, locale, hostname = window.location.hostn
       ...(design && design.meta ? design.meta : {}),
       ...(lh && lh.meta ? lh.meta : {}),
     } : {},
+    // the brand's copies of pictures the app writes from www (its URL -> ours), where it has some
+    ...(design && design.pictures && design.pictures[app.tag]
+      ? { pictures: design.pictures[app.tag] } : {}),
     // the brand's theme class for the body (www's), where its design system has one
     ...(design && design.themeClass ? { themeClass: design.themeClass } : {}),
     ...(lh && lh.themeClass ? { themeClass: lh.themeClass } : {}),
@@ -369,6 +385,38 @@ function watchSlots(element, block, slots, deadline) {
 }
 
 /**
+ * Points the pictures the app drew from a URL in pictures (its URL -> ours) at ours: every <img>
+ * (and <source>) under root, its light DOM; returns how many changed.
+ * @param {Element} root the app's element
+ * @param {Object<string, string>} pictures
+ * @returns {number}
+ */
+export function swapPictures(root, pictures) {
+  if (!root || !pictures) return 0;
+  let swapped = 0;
+  root.querySelectorAll('img[src], source[srcset]').forEach((el) => {
+    const name = el.tagName === 'IMG' ? 'src' : 'srcset';
+    const ours = pictures[el.getAttribute(name)];
+    if (!ours) return;
+    el.setAttribute(name, ours);
+    swapped += 1;
+  });
+  return swapped;
+}
+
+/**
+ * swapPictures now and each time the app draws (it renders its views after it is attached and
+ * again when the visitor moves on).
+ */
+function watchPictures(element, pictures) {
+  if (!pictures || typeof MutationObserver === 'undefined') return;
+  swapPictures(element, pictures);
+  new MutationObserver(() => swapPictures(element, pictures)).observe(element, {
+    childList: true, subtree: true, attributes: true, attributeFilter: ['src', 'srcset'],
+  });
+}
+
+/**
  * Shows the app in place of the fallback once it renders (and removes the blocks after it that
  * show the same, shows), else removes it at the deadline.
  */
@@ -424,6 +472,8 @@ export default async function decorate(block) {
       element.setAttribute('aria-hidden', 'true');
       element.setAttribute('inert', '');
     }
+    // the brand's copies of the app's pictures, watched before it draws
+    watchPictures(element, plan.pictures);
     block.append(element);
     if (fallback) watchApp(element, fallback, deadline, shows);
     // the app's places for blocks after it: its topic selection draws after the fallback's deadline

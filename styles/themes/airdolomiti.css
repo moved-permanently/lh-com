@@ -3180,6 +3180,14 @@ body.brand-airdolomiti .columns-media.news .columns-media-text p + p {
   margin-top: 33px;
 }
 
+/* a separator paragraph ({spacer-N}) in the news text: its N px, in place of a second line break www's paragraph opens
+   with (a leading <br> does not survive the pipeline; in-flight-entertainment-system, standing order 31); the
+   paragraphs around it keep their own spacing (elsewhere it draws 0 px: the margins meet through it) */
+body.brand-airdolomiti .columns-media.news .columns-media-text p.spacer {
+  height: var(--spacer-size);
+  margin-top: 0;
+}
+
 @media (width >= 930px) {
   body.brand-airdolomiti .columns-media.news .columns-media-text {
     width: 50vw;
