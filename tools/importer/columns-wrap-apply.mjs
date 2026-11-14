@@ -61,7 +61,9 @@ export function applyColumnsWrap(html, row) {
   if (content.length < 2 || !isPicturePara(last.html) || content.slice(0, -1).some((k) => /<picture>/.test(k.html))) {
     return { html, problems: ['the section does not end with exactly one picture paragraph'] };
   }
-  const textStart = base + content[0].start;
+  // headingAbove: the heading stays above the row, full width (www's heading component over its column view)
+  if (row.headingAbove && content.length < 3) return { html, problems: ['no text between the heading and the picture'] };
+  const textStart = base + content[row.headingAbove ? 1 : 0].start;
   const picStart = base + last.start;
   const picEnd = base + last.end;
   const out = `${html.slice(0, textStart)}${OPEN}${html.slice(textStart, picStart)}${MID}${html.slice(picStart, picEnd)}${CLOSE}${html.slice(picEnd)}`;
@@ -75,6 +77,17 @@ export function applyColumnsWrap(html, row) {
  */
 export function revertColumnsWrap(html, row) {
   const hits = findSection(html, row.heading);
+  if (row.headingAbove) {
+    // the heading first, the row this tool wrote right after it
+    const rows = hits.filter((h) => h.first && h.kids[1] && h.kids[1].html.startsWith(OPEN) && h.kids[1].html.endsWith(CLOSE));
+    if (rows.length !== 1) return { html, problems: [`"${row.heading}": ${rows.length} wrapped rows to revert`] };
+    const k = rows[0].kids[1];
+    const inner = k.html.slice(OPEN.length, -CLOSE.length);
+    const mid = inner.lastIndexOf(MID);
+    if (mid < 0 || !isPicturePara(inner.slice(mid + MID.length))) return { html, problems: ['not a row this tool wrote'] };
+    const start = rows[0].base + k.start;
+    return { html: `${html.slice(0, start)}${inner.slice(0, mid)}${inner.slice(mid + MID.length)}${html.slice(rows[0].base + k.end)}`, problems: [] };
+  }
   const wrapped = [];
   const open = html.indexOf('<main>');
   const close = html.lastIndexOf('</main>');

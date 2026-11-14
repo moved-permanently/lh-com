@@ -37,3 +37,15 @@
 /it/en/world-of-ita-airways/discover-ita-airways/fleet/long-haul
 /it/en/help-and-contact
 /it/en/support/utilities/invoicing
+# Group for Business, standing order 20 (2026-11-14): 390 x 844 only, each page LOADED AT THAT SIZE (a phone's first load;
+# nothing clicked), full height, the measurements json. Each sits above 2 % at 390 as served tonight against a recording
+# whose 390 is a resize of its 1440 load (manifests: resizedFrom 1440; b2b-parity-003 to -008). Not listed: meals-on-board
+# (de/en, ch/en, xx/en) and the Allegris pages, which ema-test's b2b-parity-010 and -012 record as first loads already.
+# host: business.lufthansagroup.com
+/de/en/program/experts/on-board/entertainment-on-board
+/de/en/about-us/help-alliance
+/de/en/program/experts/programs-and-groups
+/xx/en/program/experts/programs-and-groups
+/gb/en/program/experts/programs-and-groups
+/de/en/program/experts/route-network/lufthansa/kuala-lumpur
+/de/en/program

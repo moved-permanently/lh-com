@@ -56,3 +56,24 @@ test('the list: READY first, the header naming the tool, its data and the owner\
   const data = JSON.parse(fs.readFileSync(new URL('../tools/reports/parity-2026-11-09/delta-so15-b2b-european-fares-status-columns.json', import.meta.url), 'utf8'));
   assert.deepEqual(data, { '/de/en/travel-solutions/our-european-fares': ROW });
 });
+
+// option headingAbove (standing order 20 of 2026-11-14, item 2; de/en entertainment-on-board's "In-Flight Entertainment
+// System"): the heading stays above the row, full width, as www's; the row holds the paragraphs and the picture
+const AROW = { heading: 'Exclusive benefits for status customers', headingAbove: true };
+const H3 = '<h3 id="exclusive-benefits-for-status-customers">Exclusive benefits for status customers</h3>';
+
+test('headingAbove: the heading stays above the row, the rest as DA\'s, a second run refused, reverted byte for byte', () => {
+  const r = applyColumnsWrap(DA, AROW);
+  assert.deepEqual(r.problems, []);
+  assert.equal(r.html, DA.replace(`${TEXT}${PIC}`, `${H3}<div class="columns-media"><div><div>${TEXT.slice(H3.length)}</div><div>${PIC}</div></div></div>`));
+  assert.ok(applyColumnsWrap(r.html, AROW).problems.length, 'a second run changes nothing');
+  const back = revertColumnsWrap(r.html, AROW);
+  assert.deepEqual(back.problems, []);
+  assert.equal(back.html, DA);
+  assert.ok(revertColumnsWrap(DA, AROW).problems.length, 'nothing to revert on DA\'s copy');
+});
+
+test('headingAbove: refused when only the heading and the picture are there (no text for the first cell)', () => {
+  const bare = DA.replace(TEXT, H3);
+  assert.ok(applyColumnsWrap(bare, AROW).problems.length);
+});
