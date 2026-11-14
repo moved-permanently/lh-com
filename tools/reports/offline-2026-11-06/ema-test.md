@@ -4199,3 +4199,9 @@ State at the start: nothing of mine uncommitted or unpushed (order 20's final se
      The first six were published by the owner (d999e1af) and measure on the host as in the folder trial (6 better, 6
      within, 0 worse); the four sibling rows came after that publish; the owner's harness has them in preview (c1c70163), not yet live at
      12:05 CET, so they are not measured on the host.
+   - delta-so21-lh-com-a-perfect-day.txt: the two "A Perfect Day" articles (Barcelona, Berlin), five {spacer-N from-768}
+     each where www is 14 to 40 px lower at 1440 (live base plus the folder delta: 14.92 -> 9.44, 13.48 -> 8.60; 390
+     unchanged). A spacer at a wrapper's end uncovers the last element's 24 px margin: the photo-block spacers are 15,
+     not 39 (the 39 trial looked better in the folder only because it cancelled the pictures the folder does not draw).
+     The same effect on Chiswick's published pair (+64 at 1440, +44 at 390 in place of +40 / +20): both widths still
+     measure better live, and a tighter pair measured worse, so that row stays; its list says so.

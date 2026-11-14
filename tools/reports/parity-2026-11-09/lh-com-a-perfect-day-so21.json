@@ -1,0 +1,52 @@
+[
+  {
+    "path": "/de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day",
+    "inserts": [
+      {
+        "before": "<h3 id=\"pm-relaxing-under-palm-trees\">",
+        "text": "<p>{spacer-23 from-768}</p>"
+      },
+      {
+        "before": "<h3 id=\"pm-a-market-visit-completes-a-perfect-day-in-barcelona\">",
+        "text": "<p>{spacer-15 from-768}</p>"
+      },
+      {
+        "before": "<div class=\"columns-media stacked\"><div><div><p><picture><img src=\"https://www.l",
+        "text": "<p>{spacer-15 from-768}</p>"
+      },
+      {
+        "before": "<h3 id=\"pm-shopping--sightseeing-on-passeig-de-gràcia\">",
+        "text": "<p>{spacer-14 from-768}</p>"
+      },
+      {
+        "before": "<p>{divider-25}</p><div class=\"columns-media\"",
+        "text": "<p>{spacer-16 from-768}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day",
+    "inserts": [
+      {
+        "before": "<h3 id=\"pm-plenty-to-see-at-the-brandenburg-gate\">",
+        "text": "<p>{spacer-23 from-768}</p>"
+      },
+      {
+        "before": "<h3 id=\"pm-a-moment-of-silence-at-the-holocaust-memorial\">",
+        "text": "<p>{spacer-14 from-768}</p>"
+      },
+      {
+        "before": "<div class=\"columns-media stacked\"><div><div><p><picture><img src=\"https://www.l",
+        "text": "<p>{spacer-15 from-768}</p>"
+      },
+      {
+        "before": "<h3 id=\"pm-a-summer-evening-on-museum-island\">",
+        "text": "<p>{spacer-14 from-768}</p>"
+      },
+      {
+        "before": "<p>{divider-25}</p><div class=\"columns-media\"",
+        "text": "<p>{spacer-16 from-768}</p>"
+      }
+    ]
+  }
+]
