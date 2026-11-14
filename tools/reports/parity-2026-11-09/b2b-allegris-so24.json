@@ -7,5 +7,22 @@
         "text": ""
       }
     ]
+  },
+  {
+    "path": "/de/en/allegris/intermediaries-start-of-booking",
+    "inserts": [
+      {
+        "replace": "<div class=\"section-metadata\"><div><div>Style</div><div>space-below-m</div></div></div>",
+        "text": ""
+      },
+      {
+        "before": "<div class=\"section-metadata\"><div><div>Tab</div><div>2026 summer schedule</div></div>",
+        "text": "<p>{spacer-59}</p>"
+      },
+      {
+        "before": "<div class=\"section-metadata\"><div><div>Tab</div><div>2026/2027 winter schedule</div></div>",
+        "text": "<p>{spacer-59}</p>"
+      }
+    ]
   }
 ]
