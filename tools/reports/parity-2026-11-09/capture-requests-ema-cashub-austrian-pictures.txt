@@ -11,3 +11,9 @@
 # stand-ins in our renders and is there for a later rewrite of the app's picture URLs (not planned).
 https://austrian.com/content/dam/aua/images/local_images/help-center/main.png	/media-da/austrian/help-center/main.png
 https://austrian.com/content/dam/aua/images/local_images/help-center/faq.png	/media-da/austrian/help-center/faq.png
+# Added after the first push (same order): the cn footers' public security emblem. In www's cn footer the
+# "沪公网安备 31010102005102号" link holds this icon in a block of its own (+70 px on /cn/en/local-pages/tarmac-delay-
+# contingency-plan, austrian-parity-003). It is in no archive. The footer document is /cn/en/footer: its link is there,
+# without the icon. www's cn/zh footer has no such link, and neither has ours. Unlike the two pictures above, this one would
+# show to visitors once the footer row is applied.
+https://www.austrian.com/content/dam/lh/icons/legal-cn/icon-beian.svg	/media-da/austrian/legal-cn/icon-beian.svg
