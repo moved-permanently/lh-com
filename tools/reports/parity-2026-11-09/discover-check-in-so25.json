@@ -1,0 +1,52 @@
+[
+  {
+    "path": "/de/de/my-bookings/check-in",
+    "inserts": [
+      {
+        "replace": "<h2 id=\"online-check-in-mit-buchungscode\">Online Check-in mit Buchungscode</h2>",
+        "text": "<h2 id=\"online-check-in-mit-buchungscode\">Online Check-in mit Buchungscode {heading-copytext-large}</h2>"
+      },
+      {
+        "replace": "<h3 id=\"online-check-in-mit-code-des-reiseveranstalters\">Online Check-in mit Code des Reiseveranstalters</h3>",
+        "text": "<h3 id=\"online-check-in-mit-code-des-reiseveranstalters\">Online Check-in mit Code des Reiseveranstalters {heading-copytext-large}</h3>"
+      },
+      {
+        "replace": "<a href=\"/de/de/my-bookings/check-in/online-check-in\">Zum Online Check-in</a></p>",
+        "text": "<a href=\"/de/de/my-bookings/check-in/online-check-in\">Zum Online Check-in</a> {copytext-large}</p>"
+      },
+      {
+        "replace": "<a href=\"https://once.discover-airlines.com/connect/main-app?APPID=LHG_ONLINE&amp;TENANT=4Y&amp;LANGUAGE=de&amp;COUNTRY=DE&amp;MODE=PORTAL&amp;ENTRY=identification.cf\">Zum Veranstalterreise Check-in</a></p>",
+        "text": "<a href=\"https://once.discover-airlines.com/connect/main-app?APPID=LHG_ONLINE&amp;TENANT=4Y&amp;LANGUAGE=de&amp;COUNTRY=DE&amp;MODE=PORTAL&amp;ENTRY=identification.cf\">Zum Veranstalterreise Check-in</a> {copytext-large}</p>"
+      },
+      {
+        "replace": "<a href=\"/de/de/my-bookings/check-in/check-in-at-the-airport\">Mehr zum Check-in am Flughafen</a></p>",
+        "text": "<a href=\"/de/de/my-bookings/check-in/check-in-at-the-airport\">Mehr zum Check-in am Flughafen</a> {copytext-large}</p>"
+      },
+      {
+        "after": "<h4 id=\"das-könnte-sie-auch-interessieren\">Das könnte Sie auch interessieren</h4>",
+        "text": "<p>{spacer-36 from-768}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/my-bookings/check-in",
+    "inserts": [
+      {
+        "replace": "<a href=\"/de/en/my-bookings/check-in/online-check-in\">Go to online check-in</a></p>",
+        "text": "<a href=\"/de/en/my-bookings/check-in/online-check-in\">Go to online check-in</a> {copytext-large}</p>"
+      },
+      {
+        "replace": "<a href=\"https://once.discover-airlines.com/connect/main-app/identification/main\">Go to the organized tour check-in</a></p>",
+        "text": "<a href=\"https://once.discover-airlines.com/connect/main-app/identification/main\">Go to the organized tour check-in</a> {copytext-large}</p>"
+      },
+      {
+        "replace": "<a href=\"/de/en/my-bookings/check-in/check-in-at-the-airport\">More about airport check-in</a></p>",
+        "text": "<a href=\"/de/en/my-bookings/check-in/check-in-at-the-airport\">More about airport check-in</a> {copytext-large}</p>"
+      },
+      {
+        "after": "<h4 id=\"you-might-also-be-interested-in-this\">You might also be interested in this {heading-copytext-large}</h4>",
+        "text": "<p>{spacer-36 from-768}</p>"
+      }
+    ]
+  }
+]
