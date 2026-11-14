@@ -33,3 +33,11 @@ test('paragraph spacer: before the named paragraph, nothing else changes', () =>
   const pretty = '<div>\n  <ul>\n    <li>x</li>\n  </ul>\n  <p>The distance is calculated</p>\n</div>';
   assert.equal(applyParagraphSpacer(pretty, [{ text: 'The distance', n: 56 }]).html, '<div>\n  <ul>\n    <li>x</li>\n  </ul>\n  <p>{spacer-56}</p><p>The distance is calculated</p>\n</div>');
 });
+
+test('paragraph spacer, all: before each of identical paragraphs (wheelchair-batteries)', () => {
+  const doc = '<ul><li>a</li></ul><p>Batteries designed to be removed</p><ul><li>b</li></ul><p>Batteries designed to be removed</p>';
+  assert.equal(applyParagraphSpacer(doc, [{ text: 'Batteries designed', n: 56 }]).results[0].result, 'found more than once');
+  const r = applyParagraphSpacer(doc, [{ text: 'Batteries designed', n: 56, all: true }]);
+  assert.equal(r.results[0].result, 'placed 2');
+  assert.equal(r.html, '<ul><li>a</li></ul><p>{spacer-56}</p><p>Batteries designed to be removed</p><ul><li>b</li></ul><p>{spacer-56}</p><p>Batteries designed to be removed</p>');
+});

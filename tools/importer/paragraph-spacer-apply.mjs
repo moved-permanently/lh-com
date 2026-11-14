@@ -2,9 +2,10 @@
 /**
  * www's empty line back into DA's copy (standing order 20 of 2026-11-13: a paragraph of only no-break spaces between two
  * text paragraphs or lists, 56px on www, dropped by the framework; the importer writes "{spacer-56}" since then,
- * test/empty-lines-so20). Per row ({text, n}): the paragraph whose text starts with `text` gets a <p>{spacer-n}</p>
- * right before it, unless the element before it is a separator paragraph already. A row whose paragraph is not found,
- * or found more than once, changes nothing. Everything else stays byte for byte.
+ * test/empty-lines-so20). Per row ({text, n, all}): the paragraph whose text starts with `text` gets a <p>{spacer-n}</p>
+ * right before it, unless the element before it is a separator paragraph already; with all: true every such paragraph
+ * (wheelchair-batteries: two identical paragraphs, each after an empty line). A row whose paragraph is not found, or
+ * found more than once without all, changes nothing. Everything else stays byte for byte.
  *
  * Usage: node tools/importer/paragraph-spacer-apply.mjs --data rows.json --in <DA copy.html> --out <file>
  *   rows.json: [{ "text": "The distance is calculated", "n": 56 }]
@@ -24,11 +25,11 @@ export function applyParagraphSpacer(html, rows) {
     if (!row.text || !(Number(row.n) > 0)) return { row, result: 'bad row' };
     const hits = [...out.matchAll(/<p>([\s\S]*?)<\/p>/g)].filter((m) => plain(m[1]).startsWith(row.text));
     if (!hits.length) return { row, result: 'not found' };
-    if (hits.length > 1) return { row, result: 'found more than once' };
-    const [m] = hits;
-    if (SEPARATOR.test(out.slice(0, m.index))) return { row, result: 'there already' };
-    out = `${out.slice(0, m.index)}<p>{spacer-${Number(row.n)}}</p>${out.slice(m.index)}`;
-    return { row, result: 'placed' };
+    if (hits.length > 1 && !row.all) return { row, result: 'found more than once' };
+    if (hits.some((m) => SEPARATOR.test(out.slice(0, m.index)))) return { row, result: 'there already' };
+    // (from the last one back, so the earlier indexes stay)
+    hits.reverse().forEach((m) => { out = `${out.slice(0, m.index)}<p>{spacer-${Number(row.n)}}</p>${out.slice(m.index)}`; });
+    return { row, result: hits.length > 1 ? `placed ${hits.length}` : 'placed' };
   });
   return { html: out, results };
 }
