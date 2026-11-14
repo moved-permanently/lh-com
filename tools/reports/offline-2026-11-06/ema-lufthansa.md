@@ -4489,3 +4489,89 @@ logs and the scripts.
 
 **Process:** reads only from our hosts and the drop (R2). No request to an airline host, no da-upload.mjs call, no
 upload, preview or publish by me.
+
+## Standing order 14 of 2026-11-13/14 (overnight, from about 23:35 CET to 06:00 CET)
+
+**At the start:** nothing of mine uncommitted or unpushed after standing order 13 (b8246d79 and 39c1a95b on main).
+`.migration/project.json` (the lh-tap entry) and `.scratch/` (excluded from git) left as they are.
+
+**Method, the same for the four brands.**
+- **www:** every parity recording in the drop (folder GDDocrqS7sYpHQrbIT_4NmGC, our R2 only; 13 archives downloaded
+  here, 15 already here), the newest recording per page and width, www's own scrollHeight from the capture.
+- **Ours:** the brand's host as served (NO_LOCAL_CSS, the recordings' viewports), every row over 2 % measured a second
+  time. One footer had failed to load (/be/en/my-bookings at 390) and was re-measured; the rest were confirmed.
+- **Located:** each row over 2 % against www's live measurement in the recording (the captured positions of its
+  headings, text and footer, pictures included). That works better than rendering the recordings here, where their
+  pictures are missing (hundreds of px on most pages).
+- **Lists:** one finish list per brand, status first (READY = within 2 % with its fix in a commit, HOLD = explained
+  or still open).
+
+| brand | recorded page-widths | within 2 % | above 2 % | list |
+|---|---|---|---|---|
+| Brussels | 206 (103 pages, brussels-parity-001, -003 to -010) | 137 | 69: 5 fixed by P56, 64 explained or open | finish-brussels.txt |
+| Discover | 53 (27 pages, -001, -002) | 33 | 20, all explained | finish-discover.txt |
+| SWISS | 56 (28 pages, -001, -003 to -007) | 41 | 15, all explained (one HOLD delta row) | finish-swiss.txt |
+| TAP | 52 (26 pages, -001 to -011) | 45 | 7, all explained (ema-cashub's causes) | finish-tap.txt |
+
+**Item 1, Brussels:**
+- **Brussels P56, 80e248f1 (test first):** a sidebar-h1 page that ends with a link line keeps 60 px to the footer from
+  768 px and 70 px below (www 60 to 82 / 70 to 116, ours 48).
+  - Result: 7 pages closer at both widths, none further. 5 page-widths are now within 2 % (READY in the list); the
+    other cancel-and-refund and service-charges rows are closer but still over, with the rest of their cause written.
+  - The first version, for every sidebar-h1 ending, took five legal pages further, so it's not that one.
+- **Not shipped, failed the gate:**
+  - The phone table rule (www's 200 px cells, the table scrolling sideways): checked-baggage within 2 % in four
+    languages, but student-fares and be/fr checked-baggage further, because www sets its header cells in larger type.
+    Its draft and test are in .scratch.
+  - A phone teaser-ending rule (www 187 to 248 px under a closing teaser row, ours 178): 19 pages closer, 16 further.
+- **Explained:**
+  - Owner decisions: payment-methods' country picker behind the site flag brussels-payment-picker; the families pages'
+    empty sidebar lines, which ema-test's marker collapse drops; our-company's cards, whose text www cuts off after
+    three lines (seen in the recording's screenshot).
+  - Our own forms: the Turnstile box on three form pages.
+  - Live data: the destination finder and the offers widgets.
+  - Code causes in a shared block, not changed overnight: ke/en and fr/fr print the fares' conditions as page text
+    (about 500 px) where www shows them in a dialog.
+  - Document: check-in-times' collapsed component, which the import made a link.
+  - One-page endings: the legal hub, book-a-flight.
+- **Still open: 11 rows, each written with where it sits.** They are 2.0 to 3.7 %: my-bookings at 390 (en, fr: +123 px in the card list, the cards' pitch as www's), unsubscribe-failure at both widths, core-values, connecting-africa, travel-classes, bike-the-city, economy, student-fares, business. Mostly a single step of 30 to 170 px on one page;
+  www's captured measurement has no positions for its cards there, and the recordings' screenshots I looked at
+  (our-company, my-bookings, chase-the-sun) explained two of them.
+
+**Item 2, Discover:** 20 rows over 2 %. The 4 offers page-widths are the owner's. The rest:
+- Live data: the destination finder on the homepages, the fare calendar on flight-search.
+- Owner decisions:
+  - ema-test's heading markers lost in the collapse (customer-service, check-in);
+  - row 49's brand font (entertainment);
+  - punta-cana's eyebrow gap, 0.2 points, under the gate.
+- Located, under the gate: santorini's spacing, small steps under each heading at 390.
+- Pictures the recording doesn't hold: excess-baggage (the teaser row, 139 px) and business-class at 1440. Both are in
+  the capture requests.
+
+**Item 3, SWISS:** 15 rows over 2 %.
+- Live data: the offers page and the homepages.
+- Owner decision: the magazine's advertisement slots (ema-adobe's build).
+- **overview-extra-services (en / de, 390):** DA's "Medication Transport" card has an empty picture cell where www
+  shows a picture.
+  - delta-so14-swiss-medication-transport-picture.txt, HOLD: the picture isn't in DA (404) or in the recording.
+    Expected once it is in DA: 390 within 0.3 %.
+
+**Item 3, TAP:** 7 rows over 2 %, the same numbers and causes as ema-cashub's rank-so24-tap.txt:
+- www's baggage tracker service;
+- the homepages' recorded stage state;
+- the excepted phone slider.
+TAP's code is ema-cashub's, so nothing was changed there.
+
+**Tools:** the delta tools' list reader (readyPaths in ita-fragment-insert-apply.mjs) takes READY rows whether the
+status is the first column or a later one (test first).
+
+**On main:** 80e248f1, Brussels P56, the delta tools' list reader and the SWISS HOLD delta row.
+- Checks: commit first; `git show --stat` as given (6 files); `npm run lint` exit 0; stylelint on brussels.css 0; the
+  suite 4124 / 0.
+- Rebase: rebased on c54b2c6a, lint and stylelint 0, the suite 4157 / 0. The first push was refused (main busy); lint
+  and stylelint were 0 after the retry rebase onto a9d5a50f (another EMA's merge: lufthansa.com and jump-links rules only,
+  none of the four brands' pages), and the second try went through.
+- After the push: GitHub Build success. The smoke of 14 hosts: 11 with 0 differences; on the three lufthansa.com hosts
+  only sitemap_lh_at_de.xml.gz changed (content).
+- Served: service-charges 390 2137, israel-cancellation-policy 1440 1666, cancel-and-refund be/fr 1440 1684, as measured
+  in the draft.

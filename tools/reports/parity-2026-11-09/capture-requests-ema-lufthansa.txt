@@ -17,3 +17,13 @@
 /it/en/book-and-prepare/offers/territorial-continuity/alghero
 /it/en/book-and-prepare/travel-information/at-the-airport/group-boarding
 /it/en/corporate-b2b
+# Standing order 14 (2026-11-13/14): Discover pages whose 1440 difference sits in pictures the recording doesn't hold
+# (located against www's live measurement: excess-baggage's teaser row 139 px taller on www, business-class's intro
+# 85 px). Width 1440, full height, with the picture files (as assets) and the measurements json.
+# host: www.discover-airlines.com
+/de/en/book/baggage/excess-baggage
+/de/en/discover/travel-classes/business-class
+# SWISS: the picture of overview-extra-services' "Medication Transport" card, as an asset file, for
+# delta-so14-swiss-medication-transport-picture.txt (HOLD until the picture is in DA's media):
+# host: www.swiss.com
+/content/dam/lx/images/local_variations/c-1009756376-LX048_Visual_Medication_Transport_Page_1440×480px.jpg
