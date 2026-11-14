@@ -1,0 +1,148 @@
+# Standing order 23 (2026-11-14), item 1: the business-class move for the roots move-so15-business-class-lh-com.txt held
+# (fr/fr and the eleven xx language versions). Expected change, per root: the DA document moves from
+# /<root>/business-class to /<root>/prepare-for-your-trip/travel-classes/business-class; the redirect sheet gets
+# /<root>/business-class -> the new path; every link to the old address points to the new one. Nothing else changes.
+# The rows of one root go together (move, redirect, its links), as in move-so15 (the four roots there are live since).
+# This list replaces move-so15's 12 HOLD rows.
+# - fr/fr: www redirects /fr/fr/business-class to the travel-classes path, 200 there (lh-snapshots-116, manifest
+#   notRecorded with that finalUrl).
+# - xx/<ll> (el, es, fr, hk, it, ja, ko, pl, pt, ru, zh): www has no page at /xx/<ll>/business-class (404, no redirect) and
+#   its page at /xx/<ll>/prepare-for-your-trip/travel-classes/business-class (200; lh-snapshots-117 read through www's
+#   long market URLs, recorded at 1440 and 390). The redirect row keeps our old address working (the owner's order 23).
+# - Our redirect sheet has no row for these paths today (no loop to delete); pages.csv names only the four roots; no
+#   code names these paths (data/aem-page-ids.json: up to date, build-aem-page-ids --check).
+# - Market roots answered from a language version (pl/pl and the others): lh-edge answers the new path from the
+#   version's index once the moved document is published, and turns the version's redirect into the market root's
+#   (tools/workers/lh-edge/src/markets.js). Smoke /pl/pl/business-class after the publish.
+# - Link rows: the published copies of 2026-11-14 (documents 04:00 UTC, the twelve roots' navs, footers and
+#   fragments 12:30 UTC; logs/b615/bc-links.tsv); the helper re-reads the links from DA at the time, as in move-so15.
+#   Five xx/es documents link to www's /xx/es/business-class absolutely (a 404 on www): their rows make it our relative
+#   new path.
+# - Gate: our page against lh-snapshots-117 at 1440 / 390 (% off www, today at the old path, logs/b615/bc117.tsv). The
+#   move itself does not change these numbers. They are high because of the page's layout, which has no recording before
+#   117: the ranking's next work. xx/es (58.9 / 51.3) also has the older stage (option narrow, no text or button; www has
+#   both): reimport-so23-business-class-lh-com.txt.
+# Columns: status, kind (move, redirect, link), path or document, change, why / gate.
+READY	move	/fr/fr/business-class	/fr/fr/prepare-for-your-trip/travel-classes/business-class	move the DA document; www redirects it (lh-snapshots-116); not recorded
+READY	redirect	/redirects: add /fr/fr/business-class -> /fr/fr/prepare-for-your-trip/travel-classes/business-class		the old address keeps working
+READY	link	/fr/fr/business-class	/fr/fr/business-class -> /fr/fr/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/fr/fr/discover-lufthansa/new-onboard-experience	/fr/fr/business-class -> /fr/fr/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/fr/fr/economy-class	/fr/fr/business-class -> /fr/fr/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/fr/fr/premium-economy-class	/fr/fr/business-class -> /fr/fr/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/fr/fr/tips-senior-travellers	/fr/fr/business-class -> /fr/fr/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	move	/xx/el/business-class	/xx/el/prepare-for-your-trip/travel-classes/business-class	move the DA document; www's page is at the new path, the old one 404 (lh-snapshots-117); our page against it: 31.8% / 28.3% at 1440 / 390
+READY	redirect	/redirects: add /xx/el/business-class -> /xx/el/prepare-for-your-trip/travel-classes/business-class		the old address keeps working
+READY	link	/xx/el/business-class	/xx/el/business-class -> /xx/el/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/el/discover-lufthansa/new-onboard-experience	/xx/el/business-class -> /xx/el/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/el/economy-class	/xx/el/business-class -> /xx/el/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/el/europa-tarife-economy-class	/xx/el/business-class -> /xx/el/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/el/first-class	/xx/el/business-class -> /xx/el/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/el/lufthansa-travel-classes	/xx/el/business-class -> /xx/el/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/el/nav	/xx/el/business-class -> /xx/el/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/el/premium-economy-class	/xx/el/business-class -> /xx/el/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/el/tips-senior-travellers	/xx/el/business-class -> /xx/el/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	move	/xx/es/business-class	/xx/es/prepare-for-your-trip/travel-classes/business-class	move the DA document; www's page is at the new path, the old one 404 (lh-snapshots-117); our page against it: 58.9% / 51.3% at 1440 / 390
+READY	redirect	/redirects: add /xx/es/business-class -> /xx/es/prepare-for-your-trip/travel-classes/business-class		the old address keeps working
+READY	link	/xx/es/business-class	/xx/es/business-class -> /xx/es/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/es/discover-lufthansa/new-onboard-experience	/xx/es/business-class -> /xx/es/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/es/economy-class	/xx/es/business-class -> /xx/es/prepare-for-your-trip/travel-classes/business-class	1 link(s), absolute www, written relative
+READY	link	/xx/es/europa-tarife-economy-class	/xx/es/business-class -> /xx/es/prepare-for-your-trip/travel-classes/business-class	1 link(s), absolute www, written relative
+READY	link	/xx/es/first-class	/xx/es/business-class -> /xx/es/prepare-for-your-trip/travel-classes/business-class	1 link(s), absolute www, written relative
+READY	link	/xx/es/lufthansa-reiseklassen	/xx/es/business-class -> /xx/es/prepare-for-your-trip/travel-classes/business-class	2 link(s), absolute www, written relative
+READY	link	/xx/es/premium-economy-class	/xx/es/business-class -> /xx/es/prepare-for-your-trip/travel-classes/business-class	1 link(s), absolute www, written relative
+READY	link	/xx/es/tips-senior-travellers	/xx/es/business-class -> /xx/es/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	move	/xx/fr/business-class	/xx/fr/prepare-for-your-trip/travel-classes/business-class	move the DA document; www's page is at the new path, the old one 404 (lh-snapshots-117); our page against it: 39.1% / 34.2% at 1440 / 390
+READY	redirect	/redirects: add /xx/fr/business-class -> /xx/fr/prepare-for-your-trip/travel-classes/business-class		the old address keeps working
+READY	link	/xx/fr/business-class	/xx/fr/business-class -> /xx/fr/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/fr/discover-lufthansa/new-onboard-experience	/xx/fr/business-class -> /xx/fr/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/fr/economy-class	/xx/fr/business-class -> /xx/fr/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/fr/europa-tarife-economy-class	/xx/fr/business-class -> /xx/fr/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/fr/first-class	/xx/fr/business-class -> /xx/fr/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/fr/lufthansa-reiseklassen	/xx/fr/business-class -> /xx/fr/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/fr/premium-economy-class	/xx/fr/business-class -> /xx/fr/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/fr/tips-senior-travellers	/xx/fr/business-class -> /xx/fr/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	move	/xx/hk/business-class	/xx/hk/prepare-for-your-trip/travel-classes/business-class	move the DA document; www's page is at the new path, the old one 404 (lh-snapshots-117); our page against it: 44.5% / 54.5% at 1440 / 390
+READY	redirect	/redirects: add /xx/hk/business-class -> /xx/hk/prepare-for-your-trip/travel-classes/business-class		the old address keeps working
+READY	link	/xx/hk/business-class	/xx/hk/business-class -> /xx/hk/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/hk/discover-lufthansa/new-onboard-experience	/xx/hk/business-class -> /xx/hk/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/hk/economy-class	/xx/hk/business-class -> /xx/hk/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/hk/europa-tarife-economy-class	/xx/hk/business-class -> /xx/hk/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/hk/first-class	/xx/hk/business-class -> /xx/hk/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/hk/lufthansa-travel-classes	/xx/hk/business-class -> /xx/hk/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/hk/premium-economy-class	/xx/hk/business-class -> /xx/hk/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/hk/tips-senior-travellers	/xx/hk/business-class -> /xx/hk/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	move	/xx/it/business-class	/xx/it/prepare-for-your-trip/travel-classes/business-class	move the DA document; www's page is at the new path, the old one 404 (lh-snapshots-117); our page against it: 34.0% / 32.6% at 1440 / 390
+READY	redirect	/redirects: add /xx/it/business-class -> /xx/it/prepare-for-your-trip/travel-classes/business-class		the old address keeps working
+READY	link	/xx/it/business-class	/xx/it/business-class -> /xx/it/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/it/discover-lufthansa/new-onboard-experience	/xx/it/business-class -> /xx/it/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/it/economy-class	/xx/it/business-class -> /xx/it/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/it/europa-tarife-economy-class	/xx/it/business-class -> /xx/it/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/it/first-class	/xx/it/business-class -> /xx/it/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/it/lufthansa-reiseklassen	/xx/it/business-class -> /xx/it/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/it/nav	/xx/it/business-class -> /xx/it/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/it/premium-economy-class	/xx/it/business-class -> /xx/it/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/it/tips-senior-travellers	/xx/it/business-class -> /xx/it/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	move	/xx/ja/business-class	/xx/ja/prepare-for-your-trip/travel-classes/business-class	move the DA document; www's page is at the new path, the old one 404 (lh-snapshots-117); our page against it: 49.6% / 51.4% at 1440 / 390
+READY	redirect	/redirects: add /xx/ja/business-class -> /xx/ja/prepare-for-your-trip/travel-classes/business-class		the old address keeps working
+READY	link	/xx/ja/business-class	/xx/ja/business-class -> /xx/ja/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/ja/discover-lufthansa/new-onboard-experience	/xx/ja/business-class -> /xx/ja/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/ja/economy-class	/xx/ja/business-class -> /xx/ja/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/ja/europa-tarife-economy-class	/xx/ja/business-class -> /xx/ja/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/ja/first-class	/xx/ja/business-class -> /xx/ja/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/ja/lufthansa-reiseklassen	/xx/ja/business-class -> /xx/ja/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/ja/nav	/xx/ja/business-class -> /xx/ja/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/ja/premium-economy-class	/xx/ja/business-class -> /xx/ja/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/ja/tips-senior-travellers	/xx/ja/business-class -> /xx/ja/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	move	/xx/ko/business-class	/xx/ko/prepare-for-your-trip/travel-classes/business-class	move the DA document; www's page is at the new path, the old one 404 (lh-snapshots-117); our page against it: 44.8% / 54.5% at 1440 / 390
+READY	redirect	/redirects: add /xx/ko/business-class -> /xx/ko/prepare-for-your-trip/travel-classes/business-class		the old address keeps working
+READY	link	/xx/ko/business-class	/xx/ko/business-class -> /xx/ko/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/ko/discover-lufthansa/new-onboard-experience	/xx/ko/business-class -> /xx/ko/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/ko/economy-class	/xx/ko/business-class -> /xx/ko/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/ko/europa-tarife-economy-class	/xx/ko/business-class -> /xx/ko/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/ko/first-class	/xx/ko/business-class -> /xx/ko/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/ko/lufthansa-travel-classes	/xx/ko/business-class -> /xx/ko/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/ko/nav	/xx/ko/business-class -> /xx/ko/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/ko/premium-economy-class	/xx/ko/business-class -> /xx/ko/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/ko/tips-senior-travellers	/xx/ko/business-class -> /xx/ko/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	move	/xx/pl/business-class	/xx/pl/prepare-for-your-trip/travel-classes/business-class	move the DA document; www's page is at the new path, the old one 404 (lh-snapshots-117); our page against it: 32.7% / 22.6% at 1440 / 390
+READY	redirect	/redirects: add /xx/pl/business-class -> /xx/pl/prepare-for-your-trip/travel-classes/business-class		the old address keeps working
+READY	link	/xx/pl/business-class	/xx/pl/business-class -> /xx/pl/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/pl/discover-lufthansa/new-onboard-experience	/xx/pl/business-class -> /xx/pl/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/pl/economy-class	/xx/pl/business-class -> /xx/pl/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/pl/europa-tarife-economy-class	/xx/pl/business-class -> /xx/pl/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/pl/first-class	/xx/pl/business-class -> /xx/pl/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/pl/lufthansa-travel-classes	/xx/pl/business-class -> /xx/pl/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/pl/nav	/xx/pl/business-class -> /xx/pl/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/pl/premium-economy-class	/xx/pl/business-class -> /xx/pl/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/pl/tips-senior-travellers	/xx/pl/business-class -> /xx/pl/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	move	/xx/pt/business-class	/xx/pt/prepare-for-your-trip/travel-classes/business-class	move the DA document; www's page is at the new path, the old one 404 (lh-snapshots-117); our page against it: 34.1% / 30.9% at 1440 / 390
+READY	redirect	/redirects: add /xx/pt/business-class -> /xx/pt/prepare-for-your-trip/travel-classes/business-class		the old address keeps working
+READY	link	/xx/pt/business-class	/xx/pt/business-class -> /xx/pt/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/pt/discover-lufthansa/new-onboard-experience	/xx/pt/business-class -> /xx/pt/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/pt/economy-class	/xx/pt/business-class -> /xx/pt/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/pt/europa-tarife-economy-class	/xx/pt/business-class -> /xx/pt/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/pt/first-class	/xx/pt/business-class -> /xx/pt/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/pt/lufthansa-reiseklassen	/xx/pt/business-class -> /xx/pt/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/pt/premium-economy-class	/xx/pt/business-class -> /xx/pt/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/pt/tips-senior-travellers	/xx/pt/business-class -> /xx/pt/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	move	/xx/ru/business-class	/xx/ru/prepare-for-your-trip/travel-classes/business-class	move the DA document; www's page is at the new path, the old one 404 (lh-snapshots-117); our page against it: 29.4% / 22.1% at 1440 / 390
+READY	redirect	/redirects: add /xx/ru/business-class -> /xx/ru/prepare-for-your-trip/travel-classes/business-class		the old address keeps working
+READY	link	/xx/ru/business-class	/xx/ru/business-class -> /xx/ru/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/ru/discover-lufthansa/new-onboard-experience	/xx/ru/business-class -> /xx/ru/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/ru/economy-class	/xx/ru/business-class -> /xx/ru/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/ru/europa-tarife-economy-class	/xx/ru/business-class -> /xx/ru/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/ru/first-class	/xx/ru/business-class -> /xx/ru/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/ru/lufthansa-travel-classes	/xx/ru/business-class -> /xx/ru/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/ru/premium-economy-class	/xx/ru/business-class -> /xx/ru/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/ru/tips-senior-travellers	/xx/ru/business-class -> /xx/ru/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	move	/xx/zh/business-class	/xx/zh/prepare-for-your-trip/travel-classes/business-class	move the DA document; www's page is at the new path, the old one 404 (lh-snapshots-117); our page against it: 44.4% / 54.6% at 1440 / 390
+READY	redirect	/redirects: add /xx/zh/business-class -> /xx/zh/prepare-for-your-trip/travel-classes/business-class		the old address keeps working
+READY	link	/xx/zh/business-class	/xx/zh/business-class -> /xx/zh/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/zh/discover-lufthansa/new-onboard-experience	/xx/zh/business-class -> /xx/zh/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/zh/economy-class	/xx/zh/business-class -> /xx/zh/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/zh/europa-tarife-economy-class	/xx/zh/business-class -> /xx/zh/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/zh/first-class	/xx/zh/business-class -> /xx/zh/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/zh/lufthansa-travel-classes	/xx/zh/business-class -> /xx/zh/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/zh/nav	/xx/zh/business-class -> /xx/zh/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative
+READY	link	/xx/zh/premium-economy-class	/xx/zh/business-class -> /xx/zh/prepare-for-your-trip/travel-classes/business-class	2 link(s), relative
+READY	link	/xx/zh/tips-senior-travellers	/xx/zh/business-class -> /xx/zh/prepare-for-your-trip/travel-classes/business-class	1 link(s), relative

@@ -1,0 +1,11 @@
+# Standing order 23 (2026-11-14), item 1: business-class documents whose stage is an older import, for the local harness
+# (it runs the import from the archives). Expected change: the document re-imported with main's info bundle at its new
+# path (after its move row in move-so23-business-class-lh-com.txt). Its stage then becomes www's: today's stage with its
+# text and its button, not option narrow with the title only. The ten other xx versions and the four live roots already
+# have today's stage (hero-campaign, no-subtitle). Everything the importer writes today comes with it; compare the
+# result with DA's copy before the upload, as for giftvoucher.
+# Gate (% off www at 1440 / 390, our page today against lh-snapshots-117): xx/es 58.9 / 51.3; the other xx versions
+# 22-55, which is the page's layout, the same on all of them.
+# status	document	source	expected change	gate
+READY	/xx/es/prepare-for-your-trip/travel-classes/business-class	lh-snapshots-117: content-lh-markets-xx-es-prepare-for-your-trip-travel-classes-business-class-1440.html	www's stage (text "Bienvenido/a a la Business Class…" and its button) instead of the narrow stage	58.9 / 51.3 today; measure after
+HOLD	/fr/fr/prepare-for-your-trip/travel-classes/business-class	(no recording: lh-snapshots-116 only has its status, notRecorded)	the same older stage (narrow) as xx/es	a capture of www's fr/fr page first
