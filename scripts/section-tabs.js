@@ -6,9 +6,9 @@
  * section before its panels with the tab list (role tablist; tabs with aria-selected,
  * aria-controls and a roving tabindex; arrow keys, Home and End select and focus; the panels
  * role tabpanel, aria-labelledby, the others hidden), shown from 768px; below 768px each panel is
- * an accordion item (a toggle with aria-expanded over it, the first open; on brands b2b and
- * discover all closed, as www's; a brand's sets named in TAB_SETS_ON_PHONES stay tabs, TAP's
- * categories). A deep link (#id) into
+ * an accordion item (a toggle with aria-expanded over it, the first open; on brands austrian, b2b,
+ * discover and tap all closed, as www's; a brand's sets named in TAB_SETS_ON_PHONES stay tabs,
+ * TAP's categories). A deep link (#id) into
  * a panel selects its tab. A section with the same `Tab` label (and set) as the one before it is a
  * part of that panel (www.austrian.com's austrian-app: a panel's text, then its image in a
  * full-bleed section; a grey box inside a panel): shown and hidden with the panel, its own section
@@ -22,9 +22,11 @@ import { registerSet } from './section-tabs-sets.js';
 const DESKTOP = '(width >= 768px)';
 // the brands whose www shows every accordion item closed below 768px (business.lufthansagroup.com's
 // Newsroom, maui-tab-control-responsive theme b2b, brief 418; www.discover-airlines.com's, theme
-// four_y, the sweep after brief 470; www.flytap.com's content tabs, tap-parity-001/-002 at 390);
+// four_y, the sweep after brief 470; www.flytap.com's content tabs, tap-parity-001/-002 at 390;
+// www.austrian.com's maui-tab-control-responsive, theme os: the 390 first loads of travel-id,
+// austrian-app, online-check-in and unterhaltung-an-bord, austrian-parity-019 / -020, open none);
 // the others open the first
-const CLOSED_BRANDS = ['b2b', 'discover', 'tap'];
+const CLOSED_BRANDS = ['austrian', 'b2b', 'discover', 'tap'];
 // the sets that stay tabs below 768px too (their tab list, one panel at a time, no toggles), by
 // brand and set name: www.flytap.com's CategoryAccordion keeps its pills on phones, the first
 // category shown under them (the stopover partners and inspiration pages, TAP row 148)
