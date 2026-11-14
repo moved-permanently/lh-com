@@ -1,0 +1,20 @@
+# ema-cashub, standing order 30 (2026-11-14), item 3: Air Dolomiti /en/services-on-board/in-flight-entertainment-system at 1440
+# (-2.37 % at the footer's top, airdolomiti-parity-006).
+# www's news text (DescritionNews rich text, 19.44 / 33.048 px, 720 px wide) has no paragraph margins. Two of its paragraphs
+# open with line breaks: "<p><br><strong>In-flight entertainment</strong>&nbsp;was set up ..." and "<p><br><br>The new
+# solution offers ...". Each break is an empty 33 px line. Our import drops them, and our paragraphs have 33 px margins.
+# Those margins stand in for the first break of each paragraph, so the paragraph tops are www's and only the third
+# paragraph's second break is missing: 33 px at both widths.
+# A spacer marker does not work here: inside the Columns Media (news) block, "{spacer-N}" draws 0 px high. Measured as a
+# draft, see below.
+# Drafts on airdolomiti.turnsthe.page (so24/host.mjs, <main> replaced by the copy served at 16:30 CET plus the change;
+# consent stored, pictures eager; www.* and the airline hosts refused and counted: 0 a render). Footer tops:
+#   www 1,521 / 2,250 (1440 / 390); live 1,485 / 2,214 (-2.37 / -1.60 %); the row 1,518 / 2,247 (-0.20 / -0.13 %).
+# The third paragraph is then 363 / 726 px high, as www's 396 / 760 less our 33 px margin.
+# Both of www's breaks (one row more) overshoot: 1,584 / 2,313 (+4.14 / +2.80 %), because our margins then add 33 px on
+# top of each.
+# Check after the upload: no served copy we hold starts a paragraph with a line break. After the upload, the served copy
+# (.plain.html) must start the paragraph with <br>. If the pipeline drops it, the page stays as it is (no harm), and this
+# row goes back to HOLD.
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-airdolomiti), the delta, what changes on the page.
+READY	/en/services-on-board/in-flight-entertainment-system.html	a line break (Shift+Enter) at the start of the paragraph "The new solution offers a better, more efficient service ...", before its first word	the paragraph one 33 px line lower, as www's; 1440 -2.37 -> -0.20 %, 390 -1.60 -> -0.13 %; check that the served copy keeps the <br>

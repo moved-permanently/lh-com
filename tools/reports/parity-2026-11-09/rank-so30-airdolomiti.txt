@@ -1,0 +1,147 @@
+# ema-cashub, standing order 30 (2026-11-14), item 1: Air Dolomiti's FAQ titles, version A without the German pages, gated on
+# every recorded Air Dolomiti page-width. Shipped (0f9a40bc, styles/themes/airdolomiti.css, test/airdolomiti-faq-title-measure-so30):
+#   body.brand-airdolomiti main .accordion-columns.faq .accordion-columns-title:not(:lang(de)) { gap: 24px; }
+# The page's lang comes from its root (scripts.js), so /de/... pages are lang de and keep gap 0.
+# Recorded page-widths: the newest recording per page and width of airdolomiti-parity-001 to -007 (www hosts only, the
+# measurements with a scrollHeight; -003 to -006 hold the pages first recorded there, -007 re-records nine of -001's pages
+# and adds the archistar article). That is 108 page-widths on 54 pages.
+# The gate is read at the footer's top (www's recorded chat widget sits below the footer), www's from each recording's
+# measurements. Ours: airdolomiti.turnsthe.page as served (so24/host.mjs, EAGER=1 CONSENT=1; www.* and the airline hosts
+# refused and counted, at most 10 a render on the homepages and the destination pages, none sent), each page-width twice:
+# as served at 14:40 CET (main before the rule) and with the rule added as a stylesheet after load.
+# Result: 5 page-widths closer, all into 2 %; 103 unchanged to the px; none further; none wider than the screen (scrollWidth
+# equal everywhere). Matched titles counted in each render: 0 on the 37 German page-widths.
+# After the push, the 20 FAQ page-widths as served (no stylesheet added, 16:45 CET): equal to the gate's rule column to the px.
+# Site-wide (order 29's model of the 632 FAQ titles in the 76 local documents, laid out at 390 by www's logic): all 434 titles
+# on the 51 non-German documents now take www's line count (before: 98 titles on 36 documents a line short, -5,896 px). The
+# German titles keep today's: 46 titles on 19 documents differ from www, -1,040 px. Unscoped, A would have given 22 titles
+# on 11 documents, +1,445 px.
+# Still outside 2 % after the rule (10 page-widths), each explained:
+# - /de/unsere-dienste/lounge-zutritt 390 -5.60 % and /de/reisenformationen/sitzplatzreservierung 390 +3.65 %: German, outside
+#   the rule by your decision. Version A would bring lounge-zutritt to -0.32 % but sitzplatzreservierung to +5.60 %.
+# - /en/articles/dyk/airports-designed-by-archistars 1440 -5.41 %: left, as you decided (order 29's row fails at 390).
+# - /en/services-on-board/in-flight-entertainment-system 1440 -2.37 %: www's rich text opens two paragraphs with line breaks
+#   (<p><br>... and <p><br><br>...), and our import drops them. Our paragraph margins (33 px) stand in for one of them, so one
+#   33 px line is missing before the third paragraph. READY row: delta-so30-airdolomiti-ife-line-break.txt
+#   (1440 -> -0.20 %, 390 -1.60 -> -0.13 %).
+# - /de/bearbeitung-ihrer-buchungen 1440 -2.10 %: one paragraph ("Sie haben auch die Möglichkeit ...") takes 5 lines here
+#   and 6 on www, at the same 720 px, size (19.44 / 33.048) and font. www's three no-break spaces in it, restored in a draft,
+#   change nothing. A wrap on the recording's machine, not traced further. No row.
+# - /en/articles/destinations/street-food-in-munich 390 +2.72 % (1440 at www's px): two causes of this one document that
+#   cancel at 1440. (1) www's H3s hold their text in <b> / <span>, and those inline boxes have line-height 1.7 (44.2 px
+#   lines, ours 32): +20 to +59 px per H3 on www at both widths. (2) The H3 "Last but not least, the Wiener Markt ..." is
+#   www's 16 px running text in a span (style="font-size:16px"). Our import drops the style and draws it at 26 / 32:
+#   +281 px at 390 and +185 at 1440. A row for (2) alone would take 1440 from 0.00 to about -3.8 %. No row.
+# - /de/flug-status 1440 +7.93 %, and the destination pages at 390 (basel-de -2.16 %, monaco-di-baviera -2.25 %,
+#   london-eu -2.26 %): widgets (the flight status form and the flight search take www's APIs: 1 / 8 requests refused a
+#   render). Out of scope here; the destinations' news text rows are ema-lufthansa's (rows 101 and 102, reimport-585).
+# 108 page-widths: 103 unchanged, 5 closer, 0 further; 5 into 2 %, 0 out of 2 %
+# path	width	recording	www footer top	ours	vs www	with the rule	vs www	points closer	lang	FAQ titles / matched	scrollWidth base/rule	refused base/rule
+/	1440	airdolomiti-parity-001	4261	4228	-0.77 %	4228	-0.77 %	+0.00	it	faq 0 hit 0	sw 1440/1440	refused 10/10
+/	390	airdolomiti-parity-001	5408	5366	-0.78 %	5366	-0.78 %	+0.00	it	faq 0 hit 0	sw 390/390	refused 10/10
+/articoli	1440	airdolomiti-parity-001	1951	1938	-0.67 %	1938	-0.67 %	+0.00	it	faq 0 hit 0	sw 1440/1440	refused 0/0
+/articoli	390	airdolomiti-parity-001	5113	5101	-0.23 %	5101	-0.23 %	+0.00	it	faq 0 hit 0	sw 390/390	refused 0/0
+/articoli/destinazioni/dove-ladriatico-si-fa-selvaggio	1440	airdolomiti-parity-001	3108	3077	-1.00 %	3077	-1.00 %	+0.00	it	faq 0 hit 0	sw 1440/1440	refused 0/0
+/articoli/destinazioni/dove-ladriatico-si-fa-selvaggio	390	airdolomiti-parity-001	3889	3895	+0.15 %	3895	+0.15 %	+0.00	it	faq 0 hit 0	sw 390/390	refused 0/0
+/assistenza	1440	rec007	3982	3994	+0.30 %	3994	+0.30 %	+0.00	it	faq 17 hit 17	sw 1440/1440	refused 0/0
+/assistenza	390	rec007	6314	6132	-2.88 %	6306	-0.13 %	+2.76	it	faq 17 hit 17	sw 390/390	refused 0/0
+/bagagli	1440	airdolomiti-parity-001	1430	1440	+0.70 %	1440	+0.70 %	+0.00	it	faq 0 hit 0	sw 1440/1440	refused 0/0
+/bagagli	390	airdolomiti-parity-001	1080	1090	+0.93 %	1090	+0.93 %	+0.00	it	faq 0 hit 0	sw 390/390	refused 0/0
+/de	1440	airdolomiti-parity-001	4261	4228	-0.77 %	4228	-0.77 %	+0.00	de	faq 0 hit 0	sw 1440/1440	refused 10/10
+/de	390	airdolomiti-parity-001	5480	5438	-0.77 %	5438	-0.77 %	+0.00	de	faq 0 hit 0	sw 390/390	refused 10/10
+/de/artikel	1440	airdolomiti-parity-001	1951	1938	-0.67 %	1938	-0.67 %	+0.00	de	faq 0 hit 0	sw 1440/1440	refused 0/0
+/de/artikel	390	airdolomiti-parity-001	5058	5045	-0.26 %	5045	-0.26 %	+0.00	de	faq 0 hit 0	sw 390/390	refused 0/0
+/de/artikel/reiseziele/die-wilde-seite-der-adria	1440	airdolomiti-parity-001	3262	3231	-0.95 %	3231	-0.95 %	+0.00	de	faq 0 hit 0	sw 1440/1440	refused 0/0
+/de/artikel/reiseziele/die-wilde-seite-der-adria	390	airdolomiti-parity-001	4268	4329	+1.43 %	4329	+1.43 %	+0.00	de	faq 0 hit 0	sw 390/390	refused 0/0
+/de/bearbeitung-ihrer-buchungen	1440	airdolomiti-parity-001	1477	1446	-2.10 %	1446	-2.10 %	+0.00	de	faq 0 hit 0	sw 1440/1440	refused 0/0
+/de/bearbeitung-ihrer-buchungen	390	airdolomiti-parity-001	2191	2197	+0.27 %	2197	+0.27 %	+0.00	de	faq 0 hit 0	sw 390/390	refused 0/0
+/de/betreuung	1440	airdolomiti-parity-001	4149	4198	+1.18 %	4198	+1.18 %	+0.00	de	faq 17 hit 0	sw 1440/1440	refused 0/0
+/de/betreuung	390	airdolomiti-parity-001	6698	6726	+0.42 %	6726	+0.42 %	+0.00	de	faq 17 hit 0	sw 390/390	refused 0/0
+/de/buchung	1440	rec007	702	702	+0.00 %	702	+0.00 %	+0.00	de	faq 0 hit 0	sw 1440/1440	refused 8/8
+/de/buchung	390	rec007	1243	1221	-1.77 %	1221	-1.77 %	+0.00	de	faq 0 hit 0	sw 390/390	refused 8/8
+/de/dienstleistungen-an-bord/unterhaltung-an-bord	1440	airdolomiti-parity-005	1657	1654	-0.18 %	1654	-0.18 %	+0.00	de	faq 0 hit 0	sw 1440/1440	refused 0/0
+/de/dienstleistungen-an-bord/unterhaltung-an-bord	390	airdolomiti-parity-005	2291	2288	-0.13 %	2288	-0.13 %	+0.00	de	faq 0 hit 0	sw 390/390	refused 0/0
+/de/flotte	1440	airdolomiti-parity-001	3588	3552	-1.00 %	3552	-1.00 %	+0.00	de	faq 0 hit 0	sw 1440/1440	refused 0/0
+/de/flotte	390	airdolomiti-parity-001	6980	6981	+0.01 %	6981	+0.01 %	+0.00	de	faq 0 hit 0	sw 390/390	refused 0/0
+/de/fluege-in-europa	1440	airdolomiti-parity-001	4872	4874	+0.04 %	4874	+0.04 %	+0.00	de	faq 0 hit 0	sw 1440/1440	refused 8/8
+/de/fluege-in-europa	390	airdolomiti-parity-001	5671	5674	+0.05 %	5674	+0.05 %	+0.00	de	faq 0 hit 0	sw 390/390	refused 8/8
+/de/flug-status	1440	airdolomiti-parity-002	858	926	+7.93 %	926	+7.93 %	+0.00	de	faq 0 hit 0	sw 1440/1440	refused 1/1
+/de/flugplan	1440	airdolomiti-parity-001	1170	1170	+0.00 %	1170	+0.00 %	+0.00	de	faq 0 hit 0	sw 1440/1440	refused 1/1
+/de/flugplan	390	airdolomiti-parity-001	1150	1163	+1.13 %	1163	+1.13 %	+0.00	de	faq 0 hit 0	sw 390/390	refused 1/1
+/de/gepaeck	1440	airdolomiti-parity-001	1460	1470	+0.68 %	1470	+0.68 %	+0.00	de	faq 0 hit 0	sw 1440/1440	refused 0/0
+/de/gepaeck	390	airdolomiti-parity-001	1170	1180	+0.85 %	1180	+0.85 %	+0.00	de	faq 0 hit 0	sw 390/390	refused 0/0
+/de/reisenformationen/schwangere-und-kinder	1440	airdolomiti-parity-002	1089	1108	+1.74 %	1108	+1.74 %	+0.00	de	faq 4 hit 0	sw 1440/1440	refused 0/0
+/de/reisenformationen/sitzplatzreservierung	1440	airdolomiti-parity-001	1924	1923	-0.05 %	1923	-0.05 %	+0.00	de	faq 8 hit 0	sw 1440/1440	refused 0/0
+/de/reisenformationen/sitzplatzreservierung	390	airdolomiti-parity-001	2962	3070	+3.65 %	3070	+3.65 %	+0.00	de	faq 8 hit 0	sw 390/390	refused 0/0
+/de/reisenformationen/tiere-an-bord	1440	airdolomiti-parity-002	1558	1557	-0.06 %	1557	-0.06 %	+0.00	de	faq 6 hit 0	sw 1440/1440	refused 0/0
+/de/reiseziele	1440	airdolomiti-parity-001	3958	3977	+0.48 %	3977	+0.48 %	+0.00	de	faq 0 hit 0	sw 1440/1440	refused 8/8
+/de/reiseziele	390	airdolomiti-parity-001	9077	9124	+0.52 %	9124	+0.52 %	+0.00	de	faq 0 hit 0	sw 390/390	refused 8/8
+/de/reiseziele/bari-de	1440	airdolomiti-parity-004	4924	4923	-0.02 %	4923	-0.02 %	+0.00	de	faq 0 hit 0	sw 1440/1440	refused 8/8
+/de/reiseziele/bari-de	390	airdolomiti-parity-004	6883	6810	-1.06 %	6810	-1.06 %	+0.00	de	faq 0 hit 0	sw 390/390	refused 8/8
+/de/reiseziele/basel-de	1440	airdolomiti-parity-005	7164	7041	-1.72 %	7041	-1.72 %	+0.00	de	faq 0 hit 0	sw 1440/1440	refused 8/8
+/de/reiseziele/basel-de	390	airdolomiti-parity-005	10800	10567	-2.16 %	10567	-2.16 %	+0.00	de	faq 0 hit 0	sw 390/390	refused 8/8
+/de/unsere-dienste/lounge-zutritt	1440	airdolomiti-parity-001	1196	1195	-0.08 %	1195	-0.08 %	+0.00	de	faq 4 hit 0	sw 1440/1440	refused 0/0
+/de/unsere-dienste/lounge-zutritt	390	airdolomiti-parity-001	2195	2072	-5.60 %	2072	-5.60 %	+0.00	de	faq 4 hit 0	sw 390/390	refused 0/0
+/de/unterstutzung-und-kontakte	1440	airdolomiti-parity-001	1140	1150	+0.88 %	1150	+0.88 %	+0.00	de	faq 0 hit 0	sw 1440/1440	refused 0/0
+/de/unterstutzung-und-kontakte	390	airdolomiti-parity-001	874	884	+1.14 %	884	+1.14 %	+0.00	de	faq 0 hit 0	sw 390/390	refused 0/0
+/destinazioni	1440	airdolomiti-parity-001	2813	2820	+0.25 %	2820	+0.25 %	+0.00	it	faq 0 hit 0	sw 1440/1440	refused 8/8
+/destinazioni	390	airdolomiti-parity-001	5287	5279	-0.15 %	5279	-0.15 %	+0.00	it	faq 0 hit 0	sw 390/390	refused 8/8
+/destinazioni/monaco-di-baviera	1440	airdolomiti-parity-001	6199	6137	-1.00 %	6137	-1.00 %	+0.00	it	faq 0 hit 0	sw 1440/1440	refused 8/8
+/destinazioni/monaco-di-baviera	390	airdolomiti-parity-001	9194	8987	-2.25 %	8987	-2.25 %	+0.00	it	faq 0 hit 0	sw 390/390	refused 8/8
+/en	1440	airdolomiti-parity-001	4261	4228	-0.77 %	4228	-0.77 %	+0.00	en	faq 0 hit 0	sw 1440/1440	refused 10/10
+/en	390	airdolomiti-parity-001	5438	5396	-0.77 %	5396	-0.77 %	+0.00	en	faq 0 hit 0	sw 390/390	refused 10/10
+/en/articles	1440	airdolomiti-parity-001	1951	1938	-0.67 %	1938	-0.67 %	+0.00	en	faq 0 hit 0	sw 1440/1440	refused 0/0
+/en/articles	390	airdolomiti-parity-001	5113	5101	-0.23 %	5101	-0.23 %	+0.00	en	faq 0 hit 0	sw 390/390	refused 0/0
+/en/articles/destinations/street-food-in-munich	1440	airdolomiti-parity-002	4851	4851	+0.00 %	4851	+0.00 %	+0.00	en	faq 0 hit 0	sw 1440/1440	refused 0/0
+/en/articles/destinations/street-food-in-munich	390	airdolomiti-parity-002	5589	5741	+2.72 %	5741	+2.72 %	+0.00	en	faq 0 hit 0	sw 390/390	refused 0/0
+/en/articles/destinations/where-the-adriatic-becomes-wild	1440	airdolomiti-parity-001	3135	3104	-0.99 %	3104	-0.99 %	+0.00	en	faq 0 hit 0	sw 1440/1440	refused 0/0
+/en/articles/destinations/where-the-adriatic-becomes-wild	390	airdolomiti-parity-001	3938	3999	+1.55 %	3999	+1.55 %	+0.00	en	faq 0 hit 0	sw 390/390	refused 0/0
+/en/articles/dyk/airports-designed-by-archistars	1440	rec007	3718	3517	-5.41 %	3517	-5.41 %	+0.00	en	faq 0 hit 0	sw 1440/1440	refused 0/0
+/en/articles/dyk/airports-designed-by-archistars	390	rec007	3628	3695	+1.85 %	3695	+1.85 %	+0.00	en	faq 0 hit 0	sw 390/390	refused 0/0
+/en/assistance	1440	rec007	3944	3956	+0.30 %	3956	+0.30 %	+0.00	en	faq 17 hit 17	sw 1440/1440	refused 0/0
+/en/assistance	390	rec007	6286	6046	-3.82 %	6277	-0.14 %	+3.67	en	faq 17 hit 17	sw 390/390	refused 0/0
+/en/baggage	1440	airdolomiti-parity-001	1430	1440	+0.70 %	1440	+0.70 %	+0.00	en	faq 0 hit 0	sw 1440/1440	refused 0/0
+/en/baggage	390	airdolomiti-parity-001	1126	1136	+0.89 %	1136	+0.89 %	+0.00	en	faq 0 hit 0	sw 390/390	refused 0/0
+/en/booking	1440	airdolomiti-parity-001	702	702	+0.00 %	702	+0.00 %	+0.00	en	faq 0 hit 0	sw 1440/1440	refused 8/8
+/en/booking	390	airdolomiti-parity-001	1243	1221	-1.77 %	1221	-1.77 %	+0.00	en	faq 0 hit 0	sw 390/390	refused 8/8
+/en/destinations	1440	airdolomiti-parity-002	3846	3865	+0.49 %	3865	+0.49 %	+0.00	en	faq 0 hit 0	sw 1440/1440	refused 8/8
+/en/destinations	390	airdolomiti-parity-002	8653	8583	-0.81 %	8583	-0.81 %	+0.00	en	faq 0 hit 0	sw 390/390	refused 8/8
+/en/destinations/bari	1440	airdolomiti-parity-001	5854	5916	+1.06 %	5916	+1.06 %	+0.00	en	faq 0 hit 0	sw 1440/1440	refused 8/8
+/en/destinations/bari	390	airdolomiti-parity-001	6944	6908	-0.52 %	6908	-0.52 %	+0.00	en	faq 0 hit 0	sw 390/390	refused 8/8
+/en/destinations/florence/what-to-see	1440	airdolomiti-parity-002	1108	1105	-0.27 %	1105	-0.27 %	+0.00	en	faq 0 hit 0	sw 1440/1440	refused 0/0
+/en/destinations/london-eu	1440	airdolomiti-parity-005	6518	6432	-1.32 %	6432	-1.32 %	+0.00	en	faq 0 hit 0	sw 1440/1440	refused 8/8
+/en/destinations/london-eu	390	airdolomiti-parity-005	8787	8588	-2.26 %	8588	-2.26 %	+0.00	en	faq 0 hit 0	sw 390/390	refused 8/8
+/en/fleet	1440	airdolomiti-parity-001	3476	3440	-1.04 %	3440	-1.04 %	+0.00	en	faq 0 hit 0	sw 1440/1440	refused 0/0
+/en/fleet	390	airdolomiti-parity-001	6373	6299	-1.16 %	6299	-1.16 %	+0.00	en	faq 0 hit 0	sw 390/390	refused 0/0
+/en/flight-timetables	1440	airdolomiti-parity-001	1170	1170	+0.00 %	1170	+0.00 %	+0.00	en	faq 0 hit 0	sw 1440/1440	refused 1/1
+/en/flight-timetables	390	airdolomiti-parity-001	1104	1117	+1.18 %	1117	+1.18 %	+0.00	en	faq 0 hit 0	sw 390/390	refused 1/1
+/en/flights-europe	1440	airdolomiti-parity-001	4845	4750	-1.96 %	4750	-1.96 %	+0.00	en	faq 0 hit 0	sw 1440/1440	refused 8/8
+/en/flights-europe	390	airdolomiti-parity-001	5086	5078	-0.16 %	5078	-0.16 %	+0.00	en	faq 0 hit 0	sw 390/390	refused 8/8
+/en/manage-flight-booking	1440	airdolomiti-parity-001	1450	1452	+0.14 %	1452	+0.14 %	+0.00	en	faq 0 hit 0	sw 1440/1440	refused 0/0
+/en/manage-flight-booking	390	airdolomiti-parity-001	2005	2012	+0.35 %	2012	+0.35 %	+0.00	en	faq 0 hit 0	sw 390/390	refused 0/0
+/en/services-on-board/in-flight-entertainment-system	1440	airdolomiti-parity-006	1521	1485	-2.37 %	1485	-2.37 %	+0.00	en	faq 0 hit 0	sw 1440/1440	refused 0/0
+/en/services-on-board/in-flight-entertainment-system	390	airdolomiti-parity-006	2250	2214	-1.60 %	2214	-1.60 %	+0.00	en	faq 0 hit 0	sw 390/390	refused 0/0
+/en/services/lounges	1440	airdolomiti-parity-001	1196	1195	-0.08 %	1195	-0.08 %	+0.00	en	faq 4 hit 4	sw 1440/1440	refused 0/0
+/en/services/lounges	390	airdolomiti-parity-001	2177	2112	-2.99 %	2170	-0.32 %	+2.66	en	faq 4 hit 4	sw 390/390	refused 0/0
+/en/support-and-contacts	1440	airdolomiti-parity-001	1140	1150	+0.88 %	1150	+0.88 %	+0.00	en	faq 0 hit 0	sw 1440/1440	refused 0/0
+/en/support-and-contacts	390	airdolomiti-parity-001	828	838	+1.21 %	838	+1.21 %	+0.00	en	faq 0 hit 0	sw 390/390	refused 0/0
+/en/travel-info/seat-reservation	1440	airdolomiti-parity-001	1708	1707	-0.06 %	1707	-0.06 %	+0.00	en	faq 8 hit 8	sw 1440/1440	refused 0/0
+/en/travel-info/seat-reservation	390	airdolomiti-parity-001	2854	2731	-4.31 %	2846	-0.28 %	+4.03	en	faq 8 hit 8	sw 390/390	refused 0/0
+/flotta	1440	airdolomiti-parity-001	3476	3440	-1.04 %	3440	-1.04 %	+0.00	it	faq 0 hit 0	sw 1440/1440	refused 0/0
+/flotta	390	airdolomiti-parity-001	6747	6710	-0.55 %	6710	-0.55 %	+0.00	it	faq 0 hit 0	sw 390/390	refused 0/0
+/gestione-prenotazione-volo	1440	airdolomiti-parity-001	1334	1336	+0.15 %	1336	+0.15 %	+0.00	it	faq 0 hit 0	sw 1440/1440	refused 0/0
+/gestione-prenotazione-volo	390	airdolomiti-parity-001	1906	1913	+0.37 %	1913	+0.37 %	+0.00	it	faq 0 hit 0	sw 390/390	refused 0/0
+/informazioni-per-il-viaggio/prenotazione-del-posto	1440	rec007	1538	1537	-0.07 %	1537	-0.07 %	+0.00	it	faq 6 hit 6	sw 1440/1440	refused 0/0
+/informazioni-per-il-viaggio/prenotazione-del-posto	390	rec007	2748	2651	-3.53 %	2767	+0.69 %	+2.84	it	faq 6 hit 6	sw 390/390	refused 0/0
+/orario-voli	1440	airdolomiti-parity-001	1178	1178	+0.00 %	1178	+0.00 %	+0.00	it	faq 0 hit 0	sw 1440/1440	refused 1/1
+/orario-voli	390	airdolomiti-parity-001	1193	1206	+1.09 %	1206	+1.09 %	+0.00	it	faq 0 hit 0	sw 390/390	refused 1/1
+/prenotazioni	1440	airdolomiti-parity-001	702	702	+0.00 %	702	+0.00 %	+0.00	it	faq 0 hit 0	sw 1440/1440	refused 8/8
+/prenotazioni	390	airdolomiti-parity-001	1243	1221	-1.77 %	1221	-1.77 %	+0.00	it	faq 0 hit 0	sw 390/390	refused 8/8
+/servizi-a-bordo/sistema-di-intrattenimento-a-bordo	1440	airdolomiti-parity-006	1587	1584	-0.19 %	1584	-0.19 %	+0.00	it	faq 0 hit 0	sw 1440/1440	refused 0/0
+/servizi-a-bordo/sistema-di-intrattenimento-a-bordo	390	airdolomiti-parity-006	2449	2412	-1.51 %	2412	-1.51 %	+0.00	it	faq 0 hit 0	sw 390/390	refused 0/0
+/servizi/parcheggi-convenzionati	1440	airdolomiti-parity-001	1012	1005	-0.69 %	1005	-0.69 %	+0.00	it	faq 1 hit 1	sw 1440/1440	refused 0/0
+/servizi/parcheggi-convenzionati	390	airdolomiti-parity-001	1606	1598	-0.50 %	1598	-0.50 %	+0.00	it	faq 1 hit 1	sw 390/390	refused 0/0
+/supporto-e-contatti	1440	airdolomiti-parity-001	1140	1150	+0.88 %	1150	+0.88 %	+0.00	it	faq 0 hit 0	sw 1440/1440	refused 0/0
+/supporto-e-contatti	390	airdolomiti-parity-001	828	838	+1.21 %	838	+1.21 %	+0.00	it	faq 0 hit 0	sw 390/390	refused 0/0
+/voli-europa	1440	airdolomiti-parity-001	4413	4329	-1.90 %	4329	-1.90 %	+0.00	it	faq 0 hit 0	sw 1440/1440	refused 8/8
+/voli-europa	390	airdolomiti-parity-001	5537	5497	-0.72 %	5497	-0.72 %	+0.00	it	faq 0 hit 0	sw 390/390	refused 8/8

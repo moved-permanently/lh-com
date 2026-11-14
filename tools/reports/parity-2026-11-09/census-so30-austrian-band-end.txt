@@ -1,0 +1,386 @@
+# ema-cashub, standing order 30 (2026-11-14), item 1: the band rule's census. Question: on the 364 published Austrian pages that
+# end with a grey band before the emptied metadata section (order 29's reach, delta-so29-austrian-band-end-rows.txt), does
+# www's band touch the footer?
+# Answer: on 288 of the 360 pages with a www snapshot, yes; on 72, no. For the band rule itself (flush bands only, as drafted
+# in orders 26 to 28; 134 of the 364): yes on 122, no on 10, 2 without a snapshot. The 10 are /<cc>/<ll>/handgepaeck in ten
+# languages: www's page ends with white text ("Before your flight, please also check ...", 70 px above the footer). Ours
+# ends with that text in a flush grey section. So the rule is not shipped and the band ends stay per-page rows, as you said.
+# Not asked, for your call: the same rule limited to flush column views and column bands ("flush column-view grey",
+# "flush column-band grey") would reach the 122 yes pages (124 with the 2 unchecked) and none of the 10.
+# How: www's snapshots on disk (parity-570/snapshots, austrian-snapshots-001 to -018: www's DOM after load, read with tar),
+# the newest per page, laid out offline at 1440 and 390 (so23/rec-render.mjs: no JavaScript, every request answered from
+# austrian-parity-003's archive or aborted, none sent). Snapshots -001 to -017 name two older vite stylesheets that no disk
+# holds, so they were pointed at -003's (index.RX_vDayz.css, app.e89d97c1.css). Read per page: the lowest grey container
+# (.container-gray) above the footer, the white between its bottom and the footer's top, and what www draws there.
+# Checked first against three recorded pages whose band end is known from the recordings (bearbeitungsgebuehren,
+# doctor-on-board and medical-travel-companions: www's band touches the footer at both widths). All three read gap 0 at
+# both widths here, as recorded.
+# Columns: path, our band (the classes of the section before the emptied one, from the served .html, order 29), www (touch:
+# the band touches the footer at both widths; white: white under www's band; after: www draws content between its last
+# band and the footer; nosnap: no www snapshot), px between www's band and footer at 1440 / 390, www's band classes.
+# Counts by our band: flush column-view grey 94 touch, 2 nosnap; flush column-band grey 28 touch; flush grey 10 after;
+# grey 166 touch, 10 white, 2 nosnap; column-band grey 50 white; grey in-column 2 white. www's white under a band, where there is some: 36 to 66 px.
+/at/de/airail-zug-und-flug	flush column-view grey	touch	0 / 0	section-wide.container-gray
+/at/de/airbus-a320-200	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/de/airbus-a320neo	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/de/airbus-a321-111	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/de/airbus-a321-211	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/de/anfrage-gruppenreisen	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/de/boeing-767-300er	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/de/boeing-777-200er	flush column-view grey	touch	0 / 0	container-gray
+/at/de/book-and-manage/flights/wetlease-hub	grey	white	40 / 40	section-regular.container-gray.mb-default
+/at/de/business-tarife	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/de/cash-and-miles	flush column-view grey	touch	0 / 0	container-gray
+/at/de/check-in	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/at/de/datenschutz-facebook-chatbot	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/de/economy-tarife	flush column-view grey	touch	0 / 0	container-gray
+/at/de/embraer-195	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/de/extra-services	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/de/faq-extra-services	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/de/faq-gepaeck	column-band grey	white	66 / 66	column-view.flex-column.container-gray.full-width-bg
+/at/de/faq-medizinische-fragen	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/de/fly/aircraft-fleet/boeing-787	column-band grey	white	36 / 36	container-gray.mb-default
+/at/de/footer-pages/carbon-neutral-flying/climate-protection-projects	flush column-view grey	touch	0 / 0	container-gray
+/at/de/footer-pages/company/advertise-with-austrian	flush column-view grey	touch	0 / 0	container-gray
+/at/de/footer-pages/faq/faq-missing-baggage	column-band grey	white	36 / 36	section-regular.container-gray.mb-default
+/at/de/green-fare	flush column-view grey	touch	0 / 0	container-gray
+/at/de/handgepaeck	flush grey	after	7265 / 12157	section-regular.container-gray
+/at/de/impressum	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/de/lhg-staralliance-partner	flush column-view grey	touch	0 / 0	container-gray
+/at/de/medizinische-flugfreigabe	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/de/nachhaltiger-businessreisen	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/de/plan/special-requirements/healthy-travel/doctor-on-board	flush column-view grey	touch	0 / 0	container-gray
+/at/de/plan/special-requirements/healthy-travel/doctor-on-board/doctor-on-board-news	grey in-column	white	48 / 36	column-view.flex-column.container-gray.full-width-bg
+/at/de/plan/special-requirements/healthy-travel/medical-travel-companions	flush column-view grey	touch	0 / 0	container-gray
+/at/de/premium-economy-tarife	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/de/star-alliance-biometrics	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/de/tastefully-austrian	flush column-view grey	touch	0 / 0	container-gray
+/at/de/unternehmen	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/at/en/additional-services	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/airail-and-fly	flush column-view grey	touch	0 / 0	section-wide.container-gray
+/at/en/airbus-a320-200	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/airbus-a320neo	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/airbus-a321-111	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/airbus-a321-211	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/anfrage-gruppenreisen	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/boeing-767-300er	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/boeing-777-200er	flush column-view grey	touch	0 / 0	container-gray
+/at/en/bombardier-q400	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/book-and-manage/flights/wetlease-hub	grey	white	40 / 40	section-regular.container-gray.mb-default
+/at/en/business-tariffs	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/cash-and-miles	flush column-view grey	touch	0 / 0	container-gray
+/at/en/check-in	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/at/en/company	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/at/en/economy-tariffs	flush column-view grey	touch	0 / 0	container-gray
+/at/en/embraer-195	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/faq-baggage	column-band grey	white	66 / 66	column-view.flex-column.container-gray.full-width-bg
+/at/en/faq-medizinische-fragen	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/fly/aircraft-fleet/boeing-787	column-band grey	white	36 / 36	container-gray.mb-default
+/at/en/footer-pages/carbon-neutral-flying/climate-protection-projects	flush column-view grey	touch	0 / 0	container-gray
+/at/en/footer-pages/company/advertise-with-austrian	flush column-view grey	touch	0 / 0	container-gray
+/at/en/footer-pages/faq/faq-missing-baggage	column-band grey	white	36 / 36	section-regular.container-gray.mb-default
+/at/en/green-fare	flush column-view grey	touch	0 / 0	container-gray
+/at/en/handgepaeck	flush grey	after	7167 / 11669	section-regular.container-gray
+/at/en/imprint	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/lhg-staralliance-partner	flush column-view grey	touch	0 / 0	container-gray
+/at/en/medical-clearance	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/plan/special-requirements/healthy-travel/doctor-on-board/doctor-on-board-news	grey in-column	white	48 / 36	column-view.flex-column.container-gray.full-width-bg
+/at/en/plan/special-requirements/healthy-travel/medical-travel-companions	flush column-view grey	touch	0 / 0	container-gray
+/at/en/plan/special-requirements/medical-travel-companions	flush column-view grey	touch	0 / 0	container-gray
+/at/en/premium-economy-tariffs	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/privacy-policy-austrian-facebook-chatbot	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/privacy-policy-austrian-facebook-page	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/service-charges	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/star-alliance-biometrics	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/sustainably-businesstravel	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/at/en/tastefully-austrian	flush column-view grey	touch	0 / 0	container-gray
+/ca/fr/book/flights/fly-with-us	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ch/fr/plan/special-requirements/healthy-travel/medical-travel-companions	flush column-view grey	nosnap	-	-
+/ch/it/plan/special-requirements/healthy-travel/medical-travel-companions	flush column-view grey	nosnap	-	-
+/cn/zh/additional-services	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/airail-and-fly	flush column-view grey	touch	0 / 0	section-wide.container-gray
+/cn/zh/airbus-a320-200	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/airbus-a320neo	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/airbus-a321-111	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/airbus-a321-211	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/awards	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/boeing-767-300er	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/boeing-777-200er	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/bombardier-q400	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/book-and-manage/flights/wetlease-hub	grey	white	40 / 40	section-regular.container-gray.mb-default
+/cn/zh/business-tariffs	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/check-in	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/company	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/economy-tariffs	flush column-view grey	touch	0 / 0	container-gray
+/cn/zh/embraer-195	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/faq-baggage	column-band grey	white	66 / 66	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/faq-medizinische-fragen	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/fly/aircraft-fleet/boeing-787	column-band grey	white	36 / 36	container-gray.mb-default
+/cn/zh/footer-pages/carbon-neutral-flying/climate-protection-projects	flush column-view grey	touch	0 / 0	container-gray
+/cn/zh/footer-pages/company/advertise-with-austrian	flush column-view grey	touch	0 / 0	container-gray
+/cn/zh/footer-pages/faq/faq-missing-baggage	column-band grey	white	36 / 36	section-regular.container-gray.mb-default
+/cn/zh/green-fare	flush column-view grey	touch	0 / 0	container-gray
+/cn/zh/handgepaeck	flush grey	after	5834 / 7475	section-regular.container-gray
+/cn/zh/imprint	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/lhg-staralliance-partner	flush column-view grey	touch	0 / 0	container-gray
+/cn/zh/medical-travel-companions	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/plan/special-requirements/healthy-travel/doctor-on-board	flush column-view grey	touch	0 / 0	container-gray
+/cn/zh/plan/special-requirements/healthy-travel/medical-travel-companions	flush column-view grey	touch	0 / 0	container-gray
+/cn/zh/premium-economy-tariffs	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/privacy-policy-austrian-facebook-chatbot	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/privacy-policy-austrian-facebook-page	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/service-charges	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/star-alliance-biometrics	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/sustainably-businesstravel	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/cn/zh/tastefully-austrian	flush column-view grey	touch	0 / 0	container-gray
+/es/es/additional-services	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/airail-and-fly	flush column-view grey	touch	0 / 0	section-wide.container-gray
+/es/es/airbus-a320-200	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/airbus-a320neo	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/airbus-a321-111	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/airbus-a321-211	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/awards	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/boeing-767-300er	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/boeing-777-200er	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/book-and-manage/flights/wetlease-hub	grey	white	40 / 40	section-regular.container-gray.mb-default
+/es/es/business-tariffs	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/check-in	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/es/es/company	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/es/es/economy-tariffs	flush column-view grey	touch	0 / 0	container-gray
+/es/es/embraer-195	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/faq-baggage	column-band grey	white	66 / 66	column-view.flex-column.container-gray.full-width-bg
+/es/es/faq-medizinische-fragen	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/fly/aircraft-fleet/boeing-787	column-band grey	white	36 / 36	container-gray.mb-default
+/es/es/footer-pages/carbon-neutral-flying/climate-protection-projects	flush column-view grey	touch	0 / 0	container-gray
+/es/es/footer-pages/company/advertise-with-austrian	flush column-view grey	touch	0 / 0	container-gray
+/es/es/footer-pages/faq/faq-missing-baggage	column-band grey	white	36 / 36	section-regular.container-gray.mb-default
+/es/es/green-fare	flush column-view grey	touch	0 / 0	container-gray
+/es/es/handgepaeck	flush grey	after	7481 / 12633	section-regular.container-gray
+/es/es/imprint	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/lhg-staralliance-partner	flush column-view grey	touch	0 / 0	container-gray
+/es/es/medical-travel-companions	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/plan/special-requirements/healthy-travel/doctor-on-board	flush column-view grey	touch	0 / 0	container-gray
+/es/es/plan/special-requirements/healthy-travel/medical-travel-companions	flush column-view grey	touch	0 / 0	container-gray
+/es/es/premium-economy-tariffs	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/privacy-policy-austrian-facebook-chatbot	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/privacy-policy-austrian-facebook-page	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/service-charges	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/star-alliance-biometrics	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/sustainably-businesstravel	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/es/es/tastefully-austrian	flush column-view grey	touch	0 / 0	container-gray
+/fr/fr/additional-services	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/airail-and-fly	flush column-view grey	touch	0 / 0	section-wide.container-gray
+/fr/fr/airbus-a320-200	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/airbus-a320neo	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/airbus-a321-111	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/airbus-a321-211	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/awards	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/boeing-767-300er	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/boeing-777-200er	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/book-and-manage/flights/wetlease-hub	grey	white	40 / 40	section-regular.container-gray.mb-default
+/fr/fr/business-tariffs	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/check-in	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/company	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/economy-tariffs	flush column-view grey	touch	0 / 0	container-gray
+/fr/fr/embraer-195	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/faq-baggage	column-band grey	white	66 / 66	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/faq-medizinische-fragen	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/fly/aircraft-fleet/boeing-787	column-band grey	white	36 / 36	container-gray.mb-default
+/fr/fr/footer-pages/carbon-neutral-flying/climate-protection-projects	flush column-view grey	touch	0 / 0	container-gray
+/fr/fr/footer-pages/company/advertise-with-austrian	flush column-view grey	touch	0 / 0	container-gray
+/fr/fr/footer-pages/faq/faq-missing-baggage	column-band grey	white	36 / 36	section-regular.container-gray.mb-default
+/fr/fr/green-fare	flush column-view grey	touch	0 / 0	container-gray
+/fr/fr/handgepaeck	flush grey	after	7437 / 12694	section-regular.container-gray
+/fr/fr/imprint	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/lhg-staralliance-partner	flush column-view grey	touch	0 / 0	container-gray
+/fr/fr/medical-travel-companions	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/plan/special-requirements/healthy-travel/doctor-on-board	flush column-view grey	touch	0 / 0	container-gray
+/fr/fr/plan/special-requirements/healthy-travel/medical-travel-companions	flush column-view grey	touch	0 / 0	container-gray
+/fr/fr/premium-economy-tariffs	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/privacy-policy-austrian-facebook-chatbot	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/privacy-policy-austrian-facebook-page	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/service-charges	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/star-alliance-biometrics	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/sustainably-businesstravel	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/fr/fr/tastefully-austrian	flush column-view grey	touch	0 / 0	container-gray
+/gr/el/additional-services	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/airail-and-fly	flush column-view grey	touch	0 / 0	section-wide.container-gray
+/gr/el/airbus-a320-200	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/airbus-a320neo	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/airbus-a321-111	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/airbus-a321-211	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/awards	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/boeing-767-300er	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/boeing-777-200er	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/bombardier-q400	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/book-and-manage/flights/wetlease-hub	grey	white	40 / 40	section-regular.container-gray.mb-default
+/gr/el/business-tariffs	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/check-in	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/gr/el/company	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/gr/el/economy-tariffs	flush column-view grey	touch	0 / 0	container-gray
+/gr/el/embraer-195	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/faq-baggage	column-band grey	white	66 / 66	column-view.flex-column.container-gray.full-width-bg
+/gr/el/faq-medizinische-fragen	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/fly/aircraft-fleet/boeing-787	column-band grey	white	36 / 36	container-gray.mb-default
+/gr/el/footer-pages/carbon-neutral-flying/climate-protection-projects	flush column-view grey	touch	0 / 0	container-gray
+/gr/el/footer-pages/company/advertise-with-austrian	flush column-view grey	touch	0 / 0	container-gray
+/gr/el/footer-pages/faq/faq-missing-baggage	column-band grey	white	36 / 36	section-regular.container-gray.mb-default
+/gr/el/green-fare	flush column-view grey	touch	0 / 0	container-gray
+/gr/el/handgepaeck	flush grey	after	7953 / 13762	section-regular.container-gray
+/gr/el/imprint	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/lhg-staralliance-partner	flush column-view grey	touch	0 / 0	container-gray
+/gr/el/medical-travel-companions	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/plan/special-requirements/healthy-travel/doctor-on-board	flush column-view grey	touch	0 / 0	container-gray
+/gr/el/plan/special-requirements/healthy-travel/medical-travel-companions	flush column-view grey	touch	0 / 0	container-gray
+/gr/el/premium-economy-tariffs	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/privacy-policy-austrian-facebook-chatbot	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/privacy-policy-austrian-facebook-page	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/service-charges	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/star-alliance-biometrics	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/sustainably-businesstravel	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/gr/el/tastefully-austrian	flush column-view grey	touch	0 / 0	container-gray
+/it/it/additional-services	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/airail-and-fly	flush column-view grey	touch	0 / 0	section-wide.container-gray
+/it/it/airbus-a320-200	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/airbus-a320neo	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/airbus-a321-111	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/airbus-a321-211	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/awards	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/boeing-767-300er	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/boeing-777-200er	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/bombardier-q400	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/book-and-manage/flights/wetlease-hub	grey	white	40 / 40	section-regular.container-gray.mb-default
+/it/it/business-tariffs	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/check-in	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/it/it/company	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/it/it/economy-tariffs	flush column-view grey	touch	0 / 0	container-gray
+/it/it/embraer-195	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/faq-baggage	column-band grey	white	66 / 66	column-view.flex-column.container-gray.full-width-bg
+/it/it/faq-medizinische-fragen	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/fly/aircraft-fleet/boeing-787	column-band grey	white	36 / 36	container-gray.mb-default
+/it/it/footer-pages/carbon-neutral-flying/climate-protection-projects	flush column-view grey	touch	0 / 0	container-gray
+/it/it/footer-pages/company/advertise-with-austrian	flush column-view grey	touch	0 / 0	container-gray
+/it/it/footer-pages/faq/faq-missing-baggage	column-band grey	white	36 / 36	section-regular.container-gray.mb-default
+/it/it/green-fare	flush column-view grey	touch	0 / 0	container-gray
+/it/it/handgepaeck	flush grey	after	7332 / 12208	section-regular.container-gray
+/it/it/imprint	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/lhg-staralliance-partner	flush column-view grey	touch	0 / 0	container-gray
+/it/it/medical-travel-companions	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/plan/special-requirements/healthy-travel/doctor-on-board	flush column-view grey	touch	0 / 0	container-gray
+/it/it/plan/special-requirements/healthy-travel/medical-travel-companions	flush column-view grey	touch	0 / 0	container-gray
+/it/it/premium-economy-tariffs	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/privacy-policy-austrian-facebook-chatbot	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/privacy-policy-austrian-facebook-page	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/service-charges	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/star-alliance-biometrics	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/sustainably-businesstravel	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/it/it/tastefully-austrian	flush column-view grey	touch	0 / 0	container-gray
+/jp/ja/additional-services	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/airail-and-fly	flush column-view grey	touch	0 / 0	section-wide.container-gray
+/jp/ja/airbus-a320-200	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/airbus-a320neo	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/airbus-a321-111	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/airbus-a321-211	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/awards	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/boeing-767-300er	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/boeing-777-200er	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/bombardier-q400	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/book-and-manage/flights/wetlease-hub	grey	white	40 / 40	section-regular.container-gray.mb-default
+/jp/ja/business-tariffs	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/check-in	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/company	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/economy-tariffs	flush column-view grey	touch	0 / 0	container-gray
+/jp/ja/embraer-195	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/faq-baggage	column-band grey	white	66 / 66	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/faq-medizinische-fragen	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/fly/aircraft-fleet/boeing-787	column-band grey	white	36 / 36	container-gray.mb-default
+/jp/ja/footer-pages/carbon-neutral-flying/climate-protection-projects	flush column-view grey	touch	0 / 0	container-gray
+/jp/ja/footer-pages/company/advertise-with-austrian	flush column-view grey	touch	0 / 0	container-gray
+/jp/ja/footer-pages/faq/faq-missing-baggage	column-band grey	white	36 / 36	section-regular.container-gray.mb-default
+/jp/ja/green-fare	flush column-view grey	touch	0 / 0	container-gray
+/jp/ja/handgepaeck	flush grey	after	5955 / 8011	section-regular.container-gray
+/jp/ja/imprint	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/lhg-staralliance-partner	flush column-view grey	touch	0 / 0	container-gray
+/jp/ja/medical-travel-companions	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/plan/special-requirements/healthy-travel/doctor-on-board	flush column-view grey	touch	0 / 0	container-gray
+/jp/ja/plan/special-requirements/healthy-travel/medical-travel-companions	flush column-view grey	touch	0 / 0	container-gray
+/jp/ja/premium-economy-tariffs	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/privacy-policy-austrian-facebook-chatbot	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/privacy-policy-austrian-facebook-page	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/service-charges	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/star-alliance-biometrics	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/sustainably-businesstravel	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/jp/ja/tastefully-austrian	flush column-view grey	touch	0 / 0	container-gray
+/pl/pl/additional-services	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/airail-and-fly	flush column-view grey	touch	0 / 0	section-wide.container-gray
+/pl/pl/airbus-a320-200	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/airbus-a320neo	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/airbus-a321-111	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/airbus-a321-211	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/awards	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/boeing-767-300er	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/boeing-777-200er	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/bombardier-q400	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/book-and-manage/flights/wetlease-hub	grey	white	40 / 40	section-regular.container-gray.mb-default
+/pl/pl/business-tariffs	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/check-in	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/company	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/economy-tariffs	flush column-view grey	touch	0 / 0	container-gray
+/pl/pl/embraer-195	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/faq-baggage	column-band grey	white	66 / 66	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/faq-medizinische-fragen	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/fly/aircraft-fleet/boeing-787	column-band grey	white	36 / 36	container-gray.mb-default
+/pl/pl/footer-pages/carbon-neutral-flying/climate-protection-projects	flush column-view grey	touch	0 / 0	container-gray
+/pl/pl/footer-pages/company/advertise-with-austrian	flush column-view grey	touch	0 / 0	container-gray
+/pl/pl/footer-pages/faq/faq-missing-baggage	column-band grey	white	36 / 36	section-regular.container-gray.mb-default
+/pl/pl/green-fare	flush column-view grey	touch	0 / 0	container-gray
+/pl/pl/handgepaeck	flush grey	after	7408 / 12523	section-regular.container-gray
+/pl/pl/imprint	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/lhg-staralliance-partner	flush column-view grey	touch	0 / 0	container-gray
+/pl/pl/medical-travel-companions	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/ombudswoman-system	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/plan/special-requirements/healthy-travel/doctor-on-board	flush column-view grey	touch	0 / 0	container-gray
+/pl/pl/plan/special-requirements/healthy-travel/medical-travel-companions	flush column-view grey	touch	0 / 0	container-gray
+/pl/pl/premium-economy-tariffs	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/privacy-policy-austrian-facebook-chatbot	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/privacy-policy-austrian-facebook-page	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/service-charges	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/star-alliance-biometrics	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/sustainably-businesstravel	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/pl/pl/tastefully-austrian	flush column-view grey	touch	0 / 0	container-gray
+/pt/en/service-charges	grey	nosnap	-	-
+/ru/ru/additional-services	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/airail-and-fly	flush column-view grey	touch	0 / 0	section-wide.container-gray
+/ru/ru/airbus-a320-200	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/airbus-a320neo	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/airbus-a321-111	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/airbus-a321-211	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/boeing-767-300er	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/boeing-777-200er	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/book-and-manage/flights/wetlease-hub	grey	white	40 / 40	section-regular.container-gray.mb-default
+/ru/ru/business-tariffs	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/check-in	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/company	column-band grey	white	36 / 36	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/economy-tariffs	flush column-view grey	touch	0 / 0	container-gray
+/ru/ru/embraer-195	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/faq-baggage	column-band grey	white	66 / 66	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/faq-medizinische-fragen	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/fly/aircraft-fleet/boeing-787	column-band grey	white	36 / 36	container-gray.mb-default
+/ru/ru/footer-pages/carbon-neutral-flying/climate-protection-projects	flush column-view grey	touch	0 / 0	container-gray
+/ru/ru/footer-pages/company/advertise-with-austrian	flush column-view grey	touch	0 / 0	container-gray
+/ru/ru/footer-pages/faq/faq-missing-baggage	column-band grey	white	36 / 36	section-regular.container-gray.mb-default
+/ru/ru/green-fare	flush column-view grey	touch	0 / 0	container-gray
+/ru/ru/handgepaeck	flush grey	after	8040 / 14198	section-regular.container-gray
+/ru/ru/imprint	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/lhg-staralliance-partner	flush column-view grey	touch	0 / 0	container-gray
+/ru/ru/medical-travel-companions	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/plan/special-requirements/healthy-travel/doctor-on-board	flush column-view grey	touch	0 / 0	container-gray
+/ru/ru/plan/special-requirements/healthy-travel/medical-travel-companions	flush column-view grey	touch	0 / 0	container-gray
+/ru/ru/premium-economy-tariffs	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/privacy-policy-austrian-facebook-chatbot	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/privacy-policy-austrian-facebook-page	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/service-charges	flush column-band grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/star-alliance-biometrics	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/sustainably-businesstravel	grey	touch	0 / 0	column-view.flex-column.container-gray.full-width-bg
+/ru/ru/tastefully-austrian	flush column-view grey	touch	0 / 0	container-gray
+/se/en/sustainable-flying	grey	nosnap	-	-

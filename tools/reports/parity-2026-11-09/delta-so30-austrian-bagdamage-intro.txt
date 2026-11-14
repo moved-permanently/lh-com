@@ -1,0 +1,26 @@
+# ema-cashub, standing order 30 (2026-11-14), item 3: Austrian /at/en/footer-pages/help-and-contact/bagdamage, order 24's
+# HOLD row (delta-so24-austrian-bagdamage-intro-spacer.txt) measured again, now by its parts rather than the page height (the core
+# form's height varied from load to load in order 24). It replaces that row.
+# www (austrian-parity-003; its 390 file is the 1440 load resized: a pointer): under the title is an empty paragraph, then the
+# intro "Important note: ..." as p.copytext-large (18 / 27, 834 px wide). Title to intro: 108 px at 1440, 84 at 390.
+# Ours as served: the intro 60 / 36 px under the title. It draws at 18 / 27 only because the theme styles the paragraph right
+# after the H1.
+# Order 24's delta (<p>{spacer-47}</p> after the H1) alone moves the intro to www's place. But the intro is then no longer the
+# H1's next paragraph and falls to 16 / 24 (97 / 193 px high, www 109 / 244). So the row also marks it " {copytext-large}"
+# (order 29's marker, which survives the upload's collapse).
+# Drafts on austrian.turnsthe.page (so24/host.mjs, <main> replaced by the copy served at 16:00 CET plus the change; consent
+# stored, pictures eager; www.* and the airline hosts refused and counted: 0 a render). Control = live, three loads each, the
+# same px every time, no Turnstile challenge in any load. Offsets are tops in px: title end, intro, "Fields marked *",
+# "Did you receive your damaged ...", the footer's top, the page.
+#   1440 www: 191, 299, 639, 2214, 4198, 5012
+#   1440 live: 191, 251, 588, 2172, 4092 (-2.52 %), 4906 (-2.11 %)
+#   1440 the row: 191, 299, 636, 2220, 4140 (-1.38 %), 4954 (-1.16 %)
+#   390 www: 281, 365, 919, 2491, 4714, 5779
+#   390 live: 281, 317, 890, 2472, 4767 (+1.12 %), 5835 (+0.97 %)
+#   390 the row: 281, 365, 938, 2520, 4815 (+2.14 %), 5883 (+1.80 %)
+# So the intro lands at www's px at both widths, at www's size and height (108 / 243 px). At 1440 the row brings the page into
+# 2 %. At 390 the page moves 0.83 points further but stays within 2 %. What is left at 390 sits in the form: from "Did you
+# receive" to the footer, ours is 2,295 px and www's 2,223 (+72), and www's 390 is only the resized 1440 load. The row is not
+# the cause there; it makes that gap visible.
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, what changes on the page.
+READY	/at/en/footer-pages/help-and-contact/bagdamage.html	two changes: (1) a paragraph "{spacer-47}" right after the H1 "Enquiry regarding damaged baggage and repairs"; (2) " {copytext-large}" at the end of the intro paragraph ("Important note: please provide us with ... process your damage claim quickly.")	the intro 108 / 84 px under the title, at 18 / 27, as www's; 1440 -2.11 -> -1.16 %, 390 +0.97 -> +1.80 % (both within 2 %); finish-austrian.txt's two bagdamage rows leave the list at 1440, and 390 stays within 2 %
