@@ -1535,8 +1535,10 @@ body.brand-lufthansa main > .section:last-child > .default-content-wrapper:last-
    after a padded Columns Media, before a grey column band: www's view padding, then its
    separator (.hr-no-layout's inline margin), then the band; the block's 8px bottom is inside
    that padding too (standing order 18, /de/en/childrens-menus-on-board: "Catering on
-   board" 0 / +2px off www's at 1440 / 390, 17 / 15px higher without the separator) */
-body.brand-lufthansa main > .section:has(+ .section.grey.column-band) > .columns-media-wrapper:has(> .columns-media.padded) + .default-content-wrapper:last-child:not(:has(> :not(p.spacer))) {
+   board" 0 / +2px off www's at 1440 / 390, 17 / 15px higher without the separator). Not before a
+   band that opens with a heading: www's grey view is then a component of the same AEM section with its
+   own title, the full spacing (standing order 21, /de/en/baggage 10.2 / 7.1 -> 5.0 / 1.7 % at 390 / 1440) */
+body.brand-lufthansa main > .section:has(+ .section.grey.column-band):not(:has(+ .section > .default-content-wrapper:first-child > :is(h2, h3, h4):first-child)) > .columns-media-wrapper:has(> .columns-media.padded) + .default-content-wrapper:last-child:not(:has(> :not(p.spacer))) {
   margin-top: -24px;
 }
 
