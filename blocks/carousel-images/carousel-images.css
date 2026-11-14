@@ -242,6 +242,18 @@ body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-disco
     margin-bottom: 40px;
   }
 
+  /* such a carousel ending its section before one without padding (the business-class pages since their intro split:
+     www's padded intro section, then the unpadded one with the two-column view): 65px above it, as www's text,
+     separator and carousel (ours was 25px short), and 24px under it, the next section's gap doing the rest (ours was
+     16px long). Standing order 26, working-copy code against lh-snapshots-117 / -118 at 1440: xx/el 13.2 -> 9.5, fr/fr
+     17.5 -> 13.9, the other split xx pages better by 1.4 to 3.9 points; census: the sixteen business-class documents.
+     Before a padded section (economy-class) as above: there the 25px it would take back uncover a +25px step after its
+     grey column view (injected: 11.3 -> 13.3) */
+  body.brand-lufthansa main:not(:has(.article-header)) > .section:not(.campaign-section):has(+ .section:not(.padded)) > .default-content-wrapper:has(> p:not(.spacer):last-child) + .carousel-images-wrapper:last-child > .carousel-images {
+    margin-top: 65px;
+    margin-bottom: 24px;
+  }
+
   body.brand-lufthansa .carousel-images .carousel-images-caption {
     padding-bottom: 0;
   }

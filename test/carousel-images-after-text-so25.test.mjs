@@ -35,3 +35,11 @@ test('from 768px: 40px above a carousel after a text paragraph, 40px under it wh
 test('the base rule as before: 24px under every carousel', () => {
   assert.match(css, /\.carousel-images \{\n {2}position: relative;\n {2}container-type: inline-size;\n {2}margin-bottom: 24px;\n\}/);
 });
+
+// standing order 26: before a section without padded (the business-class intros since their split), 65px above, 24px under
+test('from 768px before a section that is not padded: 65px above the carousel, 24px under it', () => {
+  const next = rule('body.brand-lufthansa main:not(:has(.article-header)) > .section:not(.campaign-section):has(+ .section:not(.padded)) > .default-content-wrapper:has(> p:not(.spacer):last-child) + .carousel-images-wrapper:last-child > .carousel-images');
+  assert.equal(next.media, '@media (width >= 768px)');
+  assert.match(next.body, /margin-top: 65px;/);
+  assert.match(next.body, /margin-bottom: 24px;/);
+});
