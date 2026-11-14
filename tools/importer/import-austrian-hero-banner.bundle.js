@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-hero-banner.js
-  var tmp_bundle_austrian_hero_banner_486165_exports = {};
-  __export(tmp_bundle_austrian_hero_banner_486165_exports, {
-    default: () => tmp_bundle_austrian_hero_banner_486165_default
+  var tmp_bundle_austrian_hero_banner_713106_exports = {};
+  __export(tmp_bundle_austrian_hero_banner_713106_exports, {
+    default: () => tmp_bundle_austrian_hero_banner_713106_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -5136,6 +5136,7 @@ var CustomImportScript = (() => {
       if (!list.includes("separated")) list.push("separated");
       cell.textContent = `${name} (${list.join(", ")})`;
     };
+    const keptSpacer = (node) => [...node.childNodes].some((n) => n.nodeType === 8 && /^lh-separator spacer-/.test(n.nodeValue) || n.nodeType === 1 && keptSpacer(n));
     const previousSameBlock = () => {
       const name = headerText(block);
       const before = [...document.querySelectorAll("table")].filter((t) => !element.contains(t) && t.compareDocumentPosition(element) & 4 && headerText(t) === name);
@@ -5147,6 +5148,7 @@ var CustomImportScript = (() => {
       const between = range.cloneContents();
       if (clean3(between.textContent)) return null;
       if (between.querySelector("img, picture, video, iframe, hr, table, h1, h2, h3, h4, h5, h6, form, input")) return null;
+      if (pageHost === "www.lufthansa.com" && keptSpacer(between)) return null;
       return prev;
     };
     if (!titles.length && cells.length) {
@@ -9336,7 +9338,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_hero_banner_486165_default = {
+  var tmp_bundle_austrian_hero_banner_713106_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9376,5 +9378,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_hero_banner_486165_exports);
+  return __toCommonJS(tmp_bundle_austrian_hero_banner_713106_exports);
 })();

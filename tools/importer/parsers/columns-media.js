@@ -735,6 +735,8 @@ export default function parse(element, { document, url, params }) {
     if (!list.includes('separated')) list.push('separated');
     cell.textContent = `${name} (${list.join(', ')})`;
   };
+  const keptSpacer = (node) => [...node.childNodes].some((n) => (n.nodeType === 8 && /^lh-separator spacer-/.test(n.nodeValue))
+    || (n.nodeType === 1 && keptSpacer(n)));
   const previousSameBlock = () => {
     const name = headerText(block);
     const before = [...document.querySelectorAll('table')].filter((t) => !element.contains(t)
@@ -747,6 +749,10 @@ export default function parse(element, { document, url, params }) {
     const between = range.cloneContents();
     if (clean(between.textContent)) return null;
     if (between.querySelector('img, picture, video, iframe, hr, table, h1, h2, h3, h4, h5, h6, form, input')) return null;
+    // lufthansa.com: not across a kept spacer (the cleanup's placeholder of a separator of 50 px and more between the two
+    // views): www has that space between the rows; merged, it landed after the block (standing order 21,
+    // /de/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg: 100 px between the airline-card rows)
+    if (pageHost === 'www.lufthansa.com' && keptSpacer(between)) return null;
     return prev;
   };
   if (!titles.length && cells.length) {
