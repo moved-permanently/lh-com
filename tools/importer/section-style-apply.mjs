@@ -8,8 +8,13 @@
  * it has none), in its classes in a published .plain.html. A row whose heading is not found, is found more than once,
  * or whose section has the style already, changes nothing. Everything else stays byte for byte.
  *
+ * A row may name the section by its first block instead ({block, add}; standing order 25: the sub-navigation bar's
+ * section, which has no heading, gets flush): the section whose first element is that block.
+ *
  * Usage: node tools/importer/section-style-apply.mjs --data rows.json --in <DA copy.html> --out <file>
- *   rows.json: [{ "heading": "Assistance on your trip", "add": "spaced" }]
+ *   rows.json: [{ "heading": "Assistance on your trip", "add": "spaced" }] or [{ "block": "profile-nav", "add": "flush" }]
+ * A row with "remove" instead of "add" takes that style off the section (a section-metadata block left without a style
+ * goes); a section without the style changes nothing ("not there").
  * Reads and writes local files only; the upload is the import helper's.
  */
 import fs from 'node:fs';
@@ -41,11 +46,15 @@ function sections(html, from, to) {
 export function applySectionStyle(html, rows) {
   let out = html;
   const results = rows.map((row) => {
-    if (!/^[a-z0-9-]+$/.test(row.add || '')) return { row, result: 'bad row' };
+    const style = row.add || row.remove;
+    if (!/^[a-z0-9-]+$/.test(style || '') || (row.add && row.remove)) return { row, result: 'bad row' };
+    if (row.block !== undefined && !/^[a-z0-9-]+$/.test(row.block)) return { row, result: 'bad row' };
+    const first = row.block && new RegExp(`^\\s*<div class="${row.block}[ "]`);
     const main = out.indexOf('<main>');
     const from = main >= 0 ? main + 6 : 0;
     const to = main >= 0 ? out.indexOf('</main>', from) : out.length;
     const hits = sections(out, from, to).filter((s) => {
+      if (first) return first.test(out.slice(s.openEnd, s.end));
       const h = out.slice(s.start, s.end).match(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/);
       return h && text(h[1]).startsWith(row.heading);
     });
@@ -54,7 +63,22 @@ export function applySectionStyle(html, rows) {
     const [s] = hits;
     const body = out.slice(s.start, s.end);
     let next;
-    if (main >= 0) {
+    if (row.remove) {
+      if (main >= 0) {
+        const m = body.match(META);
+        const styles = m ? m[1].split(',').map((x) => x.trim()).filter(Boolean) : [];
+        if (!styles.includes(style)) return { row, result: 'not there' };
+        const rest = styles.filter((x) => x !== style);
+        next = body.replace(m[0], rest.length ? m[0].replace(`<div>${m[1]}</div>`, `<div>${rest.join(', ')}</div>`) : '');
+      } else {
+        const open = out.slice(s.start, s.openEnd);
+        const cls = open.match(/class="([^"]*)"/);
+        const styles = cls ? cls[1].split(/\s+/).filter(Boolean) : [];
+        if (!styles.includes(style)) return { row, result: 'not there' };
+        const rest = styles.filter((x) => x !== style);
+        next = `${rest.length ? `<div class="${rest.join(' ')}">` : '<div>'}${body.slice(open.length)}`;
+      }
+    } else if (main >= 0) {
       const m = body.match(META);
       if (m) {
         const styles = m[1].split(',').map((x) => x.trim()).filter(Boolean);
@@ -81,5 +105,5 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   const arg = (k) => { const i = process.argv.indexOf(`--${k}`); return i > 0 ? process.argv[i + 1] : undefined; };
   const r = applySectionStyle(fs.readFileSync(arg('in'), 'utf8'), JSON.parse(fs.readFileSync(arg('data'), 'utf8')));
   fs.writeFileSync(arg('out'), r.html);
-  r.results.forEach(({ row, result }) => console.log(`${row.heading} +${row.add}: ${result}`));
+  r.results.forEach(({ row, result }) => console.log(`${row.heading || row.block} ${row.add ? `+${row.add}` : `-${row.remove}`}: ${result}`));
 }
