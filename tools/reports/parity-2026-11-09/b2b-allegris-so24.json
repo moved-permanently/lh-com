@@ -1,0 +1,11 @@
+[
+  {
+    "path": "/de/en/allegris/corporates-start-of-booking",
+    "inserts": [
+      {
+        "replace": "<div><div>Tabs open</div><div>first</div></div>",
+        "text": ""
+      }
+    ]
+  }
+]
