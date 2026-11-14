@@ -463,6 +463,13 @@ export default function transform(hookName, element, payload) {
       const styles = ['stage'];
       if (!s.querySelector(':scope > .mb-default')) styles.push('flush');
       if (next && padded(next) && !grey(next)) styles.push('before-padded');
+      // (standing order 20) a padded AEM section without .mb-default right before the stage: www has its padding and
+      // nothing more there, not our section gap (flush; /de/en/first-class-terminal: "Cigar Lounge", then the stage
+      // "Everything you need" 48px lower than www's; economy-class). With .mb-default as before (spaced measured worse:
+      // tips-senior-travellers 21.9 -> 22.9); lufthansa.com's info pages
+      const prev = aemSections[i - 1];
+      const own = lufthansa && template.name === 'info' && prev && !grey(prev) && !prev.querySelector(':scope > .mb-default') && paddedBreaks.get(prev);
+      if (own && !/ (spaced|flush)$/.test(own.getAttribute(SOURCE_STYLE))) own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} flush`);
       const start = createBreak(document);
       start.setAttribute(SOURCE_STYLE, styles.join(' '));
       s.before(start);

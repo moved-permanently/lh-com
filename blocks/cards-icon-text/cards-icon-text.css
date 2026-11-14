@@ -405,3 +405,14 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
+/* option partner, an untitled card (entry-exit-system's "What data is collected?": an icon and a description):
+   www keeps the heading line with the icon, the description under it 5.1rem in (standing order 20;
+   lufthansa.com: the brands' untitled tiles unmeasured) */
+body.brand-lufthansa .cards-icon-text.partner .cards-icon-text-card:not(:has(.cards-icon-text-title)) {
+  flex-direction: column;
+}
+
+body.brand-lufthansa .cards-icon-text.partner .cards-icon-text-card:not(:has(.cards-icon-text-title)) > .cards-icon-text-body {
+  margin-left: 51px;
+}

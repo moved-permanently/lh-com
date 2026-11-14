@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-form.js
-  var tmp_bundle_form_448576_exports = {};
-  __export(tmp_bundle_form_448576_exports, {
-    default: () => tmp_bundle_form_448576_default
+  var tmp_bundle_form_454130_exports = {};
+  __export(tmp_bundle_form_454130_exports, {
+    default: () => tmp_bundle_form_454130_default
   });
 
   // tools/importer/parsers/form-core.js
@@ -4418,6 +4418,9 @@ var CustomImportScript = (() => {
         const styles = ["stage"];
         if (!s.querySelector(":scope > .mb-default")) styles.push("flush");
         if (next && padded(next) && !grey(next)) styles.push("before-padded");
+        const prev = aemSections[i - 1];
+        const own = lufthansa && template.name === "info" && prev && !grey(prev) && !prev.querySelector(":scope > .mb-default") && paddedBreaks.get(prev);
+        if (own && !/ (spaced|flush)$/.test(own.getAttribute(SOURCE_STYLE))) own.setAttribute(SOURCE_STYLE, `${own.getAttribute(SOURCE_STYLE)} flush`);
         const start = createBreak(document);
         start.setAttribute(SOURCE_STYLE, styles.join(" "));
         s.before(start);
@@ -5819,7 +5822,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_form_448576_default = {
+  var tmp_bundle_form_454130_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5859,5 +5862,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_form_448576_exports);
+  return __toCommonJS(tmp_bundle_form_454130_exports);
 })();
