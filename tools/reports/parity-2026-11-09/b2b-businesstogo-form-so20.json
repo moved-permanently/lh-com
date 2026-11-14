@@ -1,0 +1,20 @@
+[
+ {
+  "path": "/de/de/program/businesstogo",
+  "inserts": [
+   {
+    "before": "<h2 id=\"haben-sie-fragen-kontaktieren-sie-uns\">",
+    "text": "<p>{spacer-140}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/de/program/businesstogo",
+  "inserts": [
+   {
+    "before": "<h2 id=\"haben-sie-fragen-kontaktieren-sie-uns\">",
+    "text": "<p>{spacer-140}</p>"
+   }
+  ]
+ }
+]

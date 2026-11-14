@@ -949,3 +949,45 @@ body.brand-b2b main > .section.h1-compact:last-child:has(> .carousel-cards-wrapp
     margin-top: 61px;
   }
 }
+
+/* the contact form (form core; businesstogo's "Any questions? Contact us!") plain as www's: the
+   fields in the content column, no grey band and no card, the textarea 112px high 42px under the
+   field above, the button under the fields, 96px (116px from 768px) to the next heading
+   (standing order 20; with delta-so20-b2b-businesstogo-form.txt: 6 of 8 page-widths better, none
+   worse) */
+body.brand-b2b .form.core .form-form {
+  padding-bottom: 0;
+  background-color: transparent;
+  box-shadow: none;
+  clip-path: none;
+}
+
+body.brand-b2b .form.core .form-step {
+  padding: 0;
+}
+
+body.brand-b2b .form.core .form-step-card {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+body.brand-b2b .form.core .form-form > .form-actions {
+  justify-content: flex-start;
+  margin: 30px 0 68px;
+}
+
+body.brand-b2b .form.core .form-field-textarea {
+  margin-top: 42px;
+}
+
+body.brand-b2b .form.core .form-field-textarea > textarea.form-control {
+  height: 112px;
+}
+
+@media (width >= 768px) {
+  body.brand-b2b .form.core .form-form > .form-actions {
+    margin-bottom: 88px;
+  }
+}
