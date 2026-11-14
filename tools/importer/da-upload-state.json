@@ -36932,9 +36932,9 @@
    "preview": "2026-11-03T15:14:07.778Z"
   },
   "/xx/hk/discover-lufthansa/new-onboard-experience": {
-   "uploaded": "2026-11-08T06:38:51.286Z",
-   "mtime": 1794119095264.1362,
-   "preview": "2026-11-08T06:38:53.624Z"
+   "uploaded": "2026-11-14T12:48:30.869Z",
+   "mtime": 1794660500826.8557,
+   "preview": "2026-11-14T12:48:33.085Z"
   },
   "/xx/hk/discover-lufthansa/take-off": {
    "uploaded": "2026-11-06T17:48:07.736Z",
@@ -36962,9 +36962,9 @@
    "preview": "2026-11-14T06:33:30.961Z"
   },
   "/xx/hk/economy-class": {
-   "uploaded": "2026-11-06T23:28:26.142Z",
-   "mtime": 1794006536653.0474,
-   "preview": "2026-11-06T23:28:28.660Z"
+   "uploaded": "2026-11-14T12:48:36.315Z",
+   "mtime": 1794660501142.0735,
+   "preview": "2026-11-14T12:48:38.718Z"
   },
   "/xx/hk/electronic-bag-tags": {
    "uploaded": "2026-11-03T15:14:36.101Z",
@@ -36977,9 +36977,9 @@
    "preview": "2026-11-06T11:01:03.744Z"
   },
   "/xx/hk/europa-tarife-economy-class": {
-   "uploaded": "2026-11-06T23:28:31.517Z",
-   "mtime": 1794006536654.2632,
-   "preview": "2026-11-06T23:28:33.451Z"
+   "uploaded": "2026-11-14T12:48:41.366Z",
+   "mtime": 1794660501443.036,
+   "preview": "2026-11-14T12:48:43.588Z"
   },
   "/xx/hk/europcar": {
    "uploaded": "2026-11-03T15:14:46.008Z",
@@ -37042,9 +37042,9 @@
    "preview": "2026-11-03T15:15:24.934Z"
   },
   "/xx/hk/first-class": {
-   "uploaded": "2026-11-09T12:39:35.838Z",
-   "mtime": 1794227868891.1785,
-   "preview": "2026-11-09T12:39:38.426Z"
+   "uploaded": "2026-11-14T12:48:46.246Z",
+   "mtime": 1794660501781.6152,
+   "preview": "2026-11-14T12:48:48.852Z"
   },
   "/xx/hk/flight-disruptions": {
    "uploaded": "2026-11-06T11:07:18.136Z",
@@ -37222,9 +37222,9 @@
    "preview": "2026-11-08T06:29:50.316Z"
   },
   "/xx/hk/lufthansa-travel-classes": {
-   "uploaded": "2026-11-06T23:28:47.518Z",
-   "mtime": 1794006536671.8413,
-   "preview": "2026-11-06T23:28:49.982Z"
+   "uploaded": "2026-11-14T12:48:51.716Z",
+   "mtime": 1794660502101.0222,
+   "preview": "2026-11-14T12:48:53.622Z"
   },
   "/xx/hk/medikamenten-transport": {
    "uploaded": "2026-11-03T15:29:17.253Z",
@@ -37352,9 +37352,9 @@
    "preview": "2026-11-06T23:28:55.057Z"
   },
   "/xx/hk/premium-economy-class": {
-   "uploaded": "2026-11-06T23:28:57.511Z",
-   "mtime": 1794006536679.7896,
-   "preview": "2026-11-06T23:28:59.947Z"
+   "uploaded": "2026-11-14T12:48:56.955Z",
+   "mtime": 1794660502425.1992,
+   "preview": "2026-11-14T12:48:58.650Z"
   },
   "/xx/hk/prepare-for-your-trip/all-check-in/check-in-information": {
    "uploaded": "2026-11-03T15:19:12.130Z",
@@ -37592,9 +37592,9 @@
    "preview": "2026-11-03T15:32:50.969Z"
   },
   "/xx/hk/tips-senior-travellers": {
-   "uploaded": "2026-11-09T12:39:41.382Z",
-   "mtime": 1794227868890.409,
-   "preview": "2026-11-09T12:39:44.166Z"
+   "uploaded": "2026-11-14T12:49:01.830Z",
+   "mtime": 1794660502757.4663,
+   "preview": "2026-11-14T12:49:04.372Z"
   },
   "/xx/hk/travel-agencies": {
    "uploaded": "2026-11-03T15:32:56.186Z",
@@ -52305,6 +52305,11 @@
    "uploaded": "2026-11-14T12:47:06.478Z",
    "mtime": 1794660421244.0647,
    "preview": "2026-11-14T12:47:09.176Z"
+  },
+  "/xx/hk/prepare-for-your-trip/travel-classes/business-class": {
+   "uploaded": "2026-11-14T12:48:25.358Z",
+   "mtime": 1794660500467.577,
+   "preview": "2026-11-14T12:48:27.544Z"
   }
  },
  "media": {
