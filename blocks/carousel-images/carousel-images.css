@@ -229,6 +229,19 @@ body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-disco
     margin-top: 50px;
   }
 
+  /* a carousel right after a text paragraph (not a spacer mark) in a plain section, not in an article: www's 40px
+     above it and, when it ends the section, under it (standing order 25: the xx business-class pages, lh-snapshots-117,
+     at 1440 11 of 11 better by 1.4 to 4.1 points, de/en economy-class 13.5 -> 11.3). Not for every carousel: the
+     100-years pages and first-class-terminal draw theirs closer (all carousels at 40px: 9 de/en pages worse), and an
+     article's carousel inside its body text sits where it is (stop-over-tokyo, allegris-premium-economy-san-diego worse) */
+  body.brand-lufthansa main:not(:has(.article-header)) > .section:not(.campaign-section) > .default-content-wrapper:has(> p:not(.spacer):last-child) + .carousel-images-wrapper > .carousel-images {
+    margin-top: 40px;
+  }
+
+  body.brand-lufthansa main:not(:has(.article-header)) > .section:not(.campaign-section) > .default-content-wrapper:has(> p:not(.spacer):last-child) + .carousel-images-wrapper:last-child > .carousel-images {
+    margin-bottom: 40px;
+  }
+
   body.brand-lufthansa .carousel-images .carousel-images-caption {
     padding-bottom: 0;
   }
