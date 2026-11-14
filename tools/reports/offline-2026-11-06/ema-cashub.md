@@ -5992,3 +5992,65 @@ checked against its .sha256 and extracted into its own folder. Nothing was run f
   travel-id and it/it now have READY delta rows. baggage is traced, but its remaining step is a shared block's. For
   accessible-travel the cause is now the table cells alone.
 - **Air Dolomiti:** the archive held only the IFE page, which is done. Nothing else on its list waited for a recording.
+
+### After the first push: the uploaded rows as served
+
+The helper uploaded the order 31 / 32 rows during the order. Each was measured once served:
+- **The ten note rows (`7787e422`):** live from ~20:20 CET. All 20 page-widths match their drafts to the px (page and
+  footer top).
+- **at/de form-confirmation (`fd5f7520`):** live from ~20:15. 1,257 / 1,525 px, as drafted.
+- **travel-id "Tabs open | none" (`dfc9ee4e`):** live from ~20:50. 5,733 / 6,062 px, as drafted.
+- **it/it form-confirmation:** live from ~20:55 (its upload state was not yet on main at 21:00). 1,578 / 1,807 px and
+  footer top 723 / 737, as drafted.
+- **The cn/en emblem (`01db0303`):** served from ~20:20, but *not* as drafted.
+  - Document Authoring keeps a picture and text in one link as two links to the same address, so the footer drew two
+    legal items: 922 / 1,220 px, +40 / +41 px over the draft.
+  - **Code `bdabccff`** (blocks/footer, test first: test/austrian-footer-emblem-da-so32.test.mjs with the served copy as
+    its fixture): a picture-only legal link followed by a link to the same address is one link.
+  - Census: of the 919 footers our hosts serve, only /cn/en/footer has such a pair.
+  - Live from ~20:35: the page 2,269 / 2,838 px (+1.20 / +1.25 % against -019), the footer 881 / 1,179 (www 883 /
+    1,175).
+
+Other jobs' uploads during the order (so30's 102 Austrian band-end pages and the nine doctor-on-board locales) include
+none of the 121 recorded Austrian pages. a07423bd (carousel-images) applies to body.brand-lufthansa only. Neither needed
+a second sweep.
+
+### Final section (about 21:05 CET, 2026-11-14)
+
+All three items are done. I stopped here rather than run to 23:30: what is left on the lists needs captures (the three
+tab pages), a census for a shared block (baggage's card pitch, carousel-cards), or a decision from you.
+
+**On main:**
+- `51fceef1`: the sweep, the gate of the new recordings, the two READY delta rows, the lists, the capture requests, and
+  this section up to item 3.
+- `bdabccff`: the footer fix with its test and fixture.
+- this commit: the live checks above, the emblem fix in delta-so31 / rank-so27, and this final section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 before each push. No CSS was changed, so stylelint had nothing to check.
+- **The docs push (`51fceef1`):** 661 tests in the 126 files that read tools/reports, 0 failures. On round 2, the 10
+  tests naming origin's new files passed.
+- **The code push (`bdabccff`):** 125 tests in the 26 files that read the footer, 0 failures.
+- **The full suite** on `bdabccff` (the wt worktree, one process per file): 1,118 files, 4,326 tests, 0 failures, 5
+  skipped.
+- **This commit:** the 126 report-reading files again in the push loop.
+
+**For you:**
+- **Captures** (capture-requests-ema-cashub.txt): the 390 first loads of /at/en/austrian-app, /at/en/online-check-in and
+  /at/de/unterhaltung-an-bord. If www's tab sets open nothing on a phone's first load there too, Austrian joins
+  CLOSED_BRANDS as one rule, instead of a row per page.
+- **TAP homepages:** www is 4,621 px at the top and 4,041 at the end (the pin-spacer). Ours, 3,977, is −1.58 % at the
+  end. Held as explained. Tell me if you would rather read these rows at the top.
+
+**Rules followed:**
+- **No airline host was requested.** Every render refused www.* and the airline hosts and counted the refusals: 2,492 in
+  the sweep (2,201 Austrian, 291 Air Dolomiti) and 3 a render on the help-center pages. None was sent. Cargo's feed
+  went to www.mynewsdesk.com, as you allowed.
+- **The archives** came from the brand drop folders, each sha256 checked against its .sha256 file, each extracted into
+  its own folder. Nothing was run from inside them; the offline render read -019's baggage page with rec-render.mjs,
+  which answers from the archive only.
+- **No DA request, no upload, preview or publish.** da-upload.mjs was not called. The helper applied the rows.
+- **The checkout** keeps the other jobs' 88 dirty entries untouched. After each push it was moved with `reset --mixed`
+  and the moved files were checked out, none of them a dirty one.
+
+**Not in git** (scratch under /tmp/so32): the scripts, the drafts, the archives, the census and the logs.

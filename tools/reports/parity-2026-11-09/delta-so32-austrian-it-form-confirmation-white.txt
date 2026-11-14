@@ -15,5 +15,6 @@
 #   The page's end differs from www's only by the Italian footer (ours 855 / 1,070 px, www 835 / 1,086).
 # A spacer of 298 px is above marker-collapse's 31 px, so the collapse keeps it; check the served copy ends the section with
 # a p.spacer of 298 px.
+# Live from ~20:55 CET (uploaded by the helper; its upload state not yet on main at 21:00 CET): 1,578 / 1,807 px, the footer top 723 / 737, as drafted. Done.
 # Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, what changes on the page.
 READY	/it/it/form-confirmation.html	two changes in its one section: (1) the section style "Space below: L" removed (its Section Metadata, the section's only style); (2) a paragraph "{spacer-298}" right after the paragraph "Torna alla homepage"	the footer at www's top at both widths (723 / 737); the page 1,400 -> 1,578 px at 1440 (www 1,558), 1,629 -> 1,807 at 390 (www 1,823): -10.14 -> +1.28 %, -10.64 -> -0.88 %

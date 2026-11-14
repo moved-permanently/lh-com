@@ -1,4 +1,4 @@
-# Capture requests from ema-cashub (standing order 32, 2026-11-14, ~21:00 CET). One line per page: the URL (host and path),
+# Capture requests from ema-cashub (standing order 32, 2026-11-14, ~20:30 CET). One line per page: the URL (host and path),
 # the widths, why. Default as you wrote: full height, each width its own first load (no 390 from a resized 1440 load),
 # banner accepted, nothing opened.
 # Settled since order 31, thank you: austrian-parity-019 (the 12 help-center and contact pages, the cn/en tarmac page, the six
