@@ -1,0 +1,25 @@
+# ema-cashub, standing order 31 (2026-11-14), item 2: Air Dolomiti /en/services-on-board/in-flight-entertainment-system,
+# "The new solution offers ..." (rank-so30-airdolomiti.txt: 1440 -2.37 %, 390 -1.60 % at the footer's top,
+# airdolomiti-parity-006). Replaces delta-so30-airdolomiti-ife-line-break.txt (back on HOLD: DA kept the leading <br>, the
+# preview dropped it; DA restored by the helper).
+# www opens that paragraph with two line breaks (<p><br><br>The new solution ...); our 33 px paragraph margin stands in for
+# one, so one 33 px line is missing. A leading break inside a paragraph does not survive the pipeline (test/
+# airdolomiti-news-paragraphs-567 notes the same for every paragraph start), so the second break is now a spacer marker:
+# a paragraph "{spacer-33}" before the paragraph.
+# Code (70c60a7d, pushed at ~18:22 CET, styles/themes/airdolomiti.css): in the news text (columns-media news) a separator paragraph
+# had no height (its margins met through it: 0 px, order 30's draft); now it is its --spacer-size high with no margin above
+# it, so it adds exactly its N px. Census: Air Dolomiti's 1,559 published documents (the three sitemaps), 72 news blocks, no
+# separator paragraph in any of them: the rule changes no page until a row adds one. Gate: the 108 recorded page-widths as
+# served and with the rule (rank-so31-airdolomiti.txt).
+# Drafts on airdolomiti.turnsthe.page (so24/host.mjs, <main> replaced by the copy served at ~18:10 CET plus the paragraph;
+# CODE = the checkout with that commit; consent stored, pictures eager; www.* and the airline hosts refused and counted: 0 a
+# render). Control (the unchanged copy the same way) = live: footer top 1,485 / 2,214.
+#   www 1,521 / 2,250 (1440 / 390); live 1,485 / 2,214 (-2.37 / -1.60 %); the row 1,518 / 2,247 (-0.20 / -0.13 %).
+#   The paragraph starts 33 px lower (1,107 -> 1,140 at 1440, 1,473 -> 1,506 at 390), its own height unchanged.
+# Upload WITHOUT the collapse: marker-collapse.mjs removes a separator in a block cell ("in a block cell (no carrier there)
+# it goes"), so a collapsed upload would drop the paragraph (no harm: the page stays as it is).
+# Check after the upload: the served copy (.plain.html) has <p>{spacer-33}</p> right before "The new solution offers", and
+# the page as served shows the paragraph 33 px lower (footer top 1,518 / 2,247 with the code commit live).
+# 390 is airdolomiti-parity-006's 1440 load resized (a pointer): requested as a first load (capture-requests-ema-cashub.txt).
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-airdolomiti), the delta, what changes on the page.
+READY	/en/services-on-board/in-flight-entertainment-system.html	in the Columns Media (news) block's text: a new paragraph "{spacer-33}" right before the paragraph "The new solution offers a better, more efficient service ..." (no line break at that paragraph's start: if order 30's <br> is still in DA, take it out)	the paragraph one 33 px line lower, as www's; footer top 1440 -2.37 -> -0.20 %, 390 -1.60 -> -0.13 %; upload without the collapse; needs the code commit live

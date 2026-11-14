@@ -17,4 +17,4 @@
 # (.plain.html) must start the paragraph with <br>. If the pipeline drops it, the page stays as it is (no harm), and this
 # row goes back to HOLD.
 # Columns: status, DA path (admin.da.live/source/moved-permanently/lh-airdolomiti), the delta, what changes on the page.
-READY	/en/services-on-board/in-flight-entertainment-system.html	a line break (Shift+Enter) at the start of the paragraph "The new solution offers a better, more efficient service ...", before its first word	the paragraph one 33 px line lower, as www's; 1440 -2.37 -> -0.20 %, 390 -1.60 -> -0.13 %; check that the served copy keeps the <br>
+HOLD	/en/services-on-board/in-flight-entertainment-system.html	a line break (Shift+Enter) at the start of the paragraph "The new solution offers a better, more efficient service ...", before its first word	the paragraph one 33 px line lower, as www's; 1440 -2.37 -> -0.20 %, 390 -1.60 -> -0.13 %; check that the served copy keeps the <br> (standing order 31: applied by the helper, DA kept the <br>, the preview dropped it; DA restored; replaced by delta-so31-airdolomiti-ife-spacer.txt)

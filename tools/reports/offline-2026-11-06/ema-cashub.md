@@ -5723,3 +5723,154 @@ captures or one of your decisions.
 
 **Not in git** (scratch under /tmp/so30): the scripts, the drafts (cand/), the extracted snapshots (snaproot/, valroot/,
 dobsnap/), the rankings and the logs.
+
+## Standing order 31 (2026-11-14, from about 17:40 CET)
+
+**Carried over:** nothing of mine was uncommitted or unpushed (order 30's last commit, `d064e0be`, was on origin). The
+checkout's 88 dirty entries (import-progress.json, the urls-*.txt lists, the importer reports, the notifications.css comment
+line) and the 1 November autostash belong to other jobs and were left alone. After each push the checkout was moved with
+`reset --mixed` and the moved files checked out from origin, none of them a dirty one; the count stayed 88 plus my own
+uncommitted docs.
+
+**Your two decisions, applied:**
+- Band rule: not shipped; the per-page rows stay as they are.
+- Fonts: no substitutes. The 8 baggage font rows on finish-austrian.txt now read "explained: the recording machine's system
+  fonts", and the four non-Latin contact pages carry the same note for what stays.
+
+### Item 1: the Austrian pictures (code `70c60a7d`, two delta files)
+
+brand-media-004: sha256 e0095a4d… as you gave it. The three files equal the served copies byte for byte (main.png
+be9a605a…, faq.png 7eb54ced…; the SVG with its added XML declaration).
+
+**The help-center app (micro-frontend, shipped):**
+- Where the URLs come from: help-center-web 4.3.2 has a `baseImageUrl` per airline compiled into its bundle
+  (`https://austrian.com/content/dam/aua/images/local_images/help-center/`). It draws the stage and FAQ card as plain
+  `<img>` in its light DOM (the FAQ card's inside a maui-image). No document row can change that.
+- The change: a brand's copies of an app's pictures (`BRAND_DESIGN_SYSTEMS['www.austrian.com'].pictures`). A
+  MutationObserver on the app's element points them at `/media-da/austrian/help-center/media_162d642a….png` and
+  `media_1a452344….png`.
+  - Visitors' browsers no longer ask austrian.com for the two pictures: our renders count 3 refusals a load instead of 5.
+  - Test: test/micro-frontend-austrian-pictures-so31.test.mjs.
+- Gate: all 24 page-widths (the 12 pages). Every control equals the ranking, and each page moves +112 px at 1440 and +152
+  at 390. All 24 come closer:
+  - /at/en/contact: −4.14 / −4.53 → +0.45 / +0.53 %.
+  - /at/de/contact: −4.11 / −4.38 → +0.45 / +0.48 %.
+  - The other ten keep a −1 to −4.5 % rest, traced below.
+- As served after the push: /at/en/contact 2,449 / 3,039 and /es/es/contact 2,388, the gate's numbers to the px.
+
+**The rest on ten pages: the questionnaire's note (delta-so31-austrian-help-center-notes.txt, 10 READY).**
+- www's app shows "Please note that your feedback will not be answered…" between the question and its options on all 12
+  pages. The recordings' app DOM has it in each language.
+- Our documents hold it only on /at/en and /at/de/contact. The ten rows add it as the feedback block's third row, with the
+  recordings' texts; the question and the options already match.
+- Drafted with the pictures (each control equals the pictures-only render), at the footer's top:
+  - The Latin-script pages (at/de hilfe-center, at/en help-center, es, fr, it, pl): +0.65 to +0.74 %, from −2.8 to −5.8 %.
+    That is the same +12 px /at/en/contact has.
+  - ru: +0.72 / +1.94 %.
+  - cn/zh: +0.74 / −2.82 %. jp/ja: −0.55 / −4.04 %.
+  - gr/el: +2.43 / +3.23 %. The note adds the same 82 / 103 px as on es or pl; the Greek page was already 28 px long without
+    it (fonts, explained).
+  - fr's page end stays +2.11 % at 1440: our French footer is 41 px taller (order 27).
+- finish-austrian.txt: the 24 rows are READY (pictures shipped, note rows READY), so 33 READY, 58 HOLD, 2 OWNER.
+
+**The cn/en footer emblem (code `70c60a7d` + delta-so31-austrian-cn-footer-emblem.txt, 1 READY):**
+- www's legal link (the recording's PNG): the arrow on one line, then the emblem (27 px, 5 px before the text) and the text.
+  From 768 px the item takes the rest of its row, and "Change Privacy Settings" starts a new one.
+- A document row alone could not do it, for two reasons:
+  - our footer kept only the text of a legal link;
+  - a picture in the legal row made the footer take that row for the logo row.
+- The code (blocks/footer):
+  - a picture in a legal link is drawn as www's;
+  - the logo row is the first section whose links are mostly pictures.
+- Census: the 919 footer documents our hosts serve for every brand's roots. None changes its logo row, and none has a
+  picture in a legal link today. The detector does flag the drafted cn/en footer. The brands' fixture hashes are unchanged
+  (test/footer-logos-first), and the new test is test/austrian-footer-emblem-so31.test.mjs.
+- Draft: footer 814 → 882 px at 1440 (www 883) and 1,152 → 1,179 at 390 (www 1,174). The page's end goes −1.78 → +1.25 % and
+  +0.39 → +1.36 %, both within 2 %. Above the footer the page is 30 / 33 px longer than www's (order 27's end gap, ranked
+  and dropped), so at 390 the page's end moves away while the footer comes to www's.
+- The row may go up only once `70c60a7d` is live (it is). rank-so27-austrian-next.txt's "cn footer" row is now READY.
+
+### Item 2: Air Dolomiti, the IFE line break (code `70c60a7d` + delta-so31-airdolomiti-ife-spacer.txt, 1 READY)
+
+- Order 30's row is HOLD in its file, as you found.
+- The new form: a paragraph `{spacer-33}` right before "The new solution offers …".
+- In the news text a separator paragraph had no height (its margins met through it), so a theme rule now gives it its
+  --spacer-size with no margin above. Test: test/airdolomiti-news-spacer-so31.test.mjs.
+- Draft (control = live): footer top 1,485 → 1,518 / 2,214 → 2,247 against www's 1,521 / 2,250 (−2.37 → −0.20 %,
+  −1.60 → −0.13 %).
+- Census: Air Dolomiti's 1,559 published documents (the three sitemaps) have 72 news blocks, and none holds a separator. The
+  rule changes no page until a row adds one.
+- Gate on the 108 recorded page-widths (rank-so31-airdolomiti.txt): 108 unchanged to the px with the rule against a stylesheet that restores the old behaviour, 0 moved; 582 refusals counted, none sent. The IFE draft on the live code: 1,518 / 2,247, as drafted.
+- The row must be uploaded without the collapse: marker-collapse removes a separator in a block cell.
+
+### Item 3: capture-requests-ema-cashub.txt
+
+The file is rewritten for this order: one line per page with its URL, widths and why. Each width is its own first load,
+except the two TAP homepages: there it asks for the load scrolled to the end and back.
+- the 12 help-center / contact pages (their 390s are resizes);
+- the cn/en tarmac page (the emblem);
+- six Austrian rows measured against resized 390s: baggage, travel-id, accessible-travel, bagdamage, form-confirmation, and
+  it/it form-confirmation's 280 px of white;
+- Air Dolomiti's IFE page;
+- TAP's two homepages.
+
+Not requested: the widget rows (www's APIs) and the font rows (explained).
+
+### Item 4: TAP (finish-tap.txt)
+
+- **The four baggage-tracker widths:** confirmed explained. Our pages have www's title, line and button to TAP's tracker
+  (row 145's link box). The form is TAP's own React service, which cannot work on our hosts.
+- **The homepages (/en-pt, /pt-pt 1440, −13.94 %):** the recording is unscrolled. Ours is 3,977 px unscrolled, while
+  scrolling, at the end and back at the top. Against www's settled 4,041 (brief 483) that is −1.58 %, within 2 %. A settled
+  capture is requested to replace that number.
+- **navigator-experiences 390 (+2.09 %):** confirmed excepted. The one rule that passed keys on content, not layout.
+- No code or DA change for TAP.
+
+### Final section (about 19:00 CET, 2026-11-14)
+
+All four items are done. I stopped there rather than run to 22:30: what is left on the lists needs www's APIs, the captures
+now requested, or one of your decisions.
+
+**On main:**
+- `70c60a7d`: the code, pushed at about 18:22 CET (the help-center pictures, the footer emblem and logo pick, the Air
+  Dolomiti news-text spacer, with their tests and the two cn/en footer fixtures);
+- this commit: the three delta files, rank-so31-airdolomiti.txt, finish-austrian.txt, finish-tap.txt, the request file,
+  rank-so27's cn footer row, order 30's IFE row set to HOLD, and this section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 before each push. Stylelint passed on footer.css and airdolomiti.css (the code
+  push).
+- **The code push:** 417 tests in the 112 files that read the changed files, 0 failures (round 1).
+- **The docs push:** the 125 test files that read the report folders (round 1, its log).
+- **The full suite** on `70c60a7d` (the wt worktree, one process per file): 1,114 files, 4,317 tests, 0 failures, 5
+  skipped.
+
+**Ready for the helper (none applied by me):**
+- **The ten note rows** (delta-so31-austrian-help-center-notes.txt): the feedback block's third row. No marker, so the
+  collapse leaves them alone.
+- **The cn/en footer emblem** (delta-so31-austrian-cn-footer-emblem.txt): `70c60a7d` is live, so it can go up now. Check that
+  the served link holds the picture before its text.
+- **The IFE spacer** (delta-so31-airdolomiti-ife-spacer.txt): upload without the collapse, then check that the served copy
+  has `<p>{spacer-33}</p>`. If order 30's `<br>` is still in DA, take it out.
+
+**For you:**
+- **The captures** (capture-requests-ema-cashub.txt): 24 lines. Each width is its own first load, except the two TAP
+  homepages, which should be scrolled to the end and back before measuring.
+- **gr/el contact with its note row:** it ends up further from www (+2.43 / +3.23 % at the footer's top). The note is
+  www's, and adds the same px as on the Latin pages. What stays is the Greek system font (explained as you decided), so the
+  row is READY like the other nine. Hold it back if you would rather the Greek page stay nearer in height than complete in
+  content.
+
+**Rules followed:**
+- **No airline host was requested.** Every render refused www.* and the airline hosts and counted the refusals: 582 in the
+  Air Dolomiti gate, 3 a render on the help-center pages (the app's own calls), 0 on the others; none sent.
+  - The app bundle and topics were read from austrian.turnsthe.page (our host).
+  - The recordings austrian-parity-003, -006 and -007 came from the Austrian drop folder (sha256 checked against the
+    .sha256 files); brand-media-004 from the lufthansa.com folder (your sha256).
+- **No DA request at all.** The copies came from our hosts.
+- **No upload, preview or publish.** da-upload.mjs was not called.
+- **Background jobs** were stopped by pid. One `pkill -f` matched its own command line and ended that command; the job it
+  was meant for had stopped too, and its steps were redone.
+
+**Not in git** (scratch under /tmp/so31): the scripts, the drafts, the extracted recordings and the media archive, the
+censuses, the gate runs and the logs.

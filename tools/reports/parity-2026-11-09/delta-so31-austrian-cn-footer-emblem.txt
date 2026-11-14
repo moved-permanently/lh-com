@@ -1,0 +1,27 @@
+# ema-cashub, standing order 31 (2026-11-14), item 1: the cn/en footer's public security emblem (rank-so27-austrian-next.txt,
+# HOLD "cn footer"; /cn/en/local-pages/tarmac-delay-contingency-plan, austrian-parity-003).
+# www's cn/en legal row: the link "沪公网安备 31010102005102号" holds the emblem (/content/dam/lh/icons/legal-cn/icon-beian.svg)
+# in a block of its own: the arrow on one line, then the emblem (27 px, 5 px before the text) and the text (the recording's
+# PNGs at 1440 and 390). From 768 px the item takes the rest of its row, so "Change Privacy Settings" starts a row of its
+# own. www's footer 883 / 1,174 px (1440 / 390), ours 814 / 1,152.
+# The file: lh-austrian's /media-da/austrian/legal-cn/icon-beian.svg (brand-media-004; published, served with an added XML
+# declaration, the same drawing). www's cn/zh footer has no such link, and neither has ours: no row there.
+# Code (70c60a7d, pushed at ~18:22 CET, blocks/footer): a picture in a legal link is drawn with it, as www's; the logo row is the
+# first section whose links are mostly pictures (before: the first with any picture, which would have been the legal row).
+# Census: the 919 footer documents our hosts serve for every brand's roots: none changes its logo row, none has a picture
+# in a legal link today; the brands' footer fixtures decorate to the same markup (test/footer-logos-first.test.mjs).
+# APPLY ONLY ONCE THAT COMMIT IS LIVE: with today's code a picture in the legal row makes the footer take that row for the
+# logo row.
+# Draft (so31 host-frag: the page as served, its footer document answered from the copy served at ~17:40 CET plus the row;
+# CODE = the checkout with that commit; consent stored, pictures eager; www.* and the airline hosts refused and counted: 0 a
+# render). Control (the unchanged footer copy the same way) = live: 2,201 / 2,811 px.
+#   footer:  814 -> 882 px at 1440 (www 883), 1,152 -> 1,179 at 390 (www 1,174)
+#   page:    2,201 -> 2,269 at 1440 (www 2,241: -1.78 -> +1.25 %), 2,811 -> 2,838 at 390 (www 2,800: +0.39 -> +1.36 %)
+# The page above the footer stays 30 / 33 px longer than www's (www ends its last paragraph 24 px above the footer, ours 48;
+# order 27 ranked a rule for that and dropped it), so at 390 the page's end moves further while the footer comes to www's.
+# Both widths stay within 2 %. 390 is the 1440 load resized (a pointer): requested as a first load
+# (capture-requests-ema-cashub.txt).
+# Check after the upload: the served copy's link reads <a href="http://www.beian.gov.cn/..."><picture>...<img ...></picture>
+# 沪公网安备 31010102005102号</a>, and the footer shows the emblem under the arrow.
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, what changes on the page.
+READY	/cn/en/footer.html	in the legal list, the link "沪公网安备 31010102005102号" (http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102005102): the picture /media-da/austrian/legal-cn/icon-beian.svg (alt empty) inside the link, before its text	every /cn/en page's footer: the emblem line as www's; footer 1440 +68 px (814 -> 882, www 883), 390 +27 px (1,152 -> 1,179, www 1,174); only after the footer code commit is live

@@ -1,29 +1,40 @@
-# Capture requests from ema-cashub (standing order 23, 2026-11-13). One path per line; widths 1440 and 390, full height,
-# each width its own first load.
-# Recorded or settled since order 22, thank you (the brands' own drop folders):
-# - /at/de/entryregulations (austrian-parity-018): measured, the delta row READY.
-# - street-food-in-munich (airdolomiti-parity-002: 390 is 7,101 px) and Cargo whats-up-now (cargo-parity-001: traced and
-#   fixed); no longer requested.
-
-# Air Dolomiti: airdolomiti-parity-001's 390 files are the 1440 load resized (its README: "One load per page ... then the
-# same load resized to 390"). Laid out fresh from their own markup and CSS (offline, no request), www's pages are 0.7 to
-# 4.4 % shorter than the recorded 390 heights, and ours are within 1 % of that on 7 of the 9 open 390 rows
-# (rank-so23-airdolomiti.txt). A first load at 390 would settle which height is www's.
-# host: www.airdolomiti.de
-/de/unsere-dienste/lounge-zutritt
-/de/buchung
-/de/reisenformationen/sitzplatzreservierung
-# host: www.airdolomiti.eu
-/en/assistance
-/en/travel-info/seat-reservation
-/en/services/lounges
-# host: www.airdolomiti.it
-/assistenza
-/informazioni-per-il-viaggio/prenotazione-del-posto
-
-# Air Dolomiti, the archistar airport photos: not in the recordings. www's snapshot of the article
-# (content-sites/lh-airdolomiti/snapshots, the same alignnone images inside H4s) laid out with airdolomiti-parity-002's
-# CSS (the same build's stylesheets) draws them 1200 x 799, 650 x 350 and 1200 x 814 at 1440, 350 wide at 390: as ours
-# since 265e7364. A live recording would confirm it on the page itself.
-# host: www.airdolomiti.eu
-/en/articles/dyk/airports-designed-by-archistars
+# Capture requests from ema-cashub (standing order 31, 2026-11-14, ~18:30 CET). One line per page: the URL (host and path),
+# the widths, why. Default as you wrote: full height, each width its own first load (no 390 from a resized 1440 load),
+# banner accepted, nothing opened. One line asks for a different state; it says so.
+# Settled since order 23, thank you: the nine Air Dolomiti pages and the archistar article (airdolomiti-parity-007, order
+# 30's gate), brand-media-004 (the help-center pictures and the cn emblem, now in lh-austrian and used: 70c60a7d).
+#
+# Austrian, the help-center app (micro-frontend 70c60a7d now draws its stage and FAQ pictures from lh-austrian; ten pages
+# get the questionnaire's note, delta-so31-austrian-help-center-notes.txt). Their 390 rows are pointers (austrian-parity-003,
+# -006, -007 resized the 1440 load), so the 390 gate is read against a resize. 1440 too, so both widths are from one day.
+https://www.austrian.com/at/en/contact	1440 390	help-center pictures + note: 390 is a resize (-007)
+https://www.austrian.com/at/de/contact	1440 390	help-center pictures + note: 390 is a resize (-007)
+https://www.austrian.com/at/en/help-center	1440 390	help-center pictures + note row: 390 is a resize (-003)
+https://www.austrian.com/at/de/hilfe-center	1440 390	help-center pictures + note row: 390 is a resize (-006)
+https://www.austrian.com/es/es/contact	1440 390	help-center pictures + note row: 390 is a resize (-007)
+https://www.austrian.com/fr/fr/contact	1440 390	help-center pictures + note row: 390 is a resize (-007)
+https://www.austrian.com/it/it/contact	1440 390	help-center pictures + note row: 390 is a resize (-007)
+https://www.austrian.com/pl/pl/contact	1440 390	help-center pictures + note row: 390 is a resize (-007)
+https://www.austrian.com/gr/el/contact	1440 390	help-center pictures + note row; fonts explained: 390 is a resize (-007)
+https://www.austrian.com/ru/ru/contact	1440 390	help-center pictures + note row; fonts explained: 390 is a resize (-007)
+https://www.austrian.com/cn/zh/contact	1440 390	help-center pictures + note row; fonts explained: 390 is a resize (-007)
+https://www.austrian.com/jp/ja/contact	1440 390	help-center pictures + note row; fonts explained: 390 is a resize (-007)
+# Austrian, the cn/en footer emblem (delta-so31-austrian-cn-footer-emblem.txt): -003's 390 is a resize; the footer's 390
+# height (www 1,174, ours with the row 1,179) is read from it.
+https://www.austrian.com/cn/en/local-pages/tarmac-delay-contingency-plan	1440 390	cn/en footer emblem row: 390 is a resize (-003)
+# Austrian, rows measured against a resized 390 (finish-austrian.txt): a first load settles them.
+https://www.austrian.com/at/en/baggage	390	missing recording: 390 is a resize; ours -2.82 % against it, 1440 -0.90 %
+https://www.austrian.com/at/en/travel-id	390	missing recording: 390 is a resize; ours -2.25 % against it, 1440 +0.33 %
+https://www.austrian.com/at/en/accessible-travel	390	READY row live (734a59b8), -2.33 % against a resize
+https://www.austrian.com/at/en/footer-pages/help-and-contact/bagdamage	390	READY row (order 30), +1.80 % against a resize (Turnstile's 71 px subtracted)
+https://www.austrian.com/at/de/footer-pages/help-and-contact/form-confirmation	390	READY row (order 30), +0.20 % drafted against a resize
+https://www.austrian.com/it/it/form-confirmation	1440 390	www keeps ~280 px of white under the button here and none on /at/de: the page or that load?
+# Air Dolomiti (delta-so31-airdolomiti-ife-spacer.txt): airdolomiti-parity-006's 390 is the 1440 load resized.
+https://www.airdolomiti.eu/services-on-board/in-flight-entertainment-system	1440 390	IFE spacer row: 390 is a resize (-006)
+# TAP (finish-tap.txt): www's homepages were recorded unscrolled, when GSAP's pin-spacer still holds 1,580 px for the
+# Miles&Go cards (4,621 px; scrolled, www measured 4,041 in brief 483, ours 3,977). NOT the default state: please scroll
+# each 1440 load to the page's end and back before measuring (the pin settles), and record 390 as its own first load.
+https://www.flytap.com/en-pt	1440 390	homepage after scrolling through the Miles&Go pin (row 121): www's settled height
+https://www.flytap.com/pt-pt	1440 390	homepage after scrolling through the Miles&Go pin (row 121): www's settled height
+# Not requested: rows that need www's APIs in our renders (the flight search, fare teasers, destination finder, flight
+# status, TAP's baggage tracker): a capture records www's answers, ours stay refused; and the font rows (explained).
