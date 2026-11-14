@@ -4408,3 +4408,45 @@ State at the start: nothing of mine uncommitted or unpushed (order 23's final se
   captures under logs/p4/so6/cap and logs/p4/so20 (the folder-render results), the drops in /tmp/x-* and /tmp/dl-*
   (private material), content/, migration-work/, tools/importer/reports/* (not mine). Preview servers stopped,
   the trial worktrees removed.
+
+## Standing order 25 (received about 19:40 UTC, 2026-11-14)
+
+State at the start: nothing of mine uncommitted or unpushed (order 24's final section on main, Build success).
+
+1. **Discover on discover-snapshots-006** (sha256 as given): the parity tools read its page-load index (its finder
+   calls only, by page language; labels and catalogs stay unanswered). delta-so25-discover-offers-homepages.txt:
+   - de/de offers page with German names: 1440 60,615 px (www 60,750); on phones 6,900 px short, because www's card
+     text stands 13 px in (ours 10) and "Hin- und Rückflug ab" wraps in every card. A Discover grid rule
+     (finder-compare.css, test first): de/de 390 108,518 → 115,213 (www 115,419); gate.mjs 1 better, 3 within.
+   - the homepages with the finder answered: as before (de/de 1440 0.96 better); their -150 / -162 px are the fare
+     teaser's prices, which lh-proxy cannot fetch (the archive's note): held.
+2. delta-so24-lh-com-rollouts.txt without the overview-manage lines.
+3. The parity tools answer lufthansa.com's grid call too (destinationfinder LHR/E, X-Portal LH, language en), and an
+   answer only its own call; tests first. /gb/en/flights can be gated as soon as its recording comes.
+4. **Discover check-in and customer-service, a fresh look**:
+   - check-in de/de and de/en READY (delta-so25-discover-check-in.txt): www's card links are size large and its
+     teaser heading stands 74 px over the cards (ours 37): de/de 1440 8.65 → 5.50, 390 23.03 → 15.50; de/en
+     1440 14.15 → 5.34.
+   - customer-service de/de and de/en READY (delta-so25-discover-customer-service.txt): www ends the page with a
+     separator and its search bar under the FAQs; a Search Bar block to Discover's own results page: 4 better
+     (1440 12.15 → 7.14, 390 19.09 → 13.46 de/en); its field as www's pill (discover.css, test first; 4 within).
+   - No other finish-discover.txt row is unlocked by the recordings (flight-search's calendar asks flight-prices;
+     entertainment and punta-cana's eyebrow are owner decisions; santorini has no single cause). B2B and
+     ema-adobe's areas left alone.
+
+## Standing order 25, final section (20:20 UTC, 2026-11-14)
+
+- Item 1: the de/de offers page gated with German names and its cards' padding fixed; the homepages held (the fare
+  teaser). Item 2 done. Item 3: the LHR call answerable, waiting for its recording. Item 4: check-in and
+  customer-service, both locales, READY.
+- I close about 3.5 hours early: what remains needs recordings or owner decisions.
+- Before this section: the full suite on d8bc19ad (this section before these lines) 1123 files pass, lint and
+  stylelint 0; the tests that read the themes folder 1026 pass (run in the main checkout: the suite's worktree
+  was started again by a run I did not start); lint read before every push.
+- Nothing uploaded, previewed or published by me; DA read only (the pages of the rows); da-upload.mjs not run;
+  requests only to our own hosts, DA, R2 (the drop) and GitHub's API (airline hosts refused in my browsers, the
+  finder calls answered from the recording). .migration/project.json not touched; /de/en/overview-manage has no
+  row and no line.
+- Not in git and why: logs/p4/so23 and logs/p4/so20 (scratch: captures, gate folders, crops, DA copies as read,
+  trial edits), our captures under logs/p4/so6/cap, the drops in /tmp/x-* and /tmp/dl-* (private material),
+  content/, migration-work/, tools/importer/reports/* (not mine). Preview servers stopped, trial worktrees removed.
