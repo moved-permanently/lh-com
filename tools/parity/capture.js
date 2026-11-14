@@ -28,9 +28,10 @@
  * document-coordinate boxes of live-data widgets and of video stages
  * (LIVE_SELECTORS) to <out>.json "liveBoxes"; compare.js --mask paints them out. "contentBoxes":
  * main's sections, elements and block items (compare.js names the drift's largest step by them).
- * PARITY_ANSWERS=<file>: Discover's offers grid's price call (www.lufthansa.com destinationfinder
- *   FRA/E, months 0_11, RETURN, X-Portal FOUR_Y; lib.js ANSWERABLE) and its preflight answered
- *   from a recorded answer (a plain file or a HAR), every other airline request still refused;
+ * PARITY_ANSWERS=<file>: the offers grids' price calls (www.lufthansa.com destinationfinder
+ *   FRA/E under X-Portal FOUR_Y, LHR/E under LH; months 0_11, RETURN; lib.js ANSWERABLE) and their
+ *   preflight answered from a recording in the page's language (a plain file, a HAR, a request
+ *   record or a page-load index), every other airline request still refused;
  *   never the 21 October recording (data/recorded/ or 2026-10-21: refused). <out>.json
  *   "recordedAnswers": the file, its recording dates and how often the call was answered.
  * PARITY_SETTLE_GRID=1: the offers grid drawn complete (every offer) before the shot (settleGrid).

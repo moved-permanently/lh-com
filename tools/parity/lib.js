@@ -154,27 +154,43 @@ function mirroredFont(u, dirs) {
  * months 0_11, RETURN, under X-Portal FOUR_Y. Every other request to an airline host stays
  * refused.
  */
+const ANSWERABLE_QUERY = { months: '0_11', tripType: 'RETURN' };
+const ANSWERABLE_CALLS = [
+  // Discover's offers page and homepages (standing orders 22, 23, 25)
+  { path: '/service/api/destinationfinder/destination/finder/FRA/E', portal: 'FOUR_Y' },
+  // lufthansa.com's offers grid in the UK (/gb/en/flights, standing order 25)
+  { path: '/service/api/destinationfinder/destination/finder/LHR/E', portal: 'LH' },
+];
 const ANSWERABLE = {
   host: 'www.lufthansa.com',
-  path: '/service/api/destinationfinder/destination/finder/FRA/E',
-  query: { months: '0_11', tripType: 'RETURN' },
-  portal: 'FOUR_Y',
+  query: ANSWERABLE_QUERY,
+  calls: ANSWERABLE_CALLS,
+  // the first call, as before (standing order 22's tests read ANSWERABLE.path and .portal)
+  path: ANSWERABLE_CALLS[0].path,
+  portal: ANSWERABLE_CALLS[0].portal,
 };
 
-function isAnswerable(rawUrl, portal) {
+/** The answerable call a URL (and portal) is, or null. */
+function answerableCall(rawUrl, portal) {
   let u;
   try {
     u = new URL(rawUrl);
   } catch (e) {
-    return false;
+    return null;
   }
-  if (u.protocol !== 'https:' || u.hostname !== ANSWERABLE.host) return false;
-  if (u.pathname !== ANSWERABLE.path) return false;
+  if (u.protocol !== 'https:' || u.hostname !== ANSWERABLE.host) return null;
+  const call = ANSWERABLE_CALLS.find((c) => c.path === u.pathname);
+  if (!call) return null;
   const keys = [...u.searchParams.keys()];
-  const want = Object.keys(ANSWERABLE.query);
-  if (keys.length !== want.length) return false;
-  if (!want.every((k) => u.searchParams.get(k) === ANSWERABLE.query[k])) return false;
-  return portal === undefined || String(portal).toUpperCase() === ANSWERABLE.portal;
+  const want = Object.keys(ANSWERABLE_QUERY);
+  if (keys.length !== want.length) return null;
+  if (!want.every((k) => u.searchParams.get(k) === ANSWERABLE_QUERY[k])) return null;
+  if (portal !== undefined && String(portal).toUpperCase() !== call.portal) return null;
+  return call;
+}
+
+function isAnswerable(rawUrl, portal) {
+  return Boolean(answerableCall(rawUrl, portal));
 }
 
 /**
@@ -215,6 +231,38 @@ function loadRecordedAnswers(file) {
       });
     });
   }
+  // the Captures child's page-load index (standing order 25): api/index.json, per page its
+  // pageUrl and calls (url, at, xPortalRequestHeader, file under the archive, sha256); its
+  // finder calls only
+  if (Array.isArray(data) && data.length && data.every((p) => p && Array.isArray(p.calls))) {
+    const base = path.dirname(path.dirname(abs));
+    const found = [];
+    data.forEach((page) => {
+      const root = /^https?:\/\/[^/]+\/[a-z]{2}\/([a-z]{2})(?:\/|$)/.exec(page.pageUrl || '');
+      page.calls.forEach((c) => {
+        if ((c.method && c.method !== 'GET') || !isAnswerable(c.url, c.xPortalRequestHeader || '')) return;
+        const bodyFile = path.resolve(base, c.file);
+        if (!bodyFile.startsWith(`${base}${path.sep}`)) throw new Error(`${file}: ${c.file} is outside the archive`);
+        const text = fs.readFileSync(bodyFile, 'utf8');
+        const digest = crypto.createHash('sha256').update(text).digest('hex');
+        if (c.sha256 && digest !== c.sha256) {
+          throw new Error(`${bodyFile}: its sha256 ${digest} is not the index's ${c.sha256}`);
+        }
+        found.push({
+          recordedAt: c.at,
+          url: c.url,
+          method: c.method,
+          portal: c.xPortalRequestHeader,
+          language: root ? root[1] : undefined,
+          status: c.status,
+          contentType: c.contentType,
+          body: text,
+        });
+      });
+    });
+    if (!found.length) throw new Error(`${file}: no answerable price call in the index`);
+    data.splice(0, data.length, ...found);
+  }
   const raw = data && data.log && Array.isArray(data.log.entries)
     ? data.log.entries.map((e) => ({
       recordedAt: e.startedDateTime,
@@ -232,9 +280,10 @@ function loadRecordedAnswers(file) {
     if (!at || Number.isNaN(at.getTime())) throw new Error(`${file}: an answer without a recording date`);
     if (at.toISOString().startsWith('2026-10-21')) throw new Error(`${file}: an answer of the 21 October recording`);
     if ((a.method && a.method !== 'GET') || !isAnswerable(a.url, a.portal === undefined ? '' : a.portal)) {
-      throw new Error(`${file}: ${a.url} (portal ${a.portal}) is not the offers page's price call`);
+      throw new Error(`${file}: ${a.url} (portal ${a.portal}) is not an answerable price call`);
     }
     return {
+      path: new URL(a.url).pathname,
       status: Number(a.status) || 200,
       contentType: a.contentType || 'application/json',
       body: typeof a.body === 'string' ? a.body : JSON.stringify(a.body),
@@ -267,7 +316,9 @@ function recordedAnswer(request, answers) {
   }
   if (request.method !== 'GET' || !isAnswerable(request.url, headers['x-portal'] || '')) return null;
   const lang = String(headers['x-portal-language'] || '').toLowerCase();
-  const fitting = answers.filter((a) => !a.language || !lang || a.language === lang);
+  const { pathname } = new URL(request.url);
+  const fitting = answers.filter((a) => (!a.path || a.path === pathname)
+    && (!a.language || !lang || a.language === lang));
   if (!fitting.length) return null;
   const newest = [...fitting].sort((a, b) => b.recordedAt.localeCompare(a.recordedAt))[0];
   return {

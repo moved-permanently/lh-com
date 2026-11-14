@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* Standing order 22 of 2026-11-14, item 2b: the parity render answers one call from a recorded
    file, so Discover's offers page can be gated again. A capture of our pages refuses every airline
    host (standing order 12); the offers grid's price call (www.lufthansa.com's destinationfinder
@@ -74,8 +75,8 @@ test('never the 21 October recording, never an undated answer, never another cal
   assert.throws(() => loadRecordedAnswers(write('old.json', plain({ recordedAt: '2026-10-21T18:26:45.823Z' }))), /21 October/);
   assert.throws(() => loadRecordedAnswers(write('old.har', har('2026-10-21T18:26:45.823Z'))), /21 October/);
   assert.throws(() => loadRecordedAnswers(write('undated.json', plain({ recordedAt: undefined }))), /recording date/);
-  assert.throws(() => loadRecordedAnswers(write('other.json', plain({ url: URL_OK.replace('FRA', 'MUC') }))), /not the offers page's price call/);
-  assert.throws(() => loadRecordedAnswers(write('lh.har', har('2026-11-14T12:31:02Z', 'LH'))), /not the offers page's price call/);
+  assert.throws(() => loadRecordedAnswers(write('other.json', plain({ url: URL_OK.replace('FRA', 'MUC') }))), /not the offers page's price call|not an answerable price call/);
+  assert.throws(() => loadRecordedAnswers(write('lh.har', har('2026-11-14T12:31:02Z', 'LH'))), /not the offers page's price call|not an answerable price call/);
   // the site's own recording folder (the 21 October answers), whatever the file
   const inRepo = path.join(ROOT, 'data/recorded/index.json');
   assert.throws(() => loadRecordedAnswers(inRepo), /data\/recorded/);
@@ -120,4 +121,54 @@ test('an answer of one language never answers another language\'s page', () => {
   const deOnly = loadRecordedAnswers(write('de.har', har2));
   assert.equal(recordedAnswer(req(URL_OK, 'GET', { 'x-portal': 'FOUR_Y', 'x-portal-language': 'en' }), deOnly), null);
   assert.ok(recordedAnswer(req(URL_OK, 'GET', { 'x-portal': 'FOUR_Y', 'x-portal-language': 'de' }), deOnly));
+});
+
+// standing order 25: the Captures child's index of a page load (api/index.json: per page its pageUrl
+// and calls with url, status, at, xPortalRequestHeader, file, sha256): its price calls answer, by
+// the page's language; the other calls of the load (labels, catalogs) are not answered; and
+// lufthansa.com's own grid call (/gb/en/flights: destinationfinder LHR/E under X-Portal LH)
+test('a page-load index: its finder calls answer by page language, its other calls are left alone', async () => {
+  const { createHash } = await import('node:crypto');
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'parity-index-'));
+  fs.mkdirSync(path.join(root, 'api'));
+  const en = JSON.stringify({ destinationFinderOffers: [{ city: 'PMI', cityName: 'Palma de Mallorca' }] });
+  const de = JSON.stringify({ destinationFinderOffers: [{ city: 'MLH', cityName: 'Mülhausen Basel' }] });
+  const labels = JSON.stringify({ 'common.x': 'y' });
+  const put = (name, text) => {
+    fs.writeFileSync(path.join(root, 'api', name), text);
+    return createHash('sha256').update(text).digest('hex');
+  };
+  const call = (url, file, text) => ({
+    url, host: 'www.lufthansa.com', method: 'GET', status: 200, at: '2026-11-14T18:08:15.004Z', contentType: 'application/json', xPortalRequestHeader: 'FOUR_Y', error: null, file: `api/${file}`, sha256: put(file, text),
+  });
+  const index = [
+    { page: 'homepage-de-en', pageUrl: 'https://discover.turnsthe.page/de/en/homepage', calls: [call('https://www.lufthansa.com/service/api/labels/common/four_y/en', 'en-1.json', labels), call(URL_OK, 'en-2.json', en)] },
+    { page: 'offers-de-de', pageUrl: 'https://discover.turnsthe.page/de/de/book/flights/offers', calls: [call(URL_OK, 'de-1.json', de)] },
+  ];
+  const file = path.join(root, 'api', 'index.json');
+  fs.writeFileSync(file, JSON.stringify(index));
+  const answers = loadRecordedAnswers(file);
+  assert.equal(answers.length, 2, 'the finder calls only');
+  const get = (lang) => recordedAnswer(req(URL_OK, 'GET', { 'x-portal': 'FOUR_Y', 'x-portal-language': lang }), answers);
+  assert.match(get('en').body, /Palma de Mallorca/);
+  assert.match(get('de').body, /Mülhausen Basel/);
+  assert.equal(recordedAnswer(req('https://www.lufthansa.com/service/api/labels/common/four_y/en', 'GET', { 'x-portal': 'FOUR_Y', 'x-portal-language': 'en' }), answers), null, 'labels are not answered');
+  // a body that is not the one indexed
+  fs.writeFileSync(path.join(root, 'api', 'de-1.json'), 'tampered');
+  assert.throws(() => loadRecordedAnswers(file), /sha256/);
+});
+
+test('lufthansa.com\'s grid call LHR/E under X-Portal LH answers from its own recording, never from Discover\'s FRA one', () => {
+  const LHR = 'https://www.lufthansa.com/service/api/destinationfinder/destination/finder/LHR/E?months=0_11&tripType=RETURN';
+  const lh = loadRecordedAnswers(write('lhr.json', plain({
+    url: LHR, portal: 'LH', language: 'en', body: { originCityName: 'London' },
+  })));
+  assert.match(recordedAnswer(req(LHR, 'GET', { 'x-portal': 'LH', 'x-portal-language': 'en' }), lh).body, /London/);
+  assert.equal(recordedAnswer(req(LHR, 'GET', { 'x-portal': 'FOUR_Y', 'x-portal-language': 'en' }), lh), null, 'LHR under the Discover portal');
+  assert.equal(recordedAnswer(req(URL_OK, 'GET', { 'x-portal': 'FOUR_Y', 'x-portal-language': 'en' }), lh), null, 'the FRA call is not the LHR answer');
+  const fra = loadRecordedAnswers(write('fra-en.json', plain({ language: 'en' })));
+  assert.equal(recordedAnswer(req(LHR, 'GET', { 'x-portal': 'LH', 'x-portal-language': 'en' }), fra), null, 'the LHR call is not the FRA answer');
+  assert.throws(() => loadRecordedAnswers(write('lhr-4y.json', plain({ url: LHR, portal: 'FOUR_Y' }))), /not the offers page's price call|not an answerable price call/);
+  const preflight = recordedAnswer(req(LHR, 'OPTIONS', { 'access-control-request-headers': 'x-portal' }), lh);
+  assert.equal(preflight.status, 204);
 });
