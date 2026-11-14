@@ -1,0 +1,11 @@
+[
+  {
+    "path": "/de/en/program/experts/on-board/meals-on-board",
+    "inserts": [
+      {
+        "replace": "<div><div>Tabs open</div><div>first</div></div>",
+        "text": ""
+      }
+    ]
+  }
+]

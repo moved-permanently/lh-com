@@ -22,3 +22,10 @@
 # host: business.lufthansagroup.com
 /de/en/program/experts/on-board/meals-on-board
 /ch/en/program/experts/on-board/meals-on-board
+# Standing order 22 (2026-11-14): b2b-parity-010 settled meals-on-board (www opens no tab item on a phone's own first
+# load; our de/en row that opened one is a READY delta now). The same row and question on the Allegris start-of-booking
+# pages: please record 390 as a phone's own first load (fresh 390x844, nothing clicked) and 1440 as usual.
+# host: business.lufthansagroup.com
+/de/en/allegris/corporates-start-of-booking
+/de/de/allegris/corporates-start-of-booking
+/de/en/allegris/intermediaries-start-of-booking
