@@ -28980,9 +28980,9 @@
    "preview": "2026-11-02T15:23:01.147Z"
   },
   "/fr/fr/discover-lufthansa/new-onboard-experience": {
-   "uploaded": "2026-11-08T07:45:26.055Z",
-   "mtime": 1794123276036.8257,
-   "preview": "2026-11-08T07:45:28.705Z"
+   "uploaded": "2026-11-14T12:41:29.566Z",
+   "mtime": 1794660085174.268,
+   "preview": "2026-11-14T12:41:32.645Z"
   },
   "/fr/fr/discover-lufthansa/take-off": {
    "uploaded": "2026-11-02T15:23:06.906Z",
@@ -29010,9 +29010,9 @@
    "preview": "2026-11-14T06:32:41.437Z"
   },
   "/fr/fr/economy-class": {
-   "uploaded": "2026-11-11T04:39:40.009Z",
-   "mtime": 1794371871784.9216,
-   "preview": "2026-11-11T04:39:42.150Z"
+   "uploaded": "2026-11-14T12:41:35.263Z",
+   "mtime": 1794660085523.4966,
+   "preview": "2026-11-14T12:41:37.654Z"
   },
   "/fr/fr/electronic-bag-tags": {
    "uploaded": "2026-11-02T15:23:28.249Z",
@@ -29491,9 +29491,9 @@
    "preview": "2026-11-11T04:35:20.103Z"
   },
   "/fr/fr/premium-economy-class": {
-   "uploaded": "2026-11-11T04:39:49.578Z",
-   "mtime": 1794371871827.2898,
-   "preview": "2026-11-11T04:39:51.856Z"
+   "uploaded": "2026-11-14T12:41:40.154Z",
+   "mtime": 1794660085901.2124,
+   "preview": "2026-11-14T12:41:42.855Z"
   },
   "/fr/fr/prepare-for-your-trip/baggage/baggage-conditions": {
    "uploaded": "2026-11-02T15:29:06.019Z",
@@ -29766,9 +29766,9 @@
    "preview": "2026-11-02T15:32:18.255Z"
   },
   "/fr/fr/tips-senior-travellers": {
-   "uploaded": "2026-11-08T06:35:30.735Z",
-   "mtime": 1794119094965.3928,
-   "preview": "2026-11-08T06:35:33.443Z"
+   "uploaded": "2026-11-14T12:41:45.339Z",
+   "mtime": 1794660086326.3723,
+   "preview": "2026-11-14T12:41:47.983Z"
   },
   "/fr/fr/toutes-les-couleurs-a-bord": {
    "uploaded": "2026-11-03T08:13:31.399Z",
@@ -52285,6 +52285,11 @@
    "uploaded": "2026-11-14T01:08:47.810Z",
    "mtime": 1794618147963.6262,
    "preview": "2026-11-14T01:08:50.428Z"
+  },
+  "/fr/fr/prepare-for-your-trip/travel-classes/business-class": {
+   "uploaded": "2026-11-14T12:43:38.569Z",
+   "mtime": 1794660215367.0417,
+   "preview": "2026-11-14T12:43:41.060Z"
   }
  },
  "media": {
