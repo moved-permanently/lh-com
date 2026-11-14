@@ -4116,3 +4116,21 @@ running then was measured again.
    the row for it, its Columns Media without padded, is 1440 12.19 -> 7.85 but 390 5.45 -> 8.55); the form titles stay
    held (special-needs' card is now its row; betreuungsbedarf de/de, at/de 390 still uncover -14 px among the checkbox
    groups, not a row's place).
+
+## Standing order 20, final section (08:50 UTC, 2026-11-14)
+
+- Item 1: Group for Business 5 READY rows (lufthansa-group-airlines de/de, de/en; the German businesstogo pages with
+  the plain-form rule, 09e57746; program/experts from row 9) and the rest explained (b2b-so20-ema-test-rows.txt).
+- Item 2: 17 lufthansa.com pages READY (16 page rows in delta-so20-lh-com-pages.txt, boeing787 with the fleet pair,
+  b302661c), 19 held by the gate with their reasons in the same list.
+- Item 3: both held pairs stay held (their remaining drift is not a row's to take away).
+- special-needs' published form: the same rows in the same order as before, plus the untitled step.
+- Before this section: the tests that read the themes folder 997 pass (1 skipped); the full suite on 4734ef89 1085
+  files pass, lint and stylelint 0; Build success on b302661c and 09e57746.
+- Nothing uploaded, previewed or published; DA read only (the pages of the rows); da-upload.mjs not run; requests
+  only to our own hosts, DA, R2 (the drops) and GitHub's API. .migration/project.json not touched; /de/en/overview-manage
+  has no row; Discover's offers page still with the owner.
+- Not in git and why: logs/p4/so20 (scratch: the folder render scripts, the gate folders, the published and DA copies
+  as read, the trial edits), our captures under logs/p4/so6/cap, the recordings in /tmp/x-* (the drops' private
+  material), logs/p4/so19 and earlier (scratch), content/, migration-work/, tools/importer/reports/* (not mine). My
+  preview servers are stopped and the trial worktrees removed.
