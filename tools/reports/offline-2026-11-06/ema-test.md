@@ -4450,3 +4450,63 @@ State at the start: nothing of mine uncommitted or unpushed (order 24's final se
 - Not in git and why: logs/p4/so23 and logs/p4/so20 (scratch: captures, gate folders, crops, DA copies as read,
   trial edits), our captures under logs/p4/so6/cap, the drops in /tmp/x-* and /tmp/dl-* (private material),
   content/, migration-work/, tools/importer/reports/* (not mine). Preview servers stopped, trial worktrees removed.
+
+## Standing order 26 (received about 21:10 UTC, 2026-11-14)
+
+State at the start: nothing of mine uncommitted or unpushed (order 25's final section on main, Build success).
+
+1. **/gb/en/flights with lufthansa-api-001** (sha256 as given; LHR/E, X-Portal LH, 319 offers, none a top deal). With the
+   answer our order and prices were already www's; what differed was code. www's lufthansa.com grid is Discover's
+   component: the sort opens with "Best price" when no highlight is a top deal, the k-class highlights carry "Best
+   price", every card has "Compare cities", and on phones the smart search sits over the origin with "Filters" and the
+   sort on one row. 38c55335 (tests first): lufthansa.com takes Discover's badges, sorts and Compare cities
+   (openingGridSort), the phone toolbar and www's card spacing (rows 395 px apart at 1440, 334 on phones, as www's).
+   Two styles.css causes the gate uncovered: a market-only first section had 24 px over it (/de/de/fluege), and
+   German flights pages had brief 500's padding over the finder's title, which only www's English pages have.
+   gate.mjs over 8 page-widths (gb/en answered; de/de, at/de, de/en without an answer): 4 better, 4 within. gb/en
+   1440 42.32 → 31.26, 390 51.13 → 29.37. No row helps (delta-so26-lh-com-flights.txt).
+   - **Correction, e1176d0e:** that market-section rule reached every brand (160 served documents open with a market
+     section; ema-cashub's Austrian sweep found /at/en/sustainable-flying 24 px further from www). It is now
+     body.brand-lufthansa only, where it was gated; /de/de/fluege still opens at 144 px.
+2. **Discover's homepage fare teaser** already takes its prices from the finder answer the page asks for in the
+   visitor's browser (destinationfinder FRA/E, X-Portal FOUR_Y, the grid's own call), behind live-prices. The drop
+   shows that call answered 200 twice per homepage load (the teaser's and the slider's). The lh-proxy call (502) is
+   fareteaser/recommend, the origin list: no price, and it keeps its recording. My order-25 note was wrong. No code
+   change; aeedd167 pins it with a test that answers from the recording only: 287 / 703 / 765 €, one finder call, no
+   price through lh-proxy, nothing sent with live-prices off.
+   - The homepages' real gap was spacing: www's section titles are heading-small and sit further apart.
+     delta-so26-discover-homepages.txt READY (40b80f7a; DA --check clean): {heading-small} on three titles,
+     {spacer-1 from-768} before the teaser's title, de/en {spacer-28} before the finder, {spacer-61} before the last
+     title. gate.mjs 4 of 4 better: de/en 1440 39.57 → 23.98, 390 21.94 → 18.00; de/de 1440 38.63 → 28.00, 390
+     22.35 → 17.67. Ben published them during the night (f53d4b2a); the live pages measure the same (de/en 24.98 / 18.37,
+     de/de 28.15 / 18.08; heights within 3 px).
+3. **lufthansa.com's other offers grids**: 33 published pages have a Destination Finder (grid) block without an authored
+   origin. All draw no prices in our renders except /gb/en/flights. capture-requests-ema-test.txt (0f65e128) asks for one
+   load of our page each: de/en, de/de and at/de first (they have www recordings), then the 29 others, with the call
+   each should make (origin, site, language). Those 29 have no www recording yet, so they need one too to be gated. When
+   the answers come, each new call needs its line in tools/parity's ANSWERABLE_CALLS, as LHR did.
+
+Tried and not shipped (the gate failed or the gain was not reliable):
+- www's phone toolbar on Discover's offers grid: de/en 390 56.62 → 51.90, but de/de 47.08 → 51.04 ("compensation
+  removed"). The old 100 px offset at the top had hidden German cards that run 1.5 px a row short of www's ("Hin- und
+  Rückflug ab" on two lines; a German-only label line-height brings the rows to 382 px but the gate still fails).
+- Discover's homepage headings as a theme default (heading-small for 'home'): worse alone (the space above the titles
+  is part of it), and style-markers.js deploys lh-edge; done as rows instead (above).
+- www's column widths on lufthansa.com's grid at 1440 (filters 281 px, cards 228): the columns line up exactly, but the
+  score went 31.10 → 30.48 / 32.10 depending on one pixel of the card's height; the day's prices and photos dominate.
+
+## Standing order 26, final section (about 00:00 UTC, 2026-11-15)
+
+- Items 1-3 done: lufthansa.com's grid gated on /gb/en/flights and shipped (38c55335, its market-section rule scoped
+  in e1176d0e); the fare teaser already priced from the finder answer (aeedd167, a test); capture requests for the
+  other 32 grids (0f65e128). Discover's homepages READY and published by Ben (40b80f7a, measured live).
+- I close about three hours early: what remains needs the requested answers and www recordings.
+- Before this section: the full suite on f53d4b2a (npm run lint 0, stylelint 0, 1,134 of 1,134 test files) and the
+  327 folder-reading tests with brand.test.mjs; the whole-repo lint read before every push, in the clean worktree.
+- Nothing uploaded, previewed or published by me; DA read only (the two homepages); da-upload.mjs not run; requests
+  only to our own hosts, DA, GitHub's API and the drop already on disk (airline hosts refused in my browsers, the
+  finder calls answered from the recordings). .migration/project.json not touched; the excluded manage page has no
+  row and no line.
+- Not in git and why: logs/p4/so23 (scratch: captures, gate folders, crops, DA copies as read, trial edits and
+  scripts), the drops in /tmp/x-* (private material), content/, migration-work/, tools/importer/reports/* (not
+  mine). Preview servers stopped, trial worktrees removed.
