@@ -1,0 +1,74 @@
+[
+  {
+    "path": "/de/en/articles/explore-the-world/picture-perfect-austin",
+    "inserts": [
+      {
+        "before": "<p>{divider-25}</p><div class=\"columns-media\">",
+        "text": "<p>{spacer-16 from-768}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/articles/explore-the-world/be-picky-barcelona-insider-tips",
+    "inserts": [
+      {
+        "before": "<p>{divider-25}</p><div class=\"columns-media\">",
+        "text": "<p>{spacer-16 from-768}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/articles/explore-the-world/what-i-learned-living-in-barcelona",
+    "inserts": [
+      {
+        "before": "<p>{divider-25}</p><div class=\"columns-media\">",
+        "text": "<p>{spacer-16 from-768}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips",
+    "inserts": [
+      {
+        "before": "<p>{divider-25}</p><div class=\"columns-media\">",
+        "text": "<p>{spacer-16 from-768}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/articles/explore-the-world/in-my-hood-district-zurich",
+    "inserts": [
+      {
+        "before": "<p>{divider-25}</p><div class=\"columns-media\">",
+        "text": "<p>{spacer-16 from-768}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/articles/explore-the-world/essentials-frankfurt-facts",
+    "inserts": [
+      {
+        "before": "<p>{divider-25}</p><div class=\"columns-media\">",
+        "text": "<p>{spacer-16 from-768}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/articles/explore-the-world/what-i-learned-living-in-frankfurt",
+    "inserts": [
+      {
+        "before": "<p>{divider-25}</p><div class=\"columns-media\">",
+        "text": "<p>{spacer-16 from-768}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich",
+    "inserts": [
+      {
+        "before": "<p>{divider-25}</p><div class=\"columns-media\">",
+        "text": "<p>{spacer-16 from-768}</p>"
+      }
+    ]
+  }
+]
