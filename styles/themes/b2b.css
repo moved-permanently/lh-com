@@ -991,3 +991,27 @@ body.brand-b2b .form.core .form-field-textarea > textarea.form-control {
     margin-bottom: 88px;
   }
 }
+
+/* a link-only list marked "{links-responsive}" as www's .link-list .responsive: no bullets, the
+   links side by side at every width (2rem apart, regular weight), and no separator after it at its
+   section's end (www's band 63px under the row). travel-management (standing order 21): 1440
+   34.73 -> 12.90 %, 390 42.76 -> 21.76 % with its row; no other B2B document has the marker */
+body.brand-b2b main ul.links-responsive {
+  padding: 0;
+  list-style: none;
+}
+
+body.brand-b2b main ul.links-responsive > li {
+  display: inline-flex;
+  margin: 0 20px 0 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- a list item's link, not a paragraph's */
+body.brand-b2b main ul.links-responsive > li > a:any-link {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+body.brand-b2b main .default-content-wrapper > ul.links-responsive + p.spacer:last-child {
+  display: none;
+}

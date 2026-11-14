@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/travel-management",
+  "inserts": [
+   {
+    "after": "Travel information Eurowings</a>",
+    "text": " {links-responsive}"
+   }
+  ]
+ }
+]
