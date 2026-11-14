@@ -1,0 +1,15 @@
+[
+ {
+  "path": "/de/en/program",
+  "inserts": [
+   {
+    "replace": "<div>wide-text, space-below-m</div>",
+    "text": "<div>wide-text</div>"
+   },
+   {
+    "replace": "<div class=\"spacer\"><div><div></div></div></div><div class=\"metadata\">",
+    "text": "<div class=\"metadata\">"
+   }
+  ]
+ }
+]

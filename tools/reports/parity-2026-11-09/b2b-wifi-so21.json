@@ -1,0 +1,23 @@
+[
+ {
+  "path": "/de/en/travel-solutions/lufthansa-group-wifi",
+  "inserts": [
+   {
+    "after": "<h3 id=\"headphones-are-essential\">Headphones are essential",
+    "text": " {heading-copytext-large}"
+   },
+   {
+    "after": "<h3 id=\"no-calls-during-the-flight\">No calls during the flight",
+    "text": " {heading-copytext-large}"
+   },
+   {
+    "after": "<h3 id=\"no-broadcasting\">No broadcasting",
+    "text": " {heading-copytext-large}"
+   },
+   {
+    "after": "<h3 id=\"thanks-for-your-cooperation\">Thanks for your cooperation",
+    "text": " {heading-copytext-large}"
+   }
+  ]
+ }
+]
