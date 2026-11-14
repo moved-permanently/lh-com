@@ -4196,3 +4196,59 @@ row. Every gate below is tools/parity/gate.mjs (% off www, base -> trial).
 - Left out of git:
   - logs/b614: captures, trial stylesheets, census scripts, dry runs, DA reads;
   - the untracked import reports of earlier runs.
+
+### Standing order 23 (2026-11-14 13:25 to 18:00 CET)
+
+No uploads, previews or publishes; DA not read this order; no request to an airline host (the two archives from
+r2.dev, sha256 checked; captures with the airline hosts aborted). `.migration/project.json` untouched. Order 22 left
+nothing unpushed. Each push: whole-repo lint read 0 on a clean worktree of the rebased HEAD, stylelint 0 on the changed
+block and theme files, the tests reading the changed files passed; the full suite (logs/b200/suites.sh) on the final
+code: 49fe7aa, 71 lh-edge files and 1,100 site files, 0 failing. No change deploys lh-edge. /de/en/overview-manage: no row.
+
+1. **Business-class** (da0796e). lh-snapshots-116 gives fr/fr's redirect to the travel-classes path; lh-snapshots-117
+   gives the eleven xx versions' page there (the old path is a 404 on www).
+   - move-so23-business-class-lh-com.txt: 123 READY rows (12 moves, 12 redirects, 99 link rows; five absolute www links
+     in xx/es written relative). It replaces move-so15's 12 HOLD rows.
+   - The market roots answered from a version follow it (lh-edge markets.js); smoke /pl/pl/business-class after the
+     publish.
+   - Our xx pages against 117: 22 to 59 % at 1440 / 390. The headings match www's (all 19); the page has no earlier
+     recording, and the drift is many 16-64 px steps over 10,000 px: ranking work.
+   - xx/es and fr/fr have the older stage (option narrow, no text or button). reimport-so23-business-class-lh-com.txt:
+     xx/es READY from 117, fr/fr HOLD (not recorded).
+2. **giftvoucher: HOLD with the cause narrowed down** (reimport-so23-giftvoucher-de-lh-com.txt).
+   - The carousel-cards parser already keeps .teaser-link-text for cards marked data-import-cta.
+   - Keeping it on every lufthansa.com card would be wrong. www's CSS hides it (.teaser .teaser-link-text
+     { display: none }), and same-structure cards show none: lufthansa-travel-classes 11-06, fleet 351 today. 399 local
+     cards carry one.
+   - giftvoucher's recorded lines sit under the card boxes, with one icon per link type, as www draws its
+     navigation-link component.
+   - The list asks the harness what draws them in lh-snapshots-083; that answer decides the importer rule.
+3. **The card-row gap on phones: HOLD.**
+   - The third condition (the next row starts with a picture) fails: it is exactly the loungenet tiles (+6.8).
+   - Splitting by shape found the better and the worse pages. Plain blocks after a row with a text cell and no
+     picture-only cell (variant 5), on 24 page-widths: 6 better (business-class-on-short-and-medium-haul 19.5 -> 7.3,
+     menus-travel-classes 12.0 -> 4.0), 16 the same, 2 worse by compensation removed:
+     - online-check-in-info: www has 24 px more at the page end;
+     - report-baggage: a form page whose drift above cancelled it.
+   - Adding 24 px under the last row as well (variant 6) is wrong: it makes lhg-wifi worse and trims the gains. Ready to
+     ship once those two drifts are fixed.
+4. **Further down the ranking.** ema-test's lists on main hold none of these pages. The fresh 116 recordings ranked at
+   390: entryprocesses 24.8, premium-economy-class 20.2, fleet 351 16.2, the sensory-impairment pages 13.5.
+   - Fixed:
+     - option nested-2 on phones stacks its pictures at full width, as www's col-md-6 view (d99c35d): the
+       passengers-with-sensory-impairment badges, 13.5 -> 8.6 at 390 (at/de, de/de, gb/en), the pages as tall as
+       www's; census 17 documents.
+     - a lufthansa.com card stage on phones stays 810 px and lets a taller card overflow it, as www's (49fe7aa):
+       premium-economy-class de/de, at/de 20.2 -> 12.9; the fitting card stages are the same.
+   - For the owner: entryprocesses 24.8 -> 4.2 at 390 if lufthansa.com headings keep their words whole on phones, as
+     www's (no hyphenation, no breaking).
+     - www's "Reisebestimmungen" runs 4 px into the page margin.
+     - But about 150 lufthansa.com titles hold a Latin word of 19 or more letters (Einreisebestimmungen,
+       Beförderungsbedingungen), wider than a 390 screen at 36 px. Kept whole, those pages would scroll sideways, which
+       the rule of 2026-11-01 prevents. Not shipped; the trade-off is yours.
+- Left out of git:
+  - /tmp/so23: the two archives and their extraction;
+  - logs/b615: captures, trial stylesheets, census scripts and results;
+  - the untracked import reports of earlier runs.
+- Live after the pushes, as measured before them: premium-economy-class de/de 12.9 and passengers-with-sensory-impairment
+  de/de 8.6 at 390.
