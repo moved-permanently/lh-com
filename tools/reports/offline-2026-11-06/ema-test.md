@@ -4228,3 +4228,49 @@ State at the start: nothing of mine uncommitted or unpushed (order 20's final se
   as read, trial edits, the boundary finders), our captures under logs/p4/so6/cap, the recordings and font drops in
   /tmp/x-* (the drops' private material), content/, migration-work/, tools/importer/reports/* (not mine). My preview
   servers are stopped and the two trial worktrees removed.
+
+## Standing order 22 (received about 12:25 UTC, 2026-11-14)
+
+State at the start: nothing of mine uncommitted or unpushed (order 21's final section on main, Build success). The
+four drops fetched into their own folders, every sha256 as given (b2b-parity-010, b2b-parity-009,
+discover-parity-003, discover-snapshots-004); their serve.py not run.
+
+1. **Recordings for the held rows.**
+   - meals-on-board (b2b-parity-010, each width its own first load): on a phone www opens no tab item. de/en's page
+     Metadata row "Tabs open | first" opened the first panel there; delta-so22-b2b-meals-on-board.txt takes it out:
+     390 26.74 -> 15.72 (3,830 -> 1,329 px, www 1,405), 1440 unchanged. ch/en and xx/en never had it; their 76 px
+     left at 390 are the tab set 20 px lower under the intro (ours is 22 px lower at 1440, so no spacer for both)
+     and www's eighth panel without a name (an empty row): explained. Capture request for the Allegris
+     start-of-booking pages, which carry the same row.
+   - businesstogo (b2b-parity-009): a phone's first load opens no item on www either, as our default; 7,264 / 6,725
+     px against 7,283 / 6,685. Nothing to change (b2b-so20-ema-test-rows.txt).
+   - Discover (discover-parity-003, with pictures): excess-baggage's teaser row is not its pictures but www's
+     separator after the accordions and a heading-small headline; delta-so22-discover-pages.txt ({spacer-0 from-768},
+     {divider-40}, {heading-small}, {spacer-35}): 1440 33.40 -> 8.87, 390 36.03 -> 23.34. business-class held:
+     steps that cancel across its striped table.
+   - The settled offers page (discover-snapshots-004) waits for item 2b's recorded answer.
+2. **Discover's offers page.**
+   a. When the price call fails the grid said "For this selected origin we do not offer any destinations". On a
+      brand with its own offers page (Discover) it now says the offers cannot be shown right now and links to
+      www.discover-airlines.com/{cc}/{ll}/book/flights/offers, the page's query kept (2b8675e9, test first:
+      test/finder-grid-offers-unavailable-so22.test.mjs). An answer without offers, lufthansa.com and the other
+      brands as before; reading the public prices unchanged. Seen in a real browser with the airline hosts refused.
+   b. tools/parity/capture.js answers that one call (www.lufthansa.com destinationfinder FRA/E, 0_11, RETURN,
+      X-Portal FOUR_Y) and its preflight from PARITY_ANSWERS=<file> (a plain file or a HAR); every other airline
+      request stays refused; a file under data/recorded/, an answer of 2026-10-21, an undated one or another call
+      are refused (4da19b89, test first: test/parity-recorded-answer-so22.test.mjs). Checked end to end with a
+      dated fixture (3 tiles, preflight passed). The offers page is gated once the Captures child's archive is here.
+3. **lufthansa.com and B2B widths.**
+   - rows-for-ema-test.md row 10: www's joint-venture texts are .richtext.limited-width; the existing
+     {limited-width} marker on the four (delta-so22-b2b-joint-ventures.txt): 1440 22.11 -> 11.59, 390 unchanged; no
+     B2B CSS. Census of the 80 recorded B2B pages: 5 have limited-width texts, the others are hygiene-and-safety's
+     intro (default text, already two thirds wide).
+   - take-off (ema-adobe's and every other list read on main first): its cards without the option spacious (www's
+     rows 600 px apart, ours 616) and a {spacer-15} under the stage picture (delta-so22-lh-com-take-off.txt): 1440
+     19.62 -> 4.54, 390 15.05 -> 6.28. munich-fair tried as a two-cell Columns Media (1440 12.84 -> 2.99) but worse at
+     390 (gate: compensation removed): held; five more held with reasons (delta-so22-lh-com-pages.txt).
+   - Found on the way: B2B's ch/en and xx pages showed "DE | EN" / "DE | DE" on the footer's market button (they use
+     the de footers); www names the page's root. footer.js now does on B2B (6e0835f6, test first:
+     test/b2b-footer-market-label-so22.test.mjs; local render: CH | EN, XX | DE, DE | EN).
+   - The owner published meals-on-board, the joint ventures, excess-baggage and take-off; on the hosts with the fonts
+     each measures as its folder trial.
