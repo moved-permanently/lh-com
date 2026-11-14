@@ -4331,9 +4331,14 @@ State at the start: nothing of mine uncommitted or unpushed (order 22's final se
    from 768 px and 5 px shorter on phones (Discover only): de/en 1440 63,569 -> 60,609 px (www 60,839), 390
    109,970 -> 108,490 (108,366); gate.mjs better at both widths. de/de is held: the recording is a de/en load
    (English names); the tools now answer a page only with its own language's recording (d9db6629), and a
-   German answer is requested.
+   German answer is requested. capture.js settles the grid itself now (PARITY_SETTLE_GRID, test first): on the host
+   with the recorded answer 591 tiles, 60,609 px at 1440 (the cards' fix live).
+   - Discover's homepage (finish-discover rows 8-9) with the recorded finder answer: still -162 px at 1440; its fare
+     teaser's offers (lhg-fare-teaser, through our proxy) have no recording: requested.
 3. **lufthansa.com**: ema-adobe's areas left alone (phone titles, giftvoucher, card-row gaps, xx business-class).
    feedback-past-flight's form traced (www's cards 10 px tighter, its repeat titles 20 px further above their
    fields), but as a core form rule it made 9 of the other 14 recorded form page-widths worse (the titles alone 13
    of 16): no rule, held. The next pages down the ranking (new-onboard-experience, travel classes, food and
    beverages, miles-and-more) have no step of 15 px or more left: their mismatch is drawn content.
+   - The flag's no-row sites: lh-cargo's and lh-airdolomiti's importers emit no price widget, and no lh-tap or
+     lh-flynet page has one, so no page there changes.

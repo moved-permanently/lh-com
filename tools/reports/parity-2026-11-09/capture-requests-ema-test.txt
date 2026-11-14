@@ -35,3 +35,11 @@
 # (destinationfinder FRA/E, 0_11, RETURN, X-Portal FOUR_Y), as for -005.
 # host: discover.turnsthe.page (our page; the answer from www.lufthansa.com as the page asks for it)
 /de/de/book/flights/offers
+# Standing order 23 (2026-11-14): Discover's homepages (finish-discover.txt rows 8-9, -150 / -162 px at 1440 "live
+# data"). With discover-snapshots-005's finder answer the homepage still measures -162: its fare teaser ("Economy
+# Class Offers") asks www's lhg-fare-teaser/fareteaser/offers/FRA (through our proxy), which has no recording. Please
+# record, from one load each of our own pages, every /service/api price answer the page asks for (the fare teaser's
+# offers and the finder's destinationfinder call), as for -005:
+# host: discover.turnsthe.page
+/de/en/homepage
+/de/de/homepage
