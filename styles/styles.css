@@ -1311,11 +1311,13 @@ body.brand-lufthansa main > .section.grey.column-band:has(+ .section > .default-
   margin-bottom: 0;
 }
 
-/* a grey band inside a column view (style in-column) whose column ends in the next section ("{column-end}" first):
-   www has the column's padding there, inside the view, not our section gap as well (standing order 21,
-   /de/en/lufthansa-express-bus: "Book Lufthansa Express Bus" 50px lower than www's; 14.5 / 10.1 -> 12.9 / 9.2 % at
-   390 / 1440). Census of the published copies: express-bus's 4 documents */
-body.brand-lufthansa main > .section.grey.in-column:has(+ .section > .default-content-wrapper:first-child > p.column-end:first-child) {
+/* a grey band inside a column view whose column ends in the next section ("{column-end}" or
+   "{column-end-outer}" first): www has the column's padding there, inside the view, not our section
+   gap as well. Standing order 21, /de/en/lufthansa-express-bus (style in-column): "Book Lufthansa
+   Express Bus" 50px lower than www's, 14.5 / 10.1 -> 12.9 / 9.2 % at 390 / 1440; standing order 22,
+   menus-on-long-haul-flights (an outer column): 18.3 / 11.0 -> 15.3 / 4.5. Census of the published
+   copies: 21 documents (those two pages and doctor-on-board-news) */
+body.brand-lufthansa main > .section.grey:has(+ .section > .default-content-wrapper:first-child > p.column-mark:is(.column-end, .column-end-outer):first-child) {
   margin-bottom: 0;
 }
 
