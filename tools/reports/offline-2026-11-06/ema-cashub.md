@@ -5384,3 +5384,19 @@ flight search widget, the resized recording.
   electronic-devices-and-batteries (three languages) have a plain intro. It is the author's choice, not the layout. Reverted
   in `0b45b1ac` (on main from about 08:20 to 08:45 CET; the four pages measured back at their baseline), the pages get DA rows instead.
 - **Lesson:** a rule checked only on the recorded documents needs a site-wide reach check before it ships.
+
+**On the way: equal table columns, shipped `b77ae6db`.**
+- **What www does:** every recorded Austrian maui-table carries equalcolumns. At 1440 it renders as `.equalColumns`
+  (table-layout: fixed); at 390 www drops the class and the columns follow their content. All 58 tables in the on-disk www
+  snapshots carry the attribute too.
+- **Correction to order 570's comment:** "no rendered table has equalcolumns" held only for the 390 renders.
+- **The rule:** from 1025 px a row of 2 to 6 cells shares the width equally, as ITA's row 37, each cell still 200 px at least.
+  It moves 1 of the 242 page-widths: accessible-travel 1440, -0.25 -> -0.06 %. Live as measured.
+- **The 24 px rule stays HOLD:** even with equal columns, accessible-travel gets further with it (-1.31 % at 1440).
+
+**The helper's 08:59 commit (`734a59b8`):**
+- The four intro rows are live as drafted: fly-with-austrian en 4,387 / 8,425, de 4,503 / 8,888, sustainable-flying
+  4,252 / 5,929, accessible-travel +6 / +15 px.
+- doctor-on-board and bearbeitungsgebuehren are recorded as uploaded and previewed, but aem.page, aem.live and turnsthe.page
+  still serve the old copies. DA's source of bearbeitungsgebuehren (one GET) has neither the column-start nor the intro mark.
+  Both rows are still READY as written.
