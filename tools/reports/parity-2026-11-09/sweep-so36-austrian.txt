@@ -1,0 +1,20 @@
+# ema-cashub, standing order 36 (2026-11-15): every recorded Austrian page-width (242) as served at ~07:35 CET (the link
+#   line census's first measurement in each load: consent stored, every picture loaded, airline hosts and lh-proxy refused,
+#   none sent), against order 35's sweep (sweep-so35-austrian.txt, its "now" column), and with this order's link line rule
+#   (f56facea) toggled in the same load. Only the page-widths that moved are listed; the other 233 measure as in order 35.
+#   Every move is a row you uploaded since order 35, each as drafted: healthy-travel and os401crewstory (their link lines
+#   and above-the-cards rows, published 06:24 CET), travel-id's phone spacer, ge/en and pt/en's empty band (07:15 CET).
+#   healthy-travel and os401crewstory were measured again at 08:30 CET as you asked, their served HTML carrying the marks:
+#   os401crewstory 7,698 / 9,953 and healthy-travel 6,617 px at 1440, as here; healthy-travel 390 8,813 with f56facea live,
+#   this list's "with the rule" figure.
+# 242 page-widths; within 2 %: order 35 178, this morning 180, with the rule 180; refused 2301 (none sent)
+# path	width	www	order 35	this morning	with the rule
+/at/de/local-page/feels-like-flying/os401crewstory	1440	7686	7689 (+0.04 %)	7698 (+0.16 %)	7698 (+0.16 %)
+/at/de/local-page/feels-like-flying/os401crewstory	390	9982	9813 (-1.69 %)	9953 (-0.29 %)	9953 (-0.29 %)
+/at/en/healthy-travel	1440	6614	6640 (+0.39 %)	6617 (+0.05 %)	6617 (+0.05 %)
+/at/en/healthy-travel	390	8822	8860 (+0.43 %)	8837 (+0.17 %)	8813 (-0.10 %)
+/at/en/travel-id	390	6190	6062 (-2.07 %)	6091 (-1.60 %)	6091 (-1.60 %)
+/ge/en/homepage	1440	4663	3930 (-15.72 %)	3987 (-14.50 %)	3987 (-14.50 %)
+/ge/en/homepage	390	5688	5108 (-10.20 %)	5241 (-7.86 %)	5241 (-7.86 %)
+/pt/en/homepage	1440	4663	4579 (-1.80 %)	4636 (-0.58 %)	4636 (-0.58 %)
+/pt/en/homepage	390	5688	5529 (-2.80 %)	5662 (-0.46 %)	5662 (-0.46 %)

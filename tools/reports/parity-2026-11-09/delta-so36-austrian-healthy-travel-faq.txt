@@ -1,0 +1,36 @@
+# ema-cashub, standing order 36 (2026-11-15), item 2: /at/en/healthy-travel at 390, the 46 px in the last FAQ block
+# ("FAQs about flying and health" to the card band's heading "This may also interest you").
+# www: austrian-parity-015 (its 390 is the 1440 load resized; the arrow geometry below is the same at both widths).
+# Ours: as served with order 35's rows live (published 06:24 CET). The served page carries them: 2 {spacer-20}, no
+#   "Space M", last-modified 05:19:39 GMT, checked before every measurement. Consent stored, every picture loaded,
+#   airline hosts and lh-proxy refused (1 refusal a render, none sent). Gate figure: the band's heading (the band-end gate)
+#   and the page.
+#
+# The block, top to bottom at 390 (www from its PNG and boxes, ours from the render):
+#   heading -> accordion item: www 85, ours 90 (+5); the item: 109 / 110 (+1)
+#   item -> link line: www ~22, ours 65 (+43): our accordion is the spaced variant (40 px under it, lh-com's
+#     maui-collapsible margin) and the link's own section gap
+#   the link line "Further questions about flying and health": www one line, ours two (+24). www's maui-navigation-link
+#     draws a 12 px arrow ink with the text 21 px after the ink's start (x 24 / 45 at 390, 90 / 111 at 1440); ours 28
+#     (24 / 52, 90 / 118): our arrow is 19 px with 10 px to the text, www's a 16 px icon with 7 px (its .standalone
+#     column-gap). At 390 that leaves the text 317 px instead of www's 324, and this link needs 320.
+#   link -> divider: www ~55, ours 48 (-7); divider -> heading: www 63, ours 58 (-5)
+#   total: www 358, ours 419 (+61); -16 px above the block, so +45 at the heading (order 35: +46).
+#
+# The rule (f56facea, Austrian only): the link line's arrow as www's, a 16 px icon 7 px from its text. Every recorded
+#   Austrian page-width toggled (242): only this one moves. Austrian's 932 served documents with a link line of 34 to 60
+#   characters at 390: 33 documents each lose one line per changed link (39 lines), none gets taller (census-so36-austrian-link-lines.tsv;
+#   the arrow only gets narrower, so no line gets wider). Gate as a code override (the commit in a clean worktree, control = live):
+#
+# status	path	width	www page	ours	with the rule	www heading	ours	with the rule
+READY	/at/en/healthy-travel	390	8822	8837 (+0.17 %)	8813 (-0.10 %)	7069	7114 (+45)	7090 (+21)
+READY	/at/en/healthy-travel	1440	6614	6617 (+0.05 %)	6617 (+0.05 %)	5172	5179 (+7)	5179 (+7)
+#
+# What is left (+21 at 390): the gap above the link (+43) against small gaps below it. At 1440 the same gaps cancel (+7):
+#   www has 31 above the link and 78 below it, ours 65 and 48. A document row dropping the accordion's "spaced" option
+#   gives -40 at both widths: 390 +21 -> -19, but 1440 +7 -> -33, so no row. It would also be the only recorded instance
+#   (travel-id's accordion before a link line is not spaced), so no rule from one page either.
+# No document change. The rule ships with the code.
+# After 08:30 CET (measured at 08:30), as you asked: the served page carries order 35's marks (2 {spacer-20}, no "Space M",
+#   last-modified 05:19:39 GMT) and f56facea is live. Measured as served: 1440 6,617 px (+0.05 %, heading 5,179),
+#   390 8,813 px (-0.10 %, heading 7,090: +21): the gate figures to the px.

@@ -1,0 +1,44 @@
+# ema-cashub, standing order 36 (2026-11-15), item 2: the reach of Austrian's link line arrow rule (f56facea: a 16 px icon,
+#   7 px to the text, www's maui-navigation-link). In-page toggle (so35's method): each document as served, loaded once at
+#   390 px (consent stored, every picture loaded, airline hosts and lh-proxy refused: 682 refusals in 932 renders, none
+#   sent), its height and every link line measured, the rule added as a style tag, measured again, removed.
+#   Documents: the 932 of Austrian's 2,399 served documents with a link line of 34 to 60 characters (shorter ones fit on
+#   one line either way at 390; longer ones, which wrap either way, were not rendered; ~07:40-08:05 CET). Checked against a real code override on /es/es/green-fare: 8,902 -> 8,878 both ways.
+#   Recorded page-widths: all 242 (121 pages, 1440 and 390) toggled the same way, 120 of them with link lines: only
+#   /at/en/healthy-travel 390 moves (8,837 -> 8,813; www 8,822: +0.17 -> -0.10 %, closer). Nothing moves at 1440.
+#   The five /pl/pl pages at 392 / 393 px are as wide without the rule (measured with it removed): not this rule's.
+# rendered 932 of 932; link lines 2050; documents that move 33 (lines one shorter 39); taller: 0; wider than 390 (without the rule): 5
+# path	link lines	changed	height	with the rule	delta
+/at/de/accessible-travel	12	1 [48->24]	20567	20543	-24
+/at/de/datenschutzhinweis-chatbot	11	1 [72->48]	15053	15029	-24
+/at/de/legal/conditions-of-carriage	2	1 [72->48]	4473	4449	-24
+/at/en/datenschutz	15	1 [96->72]	26624	26600	-24
+/at/en/healthy-travel	10	1 [48->24]	8837	8813	-24
+/es/es/check-in-deadlines	1	1 [48->24]	3460	3436	-24
+/es/es/excess-baggage	3	1 [72->48]	5584	5560	-24
+/es/es/green-fare	3	1 [48->24]	8902	8878	-24
+/es/es/healthy-travel	10	1 [72->48]	10481	10457	-24
+/es/es/star-alliance-biometrics	3	1 [48->24]	8453	8429	-24
+/fr/fr/legal/terms-and-conditions	9	3 [72->48 72->48 72->48]	3669	3597	-72
+/fr/fr/lhg-staralliance-partner	15	1 [48->24]	13155	13131	-24
+/ge/en/datenschutzhinweis-chatbot	12	1 [72->48]	13579	13555	-24
+/gr/el/accessible-travel	12	1 [72->48]	23206	23182	-24
+/gr/el/contact-form-booking-confirmation	1	1 [72->48]	5010	4986	-24
+/gr/el/data-protection-rights	1	1 [72->48]	7080	7056	-24
+/gr/el/datenschutz	15	4 [96->72 72->48 72->48 72->48]	36475	36379	-96
+/gr/el/electronic-devices-and-batteries	4	1 [48->24]	9801	9777	-24
+/gr/el/imprint	6	1 [120->96]	5217	5193	-24
+/it/it/datenschutz	15	1 [72->48]	29134	29110	-24
+/pl/pl/agb-upgrade-gegen-festpreis	1	1 [48->24]	4136	4112	-24
+/pl/pl/data-protection-chatbot	8	1 [48->24]	14854	14830	-24
+/pl/pl/datenschutz	15	1 [48->24]	30611	30587	-24
+/pl/pl/flight-status-and-timetable	6	1 [120->96]	5213	5189	-24
+/pl/pl/footer-pages/carbon-neutral-flying/climate-protection-projects	1	1 [72->48]	5479	5455	-24
+/pl/pl/healthy-travel	10	2 [72->48 48->24]	10976	10928	-48
+/pl/pl/legal/passenger-rights	4	1 [96->72]	19084	19060	-24
+/pl/pl/legal/terms-and-conditions	9	1 [48->24]	3344	3320	-24
+/pl/pl/lhg-staralliance-partner	15	1 [48->24]	13064	13040	-24
+/pl/pl/unaccompanied-minors	7	1 [48->24]	10046	10022	-24
+/ru/ru/flight-status-and-timetable	6	1 [144->120]	5769	5745	-24
+/ru/ru/plan/special-requirements/entry-regulations/entry-regulations-canada	7	1 [72->48]	5011	4987	-24
+/ru/ru/plan/special-requirements/entry-regulations/immigration-regulations-uk	3	1 [72->48]	4206	4182	-24

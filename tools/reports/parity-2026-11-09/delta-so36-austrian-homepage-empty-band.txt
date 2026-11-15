@@ -30,3 +30,6 @@ READY	/pt/en/homepage	390	austrian-parity-009 (resized)	5688	-156 px (-2.74 %)	-
 # Upload without the collapse: marker-collapse drops a spacer of 31 px or less ({spacer-24 from-768}).
 # Before (served copy):  ...the cards-icon block's section, then <div></div>
 # After:                 <div><p>{spacer-24 from-768}</p><p>{spacer-100 below-768}</p></div>
+# Live (standing order 36, ~07:25 CET): uploaded by you at 07:15 CET (21dea224) and published; the served copies of both
+#   pages carry the two markers as written. Measured as served: ge/en 3,987 / 5,241 px, pt/en 4,636 / 5,662 (1440 / 390),
+#   the drafted heights to the px.

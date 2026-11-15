@@ -6562,3 +6562,165 @@ All items are done, so I stopped here, before 10:00. What is left needs your upl
   and the count was unchanged.
 
 **Not in git** (scratch under /tmp/so35): the scripts, the served copies, the drafts, the renders and the logs.
+
+## Standing order 36 (2026-11-15, from about 06:45 CET)
+
+**Carried over:** nothing of mine was uncommitted or unpushed. Order 35's last commit, `2fcc25fb`, was on origin. The
+checkout's 88 dirty entries belong to other jobs (import-progress.json, the urls-*.txt lists, the importer reports, the
+notifications.css comment line) and were left alone.
+
+**One change in method:** my renders now refuse lh-proxy (lh-proxy.benpeter.workers.dev) too, besides www.* and the airline
+hosts. It forwards to www.lufthansa.com, and the earlier renders let the fare teaser's `fareteaser/recommend` call through it
+(one call per homepage render, no price, answered 502 before). From this order on it is refused and counted like the rest.
+
+### Item 1: Austrian's homepages (gate-so36-austrian-homepage-widgets.txt)
+
+**Do our teaser and finder draw www's offers in a visitor's browser?** By the code, yes, and they did in a real browser on
+our host.
+- Austrian's /config/flags.json has live-prices = on.
+- Both blocks take their offers from one call to www.lufthansa.com, sent from the visitor's browser without credentials:
+  `destinationfinder/destination/finder/<ORIGIN>/E?months=0_11&tripType=RETURN` under X-Portal OS, with the market as
+  X-Portal-Site and the page's language. The teaser prices its routes from that answer, as Discover's does since order 26.
+- The flight search asks `defaultAirport`. The teaser's origin list goes through lh-proxy (`fareteaser/recommend`, no price).
+- Evidence that the calls get answers: austrian-parity-012 to -014 recorded our own homepages in headful Chrome with the APIs
+  allowed (2026-11-10). au/en drew "Sydney - Vienna, Round trip from AUD 2 138" and three more fares, and the finder
+  "Flight offers from Sydney ... London AUD 1 718".
+- Whether today's code still gets them only a new load can show: www's Cloudflare challenges some fresh-tab preflights,
+  and lh-data.js retries those.
+
+**Which answers would gate the rows.** The same as lufthansa-api-001 to -004:
+- our page in a real browser on our host, at 1440 and at 390, each width its own first load, with the Captures child's api
+  index (the calls, their headers and answers);
+- www's page loaded right after it, so that both show the same day's offers. Order 27 could not gate a German grid against a
+  www recording of another day.
+
+capture-requests-ema-cashub.txt lists the 23 homepages and the two other widget pages, the priority six first, with each
+page's logged calls (`986ed4a0`, pushed about 07:00 CET). `08c31ad5` lets tools/parity answer those OS calls: the 23
+origins and defaultAirport, by portal, market and language, with a test. It is ready for the loads.
+
+**Gated without the answers: the page less its two widget bands.** Each band runs from the widget's title to the next
+heading, found by the same texts in www's recording and in ours.
+- **29 of the 39 rows are widgets only:** the remainder is -1.14 to +0.68 %. They stay HOLD until the loads arrive.
+- **ge/en and pt/en:** www draws an empty last section where the prices note would be. It is 56 px at 1440 and 132 at 390
+  (resized); 41 recorded homepages carry the note instead.
+  - delta-so36-austrian-homepage-empty-band.txt (READY): `{spacer-24 from-768}` and `{spacer-100 below-768}` in that
+    section. A section with content adds 32 px.
+  - You uploaded it at 07:15 CET. As served it measures the drafted heights to the px: ge/en 3,987 / 5,241, pt/en 4,636 / 5,662.
+  - pt/en 390 is now within 2 % (-0.46 %, READY). ge/en is widgets only (remainder +0.13 / -0.40 %).
+- **by/en 390, ru/en 390 and gb/en 390** are read against resizes. by/en and ru/en: -46 px at the flight search band and
+  -69 in the carousel titles. gb/en: -244 px, because our hero hides its picture on phones and www's resized load keeps it.
+  The requested first loads decide all three.
+- **ca/en and ca/fr, ch/fr:** the stretcher block (your decision, HOLD) and the inline prices note (order 22). Without the
+  stretcher, ch/fr 1440's remainder is +1.49 %.
+
+### Item 2: the two gaps
+
+**cancellation-refund-via-document-upload 390 (gate-so36-austrian-cancellation-refund-390.txt): OWNER.**
+- The 282 px are all in the first card: 1,542 px on www against our 1,260.
+- In that card, www's upload widget takes 451 px from the text above it to the card's end; our drop zone takes 180
+  (-271 px). That is order 27's design decision.
+- The rest of the page nets -11 px (-0.27 %).
+- I measured the card edges from both PNGs' grey and white bands; our load drew Turnstile, and its 71 px are taken out.
+
+**healthy-travel 390 (delta-so36-austrian-healthy-travel-faq.txt).** The +61 px in the last FAQ block, against +45 at the
+band's heading, come from two places:
+- **The link line "Further questions about flying and health":** one line on www, two on ours (+24).
+  - www's maui-navigation-link starts its text 21 px after the arrow's ink, at both widths. Ours starts it 28 px after:
+    our arrow is 19 px with a 10 px gap, www's is a 16 px icon with a 7 px gap (its .standalone column-gap).
+  - `f56facea` (Austrian only) draws www's arrow, with test/austrian-link-line-arrow-so36.test.mjs. With it, 390 goes 8,837 -> 8,813 px (+0.17 -> -0.10 %), and the heading
+    from +45 to +21. 1440 does not change.
+  - Census, toggled in the page:
+    - the 242 recorded page-widths: only this one moves;
+    - the 932 served documents with a 34-60 character link line, at 390: 33 documents lose one line per changed link (39
+      lines), and none gets taller;
+    - checked against a real code override on two pages.
+- **The gap above the link (+43 at 390):** the accordion's spaced 40 px. At 1440 the same gaps cancel (+7).
+  - Dropping "spaced" in the document would give 390 -19 and 1440 -33.
+  - travel-id's accordion before a link line is not spaced, so healthy-travel is the only recorded case.
+  - So no row and no rule.
+- **Measured at 08:30 CET, as you asked.** Both pages' served HTML carries order 35's marks (last-modified 05:19:39 GMT):
+  - healthy-travel 6,617 / 8,813 px (1440 / 390, with `f56facea` live): +0.05 / -0.10 %;
+  - os401crewstory 7,698 / 9,953: +0.16 / -0.29 %, as drafted in order 35.
+
+### Item 3: Air Dolomiti street-food-in-munich 390 (gate-so36-airdolomiti-street-food-390.txt): HOLD
+
+**The recording.** airdolomiti-parity-010 matched its sha256. It went into its own folder and was read as data only.
+- The PNG and the probe show 5,720 px, with the footer's top at 5,580 px. The PNG ends with the footer's first 140 px.
+- The measurement file, taken 10 s later, has the same footer top, with the footer 1,046 px tall (6,766 px in all).
+- An offline layout of the markup puts every H3 at its recorded y.
+
+**Ours:** 5,741 px at the footer's top, +2.89 %. Two document-shape causes that cancel at 1440:
+- **www's reset gives every element line-height 1.7.** The H3s' text sits in `<b>` / `<span>`, so www draws 26 px text on
+  44.2 px lines (59.5 at 1440). Ours draws 32 (40): -158 px.
+- **"Last but not least, the Wiener Markt ..."** is 16 px running text inside an H3 on www (~34 px lines). Ours draws it
+  at heading size, 26 lines: +290 px.
+
+**No candidate passes both widths:**
+
+| Candidate | 390 | 1440 |
+|---|---|---|
+| the H3 as a paragraph | -3.80 % | -4.95 % |
+| the line-height rule | +11.40 % | +6.43 % |
+| both | -0.97 % | -2.54 % |
+
+The line-height rule could not be a theme rule anyway: in www's 30 recorded article pages, 21 of the 77 H3s are on 32 px
+lines (`<strong>` inherits, or bare text), and our import makes them all the same.
+
+### After the pushes (sweep-so36-austrian.txt)
+
+All 242 recorded Austrian page-widths as served at about 07:35 CET, against order 35's sweep:
+- 180 are within 2 %, against 178.
+- 9 moved, each one of your uploads since order 35, each as drafted:
+  - healthy-travel and os401crewstory;
+  - travel-id 390 (-2.07 -> -1.60 %);
+  - ge/en and pt/en.
+- os401crewstory 390 is back to -0.29 % (the order 35 flag is gone).
+- With the link line rule, healthy-travel 390 reads -0.10 %.
+
+### Final section (about 09:00 CET, 2026-11-15)
+
+All three items are done, so I stopped here, before 11:00. What is left needs the requested loads.
+
+**On main:**
+- `986ed4a0`: the capture requests (item 1), pushed first;
+- `212b5263`: the homepage widget gate, the band row, the cancellation-refund trace, the street-food gate, finish-austrian.txt;
+- `08c31ad5`: tools/parity answers the OS portal's calls, with test/parity-os-answers-so36.test.mjs;
+- `f56facea`: Austrian's link line arrow, with test/austrian-link-line-arrow-so36.test.mjs;
+- this commit: the healthy-travel row file, the link line census, the sweep, finish-austrian.txt, and this section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 in every push round, in the clean worktree.
+- **Stylelint:** exit 0 on styles/themes/austrian.css.
+- **Tests on the pushes:**
+  - the capture requests and the lists: the folder-reading tests (669, then 674), 0 failures;
+  - the parity change: its 25 tests, 0 failures;
+  - the theme rule: the 347 files that read the themes or link lines, 1,124 tests, 0 failures.
+- **New tests:** both are red on main before their commits (2 of 3 fail each) and green after.
+- **Full suite** (the wt worktree, one process per file):
+  - on `08c31ad5`: 1,154 files, 4,442 tests, 0 failures, 5 skipped;
+  - on `f56facea`: 1,156 files, 4,451 tests, 0 failures, 5 skipped.
+- **Folder-reading tests** for this commit: the 131 files that read tools/reports, 674 tests, 0 failures (with this commit's files in place).
+
+**For you:**
+- **Captures:** capture-requests-ema-cashub.txt, the six priority homepages first: our page with its api index, and www's
+  right after it, at 1440 and 390.
+- **No upload is waiting.** Your band upload at 07:15 CET measures as drafted.
+- **Your decisions:**
+  - street-food-in-munich 390 stays HOLD: no row or rule passes both widths;
+  - cancellation-refund 390 is OWNER: the upload widget.
+
+**Rules followed:**
+- **Airline hosts:** about 1,310 renders refused www.*, the airline hosts and lh-proxy, about 4,900 requests, and none was
+  sent.
+  - The exception: two calls went to lh-proxy, before I added it to the refused hosts, in the first two AU homepage
+    renders (`fareteaser/recommend`, no price). lh-proxy forwards to www.lufthansa.com.
+- **The archive** came from Air Dolomiti's drop folder, and its sha256 matched. It went into its own folder, and nothing was
+  run from inside it. www's recordings and snapshots were read as data.
+- **The censuses** read only austrian.turnsthe.page, each served copy once (2,399 documents).
+- **DA:** not read. No upload, preview or publish by me, and da-upload.mjs was not called.
+- **The checkout** keeps the other jobs' 88 dirty entries untouched. After each push it was moved with `reset --mixed`
+  (other jobs' dirty files excluded from the checkout), and the count was unchanged.
+- /de/en/overview-manage has no row.
+
+**Not in git** (scratch under /tmp/so36): the scripts, the archive and its download, the served copies, the drafts, the
+renders and the logs.
