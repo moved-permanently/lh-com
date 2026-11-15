@@ -6851,3 +6851,137 @@ and applying the DA rows.
 
 **Not in git** (scratch under /tmp/so37): the scripts, the archive and its download, the served copies, the drafts, the
 renders and the logs.
+
+## Standing order 38 (2026-11-15, from about 15:45 CET)
+
+**Carried over:** nothing of mine was uncommitted or unpushed. Order 37's last commit, `d94df408`, was on origin. The
+checkout's 88 dirty entries belong to other jobs and were left alone; the old autostash (stash@{0}, 2026-11-01) is not mine
+and was not touched.
+
+**Renders:** every render refused lh-proxy, www.* (but www.mynewsdesk.com on Cargo) and every airline host, and counted
+them; none was sent (0 refusals were needed on the pages of this order). **DA:** read only, one GET per page (11 pages:
+the 5 READY tab pages, live-animals, emergency, smartULD, onerecord, and the two legal pages); no upload, preview or publish
+by me, and da-upload.mjs was not called. /de/en/overview-manage has no row.
+
+### Item 1: push access
+
+Yes: after the new sign-in an authenticated dry-run push to origin succeeded (~15:50 CET), and every push of this order went
+through.
+
+### Item 2: the tab rows' apply tool (`ad48ef45`)
+
+- `tools/importer/cargo-tabs-apply.mjs` runs on DA's current copy: the block whose item titles are the row's gets the option
+  tabs, and each row's run of a panel's own elements (named by tag and the start of their text, or "img") becomes a one-row
+  table. Every element's bytes stay DA's; its check takes the tables' tags and the option out and compares with DA's copy.
+  Not found, found twice or there already: no change.
+- The rows: `delta-so37-cargo-product-tabs.json` (the 5 READY rows); both named in the list's header with the command.
+- Built from order 37's gated drafts. On DA's current copies of the 5 pages: changed 5/5, check ok 5/5, and every panel's
+  elements and cells are the drafts'.
+- test/cargo-tabs-apply-so38.test.mjs, red on main before the commit (the tool missing), green after.
+- Your helpers applied the rows soon after: airmail now serves at 2,072 px, the drafted figure.
+
+### Item 3: Cargo's legal pages (`287c0572`, delta-so38-cargo-legal-template.txt)
+
+- **The rule** (styles/themes/cargo.css): on pages with the Metadata row Template legal, from 1281 px, the content is 1,184 px
+  wide from x 128 and the running text uses all of it, as www's legal template. Our title stays.
+- **The rows:** Template | legal at the end of the Metadata block (metadata-row-apply.mjs, data
+  delta-so38-cargo-legal-template.json); the dry run placed it on both DA copies.
+- **Reach:** no published Cargo document has a Template row (990 of 990 read), so the rule draws nothing until a row is
+  applied. Four pages without a row measured unchanged to the px at both widths.
+- **terms-of-use: READY.** 1440: 3,120 -> 2,760 px (www 2,722: +14.62 -> +1.40 %), footer top +1.92 %. The rest is our
+  title, which the page keeps. 390 unchanged.
+- **general-terms1: HOLD.** Its lines are short, so the width alone moves nothing (1,297). With order 37's Columns Media
+  row: 1,060 (-6.11 %). What is left is www's title block (the text 41 px lower) and its empty closing paragraph (44 px).
+  A title spacing rule for the template would also move terms-of-use, whose title is ours alone, so none is drafted.
+- test/cargo-legal-template-so38.test.mjs, red on main, green after.
+
+### Item 4: the finish lines' rows that could be gated
+
+**Air Dolomiti:** none. The 4 widget rows are www's API answers; street-food 390 was gated in order 36; bearbeitung is one
+wrap; 3 rows are your decisions. The list says so in a new header line.
+
+**Cargo: 4 more pages READY** (finish-cargo.txt: now 10 READY, 28 HOLD), each a DA row gated as drafted:
+- **live-animals** (`dab729f5`, delta-so38-cargo-live-animals.txt): www's update note sits between two separators (<hr>)
+  that the importer drops. The row: so37's tab row and a {divider-50} / {divider-44} before the note's H4 and its "Please
+  note". 1440: 1,846 -> 2,330 (www 2,289: -19.35 -> +1.79 %), band end +1.44 %. At 390 the note's elements sit where the
+  pointer's do, to the px; the page moves +96 against a resized pointer (not a gate).
+- **emergency and smartULD** (`0c4030af`, delta-so38-cargo-panel-empties.txt): www's empty elements in the first panel
+  (emergency's empty paragraph, 44 px; smartULD's three, 164 px) as {spacer-N}. A new Cargo rule draws a spacer in a panel
+  as in running text; until now a spacer in a block drew nothing, and no Cargo document has one today. With the tab rows:
+  emergency 2,435 (www 2,431: +0.16 %, band end -0.56 %), smartULD 2,582 (www 2,578: +0.16 %, -0.52 %). 390 unchanged.
+- **onerecord** (`e25545a5`, delta-so38-cargo-onerecord.txt): the advantages paragraph gets {full-width} (www 1,296 px
+  wide), and a Cargo rule makes the two text-only three-up blocks one grid as www's (no 91 px between them). Only en and de
+  onerecord have such a pair; five other card pages were measured unchanged. 1440: 3,469 -> 3,326 (www 3,322: +4.43 ->
+  +0.12 %); the rule alone, already live, gives 3,398. 390 is closer to the pointer (+1.93 -> +0.53 %). /de/onerecord moves
+  the same way (no recording).
+- The two tools learnt what these rows needed: paragraph-spacer-apply.mjs takes kind divider, tag h1-h6 / ul / ol and place
+  after; its rows of before work as they did (test/delta-tools-so20 green).
+- New tests: cargo-live-animals-note-so38, cargo-panel-empties-so38, cargo-onerecord-cards-so38, each red on main before its
+  commit and green after.
+
+**Cargo HOLD, located further, no row that passes:**
+- **eservices-app: content is missing.** The import dropped the app section's text column ("App-solutely mobile", its
+  subtitle and paragraph) and the store badges' links. Ours keeps only the badges, drawn 95 px tall where www's sit small,
+  side by side, and it repeats the title as an H2 that www does not draw.
+  - Drafted on the tab row with the text restored, the H2 out and the badges at their own size: 3,344 (+1.67 %), but the
+    footer is at +2.14 %. The rest is the space before the tab band (+70 px).
+  - The badge sizing was a candidate stylesheet keyed on the badges' alt text, which can't ship. The badges need their own
+    rule, or authoring as www's linked images. HOLD; this is worth a look for the content alone.
+- **ecsd / ehm** (the breadcrumb row): Support & Contact has the same title gap (www 190, ours 172). But a title rule would
+  take its footer from +1.48 to +2.52 %: from "Select a topic" to "Contact us" ours runs 69 px longer.
+- **de/ci/facts-figures 1440:** www's timeline cells take their shared heights from its slider script: 686 px over the top
+  cards, whose tallest content is about 500. No rule derives that from the cards.
+
+### After the pushes (sweep-so38-airdolomiti-cargo.txt)
+
+The 192 Air Dolomiti and Cargo page-widths after the last push (main at ff7a2d88) and after your helpers' applies:
+- **180 unchanged** to the px, including all 108 Air Dolomiti page-widths.
+- **The 12 that changed** are the READY rows, each served at its drafted figure to the px: the 5 tab pages, terms-of-use,
+  live-animals, emergency, smartULD and onerecord.
+- **live-animals 390** is the one exception: it moves +96 px against its resized pointer, as its list says.
+
+### Final section (about 16:50 CET, 2026-11-15)
+
+All four items are done, and the rows left can't be gated without new recordings or your word, so I stopped here, before
+21:00.
+
+**On main:**
+- `ad48ef45`: item 2, the tab rows' apply tool and its .json;
+- `287c0572`: item 3, the legal width rule and the Template rows;
+- `dab729f5`: live-animals' separators (and the spacer tool's divider / heading rows);
+- `0c4030af`: the panel spacer rule, emergency's and smartULD's rows;
+- `e25545a5`: ONE Record's cards rule and paragraph row;
+- this commit: the finish lists' notes, sweep-so38-airdolomiti-cargo.txt and this report.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 in every push round, in the clean worktree.
+- **Stylelint:** exit 0 on styles/themes/cargo.css in every theme push.
+- **Tests on the pushes:**
+  - the lists and the tool: 685 tests, 0 failures;
+  - the legal rule: 2,162 tests, 0 failures;
+  - the panel rule: 2,439 tests, 0 failures;
+  - the cards rule: 2,144 tests, 0 failures;
+  - the live-animals rows: the loop's test files passed (exit 0) before its push.
+  - Every later round re-ran the files naming origin's new commits, and they passed.
+- **New tests:** 5 test files, each red on main before its commit and green after.
+- **Full suite** (the wt worktree, one process per file, on ff7a2d88): 1,173 files, 4,506 tests, 0 failures, 5 skipped.
+  Order 37's blog-pager failure is gone (8c361d6f).
+
+**For you:**
+- **DA rows, none uploaded by me:** your helpers have applied every READY row; the sweep shows each one at its drafted
+  figure.
+  - **Waiting:**
+    - general-terms1 (Template row plus Columns Media row, HOLD);
+    - the eFreight breadcrumbs (HOLD);
+    - the 12 unrecorded pages' tab rows, which need 1440 loads.
+- **eservices-app:** content is missing on our page (the app text column, the badges' links); see item 4.
+- **Captures:** Cargo's -003 pages only have resized 390s, so phone first loads would gate them. live-animals 390 is the one
+  READY page whose 390 moves (+96 px against the pointer). I have not requested captures.
+
+**Rules followed:** no request to an airline host (291 refused and counted on Air Dolomiti's pages, 0 on Cargo; none sent);
+DA read only, 11 single GETs; no upload, preview, publish or da-upload.mjs; www's recordings read as data; the checkout's 88
+dirty entries untouched (after each push the checkout moved by `reset --mixed`, the count unchanged); /de/en/overview-manage
+has no row.
+
+**Not in git** (scratch under /tmp/so38): the DA copies read, the drafts, the apply outputs, the code copy, the scripts, the
+renders and the logs.
