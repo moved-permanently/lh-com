@@ -314,7 +314,8 @@ test('the sitemap index built ahead: served while its key is the one lh-edge wor
   await worker.fetch(new Request('https://lhedge.example/sitemap/sitemap_lh.xml'), env(), { waitUntil: (p) => waits.push(p) });
   await Promise.all(waits);
   delete globalThis.caches;
-  assert.deepEqual([...store.keys()], [`https://lhedge.example/sitemap/sitemap_lh.xml?market-sitemap=3&host=lhedge.example&table=${localeTableHash()}`]);
+  // (since standing order 32 the origin's own sitemap file is kept too, under the pass-through's key: src/edge.js)
+  assert.deepEqual([...store.keys()].filter((k) => !k.includes('/.lh-edge-cache/edge/')), [`https://lhedge.example/sitemap/sitemap_lh.xml?market-sitemap=3&host=lhedge.example&table=${localeTableHash()}`]);
   assert.match(localeTableHash(), /^[0-9a-f]{8}$/);
 });
 

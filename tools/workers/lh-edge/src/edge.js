@@ -127,8 +127,18 @@ function edgeTtl(env) {
   return ttl;
 }
 
-/** Pages (no extension), .html and .json: what a publish changes under the same URL. */
-const isDocument = (url) => !isMediaRequest(url) && ['', 'html', 'json'].includes(getExtension(url.pathname));
+/**
+ * What a publish or a code push changes under the same URL: pages, .html and .json (standing
+ * order 31), code, styles, icons and fonts (standing order 32: aem.live answers them 304 on the
+ * same If-Modified-Since alone, its ETag ignored). Not media_<hash> files: a new file is a new URL.
+ */
+const isStored = (url) => !isMediaRequest(url);
+
+// the largest answer kept in a copy (it is buffered while the copy is written): pages, sheets, code
+const STORE_MAX_BYTES = 8 * 1024 * 1024;
+// the origin's own cache headers, kept beside the copy's capped ones and given back on a hit
+const ORIGIN_CC = 'x-lh-edge-origin-cache-control';
+const ORIGIN_CDN_CC = 'x-lh-edge-origin-cdn-cache-control';
 
 const STORE_HOST = 'https://lufthansa.turnsthe.page';
 
@@ -144,14 +154,17 @@ export function edgeStoreKey(url, env, forwardedHost) {
 }
 
 /**
- * Pages and JSON on a host without push invalidation (standing order 31, 2026-11-15:
+ * Pages, JSON and code on a host without push invalidation (standing order 31, 2026-11-15:
  * austrian.turnsthe.page served /at/en/healthy-travel from before its publish for about 4 h).
  * aem.live's Last-Modified is the DA edit time, not the publish, and it answers 304 to an
  * If-Modified-Since equal to it; Cloudflare's fetch cache revalidates an expired copy that way,
  * so an old body held under the new date was kept by every revalidation. The Cache API never asks
  * the origin: a copy (200: EDGE_TTL, 404: 60 s) is gone when it expires, a miss fetches the whole
  * answer without conditions, and every answer is whole (aem.live sends no ETag; the visitor's or
- * the CDN's If-Modified-Since would get the same wrong 304 one step later).
+ * the CDN's If-Modified-Since would get the same wrong 304 one step later). Code has an ETag, but
+ * aem.live answers its If-Modified-Since with 304 whatever If-None-Match says (standing order 32):
+ * the same race, so code, styles, icons and fonts are kept so too. A hit answers with the origin's
+ * own cache headers (the copy's are capped for its lifetime only).
  */
 async function storedFetch(req, url, env, forwardedHost, ttl) {
   const cache = caches.default;
@@ -160,6 +173,11 @@ async function storedFetch(req, url, env, forwardedHost, ttl) {
   if (hit) {
     const resp = new Response(req.method === 'HEAD' ? null : hit.body, hit);
     if (req.method === 'HEAD' && hit.body) hit.body.cancel().catch(() => {});
+    [[ORIGIN_CC, 'cache-control'], [ORIGIN_CDN_CC, 'cdn-cache-control']].forEach(([kept, name]) => {
+      if (resp.headers.has(kept)) resp.headers.set(name, resp.headers.get(kept));
+      else resp.headers.delete(name);
+      resp.headers.delete(kept);
+    });
     resp.headers.set('x-lh-edge-cache', 'hit');
     return resp;
   }
@@ -169,10 +187,14 @@ async function storedFetch(req, url, env, forwardedHost, ttl) {
   const resp = await fetch(whole, { method: req.method, cache: 'no-store' });
   const keep = resp.status === 404 ? Math.min(60, ttl) : (resp.status === 200 && ttl);
   if (req.method !== 'GET' || !keep || !resp.body) return resp;
+  if (Number(resp.headers.get('content-length')) > STORE_MAX_BYTES) return resp;
   const out = new Response(resp.body, resp);
   const copy = out.clone();
   const stored = new Response(copy.body, copy);
   stored.headers.delete('set-cookie');
+  [[ORIGIN_CC, 'cache-control'], [ORIGIN_CDN_CC, 'cdn-cache-control']].forEach(([kept, name]) => {
+    if (stored.headers.has(name)) stored.headers.set(kept, stored.headers.get(name));
+  });
   ['cache-control', 'cdn-cache-control'].forEach((name) => {
     const cc = stored.headers.get(name) || '';
     const m = cc.match(/max-age=(\d+)/);
@@ -180,7 +202,7 @@ async function storedFetch(req, url, env, forwardedHost, ttl) {
     else if (Number(m[1]) > keep) stored.headers.set(name, cc.replace(/max-age=\d+/, `max-age=${keep}`));
     if (!stored.headers.get(name)) stored.headers.delete(name);
   });
-  // stored before the answer goes on (no ctx here): a page or a sheet, not a large file
+  // stored before the answer goes on (no ctx here): a page, a sheet or code, not a large file
   await cache.put(new Request(key), stored).catch(() => {});
   out.headers.set('x-lh-edge-cache', 'miss');
   return out;
@@ -217,7 +239,8 @@ export async function originFetch(request, env, target, options = {}) {
   if (env.PUSH_INVALIDATION !== 'disabled') req.headers.set('x-push-invalidation', 'enabled');
   if (env.ORIGIN_AUTHENTICATION) req.headers.set('authorization', `token ${env.ORIGIN_AUTHENTICATION}`);
   const ttl = edgeTtl(env);
-  const stored = edgeCache && ttl !== null && ['GET', 'HEAD'].includes(req.method) && isDocument(url)
+  const stored = edgeCache && ttl !== null && ['GET', 'HEAD'].includes(req.method) && isStored(url)
+    && !req.headers.has('range')
     && typeof caches !== 'undefined' && caches && caches.default;
   const init = !edgeCache
     ? { method: req.method, cache: 'no-store' }

@@ -14,6 +14,7 @@ import { passThrough, originFetch, edgeStoreKey } from '../src/edge.js';
 
 const ORIGIN = 'main--lh-austrian--moved-permanently.aem.live';
 const DA_EDIT = 'Sun, 15 Nov 2026 05:19:39 GMT';
+const CODE_PUSH = 'Sun, 15 Nov 2026 08:58:07 GMT';
 const OLD = '<html><body>before the publish</body></html>';
 const NEW = '<html><body>after the publish</body></html>';
 let now;
@@ -82,6 +83,17 @@ beforeEach(() => {
     if (u.pathname.startsWith('/gone')) return new Response('Not found', { status: 404, headers: { 'content-type': 'text/html', 'cache-control': 'max-age=3600' } });
     if (u.pathname.startsWith('/broken')) return new Response('oops', { status: 503, headers: { 'content-type': 'text/html' } });
     const ims = req.headers.get('if-modified-since');
+    // code (standing order 32): a content ETag, but 304 on the If-Modified-Since alone, If-None-Match ignored
+    if (/^\/(scripts|styles|icons)\//.test(u.pathname)) {
+      if (ims && Date.parse(ims) >= Date.parse(CODE_PUSH)) return new Response(null, { status: 304, headers: { 'last-modified': CODE_PUSH } });
+      const css = u.pathname.endsWith('.css') ? `/* ${body} */` : `// ${body}`;
+      const big = u.pathname.includes('big');
+      return new Response(req.method === 'HEAD' ? null : css, {
+        headers: {
+          'content-type': u.pathname.endsWith('.css') ? 'text/css; charset=utf-8' : 'text/javascript; charset=utf-8', etag: `"${body === OLD ? 'aaa' : 'bbb'}"`, 'last-modified': CODE_PUSH, 'cache-control': 'max-age=7200, must-revalidate', ...(big ? { 'content-length': String(9 * 1024 * 1024) } : {}),
+        },
+      });
+    }
     if (ims && Date.parse(ims) >= Date.parse(DA_EDIT)) return new Response(null, { status: 304, headers: { 'last-modified': DA_EDIT } });
     const json = u.pathname.endsWith('.json');
     const text = json ? JSON.stringify({ data: [body] }) : body;
@@ -176,13 +188,55 @@ test('JSON and .plain.html alike; HEAD from the copy; 404 for 60 s; a 5xx not st
   assert.equal(calls.length, n + 4, 'a 5xx is not kept');
 });
 
-test('as before: media and code through the fetch cache, hosts with push invalidation, sheets read past the cache', async () => {
+test('code (standing order 32): the same race - an ETag aem.live ignores, a 304 on the date - gone after EDGE_TTL', async () => {
+  for (const p of ['/styles/styles.css', '/scripts/scripts.js', '/icons/search.svg']) {
+    body = OLD;
+    const first = await get(p);
+    assert.match(await first.text(), /before the publish/, p);
+    body = NEW;
+    later(30);
+    const hit = await get(p);
+    assert.equal(hit.headers.get('x-lh-edge-cache'), 'hit');
+    assert.equal(hit.headers.get('cache-control'), 'max-age=7200, must-revalidate', 'a hit: the origin\'s own cache-control');
+    assert.equal(hit.headers.get('x-lh-edge-origin-cache-control'), null);
+    assert.match(await hit.text(), /before the publish/, `${p} within EDGE_TTL`);
+    later(31);
+    assert.match(await (await get(p)).text(), /after the publish/, `${p} after EDGE_TTL: the pushed file, not a revalidated old copy`);
+  }
+  // a visitor's revalidation gets the whole file
+  const cond = await get('/styles/styles.css', { headers: { 'if-modified-since': CODE_PUSH, 'if-none-match': '"aaa"' } });
+  assert.equal(cond.status, 200);
+  assert.ok(calls.every((c) => !c.ims && !c.inm), 'no origin request carries a condition');
+  assert.equal(cfCache.size, 0, 'code never goes through the revalidating fetch cache');
+});
+
+test('code: the old copy under the push date reproduces in the fetch cache (the model), not in the copies', async () => {
+  // the model: Cloudflare's fetch cache keeps the old file through every revalidation
+  body = OLD;
+  const url = `https://${ORIGIN}/styles/styles.css`;
+  await (await cfFetch(new Request(url), { cacheEverything: true, cacheTtlByStatus: { '200-299': 60 } })).text();
+  body = NEW;
+  later(4 * 3600);
+  assert.match(await (await cfFetch(new Request(url), { cacheEverything: true, cacheTtlByStatus: { '200-299': 60 } })).text(), /before the publish/, 'the fetch cache: 4 h later still the old file');
+  // lh-edge now: the pushed file
+  assert.match(await (await get('/styles/styles.css')).text(), /after the publish/);
+});
+
+test('a Range request and a file over 8 MB: no copy (the fetch cache, a pass-through)', async () => {
+  await (await get('/scripts/x.js', { headers: { range: 'bytes=0-9' } })).text();
+  assert.equal(cfCache.size, 1, 'a Range: the fetch cache');
+  const big = await get('/scripts/big.js');
+  await big.text();
+  assert.equal(cache.puts.length, 0, 'over 8 MB: not stored');
+  assert.equal(big.headers.get('x-lh-edge-cache'), null);
+});
+
+test('as before: media through the fetch cache, hosts with push invalidation, sheets read past the cache', async () => {
   const media = `/at/media_${'a'.repeat(40)}.jpg?width=750`;
   await get(media);
-  assert.equal(cfCache.size, 1, 'media: the fetch cache');
-  await get('/scripts/aem.js');
-  assert.equal(cfCache.size, 2, 'code: the fetch cache');
+  assert.equal(cfCache.size, 1, 'media: the fetch cache (content-addressed, a new file is a new URL)');
   await (await get('/at/en/healthy-travel', {}, env({ EDGE_TTL: '' }))).text();
+  await (await get('/scripts/aem.js', {}, env({ EDGE_TTL: '' }))).text();
   assert.equal(cfCache.size, 3, 'push invalidation (no EDGE_TTL): the fetch cache, purged on publish');
   assert.equal(cache.puts.length, 0);
   await (await originFetch(new Request('https://austrian.turnsthe.page/app/config/webview-aliases.json'), env(), undefined, { edgeCache: false })).text();
