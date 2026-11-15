@@ -48,7 +48,8 @@
 # as a draft (A) and with the split (B), against that render:
 #   /xx/hk 390 41.5 -> 32.0 %, /xx/zh 390 34.9 -> 29.7 (the phone view better: the drift after the intro -76 -> -32 px);
 #   /xx/hk 1440 21.4 -> 24.3, /xx/zh 1440 21.0 -> 23.9.
-# At 1440 the face hardly matters (0 to 0.24 %, the Mac check) and the render is 48 px shorter than live www, so the
+# At 1440 the face moves nothing on this page: ours measured 10,275 px with PingFang (order 27, the Mac) and with Noto
+# (order 29, here). So the render's 48 px shortfall against live www at 1440 is what it lacks without www's scripts, and the
 # recording is the fair reference there: /xx/hk 1440 26.5 -> 12.7 %, /xx/zh 1440 26.0 -> 12.3 (the drift mid-page -60 to
 # -89 px -> -3 to +45). Against the recordings at 390 too: hk 43.4 -> 35.3, zh 34.5 -> 22.5. (The absolute levels hold
 # drawing noise on both sides: our renditions of the pictures and the other face; the render against www's own

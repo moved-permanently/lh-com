@@ -1,0 +1,18 @@
+Standing order 33 (2026-11-15), item 4: economy-class (14.9 % at 390) and tips-senior-travellers (14.5 % at 1440).
+Their causes sit in what ema-test holds tonight (the Columns Media block and the main stylesheet's shared section-gap
+rules), so I left them alone. Measured on lufthansa.turnsthe.page against the recordings (logs/b460 lh-parity-002a),
+our boxes from a capture with computed styles, www's from the recordings' drift steps (offsets.mjs).
+
+1. tips-senior-travellers, 1440: the grey "Digital support" section (h3, a paragraph, a columns-media block). Our
+   paragraph ends at y 3,386, the columns-media wrapper follows with its 24px margin (3,410); www's first card picture
+   sits about 21px lower under the same paragraph (www 58px from the text to the pictures, ours 37). Columns Media
+   (the block's top after default content in a grey section).
+2. tips-senior-travellers, 1440: the grey lounge-finder section ("Find your airport lounge", ends 5,875, margin-bottom
+   48px) before the "stage padded" hero-campaign section (5,923, padding 40px): www has about 33px more between the
+   band and the stage. Shared section gap (a grey section before a padded stage).
+3. economy-class, 390: the columns-media section ("On long-haul flights, you can expect ...", ends 3,500, margin-bottom
+   48px) before the "before-padded stage" hero-campaign section (3,548): www's stage starts about 29px higher (ours 29px
+   too much). Shared section gap (a section before a before-padded stage, phones). The stage itself is as tall as www's;
+   its picture shows another crop (focal point), not a layout matter.
+Drift steps for the record: tips-senior-travellers 1440 -97 / -32 at 3,360-3,440, -57 at 4,080, -54 at 6,080, -78 by
+7,680; economy-class 390 +69 / +2 at 3,600-3,680, +29 at 4,400, +33 at 7,280.
