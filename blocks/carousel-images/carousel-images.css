@@ -254,11 +254,12 @@ body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-disco
     margin-bottom: 24px;
   }
 
-  /* (branch so26-economy-grey-carousel, with delta-so26-economy-class-grey-view-WITH-branch.txt) before a padded section
-     too (economy-class): 65px above, the 40px under it as before. Only together with the rows: economy-class's grey
-     column view spaced, as www's .mb-default; drafts of /de/en/economy-class with the row and this code against
-     lh-parity-002a: 11.3 / 22.9 -> 8.4 / 14.9 % at 1440 / 390; this code alone 11.3 -> 13.3 at 1440 */
-  body.brand-lufthansa main:not(:has(.article-header)) > .section:not(.campaign-section):has(+ .section.padded) > .default-content-wrapper:has(> p:not(.spacer):last-child) + .carousel-images-wrapper:last-child > .carousel-images {
+  /* before a padded section that a spaced grey column view follows (economy-class with
+     delta-so26-economy-class-grey-view-WITH-branch.txt's rows: its grey view spaced, as www's .mb-default): 65px above,
+     the 40px under it as before. The rule and the rows only gain together (drafts of /de/en/economy-class against
+     lh-parity-002a: 11.3 / 22.9 -> 8.4 / 14.9 % at 1440 / 390; 65px alone 11.3 -> 13.3 at 1440); a document without the
+     row is not reached (standing order 27: fr/fr and xx/fr economy-class, the 100-years pages unchanged) */
+  body.brand-lufthansa main:not(:has(.article-header)) > .section:not(.campaign-section):has(+ .section.padded + .section.column-view.grey.spaced) > .default-content-wrapper:has(> p:not(.spacer):last-child) + .carousel-images-wrapper:last-child > .carousel-images {
     margin-top: 65px;
   }
 

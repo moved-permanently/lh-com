@@ -1,6 +1,12 @@
-# Standing order 26 (2026-11-14), item 4: /de/en/economy-class (and its versions). WITH branch so26-economy-grey-carousel:
-# every row HOLD until that branch is merged, then READY; apply them right after the merge (the rows alone and the branch's code alone each make de/en worse at
-# 1440; together they gain at both widths).
+# Standing order 26 (2026-11-14), item 4: /de/en/economy-class (and its versions), with branch so26-economy-grey-carousel.
+# Standing order 27: the branch is merged and every row READY (the rows alone and 65px above the carousel alone each make
+# de/en worse at 1440; together they gain at both widths).
+# The code since standing order 27 reaches only a document whose grey column view has the row's style: a carousel that
+# ends its section before a padded section that a spaced grey column view follows. Census (the published copies,
+# logs/b613/pub, and the rule's selector): reached today 0 documents; after these rows exactly these 14. A document
+# without the row does not change: de/en economy-class without it 11.3 % at 1440 before and after the code (working-copy
+# captures of the branch), fr/fr and xx/fr economy-class (no grey view before their sidebar, no row) not reached, nor the
+# 100-years pages (campaign sections) nor any other carousel.
 # www: the grey column view "More Comfort on Short- and Medium-Haul Flights" is an AEM section with .mb-default before the
 # unpadded sidebar section: 64px from the band's end to the sidebar's pictures at 1440, ours 88 (our section gap where
 # www has the .mb-default). And the intro's carousel is 24px short above it (the branch: 65px above a carousel that
@@ -9,22 +15,22 @@
 # Tool: tools/importer/section-style-apply.mjs {heading, add}. Dry run on DA's copies (read-only GET) and the published
 # copies: every row placed. fr/fr and xx/fr have no grey view before the sidebar: no row.
 # Gate (drafts of the published de/en copy, against lh-parity-002a): today 11.3 / 22.9 % at 1440 / 390; with the row and
-# the branch's code 8.4 / 14.9; the row alone 14.8 / 14.9; the branch's code alone 13.3 at 1440. The branch's code on
+# the merged code 8.4 / 14.9 (standing order 27's narrowed rule: 8.4 again); the row alone 14.8 / 14.9; the branch's code alone 13.3 at 1440. The branch's code on
 # 100-years/campaigns and 100-years/history/menu-on-board (the other carousels before a padded section in the census):
 # the same (4.9, 2.5). The other versions are not recorded (the same sections).
 # Preview of the branch: https://so26-economy-grey-carousel--lh-com--moved-permanently.aem.page/de/en/economy-class
 # status	document	tool	expected change	gate
-HOLD	/at/de/economy-class	section-style-apply {"heading": "Mehr Komfort auf Kurz- und Mittelstrecke", "add": "spaced"}	the grey column view's section spaced; only after branch so26-economy-grey-carousel is merged	not recorded (the same sections as de/en)
-HOLD	/de/de/economy-class	section-style-apply {"heading": "Mehr Komfort auf Kurz- und Mittelstrecke", "add": "spaced"}	the grey column view's section spaced; only after branch so26-economy-grey-carousel is merged	not recorded (the same sections as de/en)
-HOLD	/de/en/economy-class	section-style-apply {"heading": "More Comfort on Short- and Medium-Haul F", "add": "spaced"}	the grey column view's section spaced; only after branch so26-economy-grey-carousel is merged	draft with the branch 11.3 / 22.9 -> 8.4 / 14.9 at 1440 / 390
-HOLD	/gb/en/economy-class	section-style-apply {"heading": "More Comfort on Short- and Medium-Haul F", "add": "spaced"}	the grey column view's section spaced; only after branch so26-economy-grey-carousel is merged	not recorded (the same sections as de/en)
-HOLD	/xx/el/economy-class	section-style-apply {"heading": "Μεγαλύτερη άνεση στις πτήσεις μικρών και", "add": "spaced"}	the grey column view's section spaced; only after branch so26-economy-grey-carousel is merged	not recorded (the same sections as de/en)
-HOLD	/xx/es/economy-class	section-style-apply {"heading": "Mayor confort en vuelos de corta y media", "add": "spaced"}	the grey column view's section spaced; only after branch so26-economy-grey-carousel is merged	not recorded (the same sections as de/en)
-HOLD	/xx/hk/economy-class	section-style-apply {"heading": "中短程航班，更多舒適體驗", "add": "spaced"}	the grey column view's section spaced; only after branch so26-economy-grey-carousel is merged	not recorded (the same sections as de/en)
-HOLD	/xx/it/economy-class	section-style-apply {"heading": "Più comfort sui voli a corto e medio rag", "add": "spaced"}	the grey column view's section spaced; only after branch so26-economy-grey-carousel is merged	not recorded (the same sections as de/en)
-HOLD	/xx/ja/economy-class	section-style-apply {"heading": "近距離・中距離路線で快適さがアップ", "add": "spaced"}	the grey column view's section spaced; only after branch so26-economy-grey-carousel is merged	not recorded (the same sections as de/en)
-HOLD	/xx/ko/economy-class	section-style-apply {"heading": "단거리 및 중거리 항공편의 더 큰 편안함", "add": "spaced"}	the grey column view's section spaced; only after branch so26-economy-grey-carousel is merged	not recorded (the same sections as de/en)
-HOLD	/xx/pl/economy-class	section-style-apply {"heading": "Większy komfort na trasach krótkich i śr", "add": "spaced"}	the grey column view's section spaced; only after branch so26-economy-grey-carousel is merged	not recorded (the same sections as de/en)
-HOLD	/xx/pt/economy-class	section-style-apply {"heading": "Mais conforto nas viagens de curta e méd", "add": "spaced"}	the grey column view's section spaced; only after branch so26-economy-grey-carousel is merged	not recorded (the same sections as de/en)
-HOLD	/xx/ru/economy-class	section-style-apply {"heading": "Больше комфорта на коротких и средних ре", "add": "spaced"}	the grey column view's section spaced; only after branch so26-economy-grey-carousel is merged	not recorded (the same sections as de/en)
-HOLD	/xx/zh/economy-class	section-style-apply {"heading": "中短程航班，更多舒适体验", "add": "spaced"}	the grey column view's section spaced; only after branch so26-economy-grey-carousel is merged	not recorded (the same sections as de/en)
+READY	/at/de/economy-class	section-style-apply {"heading": "Mehr Komfort auf Kurz- und Mittelstrecke", "add": "spaced"}	the grey column view's section spaced; with it the merged code puts 65px above its carousel	not recorded (the same sections as de/en)
+READY	/de/de/economy-class	section-style-apply {"heading": "Mehr Komfort auf Kurz- und Mittelstrecke", "add": "spaced"}	the grey column view's section spaced; with it the merged code puts 65px above its carousel	not recorded (the same sections as de/en)
+READY	/de/en/economy-class	section-style-apply {"heading": "More Comfort on Short- and Medium-Haul F", "add": "spaced"}	the grey column view's section spaced; with it the merged code puts 65px above its carousel	draft with the branch 11.3 / 22.9 -> 8.4 / 14.9 at 1440 / 390
+READY	/gb/en/economy-class	section-style-apply {"heading": "More Comfort on Short- and Medium-Haul F", "add": "spaced"}	the grey column view's section spaced; with it the merged code puts 65px above its carousel	not recorded (the same sections as de/en)
+READY	/xx/el/economy-class	section-style-apply {"heading": "Μεγαλύτερη άνεση στις πτήσεις μικρών και", "add": "spaced"}	the grey column view's section spaced; with it the merged code puts 65px above its carousel	not recorded (the same sections as de/en)
+READY	/xx/es/economy-class	section-style-apply {"heading": "Mayor confort en vuelos de corta y media", "add": "spaced"}	the grey column view's section spaced; with it the merged code puts 65px above its carousel	not recorded (the same sections as de/en)
+READY	/xx/hk/economy-class	section-style-apply {"heading": "中短程航班，更多舒適體驗", "add": "spaced"}	the grey column view's section spaced; with it the merged code puts 65px above its carousel	not recorded (the same sections as de/en)
+READY	/xx/it/economy-class	section-style-apply {"heading": "Più comfort sui voli a corto e medio rag", "add": "spaced"}	the grey column view's section spaced; with it the merged code puts 65px above its carousel	not recorded (the same sections as de/en)
+READY	/xx/ja/economy-class	section-style-apply {"heading": "近距離・中距離路線で快適さがアップ", "add": "spaced"}	the grey column view's section spaced; with it the merged code puts 65px above its carousel	not recorded (the same sections as de/en)
+READY	/xx/ko/economy-class	section-style-apply {"heading": "단거리 및 중거리 항공편의 더 큰 편안함", "add": "spaced"}	the grey column view's section spaced; with it the merged code puts 65px above its carousel	not recorded (the same sections as de/en)
+READY	/xx/pl/economy-class	section-style-apply {"heading": "Większy komfort na trasach krótkich i śr", "add": "spaced"}	the grey column view's section spaced; with it the merged code puts 65px above its carousel	not recorded (the same sections as de/en)
+READY	/xx/pt/economy-class	section-style-apply {"heading": "Mais conforto nas viagens de curta e méd", "add": "spaced"}	the grey column view's section spaced; with it the merged code puts 65px above its carousel	not recorded (the same sections as de/en)
+READY	/xx/ru/economy-class	section-style-apply {"heading": "Больше комфорта на коротких и средних ре", "add": "spaced"}	the grey column view's section spaced; with it the merged code puts 65px above its carousel	not recorded (the same sections as de/en)
+READY	/xx/zh/economy-class	section-style-apply {"heading": "中短程航班，更多舒适体验", "add": "spaced"}	the grey column view's section spaced; with it the merged code puts 65px above its carousel	not recorded (the same sections as de/en)
