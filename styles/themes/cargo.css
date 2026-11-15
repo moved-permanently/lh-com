@@ -120,6 +120,33 @@ body.brand-cargo main h4 {
   line-height: 24px;
 }
 
+/* standing order 37: a quotation in running text (ONE Record's "The vision", en and de: the only
+   Cargo documents with one) as www's citation-CF23, not the Insights author quote it inherits
+   (the article rules of styles.css): the quote LufthansaText 18 / 24 italic across the column,
+   20 px over the name, the name LufthansaHead bold 18 / 24; no margin of its own (the heading
+   above keeps its 20 px) */
+body.brand-cargo main .default-content-wrapper > blockquote {
+  max-width: none;
+  margin: 0;
+}
+
+body.brand-cargo main .default-content-wrapper > blockquote > p:first-child {
+  margin: 0 0 20px;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+body.brand-cargo main .default-content-wrapper > blockquote > p:not(:first-child) {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
 /* row 1: no quick links row (www's bar has none; Book, Track and Schedule are in Book & Track) */
 body.brand-cargo .header .nav-quick {
   display: none;
