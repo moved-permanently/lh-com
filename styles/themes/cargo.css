@@ -1572,6 +1572,13 @@ body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-filter-result
   body.brand-cargo .accordion-columns.tabs:not(.filter).is-tabbed .accordion-columns-panel li:not(:last-child) {
     margin-bottom: 10px;
   }
+
+  /* standing order 40: a panel's list marked "{full-width}" (the list marker of default content, scripts.js) across the
+     panel, not the FAQ answers' 66 %: www's full-width list component (passive-temp-support's Features list, 1,276 px,
+     cargo-parity-004); www's other panel lists are two-thirds wide (insurance, perishables: 830 px) and keep the 66 % */
+  body.brand-cargo .accordion-columns.faq .accordion-columns-panel :is(ul, ol).full-width {
+    max-width: none;
+  }
 }
 
 /* standing order 38: a spacer paragraph ({spacer-N}, scripts.js) in a tab set's or accordion's

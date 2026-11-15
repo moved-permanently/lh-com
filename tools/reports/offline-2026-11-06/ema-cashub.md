@@ -7273,11 +7273,17 @@ candidate that passes both widths) stay HOLD. The three OWNER rows are unchanged
   - Dry run on DA's copies: both steps placed; a second run finds the spacer there already.
   - The spacers need an upload without the marker collapse.
   - In the tab list both stay HOLD, pointing to this list.
-- **passive-temp-support: HOLD, needs a page option.**
-  - www's Features list is full width (1,276 px). Ours keeps the FAQ answers' 66 %, so four items take two lines.
-  - Full-width panel text gives -0.47 % (band end -1.50 %).
-  - But on insurance, personal-supervision and perishables www's lists are two-thirds wide, and a Cargo rule would take
-    those out of 2 %. So it needs an option on this document. Not drafted.
+- **passive-temp-support: READY with a list marker** (delta-so40-cargo-passive-temp-full-width.txt).
+  - www's Features list is full width (1,276 px). Ours kept the FAQ answers' 66 %, so four items took two lines.
+  - www's other panel lists are two-thirds wide (insurance, perishables, speed-zoom). A brand-wide rule took three
+    READY pages out of 2 %, so the width has to come from the document.
+  - **The row:** the tab row, then the existing list marker `{full-width}` on the Features list.
+  - **The rule** (Cargo's theme, from 1025 px): a panel list with that class spans the panel. No Cargo document has
+    such a list, so it draws on this page alone.
+  - **Figures:** 2,138 (-0.47 %), band end -1.50 %; 390 unchanged.
+  - **Gate:** the 84 recorded Cargo page-widths and the 7 applied tab pages measure the same with it (eaw at its applied
+    figures).
+  - Apply after this commit is live.
 - **speed-zoom: HOLD until a 390 first load.**
   - www holds the title and the tab set in one grey band, and puts the hero and the breadcrumb as on
     passive-temp-support. Our document splits them into four sections.

@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/en/passive-temp-support",
+  "inserts": [
+   {
+    "before": "</li></ul><p>* No temperature control on all other continental aircraft.",
+    "text": " {full-width}"
+   }
+  ]
+ }
+]

@@ -52,6 +52,24 @@ test('item 4 carried further: todoor and sustainable-choice, the tab row and www
   ready.forEach((p) => assert.ok(!(p in JSON.parse(read('delta-so40-cargo-product-tabs-recorded.json'))), p));
 });
 
+test('item 4 carried further: passive-temp-support\'s full-width Features list, the marker and a Cargo rule keyed on it', () => {
+  const css = fs.readFileSync(new URL('../styles/themes/cargo.css', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
+  const at = css.indexOf('body.brand-cargo .accordion-columns.faq .accordion-columns-panel :is(ul, ol).full-width {');
+  assert.ok(at > 0);
+  assert.match(css.slice(at, css.indexOf('}', at) + 1), /max-width: none;/);
+  assert.ok(css.lastIndexOf('@media (width >= 1025px) {', at) > css.lastIndexOf('} }', at), 'from 1025 px');
+  const list = read('delta-so40-cargo-passive-temp-full-width.txt');
+  assert.deepEqual([...new Set(listPaths(list))], ['/en/passive-temp-support']);
+  assert.deepEqual(Object.keys(JSON.parse(read('delta-so40-cargo-passive-temp-full-width-tabs.json'))), ['/en/passive-temp-support']);
+  assert.deepEqual(JSON.parse(read('delta-so40-cargo-passive-temp-full-width.json')), [{
+    path: '/en/passive-temp-support',
+    inserts: [{ before: '</li></ul><p>* No temperature control on all other continental aircraft.', text: ' {full-width}' }],
+  }]);
+  const head = list.split('\n').filter((l) => l.startsWith('#')).join('\n');
+  ['tools/importer/cargo-tabs-apply.mjs', 'tools/importer/text-inserts-apply.mjs', '/.token-free-backup/2026-11-cargo-so40-passive-temp-full-width/'].forEach((f) => assert.ok(head.includes(f), f));
+  assert.match(read('delta-so37-cargo-product-tabs-unrecorded.txt'), /^HOLD\t\/en\/passive-temp-support\t1440\t.*delta-so40-cargo-passive-temp-full-width\.txt/m);
+});
+
 test('item 3: the German eservices-app row, as the English one', () => {
   const de = JSON.parse(read('delta-so40-cargo-de-eservices-app.json'));
   const en = JSON.parse(read('delta-so39-cargo-lost-content.json')).find((r) => r.path === '/en/eservices-app');

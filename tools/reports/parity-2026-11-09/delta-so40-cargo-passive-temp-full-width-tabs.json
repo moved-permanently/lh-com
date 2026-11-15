@@ -1,0 +1,27 @@
+{
+ "/en/passive-temp-support": {
+  "block": "accordion-columns",
+  "titles": [
+   "Features",
+   "Special Aspects",
+   "Infrastructure",
+   "Booking & Tracking",
+   "Links & Downloads"
+  ],
+  "add": "tabs",
+  "rows": [
+   {
+    "panel": "Features",
+    "cells": [
+     [
+      "h3|best possible protection against tempera",
+      "p|we ship sensitive pharmaceutical product"
+     ],
+     [
+      "img"
+     ]
+    ]
+   }
+  ]
+ }
+}
