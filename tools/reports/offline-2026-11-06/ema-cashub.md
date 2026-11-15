@@ -7258,3 +7258,29 @@ candidate that passes both widths) stay HOLD. The three OWNER rows are unchanged
   - FAQ to the footer +39.
   - The English page has the repeated title too (order 38). Its 390 was a resize, so none of this showed there. It's a
     finding for a later order. If you would rather not apply the row before it is fixed, the row is the only change in this list.
+
+### Item 4, carried further: the five HOLD tab rows traced
+
+- **todoor and sustainable-choice: READY with a spacer** (delta-so40-cargo-tab-panel-empties.txt, as order 38's smartULD
+  and emergency rows: the tab row, then `{spacer-N}` with paragraph-spacer-apply.mjs).
+  - www's panels end with empty elements that publishing drops:
+    - sustainable-choice's text column, an empty paragraph after the SAF list: `{spacer-43}`;
+    - todoor's last list item, an empty paragraph and an empty heading, plus its paragraphs' margins: `{spacer-140}`.
+  - Figures at 1440:
+    - sustainable-choice 2,468 (+0.49 %), band end -0.15 %;
+    - todoor 2,283 (+0.66 %), band end 0.00 %.
+  - At 390 both are unchanged (the panels are closed).
+  - Dry run on DA's copies: both steps placed; a second run finds the spacer there already.
+  - The spacers need an upload without the marker collapse.
+  - In the tab list both stay HOLD, pointing to this list.
+- **passive-temp-support: HOLD, needs a page option.**
+  - www's Features list is full width (1,276 px). Ours keeps the FAQ answers' 66 %, so four items take two lines.
+  - Full-width panel text gives -0.47 % (band end -1.50 %).
+  - But on insurance, personal-supervision and perishables www's lists are two-thirds wide, and a Cargo rule would take
+    those out of 2 %. So it needs an option on this document. Not drafted.
+- **speed-zoom: HOLD until a 390 first load.**
+  - www holds the title and the tab set in one grey band, and puts the hero and the breadcrumb as on
+    passive-temp-support. Our document splits them into four sections.
+  - Joined, it is 2,180 at 1440 (-0.27 %, band end -1.23 %).
+  - But 390 moves from 1,311 to 1,196, and no 390 recording exists to gate that.
+- **industries-healthcare: HOLD.** It is +11.60 % as served and +20.02 % with the option. Not traced.

@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable max-len, import/extensions -- dev tooling */
 /* Standing order 40 (2026-11-15), items 3 and 4, on tonight's recordings (cargo-parity-004: the twelve tab pages at 1440;
    cargo-parity-005: the German eservices-app at 1440 and 390):
    item 4, delta-so37-cargo-product-tabs-unrecorded.txt gated: its READY rows are the .json's (cargo-tabs-apply.mjs), the
@@ -31,6 +31,25 @@ test('item 4: the tab list\'s READY paths are the .json\'s, the HOLD ones are no
   });
   const head = list.split('\n').filter((l) => l.startsWith('#')).join('\n');
   ['cargo-parity-004', 'tools/importer/cargo-tabs-apply.mjs', 'delta-so40-cargo-product-tabs-recorded.json', 'less 80 px', '/.token-free-backup/2026-11-cargo-so37-product-tabs-unrecorded/'].forEach((f) => assert.ok(head.includes(f), f));
+});
+
+test('item 4 carried further: todoor and sustainable-choice, the tab row and www\'s empty elements as a spacer', () => {
+  const list = read('delta-so40-cargo-tab-panel-empties.txt');
+  const ready = [...new Set(list.split('\n').filter((l) => l.startsWith('READY\t')).map((l) => l.split('\t')[1]))].sort();
+  assert.deepEqual(ready, ['/en/add-on-services/sustainable-choice', '/en/add-on-services/todoor']);
+  assert.deepEqual(Object.keys(JSON.parse(read('delta-so40-cargo-tab-panel-empties-tabs.json'))).sort(), ready);
+  assert.deepEqual(JSON.parse(read('delta-so40-cargo-todoor-spacer.json')), [{
+    text: 'Save time and effort with direct delivery', n: 140, tag: 'ul', place: 'after',
+  }]);
+  assert.deepEqual(JSON.parse(read('delta-so40-cargo-sustainable-choice-spacer.json')), [{
+    text: 'Small: 10% SAF', n: 43, tag: 'ol', place: 'after',
+  }]);
+  const head = list.split('\n').filter((l) => l.startsWith('#')).join('\n');
+  ['tools/importer/cargo-tabs-apply.mjs', 'tools/importer/paragraph-spacer-apply.mjs', '/.token-free-backup/2026-11-cargo-so40-tab-panel-empties/', 'without the marker collapse'].forEach((f) => assert.ok(head.includes(f), f));
+  // in the tab list they stay HOLD, pointing here, and are not in its .json
+  const tabs = read('delta-so37-cargo-product-tabs-unrecorded.txt');
+  ready.forEach((p) => assert.match(tabs, new RegExp(`^HOLD\\t${p}\\t1440\\t.*delta-so40-cargo-tab-panel-empties\\.txt`, 'm')));
+  ready.forEach((p) => assert.ok(!(p in JSON.parse(read('delta-so40-cargo-product-tabs-recorded.json'))), p));
 });
 
 test('item 3: the German eservices-app row, as the English one', () => {

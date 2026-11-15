@@ -1,0 +1,52 @@
+{
+ "/en/add-on-services/sustainable-choice": {
+  "block": "accordion-columns",
+  "titles": [
+   "Features",
+   "Booking",
+   "Links & Downloads"
+  ],
+  "add": "tabs",
+  "rows": [
+   {
+    "panel": "Features",
+    "cells": [
+     [
+      "h3|contribute to reducing your future clima",
+      "p|sustainable choice enables you to suppor",
+      "h3|service options",
+      "ul|add-on service - standardized offering f",
+      "h3|saf & contribution to high-quality clima",
+      "ol|small: 10% saf / 90% climate projects me"
+     ],
+     [
+      "img"
+     ]
+    ]
+   }
+  ]
+ },
+ "/en/add-on-services/todoor": {
+  "block": "accordion-columns",
+  "titles": [
+   "Features",
+   "Booking",
+   "Links & Downloads"
+  ],
+  "add": "tabs",
+  "rows": [
+   {
+    "panel": "Features",
+    "cells": [
+     [
+      "h3|direct delivery with todoor service",
+      "p|rely on efficient optimization of your t"
+     ],
+     [
+      "img"
+     ]
+    ]
+   }
+  ]
+ }
+}
