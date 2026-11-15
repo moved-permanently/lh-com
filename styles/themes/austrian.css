@@ -1131,6 +1131,24 @@ body.brand-austrian .form.core .form-step-card {
   padding: 24px;
 }
 
+/* on phones www's card sits 22 px from both edges (346 px at 390, as the section's text), not 10 px wider on each
+   side as the shared card: the five recorded Austrian form pages at 390 (austrian-parity-021's three first loads,
+   -019's bagdamage, -003's charter enquiry: the white card at x 22-367 on each; standing order 35, item 1) */
+@media (width < 768px) {
+  body.brand-austrian .form.core .form-step-card {
+    margin-inline: 0;
+  }
+}
+
+/* a checkbox's label as www's maui-checkbox, theme os (mausy austrian.css: .os .label 16 px, line height 20 px,
+   letter-spacing 0.45 px; .checkbox.has-label label gap 12 px): the consent texts take www's lines at both widths
+   (cancellation-refund 6 lines at 390, 3 at 1440; standing orders 33 and 35, gate-so35-austrian-form-checkbox.txt) */
+body.brand-austrian .form.core .form-option:has(> input[type="checkbox"]) {
+  gap: 12px;
+  line-height: 20px;
+  letter-spacing: 0.45px;
+}
+
 body.brand-austrian .form.core .form-subsection-title {
   color: inherit;
   font-family: var(--body-font-family);
@@ -1586,6 +1604,22 @@ body.brand-austrian main .columns-media:not(.steps) .columns-media-text > h3 {
    .mb-default) keeps 24 px of it: /at/en and /at/de book/flights, 24 px shorter at both widths, as www */
 body.brand-austrian main > .section.flush:last-child:not(.grey):has(> .columns-media-wrapper:last-child > .columns-media.padded) {
   margin-bottom: 24px;
+}
+
+/* the author quote as www's .author-quote .quote-text (mausy austrian: Portada 700 22 px / 110 %, 0.25 px; 28 px and
+   no tracking from 768 px; ours had the shared 36 / 28 px): the 12 Austrian documents with a quote, each an
+   .author-quote on www (os401crewstory and os401firstflightalone with www's side margins, the climate-protection
+   pages without); standing order 35, item 2 */
+body.brand-austrian main:not(:has(.article-header)) .default-content-wrapper > blockquote > :first-child {
+  font-size: 22px;
+  letter-spacing: 0.25px;
+}
+
+@media (width >= 768px) {
+  body.brand-austrian main:not(:has(.article-header)) .default-content-wrapper > blockquote > :first-child {
+    font-size: 28px;
+    letter-spacing: 0;
+  }
 }
 
 /* the end of online-check-in (standing order 14; the nine documents with option steps: the steps row, the App part, the
