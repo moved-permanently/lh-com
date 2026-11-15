@@ -8,7 +8,9 @@
  * found more than once without all, changes nothing. Everything else stays byte for byte.
  *
  * A row with kind "divider" writes {divider-n} (a 1px line, n px under it) instead, and tag "h1" ... "h6" looks for a
- * heading of that level instead of a paragraph (standing order 38: Cargo's live-animals note).
+ * heading of that level instead of a paragraph (standing order 38: Cargo's live-animals note); tag "ul" / "ol" a list
+ * whose text starts so, and place "after" puts the separator right after the element (www's empty elements closing a
+ * panel's column: Cargo's emergency and smartULD).
  *
  * Usage: node tools/importer/paragraph-spacer-apply.mjs --data rows.json --in <DA copy.html> --out <file>
  *   rows.json: [{ "text": "The distance is calculated", "n": 56 }] or [{ "text": "Update", "n": 50, "kind": "divider", "tag": "h4" }]
@@ -20,6 +22,7 @@ import { fileURLToPath } from 'node:url';
 
 const plain = (s) => s.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
 const SEPARATOR = /<p>\s*\{(spacer|divider)-\d{1,3}( from-768)?\}\s*<\/p>\s*$/;
+const NEXT_SEPARATOR = /^\s*<p>\s*\{(spacer|divider)-\d{1,3}( from-768)?\}\s*<\/p>/;
 
 /** The document with the rows' spacers: { html, results: [{ row, result }] }. */
 export function applyParagraphSpacer(html, rows) {
@@ -27,17 +30,21 @@ export function applyParagraphSpacer(html, rows) {
   const results = rows.map((row) => {
     if (!row.text || !(Number(row.n) > 0)) return { row, result: 'bad row' };
     // kind "divider" (standing order 38: www's separator, a 1px line, before a heading or paragraph): {divider-n};
-    // tag: the element the row's text starts (p, the default, or a heading h1 to h6)
+    // tag: the element the row's text starts (p, the default, a heading h1 to h6, or a list ul / ol without a nested
+    // list); place "after": right after that element instead of before it (www's empty elements closing a column)
     const kind = row.kind || 'spacer';
     const tag = row.tag || 'p';
-    if (!['spacer', 'divider'].includes(kind) || !/^(p|h[1-6])$/.test(tag)) return { row, result: 'bad row' };
+    const after = row.place === 'after';
+    if (!['spacer', 'divider'].includes(kind) || !/^(p|h[1-6]|ul|ol)$/.test(tag) || ![undefined, 'before', 'after'].includes(row.place)) return { row, result: 'bad row' };
     const re = new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`, 'g');
-    const hits = [...out.matchAll(re)].filter((m) => plain(m[1]).startsWith(row.text));
+    const hits = [...out.matchAll(re)].filter((m) => !/<[uo]l\b/.test(m[1]) && plain(m[1]).startsWith(row.text));
     if (!hits.length) return { row, result: 'not found' };
     if (hits.length > 1 && !row.all) return { row, result: 'found more than once' };
-    if (hits.some((m) => SEPARATOR.test(out.slice(0, m.index)))) return { row, result: 'there already' };
+    const at = (m) => (after ? m.index + m[0].length : m.index);
+    const there = (m) => (after ? NEXT_SEPARATOR.test(out.slice(at(m))) : SEPARATOR.test(out.slice(0, m.index)));
+    if (hits.some(there)) return { row, result: 'there already' };
     // (from the last one back, so the earlier indexes stay)
-    hits.reverse().forEach((m) => { out = `${out.slice(0, m.index)}<p>{${kind}-${Number(row.n)}}</p>${out.slice(m.index)}`; });
+    hits.reverse().forEach((m) => { out = `${out.slice(0, at(m))}<p>{${kind}-${Number(row.n)}}</p>${out.slice(at(m))}`; });
     return { row, result: hits.length > 1 ? `placed ${hits.length}` : 'placed' };
   });
   return { html: out, results };

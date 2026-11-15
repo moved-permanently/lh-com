@@ -1,0 +1,21 @@
+{
+ "/en/emergency": {
+    "block": "accordion-columns", "add": "tabs",
+    "titles": ["Features", "Booking", "Links & Downloads"],
+    "rows": [
+      { "panel": "Features", "cells": [
+        ["h3|your absolute-priority service with mone", "p|for exceptional situations when a guaran", "p|with the add-on service emergency, we de", "p|please note: the general terms and condi"],
+        ["img"] ] },
+      { "panel": "Links & Downloads", "cells": [
+        ["h3|want to know more?", "p|take a look at your choice of add-on ser", "ul|whenever it needs to go: our schedule wh"],
+        ["img"] ] }
+    ] },
+ "/en/add-on-services/smartuld": {
+    "block": "accordion-columns", "add": "tabs",
+    "titles": ["Features", "Booking", "Links & Downloads"],
+    "rows": [
+      { "panel": "Features", "cells": [
+        ["h3|enhanced safety, operational efficiency", "p|smartuld gives you access to real-time d", "h3|access to real-time data", "ul|comprehensive temperature profile: monit", "h3|exclusive customer service & pharma cont", "ul|exclusive access to our pharma control t"],
+        ["img"] ] }
+    ] }
+}
