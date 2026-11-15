@@ -334,3 +334,32 @@ test('another brand (ITA): the origin with its code, no placeholder, as before',
   assert.equal(lastBlock.querySelector('input[name="originCode"]').value, 'London (LHR)');
   assert.equal(lastBlock.querySelector('input[name="selectedDestinationFilterOptions"]').getAttribute('placeholder'), null);
 });
+
+// standing order 27: the built-in texts when www's labels do not answer are www's own (labels/destinationFinder and
+// labels/common of lufthansa-api-003's loads, 2026-11-15): the Best price badge and sort, the Recommended sort
+const BUILT_IN = {
+  '/xx/fr/flights': ['Meilleur prix', 'Recommandé'],
+  '/xx/es/flights': ['Mejor coste', 'Recomendado'],
+  '/it/it/flights': ['Miglior prezzo', 'Consigliato'],
+  '/pt/pt/flights': ['1.º preço', 'Recomendado'],
+  '/xx/el/flights': ['Καλύτερη τιμή', 'Συνιστάται'],
+  '/xx/ja/flights': ['最安値', '推奨'],
+  '/xx/ru/flights': ['Best price', 'Рекомендуется'],
+  '/xx/zh/flights': ['最佳价格', '推荐'],
+  '/pl/pl/flights': ['Najlepsza cena', 'Polecane'],
+};
+Object.entries(BUILT_IN).forEach(([pathname, [best, recommended]]) => {
+  test(`lufthansa.com ${pathname} without www's labels: www's own sort texts (${best}, ${recommended})`, async () => {
+    commonAnswer = null;
+    await grid('', GB_ROWS, pathname);
+    const sort = sortOf();
+    assert.ok(sort.options.includes(`kClass ${best}`), sort.options.join(' | '));
+    assert.ok(sort.options.includes(`topDeal ${recommended}`), sort.options.join(' | '));
+  });
+});
+
+test('lufthansa.com /xx/ru/flights without www\'s labels: the badge "Лучшая цена" (www\'s badge; its sort says "Best price")', async () => {
+  commonAnswer = null;
+  const tiles = await grid('', GB_ROWS, '/xx/ru/flights');
+  assert.ok(tiles[0].endsWith(' Лучшая цена'), tiles[0]);
+});

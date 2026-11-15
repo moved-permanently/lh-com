@@ -831,10 +831,26 @@ const GRID_BADGE_LABELS = {
   'best price label': 'common.destinationFinderCard.badge.kClass',
 };
 /**
- * The "Best price" badge without labels/common: www's texts (labels/common/lh, recorded); other
- * languages (Discover's fr) the English one.
+ * The "Best price" badge without labels/common: www's texts (labels/common/lh, recorded; standing
+ * order 27: lufthansa-api-003's loads); other languages the English one.
  */
-const GRID_BEST_PRICE_LABELS = { en: 'Best price', de: 'Bestpreis' };
+const GRID_BEST_PRICE_LABELS = {
+  en: 'Best price',
+  de: 'Bestpreis',
+  el: 'Καλύτερη τιμή',
+  es: 'Mejor coste',
+  fr: 'Meilleur prix',
+  hk: '最優惠價格',
+  it: 'Miglior prezzo',
+  ja: '最安値',
+  ko: '최적가',
+  pl: 'Najlepsza cena',
+  pt: '1.º preço',
+  ru: 'Лучшая цена',
+  zh: '最佳价格',
+};
+/** The "Best price" sort without labels/destinationFinder where www's differs from its badge. */
+const GRID_SORT_KCLASS_LABELS = { ru: 'Best price' };
 
 /**
  * The grid's message when its price call failed or the site's live prices are off, on a brand
@@ -1053,7 +1069,7 @@ const GRID_DEFAULT_LABELS = {
     'results count label': '{NUMBER} destinazioni corrispondenti',
     'results heading': 'Risultati per città. Seleziona una città di destinazione per vedere altre opzioni.',
     'sort label': 'Ordina per',
-    'sort recommended label': 'Consigliati',
+    'sort recommended label': 'Consigliato',
     'sort price label': 'Prezzo',
     'sort alphabet label': 'Ordine alfabetico',
     'sorted label': 'I risultati sono stati ordinati per {OPTION}',
@@ -1115,7 +1131,7 @@ const GRID_DEFAULT_LABELS = {
     'results count label': '{NUMBER} destinations correspondantes',
     'results heading': 'Résultats par ville. Sélectionnez une ville de destination pour afficher plus d’options.',
     'sort label': 'Trier par',
-    'sort recommended label': 'Recommandés',
+    'sort recommended label': 'Recommandé',
     'sort price label': 'Prix',
     'sort alphabet label': 'Ordre alphabétique',
     'sorted label': 'Les résultats ont été triés par {OPTION}',
@@ -1177,7 +1193,7 @@ const GRID_DEFAULT_LABELS = {
     'results count label': '{NUMBER} destinos coincidentes',
     'results heading': 'Resultados por ciudad. Seleccione una ciudad de destino para ver más opciones.',
     'sort label': 'Ordenar por',
-    'sort recommended label': 'Recomendados',
+    'sort recommended label': 'Recomendado',
     'sort price label': 'Precio',
     'sort alphabet label': 'Orden alfabético',
     'sorted label': 'Los resultados se han ordenado por {OPTION}',
@@ -1301,7 +1317,7 @@ const GRID_DEFAULT_LABELS = {
     'results count label': '{NUMBER} destinos correspondentes',
     'results heading': 'Resultados por cidade. Selecione uma cidade de destino para ver mais opções.',
     'sort label': 'Ordenar por',
-    'sort recommended label': 'Recomendados',
+    'sort recommended label': 'Recomendado',
     'sort price label': 'Preço',
     'sort alphabet label': 'Ordem alfabética',
     'sorted label': 'Os resultados foram ordenados por {OPTION}',
@@ -1363,11 +1379,11 @@ const GRID_DEFAULT_LABELS = {
     'results count label': '{NUMBER} προορισμοί που ταιριάζουν',
     'results heading': 'Αποτελέσματα ανά πόλη. Επιλέξτε πόλη προορισμού για περισσότερες επιλογές.',
     'sort label': 'Ταξινόμηση κατά',
-    'sort recommended label': 'Προτεινόμενα',
+    'sort recommended label': 'Συνιστάται',
     'sort price label': 'Τιμή',
     'sort alphabet label': 'Αλφαβητικά',
     'sorted label': 'Τα αποτελέσματα ταξινομήθηκαν κατά {OPTION}',
-    'recommended label': 'Προτείνεται',
+    'recommended label': 'Συνιστάται',
     'smart search label': 'Έξυπνη αναζήτηση προορισμών',
     'price label': 'Με επιστροφή από',
     'one way price label': 'Μόνο μετάβαση από',
@@ -1425,11 +1441,11 @@ const GRID_DEFAULT_LABELS = {
     'results count label': '一致する目的地: {NUMBER}件',
     'results heading': '都市別の結果です。目的地の都市を選択すると詳細が表示されます。',
     'sort label': '並べ替え',
-    'sort recommended label': 'おすすめ',
+    'sort recommended label': '推奨',
     'sort price label': '価格',
     'sort alphabet label': '五十音順',
     'sorted label': '{OPTION}で並べ替えました',
-    'recommended label': 'おすすめ',
+    'recommended label': '推奨',
     'smart search label': 'スマート目的地検索',
     'price label': '往復',
     'one way price label': '片道',
@@ -1487,7 +1503,7 @@ const GRID_DEFAULT_LABELS = {
     'results count label': 'Подходящих пунктов назначения: {NUMBER}',
     'results heading': 'Результаты по городам. Выберите город назначения, чтобы увидеть больше вариантов.',
     'sort label': 'Сортировать по',
-    'sort recommended label': 'Рекомендуемые',
+    'sort recommended label': 'Рекомендуется',
     'sort price label': 'Цена',
     'sort alphabet label': 'Алфавит',
     'sorted label': 'Результаты отсортированы: {OPTION}',
@@ -2039,7 +2055,7 @@ async function decorateGrid(block, uid) {
   const bestPriceText = GRID_BEST_PRICE_LABELS[locale.lang] || GRID_BEST_PRICE_LABELS.en;
   const sort = selectField(`${uid}-sort`, labels['sort label'], [
     ['topDeal', labels['sort recommended label']],
-    ...(wwwBadges ? [['kClass', labels['sort kclass label'] || bestPriceText]] : []),
+    ...(wwwBadges ? [['kClass', labels['sort kclass label'] || GRID_SORT_KCLASS_LABELS[locale.lang] || bestPriceText]] : []),
     ['price', labels['sort price label']], ['alphabet', labels['sort alphabet label']],
   ], state.sort);
   // a sort picked by hand stays; else each answer opens with www's (openingGridSort)
