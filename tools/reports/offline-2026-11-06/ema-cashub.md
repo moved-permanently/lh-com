@@ -6316,7 +6316,8 @@ Not here yet; they are with the Captures child. The checkbox label rule stays HO
   - The row: 11 {column-start} marks, the three parts as a Columns Media block, and a {spacer-39} after it (www's view end).
   - Drafted: 390 -2.26 -> -0.23 %; 1440 -0.02 -> -0.36 %. That is further by 0.34 points, within 2 %. The rest at 1440 is
     the door table's empty cells (HOLD).
-  - Only /at/en is recorded.
+  - Only /at/en is recorded. The nine other locales with a www snapshot have the same structure on both sides. Their
+    rows are drafted the same way and are in the same file, HOLD with /at/en: 390 +393 px each; 1440 -68 to +100.
 - **fly-with-austrian, four widths.** The flight search band without its APIs (-89 px at 1440), and a few px a card row,
   which only the card rule on every grid would close. You ruled that rule out.
 - **cancellation-refund 1440.** Waits for item 2's loads.
