@@ -2123,6 +2123,13 @@ body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper
   margin-bottom: 40px;
 }
 
+/* lufthansa.com: the picture right below the page title, ending its section before a grey band
+   (/de/en/exclusive-charter): www has the image component's 4rem there, then the band (picture to band 40px at 1440, ours 82). Standing order 28, injected: exclusive-charter
+   11.5 / 14.7 -> 4.9 / 8.7 % at 1440 / 390; census: the fifteen exclusive-charter documents */
+body.brand-lufthansa main > .section:has(+ .section.grey) > .default-content-wrapper > h1 + p:has(> picture):last-child {
+  margin-bottom: 40px;
+}
+
 /* below 768px a page of spacious cards that opens with its title and a picture (take-off at
    390): www's image component keeps its 4rem under the picture (ours 24px, every card picture
    after it 16px off); at 1440 as before */
