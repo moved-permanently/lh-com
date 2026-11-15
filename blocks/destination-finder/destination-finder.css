@@ -167,6 +167,20 @@ main > .section > .destination-finder-wrapper {
   border: 0;
 }
 
+/* lufthansa.com's homepage widget ("Flight offers from", not the offers grid): www's trip buttons
+   20px lower under the origin (1440: 92px from the heading's top, ours 71; 390 the same 19px),
+   and on phones, where the heading wraps, the origin 18px under "Flight offers from". Standing
+   order 31: /de/en/homepage 7.7 / 9.2 -> 6.4 / 7.4 % at 1440 / 390 (the 232 market homepages) */
+body.brand-lufthansa .destination-finder:not(.grid) .destination-finder-trip-types {
+  margin-top: 50px;
+}
+
+@media (width < 768px) {
+  body.brand-lufthansa .destination-finder:not(.grid) .destination-finder-heading {
+    row-gap: 18px;
+  }
+}
+
 .destination-finder .destination-finder-chips {
   display: flex;
   flex-wrap: wrap;
