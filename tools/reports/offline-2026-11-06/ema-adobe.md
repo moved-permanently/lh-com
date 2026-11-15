@@ -4801,3 +4801,71 @@ the changed files passed. Full suite on the final code: 95e93f8 (origin/main wit
   lists), missing source data (traveltricks' store links), or places where the right rule loses the whole-page gate to
   other shortfalls (items 3 and 4). The next lever is those shortfalls, with an importer mark for the band case.
 - Left out of git: logs/b631 (captures, trials, census files, DA reads), the untracked import reports of earlier runs.
+
+### Standing order 32 (2026-11-15 18:05 to about 20:40 CET)
+
+No uploads, previews or publishes; DA read only; no request to an airline host and no new recordings asked for (all
+measurements on our own host against the existing recordings; aem.live read for its headers). `.migration/project.json`
+untouched; plugins left off. Order 31 left nothing uncommitted or unpushed. Each push: the whole-repo lint read 0 on a
+clean worktree of the rebased HEAD, stylelint passed on the changed files, the tests reading them passed. Full suite on
+the final code: ef8be78 (origin/main with every commit of this order), 72 lh-edge files and 1,182 site files, 0 failing.
+
+1. **traveltricks' store buttons: 7 READY rows, 6 HOLD (36b2a0a, pushed as 8bf6a68).**
+   - The links from our own documents: the Lufthansa app is App Store id299219152 and Google Play
+     com.lufthansa.android.lufthansa (other pages also link FlyNet, CabinBlu, bagtag and the like). Each version takes
+     the links its own market's digital-travel-companion page uses; mk/en (no app page) de/en's, fr/fr (no app page, not
+     published) xx/fr traveltricks'. Labels: www's snapshot of each version.
+   - xx/fr, xx/it, xx/ja and xx/pt already have both buttons from www's markup; at/de, de/de, de/en, gb/en, mk/en, xx/es
+     and fr/fr (DA only) had none. The row puts the Step 1 text into a paragraph and the two buttons after it in the same
+     cell, as the xx versions carry them (<p><em><a>…</a></em></p>). Dry run 7 of 7, restorable byte for byte.
+   - Gate (de/en draft, the only recorded version): 20.2 / 31.6 -> 20.2 / 22.1 % at 1440 / 390.
+   - HOLD, your call: xx/el, xx/hk, xx/ko, xx/pl, xx/ru and xx/zh have both buttons, but their iOS button links FlyNet
+     (id1517612540), not the Lufthansa app. No snapshot of those versions, so I can't tell whether www does the same.
+2. **The seat-map slideshow and the link rule.**
+   - **Shipped (in 8bf6a68): from 768 px no section gap between a section that ends with a standalone link and a padded
+     section** (the fleet pages' seat-map PDF link before "Technical data"; 75 documents, campaign sections left out).
+     Gate at 1440: 320 5.4 -> 4.4 %, passengers-with-sensory-impairment 3.4 -> 3.3, travelling-healthy and
+     100-years/chronicle the same (chronicle was missed by my first list: a path bug, every "_" in our copies' names is a
+     "/"; gated afterwards).
+   - **320 on phones:** three causes at 390, each right where it acts: the gap under the seat-map slideshow 34 px short,
+     the same padded gap 54 px too much, and the two picture blocks above (a padded columns-media then a sidebar one) 21
+     px too close. The picture pair is shipped (55b176a and 57a87d3, pushed as a4e99c2): on phones a
+     sidebar that opens with its picture, right after a padded view, sits 21 px lower, in the same section (100-years
+     pages, 79 documents) and across a section boundary (320, 32n, 100-years/chronicle, 42 documents). Gate at 390:
+     100-years/destinations 12.1-12.3 -> 8.0-8.1 % in de/en, de/de, at/de, gb/en; 320 9.0 -> 5.7; 32n 8.3 -> 7.6; the
+     other recorded pages the same. A sidebar that opens with text is left out (100-years/chronicle went 7.8 -> 9.8
+     without that condition). The slideshow gap and the padded gap on phones are held: with the pair rules in place 320
+     only moves 5.7 -> 5.9, and 32n (+3.1) and boeing787 (+1.0) get worse.
+   - **The wrapped link rule:** still not shipped. 320's shortfall above the link is now fixed (9.0 -> 5.7 %), but agb-extra-services'
+     cause is not: its list-to-link gap at 390 is no phone-only empty line ({spacer-49 below-768} as a draft: 6.6 ->
+     8.9 %, 1440 the same), and with the link rule on top 8.7. The rule stays out until agb's gap is understood.
+3. **Images and code: the same race, extended (1769c35, pushed as 9ae3e25, deployed).**
+   - aem.live sends code an ETag but ignores it: If-None-Match alone gets 200, an If-Modified-Since equal to the file's
+     Last-Modified gets 304 even with a wrong If-None-Match (checked on /styles/styles.css). Cloudflare revalidates with
+     both, so an old script or stylesheet held under the new date would be kept exactly like the pre-publish pages.
+   - Now every GET/HEAD to the origin on EDGE_TTL hosts but media_<hash> files goes to the Cache API: code, styles,
+     icons, fonts, sitemaps. media_<hash> files are content-addressed (a new file is a new URL) and keep the fetch cache,
+     as do Range requests; an answer over 8 MB is passed on without a copy. A hit answers with the origin's own
+     cache-control (code keeps max-age=7200 for browsers).
+   - Test: the code case (aem.live's ETag-ignoring 304 modelled) fails on the deployed code and passes now; the model's
+     fetch cache still holds the old file 4 h later. lh-edge: 424 tests pass (markets.test counts the sitemap file's own
+     copy apart).
+   - Smoke before and after the deploy on all 12 hosts: 833 checks, 0 differ. After the deploy scripts.js and styles.css
+     answer x-lh-edge-cache miss then hit, and a conditional request on styles.css gets the whole file (200).
+4. **Ranking.** Fresh figures for the top of the list: first-class-terminal 390 22.9 % (was 32.0), first-class 390 22.2
+   (25.9), giftvoucher 390 19.8 (23.4), economy-class 390 14.9 (28.1), tips-senior-travellers 1440 14.5 (25.3),
+   entryprocesses 390 4.3 (28.5).
+   - first-class-terminal: one 27 px step after a text block, then flat; the rest is drawn content. Page-specific.
+   - first-class: around its quote ours is 20 px short above and 40 below at 390. www's own rule is ours (.author-quote
+     60 px, 80 from 768), but www's grid columns float, so the neighbours' 24 px add instead of collapsing. Tried
+     phone-only 84 px quote margins on the 23 recorded pages with a quote: 3 better (first-class 22.2 -> 20.6,
+     flying-high-christoph-quarch 11.0 -> 5.8, what-i-learned-living-in-barcelona 14.4 -> 13.1), 4 the same, 16 worse
+     (the articles up to +11.7, first-class-terminal +12.4, 100-years/crane +2.5 to +2.9). Our quote margins are right
+     on most pages; no rule.
+   - **Shipped (24075fa): giftvoucher's line under its cards on phones.** www draws the line ("Visit the FAQs") 42 px
+     under the card at 390, ours 10 (the 1440 value). Only giftvoucher de/en and de/de carry such lines (order 24's
+     rows). Gate: /de/en/book-and-manage/flights/giftvoucher 19.8 -> 14.4 % at 390, the page height now www's.
+   - In passing, the traveltricks row above takes that page from 31.6 to 22.1 % at 390.
+- Ended at about 20:40 CET, not 21:30: the last code change (20:05) needed the full suite again before this section,
+  and the next candidates (first-class-terminal's step, economy-class, tips-senior-travellers) need a cause found first.
+- Left out of git: logs/b632 (captures, trials, DA reads, census files), the untracked import reports of earlier runs.
