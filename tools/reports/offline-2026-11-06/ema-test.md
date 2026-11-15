@@ -4851,3 +4851,44 @@ State at the start: nothing of mine uncommitted or unpushed (order 32's final se
 - Not in git and why: logs/p4/so33 (scratch: captures, gates, no-breakage renders, folder copies, DA copies), the drops
   in /tmp (private material), content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry
   (not mine, kept). Preview servers stopped, trial worktrees removed.
+
+## Standing order 34 (received about 22:05 UTC, 2026-11-15)
+
+State at the start: nothing of mine uncommitted or unpushed (order 33's final section on main, d4d2eb28).
+
+1. **Follow-ups.**
+   - first-class-terminal: the style acts on the served page. Both styled sections stand right before a stage and end
+     24 px over it; in one load, setting the style back to 48 px adds 48 px at both widths. As served the page reads
+     what the gate expected (1440 7.01 %, 390 18.15 % against lh-parity-002). No corrected row; the unchanged heights in
+     the order came from the measurement (12,515 / 11,203 px is the page with the style).
+   - miles-and-more-credit-card as served (paragraph spaces only): 390 21.34 → 19.10 % (closer), 1440 12.86 %. Of the
+     headings DA reset, only "Find the right Miles & More Credit Card for your needs" wraps differently (two lines, www
+     three). Fixed without characters (41caa5e4): a phones-only rule keyed on the heading's id, 318 px wide: 390
+     19.10 → 15.58 %; its other document (gb/en, not recorded) renders one line more, nothing broken.
+   - ema-adobe's hand-over: economy-class (gap-after-small on its two sections before a stage: 1440 8.41 → 7.99, 390
+     14.95 → 13.35 %) and tips-senior-travellers (two desktop spacers: 1440 14.61 → 6.46 %, 390 the same), READY rows in
+     delta-so34-lh-com-rows.txt. Not done tonight: miles-and-more's picture gap between cards (item 4, Columns Media).
+   - /de/en/first-class's broken pictures: all OpenStreetMap tiles (tile.openstreetmap.org) of its two poi-map widgets,
+     refused in our renders: 18 at 1440, 6 at 390. None is www-hosted; nothing to move.
+2. **The hidden-separator rule** (hidden-separators-so34.txt): shipped with its gate on every brand's pages with
+   width-scoped spacers (census of the published copies and of every delta list's rows). In the interim (the code live,
+   the compensating row still live) and in the final state nothing recorded moves further: 20 lufthansa.com page-widths
+   unchanged, ITA group-boarding 390 closer, entry-exit-system and network unchanged; every reached unrecorded document
+   renders clean (58 lufthansa.com documents +16 px per hidden last wrapper at 390). The one compensating row,
+   entry-exit-system's {spacer-15 from-768}, is a READY removal (delta-so34-ita-hidden-separators.txt): the page
+   renders identically with and without it on the new code, so the minutes between the push and the helpers' publish
+   round do not show.
+3. **traveltricks**: www's empty paragraph before "Step 1" as {spacer-60} (READY, delta-so34-lh-com-rows.txt): 1440
+   20.29 → 11.48 %, 390 22.18 → 11.14 %.
+
+## Standing order 34, final section (about 23:30 UTC, 2026-11-15)
+
+- Items 1-3 done; left: miles-and-more's picture gap between cards (ema-adobe's item 4).
+- Before this section: the full suite on 92278044 (npm run lint 0, stylelint 0, 1,189 of 1,189 test files); the folder-reading tests with brand.test.mjs; the whole-repo lint read before every push.
+- Nothing uploaded, previewed or published by me; DA read only (lufthansa.com traveltricks, economy-class,
+  tips-senior-travellers; ITA entry-exit-system); da-upload.mjs not run; requests only to our own hosts, DA (reads)
+  and GitHub's API; no request to www or any airline host. .migration/project.json not touched; the excluded manage page
+  has no row and no line.
+- Not in git and why: logs/p4/so34 (scratch: captures, gates, renders, folder copies, DA copies), the drops in /tmp
+  (private material), content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not mine,
+  kept). Preview servers stopped, trial worktrees removed.
