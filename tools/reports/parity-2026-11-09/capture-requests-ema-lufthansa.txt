@@ -85,3 +85,9 @@
 /be/nl/special-care/pets
 /be/en/farealert/unsubscribe-failure
 /be/en/legal-notices
+# SWISS, standing order 27 (2026-11-15): two picture files, as assets with their sha256 (not a page capture): the help app
+# (help-center-web) writes them from www's host on /ch/de and /ch/en customer-support/contact-us and /ch/en/help-center
+# (its stage and its FAQs card); copies in lh-swiss's DA let our block point at them, as Austrian's (micro-frontend.js).
+# host: swiss.com
+/content/dam/lx/images/local_images/help-center/main.png
+/content/dam/lx/images/local_images/help-center/faq.png

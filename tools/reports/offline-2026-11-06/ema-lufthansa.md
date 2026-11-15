@@ -5521,3 +5521,53 @@ the full suite in its ship.
 
 **Hosts:** reads only from our hosts, the drop's recordings and DA (GETs from my session). No request to an airline host,
 no da-upload.mjs call, no upload, preview or publish by me.
+
+## Standing order 27 (2026-11-15, about 21:40 to 23:30 CET), with its final section
+
+**At the start:** nothing of mine uncommitted or unpushed (order 26's 0bbff184 and fa0898a3 were on main).
+`.migration/project.json` was modified, not by me, and is left as it is.
+
+**Item 1, the new recordings** (sha256 of all four equal to the order's and to their sidecars):
+- **ITA, against ita-parity-009** (each width its own first load). group-boarding was left out (ema-test's tonight).
+  - fleet/long-haul: 1440 3508 against 3526 (-0.51 %); 390 2892 with the system's fonts, 2808 with Arial's face
+    (PARITY_ARIAL_FONTS, as www was drawn), -0.04 %.
+  - territorial-continuity/alghero: 1440 2321 against 2328 (-0.30 %); 390 3507 with the face (+0.06 %).
+  - corporate-b2b: 1440 1493 against 1492 (+0.07 %); 390 2545 with the face (-1.59 %).
+  - All within 2 %, so ita-pictures-001's 19 pictures need no row. finish-ita.txt has the new figures.
+- **Discover, against discover-parity-004:**
+  - excess-baggage: 2715 / 2472 against 2701 / 2487 (+0.52 / -0.60 %).
+  - business-class: 4217 / 3218 against 4233 / 3193 (-0.38 / +0.78 %).
+  - Within 2 % at both widths, so the pictures I'd asked for are no longer needed (nothing to add to the capture
+    list). finish-discover.txt has the new figures.
+
+**Item 2, the sweep (sweep-so27-brands.md):**
+- **Method:** all 498 recorded page-widths of SWISS, Brussels, Discover and Group for Business, captured with
+  tools/parity/capture.js on the brand hosts (no request to www) and compared with tools/parity/compare.js against the
+  newest recording, a first load before a resized one.
+- **Within 2 %:** SWISS 41 of 56, Brussels 157 of 206, Discover 46 of 54, Group for Business 165 of 182. Each row shows
+  its finish-line status.
+- **The worst three per brand:** all but one are the owner's decisions, www's live data or www's recorded state, as
+  located before:
+  - SWISS: the offers grid and the magazine's ads;
+  - Brussels: the payment iframe, our-company's cut card texts, the offers cards;
+  - Discover: the offers page, the fare calendar, punta-cana's font decision;
+  - Group for Business: kuala-lumpur's recorded table, meals-on-board's empty tab item, and lhg4b-search, which only
+    measures capture.js's 900 px window against www's 844.
+- **The new one:** SWISS contact-us (de, en) and help-center, about -6 to -7 % at 1440.
+  - The help app writes its stage and FAQs-card pictures from swiss.com, so without that host the FAQs card is
+    153 px against www's 282.
+  - The fix is Austrian's: copies in lh-swiss's DA and the block's picture map.
+  - The two files (main.png, faq.png, both confirmed in www's recorded markup) are on the capture list; the code row
+    follows once they are in DA's media. HOLD.
+- **No shared fix this order**, so no no-breakage render was needed. Nothing sits in Columns Media or the main
+  stylesheet's section gaps.
+
+**Checks:** this commit has lists and a report only (no code): `npm run lint` before its push, the folder-reading
+tests, and the full suite in its ship.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git): the four archives, the sweep's 498 captures with their comparisons, job lists and logs.
+
+**Hosts:** reads only from our hosts and the drop (no DA read this order). No request to an airline host, no
+da-upload.mjs call, no upload, preview or publish by me.
