@@ -4763,3 +4763,46 @@ State at the start: nothing of mine uncommitted or unpushed (order 30's final se
 - Not in git and why: logs/p4/so30, logs/p4/so31 (scratch: captures, gate folders, folder copies, DA copies, scripts),
   the drops in /tmp (private material), content/, migration-work/, tools/importer/reports/* (not mine), the old
   autostash entry (not mine, kept). Preview servers stopped, trial worktrees removed.
+
+## Standing order 32 (received about 18:25 UTC, 2026-11-15)
+
+State at the start: nothing of mine uncommitted or unpushed (order 31's final section on main, ffea581a).
+
+1. **ITA's three leftovers** (delta-so32-ita-leftovers.txt, folder renders, Arial's face, band-end gate, DA checked):
+   - network's "Related" READY: {spacer-48 from-768} and {spacer-19 below-768} before the heading, in the heading's own
+     wrapper (no -16 px trap): 1440 -1.07 → +0.31 %, 390 -0.16 → +0.20 %.
+   - order 30's held lead-heading row: live since round 442 inside order 31's network row (DA and the page carry it);
+     marked READY in delta-so30-ita-phone-rows.txt with that note, nothing left to apply.
+   - group-boarding READY: the owner's three located gaps as desktop spacers before "Short/Medium-Haul flights" (16),
+     "Long-haul flights" (26) and "FAQs" (67): 1440 -2.40 → -0.35 %, 390 -0.37 → -0.51 % (the hidden spacers -8 px there).
+2. **ITA's header-row rule on its 124 unrecorded documents** (ita-header-rule-so32.txt): every document on ita.turnsthe.page
+   at 1440 and 390, each table measured with the rule and with its values reset in the same load (427 visible tables).
+   Nothing broken: no table newly wider than its column (18 that already scroll grow 4-29 px), no first row under its
+   header; the empty header cells (four page families) are corner cells over row labels, authored so. No fix needed.
+3. **lufthansa.com's info pages swept again** (sweep-so32-lh-info.md): 346 page-widths on lufthansa.turnsthe.page with
+   the deployed code against the newest recordings (lh-parity-002a-d; lh-snapshots-115 for six pages' 1440). Median
+   9.1 → 6.4 %, at 20 % or more 26 → 8.
+   - Measuring: live boxes masked (the 11-09 baseline did not); the car-rental pages' partner widget (Meili, not an
+     airline host) is refused by the capture since order 12, so those four pages were measured again with that host let
+     through (a scratch copy of the tools); YouTube embeds are refused and count as differences.
+   - with-children-at-the-airport is as www's now (www dropped a sentence after 11-06; 17.6 → 8.7 % against 11-13).
+   - The worst ten are located (Columns Media spacing on phones: the link under a picture -17 px, stacked pictures -25 px
+     a pair, a narrower text column in padded views; a section ending with Columns Media 48 px over a stage or flush band
+     where www leaves about 23; Carousel Cards' line under a card 32 px higher than www's; traveltricks with another
+     session's rows in flight). None is shipped: each fix is in Columns Media (changed twice tonight by another session),
+     in styles.css's section spacing, or in Carousel Cards, and each reaches unrecorded documents (the lounge teaser shape
+     alone: 116 documents), which the order allows to move by at most 0.5 points. They are drafts for the owners, with
+     the measured values.
+
+## Standing order 32, final section (about 19:50 UTC, 2026-11-15)
+
+- Items 1 and 2 done; item 3 measured and located, the ten fixes held (why above).
+- Before this section: the full suite on 290aba2b (npm run lint 0, stylelint 0, 1,182 of 1,182 test files); the folder-reading tests with brand.test.mjs; the whole-repo lint read before every push.
+- Nothing uploaded, previewed or published by me; DA read only (ITA network, group-boarding; lufthansa.com
+  with-children-at-the-airport); da-upload.mjs not run; requests only to our own hosts (ita.turnsthe.page,
+  lufthansa.turnsthe.page, aem.live), DA (reads), R2 (the lh-snapshots drops, sha256 in logs/p4/so32/snaps-fetched.txt),
+  Meili's widget host for the four car-rental captures, and GitHub's API; no request to www or any airline host.
+  .migration/project.json not touched; the excluded manage page has no row and no line.
+- Not in git and why: logs/p4/so30 to so32 (scratch: captures, sweeps, gate folders, folder copies, DA copies, the scratch
+  tools copy), the drops in /tmp (private material), content/, migration-work/, tools/importer/reports/* (not mine), the
+  old autostash entry (not mine, kept). Preview servers stopped, trial worktrees removed.
