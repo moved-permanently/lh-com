@@ -1,0 +1,37 @@
+{
+  "/be/en/extra-services/baggage/checked-baggage": [
+    {
+      "from": "<div class=\"accordion-columns faq limited-width\">",
+      "to": "<div class=\"accordion-columns faq limited-width narrow-titles\">",
+      "count": 1
+    }
+  ],
+  "/be/fr/extra-services/baggage/checked-baggage": [
+    {
+      "from": "<div class=\"accordion-columns faq limited-width\">",
+      "to": "<div class=\"accordion-columns faq limited-width narrow-titles\">",
+      "count": 1
+    }
+  ],
+  "/be/nl/extra-services/baggage/checked-baggage": [
+    {
+      "from": "<div class=\"accordion-columns faq limited-width\">",
+      "to": "<div class=\"accordion-columns faq limited-width narrow-titles\">",
+      "count": 1
+    }
+  ],
+  "/de/de/extra-services/baggage/checked-baggage": [
+    {
+      "from": "<div class=\"accordion-columns faq limited-width\">",
+      "to": "<div class=\"accordion-columns faq limited-width narrow-titles\">",
+      "count": 1
+    }
+  ],
+  "/it/it/extra-services/baggage/checked-baggage": [
+    {
+      "from": "<div class=\"accordion-columns faq limited-width\">",
+      "to": "<div class=\"accordion-columns faq limited-width narrow-titles\">",
+      "count": 1
+    }
+  ]
+}

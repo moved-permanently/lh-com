@@ -65,3 +65,23 @@
 /es/es/extra-services/baggage/checked-baggage
 /it/it/extra-services/baggage/checked-baggage
 /be/en/local-page/student-fares
+# Brussels, standing order 24 (2026-11-15): 390 x 844 only, each page LOADED AT THAT SIZE (a phone's first load; nothing
+# clicked), full height, the measurements json. Each is a HOLD row of finish-brussels.txt measured against a 390 recording
+# that resized its 1440 load (manifests of brussels-parity-004, -006, -007: resizedFrom 1440); not www.lufthansa.com.
+# host: www.brusselsairlines.com
+/be/fr/book-a-flight/our-payment-methods
+/be/en/check-in-options-and-info/check-in-times
+/be/en/local-page/offers
+/il/en/rebooking-request-birthright
+/am/en/non-encrypt-mail/contact-form-error
+/be/fr/my-bookings/cancel-and-refund-requests
+/be/en/my-bookings/emergency-contact
+/be/fr/special-care/families-and-children
+/be/en/local-page/chase-the-sun-across-spain
+/be/en/jobs/core-values
+/be/en/contact/feedback/general/other
+/it/it/extra-services/meals
+/it/it/legal-notices/special-assistance-legal-guidelines
+/be/nl/special-care/pets
+/be/en/farealert/unsubscribe-failure
+/be/en/legal-notices

@@ -143,6 +143,12 @@ body.brand-b2b .carousel-cards .carousel-cards-slide:not(.carousel-cards-wide) .
    where www's views touch: a column end before a grey band (the band's view starts there), a band
    before a separator and text (an article's "Published", the separator makes the space) */
 
+/* a page that ends with a faq accordion not "spaced" meets the footer, as www's (lufthansa-group-wifi; standing order 24
+   of ema-lufthansa, its comment at the end of this file) */
+body.brand-b2b main > .section:where(:has(> .accordion-columns-wrapper:last-child > .accordion-columns.faq:not(.spaced)):not(:has(~ .section > *))) {
+  margin-bottom: 0;
+}
+
 /* an article's last "Back to News" and a stage that ends the page 8 px above the footer (www's link
    component and .stage end the page without a view's padding) */
 body.brand-b2b main > .section:last-child:has(> .hero-card-overlay-wrapper:last-child),
@@ -1047,4 +1053,12 @@ body.brand-b2b main .columns-media-wrapper:has(> .columns-media.sidebar > div > 
 
 body.brand-b2b main .columns-media-wrapper:has(> .columns-media.sidebar > div > div:first-child > p.button-wrapper:last-child) + .default-content-wrapper > p.column-mark.column-start-outer:first-child + :is(h2, h3, h4) {
   margin-top: 0;
+}
+
+/* standing order 24 of ema-lufthansa (2026-11-15): lufthansa-group-wifi's title 40px above its video stage and its FAQ
+   accordion meeting the footer, as www's (b2b-parity-007), each scoped so the pages where the gate failed stay as they
+   are: the stage followed by a sidebar (celebrating-shared-stories' by a spacer), the faq accordion not "spaced"
+   (our-european-fares'); of the 102 recorded pages only wifi has either shape: 1440 +1.81 -> -0.16 %, 390 +0.47 -> -0.57 % */
+body.brand-b2b main > .section > .default-content-wrapper:has(+ .columns-media-wrapper > .columns-media.background-video):has(+ .columns-media-wrapper + .default-content-wrapper + .columns-media-wrapper > .columns-media.sidebar) > h1 + p.column-mark.column-start-outer:last-child {
+  padding-top: 0;
 }

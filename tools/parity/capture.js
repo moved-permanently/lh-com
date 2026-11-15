@@ -495,8 +495,15 @@ async function main() {
   mkdirp(path.dirname(out));
   const allowHost = ownHostFilter(url);
 
+  // PARITY_ARIAL_FONTS=<dir with Liberation Sans>: Arial drawn in its metric-compatible face,
+  // as a visitor's browser draws it (arial-alias.mjs; off by default: the machine draws Arial
+  // in DejaVu Sans, wider)
+  // eslint-disable-next-line import/extensions -- an ES module from this CommonJS script
+  const { arialAliasEnv } = await import('./arial-alias.mjs');
+  const fontEnv = arialAliasEnv();
   const launch = (exe) => chromium.launch({
     headless: true,
+    env: { ...process.env, ...fontEnv },
     ...(exe ? { executablePath: exe } : {}),
     handleSIGTERM: false,
     handleSIGINT: false,
