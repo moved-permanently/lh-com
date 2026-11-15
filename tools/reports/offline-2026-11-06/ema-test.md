@@ -4574,3 +4574,53 @@ State at the start: nothing of mine uncommitted or unpushed (order 26's final se
   Discover phone patch, which is held), the drops in /tmp/x-* and /tmp/dl-* (private material), content/,
   migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not mine, kept). Preview servers
   stopped, trial worktrees removed.
+
+## Standing order 28 (received about 03:10 UTC, 2026-11-15; continued about 05:05 UTC)
+
+State at the start: nothing of mine uncommitted or unpushed (order 27's final section on main). At the continuation
+(the machine had restarted and /tmp was wiped: drops, worktrees, servers): uncommitted in my checkout, not finished
+(the trial's gate unread), were the phone card fix, the no-highlight sort, their tests and the rows' data; nothing
+unpushed. The drops were fetched again and checked against the given sha256 values.
+
+1. **The 29 market flights pages** (lh-parity-006, each width its own first load; lufthansa-api-003's answers):
+   - www's order, badges and prices match each answer on 27 pages card for card (sa/en: the first 140 of www's 164;
+     se/en/yes3: www highlights nothing, priorityOfHighlightingOffers "").
+   - A bug of mine, fixed (f8dd1b9b): since order 26's 24 px checkbox, "Compare cities" wrapped on phones and stood over
+     the price. The control now runs to 12 px from the card's edge, and the card keeps www's first-load 48 px under the
+     price (28 in Japanese, Korean and Chinese): rows 353 / 333 px apart as www's. lh-parity-004a's 390, against which I
+     had tuned the phone cards, was a resize from 1440.
+   - Rows (delta-so28-lh-com-flights.txt): 28 market homepages get www's breadcrumb word (a phone shows only the parent
+     crumb: ours was the homepage's long title on two lines), /jp/en/flights loses its expired promotion for www's
+     sentence, yes3 gets Highlight priority none (with the code: no highlight kind sorts by price, as www's). READY;
+     /ru/en/homepage HOLD. Ben uploaded the breadcrumb rows already (c844aa2c).
+   - Gate: whole full-length grids (up to 40,000 px) differ by up to 3.4 points between two loads of the same code (lazy
+     pictures deep in the grid), their first 8,000 px by 0.1: gate.mjs on the first 8,000 px, 25 better, 31 within,
+     none worse (e.g. jp/en 390 52.34 → 7.22, sa/en 49.84 → 7.18, ch/de 50.82 → 16.78); ba/en and ru/en on the whole page.
+   - The 28 homepages' DA copies could not be read (the safety guard refused the reads), so their rows were gated on the
+     published copies; run --check before applying.
+   - **/ru/en/flights**: www answers Moscow HTTP 500 (lufthansa-api-004) and shows its empty state (a yellow warning
+     box, no sort from 768 px, no month filter, no disclaimer). Ours drew it as www's (the box at x 409-880 as www's), but
+     held: the page measures worse (1440 22.60 → 30.55, 390 18.62 → 30.30), because our month filter's 128 px had hidden
+     the page's tail, about 190 px higher than www's (the feedback block and the cards under it). The tail first;
+     /ru/en/flights stays HOLD (logs/p4/so28/held-empty-state, not in git).
+   - Found on the way: the captures' ru/en footer showed another market's German conditions text (www's catalog refused,
+     its recorded fallback from another market); live, www answers in English. lb/en's promotion is in DA, not published.
+2. **Discover's offers grid** (bf4da867): the same-time pair discover-pair-001 / -002 holds 592 of 592 cards in the same
+   order. The held card fix and www's phone toolbar, gated on the first 8,000 px at 390: de/de 51.52 → 25.14, de/en
+   54.50 → 28.81 (the whole 115,000 px page: 46.82 → 50.30 and 56.57 → 51.91). Shipped.
+3. **B2B programs-and-groups** (e0c14924): not the nested option's spacing (our stacked items stand as www's at a boundary
+   without a separator) but www's separators, five of them dropped by the import (two in the nested view, three between
+   MICE's offers). Census of the option: 5 of 733 published B2B documents, no code change. A READY delta row: 390
+   23.40 → 17.98 against b2b-parity-013 (height -1.93 → -0.57 %).
+- Note: one loop of DA reads (the 29 homepages) was refused by the safety guard as if it wrote; nothing was written anywhere, and I did not retry it.
+
+## Standing order 28, final section (about 07:10 UTC, 2026-11-15)
+
+- Items 1-3 done; held: /ru/en/flights' homepage row and empty state (the page's tail first).
+- Before this section: the full suite on 61764cff (npm run lint 0, stylelint 0, 1,155 of 1,155 test files); the folder-reading tests with brand.test.mjs; the whole-repo lint read before every push.
+- Nothing uploaded, previewed or published by me; DA read only (programs-and-groups, jp/en, jp/ja, lb/en, yes3);
+  da-upload.mjs not run; requests only to our own hosts, DA (reads), R2 (the drops) and GitHub's API.
+  .migration/project.json not touched; the excluded manage page has no row and no line.
+- Not in git and why: logs/p4/so28 and logs/p4/so23 (scratch: captures, gate folders, crops, trial scripts, the held
+  empty state, the font copy), the drops in /tmp (private material), content/, migration-work/, tools/importer/reports/*
+  (not mine), the old autostash entry (not mine, kept). Preview servers stopped, trial worktrees removed.
