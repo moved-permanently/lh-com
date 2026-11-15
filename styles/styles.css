@@ -2083,6 +2083,17 @@ body.brand-lufthansa main > .section:not(.campaign-section):has(+ .section.stage
   }
 }
 
+/* lufthansa.com from 768px: a picture alone in its paragraph right after a desktop spacer ({spacer-N from-768}) with more
+   after it: www's image component between its separators, 28px more above the picture and 22px more under it than ours
+   (/de/en/first-class at 1440: the lounge picture 140 / 176px from the text above and the spacer below, ours 112 / 154).
+   Standing order 26: first-class 15.0 -> 9.6 % at 1440 (injected); census: the fifteen first-class documents */
+@media (width >= 768px) {
+  body.brand-lufthansa main .default-content-wrapper > p.spacer.from-768 + p:has(> picture):not(:last-child) {
+    margin-top: 28px;
+    margin-bottom: 62px;
+  }
+}
+
 /* a picture before more content: the image component's 4rem */
 body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper > p:has(> picture):not(:last-child) {
   margin-bottom: 40px;

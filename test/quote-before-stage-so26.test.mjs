@@ -28,3 +28,15 @@ test('the quotes outside articles as before: 60px, 80px from 768px', () => {
   assert.match(css, /main:not\(:has\(\.article-header\)\) \.default-content-wrapper > blockquote \{\n {2}box-sizing: border-box;\n {2}max-width: 622px;\n {2}margin: 60px 0;/);
   assert.match(css, /@media \(width >= 768px\) \{\n {2}main:not\(:has\(\.article-header\)\) \.default-content-wrapper > blockquote \{\n {4}margin-top: 80px;\n {4}margin-bottom: 80px;/);
 });
+
+// the wide picture after a desktop spacer (first-class at 1440)
+test('from 768px a picture after a desktop spacer: 28px above, 62px under it', () => {
+  const sel = 'body.brand-lufthansa main .default-content-wrapper > p.spacer.from-768 + p:has(> picture):not(:last-child)';
+  const at = css.indexOf(`${sel} {`);
+  assert.ok(at > 0, 'the rule');
+  const media = css.slice(css.lastIndexOf('@media', at), css.indexOf('{', css.lastIndexOf('@media', at))).trim();
+  assert.equal(media, '@media (width >= 768px)');
+  const body = css.slice(at, css.indexOf('}', at));
+  assert.match(body, /margin-top: 28px;/);
+  assert.match(body, /margin-bottom: 62px;/);
+});
