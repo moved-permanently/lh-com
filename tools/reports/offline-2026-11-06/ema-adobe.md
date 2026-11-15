@@ -4463,3 +4463,66 @@ the final code: 0c1cf24, 71 lh-edge files and 1,137 site files, 0 failing.
   - Gate (8 page-widths, lh-parity and lh-snapshots-116): 6 better, 2 the same. tips-senior-travellers 21.9 -> 14.5
     (live now 14.5), miles-and-more-credit-card 14.6 -> 12.9, the visual-impairment versions by 0.7 to 1.5.
   - In campaign sections the same gap made 100-years/global-network worse, so those are left out.
+
+### Standing order 27 (2026-11-15 02:50 to 08:00 CET)
+
+No uploads, previews or publishes; DA read only; no request to an airline host. `.migration/project.json` untouched.
+Order 26 left nothing uncommitted or unpushed. Each push: the whole-repo lint read 0 on a clean worktree of the rebased
+HEAD, stylelint 0 on the changed block and theme files, the tests that read the changed files and folders passed. Full
+suite on the final code: eef94c4, 71 lh-edge files and 1,142 site files, 0 failing. No change deploys lh-edge. /de/en/overview-manage: no row.
+
+1. **The two branches, merged** (merge commits kept).
+   - so26-economy-grey-carousel (5bf95e7). The carousel rule now needs the row's result: a carousel that ends its section
+     before a padded section that a spaced grey column view follows.
+     - Census: 0 documents today, exactly the 14 economy-class ones after the rows.
+     - Gate: de/en without the row 11.3 % at 1440 before and after the code; with it 8.4. fr/fr and xx/fr economy-class
+       (no row) and the 100-years pages are not reached.
+     - The 14 rows are READY in the same push (the helper had them uploaded by 7fef8a7).
+   - so26-card-row-gap (10854e8).
+     - Census gate before the merge (the branch's code, every recorded page-width its three phone rules reach): 37 at
+       390, 10 better, 26 the same, 1 worse (with-children-at-the-airport, the content drift).
+     - reimport-so27-with-children-at-the-airport-lh-com.txt, READY: from the newest recording (lh-snapshots-115, sha256
+       checked), only the shortened paragraph and the two link paragraphs out. The offline import with main's bundle
+       differs from DA's copy there only.
+     - Draft gate: 11.7 / 9.6 -> 9.5 / 4.9 % at 390 / 1440, and 8.6 at 390 with the card-row code. The helper uploaded it
+       (5bf4b0a).
+2. **hk and zh: HOLD.** www's heights (lh-snapshots-117; the 390 files are the 1440 load resized, no first load at 390),
+   against your figures, before -> with the split:
+   - /xx/hk 1440: 10,275 -> 10,339 against 10,321 (46 px short -> 18 px long, closer); 390: 12,715 -> 12,763 against
+     12,732 (17 short -> 31 long, 14 px further).
+   - /xx/zh 1440: 10,275 -> 10,339 against 10,321 (closer); 390: 12,580 -> 12,628 against 12,597 (14 px further).
+   - This machine has no Chinese fonts, so I cannot give points. The heights do not show 390 staying within 0.5 points,
+     so both rows are HOLD with these numbers in the list header.
+3. **The ranking, the next 80** (de/en, de/de, at/de, gb/en), measured live. ema-test's and ema-lufthansa's lists cover
+   none of them.
+   - The Allegris tag pages (09ff30d): the heading between the intro picture and the article overview 26 px lower.
+     Census: 4 documents. Gate: 6 of 8 better (1440 by 3.1 to 3.6, de/en and gb/en 390 by 4.4 and 4.8), 2 +0.4.
+   - lufthansa-am-flughafen-frankfurt (a92a501): its tab panels' link paragraphs get www's arrow and 48 px before the
+     next heading. Census: the 15 am-flughafen-frankfurt documents. Gate: 14.0 / 16.5 -> 7.4 / 9.7 at 1440 / 390; the
+     other tab pages the same.
+   - The Insights author pages (eef94c4): from 768 px, 24 px more under the author intro, before the divider. Census:
+     the 20 author documents. Gate: florian-tomberg 13.5 -> 11.3 at 1440. At 390 the same 24 px was worse (7.8 -> 8.8),
+     so it is not applied there.
+   - Live after the pushes: am-flughafen-frankfurt 7.4 / 9.7, tags/allegris de/en 18.3 / 13.2, florian-tomberg 11.3 at
+     1440, menus-travel-classes 4.0 at 390 (the card-row code), economy-class 8.4 at 1440 (its row is published).
+   - Tried and not shipped: 32 px under a button that ends a grey band's last row. It fixed cognitive-impairment's band
+     end at 1440, but made accessible-travel worse at 1440 and lufthansa-reiseklassen and speisen-und-getraenke worse
+     at 390.
+   - Not fixed, with causes:
+     - free2move and digital-travel-companion (12 www pages): the picture under the title opens a padded AEM section on
+       www (40 px more above it), which the import does not mark. A general 40 px under titles was wrong
+       (digital-self-services 2.9 -> 11.0), so it needs an importer rule or rows: next order.
+     - essentials-barcelona-facts 390 (22.9 %): its related-articles list arrived after the capture (4,060 px against
+       6,046 in a repeat load). A capture flake, not a page cause.
+     - special-meals 390: drawn differently (steps of +-300 px with poor alignment).
+     - child-in-businessclass 390: www shows the seat-map pictures at their own width (260 px), ours stretches them to the
+       column (+27 px each).
+     - lhg-wifi 390: 44 px too much between the intro's button and the padded section's heading (our section gap after
+       an unpadded AEM section where www has none). It needs a census over the imports: next order.
+   - Capture requests for explore-flying and explore-the-world at 1440 and 390 (first loads) are in
+     capture-requests-ema-adobe.txt.
+- Left out of git:
+  - logs/b620: captures, trials, census scripts and results, drafts;
+  - /tmp/so27 (the offline import inputs), /tmp/so26 (lh-snapshots-118);
+  - the worktrees /tmp/wt-so26b, /tmp/wt-so26c (merged; their node_modules links);
+  - the untracked import reports of earlier runs.
