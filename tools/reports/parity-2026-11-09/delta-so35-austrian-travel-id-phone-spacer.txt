@@ -1,0 +1,21 @@
+# ema-cashub, standing order 35 (2026-11-15), item 2: /at/en/travel-id at 390 (-2.07 %, finish-austrian.txt), with the new
+# phone-only spacer you approved: "{spacer-N below-768}", the mirror of "{spacer-N from-768}" (README "Spacing and
+# dividers"; scripts/style-markers.js, scripts.js, token-free.js, styles.css; the purpose blocks' option below-768; the
+# collapse writes it for a run of below-768 separators, as for from-768). Census: none of the 28,699 served documents of
+# any brand has "below-768" today (census-so35-below-768.txt), so no existing document changes.
+# On austrian-parity-019's 390 first load www has 28 px more above its closed tab list and 28 px more below it than ours
+# (order 34: 90 / 77 against 62 / 49 px); at 1440 the gaps are www's already (+0.33 %).
+# Below: the bottom one only. The spacer at the start of the FAQ section adds its 29 px and nothing else. Above, there is
+# no place for one: the tab list follows the full-bleed picture section, and any paragraph after the picture gives the
+# picture paragraph its 40 px bottom margin (styles.css: a picture paragraph that is not the last child, on pages with
+# column marks), so a spacer there adds 40 + N + 1 px (drafted with {spacer-28 below-768}: +69, not +28). Not drafted
+# further; the 28 px above stay.
+# Drafted on austrian.turnsthe.page (so24/host.mjs; <main> the copy served at ~04:25 CET with the row; the new code as a
+# code override; EAGER=1 CONSENT=1; www.* and the airline hosts refused and counted: 0 a render):
+#   390: page 6,062 -> 6,091 (www 6,190: -2.07 -> -1.60 %), footer top 4,995 -> 5,024 (www 5,124), the FAQ heading 2,398
+#        -> 2,427, the spacer 29 px;
+#   1440: page 5,733 (unchanged, +0.33 %): the spacer draws 0 px.
+# Upload only once the code commit is on main (before it, the marker is shown as text). Upload without the collapse
+# (it drops separators of 31 px and less, below-768 or not), or check that the served copy keeps the marker.
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, what changes on the page.
+READY	/at/en/travel-id.html	in the section that starts with the H3 "Frequently Asked Questions about Travel ID and Miles & More" (right after the tab sections), a new first paragraph "{spacer-28 below-768}" before that heading	390: page 6,062 -> 6,091 (www 6,190: -2.07 -> -1.60 %), footer top 4,995 -> 5,024 (www 5,124); 1440 unchanged (5,733, +0.33 %)

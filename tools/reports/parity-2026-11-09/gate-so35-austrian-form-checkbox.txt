@@ -1,0 +1,34 @@
+# ema-cashub, standing order 35 (2026-11-15, ~04:10-05:30 CET), item 1: the checkbox label rule (standing order 33's draft,
+# gate-so33-austrian-form-checkbox.txt) gated on austrian-parity-021, your three 390 first loads (sha256 a18ce137...5fa5fd
+# as given; extracted into its own folder, read as data; each page its own load, manifest loadedSeparately true).
+# Turnstile: left out on both sides. www's loads have no widget (the kit never shows it: manifest shownAtSettle false,
+#   everSeen false on all three, and the 1440 and -019 loads the gate already used have none either). Ours: every render
+#   below measured .form-bot-check, and none drew the challenge this time (BOT 0 in all 30), so no subtraction was needed.
+# What www's 390 first loads show (screenshots, read as data): the white form card at x 22-367 (346 px) on all five recorded
+#   form pages (-021's three, -019's bagdamage, -003's charter enquiry); ours is 366 px (x 12-377: the shared card's 10 px
+#   bleed on each side). Consent labels at 20 px lines: cancellation-refund's "The data you provide ..." 6 lines and "I am
+#   authorised ..." 3; invoice-request-hungary's "By submitting this form ..." 6; private-check-in-counter's "I confirm ..." 3.
+#   Ours as served: 5, 2, 5 and 3 lines at 24 px. With the label rule alone: 6, 2, 5, 3 at 20 px (wider text, fewer wraps).
+#   With the label rule and www's card width: 6, 3, 6, 3, as www's.
+# So the label rule alone fails at 390 (invoice-request-hungary +0.03 -> -0.53 %, cancellation-refund -8.31 -> -8.51 %, both
+#   further), and with www's card width on phones it passes. Shipped together (styles/themes/austrian.css):
+#   @media (width < 768px) { body.brand-austrian .form.core .form-step-card { margin-inline: 0; } }
+#   body.brand-austrian .form.core .form-option:has(> input[type="checkbox"]) { gap: 12px; line-height: 20px; letter-spacing: 0.45px; }
+# Rendered on austrian.turnsthe.page (so24/host.mjs, EAGER=1 CONSENT=1, the theme as a code override; www.* and the airline
+#   hosts refused and counted: at most 1 a render, none sent).
+# Columns: path, width, www (the load), as served, label rule alone, label rule + card width (shipped), change.
+/at/en/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry	1440	3471 (-003)	3447 (-0.69 %)	3447 (-0.69 %)	3447 (-0.69 %)	+0 px
+/at/en/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry	390	3808 (-003, resized)	3791 (-0.45 %)	3791 (-0.45 %)	3791 (-0.45 %)	+0 px
+/at/en/fly/check-in/private-check-in-counter	1440	5965 (-003)	6073 (+1.81 %)	6073 (+1.81 %)	6073 (+1.81 %)	+0 px
+/at/en/fly/check-in/private-check-in-counter	390	7221 (-021, first load)	7341 (+1.66 %)	7321 (+1.39 %)	7337 (+1.61 %)	-4 px, closer
+/at/en/footer-pages/help-and-contact/bagdamage	1440	5012 (-003)	4954 (-1.16 %)	4966 (-0.92 %)	4966 (-0.92 %)	+12 px, closer
+/at/en/footer-pages/help-and-contact/bagdamage	390	5788 (-019, first load)	5883 (+1.64 %)	5863 (+1.30 %)	5863 (+1.30 %)	-20 px, closer
+/hu/en/local-page/invoice-request-hungary	1440	3152 (-003)	3113 (-1.24 %)	3125 (-0.86 %)	3125 (-0.86 %)	+12 px, closer
+/hu/en/local-page/invoice-request-hungary	390	3572 (-021, first load)	3573 (+0.03 %)	3553 (-0.53 %) FURTHER	3573 (+0.03 %)	+0 px
+/il/en/legal/cancellation-refund-via-document-upload	1440	3295 (-003)	3221 (-2.25 %)	3233 (-1.88 %)	3233 (-1.88 %)	+12 px, into 2 %
+/il/en/legal/cancellation-refund-via-document-upload	390	4041 (-021, first load)	3705 (-8.31 %)	3697 (-8.51 %) FURTHER	3759 (-6.98 %)	+54 px, closer
+# Shipped rule: 6 page-widths closer (cancellation-refund 1440 into 2 %), 4 unchanged, none further. cancellation-refund 390
+#   stays out of 2 %: the upload widget (53 px at 1440, the owner decision) and about 21 px of www's empty group headline at
+#   1440 (gate-so33); the other 282 px at 390 are not traced in this order.
+# Site-wide reach: all 187 Austrian documents with a form block (every one a core form), as served at ~04:25 CET, rendered at
+#   both widths with the two rules toggled in the page (census-so35-austrian-forms.tsv): see the census's header.

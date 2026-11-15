@@ -1,0 +1,43 @@
+# ema-cashub, standing order 35 (2026-11-15), item 2: where the extra height above the cards of /at/en/healthy-travel and
+# /at/de/local-page/feels-like-flying/os401crewstory comes from (order 34: +87 / +125 px at healthy-travel's H3 "This may
+# also interest you", +154 / +163 at os401crewstory's H2 "Gemeinsam abheben"), and the rows that fix it. Their link-line
+# rows are READY (delta-so34-austrian-card-link-lines.txt, your decision); the figures below include those lines.
+# Traced on the recordings (austrian-parity-015 healthy-travel, -003 os401crewstory: screenshots and markup, read as data;
+# os401crewstory's 390 is its 1440 load resized) against ours as served, heading by heading.
+# healthy-travel: two of our sections carry the section style "Space M" (60 px at the section's start) where www has a
+#   separator of 35 px (.hr-no-layout, margin-bottom 35px) after a grey band: the sections of "Traveller's Thrombosis"
+#   (after the grey "Medical Travel Companions") and of "Allergen labelling on food products" (after the grey "Keeping
+#   medications cool"). From the band's end to the heading www has 68 px, ours 109 (48 section gap + 61): +41 px at each,
+#   at both widths. The collapse made the 35 px separator Space M (32 to 89 px is M). The rest are smaller steps the
+#   other way (www's column views: "Vaccinations" about 33 px under the Thrombosis FAQ where ours has about 66; "Portable electronic
+#   medical devices" about 80 px under the link before it where ours has about 45), not changed here.
+# os401crewstory: two causes, a heading and the quotes.
+#   - www's H2 "Wie Maya alleinreisende Kinder begleitet - und warum kleine Gesten den Unterschied machen" is heading-small
+#     (Portada 28 px, one line at 1440); ours is the default H2 size (36 px, two lines): +49 px at 1440, +55 at 390. The
+#     collapse dropped the document's {heading-small} (one step from the H2 default).
+#   - www's three author quotes are 28 px (22 on phones); ours 36 (28): two of the three take a line more, all are larger: 9 to 48 px a quote. That is
+#     code, the theme's quote rule (styles/themes/austrian.css, this order: www's .author-quote .quote-text on all 12
+#     Austrian documents with a quote; census-so35-austrian-quotes.tsv).
+# Drafted on austrian.turnsthe.page (so24/host.mjs, <main> replaced by the served copy with the link lines and the row; the
+#   quote rule as a code override where named; EAGER=1 CONSENT=1; www.* and the airline hosts refused and counted: 1 a
+#   render on healthy-travel, 0 on os401crewstory; none sent). Heights in px, % against www's recording:
+#   healthy-travel 1440 (www 6,614; H3 5,172): served 6,671 (+0.86 %), H3 5,260; with the lines 6,728 (+1.72 %); lines + row
+#     6,648 (+0.51 %), H3 5,180 (+8), footer top 5,834 (www 5,800). With the card titles untracked (f9f684f9, pushed
+#     ~05:37 CET; "Travelling with pregnancy" on one line, as www's): lines 6,697 (+1.25 %), lines + row 6,617 (+0.05 %),
+#     footer top 5,804.
+#   healthy-travel 390 (www 8,822; H3 7,069): served 8,860 (+0.43 %), H3 7,195; with the lines 8,917 (+1.08 %); lines + row
+#     8,837 (+0.17 %), H3 7,115 (+46), footer top 7,770 (www 7,757). The 46 px left are mostly the last FAQ block's (its
+#     heading to the H3: www 358 px, ours 419), not traced further.
+#   os401crewstory 1440 (www 7,686; H2 6,084): served 7,764 (+1.01 %), H2 6,236; with the lines 7,821 (+1.76 %); lines +
+#     quote rule 7,746 (+0.78 %); lines + row 7,773 (+1.13 %); lines + row + quote rule 7,698 (+0.16 %), H2 6,113 (+29),
+#     footer top 6,884 (www 6,872).
+#   os401crewstory 390 (www 9,982, the resize; H2 6,603): served 9,909 (-0.73 %), H2 6,764; with the lines 10,103 (+1.21 %);
+#     lines + quote rule 10,007 (+0.25 %); lines + row 10,048 (+0.66 %); lines + row + quote rule 9,953 (-0.29 %), H2 6,614
+#     (+11), footer top 8,885 (www 8,917).
+# Against the READY link lines every step moves both pages closer at both widths. One interim state: the quote rule ships
+#   with the code, and until the link lines are uploaded os401crewstory 390 reads 9,813 (-1.69 %, from -0.73 %; within 2 %).
+# Upload without the collapse (it drops a {spacer-N} of 31 px and less, and a heading size one step from the default), or
+#   check that the served copy keeps the markers.
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, 1440, 390.
+READY	/at/en/healthy-travel.html	the section that starts with the H2 "Traveller's Thrombosis": remove its Section Metadata block (its one row: Style "Space M"; the section has no other style) and give it a new first paragraph "{spacer-20}"; the same for the section that starts with the H2 "Allergen labelling on food products"	with the link lines 6,728 -> 6,648 px (www 6,614: +1.72 -> +0.51 %; as served before both rows +0.86 %); the H3 over the cards 5,260 -> 5,180 (www 5,172); on today's code (the titles untracked) 6,697 -> 6,617 (+1.25 -> +0.05 %)	with the link lines 8,917 -> 8,837 px (www 8,822: +1.08 -> +0.17 %; as served +0.43 %); the H3 7,195 -> 7,115 (www 7,069)
+READY	/at/de/local-page/feels-like-flying/os401crewstory.html	the H2 "Wie Maya alleinreisende Kinder begleitet – und warum kleine Gesten den Unterschied machen": " {heading-small}" at its end	with the link lines 7,821 -> 7,773 px (+1.76 -> +1.13 %); with the quote rule too 7,698 (www 7,686: +0.16 %; as served +1.01 %); the H2 over the cards 6,236 -> 6,113 (www 6,084)	with the link lines 10,103 -> 10,048 (+1.21 -> +0.66 %); with the quote rule too 9,953 (www 9,982, the resize: -0.29 %; as served -0.73 %); the H2 6,764 -> 6,614 (www 6,603)

@@ -6397,3 +6397,168 @@ All three items are as far as they can go without the form loads or your decisio
   and the count was unchanged each time. Every push went from wt-push.
 
 **Not in git** (scratch under /tmp/so34): the scripts, the served copies, the drafts, the renders and the logs.
+
+## Standing order 35 (2026-11-15, from about 04:10 CET)
+
+**Carried over:** nothing of mine was uncommitted or unpushed. Order 34's last commit, `d569994c`, was on origin. The
+checkout's 88 dirty entries belong to other jobs (import-progress.json, the urls-*.txt lists, the importer reports, the
+notifications.css comment line) and were left alone, as was the 1 November autostash.
+
+### Item 1: the form first loads (gate-so35-austrian-form-checkbox.txt)
+
+**The archive.** austrian-parity-021 matched your sha256. It was extracted into its own folder and read as data only.
+- The three loads are separate first loads (manifest: loadedSeparately).
+- Their heights are as you gave them: 3,572 / 4,041 / 7,221 px. The resizes had 3,568 / 4,040 / 7,222.
+
+**Turnstile: left out on both sides.**
+- www: none of the loads has the widget (manifest: shownAtSettle and everSeen false; the earlier loads have none either).
+- Ours: every render measured `.form-bot-check`, and none drew the challenge this time (0 px in all 30). So there was
+  nothing to subtract and nothing to add.
+
+**What the first loads show.**
+- At 390, www's white form card is 346 px wide (x 22 to 367) on all five recorded form pages. Ours is 366 px: the shared
+  card bleeds 10 px on each side.
+- Lines of the consent labels at 390 (www's are 20 px lines):
+
+  | Label | www | ours | label rule | label rule + card |
+  |---|---|---|---|---|
+  | cancellation-refund "The data you provide ..." | 6 | 5 | 6 | 6 |
+  | cancellation-refund "I am authorised ..." | 3 | 2 | 2 | 3 |
+  | invoice-request-hungary "By submitting this form ..." | 6 | 5 | 5 | 6 |
+  | private-check-in-counter "I confirm ..." | 3 | 3 | 3 | 3 |
+
+**The label rule alone fails at 390:** invoice-request-hungary goes from +0.03 to -0.53 %, and cancellation-refund from
+-8.31 to -8.51 %. Both are further.
+
+**With www's card width on phones it passes (shipped, `9e9b28a1`):**
+- 6 page-widths closer, 4 unchanged, none further.
+- cancellation-refund 1440 goes into 2 % (-2.25 -> -1.88 %, READY on the finish list).
+- cancellation-refund 390 goes from -8.31 to -6.98 %. The rest is the upload widget (owner) and 282 px I did not trace.
+
+**Reach (census-so35-austrian-forms.tsv).** I rendered all 187 Austrian form documents (every one a core form) at both
+widths, toggling the rules in the same load:
+- no page is wider than the screen, and no form element runs past its edge;
+- 1440: -32 to +16 px;
+- 390: -24 to +129 px. The narrower card wraps long texts, as www's does. The largest are the contact-form-medical-request
+  locales.
+
+**As served after the push:** all 10 gated page-widths are their gate figures to the px.
+
+### Item 2: your decisions
+
+**healthy-travel and os401crewstory (delta-so35-austrian-above-the-cards.txt).** Their link-line rows are READY in
+delta-so34-austrian-card-link-lines.txt (363 READY, 0 HOLD). Where the extra height above the cards comes from:
+- **healthy-travel:** two sections have the style Space M where www has a 35 px separator after a grey band. The collapse
+  had made it M. That is +41 px at each, at both widths.
+  - The row: drop the two Space M styles and put a `{spacer-20}` at each section's start.
+  - With the lines and the row, on today's code: 1440 +0.05 %, 390 +0.17 % (+0.86 / +0.43 % as served).
+- **os401crewstory:** two causes.
+  - www's first H2 is heading-small (28 px, one line). Ours is the default H2 (36 px, two lines). The collapse dropped the
+    marker. The row: `{heading-small}` on that H2.
+  - www's three author quotes are 28 px (22 on phones), ours 36 (28). That is code: the quote rule (`9e9b28a1`), www's
+    `.author-quote .quote-text` on all 12 Austrian quote documents. Every quote and every page gets shorter, and none is
+    wider (census-so35-austrian-quotes.tsv).
+  - With the lines, the row and the rule: 1440 +0.16 %, 390 -0.29 % (+1.01 / -0.73 % as served).
+- **Both rows:** upload without the collapse. It drops a spacer of 31 px or less and a heading size one step from the
+  default.
+- **One interim state:** the quote rule is live now, so until the link lines are uploaded os401crewstory 390 reads -1.69 %
+  (from -0.73 %, still within 2 %). The sweep flags it.
+
+**The card titles' tracking from 768 px (census-so35-austrian-card-titles.tsv, shipped `f9f684f9`).**
+- I rendered all 832 Austrian grid documents at 1440 and toggled the titles in the same load: 2,297 titles. Two take a line
+  less, and nothing else moves.
+- The two:
+  - healthy-travel's "Travelling with pregnancy". It is one line on www's screenshot.
+  - The Greek doctor-on-board's first card. www's snapshot, laid out offline at its 346 px card, has it in two lines, as
+    ours untracked.
+  - Check of that offline layout: it gives healthy-travel one line at 346 px, and two at 341 px (the width with a
+    scrollbar). So the card width decides.
+- 390 is not affected: the rule starts at 768 px.
+
+**The phone-only spacer (`4c010541`).** `{spacer-N below-768}` mirrors `{spacer-N from-768}` and draws below 768 px only:
+- the paragraph (scripts.js) gets `p.spacer.below-768`, which styles.css and profile-tabs.css hide from 768 px;
+- the Spacer and Divider blocks take the option below-768;
+- the collapse writes that option for a run of below-768 separators, as it does for from-768;
+- carrier-check, the marker families and the DA library spec know the option;
+- the README and AUTHORING.md describe it.
+
+  Census (census-so35-below-768.txt): all 28,699 served documents of every brand fetched once, and none holds
+  "below-768". So no existing document changes.
+
+  The import bundles still carry the old collapse. No import writes below-768, so I did not rebuild them.
+
+**travel-id's row (delta-so35-austrian-travel-id-phone-spacer.txt, READY, upload after `4c010541`, which is live).**
+- `{spacer-28 below-768}` before the FAQ heading: 390 goes -2.07 -> -1.60 %, and 1440 does not change.
+- The 28 px above the tab list stay. There is no place for a spacer there: after the full-bleed picture, any paragraph
+  gives the picture its 40 px margin. Drafted, a spacer there added 69 px, not 28.
+- Upload without the collapse.
+
+**The checkbox label rule:** item 1.
+
+### After the pushes: the Austrian sweep (sweep-so35-austrian.txt)
+
+All 242 recorded Austrian page-widths, measured as served at ~05:40-05:50 CET against order 33's sweep:
+- 178 are within 2 %, against 176 before.
+- 13 moved, each explained:
+  - this order's code: the five form pages, healthy-travel 1440 (the titles) and os401crewstory (the quotes);
+  - order 34's accessible-travel upload;
+  - /at/en/sustainable-flying is back to its row (+24 px). Another job's `e1176d0e` scoped 38c55335's market-section
+    rule to lufthansa.com.
+- **One flag:** os401crewstory 390 at -1.69 % (from -0.73 %, within 2 %). This is the interim state until the READY link
+  lines and the H2 row are uploaded. With both it is -0.29 %.
+
+### Final section (about 06:05 CET, 2026-11-15)
+
+All items are done, so I stopped here, before 10:00. What is left needs your uploads or a recording (below).
+
+**On main:**
+- `4c010541`: the phone-only spacer `{spacer-N below-768}`, with test/spacer-below-768-so35.test.mjs.
+- `9e9b28a1`: Austrian's form card on phones, the checkbox label and the author quote, with
+  test/austrian-form-checkbox-quote-so35.test.mjs.
+- `f9f684f9`: the card titles untracked from 768 px, with test/austrian-card-titles-so35.test.mjs.
+- This commit:
+  - the gate, the four censuses, the three row files and the sweep;
+  - the two link-line rows READY;
+  - finish-austrian.txt;
+  - this section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 in each push round (both code pushes and this one, from wt-push).
+- **Stylelint:** exit 0 on styles/themes/austrian.css, styles/styles.css and blocks/profile-tabs/profile-tabs.css.
+- **Tests on the pushes:**
+  - the first push: the 640 files that read the changed files or classes, 2,387 tests, 0 failures;
+  - the titles push: the 1,952 tests of the Austrian / card / theme set, 0 failures.
+- **New tests:** each is red on main before its commit (5 of 6, 4 of 4, 2 of 3) and green after.
+- **Full suite** (the wt worktree, one process per file):
+  - on `9e9b28a1`: 1,144 files, 4,418 tests, 0 failures, 5 skipped;
+  - on `f9f684f9`: 1,145 files, 4,421 tests, 0 failures, 5 skipped.
+- **Folder-reading tests** for this commit: the 129 files that read tools/reports, 669 tests, 0 failures (with this
+  commit's files in place).
+
+**For you:**
+- **Uploads (READY rows, each "upload without the collapse"):**
+  - healthy-travel and os401crewstory: their link lines (delta-so34-austrian-card-link-lines.txt), then
+    delta-so35-austrian-above-the-cards.txt;
+  - travel-id: delta-so35-austrian-travel-id-phone-spacer.txt. `4c010541` is live, so it can go now.
+- **os401crewstory 390** reads -1.69 % until those uploads (the quote rule is live). The sweep flags it.
+- **The import bundles** keep the old collapse (no import writes below-768). A rebuild by the job that owns them would
+  pick the option up.
+- **Not traced:** cancellation-refund 390's last 282 px; healthy-travel 390's last FAQ block (+46 px).
+- **Air Dolomiti street-food-in-munich 390:** waiting for the recording you will name.
+
+**Rules followed:**
+- **No airline host was requested.** Every render refused www.* and the airline hosts and counted them, and none was
+  sent:
+  - 102 in the 374 form-census renders;
+  - 757 in the 832 title-census renders;
+  - 0 in the 24 quote-census renders;
+  - 2,177 in the 242 sweep renders;
+  - 12 in the 54 gate and check renders.
+- **The censuses** read only our turnsthe.page hosts, each served copy once.
+- **The archive** came from Austrian's drop folder and its sha256 matched. It went into its own folder, and nothing was
+  run from inside it. www's snapshots and recordings were read as data.
+- **DA:** not read. No upload, preview or publish by me, and da-upload.mjs was not called.
+- **The checkout** keeps the other jobs' 88 dirty entries untouched. After each push it was moved with `reset --mixed`,
+  and the count was unchanged.
+
+**Not in git** (scratch under /tmp/so35): the scripts, the served copies, the drafts, the renders and the logs.

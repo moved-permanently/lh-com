@@ -1,0 +1,17 @@
+# ema-cashub, standing order 35 (2026-11-15, ~04:20-04:45 CET): the new separator option below-768 against every published
+# document. Every docs key of origin/main's tools/importer/da-upload-state*.json (gc and lh -> lufthansa, brussels-share-a/b
+# -> brussels, tap-markets -> tap) fetched once from <site>.turnsthe.page as .plain.html (curl, 16 at a time; 404s are
+# documents not published there, 301s redirects). A document reads differently with the new code only if it holds
+# "below-768" (the separator pattern gains only that alternative; the collapse's from-768 test is now exact, the same
+# for every existing marker). Matches of /below-?768/ in the served copies, per host:
+airdolomiti.turnsthe.page	1569 documents	0 with below-768
+austrian.turnsthe.page	2459 documents	0 with below-768
+b2b.turnsthe.page	733 documents	0 with below-768
+brussels.turnsthe.page	1801 documents	0 with below-768
+cargo.turnsthe.page	990 documents	0 with below-768
+discover.turnsthe.page	563 documents	0 with below-768
+ita.turnsthe.page	2573 documents	0 with below-768
+lufthansa.turnsthe.page	10322 documents	0 with below-768
+swiss.turnsthe.page	5335 documents	0 with below-768
+tap.turnsthe.page	2354 documents	0 with below-768
+# Total: 28699 documents, 0 with below-768. Not fetched: 2074 paths answered 404 (all on lufthansa.turnsthe.page: not published there), 22 301.

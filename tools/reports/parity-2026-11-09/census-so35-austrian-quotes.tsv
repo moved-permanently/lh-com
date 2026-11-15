@@ -1,0 +1,36 @@
+# ema-cashub, standing order 35 (2026-11-15, ~05:00 CET): the reach of the Austrian quote rule (styles/themes/austrian.css:
+# a quote's text as www's .author-quote .quote-text, 22 px with 0.25 px tracking, 28 px untracked from 768 px; ours had the
+# shared 28 / 36 px). Every Austrian document with a quote: 12 of the 2,459 served at ~04:25 CET (none on a page with an
+# article header). www's snapshots (austrian-snapshots-001 to -014, read as data) have an .author-quote at each of them:
+# os401crewstory 3 and os401firstflightalone 1 with www's side margins (.mx-3 .mx-sm-4 .mx-md-7 .mx-lg-8: 12 / 18 / 24 /
+# 48 px), the ten climate-protection-projects locales without. The side margins are not in the rule (two documents
+# only; at 1440 the quote's own 622 px box decides its lines either way). Rendered once as served (so24/host.mjs, EAGER=1
+# CONSENT=1; www.* and the airline hosts refused and counted, none sent), the rule added in the page and measured again in
+# the same load. 24 page-widths: every quote is smaller (7 to 82 px), every page shorter (7 to 96 px), none wider than the
+# screen. Only os401crewstory is recorded (delta-so35-austrian-above-the-cards.txt).
+# Columns: path, width, quotes, height as served, with the rule, change, page width with the rule, quote heights
+# (px before->after).
+/at/de/footer-pages/carbon-neutral-flying/climate-protection-projects	390	1	5624	5590	-34	390	155->121
+/at/de/footer-pages/carbon-neutral-flying/climate-protection-projects	1440	1	5062	5027	-35	1440	158->123
+/at/de/local-page/feels-like-flying/os401crewstory	390	3	9909	9813	-96	390	93->48,93->48,31->24
+/at/de/local-page/feels-like-flying/os401crewstory	1440	3	7764	7689	-75	1440	79->62,79->31,40->31
+/at/de/local-page/feels-like-flying/os401firstflightalone	390	1	5181	5116	-65	390	219->155
+/at/de/local-page/feels-like-flying/os401firstflightalone	1440	1	3934	3868	-66	1440	192->126
+/at/en/footer-pages/carbon-neutral-flying/climate-protection-projects	390	1	5185	5134	-51	390	124->73
+/at/en/footer-pages/carbon-neutral-flying/climate-protection-projects	1440	1	4907	4850	-57	1440	119->62
+/cn/zh/footer-pages/carbon-neutral-flying/climate-protection-projects	390	1	3560	3553	-7	390	31->24
+/cn/zh/footer-pages/carbon-neutral-flying/climate-protection-projects	1440	1	3999	3990	-9	1440	40->31
+/es/es/footer-pages/carbon-neutral-flying/climate-protection-projects	390	1	5532	5474	-58	390	155->97
+/es/es/footer-pages/carbon-neutral-flying/climate-protection-projects	1440	1	5082	5025	-57	1440	119->62
+/fr/fr/footer-pages/carbon-neutral-flying/climate-protection-projects	390	1	5618	5567	-51	390	124->73
+/fr/fr/footer-pages/carbon-neutral-flying/climate-protection-projects	1440	1	5247	5190	-57	1440	119->62
+/gr/el/footer-pages/carbon-neutral-flying/climate-protection-projects	390	1	5989	5962	-27	390	124->97
+/gr/el/footer-pages/carbon-neutral-flying/climate-protection-projects	1440	1	5386	5360	-26	1440	119->92
+/it/it/footer-pages/carbon-neutral-flying/climate-protection-projects	390	1	5447	5365	-82	390	155->73
+/it/it/footer-pages/carbon-neutral-flying/climate-protection-projects	1440	1	5064	5006	-58	1440	119->62
+/jp/ja/footer-pages/carbon-neutral-flying/climate-protection-projects	390	1	3765	3752	-13	390	62->48
+/jp/ja/footer-pages/carbon-neutral-flying/climate-protection-projects	1440	1	4153	4144	-9	1440	40->31
+/pl/pl/footer-pages/carbon-neutral-flying/climate-protection-projects	390	1	5512	5479	-33	390	155->121
+/pl/pl/footer-pages/carbon-neutral-flying/climate-protection-projects	1440	1	5135	5069	-66	1440	158->92
+/ru/ru/footer-pages/carbon-neutral-flying/climate-protection-projects	390	1	6257	6175	-82	390	155->73
+/ru/ru/footer-pages/carbon-neutral-flying/climate-protection-projects	1440	1	5401	5344	-57	1440	119->62
