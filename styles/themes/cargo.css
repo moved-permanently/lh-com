@@ -1585,6 +1585,15 @@ body.brand-cargo .accordion-columns-panel p.spacer {
   margin: 0;
 }
 
+/* standing order 38: text-only three-up cards right after text-only three-up cards (ONE Record's
+   five advantages, a block of three and a block of two) as www's one grid (cargo-parity-003 at
+   1440: rows 184 px apart, each card's text with its 20 px under it): the second block without the
+   block's 91 px, the wrapper's 20 px stays. Only the en and de onerecord documents have such a pair
+   (census of the 990 published documents; the other three-up pairs hold pictures). */
+body.brand-cargo .cards-teaser-wrapper:has(> .cards-teaser.three-up li.cards-teaser-text-only) + .cards-teaser-wrapper > .cards-teaser.three-up:not(.overlay, .mosaic, .boxed, :has(picture)) {
+  margin-top: 0;
+}
+
 /* standing order 38: the legal pages (Metadata Template legal, 526457df's row; on Cargo the rows of
    delta-so38-cargo-legal-template.txt, terms-of-use and general-terms1) as www's legal template
    (cargo-parity-003 at 1440): the content 1,184 px wide from x 128 (www's 1,296 px grid less 56 px
