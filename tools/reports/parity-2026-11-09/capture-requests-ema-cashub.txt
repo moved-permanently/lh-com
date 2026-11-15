@@ -23,3 +23,59 @@ https://www.airdolomiti.eu/articles/destinations/street-food-in-munich	390	the p
 # Not requested: rows that need www's APIs in our renders (the flight search, fare teasers, destination finder, flight
 # status, TAP's baggage tracker): a capture records www's answers, ours stay refused; the font rows (explained); and the
 # owner decisions (unterhaltung-an-bord's film carousel, Air Dolomiti's German FAQ titles, the archistar article).
+#
+# Standing order 36 (2026-11-15, ~07:40 CET), item 1: Austrian's homepages with their widgets answered, recorded as
+# lufthansa-api-001 to -004 were: our page in a real browser on our host, its own requests and www's answers. Received:
+# airdolomiti-parity-010 (street-food-in-munich 390, first load), thank you; item 3 reads it.
+#
+# What our pages ask (one load each at 1440 on austrian.turnsthe.page, every airline host and lh-proxy refused, none sent;
+# the calls are the same at 390). All go to www.lufthansa.com directly (scripts/lh-data.js DIRECT_ROUTES, no credentials),
+# under X-Portal OS, X-Portal-Site = the page's country, X-Portal-Language = its language. Austrian's flag live-prices is on
+# (austrian.turnsthe.page/config/flags.json), so a visitor's browser sends the price calls:
+# - the fare teaser and the destination finder both take their offers from one call,
+#   GET /service/api/destinationfinder/destination/finder/<ORIGIN>/E?months=0_11&tripType=RETURN (the teaser's routes are
+#   priced from it, as Discover's; the page sends it 3 to 7 times, the blocks share no cache);
+# - GET /service/api/defaultAirport (the flight search's origin; no price);
+# - GET https://lh-proxy.benpeter.workers.dev/service/api/lhg-fare-teaser/fareteaser/recommend (the teaser's origin list, no
+#   price; it keeps its recording if refused);
+# - labels/* and catalogs/* (labels/fareteaserstatic, flightmanager, common; catalogs/conditions, localeData,
+#   airportnames): they answer from our recordings when www does not.
+#
+# Please record, for each page below and each width (1440 x 900 and 390 x 844, each its own first load, banner accepted,
+# nothing opened, full height after the widgets settle, at least 20 s):
+#   1. https://austrian.turnsthe.page<path> with the APIs allowed, and the Captures child's api index of the load (every
+#      request to www.lufthansa.com and lh-proxy: method, url, the X-Portal, X-Portal-Site and X-Portal-Language request
+#      headers, status, response headers (Access-Control-Allow-Origin, cf-mitigated) and body), plus the browser console and
+#      our /config/flags.json answer;
+#   2. https://www.austrian.com<path> right after it (within a few minutes), same widths, same settling: www's teaser and
+#      finder show that day's offers, so only a www load of the same hour can gate ours (order 27: a German grid answer of
+#      another day than www's recording could not be gated). The 390 rows we have are resizes of the 1440 loads (-008 to -011).
+# Priority: the first six lines (one per kind: SYD, the German ZRH page, PRG, TBS, the Japanese fare-service state with two
+# origins, and a page with the flight search only); then the rest. Per line: path, widths, what the page shows and asks.
+# host: austrian.turnsthe.page and www.austrian.com
+/au/en/homepage	1440,390	flight search, fare teaser, destination finder; X-Portal OS AU en; destinationfinder SYD/E, defaultAirport, lh-proxy fareteaser/recommend
+/ch/de/homepage	1440,390	the same in German; OS CH de; destinationfinder ZRH/E, defaultAirport, fareteaser/recommend
+/cz/en/homepage	1440,390	the same; OS CZ en; destinationfinder PRG/E, defaultAirport, fareteaser/recommend
+/ge/en/homepage	1440,390	the same; OS GE en; destinationfinder TBS/E, defaultAirport, fareteaser/recommend
+/jp/en/homepage	1440,390	the same, two origins (www had no deals for this market on 9 November); OS JP en; destinationfinder TYO/E and OSA/E, defaultAirport, fareteaser/recommend
+/ca/fr/homepage	1440,390	the flight search only (no teaser or finder in our document); OS CA fr; defaultAirport
+/ca/en/homepage	1440,390	the flight search only; OS CA en; defaultAirport
+/by/en/homepage	1440,390	flight search and fare teaser (no finder); OS BY en; destinationfinder VIE/E, defaultAirport
+/ru/en/homepage	1440,390	flight search and fare teaser; OS RU en; destinationfinder VIE/E, defaultAirport
+/ch/en/homepage	1440,390	flight search, teaser, finder; OS CH en; destinationfinder ZRH/E, defaultAirport, fareteaser/recommend
+/ch/fr/homepage	1440,390	the same; OS CH fr; destinationfinder GVA/E, defaultAirport, fareteaser/recommend
+/fr/en/homepage	1440,390	the same; OS FR en; destinationfinder PAR/E, defaultAirport, fareteaser/recommend
+/gb/en/homepage	1440,390	the same; OS GB en; destinationfinder LON/E, defaultAirport, fareteaser/recommend
+/it/en/homepage	1440,390	the same; OS IT en; destinationfinder MIL/E, defaultAirport, fareteaser/recommend
+/md/en/homepage	1440,390	the same; OS MD en; destinationfinder RMO/E, defaultAirport, fareteaser/recommend
+/me/en/homepage	1440,390	the same; OS ME en; destinationfinder TGD/E, defaultAirport, fareteaser/recommend
+/pl/en/homepage	1440,390	the same; OS PL en; destinationfinder WAW/E, defaultAirport, fareteaser/recommend
+/pt/en/homepage	1440,390	the same, two origins; OS PT en; destinationfinder LIS/E and FAO/E, defaultAirport, fareteaser/recommend
+/ro/en/homepage	1440,390	the same; OS RO en; destinationfinder BUH/E, defaultAirport, fareteaser/recommend
+/rs/en/homepage	1440,390	the same; OS RS en; destinationfinder BEG/E, defaultAirport, fareteaser/recommend
+/tr/en/homepage	1440,390	the same, two origins; OS TR en; destinationfinder IST/E and ANK/E, defaultAirport, fareteaser/recommend
+/ua/en/homepage	1440,390	the same; OS UA en; destinationfinder VIE/E, defaultAirport, fareteaser/recommend
+/xk/en/homepage	1440,390	the same; OS XK en; destinationfinder PRN/E, defaultAirport, fareteaser/recommend
+# The two other widget pages, if there is time (same two loads each):
+/us/en/local-page/ski-campaign-2026	1440,390	fare teaser and flight search; OS US en; destinationfinder NYC/E and WAS/E, defaultAirport
+/at/en/bangkok-airways	1440,390	the flight search after "Book your flight now"; OS AT en; defaultAirport
