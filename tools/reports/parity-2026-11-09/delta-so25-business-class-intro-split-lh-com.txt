@@ -29,6 +29,13 @@
 #   /xx/zh  390: 12,580 -> 12,628, www 12,597 (17 px short -> 31 px long: 14 px further).
 # This machine has no Chinese fonts, so it cannot give their 390 points. The heights do not show that 390 stays within
 # 0.5 points or gets closer: HOLD, until points measured with Chinese fonts show it.
+# Standing order 29: still HOLD, the like-for-like pair could not be drawn. With Noto Sans CJK from the drop (2.004,
+# sha256 de9d8eff...6627) both sides drew Chinese text, but www's saved pages (lh-snapshots-117 .shadow.html, served
+# without scripts and pictures, the archive holding neither) collapse: 5,477 px at 1440 against the recorded 10,321 (hk),
+# 5,370 with pictures removed on both sides against our 7,745. Our page against that render: 39.7 -> 39.5 % at 1440,
+# 39.0 -> 38.6 at 390 (hk), a mismatch of the render, not of the split. Our page with Noto alone: hk 1440 10,275 ->
+# 10,321, 390 12,580 -> 12,628 (the same +46 / +48 as on the other 14 pages). A gate needs www drawn with the same face:
+# a recording of www with Noto Sans CJK (or our page drawn with PingFang), not possible while the captures are stopped.
 # status	document	tool	expected change	gate
 READY	/xx/el/prepare-for-your-trip/travel-classes/business-class	section-split-apply {"block":"columns-media","heading":"Αποβιβαστείτε ξεκούραστα, ακόμη και από ","before":"","style":""}	the intro section split before the two-column view; the part before keeps spaced, padded, the new section has no style; after delta-so25-xx-business-class-lh-com.txt's rows for this document	draft 25.5 / 27.4 -> 13.2 / 17.5 at 1440 / 390 (on top of delta-so25-xx-business-class)
 READY	/xx/fr/prepare-for-your-trip/travel-classes/business-class	section-split-apply {"block":"columns-media","heading":"Détente absolue sur les vols de courte d","before":"","style":""}	the intro section split before the two-column view; the part before keeps spaced, padded, the new section has no style; after delta-so25-xx-business-class-lh-com.txt's rows for this document	draft 31.3 / 30.9 -> 17.5 / 21.4 at 1440 / 390 (on top of delta-so25-xx-business-class)

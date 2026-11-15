@@ -10,7 +10,12 @@
 # passengers-using-wheelchairs and entry-exit-system (de/en, de/de, at/de, gb/en). Not here: first-class (its two placed
 # rows read the same as today at both widths), premium-economy-class (the view has no heading on www), tips-senior-travellers
 # (split already, or the block not found), entry-exit-system's second spot (not found).
-# feedback-and-contact-airlines' four-column airline tiles: 1440 worse (3.5 -> 4.8, fix wrong), so HOLD.
+# feedback-and-contact-airlines: the four HOLD rows are wrong and stay HOLD (standing order 29). Today the airline tiles
+# start where www's do (the heading "Austrian Airlines" at the same y at 1440, 4 px off at 390); the split puts them 24px
+# lower at both widths (1440 3.5 -> 4.8, fix wrong). Its 390 "gain" (7.4 -> 6.2) was compensation: the page ends 36px
+# short at 390 (the last tile's link to the footer 112px on www, ours 76), and the split's 24px made up for part of it. No
+# split variant or tile rule fixes the tiles, which are right; the page end at 390 is its own cause (no row: a phone-only
+# space has no content mark).
 # The importer rule was tried and left out: with it, a fresh import also splits first-class, tips-senior-travellers and
 # premium-economy-class in places no draft here gates.
 # Dry run (read-only GETs): DA's copies and the published copies, every listed row placed.
