@@ -4719,3 +4719,47 @@ State at the start: nothing of mine uncommitted or unpushed (order 29's final se
 - Not in git and why: logs/p4/so30 (scratch: captures, gate folders, crops, folder copies, scripts, DA copies), the drops
   in /tmp (private material), content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not
   mine, kept). Preview servers stopped, trial worktrees removed.
+
+## Standing order 31 (received about 16:35 UTC, 2026-11-15)
+
+State at the start: nothing of mine uncommitted or unpushed (order 30's final section on main, 95e93f89).
+
+1. **ITA entry-exit-system's desktop after round 436** (delta-so31-ita-entry-exit-desktop.txt, READY): the 16 px come
+   from the rows. {spacer-75 below-768} is hidden from 768 px but still makes a separators-only wrapper at the end of
+   the section before "What data is collected?", and styles.css gives such a last wrapper margin-top -16px; with no
+   height on desktop the section's end moves up 16 px. Corrected row: {spacer-15 from-768} right after it. Folder
+   renders: 1440 5,435 → 5,451 px (pixel for pixel the render without the rows), 390 9,118 px unchanged.
+2. **ITA's phone footer and the four places that held it** (746a4b33; delta-so31-ita-footer-fixes.txt, three READY rows;
+   test/ita-footer-fixes-so31.test.mjs; all below 768 px, ITA only):
+   - the footer's legal links 90 % wide (www's seven rows);
+   - the header row's tables as www's maui-table (22 px header on 24 px lines, 24 / 16 px in, 25 px above the table,
+     34 px to the first row): digital-newsstand's header on www's lines; census 127 ITA documents, 3 recorded;
+   - the gaps under a grey band by section style, put by rows: gap-after-small 24 px (invoicing's band to the footer)
+     and gap-after-none 0 (ita-airways-app's heading under the band). www's gap after a band varies with what follows
+     (4 to 60 px on 13 recorded pages), so no rule for every band; the app style is phones only (from 768 px it made the
+     page further, -0.22 → -0.82 %);
+   - network: www's heading-small on the lead H2 and the six list H3s, and the general variants of its city lists in
+     www's current text (the document holds a second set for an au/en group of markets, left as it is);
+   - invoicing's one-line wrap is not fixed: its text, markup, font file (the same sha256 as www's) and size are www's;
+     www's recorded line is about 1 % narrower, a text-rendering difference.
+   - The gate (the 26 recorded phone pages, main as served against the trial, Arial's face): 22 closer (long-haul
+     -1.53 → -0.04 %, fleet -1.85 → -0.33 %, corporate-b2b -3.21 → -1.59 %), 1 the same, 3 further by 0.5 points at
+     most (residents-in-sicily 0.05, pets-in-cabin 0.06, invoicing 0.4989); at 1440 network -1.57 → -1.07 %, the app
+     page the same. Shipped; the three rows belong to the same round (without them network, the app page and
+     invoicing read further, as in order 30).
+3. **The feedback block on /de/en/articles/tags and /de/en/overview-travel-information:** no rows. Read again, www's
+   recordings of both pages (lh-parity-003) have no questionnaire: the two "feedback-questionnaire" matches are the
+   Tealium tag script every www page loads, and nothing of it is drawn. My order-30 note was wrong. The real blocks on
+   the drops are the 14 flights pages per width that order 30 gated. The other locales (articles/tags: at/de, de/de,
+   gb/en, xx/es, xx/fr, xx/it; overview-travel-information: 14 more) are the same template, not recorded.
+
+## Standing order 31, final section (about 18:15 UTC, 2026-11-15)
+
+- Items 1-3 done; nothing held.
+- Before this section: the full suite on 746a4b33 (npm run lint 0, stylelint 0, 1,178 of 1,178 test files); the folder-reading tests with brand.test.mjs; the whole-repo lint read before every push.
+- Nothing uploaded, previewed or published by me; DA read only (ITA entry-exit-system, invoicing, ita-airways-app,
+  network); da-upload.mjs not run; requests only to our own hosts, DA (reads) and GitHub's API; no captures of www.
+  .migration/project.json not touched; the excluded manage page has no row and no line.
+- Not in git and why: logs/p4/so30, logs/p4/so31 (scratch: captures, gate folders, folder copies, DA copies, scripts),
+  the drops in /tmp (private material), content/, migration-work/, tools/importer/reports/* (not mine), the old
+  autostash entry (not mine, kept). Preview servers stopped, trial worktrees removed.
