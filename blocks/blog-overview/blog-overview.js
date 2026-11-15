@@ -636,6 +636,19 @@ export default async function decorate(block) {
       });
       ul.append(button('', state.page + 1, { className: 'blog-overview-next', label: labels['next label'], disabled: state.page === pages }));
       pager.append(ul);
+      // lufthansa.com: maui-pagination's narrow form (below 650px of pager width: first,
+      // previous, "Page N", next, last; blog-overview.css); the brand sites' pagers as before
+      if (!brand) {
+        const narrow = el('ul', 'blog-overview-pages-narrow');
+        narrow.append(
+          button('', 1, { className: 'blog-overview-first', label: fill(labels['page label'], { PAGE: 1 }), disabled: state.page === 1 }),
+          button('', state.page - 1, { className: 'blog-overview-prev', label: labels['previous label'], disabled: state.page === 1 }),
+          el('li', 'blog-overview-page-text', fill(labels['page label'], { PAGE: state.page })),
+          button('', state.page + 1, { className: 'blog-overview-next', label: labels['next label'], disabled: state.page === pages }),
+          button('', pages, { className: 'blog-overview-last', label: fill(labels['page label'], { PAGE: pages }), disabled: state.page === pages }),
+        );
+        pager.append(narrow);
+      }
     }
     if (focusList) {
       block.scrollIntoView({ behavior: 'smooth', block: 'start' });

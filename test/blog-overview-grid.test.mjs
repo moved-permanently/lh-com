@@ -78,7 +78,8 @@ test('the default blog-overview: its markup as before the grid variant (lufthans
   const ad = await run({ meta: { brand: 'airdolomiti', language: 'it' } });
   const hashes = [sha(lh.innerHTML), sha(lhPaged.innerHTML), sha(ad.innerHTML)];
   // the hashes of the block before the variant existed (cff8cc6); Air Dolomiti's (an Italian page
-  // without label rows) since its built-in texts have Italian (brief 291)
+  // without label rows) since its built-in texts have Italian (brief 291); lufthansa.com's two since
+  // standing order 30 (the pager's narrow list, test/blog-overview-pagination-narrow-so30)
   assert.deepEqual(hashes, JSON.parse(fs.readFileSync('test/fixtures/blog-overview-default-hashes.json', 'utf8')));
 });
 
