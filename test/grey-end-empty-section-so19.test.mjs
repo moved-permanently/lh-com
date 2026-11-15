@@ -19,5 +19,5 @@ test('after a whole grey AEM section with .mb-default an empty last section keep
   assert.match(body, /margin-top: 0;/);
   assert.match(body, /margin-bottom: var\(--section-gap\);/);
   // after the separators rule it overrides (its specificity higher, and later)
-  assert.ok(at > css.indexOf('body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .carousel-cards-wrapper), :has(> .default-content-wrapper > :not(p.spacer))) {'));
+  assert.ok(at > css.indexOf('body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .carousel-cards-wrapper), :has(> .default-content-wrapper + .columns-media-wrapper), :has(> .default-content-wrapper > :not(p.spacer))) {'));
 });

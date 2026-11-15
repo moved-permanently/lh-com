@@ -2213,6 +2213,10 @@ async function decorateGrid(block, uid) {
       showMessage(labels['no results for filters heading'], labels['no results for filters']);
     }
     block.classList.toggle('destination-finder-empty', !sorted.length);
+    // lufthansa.com with no offers for the origin (none in the answer, or no answer:
+    // /ru/en/flights' Moscow, www's HTTP 500): www's empty state (destination-finder.css)
+    block.classList.toggle('destination-finder-no-offers', !brand && pricesOn && !unavailable
+      && !loaded.offers.length);
     reset.hidden = !isFiltered();
     announce(fillLabel(labels['results count label'], { NUMBER: sorted.length }));
   }

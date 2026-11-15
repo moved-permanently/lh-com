@@ -6,6 +6,7 @@
    48 px around it (151 px). The last section takes the grey band's gap back (a negative top margin collapsing with it,
    with the wrapper's -16 px) and has none below. One :has() level: a :has() nested in another one drops the rule.
    Brief 539: a last section with a card carousel (lufthansa-travel-classes) is left out of the rule.
+   Standing order 29: so is one whose separators open a Columns Media (/ru/en/flights' Hertz; lh-com-flights-tail-so29).
    Run: node --max-old-space-size=256 --test test/end-separators-after-grey-521.test.mjs */
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -13,7 +14,7 @@ import fs from 'node:fs';
 
 const css = fs.readFileSync(new URL('../styles/styles.css', import.meta.url), 'utf8')
   .replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
-const SEL = 'body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .carousel-cards-wrapper), :has(> .default-content-wrapper > :not(p.spacer)))';
+const SEL = 'body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .carousel-cards-wrapper), :has(> .default-content-wrapper + .columns-media-wrapper), :has(> .default-content-wrapper > :not(p.spacer)))';
 
 test('the last section of separators after a grey band: no gap above (the grey band\'s taken back), none below', () => {
   const i = css.indexOf(`${SEL} {`);
@@ -25,5 +26,5 @@ test('the last section of separators after a grey band: no gap above (the grey b
 
 test('the selector has one :has() level only (a nested one drops the whole rule)', () => {
   assert.ok(!/:has\([^()]*:has\(/.test(SEL));
-  assert.equal((SEL.match(/:has\(/g) || []).length, 2, 'two side by side in one :not()');
+  assert.equal((SEL.match(/:has\(/g) || []).length, 3, 'three side by side in one :not()');
 });

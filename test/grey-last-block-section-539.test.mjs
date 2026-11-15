@@ -14,7 +14,7 @@ import fs from 'node:fs';
 const css = fs.readFileSync(new URL('../styles/styles.css', import.meta.url), 'utf8')
   .replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
 const OLD = 'body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .default-content-wrapper > :not(p.spacer))) {';
-const NEW = 'body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .carousel-cards-wrapper), :has(> .default-content-wrapper > :not(p.spacer))) {';
+const NEW = 'body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .carousel-cards-wrapper), :has(> .default-content-wrapper + .columns-media-wrapper), :has(> .default-content-wrapper > :not(p.spacer))) {';
 
 test('the separators-only last section after a grey band: not a last section with a card carousel', () => {
   assert.ok(!css.includes(OLD), 'the old selector (any section without text) is gone');

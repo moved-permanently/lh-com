@@ -1005,11 +1005,35 @@ body.brand-lufthansa main > .section.grey + .section.table-striped-container:has
    all there is between the band and the footer (71px at 1440), ours added the band's 48px and the
    last section's own 48px (151px). The last section takes the band's gap back (its negative top
    margin collapses with it and the wrapper's -16px) and has none below. A last section with a card
-   carousel keeps its gap (the travel classes' cards: 4 px under the band, www 50; brief 539).
+   carousel keeps its gap (the travel classes' cards: 4 px under the band, www 50; brief 539), and so
+   does one whose separators open a Columns Media (/ru/en/flights' Hertz after its divider: it stood
+   16 px over the band, www's line 64 px under it; standing order 29).
    One :has() level: a :has() nested in another drops the rule */
-body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .carousel-cards-wrapper), :has(> .default-content-wrapper > :not(p.spacer))) {
+body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .carousel-cards-wrapper), :has(> .default-content-wrapper + .columns-media-wrapper), :has(> .default-content-wrapper > :not(p.spacer))) {
   margin-top: -48px;
   margin-bottom: 0;
+}
+
+/* that last section (/ru/en/flights, lh-parity-006; the only published lufthansa.com document with
+   separators then a Columns Media after a grey band): www's line 44 px under the band on phones, 64
+   from 768px (the section's margin collapses with the wrapper's -16px), the picture 45 / 65 px under
+   the line (ours 25) */
+body.brand-lufthansa main > .section.grey + .section:last-child:has(> .default-content-wrapper + .columns-media-wrapper):not(:has(> .default-content-wrapper > :not(p.spacer))) {
+  margin-top: 60px;
+}
+
+body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .default-content-wrapper > :not(p.spacer))) > .default-content-wrapper + .columns-media-wrapper {
+  margin-top: 20px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section.grey + .section:last-child:has(> .default-content-wrapper + .columns-media-wrapper):not(:has(> .default-content-wrapper > :not(p.spacer))) {
+    margin-top: 80px;
+  }
+
+  body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .default-content-wrapper > :not(p.spacer))) > .default-content-wrapper + .columns-media-wrapper {
+    margin-top: 40px;
+  }
 }
 
 /* not an empty last section (a document's empty trailing div) after a whole grey AEM section with
@@ -1018,6 +1042,7 @@ body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .caro
    standing order 19). After a flush band, and after a grey column view (/de/en/group-travel), the
    band touches the footer on www too, as above (the second :not() argument only lifts the
    specificity over that rule's) */
+/* stylelint-disable-next-line no-descending-specificity -- an empty last section, not one with a Columns Media */
 body.brand-lufthansa main > .section.grey:not(.flush, .column-band, .column-view) + .section:last-child:not(:has(> *), :has(> .default-content-wrapper > :not(p.spacer))) {
   margin-top: 0;
   margin-bottom: var(--section-gap);
@@ -1543,6 +1568,7 @@ body.brand-lufthansa.flow-spacing main > .section > .default-content-wrapper:is(
 /* a page whose content ends with a column view: its padding is the space to the footer (live:
    most such AEM sections have no .mb-default; /de/en/book-and-manage/additional-services/
    get-your-guide last text 36px of ink above the footer, was 52) */
+/* stylelint-disable-next-line no-descending-specificity -- text last in the section, not a Columns Media after separators */
 main > .section:not(.grey):is(:last-child, :has(+ .section.subpage-nav-container:last-child)):has(> .default-content-wrapper:last-child > :is(.column-end, .column-end-outer):last-child) {
   margin-bottom: 0;
 }
