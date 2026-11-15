@@ -704,6 +704,20 @@ body.brand-austrian main > .section.grey.in-column:has(> .default-content-wrappe
   padding-bottom: 32px;
 }
 
+/* a link line (a link alone in its paragraph) with www's maui-navigation-link arrow: a 16 px icon, 7 px to the text
+   (.standalone column-gap), so the text starts 21 px after the arrow's ink, as www's at 1440 and 390 (healthy-travel,
+   austrian-parity-015; ours 28). lh-com's 19 px and 10 px stay for the other brands. Standing order 36, item 2:
+   healthy-travel 390's "Further questions about flying and health" on one line, as www's (+0.17 -> -0.10 %); no other
+   recorded page-width moves (census in delta-so36-austrian-healthy-travel-faq.txt) */
+body.brand-austrian main .default-content-wrapper p.link-wrapper a:any-link {
+  gap: 7px;
+}
+
+body.brand-austrian main .default-content-wrapper p.link-wrapper a:any-link::before {
+  width: 16px;
+  height: 16px;
+}
+
 /* the grey band 48 px above and below the card (www's topic-selection-info-cards-container) */
 body.brand-austrian main .section.grey:has(.columns-media.panel) {
   padding-top: 48px;
