@@ -304,6 +304,18 @@ test('lufthansa.com from 768 px: the sort and the smart search in the toolbar, a
   });
 });
 
+// Discover's www phones have the same toolbar (discover-snapshots-004: the smart search over the
+// origin, "Filters" and "Sort by" on one row over the cards); standing order 27
+test('Discover on a phone: the same order as lufthansa.com\'s', async () => {
+  phone = true;
+  await grid('discover', [...ROWS, ['Smart search', '<a href="/de/en/smart-search">Smart destination search</a>']], '/de/en/book/flights/offers');
+  assert.ok(lastBlock.classList.contains('destination-finder-phone-bar'));
+  const { filters, bar, toolbar } = placement();
+  assert.deepEqual(filters.slice(2, 4), ['destination-finder-smart-search', 'destination-finder-filter']);
+  assert.deepEqual(bar, ['destination-finder-filters-toggle', 'destination-finder-field destination-finder-sort']);
+  assert.deepEqual(toolbar, []);
+});
+
 test('another brand on a phone (ITA): as before', async () => {
   phone = true;
   await grid('ita', SMART_ROWS, '/gb/en/flights');

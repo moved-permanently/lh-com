@@ -337,3 +337,41 @@ body.brand-lufthansa .destination-finder .destination-finder-compare-checkbox {
     padding-bottom: calc(10px + 24px + 12px);
   }
 }
+
+/* Discover's offers cards on phones as www's (discover-snapshots-004 at 390, both languages; standing order 27):
+   from the picture's bottom the city 14 px, the country 38, the price label 72 with its lines 24 px apart, the
+   price 20 px under the label's last line, the 24 px checkbox ending 8 px over the card's edge (ours 15, 40-41,
+   77, 22.4 px lines, a 20 px box: German cards, whose label wraps, 1.5 px short a row) */
+@media (width < 768px) {
+  body.brand-discover .destination-finder .destination-finder-compare {
+    bottom: 8px;
+    max-width: calc(100% - 12px);
+  }
+
+  body.brand-discover .destination-finder .destination-finder-compare-checkbox {
+    width: 24px;
+    height: 24px;
+    margin: 0;
+  }
+
+  body.brand-discover .destination-finder.grid .destination-finder-tile-compare .destination-finder-tile-body {
+    padding-top: 9px;
+    padding-bottom: calc(8px + 24px + 40px);
+  }
+
+  body.brand-discover .destination-finder.grid .destination-finder-tile-country {
+    margin-top: 2px;
+  }
+
+  body.brand-discover .destination-finder.grid .destination-finder-tile-offer {
+    padding-top: 14px;
+  }
+
+  body.brand-discover .destination-finder.grid .destination-finder-tile-price-label {
+    line-height: 24px;
+  }
+
+  body.brand-discover .destination-finder.grid .destination-finder-tile-price {
+    line-height: 16px;
+  }
+}

@@ -1246,9 +1246,10 @@ main > .section > .destination-finder-wrapper:has(> .destination-finder.grid) {
   margin-top: 8px;
 }
 
-/* lufthansa.com's grid on phones as www's /gb/en/flights at 390 (lh-parity-004a; standing order 26):
-   the smart search over the origin, no "Where to fly" heading in sight, "Filters" and the sort on
-   one row over the cards (destination-finder.js destination-finder-phone-bar) */
+/* www's grid component on phones (lufthansa.com's /gb/en/flights at 390, lh-parity-004a; Discover's
+   offers pages, discover-snapshots-004; standing orders 26, 27): the smart search over the origin,
+   no "Where to fly" heading in sight, "Filters" and the sort on one row over the cards
+   (destination-finder.js destination-finder-phone-bar) */
 @media (width < 768px) {
   .destination-finder.grid.destination-finder-phone-bar .destination-finder-filters > .destination-finder-smart-search {
     display: flex;

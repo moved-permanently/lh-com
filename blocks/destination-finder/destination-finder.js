@@ -2093,9 +2093,10 @@ async function decorateGrid(block, uid) {
   fillNotes(footer, notes, context.conditions);
   decorateExternalLinks(footer);
 
-  // lufthansa.com on phones as www's (/gb/en/flights at 390; standing order 26): the smart search
-  // over the origin, "Filters" and the sort on one row; from 768 px both in the toolbar
-  if (!brandEntry()) {
+  // www's grid component on phones (lufthansa.com /gb/en/flights at 390, Discover's offers pages;
+  // standing orders 26, 27): the smart search over the origin, "Filters" and the sort on one row;
+  // from 768 px both in the toolbar
+  if (wwwBadges) {
     block.classList.add('destination-finder-phone-bar');
     const bar = el('div', 'destination-finder-filters-bar');
     filters.insertBefore(bar, toggle);
