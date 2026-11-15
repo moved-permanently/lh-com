@@ -1,0 +1,22 @@
+# Standing order 26 (2026-11-14), item 3: the card-row gap on phones, on branch so26-card-row-gap (not merged; the
+# owner's call, below). The branch's code, below 768px in lufthansa.com Columns Media blocks:
+# - the row after a row of text cells without a picture cell 24px closer (order 23's variant 5);
+# - a text cell before an empty last cell keeps 24px under it (www stacks the empty column-view item with its margin:
+#   online-check-in-info's page end, which variant 5 had uncovered);
+# - in a cell with a picture after its first element (the group airlines' tiles: heading, logo, links) the links 5px
+#   taller (report-baggage, delayed-baggage-lhg: 55px from link to link at 390, ours 50; this drift above had cancelled
+#   variant 5's step there). All lufthansa.com link paragraphs 5px taller was wrong on 8 of 36 sampled pages.
+# Census (published copies): 214 documents with such a row, 140 with such an empty cell, 95 with such a tile.
+# Gate (the branch's code, working-copy captures, 29 page-widths at 390 against lh-parity-002a-d): 10 better
+# (business-class-on-short-and-medium-haul 19.5 -> 7.3, menus-travel-classes 12.0 -> 4.0, travelling-with-special-
+# requirements 11.0 -> 4.6, menus-on-long-haul-flights 15.3 -> 9.1, ita-airways 10.7 -> 7.1, delayed-baggage-lhg 8.0 -> 5.9,
+# report-baggage 9.1 -> 7.1, feedback-and-contact-airlines 9.4 -> 7.4, corporate-customers 13.6 -> 12.1, express-rail 7.8 ->
+# 7.1), 18 the same, 1 worse: with-children-at-the-airport +0.9 (compensation removed: the drift above it, +115 px, is
+# content). DA's copy has "We have compiled an overview of all the relevant touchpoints at both our hubs in Frankfurt and
+# Munich. You can find it here:" and the links "Munich Airport" and "Frankfurt Airport", which the bd-snapshot of
+# 2026-10-22 has and www's recording (lh-parity, the 390 capture) no longer shows. gate.mjs fails on that page only.
+# For the owner: merge the branch accepting that page's +0.9 (its content, not the rule), or first decide the row
+# below (a text removal; no delta tool removes text yet).
+# Preview of the branch: https://so26-card-row-gap--lh-com--moved-permanently.aem.page/de/en/menus-travel-classes
+# status	document	tool	expected change	gate
+HOLD	/de/en/with-children-at-the-airport	none yet (text removal)	the sentence "We have compiled an overview ... You can find it here:" and the two airport links out, as www's recording	the owner's call: www changed after the import
