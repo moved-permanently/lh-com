@@ -5460,3 +5460,64 @@ rows, or causes with no rule that passes the gate.
 
 **Hosts:** reads only from our hosts, the drop and DA (GETs from my session). No request to an airline host, no
 da-upload.mjs call, no upload, preview or publish by me.
+
+## Standing order 26 (2026-11-15, about 18:40 to 21:30 CET), with its final section
+
+**At the start:** nothing of mine uncommitted or unpushed (order 25's 7498f5bb and 08fcaa9d were on main).
+`.migration/project.json` was modified, not by me, and is left as it is.
+
+**Item 1, the Brussels phone button rule: 0bbff184** (revert that commit alone to take it back).
+- **The rule:** below 768 px a button label that doesn't fit wraps, left-aligned, instead of the base button's ellipsis.
+  It is the draft gated in order 25, with a test; brussels-so25-button-wrap.txt's five rows are now READY.
+- **Checks:** lint and stylelint before the push, the full suite 4513 / 0, then 4518 / 0 after the rebase, smoke 0 differences, Build success.
+- **As served afterwards:** no cut button left on be/fr checked-baggage or vibrant-senegal.
+
+**Item 2, the lost-content census (sweep-so26-lost-content-census.txt):**
+- **Method:** ema-cashub's (order 39), read as data, nothing from www. 234 recorded pages of the four brands: the newest
+  1440 recording's snapshot against our served page with its nav and footer. Our side came from the brand hosts, DA was
+  only read for the rows.
+- **Result:** 133 pages none flagged, 98 not a loss (each with its kind), 3 LOSS.
+- **Losses, as delta rows on DA's current copies, READY** (the drafts carry every lost word and link; the page heights
+  are unchanged at both widths):
+  - Brussels /be/en/legal-notices/travel-id: the seven data-protection e-mail addresses are text without www's mailto
+    links (delta-so26-brussels-lost-content.txt).
+  - Discover customer-service, de/en and de/de: the refund sentence with its passenger-rights link, which the import
+    cut down to a lone "here" list item (delta-so26-discover-lost-content.txt). Discover is ema-test's area, so the
+    row is listed for its owner.
+  - Both with tools/importer/ita-fragment-replace-apply.mjs; --revert gives DA's copy back byte for byte; test
+    lost-content-so26-600.
+- **Not a loss, by kind:**
+  - widgets from www's services (flight search, fare teasers, the offers grid, the chat assistant, forms, search,
+    contact and check-in-times components);
+  - www's video player controls;
+  - tab labels and article dates our pages draw from their metadata (checked on the rendered page);
+  - lists drawn from the index;
+  - link hints for screen readers;
+  - market links;
+  - Discover families' certificate sentence, reworded in DA;
+  - the Spanish pages' skip links and pre-footer teaser (site chrome on every Brussels page).
+
+**Item 3, cut-off labels (cut-labels-so26.txt):** every recorded page of the four brands at 390 and 1440 (Brussels at
+390 from order 25).
+- **One visible cut label:** Group for Business, Allegris intermediaries at 390, "Advance seat reservation" factsheet
+  (342 of 347 px).
+  - Item 1's rule is Brussels-only, so a B2B rule ships in this order's commit: the same wrap below 768 px, with a test.
+  - 9101 -> 9125 against b2b-parity-012's 9053 (+0.53 -> +0.80 %), the label whole.
+- **Every other hit:** a visually hidden date label of a form or of the flight search (1 px wide, for screen readers).
+  It isn't shown, and nothing is hidden from a reader.
+- **SWISS and Discover:** none visible.
+
+**Item 4, entertainment-on-board's eJournals picture:** www uses the same file as ours
+(1440x617_ejournals.png, its 1440 rendition) with class object-cover in a taller box. The tighter look is layout only,
+so there's no file for a row; left as it is.
+
+**Checks of the final commit:** `npm run lint` and stylelint on b2b.css before its push, the folder-reading tests, and
+the full suite in its ship.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git): our served pages read for the census, DA's copies read today (Brussels travel-id 17:58,
+  Discover 18:00 UTC), the census tools, drafts, the cut-label census and logs.
+
+**Hosts:** reads only from our hosts, the drop's recordings and DA (GETs from my session). No request to an airline host,
+no da-upload.mjs call, no upload, preview or publish by me.

@@ -1,0 +1,39 @@
+{
+  "/be/en/legal-notices/travel-id": [
+    {
+      "from": "E-mail: datenschutz@dlh.de</td>",
+      "to": "E-mail: <a href=\"mailto:datenschutz@dlh.de\">datenschutz@dlh.de</a></td>",
+      "count": 1
+    },
+    {
+      "from": "E-mail: dataprotection@swiss.com</td>",
+      "to": "E-mail: <a href=\"mailto:dataprotection@swiss.com\">dataprotection@swiss.com</a></td>",
+      "count": 1
+    },
+    {
+      "from": "E-mail: privacy@brusselsairlines.com</td>",
+      "to": "E-mail: <a href=\"mailto:privacy@brusselsairlines.com\">privacy@brusselsairlines.com</a></td>",
+      "count": 1
+    },
+    {
+      "from": "E-mail: poststelle@datenschutz.hessen.de</td>",
+      "to": "E-mail: <a href=\"mailto:poststelle@datenschutz.hessen.de\">poststelle@datenschutz.hessen.de</a></td>",
+      "count": 1
+    },
+    {
+      "from": "E-mail: poststelle@ldi.nrw.de</td>",
+      "to": "E-mail: <a href=\"mailto:poststelle@ldi.nrw.de\">poststelle@ldi.nrw.de</a></td>",
+      "count": 1
+    },
+    {
+      "from": "E-mail: dsb@dsb.gv.at</td>",
+      "to": "E-mail: <a href=\"mailto:dsb@dsb.gv.at\">dsb@dsb.gv.at</a></td>",
+      "count": 1
+    },
+    {
+      "from": "E-mail: contact@apd-gba.be</td>",
+      "to": "E-mail: <a href=\"mailto:contact@apd-gba.be\">contact@apd-gba.be</a></td>",
+      "count": 1
+    }
+  ]
+}

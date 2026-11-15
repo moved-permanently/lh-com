@@ -1,0 +1,2797 @@
+# ema-lufthansa, standing order 26 (2026-11-15), item 2: words and links of every recorded Brussels, Group for Business, SWISS and Discover page that our served page lacks (ema-cashub's method, sweep-so39-lost-content-census.txt). One block per page: the verdict, the counts and the reason, then each flagged segment (T, with the share of its 20-letter windows found in ours) and link (L, no link of ours with its target).
+# Read as data, nothing from www: each page's newest 1440 recording (brussels-parity-001 to -010, b2b-parity-001 to -012, swiss-parity-001 to -008, discover-parity-001 / -002; the .shadow.html snapshot, shadow roots included) against our served page on brussels / b2b / swiss / discover.turnsthe.page (its .plain.html with its nav and footer fragments, closed panels included). 234 page paths; 4 recorded paths not in their manifest (be/en and be/fr check-in-options-and-info, Discover's offers de/de and de/en) not read.
+# Left out on www's side: scripts, styles, select options, hidden and aria-hidden elements, OneTrust, www's site chrome (its header-and-flyout, microsite header, breadcrumbs, country and language pickers, footers, sr-only texts), a segment on 40 % or more of a brand-language's recorded pages, and www's component strings (a segment of 30 characters or more on 8 or more pages, also cut out of the segments it follows, as the link hint 'Please note that with this link ...'). A segment is missing when fewer than 60 % of its 20-letter windows are in our text; a link when no link of ours has its target (www's hosts and ours one; '-', '_' and spaces in paths and file names as one '-', as our import writes slugs; documents by file name).
+# What the census flagged and is not a loss (each kind checked on our rendered page or in www's markup on at least one page): widgets from www's services (flight search, fare teasers, the offers grid, the chat assistant, forms and date pickers, search boxes, the contact and check-in-times components), www's video player controls, tab and filter labels and article dates our pages draw from their metadata (present on the rendered page), lists our pages draw from the index, self links and anchors, www's market links (/content/.../markets/...), values changed in DA after the import (Discover families' certificate sentence), and site chrome on the few Spanish pages (skip links, www's pre-footer offers teaser).
+# Pages: 3 LOSS (rowed), 98 not a loss, 133 none flagged. Discover is ema-test's area: its row is listed for its owner.
+#
+none flagged	b2b	/ch/en/program/experts/airlines-at-a-glance/discover-airlines	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/ch/en/program/experts/airlines-at-a-glance/eurowings	b2b-parity-006	0 segments (0 words) and 0 links missing
+not a loss	b2b	/ch/en/program/experts/on-board/meals-on-board	b2b-parity-010	1 segments (4 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 Special meals & catering
+none flagged	b2b	/de/de/about-us	b2b-parity-001	0 segments (0 words) and 0 links missing
+not a loss	b2b	/de/de/about-us/contact	b2b-parity-001	127 segments (151 words) and 2 links missing	www's contact widget: its country picker and the contact details it shows for the chosen country (+49 69 86 799 500, dach.ppb@dlh.de for DACH)
+	T 0.00 Deutschland
+	T 0.00 Ägypten
+	T 0.00 Albanien
+	T 0.00 Algerien
+	T 0.00 Andorra
+	T 0.00 Angola
+	T 0.00 Äquatorialguinea
+	T 0.00 Argentinien
+	T 0.00 Armenien
+	T 0.00 Aserbaidschan
+	T 0.00 Äthiopien
+	T 0.00 Australien
+	T 0.00 Bahrain
+	T 0.00 Belarus
+	T 0.00 Belgien
+	T 0.00 Benin
+	T 0.00 Bolivien
+	T 0.00 Bosnien und Herzegowina
+	T 0.00 Brasilien
+	T 0.00 Bulgarien
+	T 0.00 Burkina-Faso
+	T 0.00 Burundi
+	T 0.00 Chile
+	T 0.00 China (Festland)
+	T 0.00 Costa Rica
+	T 0.00 Cote d'Ivoire
+	T 0.00 Dänemark
+	T 0.00 Ecuador
+	T 0.00 El Salvador
+	T 0.00 Estland
+	T 0.00 Faröer
+	T 0.00 Finnland
+	T 0.00 Frankreich
+	T 0.00 Gambia
+	T 0.00 Georgien
+	T 0.00 Ghana
+	T 0.00 Gibraltar
+	T 0.00 Griechenland
+	T 0.00 Grönland
+	T 0.00 Guatemala
+	T 0.00 Guinea
+	T 0.00 Honduras
+	T 0.00 Hong Kong, China
+	T 0.00 Indien
+	T 0.00 Indonesien
+	T 0.00 Irak
+	T 0.00 Iran
+	T 0.00 Irland
+	T 0.00 Island
+	T 0.00 Israel
+	T 0.00 Japan
+	T 0.00 Jordanien
+	T 0.00 Kamerun
+	T 0.00 Kasachstan
+	T 0.00 Katar
+	T 0.00 Kenia
+	T 0.00 Kirgisistan
+	T 0.00 Kolumbien
+	T 0.00 Kongo
+	T 0.00 Korea, Republik
+	T 0.00 Kosovo
+	T 0.00 Kroatien
+	T 0.00 Kuwait
+	T 0.00 Lettland
+	T 0.00 Libanon
+	T 0.00 Liberia
+	T 0.00 Libyen
+	T 0.00 Litauen
+	T 0.00 Luxemburg
+	T 0.00 Malaysia
+	T 0.00 Marokko
+	T 0.00 Mexiko
+	T 0.00 Moldawien
+	T 0.00 Monaco
+	T 0.00 Montenegro
+	T 0.00 Neuseeland
+	T 0.00 Nicaragua
+	T 0.00 Niederlande
+	T 0.00 Nigeria
+	T 0.00 Nordmazedonien
+	T 0.00 Norwegen
+	T 0.00 Oman
+	T 0.00 Österreich
+	T 0.00 Pakistan
+	T 0.00 Panama
+	T 0.00 Paraguay
+	T 0.00 Peru
+	T 0.00 Philippinen
+	T 0.00 Polen
+	T 0.00 Portugal
+	T 0.00 Ruanda
+	T 0.00 Rumänien
+	T 0.00 Russische Föderation
+	T 0.00 San Marino
+	T 0.00 Saudi-Arabien
+	T 0.00 Schweden
+	T 0.00 Schweiz
+	T 0.00 Senegal
+	T 0.00 Serbien
+	T 0.00 Sierra Leone
+	T 0.00 Singapur
+	T 0.00 Slowakei
+	T 0.00 Slowenien
+	T 0.00 Spanien
+	T 0.00 Sri Lanka
+	T 0.00 Südafrika
+	T 0.00 Tadschikistan
+	T 0.00 Taiwan, China
+	T 0.00 Tansania
+	T 0.00 Thailand
+	T 0.00 Tschechische Republik
+	T 0.00 Tunesien
+	T 0.00 Türkei
+	T 0.00 Turkmenistan
+	T 0.00 Uganda
+	T 0.00 Ukraine
+	T 0.00 Ungarn
+	T 0.00 Uruguay
+	T 0.00 Usbekistan
+	T 0.00 Vatikanstaat
+	T 0.00 Venezuela
+	T 0.00 Verein. Arab. Emirate
+	T 0.00 Vereinigtes Königreich
+	T 0.00 Vietnam
+	T 0.00 Zypern
+	T 0.00 +49 69 86 799 500dach.ppb@dlh.de
+	T 0.00 08:00 - 18:00
+	L tel:+49 69 86 799 500
+	L mailto:dach.ppb@dlh.de
+none flagged	b2b	/de/de/about-us/lhg-history	b2b-parity-006	0 segments (0 words) and 0 links missing
+not a loss	b2b	/de/de/allegris/corporates-start-of-booking	b2b-parity-012	2 segments (4 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 Sommerflugplan 2026
+	T 0.00 Winterflugplan 2026/2027
+not a loss	b2b	/de/de/homepage	b2b-parity-001	4 segments (8 words) and 0 links missing	widgets from www's services (flight search, fare teasers and the offers grid: 'Round trip from', 'Show more') and www's market links (/content/.../markets/...)
+	T 0.00 Duration 0:30
+	T 0.00 Loaded: 12.68%
+	T 0.00 Duration 1:19
+	T 0.00 Loaded: 3.65%
+not a loss	b2b	/de/de/lhg4b-search/lhg4b-search-prelogin	b2b-parity-001	1 segments (3 words) and 0 links missing	widgets from www's services: the chat assistant ('Charlie'), form and date-picker controls, the search box ('0/100'), and the chat's privacy link
+	T 0.00 Suche nach Thema
+not a loss	b2b	/de/de/news	b2b-parity-001	3 segments (11 words) and 0 links missing	lists our page draws from the index (the teasers' titles and links are on the rendered page), self links and anchors
+	T 0.00 Discover the Lounge
+	T 0.00 Discover new routes
+	T 0.00 Entdecken Sie die neuen Strecken
+not a loss	b2b	/de/de/news/celebrating-shared-stories	b2b-parity-001	2 segments (4 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 Duration 1:00
+	T 0.00 Loaded: 5.41%
+none flagged	b2b	/de/de/news/lhg-invoice-receipt-download	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/de/news/travel-id-now-required-for-online-check-in	b2b-parity-001	0 segments (0 words) and 0 links missing
+not a loss	b2b	/de/de/program/businesstogo	b2b-parity-009	6 segments (11 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 Travel Manager
+	T 0.00 CEOs
+	T 0.00 Assistent:innen der Geschäftsleitung
+	T 0.00 Close
+	T 0.00 Duration 3:10
+	T 0.00 Loaded: 1.56%
+none flagged	b2b	/de/de/program/experts	b2b-parity-001	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/de/program/experts/airlines-at-a-glance/airdolomiti	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/de/program/experts/airlines-at-a-glance/austrian-airlines	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/de/program/experts/airlines-at-a-glance/brussels-airlines	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/de/program/experts/airlines-at-a-glance/discover-airlines	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/de/program/experts/airlines-at-a-glance/edelweiss	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/de/program/experts/airlines-at-a-glance/eurowings	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/de/program/experts/airlines-at-a-glance/lufthansa	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/de/program/experts/airlines-at-a-glance/swiss	b2b-parity-006	0 segments (0 words) and 0 links missing
+not a loss	b2b	/de/de/program/experts/news	b2b-parity-001	0 segments (0 words) and 1 links missing	lists our page draws from the index (the teasers' titles and links are on the rendered page), self links and anchors
+	L /de/de/program/experts/news/schliessung-des-airrail-terminals-am-flughafen-frankfurt-ab-26-
+not a loss	b2b	/de/de/program/partner-plus-benefit	b2b-parity-001	1 segments (1 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 Konditionen
+none flagged	b2b	/de/de/travel-management/hygiene-and-safety	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/de/travel-management/route-network	b2b-parity-001	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/de/travel-solutions/lufthansa-group-airlines	b2b-parity-002	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/de/travel-solutions/ndc	b2b-parity-001	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/de/travel-solutions/our-european-fares	b2b-parity-007	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/about-us	b2b-parity-001	0 segments (0 words) and 0 links missing
+not a loss	b2b	/de/en/about-us/contact	b2b-parity-001	125 segments (157 words) and 2 links missing	www's contact widget: its country picker and the contact details it shows for the chosen country (+49 69 86 799 500, dach.ppb@dlh.de for DACH)
+	T 0.00 Germany
+	T 0.00 Albania
+	T 0.00 Algeria
+	T 0.00 Andorra
+	T 0.00 Angola
+	T 0.00 Argentina
+	T 0.00 Armenia
+	T 0.00 Australia
+	T 0.00 Azerbaijan
+	T 0.00 Bahrain
+	T 0.00 Belarus
+	T 0.00 Belgium
+	T 0.00 Benin
+	T 0.00 Bolivia
+	T 0.00 Bosnia-Herzegovina
+	T 0.00 Brazil
+	T 0.00 Bulgaria
+	T 0.00 Burkina Faso
+	T 0.00 Burundi
+	T 0.00 Cameroon
+	T 0.00 Chile
+	T 0.00 China (Mainland)
+	T 0.00 Colombia
+	T 0.00 Congo
+	T 0.00 Costa Rica
+	T 0.00 Cote d'Ivoire
+	T 0.00 Croatia
+	T 0.00 Cyprus
+	T 0.00 Czech Republic
+	T 0.00 Denmark
+	T 0.00 Ecuador
+	T 0.00 Egypt
+	T 0.00 El Salvador
+	T 0.00 Equatorial Guinea
+	T 0.00 Estonia
+	T 0.00 Ethiopia
+	T 0.00 Faeroe Islands
+	T 0.00 Finland
+	T 0.00 France
+	T 0.00 Gambia
+	T 0.00 Georgia
+	T 0.00 Ghana
+	T 0.00 Gibraltar
+	T 0.00 Greece
+	T 0.00 Greenland
+	T 0.00 Guatemala
+	T 0.00 Guinea
+	T 0.00 Honduras
+	T 0.00 Hong Kong, China
+	T 0.00 Hungary
+	T 0.00 Iceland
+	T 0.00 India
+	T 0.00 Indonesia
+	T 0.00 Iran
+	T 0.00 Iraq
+	T 0.00 Ireland
+	T 0.00 Israel
+	T 0.00 Japan
+	T 0.00 Jordan
+	T 0.00 Kazakhstan
+	T 0.00 Kenya
+	T 0.00 Korea, Republic of
+	T 0.00 Kosovo
+	T 0.00 Kuwait
+	T 0.00 Kyrgyzstan
+	T 0.00 Latvia
+	T 0.00 Lebanon
+	T 0.00 Liberia
+	T 0.00 Libya
+	T 0.00 Lithuania
+	T 0.00 Luxembourg
+	T 0.00 Malaysia
+	T 0.00 Mexico
+	T 0.00 Moldova
+	T 0.00 Monaco
+	T 0.00 Montenegro
+	T 0.00 Morocco
+	T 0.00 Netherlands
+	T 0.00 New Zealand
+	T 0.00 Nicaragua
+	T 0.00 Nigeria
+	T 0.00 North Macedonia
+	T 0.00 Norway
+	T 0.00 Oman
+	T 0.00 Pakistan
+	T 0.00 Panama
+	T 0.00 Paraguay
+	T 0.00 Peru
+	T 0.00 Philippines
+	T 0.00 Poland
+	T 0.00 Portugal
+	T 0.00 Qatar
+	T 0.00 Romania
+	T 0.00 Russian Federation
+	T 0.00 Rwanda
+	T 0.00 San Marino
+	T 0.00 Saudi Arabia
+	T 0.00 Senegal
+	T 0.00 Serbia
+	T 0.00 Sierra Leone
+	T 0.00 Singapore
+	T 0.00 Slovakia
+	T 0.00 Slovenia
+	T 0.00 South Africa
+	T 0.00 Spain
+	T 0.00 Sri Lanka
+	T 0.00 Sweden
+	T 0.00 Taiwan, China
+	T 0.00 Tajikistan
+	T 0.00 Tanzania
+	T 0.00 Thailand
+	T 0.00 Tunisia
+	T 0.00 Turkey
+	T 0.00 Turkmenistan
+	T 0.00 Uganda
+	T 0.00 Ukraine
+	T 0.00 United Arab Emirates
+	T 0.00 United Kingdom
+	T 0.00 Uruguay
+	T 0.00 Uzbekistan
+	T 0.00 Vatican City State
+	T 0.00 Venezuela
+	T 0.00 Vietnam
+	T 0.00 +49 69 86 799 500dach.ppb@dlh.de
+	T 0.00 08:00 - 18:00
+	L tel:+49 69 86 799 500
+	L mailto:dach.ppb@dlh.de
+none flagged	b2b	/de/en/about-us/help-alliance	b2b-parity-003	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/about-us/joint-ventures	b2b-parity-007	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/about-us/joint-ventures/japan-joint-venture	b2b-parity-003	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/about-us/lhg-history	b2b-parity-003	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/about-us/lhg-history/lhg-history-alliances-and-joint-ventures	b2b-parity-003	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/about-us/lhg-history/lhg-history-booking	b2b-parity-007	0 segments (0 words) and 0 links missing
+not a loss	b2b	/de/en/allegris/corporates-start-of-booking	b2b-parity-012	1 segments (3 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 2026 summer schedule
+not a loss	b2b	/de/en/allegris/intermediaries-start-of-booking	b2b-parity-012	1 segments (3 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 2026 summer schedule
+none flagged	b2b	/de/en/allegris/video-gallery	b2b-parity-006	0 segments (0 words) and 0 links missing
+not a loss	b2b	/de/en/homepage	b2b-parity-001	4 segments (8 words) and 0 links missing	widgets from www's services (flight search, fare teasers and the offers grid: 'Round trip from', 'Show more') and www's market links (/content/.../markets/...)
+	T 0.00 Duration 0:30
+	T 0.00 Loaded: 11.71%
+	T 0.00 Duration 1:19
+	T 0.00 Loaded: 1.08%
+not a loss	b2b	/de/en/lhg4b-search/lhg4b-search-prelogin	b2b-parity-001	1 segments (3 words) and 0 links missing	widgets from www's services: the chat assistant ('Charlie'), form and date-picker controls, the search box ('0/100'), and the chat's privacy link
+	T 0.00 Enter search term
+not a loss	b2b	/de/en/news	b2b-parity-001	2 segments (6 words) and 0 links missing	lists our page draws from the index (the teasers' titles and links are on the rendered page), self links and anchors
+	T 0.00 Discover the Lounge
+	T 0.00 Discover new routes
+not a loss	b2b	/de/en/news/celebrating-shared-stories	b2b-parity-001	2 segments (4 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 Duration 1:00
+	T 0.00 Loaded: 5.41%
+none flagged	b2b	/de/en/news/celebrating-shared-stories/sap	b2b-parity-007	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/news/lhg-invoice-receipt-download	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/news/lhg-ita-airways	b2b-parity-003	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/news/travel-id-now-required-for-online-check-in	b2b-parity-001	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/program	b2b-parity-007	0 segments (0 words) and 0 links missing
+not a loss	b2b	/de/en/program/businesstogo	b2b-parity-009	5 segments (9 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 Travel Managers
+	T 0.00 Executive assistants
+	T 0.00 Close
+	T 0.00 Duration 3:10
+	T 0.00 Loaded: 1.56%
+none flagged	b2b	/de/en/program/experts	b2b-parity-001	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/program/experts/airlines-at-a-glance/airdolomiti	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/program/experts/airlines-at-a-glance/austrian-airlines	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/program/experts/airlines-at-a-glance/brussels-airlines	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/program/experts/airlines-at-a-glance/discover-airlines	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/program/experts/airlines-at-a-glance/edelweiss	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/program/experts/airlines-at-a-glance/eurowings	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/program/experts/airlines-at-a-glance/lufthansa	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/program/experts/airlines-at-a-glance/swiss	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/program/experts/news	b2b-parity-001	0 segments (0 words) and 0 links missing
+not a loss	b2b	/de/en/program/experts/on-board/entertainment-on-board	b2b-parity-007	1 segments (2 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 Air Dolomiti
+not a loss	b2b	/de/en/program/experts/on-board/meals-on-board	b2b-parity-010	1 segments (4 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 Special meals & catering
+none flagged	b2b	/de/en/program/experts/on-board/travel-classes-and-booking	b2b-parity-003	0 segments (0 words) and 0 links missing
+not a loss	b2b	/de/en/program/experts/route-network/lufthansa/kuala-lumpur	b2b-parity-007	0 segments (0 words) and 1 links missing	lists our page draws from the index (the teasers' titles and links are on the rendered page), self links and anchors
+	L /de/en/program/experts/route-network/lufthansa/kuala-lumpur
+none flagged	b2b	/de/en/program/partner-plus-benefit	b2b-parity-001	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/travel-management	b2b-parity-007	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/travel-management/hygiene-and-safety	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/travel-management/route-network	b2b-parity-001	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/travel-solutions/lufthansa-group-airlines	b2b-parity-002	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/travel-solutions/lufthansa-group-wifi	b2b-parity-007	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/travel-solutions/ndc	b2b-parity-001	0 segments (0 words) and 0 links missing
+none flagged	b2b	/de/en/travel-solutions/our-european-fares	b2b-parity-007	0 segments (0 words) and 0 links missing
+not a loss	b2b	/xx/de/program/businesstogo	b2b-parity-009	6 segments (11 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 Travel Manager
+	T 0.00 CEOs
+	T 0.00 Assistent:innen der Geschäftsleitung
+	T 0.00 Close
+	T 0.00 Duration 3:10
+	T 0.00 Loaded: 1.56%
+none flagged	b2b	/xx/de/program/experts/airlines-at-a-glance/brussels-airlines	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/xx/de/program/experts/airlines-at-a-glance/lufthansa	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/xx/de/program/experts/airlines-at-a-glance/swiss	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	b2b	/xx/de/travel-management/hygiene-and-safety	b2b-parity-006	0 segments (0 words) and 0 links missing
+not a loss	b2b	/xx/en/program/businesstogo	b2b-parity-009	5 segments (9 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 Travel Managers
+	T 0.00 Executive assistants
+	T 0.00 Close
+	T 0.00 Duration 3:10
+	T 0.00 Loaded: 1.57%
+none flagged	b2b	/xx/en/travel-management/hygiene-and-safety	b2b-parity-006	0 segments (0 words) and 0 links missing
+none flagged	brussels	/am/en/non-encrypt-mail/contact-form-error	brussels-parity-004	0 segments (0 words) and 0 links missing
+none flagged	brussels	/ao/fr/legal-notices/aviation-services-law	brussels-parity-007	0 segments (0 words) and 0 links missing
+not a loss	brussels	/be/en/articles	brussels-parity-003	32 segments (265 words) and 6 links missing	lists our page draws from the index (the teasers' titles and links are on the rendered page), self links and anchors
+	T 0.00 Duration 0:52
+	T 0.00 Loaded: 5.21%
+	T 0.00 Subtitles
+	T 0.00 Subtitles off, selected
+	T 0.00 Audio description
+	T 0.00 Audio description off, selected
+	T 0.00 Duration 0:59
+	T 0.00 Loaded: 0.00%
+	T 0.00 Loaded: 5.32%
+	T 0.00 16 Blog entries
+	T 0.00 Summer in Athens – A Journey Through History, Culture, and Coastal Bliss
+	T 0.00 May 21, 2026
+	T 0.00 Athens in summer is a vibrant tapestry of ancient history, cultural festivals, and sun-soaked coastal escapes. From the iconic Acropolis to the serene Athens Riviera, this …
+	T 0.00 Read article
+	T 0.00 Why Lyon should be your next city trip
+	T 0.00 May 11, 2026
+	T 0.00 5 minute read
+	T 0.00 Lyon is not the most obvious choice for a quick getaway. And that’s exactly why you’ll like it. Moving easily from quieter neighborhoods to busy squares, you always find so…
+	T 0.00 Valencia like a local
+	T 0.00 April 10, 2026
+	T 0.00 2 minute read
+	T 0.00 Discover Valencia the way locals do. Not the major highlights, but neighbourhoods, small markets, local bars and places where residents themselves spend their free time. Th…
+	T 0.00 Warsaw – A City of History and Modern Marvels
+	T 0.00 March 27, 2026
+	T 0.00 3 minute read
+	T 0.00 Discover the enchanting blend of history and modernity in Warsaw, a city that promises unforgettable experiences. From its charming old city center to its towering skyscrap…
+	T 0.00 Vilnius: a city that quietly steals your heart
+	T 0.00 March 23, 2026
+	T 0.00 Vilnius is one of those cities that quietly wins you over. As you wander through its streets, you begin to notice how naturally everything fits together. Baroque churches r…
+	T 0.00 Discover Milan: a city trip full of flavour, style & culture
+	T 0.00 January 23, 2026
+	T 0.00 Milan is truly one of those cities where you can find everything: fashion, art, delicious food (really delicious food) and that typical I…
+	L /be/en/articles/your-summer-in-athens-starts-here
+	L /be/en/articles/lyon
+	L /be/en/articles/valencia-like-a-local
+	L /be/en/articles/discover-warsaw
+	L /be/en/articles/vilnius-steals-your-heart
+	L /be/en/articles/milan-citytrip
+not a loss	brussels	/be/en/articles/bike-the-city	brussels-parity-010	1 segments (3 words) and 0 links missing	the article's date, reading time and author, which our page draws from its metadata (on the rendered page), and www's fare teaser ('Round trip from ... To-DO')
+	T 0.00 July 4, 2025
+not a loss	brussels	/be/en/articles/discover-warsaw	brussels-parity-010	3 segments (19 words) and 0 links missing	the article's date, reading time and author, which our page draws from its metadata (on the rendered page), and www's fare teaser ('Round trip from ... To-DO')
+	T 0.00 March 27, 2026
+	T 0.00 3 minute read
+	T 0.00 Round trip from105.25€* To-DO: based on terms and conditions need to display *
+not a loss	brussels	/be/en/articles/lyon	brussels-parity-010	3 segments (19 words) and 0 links missing	the article's date, reading time and author, which our page draws from its metadata (on the rendered page), and www's fare teaser ('Round trip from ... To-DO')
+	T 0.00 May 11, 2026
+	T 0.00 5 minute read
+	T 0.00 Round trip from127.41€* To-DO: based on terms and conditions need to display *
+not a loss	brussels	/be/en/articles/manchester-football-trip	brussels-parity-010	2 segments (16 words) and 0 links missing	the article's date, reading time and author, which our page draws from its metadata (on the rendered page), and www's fare teaser ('Round trip from ... To-DO')
+	T 0.00 October 30, 2025
+	T 0.00 Round trip from140.02€* To-DO: based on terms and conditions need to display *
+not a loss	brussels	/be/en/articles/milan-citytrip	brussels-parity-010	2 segments (16 words) and 0 links missing	the article's date, reading time and author, which our page draws from its metadata (on the rendered page), and www's fare teaser ('Round trip from ... To-DO')
+	T 0.00 January 23, 2026
+	T 0.00 Round trip from96.33€* To-DO: based on terms and conditions need to display *
+not a loss	brussels	/be/en/articles/mini-holiday	brussels-parity-010	1 segments (3 words) and 0 links missing	the article's date, reading time and author, which our page draws from its metadata (on the rendered page), and www's fare teaser ('Round trip from ... To-DO')
+	T 0.00 July 18, 2025
+not a loss	brussels	/be/en/articles/prague-fairytale-charm-with-an-edge	brussels-parity-010	3 segments (19 words) and 0 links missing	the article's date, reading time and author, which our page draws from its metadata (on the rendered page), and www's fare teaser ('Round trip from ... To-DO')
+	T 0.00 August 21, 2025
+	T 0.00 2 minute read
+	T 0.00 Round trip from137.52€* To-DO: based on terms and conditions need to display *
+not a loss	brussels	/be/en/articles/sun-in-march	brussels-parity-010	1 segments (3 words) and 0 links missing	the article's date, reading time and author, which our page draws from its metadata (on the rendered page), and www's fare teaser ('Round trip from ... To-DO')
+	T 0.00 July 11, 2025
+not a loss	brussels	/be/en/articles/tenerife	brussels-parity-010	3 segments (19 words) and 0 links missing	the article's date, reading time and author, which our page draws from its metadata (on the rendered page), and www's fare teaser ('Round trip from ... To-DO')
+	T 0.00 June 16, 2025
+	T 0.00 2 minute read
+	T 0.00 Round trip from168.26€* To-DO: based on terms and conditions need to display *
+not a loss	brussels	/be/en/articles/the-gambia	brussels-parity-009	4 segments (21 words) and 0 links missing	the article's date, reading time and author, which our page draws from its metadata (on the rendered page), and www's fare teaser ('Round trip from ... To-DO')
+	T 0.00 June 23, 2025
+	T 0.00 1 minute read
+	T 0.00 Bieke Cappuyns
+	T 0.00 Round trip from523.16€* To-DO: based on terms and conditions need to display *
+not a loss	brussels	/be/en/articles/the-ultimate-itinerary-in-kenya	brussels-parity-010	4 segments (21 words) and 0 links missing	the article's date, reading time and author, which our page draws from its metadata (on the rendered page), and www's fare teaser ('Round trip from ... To-DO')
+	T 0.00 March 21, 2025
+	T 0.00 10 minute read
+	T 0.00 Lien Verwimp
+	T 0.00 Round trip from628.4€* To-DO: based on terms and conditions need to display *
+not a loss	brussels	/be/en/articles/valencia-like-a-local	brussels-parity-010	3 segments (19 words) and 0 links missing	the article's date, reading time and author, which our page draws from its metadata (on the rendered page), and www's fare teaser ('Round trip from ... To-DO')
+	T 0.00 April 10, 2026
+	T 0.00 2 minute read
+	T 0.00 Round trip from103.39€* To-DO: based on terms and conditions need to display *
+not a loss	brussels	/be/en/articles/vilnius-steals-your-heart	brussels-parity-010	2 segments (16 words) and 0 links missing	the article's date, reading time and author, which our page draws from its metadata (on the rendered page), and www's fare teaser ('Round trip from ... To-DO')
+	T 0.00 March 23, 2026
+	T 0.00 Round trip from132.86€* To-DO: based on terms and conditions need to display *
+not a loss	brussels	/be/en/articles/your-summer-in-athens-starts-here	brussels-parity-010	2 segments (16 words) and 0 links missing	the article's date, reading time and author, which our page draws from its metadata (on the rendered page), and www's fare teaser ('Round trip from ... To-DO')
+	T 0.00 May 21, 2026
+	T 0.00 Round trip from156.35€* To-DO: based on terms and conditions need to display *
+none flagged	brussels	/be/en/book-a-flight	brussels-parity-001	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/book-a-flight/connecting-africa	brussels-parity-001	0 segments (0 words) and 0 links missing
+not a loss	brussels	/be/en/book-a-flight/groups-and-charter/charter	brussels-parity-004	3 segments (4 words) and 0 links missing	widgets from www's services: the chat assistant ('Charlie'), form and date-picker controls, the search box ('0/100'), and the chat's privacy link
+	T 0.00 Prev
+	T 0.00 Next
+	T 0.00 November 2026
+none flagged	brussels	/be/en/check-in-options-and-info/check-in-at-the-airport	brussels-parity-004	0 segments (0 words) and 0 links missing
+not a loss	brussels	/be/en/check-in-options-and-info/check-in-times	brussels-parity-004	55 segments (69 words) and 0 links missing	www's check-in times component (its airports and times from www's service; finish-brussels.txt's document row)
+	T 0.00 Economy/Premium Economy
+	T 0.00 Business Class/First Class
+	T 0.00 Country/region
+	T 0.00 Albania
+	T 0.00 Algeria
+	T 0.00 Argentina
+	T 0.00 Azerbaijan
+	T 0.00 Bahamas
+	T 0.00 Bahrain
+	T 0.00 Barbados
+	T 0.00 Belarus
+	T 0.00 Bosnia-Herzegovina
+	T 0.00 Chile
+	T 0.00 China (Mainland)
+	T 0.00 Colombia
+	T 0.00 Costa Rica
+	T 0.00 Cuba
+	T 0.00 Dominican Republic
+	T 0.00 Equatorial Guinea
+	T 0.00 Ethiopia
+	T 0.00 Gabon
+	T 0.00 Georgia
+	T 0.00 Hong Kong, China
+	T 0.00 Iceland
+	T 0.00 Indonesia
+	T 0.00 Iran
+	T 0.00 Iraq
+	T 0.00 Jordan
+	T 0.00 Kazakhstan
+	T 0.00 Korea, Republic of
+	T 0.00 Kosovo
+	T 0.00 Kuwait
+	T 0.00 Lebanon
+	T 0.00 Libya
+	T 0.00 Malaysia
+	T 0.00 Maldives
+	T 0.00 Mauritius
+	T 0.00 Mexico
+	T 0.00 Moldova
+	T 0.00 Namibia
+	T 0.00 Panama
+	T 0.00 Philippines
+	T 0.00 Qatar
+	T 0.00 Saudi Arabia
+	T 0.00 Serbia
+	T 0.00 Seychelles
+	T 0.00 Slovakia
+	T 0.00 South Africa
+	T 0.00 Sri Lanka
+	T 0.00 Sudan
+	T 0.00 Uzbekistan
+	T 0.00 Venezuela
+	T 0.00 Vietnam
+	T 0.00 Yemen
+	T 0.00 Show
+not a loss	brussels	/be/en/contact	brussels-parity-006	3 segments (3 words) and 0 links missing	widgets from www's services: the chat assistant ('Charlie'), form and date-picker controls, the search box ('0/100'), and the chat's privacy link
+	T 0.00 Home
+	T 0.00 Search
+	T 0.00 0/100
+not a loss	brussels	/be/en/contact/feedback	brussels-parity-004	8 segments (53 words) and 1 links missing	widgets from www's services: the chat assistant ('Charlie'), form and date-picker controls, the search box ('0/100'), and the chat's privacy link
+	T 0.00 Go to chat assistant
+	T 0.00 Brussels Airlines Chat Assistant
+	T 0.00 Hi, I'm Charlie, your Brussels Airlines Chat Assistant
+	T 0.00 Log in with your Travel ID to speed things up. See how we handle data here.
+	T 0.00 Speed up the conversation by logging in with your Travel ID.
+	T 0.00 Login to chat
+	T 0.00 Chat may include AI-assisted answers
+	T 0.00 Start chat
+	L /xx/en/legal-notices/data-protection-and-privacy-notice
+not a loss	brussels	/be/en/contact/feedback/general/other	brussels-parity-004	28 segments (107 words) and 1 links missing	widgets from www's services: the chat assistant ('Charlie'), form and date-picker controls, the search box ('0/100'), and the chat's privacy link
+	T 0.00 Go to chat assistant
+	T 0.00 Passenger 1
+	T 0.00 Passenger 2
+	T 0.00 Passenger 3
+	T 0.00 Passenger 4
+	T 0.00 Passenger 5
+	T 0.00 You can add 4 more
+	T 0.00 Bank account 1
+	T 0.00 Bank account 2
+	T 0.00 Bank account 3
+	T 0.00 Bank account 4
+	T 0.00 Bank account 5
+	T 0.00 Bank account 6
+	T 0.00 you can add 5 more
+	T 0.00 Flight 1
+	T 0.00 Flight 2
+	T 0.00 Flight 3
+	T 0.00 You can add 2 more
+	T 0.00 Uploaded files
+	T 0.00 Next
+	T 0.00 November 2026
+	T 0.00 Brussels Airlines Chat Assistant
+	T 0.00 Hi, I'm Charlie, your Brussels Airlines Chat Assistant
+	T 0.00 Log in with your Travel ID to speed things up. See how we handle data here.
+	T 0.00 Speed up the conversation by logging in with your Travel ID.
+	T 0.00 Login to chat
+	T 0.00 Chat may include AI-assisted answers
+	T 0.00 Start chat
+	L /xx/en/legal-notices/data-protection-and-privacy-notice
+not a loss	brussels	/be/en/contact/service-charges	brussels-parity-004	8 segments (53 words) and 1 links missing	widgets from www's services: the chat assistant ('Charlie'), form and date-picker controls, the search box ('0/100'), and the chat's privacy link
+	T 0.00 Go to chat assistant
+	T 0.00 Brussels Airlines Chat Assistant
+	T 0.00 Hi, I'm Charlie, your Brussels Airlines Chat Assistant
+	T 0.00 Log in with your Travel ID to speed things up. See how we handle data here.
+	T 0.00 Speed up the conversation by logging in with your Travel ID.
+	T 0.00 Login to chat
+	T 0.00 Chat may include AI-assisted answers
+	T 0.00 Start chat
+	L /xx/en/legal-notices/data-protection-and-privacy-notice
+none flagged	brussels	/be/en/extra-services/baggage/checked-baggage	brussels-parity-005	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/extra-services/meals	brussels-parity-001	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/extra-services/meals/bon	brussels-parity-004	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/extra-services/upgrades	brussels-parity-001	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/farealert/unsubscribe-failure	brussels-parity-004	0 segments (0 words) and 0 links missing
+not a loss	brussels	/be/en/flying-with-us/romantic-getaways	brussels-parity-004	2 segments (6 words) and 0 links missing	the article's date, reading time and author, which our page draws from its metadata (on the rendered page), and www's fare teaser ('Round trip from ... To-DO')
+	T 0.00 February 9, 2025
+	T 0.00 3 minute read
+not a loss	brussels	/be/en/homepage	brussels-parity-001	45 segments (129 words) and 3 links missing	widgets from www's services (flight search, fare teasers and the offers grid: 'Round trip from', 'Show more') and www's market links (/content/.../markets/...)
+	T 0.00 Go to flight search
+	T 0.00 Los Angeles
+	T 0.00 Round trip from722 €
+	T 0.00 Bangkok
+	T 0.00 Round trip from619 €
+	T 0.00 Delhi
+	T 0.00 Round trip from572 €
+	T 0.00 Mumbai
+	T 0.00 Round trip from698 €
+	T 0.00 Rio de Janeiro
+	T 0.00 Round trip from807 €
+	T 0.00 Sao Paulo
+	T 0.00 Round trip from735 €
+	T 0.00 Show more
+	T 0.00 Cash & Miles promotion
+	T 0.00 Book North America now and save up to 30% on miles
+	T 0.00 Geneva
+	T 0.00 Round trip from104 €*
+	T 0.00 Rome
+	T 0.00 Round trip from116 €*
+	T 0.00 Milan
+	T 0.00 Round trip from92 €*
+	T 0.00 Vienna
+	T 0.00 Round trip from135 €*
+	T 0.00 Madrid
+	T 0.00 Round trip from121 €*
+	T 0.00 Barcelona
+	T 0.00 Round trip from95 €*
+	T 0.00 Round trip from131 €*
+	T 0.00 Lisbon
+	T 0.00 Round trip from113 €*
+	T 0.00 Tenerife
+	T 0.00 Round trip from169 €*
+	T 0.00 New York
+	T 0.00 Round trip from681 €*
+	T 0.00 Prague
+	T 0.00 Round trip from138 €*
+	T 0.00 Munich
+	T 0.00 Round trip from189 €*
+	T 0.00 Nice
+	T 0.00 Round trip from119 €*
+	T 0.00 Alicante
+	T 0.00 Round trip from107 €*
+	T 0.00 Travel details
+	T 0.00 Redeem miles
+	L /be/en/book-a-flight/destination
+	L /be/en/book-a-flight/our-payment-methods/cash-and-miles
+	L /content/bel/markets/be/en/book-a-flight/groups-and-charter/groups
+none flagged	brussels	/be/en/jobs/core-values	brussels-parity-004	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/jobs/mpl-cadet-program	brussels-parity-004	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/legal-notices	brussels-parity-007	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/legal-notices/brussels-airlines-responsible-disclosure-statement	brussels-parity-007	0 segments (0 words) and 0 links missing
+not a loss	brussels	/be/en/legal-notices/dsar-start	brussels-parity-004	1 segments (2 words) and 0 links missing	widgets from www's services: the chat assistant ('Charlie'), form and date-picker controls, the search box ('0/100'), and the chat's privacy link
+	T 0.00 Please choose
+none flagged	brussels	/be/en/legal-notices/israel-cancellation-policy	brussels-parity-007	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/legal-notices/liability	brussels-parity-007	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/legal-notices/privacy-notice-applicants	brussels-parity-007	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/legal-notices/refund-for-cancelled-flights	brussels-parity-007	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/legal-notices/short-notice-eu-us	brussels-parity-007	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/legal-notices/terms-and-conditions-conditions-of-carriage	brussels-parity-007	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/legal-notices/terms-of-use	brussels-parity-007	0 segments (0 words) and 0 links missing
+LOSS	brussels	/be/en/legal-notices/travel-id	brussels-parity-007	0 segments (0 words) and 7 links missing	LOSS: the seven data-protection e-mail addresses are text without their mailto links (delta-so26-brussels-lost-content.txt)
+	L mailto:datenschutz@dlh.de
+	L mailto:dataprotection@swiss.com
+	L mailto:privacy@brusselsairlines.com
+	L mailto:poststelle@datenschutz.hessen.de
+	L mailto:poststelle@ldi.nrw.de
+	L mailto:dsb@dsb.gv.at
+	L mailto:contact@apd-gba.be
+none flagged	brussels	/be/en/legal-notices/us-contingency-plan-for-lengthy-tarmac-delays	brussels-parity-007	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/legal-notices/us-customer-service-plan	brussels-parity-007	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/legal-notices/us-traveling-with-disabilities	brussels-parity-007	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-compensation-voucher	brussels-parity-007	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/legal-notices/voucher-conditions/terms-and-conditions-of-use-for-the-refund-voucher	brussels-parity-007	0 segments (0 words) and 0 links missing
+not a loss	brussels	/be/en/local-page/chase-the-sun-across-spain	brussels-parity-004	6 segments (22 words) and 2 links missing	widgets from www's services (flight search, fare teasers and the offers grid: 'Round trip from', 'Show more') and www's market links (/content/.../markets/...)
+	T 0.00 Round trip from95 €
+	T 0.00 Round trip from127 €
+	T 0.00 Round trip from104 €
+	T 0.00 Round trip from122 €
+	T 0.00 Round trip from121 €
+	T 0.00 Show more
+	L /be/en/book-a-flight/destination
+	L /content/lh/markets/de/en
+not a loss	brussels	/be/en/local-page/offers	brussels-parity-004	39 segments (121 words) and 2 links missing	widgets from www's services (flight search, fare teasers and the offers grid: 'Round trip from', 'Show more') and www's market links (/content/.../markets/...)
+	T 0.00 Round trip from109 €
+	T 0.00 Round trip from144 €
+	T 0.00 Round trip from130 €
+	T 0.00 Round trip from186 €
+	T 0.00 Round trip from114 €
+	T 0.00 Round trip from129 €
+	T 0.00 Show more
+	T 0.00 Round trip from681 €
+	T 0.00 Round trip from672 €
+	T 0.00 Round trip from772 €
+	T 0.00 Round trip from629 €
+	T 0.00 Round trip from283 €
+	T 0.00 Round trip from634 €
+	T 0.00 Geneva
+	T 0.00 Round trip from105 €*
+	T 0.00 Rome
+	T 0.00 Round trip from117 €*
+	T 0.00 Milan
+	T 0.00 Round trip from93 €*
+	T 0.00 Vienna
+	T 0.00 Round trip from134 €*
+	T 0.00 Madrid
+	T 0.00 Round trip from121 €*
+	T 0.00 Barcelona
+	T 0.00 Round trip from95 €*
+	T 0.00 Round trip from129 €*
+	T 0.00 Lisbon
+	T 0.00 Round trip from135 €*
+	T 0.00 Round trip from113 €*
+	T 0.00 Tenerife
+	T 0.00 Round trip from169 €*
+	T 0.00 Round trip from681 €*
+	T 0.00 Prague
+	T 0.00 Round trip from138 €*
+	T 0.00 Munich
+	T 0.00 Round trip from189 €*
+	T 0.00 Nice
+	T 0.00 Round trip from118 €*
+	T 0.00 Round trip from107 €*
+	L /be/en/book-a-flight/destination
+	L /content/lh/markets/es/en
+not a loss	brussels	/be/en/local-page/student-fares	brussels-parity-004	0 segments (0 words) and 1 links missing	widgets from www's services (flight search, fare teasers and the offers grid: 'Round trip from', 'Show more') and www's market links (/content/.../markets/...)
+	L /content/lh/markets/sg/en
+none flagged	brussels	/be/en/lufthansa-group/lufthansa-group/ita-airways	brussels-parity-004	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/lufthansa-group/star-alliance	brussels-parity-004	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/my-bookings	brussels-parity-001	0 segments (0 words) and 0 links missing
+not a loss	brussels	/be/en/my-bookings/cancel-and-refund-requests	brussels-parity-004	8 segments (53 words) and 1 links missing	widgets from www's services: the chat assistant ('Charlie'), form and date-picker controls, the search box ('0/100'), and the chat's privacy link
+	T 0.00 Go to chat assistant
+	T 0.00 Brussels Airlines Chat Assistant
+	T 0.00 Hi, I'm Charlie, your Brussels Airlines Chat Assistant
+	T 0.00 Log in with your Travel ID to speed things up. See how we handle data here.
+	T 0.00 Speed up the conversation by logging in with your Travel ID.
+	T 0.00 Login to chat
+	T 0.00 Chat may include AI-assisted answers
+	T 0.00 Start chat
+	L /xx/en/legal-notices/data-protection-and-privacy-notice
+not a loss	brussels	/be/en/my-bookings/emergency-contact	brussels-parity-004	7 segments (17 words) and 0 links missing	widgets from www's services: the chat assistant ('Charlie'), form and date-picker controls, the search box ('0/100'), and the chat's privacy link
+	T 0.00 Flight 1
+	T 0.00 Flight 2
+	T 0.00 Flight 3
+	T 0.00 You can still add 2 additional flights
+	T 0.00 Prev
+	T 0.00 Next
+	T 0.00 November 2026
+none flagged	brussels	/be/en/our-company/organisation	brussels-parity-004	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/special-care/families-and-children	brussels-parity-001	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/travel-classes	brussels-parity-006	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/en/travel-classes/economy	brussels-parity-003	0 segments (0 words) and 0 links missing
+not a loss	brussels	/be/en/travel-comfortably-from-lille	brussels-parity-004	0 segments (0 words) and 1 links missing	widgets from www's services (flight search, fare teasers and the offers grid: 'Round trip from', 'Show more') and www's market links (/content/.../markets/...)
+	L /content/sn/markets/fr/en
+not a loss	brussels	/be/fr/articles	brussels-parity-003	38 segments (298 words) and 6 links missing	lists our page draws from the index (the teasers' titles and links are on the rendered page), self links and anchors
+	T 0.00 Lecteur vidéo en cours de chargement.
+	T 0.00 Lire la vidéo
+	T 0.00 Lecture
+	T 0.00 Mettre en sourdine
+	T 0.00 Temps actuel 0:00
+	T 0.00 Durée 0:52
+	T 0.00 Chargé: 5.21%
+	T 0.00 Sous-titres transcrits
+	T 0.00 Sous-titres transcrits désactivés, selected
+	T 0.00 descriptions désactivées, selected
+	T 0.00 Plein écran
+	T 0.00 Durée 0:59
+	T 0.00 Chargé: 4.96%
+	T 0.00 Chargé: 5.20%
+	T 0.00 16 Blog entries
+	T 0.00 L’été à Athènes : un voyage mêlant histoire, culture et plaisirs du littoral
+	T 0.00 21 mai 2026
+	T 0.00 5 minutes de lecture
+	T 0.00 Entre passé antique, festivals culturels et échappées en bord de mer baignées de lumière, Athènes est une destination dynamique qui séduira tout un chacun pendant la saison…
+	T 0.00 Lire l’article
+	T 0.00 Pourquoi Lyon est votre prochaine escale idéale
+	T 0.00 11 mai 2026
+	T 0.00 Lyon n’est peut-être pas la destination à laquelle on pense immédiatement pour une escapade spontanée. Et c’est précisément ce qui fait tout son charme. En passant sans eff…
+	T 0.00 Valence, la vraie
+	T 0.00 10 avril 2026
+	T 0.00 2 minutes de lecture
+	T 0.00 Envie de goûter à la vraie vie valencienne, et d’explorer les quartiers, les petits marchés, les bars et autres lieux fréquentés par les locaux plutôt que les sites ultra t…
+	T 0.00 Varsovie – Une ville mêlant histoire et merveilles modernes
+	T 0.00 27 mars 2026
+	T 0.00 3 minutes de lecture
+	T 0.00 Tombez sous le charme du décor enchanteur de Varsovie, entre histoire et modernité, et vivez-y des expériences inoubliables. De sa charmante vieille ville à ses gratte-ciel…
+	T 0.00 Vilnius : une ville qui vous reste en mémoire
+	T 0.00 23 mars 2026
+	T 0.00 4 minutes de lecture
+	T 0.00 Vilnius est de ces destinations qui vous touchent en douceur. En vous promenant dans ses rues, vous remarquez rapidement à quel point tout semble naturel et harmonieux. Les…
+	T 0.00 Découvrez Milan : un city trip plein de saveurs, de style et de culture
+	T 0.00 23 janvier 2026
+	T 0.00 Milan est vraiment l’une de ces villes où l’on trouve absolument tout : mode, art, bonne cuisine (très bonne cuisine) et cette atmosphère italienne typique. Des sites touri…
+	L /be/fr/articles/your-summer-in-athens-starts-here
+	L /be/fr/articles/lyon
+	L /be/fr/articles/valencia-like-a-local
+	L /be/fr/articles/discover-warsaw
+	L /be/fr/articles/vilnius-steals-your-heart
+	L /be/fr/articles/milan-citytrip
+not a loss	brussels	/be/fr/articles/lyon	brussels-parity-001	3 segments (21 words) and 0 links missing	the article's date, reading time and author, which our page draws from its metadata (on the rendered page), and www's fare teaser ('Round trip from ... To-DO')
+	T 0.00 11 mai 2026
+	T 0.00 5 minutes de lecture
+	T 0.02 Aller-retour à partir de127.41€* To-DO: based on terms and conditions need to display *
+not a loss	brussels	/be/fr/articles/milan-citytrip	brussels-parity-003	3 segments (21 words) and 0 links missing	the article's date, reading time and author, which our page draws from its metadata (on the rendered page), and www's fare teaser ('Round trip from ... To-DO')
+	T 0.00 23 janvier 2026
+	T 0.00 4 minutes de lecture
+	T 0.02 Aller-retour à partir de92.95€* To-DO: based on terms and conditions need to display *
+not a loss	brussels	/be/fr/articles/vibrant-senegal	brussels-parity-009	4 segments (24 words) and 0 links missing	the article's date, reading time and author, which our page draws from its metadata (on the rendered page), and www's fare teaser ('Round trip from ... To-DO')
+	T 0.00 16 mai 2025
+	T 0.00 9 minutes de lecture
+	T 0.00 Robin De Nys
+	T 0.02 Aller-retour à partir de503.49€* To-DO: based on terms and conditions need to display *
+none flagged	brussels	/be/fr/book-a-flight	brussels-parity-001	0 segments (0 words) and 0 links missing
+not a loss	brussels	/be/fr/book-a-flight/connecting-africa	brussels-parity-001	3 segments (88 words) and 0 links missing	www's component strings: link hints for screen readers ('Please note that with this link ...' in the page's language) after labels ours has; and texts our rendered page shows (it/it checked-baggage's question heading, special-assistance's dot.gov line, which carries a zero-width space)
+	T 0.11 Réserver un train avec SNCB International , Veuillez noter que ce lien vous redirige vers un site Internet externe qui n’applique pas forcément les mêmes politiques de confidentialité, de sécurité et d’accessibilité.
+	T 0.00 Veuillez noter que ce lien vous redirige vers un site Internet externe qui n’applique pas forcément les mêmes politiques de confidentialité, de sécurité et d’accessibilité.
+	T 0.09 Réserver une voiture avec QuickParking , Veuillez noter que ce lien vous redirige vers un site Internet externe qui n’applique pas forcément les mêmes politiques de confidentialité, de sécurité et d’accessibilité.
+none flagged	brussels	/be/fr/book-a-flight/our-payment-methods	brussels-parity-004	0 segments (0 words) and 0 links missing
+not a loss	brussels	/be/fr/contact	brussels-parity-001	3 segments (3 words) and 0 links missing	widgets from www's services: the chat assistant ('Charlie'), form and date-picker controls, the search box ('0/100'), and the chat's privacy link
+	T 0.00 Accueil
+	T 0.00 Rechercher
+	T 0.00 0/100
+not a loss	brussels	/be/fr/contact/feedback	brussels-parity-006	8 segments (57 words) and 1 links missing	widgets from www's services: the chat assistant ('Charlie'), form and date-picker controls, the search box ('0/100'), and the chat's privacy link
+	T 0.00 Go to chat assistant
+	T 0.00 Brussels Airlines Chat Assistant
+	T 0.00 Bonjour, je suis Charlie, votre Chat Assistant Brussels Airlines
+	T 0.00 Connectez-vous avec votre Travel ID pour accélérer la conversation. Découvrez ici comment nous traitons vos données.
+	T 0.00 Accélérez la conversation en vous connectant avec votre Travel ID.
+	T 0.00 Se connecter et chatter
+	T 0.00 Certaines réponses peuvent être assistées par l’IA
+	T 0.00 Démarrer le chat
+	L /xx/en/legal-notices/data-protection-and-privacy-notice
+none flagged	brussels	/be/fr/extra-services/baggage	brussels-parity-006	0 segments (0 words) and 0 links missing
+not a loss	brussels	/be/fr/extra-services/baggage/checked-baggage	brussels-parity-005	2 segments (57 words) and 0 links missing	www's component strings: link hints for screen readers ('Please note that with this link ...' in the page's language) after labels ours has; and texts our rendered page shows (it/it checked-baggage's question heading, special-assistance's dot.gov line, which carries a zero-width space)
+	T 0.00 Aller à « Your Europe » , Veuillez noter que ce lien vous redirige vers un site Internet externe qui n’applique pas forcément les mêmes politiques de confidentialité, de sécurité et d’accessibilité.
+	T 0.00 Veuillez noter que ce lien vous redirige vers un site Internet externe qui n’applique pas forcément les mêmes politiques de confidentialité, de sécurité et d’accessibilité.
+not a loss	brussels	/be/fr/extra-services/baggage/problems-with-your-baggage	brussels-parity-004	2 segments (56 words) and 0 links missing	www's component strings: link hints for screen readers ('Please note that with this link ...' in the page's language) after labels ours has; and texts our rendered page shows (it/it checked-baggage's question heading, special-assistance's dot.gov line, which carries a zero-width space)
+	T 0.00 +32 2 723 23 16 , Veuillez noter que ce lien vous redirige vers un site Internet externe qui n’applique pas forcément les mêmes politiques de confidentialité, de sécurité et d’accessibilité.
+	T 0.00 Veuillez noter que ce lien vous redirige vers un site Internet externe qui n’applique pas forcément les mêmes politiques de confidentialité, de sécurité et d’accessibilité.
+none flagged	brussels	/be/fr/extra-services/meals	brussels-parity-001	0 segments (0 words) and 0 links missing
+not a loss	brussels	/be/fr/extra-services/upgrades	brussels-parity-001	4 segments (119 words) and 0 links missing	www's component strings: link hints for screen readers ('Please note that with this link ...' in the page's language) after labels ours has; and texts our rendered page shows (it/it checked-baggage's question heading, special-assistance's dot.gov line, which carries a zero-width space)
+	T 0.07 Acheter un surclassement à l’avance , Veuillez noter que ce lien vous redirige vers un site Internet externe qui n’applique pas forcément les mêmes politiques de confidentialité, de sécurité et d’accessibilité.
+	T 0.00 Veuillez noter que ce lien vous redirige vers un site Internet externe qui n’applique pas forcément les mêmes politiques de confidentialité, de sécurité et d’accessibilité.
+	T 0.10 Faire une enchère pour un surclassement , Veuillez noter que ce lien vous redirige vers un site Internet externe qui n’applique pas forcément les mêmes politiques de confidentialité, de sécurité et d’accessibilité.
+	T 0.08 Acheter un surclassement à l’aéroport , Veuillez noter que ce lien vous redirige vers un site Internet externe qui n’applique pas forcément les mêmes politiques de confidentialité, de sécurité et d’accessibilité.
+not a loss	brussels	/be/fr/homepage	brussels-parity-001	40 segments (141 words) and 3 links missing	widgets from www's services (flight search, fare teasers and the offers grid: 'Round trip from', 'Show more') and www's market links (/content/.../markets/...)
+	T 0.00 Allez à la recherche de vol
+	T 0.00 Los Angeles
+	T 0.25 Aller-retour à partir de722 €
+	T 0.00 Bangkok
+	T 0.25 Aller-retour à partir de619 €
+	T 0.00 Delhi
+	T 0.25 Aller-retour à partir de572 €
+	T 0.00 Mumbai
+	T 0.25 Aller-retour à partir de698 €
+	T 0.00 Rio de Janeiro
+	T 0.25 Aller-retour à partir de807 €
+	T 0.00 Sao Paulo
+	T 0.25 Aller-retour à partir de735 €
+	T 0.00 Afficher plus
+	T 0.00 Promotion Cash & Miles
+	T 0.00 Réservez l’Amérique du Nord et économisez jusqu’à 30 % de Miles
+	T 0.00 Genève
+	T 0.00 Rome
+	T 0.00 Milan
+	T 0.00 Vienne
+	T 0.00 Madrid
+	T 0.00 Barcelone
+	T 0.00 Lisbonne
+	T 0.00 Tenerife
+	T 0.00 New York
+	T 0.00 Prague
+	T 0.00 Munich
+	T 0.00 Nice
+	T 0.00 Alicante
+	T 0.00 Informations sur le voyage
+	T 0.00 Échanger des Miles
+	T 0.00 Classe de voyage
+	T 0.00 Choix d’un autre tarif
+	T 0.00 Quels avantages tarifaires préférez-vous ?
+	T 0.00 Offres au meilleur prix
+	T 0.00 Modifier la séquence de mes vols
+	T 0.00 Flexibilité/Classe de réservation la plus élevée pour cumuler davantage de Miles
+	T 0.00 Code d’accès
+	T 0.00 Ce champ est réservé aux codes d’accès. Si vous disposez d’un code promotionnel, veuillez le saisir sur la page de paiement.
+	T 0.00 Enregistrer
+	L /be/fr/book-a-flight/destination
+	L /be/fr/book-a-flight/our-payment-methods/cash-and-miles
+	L /content/bel/markets/be/fr/book-a-flight/groups-and-charter/groups
+none flagged	brussels	/be/fr/legal-notices	brussels-parity-009	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/fr/my-bookings	brussels-parity-001	0 segments (0 words) and 0 links missing
+not a loss	brussels	/be/fr/my-bookings/cancel-and-refund-requests	brussels-parity-006	8 segments (57 words) and 1 links missing	widgets from www's services: the chat assistant ('Charlie'), form and date-picker controls, the search box ('0/100'), and the chat's privacy link
+	T 0.00 Go to chat assistant
+	T 0.00 Brussels Airlines Chat Assistant
+	T 0.00 Bonjour, je suis Charlie, votre Chat Assistant Brussels Airlines
+	T 0.00 Connectez-vous avec votre Travel ID pour accélérer la conversation. Découvrez ici comment nous traitons vos données.
+	T 0.00 Accélérez la conversation en vous connectant avec votre Travel ID.
+	T 0.00 Se connecter et chatter
+	T 0.00 Certaines réponses peuvent être assistées par l’IA
+	T 0.00 Démarrer le chat
+	L /xx/en/legal-notices/data-protection-and-privacy-notice
+not a loss	brussels	/be/fr/our-company	brussels-parity-003	11 segments (31 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 Lecteur vidéo en cours de chargement.
+	T 0.00 Lire la vidéo
+	T 0.00 Lecture
+	T 0.00 Mettre en sourdine
+	T 0.00 Temps actuel 0:00
+	T 0.00 Durée 1:17
+	T 0.00 Chargé: 3.65%
+	T 0.00 Sous-titres transcrits
+	T 0.00 Sous-titres transcrits désactivés, selected
+	T 0.00 descriptions désactivées, selected
+	T 0.00 Plein écran
+none flagged	brussels	/be/fr/special-care/families-and-children	brussels-parity-004	0 segments (0 words) and 0 links missing
+none flagged	brussels	/be/fr/travel-classes	brussels-parity-001	0 segments (0 words) and 0 links missing
+not a loss	brussels	/be/fr/travel-classes/business	brussels-parity-003	2 segments (3 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 Intercontinental
+	T 0.00 En Europe
+none flagged	brussels	/be/fr/travel-classes/premium-economy	brussels-parity-003	0 segments (0 words) and 0 links missing
+not a loss	brussels	/be/nl/contact/service-charges	brussels-parity-006	8 segments (57 words) and 1 links missing	widgets from www's services: the chat assistant ('Charlie'), form and date-picker controls, the search box ('0/100'), and the chat's privacy link
+	T 0.00 Go to chat assistant
+	T 0.00 Brussels Airlines Chat Assistant
+	T 0.00 Hallo, ik ben Charlie, je Brussels Airlines Chat Assistant
+	T 0.00 Log in met je Travel ID om alles te versnellen. Bekijk hoe we met je gegevens omgaan hier.
+	T 0.00 Versnel het gesprek door in te loggen met je Travel ID.
+	T 0.00 Inloggen en chatten
+	T 0.00 Deze chat kan AI-ondersteunde antwoorden bevatten
+	T 0.00 Start chat
+	L /xx/nl/legal-notices/data-protection-and-privacy-notice
+not a loss	brussels	/be/nl/extra-services/baggage/checked-baggage	brussels-parity-005	2 segments (39 words) and 0 links missing	www's component strings: link hints for screen readers ('Please note that with this link ...' in the page's language) after labels ours has; and texts our rendered page shows (it/it checked-baggage's question heading, special-assistance's dot.gov line, which carries a zero-width space)
+	T 0.00 Ga naar Your Europe , Met deze link bezoek je een externe website die misschien niet hetzelfde privacy-, beveiligings- en toegangsbeleid toepast.
+	T 0.00 Met deze link bezoek je een externe website die misschien niet hetzelfde privacy-, beveiligings- en toegangsbeleid toepast.
+none flagged	brussels	/be/nl/special-care/pets	brussels-parity-006	0 segments (0 words) and 0 links missing
+not a loss	brussels	/de/de/extra-services/baggage/checked-baggage	brussels-parity-005	2 segments (48 words) and 0 links missing	www's component strings: link hints for screen readers ('Please note that with this link ...' in the page's language) after labels ours has; and texts our rendered page shows (it/it checked-baggage's question heading, special-assistance's dot.gov line, which carries a zero-width space)
+	T 0.01 „Your Europe“ aufrufen , Bitte beachten Sie, dass Sie mit diesem Link eine externe Website besuchen, die möglicherweise nicht den gleichen Datenschutz-, Sicherheits- oder Barrierefreiheitsrichtlinien folgt.
+	T 0.01 Bitte beachten Sie, dass Sie mit diesem Link eine externe Website besuchen, die möglicherweise nicht den gleichen Datenschutz-, Sicherheits- oder Barrierefreiheitsrichtlinien folgt.
+none flagged	brussels	/de/de/extra-services/lounges	brussels-parity-006	0 segments (0 words) and 0 links missing
+not a loss	brussels	/de/de/legal-notices/dsar-start	brussels-parity-006	1 segments (2 words) and 0 links missing	widgets from www's services: the chat assistant ('Charlie'), form and date-picker controls, the search box ('0/100'), and the chat's privacy link
+	T 0.00 Bitte wählen
+not a loss	brussels	/es/es/extra-services/baggage/checked-baggage	brussels-parity-005	6 segments (87 words) and 0 links missing	site chrome: the skip links and www's pre-footer offers teaser ('Explore nuestras ofertas ...'), which www draws on every Brussels page (ours has no pre-footer teaser on any page; the same text is left out as chrome in the languages with more recorded pages)
+	T 0.00 Ir a la navegación
+	T 0.00 Ir al contenido principal
+	T 0.00 Ir al pie de página
+	T 0.00 Ir a Your Europe , Tenga en cuenta que este enlace le redirigirá a una página web externa que puede no seguir las mismas normas de acceso, privacidad y seguridad.
+	T 0.00 Tenga en cuenta que este enlace le redirigirá a una página web externa que puede no seguir las mismas normas de acceso, privacidad y seguridad.
+	T 0.00 Explore nuestras ofertas y destinos para descubrir los increíbles lugares a los que podemos llevarle. Explore todas las ofertas
+not a loss	brussels	/es/es/plan-your-trip	brussels-parity-006	4 segments (32 words) and 0 links missing	site chrome: the skip links and www's pre-footer offers teaser ('Explore nuestras ofertas ...'), which www draws on every Brussels page (ours has no pre-footer teaser on any page; the same text is left out as chrome in the languages with more recorded pages)
+	T 0.00 Ir a la navegación
+	T 0.00 Ir al contenido principal
+	T 0.00 Ir al pie de página
+	T 0.00 Explore nuestras ofertas y destinos para descubrir los increíbles lugares a los que podemos llevarle. Explore todas las ofertas
+not a loss	brussels	/fr/fr/homepage	brussels-parity-003	31 segments (125 words) and 2 links missing	widgets from www's services (flight search, fare teasers and the offers grid: 'Round trip from', 'Show more') and www's market links (/content/.../markets/...)
+	T 0.00 Allez à la recherche de vol
+	T 0.00 Départ - retour
+	T 0.00 Rechercher
+	T 0.25 Aller-retour à partir de454 €
+	T 0.25 Aller-retour à partir de675 €
+	T 0.25 Aller-retour à partir de244 €
+	T 0.25 Aller-retour à partir de188 €
+	T 0.25 Aller-retour à partir de582 €
+	T 0.25 Aller-retour à partir de163 €
+	T 0.00 Afficher plus
+	T 0.00 Francfort
+	T 0.00 Vienne
+	T 0.00 Düsseldorf
+	T 0.00 Londres
+	T 0.00 Genève
+	T 0.00 Hambourg
+	T 0.00 Amsterdam
+	T 0.00 Prague
+	T 0.00 Cracovie
+	T 0.00 Cologne
+	T 0.00 Informations sur le voyage
+	T 0.00 Échanger des Miles
+	T 0.00 Classe de voyage
+	T 0.00 Choix d’un autre tarif
+	T 0.00 Quels avantages tarifaires préférez-vous ?
+	T 0.00 Offres au meilleur prix
+	T 0.00 Modifier la séquence de mes vols
+	T 0.00 Flexibilité/Classe de réservation la plus élevée pour cumuler davantage de Miles
+	T 0.00 Code d’accès
+	T 0.00 Ce champ est réservé aux codes d’accès uniquement. Si vous avez un code promotionnel, vous pouvez le saisir ultérieurement au cours du processus de réservation, avant de procéder au paiement.
+	T 0.00 Enregistrer
+	L /fr/fr/book-a-flight/destination
+	L /content/bel/markets/fr/fr/book-a-flight/groups-and-charter/groups
+none flagged	brussels	/il/en/rebooking-request-birthright	brussels-parity-004	0 segments (0 words) and 0 links missing
+not a loss	brussels	/it/it/extra-services/baggage/checked-baggage	brussels-parity-005	3 segments (65 words) and 0 links missing	www's component strings: link hints for screen readers ('Please note that with this link ...' in the page's language) after labels ours has; and texts our rendered page shows (it/it checked-baggage's question heading, special-assistance's dot.gov line, which carries a zero-width space)
+	T 0.00 Cosa succede se supero il limite di bagagli registrati consentiti?
+	T 0.00 Your Europe , Le ricordiamo che con questo link sta visitando un sito Internet esterno che potrebbe non seguire le stesse politiche in termini di privacy, sicurezza e accessibilità.
+	T 0.00 Le ricordiamo che con questo link sta visitando un sito Internet esterno che potrebbe non seguire le stesse politiche in termini di privacy, sicurezza e accessibilità.
+none flagged	brussels	/it/it/extra-services/meals	brussels-parity-006	0 segments (0 words) and 0 links missing
+not a loss	brussels	/it/it/legal-notices/special-assistance-legal-guidelines	brussels-parity-007	1 segments (8 words) and 0 links missing	www's component strings: link hints for screen readers ('Please note that with this link ...' in the page's language) after labels ours has; and texts our rendered page shows (it/it checked-baggage's question heading, special-assistance's dot.gov line, which carries a zero-width space)
+	T 0.44 On the Aviation Consumer Protection Division's website: ​http://www.dot.gov/airconsumer
+not a loss	brussels	/ke/en/homepage	brussels-parity-003	32 segments (99 words) and 2 links missing	widgets from www's services (flight search, fare teasers and the offers grid: 'Round trip from', 'Show more') and www's market links (/content/.../markets/...)
+	T 0.00 Go to flight search
+	T 0.00 Round trip from$ 996
+	T 0.00 Round trip from$ 1,149
+	T 0.00 Round trip from$ 900
+	T 0.00 Round trip from$ 954
+	T 0.00 Round trip from$ 977
+	T 0.00 Round trip from$ 1,006
+	T 0.00 Show more
+	T 0.00 Round trip from$ 977*
+	T 0.00 Round trip from$ 900*
+	T 0.00 Round trip from$ 1,102*
+	T 0.00 Round trip from$ 952*
+	T 0.00 Round trip from$ 996*
+	T 0.00 London
+	T 0.00 Round trip from$ 979*
+	T 0.00 Dusseldorf
+	T 0.00 Round trip from$ 973*
+	T 0.00 Manchester, GB
+	T 0.00 Round trip from$ 1,032*
+	T 0.00 Milan
+	T 0.00 Round trip from$ 895*
+	T 0.00 Copenhagen
+	T 0.00 Round trip from$ 1,014*
+	T 0.00 Round trip from$ 1,146*
+	T 0.00 Hamburg
+	T 0.00 Round trip from$ 964*
+	T 0.00 Verona
+	T 0.00 Round trip from$ 896*
+	T 0.00 Toronto
+	T 0.00 Round trip from$ 1,037*
+	T 0.00 Travel details
+	T 0.00 Redeem miles
+	L /ke/en/book-a-flight/destination
+	L /content/bel/markets/ke/en/book-a-flight/groups-and-charter/groups
+none flagged	discover	/de/de/book/baggage	discover-parity-001	0 segments (0 words) and 0 links missing
+not a loss	discover	/de/de/book/flights/flight-search	discover-parity-001	16 segments (76 words) and 1 links missing	widgets from www's services (flight search, fare teasers and the offers grid: 'Round trip from', 'Show more') and www's market links (/content/.../markets/...)
+	T 0.00 Nach
+	T 0.00 Hinflug - Rückflug
+	T 0.00 Flüge suchen
+	T 0.00 Wir leiten Sie zu unserem Partner Lufthansa weiter
+	T 0.00 Buchen Sie hier Ihren Discover Airlines Flug
+	T 0.00 Zur Buchung
+	T 0.00 Reiseklasse
+	T 0.00 Gruppenbuchungen für zehn oder mehr Passagiere.
+	T 0.00 Alternative Tarifoptionen
+	T 0.00 Welche Tarifvorteile sind Ihnen wichtiger?
+	T 0.00 Bestpreisangebote
+	T 0.00 Reihenfolge meiner Flüge ändern
+	T 0.00 Flexibilität bzw. höchste Buchungsklasse, um mehr Meilen zu sammeln
+	T 0.00 Zugangscode
+	T 0.00 Dieses Feld ist nur für Zugangscodes. Falls Sie einen Aktionscode haben, können Sie diesen später im Buchungsprozess eingeben, bevor Sie zur Zahlung übergehen.
+	T 0.00 Weiter
+	L /content/four-y/markets/de/de
+not a loss	discover	/de/de/book/special-requests/families	discover-parity-001	5 segments (139 words) and 0 links missing	values changed: DA's copy has the sentence reworded ('Please download the medical certificate, have it completed by your doctor ...'); the certificate links are there
+	T 0.28 Formular für alleinreisende Jugendliche im Alter von 12-17 ohne Betreuungsservice (PDF) , Bitte beachten Sie, dass Sie mit diesem Link eine externe Website besuchen, die möglicherweise nicht den gleichen Datenschutz-, Sicherheits- oder Barrierefreiheitsrichtlinien folgt.
+	T 0.03 Bitte beachten Sie, dass Sie mit diesem Link eine externe Website besuchen, die möglicherweise nicht den gleichen Datenschutz-, Sicherheits- oder Barrierefreiheitsrichtlinien folgt.
+	T 0.21 Geeignete Kinderrückhaltesysteme für Discover Airlines Flüge , Bitte beachten Sie, dass Sie mit diesem Link eine externe Website besuchen, die möglicherweise nicht den gleichen Datenschutz-, Sicherheits- oder Barrierefreiheitsrichtlinien folgt.
+	T 0.07 Schwangere werden gebeten, sich das Attest für Ihre Ärztin / Ihren Arzt zum Ausfüllen herunterzuladen und es während Ihrer Flugreise mit sich zu führen:
+	T 0.16 Attest für Ihre Flugreise bei Schwangerschaft (pdf) , Bitte beachten Sie, dass Sie mit diesem Link eine externe Website besuchen, die möglicherweise nicht den gleichen Datenschutz-, Sicherheits- oder Barrierefreiheitsrichtlinien folgt.
+none flagged	discover	/de/de/discover/services-on-board/entertainment	discover-parity-001	0 segments (0 words) and 0 links missing
+none flagged	discover	/de/de/discover/travel-classes/business-class	discover-parity-001	0 segments (0 words) and 0 links missing
+not a loss	discover	/de/de/homepage	discover-parity-001	182 segments (1023 words) and 99 links missing	widgets from www's services (flight search, fare teasers and the offers grid: 'Round trip from', 'Show more') and www's market links (/content/.../markets/...)
+	T 0.00 Zur Flugsuche
+	T 0.00 Hin- und Rückflug
+	T 0.00 Economy, 1 Reisende(r)
+	T 0.00 Nur Nonstop Flüge
+	T 0.00 Entdecken Sie unsere Reiseziele.
+	T 0.00 Hinflug - Rückflug
+	T 0.00 Flüge suchen
+	T 0.00 Weil Kälte auch schön sein kann
+	T 0.00 Winter, wie wir ihn lieben
+	T 0.00 Jetzt Winterabenteuer buchen
+	T 0.00 Flugangebote
+	T 0.00 Frankfurt
+	T 0.00 Reykjavik
+	T 0.00 Hin- und Rückflug ab305 €
+	T 0.00 Fort Myers
+	T 0.00 Hin- und Rückflug ab754 €
+	T 0.00 Calgary
+	T 0.00 Hin- und Rückflug ab773 €
+	T 0.00 Konditionen
+	T 0.00 mehr anzeigen
+	T 0.00 Entdecken Sie weitere Themen
+	T 0.00 Neue Destinationen. Neue Abenteuer.
+	T 0.00 Entdecken Sie unsere neuen weltweiten Reiseziele
+	T 0.00 Den nächsten Lieblingsort entdecken
+	T 0.06 Gemeinsam bieten Ihnen die Lufthansa Group Airlines mehr Reiseziele und bessere Verbindungen.
+	T 0.00 Mit der Familie in die Ferne
+	T 0.00 Kinder sparen jetzt bis zu 50%
+	T 0.00 Wohin soll die Reise gehen?
+	T 0.00 Erfahren Sie, wann Discover Airlines Flüge zu den einzelnen Reisezielen abfliegen.
+	T 0.00 Zum Flugplan
+	T 0.00 Das neue Reisegefühl ab Frühjahr 2027
+	T 0.00 Ocean Blue
+	T 0.00 Flugangebote ab
+	T 0.00 Bitte wählen Sie einen Abflughafen, damit wir Ihnen die Preise für unsere Empfehlungen anzeigen können.
+	T 0.00 Nur Hinflug
+	T 0.00 Male
+	T 0.00 Hin- und Rückflug ab675 €* *Die Preise, einschließlich aller Steuern, Gebühren und Zuschläge, können variieren und dienen als Orientierungshilfe für Ihre Auswahl.
+	T 0.00 Philadelphia
+	T 0.00 Hin- und Rückflug ab555 €* *Die Preise, einschließlich aller Steuern, Gebühren und Zuschläge, können variieren und dienen als Orientierungshilfe für Ihre Auswahl.
+	T 0.00 Windhoek
+	T 0.00 Hin- und Rückflug ab721 €* *Die Preise, einschließlich aller Steuern, Gebühren und Zuschläge, können variieren und dienen als Orientierungshilfe für Ihre Auswahl.
+	T 0.00 Mauritius
+	T 0.00 Hin- und Rückflug ab704 €* *Die Preise, einschließlich aller Steuern, Gebühren und Zuschläge, können variieren und dienen als Orientierungshilfe für Ihre Auswahl.
+	T 0.00 Bari
+	T 0.00 Hin- und Rückflug ab171 €* *Die Preise, einschließlich aller Steuern, Gebühren und Zuschläge, können variieren und dienen als Orientierungshilfe für Ihre Auswahl.
+	T 0.00 Brindisi
+	T 0.00 Hin- und Rückflug ab178 €* *Die Preise, einschließlich aller Steuern, Gebühren und Zuschläge, können variieren und dienen als Orientierungshilfe für Ihre Auswahl.
+	T 0.00 Kilimanjaro
+	T 0.00 Hin- und Rückflug ab899 €* *Die Preise, einschließlich aller Steuern, Gebühren und Zuschläge, können variieren und dienen als Orientierungshilfe für Ihre Auswahl.
+	T 0.00 Hin- und Rückflug ab754 €* *Die Preise, einschließlich aller Steuern, Gebühren und Zuschläge, können variieren und dienen als Orientierungshilfe für Ihre Auswahl.
+	T 0.00 Funchal/Madeira
+	T 0.00 Hin- und Rückflug ab211 €* *Die Preise, einschließlich aller Steuern, Gebühren und Zuschläge, können variieren und dienen als Orientierungshilfe für Ihre Auswahl.
+	T 0.00 Hin- und Rückflug ab182 €* *Die Preise, einschließlich aller Steuern, Gebühren und Zuschläge, können variieren und dienen als Orientierungshilfe für Ihre Auswahl.
+	T 0.00 Ibiza
+	T 0.00 Hin- und Rückflug ab208 €* *Die Preise, einschließlich aller Steuern, Gebühren und Zuschläge, können variieren und dienen als Orientierungshilfe für Ihre Auswahl.
+	T 0.00 Tampa
+	T 0.00 Hin- und Rückflug ab746 €* *Die Preise, einschließlich aller Steuern, Gebühren und Zuschläge, können variieren und dienen als Orientierungshilfe für Ihre Auswahl.
+	T 0.00 Cancun
+	T 0.00 Hin- und Rückflug ab701 €* *Die Preise, einschließlich aller Steuern, Gebühren und Zuschläge, können variieren und dienen als Orientierungshilfe für Ihre Auswahl.
+	T 0.00 Orlando
+	T 0.00 Hin- und Rückflug ab751 €* *Die Preise, einschließlich aller Steuern, Gebühren und Zuschläge, können variieren und dienen als Orientierungshilfe für Ihre Auswahl.
+	T 0.00 Harstad-Narvik, Evenes Airport
+	T 0.00 Hin- und Rückflug ab319 €* *Die Preise, einschließlich aller Steuern, Gebühren und Zuschläge, können variieren und dienen als Orientierungshilfe für Ihre Auswahl.
+	T 0.00 Alle Flugstrecken und Preise finden Sie auf unserer
+	T 0.00 Alle Angebote und Reiseziele
+	T 0.00 *Die Preise, einschließlich aller Steuern, Gebühren und Zuschläge, können variieren und dienen als Orientierungshilfe für Ihre Auswahl.
+	T 0.00 Suchen Sie mehr als nur einen Flug?
+	T 0.00 Essen vorbestellen
+	T 0.00 Reiseversicherung
+	T 0.00 Gepäck
+	T 0.00 Upgrade buchen
+	T 0.00 Destinationen
+	T 0.00 Mehr Destinationen
+	T 0.00 Die Welt entdecken
+	T 0.00 ​Flüge nach Äqypten
+	T 0.00 ​Flüge nach Bulgarien
+	T 0.00 ​Flüge in die Dominikanische Republik
+	T 0.00 ​Flüge nach Finnland
+	T 0.00 ​Flüge nach Griechenland
+	T 0.00 ​Flüge nach Irland
+	T 0.00 ​Flüge nach Island
+	T 0.00 ​Flüge nach Italien
+	T 0.00 ​Flüge nach Kanada
+	T 0.00 ​Flüge nach Kenia
+	T 0.00 ​Flüge nach Kroatien
+	T 0.00 ​Flüge auf die Malediven
+	T 0.00 ​Flüge nach Marokko
+	T 0.00 ​Flüge nach Mauritius
+	T 0.00 ​Flüge nach Mexiko
+	T 0.00 ​Flüge nach Namibia
+	T 0.00 ​Flüge nach Norwegen
+	T 0.00 ​Flüge nach Portugal
+	T 0.00 ​Flüge auf die Seychellen
+	T 0.00 ​Flüge nach Spanien
+	T 0.00 ​Flüge nach Tansania
+	T 0.00 ​Flüge nach Tunesien
+	T 0.00 ​Flüge in die USA
+	T 0.00 ​Flüge nach Zypern
+	T 0.00 Ab Frankfurt fliegen
+	T 0.00 ​Flug Frankfurt Burgas
+	T 0.00 ​Flug Frankfurt Varna
+	T 0.00 ​Flug Frankfurt Kittilä
+	T 0.00 ​Flug Frankfurt Chania
+	T 0.00 ​Flug Frankfurt Kalamata
+	T 0.00 ​Flug Frankfurt Kefalonia
+	T 0.00 ​Flug Frankfurt Kos
+	T 0.00 ​Flug Frankfurt Rhodos
+	T 0.00 ​Flug Frankfurt Santorin
+	T 0.00 ​Flug Frankfurt Skiathos
+	T 0.00 ​Flug Frankfurt Zakynthos
+	T 0.00 ​Flug Frankfurt Shannon
+	T 0.00 ​Flug Frankfurt Bari
+	T 0.00 ​Flug Frankfurt Brindisi
+	T 0.00 ​Flug Frankfurt Dubrovnik
+	T 0.00 ​Flug Frankfurt Split
+	T 0.00 ​Flug Frankfurt Zadar
+	T 0.00 ​Flug Frankfurt Alta
+	T 0.00 ​Flug Frankfurt Bodø
+	T 0.00 ​Flug Frankfurt Evenes
+	T 0.00 ​Flug Frankfurt Funchal
+	T 0.00 ​Flug Frankfurt Fuerteventura
+	T 0.00 ​Flug Frankfurt Gran Canaria
+	T 0.00 ​Flug Frankfurt Ibiza
+	T 0.00 ​Flug Frankfurt Jerez de la Frontera
+	T 0.00 ​Flug Frankfurt Mombasa
+	T 0.00 ​Flug Frankfurt Agadir
+	T 0.00 ​Flug Frankfurt Mauritius
+	T 0.00 ​Flug Frankfurt Kilimandscharo
+	T 0.00 ​Flug Frankfurt Djerba
+	T 0.00 ​Flug Frankfurt Malediven
+	T 0.00 ​Flug Frankfurt Zypern
+	T 0.00 ​Flug Frankfurt Halifax
+	T 0.00 ​Flug Frankfurt Philadelphia
+	T 0.00 ​Flug Frankfurt Fort Myers
+	T 0.00 Ab München fliegen
+	T 0.00 ​Flug München Reykjavik
+	T 0.00 ​Flug München Ivalo
+	T 0.00 ​Flug München Bodø
+	T 0.00 ​Flug München Varna
+	T 0.00 ​Flug München Burgas
+	T 0.00 ​Flug München Korfu
+	T 0.00 ​Flug München Zakynthos
+	T 0.00 ​Flug München Heraklion
+	T 0.00 ​Flug München Samos
+	T 0.00 ​Flug München Zypern
+	T 0.00 ​Flug München Menorca
+	T 0.00 ​Flug München Fès
+	T 0.00 ​Flug München Marrakesch
+	T 0.00 ​Flug München Lanzarote
+	T 0.00 ​Flug München Teneriffa
+	T 0.00 ​Flug München Madeira
+	T 0.00 ​Flug München Windhoek
+	T 0.00 ​Flug München Calgary
+	T 0.00 ​Flug München Orlando
+	T 0.00 ​Flug München Punta Cana
+	T 0.00 ​Flug München Monastir
+	T 0.00 ​Flug München Rhodos
+	T 0.00 ​Flug München Palma de Mallorca
+	T 0.00 ​Flug München Jerez de la Frontera
+	T 0.00 ​Flug München Ibiza
+	T 0.00 ​Flug München Gran Canaria
+	T 0.00 ​Flug München Evenes
+	T 0.00 Die angezeigten Preise können abweichen und dienen als Orientierungshilfe für die von Ihnen gewählte Reise. Die Preise gelten für Hin- oder/und Rückreise entsprechend Ihrer Auswahl. Der endgültige Preis ist abhängig von der gewählten Zahlungsoption. Die Anzahl der Sitzplätze ist begrenzt und möglich
+	T 0.00 Wir leiten Sie zu unserem Partner Lufthansa weiter
+	T 0.00 Buchen Sie hier Ihren Discover Airlines Flug
+	T 0.00 Zur Buchung
+	T 0.00 Reiseklasse
+	T 0.00 Gruppenbuchungen für zehn oder mehr Passagiere.
+	T 0.00 Alternative Tarifoptionen
+	T 0.00 Welche Tarifvorteile sind Ihnen wichtiger?
+	T 0.00 Bestpreisangebote
+	T 0.00 Reihenfolge meiner Flüge ändern
+	T 0.00 Flexibilität bzw. höchste Buchungsklasse, um mehr Meilen zu sammeln
+	T 0.00 Zugangscode
+	T 0.00 Dieses Feld ist nur für Zugangscodes. Falls Sie einen Aktionscode haben, können Sie diesen später im Buchungsprozess eingeben, bevor Sie zur Zahlung übergehen.
+	T 0.00 Jetzt anmelden und profitieren:
+	T 0.00 Schnelle und einfache Flugbuchung
+	T 0.00 Ihre Buchungen auf einen Blick
+	T 0.00 Personalisierte Angebote
+	T 0.00 Einloggen
+	T 0.00 Zum ersten Mal hier?
+	T 0.00 Jetzt registrieren.
+	L /de/de/book/flights/offers
+	L /de/de/book/destination
+	L /de/de/new-destinations
+	L /de/de/latest-offers
+	L /de/de/book/flights/timetable
+	L /de/de/discover/ocean-blue
+	L /de/de//book/destination
+	L /de/de/culinaryjourney
+	L /de/de/my-bookings/services/additional-services/europ-assistance
+	L /de/de/book/baggage
+	L /de/de/my-bookings/services/upgrades
+	L /lhg/de/de/dest/c/aegypten
+	L /lhg/de/de/dest/c/bulgarien
+	L /lhg/de/de/dest/c/dominikanische-republik
+	L /lhg/de/de/dest/c/finnland
+	L /lhg/de/de/dest/c/griechenland
+	L /lhg/de/de/dest/c/irland
+	L /lhg/de/de/dest/c/island
+	L /lhg/de/de/dest/c/italien
+	L /lhg/de/de/dest/c/kanada
+	L /lhg/de/de/dest/c/kenia
+	L /lhg/de/de/dest/c/kroatien
+	L /lhg/de/de/dest/c/malediven
+	L /lhg/de/de/dest/c/marokko
+	L /lhg/de/de/dest/c/mauritius
+	L /lhg/de/de/dest/c/mexiko
+	L /lhg/de/de/dest/c/namibia
+	L /lhg/de/de/dest/c/norwegen
+	L /lhg/de/de/dest/c/portugal
+	L /lhg/de/de/dest/c/seychellen
+	L /lhg/de/de/dest/c/spanien
+	L /lhg/de/de/dest/c/tansania
+	L /lhg/de/de/dest/c/tunesien
+	L /lhg/de/de/dest/c/usa
+	L /lhg/de/de/dest/c/zypern
+	L /lhg/de/de/o-d/cy-cy/frankfurt-burgas
+	L /lhg/de/de/o-d/cy-cy/frankfurt-kittilae
+	L /lhg/de/de/o-d/cy-cy/frankfurt-chania
+	L /lhg/de/de/o-d/cy-cy/frankfurt-kalamata
+	L /lhg/de/de/o-d/cy-cy/frankfurt-kefalonia
+	L /lhg/de/de/o-d/cy-cy/frankfurt-kos
+	L /lhg/de/de/o-d/cy-cy/frankfurt-rhodos
+	L /lhg/de/de/o-d/cy-cy/frankfurt-santorin
+	L /lhg/de/de/o-d/cy-cy/frankfurt-skiathos
+	L /lhg/de/de/o-d/cy-cy/frankfurt-zakynthos
+	L /lhg/de/de/o-d/cy-cy/frankfurt-shannon
+	L /lhg/de/de/o-d/cy-cy/frankfurt-bari
+	L /lhg/de/de/o-d/cy-cy/frankfurt-brindisi
+	L /lhg/de/de/o-d/cy-cy/frankfurt-dubrovnik
+	L /lhg/de/de/o-d/cy-cy/frankfurt-split
+	L /lhg/de/de/o-d/cy-cy/frankfurt-zadar
+	L /lhg/de/de/o-d/cy-cy/frankfurt-alta
+	L /lhg/de/de/o-d/cy-cy/frankfurt-bodo
+	L /lhg/de/de/o-d/cy-cy/frankfurt-harstad-narvik-evenes
+	L /lhg/de/de/o-d/cy-cy/frankfurt-funchal-madeira
+	L /lhg/de/de/o-d/cy-cy/frankfurt-fuerteventura
+	L /lhg/de/de/o-d/cy-cy/frankfurt-gran-canaria
+	L /lhg/de/de/o-d/cy-cy/frankfurt-ibiza
+	L /lhg/de/de/o-d/cy-cy/frankfurt-jerez-de-la-frontera
+	L /lhg/de/de/o-d/cy-cy/frankfurt-mombasa
+	L /lhg/de/de/o-d/cy-cy/frankfurt-agadir
+	L /lhg/de/de/o-d/cy-cy/frankfurt-mahebourg-mauritius
+	L /lhg/de/de/o-d/cy-cy/frankfurt-kilimandscharo
+	L /lhg/de/de/o-d/cy-cy/frankfurt-djerba
+	L /lhg/de/de/o-d/cy-cy/frankfurt-male-malediven
+	L /lhg/de/de/o-d/cy-cy/frankfurt-larnaka-zypern
+	L /lhg/de/de/o-d/cy-cy/frankfurt-halifax
+	L /lhg/de/de/o-d/cy-cy/frankfurt-philadelphia
+	L /lhg/de/de/o-d/cy-cy/frankfurt-fort-myers
+	L /lhg/de/de/o-d/cy-cy/muenchen-reykjavik
+	L /lhg/de/de/o-d/cy-cy/muenchen-ivalo
+	L /lhg/de/de/o-d/cy-cy/muenchen-bodo
+	L /lhg/de/de/o-d/cy-cy/muenchen-varna
+	L /lhg/de/de/o-d/cy-cy/muenchen-burgas
+	L /lhg/de/de/o-d/cy-cy/muenchen-korfu
+	L /lhg/de/de/o-d/cy-cy/muenchen-zakynthos
+	L /lhg/de/de/o-d/cy-cy/muenchen-heraklion-kreta
+	L /lhg/de/de/o-d/cy-cy/muenchen-samos
+	L /lhg/de/de/o-d/cy-cy/muenchen-larnaka-zypern
+	L /lhg/de/de/o-d/cy-cy/muenchen-mahon-menorca
+	L /lhg/de/de/o-d/cy-cy/muenchen-fes
+	L /lhg/de/de/o-d/cy-cy/muenchen-marrakesch
+	L /lhg/de/de/o-d/cy-cy/muenchen-lanzarote
+	L /lhg/de/de/o-d/cy-cy/muenchen-teneriffa
+	L /lhg/de/de/o-d/cy-cy/muenchen-funchal-madeira
+	L /lhg/de/de/o-d/cy-cy/muenchen-windhoek
+	L /lhg/de/de/o-d/cy-cy/muenchen-calgary
+	L /lhg/de/de/o-d/cy-cy/muenchen-orlando
+	L /lhg/de/de/o-d/cy-cy/muenchen-punta-cana
+	L /lhg/de/de/o-d/cy-cy/muenchen-monastir
+	L /lhg/de/de/o-d/cy-cy/muenchen-rhodos
+	L /lhg/de/de/o-d/cy-cy/muenchen-palma-de-mallorca
+	L /lhg/de/de/o-d/cy-cy/muenchen-jerez-de-la-frontera
+	L /lhg/de/de/o-d/cy-cy/muenchen-ibiza
+	L /lhg/de/de/o-d/cy-cy/muenchen-gran-canaria
+	L /lhg/de/de/o-d/cy-cy/muenchen-harstad-narvik-evenes
+	L /content/four-y/markets/de/de
+	L api.travelid.discover-airlines.com/oauth2/authorize
+	L lufthansa.miles-and-more.com/web/row/de/enrolment.html
+none flagged	discover	/de/de/my-bookings/check-in	discover-parity-001	0 segments (0 words) and 0 links missing
+not a loss	discover	/de/de/my-bookings/check-in/check-in-at-the-airport	discover-parity-001	3 segments (6 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 Internationale Flughäfen
+	T 0.00 Duration 1:09
+	T 0.00 Loaded: 6.23%
+LOSS	discover	/de/de/my-bookings/manage/customer-service	discover-parity-001	1 segments (14 words) and 1 links missing	LOSS: "Teilweise genutzte Tickets werden anteilig erstattet. Hier finden Sie alle Informationen zu Ihren Fluggastrechten." (as de/en; delta-so26-discover-lost-content.txt)
+	T 0.00 Teilweise genutzte Tickets werden anteilig erstattet. ​Hier finden Sie alle Informationen zu Ihren Fluggastrechten.
+	L /de/de/my-bookings/manage/customer-service
+none flagged	discover	/de/de/my-bookings/services/additional-services	discover-parity-001	0 segments (0 words) and 0 links missing
+none flagged	discover	/de/de/travel-inspiration/inspiration/destinations/punta-cana	discover-parity-001	0 segments (0 words) and 0 links missing
+not a loss	discover	/de/de/travel-inspiration/inspiration/destinations/santorini	discover-parity-001	1 segments (3 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 Spazieren & Wandern
+none flagged	discover	/de/en/book/baggage	discover-parity-001	0 segments (0 words) and 0 links missing
+not a loss	discover	/de/en/book/baggage/excess-baggage	discover-parity-002	2 segments (5 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 Overweight/oversized baggage
+	T 0.00 Too much baggage
+not a loss	discover	/de/en/book/flights/flight-search	discover-parity-001	0 segments (0 words) and 1 links missing	widgets from www's services (flight search, fare teasers and the offers grid: 'Round trip from', 'Show more') and www's market links (/content/.../markets/...)
+	L /content/four-y/markets/de/en
+not a loss	discover	/de/en/book/special-requests/families	discover-parity-001	1 segments (23 words) and 0 links missing	values changed: DA's copy has the sentence reworded ('Please download the medical certificate, have it completed by your doctor ...'); the certificate links are there
+	T 0.00 Pregnant women will be asked to download the certificate for their doctor for completion and to carry it with them during their flight:
+none flagged	discover	/de/en/discover/services-on-board/entertainment	discover-parity-001	0 segments (0 words) and 0 links missing
+none flagged	discover	/de/en/discover/travel-classes/business-class	discover-parity-001	0 segments (0 words) and 0 links missing
+not a loss	discover	/de/en/homepage	discover-parity-001	152 segments (731 words) and 91 links missing	widgets from www's services (flight search, fare teasers and the offers grid: 'Round trip from', 'Show more') and www's market links (/content/.../markets/...)
+	T 0.00 Go to flight search
+	T 0.00 Because cold can be beautiful too
+	T 0.00 Winter, the way we love it
+	T 0.00 Book your winter adventure now
+	T 0.00 Economy Class Offers
+	T 0.00 Frankfurt
+	T 0.00 Reykjavik
+	T 0.00 Round trip from305 €
+	T 0.00 Fort Myers
+	T 0.00 Round trip from754 €
+	T 0.00 Calgary
+	T 0.00 Round trip from765 €
+	T 0.00 Show more
+	T 0.00 Explore more topics
+	T 0.00 New Destinations. New Adventures.
+	T 0.00 Explore our new routes to Finland, England, Scotland and Italy.
+	T 0.00 Explore our network
+	T 0.10 Together, the Lufthansa Group airlines offer you more destinations and smoother connections.
+	T 0.00 Into the great outdoors
+	T 0.00 Explore Calgary and the spectacular landscapes of Canada
+	T 0.00 Search flights
+	T 0.00 The new travel experience from spring 2027
+	T 0.00 Ocean Blue
+	T 0.00 Sun, beach and Mediterranean lifestyle
+	T 0.00 Experience Cyprus and the most beautiful islands
+	T 0.00 Flight offers from
+	T 0.00 Please choose an origin city for fares for your recommended destinations
+	T 0.00 One way
+	T 0.00 Male
+	T 0.00 Round trip from675 €*
+	T 0.00 Philadelphia
+	T 0.00 Round trip from555 €*
+	T 0.00 Windhoek
+	T 0.00 Round trip from721 €*
+	T 0.00 Mauritius
+	T 0.00 Round trip from704 €*
+	T 0.00 Bari
+	T 0.00 Round trip from171 €*
+	T 0.00 Brindisi
+	T 0.00 Round trip from178 €*
+	T 0.00 Kilimanjaro
+	T 0.00 Round trip from899 €*
+	T 0.00 Round trip from754 €*
+	T 0.00 Funchal/Madeira
+	T 0.00 Round trip from211 €*
+	T 0.00 Round trip from182 €*
+	T 0.00 Ibiza
+	T 0.00 Round trip from208 €*
+	T 0.00 Tampa
+	T 0.00 Round trip from746 €*
+	T 0.00 Cancun
+	T 0.00 Round trip from701 €*
+	T 0.00 Orlando
+	T 0.00 Round trip from751 €*
+	T 0.00 Harstad-Narvik, Lofoten
+	T 0.00 Round trip from319 €*
+	T 0.00 For all flight routes and prices, visit our
+	T 0.00 All offers & destinations
+	T 0.00 Looking for more than just a flight?
+	T 0.00 Pre-order food
+	T 0.00 Traveling with pets
+	T 0.00 Book an upgrade
+	T 0.00 More destinations
+	T 0.00 Explore the world
+	T 0.00 ​Flights to Egypt
+	T 0.00 ​Flights to Bulgaria
+	T 0.00 ​Flights to the Dominican Republic
+	T 0.00 ​Flights to Finland
+	T 0.00 ​Flights to Greece
+	T 0.00 ​Flights to Ireland
+	T 0.00 ​Flights to Iceland
+	T 0.00 ​Flights to Italy
+	T 0.00 ​Flights to Canada
+	T 0.00 ​Flights to Kenya
+	T 0.00 ​Flights to Croatia
+	T 0.00 ​Flights to the Maldives
+	T 0.00 ​Flights to Morocco
+	T 0.00 ​Flights to Mauritius
+	T 0.00 ​Flights to Mexico
+	T 0.00 ​Flights to Namibia
+	T 0.00 ​Flights to Norway
+	T 0.00 ​Flights to Portugal
+	T 0.00 ​Flights to the Seychelles
+	T 0.00 ​Flights to Spain
+	T 0.00 ​Flights to Tanzania
+	T 0.00 ​Flights to Tunisia
+	T 0.00 ​Flights to the USA
+	T 0.00 ​Flights to Cyprus
+	T 0.00 Fly from Frankfurt
+	T 0.00 ​Flight from Frankfurt to Burgas
+	T 0.00 ​Flight from Frankfurt to Varna
+	T 0.00 ​Flight from Frankfurt to Kittilä
+	T 0.00 ​Flight from Frankfurt to Chania
+	T 0.00 ​Flight from Frankfurt to Kalamata
+	T 0.00 ​Flight from Frankfurt to Kefalonia
+	T 0.00 ​Flight from Frankfurt to Kos
+	T 0.00 ​Flight from Frankfurt to Rhodes
+	T 0.00 ​Flight from Frankfurt to Santorini
+	T 0.00 ​Flight from Frankfurt to Skiathos
+	T 0.00 ​Flight from Frankfurt to Zakynthos
+	T 0.00 ​Flight from Frankfurt to Shannon
+	T 0.00 ​Flight from Frankfurt to Bari
+	T 0.00 ​Flight from Frankfurt to Brindisi
+	T 0.00 ​Flight from Frankfurt to Dubrovnik
+	T 0.00 ​Flight from Frankfurt to Split
+	T 0.00 ​Flight from Frankfurt to Zadar
+	T 0.00 ​Flight from Frankfurt to Alta
+	T 0.00 ​Flight from Frankfurt to Bodø
+	T 0.00 ​Flight from Frankfurt to Evenes
+	T 0.00 ​Flight from Frankfurt to Funchal
+	T 0.00 ​Flight from Frankfurt to Fuerteventura
+	T 0.00 ​Flight from Frankfurt to Gran Canaria
+	T 0.00 ​Flight from Frankfurt to Ibiza
+	T 0.00 ​Flight from Frankfurt to Jerez de la Frontera
+	T 0.00 ​Flight from Frankfurt to Mombasa
+	T 0.00 ​Flight from Frankfurt to Agadir
+	T 0.00 ​Flight from Frankfurt to Mauritius
+	T 0.00 ​Flight from Frankfurt to Kilimanjaro
+	T 0.00 ​Flight from Frankfurt to Djerba
+	T 0.00 ​Flight from Frankfurt to the Maldives
+	T 0.00 ​Flight from Frankfurt to Cyprus
+	T 0.00 ​Flight from Frankfurt to Halifax
+	T 0.00 ​Flight from Frankfurt to Philadelphia
+	T 0.00 ​Flight from Frankfurt to Fort Myers
+	T 0.00 Fly from Munich
+	T 0.00 ​Flight from Munich to Reykjavik
+	T 0.00 ​Flight from Munich to Ivalo
+	T 0.00 ​Flight from Munich to Bodø
+	T 0.00 ​Flight from Munich to Varna
+	T 0.00 ​Flight from Munich to Burgas
+	T 0.00 ​Flight from Munich to Corfu
+	T 0.00 ​Flight from Munich to Zakynthos
+	T 0.00 ​Flight from Munich to Heraklion
+	T 0.00 ​Flight from Munich to Samos
+	T 0.00 ​Flight from Munich to Cyprus
+	T 0.00 ​Flight from Munich to Menorca
+	T 0.00 ​Flight from Munich to Fez
+	T 0.00 ​Flight from Munich to Marrakech
+	T 0.00 ​Flight from Munich to Lanzarote
+	T 0.00 ​Flight from Munich to Tenerife
+	T 0.00 ​Flight from Munich to Madeira
+	T 0.00 ​Flight from Munich to Windhoek
+	T 0.00 ​Flight from Munich to Calgary
+	T 0.00 ​Flight from Munich to Orlando
+	T 0.00 ​Flight from Munich to Punta Cana
+	T 0.00 The prices displayed may vary and should serve as a guide for your selected journey. The prices apply to round or one way trips according to your selection. The end price is subject to change depending on the selected payment option. Seats are limited and may not be available on all days/flights. Th
+	T 0.00 Login now and benefit:
+	T 0.00 Quick and easy flight booking
+	T 0.00 Your bookings at a glance
+	T 0.00 Personalized offers
+	T 0.00 Here for the first time?
+	T 0.00 Register now
+	L /xx/en/book/flights/offers
+	L /de/en/book/flights/offers
+	L /de/en/book/destination
+	L /de/en/new-destinations
+	L /de/en/discover/ocean-blue
+	L /de/en//book/destination
+	L /de/en/culinaryjourney
+	L /de/en/book/special-requests/pets
+	L /de/en/book/baggage
+	L /de/en/my-bookings/services/upgrades
+	L /lhg/de/en/dest/c/egypt
+	L /lhg/de/en/dest/c/bulgaria
+	L /lhg/de/en/dest/c/dominican-republic
+	L /lhg/de/en/dest/c/finland
+	L /lhg/de/en/dest/c/greece
+	L /lhg/de/en/dest/c/ireland
+	L /lhg/de/en/dest/c/iceland
+	L /lhg/de/en/dest/c/italy
+	L /lhg/de/en/dest/c/canada
+	L /lhg/de/en/dest/c/kenya
+	L /lhg/de/en/dest/c/croatia
+	L /lhg/de/en/dest/c/maldives
+	L /lhg/de/en/dest/c/morocco
+	L /lhg/de/en/dest/c/mauritius
+	L /lhg/de/en/dest/c/mexico
+	L /lhg/de/en/dest/c/namibia
+	L /lhg/de/en/dest/c/norway
+	L /lhg/de/en/dest/c/portugal
+	L /lhg/de/en/dest/c/seychelles
+	L /lhg/de/en/dest/c/spain
+	L /lhg/de/en/dest/c/tanzania
+	L /lhg/de/en/dest/c/tunisia
+	L /lhg/de/en/dest/c/usa
+	L /lhg/de/en/dest/c/cyprus
+	L /lhg/de/en/o-d/cy-cy/frankfurt-burgas
+	L /lhg/de/en/o-d/cy-cy/frankfurt-kittila
+	L /lhg/de/en/o-d/cy-cy/frankfurt-chania
+	L /lhg/de/en/o-d/cy-cy/frankfurt-kalamata
+	L /lhg/de/en/o-d/cy-cy/frankfurt-kefalonia
+	L /lhg/de/en/o-d/cy-cy/frankfurt-kos
+	L /lhg/de/en/o-d/cy-cy/frankfurt-rhodes
+	L /lhg/de/en/o-d/cy-cy/frankfurt-santorini
+	L /lhg/de/en/o-d/cy-cy/frankfurt-skiathos
+	L /lhg/de/en/o-d/cy-cy/frankfurt-zakynthos-island
+	L /lhg/de/en/o-d/cy-cy/frankfurt-shannon
+	L /lhg/de/en/o-d/cy-cy/frankfurt-bari
+	L /lhg/de/en/o-d/cy-cy/frankfurt-brindisi
+	L /lhg/de/en/o-d/cy-cy/frankfurt-dubrovnik
+	L /lhg/de/en/o-d/cy-cy/frankfurt-split
+	L /lhg/de/en/o-d/cy-cy/frankfurt-zadar
+	L /lhg/de/en/o-d/cy-cy/frankfurt-alta
+	L /lhg/de/en/o-d/cy-cy/frankfurt-bodo
+	L /lhg/de/en/o-d/cy-cy/frankfurt-harstad-narvik-evenes
+	L /lhg/de/en/o-d/cy-cy/frankfurt-funchal-madeira
+	L /lhg/de/en/o-d/cy-cy/frankfurt-fuerteventura
+	L /lhg/de/en/o-d/cy-cy/frankfurt-gran-canaria
+	L /lhg/de/en/o-d/cy-cy/frankfurt-ibiza
+	L /lhg/de/en/o-d/cy-cy/frankfurt-jerez-de-la-frontera
+	L /lhg/de/en/o-d/cy-cy/frankfurt-mombasa
+	L /lhg/de/en/o-d/cy-cy/frankfurt-agadir
+	L /lhg/de/en/o-d/cy-cy/frankfurt-mahebourg-mauritius
+	L /lhg/de/en/o-d/cy-cy/frankfurt-kilimanjaro
+	L /lhg/de/en/o-d/cy-cy/frankfurt-djerba
+	L /lhg/de/en/o-d/cy-cy/frankfurt-male-maldives
+	L /lhg/de/en/o-d/cy-cy/frankfurt-larnaca-cyprus
+	L /lhg/de/en/o-d/cy-cy/frankfurt-halifax
+	L /lhg/de/en/o-d/cy-cy/frankfurt-philadelphia
+	L /lhg/de/en/o-d/cy-cy/frankfurt-fort-myers
+	L /lhg/de/en/o-d/cy-cy/munich-reykjavik
+	L /lhg/de/en/o-d/cy-cy/munich-ivalo
+	L /lhg/de/en/o-d/cy-cy/munich-bodo
+	L /lhg/de/en/o-d/cy-cy/munich-varna
+	L /lhg/de/en/o-d/cy-cy/munich-burgas
+	L /lhg/de/en/o-d/cy-cy/munich-corfu
+	L /lhg/de/en/o-d/cy-cy/munich-zakynthos-island
+	L /lhg/de/en/o-d/cy-cy/munich-heraklion-crete
+	L /lhg/de/en/o-d/cy-cy/munich-samos
+	L /lhg/de/en/o-d/cy-cy/munich-larnaca-cyprus
+	L /lhg/de/en/o-d/cy-cy/munich-mahon-menorca
+	L /lhg/de/en/o-d/cy-cy/munich-fez
+	L /lhg/de/en/o-d/cy-cy/munich-marrakesh
+	L /lhg/de/en/o-d/cy-cy/munich-lanzarote
+	L /lhg/de/en/o-d/cy-cy/munich-tenerife
+	L /lhg/de/en/o-d/cy-cy/munich-funchal-madeira
+	L /lhg/de/en/o-d/cy-cy/munich-windhoek
+	L /lhg/de/en/o-d/cy-cy/munich-calgary
+	L /lhg/de/en/o-d/cy-cy/munich-orlando
+	L /lhg/de/en/o-d/cy-cy/munich-punta-cana
+	L /content/four-y/markets/de/en
+	L api.travelid.discover-airlines.com/oauth2/authorize
+	L lufthansa.miles-and-more.com/web/row/en/enrolment.html
+none flagged	discover	/de/en/my-bookings/check-in	discover-parity-001	0 segments (0 words) and 0 links missing
+not a loss	discover	/de/en/my-bookings/check-in/check-in-at-the-airport	discover-parity-001	3 segments (6 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 International airports
+	T 0.00 Duration 1:09
+	T 0.00 Loaded: 6.26%
+LOSS	discover	/de/en/my-bookings/manage/customer-service	discover-parity-001	1 segments (20 words) and 1 links missing	LOSS: "Partially used tickets will be refunded proportionally. You can find all the information about your rights as a passenger here." (ours keeps only the link 'here' as a list item; delta-so26-discover-lost-content.txt)
+	T 0.00 Partially used tickets will be refunded proportionally. You can find all the information about your rights as a passenger ​here.
+	L /de/en/my-bookings/manage/customer-service
+none flagged	discover	/de/en/my-bookings/services/additional-services	discover-parity-001	0 segments (0 words) and 0 links missing
+none flagged	discover	/de/en/travel-inspiration/inspiration/destinations/punta-cana	discover-parity-001	0 segments (0 words) and 0 links missing
+not a loss	discover	/de/en/travel-inspiration/inspiration/destinations/santorini	discover-parity-001	2 segments (4 words) and 0 links missing	tab and filter labels our page draws from its section metadata (on the rendered page), www's video player controls, and the 'Konditionen' modal link (finish-b2b.txt)
+	T 0.00 Bathing
+	T 0.00 Walking & hiking
+none flagged	swiss	/ch/de/book-and-manage/overview-extra-services	swiss-parity-001	0 segments (0 words) and 0 links missing
+none flagged	swiss	/ch/de/book-and-manage/overview-manage	swiss-parity-001	0 segments (0 words) and 0 links missing
+not a loss	swiss	/ch/de/customer-support/contact-us	swiss-parity-001	5 segments (20 words) and 0 links missing	widgets from www's services: the chat assistant ('Charlie'), form and date-picker controls, the search box ('0/100'), and the chat's privacy link
+	T 0.00 Home
+	T 0.00 Suchen
+	T 0.00 0/100
+	T 0.00 Hier finden Sie Antworten auf die häufigsten Fragen zu unseren Services, Richtlinien und mehr.
+	T 0.00 Zu den FAQs
+none flagged	swiss	/ch/de/discover/overview-inspiration	swiss-parity-001	0 segments (0 words) and 0 links missing
+none flagged	swiss	/ch/de/fly/on-board	swiss-parity-001	0 segments (0 words) and 0 links missing
+none flagged	swiss	/ch/de/fly/on-board/travel-classes	swiss-parity-001	0 segments (0 words) and 0 links missing
+not a loss	swiss	/ch/de/homepage	swiss-parity-001	35 segments (148 words) and 7 links missing	widgets from www's services (flight search, fare teasers and the offers grid: 'Round trip from', 'Show more') and www's market links (/content/.../markets/...)
+	T 0.00 Zur Flugsuche
+	T 0.00 Hinflug - Rückflug
+	T 0.00 Flüge suchen
+	T 0.00 Bis zum 8. November buchen und vom Angebot profitieren
+	T 0.00 CHF 40 sparen mit dem Code NOV40
+	T 0.00 Stunden
+	T 0.00 Minuten
+	T 0.00 Jetzt sichern
+	T 0.00 Hin-und Rückflug abCHF 763
+	T 0.00 Hin-und Rückflug abCHF 110
+	T 0.00 Hin-und Rückflug abCHF 209
+	T 0.00 Hin-und Rückflug abCHF 112
+	T 0.00 Hin-und Rückflug abCHF 131
+	T 0.00 Hin-und Rückflug abCHF 864
+	T 0.00 mehr anzeigen
+	T 0.00 Sommerflugplan 2027
+	T 0.00 Entdecken Sie unsere neuen Destinationen ab Zürich im Sommer 2027
+	T 0.00 Zu unseren Destinationen
+	T 0.00 Cash & Miles Angebot
+	T 0.00 Jetzt Nordamerika buchen und bis zu 30 % Meilen sparen
+	T 0.00 Jetzt buchen
+	T 0.00 Travel ID
+	T 0.00 Grenzenloser Zugang zu den Lufthansa Group Airlines und Miles & More
+	T 0.00 cp-compactteaser-pos4-gc-travelid-102626
+	T 0.00 Düsseldorf
+	T 0.00 Reisedetails
+	T 0.00 Meilen einlösen
+	T 0.00 Alternative Tarifoptionen
+	T 0.00 Welche Tarifvorteile sind Ihnen wichtiger?
+	T 0.00 Bestpreisangebote
+	T 0.00 Reihenfolge meiner Flüge ändern
+	T 0.00 Flexibilität bzw. höchste Buchungsklasse, um mehr Meilen zu sammeln
+	T 0.00 Zugangscode
+	T 0.00 Dieses Feld ist nur für Zugangscodes. Falls Sie einen Aktionscode haben, können Sie diesen später im Buchungsprozess eingeben, bevor Sie zur Zahlung übergehen.
+	T 0.00 Speichern
+	L /content/lx/markets/ch/de/fly/flight-information/current-information
+	L /xx/de/offers
+	L /ch/de/local-page/november-sale-2026
+	L /ch/de/book-and-manage/destination
+	L /ch/de/customer-support/faq/payment-options/cash-and-miles
+	L /ch/de/profile/travel-id
+	L /content/lx/markets/ch/de/book-and-manage/corporate-customers/group-travel-and-charter/group-travel
+none flagged	swiss	/ch/de/prepare/overview-flights	swiss-parity-001	0 segments (0 words) and 0 links missing
+none flagged	swiss	/ch/de/prepare/overview-travel-information	swiss-parity-001	0 segments (0 words) and 0 links missing
+none flagged	swiss	/ch/de/prepare/special-care	swiss-parity-001	0 segments (0 words) and 0 links missing
+none flagged	swiss	/ch/en/book-and-manage	swiss-parity-005	0 segments (0 words) and 0 links missing
+none flagged	swiss	/ch/en/book-and-manage/overview-extra-services	swiss-parity-001	0 segments (0 words) and 0 links missing
+none flagged	swiss	/ch/en/book-and-manage/overview-manage	swiss-parity-001	0 segments (0 words) and 0 links missing
+not a loss	swiss	/ch/en/customer-support/contact-us	swiss-parity-001	4 segments (19 words) and 0 links missing	widgets from www's services: the chat assistant ('Charlie'), form and date-picker controls, the search box ('0/100'), and the chat's privacy link
+	T 0.00 Search
+	T 0.00 0/100
+	T 0.00 Get answers to the most frequently asked questions about our services, policies and more.
+	T 0.00 Go to FAQs
+none flagged	swiss	/ch/en/discover/overview-inspiration	swiss-parity-001	0 segments (0 words) and 0 links missing
+none flagged	swiss	/ch/en/fly/on-board	swiss-parity-001	0 segments (0 words) and 0 links missing
+none flagged	swiss	/ch/en/fly/on-board/travel-classes	swiss-parity-001	0 segments (0 words) and 0 links missing
+not a loss	swiss	/ch/en/help-center	swiss-parity-003	4 segments (19 words) and 0 links missing	widgets from www's services: the chat assistant ('Charlie'), form and date-picker controls, the search box ('0/100'), and the chat's privacy link
+	T 0.00 Search
+	T 0.00 0/100
+	T 0.00 Get answers to the most frequently asked questions about our services, policies and more.
+	T 0.00 Go to FAQs
+not a loss	swiss	/ch/en/homepage	swiss-parity-008	47 segments (195 words) and 10 links missing	widgets from www's services (flight search, fare teasers and the offers grid: 'Round trip from', 'Show more') and www's market links (/content/.../markets/...)
+	T 0.00 Go to flight search
+	T 0.00 Family time, far away
+	T 0.00 Up to 50% off for kids
+	T 0.00 Round trip fromCHF 571
+	T 0.00 Round trip fromCHF 733
+	T 0.00 Round trip fromCHF 868
+	T 0.00 Seoul
+	T 0.00 Round trip fromCHF 862
+	T 0.00 Windhoek
+	T 0.00 Round trip fromCHF 934
+	T 0.00 Las Palmas
+	T 0.00 Round trip fromCHF 365
+	T 0.00 Show more
+	T 0.00 Summer timetable 2027
+	T 0.00 Discover our new destinations from Zurich for summer 2027
+	T 0.00 To our destinations
+	T 0.00 -15% to Europe with code GVAEU15
+	T 0.00 Discover Europe this winter from Geneva and enjoy 15% off selected Economy fares
+	T 0.00 Secure now
+	T 0.00 Travel ID
+	T 0.00 Enjoy unlimited access to Lufthansa Group Airlines and Miles & More
+	T 0.00 To Travel ID
+	T 0.00 Cash & Miles promotion
+	T 0.00 Book North America now and save up to 30% on miles
+	T 0.00 Round trip fromCHF 139*
+	T 0.00 Round trip fromCHF 209*
+	T 0.00 Round trip fromCHF 112*
+	T 0.00 Round trip fromCHF 142*
+	T 0.00 Round trip fromCHF 733*
+	T 0.00 Round trip fromCHF 131*
+	T 0.00 Round trip fromCHF 110*
+	T 0.00 Round trip fromCHF 233*
+	T 0.00 Round trip fromCHF 169*
+	T 0.00 Round trip fromCHF 120*
+	T 0.00 Round trip fromCHF 129*
+	T 0.00 Round trip fromCHF 160*
+	T 0.00 Dusseldorf
+	T 0.00 Round trip fromCHF 136*
+	T 0.00 Round trip fromCHF 589*
+	T 0.00 Travel details
+	T 0.00 Redeem miles
+	T 0.00 Login now and benefit:
+	T 0.00 Quick and easy flight booking
+	T 0.00 Your bookings at a glance
+	T 0.00 Personalized offers
+	T 0.00 Here for the first time?
+	T 0.00 Register now
+	L /content/lx/markets/ch/en/fly/flight-information/current-information
+	L /xx/en/offers
+	L /content/lx/markets/ch/en/local-page/family-promo-2026
+	L /ch/en/book-and-manage/destination
+	L /ch/en/local-page/gva-eu-sale-2026
+	L /ch/en/profile/travel-id
+	L /ch/en/customer-support/faq/payment-options/cash-and-miles
+	L /content/lx/markets/ch/en/book-and-manage/corporate-customers/group-travel-and-charter/group-travel
+	L api.travelid.swiss.com/oauth2/authorize
+	L swiss.miles-and-more.com/web/row/en/enrolment.html
+not a loss	swiss	/ch/en/offers	swiss-parity-008	944 segments (2351 words) and 3 links missing	widgets from www's services (flight search, fare teasers and the offers grid: 'Round trip from', 'Show more') and www's market links (/content/.../markets/...)
+	T 0.00 Filter
+	T 0.00 Where to fly
+	T 0.00 Add as many cities, countries and/or regions as you wish
+	T 0.00 Nothing matches the entered query
+	T 0.00 Budget
+	T 0.00 Max: CHF 1,703
+	T 0.00 Month
+	T 0.00 Nov 2026
+	T 0.00 Dec 2026
+	T 0.00 Jan 2027
+	T 0.00 Feb 2027
+	T 0.00 Mar 2027
+	T 0.00 Apr 2027
+	T 0.00 May 2027
+	T 0.00 Jun 2027
+	T 0.00 Jul 2027
+	T 0.00 Aug 2027
+	T 0.00 Sep 2027
+	T 0.00 Oct 2027
+	T 0.00 Stops
+	T 0.00 Filters for stops and flight carrier affect only what destinations are displayed, it does not affect the price display: we always show the lowest price available for Lufthansa Group and our partners.Filters for stops and flight carrier affect only what destinations are displayed, it does not affect 
+	T 0.00 Airline
+	T 0.00 All partners
+	T 0.00 SWISS only
+	T 0.00 Type of trip
+	T 0.00 One-way
+	T 0.00 Activities
+	T 0.00 More information
+	T 0.00 Filters
+	T 0.00 Sort by
+	T 0.00 Recommended
+	T 0.00 Price
+	T 0.00 Alphabet
+	T 0.00 Smart destination search
+	T 0.00 Badge Recommended
+	T 0.00 Las Palmas
+	T 0.00 Round trip fromCHF 365*
+	T 0.00 Chicago
+	T 0.00 Round trip fromCHF 506*
+	T 0.00 Bangkok
+	T 0.00 Round trip fromCHF 733*
+	T 0.00 Seoul
+	T 0.00 Round trip fromCHF 784*
+	T 0.00 Buenos Aires
+	T 0.00 Round trip fromCHF 910*
+	T 0.00 Windhoek
+	T 0.00 Namibia
+	T 0.00 Round trip fromCHF 928*
+	T 0.00 Geneva
+	T 0.00 Round trip fromCHF 109*
+	T 0.00 Palma de Mallorca
+	T 0.00 Round trip fromCHF 110*
+	T 0.00 Barcelona
+	T 0.00 Round trip fromCHF 112*
+	T 0.00 Belgrade
+	T 0.00 Round trip fromCHF 120*
+	T 0.00 Athens
+	T 0.00 Round trip fromCHF 125*
+	T 0.00 Rome
+	T 0.00 Round trip fromCHF 129*
+	T 0.00 Klagenfurt
+	T 0.00 Round trip fromCHF 130*
+	T 0.00 Lisbon
+	T 0.00 Round trip fromCHF 131*
+	T 0.00 Innsbruck
+	T 0.00 Round trip fromCHF 133*
+	T 0.00 Turin
+	T 0.00 Ancona
+	T 0.00 Linz
+	T 0.00 Manchester, GB
+	T 0.00 Round trip fromCHF 135*
+	T 0.00 Porto
+	T 0.00 Round trip fromCHF 136*
+	T 0.00 Madrid
+	T 0.00 Round trip fromCHF 137*
+	T 0.00 Verona
+	T 0.00 Round trip fromCHF 138*
+	T 0.00 Kosice
+	T 0.00 Slovakia
+	T 0.00 Round trip fromCHF 139*
+	T 0.00 London
+	T 0.00 Dublin
+	T 0.00 Round trip fromCHF 141*
+	T 0.00 Round trip fromCHF 142*
+	T 0.00 Lyon
+	T 0.00 Round trip fromCHF 144*
+	T 0.00 Palermo
+	T 0.00 Round trip fromCHF 146*
+	T 0.00 Valencia
+	T 0.00 Round trip fromCHF 149*
+	T 0.00 Cologne
+	T 0.00 Brindisi
+	T 0.00 Round trip fromCHF 152*
+	T 0.00 Shannon
+	T 0.00 Naples
+	T 0.00 Round trip fromCHF 156*
+	T 0.00 Bordeaux
+	T 0.00 Bourgas
+	T 0.00 Round trip fromCHF 157*
+	T 0.00 Genoa
+	T 0.00 Bucharest
+	T 0.00 Round trip fromCHF 158*
+	T 0.00 Sofia
+	T 0.00 Biarritz - Pays Basque
+	T 0.00 Round trip fromCHF 159*
+	T 0.00 Prague
+	T 0.00 Trieste
+	T 0.00 Round trip fromCHF 160*
+	T 0.00 Dusseldorf
+	T 0.00 Hamburg
+	T 0.00 Lamezia Terme
+	T 0.00 Round trip fromCHF 161*
+	T 0.00 Reggio Calabria
+	T 0.00 Dubrovnik
+	T 0.00 Round trip fromCHF 162*
+	T 0.00 Round trip fromCHF 163*
+	T 0.00 Pisa
+	T 0.00 Cluj
+	T 0.00 Round trip fromCHF 164*
+	T 0.00 Tirana
+	T 0.00 Round trip fromCHF 165*
+	T 0.00 Bari
+	T 0.00 Trondheim
+	T 0.00 Round trip fromCHF 166*
+	T 0.00 Muenster-Osnabrueck
+	T 0.00 Round trip fromCHF 167*
+	T 0.00 Catania
+	T 0.00 Round trip fromCHF 168*
+	T 0.00 Nantes
+	T 0.00 Sarajevo
+	T 0.00 Bosnia-Herzegovina
+	T 0.00 Round trip fromCHF 169*
+	T 0.00 Alicante
+	T 0.00 Stuttgart
+	T 0.00 Round trip fromCHF 170*
+	T 0.00 Frankfurt
+	T 0.00 Round trip fromCHF 171*
+	T 0.00 Goteborg
+	T 0.00 Graz
+	T 0.00 Nuremberg
+	T 0.00 Round trip fromCHF 172*
+	T 0.00 Bastia
+	T 0.00 Round trip fromCHF 173*
+	T 0.00 Algiers
+	T 0.00 Algeria
+	T 0.00 Round trip fromCHF 175*
+	T 0.00 Vilnius
+	T 0.00 Round trip fromCHF 178*
+	T 0.00 Budapest
+	T 0.00 Dresden
+	T 0.00 Warsaw
+	T 0.00 Round trip fromCHF 179*
+	T 0.00 Venice
+	T 0.00 Tallinn
+	T 0.00 Round trip fromCHF 181*
+	T 0.00 Bologna
+	T 0.00 Riga
+	T 0.00 Latvia
+	T 0.00 Round trip fromCHF 183*
+	T 0.00 Gdansk
+	T 0.00 Round trip fromCHF 184*
+	T 0.00 Rijeka - Island Krk
+	T 0.00 Poznan
+	T 0.00 Round trip fromCHF 186*
+	T 0.00 Krakow
+	T 0.00 Round trip fromCHF 187*
+	T 0.00 Round trip fromCHF 189*
+	T 0.00 Nice
+	T 0.00 Bodo
+	T 0.00 Round trip fromCHF 190*
+	T 0.00 Ibiza
+	T 0.00 Birmingham, GB
+	T 0.00 Round trip fromCHF 191*
+	T 0.00 Cagliari
+	T 0.00 Round trip fromCHF 193*
+	T 0.00 Bremen
+	T 0.00 Pantelleria
+	T 0.00 Round trip fromCHF 195*
+	T 0.00 Asturias
+	T 0.00 Round trip fromCHF 196*
+	T 0.00 Milan
+	T 0.00 Wroclaw
+	T 0.00 Paris
+	T 0.00 Round trip fromCHF 197*
+	T 0.00 Zagreb
+	T 0.00 Casablanca
+	T 0.00 Morocco
+	T 0.00 Round trip fromCHF 198*
+	T 0.00 Alghero
+	T 0.00 Tunis
+	T 0.00 Tunisia
+	T 0.00 Ljubljana
+	T 0.00 Round trip fromCHF 199*
+	T 0.00 Thessaloniki
+	T 0.00 Round trip fromCHF 200*
+	T 0.00 Brussels
+	T 0.00 Pristina
+	T 0.00 Istanbul
+	T 0.00 Turkey
+	T 0.00 Round trip fromCHF 201*
+	T 0.00 Split
+	T 0.00 Timisoara
+	T 0.00 Round trip fromCHF 202*
+	T 0.00 Helsinki
+	T 0.00 Finland
+	T 0.00 Round trip fromCHF 203*
+	T 0.00 Round trip fromCHF 205*
+	T 0.00 Mahon/Menorca
+	T 0.00 Round trip fromCHF 206*
+	T 0.00 Sibiu
+	T 0.00 Munich
+	T 0.00 Monastir
+	T 0.00 Yerevan
+	T 0.00 Armenia
+	T 0.00 Round trip fromCHF 208*
+	T 0.00 Olbia
+	T 0.00 Florence
+	T 0.00 Round trip fromCHF 209*
+	T 0.00 Marseille
+	T 0.00 Edinburgh
+	T 0.00 Vienna
+	T 0.00 Bristol
+	T 0.00 Round trip fromCHF 215*
+	T 0.00 Chisinau
+	T 0.00 Moldova
+	T 0.00 Round trip fromCHF 218*
+	T 0.00 Westerland/ Sylt
+	T 0.00 Round trip fromCHF 222*
+	T 0.00 Zadar
+	T 0.00 Round trip fromCHF 225*
+	T 0.00 Paphos
+	T 0.00 Cyprus
+	T 0.00 Round trip fromCHF 227*
+	T 0.00 Leipzig/ Halle
+	T 0.00 Round trip fromCHF 230*
+	T 0.00 Skopje
+	T 0.00 Santiago de Compostela
+	T 0.00 Round trip fromCHF 231*
+	T 0.00 Amsterdam
+	T 0.00 Round trip fromCHF 233*
+	T 0.00 Antalya
+	T 0.00 Round trip fromCHF 235*
+	T 0.00 Toulouse
+	T 0.00 Round trip fromCHF 236*
+	T 0.00 Heraklion
+	T 0.00 Round trip fromCHF 239*
+	T 0.00 Podgorica
+	T 0.00 Montenegro
+	T 0.00 Round trip fromCHF 240*
+	T 0.00 Kemi/Tornio
+	T 0.00 Round trip fromCHF 243*
+	T 0.00 Bilbao
+	T 0.00 Salzburg
+	T 0.00 Copenhagen
+	T 0.00 Round trip fromCHF 244*
+	T 0.00 Pula
+	T 0.00 Stockholm
+	T 0.00 Seville
+	T 0.00 Round trip fromCHF 246*
+	T 0.00 Mykonos
+	T 0.00 Round trip fromCHF 247*
+	T 0.00 Oslo
+	T 0.00 Tivat
+	T 0.00 Round trip fromCHF 249*
+	T 0.00 Billund
+	T 0.00 Round trip fromCHF 251*
+	T 0.00 Hannover
+	T 0.00 Montpellier
+	T 0.00 Marrakech
+	T 0.00 Round trip fromCHF 256*
+	T 0.00 Kalmar
+	T 0.00 Round trip fromCHF 259*
+	T 0.00 Kefalonia
+	T 0.00 Round trip fromCHF 263*
+	T 0.00 Calvi
+	T 0.00 Round trip fromCHF 267*
+	T 0.00 Jersey
+	T 0.00 Alesund
+	T 0.00 Round trip fromCHF 271*
+	T 0.00 Kerkyra/Corfu
+	T 0.00 Lemnos
+	T 0.00 Round trip fromCHF 273*
+	T 0.00 Newquay
+	T 0.00 Round trip fromCHF 276*
+	T 0.00 Bydgoszcz
+	T 0.00 Lesbos / Mytilini
+	T 0.00 Round trip fromCHF 278*
+	T 0.00 Heringsdorf
+	T 0.00 Round trip fromCHF 279*
+	T 0.00 Cork
+	T 0.00 Round trip fromCHF 281*
+	T 0.00 Kavala
+	T 0.00 Round trip fromCHF 282*
+	T 0.00 Rzeszow
+	T 0.00 Round trip fromCHF 283*
+	T 0.00 Ohrid
+	T 0.00 Round trip fromCHF 286*
+	T 0.00 Figari
+	T 0.00 Round trip fromCHF 288*
+	T 0.00 Faro
+	T 0.00 Round trip fromCHF 289*
+	T 0.00 Glasgow
+	T 0.00 Round trip fromCHF 290*
+	T 0.00 Bergen
+	T 0.00 Round trip fromCHF 293*
+	T 0.00 Thira/Santorini
+	T 0.00 Larnaca
+	T 0.00 Round trip fromCHF 298*
+	T 0.00 Round trip fromCHF 300*
+	T 0.00 Bodrum
+	T 0.00 Round trip fromCHF 304*
+	T 0.00 Djerba
+	T 0.00 Katowice
+	T 0.00 Round trip fromCHF 305*
+	T 0.00 Tenerife
+	T 0.00 Round trip fromCHF 313*
+	T 0.00 Lanzarote
+	T 0.00 Round trip fromCHF 317*
+	T 0.00 Zakinthos Island
+	T 0.00 Round trip fromCHF 318*
+	T 0.00 Agadir
+	T 0.00 Round trip fromCHF 319*
+	T 0.00 Funchal/Madeira
+	T 0.00 Round trip fromCHF 323*
+	T 0.00 Baku
+	T 0.00 Azerbaijan
+	T 0.00 Round trip fromCHF 325*
+	T 0.00 Jerez de la Frontera
+	T 0.00 Round trip fromCHF 328*
+	T 0.00 Chania
+	T 0.00 Round trip fromCHF 329*
+	T 0.00 Varna
+	T 0.00 Rhodes
+	T 0.00 Round trip fromCHF 330*
+	T 0.00 Dubai
+	T 0.00 Tromso
+	T 0.00 Round trip fromCHF 337*
+	T 0.00 Kalamata
+	T 0.00 Round trip fromCHF 346*
+	T 0.00 Tel Aviv
+	T 0.00 Round trip fromCHF 349*
+	T 0.00 Fuerteventura
+	T 0.00 Round trip fromCHF 350*
+	T 0.00 Newcastle
+	T 0.00 Round trip fromCHF 357*
+	T 0.00 Samos
+	T 0.00 Round trip fromCHF 364*
+	T 0.00 Stavanger
+	T 0.00 Terceira
+	T 0.00 Round trip fromCHF 366*
+	T 0.00 Karpathos
+	T 0.00 Round trip fromCHF 367*
+	T 0.00 Skiathos
+	T 0.00 Round trip fromCHF 374*
+	T 0.00 Dalaman
+	T 0.00 Round trip fromCHF 377*
+	T 0.00 Cairo
+	T 0.00 Round trip fromCHF 380*
+	T 0.00 Beirut
+	T 0.00 Lebanon
+	T 0.00 Round trip fromCHF 386*
+	T 0.00 Kuusamo
+	T 0.00 Round trip fromCHF 389*
+	T 0.00 Preveza/Lefkada
+	T 0.00 Round trip fromCHF 393*
+	T 0.00 Ponta Delgada
+	T 0.00 Round trip fromCHF 395*
+	T 0.00 Nador
+	T 0.00 Round trip fromCHF 411*
+	T 0.00 Hurghada
+	T 0.00 Round trip fromCHF 417*
+	T 0.00 Reykjavik
+	T 0.00 Iceland
+	T 0.00 Harstad-Narvik, Lofoten
+	T 0.00 Round trip fromCHF 418*
+	T 0.00 Kittila-Yllas, Lapland
+	T 0.00 Round trip fromCHF 445*
+	T 0.00 La Palma/Santa Cruz
+	T 0.00 Round trip fromCHF 447*
+	T 0.00 Tbilisi
+	T 0.00 Round trip fromCHF 459*
+	T 0.00 Lulea
+	T 0.00 Round trip fromCHF 480*
+	T 0.00 Ivalo
+	T 0.00 Round trip fromCHF 486*
+	T 0.00 Toronto
+	T 0.00 Round trip fromCHF 487*
+	T 0.00 Kristiansand
+	T 0.00 Round trip fromCHF 490*
+	T 0.00 Dakar
+	T 0.00 Senegal
+	T 0.00 Round trip fromCHF 497*
+	T 0.00 Marsa Alam
+	T 0.00 Sharm el-Sheik
+	T 0.00 Round trip fromCHF 499*
+	T 0.00 Luxor
+	T 0.00 Conakry
+	T 0.00 Guinea
+	T 0.00 Round trip fromCHF 503*
+	T 0.00 Boston
+	T 0.00 Round trip fromCHF 505*
+	T 0.00 Rovaniemi
+	T 0.00 Round trip fromCHF 507*
+	T 0.00 Aalborg
+	T 0.00 Round trip fromCHF 508*
+	T 0.00 Riyadh
+	T 0.00 Saudi Arabia
+	T 0.00 Round trip fromCHF 512*
+	T 0.00 New York
+	T 0.00 Round trip fromCHF 519*
+	T 0.00 Longyearbyen
+	T 0.00 Round trip fromCHF 531*
+	T 0.00 Aarhus
+	T 0.00 Round trip fromCHF 538*
+	T 0.00 Kiruna
+	T 0.00 Washington D.C.
+	T 0.00 Round trip fromCHF 541*
+	T 0.00 Ostersund
+	T 0.00 Round trip fromCHF 544*
+	T 0.00 Umea
+	T 0.00 Skelleftea
+	T 0.00 Round trip fromCHF 545*
+	T 0.00 Tehran
+	T 0.00 Iran
+	T 0.00 Round trip fromCHF 554*
+	T 0.00 Jeddah
+	T 0.00 Round trip fromCHF 562*
+	T 0.00 Entebbe
+	T 0.00 Uganda
+	T 0.00 Round trip fromCHF 565*
+	T 0.00 Giza
+	T 0.00 Round trip fromCHF 568*
+	T 0.00 Kuwait
+	T 0.00 Round trip fromCHF 576*
+	T 0.00 Winnipeg
+	T 0.00 Round trip fromCHF 587*
+	T 0.00 Miami
+	T 0.00 Round trip fromCHF 589*
+	T 0.00 Los Angeles
+	T 0.00 Erbil
+	T 0.00 Iraq
+	T 0.00 Round trip fromCHF 594*
+	T 0.00 Fort Lauderdale
+	T 0.00 Round trip fromCHF 598*
+	T 0.00 Santa Ana
+	T 0.00 Amman
+	T 0.00 Jordan
+	T 0.00 Round trip fromCHF 600*
+	T 0.00 Penang
+	T 0.00 Malaysia
+	T 0.00 Round trip fromCHF 604*
+	T 0.00 Accra
+	T 0.00 Ghana
+	T 0.00 Round trip fromCHF 614*
+	T 0.00 San Francisco
+	T 0.00 Round trip fromCHF 631*
+	T 0.00 Muscat
+	T 0.00 Round trip fromCHF 632*
+	T 0.00 Nairobi
+	T 0.00 Round trip fromCHF 635*
+	T 0.00 Cotonou
+	T 0.00 Benin
+	T 0.00 Round trip fromCHF 639*
+	T 0.00 Atlanta
+	T 0.00 Round trip fromCHF 641*
+	T 0.00 Montreal
+	T 0.00 Quebec
+	T 0.00 Round trip fromCHF 647*
+	T 0.00 Philadelphia
+	T 0.00 Round trip fromCHF 651*
+	T 0.00 Ottawa
+	T 0.00 Round trip fromCHF 652*
+	T 0.00 Almaty
+	T 0.00 Kazakhstan
+	T 0.00 Round trip fromCHF 659*
+	T 0.00 Addis Ababa
+	T 0.00 Ethiopia
+	T 0.00 Round trip fromCHF 660*
+	T 0.00 Dallas/ Fort Worth
+	T 0.00 Round trip fromCHF 664*
+	T 0.00 Charlotte
+	T 0.00 Round trip fromCHF 666*
+	T 0.00 Lome
+	T 0.00 Togo
+	T 0.00 Round trip fromCHF 672*
+	T 0.00 Seattle
+	T 0.00 Tampa
+	T 0.00 Round trip fromCHF 674*
+	T 0.00 Pensacola
+	T 0.00 Round trip fromCHF 677*
+	T 0.00 Sarasota/Bradenton
+	T 0.00 Jacksonville, FL
+	T 0.00 Delhi
+	T 0.00 Round trip fromCHF 679*
+	T 0.00 Chennai
+	T 0.00 Round trip fromCHF 686*
+	T 0.00 Orlando
+	T 0.00 Round trip fromCHF 689*
+	T 0.00 Pittsburgh
+	T 0.00 Round trip fromCHF 690*
+	T 0.00 Fort Myers
+	T 0.00 Round trip fromCHF 691*
+	T 0.00 Bengaluru
+	T 0.00 Round trip fromCHF 692*
+	T 0.00 Halifax
+	T 0.00 Round trip fromCHF 696*
+	T 0.00 Columbus, OH
+	T 0.00 Round trip fromCHF 706*
+	T 0.00 Cincinnati
+	T 0.00 Round trip fromCHF 708*
+	T 0.00 Richmond
+	T 0.00 Round trip fromCHF 709*
+	T 0.00 Norfolk
+	T 0.00 Louisville, KY
+	T 0.00 Round trip fromCHF 710*
+	T 0.00 Cleveland
+	T 0.00 Abu Dhabi
+	T 0.00 Round trip fromCHF 711*
+	T 0.00 Astana
+	T 0.00 Round trip fromCHF 712*
+	T 0.00 Dammam
+	T 0.00 Houston
+	T 0.00 Round trip fromCHF 713*
+	T 0.00 Dayton
+	T 0.00 Round trip fromCHF 716*
+	T 0.00 Mumbai
+	T 0.00 Round trip fromCHF 717*
+	T 0.00 Kigali
+	T 0.00 Rwanda
+	T 0.00 Round trip fromCHF 718*
+	T 0.00 Las Vegas
+	T 0.00 Birmingham, AL
+	T 0.00 Little Rock
+	T 0.00 Columbia, SC
+	T 0.00 Round trip fromCHF 719*
+	T 0.00 Chattanooga
+	T 0.00 Memphis
+	T 0.00 Fayetteville, AR
+	T 0.00 Asheville
+	T 0.00 Savannah
+	T 0.00 Charleston, SC
+	T 0.00 Round trip fromCHF 720*
+	T 0.00 Knoxville
+	T 0.00 Huntsville
+	T 0.00 Greenville
+	T 0.00 Indianapolis
+	T 0.00 Round trip fromCHF 721*
+	T 0.00 Nashville
+	T 0.00 St. Louis
+	T 0.00 Round trip fromCHF 723*
+	T 0.00 Jakarta
+	T 0.00 Indonesia
+	T 0.00 Round trip fromCHF 727*
+	T 0.00 San Juan
+	T 0.00 Puerto Rico
+	T 0.00 Round trip fromCHF 729*
+	T 0.00 Rochester
+	T 0.00 Round trip fromCHF 736*
+	T 0.00 Syracuse
+	T 0.00 Buffalo
+	T 0.00 Round trip fromCHF 737*
+	T 0.00 St. John's, CA
+	T 0.00 Round trip fromCHF 741*
+	T 0.00 Cebu
+	T 0.00 Philippines
+	T 0.00 Shenyang
+	T 0.00 Round trip fromCHF 742*
+	T 0.00 Banjul
+	T 0.00 Gambia
+	T 0.00 Round trip fromCHF 744*
+	T 0.00 San Diego
+	T 0.00 Round trip fromCHF 751*
+	T 0.00 Guayaquil
+	T 0.00 Ecuador
+	T 0.00 Round trip fromCHF 759*
+	T 0.00 Kuala Lumpur
+	T 0.00 Ouagadougou
+	T 0.00 Burkina Faso
+	T 0.00 Cancun
+	T 0.00 Mexico
+	T 0.00 Round trip fromCHF 764*
+	T 0.00 Mexico City
+	T 0.00 Round trip fromCHF 765*
+	T 0.00 Guatemala
+	T 0.00 Round trip fromCHF 767*
+	T 0.00 Albuquerque
+	T 0.00 Grand Junction
+	T 0.00 El Paso
+	T 0.00 Wichita
+	T 0.00 Round trip fromCHF 768*
+	T 0.00 Tulsa
+	T 0.00 Corpus Christi
+	T 0.00 Oklahoma City
+	T 0.00 Aspen
+	T 0.00 Santa Fe
+	T 0.00 San Antonio
+	T 0.00 Round trip fromCHF 769*
+	T 0.00 New Orleans
+	T 0.00 Round trip fromCHF 770*
+	T 0.00 Colorado Springs
+	T 0.00 Portland, OR
+	T 0.00 Salt Lake City
+	T 0.00 Bogotá
+	T 0.00 Colombia
+	T 0.00 Round trip fromCHF 771*
+	T 0.00 Grand Rapids
+	T 0.00 Traverse City
+	T 0.00 Round trip fromCHF 773*
+	T 0.00 Kansas City, MO
+	T 0.00 Sao Paulo
+	T 0.00 Round trip fromCHF 777*
+	T 0.00 Phoenix
+	T 0.00 Denver
+	T 0.00 Round trip fromCHF 778*
+	T 0.00 Denpasar
+	T 0.00 Round trip fromCHF 781*
+	T 0.00 Raleigh, Durham
+	T 0.00 Round trip fromCHF 782*
+	T 0.00 Hyderabad
+	T 0.00 Detroit
+	T 0.00 Round trip fromCHF 783*
+	T 0.00 San Jose, Costa Rica
+	T 0.00 Costa Rica
+	T 0.00 Vancouver
+	T 0.00 Salvador
+	T 0.00 Round trip fromCHF 786*
+	T 0.00 Kilimanjaro
+	T 0.00 Round trip fromCHF 798*
+	T 0.00 Quito
+	T 0.00 Round trip fromCHF 802*
+	T 0.00 Anchorage
+	T 0.00 Round trip fromCHF 808*
+	T 0.00 San Salvador
+	T 0.00 El Salvador
+	T 0.00 Liberia
+	T 0.00 Round trip fromCHF 811*
+	T 0.00 Minneapolis
+	T 0.00 Round trip fromCHF 817*
+	T 0.00 Calgary
+	T 0.00 Austin, TX
+	T 0.00 Monrovia
+	T 0.00 Round trip fromCHF 818*
+	T 0.00 Panama, PA
+	T 0.00 Panama
+	T 0.00 Round trip fromCHF 820*
+	T 0.00 Edmonton
+	T 0.00 Round trip fromCHF 821*
+	T 0.00 Monterrey, MX
+	T 0.00 Round trip fromCHF 824*
+	T 0.00 Abidjan
+	T 0.00 Cote d'Ivoire
+	T 0.00 Round trip fromCHF 825*
+	T 0.00 Guadalajara
+	T 0.00 Round trip fromCHF 826*
+	T 0.00 Colombo
+	T 0.00 Sri Lanka
+	T 0.00 Round trip fromCHF 832*
+	T 0.00 Mombasa
+	T 0.00 Round trip fromCHF 834*
+	T 0.00 Palm Springs
+	T 0.00 Round trip fromCHF 842*
+	T 0.00 Reno
+	T 0.00 Round trip fromCHF 843*
+	T 0.00 Redding
+	T 0.00 Tucson
+	T 0.00 Santa Barbara
+	T 0.00 Sacramento
+	T 0.00 Round trip fromCHF 844*
+	T 0.00 Pune
+	T 0.00 Round trip fromCHF 845*
+	T 0.00 Yaounde
+	T 0.00 Cameroon
+	T 0.00 Round trip fromCHF 849*
+	T 0.00 Santo Domingo
+	T 0.00 Dominican Republic
+	T 0.00 Round trip fromCHF 851*
+	T 0.00 Fortaleza
+	T 0.00 Recife
+	T 0.00 Abuja
+	T 0.00 Nigeria
+	T 0.00 Round trip fromCHF 855*
+	T 0.00 Rio de Janeiro
+	T 0.00 Round trip fromCHF 856*
+	T 0.00 Eugene
+	T 0.00 Round trip fromCHF 860*
+	T 0.00 Manila
+	T 0.00 Bozeman
+	T 0.00 Round trip fromCHF 862*
+	T 0.00 Spokane
+	T 0.00 Billings
+	T 0.00 Boise
+	T 0.00 Round trip fromCHF 863*
+	T 0.00 Round trip fromCHF 864*
+	T 0.00 Omaha
+	T 0.00 Round trip fromCHF 865*
+	T 0.00 Madison
+	T 0.00 Round trip fromCHF 866*
+	T 0.00 Des Moines
+	T 0.00 San Jose del Cabo
+	T 0.00 Male
+	T 0.00 Maldives
+	T 0.00 Green Bay
+	T 0.00 Round trip fromCHF 867*
+	T 0.00 Cedar Rapids
+	T 0.00 Sioux Falls
+	T 0.00 Zanzibar
+	T 0.00 Lincoln
+	T 0.00 Beijing
+	T 0.00 Round trip fromCHF 868*
+	T 0.00 Nanaimo
+	T 0.00 Round trip fromCHF 872*
+	T 0.00 Brasilia
+	T 0.00 Round trip fromCHF 873*
+	T 0.00 Belo Horizonte
+	T 0.00 Porto Alegre
+	T 0.00 Round trip fromCHF 877*
+	T 0.00 Kelowna
+	T 0.00 Round trip fromCHF 881*
+	T 0.00 Victoria, BC
+	T 0.00 Round trip fromCHF 882*
+	T 0.00 Navegantes
+	T 0.00 Round trip fromCHF 885*
+	T 0.00 Kochi, IN
+	T 0.00 Round trip fromCHF 890*
+	T 0.00 Sal Island
+	T 0.00 Cape Verde Islands
+	T 0.00 Round trip fromCHF 895*
+	T 0.00 Praia
+	T 0.00 Akureyri
+	T 0.00 Lima
+	T 0.00 Peru
+	T 0.00 Round trip fromCHF 896*
+	T 0.00 Florianopolis
+	T 0.00 Round trip fromCHF 906*
+	T 0.00 Douala
+	T 0.00 Round trip fromCHF 908*
+	T 0.00 Johannesburg
+	T 0.00 Round trip fromCHF 912*
+	T 0.00 Bujumbura
+	T 0.00 Burundi
+	T 0.00 Kahului
+	T 0.00 Ahmedabad
+	T 0.00 Round trip fromCHF 913*
+	T 0.00 Puerto Vallarta
+	T 0.00 Round trip fromCHF 914*
+	T 0.00 Honolulu
+	T 0.00 Round trip fromCHF 916*
+	T 0.00 Kauai Island
+	T 0.00 Kona
+	T 0.00 Terrace
+	T 0.00 Punta Cana
+	T 0.00 Round trip fromCHF 918*
+	T 0.00 Shanghai
+	T 0.00 Round trip fromCHF 919*
+	T 0.00 Montego Bay
+	T 0.00 Jamaica
+	T 0.00 Round trip fromCHF 926*
+	T 0.00 Kinshasa
+	T 0.00 Democratic Republic of Congo
+	T 0.00 Round trip fromCHF 934*
+	T 0.00 Oaxaca
+	T 0.00 Round trip fromCHF 936*
+	T 0.00 Kolkata
+	T 0.00 Round trip fromCHF 951*
+	T 0.00 Phuket
+	T 0.00 Round trip fromCHF 954*
+	T 0.00 Medellin
+	T 0.00 Round trip fromCHF 960*
+	T 0.00 Cali
+	T 0.00 Round trip fromCHF 961*
+	T 0.00 Lagos
+	T 0.00 Round trip fromCHF 963*
+	T 0.00 Freetown
+	T 0.00 Sierra Leone
+	T 0.00 Round trip fromCHF 965*
+	T 0.00 Santa Marta
+	T 0.00 Pereira
+	T 0.00 Montevideo
+	T 0.00 Uruguay
+	T 0.00 Round trip fromCHF 968*
+	T 0.00 Lucknow
+	T 0.00 Barranquilla
+	T 0.00 Round trip fromCHF 977*
+	T 0.00 Puerto Plata
+	T 0.00 Round trip fromCHF 979*
+	T 0.00 Natal
+	T 0.00 Round trip fromCHF 985*
+	T 0.00 Mahe Island
+	T 0.00 Seychelles
+	T 0.00 Round trip fromCHF 988*
+	T 0.00 Asuncion
+	T 0.00 Paraguay
+	T 0.00 Round trip fromCHF 993*
+	T 0.00 Bhubaneswar
+	T 0.00 Round trip fromCHF 1,001*
+	T 0.00 Cape Town
+	T 0.00 Round trip fromCHF 1,002*
+	T 0.00 Hanoi
+	T 0.00 Vietnam
+	T 0.00 Round trip fromCHF 1,019*
+	T 0.00 Ko Samui
+	T 0.00 Round trip fromCHF 1,031*
+	T 0.00 Ho Chi Minh City
+	T 0.00 Round trip fromCHF 1,050*
+	T 0.00 Port Harcourt
+	T 0.00 Round trip fromCHF 1,052*
+	T 0.00 East London
+	T 0.00 Round trip fromCHF 1,055*
+	T 0.00 Port Elizabeth
+	T 0.00 George
+	T 0.00 Iguassu Falls
+	T 0.00 Round trip fromCHF 1,058*
+	T 0.00 Luanda
+	T 0.00 Angola
+	T 0.00 Round trip fromCHF 1,059*
+	T 0.00 Hoedspruit
+	T 0.00 Round trip fromCHF 1,060*
+	T 0.00 Goiania
+	T 0.00 Round trip fromCHF 1,061*
+	T 0.00 Durban
+	T 0.00 Round trip fromCHF 1,062*
+	T 0.00 Chapeco
+	T 0.00 Round trip fromCHF 1,066*
+	T 0.00 Campo Grande
+	T 0.00 Round trip fromCHF 1,068*
+	T 0.00 Mauritius
+	T 0.00 Round trip fromCHF 1,069*
+	T 0.00 Cuiaba
+	T 0.00 Round trip fromCHF 1,070*
+	T 0.00 Curitiba
+	T 0.00 Sao Luiz
+	T 0.00 Maceio
+	T 0.00 Aracaju
+	T 0.00 Cartagena
+	T 0.00 Joao Pessoa
+	T 0.00 Havanna
+	T 0.00 Cuba
+	T 0.00 Round trip fromCHF 1,071*
+	T 0.00 Vitoria
+	T 0.00 Round trip fromCHF 1,075*
+	T 0.00 Mendoza
+	T 0.00 Round trip fromCHF 1,079*
+	T 0.00 Bahrain
+	T 0.00 Round trip fromCHF 1,081*
+	T 0.00 Porto Seguro
+	T 0.00 Round trip fromCHF 1,083*
+	T 0.00 Uberlandia
+	T 0.00 Round trip fromCHF 1,084*
+	T 0.00 Londrina
+	T 0.00 Round trip fromCHF 1,088*
+	T 0.00 Maringa
+	T 0.00 Round trip fromCHF 1,099*
+	T 0.00 Cordoba
+	T 0.00 Round trip fromCHF 1,110*
+	T 0.00 Santa Cruz
+	T 0.00 Bolivia
+	T 0.00 Round trip fromCHF 1,114*
+	T 0.00 Tokyo
+	T 0.00 Round trip fromCHF 1,116*
+	T 0.00 Nanjing
+	T 0.00 Nassau
+	T 0.00 Bahamas
+	T 0.00 Round trip fromCHF 1,117*
+	T 0.00 Chiang Mai
+	T 0.00 Round trip fromCHF 1,130*
+	T 0.00 Chiang Rai
+	T 0.00 Round trip fromCHF 1,131*
+	T 0.00 Krabi
+	T 0.00 Ilheus
+	T 0.00 Round trip fromCHF 1,140*
+	T 0.00 Manaus
+	T 0.00 Osaka
+	T 0.00 Round trip fromCHF 1,143*
+	T 0.00 Fukuoka
+	T 0.00 Round trip fromCHF 1,147*
+	T 0.00 Okinawa
+	T 0.00 Round trip fromCHF 1,149*
+	T 0.00 Hiroshima
+	T 0.00 Round trip fromCHF 1,150*
+	T 0.00 Nagoya
+	T 0.00 Sapporo
+	T 0.00 Round trip fromCHF 1,152*
+	T 0.00 Harare
+	T 0.00 Zimbabwe
+	T 0.00 Round trip fromCHF 1,181*
+	T 0.00 Taipei
+	T 0.00 Taiwan, China
+	T 0.00 Round trip fromCHF 1,204*
+	T 0.00 Pietermaritzburg
+	T 0.00 Round trip fromCHF 1,208*
+	T 0.00 Round trip fromCHF 1,246*
+	T 0.00 Santiago
+	T 0.00 Chile
+	T 0.00 Round trip fromCHF 1,267*
+	T 0.00 Victoria Falls
+	T 0.00 Round trip fromCHF 1,329*
+	T 0.00 Perth
+	T 0.00 Round trip fromCHF 1,341*
+	T 0.00 Maun
+	T 0.00 Botswana
+	T 0.00 Round trip fromCHF 1,344*
+	T 0.00 Maputo
+	T 0.00 Mozambique
+	T 0.00 Round trip fromCHF 1,345*
+	T 0.00 Brisbane
+	T 0.00 Round trip fromCHF 1,357*
+	T 0.00 Melbourne
+	T 0.00 Round trip fromCHF 1,359*
+	T 0.00 Adelaide
+	T 0.00 Round trip fromCHF 1,364*
+	T 0.00 Sydney
+	T 0.00 Round trip fromCHF 1,372*
+	T 0.00 Darwin
+	T 0.00 Round trip fromCHF 1,383*
+	T 0.00 Vilanculos
+	T 0.00 Round trip fromCHF 1,398*
+	T 0.00 Christchurch
+	T 0.00 New Zealand
+	T 0.00 Round trip fromCHF 1,411*
+	T 0.00 Kasane
+	T 0.00 Round trip fromCHF 1,423*
+	T 0.00 Auckland
+	T 0.00 Round trip fromCHF 1,436*
+	T 0.00 Lusaka
+	T 0.00 Zambia
+	T 0.00 Bulawayo
+	T 0.00 Round trip fromCHF 1,438*
+	T 0.00 La Paz, BO
+	T 0.00 Round trip fromCHF 1,466*
+	T 0.00 Cairns
+	T 0.00 Round trip fromCHF 1,562*
+	T 0.00 Kathmandu
+	T 0.00 Nepal
+	T 0.00 Round trip fromCHF 1,584*
+	T 0.00 Wellington
+	T 0.00 Round trip fromCHF 1,703*
+	T 0.00 General Conditions
+	T 0.00 Share
+	T 0.00 Log in to save destinations
+	T 0.00 Keep your favorite destinations
+	T 0.00 Get personalized travel recommendations
+	T 0.00 Here for the first time?
+	T 0.00 Register now
+	T 0.00 The prices displayed may vary and should serve as a guide for your selected journey. The prices apply to round or one way trips according to your selection. The end price is subject to change depending on the selected payment option. Seats are limited and may not be available on all days/flights. Th
+	L /ch/en/book-and-manage/smart-destination-search
+	L api.travelid.swiss.com/oauth2/authorize
+	L lufthansa.miles-and-more.com/web/row/en/enrolment.html
+none flagged	swiss	/ch/en/prepare	swiss-parity-005	0 segments (0 words) and 0 links missing
+none flagged	swiss	/ch/en/prepare/overview-flights	swiss-parity-001	0 segments (0 words) and 0 links missing
+none flagged	swiss	/ch/en/prepare/overview-travel-information	swiss-parity-001	0 segments (0 words) and 0 links missing
+none flagged	swiss	/ch/en/prepare/special-care	swiss-parity-001	0 segments (0 words) and 0 links missing
+not a loss	swiss	/magazine/de	swiss-parity-001	13 segments (107 words) and 14 links missing	lists our page draws from the index (the teasers' titles and links are on the rendered page), self links and anchors
+	T 0.00 Pilot. Präsident. Wegbereiter: Pete im Einsatz für die SWISS Kinderstiftung
+	T 0.00 Flugbetrieb zum Zuschauen: eine Airline als «gläserne Fabrik»
+	T 0.00 Von Mumbai nach Zürich: Leelas Reise in die Schweiz
+	T 0.00 Die Kunst hinter unserem Signature Cocktail SWISS Alpine Essence: Im Gespräch mit Bartenderin Sarah Madritsch
+	T 0.00 Eine neue Kabine für «Bellinzona»: Zu Besuch beim A330-Retrofit in Hongkong
+	T 0.00 Fünf Tipps für 48 Stunden in Bengaluru
+	T 0.00 Paris für kleine und grosse Flaneure
+	T 0.00 Keine pinken Arbeitshemden: Businessetikette in Japan
+	T 0.00 Advertorial
+	T 0.00 SWISS Snow Team setzt auf das Schweizer Unternehmen Stöckli
+	T 0.00 Lauberhornrennen: Was die Fernsehkamera nicht zeigt
+	T 0.00 Wo die Schweiz bruncht: Lieblingsadressen für entspannte Wochenenden
+	T 0.00 Best of Switzerland: Eine Reise durch die Schweiz am Flughafen Zürich
+	L /magazine/de/space-holder
+	L /magazine/de/reisen/reisegeschichten/in-full-color-bengaluru-with-nidhhi-agerwal-
+	L /magazine/de/inside-swiss/sustainability/pilot-president-driving-force-pete-laasner-and-his-commitment
+	L /magazine/de/inside-swiss/behind-the-scenes/flugbetrieb-zum-zuschauen-eine-airline-als-glaeserne-fabrik-
+	L /magazine/de/inside-swiss/behind-the-scenes/from-mumbai-to-zurich-leela-s-journey-to-switzerland
+	L /magazine/de/inside-swiss/swiss-experience/swiss-signature-cocktail
+	L /magazine/de/inside-swiss/behind-the-scenes/a330-retrofit-in-hongkong
+	L /magazine/de/reisen/reisegeschichten/fuenf-tipps-fuer-48-stunden-in-bengaluru
+	L /magazine/de/reisen/destinationen/paris-fuer-kleine-und-grosse-flaneure-
+	L /magazine/de/reisen/lifestyle/business-travel-in-japan
+	L /magazine/de/switzerland/art-culture/swiss-snow-team-setzt-auf-das-schweizer-unternehmen-stoeckli
+	L /magazine/de/switzerland/art-culture/lauberhornrennen-was-die-fernsehkamera-nicht-zeigt
+	L /magazine/de/switzerland/culinary/wo-die-schweiz-bruncht-lieblingsadressen-fuer-entspannte-wochen
+	L /magazine/de/switzerland/discover-switzerland/best-of-switzerland-eine-reise-durch-die-schweiz-am-flughafen-z
+not a loss	swiss	/magazine/de/inside-swiss/behind-the-scenes/a350-special-livery	swiss-parity-001	9 segments (47 words) and 7 links missing	lists our page draws from the index (the teasers' titles and links are on the rendered page), self links and anchors
+	T 0.00 Magazine
+	T 0.00 SWISS Magazine
+	T 0.00 Sonderlackierung auf Airbus A350
+	T 0.00 #FlySWISS
+	T 0.00 #Flotte
+	T 0.00 Flugbetrieb zum Zuschauen: eine Airline als «gläserne Fabrik»
+	T 0.00 Von Mumbai nach Zürich: Leelas Reise in die Schweiz
+	T 0.00 Eine neue Kabine für «Bellinzona»: Zu Besuch beim A330-Retrofit in Hongkong
+	T 0.00 Wenn der Kaffee ausfällt: Wie digitale Maintenance im Hintergrund reagiert
+	L /magazine/de/space-holder
+	L /magazine/de/tags
+	L /magazine/de/inside-swiss/behind-the-scenes/at-home-around-the-world-20-years-swiss
+	L /magazine/de/inside-swiss/behind-the-scenes/flugbetrieb-zum-zuschauen-eine-airline-als-glaeserne-fabrik-
+	L /magazine/de/inside-swiss/behind-the-scenes/from-mumbai-to-zurich-leela-s-journey-to-switzerland
+	L /magazine/de/inside-swiss/behind-the-scenes/a330-retrofit-in-hongkong
+	L /magazine/de/inside-swiss/behind-the-scenes/when-the-coffee-maker-stops-working-how-digital-maintenance-res
+not a loss	swiss	/magazine/en	swiss-parity-001	13 segments (117 words) and 14 links missing	lists our page draws from the index (the teasers' titles and links are on the rendered page), self links and anchors
+	T 0.00 Pilot. President. Driving Force: Pete and his commitment to the SWISS Staff Foundation for Children in Need
+	T 0.00 Flight operations on display: An airline as a “glass factory”
+	T 0.00 From Mumbai to Zurich: Leela’s journey to Switzerland
+	T 0.00 Crafting our signature cocktail SWISS Alpine Essence: A conversation with bartender Sarah Madritsch
+	T 0.00 A new cabin for “Bellinzona”: visiting the A330 retrofit in Hong Kong
+	T 0.00 My five tips for 48 hours in Bengaluru
+	T 0.00 A family stroll through Paris
+	T 0.00 No pink dress shirts: business etiquette in Japan
+	T 0.00 Advertorial
+	T 0.00 SWISS Snow Team Partners with Swiss Company Stöckli
+	T 0.00 Lauberhorn races: what the TV cameras don’t show
+	T 0.00 Charming brunch spots for laid-back weekends in Swiss cities
+	T 0.00 Best of Switzerland: A journey through Switzerland at Zurich Airport
+	L /magazine/en/space-holder
+	L /magazine/en/travel/travel-stories/in-full-color-bengaluru-with-nidhhi-agerwal-
+	L /magazine/en/inside-swiss/sustainability/pilot-president-driving-force-pete-laasner-and-his-commitment
+	L /magazine/en/inside-swiss/behind-the-scenes/flugbetrieb-zum-zuschauen-eine-airline-als-glaeserne-fabrik-
+	L /magazine/en/inside-swiss/behind-the-scenes/from-mumbai-to-zurich-leela-s-journey-to-switzerland
+	L /magazine/en/inside-swiss/swiss-experience/swiss-signature-cocktail
+	L /magazine/en/inside-swiss/behind-the-scenes/a330-retrofit-in-hongkong
+	L /magazine/en/travel/travel-stories/fuenf-tipps-fuer-48-stunden-in-bengaluru
+	L /magazine/en/travel/destinations/paris-fuer-kleine-und-grosse-flaneure-
+	L /magazine/en/travel/lifestyle/business-travel-in-japan
+	L /magazine/en/switzerland/art-culture/swiss-snow-team-setzt-auf-das-schweizer-unternehmen-stoeckli
+	L /magazine/en/switzerland/art-culture/lauberhornrennen-was-die-fernsehkamera-nicht-zeigt
+	L /magazine/en/switzerland/culinary/wo-die-schweiz-bruncht-lieblingsadressen-fuer-entspannte-wochen
+	L /magazine/en/switzerland/discover-switzerland/best-of-switzerland-eine-reise-durch-die-schweiz-am-flughafen-z
+not a loss	swiss	/magazine/en/inside-swiss/behind-the-scenes/a350-special-livery	swiss-parity-001	9 segments (52 words) and 7 links missing	lists our page draws from the index (the teasers' titles and links are on the rendered page), self links and anchors
+	T 0.00 Magazine
+	T 0.00 SWISS Magazine
+	T 0.00 Special Airbus A350 livery
+	T 0.00 #FlySWISS
+	T 0.00 #Fleet
+	T 0.00 Flight operations on display: An airline as a “glass factory”
+	T 0.00 From Mumbai to Zurich: Leela’s journey to Switzerland
+	T 0.00 A new cabin for “Bellinzona”: visiting the A330 retrofit in Hong Kong
+	T 0.00 When the coffee maker stops working: How digital maintenance responds behind the scenes
+	L /magazine/en/space-holder
+	L /magazine/en/tags
+	L /magazine/en/inside-swiss/behind-the-scenes/at-home-around-the-world-20-years-swiss
+	L /magazine/en/inside-swiss/behind-the-scenes/flugbetrieb-zum-zuschauen-eine-airline-als-glaeserne-fabrik-
+	L /magazine/en/inside-swiss/behind-the-scenes/from-mumbai-to-zurich-leela-s-journey-to-switzerland
+	L /magazine/en/inside-swiss/behind-the-scenes/a330-retrofit-in-hongkong
+	L /magazine/en/inside-swiss/behind-the-scenes/when-the-coffee-maker-stops-working-how-digital-maintenance-res

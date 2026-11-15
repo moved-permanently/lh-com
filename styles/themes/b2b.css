@@ -1062,3 +1062,12 @@ body.brand-b2b main .columns-media-wrapper:has(> .columns-media.sidebar > div > 
 body.brand-b2b main > .section > .default-content-wrapper:has(+ .columns-media-wrapper > .columns-media.background-video):has(+ .columns-media-wrapper + .default-content-wrapper + .columns-media-wrapper > .columns-media.sidebar) > h1 + p.column-mark.column-start-outer:last-child {
   padding-top: 0;
 }
+
+/* standing order 26 of ema-lufthansa (2026-11-15): below 768px a button label that does not fit wraps instead of hiding its
+   end behind the base button's ellipsis, as Brussels' rule (cut-labels-so26.txt: one recorded B2B page, Allegris
+   intermediaries' "Advance seat reservation" factsheet button at 390) */
+@media (width < 768px) {
+  body.brand-b2b :is(a.button:any-link, button.button) {
+    white-space: normal;
+  }
+}

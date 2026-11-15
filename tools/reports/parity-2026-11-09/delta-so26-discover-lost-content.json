@@ -1,0 +1,16 @@
+{
+  "/de/en/my-bookings/manage/customer-service": [
+    {
+      "from": "<li><a href=\"/de/en/legal/passenger-rights\">here</a></li> </ul>",
+      "to": "</ul><p>Partially used tickets will be refunded proportionally. You can find all the information about your rights as a passenger <a href=\"/de/en/legal/passenger-rights\">here</a>.</p>",
+      "count": 1
+    }
+  ],
+  "/de/de/my-bookings/manage/customer-service": [
+    {
+      "from": "<li><a href=\"/de/de/legal/passenger-rights\">Hier</a></li> </ul>",
+      "to": "</ul><p>Teilweise genutzte Tickets werden anteilig erstattet. <a href=\"/de/de/legal/passenger-rights\">Hier</a> finden Sie alle Informationen zu Ihren Fluggastrechten.</p>",
+      "count": 1
+    }
+  ]
+}
