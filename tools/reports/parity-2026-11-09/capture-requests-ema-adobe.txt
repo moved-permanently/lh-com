@@ -22,3 +22,14 @@
 # their 21.8 % (explore-flying) and 17.4 % (explore-the-world) at 390 measure live data, not layout.
 /de/en/articles/explore-flying
 /de/en/articles/explore-the-world
+# Standing order 28 (2026-11-15), item 2: delta-so28-title-padded-lh-com.txt's documents without a recording, each at
+# 1440 and 390 (first loads), to gate their rows on their own pages (only /de/en/free2move is recorded).
+/de/de/free2move
+/at/de/free2move
+/gb/en/free2move
+/fr/fr/free2move
+/xx/es/free2move
+/xx/fr/free2move
+/fr/fr/digital-travel-companion
+/xx/es/digital-travel-companion
+/xx/fr/digital-travel-companion

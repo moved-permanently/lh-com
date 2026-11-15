@@ -1,0 +1,23 @@
+# Standing order 28 (2026-11-15), item 3: /<cc>/<ll>/during-your-trip/lhg-wifi (not ema-lufthansa's Group for Business
+# page /de/en/travel-solutions/lufthansa-group-wifi). www has the stage, a padded AEM section without .mb-default (the
+# intro with its button) and another padded one ("Your benefits at a glance"): only their paddings between the button and
+# that heading, 58px at 390; ours 102 (our section gap on top).
+# Expected change, per document: the section right after the stage (the intro, "New high-speed connectivity...") gets
+# style flush. Nothing else changes.
+# Tool: tools/importer/section-style-apply.mjs {heading, add}. The importer writes it since this list's commit
+# (lufthansa-sections, test/info-stage-padded-flush-so28; info pages).
+# Census (www's snapshots, info pages: a stage, a padded AEM section without .mb-default, another padded one): 20 pages,
+# lhg-wifi, internet-overview, economy-class, first-class-terminal, flynet (de/en, de/de, at/de, gb/en). The importer
+# change against HEAD on the 750 info snapshots: those 20 change, by that flush only (and order 28's title split).
+# Rows for the lhg-wifi documents only: drafts with the flush on the others (economy-class, first-class-terminal on both
+# its spots, internet-overview; flynet is not recorded) read the same as today, so they need no row.
+# Dry run (read-only GETs): DA's copies and the published copies, every row placed. The other lhg-wifi versions (fr/fr
+# and the xx languages) have no www snapshot here: no row.
+# Gate (drafts of the published de/en copy, against lh-parity-002a): 13.5 / 10.3 -> 12.2 / 10.0 % at 390 / 1440; the
+# same flush on economy-class, first-class-terminal and internet-overview: the same at both widths (gate.mjs passes over
+# the 8 page-widths).
+# status	document	tool	expected change	gate
+READY	/de/en/during-your-trip/lhg-wifi	section-style-apply {"heading": "New high-speed connectivity – wherever y", "add": "flush"}	the intro section after the stage flush	draft 13.5 / 10.3 -> 12.2 / 10.0 at 390 / 1440
+READY	/de/de/during-your-trip/lhg-wifi	section-style-apply {"heading": "Schnelle Verbindung an jedem Sitzplatz", "add": "flush"}	the intro section after the stage flush	not recorded (the same sections as de/en)
+READY	/at/de/during-your-trip/lhg-wifi	section-style-apply {"heading": "Schnelle Verbindung an jedem Sitzplatz", "add": "flush"}	the intro section after the stage flush	not recorded (the same sections as de/en)
+READY	/gb/en/during-your-trip/lhg-wifi	section-style-apply {"heading": "New high-speed connectivity – wherever y", "add": "flush"}	the intro section after the stage flush	not recorded (the same sections as de/en)

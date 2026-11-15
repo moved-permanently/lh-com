@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-austrian-hero-banner.js
-  var tmp_bundle_austrian_hero_banner_1183500_exports = {};
-  __export(tmp_bundle_austrian_hero_banner_1183500_exports, {
-    default: () => tmp_bundle_austrian_hero_banner_1183500_default
+  var tmp_bundle_austrian_hero_banner_1471119_exports = {};
+  __export(tmp_bundle_austrian_hero_banner_1471119_exports, {
+    default: () => tmp_bundle_austrian_hero_banner_1471119_default
   });
 
   // tools/importer/parsers/aem-path-map.js
@@ -7790,6 +7790,14 @@ var CustomImportScript = (() => {
         hr.setAttribute(SOURCE_STYLE, "padded");
         first.before(hr);
       }
+      const pageTitle = document.querySelector(".contentpage > .container-fluid h1");
+      const firstContent = first && first.querySelector(":scope > div > .section-content");
+      const opensWithImage = !!firstContent && !!firstContent.firstElementChild && firstContent.firstElementChild.matches(".image");
+      if (lufthansa && (template.name === "info" || template.base === "info") && pageTitle && first && !first.contains(pageTitle) && padded(first) && !grey(first) && !isStage(first) && opensWithImage && !(first.previousElementSibling && first.previousElementSibling.hasAttribute(BREAK))) {
+        const hr = createBreak(document);
+        hr.setAttribute(SOURCE_STYLE, "padded");
+        first.before(hr);
+      }
       const stage = (s) => !!s.querySelector(":scope > div > .section-content > .inspirationteaser");
       aemSections.forEach((s, i) => {
         if (!stage(s)) return;
@@ -7804,7 +7812,11 @@ var CustomImportScript = (() => {
         const start = createBreak(document);
         start.setAttribute(SOURCE_STYLE, styles.join(" "));
         s.before(start);
-        if (next) next.before(createBreak(document));
+        if (!next) return;
+        const after = createBreak(document);
+        const twoPadded = aemSections[i + 2];
+        if (lufthansa && template.name === "info" && padded(next) && !grey(next) && !stage(next) && !next.querySelector(":scope > .mb-default") && twoPadded && padded(twoPadded) && !grey(twoPadded) && !stage(twoPadded)) after.setAttribute(SOURCE_STYLE, "flush");
+        next.before(after);
       });
       if (lufthansa && (["fleet", "info"].includes(template.name) || ["fleet", "info"].includes(template.base))) {
         aemSections.forEach((s, i) => {
@@ -9403,7 +9415,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_austrian_hero_banner_1183500_default = {
+  var tmp_bundle_austrian_hero_banner_1471119_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9443,5 +9455,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_austrian_hero_banner_1183500_exports);
+  return __toCommonJS(tmp_bundle_austrian_hero_banner_1471119_exports);
 })();

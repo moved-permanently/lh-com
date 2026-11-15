@@ -494,6 +494,20 @@ export default function transform(hookName, element, payload) {
       hr.setAttribute(SOURCE_STYLE, 'padded');
       first.before(hr);
     }
+    // (standing order 28) the page title outside the AEM sections (.contentpage's own h1: free2move,
+    // digital-travel-companion) and a padded first AEM section that opens with an image: www draws that section's top
+    // padding between the title and the picture. The AEM section starts a section of its own with style padded
+    // (lufthansa.com's info pages; /de/en/free2move drafted 17.7 / 13.0 -> 4.8 / 8.4 % at 1440 / 390)
+    const pageTitle = document.querySelector('.contentpage > .container-fluid h1');
+    const firstContent = first && first.querySelector(':scope > div > .section-content');
+    const opensWithImage = !!firstContent && !!firstContent.firstElementChild && firstContent.firstElementChild.matches('.image');
+    if (lufthansa && (template.name === 'info' || template.base === 'info') && pageTitle && first && !first.contains(pageTitle)
+      && padded(first) && !grey(first) && !isStage(first) && opensWithImage
+      && !(first.previousElementSibling && first.previousElementSibling.hasAttribute(BREAK))) {
+      const hr = createBreak(document);
+      hr.setAttribute(SOURCE_STYLE, 'padded');
+      first.before(hr);
+    }
     // a stage (.inspirationteaser) is an AEM section of its own, style stage: the space under
     // it is what live adds up (hero-campaign.css): .mb-default (24px; style flush when the
     // wrapper has none), separators in the stage section ({spacer-N} right after the hero) and,
@@ -521,7 +535,16 @@ export default function transform(hookName, element, payload) {
       const start = createBreak(document);
       start.setAttribute(SOURCE_STYLE, styles.join(' '));
       s.before(start);
-      if (next) next.before(createBreak(document));
+      if (!next) return;
+      const after = createBreak(document);
+      // (standing order 28) the padded AEM section after the stage without .mb-default, then another padded one: www has
+      // only their paddings between them, not our section gap: the section after the stage flush (lufthansa.com's info
+      // pages; /de/en/during-your-trip/lhg-wifi, the intro's button to "Your benefits at a glance" 102px at 390, www 58:
+      // drafted 13.5 / 10.3 -> 12.2 / 10.0 % at 390 / 1440; economy-class, first-class-terminal, internet-overview the same)
+      const twoPadded = aemSections[i + 2];
+      if (lufthansa && template.name === 'info' && padded(next) && !grey(next) && !stage(next) && !next.querySelector(':scope > .mb-default')
+        && twoPadded && padded(twoPadded) && !grey(twoPadded) && !stage(twoPadded)) after.setAttribute(SOURCE_STYLE, 'flush');
+      next.before(after);
     });
     // lufthansa.com info and fleet pages (standing order 7): a padded AEM section right after a stage, then an unpadded
     // one. The stage's before-padded holds the padded section's top padding, but its bottom padding and .mb-default

@@ -1,0 +1,31 @@
+# Standing order 28 (2026-11-15), item 2: free2move and digital-travel-companion. www has the page title outside the AEM
+# sections (.contentpage's own h1) and a padded first AEM section that opens with the picture: 40px of padding between
+# the title and the picture at 1440 (20 at 390). Ours had the title and that section's content in one section.
+# Expected change, per document: every section that opens with the page title and then a picture-only paragraph is split
+# right before the picture; the part from the picture on gets style padded. Both parts keep the section's other
+# metadata (free2move's market sections: the "markets" row; de/en and de/de have two). Nothing else changes.
+# Tool: tools/importer/section-split-apply.mjs {title: true, style: "padded", before: ""} (new in this order, as of this
+# list's commit; test/section-split-title-so28). The importer writes it since this list's commit (lufthansa-sections,
+# test/info-title-padded-so28; info pages).
+# Census: www's snapshots (bd-snapshots) with this shape: these ten documents' pages (free2move de/en, de/de, at/de,
+# gb/en, fr/fr, xx/es, xx/fr; digital-travel-companion fr/fr, xx/es, xx/fr) and two old addresses of the last without a
+# document of their own. The importer change, against HEAD on the 750 info snapshots: 4 pages change (free2move de/en,
+# de/de, at/de, gb/en), by this break only; offline imports with the rebuilt info bundle of free2move, lhg-wifi,
+# economy-class, first-class and business-class: free2move split so, the others only order 28's flush (below).
+# The tool on all 9,912 published copies would place on 1,035; www's snapshot confirms the shape for these ten only (288
+# have a snapshot of another shape, 739 none): rows for the ten only.
+# Dry run (read-only GETs): DA's copies and the published copies, every row placed (fr/fr: no published copy, 404; DA's
+# copy placed).
+# Gate (draft of the published de/en copy with the row, working-copy code, against lh-parity-002a): 17.7 / 13.0 -> 4.8 /
+# 8.4 % at 1440 / 390. The other nine are not recorded.
+# status	document	tool	expected change	gate
+READY	/de/en/free2move	section-split-apply {"title": true, "style": "padded", "before": ""}	the title alone, the section from the picture on padded (market sections both)	draft 17.7 / 13.0 -> 4.8 / 8.4 at 1440 / 390
+READY	/de/de/free2move	section-split-apply {"title": true, "style": "padded", "before": ""}	the title alone, the section from the picture on padded (market sections both)	not recorded (www snapshot of the same shape)
+READY	/at/de/free2move	section-split-apply {"title": true, "style": "padded", "before": ""}	the title alone, the section from the picture on padded (market sections both)	not recorded (www snapshot of the same shape)
+READY	/gb/en/free2move	section-split-apply {"title": true, "style": "padded", "before": ""}	the title alone, the section from the picture on padded (market sections both)	not recorded (www snapshot of the same shape)
+READY	/xx/es/free2move	section-split-apply {"title": true, "style": "padded", "before": ""}	the title alone, the section from the picture on padded (market sections both)	not recorded (www snapshot of the same shape)
+READY	/xx/fr/free2move	section-split-apply {"title": true, "style": "padded", "before": ""}	the title alone, the section from the picture on padded (market sections both)	not recorded (www snapshot of the same shape)
+READY	/xx/es/digital-travel-companion	section-split-apply {"title": true, "style": "padded", "before": ""}	the title alone, the section from the picture on padded (market sections both)	not recorded (www snapshot of the same shape)
+READY	/xx/fr/digital-travel-companion	section-split-apply {"title": true, "style": "padded", "before": ""}	the title alone, the section from the picture on padded (market sections both)	not recorded (www snapshot of the same shape)
+READY	/fr/fr/free2move	section-split-apply {"title": true, "style": "padded", "before": ""}	the title alone, the section from the picture on padded (market sections both)	not recorded (www snapshot of the same shape); no published copy (404), DA copy placed
+READY	/fr/fr/digital-travel-companion	section-split-apply {"title": true, "style": "padded", "before": ""}	the title alone, the section from the picture on padded (market sections both)	not recorded (www snapshot of the same shape); no published copy (404), DA copy placed
