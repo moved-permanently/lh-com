@@ -1,0 +1,11 @@
+[
+  {
+    "path": "/de/de/about-us/lhg-history",
+    "inserts": [
+      {
+        "before": "<h1 id=\"vom-streckennetz-bis-zu-unternehmensvorteilen\">",
+        "text": "<p>{spacer-39 from-768}</p>"
+      }
+    ]
+  }
+]
