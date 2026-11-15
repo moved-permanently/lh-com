@@ -1,0 +1,35 @@
+# ema-cashub, standing order 34 (2026-11-15), item 3: /at/en/accessible-travel 390 (-2.26 %, the largest Austrian row above
+# 2 % that is not a widget, a font row or an owner decision). Traced on austrian-parity-019's 390 first load and -015's 1440
+# load (screenshots, and the recordings laid out offline with their own CSS for the structure; nothing requested).
+# Why the page is short at 390 and right at 1440 by accident:
+# - From "Passengers with impaired sensory perception" to the aircraft door table, each heading opens one of www's column
+#   views (.column-view 32 px above and below, plus the item's 12 px at 390). Ours has one section with plain headings:
+#   34 px from a view's last line to the next heading where www has 66 (1440) / 78 (390), about 32 px short at each of the
+#   11 view starts, at both widths ("Violation of the Regulation" to "US Regulation ...": www 283 / 425 px, ours 249 / 363).
+# - Under "Services", www lays out "At the airport", "On board" and "At the destination airport" as three columns from
+#   1025 px (screenshot at 1440: the section about 800 px); ours stacks them as running text (1,151 px). At 1440 the stacked
+#   text, +351 px, hid the views' -350; at 390 both stack, so nothing hid them.
+# The change (DA copy plus the delta, not a re-import), all in the long section that starts with the H3 "Please note":
+# (V) " {column-start}" at the end of 11 headings of that section (not the cards' headings at the top of the page): the H2s
+#     "Passengers with impaired sensory perception", "Handicapped accessible equipment on board", "Accompanying persons",
+#     "Hidden Disabilities Sunflower", "Violation of the Regulation", "US Regulation 14 CFR DOT382 on direct flights from or
+#     to the USA", "Loaner", "Repair or replacement", "Restrictions for loading of mobility devices: Aircraft door
+#     dimensions", and the H3s "Assistance dogs" and "Delay". No {column-end}: with it each gap gets 32 px more than www's
+#     (drafted: 1440 +5.5 %, 390 +1.42 %).
+# (C) the three parts under the H2 "Services" become a Columns Media block with one row of three cells: cell 1 the H3 "At the
+#     airport" and its 3 paragraphs; cell 2 the H3 "On board" and its 5 paragraphs (three of them links); cell 3 the H3 "At the
+#     destination airport" and its 3 paragraphs (to "Due to bottlenecks ..."). The H2 "Services" stays above the block.
+# (S) right after the block, before the H2 "Passengers with impaired sensory perception": a paragraph "{spacer-39}" (www's
+#     view end: 104 px of white from the third column's last line to that heading at 1440, ours 65 without it).
+# Drafted on austrian.turnsthe.page (so24/host.mjs, <main> replaced by the served copy plus the delta; EAGER=1 CONSENT=1;
+# www.* and the airline hosts refused and counted: 1 a render, none sent). Nothing above "Services" moves; the columns are
+# 408 px each at 1440 and stack at 390. Variants drafted: V only 13,209 / 19,323 px; C only 12,421 / 18,972; V + C
+# 12,773 / 19,324; V + C + S as below.
+# Gate (the only recorded locale): 390 into 2 %, 1440 further by 0.34 points (still within 2 %). The 1440 rest is the
+# cargo-door table's empty cells (about 80 px at 1440 by the offline layout, 140 at 390;
+# delta-so28-austrian-table-cells.txt, HOLD: DA cannot carry them). HOLD for your call: the page gets www's structure,
+# and 1440 loses the accidental match.
+# Upload without the collapse, or check that the served copy keeps the 11 {column-start} marks and the {spacer-39}.
+# Not checked on the other locales (no recording of them).
+# Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the delta, 1440, 390.
+HOLD	/at/en/accessible-travel.html	(V) + (C) + (S) as above	www 12,859; as served 12,857 (-0.02 %) -> drafted 12,813 (-0.36 %); the footer's top 12,044 -> 11,999 (www 12,044)	www 19,409; as served 18,971 (-2.26 %) -> drafted 19,364 (-0.23 %); the footer's top 17,903 -> 18,297 (www 18,344)

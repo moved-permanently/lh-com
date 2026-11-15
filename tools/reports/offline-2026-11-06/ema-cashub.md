@@ -6307,9 +6307,16 @@ Not here yet; they are with the Captures child. The checkbox label rule stays HO
     +0.33 %, to about +1.35 %.
   - It is not a rule either: on austrian-app www has less above its tab list than ours (32 against 56).
   - No row. A "below 768 px" spacer option would be new marker code (scripts.js, the collapse and its checks): your call.
-- **accessible-travel 390 (-2.26 %).** Order 28's row is live. Of the rest, 140 px is the cargo-door table's empty cells
-  (HOLD), and about 300 px is spread over sections that www's measurements do not list (they stop after "At the airport").
-  No row yet.
+- **accessible-travel 390 (-2.26 %): a row, HOLD for your call (delta-so34-austrian-accessible-travel-views.txt).**
+  - The missing ~300 px are www's column views. From "Passengers with impaired sensory perception" to the door table,
+    11 headings each open a view on www (32 px above and below). Ours has them as plain headings in one section, about
+    32 px short at each, at both widths.
+  - At 1440 that was hidden: www sets "At the airport / On board / At the destination airport" in three columns, and ours
+    stacks them (+351 px against the views' -350).
+  - The row: 11 {column-start} marks, the three parts as a Columns Media block, and a {spacer-39} after it (www's view end).
+  - Drafted: 390 -2.26 -> -0.23 %; 1440 -0.02 -> -0.36 %. That is further by 0.34 points, within 2 %. The rest at 1440 is
+    the door table's empty cells (HOLD).
+  - Only /at/en is recorded.
 - **fly-with-austrian, four widths.** The flight search band without its APIs (-89 px at 1440), and a few px a card row,
   which only the card rule on every grid would close. You ruled that rule out.
 - **cancellation-refund 1440.** Waits for item 2's loads.
