@@ -1427,6 +1427,13 @@ main > .section.author > .default-content-wrapper > h1 {
   main > .section.author > .default-content-wrapper > p {
     margin-inline: 16.667%;
   }
+
+  /* lufthansa.com from 768px: www's bio to the divider 96px at 1440, ours 72 (/de/en/articles/authors/florian-tomberg).
+     Standing order 27: 13.5 -> 11.3 % at 1440 (injected; at 390 the same 24px was worse, 7.8 -> 8.8, so not there);
+     census: the 20 author documents */
+  body.brand-lufthansa main > .section.author {
+    padding-bottom: 36px;
+  }
 }
 
 /* column views ("{column-start}" / "{column-end}" on the first / last element of a Lufthansa column
