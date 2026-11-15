@@ -4624,3 +4624,50 @@ unpushed. The drops were fetched again and checked against the given sha256 valu
 - Not in git and why: logs/p4/so28 and logs/p4/so23 (scratch: captures, gate folders, crops, trial scripts, the held
   empty state, the font copy), the drops in /tmp (private material), content/, migration-work/, tools/importer/reports/*
   (not mine), the old autostash entry (not mine, kept). Preview servers stopped, trial worktrees removed.
+
+## Standing order 29 (received about 07:40 UTC, 2026-11-15)
+
+State at the start: nothing of mine uncommitted or unpushed (order 28's final section on main, ea00bf89). No new
+recordings asked for (www's captures stopped since 07:10 CET); every gate below uses what is on the drops.
+
+1. **/ru/en/flights** (4f4abc9b; lufthansa.com only; against lh-parity-006 with lufthansa-api-004, Moscow HTTP 500,
+   whole page):
+   - The tail under the grid as www's: the feedback 36 / 96 px under the grid (390 / from 768), the cards 107 px under
+     it, the text 66 px under the cards (ours were 90 / 68 / 23 px at 1440, www's 162 / 151 / 65).
+   - Then the held empty state on top (www's warning box, no month filter, no disclaimer, from 768 px no sort).
+   - Each alone made one width worse: base 1440 22.60, 390 18.62; the tail alone 15.38 / 20.21 (390: fix wrong);
+     with the empty state 17.59 / 18.08 (1440: compensation removed, -138 px at www y 3200). That drift was the Hertz
+     section: the separators-only rule after a grey band (brief 521) also took back the gap of a last section with a
+     divider then a Columns Media, so Hertz stood 16 px over the grey band (www's line 64 px under it). Census of the
+     published lufthansa.com documents: /ru/en/flights is the only one with that shape (50 have separators plus a
+     block after a grey band; the other 47 have no www recording, so the rule stays as it was for them). Now www's
+     line 44 / 64 px under the band and the picture 45 / 65 px under the line.
+   - All three together: 1440 22.60 → 8.57, 390 18.62 → 13.79 (better at both). The other 28 market pages, first
+     8,000 px: 56 of 56 within (it/de 390 +0.72 in one load was a lazy picture not drawn; a second load 16.66, as the
+     base). /ba/en/flights whole page against a base load the same hour: 1440 20.25 → 17.03, 390 28.10 → 28.40 (within;
+     against yesterday's load 390 read +0.83: the day's drift, not the code).
+   - /ru/en/homepage's breadcrumb row (delta-so28-lh-com-flights.txt) is READY now: on the new code 390
+     13.79 → 10.81, 1440 within; DA's copy read once, --check: one insert, DA byte for byte without it.
+   - Found, not changed: www's feedback block sets its question bolder and 24 px further in (x 112, ours 88), with
+     taller Yes / No buttons; it is on every lufthansa.com feedback page and below 8,000 px on the grid pages.
+2. **Discover's offers fix**: decided on the first 8,000 px (whole full-length grids differ by up to 3.4 points between
+   two loads of the same code). delta-so28-discover-offers-de-de.txt stays READY with both figures: de/de 390
+   51.52 → 25.14 (whole page 46.82 → 50.30), de/en 54.50 → 28.81 (56.57 → 51.91).
+3. **The finish lists' rows that name me** (13b1fa30):
+   - B2B lhg-history de/de: a READY delta row, delta-so29-b2b-lhg-history.txt ({spacer-39 from-768} before the
+     title: 1440 35.91 → 26.97 against b2b-parity-006, 390 unchanged; taken in 262034a1). The finish
+     row stays HOLD until it is live (-2.75 % with the row: 1,700 px, www 1,748).
+   - Allegris corporates de/de 390: READY in finish-b2b.txt, +1.03 % against b2b-parity-012's phone first load.
+   - Discover customer-service and check-in (six rows): READY as served, within 2 % against discover-parity-001.
+   - rows-for-ema-test.md: nothing else open for me (section 11 was order 28's e0c14924).
+
+## Standing order 29, final section (about 09:10 UTC, 2026-11-15)
+
+- Items 1-3 done; nothing held.
+- Before this section: the full suite on 4f4abc9b (npm run lint 0, stylelint 0, 1,158 of 1,159 test files; the one failing, test/blog-pager-582.test.mjs, fails since ff450c9a, standing order 30's narrow pager, not mine: its first assertion no longer finds the pager list's gap: 10px rule; it passes on ff450c9a's parent; left to its owner); the folder-reading tests with brand.test.mjs; the whole-repo lint read before every push.
+- Nothing uploaded, previewed or published by me; DA read only (/ru/en/homepage); da-upload.mjs not run; requests only
+  to our own hosts, DA (one read), and GitHub's API; no captures of www. .migration/project.json not touched; the
+  excluded manage page has no row and no line.
+- Not in git and why: logs/p4/so28, logs/p4/so29 (scratch: captures, gate folders, crops, trial scripts, the census
+  script and DA copy), the drops in /tmp (private material), content/, migration-work/, tools/importer/reports/* (not
+  mine), the old autostash entry (not mine, kept). Preview servers stopped, trial worktrees removed.
