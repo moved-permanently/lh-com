@@ -25,3 +25,7 @@ Standing order 34 (2026-11-15, ema-adobe's sweep of insights, campaign, hub and 
 5. articles/explore-the-world/picture-perfect-austin, 390 (25.2 %, hardly any drift: +4 to +12 px): its galleries are
    columns-media stacked; on phones our pictures run to the right edge and show a wider crop than www's (www's inset,
    tighter crop: object-position / the cell's width). Columns Media (option stacked on phones).
+6. culinaryjourney, 390 (16.9 %, a campaign page, drift +25 near the top, +81 by y 960): the H1 starts 24px lower than
+   www's (the first section's top space before "Your Culinary Journey"), and after the form's grey area ours opens a
+   white gap of about 46px before the grey "Need help?" section, where www's two grey areas run together. Both are
+   section spacing (the shared section-gap rules).
