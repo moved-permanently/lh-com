@@ -1,0 +1,25 @@
+# ema-test, standing order 32 (2026-11-15), item 2: ITA's header-row table rule (746a4b33, below 768 px: header cells 22 px on 110 % lines, 24 / 16 px in, 25 px over the table, 34 px to the first row) on the 124 unrecorded documents it reaches (127 ITA documents with the option, 3 recorded).
+# How: every document on ita.turnsthe.page (our host only, airline hosts refused), 1440 and 390, 254 loads (one 1440 load timed out and passed on retry); in each load every visible header-row table measured with the live rule and again with the rule's values set back (an injected style), so what the rule does is told apart from what was there before. 427 visible tables.
+# Result: nothing broken by the rule; no fix, no rows.
+# - A table wider than its column because of the rule: none (0 of 427). 18 tables that already scroll sideways on phones (ITA's cells are at least 200 px, www's .cell-content min-width) get 4 to 29 px wider (the 22 px header text):
+#   390	/br/pt/book-and-prepare/other-requests/travelling-with-pets/pet-transportation-charges	table 1	288 -> 307 px
+#   390	/br/pt/book-and-prepare/travel-information/at-the-airport/security-check-time-slot	table 1	71 -> 81 px
+#   390	/de/de/book-and-prepare/travel-information/at-the-airport/group-boarding	table 1	136 -> 160 px
+#   390	/de/de/book-and-prepare/travel-information/at-the-airport/group-boarding	table 2	136 -> 160 px
+#   390	/de/de/book-and-prepare/travel-information/at-the-airport/lounges/lounges-admission	table 1	459 -> 467 px
+#   390	/de/de/legal/cookie-policy	table 3	959 -> 972 px
+#   390	/es/es/book-and-prepare/travel-information/at-the-airport/security-check-time-slot	table 1	87 -> 98 px
+#   390	/fr/fr/book-and-prepare/travel-information/at-the-airport/digital-newsstand	table 1	54 -> 58 px
+#   390	/fr/fr/book-and-prepare/travel-information/at-the-airport/group-boarding	table 1	65 -> 74 px
+#   390	/fr/fr/book-and-prepare/travel-information/at-the-airport/group-boarding	table 2	65 -> 74 px
+#   390	/gr/el/book-and-prepare/other-requests/travelling-with-pets/pet-transportation-charges	table 1	382 -> 411 px
+#   390	/gr/el/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin/large-dog-on-board/flight-table-large-dog	table 1	518 -> 533 px
+#   390	/it/it/book-and-prepare/travel-information/at-the-airport/security-check-time-slot	table 1	54 -> 61 px
+#   390	/nl/nl/book-and-prepare/other-requests/travelling-with-pets/pet-transportation-charges	table 1	266 -> 283 px
+#   390	/nl/nl/book-and-prepare/travel-information/at-the-airport/group-boarding	table 1	123 -> 138 px
+#   390	/nl/nl/book-and-prepare/travel-information/at-the-airport/group-boarding	table 2	123 -> 138 px
+#   390	/nl/nl/book-and-prepare/travel-information/at-the-airport/lounges/lounges-admission	table 1	582 -> 594 px
+#   390	/nl/nl/book-and-prepare/travel-information/at-the-airport/security-check-time-slot	table 1	60 -> 68 px
+# - A first row under the header: none, with or without the rule.
+# - A header cell with no text: one in each table of four page families in every locale (pet-transportation-charges, large-dog-on-board, lounges-admission, religious-meals), the same without the rule. Each is the corner cell over a column of row labels (meal names, flight types, lounge names): authored so, not broken.
+# The rule does nothing from 768 px: the 1440 loads measure the same with and without it.
