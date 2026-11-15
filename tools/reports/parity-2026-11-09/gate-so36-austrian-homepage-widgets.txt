@@ -1,0 +1,80 @@
+# ema-cashub, standing order 36 (2026-11-15), item 1: Austrian's homepage widget rows (finish-austrian.txt, the 39 HOLD rows
+# marked "widgets" on 23 homepages) gated without www's answers.
+#
+# Question 1: do our fare teaser and destination finder draw www's offers in a visitor's browser? By the code, yes, and so
+#   they did in a real browser on our host. Austrian's /config/flags.json has live-prices = on, so scripts/live-prices.js
+#   lets the price calls go. Both blocks take their offers from one call to www.lufthansa.com, sent from the visitor's
+#   browser without credentials: GET /service/api/destinationfinder/destination/finder/<ORIGIN>/E?months=0_11&tripType=
+#   RETURN under X-Portal OS, X-Portal-Site = the market, X-Portal-Language = the page's (scripts/lh-data.js DIRECT_ROUTES;
+#   the teaser prices its routes from that answer, as Discover's does since order 26). The flight search asks
+#   defaultAirport. The teaser's origin list goes through lh-proxy (fareteaser/recommend, no price). The calls of each
+#   page, logged with every airline host and lh-proxy refused (none sent), are in capture-requests-ema-cashub.txt.
+#   - The evidence that they answer: austrian-parity-012 to -014 recorded our own homepages in headful Chrome with the APIs
+#     allowed (2026-11-10, ~23:30 UTC). au/en drew "Sydney - Vienna, Round trip from AUD 2 138" and three more fares, and the
+#     finder "Flight offers from Sydney ... London from AUD 1 718". Whether today's code still gets those answers (www's
+#     Cloudflare challenges a share of fresh-tab preflights, scripts/lh-data.js retries them) only a new load can show.
+#   - In my renders every airline host is refused, so the teaser draws its routes without prices and the finder its empty
+#     state: that is the state these rows measure. With www's answers our bands will be as tall as the answers make them.
+# Question 2, the answers that would gate the rows as lufthansa.com's grids were: our page in a real browser on our host,
+#   at 1440 and at 390, each a first load, with the Captures child's api index (the destinationfinder and defaultAirport
+#   calls and their answers), and www's page loaded right after it, so that both show the same day's offers.
+#   capture-requests-ema-cashub.txt (commit 986ed4a0, pushed ~07:00 CET) lists the 23 homepages and the two other widget
+#   pages, with each page's calls. When they arrive: tools/parity's ANSWERABLE_CALLS takes the OS portal's finder
+#   origins and defaultAirport, as order 27 did for LH.
+#
+# Gate without the answers: the page less the two widget bands, on both sides. Band = from the widget's title to the
+#   next heading (the fare teaser: "Winter deals" to "Discover Austrian"; the finder: "Flight offers from ..." to
+#   "Looking for more than just a flight?"), by the same texts in www's recording (its headings and headlines) and in
+#   ours. Ours as served (~06:50 CET, main at de368a55, the Austrian code as at order 35's end; consent stored, every picture loaded; 50 renders, 981 airline and
+#   lh-proxy requests refused, none sent). The 390 recordings are resizes of the 1440 loads (pointers).
+#   remainder = page - teaser band - finder band; its delta is ours minus www's, in px and in % of www's page.
+#
+# Result: 29 of the 39 page-widths are widgets only (remainder within 2 %, -1.14 to +0.68 %), so they stay HOLD until
+#   the requested loads arrive. The other 10:
+#   - ge/en 390 and pt/en 390: www's empty last section. A row is READY (delta-so36-austrian-homepage-empty-band.txt),
+#     with it -0.40 %;
+#   - by/en 390, ru/en 390, gb/en 390: read against resizes, so they need the requested first loads;
+#   - ca/en 390, ca/fr 1440 and 390, ch/fr 1440 and 390: the stretcher block (owner decision) and the inline prices
+#     note (order 22).
+#   All 39 stay HOLD, each with its reason below.
+#
+# status	path	width	recording	www height	ours height	page	www teaser band	ours teaser band	www finder band	ours finder band	remainder delta	remainder	verdict	reason
+HOLD	/au/en/homepage	1440	austrian-parity-008	4392	4073	-7.26 %	208	561	1160	482	+6	+0.14 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/au/en/homepage	390	austrian-parity-008	5262	5440	+3.38 %	186	715	840	512	-23	-0.44 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/by/en/homepage	390	austrian-parity-008	5100	4992	-2.12 %	714	715	0	0	-109	-2.14 %	remainder above 2 %	-46 px above the teaser (the flight search band with its market notice, a widget) and -69 px in the carousel's titles; www's 390 is a resize (1440 within 2 %), its first load is requested
+HOLD	/ca/en/homepage	390	austrian-parity-008	4327	4419	+2.13 %	0	0	0	0	+92	+2.13 %	remainder above 2 %	the prices note: ours inline in the carousel's section (528 px at 390), www's in its dialog under the icons (order 22: the dialog text is still inline); and the flight search
+HOLD	/ca/fr/homepage	1440	austrian-parity-008	3362	3254	-3.21 %	0	0	0	0	-108	-3.21 %	remainder above 2 %	owner decision: www's English "Stretcher transportation" block above the flight search (~230 px, delta-so21-austrian-fr-stretcher-block.txt HOLD); and the prices note inline (order 22)
+HOLD	/ca/fr/homepage	390	austrian-parity-008	4785	4556	-4.79 %	0	0	0	0	-229	-4.79 %	remainder above 2 %	the same as ca/fr 1440 (the stretcher block, the inline prices note)
+HOLD	/ch/de/homepage	1440	austrian-parity-008	4442	4097	-7.77 %	208	561	1174	482	-6	-0.14 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/ch/en/homepage	1440	austrian-parity-008	4744	4073	-14.14 %	560	561	1160	482	+6	+0.13 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/ch/en/homepage	390	austrian-parity-008	5790	5435	-6.13 %	714	715	840	513	-29	-0.50 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/ch/fr/homepage	1440	austrian-parity-008	5042	4870	-3.41 %	559	561	1173	1156	-157	-3.11 %	remainder above 2 %	owner decision: the stretcher block (-232 px above the teaser); without it the remainder is +75 px (+1.49 %)
+HOLD	/ch/fr/homepage	390	austrian-parity-008	6314	6059	-4.04 %	715	715	907	1066	-414	-6.56 %	remainder above 2 %	the stretcher block and the finder band (ours 1,066 px against www's 907 in the resized load); www's 390 is a resize
+HOLD	/cz/en/homepage	1440	austrian-parity-008	4744	4073	-14.14 %	560	561	1160	482	+6	+0.13 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/cz/en/homepage	390	austrian-parity-008	5790	5440	-6.04 %	714	715	840	512	-23	-0.40 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/fr/en/homepage	1440	austrian-parity-008	4744	4073	-14.14 %	560	561	1160	482	+6	+0.13 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/fr/en/homepage	390	austrian-parity-008	5790	5440	-6.04 %	714	715	840	512	-23	-0.40 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/gb/en/homepage	390	austrian-parity-008	5790	5634	-2.69 %	714	715	840	933	-250	-4.32 %	remainder above 2 %	-244 px above the teaser: our hero (no-mobile-image) hides its picture on phones, www's resized 1440 load keeps it; only a first load at 390 can say which is www's phone layout (requested)
+HOLD	/ge/en/homepage	1440	austrian-parity-008	4663	3930	-15.72 %	560	556	1160	482	-51	-1.09 %	widgets only	widgets only; with the band row (delta-so36-austrian-homepage-empty-band.txt) the remainder is +6 px (+0.13 %)
+HOLD	/ge/en/homepage	390	austrian-parity-008	5688	5108	-10.20 %	714	713	840	417	-156	-2.74 %	remainder above 2 %	www's empty last section (132 px at 390; -127 px at the page's end) and the widgets. With the band row: remainder -23 px (-0.40 %); www's 390 is a resize, its first load is requested
+HOLD	/it/en/homepage	1440	austrian-parity-008	4744	4073	-14.14 %	560	561	1160	482	+6	+0.13 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/it/en/homepage	390	austrian-parity-008	5790	5435	-6.13 %	714	715	840	513	-29	-0.50 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/jp/en/homepage	1440	austrian-parity-008	4392	4722	+7.51 %	208	561	1160	1131	+6	+0.14 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/jp/en/homepage	390	austrian-parity-008	5341	5901	+10.48 %	187	715	840	933	-61	-1.14 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/md/en/homepage	1440	austrian-parity-009	4744	4073	-14.14 %	560	561	1160	482	+6	+0.13 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/md/en/homepage	390	austrian-parity-009	5790	5440	-6.04 %	714	715	840	512	-23	-0.40 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/me/en/homepage	1440	austrian-parity-009	4392	4722	+7.51 %	208	561	1160	1131	+6	+0.14 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/me/en/homepage	390	austrian-parity-009	5262	5861	+11.38 %	186	715	840	933	-23	-0.44 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/pl/en/homepage	1440	austrian-parity-009	4744	4073	-14.14 %	560	561	1160	482	+6	+0.13 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/pl/en/homepage	390	austrian-parity-009	5790	5440	-6.04 %	714	715	840	512	-23	-0.40 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/pt/en/homepage	390	austrian-parity-009	5688	5529	-2.80 %	714	713	840	838	-156	-2.74 %	remainder above 2 %	www's empty last section, as ge/en (the band row: remainder -23 px, -0.40 %; page -2.80 -> -0.46 %); www's 390 is a resize, its first load is requested
+HOLD	/ro/en/homepage	1440	austrian-parity-009	4744	4073	-14.14 %	560	561	1160	482	+6	+0.13 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/ro/en/homepage	390	austrian-parity-009	5790	5440	-6.04 %	714	715	840	512	-23	-0.40 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/rs/en/homepage	1440	austrian-parity-009	4744	4073	-14.14 %	560	561	1160	482	+6	+0.13 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/rs/en/homepage	390	austrian-parity-009	5790	5440	-6.04 %	714	715	840	512	-23	-0.40 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/ru/en/homepage	390	austrian-parity-011	5100	4992	-2.12 %	714	715	0	0	-109	-2.14 %	remainder above 2 %	the same document and figures as by/en 390 (-109 px); www's 390 is a resize, its first load is requested
+HOLD	/tr/en/homepage	1440	austrian-parity-010	4392	4746	+8.06 %	208	561	1160	1131	+30	+0.68 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/tr/en/homepage	390	austrian-parity-010	5283	5906	+11.79 %	186	715	840	954	-20	-0.38 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/ua/en/homepage	1440	austrian-parity-010	4301	4400	+2.30 %	384	385	893	985	+6	+0.14 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/xk/en/homepage	1440	austrian-parity-010	4392	4722	+7.51 %	208	561	1160	1131	+6	+0.14 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)
+HOLD	/xk/en/homepage	390	austrian-parity-010	5262	5861	+11.38 %	186	715	840	933	-23	-0.44 %	widgets only	widgets only: the fare teaser's and the destination finder's bands are the whole gap; the rest of the page is within 2 % of www's. Waiting for the requested loads (capture-requests-ema-cashub.txt, order 36)

@@ -1,0 +1,28 @@
+# ema-cashub, standing order 36 (2026-11-15), item 2: /il/en/legal/cancellation-refund-via-document-upload at 390, the last
+# 282 px traced. www: austrian-parity-021's 390 first load (4,041 px; Turnstile not shown in that load). Ours: as served
+# (~06:45 CET, consent stored, every picture loaded, airline hosts and lh-proxy refused: 0 needed). Our load drew Turnstile's
+# 71 px challenge (3,830 px); every figure below has it taken out (3,759), as in order 35's gate.
+# Method: the cards' edges from the left-edge colours of both full-page PNGs (x = 30: the grey band #e7e7e7 against the
+# white cards), and the boxes of the headings, texts and buttons (www: the load's measurement file; ours: the render).
+#
+# part (top to bottom)	www	ours	delta
+# page top to the first card	810	812	+2
+# first card (details, applicant, the upload)	810-2351 (1,542)	812-2071 (1,260)	-282
+#   of it: the card's top to "Please attach proof ..."	994	983	-11
+#   of it: that text to the card's end (the upload)	451	180	-271
+# grey gap	106	108	+2
+# consent card ("Please confirm the terms and conditions")	262	243	-19
+# grey above SEND (ours without the challenge)	72	66	-6
+# SEND, grey under it, white strip	50 / 36 / 36	50 / 39 / 48	+15
+# footer	1,128	1,132	+4
+# page	4,041	3,759	-282 (-6.98 %)
+#
+# The 282 px are the upload. www's upload is its own widget: a "File upload" field with a delete icon, the browser's file
+# input, BROWSE and UPLOAD stacked, then ADD ATTACHMENT, each on its own line at 390 (451 px from the text above it to the
+# card's end). Ours is the form block's drop zone (109 px, 180 to the card's end). That is order 27's owner decision
+# (design): -271 px here. Everything else on the page nets -11 px: -0.27 % without the upload.
+# The consent card's -19 px: www has 17 to 19 px more between the group's heading and the checkbox (at 1440 gate-so33 named
+# it: www's empty group headline, about 21 px). One page, one form; not worth a rule.
+#
+# Row	path	width	www	ours	status
+OWNER	/il/en/legal/cancellation-refund-via-document-upload	390	4041	3759 (-6.98 %)	the upload widget (owner decision, design): -271 px; the rest of the page -11 px (-0.27 %). No row, no rule.

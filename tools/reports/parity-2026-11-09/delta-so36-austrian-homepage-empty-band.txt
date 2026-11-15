@@ -1,0 +1,32 @@
+# ema-cashub, standing order 36 (2026-11-15), item 1: www's empty last section on the ge/en and pt/en homepages.
+# www (austrian-parity-008 to -011): on the recorded homepages the icon cards ("Looking for more than just a flight?")
+#   are followed by the prices note ("*The prices incl. all taxes ...", General Conditions), 406 px from the heading to the
+#   footer at 1440 (425 on the French and longer notes). On ge/en and pt/en the note is not there and www draws its empty
+#   section: 325 px at 1440, 56 more than our 269, and 132 more at 390 (the 390 loads are resizes of the 1440 ones).
+#   Our two documents end with that section empty too (`<div></div>`), which draws 0 px.
+# The row: the two separators in that last section. A section with content gets 32 px of section space, so the spacers
+#   are 24 and 100 (56 and 132 in all). Drafted on today's code (so24/host.mjs, the served document with the row; the
+#   control, the served document as a draft, equals live to the px at both widths: ge 3,930 / 5,108, pt 4,579 / 5,529):
+#   +57 px at 1440, +133 at 390 on both pages (the 1 px is the spacer's rounding).
+# Gate: the homepage rows are widget rows, so the figure is the remainder (the page less the fare teaser's and the
+#   destination finder's bands, gate-so36-austrian-homepage-widgets.txt), and the page height where the page is not a
+#   widget row (pt/en 1440).
+#
+# status	path	width	recording	www	remainder before	remainder with the row	page before	page with the row
+READY	/ge/en/homepage	1440	austrian-parity-008	4663	-51 px (-1.09 %)	+6 px (+0.13 %)	3930 (-15.72 %)	3987 (-14.50 %, widgets)
+READY	/ge/en/homepage	390	austrian-parity-008 (resized)	5688	-156 px (-2.74 %)	-23 px (-0.40 %)	5108 (-10.20 %)	5241 (-7.86 %, widgets)
+READY	/pt/en/homepage	1440	austrian-parity-009	4663	-51 px (-1.09 %)	+6 px (+0.13 %)	4579 (-1.80 %)	4636 (-0.58 %)
+READY	/pt/en/homepage	390	austrian-parity-009 (resized)	5688	-156 px (-2.74 %)	-23 px (-0.40 %)	5529 (-2.80 %)	5662 (-0.46 %)
+# Both pages and both widths come closer; none further. The 390 figures read against resized loads; the first loads at 390
+#   requested this morning (capture-requests-ema-cashub.txt, order 36) will show whether www's band is 132 px on a phone
+#   too. If it is not, only the {spacer-100 below-768} line changes.
+# No other document is touched. Of our 64 Austrian homepages (as served, fetched once each), ge/en and pt/en are the two
+#   without the prices note; of www's 49 recorded homepages they are the two at 325 px (41 at 405 / 406, four at 425 with
+#   longer notes, sk/en at 222 with a shorter section; none other near 325).
+#
+# DA change, per document (/ge/en/homepage, /pt/en/homepage): the last section, today empty, gets two paragraphs:
+#   {spacer-24 from-768}
+#   {spacer-100 below-768}
+# Upload without the collapse: marker-collapse drops a spacer of 31 px or less ({spacer-24 from-768}).
+# Before (served copy):  ...the cards-icon block's section, then <div></div>
+# After:                 <div><p>{spacer-24 from-768}</p><p>{spacer-100 below-768}</p></div>

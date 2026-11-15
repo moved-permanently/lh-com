@@ -1,0 +1,41 @@
+# ema-cashub, standing order 36 (2026-11-15), item 3: Air Dolomiti /en/articles/destinations/street-food-in-munich at 390 gated
+# on airdolomiti-parity-010, a phone's first load (sha256 27ffbe15...a67db9 checked; extracted into its own folder, read as
+# data only; manifest: loadedSeparately, http 200, loadedAt 2026-11-15T03:15:33Z).
+# www's reference: the PNG and the probe agree, 5,720 px, and <footer id="footer"> at y = 5,580. The PNG shows the article's
+#   last picture ending at 5,568 and the footer's teal band from 5,580 (its first 140 px, "History / Fleet / Service
+#   Charter", then the PNG ends). The measurement file, taken 10 s later, has the same footer top with the footer 1,046 px
+#   tall and the page 6,766 px: so the footer's top is the gate figure, as for every Air Dolomiti row. The headings' tops are
+#   the same in both files, and so are those of an offline layout of the recorded markup with its own CSS
+#   (rec-render: footer 5,580, every H3 at its recorded y). The fixed cookie banner (500 px) does not change the layout.
+# Ours: airdolomiti.turnsthe.page as served (~06:40 CET; consent stored, every picture loaded, airline hosts and lh-proxy
+#   refused, 0 refusals needed). Drafts through so24/host.mjs with the document replaced; the control (the served document
+#   as a draft) equals live to the px at both widths (390 footer 5,741 / page 6,927; 1440 footer 4,851 / page 5,847).
+# 1440 reference: airdolomiti-parity-002 (a 1440 first load), footer 4,851.
+#
+# path	width	www footer top	ours (live)	candidate	result
+/en/articles/destinations/street-food-in-munich	390	5580 (-010, first load)	5741 (+2.89 %)	-	HOLD
+#
+# Where the +161 px come from (www's boxes against ours, top to bottom, 390):
+# - www's reset gives every element line-height 1.7 (`*,:after,:before{...line-height:1.7}`; only i, strong and u inherit).
+#   Its H3s are 26 / 32 px, but their text sits in <b> or <span> (WordPress), and those draw 26 px text on 44.2 px lines
+#   (59.5 px at 1440). Ours are 32 px lines (40 at 1440): "Some come to Munich ..." 309 / 224 px (7 lines),
+#   "Pretzels and bratwurst ..." 133 / 96, "Two must-see markets ..." 88 / 64, "A visit to the Oktoberfest" 44 / 32:
+#   -158 px in all.
+# - "Last but not least, the Wiener Markt ..." is an H3 whose text is a 16 px regular <span> on www: running text on
+#   ~34 px lines (16 lines, 776 px with its picture). Ours is the heading's own 26 px text: 26 lines, 1,066 px. +290 px.
+# - The article's end: 12 px from the last picture to the footer on www at 390 (about 100 at 1440), ours 48 at both.
+# At 1440 these cancel (the long H3 at 35 px makes up for the short lines), so the 1440 row is +0.00 % today.
+#
+# Candidates, each measured at both widths (footer tops against 5,580 / 4,851):
+# - row: the long H3 as a paragraph (its bold words kept) and its picture in a paragraph of its own:
+#     390 5,368 (-3.80 %), 1440 4,611 (-4.95 %). FAILS: www's running text sits on ~34 / ~40 px lines, a paragraph on 27.2.
+# - the H3 rule alone (blog H3s line-height 1.7): 390 6,216 (+11.40 %), 1440 5,163 (+6.43 %). FAILS.
+# - row + H3 rule: 390 5,526 (-0.97 %), 1440 4,728 (-2.54 %). FAILS at 1440: the long text's lines (-82 px), the article's
+#     end (-52), small gaps (+21, -12, +25, -13, -13).
+# - The H3 rule cannot be a theme rule anyway. www's article snapshots and recordings (30 article pages, airdolomiti-
+#   snapshots-001 to -008, -001/-002, -010): of their 77 HtmlContent H3s, 56 have their text in <b> / <span> (44.2 px lines),
+#   14 in <strong> (inherits: 32 px lines), 5 bare and 2 mixed (32). Our import writes all of them as the same plain or
+#   <strong> heading, so a rule would be wrong on about a quarter of the article H3s. The other recorded article,
+#   where-the-adriatic-becomes-wild, has no H3 (the rule changes nothing there, measured).
+# So no row and no rule passes both widths: HOLD. What would: a heading mark for "lines as www's b/span" on the four H3s
+#   plus the paragraph row and an article-end rule; that is three changes for one recorded page, so not drafted further.
