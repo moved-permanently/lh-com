@@ -1,0 +1,89 @@
+/* ask-ai-flights: www.austrian.com's AI flight-finder entry (#sff-root .sff-entry-body; austrian-parity-023's
+   gb/en homepage at 1440 and 390, measured in the recording's pictures): a #e5e5e5 band the content's width,
+   24px padding, the line (16 / 24 px, 500, #1a1a1a), the outlined red button (36px, 2px border, no fill,
+   14 / 18 px 500 capitals, 1.3px spacing, www's AI icon). The band is 84px at 1440 with 40px above it, 158px
+   at 390 with 52px above it: below 768px the line over a full-width button 26px under it. Hidden until the
+   flag answers on (ask-ai-flights.js); off, the block takes itself out. */
+main > .section > .ask-ai-flights-wrapper:not(:has(> .ask-ai-flights-on)) {
+  display: none;
+}
+
+main > .section > div.ask-ai-flights-wrapper {
+  margin-top: 52px;
+}
+
+.ask-ai-flights.ask-ai-flights-on {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  box-sizing: border-box;
+  padding: 24px;
+  background-color: #e5e5e5;
+}
+
+.ask-ai-flights .ask-ai-flights-text {
+  margin: 0;
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.ask-ai-flights a.ask-ai-flights-button:any-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 36px;
+  height: 36px;
+  margin: 0;
+  padding: 0 22px;
+  border: 2px solid var(--button-secondary-color, #d81e05);
+  border-radius: 4px;
+  background-color: transparent;
+  color: var(--button-secondary-color, #d81e05);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ask-ai-flights a.ask-ai-flights-button:any-link::before {
+  content: "";
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M10.05 4.019a5.59 5.59 0 0 0 5.003 5.002l.143.015v1l-.143.014a5.6 5.6 0 0 0-5.002 5.002l-.015.144h-1l-.015-.144A5.6 5.6 0 0 0 4.02 10.05l-.144-.014v-1l.144-.015a5.59 5.59 0 0 0 5-5.002l.015-.144h1zm-.528 2.006C8.935 7.49 7.653 8.76 6.02 9.526l-.032.014.03.011.272.117c1.348.63 2.509 1.852 3.228 3.384l.017.038.014-.028-.003-.002a7.25 7.25 0 0 1 3.498-3.498l.038-.019-.038-.017a7.25 7.25 0 0 1-3.498-3.498l-.014-.03zM3.93 1.012a2.384 2.384 0 0 0 2.13 2.13l.208.022v.744l-.208.021a2.384 2.384 0 0 0-2.13 2.13l-.022.208h-.744l-.021-.208a2.384 2.384 0 0 0-2.13-2.13l-.208-.021v-.744l.208-.022a2.384 2.384 0 0 0 2.13-2.13l.021-.208h.744zm-.389 1.27c-.274.505-.715.94-1.258 1.249.506.275.941.718 1.251 1.262a3.45 3.45 0 0 1 1.264-1.261c-.52-.3-.955-.731-1.257-1.25'/%3E%3C/svg%3E") center / 16px 16px no-repeat;
+}
+
+.ask-ai-flights a.ask-ai-flights-button:hover,
+.ask-ai-flights a.ask-ai-flights-button:focus-visible {
+  border-color: var(--button-secondary-hover, #ac1804);
+  background-color: var(--button-secondary-hover, #ac1804);
+  color: #fff;
+}
+
+@media (width >= 768px) {
+  .ask-ai-flights.ask-ai-flights-on {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .ask-ai-flights a.ask-ai-flights-button:any-link {
+    flex: none;
+    width: 256px;
+  }
+}
+
+@media (width >= 1025px) {
+  main > .section > div.ask-ai-flights-wrapper {
+    margin-top: 40px;
+  }
+}

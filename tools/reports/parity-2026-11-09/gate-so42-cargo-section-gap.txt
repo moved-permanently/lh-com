@@ -1,0 +1,53 @@
+# ema-cashub, standing order 42 (2026-11-15): Cargo's section gap below 1025 px at www's 20 px (your answer to order 41), with the Theme wide-gaps rows (delta-so42-cargo-wide-gaps.txt), on every recorded Cargo 390.
+# The rule (styles/themes/cargo.css): @media (width < 1025px) { body.brand-cargo:not(.wide-gaps) { --section-gap: 20px; } }: every section gap that is var(--section-gap) or a calc of it. A page whose metadata has Theme wide-gaps (aem.js: the body class) keeps 48 px.
+# Gate (your condition): every recorded Cargo page moves closer to www or stays within 0.5 points of where it is. The 20 px alone took 7 recorded pages further than that: industries-in-focus en / de (first loads; www's gaps are wider there), en sustainable-development-goals (first load, +0.40 -> -1.21 %, 0.81 points further: order 41's census listed it as "further" but within 2 %), and four that only have a resize of the 1440 load at 390 (eaw, general-terms1, onerecord, ecsd). Each of the 7 gets the Theme wide-gaps row and stays where it is.
+# Rendered on cargo.turnsthe.page, the rule toggled in the same load (as served, then the rule as a style sheet, and for the 7 the body class first): unhinted, CONSENT=1; lh-proxy, www.* but www.mynewsdesk.com and every airline host refused and counted: 0. The as-served figures equal order 41's renders to the px.
+# www: cargo-parity-001 / -002 (first loads) and -003 (resizes) as in gate-so41-cargo-section-gap-390.txt; eservices-app de / en and speed-zoom from cargo-parity-005 / -006 (first loads, less the 80 px notice).
+# Result: 44 of 44 PASS. 20 closer (13 of them into 2 %), 20 the same, 4 further by 0.06 / 0.13 points (Support & Contact en and de, each also with its feedback query; all within 1 %).
+# The census of the pages it reaches without a recording: gate-so42-cargo-section-gap-census.txt.
+#
+# gate	path	width	recording	www page	as served	with the rule alone	with the rule and the rows	move	note
+PASS	/de/ci/facts-figures	390	cargo-parity-001 (first load)	12482	12774 (+2.34 %)	12774 (+2.34 %)	12774 (+2.34 %)	same	
+PASS	/de/ci/newsroom	390	cargo-parity-001 (first load)	10670	10678 (+0.07 %)	10678 (+0.07 %)	10678 (+0.07 %)	same	
+PASS	/de/ci/sustainable-development-goals	390	cargo-parity-001 (first load)	1870	1890 (+1.07 %)	1862 (-0.43 %)	1862 (-0.43 %)	closer	
+PASS	/de/ci/whats-up-now	390	cargo-parity-001 (first load)	2713	2712 (-0.04 %)	2712 (-0.04 %)	2712 (-0.04 %)	same	
+PASS	/de/ebooking-info	390	cargo-parity-001 (first load)	5688	5831 (+2.51 %)	5719 (+0.55 %)	5719 (+0.55 %)	closer	
+PASS	/de/eservices-app	390	cargo-parity-005 (first load, less the 80 px notice)	3142	3415 (+8.69 %)	3247 (+3.34 %)	3247 (+3.34 %)	closer	
+PASS	/de/fleet-ulds/fleet	390	cargo-parity-001 (first load)	3918	4046 (+3.27 %)	3934 (+0.41 %)	3934 (+0.41 %)	closer	
+PASS	/de/home	390	cargo-parity-001 (the 1440 load resized: a pointer)	8486	8488 (+0.02 %)	8488 (+0.02 %)	8488 (+0.02 %)	same	a resize of the 1440 load: a pointer
+PASS	/de/industries-in-focus	390	cargo-parity-001 (first load)	5434	5424 (-0.18 %)	5312 (-2.25 %)	5424 (-0.18 %)	same	the Theme wide-gaps row keeps it where it is
+PASS	/de/news/142-arktische-temperaturen-an-bord	390	cargo-parity-001 (the 1440 load resized: a pointer)	8856	9029 (+1.95 %)	9001 (+1.64 %)	9001 (+1.64 %)	closer	a resize of the 1440 load: a pointer
+PASS	/de/notification-overview	390	cargo-parity-001 (first load)	1355	1358 (+0.22 %)	1358 (+0.22 %)	1358 (+0.22 %)	same	
+PASS	/de/support-and-contact	390	cargo-parity-001 (first load)	3105	3132 (+0.87 %)	3076 (-0.93 %)	3076 (-0.93 %)	further by 0.06 points	
+PASS	/de/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	390	cargo-parity-001 (first load)	3105	3132 (+0.87 %)	3076 (-0.93 %)	3076 (-0.93 %)	further by 0.06 points	
+PASS	/en/active-temp-control	390	cargo-parity-003 (the 1440 load resized: a pointer)	1242	1302 (+4.83 %)	1246 (+0.32 %)	1246 (+0.32 %)	closer	a resize of the 1440 load: a pointer
+PASS	/en/add-on-services/smartuld	390	cargo-parity-003 (the 1440 load resized: a pointer)	1120	1176 (+5.00 %)	1120 (+0.00 %)	1120 (+0.00 %)	closer	a resize of the 1440 load: a pointer
+PASS	/en/airmail	390	cargo-parity-003 (the 1440 load resized: a pointer)	1266	1326 (+4.74 %)	1270 (+0.32 %)	1270 (+0.32 %)	closer	a resize of the 1440 load: a pointer
+PASS	/en/ci/facts-figures	390	cargo-parity-002 (first load)	11916	12163 (+2.07 %)	12163 (+2.07 %)	12163 (+2.07 %)	same	
+PASS	/en/ci/newsroom	390	cargo-parity-001 (first load)	10631	10615 (-0.15 %)	10615 (-0.15 %)	10615 (-0.15 %)	same	
+PASS	/en/ci/partnerships-subsidiaries	390	cargo-parity-003 (the 1440 load resized: a pointer)	2781	2659 (-4.39 %)	2659 (-4.39 %)	2659 (-4.39 %)	same	a resize of the 1440 load: a pointer
+PASS	/en/ci/sustainable-development-goals	390	cargo-parity-001 (first load)	1735	1742 (+0.40 %)	1714 (-1.21 %)	1742 (+0.40 %)	same	the Theme wide-gaps row keeps it where it is
+PASS	/en/ci/whats-up-now	390	cargo-parity-001 (first load)	2674	2672 (-0.07 %)	2672 (-0.07 %)	2672 (-0.07 %)	same	
+PASS	/en/dangerous-goods	390	cargo-parity-003 (the 1440 load resized: a pointer)	1242	1302 (+4.83 %)	1246 (+0.32 %)	1246 (+0.32 %)	closer	a resize of the 1440 load: a pointer
+PASS	/en/data-protection-notice-google-analytics	390	cargo-parity-003 (the 1440 load resized: a pointer)	1120	844 (-24.64 %)	844 (-24.64 %)	844 (-24.64 %)	same	a resize of the 1440 load: a pointer
+PASS	/en/eaw	390	cargo-parity-003 (the 1440 load resized: a pointer)	2236	2188 (-2.15 %)	2132 (-4.65 %)	2188 (-2.15 %)	same	the Theme wide-gaps row keeps it where it is; a resize of the 1440 load: a pointer
+PASS	/en/ebooking-info	390	cargo-parity-001 (first load)	5393	5525 (+2.45 %)	5413 (+0.37 %)	5413 (+0.37 %)	closer	
+PASS	/en/ecsd	390	cargo-parity-003 (the 1440 load resized: a pointer)	1751	1770 (+1.09 %)	1714 (-2.11 %)	1770 (+1.09 %)	same	the Theme wide-gaps row keeps it where it is; a resize of the 1440 load: a pointer
+PASS	/en/ehm	390	cargo-parity-003 (the 1440 load resized: a pointer)	1578	1617 (+2.47 %)	1561 (-1.08 %)	1561 (-1.08 %)	closer	a resize of the 1440 load: a pointer
+PASS	/en/emergency	390	cargo-parity-003 (the 1440 load resized: a pointer)	1186	1248 (+5.23 %)	1192 (+0.51 %)	1192 (+0.51 %)	closer	a resize of the 1440 load: a pointer
+PASS	/en/eservices-app	390	cargo-parity-006 (first load, less the 80 px notice)	3043	3312 (+8.84 %)	3144 (+3.32 %)	3144 (+3.32 %)	closer	
+PASS	/en/eservices/efreight	390	cargo-parity-003 (the 1440 load resized: a pointer)	1522	1585 (+4.14 %)	1529 (+0.46 %)	1529 (+0.46 %)	closer	a resize of the 1440 load: a pointer
+PASS	/en/fleet-ulds/fleet	390	cargo-parity-001 (first load)	3841	3958 (+3.05 %)	3846 (+0.13 %)	3846 (+0.13 %)	closer	
+PASS	/en/fleet-ulds/ulds/containers	390	cargo-parity-003 (the 1440 load resized: a pointer)	2314	2400 (+3.72 %)	2288 (-1.12 %)	2288 (-1.12 %)	closer	a resize of the 1440 load: a pointer
+PASS	/en/footer/bottomnav/terms-of-use	390	cargo-parity-003 (the 1440 load resized: a pointer)	4780	5442 (+13.85 %)	5414 (+13.26 %)	5414 (+13.26 %)	closer	a resize of the 1440 load: a pointer
+PASS	/en/general-cargo	390	cargo-parity-003 (the 1440 load resized: a pointer)	1242	1302 (+4.83 %)	1246 (+0.32 %)	1246 (+0.32 %)	closer	a resize of the 1440 load: a pointer
+PASS	/en/home	390	cargo-parity-001 (the 1440 load resized: a pointer)	8389	8366 (-0.27 %)	8366 (-0.27 %)	8366 (-0.27 %)	same	a resize of the 1440 load: a pointer
+PASS	/en/industries-in-focus	390	cargo-parity-001 (first load)	5347	5288 (-1.10 %)	5176 (-3.20 %)	5288 (-1.10 %)	same	the Theme wide-gaps row keeps it where it is
+PASS	/en/live-animals	390	cargo-parity-003 (the 1440 load resized: a pointer)	1742	1866 (+7.12 %)	1810 (+3.90 %)	1810 (+3.90 %)	closer	a resize of the 1440 load: a pointer
+PASS	/en/meta/meta/company/general-terms1	390	cargo-parity-003 (the 1440 load resized: a pointer)	1498	1470 (-1.87 %)	1442 (-3.74 %)	1470 (-1.87 %)	same	the Theme wide-gaps row keeps it where it is; a resize of the 1440 load: a pointer
+PASS	/en/news/142-arctic-temperatures-on-board	390	cargo-parity-001 (the 1440 load resized: a pointer)	8389	8501 (+1.34 %)	8473 (+1.00 %)	8473 (+1.00 %)	closer	a resize of the 1440 load: a pointer
+PASS	/en/notification-overview	390	cargo-parity-001 (first load)	1316	1318 (+0.15 %)	1318 (+0.15 %)	1318 (+0.15 %)	same	
+PASS	/en/onerecord	390	cargo-parity-003 (the 1440 load resized: a pointer)	5081	5108 (+0.53 %)	4940 (-2.78 %)	5108 (+0.53 %)	same	the Theme wide-gaps row keeps it where it is; a resize of the 1440 load: a pointer
+PASS	/en/speed-zoom	390	cargo-parity-006 (first load, less the 80 px notice)	1162	1168 (+0.52 %)	1168 (+0.52 %)	1168 (+0.52 %)	same	
+PASS	/en/support-and-contact	390	cargo-parity-001 (first load)	3066	3092 (+0.85 %)	3036 (-0.98 %)	3036 (-0.98 %)	further by 0.13 points	
+PASS	/en/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	390	cargo-parity-001 (first load)	3066	3092 (+0.85 %)	3036 (-0.98 %)	3036 (-0.98 %)	further by 0.13 points	

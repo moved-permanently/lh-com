@@ -1,0 +1,16 @@
+# Apply (standing order 42): node tools/importer/metadata-row-apply.mjs --data tools/reports/parity-2026-11-09/delta-so42-cargo-wide-gaps.json --in <DA's current copy of the page> --out <file>, for each READY row's path. The row: the page Metadata block gets "Theme | wide-gaps" at its end (aem.js makes it the body class wide-gaps); every other byte as DA's; a Metadata block with a Theme row already: no change ("there already" / "differs").
+# DA backup folder (standing order 39): before a row is applied, DA's copy goes to /.token-free-backup/2026-11-cargo-so42-wide-gaps/<path>.html (lh-cargo, e.g. /.token-free-backup/2026-11-cargo-so42-wide-gaps/en/industries-in-focus.html; read back equal before the upload). Not /.token-free-backup/2026-11-cargo/: it holds the token-free pass's rollback copies.
+# Dry run on DA's current copies (read 2026-11-15 ~23:45 CET, 7 single GETs): "Theme | wide-gaps: placed" on all 7, the diff that one row; a second run "there already". None of the 7 had a Theme row; general-terms1 keeps its Template legal.
+# ema-cashub, standing order 42 (2026-11-15): the pages that keep Cargo's 48 px section gap below 1025 px when the 20 px rule ships (gate-so42-cargo-section-gap.txt). Without the rule the row changes nothing (no rule reads wide-gaps before it). Apply these first: the rule is pushed once the served copies carry the theme.
+# Gate: each page with the row and the rule equals the page as served to the px at 390 (same load); 1440 does not move (the rule acts below 1025 px).
+#
+# status	path	width	recording	www page	as served	with the rule alone	with the rule and the row	note
+READY	/de/industries-in-focus	390	cargo-parity-001 (first load)	5434	5424 (-0.18 %)	5312 (-2.25 %)	5424 (-0.18 %)	the page stays where it is today (to the px, same load); 1440 untouched (the rule acts below 1025 px)
+READY	/en/ci/sustainable-development-goals	390	cargo-parity-001 (first load)	1735	1742 (+0.40 %)	1714 (-1.21 %)	1742 (+0.40 %)	the page stays where it is today (to the px, same load); 1440 untouched (the rule acts below 1025 px)
+READY	/en/eaw	390	cargo-parity-003 (the 1440 load resized: a pointer)	2236	2188 (-2.15 %)	2132 (-4.65 %)	2188 (-2.15 %)	the page stays where it is today (to the px, same load); 1440 untouched (the rule acts below 1025 px)
+READY	/en/ecsd	390	cargo-parity-003 (the 1440 load resized: a pointer)	1751	1770 (+1.09 %)	1714 (-2.11 %)	1770 (+1.09 %)	the page stays where it is today (to the px, same load); 1440 untouched (the rule acts below 1025 px)
+READY	/en/industries-in-focus	390	cargo-parity-001 (first load)	5347	5288 (-1.10 %)	5176 (-3.20 %)	5288 (-1.10 %)	the page stays where it is today (to the px, same load); 1440 untouched (the rule acts below 1025 px)
+READY	/en/meta/meta/company/general-terms1	390	cargo-parity-003 (the 1440 load resized: a pointer)	1498	1470 (-1.87 %)	1442 (-3.74 %)	1470 (-1.87 %)	the page stays where it is today (to the px, same load); 1440 untouched (the rule acts below 1025 px)
+READY	/en/onerecord	390	cargo-parity-003 (the 1440 load resized: a pointer)	5081	5108 (+0.53 %)	4940 (-2.78 %)	5108 (+0.53 %)	the page stays where it is today (to the px, same load); 1440 untouched (the rule acts below 1025 px)
+#
+# DA change, each READY path (lh-cargo): the page Metadata block gets a last row Theme | wide-gaps.
