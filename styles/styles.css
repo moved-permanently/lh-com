@@ -2156,6 +2156,16 @@ body.brand-lufthansa main > .section:has(+ .section.grey) > .default-content-wra
   margin-bottom: 40px;
 }
 
+/* lufthansa.com's legal pages (Metadata Template legal, the legal importer writes it): a link alone in its paragraph
+   before a heading has 48px under it, as www's legal link components (/de/en/common/agb-extra-services-at-online-check-in
+   at 390: the link's last line to the next heading 66px, ours 38); not before a heading that opens a column view (its
+   padding holds that space: data-collection-canada 9.6 -> 15.7 with it). On info pages the same 48px was wrong
+   (all-check-in 3.1 -> 12.6), hence the template. Standing order 30, injected on the 58 recorded legal page-widths:
+   3 better (agb-extra-services-at-online-check-in 3.7 / 10.1 -> 1.6 / 6.6 at 1440 / 390), 55 the same */
+body.brand-lufthansa.legal main > .section > .default-content-wrapper > p.link-wrapper:has(+ :is(h2, h3, h4):not(.column-start, .column-start-outer)) {
+  margin-bottom: 48px;
+}
+
 /* below 768px a page of spacious cards that opens with its title and a picture (take-off at
    390): www's image component keeps its 4rem under the picture (ours 24px, every card picture
    after it 16px off); at 1440 as before */

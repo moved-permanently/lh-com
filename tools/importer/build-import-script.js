@@ -13,6 +13,10 @@ const { templates } = JSON.parse(fs.readFileSync(path.join(dir, 'page-templates.
 // scope-paths.js exports data, not a transformer function
 const TRANSFORMERS = ['lufthansa-cleanup', 'lufthansa-sections'];
 
+// a Metadata Template row the import writes on lufthansa.com (template-row.mjs; aem.js makes it
+// a body class): the legal pages' own link spacing in styles.css (standing order 30, item 3)
+const TEMPLATE_ROWS = { legal: 'legal' };
+
 const camel = (s) => s.replace(/-([a-z0-9])/g, (_, c) => c.toUpperCase());
 
 function build(name) {
@@ -25,6 +29,7 @@ function build(name) {
   if (missing.length) throw new Error(`${name}: missing parsers ${missing.join(', ')}`);
   // the URL list is long and only used by the bulk runner
   const embedded = { ...template, urls: template.urls.slice(0, 1) };
+  const row = TEMPLATE_ROWS[name];
 
   const src = `/* eslint-disable */
 /* global WebImporter */
@@ -36,7 +41,9 @@ ${transformers.map((t) => `import ${camel(t)}Transformer from './transformers/${
 import { collapseMain, brandOfHost } from './marker-collapse.mjs';
 // www's no-break spaces through the framework's steps (the brief after 527): guarded in onLoad, restored after
 import { guardNbsp } from './nbsp-guard.mjs';
-
+${row ? `// lufthansa.com: a Template row in the Metadata table (standing order 30)
+import addTemplateRow from './template-row.mjs';
+` : ''}
 const PAGE_TEMPLATE = ${JSON.stringify(embedded, null, 2)};
 
 const parsers = {
@@ -87,7 +94,9 @@ export default {
 
     main.appendChild(document.createElement('hr'));
     WebImporter.rules.createMetadata(main, document);
-    WebImporter.rules.transformBackgroundImages(main, document);
+${row ? `    // lufthansa.com: Template ${row} (aem.js: body.${row}; styles.css scopes the template's own spacing)
+    if (/(^|\\.)lufthansa\\.com$/.test(new URL(params.originalURL).hostname)) addTemplateRow(main, document, '${row}');
+` : ''}    WebImporter.rules.transformBackgroundImages(main, document);
     WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
 
     // document path = live path, e.g. /de/en/homepage

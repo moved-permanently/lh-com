@@ -1,0 +1,142 @@
+# Standing order 30 (2026-11-15), item 3: lufthansa.com's legal pages, the space after a link before a heading. www's legal
+# link components leave 66px from the link's last line to the next heading (/de/en/common/agb-extra-services-at-online-
+# check-in at 390); ours 38, the paragraph's own margin. The same 48px on info pages was wrong (all-check-in 3.1 -> 12.6),
+# so the mark is page-level: Metadata Template legal (aem.js makes it the body class legal), not a section style (a
+# section style would need a row in every section that holds such a link; the template holds for the whole document).
+# Expected change, per document: the page Metadata block gets a last row Template | legal. Nothing else changes. With it,
+# styles.css (this list's commit) puts 48px under a link alone in its paragraph right before an h2-h4 that opens no
+# column view (a column-start heading's padding holds that space: data-collection-canada 390 9.6 -> 15.7 without that
+# exclusion). Without the row the rule reaches nothing: code first is safe, the rows only pass with the code on main.
+# Tool: tools/importer/metadata-row-apply.mjs (new in this order; test/legal-template-so30). The legal importer writes
+# the row since this list's commit (build-import-script.js TEMPLATE_ROWS, template-row.mjs; lufthansa.com only); the
+# rebuilt legal bundle also carries 4c01054's below-768 separator (committed source, not rebuilt then). Offline import of
+# agb-extra-services-at-online-check-in from its snapshot: the row last in Metadata, 0 requests left the machine.
+# Census: page-templates.json's legal template, 120 documents. Dry run (read-only GETs of DA's copy and the published
+# copy, logs/b622/legal-rows.json): placed on all 120 (none has a Template row), all 120 published (200). 36 of them hold
+# 70 link paragraphs right before a heading (the rule's reach before the column-start exclusion); the other 84 change
+# nothing on screen (the row only).
+# Gate (published copies, working-copy code, the rule injected without the class on the legal recordings only):
+# 29 recorded legal pages, 58 page-widths: 3 better, 55 within 0.5, 0 worse; gate passes. agb-extra-services 3.69 / 10.10
+# -> 1.60 / 6.59, compensation-voucher 6.73 / 13.19 -> 6.43 / 12.59 at 1440 / 390. 9 of the 36 documents the rule reaches
+# are recorded; the other 27 are READY on the same link component, ungated (the 84 row-only documents change nothing).
+# status	document	tool	expected change	gate
+READY	/de/en/imprint	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	3.57 / 7.07 -> 3.57 / 7.07 at 1440 / 390
+READY	/de/en/advance-seat-reservations-terms-and-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	12.7 / 5.53 -> 12.7 / 5.53 at 1440 / 390
+READY	/de/de/sitzplatzreservierungen-konditionen	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/sitzplatzreservierungen-konditionen	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/advance-seat-reservations-terms-and-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/besondere-befoerderungsbedingungen-bus	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 1 link paragraph(s) before a heading	3.99 / 9.12 -> 4.08 / 8.92 at 1440 / 390
+READY	/de/de/besondere-befoerderungsbedingungen-bus	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 1 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/at/de/besondere-befoerderungsbedingungen-bus	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 1 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/gb/en/besondere-befoerderungsbedingungen-bus	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 1 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/de/en/business-terms-and-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	2.32 / 4.68 -> 2.32 / 4.68 at 1440 / 390
+READY	/de/de/geschaeftsbedingungen	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/geschaeftsbedingungen	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/business-terms-and-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/common	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	1.31 / 4.85 -> 1.31 / 4.85 at 1440 / 390
+READY	/de/de/common	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/common	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/common	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/common/accessibility-statement	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	6.73 / 7.42 -> 6.73 / 7.42 at 1440 / 390
+READY	/de/de/common/accessibility-statement	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/common/accessibility-statement	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/common/accessibility-statement	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/common/agb-extra-services-at-online-check-in	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 2 link paragraph(s) before a heading	3.69 / 10.1 -> 1.6 / 6.59 at 1440 / 390
+READY	/de/de/common/agb-extra-services-at-online-check-in	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 2 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/at/de/common/agb-extra-services-at-online-check-in	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 2 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/gb/en/common/agb-extra-services-at-online-check-in	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 2 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/de/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	5.53 / 6.77 -> 5.53 / 6.77 at 1440 / 390
+READY	/de/de/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/common/agb-extra-services-at-online-check-in/conditions-seat-reservation	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/common/compensation-voucher	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 1 link paragraph(s) before a heading	6.73 / 13.19 -> 6.43 / 12.59 at 1440 / 390
+READY	/de/de/common/compensation-voucher	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 2 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/at/de/common/compensation-voucher	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 2 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/gb/en/common/compensation-voucher	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 1 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/de/en/common/imprint/lufthansa-insights-imprint	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	1.76 / 4.54 -> 1.76 / 4.54 at 1440 / 390
+READY	/de/de/common/imprint/lufthansa-insights-imprint	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/common/imprint/lufthansa-insights-imprint	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/common/imprint/lufthansa-insights-imprint	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/common/privacy-statement/privacy-statement-group	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	6.78 / 10 -> 6.78 / 10 at 1440 / 390
+READY	/de/de/common/privacy-statement/privacy-statement-group	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/common/privacy-statement/privacy-statement-group	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/common/privacy-statement/privacy-statement-group	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/common/seatreservation-condtions/seat-reservations	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	4.96 / 10.08 -> 4.96 / 10.08 at 1440 / 390
+READY	/de/de/common/seatreservation-condtions/seat-reservations	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/common/seatreservation-condtions/seat-reservations	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/common/seatreservation-condtions/seat-reservations	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/cookie-policy	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 1 link paragraph(s) before a heading	2.98 / 6.06 -> 2.98 / 6.06 at 1440 / 390
+READY	/de/de/cookie-policy	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 1 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/at/de/cookie-policy	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 1 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/gb/en/cookie-policy	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 1 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/de/en/data-collection-canada	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 4 link paragraph(s) before a heading	9.46 / 9.63 -> 9.46 / 9.63 at 1440 / 390
+READY	/de/de/datenerfassung-fuer-kanada	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 4 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/at/de/datenerfassung-fuer-kanada	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 4 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/gb/en/data-collection-canada	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 4 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/de/en/data-collection-usa	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 2 link paragraph(s) before a heading	4.3 / 4.73 -> 4.3 / 4.73 at 1440 / 390
+READY	/de/de/datenerfassung-fuer-die-usa	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 2 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/at/de/datenerfassung-fuer-die-usa	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 2 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/gb/en/data-collection-usa	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 2 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/de/en/data-protection-information	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 3 link paragraph(s) before a heading	4.61 / 5.24 -> 4.44 / 5.36 at 1440 / 390
+READY	/de/de/informationen-zum-datenschutz	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 3 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/at/de/informationen-zum-datenschutz	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 3 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/gb/en/data-protection-information	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 3 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/de/en/datenschutz	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	6.49 / 9.56 -> 6.49 / 9.56 at 1440 / 390
+READY	/de/de/datenschutz	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/datenschutz	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/datenschutz	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/faq-data-security	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	0.97 / 3.32 -> 0.97 / 3.32 at 1440 / 390
+READY	/de/de/faq-data-security	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/faq-data-security	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/faq-data-security	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/faq-password-security	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	0.9 / 3.82 -> 0.9 / 3.82 at 1440 / 390
+READY	/de/de/faq-password-security	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/faq-password-security	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/faq-password-security	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/general-conditions-currency-conversion	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	5.87 / 5.84 -> 5.87 / 5.84 at 1440 / 390
+READY	/de/de/nutzungsbedingungen-waehrungsumrechnung	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/nutzungsbedingungen-waehrungsumrechnung	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/general-conditions-currency-conversion	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/de/impressum	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/impressum	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/imprint	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/passenger-rights	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 1 link paragraph(s) before a heading	3.94 / 8.05 -> 3.94 / 8.05 at 1440 / 390
+READY	/de/de/passenger-rights	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 1 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/at/de/passenger-rights	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 1 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/gb/en/passenger-rights	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 1 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/de/en/prepare-for-your-trip/baggage/baggage-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	6.2 / 3.16 -> 6.2 / 3.16 at 1440 / 390
+READY	/de/de/prepare-for-your-trip/baggage/baggage-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/prepare-for-your-trip/baggage/baggage-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/prepare-for-your-trip/baggage/baggage-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/rail-fly-terms-and-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	5.11 / 8.6 -> 5.11 / 8.6 at 1440 / 390
+READY	/de/de/rail-fly-bedingungen	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/rail-fly-bedingungen	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/rail-fly-terms-and-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/sepa-terms-and-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	1.01 / 3.75 -> 1.01 / 3.75 at 1440 / 390
+READY	/de/de/sepa-bedingungen	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/sepa-bedingungen	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/sepa-terms-and-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/sepa-terms-and-conditions-b	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	2.86 / 6.14 -> 2.86 / 6.14 at 1440 / 390
+READY	/de/de/sepa-bedingungen-b	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/sepa-bedingungen-b	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/sepa-terms-and-conditions-b	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/terms-and-conditions-lh	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 2 link paragraph(s) before a heading	3.67 / 6.9 -> 3.67 / 6.9 at 1440 / 390
+READY	/de/de/befoerderungsbedingungen-lh	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 2 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/at/de/befoerderungsbedingungen-lh	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 2 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/gb/en/terms-and-conditions-lh	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; 2 link paragraph(s) before a heading	not recorded (dry run placed)
+READY	/de/en/terms-of-service-group	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	4.54 / 4.75 -> 4.54 / 4.75 at 1440 / 390
+READY	/de/de/befoerderungsbedingungen-group	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/befoerderungsbedingungen-group	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/terms-of-service-group	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/terms-of-use	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	2.23 / 6.07 -> 2.23 / 6.07 at 1440 / 390
+READY	/de/de/nutzungsbedingungen	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/nutzungsbedingungen	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/terms-of-use	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/travel-id-terms-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	3.97 / 6.62 -> 3.97 / 6.62 at 1440 / 390
+READY	/de/de/travel-id-terms-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/travel-id-terms-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/travel-id-terms-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/en/common/baggage-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/de/de/common/baggage-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/at/de/common/baggage-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)
+READY	/gb/en/common/baggage-conditions	metadata-row-apply [{"key": "Template", "value": "legal"}]	Template | legal last in Metadata; no link before a heading (row only)	not recorded (dry run placed)

@@ -12,6 +12,8 @@ import lufthansaSectionsTransformer from './transformers/lufthansa-sections.js';
 import { collapseMain, brandOfHost } from './marker-collapse.mjs';
 // www's no-break spaces through the framework's steps (the brief after 527): guarded in onLoad, restored after
 import { guardNbsp } from './nbsp-guard.mjs';
+// lufthansa.com: a Template row in the Metadata table (standing order 30)
+import addTemplateRow from './template-row.mjs';
 
 const PAGE_TEMPLATE = {
   "name": "legal",
@@ -166,6 +168,8 @@ export default {
 
     main.appendChild(document.createElement('hr'));
     WebImporter.rules.createMetadata(main, document);
+    // lufthansa.com: Template legal (aem.js: body.legal; styles.css scopes the template's own spacing)
+    if (/(^|\.)lufthansa\.com$/.test(new URL(params.originalURL).hostname)) addTemplateRow(main, document, 'legal');
     WebImporter.rules.transformBackgroundImages(main, document);
     WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
 

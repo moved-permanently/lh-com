@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-legal.js
-  var tmp_bundle_legal_1471119_exports = {};
-  __export(tmp_bundle_legal_1471119_exports, {
-    default: () => tmp_bundle_legal_1471119_default
+  var tmp_bundle_legal_1595085_exports = {};
+  __export(tmp_bundle_legal_1595085_exports, {
+    default: () => tmp_bundle_legal_1595085_default
   });
 
   // tools/importer/parsers/video-sizes.js
@@ -1487,7 +1487,7 @@ var CustomImportScript = (() => {
   var HEADING_STYLE = styleMarker(HEADING_TOKENS);
   var PARAGRAPH_STYLE = styleMarker(PARAGRAPH_TOKENS);
   var LIST_STYLE = styleMarker(LIST_TOKENS);
-  var SEPARATOR = /^\{(spacer|divider)-(\d{1,3})( from-768)?\}$/;
+  var SEPARATOR = /^\{(spacer|divider)-(\d{1,3})( from-768| below-768)?\}$/;
   var VIDEO_SETTINGS = ["autoplay", "muted", "loop", "controls", "round-play-button"];
   var VIDEO_SIZE = "size-\\d{2,5}x\\d{2,5}";
   var VIDEO_MARKER = styleMarker(`${VIDEO_SETTINGS.join("|")}|${VIDEO_SIZE}`);
@@ -1497,7 +1497,7 @@ var CustomImportScript = (() => {
   var OTHER_TOKENS = "mobile|blank|small|divider|cell-(?:half-start|half-end|three-quarters)";
   var ANY_TOKENS = [HEADING_TOKENS, PARAGRAPH_TOKENS, LIST_TOKENS, VIDEO_SETTINGS.join("|"), VIDEO_SIZE, OTHER_TOKENS].join("|");
   var ANY_MARKER = `\\{\\s*(?:${ANY_TOKENS})(?: (?:${ANY_TOKENS}))*\\s*\\}`;
-  var SEPARATOR_TEXT = /^\s*\{(?:spacer|divider)-\d{1,3}(?: from-768)?\}\s*$/;
+  var SEPARATOR_TEXT = /^\s*\{(?:spacer|divider)-\d{1,3}(?: from-768| below-768)?\}\s*$/;
   var isSeparatorText = (s) => SEPARATOR_TEXT.test(s) || APP_SPACER.test(s.trim());
   var TRAILING_TEXT = new RegExp(`\\s*${ANY_MARKER}\\s*$`);
   var TRAILING_HTML = new RegExp(`\\s*${ANY_MARKER}((?:\\s*</[a-z][a-z0-9]*>)*)\\s*$`, "i");
@@ -4924,8 +4924,10 @@ var CustomImportScript = (() => {
         const seps = run.els.map(parse5);
         const divider = seps.some((m) => m[1] === "divider");
         const px = seps.reduce((a, m) => a + Number(m[2]), 0);
-        const tablet = seps.every((m) => m[3]);
-        if (!tablet) seps.filter((m) => m[3]).forEach(() => count(stats, "theme", "separator-from-768"));
+        const tablet = seps.every((m) => m[3] === " from-768");
+        if (!tablet) seps.filter((m) => m[3] === " from-768").forEach(() => count(stats, "theme", "separator-from-768"));
+        const phone = seps.every((m) => m[3] === " below-768");
+        if (!phone) seps.filter((m) => m[3] === " below-768").forEach(() => count(stats, "theme", "separator-below-768"));
         let size = null;
         if (!divider && px <= 31) size = "none";
         else if (!divider) size = px < 90 ? "m" : "l";
@@ -4937,7 +4939,7 @@ var CustomImportScript = (() => {
         const remove = () => run.els.forEach((el) => el.remove());
         const prose = (el) => !!el && isRunningText(el) && !/^\s*\{[^}]*\}\s*$/.test(textOf(el));
         const heading = (el) => !!el && /^H[1-6]$/.test(el.tagName);
-        if (size === "none" && textSpacers && !tablet && prose(before) && (prose(after) || heading(after))) {
+        if (size === "none" && textSpacers && !tablet && !phone && prose(before) && (prose(after) || heading(after))) {
           const keep = doc.createElement("p");
           keep.textContent = `{spacer-${px}}`;
           run.els[0].before(keep);
@@ -4945,7 +4947,7 @@ var CustomImportScript = (() => {
           count(stats, "carrier", "text-spacer", run.els.length);
           return;
         }
-        if (size === "none" && componentSpacers && !tablet && !atStart && !atEnd && content(before) && content(after)) {
+        if (size === "none" && componentSpacers && !tablet && !phone && !atStart && !atEnd && content(before) && content(after)) {
           const keep = doc.createElement("p");
           keep.textContent = `{spacer-${px}}`;
           run.els[0].before(keep);
@@ -4958,13 +4960,14 @@ var CustomImportScript = (() => {
           count(stats, "theme", "separator", run.els.length);
           return;
         }
-        if (tablet) {
+        if (tablet || phone) {
+          const opt = tablet ? "from-768" : "below-768";
           const b2 = doc.createElement("div");
-          b2.className = divider ? "divider from-768" : `spacer${size === "l" ? " l" : ""} from-768`;
+          b2.className = divider ? `divider ${opt}` : `spacer${size === "l" ? " l" : ""} ${opt}`;
           b2.innerHTML = "<div><div></div></div>";
           run.els[0].before(b2);
           remove();
-          count(stats, "carrier", "separator-from-768", run.els.length);
+          count(stats, "carrier", `separator-${opt}`, run.els.length);
           return;
         }
         if (rules.includes("sections-m") && size === "m" && (atStart || atEnd)) {
@@ -5182,6 +5185,25 @@ var CustomImportScript = (() => {
     return root;
   }
 
+  // tools/importer/template-row.mjs
+  function addTemplateRow(main, document, name) {
+    const tables = [...main.querySelectorAll("table")];
+    const meta = tables.reverse().find((t) => /^metadata$/i.test(((t.querySelector("th, td") || {}).textContent || "").trim()));
+    if (!meta) return false;
+    const rows = [...meta.querySelectorAll("tr")];
+    if (rows.some((tr2) => /^template$/i.test(((tr2.children[0] || {}).textContent || "").trim()))) return false;
+    const tr = document.createElement("tr");
+    const key = document.createElement("td");
+    key.textContent = "Template";
+    const value = document.createElement("td");
+    value.textContent = name;
+    tr.append(key, value);
+    const last = rows[rows.length - 1];
+    if (last) last.after(tr);
+    else meta.append(tr);
+    return true;
+  }
+
   // tools/importer/import-legal.js
   var PAGE_TEMPLATE = {
     "name": "legal",
@@ -5312,7 +5334,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_legal_1471119_default = {
+  var tmp_bundle_legal_1595085_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5336,6 +5358,7 @@ var CustomImportScript = (() => {
       executeTransformers("afterTransform", main, payload);
       main.appendChild(document.createElement("hr"));
       WebImporter.rules.createMetadata(main, document);
+      if (/(^|\.)lufthansa\.com$/.test(new URL(params.originalURL).hostname)) addTemplateRow(main, document, "legal");
       WebImporter.rules.transformBackgroundImages(main, document);
       WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
       const rawPath = new URL(params.originalURL).pathname.replace(/\/$/, "").replace(/\.html?$/, "");
@@ -5352,5 +5375,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_legal_1471119_exports);
+  return __toCommonJS(tmp_bundle_legal_1595085_exports);
 })();
