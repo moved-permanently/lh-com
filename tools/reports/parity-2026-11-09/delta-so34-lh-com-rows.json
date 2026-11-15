@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/traveltricks",
+  "inserts": [
+   {
+    "before": "<h2 id=\"step-1-download-the-lufthansa-app-heading-large-column-start-outer\">",
+    "text": "<p>{spacer-60}</p>"
+   }
+  ]
+ }
+]

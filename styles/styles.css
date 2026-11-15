@@ -1045,6 +1045,16 @@ body.brand-lufthansa main > .section.gap-after-small {
   margin-bottom: 24px;
 }
 
+/* lufthansa.com on phones: "Find the right Miles & More Credit Card for your needs" in www's three lines (www keeps
+   "More Credit Card" together with non-breaking spaces, which DA drops from headings when a document is saved; standing
+   order 34, /de/en/discover-lufthansa/miles-and-more-credit-card and its gb/en copy): the heading 318px wide breaks
+   after "&" as www's ("Find the right Miles & More" 329px, "More Credit Card for your" 310px in its 28px face) */
+@media (width < 768px) {
+  body.brand-lufthansa main .default-content-wrapper > h2[id="find-the-right-miles--more-credit-card-for-your-needs"] {
+    max-width: 318px;
+  }
+}
+
 /* not an empty last section (a document's empty trailing div) after a whole grey AEM section with
    .mb-default (grey, not flush, not a column band or view): www keeps the gap there
    (/de/en/book-and-manage/flights/wetlease-hub: the band 92px nearer the footer than www's;
