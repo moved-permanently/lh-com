@@ -1,0 +1,51 @@
+# ema-cashub, standing order 41 (2026-11-15): a census for your decision, no change: Cargo's section gap below 1025 px at www's 20 px (Liferay's boxes; ours 48 px), the brand-wide rule that the eservices-app pages would need at 390 (gate-so41-cargo-eservices-app.txt).
+# Candidate (not committed): @media (width < 1025px) { body.brand-cargo { --section-gap: 20px } } (every gap that is var(--section-gap) or a calc of it). Rendered on cargo.turnsthe.page with the candidate as a style sheet after load, against tonight's as-served renders (gate of delta-so41-cargo-speed-zoom.txt); unhinted, EAGER=1 CONSENT=1; refused and counted: 0.
+# The 42 recorded Cargo 390s (cargo-parity-001 to -003): 20 are first loads (-001, -002), 22 are the 1440 load resized (-003), pointers only.
+#   first loads: 14 within 2 % as served, 16 with the candidate; 4 into 2 % (ebooking-info en +2.47 -> +0.39 %, de +2.51 -> +0.55 %; fleet-ulds/fleet en +3.05 -> +0.13 %, de +3.27 -> +0.41 %), 2 out (industries-in-focus en -1.10 -> -3.20 %, de -0.18 -> -2.25 %: www's gaps there are wider); 5 closer, 7 further (Support & Contact's four and the two sustainable-development-goals pages stay within), 8 the same.
+#   resized pointers: 7 within as served, 13 with the candidate (9 into 2 %, the product pages +4.8 -> +0.3 %; 3 out: general-terms1, onerecord, ecsd; eaw further, -2.15 -> -4.65 %); 14 closer, 4 further, 4 the same.
+#   the eservices-app pages at 390 with this order's fixes and the candidate: de (fix B) 3,175 against www's first load 3,142 (+1.05 %), en (fix A) 3,092 against 3,043 (+1.61 %). Their 1440 stays as in gate-so41-cargo-eservices-app.txt.
+# Not gated beyond the recordings: the candidate reaches every Cargo page below 1025 px (990 served copies), most never recorded at 390.
+#
+# path	width	recording	www page	as served	with the candidate	move	page width (served / candidate)	note
+/en/industries-in-focus	390	cargo-parity-001 (first load)	5347	5288 (-1.10 %)	5176 (-3.20 %)	further	390 / 390	out of 2 % with the candidate
+/de/industries-in-focus	390	cargo-parity-001 (first load)	5434	5424 (-0.18 %)	5312 (-2.25 %)	further	390 / 390	out of 2 % with the candidate
+/en/ci/newsroom	390	cargo-parity-001 (first load)	10631	10615 (-0.15 %)	10615 (-0.15 %)	same	390 / 390	
+/en/ci/whats-up-now	390	cargo-parity-001 (first load)	2674	2672 (-0.07 %)	2672 (-0.07 %)	same	390 / 390	
+/de/ci/whats-up-now	390	cargo-parity-001 (first load)	2713	2712 (-0.04 %)	2712 (-0.04 %)	same	390 / 390	
+/de/ci/newsroom	390	cargo-parity-001 (first load)	10670	10678 (+0.07 %)	10678 (+0.07 %)	same	390 / 390	
+/en/notification-overview	390	cargo-parity-001 (first load)	1316	1318 (+0.15 %)	1318 (+0.15 %)	same	390 / 390	
+/de/notification-overview	390	cargo-parity-001 (first load)	1355	1358 (+0.22 %)	1358 (+0.22 %)	same	390 / 390	
+/en/ci/sustainable-development-goals	390	cargo-parity-001 (first load)	1735	1742 (+0.40 %)	1714 (-1.21 %)	further	390 / 390	
+/en/support-and-contact	390	cargo-parity-001 (first load)	3066	3092 (+0.85 %)	3036 (-0.98 %)	further	390 / 390	
+/en/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	390	cargo-parity-001 (first load)	3066	3092 (+0.85 %)	3036 (-0.98 %)	further	390 / 390	
+/de/support-and-contact	390	cargo-parity-001 (first load)	3105	3132 (+0.87 %)	3076 (-0.93 %)	further	390 / 390	
+/de/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	390	cargo-parity-001 (first load)	3105	3132 (+0.87 %)	3076 (-0.93 %)	further	390 / 390	
+/de/ci/sustainable-development-goals	390	cargo-parity-001 (first load)	1870	1890 (+1.07 %)	1862 (-0.43 %)	closer	390 / 390	
+/en/ci/facts-figures	390	cargo-parity-002 (first load)	11916	12163 (+2.07 %)	12163 (+2.07 %)	same	390 / 390	
+/de/ci/facts-figures	390	cargo-parity-001 (first load)	12482	12775 (+2.35 %)	12775 (+2.35 %)	same	390 / 390	
+/en/ebooking-info	390	cargo-parity-001 (first load)	5393	5526 (+2.47 %)	5414 (+0.39 %)	closer	390 / 390	into 2 % with the candidate
+/de/ebooking-info	390	cargo-parity-001 (first load)	5688	5831 (+2.51 %)	5719 (+0.55 %)	closer	390 / 390	into 2 % with the candidate
+/en/fleet-ulds/fleet	390	cargo-parity-001 (first load)	3841	3958 (+3.05 %)	3846 (+0.13 %)	closer	390 / 390	into 2 % with the candidate
+/de/fleet-ulds/fleet	390	cargo-parity-001 (first load)	3918	4046 (+3.27 %)	3934 (+0.41 %)	closer	390 / 390	into 2 % with the candidate
+/en/data-protection-notice-google-analytics	390	cargo-parity-003 (the 1440 load resized: a pointer)	1120	844 (-24.64 %)	844 (-24.64 %)	same	390 / 390	
+/en/ci/partnerships-subsidiaries	390	cargo-parity-003 (the 1440 load resized: a pointer)	2781	2659 (-4.39 %)	2659 (-4.39 %)	same	390 / 390	
+/en/eaw	390	cargo-parity-003 (the 1440 load resized: a pointer)	2236	2188 (-2.15 %)	2132 (-4.65 %)	further	390 / 390	
+/en/meta/meta/company/general-terms1	390	cargo-parity-003 (the 1440 load resized: a pointer)	1498	1470 (-1.87 %)	1442 (-3.74 %)	further	390 / 390	out of 2 % with the candidate
+/en/home	390	cargo-parity-001 (the 1440 load resized: a pointer)	8389	8366 (-0.27 %)	8366 (-0.27 %)	same	390 / 390	
+/de/home	390	cargo-parity-001 (the 1440 load resized: a pointer)	8486	8488 (+0.02 %)	8488 (+0.02 %)	same	390 / 390	
+/en/onerecord	390	cargo-parity-003 (the 1440 load resized: a pointer)	5081	5108 (+0.53 %)	4940 (-2.78 %)	further	390 / 390	out of 2 % with the candidate
+/en/ecsd	390	cargo-parity-003 (the 1440 load resized: a pointer)	1751	1770 (+1.09 %)	1714 (-2.11 %)	further	390 / 390	out of 2 % with the candidate
+/en/news/142-arctic-temperatures-on-board	390	cargo-parity-001 (the 1440 load resized: a pointer)	8389	8501 (+1.34 %)	8473 (+1.00 %)	closer	390 / 390	
+/de/news/142-arktische-temperaturen-an-bord	390	cargo-parity-001 (the 1440 load resized: a pointer)	8856	9029 (+1.95 %)	9001 (+1.64 %)	closer	390 / 390	
+/en/ehm	390	cargo-parity-003 (the 1440 load resized: a pointer)	1578	1617 (+2.47 %)	1561 (-1.08 %)	closer	390 / 390	into 2 % with the candidate
+/en/fleet-ulds/ulds/containers	390	cargo-parity-003 (the 1440 load resized: a pointer)	2314	2400 (+3.72 %)	2288 (-1.12 %)	closer	390 / 390	into 2 % with the candidate
+/en/eservices/efreight	390	cargo-parity-003 (the 1440 load resized: a pointer)	1522	1585 (+4.14 %)	1529 (+0.46 %)	closer	390 / 390	into 2 % with the candidate
+/en/airmail	390	cargo-parity-003 (the 1440 load resized: a pointer)	1266	1326 (+4.74 %)	1270 (+0.32 %)	closer	390 / 390	into 2 % with the candidate
+/en/active-temp-control	390	cargo-parity-003 (the 1440 load resized: a pointer)	1242	1302 (+4.83 %)	1246 (+0.32 %)	closer	390 / 390	into 2 % with the candidate
+/en/dangerous-goods	390	cargo-parity-003 (the 1440 load resized: a pointer)	1242	1302 (+4.83 %)	1246 (+0.32 %)	closer	390 / 390	into 2 % with the candidate
+/en/general-cargo	390	cargo-parity-003 (the 1440 load resized: a pointer)	1242	1302 (+4.83 %)	1246 (+0.32 %)	closer	390 / 390	into 2 % with the candidate
+/en/add-on-services/smartuld	390	cargo-parity-003 (the 1440 load resized: a pointer)	1120	1176 (+5.00 %)	1120 (+0.00 %)	closer	390 / 390	into 2 % with the candidate
+/en/emergency	390	cargo-parity-003 (the 1440 load resized: a pointer)	1186	1248 (+5.23 %)	1192 (+0.51 %)	closer	390 / 390	into 2 % with the candidate
+/en/live-animals	390	cargo-parity-003 (the 1440 load resized: a pointer)	1742	1866 (+7.12 %)	1810 (+3.90 %)	closer	390 / 390	
+/en/eservices-app	390	cargo-parity-003 (the 1440 load resized: a pointer)	3043	3312 (+8.84 %)	3144 (+3.32 %)	closer	390 / 390	
+/en/footer/bottomnav/terms-of-use	390	cargo-parity-003 (the 1440 load resized: a pointer)	4780	5442 (+13.85 %)	5414 (+13.26 %)	closer	390 / 390	

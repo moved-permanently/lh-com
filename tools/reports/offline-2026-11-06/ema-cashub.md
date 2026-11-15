@@ -7398,9 +7398,23 @@ offline. **DA:** read only, 4 single GETs (listed in the final section). No uplo
   - its heading is already in place, so B doesn't apply;
   - 390: +8.84 % as served, +7.13 % with A;
   - 1440: A takes it from -3.01 to -5.35 %, for the same two reasons.
-- Bringing both pages within 2 % at both widths needs their 1440 layout as www's (the tab row with its tables, the
-  benefits as columns) and Cargo's 20 px gaps below 1025 px. That is a later order, with your word on the brand-wide
-  spacing.
+- **C, the 1440 layout as www's (drafted later this order, still HOLD):**
+  - B (de) or A (en), with the Track set as tabs and each panel's picture | text in a one-row table;
+  - on de, the benefits as Columns Media (wide-media), as the English document already has them;
+  - a Cargo rule: from 768 px a picture-first wide-media block splits 746 | 526 px. That is www's CF8 split; both
+    recordings put the benefits text at x 842, 526 px wide. Ours splits col-8 | col-4, so the picture is 482 px tall
+    instead of 420.
+  - 1440 with C and the rule: de +0.79 %, en +1.49 %.
+  - The rows are built and dry-run on DA's copies (delta-so41-cargo-eservices-app-text.json, then -tabs.json). Their
+    text equals the drafts'.
+  - The rule is not committed: on its own it would take the English page as served further from www (-4.9 %) until
+    the row is applied.
+- **390 still needs the spacing.** gate-so41-cargo-section-gap-390.txt is a census, not committed: a Cargo-wide 20 px
+  gap below 1025 px.
+  - Of the 20 recorded 390 first loads, 14 are within 2 % as served and 16 with the gap. 4 come into 2 %
+    (ebooking-info and fleet, en and de) and 2 go out (industries-in-focus en -3.20 %, de -2.25 %).
+  - With the gap: de B +1.05 %, de C +2.01 %, en A or C +1.61 %.
+  - It reaches every Cargo page below 1025 px, most of which have no 390 recording. Your call (below).
 
 **industries-healthcare's call-to-action band: READY (delta-so41-cargo-healthcare-cta.txt).**
 - One insert before "Reliable solutions":
@@ -7410,8 +7424,13 @@ offline. **DA:** read only, 4 single GETs (listed in the final section). No uplo
     https://www.lufthansa-cargo.com/contact-pharma-industry-team.
 - Dry run on DA's copy: placed; taking it out gives DA's copy back byte for byte; a second run finds it present.
 - Gate (lost content): all three are found at both widths, and the control equals live (4,359 / 3,953).
-- The page gets 222 px taller at 1440 (+11.60 -> +17.28 %) and 298 at 390. Its other differences (pictures, section
-  order, the HOLD tab row) are not this row's.
+- The page gets 222 px taller at 1440 (+11.60 -> +17.28 %) and 298 at 390.
+- I traced the rest of it at 1440 after the band was live (not rows yet):
+  - "Behind every shipment is a story that matters": +464 px. www draws the planet cover at about 178 px beside the
+    text; ours stretches it to the column (632 px).
+  - "Crafted with passion": +163 px.
+  - The "Any questions?" section: 128 px that www's page doesn't have tonight.
+  - The tab set under "Reliable solutions": -211 px while it stays a closed accordion (its tab row is HOLD).
 
 ### Item 1: the Austrian homepages against the same-hour pairs (gate-so41-austrian-homepages.txt)
 
@@ -7476,3 +7495,72 @@ offline. **DA:** read only, 4 single GETs (listed in the final section). No uplo
     - 390: 1,168 (+0.52 %), footer +1.00 %.
   - Apply after `279b8aae` is live.
 - **eservices-app:** see "Your three answers". The English page needs fix A, not B. A alone doesn't bring it within 2 %.
+
+### After the pushes (measured on the hosts, ~22:15 to 22:50 CET)
+
+Your helpers applied the three READY rows and the publish child put them live. Each measures as drafted, to the px:
+- gb/en homepage: 5,927 / 4,749, measured with the recorded widget answers.
+- industries-healthcare: 4,581 / 4,251, with the band and the button at the full address.
+- speed-zoom: 2,180 / 1,168. It was previewed first and went live by ~22:20.
+
+The Speed rule (`279b8aae`) is live. td.Pro 1,235 and td.Flash 1,259 (en) / 1,299 (de) at 390 are as the gate
+predicted, and 1440 is unchanged.
+
+### Final section (about 22:55 CET, 2026-11-15)
+
+Everything in the order is done. I stopped early: what is left needs your word or a file only www has.
+
+**On main:**
+- `279b8aae`: the Speed rule, the three READY lists, the Austrian homepage gate, the eservices-app gate;
+- `9abce73a`: this section's first part, Air Dolomiti's hyphenation census;
+- this commit:
+  - the eservices-app's 1440 rows (C, HOLD) and the section-gap census;
+  - the finish lists (Austria's 42 homepage, ski and Bangkok rows on the pairs' figures; sitzplatzreservierung HOLD);
+  - this section and the test's HOLD case.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 in the clean worktree before each push.
+- **Stylelint:** exit 0 on styles/themes/cargo.css.
+- **Tests on the code push:** 1,756 tests, 0 failures. They were every test that names Cargo, a theme, the apply tools
+  or the report folder, plus the tests that read styles as text.
+- **New test:** test/cargo-speed-band-so41.test.mjs. It was 4 of 4 red on origin's main before the push. Its fifth case
+  keeps the eservices-app lists HOLD-only.
+- **Full suite:** on `279b8aae`, one process per file: 1,185 files, 4,540 tests, 0 failures, 5 skipped. The
+  report-folder tests and the new test pass on this commit.
+
+**For you:**
+- **Ready to apply:** nothing. All three READY rows are applied and served as drafted.
+- **Decisions:**
+  - **www's AI flight-finder entry** on 15 Austrian homepages: 124 / 210 px, the whole gap on 19 page-widths. It opens
+    www's AI chat, and we have no block for it. Should we leave it out, or show a static band (its text and a link)? If
+    a band, which link should it use?
+  - **Cargo's section gap below 1025 px at www's 20 px** (gate-so41-cargo-section-gap-390.txt):
+    - recorded first loads within 2 % go from 14 to 16 of 20;
+    - industries-in-focus en / de go out (-3.20 / -2.25 %);
+    - it reaches every Cargo page, most without a 390 recording.
+    - With it, the eservices-app rows (C and the CF8 split) pass at 1440 and come to +2.01 % (de) / +1.61 % (en) at
+      390.
+  - **bangkok-airways:** www's flight search stands on a background picture stage (Destinations_Bangkok_300dpi_Temple_
+    Getty.jpg). If you want it, the picture file is needed (it's broken even in www's recording). Then it is a
+    Background Image row.
+  - **The stretcher block** (ca/fr, ch/fr): still your HOLD from order 21. The pairs give its figures unchanged.
+- **Still HOLD:**
+  - AD sitzplatzreservierung 390: within your rules nothing brings it within 2 %;
+  - the eservices-app pages (above);
+  - healthcare's other sections, traced above;
+  - the Austrian homepages where www's fare teaser had no deals in its load;
+  - ski-campaign 390 at -2.02 %: www's spacing around the same six fare cards.
+
+**Rules followed:**
+- No request to an airline host: refused and counted, 0 in every render. Austria's widget calls were answered from our
+  host's recording.
+- DA read only, 5 single GETs: de and en eservices-app, en industries-healthcare and en speed-zoom on lh-cargo; gb/en
+  homepage on lh-austrian.
+- No upload, preview, publish or da-upload.mjs.
+- www's recordings read as data.
+- The checkout's 88 dirty entries untouched (88 after every push).
+- /de/en/overview-manage has no row.
+
+**Not in git** (scratch under /tmp/so41): the DA copies read, the drafts, the apply outputs, the scripts (the replay
+renderer among them), the renders and logs. The downloaded archives are in their own folders, extracted under
+so23/arch.
