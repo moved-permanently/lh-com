@@ -4671,3 +4671,51 @@ recordings asked for (www's captures stopped since 07:10 CET); every gate below 
 - Not in git and why: logs/p4/so28, logs/p4/so29 (scratch: captures, gate folders, crops, trial scripts, the census
   script and DA copy), the drops in /tmp (private material), content/, migration-work/, tools/importer/reports/* (not
   mine), the old autostash entry (not mine, kept). Preview servers stopped, trial worktrees removed.
+
+## Standing order 30 (received about 14:45 UTC, 2026-11-15)
+
+State at the start: nothing of mine uncommitted or unpushed (order 29's final section on main, 1b96f00c).
+
+1. **Access after the new sign-in:** push works (a dry-run push to origin, up to date after the pull) and DA reads work
+   (GET /ru/en/homepage 200).
+2. **lufthansa.com's feedback block as www's** (6ad58b7f; lufthansa.com only, the block in its own wrapper, not the help
+   app's; test/lh-com-feedback-so30.test.mjs): the question 18 / 24 px bold, 24 px in (www's questionnaire wrapper; left
+   only, so the question stays on one line at 390); the answers as wide as their text and 15 px each side, 50 px high
+   with www's 2 px #666 outline and divider, the text #666, 14 px below 768 px, 18 px from 768 px (www's shadow CSS and
+   lh-parity-006's pixels at 1440 and 390).
+   - The block is in 27 published lufthansa.com documents; 14 of them are recorded with it (lh-parity-006's flights
+     pages). Below the grid on all but /ru/en/flights, so the whole page: 28 page-widths, 2 better (ru/en 390
+     10.81 → 8.62, pl/en 390 42.41 → 41.88), 26 within 0.5, none worse (pl/en 1440 read +0.72 in one pair, a second
+     same-hour pair 36.04 → 36.01).
+   - Not gateable: the 2026-11-06 recordings of de/en, de/de, at/de and gb/en flights (cut at 8,000 px, www's grid fills
+     them); help-and-contact, destination and fr/fr support (not recorded).
+   - Found: www shows the block on /de/en/articles/tags and /de/en/overview-travel-information (lh-parity-003), our
+     documents have none.
+3. **ITA's four phone rows with Arial's face** (PARITY_ARIAL_FONTS, Liberation Sans; delta-so30-ita-phone-rows.txt,
+   band-end gate on folder renders; DA read and checked):
+   - entry-exit-system READY: www's gaps around "What data is collected?" on phones ({spacer-75 below-768} at the
+     section before, {spacer-49 below-768} before the next heading): 390 -3.23 → -2.05 %, 1440 -0.33 → -0.62 %.
+   - electronic-devices-and-batteries READY: www's 30 px separator after the icon list ({spacer-30}): 390
+     -1.52 → -1.13 %, 1440 -0.45 → +0.16 %.
+   - long-haul: nothing above the footer is shorter; baggage-and-strollers: no single place (the fare tables swing
+     +30 / -85 px).
+   - **The footer is not www's on phones, even with the face:** www's legal link list is 90 % of the footer's width
+     (www's app.css), so it packs seven rows where ours packs six, -43 px on every ITA phone page. The ITA rule (below
+     768 px) brings 19 of the 26 recorded phone pages closer (long-haul -1.53 → -0.04 %, fleet -1.85 → -0.33 %) but 4
+     further by more than 0.5 points (digital-newsstand, invoicing, ita-airways-app, network: long above the footer).
+     HOLD; their causes are located in the list (a table header, two grey-band gaps, a wrap, a heading). network's
+     heading row (www's heading-small) is HOLD: further at both widths (it hid shortfalls lower down).
+
+## Standing order 30, final section (about 16:30 UTC, 2026-11-15)
+
+- Items 1-3 done; held: ITA's footer rule (four pages long above the footer), network's heading row.
+- Before this section: the full suite on 30a26407 (npm run lint 0, stylelint 0, 1,173 of 1,173 test files); the folder-reading tests with brand.test.mjs; the whole-repo lint read before every push.
+- Nothing uploaded, previewed or published by me; DA read only (/ru/en/homepage, ITA's entry-exit-system,
+  electronic-devices-and-batteries, network); da-upload.mjs not run; requests only to our own hosts, DA (reads), R2 (the
+  drops: lh-parity-002a to -004b, ita-parity-005 to -008 and Liberation Sans, sha256 in logs/p4/so30/drops.txt; Liberation
+  Sans, lh-parity-004a and -004b as recorded, the others had no recorded value I could find) and GitHub's API; no captures of www.
+  .migration/project.json not touched; the excluded manage page has no row and no line; blocks/blog-overview and the
+  legal pages' rule not touched.
+- Not in git and why: logs/p4/so30 (scratch: captures, gate folders, crops, folder copies, scripts, DA copies), the drops
+  in /tmp (private material), content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not
+  mine, kept). Preview servers stopped, trial worktrees removed.
