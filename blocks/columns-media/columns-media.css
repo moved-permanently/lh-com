@@ -135,6 +135,13 @@ body.brand-lufthansa .columns-media.separated {
   body.brand-lufthansa main .columns-media-wrapper:has(> .columns-media.padded) + .columns-media-wrapper > .columns-media.sidebar:has(> .columns-media-row.columns-media-media-first:first-child) {
     padding-top: 41px;
   }
+
+  /* the same when the padded view ends its section and the sidebar opens the next one (the fleet
+     pages 320 and 32n, 100-years/chronicle; 42 published documents): /de/en/320 9.0 -> 5.7, 32n
+     8.3 -> 7.6 % at 390, chronicle the same */
+  body.brand-lufthansa main > .section:has(> .columns-media-wrapper:last-child > .columns-media.padded) + .section > .columns-media-wrapper:first-child > .columns-media.sidebar:has(> .columns-media-row.columns-media-media-first:first-child) {
+    padding-top: 41px;
+  }
 }
 
 /* a sidebar with the map in its first cell (poi-map.js intoSidebar, the stopover detail pages):

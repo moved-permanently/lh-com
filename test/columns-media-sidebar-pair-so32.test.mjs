@@ -12,6 +12,7 @@ import fs from 'node:fs';
 const css = fs.readFileSync(new URL('../blocks/columns-media/columns-media.css', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
 
 test('phones: a picture-first sidebar after a padded view 41px from its top', () => {
-  assert.ok(css.includes('@media (width < 768px) { body.brand-lufthansa main .columns-media-wrapper:has(> .columns-media.padded) + .columns-media-wrapper > .columns-media.sidebar:has(> .columns-media-row.columns-media-media-first:first-child) { padding-top: 41px; } }'));
+  assert.ok(css.includes('@media (width < 768px) { body.brand-lufthansa main .columns-media-wrapper:has(> .columns-media.padded) + .columns-media-wrapper > .columns-media.sidebar:has(> .columns-media-row.columns-media-media-first:first-child) { padding-top: 41px; } '));
+  assert.ok(css.includes('body.brand-lufthansa main > .section:has(> .columns-media-wrapper:last-child > .columns-media.padded) + .section > .columns-media-wrapper:first-child > .columns-media.sidebar:has(> .columns-media-row.columns-media-media-first:first-child) { padding-top: 41px; } }'), 'across a section boundary too (320: 9.0 -> 5.7)');
   assert.ok(css.includes('.columns-media.sidebar { padding: 20px 0 36px; }'), 'the default as before');
 });
