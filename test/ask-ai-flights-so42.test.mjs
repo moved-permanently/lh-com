@@ -114,3 +114,12 @@ test('the rows: 15 English homepages, one insert after the flight search, www\'s
   const list = fs.readFileSync(new URL('../tools/reports/parity-2026-11-09/delta-so42-austrian-ask-ai-flights.txt', import.meta.url), 'utf8');
   assert.ok(!list.split('\n').some((l) => /^READY\t\/de\/en\/overview-manage/.test(l)));
 });
+
+test('item 2: the fare teaser option spaced (Austrian only) and the ski campaign\'s row', () => {
+  const flat = fs.readFileSync(new URL('../styles/themes/austrian.css', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
+  assert.ok(flat.includes('body.brand-austrian main > .section > .fare-teaser-wrapper > .fare-teaser.spaced .fare-teaser-list { row-gap: 24px; margin-bottom: 60px; }'));
+  assert.ok(flat.includes('@media (width >= 1025px) { body.brand-austrian main > .section > .fare-teaser-wrapper:has(> .fare-teaser.spaced) { margin-bottom: 69px; } }'));
+  assert.ok(!fs.readFileSync(new URL('../blocks/fare-teaser/fare-teaser.css', import.meta.url), 'utf8').includes('.spaced'));
+  const rows = JSON.parse(fs.readFileSync(new URL('../tools/reports/parity-2026-11-09/delta-so42-austrian-ski-teaser.json', import.meta.url), 'utf8'));
+  assert.deepEqual(rows, [{ path: '/us/en/local-page/ski-campaign-2026', inserts: [{ replace: '<div class="fare-teaser">', text: '<div class="fare-teaser spaced">' }] }]);
+});

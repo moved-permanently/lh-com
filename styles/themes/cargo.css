@@ -2388,3 +2388,21 @@ body.brand-cargo main .columns-media .columns-media-text > p > a:only-child:is([
 body.brand-cargo main .columns-media.stacked .columns-media-multi {
   gap: 0;
 }
+
+/* standing order 42, item 1 (industries-healthcare, cargo-parity-004 at 1440): two Columns Media options for www's
+   Liferay boxes, on no Cargo document until delta-so42-cargo-healthcare-rest.txt's rows give them.
+   two-thirds: www's Introduction-CF1 holding a Text-Image CF6 ("Crafted with passion"): from 1025 px the row is
+   856 px wide, picture | text 416 | 416 px with 24 px between them (the picture 416 x 290 instead of 638 x 444).
+   natural-media: a media cell whose picture keeps its own width (at most the cell's), as www's planet cover
+   (218 px; www draws it 178 px wide beside the text, ours stretched it to the column, 638 px) */
+@media (width >= 1025px) {
+  body.brand-cargo main .columns-media.two-thirds .columns-media-row {
+    max-width: 856px;
+    column-gap: 24px;
+  }
+}
+
+body.brand-cargo main .columns-media.natural-media .columns-media-media :is(picture, img) {
+  width: auto;
+  max-width: 100%;
+}
