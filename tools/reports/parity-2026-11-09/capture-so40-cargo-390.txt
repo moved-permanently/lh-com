@@ -1,0 +1,6 @@
+# ema-cashub, standing order 40 (2026-11-15): two Cargo phone first loads, if the capture helper has time tonight (390 x 844, one load per width as cargo-parity-005, banner accepted, nothing opened; www.lufthansa-cargo.com). Each one gates a row that can't be gated now:
+# - /en/speed-zoom: its section join (title and tab set in one grey section, hero and breadcrumb in one) brings 1440 within 2 % (2,180, -0.27 %) but moves 390 from 1,311 to 1,196; no recording of it at 390 exists (delta-so37-cargo-product-tabs-unrecorded.txt, HOLD).
+# - /en/eservices-app: its lost-content row is live; its only 390 recording (cargo-parity-003) is the 1440 load resized. The German page's first load at 390 shows ours +8.69 % with the same structure (the repeated title, the "Track" set before its heading: delta-so40-cargo-de-eservices-app.txt), so a first load of the English page would show whether the same rows fit both.
+# path	widths	why
+/en/speed-zoom	390	the section-join row's 390 gate (and the tab row's)
+/en/eservices-app	390	the app page's phone layout against a first load (the German one: cargo-parity-005)

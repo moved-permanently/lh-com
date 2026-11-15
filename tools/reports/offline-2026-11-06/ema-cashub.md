@@ -7128,7 +7128,7 @@ the logs.
 checkout's 88 dirty entries belong to other jobs and were left alone.
 
 **Renders:** unhinted text (`--font-render-hinting=none`) in every render. lh-proxy, www.* (but www.mynewsdesk.com on
-Cargo) and every airline host were refused and counted: 0 refused on these pages. www's recordings were read as data
+Cargo) and every airline host were refused and counted: 83 refused on Air Dolomiti's German pages, none sent; 0 on Cargo's. www's recordings were read as data
 or laid out offline (every request answered from the archive or aborted). **DA:** read only, single GETs (listed in the
 final section). No upload, preview, publish or da-upload.mjs. /de/en/overview-manage has no row.
 
@@ -7290,3 +7290,70 @@ candidate that passes both widths) stay HOLD. The three OWNER rows are unchanged
   - Joined, it is 2,180 at 1440 (-0.27 %, band end -1.23 %).
   - But 390 moves from 1,311 to 1,196, and no 390 recording exists to gate that.
 - **industries-healthcare: HOLD.** It is +11.60 % as served and +20.02 % with the option. Not traced.
+
+### Final section (about 20:55 CET, 2026-11-15)
+
+All five items are done. The recordings were on the drop by 19:45, so I used the time left to trace the tab pages' HOLD
+rows. I stopped before 22:30. What is left needs new recordings or your word.
+
+**On main:**
+- `e33ba60c`: Support & Contact's band rule, eaw's stacked rule and row, the sitzplatzreservierung trace, the finish lists;
+- `c31e3b59`: the 12 tab pages gated (7 READY), the German eservices-app row;
+- `58e41dcd`: todoor and sustainable-choice READY with their spacers, the other HOLD rows traced;
+- `5a95b882`: the `{full-width}` panel list rule, passive-temp-support READY;
+- this commit: this section, the capture request (capture-so40-cargo-390.txt) and the corrected count of refused
+  requests.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 in the clean worktree before each push.
+- **Stylelint:** exit 0 on styles/themes/cargo.css.
+- **Tests on the pushes:** the files that read the report folder, Cargo's theme, the FAQ and media blocks or the apply
+  tools. On `5a95b882`: 392 files, 1,538 tests, 0 failures.
+- **New tests:**
+  - test/cargo-support-band-eaw-so40.test.mjs: 3 of 4 red on origin's main; the fourth checks that the 1440 rule is
+    unchanged;
+  - test/cargo-recorded-rows-so40.test.mjs: each case fails on the commit before its lists or rule (items 3 and 4 and
+    passive-temp-support checked before their pushes; the todoor / sustainable-choice case afterwards, on `c31e3b59`).
+- **Full suite:** the wt worktree, one process per file, on `5a95b882`: 1,182 files, 4,532 tests, 0 failures, 5 skipped.
+
+**As served** (your helpers applied every READY row within the hour; measured unhinted on the host, each at its drafted
+figure to the px):
+- Support & Contact: 3,092 / 3,132 at 390.
+- eaw: 1,666 / 2,188, with its trail, spacer and stacked pictures.
+- The 7 tab pages at their gate figures, both widths.
+- de eservices-app: 3,319 / 3,415.
+- todoor 2,283 and sustainable-choice 2,468; both spacers survived the upload.
+- passive-temp-support: 2,138 / 1,302, its list across the panel.
+
+**For you:**
+- **Ready to apply:** nothing. Every READY row of this order is applied and served as drafted.
+- **Decisions:**
+  - AD sitzplatzreservierung 390 can only come within 2 % if German FAQ titles may overflow their box. Brand-wide that
+    makes betreuung scroll sideways; page-only, the page itself does at 375 px.
+  - The German eservices-app row restores the words, but at 390 the page is +8.69 % against tonight's first load. That
+    is caused by our repeated title and the "Track" set's place, not the section (gate list's note).
+- **Captures** (capture-so40-cargo-390.txt): /en/speed-zoom and /en/eservices-app at 390, first loads. The first gates
+  speed-zoom's section row. The second shows whether the app page's phone layout needs the same fixes as the German one.
+- **Still HOLD:** AD flug-status 1440 (www's APIs) and street-food-in-munich 390.
+- **industries-healthcare (HOLD, +11.60 % as served):** it has lost content, www's call-to-action band between the
+  benefits list and "Reliable solutions":
+  - H2 "Let's find the right solution for your pharma logistics.";
+  - its paragraph ("Do you have specific requirements ... are here to help.");
+  - the "Get in touch" button.
+  - The button links to /contact-pharma-industry-team, which our site doesn't have (404). Should it go to www's page,
+    to Support & Contact, or be left out? With your answer it is a text inserts row like eservices-app's.
+  - The rest of the page differs in pictures and section order. That is not traced. Adding the band makes the page
+    taller still (it is already +11.60 %).
+- **Recordings:** tonight's carry an 80 px service notice above www's header. Every figure of this order is www's less
+  80 px; the lists say so.
+
+**Rules followed:**
+- No request to an airline host: refused and counted, none sent.
+- DA read only, 14 single GETs: eaw, the 12 tab pages and de eservices-app, all on lh-cargo.
+- No upload, preview, publish or da-upload.mjs.
+- www's recordings read as data.
+- The checkout's 88 dirty entries untouched (88 after every push).
+- /de/en/overview-manage has no row.
+
+**Not in git** (scratch under /tmp/so40): the DA copies read, the drafts, the apply outputs, the scripts, the renders
+and the logs; the downloaded archives (in their own folders, extracted under so23/arch).
