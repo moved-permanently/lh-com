@@ -1,0 +1,37 @@
+# Standing order 32 (2026-11-15), item 1: traveltricks' two store buttons ("Go to iOS download" / "Go to Android
+# download" under Step 1). www's buttons are maui-button-links without an href in the snapshots (www's script sets the
+# store links), so the import wrote nothing there. The links are in our own documents:
+# - iOS: the Lufthansa app, App Store id299219152 (not FlyNet id1517612540 or CabinBlu, which other pages link);
+# - Android: com.lufthansa.android.lufthansa.
+# Each version takes the links its own market's digital-travel-companion page (the app's page) uses: de/en and gb/en
+# itunes.apple.com/de/app/lufthansa/id299219152?mt=8, de/de, at/de and xx/es apps.apple.com/us/app/lufthansa/
+# id299219152, Android ...&hl=en on all of them; mk/en has no app page: de/en's. fr/fr has no app page and is not
+# published: the links of xx/fr's traveltricks (which has the buttons already, from www's markup). Labels: www's
+# snapshot of the version (mk/en has none: de/en's English labels).
+# Expected change, per document: the Step 1 text cell (bare text, the cell that links the app page) becomes its text
+# in a paragraph and the two buttons after it, <p><em><a href="iOS">label</a></em></p><p><em><a href="Android">label
+# </a></em></p>, as the xx versions carry them (DA's xx/fr exactly so). Nothing else changes.
+# Tool: tools/importer/text-inserts-apply.mjs --data delta-so32-traveltricks-store-buttons-lh-com.json (a replace of
+# the cell, found once in each copy). Dry run on DA's current copies (read-only GET): 7 of 7 inserted, without the
+# insert DA's copy byte for byte (--check).
+# Gate (the published de/en copy with the row as a draft on our host, against the recordings; the only recorded
+# version): 20.2 / 31.6 -> 20.2 / 22.1 % at 1440 / 390 (at 1440 the buttons sit in the text column beside the picture,
+# the page height as before). A first draft with the buttons after the block (my anchor overran the bare cell) read
+# 19.6 / 23.7; this list is the in-cell form.
+# Already there (no row): xx/fr, xx/it, xx/ja, xx/pt (both buttons, the Lufthansa app). HOLD, your call: xx/el, xx/hk,
+# xx/ko, xx/pl, xx/ru, xx/zh have both buttons, but their iOS button links FlyNet (apps.apple.com/en/app/flynet/
+# id1517612540), not the Lufthansa app; no snapshot of those versions here, so whether www links FlyNet too is not known.
+# status	document	tool	expected change	gate
+READY	/de/en/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-buttons-lh-com.json)	Step 1: "Go to iOS download" (itunes.apple.com/de/app/lufthansa/id299219152?mt=8), "Go to Android download" (com.lufthansa.android.lufthansa, hl=en)	draft 20.2 / 31.6 -> 20.2 / 22.1 at 1440 / 390
+READY	/gb/en/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-buttons-lh-com.json)	as de/en (gb/en's app page links the same)	not recorded; same cell as de/en; dry run inserted
+READY	/mk/en/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-buttons-lh-com.json)	as de/en (no app page of its own: de/en's links and labels)	not recorded; same cell as de/en; dry run inserted
+READY	/de/de/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-buttons-lh-com.json)	"Zum iOS Download" (apps.apple.com/us/app/lufthansa/id299219152), "Zum Android Download" (hl=en)	not recorded; same cell form; dry run inserted
+READY	/at/de/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-buttons-lh-com.json)	as de/de	not recorded; same cell form; dry run inserted
+READY	/xx/es/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-buttons-lh-com.json)	"Ir a la descarga para iOS" (apps.apple.com/us/app/lufthansa/id299219152), "Ir a la descarga para Android" (hl=en)	not recorded; same cell form; dry run inserted
+READY	/fr/fr/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-buttons-lh-com.json)	"Téléchargement iOS" / "Téléchargement Android" with xx/fr's links	not recorded; dry run inserted; the document is not published (DA only)
+HOLD	/xx/el/traveltricks	-	the iOS button to the Lufthansa app instead of FlyNet	your call: www's link there not known
+HOLD	/xx/hk/traveltricks	-	the iOS button to the Lufthansa app instead of FlyNet	your call: www's link there not known
+HOLD	/xx/ko/traveltricks	-	the iOS button to the Lufthansa app instead of FlyNet	your call: www's link there not known
+HOLD	/xx/pl/traveltricks	-	the iOS button to the Lufthansa app instead of FlyNet	your call: www's link there not known
+HOLD	/xx/ru/traveltricks	-	the iOS button to the Lufthansa app instead of FlyNet	your call: www's link there not known
+HOLD	/xx/zh/traveltricks	-	the iOS button to the Lufthansa app instead of FlyNet	your call: www's link there not known

@@ -2576,6 +2576,19 @@ body.brand-lufthansa main > .section.grey.flush:has(+ .section.padded) {
   margin-bottom: 0;
 }
 
+/* the same for a section that ends with a link alone in its paragraph before a padded section, from
+   768px (the fleet pages' "PDF download seat map ..." before "Technical data"; 75 published documents:
+   32q, 320, 31h, 100-years/chronicle, passengers-with-sensory-impairment in their markets): www has
+   the padding only, ours 45px more. Standing order 32: /de/en/320 5.4 -> 4.4 % at 1440, the other
+   recorded pages within 0.5. On phones the same gap is right where it acts, but 320 is short above it
+   (the seat-map slideshow, two picture blocks) and only passes with those: held. Not before a padded
+   campaign section (a grey band keeps 24px there, below) */
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section:not(.grey):has(> .default-content-wrapper:last-child > p.link-wrapper:last-child):has(+ .section.padded:not(.grey, .campaign-section)) {
+    margin-bottom: 0;
+  }
+}
+
 /* ... but before a padded campaign section (the travel-class hubs' cards) the band keeps 24px: with no
    gap the cards sat 31px higher than www's. lufthansa-travel-classes 8.2 / 14.8 -> 3.9 / 8.0 % off www
    at 1440 / 390, lufthansa-reiseklassen 8.3 / 14.6 -> 3.9 / 7.9; standing order 11 */
