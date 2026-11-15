@@ -447,16 +447,25 @@ async function fetchRecorded(market, key, exact) {
   const lookup = (portal) => {
     const prefix = portal === 'LH' ? '' : `${portal}:`;
     const keys = Object.keys(entries).filter((k) => recordedPortal(k) === portal);
-    return entries[`${prefix}${market}|${key}`]
-      || entries[keys.find((k) => k.endsWith(`|${key}`))]
-      || (!exact && entries[keys.find((k) => k.startsWith(`${prefix}${market}|`) && samePath(k))]);
+    return [
+      `${prefix}${market}|${key}`,
+      keys.find((k) => k.endsWith(`|${key}`)),
+      !exact && keys.find((k) => k.startsWith(`${prefix}${market}|`) && samePath(k)),
+    ].find((k) => k && entries[k]);
   };
   const portal = portalOf(siteLocales()[market] || LOCALE_TABLE[market]);
-  const hit = (portal !== 'LH' && lookup(portal)) || lookup('LH');
-  if (!hit) throw new Error(`no recorded data for ${key}`);
+  const hitKey = (portal !== 'LH' && lookup(portal)) || lookup('LH');
+  if (!hitKey) throw new Error(`no recorded data for ${key}`);
+  const hit = entries[hitKey];
   const resp = await fetch(`${RECORDED_BASE}/${hit.file}`);
   if (!resp.ok) throw new Error(`recorded data missing: ${hit.file}`);
-  return { data: await resp.json(), source: 'recorded', recordedAt: hit.recordedAt };
+  // the market the answer was recorded in ("OS:at/de|GET ..." -> at/de): another market's answer
+  // to the same request is not this market's (resolveOrigin: at/de's Vienna for ch/de)
+  const head = hitKey.slice(0, hitKey.indexOf('|'));
+  const recordedMarket = head.includes(':') ? head.slice(head.indexOf(':') + 1) : head;
+  return {
+    data: await resp.json(), source: 'recorded', recordedAt: hit.recordedAt, recordedMarket,
+  };
 }
 
 /**
@@ -552,7 +561,7 @@ function proxyRequest(origin, route, { method, body, market }) {
  * @param {string} [options.origin] the www origin of a direct call (default www.lufthansa.com),
  *   e.g. a brand's own www that answers our hosts (scripts/locale.js serviceOrigin)
  * @returns {Promise<{data: *, source: 'live'|'recorded', via: 'direct'|'proxy'|'recording',
- *   recordedAt?: string}>}
+ *   recordedAt?: string, recordedMarket?: string}>}
  */
 export async function lhFetch(route, {
   method = 'GET', body, market = getLocale().key, exact = false, origin: wwwOrigin,

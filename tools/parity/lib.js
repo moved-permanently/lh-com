@@ -164,6 +164,14 @@ const ANSWERABLE_CALLS = [
   // standing order 27)
   { path: '/service/api/destinationfinder/destination/finder/FRA/E', portal: 'LH' },
   { path: '/service/api/destinationfinder/destination/finder/VIE/E', portal: 'LH' },
+  // lufthansa.com's other grids (lufthansa-api-003, standing order 27): the markets' default
+  // airports
+  ...['ZRH', 'SJJ', 'BOM', 'BEY', 'RUH', 'FCO', 'HND', 'WAW', 'LIS', 'ARN'].map((origin) => ({
+    path: `/service/api/destinationfinder/destination/finder/${origin}/E`, portal: 'LH',
+  })),
+  // the page's default airport (no price; standing order 27: without it a capture of /in/en/flights
+  // asks its home airport DEL, www's load BOM), no query
+  { path: '/service/api/defaultAirport', portal: 'LH', query: {} },
 ];
 const ANSWERABLE = {
   host: 'www.lufthansa.com',
@@ -189,10 +197,11 @@ function answerableCall(rawUrl, portal) {
   const call = ANSWERABLE_CALLS.find((c) => c.path === u.pathname
     && (wanted === null || c.portal === wanted));
   if (!call) return null;
+  const query = call.query || ANSWERABLE_QUERY;
   const keys = [...u.searchParams.keys()];
-  const want = Object.keys(ANSWERABLE_QUERY);
+  const want = Object.keys(query);
   if (keys.length !== want.length) return null;
-  if (!want.every((k) => u.searchParams.get(k) === ANSWERABLE_QUERY[k])) return null;
+  if (!want.every((k) => u.searchParams.get(k) === query[k])) return null;
   return call;
 }
 

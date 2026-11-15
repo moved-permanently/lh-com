@@ -2,7 +2,10 @@
 /* The origin of the fare widgets on a brand page (scripts/lh-api.js resolveOrigin): www's
    defaultAirport live, else the root's home airport (ITA it/it ROM, Discover xx/fr FRA): a
    recorded defaultAirport is another market's (the recordings are lh-com's: at/de's Vienna for
-   every brand root), never the brand's. lh-com as before: its market's recording.
+   every brand root), never the brand's. lh-com as before: its market's recording; since standing order 27 a
+   market without a recording of its own takes its home airport, not another market's recording (/ch/de/fluege
+   asked Vienna's offers, at/de's recorded default airport, when www's defaultAirport was refused; www answers
+   ZRH, lufthansa-api-003).
    Run: node --max-old-space-size=512 --test test/brand-origin.test.mjs */
 /* global globalThis */
 import test from 'node:test';
@@ -78,4 +81,15 @@ test('the flight search: a brand root without an authored origin prefills its ho
   const lh = await onPage({}, async () => loadFlightSearchData({ fallbackOrigin: 'FRA' }, getLocale('/de/en/homepage')));
   assert.equal(lh.origin.code, 'FRA');
   assert.equal(lh.sources.defaultAirport, 'recorded', 'lh-com: its recording, as before');
+});
+
+test('lh-com: a market without its own recording takes its home airport, not another market\'s (ch/de: not Vienna)', async () => {
+  live = null;
+  setHost('lufthansa.turnsthe.page', '/ch/de/fluege');
+  const ch = await onPage({}, async () => resolveOrigin(null, getLocale('/ch/de/fluege')));
+  assert.deepEqual([ch.code, ch.from], ['ZRH', 'home']);
+  live = answer('ZRH', 'Zürich');
+  const chLive = await onPage({}, async () => resolveOrigin(null, getLocale('/ch/de/fluege')));
+  assert.deepEqual([chLive.code, chLive.from], ['ZRH', 'defaultAirport']);
+  live = null;
 });

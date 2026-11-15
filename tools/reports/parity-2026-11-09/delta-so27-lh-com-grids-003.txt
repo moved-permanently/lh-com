@@ -1,0 +1,33 @@
+# Expected change: none in any document (standing order 27, item 1). lufthansa.com's other 29 offers grids with lufthansa-api-003 (sha256 df90ec5d...c565e9fca5d1613632a8240645240ca80cd3e735 as given: one load each of our pages, 2026-11-15 ~01:30 CET). No www recordings yet (they follow as an lh-parity archive), so order and prices only: each page drawn on the published site at 1440 with its own answers (the finder call and the page's defaultAirport, by portal, market and language; tools/parity), its first 12 tiles against its answer by www's rules (the authored Highlighted offers, topDeal then kClass; the sort www opens with: Recommended when a highlight is a top deal, else Best price; the lifted highlights by price, then the rest by price; prices rounded up, the answer's currency).
+# Found: www's default airports differ from our home airports on four markets (in BOM not DEL, it FCO not MIL, jp HND not TYO, se ARN not STO): our pages follow www's answer. When that answer fails, a market without a recording of its own took another market's recorded default airport (ch/de asked Vienna's offers): fixed, its home airport now (scripts/lh-api.js resolveOrigin, test/brand-origin.test.mjs). The badge and sort texts of languages without built-in labels (pt, ja, hk, ko) fall back to English only when www's labels are refused, as in these captures.
+# /ru/en/flights: www's defaultAirport answers DME (Moscow). In my render the page asks destinationfinder DME/E (three tries); the recorded load shows no finder request and none failed: capture-requests-ema-test.txt asks for one more load with the console.
+# Each line: OK / DIFF (the first 12 tiles, badges and opening sort against the answer), path, origin, sorts drawn/expected, tiles drawn of offers, currency and first price.
+OK	/ch/de/fluege	ZRH sort topDeal/topDeal count 48 of 498 CHF CHF 365*
+OK	/ba/en/flights	SJJ sort topDeal/topDeal count 48 of 125 BAM 405 KM*
+OK	/in/en/flights	BOM sort kClass/kClass count 48 of 146 INR ₹ 60,365*
+OK	/lb/en/flights	BEY sort kClass/kClass count 48 of 122 USD $ 399*
+OK	/sa/en/flights	RUH sort kClass/kClass count 48 of 140 SAR SAR 2,186*
+OK	/it/de/fluege	FCO sort topDeal/topDeal count 48 of 311 EUR 506 €*
+OK	/it/en/flights	FCO sort topDeal/topDeal count 48 of 311 EUR 506 €*
+OK	/jp/en/flights	HND sort kClass/kClass count 48 of 134 JPY ¥ 205,160*
+OK	/pl/de/fluege	WAW sort kClass/kClass count 48 of 290 PLN 589 PLN*
+OK	/pl/en/flights	WAW sort kClass/kClass count 48 of 290 PLN 589 PLN*
+OK	/pt/de/fluege	LIS sort kClass/kClass count 48 of 227 EUR 189 €*
+OK	/pt/en/flights	LIS sort kClass/kClass count 48 of 227 EUR 189 €*
+HOLD	/ru/en/flights	No results for your current origin selectionFor this selecte
+OK	/xx/fr/flights	FRA sort topDeal/topDeal count 48 of 592 EUR 222 €*
+OK	/xx/es/flights	FRA sort topDeal/topDeal count 48 of 592 EUR 222 €*
+OK	/xx/pt/flights	FRA sort topDeal/topDeal count 48 of 592 EUR 222 €*
+OK	/pt/pt/flights	LIS sort kClass/kClass count 48 of 227 EUR 189 €*
+OK	/xx/ru/flights	FRA sort topDeal/topDeal count 48 of 592 EUR 222 €*
+OK	/xx/hk/flights	FRA sort topDeal/topDeal count 48 of 592 EUR 222 €*
+OK	/xx/zh/flights	FRA sort topDeal/topDeal count 48 of 592 EUR 222 €*
+OK	/xx/it/flights	FRA sort topDeal/topDeal count 48 of 592 EUR 222 €*
+OK	/it/it/flights	FCO sort topDeal/topDeal count 48 of 311 EUR 506 €*
+OK	/xx/el/flights	FRA sort topDeal/topDeal count 48 of 592 EUR 222 €*
+OK	/xx/ja/flights	FRA sort topDeal/topDeal count 48 of 592 EUR 222 €*
+OK	/jp/ja/flights	HND sort kClass/kClass count 48 of 134 JPY ¥ 205,160*
+OK	/xx/ko/flights	FRA sort topDeal/topDeal count 48 of 592 EUR 222 €*
+OK	/xx/pl/flights	FRA sort topDeal/topDeal count 48 of 592 EUR 222 €*
+OK	/pl/pl/flights	WAW sort kClass/kClass count 48 of 290 PLN 589 PLN*
+OK	/se/en/yes3	ARN sort kClass/kClass count 48 of 320 SEK 1,607 SEK* (Highlighted offers 5 authored: five badges, as drawn)

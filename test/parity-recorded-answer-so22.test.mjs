@@ -210,3 +210,50 @@ test('lufthansa.com\'s FRA/E and VIE/E under X-Portal LH: by portal, site and la
   assert.equal(recordedAnswer(req(VIE, 'OPTIONS', { 'access-control-request-headers': 'x-portal' }), lh).status, 204);
 });
 
+// lufthansa-api-003 (standing order 27): the other markets' grid calls under X-Portal LH, each its own origin
+test('lufthansa-api-003\'s origins under X-Portal LH answer their own call; an origin never recorded stays refused', () => {
+  ['ZRH', 'SJJ', 'BOM', 'BEY', 'RUH', 'FCO', 'HND', 'WAW', 'LIS', 'ARN'].forEach((o) => {
+    const u = URL_OK.replace('/FRA/', `/${o}/`);
+    const answers = loadRecordedAnswers(write(`${o}.json`, plain({
+      url: u, portal: 'LH', site: 'XY', language: 'en',
+    })));
+    assert.ok(recordedAnswer(req(u, 'GET', { 'x-portal': 'LH', 'x-portal-site': 'XY', 'x-portal-language': 'en' }), answers), o);
+    assert.equal(recordedAnswer(req(u, 'GET', { 'x-portal': 'FOUR_Y', 'x-portal-site': 'XY', 'x-portal-language': 'en' }), answers), null, `${o} under FOUR_Y`);
+  });
+  assert.throws(() => loadRecordedAnswers(write('muc.json', plain({ url: URL_OK.replace('/FRA/', '/MUC/'), portal: 'LH' }))), /not an answerable price call/);
+});
+
+// standing order 27: the page's own defaultAirport answer from the same load (no price; without it a capture
+// falls back to the home airport, not www's origin: /in/en/flights asks BOM, its home airport is DEL)
+test('a page-load index: its defaultAirport answer too, by portal, site and language; its other calls left alone', async () => {
+  const { createHash } = await import('node:crypto');
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'parity-da-'));
+  fs.mkdirSync(path.join(root, 'api'));
+  const DA = 'https://www.lufthansa.com/service/api/defaultAirport';
+  const BOM = 'https://www.lufthansa.com/service/api/destinationfinder/destination/finder/BOM/E?months=0_11&tripType=RETURN';
+  const put = (name, text) => {
+    fs.writeFileSync(path.join(root, 'api', name), text);
+    return createHash('sha256').update(text).digest('hex');
+  };
+  const call = (url, file, text) => ({
+    url, host: 'www.lufthansa.com', method: 'GET', status: 200, at: '2026-11-15T00:30:00Z', contentType: 'application/json', xPortalRequestHeader: 'LH', xPortalSiteRequestHeader: 'IN', xPortalLanguageRequestHeader: 'en', file: `api/${file}`, sha256: put(file, text),
+  });
+  const index = [{
+    page: 'in-en-flights',
+    pageUrl: 'https://lufthansa.turnsthe.page/in/en/flights',
+    calls: [
+      call(DA, 'in-1.json', '{"marketDefaultAirport":{"iataCode":"BOM"}}'),
+      call('https://www.lufthansa.com/service/api/catalogs/conditions', 'in-2.json', '{"conditions":"x"}'),
+      call(BOM, 'in-3.json', '{"originCityName":"Mumbai"}'),
+    ],
+  }];
+  const file = path.join(root, 'api', 'index.json');
+  fs.writeFileSync(file, JSON.stringify(index));
+  const answers = loadRecordedAnswers(file);
+  assert.equal(answers.length, 2, 'defaultAirport and the finder call, not the catalog');
+  const ask = (url, site, lang) => recordedAnswer(req(url, 'GET', { 'x-portal': 'LH', 'x-portal-site': site, 'x-portal-language': lang }), answers);
+  assert.match(ask(DA, 'IN', 'en').body, /BOM/);
+  assert.equal(ask(DA, 'DE', 'en'), null, 'another market\'s defaultAirport');
+  assert.equal(ask('https://www.lufthansa.com/service/api/catalogs/conditions', 'IN', 'en'), null);
+  assert.equal(ask(`${DA}?x=1`, 'IN', 'en'), null, 'with a query it is another call');
+});
