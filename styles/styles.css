@@ -2094,6 +2094,16 @@ body.brand-lufthansa main > .section:not(.campaign-section):has(+ .section.stage
   }
 }
 
+/* lufthansa.com: the heading between a page's intro picture (a Columns Media block) and its article overview (the
+   Allegris tag pages: "All Articles on Lufthansa Allegris"): www's 26-27px more above it (picture to the heading's first
+   line 59 / 57px at 1440 / 390, ours 32 / 31). Standing order 27, injected: the four tags/allegris documents 19.1-21.7 ->
+   15.5-18.3 % at 1440, de/en and gb/en 17.5 / 12.5 -> 13.2 / 7.7 at 390, de/de and at/de at 390 +0.4; census: those four
+   documents */
+/* stylelint-disable-next-line no-descending-specificity -- a heading before the article overview, not the band's rule */
+body.brand-lufthansa main > .section > .columns-media-wrapper + .default-content-wrapper:has(+ .blog-overview-wrapper) {
+  margin-top: 50px;
+}
+
 /* a picture before more content: the image component's 4rem */
 body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper > p:has(> picture):not(:last-child) {
   margin-bottom: 40px;
