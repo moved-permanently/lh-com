@@ -1,0 +1,28 @@
+[
+ {
+  "path": "/it/en/world-of-ita-airways/discover-ita-airways/network",
+  "inserts": [
+   {
+    "before": "<h2 id=\"related\">Related</h2>",
+    "text": "<p>{spacer-48 from-768}</p><p>{spacer-19 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/it/en/book-and-prepare/travel-information/at-the-airport/group-boarding",
+  "inserts": [
+   {
+    "before": "<h2 id=\"shortmedium-haul-flights\">",
+    "text": "<p>{spacer-15 from-768}</p>"
+   },
+   {
+    "before": "<h2 id=\"long-haul-flights\">",
+    "text": "<p>{spacer-25 from-768}</p>"
+   },
+   {
+    "before": "<h2 id=\"faqs\">",
+    "text": "<p>{spacer-66 from-768}</p>"
+   }
+  ]
+ }
+]
