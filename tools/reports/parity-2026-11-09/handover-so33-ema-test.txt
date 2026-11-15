@@ -14,5 +14,9 @@ our boxes from a capture with computed styles, www's from the recordings' drift 
    48px) before the "before-padded stage" hero-campaign section (3,548): www's stage starts about 29px higher (ours 29px
    too much). Shared section gap (a section before a before-padded stage, phones). The stage itself is as tall as www's;
    its picture shows another crop (focal point), not a layout matter.
+4. discover-lufthansa/miles-and-more-credit-card, 390 (21.1 %, the drift growing to -192 px): its card list is one
+   columns-media padded block (heading, text, link, picture per card). Two causes there: our text lines take more words
+   than www's (the Gold card's paragraph 5 lines against www's 6, "Find the right Miles & More Credit Card for your
+   needs" 2 lines against 3), and the gap between two cards' pictures is about 24px smaller than www's. Columns Media.
 Drift steps for the record: tips-senior-travellers 1440 -97 / -32 at 3,360-3,440, -57 at 4,080, -54 at 6,080, -78 by
 7,680; economy-class 390 +69 / +2 at 3,600-3,680, +29 at 4,400, +33 at 7,280.
