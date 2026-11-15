@@ -1,0 +1,27 @@
+[
+  {
+    "path": "/gb/en/program/experts/programs-and-groups",
+    "inserts": [
+      {
+        "before": "<div><div><h3 id=\"group-travel-with-widerøe-bookable-via-b",
+        "text": "</div><div class=\"divider\"><div><div></div></div></div><div class=\"columns-media nested\">"
+      },
+      {
+        "before": "<div><div><h3 id=\"book-a-group-supports-entry-of-non-binar",
+        "text": "</div><div class=\"divider\"><div><div></div></div></div><div class=\"columns-media nested\">"
+      },
+      {
+        "before": "<h3 id=\"2lufthansa-group-trips\">",
+        "text": "<div class=\"divider\"><div><div></div></div></div>"
+      },
+      {
+        "before": "<h3 id=\"lufthansa-full-charter\">",
+        "text": "<div class=\"divider\"><div><div></div></div></div>"
+      },
+      {
+        "before": "<h3 id=\"environmentally-sustainable-to-your-destination\">",
+        "text": "<div class=\"divider\"><div><div></div></div></div>"
+      }
+    ]
+  }
+]
