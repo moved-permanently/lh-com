@@ -10,3 +10,4 @@ HOLD	/it/en/world-of-ita-airways/discover-ita-airways/network	"An extensive netw
 # - long-haul 390: nothing above the footer is shorter (the drift within 6 px to the footer); its -43 px are the footer's row.
 # - baggage-and-strollers 390: above the footer the drift swings +30 / -85 px through the fare tables and ends -30 px; the footer's row is the rest. No single place to row.
 # - entry-exit 390 after the row: the icon list's rows stand 88 px apart, www 123 / 108 / 96 (www's teasers in three columns with a separator between each pair; electronic's list, the same block, matches www's spacing, so not a block rule).
+# Standing order 31: the footer rule held above ships with the fixes in delta-so31-ita-footer-fixes.txt; its network row (READY there, with the H3s and the lists in www's current text) replaces the HOLD row above.

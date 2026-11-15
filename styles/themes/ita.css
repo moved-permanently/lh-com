@@ -1199,6 +1199,56 @@ body.brand-ita .columns-media.padded {
   }
 }
 
+/* the header row's tables on phones as www's maui-table (az columnheader: --maui-font-size-5 light at 110 %, padded
+   spacing-5 / spacing-4; standing order 31, /it/en/book-and-prepare/travel-information/at-the-airport/digital-newsstand,
+   ita-parity-005): the header cells 22 px on 24 px lines, 24 px / 16 px in (ours 20 / 30 px, 20 px / 20 px / 30 px), the
+   table 25 px under the text (ours 40), the first row 34 px under the header's line (ours 40) */
+@media (width < 768px) {
+  body.brand-ita .table-striped.header {
+    margin-top: 25px;
+  }
+
+  body.brand-ita .table-striped.header thead th {
+    padding: 24px 16px;
+    font-size: 22px;
+    line-height: 1.1;
+  }
+
+  body.brand-ita .table-striped.header tbody tr:first-child > * {
+    border-top-width: 34px;
+  }
+}
+
+/* the gap under a grey band where www's is narrower than our section gap, by section style (standing order 31; rows
+   put the style on the recorded pages; www's gap after a band varies with what follows it, 4 to 60 px, so no rule for
+   every band): gap-after-small, 24 px on phones (www's band to the footer, /it/en/support/utilities/invoicing and
+   short-haul at 390, ita-parity-008; ours 48, through the page's empty last section too); gap-after-none, the next
+   heading right under the band on phones (/it/en/world-of-ita-airways/discover-ita-airways/ita-airways-app: www's
+   heading in the band's section after a separator hidden on phones; 4 px from the band to its ink at 390, ours 52; from
+   768 px www's 32 against our 56, but the page is short elsewhere there: 1440 -0.22 -> -0.82 %, so not from 768 px) */
+@media (width < 768px) {
+  body.brand-ita main > .section.grey.gap-after-small {
+    margin-bottom: 24px;
+  }
+
+  body.brand-ita main > .section.grey.gap-after-small + .section:last-child:empty {
+    margin-bottom: 0;
+  }
+
+  body.brand-ita main > .section.grey.gap-after-none {
+    margin-bottom: 0;
+  }
+}
+
+/* the legal links on phones in www's 90 % of the footer's width (.bottom-links > :first-child, flex 0 0 90 %):
+   www's lines end by 333 px at 390, ours ran to 368, so ours packed six rows in English where www packs seven
+   (measured with Arial's metric-compatible face, PARITY_ARIAL_FONTS; standing orders 30 and 31) */
+@media (width < 768px) {
+  body.brand-ita .footer .footer-legal {
+    max-width: 90%;
+  }
+}
+
 /* stacked country columns on phones (ITA row 51; standing order 12, item 1; /it/en/support/utilities/contact,
    ita-parity-005): www keeps 62px between the stacked columns of a row, each a heading-medium H2 with its lines; ours
    38 (the text's 36px margin, the row grid without a gap). Contact 390 -5.24 -> +0.82 %; entry-exit-system -2.46 ->

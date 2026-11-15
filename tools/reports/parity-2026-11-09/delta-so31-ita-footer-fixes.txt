@@ -1,0 +1,42 @@
+# ema-test, standing order 31 (2026-11-15), item 2: the four places that kept ITA's phone footer rule held (delta-so30-ita-phone-rows.txt), each fixed, then the footer rule gated again on the 26 recorded ITA phone pages.
+# Measured with Arial's metric-compatible face (PARITY_ARIAL_FONTS), ita-parity-005 to -008 (each page's newest recording), main's code as served (~17:15 UTC) against the trial; the three pages with rows as html-folder renders of the published copy on both sides.
+# Code (styles/themes/ita.css, ITA only, below 768 px; test/ita-footer-fixes-so31.test.mjs):
+# - the footer's legal links 90 % wide as www's (.bottom-links > :first-child): seven rows in English, -43 px on every phone page before;
+# - the header row's tables as www's maui-table (az columnheader --maui-font-size-5 light at 110 %, spacing-5 / -4): header cells 22 px on 24 px lines, 24 px / 16 px in, the table 25 px under the text, the first row 34 px under the header's line (digital-newsstand's header now on www's lines, 1104-1168 px). Census: 127 ITA documents with the header row; 3 recorded (digital-newsstand, group-boarding, checked-baggage). Alone each reads further (those pages are short by the footer's row): -0.07 -> -1.08 %, -0.68 -> -1.09 %, -3.34 -> -3.90 %; with the footer rule -0.05, -0.37, -3.10 % (closer);
+# - the gap under a grey band by section style (the rows below put it): gap-after-small 24 px (www's band to the footer, 48 ours), gap-after-none 0 (www's heading right under the band). www's gap after a band varies with what follows (4 to 60 px on the 13 recorded pages with a band), so no rule for every band. gap-after-none from 768 px (www's 32 px) made the app page further at 1440 (-0.22 -> -0.82 %): phones only.
+# Not fixed: invoicing's one-line wrap. The paragraph's text, its markup, the font file (OpenSans-Regular.woff, the same sha256 as www's) and its size (18 / 27 px, www's copytext 1.8rem at 150 %) are www's; www's recorded line is about 1 % narrower ("You can submit documentation relating" 331 px, ours 334), a text-rendering difference of the recording, not a rule or a row.
+# The gate (ours vs www page height at 390; the band-end gate: none further by more than 0.5 points). Base main, trial the code and the rows:
+#   book-and-prepare-flight-search-390	-1.99 -> -0.76 %	closer
+#   book-and-prepare-offers-territorial-continuity-alghero-390	-1.14 -> 0.06 %	closer
+#   book-and-prepare-offers-territorial-continuity-residents-in-sicily-390	-0.54 -> 0.59 %	further by 0.05
+#   book-and-prepare-other-requests-families-and-children-baggage-and-strollers-390	-0.93 -> -0.39 %	closer
+#   book-and-prepare-other-requests-families-and-children-first-time-flyers-390	-2.20 -> -0.94 %	closer
+#   book-and-prepare-other-requests-families-and-children-flying-with-a-baby-390	-1.95 -> -1.13 %	closer
+#   book-and-prepare-other-requests-travelling-with-pets-pets-in-cabin-390	-0.28 -> 0.34 %	further by 0.06
+#   book-and-prepare-travel-information-at-the-airport-digital-newsstand-390	-0.07 -> -0.05 %	closer
+#   book-and-prepare-travel-information-at-the-airport-group-boarding-390	-0.68 -> -0.37 %	closer
+#   book-and-prepare-travel-information-at-the-airport-lounges-fantasia-lounge-390	-1.47 -> -0.59 %	closer
+#   book-and-prepare-travel-information-baggage-checked-baggage-390	-3.34 -> -3.10 %	closer
+#   book-and-prepare-travel-information-baggage-electronic-devices-and-batteries-390	-1.05 -> -0.52 %	closer
+#   book-and-prepare-travel-information-entry-regulations-entry-regulations-schengen-entry-exi	-1.35 -> -0.90 %	closer
+#   corporate-b2b-390	-3.21 -> -1.59 %	closer
+#   help-and-contact-390	-19.97 -> -18.59 %	closer
+#   manage-my-bookings-extra-services-seats-selection-seats-selection-economy-390	-0.71 -> -0.02 %	closer
+#   support-utilities-contact-390	-0.27 -> 0.27 %	the same
+#   support-utilities-invoicing-390	0.11 -> 0.61 %	further by 0.50
+#   world-of-ita-airways-discover-ita-airways-fleet-390	-1.85 -> -0.33 %	closer
+#   world-of-ita-airways-discover-ita-airways-fleet-long-haul-390	-1.53 -> -0.04 %	closer
+#   world-of-ita-airways-discover-ita-airways-fleet-short-haul-390	-0.85 -> 0.58 %	closer
+#   world-of-ita-airways-discover-ita-airways-ita-airways-app-390	0.63 -> 0.52 %	closer
+#   world-of-ita-airways-discover-ita-airways-network-390	0.29 -> -0.16 %	closer
+#   world-of-ita-airways-discover-ita-airways-sustainability-iris-390	-1.54 -> -0.78 %	closer
+#   world-of-ita-airways-services-on-board-catering-meals-in-travel-classes-meals-in-economy-l	-0.67 -> 0.50 %	closer
+#   world-of-ita-airways-travel-classes-business-class-medium-haul-390	-2.20 -> -1.57 %	closer
+#   1440 (the rows act there): ita-airways-app -0.22 -> -0.22 %, network -1.57 -> -1.07 % (closer); the code is phones only.
+# So the footer rule ships with the rows: 22 pages closer, 1 the same, 3 further by 0.5 points at most (residents-in-sicily 0.05, pets-in-cabin 0.06, invoicing 0.4989: its +27 px wrap). Until the rows are live, network, ita-airways-app and invoicing read as in standing order 30 with the footer rule (+1.05, +1.44, +1.27 %): the rows belong to the same round.
+# Data: delta-so31-ita-footer-fixes.json (text replacements on DA's copies, read 2026-11-15 between 15:50 and 17:00 UTC, network read again ~17:20: unchanged); text-inserts-apply --check: inserted, DA byte for byte without them.
+# Each line: READY / HOLD, DA path, the change, 390 and 1440 (base -> trial, ours vs www), the gate.
+READY	/it/en/support/utilities/invoicing	the last grey band's style "column-band, grey" + gap-after-small (www's 24 px from the band to the footer, ours 48)	390 +0.11 -> +0.61 % (with the footer rule; the band -24 px, the wrap +27 left), 1440 not recorded (the style acts below 768 px only)	further by 0.4989 points (band-end gate: at most 0.5)
+READY	/it/en/world-of-ita-airways/discover-ita-airways/ita-airways-app	the grey band's style "flush, column-band, grey" + gap-after-none ("Find out more about the ITA Airways app" right under the band, as www's on phones)	390 +0.63 -> +0.52 %, 1440 -0.22 -> -0.22 %	closer at 390, the same at 1440
+READY	/it/en/world-of-ita-airways/discover-ita-airways/network	the lead H2 and the six list H3s as www's heading-small ({heading-small}); the general variants (not the au/en group's) of the Italy, Europe and intercontinental lists in www's current text (Lampedusa and Pantelleria July-September 2027; Hamburg, Malta, Tirana, Chicago, Toronto 2027; Riyadh 8 January, Tripoli from 17 January 2027; Santo Domingo to 5 April 2027)	390 +0.29 -> -0.16 %, 1440 -1.57 -> -1.07 %	closer at both
+# Left on network at 1440: "Related" 54 px under the text, www 102 (its section-padding-y-regular): -48 px, a later row.

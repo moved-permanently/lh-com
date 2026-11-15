@@ -1,0 +1,65 @@
+[
+ {
+  "path": "/it/en/support/utilities/invoicing",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>column-band, grey</div>",
+    "text": "<div>style</div><div>column-band, grey, gap-after-small</div>"
+   }
+  ]
+ },
+ {
+  "path": "/it/en/world-of-ita-airways/discover-ita-airways/ita-airways-app",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>flush, column-band, grey</div>",
+    "text": "<div>style</div><div>flush, column-band, grey, gap-after-none</div>"
+   }
+  ]
+ },
+ {
+  "path": "/it/en/world-of-ita-airways/discover-ita-airways/network",
+  "inserts": [
+   {
+    "replace": "intercontinental destinations.</h2>",
+    "text": "intercontinental destinations. {heading-small}</h2>"
+   },
+   {
+    "replace": "<p>Alghero, Brindisi, Bologna, Bari, Catania, Florence, Genoa, Milan Linate, Naples, Palermo, Pantelleria (from May to October 2026), Reggio Calabria, Rome Fiumicino, Lamezia Terme, Turin, Trieste, Venice, Salerno (from 1 November to 30 November 2026, from Milan Linate) and Verona from March to October 2027.</p>",
+    "text": "<p>Alghero, Brindisi, Bologna, Bari, Catania, Florence, Genoa, Milan Linate, Naples, Palermo, Reggio Calabria, Rome Fiumicino, Lamezia Terme, Lampedusa (from July to September 2027), Pantelleria (from July to September 2027), Turin, Trieste, Venice, Salerno (from 1 November to 30 November 2026, from Milan Linate) and Verona from March to October 2027.</p>"
+   },
+   {
+    "replace": "<p>Algiers, Hamburg (from April to October 2026), Amsterdam, Athens, Barcelona, Brussels, Cairo, Dubai (from 2 December 2026), Frankfurt, Geneva, London City, London Heathrow, Madrid, Malta (from April to October 2026), Marseille (from July to August 2027), Munich, Nice, Paris Charles de Gaulle, Paris Orly, Riyadh (from 7 January 2027), Tel Aviv, Tripoli (until 15 January 2027), Tirana (from April to October 2026), Tunis, Zurich.</p>",
+    "text": "<p>Algiers, Hamburg (from April to October 2027), Amsterdam, Athens, Barcelona, Brussels, Cairo, Dubai (from 2 December 2026), Frankfurt, Geneva, London City, London Heathrow, Madrid, Malta (from April to October 2027), Marseille (from July to August 2027), Munich, Nice, Paris Charles de Gaulle, Paris Orly, Riyadh (from 8 January 2027), Tel Aviv, Tripoli (from 17 January 2027), Tirana (from April to October 2027), Tunis, Zurich.</p>"
+   },
+   {
+    "replace": "<p>Accra, Bangkok, Boston, Buenos Aires, Caracas (from 30 March), Chicago (from May to October 2026), Dakar, New Delhi, San Francisco, Sao Paulo, New York, Los Angeles, Houston (starting in May 2026), Miami, Malé (winter season from December 2026 to 5 April 2027), Mauritius (winter season from 25 October 2026 to 5 April 2027), Santo Domingo (winter season from November 30, 2026 to 5 April 2025<em>)</em> Rio de Janeiro, Tokyo, Toronto (from April to October 2026), Washington.</p>",
+    "text": "<p>Accra, Bangkok, Boston, Buenos Aires, Caracas (from 30 March), Chicago (from May to October 2027), Dakar, New Delhi, San Francisco, Sao Paulo, New York, Los Angeles, Houston (starting in May 2026), Miami, Malé (winter season from December 2026 to 5 April 2027), Mauritius (winter season from 25 October 2026 to 5 April 2027), Santo Domingo (winter season from November 30, 2026 to 5 April 2027<em>)</em> Rio de Janeiro, Tokyo, Toronto (from April to October 2027), Washington.</p>"
+   },
+   {
+    "replace": "<h3 id=\"italy\">Italy</h3>",
+    "text": "<h3 id=\"italy\">Italy {heading-small}</h3>"
+   },
+   {
+    "replace": "<h3 id=\"europe-north-africa-and-middle-east\">Europe, North Africa and Middle East</h3>",
+    "text": "<h3 id=\"europe-north-africa-and-middle-east\">Europe, North Africa and Middle East {heading-small}</h3>"
+   },
+   {
+    "replace": "<h3 id=\"all-other-countries\">All other countries</h3>",
+    "text": "<h3 id=\"all-other-countries\">All other countries {heading-small}</h3>"
+   },
+   {
+    "replace": "<h3 id=\"codeshare-flights\">Codeshare flights</h3>",
+    "text": "<h3 id=\"codeshare-flights\">Codeshare flights {heading-small}</h3>"
+   },
+   {
+    "replace": "<h3 id=\"europe\">Europe</h3>",
+    "text": "<h3 id=\"europe\">Europe {heading-small}</h3>"
+   },
+   {
+    "replace": "<h3 id=\"all-other-countries-1\">All other countries</h3>",
+    "text": "<h3 id=\"all-other-countries-1\">All other countries {heading-small}</h3>"
+   }
+  ]
+ }
+]
