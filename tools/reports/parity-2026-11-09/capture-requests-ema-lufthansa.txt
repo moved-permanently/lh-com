@@ -49,3 +49,18 @@
 /gb/en/program/experts/programs-and-groups
 /de/en/program/experts/route-network/lufthansa/kuala-lumpur
 /de/en/program
+# Not a capture, standing order 22 (2026-11-15): a font for the measuring browser, on the drop with its sha256: Liberation
+# Sans 2.x (SIL Open Font License; Regular, Bold, Italic and BoldItalic .ttf), a face with Arial's widths. The measuring
+# browser has none (DejaVu Sans stands in for Arial, wider), which moves ITA's phone footers (fonts-so22-arial.txt).
+# file: LiberationSans-Regular.ttf, LiberationSans-Bold.ttf, LiberationSans-Italic.ttf, LiberationSans-BoldItalic.ttf
+# Brussels, standing order 22 (2026-11-15): 390 x 844 only, each page LOADED AT THAT SIZE (a phone's first load; nothing
+# clicked), full height, the measurements json. Their 390 recordings (brussels-parity-005, -004) are resizes of the 1440
+# load; the phone table rule (brussels-so22-code-groups.txt) waits for them.
+# host: www.brusselsairlines.com
+/be/en/extra-services/baggage/checked-baggage
+/be/fr/extra-services/baggage/checked-baggage
+/be/nl/extra-services/baggage/checked-baggage
+/de/de/extra-services/baggage/checked-baggage
+/es/es/extra-services/baggage/checked-baggage
+/it/it/extra-services/baggage/checked-baggage
+/be/en/local-page/student-fares

@@ -5201,3 +5201,59 @@ beyond what's recorded.
 
 **Hosts:** reads only from our hosts, the drop's recordings and DA (no DA read this order). No request to an airline
 host, no da-upload.mjs call, no upload, preview or publish by me.
+
+## Standing order 22 (2026-11-15, about 02:15 to 08:00 CET), with its final section
+
+**At the start:** nothing of mine uncommitted or unpushed (order 21's 731bd93f was on main). `.migration/project.json`
+was modified, not by me, and is left as it is.
+
+**Item 1, Arial (fonts-so22-arial.txt):**
+- **Census:** only ITA's text reaches Arial. 455 characters a page at 1440: its footer link lists and legal links,
+  which ita.css sets in Arial because www's LufthansaText falls back to it; its menu links too, hidden in the
+  measurement.
+  - Group for Business: about 40 characters in the generic sans-serif.
+  - Austrian (33 pages), Brussels, Discover, SWISS and TAP: everything in their web fonts.
+  - Every brand's stack ends at Arial, but only ITA's text gets there. Of the 258 finish-list rows, only ITA's 8 phone
+    rows can move; 1440 doesn't change (the legal links fit their rows there).
+- **No metric-compatible face is available to the measuring browser:** fc-match gives DejaVu Sans. There's no
+  Liberation Sans, Arimo or other Arial-width face on the machine, in node_modules, the npm cache or the recordings.
+  Fetching one would mean a host outside ours, the drop and DA, so I asked for Liberation Sans on the drop
+  (capture-requests-ema-lufthansa.txt).
+- **Test without it:** DejaVu drawn at Arial's widths (x 0.822, from www's "Data protection") takes help-and-contact
+  390 from 3136 to 3052 (www 3055). But the legal list wraps into 6 rows where www's has 7, because www's list is also
+  narrower or more spaced. So the direction holds; the rows' figures need the real face.
+- **The tool option is not added:** I couldn't verify that it holds. The list gives the 8 ITA rows with their expected
+  move (one legal row, -42 px).
+
+**Item 2, Brussels' code groups (brussels-so22-code-groups.txt, all HOLD):**
+- **Tables (6 rows):** www's 200 px phone cells, with www's 20 px header type, scoped to tab panels.
+  - Closer at 390: be/en +3.92 -> -0.63 %, be/nl +3.37 -> -0.64 %, de/de +3.43 -> -1.75 %, es/es +3.80 -> -1.03 %.
+  - it/it +2.17 -> -2.22 % (0.05 points further, inside the gate).
+  - be/fr fails: +1.34 -> -3.30 %, 1.97 points further. student-fares also went further unscoped; it isn't a tab
+    panel, so the scope leaves it as it is.
+  - All six checked-baggage 390 recordings are resizes of their 1440 loads, so phone first loads are requested before
+    the rule is decided.
+- **Phone teaser endings (6 rows):** the 20 closer and 16 further pages all end with the same block, so no scope
+  separates them.
+- **sidebar-h1 accordion endings (4 rows):** they end the same way as the five pages that already match.
+- **A correction in my own gate script:** it used the first draft folder as the checkout (an argument shifted away),
+  so its first runs showed base and draft alike. Found, fixed, rerun; the figures above are from the fixed run.
+
+**Item 3:** ema-test hasn't shipped a phone change for the nested Columns Media option (d99c35d1 is nested-2's
+pictures). gb/en programs-and-groups is left with them.
+
+**Checks of this commit:** lint before it, the folder-reading tests, and the full suite in its ship. No theme or block
+file changed this order.
+
+**Lists:**
+- fonts-so22-arial.txt;
+- brussels-so22-code-groups.txt;
+- finish-brussels.txt;
+- capture-requests-ema-lufthansa.txt (the face; seven Brussels phone first loads).
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git): the census and gate outputs, the drafts, the width approximation, logs.
+
+**Hosts:** reads only from our hosts and the drop's recordings (no DA read this order). No request to an airline host,
+no da-upload.mjs call, no upload, preview or publish by me.
