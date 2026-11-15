@@ -363,7 +363,18 @@ function recordedAnswer(request, answers) {
   };
 }
 
+/**
+ * The window a capture draws a width in: www's recordings set the viewport before each load,
+ * 1440 x 900 and 390 x 844 (the drops' manifests), so a phone width (below 768 px) gets 844, a
+ * wider one 900; an explicit height (capture.js --viewport-height) wins.
+ */
+function viewportHeight(width, explicit) {
+  if (explicit) return Number(explicit);
+  return Number(width) < 768 ? 844 : 900;
+}
+
 module.exports = {
+  viewportHeight,
   ROOT,
   ANSWERABLE,
   loadRecordedAnswers,

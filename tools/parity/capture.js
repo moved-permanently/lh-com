@@ -42,8 +42,8 @@ process.env.PLAYWRIGHT_BROWSERS_PATH ||= '/ms-playwright';
 const path = require('path');
 const { chromium } = require('playwright-core');
 const {
-  DEFAULT_STATE, getArgs, mkdirp, writeJsonAtomic, appendJsonl, rmSafe, installedBrowser,
-  ownHostFilter, mirroredFont, loadRecordedAnswers, recordedAnswer,
+  DEFAULT_STATE, getArgs, viewportHeight, mkdirp, writeJsonAtomic, appendJsonl, rmSafe,
+  installedBrowser, ownHostFilter, mirroredFont, loadRecordedAnswers, recordedAnswer,
 } = require('./lib.js');
 
 // PARITY_CHROME=1 (or a path): the full chrome build instead of playwright's headless shell,
@@ -69,8 +69,7 @@ const answered = {
   served: 0,
 };
 
-const USAGE = 'node tools/parity/capture.js --url <url> --width <px> --out <png> [--content-width px] [--timeout 90000] [--max-height 8000] [--state dir]';
-const VIEWPORT_HEIGHT = 900;
+const USAGE = 'node tools/parity/capture.js --url <url> --width <px> --out <png> [--content-width px] [--timeout 90000] [--max-height 8000] [--state dir] [--viewport-height px]';
 /** Widgets whose content is live (or recorded) data or a video frame; masked before diffing. */
 const LIVE_SELECTORS = [
   '.flight-search',
@@ -104,10 +103,13 @@ const args = getArgs({
   timeout: { type: 'string', default: '90000' },
   'max-height': { type: 'string', default: '8000' },
   state: { type: 'string', default: DEFAULT_STATE },
+  'viewport-height': { type: 'string' },
 }, ['url', 'width', 'out'], USAGE);
 
 const { url } = args;
 const width = Number(args.width);
+// the recordings' windows: 390 x 844 on phones, 1440 x 900 (lib.js viewportHeight)
+const VIEWPORT_HEIGHT = viewportHeight(width, args['viewport-height']);
 const contentWidth = args['content-width'] ? Number(args['content-width']) : width;
 // a narrower layout than the viewport means the live browser had a scrollbar
 const withScrollbar = contentWidth < width;

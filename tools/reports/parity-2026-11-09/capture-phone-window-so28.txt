@@ -1,0 +1,5 @@
+# ema-lufthansa, standing order 28 (2026-11-15), item 2: tools/parity/capture.js drew every width in a 900 px tall window; www's recordings set 390 x 844 before each phone load (the drops' manifests), so a phone page shorter than the window measured 900 against www's 844. Now a phone width (below 768 px) gets 844 and a wider one 900 (lib.js viewportHeight; --viewport-height sets it outright; test/parity-viewport-height.test.mjs).
+# Every recorded phone page-width of SWISS, Brussels, Discover and Group for Business (260, the same jobs as sweep-so27-brands.md's 390 rows) captured again with the 844 px window on the brand hosts and compared with the order-27 sweep's 900 px results: 2 change by more than 0.5 points, below; the other 258 stay within 0.5 points (pages longer than the window measure the same).
+# brand	path	www px	ours, 900 px window	ours, 844 px window
+b2b	/de/de/lhg4b-search/lhg4b-search-prelogin	844	900 (+6.64 %)	844 (+0.00 %)
+b2b	/de/en/lhg4b-search/lhg4b-search-prelogin	844	900 (+6.64 %)	844 (+0.00 %)

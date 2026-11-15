@@ -67,7 +67,19 @@ const BRAND_DESIGN_SYSTEMS = {
   // that swiss.css sets its tokens on (claim-form-entry relies on it; baggage-form-entry sets
   // its own); its head has X-Line b (swiss-parity-001's contact page)
   'www.swiss.com': {
-    release: 'mausy-v1.40.1', theme: 'swiss', themeClass: 'maui-theme-lx', meta: { 'X-Line': 'b' },
+    release: 'mausy-v1.40.1',
+    theme: 'swiss',
+    themeClass: 'maui-theme-lx',
+    meta: { 'X-Line': 'b' },
+    // the help center's stage and FAQ card pictures, which the app writes from www's host: copies
+    // in lh-swiss's DA (delta-so28-swiss-help-center-pictures.txt, standing order 28), used only
+    // once they load (checkedPictures): the page draws as without them until the copies are there
+    checkedPictures: {
+      'help-center-web': {
+        'https://swiss.com/content/dam/lx/images/local_images/help-center/main.png': '/media-da/swiss/help-center/main.png',
+        'https://swiss.com/content/dam/lx/images/local_images/help-center/faq.png': '/media-da/swiss/help-center/faq.png',
+      },
+    },
   },
   // www's contact pages (/be/en/contact, read 2026-11-05): mausy-v1.40.1, brussels.css, its tokens
   // on the body's maui-theme-sn
@@ -273,6 +285,9 @@ export function mountPlan(block, brand, locale, hostname = window.location.hostn
     // the brand's copies of pictures the app writes from www (its URL -> ours), where it has some
     ...(design && design.pictures && design.pictures[app.tag]
       ? { pictures: design.pictures[app.tag] } : {}),
+    // copies that may not be in the brand's DA yet: each one used once it loads (availablePictures)
+    ...(design && design.checkedPictures && design.checkedPictures[app.tag]
+      ? { checkedPictures: design.checkedPictures[app.tag] } : {}),
     // the brand's theme class for the body (www's), where its design system has one
     ...(design && design.themeClass ? { themeClass: design.themeClass } : {}),
     ...(lh && lh.themeClass ? { themeClass: lh.themeClass } : {}),
@@ -404,6 +419,35 @@ export function swapPictures(root, pictures) {
   return swapped;
 }
 
+/** Whether a picture loads (an Image probe; none outside a browser). */
+function probeImage(url) {
+  return new Promise((resolve) => {
+    if (typeof Image === 'undefined') {
+      resolve(false);
+      return;
+    }
+    const img = new Image();
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = url;
+  });
+}
+
+/**
+ * The part of a picture map (www URL -> our copy) whose copies load, or null: a copy that is not
+ * there yet keeps the app's own picture, so the page draws as without the map.
+ * @param {Object<string, string>|null} pictures
+ * @param {function(string): Promise<boolean>} [probe]
+ * @returns {Promise<Object<string, string>|null>}
+ */
+export async function availablePictures(pictures, probe = probeImage) {
+  if (!pictures) return null;
+  const checked = await Promise.all(Object.entries(pictures)
+    .map(async ([www, ours]) => [www, ours, await probe(ours)]));
+  const found = checked.filter(([, , loads]) => loads);
+  return found.length ? Object.fromEntries(found.map(([www, ours]) => [www, ours])) : null;
+}
+
 /**
  * swapPictures now and each time the app draws (it renders its views after it is attached and
  * again when the visitor moves on).
@@ -474,6 +518,9 @@ export default async function decorate(block) {
     }
     // the brand's copies of the app's pictures, watched before it draws
     watchPictures(element, plan.pictures);
+    if (plan.checkedPictures) {
+      availablePictures(plan.checkedPictures).then((found) => watchPictures(element, found));
+    }
     block.append(element);
     if (fallback) watchApp(element, fallback, deadline, shows);
     // the app's places for blocks after it: its topic selection draws after the fallback's deadline
