@@ -1,0 +1,133 @@
+# ema-test, standing order 33 (2026-11-15), item 1: the two shared changes (this commit), their gates and no-breakage renders.
+# 1. styles.css, section style gap-after-small (24px under the section), lufthansa.com only: reaches only the sections the rows of delta-so33-lh-com-sweep-rows.txt style (no published document has the style): no unrecorded document; the rows' gate is there.
+#    The rule first drafted for every section ending with a Columns Media before a stage or a flush grey band (census: 563 published documents) was gated on its 84 recorded page-widths and not shipped: 13 closer, 54 within 0.5, 17 further by more than 0.5 (shopping 1440 +5.56 / 390 +4.11, onboard-delights 1440 +3.37, tips-senior-travellers 1440 +2.36, seat-maps 390 +2.30, express-bus-briefing 1440 +1.81, hearing-impairment 390 +1.79, 100-years 1440 +1.46, miles-and-more-credit-card 1440 +1.14 ...).
+# 2. columns-media.css on phones, lufthansa.com: a media cell's link under its picture 37px down (ours 22, www's 46px picture to link ink), the cell 35px from the next (ours 50), so the teasers keep their pitch and the row grows 15px where the cell is the row's last, as www's.
+#    Census: 117 published documents with a picture paragraph followed by a link-only paragraph in a Columns Media (116 and the LoungeNet fragment's two pages); the rule's selector (a media cell) matches only the fragment.
+#    Gate, the 18 recorded page-widths of the census (main as served against the trial, live boxes masked): the two LoungeNet first class lounges at 390 28.11 -> 17.58 % (5,997 -> 6,057 px, www 6,129), the other 16 unchanged (+0.00):
+#   /content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b	1440	8.29 -> 8.29 %
+#   /content/lh/markets/de/en/during-your-trip/lounges/loungenet/fra-first-class-lounge-b	390	28.11 -> 17.58 %
+#   /content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge	1440	8.29 -> 8.29 %
+#   /content/lh/markets/de/en/during-your-trip/lounges/loungenet/muc-first-class-lounge	390	28.11 -> 17.58 %
+#   /de/en/100-years/chronicle	1440	15.40 -> 15.40 %
+#   /de/en/100-years/chronicle	390	8.11 -> 8.11 %
+#   /de/en/economy-class	1440	8.41 -> 8.41 %
+#   /de/en/economy-class	390	14.95 -> 14.95 %
+#   /de/en/first-class	1440	9.63 -> 9.63 %
+#   /de/en/first-class	390	22.30 -> 22.30 %
+#   /de/en/premium-economy-class	1440	8.04 -> 8.04 %
+#   /de/en/premium-economy-class	390	13.44 -> 13.44 %
+#   /de/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440	2.92 -> 2.92 %
+#   /de/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	390	5.80 -> 5.80 %
+#   /de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage	1440	5.35 -> 5.35 %
+#   /de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage	390	7.09 -> 7.09 %
+#   /de/en/support/feedback-and-contact-airlines	1440	6.11 -> 6.11 %
+#   /de/en/support/feedback-and-contact-airlines	390	12.79 -> 12.79 %
+#    No-breakage render of the 108 unrecorded documents (ours on lufthansa.turnsthe.page, 1440 and 390, without and with the rule in the same load, every other host refused): the rule's selector matched in none of them, so it changes none. The heights below differ between the two probes of a load where a page was still loading (25 of 30 at 1440, where this phones-only rule cannot apply; H1 0 -> 5 and 900 -> 4,560 px on the jp local pages the same way); no sideways scroll, overlap, text without height, H1 or picture change that the rule could cause (it matched nothing).
+#   /at/de/100-years/chronicle	1440: 34980 -> 34980 px (+0), the rule matched 0; 390: 44107 -> 44107 px (+0), the rule matched 0
+#   /at/de/business-class	1440: 10476 -> 10476 px (+0), the rule matched 0; 390: 14348 -> 14348 px (+0), the rule matched 0
+#   /at/de/economy-class	1440: 6991 -> 6991 px (+0), the rule matched 0; 390: 8937 -> 8937 px (+0), the rule matched 0
+#   /at/de/first-class	1440: 21371 -> 21371 px (+0), the rule matched 0; 390: 22941 -> 22941 px (+0), the rule matched 0
+#   /at/de/premium-economy-class	1440: 7084 -> 7084 px (+0), the rule matched 0; 390: 9534 -> 9534 px (+0), the rule matched 0
+#   /at/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440: 2778 -> 2778 px (+0), the rule matched 0; 390: 4612 -> 4612 px (+0), the rule matched 0
+#   /at/de/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage	1440: 2666 -> 2666 px (+0), the rule matched 0; 390: 5072 -> 5072 px (+0), the rule matched 0
+#   /at/de/support/feedback-and-contact-airlines	1440: 2104 -> 2104 px (+0), the rule matched 0; 390: 4489 -> 4489 px (+0), the rule matched 0
+#   /de/de/100-years/chronicle	1440: 2347 -> 2347 px (+0), the rule matched 0; 390: 44783 -> 44783 px (+0), the rule matched 0
+#   /de/de/business-class	1440: 10476 -> 10476 px (+0), the rule matched 0; 390: 14348 -> 14348 px (+0), the rule matched 0
+#   /de/de/economy-class	1440: 7694 -> 8371 px (+677), the rule matched 0; 390: 10317 -> 10317 px (+0), the rule matched 0
+#   /de/de/first-class	1440: 19820 -> 20497 px (+677), the rule matched 0; 390: 24031 -> 24031 px (+0), the rule matched 0
+#   /de/de/premium-economy-class	1440: 7084 -> 7084 px (+0), the rule matched 0; 390: 9534 -> 9534 px (+0), the rule matched 0
+#   /de/de/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440: 2778 -> 2778 px (+0), the rule matched 0; 390: 4612 -> 4612 px (+0), the rule matched 0
+#   /de/de/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage	1440: 1990 -> 1990 px (+0), the rule matched 0; 390: 5072 -> 5072 px (+0), the rule matched 0
+#   /de/de/support/feedback-and-contact-airlines	1440: 2104 -> 2104 px (+0), the rule matched 0; 390: 4489 -> 4489 px (+0), the rule matched 0
+#   /de/en/business-class	1440: 10395 -> 10395 px (+0), the rule matched 0; 390: 13873 -> 13873 px (+0), the rule matched 0
+#   /fr/fr/100-years/chronicle	1440: 22513 -> 32252 px (+9739), the rule matched 0; 390: 44864 -> 45749 px (+885), the rule matched 0
+#   /fr/fr/business-class	1440: 10677 -> 10677 px (+0), the rule matched 0; 390: 14684 -> 14684 px (+0), the rule matched 0
+#   /fr/fr/economy-class	1440: 6556 -> 6556 px (+0), the rule matched 0; 390: 8461 -> 8461 px (+0), the rule matched 0
+#   /fr/fr/premium-economy-class	1440: 5823 -> 5823 px (+0), the rule matched 0; 390: 8352 -> 8352 px (+0), the rule matched 0
+#   /gb/en/100-years/chronicle	1440: 30554 -> 31566 px (+1012), the rule matched 0; 390: 42961 -> 42961 px (+0), the rule matched 0
+#   /gb/en/business-class	1440: 10395 -> 10395 px (+0), the rule matched 0; 390: 13872 -> 13872 px (+0), the rule matched 0
+#   /gb/en/economy-class	1440: 6893 -> 6893 px (+0), the rule matched 0; 390: 8629 -> 8629 px (+0), the rule matched 0
+#   /gb/en/first-class	1440: 21503 -> 21503 px (+0), the rule matched 0; 390: 22006 -> 22006 px (+0), the rule matched 0
+#   /gb/en/premium-economy-class	1440: 7057 -> 7057 px (+0), the rule matched 0; 390: 9223 -> 9223 px (+0), the rule matched 0
+#   /gb/en/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440: 2751 -> 2751 px (+0), the rule matched 0; 390: 4424 -> 4424 px (+0), the rule matched 0
+#   /gb/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage	1440: 1910 -> 1910 px (+0), the rule matched 0; 390: 4910 -> 4910 px (+0), the rule matched 0
+#   /gb/en/support/feedback-and-contact-airlines	1440: 1373 -> 1298 px (-75), the rule matched 0; 390: 4132 -> 4132 px (+0), the rule matched 0
+#   /jp/en/local-page/lufthansa-ana	1440: 900 -> 4560 px (+3660), the rule matched 0; 390: 5269 -> 6058 px (+789), the rule matched 0
+#   /jp/ja/local-page/lufthansa-ana	1440: 900 -> 4425 px (+3525), the rule matched 0; 390: 5678 -> 5663 px (-15), the rule matched 0
+#   /xx/el/100-years/chronicle	1440: 2356 -> 5381 px (+3025), the rule matched 0; 390: 47317 -> 47317 px (+0), the rule matched 0
+#   /xx/el/business-class	1440: 2078 -> 7131 px (+5053), the rule matched 0; 390: 14956 -> 14956 px (+0), the rule matched 0
+#   /xx/el/economy-class	1440: 8405 -> 8405 px (+0), the rule matched 0; 390: 10562 -> 10562 px (+0), the rule matched 0
+#   /xx/el/first-class	1440: 21015 -> 21015 px (+0), the rule matched 0; 390: 24246 -> 24246 px (+0), the rule matched 0
+#   /xx/el/premium-economy-class	1440: 7176 -> 7176 px (+0), the rule matched 0; 390: 9737 -> 9737 px (+0), the rule matched 0
+#   /xx/el/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440: 2804 -> 2804 px (+0), the rule matched 0; 390: 4692 -> 4692 px (+0), the rule matched 0
+#   /xx/el/support/feedback-and-contact-airlines	1440: 1427 -> 2130 px (+703), the rule matched 0; 390: 4597 -> 4597 px (+0), the rule matched 0
+#   /xx/es/100-years/chronicle	1440: 2347 -> 2347 px (+0), the rule matched 0; 390: 43844 -> 44729 px (+885), the rule matched 0
+#   /xx/es/business-class	1440: 9948 -> 9948 px (+0), the rule matched 0; 390: 14565 -> 14565 px (+0), the rule matched 0
+#   /xx/es/economy-class	1440: 7045 -> 7045 px (+0), the rule matched 0; 390: 9080 -> 9080 px (+0), the rule matched 0
+#   /xx/es/first-class	1440: 23207 -> 23207 px (+0), the rule matched 0; 390: 25220 -> 25220 px (+0), the rule matched 0
+#   /xx/es/premium-economy-class	1440: 5796 -> 5796 px (+0), the rule matched 0; 390: 8298 -> 8298 px (+0), the rule matched 0
+#   /xx/es/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440: 2129 -> 2102 px (-27), the rule matched 0; 390: 4626 -> 4626 px (+0), the rule matched 0
+#   /xx/es/support/feedback-and-contact-airlines	1440: 2049 -> 2049 px (+0), the rule matched 0; 390: 4543 -> 4543 px (+0), the rule matched 0
+#   /xx/fr/100-years/chronicle	1440: 10012 -> 31136 px (+21124), the rule matched 0; 390: 29741 -> 44824 px (+15083), the rule matched 0
+#   /xx/fr/business-class	1440: 10677 -> 10677 px (+0), the rule matched 0; 390: 14684 -> 14684 px (+0), the rule matched 0
+#   /xx/fr/economy-class	1440: 6556 -> 6556 px (+0), the rule matched 0; 390: 8461 -> 8461 px (+0), the rule matched 0
+#   /xx/fr/first-class	1440: 23736 -> 23736 px (+0), the rule matched 0; 390: 25514 -> 25514 px (+0), the rule matched 0
+#   /xx/fr/premium-economy-class	1440: 7203 -> 7203 px (+0), the rule matched 0; 390: 9732 -> 9732 px (+0), the rule matched 0
+#   /xx/fr/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440: 2805 -> 2805 px (+0), the rule matched 0; 390: 4614 -> 4614 px (+0), the rule matched 0
+#   /xx/fr/support/feedback-and-contact-airlines	1440: 1400 -> 2103 px (+703), the rule matched 0; 390: 4503 -> 4503 px (+0), the rule matched 0
+#   /xx/hk/100-years/chronicle	1440: 29109 -> 29745 px (+636), the rule matched 0; 390: 32378 -> 32378 px (+0), the rule matched 0
+#   /xx/hk/business-class	1440: 10267 -> 10267 px (+0), the rule matched 0; 390: 11782 -> 11782 px (+0), the rule matched 0
+#   /xx/hk/economy-class	1440: 8166 -> 8166 px (+0), the rule matched 0; 390: 9024 -> 9024 px (+0), the rule matched 0
+#   /xx/hk/first-class	1440: 21165 -> 21165 px (+0), the rule matched 0; 390: 20179 -> 20179 px (+0), the rule matched 0
+#   /xx/hk/premium-economy-class	1440: 6883 -> 6883 px (+0), the rule matched 0; 390: 8351 -> 8351 px (+0), the rule matched 0
+#   /xx/hk/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440: 2601 -> 2601 px (+0), the rule matched 0; 390: 4085 -> 4085 px (+0), the rule matched 0
+#   /xx/hk/support/feedback-and-contact-airlines	1440: 1854 -> 1854 px (+0), the rule matched 0; 390: 3809 -> 3809 px (+0), the rule matched 0
+#   /xx/it/100-years/chronicle	1440: 2356 -> 2356 px (+0), the rule matched 0; 390: 44647 -> 44647 px (+0), the rule matched 0
+#   /xx/it/business-class	1440: 10580 -> 10580 px (+0), the rule matched 0; 390: 14124 -> 14124 px (+0), the rule matched 0
+#   /xx/it/economy-class	1440: 8348 -> 8348 px (+0), the rule matched 0; 390: 10189 -> 10189 px (+0), the rule matched 0
+#   /xx/it/first-class	1440: 21313 -> 21313 px (+0), the rule matched 0; 390: 22615 -> 22615 px (+0), the rule matched 0
+#   /xx/it/premium-economy-class	1440: 7095 -> 7095 px (+0), the rule matched 0; 390: 9439 -> 9439 px (+0), the rule matched 0
+#   /xx/it/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440: 2074 -> 2777 px (+703), the rule matched 0; 390: 4571 -> 4571 px (+0), the rule matched 0
+#   /xx/it/support/feedback-and-contact-airlines	1440: 2049 -> 2049 px (+0), the rule matched 0; 390: 4516 -> 4516 px (+0), the rule matched 0
+#   /xx/ja/100-years/chronicle	1440: 29715 -> 30351 px (+636), the rule matched 0; 390: 27159 -> 34720 px (+7561), the rule matched 0
+#   /xx/ja/business-class	1440: 10406 -> 10406 px (+0), the rule matched 0; 390: 12554 -> 12554 px (+0), the rule matched 0
+#   /xx/ja/economy-class	1440: 8227 -> 8227 px (+0), the rule matched 0; 390: 9338 -> 9338 px (+0), the rule matched 0
+#   /xx/ja/first-class	1440: 16657 -> 19849 px (+3192), the rule matched 0; 390: 20178 -> 20178 px (+0), the rule matched 0
+#   /xx/ja/premium-economy-class	1440: 6889 -> 6889 px (+0), the rule matched 0; 390: 8665 -> 8665 px (+0), the rule matched 0
+#   /xx/ja/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440: 2628 -> 2628 px (+0), the rule matched 0; 390: 4207 -> 4207 px (+0), the rule matched 0
+#   /xx/ja/support/feedback-and-contact-airlines	1440: 1219 -> 1854 px (+635), the rule matched 0; 390: 3970 -> 3970 px (+0), the rule matched 0
+#   /xx/ko/100-years/chronicle	1440: 5056 -> 7634 px (+2578), the rule matched 0; 390: 35208 -> 35208 px (+0), the rule matched 0
+#   /xx/ko/business-class	1440: 10325 -> 10325 px (+0), the rule matched 0; 390: 12392 -> 12392 px (+0), the rule matched 0
+#   /xx/ko/economy-class	1440: 8224 -> 8224 px (+0), the rule matched 0; 390: 9173 -> 9173 px (+0), the rule matched 0
+#   /xx/ko/first-class	1440: 20277 -> 20277 px (+0), the rule matched 0; 390: 19956 -> 19956 px (+0), the rule matched 0
+#   /xx/ko/premium-economy-class	1440: 6910 -> 6910 px (+0), the rule matched 0; 390: 8554 -> 8554 px (+0), the rule matched 0
+#   /xx/ko/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440: 1966 -> 1966 px (+0), the rule matched 0; 390: 4153 -> 4153 px (+0), the rule matched 0
+#   /xx/ko/support/feedback-and-contact-airlines	1440: 900 -> 1219 px (+319), the rule matched 0; 390: 3970 -> 3970 px (+0), the rule matched 0
+#   /xx/pl/100-years/chronicle	1440: 2255 -> 2356 px (+101), the rule matched 0; 390: 44542 -> 44542 px (+0), the rule matched 0
+#   /xx/pl/business-class	1440: 2105 -> 9958 px (+7853), the rule matched 0; 390: 14394 -> 14394 px (+0), the rule matched 0
+#   /xx/pl/economy-class	1440: 8426 -> 8426 px (+0), the rule matched 0; 390: 10314 -> 10314 px (+0), the rule matched 0
+#   /xx/pl/first-class	1440: 20714 -> 20714 px (+0), the rule matched 0; 390: 23039 -> 23039 px (+0), the rule matched 0
+#   /xx/pl/premium-economy-class	1440: 7143 -> 7143 px (+0), the rule matched 0; 390: 9325 -> 9325 px (+0), the rule matched 0
+#   /xx/pl/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440: 2750 -> 2750 px (+0), the rule matched 0; 390: 4584 -> 4584 px (+0), the rule matched 0
+#   /xx/pl/support/feedback-and-contact-airlines	1440: 2103 -> 2103 px (+0), the rule matched 0; 390: 4503 -> 4503 px (+0), the rule matched 0
+#   /xx/pt/100-years/chronicle	1440: 30653 -> 31702 px (+1049), the rule matched 0; 390: 44317 -> 44317 px (+0), the rule matched 0
+#   /xx/pt/business-class	1440: 10688 -> 10688 px (+0), the rule matched 0; 390: 14696 -> 14696 px (+0), the rule matched 0
+#   /xx/pt/economy-class	1440: 1979 -> 6575 px (+4596), the rule matched 0; 390: 10496 -> 10496 px (+0), the rule matched 0
+#   /xx/pt/first-class	1440: 21419 -> 21419 px (+0), the rule matched 0; 390: 23215 -> 23215 px (+0), the rule matched 0
+#   /xx/pt/premium-economy-class	1440: 7197 -> 7197 px (+0), the rule matched 0; 390: 9720 -> 9720 px (+0), the rule matched 0
+#   /xx/pt/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440: 2777 -> 2777 px (+0), the rule matched 0; 390: 4593 -> 4593 px (+0), the rule matched 0
+#   /xx/pt/support/feedback-and-contact-airlines	1440: 2103 -> 2103 px (+0), the rule matched 0; 390: 4552 -> 4552 px (+0), the rule matched 0
+#   /xx/ru/100-years/chronicle	1440: 35577 -> 35577 px (+0), the rule matched 0; 390: 47090 -> 47090 px (+0), the rule matched 0
+#   /xx/ru/business-class	1440: 10739 -> 10739 px (+0), the rule matched 0; 390: 15017 -> 15017 px (+0), the rule matched 0
+#   /xx/ru/economy-class	1440: 8453 -> 8453 px (+0), the rule matched 0; 390: 10653 -> 10653 px (+0), the rule matched 0
+#   /xx/ru/first-class	1440: 21108 -> 21108 px (+0), the rule matched 0; 390: 24413 -> 24413 px (+0), the rule matched 0
+#   /xx/ru/premium-economy-class	1440: 7201 -> 7201 px (+0), the rule matched 0; 390: 9982 -> 9982 px (+0), the rule matched 0
+#   /xx/ru/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440: 2804 -> 2804 px (+0), the rule matched 0; 390: 4888 -> 4888 px (+0), the rule matched 0
+#   /xx/ru/support/feedback-and-contact-airlines	1440: 2028 -> 2028 px (+0), the rule matched 0; 390: 4376 -> 4376 px (+0), the rule matched 0
+#   /xx/zh/100-years/chronicle	1440: 2275 -> 2275 px (+0), the rule matched 0; 390: 32193 -> 32193 px (+0), the rule matched 0
+#   /xx/zh/business-class	1440: 10267 -> 10267 px (+0), the rule matched 0; 390: 11670 -> 11670 px (+0), the rule matched 0
+#   /xx/zh/economy-class	1440: 8118 -> 8118 px (+0), the rule matched 0; 390: 8841 -> 8841 px (+0), the rule matched 0
+#   /xx/zh/first-class	1440: 19948 -> 19948 px (+0), the rule matched 0; 390: 19131 -> 19131 px (+0), the rule matched 0
+#   /xx/zh/premium-economy-class	1440: 6835 -> 6835 px (+0), the rule matched 0; 390: 8303 -> 8303 px (+0), the rule matched 0
+#   /xx/zh/prepare-for-your-trip/baggage/baggage-irregularities/delayed-baggage-lhg	1440: 2601 -> 2601 px (+0), the rule matched 0; 390: 4058 -> 4058 px (+0), the rule matched 0
+#   /xx/zh/support/feedback-and-contact-airlines	1440: 1854 -> 1854 px (+0), the rule matched 0; 390: 3809 -> 3809 px (+0), the rule matched 0

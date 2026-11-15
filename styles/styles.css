@@ -1036,6 +1036,15 @@ body.brand-lufthansa main > .section.grey + .section:last-child:not(:has(> .defa
   }
 }
 
+/* lufthansa.com: section style gap-after-small, www's 24px to the next section instead of the section gap's 48px (standing
+   order 33: www's gap from a section ending with a Columns Media to a stage or a flush grey band is 24px on some pages and
+   48px on others, by sections padding our documents do not carry; rows put the style where it measures closer:
+   first-class-terminal, lufthansa-business-class-on-long-haul-routes, flight-disruptions, lhg-wifi, lufthansa-express) */
+/* stylelint-disable-next-line no-descending-specificity -- a styled section, not a last section after a grey band */
+body.brand-lufthansa main > .section.gap-after-small {
+  margin-bottom: 24px;
+}
+
 /* not an empty last section (a document's empty trailing div) after a whole grey AEM section with
    .mb-default (grey, not flush, not a column band or view): www keeps the gap there
    (/de/en/book-and-manage/flights/wetlease-hub: the band 92px nearer the footer than www's;

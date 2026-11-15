@@ -1751,3 +1751,16 @@ body.brand-lufthansa main .columns-media .columns-media-media > p:has(> picture)
 body.brand-lufthansa main .columns-media .columns-media-media > p:has(> picture) + p.link-wrapper:last-child > a:any-link[href^="http"]:not([href*="//www.lufthansa.com"])::before {
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.3 16.4 7.6 17.7 15.9 9.4v6.1h1.8V6.3H8.5v1.8h6.1z'/%3E%3C/svg%3E");
 }
+
+/* lufthansa.com on phones: a media cell's link under its picture 15px lower, the cell 15px shorter, as www's teaser
+   (its picture to the link 46px, ours 31; the teasers' pitch www's already; the LoungeNet first class lounges' fragment,
+   lh-parity-002: standing order 33) */
+@media (width < 768px) {
+  body.brand-lufthansa main .columns-media .columns-media-row > .columns-media-media > p:has(picture) + p.link-wrapper:last-child {
+    margin-top: 37px;
+  }
+
+  body.brand-lufthansa .columns-media .columns-media-row > .columns-media-media:not(:last-child):has(> p picture):has(> p.link-wrapper) {
+    margin-bottom: 35px;
+  }
+}
