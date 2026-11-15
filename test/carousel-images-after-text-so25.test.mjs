@@ -43,3 +43,10 @@ test('from 768px before a section that is not padded: 65px above the carousel, 2
   assert.match(next.body, /margin-top: 65px;/);
   assert.match(next.body, /margin-bottom: 24px;/);
 });
+
+// standing order 27: before a padded section that a spaced grey column view follows, 65px above as well
+test('from 768px before a padded section and a spaced grey view: 65px above the carousel', () => {
+  const pad = rule('body.brand-lufthansa main:not(:has(.article-header)) > .section:not(.campaign-section):has(+ .section.padded + .section.column-view.grey.spaced) > .default-content-wrapper:has(> p:not(.spacer):last-child) + .carousel-images-wrapper:last-child > .carousel-images');
+  assert.equal(pad.media, '@media (width >= 768px)');
+  assert.match(pad.body, /margin-top: 65px;/);
+});
