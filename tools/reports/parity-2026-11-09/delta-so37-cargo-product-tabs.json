@@ -1,0 +1,48 @@
+{
+ "/en/active-temp-control": {
+    "block": "accordion-columns", "add": "tabs",
+    "titles": ["Features", "Special Aspects", "Infrastructure", "Booking & Tracking", "Links & Downloads"],
+    "rows": [
+      { "panel": "Features", "cells": [
+        ["h3|active temp control for a temperature-co", "p|make sure shipments that need a consiste"],
+        ["img"] ] }
+    ] },
+ "/en/airmail": {
+    "block": "accordion-columns", "add": "tabs",
+    "titles": ["Features", "Special Aspects", "Infrastructure", "Booking & Tracking", "Links & Downloads"],
+    "rows": [
+      { "panel": "Features", "cells": [
+        ["h3|speed and reliability for airmail", "p|have important mail deliveries reach the"],
+        ["img"] ] }
+    ] },
+ "/en/dangerous-goods": {
+    "block": "accordion-columns", "add": "tabs",
+    "titles": ["Features", "Special Aspects", "Infrastructure", "Booking & Tracking", "Links & Downloads"],
+    "rows": [
+      { "panel": "Features", "cells": [
+        ["h3|the safe way for your dangerous goods", "p|we transport your cargo responsibly unde"],
+        ["img"] ] }
+    ] },
+ "/en/eservices/efreight": {
+    "block": "accordion-columns", "add": "tabs",
+    "titles": ["Paperless", "Process efficiency", "More information"],
+    "rows": [
+      { "panel": "Paperless", "cells": [
+        ["img", "h4|eawb", "p|the electronic air waybill."],
+        ["img", "h4|eaw", "p|paperless consignments without accompany"],
+        ["img", "h4|ecsd", "p|the electronic consignment security decl"],
+        ["img", "h4|ehm", "p|the electronic house manifest."] ] },
+      { "panel": "Process efficiency", "cells": [
+        ["img", "h4|precheck", "p|electronic document check before freight"],
+        ["img", "h4|quick drop-off/pick-up", "p|accelerated freight acceptance and pick-"],
+        ["img", "h4|one record", "p|the air freight industry's new data stan"] ] }
+    ] },
+ "/en/general-cargo": {
+    "block": "accordion-columns", "add": "tabs",
+    "titles": ["Features", "Special Aspects", "Infrastructure", "Booking & Tracking", "Links & Downloads"],
+    "rows": [
+      { "panel": "Features", "cells": [
+        ["h3|our product for your standard cargo", "p|whether it’s the latest shoe collection", "h3|flexible around the world", "ul|available for nearly all commodities ava"],
+        ["img"] ] }
+    ] }
+}
