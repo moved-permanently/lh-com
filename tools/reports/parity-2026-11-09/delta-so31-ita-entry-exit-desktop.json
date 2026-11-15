@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/it/en/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "inserts": [
+   {
+    "after": "<p>{spacer-75 below-768}</p>",
+    "text": "<p>{spacer-15 from-768}</p>"
+   }
+  ]
+ }
+]
