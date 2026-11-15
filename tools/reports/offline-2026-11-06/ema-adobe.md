@@ -4382,3 +4382,70 @@ files and folders passed; the full suite on the final code: d2edd00, 71 lh-edge 
   - logs/b617, logs/b618: captures, drafts, census scripts and results, trial stylesheets, gate runs;
   - /tmp/so23 and /tmp/so25 (the archives and the offline import workspaces);
   - the untracked import reports of earlier runs.
+
+### Standing order 26 (2026-11-14 22:10 to 2026-11-15 04:00 CET)
+
+No uploads, previews or publishes; DA read only (GETs for dry runs); no request to an airline host. Plugins and project
+settings untouched, `.migration/project.json` untouched. Order 25 left nothing uncommitted or unpushed. Each push: the
+whole-repo lint read 0 on a clean worktree of the rebased HEAD, stylelint 0 on the changed block and theme files, the tests
+that read the changed files and folders passed. Full suite on main's final code: f53d4b2, 71 lh-edge files and 1,134 site files, 0 failing. No change deploys lh-edge.
+/de/en/overview-manage: no row.
+
+1. **hk and zh intro split** (3cf3cae). Both rows READY, with your rollback note. At 23:52 UTC aem.live still served
+   both copies unsplit, so the order 26 carousel rule does not reach them yet.
+2. **The importer writes the intro split** (1801f01).
+   - Why it merged: www's AEM section after the padded intro is unpadded, opens with the two-column view and holds the
+     grey band after it. Order 18's split skipped it, because the section held a break already (the band's) and the
+     section after it is grey.
+   - Now such an unpadded AEM section (.mb-default, after a padded one that is neither grey nor a stage) whose first break
+     is a grey band's after its first component starts a section of its own there, without a style.
+   - Test from the real shape: the first four AEM sections of lh-snapshots-118's /fr/fr business-class (new archive,
+     sha256 checked), through the cleanup and the sections transformer.
+   - Whole bundle: offline imports of 118's fr/fr, 117's xx/el and the de/en and gb/en business-class snapshots with the
+     rebuilt info bundle. Only that break is added, and the outline is what the published copies have since the list.
+     de/en economy-class and first-class are byte for byte the same.
+   - Census (cleanup and sections, HEAD against the change, the 750 info pages with a www snapshot): 4 pages change, the
+     business-class ones.
+3. **The carousel and the card-row gap.**
+   - The carousel (0c3aa27). Against www, ours was 25 px short above the intro carousel and 16 px long under it.
+     - From 768 px, a carousel that ends its section before an unpadded one now has 65 px above it and 24 px under it.
+     - 70 px above with the 40 px under it was wrong on 4 xx pages and on economy-class.
+     - Census: the sixteen business-class documents.
+     - Gate (working-copy code, against 117 and 118): 11 of 25 page-widths better (xx/el 13.2 -> 9.5, fr/fr 17.5 ->
+       13.9, the others by 1.4 to 3.9), 14 the same.
+     - Before a padded section (economy-class), 65 px above only gains together with a section row: branch
+       so26-economy-grey-carousel (item 4).
+   - The card-row gap: branch **so26-card-row-gap**, for your call. Below 768 px:
+     - variant 5's closer row after a text-only row;
+     - 24 px under a text cell before an empty last cell (www stacks the empty item; this was online-check-in-info's
+       page end);
+     - the airline tiles' links 5 px taller (report-baggage's drift that had cancelled variant 5's step). All link
+       paragraphs 5 px taller was wrong on 8 of 36 sampled pages.
+     - Census: 214, 140 and 95 documents.
+     - Gate (the branch's code): 10 of 29 better (business-class-on-short-and-medium-haul 19.5 -> 7.3,
+       menus-travel-classes 12.0 -> 4.0), 18 the same. 1 is worse: with-children-at-the-airport +0.9, because DA's copy
+       has a sentence and two airport links that www's recording no longer shows. gate.mjs fails on that page only.
+     - delta-so26-card-row-gap-WITH-branch.txt names it. Merge accepting it, or decide its text row first (no delta tool
+       removes text yet).
+4. **The ranking.** I re-measured live the 80 worst de/en and de/de page-widths of rankings so12 and so18; all are above
+   2 %. ema-test's and ema-lufthansa's lists on main cover none of them (theirs are b2b, Discover and the brands).
+   - first-class (1ba93ce): www's author quote alone in its section before a stage has 32 px more under it.
+     - The rule now gives it 92 / 112 px.
+     - Census: the fifteen first-class documents.
+     - Gate: 25.9 / 20.2 -> 22.2 / 15.0 at 390 / 1440.
+   - economy-class: branch **so26-economy-grey-carousel** with delta-so26-economy-class-grey-view-WITH-branch.txt (14
+     rows, HOLD until the merge).
+     - www's grey column view has .mb-default before the sidebar section (ours 24 px long there), and the carousel is
+       24 px short above.
+     - de/en, with both: 11.3 / 22.9 -> 8.4 / 14.9. The rows alone give 14.8 / 14.9; the code alone 13.3 at 1440.
+   - Not fixed, with their causes:
+     - traveltricks 31.6 / 20.2: the store links (order 19's HOLD);
+     - picture-perfect-austin 25.8: aligned within 12 px; the pictures are drawn differently;
+     - explore-flying 21.8 and explore-the-world 17.4: their article lists are newer than the recordings (live data);
+     - miles-and-more-credit-card 21.1: a heading that wraps on another word, and phone picture crops;
+     - first-class's other 1440 steps, 22 to 28 px around its single-picture rows.
+- Left out of git:
+  - logs/b619: captures, trials, census scripts and results, drafts, the fixture builder;
+  - /tmp/so26 (lh-snapshots-118 and the offline import workspaces) and the worktrees /tmp/wt-so26b, /tmp/wt-so26c
+    (their node_modules links);
+  - the untracked import reports of earlier runs.
