@@ -4449,3 +4449,17 @@ that read the changed files and folders passed. Full suite on main's final code:
   - /tmp/so26 (lh-snapshots-118 and the offline import workspaces) and the worktrees /tmp/wt-so26b, /tmp/wt-so26c
     (their node_modules links);
   - the untracked import reports of earlier runs.
+
+Order 26, after the section above (until 04:00 CET). Two more item 4 rules, each with census and gate; the full suite on
+the final code: 0c1cf24, 71 lh-edge files and 1,137 site files, 0 failing.
+- first-class's wide picture (b2407e1). From 768 px, a picture alone in its paragraph right after a desktop spacer has
+  28 px above it and 62 px under it, as www's image component between its separators.
+  - Census: the fifteen first-class documents.
+  - Gate: 15.0 -> 9.6 at 1440 (390 the same).
+  - Live now: first-class 9.6 / 22.2 at 1440 / 390, against 20.2 / 25.9 this evening.
+- Several-row sidebar blocks (0c1cf24). From 768 px, outside campaign sections, they have 88 px between their rows: www
+  draws one sidebar component per row.
+  - Census: 52 documents.
+  - Gate (8 page-widths, lh-parity and lh-snapshots-116): 6 better, 2 the same. tips-senior-travellers 21.9 -> 14.5
+    (live now 14.5), miles-and-more-credit-card 14.6 -> 12.9, the visual-impairment versions by 0.7 to 1.5.
+  - In campaign sections the same gap made 100-years/global-network worse, so those are left out.
