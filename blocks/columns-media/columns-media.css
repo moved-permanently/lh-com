@@ -663,6 +663,15 @@ main > .section > .columns-media-wrapper:has(> .columns-media.sidebar) + .defaul
     margin-bottom: 0;
   }
 
+  /* lufthansa.com, a sidebar block of several rows outside campaign sections (www: one sidebar component per row, each
+     with its own bottom spacing): 88px between the rows, 22px more (/de/en/tips-senior-travellers at 1440: link to the
+     next heading 114px, ours 92). Standing order 26, injected: tips-senior-travellers 21.9 -> 14.5,
+     miles-and-more-credit-card 14.6 -> 12.9, visual-impairment 6.5 -> 5.0 at 1440; cognitive-impairment and
+     100-years/global-network (a campaign section, left out: all sidebars 13.6 -> 14.7) the same; census: the 52 documents with such a block outside the 100-years pages */
+  body.brand-lufthansa main > .section:not(.campaign-section) > .columns-media-wrapper > .columns-media.sidebar {
+    gap: 88px;
+  }
+
   .columns-media.sidebar .columns-media-row > div:empty {
     display: block;
   }
