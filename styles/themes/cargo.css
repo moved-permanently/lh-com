@@ -1846,6 +1846,17 @@ body.brand-cargo main > .section.contact > .default-content-wrapper > p:has(> pi
   }
 }
 
+/* standing order 41: the same 20 px between the breadcrumb and a grey title band under it (www's Speed pages: the
+   "Back" row, then the grey Introduction band, its 20 px padding over the title). cargo-parity-006's 390 first load of
+   /en/speed-zoom: the band starts 19 px under the breadcrumb, ours 48 px (the section gap), so the title stood 36 px
+   lower. Only td.Zoom, td.Pro and td.Flash (en, de) have a breadcrumb section with a grey section after it (the 990
+   served Cargo copies, 2026-11-15; no page with "parent" metadata, whose breadcrumb scripts.js adds, has one) */
+@media (width < 1025px) {
+  body.brand-cargo main > :where(.section:has(> .breadcrumb-wrapper):has(+ .section.grey)) {
+    margin-bottom: 20px;
+  }
+}
+
 body.brand-cargo main > .section.contact :is(h2, p) {
   max-width: 600px;
   color: #fff;

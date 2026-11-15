@@ -1,0 +1,17 @@
+# ema-cashub, standing order 41 (2026-11-15): the eservices-app pages' doubled title and the "Track" set's place, as you asked (order 40's finding), gated as usual: READY = the page within 2 % of www's at both widths. Both pages: HOLD, nothing passes. No DA change in this list.
+# Recordings: de 1440 / 390 cargo-parity-005 (first loads, 19:02 CET); en 390 cargo-parity-006 (first load, 21:03 CET; sha256 checked); en 1440 cargo-parity-003. www's figures less 80 px where www draws its service notice (-005, -006).
+# Rendered on cargo.turnsthe.page (/tmp/so39/hostv.mjs, the served copy with the change; unhinted, EAGER=1 CONSENT=1; lh-proxy, www.* but www.mynewsdesk.com and every airline host refused and counted: 0). Controls = live: de 3,319 / 3,415, en 3,190 / 3,312.
+# The drafts (DA's copy read again ~21:20 CET, one GET, with order 40's app section in it):
+#   A, the title: the repeated H2 "Lufthansa Cargo App" under the H1 out (www has the H1 alone); a text-inserts replace of <h2>Lufthansa Cargo App</h2>.
+#   B, A and the heading: the H2 "Lufthansa Cargo eServices to go" before the Track / Schedule / Feedback set in the same grey section, as www's (ours had it after the set). The English document has it there already.
+# Why nothing passes:
+#   at 390 (de with B, +201 px): the rest is the sections' spacing, about 30 to 60 px per gap: from the title to "App-solutely mobile" +60 (around the first picture), the app section +32, "Ihre Vorteile" to the "to go" heading +51, "to go" to "FAQ" +26, "FAQ" to the footer +39. The English page has the same gaps (+7.13 % with A).
+#   at 1440 the page as served was within 2 % only because two other differences cancel: ours stacks the "Ihre Vorteile" picture over its list (www: picture | list side by side, ours +479 px from "App-solutely mobile" to it) and draws the Track set closed as an accordion (www: tabs, Track open with its picture | text, -278 px to "FAQ"). B takes the de page to -2.04 %; A takes en from -3.01 to -5.35 %. The tab option alone (no picture | text tables) makes de 3,927 (+19.4 %).
+#   Within 2 % at both widths needs the page's layout as www's at 1440 (the tab row with its tables and the benefits as columns, as the product tab pages) and Cargo's spacing below 1025 px (www's 20 px Liferay gaps, a brand-wide rule): a later order.
+# English app page: it has the doubled title too (fix A); the heading is in its place already; its 390 first load is +8.84 % as served (www 3,043), +7.13 % with A.
+#
+# status	path	width	recording	www page	as served	with A (title)	with B (title and heading)	note
+HOLD	/de/eservices-app	1440	cargo-parity-005	3289	3319 (+0.91 %)	3242 (-1.43 %)	3222 (-2.04 %)	B out of 2 %; A within, but the page is within only by the two cancelling differences (note above)
+HOLD	/de/eservices-app	390	cargo-parity-005 (first load)	3142	3415 (+8.69 %)	3363 (+7.03 %)	3343 (+6.40 %)	closer, still over: the sections' spacing (+201 px over five gaps)
+HOLD	/en/eservices-app	1440	cargo-parity-003	3289	3190 (-3.01 %)	3113 (-5.35 %)	- (heading in place)	A further: www's open Track panel and benefits row are missing (as de)
+HOLD	/en/eservices-app	390	cargo-parity-006 (first load)	3043	3312 (+8.84 %)	3260 (+7.13 %)	- (heading in place)	closer, still over: the same spacing as de
