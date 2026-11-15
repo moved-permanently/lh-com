@@ -1,0 +1,34 @@
+# Standing order 31 (2026-11-15), item 2: the articles whose captions were missing although Insights articles keep
+# them. Order 30's census said 13; read again against DA (read-only GET) and the published copies, the gap is one
+# caption, the video's, in allegris-new-york:
+# - www's video viewer (.videoViewer > .dcep-video-viewer, video.js) draws its config's caption under the player
+#   (p.caption[data-testid="video-caption"] > maui-caption); columns-media's viewerNodes wrote the poster and the video
+#   link only. It is www's only captioned video viewer in the lufthansa.com snapshots (3 snapshots: xx/es, xx/fr,
+#   fr/fr), none on the brand sites. Every version of the article lacks it (at/de, de/de, de/en, gb/en, xx/es, xx/fr,
+#   xx/it published; fr/fr in DA, not published).
+# - Not a gap: the six other fr/fr Allegris and art-of-flying articles hold all their captions in DA; they are not
+#   published (the census read our not-found page as their copy). stop-over-tokyo's (4 versions) is a parallax image's:
+#   www draws it as a react-parallax background, no figure and no caption.
+# Importer (this list's commit): on Insights articles viewerNodes writes "<p>caption {caption}</p>" after the video
+# paragraph, from the drawn caption or, in a snapshot taken before the player loaded (xx/es), from the config
+# (test/article-video-caption-so31; insights bundle rebuilt). Fresh offline imports of the three snapshots write it so,
+# 0 requests out. Block CSS (same commit): the player's 40px margin goes when a caption follows, so the caption sits
+# 10px under it as image captions do (www's .video-viewer > p.caption has the same .caption rule).
+# Expected change, per document: one paragraph "<caption> {caption}" right after the video paragraph (the .mp4 link
+# and its "{controls round-play-button}"), inside the columns-media cell. Nothing else changes.
+# Tool: tools/importer/text-inserts-apply.mjs --data delta-so31-article-video-caption-lh-com.json (anchor: the video
+# paragraph from the .mp4 link to its </p>, found once in each copy). Dry run on DA's current copies: inserted,
+# without the insert DA's copy byte for byte (--check).
+# Gate (no recording of any version): the published xx/fr copy with the insert as a draft on our host, working-copy CSS
+# injected: the caption 10px under the player at 1440 and 390 (14px bold, as image captions), the next paragraph 24px
+# under it as it was under the player; the page 28 / 64 px taller at 1440 / 390, the caption's lines and gap only.
+# HOLD: the five versions without a snapshot; their caption text needs a www load (captures stopped since 11-15 07:10).
+# status	document	tool	expected change	gate
+READY	/xx/es/articles/highlights/allegris-new-york	text-inserts-apply (delta-so31-article-video-caption-lh-com.json)	the video's caption after the video paragraph: "¡Cámara, acción! Un miembro de la tripulación acompaña a Antonio Colomboni a su vuelo a Nueva York"	not recorded; dry run inserted, restorable byte for byte; same shape as xx/fr's draft render
+READY	/xx/fr/articles/highlights/allegris-new-york	text-inserts-apply (delta-so31-article-video-caption-lh-com.json)	the video's caption after the video paragraph: "Action, première prise ! Une équipe de tournage accompagne Antonio Colomboni lors de son vol vers New York City."	not recorded; draft on our host: caption 10px under the player at 1440 / 390, next paragraph 24px under it; dry run inserted, restorable byte for byte
+READY	/fr/fr/articles/highlights/allegris-new-york	text-inserts-apply (delta-so31-article-video-caption-lh-com.json)	the video's caption after the video paragraph (as xx/fr)	not recorded; dry run inserted, restorable byte for byte; the document is not published (DA only)
+HOLD	/de/en/articles/highlights/allegris-new-york	-	the video's caption after the video paragraph	no snapshot: the caption text needs a www load
+HOLD	/de/de/articles/highlights/allegris-new-york	-	the video's caption after the video paragraph	no snapshot: the caption text needs a www load
+HOLD	/at/de/articles/highlights/allegris-new-york	-	the video's caption after the video paragraph	no snapshot: the caption text needs a www load
+HOLD	/gb/en/articles/highlights/allegris-new-york	-	the video's caption after the video paragraph	no snapshot: the caption text needs a www load
+HOLD	/xx/it/articles/highlights/allegris-new-york	-	the video's caption after the video paragraph	no snapshot: the caption text needs a www load

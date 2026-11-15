@@ -231,6 +231,23 @@ export default function parse(element, { document, url, params }) {
     const size = videoSizeToken(src);
     if (size) settings.push(size);
     out.push(videoPara(src, clean(cfg.alternativeText), settings));
+    // insights articles: the viewer's caption under the player, as www draws it (p.caption[data-testid="video-caption"]
+    // > maui-caption); a snapshot taken before the player loaded has it in the config only (standing order 31:
+    // allegris-new-york in every version; www's only captioned viewers)
+    if (ARTICLE) {
+      const drawn = comp.querySelector('[data-testid="video-caption"], p.caption');
+      let text = drawn ? visibleText(drawn.querySelector('maui-caption') || drawn) : '';
+      if (!text && cfg.caption) {
+        const scratch = document.createElement('div');
+        scratch.innerHTML = String(cfg.caption);
+        text = clean(scratch.textContent);
+      }
+      if (text) {
+        const p = document.createElement('p');
+        p.textContent = `${text} {caption}`;
+        out.push(p);
+      }
+    }
     return out;
   };
 

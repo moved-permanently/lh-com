@@ -409,6 +409,13 @@ body.brand-lufthansa .columns-media .columns-media-text > p:has(> picture):not(:
   line-height: 18px;
 }
 
+/* a video viewer's caption (Insights, allegris-new-york; the parser writes it since standing order
+   31): as an image's, 10px under the player (www's .video-viewer > p.caption has the same .caption
+   rule, top 1rem), not under the player's 40px margin before other content (styles/media.css) */
+body.brand-lufthansa .columns-media .columns-media-row .media-video:has(+ p.caption) {
+  margin-bottom: 0;
+}
+
 /* option stacked (Insights galleries: several image components in one column item): one under
    the other, the next image 40px below the caption (.image .image-wrapper margin-bottom 4rem;
    picture-perfect-austin right column 722-1232 at 1440, two 1920x823 images with captions) */

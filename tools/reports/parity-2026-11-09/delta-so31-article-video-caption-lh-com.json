@@ -1,0 +1,29 @@
+[
+ {
+  "path": "/xx/es/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "after": "lh_art_italy_antonio_90sec.mp4\">Antonio Colomboni con una claqueta en el aeropuerto antes de salir rumbo a Nueva York.</a> {controls round-play-button}</p>",
+    "text": "<p>¡Cámara, acción! Un miembro de la tripulación acompaña a Antonio Colomboni a su vuelo a Nueva York {caption}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/fr/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "after": "lh_art_italy_antonio_90sec.mp4\">Antonio Colomboni avec un clap de cinéma à l'aéroport avant son départ pour New York.</a> {controls round-play-button}</p>",
+    "text": "<p>Action, première prise ! Une équipe de tournage accompagne Antonio Colomboni lors de son vol vers New York City. {caption}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "after": "lh_art_italy_antonio_90sec.mp4\">Antonio Colomboni avec un clap de cinéma à l'aéroport avant son départ pour New York.</a> {controls round-play-button}</p>",
+    "text": "<p>Action, première prise ! Une équipe de tournage accompagne Antonio Colomboni lors de son vol vers New York City. {caption}</p>"
+   }
+  ]
+ }
+]

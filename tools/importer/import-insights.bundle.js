@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-insights.js
-  var tmp_bundle_insights_1471119_exports = {};
-  __export(tmp_bundle_insights_1471119_exports, {
-    default: () => tmp_bundle_insights_1471119_default
+  var tmp_bundle_insights_1674363_exports = {};
+  __export(tmp_bundle_insights_1674363_exports, {
+    default: () => tmp_bundle_insights_1674363_default
   });
 
   // tools/importer/parsers/poi-data.js
@@ -4725,6 +4725,20 @@ var CustomImportScript = (() => {
       const size = videoSizeToken(src);
       if (size) settings.push(size);
       out.push(videoPara2(src, clean3(cfg.alternativeText), settings));
+      if (ARTICLE) {
+        const drawn = comp.querySelector('[data-testid="video-caption"], p.caption');
+        let text = drawn ? visibleText(drawn.querySelector("maui-caption") || drawn) : "";
+        if (!text && cfg.caption) {
+          const scratch = document.createElement("div");
+          scratch.innerHTML = String(cfg.caption);
+          text = clean3(scratch.textContent);
+        }
+        if (text) {
+          const p = document.createElement("p");
+          p.textContent = `${text} {caption}`;
+          out.push(p);
+        }
+      }
       return out;
     };
     const captionPara = (comp) => {
@@ -5621,7 +5635,7 @@ var CustomImportScript = (() => {
   var HEADING_STYLE = styleMarker(HEADING_TOKENS);
   var PARAGRAPH_STYLE = styleMarker(PARAGRAPH_TOKENS);
   var LIST_STYLE = styleMarker(LIST_TOKENS);
-  var SEPARATOR = /^\{(spacer|divider)-(\d{1,3})( from-768)?\}$/;
+  var SEPARATOR = /^\{(spacer|divider)-(\d{1,3})( from-768| below-768)?\}$/;
   var VIDEO_SETTINGS = ["autoplay", "muted", "loop", "controls", "round-play-button"];
   var VIDEO_SIZE = "size-\\d{2,5}x\\d{2,5}";
   var VIDEO_MARKER = styleMarker(`${VIDEO_SETTINGS.join("|")}|${VIDEO_SIZE}`);
@@ -5631,7 +5645,7 @@ var CustomImportScript = (() => {
   var OTHER_TOKENS = "mobile|blank|small|divider|cell-(?:half-start|half-end|three-quarters)";
   var ANY_TOKENS = [HEADING_TOKENS, PARAGRAPH_TOKENS, LIST_TOKENS, VIDEO_SETTINGS.join("|"), VIDEO_SIZE, OTHER_TOKENS].join("|");
   var ANY_MARKER = `\\{\\s*(?:${ANY_TOKENS})(?: (?:${ANY_TOKENS}))*\\s*\\}`;
-  var SEPARATOR_TEXT = /^\s*\{(?:spacer|divider)-\d{1,3}(?: from-768)?\}\s*$/;
+  var SEPARATOR_TEXT = /^\s*\{(?:spacer|divider)-\d{1,3}(?: from-768| below-768)?\}\s*$/;
   var isSeparatorText = (s) => SEPARATOR_TEXT.test(s) || APP_SPACER.test(s.trim());
   var TRAILING_TEXT = new RegExp(`\\s*${ANY_MARKER}\\s*$`);
   var TRAILING_HTML = new RegExp(`\\s*${ANY_MARKER}((?:\\s*</[a-z][a-z0-9]*>)*)\\s*$`, "i");
@@ -9073,8 +9087,10 @@ var CustomImportScript = (() => {
         const seps = run.els.map(parse12);
         const divider = seps.some((m) => m[1] === "divider");
         const px = seps.reduce((a, m) => a + Number(m[2]), 0);
-        const tablet = seps.every((m) => m[3]);
-        if (!tablet) seps.filter((m) => m[3]).forEach(() => count(stats, "theme", "separator-from-768"));
+        const tablet = seps.every((m) => m[3] === " from-768");
+        if (!tablet) seps.filter((m) => m[3] === " from-768").forEach(() => count(stats, "theme", "separator-from-768"));
+        const phone = seps.every((m) => m[3] === " below-768");
+        if (!phone) seps.filter((m) => m[3] === " below-768").forEach(() => count(stats, "theme", "separator-below-768"));
         let size = null;
         if (!divider && px <= 31) size = "none";
         else if (!divider) size = px < 90 ? "m" : "l";
@@ -9086,7 +9102,7 @@ var CustomImportScript = (() => {
         const remove = () => run.els.forEach((el) => el.remove());
         const prose = (el) => !!el && isRunningText(el) && !/^\s*\{[^}]*\}\s*$/.test(textOf(el));
         const heading = (el) => !!el && /^H[1-6]$/.test(el.tagName);
-        if (size === "none" && textSpacers && !tablet && prose(before) && (prose(after) || heading(after))) {
+        if (size === "none" && textSpacers && !tablet && !phone && prose(before) && (prose(after) || heading(after))) {
           const keep = doc.createElement("p");
           keep.textContent = `{spacer-${px}}`;
           run.els[0].before(keep);
@@ -9094,7 +9110,7 @@ var CustomImportScript = (() => {
           count(stats, "carrier", "text-spacer", run.els.length);
           return;
         }
-        if (size === "none" && componentSpacers && !tablet && !atStart && !atEnd && content(before) && content(after)) {
+        if (size === "none" && componentSpacers && !tablet && !phone && !atStart && !atEnd && content(before) && content(after)) {
           const keep = doc.createElement("p");
           keep.textContent = `{spacer-${px}}`;
           run.els[0].before(keep);
@@ -9107,13 +9123,14 @@ var CustomImportScript = (() => {
           count(stats, "theme", "separator", run.els.length);
           return;
         }
-        if (tablet) {
+        if (tablet || phone) {
+          const opt = tablet ? "from-768" : "below-768";
           const b2 = doc.createElement("div");
-          b2.className = divider ? "divider from-768" : `spacer${size === "l" ? " l" : ""} from-768`;
+          b2.className = divider ? `divider ${opt}` : `spacer${size === "l" ? " l" : ""} ${opt}`;
           b2.innerHTML = "<div><div></div></div>";
           run.els[0].before(b2);
           remove();
-          count(stats, "carrier", "separator-from-768", run.els.length);
+          count(stats, "carrier", `separator-${opt}`, run.els.length);
           return;
         }
         if (rules.includes("sections-m") && size === "m" && (atStart || atEnd)) {
@@ -9576,7 +9593,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_insights_1471119_default = {
+  var tmp_bundle_insights_1674363_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -9616,5 +9633,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_insights_1471119_exports);
+  return __toCommonJS(tmp_bundle_insights_1674363_exports);
 })();
