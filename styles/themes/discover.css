@@ -825,3 +825,15 @@ body.brand-discover .search-bar .search-bar-form {
   border-radius: var(--discover-field-radius);
   background-color: var(--discover-field-fill);
 }
+
+/* grey bands on phones as www's (santorini at 390, discover-parity-001; standing order 27): 36 px over a band, 32 px
+   under it (ours the sections' 56 px: the text 68 px over the band, the next title 69 px under it; www 48, 44) */
+@media (width < 768px) {
+  body.brand-discover main > .section:not(.grey):has(+ .section.grey) {
+    margin-bottom: 36px;
+  }
+
+  body.brand-discover main > .section.grey:has(+ .section) {
+    margin-bottom: 32px;
+  }
+}
