@@ -116,5 +116,58 @@
     "text": "<p>Earned enough miles for the award you want? Then you can redeem these in our world of awards.</p>"
    }
   ]
+ },
+ {
+  "path": "/de/en/first-class",
+  "inserts": [
+   {
+    "replace": "ses, and a floral centerpiece.\"></picture></div></div></div><p>{spacer-80 from-768}</p>",
+    "text": "ses, and a floral centerpiece.\"></picture></div></div></div><p>{spacer-24 below-768}</p><p>{spacer-80 from-768}</p>"
+   },
+   {
+    "replace": "ea with a clear view of the airfield tarmac.\"></picture></p><p>{spacer-80 from-768}</p>",
+    "text": "ea with a clear view of the airfield tarmac.\"></picture></p><p>{spacer-24 below-768}</p><p>{spacer-80 from-768}</p>"
+   },
+   {
+    "replace": "\">Discover the First Class lounges</a></p></div></div></div><p>{spacer-80 from-768}</p>",
+    "text": "\">Discover the First Class lounges</a></p></div></div></div><p>{spacer-24 below-768}</p><p>{spacer-80 from-768}</p>"
+   },
+   {
+    "replace": "erminal</h2><p>The home of exclusivity</p></div></div></div><p>{spacer-80 from-768}</p>",
+    "text": "erminal</h2><p>The home of exclusivity</p></div></div></div><p>{spacer-24 below-768}</p><p>{spacer-80 from-768}</p>"
+   },
+   {
+    "replace": "ed wine at a well-stocked bar.\"></picture></div></div></div><p>{spacer-80 from-768}</p>",
+    "text": "ed wine at a well-stocked bar.\"></picture></div></div></div><p>{spacer-24 below-768}</p><p>{spacer-80 from-768}</p>"
+   },
+   {
+    "replace": "rols round-play-button size-1920x1080}</p></div></div></div><p>{spacer-80 from-768}</p>",
+    "text": "rols round-play-button size-1920x1080}</p></div></div></div><p>{spacer-24 below-768}</p><p>{spacer-80 from-768}</p>"
+   },
+   {
+    "replace": ">Discover our First Class Terminal</a></p></div></div></div><p>{spacer-80 from-768}</p>",
+    "text": ">Discover our First Class Terminal</a></p></div></div></div><p>{spacer-24 below-768}</p><p>{spacer-80 from-768}</p>"
+   },
+   {
+    "replace": "ass-limousinen-service\">Learn more</a></p></div></div></div><p>{spacer-80 from-768}</p>",
+    "text": "ass-limousinen-service\">Learn more</a></p></div></div></div><p>{spacer-24 below-768}</p><p>{spacer-80 from-768}</p>"
+   },
+   {
+    "replace": "greatest measure of privacy and peace.</p></div></div></div><p>{spacer-80 from-768}</p>",
+    "text": "greatest measure of privacy and peace.</p></div></div></div><p>{spacer-24 below-768}</p><p>{spacer-80 from-768}</p>"
+   },
+   {
+    "replace": "rrive at your destination fully refreshed.</div></div></div><p>{spacer-80 from-768}</p><p>{spacer-80 from-768}</p>",
+    "text": "rrive at your destination fully refreshed.</div></div></div><p>{spacer-24 below-768}</p><p>{spacer-80 from-768}</p><p>{spacer-24 below-768}</p><p>{spacer-80 from-768}</p>"
+   },
+   {
+    "replace": "ocument by a flight attendant.\"></picture></div></div></div><p>{spacer-80 from-768}</p>",
+    "text": "ocument by a flight attendant.\"></picture></div></div></div><p>{spacer-24 below-768}</p><p>{spacer-80 from-768}</p>"
+   },
+   {
+    "replace": "</h2><p>Another highlight: the cuisine</p></div></div></div><p>{spacer-80 from-768}</p>",
+    "text": "</h2><p>Another highlight: the cuisine</p></div></div></div><p>{spacer-24 below-768}</p><p>{spacer-80 from-768}</p>"
+   }
+  ]
  }
 ]
