@@ -1,0 +1,56 @@
+# ema-cashub, standing order 41 (2026-11-15): Air Dolomiti /de/reisenformationen/sitzplatzreservierung 390 with German hyphenation in the FAQ titles, as you decided (no overflow past the box; the words break with a hyphen at the line end, the page keeps lang de). Result: HOLD. The page stays +2.68 % (4,144 against www's 4,036, airdolomiti-parity-007, its 390 the 1440 load resized); nothing else in this list is proposed.
+# The candidate (not committed): below 768 px, body.brand-airdolomiti main .accordion-columns.faq .accordion-columns-title:lang(de) { hyphens: auto; hyphenate-limit-chars: 14 6 6 } (the limits of styles.css's heading rule). This headless Chrome hyphenates German (checked first: a 180 px box of 34 px "Sitzplatzreservierung Sitzplatzänderungen" hyphenates and stays 180 px wide).
+# Why it cannot pass: the two titles that cost the page its 116 px are single words wider than the title's text measure ("Sitzplatzreservierung" 334 px, "Sitzplatzänderungen" 331 px, in 326 px at 390). Hyphenated or broken, such a word takes two lines; only overflow (your no) or a narrower font keeps it on one.
+# The census you asked for: every German Air Dolomiti page with the FAQ block (25 of the 599 served /de/ copies, fetched tonight), at 375 and 390, as served and with the candidate in the same load (unhinted, consent given, every picture loaded; lh-proxy, www.* and every airline host refused and counted: 0). No page scrolls sideways either way (page width = screen width on all 100 measures), and no title's text reaches past its box. 9 of the 50 page-widths move, by one 57 / 58 px title line up or down: hyphenation also re-breaks titles that fit today.
+#
+# path	width	www (recording)	as served	with hyphenation	move	page width (served / hyphenation)	title text past its box, px (served / hyphenation)	FAQ titles	note
+/de/betreuung	375	- (not recorded)	7888	7946	+58	375 / 375	0 / 0	17	moves +58 px: hyphenation breaks other titles at other places (Haltungshilfegeräte in der Kabine: 2 -> 3 lines)
+/de/betreuung	390	7771 (airdolomiti-parity-001)	7800 (+0.37 %)	7800 (+0.37 %)	+0	390 / 390	0 / 0	17	
+/de/faq-de/an-bord	375	- (not recorded)	1904	1904	+0	375 / 375	0 / 0	2	
+/de/faq-de/an-bord	390	- (not recorded)	1884	1884	+0	390 / 390	0 / 0	2	
+/de/faq-de/check-in-faq-de	375	- (not recorded)	2333	2391	+58	375 / 375	0 / 0	4	moves +58 px: hyphenation breaks other titles at other places (Wie funktioniert der Vorabend-Check-in a: 4 -> 5 lines)
+/de/faq-de/check-in-faq-de	390	- (not recorded)	2255	2255	+0	390 / 390	0 / 0	4	
+/de/faq-de/sport-und-sondergepaeck	375	- (not recorded)	2553	2553	+0	375 / 375	0 / 0	4	
+/de/faq-de/sport-und-sondergepaeck	390	- (not recorded)	2533	2533	+0	390 / 390	0 / 0	4	
+/de/economy-basic-tarif	375	- (not recorded)	5778	5778	+0	375 / 375	0 / 0	8	
+/de/economy-basic-tarif	390	- (not recorded)	5642	5642	+0	390 / 390	0 / 0	8	
+/de/faq-de/gepaeck-faq	375	- (not recorded)	5762	5762	+0	375 / 375	0 / 0	10	
+/de/faq-de/gepaeck-faq	390	- (not recorded)	5654	5539	-115	390 / 390	0 / 0	10	moves -115 px: hyphenation breaks other titles at other places (Welche Handgepäcksregeln gelten?: 3 -> 2 lines, Was ist, wenn meine Reise Flüge mit ande: 5 -> 4 lines)
+/de/faq-de/tarifflexibilitaet	375	- (not recorded)	3785	3785	+0	375 / 375	0 / 0	7	
+/de/faq-de/tarifflexibilitaet	390	- (not recorded)	3708	3708	+0	390 / 390	0 / 0	7	
+/de/faq-de/auf-dem-flughafen	375	- (not recorded)	2153	2153	+0	375 / 375	0 / 0	3	
+/de/faq-de/auf-dem-flughafen	390	- (not recorded)	2075	2075	+0	390 / 390	0 / 0	3	
+/de/digitale-services	375	- (not recorded)	3922	3922	+0	375 / 375	0 / 0	8	
+/de/digitale-services	390	- (not recorded)	3765	3765	+0	390 / 390	0 / 0	8	
+/de/faq-de/reisevorbereitungen-faq	375	- (not recorded)	5094	5094	+0	375 / 375	0 / 0	11	
+/de/faq-de/reisevorbereitungen-faq	390	- (not recorded)	5016	4958	-58	390 / 390	0 / 0	11	moves -58 px: hyphenation breaks other titles at other places (Ab wann dürfen Kinder allein reisen? Fal: 6 -> 5 lines)
+/de/faq-de/sustainable-aviation-fuel-saf-de	375	- (not recorded)	5655	5655	+0	375 / 375	0 / 0	14	
+/de/faq-de/sustainable-aviation-fuel-saf-de	390	- (not recorded)	5462	5462	+0	390 / 390	0 / 0	14	
+/de/gepaeck/gefaehrliche-gegenstaende	375	- (not recorded)	10009	10067	+58	375 / 375	0 / 0	26	moves +58 px: hyphenation breaks other titles at other places (Isolationsverpackungen (Dry Shipper): 2 -> 3 lines)
+/de/gepaeck/gefaehrliche-gegenstaende	390	- (not recorded)	9797	9912	+115	390 / 390	0 / 0	26	moves +115 px: hyphenation breaks other titles at other places (Medizinische Sauerstoffgasflaschen und L: 3 -> 4 lines, Isolationsverpackungen (Dry Shipper): 2 -> 3 lines)
+/de/gepaeck/elektronische-gegenstaende-und-batterien	375	- (not recorded)	9739	9739	+0	375 / 375	0 / 0	16	
+/de/gepaeck/elektronische-gegenstaende-und-batterien	390	- (not recorded)	9554	9554	+0	390 / 390	0 / 0	16	
+/de/gepaeck/gepaeckinformationen	375	- (not recorded)	2894	2894	+0	375 / 375	0 / 0	3	
+/de/gepaeck/gepaeckinformationen	390	- (not recorded)	2874	2874	+0	390 / 390	0 / 0	3	
+/de/gepaeck/handgepaeck	375	- (not recorded)	3742	3742	+0	375 / 375	0 / 0	5	
+/de/gepaeck/handgepaeck	390	- (not recorded)	3700	3642	-58	390 / 390	0 / 0	5	moves -58 px: hyphenation breaks other titles at other places (Bestimmungen zur Mitnahme von Handgepäck: 6 -> 5 lines)
+/de/gepaeck/sondergepaeck	375	- (not recorded)	3851	3851	+0	375 / 375	0 / 0	11	
+/de/gepaeck/sondergepaeck	390	- (not recorded)	3774	3774	+0	390 / 390	0 / 0	11	
+/de/reisenformationen/tiere-an-bord	375	- (not recorded)	3772	3772	+0	375 / 375	0 / 0	6	
+/de/reisenformationen/tiere-an-bord	390	- (not recorded)	3637	3637	+0	390 / 390	0 / 0	6	
+/de/fluginformationen	375	- (not recorded)	3012	3069	+57	375 / 375	0 / 0	5	moves +57 px: hyphenation breaks other titles at other places (Einreisebestimmungen für Ihr Reiseziel: 2 -> 3 lines)
+/de/fluginformationen	390	- (not recorded)	2992	3049	+57	390 / 390	0 / 0	5	moves +57 px: hyphenation breaks other titles at other places (Einreisebestimmungen für Ihr Reiseziel: 2 -> 3 lines)
+/de/gepaeck/zusaetzliches-gepaeck-und-uebergepaeck	375	- (not recorded)	2937	2937	+0	375 / 375	0 / 0	2	
+/de/gepaeck/zusaetzliches-gepaeck-und-uebergepaeck	390	- (not recorded)	2917	2917	+0	390 / 390	0 / 0	2	
+/de/reisenformationen/schwangere-und-kinder	375	- (not recorded)	3126	3126	+0	375 / 375	0 / 0	4	
+/de/reisenformationen/schwangere-und-kinder	390	- (not recorded)	3106	3106	+0	390 / 390	0 / 0	4	
+/de/reisenformationen/sitzplatzreservierung	375	- (not recorded)	4222	4222	+0	375 / 375	0 / 0	8	"Sitzplatzreservierung" (334 px in its 326 px measure) still takes two lines, now split with a hyphen: a word wider than its box needs a second line with any break; www lets it run on in one
+/de/reisenformationen/sitzplatzreservierung	390	4036 (airdolomiti-parity-007)	4144 (+2.68 %)	4144 (+2.68 %)	+0	390 / 390	0 / 0	8	"Sitzplatzreservierung" (334 px in its 326 px measure) still takes two lines, now split with a hyphen: a word wider than its box needs a second line with any break; www lets it run on in one
+/de/pressebereich	375	- (not recorded)	2918	2918	+0	375 / 375	0 / 0	4	
+/de/pressebereich	390	- (not recorded)	2898	2898	+0	390 / 390	0 / 0	4	
+/de/tarife	375	- (not recorded)	4570	4570	+0	375 / 375	0 / 0	8	
+/de/tarife	390	- (not recorded)	4534	4534	+0	390 / 390	0 / 0	8	
+/de/unsere-dienste/lounge-zutritt	375	- (not recorded)	3282	3282	+0	375 / 375	0 / 0	4	
+/de/unsere-dienste/lounge-zutritt	390	3269 (airdolomiti-parity-007)	3146 (-3.76 %)	3146 (-3.76 %)	+0	390 / 390	0 / 0	4	
+/de/zusatzleistungen/esim	375	- (not recorded)	4720	4720	+0	375 / 375	0 / 0	8	
+/de/zusatzleistungen/esim	390	- (not recorded)	4445	4445	+0	390 / 390	0 / 0	8	

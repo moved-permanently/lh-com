@@ -7357,3 +7357,122 @@ figure to the px):
 
 **Not in git** (scratch under /tmp/so40): the DA copies read, the drafts, the apply outputs, the scripts, the renders
 and the logs; the downloaded archives (in their own folders, extracted under so23/arch).
+
+## Standing order 41 (2026-11-15, from about 21:15 CET)
+
+**Carried over:** nothing of mine was uncommitted or unpushed. Order 40's last commit, `e6159733`, was on origin. The
+checkout's 88 dirty entries belong to other jobs and were left alone.
+
+**Renders:** unhinted text in every render. lh-proxy, www.* (except www.mynewsdesk.com on Cargo) and every airline host
+were refused and counted: 0 refused in every render of this order. On Austria's homepages every www.lufthansa.com and
+lh-proxy call was answered from our host's recorded load (nothing sent). www's recordings were read as data or laid out
+offline. **DA:** read only, 4 single GETs (listed in the final section). No upload, preview, publish or da-upload.mjs.
+/de/en/overview-manage has no row.
+
+### Your three answers
+
+**Air Dolomiti sitzplatzreservierung 390, German hyphenation: HOLD
+(gate-so41-airdolomiti-sitzplatzreservierung-hyphens.txt).**
+- The candidate: `hyphens: auto` on German FAQ titles below 768 px, with styles.css's heading limits. This Chrome
+  hyphenates German (checked first).
+- It cannot bring the page within 2 %. The two titles that cost the 116 px are single words wider than their 326 px
+  measure ("Sitzplatzreservierung" 334 px, "Sitzplatzänderungen" 331 px). Hyphenated or broken, such a word still takes
+  two lines. The page stays at 4,144 against www's 4,036 (+2.68 %).
+- The check you asked for, on all 25 German pages with the FAQ block, at 375 and 390, as served and with hyphenation:
+  - no page scrolls sideways, and no title's text runs past its box;
+  - 9 of the 50 page-widths move by one title line (57 / 58 px) up or down, because hyphenation also re-breaks titles
+    that fit today.
+- Nothing was committed to the theme.
+
+**German eservices-app at 390: the two fixes do not pass, HOLD (gate-so41-cargo-eservices-app.txt).**
+- **A:** the repeated H2 "Lufthansa Cargo App" taken out.
+- **B:** A, plus the "Lufthansa Cargo eServices to go" heading moved before the Track set in the same grey section.
+- **390:** +8.69 % -> +7.03 % (A) -> +6.40 % (B). The remaining 201 px are section spacing, 26 to 60 px per gap over
+  five gaps. www's Liferay gaps are 20 px below 1025 px; ours are 48. Closing them would take a brand-wide rule.
+- **1440:** the page was within 2 % only because two differences cancel each other:
+  - ours stacks the benefits picture over its list (www puts them side by side);
+  - ours draws the Track set as a closed accordion (www shows tabs with Track open).
+  - B takes the page to -2.04 %. The tab option alone makes it +19.4 %.
+- **The English page (cargo-parity-006's 390 first load):**
+  - it needs fix A, the same doubled title;
+  - its heading is already in place, so B doesn't apply;
+  - 390: +8.84 % as served, +7.13 % with A;
+  - 1440: A takes it from -3.01 to -5.35 %, for the same two reasons.
+- Bringing both pages within 2 % at both widths needs their 1440 layout as www's (the tab row with its tables, the
+  benefits as columns) and Cargo's 20 px gaps below 1025 px. That is a later order, with your word on the brand-wide
+  spacing.
+
+**industries-healthcare's call-to-action band: READY (delta-so41-cargo-healthcare-cta.txt).**
+- One insert before "Reliable solutions":
+  - www's H2 "Let’s find the right solution for your pharma logistics." with www's apostrophe;
+  - its paragraph;
+  - "Get in touch" as a primary button. It is bold, as www's btn-primary, and points at
+    https://www.lufthansa-cargo.com/contact-pharma-industry-team.
+- Dry run on DA's copy: placed; taking it out gives DA's copy back byte for byte; a second run finds it present.
+- Gate (lost content): all three are found at both widths, and the control equals live (4,359 / 3,953).
+- The page gets 222 px taller at 1440 (+11.60 -> +17.28 %) and 298 at 390. Its other differences (pictures, section
+  order, the HOLD tab row) are not this row's.
+
+### Item 1: the Austrian homepages against the same-hour pairs (gate-so41-austrian-homepages.txt)
+
+- **The pairs:**
+  - 11 archives; sha256 equal to their sidecars.
+  - deliveries.md wasn't at the drop folder's root (404), so I checked each archive against its own .sha256 file.
+  - 25 pages, 50 page-widths. Every width is its own first load on both sides, www's 2 to 4 minutes before ours.
+  - No service notice on www's pages.
+- **Method:**
+  - Ours is the recorded load's height.
+  - For the landmarks, I rendered our page again with every widget call answered from the recorded index. 49 of the 50
+    renders equal the recorded height to the px (ge/en 390: -24).
+  - Bands as order 36's: the page's difference less the fare teaser's and the destination finder's bands.
+- **New on www tonight: an AI flight-finder entry under the flight search.**
+  - The text is "Flexible dates? Chat with our AI to find your perfect flight options", with an ASK AI FOR FLIGHTS button
+    that opens www's AI chat.
+  - It is 124 px at 1440 and 210 at 390 (an 84 / 158 px band plus its margin), on 15 pages.
+  - On au, cz, ge and jp only its margin is there (40 / 52 px).
+  - No earlier Austrian recording has it, and we have no such block.
+- **Result:** 14 WITHIN, 1 READY, 35 HOLD.
+  - **www's AI entry alone (19 page-widths):** without it the page is within 2 %. These are by, ru, it, ro and xk at
+    both widths; ca/en, fr, gb, md and pl at 1440; me, pt, rs and ua at 390.
+  - **www's fare teaser had no deals in its load (8):** au, jp (both widths), md 390, me, pt and rs 1440. Ours drew the
+    document's six fallback cards, because lh-proxy's recommend answered 502 as expected (+348 to +529 px). On the other
+    pages www had deals, and both teasers measure the same (+1 px). Less the bands and the entry, all 8 are within
+    0.72 %.
+  - **gb/en 390: READY (delta-so41-austrian-gb-hero-mobile-image.txt).** Our hero carries the option no-mobile-image;
+    www's first load draws its hero picture on phones. Without the option: 5,634 -> 5,927 (-5.93 -> -1.04 %), and 1440
+    doesn't change. Order 36 could only read a resize here.
+  - **The stretcher block (ca/fr, ch/fr, both widths):** your HOLD from order 21. The pairs give order 21's figures to the
+    per cent.
+  - **bangkok-airways (-10.68 / -5.76 %):** after "Book your flight now", www's flight search sits on a full-width
+    background picture stage, about 500 px at 1440. The picture is Destinations_Bangkok_300dpi_Temple_Getty.jpg; it is
+    broken in www's own recording, but the stage keeps its height. Ours is the search card alone. Our block takes a
+    Background Image row, but the picture isn't in our media, and only www has it.
+  - **ca/en 390** is -2.36 % as recorded and +2.28 % with the entry added back (the inline prices note of order 22).
+    **ski-campaign 390** is -2.02 %: its fare teaser has the same six cards, but www's spacing around them is larger
+    (-83 px).
+- **Not rows:**
+  - the AI entry: a decision for you (below);
+  - the fare service's answers.
+
+### Item 2: Cargo's phone first loads (cargo-parity-006, on the drop before 22:30)
+
+- cargo-parity-006: /en/speed-zoom and /en/eservices-app at 390, each a first load (21:03 CET), sha256 checked.
+  www's service notice is above the header again, so every figure is www's less 80 px.
+- **speed-zoom: READY (delta-so41-cargo-speed-zoom.txt)**, with the Cargo rule `279b8aae`.
+  - **The row:** order 37's tab row (cargo-tabs-apply), then two section joins (text-inserts):
+    - the hero picture and the breadcrumb in one section;
+    - the grey title and the tab set in one grey section.
+  - Dry run on DA's copy: both steps placed; the result's text equals order 40's joined draft's.
+  - With the join alone, 390 was +2.93 %: our title stood 36 px low (the breadcrumb, our 48 px section gap, then the
+    band's padding). www's grey band starts 19 px under its "Back" row.
+  - **The rule** (Cargo's theme, below 1025 px): a breadcrumb section ends 20 px above a grey section after it. This is
+    order 40's Support & Contact spacing.
+    - Census: only td.Zoom, td.Pro and td.Flash (en, de) have that shape among the 990 served Cargo copies, and no
+      page's scripts-built breadcrumb adds one.
+    - Gate: the 84 recorded Cargo page-widths are the same to the px with the rule. The four Speed pages move 28 px at
+      390 only; td.Pro and td.Flash have no 390 recording.
+  - **Figures:**
+    - 1440: 2,180 (-0.27 %), footer -0.06 %;
+    - 390: 1,168 (+0.52 %), footer +1.00 %.
+  - Apply after `279b8aae` is live.
+- **eservices-app:** see "Your three answers". The English page needs fix A, not B. A alone doesn't bring it within 2 %.
