@@ -6797,3 +6797,57 @@ as served, with only the rows above 2 % listed.
   - The rows are drafted from the snapshots' markup. At 390 nothing changes, to the px.
   - All 12 are HOLD: with no recording there is no www height to gate them against.
   - Left out: portfolio (its panels are product grids) and speed-flash (its snapshot is the German page).
+
+### Final section (about 11:00 CET, 2026-11-15)
+
+All three items are done, so I stopped here, before 14:00. What is left needs your word: the captures, the legal pages' title,
+and applying the DA rows.
+
+**On main:**
+- `95d506a5`: the two finish lists and the Austrian HOLD note (items 1 and 2), pushed first;
+- `afc18e2f`: Cargo's product tab sets, with test/cargo-product-tabs-so37.test.mjs;
+- `1f5ea268`: Cargo's quote rule, with test/cargo-onerecord-quote-so37.test.mjs;
+- `15ce1775`, `0c4e88b1`, `d0ce53dd`: the delta rows, the sweep, the lists and this report;
+- this commit: this final section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 in every push round, in the clean worktree.
+- **Stylelint:** exit 0 on styles/themes/cargo.css, on both theme pushes.
+- **Tests on the pushes:**
+  - the lists and the rows: the folder-reading tests (the files that read tools/reports), 677 tests, 0 failures, each time;
+  - the tab rule: the 390 files that read the themes or the accordion, 1,389 tests, 0 failures;
+  - the quote rule: 1,113 tests, 0 failures.
+- **New tests:** red on main before their commits (all 3, and 2 of 3) and green after.
+- **Full suite** (the wt worktree, one process per file):
+  - on `afc18e2f`: 1,160 files, 4,467 tests, 1 failure, 5 skipped;
+  - on `d0ce53dd`: 1,162 files, 4,475 tests, 1 failure, 5 skipped.
+  - The failure is not mine: test/blog-pager-582.test.mjs, red since another job's `ff450c9a` (blocks/blog-overview,
+    08:04 UTC). I left it alone.
+
+**For you:**
+- **DA rows, none uploaded by me:**
+  - **Apply now:** the 5 READY product tab rows (delta-so37-cargo-product-tabs.txt). `afc18e2f` is live, so each one
+    draws as drafted once applied.
+  - **Waiting:**
+    - the 4 HOLD tab rows, closer;
+    - the 12 unrecorded pages' tab rows, which need 1440 loads;
+    - the eFreight breadcrumb and general-terms rows (HOLD).
+- **Captures:** Cargo's -003 pages only have resized 390s. Phone first loads would gate them. I have not requested
+  them, since captures wait for your word.
+- **Legal pages:** terms-of-use and general-terms1. See item 3.
+
+**Rules followed:**
+- **Airline hosts:** about 760 renders. Each refused lh-proxy, www.* (except www.mynewsdesk.com on Cargo) and every airline
+  host, and counted them: about 600 requests, all on Air Dolomiti's homepages and destination pages. None was sent.
+- **The drop:** airdolomiti-parity-009 came from Air Dolomiti's own folder and its sha256 matched. It went into its own
+  folder, and nothing was run from inside it.
+- **Read as data:** www's recordings and snapshots. Their offline layouts answered every request from the archive or
+  aborted it.
+- **The census** read cargo.turnsthe.page only, each of the 990 published Cargo documents once.
+- **DA:** not read. No upload, preview or publish by me, and da-upload.mjs was not called.
+- **The checkout:** the other jobs' 88 dirty entries are untouched. After each push I moved the checkout with
+  `reset --mixed`, and the count was unchanged.
+- /de/en/overview-manage has no row.
+
+**Not in git** (scratch under /tmp/so37): the scripts, the archive and its download, the served copies, the drafts, the
+renders and the logs.
