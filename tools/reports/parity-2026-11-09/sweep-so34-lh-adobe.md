@@ -104,7 +104,15 @@ Read the baseline column with the masking in mind: part of the 104 is the live b
 | 10 | /de/en/100-years 390 | 19.6 | Small drift (-24 / -30 px). www's recording draws the campaign's headings in a fallback face (Arial-like, not LufthansaHead): a recording artefact. 10.1 % of the page is masked video stages. | None: no layout cause. |
 
 The rows reach only the documents they list. No shared code changed tonight, so no no-breakage render was needed. The
-next ones, below the ten (13-17 %), mostly show the same causes: the allegris-new-york 390 versions (#2's rows, 15.3-16.6
--> 10.9-12.3); culinaryjourney 390 and the 100-years pages (stages and campaign videos masked, drawn content);
-tags/munich (its article list's content).
+next ones, below the ten (13-17 %), checked afterwards:
+- the allegris-new-york 390 versions: #2's rows (15.3-16.6 -> 10.9-12.3);
+- culinaryjourney 390 (16.9): section spacing (the H1 24 px low, a white gap of about 46 px between the form's grey area
+  and the grey "Need help?" section): in the hand-over (item 6);
+- book-and-manage/stopover 390 (14.0, drift to -93 px in the lower half): its carousel-cards slides are of equal height
+  and about 32 px shorter than www's, because our text runs narrower than www's (sweep-lh-004.md's open cause: 18 px
+  LufthansaText 1.3-1.4 % narrower), so the tallest card wraps a line less. Checked tonight: our font files are
+  byte for byte www's (LufthansaTextWeb-Regular / -Bold and LufthansaHeadWeb-Light .woff2: the same sha256 as
+  lh-parity-008's www files, mausy v1.41.0 there, v1.38.0 here), so the narrower text is the drawing (the recordings'
+  machine against this one), not our site;
+- tags/munich: the article list's content; the 100-years pages: campaign videos masked, drawn content.
 

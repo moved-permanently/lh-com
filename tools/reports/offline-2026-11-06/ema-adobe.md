@@ -4921,3 +4921,52 @@ The drop's archives: lh-parity-008, 009 and 010, each sha256 as given, member pa
   Columns Media block and the shared section gaps, which ema-test holds.
 - Left out of git: logs/b633 (renders, captures, servers, DA reads), /tmp/so33 (the archives and fonts configs), the
   untracked import reports of earlier runs.
+
+### Standing order 34 (2026-11-15 22:40 to about 00:00 CET)
+
+No uploads, previews or publishes; DA read only; no request to an airline host. `.migration/project.json` untouched;
+plugins left off. Order 33 left nothing uncommitted or unpushed. This order changed reports and lists only, no code. Each
+push: the whole-repo lint read 0 on a clean worktree of the rebased HEAD. Full suite on the final code: 2701585 (origin/main with every commit of this order but this section), 72 lh-edge files and 1,187 site files, 0 failing.
+
+1. **The sweep: sweep-so34-lh-adobe.md (a396de4).**
+   - Scope: every recorded insights, campaign, hub and homepage page-width, 286 in all (143 pages), as published on
+     lufthansa.turnsthe.page with the code deployed at 22:40-23:05 CET, against its newest recording. Recordings:
+     tonight's lh-parity-008 / 010, lh-parity-007, -004a/b, -002a-d and -003. Live boxes masked, as ema-test did; all 286
+     answered 200.
+   - Medians: insights 7.5 %, campaign 7.5, hub 5.0, homepage 5.7, all 5.9. On 11-09 the same pages were at 13.1,
+     14.2, 7.9 and 8.4, all 12.6, unmasked then.
+   - 9 page-widths are at 20 % or more. 104 of the 138 page-widths the 11-09 baseline also lists are 2 points or more
+     closer to www, none further.
+2. **The worst ten.**
+   - **allegris-new-york 1440, 4 versions (22-26 %), and its 390 versions: delta-so34-allegris-video-ratio-lh-com.txt,
+     29 READY rows (a396de4).** www's video player is 16:9 (its config's aspectRatio in every snapshot of these
+     articles). Ours took the 1920x823 poster's shape: the documents' video paragraphs predate the size tokens. Each row
+     adds size-1920x1080 to the marker. The rows cover the Allegris art articles new-york, business-class-shanghai and
+     business-san-diego in at/de, de/de, de/en, gb/en, xx/es, xx/fr, xx/it and fr/fr (DA only), and
+     premium-economy-san-diego in ar/es, es/es, xx/fr, xx/it and fr/fr. Dry run 29 of 29.
+     - Drafts against tonight's recordings, 1440 / 390: de/en 24.7 / 15.3 -> 9.0 / 10.9; de/de 23.1 / 15.4 -> 10.1 /
+       11.2; at/de 24.7 / 16.4 -> 10.5 / 12.3; gb/en 26.3 / 16.6 -> 11.0 / 12.3; xx/it 36.7 / 33.4 -> 28.5 / 30.8.
+     - xx/it stays 735 px short at 1440: other content, open.
+   - **livery-iconic-moments 1440 / 390 (29.8 / 24.2): reimport-so34-livery-iconic-moments-lh-com.txt, READY.** www
+     has extended the article: our copy carries 59.6 % of its sentences and 28 pictures, www 46.
+     - An offline import of lh-parity-008's saved page carries 100 % of www's sentences and the 46 pictures, with
+       0 requests out.
+     - The pixel gate follows the upload, which brings the 18 new pictures; then article-meta-sync for the list
+       entry's reading time.
+   - **picture-perfect-austin 390 (25.2): Columns Media (the stacked galleries on phones): in the hand-over.**
+   - **flughafeninformation de/de, at/de 390 (24.8): no fix.** The H1 is wider than the phone; www clips its last
+     letter, ours breaks the word (+40 px). Matching www would hide text.
+   - **100-years 390 (19.6): no fix.** www's recording draws the headings in a fallback face (a recording artefact),
+     and 10 % of the page is masked video stages.
+   - **Below the ten:**
+     - culinaryjourney 390: section spacing, in the hand-over;
+     - stopover 390: our text runs narrower than www's (sweep-lh-004's open font cause), so its equal-height cards are
+       32 px shorter. Our font files are byte for byte www's (same sha256 as tonight's www files), so the narrower text
+       is the drawing on the recordings' machine against this one, not our site;
+     - tags/munich: the article list's content.
+   - No shared code changed, so no no-breakage render was needed. The hand-over for ema-test (handover-so33-ema-test.txt)
+     now has items 5 (picture-perfect-austin) and 6 (culinaryjourney).
+- Ended at about 00:00 CET, not 01:30: the sweep's worst ten are located and answered, and the remaining layout causes
+  are in what ema-test holds tonight, or are the font-width question.
+- Left out of git: logs/b634 (captures, diffs, drafts, DA reads), /tmp/so34 (the import's snapshot), the untracked
+  import reports of earlier runs.
