@@ -6281,8 +6281,16 @@ grid cards, two have the missing lines: /at/en/healthy-travel and os401crewstory
 
 **Found on the way, not in the list:** 299 more cards on 185 documents lack www's link line. Those cards are text-only in
 our documents: their picture cell is empty because www's own picture does not load. On the recorded bearbeitungsgebuehren
-1440, www draws its Tarifvergleich card without one too. You asked for the 897 picture cards, so these 299 are not in the
-list. I can write them the same way.
+1440, www draws its Tarifvergleich card without one too. You asked for the 897 picture cards, so these 299 are in their
+own list, written and gated the same way, all HOLD for your call (delta-so34-austrian-text-card-link-lines.txt):
+- 370 page-widths pass;
+- at 1440, 148 of the 185 documents do not move, because a picture card in the same row is taller;
+- none of the 185 is recorded.
+
+**The title tracking alone** (www's 0 from 768 px; ours 0.05 px), gated at 1440 on the 15 recorded card pages:
+- healthy-travel moves closer (+0.86 -> +0.39 %, one title back on one line);
+- the other 14 do not move.
+- It is part of the card rule you ruled out for every grid, so it is not shipped; not censused either. Your call.
 
 ### Item 2: the form first loads
 

@@ -28,3 +28,10 @@
 /at/en/healthy-travel	390	8822	8860 (+0.43 %)	8917 (+1.08 %) FURTHER	8917 (+1.08 %) FURTHER	8924 (+1.16 %) FURTHER
 /at/de/local-page/feels-like-flying/os401crewstory	1440	7686	7764 (+1.01 %)	7821 (+1.76 %) FURTHER	7821 (+1.76 %) FURTHER	7855 (+2.20 %) OUT
 /at/de/local-page/feels-like-flying/os401crewstory	390	9982	9909 (-0.73 %)	10103 (+1.21 %) FURTHER	10103 (+1.21 %) FURTHER	10151 (+1.69 %) FURTHER
+# The title tracking alone (www's .teaser-heading 0 from 768 px, ours 0.05 px; no link lines), on every grid / phone-slider
+# picture card, gated at 1440 on the 15 recorded card pages (390 cannot change), as served against the code override:
+# 1 closer, 14 unchanged to the px, none further. Not shipped (part of the card rule you ruled out); not censused.
+# Columns: path, width, www, as served, titles 0, change.
+/at/en/healthy-travel	1440	6614	6671 (+0.86 %)	6640 (+0.39 %)	-31 px, closer ("Travelling with pregnancy" on one line)
+# The other 14 (bearbeitungsgebuehren, fly-with-austrian de / en, entryregulations de / en, gepaeck, os401crewstory,
+# accessible-travel, baggage, online-check-in, doctor-on-board, medical-travel-companions, sustainable-flying, travel-id): +0 px.
