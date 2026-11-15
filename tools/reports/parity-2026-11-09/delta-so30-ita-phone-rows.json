@@ -1,0 +1,24 @@
+[
+ {
+  "path": "/it/en/book-and-prepare/travel-information/baggage/electronic-devices-and-batteries",
+  "inserts": [
+   {
+    "before": "<p>Personal electronic devices or batteries that are defective",
+    "text": "<p>{spacer-30}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/it/en/book-and-prepare/travel-information/entry-regulations/entry-regulations-schengen/entry-exit-system",
+  "inserts": [
+   {
+    "after": "stored in the EES.</p></div></div></div>",
+    "text": "<p>{spacer-75 below-768}</p>"
+   },
+   {
+    "before": "<h2 id=\"important-information-for-entering-and-exiting-airports-in-the-schengen-area\">",
+    "text": "<p>{spacer-49 below-768}</p>"
+   }
+  ]
+ }
+]
