@@ -7,5 +7,31 @@
     "text": "<p>{spacer-60}</p>"
    }
   ]
+ },
+ {
+  "path": "/de/en/economy-class",
+  "inserts": [
+   {
+    "replace": "<div><div class=\"columns-media padded\"><div><div><h3 id=\"entertainment-on-board-heading-small\">Entertainment on board {heading-small}</h3><p>On long-haul flights, our diverse in-flight entertainment awaits you: look forward to the latest movies, international radio channels, and a wide selection of TV programs. Sit back and enjoy great entertainment on your flight.</p><p>On short and medium-haul flights, Travel ID and Miles &amp; More members enjoy free and unlimited messaging as well as digital access to more than 45 well-known German- and English-language magazines – directly on their own devices and throughout the entire flight.</p><p><em><a href=\"/de/en/unterhaltung-an-bord\">To the in-flight entertainment</a></em></p></div><div><picture><img src=\"https://www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/economy-class/travel_classes_ec_02.jpg.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>padded, flush</div></div></div></div>",
+    "text": "<div><div class=\"columns-media padded\"><div><div><h3 id=\"entertainment-on-board-heading-small\">Entertainment on board {heading-small}</h3><p>On long-haul flights, our diverse in-flight entertainment awaits you: look forward to the latest movies, international radio channels, and a wide selection of TV programs. Sit back and enjoy great entertainment on your flight.</p><p>On short and medium-haul flights, Travel ID and Miles &amp; More members enjoy free and unlimited messaging as well as digital access to more than 45 well-known German- and English-language magazines – directly on their own devices and throughout the entire flight.</p><p><em><a href=\"/de/en/unterhaltung-an-bord\">To the in-flight entertainment</a></em></p></div><div><picture><img src=\"https://www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/travel-classes/economy-class/travel_classes_ec_02.jpg.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>padded, flush, gap-after-small</div></div></div></div>"
+   },
+   {
+    "replace": "<div><div class=\"columns-media sidebar\"><div><div><picture><img src=\"https://www.lufthansa.com/content/dam/lh/images/local_images/discover-lufthansa/new-onboard-experience/economy-class/travel_classes_ec+FOX_02.jpg.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></div><div>On long-haul flights, you can expect exceptional comfort: With a generous seat width of over 40 centimeters and flexible headrests, it’s easy to find your perfect position for a relaxed flight. On night flights, in Economy Class you’ll receive a practical travel set with sleep mask and earplugs, so that you can switch off and unwind even more easily on board. This is gradually being complemented by additional small touches designed to help you get a good night’s sleep and arrive feeling more refreshed.</div></div></div></div>",
+    "text": "<div><div class=\"columns-media sidebar\"><div><div><picture><img src=\"https://www.lufthansa.com/content/dam/lh/images/local_images/discover-lufthansa/new-onboard-experience/economy-class/travel_classes_ec+FOX_02.jpg.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></div><div>On long-haul flights, you can expect exceptional comfort: With a generous seat width of over 40 centimeters and flexible headrests, it’s easy to find your perfect position for a relaxed flight. On night flights, in Economy Class you’ll receive a practical travel set with sleep mask and earplugs, so that you can switch off and unwind even more easily on board. This is gradually being complemented by additional small touches designed to help you get a good night’s sleep and arrive feeling more refreshed.</div></div></div><div class=\"section-metadata\"><div><div>style</div><div>gap-after-small</div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/tips-senior-travellers",
+  "inserts": [
+   {
+    "replace": "conveniently from home.</p><div class=\"columns-media\">",
+    "text": "conveniently from home.</p><p>{spacer-20 from-768}</p><div class=\"columns-media\">"
+   },
+   {
+    "replace": "<div><div>style</div><div>grey</div></div></div></div>\n<div><p>{spacer-80}</p>",
+    "text": "<div><div>style</div><div>grey</div></div></div></div>\n<div><p>{spacer-80}</p><p>{spacer-32 from-768}</p>"
+   }
+  ]
  }
 ]
