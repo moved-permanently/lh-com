@@ -28,3 +28,10 @@ test('lufthansa.com from 1025 px: 43 px under the price, after the all-widths 46
   assert.ok(fc.includes(wide));
   assert.ok(fc.indexOf(wide) > fc.indexOf(all));
 });
+
+// the destination field's label: its text transparent (its place and its name for screen readers kept; www shows the
+// word inside the empty field, destination-finder.js sets it as the placeholder)
+test('lufthansa.com: the destination field\'s label transparent, the placeholder in the label\'s grey', () => {
+  assert.ok(df.includes(`${L} .destination-finder-destination label { color: transparent; }`));
+  assert.ok(df.includes(`${L} .destination-finder-destination input::placeholder { color: var(--lh-grey-7); opacity: 1; }`));
+});

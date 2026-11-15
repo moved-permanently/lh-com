@@ -1892,10 +1892,14 @@ async function decorateGrid(block, uid) {
 
   // where to fly: origin (reloads) and destinations (client-side, as removable tags)
   const where = filterGroup(labels['where to fly label']);
+  // lufthansa.com's fields as www's (standing order 27): the origin by its city name alone, the
+  // destination field's label as its placeholder (the label for screen readers, its place kept)
+  const lhFields = !brandEntry();
   const originBox = createAirportCombobox({
     label: labels['origin input label'],
     name: 'originCode',
     value: state.origin,
+    display: lhFields ? (airport) => airport.name || airport.code : undefined,
     noResultsLabel: labels['no results label'],
     fetchSuggestions: async (term) => {
       if (!context.origins.length) return searchAirports(term, locale);
@@ -1913,6 +1917,7 @@ async function decorateGrid(block, uid) {
   const destinationBox = createAirportCombobox({
     label: labels['destination label'],
     name: 'selectedDestinationFilterOptions',
+    placeholder: lhFields ? labels['destination label'] : undefined,
     noResultsLabel: labels['destination no results label'],
     fetchSuggestions: async (term) => matchDestinationOptions(destinationOptions
       .filter((o) => !state.destinations.some((d) => d.kind === o.kind && d.code === o.code)), term)
@@ -1925,7 +1930,7 @@ async function decorateGrid(block, uid) {
     // eslint-disable-next-line no-use-before-define
     onChange: (value) => addDestination(value),
   });
-  destinationBox.element.classList.add('destination-finder-field');
+  destinationBox.element.classList.add('destination-finder-field', 'destination-finder-destination');
   const hint = el('p', 'destination-finder-hint', labels['destination hint']);
   hint.id = `${uid}-destination-hint`;
   destinationBox.input.setAttribute('aria-describedby', hint.id);

@@ -8,3 +8,4 @@
 /at/de/fluege	1440	39.10 → 30.20	30.20 → 28.97 better	lh-parity-004a, lufthansa-api-002
 /at/de/fluege	390	45.07 → 32.05	unchanged	lh-parity-004a, lufthansa-api-002
 /gb/en/flights	1440	42.32 → 31.26 (order 26)	31.26 → 30.49 better	lh-parity-004a, lufthansa-api-001
+# Later in the order: the fields as www's (destination-finder.js, lufthansa.com only): the origin by its city name ("Frankfurt", ours "Frankfurt (FRA)"), "Destination" / "Zielort" inside the empty destination field (its label's text transparent, its place and the field's name kept). gate.mjs on the same four pages at 1440 and 390 with their answers: 8 within 0.5, none worse (gb/en 1440 30.49 -> 30.34; the others to 0.01).

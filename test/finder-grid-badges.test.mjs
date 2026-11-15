@@ -314,3 +314,23 @@ test('another brand on a phone (ITA): as before', async () => {
     toolbar: ['destination-finder-field destination-finder-sort', 'destination-finder-smart-search'],
   });
 });
+
+// standing order 27: www's lufthansa.com fields (lh-parity-004a/004b, every flights page): the origin by its city
+// name alone ("London", ours "London (LHR)"), "Destination" inside the empty destination field (its label for
+// screen readers only, destination-finder.css keeps its place); other brands as before
+test('lufthansa.com: the origin by its name, the destination field\'s label as its placeholder', async () => {
+  await grid('', SMART_ROWS, '/gb/en/flights');
+  const origin = lastBlock.querySelector('input[name="originCode"]');
+  const dest = lastBlock.querySelector('input[name="selectedDestinationFilterOptions"]');
+  assert.equal(origin.value, 'London');
+  assert.equal(dest.getAttribute('placeholder'), 'Destination');
+  assert.ok(dest.closest('.destination-finder-field').classList.contains('destination-finder-destination'));
+  const label = dest.closest('.destination-finder-field').querySelector('label');
+  assert.equal(label.textContent, 'Destination', 'the label stays, for screen readers');
+});
+
+test('another brand (ITA): the origin with its code, no placeholder, as before', async () => {
+  await grid('ita', SMART_ROWS, '/gb/en/flights');
+  assert.equal(lastBlock.querySelector('input[name="originCode"]').value, 'London (LHR)');
+  assert.equal(lastBlock.querySelector('input[name="selectedDestinationFilterOptions"]').getAttribute('placeholder'), null);
+});

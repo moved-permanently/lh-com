@@ -1333,3 +1333,14 @@ body.brand-lufthansa .destination-finder.grid .destination-finder-tile-offer {
     font-size: 21px;
   }
 }
+
+/* lufthansa.com's destination field as www's (standing order 27): "Destination" inside the empty field (its
+   placeholder, destination-finder.js), the label's text transparent: its place and the field's name kept */
+body.brand-lufthansa .destination-finder.grid .destination-finder-destination label {
+  color: transparent;
+}
+
+body.brand-lufthansa .destination-finder.grid .destination-finder-destination input::placeholder {
+  color: var(--lh-grey-7);
+  opacity: 1;
+}
