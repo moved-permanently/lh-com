@@ -808,6 +808,17 @@ body.brand-austrian .carousel-cards.grid.two-up .carousel-cards-slide:not(.carou
   }
 }
 
+/* standing order 35: on every grid's picture card the title untracked from 768 px, as www's .teaser-heading (ours had
+   the body's 0.05 px). Census at 1440 over all 832 Austrian documents with a grid (2,297 titles): two titles take a
+   line less, "Travelling with pregnancy" (/at/en/healthy-travel, one line on www's screenshot) and the Greek
+   doctor-on-board's first card (two lines on www's snapshot laid out at its 346 px); nothing else moves
+   (census-so35-austrian-card-titles.tsv) */
+@media (width >= 768px) {
+  body.brand-austrian .carousel-cards:is(.grid, .phone-slider) .carousel-cards-slide:not(.carousel-cards-wide, .carousel-cards-text-only) .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) {
+    letter-spacing: 0;
+  }
+}
+
 /* row 41: picture cards with a text-only card among them (/at/de/bearbeitungsgebuehren: Tarifvergleich
    has no picture) three a row from 1025 px, as www's three-column view; lh-com's login cards (all
    text-only) stay two a row */
