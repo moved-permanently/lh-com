@@ -1,5 +1,7 @@
-# Standing order 26 (2026-11-14), item 3: the card-row gap on phones, on branch so26-card-row-gap (not merged; the
-# owner's call, below). The branch's code, below 768px in lufthansa.com Columns Media blocks:
+# Standing order 26 (2026-11-14), item 3: the card-row gap on phones, branch so26-card-row-gap. Standing order 27: merged
+# (the owner's decision); before the merge the census gate over the 37 recorded page-widths the rules reach at 390: 10
+# better, 26 the same, 1 worse (with-children-at-the-airport, the content drift below). The row below is superseded by
+# reimport-so27-with-children-at-the-airport-lh-com.txt (READY): with it the page is 8.6 % at 390 with this code. The branch's code, below 768px in lufthansa.com Columns Media blocks:
 # - the row after a row of text cells without a picture cell 24px closer (order 23's variant 5);
 # - a text cell before an empty last cell keeps 24px under it (www stacks the empty column-view item with its margin:
 #   online-check-in-info's page end, which variant 5 had uncovered);
@@ -19,4 +21,4 @@
 # below (a text removal; no delta tool removes text yet).
 # Preview of the branch: https://so26-card-row-gap--lh-com--moved-permanently.aem.page/de/en/menus-travel-classes
 # status	document	tool	expected change	gate
-HOLD	/de/en/with-children-at-the-airport	none yet (text removal)	the sentence "We have compiled an overview ... You can find it here:" and the two airport links out, as www's recording	the owner's call: www changed after the import
+HOLD	/de/en/with-children-at-the-airport	superseded by reimport-so27-with-children-at-the-airport-lh-com.txt	the sentence "We have compiled an overview ... You can find it here:" and the two airport links out, as www's recording	the owner's call: www changed after the import
