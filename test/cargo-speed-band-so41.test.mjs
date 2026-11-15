@@ -82,12 +82,11 @@ test('gb/en\'s hero without no-mobile-image, the one READY row of the Austrian h
   assert.ok(!gate.some((c) => c[1] === '/de/en/overview-manage'));
 });
 
-test('the eservices-app rows wait for your word: HOLD only, and no theme rule for www\'s CF8 split yet', () => {
+test('order 41\'s eservices-app lists stay HOLD only (order 42 decides them: delta-so42-cargo-eservices-app.txt, test/cargo-phone-gap-so42)', () => {
   assert.deepEqual(listPaths(read(`${R}/gate-so41-cargo-eservices-app.txt`)), []);
   const text = JSON.parse(read(`${R}/delta-so41-cargo-eservices-app-text.json`));
   assert.deepEqual(text.map((d) => [d.path, d.inserts.length]), [['/de/eservices-app', 4], ['/en/eservices-app', 1]]);
   const tabs = JSON.parse(read(`${R}/delta-so41-cargo-eservices-app-tabs.json`));
   assert.deepEqual(Object.keys(tabs), ['/de/eservices-app', '/en/eservices-app']);
-  assert.ok(!css.includes('body.brand-cargo .columns-media.wide-media .columns-media-media-first { grid-template-columns: minmax(0, 746fr)'));
   assert.equal(listPaths(read(`${R}/gate-so41-cargo-section-gap-390.txt`)).length, 0);
 });

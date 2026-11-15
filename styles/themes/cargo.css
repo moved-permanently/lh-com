@@ -2389,6 +2389,17 @@ body.brand-cargo main .columns-media.stacked .columns-media-multi {
   gap: 0;
 }
 
+/* standing order 42: below 1025 px Cargo's sections stand 20 px apart, as www's Liferay boxes there (48 px before;
+   gate-so41-cargo-section-gap-390.txt, gate-so42-cargo-section-gap.txt: the recorded phone first loads closer or
+   within 0.5 points of where they were). A page with Theme wide-gaps (aem.js: the body class) keeps 48 px: the
+   recorded pages the 20 px would take further from www (industries-in-focus en / de, whose www gaps are wider,
+   en sustainable-development-goals, eaw, general-terms1, onerecord, ecsd; delta-so42-cargo-wide-gaps.txt) */
+@media (width < 1025px) {
+  body.brand-cargo:not(.wide-gaps) {
+    --section-gap: 20px;
+  }
+}
+
 /* standing order 42, item 1 (industries-healthcare, cargo-parity-004 at 1440): two Columns Media options for www's
    Liferay boxes, on no Cargo document until delta-so42-cargo-healthcare-rest.txt's rows give them.
    two-thirds: www's Introduction-CF1 holding a Text-Image CF6 ("Crafted with passion"): from 1025 px the row is
@@ -2405,4 +2416,15 @@ body.brand-cargo main .columns-media.stacked .columns-media-multi {
 body.brand-cargo main .columns-media.natural-media .columns-media-media :is(picture, img) {
   width: auto;
   max-width: 100%;
+}
+
+/* standing order 42 (order 41's C rows for eservices-app, delta-so42-cargo-eservices-app.txt): from 768 px a
+   wide-media block with its picture first splits 746 | 526 px, www's CF8 (both recordings put the app's benefits
+   text at x 842, 526 px wide; ours drew col-8 | col-4). Among the 990 served Cargo copies only the English
+   eservices-app's benefits have that shape (ebooking-info's wide-media blocks do not move: toggled at 1000 and
+   1440, the same to the px) */
+@media (width >= 768px) {
+  body.brand-cargo .columns-media.wide-media .columns-media-media-first {
+    grid-template-columns: minmax(0, 746fr) minmax(0, 526fr);
+  }
 }

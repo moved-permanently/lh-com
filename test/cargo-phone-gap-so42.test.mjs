@@ -14,7 +14,14 @@ const css = read('styles/themes/cargo.css').replace(/\/\*[\s\S]*?\*\//g, '');
 const flat = css.replace(/\s+/g, ' ');
 const R = 'tools/reports/parity-2026-11-09';
 
-test('the two healthcare options', () => {
+test('below 1025 px Cargo\'s section gap is 20 px, except on a page with the class wide-gaps', () => {
+  assert.ok(flat.includes('@media (width < 1025px) { body.brand-cargo:not(.wide-gaps) { --section-gap: 20px; } }'));
+  assert.ok(!/--section-gap:\s*20px/.test(read('styles/styles.css')));
+  ['austrian', 'airdolomiti', 'swiss', 'tap', 'ita', 'brussels', 'b2b', 'discover'].forEach((b) => assert.ok(!read(`styles/themes/${b}.css`).includes('wide-gaps'), b));
+});
+
+test('www\'s CF8 split from 768 px; the two healthcare options', () => {
+  assert.ok(flat.includes('@media (width >= 768px) { body.brand-cargo .columns-media.wide-media .columns-media-media-first { grid-template-columns: minmax(0, 746fr) minmax(0, 526fr); } }'));
   assert.ok(flat.includes('@media (width >= 1025px) { body.brand-cargo main .columns-media.two-thirds .columns-media-row { max-width: 856px; column-gap: 24px; } }'));
   assert.ok(flat.includes('body.brand-cargo main .columns-media.natural-media .columns-media-media :is(picture, img) { width: auto; max-width: 100%; }'));
 });
