@@ -4806,3 +4806,48 @@ State at the start: nothing of mine uncommitted or unpushed (order 31's final se
 - Not in git and why: logs/p4/so30 to so32 (scratch: captures, sweeps, gate folders, folder copies, DA copies, the scratch
   tools copy), the drops in /tmp (private material), content/, migration-work/, tools/importer/reports/* (not mine), the
   old autostash entry (not mine, kept). Preview servers stopped, trial worktrees removed.
+
+## Standing order 33 (received about 20:10 UTC, 2026-11-15)
+
+State at the start: nothing of mine uncommitted or unpushed (order 32's final section on main, 32127907).
+
+1. **sweep-so32-lh-info.md's worst ten** (cc7b29b9 and the rows in delta-so33-lh-com-sweep-rows.txt; the gates and the
+   no-breakage lists in sweep-fixes-so33.txt). Columns Media and styles.css had no commit in the two hours before each
+   edit.
+   - Section gap before a stage or a flush grey band: a rule for every section ending with a Columns Media (563
+     documents) was gated on its 84 recorded page-widths and failed (17 further by more than 0.5 points: www's gap there
+     depends on its sections' padding). Shipped instead: section style gap-after-small (24 px; no published document
+     has it) and READY rows on the five pages where it measures closer at both widths: business-class-on-long-haul-routes
+     1440 17.64 → 10.33 %, 390 23.93 → 16.11 %; first-class-terminal 8.20 → 7.01 / 23.03 → 18.15; flight-disruptions
+     5.95 → 2.05 / 11.32 → 8.13; lhg-wifi; lufthansa-express.
+   - Columns Media's link under a picture (phones): the link 37 px down, the cell 35 px from the next. Both LoungeNet
+     first class lounges 390 28.11 → 17.58 %; the 16 other recorded page-widths of the census unchanged; the rule's
+     selector matched none of the 108 unrecorded documents (each listed with its height in sweep-fixes-so33.txt; the
+     heights that differ between the two probes are pages still loading, the rule matched nothing there).
+   - first-class's stacked pictures are content: www's separators keep a gap on phones, ours were {spacer-80 from-768}
+     only. A READY row puts a {spacer-24 below-768} before each (after it, it took the desktop spacer's last-child place
+     and moved 1440): 390 22.30 → 18.31 %, 1440 unchanged.
+   - miles-and-more-credit-card's text column is content too: www's texts carry non-breaking spaces (lh-snapshots-062),
+     ours wrapped later. A READY row puts them back in 15 texts: 390 21.34 → 17.80 %, 1440 13.01 → 12.86 %.
+   - giftvoucher as served after ef8be789: 390 19.8 → 14.3 %, the height within 8 px and the line under the cards 2 px from
+     www's: no action. traveltricks as served: 22.2 / 20.3 % as before (located: "Step 1" 53 px closer to the text than
+     www's at 390); another session's page, not changed.
+2. **group-boarding's 8 px at 390** (ita-group-boarding-390-so33.txt; ita-parity-009 checked against the given sha256):
+   the {spacer-15 from-768} before "Short/Medium-Haul flights" is hidden on phones but is still the heading's previous
+   sibling, so styles.css's flow-spacing heading gap (32 px after text, none after a spacer) does not apply and the
+   heading keeps only the paragraph's 24 px. Yes, both margin rules (this heading gap and the -16 px separators-only last
+   wrapper of order 31) should ignore separators hidden at that width; the selectors are in the file. Not shipped
+   tonight: it reaches every brand's pages with such spacers and would undo the compensating rows already live (ITA
+   entry-exit-system's {spacer-15 from-768}), so it needs its own gate with those rows removed in the same round.
+
+## Standing order 33, final section (about 21:50 UTC, 2026-11-15)
+
+- Items 1 and 2 done.
+- Before this section: the full suite on b530d1c1 (npm run lint 0, stylelint 0, 1,186 of 1,186 test files); the folder-reading tests with brand.test.mjs; the whole-repo lint read before every push.
+- Nothing uploaded, previewed or published by me; DA read only (lufthansa.com first-class, first-class-terminal,
+  business-class-on-long-haul-routes, flight-disruptions, lhg-wifi, lufthansa-express, miles-and-more-credit-card);
+  da-upload.mjs not run; requests only to our own hosts, DA (reads), R2 (ita-parity-009) and GitHub's API; no request
+  to www or any airline host. .migration/project.json not touched; the excluded manage page has no row and no line.
+- Not in git and why: logs/p4/so33 (scratch: captures, gates, no-breakage renders, folder copies, DA copies), the drops
+  in /tmp (private material), content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry
+  (not mine, kept). Preview servers stopped, trial worktrees removed.
