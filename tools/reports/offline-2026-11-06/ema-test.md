@@ -4510,3 +4510,67 @@ Tried and not shipped (the gate failed or the gain was not reliable):
 - Not in git and why: logs/p4/so23 (scratch: captures, gate folders, crops, DA copies as read, trial edits and
   scripts), the drops in /tmp/x-* (private material), content/, migration-work/, tools/importer/reports/* (not
   mine). Preview servers stopped, trial worktrees removed.
+
+## Standing order 27 (received about 00:15 UTC, 2026-11-15)
+
+State at the start: nothing of mine uncommitted or unpushed (order 26's final section on main, Build success).
+
+1. **lufthansa-api-002** (sha256 2fccd928…4650d74 checked): /de/en/flights and /de/de/fluege ask FRA/E, /at/de/fluege
+   VIE/E, all under X-Portal LH. The parity tools answer them now: an answer answers its own portal, market and
+   language only, since FRA/E is Discover's call too, under FOUR_Y (tests first).
+   - With the answers the grids draw as www's, order and badges by each day's answer. No row helps.
+   - At 1440 www's card columns stand 17 px further left and its price is smaller. 4da64b52 (lufthansa.com, from
+     1025 px): filters 291 / cards 943, 10 px apart, price 21 px. Gate on gb/en, de/en, de/de and at/de at 1440:
+     4 better (−0.77 to −1.31; the single-page try of order 26 was not reliable, four pages are).
+   - 83505cbe: the origin by its city name ("Frankfurt", ours "Frankfurt (FRA)") and "Destination" / "Zielort"
+     inside the empty field, as www's. The same four pages at both widths: 8 within 0.5, none worse.
+   - **lufthansa-api-003** (sha256 df90ec5d…240ca80cd3e735 checked): 28 pages drawn on the published site with their
+     own answers (the finder call and the page's defaultAirport). Their first 12 tiles, badges, opening sort, prices
+     and currency all match the answer by www's rules (delta-so27-lh-com-grids-003.txt).
+   - Found on the way:
+     - www's default airports differ from our home airports on four markets (in BOM, it FCO, jp HND, se ARN); our
+       pages follow www's answer.
+     - When that answer fails, a market without its own recording took another market's recorded default airport,
+       so ch/de asked for Vienna's offers. Fixed (aed7e236, scripts/lh-api.js resolveOrigin): its home airport.
+     - The built-in sort and badge texts are www's own now, from these loads' recorded labels (bf2459bb; used only
+       when www's labels do not answer).
+   - **/ru/en/flights**: our page asks destinationfinder DME/E (www's default airport, Moscow), even with every
+     recorded answer replayed. The recorded load shows no finder request and no failed one, so I asked for a
+     re-load with the console (capture-requests-ema-test.txt).
+2. **Discover's German cards: found and fixed, but not shipped.**
+   - Cause: www's two-line "Hin-und Rückflug ab" has 24 px lines (ours 22.4). Discover's price line is 16 px type on
+     17.6 px lines, and www's sits tighter. Our card text also stood 1–5 px lower, and www's checkbox is 24 px.
+   - With phone rules for both languages, every row matches www's (382 / 358 px apart, each line within 2 px).
+   - de/en passes the gate with www's phone toolbar too (56.57 → 51.91, also against the same day's answer -005).
+   - de/de cannot pass: its only German answer (-006) is of another day than www's settled recording (-004), so the
+     591 cards stand in another order down the 115,000 px page; the pixel score moves by luck of phase.
+   - By your rule neither shipped. The work is kept as a scratch patch (logs/p4/so27/discover-phone-toolbar-cards.diff,
+     not in git), and capture-requests-ema-test.txt asks for www's settled de/de page and our page's answer recorded
+     at the same time.
+3. **finish-discover.txt**: santorini's "small steps" were the grey bands' spacing on phones. www puts 36 px over a
+   band and 32 under it; ours used the sections' 56. Census: the recorded pages with grey bands are santorini and
+   punta-cana, both languages. c80f296b (Discover, phones): gate.mjs 4 better (santorini de/de 20.81 → 13.05, de/en
+   16.70 → 14.89; punta-cana de/de 18.17 → 16.95, de/en 29.56 → 28.67). Santorini is within 2 % in both languages
+   (READY).
+   - The homepages at 1440 are READY too, measured live after order 26's rows.
+   - The other HOLD rows are owner decisions, live data without a recording, or waiting for requested captures.
+- A slip, recovered: with nothing of mine to stash, `git stash; pull; stash pop` applied an old autostash entry from
+  an earlier session (conflicts in 16 files I had not touched, and an old .migration/project.json). I restored those
+  files to the commit; every one, .migration/project.json included, had been equal to it before. The entry is kept;
+  nothing of it reached git. I use `pull --autostash` from now on.
+
+## Standing order 27, final section (about 02:40 UTC, 2026-11-15)
+
+- Items 1–3 done as far as the recordings allow. Waiting on: www's recordings of the 29 pages (they can then be gated
+  against the drawn grids), the same-time Discover de/de pair, and /ru/en/flights' re-load.
+- I close about 2.5 hours early: what remains needs those recordings.
+- Before this section: the full suite on bf2459bb (npm run lint 0, stylelint 0, 1,139 of 1,139 test files); the 329 folder-reading tests with brand.test.mjs; the whole-repo lint read before
+  every push, in the clean worktree.
+- Nothing uploaded, previewed or published by me; DA not touched; da-upload.mjs not run; requests only to our own
+  hosts, R2 (the two drops) and GitHub's API (airline hosts refused in my browsers, their calls answered from the
+  recordings). .migration/project.json: restored to the commit after the stash slip, not otherwise touched; the
+  excluded manage page has no row and no line.
+- Not in git and why: logs/p4/so27 and logs/p4/so23 (scratch: captures, gate folders, crops, trial scripts, the
+  Discover phone patch, which is held), the drops in /tmp/x-* and /tmp/dl-* (private material), content/,
+  migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not mine, kept). Preview servers
+  stopped, trial worktrees removed.
