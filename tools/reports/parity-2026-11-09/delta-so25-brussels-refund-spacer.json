@@ -1,0 +1,9 @@
+{
+  "/be/en/legal-notices/refund-for-cancelled-flights": [
+    {
+      "before": "<p><a href=\"/be/en/legal-notices/israel-cancellation-rights\">",
+      "html": "<p>{spacer-30 from-768}</p>",
+      "count": 1
+    }
+  ]
+}

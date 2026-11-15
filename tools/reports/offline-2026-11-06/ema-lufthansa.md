@@ -5394,3 +5394,69 @@ was modified, not by me, and is left as it is.
 
 **Hosts:** reads only from our hosts, the drop and DA (GETs from my session; refused with 401 this order). No request to
 an airline host, no da-upload.mjs call, no upload, preview or publish by me.
+
+## Standing order 25 (2026-11-15, about 15:45 to 18:00 CET), with its final section
+
+**At the start:** nothing of mine uncommitted or unpushed (order 24's c4ad3cff and 0e5ad5e7 were on main).
+`.migration/project.json` was modified, not by me, and is left as it is.
+
+**Item 1:** after the new sign-in both work. A dry-run push to origin was refused only as non-fast-forward (my checkout
+was behind main), and a DA read of /de/en/program answered 200. All this order's DA reads succeeded.
+
+**Item 2, Group for Business (finish-b2b.txt):**
+- **The 15 HOLD rows, re-measured as served:** against the newest first loads where the drop has them. b2b-parity-010
+  to -012 are now on the drop, sha256 as their sidecars: meals-on-board de/en and ch/en, the Allegris pages.
+- **intermediaries-start-of-booking 390:** within 2 % against b2b-parity-012's phone first load (9101 against 9053,
+  +0.53 %; the resized recording had 11792). READY.
+- **meals-on-board 390 (three rows, -5.41 %):** www's tab set has a ninth item with no label and no content, an empty
+  tab panel (51 px). Ours rightly doesn't draw it. www also keeps 22 px more above the tab set; a rule for that alone
+  leaves -3.84 %, and entertainment-on-board's phone page would get further. Held.
+- **entertainment-on-board 1440 (-4.87 %, its delta live):**
+  - www shows the eJournals picture as a tighter crop (608 x 338) of the image our document shows whole (622 x 267),
+    -71 px. That crop is another rendition of the asset, which would mean an upload.
+  - www also keeps 40 px more under "In-Flight Entertainment System". Held.
+- **The rest:** ema-test's (lhg-history, corporates-start-of-booking) or as located before (kuala-lumpur, lhg-ita-airways,
+  sap, partner-plus-benefit, video-gallery, de/de about-us), with this order's heights.
+- **No B2B rule or document row passed the gate this order.**
+
+**Item 3, Brussels (finish-brussels.txt):**
+- **be/fr checked-baggage 390 (-2.83 % with narrow-titles live):** www wraps "Ajoutez-les maintenant et économisez" onto
+  two lines, while ours keeps one line and cuts the label with an ellipsis (the base button's nowrap).
+  - Census, every recorded Brussels page at 390: 5 pages have a cut button.
+  - A phone rule that lets labels wrap: be/fr checked-baggage -2.83 -> -2.48 %, cancel-and-refund -2.78 -> -2.03 %,
+    manchester closer.
+  - It fails the gate on vibrant-senegal (+0.28 -> +0.39 %; www wraps that button too) and upgrades
+    (+0.50 -> +0.75 %), both within 2 % either way.
+  - HOLD (brussels-so25-button-wrap.txt). For the owner: today ours hides the end of these five labels on phones.
+- **Spacer rows READY, each within 2 % at both widths with it:**
+  - delta-so25-brussels-spacers.txt:
+    - farealert/unsubscribe-failure: -3.51 -> -0.11 %, -2.21 -> -0.07 %;
+    - the legal notices hub: -6.86 / -2.14 -> 0.00 %;
+    - be/fr travel-classes 1440: -2.47 -> 0.00 %.
+  - delta-so25-brussels-refund-spacer.txt: refund-for-cancelled-flights 1440, -2.09 -> -0.13 %. Its spacer sits before
+    the closing link line, because at the very end it took 22 px off the phone page (P56's link-line rule).
+  - Each spacer sits at the located gap and is no larger than it. They were measured on the served pages with the
+    paragraphs added (DA drafts keep the metadata block in main and end differently).
+- **Tried and held:** travel-classes/economy 390. A spacer at the end of its grey band changes the band's own ending
+  (+5 px at 390, 1440 further).
+- **All 52 Brussels HOLD rows re-measured:** 44 as listed, 8 moved (none within 2 %).
+- **Correction to order 24:** the narrow-titles widths (257 / 331 px) came from the recording rendered offline, where
+  www's body lays out 375 px wide without its scripts. In the PNG at 390 www's accordion is 346 px wide like ours, so its
+  text box is about 272 px. The rule's 54 px is that gap; the gate figures (the recording's heights) stand. The comment,
+  test and lists are corrected.
+
+**Why I stopped before 21:00 CET:** the remaining HOLD rows are owner decisions (www's slips or missing assets), ema-test's
+rows, or causes with no rule that passes the gate.
+
+**Checks:**
+- 7498f5bb: `npm run lint` exit 0 and stylelint on brussels.css before the push; the full suite 4504 / 0 after the
+  rebase; smoke 0 differences; Build success.
+- This final commit: lint, the folder-reading tests and the full suite in its ship.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git): b2b-parity-010 to -012, DA's copies read today (Brussels 15:08 and 15:55 UTC), drafts,
+  censuses, crops and logs.
+
+**Hosts:** reads only from our hosts, the drop and DA (GETs from my session). No request to an airline host, no
+da-upload.mjs call, no upload, preview or publish by me.
