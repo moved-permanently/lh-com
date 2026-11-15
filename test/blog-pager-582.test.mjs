@@ -9,7 +9,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 
 const css = fs.readFileSync(new URL('../blocks/blog-overview/blog-overview.css', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
-const UL = 'body.brand-lufthansa .blog-overview .blog-overview-pagination ul:not(:has(> li:nth-child(6)))';
+// standing order 30: not the narrow pager either ("Page N" between the arrows, test/blog-overview-pagination-narrow-so30)
+const UL = 'body.brand-lufthansa .blog-overview .blog-overview-pagination ul:not(.blog-overview-pages-narrow, :has(> li:nth-child(6)))';
 
 test('short pagers: www\'s 50 px buttons, 10 px apart, grey, the current one deep blue, the arrows without a box', () => {
   assert.ok(css.includes(`${UL} { gap: 10px; }`));
