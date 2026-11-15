@@ -7496,7 +7496,7 @@ offline. **DA:** read only, 4 single GETs (listed in the final section). No uplo
   - Apply after `279b8aae` is live.
 - **eservices-app:** see "Your three answers". The English page needs fix A, not B. A alone doesn't bring it within 2 %.
 
-### After the pushes (measured on the hosts, ~22:15 to 22:50 CET)
+### After the pushes (measured on the hosts, ~22:15 to 22:35 CET)
 
 Your helpers applied the three READY rows and the publish child put them live. Each measures as drafted, to the px:
 - gb/en homepage: 5,927 / 4,749, measured with the recorded widget answers.
@@ -7506,7 +7506,7 @@ Your helpers applied the three READY rows and the publish child put them live. E
 The Speed rule (`279b8aae`) is live. td.Pro 1,235 and td.Flash 1,259 (en) / 1,299 (de) at 390 are as the gate
 predicted, and 1440 is unchanged.
 
-### Final section (about 22:55 CET, 2026-11-15)
+### Final section (about 22:40 CET, 2026-11-15)
 
 Everything in the order is done. I stopped early: what is left needs your word or a file only www has.
 
