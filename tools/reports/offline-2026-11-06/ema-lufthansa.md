@@ -5571,3 +5571,77 @@ tests, and the full suite in its ship.
 
 **Hosts:** reads only from our hosts and the drop (no DA read this order). No request to an airline host, no
 da-upload.mjs call, no upload, preview or publish by me.
+
+## Standing order 28 (2026-11-15/16, about 23:40 to 03:30 CET), with its final section
+
+**At the start:** nothing of mine uncommitted or unpushed (order 27's 497b7686 was on main).
+`.migration/project.json` was modified, not by me, and is left as it is.
+
+**A rule broken, found tonight: requests to airline hosts.**
+- **The fault:** my scratch measuring script (host-eval.mjs, used since the early orders) refused airline hosts only with
+  Chromium's --host-resolver-rules. This machine reaches the web through an HTTPS proxy, which resolves names itself, so
+  those rules never applied.
+- **What it means:** every host-eval load could fetch whatever our pages ask from airline hosts. Tonight's check:
+  SWISS contact-us asked api.travelid.swiss.com 3 times and swiss.com twice, and its help pictures loaded from swiss.com.
+- **Not affected:** the repo's tools/parity/capture.js, used for order 27's sweep and tonight's phone sweep, refuses at
+  the request level.
+- **My earlier statements were wrong:** the reports' "airline hosts refused" and "no request to an airline host" lines
+  (orders 24 to 27 at least) were wrong for host-eval measurements. Heights taken that way on pages that load files from
+  an airline host are as a visitor sees them, not as with the hosts refused (SWISS contact-us 2116 against 1988).
+- **Fixed now:**
+  - host-eval refuses those hosts at the request level (.scratch/offline/tools/airline-block.mjs, a route abort, counted
+    per load);
+  - the recording renderer (rec-eval.mjs) lets only 127.0.0.1 through.
+- **Still unpatched:** my older scratch scripts (axe-*, ad-*, arial-batch and others) were not used tonight. Patch or
+  retire them before any further use.
+
+**Item 1, SWISS's help pictures** (delta-so28-swiss-help-center-pictures.txt, HOLD):
+- **The block change** (blocks/micro-frontend, with a test): SWISS's help-center-web stage and FAQ-card pictures point
+  at copies in lh-swiss's DA (/media-da/swiss/help-center/main.png, faq.png), but only once a copy loads. Until the
+  helper copies them the page draws as today: contact-us en, as served and with the change, 1440 1988 / 1988, 390
+  2194 / 2194. It goes to main first; Austrian's pictures are unchanged.
+- **The helper's copy:** into lh-swiss at those paths (the folder is empty today, read with a DA list GET), with its
+  backup folder named in the list.
+- **Gate:** waits for the Captures child's archive, which hadn't arrived by the end of this order.
+
+**Item 2, the phone window** (capture-phone-window-so28.txt):
+- capture.js draws a phone width (below 768 px) in an 844 px window, a wider one in 900 (lib.js viewportHeight;
+  --viewport-height sets it outright; with a test).
+- All 260 recorded phone page-widths of the four brands, captured again: only lhg4b-search de/de and de/en change by
+  more than 0.5 points (+6.64 -> 0.00 %).
+
+**Item 3, the next five per brand** (sweep-so27-brands.md, its order-28 section):
+- **SWISS and Discover:** none left that isn't an owner decision or live data.
+- **Group for Business:**
+  - swiss-senses intermediaries de/de 390: its seat-map download was bold in DA (a button on ours, a text link on www
+    and on every sibling). Delta row READY (delta-so28-b2b-swiss-senses-seatmap-link.txt, backup named): +2.16 ->
+    +1.07 %.
+  - partner-plus-benefit's dropped "Konditionen" modal: needs a new modal document, HOLD.
+  - entertainment-on-board's picture crop: Columns Media, ema-test's.
+  - video-gallery's band end: failed the gate before, HOLD.
+  - lhg-ita-airways: font line breaks, no fix.
+- **Brussels:**
+  - cancel-and-refund's accordion text column, book-a-flight's teaser ending, my-bookings' three places: HOLD, no rule
+    passes.
+  - contact-form-error's closing-sidebar padding: Columns Media's phone padding, ema-test's.
+  - dsar-start's form and gap: HOLD.
+- **No shared fix shipped**, so no no-breakage render was needed.
+
+**Item 4:** nothing new needed from www (the modal's text is in the recording); the SWISS pictures are on the list from
+order 27.
+
+**Checks:**
+- 4e3c823b (items 1 and 2): `npm run lint` exit 0 before the push, the folder-reading tests, the full suite 4548 / 0,
+  then 4562 / 0 after the rebase; smoke 0 differences; Build success.
+- This final commit (the seat-map row, its test, the sweep's order-28 section, this report): lint, the folder-reading
+  tests and the full suite in its ship.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git): the phone sweep's 260 captures, DA's copy read today (lh-b2b swiss-senses 22:55 UTC), drafts,
+  the measuring scripts and their fixes, logs.
+
+**Hosts:**
+- This order's reads came from our hosts, the drop and DA (GETs and one list GET from my session).
+- Tonight's first host-eval loads, before the fix at about 22:40 UTC, could still reach airline hosts through the proxy.
+- No da-upload.mjs call, no upload, preview or publish by me.

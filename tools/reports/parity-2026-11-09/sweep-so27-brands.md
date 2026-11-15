@@ -553,3 +553,27 @@ Measuring notes: capture.js draws every page in a 900 px tall window, www's phon
 3. meals-on-board, 390 (three page-widths, -5.41 %): www's tab set has a ninth item with no label and no content (51 px), which ours rightly leaves out; plus 22 px above the tab set (finish-b2b.txt). No change.
 
 No shared fix this order, so no no-breakage render was needed; nothing here sits in Columns Media or the main stylesheet's section gaps (ema-test's tonight).
+
+## Standing order 28: the next five per brand
+
+Over 2 % and not an owner decision, live data or www's recorded state, after the worst three (the phone figures with capture.js's 844 px window, capture-phone-window-so28.txt).
+
+**SWISS:** none. Every other SWISS page-width over 2 % is the magazine's advertisement slots (owner decision) or the offers grid (live data).
+
+**Discover:** none. The rest are the offers page (the owner's), the fare calendar (live data), and the brand-font rows (owner decision, punta-cana and entertainment).
+
+**Group for Business**
+1. /de/de/travel-solutions/swiss-senses/intermediaries-start-of-booking, 390 (+2.16 %): the seat-map download is bold in DA's copy, so ours draws a two-line button where www and every sibling draw a text link. Delta row READY (delta-so28-b2b-swiss-senses-seatmap-link.txt): 390 +2.16 -> +1.07 %. The paragraph above it differs from www's recording (www's older Mumbai text; DA's newer schedule): not a fault.
+2. /de/de/program/partner-plus-benefit, 390 (-2.44 %): www's "Konditionen" link under the closing teaser opens a modal (#cond-modal-762173) that the import dropped, about 50 px; the rest is spread. Fix: the modal's text (in the recording's markup) as a modal document and the link to it; a new document, so it needs the helper and its own row. HOLD, not drafted this order.
+3. /de/en/program/experts/on-board/entertainment-on-board, 1440 (-4.87 %): www draws the eJournals picture object-cover in a box as tall as the row (the same file as ours), ours at the picture's own ratio, -71 px. The cause sits in Columns Media's picture cell: ema-test's tonight, left for them.
+4. /de/en/allegris/video-gallery, 1440 (+2.07 %): the closing grey band meets the footer on www; a B2B rule for a closing band failed the gate in order 23 (celebrating-shared-stories and joint-ventures move further). HOLD.
+5. /de/en/news/lhg-ita-airways, 1440 (+3.79 %): the same web font breaks the same 800 px column's lines differently (macOS recording, Linux measuring); unchanged with the Arial option. Not a page fault; no fix.
+
+**Brussels**
+1. /be/fr/my-bookings/cancel-and-refund-requests, 1440 (-4.21 %): the accordions' text column (www's panel text wider at 1440); the rule for it moved four pages further in order 14 (ranking-588). HOLD.
+2. /be/en/book-a-flight, 1440 (+4.09 %): the page ends with a teaser row in a padded section, www 82 px under it, ours 112; other teaser endings differ the other way (families: www 130, ours 112), so no one rule passes (order 22's attempt). HOLD.
+3. /be/en/my-bookings, 390 (+3.74 %; be/fr +3.17 %): three places, H1 to the first card +46 px, the card pitch +3 px over eight cards, and +95 px under the last card; www's space under a closing teaser row differs by page (83 here, 187 to 248 elsewhere). HOLD.
+4. /am/en/non-encrypt-mail/contact-form-error, 390 (+3.70 %): the closing sidebar's 36 px bottom padding on phones (columns-media.css, .columns-media.sidebar), 84 px from its last text to the footer against www's 42; of the 103 recorded Brussels pages three end with a sidebar, and only this one has the padding. The cause sits in Columns Media: ema-test's tonight, left for them.
+5. /de/de/legal-notices/dsar-start, 1440 (-2.35 %): www's form text area is taller (the fields 45 px longer) and www keeps 29 px of white between the grey form band and the footer. A Brussels text-area rule would reach the other recorded form pages, which are already taller than www (+2.3 to +6 %, our form's bot-check box) and would move further (reasoned, not drafted). HOLD.
+
+Nothing needed from www for these (the modal's text is in the recording); the SWISS help pictures are on the capture list since order 27.
