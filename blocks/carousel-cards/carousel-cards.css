@@ -869,6 +869,19 @@ body.brand-cargo .carousel-cards.slides .carousel-cards-dots {
   line-height: 24px;
 }
 
+/* lufthansa.com on phones: www's line 42px under the card (10px at 1440), the next card as far
+   under the line as before. Standing order 32: /de/en/book-and-manage/flights/giftvoucher 19.8 ->
+   14.4 % at 390, its height now www's (the line is on giftvoucher de/en and de/de only) */
+@media (width < 768px) {
+  body.brand-lufthansa .carousel-cards .carousel-cards-slide.carousel-cards-has-below {
+    margin-bottom: 66px;
+  }
+
+  body.brand-lufthansa .carousel-cards .carousel-cards-below {
+    top: calc(100% + 42px);
+  }
+}
+
 /* stylelint-disable-next-line no-descending-specificity -- the line under a card; the rules above are other cards' parts */
 .carousel-cards .carousel-cards-slide > .carousel-cards-below > p {
   margin: 0;

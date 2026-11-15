@@ -74,3 +74,11 @@ test('blocks/carousel-cards: a cell of only link paragraphs after the text cell 
   const css = fs.readFileSync(new URL('../blocks/carousel-cards/carousel-cards.css', import.meta.url), 'utf8');
   assert.match(css, /\.carousel-cards-below/);
 });
+
+/* standing order 32: on lufthansa.com phones the line 42px under the card (www at 390; 10px from 768px), the next card
+   as far under the line as before: giftvoucher 19.8 -> 14.4 % at 390 */
+test('blocks/carousel-cards: on lufthansa.com phones the line 42px under the card', () => {
+  const css = fs.readFileSync(new URL('../blocks/carousel-cards/carousel-cards.css', import.meta.url), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
+  assert.ok(css.includes('@media (width < 768px) { body.brand-lufthansa .carousel-cards .carousel-cards-slide.carousel-cards-has-below { margin-bottom: 66px; } body.brand-lufthansa .carousel-cards .carousel-cards-below { top: calc(100% + 42px); } }'));
+  assert.ok(css.includes('.carousel-cards .carousel-cards-below { position: absolute; top: calc(100% + 10px);'), 'from 768px as before');
+});
