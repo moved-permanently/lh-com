@@ -3,7 +3,7 @@
 Every info page lh-parity-002a-d hold (173 pages, the same 346 page-widths as sweep-lh-baseline.md's info row of
 2026-11-09), as published on lufthansa.turnsthe.page with the code deployed at ~18:20-18:50 UTC (main to 7a6744b8;
 ema-lufthansa's columns-media commits 28468fc8 and a4e99c2e landed during the run), at 1440 and 390, against the newest
-recording (tools/parity/compare.js, the first 8,000 px; full Chrome, the drops' fonts). No request to www or any airline
+recording (tools/parity/compare.js, the first 8,000 px; full Chrome, the drops' fonts). Newest recording: lh-parity-002a-d (2026-11-06) for 167 pages; for 6 pages the 116 lh-snapshots drops (sha256 in logs/p4/so32/snaps-fetched.txt) hold a newer one, lh-snapshots-115 (2026-11-13): its 1440 is used; its 390 is a resize from 1440, so 390 stays on 002's phone first load, the resize's figure noted. No request to www or any airline
 host. Runner: logs/p4/so32/sweep.sh (not in git).
 
 Two things changed in how pages are measured, so read the figures with them:
@@ -23,7 +23,7 @@ Two things changed in how pages are measured, so read the figures with them:
 | median % | 9.1 | 6.4 |
 | at 20 % or more | 26 | 8 |
 | at 15 % or more | | 18 |
-| at 10 % or more | | 66 |
+| at 10 % or more | | 65 |
 
 ## Every page-width at 12 % or more, worst first
 
@@ -39,7 +39,7 @@ Two things changed in how pages are measured, so read the figures with them:
 | /de/en/traveltricks | 1440 | 20.3 | 3772 / 3692 | 0.0 | 20.5 |
 | /de/en/book-and-manage/flights/giftvoucher | 390 | 19.8 | 6926 / 6838 | 0.0 | 24 |
 | /de/en/lufthansa-business-class-on-long-haul-routes | 1440 | 17.6 | 3169 / 3208 | 0.0 | 29 |
-| /de/en/with-children-at-the-airport | 390 | 17.6 | 4239 / 4030 | 0.0 |  |
+| /de/en/with-children-at-the-airport | 390 | 17.6 (against lh-snapshots-115's 390, a resize from 1440: 8.7) | 4239 / 4030 | 0.0 |  |
 | /de/en/unterhaltung-an-bord | 1440 | 16.5 | 2960 / 3064 | 0.0 | 18.6 |
 | /de/en/lh-rentalcar | 390 | 16.3 | 3591 / 3472 | 50.6 | 16.5 |
 | /de/en/carry-on-baggage | 1440 | 16.1 | 6601 / 6355 | 0.0 | 18.9 |
@@ -50,7 +50,6 @@ Two things changed in how pages are measured, so read the figures with them:
 | /de/en/tips-senior-travellers | 1440 | 14.6 | 8000 / 8000 | 1.8 | 25.5 |
 | /de/en/during-your-trip/internet-overview | 390 | 14.3 | 4671 / 4713 | 0.0 | 22.5 |
 | /de/en/lounge-companions | 390 | 14.2 | 4765 / 5025 | 0.0 |  |
-| /de/en/with-children-at-the-airport | 1440 | 14.2 | 3131 / 2967 | 0.0 |  |
 | /de/en/advance-seat-reservation | 1440 | 14.0 | 8000 / 8000 | 0.0 |  |
 | /de/en/lufthansa-aviation-group | 390 | 14.0 | 3807 / 3783 | 0.0 |  |
 | /de/en/prepare-for-your-trip/entry-regulations/entering-schengen/entry-exit-system | 390 | 13.7 | 8000 / 8000 | 0.0 | 19.3 |
@@ -94,5 +93,5 @@ located draft.
 | 9 | /de/en/book-and-manage/flights/giftvoucher 390, 19.8 | the line under a Carousel Cards card ("Visit the FAQs"): ours 10 px under the card (order 24's rule), www's ink 47 px under it on phones, and the next card 27 px lower | carousel-cards.css, lufthansa.com below 768 px: .carousel-cards-below top calc(100% + 42px), the slide's margin-bottom 61px | HOLD: 7 lufthansa.com documents have the shape; de/de giftvoucher (the same cards, not recorded) would move, by about as much as de/en (more than 0.5 points), unmeasured |
 | 10 | /de/en/lufthansa-business-class-on-long-haul-routes 1440, 17.6 | as #3 at 1440 (the embed refused; the band gap) | as #3 | HOLD (as #3) |
 
-Also over 15 %: /de/en/with-children-at-the-airport 390 (17.6), /de/en/unterhaltung-an-bord 1440 / 390 (16.5 / 15.4),
+Not in the ten after all: /de/en/with-children-at-the-airport (390 17.6 against 11-06, 8.7 against 11-13; 1440 14.2 -> 5.0): www dropped a sentence and two links after 11-06 (order 27's reimport-so27-with-children-at-the-airport-lh-com.txt), our page is already as www's now. Also over 15 %: /de/en/unterhaltung-an-bord 1440 / 390 (16.5 / 15.4),
 /de/en/lh-rentalcar 390 (16.3, with the partner widget), /de/en/carry-on-baggage 1440 (16.1) - not diagnosed tonight.
