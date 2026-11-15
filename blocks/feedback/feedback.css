@@ -102,3 +102,43 @@ body.maui-theme-lx .feedback-form-container .feedback .feedback-note {
   font-size: 16px;
   line-height: 24px;
 }
+
+/* lufthansa.com's questionnaire on its pages as www's (feedback-eye, lh-parity-006's /ru/en/flights at 1440 and
+   390; standing order 30): 24 px in (www's questionnaire wrapper, 2.4rem; none on the right, the question on one line
+   at 390 as www's), the question 18 / 24 px bold, the answers
+   as wide as their text and 15 px each side, 50 px high with www's 2 px #666 outline and divider, the text #666,
+   14 px below 768 px and 18 px from 768 px (ours: at the content's edge, 16 px regular, 80 x 42 px answers, a 1 px
+   #333 line, deep blue text). Not in the help app (.feedback-form-container: the block is moved out of its wrapper) */
+body.brand-lufthansa .feedback-wrapper > .feedback .feedback-question {
+  padding-left: 24px;
+}
+
+body.brand-lufthansa .feedback-wrapper > .feedback .feedback-label {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+body.brand-lufthansa .feedback-wrapper > .feedback .feedback-options {
+  border: 2px solid var(--lh-grey-7);
+}
+
+body.brand-lufthansa .feedback-wrapper > .feedback .feedback-option {
+  min-width: 0;
+  min-height: 46px;
+  padding: 0 15px;
+  color: var(--lh-grey-7);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+body.brand-lufthansa .feedback-wrapper > .feedback .feedback-option + .feedback-option {
+  border-left: 2px solid var(--lh-grey-7);
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa .feedback-wrapper > .feedback .feedback-option {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
