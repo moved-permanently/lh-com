@@ -1,0 +1,35 @@
+# ema-cashub, standing order 37 (2026-11-15), item 3: two more Cargo document rows from finish-cargo.txt, drafted and gated;
+# both HOLD (closer, not within 2 % at the band end). DA rows, not uploaded.
+# Drafted on cargo.turnsthe.page (so36/host.mjs, EAGER=1 CONSENT=1; lh-proxy, www.* but www.mynewsdesk.com and every
+#   airline host refused and counted: 0 on these pages); the control (the served document as a draft) equals live to the
+#   px at both widths on all four. www: cargo-parity-003 (1440 loads; the 390s are their resizes, pointers).
+#
+# A. The eFreight pages' breadcrumb (/en/eaw, /en/ecsd, /en/ehm). www draws its trail over the title (Home > Info-Hub >
+#    eServices > eFreight > <page>; on phones a Back link); our documents have no breadcrumb block (the importer kept it
+#    only where a stage picture opens the page). The row: a first section with the trail as Cargo's other pages author
+#    it (Home -> /en/home, eFreight -> /en/eservices/efreight, the rest plain text). +57 px at both widths: www's title
+#    is 80 px under its trail's text, ours 66, so the title stays 19 px above www's (172, www 191). A rule for that
+#    spacing would also move the four documents that already open with a breadcrumb section (en/de support-and-contact,
+#    cookie-information, current-information; Support & Contact within 2 % today), so none is drafted.
+#    EAW's other gap is its media cell: two pictures side by side (199 px tall), stacked in www's right column (about
+#    755 px); a stacking rule would also stack eservices-app's two store badges (the only other such cell, en and de).
+# B. /en/meta/meta/company/general-terms1: www's text and picture side by side (two col-md-6); ours stacks the picture
+#    under the downloads. The row: the text after the title and the picture as a Columns Media block (text | picture).
+#    The rest is www's legal template (as on terms-of-use): the content 1,184 px wide from x 128, the title 32 / 36 px,
+#    more space above and below; our documents carry no template mark for it, so it is left as explained.
+#
+# status	path	width	recording	www page	page before	page with the row	note
+HOLD	/en/eaw	1440	cargo-parity-003	1641	1404 (-14.44 %)	1461 (-10.97 %)	A: the trail; the title 19 px above www's; the media cell's pictures side by side (199 px; www's stack is about 755 px, taller than the text column: the -180 px left)
+HOLD	/en/eaw	390	cargo-parity-003 (resized)	2236	1815 (-18.83 %)	1872 (-16.28 %)	A: a resize (pointer); www shows a Back link on phones
+HOLD	/en/ecsd	1440	cargo-parity-003	1343	1243 (-7.45 %)	1300 (-3.20 %)	A: the trail; the title 19 px above www's; the picture column the rest
+HOLD	/en/ecsd	390	cargo-parity-003 (resized)	1751	1713 (-2.17 %)	1770 (+1.08 %)	A: a resize (pointer)
+HOLD	/en/ehm	1440	cargo-parity-003	1294	1242 (-4.02 %)	1299 (+0.39 %)	A: the page within 2 %, the band end not: the title at 172 px, www's at 191 (-9.95 %)
+HOLD	/en/ehm	390	cargo-parity-003 (resized)	1578	1560 (-1.14 %)	1617 (+2.47 %)	A: a resize (pointer); further from it than as served (www shows a Back link on phones)
+HOLD	/en/meta/meta/company/general-terms1	1440	cargo-parity-003	1129	1297 (+14.88 %)	1094 (-3.10 %)	B: the picture beside the text; the rest www's legal template (the footer's top 617, www 647)
+HOLD	/en/meta/meta/company/general-terms1	390	cargo-parity-003 (resized)	1498	1470 (-1.87 %)	1486 (-0.80 %)	B: a resize (pointer)
+#
+# DA change, per document:
+#   A. /en/eaw, /en/ecsd, /en/ehm: a new first section with a Breadcrumb block, one cell, a list:
+#        Home (link /en/home) | Info-Hub | eServices | eFreight (link /en/eservices/efreight) | EAW / eCSD / eHM
+#   B. /en/meta/meta/company/general-terms1: after the title, a Columns Media block of one row: the three paragraphs
+#        ("Below you can find ...", "Downloads", the download links) | the picture.

@@ -6724,3 +6724,70 @@ All three items are done, so I stopped here, before 11:00. What is left needs th
 
 **Not in git** (scratch under /tmp/so36): the scripts, the archive and its download, the served copies, the drafts, the
 renders and the logs.
+
+## Standing order 37 (2026-11-15, from about 09:10 CET)
+
+**Carried over:** nothing of mine was uncommitted or unpushed. Order 36's last commit, `d2ddf120`, was on origin. The
+checkout's 88 dirty entries belong to other jobs (import-progress.json, the urls-*.txt lists, the importer reports, the
+notifications.css comment line) and were left alone.
+
+**Renders:** every render refused lh-proxy, www.* (but www.mynewsdesk.com on Cargo, as you allowed on 2026-11-13) and every
+airline host, and counted them; none was sent.
+
+### Item 1: the Austrian homepage widget rows
+
+They stay HOLD with your reason: the requested loads stopped at ~07:10 CET on a 403 Cloudflare challenge (the preflight to
+www.lufthansa.com's labels API, on the sixth load). Nothing shipped, and the captures wait for your word.
+- The note is on 30 rows, not 29. ge/en 390 has been widgets only since the band row went live at 07:15, so it waits for
+  the same loads. finish-austrian.txt: 41 READY, 52 HOLD, 3 OWNER, as before.
+
+### Item 2: the finish lines (finish-airdolomiti.txt, finish-cargo.txt)
+
+Both lists were built as TAP's and ITA's were: the newest recording on the drop for each page and width, against the host
+as served, with only the rows above 2 % listed.
+- **The drop:** Air Dolomiti has -001 to -010. -009 was new to me and its sha256 matched; it is street-food 390, the same
+  as -010, which is newer. Cargo has -001 to -003.
+- **Air Dolomiti:** 108 page-widths, read at the footer's top (the chat widget sits below it). 99 are within 2 %. The 9
+  above are all explained, as in orders 29 to 36:
+  - widgets (flug-status, three destination pages);
+  - one wrap (bearbeitung);
+  - street-food 390 (order 36's trace);
+  - your decisions (the German FAQ titles, the archistar article), as OWNER.
+- **Cargo:** 84 page-widths, read at the page height. The 48 ranked before measure as in rank-so24-cargo.txt to the px.
+  -003's 18 pages had never been ranked: 36 page-widths, only 5 of them within 2 %.
+  - Their 390s are resizes of the 1440 loads (pointers). No phone loads are requested, since captures wait for your word.
+  - Each 1440 row was located against www's recorded boxes and its markup laid out offline with its own CSS.
+- First commit: `95d506a5`.
+
+### Item 3: the worst rows (all Cargo)
+
+- **The product pages' tab sets (9 pages):**
+  - **Cause:** www draws Features / Booking / … as tabs from 768 px, with the first panel open. Ours had the same items
+    as a closed accordion, so most of the page was missing (smartULD -43 %).
+  - **The document row** (delta-so37-cargo-product-tabs.txt, DA, not uploaded): the option tabs, plus each www text |
+    picture row (or picture grid) as a one-row table. It was built from www's markup offline and matched by text.
+  - **The rule:** `afc18e2f`, Cargo's theme. From 1025 px the tab bar, panel and media row are drawn as www's. It draws
+    nothing on today's documents: the only served tab sets are Support & Contact's finder, which is excluded, and its four
+    page-widths measure as before.
+  - **Gate at 1440** (page height and band end):
+    - 5 READY: active-temp-control -0.50 %, airmail +0.19, dangerous-goods +1.56, eservices/efreight +0.79,
+      general-cargo +1.37.
+    - 4 HOLD, all closer: smartULD -6.21 (www's 164 px of empty elements); emergency -1.65 (but its band end is
+      -2.82); eservices-app +3.98 and live-animals -2.40 (the rest is above the tab set).
+  - **At 390:** unchanged to the px.
+- **The ONE Record quote:** `1f5ea268`, Cargo's theme. The quotation is drawn as www's citation, not the Insights author
+  quote. The en and de onerecord documents are the only Cargo documents with a blockquote.
+  - 1440: +13.25 -> +4.43 %. The rest is the advantage cards: the paragraph's width, and the gap between the two card
+    rows.
+  - 390: within 2 % of the resize.
+- **eFreight breadcrumbs (eaw, ecsd, ehm) and general-terms1's text | picture:** drafted, HOLD
+  (delta-so37-cargo-efreight-breadcrumb-terms.txt).
+  - ehm 1440 comes within 2 % at the page, but its title stays 19 px above www's.
+  - The spacing rule that would fix that would also move Support & Contact.
+- **The sweep** after both pushes (sweep-so37-airdolomiti-cargo.txt): 190 of 192 page-widths unchanged to the px. The
+  other 2 are onerecord's, both closer.
+- **Census:** 82 published Cargo documents have an accordion-columns (faq). 9 of them are these rows; the other 73 have
+  no recording, so I didn't gate them.
+- **For you:** terms-of-use and general-terms1 are www's legal template: the content is 1,184 px wide and terms-of-use has
+  no title. Another job's Template legal row (`526457df`, lufthansa.com only) could carry a Cargo rule. That needs your
+  word on terms-of-use's title, and the other legal pages' www widths.

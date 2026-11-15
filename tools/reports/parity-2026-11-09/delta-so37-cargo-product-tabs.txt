@@ -1,0 +1,56 @@
+# ema-cashub, standing order 37 (2026-11-15), item 3: the Cargo product pages' tab sets (finish-cargo.txt's worst rows).
+# www (cargo-parity-003, 1440 loads; its markup laid out offline with its own CSS for the boxes between the recorded ones):
+#   the page's Features / Booking / ... set is a tab bar from 768 px (nav-tabs, 64 px, the tabs sharing the row) over
+#   tab-pane cards, the first tab's panel open. In a panel, www's Text-Image fragments put the text left and the picture
+#   right (two col-md-6, 24 px apart); eFreight's first panels are picture grids (four / three cards). Ours: the same
+#   items as accordion-columns (faq), every item closed, so the first panel (the text and pictures of the page) is missing.
+# The rows (DA, per document; not uploaded): the block's option tabs, and in each panel every www row that holds a picture
+#   as a one-row table of its columns (the block draws such a table as its picture | text row, or its picture grid).
+#   Built from www's markup by /tmp/so37/plan.py + tabs-row.mjs (offline, every request aborted: 0), each cell's
+#   elements matched by their text against www's column. Panels without a picture row stay as they are (www's two-column
+#   text panels, Special Aspects and Booking, are one column in ours; they are not open on a first load).
+# With them, the Cargo rule of this order (afc18e2f on main: styles/themes/cargo.css, test/cargo-product-tabs-so37):
+#   from 1025 px the tab bar, panel and media row as www's; it draws nothing today (the only served tab sets are
+#   Support & Contact's tabs.filter, excluded: those four pages measure as before at both widths, 2,328 / 3,156 / 3,116).
+# Drafted on cargo.turnsthe.page (so36/host.mjs, EAGER=1 CONSENT=1; lh-proxy, www.* but www.mynewsdesk.com and every
+#   airline host refused and counted: 0 refusals on these pages): the control (the served document as a draft) equals
+#   live to the px at both widths on all nine; the draft with the row and the rule as a stylesheet after load.
+#   Re-measured after the push with afc18e2f live (the drafts without the stylesheet, ~10:00 CET): the same to the px.
+# Gate: the page height (the list's figure), the footer's top, and the band end: the tab band's section end against
+#   www's band end (www's band touches the footer; ours keeps the 20 px every Cargo page has between its last section
+#   and the footer). READY = the page and the band end within 2 %. At 390 every page is unchanged to the px (below
+#   1025 px the accordion as before); www's 390s are resizes of the 1440 loads (pointers).
+# Census: 82 published Cargo documents have an accordion-columns (faq); 9 are these rows. The other 73 are not recorded
+#   here; www's tab sets among them would need the same row each (not drafted: no recording to gate them).
+#
+# status	path	width	recording	www page	page before	page with the row	www footer top	footer top with the row	band end with the row (www)	note
+READY	/en/active-temp-control	1440	cargo-parity-003	2217	1570 (-29.18 %)	2206 (-0.50 %)	1735	1729 (-0.35 %)	1709 (-1.50 %)	the band -35 px: www's empty paragraph before the last line (24 + 20 px; empty paragraphs don't survive publishing)
+-	/en/active-temp-control	390	cargo-parity-003 (resized)	-	1302	1302 (unchanged)	-	742 (unchanged)	-	below 1025 px the accordion as before
+HOLD	/en/add-on-services/smartuld	1440	cargo-parity-003	2578	1468 (-43.06 %)	2418 (-6.21 %)	2096	1941 (-7.40 %)	1921 (-8.35 %)	the panel's text and picture as www's (its headings within 21 px); www's panel ends with an empty paragraph, an empty heading and an empty paragraph (164 px, empty elements don't survive publishing): the band less those -1.72 %
+-	/en/add-on-services/smartuld	390	cargo-parity-003 (resized)	-	1176	1176 (unchanged)	-	616 (unchanged)	-	below 1025 px the accordion as before
+READY	/en/airmail	1440	cargo-parity-003	2068	1570 (-24.08 %)	2072 (+0.19 %)	1586	1595 (+0.57 %)	1575 (-0.69 %)	as www to 20 px in the band
+-	/en/airmail	390	cargo-parity-003 (resized)	-	1326	1326 (unchanged)	-	766 (unchanged)	-	below 1025 px the accordion as before
+READY	/en/dangerous-goods	1440	cargo-parity-003	2121	1570 (-25.98 %)	2154 (+1.56 %)	1639	1677 (+2.32 %)	1657 (+1.10 %)	the band +9 px; above it our intro 9 px taller (as served before)
+-	/en/dangerous-goods	390	cargo-parity-003 (resized)	-	1302	1302 (unchanged)	-	742 (unchanged)	-	below 1025 px the accordion as before
+HOLD	/en/emergency	1440	cargo-parity-003	2431	1492 (-38.63 %)	2391 (-1.65 %)	1949	1914 (-1.80 %)	1894 (-2.82 %)	the page within 2 %, the band end -2.82 %: from the tab bar to "Money-back Guarantee" ours is within 4 px of www's; after it www's empty paragraph (24 + 20 px) and its note in four lines (ours three) are the -64 px
+-	/en/emergency	390	cargo-parity-003 (resized)	-	1224	1224 (unchanged)	-	664 (unchanged)	-	below 1025 px the accordion as before
+HOLD	/en/eservices-app	1440	cargo-parity-003	3289	3133 (-4.74 %)	3420 (+3.98 %)	2807	2943 (+4.85 %)	2336 (-16.78 %)	the tab band within 9 px of www's (www 577 px from its tab bar to the FAQ heading, ours 586); above it the app section +164 px (our two store badges, 120 x 37 px pictures, drawn 95 px tall side by side, and the benefits block), and the FAQ -37: not the tab set
+-	/en/eservices-app	390	cargo-parity-003 (resized)	-	2966	2966 (unchanged)	-	2406 (unchanged)	-	below 1025 px the accordion as before
+READY	/en/eservices/efreight	1440	cargo-parity-003	1893	1640 (-13.37 %)	1908 (+0.79 %)	1411	1431 (+1.42 %)	1411 (+0.00 %)	the band end as www's to the px; the grid's cards 33 px lower (the tab bar 33 px lower: the page's intro above it)
+-	/en/eservices/efreight	390	cargo-parity-003 (resized)	-	1561	1561 (unchanged)	-	1001 (unchanged)	-	below 1025 px the accordion as before
+READY	/en/general-cargo	1440	cargo-parity-003	1758	1570 (-10.69 %)	1782 (+1.37 %)	1276	1305 (+2.27 %)	1285 (+0.71 %)	the band as www's to the px; above it our intro 9 px taller
+-	/en/general-cargo	390	cargo-parity-003 (resized)	-	1302	1302 (unchanged)	-	742 (unchanged)	-	below 1025 px the accordion as before
+HOLD	/en/live-animals	1440	cargo-parity-003	2289	1846 (-19.35 %)	2234 (-2.40 %)	1807	1757 (-2.77 %)	1737 (-3.87 %)	the band -23 px (-3.25 %); above it the intro's update note -95 px (www draws it between two rules, a 1 px line with 20 px under it above the update heading and above "Please note", in a card 10 px down; a rule inside a section is a section break in our documents): not the tab set
+-	/en/live-animals	390	cargo-parity-003 (resized)	-	1770	1770 (unchanged)	-	1210 (unchanged)	-	below 1025 px the accordion as before
+#
+# DA change, per document (en only; the de documents of these pages are not recorded and keep their accordion):
+#   /en/active-temp-control: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table ["Active Temp Control for a temperature-co" to "Make sure shipments that need a consiste" | its picture]
+#   /en/add-on-services/smartuld: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table ["Enhanced safety, operational efficiency " to "Exclusive access to our Pharma Control T" | its picture]
+#   /en/airmail: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table ["Speed and reliability for Airmail" to "Have important mail deliveries reach the" | its picture]
+#   /en/dangerous-goods: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table ["The safe way for your Dangerous Goods" to "We transport your cargo responsibly unde" | its picture]
+#   /en/emergency: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table ["Your absolute-priority service with Mone" to "Please note: The General Terms and Condi" | its picture]; one-row table ["Want to know more?" to "Whenever it needs to go: Our schedule Wh" | its picture]
+#   /en/eservices-app: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table [its picture | "Your shipment details at hand" to "Has your shipment been delivered at the "]; one-row table [its picture | "Your next shipment options" to "Do you have a transportation demand? The"]; one-row table [its picture | "Your opinion is important to us" to "Nobody can assess our performance better"]
+#   /en/eservices/efreight: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table [its picture, then up to "The electronic air waybill." (with its picture) | its picture, then up to "Paperless consignments without accompany" (with its picture) | its picture, then up to "The electronic consignment security decl" (with its picture) | its picture, then up to "The electronic house manifest." (with its picture)]; one-row table [its picture, then up to "Electronic document check before freight" (with its picture) | its picture, then up to "Accelerated freight acceptance and pick-" (with its picture) | its picture, then up to "The air freight industry's new data stan" (with its picture)]
+#   /en/general-cargo: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table ["Our Product for your standard cargo" to "Available for nearly all commodities Ava" | its picture]
+#   /en/live-animals: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table ["Species-appropriate, individualized tran" to "With Lufthansa Cargo, live animals are a" | its picture]
+# Apply after afc18e2f is live (it is the tab bar and panel style; without it the tabs show in the block's base style).
