@@ -822,6 +822,19 @@ body.brand-cargo .carousel-cards.slides .carousel-cards-dots {
   body.brand-lufthansa .carousel-cards.phone-slider.fragment-slides .carousel-cards-dots {
     margin-top: 38px;
   }
+
+  /* and the teaser's text right under its title, the slides' spare height under the text (ours
+     pushed the text down, margin-top auto: "Cash & Miles" 35px lower); the slider ends the page
+     (all 6 documents: miles-and-more in every market): www's footer 80px under the dots, ours 33.
+     Standing order 30: 7.2 / 6.9 / 6.9 / 7.3 -> 5.2 / 5.0 / 5.0 / 5.2 % at 390 (de/en, de/de,
+     at/de, gb/en), 1440 the same */
+  body.brand-lufthansa .carousel-cards.phone-slider.fragment-slides .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) + p {
+    margin-top: 0;
+  }
+
+  body.brand-lufthansa main > .section:last-of-type > .carousel-cards-wrapper:last-child > .carousel-cards.phone-slider.fragment-slides {
+    margin-bottom: 47px;
+  }
 }
 
 /* lufthansa.com on phones: a card grid that ends the page in a padded campaign section

@@ -45,5 +45,12 @@ test('a phone slider of plain teasers, a grid without a swiper copy: as before',
 
 test('lufthansa.com on phones: the fragments\' 30 px above the dots (8 + 30)', () => {
   const css = fs.readFileSync('blocks/carousel-cards/carousel-cards.css', 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
-  assert.ok(css.includes('@media (width < 768px) { body.brand-lufthansa .carousel-cards.phone-slider.fragment-slides .carousel-cards-dots { margin-top: 38px; } }'));
+  assert.ok(css.includes('@media (width < 768px) { body.brand-lufthansa .carousel-cards.phone-slider.fragment-slides .carousel-cards-dots { margin-top: 38px; } '));
+});
+
+/* standing order 30, item 4: the teaser's text under its title (not pushed down by margin-top auto), and the slider
+   that ends the page 47 px above the footer (www's footer 80 px under the dots at 390, ours 33) */
+test('lufthansa.com on phones: the text under the title, the page end under the slider', () => {
+  const css = fs.readFileSync('blocks/carousel-cards/carousel-cards.css', 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ');
+  assert.ok(css.includes('@media (width < 768px) { body.brand-lufthansa .carousel-cards.phone-slider.fragment-slides .carousel-cards-dots { margin-top: 38px; } body.brand-lufthansa .carousel-cards.phone-slider.fragment-slides .carousel-cards-body > :is(h1, h2, h3, h4, h5, h6) + p { margin-top: 0; } body.brand-lufthansa main > .section:last-of-type > .carousel-cards-wrapper:last-child > .carousel-cards.phone-slider.fragment-slides { margin-bottom: 47px; } }'));
 });
