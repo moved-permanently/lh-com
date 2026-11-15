@@ -18,6 +18,10 @@
 # Gate: of the 15 recorded Austrian pages with grid cards, two have NL cards. Both move further from www with the lines, and
 # no card style that draws www's card prevents it (gate-so34-austrian-card-link-lines.txt): their two rows are HOLD. The
 # other 361 documents are not recorded: no height gate.
+# As served after your upload (47614aeb, 02:15 CET; live in batches from ~02:40 to ~03:00 CET): all 361 READY documents
+# fetched again and rendered as served at both widths (www.* and the airline hosts refused and counted, none sent): every
+# card of the list draws its link line, and all 722 page-widths are the draft's height to the px (where your later upload
+# of the text cards' lines reached the same document, plus that list's change). The two HOLD documents are unchanged.
 # Columns: status, DA path (admin.da.live/source/moved-permanently/lh-austrian), the change per card, 1440, 390, www's
 # snapshot archive, note.
 READY	/at/de/airail-zug-und-flug.html	Carousel Cards (grid), card 2 "Mietwagen": a new last paragraph in its text cell, the link "Jetzt ein Auto mieten" to https://cars.cartrawler.com/austrian/de/?clientId=617289; Carousel Cards (grid), card 3 "Online-Check-in": a new last paragraph in its text cell, the link "Zum Online-Check-in" to /at/de/online-check-in	as served 4,345 -> drafted 4,402 px (+57), 2 of 2 link lines drawn	as served 6,579 -> drafted 6,693 px (+114), 2 of 2 link lines drawn	www: austrian-snapshots-003	unrecorded: no height gate

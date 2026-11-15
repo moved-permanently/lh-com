@@ -6336,3 +6336,64 @@ Each width there was its own load, so no capture would change them.
 
 **Capture requests** (capture-requests-ema-cashub.txt): street-food-in-munich 390 added. Everything else above 2 % is a
 widget, a font row or an owner decision, and a capture would not move it.
+
+### After the pushes: your three uploads as served
+
+You uploaded the 361 READY link-line rows (47614aeb, 02:15 CET), then the 299 text cards (83bc3c19, 02:36), then all ten
+accessible-travel rows (83b0f962, 02:40). That makes the two HOLD lists' rows READY, and the files now say so. They went
+live in batches from about 02:40 to 03:00 CET. I fetched each served copy again and rendered it as served at both widths:
+- **Link lines:** all 361 documents. Every listed card draws its line, and all 722 page-widths are their draft's height
+  to the px. On the 148 documents that also got the text cards' lines, the draft's height is plus that list's change.
+  - /at/de/anfrage-gruppenreisen 1440 read -71 px once: that load had no Turnstile challenge. It was rendered again and
+    matched.
+  - The two HOLD documents (healthy-travel, os401crewstory) are unchanged.
+- **Text cards:** all 299 cards have their lines. The 37 documents that have only text-card rows are their drafts to the
+  px (74 page-widths).
+- **accessible-travel:** all 20 page-widths are their drafts to the px. Each has the 11 marks, the three columns (408 px
+  at 1440), the spacer, and no marker shown as text. /at/en: 12,813 / 19,364 px (www 12,859 / 19,409), so 390 is in
+  2 % now (finish-austrian.txt updated).
+- Refused and counted, none sent: 586 in the 722 link-line renders, 376 in the 74 text-card renders, 10 in the 20
+  accessible-travel renders (0 or 1 each).
+
+### Final section (about 03:35 CET, 2026-11-15)
+
+All three items are as far as they can go without the form loads or your decisions, so I stopped here, before 06:00.
+
+**On main:**
+- `822edf8a`: the link-line list, its gate, the capture request, and this report up to item 3.
+- `53bd029a`: the text cards' list and the title-tracking gate.
+- `9b1b3b88` and `654fa089`: accessible-travel's row, then its nine other locales.
+- This commit: your uploads as served (the three lists' headers, finish-austrian.txt) and this section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 in every push round (push-loop5wp, wt-push).
+- **Stylelint:** no theme or block file changed in this order, so there was nothing to run it on.
+- **Folder-reading tests:** the 129 files that read tools/reports, 669 tests, 0 failures, in each first round. Later rounds
+  re-ran the tests that name the files other jobs changed, all green.
+- **Full suite** (the wt worktree, one process per file), 0 failures each time:
+  - `822edf8a`: 1,135 files, 4,379 tests (5 skipped);
+  - `aed7e236`: 1,137 files, 4,387 tests (5 skipped);
+  - `fd74c966` (origin before this commit): 1,139 files, 4,392 tests (5 skipped).
+- No code changed in this order, so there are no new tests.
+
+**For you:**
+- **healthy-travel and os401crewstory's link lines** (2 rows, HOLD). No card style keeps them from moving further: with
+  the lines our cards are www's, and those pages are taller above the cards.
+- **The card titles' tracking at 0 from 768 px:** brings healthy-travel 1440 closer and moves nothing else on the
+  recorded pages. It is part of the rule you ruled out, so it is not shipped and not censused.
+- **travel-id 390 (-2.07 %):** a phone-only spacer would fix it, but it needs a new "below 768 px" marker option.
+- **accessible-travel:** you uploaded it. 1440 is now -0.36 % (from an accidental -0.02 %); the rest there is the door
+  table's empty cells (HOLD).
+- **Captures:** the three form first loads (with the Captures child), then the checkbox label rule; street-food-in-munich
+  390 for Air Dolomiti.
+
+**Rules followed:**
+- **No airline host was requested.** Every render refused www.* and the airline hosts and counted the refusals; none
+  was sent.
+- **The census and the checks after upload** read only austrian.turnsthe.page, each copy once a pass.
+- **DA:** not read (the rows say so), no upload, preview or publish by me, and da-upload.mjs not called.
+- **www's snapshots and recordings** were read as data from their folders; nothing was run from inside them.
+- **The checkout** keeps the other jobs' 88 dirty entries untouched. It was moved with `reset --mixed` after each push,
+  and the count was unchanged each time. Every push went from wt-push.
+
+**Not in git** (scratch under /tmp/so34): the scripts, the served copies, the drafts, the renders and the logs.
