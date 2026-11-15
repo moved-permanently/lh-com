@@ -4707,3 +4707,97 @@ final code: 8c361d6, 71 lh-edge files and 1,162 site files, 0 failing.
        h2 margin). Its headings are limited-width, which 1,752 documents carry; without www's styles I left it.
      - lufthansa-travel-classes at 390: picture crops and sharpness, not layout.
 - Left out of git: logs/b622 (captures, trials, census files), the untracked import reports of earlier runs.
+
+### Standing order 31 (2026-11-15 15:45 to about 18:00 CET)
+
+No uploads, previews or publishes; DA read only; no request to an airline host and no new recordings asked for (all
+measurements on our own host against the existing recordings). `.migration/project.json` untouched; plugins left off.
+Order 30 left nothing uncommitted or unpushed (main was 3 commits behind origin, rebased). Each push: the whole-repo
+lint read 0 on a clean worktree of the rebased HEAD, stylelint passed on the changed block files, and the tests reading
+the changed files passed. Full suite on the final code: 95e93f8 (origin/main with every commit of this order), 72 lh-edge files and 1,173 site files, 0 failing.
+
+1. **lh-edge: a stale page can no longer outlive EDGE_TTL (b684675, deployed).**
+   - **Cause:** aem.live's Last-Modified is the DA edit time, not the publish, and it answers 304 to an If-Modified-Since
+     equal to it (checked on aem.live: no ETag on pages). Cloudflare's fetch cache revalidates an expired copy exactly
+     that way, so an old body held under the new date was renewed by every revalidation.
+   - **Fix (src/edge.js storedFetch):** on hosts with EDGE_TTL, GET/HEAD of pages, .html and .json go to the Cache API,
+     which never asks the origin. A copy lives EDGE_TTL (404: 60 s; other statuses not kept); a miss fetches the whole
+     answer without the visitor's conditions; every answer is whole, so the CDN in front and browsers can't renew a stale
+     copy with a 304 either. The key holds the version, the public host (aem.live varies on X-Forwarded-Host) and the
+     origin URL. Media and code keep the fetch cache; hosts with push invalidation as before.
+   - **Test:** test/edge-stale-under-new-date.test.mjs models Cloudflare's revalidating fetch cache and aem.live's 304.
+     The stale case fails on the old code (the old body after EDGE_TTL) and passes now; lh-edge's 421 tests pass.
+   - **Smoke:** before and after the deploy on all 12 hosts with a baseline: 833 checks, 0 differ. After the deploy,
+     austrian.turnsthe.page answers x-lh-edge-cache miss, then hit, and an If-Modified-Since equal to the DA edit date
+     gets the whole page (200), no longer a 304.
+   - Not covered: media and code still revalidate in the fetch cache (a re-uploaded image or a deploy of code under the
+     same URL could show the same pattern; neither was seen).
+2. **The article captions (77f36f6, pushed as ce36a34): one gap, not 13.**
+   - Read again against DA and the live copies, order 30's 13 were:
+     - allegris-new-york's video caption, in every version: **the gap**. www's video viewer draws its config's caption
+       under the player; columns-media's viewerNodes wrote the poster and the link only;
+     - six other fr/fr Allegris and art-of-flying articles: their captions are in DA, the documents are not published
+       (my census had read our not-found page as their copy);
+     - stop-over-tokyo (4 versions): a parallax image's caption, which www never draws.
+   - **Importer:** on Insights articles viewerNodes writes "<p>caption {caption}</p>" after the video paragraph, from the
+     drawn caption or from the config (a snapshot taken before the player loaded). Test test/article-video-caption-so31
+     (fixtures from the xx/fr and xx/es snapshots); insights bundle rebuilt (it also picks up 4c01054's committed
+     below-768 separator). Fresh offline imports of the three snapshots write it so, 0 requests out.
+   - **Block CSS:** the player's 40 px margin goes when a caption follows, so the caption sits 10 px under it as image
+     captions do (www's video caption has the same .caption rule).
+   - **List:** delta-so31-article-video-caption-lh-com.txt: 3 READY rows (xx/es, xx/fr, fr/fr; text-inserts-apply on
+     DA's current copy, dry run inserted and restorable byte for byte; the draft of xx/fr on our host: the caption 10 px
+     under the player at 1440 and 390, the next paragraph 24 px under it). No version is recorded. 5 HOLD (de/en, de/de,
+     at/de, gb/en, xx/it): no snapshot, so the caption text needs a www load.
+3. **Column view before a grey band: not shipped.** The gate (order 30, finished then): better on arrival-services
+   (9.8 / 10.4 -> 6.7 / 6.8), passenger-rights 390 (8.1 -> 6.0) and special-meals (21.1 / 9.0 -> 19.7 / 4.3); worse on
+   doctor-on-board (+1.4 / +2.7), green-fare (+1.1 / +1.3), star-alliance 1440 (+1.4), tiere-als-uebergepaeck (+0.6 /
+   +1.5) and upgrades-at-online-check-in 1440 (+2.0). Read against www's DOM and the drift steps:
+   - on doctor-on-board, green-fare and star-alliance the rule is right where it acts (it removes exactly the 48 px step
+     at the band); those pages are 50 to 100 px short further down, and our extra gap was hiding it;
+   - on tiere-als-uebergepaeck and upgrades www has components between the view and the band that hold the space; our
+     documents don't carry them, so there the gap is right;
+   - nothing in our documents tells the two kinds apart (neither the band's flush flag, nor how the view closes, nor a
+     column title). A lasting rule needs a mark the importer writes from www ("nothing between the view and the band"),
+     and three of its places pass the whole-page gate only once their other shortfalls are fixed.
+4. **The ranking from 4 % up.**
+   - **Shipped (e3d96ab, pushed as 2e80dbb): the homepage widget "Flight offers from"** (destination-finder without
+     option grid, the 232 market homepages): the trip buttons 20 px lower under the origin, on phones the wrapped heading
+     18 px apart, as www. Gate: /de/en/homepage 7.7 / 9.2 -> 6.4 / 7.4 % at 1440 / 390, the only recorded homepage.
+   - **Tried, not shipped: standalone links (a link alone in its paragraph, 5,262 published documents).** www sets a
+     wrapped link at 24 px a line with the arrow on the first line; ours 27 px, the arrow centred (fleet 359: two
+     three-line PDF links, 38 px of drift).
+     - 24 px lines on 65 recorded page-widths (348 links): 4 better (privacy-statement-group 390 10.0 -> 5.8), 55 the
+       same, 6 worse. The worse ones showed that www's single-line link is as tall as ours (everything after one moved
+       up 3 to 4 px).
+     - 24 px lines plus 1.5 px padding (a single line 27 px as today, three lines 75 as www's), on the 39 page-widths at
+       390 (1440 had not moved): 3 better (privacy-statement-group 10.0 -> 7.9, data-protection-information 5.4 -> 3.9,
+       359 7.8 -> 7.0), 34 the same, 2 worse: agb-extra-services +0.8 (between its list and its last link www leaves
+       80 px, ours 30; the rule takes 3 px more from a place already short) and 320 +0.6 (a two-line link on a page
+       already short). It fails the gate on those two; the rule itself looks right.
+   - **Findings, no rule:**
+     - homepage 390: ours shows the price footnote and "Conditions" under the offers (about 110 px) where the 390
+       recording shows none; www's snapshot has a phone-only Conditions row. The two sources disagree, and order 15 set
+       this up on purpose, so I left it;
+     - the form sub-section titles (order 30) stay held: www keeps an empty legend in untitled sub-sections, and our forms
+       have untitled sub-sections where www has no legend at all, so the space needs a flag in the form definitions;
+     - 320 at 390: after the seat-map slideshow the heading is 32 px high, but the drift is back to 0 a window later, and
+       at 1440 ours runs 45 px low from the same place: no single cause;
+     - www's empty lines (<p>&nbsp;</p>) at the end of a text component, which order 20's importer rule leaves out:
+       as {spacer-49} drafts on the 4 recorded de/en pages, worse on agb-extra-services (1.6 / 6.6 -> 5.5 / 8.9) and the
+       Insights imprint (390 4.5 -> 7.6), the same on europa-tarife-economy-class, better only on traveltricks (20.2 /
+       31.6 -> 13.2 / 28.8). So order 20 was right to leave them out; traveltricks' is its own;
+     - traveltricks (20.2 / 31.6 %): www's "Go to iOS download" / "Go to Android download" buttons (about 150 px at 390)
+       are maui-button-links without an href in the snapshot (www's script sets the store links), so the importer has
+       nothing to write; they need the store URLs from a www load or from you. Also: our arrow before its inline
+       "Lufthansa app" link. www draws that arrow only where the author put the icon in (126 such links in the de/en
+       snapshots, 28 without on 23 pages); a per-link mark would be needed, the gain is small;
+     - articles/tags/allegris (18.3 / 17.6 % at 1440, de/en and de/de): the card grid drifts row by row (-15 to -132 px):
+       the article list's content (www's rewritten 30 October article and its order), not a layout cause;
+     - page ends: www's last grey band meets the footer on most recorded pages (no white on 6 of the 8 measurable at
+       1440), as ours; doctor-on-board's 56 px of white is its own. data-collection-canada ends 41 px early at both
+       widths, while 359 and the faq pages with the same last mark (an outer column view's end) match www.
+- Ended at about 18:00 CET, not 21:00: the ranking's remaining top pages are content or live data (offers, article
+  lists), missing source data (traveltricks' store links), or places where the right rule loses the whole-page gate to
+  other shortfalls (items 3 and 4). The next lever is those shortfalls, with an importer mark for the band case.
+- Left out of git: logs/b631 (captures, trials, census files, DA reads), the untracked import reports of earlier runs.
