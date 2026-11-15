@@ -6985,3 +6985,130 @@ has no row.
 
 **Not in git** (scratch under /tmp/so38): the DA copies read, the drafts, the apply outputs, the code copy, the scripts, the
 renders and the logs.
+
+## Standing order 39 (2026-11-15, from about 17:05 CET)
+
+**Carried over:** nothing of mine was uncommitted or unpushed. Order 38's last commit, `ab410311`, was on origin. The
+checkout's 88 dirty entries belong to other jobs and were left alone (88 again after this order's push).
+
+**Renders:** every render refused lh-proxy, www.* (but www.mynewsdesk.com on Cargo) and every airline host, and counted
+them; none was sent. 291 were refused on Air Dolomiti's pages in the sweep and 146 in the census; 0 on the drafted pages.
+**DA:** read only, 12 single GETs: 5 folder listings (lh-cargo's root, /.token-free-backup/ and three folders under it)
+and 7 documents (eservices-app, partnerships-subsidiaries, eaw, ecsd, ehm and general-terms1 on lh-cargo;
+/de/reisenformationen/schwangere-und-kinder on lh-airdolomiti). I made no upload, preview or publish and did not call
+da-upload.mjs. /de/en/overview-manage has no row.
+
+### Item 1: the backup folder, and the 390 figures
+
+- **The backup folder.** Each Cargo delta list's header now names one: `/.token-free-backup/2026-11-cargo-<list>/<path>.html`,
+  e.g. `/.token-free-backup/2026-11-cargo-so38-panel-empties/` and `/.token-free-backup/2026-11-cargo-so38-onerecord/`
+  (all 7 earlier lists and this order's 2). It is never `/.token-free-backup/2026-11-cargo/`, which holds the token-free
+  pass's rollback copies: smartULD's is among them, and a row's backup would overwrite it.
+  - lh-cargo has no other backup folder (DA read). So I can't tell where your publish child put the backups of
+    live-animals, emergency/smartULD and onerecord. If it used a folder of its own, that folder holds them.
+- **The 390 figures: yours are right.**
+  - **Cause:** my renders ran headless Chrome on Linux, which hints glyph widths, so text runs slightly narrower.
+    Emergency's intro paragraph ("A trusted solution for critical situations ...") ends 1 px short of its box at 390.
+    With hinted text it stays on three lines; with unhinted text it takes a fourth.
+  - **Check:** launched with `--font-render-hinting=none`, emergency measures 1,248, efreight 1,585 and terms-of-use
+    5,442 (each +24, 1440 unchanged). Viewport height, consent, lazy pictures, device scale, a scroll-through, locale
+    and the web fonts each left emergency at 1,224.
+  - **Why unhinted is right:** it is how your checks and desktop browsers draw the page, and how www's recordings were
+    laid out. Air Dolomiti's three fleet pages at 1440 come to within 0.1 % of www (/en/fleet 4,271 -> 4,308, www 4,307).
+  - **What moves:** all 192 page-widths measured again (sweep-so39-unhinted-airdolomiti-cargo.txt): 42 move (Air
+    Dolomiti 30, 23 of them closer to www; Cargo 12, all at 390). No Cargo 1440 row moves, so every READY row's 1440 gate
+    stands.
+  - **The 2 % line:** crossed by 8 rows. Now within: AD /de/buchung 390, AD /de/reiseziele/basel-de 390, Cargo
+    /de/ci/sustainable-development-goals 390. Now over: AD /de/reisenformationen/sitzplatzreservierung 390 (+2.68 %) and
+    Support & Contact 390 (en, de and the two feedback paths: +3.07 / +3.06 %, +44 px). Support & Contact is unchanged
+    by this order.
+  - From now on all my figures are unhinted. The lists keep their earlier figures; the sweep file gives each one's
+    unhinted value.
+
+### Items 2 and 3: lost words and links (delta-so39-cargo-airdolomiti-lost-content.txt)
+
+- **The census** (sweep-so39-lost-content-census.txt): the 98 recorded Cargo and Air Dolomiti page paths, newest 1440
+  recording each, read as data. Each was compared with our page as rendered: the whole DOM's text, closed panels
+  included, and every link. It leaves out site chrome, scripts, OneTrust and www's hidden elements.
+  - Most flagged items are not losses: www's CMS component names ("RMS-Assets - Referenz"), widgets from www's services
+    (Cargo's booking, tracking, station finder, news and contact form; Air Dolomiti's booking box, chat and flash
+    teaser), www's duplicate mobile copies, language-less or anchor links, and one value www changed after our import.
+  - **Three pages lack words or links:**
+    - **eservices-app:** the app text ("App-solutely mobile", "Lufthansa Cargo eServices" and its paragraph), both
+      badges' store links, and the "FAQ" heading;
+    - **/en/ci/partnerships-subsidiaries:** the three partner tiles' links (Global, Premium and Business Partner) in the
+      closed "The program" item;
+    - **Air Dolomiti /de/reisenformationen/schwangere-und-kinder:** two paragraphs of the child seat item, with their
+      "Kundenservice" link.
+- **The rows:** text inserts on DA's copies with the existing text-inserts-apply.mjs and two .json files
+  (delta-so39-cargo-lost-content.json, delta-so39-airdolomiti-lost-content.json). All READY.
+  - Dry run on DA's copies: every insert placed. Removing the inserts gives DA's copy back byte for byte, and a second
+    run reports every insert as already there. Each result carries its draft's words, links and headings.
+  - The census run on each rendered draft finds every lost item.
+  - The control equals live at both widths. Partnerships and schwangere-und-kinder keep their height, because the
+    words are in closed items.
+- **Badge sizing, row 2 (`8a85d6f8`):** a Cargo rule keyed on links to Google Play's and the App Store's pages, not on
+  alt text. It draws each badge at its own size, side by side: 120 x 37 and 120 x 36, 24 px apart, as www's recorded
+  picture shows.
+  - No Cargo document has such a link today, so the rule draws nothing until row 1 is applied. Served from the
+    checkout's code, eservices-app, airmail, Support & Contact, home and de eservices-app measured unchanged to the px at
+    both widths.
+  - Apply row 1 after this rule is live. Without the rule the badges would be the block's linked pictures: 358 x 110
+    on phones, stacked.
+  - eservices-app at 1440 with both rows: 3,190 (www 3,289; as served 3,133). The rest is parity, not loss: the tab set
+    and our repeated title.
+- **Not recorded:** de eservices-app lost the same app section in the import, but no recording or snapshot has its
+  German words.
+
+### Item 4: the eFreight trail and general-terms1 (delta-so39-cargo-efreight-legal-scoped.txt)
+
+- **Scoped by documents, no code**, so Support & Contact, terms-of-use and every other page keep what they have. The
+  spacing is the documents' own `{spacer-N from-768}` paragraphs, which draw nothing on phones.
+  - These spacers (18, 20 and 38 px) need an upload without the marker collapse, as order 38's spacers had, or a check
+    of the served copy afterwards.
+- **ecsd and ehm: READY.** so37's trail plus `{spacer-18 from-768}` before the title puts the title at 191 px, where
+  www's is.
+  - ecsd: 1,319 (-1.79 %), footer -2.21 %.
+  - ehm: 1,318 (+1.85 %), footer +3.57 %. Both pass so37's gate, which is the page and the title.
+- **eaw: HOLD.** The title is right (1,480, -9.81 %), but the media cell's stacked pictures are still missing.
+- **general-terms1: READY.** Step 1 is order 38's Template row. Step 2 adds so37's Columns Media row, `{spacer-20 from-768}`
+  after the title and `{spacer-38 from-768}` after the block: 1,124 (www 1,129, -0.44 %), footer 647 (www 647).
+  - At 390 it is as served (1,470).
+
+### Final section (about 18:30 CET, 2026-11-15)
+
+All four items are done, so I stopped here, before 21:00. What is left needs your word, new recordings, or an upload.
+
+**On main:**
+- `8a85d6f8`: the badge rule, the two delta lists' rows and their three .json, the census and unhinted sweep, the backup folder
+  lines, the finish lists' notes and the test;
+- this commit: this report, and three DA read times corrected in the lists' headers.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 in the clean worktree before the push.
+- **Stylelint:** exit 0 on styles/themes/cargo.css.
+- **Tests on the push:** the 82 test files that name the report folder, the Cargo theme or the apply tool: 293 tests,
+  0 failures.
+- **New test:** test/cargo-lost-content-so39.test.mjs, red on origin's main before the commit (5 of 5 failing) and
+  green after.
+- **Full suite:** the wt worktree, one process per file, on 8a85d6f8: 1,175 files, 4,513 tests, 0 failures, 5 skipped.
+
+**For you:**
+- **Ready to apply (DA rows, none uploaded by me):**
+  - eservices-app's row 1, after `8a85d6f8` is live;
+  - partnerships-subsidiaries;
+  - Air Dolomiti's schwangere-und-kinder;
+  - ecsd and ehm;
+  - general-terms1 (both steps).
+- **Backups:** each list names its backup folder.
+- **Findings:**
+  - Support & Contact 390 and AD sitzplatzreservierung 390 are over 2 % unhinted.
+  - de eservices-app needs its German app text from a recording.
+- **Captures:** none requested.
+
+**Rules followed:** no request to an airline host (refused and counted as above, none sent); DA read only, 12 single
+GETs; no upload, preview, publish or da-upload.mjs; www's recordings read as data; the checkout's 88 dirty entries
+untouched; /de/en/overview-manage has no row.
+
+**Not in git** (scratch under /tmp/so39): the DA copies read, the drafts, the apply outputs, the scripts, the renders and
+the logs.
