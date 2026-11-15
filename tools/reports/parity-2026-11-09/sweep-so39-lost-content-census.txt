@@ -1,0 +1,629 @@
+# ema-cashub, standing order 39 (2026-11-15), item 3: words and links of every recorded Cargo and Air Dolomiti page that our served page lacks, as the census found them (method: delta-so39-cargo-airdolomiti-lost-content.txt's header). One block per page: the counts, then each flagged segment (T, with the share of its 20-letter windows found in ours), link (L) and link ours has fewer times (F).
+# Verdict per page: LOSS = rowed in delta-so39-cargo-airdolomiti-lost-content.txt; else every flagged item is one of the header's kinds that are not a loss (CMS component names, widgets from www's services, www's duplicate mobile copies, language-less or anchor links, values changed after our import); each kind checked in www's markup on at least one page (the CMS names, widget and chat texts are the same strings on every page they flag). Support & Contact's topic texts ("Get in touch with us, if you need assistance ...") are www's contact widget's topic picker, which ours draws as its own tabs (item 4 keeps that page as it is).
+#
+not a loss	airdolomiti	/	airdolomiti-parity-001	2 segments (9 words) and 0 links missing
+	T 0.00 Per maggiori informazioni, consulta la pagina dedicata.
+	T 0.00 Arrivo a
+none flagged	airdolomiti	/articoli	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/articoli/destinazioni/dove-ladriatico-si-fa-selvaggio	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/assistenza	airdolomiti-parity-007	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/bagagli	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+not a loss	airdolomiti	/de	airdolomiti-parity-001	1 segments (9 words) and 0 links missing
+	T 0.00 Für weitere Informationen besuchen Sie bitte die entsprechende Seite.
+none flagged	airdolomiti	/de/artikel	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/de/artikel/reiseziele/die-wilde-seite-der-adria	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/de/bearbeitung-ihrer-buchungen	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/de/betreuung	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/de/buchung	airdolomiti-parity-007	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/de/dienstleistungen-an-bord/unterhaltung-an-bord	airdolomiti-parity-005	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/de/flotte	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/de/fluege-in-europa	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+not a loss	airdolomiti	/de/flug-status	airdolomiti-parity-002	5 segments (36 words) and 0 links missing
+	T 0.00 Wir sind jetzt online – Brauchen Sie Hilfe? Um mit einem Mitarbeiter verbunden zu werden, klicken Sie auf den Button “Chat”
+	T 0.00 13:17:33
+	T 0.00 [en]Operator is typing...[it]L'operatore sta scrivendo...
+	T 0.00 Select file
+	T 0.00 Powered by Engagent
+none flagged	airdolomiti	/de/flugplan	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/de/gepaeck	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+LOSS	airdolomiti	/de/reisenformationen/schwangere-und-kinder	airdolomiti-parity-002	7 segments (108 words) and 0 links missing
+	T 0.04 Wenn Sie für Ihr Baby (0-2 Jahre) einen eigenen Sitzplatz buchen möchten, wenden Sie sich bitte an unser Kundenservice. In diesem Fall wird der Child-Tarif angewendet. Wenn Ihr Kind unter 2 Jah
+	T 0.00 Aus Sicherheitsgründen sind Buchungen für Kleinkinder (unter 2 Jahren) mit eigenem Sitzplatz in der Business-Class auf Flügen von Air Dolomiti nicht möglich.
+	T 0.00 Wir sind jetzt online – Brauchen Sie Hilfe? Um mit einem Mitarbeiter verbunden zu werden, klicken Sie auf den Button “Chat”
+	T 0.00 13:17:42
+	T 0.00 [en]Operator is typing...[it]L'operatore sta scrivendo...
+	T 0.00 Select file
+	T 0.00 Powered by Engagent
+none flagged	airdolomiti	/de/reisenformationen/sitzplatzreservierung	airdolomiti-parity-007	0 segments (0 words) and 0 links missing
+not a loss	airdolomiti	/de/reisenformationen/tiere-an-bord	airdolomiti-parity-002	5 segments (36 words) and 0 links missing
+	T 0.00 Wir sind jetzt online – Brauchen Sie Hilfe? Um mit einem Mitarbeiter verbunden zu werden, klicken Sie auf den Button “Chat”
+	T 0.00 13:17:51
+	T 0.00 [en]Operator is typing...[it]L'operatore sta scrivendo...
+	T 0.00 Select file
+	T 0.00 Powered by Engagent
+none flagged	airdolomiti	/de/reiseziele	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+not a loss	airdolomiti	/de/reiseziele/bari-de	airdolomiti-parity-004	0 segments (0 words) and 0 links missing
+	F own/de/reiseziele/bari-de/was-machen  www 2x, ours 1x
+	F own/de/reiseziele/bari-de/was-sehen  www 2x, ours 1x
+	F own/de/reiseziele/bari-de/was-essen  www 2x, ours 1x
+none flagged	airdolomiti	/de/reiseziele/basel-de	airdolomiti-parity-005	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/de/unsere-dienste/lounge-zutritt	airdolomiti-parity-007	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/de/unterstutzung-und-kontakte	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+not a loss	airdolomiti	/destinazioni	airdolomiti-parity-001	1 segments (2 words) and 0 links missing
+	T 0.00 Arrivo a
+not a loss	airdolomiti	/destinazioni/monaco-di-baviera	airdolomiti-parity-001	1 segments (2 words) and 1 links missing
+	T 0.00 Arrivo a
+	F own/destinazioni/monaco-di-baviera/cosa-fare  www 2x, ours 1x
+	F own/destinazioni/monaco-di-baviera/cosa-vedere  www 2x, ours 1x
+	F own/destinazioni/monaco-di-baviera/cosa-mangiare  www 2x, ours 1x
+	L own/de/destinazioni  <- "destinazioni"
+not a loss	airdolomiti	/en	airdolomiti-parity-001	2 segments (11 words) and 0 links missing
+	T 0.00 For more information, please refer to the dedicated page.
+	T 0.00 Departure from
+none flagged	airdolomiti	/en/articles	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+not a loss	airdolomiti	/en/articles/destinations/street-food-in-munich	airdolomiti-parity-002	6 segments (32 words) and 0 links missing
+	T 0.00 Reading time: 4 minutes
+	T 0.00 We are online – How can we assist you? To chat with an agent, click the following key
+	T 0.00 13:18:13
+	T 0.00 Operator is typing...
+	T 0.00 Select file
+	T 0.00 Powered by Engagent
+none flagged	airdolomiti	/en/articles/destinations/where-the-adriatic-becomes-wild	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/en/articles/dyk/airports-designed-by-archistars	airdolomiti-parity-007	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/en/assistance	airdolomiti-parity-007	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/en/baggage	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+not a loss	airdolomiti	/en/booking	airdolomiti-parity-001	1 segments (2 words) and 0 links missing
+	T 0.00 Departure from
+not a loss	airdolomiti	/en/destinations	airdolomiti-parity-002	7 segments (31 words) and 0 links missing
+	T 0.00 Departure from
+	T 0.00 Help
+	T 0.00 We are online – How can we assist you? To chat with an agent, click the following key
+	T 0.00 13:17:10
+	T 0.00 Operator is typing...
+	T 0.00 Select file
+	T 0.00 Powered by Engagent
+not a loss	airdolomiti	/en/destinations/bari	airdolomiti-parity-001	1 segments (2 words) and 0 links missing
+	T 0.00 Departure from
+	F own/en/destinations/bari/what-to-do  www 2x, ours 1x
+	F own/en/destinations/bari/what-to-see  www 2x, ours 1x
+	F own/en/destinations/bari/what-to-eat  www 2x, ours 1x
+not a loss	airdolomiti	/en/destinations/florence/what-to-see	airdolomiti-parity-002	6 segments (29 words) and 0 links missing
+	T 0.00 Help
+	T 0.00 We are online – How can we assist you? To chat with an agent, click the following key
+	T 0.00 13:18:02
+	T 0.00 Operator is typing...
+	T 0.00 Select file
+	T 0.00 Powered by Engagent
+not a loss	airdolomiti	/en/destinations/london-eu	airdolomiti-parity-005	1 segments (2 words) and 0 links missing
+	T 0.00 Departure from
+	F own/en/destinations/london-eu/what-to-do  www 2x, ours 1x
+	F own/en/destinations/london-eu/what-to-see  www 2x, ours 1x
+none flagged	airdolomiti	/en/fleet	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+not a loss	airdolomiti	/en/flight-timetables	airdolomiti-parity-001	1 segments (3 words) and 0 links missing
+	T 0.00 Book your flight
+not a loss	airdolomiti	/en/flights-europe	airdolomiti-parity-001	1 segments (2 words) and 0 links missing
+	T 0.00 Departure from
+none flagged	airdolomiti	/en/manage-flight-booking	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/en/services-on-board/in-flight-entertainment-system	airdolomiti-parity-008	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/en/services/lounges	airdolomiti-parity-007	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/en/support-and-contacts	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/en/travel-info/seat-reservation	airdolomiti-parity-007	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/flotta	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/gestione-prenotazione-volo	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/informazioni-per-il-viaggio/prenotazione-del-posto	airdolomiti-parity-007	0 segments (0 words) and 0 links missing
+not a loss	airdolomiti	/orario-voli	airdolomiti-parity-001	1 segments (4 words) and 0 links missing
+	T 0.00 Prenota il tuo volo
+not a loss	airdolomiti	/prenotazioni	airdolomiti-parity-001	1 segments (2 words) and 0 links missing
+	T 0.00 Arrivo a
+none flagged	airdolomiti	/servizi-a-bordo/sistema-di-intrattenimento-a-bordo	airdolomiti-parity-006	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/servizi/parcheggi-convenzionati	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+none flagged	airdolomiti	/supporto-e-contatti	airdolomiti-parity-001	0 segments (0 words) and 0 links missing
+not a loss	airdolomiti	/voli-europa	airdolomiti-parity-001	1 segments (2 words) and 0 links missing
+	T 0.00 Arrivo a
+not a loss	cargo	/de/ci/facts-figures	cargo-parity-001	8 segments (16 words) and 1 links missing
+	T 0.00 RMS-Assets - Referenz
+	T 0.00 FactsFigures-Header
+	T 0.00 FactsFigures-Slider
+	T 0.00 FactsFigures-Image & +List
+	T 0.00 lorem
+	T 0.00 FactsFigures-History
+	T 0.00 Previous
+	T 0.00 Social-Compliance
+	F doc:2025-facts-figures-de  www 2x, ours 1x
+	L dr-buchert@dr-buchert.de  <- "Dr. Buchert Rechtsanwaltsgesellschaft mbH Tel: +49 69 710 33"
+none flagged	cargo	/de/ci/newsroom	cargo-parity-001	0 segments (0 words) and 0 links missing
+not a loss	cargo	/de/ci/sustainable-development-goals	cargo-parity-001	3 segments (15 words) and 0 links missing
+	T 0.00 RMS-Assets - Referenz
+	T 0.00 env report - Die Agenda Duplikat 1
+	T 0.00 env report - icon collapsible Duplikat 1
+not a loss	cargo	/de/ci/whats-up-now	cargo-parity-001	6 segments (17 words) and 0 links missing
+	T 0.00 RMS-Assets - Referenz
+	T 0.00 LCAGCP-Home - Header
+	T 0.00 LCAGCP-Tiles 1
+	T 0.00 LCAGCP-Tiles 2
+	T 0.00 LCAGCH-Tiles
+	T 0.00 LCAGCP-Tiles 3
+not a loss	cargo	/de/ebooking-info	cargo-parity-001	2 segments (37 words) and 1 links missing
+	T 0.00 Hier wird ein externer Medieninhalt blockiert. Beim Laden oder Abspielendes eingebetteten Medieninhalts werden Verbindungen zu den Servern desjeweiligen Anbieters hergestellt. Dabei kÃ¶nnen dem
+	T 0.00 Inhalte trotzdem anzeigen
+	L own/de/footer/bottomnav/privacy  <- "Hier wird ein externer Medieninhalt blockiert. Beim Laden od"
+none flagged	cargo	/de/fleet-ulds/fleet	cargo-parity-001	0 segments (0 words) and 0 links missing
+not a loss	cargo	/de/home	cargo-parity-001	158 segments (287 words) and 2 links missing
+	T 0.00 Home Slider RD New
+	T 0.00 Homepage Service Widget RD New
+	T 0.00 Ursprungsflughafen
+	T 0.00 remove
+	T 0.00 Bitte geben Sie einen gültigen Ursprungsflughafen an
+	T 0.00 Ursprungs- und Zielflughafen dürfen nicht identisch sein
+	T 0.00 Zielflughafen
+	T 0.00 Bitte geben Sie einen gültigen Zielflughafen an
+	T 0.00 Air waybill Nummer
+	T 0.00 Bitte geben Sie eine gültige 8-stellige AWB Nummer ein
+	T 0.00 Buchung updaten
+	T 0.00 Bitte geben Sie ein gültiges AWB-Präfix ein
+	T 0.00 Please enter a valid 8 digit AWB number
+	T 0.00 Meine Shipments
+	T 0.00 Routing Offer Homepage.
+	T 0.00 Entfernen
+	T 0.00 Speed Optionen
+	T 0.00 Nur Frachter und Trucks
+	T 0.00 Erhalten Sie detaillierte Informationen zum Flugplan
+	T 0.00 Route suchen
+	T 0.00 Maps Of Network
+	T 0.00 Search Station
+	T 0.00 airport code
+	T 0.00 Airport
+	T 0.00 Produkte importieren
+	T 0.00 Produkte exportieren
+	T 0.00 Transportmittel
+	T 0.00 Home Tile Latest News WebContent
+	T 0.00 Pressemitteilung - 23 OCT 26 | 10:30
+	T 0.00 GlobeCross eröffnet neuen Hauptsitz in Frankfurt
+	T 0.00 Home_page_Infrastructure_Tab_Content
+	T 0.00 Fleet Landing Page
+	T 0.00 Our Product landing tile content New
+	T 0.00 eServices Carousal
+	T 0.00 Uld Landing Page
+	T 0.00 Home_page_About_Section_Webcontent
+	T 0.00 Albania
+	T 0.00 Algeria
+	T 0.00 Angola
+	T 0.00 Argentina
+	T 0.00 Armenia
+	T 0.00 Australia
+	T 0.00 Austria
+	T 0.00 Azerbaijan
+	T 0.00 Bahrain
+	T 0.00 Bangladesh
+	T 0.00 Barbados
+	T 0.00 Belarus
+	T 0.00 Belgium
+	T 0.00 Benin
+	T 0.00 Bosnia and Herzegovina
+	T 0.00 Brazil
+	T 0.00 Bulgaria
+	T 0.00 Burkina Faso
+	T 0.00 Burundi
+	T 0.00 Cameroon
+	T 0.00 Canada
+	T 0.00 Chile
+	T 0.00 China
+	T 0.00 Colombia
+	T 0.00 Costa Rica
+	T 0.00 Cote d'Ivoire
+	T 0.00 Croatia
+	T 0.00 Cyprus
+	T 0.00 Czech Republic
+	T 0.00 DR Congo
+	T 0.00 Denmark
+	T 0.00 Dominican Republic
+	T 0.00 Ecuador
+	T 0.00 Egypt
+	T 0.00 Equatorial Guinea
+	T 0.00 Estonia
+	T 0.00 Ethiopia
+	T 0.00 Finland
+	T 0.00 France
+	T 0.00 Gambia
+	T 0.00 Georgia
+	T 0.00 Germany
+	T 0.00 Ghana
+	T 0.00 Greece
+	T 0.00 Guinea
+	T 0.00 Hungary
+	T 0.00 Iceland
+	T 0.00 India
+	T 0.00 Indonesia
+	T 0.00 Iran
+	T 0.00 Iraq
+	T 0.00 Ireland
+	T 0.00 Israel
+	T 0.00 Italy
+	T 0.00 Jamaica
+	T 0.00 Jordan
+	T 0.00 Kazakhstan
+	T 0.00 Kenya
+	T 0.00 Korea, Republic of
+	T 0.00 Kosovo
+	T 0.00 Kuwait
+	T 0.00 Latvia
+	T 0.00 Libanon
+	T 0.00 Liberia
+	T 0.00 Lithuania
+	T 0.00 Luxembourg
+	T 0.00 Macedonia
+	T 0.00 Malaysia
+	T 0.00 Maldives
+	T 0.00 Malta
+	T 0.00 Mauritius
+	T 0.00 Mexico
+	T 0.00 Moldova, Republic of
+	T 0.00 Montenegro
+	T 0.00 Morocco
+	T 0.00 Namibia
+	T 0.00 Netherlands
+	T 0.00 Nicaragua
+	T 0.00 Nigeria
+	T 0.00 Norway
+	T 0.00 Oman
+	T 0.00 Pakistan
+	T 0.00 Peru
+	T 0.00 Poland
+	T 0.00 Portugal
+	T 0.00 Qatar
+	T 0.00 Romania
+	T 0.00 Russian Federation
+	T 0.00 Rwanda
+	T 0.00 Saudi Arabia
+	T 0.00 Senegal
+	T 0.00 Serbia
+	T 0.00 Seychelles
+	T 0.00 Sierra Leone
+	T 0.00 Singapore
+	T 0.00 Slovakia
+	T 0.00 Slovenia
+	T 0.00 South Africa
+	T 0.00 Spain
+	T 0.00 Sri Lanka
+	T 0.00 Sweden
+	T 0.00 Switzerland
+	T 0.00 Taiwan, Province of China
+	T 0.00 Tanzania
+	T 0.00 Thailand
+	T 0.00 Togo
+	T 0.00 Tunisia
+	T 0.00 Turkey
+	T 0.00 Uganda
+	T 0.00 Ukraine
+	T 0.00 United Arab Emirates
+	T 0.00 United Kingdom
+	T 0.00 United States
+	T 0.00 Uruguay
+	T 0.00 Uzbekistan
+	T 0.00 Vietnam
+	T 0.00 BUP
+	T 0.00 Emergency w or w/o (DGR)
+	T 0.00 Valuables w or w/o (DGR)
+	T 0.00 Frachtflugzeug
+	T 0.00 Passagierflugzeug
+	T 0.00 Lkw
+	L own/de/eservices/etracking/tracking/-/my-shipments  <- "Meine Shipments"
+	L own/de/newsroom  <- "Mehr lesen"
+none flagged	cargo	/de/industries-in-focus	cargo-parity-001	0 segments (0 words) and 0 links missing
+not a loss	cargo	/de/news/142-arktische-temperaturen-an-bord	cargo-parity-001	1 segments (2 words) and 2 links missing
+	T 0.00 Asset-Herausgeber
+	F www.boehringer-ingelheim.com/  www 2x, ours 1x
+	F www.dsv.com/  www 2x, ours 1x
+	F www.va-q-tec.com/  www 2x, ours 1x
+	L own/de/ci/transport-stories-details/-/asset_publisher/h8t9hoen2lpd  <- ""
+	L own/de/transport-stories  <- "Transport Stories Home"
+not a loss	cargo	/de/notification-overview	cargo-parity-001	2 segments (5 words) and 0 links missing
+	T 0.00 Notification Overview Banner
+	T 0.00 Asset-Herausgeber
+not a loss	cargo	/de/support-and-contact	cargo-parity-001	46 segments (190 words) and 1 links missing
+	T 0.00 Topic search
+	T 0.00 false
+	T 0.00 true
+	T 0.00 Technical support / Issue with a particular service
+	T 0.00 p_p_id=com_lhcargo_eportal_register_company_account&p_p_lifecycle=0&p_p_state=normal
+	T 0.00 p_p_id=com_liferay_login_web_portlet_LoginPortlet&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_com_liferay_login_web_portlet_LoginPortlet_mvcRenderCommandName=%2Flogin%2Fcreate_account&sa
+	T 0.00 p_p_id=com_liferay_login_web_portlet_LoginPortlet&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_com_liferay_login_web_portlet_LoginPortlet_mvcRenderCommandName=%2Flogin%2Fforgot_userid
+	T 0.00 p_p_id=com_liferay_login_web_portlet_LoginPortlet&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_com_liferay_login_web_portlet_LoginPortlet_mvcRenderCommandName=%2Flogin%2Fforgot_password
+	T 0.00 reason=Missing documents
+	T 0.00 reason=Missing cargo
+	T 0.00 reason=Offload
+	T 0.00 reason=Damaged cargo
+	T 0.00 reason=Return of Shipment
+	T 0.00 Get in touch with us, if you need assistance with one of the following services or functions on lufthansa-cargo.com.
+	T 0.00 Please sign in to access the platform's full functionality.
+	T 0.00 Company name
+	T 0.00 First name
+	T 0.00 Last name
+	T 0.00 Phone
+	T 0.00 optional
+	T 0.00 Email
+	T 0.00 Country of origin
+	T 0.00 Reason for contact
+	T 0.00 Subreason
+	T 0.00 AWB number
+	T 0.00 Please provide details of your request Optional
+	T 0.00 Specify your request
+	T 0.00 Drag file(s) here or
+	T 0.00 Browse for a file
+	T 0.00 Valid formats: .pdf, .xls, .doc, .jpg, .jpeg, .png up to 10 MB
+	T 0.00 Uploaded files
+	T 0.00 Send request and reply also to:
+	T 0.00 Email address of recipient
+	T 0.00 Please enter a valid email address
+	T 0.00 Add new
+	T 0.00 Send copy to me
+	T 0.00 CAPTCHA neu laden
+	T 0.00 Enter captcha Erforderlich
+	T 0.00 Submit
+	T 0.00 Station search
+	T 0.00 Contact_Support_Station_Details
+	T 0.00 Show further station details
+	T 0.00 Import
+	T 0.00 Export
+	T 0.00 General station contacts
+	T 0.00 Department
+	F own/de/dashboard  www 11x, ours 5x
+	F own/de/basic-information  www 3x, ours 2x
+	F own/de/profile  www 2x, ours 1x
+	F own/de/register-company-account  www 2x, ours 1x
+	F own/de/home-new  www 8x, ours 4x
+	F own/de/contact-cst  www 10x, ours 8x
+	L +49 (0) 1802/737 737  <- "+49 (0) 1802/737 737"
+not a loss	cargo	/de/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	cargo-parity-001	28 segments (134 words) and 1 links missing
+	T 0.00 Valid formats: .pdf, .xls, .doc, .jpg, .jpeg, .png up to 10 MB
+	T 0.00 Send request and reply also to:
+	T 0.00 Email address of recipient
+	T 0.00 Please enter a valid email address
+	T 0.00 Add new
+	T 0.00 Send copy to me
+	T 0.00 CAPTCHA neu laden
+	T 0.00 Enter captcha Erforderlich
+	T 0.00 Topic search
+	T 0.00 false
+	T 0.00 true
+	T 0.00 p_p_id=com_lhcargo_eportal_register_company_account&p_p_lifecycle=0&p_p_state=normal
+	T 0.00 p_p_id=com_liferay_login_web_portlet_LoginPortlet&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_com_liferay_login_web_portlet_LoginPortlet_mvcRenderCommandName=%2Flogin%2Fcreate_account&sa
+	T 0.00 p_p_id=com_liferay_login_web_portlet_LoginPortlet&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_com_liferay_login_web_portlet_LoginPortlet_mvcRenderCommandName=%2Flogin%2Fforgot_userid
+	T 0.00 p_p_id=com_liferay_login_web_portlet_LoginPortlet&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_com_liferay_login_web_portlet_LoginPortlet_mvcRenderCommandName=%2Flogin%2Fforgot_password
+	T 0.00 reason=Missing documents
+	T 0.00 reason=Missing cargo
+	T 0.00 reason=Offload
+	T 0.00 reason=Damaged cargo
+	T 0.00 reason=Return of Shipment
+	T 0.00 Get in touch with us, if you need assistance with one of the following services or functions on lufthansa-cargo.com.
+	T 0.00 Station search
+	T 0.00 Contact_Support_Station_Details
+	T 0.00 Show further station details
+	T 0.00 Import
+	T 0.00 Export
+	T 0.00 General station contacts
+	T 0.00 Department
+	F own/de/dashboard  www 11x, ours 5x
+	F own/de/basic-information  www 3x, ours 2x
+	F own/de/profile  www 2x, ours 1x
+	F own/de/register-company-account  www 2x, ours 1x
+	F own/de/home-new  www 8x, ours 4x
+	F own/de/contact-cst  www 10x, ours 8x
+	L +49 (0) 1802/737 737  <- "+49 (0) 1802/737 737"
+not a loss	cargo	/en/active-temp-control	cargo-parity-003	15 segments (99 words) and 0 links missing
+	T 0.00 Maps Of Network
+	T 0.00 Search Station
+	T 0.00 airport code
+	T 0.00 Country
+	T 0.00 Remove
+	T 0.00 Station Capability
+	T 0.00 Select options
+	T 0.00 Open for Active Temp. Control
+	T 0.00 Open for Passive Temp. Support
+	T 0.00 IATA CEIV Pharma certified
+	T 0.00 GDP Certified
+	T 0.33 Temperature-controlled Storage, +2°C to +8°C
+	T 0.25 Temperature-controlled Storage, +15°C to +25°C
+	T 0.33 Temperature-controlled Storage, Frozen
+	T 0.00 By using this service, your data will be forwarded to Google. Google is likely to process this data outside the EU in countries with a lower level of data protection, whereby the risk of access
+none flagged	cargo	/en/add-on-services/smartuld	cargo-parity-003	0 segments (0 words) and 0 links missing
+none flagged	cargo	/en/airmail	cargo-parity-003	0 segments (0 words) and 0 links missing
+not a loss	cargo	/en/ci/facts-figures	cargo-parity-002	8 segments (16 words) and 1 links missing
+	T 0.00 RMS-Assets - Referenz
+	T 0.00 FactsFigures-Header
+	T 0.00 FactsFigures-Slider
+	T 0.00 FactsFigures-Image & +List
+	T 0.00 lorem
+	T 0.00 FactsFigures-History
+	T 0.00 Previous
+	T 0.00 Social-Compliance
+	L dr-buchert@dr-buchert.de  <- "Contact details of the Ombudsman: Dr. Buchert Rechtsanwaltsg"
+none flagged	cargo	/en/ci/newsroom	cargo-parity-001	0 segments (0 words) and 0 links missing
+LOSS	cargo	/en/ci/partnerships-subsidiaries	cargo-parity-003	5 segments (11 words) and 0 links missing
+	T 0.00 RMS-Assets - Referenz
+	T 0.33 PartnershipsSubsidiaries-Header
+	T 0.00 lorem
+	T 0.33 PartnershipsSubsidiaries-Customer
+	T 0.20 PartnershipsSubsidiaries-Service companies
+	F own/en/partner  www 7x, ours 4x
+not a loss	cargo	/en/ci/sustainable-development-goals	cargo-parity-001	3 segments (13 words) and 0 links missing
+	T 0.00 RMS-Assets - Referenz
+	T 0.00 LCAGACP - env report - Die Agenda
+	T 0.00 LCAGCP - env report - icon collapsible
+not a loss	cargo	/en/ci/whats-up-now	cargo-parity-001	6 segments (17 words) and 4 links missing
+	T 0.00 RMS-Assets - Referenz
+	T 0.00 LCAGCP-Home - Header
+	T 0.00 LCAGCP-Tiles 1
+	T 0.00 LCAGCP-Tiles 2
+	T 0.00 LCAGCH-Tiles
+	T 0.00 LCAGCP-Tiles 3
+	L own/en/-/berggruen-1  <- "Details"
+	L own/en/-/venus_egypt  <- "Details"
+	L own/en/-/time-travel  <- "More"
+	L own/en/-/munich-philharmonic-orchestra  <- "More"
+not a loss	cargo	/en/dangerous-goods	cargo-parity-003	1 segments (3 words) and 0 links missing
+	T 0.00 Book your flight
+none flagged	cargo	/en/data-protection-notice-google-analytics	cargo-parity-003	0 segments (0 words) and 0 links missing
+not a loss	cargo	/en/eaw	cargo-parity-003	1 segments (3 words) and 0 links missing
+	T 0.00 Book your flight
+none flagged	cargo	/en/ebooking-info	cargo-parity-001	0 segments (0 words) and 0 links missing
+not a loss	cargo	/en/ecsd	cargo-parity-003	1 segments (3 words) and 0 links missing
+	T 0.00 Book your flight
+not a loss	cargo	/en/ehm	cargo-parity-003	1 segments (3 words) and 0 links missing
+	T 0.00 Book your flight
+none flagged	cargo	/en/emergency	cargo-parity-003	0 segments (0 words) and 0 links missing
+LOSS	cargo	/en/eservices-app	cargo-parity-003	3 segments (63 words) and 0 links missing
+	T 0.00 App-solutely mobile
+	T 0.00 Do you want the certainty of knowing where your shipment is at all times, the ease of checking our schedule on the spot or the ability to provide feedback? And do you want to do so conveniently
+	T 0.00 FAQ
+	F play.google.com/store/apps/details  www 2x, ours 1x
+	F apps.apple.com/de/app/lh-cargo/id6469620870  www 2x, ours 1x
+none flagged	cargo	/en/eservices/efreight	cargo-parity-003	0 segments (0 words) and 0 links missing
+none flagged	cargo	/en/fleet-ulds/fleet	cargo-parity-001	0 segments (0 words) and 0 links missing
+not a loss	cargo	/en/fleet-ulds/ulds/containers	cargo-parity-003	1 segments (1 words) and 1 links missing
+	T 0.00 Containers_Accordion
+	L own/en/newsroom  <- "Packaging guidelines"
+none flagged	cargo	/en/footer/bottomnav/terms-of-use	cargo-parity-003	0 segments (0 words) and 0 links missing
+none flagged	cargo	/en/general-cargo	cargo-parity-003	0 segments (0 words) and 0 links missing
+not a loss	cargo	/en/home	cargo-parity-001	36 segments (138 words) and 1 links missing
+	T 0.00 Home Slider RD New
+	T 0.00 Homepage Service Widget RD New
+	T 0.00 Origin
+	T 0.00 remove
+	T 0.00 Please enter an origin or select one from the list.
+	T 0.00 Origin and Destination cannot be same
+	T 0.00 Please enter an destination or select one from the list.
+	T 0.00 Please enter a valid 8-digit AWB number
+	T 0.00 Update booking
+	T 0.00 Please enter a valid AWB prefix
+	T 0.00 Please enter a valid 8 digit AWB numbers
+	T 0.00 Routing Offer Homepage.
+	T 0.00 Speed option
+	T 0.00 Freighter and trucks only
+	T 0.00 Get detailed schedule information
+	T 0.00 Search routes
+	T 0.00 Maps Of Network
+	T 0.00 Search Station
+	T 0.00 airport code
+	T 0.00 Country
+	T 0.00 Airport
+	T 0.00 Import products
+	T 0.00 Export products
+	T 0.00 Means of transport
+	T 0.00 Home Tile Latest News WebContent
+	T 0.00 Press Release - 23 OCT 26 | 10:30
+	T 0.00 GlobeCross Launches New Frankfurt Headquarters
+	T 0.00 Home_page_Infrastructure_Tab_Content
+	T 0.00 Fleet Landing Page
+	T 0.00 Our Product landing tile content New
+	T 0.00 eServices Carousal
+	T 0.00 Uld Landing Page
+	T 0.00 Home_page_About_Section_Webcontent
+	T 0.00 BUP
+	T 0.00 Emergency w or w/o (DGR)
+	T 0.00 Valuables w or w/o (DGR)
+	L own/en/newsroom  <- "Read all news"
+none flagged	cargo	/en/industries-in-focus	cargo-parity-001	0 segments (0 words) and 0 links missing
+none flagged	cargo	/en/live-animals	cargo-parity-003	0 segments (0 words) and 0 links missing
+not a loss	cargo	/en/meta/meta/company/general-terms1	cargo-parity-003	1 segments (5 words) and 0 links missing
+	T 0.00 LHC Tab General Terms_3 WC
+not a loss	cargo	/en/news/142-arctic-temperatures-on-board	cargo-parity-001	1 segments (2 words) and 2 links missing
+	T 0.00 Asset Publisher
+	F www.boehringer-ingelheim.com/  www 2x, ours 1x
+	F www.dsv.com/  www 2x, ours 1x
+	F www.va-q-tec.com/  www 2x, ours 1x
+	L own/en/ci/transport-stories-details/-/asset_publisher/h8t9hoen2lpd  <- ""
+	L own/en/transport-stories  <- "Transport Stories Home"
+not a loss	cargo	/en/notification-overview	cargo-parity-001	2 segments (5 words) and 0 links missing
+	T 0.00 Notification Overview Banner
+	T 0.00 Asset Publisher
+none flagged	cargo	/en/onerecord	cargo-parity-003	0 segments (0 words) and 0 links missing
+not a loss	cargo	/en/support-and-contact	cargo-parity-001	45 segments (188 words) and 1 links missing
+	T 0.00 Topic search
+	T 0.00 false
+	T 0.00 true
+	T 0.00 Technical support / Issue with a particular service
+	T 0.00 p_p_id=com_lhcargo_eportal_register_company_account&p_p_lifecycle=0&p_p_state=normal
+	T 0.00 p_p_id=com_liferay_login_web_portlet_LoginPortlet&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_com_liferay_login_web_portlet_LoginPortlet_mvcRenderCommandName=%2Flogin%2Fcreate_account&sa
+	T 0.00 p_p_id=com_liferay_login_web_portlet_LoginPortlet&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_com_liferay_login_web_portlet_LoginPortlet_mvcRenderCommandName=%2Flogin%2Fforgot_userid
+	T 0.00 p_p_id=com_liferay_login_web_portlet_LoginPortlet&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_com_liferay_login_web_portlet_LoginPortlet_mvcRenderCommandName=%2Flogin%2Fforgot_password
+	T 0.00 reason=Missing documents
+	T 0.00 reason=Missing cargo
+	T 0.00 reason=Offload
+	T 0.00 reason=Damaged cargo
+	T 0.00 reason=Return of shipment
+	T 0.00 Get in touch with us, if you need assistance with one of the following services or functions on lufthansa-cargo.com.
+	T 0.00 Please sign in to access the platform's full functionality.
+	T 0.00 Company name
+	T 0.00 First name
+	T 0.00 Last name
+	T 0.00 Phone
+	T 0.00 optional
+	T 0.00 Email
+	T 0.00 Country of origin
+	T 0.00 Reason for contact
+	T 0.00 Subreason
+	T 0.00 AWB number
+	T 0.00 Please provide details of your request Optional
+	T 0.00 Specify your request
+	T 0.00 Drag file(s) here or
+	T 0.00 Browse for a file
+	T 0.00 Valid formats: .pdf, .xls, .doc, .jpg, .jpeg, .png up to 10 MB
+	T 0.00 Uploaded files
+	T 0.00 Send request and reply also to:
+	T 0.00 Email address of recipient
+	T 0.00 Please enter a valid email address
+	T 0.00 Add new
+	T 0.00 Send copy to me
+	T 0.00 Refresh CAPTCHA
+	T 0.00 Enter captcha Required
+	T 0.00 Station search
+	T 0.00 Contact_Support_Station_Details
+	T 0.00 Show further station details
+	T 0.00 Import
+	T 0.00 Export
+	T 0.00 General station contacts
+	T 0.00 Department
+	F own/en/home  www 11x, ours 10x
+	F own/en/dashboard  www 11x, ours 5x
+	F own/en/basic-information  www 3x, ours 2x
+	F own/en/profile  www 2x, ours 1x
+	F own/en/register-company-account  www 2x, ours 1x
+	F own/en/contact-cst  www 10x, ours 8x
+	L +49 (0) 1802 737 737  <- "+49 (0) 1802 737 737"
+not a loss	cargo	/en/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	cargo-parity-001	28 segments (133 words) and 1 links missing
+	T 0.00 Valid formats: .pdf, .xls, .doc, .jpg, .jpeg, .png up to 10 MB
+	T 0.00 Send request and reply also to:
+	T 0.00 Email address of recipient
+	T 0.00 Please enter a valid email address
+	T 0.00 Add new
+	T 0.00 Send copy to me
+	T 0.00 Refresh CAPTCHA
+	T 0.00 Enter captcha Required
+	T 0.00 Topic search
+	T 0.00 false
+	T 0.00 true
+	T 0.00 p_p_id=com_lhcargo_eportal_register_company_account&p_p_lifecycle=0&p_p_state=normal
+	T 0.00 p_p_id=com_liferay_login_web_portlet_LoginPortlet&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_com_liferay_login_web_portlet_LoginPortlet_mvcRenderCommandName=%2Flogin%2Fcreate_account&sa
+	T 0.00 p_p_id=com_liferay_login_web_portlet_LoginPortlet&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_com_liferay_login_web_portlet_LoginPortlet_mvcRenderCommandName=%2Flogin%2Fforgot_userid
+	T 0.00 p_p_id=com_liferay_login_web_portlet_LoginPortlet&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_com_liferay_login_web_portlet_LoginPortlet_mvcRenderCommandName=%2Flogin%2Fforgot_password
+	T 0.00 reason=Missing documents
+	T 0.00 reason=Missing cargo
+	T 0.00 reason=Offload
+	T 0.00 reason=Damaged cargo
+	T 0.00 reason=Return of shipment
+	T 0.00 Get in touch with us, if you need assistance with one of the following services or functions on lufthansa-cargo.com.
+	T 0.00 Station search
+	T 0.00 Contact_Support_Station_Details
+	T 0.00 Show further station details
+	T 0.00 Import
+	T 0.00 Export
+	T 0.00 General station contacts
+	T 0.00 Department
+	F own/en/home  www 11x, ours 10x
+	F own/en/dashboard  www 11x, ours 5x
+	F own/en/basic-information  www 3x, ours 2x
+	F own/en/profile  www 2x, ours 1x
+	F own/en/register-company-account  www 2x, ours 1x
+	F own/en/contact-cst  www 10x, ours 8x
+	L +49 (0) 1802 737 737  <- "+49 (0) 1802 737 737"

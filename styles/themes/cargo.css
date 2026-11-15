@@ -2326,3 +2326,24 @@ body.brand-cargo main > .section.notifications-container .notifications .notific
     order: -1;
   }
 }
+
+/* standing order 39, item 2: the Lufthansa Cargo App's store badges (eservices-app's app section, www's
+   Text-Image-horizontal-CF5: two linked images in the text column, each at its own size, side by side with www's 20px margin and the space
+   between them: 24px).
+   Keyed on the links to the two stores: in a text cell a paragraph that is one store link holding a picture. No Cargo
+   document has such a link today (990 served copies: the store links are text, in eservices-app's FAQ), so it draws
+   nothing until delta-so39-cargo-airdolomiti-lost-content.txt's eservices-app row is applied */
+body.brand-cargo main .columns-media .columns-media-text > p:has(> a:only-child:is([href^="https://play.google.com/store/"], [href^="https://apps.apple.com/"]) > picture) {
+  display: inline-block;
+  width: auto;
+  margin: 0 20px 0 0;
+  vertical-align: middle;
+}
+
+body.brand-cargo main .columns-media .columns-media-text > p > a:only-child:is([href^="https://play.google.com/store/"], [href^="https://apps.apple.com/"]) > picture,
+body.brand-cargo main .columns-media .columns-media-text > p > a:only-child:is([href^="https://play.google.com/store/"], [href^="https://apps.apple.com/"]) > picture img {
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}

@@ -17,15 +17,16 @@
 #    under the downloads. The row: the text after the title and the picture as a Columns Media block (text | picture).
 #    The rest is www's legal template (as on terms-of-use): the content 1,184 px wide from x 128, the title 32 / 36 px,
 #    more space above and below; our documents carry no template mark for it, so it is left as explained.
+# DA backup folder (standing order 39): before the rows of this list (none applied) is applied, DA's copy of each page goes to /.token-free-backup/2026-11-cargo-so37-efreight-breadcrumb-terms/<path>.html (lh-cargo; read back equal before the upload), one folder per list. Not /.token-free-backup/2026-11-cargo/: it holds the token-free pass's rollback copies (en/add-on-services/smartuld among them), which a row's backup would overwrite.
 #
 # status	path	width	recording	www page	page before	page with the row	note
-HOLD	/en/eaw	1440	cargo-parity-003	1641	1404 (-14.44 %)	1461 (-10.97 %)	A: the trail; the title 19 px above www's; the media cell's pictures side by side (199 px; www's stack is about 755 px, taller than the text column: the -180 px left)
+HOLD	/en/eaw	1440	cargo-parity-003	1641	1404 (-14.44 %)	1461 (-10.97 %)	A: the trail; the title 19 px above www's; the media cell's pictures side by side (199 px; www's stack is about 755 px, taller than the text column: the -180 px left) | standing order 39: the title as www's with a spacer (delta-so39-cargo-efreight-legal-scoped.txt), still HOLD (the media cell)
 HOLD	/en/eaw	390	cargo-parity-003 (resized)	2236	1815 (-18.83 %)	1872 (-16.28 %)	A: a resize (pointer); www shows a Back link on phones
-HOLD	/en/ecsd	1440	cargo-parity-003	1343	1243 (-7.45 %)	1300 (-3.20 %)	A: the trail; the title 19 px above www's; the picture column the rest
+HOLD	/en/ecsd	1440	cargo-parity-003	1343	1243 (-7.45 %)	1300 (-3.20 %)	A: the trail; the title 19 px above www's; the picture column the rest | standing order 39: READY together with this order's spacing, in delta-so39-cargo-efreight-legal-scoped.txt (apply it from there)
 HOLD	/en/ecsd	390	cargo-parity-003 (resized)	1751	1713 (-2.17 %)	1770 (+1.08 %)	A: a resize (pointer)
-HOLD	/en/ehm	1440	cargo-parity-003	1294	1242 (-4.02 %)	1299 (+0.39 %)	A: the page within 2 %, the band end not: the title at 172 px, www's at 191 (-9.95 %)
+HOLD	/en/ehm	1440	cargo-parity-003	1294	1242 (-4.02 %)	1299 (+0.39 %)	A: the page within 2 %, the band end not: the title at 172 px, www's at 191 (-9.95 %) | standing order 39: READY together with this order's spacing, in delta-so39-cargo-efreight-legal-scoped.txt (apply it from there)
 HOLD	/en/ehm	390	cargo-parity-003 (resized)	1578	1560 (-1.14 %)	1617 (+2.47 %)	A: a resize (pointer); further from it than as served (www shows a Back link on phones)
-HOLD	/en/meta/meta/company/general-terms1	1440	cargo-parity-003	1129	1297 (+14.88 %)	1094 (-3.10 %)	B: the picture beside the text; the rest www's legal template (the footer's top 617, www 647)
+HOLD	/en/meta/meta/company/general-terms1	1440	cargo-parity-003	1129	1297 (+14.88 %)	1094 (-3.10 %)	B: the picture beside the text; the rest www's legal template (the footer's top 617, www 647) | standing order 39: READY together with this order's spacing, in delta-so39-cargo-efreight-legal-scoped.txt (apply it from there)
 HOLD	/en/meta/meta/company/general-terms1	390	cargo-parity-003 (resized)	1498	1470 (-1.87 %)	1486 (-0.80 %)	B: a resize (pointer)
 #
 # DA change, per document:

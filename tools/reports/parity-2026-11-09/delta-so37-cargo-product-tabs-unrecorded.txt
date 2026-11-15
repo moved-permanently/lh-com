@@ -7,6 +7,7 @@
 # www.mynewsdesk.com and every airline host refused and counted: 0 on these pages). At 390 every page is unchanged to the
 # px. Left out: /en/portfolio (its panels are product grids that do not split this way) and /en/speed-flash (its snapshot
 # is the German page). /en/industries-healthcare's panels hold no picture row: the row is the option alone.
+# DA backup folder (standing order 39): before the rows of this list (none applied) is applied, DA's copy of each page goes to /.token-free-backup/2026-11-cargo-so37-product-tabs-unrecorded/<path>.html (lh-cargo; read back equal before the upload), one folder per list. Not /.token-free-backup/2026-11-cargo/: it holds the token-free pass's rollback copies (en/add-on-services/smartuld among them), which a row's backup would overwrite.
 #
 # status	path	width	snapshot	page before	page with the row	the tab band's section end before -> with the row
 HOLD	/en/add-on-services/insurance	1440	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/add-on-services/insurance.html	1468	2079	971 -> 1582	no recording: waiting for a www load at 1440

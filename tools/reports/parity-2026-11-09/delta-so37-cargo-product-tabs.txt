@@ -24,6 +24,7 @@
 #   1025 px the accordion as before); www's 390s are resizes of the 1440 loads (pointers).
 # Census: 82 published Cargo documents have an accordion-columns (faq); 9 are these rows. The other 73 are not recorded
 #   here; www's tab sets among them would need the same row each (not drafted: no recording to gate them).
+# DA backup folder (standing order 39): before the rows of this list (applied 2026-11-15 by your helpers: 5 documents) is applied, DA's copy of each page goes to /.token-free-backup/2026-11-cargo-so37-product-tabs/<path>.html (lh-cargo; read back equal before the upload), one folder per list. Not /.token-free-backup/2026-11-cargo/: it holds the token-free pass's rollback copies (en/add-on-services/smartuld among them), which a row's backup would overwrite.
 #
 # status	path	width	recording	www page	page before	page with the row	www footer top	footer top with the row	band end with the row (www)	note
 READY	/en/active-temp-control	1440	cargo-parity-003	2217	1570 (-29.18 %)	2206 (-0.50 %)	1735	1729 (-0.35 %)	1709 (-1.50 %)	the band -35 px: www's empty paragraph before the last line (24 + 20 px; empty paragraphs don't survive publishing)
