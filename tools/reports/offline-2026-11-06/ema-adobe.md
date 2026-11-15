@@ -4869,3 +4869,55 @@ the final code: ef8be78 (origin/main with every commit of this order), 72 lh-edg
 - Ended at about 20:40 CET, not 21:30: the last code change (20:05) needed the full suite again before this section,
   and the next candidates (first-class-terminal's step, economy-class, tips-senior-travellers) need a cause found first.
 - Left out of git: logs/b632 (captures, trials, DA reads, census files), the untracked import reports of earlier runs.
+
+### Standing order 33 (2026-11-15 21:10 to about 22:10 CET)
+
+No uploads, previews or publishes; DA read only; no request to an airline host (www's pages were rendered from the drop's
+archives with nothing fetched from www; pictures from our own host). `.migration/project.json` untouched; plugins left
+off. Order 32 left nothing uncommitted or unpushed. This order changed lists and notes only, no code. Each push: the
+whole-repo lint read 0 on a clean worktree of the rebased HEAD. Full suite on the final code: fac8cd6 (origin/main with every commit of this order), 72 lh-edge files and 1,184 site files, 0 failing.
+
+The drop's archives: lh-parity-008, 009 and 010, each sha256 as given, member paths checked, unpacked in /tmp/so33.
+
+1. **hk / zh intro split: READY on a same-face pair (b96fbdd, d6801b1).**
+   - **The face:** the recordings are drawn with PingFang (the recorded heading "依您所願，自在飛行" against Noto Sans CJK TC:
+     other glyphs, the comma low), so they can't be the www side of a Noto pair.
+   - **www drawn here:** the saved .shadow.html served locally without scripts, under a CSP (logs/b633/wwwserve.mjs). Its
+     22 pictures came from our own copies of the same files on lufthansa.turnsthe.page, matched by alt text (22 of 22
+     equal). /xx/hk with Noto Sans CJK TC, /xx/zh with Noto Sans CJK SC (the drop's 2.004 files; a fontconfig with that
+     face first, as the default gave the JP variant). The render drifts at most 46 px from www's recording over the page.
+   - **Ours, same face, A (published) -> B (split), against that render:** 390: hk 41.5 -> 32.0 %, zh 34.9 -> 29.7; the
+     phone view better (the drift after the intro -76 -> -32 px). 1440: hk 21.4 -> 24.3, zh 21.0 -> 23.9.
+   - **1440:** the face moves nothing on this page (ours 10,275 px with PingFang in order 27, with Noto in order 29), so the
+     render's 48 px shortfall at 1440 is what it lacks without www's scripts, and the recording is the fair reference
+     there: hk 26.5 -> 12.7 %, zh 26.0 -> 12.3 (the drift mid-page -60 to -89 px -> -3 to +45). Both rows READY with all
+     four figures; the post-publish check on a machine with Chinese fonts stays as before.
+   - The absolute levels are drawing noise on both sides (our renditions of the pictures, the other face): the render
+     against www's own recording reads 22.7 / 24.4 %.
+2. **The five caption rows: READY (b96fbdd).** The text as www draws it in tonight's recordings:
+   - de/en, gb/en "Take one! A film crew accompanies Antonio Colomboni on his flight to New York City";
+   - de/de, at/de "Klappe, die erste! Eine Filmcrew begleitet Antonio Colomboni auf seinem Flug nach New York City";
+   - xx/it "Ciak, si gira! Una componente della troupe accompagna Antonio Colomboni sul suo volo per New York City".
+   - The same insert after the video paragraph on DA's current copy (in de/en, gb/en, de/de and at/de that paragraph also
+     holds the subtitle and audio-description links: the anchor is the whole paragraph). Dry run 5 of 5, restorable byte
+     for byte.
+   - Gate (drafts against lh-parity-008 / 010), 1440 / 390: de/en 27.8 / 20.2 -> 26.2 / 17.5, gb/en 29.4 / 21.7 -> 28.0 /
+     19.0, de/de 26.1 / 20.4 -> 24.4 / 17.9, at/de 27.9 / 21.4 -> 26.2 / 19.1, xx/it 37.5 / 35.1 -> 36.7 / 33.4.
+3. **traveltricks, the six iOS rows: READY (b96fbdd).** Each replaces the one FlyNet href in DA's copy with
+   apps.apple.com/us/app/lufthansa/id299219152 (the link the six markets' own app pages use). Dry run 6 of 6. None is
+   recorded; the href does not draw (xx/el at 390 as a draft with and without the row: 0.0 % apart, the same height).
+4. **economy-class and tips-senior-travellers: the causes sit in ema-test's areas, handed over (handover-so33-ema-test.txt,
+   1beace2, fac8cd6).**
+   - tips-senior-travellers 1440: a columns-media block right after text in the grey "Digital support" section (www about
+     21 px lower: Columns Media); the grey lounge-finder section before a padded stage (www about 33 px more: the shared
+     section gap).
+   - economy-class 390: a columns-media section before a before-padded stage (ours about 29 px too much: the shared
+     section gap). Its stage picture shows another crop (focal point): not layout.
+   - With the remaining time, the next ranking pages: picture-perfect-austin (390 / 1440 30.2 / 22.2 in the old list,
+     now 25.8 / 19.3 %) and 100-years 390 (22.0 -> 21.2) are drawn content with hardly any drift; a-perfect-day-barcelona
+     1440 is down from 22.2 to 3.5, know-before-you-go-algiers 390 from 21.0 to 9.6 (earlier orders' rules). miles-and-more-credit-card 390 (21.1 %, drift to -192 px) is Columns Media again (text lines take more words
+     than www's, a picture gap 24 px short): in the hand-over too.
+- Ended at about 22:10 CET, not 00:30: the four items are done, and the remaining layout causes I found tonight are in the
+  Columns Media block and the shared section gaps, which ema-test holds.
+- Left out of git: logs/b633 (renders, captures, servers, DA reads), /tmp/so33 (the archives and fonts configs), the
+  untracked import reports of earlier runs.
