@@ -1,0 +1,44 @@
+{
+  "/be/en/extra-services/baggage/checked-baggage": [
+    {
+      "before": "<div><div>chat-button</div><div>checked-baggage_rules</div></div>",
+      "html": "<div><div>Tabs open</div><div>none</div></div>",
+      "count": 1
+    }
+  ],
+  "/be/fr/extra-services/baggage/checked-baggage": [
+    {
+      "before": "<div><div>chat-button</div><div>checked-baggage_rules</div></div>",
+      "html": "<div><div>Tabs open</div><div>none</div></div>",
+      "count": 1
+    }
+  ],
+  "/be/nl/extra-services/baggage/checked-baggage": [
+    {
+      "before": "<div><div>chat-button</div><div>checked-baggage_rules</div></div>",
+      "html": "<div><div>Tabs open</div><div>none</div></div>",
+      "count": 1
+    }
+  ],
+  "/de/de/extra-services/baggage/checked-baggage": [
+    {
+      "before": "<div><div>chat-button</div><div>checked-baggage_rules</div></div>",
+      "html": "<div><div>Tabs open</div><div>none</div></div>",
+      "count": 1
+    }
+  ],
+  "/es/es/extra-services/baggage/checked-baggage": [
+    {
+      "before": "<div><div>chat-button</div><div>checked-baggage_rules</div></div>",
+      "html": "<div><div>Tabs open</div><div>none</div></div>",
+      "count": 1
+    }
+  ],
+  "/it/it/extra-services/baggage/checked-baggage": [
+    {
+      "before": "<div><div>chat-button</div><div>checked-baggage_rules</div></div>",
+      "html": "<div><div>Tabs open</div><div>none</div></div>",
+      "count": 1
+    }
+  ]
+}

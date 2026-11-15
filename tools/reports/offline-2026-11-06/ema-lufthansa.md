@@ -5257,3 +5257,75 @@ file changed this order.
 
 **Hosts:** reads only from our hosts and the drop's recordings (no DA read this order). No request to an airline host,
 no da-upload.mjs call, no upload, preview or publish by me.
+
+## Standing order 23 (2026-11-15, about 04:50 to 08:00 CET), with its final section
+
+**At the start:** nothing of mine was unpushed. Uncommitted were order 23's own first files (the program delta, its list
+and test), finished but not yet committed; they went into 6d3f6ff5. `.migration/project.json` was modified, not by me,
+and is left as it is.
+
+**Item 1, Group for Business one-page rows (measured on b2b.turnsthe.page as served, NO_LOCAL_CSS):**
+- **travel-management:** within 2 % as served after ema-test's order 21 rows (1440 -1.56 %, 390 +0.52 %). Nothing of
+  mine needed.
+- **/de/en/program (delta-so23-b2b-program-band-space.txt, READY, live):** 37 px above the grey band, 16 before the
+  footer. 1440 -2.33 -> +0.10 %, 390 -2.25 -> -0.20 % (2059 / 2444, www 2057 / 2449).
+- **lufthansa-group-wifi:** three places, each with a census over the 102 recorded B2B pages and the band-end gate.
+  - Shipped (b2b.css): after a sidebar whose text ends with a button, the next marked heading sits about 43 px under
+    the button, as www's. Only wifi has that shape; after text, as on route-network, www keeps about 90.
+    1440 +3.42 -> +1.81 %, 390 +1.27 -> +0.47 %; route-network unchanged.
+  - Held: the title sits 40 px further above the video stage. www keeps 40 on wifi and on celebrating-shared-stories,
+    but the rule moves celebrating-shared-stories further at both widths.
+  - Held: 48 px from the FAQ accordion to the footer, where www has none. The rule moves our-european-fares de/de
+    0.50 points further at 1440.
+- **joint-ventures:** within 2 % as served after ema-test's order 22 row (1440 -1.12 %).
+- **help-alliance 390 (against b2b-parity-013):** www's video is its iframe component, 315 px tall on phones. DA
+  authors it like the 16:9 videos, so the page says which it is:
+  - a Columns Media variant, "iframe-player", with a B2B phone rule (b2b.css);
+  - the delta row adding it (delta-so23-b2b-help-alliance-player.txt, READY, live).
+  390 -4.24 -> -0.66 %; 1440 unchanged.
+- **video-gallery 1440 (+2.07 %), held:** the closing grey band meets the footer on www; ours keeps 48 px. A rule for
+  a page-ending grey band takes this page to +0.69 %, but it fails on celebrating-shared-stories de/de and on
+  joint-ventures de/en, where www keeps space. www's band endings differ by page.
+- **about-us 390:** de/en is within 2 % (-0.73 %). de/de (-2.06 %) is spread over the cards' texts, the footer gap and
+  the footer; held.
+- **partner-plus-benefit de/de 390 (-2.44 %), held:** spread over text and gaps. www also has a "Konditionen" modal
+  link under the closing teaser that the import dropped; it would need its modal text as a new document.
+
+**Item 2, Brussels' phone loads (brussels-parity-011: seven phone first loads; sha256 as its .sha256;
+loadedSeparately):**
+- **The phone table rule (brussels.css, shipped in 6d3f6ff5):** closer on all six checked-baggage languages, be/fr
+  included (be/fr +15.36 -> +9.45 %). student-fares unchanged (7736, www 7722: within 2 %). star-alliance untouched;
+  1440 unchanged.
+- **The rest:** www's phone first load shows the baggage tab set closed. A delta row adds "Tabs open | none"
+  (delta-so23-brussels-checked-baggage-tabs-closed.txt, six READY rows). Once applied, at 390:
+
+  | Page | Now | With the delta row |
+  |---|---|---|
+  | be/en | +13.64 % | -1.23 % |
+  | be/nl | +13.10 % | -1.67 % |
+  | es/es | +12.12 % | -1.67 % |
+  | de/de | +11.17 % | -2.03 % |
+  | it/it | +11.25 % | -3.03 % |
+  | be/fr | +9.45 % | -3.76 % |
+
+  1440 unchanged.
+- **Capture request:** marked delivered. The Liberation Sans rows are left as they are (no face on the drop yet).
+
+**Commits:** 6d3f6ff5 (rules, tests, the three delta lists of items 1 and 2's table rule), then this final commit
+(the Brussels tabs-closed row with its test, finish-b2b.txt, finish-brussels.txt, the capture request, this section).
+
+**Checks:**
+- 6d3f6ff5: `npm run lint` exit 0 and stylelint on b2b.css and brussels.css before the push, the full suite (4435
+  pass, 0 fail after the rebase) and the GitHub Build (success).
+- Smoke after the push against order 22's: 0 differences, except the content indexes others publish (b2b gb/en
+  search-index, lufthansa sitemap).
+- This commit: lint, the folder-reading tests and the full suite in its ship.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git): brussels-parity-011, DA's copies read today (B2B program 03:41, help-alliance 03:52;
+  Brussels checked-baggage 06:04 UTC), drafts, the censuses, gate outputs, crops and logs.
+
+**Hosts:** reads only from our hosts, the drop and DA (GETs from my session). No request to an airline host, no
+da-upload.mjs call, no upload, preview or publish by me (the two B2B delta rows were published after my push, not
+by me).

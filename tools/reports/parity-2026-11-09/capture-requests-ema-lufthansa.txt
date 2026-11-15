@@ -56,6 +56,7 @@
 # Brussels, standing order 22 (2026-11-15): 390 x 844 only, each page LOADED AT THAT SIZE (a phone's first load; nothing
 # clicked), full height, the measurements json. Their 390 recordings (brussels-parity-005, -004) are resizes of the 1440
 # load; the phone table rule (brussels-so22-code-groups.txt) waits for them.
+# Delivered as brussels-parity-011 (2026-11-15, all seven, loadedSeparately; sha256 as its .sha256); used in standing order 23 (delta-so23-brussels-checked-baggage-tabs-closed.txt).
 # host: www.brusselsairlines.com
 /be/en/extra-services/baggage/checked-baggage
 /be/fr/extra-services/baggage/checked-baggage
