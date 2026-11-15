@@ -14,10 +14,11 @@
  * The rules (README "Authoring without markers"; the brief after 493, item 2):
  * - separators: none / M (60) / L (120) / Divider; 0-31 px none, 32-89 M, 90 and more L (the
  *   collapse table, near values rounded); a run with a divider is one Divider; a run of "from-768"
- *   separators a Spacer / Divider block with the option from-768 (none on phones; decisions.md 3).
- *   At a section's start the section's Space / Divider style, at its end Space below / Divider
- *   below, right before a block that block's option, else a Spacer (L) / Divider block; in a block
- *   cell (no carrier there) it goes. Page-type gaps belong to the theme (THEMES rules: sections-m,
+ *   separators a Spacer / Divider block with the option from-768 (none on phones; decisions.md 3),
+ *   a run of "below-768" ones (phones only) the same with the option below-768. At a section's
+ *   start the section's Space / Divider style, at its end Space below / Divider below, right
+ *   before a block that block's option, else a Spacer (L) / Divider block; in a block cell (no
+ *   carrier there) it goes. Page-type gaps belong to the theme (THEMES rules: sections-m,
  *   M at a section edge, for a page type that has it), lufthansa.com's articles (the rule above an info box after any content but
  *   a heading; a rule before a chapter heading, an H2 / H3 or a bold paragraph: the chapter becomes
  *   a section of its own, the theme rules it), its Insights tag pages (the info box's rule).
@@ -1028,8 +1029,11 @@ function collapseSeparators(main, doc, stats, ctx) {
       // "from-768" (none on phones): a run of such separators only keeps it as the Spacer / Divider
       // block's option from-768 (no section style or block option says "from 768px"); in a run
       // with others the qualifier goes (counted)
-      const tablet = seps.every((m) => m[3]);
-      if (!tablet) seps.filter((m) => m[3]).forEach(() => count(stats, 'theme', 'separator-from-768'));
+      const tablet = seps.every((m) => m[3] === ' from-768');
+      if (!tablet) seps.filter((m) => m[3] === ' from-768').forEach(() => count(stats, 'theme', 'separator-from-768'));
+      // its mirror "below-768" (phones only, standing order 35): the block's option below-768 the same way
+      const phone = seps.every((m) => m[3] === ' below-768');
+      if (!phone) seps.filter((m) => m[3] === ' below-768').forEach(() => count(stats, 'theme', 'separator-below-768'));
       let size = null;
       if (!divider && px <= 31) size = 'none';
       else if (!divider) size = px < 90 ? 'm' : 'l';
@@ -1046,7 +1050,7 @@ function collapseSeparators(main, doc, stats, ctx) {
       // text and a headline, the cleanup's "{spacer-28}": the heading 48 to 51 px under the text on www;
       // rows-for-ema-test.md row 5, standing order 8 of 2026-11-12)
       const heading = (el) => !!el && /^H[1-6]$/.test(el.tagName);
-      if (size === 'none' && textSpacers && !tablet && prose(before) && (prose(after) || heading(after))) {
+      if (size === 'none' && textSpacers && !tablet && !phone && prose(before) && (prose(after) || heading(after))) {
         const keep = doc.createElement('p');
         keep.textContent = `{spacer-${px}}`;
         run.els[0].before(keep);
@@ -1057,7 +1061,7 @@ function collapseSeparators(main, doc, stats, ctx) {
       // a small space between two components (Discover's separators, www's .hr 30 px + 1: the cleanup's "{spacer-30}")
       // stays as one {spacer-N} on a theme with componentSpacers, not at a section's start or end (www: no margin
       // there; rows-for-ema-test.md row 4, standing order 6 of 2026-11-12); the same on a second run
-      if (size === 'none' && componentSpacers && !tablet && !atStart && !atEnd && content(before) && content(after)) {
+      if (size === 'none' && componentSpacers && !tablet && !phone && !atStart && !atEnd && content(before) && content(after)) {
         const keep = doc.createElement('p');
         keep.textContent = `{spacer-${px}}`;
         run.els[0].before(keep);
@@ -1066,13 +1070,14 @@ function collapseSeparators(main, doc, stats, ctx) {
         return;
       }
       if (size === 'none') { remove(); count(stats, 'theme', 'separator', run.els.length); return; }
-      if (tablet) {
+      if (tablet || phone) {
+        const opt = tablet ? 'from-768' : 'below-768';
         const b = doc.createElement('div');
-        b.className = divider ? 'divider from-768' : `spacer${size === 'l' ? ' l' : ''} from-768`;
+        b.className = divider ? `divider ${opt}` : `spacer${size === 'l' ? ' l' : ''} ${opt}`;
         b.innerHTML = '<div><div></div></div>';
         run.els[0].before(b);
         remove();
-        count(stats, 'carrier', 'separator-from-768', run.els.length);
+        count(stats, 'carrier', `separator-${opt}`, run.els.length);
         return;
       }
       // page-type gaps: the theme's

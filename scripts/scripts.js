@@ -282,11 +282,12 @@ function decorateTextStyles(main) {
   });
   main.querySelectorAll('p').forEach((p) => {
     // separator paragraphs: "{spacer-120}" (empty space), "{divider-25}" (1px line + space),
-    // optional "from-768" (hidden on phones), see README "Spacing and dividers"
+    // optional "from-768" (hidden on phones) or "below-768" (phones only), see README "Spacing
+    // and dividers"
     const sep = p.textContent.trim().match(SEPARATOR);
     if (sep) {
       p.textContent = '';
-      p.className = `spacer${sep[1] === 'divider' ? ' divider' : ''}${sep[3] ? ' from-768' : ''}`;
+      p.className = `spacer${sep[1] === 'divider' ? ' divider' : ''}${sep[3] ? ` ${sep[3].trim()}` : ''}`;
       p.style.setProperty('--spacer-size', `${Math.min(Number(sep[2]), 400)}px`);
       p.setAttribute('aria-hidden', 'true');
       return;

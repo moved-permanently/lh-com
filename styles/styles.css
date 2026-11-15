@@ -1635,6 +1635,13 @@ main .default-content-wrapper > p.spacer.divider {
   }
 }
 
+/* the mirror, "{spacer-N below-768}": on phones only */
+@media (width >= 768px) {
+  main .default-content-wrapper > p.spacer.below-768 {
+    display: none;
+  }
+}
+
 /* utility for screen-reader-only text (.sr-only); section style hidden-heading: the section's H1
    (www's homepages carry a visually hidden H1) */
 .sr-only,

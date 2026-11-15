@@ -17,7 +17,7 @@ export const FAMILIES = [
   ['text-size', /^copytext-[a-z-]+$/],
   ['text-width', /^(full-width|limited-width)$/],
   ['column', /^column-[a-z-]+$/],
-  ['separator', /^(spacer|divider)-\d+$|^from-768$/],
+  ['separator', /^(spacer|divider)-\d+$|^(from|below)-768$/],
   ['caption', /^caption$/],
   ['parallax-narrow', /^(parallax|narrow)$/],
   ['indent', /^indent-\d{1,3}$/],

@@ -85,7 +85,8 @@ other markers: `{full-width indent-40}`.
 
 A paragraph with only `{spacer-120}` adds 120px of extra space at that place (Lufthansa
 `.separator` with `margin-bottom: 120px`), `{divider-25}` a thin grey line with 25px below it;
-`{spacer-80 from-768}` only from 768px. The importer writes them for live separators with a line
+`{spacer-80 from-768}` only from 768px, `{spacer-28 below-768}` only below 768px (on phones).
+The importer writes them for live separators with a line
 or with 50px and more (smaller ones are the normal spacing); delete the paragraph to remove it.
 Right after a grey band the importer keeps every separator (the band ends a section, so the
 separator's space is not part of the normal spacing). On info pages (`Theme: flow-spacing`, below)
@@ -204,7 +205,8 @@ In this order:
    its aspect before the video loads); other fragments such as `#t=10` stay, joined by `&`. Without
    either the default player: controls and the round play button.
 6. **Small purpose blocks** for the real exceptions: `Spacer` (M; `Spacer (l)`: L), `Divider`; with the
-   option `from-768` only from 768px, none on phones (the collapse writes it for `{spacer-N from-768}`). On app
+   option `from-768` only from 768px, none on phones (the collapse writes it for `{spacer-N from-768}`), or
+   `below-768` only below 768px, on phones (for `{spacer-N below-768}`). On app
    screens (`/content/mobile/**`): `App Spacer (medium)` (x-small, small, medium, m-large, large;
    `v2`: in the v2 screen only), `App Divider`, `App Text (small)`.
 

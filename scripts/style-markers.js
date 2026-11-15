@@ -24,7 +24,8 @@ export const LIST_TOKENS = `copytext-(?:small|medium|large)|full-width|limited-w
 export const HEADING_STYLE = styleMarker(HEADING_TOKENS);
 export const PARAGRAPH_STYLE = styleMarker(PARAGRAPH_TOKENS);
 export const LIST_STYLE = styleMarker(LIST_TOKENS);
-export const SEPARATOR = /^\{(spacer|divider)-(\d{1,3})( from-768)?\}$/;
+// "from-768": from 768px only, none on phones; "below-768": on phones only, none from 768px
+export const SEPARATOR = /^\{(spacer|divider)-(\d{1,3})( from-768| below-768)?\}$/;
 
 // a video's settings after its link ("{autoplay muted loop}", scripts/media.js)
 export const VIDEO_SETTINGS = ['autoplay', 'muted', 'loop', 'controls', 'round-play-button'];
@@ -48,7 +49,7 @@ const OTHER_TOKENS = 'mobile|blank|small|divider|cell-(?:half-start|half-end|thr
 
 const ANY_TOKENS = [HEADING_TOKENS, PARAGRAPH_TOKENS, LIST_TOKENS, VIDEO_SETTINGS.join('|'), VIDEO_SIZE, OTHER_TOKENS].join('|');
 const ANY_MARKER = `\\{\\s*(?:${ANY_TOKENS})(?: (?:${ANY_TOKENS}))*\\s*\\}`;
-const SEPARATOR_TEXT = /^\s*\{(?:spacer|divider)-\d{1,3}(?: from-768)?\}\s*$/;
+const SEPARATOR_TEXT = /^\s*\{(?:spacer|divider)-\d{1,3}(?: from-768| below-768)?\}\s*$/;
 const isSeparatorText = (s) => SEPARATOR_TEXT.test(s) || APP_SPACER.test(s.trim());
 const TRAILING_TEXT = new RegExp(`\\s*${ANY_MARKER}\\s*$`);
 // in HTML: the marker at the end, before closing tags only (" …now {full-width}</a></li></ul>")
@@ -540,14 +541,20 @@ export const APP_SPACER_SIZES = ['x-small', 'small', 'medium', 'm-large', 'large
  * @param {string} name block name (spacer, divider, app-spacer, app-divider, app-text)
  * @param {Iterable<string>} [options]
  * @returns {{kind: 'spacer'|'divider'|'app-spacer'|'app-divider'|'app-text', px?: number,
- *   size?: string, v2Only?: boolean, small?: boolean}|null}
+ *   fromTablet?: boolean, belowTablet?: boolean, size?: string, v2Only?: boolean,
+ *   small?: boolean}|null}
  */
 export function readPurposeBlock(name, options = []) {
   const opts = [...options].map((o) => String(o).toLowerCase());
   switch (String(name || '').toLowerCase()) {
-    // option from-768: the space from 768px only, none on phones (as "{spacer-60 from-768}")
-    case 'spacer': return { kind: 'spacer', px: opts.includes('l') ? SPACE.l : SPACE.m, fromTablet: opts.includes('from-768') };
-    case 'divider': return { kind: 'divider', px: DIVIDER_SPACE, fromTablet: opts.includes('from-768') };
+    // option from-768: the space from 768px only, none on phones (as "{spacer-60 from-768}");
+    // option below-768: on phones only, none from 768px (as "{spacer-60 below-768}")
+    case 'spacer': return {
+      kind: 'spacer', px: opts.includes('l') ? SPACE.l : SPACE.m, fromTablet: opts.includes('from-768'), belowTablet: opts.includes('below-768'),
+    };
+    case 'divider': return {
+      kind: 'divider', px: DIVIDER_SPACE, fromTablet: opts.includes('from-768'), belowTablet: opts.includes('below-768'),
+    };
     case 'app-spacer': return {
       kind: 'app-spacer', size: APP_SPACER_SIZES.find((s) => opts.includes(s)) || 'medium', v2Only: opts.includes('v2'),
     };

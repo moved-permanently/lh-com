@@ -26,9 +26,9 @@ const page = (html) => {
 };
 
 test('the reader: Spacer and Divider take the option from-768', () => {
-  assert.deepEqual(readPurposeBlock('spacer', ['from-768']), { kind: 'spacer', px: 60, fromTablet: true });
-  assert.deepEqual(readPurposeBlock('spacer', ['l', 'from-768']), { kind: 'spacer', px: 120, fromTablet: true });
-  assert.deepEqual(readPurposeBlock('divider', ['from-768']), { kind: 'divider', px: 25, fromTablet: true });
+  assert.deepEqual(readPurposeBlock('spacer', ['from-768']), { kind: 'spacer', px: 60, fromTablet: true, belowTablet: false });
+  assert.deepEqual(readPurposeBlock('spacer', ['l', 'from-768']), { kind: 'spacer', px: 120, fromTablet: true, belowTablet: false });
+  assert.deepEqual(readPurposeBlock('divider', ['from-768']), { kind: 'divider', px: 25, fromTablet: true, belowTablet: false });
   assert.equal(readPurposeBlock('spacer', []).fromTablet, false);
 });
 

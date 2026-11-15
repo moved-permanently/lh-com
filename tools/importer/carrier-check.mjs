@@ -25,14 +25,15 @@ import { parseHTML } from 'linkedom';
 import { SECTION_STYLES, BLOCK_OPTIONS } from '../../scripts/style-markers.js';
 
 const PURPOSE = {
-  spacer: ['l', 'from-768'], divider: ['from-768'], 'app-spacer': ['x-small', 'small', 'medium', 'm-large', 'large', 'v2'], 'app-divider': [], 'app-text': ['small'],
+  spacer: ['l', 'from-768', 'below-768'], divider: ['from-768', 'below-768'], 'app-spacer': ['x-small', 'small', 'medium', 'm-large', 'large', 'v2'], 'app-divider': [], 'app-text': ['small'],
 };
 const STYLE_WORDS = new Set([...Object.keys(SECTION_STYLES), 'flush']);
-const SEP = /^\s*\{(?:spacer|divider)-\d+(?: from-768)?\}\s*$/;
+const SEP = /^\s*\{(?:spacer|divider)-\d+(?: from-768| below-768)?\}\s*$/;
 // a carrier only where the document had the marks it stands for (a wrong carrier shows here first)
 const SOURCES = [
   [/^style (column-view|flush)$/, /\{[^}]*\bcolumn-(start|end)/],
   [/^block (spacer|divider)\b.*from-768/, /\{(spacer|divider)-\d+ from-768\}/],
+  [/^block (spacer|divider)\b.*below-768/, /\{(spacer|divider)-\d+ below-768\}/],
   [/^option background-video$/, /\{[^}]*\bautoplay\b/],
   [/^option mobile-video$/, /\{mobile\}/],
   [/^style parallax$/, /\{[^}]*\bparallax\b/],

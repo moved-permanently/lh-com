@@ -126,6 +126,13 @@
   }
 }
 
+/* "{spacer-N below-768}": on phones only */
+@media (width >= 768px) {
+  .profile-tabs .profile-tabs-panel > p.spacer.below-768 {
+    display: none;
+  }
+}
+
 @media (width >= 768px) {
   .profile-tabs-list {
     display: flex;

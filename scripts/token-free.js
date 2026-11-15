@@ -95,8 +95,10 @@ function decoratePurposeBlocks(main) {
     if (!what) return;
     if (what.kind === 'spacer' || what.kind === 'divider') {
       const p = separatorParagraph(what.px, what.kind === 'divider');
-      // from 768px only (styles.css hides p.spacer.from-768 below)
+      // from 768px only (styles.css hides p.spacer.from-768 below), or below 768px only
+      // (p.spacer.below-768, hidden from 768px)
       if (what.fromTablet) p.classList.add('from-768');
+      if (what.belowTablet) p.classList.add('below-768');
       block.replaceWith(p);
       return;
     }
