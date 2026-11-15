@@ -1,0 +1,187 @@
+{
+ "/en/add-on-services/insurance": {
+  "block": "accordion-columns",
+  "titles": [
+   "Features",
+   "Booking",
+   "Links & Downloads"
+  ],
+  "add": "tabs",
+  "rows": [
+   {
+    "panel": "Features",
+    "cells": [
+     [
+      "h3|just to make sure: insurance for your ai",
+      "p|generally, our liability for your air fr"
+     ],
+     [
+      "img"
+     ]
+    ]
+   }
+  ]
+ },
+ "/en/add-on-services/personal-supervision": {
+  "block": "accordion-columns",
+  "titles": [
+   "Features",
+   "Booking",
+   "Links & Downloads"
+  ],
+  "add": "tabs",
+  "rows": [
+   {
+    "panel": "Features",
+    "cells": [
+     [
+      "h3|accompany your fine arts shipment",
+      "p|with the add-on service personal supervi"
+     ],
+     [
+      "img"
+     ]
+    ]
+   }
+  ]
+ },
+ "/en/perishables": {
+  "block": "accordion-columns",
+  "titles": [
+   "Features",
+   "Special Aspects",
+   "Infrastructure",
+   "Booking & Tracking",
+   "Links & Downloads"
+  ],
+  "add": "tabs",
+  "rows": [
+   {
+    "panel": "Features",
+    "cells": [
+     [
+      "h3|a long shelf-life for perishables",
+      "p|we ensure that your perishable cargo, su"
+     ],
+     [
+      "img"
+     ]
+    ]
+   }
+  ]
+ },
+ "/en/products/customer-owned-tracker": {
+  "block": "accordion-columns",
+  "titles": [
+   "Track it yourself: Customer-owned Tracker",
+   "Very simple",
+   "Tracker as DGR"
+  ],
+  "add": "tabs",
+  "rows": [
+   {
+    "panel": "Track it yourself: Customer-owned Tracker",
+    "cells": [
+     [
+      "h3|track it yourself: customer-owned tracke",
+      "p|a solid foundation for optimising your e",
+      "h3|your benefits at a glance",
+      "ul|no further costs after evaluation of the"
+     ],
+     [
+      "img"
+     ]
+    ]
+   }
+  ]
+ },
+ "/en/speed-pro": {
+  "block": "accordion-columns",
+  "titles": [
+   "Features",
+   "Booking & Tracking",
+   "Links & Downloads"
+  ],
+  "add": "tabs",
+  "rows": [
+   {
+    "panel": "Features",
+    "cells": [
+     [
+      "h3|getting to the right place at the right",
+      "p|td.pro is your economical choice of spee"
+     ],
+     [
+      "img"
+     ]
+    ]
+   }
+  ]
+ },
+ "/en/valuables": {
+  "block": "accordion-columns",
+  "titles": [
+   "Features",
+   "Special Aspects",
+   "Infrastructure",
+   "Booking & Tracking",
+   "Links & Downloads"
+  ],
+  "add": "tabs",
+  "rows": [
+   {
+    "panel": "Features",
+    "cells": [
+     [
+      "h3|top-level security and discretion for va",
+      "p|transport valuables the safest way: we e"
+     ],
+     [
+      "img"
+     ]
+    ]
+   }
+  ]
+ },
+ "/en/vulnerables": {
+  "block": "accordion-columns",
+  "titles": [
+   "Features",
+   "Special Aspects",
+   "Infrastructure",
+   "Booking & Tracking",
+   "Links & Downloads"
+  ],
+  "add": "tabs",
+  "rows": [
+   {
+    "panel": "Features",
+    "cells": [
+     [
+      "h3|highly developed safety precautions for",
+      "p|secure transportation for goods whose at"
+     ],
+     [
+      "img"
+     ]
+    ]
+   },
+   {
+    "panel": "Infrastructure",
+    "cells": [
+     [
+      "h3|infrastructure database",
+      "p|better planning thanks to a comprehensiv",
+      "h3|artcube at the frankfurt hub – exclusive",
+      "ul|155 square meters safe and professional",
+      "h3|protection for your shipment and its sur",
+      "ul|separate video-monitored and electronica"
+     ],
+     [
+      "img"
+     ]
+    ]
+   }
+  ]
+ }
+}

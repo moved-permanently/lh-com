@@ -7198,3 +7198,63 @@ Four of the six finish-list HOLD rows are now within 2 % at the footer's top, wi
 
 flug-status 1440 (www's form APIs) and street-food-in-munich 390 (+2.89 %, unchanged by the measure; order 36 found no
 candidate that passes both widths) stay HOLD. The three OWNER rows are unchanged.
+
+### The recordings (on the drop by about 19:45 CET)
+
+- **cargo-parity-004:** the 12 tab pages, 1440 first loads, taken 18:45 to 18:48 CET.
+- **cargo-parity-005:** the German eservices-app, 1440 and 390 as separate first loads, 19:02 CET.
+- Both sha256-checked against the drop's sidecars and read as data. I found no index file at the usual names, so I
+  looked for the archives by name.
+- **The notice:** tonight www draws a service notice above its header ("Service Information: Disruptions to Customer
+  Communication"). It is in the flow and exactly 80 px tall at both widths: the header is at y 111 / 98 where -001 to
+  -003 have 31 / 18, and every title is 80 px lower. Our pages don't have it, so every figure below is www's less 80 px.
+
+### Item 4: the 12 tab pages (delta-so37-cargo-product-tabs-unrecorded.txt): 7 READY, 5 HOLD
+
+- **The rows:** built from order 37's drafts with order 38's builder (delta-so40-cargo-product-tabs-recorded.json,
+  READY rows only).
+  - Applied with cargo-tabs-apply.mjs to DA's 12 current copies (one GET each): changed 12/12, check ok 12/12.
+  - A second run says the option is there already.
+  - Order 37's drafts are today's served documents plus the row (the same words, links and pictures in order).
+  - The control equals live at both widths. At 390 every page is unchanged to the px.
+- **Gate** as order 37's: the page and the band end within 2 % at 1440.
+  - **READY:**
+
+    | page | page | band end |
+    | --- | --- | --- |
+    | insurance | -0.05 % | -1.00 % |
+    | personal-supervision | +0.94 % | +0.26 % |
+    | perishables | +0.19 % | -0.67 % |
+    | customer-owned-tracker | -0.45 % | -1.79 % |
+    | speed-pro | +1.59 % | -0.81 % |
+    | valuables | +0.45 % | -0.39 % |
+    | vulnerables | +0.19 % | -0.69 % |
+
+  - **HOLD:**
+    - sustainable-choice: page -1.30 %, but band end -2.38 %;
+    - todoor: -5.56 %;
+    - passive-temp-support: +4.00 %;
+    - speed-zoom: +4.99 %;
+    - industries-healthcare: +11.60 % as served, +20.02 % with the option. Its row is the option alone.
+  - The four HOLD rows besides healthcare are not traced this order.
+
+### Item 3: the German eservices-app's app section (delta-so40-cargo-de-eservices-app.txt): READY
+
+- **The row is the English row with the German words.**
+  - From tonight's recording: H3 "App-solutely mobile", H4 "Lufthansa Cargo eServices", and the German paragraph with
+    www's blank line between its sentences.
+  - The same two store links around the badges, byte for byte.
+  - H2 "FAQ" before the German FAQ block.
+- **Dry run on DA's copy:** 6 inserted, byte for byte without them; a second run finds all 6 present.
+- **Gate** as order 39's lost-content rows: every word, link and heading is found in the rendered draft at both widths.
+  The badges are 120 x 37 and 120 x 36 side by side, and the control equals live.
+- **Heights:**
+  - 1440: 3,262 -> 3,319 (www 3,289: -0.82 -> +0.91 %), footer +1.25 %.
+  - 390: 3,045 -> 3,415 (www 3,142, a first load: -3.09 -> +8.69 %).
+- **The 390 overshoot is not the section.** From "App-solutely mobile" to "Ihre Vorteile auf einen Blick" ours is 660
+  px, www's 628. The missing section was hiding three other differences:
+  - ours is already 106 px lower where the section starts (our repeated title H2 and the picture before the text);
+  - ours draws the "Track" set before the "Lufthansa Cargo eServices to go" heading (+225 px, then -128);
+  - FAQ to the footer +39.
+  - The English page has the repeated title too (order 38). Its 390 was a resize, so none of this showed there. It's a
+    finding for a later order. If you would rather not apply the row before it is fixed, the row is the only change in this list.

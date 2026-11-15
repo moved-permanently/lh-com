@@ -1,0 +1,31 @@
+[
+ {
+  "path": "/de/eservices-app",
+  "inserts": [
+   {
+    "after": "<img src=\"https://content.da.live/moved-permanently/lh-cargo/media-da/cargo/eservices-app-content-image-1-3b2250dd.jpg\" alt=\"\"></picture></p></div><div>",
+    "text": "<h3>App-solutely mobile</h3><h4>Lufthansa Cargo eServices</h4><p>Sie möchten jederzeit wissen, wo sich Ihre Sendung gerade befindet, unseren Flugplan bequem vor Ort abrufen oder uns ein Feedback geben? Und das ganz bequem von Ihrem Smartphone aus?<br><br>Holen Sie sich jetzt die neue Lufthansa Cargo App auf Ihr Smartphone - für den Zugriff von überall und zu jeder Zeit.</p>"
+   },
+   {
+    "before": "<picture><img src=\"https://content.da.live/moved-permanently/lh-cargo/media-da/cargo/google-play-badge-logo-25ae2fb6.jpg\" alt=\"Bild kann nicht geladen werden.\"></picture>",
+    "text": "<a href=\"https://play.google.com/store/apps/details?id=com.etrackingapp&amp;hl=de&amp;gl=US\">"
+   },
+   {
+    "after": "<picture><img src=\"https://content.da.live/moved-permanently/lh-cargo/media-da/cargo/google-play-badge-logo-25ae2fb6.jpg\" alt=\"Bild kann nicht geladen werden.\"></picture>",
+    "text": "</a>"
+   },
+   {
+    "before": "<picture><img src=\"https://content.da.live/moved-permanently/lh-cargo/media-da/cargo/apple-store-badge-icon-98f9e7a2.jpg\" alt=\"Bild kann nicht geladen werden.\"></picture>",
+    "text": "<a href=\"https://apps.apple.com/de/app/lh-cargo/id6469620870\">"
+   },
+   {
+    "after": "<picture><img src=\"https://content.da.live/moved-permanently/lh-cargo/media-da/cargo/apple-store-badge-icon-98f9e7a2.jpg\" alt=\"Bild kann nicht geladen werden.\"></picture>",
+    "text": "</a>"
+   },
+   {
+    "before": "<div class=\"accordion-columns faq\"><div><div>Wo kann man die Lufthansa Cargo App herunterladen?",
+    "text": "<h2>FAQ</h2>"
+   }
+  ]
+ }
+]
