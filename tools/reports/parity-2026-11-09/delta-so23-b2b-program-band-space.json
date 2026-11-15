@@ -1,0 +1,14 @@
+{
+ "/de/en/program": [
+  {
+   "before": "<div class=\"section-metadata\"><div><div>Style</div><div>wide-text</div></div></div></div>\n<div><h2 id=\"our-bonus-programs\">",
+   "html": "<p>{spacer-12}</p>",
+   "count": 1
+  },
+  {
+   "before": "\n<div><div class=\"metadata\">",
+   "html": "\n<div><p>{spacer-3}</p></div>",
+   "count": 1
+  }
+ ]
+}

@@ -1502,3 +1502,25 @@ body.brand-brussels main > .section.sidebar-h1:last-child:has(> .default-content
     padding-bottom: 65px;
   }
 }
+
+/* standing order 23 of ema-lufthansa (2026-11-15): below 768px a striped table in a tab panel as www's phone table, its
+   cells 200px wide (the table scrolls sideways) and the header type 20px; gated on brussels-parity-011's phone first loads
+   of the six checked-baggage languages (closer on all six, e.g. be/fr +15.36 -> +9.45 %); student-fares unchanged */
+@media (width < 768px) {
+  body.brand-brussels main > .section.section-tab-panel .table-striped table {
+    table-layout: auto;
+    width: max-content;
+    min-width: 100%;
+  }
+
+  body.brand-brussels main > .section.section-tab-panel .table-striped :is(th, td) {
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+  }
+
+  body.brand-brussels main > .section.section-tab-panel .table-striped th {
+    font-size: 20px;
+    line-height: 1.1;
+  }
+}

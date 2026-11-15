@@ -1025,3 +1025,26 @@ body.brand-b2b main .default-content-wrapper > ul.links-responsive + p.spacer:la
     margin-top: 67px;
   }
 }
+
+/* standing order 23 of ema-lufthansa (2026-11-15): a Columns Media "iframe-player" is www's iframe component, its YouTube
+   player 315px tall on phones (max-width 560, height 315); www's video component is 16:9 as ours, and DA's copies author
+   the two alike, so the variant comes with a document row (delta-so23-b2b-help-alliance-player.txt; b2b-parity-013,
+   /de/en/about-us/help-alliance: 390 -4.24 -> -0.66 %, 1440 unchanged) */
+@media (width < 768px) {
+  body.brand-b2b .columns-media.iframe-player .media-embed-youtube {
+    aspect-ratio: auto;
+    height: 315px;
+  }
+}
+
+/* standing order 23 of ema-lufthansa (2026-11-15): after a sidebar Columns Media whose text ends with a button, a heading
+   that opens a column view sits about 43px under the button, as www's (lufthansa-group-wifi, b2b-parity-007; ours kept the
+   mark's 40px and the heading's 32). After text www keeps about 90px (route-network), so only the button shape; of the 102
+   recorded pages only wifi has it: 1440 +3.42 -> +1.81 %, 390 +1.27 -> +0.47 % */
+body.brand-b2b main .columns-media-wrapper:has(> .columns-media.sidebar > div > div:first-child > p.button-wrapper:last-child) + .default-content-wrapper > p.column-mark.column-start-outer:first-child:has(+ :is(h2, h3, h4)) {
+  padding-top: 0;
+}
+
+body.brand-b2b main .columns-media-wrapper:has(> .columns-media.sidebar > div > div:first-child > p.button-wrapper:last-child) + .default-content-wrapper > p.column-mark.column-start-outer:first-child + :is(h2, h3, h4) {
+  margin-top: 0;
+}
