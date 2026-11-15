@@ -363,3 +363,16 @@ test('lufthansa.com /xx/ru/flights without www\'s labels: the badge "Лучша�
   const tiles = await grid('', GB_ROWS, '/xx/ru/flights');
   assert.ok(tiles[0].endsWith(' Лучшая цена'), tiles[0]);
 });
+
+// standing order 28: www's /se/en/yes3 grid highlights nothing (maxHighlightedOffers 5, priorityOfHighlightingOffers
+// ""): its sort offers Price and Alphabet only and opens by price, no badge (lh-parity-006); ours authors
+// "Highlight priority: none" for it (delta-so28-lh-com-grids.txt)
+test('lufthansa.com with no highlight kind: the sort Price and Alphabet only, by price, no badge', async () => {
+  const rows = [['Origin', 'London (LHR)'], ['Trip duration', '7'], ['Highlighted offers', '5'], ['Highlight priority', 'none']];
+  const tiles = await grid('', rows, '/gb/en/flights');
+  const sort = sortOf();
+  assert.deepEqual(sort.options, ['price Price', 'alphabet Alphabet']);
+  assert.equal(sort.value, 'price');
+  assert.deepEqual(tiles.slice(0, 4), ['Brussels', 'Zurich', 'Munich', 'Geneva']);
+  assert.ok(!tiles.some((t) => t.endsWith(' Best price') || t.endsWith(' Recommended')));
+});

@@ -1,0 +1,281 @@
+[
+  {
+    "path": "/ba/en/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Home</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/ch/de/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Home</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/in/en/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Home</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/it/de/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Home</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/it/en/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Home</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/it/it/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Home</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/jp/en/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Home</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/jp/ja/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>ホーム</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/lb/en/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Home</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/pl/de/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Home</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/pl/en/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Home</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/pl/pl/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Strona główna</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/pt/de/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Home</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/pt/en/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Home</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/pt/pt/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Página principal</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/ru/en/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Home</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/sa/en/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Home</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/se/en/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Home</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/xx/el/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Αρχική σελίδα</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/xx/es/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Inicio</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/xx/fr/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Accueil</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/xx/hk/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>首頁</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/xx/it/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Home</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/xx/ja/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>ホーム</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/xx/ko/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>홈</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/xx/pl/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Strona główna</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/xx/pt/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>Página principal</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/xx/ru/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>На главную</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/xx/zh/homepage",
+    "inserts": [
+      {
+        "after": "<div class=\"metadata\">",
+        "text": "<div><div>Breadcrumb title</div><div>主页</div></div>"
+      }
+    ]
+  },
+  {
+    "path": "/jp/en/flights",
+    "inserts": [
+      {
+        "replace": "<p><strong>Limited Economy Offer! Special fares for your Europe getaway</strong>Our limited Economy offer to Europe is available until October 31, 2026, with travel valid from October 1, 2026 to April 27, 2027*. {full-width}</p><p>* Blackout dates: Departures from Japan December 25-30, 2026. Departure from Europe January 2-4, 2027, May 4-8, August 1 – November24, 2027, January 2-3, 2028. Availability is subject to fare conditions and seat availability. {full-width}</p>",
+        "text": "<p>Looking for your next flight? Travel to beautiful destinations around the world with Lufthansa. {full-width}</p>"
+      }
+    ]
+  },
+  {
+    "path": "/se/en/yes3",
+    "inserts": [
+      {
+        "after": "<div><div>Highlighted offers</div><div>5</div></div>",
+        "text": "<div><div>Highlight priority</div><div>none</div></div>"
+      }
+    ]
+  }
+]

@@ -319,3 +319,21 @@ body.brand-lufthansa .destination-finder .destination-finder-compare-checkbox {
     padding-bottom: calc(10px + 24px + 9px);
   }
 }
+
+/* lufthansa.com on phones as www's first loads (lh-parity-006: 29 market pages, each width its own load; standing
+   order 28): "Compare cities" on one line, the control running to 6 px from the card's right edge (ours wrapped and
+   stood over the price); 48 px kept under the price (www's card-empty-space; 28 in Japanese, Korean and Chinese):
+   rows 353 px apart, 333 in those three */
+@media (width < 768px) {
+  body.brand-lufthansa .destination-finder .destination-finder-compare {
+    max-width: calc(100% - 12px);
+  }
+
+  body.brand-lufthansa .destination-finder.grid .destination-finder-tile-compare .destination-finder-tile-body {
+    padding-bottom: calc(10px + 24px + 32px);
+  }
+
+  :is(:lang(ja), :lang(ko), :lang(zh)) body.brand-lufthansa .destination-finder.grid .destination-finder-tile-compare .destination-finder-tile-body {
+    padding-bottom: calc(10px + 24px + 12px);
+  }
+}

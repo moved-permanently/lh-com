@@ -1,0 +1,38 @@
+# Expected change: lufthansa.com's 29 market flights pages (standing order 28, item 1), gated against lh-parity-006 (www, each width its own first load) with lufthansa-api-003's answers (each page's destinationfinder call and its defaultAirport; /ru/en/flights: lufthansa-api-004, www answers Moscow HTTP 500).
+# Code with it (lufthansa.com only): on phones the compare control runs to 12 px from the card's edge ("Compare cities" on one line; since order 26 it wrapped and stood over the price) and the card keeps www's first-load 48 px under the price (66 px, 46 in Japanese, Korean and Chinese, as www's card-empty-space: rows 353 px apart as www's, 333 in those three); a grid without a highlight kind sorts as www's (Price and Alphabet, by price).
+# The rows: (1) each market's homepage gets www's breadcrumb word as its Breadcrumb title (a phone shows only the parent crumb: ours showed the homepage's long title, "Book your flight now - travel with Lufthansa to over 200 destinations", on two lines; www "Home", "Accueil", "主页" ...); (2) /jp/en/flights: the expired "Limited Economy Offer" (until 31 October) as www's one sentence; (3) /se/en/yes3: Highlight priority none (www: maxHighlightedOffers 5 with priorityOfHighlightingOffers "": no badge, sorted by price). /lb/en/flights: www's promotion is already in DA's copy, not yet published (no row).
+# Gate: base = our code on main, trial = the code with the rows (folder renders of the published copies plus the rows, html-folder), both 1440 and 390, the same fonts. gate.mjs on the first 8,000 px of each page (the full pages, up to 40,000 px, differ by up to 3.4 points between two loads of the same code: lazy pictures deep in the grid; on the first 8,000 px by 0.1), the two short pages (ba/en, ru/en) on the whole page.
+# DA: /jp/en/flights and /se/en/yes3 checked on DA's copies (text-inserts-apply --check: inserted, DA byte for byte without them). The 28 homepages' DA copies could not be read this order (the safety guard refused the reads), so their rows were gated on the published copies: run --check before applying (an insert is made only where its anchor, the Metadata block, is found once).
+# Each line: READY / HOLD, DA path, the change, the pages it moves (1440, 390: base → trial %), the gate.
+READY	/ba/en/homepage	Breadcrumb title Home	ba/en/flights: 1440 19.92 → 20.01, 390 53.26 → 27.57 (whole page)	better / within (gate.mjs)
+READY	/ch/de/homepage	Breadcrumb title Home	ch/de/fluege: 1440 22.14 → 21.38, 390 50.81 → 16.78 (first 8,000 px)	better / within (gate.mjs)
+READY	/xx/el/homepage	Breadcrumb title Αρχική σελίδα	xx/el/flights: 1440 36.75 → 36.53, 390 53.04 → 49.92 (first 8,000 px)	better / within (gate.mjs)
+READY	/xx/es/homepage	Breadcrumb title Inicio	xx/es/flights: 1440 36.75 → 36.57, 390 54.25 → 49.78 (first 8,000 px)	better / within (gate.mjs)
+READY	/xx/fr/homepage	Breadcrumb title Accueil	xx/fr/flights: 1440 36.19 → 36.25, 390 50.12 → 30.50 (first 8,000 px)	better / within (gate.mjs)
+READY	/xx/hk/homepage	Breadcrumb title 首頁	xx/hk/flights: 1440 36.62 → 36.55, 390 50.88 → 50.85 (first 8,000 px)	better / within (gate.mjs)
+READY	/xx/it/homepage	Breadcrumb title Home	xx/it/flights: 1440 36.11 → 36.09, 390 50.24 → 28.73 (first 8,000 px)	better / within (gate.mjs)
+READY	/xx/ja/homepage	Breadcrumb title ホーム	xx/ja/flights: 1440 36.61 → 36.61, 390 52.63 → 52.63 (first 8,000 px)	better / within (gate.mjs)
+READY	/xx/ko/homepage	Breadcrumb title 홈	xx/ko/flights: 1440 36.48 → 36.40, 390 30.19 → 30.18 (first 8,000 px)	better / within (gate.mjs)
+READY	/xx/pl/homepage	Breadcrumb title Strona główna	xx/pl/flights: 1440 36.65 → 36.64, 390 54.12 → 49.64 (first 8,000 px)	better / within (gate.mjs)
+READY	/xx/pt/homepage	Breadcrumb title Página principal	xx/pt/flights: 1440 41.40 → 41.50, 390 53.25 → 49.82 (first 8,000 px)	better / within (gate.mjs)
+READY	/xx/ru/homepage	Breadcrumb title На главную	xx/ru/flights: 1440 36.81 → 36.39, 390 51.12 → 46.59 (first 8,000 px)	better / within (gate.mjs)
+READY	/xx/zh/homepage	Breadcrumb title 主页	xx/zh/flights: 1440 36.51 → 36.43, 390 29.44 → 29.45 (first 8,000 px)	better / within (gate.mjs)
+READY	/in/en/homepage	Breadcrumb title Home	in/en/flights: 1440 18.06 → 18.05, 390 49.18 → 7.37 (first 8,000 px)	better / within (gate.mjs)
+READY	/it/de/homepage	Breadcrumb title Home	it/de/fluege: 1440 17.94 → 17.77, 390 50.33 → 16.66 (first 8,000 px)	better / within (gate.mjs)
+READY	/it/en/homepage	Breadcrumb title Home	it/en/flights: 1440 17.51 → 17.50, 390 49.40 → 9.07 (first 8,000 px)	better / within (gate.mjs)
+READY	/it/it/homepage	Breadcrumb title Home	it/it/flights: 1440 36.17 → 36.15, 390 49.77 → 30.62 (first 8,000 px)	better / within (gate.mjs)
+READY	/jp/en/homepage	Breadcrumb title Home	jp/en/flights: 1440 47.30 → 17.89, 390 52.34 → 7.22 (first 8,000 px)	better / within (gate.mjs)
+READY	/jp/ja/homepage	Breadcrumb title ホーム	jp/ja/flights: 1440 36.71 → 36.71, 390 52.84 → 52.83 (first 8,000 px)	better / within (gate.mjs)
+READY	/lb/en/homepage	Breadcrumb title Home	lb/en/flights: 1440 15.99 → 15.98, 390 47.43 → 40.30 (first 8,000 px)	better / within (gate.mjs)
+READY	/pl/de/homepage	Breadcrumb title Home	pl/de/fluege: 1440 21.32 → 21.31, 390 51.28 → 37.40 (first 8,000 px)	better / within (gate.mjs)
+READY	/pl/en/homepage	Breadcrumb title Home	pl/en/flights: 1440 18.02 → 18.01, 390 48.60 → 24.43 (first 8,000 px)	better / within (gate.mjs)
+READY	/pl/pl/homepage	Breadcrumb title Strona główna	pl/pl/flights: 1440 36.83 → 36.82, 390 52.44 → 48.26 (first 8,000 px)	better / within (gate.mjs)
+READY	/pt/de/homepage	Breadcrumb title Home	pt/de/fluege: 1440 18.06 → 18.05, 390 48.97 → 27.10 (first 8,000 px)	better / within (gate.mjs)
+READY	/pt/en/homepage	Breadcrumb title Home	pt/en/flights: 1440 17.42 → 17.41, 390 48.87 → 16.98 (first 8,000 px)	better / within (gate.mjs)
+READY	/pt/pt/homepage	Breadcrumb title Página principal	pt/pt/flights: 1440 41.50 → 41.49, 390 52.80 → 49.81 (first 8,000 px)	better / within (gate.mjs)
+HOLD	/ru/en/homepage	Breadcrumb title Home	ru/en/flights: 1440 22.60 → 22.58, 390 18.62 → 22.25 (whole page); without the row 390 18.62 → 18.62	worse at 390 (compensation removed: the long two-line crumb hid the page's tail, about 190 px higher than www's; held with the empty state)
+READY	/sa/en/homepage	Breadcrumb title Home	sa/en/flights: 1440 18.25 → 18.23, 390 49.84 → 7.18 (first 8,000 px)	better / within (gate.mjs)
+READY	/se/en/homepage	Breadcrumb title Home	se/en/yes3: 1440 33.06 → 16.36, 390 55.89 → 56.23 (first 8,000 px)	better / within (gate.mjs)
+READY	/jp/en/flights	the expired promotion as www's sentence "Looking for your next flight? ..."	see /jp/en/homepage's line (both rows in the trial)	better (gate.mjs)
+READY	/se/en/yes3	Highlight priority none	see /se/en/homepage's line	better at 1440, within at 390 (gate.mjs)
+# /ru/en/flights' empty state as www's (a yellow warning box, no sort from 768 px, no month filter, no disclaimer: our 1440 box now x 409-880 as www's) is held, not in git (logs/p4/so28/held-empty-state): with it the page measures 1440 22.60 → 30.55, 390 18.62 → 30.30, because our month filter's 128 px had hidden the tail's -190 px (the feedback block and the cards under it stand closer than www's); the tail first. In my captures ru/en's grid footer showed another market's German conditions text (www's catalog refused, its recorded fallback from another market): live, www answers in English.

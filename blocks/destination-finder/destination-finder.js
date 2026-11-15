@@ -2053,9 +2053,14 @@ async function decorateGrid(block, uid) {
   const toolbar = el('div', 'destination-finder-toolbar');
   // www's Best price sort on a gridBadges grid (its text as the badge's without the labels)
   const bestPriceText = GRID_BEST_PRICE_LABELS[locale.lang] || GRID_BEST_PRICE_LABELS.en;
+  // www's grid without a highlight kind (priorityOfHighlightingOffers "", or no highlighted offers:
+  // /se/en/yes3): its sort Price and Alphabet only, opened by price (standing order 28)
+  const noHighlights = wwwBadges && (settings.maxHighlighted === 0
+    || !settings.priority.some((name) => ['topdeal', 'kclass'].includes(String(name).toLowerCase())));
+  if (noHighlights) state.sort = 'price';
   const sort = selectField(`${uid}-sort`, labels['sort label'], [
-    ['topDeal', labels['sort recommended label']],
-    ...(wwwBadges ? [['kClass', labels['sort kclass label'] || GRID_SORT_KCLASS_LABELS[locale.lang] || bestPriceText]] : []),
+    ...(noHighlights ? [] : [['topDeal', labels['sort recommended label']]]),
+    ...(wwwBadges && !noHighlights ? [['kClass', labels['sort kclass label'] || GRID_SORT_KCLASS_LABELS[locale.lang] || bestPriceText]] : []),
     ['price', labels['sort price label']], ['alphabet', labels['sort alphabet label']],
   ], state.sort);
   // a sort picked by hand stays; else each answer opens with www's (openingGridSort)
@@ -2168,7 +2173,7 @@ async function decorateGrid(block, uid) {
       const picked = highlightedOffers(loaded.offers, settings.maxHighlighted, settings.priority);
       const kinds = highlightKinds(picked, settings.priority);
       const shownOffers = new Set(filtered);
-      if (!sortPicked) {
+      if (!sortPicked && !noHighlights) {
         state.sort = openingGridSort(kinds);
         sort.select.value = state.sort;
       }
