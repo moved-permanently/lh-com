@@ -7110,5 +7110,14 @@ All four items are done, so I stopped here, before 21:00. What is left needs you
 GETs; no upload, preview, publish or da-upload.mjs; www's recordings read as data; the checkout's 88 dirty entries
 untouched; /de/en/overview-manage has no row.
 
+**After the pushes (about 18:35 CET):** your helpers had already applied this order's READY rows (upload states at 18:10 to
+18:12 CET). Measured on the hosts, unhinted, every one is served at its drafted figure to the px:
+- eservices-app: 3,190 / 3,312, the badges at their own size;
+- partnerships-subsidiaries and schwangere-und-kinder: as before, the words in their items;
+- ecsd: 1,319 / 1,770; ehm: 1,318 / 1,617, each title at 191;
+- general-terms1: 1,124 / 1,470, footer 647; Template legal and both spacers are in the served copy.
+
+eaw (HOLD), terms-of-use (2,760) and Support & Contact (2,328 / 3,160) are unchanged.
+
 **Not in git** (scratch under /tmp/so39): the DA copies read, the drafts, the apply outputs, the scripts, the renders and
 the logs.
