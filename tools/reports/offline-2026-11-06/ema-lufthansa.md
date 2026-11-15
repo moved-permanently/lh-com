@@ -5329,3 +5329,68 @@ loadedSeparately):**
 **Hosts:** reads only from our hosts, the drop and DA (GETs from my session). No request to an airline host, no
 da-upload.mjs call, no upload, preview or publish by me (the two B2B delta rows were published after my push, not
 by me).
+
+## Standing order 24 (2026-11-15, about 08:40 to 12:30 CET), with its final section
+
+**At the start:** nothing of mine uncommitted or unpushed (order 23's a6d3590e was on main). `.migration/project.json`
+was modified, not by me, and is left as it is.
+
+**Item 1, Arial in the measuring browser (fonts-so24-liberation.txt):**
+- **The face:** Liberation Sans 2.1.5 from the drop
+  (https://pub-db401692e31c42bbbfdfbb74068c1755.r2.dev/GDDocrqS7sYpHQrbIT_4NmGC/fonts-liberation-sans-2.1.5.tar.gz),
+  sha256 as its .sha256. The files stay out of git.
+- **The option:** `PARITY_ARIAL_FONTS=<dir>` (tools/parity/arial-alias.mjs, with a test), off by default. It writes a
+  fontconfig file that keeps the system's fonts, adds the dir and maps Arial to Liberation Sans. tools/parity/capture.js
+  launches its browser with it (help-and-contact 390: 2951 -> 2867 px in its capture), and so does my measuring script.
+- **Every finish list's rows (256), measured with the face:** the glyphs Chromium drew in Liberation Sans were counted,
+  and each page that drew any was measured again with the system's fonts.
+  - 16 rows move: ITA's 8 phone rows (-84 px each, the footer's legal list as www's), and Austrian's gr/el and ru/ru
+    baggage and contact at both widths (Portada and CoreSans have no Greek or Cyrillic, so that text falls back to
+    Arial).
+  - 12 get closer to www, e.g. help-and-contact +2.75 -> 0.00 %, ru/ru baggage 390 +3.79 -> -0.65 %. 4 ITA rows get
+    further in percent (e.g. entry-exit-system -1.63 -> -2.54 %): with the real face the footer is www's, and the page
+    above it is shorter.
+  - 19 rows draw a few glyphs in it and measure the same; 221 draw none.
+  - Order 22's census had missed the Austrian pages. finish-austrian.txt is ema-cashub's, so its 8 rows are only in my
+    list. finish-ita.txt has the face's figures: help-and-contact, invoicing, short-haul and the app page are within
+    2 % with it.
+
+**Item 2, Brussels (finish-brussels.txt):**
+- **The -011 pages, re-measured as served with the tabs-closed row live:** be/en, be/nl and es/es within 2 %; de/de
+  -2.03 %, it/it -3.03 %, be/fr -3.76 %. student-fares 390 is within on its first load; its 1440 row and be/fr's
+  1440 row are unchanged (both are first loads at 1440).
+- **Located:** www's accordion questions wrap in a 257 px text box (the 24 px chevron keeps a 10 px gap), ours in 280.
+  - A Brussels rule for every accordion fails the gate on 39 pages (brussels-so24-accordion-titles.txt:
+    mpl-cadet-program, student-fares, problems-with-your-baggage and ita-airways further).
+  - So an accordion variant "narrow-titles" with a phone rule (brussels.css), and a delta row for five languages
+    (delta-so24-brussels-checked-baggage-narrow-titles.txt, READY): de/de -1.55 %, it/it -1.08 %, be/fr -2.83 %,
+    be/en +0.81 %, be/nl -1.18 %. es/es is left out: its questions fit either way. 1440 unchanged.
+  - be/fr's other 41 px: its "Ajoutez-les" button wraps on www.
+- **DA:** this order's reads were refused (401). The row's strings come from DA's copies of 06:04 UTC; the tool checks
+  the count when the owner runs it.
+- **The code groups:** none of their pages has a phone first load, so the picture is unchanged.
+- **Capture request:** the 16 HOLD phone rows measured against resized recordings are asked as phone first loads (all on
+  www.brusselsairlines.com; no www.lufthansa.com request).
+
+**Item 3, wifi's two held places (b2b.css, with a test):**
+- The title 40 px above a background-video stage that a sidebar follows.
+- A page that ends with a faq accordion not "spaced" meets the footer.
+- Of the 102 recorded pages only wifi has either shape. 1440 +1.81 -> -0.16 %, 390 +0.47 -> -0.57 % (0.10 points
+  further, closer at 1440). celebrating-shared-stories and our-european-fares are unchanged at both widths.
+- www keeps the same 40 px on celebrating-shared-stories; the scope leaves that page, as the order asked.
+
+**Checks:** c4ad3cff (items 1 to 3):
+- `npm run lint` exit 0, and stylelint on brussels.css and b2b.css, before the push (and after the rebase).
+- The folder-reading tests, then the full suite. Before the rebase it had 1 failure: another agent's blog-pager test,
+  red on main's own files since ff450c9a (my ship script tolerates only that named test). After the rebase onto main's
+  fix (8c361d6f): 4481 pass, 0 fail.
+- Smoke 0 differences; GitHub Build success. As served afterwards: wifi 4469 / 6495, the Brussels rule live.
+- This report commit: lint before its push.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git): the font archive and its files, brussels-parity-011, the measurements, drafts, gates,
+  crops, logs, and a partial worktree folder left from a timed-out `git worktree add` (pruned from git's list).
+
+**Hosts:** reads only from our hosts, the drop and DA (GETs from my session; refused with 401 this order). No request to
+an airline host, no da-upload.mjs call, no upload, preview or publish by me.
