@@ -1574,6 +1574,21 @@ body.brand-cargo .accordion-columns.tabs.filter .accordion-columns-filter-result
   }
 }
 
+/* standing order 38: the legal pages (Metadata Template legal, 526457df's row; on Cargo the rows of
+   delta-so38-cargo-legal-template.txt, terms-of-use and general-terms1) as www's legal template
+   (cargo-parity-003 at 1440): the content 1,184 px wide from x 128 (www's 1,296 px grid less 56 px
+   each side), the running text over the whole of it, not Cargo's two thirds (855 px); our title
+   stays. From 1281 px, where the grid is 1,296 px; no other Cargo document has a Template row. */
+@media (width >= 1281px) {
+  body.brand-cargo.legal main > .section > div {
+    padding: 0 calc(var(--layout-margin) + 56px);
+  }
+
+  body.brand-cargo.legal main > .section > .default-content-wrapper > :is(p, ul, ol) {
+    max-width: none;
+  }
+}
+
 /* brief 482: each tab's topics as www's: on phones an accordion (the title 18px / 24px light, the
    line 14px / 18px, 13px 44px 13px 10px, a #ccc rule, www's chevron at the end; the links in a
    #f5f5f5 box under the open one, 14px / 18px bold, 22px apart); from 1025px the list (10px 10px 10px 24px; the title regular; the
