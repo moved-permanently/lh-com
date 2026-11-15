@@ -23,9 +23,11 @@ test('lufthansa.com: the compare control 10 px over the card\'s bottom, the card
   assert.ok(css.includes('body.brand-lufthansa .destination-finder.grid .destination-finder-tile-compare .destination-finder-tile-body { padding-bottom: calc(10px + 24px + 12px); }'));
 });
 
-test('lufthansa.com\'s rules at every width (no media block of their own)', () => {
+// the control's place at every width (order 27 adds a 1025 px block for the space under the price only)
+test('lufthansa.com\'s control rule at every width (in no media block)', () => {
   const media = css.match(/@media[^{]*\{(?:[^{}]*\{[^{}]*\})*[^{}]*\}/g) || [];
-  assert.ok(!media.some((m) => m.includes('brand-lufthansa')));
+  assert.ok(!media.some((m) => m.includes('body.brand-lufthansa .destination-finder .destination-finder-compare {')));
+  assert.ok(!media.some((m) => m.includes('calc(10px + 24px + 12px)')));
 });
 
 test('Discover and the other grids with the control (SWISS) as before', () => {

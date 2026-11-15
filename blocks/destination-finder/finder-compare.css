@@ -311,3 +311,11 @@ body.brand-lufthansa .destination-finder .destination-finder-compare-checkbox {
   height: 24px;
   margin: 0;
 }
+
+/* lufthansa.com from 1025 px: 43 px under the price with www's wider cards and smaller price (destination-finder.css;
+   rows 394 px apart, www 395; standing order 27) */
+@media (width >= 1025px) {
+  body.brand-lufthansa .destination-finder.grid .destination-finder-tile-compare .destination-finder-tile-body {
+    padding-bottom: calc(10px + 24px + 9px);
+  }
+}

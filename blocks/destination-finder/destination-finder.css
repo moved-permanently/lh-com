@@ -1316,3 +1316,20 @@ body.brand-lufthansa .destination-finder.grid .destination-finder-tile-offer {
     margin-top: 2px;
   }
 }
+
+/* lufthansa.com's offers grid at 1440 as www's (lh-parity-004a/004b, our pages answered by lufthansa-api-001/-002;
+   standing order 27): the filter column 291 px, the cards 943 (ours 308 / 926), the cards 10 px apart sideways, the
+   price 21 px (ours 24); finder-compare.css keeps the rows 395 px apart */
+@media (width >= 1025px) {
+  body.brand-lufthansa .destination-finder.grid .destination-finder-layout {
+    grid-template-columns: minmax(0, 291fr) minmax(0, 943fr);
+  }
+
+  body.brand-lufthansa .destination-finder.grid .destination-finder-grid {
+    column-gap: 10px;
+  }
+
+  body.brand-lufthansa .destination-finder.grid .destination-finder-tile-price {
+    font-size: 21px;
+  }
+}

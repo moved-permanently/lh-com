@@ -76,7 +76,8 @@ test('never the 21 October recording, never an undated answer, never another cal
   assert.throws(() => loadRecordedAnswers(write('old.har', har('2026-10-21T18:26:45.823Z'))), /21 October/);
   assert.throws(() => loadRecordedAnswers(write('undated.json', plain({ recordedAt: undefined }))), /recording date/);
   assert.throws(() => loadRecordedAnswers(write('other.json', plain({ url: URL_OK.replace('FRA', 'MUC') }))), /not the offers page's price call|not an answerable price call/);
-  assert.throws(() => loadRecordedAnswers(write('lh.har', har('2026-11-14T12:31:02Z', 'LH'))), /not the offers page's price call|not an answerable price call/);
+  // since standing order 27 FRA/E under X-Portal LH is lufthansa.com's own call (its test below); another portal stays refused
+  assert.throws(() => loadRecordedAnswers(write('ita.har', har('2026-11-14T12:31:02Z', 'ITA'))), /not the offers page's price call|not an answerable price call/);
   // the site's own recording folder (the 21 October answers), whatever the file
   const inRepo = path.join(ROOT, 'data/recorded/index.json');
   assert.throws(() => loadRecordedAnswers(inRepo), /data\/recorded/);
@@ -172,3 +173,40 @@ test('lufthansa.com\'s grid call LHR/E under X-Portal LH answers from its own re
   const preflight = recordedAnswer(req(LHR, 'OPTIONS', { 'access-control-request-headers': 'x-portal' }), lh);
   assert.equal(preflight.status, 204);
 });
+
+// standing order 27: lufthansa-api-002 (one load each of /de/en/flights, /de/de/fluege, /at/de/fluege): lufthansa.com's
+// FRA/E and VIE/E under X-Portal LH; an answer answers its own portal, site and language only (FRA/E is Discover's
+// call too, under FOUR_Y)
+test('lufthansa.com\'s FRA/E and VIE/E under X-Portal LH: by portal, site and language, never Discover\'s FRA answer', async () => {
+  const { createHash } = await import('node:crypto');
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'parity-lh-'));
+  fs.mkdirSync(path.join(root, 'api'));
+  const VIE = 'https://www.lufthansa.com/service/api/destinationfinder/destination/finder/VIE/E?months=0_11&tripType=RETURN';
+  const put = (name, text) => {
+    fs.writeFileSync(path.join(root, 'api', name), text);
+    return createHash('sha256').update(text).digest('hex');
+  };
+  const call = (url, file, text, portal, site, lang) => ({
+    url, host: 'www.lufthansa.com', method: 'GET', status: 200, at: '2026-11-15T00:01:55.168Z', contentType: 'application/json', xPortalRequestHeader: portal, xPortalSiteRequestHeader: site, xPortalLanguageRequestHeader: lang, file: `api/${file}`, sha256: put(file, text),
+  });
+  const index = [
+    { page: 'de-en-flights', pageUrl: 'https://lufthansa.turnsthe.page/de/en/flights', calls: [call(URL_OK, 'de-en.json', '{"originCityName":"Frankfurt","lh":"de/en"}', 'LH', 'DE', 'en')] },
+    { page: 'at-de-fluege', pageUrl: 'https://lufthansa.turnsthe.page/at/de/fluege', calls: [call(VIE, 'at-de.json', '{"originCityName":"Wien"}', 'LH', 'AT', 'de')] },
+  ];
+  const file = path.join(root, 'api', 'index.json');
+  fs.writeFileSync(file, JSON.stringify(index));
+  const lh = loadRecordedAnswers(file);
+  const ask = (url, portal, site, lang, answers = lh) => recordedAnswer(req(url, 'GET', { 'x-portal': portal, 'x-portal-site': site, 'x-portal-language': lang }), answers);
+  assert.match(ask(URL_OK, 'LH', 'DE', 'en').body, /de\/en/);
+  assert.match(ask(VIE, 'LH', 'AT', 'de').body, /Wien/);
+  assert.equal(ask(URL_OK, 'FOUR_Y', 'DE', 'en'), null, 'Discover\'s FRA call is not lufthansa.com\'s answer');
+  assert.equal(ask(URL_OK, 'LH', 'RU', 'en'), null, 'another market\'s FRA call (ru/en) is not de/en\'s answer');
+  assert.equal(ask(URL_OK, 'LH', 'DE', 'de'), null, 'nor another language');
+  assert.equal(ask(VIE, 'FOUR_Y', 'AT', 'de'), null);
+  // Discover's own FRA answer never answers lufthansa.com's call
+  const discover = loadRecordedAnswers(write('fra-4y.json', plain({ language: 'en' })));
+  assert.equal(ask(URL_OK, 'LH', 'DE', 'en', discover), null);
+  assert.ok(ask(URL_OK, 'FOUR_Y', 'DE', 'en', discover));
+  assert.equal(recordedAnswer(req(VIE, 'OPTIONS', { 'access-control-request-headers': 'x-portal' }), lh).status, 204);
+});
+

@@ -160,6 +160,10 @@ const ANSWERABLE_CALLS = [
   { path: '/service/api/destinationfinder/destination/finder/FRA/E', portal: 'FOUR_Y' },
   // lufthansa.com's offers grid in the UK (/gb/en/flights, standing order 25)
   { path: '/service/api/destinationfinder/destination/finder/LHR/E', portal: 'LH' },
+  // lufthansa.com's /de/en/flights, /de/de/fluege and /at/de/fluege (lufthansa-api-002,
+  // standing order 27)
+  { path: '/service/api/destinationfinder/destination/finder/FRA/E', portal: 'LH' },
+  { path: '/service/api/destinationfinder/destination/finder/VIE/E', portal: 'LH' },
 ];
 const ANSWERABLE = {
   host: 'www.lufthansa.com',
@@ -179,13 +183,16 @@ function answerableCall(rawUrl, portal) {
     return null;
   }
   if (u.protocol !== 'https:' || u.hostname !== ANSWERABLE.host) return null;
-  const call = ANSWERABLE_CALLS.find((c) => c.path === u.pathname);
+  // a path may be answerable under more than one portal (FRA/E: Discover's FOUR_Y,
+  // lufthansa.com's LH)
+  const wanted = portal === undefined ? null : String(portal).toUpperCase();
+  const call = ANSWERABLE_CALLS.find((c) => c.path === u.pathname
+    && (wanted === null || c.portal === wanted));
   if (!call) return null;
   const keys = [...u.searchParams.keys()];
   const want = Object.keys(ANSWERABLE_QUERY);
   if (keys.length !== want.length) return null;
   if (!want.every((k) => u.searchParams.get(k) === ANSWERABLE_QUERY[k])) return null;
-  if (portal !== undefined && String(portal).toUpperCase() !== call.portal) return null;
   return call;
 }
 
@@ -228,6 +235,7 @@ function loadRecordedAnswers(file) {
         portal: r.xPortalRequestHeader,
         body: text,
         language: root ? root[1] : undefined,
+        site: r.xPortalSiteRequestHeader,
       });
     });
   }
@@ -239,6 +247,7 @@ function loadRecordedAnswers(file) {
     const found = [];
     data.forEach((page) => {
       const root = /^https?:\/\/[^/]+\/[a-z]{2}\/([a-z]{2})(?:\/|$)/.exec(page.pageUrl || '');
+      const country = /^https?:\/\/[^/]+\/([a-z]{2})\/[a-z]{2}(?:\/|$)/.exec(page.pageUrl || '');
       page.calls.forEach((c) => {
         if ((c.method && c.method !== 'GET') || !isAnswerable(c.url, c.xPortalRequestHeader || '')) return;
         const bodyFile = path.resolve(base, c.file);
@@ -253,7 +262,9 @@ function loadRecordedAnswers(file) {
           url: c.url,
           method: c.method,
           portal: c.xPortalRequestHeader,
-          language: root ? root[1] : undefined,
+          language: c.xPortalLanguageRequestHeader || (root ? root[1] : undefined),
+          // the market (X-Portal-Site): recorded, else the page's country root
+          site: c.xPortalSiteRequestHeader || (country ? country[1] : undefined),
           status: c.status,
           contentType: c.contentType,
           body: text,
@@ -270,6 +281,7 @@ function loadRecordedAnswers(file) {
       method: e.request.method,
       portal: header(e.request.headers, 'x-portal'),
       language: header(e.request.headers, 'x-portal-language'),
+      site: header(e.request.headers, 'x-portal-site'),
       status: e.response.status,
       contentType: (e.response.content && e.response.content.mimeType) || header(e.response.headers, 'content-type'),
       body: e.response.content ? e.response.content.text : '',
@@ -290,6 +302,9 @@ function loadRecordedAnswers(file) {
       recordedAt: at.toISOString(),
       // the answer's names are in the page's language (X-Portal-Language): that language only
       language: a.language ? String(a.language).toLowerCase() : null,
+      // its portal and market (X-Portal, X-Portal-Site): those only (standing order 27)
+      portal: a.portal ? String(a.portal).toUpperCase() : null,
+      site: a.site ? String(a.site).toUpperCase() : null,
     };
   });
 }
@@ -316,9 +331,13 @@ function recordedAnswer(request, answers) {
   }
   if (request.method !== 'GET' || !isAnswerable(request.url, headers['x-portal'] || '')) return null;
   const lang = String(headers['x-portal-language'] || '').toLowerCase();
+  const portal = String(headers['x-portal'] || '').toUpperCase();
+  const site = String(headers['x-portal-site'] || '').toUpperCase();
   const { pathname } = new URL(request.url);
   const fitting = answers.filter((a) => (!a.path || a.path === pathname)
-    && (!a.language || !lang || a.language === lang));
+    && (!a.language || !lang || a.language === lang)
+    && (!a.portal || !portal || a.portal === portal)
+    && (!a.site || !site || a.site === site));
   if (!fitting.length) return null;
   const newest = [...fitting].sort((a, b) => b.recordedAt.localeCompare(a.recordedAt))[0];
   return {
