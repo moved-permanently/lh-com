@@ -1,0 +1,17 @@
+# Standing order 27 (2026-11-15), item 1: /de/en/with-children-at-the-airport, for the local harness (it runs the
+# import from the archives). www dropped a sentence and two links after our import: DA's copy still has "We have compiled
+# an overview of all the relevant touchpoints at both our hubs in Frankfurt and Munich. You can find it here:" and the
+# link paragraphs "Munich Airport" (lh-familienlotse-muc-8-23.pdf) and "Frankfurt Airport" (lh-familienlotse-fra-8-23.pdf);
+# the newest recording (lh-snapshots-115, sha256 a1033757...4b6b, de-en-with-children-at-the-airport-1440.html) has the
+# paragraph end at "...which most airports provide." and no such links. The bd-snapshot of 2026-10-22 still had them.
+# Checked through the whole bundle, the way the harness runs it (main's info bundle at this commit, run-bulk-import
+# offline from that recording): against DA's published copy the import differs in that paragraph and the two link
+# paragraphs only (besides what every re-import brings and stays out: www picture hosts, the column-band section style
+# written as section metadata).
+# Expected change: in the first section, the paragraph "If your children would prefer to play and run around..." ends at
+# "...which most airports provide." and the two link paragraphs after it are gone. Nothing else of the document changes:
+# take only that from the re-import into DA's copy.
+# Gate (drafts of the published copy with that change, against lh-snapshots-115): 11.7 / 9.6 -> 9.5 / 4.9 % at
+# 390 / 1440 with main's code; with the card-row gap code (merged in standing order 27) 8.6 / 4.9.
+# status	document	tool	expected change	gate
+READY	/de/en/with-children-at-the-airport	re-import of the page from lh-snapshots-115 (main's info bundle); only the shortened paragraph and the two removed link paragraphs into DA's copy	the old sentence and the "Munich Airport" / "Frankfurt Airport" links out, as www	draft 11.7 / 9.6 -> 9.5 / 4.9 at 390 / 1440 (main), 8.6 / 4.9 with the card-row code

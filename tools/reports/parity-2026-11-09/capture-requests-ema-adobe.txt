@@ -16,3 +16,9 @@
 /xx/pt/business-class
 /xx/ru/business-class
 /xx/zh/business-class
+# Standing order 27 (2026-11-15), item 3: fresh www loads at 1440 and 390 (a first load at each width, not a resize),
+# with the measurement sidecar. Why: their article lists (the category overview's teaser grid) are newer than the
+# recordings we have (lh-parity-002a/b: our pages list October 2026 articles where the recordings show September's), so
+# their 21.8 % (explore-flying) and 17.4 % (explore-the-world) at 390 measure live data, not layout.
+/de/en/articles/explore-flying
+/de/en/articles/explore-the-world
