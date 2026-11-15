@@ -1,0 +1,91 @@
+# ema-cashub, standing order 40 (2026-11-15), item 1: Cargo Support & Contact at 390 (en, de and the two feedback paths), over 2 % since order 39's unhinted measure (+3.07 / +3.06 %, 3,160 / 3,200 px, www 3,066 / 3,105; cargo-parity-001, whose 390s are first loads at 390).
+# Where it loses (en 390, element by element against the recording's measurements): the title +6 px; the topic finder +54 ("Get a new single AWB or AWB stock." on two lines beside its lock icon, the link box and the items a little longer); between the finder and the "Contact us" band +27 (ours the 48 px section gap, www 20 px: the finder's .whiteBgBox padding) and the band's padding +20 above and +20 below (ours 40 px, www 20 px below 1025 px: Liferay's .greyBgBox padding-block, 40 from 1025 px); the box's content -10; technical support and the local sales contact -17 / -45 (www's IATA field is taller). The footer is the same (559 / 560).
+# The rule (styles/themes/cargo.css, test/cargo-support-band-eaw-so40.test.mjs): below 1025 px the band (section contact) 20 px 0 padding, and the section before it 20 px margin-bottom (:where(), a section rule's weight). The section contact, the finder (accordion-columns faq tabs filter) and columns (support) are on Support & Contact alone (the 978 served Cargo copies of standing order 33: en and de only). From 1025 px nothing changes.
+# Gate: the 84 recorded Cargo page-widths (cargo-parity-001 to -003, newest per page and width), rendered twice on cargo.turnsthe.page the same evening: as served, and with the checkout's code (CODE=: its blocks, scripts and styles in place of the host's, so both of this order's Cargo rules); unhinted text (--font-render-hinting=none), EAGER=1 CONSENT=1; lh-proxy, www.* but www.mynewsdesk.com and every airline host refused and counted: 0 refused; www.mynewsdesk.com allowed (Cargo's feed, 2026-11-13).
+# Result: 4 page-widths move, Support & Contact's four 390s, all closer: en +3.07 -> +0.85 %, de +3.06 -> +0.87 % (footer top +3.67 -> +0.96 %, en and de); the other 80 the same to the px, every page as wide as the screen. No other page moves, so none further. The as-served figures equal order 39's unhinted sweep but for the rows your helpers applied since (eservices-app, ecsd, ehm, general-terms1: their drafted figures).
+#
+# path	width	recording	www page	as served	with this order's code	move	www footer top	footer top as served	footer top with the code	page width as served	with the code	mynewsdesk requests as served	with the code
+/de/ci/facts-figures	1440	cargo-parity-001	4952	4839 (-2.28 %)	4839 (-2.28 %)	same	4475	4362 (-2.53 %)	4362 (-2.53 %)	1440	1440	0	0
+/de/ci/facts-figures	390	cargo-parity-001	12482	12775 (+2.35 %)	12775 (+2.35 %)	same	11883	12175 (+2.46 %)	12175 (+2.46 %)	390	390	0	0
+/de/ci/newsroom	1440	cargo-parity-001	4430	4430 (+0.00 %)	4430 (+0.00 %)	same	3953	3953 (+0.00 %)	3953 (+0.00 %)	1440	1440	0	0
+/de/ci/newsroom	390	cargo-parity-001	10670	10678 (+0.07 %)	10678 (+0.07 %)	same	10072	10078 (+0.06 %)	10078 (+0.06 %)	390	390	0	0
+/de/ci/sustainable-development-goals	1440	cargo-parity-001	2363	2379 (+0.68 %)	2379 (+0.68 %)	same	1886	1902 (+0.85 %)	1902 (+0.85 %)	1440	1440	0	0
+/de/ci/sustainable-development-goals	390	cargo-parity-001	1870	1890 (+1.07 %)	1890 (+1.07 %)	same	1270	1290 (+1.57 %)	1290 (+1.57 %)	390	390	0	0
+/de/ci/whats-up-now	1440	cargo-parity-001	2732	2733 (+0.04 %)	2733 (+0.04 %)	same	2256	2256 (+0.00 %)	2256 (+0.00 %)	1440	1440	0	0
+/de/ci/whats-up-now	390	cargo-parity-001	2713	2712 (-0.04 %)	2712 (-0.04 %)	same	2114	2112 (-0.09 %)	2112 (-0.09 %)	390	390	0	0
+/de/ebooking-info	1440	cargo-parity-001	3907	3898 (-0.23 %)	3898 (-0.23 %)	same	3430	3421 (-0.26 %)	3421 (-0.26 %)	1440	1440	0	0
+/de/ebooking-info	390	cargo-parity-001	5688	5831 (+2.51 %)	5831 (+2.51 %)	same	5090	5231 (+2.77 %)	5231 (+2.77 %)	390	390	0	0
+/de/fleet-ulds/fleet	1440	cargo-parity-001	3089	3122 (+1.07 %)	3122 (+1.07 %)	same	2612	2645 (+1.26 %)	2645 (+1.26 %)	1440	1440	0	0
+/de/fleet-ulds/fleet	390	cargo-parity-001	3918	4046 (+3.27 %)	4046 (+3.27 %)	same	3320	3446 (+3.80 %)	3446 (+3.80 %)	390	390	0	0
+/de/home	1440	cargo-parity-001	6117	6161 (+0.72 %)	6161 (+0.72 %)	same	5640	5684 (+0.78 %)	5684 (+0.78 %)	1440	1440	0	0
+/de/home	390	cargo-parity-001	8486	8488 (+0.02 %)	8488 (+0.02 %)	same	7889	7888 (-0.01 %)	7888 (-0.01 %)	390	390	0	0
+/de/industries-in-focus	1440	cargo-parity-001	2515	2533 (+0.72 %)	2533 (+0.72 %)	same	2038	2056 (+0.88 %)	2056 (+0.88 %)	1440	1440	0	0
+/de/industries-in-focus	390	cargo-parity-001	5434	5424 (-0.18 %)	5424 (-0.18 %)	same	4837	4824 (-0.27 %)	4824 (-0.27 %)	390	390	0	0
+/de/news/142-arktische-temperaturen-an-bord	1440	cargo-parity-001	7925	7987 (+0.78 %)	7987 (+0.78 %)	same	-	7510	7510	1440	1440	0	0
+/de/news/142-arktische-temperaturen-an-bord	390	cargo-parity-001	8856	9029 (+1.95 %)	9029 (+1.95 %)	same	-	8429	8429	390	390	0	0
+/de/notification-overview	1440	cargo-parity-001	1648	1648 (+0.00 %)	1648 (+0.00 %)	same	1171	1171 (+0.00 %)	1171 (+0.00 %)	1440	1440	0	0
+/de/notification-overview	390	cargo-parity-001	1355	1358 (+0.22 %)	1358 (+0.22 %)	same	758	758 (+0.00 %)	758 (+0.00 %)	390	390	0	0
+/de/support-and-contact	1440	cargo-parity-001	2301	2328 (+1.17 %)	2328 (+1.17 %)	same	1824	1851 (+1.48 %)	1851 (+1.48 %)	1440	1440	0	0
+/de/support-and-contact	390	cargo-parity-001	3105	3200 (+3.06 %)	3132 (+0.87 %)	moves	2508	2600 (+3.67 %)	2532 (+0.96 %)	390	390	0	0
+/de/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	1440	cargo-parity-001	2301	2328 (+1.17 %)	2328 (+1.17 %)	same	1824	1851 (+1.48 %)	1851 (+1.48 %)	1440	1440	0	0
+/de/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	390	cargo-parity-001	3105	3200 (+3.06 %)	3132 (+0.87 %)	moves	2508	2600 (+3.67 %)	2532 (+0.96 %)	390	390	0	0
+/en/active-temp-control	1440	cargo-parity-003	2217	2206 (-0.50 %)	2206 (-0.50 %)	same	1735	1729 (-0.35 %)	1729 (-0.35 %)	1440	1440	0	0
+/en/active-temp-control	390	cargo-parity-003	1242	1302 (+4.83 %)	1302 (+4.83 %)	same	682	742 (+8.80 %)	742 (+8.80 %)	390	390	0	0
+/en/add-on-services/smartuld	1440	cargo-parity-003	2578	2582 (+0.16 %)	2582 (+0.16 %)	same	2096	2105 (+0.43 %)	2105 (+0.43 %)	1440	1440	0	0
+/en/add-on-services/smartuld	390	cargo-parity-003	1120	1176 (+5.00 %)	1176 (+5.00 %)	same	560	616 (+10.00 %)	616 (+10.00 %)	390	390	0	0
+/en/airmail	1440	cargo-parity-003	2068	2072 (+0.19 %)	2072 (+0.19 %)	same	1586	1595 (+0.57 %)	1595 (+0.57 %)	1440	1440	0	0
+/en/airmail	390	cargo-parity-003	1266	1326 (+4.74 %)	1326 (+4.74 %)	same	706	766 (+8.50 %)	766 (+8.50 %)	390	390	0	0
+/en/ci/facts-figures	1440	cargo-parity-002	4848	4794 (-1.11 %)	4794 (-1.11 %)	same	4371	4317 (-1.24 %)	4317 (-1.24 %)	1440	1440	0	0
+/en/ci/facts-figures	390	cargo-parity-002	11916	12163 (+2.07 %)	12163 (+2.07 %)	same	11355	11603 (+2.18 %)	11603 (+2.18 %)	390	390	0	0
+/en/ci/newsroom	1440	cargo-parity-001	4430	4430 (+0.00 %)	4430 (+0.00 %)	same	3953	3953 (+0.00 %)	3953 (+0.00 %)	1440	1440	0	0
+/en/ci/newsroom	390	cargo-parity-001	10631	10615 (-0.15 %)	10615 (-0.15 %)	same	10072	10055 (-0.17 %)	10055 (-0.17 %)	390	390	0	0
+/en/ci/partnerships-subsidiaries	1440	cargo-parity-003	4712	4707 (-0.11 %)	4707 (-0.11 %)	same	4230	4230 (+0.00 %)	4230 (+0.00 %)	1440	1440	0	0
+/en/ci/partnerships-subsidiaries	390	cargo-parity-003	2781	2659 (-4.39 %)	2659 (-4.39 %)	same	2219	2099 (-5.41 %)	2099 (-5.41 %)	390	390	0	0
+/en/ci/sustainable-development-goals	1440	cargo-parity-001	2363	2355 (-0.34 %)	2355 (-0.34 %)	same	1886	1878 (-0.42 %)	1878 (-0.42 %)	1440	1440	0	0
+/en/ci/sustainable-development-goals	390	cargo-parity-001	1735	1742 (+0.40 %)	1742 (+0.40 %)	same	1174	1182 (+0.68 %)	1182 (+0.68 %)	390	390	0	0
+/en/ci/whats-up-now	1440	cargo-parity-001	2732	2733 (+0.04 %)	2733 (+0.04 %)	same	2256	2256 (+0.00 %)	2256 (+0.00 %)	1440	1440	0	0
+/en/ci/whats-up-now	390	cargo-parity-001	2674	2672 (-0.07 %)	2672 (-0.07 %)	same	2114	2112 (-0.09 %)	2112 (-0.09 %)	390	390	0	0
+/en/dangerous-goods	1440	cargo-parity-003	2121	2154 (+1.56 %)	2154 (+1.56 %)	same	1639	1677 (+2.32 %)	1677 (+2.32 %)	1440	1440	0	0
+/en/dangerous-goods	390	cargo-parity-003	1242	1302 (+4.83 %)	1302 (+4.83 %)	same	682	742 (+8.80 %)	742 (+8.80 %)	390	390	0	0
+/en/data-protection-notice-google-analytics	1440	cargo-parity-003	1072	900 (-16.04 %)	900 (-16.04 %)	same	590	211 (-64.24 %)	211 (-64.24 %)	1440	1440	0	0
+/en/data-protection-notice-google-analytics	390	cargo-parity-003	1120	844 (-24.64 %)	844 (-24.64 %)	same	560	206 (-63.21 %)	206 (-63.21 %)	390	390	0	0
+/en/eaw	1440	cargo-parity-003	1641	1404 (-14.44 %)	1404 (-14.44 %)	same	1159	927 (-20.02 %)	927 (-20.02 %)	1440	1440	0	0
+/en/eaw	390	cargo-parity-003	2236	1815 (-18.83 %)	1815 (-18.83 %)	same	1675	1255 (-25.07 %)	1255 (-25.07 %)	390	390	0	0
+/en/ebooking-info	1440	cargo-parity-001	3771	3845 (+1.96 %)	3845 (+1.96 %)	same	3294	3368 (+2.25 %)	3368 (+2.25 %)	1440	1440	0	0
+/en/ebooking-info	390	cargo-parity-001	5393	5526 (+2.47 %)	5526 (+2.47 %)	same	4834	4966 (+2.73 %)	4966 (+2.73 %)	390	390	0	0
+/en/ecsd	1440	cargo-parity-003	1343	1319 (-1.79 %)	1319 (-1.79 %)	same	861	842 (-2.21 %)	842 (-2.21 %)	1440	1440	0	0
+/en/ecsd	390	cargo-parity-003	1751	1770 (+1.09 %)	1770 (+1.09 %)	same	1191	1210 (+1.60 %)	1210 (+1.60 %)	390	390	0	0
+/en/ehm	1440	cargo-parity-003	1294	1318 (+1.85 %)	1318 (+1.85 %)	same	812	841 (+3.57 %)	841 (+3.57 %)	1440	1440	0	0
+/en/ehm	390	cargo-parity-003	1578	1617 (+2.47 %)	1617 (+2.47 %)	same	1018	1057 (+3.83 %)	1057 (+3.83 %)	390	390	0	0
+/en/emergency	1440	cargo-parity-003	2431	2435 (+0.16 %)	2435 (+0.16 %)	same	1949	1958 (+0.46 %)	1958 (+0.46 %)	1440	1440	0	0
+/en/emergency	390	cargo-parity-003	1186	1248 (+5.23 %)	1248 (+5.23 %)	same	626	688 (+9.90 %)	688 (+9.90 %)	390	390	0	0
+/en/eservices-app	1440	cargo-parity-003	3289	3190 (-3.01 %)	3190 (-3.01 %)	same	2807	2713 (-3.35 %)	2713 (-3.35 %)	1440	1440	0	0
+/en/eservices-app	390	cargo-parity-003	3043	3312 (+8.84 %)	3312 (+8.84 %)	same	2482	2752 (+10.88 %)	2752 (+10.88 %)	390	390	0	0
+/en/eservices/efreight	1440	cargo-parity-003	1893	1908 (+0.79 %)	1908 (+0.79 %)	same	1411	1431 (+1.42 %)	1431 (+1.42 %)	1440	1440	0	0
+/en/eservices/efreight	390	cargo-parity-003	1522	1585 (+4.14 %)	1585 (+4.14 %)	same	962	1025 (+6.55 %)	1025 (+6.55 %)	390	390	0	0
+/en/fleet-ulds/fleet	1440	cargo-parity-001	3043	3098 (+1.81 %)	3098 (+1.81 %)	same	2566	2621 (+2.14 %)	2621 (+2.14 %)	1440	1440	0	0
+/en/fleet-ulds/fleet	390	cargo-parity-001	3841	3958 (+3.05 %)	3958 (+3.05 %)	same	3282	3398 (+3.53 %)	3398 (+3.53 %)	390	390	0	0
+/en/fleet-ulds/ulds/containers	1440	cargo-parity-003	2361	2379 (+0.76 %)	2379 (+0.76 %)	same	1879	1902 (+1.22 %)	1902 (+1.22 %)	1440	1440	0	0
+/en/fleet-ulds/ulds/containers	390	cargo-parity-003	2314	2400 (+3.72 %)	2400 (+3.72 %)	same	1754	1840 (+4.90 %)	1840 (+4.90 %)	390	390	0	0
+/en/footer/bottomnav/terms-of-use	1440	cargo-parity-003	2722	2760 (+1.40 %)	2760 (+1.40 %)	same	2240	2283 (+1.92 %)	2283 (+1.92 %)	1440	1440	0	0
+/en/footer/bottomnav/terms-of-use	390	cargo-parity-003	4780	5442 (+13.85 %)	5442 (+13.85 %)	same	4220	4882 (+15.69 %)	4882 (+15.69 %)	390	390	0	0
+/en/general-cargo	1440	cargo-parity-003	1758	1782 (+1.37 %)	1782 (+1.37 %)	same	1276	1305 (+2.27 %)	1305 (+2.27 %)	1440	1440	0	0
+/en/general-cargo	390	cargo-parity-003	1242	1302 (+4.83 %)	1302 (+4.83 %)	same	682	742 (+8.80 %)	742 (+8.80 %)	390	390	0	0
+/en/home	1440	cargo-parity-001	6064	6109 (+0.74 %)	6109 (+0.74 %)	same	5587	5632 (+0.81 %)	5632 (+0.81 %)	1440	1440	0	0
+/en/home	390	cargo-parity-001	8389	8366 (-0.27 %)	8366 (-0.27 %)	same	7831	7806 (-0.32 %)	7806 (-0.32 %)	390	390	0	0
+/en/industries-in-focus	1440	cargo-parity-001	2515	2557 (+1.67 %)	2557 (+1.67 %)	same	2038	2080 (+2.06 %)	2080 (+2.06 %)	1440	1440	0	0
+/en/industries-in-focus	390	cargo-parity-001	5347	5288 (-1.10 %)	5288 (-1.10 %)	same	4789	4728 (-1.27 %)	4728 (-1.27 %)	390	390	0	0
+/en/live-animals	1440	cargo-parity-003	2289	2330 (+1.79 %)	2330 (+1.79 %)	same	1807	1853 (+2.55 %)	1853 (+2.55 %)	1440	1440	0	0
+/en/live-animals	390	cargo-parity-003	1742	1866 (+7.12 %)	1866 (+7.12 %)	same	1182	1306 (+10.49 %)	1306 (+10.49 %)	390	390	0	0
+/en/meta/meta/company/general-terms1	1440	cargo-parity-003	1129	1124 (-0.44 %)	1124 (-0.44 %)	same	647	647 (+0.00 %)	647 (+0.00 %)	1440	1440	0	0
+/en/meta/meta/company/general-terms1	390	cargo-parity-003	1498	1470 (-1.87 %)	1470 (-1.87 %)	same	938	910 (-2.99 %)	910 (-2.99 %)	390	390	0	0
+/en/news/142-arctic-temperatures-on-board	1440	cargo-parity-001	7829	7939 (+1.41 %)	7939 (+1.41 %)	same	-	7462	7462	1440	1440	0	0
+/en/news/142-arctic-temperatures-on-board	390	cargo-parity-001	8389	8501 (+1.34 %)	8501 (+1.34 %)	same	-	7941	7941	390	390	0	0
+/en/notification-overview	1440	cargo-parity-001	1648	1648 (+0.00 %)	1648 (+0.00 %)	same	1171	1171 (+0.00 %)	1171 (+0.00 %)	1440	1440	0	0
+/en/notification-overview	390	cargo-parity-001	1316	1318 (+0.15 %)	1318 (+0.15 %)	same	758	758 (+0.00 %)	758 (+0.00 %)	390	390	0	0
+/en/onerecord	1440	cargo-parity-003	3322	3326 (+0.12 %)	3326 (+0.12 %)	same	2840	2849 (+0.32 %)	2849 (+0.32 %)	1440	1440	0	0
+/en/onerecord	390	cargo-parity-003	5081	5108 (+0.53 %)	5108 (+0.53 %)	same	4521	4548 (+0.60 %)	4548 (+0.60 %)	390	390	0	0
+/en/support-and-contact	1440	cargo-parity-001	2301	2328 (+1.17 %)	2328 (+1.17 %)	same	1824	1851 (+1.48 %)	1851 (+1.48 %)	1440	1440	0	0
+/en/support-and-contact	390	cargo-parity-001	3066	3160 (+3.07 %)	3092 (+0.85 %)	moves	2508	2600 (+3.67 %)	2532 (+0.96 %)	390	390	0	0
+/en/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	1440	cargo-parity-001	2301	2328 (+1.17 %)	2328 (+1.17 %)	same	1824	1851 (+1.48 %)	1851 (+1.48 %)	1440	1440	0	0
+/en/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	390	cargo-parity-001	3066	3160 (+3.07 %)	3092 (+0.85 %)	moves	2508	2600 (+3.67 %)	2532 (+0.96 %)	390	390	0	0

@@ -1824,6 +1824,21 @@ body.brand-cargo main > .section.contact > .default-content-wrapper > p:has(> pi
   }
 }
 
+/* standing order 40, item 1: below 1025 px www's grey bands have 20 px of padding, 40 from 1025 px (Liferay's
+   .greyBgBox padding-block), and the section before the band (Support & Contact's topic finder, a .whiteBgBox)
+   ends 20 px above it. Ours had the 40 px and the 48 px section gap at every width: at 390 the band started
+   27 px late and its box 20 px further (cargo-parity-001: finder end 1,558 -> band 1,578 -> box 1,598). The
+   section contact is only on Support & Contact (en, de) */
+@media (width < 1025px) {
+  body.brand-cargo main > .section.contact {
+    padding: 20px 0;
+  }
+
+  body.brand-cargo main > :where(.section:has(+ .section.contact)) {
+    margin-bottom: 20px;
+  }
+}
+
 body.brand-cargo main > .section.contact :is(h2, p) {
   max-width: 600px;
   color: #fff;
@@ -2346,4 +2361,12 @@ body.brand-cargo main .columns-media .columns-media-text > p > a:only-child:is([
   width: auto;
   max-width: 100%;
   height: auto;
+}
+
+/* standing order 40, item 2: a media cell's pictures one under the other without a gap, as www's image-section
+   (eaw: the EAW tile 636 x 410, the process graphic 636 x 345 right under it; cargo-parity-003, laid out offline with
+   the pictures: 1,639 px at 1455, recorded 1,641). The option stacked (Insights' galleries, 40 px apart) is on no
+   Cargo document today; delta-so40-cargo-eaw-stacked.txt's row gives it to eaw's media block */
+body.brand-cargo main .columns-media.stacked .columns-media-multi {
+  gap: 0;
 }

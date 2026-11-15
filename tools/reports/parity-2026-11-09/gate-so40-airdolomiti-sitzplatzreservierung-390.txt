@@ -1,0 +1,43 @@
+# ema-cashub, standing order 40 (2026-11-15), item 1: Air Dolomiti /de/reisenformationen/sitzplatzreservierung at 390, +2.68 % (4,144 px, www 4,036; airdolomiti-parity-007, whose 390 is the 1440 load resized: a pointer, as order 23 found). HOLD: no row or rule passes. Nothing shipped, no DA change.
+# Where it loses, element by element against the recording's measurements (unhinted, as served): the FAQ starts 24 px higher than www's (its first title at 511, www 535); two titles take one 57.8 px line more each, +116 px: "Sitzplatzreservierung" (334 px at 34 px) and "Sitzplatzänderungen" (331 px) are wider than the title's 326 px text measure (351 px less the 25 px arrow), and ours breaks them (overflow-wrap: anywhere) where www lets the word run on over its arrow (overflow-wrap normal, www's text box 302 px); the other six FAQ items +20 px together; from the columns-media block to the footer -4 px. Without the two words the page would be -8 px (-0.20 %).
+# So only the two words can bring the row within 2 %, and they are the German FAQ titles you decided to leave as they are (standing order 30: version A without the German pages: the title gap stays 0 on lang de and words longer than the line break, so nothing overflows).
+# Candidate 1, brand-wide: body.brand-airdolomiti main .accordion-columns.faq .accordion-columns-title:lang(de) { overflow-wrap: normal } (the gap stays 0), on the 35 recorded German Air Dolomiti page-widths (in-page style tag on the served pages, unhinted, EAGER=1 CONSENT=1; lh-proxy, www.* and every airline host refused and counted): sitzplatzreservierung 390 +2.68 -> -0.20 %, but /de/betreuung 390 +0.37 -> -1.11 % (0.74 points further) and 487 px wide at 390 (its page scrolls sideways); the other 33 unchanged to the px. Fails the gate.
+# Candidate 2, page-scoped (a FAQ option on this document only, the same declaration keyed on it): the page 4,028 (-0.20 %) at 390, as wide as the screen at 390, but 377 px wide at 375, 376 at 340 and 375 at 320 (as served it fits at every width): on the commonest phones the page would scroll sideways, and both words run 5 and 8 px into the arrow's 25 px box. Fails what standing order 30's gate held (no page wider than the screen), so not drafted as a row.
+# The row stays the OWNER row it was (finish-airdolomiti.txt). Within your decision it can't come within 2 %. To bring it within, you'd have to accept the German titles' long words overflowing their box, on this page alone (candidate 2) or on every German page (candidate 1, which betreuung's width rules out).
+#
+# path	width	recording	www page	as served (unhinted: order 39's sweep; the 33 rows candidate 1 leaves alone measure the same today)	candidate 1	www footer top	footer top, candidate 1	page width at that width, candidate 1
+/de/artikel	1440	airdolomiti-parity-001	2786	2773 (-0.47 %)	2773 (-0.47 %)	1938	1938	1440
+/de/artikel	390	airdolomiti-parity-001	6132	6119 (-0.21 %)	6119 (-0.21 %)	5045	5045	390
+/de/artikel/reiseziele/die-wilde-seite-der-adria	1440	airdolomiti-parity-001	4262	4231 (-0.73 %)	4231 (-0.73 %)	3231	3231	1440
+/de/artikel/reiseziele/die-wilde-seite-der-adria	390	airdolomiti-parity-001	5481	5543 (+1.13 %)	5543 (+1.13 %)	4329	4329	390
+/de/bearbeitung-ihrer-buchungen	1440	airdolomiti-parity-001	2312	2314 (+0.09 %)	2314 (+0.09 %)	1479	1479	1440
+/de/bearbeitung-ihrer-buchungen	390	airdolomiti-parity-001	3264	3271 (+0.21 %)	3271 (+0.21 %)	2197	2197	390
+/de/betreuung	1440	airdolomiti-parity-001	4984	5033 (+0.98 %)	5033 (+0.98 %)	4198	4198	1440
+/de/betreuung	390	airdolomiti-parity-001	7771	7800 (+0.37 %)	7685 (-1.11 %)	6726	6611	487
+/de/buchung	1440	airdolomiti-parity-007	1537	1537 (+0.00 %)	1537 (+0.00 %)	702	702	1440
+/de/buchung	390	airdolomiti-parity-007	2317	2295 (-0.95 %)	2295 (-0.95 %)	1221	1221	390
+/de/dienstleistungen-an-bord/unterhaltung-an-bord	1440	airdolomiti-parity-005	2492	2489 (-0.12 %)	2489 (-0.12 %)	1654	1654	1440
+/de/dienstleistungen-an-bord/unterhaltung-an-bord	390	airdolomiti-parity-005	3365	3362 (-0.09 %)	3362 (-0.09 %)	2288	2288	390
+/de/flotte	1440	airdolomiti-parity-001	4423	4424 (+0.02 %)	4424 (+0.02 %)	3589	3589	1440
+/de/flotte	390	airdolomiti-parity-001	8054	8055 (+0.01 %)	8055 (+0.01 %)	6981	6981	390
+/de/fluege-in-europa	1440	airdolomiti-parity-001	5707	5709 (+0.04 %)	5709 (+0.04 %)	4874	4874	1440
+/de/fluege-in-europa	390	airdolomiti-parity-001	6745	6748 (+0.04 %)	6748 (+0.04 %)	5674	5674	390
+/de/flug-status	1440	airdolomiti-parity-002	1693	1761 (+4.02 %)	1761 (+4.02 %)	926	926	1440
+/de/flugplan	1440	airdolomiti-parity-001	2005	2005 (+0.00 %)	2005 (+0.00 %)	1170	1170	1440
+/de/flugplan	390	airdolomiti-parity-001	2224	2237 (+0.58 %)	2237 (+0.58 %)	1163	1163	390
+/de/gepaeck	1440	airdolomiti-parity-001	2295	2305 (+0.44 %)	2305 (+0.44 %)	1470	1470	1440
+/de/gepaeck	390	airdolomiti-parity-001	2244	2254 (+0.45 %)	2254 (+0.45 %)	1180	1180	390
+/de/reisenformationen/schwangere-und-kinder	1440	airdolomiti-parity-002	2250	1943 (-13.64 %)	1943 (-13.64 %)	1108	1108	1440
+/de/reisenformationen/sitzplatzreservierung	1440	airdolomiti-parity-007	2759	2758 (-0.04 %)	2758 (-0.04 %)	1923	1923	1440
+/de/reisenformationen/sitzplatzreservierung	390	airdolomiti-parity-007	4036	4144 (+2.68 %)	4028 (-0.20 %)	3070	2954	390
+/de/reisenformationen/tiere-an-bord	1440	airdolomiti-parity-002	2719	2392 (-12.03 %)	2392 (-12.03 %)	1557	1557	1440
+/de/reiseziele	1440	airdolomiti-parity-001	4793	4812 (+0.40 %)	4812 (+0.40 %)	3977	3977	1440
+/de/reiseziele	390	airdolomiti-parity-001	10151	10198 (+0.46 %)	10198 (+0.46 %)	9124	9124	390
+/de/reiseziele/bari-de	1440	airdolomiti-parity-004	5924	5923 (-0.02 %)	5923 (-0.02 %)	4923	4923	1440
+/de/reiseziele/bari-de	390	airdolomiti-parity-004	8097	8024 (-0.90 %)	8024 (-0.90 %)	6810	6810	390
+/de/reiseziele/basel-de	1440	airdolomiti-parity-005	8164	8074 (-1.10 %)	8074 (-1.10 %)	7074	7074	1440
+/de/reiseziele/basel-de	390	airdolomiti-parity-005	12014	11913 (-0.84 %)	11913 (-0.84 %)	10699	10699	390
+/de/unsere-dienste/lounge-zutritt	1440	airdolomiti-parity-007	2031	2030 (-0.05 %)	2030 (-0.05 %)	1195	1195	1440
+/de/unsere-dienste/lounge-zutritt	390	airdolomiti-parity-007	3269	3146 (-3.76 %)	3146 (-3.76 %)	2072	2072	390
+/de/unterstutzung-und-kontakte	1440	airdolomiti-parity-001	1975	1985 (+0.51 %)	1985 (+0.51 %)	1150	1150	1440
+/de/unterstutzung-und-kontakte	390	airdolomiti-parity-001	1948	1958 (+0.51 %)	1958 (+0.51 %)	884	884	390

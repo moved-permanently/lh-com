@@ -7121,3 +7121,80 @@ eaw (HOLD), terms-of-use (2,760) and Support & Contact (2,328 / 3,160) are uncha
 
 **Not in git** (scratch under /tmp/so39): the DA copies read, the drafts, the apply outputs, the scripts, the renders and
 the logs.
+
+## Standing order 40 (2026-11-15, from about 19:05 CET)
+
+**Carried over:** nothing of mine was uncommitted or unpushed. Order 39's last commit, `e918d01f`, was on origin. The
+checkout's 88 dirty entries belong to other jobs and were left alone.
+
+**Renders:** unhinted text (`--font-render-hinting=none`) in every render. lh-proxy, www.* (but www.mynewsdesk.com on
+Cargo) and every airline host were refused and counted: 0 refused on these pages. www's recordings were read as data
+or laid out offline (every request answered from the archive or aborted). **DA:** read only, single GETs (listed in the
+final section). No upload, preview, publish or da-upload.mjs. /de/en/overview-manage has no row.
+
+### Item 1: the two rows over 2 %
+
+**Cargo Support & Contact 390: within (gate-so40-cargo-support-contact-390.txt).**
+- **Where it loses** (en, against cargo-parity-001's measurements; its 390s are first loads), +94 px in all, mainly:
+  - the topic finder, +54 ("Get a new single AWB or AWB stock." takes two lines beside its lock icon);
+  - finder to band, +27: ours has the 48 px section gap, www 20 px;
+  - the band's padding, +40: ours 40 px top and bottom, www 20 px below 1025 px (Liferay's `.greyBgBox`, 40 px from
+    1025 px);
+  - technical support and the local sales contact, -62 (www's IATA field is taller).
+- **The rule** (Cargo's theme): below 1025 px, the band's padding is 20 px and the section before it ends 20 px above it.
+  - Only Support & Contact has the band and the finder (en and de; the 978 served Cargo copies).
+  - From 1025 px nothing changes.
+- **Gate**, the 84 recorded Cargo page-widths, as served and with the code: 4 move, all closer:
+  - en 3,160 -> 3,092 (+3.07 -> +0.85 %), de 3,200 -> 3,132 (+3.06 -> +0.87 %), the feedback paths the same;
+  - footer top +3.67 -> +0.96 %.
+  - The other 80 are the same to the px.
+
+**Air Dolomiti /de/reisenformationen/sitzplatzreservierung 390: HOLD, nothing passes
+(gate-so40-airdolomiti-sitzplatzreservierung-390.txt).**
+- **Where it loses** (+108 px; airdolomiti-parity-007's 390 is the 1440 load resized):
+  - the FAQ starts 24 px higher than www's;
+  - two titles take one 58 px line more each (+116). "Sitzplatzreservierung" is 334 px and "Sitzplatzänderungen"
+    331 px, wider than the title's 326 px text measure. Ours breaks them; www lets them run on over its arrow;
+  - the other items +20, the rest -4.
+- Without the two words the page would be -0.20 %. So only these two words can bring it within 2 %, and they are your
+  order-30 decision: German titles break long words, so nothing overflows.
+- **Candidate 1, all German pages** (no word breaking, gap still 0), on the 35 recorded German page-widths:
+  - this page -0.20 %;
+  - but /de/betreuung 390 goes from +0.37 to -1.11 %, and it scrolls sideways (487 px wide).
+- **Candidate 2, this page only** (a FAQ option): -0.20 % and as wide as the screen at 390. But it is 377 px wide at 375
+  and at every narrower width tried (as served it fits). The words also run 5 and 8 px into the arrow's box.
+- Neither passes. To bring the row within 2 %, you'd have to accept German titles overflowing their box.
+
+### Item 2: eaw's pictures, stacked (delta-so40-cargo-eaw-stacked.txt): READY
+
+- **www** stacks its two pictures in the right column with no gap: 636 x 410, then 636 x 345 right under it.
+  - Measured on cargo-parity-003 laid out offline, with our copies of the two pictures standing in for www's: 1,639 px at
+    1455, against 1,641 recorded.
+  - Ours drew them side by side, 199 px high.
+- **The row:**
+  - step 1 is order 39's trail and spacer;
+  - step 2 gives eaw's media block the option `stacked` (block-option-apply.mjs).
+  - Dry run on DA's copy (read again: the same bytes as order 39's read): placed, byte for byte without the inserts; a
+    second run finds the option already there.
+- **The rule** (Cargo's theme): a stacked media cell's pictures without a gap. The block's own `stacked` (Insights'
+  galleries) puts them 40 px apart: 1,706 px, +3.96 %.
+  - No Cargo document has the option, so the rule draws on eaw alone once the row is applied.
+  - The 84 recorded Cargo page-widths are unchanged by it.
+- **Figures:**
+  - 1440: 1,666 (+1.52 %), title at 191 as www's, footer top 1,189 (www 1,159: the cell starts 12 px lower, plus
+    Cargo's 20 px gap before the footer).
+  - 390: 2,188 against the resize's 2,236 (a pointer; it was -16.28 %).
+  - The control equals live at both widths.
+- **Apply** after this order's code is live (otherwise the pictures sit 40 px apart). The 18 px spacer needs an upload
+  without the marker collapse.
+
+### Item 5: Air Dolomiti's HOLD rows under the unhinted measure
+
+Four of the six finish-list HOLD rows are now within 2 % at the footer's top, with no change (status WITHIN):
+- london-eu 390 -1.89 %
+- monaco-di-baviera 390 -1.50 %
+- basel-de 390 -0.94 %
+- bearbeitung-ihrer-buchungen 1440 +0.14 %
+
+flug-status 1440 (www's form APIs) and street-food-in-munich 390 (+2.89 %, unchanged by the measure; order 36 found no
+candidate that passes both widths) stay HOLD. The three OWNER rows are unchanged.
