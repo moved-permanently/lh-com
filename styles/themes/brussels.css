@@ -1533,3 +1533,13 @@ body.brand-brussels main > .section.sidebar-h1:last-child:has(> .default-content
     padding-right: 54px;
   }
 }
+
+/* standing order 26 of ema-lufthansa (2026-11-15): below 768px a button label that does not fit wraps, as www's
+   maui-button-link, instead of hiding its end behind the base button's ellipsis (five recorded pages had a cut label:
+   brussels-so25-button-wrap.txt) */
+@media (width < 768px) {
+  body.brand-brussels :is(a.button:any-link, button.button) {
+    text-align: left;
+    white-space: normal;
+  }
+}
