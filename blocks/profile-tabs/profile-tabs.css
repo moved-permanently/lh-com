@@ -194,3 +194,28 @@
 body.brand-lufthansa .profile-tabs .profile-tabs-panel :is(p, ul, ol, h2, h3, h4).limited-width {
   max-width: none;
 }
+
+/* lufthansa.com: a link alone in its paragraph in a panel is www's maui-navigation-link (large, lh-arrow-right), as in
+   default content, with 48px to a heading after it (/de/en/lufthansa-am-flughafen-frankfurt: "To online check-in" to
+   "Time slot for security check" 82px at 1440, ours 58, and no arrow). Standing order 27: am-flughafen-frankfurt
+   14.0 / 16.5 -> 7.4 / 9.7 % at 1440 / 390 (injected); onboard-delights and payment-options-at-the-airport the same;
+   census: the fifteen am-flughafen-frankfurt documents (the only ones with such a link in a panel) */
+body.brand-lufthansa .profile-tabs .profile-tabs-panel p.link-wrapper a:any-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+body.brand-lufthansa .profile-tabs .profile-tabs-panel p.link-wrapper a:any-link::before {
+  content: "";
+  flex: 0 0 auto;
+  align-self: center;
+  width: 19px;
+  height: 19px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.3 4.3 12 5.6l5.4 5.5H3v1.8h14.4L12 18.4l1.3 1.3L21 12z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body.brand-lufthansa .profile-tabs .profile-tabs-panel p.link-wrapper:has(+ :is(h2, h3, h4)) {
+  margin-bottom: 48px;
+}
