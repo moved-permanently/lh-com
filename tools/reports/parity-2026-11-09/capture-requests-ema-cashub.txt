@@ -13,6 +13,13 @@
 https://www.austrian.com/hu/en/local-page/invoice-request-hungary	390	the form's checkbox labels on a phone's first load (its 390 is a resize, -003)
 https://www.austrian.com/il/en/legal/cancellation-refund-via-document-upload	390	the same (its 390 is a resize, -003; the upload widget row is OWNER)
 https://www.austrian.com/at/en/fly/check-in/private-check-in-counter	390	the same (its 390 is a resize; the table-cell row stays HOLD)
+# Standing order 34 (2026-11-15, ~01:40 CET): the three form loads above are with the Captures child, as you wrote.
+# Added: the one row above 2 % in the Austrian, Air Dolomiti and Cargo rankings that is not a widget, a font row or an owner
+# decision and still reads against a resize. street-food-in-munich 390 is +2.72 % at the footer's top against
+# airdolomiti-parity-002, whose 390 is its 1440 load resized. At 1440 the page is within 2 %: two causes in the document
+# cancel there (order 30). Only a first load at 390 shows whether a row is needed. (Cargo's recordings load each width on
+# its own; its rows above 2 % are the brand font's wraps.)
+https://www.airdolomiti.eu/articles/destinations/street-food-in-munich	390	the page on a phone's first load (its 390 is a resize, airdolomiti-parity-002); the chat widget may stay below the footer, I read the footer's top
 # Not requested: rows that need www's APIs in our renders (the flight search, fare teasers, destination finder, flight
 # status, TAP's baggage tracker): a capture records www's answers, ours stay refused; the font rows (explained); and the
 # owner decisions (unterhaltung-an-bord's film carousel, Air Dolomiti's German FAQ titles, the archistar article).

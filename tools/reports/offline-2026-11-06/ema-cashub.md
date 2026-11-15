@@ -6229,3 +6229,94 @@ All four items are done. I stopped here, before 03:00. Everything left on the li
 
 **Not in git** (scratch under /tmp/so33): the scripts, the served copies, the snapshots, the drafts, the archive and the
 logs.
+
+## Standing order 34 (2026-11-15, from about 00:10 CET)
+
+**Carried over:** nothing of mine was uncommitted or unpushed. Order 33's last commit, `3859c8c1`, was on origin, and main
+matched it. The checkout's 88 dirty entries belong to other jobs (import-progress.json, the urls-*.txt lists, the importer
+reports, the notifications.css comment line) and were left alone, as was the 1 November autostash.
+
+### Item 1: the link lines (delta-so34-austrian-card-link-lines.txt, 361 READY, 2 HOLD)
+
+**The census again.** I fetched all 2,271 Austrian served copies once from austrian.turnsthe.page. Every one is
+byte-identical to order 33's copy. The card census on them gives the same result: 897 cards on 363 documents have www's
+link line and ours do not.
+- Each card's title already carries its link. On 895 cards it is the same target as www's card; on the two Canadian PDF
+  cards only the file name differs.
+- So each row adds one paragraph to the card's text cell: www's label, linked to the title's link. Nothing else changes.
+  This is a delta on the DA copy, not a re-import, and there is no code change.
+
+**The gate:** each of the 363 documents rendered at both widths, served copy against draft (726 page-widths). All pass:
+- each draft draws exactly its listed link lines, all visible;
+- nothing above the first card block moves;
+- only the card blocks grow (+30 to +137 px at 1440, +57 to +320 at 390);
+- no page is wider than the screen (/pl/pl/economy-tariffs is 393 px at 390 as served too).
+- /at/de/anfrage-gruppenreisen 1440 was rendered again: its first control load had Turnstile's 71 px.
+
+**The card style you asked for does not exist (gate-so34-austrian-card-link-lines.txt).** Of the 15 recorded pages with
+grid cards, two have the missing lines: /at/en/healthy-travel and os401crewstory.
+- With the lines our cards are already www's to a few px. On www's healthy-travel screenshot at 1440 each card is 489 px
+  (picture 203, text 284), every title on one line.
+- From the heading over the cards to the footer's top, ours against www's:
+
+  | Page-width | www | today | with the lines | lines + titles untracked |
+  |---|---|---|---|---|
+  | healthy-travel 1440 | 628 | 598 | 655 | 625 |
+  | healthy-travel 390 | 688 | 599 | 656 | 656 |
+  | os401crewstory 1440 | 788 | 713 | 770 | 770 |
+
+  "Titles untracked" is the one part of www's card rule that can shorten a card: "Travelling with pregnancy" is 346.3 px
+  wide at our 0.05 px tracking, in a 346 px box, so it takes two lines.
+- The two pages move further anyway because they are taller above the cards:
+  - healthy-travel: +87 px at the H3 at 1440, +125 at 390;
+  - os401crewstory: +154 / +163 at the H2 (its German copy wraps later; its 390 is a resize).
+- Page totals:
+  - healthy-travel 1440: +0.86 % -> +1.72 % with the lines (+1.25 % with untracked titles);
+  - healthy-travel 390: +0.43 % -> +1.08 %;
+  - os401crewstory 1440: +1.01 % -> +1.76 %;
+  - os401crewstory 390: -0.73 % -> +1.21 %.
+  - With the whole card rule, os401crewstory 1440 goes out of 2 % (+2.20 %).
+- Only a style that drew our cards shorter than www's would keep these two pages from moving further. So no style is
+  shipped, and the two rows are HOLD, your call.
+
+**Found on the way, not in the list:** 299 more cards on 185 documents lack www's link line. Those cards are text-only in
+our documents: their picture cell is empty because www's own picture does not load. On the recorded bearbeitungsgebuehren
+1440, www draws its Tarifvergleich card without one too. You asked for the 897 picture cards, so these 299 are not in the
+list. I can write them the same way.
+
+### Item 2: the form first loads
+
+Not here yet; they are with the Captures child. The checkbox label rule stays HOLD until they come.
+
+### Item 3: the largest widths above 2 %
+
+**Austrian:** of the 66 page-widths above 2 % (sweep-so33-austrian.txt, nothing has moved since), 59 are widgets, fonts
+(the contact pages' among them) or owner decisions. The other seven:
+- **travel-id 390 (-2.07 %).** At 390, www has 28 px more above its closed tab list and 28 px more below it than ours (90 /
+  77 against 62 / 49, measured on both screenshots).
+  - Two spacers would bring the page to about -1.1 %.
+  - But the markers have no phone-only spacer (only "from-768"). The same 58 px at 1440 would move that row, today
+    +0.33 %, to about +1.35 %.
+  - It is not a rule either: on austrian-app www has less above its tab list than ours (32 against 56).
+  - No row. A "below 768 px" spacer option would be new marker code (scripts.js, the collapse and its checks): your call.
+- **accessible-travel 390 (-2.26 %).** Order 28's row is live. Of the rest, 140 px is the cargo-door table's empty cells
+  (HOLD), and about 300 px is spread over sections that www's measurements do not list (they stop after "At the airport").
+  No row yet.
+- **fly-with-austrian, four widths.** The flight search band without its APIs (-89 px at 1440), and a few px a card row,
+  which only the card rule on every grid would close. You ruled that rule out.
+- **cancellation-refund 1440.** Waits for item 2's loads.
+
+**Air Dolomiti** (rank-so31-airdolomiti.txt): in-flight-entertainment-system 1440 is no longer above 2 %. Its spacer row
+is live (order 32), and that ranking predates it: measured now, the footer's top is at 1,518 px, against www's 1,521.
+The rest are as before:
+- the German FAQ titles (lounge-zutritt, sitzplatzreservierung: left as decided);
+- the archistar article (owner);
+- the destination pages' and flug-status' widgets;
+- bearbeitung-ihrer-buchungen 1440 (one paragraph's wrap, traced in order 30);
+- street-food-in-munich 390 (+2.72 %). It reads against -002's resize; its first load is now requested.
+
+**Cargo** (rank-so24-cargo.txt): eight page-widths above 2 %, all the brand font's wraps (ema-lufthansa's row 49 decision).
+Each width there was its own load, so no capture would change them.
+
+**Capture requests** (capture-requests-ema-cashub.txt): street-food-in-munich 390 added. Everything else above 2 % is a
+widget, a font row or an owner decision, and a capture would not move it.

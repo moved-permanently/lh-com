@@ -1,0 +1,30 @@
+# ema-cashub, standing order 34 (2026-11-15, ~00:10-01:30 CET), item 1: the missing link lines on Austrian's picture cards
+# (delta-so34-austrian-card-link-lines.txt), and whether any card style keeps the two recorded pages with such cards from
+# moving further from www.
+# The census again: all 2,271 Austrian served copies fetched once from austrian.turnsthe.page at ~00:25 CET (one 000 retried,
+#   then 200). Every copy is byte-identical to order 33's, so its census stands and was run again on today's copies: 832
+#   documents with a grid / phone-slider; card by card against www's newest snapshots (austrian-snapshots-001 to -018, read
+#   as data), LL 1,283, NL 897 on 363 documents, NN 31, X 12, no snapshot 74. Every NL card's title carries its own link
+#   (895 to the same target as www's card; 2 Canadian PDF links differ in their file name only), so each link line takes
+#   the title's link and www's label. No CSS change: no other document can move.
+# The two recorded pages with NL cards, rendered with the served copy (control), the draft (the link lines only), and the
+#   draft with each card style as a code override (so24/host.mjs, EAGER=1 CONSENT=1; www.* and the airline hosts refused
+#   and counted: 1 a render on healthy-travel, 0 on os401crewstory; none sent):
+#   titles 0 = the card titles untracked from 768 px, as www's .teaser-heading (ours 0.05 px; the only part of the card rule
+#     that can shorten a card: "Travelling with pregnancy" is 346.3 px in one line at 0.05 px, 345.0 at 0, in 346);
+#   card rule = 7b97c06d's two-up card rule on every grid (standing order 33's v2; you ruled it out for the other grids).
+# Where it moves (heading over the cards to the footer's top, ours against www's recording; www's cards measured on its
+#   screenshot: healthy-travel 1440 three cards 489 px, picture 203 + text 284, every title one line):
+#   healthy-travel 1440 (H3 "This may also interest you"): www 628; control 598; lines 655; lines + titles 0 625; lines + card rule 632
+#   healthy-travel 390: www 688; control 599; lines 656; lines + titles 0 656; lines + card rule 663
+#   os401crewstory 1440 (H2 "Gemeinsam abheben"): www 788; control 713; lines 770; lines + titles 0 770; lines + card rule 804
+#   os401crewstory 390 (a resize): www 2,314; control 2,075; lines 2,269; lines + titles 0 2,269; lines + card rule 2,317
+#   So with the lines our cards are www's within a few px; the pages are taller above them: at that heading +87 px (1440)
+#   and +125 (390) on healthy-travel (its sections step +-30 px against www's from the first H2 on), +154 / +163 on
+#   os401crewstory (the article's German copy wraps later). No card style that draws www's card keeps them from moving
+#   further; only a style that makes our cards shorter than www's would. Rows HOLD, your call.
+# Columns: path, width, www, control, lines, lines + titles 0, lines + card rule (page heights; % against www).
+/at/en/healthy-travel	1440	6614	6671 (+0.86 %)	6728 (+1.72 %) FURTHER	6697 (+1.25 %) FURTHER	6704 (+1.36 %) FURTHER
+/at/en/healthy-travel	390	8822	8860 (+0.43 %)	8917 (+1.08 %) FURTHER	8917 (+1.08 %) FURTHER	8924 (+1.16 %) FURTHER
+/at/de/local-page/feels-like-flying/os401crewstory	1440	7686	7764 (+1.01 %)	7821 (+1.76 %) FURTHER	7821 (+1.76 %) FURTHER	7855 (+2.20 %) OUT
+/at/de/local-page/feels-like-flying/os401crewstory	390	9982	9909 (-0.73 %)	10103 (+1.21 %) FURTHER	10103 (+1.21 %) FURTHER	10151 (+1.69 %) FURTHER
