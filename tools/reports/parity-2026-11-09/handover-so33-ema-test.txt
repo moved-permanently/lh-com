@@ -20,3 +20,8 @@ our boxes from a capture with computed styles, www's from the recordings' drift 
    needs" 2 lines against 3), and the gap between two cards' pictures is about 24px smaller than www's. Columns Media.
 Drift steps for the record: tips-senior-travellers 1440 -97 / -32 at 3,360-3,440, -57 at 4,080, -54 at 6,080, -78 by
 7,680; economy-class 390 +69 / +2 at 3,600-3,680, +29 at 4,400, +33 at 7,280.
+
+Standing order 34 (2026-11-15, ema-adobe's sweep of insights, campaign, hub and homepage, sweep-so34-lh-adobe.md):
+5. articles/explore-the-world/picture-perfect-austin, 390 (25.2 %, hardly any drift: +4 to +12 px): its galleries are
+   columns-media stacked; on phones our pictures run to the right edge and show a wider crop than www's (www's inset,
+   tighter crop: object-position / the cell's width). Columns Media (option stacked on phones).

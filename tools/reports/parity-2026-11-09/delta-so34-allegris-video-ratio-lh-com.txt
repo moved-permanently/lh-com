@@ -1,0 +1,43 @@
+# Standing order 34 (2026-11-15), item 2: the Allegris art articles' video at www's 16:9. The sweep's worst insights
+# page-widths (allegris-new-york 1440, 22-26 % against lh-parity-008) lose ~140-220 px at the video: www's viewer draws it
+# 16:9 (its config "aspectRatio":"16:9" in every snapshot of these articles), ours takes the poster's 1920x823 shape
+# because the video paragraph has no size token (the documents predate tools/importer/video-sizes; a fresh import writes
+# "{controls round-play-button size-1920x1080}"). allegris-premium-economy-san-diego in de/en, de/de, at/de, gb/en has the
+# token already.
+# Expected change, per document: the video paragraph's "{controls round-play-button}" becomes "{controls round-play-button
+# size-1920x1080}". Nothing else changes.
+# Tool: tools/importer/text-inserts-apply.mjs --data delta-so34-allegris-video-ratio-lh-com.json (a replace of the whole
+# video paragraph, found once). Dry run on DA's current copies (read-only GET): 29 of 29, restorable byte for byte. Left
+# out: xx/es/articles/highlights/allegris-premium-economy-san-diego-msm-moved (a moved leftover, not a page).
+# Gate: the published copy with the row as a draft on our host against lh-parity-008 (tonight), 1440 / 390; the other
+# documents are not recorded (the same paragraph, the same video player).
+# status	document	tool	expected change	gate
+READY	/ar/es/articles/highlights/allegris-premium-economy-san-diego	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/at/de/articles/highlights/allegris-business-class-shanghai	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/at/de/articles/highlights/allegris-business-san-diego	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/at/de/articles/highlights/allegris-new-york	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	draft 24.7 / 16.4 -> 10.5 / 12.3 at 1440 / 390 (lh-parity-008)
+READY	/de/de/articles/highlights/allegris-business-class-shanghai	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/de/de/articles/highlights/allegris-business-san-diego	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/de/de/articles/highlights/allegris-new-york	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	draft 23.1 / 15.4 -> 10.1 / 11.2 at 1440 / 390 (lh-parity-008)
+READY	/de/en/articles/highlights/allegris-business-class-shanghai	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/de/en/articles/highlights/allegris-business-san-diego	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/de/en/articles/highlights/allegris-new-york	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	draft 24.7 / 15.3 -> 9.0 / 10.9 at 1440 / 390 (lh-parity-008)
+READY	/es/es/articles/highlights/allegris-premium-economy-san-diego	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/gb/en/articles/highlights/allegris-business-class-shanghai	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/gb/en/articles/highlights/allegris-business-san-diego	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/gb/en/articles/highlights/allegris-new-york	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	draft 26.3 / 16.6 -> 11.0 / 12.3 at 1440 / 390 (lh-parity-008)
+READY	/xx/es/articles/highlights/allegris-business-class-shanghai	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/xx/es/articles/highlights/allegris-business-san-diego	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/xx/es/articles/highlights/allegris-new-york	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/xx/fr/articles/highlights/allegris-business-class-shanghai	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/xx/fr/articles/highlights/allegris-business-san-diego	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/xx/fr/articles/highlights/allegris-new-york	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/xx/fr/articles/highlights/allegris-premium-economy-san-diego	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/xx/it/articles/highlights/allegris-business-class-shanghai	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/xx/it/articles/highlights/allegris-business-san-diego	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/xx/it/articles/highlights/allegris-new-york	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	draft 36.7 / 33.4 -> 28.5 / 30.8 at 1440 / 390 (lh-parity-010; the version is still 735 px shorter than www at 1440: other content, open)
+READY	/xx/it/articles/highlights/allegris-premium-economy-san-diego	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte
+READY	/fr/fr/articles/highlights/allegris-new-york	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte; not published (DA only)
+READY	/fr/fr/articles/highlights/allegris-business-class-shanghai	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte; not published (DA only)
+READY	/fr/fr/articles/highlights/allegris-business-san-diego	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte; not published (DA only)
+READY	/fr/fr/articles/highlights/allegris-premium-economy-san-diego	text-inserts-apply (delta-so34-allegris-video-ratio-lh-com.json)	the video marker with size-1920x1080 (16:9, as www)	not recorded; dry run replaced, restorable byte for byte; not published (DA only)

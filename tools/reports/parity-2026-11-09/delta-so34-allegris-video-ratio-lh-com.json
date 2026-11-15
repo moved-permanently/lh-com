@@ -1,0 +1,263 @@
+[
+ {
+  "path": "/ar/es/articles/highlights/allegris-premium-economy-san-diego",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-spain/lh_art_design_san_diego_diego_blanco_60sec.mp4\">Diego Blanco, de pie en la terminal de un aeropuerto con camiseta negra y chaqueta gris.</a> {controls round-play-button}</p>",
+    "text": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-spain/lh_art_design_san_diego_diego_blanco_60sec.mp4\">Diego Blanco, de pie en la terminal de un aeropuerto con camiseta negra y chaqueta gris.</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/highlights/allegris-business-class-shanghai",
+  "inserts": [
+   {
+    "replace": "<a href=\"/content/dam/video/c3/art-design-fr/lh-art-clara-shanghai-90sec.mp4\">/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4</a> <a href=\"/content/dam/video/c3/art-design-fr/lh-art-clara-90s-cc-en.vtt\">Untertitel</a> <a href=\"/content/dam/video/c3/art-design-fr/lh-art-clara-90s-en-ad.vtt\">Audiodeskription</a> {controls round-play-button}</p>",
+    "text": "<a href=\"/content/dam/video/c3/art-design-fr/lh-art-clara-shanghai-90sec.mp4\">/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4</a> <a href=\"/content/dam/video/c3/art-design-fr/lh-art-clara-90s-cc-en.vtt\">Untertitel</a> <a href=\"/content/dam/video/c3/art-design-fr/lh-art-clara-90s-en-ad.vtt\">Audiodeskription</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/highlights/allegris-business-san-diego",
+  "inserts": [
+   {
+    "replace": "<a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-san-diego-daniel-frost-90sec.mp4\">Daniel Frost sitzt im Wartebereich eines Flughafen-Terminals und schaut aus dem Fenster.</a> <a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-frost-de-cc.vtt\">Untertitel</a> <a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-frost-de-ad.vtt\">Audiodeskription</a> {controls round-play-button}</p>",
+    "text": "<a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-san-diego-daniel-frost-90sec.mp4\">Daniel Frost sitzt im Wartebereich eines Flughafen-Terminals und schaut aus dem Fenster.</a> <a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-frost-de-cc.vtt\">Untertitel</a> <a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-frost-de-ad.vtt\">Audiodeskription</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "replace": "<a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-90sec.mp4\">Antonio Colomboni mit Filmklappe am Flughafen vor dem Abflug nach NYC</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-de-cc.vtt\">Untertitel</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-de-ad.vtt\">Audiodeskription</a> {controls round-play-button}</p>",
+    "text": "<a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-90sec.mp4\">Antonio Colomboni mit Filmklappe am Flughafen vor dem Abflug nach NYC</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-de-cc.vtt\">Untertitel</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-de-ad.vtt\">Audiodeskription</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/articles/highlights/allegris-business-class-shanghai",
+  "inserts": [
+   {
+    "replace": "<a href=\"/content/dam/video/c3/art-design-fr/lh-art-clara-shanghai-90sec.mp4\">/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4</a> <a href=\"/content/dam/video/c3/art-design-fr/lh-art-clara-90s-cc-en.vtt\">Untertitel</a> <a href=\"/content/dam/video/c3/art-design-fr/lh-art-clara-90s-en-ad.vtt\">Audiodeskription</a> {controls round-play-button}</p>",
+    "text": "<a href=\"/content/dam/video/c3/art-design-fr/lh-art-clara-shanghai-90sec.mp4\">/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4</a> <a href=\"/content/dam/video/c3/art-design-fr/lh-art-clara-90s-cc-en.vtt\">Untertitel</a> <a href=\"/content/dam/video/c3/art-design-fr/lh-art-clara-90s-en-ad.vtt\">Audiodeskription</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/articles/highlights/allegris-business-san-diego",
+  "inserts": [
+   {
+    "replace": "<a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-san-diego-daniel-frost-90sec.mp4\">Daniel Frost sitzt im Wartebereich eines Flughafen-Terminals und schaut aus dem Fenster.</a> <a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-frost-de-cc.vtt\">Untertitel</a> <a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-frost-de-ad.vtt\">Audiodeskription</a> {controls round-play-button}</p>",
+    "text": "<a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-san-diego-daniel-frost-90sec.mp4\">Daniel Frost sitzt im Wartebereich eines Flughafen-Terminals und schaut aus dem Fenster.</a> <a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-frost-de-cc.vtt\">Untertitel</a> <a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-frost-de-ad.vtt\">Audiodeskription</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "replace": "<a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-90sec.mp4\">Antonio Colomboni mit Filmklappe am Flughafen vor dem Abflug nach NYC</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-de-cc.vtt\">Untertitel</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-de-ad.vtt\">Audiodeskription</a> {controls round-play-button}</p>",
+    "text": "<a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-90sec.mp4\">Antonio Colomboni mit Filmklappe am Flughafen vor dem Abflug nach NYC</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-de-cc.vtt\">Untertitel</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-de-ad.vtt\">Audiodeskription</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/articles/highlights/allegris-business-class-shanghai",
+  "inserts": [
+   {
+    "replace": "<a href=\"/content/dam/video/c3/art-design-fr/lh-art-clara-shanghai-90sec.mp4\">/content/dam/video/c3/art-design-fr/lh-art-clara-shanghai-90sec.mp4</a> {controls round-play-button}</p>",
+    "text": "<a href=\"/content/dam/video/c3/art-design-fr/lh-art-clara-shanghai-90sec.mp4\">/content/dam/video/c3/art-design-fr/lh-art-clara-shanghai-90sec.mp4</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/articles/highlights/allegris-business-san-diego",
+  "inserts": [
+   {
+    "replace": "<a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-san-diego-daniel-frost-90sec.mp4\">Daniel Frost sits in the waiting area of an airport terminal and looks out of the window.</a> <a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-frost-en-cc.vtt\">Subtitles</a> <a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-frost-en-ad.vtt\">Audio description</a> {controls round-play-button}</p>",
+    "text": "<a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-san-diego-daniel-frost-90sec.mp4\">Daniel Frost sits in the waiting area of an airport terminal and looks out of the window.</a> <a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-frost-en-cc.vtt\">Subtitles</a> <a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-frost-en-ad.vtt\">Audio description</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "replace": "<a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-90sec.mp4\">Antonio Colomboni with clapperboard at the airport before flying to NYC</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-en-cc.vtt\">Subtitles</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-en-ad.vtt\">Audio description</a> {controls round-play-button}</p>",
+    "text": "<a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-90sec.mp4\">Antonio Colomboni with clapperboard at the airport before flying to NYC</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-en-cc.vtt\">Subtitles</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-en-ad.vtt\">Audio description</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/articles/highlights/allegris-premium-economy-san-diego",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-spain/lh_art_design_san_diego_diego_blanco_60sec.mp4\">Diego Blanco, de pie en la terminal de un aeropuerto con camiseta negra y chaqueta gris.</a> {controls round-play-button}</p>",
+    "text": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-spain/lh_art_design_san_diego_diego_blanco_60sec.mp4\">Diego Blanco, de pie en la terminal de un aeropuerto con camiseta negra y chaqueta gris.</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/allegris-business-class-shanghai",
+  "inserts": [
+   {
+    "replace": "<a href=\"/content/dam/video/c3/art-design-fr/lh-art-clara-shanghai-90sec.mp4\">/content/dam/video/c3/art-design-fr/lh-art-clara-shanghai-90sec.mp4</a> {controls round-play-button}</p>",
+    "text": "<a href=\"/content/dam/video/c3/art-design-fr/lh-art-clara-shanghai-90sec.mp4\">/content/dam/video/c3/art-design-fr/lh-art-clara-shanghai-90sec.mp4</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/allegris-business-san-diego",
+  "inserts": [
+   {
+    "replace": "<a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-san-diego-daniel-frost-90sec.mp4\">Daniel Frost sits in the waiting area of an airport terminal and looks out of the window.</a> <a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-frost-en-cc.vtt\">Subtitles</a> <a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-frost-en-ad.vtt\">Audio description</a> {controls round-play-button}</p>",
+    "text": "<a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-san-diego-daniel-frost-90sec.mp4\">Daniel Frost sits in the waiting area of an airport terminal and looks out of the window.</a> <a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-frost-en-cc.vtt\">Subtitles</a> <a href=\"/content/dam/video/c3/art-design-uk/lh-art-uk-frost-en-ad.vtt\">Audio description</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "replace": "<a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-90sec.mp4\">Antonio Colomboni with clapperboard at the airport before flying to NYC</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-en-cc.vtt\">Subtitles</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-en-ad.vtt\">Audio description</a> {controls round-play-button}</p>",
+    "text": "<a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-90sec.mp4\">Antonio Colomboni with clapperboard at the airport before flying to NYC</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-en-cc.vtt\">Subtitles</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-en-ad.vtt\">Audio description</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/es/articles/highlights/allegris-business-class-shanghai",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4\">/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4</a> {controls round-play-button}</p>",
+    "text": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4\">/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/es/articles/highlights/allegris-business-san-diego",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-uk/lh_art_uk_san_diego_daniel_frost_90sec.mp4\">Daniel Frost, sentado, mira por la ventana de una sala de espera en la terminal de un aeropuerto.</a> {controls round-play-button}</p>",
+    "text": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-uk/lh_art_uk_san_diego_daniel_frost_90sec.mp4\">Daniel Frost, sentado, mira por la ventana de una sala de espera en la terminal de un aeropuerto.</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/es/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-italy/lh_art_italy_antonio_90sec.mp4\">Antonio Colomboni con una claqueta en el aeropuerto antes de salir rumbo a Nueva York.</a> {controls round-play-button}</p>",
+    "text": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-italy/lh_art_italy_antonio_90sec.mp4\">Antonio Colomboni con una claqueta en el aeropuerto antes de salir rumbo a Nueva York.</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/fr/articles/highlights/allegris-business-class-shanghai",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4\">/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4</a> {controls round-play-button}</p>",
+    "text": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4\">/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/fr/articles/highlights/allegris-business-san-diego",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-uk/lh_art_uk_san_diego_daniel_frost_90sec.mp4\">Daniel Frost est assis dans la salle d'attente d'un terminal d'aéroport et regarde par la fenêtre.</a> {controls round-play-button}</p>",
+    "text": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-uk/lh_art_uk_san_diego_daniel_frost_90sec.mp4\">Daniel Frost est assis dans la salle d'attente d'un terminal d'aéroport et regarde par la fenêtre.</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/fr/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-italy/lh_art_italy_antonio_90sec.mp4\">Antonio Colomboni avec un clap de cinéma à l'aéroport avant son départ pour New York.</a> {controls round-play-button}</p>",
+    "text": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-italy/lh_art_italy_antonio_90sec.mp4\">Antonio Colomboni avec un clap de cinéma à l'aéroport avant son départ pour New York.</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/fr/articles/highlights/allegris-premium-economy-san-diego",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-spain/lh_art_design_san_diego_diego_blanco_60sec.mp4\">Diego Blanco se tient dans le terminal d'un aéroport, vêtu d'un t-shirt noir et d'une veste grise.</a> {controls round-play-button}</p>",
+    "text": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-spain/lh_art_design_san_diego_diego_blanco_60sec.mp4\">Diego Blanco se tient dans le terminal d'un aéroport, vêtu d'un t-shirt noir et d'une veste grise.</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/it/articles/highlights/allegris-business-class-shanghai",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4\">/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4</a> {controls round-play-button}</p>",
+    "text": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4\">/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/it/articles/highlights/allegris-business-san-diego",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-uk/lh_art_uk_san_diego_daniel_frost_90sec.mp4\">Daniel Frost è seduto nell’area di attesa nel terminal di un aeroporto e guarda fuori dalla finestra.</a> {controls round-play-button}</p>",
+    "text": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-uk/lh_art_uk_san_diego_daniel_frost_90sec.mp4\">Daniel Frost è seduto nell’area di attesa nel terminal di un aeroporto e guarda fuori dalla finestra.</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/it/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-italy/lh_art_italy_antonio_90sec.mp4\">Antonio Colomboni con il ciak all’aeroporto prima del volo per NYC</a> {controls round-play-button}</p>",
+    "text": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-italy/lh_art_italy_antonio_90sec.mp4\">Antonio Colomboni con il ciak all’aeroporto prima del volo per NYC</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/it/articles/highlights/allegris-premium-economy-san-diego",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-spain/lh_art_design_san_diego_diego_blanco_60sec.mp4\">Diego Blanco attende al terminal di un aeroporto indossando una t-shirt nera un e giubbotto grigio.</a> {controls round-play-button}</p>",
+    "text": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-spain/lh_art_design_san_diego_diego_blanco_60sec.mp4\">Diego Blanco attende al terminal di un aeroporto indossando una t-shirt nera un e giubbotto grigio.</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-italy/lh_art_italy_antonio_90sec.mp4\">Antonio Colomboni avec un clap de cinéma à l'aéroport avant son départ pour New York.</a> {controls round-play-button}</p>",
+    "text": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-italy/lh_art_italy_antonio_90sec.mp4\">Antonio Colomboni avec un clap de cinéma à l'aéroport avant son départ pour New York.</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/articles/highlights/allegris-business-class-shanghai",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4\">/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4</a> {controls round-play-button}</p>",
+    "text": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4\">/content/dam/video/c3/art-design-fr/lh_art_clara_shanghai_90sec.mp4</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/articles/highlights/allegris-business-san-diego",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-uk/lh_art_uk_san_diego_daniel_frost_90sec.mp4\">Daniel Frost est assis dans la salle d'attente d'un terminal d'aéroport et regarde par la fenêtre.</a> {controls round-play-button}</p>",
+    "text": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-uk/lh_art_uk_san_diego_daniel_frost_90sec.mp4\">Daniel Frost est assis dans la salle d'attente d'un terminal d'aéroport et regarde par la fenêtre.</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/articles/highlights/allegris-premium-economy-san-diego",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-spain/lh_art_design_san_diego_diego_blanco_60sec.mp4\">Diego Blanco se tient dans le terminal d'un aéroport, vêtu d'un t-shirt noir et d'une veste grise.</a> {controls round-play-button}</p>",
+    "text": "<a href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-spain/lh_art_design_san_diego_diego_blanco_60sec.mp4\">Diego Blanco se tient dans le terminal d'un aéroport, vêtu d'un t-shirt noir et d'une veste grise.</a> {controls round-play-button size-1920x1080}</p>"
+   }
+  ]
+ }
+]

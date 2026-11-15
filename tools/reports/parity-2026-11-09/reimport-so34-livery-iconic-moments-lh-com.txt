@@ -1,0 +1,16 @@
+# Standing order 34 (2026-11-15), item 2: /de/en/articles/explore-flying/livery-iconic-moments, the sweep's worst
+# page-width (29.8 % at 1440, 24.2 at 390 against lh-parity-008): www has extended the article since our import. Its
+# recording of tonight is 17,187 / 25,049 px tall at 1440 / 390; our copy carries 115 of www's 193 sentences of the
+# article body (59.6 %) and 28 pictures, www 46. The title, description and publication date are unchanged
+# (2026-08-13); www now says "21 min read" (ours "13 min read").
+# Source: lh-parity-008.tar.gz from the drop (sha256 a744bf05bb8676feda5640069282a03434dc388bd9426fb19357abcf38e2de6f),
+# member de-en-articles-explore-flying-livery-iconic-moments-1440.html (the page's outerHTML after settling), used as the
+# snapshot www.lufthansa.com/de/en/articles/explore-flying/livery-iconic-moments.html (bd-snapshots layout) for an offline
+# import with main's insights bundle (tools/importer/import-insights.bundle.js).
+# Check: an offline import of that file (logs/b609/measure.sh, 0 requests out) carries 193 of the 193 sentences (100 %),
+# 46 pictures (18 new: www's files, which the import helper's upload brings in), metadata reading-time "21 min read".
+# A pixel gate needs the new pictures, so it follows the upload: the helper compares the previewed page with
+# lh-parity-008 at 1440 and 390 before publishing (ours today 29.8 / 24.2 %). After the import, article-meta-sync.mjs
+# for the list entry (the reading time).
+# status	path	www path	template	source	gate
+READY	/de/en/articles/explore-flying/livery-iconic-moments	/de/en/articles/explore-flying/livery-iconic-moments	insights	lh-parity-008 (de-en-articles-explore-flying-livery-iconic-moments-1440.html)	text coverage 59.6 -> 100 % of www's sentences (offline import); pixels after the upload (today 29.8 / 24.2 %)
