@@ -1,0 +1,49 @@
+# ema-cashub, standing order 37 (2026-11-15), item 3, carried further: the product tab row (delta-so37-cargo-product-tabs.txt)
+# drafted on the twelve unrecorded Cargo pages whose www snapshot has the same tab set (cargo-snapshots-001 to -014: nav-tabs
+# over tab-pane cards, read as data). All HOLD: no recording, so no www height to gate them; they are listed so the rows are
+# ready once 1440 loads of these pages exist (captures wait for your word). Not uploaded.
+# Built as the recorded nine (plan.py on the snapshot's markup, tabs-row.mjs on the served document, offline, 0 requests);
+# rendered on cargo.turnsthe.page with afc18e2f live (so36/host.mjs, EAGER=1 CONSENT=1; lh-proxy, www.* but
+# www.mynewsdesk.com and every airline host refused and counted: 0 on these pages). At 390 every page is unchanged to the
+# px. Left out: /en/portfolio (its panels are product grids that do not split this way) and /en/speed-flash (its snapshot
+# is the German page). /en/industries-healthcare's panels hold no picture row: the row is the option alone.
+#
+# status	path	width	snapshot	page before	page with the row	the tab band's section end before -> with the row
+HOLD	/en/add-on-services/insurance	1440	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/add-on-services/insurance.html	1468	2079	971 -> 1582	no recording: waiting for a www load at 1440
+HOLD	/en/add-on-services/insurance	390	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/add-on-services/insurance.html	1200	1200 (unchanged)	620 -> 620	no recording: waiting for a www load at 1440 (390: below 1025 px the accordion as before)
+HOLD	/en/add-on-services/personal-supervision	1440	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/add-on-services/personal-supervision.html	1468	2034	971 -> 1537	no recording: waiting for a www load at 1440
+HOLD	/en/add-on-services/personal-supervision	390	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/add-on-services/personal-supervision.html	1200	1200 (unchanged)	620 -> 620	no recording: waiting for a www load at 1440 (390: below 1025 px the accordion as before)
+HOLD	/en/add-on-services/sustainable-choice	1440	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/add-on-services/sustainable-choice.html	1492	2424	995 -> 1927	no recording: waiting for a www load at 1440
+HOLD	/en/add-on-services/sustainable-choice	390	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/add-on-services/sustainable-choice.html	1248	1248 (unchanged)	668 -> 668	no recording: waiting for a www load at 1440 (390: below 1025 px the accordion as before)
+HOLD	/en/add-on-services/todoor	1440	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/add-on-services/todoor.html	1468	2142	971 -> 1645	no recording: waiting for a www load at 1440
+HOLD	/en/add-on-services/todoor	390	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/add-on-services/todoor.html	1200	1200 (unchanged)	620 -> 620	no recording: waiting for a www load at 1440 (390: below 1025 px the accordion as before)
+HOLD	/en/industries-healthcare	1440	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/industries-healthcare.html	4359	4688	1807 -> 2136	no recording: waiting for a www load at 1440
+HOLD	/en/industries-healthcare	390	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/industries-healthcare.html	3929	3929 (unchanged)	1951 -> 1951	no recording: waiting for a www load at 1440 (390: below 1025 px the accordion as before)
+HOLD	/en/passive-temp-support	1440	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/passive-temp-support.html	1570	2234	1073 -> 1737	no recording: waiting for a www load at 1440
+HOLD	/en/passive-temp-support	390	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/passive-temp-support.html	1302	1302 (unchanged)	722 -> 722	no recording: waiting for a www load at 1440 (390: below 1025 px the accordion as before)
+HOLD	/en/perishables	1440	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/perishables.html	1570	2120	1073 -> 1623	no recording: waiting for a www load at 1440
+HOLD	/en/perishables	390	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/perishables.html	1326	1326 (unchanged)	746 -> 746	no recording: waiting for a www load at 1440 (390: below 1025 px the accordion as before)
+HOLD	/en/products/customer-owned-tracker	1440	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/products/customer-owned-tracker.html	1468	1756	971 -> 1259	no recording: waiting for a www load at 1440
+HOLD	/en/products/customer-owned-tracker	390	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/products/customer-owned-tracker.html	1261	1261 (unchanged)	681 -> 681	no recording: waiting for a www load at 1440 (390: below 1025 px the accordion as before)
+HOLD	/en/speed-pro	1440	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/speed-pro.html	1555	1986	1030 -> 1461	no recording: waiting for a www load at 1440
+HOLD	/en/speed-pro	390	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/speed-pro.html	1263	1263 (unchanged)	655 -> 655	no recording: waiting for a www load at 1440 (390: below 1025 px the accordion as before)
+HOLD	/en/speed-zoom	1440	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/speed-zoom.html	1555	2295	1030 -> 1770	no recording: waiting for a www load at 1440
+HOLD	/en/speed-zoom	390	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/speed-zoom.html	1311	1311 (unchanged)	703 -> 703	no recording: waiting for a www load at 1440 (390: below 1025 px the accordion as before)
+HOLD	/en/valuables	1440	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/valuables.html	1570	2014	1073 -> 1517	no recording: waiting for a www load at 1440
+HOLD	/en/valuables	390	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/valuables.html	1302	1302 (unchanged)	722 -> 722	no recording: waiting for a www load at 1440 (390: below 1025 px the accordion as before)
+HOLD	/en/vulnerables	1440	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/vulnerables.html	1570	2088	1073 -> 1591	no recording: waiting for a www load at 1440
+HOLD	/en/vulnerables	390	cargo-snapshots-001/snapshots/www.lufthansa-cargo.com/en/vulnerables.html	1326	1326 (unchanged)	746 -> 746	no recording: waiting for a www load at 1440 (390: below 1025 px the accordion as before)
+#
+# DA change, per document (en only), after afc18e2f (live):
+#   /en/add-on-services/insurance: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table ["Just to make sure: insurance for your ai" to "Generally, our liability for your air fr" | its picture]
+#   /en/add-on-services/personal-supervision: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table ["Accompany your Fine Arts shipment" to "With the Add-on Service Personal Supervi" | its picture]
+#   /en/add-on-services/sustainable-choice: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table ["Contribute to reducing your future clima" to "Small: 10% SAF / 90% climate projects Me" | its picture]
+#   /en/add-on-services/todoor: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table ["Direct delivery with toDoor service" to "Rely on efficient optimization of your t" | its picture]
+#   /en/industries-healthcare: Accordion Columns (faq) -> Accordion Columns (faq, tabs); no picture rows (the tabs only)
+#   /en/passive-temp-support: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table ["Best possible protection against tempera" to "We ship sensitive pharmaceutical product" | its picture]
+#   /en/perishables: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table ["A long shelf-life for Perishables" to "We ensure that your perishable cargo, su" | its picture]
+#   /en/products/customer-owned-tracker: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table ["Track it yourself: Customer-owned Tracke" to "No further costs after evaluation of the" | its picture]
+#   /en/speed-pro: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table ["Getting to the right place at the right " to "td.Pro is your economical choice of Spee" | its picture]
+#   /en/speed-zoom: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table ["Your fastest way for your urgent shipmen" to "For your most urgent cargo, we offer top" | its picture]
+#   /en/valuables: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table ["Top-level security and discretion for va" to "Transport valuables the safest way: We e" | its picture]
+#   /en/vulnerables: Accordion Columns (faq) -> Accordion Columns (faq, tabs); one-row table ["Highly developed safety precautions for " to "Secure transportation for goods whose at" | its picture]; one-row table ["Infrastructure database" to "Separate video-monitored and electronica" | its picture]

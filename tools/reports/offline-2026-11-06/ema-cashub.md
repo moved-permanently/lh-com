@@ -6791,3 +6791,9 @@ as served, with only the rows above 2 % listed.
 - **For you:** terms-of-use and general-terms1 are www's legal template: the content is 1,184 px wide and terms-of-use has
   no title. Another job's Template legal row (`526457df`, lufthansa.com only) could carry a Cargo rule. That needs your
   word on terms-of-use's title, and the other legal pages' www widths.
+- **The same tab row, carried further** (delta-so37-cargo-product-tabs-unrecorded.txt): 12 unrecorded Cargo pages have
+  www's tab set in their snapshots (insurance, personal-supervision, sustainable-choice, todoor, industries-healthcare,
+  passive-temp-support, perishables, customer-owned-tracker, speed-pro, speed-zoom, valuables, vulnerables).
+  - The rows are drafted from the snapshots' markup. At 390 nothing changes, to the px.
+  - All 12 are HOLD: with no recording there is no www height to gate them against.
+  - Left out: portfolio (its panels are product grids) and speed-flash (its snapshot is the German page).
