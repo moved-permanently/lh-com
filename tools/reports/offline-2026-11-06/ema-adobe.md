@@ -4631,3 +4631,79 @@ order. Full suite on the final code: 01ccd31, 71 lh-edge files and 1,154 site fi
   - logs/b622: captures, renders, trials;
   - /tmp/so29 (the fonts, their fontconfig file, lh-parity-007);
   - the untracked import reports of earlier runs.
+
+### Standing order 30 (2026-11-15 08:40 to 13:00 CET)
+
+No uploads, previews or publishes; DA read only; no request to an airline host and no new recordings asked for (all
+measurements on our own host against the existing recordings). `.migration/project.json` untouched; plugins left off.
+Order 29 left nothing uncommitted or unpushed. Each push: the whole-repo lint read 0 on a clean worktree of the rebased
+HEAD, stylelint passed on the changed theme and block files, and the folder-reading tests passed. Full suite on the
+final code: 8c361d6, 71 lh-edge files and 1,162 site files, 0 failing.
+
+1. **explore-flying / explore-the-world pager: shipped (ff450c9).**
+   - lufthansa.com only: below 650 px of pager width the blog-overview pager is www's narrow form (first, previous,
+     "Page N", next, last); the brand sites' pagers are unchanged (their markup hashes in the grid test unchanged).
+   - Test test/blog-overview-pagination-narrow-so30; gate: 16 page-widths, all within 0.5.
+   - My push missed one test: test/blog-pager-582 still pinned the short-pager selector from before the narrow list
+     was excluded from it. The full suite on 633e4a3 caught it (1 of 1,162 site files failing). It is fixed in 8c361d6:
+     the test only, the rules unchanged. All 114 tests that read the block pass.
+   - **The missing article (30 October).** /de/en/articles/explore-flying/livery-iconic-moments has its DA document
+     (200), is published and listed in the index (565 rows). Ours still carries its old metadata: publication date
+     2026-08-13, "100 Years of Lufthansa: 12 Iconic Stories", 13 min read. www has since rewritten that article:
+     "Lufthansa Stories Tour the Globe", 30 October 2026, 21 min read, so www sorts it first and ours does not.
+     Nothing keeps it out of the list; its date and title are stale.
+   - An import of that one article needs a fresh www load of the article (no bd-snapshot of it exists, and the article
+     export behind ARTICLE_META in parsers/article-data.js predates the rewrite). Then the insights re-import of that
+     path and article-meta-sync.mjs for its list entry. Not possible while captures are stopped, so no row.
+2. **744 at 390: no row.** The paired half in-view seat-map slideshows are on 7 fleet pages (388, 744, 74e, 74h, 74p,
+   74q, 74z) in every version, about 113 documents. Only de/en/744 is recorded, and the 30 px is phone-only with no mark
+   in the document to scope a row to. So it is not "that page only", and there is no band-end gate to pass.
+3. **Legal pages, the gap after a link before a heading: shipped with 120 READY rows (526457d).**
+   - **The mark:** Metadata Template legal (aem.js makes it the body class legal), not a section style. A section
+     style would need a row in every section holding such a link; the template covers the whole document.
+   - **Importer:** build-import-script.js (TEMPLATE_ROWS) now has the legal importer write the row on lufthansa.com
+     (tools/importer/template-row.mjs); import-legal.js regenerated, its bundle rebuilt (the bundle also picks up
+     4c01054's committed below-768 separator, not bundled before; the other bundles untouched). An offline import of
+     agb-extra-services-at-online-check-in from its snapshot writes the row last in Metadata, 0 requests out.
+   - **The rule (styles.css):** on body.legal, a link alone in its paragraph before an h2 to h4 gets 48 px under it,
+     except before a heading that opens a column view (its padding holds that space; with it data-collection-canada
+     went 9.6 -> 15.7 at 390). The same 48 px on info pages was wrong (all-check-in 3.1 -> 12.6), hence the template.
+   - **Census:** the legal template's 120 documents; dry run on DA's copies (read-only) placed on all 120, all 120
+     published. 36 hold 70 link-before-heading places; the other 84 get the row only.
+   - **Gate:** the 29 recorded legal pages, 58 page-widths: 3 better, 55 within 0.5, 0 worse. agb-extra-services
+     3.69 / 10.10 -> 1.60 / 6.59, compensation-voucher 6.73 / 13.19 -> 6.43 / 12.59 at 1440 / 390. 9 of the 36
+     reached documents are recorded; the other 27 are READY on the same link component, ungated.
+   - **List:** tools/reports/parity-2026-11-09/delta-so30-legal-template-lh-com.txt, 120 READY rows, tool
+     metadata-row-apply `[{"key": "Template", "value": "legal"}]` (new, test/legal-template-so30). The rule reaches
+     nothing until a document has the row, so code first is safe.
+4. **The ranking from 4 % up** (82 page-widths measured live; a drift screen of all of them).
+   - **Shipped (633e4a3): miles-and-more's slider on phones** (option fragment-slides, 6 documents, the slider ends
+     the page in each). The teaser text now sits under its title (it was pushed down by margin-top auto: "Cash &
+     Miles" 35 px low), and the footer is 80 px under the dots as www's (ours 33). Gate: 7.2 / 6.9 / 6.9 / 7.3 ->
+     5.2 / 5.0 / 5.0 / 5.2 % at 390 (de/en, de/de, at/de, gb/en), page heights now www's; 1440 the same.
+     No rows needed (block CSS on the existing option).
+   - **Tried, not shipped:**
+     - A section closing a column view right before a grey column band, without the section gap (130 documents in 12
+       page families, 18 recorded page-widths): better on arrival-services (9.8 / 10.4 -> 6.7 / 6.8), passenger-rights
+       390, group-travel and special-meals; worse on doctor-on-board, green-fare, star-alliance 1440,
+       tiere-als-uebergepaeck and upgrades-at-online-check-in. Neither the band's flush flag nor how the view closes
+       separates them, so the cause differs per page; www's AEM section boundaries would be the mark, an importer
+       matter.
+     - Form sub-section titles at www's heading-copytext-large size (20 px at 390 instead of our fixed 24; 24 from
+       1281 px): 11 of 12 recorded form pages better or the same at 390 (register-animal-cabin 10.1 -> 8.9,
+       special-needs 8.6 -> 7.9). add-sports-baggage is worse (8.4 -> 10.0) as a whole page, though its top 2,300 px
+       improve (5.6 -> 5.3): below that ours is already 100 to 200 px short, because www keeps an empty legend in
+       untitled sub-sections (about 29 px each) and our form block writes none. A 29 px top space for untitled
+       sub-sections made three pages worse, so the empty legend's space is not a top padding. Both rules should go
+       together once that space is understood.
+   - **Findings, no rule:**
+     - 100-years/crane at 1440 (four documents): two captions per page missing. They are only in www's component
+       JSON, and the columns-media parser drops column-view captions on lufthansa.com's own pages by decision (the
+       100-years pages, left as your call). Census of the snapshots: 851 such captions in 144 documents with a copy,
+       75 missing in 28 documents: 14 are the 100-years crane and global-network pages (that decision); 13 are
+       insights articles (stop-over-tokyo in 4 versions, Allegris and art-of-flying highlights), where captions are
+       kept by design, so those are a parser gap of their own; 1 is tiere-als-handgepaeck. Not looked into further.
+     - accessibility-statement at 1440: every heading after a paragraph is about 15 px lower than www's (our 40 px
+       h2 margin). Its headings are limited-width, which 1,752 documents carry; without www's styles I left it.
+     - lufthansa-travel-classes at 390: picture crops and sharpness, not layout.
+- Left out of git: logs/b622 (captures, trials, census files), the untracked import reports of earlier runs.
