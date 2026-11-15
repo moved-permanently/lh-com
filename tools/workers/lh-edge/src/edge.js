@@ -7,7 +7,8 @@
  * - the origin var is ORIGIN (the reference: ORIGIN_HOSTNAME);
  * - originFetch() is also used by the compatibility routes (solo pages, the alias sheet);
  * - EDGE_TTL caps the edge cache and EDGE_CACHE_VERSION versions it (hosts without push
- *   invalidation).
+ *   invalidation); there pages and JSON are kept in the Cache API, never revalidated
+ *   (storedFetch), not in the fetch cache.
  */
 
 const getExtension = (path) => {
@@ -119,6 +120,72 @@ function capBrowserCache(resp, env) {
   });
 }
 
+/** EDGE_TTL in seconds, or null (a host with push invalidation). */
+function edgeTtl(env) {
+  const ttl = Number.parseInt(env.EDGE_TTL, 10);
+  if (!Number.isFinite(ttl) || ttl < 0 || String(env.EDGE_TTL ?? '').trim() === '') return null;
+  return ttl;
+}
+
+/** Pages (no extension), .html and .json: what a publish changes under the same URL. */
+const isDocument = (url) => !isMediaRequest(url) && ['', 'html', 'json'].includes(getExtension(url.pathname));
+
+const STORE_HOST = 'https://lufthansa.turnsthe.page';
+
+/**
+ * The Cache API key of a page or JSON copy: the version, the public host (aem.live varies on
+ * X-Forwarded-Host), the origin URL with the query parameters it uses.
+ */
+export function edgeStoreKey(url, env, forwardedHost) {
+  const version = String(env.EDGE_CACHE_VERSION ?? '').trim() || '0';
+  const u = new URL(url);
+  u.searchParams.delete(CACHE_VERSION_PARAM);
+  return `${STORE_HOST}/.lh-edge-cache/edge/${encodeURIComponent(version)}/${encodeURIComponent(forwardedHost)}/${u.host}${u.pathname}${u.search}`;
+}
+
+/**
+ * Pages and JSON on a host without push invalidation (standing order 31, 2026-11-15:
+ * austrian.turnsthe.page served /at/en/healthy-travel from before its publish for about 4 h).
+ * aem.live's Last-Modified is the DA edit time, not the publish, and it answers 304 to an
+ * If-Modified-Since equal to it; Cloudflare's fetch cache revalidates an expired copy that way,
+ * so an old body held under the new date was kept by every revalidation. The Cache API never asks
+ * the origin: a copy (200: EDGE_TTL, 404: 60 s) is gone when it expires, a miss fetches the whole
+ * answer without conditions, and every answer is whole (aem.live sends no ETag; the visitor's or
+ * the CDN's If-Modified-Since would get the same wrong 304 one step later).
+ */
+async function storedFetch(req, url, env, forwardedHost, ttl) {
+  const cache = caches.default;
+  const key = edgeStoreKey(url, env, forwardedHost);
+  const hit = await cache.match(new Request(key)).catch(() => null);
+  if (hit) {
+    const resp = new Response(req.method === 'HEAD' ? null : hit.body, hit);
+    if (req.method === 'HEAD' && hit.body) hit.body.cancel().catch(() => {});
+    resp.headers.set('x-lh-edge-cache', 'hit');
+    return resp;
+  }
+  const whole = new Request(req);
+  whole.headers.delete('if-modified-since');
+  whole.headers.delete('if-none-match');
+  const resp = await fetch(whole, { method: req.method, cache: 'no-store' });
+  const keep = resp.status === 404 ? Math.min(60, ttl) : (resp.status === 200 && ttl);
+  if (req.method !== 'GET' || !keep || !resp.body) return resp;
+  const out = new Response(resp.body, resp);
+  const copy = out.clone();
+  const stored = new Response(copy.body, copy);
+  stored.headers.delete('set-cookie');
+  ['cache-control', 'cdn-cache-control'].forEach((name) => {
+    const cc = stored.headers.get(name) || '';
+    const m = cc.match(/max-age=(\d+)/);
+    if (!m) stored.headers.set(name, name === 'cache-control' ? `max-age=${keep}` : cc);
+    else if (Number(m[1]) > keep) stored.headers.set(name, cc.replace(/max-age=\d+/, `max-age=${keep}`));
+    if (!stored.headers.get(name)) stored.headers.delete(name);
+  });
+  // stored before the answer goes on (no ctx here): a page or a sheet, not a large file
+  await cache.put(new Request(key), stored).catch(() => {});
+  out.headers.set('x-lh-edge-cache', 'miss');
+  return out;
+}
+
 /**
  * Fetches from the origin with the headers of the reference.
  * @param {Request} request the incoming request (method, headers, body)
@@ -149,11 +216,14 @@ export async function originFetch(request, env, target, options = {}) {
   req.headers.set('x-byo-cdn-type', 'cloudflare');
   if (env.PUSH_INVALIDATION !== 'disabled') req.headers.set('x-push-invalidation', 'enabled');
   if (env.ORIGIN_AUTHENTICATION) req.headers.set('authorization', `token ${env.ORIGIN_AUTHENTICATION}`);
+  const ttl = edgeTtl(env);
+  const stored = edgeCache && ttl !== null && ['GET', 'HEAD'].includes(req.method) && isDocument(url)
+    && typeof caches !== 'undefined' && caches && caches.default;
   const init = !edgeCache
     ? { method: req.method, cache: 'no-store' }
     // cf doesn't cache html by default: need to override the default behavior
     : { method: req.method, cf: edgeCacheOptions(env) };
-  let resp = await fetch(req, init);
+  let resp = stored ? await storedFetch(req, url, env, forwardedHost, ttl) : await fetch(req, init);
   resp = new Response(resp.body, resp);
   if (resp.status === 304) resp.headers.delete('Content-Security-Policy');
   resp.headers.delete('age');
