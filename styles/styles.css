@@ -1542,6 +1542,21 @@ main > .section > .default-content-wrapper:last-child:not(:has(> :not(p.spacer))
   margin-top: -16px;
 }
 
+/* ... not when every separator in it is hidden at this width ("{spacer-N from-768}" on phones, "{spacer-N below-768}"
+   from 768px): it shows nothing there, so it takes nothing back (standing order 34; order 31's entry-exit-system lost
+   16px on desktop to a phones-only spacer there) */
+@media (width < 768px) {
+  main > .section > .default-content-wrapper:last-child:not(:has(> :not(p.spacer.from-768))) {
+    margin-top: 0;
+  }
+}
+
+@media (width >= 768px) {
+  main > .section > .default-content-wrapper:last-child:not(:has(> :not(p.spacer.below-768))) {
+    margin-top: 0;
+  }
+}
+
 /* a headline that ends the default content keeps only its own margin to the block below
    (.headline + component: heading margin-bottom, no extra .mb-default) */
 main > .section > .default-content-wrapper:has(> :last-child:is(h1, h2, h3, h4, h5, h6)) + div {
@@ -2455,6 +2470,20 @@ body.brand-lufthansa main > .section.campaign-section > .default-content-wrapper
    not after a Spacer: the Spacer is the gap (brief 536, spacer-cost-536.md) */
 body.theme-live.flow-spacing main .default-content-wrapper > :not(h1, h2, h3, h4, h5, h6, p.spacer:not(.divider)) + :is(h2, h3) {
   margin-top: var(--theme-heading-gap, 32px);
+}
+
+/* ... also when a separator hidden at this width stands between that content and the heading: it is not there at this
+   width (standing order 34; ITA group-boarding's phones lost 8px to a desktop-only spacer before a heading) */
+@media (width < 768px) {
+  body.theme-live.flow-spacing main .default-content-wrapper > :not(h1, h2, h3, h4, h5, h6, p.spacer:not(.divider)) + p.spacer.from-768 + :is(h2, h3) {
+    margin-top: var(--theme-heading-gap, 32px);
+  }
+}
+
+@media (width >= 768px) {
+  body.theme-live.flow-spacing main .default-content-wrapper > :not(h1, h2, h3, h4, h5, h6, p.spacer:not(.divider)) + p.spacer.below-768 + :is(h2, h3) {
+    margin-top: var(--theme-heading-gap, 32px);
+  }
 }
 
 /* lufthansa.com's ruled chapters (theme rule ruled-chapters: a chapter is a section of its own that
