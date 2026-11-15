@@ -4526,3 +4526,68 @@ suite on the final code: eef94c4, 71 lh-edge files and 1,142 site files, 0 faili
   - /tmp/so27 (the offline import inputs), /tmp/so26 (lh-snapshots-118);
   - the worktrees /tmp/wt-so26b, /tmp/wt-so26c (merged; their node_modules links);
   - the untracked import reports of earlier runs.
+
+### Standing order 28 (2026-11-15 05:10 to 10:00 CET)
+
+No uploads, previews or publishes; DA read only (dry-run GETs); no request to an airline host. `.migration/project.json`
+untouched. Order 27 left nothing uncommitted or unpushed. Each push: the whole-repo lint read 0 on a clean worktree of the
+rebased HEAD, stylelint 0 on the changed block and theme files, the tests that read the changed files and folders passed.
+Full suite on the final code: 28336e5, 71 lh-edge files and 1,149 site files, 0 failing. No change deploys lh-edge. /de/en/overview-manage: no row.
+
+1. **economy-class: the 390 part arrived.**
+   - Served now: /de/en 14.9 % at 390 (22.9 before the row), 8.4 at 1440 (11.3).
+   - www's heights (lh-parity-002a, scrollHeight; the png is cut at 8,000): 8,234 at 1440, 9,946 at 390 (a resize of the
+     1440 load). Yours: 8,273 at 1440 and 10,009 at 390, so 39 / 63 px long, from 38 / 87.
+   - The gain is where things sit, not the height. At 390 everything from www's y 2,800 on now sits 24 px nearer www
+     (offsets: +23..+57 before, -4..+33 now). At 1440 the row's -24 and the carousel's +25 cancel in the height but move
+     the carousel and the grey view to www's places.
+   - The pages stay live.
+2. **The title before a padded first section** (free2move, digital-travel-companion), fbaa417.
+   - The importer writes it now: when the page title is outside the AEM sections and the first AEM section is padded
+     and opens with an image, that section starts a section of its own with style padded (info pages). Test from
+     www's free2move.
+   - Census (the 750 info snapshots): 4 pages change, by that break only.
+   - delta-so28-title-padded-lh-com.txt: 10 READY rows, with section-split-apply's new title row. Market sections keep
+     their markets row on both parts, and DA's bare pictures are taken.
+   - Across all 9,912 published copies the row would place on 1,035, but www's snapshots confirm the shape only for these
+     ten. fr/fr has no published copy (404); its DA copy places.
+   - Gate: de/en free2move 17.7 / 13.0 -> 4.8 / 8.4 % at 1440 / 390. The other nine are not recorded; capture requests
+     for them are in capture-requests-ema-adobe.txt.
+3. **lhg-wifi's gap after the intro button** (fbaa417).
+   - www has a stage, a padded AEM section without .mb-default, then another padded one.
+   - The importer now gives the section after the stage flush (info pages; test from www's lhg-wifi). Census: 20 pages
+     (lhg-wifi, internet-overview, economy-class, first-class-terminal, flynet).
+   - delta-so28-lhg-wifi-flush-lh-com.txt: 4 READY rows (de/en, de/de, at/de, gb/en lhg-wifi).
+   - Gate: lhg-wifi 13.5 / 10.3 -> 12.2 / 10.0 at 390 / 1440. The same flush on economy-class, first-class-terminal
+     (both spots) and internet-overview reads the same, so they get no rows. The Group for Business page was left alone.
+4. **The ranking, the next 80** (de/en, de/de, at/de, gb/en), measured live. None of them are on another session's
+   list.
+   - exclusive-charter (4b9300d): a title picture that ends its section before a grey band gets 40 px under it.
+     Census: the 15 exclusive-charter documents. Gate: 11.5 / 14.7 -> 4.9 / 8.7, live as such.
+   - delta-so28-column-view-sections-lh-com.txt: 20 READY rows, 4 HOLD. They split a section before a column view that
+     opens an unpadded AEM section after another (www has the earlier one's .mb-default and the view's padding there).
+     - Census: 66 spots on 36 pages.
+     - Gate on the recorded READY pages: 8 better, 2 the same. check-in-with-the-family 10.5 / 13.2 -> 1.7 / 3.0;
+       medikamenten-transport 10.3 -> 2.6 at 1440; rebook 10.7 / 14.0 -> 6.7 / 8.2; entry-exit-system 9.7 -> 4.4 at 1440.
+     - feedback-and-contact-airlines' four-column tiles were worse at 1440: HOLD.
+     - The importer version of this rule is not shipped: a fresh import with it also re-splits first-class,
+       tips-senior-travellers and premium-economy-class in places no draft gates.
+   - Tried and not shipped: 48 px under a link paragraph before a heading (all-check-in 3.1 -> 12.6). The gap is in the
+     legal pages only, and they carry no template mark to scope it.
+   - Not fixed, with causes:
+     - gb/en all-it-takes-is-a-yes 1440: the page height changes between loads (6,462 / 6,605 against 6,737), a lazy
+       list;
+     - hertz and sixt: their car-rental widget (www's mli micro-frontend) draws its own type;
+     - child-in-businessclass: the seat-map pictures at their own width on www;
+     - travel-insurances: a grey note band 22 px low after the subtitle, page-specific.
+5. **Chinese glyphs for hk/zh points.** Noto Sans CJK from github.com/notofonts/noto-cjk (SIL OFL), the OTC files
+   Sans/OTC/NotoSansCJK-Light.ttc, NotoSansCJK-Regular.ttc and NotoSansCJK-Bold.ttc. Each holds SC, TC, HK, JP and KR;
+   www's weights 300 / 400 / 700 map to Light / Regular / Bold.
+   - I can only read and write under the project and /tmp. Put them on the drop and I will fetch them into /tmp and point
+     the capture browser at them (FONTCONFIG_FILE).
+   - Points are only comparable if www's recordings drew the same family. Please say which Chinese font your recording
+     machine fell back to (PingFang on a Mac would not match Noto exactly).
+- Left out of git:
+  - logs/b621: captures, drafts, trials, census scripts and results;
+  - /tmp/so27, /tmp/so28 (offline import inputs);
+  - the untracked import reports of earlier runs.
