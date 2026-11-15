@@ -4591,3 +4591,43 @@ Full suite on the final code: 28336e5, 71 lh-edge files and 1,149 site files, 0 
   - logs/b621: captures, drafts, trials, census scripts and results;
   - /tmp/so27, /tmp/so28 (offline import inputs);
   - the untracked import reports of earlier runs.
+
+### Standing order 29 (2026-11-15 07:40 to 12:00 CET)
+
+No uploads, previews or publishes; DA read only; no request to an airline host and no new recordings asked for.
+`.migration/project.json` untouched; plugins left off. Order 28 left nothing uncommitted or unpushed. Each push: the
+whole-repo lint read 0 on a clean worktree of the rebased HEAD, and the folder-reading tests passed. No code changed this
+order. Full suite on the final code: 01ccd31, 71 lh-edge files and 1,154 site files, 0 failing.
+
+1. **hk / zh intro split: still HOLD.**
+   - Noto Sans CJK from the drop (sha256 checked) draws the Chinese text on both sides, through a fontconfig file in /tmp.
+   - www's saved pages from lh-snapshots-117, served without scripts and pictures (the archive has neither), collapse:
+     hk 5,477 px at 1440 against the recorded 10,321. With pictures removed on both sides it is 5,370 against our 7,745,
+     so our page reads 39.7 -> 39.5 % at 1440 and 39.0 -> 38.6 at 390 against that render: a mismatch of the render.
+   - Our page with Noto alone: hk 10,275 -> 10,321 at 1440, 12,580 -> 12,628 at 390. That is the split's +46 / +48, as on
+     the other 14 pages.
+   - So no like-for-like pair can be drawn from the drop. The list header says so (01ccd31).
+2. **explore-flying and explore-the-world against lh-parity-007** (first loads): 8.8 / 20.3 % and 15.5 / 20.1 % at
+   1440 / 390, live as today. No rows to gate; what is left is not layout:
+   - our list misses www's newest article (30 October; www lists 6 per page, as ours, so everything after it shifts by
+     one card: +126 px by y 4,800 at 390 on explore-flying);
+   - our pagination shows numbered pages where www shows "Page 1" between arrows.
+   - The missing article is an index or import matter, not a spacing rule.
+3. **feedback-and-contact-airlines: the four HOLD rows are wrong and stay HOLD.**
+   - Today the airline tiles start where www's do (the "Austrian Airlines" heading at the same y at 1440, 4 px off at
+     390). The split puts them 24 px lower at both widths.
+   - Its 390 gain was compensation: the page ends 36 px short at 390 (the last tile's link to the footer: 112 px on
+     www, ours 76).
+   - No split variant or tile rule is right. The page end is its own phone-only cause, with no content mark for a row.
+     The list header says so.
+4. **The ranking, the next 80** (41 left of the rankings at 8 % and over, then 39 from 4 % up; de/en, de/de, at/de,
+   gb/en), measured live.
+   - The worst is 10.1 % (register-animal-cabin at 390), then datenschutz 9.6, my-logbook 9.4, homepage 9.2,
+     besondere-befoerderungsbedingungen-bus 9.1 and 320 9.0, all at 390.
+   - Their offsets show many small steps or drawn differences, no shared 20 px+ cause. No rule passed a trial, so none
+     shipped.
+   - 744 at 390: 30 px too much after the paired seat-map slideshows. That is 744's pair only; 32n and 320 are fine.
+- Left out of git:
+  - logs/b622: captures, renders, trials;
+  - /tmp/so29 (the fonts, their fontconfig file, lh-parity-007);
+  - the untracked import reports of earlier runs.
