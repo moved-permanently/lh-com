@@ -1526,7 +1526,7 @@ body.brand-brussels main > .section.sidebar-h1:last-child:has(> .default-content
 }
 
 /* standing order 24 of ema-lufthansa (2026-11-15): an accordion "narrow-titles" keeps www's 10px gap before the chevron on
-   phones, its questions in www's 257px text box (brussels-parity-011, the checked-baggage pages, which a delta row gives
+   phones, its questions in www's 272px text box (brussels-parity-011, the checked-baggage pages, which a delta row gives
    the variant: delta-so24-brussels-checked-baggage-narrow-titles.txt); for every accordion it fails the gate */
 @media (width < 768px) {
   body.brand-brussels main .accordion-columns.narrow-titles .accordion-columns-title {

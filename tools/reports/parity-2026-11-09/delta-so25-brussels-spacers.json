@@ -1,0 +1,23 @@
+{
+  "/be/en/farealert/unsubscribe-failure": [
+    {
+      "before": "<div class=\"metadata\">",
+      "html": "<p>{spacer-11}</p>",
+      "count": 1
+    }
+  ],
+  "/be/en/legal-notices": [
+    {
+      "before": "<div class=\"metadata\">",
+      "html": "<p>{spacer-77 from-768}</p><p>{spacer-23 below-768}</p>",
+      "count": 1
+    }
+  ],
+  "/be/fr/travel-classes": [
+    {
+      "before": "<div class=\"columns-media sidebar\">",
+      "html": "<p>{spacer-24 from-768}</p>",
+      "count": 1
+    }
+  ]
+}

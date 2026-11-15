@@ -1,6 +1,6 @@
 /* eslint-disable max-len, import/extensions -- dev tooling */
 /* Brussels (ema-lufthansa, standing order 24 of 2026-11-15, item 2): on the checked-baggage pages www's accordion questions
-   wrap in a 257 px text box on phones (button.header 331 px, padding 13px 20px, the 24 px chevron and a 10 px gap;
+   wrap in a 272 px text box on phones (346 px wide, padding 13px 20px, the 24 px chevron and a 10 px gap;
    brussels-parity-011, be/fr), ours in 280. A rule for every accordion moves other pages further (mpl-cadet-program,
    student-fares, problems-with-your-baggage, ita-airways: brussels-so24-accordion-titles.txt), so five of the six pages get a
    variant, "narrow-titles", by a delta row (delta-so24-brussels-checked-baggage-narrow-titles.txt), and below 768 px its
