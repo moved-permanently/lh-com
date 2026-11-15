@@ -21,6 +21,12 @@
 # Already there (no row): xx/fr, xx/it, xx/ja, xx/pt (both buttons, the Lufthansa app). HOLD, your call: xx/el, xx/hk,
 # xx/ko, xx/pl, xx/ru, xx/zh have both buttons, but their iOS button links FlyNet (apps.apple.com/en/app/flynet/
 # id1517612540), not the Lufthansa app; no snapshot of those versions here, so whether www links FlyNet too is not known.
+# Standing order 33 (2026-11-15): the six HOLD rows READY. The migration session's decision (logged, reversible): the iOS
+# button links the Lufthansa app's App Store page as in the other seven, not FlyNet. Each row replaces the one FlyNet href
+# (apps.apple.com/en/app/flynet/id1517612540) in DA's current copy by apps.apple.com/us/app/lufthansa/id299219152, the link
+# each of the six markets' own digital-travel-companion page uses; nothing else changes (the label, the Android button).
+# Dry run 6 of 6, restorable byte for byte. None of the six is recorded; the href does not draw: xx/el at 390 as a draft
+# with and without the row, 0.0 % apart, the same height (5,569 px).
 # status	document	tool	expected change	gate
 READY	/de/en/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-buttons-lh-com.json)	Step 1: "Go to iOS download" (itunes.apple.com/de/app/lufthansa/id299219152?mt=8), "Go to Android download" (com.lufthansa.android.lufthansa, hl=en)	draft 20.2 / 31.6 -> 20.2 / 22.1 at 1440 / 390
 READY	/gb/en/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-buttons-lh-com.json)	as de/en (gb/en's app page links the same)	not recorded; same cell as de/en; dry run inserted
@@ -29,9 +35,9 @@ READY	/de/de/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-butt
 READY	/at/de/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-buttons-lh-com.json)	as de/de	not recorded; same cell form; dry run inserted
 READY	/xx/es/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-buttons-lh-com.json)	"Ir a la descarga para iOS" (apps.apple.com/us/app/lufthansa/id299219152), "Ir a la descarga para Android" (hl=en)	not recorded; same cell form; dry run inserted
 READY	/fr/fr/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-buttons-lh-com.json)	"Téléchargement iOS" / "Téléchargement Android" with xx/fr's links	not recorded; dry run inserted; the document is not published (DA only)
-HOLD	/xx/el/traveltricks	-	the iOS button to the Lufthansa app instead of FlyNet	your call: www's link there not known
-HOLD	/xx/hk/traveltricks	-	the iOS button to the Lufthansa app instead of FlyNet	your call: www's link there not known
-HOLD	/xx/ko/traveltricks	-	the iOS button to the Lufthansa app instead of FlyNet	your call: www's link there not known
-HOLD	/xx/pl/traveltricks	-	the iOS button to the Lufthansa app instead of FlyNet	your call: www's link there not known
-HOLD	/xx/ru/traveltricks	-	the iOS button to the Lufthansa app instead of FlyNet	your call: www's link there not known
-HOLD	/xx/zh/traveltricks	-	the iOS button to the Lufthansa app instead of FlyNet	your call: www's link there not known
+READY	/xx/el/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-buttons-lh-com.json)	the iOS button to the Lufthansa app (apps.apple.com/us/app/lufthansa/id299219152) instead of FlyNet	not recorded; the href only (xx/el draft 0.0 % from today at 390); dry run replaced, restorable byte for byte
+READY	/xx/hk/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-buttons-lh-com.json)	the iOS button to the Lufthansa app (apps.apple.com/us/app/lufthansa/id299219152) instead of FlyNet	not recorded; the href only (xx/el draft 0.0 % from today at 390); dry run replaced, restorable byte for byte
+READY	/xx/ko/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-buttons-lh-com.json)	the iOS button to the Lufthansa app (apps.apple.com/us/app/lufthansa/id299219152) instead of FlyNet	not recorded; the href only (xx/el draft 0.0 % from today at 390); dry run replaced, restorable byte for byte
+READY	/xx/pl/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-buttons-lh-com.json)	the iOS button to the Lufthansa app (apps.apple.com/us/app/lufthansa/id299219152) instead of FlyNet	not recorded; the href only (xx/el draft 0.0 % from today at 390); dry run replaced, restorable byte for byte
+READY	/xx/ru/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-buttons-lh-com.json)	the iOS button to the Lufthansa app (apps.apple.com/us/app/lufthansa/id299219152) instead of FlyNet	not recorded; the href only (xx/el draft 0.0 % from today at 390); dry run replaced, restorable byte for byte
+READY	/xx/zh/traveltricks	text-inserts-apply (delta-so32-traveltricks-store-buttons-lh-com.json)	the iOS button to the Lufthansa app (apps.apple.com/us/app/lufthansa/id299219152) instead of FlyNet	not recorded; the href only (xx/el draft 0.0 % from today at 390); dry run replaced, restorable byte for byte

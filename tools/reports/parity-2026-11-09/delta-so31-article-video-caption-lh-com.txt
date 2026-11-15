@@ -23,12 +23,18 @@
 # injected: the caption 10px under the player at 1440 and 390 (14px bold, as image captions), the next paragraph 24px
 # under it as it was under the player; the page 28 / 64 px taller at 1440 / 390, the caption's lines and gap only.
 # HOLD: the five versions without a snapshot; their caption text needs a www load (captures stopped since 11-15 07:10).
+# Standing order 33 (2026-11-15): the five HOLD rows READY. www's recordings of tonight hold their captions as www draws
+# them (lh-parity-008: de/en, de/de, at/de, gb/en, sha256 a744bf05...e38e2de6f; lh-parity-010: xx/it, sha256
+# cb707fa8...28d57e06): the same text insert after the video paragraph on DA's current copy (de/en, gb/en, de/de and at/de
+# hold a subtitle and an audio-description link in that paragraph: the anchor is the whole paragraph); dry run 5 of 5,
+# restorable byte for byte. Gate: the published copy with the row as a draft on our host against those recordings,
+# 1440 / 390, all ten page-widths better (figures per row).
 # status	document	tool	expected change	gate
 READY	/xx/es/articles/highlights/allegris-new-york	text-inserts-apply (delta-so31-article-video-caption-lh-com.json)	the video's caption after the video paragraph: "¡Cámara, acción! Un miembro de la tripulación acompaña a Antonio Colomboni a su vuelo a Nueva York"	not recorded; dry run inserted, restorable byte for byte; same shape as xx/fr's draft render
 READY	/xx/fr/articles/highlights/allegris-new-york	text-inserts-apply (delta-so31-article-video-caption-lh-com.json)	the video's caption after the video paragraph: "Action, première prise ! Une équipe de tournage accompagne Antonio Colomboni lors de son vol vers New York City."	not recorded; draft on our host: caption 10px under the player at 1440 / 390, next paragraph 24px under it; dry run inserted, restorable byte for byte
 READY	/fr/fr/articles/highlights/allegris-new-york	text-inserts-apply (delta-so31-article-video-caption-lh-com.json)	the video's caption after the video paragraph (as xx/fr)	not recorded; dry run inserted, restorable byte for byte; the document is not published (DA only)
-HOLD	/de/en/articles/highlights/allegris-new-york	-	the video's caption after the video paragraph	no snapshot: the caption text needs a www load
-HOLD	/de/de/articles/highlights/allegris-new-york	-	the video's caption after the video paragraph	no snapshot: the caption text needs a www load
-HOLD	/at/de/articles/highlights/allegris-new-york	-	the video's caption after the video paragraph	no snapshot: the caption text needs a www load
-HOLD	/gb/en/articles/highlights/allegris-new-york	-	the video's caption after the video paragraph	no snapshot: the caption text needs a www load
-HOLD	/xx/it/articles/highlights/allegris-new-york	-	the video's caption after the video paragraph	no snapshot: the caption text needs a www load
+READY	/de/en/articles/highlights/allegris-new-york	text-inserts-apply (delta-so31-article-video-caption-lh-com.json)	the video's caption after the video paragraph: "Take one! A film crew accompanies Antonio Colomboni on his flight to New York City"	draft 27.8 / 20.2 -> 26.2 / 17.5 at 1440 / 390 (lh-parity-008); dry run inserted, restorable byte for byte
+READY	/de/de/articles/highlights/allegris-new-york	text-inserts-apply (delta-so31-article-video-caption-lh-com.json)	the video's caption after the video paragraph: "Klappe, die erste! Eine Filmcrew begleitet Antonio Colomboni auf seinem Flug nach New York City"	draft 26.1 / 20.4 -> 24.4 / 17.9 at 1440 / 390 (lh-parity-008); dry run inserted, restorable byte for byte
+READY	/at/de/articles/highlights/allegris-new-york	text-inserts-apply (delta-so31-article-video-caption-lh-com.json)	the video's caption after the video paragraph: "Klappe, die erste! Eine Filmcrew begleitet Antonio Colomboni auf seinem Flug nach New York City"	draft 27.9 / 21.4 -> 26.2 / 19.1 at 1440 / 390 (lh-parity-008); dry run inserted, restorable byte for byte
+READY	/gb/en/articles/highlights/allegris-new-york	text-inserts-apply (delta-so31-article-video-caption-lh-com.json)	the video's caption after the video paragraph: "Take one! A film crew accompanies Antonio Colomboni on his flight to New York City"	draft 29.4 / 21.7 -> 28.0 / 19.0 at 1440 / 390 (lh-parity-008); dry run inserted, restorable byte for byte
+READY	/xx/it/articles/highlights/allegris-new-york	text-inserts-apply (delta-so31-article-video-caption-lh-com.json)	the video's caption after the video paragraph: "Ciak, si gira! Una componente della troupe accompagna Antonio Colomboni sul suo volo per New York City"	draft 37.5 / 35.1 -> 36.7 / 33.4 at 1440 / 390 (lh-parity-010); dry run inserted, restorable byte for byte

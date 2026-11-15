@@ -25,5 +25,50 @@
     "text": "<p>Action, première prise ! Une équipe de tournage accompagne Antonio Colomboni lors de son vol vers New York City. {caption}</p>"
    }
   ]
+ },
+ {
+  "path": "/de/en/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "after": "antonio-90sec.mp4\">Antonio Colomboni with clapperboard at the airport before flying to NYC</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-en-cc.vtt\">Subtitles</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-en-ad.vtt\">Audio description</a> {controls round-play-button}</p>",
+    "text": "<p>Take one! A film crew accompanies Antonio Colomboni on his flight to New York City {caption}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "after": "antonio-90sec.mp4\">Antonio Colomboni with clapperboard at the airport before flying to NYC</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-en-cc.vtt\">Subtitles</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-en-ad.vtt\">Audio description</a> {controls round-play-button}</p>",
+    "text": "<p>Take one! A film crew accompanies Antonio Colomboni on his flight to New York City {caption}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "after": "antonio-90sec.mp4\">Antonio Colomboni mit Filmklappe am Flughafen vor dem Abflug nach NYC</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-de-cc.vtt\">Untertitel</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-de-ad.vtt\">Audiodeskription</a> {controls round-play-button}</p>",
+    "text": "<p>Klappe, die erste! Eine Filmcrew begleitet Antonio Colomboni auf seinem Flug nach New York City {caption}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "after": "antonio-90sec.mp4\">Antonio Colomboni mit Filmklappe am Flughafen vor dem Abflug nach NYC</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-de-cc.vtt\">Untertitel</a> <a href=\"/content/dam/video/c3/art-design-italy/lh-art-italy-antonio-de-ad.vtt\">Audiodeskription</a> {controls round-play-button}</p>",
+    "text": "<p>Klappe, die erste! Eine Filmcrew begleitet Antonio Colomboni auf seinem Flug nach New York City {caption}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/it/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "after": "antonio_90sec.mp4\">Antonio Colomboni con il ciak all’aeroporto prima del volo per NYC</a> {controls round-play-button}</p>",
+    "text": "<p>Ciak, si gira! Una componente della troupe accompagna Antonio Colomboni sul suo volo per New York City {caption}</p>"
+   }
+  ]
  }
 ]

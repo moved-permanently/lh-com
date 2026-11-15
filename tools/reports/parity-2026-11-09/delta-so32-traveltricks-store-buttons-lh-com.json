@@ -61,5 +61,59 @@
     "text": "<div><p>de la réservation à l’arrivée, en passant par l’enregistrement mobile, l’application vous envoie en temps voulu des notifications Push et des informations en temps réel avec les mises à jour les plus pertinentes en lien avec vos vols et les offres les plus adaptées. Téléchargez dès maintenant l’<a href=\"https://www.lufthansa.com/fr/fr/book-and-manage/digital-self-services/digital-travel-companion\">application Lufthansa</a> et profitez de votre assistant de voyage numérique.<br> <strong>N’oubliez pas :</strong> connectez-vous à l’application Lufthansa au moyen de votre Travel ID personnel et profitez de services utiles.</p><p><em><a href=\"https://apps.apple.com/de/app/lufthansa/id299219152\">Téléchargement iOS</a></em></p><p><em><a href=\"https://play.google.com/store/apps/details?id=com.lufthansa.android.lufthansa&amp;hl=de&amp;gl=US\">Téléchargement Android</a></em></p></div>"
    }
   ]
+ },
+ {
+  "path": "/xx/el/traveltricks",
+  "inserts": [
+   {
+    "replace": "href=\"https://apps.apple.com/en/app/flynet/id1517612540\"",
+    "text": "href=\"https://apps.apple.com/us/app/lufthansa/id299219152\""
+   }
+  ]
+ },
+ {
+  "path": "/xx/hk/traveltricks",
+  "inserts": [
+   {
+    "replace": "href=\"https://apps.apple.com/en/app/flynet/id1517612540\"",
+    "text": "href=\"https://apps.apple.com/us/app/lufthansa/id299219152\""
+   }
+  ]
+ },
+ {
+  "path": "/xx/ko/traveltricks",
+  "inserts": [
+   {
+    "replace": "href=\"https://apps.apple.com/en/app/flynet/id1517612540\"",
+    "text": "href=\"https://apps.apple.com/us/app/lufthansa/id299219152\""
+   }
+  ]
+ },
+ {
+  "path": "/xx/pl/traveltricks",
+  "inserts": [
+   {
+    "replace": "href=\"https://apps.apple.com/en/app/flynet/id1517612540\"",
+    "text": "href=\"https://apps.apple.com/us/app/lufthansa/id299219152\""
+   }
+  ]
+ },
+ {
+  "path": "/xx/ru/traveltricks",
+  "inserts": [
+   {
+    "replace": "href=\"https://apps.apple.com/en/app/flynet/id1517612540\"",
+    "text": "href=\"https://apps.apple.com/us/app/lufthansa/id299219152\""
+   }
+  ]
+ },
+ {
+  "path": "/xx/zh/traveltricks",
+  "inserts": [
+   {
+    "replace": "href=\"https://apps.apple.com/en/app/flynet/id1517612540\"",
+    "text": "href=\"https://apps.apple.com/us/app/lufthansa/id299219152\""
+   }
+  ]
  }
 ]
