@@ -172,6 +172,13 @@ const ANSWERABLE_CALLS = [
   // the page's default airport (no price; standing order 27: without it a capture of /in/en/flights
   // asks its home airport DEL, www's load BOM), no query
   { path: '/service/api/defaultAirport', portal: 'LH', query: {} },
+  // Austrian's homepages and its ski campaign under X-Portal OS (standing order 36): the fare
+  // teaser's and the destination finder's one call per origin, and the page's default airport
+  ...['SYD', 'ZRH', 'GVA', 'PRG', 'TBS', 'TYO', 'OSA', 'PAR', 'LON', 'MIL', 'RMO', 'TGD', 'WAW',
+    'LIS', 'FAO', 'BUH', 'BEG', 'VIE', 'IST', 'ANK', 'PRN', 'NYC', 'WAS'].map((origin) => ({
+    path: `/service/api/destinationfinder/destination/finder/${origin}/E`, portal: 'OS',
+  })),
+  { path: '/service/api/defaultAirport', portal: 'OS', query: {} },
 ];
 const ANSWERABLE = {
   host: 'www.lufthansa.com',
