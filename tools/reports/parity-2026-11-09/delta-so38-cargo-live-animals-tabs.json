@@ -1,0 +1,10 @@
+{
+ "/en/live-animals": {
+    "block": "accordion-columns", "add": "tabs",
+    "titles": ["Features", "Special aspects", "Infrastructure", "Booking & Tracking", "Links & Downloads"],
+    "rows": [
+      { "panel": "Features", "cells": [
+        ["h3|species-appropriate, individualized tran", "p|from pets, horses, and exotic animals to", "h3|transporting animals quickly, with the b", "ul|with lufthansa cargo, live animals are a"],
+        ["img"] ] }
+    ] }
+}

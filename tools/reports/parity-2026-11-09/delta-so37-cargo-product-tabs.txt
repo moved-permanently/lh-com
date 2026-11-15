@@ -42,7 +42,7 @@ READY	/en/eservices/efreight	1440	cargo-parity-003	1893	1640 (-13.37 %)	1908 (+0
 -	/en/eservices/efreight	390	cargo-parity-003 (resized)	-	1561	1561 (unchanged)	-	1001 (unchanged)	-	below 1025 px the accordion as before
 READY	/en/general-cargo	1440	cargo-parity-003	1758	1570 (-10.69 %)	1782 (+1.37 %)	1276	1305 (+2.27 %)	1285 (+0.71 %)	the band as www's to the px; above it our intro 9 px taller
 -	/en/general-cargo	390	cargo-parity-003 (resized)	-	1302	1302 (unchanged)	-	742 (unchanged)	-	below 1025 px the accordion as before
-HOLD	/en/live-animals	1440	cargo-parity-003	2289	1846 (-19.35 %)	2234 (-2.40 %)	1807	1757 (-2.77 %)	1737 (-3.87 %)	the band -23 px (-3.25 %); above it the intro's update note -95 px (www draws it between two rules, a 1 px line with 20 px under it above the update heading and above "Please note", in a card 10 px down; a rule inside a section is a section break in our documents): not the tab set
+HOLD	/en/live-animals	1440	cargo-parity-003	2289	1846 (-19.35 %)	2234 (-2.40 %)	1807	1757 (-2.77 %)	1737 (-3.87 %)	the band -23 px (-3.25 %); above it the intro's update note -95 px (www draws it between two rules, a 1 px line with 20 px under it above the update heading and above "Please note", in a card 10 px down; a rule inside a section is a section break in our documents): not the tab set; READY together with the note's separators in delta-so38-cargo-live-animals.txt (2330, +1.79 %; band end +1.44 %): apply them from there, not from this list
 -	/en/live-animals	390	cargo-parity-003 (resized)	-	1770	1770 (unchanged)	-	1210 (unchanged)	-	below 1025 px the accordion as before
 #
 # DA change, per document (en only; the de documents of these pages are not recorded and keep their accordion):
