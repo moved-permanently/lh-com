@@ -5218,3 +5218,39 @@ State at the start: nothing of mine uncommitted or unpushed (order 41's final se
 - Not in git and why: logs/p4/so42 (scratch), the drops in /tmp including the two Brussels ones (private material),
   content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not mine, kept). Preview
   servers stopped, trial and suite worktrees removed.
+
+## Standing order 43 (received about 15:05 UTC, 2026-11-16)
+
+State at the start: nothing of mine uncommitted or unpushed (order 42's final section on main, 1ab57697).
+
+1. **Regression check** (regression-so43-lh-rest.tsv; 87e5ce43): the 126 page-widths of ranking-so39-lh-rest.tsv
+   measured as served after today's shared rules.
+   - Only the four lounge roots at 390 went more than 0.5 further (+1.8, 16 px shorter). The cause is order 42's
+     closing-mark rule: their documents sit after a column-view section, and they were recorded under
+     during-your-trip/lounges, so order 42 had counted them as unrecorded.
+   - The rule now skips a column-view section: 6.33 % again. passenger-rights (6.22) and special-meals (9.53) are kept.
+   - 11 page-widths are more than 0.5 closer.
+2. **Hand-over item 16**, zugspitze at 390: a rule for every sidebar map failed (bayerischer-hof and neuschwanstein
+   5-7 points further). So it is the Columns Media option map-tight with one row, READY: 390 10.07 → 3.88 %.
+   Nothing else is new in the hand-over or rows-for-ema-test.md.
+3. **The 20 worst recorded lufthansa.com page-widths outside both rankings**
+   (worst20-so43-lh-com-outside-rankings.txt). Source: order 32's info sweep (info-jobs.tsv), the 220 page-widths at
+   5 % or more re-measured as served, the car pages with their widget.
+   - 16 have no layout fix: recordings, widgets, embeds, picture crops, drift, mostly located in orders 33-37.
+   - 3 are located but not changed tonight: advance-seat-reservation 1440, entry-exit-system 390,
+     child-in-businessclass 390 (www's smaller lightbox seat pictures).
+   - 1 is handed to ema-adobe's form rules: add-sports-baggage 390 (the checkbox groups' spacing, 226 px).
+
+## Standing order 43, final section (about 16:00 UTC, 2026-11-16)
+
+- Items 1-3 done.
+- Before this section: lint and the full suite in a fresh worktree of 73d95c4d: npm run lint 0, stylelint 0, 1234 of 1234 test files passed; the folder-reading tests with brand.test.mjs; the whole-repo lint read before every
+  push.
+- ema-adobe's two-hour window: no file of mine was touched by it in the two hours before my edits.
+- Nothing uploaded, previewed or published by me. DA read only (zugspitze). da-upload.mjs not run. Requests only to
+  our own hosts, DA (reads) and GitHub's API; the car pages' partner widget was let through only by the scratch
+  capture copy, as in order 32. No request to www or any airline host. .migration/project.json not touched; the
+  excluded manage page has no row and no line.
+- Not in git and why: logs/p4/so43 (scratch), the drops in /tmp (private material), content/, migration-work/,
+  tools/importer/reports/* (not mine), the old autostash entry (not mine, kept). Preview servers stopped, trial and
+  suite worktrees removed.
