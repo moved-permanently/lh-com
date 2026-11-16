@@ -287,8 +287,8 @@ body.brand-airdolomiti .breadcrumb li:last-child > * {
 /*
  * link tiles (www's GridThreeScroll of CardIllustrationsSmall: baggage, support): three-up cards
  * of an image, a title and a link only show the image with the title as a beige chip on it
- * (20px in, 10px padding and radius, 80% opaque, semibold 24px / 30px, 38px / 40px from 1025px);
- * the whole card is the link. Phones: one row that scrolls sideways, cards 325px x 225px;
+ * (30px down and 20px in, as www's padding 30px 20px; 10px padding and radius, 80% opaque,
+ * semibold 24px / 30px, 38px / 40px from 1025px); the whole card is the link. Phones: one row that scrolls sideways, cards 325px x 225px;
  * from 1025px three per row, 20px apart, 40px between rows.
  */
 body.brand-airdolomiti .cards-teaser.three-up:not(.routes) > ul > li:has(> .cards-teaser-image + .cards-teaser-body > .cards-teaser-title:first-child + .cards-teaser-cta:last-child) {
@@ -310,7 +310,7 @@ body.brand-airdolomiti .cards-teaser.three-up:not(.routes) > ul > li:has(> .card
 
 body.brand-airdolomiti .cards-teaser.three-up:not(.routes) > ul > li:has(> .cards-teaser-image + .cards-teaser-body > .cards-teaser-title:first-child + .cards-teaser-cta:last-child) .cards-teaser-title {
   position: absolute;
-  top: 20px;
+  top: 30px;
   left: 20px;
   max-width: calc(100% - 40px);
   margin: 0;
@@ -2152,6 +2152,12 @@ body.brand-airdolomiti main .default-content-wrapper:has(> h1 + p:last-child) + 
   margin-top: 40px;
 }
 
+/* link tiles there (support, baggage, extra services): www's tile grid 30 px under the line, the
+   chip 30 px down its picture (airdolomiti-parity-001, six pages at 390 and 1440; standing order 56) */
+body.brand-airdolomiti main .default-content-wrapper:has(> h1 + p:last-child) + .cards-teaser-wrapper:has(> .cards-teaser.three-up > ul > li > .cards-teaser-image + .cards-teaser-body > .cards-teaser-title:first-child + .cards-teaser-cta:last-child) {
+  margin-top: 30px;
+}
+
 /* the manage-booking page (www's TitleDescriptionPnr): the title and the line under it centred
    (50vw from 930px), the line 16px / 22px, 40px above the form */
 body.brand-airdolomiti main:has(.manage-booking) .default-content-wrapper > :is(h1, h1 + p) {
@@ -2888,6 +2894,7 @@ body.brand-airdolomiti main > .section.hero-card-overlay-container .hero-card-ov
 }
 
 /* their grid 70px under the hub's heading (www's GridTreNews; not the route cards, below) */
+/* stylelint-disable-next-line no-descending-specificity -- two paragraphs under the title, not the link tiles' one line (above) */
 body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p):has(+ .cards-teaser-wrapper) + .cards-teaser-wrapper:not(:has(> .cards-teaser.routes)) {
   margin-top: 70px;
 }
