@@ -7758,3 +7758,194 @@ Everything in the order is done. One commit is ready and not pushed: `039d8b66`,
 
 **Not in git** (scratch under /tmp/so42): the DA copies read, the drafts, the served copies (2,459 Austrian), the
 renders, the census tables, the scripts and logs.
+
+## Standing order 43 (2026-11-16, from about 01:45 CET)
+
+**Carried over:** one commit of mine was ready and not pushed: `039d8b66` (the 20 px Cargo phone gap, www's CF8 split,
+their test cases) in migration-work/parity-588/wt, held until the seven wide-gaps pages and the English eservices-app
+were live. Before pushing I checked the live host: all seven served `<meta name="theme" content="wide-gaps">` and
+eservices-app carried its row. Nothing else of mine was uncommitted. The checkout's 88 dirty entries are other jobs'
+(blocks/notifications/notifications.css among them: a `<style>` in a comment became `\3c style>`, not mine) and were
+left alone.
+
+**Renders:** unhinted text throughout. lh-proxy, www.* (except www.mynewsdesk.com on Cargo) and every airline host were
+refused and counted. The Austrian homepages' widget calls were answered from our host's recorded loads (nothing sent).
+Refused: 0 on the Cargo and Austrian gates, 1,604 in the sweep, 46 in the Air Dolomiti census; none sent. **DA:** read
+only, 2 single GETs (lh-austrian /ca/en/homepage, lh-cargo /de/eservices-app). No upload, preview, publish or
+da-upload.mjs. /de/en/overview-manage has no row.
+
+### Item 1: the 20 px phone gap on main, and the 44 recorded phone loads as served
+
+- **Pushed:** `1eca24c8` (~01:57 CET), the held commit cherry-picked onto origin's main. Whole-repo lint exit 0 and
+  stylelint exit 0 on styles/themes/cargo.css in each of three rounds (origin moved twice during the checks); 1,284 tests
+  in the set, 0 failures. The live theme served the rule within a minute.
+- **The 44 recorded phone loads as served** (measure-so43-cargo-phone-gap.txt, ~02:00 CET, before item 2's rule):
+  - 42 read exactly as my gate did;
+  - en eservices-app reads 3,092 (+1.61 %), its row's figure (the gate list's 3,144 was before that row);
+  - en general-terms1 reads 1,486 (-0.80 %; the gate said 1,470). Not the rule: in the same load, taking the class
+    wide-gaps off gives 1,458, the rule's own 28 px, and taking legal off changes nothing. The document, nav and footer
+    are the same as on 15 November. The 16 px are in its Columns Media block; not traced further. It is closer to www.
+  - 36 of the 44 are within 2 % of www.
+- **The two you named:** industries-healthcare 3,814 at 390 (as drafted, nothing wider than the screen); the English
+  eservices-app 3,338 / 3,092 at 1440 / 390, as drafted. After item 2's rule eservices-app 390 is 3,082 (+1.28 %).
+
+### Item 2: the two HOLD rows: both have a fix that passes, both READY (and both are live since)
+
+**German eservices-app: a block-scoped Cargo rule, then order 41's row (delta-so43-cargo-de-eservices-app.txt, READY).**
+- Of the 63 px over www at 390, 33 are the benefits list. One item wraps to three lines (our list indent 40 px, www's
+  25: +24 px), and the last item keeps its 10 px under it, where www's is 0 (+10 px).
+- **The rule** (`9296265a`): a Cargo Columns Media text cell that ends with a list keeps no space under its last item.
+  It takes the 10 px; the indent stays (a Cargo-wide list rule, not needed for 2 %).
+- **Its reach** (gate-so43-cargo-list-end.txt): 19 of the 990 served Cargo copies have such a cell. Toggled in the same
+  load at 390 and 1440:
+  - 10 recorded page-widths: 3 closer, 5 the same, 2 further by 0.18 / 0.19 points (industries-in-focus de / en 390,
+    still -0.37 / -1.29 %);
+  - 28 other page-widths the same or 7 to 20 px shorter; none scrolls sideways, runs past the edge or overlaps.
+- **The row with the rule:** 390 3,205 -> 3,195 (+1.69 %), 1440 3,315 (+0.79 %, unchanged). Dry run on DA's copy (byte
+  for byte order 41's): text inserts "4 inserted", byte for byte without them, then "4 present"; tabs "changed, 3
+  tables, check ok", then "there already".
+- Your helpers published it (1d9cef0f, ~02:24 CET). The sweep reads it live: 3,195 at 390 (+1.69 %), 3,315 at 1440.
+
+**Austrian ca/en: one row, four inserts (delta-so43-austrian-ca-en-home.txt / .json, READY).**
+- ca/en was within 2 % only because three differences cancel. www draws two empty sections ours lacks: under the gift
+  card, +80 / +33 px at 390 / 1440, and under the carousel, +66 / +66. Ours shows the General Conditions dialog text
+  inline (528 px at 390); www has a short note and a General Conditions button after the icon cards.
+- **The row:**
+  1. order 42's AI band after the flight search;
+  2. {spacer-48 from-768} and {spacer-95 below-768} at the hero section's end (a spacer after a block draws 15 px less
+     than its size);
+  3. order 591's disclaimer patch, as by/en has it: the note, "General Conditions" and its dialog text out of the
+     carousel section, which ends with {spacer-81};
+  4. the note and a General Conditions link to /ca/en/fragments/modals/general-conditions (served, 200) after the
+     cards-icon block.
+  - With (4) the homepage band rules apply too; they are in the figures.
+- Order 594 left ca/en out of the patch because it measured worse. That was without the empty sections: the patch and
+  the band alone give 4,377 / 3,069 (-3.29 / -2.94 %).
+- **Figures** (our host, austrian-api-003's widget answers, flag on; www austrian-parity-026, each width a first load):
+  1440 3,067 -> 3,168 (+0.19 %), 390 4,419 -> 4,523 (-0.07 %). "Discover Austrian" lands at 1,079 / 1,585 (www 1,083 /
+  1,586), the footer at 2,354 / 3,412 (www 2,347 / 3,420).
+- Dry run on DA's copy (byte for byte order 42's read): "4 inserted", byte for byte without them, then "4 present".
+- The list says not to apply order 42's ca/en row with it (the band would be drawn twice). Your helpers applied this
+  one (94ffaa0c). Measured live at ~02:55 CET: 3,168 / 4,523, as drafted.
+
+### Item 3: the 14 live band homepages against their same-hour pairs (measure-so43-austrian-ai-live.txt)
+
+- Our host's pages as served, flag on, each widget call answered from its same-hour load (austrian-api-003 / -004 /
+  -005, nothing sent); www austrian-parity-023 / -024 / -026.
+- **All 28 page-widths read as my gate did, to the px.** Four of the first 30 renders were broken loads (three renders
+  at a time); each read again on its own gave the gate's figure.
+- **Outside 2 % of the page:** gb/en 390 (+2.47 %), md/en 390 (+11.01 %), me/en, pt/en, rs/en 1440 (+7.88 to +7.91 %),
+  ua/en 1440 (+3.43 %).
+  - Each is the fare teaser's band (www had no deals in its load; ours draws the six fallback cards) or the finder's.
+  - The remainder is within 2 % on every one (the largest is +1.10 %, gb/en 390).
+- **No row:** no page-width outside 2 % has a cause of ours.
+- ca/en was HOLD during this read (3,067 / 4,419 as served); since item 2 it is 3,168 / 4,523.
+
+### Item 4: the sweep (sweep-so43-austrian-cargo-airdolomiti.txt)
+
+- **The set:** 449 page-widths, each against its newest recording:
+  - Austrian 242 (order 35's set, its 25 homepages against -022 to -026 with the widget answers);
+  - Cargo 99 (order 39's set, plus cargo-parity-004 to -006, less the 80 px notice);
+  - Air Dolomiti 108.
+- **Method:** today's code (main at 9296265a), ~02:18 to ~02:55 CET. The form pages' 71 px bot check was subtracted:
+  the first pass counted it as 0, so the five form pages were read again. Three broken loads (a height of the window)
+  were read again.
+- **394 of 449 within 2 %:** Austrian 205 / 242, Cargo 90 / 99, Air Dolomiti 99 / 108.
+  - Of the 434 with an earlier figure, 335 were within 2 % then.
+  - 99 page-widths moved since: 45 into 2 %, one out (ua/en 1440, the band on top of the finder band, remainder 0).
+  - Every move is a row or rule that went live since orders 35 / 39 / 41.
+
+**The worst ten, with causes and fixes:**
+
+| # | page-width | www / ours | cause | fix |
+|---|---|---|---|---|
+| 1 | Cargo data-protection-notice-google-analytics 390 | 1,120 / 844 (-24.64 %) | www's page has no content: an empty Liferay main, its breadcrumb hidden, the footer at 590 px at 1440. Ours is the document's H1, shorter than the window, so the page is the window's height. | none of ours; yours: keep it, or unpublish it, since www's own page is empty |
+| 2 | the same, 1440 | 1,072 / 900 (-16.04 %) | the same | the same |
+| 3 | Austrian at/de/unterhaltung-an-bord 1440 | 2,749 / 2,344 (-14.73 %) | the IFE film carousel behind your flag austrian-ife-carousel (off: the vendor allows framing on austrian.com only) | your flag |
+| 4 | Air Dolomiti en/destinations/florence/what-to-see 1440 | 2,265 / 1,936 (-14.53 %) | www's recorded scrollHeight is 326 px taller than its own full-page picture, which ends at 1,939 | none: -0.15 % against the picture; the footer's top is within 3 px |
+| 5 | Air Dolomiti de/reisenformationen/schwangere-und-kinder 1440 | 2,250 / 1,943 (-13.64 %) | the same: www's picture 1,925 | none: +0.94 % against the picture |
+| 6 | Cargo footer/bottomnav/terms-of-use 390 | 4,780 / 5,414 (+13.26 %) | a pointer: cargo-parity-003's 390 is the 1440 load resized | a phone first load would decide it |
+| 7 | Air Dolomiti de/reisenformationen/tiere-an-bord 1440 | 2,719 / 2,392 (-12.03 %) | as 4: www's picture 2,394 | none: -0.08 % against the picture |
+| 8 | Austrian md/en/homepage 390 | 5,461 / 6,062 (+11.01 %) | www's fare teaser had no deals in its load (the teaser band +529); the remainder 0 | none (fare-service state) |
+| 9 | Austrian at/en/bangkok-airways 1440 | 3,700 / 3,305 (-10.68 %) | www's stage picture is broken in its own recording but keeps its height | HOLD, your decision |
+| 10 | Austrian au/en/homepage 390 | 5,303 / 5,852 (+10.35 %) | as 8 (order 41) | none |
+
+- The same 326 px recording artifact explains street-food-in-munich 1440 (-5.28 %; 0.00 % against the picture).
+- **One fix shipped from the sweep's next rows:** airports-designed-by-archistars 1440 (-4.42 %, airdolomiti-parity-007).
+  - www's blog title has letter-spacing 3px from 930 px (its BlogLayout_title rule; every recorded article's H1 has it).
+    Ours had none, so the title fit one line where www's wraps to two: 72 of the -201 px.
+  - The rest is the post's heading sizes (www's H4 26 / 32 px with 44 px to its picture; ours 24 / 26.4 and 26).
+    Not traced further tonight.
+  - The rule (`7c6fa738`, ~03:15 CET): the 1025 px article title gets letter-spacing 3px (gate-so43-airdolomiti-blog-title.txt).
+    Live since: archistars 4,420 at 1440, as gated.
+  - Its reach: 564 served Air Dolomiti documents with an article header, toggled in the same load at 1440 and 1025.
+    51 / 72 titles are one line (72 px) longer, the rest unchanged, none past the edge, no sideways scroll.
+  - Recorded: 4 the same, archistars closer (-4.42 -> -2.84 %), and every recorded title now has www's height.
+- Every other page-width outside 2 % has its cause in the list but one: fr/fr/contact 1440 (+2.11 %, as in order 35),
+  not traced tonight.
+- airdolomiti-parity-007's 390 captures of lounge-zutritt and archistars are capture states: the cookie dialog is open
+  over a 408 px wide page, and the picture stops at the footer's top. They are listed, not traced.
+
+### Final section (about 03:40 CET, 2026-11-16)
+
+Everything in the order is done. I stopped before 05:30, because what is left needs your word, or a capture, or a
+shared rule better started fresh than squeezed in (below).
+
+**On main:**
+- `1eca24c8` (~01:57 CET): order 42's held commit, the 20 px Cargo phone gap below 1025 px (Theme wide-gaps keeps
+  48 px) and www's CF8 split;
+- `9296265a` (~02:24 CET): the Cargo list-end rule, delta-so43-cargo-de-eservices-app.txt and
+  delta-so43-austrian-ca-en-home.txt / .json (both READY), gate-so43-cargo-list-end.txt, test/cargo-list-end-so43;
+- `7c6fa738` (~03:15 CET): Air Dolomiti's article title spacing, gate-so43-airdolomiti-blog-title.txt, the item 1 / 3 /
+  4 lists (measure-so43-cargo-phone-gap.txt, measure-so43-austrian-ai-live.txt, sweep-so43-austrian-cargo-airdolomiti.txt),
+  test/airdolomiti-blog-title-so43;
+- this commit: this section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 in the clean worktree in every push round (three rounds for 1eca24c8, two
+  for 9296265a, one for 7c6fa738), the exit code read before each push.
+- **Stylelint:** exit 0 on styles/themes/cargo.css and styles/themes/airdolomiti.css.
+- **Tests on the pushes:** 1,284 / 1,289 / 657 tests in the sets, 0 failures. The sets were every test naming the theme,
+  its blocks' classes, the report folder or these orders, plus the folder-reading tests (readdirSync).
+- **New tests:** red on origin's main before their pushes (the rules were absent), green after.
+- **Full suite:** on 94ffaa0c (after 9296265a): 1,196 files, 4,580 tests, 0 failures, 5 skipped. Again on today's main
+  at 7c6fa738: 1,198 files, 4,586 tests, 0 failures, 5 skipped.
+
+**For you:**
+- **Ready to apply:** nothing open. Your helpers applied both item 2 rows: de eservices-app (1d9cef0f) and ca/en
+  (94ffaa0c). Both measure live as drafted: 3,195 / 3,315 and 3,168 / 4,523.
+  - Order 42's ca/en row stays HOLD for good; its band is in this order's row.
+- **Your calls, unchanged:**
+  - the flag austrian-ife-carousel (unterhaltung-an-bord);
+  - bangkok-airways;
+  - the stretcher block (ca/fr, ch/fr);
+  - cancellation-refund's upload widget;
+  - the brand font's wraps (facts-figures).
+- **New, yours:** Cargo's /en/data-protection-notice-google-analytics. www's own page is empty; ours is its H1. Keep it,
+  or unpublish it?
+- **Captures that would decide rows:**
+  - phone first loads for Cargo's -003 pointers (terms-of-use, partnerships-subsidiaries, live-animals, eaw);
+  - airdolomiti-parity-007's lounge-zutritt and airports-designed-by-archistars at 390 without the cookie dialog
+    (both are capture states tonight).
+- **Next candidates (not drafted):**
+  - archistars' post headings: www's H4 26 / 32 px, weight 400, the picture 12 px under it; ours 24 / 26.4, 700, 0. It
+    is the only recorded article with such headings, so one recorded page. The text between them is also laid out
+    differently on www.
+  - Cargo's list indent: 40 px against www's 25. A Cargo-wide list rule; it needs a census.
+  - fr/fr/contact 1440 (+2.11 %).
+  - en general-terms1's +16 px since 15 November (closer to www).
+
+**Rules followed:**
+- No request to an airline host: refused and counted (1,604 in the sweep, 46 in the Air Dolomiti census, 0 on the
+  gates). Austria's widget calls were answered from our host's recordings. www.mynewsdesk.com was allowed on Cargo.
+- DA read only, 2 single GETs: lh-austrian /ca/en/homepage, lh-cargo /de/eservices-app.
+- No upload, preview, publish or da-upload.mjs.
+- www's recordings read as data.
+- The checkout's 88 dirty entries untouched. I did all my work in migration-work/parity-588/wt and pushed from
+  wt-push.
+- /de/en/overview-manage has no row.
+
+**Not in git** (scratch under /tmp/so43):
+- the DA copies read, the drafts, the served copies (990 Cargo, 1,569 Air Dolomiti);
+- the renders, the census tables, the scripts and logs.
+- airdolomiti-parity-007, extracted from order 29's download into its own folder.
