@@ -1,0 +1,61 @@
+# ema-cashub, standing order 44, item 3 (2026-11-16, ~04:55 CET): Air Dolomiti's article title spacing (7c6fa738, live since ~03:15 CET) on every recorded article page-width, as served on airdolomiti.turnsthe.page.
+# The recorded article pages: every Air Dolomiti recording on disk (airdolomiti-parity-001 to -010) searched for the 564 served documents with an article header: 5 documents, each at 1440 and 390 (street-food-in-munich at 390 against -010's first load, the newest). The rule acts from 1025 px, so it touches the five 1440 page-widths; the five 390s are listed to show they did not move.
+# Ours: a fresh load each, one at a time, height once stable; unhinted, EAGER=1 CONSENT=1; lh-proxy, www.* and every airline host refused and counted (0 on these pages, none sent).
+# Gate (your condition): every recorded page-width closer or within 0.5 points. Result: PASS on all 5 touched (4 the same to the px, archistars closer: -4.42 -> -2.84 %); the 5 at 390 the same to the px as order 43 read them.
+# street-food-in-munich 1440 against its own full-page picture (5,847 px; -002's recorded scrollHeight 6,173 is 326 px taller than the page www drew, ad-chat-widget note).
+#
+# gate	path	width	recording	www page	before the rule (order 43)	as served now	move	note
+PASS	/articoli/destinazioni/dove-ladriatico-si-fa-selvaggio	1440	airdolomiti-parity-001	4086	4055 (-0.76 %)	4055 (-0.76 %)	same	
+PASS	/de/artikel/reiseziele/die-wilde-seite-der-adria	1440	airdolomiti-parity-001	4262	4231 (-0.73 %)	4231 (-0.73 %)	same	
+PASS	/en/articles/destinations/street-food-in-munich	1440	airdolomiti-parity-002	5847	5847 (+0.00 %)	5847 (+0.00 %)	same	picture height (scrollHeight 6173)
+PASS	/en/articles/destinations/where-the-adriatic-becomes-wild	1440	airdolomiti-parity-001	4131	4100 (-0.75 %)	4100 (-0.75 %)	same	
+PASS	/en/articles/dyk/airports-designed-by-archistars	1440	airdolomiti-parity-007	4549	4348 (-4.42 %)	4420 (-2.84 %)	closer	
+untouched	/articoli/destinazioni/dove-ladriatico-si-fa-selvaggio	390	airdolomiti-parity-001	5134	5196 (+1.21 %)	5196 (+1.21 %)	same	the 1440 load resized
+untouched	/de/artikel/reiseziele/die-wilde-seite-der-adria	390	airdolomiti-parity-001	5481	5543 (+1.13 %)	5543 (+1.13 %)	same	the 1440 load resized
+untouched	/en/articles/destinations/street-food-in-munich	390	airdolomiti-parity-010	6766	6927 (+2.38 %)	6927 (+2.38 %)	same	first load
+untouched	/en/articles/destinations/where-the-adriatic-becomes-wild	390	airdolomiti-parity-001	5124	5185 (+1.19 %)	5185 (+1.19 %)	same	the 1440 load resized
+untouched	/en/articles/dyk/airports-designed-by-archistars	390	airdolomiti-parity-007	4674	4741 (+1.43 %)	4741 (+1.43 %)	same	capture state (cookie dialog, PNG 3,628 high)
+#
+# A wider check (not a gate: offline layouts, no JS): www's 39 article snapshots on disk (airdolomiti-snapshots-001 / -002, 2026-11-10) laid out with
+# the recordings' CSS at 1455 px (1440 plus the offline renderer's 15 px scrollbar), the title's height against ours at 1440 in order 43's census (before / with the rule).
+# Result: 38 of 39 titles have www's height with the rule (4 of them because of it); travel-with-your-mum-through-the-wonders-of-italy is three lines on www and two on ours, before and after the rule.
+# title	path	snapshot	www title	ours before / with the rule
+equal	/de/artikel/avgeek-de/air-dolomiti-hangars-moderne-flugzeugwartung	2026-11-10T00:56:00Z	216	144 / 216
+equal	/de/artikel/avgeek-de/der-autopilot	2026-11-10T00:56:13Z	72	72 / 72
+equal	/de/artikel/avgeek-de/der-lebenszyklus-von-flugzeugen	2026-11-10T00:56:25Z	144	144 / 144
+equal	/de/artikel/avgeek-de/ein-tag-an-der-seite-eines-air-dolomiti-kapitaens	2026-11-10T00:56:37Z	144	144 / 144
+equal	/de/artikel/avgeek-de/im-cockpit-eines-air-dolomiti-flugzeugs	2026-11-10T00:56:50Z	144	144 / 144
+equal	/de/artikel/avgeek-de/wie-startet-man-ein-flugzeug	2026-11-10T00:57:03Z	72	72 / 72
+equal	/de/artikel/reiseziele/auf-entdeckungsreise-durch-das-maerchenland-deutschland	2026-11-10T00:57:15Z	216	144 / 216
+equal	/de/artikel/reiseziele/das-beruehmte-glockenspiel-am-muenchner-marienplatz	2026-11-10T00:57:27Z	144	144 / 144
+equal	/de/artikel/reiseziele/das-mainfest-in-frankfurt	2026-11-10T00:57:39Z	72	72 / 72
+equal	/de/artikel/reiseziele/der-karneval-von-venedig	2026-11-10T00:57:52Z	72	72 / 72
+equal	/de/artikel/reiseziele/die-arena-von-verona	2026-11-10T00:58:03Z	72	72 / 72
+equal	/de/artikel/reiseziele/die-barcolana-in-triest	2026-11-10T00:58:16Z	72	72 / 72
+equal	/de/artikel/reiseziele/die-muenchner-weihnachtsmaerkte	2026-11-10T00:58:28Z	144	144 / 144
+equal	/de/artikel/reiseziele/die-schoensten-schneeschuhwanderungen-nahe-verona	2026-11-10T00:58:40Z	216	216 / 216
+equal	/de/artikel/reiseziele/entdecke-streetfood-in-muenchen	2026-11-10T00:58:53Z	144	144 / 144
+equal	/de/artikel/reiseziele/geheimes-bologna	2026-11-10T00:59:05Z	72	72 / 72
+equal	/de/artikel/reiseziele/genua-in-drei-tagen	2026-11-10T00:59:17Z	72	72 / 72
+equal	/de/artikel/reiseziele/mit-mama-nach-italien	2026-11-10T00:59:30Z	72	72 / 72
+equal	/de/artikel/reiseziele/skifahren-in-der-naehe-von-venedig-cortina-dampezzo	2026-11-10T00:59:42Z	144	144 / 144
+equal	/de/artikel/travellers-de/wochenendtrip-mit-handgepaeck	2026-11-10T00:59:53Z	144	72 / 144
+equal	/en/articles/avgeek-en/a-day-with-an-air-dolomiti-captain	2026-11-10T01:06:13Z	144	144 / 144
+equal	/en/articles/avgeek-en/aircraft-maintenance-at-air-dolomiti-hangars	2026-11-10T01:06:26Z	144	144 / 144
+equal	/en/articles/avgeek-en/autopilot	2026-11-10T01:06:38Z	72	72 / 72
+equal	/en/articles/avgeek-en/how-do-you-start-an-aeroplane	2026-11-10T01:06:49Z	144	72 / 144
+equal	/en/articles/avgeek-en/inside-an-air-dolomiti-cockpit	2026-11-10T01:07:01Z	72	72 / 72
+equal	/en/articles/avgeek-en/the-lifecycle-of-aircraft	2026-11-10T01:07:14Z	72	72 / 72
+equal	/en/articles/destinations/discovering-the-fairytales-of-germany	2026-11-10T01:07:25Z	144	144 / 144
+equal	/en/articles/destinations/genoa-in-three-days	2026-11-10T01:07:37Z	72	72 / 72
+equal	/en/articles/destinations/hidden-bologna	2026-11-10T01:07:50Z	72	72 / 72
+equal	/en/articles/destinations/mainfest-frankfurt-2025	2026-11-10T01:08:03Z	72	72 / 72
+equal	/en/articles/destinations/the-barcolana-in-trieste	2026-11-10T01:08:16Z	72	72 / 72
+equal	/en/articles/destinations/the-best-snowshoeing-near-verona	2026-11-10T01:08:29Z	144	144 / 144
+equal	/en/articles/destinations/the-christmas-markets-of-munich	2026-11-10T01:08:41Z	144	144 / 144
+equal	/en/articles/destinations/the-mechanical-clock-in-munichs-marienplatz	2026-11-10T01:08:54Z	144	144 / 144
+equal	/en/articles/destinations/the-verona-arena	2026-11-10T01:09:06Z	72	72 / 72
+differs	/en/articles/destinations/travel-with-your-mum-through-the-wonders-of-italy	2026-11-10T01:09:19Z	216	144 / 144
+equal	/en/articles/destinations/venice-carnival	2026-11-10T01:09:31Z	72	72 / 72
+equal	/en/articles/destinations/where-to-ski-near-venice-cortina-dampezzo	2026-11-10T01:09:42Z	72	72 / 72
+equal	/en/articles/travellers-en/weekend-hand-luggage	2026-11-10T01:09:54Z	144	144 / 144

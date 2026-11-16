@@ -1,0 +1,12 @@
+# ema-cashub, standing order 44, item 1: Cargo /en/meta/meta/company/general-terms1 at 390, 16 px taller than order 42's gate read it (1,470 -> 1,486; www's resized 1440 load 1,498: -1.87 -> -0.80 %, closer).
+# Correction to order 43: the 16 px are not in its Columns Media block. They are under it: the section's last wrapper holds only {spacer-38 from-768}, a separator hidden on phones.
+# Cause: 92278044 (another job's, standing order 34 item 2, 2026-11-15 23:03 UTC, "separators hidden at a width no longer move the page there"): a last default-content wrapper whose separators are all hidden at the width keeps margin-top 0 instead of -16px. Its own gate lists one Cargo page among those it reaches (+16 px per hidden last wrapper at 390); this is that page.
+# Method: the served page (document, nav and footer unchanged since order 41's copy of 2026-11-15 20:39 CET) rendered with each code version in place of the host's (CODE override: the commit's blocks / scripts / styles), unhinted, EAGER=1 CONSENT=1, refused 0. Order 42's census ran at 22:27 to 22:35 UTC, before 92278044 was on main.
+# Fix: none needed. The rule is right (a phones-hidden separator draws nothing, so it should take nothing back), and the page moved closer to www.
+#
+# code (commit, time UTC)	page at 390	footer top	the spacer section's top
+e33ba60c (2026-11-15 18:40)	1470	910	862
+c9782796 (2026-11-15 21:36)	1470	910	862
+aace6c90 (2026-11-15 22:35)	1470	910	862
+92278044 (2026-11-15 23:03)	1486	926	878
+c0829a5b, 4e3c823b, dd9f850e, 6ad63e07, 04c87ac6, 1eca24c8 and today's 9ef4d772	1486	926	878

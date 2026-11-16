@@ -15,7 +15,8 @@ const MINE = 'body.brand-airdolomiti main:has(.article-header) > .section:not(.c
 
 test('the posts\' text rules as specific as lh-com\'s article rule and more (its :has() in their :not())', () => {
   assert.ok(lhcom.includes('main:has(.article-header) > .section:not(.related-articles-container, :has(> .carousel-cards-wrapper > .carousel-cards:not(.article))) > .default-content-wrapper > :is(p, ul, ol, h2, h3, h4, h5, h6)'), 'lh-com\'s rule as it stands');
-  assert.equal(css.split(MINE).length - 1, 4);
+  // 4 for the column and captions, 2 for standing order 44's post H4s (the same sections)
+  assert.equal(css.split(MINE).length - 1, 6);
   assert.ok(!css.includes('main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container) >'), 'no weaker copy left');
 });
 

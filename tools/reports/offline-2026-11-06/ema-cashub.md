@@ -7949,3 +7949,85 @@ shared rule better started fresh than squeezed in (below).
 - the DA copies read, the drafts, the served copies (990 Cargo, 1,569 Air Dolomiti);
 - the renders, the census tables, the scripts and logs.
 - airdolomiti-parity-007, extracted from order 29's download into its own folder.
+
+## Standing order 44 (2026-11-16, from about 04:05 CET)
+
+**Carried over:** nothing. Order 43's four commits were all on main (`1eca24c8`, `9296265a`, `7c6fa738`, `75c34855`), and
+my worktrees held no work of mine. The checkout's 88 dirty entries are other jobs' and were left alone.
+
+**Renders:** unhinted text throughout. lh-proxy, www.* and every airline host were refused and counted; Austria's homepage
+widget calls were answered from our host's recorded loads (nothing sent). Refused: 1,256 on the footer gate, 0 on the Air
+Dolomiti article pages, 3,319 in the footer census (the first pass's counts were lost when I restarted it with more processes), 32 in the H4 census (the same); none sent. **DA:** no request this
+order. No upload, preview, publish or da-upload.mjs. /de/en/overview-manage has no row.
+
+### Item 1: the two untraced page-widths
+
+**Cargo en general-terms1 (390, 16 px taller than gated; trace-so44-cargo-general-terms1.txt).**
+- **Correction to order 43:** the 16 px are not in the Columns Media block. They are under it: the section's last wrapper
+  holds only {spacer-38 from-768}, a separator hidden on phones.
+- **Cause:** `92278044` (another job's, standing order 34 item 2, 15 November 23:03 UTC): a last wrapper whose separators
+  are all hidden at the width keeps margin-top 0, not -16 px. Its own gate names one Cargo page among those it reaches;
+  this is that page.
+- **How I found it:** the served page with each code version in place of the host's. The code up to `aace6c90` (22:35 UTC)
+  gives 1,470; `92278044` and everything after give 1,486. Order 42's census ran 22:27 to 22:35 UTC.
+- **Fix:** none needed. The rule is right (a separator that draws nothing takes nothing back), and the page is closer to
+  www: -1.87 -> -0.80 %.
+
+**Austrian fr/fr/contact (1440, +2.11 %; gate-so44-austrian-footer-columns.txt).**
+- **Cause, ours: the footer.** All 64 Austrian footer documents have three link columns. From 768 px footer.css lays them
+  in four tracks, so at 1440 each is 221 px wide and the fourth is empty. www's are 301 px (col-md-4 in its col-lg-9,
+  from x 409 / 730 / 1051).
+  - In 221 px the French, Italian and Russian labels wrap: fr/fr/contact's footer is 877 px, www's 836.
+  - German and English fit either way (at/de 814, www 815).
+- **The fix (block-scoped, Austrian theme):** from 1025 px, three tracks when there are three columns. Our columns then
+  sit where www's do; fr/fr/contact's footer is 835, the page 2,561 -> 2,519 (+2.11 -> +0.44 %).
+- **Gate:** the 121 recorded Austrian 1440 page-widths, as served and with the rule (code override, fresh loads):
+  - 117 PASS: 107 the same to the px; 8 closer (fr/fr, ru/ru and gr/el contact and baggage, it/it contact and
+    form-confirmation); it/it baggage 0.30 and the ch/it homepage 0.39 points further, both within 2 %.
+  - **4 FAIL:** ca/fr homepage (1.25 points further), ch/fr homepage (0.83), by/ru and ru/ru homepages (0.58 each).
+  - On each of the 4 the footer comes out at www's height (875 / 835 / 835 against www's 877 / 836 / 836). The page
+    moves away because the footer's extra lines had hidden a shortfall above it:
+    - on the French homepages, www's English stretcher block (your HOLD since order 21). With its rows, both pages are
+      closer with the rule too: ca/fr +3.21 -> +1.96 %, ch/fr +0.87 -> +0.04 % at 1440;
+    - on by/ru, Cyrillic carousel text the render machine has no faces for (-50 px). Within 2 % either way.
+- **Census (no breakage):** every served Austrian document at 1440 and 1025, toggled in the same load: 2,459 documents, 4,918 page-widths. The footer is shorter on 881 documents at 1440 (all of fr/fr, ca/fr, ch/fr, it/it, ch/it, ru/ru, by/ru and gr/el) and on 2,025 at 1025; none is taller, none broken. One row that read as broken (jp/ja/contact 1025) was read again alone three times: its 23 elements past the edge are the help-center app's on both sides.
+- **Status: HOLD, not on main**, because it misses your condition on those 4. Your call:
+  - ship it with the stretcher rows;
+  - ship it as it is (every recorded footer then matches www);
+  - or leave it.
+
+### Item 2: places 11 to 30 of the sweep (sweep-so44-places-11-30.txt)
+
+- **Left out, as you asked (11):** the six fare-teaser homepages and AD flug-status (www-side states), and bangkok-airways
+  390, street-food 1440, partnerships-subsidiaries 390 and live-animals 390 (recording faults). Each is listed with its
+  explanation's source.
+- **Shipped (1): place 25, airports-designed-by-archistars 1440.**
+  - After the title spacing (order 43) the post's H4s are the rest. www's are 26px / 32px regular, with the photo 12px
+    under the text (HtmlContent's and BlogLayout's h4 rules from 930 px). Ours were 24px / 26.4px bold, the photo straight
+    under the text.
+  - **The rule:** from 1025 px, article H4s as www's (styles/themes/airdolomiti.css, after the title rule).
+  - **Gate** (gate-so44-airdolomiti-article-h4.txt):
+    - recorded: 5 of 5 PASS; 4 have no H4 and stay to the px; archistars -2.84 -> -1.32 %, within 2 %;
+    - census: 1,128 page-widths (564 article documents at 1440 and 1025), 45 documents with article H4s, all taller
+      (+1,354 px at 1440 in all), none broken;
+    - www's 6 article snapshots with post H4s, laid out offline: ours closer on 4, equal on 1, never further.
+  - The rest of archistars' gap (-60 px at its footer) is the bare WordPress text, the row you left in order 29.
+- **Your call (4):**
+  - 18, cancellation-refund 390: www's upload widget;
+  - 23, unterhaltung-an-bord 390: your flag austrian-ife-carousel;
+  - 24 and 27, ca/fr and ch/fr 390: the stretcher block. Its rows are drafted: ca/fr -4.79 -> +2.47 %, ch/fr -4.04 ->
+    +1.44 %.
+- **No fix of ours (4): 12, 19, 22 and 30,** the Japanese, Chinese and Russian baggage pages. The render machine has no
+  brand faces for that text, so the line breaks can't be compared (your explanation, order 26).
+
+### Item 3: the title spacing on every recorded article page-width (measure-so44-airdolomiti-title-live.txt)
+
+- **The recorded set:** every Air Dolomiti recording on disk (-001 to -010) searched for the 564 article documents gives
+  5 documents, each at 1440 and 390. The rule acts from 1025 px, so it touches the five 1440s.
+- **As served on airdolomiti.turnsthe.page** (one load at a time, fully settled): all 5 PASS.
+  - 4 the same to the px.
+  - archistars closer: -4.42 -> -2.84 %.
+  - The five 390s are the same to the px as order 43 read them.
+- **Wider check** (offline, not a gate): www's 39 article snapshots laid out with the recordings' CSS.
+  - 38 titles have www's height with the rule, 4 of them because of it.
+  - travel-with-your-mum is three lines on www and two on ours, before and after.

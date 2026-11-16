@@ -414,6 +414,19 @@ body.brand-airdolomiti {
     letter-spacing: 3px;
   }
 
+  /* standing order 44: a post's H4 from 930 px is 26px / 32px, regular (HtmlContent's and BlogLayout's h4 rules; the
+     strong text in it stays bold), a photo in it 12px under its text (airports-designed-by-archistars' airport
+     headings: 843 / 394 / 858 px with their photos, as www's). Ours were 24px / 26.4px bold */
+  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container, :has(> .carousel-cards-wrapper > .carousel-cards:not(.article))) > .default-content-wrapper > h4 {
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 32px;
+  }
+
+  body.brand-airdolomiti main:has(.article-header) > .section:not(.carousel-cards-container, .related-articles-container, :has(> .carousel-cards-wrapper > .carousel-cards:not(.article))) > .default-content-wrapper > h4 > picture {
+    margin-top: 12px;
+  }
+
   body.brand-airdolomiti .cards-teaser.three-up:not(.routes) > ul:has(> li > .cards-teaser-image + .cards-teaser-body > .cards-teaser-title:first-child + .cards-teaser-cta:last-child):not(:has(> li > .cards-teaser-body > :nth-child(3))) {
     gap: 40px 20px;
   }
