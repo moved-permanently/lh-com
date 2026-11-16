@@ -1,0 +1,25 @@
+# ema-test, standing order 40, item 3 (2026-11-16): places 71 to 90 of ranking-so39-lh-rest.tsv, each with its cause and a fix, or why there is none.
+# Skipped: pages ema-adobe touched or listed in its commits since order 37: its order-35..38 reports, sweeps and hand-overs (14c37c1d, 3fd4f3ea, 65553769, 778e10f3, ab8b0e0d, d065f59a, d814ab3d, f2372a81, fe609b56). Its full-ranking file (a21f3c1b, every page of the sweep) is not counted as touching a page. Places on pages ema-adobe's hand-over gives to me are covered under item 1 (delta-so40-lh-com-rows.txt).
+# Method: the drift profile of each order-39 capture (as served ~08:00-08:20 UTC) and, where a cause showed, a gated trial on full-page folder renders.
+# Columns: place, path, width, % (order 39), status, cause, fix.
+71	/de/en/744	1440	4.99	skipped	ema-adobe's page.	-
+72	/de/en/common/seatreservation-condtions/seat-reservations	1440	4.92	no fix	The profile shows +48 px at "My booking", right after a {spacer-24 from-768}. Removing the spacer took 1440 4.92 -> 9.74 % (-65 px): the step is the profile locking onto similar accordion rows, not that spacer. The rest are steps of 6-17 px either way.	-
+73	/de/en/discover-lufthansa/lufthansa-fleet/351	1440	4.87	no fix	After order 36's gap-after-small rows: +19 px after the first grey band, -17 after the second. www's two band gaps differ, by less than the 24 px a style takes away.	-
+74	/de/en/terms-of-service-group	390	4.81	no fix	Aligned (2.0 %): the badge window at y 800 and a +24 / -27 step at one section boundary that cancels itself.	-
+75	/de/en/common/imprint/lufthansa-insights-imprint	390	4.74	no fix	+23 px before "Lufthansa Insights legal notice" and back: the heading-after-a-paragraph gap of hand-over item 14 (ours has more space; no spacer or style takes it away).	Item 14 (delta-so40-lh-com-rows.txt notes).
+76	/de/en/data-collection-usa	390	4.74	no fix	Aligned (1.0 %): the badge window; steps of 6-48 px in both directions through the table and link list.	-
+77	/de/en/my-logbook	1440	4.62	skipped	ema-adobe's page.	-
+78	/de/en/data-protection-information	1440	4.61	no fix	-33 px at "1. Who is the data controller?" (after the column-end mark), then +24 / +20 before the h3s of section 4: the heading spacing by component (item 14), in both directions; the 8,000 px cut at the end.	-
+79	/de/en/terms-of-service-group	1440	4.58	no fix	Aligned (1.3 %): +24 / -27 at one section boundary.	-
+80	/de/en/320	1440	4.44	no fix	Aligned (0.5 %): -15 and -9 px in the grey view's list, text breaks within a line.	-
+81	/de/en/data-collection-usa	1440	4.37	no fix	Aligned (0.5 %): +49 at the table section, then -16 / -26 / +26 / +20 / -13: www's row heights in the country table.	-
+82	/de/en/feedback-past-flight	1440	4.32	skipped	ema-adobe's page.	-
+83	/xx/pt/meetings-and-events	1440	4.20	skipped	ema-adobe's page.	-
+84	/de/en/lufthansa-first-class-fleet	390	4.19	skipped	ema-adobe's page.	-
+85	/de/en/travel-id-terms-conditions	1440	4.17	skipped	ema-adobe's page.	-
+86	/de/en/besondere-befoerderungsbedingungen-bus	1440	4.16	skipped	ema-adobe's page.	-
+87	/de/en/passenger-rights	1440	4.15	skipped	listed in ema-adobe's hand-over: my row under item 1 (1440 4.15 -> 3.19 %).	-
+88	/de/en/anmeldung-tiere-frachtraum	1440	4.01	skipped	ema-adobe's page.	-
+89	/de/en/timetable-and-flight-status	1440	3.95	no fix	Aligned (0.7 %): a -43 / +45 oscillation at the "My bookings" link and +16 by the footer.	-
+90	/de/en/faq-password-security	390	3.88	no fix	Aligned (1.9 %): the badge window only.	-
+# Result: of the 20, 10 skipped (9 ema-adobe's pages, 1 covered under item 1), 10 located without a layout fix (aligned pages, or heading spacing that only goes the other way).

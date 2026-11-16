@@ -1,0 +1,4 @@
+# ema-test, standing order 40 (2026-11-16): Group for Business row (DA moved-permanently/lh-b2b). Gate: html-folder full pages of b2b.turnsthe.page's copy, base and trial, against b2b-parity-007, ours vs www mismatch %.
+# Data: delta-so40-b2b-rows.json; text-inserts-apply --check on DA's copy (read ~11:40 and ~11:55 UTC, unchanged).
+# Each line: READY / HOLD, DA path, the change, 1440 and 390 (base -> trial), the gate.
+READY	/de/en/program/experts/on-board/entertainment-on-board	the eJournals Columns Media gets the new option cover-16x9 (this commit, B2B only, from 768 px: a picture at least 16:9 high, cropped to fill, as www's moving image; ema-lufthansa's row 12)	1440 22.96 -> 10.52 % (1,922 px, www 1,932), 390 36.16 -> 36.16 %	closer at 1440, the same at 390 (the 390 figure is the airline tabs, not the picture)

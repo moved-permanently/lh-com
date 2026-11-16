@@ -1,0 +1,56 @@
+[
+ {
+  "path": "/de/en/359",
+  "inserts": [
+   {
+    "replace": "PDF download seat map A350-900 (36 Business / 21 Premium Economy / 262 Economy)</a></p></div>\n<div><h2 id=\"technical-data",
+    "text": "PDF download seat map A350-900 (36 Business / 21 Premium Economy / 262 Economy)</a></p><div class=\"section-metadata\"><div><div>style</div><div>gap-after-small</div></div></div></div>\n<div><h2 id=\"technical-data"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/32n",
+  "inserts": [
+   {
+    "replace": "from take-off to landing.</p></div></div></div></div>\n<div>",
+    "text": "from take-off to landing.</p></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>gap-after-small</div></div></div></div>\n<div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/passenger-rights",
+  "inserts": [
+   {
+    "replace": " 2005. The airline on which flight the disruption occurs is responsible for granting your rights. {column-end}</p></div>",
+    "text": " 2005. The airline on which flight the disruption occurs is responsible for granting your rights. {column-end}</p><div class=\"section-metadata\"><div><div>style</div><div>gap-after-small</div></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/book-and-manage/booking-services/manage-my-bookings",
+  "inserts": [
+   {
+    "before": "<div class=\"metadata\">",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-below-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
+  "inserts": [
+   {
+    "before": "<div class=\"columns-media wide-rows\">",
+    "text": "<p>{spacer-22 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/articles/explore-flying/anniversary-super-crane-special",
+  "inserts": [
+   {
+    "replace": "<p>{divider-25}</p><h2 id=\"an-iconic-design",
+    "text": "<p>{divider-6 below-768}</p><p>{divider-25 from-768}</p><h2 id=\"an-iconic-design"
+   }
+  ]
+ }
+]

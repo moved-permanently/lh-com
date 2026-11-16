@@ -1054,6 +1054,15 @@ body.brand-lufthansa main > .section.gap-after-small {
   }
 }
 
+/* lufthansa.com: section style gap-after-small-below-768, gap-after-small's 24px on phones only (www's manage-my-bookings
+   ends 21px above the footer at 390 and 48px at 1440: 390 7.49 -> 6.35 %, 1440 unchanged, where gap-after-small took
+   1440 to 5.40; standing order 40) */
+@media (width < 768px) {
+  body.brand-lufthansa main > .section.gap-after-small-below-768 {
+    margin-bottom: 24px;
+  }
+}
+
 /* lufthansa.com on phones: "Find the right Miles & More Credit Card for your needs" in www's three lines (www keeps
    "More Credit Card" together with non-breaking spaces, which DA drops from headings when a document is saved; standing
    order 34, /de/en/discover-lufthansa/miles-and-more-credit-card and its gb/en copy): the heading 318px wide breaks

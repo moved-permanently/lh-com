@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/program/experts/on-board/entertainment-on-board",
+  "inserts": [
+   {
+    "replace": "<h2 id=\"ejournals\">eJournals</h2><div class=\"columns-media\">",
+    "text": "<h2 id=\"ejournals\">eJournals</h2><div class=\"columns-media cover-16x9\">"
+   }
+  ]
+ }
+]

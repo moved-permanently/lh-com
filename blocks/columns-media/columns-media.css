@@ -1826,3 +1826,34 @@ body.brand-lufthansa .columns-media .columns-media-text > :is(h2, h3, h4) + p:ha
 body.brand-lufthansa .columns-media .columns-media-text:has(> :is(h2, h3, h4) + p > a > picture) > p.link-wrapper:not(.copytext-small, .copytext-medium, .copytext-large) {
   padding-bottom: 5px;
 }
+
+/* lufthansa.com, option slider from 1025px (online-check-in's grey app band, the only documents with it): www's title a
+   third of the row wide ("Simply travel smarter with / the Lufthansa app"), the phone picture and the QR code centred
+   on the band's height (www, lh-parity-002 at 1440: ours ran the title over the
+   whole text cell, the pictures 34px higher: 1440 5.79 -> 4.94 %, 390 unchanged; the 15 other copies rendered with and
+   without: heights only; standing order 40) */
+@media (width >= 1025px) {
+  body.brand-lufthansa .columns-media.slider .columns-media-row > .columns-media-text > h2:first-child {
+    max-width: 450px;
+  }
+
+  body.brand-lufthansa .columns-media.slider .columns-media-row > .columns-media-media {
+    align-self: center;
+  }
+}
+
+/* Group for Business, option cover-16x9 from 768px: a Columns Media picture at least 16:9 high, cropped to fill (www's
+   dcep moving image in its column view: the eJournals picture, 1440 x 617, in a 608 x 338 box with object-fit cover on
+   /de/en/program/experts/on-board/entertainment-on-board; a taller picture keeps its ratio, as its FlyNet picture).
+   A rule for every B2B Columns Media picture took the airlines-at-a-glance pages 30-54 points further (their logos);
+   a row sets the option where www crops so: 1440 22.96 -> 10.52 %, 390 unchanged (standing order 40) */
+@media (width >= 768px) {
+  body.brand-b2b .columns-media.cover-16x9 .columns-media-media:has(img) {
+    container-type: inline-size;
+  }
+
+  body.brand-b2b .columns-media.cover-16x9 .columns-media-media img {
+    min-height: calc(100cqi * 9 / 16);
+    object-fit: cover;
+  }
+}
