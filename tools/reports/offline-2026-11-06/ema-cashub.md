@@ -8031,3 +8031,56 @@ order. No upload, preview, publish or da-upload.mjs. /de/en/overview-manage has 
 - **Wider check** (offline, not a gate): www's 39 article snapshots laid out with the recordings' CSS.
   - 38 titles have www's height with the rule, 4 of them because of it.
   - travel-with-your-mum is three lines on www and two on ours, before and after.
+
+### Final section (about 06:00 CET, 2026-11-16)
+
+All three items are done. I stopped before 07:30: what is left needs your decision (below).
+
+**On main:**
+- `0f491692` (~05:40 CET): Air Dolomiti's article H4s, test/airdolomiti-article-h4-so44 (and test/airdolomiti-article-column-567's count of its scope, 4 -> 6), the lists gate-so44-airdolomiti-article-h4.txt, gate-so44-austrian-footer-columns.txt (HOLD), sweep-so44-places-11-30.txt, measure-so44-airdolomiti-title-live.txt, trace-so44-cargo-general-terms1.txt, and items 1 to 3 above.
+  - Live since: the served theme carries the rule, and archistars reads 4,489 at 1440 (-1.32 %), as gated.
+- This commit: this section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 before the push (one round; origin did not move), the exit code read first.
+- **Stylelint:** exit 0 on styles/themes/airdolomiti.css (and on austrian.css while the footer rule was in my worktree).
+- **Tests on the push:** 698 tests in the set (every test naming the theme, article-header, the report folder or the
+  cashub report, plus the folder-reading tests), 0 failures. The folder-reading tests alone: 23 files, 112 tests, 0
+  failures.
+- **The new test:** red before the push (in my worktree before its lists existed; on main before `0f491692` the rule is
+  absent), green after.
+- **Full suite** on `0f491692`: 1,204 files, 4,604 tests, 0 failures, 5 skipped (one node process per file).
+
+**For you:**
+- **New, yours: the Austrian footer's three columns** (gate-so44-austrian-footer-columns.txt, HOLD).
+  - On the seven pages where I compared footers (fr/fr, it/it, ru/ru contact; ca/fr, ch/fr, by/ru, ru/ru homepages),
+    ours comes out at www's height to 2 px.
+  - 117 of 121 recorded page-widths pass. 4 homepages move further (ca/fr, ch/fr, by/ru, ru/ru), because the footer had
+    hidden a shortfall above it.
+  - None of the 2,459 documents breaks.
+  - Choose one: ship it together with the stretcher rows (then ca/fr and ch/fr are closer too), ship it as it is, or
+    leave it.
+- **Your calls, unchanged:**
+  - the stretcher block (ca/fr, ch/fr);
+  - the flag austrian-ife-carousel (unterhaltung-an-bord);
+  - bangkok-airways;
+  - cancellation-refund's upload widget;
+  - the brand font's wraps (facts-figures);
+  - Cargo's data-protection-notice page (waiting for Ben).
+- **Captures:** the ones you asked for are not in yet, and I did not wait for them.
+- **Next candidates (not drafted):**
+  - Air Dolomiti's H4s from 930 to 1024 px and on phones (www's 20px / 28px). Not recorded at a usable width.
+  - Cargo's list indent (40 px against www's 25). A Cargo-wide rule; it needs a census.
+
+**Rules followed:**
+- No request to an airline host: refused and counted, none sent (1,256 on the footer gate, 3,319 and more in its census,
+  0 on the Air Dolomiti pages, 32 and more in the H4 census). Austria's widget calls were answered from our host's
+  recordings.
+- **DA:** no request this order.
+- No upload, preview, publish or da-upload.mjs.
+- www's recordings and snapshots read as data, laid out offline with every request answered from the archive or aborted.
+- The checkout's 88 dirty entries untouched. I worked in migration-work/parity-588/wt and pushed from wt-push.
+- /de/en/overview-manage has no row.
+
+**Not in git** (scratch under /tmp/so44): the census and gate tables, the code copies used for the bisect and the
+overrides, the snapshot layouts, the scripts and logs.
