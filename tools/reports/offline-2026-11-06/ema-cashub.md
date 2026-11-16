@@ -8415,3 +8415,129 @@ fly-with-austrian en 4,459 / 8,600 and de 4,575 / 9,009 at 1440 / 390, bangkok-a
 
 **Not in git** (scratch under /tmp/so46): the served copies, the load index of 31 recordings, the renders, crops, census
 tables, scripts and logs.
+
+## Standing order 47 (2026-11-16, from about 09:00 CET)
+
+**Carried over:** nothing. Order 46's commits were all on main (`e653cb39`, `ff99cba9`), and my worktrees were clean at
+the start. The checkout's 88 dirty entries are other jobs' and were left alone (one is blocks/notifications/notifications.css,
+a one-line comment change, not mine).
+
+**Renders:** unhinted text throughout. lh-proxy, www.* and every airline host were refused and counted: about 700 (the
+first carousel toggle's counts were overwritten), none sent. The by/en, ru/en, ca/en and ge/en homepages had our host's
+same-hour widget answers replayed, as in order 43.
+
+**DA:** read only, three single GETs (lh-cargo /en/live-animals, /en/ebooking-info, /en/ecsd). No upload, preview,
+publish or da-upload.mjs. /de/en/overview-manage has no row.
+
+### Item 1: live-animals' tab band (delta-so47-cargo-live-animals-flush.txt)
+
+**The drop:** cargo-parity-008 matches the sha256 you gave. It was extracted into its own new folder and read as data.
+Both pages were loaded separately at 390x844 (the README still has the old resize sentence). Both carry the 80 px service
+notice.
+
+**The answer:** less the notice, general-cargo is 1,242 and emergency 1,186. Those are cargo-parity-003's resized 390s
+to the px, so the six product pages' rows were right.
+- On www, general-cargo's and emergency's tab sets sit inside a Liferay layout row with 20 px padding top and bottom
+  (40 from 1025 px): the padding our grey sections draw.
+- live-animals' tab set has no such row, so its band is the five closed rows alone.
+- So the padding belongs to the document, not the brand. Order 45's shared rule fails: general-cargo 390 +0.32 -> -4.51 %,
+  emergency +0.51 -> -4.55 %.
+
+**The fix (`7b73a71a`, live):**
+- a Cargo rule: below 768 px a grey **flush** section that holds only a tab set has no padding. No served Cargo copy had a
+  flush section (all 990 fetched), so the code alone moves nothing;
+- the row: live-animals' tab section gets the style flush (section-style-apply). styles.css already drops a flush grey
+  band's margin when it ends the page;
+- the tool fix: DA's Cargo copies write the key "Style"; section-style-apply missed it and added a second
+  section-metadata block. test/section-style-capital-key-so47 (red on main, 2 of 3);
+- from 768 px the padding stays: without it 1440 would go -2.58 % (our open panel is 63 px shorter than www's there).
+
+| page-width | www | as served | with the row |
+|---|---|---|---|
+| live-animals 390 | 1,742 | 1,810 (+3.90 %) | 1,750 (+0.46 %) |
+| live-animals 1440 | 2,289 | 2,330 (+1.79 %) | 2,310 (+0.92 %) |
+
+Your helpers applied the row; as served now: 1,750 / 2,310.
+
+### Item 2: places 51 to 70 (sweep-so47-places-51-70.txt)
+
+All twenty were measured again (~09:15 CET). Each place's cause was located against www's measurement file and its
+full-page picture; the list has each one.
+
+- **Shipped (`7130e6aa`, live as gated):**
+  - **by/en, ru/en 390 (places 61, 62):** on homepages without a destination finder after the carousel, www keeps 79 px
+    from the carousel's dots to the next heading; ours 48. An Austrian rule adds the 31 px. It reaches five documents
+    (by/en, by/ru, ru/en, ru/ru, xx/en), all recorded, all ten page-widths closer (by/en 390 -1.83 -> -1.25 %, 1440
+    -1.00 -> -0.14 %). The BY / RU roots' other 36 px is a section of www's holding only an empty "ghost" component: left
+    out (gate-so47-austrian-carousel-no-finder.txt).
+  - **fleet 1440 (place 63):** the second card row starts 41 px under the first row's More line on www; ours used
+    lufthansa.com's 91 px. A Cargo rule from 768 px: en +1.81 -> +0.16 %, de +1.07 -> -0.55 %. Reach: fleet and ulds, en
+    and de, 50 px shorter from 768 px, nothing past the edge (gate-so47-cargo-card-rows.txt).
+- **READY rows, applied by your helpers, live as gated** (delta-so47-cargo-flush-rows.txt):
+  - **ebooking-info (56):** the last grey band flush (www's touches the footer): 1440 +1.43 %, 390 +0.02 %.
+  - **ecsd (65):** the band flush and the H1 marked {limited-width} (www's intro column is 856 px, its title two lines):
+    1440 -1.79 -> +0.30 %, 390 +1.09 -> -0.06 %.
+  - **live-animals 1440 (64):** item 1's row.
+- **Not a Cargo rule:** www's last grey band touches the footer on every page, but taking our 20 px off brand-wide reaches
+  39 recorded page-widths and takes 20 of them further. It passes per document only where every recorded width closes.
+- **HOLD for a phone first load (4):** eg/en and entryregulations (item 3); at/en homepage 390 (its recording has www's
+  older flight search, 86 px taller); ehm 390 (the flush row passes at 1440, but its resized 390 goes -1.08 -> -2.34 %).
+  The last two are new capture requests.
+- **No fix of ours (6):** eaw 390 (empty lines inside a block), ru/ru and jp/ja contact (non-Latin faces),
+  online-check-in 390 (several small differences, none worth a rule; 63 px at the end not placed), de/eservices-app 390
+  (order 42's benefits block), flights-europe 1440 (www's route cards carry its fare API's line).
+- **Left out (3) / fixed (1):** facts-figures (your decision), cancellation-refund (the upload widget, your call),
+  ge/en (www-side states, order 41); fr/fr/contact is in 2 % since order 45.
+
+### Item 3: the phone first loads
+
+No archive was named in this turn, so nothing is gated yet. Ready for when they land:
+- today's served figures at 390 for the ten pages and both ski campaigns (all equal to order 46's to the px);
+- gb/en ski-campaign: its stage band is mid-page (the FAQ section follows), so the closing-band rule that puts us/en on
+  white does not reach it. Two variants are measured in the load: (A) the closing band's own treatment, 3,547; (B) white,
+  63 px above, nothing extra below, 3,440; as served 3,411. www's gb/en load decides which, or neither.
+
+### Final section (about 10:20 CET, 2026-11-16)
+
+Items 1 and 2 are done. Item 3 is ready to gate but has no archive yet, so I stopped well before 13:00.
+
+**On main:**
+- `7b73a71a` (~09:15 CET): item 1. The Cargo rule, the section-style tool fix, the live-animals list and .json, two tests.
+- `7130e6aa` (~09:47 CET): item 2's two rules (Austrian carousel, Cargo card rows), their gates and tests, the
+  ebooking-info / ecsd rows list and .json files.
+- `0735ff5f` (~09:57 CET): the places list, two capture requests, the lists' times corrected (the first drafts carried
+  estimates ahead of the clock).
+- This commit: this section.
+
+**Live since:** the three rules are served. by/en 390 5,233, xx/en 1440 3,536, fleet 1440 3,048 / 3,072 (en / de), as
+gated. Your helpers applied the three Cargo rows; as served: live-animals 1,750 / 2,310, ebooking-info 5,394 / 3,825, ecsd
+1,750 / 1,347 (390 / 1440), as gated.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 before each push (four rounds over three pushes; origin moved once during the
+  checks). The exit code was read before each push.
+- **Stylelint:** exit 0 on styles/themes/cargo.css and styles/themes/austrian.css in every round.
+- **Tests on the pushes:** 908, 1,291 and 259 + 9 tests, 0 failures (the tests naming the changed files, the report
+  folder, the tools, plus mine).
+- **New tests:** cargo-live-animals-flush-so47, section-style-capital-key-so47, austrian-carousel-no-finder-so47,
+  cargo-card-rows-gap-so47: each red on origin's main before its push, green after. austrian-home-bands-so21 now counts 16
+  band rules.
+- **Folder-reading tests** on `0735ff5f`: 26 files, 126 tests, 0 failures, 2 skipped.
+- **Full suite** on `0735ff5f`: 1,217 files, 4,642 tests, 0 failures, 5 skipped (one node process per file).
+
+**For you:**
+- **Item 3:** name the archives as they land; the ten pages and gb/en are measured and the gb/en variants ready.
+- **Two more capture requests** (capture-requests-ema-cashub.txt): at/en homepage 390 and Cargo ehm 390.
+- **Not drafted, your call:** the BY / RU homepages' 36 px "ghost" section (a {spacer-36} row on four documents).
+- **Unchanged:** facts-figures (as decided), terms-of-use, the upload widget, the carousel flag, bangkok-airways.
+
+**Rules followed:**
+- No request to an airline host: refused and counted, none sent.
+- **DA:** three single GETs, read only.
+- No upload, preview, publish or da-upload.mjs.
+- The recordings were read as data.
+- The checkout's 88 dirty entries untouched. I worked in migration-work/parity-588/wt and pushed from wt-push.
+- /de/en/overview-manage has no row.
+
+**Not in git** (scratch under /tmp/so47): the drop, the served copies, DA's three copies, the renders, toggles, crops,
+census tables, scripts and logs.
