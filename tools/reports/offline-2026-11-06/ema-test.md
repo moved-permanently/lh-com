@@ -4892,3 +4892,35 @@ State at the start: nothing of mine uncommitted or unpushed (order 33's final se
 - Not in git and why: logs/p4/so34 (scratch: captures, gates, renders, folder copies, DA copies), the drops in /tmp
   (private material), content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not mine,
   kept). Preview servers stopped, trial worktrees removed.
+
+## Standing order 35 (received about 23:45 UTC, 2026-11-15)
+
+State at the start: nothing of mine uncommitted or unpushed (order 34's final section on main, d6c7f4c6).
+
+1. **economy-class**: the style acts as served. In one load, setting gap-after-small back to 48 px adds 48 px at both
+   widths (two sections x 24); as served 1440 7.99 %, 390 13.35 % against lh-parity-002, as gated. 8,273 / 10,009 px is
+   the page with the style, so the publish check's "before" was taken with it live (as first-class-terminal's).
+   tips-senior-travellers (6.46 / 12.32 %) and traveltricks (11.47 / 11.14 %) read as gated too.
+2. **miles-and-more-credit-card's picture gap** (delta-so35-lh-com-rows.txt): www's card list stands its rows 89-97 px
+   apart on phones, ours 66. A rule for every padded view's picture-to-picture rows (103 documents) was gated and took
+   crane, cabin-design and first-class-terminal further (+2.0 to +5.0 points at 390), so the shipped rule is a Columns
+   Media option, wide-gap (24 px more between rows on phones, lufthansa.com only, in no other document), and a READY
+   row sets it on the card list: 390 15.58 → 9.31 %, 1440 unchanged.
+3. **ema-adobe's hand-over**: picture-perfect-austin 390: our gallery pictures stand in www's box; only the crop differs
+   (www's parallax zooms with the scroll position): no layout fix exists. culinaryjourney: its form is a micro-frontend
+   fed by an airline API that every capture refuses, so our page shows a placeholder where www's recording shows the
+   form; the two spacing rows (top-flush, a gap-after-none) read further at both widths and are held.
+4. **sweep-so32's eight page-widths at 20 % or more**: all below 20 % as served now (the lounges 17.58, business-class
+   16.11, first-class-terminal 18.15, first-class 18.31, traveltricks 11.14 / 11.47, miles-and-more 15.58 and 9.31 with
+   the row). What is left is not a layout cause (drift within 10-39 px; a refused YouTube embed; stage video frames).
+
+## Standing order 35, final section (about 00:30 UTC, 2026-11-16)
+
+- Items 1-4 done; held: culinaryjourney's two rows (not gateable while the form is refused in captures).
+- Before this section: the full suite on dbd07081 (npm run lint 0, stylelint 0, 1,193 of 1,193 test files); the folder-reading tests with brand.test.mjs; the whole-repo lint read before every push.
+- Nothing uploaded, previewed or published by me; DA read only (lufthansa.com miles-and-more-credit-card and both
+  culinaryjourney documents); da-upload.mjs not run; requests only to our own hosts, DA (reads) and GitHub's API; no
+  request to www or any airline host. .migration/project.json not touched; the excluded manage page has no row and no line.
+- Not in git and why: logs/p4/so35 (scratch: captures, gates, folder copies, DA copies), the drops in /tmp (private
+  material), content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not mine, kept).
+  Preview servers stopped, trial worktrees removed.
