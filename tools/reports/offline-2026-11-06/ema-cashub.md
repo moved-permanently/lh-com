@@ -8541,3 +8541,144 @@ gated. Your helpers applied the three Cargo rows; as served: live-animals 1,750 
 
 **Not in git** (scratch under /tmp/so47): the drop, the served copies, DA's three copies, the renders, toggles, crops,
 census tables, scripts and logs.
+
+## Standing order 48 (2026-11-16, from about 10:30 CET)
+
+**Carried over:** nothing. Order 47's commits were all on main (`57ee2b1b` carries the same patch as my worktree's
+`aad1dcab`), and my worktrees were clean at the start. The checkout's 88 dirty entries belong to other jobs and were
+left alone.
+
+**Renders:** unhinted text throughout. lh-proxy, www.* (but www.mynewsdesk.com) and every airline host were refused and
+counted: about 700 over some 120 renders, none sent. The fr/en, pl/en, tr/en, by/en and ru/en homepages had our host's
+same-hour widget answers replayed (austrian-api-003 / -004 / -005), as in order 43.
+
+**DA:** read only, twelve single GETs, one per command: eg/en, am/en, by/en, ru/en, by/ru, ru/ru homepage,
+at/en entryregulations, travel-id, wetlease-hub, the Schengen page, culinary-services and gb/en ski-campaign. No upload,
+preview, publish or da-upload.mjs. /de/en/overview-manage has no row.
+
+### Item 1: the phone first loads (gate-so48-phone-first-loads.txt)
+
+**The drop:** all three sha256 match. Each archive went into its own new folder and was read as data (serve.py was not
+run). The manifests' 380 file hashes all match. Every page is a separate first load with HTTP 200.
+
+**One thing to know about Air Dolomiti:** the three pictures stop 140 px into the footer (4,028 / 4,078 / 4,407 =
+footer top + 140), so they are clips, not page heights. The measurement files read 5,460 / 5,450 / 5,807, which include
+466 px of the chat widget under the footer. I gated the three on the footer top: 3,888 / 3,938 / 4,267, the resizes'
+figures to the px.
+
+| page (390 unless noted) | www | as served | with the row | status |
+|---|---|---|---|---|
+| at/en entryregulations | 7,236 | 7,108 (-1.77 %) | 7,207 (-0.40 %) | READY (1440 unchanged) |
+| Schengen | 4,359 | 4,310 (-1.12 %) | 4,355 (-0.09 %) | READY (1440 unchanged) |
+| wetlease-hub | 3,666 | 3,612 (-1.47 %) | 3,653 (-0.35 %) | READY (1440 -1.63 -> -0.78 %) |
+| culinary-services | 9,176 | 9,029 (-1.60 %) | 9,107 (-0.75 %) | READY (1440 -0.93 -> -0.64 %) |
+| gb/en ski-campaign 390 | 3,515 | 3,411 (-2.96 %) | 3,497 (-0.51 %) | READY |
+| gb/en ski-campaign 1440 | 2,992 | 2,899 (-3.11 %) | 2,993 (+0.03 %) | READY |
+| eg/en homepage | 6,068 | 5,901 (-2.75 %) | 6,111 (+0.71 %) | HOLD (1440) |
+| am/en homepage | 6,029 | 5,861 (-2.79 %) | 6,071 (+0.70 %) | HOLD (1440) |
+| AD Adriatic it / en / de (footer top) | 3,888 / 3,938 / 4,267 | +1.59 / +1.55 / +1.45 % | - | no fix |
+| Cargo containers | 2,314 | 2,288 (-1.12 %) | - | no fix |
+
+- **entryregulations:** www draws its parts as column-view sections, so its headings sit further apart than ours.
+  The row adds three phone-only spacers before three headings (95 / 172 / 90 px as www's, ours 71 / 125 / 57).
+- **Schengen:** www's member list starts 92 px under its lead line, ours 48. One phone spacer.
+- **gb/en ski-campaign:** neither of order 47's two variants. The new load puts the difference in the fare teaser: www
+  spaces it as on its homepages. The row is us/en's from order 42: the option "spaced". The stage band's own -31 px at
+  390 is left.
+- **eg/en, am/en:** www now draws its AI flight-finder band here as well (it did not on 2026-11-15). Order 42's AI row
+  passes at 390. At 1440 the only recordings (austrian-parity-008, 2026-11-09) predate www's band, so the row would read
+  +2.15 % against them. HOLD; 1440 first loads are requested. www probably draws the band on the other English
+  homepages without a row too, but no load shows it yet.
+- **culinary-services:** the grey "A sweet taste of Austria" band (style column-band) is 150 px shorter than www's.
+  - The row adds two phone markers that put the heading and the band's end where www's are (+78 px).
+  - The gap inside the block (112 px against 36) stays: a marker inside a block draws nothing.
+  - No shared rule: 321 served documents carry the style, and www draws other such bands with our 32 px (the Schengen
+    band ends within 6 px of www's).
+- **wetlease-hub:** place 74's row (item 3).
+- **Air Dolomiti:** each first load equals its resize above the footer: +25 under the hero, +13, +22, nothing larger.
+- **Cargo containers:** the load equals the resize to the px. -12 px at the title, +32, -46 in the accordion; no
+  single cause.
+- **Still HOLD:** at/en homepage and Cargo ehm, which are not in this drop.
+
+### Item 2: the BY / RU ghost section (delta-so48-austrian-ghost-spacer.txt, 4 READY)
+
+- **The row:** {spacer-51 below-768} as the carousel section's last paragraph. A marker after a block draws 15 px less
+  than its size, so it draws www's 36 px.
+- **390:**
+
+  | page | as served | with the row |
+  |---|---|---|
+  | by/en, ru/en | 5,233 (-1.25 %) | 5,269 (-0.57 %) |
+  | by/ru | -1.03 % | -0.36 % |
+  | ru/ru | -1.09 % | -0.41 % |
+
+- **1440 stays unchanged, deliberately:** the same marker at every width takes by/en 1440 from -0.14 to +0.86 %, further
+  from www's. Our hero band is 19 px taller there and already stands in for the ghost.
+- **Recordings:** by/ru's and ru/ru's 390s are resizes, by/en's first loads. Order 47's gate named -008 for ru/ru; its
+  recording is -016, with the same 5,330.
+
+### Item 3: places 71 to 90 (sweep-so48-places-71-90.txt)
+
+All twenty are traced and within 2 %.
+- **READY:**
+  - **travel-id 390 (82):** -1.60 -> -1.13 %.
+  - **wetlease-hub 1440 (74):** -1.63 -> -0.78 %. The same row closes place 89 at 390.
+  - **culinary-services (81):** item 1's row.
+  - **ru/ru and by/ru (71, 80):** item 2.
+- **No fix:**
+  - **Destination finder's "Please choose" state:** fr/en, pl/en, tr/en (+96 / +96 / +117 px).
+  - **Fare lines from www's API:** voli-europa (as place 70).
+  - **Non-Latin faces:** cn/zh.
+  - **Resizes:** london-eu (also www's widget band) and Cargo news 142, whose text sits in the 1440 columns.
+  - **Older flight search on www:** at/de homepage's recording (a phone first load is requested).
+  - **No single cause:** speed-pro (the breadcrumb offset differs per Cargo hero page), eservices-app (small gaps).
+  - **Open tab panel on www:** industries-healthcare (order 42's HOLD).
+  - **Order 45's finding:** archistars.
+  - **Flush rows that fail at 390:** dangerous-goods and eaw (+0.32 -> -4.51 %, -2.15 -> -3.04 %). A phone first load of
+    dangerous-goods is requested.
+
+### Final section (about 11:55 CET, 2026-11-16)
+
+All three items are done, so I stopped well before 14:00.
+
+**On main:**
+- `6904f52a` (~11:18 CET): the three lists, the gate file, the places list, capture requests.
+- `25efee52` (~11:30 CET): culinary-services' row.
+- This commit: this section.
+
+**Live since:** your helpers applied the five first-load rows (`a44636d0`), the four ghost rows (`4d21582e`) and
+culinary-services' row (`e959d345`). All ten documents are served with their markers. I measured them live at
+~11:45 to ~11:48 CET, and every page-width equals its draft to the px:
+- **entryregulations:** 7,207 / 5,523.
+- **Schengen:** 4,355 / 3,065.
+- **wetlease-hub:** 3,653 / 3,046. Both small markers survived the upload.
+- **travel-id:** 6,120 / 5,709.
+- **gb/en ski-campaign:** 3,497 / 2,993.
+- **culinary-services:** 9,107 / 8,374. Its 8 px marker is served too.
+- **by/en, ru/en:** 5,269 at 390; by/en 3,593 at 1440.
+- **by/ru:** 5,332 at 390.
+- **ru/ru:** 5,308 / 3,621.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 before each push (four rounds over two pushes; origin moved twice during the
+  checks). The exit code was read before each push.
+- **Stylelint:** no theme or block file changed this order.
+- **Tests on the pushes:** the 23 to 24 folder-reading tests and the tests naming the changed files, 0 failures (120 /
+  123 tests, 2 skipped).
+- **Full suite** on `25efee52`: 1,219 files, 4,647 tests, 0 failures, 5 skipped (one node process per file, ~11:33 to ~11:49 CET).
+
+**For you:**
+- **Capture requests** (capture-requests-ema-cashub.txt): eg/en and am/en 1440 (the AI rows), at/de homepage 390,
+  Cargo dangerous-goods 390. Still open from order 47: at/en homepage 390 and Cargo ehm 390.
+- **A heads-up:** www's AI band now shows on eg/en and am/en; it may be on the other English homepages without our row.
+
+**Rules followed:**
+- No request to an airline host: refused and counted, none sent.
+- **DA:** twelve single GETs, read only.
+- No upload, preview, publish or da-upload.mjs.
+- The recordings were read as data.
+- The checkout's 88 dirty entries untouched.
+- /de/en/overview-manage has no row.
+
+**Not in git** (scratch under /tmp/so48): the drop, the served copies, DA's copies, the renders, drafts, crops, scripts
+and logs.
