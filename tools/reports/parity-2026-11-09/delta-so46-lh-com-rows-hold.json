@@ -1,0 +1,19 @@
+[
+ {
+  "path": "/de/en/munich-fair",
+  "inserts": [
+   {
+    "replace": "<div><h2 id=\"messe-münchen-events\">",
+    "text": "<div><div class=\"columns-media\"><div><div><h2 id=\"messe-münchen-events\">"
+   },
+   {
+    "replace": "<h2 id=\"lufthansa-mobility--a-messe-münchen-partner\">",
+    "text": "</div><div><h2 id=\"lufthansa-mobility--a-messe-münchen-partner\">"
+   },
+   {
+    "replace": "Lufthansa Event bookings</a></p></div>\n<div><div class=\"subpage-nav\">",
+    "text": "Lufthansa Event bookings</a></p></div></div></div></div>\n<div><div class=\"subpage-nav\">"
+   }
+  ]
+ }
+]

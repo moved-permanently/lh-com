@@ -2814,3 +2814,28 @@ body.brand-lufthansa main .default-content-wrapper > h1 + :is(h2, h3) + p:not(:h
 body.brand-lufthansa main > .section:has(> .default-content-wrapper:last-child > h2.column-start-outer:last-child):has(+ .section.grey:not(.flush, .column-view, .column-band, .in-column)) {
   margin-bottom: 0;
 }
+
+/* Insights articles from 768px: a plain h2 in the article body (not a heading-small / -medium style) runs the article
+   card, as its pictures, not the text column (www's headline component: allegris-premium-economy-san-diego's "Zum
+   Download des Posters einfach auf das Bild klicken" at 1440 from x 195 on one line, ours from x 299 on two;
+   standing order 46) */
+@media (width >= 768px) {
+  body.brand-lufthansa main:has(.article-header) > .section:not(.related-articles-container, :has(> .carousel-cards-wrapper > .carousel-cards:not(.article))) > .default-content-wrapper > h2:not([class*="heading-"]) {
+    max-width: 83.333%;
+  }
+}
+
+/* Insights articles: an author quote right after a stacked Columns Media (captioned pictures) keeps www's space under
+   the captions, 19px more on phones, 39px more from 768px (what-i-learned-living-in-barcelona, lh-parity-002: 87 / 128px
+   from the last caption to the quote, ours 68 / 89; standing order 46) */
+/* stylelint-disable-next-line no-descending-specificity -- an article quote after stacked pictures, not the campaign quotes above */
+body.brand-lufthansa main:has(.article-header) .columns-media-wrapper:has(> .columns-media.stacked) + .default-content-wrapper > blockquote:first-child {
+  margin-top: 79px;
+}
+
+@media (width >= 768px) {
+  /* stylelint-disable-next-line no-descending-specificity -- as above */
+  body.brand-lufthansa main:has(.article-header) .columns-media-wrapper:has(> .columns-media.stacked) + .default-content-wrapper > blockquote:first-child {
+    margin-top: 119px;
+  }
+}

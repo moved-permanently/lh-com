@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/special-needs-online-form/confirmation",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-70}</p>",
+    "text": "<p>{spacer-20}</p>"
+   }
+  ]
+ }
+]
