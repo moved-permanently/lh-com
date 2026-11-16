@@ -659,6 +659,26 @@ body.brand-lufthansa main > .section > .default-content-wrapper:has(+ .accordion
   font-weight: 700;
 }
 
+/* option rich-lists, lufthansa.com: an item's lists as www's richtext lists, the bullet outside with a hanging indent and
+   10px between the items, and on pages with the sub-page navigation the text the item's full width from 1025px (www's
+   dangerous-goods list on /de/en/gefaehrliche-gegenstaende, lh-parity-002: ours set the bullet inside, the items
+   touching, in two thirds of the item; 1440 7.29 -> 6.50 %, 390 13.25 -> 8.61). A rule for every accordion list or every
+   sub-navigation page was not gated: a row puts the option where it is measured (standing order 38) */
+body.brand-lufthansa .accordion-columns.rich-lists .accordion-columns-intro > ul {
+  padding-left: 28px;
+  list-style-position: outside;
+}
+
+body.brand-lufthansa .accordion-columns.rich-lists .accordion-columns-intro > ul > li + li {
+  margin-top: 10px;
+}
+
+@media (width >= 1025px) {
+  body.brand-lufthansa main:has(.subpage-nav) .accordion-columns.rich-lists .accordion-columns-intro > :is(p, ul, ol) {
+    max-width: none;
+  }
+}
+
 /* ------------------------------------------------------------------ option tabs ------- */
 
 /* tabs: the accordion below 1025px (the tab bar hidden, its first item has the top border); from

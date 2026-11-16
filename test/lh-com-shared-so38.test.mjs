@@ -24,3 +24,10 @@ test('a linked picture under a text cell heading', () => {
   assert.ok(css.includes('body.brand-lufthansa .columns-media .columns-media-text > :is(h2, h3, h4) + p:has(> a > picture) { margin-top: 0; margin-bottom: 38px; }'));
   assert.ok(css.includes('body.brand-lufthansa .columns-media .columns-media-text:has(> :is(h2, h3, h4) + p > a > picture) > p.link-wrapper:not(.copytext-small, .copytext-medium, .copytext-large) { padding-bottom: 5px; }'));
 });
+
+test('Accordion Columns option rich-lists', () => {
+  const css = read('blocks/accordion-columns/accordion-columns.css');
+  assert.ok(css.includes('body.brand-lufthansa .accordion-columns.rich-lists .accordion-columns-intro > ul { padding-left: 28px; list-style-position: outside; }'));
+  assert.ok(css.includes('body.brand-lufthansa .accordion-columns.rich-lists .accordion-columns-intro > ul > li + li { margin-top: 10px; }'));
+  assert.ok(css.includes('@media (width >= 1025px) { body.brand-lufthansa main:has(.subpage-nav) .accordion-columns.rich-lists .accordion-columns-intro > :is(p, ul, ol) { max-width: none; } }'));
+});
