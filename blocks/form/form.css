@@ -730,6 +730,15 @@ body.brand-lufthansa .form.core .form-step-card > .form-subsection:first-child >
   }
 }
 
+/* lufthansa.com: an untitled sub-section that holds one checkbox group (add-sports-baggage's "Fishing equipment",
+   "Bicycle", ...: each its own www .subsection with an empty h3.heading-copytext-large legend) keeps www's empty title
+   slot, 29px above it (standing order 41: add-sports-baggage 1440 / 390 8.9 / 10.9 -> 6.6 / 9.9 %, its page height
+   www's; passenger-receipt-90 1440 6.0 -> 2.3, feedback-past-flight 1440 5.4 -> 4.3; the other 19 recorded form
+   page-widths unchanged; the 157 unrecorded core-form documents rendered with and without, no breakage) */
+body.brand-lufthansa .form.core .form-subsection:not(:has(> legend)):has(> .form-subsection-fields > .form-field-checkbox:only-child) {
+  margin-top: 29px;
+}
+
 .form.core .form-subsection-fields {
   clear: both;
 }

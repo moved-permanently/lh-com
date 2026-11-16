@@ -183,3 +183,29 @@ steps, bands and crops are in logs/b640 (not in git).
 | 75, 77 | /de/en, /gb/en lufthansa-travel-classes 390 | 8.0 -> 8.0 | Within 11 px; the stage tiles' photos under their dark overlay. | None. |
 | 76 | /de/en/services-at-the-airport 390 | 8.0 -> 8.0 | (1) Our text runs a word wider per line than www's, so each paragraph is a line shorter (the open font-width question; our font files are www's). (2) The page ends 34 px sooner after the last card. | (1) No fix (the drawing). (2) Hand-over item 17. |
 | 78 | /at/de/lufthansa-reiseklassen 390 | 7.9 -> 7.9 | As #75. | None. |
+
+## Places 79 to 98 (standing order 41, item 4)
+
+These are the next 20 page-widths of this sweep, measured again as served at 18:50 CET. Five first loads were redone:
+two Frankfurt Fair loads timed out, and /de/de/betreuungsbedarf 390 stopped at 900 px. The sweep's lh-parity-007
+recordings of the two Insights hubs were in /tmp, and a restart wiped them, so these two are measured against
+lh-parity-002's recordings of the same pages (the figures are not the sweep's). Drift steps, bands and crops are in
+logs/b641 (not in git).
+
+| Rank | Page-width | Sweep -> now % | Cause (located) | Fix |
+| --- | --- | --- | --- | --- |
+| 79 | /de/de/lufthansa-reiseklassen 390 | 7.9 -> 7.9 | Within 12 px; the stage tiles' photos under their dark overlay (as #75). | None. |
+| 80 | /de/en/100-years/fleet 390 | 7.9 -> 7.9 | The aircraft spec tables: each row 37-38 px shorter than www's. www's cell keeps its paragraph's margin inside, as at 1440, where we have the rule (brief 500), but not on phones. So each table's box ended up to 115 px short of www's 840 px scrolling box: -140 after the first table. | Shipped: the same 68 px under the text on phones (table-striped, beside options only). Gate: 7.9 -> 6.4, the drift within 40 px, 1440 11.4 -> 11.4; the 6 other fleet documents rendered with and without, no breakage. |
+| 81 | /de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips 390 | 7.9 -> 7.9 | Within 12 px throughout; the rest is photos. | None. |
+| 82 | /de/de/betreuungsbedarf 390 | 7.8 -> 6.9 | The core form (as #60): order 37's section spacing took 0.9. | None more. |
+| 83, 94 | /de/de, /at/de speisen-und-getraenke 390 | 7.8, 7.6 -> 7.8, 7.6 | (1) 30 px less above "Häufig gestellte Fragen" after the last card (www 70 px from the card's foot to the heading, ours 40). (2) One FAQ question wraps a line more (the chevron's column). | (1) Hand-over item 18 (section gap). (2) None: under 1 %. |
+| 84, 87 | /de/en, /gb/en 100-years/crane 1440 | 7.8 -> 7.8 | 5 picture captions missing (owner's decision, order 31); drift within 32 px. | The owner's decision. |
+| 85 | /de/en/articles/explore-flying 390 | 7.8 -> 8.7 (vs lh-parity-002) | The article list: ours lists newer articles (October 2026) than the recording does. This is content, not layout. | None. |
+| 86 | /de/en/articles/explore-the-world/what-i-learned-living-in-frankfurt 390 | 7.8 -> 7.8 | (1) The article end "Ready to discover the world?": "Find flight" and "Back to overview" 10-15 px lower (www's small arrow beside the link; ours is the standard link arrow). (2) 22 px more above "Related Articles". (3) The related cards come in another order (the index's). | (1) No fix, as item 3's button (below). (2) Hand-over item 17. (3) None: content. |
+| 88 | /de/en/articles/explore-flying/anniversary-super-crane-special 1440 | 7.7 -> 7.7 | Within 31 px; photos. | None. |
+| 89 | /de/en/articles/explore-the-world 1440 | 7.7 -> 8.1 (vs lh-parity-002) | (1) 26 px less above "Discover your dream destinations with us!" (www 93 px from the text to the heading, ours 67). (2) The results list holds other articles (433 vs 421 results). | (1) Hand-over item 18. (2) None: content. |
+| 90 | /de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich 390 | 7.7 -> 7.6 | As #86: 6 px more before "Back to overview", 23 px more above "Related Articles", about 2 px more per related card. The third related article is another one (Toronto, not Zagreb). | Hand-over item 17; the rest none. |
+| 91, 92 | /de/en, /gb/en frankfurt-fair 1440 | 7.7 -> 7.7 | (1) 39 px less above "The benefits of travelling with Lufthansa to Messe Frankfurt" (www 113 px from the text to the heading, ours 74). (2) The four benefit cards' columns are about 9 px wider than www's, so their texts wrap differently. The page ends 76 px shorter. | (1) Hand-over item 18. (2) Not tonight. |
+| 93, 95 | /at/de, /de/de frankfurt-fair 390 | 7.6 -> 7.6 | Within 37 px (the stage, then within 18). | None. |
+| 96, 97 | /at/de, /de/de services-am-flughafen 390 | 7.5 -> 7.5 | Within 26 px; the text runs a word wider per line, as #76. | None (the drawing). |
+| 98 | /de/en/articles/authors/florian-tomberg 1440 | 7.5 -> 7.5 | The "Our Authors" cards: www's are 119 px taller (61 px more under the portrait, 42 px more under the text, and a fourth line of text). www's stylesheet has no such space: its card and image components (maui-card height full, maui-image) size themselves. On /de/en/articles/explore-flying at 1440, www's cards are as tall as ours. | No fix passes. A rule with 60 px under the portrait and under the text: florian-tomberg 1440 7.5 -> 2.9 and explore-the-world 1440 8.1 -> 4.2, but florian-tomberg 390 4.5 -> 8.4, explore-flying 1440 1.1 -> 7.4 and 390 8.7 -> 9.2, explore-the-world 390 7.6 -> 8.8. Not shipped. |

@@ -109,3 +109,15 @@ Standing order 40 (2026-11-16, ema-adobe's places 59 to 78 of sweep-so34-lh-adob
    - /de/en/articles/explore-the-world/know-before-you-go-algiers and know-before-you-go-berlin (8.3 / 8.0 %): 22px
      more than www above the "Related Articles" section (www 59px from the price note to the heading, ours 81).
    Both are the shared section-gap rules.
+
+Standing order 41 (2026-11-16, ema-adobe's places 79 to 98 of sweep-so34-lh-adobe.md):
+18. Section gap before a heading. Mostly ours leaves less than www here (the other direction from item 17):
+   - /de/en, /gb/en frankfurt-fair, 1440 (7.7 %): 39px less above "The benefits of travelling with Lufthansa to Messe
+     Frankfurt" (www 113px from the text to the heading, ours 74);
+   - /de/en/articles/explore-the-world, 1440 (8.1 % against lh-parity-002): 26px less above "Discover your dream
+     destinations with us!" (www 93px, ours 67);
+   - /de/de, /at/de speisen-und-getraenke, 390 (7.8 / 7.6 %): 30px less above "Häufig gestellte Fragen" after the
+     last card (www 70px from the card's foot to the heading, ours 40);
+   - /de/en/articles/explore-the-world/know-before-you-go-algiers and -berlin, 390 (order 41, item 3): ours leaves 8px
+     more from a picture paragraph to the next heading ("Payment"), one of the steps that put the button 15px low.
+   All are the shared section-gap and heading spacing rules in the site stylesheet.

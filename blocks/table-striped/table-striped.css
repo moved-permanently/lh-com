@@ -359,6 +359,16 @@
   }
 }
 
+/* lufthansa.com below 768px: the same on phones (fleet at 390: a one-line spec row 128px, ours 90; the
+   table's box 840px tall and scrolling, as www's; standing order 41: /de/en/100-years/fleet 390
+   7.9 -> 6.4 %, the drift after the first table from -140 to within 40px; the 6 other fleet documents
+   rendered with and without, no breakage) */
+@media (width < 768px) {
+  body.brand-lufthansa .table-striped:is(.beside, .beside-end) :is(th, td) {
+    padding-bottom: 68px;
+  }
+}
+
 /* lufthansa.com below 768px: a table of four or more columns keeps www's column width (about
    200 px each: /de/en/data-collection-usa's country list shows "Andorra | Australia" at 390,
    green-fare's fare tables the same) and scrolls sideways in its box (overflow: auto above), where
