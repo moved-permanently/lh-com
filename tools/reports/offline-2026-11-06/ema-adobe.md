@@ -5406,3 +5406,65 @@ files, 0 failing.
    - The two Insights hubs were measured against lh-parity-002's recordings: the sweep's lh-parity-007 copies were in
      /tmp, which a restart wiped.
 - Left out of git: logs/b641 (captures, diffs, renders, runners) and the untracked import reports of earlier runs.
+
+### Standing order 42 (2026-11-16 21:05 to about 22:00 CET)
+
+No uploads, previews or publishes; DA read only (one GET of each tags/allegris copy); no request to www or any airline
+host. `.migration/project.json` untouched; the add-ons stay off. Order 41 left nothing uncommitted or unpushed. Code
+changes, all lufthansa.com only: blocks/carousel-cards (955b7f7).
+
+Each push: stylelint clean on the changed files, the tests that read them passed, and the whole-repo lint read 0 on a
+clean worktree of the rebased HEAD. Full suite on the final code: 955b7f7 (origin/main with every code commit of this order), 72 lh-edge files and 1,242 site files, 0
+failing.
+
+**The two-hour windows:**
+- carousel-cards: last commit ef8be78 (11-15);
+- styles.css: no edit by me. Its heading rules are ema-test's tonight (order 45);
+- Columns Media: no edit by me;
+- the hand-over file: my last commits there were 2a02f6f and 955b7f7; nobody else's since. Item 20 goes in with this
+  section.
+
+1. **The phone link-spacing rule: closed, no narrower shape passes.**
+   - What the 15 worse pages shared: 11 of them have only one-line links. The rule was meant to leave those as they
+     are, but it didn't. The link (inline-flex, 27px minimum) in a 24px line box picks up a baseline gap, so each
+     one-line link's paragraph grew from 27 to 29px and moved everything below it.
+   - Fixed with `vertical-align: top` on the link: one-line links stay at 27px exactly, two-line links get www's 48.
+     Gated on the 110 recorded page-widths with standalone links (the other 268 of the 378 never change), against
+     fresh as-served figures: 21 closer, 85 within 0.5, 4 worse, net -33.8 (order 38's rule: 29 / 334 / 15, -20.8).
+   - The 4 still worse:
+     - pre-check-in +0.8 and data-collection-usa +1.4: their two-line links stand next to a list. Leaving out links
+       next to a list brings both back within 0.5;
+     - agb-extra-services-at-online-check-in +1.5, still +1.1 without the list links;
+     - boeing787 +2.5 (its seat-map views are short already, hand-over item 14).
+     - agb and boeing787 have the same link shapes as pages that got closer: two-line links after a paragraph before a
+       heading (dangerous-dogs, -4.0); a run of multi-line PDF links on a fleet page (744, -0.7; 351's four-line one, -1.0).
+   - So no shape passes every recorded page, and the rule would reach about 3,400 published documents. Closed. The
+     working rule and its rows are in logs/b642 (link4-trial.css, lkA / lkD), for if item 14 fixes boeing787.
+2. **The "Our Authors" cards: shipped, a narrower shape (955b7f7).**
+   - What the worse pages shared: www draws its cards taller only on the author page (florian-tomberg, both widths).
+     On the two Insights hubs www's cards are as tall as ours. Our markup is the same on all three pages; the author
+     page's own mark is its section with style author.
+   - The rule: author pages only, from 1025px, 61px under the portrait and 62px under the text. On phones our author
+     page already lines up below the cards (the shortfall is made up higher on the page), so the rule stops at 1025px.
+   - Gate (the 3 recorded pages with the cards, 1440 and 390):
+     - florian-tomberg 1440: 7.5 -> 3.0 %, its page height www's;
+     - florian-tomberg 390, and explore-flying and explore-the-world at both widths: unchanged.
+   - No-breakage: the 19 other author pages, with and without, at 1440 and 390: 38 pairs, all 200, no breakage. 1440 is
+     103px taller, 390 unchanged.
+3. **sweep-so34-lh-adobe.md, places 99 to 118 (section "Places 99 to 118", 955b7f7).**
+   - **Row:** /de/en/articles/tags/allegris lacks the grey band's "Conditions" label, which the other three versions got
+     in the 546 re-import. READY, delta-so42-adobe-tags-allegris-conditions.txt: 1440 10.9 -> 9.0, 390 6.9 -> 3.9 as a
+     draft (one insert, dry run on DA's copy: byte for byte without it).
+   - **To ema-test:**
+     - hand-over item 19, headings: after a separator (digital-self-services, 4 versions), and a heading's width on article
+       pages (allegris-premium-economy-san-diego at/de, de/de 1440: www's h2 runs the page's width, ours wraps in the
+       text column). Item 18's shape again on explore-the-world 390 and food-and-beverages;
+     - hand-over item 20, Columns Media: the article-end teaser's "Find flight" is a text link with the small arrow on
+       www, a standalone link on ours (5-15px lower).
+   - **No fix:**
+     - content that differs from the recordings (related cards, the hub's list);
+     - the font width (services-at-the-airport);
+     - steps under 1 % (an inline link's arrow width, an illustration 10px lower).
+- Ended at about 22:00 CET, not 00:30: the three items are answered. Nothing is held.
+- Left out of git: logs/b642 (captures, diffs, renders, runners, the DA copies read for the dry run) and the untracked
+  import reports of earlier runs.

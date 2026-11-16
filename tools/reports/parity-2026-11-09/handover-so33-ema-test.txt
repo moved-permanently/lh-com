@@ -133,3 +133,9 @@ order 45):
      www too. www's limited-width rule covers .article-details-page h3 and .richtext, not this h2 component.
    Also more of item 18 (less above a heading after text): /de/en/articles/explore-the-world 390 (35px), /de/en,
    /gb/en food-and-beverages 390 (32px above the FAQ heading).
+20. Columns Media on article pages: the article-end teaser's link ("Ready to discover Barcelona?" ... "Find flight"):
+   on www it is a text link in the teaser's richtext (<p><a><em class="lh lh-arrow-right"></em>Find flight</a></p>: the
+   small icon-font arrow, the text's own line). Ours is a lone link in the columns-media text cell, drawn as a standalone
+   link (big arrow, 27px line): 5-15px lower than www's, and "Back to overview" with it.
+   Seen on /de/en/articles/explore-the-world/essentials-barcelona-facts and what-i-learned-living-in-frankfurt, 390
+   (most articles end with this teaser). Columns Media, so it is yours.
