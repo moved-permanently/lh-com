@@ -7,5 +7,32 @@
     "text": "Select a topic below for further information. {full-width}</p><div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-768</div></div></div></div>"
    }
   ]
+ },
+ {
+  "path": "/de/en/schengen",
+  "inserts": [
+   {
+    "before": "<p>List of current Schengen member states:</p>",
+    "text": "<p>{spacer-80}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/book-and-manage/flights/ana",
+  "inserts": [
+   {
+    "replace": "<div></div></div><div><div><h2 id=\"what-you-need-to-remember-heading-large\">",
+    "text": "</div></div><div class=\"columns-media padded\"><div><div><h2 id=\"what-you-need-to-remember-heading-large\">"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/tiere-als-uebergepaeck",
+  "inserts": [
+   {
+    "replace": "<div class=\"table-striped\">",
+    "text": "<div class=\"table-striped wide-columns\">"
+   }
+  ]
  }
 ]
