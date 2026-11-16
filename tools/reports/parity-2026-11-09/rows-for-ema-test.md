@@ -217,3 +217,13 @@ each stacked column-view item keeps its bottom margin, so www's headings sit abo
 "Book -a-Group" to "Group travel with ITA Airways...", ours 60), -175 px by the tab set. Ours is Columns Media nested
 (your option, held for the German businesstogo pages), whose stacked cells touch on phones. A phone margin for the
 nested cells would be yours to gate with businesstogo; nothing changed here.
+
+## 12. B2B: entertainment-on-board's eJournals picture in Columns Media, from ema-lufthansa (2026-11-16, standing order 31)
+
+Group for Business /de/en/program/experts/on-board/entertainment-on-board,
+1440 (-4.87 % as served, airline hosts refused per request; b2b-parity-007): the eJournals picture in the In-Flight
+Entertainment section's Columns Media. www shows the same file (1440x617_ejournals.png, order 26) in a box about
+608 x 338 px (16:9) with object-fit: cover, so the magazines fill it; ours draws the picture at its own 1440 x 617 ratio,
+622 x 267 px (-71 px). www also keeps 40 px more between "In-Flight Entertainment System" and its text (103 against
+63). Both are Columns Media's picture cell and spacing; no document row stands in for them, so I left the page as it
+is (finish-b2b.txt HOLD; sweep-so30-brands.md, order 31's section, no. 23).

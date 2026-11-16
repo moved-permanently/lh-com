@@ -191,7 +191,7 @@ The two families-and-children page-widths at 1440 (no. 16 and 17) are within 2 %
 | 18 | Brussels be/en check-in-times 390 | -5.52 % | -259 px at the checkin-deadlines block, before "Related topics": the block draws www's check-in deadlines from www.lufthansa.com's labels and catalogue (refused, its no-answer state; www's is about 260 px) | none: live data. The recording is a resize; its phone first load is requested |
 | 19–21 | Group for Business meals-on-board 390 (ch/en, de/en, xx/en) | -5.41 % | www's tab set has a ninth item with no label and no content (51 px), and 22 px more above the tab set | none: the empty item is www's; a rule for the 22 px takes entertainment-on-board's phone page further (order 25) |
 | 22 | Brussels be/en local-page/offers 390 | -4.93 % | as no. 15 | none: live data |
-| 23 | Group for Business entertainment-on-board 1440 | -4.87 % | -71 px: www draws the eJournals picture in a 16:9 box with object-fit: cover (608 x 338), ours at its own ratio (622 x 267); www keeps 40 px more under "In-Flight Entertainment System" | Columns Media: for ema-test's hand-over file (handover-so33-ema-test.txt), no edit by me; added there in this order's second commit, after the two hours since another EMA's commit of that file (fe609b56, 07:51 UTC) |
+| 23 | Group for Business entertainment-on-board 1440 | -4.87 % | -71 px: www draws the eJournals picture in a 16:9 box with object-fit: cover (608 x 338), ours at its own ratio (622 x 267); www keeps 40 px more under "In-Flight Entertainment System" | Columns Media: handed to ema-test in rows-for-ema-test.md, row 12, no edit by me (handover-so33-ema-test.txt had another EMA's commits at 07:51 and 09:11 UTC, inside the two hours) |
 | 24 | Brussels ke/en homepage 1440 | +4.72 % | the fare teaser keeps all 11 of www's routes without fares; www drew the 6 its price service priced (order 30) | none: live data |
 | 25 | Brussels be/en check-in-options-and-info 390 | -4.66 % | -117 px before the footer: www keeps 187 to 248 px from a closing teaser row to the footer on phones, ours 178 | none: the rule takes this page closer but 16 others further, and no scope separates them (orders 22, 25) |
 | 26 | Brussels be/fr extra-services/meals 390 | -4.49 % | -108 px before the footer, the same phone teaser ending | none: as no. 25 |
@@ -201,5 +201,5 @@ The two families-and-children page-widths at 1440 (no. 16 and 17) are within 2 %
 | 30 | Brussels be/en book-a-flight 1440 | +4.09 % | +56 px before the footer: the page ends with a teaser row; at 1440 www keeps 82 px under it, ours 112 (the padded section's 64 px) | none: other teaser endings at 1440 differ the other way (families: www 130, ours 112), so no rule passes |
 
 Of the 18, none has a new row from me. One is ema-test's READY row waiting to go live (no. 29), and one is a Columns
-Media cause for ema-test's hand-over file (no. 23). The rest are live data, owner decisions, www's recorded state, or code causes whose
+Media cause handed to ema-test (no. 23, rows-for-ema-test.md row 12). The rest are live data, owner decisions, www's recorded state, or code causes whose
 rules fail the gate.

@@ -5872,17 +5872,24 @@ path, width):
 - The two families page-widths are within 2 % now (the order-30 row live).
 - **Of the other 18, none has a new row from me:**
   - entertainment-on-board's eJournals crop (no. 23) is Columns Media's picture cell: www uses a 16:9 cover box. It
-    goes to handover-so33-ema-test.txt, with no edit by me. Another EMA committed that file at 07:51 UTC (fe609b56), and
-    my first ship's rebase met it, so I took my lines back out. They go in, in this order's second commit, once its two
-    hours are over.
+    is in rows-for-ema-test.md, row 12, with no edit by me. That is my hand-over list for ema-test. Another EMA committed
+    handover-so33-ema-test.txt at 07:51 and again at 09:11 UTC, so that file stays closed to me until after this order.
   - de/de lhg-history (no. 29) waits for ema-test's READY row.
   - The rest are located and are live data, owner decisions, www's recorded state, or code causes whose rules fail the
     gate (each in the table).
 
 **No shared fix this order:** one document row and one list status, no code.
 
-**Checks:** this commit: `npm run lint`, the folder-reading tests and the full suite in its ship. No theme or block file
-was changed, so stylelint had nothing to check.
+**Checks:**
+- **ae7dc431** (items 1 to 4, committed as 9923ef11):
+  - The first ship (d05d25b8) stopped at its rebase, with nothing pushed. Another EMA had committed
+    handover-so33-ema-test.txt at 07:51 UTC (fe609b56), after I had read the file's last commit from my stale checkout,
+    so my append broke the two-hour rule. I took it back out.
+  - The second ship: `npm run lint` exit 0; the full suite 4628 / 0, then 4628 / 0 after the rebase; lint after each
+    retry rebase (main moved twice); pushed; the smoke afterwards, 0 differences on every host; GitHub Build success.
+- The second commit (rows-for-ema-test.md row 12, the sweep's and this report's pointers to it): lint, the
+  folder-reading tests and the full suite in its ship.
+- No theme or block file was changed, so stylelint had nothing to check.
 
 **Left uncommitted, and why:**
 - `.migration/project.json`: not mine, left as it is.
