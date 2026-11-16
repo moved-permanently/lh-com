@@ -1300,6 +1300,15 @@ body.brand-austrian .table-striped.tight-rows td {
   padding-bottom: 24px;
 }
 
+/* option header: www's maui-table draws its header, a 1 px rule, then 48 px of white above the first row, at every width
+   (ours 40: the option's border on the first row's cells; standing order 50, item 2). The header row itself ends where
+   www's does (accessible-travel 1440: 123 px from the last text line above to the rule on both). +8 px a drawn table:
+   private-check-in-counter 1440 -0.27 -> -0.13 %, 390 +0.06 -> +0.17 %; a table in its 840 px scrolling box does not
+   move (accessible-travel). All 81 served documents with the option: 8 px per drawn table, nothing else */
+body.brand-austrian .table-striped.header tbody tr:first-child > * {
+  border-top-width: 48px;
+}
+
 /* a picture in a full-bleed section fills the width, as www's .image-wrapper.full-width-bg (standing order 27, item 4):
    culinary-services' 1,277 px media stood 1,277 px wide at 1440 (459 px high, www 1,440 x 518); 1440 -1.34 -> -0.64 %,
    the only recorded page-width it moves (at 390 such pictures already fill the width) */
