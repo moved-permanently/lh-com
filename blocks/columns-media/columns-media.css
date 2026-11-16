@@ -1883,12 +1883,12 @@ body.brand-lufthansa .columns-media .columns-media-text:has(> :is(h2, h3, h4) + 
   }
 }
 
-/* lufthansa.com from 768px, a plain Columns Media block (not padded, sidebar, separated or wide-rows): a row whose
-   cells all end with a link keeps 16px more before the next row, 82px (www's business-class-on-short-and-medium-haul,
-   menus-travel-classes and travelling-with-special-requirements at 1440, lh-parity-002: -16px at each such row;
-   standing order 45) */
+/* lufthansa.com from 768px, a plain Columns Media block (not padded, sidebar, separated or wide-rows): a teaser row
+   (a text cell opening with a picture) after a row with a cell ending in a link keeps 16px more above it, 82px (www's
+   business-class-on-short-and-medium-haul, menus-travel-classes, travelling-with-special-requirements and
+   lufthansa-corporate-customers at 1440, lh-parity-002: -16px at each such row; standing order 45) */
 @media (width >= 768px) {
-  body.brand-lufthansa .columns-media:not(.padded, .sidebar, .separated, .wide-rows) > .columns-media-row:has(> div > p.link-wrapper:last-child):not(:has(> div:not(:empty) > :last-child:not(p.link-wrapper))) + .columns-media-row {
+  body.brand-lufthansa .columns-media:not(.padded, .sidebar, .separated, .wide-rows) > .columns-media-row:has(> div > p.link-wrapper:last-child) + .columns-media-row:has(> .columns-media-text > p:first-child picture) {
     margin-top: 16px;
   }
 }
