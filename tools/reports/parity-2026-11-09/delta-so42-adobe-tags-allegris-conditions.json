@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/articles/tags/allegris",
+  "inserts": [
+   {
+    "after": "Discover Now</a></em></p></div></div></div>",
+    "text": "<p>Conditions {copytext-small}</p>"
+   }
+  ]
+ }
+]

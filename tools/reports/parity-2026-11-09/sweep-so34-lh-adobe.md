@@ -209,3 +209,25 @@ logs/b641 (not in git).
 | 93, 95 | /at/de, /de/de frankfurt-fair 390 | 7.6 -> 7.6 | Within 37 px (the stage, then within 18). | None. |
 | 96, 97 | /at/de, /de/de services-am-flughafen 390 | 7.5 -> 7.5 | Within 26 px; the text runs a word wider per line, as #76. | None (the drawing). |
 | 98 | /de/en/articles/authors/florian-tomberg 1440 | 7.5 -> 7.5 | The "Our Authors" cards: www's are 119 px taller (61 px more under the portrait, 42 px more under the text, and a fourth line of text). www's stylesheet has no such space: its card and image components (maui-card height full, maui-image) size themselves. On /de/en/articles/explore-flying at 1440, www's cards are as tall as ours. | No fix passes. A rule with 60 px under the portrait and under the text: florian-tomberg 1440 7.5 -> 2.9 and explore-the-world 1440 8.1 -> 4.2, but florian-tomberg 390 4.5 -> 8.4, explore-flying 1440 1.1 -> 7.4 and 390 8.7 -> 9.2, explore-the-world 390 7.6 -> 8.8. Not shipped. |
+
+## Places 99 to 118 (standing order 42, item 3)
+
+These are the next 20 page-widths of this sweep, measured again as served at 21:15 CET. The sweep's lh-parity-007
+recording of /de/en/articles/explore-the-world 390 is gone, so that page is measured against lh-parity-002's. Drift
+steps, bands and crops are in logs/b642 (not in git).
+
+| Rank | Page-width | Sweep -> now % | Cause (located) | Fix |
+| --- | --- | --- | --- | --- |
+| 99 | /de/en/articles/explore-the-world/in-my-hood-chiswick-london 390 | 7.5 -> 7.5 | Within 23 px until the related cards (+48), then back to 0. Photos. | None. |
+| 100, 101 | /de/en, /gb/en discover-lufthansa/new-onboard-experience 390 | 7.5 -> 7.5 | Within 8 px (as #64): photos and the picture collage. | None. |
+| 102 | /gb/en/services-at-the-airport 390 | 7.5 -> 7.5 | Within 26 px; the text runs a word wider per line (as #76). | None (the drawing). |
+| 103 | /de/en/articles/explore-the-world 390 | 7.4 -> 7.6 (vs lh-parity-002) | (1) 35 px less above "Discover your dream destinations with us!" (as #89 at 1440). (2) The results list holds other articles (+139 from 3,920). | (1) Hand-over item 18 (ema-test). (2) None: content. |
+| 104 | /de/en/articles/explore-the-world/essentials-barcelona-facts 390 | 7.3 -> 7.6 | (1) A paragraph with the inline link "→ history" wraps one line more than www's (the inline link's arrow is wider). (2) The illustration sits 10 px lower. (3) At the article's end, www's "Find flight" is a text link with the small inline arrow; ours is a standalone link (big arrow, 27 px line), 5-10 px lower. (4) 22 px more above "Related Articles". | (1)-(3) Not tonight (under 1 % each). (4) Hand-over item 17. |
+| 105 | /de/en/articles/highlights/allegris-premium-economy-san-diego 390 | 7.3 -> 7.3 | The related cards: newer articles than the recording (+53 to +83 from 5,680). Above them within 16 px. | None: content. |
+| 106 | /de/en/articles/tags/allegris 390 | 7.3 -> 6.9 | (1) The grey band's Allegris teaser lacks its "Conditions" label: gb/en, at/de and de/de got it in the 546 re-import, de/en was not on that list. So the page ends 64-87 px short. (2) Before the band, within 55 px (the article cards). | (1) READY row: delta-so42-adobe-tags-allegris-conditions.txt. As a draft: 1440 10.9 -> 9.0, 390 6.9 -> 3.9. |
+| 107, 108 | /de/en, /gb/en frankfurt-fair 390 | 7.3 -> 7.3 | Within 37 px (the stage), then within 18 (as #93). | None. |
+| 109-111, 114 | /at/de, /de/de, /gb/en, /de/en digital-self-services 390 | 7.2, 7.2, 7.1, 7.0 -> the same | Within 35 px. The step: 21 px less from the separator to "Das könnte Sie auch interessieren" / "You might also be interested in" (www 58 px, ours 37). | Hand-over item 19 (a heading after a separator, ema-test's heading spacing). |
+| 112 | /de/en/100-years/chronicle 390 | 7.0 -> 7.0 | Within 14 px. Photos. | None. |
+| 113 | /de/en/articles/explore-the-world/eat-see-do-algiers 1440 | 7.0 -> 6.9 | Within 20 px. Photos. | None. |
+| 115, 116 | /de/en, /gb/en food-and-beverages 390 | 7.0 -> 7.0 | The English version of #83: 32 px less above the FAQ heading after the last card; one FAQ question wraps a line more. | Hand-over item 18; the rest none. |
+| 117, 118 | /at/de, /de/de articles/highlights/allegris-premium-economy-san-diego 1440 | 6.9 -> 6.9 | (1) www's heading "Zum Download des Posters einfach auf das Bild klicken" runs the page's width (from x 133, one line); ours runs the text column (from x 207) and wraps to two lines: +30. (2) The separator after it is the page's width on www, the text column's on ours. (3) The related cards (as #105). | (1)-(2) Hand-over item 19 (heading width, ema-test's heading rules). (3) None: content. |

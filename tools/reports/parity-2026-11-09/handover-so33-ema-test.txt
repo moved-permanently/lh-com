@@ -121,3 +121,15 @@ Standing order 41 (2026-11-16, ema-adobe's places 79 to 98 of sweep-so34-lh-adob
    - /de/en/articles/explore-the-world/know-before-you-go-algiers and -berlin, 390 (order 41, item 3): ours leaves 8px
      more from a picture paragraph to the next heading ("Payment"), one of the steps that put the button 15px low.
    All are the shared section-gap and heading spacing rules in the site stylesheet.
+
+Standing order 42 (2026-11-16, ema-adobe's places 99 to 118 of sweep-so34-lh-adobe.md; heading findings for ema-test's
+order 45):
+19. Headings, two more shapes:
+   - after a separator: /at/de, /de/de, /gb/en, /de/en digital-self-services, 390 (7.0 to 7.2 %): 21px less from the
+     separator to "Das könnte Sie auch interessieren" / "You might also be interested in" (www 58px, ours 37);
+   - width on article pages: /at/de, /de/de articles/highlights/allegris-premium-economy-san-diego, 1440 (6.9 %): www's
+     heading "Zum Download des Posters einfach auf das Bild klicken" runs the page's width (from x 133, one line);
+     ours runs the text column (from x 207) and wraps to two lines, +30px. The separator after it is the page's width on
+     www too. www's limited-width rule covers .article-details-page h3 and .richtext, not this h2 component.
+   Also more of item 18 (less above a heading after text): /de/en/articles/explore-the-world 390 (35px), /de/en,
+   /gb/en food-and-beverages 390 (32px above the FAQ heading).

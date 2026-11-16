@@ -1,0 +1,14 @@
+# ema-adobe, standing order 42 (2026-11-16), item 3 (place 106 of sweep-so34-lh-adobe.md): /de/en/articles/tags/allegris
+# without its grey band's "Conditions" label. www's Allegris stage teaser has a "Conditions" dialog button under the tile
+# (.stage-teaser > maui-link-button.modal-trigger, an empty dialog). Since 6b98179 (the brief after 546) the cards-teaser
+# parser writes its label as small print after the block ("Conditions {copytext-small}", the user's decision: label
+# only, no dialog). gb/en, at/de and de/de were re-imported with it (reimport-546-allegris.txt); de/en was not on that
+# list, so its band ends about 70px short of www's (the page 7,821 against 7,897 at 390).
+# The row puts the same paragraph after the block, as gb/en's DA copy has it.
+# Tool: tools/importer/text-inserts-apply.mjs --data delta-so42-adobe-tags-allegris-conditions.json (one insert after
+# "Discover Now</a></em></p></div></div></div>", found once). Dry run on DA's current copy (read-only GET, 21:55 CET):
+# 1 inserted; without it DA's copy byte for byte (--check).
+# Gate: the published copy and a draft with the paragraph on our host (--main, the working-copy code), against
+# lh-parity-002 (1440 and 390).
+# status	document	tool	expected change	gate (1440 / 390, %)
+READY	/de/en/articles/tags/allegris	text-inserts-apply (delta-so42-adobe-tags-allegris-conditions.json)	"Conditions" as small print after the Allegris stage teaser, as gb/en	10.9 -> 9.0 / 6.9 -> 3.9

@@ -564,6 +564,21 @@
   margin-bottom: 93px;
 }
 
+/* lufthansa.com author pages (a section with style author), from 1025px: www's cards there are 103px taller
+   (61px more under the portrait, 42px more under the text; www's card and image components size them, its
+   stylesheet has no such space). Not on the Insights hubs, where www's cards are as tall as ours. Standing order 42:
+   /de/en/articles/authors/florian-tomberg 1440 7.5 -> 3.0 %, its page height www's; 390 and the hubs unchanged;
+   the 19 other author pages rendered with and without, no breakage */
+@media (width >= 1025px) {
+  body.brand-lufthansa main:has(> .section.author) .carousel-cards.authors .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-image {
+    padding-bottom: 61px;
+  }
+
+  body.brand-lufthansa main:has(> .section.author) .carousel-cards.authors .carousel-cards-slide:not(.carousel-cards-wide) .carousel-cards-body {
+    padding-bottom: 62px;
+  }
+}
+
 /* video cards (Lufthansa video viewers in a .swiper-multi-slide, /articles/tags/munich
    'Dive Deeper'): the 16:9 poster with the 90px round play button, no card border or shadow */
 .carousel-cards .carousel-cards-slide.carousel-cards-video,
