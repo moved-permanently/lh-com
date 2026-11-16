@@ -413,6 +413,13 @@ body.brand-lufthansa .cards-teaser.three-up:not(.overlay) .cards-teaser-body > .
   background-image: linear-gradient(to bottom, #282828e6, #282828cc, #28272899 66%, #28282866);
 }
 
+/* option horizontal (with overlay, the tiles; standing order 40): www's tiles with .gradient-black-horizontal, dark
+   on the left only, the picture bright on the right (all-it-takes-is-a-yes' "Explore more" tiles, the tags/allegris
+   pages' at/de and de/de tiles; the other tiles in the snapshots are vertical, the overlay default) */
+.cards-teaser.overlay.horizontal:not(.wide) .cards-teaser-image::after {
+  background-image: linear-gradient(to right, #282828cc, #28282800 70%);
+}
+
 .cards-teaser.overlay.wide .cards-teaser-body > p:not(.cards-teaser-cta) {
   font-size: calc(22px + 6 * (100vw - 375px) / 1065);
   font-weight: 300;

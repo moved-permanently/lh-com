@@ -1,0 +1,35 @@
+# Standing order 40 (2026-11-16), item 3: all-it-takes-is-a-yes, what is left of ours once the fare teaser is equal.
+# The fare teaser is live: at 13:05 CET it drew 4 offers on de/en and at/de (sweep as served 20.5 / 20.4 % at 1440); at
+# 15:20 it drew all 7, as www's recording does (486 px on both versions, the page 6,748 / 6,802 px, www 6,737 / 6,791),
+# and the pages read 10.6 / 9.7 % again, their sweep figures. Against the recordings (de/en lh-parity-002, at/de
+# lh-parity-004b) with the teaser at 7 offers:
+# - above the teaser (0 to 3,283 px on de/en): 0.4 %; the teaser itself 3.4 % (its prices);
+# - below it (aligned, 2,978 px): 16.9 % (de/en), 14.6 % (at/de). That is ours.
+#   - The wide stage teaser "Lufthansa Insights - Ready for new adventures?": www draws it under
+#     .gradient-black-vertical, ours under the wide option's horizontal gradient (the same cause as the tags/allegris
+#     pages of order 38).
+#   - The "Explore more" tiles ("Explore the world of flying", "More inspiration on the travel blog"): www draws them
+#     under .gradient-black-horizontal, ours under the overlay tiles' vertical gradient.
+#   - The "To the article" links carry no arrow on www, ours do (small).
+# Fix, two parts:
+# - code (pushed with this list): cards-teaser option horizontal (with overlay, the tiles), www's horizontal gradient.
+#   No published document carries it. Option vertical (order 38) already exists.
+# - rows:
+#   - the wide teaser "overlay wide spacious" -> "... vertical" on all four versions;
+#   - the tiles "overlay spacious" -> "... horizontal" on de/en and gb/en. On at/de and de/de www's tiles are mixed
+#     (one vertical, one horizontal: www's snapshots), so their tiles stay.
+# The census behind it: www's stage-teaser gradients in page order against our overlay cards in page order, on the 24
+# documents with overlay teasers whose counts match (logs/b640/gradient-census.py). Beyond these four and the six
+# tags/allegris pages done in order 38, the at/de and de/de tags/allegris tiles are horizontal on www too. As drafts they
+# measured 10.6 -> 10.6 / 10.7 at 1440 and 6.0 -> 5.9 at 390, nothing gained, so no row.
+# Tool: tools/importer/text-inserts-apply.mjs --data delta-so40-aitiay-teaser-gradients-lh-com.json (a replace of the
+# block's class, found once per copy). Dry run on DA's current copies (read-only GET): 6 inserts on 4 documents; without
+# them DA's copies byte for byte (--check).
+# Gate: the published copies and the drafts on our host with the working-copy code (--local), the same load's fare
+# teaser in both (486 px), against lh-parity-002 (de/en) and -004b (gb/en, at/de, de/de). de/en with the vertical
+# option only: 7.5 at 1440, so the tiles' option takes 0.9 more.
+# status	document	tool	expected change	gate (1440 / 390, %)
+READY	/de/en/articles/highlights/all-it-takes-is-a-yes	text-inserts-apply (delta-so40-aitiay-teaser-gradients-lh-com.json)	the wide teaser vertical, the "Explore more" tiles horizontal, as www	10.6 -> 6.6 / 13.8 -> 13.4
+READY	/gb/en/articles/highlights/all-it-takes-is-a-yes	text-inserts-apply (delta-so40-aitiay-teaser-gradients-lh-com.json)	as de/en	10.6 -> 6.6 / 14.0 -> 13.6
+READY	/at/de/articles/highlights/all-it-takes-is-a-yes	text-inserts-apply (delta-so40-aitiay-teaser-gradients-lh-com.json)	the wide teaser vertical (the tiles are mixed on www and stay)	9.7 -> 6.6 / 13.1 -> 12.8
+READY	/de/de/articles/highlights/all-it-takes-is-a-yes	text-inserts-apply (delta-so40-aitiay-teaser-gradients-lh-com.json)	as at/de	9.7 -> 6.6 / 13.1 -> 12.8

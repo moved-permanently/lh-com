@@ -1,0 +1,46 @@
+[
+ {
+  "path": "/de/en/articles/highlights/all-it-takes-is-a-yes",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser overlay wide spacious\">",
+    "text": "<div class=\"cards-teaser overlay wide spacious vertical\">"
+   },
+   {
+    "replace": "<div class=\"cards-teaser overlay spacious\">",
+    "text": "<div class=\"cards-teaser overlay spacious horizontal\">"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/all-it-takes-is-a-yes",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser overlay wide spacious\">",
+    "text": "<div class=\"cards-teaser overlay wide spacious vertical\">"
+   },
+   {
+    "replace": "<div class=\"cards-teaser overlay spacious\">",
+    "text": "<div class=\"cards-teaser overlay spacious horizontal\">"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/highlights/all-it-takes-is-a-yes",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser overlay wide spacious\">",
+    "text": "<div class=\"cards-teaser overlay wide spacious vertical\">"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/articles/highlights/all-it-takes-is-a-yes",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser overlay wide spacious\">",
+    "text": "<div class=\"cards-teaser overlay wide spacious vertical\">"
+   }
+  ]
+ }
+]
