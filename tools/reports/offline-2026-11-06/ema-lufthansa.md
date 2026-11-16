@@ -5965,3 +5965,59 @@ No CSS changed, so stylelint had nothing to check.
 - Reads came from our hosts, the drop (four archives, their sidecars, existence checks of eight names) and DA (one
   document GET).
 - No da-upload.mjs call, no upload, preview or publish by me. /de/en/overview-manage got no row.
+
+## Standing order 33 (2026-11-16, about 13:40 to 17:30 CET), with its final section
+
+**At the start:** nothing of mine was uncommitted or unpushed; order 32's 9f4f002e was on main. `.migration/project.json`
+was modified, not by me, and is left as it is.
+
+**Item 1, the archives named:**
+- Each sha256 is equal to the order's and to its sidecar: ita-parity-011 840ed65a…8fba1, brussels-parity-013
+  901c77e4…79f8b1, b2b-parity-014 53206b38…e89f.
+- brussels-parity-012 (d9ec3340…080e, as its sidecar) was recorded on 2026-11-15 at about 17:55 UTC. It already held
+  13 of order 31's lines; I hadn't fetched it, so those lines asked again for what it holds.
+- gate-so32-captures.md and the business-class list now name the archives.
+- **The three incomplete pictures on business-class-medium-haul 390:** our live page (the row live, round 495) matches
+  that recording within 20 px at every heading, so they moved no layout.
+
+**Item 2, the next 40 capture lines** (capture-requests-ema-lufthansa.txt, order 33's section):
+- With every archive fetched, 115 recorded phone page-widths of my brands still have only a resize: Group for Business
+  49, Brussels 37, ITA 26, SWISS 3, Discover none.
+- The worst 39 reach down to 0.52 %. The 40th line is bike-the-city 390, whose first load decides the row in item 3.
+- **SWISS:** /ch/en/prepare (+1.21 %) and /ch/en/help-center (+0.86 %) are among the 40; /ch/en/book-and-manage
+  (-0.39 %) is not.
+
+**Item 3, ranks 51 to 70 of sweep-so30-brands.md** (its order-33 section, captured again):
+- be/en families 390 is within 2 % now.
+- **Connecting-africa 1440:** www's "Related topics" opens a section of its own. Row READY
+  (delta-so33-brussels-connecting-africa-related-section.txt, a section break on DA's copy, backup named, with a test).
+  - 1440: -2.54 -> -0.80 %.
+  - 390: +0.71 -> +1.14 %, 0.43 points further: within the band-end gate's 0.5. Order 22 had held it under the older
+    gate.
+- **Bike-the-city 1440:** DA's copy runs the six bold city headings into their text; www sets each on a line of its
+  own. A row is drafted (delta-so33-brussels-bike-the-city-heading-breaks.txt, with a test), but it is HOLD.
+  - 1440: -2.28 -> +0.66 %.
+  - 390: 0.81 points further against a resized recording, which fails the gate. Its phone first load is requested.
+- **De/de dsar-start:** within 2 % as a visitor sees it (-0.18 % with the Turnstile box). capture.js leaves that
+  third-party box out.
+- **The other 16 are located and have no fix:**
+  - the phone and 1440 teaser endings, and the sidebar-h1 accordion endings: their rules fail the gate;
+  - the brand font, the ads and the form's bot check: owner decisions;
+  - kuala-lumpur's table: www's recorded state;
+  - partner-plus-benefit's modal: it needs a document of its own.
+- No Columns Media cause in these 20.
+
+**Checks:** this commit (the two Brussels rows and their tests, the capture lines, the gate and sweep sections, the
+finish rows, the business-class list's header, this report): `npm run lint`, the folder-reading tests and the full suite
+in its ship. No CSS changed, so stylelint had nothing to check.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git), kept out on purpose:
+  - DA's copies read today (lh-brussels bike-the-city about 12:40 UTC, connecting-africa about 12:45 UTC);
+  - the drafts, the captures and the logs.
+
+**Hosts:**
+- Every browser load refused airline hosts per request.
+- Reads came from our hosts, the drop (existence checks of seven names) and DA (two document GETs).
+- No da-upload.mjs call, no upload, preview or publish by me. /de/en/overview-manage got no row.

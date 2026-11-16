@@ -1,0 +1,34 @@
+{
+ "/be/en/articles/bike-the-city": [
+  {
+   "from": "</strong>With a flight time",
+   "to": "</strong><br>With a flight time",
+   "count": 1
+  },
+  {
+   "from": "</strong>Less than an hour",
+   "to": "</strong><br>Less than an hour",
+   "count": 1
+  },
+  {
+   "from": "</strong>Barcelona lies only",
+   "to": "</strong><br>Barcelona lies only",
+   "count": 1
+  },
+  {
+   "from": "</strong>Munich is just",
+   "to": "</strong><br>Munich is just",
+   "count": 1
+  },
+  {
+   "from": "</strong>Valencia offers an",
+   "to": "</strong><br>Valencia offers an",
+   "count": 1
+  },
+  {
+   "from": "</strong>In 2 hours you fly",
+   "to": "</strong><br>In 2 hours you fly",
+   "count": 1
+  }
+ ]
+}

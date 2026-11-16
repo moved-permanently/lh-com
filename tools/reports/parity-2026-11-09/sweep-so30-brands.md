@@ -234,3 +234,42 @@ each with its located cause and its fix, or the reason there is none.
 
 One is a Columns Media cause handed to ema-test (no. 36, rows-for-ema-test.md row 13). The other 18 are live data,
 owner decisions, font rendering, or code causes whose rules fail the gate.
+
+## Standing order 33: ranks 51 to 70, captured again
+
+Captured again on 2026-11-16 at about 12:35 UTC (capture.js, airline hosts refused per request, the same recordings).
+Brussels be/en families-and-children 390 (no. 53) is within 2 % now (+0.11 %, its order-30 row live). That leaves 19,
+each with its located cause and its fix, or the reason there is none.
+
+| # | page-width | now | located cause | fix |
+|---|---|---|---|---|
+| 51 | Brussels chase-the-sun-across-spain 390 | +2.73 % | +331 px before the footer: the eclipse city list about +215 px above "Ready to explore Spain?", and the closing flight-search band +103 px (its subheading on three lines, www two; the widget's fields); -102 px before "Good to know" | none: one page; the flight-search band's fields are live data, and the city list's extra length is the list's own wrap at 390 |
+| 52 | Discover de/de services-on-board/entertainment 390 | +2.73 % | +51 px at "Kopfhörer": each picture-and-text row wraps a line differently (Onboard Cloud 6 lines against 5) | none: the brand-font owner decision (row 49: our lufthansatext against www's older LufthansaText) |
+| 54 | Brussels be/fr check-in-options-and-info 390 | -2.68 % | -66 px before the footer: the phone teaser ending (www 187 to 248 px, ours 178) | none: the rule fails the gate on 16 other pages (order 22) |
+| 55 | Brussels be/en jobs/core-values 390 | +2.60 % (+2.72 % against brussels-parity-012's first load) | about 20 px more at each of the five sections (+25, +13, +19, +19 before their H2s, +39 before the footer) | none: the sections' phone spacing, within 2 % on every other Brussels page, so not one rule |
+| 56 | Brussels be/fr book-a-flight 1440 | +2.55 % | +36 px before the footer: the closing teaser row, where www keeps 82 px and ours 112 | none: other teaser endings at 1440 differ the other way (families: www 130, ours 112), so no rule passes |
+| 57 | Brussels be/en book-a-flight/connecting-africa 1440 | -2.54 % | -165 px before "Related topics": www opens a section of its own for it (about 160 px under the cards), DA's copy keeps it in the page's only section | **row READY:** delta-so33-brussels-connecting-africa-related-section.txt, a section break before the heading. 1440 -2.54 -> -0.80 %, 390 +0.71 -> +1.14 % (0.43 points further, within the band-end gate's 0.5; held in order 22 under the older gate) |
+| 58 | Brussels be/fr checked-baggage 390 | -2.48 % | narrow-titles and the button wrap live; the rest is spread over the tab panels' tables (www's cells 200 px and scrolling sideways, ours wrapping) | none: the table rule fails the gate (order 22) |
+| 59 | Discover de/en services-on-board/entertainment 1440 | -2.47 % | -43 to -53 px per picture-and-text row: the same line wraps as no. 52 | none: the brand-font owner decision |
+| 60 | Brussels be/en short-notice-eu-us 1440 | -2.45 % | -34 px before "Frequently asked questions": a sidebar-h1 page ending with an accordion | none: five legal pages end the same way with ours as www's (order 22) |
+| 61 | Group for Business de/de partner-plus-benefit 390 | -2.44 % | spread: shorter text paragraphs (-57 / -28 / -43 px), longer button-to-heading gaps (+22, +6), and www's "Konditionen" link under the closing BusinessToGo teaser (a modal trigger, about 50 px) that the import dropped | none without a new document: the modal's text needs a modal fragment of its own (order 28, HOLD) |
+| 62 | Brussels be/fr checked-baggage 1440 | -2.44 % | -57 px before "Comment puis-je acheter des bagages supplémentaires" (the tab panels' tables) and -58 before the footer, +40 at "Bon à savoir" | none: spread; the table rule fails the gate |
+| 63 | Group for Business kuala-lumpur 390 | +2.43 % (b2b-parity-013's phone first load) | www's recorded flight table rows, about 280 px tall and mostly empty, as at 1440 | none: www's recorded state |
+| 64 | Brussels de/de legal-notices/dsar-start 1440 | -2.35 % | -30 px at the sidebar's H1 (reimport-588), -39 before section 3. capture.js refuses every host but ours, so it leaves out the Cloudflare Turnstile box (71 px) that our form draws for a visitor. With host-eval, which lets non-airline hosts through, the page is 3266 (-0.18 %) | none needed: within 2 % as a visitor sees it |
+| 65 | SWISS magazine en a350-special-livery 1440 | -2.34 % | www's ad slots | none: owner decision |
+| 66 | Brussels il/en rebooking-request-birthright 1440 | +2.32 % | our form's Cloudflare Turnstile box (71 px), which www's form has not (ranking-588) | none: our form's bot check, the owner's choice |
+| 67 | Brussels it/it extra-services/meals 390 | -2.31 % (the same against brussels-parity-012's first load) | the phone teaser ending | none: as no. 54 |
+| 68 | Brussels it/it special-assistance-legal-guidelines 390 | -2.30 % (the same against brussels-parity-012) | -27 px: the sidebar-h1 accordion ending | none: as no. 60 |
+| 69 | Brussels be/en extra-services/meals 390 | -2.30 % | -48 px before the footer: the phone teaser ending | none: as no. 54 |
+| 70 | Brussels be/en articles/bike-the-city 1440 | -2.28 % | -86 px before the footer, all in the text under the photo galleries: www puts each of the six bold city headings on a line of its own ("<b>Munich: ...<br></b>"), DA's copy runs them into the text | **row HOLD:** delta-so33-brussels-bike-the-city-heading-breaks.txt. 1440 -2.28 -> +0.66 %, but 390 0.81 points further against its only phone recording, a resize. Its phone first load is the 40th of order 33's capture lines |
+
+**Result:**
+- **Two rows:**
+  - connecting-africa, READY;
+  - bike-the-city, HOLD until its phone first load.
+- **No Columns Media cause in these 20,** so nothing new for rows-for-ema-test.md.
+- **The rest have no fix:**
+  - live data;
+  - owner decisions: the brand font, the ads, the form's bot check;
+  - www's recorded state;
+  - code causes whose rules fail the gate.
