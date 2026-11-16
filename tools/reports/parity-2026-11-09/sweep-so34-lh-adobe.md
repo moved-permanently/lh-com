@@ -140,3 +140,25 @@ not in git).
 | 35 | /de/en/100-years/fleet 1440 | 11.4 | The aircraft rows: our text column about 625 px wide, www's about 410 (Columns Media), so the rows end 30-99 px shorter. | Columns Media: hand-over item 15. |
 | 36 | /de/en/munich-fair 1440 | 11.3 | (1) The last section's two text columns stand side by side on www and stacked in ours (+90 px). (2) The grey section's heading wraps in ours (two lines, www one). | (1) Hand-over item 15 (a two-column Columns Media block). (2) The headings' two-thirds width on campaign pages (brief 506), not tonight. |
 | 37 | /de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day 390 | 11.1 | Steps of -22 to +24 px; pictures and dense text. | None: under 1 % of the page. |
+
+## Places 39 to 58 (standing order 39, item 4)
+
+These are the next 20 page-widths of this sweep after the ones order 38 covered (its ranks 11 to 37). Each was
+measured again as served at 12:10 CET with the same method, with its drift steps and www's bd-snapshots (logs/b639,
+not in git).
+
+| Rank | Page-width | Sweep -> now % | Cause (located) | Fix |
+| --- | --- | --- | --- | --- |
+| 39, 47 | /de/en, /at/de articles/highlights/all-it-takes-is-a-yes 1440 | 10.6 -> 20.5, 9.7 -> 20.4 | The fare teaser ("Our recommendations") is a live box: today our host drew 4 offers in it, where www's recording and our de/de copy drew 7. That makes the page 132-142 px short from y 3,440 on. The rest as #40. | No fix: live fares, which this machine doesn't ask for; the next load can draw 7 again. |
+| 40, 48 | /gb/en, /de/de articles/highlights/all-it-takes-is-a-yes 1440 | 10.6 -> 10.6, 9.7 -> 9.7 | www's recording draws this campaign's headings in a fallback face (Arial-like, as 100-years, order 34 #10); drift within 16 px. | No fix: the recording's face. |
+| 41 | /gb/en/articles/tags/allegris 1440 | 10.6 -> 9.0 | The wide teaser's gradient. | Fixed: order 38's vertical row, live. |
+| 42 | /de/en/100-years/campaigns 390 | 10.4 -> 10.4 | The poster slider stands 35 px nearer its heading than on www (www 85 px from the subheading to the first poster, ours 50). Below it the text follows at www's distance (71 / 70 px). www's headings are in the recording's fallback face. | Not tonight: the slider's space above it on this one campaign page; it needs its own gate. |
+| 43-45 | /at/de, /de/de, /gb/en overview-travel-information 390 | 10.1 -> 10.1 | www's 390 recordings have the Lufthansa Chat Assistant panel open over the top of the page (the 0-800 px bands 57-67 % off). Below it the page is within 6 px. | No fix: the recording's state. |
+| 46 | /de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day 390 | 10.0 -> 9.8 | Steps of -23 to +24 px; the figure is photos a few pixels off. | None. |
+| 49, 53-55 | /de/en, /gb/en, /at/de, /de/de 100-years/crane 390 | 9.5, 9.5, 9.4, 9.4 | www's 5 picture captions are missing (our copies have 0), plus www's recorded fallback face. Drift within 14 px, then -55 near the end. | The 100-years captions stay as they are on the owner's word (order 31); the face is the recording's. |
+| 50 | /de/en/100-years/history/menu-on-board 390 | 9.5 -> 9.5 | 12 picture captions missing (www 12, ours 0); the top matches. | As #49. |
+| 51 | /de/en/articles/explore-the-world/be-picky-barcelona-insider-tips 390 | 9.5 -> 9.8 | The pictures and captions sit 4-8 px lower than www's; the figure is the photos' detail at that offset. | None. |
+| 52 | /de/en/articles/highlights/allegris-premium-economy-san-diego 1440 | 9.5 -> 9.5 | The video: www's recording shows a frame of the playing video (its player had loaded the stream, full 16:9). Ours shows the poster, the same portrait file (1920x823) www's player names as its poster, letterboxed in the 16:9 box. | No fix: a moment of the video, not a layout difference. |
+| 56 | /de/en/articles/explore-flying/flying-high-christoph-quarch 390 | 9.3 -> 9.3 | (1) The author quote runs a line shorter than www's (www indents it 16 px on both sides, ours on the left only), -31 px. (2) 16 px less from the first picture to the text below it. | (1) **Shipped with item 2:** the quote's right margin on phones, 9.3 -> 5.6. (2) Not tonight. |
+| 57 | /de/en/articles/explore-the-world/eat-see-do-algiers 390 | 9.2 -> 9.2 | The "This may also be of interest to you" cards: each picture 2 px taller than www's; within 32 px overall. | None. |
+| 58 | /de/en/book-and-manage/stopover/zugspitze 390 | 8.9 -> 8.9 | 32 px more after the map (a columns-media sidebar block with-map) than on www; the map is the same height. | Columns Media: hand-over item 16. |

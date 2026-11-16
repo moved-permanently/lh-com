@@ -1251,6 +1251,15 @@ main:has(.article-header) .default-content-wrapper > blockquote {
   padding: 0;
 }
 
+/* ... on phones .mx-3 on both sides: 16px on the right too (standing order 39; ours ran a line shorter than www's,
+   christoph-quarch 390 9.3 -> 5.6 %; the 10 recorded articles with a quote closer or within 0.1, the 591 unrecorded
+   ones rendered with and without at 390 and 1440, no breakage) */
+@media (width < 768px) {
+  main:has(.article-header) .default-content-wrapper > blockquote {
+    margin-right: 16px;
+  }
+}
+
 /* .quote-text: LufthansaHead bold 2.8-3.6rem, line-height 110% */
 main:has(.article-header) .default-content-wrapper > blockquote > :first-child {
   margin: 0;
