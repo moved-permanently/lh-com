@@ -4972,3 +4972,53 @@ State at the start: nothing of mine uncommitted or unpushed (order 35's final se
 - Not in git and why: logs/p4/so36 (scratch: captures, gates, renders, folder copies, DA copies), the drops in /tmp
   (private material), content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not mine, kept). Preview servers 3091-3094
   stopped, trial and suite worktrees removed.
+
+## Standing order 37 (received about 03:05 UTC, 2026-11-16)
+
+State at the start: nothing of mine uncommitted or unpushed (order 36's final section on main, 36b70437).
+
+1. **Order 36's rows as served** (delta-so36 corrected; f2754879). Six read exactly as gated:
+   - lufthansa-aviation-group 1440 5.37 %, 390 14.13 %. The 48 px at 1440 are the option's two row gaps; phones are
+     unchanged by design.
+   - internet-overview 5.16 / 13.68 %. The page keeps its height because the stage is 640 px whatever the size of its
+     text.
+   - unterhaltung-an-bord 11.20 / 13.79 %, travelling-healthy 6.80 / 11.52 %, lounge-companions 4.00 / 7.08 %.
+   - fleet/351 11.76 / 13.68 %. The first 1440 load read 13.79 with a lazy picture still pending.
+
+   carry-on-baggage reads 1440 16.09 → 7.31 %, 390 6.48 %. Its gate said 18.58 → 10.57 with the same +171 px change.
+   The reason: html-folder pages are served without a doctype, so quirks mode, where its superscript-only footnote
+   lines stand 19 px apart (27 px on the served page). The folder base was 49 px short. From now on gates use full
+   pages in the folder (the host's served HTML with <main> replaced), which read exactly the host's figures.
+2. **The three items left in order 36** (c4a20196):
+   - fleet/351's seat map: a wide slideshow right under its heading now stands 25 px under it and 50 px from the next
+     heading (Carousel Lightbox, lufthansa.com): 1440 11.76 → 7.22 %, 390 13.68 → 8.66 %. Option wide is in the 16
+     fleet/351 documents only (census of the current copies of all 520 slideshow documents). The 15 unrecorded ones
+     rendered with and without in one load: -52 / -88 px, nothing else changed.
+   - advance-seat-reservations-terms' first teaser row: a new section style, gap-after-small-768 (24 px from 768 px
+     only), and its READY row: 1440 6.23 → 2.17 %, 390 unchanged. gap-after-small at both widths took 390 to 7.11.
+   - The regular stage's title: all 9 recorded pages with a Hero Campaign regular were compared at both widths. Since
+     the no-subtitle row, internet-overview's title is within about 4 px of www's at 390 and 1 px at 1440. The 20 px
+     came from the text being set as a subtitle. No page shows a shared offset, so there is no shared fix.
+3. **The info page-widths between 5 and 10 %** (sweep-so37-lh-info-5-10.md; 2e7184c0): 220 re-measured as served, the
+   ten worst located.
+   - Fixed by READY rows: schengen (1440 8.57 → 4.69, 390 9.92 → 6.88), ana (1440 9.38 → 6.40, 390 8.54 → 8.48)
+     and tiere-als-uebergepaeck (390 9.68 → 9.62, order 36's wide-columns option).
+   - No layout fix: arrival-services (a sub-pixel text-width difference wraps two last words), Frankfurt airport (the
+     document's wording differs from the recording's), first-class 1440 (refused map tiles).
+   - Located, not shipped: the arrow on mailto links (doctor-on-board-news), wrapped link lines (affiliatemarketing),
+     and gefaehrliche-gegenstaende's legend and accordion widths. Each reaches hundreds of documents and needs its
+     census and gate. airline-apps' tiles are not located to a rule.
+
+## Standing order 37, final section (about 04:40 UTC, 2026-11-16)
+
+- Items 1-3 done. Left: the four shared causes named in item 3.
+- Before this section: lint and the full suite in a fresh worktree of 2e7184c0: npm run lint 0, stylelint 0, 1203 of 1203 test files passed; the folder-reading tests with brand.test.mjs; the whole-repo lint read before every
+  push.
+- advance-seat's row was uploaded by the helpers after c4a20196: DA's copy now equals the checked copy plus the row.
+- Nothing uploaded, previewed or published by me. DA read only (lufthansa.com advance-seat-reservations-terms,
+  schengen, ana, tiere-als-uebergepaeck). da-upload.mjs not run. Requests only to our own hosts, DA (reads) and GitHub's
+  API; no request to www or any airline host. .migration/project.json not touched; the excluded manage page has no row
+  and no line.
+- Not in git and why: logs/p4/so37 (scratch: captures, gates, DA copies, folder pages), the drops in /tmp (private
+  material), content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not mine, kept).
+  Preview servers 3091-3094 stopped, trial and suite worktrees removed.
