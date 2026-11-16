@@ -57,3 +57,10 @@ Standing order 36 (2026-11-16, ema-adobe's places 11 to 30 of sweep-so35-lh-rest
 12. /de/en/359, 390 (7.8 %): "Technical data" sits 38px lower than www's. It follows the seat-map download view (a
    heading with both outer marks, then the PDF links), the nested outer view that order 36 item 2 found on 744. The
    space after a view before the next section (the shared section-gap rules).
+13. /de/en/online-check-in, 1440 (5.8 % after this order's teaser rule): the grey app band "Simply travel smarter with
+   the Lufthansa app" is a columns-media block. Three differences:
+   - our title column is wider: "Simply travel smarter with the" fits one line, www breaks after "with";
+   - the phone picture and the QR code stand about 32px higher than www's;
+   - after the band, "You can check in online from 30 hours before departure." is about 17px higher. The tabs and
+     form below follow it, 20px higher.
+   Columns Media, then the shared section gap after a grey section.
