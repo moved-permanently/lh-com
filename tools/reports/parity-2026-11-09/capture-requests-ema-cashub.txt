@@ -154,3 +154,13 @@ https://www.airdolomiti.de/artikel/reiseziele/die-wilde-seite-der-adria	390	+1.1
 https://www.austrian.com/content/dam/aua/images/plan/baggage/electronic-devices-and-batteries/baggage-electronic-devices-flugmodus-2x1.jpg	-	the original; www answered 404 for it on 2026-11-10 08:11 CET (tools/importer/austrian-missing-assets.json)
 https://www.austrian.com/content/dam/aua/images/plan/baggage/electronic-devices-and-batteries/baggage-electronic-devices-flugmodus-2x1.jpg.transform/lh-dcep-transform-width-2560/img.jpg	-	the rendition the row would use (404 on 2026-11-10)
 /at/en/plan/special-requirements/medical-travel-companions	1440	only if the picture answers 200: does www draw it on the second card, "Electronic devices" (it did not in austrian-parity-003)?
+# Standing order 51 (2026-11-16, ~15:50 CET): answered by austrian-parity-030: es/en and us/en 390; ba, bg, cy, dk, gr, hr, iq, ir, jo, lt, mk /en at 390 and 1440 (www draws the AI band on all: eleven rows READY in delta-so51-austrian-ai-rows.txt); be/en at both widths (no band); at/en and at/de 1440 (places 113 and 111: today's flight search, both pass as served). us/en 390 also showed the hero picture on phones (delta-so51-austrian-us-hero-mobile-image.txt). The medical picture's two URLs: 404 text/html, a one-byte body, so the row is closed as no fix and its three request lines above are answered.
+# New: first loads for places 131 to 134 of sweep-so51-places-131-150.txt. One load per page and width, as the ones above.
+/nl/en/homepage	390	place 131 (+1.23 % against austrian-parity-009's resize of 2026-11-10, before www's band): does www draw the AI band here? 15 of the 18 English homepages loaded today do (not be/en, de/en, at/en)
+/nl/en/homepage	1440	as its 390: a row needs every recorded width, and the 1440 recording (austrian-parity-009) predates the band
+/no/en/homepage	390	place 132: as /nl/en/homepage 390
+/no/en/homepage	1440	as its 390
+/se/en/homepage	390	place 133: as /nl/en/homepage 390 (austrian-parity-010's resize)
+/se/en/homepage	1440	as its 390
+/si/en/homepage	390	place 134: as /se/en/homepage 390
+/si/en/homepage	1440	as its 390

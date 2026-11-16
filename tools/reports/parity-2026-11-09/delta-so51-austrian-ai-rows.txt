@@ -1,0 +1,49 @@
+# Apply (standing order 51): node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so51-austrian-ai-rows.json --list this file --docs <DA's copies, <path>.html> --out <dir> [--check]. Only the READY rows' paths are applied (the tool reads READY / HOLD). One insert per page, the same as order 50's: order 42's block ask-ai-flights right after the flight-search block, in its section, its button linking to the market's www homepage. Taking it out gives DA's copy back byte for byte (the tool says so); a copy with it already: "present".
+# DA backup folder (standing order 39): before a row is applied, DA's copy goes to /.token-free-backup/2026-11-austrian-so51-ai-rows/<path>.html (lh-austrian; read back equal before the upload).
+# Dry run on DA's current copies (twelve single GETs, ~15:10 CET; es/en equal to order 50's copy byte for byte): every path "1 inserted, 0 present" and "without the inserts DA's copy byte for byte: true"; a second run on the results "0 inserted, 1 present".
+# ema-cashub, standing order 51, item 1: your Captures child's austrian-parity-030 (2026-11-16 ~14:38 to ~14:48 CET, 28 separate first loads about 20 s apart, HTTP 200, each picture as tall as its scrollHeight; sha256 be16f696... as given, the manifest's 377 file hashes match; its README is boilerplate of 2026-11-09, the manifest says loadedSeparately on every width). www's "Ask AI for flights" band is in the saved document and its shadow-DOM copy of all eleven pages at both widths and of es/en and us/en at 390; not in be/en's, at/en's or at/de's.
+# es/en: order 50's HOLD row, the same insert, now gated at 390 against today's first load; it stays HOLD in order 50's list and is READY in this one. The eleven: new rows, the same insert with their market's link.
+# Gate: drafts of the served copies on austrian.turnsthe.page (/tmp/so39/hostv.mjs with the document replaced, served code, unhinted, EAGER=1 CONSENT=1; lh-proxy, www.* but www.mynewsdesk.com and every airline host refused and counted: 18 to 24 a render, none sent); the controls (ba/en 1440, mk/en 390) equal the served pages to the px. The draft of order 50's eg/en from the same script equals live eg/en byte for byte. READY = every recorded width of the document ends closer or within 0.5 points, unrecorded widths with their scroll width. The band draws 124 px at 1440, 210 at 390, 148 at 768, as on the three live rows.
+# With item 2's phone button rule (if live) every 390 figure here is 14 px less: 6,057 (+0.46 %), footer top 4,987 (+0.48 %).
+#
+# status	path	width	recording	www page	as served	with the row	www footer top	footer top as served	footer top with the row	note
+READY	/es/en/homepage	1440	austrian-parity-029 (first load, 2026-11-16)	4869	4,722 (-3.02 %)	4,846 (-0.47 %)	4055	3,908 (-3.63 %)	4,032 (-0.57 %)	as order 50's figure (today again)
+READY	/es/en/homepage	390	austrian-parity-030 (first load, 2026-11-16)	6029	5,861 (-2.79 %)	6,071 (+0.70 %)	4963	4,791 (-3.47 %)	5,001 (+0.77 %)	order 50's HOLD: its only 390 was austrian-parity-008's pre-band resize (5,790); today's first load draws the band
+READY	/es/en/homepage	768	- (not recorded)	-	-	5545	-	-	4579	scroll width 768; the band draws 96 px plus its margin, as on eg/en, am/en
+READY	/ba/en/homepage	1440	austrian-parity-030 (first load, 2026-11-16)	4869	4,722 (-3.02 %)	4,846 (-0.47 %)	4055	3,908 (-3.63 %)	4,032 (-0.57 %)	
+READY	/ba/en/homepage	390	austrian-parity-030 (first load, 2026-11-16)	6029	5,861 (-2.79 %)	6,071 (+0.70 %)	4963	4,791 (-3.47 %)	5,001 (+0.77 %)	
+READY	/ba/en/homepage	768	- (not recorded)	-	-	5545	-	-	4579	scroll width 768; the band draws 96 px plus its margin, as on eg/en, am/en
+READY	/bg/en/homepage	1440	austrian-parity-030 (first load, 2026-11-16)	4869	4,722 (-3.02 %)	4,846 (-0.47 %)	4055	3,908 (-3.63 %)	4,032 (-0.57 %)	
+READY	/bg/en/homepage	390	austrian-parity-030 (first load, 2026-11-16)	6029	5,861 (-2.79 %)	6,071 (+0.70 %)	4963	4,791 (-3.47 %)	5,001 (+0.77 %)	
+READY	/bg/en/homepage	768	- (not recorded)	-	-	5545	-	-	4579	scroll width 768; the band draws 96 px plus its margin, as on eg/en, am/en
+READY	/cy/en/homepage	1440	austrian-parity-030 (first load, 2026-11-16)	4869	4,722 (-3.02 %)	4,846 (-0.47 %)	4055	3,908 (-3.63 %)	4,032 (-0.57 %)	
+READY	/cy/en/homepage	390	austrian-parity-030 (first load, 2026-11-16)	6029	5,861 (-2.79 %)	6,071 (+0.70 %)	4963	4,791 (-3.47 %)	5,001 (+0.77 %)	
+READY	/cy/en/homepage	768	- (not recorded)	-	-	5545	-	-	4579	scroll width 768; the band draws 96 px plus its margin, as on eg/en, am/en
+READY	/dk/en/homepage	1440	austrian-parity-030 (first load, 2026-11-16)	4869	4,722 (-3.02 %)	4,846 (-0.47 %)	4055	3,908 (-3.63 %)	4,032 (-0.57 %)	
+READY	/dk/en/homepage	390	austrian-parity-030 (first load, 2026-11-16)	6029	5,861 (-2.79 %)	6,071 (+0.70 %)	4963	4,791 (-3.47 %)	5,001 (+0.77 %)	
+READY	/dk/en/homepage	768	- (not recorded)	-	-	5545	-	-	4579	scroll width 768; the band draws 96 px plus its margin, as on eg/en, am/en
+READY	/gr/en/homepage	1440	austrian-parity-030 (first load, 2026-11-16)	4869	4,722 (-3.02 %)	4,846 (-0.47 %)	4055	3,908 (-3.63 %)	4,032 (-0.57 %)	
+READY	/gr/en/homepage	390	austrian-parity-030 (first load, 2026-11-16)	6029	5,861 (-2.79 %)	6,071 (+0.70 %)	4963	4,791 (-3.47 %)	5,001 (+0.77 %)	
+READY	/gr/en/homepage	768	- (not recorded)	-	-	5545	-	-	4579	scroll width 768; the band draws 96 px plus its margin, as on eg/en, am/en
+READY	/hr/en/homepage	1440	austrian-parity-030 (first load, 2026-11-16)	4869	4,722 (-3.02 %)	4,846 (-0.47 %)	4055	3,908 (-3.63 %)	4,032 (-0.57 %)	
+READY	/hr/en/homepage	390	austrian-parity-030 (first load, 2026-11-16)	6029	5,861 (-2.79 %)	6,071 (+0.70 %)	4963	4,791 (-3.47 %)	5,001 (+0.77 %)	
+READY	/hr/en/homepage	768	- (not recorded)	-	-	5545	-	-	4579	scroll width 768; the band draws 96 px plus its margin, as on eg/en, am/en
+READY	/iq/en/homepage	1440	austrian-parity-030 (first load, 2026-11-16)	4869	4,722 (-3.02 %)	4,846 (-0.47 %)	4055	3,908 (-3.63 %)	4,032 (-0.57 %)	
+READY	/iq/en/homepage	390	austrian-parity-030 (first load, 2026-11-16)	6029	5,861 (-2.79 %)	6,071 (+0.70 %)	4963	4,791 (-3.47 %)	5,001 (+0.77 %)	
+READY	/iq/en/homepage	768	- (not recorded)	-	-	5545	-	-	4579	scroll width 768; the band draws 96 px plus its margin, as on eg/en, am/en
+READY	/ir/en/homepage	1440	austrian-parity-030 (first load, 2026-11-16)	4869	4,722 (-3.02 %)	4,846 (-0.47 %)	4055	3,908 (-3.63 %)	4,032 (-0.57 %)	
+READY	/ir/en/homepage	390	austrian-parity-030 (first load, 2026-11-16)	6029	5,861 (-2.79 %)	6,071 (+0.70 %)	4963	4,791 (-3.47 %)	5,001 (+0.77 %)	
+READY	/ir/en/homepage	768	- (not recorded)	-	-	5545	-	-	4579	scroll width 768; the band draws 96 px plus its margin, as on eg/en, am/en
+READY	/jo/en/homepage	1440	austrian-parity-030 (first load, 2026-11-16)	4869	4,722 (-3.02 %)	4,846 (-0.47 %)	4055	3,908 (-3.63 %)	4,032 (-0.57 %)	
+READY	/jo/en/homepage	390	austrian-parity-030 (first load, 2026-11-16)	6029	5,861 (-2.79 %)	6,071 (+0.70 %)	4963	4,791 (-3.47 %)	5,001 (+0.77 %)	
+READY	/jo/en/homepage	768	- (not recorded)	-	-	5545	-	-	4579	scroll width 768; the band draws 96 px plus its margin, as on eg/en, am/en
+READY	/lt/en/homepage	1440	austrian-parity-030 (first load, 2026-11-16)	4869	4,722 (-3.02 %)	4,846 (-0.47 %)	4055	3,908 (-3.63 %)	4,032 (-0.57 %)	
+READY	/lt/en/homepage	390	austrian-parity-030 (first load, 2026-11-16)	6029	5,861 (-2.79 %)	6,071 (+0.70 %)	4963	4,791 (-3.47 %)	5,001 (+0.77 %)	
+READY	/lt/en/homepage	768	- (not recorded)	-	-	5545	-	-	4579	scroll width 768; the band draws 96 px plus its margin, as on eg/en, am/en
+READY	/mk/en/homepage	1440	austrian-parity-030 (first load, 2026-11-16)	4869	4,722 (-3.02 %)	4,846 (-0.47 %)	4055	3,908 (-3.63 %)	4,032 (-0.57 %)	
+READY	/mk/en/homepage	390	austrian-parity-030 (first load, 2026-11-16)	6029	5,861 (-2.79 %)	6,071 (+0.70 %)	4963	4,791 (-3.47 %)	5,001 (+0.77 %)	
+READY	/mk/en/homepage	768	- (not recorded)	-	-	5545	-	-	4579	scroll width 768; the band draws 96 px plus its margin, as on eg/en, am/en
+#
+# No row (both sides draw no band, figures as served): be/en 390 www 5,830, ours 5,861 (+0.53 %), footer top 4,764 / 4,791; be/en 1440 www 4,744, ours 4,722 (-0.46 %), 3,930 / 3,908; at/en 1440 www 4,834, ours 4,824 (-0.21 %), 4,020 / 4,010; at/de 1440 www 4,884, ours 4,872 (-0.25 %), 4,069 / 4,058.
+# Places 111 and 113 of sweep-so50-places-111-130.txt (at/de and at/en 1440, pointers against austrian-parity-001's load of 2026-11-05 with www's older flight search): closed against today's first loads, at/de -0.25 % and at/en -0.21 % as served (footer tops -11 and -10), no row.
+# us/en 390 (its AI row live since order 50): www 6,152 with the band; ours live 5,902 (-4.06 %): the hero option no-mobile-image, a row in delta-so51-austrian-us-hero-mobile-image.txt.
