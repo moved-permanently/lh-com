@@ -2437,3 +2437,17 @@ body.brand-cargo main .columns-media.natural-media .columns-media-media :is(pict
 body.brand-cargo main .columns-media .columns-media-text > :is(ul, ol):last-child > li:last-child {
   margin-bottom: 0;
 }
+
+/* standing order 47, item 1: below 768 px a grey band with the style flush that holds only a tab set is the closed
+   rows alone, as www's /en/live-animals, whose tab set is not inside a Liferay layout row (cargo-parity-007 and
+   -008 phone first loads: general-cargo and emergency put theirs in a row with 20 px padding top and bottom, the
+   20 px our grey sections draw; live-animals' grey band is its five rows, 260 px). The flush section's margin under
+   it is styles.css's (none when it ends the page). From 768 px ours keeps the padding: our open panel is shorter than
+   www's there. No served Cargo document has a flush section (the 990 copies of order 47): the rule draws on the
+   documents given the style, /en/live-animals (delta-so47-cargo-live-animals-flush.txt) */
+@media (width < 768px) {
+  body.brand-cargo main > .section.grey.flush:has(> .accordion-columns-wrapper:only-child > .accordion-columns.tabs) {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

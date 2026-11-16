@@ -22,7 +22,9 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const text = (s) => s.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-const META = /<div class="section-metadata"><div><div>style<\/div><div>([^<]*)<\/div><\/div><\/div>/;
+// the key as DA writes it on Cargo's copies ("Style", standing order 47: /en/live-animals) or as the importer does ("style");
+// before order 47 a "Style" block was missed and a second section-metadata block was added after it
+const META = /<div class="section-metadata"><div><div>[Ss]tyle<\/div><div>([^<]*)<\/div><\/div><\/div>/;
 
 function sections(html, from, to) {
   const out = [];
