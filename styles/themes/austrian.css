@@ -1099,6 +1099,17 @@ body.brand-austrian .footer .footer-inner .footer-badges {
   }
 }
 
+/* standing orders 44 and 45: the footer's three link columns across the width from 1025 px, as www's (three
+   col-md-4 in its col-lg-9: x 409 / 730 / 1051 at 1440, 301 px each), not in four tracks (221 px) with the fourth
+   empty. Every Austrian footer has three; at 221 px the French, Italian and Russian labels wrapped (fr/fr/contact's
+   footer 877, www's 836; with the rule 835). The German and English ones fit either way.
+   gate-so44-austrian-footer-columns.txt; shipped with the stretcher rows of delta-so45-austrian-fr-stretcher-block.txt */
+@media (width >= 1025px) {
+  body.brand-austrian .footer .footer-columns:not(:has(> .footer-column:nth-child(4))) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 /* brief 445: the legal hub's icon teasers (cards-icon usp four-up) as www's a.teaser.usp: no box (row 13's
    tiles are the homepage's), the icon over a Portada 500 label, 22 / 27.5 below 1025 px, 28 / 35 from there */
 body.brand-austrian .cards-icon.usp .cards-icon-tile {

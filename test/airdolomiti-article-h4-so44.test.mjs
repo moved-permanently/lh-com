@@ -30,18 +30,20 @@ test('the H4 gate: 5 recorded PASS, archistars within 2 %, 1,128 page-widths non
   assert.match(arch, /\t4420 \(-2\.84 %\)\t4489 \(-1\.32 %\)\t/);
 });
 
-test('item 1: general-terms1 traced to 92278044; the footer rule is HOLD with its gate', () => {
+test('item 1: general-terms1 traced to 92278044; the footer rule\'s gate (HOLD in order 44, shipped in 45)', () => {
   const gt = read(`${R}/trace-so44-cargo-general-terms1.txt`);
   assert.match(gt, /^92278044 \(2026-11-15 23:03\)\t1486\t926\t878$/m);
   assert.match(gt, /^aace6c90 \(2026-11-15 22:35\)\t1470\t910\t862$/m);
   const fc = read(`${R}/gate-so44-austrian-footer-columns.txt`);
   assert.match(fc, /^# Status: HOLD/m);
-  const rec = fc.split('\n').filter((l) => /^(PASS|FAIL)\t/.test(l));
+  // standing order 45: shipped; order 44's four FAIL rows are the owner's ACCEPTED (by/ru, ru/ru) and INTERIM (ca/fr,
+  // ch/fr, until the stretcher rows are live); test/austrian-footer-columns-so45 checks the theme
+  assert.match(fc, /^# Status \(standing order 45, [^)]*\): SHIPPED/m);
+  const rec = fc.split('\n').filter((l) => /^(PASS|FAIL|ACCEPTED|INTERIM)\t/.test(l));
   assert.equal(rec.length, 121);
-  assert.equal(rec.filter((l) => l.startsWith('FAIL\t')).length, 4);
+  assert.equal(rec.filter((l) => l.startsWith('FAIL\t')).length, 0);
+  assert.equal(rec.filter((l) => /^(ACCEPTED|INTERIM)\t/.test(l)).length, 4);
   assert.ok(rec.some((l) => /^PASS\t\/fr\/fr\/contact\t1440\t.*\t2561 \(\+2\.11 %\)\t2519 \(\+0\.44 %\)\t/.test(l)));
-  // HOLD: not in the theme
-  assert.ok(!read('styles/themes/austrian.css').includes('.footer .footer-columns:not(:has(> .footer-column:nth-child(4)))'));
 });
 
 test('item 2: places 11 to 30, each with its status; item 3: the 5 touched page-widths PASS', () => {

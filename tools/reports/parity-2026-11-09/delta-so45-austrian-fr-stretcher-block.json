@@ -1,0 +1,20 @@
+[
+ {
+  "path": "/ca/fr/homepage",
+  "inserts": [
+   {
+    "after": "<div class=\"flash-teaser\"></div>",
+    "text": "<h2>Stretcher transportation</h2><p>Lufthansa provides stretchers which allow passengers, who for medical reasons can only be transported in a lay-down position , to travel comfortably. They may however be accompanied by another person on board. Passengers between 100cm and 200cm tall can be carried with our stretcher, with a maximum weight of 120kg. For detailed information about fees regarding specific journeys, please contact the TMC or our Medical Operations Center.</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/fr/homepage",
+  "inserts": [
+   {
+    "after": "<div class=\"flash-teaser\"></div>",
+    "text": "<h2>Stretcher transportation</h2><p>Lufthansa provides stretchers which allow passengers, who for medical reasons can only be transported in a lay-down position , to travel comfortably. They may however be accompanied by another person on board. Passengers between 100cm and 200cm tall can be carried with our stretcher, with a maximum weight of 120kg. For detailed information about fees regarding specific journeys, please contact the TMC or our Medical Operations Center.</p>"
+   }
+  ]
+ }
+]
