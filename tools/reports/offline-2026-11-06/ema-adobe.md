@@ -5523,3 +5523,42 @@ hand-over file: my last commits there were 955b7f7 and bb8960e; nobody else's si
    www's page (item 1), if the owner wants it brought up to date.
 - Ended at about 23:50 CET, not 02:00: both items are answered, and nothing is held.
 - Left out of git: logs/b643 (captures, diffs, drafts, runners) and the untracked import reports of earlier runs.
+
+### Standing order 44 (2026-11-17 00:10 to about 00:50 CET)
+
+No uploads, previews or publishes; DA read only (none needed); no request to www or any airline host.
+`.migration/project.json` untouched; the add-ons stay off. Order 43 left nothing uncommitted or unpushed. No code change
+this order: the new sweep (73e495a) and this section.
+
+Each push: the tests named for it passed, and the whole-repo lint read 0 on a clean worktree of the rebased HEAD (no
+block or theme file changed, so no stylelint). Full suite on the final code: 73e495a (main with this order's sweep),
+72 lh-edge files and 1,250 site files, 0 failing.
+
+**The two-hour windows:** no edit to styles.css, Columns Media or any block; the hand-over file not touched.
+
+1. **sweep-so44-lh-adobe.md (73e495a).** 276 page-widths of the insights, campaign, hub and homepage pages with a
+   recording here, as served with tonight's code (main at 7fc4d6e), against each page's newest recording on this
+   machine; all 200.
+   - Median 5.7 % (sweep-so34: 5.8). Against sweep-so34: 28 closer by 0.5 or more, 242 within, 6 further. All six are
+     the Price Bar (not drawn with airline hosts refused), the fare teaser's offers, or another recording.
+   - The homepage: the ended Dubai notice is cut from the recording (45px at 1440, 89px at 390); 4.8 / 5.7 %.
+   - Not swept: the five lh-parity-008 pages, whose recordings are gone (item 3). explore-flying and explore-the-world
+     are measured against lh-parity-002c until the archive lands.
+   - Second loads for three first loads that were off (a short fare teaser, a timeout, a half-drawn slider picture).
+2. **The worst 20: located, no row or rule passed.**
+   - Mostly sweep-so34's causes, unchanged:
+     - Columns Media galleries (picture-perfect-austin, hand-over item 5);
+     - the clipped H1 on www (flughafeninformation);
+     - the recordings' fallback face and the owner's captions decision (100-years pages);
+     - section spacing (culinaryjourney, item 6);
+     - article-list content (tags/munich);
+     - the font width (stopover).
+   - New: gb/en all-it-takes-is-a-yes 1440 (10.6 -> 17.8): its fare teaser drew 345px of offers on both loads, www's
+     recording 486. The prices are www's, refused here, so this is for the real-browser check.
+   - Located and tested: chronicle's jump links sit in a three-column view nested in half of a two-column view on www.
+     At half width ours stand where www's do, but the page reads 12.2 either way, so no option and no rows.
+3. **The Captures archive: waiting for its name.** logs/b644/item3-rows.sh builds the rows from it (explore-flying,
+   explore-the-world, livery-iconic-moments, allegris-new-york in four locales, take-off; 1440 and 390); then the
+   gate as for the sweep.
+- Ended at about 00:50 CET: items 1 and 2 are done, and item 3 needs the archive. Nothing is held.
+- Left out of git: logs/b644 (captures, diffs, cut recordings, runners) and the untracked import reports of earlier runs.
