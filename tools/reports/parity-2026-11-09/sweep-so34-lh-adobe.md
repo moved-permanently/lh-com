@@ -162,3 +162,24 @@ not in git).
 | 56 | /de/en/articles/explore-flying/flying-high-christoph-quarch 390 | 9.3 -> 9.3 | (1) The author quote runs a line shorter than www's (www indents it 16 px on both sides, ours on the left only), -31 px. (2) 16 px less from the first picture to the text below it. | (1) **Shipped with item 2:** the quote's right margin on phones, 9.3 -> 5.6. (2) Not tonight. |
 | 57 | /de/en/articles/explore-the-world/eat-see-do-algiers 390 | 9.2 -> 9.2 | The "This may also be of interest to you" cards: each picture 2 px taller than www's; within 32 px overall. | None. |
 | 58 | /de/en/book-and-manage/stopover/zugspitze 390 | 8.9 -> 8.9 | 32 px more after the map (a columns-media sidebar block with-map) than on www; the map is the same height. | Columns Media: hand-over item 16. |
+
+## Places 59 to 78 (standing order 40, item 2)
+
+These are the next 20 page-widths of this sweep, measured again as served at 15:45 CET. Two first loads stopped on a
+block timeout (gb/en special-needs 15.5 %, de/de crane 1440 21.3 %); they were loaded again and read as below. Drift
+steps, bands and crops are in logs/b640 (not in git).
+
+| Rank | Page-width | Sweep -> now % | Cause (located) | Fix |
+| --- | --- | --- | --- | --- |
+| 59 | /de/en/articles/explore-the-world/stop-over-tokyo 390 | 8.8 -> 8.7 | (1) The portrait picture ("fashion influencers"): www shows another crop of it on phones (faces higher, the top cut). (2) The author quote (fixed by order 39's rule). | (1) No fix in layout: www's phone rendition of the picture. |
+| 60, 61 | /de/en, /gb/en special-needs 390 | 8.6 -> 6.8 | The core form. Order 37's section spacing took 1.8; within 16 px now, apart from +50 at one step (a radio question, 2,960 px). | None more (the form's field spacing measured worse when closed, order 37). |
+| 62 | /at/de/betreuungsbedarf 390 | 8.4 -> 6.9 | As #60. | As #60. |
+| 63 | /de/en/articles/explore-the-world/eat-see-do-berlin 390 | 8.4 -> 8.4 | No drift until the end (+31 px). The "This may also be of interest to you" cards: each picture 4-6 px taller than www's (bordered cards). The rest is photos. | Not tonight: the cards' picture ratio; small. |
+| 64, 65 | /at/de, /de/de discover-lufthansa/new-onboard-experience 390 | 8.3 -> 8.3 | Within 11 px; the picture collage after the awards badge sits 11 px higher. | None: under 1 %. |
+| 66, 73 | /de/en/articles/explore-the-world/know-before-you-go-algiers / -berlin 390 | 8.2 -> 8.3, 8.0 -> 8.0 | (1) 22 px more than www above "Related Articles". (2) The "Find your flight" button 15 px lower. | (1) Hand-over item 17 (section gap). (2) Not tonight. |
+| 67, 68, 70, 72 | /de/en, /gb/en, /at/de, /de/de 100-years/destinations 390 | 8.1, 8.1, 8.0, 8.0 | Within 15 px (the picture collage 14 px higher). www's recording draws the campaign headings in its fallback face. No captions on www either. | No fix: the recording's face. |
+| 69, 71 | /at/de, /de/de 100-years/crane 1440 | 8.0 -> 8.0 | 5 picture captions missing (owner's decision, order 31); drift within 32 px. | The owner's decision. |
+| 74 | /de/en/lufthansa-city/culinaryjourney 1440 | 8.0 -> 8.0 | The H1's section starts 38 px higher than www's, then 24 px. | Already in the hand-over (item 6, section spacing). |
+| 75, 77 | /de/en, /gb/en lufthansa-travel-classes 390 | 8.0 -> 8.0 | Within 11 px; the stage tiles' photos under their dark overlay. | None. |
+| 76 | /de/en/services-at-the-airport 390 | 8.0 -> 8.0 | (1) Our text runs a word wider per line than www's, so each paragraph is a line shorter (the open font-width question; our font files are www's). (2) The page ends 34 px sooner after the last card. | (1) No fix (the drawing). (2) Hand-over item 17. |
+| 78 | /at/de/lufthansa-reiseklassen 390 | 7.9 -> 7.9 | As #75. | None. |

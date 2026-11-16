@@ -101,3 +101,11 @@ Standing order 39 (2026-11-16, ema-adobe's places 39 to 58 of sweep-so34-lh-adob
 16. /de/en/book-and-manage/stopover/zugspitze, 390 (8.9 %): after the map (a columns-media sidebar block with-map) ours
    leaves 32px more than www before the next card ("Zugspitze - Top of Germany" logo: www 42px from the map's foot,
    ours 74). Everything below it is 32-43px lower. The map itself is the same height. Columns Media (with-map on phones).
+
+Standing order 40 (2026-11-16, ema-adobe's places 59 to 78 of sweep-so34-lh-adobe.md):
+17. Section spacing at 390:
+   - /de/en/services-at-the-airport (8.0 %): the page ends 34px sooner after its last columns-media card ("To the
+     Lufthansa Guide Service" to the footer: www 69px, ours 35);
+   - /de/en/articles/explore-the-world/know-before-you-go-algiers and know-before-you-go-berlin (8.3 / 8.0 %): 22px
+     more than www above the "Related Articles" section (www 59px from the price note to the heading, ours 81).
+   Both are the shared section-gap rules.
