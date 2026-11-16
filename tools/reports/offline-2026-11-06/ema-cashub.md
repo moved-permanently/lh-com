@@ -8256,3 +8256,162 @@ All three items are done. I stopped before 10:00 because what is left needs your
 
 **Not in git** (scratch under /tmp/so45): the DA copies read, the drafts, the code copies, the census tables, the
 scripts and the logs.
+
+## Standing order 46 (2026-11-16, from about 07:40 CET)
+
+**Carried over:** nothing. Order 45's commits were all on main (`c86de758`, `443218d7`, `d53af2a2`), and my worktree was
+clean at the start. The checkout's 88 dirty entries are other jobs' and were left alone.
+
+**Renders:** unhinted text throughout. lh-proxy, www.* and every airline host were refused and counted; none was sent.
+- Austria's homepage widget calls were answered from our host's recorded loads, as in order 43. fly-with-austrian's four
+  flight search calls were answered once from our host's recorded bangkok-airways and ch/de loads (austrian-api-006 /
+  -002), to test the old explanation.
+- Refused: 49 on places 31 to 50, 718 on the 104 resized-only rows, 240 on the gate, 2,853 in the census (the first 58
+  census rows' counts were lost when I restarted it with more processes), about 120 in the traces.
+
+**DA:** no request this order. No upload, preview, publish or da-upload.mjs. /de/en/overview-manage has no row.
+
+### Item 1: places 31 to 50 (sweep-so46-places-31-50.txt)
+
+Each of the 20 was measured again as served (~07:40 CET). Order 45's live rows had moved six of them.
+
+- **Shipped (4): fly-with-austrian en / de, 1440 and 390** (places 38, 41, 42, 46).
+  - **Correction:** orders 26 and 31 put the gap on the flight search's missing API answers. That was wrong. With our
+    host's recorded answers for the same four calls replayed, all four page-widths are the same to the px.
+  - **Correction:** austrian-parity-001 loaded each width on its own (44 loads for 22 pages), so the 390s are first loads,
+    not resizes as order 31 said.
+  - **The causes, on www's first loads:**
+    - under the picture band, www's divider line starts 96 px below it at 1440 and 78 at 390; ours 24;
+    - at 390 the band is 581 px on www, ours 500. "Nonstop only" has its own line under the traveller line (80 px from
+      it to FIND FLIGHTS; ours 57, side by side). The card's tab bar is 19 px taller, with 4 px more above and below the
+      panel. The card sits 36 px from the picture's top and bottom (ours 28 / 12).
+    - www's bangkok-airways has the same 581 px band. Its ski-campaign and black-friday cards are on white, with "Nonstop
+      only" on its own line too.
+  - **The rule** (styles/themes/austrian.css, after the closing band; gate-so46-austrian-standalone-flight-search.txt):
+    - below 768 px, every Austrian standalone flight search draws "Nonstop only" on its own line;
+    - a band with its phone picture (Background image mobile) gets www's card and spacing;
+    - a divider right under a band starts 96 px below it (78 below 768 px);
+    - the ski campaign's closing band moves 17 px up (80 -> 63 px under its title), so "Round trip" and FIND FLIGHTS
+      stay at www's 1,826 / 2,165 to the px.
+  - Why the ski campaign is different: its two documents are the only picture bands without a phone picture. That is
+    why www shows them on white on phones (the decision of 584).
+
+| page-width | www | origin/main | with the rule |
+|---|---|---|---|
+| fly-with-austrian en 1440 | 4,507 | 4,387 (-2.66 %) | 4,459 (-1.07 %) |
+| fly-with-austrian en 390 | 8,696 | 8,465 (-2.66 %) | 8,600 (-1.10 %) |
+| fly-with-austrian de 1440 | 4,649 | 4,503 (-3.14 %) | 4,575 (-1.59 %) |
+| fly-with-austrian de 390 | 9,114 | 8,892 (-2.44 %) | 9,009 (-1.15 %) |
+| bangkok-airways 390 | 4,604 | 4,339 (-5.76 %) | 4,361 (-5.28 %) |
+| black-friday 390 | 4,424 | 4,383 (-0.93 %) | 4,405 (-0.43 %) |
+| ski-campaign-2026 390 | 3,515 | 3,530 (+0.43 %) | 3,535 (+0.57 %, 0.14 points further) |
+
+  - The three 1440s of bangkok-airways, black-friday and ski-campaign stay the same to the px.
+  - **Census:** every served Austrian document with a standalone flight search (92) at 390, 767, 768 and 1440, toggled
+    in the same load: 368 page-widths, none broken.
+    - 390 / 767: +22 or +40 px (the nonstop line); gr/el 32 px shorter (its long label had made the shared row taller);
+      at/de and ru/ru 2 px shorter (no nonstop label);
+    - the picture bands +135 px;
+    - 768 / 1440: the ten fly-with-austrian documents +72 px (the divider), the rest the same to the px.
+  - It is code only: no DA row, and no compensating row (the ski campaign's 17 px are in the same rule).
+- **Fixed since order 43 (4):** ch/fr and ca/fr 1440 (the stretcher rows with the footer rule: +0.10 / +1.96 %), and
+  gr/el contact and baggage 1440 (the footer rule: +1.59 / +1.58 %).
+- **Left out (3):** lounge-zutritt 390 (your German FAQ titles), and ua/en 1440 and gb/en 390 (www's fare service without
+  deals).
+- **Your call (1):** Cargo de facts-figures 390 (the brand font's wraps, row 49).
+- **No fix of ours (8):**
+  - cn/zh baggage 1440, ru/ru baggage 1440 (+3.03 % since the footer rule), gr/el baggage 390, jp/ja contact 390 and
+    gr/el contact 390: no brand faces for the script on the render machine;
+  - AD sitzplatzreservierung 390: two single words wider than the title's measure; within your no-overflow rule nothing
+    passes. **Correction:** airdolomiti-parity-007's manifest marks every width loadedSeparately (the README's resize
+    line is stale), so its 390s were first loads, not resizes as order 40 said;
+  - AD street-food 390: order 36's two document-shape causes; no candidate passes both widths;
+  - Cargo de facts-figures 1440: www's timeline cells take one shared height from its slider script (686 px over cards
+    whose tallest content is about 500). No rule can derive that from the cards.
+
+### Item 2: Cargo's 80 px service notice (measure-so46-cargo-notice.txt)
+
+- **No figure compares a load with the notice against one without it, and none needs correcting.**
+- Only cargo-parity-004 to -007 carry the notice (header at 111 / 98 px against 31 / 18), on all 20 of their
+  page-widths. Its text is in none of -001 to -003's 124 HTML files. Our pages draw nothing above the header.
+- Every list figure against -004 to -007 is www less 80, page and footer top: the 16 sweep rows and order 45's four
+  -007 gates.
+- No committed list carries a raw figure. The one hit is a header line that quotes an offline layout's 4,860.
+
+### Item 3: the pages measured only from resized loads (resized-so46-phone-loads.txt)
+
+- **The index:** the manifests of 31 recordings, read per width (resizedFrom or loadedSeparately), else the recording's
+  note or README.
+- **104 recorded 390 page-widths** have only resized loads behind them: Austrian 50, Air Dolomiti 41, Cargo 13. Each was
+  measured again as served and ranked.
+- **5 are outside 2 %, each explained:** Cargo's data-protection-notice (-24.64 %, www's page is empty), and the jp/ja,
+  cn/zh, ru/ru and gr/el baggage pages (non-Latin text). A phone first load would not decide any of them.
+- **The ten I'd ask for in the next stable window** (added to capture-requests-ema-cashub.txt):
+  1. eg/en homepage (+1.92 %);
+  2. at/en entryregulations (-1.77 %);
+  3. culinary-services (-1.60 %);
+  4. wetlease-hub (-1.45 %);
+  5. am/en homepage (+1.23 %), standing for the 18 English homepages that read the same 5,790 / 5,861;
+  6. to 8. the Adriatic article in Italian, English and German (+1.21 / +1.19 / +1.13 %);
+  9. Cargo's containers page (-1.12 %);
+  10. the Schengen page (-1.10 %).
+- Left out of the ten: the ru / by homepages (non-Latin carousel text) and Air Dolomiti's destination widget pages (our
+  renders refuse their APIs, so a first load decides www's side only).
+
+### Final section (about 08:55 CET, 2026-11-16)
+
+All three items are done. I stopped before 11:00: what's left needs your decision or a capture.
+
+**On main:**
+- `e653cb39` (~08:20 CET): the Austrian standalone flight search on phones and the divider under the band
+  (styles/themes/austrian.css), test/austrian-standalone-phone-so46 (new) and test/austrian-closing-flight-search-570
+  (80 -> 63 px), plus the lists:
+  - gate-so46-austrian-standalone-flight-search.txt;
+  - sweep-so46-places-31-50.txt;
+  - measure-so46-cargo-notice.txt;
+  - resized-so46-phone-loads.txt;
+  - capture-requests-ema-cashub.txt (the ten requests).
+- This commit: this section.
+
+**Live since:** the served theme carries the rule within a minute of the push. All ten gated page-widths read as gated:
+fly-with-austrian en 4,459 / 8,600 and de 4,575 / 9,009 at 1440 / 390, bangkok-airways 390 4,361, black-friday 390
+4,405, ski-campaign-2026 3,535 / 2,911.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 in both push rounds; the exit code was read before the push (origin moved
+  once during the checks).
+- **Stylelint:** exit 0 on styles/themes/austrian.css in both rounds. No other stylesheet changed.
+- **Tests on the push:**
+  - round 1: 1,900 tests, 0 failures (every test naming austrian, flight-search, standalone, spacer, divider, the report
+    folder or the capture requests, plus the folder-reading tests);
+  - round 2: 37 tests, 0 failures (the tests naming origin's new files, plus mine).
+- **The new test:** red on origin's main before the push (5 of 5 fail), green after.
+- **Full suite** on `e653cb39`: 1,212 files, 4,629 tests, 0 failures, 5 skipped (one node process per file).
+- **Folder-reading tests** on today's main: 25 files, 122 tests, 0 failures, 2 skipped.
+
+**For you:**
+- **Ready to apply:** nothing. This order's fix is code only and is live.
+- **Captures:** the ten phone first loads for the next stable window are in capture-requests-ema-cashub.txt (item 3).
+  I'm not waiting for general-cargo and emergency.
+- **Corrections to earlier orders:**
+  - fly-with-austrian's gap was not the flight search's APIs (orders 26 and 31);
+  - its 390s and airdolomiti-parity-007's 390s are first loads, not resizes (orders 31 and 40).
+  - sitzplatzreservierung's figures are unchanged; only the label changes.
+- **Candidate, not drafted:** gb/en ski-campaign-2026. It has the same band without a phone picture as us/en, but mid-page,
+  so on phones it still draws the desktop picture. By us/en's first load, www would draw it on white. There's no
+  recording of gb/en, so nothing can be gated.
+- **Unchanged:** terms-of-use (as decided), live-animals (HOLD until the first loads), the upload widget and the
+  carousel flag (as decided), bangkok-airways, the brand font's wraps (facts-figures), Cargo's data-protection-notice
+  page.
+
+**Rules followed:**
+- No request to an airline host: refused and counted, none sent.
+- Austria's widget calls were answered from our host's recordings.
+- **DA:** no request.
+- No upload, preview, publish or da-upload.mjs.
+- The recordings were read as data.
+- The checkout's 88 dirty entries untouched. I worked in migration-work/parity-588/wt and pushed from wt-push.
+- /de/en/overview-manage has no row.
+
+**Not in git** (scratch under /tmp/so46): the served copies, the load index of 31 recordings, the renders, crops, census
+tables, scripts and logs.
