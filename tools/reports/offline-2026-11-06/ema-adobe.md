@@ -4970,3 +4970,60 @@ push: the whole-repo lint read 0 on a clean worktree of the rebased HEAD. Full s
   are in what ema-test holds tonight, or are the font-width question.
 - Left out of git: logs/b634 (captures, diffs, drafts, DA reads), /tmp/so34 (the import's snapshot), the untracked
   import reports of earlier runs.
+
+### Standing order 35 (2026-11-16 00:45 to about 04:50 CET)
+
+No uploads, previews or publishes; DA read only; no request to www or any airline host. `.migration/project.json`
+untouched; plugins left off. Order 34 left nothing uncommitted or unpushed. Three code changes, all lufthansa.com only:
+blocks/booking-lookup (6ad63e0), a legal-page rule in styles.css (04c87ac) and two core-form type rules in
+blocks/form/form.css (6555376). Everything else is reports and lists.
+Each push: stylelint clean on the changed files, the tests that read them passed, and the whole-repo lint read 0 on a
+clean worktree of the rebased HEAD. Full suite on the final code: 6555376 (origin/main with every commit of this order but this section), 72 lh-edge files and 1,200 site files, 0 failing.
+
+1. **livery-iconic-moments and the Allegris art articles, live (live-so35-livery-allegris-lh-com.md, b193f1e).**
+   Both went live with the helper's state commits c8c727f and c15a3ee (29 of 29 video rows).
+   - livery: 29.8 / 24.2 -> 5.5 / 8.7 % at 1440 / 390 (the first 8,000 px). 100 % of www's sentences, no failed
+     picture. At 1440 the whole page is within 0.9 % (drift up to -161 px over 17,000 px). No row.
+   - livery at 390: www's recording breaks at y 16,300. The capture restarts mid-story with the header and draws
+     stories 1-5 again, so its last 9,000 px are not the page. Up to the break ours is within 22 px. A fresh 390
+     recording is needed for the rest.
+   - allegris-new-york de/en, de/de, at/de, gb/en: 8.3-11.0 % at 1440, 10.7-12.3 at 390, heights within 1.2 %. No row.
+   - xx/it's gap (594 px at 1440, 1,293 at 390) is content www has, not layout. www shows three related cards; our
+     block is empty and has no xx article index to pick from. **delta-so35-xx-it-related-lh-com.txt, 1 READY:**
+     www's three cards authored, draft 28.5 / 30.8 -> 14.0 / 14.0 %, heights within 0.3 / 0.9 %.
+   - The other xx articles have the same empty block. One index per xx language in helix-query.yaml would fill them,
+     but it stays empty until an index job, so it cannot be gated before then: a proposal only, the migration
+     session's call.
+2. **Page-widths at 20 % or more after order 34's ten.** sweep-so34-lh-adobe.md lists nine, and all nine were among
+   the ten handled in order 34:
+   - allegris-new-york 1440 in four versions and livery 1440 / 390: rows now live, figures above;
+   - picture-perfect-austin 390: Columns Media, hand-over item 5;
+   - flughafeninformation de/de and at/de 390: no fix (www clips the H1's last letter).
+   None is left without a located cause.
+3. **The rest sweep: sweep-so35-lh-rest.md (b193f1e, 3834ec8).**
+   - Scope: 63 pages, 126 page-widths (the legal, form, fleet, app-entry and flight-status templates and ten roots
+     no template lists), all 200.
+   - Medians: legal 5.2, form 7.6, fleet 6.3, app-entry 7.3, flight-status 4.6, all 6.0 %. 59 of 106 comparable
+     page-widths are 2 points or more closer than on 11-09; 4 moved further.
+   - **Shipped:**
+     - online-check-in 390, 34.0 -> 11.3 %: the booking lookup's first item open on phones, as www (6ad63e0). The 18
+       unrecorded tab documents rendered with and without, no breakage.
+     - compensation-voucher, 6.4 / 12.6 -> 5.4 / 9.0 %: legal clause headings 50px under a paragraph (04c87ac). The
+       other 56 recorded legal page-widths within 0.5; the 6 unrecorded documents rendered, no breakage.
+     - core forms, two type sizes as www's: the sub-section title is 20px on phones (was 24) and a radio group's
+       question is bold (6555376). On the 9 recorded form pages, register-animal-cabin 390 goes 10.1 -> 8.9 % and three
+       more get 0.2-0.6 points closer; the other 14 page-widths are within 0.1. The 164 unrecorded core-form
+       documents rendered with and without (328 pairs): no breakage, 1440 unchanged, phones 0 to 129px shorter.
+   - **Rows: delta-so35-column-end-links-lh-com.txt, 15 READY.** A column view's end mark sits before its links (the
+     importer counts no bare link as a view's leaf). datenschutz 6.5 / 9.6 -> 3.4 / 7.8 %, and the meetings-and-events
+     versions about 1.3 points closer at 1440. All 44 recorded documents gated: 15 closer, 23 unchanged, 6 worse (no
+     row). The importer is left as is until those six are understood.
+   - **Located, no fix tonight:**
+     - the six pages the column-end move makes worse. register-sports-baggage/confirmation ends with a {spacer-70}
+       that was tuned to the mark's old place; 744 is the nested seat-map view; refund and the rest are open;
+     - xx/hk meetings 390: a measuring fault, 13.3 % with the CJK face;
+     - 744 390: no mark to scope a fix to.
+   - **To ema-test (handover-so33-ema-test.txt):** items 7-9 (two columns-media blocks, 351's section gap) and 10
+     (my-bookings' end gap after a cards-teaser).
+- Left out of git: logs/b635 (captures, diffs, drafts, DA reads, runners), the untracked import reports of earlier
+  runs.
