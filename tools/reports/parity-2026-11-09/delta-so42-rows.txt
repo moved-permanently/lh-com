@@ -1,0 +1,14 @@
+# ema-test, standing order 42 (2026-11-16): two shared rules, no document rows. Gates: the served content through two local servers of the repo (main's code, and main's code with the rule), full Chrome, the drops' fonts, live boxes masked, ours vs www mismatch %; no-breakage: every unrecorded document of the census with and without the rule in one load on our host, at 1440 and 390.
+# Recordings: brussels-parity-004 and -012 (downloaded this order, sha256 5131664c... and d9ec3340... as given, each unpacked into its own folder, read as data; 012's phone first loads used at 390), lh-parity-002.
+# Notes:
+# - Item 1, Brussels: a page whose last section ends with a sidebar Columns Media keeps www's 42 px above the footer on phones (styles/themes/brussels.css: the sidebar's 36 px bottom padding off, the section's 48 px gap 42).
+#   Census 94 Brussels documents (published copies of 2026-11-12), 2 recorded:
+#     /am/en/non-encrypt-mail/contact-form-error 390: 11.39 -> 5.19 % (1,290 -> 1,248 px, www 1,250), 1440 16.79 -> 16.67 (the rule is phones only);
+#     /be/en/contact/feedback 390: 12.03 -> 12.03, 1440 7.88 -> 7.88 (unchanged).
+#   The 92 unrecorded documents (184 renders): no sideways scroll, overlap, hidden text, H1 or picture change; 87 phone renders 42 px shorter (the other 5 documents end with a sidebar that has more after it in the DOM, unchanged), none at 1440 changed.
+# - Item 2, passenger-rights' grey band at 390, measured at full size against lh-parity-002: the band's top padding is the same as www's (35 px from the band's edge to the "Refunds" title on both), and www's link wraps onto a second line as ours does. My order-41 note was wrong on both; what differs there is:
+#   (a) 23 px more above the band: the view's closing mark keeps its 32 px bottom padding before the band. Shipped as a rule (styles/styles.css: the mark keeps 16 px on phones when a grey column band follows). Census 127 documents, 9 recorded page-widths at 390:
+#     special-meals 11.51 -> 9.53, arrival-services 9.85 -> 8.22, passenger-rights 7.69 -> 6.22, upgrades-at-online-check-in 5.37 -> 4.52, doctor-on-board 6.98 -> 6.04, group-travel 5.66 -> 5.53, lufthansa-group-star-alliance-and-partner-airlines 11.59 -> 11.59, green-fare 4.04 -> 4.20, tiere-als-uebergepaeck 9.62 -> 9.80 (all closer or within 0.2; at 8 px green-fare went +0.59, so 16).
+#     The 118 unrecorded documents (236 renders): no flag changed; 104 phone renders 16 px shorter, 14 by 32 (two such marks), nothing at 1440.
+#   (b) the link's lines: 24 px apart on www, 27 on ours, and the arrow by the first line on www (centred on ours). This is the standalone-link line height of order 38 item 2b and 778e10f3: no single www line height, so not changed.
+# - Item 3: places-so42-lh-rest-111-126.txt (the ranking ends at 126).

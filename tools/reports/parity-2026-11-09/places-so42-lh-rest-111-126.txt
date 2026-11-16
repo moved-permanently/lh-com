@@ -1,0 +1,21 @@
+# ema-test, standing order 42, item 3 (2026-11-16): places 111 to 130 of ranking-so39-lh-rest.tsv. The ranking has 126 page-widths, so this is places 111 to 126.
+# Measured again as served on lufthansa.turnsthe.page (~13:45 UTC, after ema-adobe's author-quote rule 871cddc5, which reaches article pages; none of these is one): every figure is the same as in order 39 to two decimals, and every height is within 6 px of www's.
+# Skipped: pages ema-adobe touched or listed in its commits since order 37 (its full-ranking commit a21f3c1b not counted; 871cddc5 counted). manage-my-bookings and my-bookings are listed there as hand-over items to me: my rows of orders 38 and 40, live.
+# Columns: place, path, width, % (order 39), % now, height www / ours now, status, cause.
+111	/de/en/business-terms-and-conditions	1440	2.57	2.57	1790/1789	no fix	Aligned: a legal page within 1 px of www's height; the rest is text rendering.
+112	/de/en/feedback	1440	2.50	2.50	3075/3081	skipped	ema-adobe's page.
+113	/de/en/terms-of-use	1440	2.30	2.30	3671/3668	no fix	Aligned, within 3 px.
+114	/de/en/advance-seat-reservations-terms-and-conditions	1440	2.17	2.17	1602/1601	no fix	Order 37's row (live), within 1 px.
+115	/de/en/book-and-manage/booking-services/manage-my-bookings	1440	2.17	2.17	1422/1425	skipped	my order-40 row (390 only), 1440 as www.
+116	/de/en/common/imprint/lufthansa-insights-imprint	1440	1.91	1.91	2903/2903	no fix	The same height as www's.
+117	/de/en/common/agb-extra-services-at-online-check-in	1440	1.71	1.71	2330/2327	skipped	ema-adobe's page.
+118	/de/en/common	1440	1.38	1.38	951/951	no fix	The same height as www's.
+119	/de/en/my-bookings	1440	1.15	1.15	3647/3647	skipped	my order-38 row (live), www's height.
+120	/de/en/sepa-terms-and-conditions	1440	1.10	1.10	1794/1795	no fix	Within 1 px.
+121	/de/en/faq-data-security	1440	1.05	1.05	1324/1324	no fix	The same height.
+122	/de/en/faq-password-security	1440	0.98	0.98	1330/1330	no fix	The same height.
+123	/at/de/during-your-trip/lounges	1440	0.73	0.73	5963/5964	no fix	Within 1 px.
+124	/de/de/during-your-trip/lounges	1440	0.73	0.73	5963/5964	no fix	Within 1 px.
+125	/de/en/during-your-trip/lounges	1440	0.72	0.72	5910/5911	no fix	Within 1 px.
+126	/gb/en/during-your-trip/lounges	1440	0.71	0.71	5910/5911	no fix	Within 1 px.
+# Result: of the 16, 4 skipped, 12 already at www's height (under 2.6 %): no layout cause left.

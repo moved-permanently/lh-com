@@ -1543,3 +1543,17 @@ body.brand-brussels main > .section.sidebar-h1:last-child:has(> .default-content
     white-space: normal;
   }
 }
+
+/* brusselsairlines.com on phones: a page whose last section ends with a sidebar Columns Media keeps www's 42px from the
+   sidebar's last text to the footer (/am/en/non-encrypt-mail/contact-form-error at 390, brussels-parity-012: ours 84,
+   the block's 36px phone padding and the section's 48px gap: 11.39 -> 5.19 %; be/en/contact/feedback unchanged; the 92
+   unrecorded documents ending so rendered with and without: heights only; standing order 42) */
+@media (width < 768px) {
+  body.brand-brussels main > .section:last-child > .columns-media-wrapper:last-child > .columns-media.sidebar {
+    padding-bottom: 0;
+  }
+
+  body.brand-brussels main > .section:last-child:has(> .columns-media-wrapper:last-child > .columns-media.sidebar) {
+    margin-bottom: 42px;
+  }
+}
