@@ -5108,3 +5108,47 @@ State at the start: nothing of mine uncommitted or unpushed (order 38's final se
 - Not in git and why: logs/p4/so39 (scratch: captures, gates, renders, DA copies, folder pages), the drops in /tmp
   (private material), content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not
   mine, kept). Preview servers stopped, trial and suite worktrees removed.
+
+## Standing order 40 (received about 10:55 UTC, 2026-11-16)
+
+State at the start: nothing of mine uncommitted or unpushed (order 39's final section on main, 0165a287).
+
+1. **ema-adobe's hand-over 12-15** (delta-so40-lh-com-rows.txt; ed845995):
+   - 12, /de/en/359: gap-after-small on the seat-map download section, READY: 1440 3.72 → 2.51 %, 390 7.65 → 6.04.
+   - 13, online-check-in's app band: the slider option from 1025 px, shipped: the title at most 450 px and the media
+     centred, 1440 5.79 → 4.94 %. The 15 other copies were rendered with and without. More space under the band took
+     the page further, so it stays.
+   - 14, READY rows:
+     - 32n (1440 5.93 → 2.40);
+     - passenger-rights (1440 4.15 → 3.19, 390 within 0.5);
+     - manage-my-bookings, with a new style, gap-after-small-below-768 (390 7.49 → 6.35);
+     - report-baggage, a phone spacer (390 7.15 → 5.58).
+   - 14, no fix:
+     - boeing787: the phone spacers took 390 to 11.33;
+     - imprint and accessibility-statement: ours has more space, which nothing takes away;
+     - picture-perfect-austin: the steps are www's parallax crops.
+   - 15:
+     - anniversary-super-crane-special: width-scoped dividers, READY (390 12.08 → 10.78).
+     - munich-fair as two columns is HOLD (1440 12.84 → 2.99, but 390 +0.99).
+     - 100-years/fleet: www's media cell holds picture and table side by side; a one-third text column alone went
+       further (12.42 → 12.95).
+2. **B2B eJournals picture**: a rule for every B2B Columns Media picture failed its gate (airlines-at-a-glance 30-54
+   points further). So it is option cover-16x9 with one row (delta-so40-b2b-rows.txt, DA lh-b2b), READY:
+   1440 22.96 → 10.52 %, 390 unchanged.
+3. **Places 71-90 of ranking-so39-lh-rest.tsv** (places-so40-lh-rest-71-90.txt): 10 skipped (ema-adobe's pages,
+   one covered under item 1); 10 without a layout fix (aligned pages, or heading spacing that only goes the other way).
+
+## Standing order 40, final section (about 12:10 UTC, 2026-11-16)
+
+- Items 1-3 done; munich-fair's row held.
+- Before this section: lint and the full suite in a fresh worktree of ed845995: npm run lint 0, stylelint 0, 1222 of 1222 test files passed; the folder-reading tests with brand.test.mjs; the whole-repo lint read before every
+  push.
+- Nothing uploaded, previewed or published by me. DA read only:
+  - lufthansa.com: 359, 32n, passenger-rights, manage-my-bookings, report-baggage, anniversary-super-crane-special,
+    data-collection-canada;
+  - Group for Business: entertainment-on-board.
+- da-upload.mjs not run. Requests only to our own hosts, DA (reads) and GitHub's API; no request to www or any
+  airline host. .migration/project.json not touched; the excluded manage page has no row and no line.
+- Not in git and why: logs/p4/so40 (scratch: captures, gates, renders, DA copies, folder pages), the drops in /tmp
+  (private material), content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not
+  mine, kept). Preview servers stopped, trial and suite worktrees removed.
