@@ -2237,6 +2237,14 @@ body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p) > :is(ul,
   line-height: 37.4px;
 }
 
+/* standing order 54 (the assistance pages): its list items line under line as www's rich text (ol li, ul li
+   { margin-bottom: 0 }), not 10 px apart (www's contacts 37 to 38 px a line, ours 48: en/assistance 1440 1106 / 1144
+   against 1204 / 1252). The lists under a section heading (the 16 px text above) keep theirs */
+/* stylelint-disable-next-line no-descending-specificity -- the text lists' items, after the text's rules (above) */
+body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p) > :is(ul, ol):not(h2 ~ *) > li {
+  margin-bottom: 0;
+}
+
 @media (width >= 930px) {
   body.brand-airdolomiti main .default-content-wrapper:has(> h1 ~ p ~ p) > :is(ul, ol) {
     margin-inline: calc((100% - 70vw) / 2);
