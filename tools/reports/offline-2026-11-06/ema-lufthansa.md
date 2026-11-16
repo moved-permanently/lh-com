@@ -6159,3 +6159,62 @@ stylelint had nothing to check.
 - Reads came from our hosts, aem.page and aem.live (one message and its index), the drop (two archives and their
   sidecars) and DA (GETs and folder lists only).
 - No da-upload.mjs call, no upload, preview or publish by me. /de/en/overview-manage got no row.
+
+## Standing order 36 (2026-11-16, about 20:05 to 23:00 CET), with its final section
+
+**Item 1, the SWISS homepages: within 2 % against swiss-parity-010, except ch/de at 390 (-2.00 %).**
+- www ended the Dubai message itself this afternoon. Our homepages match www's on that point, so the order-35 "further"
+  rows are marked "recording older than www's message change" (regress-so35-brands.md), and the "Fix" line there is
+  withdrawn: nothing is to be republished.
+- swiss-parity-010 was on the drop when the order came: sha256 69ea754c77d0e53248f358f99cea2921676ac9933f1aec1f53008d3636eec980,
+  equal to its sidecar. It holds first loads of both homepages at 1440 and 390 (2026-11-16 ~19:03 UTC), without the
+  notice.
+- As served, airline hosts refused per request:
+  - ch/de: 1440 4362 / 4424 = -1.40 %, 390 5085 / 5189 = -2.00 %;
+  - ch/en: 1440 4318 / 4365 = -1.08 %, 390 5032 / 5079 = -0.93 %.
+- finish-swiss.txt: both 1440 rows and ch/en 390 are READY. ch/de 390 is HOLD, explained: the homepage's spread
+  (-21 / -29 / -147 / +93 px), the same as in English, with no single cause.
+
+**Item 2, regression of 3ee29556, 6bb8859d and 03aeb80d (regress-so36-commits.md): no recorded page-width is more than
+0.5 points further.**
+- The census: every recorded path of the brands the rules are scoped to (lufthansa.com 408, Austrian 121, Brussels 104),
+  its served .plain.html read once. The 64 documents that can hold a pattern were loaded at the widths the media
+  queries cover, the rule deleted from the served CSS in the same load.
+- Closer:
+  - child-in-businessclass 390: +2.40 -> -0.21 %;
+  - at/en baggage and at/de gepaeck 390: -1.06 / -1.05 -> -0.04 %.
+- Equal: Brussels student-fares 1440. The rule matches its two buttons, and the height is unchanged.
+- Within 0.5 points: the two recorded campaigns pages at 390, de/en +0.22 and de/de +0.21 points. They are 33 px shorter
+  each, and the pages were shorter than www's already.
+- 58 other candidates: no match, no change. No fix or reverse.
+- Two more commits landed after my measurements, d85fa7d4 (Brussels closing grey card band, 18:53 UTC) and 2a02f6f6
+  (lufthansa.com forms and Table Striped, 19:24 UTC). They were checked the same way: none is more than 0.5 points
+  further, and premium-economy 390 is the most, at +0.31.
+- /de/en/100-years/fleet 390 (+1,188 px with the table rule) has only a recording cut at 8,000 px, so its height cannot be
+  compared.
+
+**Item 3, ranks 90 to 109 (sweep-so36-ranks-90-109.md): all twenty located.**
+- **READY:** delta-so36-b2b-special-assistance-forms-heading.txt.
+  - The "Forms" heading becomes heading-small, as www's, on /de/en and /xx/en.
+  - 390 goes +1.99 -> +1.51 %. Each string is found once in DA's copy, and the revert gives DA's bytes back.
+- **HOLD:** a B2B phone rule for route-network en and de (+1.92 / +1.86 -> +1.36 / +1.32 %). Its no-breakage census
+  covers 56,216 served documents and did not fit this order, so it is not in the theme.
+- **Handed to ema-test:** contact's picture-first Columns Media rows on phones (rows-for-ema-test.md, item 16).
+- **No row, explained:** the rest. Each is within 2 %, with steps that cancel or a spread cause.
+
+**Checks:** lint, the folder-reading tests and the full suite before the push, in its ship. CSS changed nowhere, so
+stylelint had nothing to check. The new test is test/b2b-special-assistance-forms-heading-so36.test.mjs.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine.
+- `.scratch/` (outside git), kept out on purpose:
+  - swiss-parity-010, lh-parity-004a/b and lh-parity-007 to -013;
+  - the served plains and the captures;
+  - DA's two special-assistance copies (read ~19:27 UTC);
+  - the drafted B2B rule.
+- lh-parity-005 is on the drop but not in lh-deliveries.json and has no sidecar, so it was fetched but not unpacked.
+
+**Hosts:**
+- Every browser load refused airline hosts per request, and each refusal was counted.
+- Reads came from our hosts (pages, plains, the B2B sitemaps), the drop (archives and sidecars) and DA (two GETs).
+- No da-upload.mjs call, no upload, preview or publish by me. /de/en/overview-manage got no row.

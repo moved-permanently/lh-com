@@ -111,7 +111,12 @@ Today's shared rules could also take a page-width that was within 2 % out of it,
 
 Result:
 - **Two captures were glitches** and were taken again: Discover /de/en/homepage 1440 drew 900 px, and Group for Business special-assistance-and-services 390 drew 844 px. Captured again, both measure as their last figures.
-- **Four page-widths are further, three of them by more than 0.5 points: SWISS /ch/de and /ch/en homepage.**
+- **Standing order 36: the SWISS homepages are not "further".** Their recordings (swiss-parity-001 and -008) are older than www's message change: www itself ended "Information on flights to Dubai" on the afternoon of 2026-11-16, and the Message Center sync took ours off live after reading www (17:11 CET), so our homepages match www's on that point. Against swiss-parity-010 (sha256 69ea754c77d0e53248f358f99cea2921676ac9933f1aec1f53008d3636eec980; first loads of 2026-11-16 ~19:03 UTC at 1440 and 390, no notice), as served with airline hosts refused per request:
+  - ch/de: 1440 4362 / 4424 = -1.40 %, 390 5085 / 5189 = -2.00 %;
+  - ch/en: 1440 4318 / 4365 = -1.08 %, 390 5032 / 5079 = -0.93 %.
+  - ch/de 390 is just outside 2 %: the homepage's spread (-21 px before the fare teaser, -29 in it, -147 in the news cards and the destination finder, +93 below), also in English, no single cause (finish-swiss.txt, HOLD).
+  - The order-35 notes on the message (as written then) follow; the "Fix" line is withdrawn: nothing is to be republished.
+- Order 35 (as written then): **four page-widths were further, three of them by more than 0.5 points: SWISS /ch/de and /ch/en homepage.**
   - 1440: -1.67 -> -2.63 % and -1.62 -> -2.59 %.
   - 390: +0.56 -> -1.09 % (de) and +0.61 -> -1.06 % (en, 0.45 points).
   - **Located:** the boxes of both captures compared. The flash-teaser strip above the flight search held "Information on flights to Dubai" (44 px at 1440, about 85 at 390) and is empty today; every box after it moved up by that much.
@@ -124,10 +129,10 @@ Result:
 
 | brand | page | width | recording | www px | last px | last vs www | from | now px | now vs www | further (points) |
 |---|---|---|---|---|---|---|---|---|---|---|
-| SWISS | /ch/en/homepage | 1440 | swiss-parity-008 | 4433 | 4361 | -1.62 % | order 27 | 4318 | -2.59 % | +0.97 |
-| SWISS | /ch/de/homepage | 1440 | swiss-parity-001 | 4480 | 4405 | -1.67 % | order 27 | 4362 | -2.63 % | +0.96 |
-| SWISS | /ch/de/homepage | 390 | swiss-parity-001 | 5141 | 5170 | +0.56 % | order 28 | 5085 | -1.09 % | +0.53 |
-| SWISS | /ch/en/homepage | 390 | swiss-parity-008 | 5086 | 5117 | +0.61 % | order 28 | 5032 | -1.06 % | +0.45 |
+| SWISS | /ch/en/homepage | 1440 | swiss-parity-008 | 4433 | 4361 | -1.62 % | order 27 | 4318 | -2.59 % | recording older than www's message change (swiss-parity-010: 4365, -1.08 %) |
+| SWISS | /ch/de/homepage | 1440 | swiss-parity-001 | 4480 | 4405 | -1.67 % | order 27 | 4362 | -2.63 % | recording older than www's message change (swiss-parity-010: 4424, -1.40 %) |
+| SWISS | /ch/de/homepage | 390 | swiss-parity-001 | 5141 | 5170 | +0.56 % | order 28 | 5085 | -1.09 % | recording older than www's message change (swiss-parity-010: 5189, -2.00 %) |
+| SWISS | /ch/en/homepage | 390 | swiss-parity-008 | 5086 | 5117 | +0.61 % | order 28 | 5032 | -1.06 % | recording older than www's message change (swiss-parity-010: 5079, -0.93 %) |
 | Brussels | /be/en/book-a-flight/connecting-africa | 390 | brussels-parity-001 | 7454 | 7507 | +0.71 % | order 28 | 7539 | +1.14 % | +0.43 |
 | Brussels | /be/en/local-page/student-fares | 390 | brussels-parity-011 | 7722 | 7736 | +0.18 % | order 28 | 7683 | -0.51 % | +0.32 |
 | Group for Business | /ch/en/program/experts/airlines-at-a-glance/discover-airlines | 1440 | b2b-parity-006 | 2272 | 2282 | +0.44 % | order 27 | 2282 | +0.44 % | +0.00 |

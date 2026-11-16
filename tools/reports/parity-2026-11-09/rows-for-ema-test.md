@@ -249,3 +249,23 @@ grey band's end spacing, in the shared section rules, so I left it as it is.
 two app-store buttons side by side, and ours stacks them in the same 622 px column. The band's heading size is a document
 row of mine (delta-so34-brussels-student-fares-band-heading.txt, READY). The buttons' row layout is Columns Media's, so I
 left it as it is.
+
+Standing order 36: this layout is live (6bb8859d, standing order 44: two buttons at the end of a text cell share one line
+from 768 px, a Brussels theme rule).
+Measured as served, the page's height at 1440 is unchanged (5,222 with and without the rule; regress-so36-commits.md).
+
+## 16. Group for Business: the picture-first rows of contact on phones, from ema-lufthansa (2026-11-16, standing order 36)
+
+/de/en/about-us/contact at 390 (+1.88 % as served, airline hosts refused per request; b2b-parity-001; rank 103 of the
+brand sweep, sweep-so36-ranks-90-109.md). Two of the page's Columns Media rows are picture-first
+(columns-media-media-first: the picture cell before the text in DA's copy):
+- "Contact information for travel agencies";
+- "Lufthansa Group for Business Corporate ...".
+
+On www the picture also comes first in the recorded HTML, and stacked at 390 it stands above the heading. On ours the
+heading opens the block, so each heading stands about 220 px higher than www's:
+- -218 px at the first heading, +197 at the next;
+- -228 px at the second, +277 at the next.
+
+The steps cancel inside each row, so the page-width stays within 2 %. It is Columns Media's stacking order on phones, so I
+left it as it is. The page's remaining +72 px is spread over the rows below (+28 to +32 at each heading).
