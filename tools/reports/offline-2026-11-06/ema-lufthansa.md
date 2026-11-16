@@ -5825,3 +5825,75 @@ and no no-breakage render were needed.
 - Every browser load refused airline hosts per request and counted them (host-eval, capture.js, the crop tool).
 - Reads came from our hosts, the drop (ita-pictures-002 and its sidecar) and DA (two document GETs).
 - No da-upload.mjs call, no upload, preview or publish by me. /de/en/overview-manage got no row.
+
+## Standing order 31 (2026-11-16, about 08:35 to 12:00 CET), with its final section
+
+**At the start:** nothing of mine was uncommitted or unpushed; order 30's 454cbd05 and 4595cd36 were on main.
+`.migration/project.json` was modified, not by me, and is left as it is.
+
+**On the live ITA help pictures (round 481):** I couldn't reproduce your 21 px difference.
+- As served now, with airline hosts refused per request, it/en help-and-contact measures exactly my gated figures:
+  - 1440: 2280 with host-eval and 2280 with the repo's capture.js;
+  - 390: 3094 with the Liberation face, 3178 with the system's fonts.
+- The live copies are the archive's files at the same sizes (2240 x 1493 and 630 x 337, served as their media_ names).
+- If your 2,259 / 3,073 came from another window height or consent state, the gap would be there. Both pages are within
+  2 % either way (+0.22 % / +0.59 % on yours).
+
+**Item 1, ITA travel-insurance 390 against its phone first load ita-parity-010** (sha256 f4562b54…df5e, as its
+sidecar): www 4059, the same as the resize.
+- **Located:** -19 / -13 / -50 / -5 px before the four section headings, then everything 87 px higher. This is the same
+  with or without the face; the face changes only the footer's height.
+- **Ours to restore:** www's General Terms paragraph ends "Travel Guard.&nbsp;<br> &nbsp;", an empty line of its own
+  above the "ITA Airways Travel Program" link. DA's copy lost the &nbsp; line.
+- **Row READY:** delta-so31-ita-travel-insurance-empty-line.txt, a {spacer-26} paragraph on DA's copy, backup named,
+  with a test.
+  - 390: -2.14 -> -1.48 % (with the face).
+  - 1440: -0.23 -> +0.65 %, 0.42 points further: within the band-end gate's 0.5.
+- **Not changed:** www's "Previous insurance" is smaller (heading-copytext-large); copying that takes the page 21 px
+  further at both widths. A no-break space in "pre-travel assistance" changes no height.
+- The new finish-ita.txt row is READY on it.
+
+**Item 2, delta-so14-swiss-medication-transport-picture.txt: both rows DONE.**
+- The card's picture is in lh-swiss's DA (content/dam/lx/images/local_variations/…medication_transport…, 147,134 bytes,
+  sha256 ea5be37d…dee8, read back from the source API) and drawn on both served pages.
+- As served: en 2949 / 6171 (390 -2.98 -> -0.52 %), de 3037 / 6414 (390 -2.52 -> -0.14 %). finish-swiss.txt has the
+  figures.
+- **The header's sha256:** no value starting ac9f2fef was in this list (it named no sha256) or in any other tracked
+  file. So nothing could be corrected; the header now names the served file's sha256.
+
+**Item 3, capture lines** (capture-requests-ema-lufthansa.txt, order 31's section, 40 lines, one per page-width: host,
+path, width):
+- ITA /it/it/help-and-contact at 1440 and 390 first: no recording at all, its pictures live with nothing to gate
+  against.
+- Then the 38 worst of the 155 phone page-widths that have only a resize of a 1440 load (Brussels 64, Group for
+  Business 60, ITA 28, SWISS 3; Discover none), worst gap at 390 first.
+
+**Item 4, ranks 11 to 30 of sweep-so30-brands.md** (its order-31 section, captured again):
+- The two families page-widths are within 2 % now (the order-30 row live).
+- **Of the other 18, none has a new row from me:**
+  - entertainment-on-board's eJournals crop (no. 23) is Columns Media's picture cell: www uses a 16:9 cover box. It
+    goes to handover-so33-ema-test.txt, with no edit by me. Another EMA committed that file at 07:51 UTC (fe609b56), and
+    my first ship's rebase met it, so I took my lines back out. They go in, in this order's second commit, once its two
+    hours are over.
+  - de/de lhg-history (no. 29) waits for ema-test's READY row.
+  - The rest are located and are live data, owner decisions, www's recorded state, or code causes whose rules fail the
+    gate (each in the table).
+
+**No shared fix this order:** one document row and one list status, no code.
+
+**Checks:** this commit: `npm run lint`, the folder-reading tests and the full suite in its ship. No theme or block file
+was changed, so stylelint had nothing to check.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git), kept out on purpose:
+  - ita-parity-010;
+  - DA's copies read today: the ITA travel-insurance document, and the SWISS overview page and the card picture read
+    back for the sha256;
+  - the drafts, the captures and the logs.
+
+**Hosts:**
+- Every browser load refused airline hosts per request.
+- Reads came from our hosts, the drop (ita-parity-010 and its sidecar) and DA (GETs of two documents, one picture and
+  one folder list).
+- No da-upload.mjs call, no upload, preview or publish by me. /de/en/overview-manage got no row.

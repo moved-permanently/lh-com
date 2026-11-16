@@ -102,3 +102,50 @@
 # only phone recording (ita-parity-004) is a resize: its text wraps narrower there than either width's own layout
 # host: www.ita-airways.com
 /it/en/manage-my-bookings/extra-services/travel-insurance
+# Standing order 31 (2026-11-16), item 3: phone first loads and missing pages, worst gap first, in the order the Captures
+# child should take them (40 lines). One line per capture: host, path, width. 390 = a fresh 390 x 844 first load of its own
+# (not a resize of the 1440 load), slow-scrolled until every picture is complete, full height, with its measurements json,
+# as ita-parity-010. 1440 = a 1440 x 900 first load the same way. Each line's comment: the recording it replaces (only a
+# resize exists today) and the gap at 390 as served in my latest sweep (airline hosts refused per request).
+# First, the two missing page-widths: ITA /it/it/help-and-contact has no recording at either width, and its help-center
+# pictures are live on our host since round 481 (2,336 / 3,209 px) with nothing to gate them against.
+www.ita-airways.com /it/it/help-and-contact 1440  # no recording
+www.ita-airways.com /it/it/help-and-contact 390  # no recording
+www.brusselsairlines.com /be/fr/book-a-flight/our-payment-methods 390  # only resized (brussels-parity-004); -16.94 % at 390
+www.brusselsairlines.com /be/en/check-in-options-and-info/check-in-times 390  # only resized (brussels-parity-004); -5.52 % at 390
+business.lufthansagroup.com /xx/en/program/experts/on-board/meals-on-board 390  # only resized (b2b-parity-005); -5.41 % at 390
+www.brusselsairlines.com /be/en/local-page/offers 390  # only resized (brussels-parity-004); -4.93 % at 390
+www.brusselsairlines.com /am/en/non-encrypt-mail/contact-form-error 390  # only resized (brussels-parity-004); +3.70 % at 390
+www.ita-airways.com /it/en/book-and-prepare/travel-information/baggage/checked-baggage 390  # only resized (ita-parity-005); -3.10 % at 390
+www.brusselsairlines.com /be/en/local-page/chase-the-sun-across-spain 390  # only resized (brussels-parity-004); +2.73 % at 390
+www.brusselsairlines.com /be/en/jobs/core-values 390  # only resized (brussels-parity-004); +2.60 % at 390
+www.brusselsairlines.com /it/it/extra-services/meals 390  # only resized (brussels-parity-006); -2.31 % at 390
+www.brusselsairlines.com /it/it/legal-notices/special-assistance-legal-guidelines 390  # only resized (brussels-parity-007); -2.30 % at 390
+www.brusselsairlines.com /be/nl/special-care/pets 390  # only resized (brussels-parity-006); -2.23 % at 390
+www.brusselsairlines.com /be/fr/my-bookings/cancel-and-refund-requests 390  # only resized (brussels-parity-006); -2.03 % at 390
+business.lufthansagroup.com /xx/en/program/experts/special-assistance-and-services 390  # only resized (b2b-parity-005); +1.99 % at 390
+business.lufthansagroup.com /de/en/program/experts/special-assistance-and-services 390  # only resized (b2b-parity-004,b2b-parity-005); +1.99 % at 390
+business.lufthansagroup.com /de/en/news/celebrating-shared-stories/sap 390  # only resized (b2b-parity-007); +1.96 % at 390
+www.brusselsairlines.com /ao/fr/legal-notices/aviation-services-law 390  # only resized (brussels-parity-007); -1.95 % at 390
+www.brusselsairlines.com /de/de/extra-services/lounges 390  # only resized (brussels-parity-006); +1.92 % at 390
+business.lufthansagroup.com /de/en/news/lhg-ita-airways 390  # only resized (b2b-parity-003); +1.89 % at 390
+www.brusselsairlines.com /be/nl/contact/service-charges 390  # only resized (brussels-parity-006); -1.84 % at 390
+www.brusselsairlines.com /il/en/rebooking-request-birthright 390  # only resized (brussels-parity-004); +1.79 % at 390
+business.lufthansagroup.com /xx/de/travel-management/hygiene-and-safety 390  # only resized (b2b-parity-006); -1.74 % at 390
+business.lufthansagroup.com /de/de/travel-management/hygiene-and-safety 390  # only resized (b2b-parity-006); -1.74 % at 390
+www.brusselsairlines.com /be/en/legal-notices/israel-cancellation-policy 390  # only resized (brussels-parity-007); -1.71 % at 390
+www.brusselsairlines.com /be/en/legal-notices/short-notice-eu-us 390  # only resized (brussels-parity-007); -1.70 % at 390
+www.brusselsairlines.com /de/de/legal-notices/dsar-start 390  # only resized (brussels-parity-006); -1.69 % at 390
+www.brusselsairlines.com /be/en/travel-comfortably-from-lille 390  # only resized (brussels-parity-004); +1.62 % at 390
+www.brusselsairlines.com /be/en/contact/service-charges 390  # only resized (brussels-parity-004); -1.61 % at 390
+www.ita-airways.com /it/en/world-of-ita-airways/travel-classes/business-class-medium-haul 390  # only resized (ita-parity-005); -1.57 % at 390
+www.brusselsairlines.com /be/en/contact/feedback/general/other 390  # only resized (brussels-parity-004); +1.47 % at 390
+business.lufthansagroup.com /de/de/travel-solutions/our-european-fares 390  # only resized (b2b-parity-007); +1.45 % at 390
+www.brusselsairlines.com /be/en/legal-notices/us-traveling-with-disabilities 390  # only resized (brussels-parity-007); -1.44 % at 390
+www.brusselsairlines.com /be/en/my-bookings/emergency-contact 390  # only resized (brussels-parity-004); +1.41 % at 390
+www.brusselsairlines.com /be/en/extra-services/meals/bon 390  # only resized (brussels-parity-004); -1.39 % at 390
+business.lufthansagroup.com /xx/en/travel-solutions/swiss-senses/corporates-start-of-booking 390  # only resized (b2b-parity-005); +1.33 % at 390
+business.lufthansagroup.com /xx/de/travel-solutions/swiss-senses/intermediaries-start-of-booking 390  # only resized (b2b-parity-004,b2b-parity-005); +1.29 % at 390
+business.lufthansagroup.com /xx/en/travel-solutions/swiss-senses/intermediaries-start-of-booking 390  # only resized (b2b-parity-005); +1.27 % at 390
+www.brusselsairlines.com /be/en/jobs/mpl-cadet-program 390  # only resized (brussels-parity-004); +1.26 % at 390
+www.brusselsairlines.com /be/en/legal-notices/us-customer-service-plan 390  # only resized (brussels-parity-007); -1.23 % at 390

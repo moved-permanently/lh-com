@@ -174,3 +174,32 @@ an owner decision, and the reason is located against its recording.
 
 **Now within 2 %:** 9 of the 89. These are SWISS's help pages with the picture copies live (order 28), the lhg4b
 search pages with the 844 px phone window (order 28), and swiss-senses intermediaries 390 with its row live (order 28).
+
+## Standing order 31: ranks 11 to 30, captured again
+
+Captured again on 2026-11-16 at about 07:55 UTC (capture.js, airline hosts refused per request, the same recordings).
+The two families-and-children page-widths at 1440 (no. 16 and 17) are within 2 % now: their order-30 row is live
+(-0.28 / -0.26 %). That leaves 18, each with its located cause and its fix, or the reason there is none.
+
+| # | page-width | now | located cause | fix |
+|---|---|---|---|---|
+| 11 | SWISS /magazine/en/…/a350-special-livery 390 | -13.76 % | www's third-party ad slots between the sections (about 300 px each on phones; the steps sit where www has a slot) | none: owner decision, left out by design (SWISS rows 20, 21) |
+| 12 | SWISS /magazine/en 390 | -13.62 % | the same ad slots | none: owner decision |
+| 13 | Group for Business kuala-lumpur 1440 | -7.82 % | -469 px before "Experience a new kind of travel": www's recorded flight table "The new connection at-a-glance" draws each row about 280 px tall and mostly empty (its own screenshot); ours sizes them by content | none: www's recorded state, nothing to copy |
+| 14 | Brussels be/fr our-company 390 | +6.66 % | +316 px before "Déployez vos ailes", +135 before "Icônes belges": www cuts the "Le saviez-vous" cards' text after three lines and hides the rest; ours shows it whole (24 to 48 px more per card) | none: owner decision, cutting it hides content |
+| 15 | Brussels be/en local-page/offers 1440 | -6.57 % | -267 px before "Book your next trip", -168 before "Smart Choices": the finder and flight search in their no-answer state | none: live data |
+| 18 | Brussels be/en check-in-times 390 | -5.52 % | -259 px at the checkin-deadlines block, before "Related topics": the block draws www's check-in deadlines from www.lufthansa.com's labels and catalogue (refused, its no-answer state; www's is about 260 px) | none: live data. The recording is a resize; its phone first load is requested |
+| 19–21 | Group for Business meals-on-board 390 (ch/en, de/en, xx/en) | -5.41 % | www's tab set has a ninth item with no label and no content (51 px), and 22 px more above the tab set | none: the empty item is www's; a rule for the 22 px takes entertainment-on-board's phone page further (order 25) |
+| 22 | Brussels be/en local-page/offers 390 | -4.93 % | as no. 15 | none: live data |
+| 23 | Group for Business entertainment-on-board 1440 | -4.87 % | -71 px: www draws the eJournals picture in a 16:9 box with object-fit: cover (608 x 338), ours at its own ratio (622 x 267); www keeps 40 px more under "In-Flight Entertainment System" | Columns Media: for ema-test's hand-over file (handover-so33-ema-test.txt), no edit by me; added there in this order's second commit, after the two hours since another EMA's commit of that file (fe609b56, 07:51 UTC) |
+| 24 | Brussels ke/en homepage 1440 | +4.72 % | the fare teaser keeps all 11 of www's routes without fares; www drew the 6 its price service priced (order 30) | none: live data |
+| 25 | Brussels be/en check-in-options-and-info 390 | -4.66 % | -117 px before the footer: www keeps 187 to 248 px from a closing teaser row to the footer on phones, ours 178 | none: the rule takes this page closer but 16 others further, and no scope separates them (orders 22, 25) |
+| 26 | Brussels be/fr extra-services/meals 390 | -4.49 % | -108 px before the footer, the same phone teaser ending | none: as no. 25 |
+| 27 | Brussels be/fr our-company 1440 | +4.41 % | +176 / +57 px, the same cut card texts as no. 14 | none: owner decision |
+| 28 | Brussels be/fr cancel-and-refund-requests 1440 | -4.21 % | P56's link-line ending live (1672 -> 1684); the rest is in the accordions' text column (www's narrower text box wraps the answers into more lines) | none: every accordion rule tried fails the gate on other pages (orders 24, 28) |
+| 29 | Group for Business de/de about-us/lhg-history 1440 | -4.12 % | -56 px before "Weltweites Streckennetz": www's title sits in a column view whose marks the import's collapse dropped | ema-test's row delta-so29-b2b-lhg-history.txt is READY but not live yet ({spacer-39 from-768} before the title: 1,662 -> 1,700 px and -2.75 % when it was gated, 1676 as served today); the rest is the long-word decision (de/de) |
+| 30 | Brussels be/en book-a-flight 1440 | +4.09 % | +56 px before the footer: the page ends with a teaser row; at 1440 www keeps 82 px under it, ours 112 (the padded section's 64 px) | none: other teaser endings at 1440 differ the other way (families: www 130, ours 112), so no rule passes |
+
+Of the 18, none has a new row from me. One is ema-test's READY row waiting to go live (no. 29), and one is a Columns
+Media cause for ema-test's hand-over file (no. 23). The rest are live data, owner decisions, www's recorded state, or code causes whose
+rules fail the gate.
