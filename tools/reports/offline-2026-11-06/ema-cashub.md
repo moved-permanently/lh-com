@@ -8945,3 +8945,136 @@ us/en 4,887 / 5,902; the band 84 / 158 px.
 - /de/en/overview-manage has no row.
 
 **Not in git** (scratch under /tmp/so50): the drop, the served copies, DA's copies, the renders, drafts, scripts and logs.
+
+## Standing order 51 (2026-11-16, from about 15:05 CET)
+
+**Carried over:** nothing. Order 50's commits were all on main, and my worktree was clean at `85f601ec`. The checkout's 88
+dirty entries belong to other jobs and were left alone.
+
+**Renders:** 434, all unhinted. lh-proxy, www.* (but www.mynewsdesk.com) and every airline host were refused and
+counted: 7,562 refused, none sent. The homepages were rendered as served; where a figure is "replayed", our host's
+recorded widget answers of 2026-11-15 were answered locally (nothing sent), with today's flags.
+
+**DA:** read only, thirteen single GETs, one per command: the es, ba, bg, cy, dk, gr, hr, iq, ir, jo, lt, mk and us /en
+homepages. No upload, preview, publish or da-upload.mjs. /de/en/overview-manage has no row.
+
+### Item 1: the AI rows (delta-so51-austrian-ai-rows.txt, delta-so51-austrian-us-hero-mobile-image.txt)
+
+**The drop:** austrian-parity-030's sha256 matches, and so do the manifest's 377 file hashes. It went into its own new
+folder and was read as data (serve.py not run). Its README is boilerplate of 2026-11-09 ("390 from the same load after a
+resize", "banner accepted"); the manifest says loadedSeparately on every width, loaded 14:38 to 14:48 CET. Every
+figure you gave matches: 28 loads, HTTP 200, each picture as tall as its scrollHeight.
+
+**The rows:** the same insert as order 50's three live rows (order 42's block after the flight search, the button linking
+to the market's www homepage). The drafter reproduces live eg/en byte for byte. Dry run on DA's copies: one insert each,
+DA's copy back byte for byte without it, "present" on a second pass.
+
+| page | width | www | as served | with the row | status |
+|---|---|---|---|---|---|
+| es/en | 390 | 6,029 | 5,861 (-2.79 %) | 6,071 (+0.70 %) | READY (1440 -0.47 %, order 50's figure) |
+| ba, bg, cy, dk, gr, hr, iq, ir, jo, lt, mk /en | 390 | 6,029 | 5,861 (-2.79 %) | 6,071 (+0.70 %) | READY, each |
+| the same eleven | 1440 | 4,869 | 4,722 (-3.02 %) | 4,846 (-0.47 %) | READY, each |
+
+- Footer tops with the row: 5,001 against 4,963 at 390 and 4,032 against 4,055 at 1440, on all twelve. 768: 5,545, scroll
+  width 768. The controls equal the served pages to the px.
+- es/en stays HOLD in order 50's list, which now points to this one. The apply tool reads exactly these twelve paths from
+  the new list.
+
+**No band, no row (as served):**
+- be/en: 390 5,861 against 5,830 (+0.53 %), 1440 4,722 against 4,744 (-0.46 %).
+- at/en 1440: 4,824 against 4,834 (-0.21 %). at/de 1440: 4,872 against 4,884 (-0.25 %).
+- **Places 111 and 113 are closed** against these loads (-0.25 and -0.21 %, footer tops -11 and -10). Their old
+  reference was the 2026-11-05 load with www's older flight search.
+
+**us/en 390, a new finding:** www 6,152, ours live (with order 50's AI row) 5,902 (-4.06 %).
+- Located: our hero carries the option no-mobile-image, so on phones it draws its card without the picture (278 px against
+  the other markets' 570). www draws the picture: its "Winter deals" stands at 1,550 as on every other market.
+- **Row READY:** the option out, as order 41's gb/en row. 390: 6,194 (+0.68 %), footer top 5,001 against 4,963. 1440 and
+  768 unchanged (4,887, 5,559). Dry run on DA's copy passes; the diff is the one class attribute.
+- No other served Austrian document has the option.
+
+**The medical picture:** closed as no fix, as you said. The list's rows are CLOSED, so the apply tool reads none.
+
+### Item 2: the finder button (gate-so51-austrian-finder-button.txt): HOLD, not shipped
+
+**www:** on every phone load the link is maui-button-link size small, width full: 346 x 36 (14/18, tracked 1.3 px, 7 px
+34 px inside a 2 px edge), 54 where the French and Italian labels take two lines. At 1440 it is medium and as wide as its
+label, 50 px, as ours.
+
+**The rule (not committed):** below 768 px, `body.brand-austrian .destination-finder .destination-finder-cta
+a.button:any-link` gets width 100 %, min-height 30 px, padding 7 px 34 px, 14 px type on an 18 px line. Ours goes from 50
+to 36 (English), 74 to 36 (German), 74 to 54 (French, Italian), www's heights each time.
+
+**Your gate, as served:** 51 of the 52 recorded Austrian phone homepages (the newest load of each path; 41 first loads, 11
+resizes) pass. "Further" is |after| less |before|, as you defined it in order 46.
+- **Fails: ch/de 390** (austrian-parity-022, first load): -7.25 -> -7.89 %, **0.64 points further**.
+- **Why:** as served our page is already 429 px short, all of it in the finder band (428 px against 863 with answers). Our
+  host's finder gets no answers from www's APIs (refused), so it draws its short state. The rule then takes 38 px off a
+  button that is 74 px where www's is 36.
+- **With our host's same-hour answers replayed** (austrian-api-002, nothing sent): +0.12 -> -0.52 %, 0.41 points
+  further, a pass. The same replay passes all 23 recorded homepages that have a same-hour api archive. That is not your
+  gate, so the rule is not shipped.
+
+**No-breakage census, done:** the rule toggled in the same load on all 69 served documents with the finder (57 homepages,
+12 offers pages, which draw no such link) and the recorded homepages without one: 76 at 390, 69 at 360 and 69 at 768.
+- Every move is the button, and the footer moves the same.
+- Scroll widths and elements past the edge are unchanged. Taking the rule out restores every figure.
+- 768 moves nowhere. pl/pl at 360 has a 1 px overflow with and without the rule.
+
+**For you:** ship it on your word (one theme rule, the census and the gate are done), or keep it until a ch/de phone load
+can be gated with answers.
+
+### Item 3: places 131 to 150 (sweep-so51-places-131-150.txt)
+
+All twenty are within 2 %. Every served figure equals order 43's, except place 150 and the homepages (below).
+- **Closed:** 150 immigration-regulations-schengen 390, at -0.07 % (4,355 against 4,358; +45 since order 43, not traced).
+- **Pointers, first loads asked for:** 131 to 134 (nl, no, se, si /en 390). Their newest loads are pre-band resizes of
+  2026-11-10. 15 of the 18 English homepages loaded today draw the band (not be/en, de/en, at/en), so it can't be assumed.
+- **Homepages with the band (135, 136, 147: ro, rs, it /en 390):** as served 5,650 / 5,645 (-5.7 %): the finder
+  without answers draws 383 px against 794 (ro/en's is titled "Flight offers from BUH"). Replayed, they are 6,062 /
+  6,056, order 43's figures to the px. The +66 to +72 is in the finder band, 14 of it the link of item 2.
+- **No fix, both signs or spread:**
+  - 137 entryregulations: footer -96 over eleven steps, the largest -57 at the closing teasers;
+  - 140 to 143 Cargo support-and-contact: -50 above, +69 across the topic tiles;
+  - 144 and 149 Air Dolomiti london-eu and basel-de: spread over the card sections (www's recording runs 165 px past
+    its footer);
+  - 146 containers (a resize) and 148 facts-figures.
+- **A candidate, not drafted:** 138, 139, 145, the three language versions of the Adriatic article: +52 at the
+  article's end on each, after the last heading. A rule would need a census over every Air Dolomiti article and www's
+  own gap read from its pictures. The ±210 at "Grotte di Frasassi" is www's heading box holding its picture; the text
+  tops differ by 17.
+
+### Final section (about 16:10 CET, 2026-11-16)
+
+All three items are done, so I stopped well before 18:30.
+
+**On main:**
+- `a319b84c`: the lists, the gate file, the sweep file, the capture requests, the medical row closed.
+- This commit: this section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 in both rounds of the push loop; the exit code was read before the push.
+  Origin moved once during the checks (another job's commit), so the loop rebased and ran everything again.
+- **Stylelint:** no theme or block file changed this order (the finder rule stayed out of git).
+- **Tests on the push:** the folder-reading tests and every test naming a changed file: 179 files, 876 tests, 874 pass, 0
+  failures, 2 skipped.
+- **Full suite** on `a319b84c`: 1,228 files, 4,668 tests, 4,663 pass, 0 failures, 5 skipped (one node process per file,
+  ~15:46 to ~16:03 CET).
+
+**Live since:** your helpers applied both lists (`b71e78d5`, the twelve AI rows; `b666bd59`, us/en's hero). I measured
+them live at ~16:05 CET. ba/en's and us/en's served copies equal my drafts byte for byte (the two I compared), and all
+26 page-widths equal their drafts to the px: the twelve at 6,071 (390) and 4,846 (1440), us/en 6,194 and 4,887.
+
+**For you:**
+- **Decision:** the finder button rule (item 2).
+- **Captures:** nl, no, se, si /en at 390 and 1440.
+
+**Rules followed:**
+- No request to an airline host: refused and counted, none sent.
+- DA: thirteen single GETs, read only.
+- No upload, preview, publish or da-upload.mjs.
+- The recordings were read as data.
+- The checkout's dirty entries untouched.
+- /de/en/overview-manage has no row.
+
+**Not in git** (scratch under /tmp/so51): the drop, the served copies, DA's copies, the renders, drafts, scripts and logs.
