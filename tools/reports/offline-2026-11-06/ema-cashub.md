@@ -8809,3 +8809,136 @@ page-width equals its draft to the px:
 
 **Not in git** (scratch under /tmp/so49): the drop, the served copies (2,459 Austrian copies for the census), DA's copies,
 the renders, drafts, offline layouts, scripts and logs.
+
+## Standing order 50 (2026-11-16, from about 13:32 CET)
+
+**Carried over:** nothing. Order 49's commits were all on main, and my worktree was clean at `e0b6916b`. The checkout's 88
+dirty entries belong to other jobs and were left alone.
+
+**Renders:** 317, all unhinted. lh-proxy, www.* (but www.mynewsdesk.com) and every airline host were refused and counted:
+1,044 refused, none sent. The homepages were rendered as served, without replayed widget answers.
+
+**DA:** read only, five single GETs, one per command: the eg/en, am/en, us/en and es/en homepages, and
+medical-travel-companions. No upload, preview, publish or da-upload.mjs. /de/en/overview-manage has no row.
+
+### Item 1: the first loads (gate-so50-first-loads.txt, delta-so50-austrian-ai-rows.txt)
+
+**The drop:** both sha256 match, and the manifests' 289 + 23 file hashes match. Each archive went into its own new folder and
+was read as data. Every page is a separate first load with HTTP 200, its picture as tall as its scrollHeight.
+
+**The AI band:** www draws it on eg/en, am/en, us/en and es/en at 1440 (4,869; us/en 4,910 with its taller footer), and not
+on de/en (4,744). None of our five pages draws it: none of their documents has the block.
+
+| page | width | www | as served | with the row | status |
+|---|---|---|---|---|---|
+| eg/en | 1440 | 4,869 | 4,722 (-3.02 %) | 4,846 (-0.47 %) | READY (390 +0.71 %, order 48's load) |
+| am/en | 1440 | 4,869 | 4,722 (-3.02 %) | 4,846 (-0.47 %) | READY (390 +0.70 %) |
+| us/en | 1440 | 4,910 | 4,763 (-2.99 %) | 4,887 (-0.47 %) | READY (390 not recorded; a load is asked for) |
+| es/en | 1440 | 4,869 | 4,722 (-3.02 %) | 4,846 (-0.47 %) | HOLD: its only 390 is a pre-band resize (+1.23 -> +4.85 %) |
+| de/en | 1440 | 4,744 | 4,722 (-0.46 %) | - | no row: neither page draws a band |
+
+- Footer tops with the row: 4,032 against www's 4,055 on all four.
+- **Dry run on DA's copies:** one insert each, DA's copy back byte for byte without it, "present" on a second pass.
+- eg/en and am/en stay HOLD in order 48's list, which now points to this one.
+- **Checked:** the apply tool's list reader takes a path as READY if any one of its rows is READY. So every es/en row is
+  HOLD, and the list now gives eg/en, am/en and us/en only.
+
+**at/de homepage 390:** 6,089 against 6,006 (+1.38 %): passes as served.
+- Hero -22, fare teaser -25.
+- +169 in the destination finder band. Our host's finder gets no answers, so it draws its empty state (www's APIs are
+  refused): the widget's state.
+- **Seen, not drafted:** our "ALLE ANGEBOTE UND REISEZIELE" button wraps to 74 px. www's is one 36 px line at 390, and so is
+  at/en's (ours 50). A rule would reach every Austrian homepage on phones and needs its own gate.
+
+**Cargo dangerous-goods 390:** www 1,242, equal to the old resize. As served 1,246 (+0.32 %). Place 85's flush row gives
+1,186 (-4.51 %), so it fails and there is no fix. Both widths are within 2 % as served.
+
+### Item 2: the Austrian table header row (gate-so50-austrian-table-header.txt): shipped
+
+**Order 49's note was wrong.** Read down www's full-page pictures:
+- www draws the header, a 1 px grey rule, then **48 px of white** before the first row, at 1440 and 390.
+- We draw the same rule at the same place (accessible-travel 1440: 123 px from the last text line above to the rule on
+  both), then 40 px of white.
+- So the difference is 8 px a table, ours shorter. It is not +73, and there is no missing separator: order 49 took www's
+  white band for the header row.
+
+**The rule:** `body.brand-austrian .table-striped.header tbody tr:first-child > * { border-top-width: 48px; }`. ITA's phone
+rule sets the same border.
+
+**Gate:**
+- Recorded pages, closer or within 0.5 points on all four:
+  - private-check-in-counter 1440: -0.27 -> -0.13 %
+  - private-check-in-counter 390: +0.06 -> +0.17 %
+  - accessible-travel 1440 / 390: -0.57 / -0.48 %, unchanged (its table scrolls in the 840 px box, as www's does)
+- No breakage: all 2,459 served Austrian copies fetched again; 81 documents hold the 141 tables. All 243 page-widths (1440,
+  390, 768) pass: scroll widths unchanged, and each page and footer moves 8 px per drawn table outside a scrolling box,
+  nothing else (90 +8, 30 +16, 123 +0).
+- Renders with the committed CSS equal the style-tag figures to the px.
+- **Live** since about 14:30 CET: private-check-in-counter 1440 5,957 and internet-on-board 9,047, as gated.
+- **Not changed:** the header's type (www CoreSans about 18 px semi-bold, ours Portada 20 light).
+
+### Item 3: medical-travel-companions' second card (delta-so50-austrian-medical-picture.txt, HOLD)
+
+**The card:** "Electronic devices".
+**The picture:**
+https://www.austrian.com/content/dam/aua/images/plan/baggage/electronic-devices-and-batteries/baggage-electronic-devices-flugmodus-2x1.jpg
+
+**Why it is missing:** www answers 404 for it. tools/importer/austrian-missing-assets.json records your Captures child's
+four requests (2026-11-10). www's own picture of the page (austrian-parity-003) shows an empty area there, so our copy
+draws what www draws. Order 49's "www has one" read the markup.
+
+**The row:** a `<picture>` in the card's empty cell, as its neighbours have.
+- Dry run on DA's copy passes.
+- With a stand-in picture the page does not move at 1440, 390 or 768.
+- It stays HOLD until www answers 200 and draws the picture. It does not go READY on a drop copy alone, which would show a
+  picture www does not.
+- The capture-requests file asks for both URLs' answers and, if 200, a 1440 load.
+
+### Item 4: places 111 to 130 (sweep-so50-places-111-130.txt)
+
+All twenty are within 2 %.
+- **Rows:** 117 (am/en 390) is the READY AI row; 123 (es/en 390) is the HOLD one.
+- **Closed:** 112 tarmac-delay, at +0.18 % since order 49's row.
+- **Pointers, first loads asked for:**
+  - 111 and 113 (at/de and at/en 1440): the 2026-11-05 load has www's older flight search (FIND FLIGHTS at 301; at 251
+    today, ours 256), and the finder band is the widget's state.
+  - 118 to 130 but 123: twelve English homepages at 390 against pre-band resizes. Does www draw the band there? 390 and
+    1440 loads are asked for.
+- **No fix:**
+  - **114 Air Dolomiti /destinazioni:** +26 where the list follows the intro and +21 at the carousel's end. A
+    paragraph-to-list rule would need its own site-wide gate.
+  - **115 cn/zh contact:** the Chinese footer is 42 px shorter (fonts, as you explained).
+  - **116 promptpay:** the fare teaser without prices, and spacing differences under it that cancel. The option spaced
+    takes the page to +2.27 %, so it was dropped.
+
+### Final section (about 14:50 CET, 2026-11-16)
+
+All four items are done, so I stopped well before 17:30.
+
+**On main:**
+- `2243771f`: the table-header rule and its test (red on main first, 1 of 2).
+- `74c78527`: the lists, the two gate files, the sweep file and the capture requests.
+- This commit: this section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 in each of the push loop's three rounds; the exit code was read first. Origin
+  moved twice during the checks (other jobs' commits), so the loop rebased and ran everything again.
+- **Stylelint:** exit 0 on styles/themes/austrian.css.
+- **Tests on the push:** the folder-reading tests and every test naming the changed files or the rule's classes: 244
+  files, 1,152 tests, 1,147 pass, 0 failures, 5 skipped.
+- **Full suite** on `74c78527`: 1,225 files, 4,660 tests, 4,655 pass, 0 failures, 5 skipped (one node process per file, ~14:30 to ~14:46 CET).
+
+**For you:**
+- **Your helpers:** three READY AI rows (eg/en, am/en, us/en).
+- **Captures:** es/en and us/en 390; twelve English homepages at 390 and 1440; at/en and at/de 1440; and the medical
+  picture's two URLs.
+
+**Rules followed:**
+- No request to an airline host: refused and counted, none sent.
+- DA: five single GETs, read only.
+- No upload, preview, publish or da-upload.mjs.
+- The recordings were read as data.
+- The checkout's dirty entries untouched.
+- /de/en/overview-manage has no row.
+
+**Not in git** (scratch under /tmp/so50): the drop, the served copies, DA's copies, the renders, drafts, scripts and logs.
