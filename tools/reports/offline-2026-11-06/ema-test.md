@@ -5305,3 +5305,61 @@ during the order; after each I took the work up from disk. The first commit (6bb
   - content/, migration-work/ and tools/importer/reports/* (not mine);
   - the old autostash entry (not mine, kept).
 - Preview servers stopped; the trial and suite worktrees removed.
+
+## Standing order 45 (received about 19:40 UTC, 2026-11-16)
+
+State at the start: nothing of mine uncommitted or unpushed (order 44's final section on main, 872ffb24, Build green).
+The lufthansa.com drops were gone from /tmp after the restarts. I fetched them again and they are the same bytes as
+before (lh-parity-002a/b/d, -003). They are now kept under logs/drops (git-ignored), so a restart no longer loses them.
+
+1. **advance-seat-reservation 1440** (c4bfb57c): a shared rule.
+   - The tab panels' first steps (-32 / -33 px) are the space between a heading and its first seat row. www keeps the
+     importer's separator above the first row too.
+   - The rule: separated rows right after a heading get 31 px above them, from 768 px. Gate: 1440 13.98 → 7.77 %, 390
+     unchanged.
+   - It reaches the 4 advance-seat-reservation locales. The 3 unrecorded ones are 62 px longer at 1440, with no flag.
+   - At 390 the same rule went to 17.72, and a phone row gap to 17.83, so neither applies on phones.
+   - The remaining 1440 steps are rows with www's extra height and nothing drawn in it. A spacer row there took the page
+     further at both widths, so there is no fix for them.
+2. **Heading spacing after text** (c4bfb57c, narrowed in ef7ff1f8).
+   - Business-class-on-short-and-medium-haul's two -16 px steps are not heading spacing: they are the gap after a teaser
+     row whose cells end with a link (www 82 px, ours 66).
+   - Rule from 768 px: in a plain Columns Media block, a teaser row (a text cell opening with a picture) after a row
+     with a cell ending in a link gets 16 px more (wide-rows excluded: it already has 24).
+   - It first required every cell to end with a link; corporate-customers' text | picture row showed www does the
+     same there. A version without the teaser condition took timetable-and-flight-status 3.95 → 8.73, so it was not
+     used.
+   - A second rule: a section that closes with an outer-column heading keeps no section gap before a plain grey band
+     (menus-on-long-haul).
+   - Every recorded page-width they reach is closer or equal: business-class 13.29 → 2.70, menus-travel-classes
+     8.05 → 1.61, travelling-with-special-requirements 6.48 → 1.02, corporate-customers 9.12 → 2.64, air-baltic 7.16 → 6.41, menus-on-long-haul
+     4.52 → 1.94 at 1440 and 8.89 → 3.35 at 390.
+   - No-breakage: 337 unrecorded documents (674 renders), then 207 for the narrowing (414 renders); no flag changed.
+   - A scan of all 346 recorded page-widths' drift profiles finds plain-heading steps both ways (12 closer, 13 further,
+     e.g. +16 at the travel-id terms' chapters). That is hand-over item 14's finding again, so there is no heading rule.
+3. **Places 21 to 40** (places-so45-lh-com-outside-21-40.txt), measured again as served.
+   - 2 READY rows (delta-so45-rows.txt):
+     - lufthansa-at-berlin-airport: the "Extras" picture www does not draw. 390 13.07 → 7.13, 1440 3.40 → 2.73.
+     - miles-and-more-credit-card: a 40 px spacer before the accordion. 1440 12.86 → 10.60, 390 9.36 → 8.79.
+   - 7 without a layout fix (data, widgets, embeds, drift, another session's rows, one page's badge size).
+   - 11 located with their steps and not changed.
+- As served after the push: business-class 2.70, menus-travel-classes 1.61, travelling-with-special-requirements 1.02, menus-on-long-haul 1.94 / 3.35, corporate-customers 2.64, air-baltic 6.41, advance-seat-reservation 7.77 / 12.09 on lufthansa.turnsthe.page, as gated.
+
+## Standing order 45, final section (about 23:00 UTC, 2026-11-16)
+
+- Items 1-3 done.
+- Before this section: the full suite at ef7ff1f8 in a fresh worktree (npm run lint exit 0, stylelint exit 0, 1,246 test files passed, 0 failed); the folder-reading tests with brand.test.mjs (641, 0 failed); the whole-repo lint read
+  before every push.
+- ema-adobe's two-hour window: neither file I changed (columns-media.css, styles.css) had been touched by another
+  session in the two hours before my edits.
+- Nothing uploaded, previewed or published by me. DA read only (miles-and-more-credit-card,
+  lufthansa-at-berlin-airport). da-upload.mjs not run.
+- Requests only to our own hosts, DA (reads), GitHub's API and the drops' address. No request to www or any airline
+  host.
+- .migration/project.json not touched; the excluded manage page has no row and no line.
+- Not in git, and why:
+  - logs/p4/so45 (scratch);
+  - the drops under logs/drops (private material, git-ignored);
+  - content/, migration-work/ and tools/importer/reports/* (not mine);
+  - the old autostash entry (not mine, kept).
+- Preview servers stopped; the trial and suite worktrees removed.
