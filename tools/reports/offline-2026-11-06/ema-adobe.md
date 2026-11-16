@@ -5331,3 +5331,78 @@ clean worktree of the rebased HEAD. Full suite on the final code: 47b61b4 (origi
 - Ended at about 17:40 CET, not 18:30: the three items are answered. The campaign-quote rule waits for styles.css'
   window, and the rest for ema-test's hand-over item 17 or the owner's caption decision.
 - Left out of git: logs/b640 (captures, diffs, renders, runners, and the held patch with its test), the untracked import reports of earlier runs.
+
+### Standing order 41 (2026-11-16 18:35 to about 21:30 CET)
+
+No uploads, previews or publishes; DA read only; no request to www or any airline host. `.migration/project.json`
+untouched; the add-ons stay off. Order 40 left one thing uncommitted, by design: the campaign-quote rule in
+styles/styles.css and its test, held for the stylesheet's two-hour window. Code changes, all lufthansa.com only:
+- styles/styles.css, the held quote rule (3ee2955);
+- blocks/form and blocks/table-striped (2a02f6f).
+
+Each push: stylelint clean on the changed files, the tests that read them passed, and the whole-repo lint read 0 on a
+clean worktree of the rebased HEAD. Full suite on the final code: 2a02f6f (origin/main with every commit of this order but this section), 72 lh-edge files and 1,241 site
+files, 0 failing.
+
+**The two-hour windows:**
+- styles.css: the last commit before mine was 87e5ce4 at 16:31 CET (ema-test's order 43). I pushed 3ee2955 at 18:35
+  CET, after the window. No other styles.css edit this order;
+- Columns Media: no edit by me;
+- the hand-over file: my last commit there was b18c8d4 at 16:14 CET, and nobody else's since; item 18 goes in with
+  2a02f6f.
+
+1. **The lone campaign quote: shipped (3ee2955).** Gated again on the code as served at 18:25 CET:
+   /de/en/100-years/campaigns 390 9.9 -> 9.5 %, 1440 unchanged. The 5 other versions with the pattern were rendered
+   with and without at 390 and 1440 (10 pairs, all 200, no breakage): 33px shorter at 390, unchanged at 1440.
+2. **add-sports-baggage's checkbox groups: shipped (form.css, 2a02f6f).**
+   - Cause: on www each of the page's checkbox groups (Fishing equipment, Bicycle, ...) is its own sub-section with an
+     empty legend, a title slot 29px tall. Ours has no legend there, so each group stood 14px closer.
+   - Wider rules were tried first: 56px above every checkbox field, and 29px above every untitled sub-section. Both made
+     betreuungsbedarf, special-needs, refund-form and anmeldung worse. The rule that passes is narrow: an untitled
+     sub-section whose only field is one checkbox group, 29px above it.
+   - Gate (the 12 recorded core-form documents × 2 widths, as served against with):
+     - add-sports-baggage 1440 / 390: 8.9 / 10.9 -> 6.6 / 9.9 %, and its page height is now www's;
+     - passenger-receipt-90 1440: 6.0 -> 2.3;
+     - feedback-past-flight 1440: 5.4 -> 4.3;
+     - the other 19 page-widths are unchanged.
+   - No-breakage: the 157 unrecorded core-form documents at 390 and 1440, with and without (314 pairs, all 200, no
+     overflow, overlap, clipping or failed picture added):
+     - 256 pairs unchanged;
+     - the add-sports-baggage / sportgepaeck-hinzufuegen copies 218 to 290px taller (28 pairs);
+     - group-check-in-counter and invoice-request-poland 5px taller (8 pairs);
+     - 22 pairs differ by 72px either way: the form's bot-check holder, drawn in only one of the two loads. A rule
+       that only adds space can't make a page shorter.
+3. **The bordered article cards and know-before-you-go's button: no fix for either, and none is needed for the cards.**
+   - The cards (carousel-cards article, "This may also be of interest to you"): our pictures are 344 × 193.5px at
+     16:9, the same as www's (about 193). Each card stands 1.5-2px lower, so three cards add up to about 6px, under 1 %
+     of the page. The "4-6px taller" reading was this cumulative step, not the pictures.
+   - The button ("Find your flight", 15px low): its own gap to the text above is www's (37 / 38px). The 15px builds
+     up before it: +4 across the carousel cards, +5 from the cards block to the next picture, +8 from a picture
+     paragraph to the "Payment" heading. That last one is the shared heading spacing in the site stylesheet, so it is
+     hand-over item 18. The other two, 4 and 5px, are too small to gate: under 1 % each.
+4. **sweep-so34-lh-adobe.md, places 79 to 98 (section "Places 79 to 98", 2a02f6f).**
+   - **Shipped:** /de/en/100-years/fleet 390. On phones the spec table rows keep www's 68px under the text, as from
+     768px:
+     - 390: 7.9 -> 6.4 %, the drift after the first table from -140 to within 40px;
+     - 1440: 11.4 -> 11.4.
+     - The 6 other fleet documents were rendered with and without at 390 and 1440 (12 pairs, all 200, no overflow,
+       the same overlap counts). At 390 they are 21 to 1,215px taller (their tables now fill the same 840px box as
+       www's); 1440 is unchanged.
+   - **Gated, not shipped:** the "Our Authors" cards (florian-tomberg 1440). www's cards are 119px taller there, but
+     not on explore-flying, and www's stylesheet has no such space: its card components size themselves. A rule
+     with 60px under the portrait and the text:
+     - better at 1440: florian-tomberg 7.5 -> 2.9, explore-the-world 8.1 -> 4.2;
+     - worse: florian-tomberg 390 4.5 -> 8.4, explore-flying 1440 1.1 -> 7.4, explore-the-world 390 7.6 -> 8.8.
+   - **To ema-test:** hand-over item 18, the section gap before a heading. Here ours leaves less than www:
+     frankfurt-fair 1440 (39px), explore-the-world 1440 (26), speisen-und-getraenke 390 (30). It also holds item 3's
+     +8px.
+   - **Already in the hand-over:** the Related Articles gap (item 17) on what-i-learned-living-in-frankfurt and
+     on-the-scene-caspar-plautz-munich.
+   - **No fix:**
+     - the 100-years crane captions (the owner's decision);
+     - content that differs from the recordings (the Insights hubs' lists, related article order);
+     - the font width (services-am-flughafen);
+     - steps under 1 %.
+   - The two Insights hubs were measured against lh-parity-002's recordings: the sweep's lh-parity-007 copies were in
+     /tmp, which a restart wiped.
+- Left out of git: logs/b641 (captures, diffs, renders, runners) and the untracked import reports of earlier runs.
