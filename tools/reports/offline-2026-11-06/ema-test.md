@@ -5072,3 +5072,39 @@ State at the start: nothing of mine uncommitted or unpushed (order 37's final se
 - Not in git and why: logs/p4/so38 (scratch: captures, gates, renders, DA copies, folder pages), the drops in /tmp
   (private material), content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not
   mine, kept). Preview servers stopped, trial and suite worktrees removed.
+
+## Standing order 39 (received about 07:35 UTC, 2026-11-16)
+
+State at the start: nothing of mine uncommitted or unpushed (order 38's final section on main, 860539ac).
+
+1. **data-collection-canada**: www's empty line after the first teaser card's text, now as {spacer-27} (READY,
+   delta-so39-lh-com-rows.txt): 1440 9.53 → 8.24 %, 390 9.75 → 10.03 (within 0.5; the same as order 36's draft). A
+   from-768 spacer is not hidden inside a Columns Media cell, so the plain one.
+2. **rich-lists as a rule** (fe9ad2cb): www's richtext lists in every lufthansa.com accordion.
+   - Census: 1,024 documents with accordion lists. The 118 recorded page-widths moved by 0.04 at most (closed items
+     draw nothing at load).
+   - The 965 unrecorded documents rendered at 1440 and 390, with and without (1,930 renders): only 16 page-widths of
+     8 documents with an item open at load changed height, nothing else.
+   - The option class stays valid and adds nothing now.
+3. **The rest sweep's places 51 to 70.** The full ranking was rebuilt as served and committed first
+   (ranking-so39-lh-rest.tsv, f557f4b0); the order-35 runner's ranking is not on this machine.
+   places-so39-lh-rest-51-70.txt:
+   - READY rows: general-conditions-currency-conversion (1440 5.99 → 1.08, 390 6.12 → 2.81) and report-baggage
+     (1440 5.35 → 5.07, option wide-rows).
+   - Skipped: 6 places on ema-adobe's pages (from its commits since order 37).
+   - Hand-over item 14's per-component heading and view spacing: 4.
+   - No fix: 7 aligned pages (the badge window at y 800 on phones; www's chat panel in refund-form's recording).
+4. **airline-apps as served**: 390 4.11 %, 1440 2.19 %, as gated.
+
+## Standing order 39, final section (about 09:35 UTC, 2026-11-16)
+
+- Items 1-4 done.
+- Before this section: lint and the full suite in a fresh worktree of fe9ad2cb: npm run lint 0, stylelint 0, 1219 of 1219 test files passed; the folder-reading tests with brand.test.mjs; the whole-repo lint read before every
+  push.
+- Nothing uploaded, previewed or published by me. DA read only (lufthansa.com data-collection-canada,
+  general-conditions-currency-conversion, report-baggage). da-upload.mjs not run. Requests only to our own hosts, DA
+  (reads) and GitHub's API; no request to www or any airline host. .migration/project.json not touched; the excluded
+  manage page has no row and no line.
+- Not in git and why: logs/p4/so39 (scratch: captures, gates, renders, DA copies, folder pages), the drops in /tmp
+  (private material), content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not
+  mine, kept). Preview servers stopped, trial and suite worktrees removed.
