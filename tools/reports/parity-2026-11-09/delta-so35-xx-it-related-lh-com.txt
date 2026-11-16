@@ -1,0 +1,29 @@
+# Standing order 35 (2026-11-16), item 1: /xx/it/articles/highlights/allegris-new-york's "Articoli correlati".
+# The rest of xx/it's gap after the video rows went live (28.5 / 30.8 % at 1440 / 390, 594 / 1,293 px short) is content
+# www has and we lack, not layout: www shows three related cards there (lh-parity-010), ours none. Our block is empty in
+# DA (<div class="related-articles"></div>) and picks from the language's article index, and no xx index exists
+# (/xx/it/articles/query-index.json answers 404; helix-query.yaml has none for xx/it, xx/fr or xx/es), so the block
+# hides its section.
+# The row authors www's three cards in www's order, the way the block reads authored rows (one link a row; a row may
+# hold the card's picture and a byline paragraph):
+# - /xx/it/articles/highlights/allegris-premium-economy-san-diego, www's card title "Inspired by Lufthansa Allegris:
+#   immagine brulicant…" (www's own shortened text); picture and byline from the page's head;
+# - /xx/it/articles/highlights/allegris-business-san-diego, "Inspired by Lufthansa Allegris: relax su carta"; the same;
+# - www.lufthansa.com/gc/en/articles/highlights/allegris-typologies (www links gc/en; the site has no gc/en copy, so the
+#   link stays www's as www has it), "What Lufthansa Allegris Type Are You?", with the picture www shows (de/en's copy
+#   of the article holds the same picture: media_1c872265...jpg, its first one; its og:image is another picture, a
+#   plane, so the head could not be used) and www's byline "30 aprile 2025 | Tempo di lettura: 4 min | Lufthansa
+#   Editorial Team".
+# The two xx/it links are relative: written as www links the block treats them as another site's and draws them without
+# picture or byline (tried: 15.1 / 17.4 %).
+# Tool: tools/importer/text-inserts-apply.mjs --data delta-so35-xx-it-related-lh-com.json (a replace of the empty block,
+# found once). Dry run on DA's current copy (read-only GET): 1 inserted, without it DA's copy byte for byte (--check).
+# Gate (the published copy with the row as a draft on our host, against lh-parity-010; the code deployed at 02:00 CET):
+# 28.5 / 30.8 -> 14.0 / 14.0 % at 1440 / 390; height 6,406 -> 6,980 px (www 7,000) and 6,705 -> 7,923 (www 7,998); 200,
+# no failed picture, no sideways scroll. The cards, bylines and titles as www's (logs/b635/xxrel, not in git). The row
+# reaches this document only.
+# Not a row: the other xx/it, xx/fr and xx/es articles have the same empty block (none of them recorded). An index per
+# xx language in helix-query.yaml (extended, never replaced) would fill them all, but it stays empty until the helper's
+# index job, so it cannot be gated tonight; a proposal in sweep-so35-lh-rest.md, not shipped.
+# status	document	tool	expected change	gate
+READY	/xx/it/articles/highlights/allegris-new-york	text-inserts-apply (delta-so35-xx-it-related-lh-com.json)	"Articoli correlati": www's three cards (two xx/it highlights, relative links; gc/en allegris-typologies with its picture and byline)	draft 28.5 / 30.8 -> 14.0 / 14.0 at 1440 / 390; height within 0.3 / 0.9 % of www

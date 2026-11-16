@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/xx/it/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "replace": "<div class=\"related-articles\"></div>",
+    "text": "<div class=\"related-articles\"><div><div><p><a href=\"/xx/it/articles/highlights/allegris-premium-economy-san-diego\">Inspired by Lufthansa Allegris: immagine brulicant…</a></p></div></div><div><div><p><a href=\"/xx/it/articles/highlights/allegris-business-san-diego\">Inspired by Lufthansa Allegris: relax su carta</a></p></div></div><div><div><picture><img src=\"https://main--lh-com--moved-permanently.aem.live/de/en/articles/highlights/media_1c872265ee5855cbde47215bfde29d5aa41ab6be7.jpg?width=750&amp;format=jpg&amp;optimize=medium\" alt=\"Woman with light hair and cream-colored blouse sits in Lufthansa Allegris Business Class\"></picture><p>30 aprile 2025 | Tempo di lettura: 4 min | Lufthansa Editorial Team</p><p><a href=\"https://www.lufthansa.com/gc/en/articles/highlights/allegris-typologies\">What Lufthansa Allegris Type Are You?</a></p></div></div></div>"
+   }
+  ]
+ }
+]
