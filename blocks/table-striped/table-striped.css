@@ -379,6 +379,21 @@
   }
 }
 
+/* option wide-columns, lufthansa.com below 768px: a table of two or three columns keeps www's 200px
+   columns too and scrolls sideways (www's lounge price tables on /de/en/lounge-companions at 390,
+   lh-parity-002: "Europe/USA | Lufthansa Welco..." cut at the edge; ours squeezed three columns
+   into 358px, five lines a cell; 390 14.26 -> 7.08 %, 1440 unchanged). Not for every such table:
+   a row puts the option where www's table scrolls, standing order 36 */
+@media (width < 768px) {
+  body.brand-lufthansa .table-striped.wide-columns:not(.matrix) table:has(tr > :nth-child(2)):not(:has(tr > :nth-child(4))) {
+    min-width: 400px;
+  }
+
+  body.brand-lufthansa .table-striped.wide-columns:not(.matrix) table:has(tr > :nth-child(3)):not(:has(tr > :nth-child(4))) {
+    min-width: 600px;
+  }
+}
+
 /* option columns (brand tap: table-striped-tap.js toColumns, TAP row 146): www.flytap.com's
    rich-text tables. From 1024 px one card per column, side by side and centred (as wide as each
    other, 282 px at most, wider only for their content, a row wider than the content scrolling

@@ -11,5 +11,82 @@
     "text": "<div><div class=\"columns-media\"><div><div><picture><img src=\"https://www.lufthansa.com/content/dam/lh/en/images/frontify_variations/1/c-1678287392-1097_Lufthansa-Allegris_Eco_legroom_seat_A_20439.jpg.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"Happy traveler smiles from a Lufthansa window seat, phone in hand.\"></picture></div><div><h2 id=\"seamless-connection\">Seamless connection</h2><p>Thanks to Lufthansa Group Wi-Fi powered by Starlink, you enjoy a reliable high-speed internet connection on board. Whether you want to work, send messages, or relax with a film, Lufthansa Group Wi-Fi lets you shape your entertainment exactly the way you like it.</p><p><em><a href=\"/de/en/during-your-trip/lhg-wifi\">Discover Lufthansa Group Wi-Fi</a></em></p></div></div></div><div class=\"section-metadata\"><div><div>style</div><div>column-view, grey, gap-after-small</div></div></div></div>"
    }
   ]
+ },
+ {
+  "path": "/de/en/unterhaltung-an-bord",
+  "inserts": [
+   {
+    "replace": "<h1 id=\"lufthansa-in-flight-entertainment-heading-medium\">Lufthansa in-flight entertainment {heading-medium}</h1><p>{spacer-25}</p></div>",
+    "text": "<h1 id=\"lufthansa-in-flight-entertainment-heading-medium\">Lufthansa in-flight entertainment {heading-medium}</h1></div>"
+   },
+   {
+    "replace": "<h3 id=\"audiobooks-and-music-heading-small\">Audiobooks and music {heading-small}</h3><p>Whether rock, pop, classical, jazz, folk or the latest charts – select your favourite titles from our wide range of music, learn about your travel destination or listen to one of our numerous audiobooks in German or English. Simply sit back, close your eyes and enjoy a relaxed flight.</p><ul>\n<li><a href=\"https://www.lufthansa-inflightentertainment.com/de/audio/results/9248-9249-Musikbersicht?orderBy=titleasc#1/null\">To the music selection</a></li>\n<li><a href=\"https://www.lufthansa-inflightentertainment.com/de/audio/results/6236-7711-Hrbcherbersicht?orderBy=titleasc#1/null\">To the audiobooks</a> {links-horizontal}</li>\n</ul><h3 id=\"the-online-guide-to-on-board-entertainment-heading-small\">The online guide to on-board entertainment {heading-small}</h3><p>Rethinking air travel: look forward to watching your favourite film on board while you’re still at home. In our new online guide to on-board entertainment you’ll find exciting trailers, articles and information about our current entertainment programme.</p><p><a href=\"https://www.lufthansa-inflightentertainment.com/de/\">To the new online guide</a></p>",
+    "text": "<p>{spacer-80}</p><div class=\"columns-media\"><div><div><h3 id=\"audiobooks-and-music-heading-small\">Audiobooks and music {heading-small}</h3><p>Whether rock, pop, classical, jazz, folk or the latest charts – select your favourite titles from our wide range of music, learn about your travel destination or listen to one of our numerous audiobooks in German or English. Simply sit back, close your eyes and enjoy a relaxed flight.</p><ul>\n<li><a href=\"https://www.lufthansa-inflightentertainment.com/de/audio/results/9248-9249-Musikbersicht?orderBy=titleasc#1/null\">To the music selection</a></li>\n<li><a href=\"https://www.lufthansa-inflightentertainment.com/de/audio/results/6236-7711-Hrbcherbersicht?orderBy=titleasc#1/null\">To the audiobooks</a> {links-horizontal}</li>\n</ul></div><div><h3 id=\"the-online-guide-to-on-board-entertainment-heading-small\">The online guide to on-board entertainment {heading-small}</h3><p>Rethinking air travel: look forward to watching your favourite film on board while you’re still at home. In our new online guide to on-board entertainment you’ll find exciting trailers, articles and information about our current entertainment programme.</p><p><a href=\"https://www.lufthansa-inflightentertainment.com/de/\">To the new online guide</a></p></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/travelling-healthy",
+  "inserts": [
+   {
+    "replace": "is provided by our specialist partner.</p></div></div></div><div class=\"cards-icon-text partner\">",
+    "text": "is provided by our specialist partner.</p></div></div>"
+   },
+   {
+    "replace": "<div class=\"section-metadata\"><div><div>style</div><div>padded</div></div></div></div>\n<div><div class=\"accordion-column",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>padded, gap-after-small</div></div></div></div>\n<div><div class=\"accordion-column"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/lufthansa-aviation-group",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media\"><div><div><p><a href=\"https://www.lufthansagroup.com/de/home.html\"><picture><img src=\"https:/",
+    "text": "<div class=\"columns-media wide-rows\"><div><div><p><a href=\"https://www.lufthansagroup.com/de/home.html\"><picture><img src=\"https:/"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/carry-on-baggage",
+  "inserts": [
+   {
+    "after": "<h3 id=\"short--and-medium-haul-heading-small\">Short- and medium-haul {heading-small}</h3>",
+    "text": "<p>{spacer-30 from-768}</p>"
+   },
+   {
+    "after": "<h3 id=\"long-haul-heading-small\">Long-haul {heading-small}</h3>",
+    "text": "<p>{spacer-30 from-768}</p>"
+   },
+   {
+    "before": "<h2 id=\"non-compliant-carry-on-baggage-and-carry-on-baggage-on-flights-with-high-occupancy\">",
+    "text": "<p>{spacer-36 from-768}</p>"
+   },
+   {
+    "before": "<h2 id=\"stowing-carry-on-baggage-correctly-on-board\">",
+    "text": "<p>{spacer-30 from-768}</p>"
+   },
+   {
+    "before": "<h2 id=\"faqs-on-carry-on-baggage\">",
+    "text": "<p>{spacer-40 from-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/lounge-companions",
+  "inserts": [
+   {
+    "replace": "<div class=\"table-striped\"><div><div><strong>Europe/USA</strong></div><div><stro",
+    "text": "<div class=\"table-striped wide-columns\"><div><div><strong>Europe/USA</strong></div><div><stro"
+   },
+   {
+    "replace": "<div class=\"table-striped\"><div><div>Business Lounge (Europe/USA)</div><div>Sena",
+    "text": "<div class=\"table-striped wide-columns\"><div><div>Business Lounge (Europe/USA)</div><div>Sena"
+   },
+   {
+    "replace": "<div class=\"table-striped\"><div><div><strong>Business Lounge<sup>2</sup> (Europe",
+    "text": "<div class=\"table-striped wide-columns\"><div><div><strong>Business Lounge<sup>2</sup> (Europe"
+   }
+  ]
  }
 ]

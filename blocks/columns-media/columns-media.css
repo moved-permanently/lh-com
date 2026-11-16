@@ -1775,6 +1775,15 @@ body.brand-lufthansa main .columns-media .columns-media-media > p:has(> picture)
   }
 }
 
+/* option wide-rows, lufthansa.com from 768px: the rows 24px further apart (www's company cards on
+   /de/en/lufthansa-aviation-group at 1440, lh-parity-002: from a row's last link to the next row's pictures about
+   90px, ours 66; 1440 15.74 -> 5.37 %, 390 unchanged; a row puts the option there, standing order 36) */
+@media (width >= 768px) {
+  body.brand-lufthansa .columns-media.wide-rows > .columns-media-row + .columns-media-row {
+    margin-top: 24px;
+  }
+}
+
 /* lufthansa.com: an icon teaser's copytext-medium text 22px above its link (not the 50px of a teaser's running text):
    www's 48px from the text to "Further questions" on /de/en/advance-seat-reservations-terms-and-conditions at 1440,
    ours 76; from 768px: on phones www keeps the 50px, standing order 36) */
