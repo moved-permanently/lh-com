@@ -5156,3 +5156,67 @@ fe609b5 (origin/main with every commit of this order but this section), 72 lh-ed
   waits on the index job you run, or needs the importer mark for www's components that order 36 named.
 - Left out of git: logs/b637 (captures, diffs, drafts, DA reads, runners), /tmp/so37 (the archive), the untracked
   import reports of earlier runs.
+
+### Standing order 38 (2026-11-16 09:40 to about 11:55 CET)
+
+No uploads, previews or publishes; DA read only; no request to www or any airline host. `.migration/project.json`
+untouched; the add-ons stay off. Order 37 left nothing uncommitted or unpushed. One code change, lufthansa.com only:
+blocks/cards-teaser option vertical (f7da9b9), which no published page used before its rows. Everything else is
+reports and lists. Each push: stylelint clean on the changed files, the tests that read them passed, and the
+whole-repo lint read 0 on a clean worktree of the rebased HEAD. Full suite on the final code: 182abc9 (origin/main with every commit of this order but this section), 72 lh-edge files and 1,219 site files, 0 failing.
+
+1. **The full ranking: ranking-so35-lh-rest.tsv (a21f3c1).**
+   - It holds all 126 page-widths of sweep-so35-lh-rest.md, worst first, in the order places 1 to 50 were numbered
+     in orders 35 to 37.
+   - Each row has its sweep figure (00:45 CET), its 11-09 figure, and the as-served figure where this session
+     measured one later (places 1-10 after their fixes, 11-30 at 05:20, 31-50 at 07:30 CET).
+   - **Where it and ema-test's ranking-so39-lh-rest.tsv (as served, 08:00-08:45 UTC) differ:** the same 126
+     page-widths, 61 of the first 70 in both. The figures agree to 0.16 points in the median. 17 page-widths differ
+     by 2 points or more:
+     - 15 are lower in ema-test's, because they were fixed between the two measurements:
+       - ema-test's Columns Media fixes: advance-seat-reservations-terms 1440 12.7 -> 2.2; best-price-alert
+         11.4 / 12.8 -> 3.6 / 7.8;
+       - 351's seat map (order 37): 13.9 / 15.4 -> 4.9 / 8.7;
+       - my teaser rule: flight-search 1440 10.5 -> 5.1, online-check-in 1440 9.8 -> 5.8;
+       - the form spacing (fe609b5): register-ammunition, feedback-past-flight, register-animal-cabin;
+       - the legal first-clause rule: compensation-voucher 1440;
+       - privacy-statement-group's spacer row;
+       - my-bookings 1440.
+     - Two are higher in ema-test's, both from measuring:
+       - /xx/hk/meetings-and-events 390 (32.3 against 13.3): ema-test's machine has no CJK face configured, as the
+         first sweep here had;
+       - refund-form 390 (11.75 against my 8.6): ema-test's run drew our page 34px shorter than mine (4,944
+         against 4,978 px, www 4,978), in full Chrome against this machine's headless shell. I make no claim on
+         which one is right; the recording's height agrees with mine.
+2. **sweep-so34-lh-adobe.md, the next 20 places (section "The next 20 places", d814ab3).**
+   - **Shipped:** tags/allegris' wide teaser now has www's vertical gradient: option vertical (f7da9b9) and
+     delta-so38-allegris-teaser-vertical-lh-com.txt, 6 READY. de/en 12.5 / 7.3 -> 10.9 / 6.9 %, de/de and at/de
+     12.1 / 6.3 -> 10.6 / 6.0, gb/en 10.6 / 4.3 -> 9.0 / 3.9.
+   - **Located, not shipped:** the article author quote's right margin on phones (www mx-3, both sides). It reaches
+     601 documents, too many for this order's no-breakage renders.
+   - **No fix:**
+     - the 100-years captions, missing by the owner's word (order 31): global-network 35 of 37, cabin-design 11,
+       chronicle 3;
+     - www's recordings drawing campaign headings in a fallback face (all-it-takes-is-a-yes, 100-years);
+     - tags/munich's list content; stopover's font width;
+     - small steps.
+   - **To ema-test:** hand-over item 15 (100-years/fleet's text column, munich-fair's two columns,
+     super-crane's separator), plus picture-perfect-austin 1440 under item 5.
+3. **The link-kind mark: proposal-so38-link-kind-mark.md, proposal only.** It counts www's link kinds in the 3,397 snapshots (large hyper, external and
+   anchor-down are 1,507 of the 1,622 links on the recorded pages). It gates three phone rules on all 378 recorded
+   page-widths at 390.
+   - The best: 24px lines with a 27px minimum, so one-line links stay as today (they match www, e.g.
+     planning-with-kids 50px apart on both) and two-line links get www's 48px. 29 closer, 334 within 0.5, 15
+     worse, net -20.8.
+   - A 30px minimum, as ema-test's one-line figure suggests, measured 31 / 327 / 20 (-11.6). The 30px holds on some
+     pages and not on others.
+   - A mark of the link variant (`{link-back}`, `{link-custom}`, `{link-medium}`, written where convertMauiLinks
+     sees the maui-navigation-link) would take out the 4 back-link confirmation pages: about 29 / 338 / 11.
+   - The other 11 worse pages carry the same link kinds as the pages that get closer. They are worse because other
+     causes were compensating (boeing787's seat-map views, hand-over item 14). They need the interim gate after
+     those fixes, not a mark.
+   - The no-breakage renders of the 7,134 documents at 390 would take two to three nights here.
+- Ended at about 11:55 CET, not 13:30: the three items are answered. What is open waits on ema-test's hand-over items
+  (12, 14, 15), on the owner's caption question, or on your decision about the link proposal and its renders.
+- Left out of git: logs/b638 (captures, diffs, drafts, DA reads, runners), the untracked import reports of earlier
+  runs.
