@@ -50,12 +50,16 @@ test('with no copy there the app keeps its own pictures; with both, the stage an
   assert.deepEqual([...app.querySelectorAll('img')].map((i) => i.getAttribute('src')), [OURS[`${WWW}main.png`], OURS[`${WWW}faq.png`], `${WWW}baggage.png`]);
 });
 
-test('the helper\'s list: HOLD until the files are on the drop, naming the copies and the backup', async () => {
+// standing order 30: gated with ita-pictures-002's files, both rows READY with the archive's name and sha256
+test('the helper\'s list: READY with ita-pictures-002, naming the copies, the files\' sha256 and the backup', async () => {
   const fs = await import('node:fs');
   const { readyPaths } = await import('../tools/importer/ita-fragment-insert-apply.mjs');
   const list = fs.readFileSync(new URL('../tools/reports/parity-2026-11-09/delta-so29-ita-help-center-pictures.txt', import.meta.url), 'utf8');
-  assert.deepEqual(readyPaths(list), []);
-  assert.deepEqual(list.split('\n').filter((l) => l.startsWith('HOLD\t')).map((l) => l.split('\t')[1]), Object.values(OURS));
+  assert.deepEqual(readyPaths(list), Object.values(OURS));
+  assert.equal(list.split('\n').filter((l) => l.startsWith('HOLD\t')).length, 0);
+  assert.match(list, /ita-pictures-002[^\n]*7d2e502657ab0ae45b0ede6ef1487225f1521b80ce97ed818b803059dca8b6de/);
+  assert.match(list, /1c9b8faf6384262624415cbd2521d60181a5f2ff117496d192a89513e7ced824/);
+  assert.match(list, /d06d48e9cee4774cfa7f57a033f744c3797faf856448da35d1916260b16a5648/);
   assert.match(list, /\.token-free-backup\/2026-11-ita-so29-help-center-pictures\//);
 });
 
