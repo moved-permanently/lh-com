@@ -5085,3 +5085,74 @@ rebased HEAD. Full suite on the final code: 778e10f (origin/main with every comm
   standalone links, which needs a design of its own first.
 - Left out of git: logs/b636 (captures, diffs, drafts, DA reads, runners), the untracked import reports of earlier
   runs.
+
+### Standing order 37 (2026-11-16 07:05 to about 09:30 CET)
+
+No uploads, previews or publishes; DA read only; no request to www or any airline host (lh-parity-013 came from the
+R2 drop, sha256 checked). `.migration/project.json` untouched; the add-ons stay off. Order 36 left nothing uncommitted
+or unpushed. Code changes, all lufthansa.com only:
+- helix-query.yaml (5dac863);
+- blocks/related-articles (9859c9c);
+- blocks/form and styles.css' legal rule (fe609b5).
+
+Everything else is reports and lists. Each push: stylelint clean on the changed files, the tests that read them
+passed, and the whole-repo lint read 0 on a clean worktree of the rebased HEAD. Full suite on the final code:
+fe609b5 (origin/main with every commit of this order but this section), 72 lh-edge files and 1,213 site files, 0 failing.
+
+1. **livery-iconic-moments against lh-parity-013: delta-so37-livery-related-lh-com.txt, 1 READY.**
+   - Whole page as served: 1440 16.2 %, 17,061 / 17,187 px, drift within -161 px. Nothing 2 % off.
+   - 390: 14.2 %, 25,541 / 25,051 px. Within 21 px of www all the way to y 22,960, including everything below the
+     old recording's break at 16,300. Then +484 px at Related Articles: www shows two cards there (the same two in
+     -008 and -013), ours three, stacked on phones.
+   - Fix: blocks/related-articles option fixed (the authored cards only; no published document had it), and the
+     row with www's two cards. As a draft with the working-copy code: 390 14.2 -> 12.9 %, 25,134 px (www 25,051);
+     1440 16.2 -> 16.4, 17,036 px.
+   - The row needs 9859c9c deployed, which it is with main.
+2. **The xx article indexes, pushed (5dac863).** articles-xx-it, articles-xx-fr and articles-xx-es, as in
+   proposal-so36-xx-article-index.md, before SWISS's pair.
+   - Index paths: /xx/it/articles/query-index.json, /xx/fr/articles/query-index.json, /xx/es/articles/query-index.json.
+   - The documents the job must cover (include /xx/<l>/articles/*/*, without tags/, authors/, config/), 21:
+     - xx/it and xx/fr, highlights/: allegris-business-class-shanghai, allegris-business-san-diego,
+       allegris-new-york, allegris-premium-economy-san-diego, fashion-guide, the-art-of-flying-extra-long-bed,
+       the-art-of-flying-extra-space-seat, the-art-of-flying-suite;
+     - xx/es, highlights/: allegris-business-class-shanghai, allegris-business-san-diego, allegris-new-york,
+       allegris-premium-economy-san-diego-msm-moved, fashion-guide.
+   - Rows expected: 8 / 8 / 5. The blocks list 7 / 7 / 4, because fashion-guide has no page-type article.
+   - The pages that read them: the 18 related-articles blocks of those articles (xx/it's allegris-new-york keeps
+     its three authored cards) and the 10 lists. Lists: xx/it highlights and tags/allegris-inspires; xx/fr
+     highlights and tags/allegris, allegris-inspires, art; xx/es highlights, explore-flying, explore-the-world and
+     tags/allegris-inspires.
+   - Recorded page-widths expected to move: none. The only recorded page of these folders,
+     /xx/it/articles/highlights/allegris-new-york (14.0 / 14.0 % at 1440 / 390, lh-parity-010), has authored cards
+     and takes no picks: 0.0 expected.
+   - The other 27 pages have no recording. Their related sections appear: 3 cards each, about 600 px at 1440 and
+     1,300 at 390, as xx/it's did. The tag lists show 3-7 articles where they show "0 results" now.
+3. **The forms' field spacing: located, and shipped (fe609b5).** Measured on register-ammunition's recordings at
+   390 and 1440 (ink rows down the card column), the excess is per section, not per field:
+   - each section starts 9-10 px late;
+   - a card's first sub-section title sits 11-12 px low in its card;
+   - on phones the section title stands 6 px further above its description.
+   - The fields inside a card are 3 px nearer each other than www's. A first trial that closed that (and the title
+     margin) measured worse on all 5 affected pages, so the field spacing stays.
+   - Gate on the 9 recorded form pages, 18 page-widths: 9 better (register-ammunition 10.8 / 7.2 -> 9.5 / 6.6,
+     refund-form 8.6 / 5.2 -> 7.3 / 3.8, feedback-past-flight 10.9 / 6.4 -> 9.3 / 5.4, register-animal-cabin
+     8.9 / 5.7 -> 8.0 / 5.4, anmeldung 1440 4.2 -> 3.5), 9 unchanged.
+   - No-breakage: the 164 unrecorded core-form documents, 328 pairs at 1440 and 390, all 200, none with sideways scroll, a failed picture, an overlap, clipped text, a title over its fields or a missing H1. 1440 0 to 63 px shorter (median 27), 390 0 to 105 shorter (median 39). Three pairs read taller in the first run (at/de betreuungsbedarf +36 at both widths, at/de anmeldung +33 at 390): rendered again, they are 36 / 36 / 39 px shorter. The page without the rules itself varies by 72 px between loads (its form script)..
+4. **Places 31 to 50 of sweep-so35-lh-rest.md (section "Places 31 to 50"), each with its cause and fix.**
+   - **Shipped:**
+     - the form spacing (item 3: register-ammunition 1440);
+     - on legal pages, the first clause under the H1 and its paragraph keeps 24 px: compensation-voucher 5.4 / 9.0
+       -> 2.8 / 7.4 %, the other 56 recorded legal page-widths within 0.2. The 14 unrecorded documents: 3 shorter
+       by 26 px, 11 unchanged, no breakage.
+   - **Row (READY):** privacy-statement-group: order 21's second spacer goes, 6.8 -> 3.5 % at 1440.
+   - **Tried, no fix:**
+     - the booking lookup's button gap (worse);
+     - a legal-only heading spacing at 1440 (4 better, 4 worse).
+   - **No fix:** dense text drawn in the same places (accessibility-statement 390, travel-id-terms,
+     conditions-seat-reservation); the shared column width (first-class-fleet 1440); small steps under 1 %.
+   - **To ema-test:** hand-over item 14 (fleet seat-map view spacing at 390, passenger-rights' grey band,
+     manage-my-bookings' page end, and the heading-after-paragraph rule that varies by www component).
+- Ended at about 09:30 CET, not 11:00: the four items are answered. What is still open is ema-test's (hand-over item 14),
+  waits on the index job you run, or needs the importer mark for www's components that order 36 named.
+- Left out of git: logs/b637 (captures, diffs, drafts, DA reads, runners), /tmp/so37 (the archive), the untracked
+  import reports of earlier runs.
