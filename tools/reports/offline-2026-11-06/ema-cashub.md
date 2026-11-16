@@ -8682,3 +8682,130 @@ culinary-services' row (`e959d345`). All ten documents are served with their mar
 
 **Not in git** (scratch under /tmp/so48): the drop, the served copies, DA's copies, the renders, drafts, crops, scripts
 and logs.
+
+## Standing order 49 (2026-11-16, from about 12:02 CET)
+
+**Carried over:** nothing. Order 48's commits were all on main and my worktrees were clean at the start. The checkout's 88
+dirty entries belong to other jobs and were left alone.
+
+**Renders:** unhinted text throughout. lh-proxy, www.* (but www.mynewsdesk.com) and every airline host were refused and
+counted: about 115 over some 70 renders, none sent. The 17 offline layouts of www's recordings were answered from
+the archives, everything else aborted. The ua/en, ch/en, me/en and xk/en homepages had our host's same-hour
+widget answers replayed (austrian-api-003 / -004 / -005), as in order 43.
+
+**DA:** read only, five single GETs, one per command: Cargo /en/ehm, medical-travel-companions, Air Dolomiti's Monaco page,
+cn/en tarmac-delay-contingency-plan and private-check-in-counter. No upload, preview, publish or da-upload.mjs.
+/de/en/overview-manage has no row.
+
+### Item 1: the two phone first loads (gate-so49-phone-first-loads.txt)
+
+**The drop:** both sha256 match. Each archive went into its own new folder and was read as data (serve.py was not run). The
+manifests' 279 file hashes all match. Each page is a separate 390x844 load with HTTP 200, its picture as tall as its
+scrollHeight.
+
+| page (390) | www | as served | with order 47's row | status |
+|---|---|---|---|---|
+| at/en homepage (place 57) | 5,920 | 5,921 (+0.02 %) | - | passes as served |
+| Cargo ehm (place 60) | 1,578 | 1,561 (-1.08 %) | 1,541 (-2.34 %, flush) | no fix |
+
+- **at/en homepage:** order 47's -142 came from the 2026-11-09 load's older flight search. In this load www's FIND FLIGHTS is
+  10 px from ours, and the footer top is 1 px off. Two parts cancel: -85 in the hero band, +124 in the destination finder
+  band (www's "Please choose" state, as on fr/en, pl/en and tr/en). www draws no AI band on this page. The HOLD ends.
+- **Cargo ehm:** the load equals the old resize to the px. www's grey band touches the footer at 390 too, but our page is
+  short above it (-22 by the title, -21 above the band's first paragraph, -20 where www's factsheet line wraps once more).
+  The flush row takes 390 to -2.34 %, so it stays out. A phone spacer to make up the 21 px was drafted and dropped: at the
+  band's start it draws 50 px at 390 and 20 px at 1440, which undoes the flush gain. Both widths stay within 2 % as served
+  (+1.85 % / -1.08 %).
+
+### Item 2: your Captures child's loads
+
+None had landed by the end of this order, so there was nothing to gate. eg/en and am/en's AI rows stay HOLD until their
+1440 loads arrive. capture-requests-ema-cashub.txt marks the two answered requests (at/en homepage, Cargo ehm). I asked
+for nothing new.
+
+### Item 3: places 91 to 110 (sweep-so49-places-91-110.txt)
+
+All twenty are traced and within 2 %.
+
+**READY, DA rows only:**
+- **medical-travel-companions 1440 (103):** -1.30 -> -0.29 %. www's picture ends 68 px above "Services at a glance", ours 40.
+  One {spacer-27 from-768} puts the heading where www's is; 390 is unchanged (delta-so49-austrian-medical.txt).
+- **Air Dolomiti's Monaco page 390 (101):** -1.32 -> -0.21 %, 1440 -0.86 -> +0.74 %. www's markup has empty paragraphs
+  before the three headings of the destination text, drawn as one 37 px line each, which the import drops. A {spacer-0}
+  before each draws 38.7 px (delta-so49-airdolomiti-monaco.txt). Upload without the collapse: the markers are 0 px.
+
+**READY after this order's code** (`e3890e8a`, live on austrian.turnsthe.page; delta-so49-austrian-code-rows.txt):
+- **cn/en tarmac-delay-contingency-plan (99):** +1.36 -> +0.50 % at 390, +1.25 -> +0.18 % at 1440. www's last line ends
+  24 px above the footer, ours 48. The code: a flush last section that ends with text keeps 24 px. The row: style flush on
+  the page's section.
+- **private-check-in-counter (95, 100):** +1.38 -> +0.06 % at 390, +1.34 -> -0.27 % at 1440. www's fee rows are 72 px, ours 88.
+  The code: a table option tight-rows with www's 24 px cell padding. The row: that option on the fee table.
+- **Reach:** both rules are opt-in. I fetched all 2,459 served Austrian copies again: none had a flush last section ending
+  with text (707 end with text without flush and keep their 48 px), and none had tight-rows. Every control render with the
+  new code equals the served page to the px.
+- **Why an option and not a rule:** order 28's 24 px rule for every table stays HOLD (accessible-travel gets further).
+
+**Closed by an earlier rule:** it/it and ru/ru contact and it/it form-confirmation (106, 107, 109): order 44's three-track
+footer took 21 px off each; today +0.44 / -0.06 / +0.44 %.
+
+**No fix:**
+- **Destination finder's "Please choose" state:** ua/en, ch/en, me/en, xk/en homepages (+87 / +124 / +123 / +123 px).
+- **Your pending decisions:** terms-of-use (order 45's options, "as decided"), bagdamage 1440 and 390 (the upload widget, as
+  place 59; 390 is also a resize).
+- **Two font files:** Cargo news 142 at 1440. Five column paragraphs take one more line in our LufthansaText than in www's
+  LufthansaTextWeb, spread over six bands that partly cancel.
+- **Flush per document fails at 390:** general-cargo (order 47's census).
+- **Parts that cancel:** industries-in-focus 390. Each of its eight cards is 18 px shorter than www's, but the page is +70
+  above them; a phone card rule alone would take it to about +1.3 %.
+- **Small and spread:** eservices-app 390 (as place 87), industries-in-focus 1440.
+
+**Seen on the way, not drafted:**
+- **Austrian tables with option header** (141 tables): www's header row is 48 px with no separator; ours is 81 px with a
+  40 px white border above the first row (+73 px a table). A rule for all of them would need its own site-wide gate.
+- **medical-travel-companions' second card** has no picture in the served copy; www's has one. The cards keep one height, so
+  the page does not move.
+
+### Final section (about 13:05 CET, 2026-11-16)
+
+All three items are done (item 2 had nothing to gate yet), so I stopped well before 16:00.
+
+**On main:**
+- `e3890e8a` (~12:35 CET, pushed ~12:40): the Austrian code (the flush end of a text-ending last section, the table option tight-rows) and
+  its two tests.
+- `bf506fb3` (~12:35 CET, pushed with it): the gate file, the four lists, the places list and the capture-requests note.
+- This commit: this section.
+
+**Live since:** your helpers applied the four rows (`691131eb` for the three Austrian pages, `2204692a` for Monaco). All four
+documents are served with their markers, style and option. I measured them live at ~12:58 to ~13:00 CET, and every
+page-width equals its draft to the px:
+- **medical-travel-companions:** 2,767 / 3,105 (1440 / 390).
+- **Monaco:** 10,418 / 7,230 (390 / 1440). The three 0 px markers survived the upload.
+- **tarmac-delay:** 2,814 / 2,245 (390 / 1440).
+- **private-check-in-counter:** 7,225 / 5,949 (390 / 1440), less Turnstile's 71 px (drawn in these live loads).
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 before the push; the exit code was read first. Origin did not move during the
+  checks, so the commits kept their hashes.
+- **Stylelint:** exit 0 on styles/themes/austrian.css (a first run flagged no-descending-specificity; the new rule now
+  stands before the padded-block rule, same declaration).
+- **Tests on the push:** the 23 folder-reading tests and every test naming the changed files or the rules' classes: 276
+  files, 1,249 tests, 0 failures, 5 skipped. Both new tests were red on main first (1 of 2 each).
+- **Full suite** on `bf506fb3`: 1,221 files, 4,651 tests, 0 failures, 5 skipped (one node process per file, ~12:43 to
+  ~12:59 CET).
+
+**For you:**
+- **Captures:** at/en homepage and Cargo ehm are answered. The four of order 48 and the three English homepages at 1440
+  are still open.
+- **A candidate, if you want it:** the header row of Austrian tables (141 tables; +73 px each against www's maui-table). It
+  would be a site-wide rule and needs its own gate first.
+
+**Rules followed:**
+- No request to an airline host: refused and counted, none sent.
+- **DA:** five single GETs, read only.
+- No upload, preview, publish or da-upload.mjs.
+- The recordings were read as data.
+- The checkout's 88 dirty entries untouched.
+- /de/en/overview-manage has no row.
+
+**Not in git** (scratch under /tmp/so49): the drop, the served copies (2,459 Austrian copies for the census), DA's copies,
+the renders, drafts, offline layouts, scripts and logs.
