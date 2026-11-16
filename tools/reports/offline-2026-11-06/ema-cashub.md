@@ -9116,7 +9116,9 @@ four at both widths, at es/en's and the eleven's figures. This closes places 131
   "present" on a second pass.
 - With the row: 390 6,071 (+0.70 %, as served -2.79 %), 1440 4,846 (-0.47 %, as served -3.02 %), 768 5,545 (scroll
   width 768). These are the eleven's figures to the px.
-- Not applied yet when I last checked (~17:40 CET).
+- **Live since:** your helpers applied the list (`3a991845`). Measured live at ~18:05 CET: all eight page-widths equal the
+  drafts to the px (6,071 and 4,846), and nl/en's and si/en's served copies equal my drafts byte for byte. Two of the eight
+  loads drew the window or nothing and were measured again alone.
 
 ### Item 2: the Air Dolomiti article end (gate-so52-airdolomiti-article-end.txt): SHIPPED, live as gated
 
