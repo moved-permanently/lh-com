@@ -29,6 +29,8 @@ test('the card-image indexes: lufthansa.com\'s articles and authors, Brussels\' 
   assert.deepEqual(CARD.map(([name]) => name).sort(), [
     'article-authors-at-de', 'article-authors-de-de', 'article-authors-de-en', 'article-authors-gb-en',
     'articles-at-de', 'articles-be-en', 'articles-be-fr', 'articles-be-nl', 'articles-de-de', 'articles-de-en', 'articles-gb-en',
+    // the xx language versions (standing order 37)
+    'articles-xx-es', 'articles-xx-fr', 'articles-xx-it',
     'magazine-de', 'magazine-en',
   ]);
 });

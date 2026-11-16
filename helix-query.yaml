@@ -7316,6 +7316,192 @@ indices:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
 
+  # The xx language versions (xx/it, xx/fr, xx/es): copies of articles-de-en with the paths changed, standing order 37
+  # (proposal-so36-xx-article-index.md). Read by related-articles and blog-overview on those versions; until now
+  # /xx/<l>/articles/query-index.json answered 404 and their blocks stayed empty.
+  articles-xx-it:
+    include:
+      - /xx/it/articles/*/*
+    exclude:
+      - /xx/it/articles/tags/**
+      - /xx/it/articles/authors/**
+      - /xx/it/articles/config/**
+      # a campaign page (template content on www), not an article
+      - /xx/it/articles/highlights/all-it-takes-is-a-yes
+      # a campaign page as well (de/en, de/de); kept as in every lufthansa.com index (no such xx document today)
+      - /xx/it/articles/highlights/soccer-event-in-north-america
+    target: /xx/it/articles/query-index.json
+    properties:
+      title:
+        select: main .article-header h1
+        value: textContent(el)
+      description:
+        select: main .article-header h1 + p
+        value: textContent(el)
+      image:
+        select: head > meta[name="card-image"]
+        # Edge Delivery writes it relative (./media_…, the page's folder): kept as written, an
+        # https URL's path as before; scripts/articles.js resolves it (brief 338)
+        value: match(attribute(el, "content"), "^(?:https:\/\/[^/]+)?((?:[.])?/.*)$")
+      image-alt:
+        select: head > meta[name="card-image-alt"]
+        value: attribute(el, "content")
+      page-type:
+        select: head > meta[name="page-type"]
+        value: attribute(el, "content")
+      category:
+        select: head > meta[name="category"]
+        value: attribute(el, "content")
+      tag-ids:
+        select: head > meta[name="tag-ids"]
+        value: attribute(el, "content")
+      author:
+        select: head > meta[name="author"]
+        value: attribute(el, "content")
+      author-id:
+        select: head > meta[name="author-id"]
+        value: attribute(el, "content")
+      publication-date:
+        select: head > meta[name="publication-date"]
+        value: attribute(el, "content")
+      reading-time:
+        select: head > meta[name="reading-time"]
+        value: attribute(el, "content")
+      keywords:
+        select: head > meta[name="keywords"]
+        value: attribute(el, "content")
+      destinations:
+        select: head > meta[name="destinations"]
+        value: attribute(el, "content")
+      tags:
+        select: head > meta[property="article:tag"]
+        values: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
+  articles-xx-fr:
+    include:
+      - /xx/fr/articles/*/*
+    exclude:
+      - /xx/fr/articles/tags/**
+      - /xx/fr/articles/authors/**
+      - /xx/fr/articles/config/**
+      # a campaign page (template content on www), not an article
+      - /xx/fr/articles/highlights/all-it-takes-is-a-yes
+      # a campaign page as well (de/en, de/de); kept as in every lufthansa.com index (no such xx document today)
+      - /xx/fr/articles/highlights/soccer-event-in-north-america
+    target: /xx/fr/articles/query-index.json
+    properties:
+      title:
+        select: main .article-header h1
+        value: textContent(el)
+      description:
+        select: main .article-header h1 + p
+        value: textContent(el)
+      image:
+        select: head > meta[name="card-image"]
+        # Edge Delivery writes it relative (./media_…, the page's folder): kept as written, an
+        # https URL's path as before; scripts/articles.js resolves it (brief 338)
+        value: match(attribute(el, "content"), "^(?:https:\/\/[^/]+)?((?:[.])?/.*)$")
+      image-alt:
+        select: head > meta[name="card-image-alt"]
+        value: attribute(el, "content")
+      page-type:
+        select: head > meta[name="page-type"]
+        value: attribute(el, "content")
+      category:
+        select: head > meta[name="category"]
+        value: attribute(el, "content")
+      tag-ids:
+        select: head > meta[name="tag-ids"]
+        value: attribute(el, "content")
+      author:
+        select: head > meta[name="author"]
+        value: attribute(el, "content")
+      author-id:
+        select: head > meta[name="author-id"]
+        value: attribute(el, "content")
+      publication-date:
+        select: head > meta[name="publication-date"]
+        value: attribute(el, "content")
+      reading-time:
+        select: head > meta[name="reading-time"]
+        value: attribute(el, "content")
+      keywords:
+        select: head > meta[name="keywords"]
+        value: attribute(el, "content")
+      destinations:
+        select: head > meta[name="destinations"]
+        value: attribute(el, "content")
+      tags:
+        select: head > meta[property="article:tag"]
+        values: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
+  articles-xx-es:
+    include:
+      - /xx/es/articles/*/*
+    exclude:
+      - /xx/es/articles/tags/**
+      - /xx/es/articles/authors/**
+      - /xx/es/articles/config/**
+      # a campaign page (template content on www), not an article
+      - /xx/es/articles/highlights/all-it-takes-is-a-yes
+      # a campaign page as well (de/en, de/de); kept as in every lufthansa.com index (no such xx document today)
+      - /xx/es/articles/highlights/soccer-event-in-north-america
+    target: /xx/es/articles/query-index.json
+    properties:
+      title:
+        select: main .article-header h1
+        value: textContent(el)
+      description:
+        select: main .article-header h1 + p
+        value: textContent(el)
+      image:
+        select: head > meta[name="card-image"]
+        # Edge Delivery writes it relative (./media_…, the page's folder): kept as written, an
+        # https URL's path as before; scripts/articles.js resolves it (brief 338)
+        value: match(attribute(el, "content"), "^(?:https:\/\/[^/]+)?((?:[.])?/.*)$")
+      image-alt:
+        select: head > meta[name="card-image-alt"]
+        value: attribute(el, "content")
+      page-type:
+        select: head > meta[name="page-type"]
+        value: attribute(el, "content")
+      category:
+        select: head > meta[name="category"]
+        value: attribute(el, "content")
+      tag-ids:
+        select: head > meta[name="tag-ids"]
+        value: attribute(el, "content")
+      author:
+        select: head > meta[name="author"]
+        value: attribute(el, "content")
+      author-id:
+        select: head > meta[name="author-id"]
+        value: attribute(el, "content")
+      publication-date:
+        select: head > meta[name="publication-date"]
+        value: attribute(el, "content")
+      reading-time:
+        select: head > meta[name="reading-time"]
+        value: attribute(el, "content")
+      keywords:
+        select: head > meta[name="keywords"]
+        value: attribute(el, "content")
+      destinations:
+        select: head > meta[name="destinations"]
+        value: attribute(el, "content")
+      tags:
+        select: head > meta[property="article:tag"]
+        values: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+
   # SWISS's medical services (lh-swiss /medicalservices/en/, scripts/site-languages.js SUB_SITES): the
   # header magnifier's results page (tools/importer/swiss-search-pages.mjs SUB_ROOTS; www's searches
   # ?query= on the page itself); search-corporate's definition

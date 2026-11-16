@@ -41,5 +41,7 @@ test('the existing indexes as they were (only sitemap-ch-<ll> added)', () => {
   // and Cargo's es, fr, it, pt indexes (brief 414, test/cargo-languages.test.mjs)
   const cargo = ['es', 'fr', 'it', 'pt'].map((ll) => `search-brand-${ll}`);
   const versions = ['it', 'el', 'ja', 'ko', 'pl'].flatMap((ll) => [`search-xx-${ll}`, `market-model-xx-${ll}`, `market-llms-xx-${ll}`]);
-  assert.deepEqual(Object.keys(indices).filter((n) => !(n in before)).sort(), [...cargo, ...LANGS.map((ll) => `sitemap-ch-${ll}`), ...versions].sort());
+  // and the article indexes of xx/it, xx/fr, xx/es (standing order 37, proposal-so36-xx-article-index.md)
+  const xxArticles = ['it', 'fr', 'es'].map((ll) => `articles-xx-${ll}`);
+  assert.deepEqual(Object.keys(indices).filter((n) => !(n in before)).sort(), [...cargo, ...LANGS.map((ll) => `sitemap-ch-${ll}`), ...versions, ...xxArticles].sort());
 });
