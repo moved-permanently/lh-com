@@ -1324,11 +1324,13 @@ body.brand-austrian main > .section.stage > .default-content-wrapper:has(> h3:on
 }
 
 /* the closing band on phones (the decision of 584): www shows the flight search on white, without the band picture,
-   80 px under the title and 107 px above the footer (us/en ski-campaign-2026 at 390) */
+   under the title and 107 px above the footer (us/en ski-campaign-2026 at 390). Standing order 46: 63 px above it
+   (was 80) since "Nonstop only" has its own line below; www's "Round trip" at 1,826 and FIND FLIGHTS at 2,165 on the
+   first load (austrian-parity-025), ours the same to the px */
 @media (width < 768px) {
   body.brand-austrian main > .section.stage:last-child > .flight-search-wrapper.flight-search-band:last-child {
     min-height: 0;
-    padding-top: 80px;
+    padding-top: 63px;
     padding-bottom: 107px;
   }
 
@@ -1338,6 +1340,58 @@ body.brand-austrian main > .section.stage > .default-content-wrapper:has(> h3:on
 
   body.brand-austrian main > .section.stage:last-child > .flight-search-wrapper.flight-search-band:last-child > .flight-search.standalone {
     margin-top: 0;
+  }
+}
+
+/* standing order 46: www's standalone flight manager on phones. Its .additional-options draws the traveller line and
+   then "Nonstop only" on a line of its own, 80 px from the traveller line to FIND FLIGHTS (ours side by side: 57). In a
+   picture band with its phone picture (Background image mobile; fly-with-austrian, bangkok-airways at 390, first loads)
+   the card's tab bar is 19 px taller, its panel has 4 px more above and below, and the card sits 36 px from the
+   picture's top and bottom: the band 581 px as www's (ours 500). Without a phone picture (the ski campaign) www draws
+   the search on white, as the closing band above. A divider right under such a band starts 96 px below it (78 below 768 px): www's band section keeps
+   .mb-default under it and the next section opens with the line (ours 24) */
+@media (width < 768px) {
+  body.brand-austrian .flight-search.standalone .flight-search-form {
+    grid-template-areas:
+      "trip trip"
+      "origin origin"
+      "dest dest"
+      "dates dates"
+      "trav trav"
+      "nonstop nonstop"
+      "submit submit"
+      "error error";
+  }
+
+  body.brand-austrian .flight-search.standalone .flight-search-passengers {
+    margin-top: 8px;
+  }
+
+  body.brand-austrian .flight-search.standalone .flight-search-nonstop {
+    margin: 0 0 2px;
+  }
+
+  body.brand-austrian main > .section > .flight-search-wrapper.flight-search-band:has(> .flight-search-background source) > .flight-search.standalone .flight-search-tabs {
+    padding-top: 19px;
+  }
+
+  body.brand-austrian main > .section > .flight-search-wrapper.flight-search-band:has(> .flight-search-background source) > .flight-search.standalone .flight-search-panel {
+    padding-block: 24px;
+  }
+
+  body.brand-austrian main > .section > .flight-search-wrapper.flight-search-band:has(> .flight-search-background source) {
+    padding-top: 26px;
+    padding-bottom: 36px;
+  }
+}
+
+body.brand-austrian main > .section > .flight-search-wrapper.flight-search-band + .default-content-wrapper:has(> p.spacer.divider:first-child) {
+  margin-top: 78px;
+}
+
+@media (width >= 768px) {
+  body.brand-austrian main > .section > .flight-search-wrapper.flight-search-band + .default-content-wrapper:has(> p.spacer.divider:first-child) {
+    margin-top: 96px;
   }
 }
 

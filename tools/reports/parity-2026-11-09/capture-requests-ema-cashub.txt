@@ -88,3 +88,20 @@ https://www.airdolomiti.eu/articles/destinations/street-food-in-munich	390	the p
 # host: www.lufthansa-cargo.com
 /en/general-cargo	390	the tab band at the page's end on a phone's first load (nothing opened): its padding and the gap to the footer
 /en/emergency	390	the same (a second product page; its tab set is three rows)
+# Standing order 46 (2026-11-16, ~08:20 CET): the next stable window's phone first loads (resized-so46-phone-loads.txt
+# ranks all 104 recorded 390 page-widths that only have resized loads). These are the worst ten a first load can decide;
+# left out are www's empty data-protection page (Cargo), the four non-Latin baggage pages and the ru / by homepages (no
+# brand faces here), and Air Dolomiti's destination widget pages (our renders refuse their APIs). One load per page at 390.
+# host: www.austrian.com
+/eg/en/homepage	390	+1.92 % against austrian-parity-008's resize
+/at/en/entryregulations	390	-1.77 % (austrian-parity-015's resize)
+/at/en/fly/on-board/culinary-services	390	-1.60 % (austrian-parity-017's resize)
+/at/en/book-and-manage/flights/wetlease-hub	390	-1.45 % (austrian-parity-003's resize)
+/am/en/homepage	390	+1.23 %; it stands for the 18 English homepages that read the same 5,790 / 5,861 from -008 to -010's resizes
+/at/en/plan/special-requirements/entry-regulations/immigration-regulations-schengen	390	-1.10 % (austrian-parity-015's resize)
+# host: www.airdolomiti.it, www.airdolomiti.eu, www.airdolomiti.de (the same article in three languages)
+https://www.airdolomiti.it/articoli/destinazioni/dove-ladriatico-si-fa-selvaggio	390	+1.21 % (airdolomiti-parity-001's resize)
+https://www.airdolomiti.eu/articles/destinations/where-the-adriatic-becomes-wild	390	+1.19 %
+https://www.airdolomiti.de/artikel/reiseziele/die-wilde-seite-der-adria	390	+1.13 %
+# host: www.lufthansa-cargo.com
+/en/fleet-ulds/ulds/containers	390	-1.12 % (cargo-parity-003's resize; a text page, so expect it to equal the resize, as -007 showed)

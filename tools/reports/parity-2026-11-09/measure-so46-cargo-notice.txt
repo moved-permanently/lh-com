@@ -1,0 +1,33 @@
+# ema-cashub, standing order 46, item 2 (2026-11-16): Cargo's 80 px www service notice above the header. Which recorded loads carry it, and whether any Cargo page-width figure compares a load with it against one without it.
+# Method: every measurement file of cargo-parity-001 to -007 read as data (the notice's text, "Disruptions to Customer Communication" / "Einschränkungen in der Kundenkommunikation", is in none of -001 to -003's 124 HTML files; header.rect.y; with the notice the header sits 80 px lower: 111 at 1440 / 98 at 390, without 31 / 18; -001 measures the header wrapper, at 0); every committed list and report (tools/reports/) searched for a -004..-007 page's raw scrollHeight or footer top next to its path and width; our side rendered (cargo.turnsthe.page /en/speed-zoom 390, /de/eservices-app 1440, /en/live-animals 390: the header at y 0, nothing in the flow above it; the showcase notice is a dialog, out of the flow).
+# Result: only cargo-parity-004 to -007 (2026-11-15 17:45 UTC to 2026-11-16 03:04 UTC) carry the notice, on every one of their 20 page-widths; -001 to -003 have none; our pages have none. Every list figure against -004 to -007 is www less 80 (page and footer top); no list carries a raw figure (the one hit is a header line quoting an offline layout's 4,860). So no Cargo page-width compares a load with the notice against one without it, and no figure needs correcting.
+# Part 1, per recording and width: recording, width, header y seen, the notice.
+cargo-parity-001	1440	0	none
+cargo-parity-001	390	0	none
+cargo-parity-002	1440	31,None	none
+cargo-parity-002	390	18,None	none
+cargo-parity-003	1440	31	none
+cargo-parity-003	390	18	none
+cargo-parity-004	1440	111	notice
+cargo-parity-005	1440	111	notice
+cargo-parity-005	390	98	notice
+cargo-parity-006	390	98	notice
+cargo-parity-007	390	98	notice
+# Part 2, the sweep's page-widths against a notice load (sweep-so43-austrian-cargo-airdolomiti.txt): recording, path, width, www as gated, www recorded (with the notice), the difference.
+cargo-parity-005	/de/eservices-app	390	3142	3222	80
+cargo-parity-004	/en/speed-pro	1440	1955	2035	80
+cargo-parity-004	/en/industries-healthcare	1440	3906	3986	80
+cargo-parity-006	/en/eservices-app	390	3043	3123	80
+cargo-parity-004	/en/add-on-services/personal-supervision	1440	2015	2095	80
+cargo-parity-005	/de/eservices-app	1440	3289	3369	80
+cargo-parity-004	/en/add-on-services/todoor	1440	2268	2348	80
+cargo-parity-006	/en/speed-zoom	390	1162	1242	80
+cargo-parity-004	/en/add-on-services/sustainable-choice	1440	2456	2536	80
+cargo-parity-004	/en/passive-temp-support	1440	2148	2228	80
+cargo-parity-004	/en/products/customer-owned-tracker	1440	1764	1844	80
+cargo-parity-004	/en/valuables	1440	2005	2085	80
+cargo-parity-004	/en/speed-zoom	1440	2186	2266	80
+cargo-parity-004	/en/vulnerables	1440	2084	2164	80
+cargo-parity-004	/en/perishables	1440	2116	2196	80
+cargo-parity-004	/en/add-on-services/insurance	1440	2080	2160	80
+# Part 3, the order 45 gate against cargo-parity-007 (gate-so45-cargo-007-airdolomiti-011.txt): terms-of-use 4,860 -> 4,780, partnerships-subsidiaries 2,861 -> 2,781, live-animals 1,822 -> 1,742, eaw 2,316 -> 2,236 (footers 4,300 / 2,299 / 1,262 / 1,755 less 80): all gated less the notice.

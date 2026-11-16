@@ -1,0 +1,111 @@
+# ema-cashub, standing order 46, item 3 (2026-11-16): the recorded 390 page-widths of order 43's sweep (Austrian, Cargo, Air Dolomiti) whose page has no 390 first load in any recording on disk, ranked by how far today's served page reads from www.
+# How a load was told: the manifest's per-width resizedFrom (resized) or loadedSeparately (first load); otherwise the recording's note or README ("390x844 from the same load after a viewport resize": airdolomiti-parity-001, -002, -005, -006, cargo-parity-002, -003, austrian-parity-003 to -017; "loaded each width": austrian-parity-001, cargo-parity-001). 31 recordings indexed (loads-so46.tsv in /tmp, not in git).
+# Corrections found on the way: airdolomiti-parity-007 marks every width loadedSeparately (its README's resize sentence is stale, as -011's), so sitzplatzreservierung and lounge-zutritt 390 were first loads; austrian-parity-001 loaded each width (44 loads for 22 pages), so fly-with-austrian's 390s were first loads (order 31 called them resizes).
+# Today: the served page measured again this order (~07:45 CET; unhinted, EAGER=1 CONSENT=1, lh-proxy, www.* and every airline host refused and counted, none sent; bot = Turnstile's 71 px subtracted where drawn). The Austrian homepages here have no same-hour pair: their widget calls are refused, as in order 43.
+# 104 page-widths: Austrian 50, Air Dolomiti 41, Cargo 13. Outside 2 %: 5, each explained (www's empty page; the four non-Latin baggage pages).
+# Columns: rank, brand, path, width, www (resized load), ours today, bot px, difference, the recordings holding it (how loaded), would a phone first load decide it.
+1	cargo	/en/data-protection-notice-google-analytics	390	1120	844	0	-24.64 %	cargo-parity-003:resized	no: www's page is empty (its own main has no content); ours is the H1 at the window's height. Your call to keep or unpublish (order 43)
+2	austrian	/jp/ja/baggage	390	5871	5327	0	-9.27 %	austrian-parity-003:resized	no: non-Latin text; the render machine has no brand faces for it, so a first load would not make the line breaks comparable
+3	austrian	/cn/zh/baggage	390	5675	5306	0	-6.50 %	austrian-parity-003:resized	no: non-Latin text; the render machine has no brand faces for it, so a first load would not make the line breaks comparable
+4	austrian	/ru/ru/baggage	390	6200	6435	0	+3.79 %	austrian-parity-003:resized	no: non-Latin text; the render machine has no brand faces for it, so a first load would not make the line breaks comparable
+5	austrian	/gr/el/baggage	390	6248	6421	0	+2.77 %	austrian-parity-003:resized	no: non-Latin text; the render machine has no brand faces for it, so a first load would not make the line breaks comparable
+6	austrian	/eg/en/homepage	390	5790	5901	0	+1.92 %	austrian-parity-008:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+7	austrian	/at/en/entryregulations	390	7236	7108	0	-1.77 %	austrian-parity-015:resized	yes
+8	austrian	/ru/ru/homepage	390	5330	5241	0	-1.67 %	austrian-parity-016:resized	no: non-Latin text; the render machine has no brand faces for it, so a first load would not make the line breaks comparable
+9	airdolomiti	/en/destinations/london-eu	390	9973	9807	0	-1.66 %	airdolomiti-parity-005:resized	partly: www's destination widgets answer from its APIs, which our renders refuse; a first load fixes www's side only
+10	austrian	/by/ru/homepage	390	5351	5265	0	-1.61 %	austrian-parity-008:resized	no: non-Latin text; the render machine has no brand faces for it, so a first load would not make the line breaks comparable
+11	austrian	/at/en/fly/on-board/culinary-services	390	9176	9029	0	-1.60 %	austrian-parity-017:resized	yes
+12	austrian	/at/en/book-and-manage/flights/wetlease-hub	390	3665	3612	0	-1.45 %	austrian-parity-003:resized	yes
+13	airdolomiti	/destinazioni/monaco-di-baviera	390	10440	10302	0	-1.32 %	airdolomiti-parity-001:resized	partly: www's destination widgets answer from its APIs, which our renders refuse; a first load fixes www's side only
+14	austrian	/am/en/homepage	390	5790	5861	0	+1.23 %	austrian-parity-008:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+15	austrian	/ba/en/homepage	390	5790	5861	0	+1.23 %	austrian-parity-008:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+16	austrian	/be/en/homepage	390	5790	5861	0	+1.23 %	austrian-parity-008:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+17	austrian	/bg/en/homepage	390	5790	5861	0	+1.23 %	austrian-parity-008:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+18	austrian	/cy/en/homepage	390	5790	5861	0	+1.23 %	austrian-parity-008:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+19	austrian	/dk/en/homepage	390	5790	5861	0	+1.23 %	austrian-parity-008:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+20	austrian	/es/en/homepage	390	5790	5861	0	+1.23 %	austrian-parity-008:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+21	austrian	/gr/en/homepage	390	5790	5861	0	+1.23 %	austrian-parity-008:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+22	austrian	/hr/en/homepage	390	5790	5861	0	+1.23 %	austrian-parity-008:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+23	austrian	/iq/en/homepage	390	5790	5861	0	+1.23 %	austrian-parity-008:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+24	austrian	/ir/en/homepage	390	5790	5861	0	+1.23 %	austrian-parity-008:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+25	austrian	/jo/en/homepage	390	5790	5861	0	+1.23 %	austrian-parity-008:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+26	austrian	/lt/en/homepage	390	5790	5861	0	+1.23 %	austrian-parity-008:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+27	austrian	/mk/en/homepage	390	5790	5861	0	+1.23 %	austrian-parity-009:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+28	austrian	/nl/en/homepage	390	5790	5861	0	+1.23 %	austrian-parity-009:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+29	austrian	/no/en/homepage	390	5790	5861	0	+1.23 %	austrian-parity-009:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+30	austrian	/se/en/homepage	390	5790	5861	0	+1.23 %	austrian-parity-010:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+31	austrian	/si/en/homepage	390	5790	5861	0	+1.23 %	austrian-parity-010:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+32	airdolomiti	/articoli/destinazioni/dove-ladriatico-si-fa-selvaggio	390	5134	5196	0	+1.21 %	airdolomiti-parity-001:resized	yes
+33	airdolomiti	/en/articles/destinations/where-the-adriatic-becomes-wild	390	5124	5185	0	+1.19 %	airdolomiti-parity-001:resized	yes
+34	airdolomiti	/de/artikel/reiseziele/die-wilde-seite-der-adria	390	5481	5543	0	+1.13 %	airdolomiti-parity-001:resized	yes
+35	cargo	/en/fleet-ulds/ulds/containers	390	2314	2288	0	-1.12 %	cargo-parity-003:resized	yes; cargo-parity-007 showed -003's resizes of text pages equal first loads to the px, so expect little change unless the page has a tab set
+36	austrian	/at/en/plan/special-requirements/entry-regulations/immigration-regulations-schengen	390	4358	4310	0	-1.10 %	austrian-parity-015:resized	yes
+37	cargo	/en/ecsd	390	1751	1770	0	+1.09 %	cargo-parity-003:resized	yes; cargo-parity-007 showed -003's resizes of text pages equal first loads to the px, so expect little change unless the page has a tab set
+38	cargo	/en/ehm	390	1578	1561	0	-1.08 %	cargo-parity-003:resized	yes; cargo-parity-007 showed -003's resizes of text pages equal first loads to the px, so expect little change unless the page has a tab set
+39	austrian	/th/en/book/flights/promptpay	390	3382	3418	0	+1.06 %	austrian-parity-003:resized	yes
+40	austrian	/at/de/gepaeck	390	6754	6683	0	-1.05 %	austrian-parity-003:resized	yes
+41	airdolomiti	/servizi-a-bordo/sistema-di-intrattenimento-a-bordo	390	3555	3518	0	-1.04 %	airdolomiti-parity-001:resized,airdolomiti-parity-006:resized	yes
+42	airdolomiti	/en/booking	390	2289	2267	0	-0.96 %	airdolomiti-parity-001:resized	yes
+43	airdolomiti	/prenotazioni	390	2349	2327	0	-0.94 %	airdolomiti-parity-001:resized	yes
+44	austrian	/de/en/homepage	390	5807	5861	0	+0.93 %	austrian-parity-008:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+45	austrian	/al/en/local-page/black-friday	390	4424	4383	0	-0.93 %	austrian-parity-003:resized	yes
+46	airdolomiti	/de/reiseziele/bari-de	390	8097	8024	0	-0.90 %	airdolomiti-parity-001:resized	partly: www's destination widgets answer from its APIs, which our renders refuse; a first load fixes www's side only
+47	austrian	/xx/en/homepage	390	4890	4847	0	-0.88 %	austrian-parity-010:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+48	austrian	/it/it/baggage	390	6087	6034	0	-0.87 %	austrian-parity-003:resized	yes
+49	airdolomiti	/de/reiseziele/basel-de	390	12014	11913	0	-0.84 %	airdolomiti-parity-005:resized	partly: www's destination widgets answer from its APIs, which our renders refuse; a first load fixes www's side only
+50	austrian	/at/de/book/overview-manage/manage-my-bookings	390	1794	1809	0	+0.84 %	austrian-parity-003:resized	yes
+51	cargo	/en/meta/meta/company/general-terms1	390	1498	1486	0	-0.80 %	cargo-parity-003:resized	yes; cargo-parity-007 showed -003's resizes of text pages equal first loads to the px, so expect little change unless the page has a tab set
+52	airdolomiti	/en/destinations	390	9699	9629	0	-0.72 %	airdolomiti-parity-001:resized,airdolomiti-parity-002:resized	partly: www's destination widgets answer from its APIs, which our renders refuse; a first load fixes www's side only
+53	austrian	/at/en/healthy-travel	390	8822	8762	0	-0.68 %	austrian-parity-015:resized	yes
+54	austrian	/at/en/plan/special-requirements/healthy-travel/doctor-on-board	390	5857	5819	0	-0.65 %	austrian-parity-015:resized	yes
+55	airdolomiti	/en	390	6484	6442	0	-0.65 %	airdolomiti-parity-001:resized	yes
+56	airdolomiti	/	390	6514	6472	0	-0.64 %	airdolomiti-parity-001:resized	yes
+57	airdolomiti	/de	390	6554	6512	0	-0.64 %	airdolomiti-parity-001:resized	yes
+58	airdolomiti	/en/flight-timetables	390	2150	2163	0	+0.60 %	airdolomiti-parity-001:resized	yes
+59	airdolomiti	/voli-europa	390	6643	6603	0	-0.60 %	airdolomiti-parity-001:resized	yes
+60	airdolomiti	/de/flugplan	390	2224	2237	0	+0.58 %	airdolomiti-parity-001:resized	yes
+61	airdolomiti	/orario-voli	390	2299	2312	0	+0.57 %	airdolomiti-parity-001:resized	yes
+62	austrian	/fr/fr/baggage	390	6012	5979	0	-0.55 %	austrian-parity-003:resized	yes
+63	airdolomiti	/en/support-and-contacts	390	1874	1884	0	+0.53 %	airdolomiti-parity-001:resized	yes
+64	cargo	/en/onerecord	390	5081	5108	0	+0.53 %	cargo-parity-003:resized	yes; cargo-parity-007 showed -003's resizes of text pages equal first loads to the px, so expect little change unless the page has a tab set
+65	airdolomiti	/supporto-e-contatti	390	1934	1944	0	+0.52 %	airdolomiti-parity-001:resized	yes
+66	airdolomiti	/de/unterstutzung-und-kontakte	390	1948	1958	0	+0.51 %	airdolomiti-parity-001:resized	yes
+67	cargo	/en/emergency	390	1186	1192	0	+0.51 %	cargo-parity-003:resized	yes; cargo-parity-007 showed -003's resizes of text pages equal first loads to the px, so expect little change unless the page has a tab set
+68	airdolomiti	/en/fleet	390	7419	7382	0	-0.50 %	airdolomiti-parity-001:resized	yes
+69	austrian	/at/en/plan/special-requirements/medical-travel-companions	390	3120	3105	0	-0.48 %	austrian-parity-003:resized	yes
+70	austrian	/ch/it/homepage	390	5962	5990	0	+0.47 %	austrian-parity-008:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+71	airdolomiti	/destinazioni	390	6393	6423	0	+0.47 %	airdolomiti-parity-001:resized	yes
+72	airdolomiti	/de/reiseziele	390	10151	10198	0	+0.46 %	airdolomiti-parity-001:resized	partly: www's destination widgets answer from its APIs, which our renders refuse; a first load fixes www's side only
+73	airdolomiti	/en/baggage	390	2172	2182	0	+0.46 %	airdolomiti-parity-001:resized	yes
+74	cargo	/en/eservices/efreight	390	1522	1529	0	+0.46 %	cargo-parity-003:resized	yes; cargo-parity-007 showed -003's resizes of text pages equal first loads to the px, so expect little change unless the page has a tab set
+75	airdolomiti	/bagagli	390	2186	2196	0	+0.46 %	airdolomiti-parity-001:resized	yes
+76	austrian	/at/en/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry	390	3808	3862	71	-0.45 %	austrian-parity-003:resized	yes
+77	airdolomiti	/de/gepaeck	390	2244	2254	0	+0.45 %	airdolomiti-parity-001:resized	yes
+78	austrian	/at/en/sustainable-flying	390	5929	5905	0	-0.40 %	austrian-parity-015:resized	yes
+79	airdolomiti	/de/betreuung	390	7771	7800	0	+0.37 %	airdolomiti-parity-001:resized	yes
+80	austrian	/at/en/additional-services	390	3554	3541	0	-0.37 %	austrian-parity-015:resized	yes
+81	cargo	/en/active-temp-control	390	1242	1246	0	+0.32 %	cargo-parity-003:resized	yes; cargo-parity-007 showed -003's resizes of text pages equal first loads to the px, so expect little change unless the page has a tab set
+82	cargo	/en/dangerous-goods	390	1242	1246	0	+0.32 %	cargo-parity-003:resized	yes; cargo-parity-007 showed -003's resizes of text pages equal first loads to the px, so expect little change unless the page has a tab set
+83	cargo	/en/general-cargo	390	1242	1246	0	+0.32 %	cargo-parity-003:resized	yes; cargo-parity-007 showed -003's resizes of text pages equal first loads to the px, so expect little change unless the page has a tab set
+84	cargo	/en/airmail	390	1266	1270	0	+0.32 %	cargo-parity-003:resized	yes; cargo-parity-007 showed -003's resizes of text pages equal first loads to the px, so expect little change unless the page has a tab set
+85	airdolomiti	/servizi/parcheggi-convenzionati	390	2712	2704	0	-0.29 %	airdolomiti-parity-001:resized	yes
+86	austrian	/at/de/local-page/feels-like-flying/os401crewstory	390	9982	9953	0	-0.29 %	austrian-parity-003:resized	yes
+87	austrian	/de/de/homepage	390	5916	5932	0	+0.27 %	austrian-parity-008:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+88	airdolomiti	/gestione-prenotazione-volo	390	3012	3019	0	+0.23 %	airdolomiti-parity-001:resized	yes
+89	airdolomiti	/en/manage-flight-booking	390	3051	3058	0	+0.23 %	airdolomiti-parity-001:resized	yes
+90	airdolomiti	/de/bearbeitung-ihrer-buchungen	390	3264	3271	0	+0.21 %	airdolomiti-parity-001:resized	yes
+91	airdolomiti	/de/artikel	390	6132	6119	0	-0.21 %	airdolomiti-parity-001:resized	yes
+92	airdolomiti	/en/articles	390	6159	6147	0	-0.19 %	airdolomiti-parity-001:resized	yes
+93	airdolomiti	/articoli	390	6219	6207	0	-0.19 %	airdolomiti-parity-001:resized	yes
+94	austrian	/sk/en/homepage	390	6331	6341	0	+0.16 %	austrian-parity-010:resized	yes, best with our host's same-hour load (austrian-api): the widget bands depend on the hour's fare answers
+95	austrian	/pl/pl/baggage	390	6012	6003	0	-0.15 %	austrian-parity-003:resized	yes
+96	austrian	/es/es/baggage	390	6066	6058	0	-0.13 %	austrian-parity-003:resized	yes
+97	austrian	/at/de/bearbeitungsgebuehren	390	4125	4130	0	+0.12 %	austrian-parity-003:resized	yes
+98	airdolomiti	/en/flights-europe	390	6131	6124	0	-0.11 %	airdolomiti-parity-001:resized	yes
+99	airdolomiti	/de/dienstleistungen-an-bord/unterhaltung-an-bord	390	3365	3362	0	-0.09 %	airdolomiti-parity-001:resized,airdolomiti-parity-005:resized	yes
+100	airdolomiti	/de/fluege-in-europa	390	6745	6748	0	+0.04 %	airdolomiti-parity-001:resized	yes
+101	airdolomiti	/en/destinations/bari	390	8130	8132	0	+0.02 %	airdolomiti-parity-001:resized	partly: www's destination widgets answer from its APIs, which our renders refuse; a first load fixes www's side only
+102	airdolomiti	/flotta	390	7853	7854	0	+0.01 %	airdolomiti-parity-001:resized	yes
+103	airdolomiti	/de/flotte	390	8054	8055	0	+0.01 %	airdolomiti-parity-001:resized	yes
+104	cargo	/en/add-on-services/smartuld	390	1120	1120	0	+0.00 %	cargo-parity-003:resized	yes; cargo-parity-007 showed -003's resizes of text pages equal first loads to the px, so expect little change unless the page has a tab set
+# The ten I would ask first (the worst that a phone first load can decide, in this order): austrian /eg/en/homepage (+1.92 %); austrian /at/en/entryregulations (-1.77 %); austrian /at/en/fly/on-board/culinary-services (-1.60 %); austrian /at/en/book-and-manage/flights/wetlease-hub (-1.45 %); austrian /am/en/homepage (+1.23 %, standing for the 18 homepages that read the same 5,790 / 5,861 (am, ba, be, bg, cy, dk, es, gr, hr, iq, ir, jo, lt, mk, nl, no, se, si: one template)); airdolomiti /articoli/destinazioni/dove-ladriatico-si-fa-selvaggio (+1.21 %); airdolomiti /en/articles/destinations/where-the-adriatic-becomes-wild (+1.19 %); airdolomiti /de/artikel/reiseziele/die-wilde-seite-der-adria (+1.13 %); cargo /en/fleet-ulds/ulds/containers (-1.12 %); austrian /at/en/plan/special-requirements/entry-regulations/immigration-regulations-schengen (-1.10 %).
