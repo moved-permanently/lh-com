@@ -2057,6 +2057,24 @@ body.brand-airdolomiti .carousel-cards.destinations .carousel-cards-dots {
   display: none;
 }
 
+/* standing order 54 (places 205 and 207 to 210, the homepages): the destinations slider ends as www's MiniCardSlider
+   (its grid's 40px padding, then the box with "vedi tutte" and its 100px margin). In www's pictures (airdolomiti-parity-001)
+   the newsletter heading stands 113px under the cards' labels at 1440, ours 79; at 390 the link 56px under them and the
+   heading 111px under the link, ours 49 and 64 */
+@media (width < 1025px) {
+  /* stylelint-disable-next-line no-descending-specificity -- the destinations' link, after the slider links' rule (above) */
+  body.brand-airdolomiti main > .section > .carousel-cards-wrapper:has(> .carousel-cards.destinations) + .default-content-wrapper {
+    margin-top: -27px;
+    margin-bottom: 98px;
+  }
+}
+
+@media (width >= 1025px) {
+  body.brand-airdolomiti main > .section:has(> .carousel-cards-wrapper > .carousel-cards.destinations) {
+    margin-bottom: 82px;
+  }
+}
+
 @media (width >= 1025px) {
   /* "vedi tutte (2)" beside its heading: this slider ends a section that starts higher up (the
      services above it), so the link is placed from the section's end: the slider's 578px, the 32px

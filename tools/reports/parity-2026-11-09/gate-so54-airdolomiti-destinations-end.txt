@@ -1,0 +1,14 @@
+# ema-cashub, standing order 54, item 4 (2026-11-16, ~21:35 to ~21:50 CET): places 205 and 207 to 210 (with /de 390), the Air Dolomiti homepages' destinations slider end. Status: SHIPPED (styles/themes/airdolomiti.css after the destinations slider's rules; test/airdolomiti-destinations-end-so54.test.mjs).
+# Located: www's measurement files match ours to within 10 px down to "Air Dolomiti is a member of Lufthansa Group", then -33 (1440) / -41 (390) at the newsletter heading, and nothing after it. www's full-page pictures (airdolomiti-parity-001, so54/rowscan.py, drawn rows) against ours, the same method: at 1440 the newsletter heading stands 113 px under the destination cards' labels, ours 79 (-34). At 390 (the 1440 load resized) the "vedi tutte (2)" link stands 56 px under the labels, ours 49, and the heading 111 px under the link, ours 64 (-53 together; the cards themselves stand 12 px lower on ours).
+# www's stylesheet: MiniCardSlider's grid has 40 px of padding under the cards, and its box with the "vedi tutte" link 100 px of margin under it (beside the heading from 930 px). Ours: the slider section's 48 px, the link 34 px up into the slider's end and 52 px under it below 1025 px (our link goes beside the heading from 1025 px).
+# The rule: below 1025 px the destinations' link -27 px (7 lower) and 98 px under it; from 1025 px the slider's section 82 px under it. The promo slider's link (the same rule above it) is left as it is.
+# Reach: the destinations slider is on the three homepages only (/index, /en/index, /de/index of 1,569 served documents). Census (so54/desttog.js, in-page toggle, 3 documents x 390, 768, 1440): +53 below 1025 px (the link +7, the newsletter +53), +34 from 1025, all restored when taken out, scroll widths unchanged; the code override from my worktree gave the same figures on all 8 page-widths it was run on.
+# Gate (so53/hostv.mjs, unhinted, EAGER=1 CONSENT=1, my worktree as a code override; lh-proxy, www.* and the airline hosts refused and counted: 10 a render, none sent; www = the recorded page; "further" = |after %| - |before %|).
+# path	width	recording	www	as served	with the rule	further	status
+/	1440	airdolomiti-parity-001	5074	5041 (-0.65 %)	5075 (+0.02 %)	-0.63	PASS
+/	390	airdolomiti-parity-001 (the 1440 load resized)	6514	6472 (-0.64 %)	6525 (+0.17 %)	-0.48	PASS
+/en	1440	airdolomiti-parity-001	5092	5059 (-0.65 %)	5093 (+0.02 %)	-0.63	PASS
+/en	390	airdolomiti-parity-001 (the 1440 load resized)	6484	6442 (-0.65 %)	6495 (+0.17 %)	-0.48	PASS
+/de	1440	airdolomiti-parity-001	5096	5063 (-0.65 %)	5097 (+0.02 %)	-0.63	PASS
+/de	390	airdolomiti-parity-001 (the 1440 load resized)	6554	6512 (-0.64 %)	6565 (+0.17 %)	-0.47	PASS
+# All six closer. At 390 the pages end 11 px over www because the destination cards stand 12 px lower on ours (above the rule, not traced).

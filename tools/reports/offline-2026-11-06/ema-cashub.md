@@ -9322,3 +9322,97 @@ All three items are done, so I stopped before 22:00.
 
 **Not in git** (scratch under migration-work/parity-588/so53): the recordings, the served copies, the renders, the
 held lead-in draft, scripts and logs.
+
+## Standing order 54 (2026-11-16, from about 20:40 CET)
+
+**Carried over:** nothing. Order 53's commits (03aeb80d, fa8c2b51) were on main and my worktree was clean. The
+checkout's 88 dirty entries belong to other jobs and were left alone.
+
+**Scratch:** migration-work/parity-588/so54 (it survives a restart). New: an unhinted copy of the offline recording
+renderer, the homepage replay, a picture row scanner and the census toggles.
+
+**Renders:** about 350 page loads and about 30 offline layouts of www's recordings, all unhinted. lh-proxy, www.* (but
+www.mynewsdesk.com) and every airline host were refused and counted: 0 to 20 a render, none sent. In the replays our
+host's recorded answers stood in for the widget calls.
+
+**DA:** nothing read or written. No upload, preview, publish or da-upload.mjs. No rows this order. /de/en/overview-manage
+has no row.
+
+### Item 1: the Air Dolomiti assistance template (gate-so54-airdolomiti-assistance-steps.txt): items SHIPPED, the rest HOLD
+
+**Located** (www's recordings laid out offline and matched by text to ours, and www's 390 picture read): www's rich text
+has no paragraph margins, 11 px above and below a list, and no space between list items. Its blank line is an empty
+paragraph. The steps on the three assistance pages:
+- **Items:** ours 48 px a line in the contacts, www 37 to 38.
+- **The list's margins:** -26 before each list and -26 after it (www's 11 against our 37), or -11 where www's author
+  left a blank line after the list.
+- **Into the accordion:** www 185 px from 930 px and 151 below it, ours 90 (-95 / -61).
+- **Under the accordion:** www's box keeps 120 px (110 below 930) before the closing picture, ours 24.
+- **The lead-in:** order 53's rule.
+
+**Census:** 35 documents at 390, 768 and 1440, with every step added on top of the ones before in one load: 105
+page-widths. All were restored exactly when the steps were taken out, scroll widths unchanged, no broken load.
+
+**Gate:** 8 recorded page-widths (de/betreuung, en/assistance, assistenza, destinazioni at 1440 and 390).
+- **The items step passes alone** on all 8 (at most 0.27 points further), so it **ships**: a title's text lists its
+  items line under line. Its code override gave the toggle's figures.
+- **Each other step** moves 60 to 106 px at once and **fails on its own**. No order of the steps passes one by one (all
+  120 were tried).
+- **The whole stack** with the lead-in passes at 1440 (en/assistance +0.23 -> +0.04 %, assistenza +0.25 -> +0.04 %,
+  de/betreuung +0.98 -> +0.78 %). It fails en/assistance and assistenza at 390 (0.72 / 0.71 points further).
+
+**Why 390 fails:** a fourth step. www's title stands 190 px down the page below 930 px, ours 146. With it (+44, drafted in
+scratch) the stack passes all 8 as a code override: en/assistance 390 -0.25 %, assistenza -0.23 %, de/betreuung +0.26 %,
+destinazioni -0.11 %.
+
+**Why the fourth step is not ready:** www's breadcrumb never wraps on phones (one line, the last item cut with an
+ellipsis), and ours does. Our titles at 390 stand at 146, 170, 196 or 221 px, depending on the breadcrumb's lines: 15 of
+the 51 reached documents have one line. A flat +44 is right only for those. The faithful fix is our breadcrumb on one
+line below 930 px plus the 44 px: a site-wide breadcrumb change for its own census.
+
+So everything but the items stays HOLD, in scratch (so54/item1-hold.css, so53/item2-hold.diff).
+
+### Item 2: the homepage replay: REBUILT (about 20 minutes)
+
+so54/replay.mjs answers every widget call from our host's recorded answers (austrian-api-NNN) and counts anything
+unmatched. It reproduces the recorded loads to the px: ge/en 1440 4,663 and cz/en 390 5,876, with the recorded flags and
+with today's.
+- **178** ge/en 1440: 4,663 (-0.87 %).
+- **190** cz/en 390: 5,876 (+0.77 %).
+- **193** (this order's sweep) cz/en 1440: 4,749 (-0.75 %).
+
+All three are within 2 % and differ only by widget states.
+
+### Item 3: place 179's closing lone card in a Columns Media row (gate-so54-austrian-closing-lone-cell.txt): HOLD, not extended
+
+**Located:** www leaves 127 px between the last text and the footer on it/it baggage at 390, ours 95. But the space is
+www's document, not the block's shape. www's baggage pages put a separator after the column view (read in all four
+baggage recordings), and the two book/flights pages with the same last row have none: www leaves 81 / 82 px there, ours
+74.
+
+**The drafted rule** (32 px under a page-closing Columns Media block with an empty last cell, below 768 px):
+- it/it and fr/fr baggage come closer (-0.87 -> -0.34 %, -0.55 -> -0.02 %).
+- ru/ru and gr/el baggage are already +3.79 / +2.77 % for other reasons and go 0.52 / 0.51 points further.
+- book/flights would get 106 px against www's 82.
+
+The rule reaches 79 served documents. The faithful fix would be rows for the separator on the baggage pages, but
+ru/ru and gr/el would fail those the same way. Not drafted.
+
+### Item 4: places 191 to 210 (sweep-so54-places-191-210.txt)
+
+All 20 are within 2 % today.
+- **Fixed this order:** 205 and 207 to 210, the Air Dolomiti homepages (gate-so54-airdolomiti-destinations-end.txt,
+  shipped). The destinations slider ends as www's: www's newsletter heading stands 113 px under the cards' labels at
+  1440, ours 79. At 390 there are -7 and -46 around the "vedi tutte" link.
+  - The rule reaches the three homepages only. All six recorded page-widths come closer: 1440 -0.65 -> +0.02 %, 390
+    -0.64 / -0.65 -> +0.17 %.
+  - The census covered 3 documents x 3 widths, all restored.
+- **Live as gated:** 192, 194, 196, the Adriatic articles (order 52's article end, to the px).
+- **Widget states:** 193 cz/en 1440 (-0.75 % with the replay, -14.88 % as served).
+- **The form challenge:** 201 charter enquiry 1440 drew the 71 px challenge, the same with order 43's code. Less the
+  challenge, it is 3,447, order 43's figure.
+- **Not traced to an element:** 195 / 198 Cargo en / de home (+37 above "Latest news"), 200 overview-manage 390 (-31
+  after "Check-in").
+- **A candidate:** 197 en/destinations 390. Two of www's blank lines (empty paragraphs) draw nothing on ours, -37 each.
+  Not traced in our layout.
+- **No fix:** the rest are steps of both signs, or www's 80 px service notice (204).
