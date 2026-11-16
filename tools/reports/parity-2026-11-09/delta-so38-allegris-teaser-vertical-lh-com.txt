@@ -1,0 +1,26 @@
+# Standing order 38 (2026-11-16), item 2: the tags/allegris pages' wide teaser (sweep-so34-lh-adobe.md places 28, 30,
+# 31: de/en, at/de, de/de 1440, 12.1-12.5 %).
+# Cause: below the article list, "Lufthansa Allegris - The New Long-Haul Experience" is a wide stage teaser.
+# - www draws it with .gradient-black-vertical: the dark vertical gradient of the overlay tiles over the whole
+#   picture (bd-snapshots of de/de, xx/fr, fr/fr tags/allegris: "gradient gradient-black-vertical").
+# - Our option wide always draws www's horizontal gradient (.gradient-black-horizontal, dark on the left only),
+#   so our picture stands bright where www's is dark.
+# - In the snapshots, the other wide teasers (44 + 16) are horizontal; these six tags/allegris pages are the
+#   vertical ones.
+# Fix, two parts:
+# - code (pushed with this list): cards-teaser option vertical, with overlay and wide, which draws the overlay
+#   tiles' vertical gradient. No published document carries the option, so the code changes no page until these
+#   rows.
+# - rows: "cards-teaser overlay wide" -> "cards-teaser overlay wide vertical" on the six versions.
+# Tool: tools/importer/text-inserts-apply.mjs --data delta-so38-allegris-teaser-vertical-lh-com.json (a replace of the
+# block's class, found once per copy). Dry run on DA's current copies (read-only GET): 6 of 6 inserted; without them
+# DA's copies byte for byte (--check).
+# Gate: the published copies and the drafts on our host with the working-copy code (--local), against the recordings
+# (lh-parity-004a/b, -002); 200, no failed picture.
+# status	document	tool	expected change	gate (1440 / 390, %)
+READY	/de/en/articles/tags/allegris	text-inserts-apply (delta-so38-allegris-teaser-vertical-lh-com.json)	the wide teaser under www's vertical gradient	12.5 -> 10.9 / 7.3 -> 6.9
+READY	/de/de/articles/tags/allegris	text-inserts-apply (delta-so38-allegris-teaser-vertical-lh-com.json)	as de/en	12.1 -> 10.6 / 6.3 -> 6.0
+READY	/at/de/articles/tags/allegris	text-inserts-apply (delta-so38-allegris-teaser-vertical-lh-com.json)	as de/en	12.1 -> 10.6 / 6.3 -> 6.0
+READY	/gb/en/articles/tags/allegris	text-inserts-apply (delta-so38-allegris-teaser-vertical-lh-com.json)	as de/en	10.6 -> 9.0 / 4.3 -> 3.9
+READY	/xx/fr/articles/tags/allegris	text-inserts-apply (delta-so38-allegris-teaser-vertical-lh-com.json)	as de/en (www's xx/fr snapshot: vertical)	not recorded; the same block and class; dry run inserted
+READY	/fr/fr/articles/tags/allegris	text-inserts-apply (delta-so38-allegris-teaser-vertical-lh-com.json)	as de/en (www's fr/fr snapshot: vertical)	not recorded; the same block and class; dry run inserted

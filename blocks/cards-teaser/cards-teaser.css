@@ -406,6 +406,13 @@ body.brand-lufthansa .cards-teaser.three-up:not(.overlay) .cards-teaser-body > .
   background-image: linear-gradient(to right, #282828cc, #28282800 70%);
 }
 
+/* option vertical (with wide, standing order 38): www's wide stage teaser with .gradient-black-vertical, the dark
+   vertical gradient of the overlay tiles over the whole picture (the tags/allegris pages' "Lufthansa Allegris - The New
+   Long-Haul Experience"; the other wide teasers in the snapshots are horizontal) */
+.cards-teaser.overlay.wide.vertical .cards-teaser-image::after {
+  background-image: linear-gradient(to bottom, #282828e6, #282828cc, #28272899 66%, #28282866);
+}
+
 .cards-teaser.overlay.wide .cards-teaser-body > p:not(.cards-teaser-cta) {
   font-size: calc(22px + 6 * (100vw - 375px) / 1065);
   font-weight: 300;

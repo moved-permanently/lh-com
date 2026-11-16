@@ -1,0 +1,56 @@
+[
+ {
+  "path": "/de/en/articles/tags/allegris",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser overlay wide\">",
+    "text": "<div class=\"cards-teaser overlay wide vertical\">"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/articles/tags/allegris",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser overlay wide\">",
+    "text": "<div class=\"cards-teaser overlay wide vertical\">"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/tags/allegris",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser overlay wide\">",
+    "text": "<div class=\"cards-teaser overlay wide vertical\">"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/tags/allegris",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser overlay wide\">",
+    "text": "<div class=\"cards-teaser overlay wide vertical\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/fr/articles/tags/allegris",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser overlay wide\">",
+    "text": "<div class=\"cards-teaser overlay wide vertical\">"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/articles/tags/allegris",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser overlay wide\">",
+    "text": "<div class=\"cards-teaser overlay wide vertical\">"
+   }
+  ]
+ }
+]
