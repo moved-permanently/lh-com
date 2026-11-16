@@ -5743,3 +5743,85 @@ Columns Media or section-gap cause.
 - Reads came from our hosts, the drop (the four archives, existence checks of ten names) and DA (GETs of one document
   and three folder lists).
 - No da-upload.mjs call, no upload, preview or publish by me. /de/en/overview-manage got no row.
+
+## Standing order 30 (2026-11-16, about 06:10 to 10:00 CET), with its final section
+
+**At the start:** nothing of mine was uncommitted or unpushed; order 29's 36ddde7b and 0ddd0dad were on main.
+`.migration/project.json` was modified, not by me, and is left as it is.
+
+**Item 1, ITA's help-center pictures (delta-so29-ita-help-center-pictures.txt): READY.**
+- **The archive:** ita-pictures-002, sha256 7d2e5026…b6de, equal to its sidecar and to the order's. main.png
+  (3,881,722 bytes, 1c9b8faf…) and faq.png (96,602 bytes, d06d48e9…) match the order, and result.json shows both as
+  200 from www's own paths.
+- **The gate:**
+  - Setup: main as deployed (the block change live since 36ddde7b), our host answering the two copy paths with the
+    files, airline hosts refused per request. The copies also end the app's two picture requests to
+    www.ita-airways.com (5 refused without them, 3 with them: Travel ID only).
+  - it/en 1440: 2096 -> 2280 (www 2254, -7.01 -> +1.15 %).
+  - it/en 390, with the Liberation face as ITA's phones are measured: 2909 -> 3094 (www 3055, -4.78 -> +1.28 %).
+  - it/it has no recording: +184 / +185 px. Its render with the pictures was checked: the stage behind the search card,
+    the FAQs card's picture, nothing else moved.
+- Both rows are READY with the archive's name and sha256, and the finish-ita.txt rows are READY on them. The test
+  reads the rows.
+
+**Item 2, Brussels ke/en homepage 1440: no fix exists; HOLD as live data.**
+- **Located:** the whole +241 px is in the "Winter deals" fare teaser, before "Current topics and news".
+- **Cause:**
+  - Our document lists www's own 11 routes (fareTeaserManualTravels in brussels-parity-003: MBA to BRU, NYC, LAX, CHI,
+    WAS, BOS, AMS, ZRH, MUC, FRA, VIE).
+  - www drew the six that its price service answered with a fare. Ours gets no answer, because that service answers
+    www's origin only, so it keeps all eleven without fares.
+  - The block drops unpriced routes only when it has a live answer, which is right. Which routes have a fare is the
+    day's answer, so neither a document row nor a no-answer rule is correct.
+- **The READY figure** (order 19, 4038, -1.75 %) was a with-answers gate. The row is HOLD now.
+- **For consistency, SWISS /ch/en/offers** (READY on its with-answers count, -98 / -95 % as served) is HOLD as live
+  data too. Its code row 54 stays live. No other READY row of my lists is outside 2 % as served.
+
+**Item 3, ITA travel-insurance 390:** not waited for, as asked. The phone first load will be gated when you name the
+archive.
+
+**Item 4, order 27's rows outside 2 % (sweep-so30-brands.md):**
+- **Method:** all 89, captured again with capture.js (airline hosts refused per request), with the system's fonts and
+  with the Liberation face (the same figures on every row: none of these pages draws Arial).
+- **Result:** 9 are within 2 % now:
+  - SWISS's help pages, with their copies live;
+  - the lhg4b search pages, with the 844 px window;
+  - swiss-senses 390, with its row live.
+- **The worst ten have no code or document fix.** Each is located and is live data or an owner decision:
+  - SWISS offers, both widths: the fares service;
+  - Discover offers, four rows: the owner's page and the finder's API;
+  - Brussels be/fr our-payment-methods, both widths: the live-systems iframe, behind the brussels-payment-picker flag,
+    which is the owner's call;
+  - SWISS magazine 390, two rows: the ad slots, by design.
+- **Beyond the ten, a fix: Brussels be/en and be/fr families-and-children.**
+  - Located: -44 px and -49 px around the intro. These are www's two empty sidebar lines, which the import's marker
+    collapse dropped.
+  - Document row READY (delta-so30-brussels-families-sidebar-spacers.txt, {spacer-40} and {spacer-45} in the sidebar's
+    cell, backup named, with a test).
+  - Gate: be/en 1440 -6.17 -> -0.28 %, 390 -2.72 -> +0.11 %; be/fr 1440 -5.92 -> -0.26 %, 390 -3.13 -> -0.42 %.
+  - The four finish rows are READY on it.
+- **The rest are explained, each with its reason** (in the file and the finish lists): live data, owner decisions,
+  ema-test's Columns Media cases, and code causes whose rules fail the gate.
+
+**No shared fix this order:** the two document rows touch four documents. There was no code change, so no interim gate
+and no no-breakage render were needed.
+
+**Checks:**
+- 454cbd05 (items 1 and 2; committed as e9defc9c): `npm run lint` exit 0; the full suite 4600 / 0, then 4609 / 0 after
+  the rebase; lint again after each retry rebase (main moved twice); pushed; the smoke afterwards, 0 differences on
+  every host; GitHub Build success.
+- This final commit (item 4: sweep-so30-brands.md, the families row with its test, the finish rows for Brussels and
+  SWISS, this report): lint, the folder-reading tests and the full suite in its ship. No theme or block file was
+  changed, so stylelint had nothing to check.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git), kept out on purpose:
+  - the ita-pictures-002 archive and its files (sha256 checked);
+  - the 89 page-widths' captures with and without the face, the gates' figures, the renders and crops;
+  - DA's copies read today (lh-brussels families-and-children en / fr, ~05:25 UTC), the drafts and the logs.
+
+**Hosts:**
+- Every browser load refused airline hosts per request and counted them (host-eval, capture.js, the crop tool).
+- Reads came from our hosts, the drop (ita-pictures-002 and its sidecar) and DA (two document GETs).
+- No da-upload.mjs call, no upload, preview or publish by me. /de/en/overview-manage got no row.

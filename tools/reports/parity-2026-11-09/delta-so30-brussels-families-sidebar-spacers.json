@@ -1,0 +1,16 @@
+{
+ "/be/en/special-care/families-and-children": [
+  {
+   "from": "</h1><p>Flying with children can be a hassle, but it doesn’t have to be. As a family-friendly airline, we will make your trip with children as smooth as possible. If the family is travelling under the same booking number, we will do our utmost to assign seats next to each other. However, if you want to be sure or prefer specific seats, you can always reserve a seat in advance against a fee or select a fare where a seat reservation is included.&#160;From booking to landing, we’ve got you covered.</p></div><div></div></div></div>",
+   "to": "</h1><p>{spacer-40}</p><p>Flying with children can be a hassle, but it doesn’t have to be. As a family-friendly airline, we will make your trip with children as smooth as possible. If the family is travelling under the same booking number, we will do our utmost to assign seats next to each other. However, if you want to be sure or prefer specific seats, you can always reserve a seat in advance against a fee or select a fare where a seat reservation is included.&#160;From booking to landing, we’ve got you covered.</p><p>{spacer-45}</p></div><div></div></div></div>",
+   "count": 1
+  }
+ ],
+ "/be/fr/special-care/families-and-children": [
+  {
+   "from": "</h1><p>Prendre l’avion avec des enfants peut s’avérer fastidieux, mais ce n’est pas une fatalité. Comme nous tenons les familles à cœur, nous ferons en sorte que votre voyage avec vos enfants se déroule le mieux possible. Si vous voyagez avec votre famille sous une même référence de réservation, nous mettrons tout en œuvre pour vous attribuer des sièges côte à côte. Cependant, si vous souhaitez vous assurer que c’est bien le cas ou si vous avez une préférence de sièges spécifiques, vous pouvez toujours réserver vos sièges à l’avance moyennant des frais ou sélectionner un tarif qui comprend la réservation de sièges.&#160;De la réservation à l’atterrissage, nous avons tout ce qu’il vous faut.</p></div><div></div></div></div>",
+   "to": "</h1><p>{spacer-40}</p><p>Prendre l’avion avec des enfants peut s’avérer fastidieux, mais ce n’est pas une fatalité. Comme nous tenons les familles à cœur, nous ferons en sorte que votre voyage avec vos enfants se déroule le mieux possible. Si vous voyagez avec votre famille sous une même référence de réservation, nous mettrons tout en œuvre pour vous attribuer des sièges côte à côte. Cependant, si vous souhaitez vous assurer que c’est bien le cas ou si vous avez une préférence de sièges spécifiques, vous pouvez toujours réserver vos sièges à l’avance moyennant des frais ou sélectionner un tarif qui comprend la réservation de sièges.&#160;De la réservation à l’atterrissage, nous avons tout ce qu’il vous faut.</p><p>{spacer-45}</p></div><div></div></div></div>",
+   "count": 1
+  }
+ ]
+}
