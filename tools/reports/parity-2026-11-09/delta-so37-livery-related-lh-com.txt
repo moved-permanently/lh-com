@@ -1,0 +1,29 @@
+# Standing order 37 (2026-11-16), item 1: livery-iconic-moments against the fresh recording lh-parity-013.
+# Measured as published on lufthansa.turnsthe.page (07:10 CET), the whole page against lh-parity-013:
+# - 1440: 16.2 %, 17,061 / 17,187 px (-0.7 %). Drift within -161 px (stories 7-10, 15-40 px each). Nothing 2 % off.
+# - 390: 14.2 %, 25,541 / 25,051 px (+2.0 %). Within 21 px of www down to y 22,960, including everything below the old
+#   recording's break at y 16,300. Then a single step of +484 px at Related Articles: www shows two cards there, ours
+#   three, stacked on phones.
+# Cause, ours: www shows exactly two related cards on this page, the same two in both recordings (lh-parity-008 of
+# 11-15 and -013): /de/en/articles/explore-flying/anniversary-super-crane-special and
+# /de/en/articles/explore-flying/what-the-hack-anti-jetlag-tips. The other recorded articles show three. Our block
+# always fills up to three from the article index (tagged, then the category), and its picks are other articles:
+# Oktoberfest, A to W, How to Sleep. At 1440 the three cards stand in one row, so the height hardly differs; at 390
+# they stack.
+# Fix, two parts:
+# - code (pushed with this list): blocks/related-articles option fixed. With authored cards it draws those only, no
+#   picks. No published document carries the option, so the code changes no page until this row.
+# - row: the block becomes "related-articles fixed" with www's two cards, in www's order. The links are written as
+#   their own paths, so title, picture and byline come from the index, as for the picked cards.
+# Tool: tools/importer/text-inserts-apply.mjs --data delta-so37-livery-related-lh-com.json (a replace of the empty
+# block, found once). Dry run on DA's current copy (read-only GET): 1 inserted, without it DA's copy byte for byte
+# (--check).
+# Gate: the published copy and the draft on our host with the working-copy code (--local), the whole page against
+# lh-parity-013:
+# - 390: 14.2 -> 12.9 %, 25,541 -> 25,134 px (www 25,051, +0.3 %);
+# - 1440: 16.2 -> 16.4 % (within 0.5), 17,061 -> 17,036 px (www 17,187);
+# - 200, no failed picture.
+# Order: the code is on main with this list; the row needs it deployed (it is, once main deploys). Upload, then
+# preview.
+# status	document	tool	expected change	gate
+READY	/de/en/articles/explore-flying/livery-iconic-moments	text-inserts-apply (delta-so37-livery-related-lh-com.json)	Related Articles: option fixed, www's two cards (anniversary-super-crane-special, what-the-hack-anti-jetlag-tips) instead of three picks	draft 14.2 -> 12.9 / 16.2 -> 16.4 at 390 / 1440 (whole page, lh-parity-013); height 25,134 / 17,036 (www 25,051 / 17,187)

@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/articles/explore-flying/livery-iconic-moments",
+  "inserts": [
+   {
+    "replace": "<div class=\"related-articles\"></div>",
+    "text": "<div class=\"related-articles fixed\"><div><div><p><a href=\"/de/en/articles/explore-flying/anniversary-super-crane-special\">/de/en/articles/explore-flying/anniversary-super-crane-special</a></p></div></div><div><div><p><a href=\"/de/en/articles/explore-flying/what-the-hack-anti-jetlag-tips\">/de/en/articles/explore-flying/what-the-hack-anti-jetlag-tips</a></p></div></div></div>"
+   }
+  ]
+ }
+]

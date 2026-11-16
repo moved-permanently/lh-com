@@ -250,8 +250,9 @@ const MAX_CARDS = 3;
 
 /**
  * Related article cards: rows an editor adds first (fixed, in authored order), then picks from
- * the article index up to three (pickRelated). Image, byline and title a row leaves out come
- * from the index, else from the head of the linked page (pages of the site only).
+ * the article index up to three (pickRelated; none with option fixed). Image, byline and title
+ * a row leaves out come from the index, else from the head of the linked page (pages of the
+ * site only).
  * @param {Element} block
  */
 export default async function decorate(block) {
@@ -268,12 +269,16 @@ export default async function decorate(block) {
     loadTagPriority(locale),
   ]);
   const byPath = new Map(articles.map((a) => [a.path, a]));
+  // option fixed: the authored cards only, no picks from the index (www shows exactly the
+  // articles its page names, fewer than three on some pages: livery-iconic-moments' two,
+  // lh-parity-008 and -013; standing order 37)
+  const fixed = block.classList.contains('fixed') && cards.length > 0;
 
   const picks = pickRelated(articles, {
     tagIds: listOf(getMetadata('tag-ids')).map(normalizeTag),
     category: normalizeCategory(getMetadata('category') || (here.match(/\/articles\/([^/]+)\/[^/]+$/) || [])[1]),
     exclude: new Set([here, ...cards.map((c) => c.path).filter(Boolean)]),
-  }, priority, Math.max(0, MAX_CARDS - cards.length));
+  }, priority, fixed ? 0 : Math.max(0, MAX_CARDS - cards.length));
   picks.forEach((article) => {
     const link = document.createElement('a');
     link.href = article.path;
