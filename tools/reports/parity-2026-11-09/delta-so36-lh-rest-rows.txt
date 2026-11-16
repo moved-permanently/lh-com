@@ -1,0 +1,17 @@
+# Standing order 36 (2026-11-16), item 4: rows for places 11 to 30 of sweep-so35-lh-rest.md.
+# /de/en/data-collection-canada, "This might also be of interest to you": www's first teaser card ends its text with
+# "<br> &nbsp;" (bd-snapshot: "...departure and arrival airports.<br> &nbsp;"). That is an empty line between the text
+# and its "To the entry requirements" link, so www's link sits 27px lower than the other two cards'. The import
+# dropped the line, so our first card and the grid's row are 27px shorter.
+# The row puts the line back into DA's card text: "<br>&nbsp;" before the paragraph's end. Nothing else changes.
+# Tool: tools/importer/text-inserts-apply.mjs --data delta-so36-lh-rest-rows.json (a replace of the paragraph, found
+# once). Dry run on DA's current copy (read-only GET): 1 inserted, without it DA's copy byte for byte (--check).
+# Gate (the published copy with the change as a draft on our host, against lh-parity-002): 9.5 -> 8.2 % at 1440,
+# 9.6 -> 9.9 at 390 (within 0.5; there the cards stack, and www's empty line falls where our grid's phone spacing
+# already differs). Heights 4,171 -> 4,198 px at 1440 (www 4,277; the rest is the page end, hand-over item 10) and
+# 5,444 -> 5,471 at 390 (www 5,488).
+# After the helper's preview, check that the served .plain.html keeps the <br> and the no-break space. The importer's
+# nbsp-guard (6a61397) keeps U+00A0 in the import's text; a line break with only a space after it can be dropped by the HTML-to-markdown
+# step. If the line is gone, the row changes nothing; restore it from DA's version.
+# status	document	tool	expected change	gate
+READY	/de/en/data-collection-canada	text-inserts-apply (delta-so36-lh-rest-rows.json)	the first teaser card's text ends with www's empty line ("<br>&nbsp;"), its link 27px lower as on www	draft 9.5 -> 8.2 / 9.6 -> 9.9 at 1440 / 390

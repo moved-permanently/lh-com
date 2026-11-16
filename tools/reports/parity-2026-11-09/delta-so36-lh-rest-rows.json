@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/data-collection-canada",
+  "inserts": [
+   {
+    "replace": "<p>The current regulations for your destination can be found here after entering your departure and arrival airports.</p>",
+    "text": "<p>The current regulations for your destination can be found here after entering your departure and arrival airports.<br>&nbsp;</p>"
+   }
+  ]
+ }
+]

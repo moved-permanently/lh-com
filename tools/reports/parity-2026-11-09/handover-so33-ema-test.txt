@@ -45,3 +45,15 @@ Standing order 35 (2026-11-16, ema-adobe's sweep of the other lufthansa.com page
    after it: the footer starts at the block's last link (section, wrapper and block padding and margin all 0). www
    keeps about 54px there at 390 (57 at 1440: 3,647 / 3,590 px). The end gap of the last section (the shared
    section-gap rules).
+   Standing order 36: data-collection-canada (1440 / 390, -106 / -55 px at the page end) ends the same way, with a
+   cards-teaser grid as the last section, 40px short of www's space to the footer.
+
+Standing order 36 (2026-11-16, ema-adobe's places 11 to 30 of sweep-so35-lh-rest.md):
+11. The space under the page title and between sections on text pages at 390:
+   - /de/en/feedback: the first section's heading is 33px nearer the H1 than www's; then 14px more than www from one
+     section's link to the next heading, and 7px less after the second;
+   - /de/en/common/privacy-statement/privacy-statement-group: its link list starts 31px higher under the H1.
+   All section spacing (the shared section-gap rules).
+12. /de/en/359, 390 (7.8 %): "Technical data" sits 38px lower than www's. It follows the seat-map download view (a
+   heading with both outer marks, then the PDF links), the nested outer view that order 36 item 2 found on 744. The
+   space after a view before the next section (the shared section-gap rules).

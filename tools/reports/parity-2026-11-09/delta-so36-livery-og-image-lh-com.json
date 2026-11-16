@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/articles/explore-flying/livery-iconic-moments",
+  "inserts": [
+   {
+    "replace": "<div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/involve-me-livery/lh_blog_lufthansa_100-years_livery-design_plane_16x9.jpg.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"Technicians install retro posters on a Lufthansa aircraft fuselage in a maintenance hangar.\"></picture></div></div>",
+    "text": "<div><div>Image</div><div><picture><img src=\"https://www.lufthansa.com/content/dam/lufthansa-group/images/local_images/blog_article_img/involve-me-livery/lh_blog_lufthansa_100-years_livery-design_stories_16x9.jpg\" alt=\"\"></picture></div></div>"
+   }
+  ]
+ }
+]

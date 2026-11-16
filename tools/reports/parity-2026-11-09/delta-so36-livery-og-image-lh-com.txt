@@ -1,0 +1,27 @@
+# Standing order 36 (2026-11-16), item 1: livery-iconic-moments' pictures in its metadata.
+# www has two pictures here, and they are different files:
+# - og:image is the stories picture: .../involve-me-livery/lh_blog_lufthansa_100-years_livery-design_stories_16x9.jpg
+#   (lh-parity-008, 1440 and 390 loads of 11-15/16).
+# - The article's header picture, and the card of www's list that lists this page, is the plane picture:
+#   .../involve-me-livery/lh_blog_lufthansa_100-years_livery-design_plane_16x9.jpg, "Technicians install retro posters
+#   ...". The list is /de/en/articles/explore-flying (lh-parity-007 of 11-15), its card for this article. The other
+#   www pages that link the article in the snapshots (100-years, 100-years/history, anniversary-super-crane-special,
+#   essentials-future-of-flying) link it in text, with no picture.
+# The re-import (order 34) set both metadata pictures to the plane. DA's version before it ("before entity fix") had
+# Image = the stories picture and card-image = the header picture of that time (header-images/…stories_16x9).
+# So for www parity:
+# - Image (og:image) goes back to the stories picture, exactly the cell of DA's old version;
+# - card-image and card-image-alt stay as they are, the plane. Our article index already lists that picture for the
+#   page, so our explore-flying list card matches www's.
+# The related-articles cards read the index (card-image), so they keep the plane picture too. A page's head
+# (og:image) is used only for a site page that is not in the index.
+# de/de, at/de and gb/en still have the old pictures in both cells (stories). There is no current www recording of
+# their lists, so no row for them.
+# Tool: tools/importer/text-inserts-apply.mjs --data delta-so36-livery-og-image-lh-com.json (a replace of the Image
+# row, found once). Dry run on DA's current copy (read-only GET): 1 inserted; the only change is that row's <img>;
+# without it DA's copy byte for byte (--check).
+# Gate: nothing on the page draws og:image (the header picture is in the document body), so there is no pixel change.
+# Check after the helper's preview: the head's og:image names a media file other than media_142fab39…, and card-image
+# is still media_142fab39…. The stories picture comes in from www's DAM like the document's other pictures.
+# status	document	tool	expected change	gate
+READY	/de/en/articles/explore-flying/livery-iconic-moments	text-inserts-apply (delta-so36-livery-og-image-lh-com.json)	Image (og:image) back to www's og:image, the stories picture; card-image unchanged (the plane, as www's list card)	metadata only, no drawn change; dry run 1 of 1, byte for byte without
