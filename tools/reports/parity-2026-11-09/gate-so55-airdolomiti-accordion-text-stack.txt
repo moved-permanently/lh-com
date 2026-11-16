@@ -1,0 +1,65 @@
+# ema-cashub, standing order 55, item 1 (2026-11-16, ~22:34 to ~22:55 CET): order 54's Air Dolomiti assistance stack shipped as one change to the accordion text template, at your word ("ship it as one change to the 15 accordion text pages ... if the census shows no breakage; scope it so it reaches only that page type"). Status: SHIPPED (styles/themes/airdolomiti.css, scripts/bold-leads.js + its call in scripts/scripts.js for Air Dolomiti only, test/airdolomiti-accordion-text-stack-so55.test.mjs).
+# Scope: every rule hangs on one text box, main > .section > .default-content-wrapper:has(> h1 ~ p ~ p):has(+ .accordion-columns-wrapper) (a title and two paragraphs right before an Accordion Columns block); the closing picture's rule on that box + the accordion + a lone-picture box. p.bold-lead is set on every Air Dolomiti page but no rule outside that box reads it (the test checks). Unlike order 54's drafts (main .default-content-wrapper:has(> h1 ~ p ~ p), which also reached airports, destinazioni and 24 lead-in documents), nothing outside the template moves.
+# Steps (as gated in order 54, gate-so54-airdolomiti-assistance-steps.txt): the lists' 11 px (.5em) and the paragraph before one without its line; bold-only lead-ins run into their answer; 151 px into the accordion (185 from 930 px); 110 px under it before the closing picture (120 from 930 px); the title 68 px under the breadcrumb below 930 px (+44, 190 down the page as www's).
+# Census (so55/tog55.js, in-page toggle from the committed CSS text, the lead-in marks set as bold-leads.js does; hostv unhinted, EAGER=1 CONSENT=1, airline hosts refused and counted: 0 on all reached pages): every served Air Dolomiti document whose markup has an Accordion Columns block (76 of 1,569, fetched 22:35 CET from the upload state; no fragments on the site, so no other document can hold the box), at 390, 768 and 1440 = 228 page-widths, one load each.
+#   reached: 15 documents x 3 = 45 page-widths (below). Unreached: 61 documents x 3 = 183, nothing moved (every main element's top the same with and without).
+#   breakage: none. All 228 loads equal to the px when the rule was taken out; scroll widths unchanged; elements past the screen's edge the same count with and without (16 / 18 at 390 and 8 / 9 at 768 on the FAQ baggage and dangerous goods pages: their accordion tables, as served).
+#   the moves: the three assistance pages +10 / +11 (the steps cancel: lists -26 an edge, lead-ins -74, into +95 / +61, under +96 / +86, title +44 below 930); the 12 others +95 at 1440 and +105 at 768 / 390 (into the accordion +95 / +61 plus the title +44; their lists sit after a section heading or there are none).
+#   not gated against www: those 12 (FAQ baggage, dangerous goods, digital services, basic fare in three languages) have no recording or snapshot; the +95 / +105 follow www's template as recorded on the assistance pages.
+# Gate (so54/gate2.sh: as served and with the worktree's code as a code override, same host and flags; www = the recorded page; further = |after %| - |before %|, PASS when <= 0.5):
+# path	width	www	as served (items live)	with the stack	further	result
+/de/betreuung	1440	4984	5013 (+0.58 %)	5023 (+0.78 %)	+0.20	PASS
+/de/betreuung	390	7771	7780 (+0.12 %)	7791 (+0.26 %)	+0.14	PASS
+/en/assistance	1440	4776	4767 (-0.19 %)	4778 (+0.04 %)	-0.15	PASS
+/en/assistance	390	7332	7303 (-0.40 %)	7314 (-0.25 %)	-0.15	PASS
+/assistenza	1440	4795	4787 (-0.17 %)	4797 (+0.04 %)	-0.13	PASS
+/assistenza	390	7420	7392 (-0.38 %)	7403 (-0.23 %)	-0.15	PASS
+/destinazioni	1440	3626	3661 (+0.97 %)	3661 (+0.97 %)	0.00	PASS (not reached)
+/destinazioni	390	6393	6413 (+0.31 %)	6413 (+0.31 %)	0.00	PASS (not reached)
+# The code override equals the toggle on all 8 to the px, and order 54's code-stack figures on the six reached. After moving the block above the theme's article-end rules (test airdolomiti-article-end-so52: those stay last), en/assistance 390 / 1440 and de/betreuung 390 rendered again: 7,314 / 4,778 / 7,791, the same.
+# Census rows (reached page-widths): path	width	height as served	with the stack	footer top	title top	lead-ins marked	scroll width	elements past the edge	restored
+/assistenza	1440	4787	4797 (+10)	3974 -> 3984	title 186 -> 186	lead-ins 2	scroll width 1440 -> 1440	past the edge 0 -> 0	restored true
+/assistenza	390	7392	7403 (+11)	6286 -> 6297	title 146 -> 190	lead-ins 2	scroll width 390 -> 390	past the edge 0 -> 0	restored true
+/assistenza	768	5317	5328 (+11)	4291 -> 4302	title 152 -> 196	lead-ins 2	scroll width 768 -> 768	past the edge 0 -> 0	restored true
+/bagaglio/oggetti-pericolosi	1440	6673	6768 (+95)	5860 -> 5955	title 186 -> 186	lead-ins 1	scroll width 1440 -> 1440	past the edge 0 -> 0	restored true
+/bagaglio/oggetti-pericolosi	390	9820	9925 (+105)	8714 -> 8819	title 146 -> 190	lead-ins 1	scroll width 390 -> 390	past the edge 18 -> 18	restored true
+/bagaglio/oggetti-pericolosi	768	7005	7110 (+105)	5979 -> 6084	title 152 -> 196	lead-ins 1	scroll width 768 -> 768	past the edge 9 -> 9	restored true
+/de/betreuung	1440	5013	5023 (+10)	4178 -> 4188	title 186 -> 186	lead-ins 2	scroll width 1440 -> 1440	past the edge 0 -> 0	restored true
+/de/betreuung	390	7780	7791 (+11)	6706 -> 6717	title 146 -> 190	lead-ins 2	scroll width 390 -> 390	past the edge 0 -> 0	restored true
+/de/betreuung	768	5609	5620 (+11)	4643 -> 4654	title 152 -> 196	lead-ins 2	scroll width 768 -> 768	past the edge 0 -> 0	restored true
+/de/digitale-services	1440	2832	2927 (+95)	1997 -> 2092	title 186 -> 186	lead-ins 0	scroll width 1440 -> 1440	past the edge 0 -> 0	restored true
+/de/digitale-services	390	3765	3870 (+105)	2691 -> 2796	title 146 -> 190	lead-ins 0	scroll width 390 -> 390	past the edge 0 -> 0	restored true
+/de/digitale-services	768	3340	3445 (+105)	2374 -> 2479	title 152 -> 196	lead-ins 0	scroll width 768 -> 768	past the edge 0 -> 0	restored true
+/de/economy-basic-tarif	1440	3227	3322 (+95)	2392 -> 2487	title 186 -> 186	lead-ins 3	scroll width 1440 -> 1440	past the edge 0 -> 0	restored true
+/de/economy-basic-tarif	390	5642	5747 (+105)	4568 -> 4673	title 146 -> 190	lead-ins 3	scroll width 390 -> 390	past the edge 0 -> 0	restored true
+/de/economy-basic-tarif	768	3864	3969 (+105)	2898 -> 3003	title 152 -> 196	lead-ins 3	scroll width 768 -> 768	past the edge 0 -> 0	restored true
+/de/faq-de/gepaeck-faq	1440	3371	3466 (+95)	2536 -> 2631	title 186 -> 186	lead-ins 0	scroll width 1440 -> 1440	past the edge 0 -> 0	restored true
+/de/faq-de/gepaeck-faq	390	5654	5759 (+105)	4580 -> 4685	title 146 -> 190	lead-ins 0	scroll width 390 -> 390	past the edge 16 -> 16	restored true
+/de/faq-de/gepaeck-faq	768	3813	3918 (+105)	2847 -> 2952	title 152 -> 196	lead-ins 0	scroll width 768 -> 768	past the edge 8 -> 8	restored true
+/de/gepaeck/gefaehrliche-gegenstaende	1440	7017	7112 (+95)	6182 -> 6277	title 186 -> 186	lead-ins 1	scroll width 1440 -> 1440	past the edge 0 -> 0	restored true
+/de/gepaeck/gefaehrliche-gegenstaende	390	9797	9902 (+105)	8723 -> 8828	title 146 -> 190	lead-ins 1	scroll width 390 -> 390	past the edge 18 -> 18	restored true
+/de/gepaeck/gefaehrliche-gegenstaende	768	7221	7326 (+105)	6255 -> 6360	title 152 -> 196	lead-ins 1	scroll width 768 -> 768	past the edge 9 -> 9	restored true
+/en/assistance	1440	4767	4778 (+11)	3936 -> 3947	title 186 -> 186	lead-ins 2	scroll width 1440 -> 1440	past the edge 0 -> 0	restored true
+/en/assistance	390	7303	7314 (+11)	6257 -> 6268	title 146 -> 190	lead-ins 2	scroll width 390 -> 390	past the edge 0 -> 0	restored true
+/en/assistance	768	5182	5193 (+11)	4216 -> 4227	title 152 -> 196	lead-ins 2	scroll width 768 -> 768	past the edge 0 -> 0	restored true
+/en/baggage/dangerous-goods	1440	6691	6786 (+95)	5860 -> 5955	title 186 -> 186	lead-ins 1	scroll width 1440 -> 1440	past the edge 0 -> 0	restored true
+/en/baggage/dangerous-goods	390	9329	9434 (+105)	8283 -> 8388	title 146 -> 190	lead-ins 1	scroll width 390 -> 390	past the edge 18 -> 18	restored true
+/en/baggage/dangerous-goods	768	6908	7013 (+105)	5942 -> 6047	title 152 -> 196	lead-ins 1	scroll width 768 -> 768	past the edge 9 -> 9	restored true
+/en/digital-services	1440	2828	2923 (+95)	1997 -> 2092	title 186 -> 186	lead-ins 0	scroll width 1440 -> 1440	past the edge 0 -> 0	restored true
+/en/digital-services	390	3822	3927 (+105)	2776 -> 2881	title 146 -> 190	lead-ins 0	scroll width 390 -> 390	past the edge 0 -> 0	restored true
+/en/digital-services	768	3340	3445 (+105)	2374 -> 2479	title 152 -> 196	lead-ins 0	scroll width 768 -> 768	past the edge 0 -> 0	restored true
+/en/economy-basic-fare	1440	3098	3193 (+95)	2267 -> 2362	title 186 -> 186	lead-ins 2	scroll width 1440 -> 1440	past the edge 0 -> 0	restored true
+/en/economy-basic-fare	390	5164	5269 (+105)	4118 -> 4223	title 146 -> 190	lead-ins 2	scroll width 390 -> 390	past the edge 0 -> 0	restored true
+/en/economy-basic-fare	768	3742	3847 (+105)	2776 -> 2881	title 152 -> 196	lead-ins 2	scroll width 768 -> 768	past the edge 0 -> 0	restored true
+/en/faq-eu/baggage	1440	3265	3360 (+95)	2434 -> 2529	title 186 -> 186	lead-ins 0	scroll width 1440 -> 1440	past the edge 0 -> 0	restored true
+/en/faq-eu/baggage	390	5155	5260 (+105)	4109 -> 4214	title 146 -> 190	lead-ins 0	scroll width 390 -> 390	past the edge 16 -> 16	restored true
+/en/faq-eu/baggage	768	3670	3775 (+105)	2704 -> 2809	title 152 -> 196	lead-ins 0	scroll width 768 -> 768	past the edge 8 -> 8	restored true
+/faq/bagaglio	1440	3247	3342 (+95)	2434 -> 2529	title 186 -> 186	lead-ins 0	scroll width 1440 -> 1440	past the edge 0 -> 0	restored true
+/faq/bagaglio	390	5187	5292 (+105)	4081 -> 4186	title 146 -> 190	lead-ins 0	scroll width 390 -> 390	past the edge 16 -> 16	restored true
+/faq/bagaglio	768	3836	3941 (+105)	2810 -> 2915	title 152 -> 196	lead-ins 0	scroll width 768 -> 768	past the edge 8 -> 8	restored true
+/servizi-digitali	1440	2751	2846 (+95)	1938 -> 2033	title 186 -> 186	lead-ins 0	scroll width 1440 -> 1440	past the edge 0 -> 0	restored true
+/servizi-digitali	390	3907	4012 (+105)	2801 -> 2906	title 146 -> 190	lead-ins 0	scroll width 390 -> 390	past the edge 0 -> 0	restored true
+/servizi-digitali	768	3378	3483 (+105)	2352 -> 2457	title 152 -> 196	lead-ins 0	scroll width 768 -> 768	past the edge 0 -> 0	restored true
+/tariffa-economy-basic	1440	3276	3371 (+95)	2463 -> 2558	title 186 -> 186	lead-ins 1	scroll width 1440 -> 1440	past the edge 0 -> 0	restored true
+/tariffa-economy-basic	390	5496	5601 (+105)	4390 -> 4495	title 146 -> 190	lead-ins 1	scroll width 390 -> 390	past the edge 0 -> 0	restored true
+/tariffa-economy-basic	768	3944	4049 (+105)	2918 -> 3023	title 152 -> 196	lead-ins 1	scroll width 768 -> 768	past the edge 0 -> 0	restored true

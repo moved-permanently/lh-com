@@ -1,0 +1,25 @@
+# ema-cashub, standing order 55, item 2 (2026-11-16, ~22:39 to ~22:50 CET): Cargo home's booking box (places 195 / 198 of the sweep) in www's two rows. Status: SHIPPED (blocks/booking-lookup/booking-lookup.css, test/cargo-home-booking-rows-so55.test.mjs); built in about 15 minutes.
+# Plan, as asked: what changes - from 1025 px the widget's panel (booking-lookup (tracking) right after cards-icon (widget)) becomes a wrapping row: "Create booking" alone in the first row over a 1 px #ccc rule the box's width, the air waybill form (prefix, number, Search) 12 px under the rule with the "eBooking dashboard" link after its button, the box 9 px under the fields' message space. No markup, script or document change; phones and tablets (below 1025 px) as before. Which documents: the rule is Cargo's (body.brand-cargo) and needs the widget pair; booking-lookup (tracking) is on 2 of Cargo's 990 served documents (en/home, de/home; fetched 22:40 CET), so it reaches those 2.
+# www (cargo-parity-001 en-home-1440.png, pixels read down columns x 200 and 1100): the tab rule at 599, "Create booking" 626-676 beside Origin and Destination, a #ccc rule at 705, the air waybill underline at 775 with "Update booking" and the dashboard link beside it, the box's end at 808, "Latest news" at 849. Ours before: three rows (the button 623-673, the dashboard link 693-717, the form 737-819), the box's end at 843, "Latest news" at 883. After: the button 623-673, the rule at 704, the form 717-799 (its underline at 775), the link at 734 beside Search, the box's end at 808, "Latest news" at 848.
+# Not in it: www's Origin / Destination selects and "Update booking" (a different hand-off); our document has neither, so the first row holds the button alone and the second keeps our Search.
+# Census (so55/togc.js, in-page toggle from the committed CSS text; hostv unhinted, EAGER=1 CONSENT=1, airline hosts refused and counted: 0; www.mynewsdesk.com allowed, 1 a load): both documents at 390, 768, 1024, 1025, 1280 and 1440, one load each.
+# path	width	height before	after	the box	the form	the link	scroll width	past the edge	restored
+/en/home	390	8366	8366	561+395 -> 561+395	699+233 -> 699+233	655 x40-350 -> 655 x40-350	390 -> 390	38 -> 38	restored true
+/en/home	1024	6493	6493	569+244 -> 569+244	707+82 -> 707+82	663 x48-976 -> 663 x48-976	1024 -> 1024	38 -> 38	restored true
+/en/home	1280	6125	6090	599+244 -> 599+209	737+82 -> 717+82	693 x72-1208 -> 734 x732-894	1280 -> 1280	29 -> 29	restored true
+/de/home	390	8488	8488	561+395 -> 561+395	699+233 -> 699+233	655 x40-350 -> 655 x40-350	390 -> 390	38 -> 38	restored true
+/de/home	1024	6493	6493	569+244 -> 569+244	707+82 -> 707+82	663 x48-976 -> 663 x48-976	1024 -> 1024	38 -> 38	restored true
+/de/home	1280	6153	6118	599+244 -> 599+209	737+82 -> 717+82	693 x72-1208 -> 734 x732-894	1280 -> 1280	29 -> 29	restored true
+/en/home	768	6664	6664	569+244 -> 569+244	707+82 -> 707+82	663 x48-720 -> 663 x48-720	768 -> 768	38 -> 38	restored true
+/en/home	1025	6447	6412	599+244 -> 599+209	737+82 -> 717+82	693 x72-953 -> 734 x732-894	1025 -> 1025	29 -> 29	restored true
+/en/home	1440	6109	6074	599+244 -> 599+209	737+82 -> 717+82	693 x96-1344 -> 734 x756-918	1440 -> 1440	29 -> 29	restored true
+/de/home	768	6718	6718	569+244 -> 569+244	707+82 -> 707+82	663 x48-720 -> 663 x48-720	768 -> 768	38 -> 38	restored true
+/de/home	1025	6543	6508	599+244 -> 599+209	737+82 -> 717+82	693 x72-953 -> 734 x732-894	1025 -> 1025	29 -> 29	restored true
+/de/home	1440	6161	6126	599+244 -> 599+209	737+82 -> 717+82	693 x96-1344 -> 734 x756-918	1440 -> 1440	29 -> 29	restored true
+# Breakage: none. 390 / 768 / 1024 unchanged; from 1025 -35 px, the form on one row (82 px) with the link inside the box (its right edge 894 / 918 against the box's 977 / 1368); scroll widths and elements past the edge (the stage's slides) the same with and without; every load restored.
+# Gate (so54/gate2.sh, as served vs the worktree's code as a code override; www = cargo-parity-001's page; PASS when |after %| - |before %| <= 0.5):
+# path	width	www	as served	with the rule	further	result
+/en/home	1440	6064	6109 (+0.74 %)	6074 (+0.16 %)	-0.58	PASS
+/de/home	1440	6117	6161 (+0.72 %)	6126 (+0.15 %)	-0.57	PASS
+/en/home	390	(as before)	8366	8366	0	PASS (not reached)
+/de/home	390	(as before)	8488	8488	0	PASS (not reached)

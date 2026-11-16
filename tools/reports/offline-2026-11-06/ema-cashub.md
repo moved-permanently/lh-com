@@ -9468,3 +9468,138 @@ the three homepages at 1440 and 390 (plus /, /en at 768).
 **Not in git** (scratch under migration-work/parity-588/so54): the renders, census outputs, held drafts (item1-hold.css,
 code-stack), the replay and picture scripts, and logs.
 
+
+## Standing order 55 (2026-11-16, from about 22:30 CET)
+
+**Carried over:** nothing. Order 54's three commits (c4b776b3, 52fcaf95, 6492b78b) were on main and my worktree was
+clean. The checkout's 88 dirty entries belong to other jobs and were left alone (among them
+blocks/notifications/notifications.css, a one-character comment change that is not mine).
+
+**Scratch:** migration-work/parity-588/so55 (it survives a restart): fresh served copies of every Air Dolomiti (1,569)
+and Cargo (990) document, the two census toggles built from the committed CSS text, a picture column reader, the gates'
+inputs and logs.
+
+**Renders:** about 300 page loads, all unhinted. lh-proxy, www.* (but www.mynewsdesk.com) and every airline host were
+refused and counted: 0 to 23 a render, none sent. In 212's replay our host's recorded answers stood in for the widget
+calls.
+
+**DA:** nothing read or written. No upload, preview, publish or da-upload.mjs. No rows this order: both changes are
+code, and neither needs a document change. /de/en/overview-manage has no row.
+
+### Item 1: the Air Dolomiti accordion text stack (gate-so55-airdolomiti-accordion-text-stack.txt): SHIPPED
+
+**Scope:** every rule now hangs on one text box: a title and two paragraphs right before an Accordion Columns block.
+Order 54's drafts hung on any title's text, which also moved airports, destinazioni and 24 lead-in documents. The
+lead-in script marks bold-only paragraphs on Air Dolomiti pages, but only that text box's rule reads the mark.
+
+**Census:** every served Air Dolomiti document with an Accordion Columns block (76 of 1,569; the site has no
+fragments, so no other document can hold the box), at 390, 768 and 1440, with and without in the same load:
+- **Reached:** the 15 accordion text pages, 45 page-widths. Nothing else moved on the other 183.
+- **Breakage:** none. All 228 loads came back to the px with the rule out. Scroll widths didn't change, and the
+  elements past the screen's edge were the same count with and without (the FAQ baggage and dangerous goods tables,
+  as served).
+- **Moves:** the three assistance pages +10 / +11 px (the steps cancel), the twelve others +95 at 1440 and +105 at
+  768 / 390 (into the accordion and the title).
+
+**Gate** (code override, PASS when no more than half a point further):
+
+| page | width | www | as served | with the stack | result |
+| --- | --- | --- | --- | --- | --- |
+| de/betreuung | 1440 | 4,984 | 5,013 (+0.58 %) | 5,023 (+0.78 %) | PASS (+0.20) |
+| de/betreuung | 390 | 7,771 | 7,780 (+0.12 %) | 7,791 (+0.26 %) | PASS (+0.14) |
+| en/assistance | 1440 | 4,776 | 4,767 (-0.19 %) | 4,778 (+0.04 %) | PASS (closer) |
+| en/assistance | 390 | 7,332 | 7,303 (-0.40 %) | 7,314 (-0.25 %) | PASS (closer) |
+| assistenza | 1440 | 4,795 | 4,787 (-0.17 %) | 4,797 (+0.04 %) | PASS (closer) |
+| assistenza | 390 | 7,420 | 7,392 (-0.38 %) | 7,403 (-0.23 %) | PASS (closer) |
+| destinazioni | 1440 / 390 | 3,626 / 6,393 | 3,661 / 6,413 | the same (not reached) | PASS |
+
+**Live:** commit 9ab814fd, served by about 23:10 CET. All 8 gated page-widths measure live at their gated figures, to
+the px, and so do four of the twelve others tried (en/digital-services 390 3,927, en/baggage/dangerous-goods 1440 6,786,
+de/faq-de/gepaeck-faq 768 3,918, tariffa-economy-basic 390 5,601).
+
+**Not gated against www:** the twelve other pages (FAQ baggage, dangerous goods, digital services and basic fare, in
+three languages). No recording or snapshot of www has them, so their +95 / +105 px follow the template as recorded
+on the assistance pages.
+
+### Item 2: Cargo home's booking box (gate-so55-cargo-home-booking-rows.txt): SHIPPED, in about 15 minutes
+
+**The plan, as asked:**
+- **What changes:** from 1025 px, the widget's panel wraps into two rows, as www's Booking tab does. "Create booking"
+  sits alone over a 1 px rule the box's width. The air waybill form sits 12 px under the rule, with the "eBooking
+  dashboard" link after its button. The box closes 9 px under the fields. No markup, script or document change, and
+  nothing changes below 1025 px.
+- **Which documents:** a Cargo-only rule on the widget pair. booking-lookup (tracking) is on 2 of Cargo's 990 served
+  documents: en/home and de/home.
+- **How long:** drafted, censused and gated in about 15 minutes.
+
+**www's picture** (read down two pixel columns): the rule at 705, the air waybill underline at 775, the box's end at
+808. Ours now: the rule at 704, the underline at 775, the box's end at 808, "Latest news" at 848 (www 849).
+
+**Not in it:** www's Origin / Destination selects and its "Update booking" button. Our document has neither, so the
+first row holds the button alone and the second keeps our Search.
+
+**Census:** both documents at 390, 768, 1024, 1025, 1280 and 1440, with and without in the same load. Below 1025
+nothing moved. From 1025 both pages are 35 px shorter, with the form on one row and the link inside the box. Scroll
+widths didn't change, and every load came back to the px.
+
+**Gate:** en/home 1440 6,109 to 6,074 (www 6,064: +0.74 to +0.16 %), de/home 6,161 to 6,126 (www 6,117: +0.72 to
++0.15 %). Both PASS; at 390 they are unchanged.
+
+**Live:** commit d06c7a33, served by about 23:10 CET. en/home and de/home measure live at 6,074 and 6,126 at 1440 and
+unchanged at 390, the gated figures to the px.
+
+### Item 3: places 211 to 230 (sweep-so55-places-211-230.txt)
+
+All 20 are within 1 % today.
+- **Live as gated:** 211 /de 390 (order 54's destinations end, 6,565), 218 fr/fr/baggage 1440 (order 44's footer
+  columns, 4,366), 225 xx/en homepage 1440 (order 47's carousel without the finder, 3,536). All three are closer than
+  in order 43.
+- **Widget states:** 212 tr/en homepage 1440. With our host's recorded answers replayed it is order 43's 4,899
+  (+0.62 %) to the px; as served, with the APIs refused, it is 4,870 (+0.02 %).
+- **One step before the footer, not traced:** the contact pages (216, 217, 222, 229, 230: +14), the Air Dolomiti
+  timetables (213, 215, 221: +13) and support-and-contacts (227: +10). Every text above it is at www's place.
+- **Titles:** Air Dolomiti's timetable and route pages at 390 have their title 74 / 90 px higher than www's, and the
+  next text cancels it (213, 214). Not traced further.
+- **No fix:** the rest are steps of both signs. 219 accessible-travel can't be traced below its accordion, because
+  www's file lists the closed tabs' texts at the tab's top.
+
+### Final section (about 23:25 CET, 2026-11-16)
+
+All three items are done, so I stopped well before 02:00.
+
+**On main:**
+- `9ab814fd`: item 1, the accordion text stack (theme rules, the lead-in script and its call for Air Dolomiti, the test).
+- `d06c7a33`: item 2, Cargo home's booking box in two rows from 1025 px (block CSS, the test).
+- This commit: the two gate files, the sweep file and this order's sections.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0, read before each push. Origin moved once during the first round (a
+  columns-media rule), so I rebased and ran lint again: exit 0.
+- **Stylelint:** styles/themes/airdolomiti.css and blocks/booking-lookup/booking-lookup.css, exit 0 (the whole-repo
+  lint doesn't cover styles/themes).
+- **Tests before the push:** 414 files (every test naming Air Dolomiti, booking-lookup or the lead-in script, the
+  folder-reading tests and what origin's commits changed), 0 failures. On my first run, airdolomiti-article-end-so52
+  failed: that test needs the article-end rules to stay last in the theme. I moved the stack above them and rendered
+  three page-widths again, which gave the same figures.
+- **Full suite** on the pushed commit: 1,248 files, 4,717 tests, 4,712 pass, 0 failures, 5 skipped.
+
+**Live:** both commits were served by about 23:10 CET. All 12 gated page-widths and four other reached pages measure
+live at their gated figures, to the px.
+
+**For you:**
+- **Twelve pages not gated against www:** the stack also moves FAQ baggage, dangerous goods, digital services and
+  basic fare (three languages each) by +95 / +105 px. That is the template's spacing as recorded on the assistance
+  pages, but www has no recording of those twelve pages. A recording of one of them would settle it.
+- **Cargo's box:** www's Origin / Destination and "Update booking" are not in our document. The two rows now match
+  www's height, but the first row holds only the button.
+
+**Rules followed:**
+- No request to an airline host: refused and counted, none sent.
+- DA: nothing read or written.
+- No upload, preview, publish or da-upload.mjs. No rows this order.
+- The checkout's dirty entries untouched.
+- /de/en/overview-manage has no row.
+- The finder button rule stays on HOLD.
+
+**Not in git** (scratch under migration-work/parity-588/so55): the served copies, census and gate outputs, toggles,
+renders, logs and the report draft.
