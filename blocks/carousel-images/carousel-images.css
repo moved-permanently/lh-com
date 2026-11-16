@@ -289,3 +289,14 @@ body:is(.brand-swiss, .brand-austrian, .brand-ita, .brand-brussels, .brand-disco
     scroll-behavior: auto;
   }
 }
+
+/* lufthansa.com on phones: a slider right under a teaser card in its section (the 100-years campaigns pages' "1950s -
+   1960s" / "A new beginning ..." card, then the poster slider) stands 35px lower, as www's: www 85px from the card's
+   subheading to the first poster at 390, ours 50 (standing order 40; /de/en/100-years/campaigns 390 10.4 -> 9.9 %, 1440
+   unchanged, the rule from 768px measured worse there: 4.9 -> 9.3). 25 documents carry the pattern (campaigns in 16
+   versions, cabin-design in 9 xx versions); the 24 unrecorded rendered with and without, no breakage */
+@media (width < 768px) {
+  body.brand-lufthansa main .cards-teaser-wrapper + .carousel-images-wrapper {
+    margin-top: 59px;
+  }
+}
