@@ -5022,3 +5022,53 @@ State at the start: nothing of mine uncommitted or unpushed (order 36's final se
 - Not in git and why: logs/p4/so37 (scratch: captures, gates, DA copies, folder pages), the drops in /tmp (private
   material), content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not mine, kept).
   Preview servers 3091-3094 stopped, trial and suite worktrees removed.
+
+## Standing order 38 (received about 05:05 UTC, 2026-11-16)
+
+State at the start: nothing of mine uncommitted or unpushed (order 37's final section on main, e0ac679e).
+
+1. **fleet/351's seat-map slideshow rule** was already on main (c4a20196, order 37) and is live. As served:
+   1440 7.22 %, 390 8.66 %.
+2. **The three shared causes** (delta-so38-lh-com-rows.txt; b9a25d4d, 5e70ebee).
+   - E-mail link arrow: not shipped. Census 394 documents, 44 recorded page-widths. On the one recorded page whose
+     layout it changes, doctor-on-board-news 390, it went further: 9.61 → 10.29 %. www also starts the address on a
+     new line (it keeps "email:" with it), so without the arrow our line holds more than www's. The other 43 moved
+     0.00-0.01.
+   - Wrapped link lines: not shipped. www's standalone links have no single line height on phones: a two-line link
+     is 48 px, a one-line link 30 px. The other session tried the uniform 24 px rule on 63 pages: net +4.4 points
+     (778e10f3). It reaches 7,134 documents and would need an importer mark rather than a stylesheet rule.
+   - gefaehrliche-gegenstaende:
+     - The symbol legend: shipped. www's two columns down, its titles 18 / 21 px. 1440 9.76 → 7.29 %; its sibling
+       electronic-devices-and-batteries 4.35 → 4.61 (within 0.5); phones unchanged. All 32 unrecorded copies
+       rendered with and without: heights only.
+     - The accordion list: shipped as option rich-lists with one row. www's richtext list has its bullet outside, a
+       hanging indent and 10 px between the items, at the full width below the sub-navigation. As a general rule the
+       width alone took the page further (11.06), and so did the list style alone at 1440. Together they give
+       1440 7.29 → 6.50 %, 390 13.25 → 8.61.
+3. **airline-apps' +27 / -16 px per tile**, traced and shipped:
+   - the badge paragraph's 55 px top margin also caught the app icons under their heading;
+   - www keeps 38 px under the icon, ours 24;
+   - the group airlines' 5 px taller links skipped linked logos.
+
+   With the new rule: 390 9.41 → 4.11 %, 1440 4.19 → 2.19; cognitive-impairment 1440 12.87 → 12.80. The 137
+   unrecorded documents rendered with and without: the selector matched in 17, heights only.
+4. **ema-adobe's hand-over 7-10.**
+   - Items 7 and 8 were done in orders 36-37.
+   - Item 9 (fleet/351): its PDF link gets {full-width} (READY: 1440 7.22 → 4.87 %).
+   - Item 10 (my-bookings): a shared end gap after a last Cards Teaser failed its gate (23 of 38 recorded page-widths
+     further: www ends those pages tight). A {spacer-72} row is READY: 1440 4.58 → 1.15 % (www's height),
+     390 10.06 → 8.15.
+
+## Standing order 38, final section (about 07:15 UTC, 2026-11-16)
+
+- Items 1-4 done. Not shipped, with reasons: the e-mail arrow, the link line height, and a general accordion list rule
+  (1,024 documents, 32 open at load).
+- Before this section: lint and the full suite in a fresh worktree of 5e70ebee: npm run lint 0, stylelint 0, 1211 of 1211 test files passed; the folder-reading tests with brand.test.mjs; the whole-repo lint read before every
+  push.
+- Nothing uploaded, previewed or published by me. DA read only (lufthansa.com fleet/351, my-bookings,
+  gefaehrliche-gegenstaende). da-upload.mjs not run. Requests only to our own hosts, DA (reads) and GitHub's API; no
+  request to www or any airline host. .migration/project.json not touched; the excluded manage page has no row and no
+  line.
+- Not in git and why: logs/p4/so38 (scratch: captures, gates, renders, DA copies, folder pages), the drops in /tmp
+  (private material), content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not
+  mine, kept). Preview servers stopped, trial and suite worktrees removed.
