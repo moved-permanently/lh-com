@@ -101,14 +101,17 @@ Their causes, found later in the night:
 - **register-ammunition 390 (11.0 %) and the forms' small steps: two type sizes in the core form.** A sub-section
   title (www h3.heading-copytext-large, 20px on phones) is a fixed 24px in ours. A radio group's question (www's
   maui-radio-group label) is bold on www and regular in ours.
-  - Trial, injected on the 9 recorded form pages (18 page-widths): `.form.core .form-subsection-title { font-size:
+  - Gate, injected on the 9 recorded form pages (18 page-widths): `.form.core .form-subsection-title { font-size:
     var(--heading-font-size-m) }` and `.form.core .form-group-radio > legend.form-label { font-weight: 700 }`,
     lufthansa.com only.
   - Result: register-animal-cabin 390 10.1 -> 8.9, anmeldung-tiere-frachtraum 7.9 -> 7.3, refund-form 8.9 -> 8.6,
     register-ammunition 11.0 -> 10.8; the other 14 page-widths within 0.1.
-  - Not shipped: the rule reaches about 175 unrecorded documents with a form block (184 in all). The no-breakage
-    renders the shared-fix rule asks for take about five hours here.
-- **refund-form 390 (8.9 %): the same form steps.** The trial above takes it to 8.6; what is left is field spacing of
+  - **Shipped (blocks/form/form.css, test/form-core-type-so35).** The 164 unrecorded documents with a core form
+    rendered with and without the rules at 1440 and 390, 328 pairs, all 200. None has sideways scroll, a failed
+    picture, an overlap, clipped text, a form title overlapping its fields or a missing H1. 1440 is unchanged
+    everywhere (the titles are 24px there as before). Phones are 0 to 129px shorter (median 20; xx/ru special-needs
+    -129).
+- **refund-form 390 (8.9 %): the same form steps.** The rules take it to 8.6; what is left is field spacing of
   a few pixels a field (-33 to +70 px across the page).
 - **my-bookings 390 (10.1 %): the page end.** Its last section ends with a cards-teaser three-up block, and ours
   draws no space after it (the footer starts at the block's last link; www about 54px, 57 at 1440). It is the

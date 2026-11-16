@@ -692,6 +692,14 @@ body.brand-lufthansa .form.core .form-step:not(:has(> .form-step-intro)) {
   outline: none;
 }
 
+/* lufthansa.com: the title's heading-copytext-large class is fluid on www, 2.0rem on phones to 2.4rem at 1440 (our
+   --heading-font-size-m). Standing order 35: on the 9 recorded form pages, together with the radio question below,
+   register-animal-cabin 390 10.1 -> 8.9 %, anmeldung-tiere-frachtraum 7.9 -> 7.3, refund-form 8.9 -> 8.6,
+   register-ammunition 11.0 -> 10.8, the other 14 page-widths within 0.1 */
+body.brand-lufthansa .form.core .form-subsection-title {
+  font-size: var(--heading-font-size-m);
+}
+
 .form.core .form-subsection-fields {
   clear: both;
 }
@@ -755,6 +763,12 @@ body.brand-lufthansa .form.core .form-step:not(:has(> .form-step-intro)) {
 .form.core .form-group-checkbox > legend {
   margin-bottom: 18px;
   font-size: var(--body-font-size-s);
+}
+
+/* lufthansa.com: a radio group's question is bold on www (lh-parity-002, register-ammunition's "Please select the
+   flight ...": maui-radio-group's label, 1.8rem bold). Standing order 35, with the sub-section title above */
+body.brand-lufthansa .form.core .form-group-radio > legend.form-label {
+  font-weight: 700;
 }
 
 .form.core .form-options {
