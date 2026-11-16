@@ -1571,3 +1571,16 @@ body.brand-brussels main > .section.sidebar-h1:last-child:has(> .default-content
     vertical-align: top;
   }
 }
+
+/* brusselsairlines.com: a page that closes with a flush grey band of four-up Carousel Cards runs the grey into the
+   footer, 87px under the cards (www's travel-classes economy, business and premium-economy in brussels-parity-003, at
+   1440 and 390: 87px of grey and then the footer; ours 40 or 20 of grey and the section's 48px white; standing
+   order 44) */
+body.brand-brussels main > .section.flush.grey:not(.column-view):has(> .carousel-cards-wrapper:last-child > .carousel-cards.grid.four-up):has(+ .section:last-child:empty) {
+  margin-bottom: 0;
+  padding-bottom: 87px;
+}
+
+body.brand-brussels main > .section.flush.grey:not(.column-view):has(> .carousel-cards-wrapper:last-child > .carousel-cards.grid.four-up) + .section:last-child:empty {
+  margin-bottom: 0;
+}
