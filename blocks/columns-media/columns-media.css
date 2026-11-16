@@ -1867,3 +1867,18 @@ body.brand-lufthansa .columns-media .columns-media-text:has(> :is(h2, h3, h4) + 
     margin-bottom: 8px;
   }
 }
+
+/* option narrow-pictures, lufthansa.com on phones: a row's picture 260px wide, 25px more above the text (www's seat
+   visualisations on /de/en/prepare-for-your-trip/travelling-with-children/child-in-businessclass at 390, lh-parity-002:
+   260px with a zoom button over them, ours across the 346px cell: 390 13.32 -> 8.37 %, 1440 unchanged; set by a row;
+   standing order 44) */
+@media (width < 768px) {
+  body.brand-lufthansa .columns-media.narrow-pictures .columns-media-row > .columns-media-media img {
+    width: 260px;
+    max-width: 100%;
+  }
+
+  body.brand-lufthansa .columns-media.narrow-pictures .columns-media-row > .columns-media-media:first-child {
+    padding-bottom: 25px;
+  }
+}

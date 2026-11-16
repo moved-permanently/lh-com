@@ -1,0 +1,23 @@
+[
+ {
+  "path": "/de/en/prepare-for-your-trip/travelling-with-children/child-in-businessclass",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media padded\"><div><div><picture><img src=\"https://www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/travelling-with-children/allowed01.jpg.transform/lh-dc",
+    "text": "<div class=\"columns-media padded narrow-pictures\"><div><div><picture><img src=\"https://www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/travelling-with-children/allowed01.jpg.transform/lh-dc"
+   },
+   {
+    "replace": "<div class=\"columns-media padded\"><div><div><picture><img src=\"https://www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/travelling-with-children/forbidden01.jpg.transform/lh-",
+    "text": "<div class=\"columns-media padded narrow-pictures\"><div><div><picture><img src=\"https://www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/travelling-with-children/forbidden01.jpg.transform/lh-"
+   },
+   {
+    "replace": "<div class=\"columns-media padded\"><div><div><picture><img src=\"https://www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/travelling-with-children/allowed03.jpg.transform/lh-dc",
+    "text": "<div class=\"columns-media padded narrow-pictures\"><div><div><picture><img src=\"https://www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/travelling-with-children/allowed03.jpg.transform/lh-dc"
+   },
+   {
+    "replace": "<div class=\"columns-media padded\"><div><div><picture><img src=\"https://www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/travelling-with-children/forbidden02.jpg.transform/lh-",
+    "text": "<div class=\"columns-media padded narrow-pictures\"><div><div><picture><img src=\"https://www.lufthansa.com/content/dam/lh/images/local_images/prepare-for-your-trip/travelling-with-children/forbidden02.jpg.transform/lh-"
+   }
+  ]
+ }
+]

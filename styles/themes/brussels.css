@@ -1557,3 +1557,17 @@ body.brand-brussels main > .section.sidebar-h1:last-child:has(> .default-content
     margin-bottom: 42px;
   }
 }
+
+/* brusselsairlines.com from 768px: two buttons in a row at the end of a Columns Media text cell share one line, each in
+   half of the cell (www's app-store buttons in student-fares' grey "Fly, collect and redeem" band at 1440,
+   brussels-parity-004; ours stacked them; the band's height is set by its picture, so 1440 13.334 -> 13.332 %; its fr copy rendered with and
+   without, 70 px shorter, nothing else; standing order 44) */
+@media (width >= 768px) {
+  body.brand-brussels .columns-media .columns-media-text > :not(p.button-wrapper) + p.button-wrapper + p.button-wrapper:last-child,
+  body.brand-brussels .columns-media .columns-media-text > p.button-wrapper:has(+ p.button-wrapper:last-child):not(:has(+ p.button-wrapper + p.button-wrapper)) {
+    display: inline-block;
+    width: calc(50% - 4px);
+    margin-bottom: 0;
+    vertical-align: top;
+  }
+}

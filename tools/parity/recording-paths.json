@@ -1,0 +1,9 @@
+{
+  "about": "lufthansa.com recordings whose recorded path differs from the published document's path (standing order 44, 2026-11-16). Built from every recorded page of lh-parity-002a-d, -003, -004a/b, -006 and the paths order 32's info sweep and order 39's rest sweep measure (378 paths): each probed on lufthansa.turnsthe.page, the page and its .plain.html. 373 answer 200 at their own path (the /content/lh/markets/... LoungeNet recordings are published there too); these four answer 301 to another document. A gate that takes its census from published documents must look up their recordings through this map.",
+  "lh-com": {
+    "/at/de/during-your-trip/lounges": "/at/de/lounges",
+    "/de/de/during-your-trip/lounges": "/de/de/lounges",
+    "/de/en/during-your-trip/lounges": "/de/en/lounges",
+    "/gb/en/during-your-trip/lounges": "/gb/en/lounges"
+  }
+}

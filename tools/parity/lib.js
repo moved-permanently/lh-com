@@ -373,8 +373,34 @@ function viewportHeight(width, explicit) {
   return Number(width) < 768 ? 844 : 900;
 }
 
+/**
+ * Recordings under another path (tools/parity/recording-paths.json): www recorded some pages at an
+ * address our site redirects to another document (lufthansa.com's during-your-trip/lounges roots
+ * are published as /xx/yy/lounges). publishedPath(recorded) gives the document a recording shows;
+ * recordedPaths(published) the recorded paths that show a document (the path itself included), so a
+ * gate that takes its census from published documents finds their recordings (standing order 44).
+ */
+const RECORDING_PATHS = (() => {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(__dirname, 'recording-paths.json'), 'utf8'));
+  } catch (e) {
+    return {};
+  }
+})();
+
+function publishedPath(recorded, site = 'lh-com') {
+  return (RECORDING_PATHS[site] || {})[recorded] || recorded;
+}
+
+function recordedPaths(published, site = 'lh-com') {
+  const map = RECORDING_PATHS[site] || {};
+  return [published, ...Object.keys(map).filter((r) => map[r] === published)];
+}
+
 module.exports = {
   viewportHeight,
+  publishedPath,
+  recordedPaths,
   ROOT,
   ANSWERABLE,
   loadRecordedAnswers,
