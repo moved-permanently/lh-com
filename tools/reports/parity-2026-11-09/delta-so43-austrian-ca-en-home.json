@@ -1,0 +1,23 @@
+[
+ {
+  "path": "/ca/en/homepage",
+  "inserts": [
+   {
+    "after": "up bookings for 10 or more passengers.</a></div></div></div>",
+    "text": "<div class=\"ask-ai-flights\"><div><div><p><strong>Flexible dates? Chat with our AI to find your perfect flight options</strong></p><p><em><a href=\"https://www.austrian.com/ca/en/homepage\">Ask AI for flights</a></em></p></div></div></div>"
+   },
+   {
+    "before": "</div>\n<div><h2 id=\"discover-austrian\">",
+    "text": "<p>{spacer-48 from-768}</p><p>{spacer-95 below-768}</p>"
+   },
+   {
+    "replace": "<p>*The prices incl. all taxes, fees, carrier surcharges may vary and serve as a guide for your selection.</p><p>General Conditions</p><p>The prices displayed may vary and should serve as a guide for your selected journey. The prices apply to round or one way trips according to your selection. The end price is subject to change depending on the selected payment option. Seats are limited and may not be available on all days/flights. The fare might only be available during a special travel time and might not be available during holidays or other peak seasons. Fares include applicable fees, taxes and airport charges. Baggage might not be included in the end price. Additional baggage fees may apply. The fare might not be refundable or changeable. Minimum stay/maximum stay and/or advanced purchase might apply.</p>",
+    "text": "<p>{spacer-81}</p>"
+   },
+   {
+    "after": "<a href=\"/ca/en/additional-services\">All extra services</a></div></div></div>",
+    "text": "<p>*The prices incl. all taxes, fees, carrier surcharges may vary and serve as a guide for your selection.</p><p><a href=\"/ca/en/fragments/modals/general-conditions\">General Conditions</a></p>"
+   }
+  ]
+ }
+]

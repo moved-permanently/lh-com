@@ -2428,3 +2428,12 @@ body.brand-cargo main .columns-media.natural-media .columns-media-media :is(pict
     grid-template-columns: minmax(0, 746fr) minmax(0, 526fr);
   }
 }
+
+/* standing order 43, item 2: a Columns Media text cell that ends with a list keeps no space under its last item, as
+   www's icon lists (the last li's margin-bottom 0; ours kept the cell's 10 px under it: grid cells do not collapse it).
+   Reach: 19 served Cargo documents (in-page toggle at 390 and 1440: the same or 7 to 20 px shorter, nothing past the
+   edge, no overlap); the recorded ones closer or within 0.5 points (gate-so43-cargo-list-end.txt). It brings the German
+   eservices-app's C row within 2 % at 390 (delta-so43-cargo-de-eservices-app.txt) */
+body.brand-cargo main .columns-media .columns-media-text > :is(ul, ol):last-child > li:last-child {
+  margin-bottom: 0;
+}

@@ -1,0 +1,46 @@
+# ema-cashub, standing order 43, item 2 (2026-11-16): a Columns Media text cell that ends with a list keeps no space under its last item (styles/themes/cargo.css: body.brand-cargo main .columns-media .columns-media-text > :is(ul, ol):last-child > li:last-child { margin-bottom: 0 }).
+# Why: www's icon lists end with the last item's margin 0 (cargo-parity-005, de eservices-app's benefits: the list 140 px, the last li mb 0); ours kept the cell's 10 px under the last item, which a grid cell does not collapse. On the German eservices-app's C row (delta-so43-cargo-de-eservices-app.txt) it is 10 of the 63 px at 390.
+# Reach: the served Cargo copies (all 990 of the upload state, fetched 2026-11-16 ~01:45 CET, 990 x 200) whose Columns Media rows hold a cell ending with a list: 19 documents (cm-reach, linkedom on the copies), and the de eservices-app draft. Nothing else can match.
+# Rendered on cargo.turnsthe.page with today's code (1eca24c8 live), the rule added as a style sheet in the same load (in-page toggle), 390 x 844 and 1440 x 900; unhinted, CONSENT=1; lh-proxy, www.* but www.mynewsdesk.com and every airline host refused and counted: 0.
+# Gate (your condition for a shared fix): every recorded page closer or within 0.5 points (PASS), and every page-width it reaches without a recording with no breakage (OK: no sideways scroll, nothing past the right edge, no section overlapping the one before).
+# Result: 10 recorded page-widths PASS (3 closer, 5 the same, 2 further by 0.18 / 0.19 points: industries-in-focus de / en 390, both still within 1.3 %); 28 unrecorded page-widths OK, 0 broken. Heights move by 0, -7, -10 or -20 px (one or two lists).
+#
+# gate	path	width	recording	www page	as served	with the rule	footer top	breakage	move
+PASS	/de/home	390	cargo-parity-001 (the 1440 load resized: a pointer)	8486	8488 (+0.02 %)	8488 (+0.02 %)	+0	none	same
+PASS	/de/home	1440	cargo-parity-001	6117	6161 (+0.72 %)	6161 (+0.72 %)	+0	none	same
+PASS	/de/industries-in-focus	390	cargo-parity-001 (first load)	5434	5424 (-0.18 %)	5414 (-0.37 %)	-10	none	further by 0.18 points
+PASS	/de/industries-in-focus	1440	cargo-parity-001	2515	2533 (+0.72 %)	2526 (+0.44 %)	-7	none	closer
+PASS	/en/eservices-app	390	cargo-parity-006 (first load, less the 80 px notice)	3043	3092 (+1.61 %)	3082 (+1.28 %)	-10	none	closer
+PASS	/en/eservices-app	1440	cargo-parity-003	3289	3338 (+1.49 %)	3338 (+1.49 %)	+0	none	same
+PASS	/en/home	390	cargo-parity-001 (the 1440 load resized: a pointer)	8389	8366 (-0.27 %)	8366 (-0.27 %)	+0	none	same
+PASS	/en/home	1440	cargo-parity-001	6064	6109 (+0.74 %)	6109 (+0.74 %)	+0	none	same
+PASS	/en/industries-in-focus	390	cargo-parity-001 (first load)	5347	5288 (-1.10 %)	5278 (-1.29 %)	-10	none	further by 0.19 points
+PASS	/en/industries-in-focus	1440	cargo-parity-001	2515	2557 (+1.67 %)	2547 (+1.27 %)	-10	none	closer
+OK	/de/industrien-luftfahrt	390	not recorded	-	3352	3342 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/de/industrien-luftfahrt	1440	not recorded	-	3240	3240 (+0)	+0	none	no change
+OK	/de/industrien-oel-gas	390	not recorded	-	4395	4375 (-20)	-20	none	shorter by the last item's 10 px per list
+OK	/de/industrien-oel-gas	1440	not recorded	-	4374	4364 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/de/news/auto-piloten-22	390	not recorded	-	5592	5582 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/de/news/auto-piloten-22	1440	not recorded	-	4042	4032 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/de/news/die-chemie-stimmt-31	390	not recorded	-	4725	4715 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/de/news/die-chemie-stimmt-31	1440	not recorded	-	3231	3221 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/de/news/fliegende-frische-12	390	not recorded	-	8787	8777 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/de/news/fliegende-frische-12	1440	not recorded	-	6031	6021 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/de/news/super-bikes-69	390	not recorded	-	6133	6123 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/de/news/super-bikes-69	1440	not recorded	-	4728	4718 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/en/industries-aviation	390	not recorded	-	3144	3134 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/en/industries-aviation	1440	not recorded	-	3240	3240 (+0)	+0	none	no change
+OK	/en/industries-oil-gas	390	not recorded	-	4187	4167 (-20)	-20	none	shorter by the last item's 10 px per list
+OK	/en/industries-oil-gas	1440	not recorded	-	4374	4364 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/en/news/flying-fresh-12	390	not recorded	-	8391	8381 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/en/news/flying-fresh-12	1440	not recorded	-	6095	6085 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/en/news/lwvi	390	not recorded	-	9739	9729 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/en/news/lwvi	1440	not recorded	-	6433	6423 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/en/news/rettet-das-nashorn	390	not recorded	-	8976	8966 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/en/news/rettet-das-nashorn	1440	not recorded	-	6076	6066 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/en/news/super-bikes-69	390	not recorded	-	6093	6083 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/en/news/super-bikes-69	1440	not recorded	-	4728	4718 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/en/news/the-autopilots-22	390	not recorded	-	5434	5424 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/en/news/the-autopilots-22	1440	not recorded	-	3912	3902 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/en/news/the-chemistry-is-right-31	390	not recorded	-	4645	4635 (-10)	-10	none	shorter by the last item's 10 px per list
+OK	/en/news/the-chemistry-is-right-31	1440	not recorded	-	3299	3289 (-10)	-10	none	shorter by the last item's 10 px per list
