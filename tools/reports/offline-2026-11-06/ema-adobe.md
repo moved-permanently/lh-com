@@ -5274,3 +5274,60 @@ rebased HEAD. Full suite on the final code: 871cddc (origin/main with every comm
 - Ended at about 14:40 CET, not 16:00: the four items are answered. What is open waits on ema-test (hand-over item 16,
   and its styles.css window), the owner's caption question, or the link proposal's interim gate.
 - Left out of git: logs/b639 (captures, diffs, renders, runners), the untracked import reports of earlier runs.
+
+### Standing order 40 (2026-11-16 15:05 to about 17:40 CET)
+
+No uploads, previews or publishes; DA read only; no request to www or any airline host. `.migration/project.json`
+untouched; the add-ons stay off. Order 39 left nothing uncommitted or unpushed. Code changes, all lufthansa.com only:
+- blocks/carousel-images (739bd44);
+- blocks/cards-teaser option horizontal (ee0d6ff).
+
+Each push: stylelint clean on the changed files, the tests that read them passed, and the whole-repo lint read 0 on a
+clean worktree of the rebased HEAD. Full suite on the final code: 47b61b4 (origin/main with every commit of this order but this section), 72 lh-edge files and 1,234 site files, 0 failing.
+
+**The two-hour windows, kept this time:**
+- styles.css: I made no commit. Commits there at 12:49 (ed84599), 14:12 (mine), 15:10 (ba09d6e) and 16:31 CET (87e5ce4,
+  ema-test's order 43). The last one's window runs to 18:31 CET, past this order's end. So the campaign-quote rule
+  below is gated but held: logs/b640/campaign-quote-rule.patch and its test, for the next order;
+- Columns Media: no edit by me;
+- the hand-over file: my addition was committed at 16:14, after the window of my own 14:12 commit.
+
+1. **100-years/campaigns: shipped, two rules.**
+   - The poster slider under its teaser card on phones: 35px lower (59px, carousel-images.css, 739bd44).
+     campaigns 390 10.4 -> 9.9 %. From 768px the same rule measured worse (4.9 -> 9.3), so it is phones only. 25
+     documents have the pattern; the 24 unrecorded rendered with and without (48 pairs, all 200, no breakage): 15 are
+     35px taller at 390, 9 unchanged, all unchanged at 1440.
+   - The drift after the slider showed the next cause: the lone quote "We speak your language everywhere" 32px too
+     low. On phones a lone campaign quote has 93px above it, measured after a picture. After a section that ends with
+     text, www keeps the quote's own 60px: a rule in styles.css, phones only, with two :has() side by side
+     (a nested one is dropped).
+     - Gate: campaigns 390 9.9 -> 9.5 %, 1440 unchanged. The 5 other versions with the pattern rendered with and
+       without: 33px shorter at 390, no breakage.
+     - **Held, not pushed**, for styles.css' window (above). It ships with the next order after 18:31 CET, unless
+       ema-test's later edits change the figures; then gated again.
+2. **sweep-so34-lh-adobe.md, places 59 to 78 (section "Places 59 to 78", b18c8d4).**
+   - **Located with a fix:** the forms (special-needs and betreuungsbedarf, order 37's spacing: 8.6 / 8.4 -> 6.8 /
+     6.9).
+   - **To ema-test:** hand-over item 17 (services-at-the-airport's page end, know-before-you-go's gap above Related
+     Articles); culinaryjourney 1440 is under item 6 already.
+   - **No fix:**
+     - the 100-years pages' captions (the owner's decision) and www's recorded fallback face (destinations);
+     - stop-over-tokyo's portrait crop (www's phone rendition);
+     - the font width (services-at-the-airport);
+     - steps under 1 %.
+   - **Not tonight:** the bordered cards' pictures 4-6px taller (eat-see-do-berlin); the know-before-you-go button
+     15px.
+3. **all-it-takes-is-a-yes without the fare teaser's difference (delta-so40-aitiay-teaser-gradients-lh-com.txt).**
+   - At 15:20 CET the teaser drew all 7 offers (486px, as www). de/en and at/de then read 10.6 / 9.7 % at 1440, their
+     sweep figures, within 16px of www's height.
+   - With the teaser's region taken out: above it 0.4 %, the teaser itself 3.4 % (its prices), below it 16.9 /
+     14.6 %. That part below is ours:
+     - www draws the wide "Ready for new adventures?" teaser under a vertical gradient (ours horizontal);
+     - www draws the "Explore more" tiles under a horizontal gradient (ours vertical).
+   - **Shipped:** option horizontal (ee0d6ff) and 4 READY rows (option vertical on the wide teaser, horizontal on the
+     tiles of de/en and gb/en; at/de and de/de's tiles are mixed on www). Drafts: 1440 10.6 / 9.7 -> 6.6 %, 390 -0.3 to
+     -0.4.
+   - **What is left once those are live:** about 6.6 %, from the "To the article" arrows (none on www) and the photos.
+- Ended at about 17:40 CET, not 18:30: the three items are answered. The campaign-quote rule waits for styles.css'
+  window, and the rest for ema-test's hand-over item 17 or the owner's caption decision.
+- Left out of git: logs/b640 (captures, diffs, renders, runners, and the held patch with its test), the untracked import reports of earlier runs.
