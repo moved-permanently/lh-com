@@ -6089,3 +6089,73 @@ so stylelint had nothing to check.
 - Reads came from our hosts, the drop (four archives, their sidecars, existence checks of six names) and DA (four
   document GETs).
 - No da-upload.mjs call, no upload, preview or publish by me. /de/en/overview-manage got no row.
+
+## Standing order 35 (2026-11-16, about 17:05 to 20:30 CET), with its final section
+
+**At the start:** nothing of mine was uncommitted or unpushed; order 34's f6de9653 was on main. `.migration/project.json`
+was modified, not by me, and is left as it is.
+
+**Item 1, the archives named:** gate-so34-captures.md and the bike-the-city list now name swiss-parity-009,
+ita-parity-012, brussels-parity-014 and b2b-parity-015. Each sha256 is equal to the order's and to its sidecar.
+
+**Item 2, ITA electronic-devices-and-batteries: READY** (delta-so34-ita-electronic-devices-casing-paragraph.txt, its test
+updated).
+- **The 1440 load:** ita-parity-013 (836f7c11…4991, as its sidecar and the order's), its own first load, www 5211 px
+  with the paragraph in place.
+- DA's copy was read again: unchanged, and the insert still applies.
+- **Gate:** the served page with the paragraph, airline hosts refused per request, 390 with the Liberation face.
+  - 1440: 5148 -> 5226 (-1.21 -> +0.29 %).
+  - 390: 7987 -> 8227 (-3.42 -> -0.52 %).
+  - Closer at both widths and within 2 % at both.
+- Both finish-ita rows are READY on it.
+
+**Item 3, video-gallery 390:** b2b-parity-016 (9ebf4357…a169, as its sidecar; not yet named) has landed.
+- www measures 3745 px, the same as the resize.
+- Against it, the drafted ending row still takes 390 0.64 points further (-0.32 -> -0.96 %), so no row is written.
+
+**Item 4, the regression check (regress-so35-brands.md):**
+- **Method:** all 89 page-widths of sweep-so30-brands.md captured again, and also the 409 that order 27 had within 2 %.
+  Each was compared with its last figure on the same recording. Five captures that drew only the window, or nothing,
+  were taken again and measure as before.
+- **The 89:** none is more than 0.5 points further. Five moved closer:
+  - contact-form-error 390: +3.70 -> +0.32 %, with the closing-sidebar rule;
+  - entertainment-on-board 1440: -4.87 -> -0.52 %, with cover-16x9;
+  - de/de lhg-history 1440: -4.12 -> -0.80 %;
+  - connecting-africa and student-fares, with my rows.
+- **The 409: only the SWISS homepages are further.**
+  - /ch/de and /ch/en at 1440: -1.67 -> -2.63 % and -1.62 -> -2.59 %.
+  - ch/de at 390: +0.56 -> -1.09 %.
+  - ch/en at 390 is 0.45 points further.
+- **Located:** the flash-teaser strip above the flight search is empty today. In earlier captures it held "Information
+  on flights to Dubai" (-43 px at 1440, -85 at 390).
+- **The cause is not code.** That message is in lh-com's DA but not published any more (aem.page 200, aem.live 404),
+  so the live Message Center index dropped it. www's recordings show it.
+- **The fix is publishing it again,** the store owner's or the helper's call. I publish nothing, and no reverse applies.
+  The two SWISS 1440 finish rows are HOLD while it is unpublished.
+- **No shared rule live by about 16:50 UTC takes any recorded page-width of my brands further.**
+- **Not covered:** the sweep ran on main as deployed up to about 16:50 UTC. 3ee29556 (lufthansa.com campaign pages on
+  phones) and 6bb8859d (Columns Media and the Brussels theme, ema-test's standing order 44) went to main afterwards, at
+  17:35 and 17:46 UTC. This table does not cover them.
+
+**Resumed (2026-11-16, about 19:05 CET):** the order's first ship was cut off while its suite ran a second time after
+the rebase, so nothing was pushed then. Taken up from disk:
+- the commit rebased onto main again (three new commits since);
+- lint, the full suite and the push in push-existing.sh, with the smoke before and after.
+
+**Checks:** this commit (the READY paragraph row with its test, the regression table, the named archives, the finish
+rows, this report): `npm run lint`, the folder-reading tests and the full suite in its ship. No CSS changed, so
+stylelint had nothing to check.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git), kept out on purpose:
+  - ita-parity-013 and b2b-parity-016;
+  - the 498 captures and the comparisons;
+  - DA's copies read today: lh-ita electronic-devices about 16:05 UTC, and lh-com's two Dubai message documents with
+    their folder list, read about 16:50 UTC.
+
+**Hosts:**
+- Every browser load refused airline hosts per request.
+- Reads came from our hosts, aem.page and aem.live (one message and its index), the drop (two archives and their
+  sidecars) and DA (GETs and folder lists only).
+- No da-upload.mjs call, no upload, preview or publish by me. /de/en/overview-manage got no row.
