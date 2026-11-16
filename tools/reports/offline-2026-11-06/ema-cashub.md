@@ -8928,8 +8928,11 @@ All four items are done, so I stopped well before 17:30.
   files, 1,152 tests, 1,147 pass, 0 failures, 5 skipped.
 - **Full suite** on `74c78527`: 1,225 files, 4,660 tests, 4,655 pass, 0 failures, 5 skipped (one node process per file, ~14:30 to ~14:46 CET).
 
+**Live since:** your helpers applied the three AI rows (`41471464`; es/en and the medical row untouched). I measured them
+live at ~14:50 CET, and every page-width equals its draft to the px: eg/en and am/en 4,846 at 1440, 6,111 / 6,071 at 390;
+us/en 4,887 / 5,902; the band 84 / 158 px.
+
 **For you:**
-- **Your helpers:** three READY AI rows (eg/en, am/en, us/en).
 - **Captures:** es/en and us/en 390; twelve English homepages at 390 and 1440; at/en and at/de 1440; and the medical
   picture's two URLs.
 
