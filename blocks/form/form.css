@@ -765,9 +765,11 @@ body.brand-lufthansa .form.core .form-subsection-title {
   font-size: var(--body-font-size-s);
 }
 
-/* lufthansa.com: a radio group's question is bold on www (lh-parity-002, register-ammunition's "Please select the
-   flight ...": maui-radio-group's label, 1.8rem bold). Standing order 35, with the sub-section title above */
-body.brand-lufthansa .form.core .form-group-radio > legend.form-label {
+/* lufthansa.com: a radio group's question in a sub-section is bold on www (lh-parity-002, register-ammunition's
+   "Please select the flight ...": maui-radio-group's label, 1.8rem bold). Standing order 35, with the sub-section title
+   above; standing order 36: only in a sub-section. A group straight in the section's card keeps the regular label
+   (feedback-past-flight's "Please select an option:", the same maui-radio-group label, regular on www) */
+body.brand-lufthansa .form.core .form-subsection .form-group-radio > legend.form-label {
   font-weight: 700;
 }
 
