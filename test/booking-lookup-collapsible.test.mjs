@@ -1,7 +1,10 @@
 /* booking-lookup (blocks/booking-lookup), lh-com only (brief 404, parity row 15; capture
    lufthansa-parity-001 /de/en/online-check-in at 390): www's maui-tab-control-panel-responsive is
-   on phones a maui-collapsible-item per tab, all collapsed. Option collapsible of buildTabs: below
-   768px the tabs are disclosure buttons (aria-expanded, no tab roles), all closed at first, each
+   on phones a maui-collapsible-item per tab. Option collapsible of buildTabs: below 768px the tabs
+   are disclosure buttons (aria-expanded, no tab roles), the first open at first (standing order 35:
+   www's newer recording lh-parity-002, 2026-11-06, opens its active first item on a phone's first
+   load, the form and the "How to get your boarding pass" steps after it; lufthansa-parity-001 had
+   both collapsed), each
    opening and closing its own panel; from 768px the tab set as before (the first selected). Without
    the option (the other brands) the tabs stay tabs at every width.
    Run: node --max-old-space-size=256 --test test/booking-lookup-collapsible.test.mjs */
@@ -35,17 +38,17 @@ const setup = (options) => {
 };
 const state = ({ buttons, panels }) => buttons.map((b, i) => `${b.getAttribute('role') || '-'}:${b.getAttribute('aria-expanded') || '-'}:${b.getAttribute('aria-selected') || '-'}:${panels[i].hidden ? 'hidden' : 'shown'}`).join(' ');
 
-test('collapsible below 768px: disclosure buttons, both closed; each opens and closes its own panel', () => {
+test('collapsible below 768px: disclosure buttons, the first open; each opens and closes its own panel', () => {
   narrow = true;
   const t = setup({ collapsible: true });
   assert.equal(t.tablist.hasAttribute('role'), false);
-  assert.equal(state(t), '-:false:-:hidden -:false:-:hidden');
-  t.buttons[1].click();
-  assert.equal(state(t), '-:false:-:hidden -:true:-:shown');
-  t.buttons[0].click();
-  assert.equal(state(t), '-:true:-:shown -:true:-:shown');
-  t.buttons[1].click();
   assert.equal(state(t), '-:true:-:shown -:false:-:hidden');
+  t.buttons[1].click();
+  assert.equal(state(t), '-:true:-:shown -:true:-:shown');
+  t.buttons[0].click();
+  assert.equal(state(t), '-:false:-:hidden -:true:-:shown');
+  t.buttons[1].click();
+  assert.equal(state(t), '-:false:-:hidden -:false:-:hidden');
 });
 
 test('collapsible from 768px (and on resize): the tab set, the first selected', () => {
@@ -55,7 +58,7 @@ test('collapsible from 768px (and on resize): the tab set, the first selected', 
   assert.equal(state(t), 'tab:-:true:shown tab:-:false:hidden');
   narrow = true;
   listeners.forEach((fn) => fn());
-  assert.equal(state(t), '-:false:-:hidden -:false:-:hidden');
+  assert.equal(state(t), '-:true:-:shown -:false:-:hidden');
   narrow = false;
   listeners.forEach((fn) => fn());
   assert.equal(state(t), 'tab:-:true:shown tab:-:false:hidden');

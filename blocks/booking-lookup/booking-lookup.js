@@ -270,8 +270,8 @@ function toRegExp(source, fallback) {
 
 /**
  * WAI-ARIA tabs with automatic activation and arrow/Home/End keys. Option collapsible (lh-com:
- * www's maui-tab-control-panel-responsive, a maui-collapsible-item per tab on phones, all
- * collapsed): below 768px the tabs are disclosure buttons (aria-expanded), all closed at first,
+ * www's maui-tab-control-panel-responsive, a maui-collapsible-item per tab on phones, the first
+ * open): below 768px the tabs are disclosure buttons (aria-expanded), the first open at first,
  * each opening and closing its own panel; from 768px the tab set.
  */
 export function buildTabs(id, tabs, panels, label, { collapsible = false } = {}) {
@@ -287,7 +287,10 @@ export function buildTabs(id, tabs, panels, label, { collapsible = false } = {})
   });
   const narrow = collapsible ? window.matchMedia('(width < 768px)') : null;
   const accordion = () => !!narrow && narrow.matches;
-  const open = new Set();
+  // the first item open at first, as www's (its active maui-tab-control-panel-responsive is the
+  // expanded one on phones: lh-parity-002's 390 load of /de/en/online-check-in shows the form and
+  // the steps after it; standing order 35 - brief 404 had both closed)
+  const open = new Set(collapsible ? [0] : []);
   let selected = 0;
   const select = (index, focus) => {
     selected = index;
@@ -1149,7 +1152,7 @@ export default function decorate(block) {
 
   if (extraPanels.length) {
     const panels = [formPanel, ...extraPanels];
-    // lh-com: on phones www's maui-collapsible-items, all closed (brief 404)
+    // lh-com: on phones www's maui-collapsible-items, the first open (standing order 35)
     const tablist = buildTabs(id, tabs, panels, labels['tabs label'], { collapsible: !brandOf() });
     block.replaceChildren(tablist, ...panels);
   } else {
