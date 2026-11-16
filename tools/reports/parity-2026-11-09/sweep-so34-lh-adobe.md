@@ -116,3 +116,27 @@ next ones, below the ten (13-17 %), checked afterwards:
   machine against this one), not our site;
 - tags/munich: the article list's content; the 100-years pages: campaign videos masked, drawn content.
 
+## The next 20 places (standing order 38, item 2)
+
+These are the 20 page-widths ranked highest in this sweep that orders 34 to 37 had not handled. Order 34 handled the
+worst ten, the allegris-new-york 390 versions, culinaryjourney 390, stopover 390 and tags/munich 390. That leaves
+ranks 11, 18 and 20 to 37. Each was measured again as served at 09:40 CET (the same figures as the sweep, to 0.1),
+with its drift steps (logs/b460/offsets.mjs), box values from injected queries and www's bd-snapshots (logs/b638,
+not in git).
+
+| Rank | Page-width | % | Cause (located) | Fix |
+| --- | --- | --- | --- | --- |
+| 11 | /de/en/articles/explore-the-world/picture-perfect-austin 1440 | 18.1 | The galleries (columns-media), as at 390: their rows alternately 84 px taller and back (+84, +1, +84, +1, +69, -16 px). | Columns Media: hand-over item 5, extended to 1440. |
+| 18, 22 | /de/en/100-years/global-network 390 / 1440 | 15.0 / 13.6 | 35 of www's 37 picture captions are missing (www's snapshot: 37 maui-caption, our copy 2), -78 px by y 1,920 at 390. www's recording also draws the campaign's headings in a fallback face (order 34, #10). | The 100-years captions stay as they are on the owner's word (order 31); no row. The face is the recording's. |
+| 20, 21, 24, 25 | /gb/en, /de/en, /at/de, /de/de articles/highlights/all-it-takes-is-a-yes 390 | 14.0, 13.8, 13.1, 13.1 | A campaign page in the article folder. www's recording draws its headings in a fallback face (Arial-like, as 100-years). Its "To the article" links have no arrow on www. Drift within +50 px. | No fix for the face (the recording's). The arrows: a link without an icon is a www component we don't mark, so no row (item 3's mark would cover it). |
+| 23 | /de/en/100-years/cabin-design 390 | 13.3 | As #18: 11 captions missing (www 11, ours 0), plus the fallback face. | As #18. |
+| 26 | /de/en/articles/tags/munich 1440 | 13.1 | The article list: www's and ours list other articles in another order (+47 to +105 px through the list); order 34 found the same at 390. | No fix: the list follows our article index, www's follows its own. |
+| 27 | /de/en/articles/explore-the-world/what-i-learned-living-in-barcelona 390 | 12.7 | (1) The author quote: www's .author-quote has mx-3, 16 px on both sides; our article blockquote (styles.css) has 16 px on the left only, so its text box is 16 px wider and the quote runs a line shorter (-31 px). (2) 20 px less from the caption above to the quote. (3) The body text breaks a word earlier on www, the open font-width question (order 34). | (1) **Located, not shipped:** margin-right 16px on phones. It reaches 601 documents with an author quote, and their no-breakage renders don't fit this order; the gate on the 10 recorded ones comes first. |
+| 28, 30, 31 | /de/en, /at/de, /de/de articles/tags/allegris 1440 | 12.5, 12.1, 12.1 | The wide stage teaser below the list ("Lufthansa Allegris - The New Long-Haul Experience"): www draws it under .gradient-black-vertical, ours under www's horizontal gradient, the one our option wide always uses. | **Shipped** (f7da9b9): cards-teaser option vertical, used by no other page, and delta-so38-allegris-teaser-vertical-lh-com.txt, 6 READY. de/en 12.5 / 7.3 -> 10.9 / 6.9 %, de/de and at/de 12.1 / 6.3 -> 10.6 / 6.0, gb/en 10.6 / 4.3 -> 9.0 / 3.9. |
+| 29 | /de/en/100-years/chronicle 1440 | 12.2 | (1) Its three jump links stand 215 px apart on www and spread over the row in ours (430 px). (2) The stage below them starts 37 px higher. (3) 3 captions missing (as #18). | (1)-(2) Not tonight: the jump-links block's layout reaches every page with jump links. (3) As #18. |
+| 32 | /de/en/articles/explore-flying/anniversary-super-crane-special 390 | 12.0 | After the separator above "An Iconic Design to Celebrate Lufthansa's 100th Anniversary", 19 px more than www before the heading; captions 4 px lower each. | The separator's space: hand-over item 15. |
+| 33 | /de/en/100-years 1440 | 11.9 | Drift within 24 px; the campaign's videos (masked) and www's fallback face (order 34, #10). | None. |
+| 34 | /de/en/book-and-manage/stopover 1440 | 11.8 | The carousel cards about 32 px shorter than www's, as order 34 found at 390: our text runs narrower (the font-width question; our font files are www's, byte for byte), -72 px by y 7,680. | No fix: the drawing, not our site. |
+| 35 | /de/en/100-years/fleet 1440 | 11.4 | The aircraft rows: our text column about 625 px wide, www's about 410 (Columns Media), so the rows end 30-99 px shorter. | Columns Media: hand-over item 15. |
+| 36 | /de/en/munich-fair 1440 | 11.3 | (1) The last section's two text columns stand side by side on www and stacked in ours (+90 px). (2) The grey section's heading wraps in ours (two lines, www one). | (1) Hand-over item 15 (a two-column Columns Media block). (2) The headings' two-thirds width on campaign pages (brief 506), not tonight. |
+| 37 | /de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day 390 | 11.1 | Steps of -22 to +24 px; pictures and dense text. | None: under 1 % of the page. |

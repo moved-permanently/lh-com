@@ -81,3 +81,18 @@ Standing order 37 (2026-11-16, ema-adobe's places 31 to 50 of sweep-so35-lh-rest
      1440 measured 4 better, 4 worse on the 29 recorded legal pages (net -1.1), so www's spacing there depends on
      its component (a heading in the paragraph's rich text or a headline component of its own) rather than on the
      template.
+   Standing order 38: picture-perfect-austin at 1440 too (18.1 %): the galleries' rows alternately 84px taller and back
+   (+84, +1, +84, +1, +69, -16 px down the page). The same galleries, Columns Media.
+
+Standing order 38 (2026-11-16, ema-adobe's next 20 places of sweep-so34-lh-adobe.md):
+15. Columns Media and section spacing on campaign and article pages:
+   - /de/en/100-years/fleet, 1440 (11.4 %): in the aircraft rows (text left, picture and data table right) our text
+     column is about 625px wide, www's about 410. Our text runs in fewer lines and each row ends 30-99px shorter
+     (-63 at y 4,800, -99 by 6,240). Columns Media column widths;
+   - /de/en/munich-fair, 1440 (11.3 %): its last section has two text columns side by side on www ("Messe München
+     events" | "Lufthansa Mobility - a Messe München partner"). Ours stacks them full width, +90px (brief 507 kept the
+     campaign's multi-column text views stacked: 13.2 -> 20.9 % with them as views). As a two-column Columns Media
+     block it would be www's;
+   - /de/en/articles/explore-flying/anniversary-super-crane-special, 390 (12.0 %): after the separator above "An
+     Iconic Design to Celebrate Lufthansa's 100th Anniversary" ours leaves 19px more before the heading (www 37px
+     from the line to the heading, ours 56). The separator's space before a heading (the shared section-gap rules).
