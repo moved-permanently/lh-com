@@ -111,3 +111,10 @@ https://www.airdolomiti.de/artikel/reiseziele/die-wilde-seite-der-adria	390	+1.1
 /at/en/homepage	390	place 57 (-1.95 %): austrian-parity-001's load of 2026-11-09 has www's older flight search (FIND FLIGHTS 86 px lower than on -022 to -026)
 # host: www.lufthansa-cargo.com
 /en/ehm	390	place 60: the flush row passes at 1440 (+1.85 -> +0.31 %) but takes cargo-parity-003's resized 390 from -1.08 to -2.34 %
+# Standing order 48 (2026-11-16, ~11:15 CET): first loads that would decide a HOLD row or a place of this order (gate-so48-phone-first-loads.txt, sweep-so48-places-71-90.txt). One load per page and width, as the ones above.
+# host: www.austrian.com
+/eg/en/homepage	1440	the AI row (delta-so48-austrian-first-loads.txt, HOLD): www draws its AI band at 390 since 2026-11-16; the only 1440 recording (austrian-parity-008) predates it
+/am/en/homepage	1440	as /eg/en/homepage
+/at/de/homepage	390	place 84 (-1.57 %): austrian-parity-001's load of 2026-11-05 has www's older flight search, as /at/en/homepage's (requested in order 47)
+# host: www.lufthansa-cargo.com
+/en/dangerous-goods	390	place 85: the flush row passes at 1440 (+1.56 -> +0.61 %) but takes cargo-parity-003's resized 390 from +0.32 to -4.51 %

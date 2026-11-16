@@ -1,0 +1,38 @@
+[
+ {
+  "path": "/by/en/homepage",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h2 id=\"looking-for-more-than-just-a-flight\">Looking for more than just a flight?</h2>",
+    "text": "<p>{spacer-51 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ru/en/homepage",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h2 id=\"looking-for-more-than-just-a-flight\">Looking for more than just a flight?</h2>",
+    "text": "<p>{spacer-51 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/by/ru/homepage",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h2 id=\"нужен-не-только-перелет\">Нужен не только перелет?</h2>",
+    "text": "<p>{spacer-51 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ru/ru/homepage",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h2 id=\"нужен-не-только-перелет\">Нужен не только перелет?</h2>",
+    "text": "<p>{spacer-51 below-768}</p>"
+   }
+  ]
+ }
+]

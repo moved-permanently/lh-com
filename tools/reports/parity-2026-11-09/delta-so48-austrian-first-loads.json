@@ -1,0 +1,73 @@
+[
+ {
+  "path": "/at/en/entryregulations",
+  "inserts": [
+   {
+    "before": "<h2 id=\"general-information\">General information {column-start-outer}</h2>",
+    "text": "<p>{spacer-55 below-768}</p>"
+   },
+   {
+    "before": "<h2 id=\"entry-regulations-for-individual-destinations\">Entry regulations for individual destinations</h2>",
+    "text": "<p>{spacer-78 below-768}</p>"
+   },
+   {
+    "before": "<h2 id=\"country-specific-provisions\">Country-specific provisions</h2>",
+    "text": "<p>{spacer-35 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/at/en/plan/special-requirements/entry-regulations/immigration-regulations-schengen",
+  "inserts": [
+   {
+    "after": "<p>List of current Schengen member states:</p>",
+    "text": "<p>{spacer-44 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/at/en/book-and-manage/flights/wetlease-hub",
+  "inserts": [
+   {
+    "after": "<p>Find out everything you need to know about our wet lease partners here. We have compiled all the relevant information about our wet lease partners for you.</p>",
+    "text": "<p>{spacer-1 from-768}</p><p>{spacer-16 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/at/en/travel-id",
+  "inserts": [
+   {
+    "before": "<h2 id=\"your-access-to-all-our-services\">Your access to all our services</h2>",
+    "text": "<p>{spacer-60 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/local-page/ski-campaign-2026",
+  "inserts": [
+   {
+    "replace": "<div class=\"fare-teaser\">",
+    "text": "<div class=\"fare-teaser spaced\">"
+   }
+  ]
+ },
+ {
+  "path": "/eg/en/homepage",
+  "inserts": [
+   {
+    "after": "up bookings for 10 or more passengers.</a></div></div></div>",
+    "text": "<div class=\"ask-ai-flights\"><div><div><p><strong>Flexible dates? Chat with our AI to find your perfect flight options</strong></p><p><em><a href=\"https://www.austrian.com/eg/en/homepage\">Ask AI for flights</a></em></p></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/am/en/homepage",
+  "inserts": [
+   {
+    "after": "up bookings for 10 or more passengers.</a></div></div></div>",
+    "text": "<div class=\"ask-ai-flights\"><div><div><p><strong>Flexible dates? Chat with our AI to find your perfect flight options</strong></p><p><em><a href=\"https://www.austrian.com/am/en/homepage\">Ask AI for flights</a></em></p></div></div></div>"
+   }
+  ]
+ }
+]
