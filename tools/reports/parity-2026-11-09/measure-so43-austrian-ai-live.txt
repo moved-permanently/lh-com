@@ -1,0 +1,35 @@
+# ema-cashub, standing order 43, item 3 (2026-11-16): the 15 Austrian homepages of order 42's AI band list as served on austrian.turnsthe.page (the 14 rows live, the flag ask-ai-flights on since ~01:15 CET), each against its same-hour www pair (austrian-parity-023 / -024 / -026, our host's loads austrian-api-003 / -004 / -005 replayed: every widget call answered from the recorded index, nothing sent), at 1440 x 900 and 390 x 844; the flags sheet as recorded with ask-ai-flights on (the live sheet, read ~02:05 CET: the recorded rows plus that one). Unhinted, EAGER=1 SCROLL=1; refused and counted: 0.
+# Four of the 30 first renders were broken loads (md/en 390 stopped under the fare teaser, gb/en 1440 errored, me/en and ro/en 1440 stopped early, three renders at a time); each read again on its own gives the gate's figure. The figures below are those.
+# Result: the 28 band page-widths read as gated to the px. Outside 2 % of the page: gb/en 390 (+2.47 %), md/en 390, me/en, pt/en, rs/en and ua/en 1440: each is the fare teaser's or the finder's band (www had no deals / www's finder state in its load); every remainder within 2 % (largest +1.10 %, gb/en 390). No row: no page-width outside 2 % has a cause of ours.
+#
+# reads	path	width	recording (ours / www)	www page	gate (flag on)	as served (flag on)	www footer top	footer top	remainder (gate)	note
+as gated	/by/en/homepage	1440	austrian-api-003 / austrian-parity-026	3598	3562	3562 (-1.00 %)	2784	2749 (-1.26 %)	-37 (-1.03 %)	within 2 %
+as gated	/by/en/homepage	390	austrian-api-003 / austrian-parity-026	5299	5202	5202 (-1.83 %)	4233	4132 (-2.39 %)	-98 (-1.85 %)	within 2 %
+not applied (HOLD)	/ca/en/homepage	1440	austrian-api-003 / austrian-parity-026	3162	3191	3067 (-3.00 %)	2347	2253 (-4.01 %)	+29 (+0.92 %)	as served without the band: 3,067 / 4,419, the recorded load; its full row is delta-so43-austrian-ca-en-home.txt (READY)
+not applied (HOLD)	/ca/en/homepage	390	austrian-api-003 / austrian-parity-026	4526	4629	4419 (-2.36 %)	3420	3308 (-3.27 %)	+103 (+2.28 %)	as served without the band: 3,067 / 4,419, the recorded load; its full row is delta-so43-austrian-ca-en-home.txt (READY)
+as gated	/fr/en/homepage	1440	austrian-api-003 / austrian-parity-026	4869	4873	4873 (+0.08 %)	4055	4060 (+0.12 %)	+0 (+0.00 %)	within 2 %
+as gated	/fr/en/homepage	390	austrian-api-003 / austrian-parity-026	5989	6086	6086 (+1.62 %)	4924	5016 (+1.87 %)	+0 (+0.00 %)	within 2 %
+as gated	/gb/en/homepage	1440	austrian-api-004 / austrian-parity-023	4869	4873	4873 (+0.08 %)	4055	4060 (+0.12 %)	+0 (+0.00 %)	within 2 %
+as gated	/gb/en/homepage	390	austrian-api-004 / austrian-parity-023	5989	6137	6137 (+2.47 %)	4924	5067 (+2.90 %)	+66 (+1.10 %)	outside 2 %: the widget bands (fare teaser +1, finder +81); the remainder +66 (+1.10 %): fare-service and finder state, not ours
+as gated	/it/en/homepage	1440	austrian-api-004 / austrian-parity-023	4869	4873	4873 (+0.08 %)	4055	4060 (+0.12 %)	+0 (+0.00 %)	within 2 %
+as gated	/it/en/homepage	390	austrian-api-004 / austrian-parity-023	5989	6056	6056 (+1.12 %)	4924	4986 (+1.26 %)	+0 (+0.00 %)	within 2 %
+as gated	/md/en/homepage	1440	austrian-api-004 / austrian-parity-023	4869	4873	4873 (+0.08 %)	4055	4060 (+0.12 %)	+0 (+0.00 %)	within 2 %
+as gated	/md/en/homepage	390	austrian-api-004 / austrian-parity-023	5461	6062	6062 (+11.01 %)	4396	4992 (+13.56 %)	+0 (+0.00 %)	outside 2 %: the widget bands (fare teaser +529, finder +72); the remainder +0 (+0.00 %): fare-service and finder state, not ours
+as gated	/me/en/homepage	1440	austrian-api-004 / austrian-parity-023	4517	4873	4873 (+7.88 %)	3703	4060 (+9.64 %)	+0 (+0.00 %)	outside 2 %: the widget bands (fare teaser +353, finder +3); the remainder +0 (+0.00 %): fare-service and finder state, not ours
+as gated	/me/en/homepage	390	austrian-api-004 / austrian-parity-023	5989	6071	6071 (+1.37 %)	4924	5001 (+1.56 %)	+0 (+0.00 %)	within 2 %
+as gated	/pl/en/homepage	1440	austrian-api-004 / austrian-parity-023	4869	4873	4873 (+0.08 %)	4055	4060 (+0.12 %)	+0 (+0.00 %)	within 2 %
+as gated	/pl/en/homepage	390	austrian-api-004 / austrian-parity-023	5989	6086	6086 (+1.62 %)	4924	5016 (+1.87 %)	+0 (+0.00 %)	within 2 %
+as gated	/pt/en/homepage	1440	austrian-api-004 / austrian-parity-023	4436	4787	4787 (+7.91 %)	3622	3974 (+9.72 %)	+0 (+0.00 %)	outside 2 %: the widget bands (fare teaser +348, finder +3); the remainder +0 (+0.00 %): fare-service and finder state, not ours
+as gated	/pt/en/homepage	390	austrian-api-004 / austrian-parity-023	5887	5872	5872 (-0.25 %)	4822	4802 (-0.41 %)	+0 (+0.00 %)	within 2 %
+as gated	/ro/en/homepage	1440	austrian-api-005 / austrian-parity-024	4869	4873	4873 (+0.08 %)	4055	4060 (+0.12 %)	+0 (+0.00 %)	within 2 %
+as gated	/ro/en/homepage	390	austrian-api-005 / austrian-parity-024	5989	6062	6062 (+1.22 %)	4924	4992 (+1.38 %)	+0 (+0.00 %)	within 2 %
+as gated	/rs/en/homepage	1440	austrian-api-005 / austrian-parity-024	4517	4873	4873 (+7.88 %)	3703	4060 (+9.64 %)	+0 (+0.00 %)	outside 2 %: the widget bands (fare teaser +353, finder +3); the remainder +0 (+0.00 %): fare-service and finder state, not ours
+as gated	/rs/en/homepage	390	austrian-api-005 / austrian-parity-024	5989	6062	6062 (+1.22 %)	4924	4992 (+1.38 %)	+0 (+0.00 %)	within 2 %
+as gated	/ru/en/homepage	1440	austrian-api-003 / austrian-parity-026	3598	3562	3562 (-1.00 %)	2784	2749 (-1.26 %)	-37 (-1.03 %)	within 2 %
+as gated	/ru/en/homepage	390	austrian-api-003 / austrian-parity-026	5299	5202	5202 (-1.83 %)	4233	4132 (-2.39 %)	-98 (-1.85 %)	within 2 %
+as gated	/tr/en/homepage	1440	austrian-api-005 / austrian-parity-024	4869	4899	4899 (+0.62 %)	4055	4085 (+0.74 %)	+24 (+0.49 %)	within 2 %
+as gated	/tr/en/homepage	390	austrian-api-005 / austrian-parity-024	6010	6107	6107 (+1.61 %)	4945	5037 (+1.86 %)	-21 (-0.35 %)	within 2 %
+as gated	/ua/en/homepage	1440	austrian-api-005 / austrian-parity-024	4426	4578	4578 (+3.43 %)	3611	3765 (+4.26 %)	+0 (+0.00 %)	outside 2 %: the widget bands (fare teaser +1, finder +151); the remainder +0 (+0.00 %): fare-service and finder state, not ours
+as gated	/ua/en/homepage	390	austrian-api-005 / austrian-parity-024	5822	5905	5905 (+1.43 %)	4757	4835 (+1.64 %)	+0 (+0.00 %)	within 2 %
+as gated	/xk/en/homepage	1440	austrian-api-005 / austrian-parity-024	4869	4873	4873 (+0.08 %)	4055	4060 (+0.12 %)	+0 (+0.00 %)	within 2 %
+as gated	/xk/en/homepage	390	austrian-api-005 / austrian-parity-024	5989	6071	6071 (+1.37 %)	4924	5001 (+1.56 %)	+0 (+0.00 %)	within 2 %

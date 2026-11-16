@@ -405,9 +405,13 @@ body.brand-airdolomiti {
     line-height: 40px;
   }
 
+  /* standing order 43: www's blog title from 930 px is 6rem / 72 px with letter-spacing 3px (BlogLayout_title);
+     the spacing wraps airports-designed-by-archistars to www's two lines. Reach: 564 served documents, 51 titles a
+     line longer at 1440, 72 at 1025, none past the edge (gate-so43-airdolomiti-blog-title.txt) */
   body.brand-airdolomiti .article-header .article-header-title {
     font-size: 65px;
     line-height: 72px;
+    letter-spacing: 3px;
   }
 
   body.brand-airdolomiti .cards-teaser.three-up:not(.routes) > ul:has(> li > .cards-teaser-image + .cards-teaser-body > .cards-teaser-title:first-child + .cards-teaser-cta:last-child):not(:has(> li > .cards-teaser-body > :nth-child(3))) {

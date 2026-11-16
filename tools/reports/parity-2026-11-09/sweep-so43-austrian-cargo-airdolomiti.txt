@@ -1,0 +1,454 @@
+# ema-cashub, standing order 43, item 4 (2026-11-16, ~02:18 to ~02:50 CET): every recorded Austrian, Cargo and Air Dolomiti page-width with today's code (main at 9296265a: the 20 px Cargo phone gap, the CF8 split, the list-end rule; the rows live by ~02:40 CET), each against its newest recording, worst first by the page's difference.
+# The set: order 35's 242 Austrian page-widths (sweep-so35-austrian.txt), their 25 homepages' 50 against austrian-parity-022..026 (gate-so41-austrian-homepages.txt); order 39's 192 Air Dolomiti and Cargo page-widths (sweep-so39-unhinted-airdolomiti-cargo.txt), Cargo's newer cargo-parity-004 (12 pages at 1440), -005 (de eservices-app) and -006 (en speed-zoom and eservices-app at 390), www less its 80 px service notice there. 449 page-widths.
+# Ours: the served page on austrian / cargo / airdolomiti.turnsthe.page, a fresh load each, height once stable; unhinted, EAGER=1 CONSENT=1; lh-proxy, www.* but www.mynewsdesk.com and every airline host refused and counted (none sent). The 50 Austrian homepage page-widths with our host's same-hour widget answers replayed (austrian-api-002..006, nothing sent) and the flag ask-ai-flights on as live; 30 of them are item 3's renders (measure-so43-austrian-ai-live.txt). The form pages' bot check (71 px) subtracted. Three loads read broken (a height of the window) and ca/en (its row went live after its first read) were read again; the second reads are here.
+# Result: 394 of 449 within 2 % (Austrian 205 / 242, Cargo 90 / 99, Air Dolomiti 99 / 108). Each page-width outside has its cause but 1 (fr/fr/contact 1440, +2.11 %, as in order 35: not traced tonight).
+# Columns: status, brand, path, width, recording, www page, the previous sweep's figure (its order), today, bot check px subtracted, cause.
+outside	cargo	/en/data-protection-notice-google-analytics	390	cargo-parity-003	1120	844 (-24.64 %, order 39)	844 (-24.64 %)	0	www's page has no content (an empty Liferay main, its breadcrumb hidden; the footer at 590 px at 1440); ours is the document's H1 only, shorter than the window, so the page is the window's height (844 / 900). No row: nothing on www to migrate. Yours: keep, or unpublish as www's own page is empty
+outside	cargo	/en/data-protection-notice-google-analytics	1440	cargo-parity-003	1072	900 (-16.04 %, order 39)	900 (-16.04 %)	0	www's page has no content (an empty Liferay main, its breadcrumb hidden; the footer at 590 px at 1440); ours is the document's H1 only, shorter than the window, so the page is the window's height (844 / 900). No row: nothing on www to migrate. Yours: keep, or unpublish as www's own page is empty
+outside	austrian	/at/de/unterhaltung-an-bord	1440	austrian-parity (order 35)	2749	2368 (-13.86 %, order 35)	2344 (-14.73 %)	0	the IFE film carousel behind your flag austrian-ife-carousel (off: the vendor allows framing on austrian.com only); 390 +5.20 % as order 36 left it
+outside	airdolomiti	/en/destinations/florence/what-to-see	1440	airdolomiti-parity-002	2265	1936 (-14.53 %, order 39)	1936 (-14.53 %)	0	www's recorded scrollHeight is 325 / 326 px taller than its own full-page picture (the page ends at the picture's height); against the picture ours is within 1 % (below): 1,936 against 1,939 (-0.15 %)
+outside	airdolomiti	/de/reisenformationen/schwangere-und-kinder	1440	airdolomiti-parity-002	2250	1943 (-13.64 %, order 39)	1943 (-13.64 %)	0	www's recorded scrollHeight is 325 / 326 px taller than its own full-page picture (the page ends at the picture's height); against the picture ours is within 1 % (below): 1,943 against 1,925 (+0.94 %)
+outside	cargo	/en/footer/bottomnav/terms-of-use	390	cargo-parity-003	4780	5442 (+13.85 %, order 39)	5414 (+13.26 %)	0	a pointer: cargo-parity-003's 390 is the 1440 load resized (the legal template below 1281 px as before, delta-so38-cargo-legal-template.txt); a phone first load would decide it
+outside	airdolomiti	/de/reisenformationen/tiere-an-bord	1440	airdolomiti-parity-002	2719	2392 (-12.03 %, order 39)	2392 (-12.03 %)	0	www's recorded scrollHeight is 325 / 326 px taller than its own full-page picture (the page ends at the picture's height); against the picture ours is within 1 % (below): 2,392 against 2,394 (-0.08 %)
+outside	austrian	/md/en/homepage	390	austrian-parity-023	5461	5852 (+7.16 %, order 41)	6062 (+11.01 %)	0	the fare teaser / finder bands: www's fare service had no deals in its load, ours draws the six fallback cards (order 41); the remainder within 2 % (measure-so43-austrian-ai-live.txt / gate-so41-austrian-homepages.txt)
+outside	austrian	/at/en/bangkok-airways	1440	austrian-parity-025	3700	3305 (-10.68 %, order 41)	3305 (-10.68 %)	0	www's stage picture (Destinations_Bangkok_300dpi_Temple_Getty.jpg) is broken in its own recording but keeps its height; HOLD, your decision (order 41)
+outside	austrian	/au/en/homepage	390	austrian-parity-022	5303	5852 (+10.35 %, order 41)	5852 (+10.35 %)	0	the fare teaser / finder bands: www's fare service had no deals in its load, ours draws the six fallback cards (order 41); the remainder within 2 % (measure-so43-austrian-ai-live.txt / gate-so41-austrian-homepages.txt)
+outside	austrian	/jp/en/homepage	390	austrian-parity-022	5382	5901 (+9.64 %, order 41)	5901 (+9.64 %)	0	the fare teaser / finder bands: www's fare service had no deals in its load, ours draws the six fallback cards (order 41); the remainder within 2 % (measure-so43-austrian-ai-live.txt / gate-so41-austrian-homepages.txt)
+outside	austrian	/jp/ja/baggage	390	austrian-parity (order 35)	5871	5327 (-9.27 %, order 35)	5327 (-9.27 %)	0	non-Latin text: the render machine has no CJK / Greek / Cyrillic brand faces (the owner's explanation, order 26); not a row
+outside	austrian	/pt/en/homepage	1440	austrian-parity-023	4436	4663 (+5.12 %, order 41)	4787 (+7.91 %)	0	the fare teaser / finder bands: www's fare service had no deals in its load, ours draws the six fallback cards (order 41); the remainder within 2 % (measure-so43-austrian-ai-live.txt / gate-so41-austrian-homepages.txt)
+outside	austrian	/me/en/homepage	1440	austrian-parity-023	4517	4749 (+5.14 %, order 41)	4873 (+7.88 %)	0	the fare teaser / finder bands: www's fare service had no deals in its load, ours draws the six fallback cards (order 41); the remainder within 2 % (measure-so43-austrian-ai-live.txt / gate-so41-austrian-homepages.txt)
+outside	austrian	/rs/en/homepage	1440	austrian-parity-024	4517	4749 (+5.14 %, order 41)	4873 (+7.88 %)	0	the fare teaser / finder bands: www's fare service had no deals in its load, ours draws the six fallback cards (order 41); the remainder within 2 % (measure-so43-austrian-ai-live.txt / gate-so41-austrian-homepages.txt)
+outside	austrian	/au/en/homepage	1440	austrian-parity-022	4433	4749 (+7.13 %, order 41)	4749 (+7.13 %)	0	the fare teaser / finder bands: www's fare service had no deals in its load, ours draws the six fallback cards (order 41); the remainder within 2 % (measure-so43-austrian-ai-live.txt / gate-so41-austrian-homepages.txt)
+outside	austrian	/jp/en/homepage	1440	austrian-parity-022	4433	4749 (+7.13 %, order 41)	4749 (+7.13 %)	0	the fare teaser / finder bands: www's fare service had no deals in its load, ours draws the six fallback cards (order 41); the remainder within 2 % (measure-so43-austrian-ai-live.txt / gate-so41-austrian-homepages.txt)
+outside	austrian	/il/en/legal/cancellation-refund-via-document-upload	390	austrian-parity (order 35)	4041	3759 (-6.98 %, order 35)	3759 (-6.98 %)	71	www's upload widget 451 px against our drop zone 180 (gate-so36-austrian-cancellation-refund-390.txt): OWNER
+outside	austrian	/cn/zh/baggage	390	austrian-parity (order 35)	5675	5306 (-6.50 %, order 35)	5306 (-6.50 %)	0	non-Latin text: the render machine has no CJK / Greek / Cyrillic brand faces (the owner's explanation, order 26); not a row
+outside	austrian	/at/en/bangkok-airways	390	austrian-parity-025	4604	4339 (-5.76 %, order 41)	4339 (-5.76 %)	0	www's stage picture (Destinations_Bangkok_300dpi_Temple_Getty.jpg) is broken in its own recording but keeps its height; HOLD, your decision (order 41)
+outside	airdolomiti	/en/articles/destinations/street-food-in-munich	1440	airdolomiti-parity-002	6173	5847 (-5.28 %, order 39)	5847 (-5.28 %)	0	www's recorded scrollHeight is 325 / 326 px taller than its own full-page picture (the page ends at the picture's height); against the picture ours is within 1 % (below): 5,847 against 5,847 (0.00 %)
+outside	austrian	/jp/ja/baggage	1440	austrian-parity (order 35)	4322	4096 (-5.23 %, order 35)	4096 (-5.23 %)	0	non-Latin text: the render machine has no CJK / Greek / Cyrillic brand faces (the owner's explanation, order 26); not a row
+outside	austrian	/at/de/unterhaltung-an-bord	390	austrian-parity (order 35)	1847	1943 (+5.20 %, order 35)	1943 (+5.20 %)	0	the IFE film carousel behind your flag austrian-ife-carousel (off: the vendor allows framing on austrian.com only); 390 +5.20 % as order 36 left it
+outside	austrian	/ca/fr/homepage	390	austrian-parity-022	4785	4556 (-4.79 %, order 41)	4556 (-4.79 %)	0	the stretcher block on www (English heading, Lufthansa's paragraph above the flight search): HOLD, your decision (order 21)
+outside	airdolomiti	/en/articles/dyk/airports-designed-by-archistars	1440	airdolomiti-parity-007	4549	4348 (-4.42 %, order 39)	4348 (-4.42 %)	0	www's blog title has letter-spacing 3px from 930 px (BlogLayout_title), so it wraps to two lines (144 px; ours one line, 72): -72 of -201 px; the rest the post's heading sizes (www H4 26 / 32 px, 44 px to its picture; ours 24 / 26.4, 26). The spacing ships in this order (gate-so43-airdolomiti-blog-title.txt): 4,420 (-2.84 %); the heading sizes are not traced further tonight
+outside	cargo	/en/ci/partnerships-subsidiaries	390	cargo-parity-003	2781	2659 (-4.39 %, order 39)	2659 (-4.39 %)	0	a pointer (the 1440 load resized); the words in its items as order 40 left them
+outside	austrian	/ch/fr/homepage	390	austrian-parity-026	6314	6059 (-4.04 %, order 41)	6059 (-4.04 %)	0	the stretcher block on www: HOLD, your decision (order 21)
+outside	airdolomiti	/de/flug-status	1440	airdolomiti-parity-002	1693	1761 (+4.02 %, order 39)	1761 (+4.02 %)	0	www's flight status APIs (HOLD, order 39)
+outside	cargo	/en/live-animals	390	cargo-parity-003	1742	1866 (+7.12 %, order 39)	1810 (+3.90 %)	0	a pointer (cargo-parity-003's 390 is the 1440 load resized); the rest above the tab set (order 40)
+outside	austrian	/ru/ru/baggage	390	austrian-parity (order 35)	6200	6435 (+3.79 %, order 35)	6435 (+3.79 %)	0	non-Latin text: the render machine has no CJK / Greek / Cyrillic brand faces (the owner's explanation, order 26); not a row
+outside	airdolomiti	/de/unsere-dienste/lounge-zutritt	390	airdolomiti-parity-007	3269	3146 (-3.76 %, order 39)	3146 (-3.76 %)	0	airdolomiti-parity-007's 390: the cookie dialog open over a 408 px wide page, the picture stopping at the footer's top (2,195 of 3,269): a capture state; www's first two collapsible titles 57 / 58 px taller in it
+outside	austrian	/cn/zh/baggage	1440	austrian-parity (order 35)	4226	4072 (-3.64 %, order 35)	4072 (-3.64 %)	0	non-Latin text: the render machine has no CJK / Greek / Cyrillic brand faces (the owner's explanation, order 26); not a row
+outside	austrian	/ru/ru/baggage	1440	austrian-parity (order 35)	4422	4577 (+3.51 %, order 35)	4577 (+3.51 %)	0	non-Latin text: the render machine has no CJK / Greek / Cyrillic brand faces (the owner's explanation, order 26); not a row
+outside	austrian	/ua/en/homepage	1440	austrian-parity-024	4426	4454 (+0.63 %, order 41)	4578 (+3.43 %)	0	the fare teaser / finder bands: www's fare service had no deals in its load, ours draws the six fallback cards (order 41); the remainder within 2 % (measure-so43-austrian-ai-live.txt / gate-so41-austrian-homepages.txt)
+outside	austrian	/ch/fr/homepage	1440	austrian-parity-026	5042	4874 (-3.33 %, order 41)	4874 (-3.33 %)	0	the stretcher block on www: HOLD, your decision (order 21)
+outside	austrian	/gr/el/contact	1440	austrian-parity (order 35)	2459	2540 (+3.29 %, order 35)	2540 (+3.29 %)	0	non-Latin text: the render machine has no CJK / Greek / Cyrillic brand faces (the owner's explanation, order 26); not a row
+outside	austrian	/ca/fr/homepage	1440	austrian-parity-022	3362	3254 (-3.21 %, order 41)	3254 (-3.21 %)	0	the stretcher block on www (English heading, Lufthansa's paragraph above the flight search): HOLD, your decision (order 21)
+outside	austrian	/at/de/discover/inspiration/fly-with-austrian	1440	austrian-parity (order 35)	4649	4503 (-3.14 %, order 35)	4503 (-3.14 %)	0	the flight search band in its no-API state (-89 of -153 px at 1440); 390 is a resize (order 31)
+outside	austrian	/gr/el/baggage	390	austrian-parity (order 35)	6248	6421 (+2.77 %, order 35)	6421 (+2.77 %)	0	non-Latin text: the render machine has no CJK / Greek / Cyrillic brand faces (the owner's explanation, order 26); not a row
+outside	airdolomiti	/de/reisenformationen/sitzplatzreservierung	390	airdolomiti-parity-007	4036	4144 (+2.68 %, order 39)	4144 (+2.68 %)	0	HOLD (order 39)
+outside	austrian	/at/en/discover/inspiration/fly-with-austrian	1440	austrian-parity (order 35)	4507	4387 (-2.66 %, order 35)	4387 (-2.66 %)	0	the flight search band in its no-API state (-89 of -153 px at 1440); 390 is a resize (order 31)
+outside	austrian	/at/en/discover/inspiration/fly-with-austrian	390	austrian-parity (order 35)	8696	8425 (-3.12 %, order 35)	8465 (-2.66 %)	0	the flight search band in its no-API state (-89 of -153 px at 1440); 390 is a resize (order 31)
+outside	austrian	/jp/ja/contact	390	austrian-parity (order 35)	3044	2967 (-2.53 %, order 35)	2967 (-2.53 %)	0	non-Latin text: the render machine has no CJK / Greek / Cyrillic brand faces (the owner's explanation, order 26); not a row
+outside	austrian	/gr/el/baggage	1440	austrian-parity (order 35)	4441	4553 (+2.52 %, order 35)	4553 (+2.52 %)	0	non-Latin text: the render machine has no CJK / Greek / Cyrillic brand faces (the owner's explanation, order 26); not a row
+outside	austrian	/gb/en/homepage	390	austrian-parity-023	5989	5634 (-5.93 %, order 41)	6137 (+2.47 %)	0	the fare teaser / finder bands: www's fare service had no deals in its load, ours draws the six fallback cards (order 41); the remainder within 2 % (measure-so43-austrian-ai-live.txt / gate-so41-austrian-homepages.txt)
+outside	austrian	/at/de/discover/inspiration/fly-with-austrian	390	austrian-parity (order 35)	9114	8888 (-2.48 %, order 35)	8892 (-2.44 %)	0	the flight search band in its no-API state (-89 of -153 px at 1440); 390 is a resize (order 31)
+outside	airdolomiti	/en/articles/destinations/street-food-in-munich	390	airdolomiti-parity-010	6766	6927 (+2.38 %, order 39)	6927 (+2.38 %)	0	HOLD since order 39 (gated in order 36 against airdolomiti-parity-010)
+outside	cargo	/de/ci/facts-figures	390	cargo-parity-001	12482	12775 (+2.35 %, order 39)	12774 (+2.34 %)	0	the brand font's wraps (ema-lufthansa row 49, your decision)
+outside	austrian	/gr/el/contact	390	austrian-parity (order 35)	3172	3245 (+2.30 %, order 35)	3245 (+2.30 %)	0	non-Latin text: the render machine has no CJK / Greek / Cyrillic brand faces (the owner's explanation, order 26); not a row
+outside	cargo	/de/ci/facts-figures	1440	cargo-parity-001	4952	4839 (-2.28 %, order 39)	4839 (-2.28 %)	0	the history timeline's geometry (order 33)
+outside	cargo	/en/eaw	390	cargo-parity-003	2236	1815 (-18.83 %, order 39)	2188 (-2.15 %)	0	a pointer; HOLD (order 41)
+outside	austrian	/fr/fr/contact	1440	austrian-parity (order 35)	2508	2561 (+2.11 %, order 35)	2561 (+2.11 %)	0	not traced tonight (+53 px at 1440, 0.11 points past the line)
+outside	austrian	/ru/ru/contact	390	austrian-parity (order 35)	3232	3300 (+2.10 %, order 35)	3300 (+2.10 %)	0	non-Latin text: the render machine has no CJK / Greek / Cyrillic brand faces (the owner's explanation, order 26); not a row
+outside	austrian	/jp/ja/contact	1440	austrian-parity (order 35)	2459	2408 (-2.07 %, order 35)	2408 (-2.07 %)	0	non-Latin text: the render machine has no CJK / Greek / Cyrillic brand faces (the owner's explanation, order 26); not a row
+outside	cargo	/en/ci/facts-figures	390	cargo-parity-002	11916	12163 (+2.07 %, order 39)	12163 (+2.07 %)	0	the brand font's wraps (ema-lufthansa row 49, your decision)
+within 2 %	cargo	/en/ebooking-info	1440	cargo-parity-001	3771	3845 (+1.96 %, order 39)	3845 (+1.96 %)	0	
+within 2 %	austrian	/at/en/homepage	390	austrian-parity (order 35)	6039	5921 (-1.95 %, order 35)	5921 (-1.95 %)	0	
+within 2 %	austrian	/eg/en/homepage	390	austrian-parity (order 35)	5790	5901 (+1.92 %, order 35)	5901 (+1.92 %)	0	
+within 2 %	austrian	/il/en/legal/cancellation-refund-via-document-upload	1440	austrian-parity (order 35)	3295	3233 (-1.88 %, order 35)	3233 (-1.88 %)	71	
+within 2 %	cargo	/en/ehm	1440	cargo-parity-003	1294	1242 (-4.02 %, order 39)	1318 (+1.85 %)	0	
+within 2 %	austrian	/by/en/homepage	390	austrian-parity-026	5299	4992 (-5.79 %, order 41)	5202 (-1.83 %)	0	
+within 2 %	austrian	/ru/en/homepage	390	austrian-parity-026	5299	4992 (-5.79 %, order 41)	5202 (-1.83 %)	0	
+within 2 %	cargo	/en/fleet-ulds/fleet	1440	cargo-parity-001	3043	3098 (+1.81 %, order 39)	3098 (+1.81 %)	0	
+within 2 %	cargo	/en/live-animals	1440	cargo-parity-003	2289	2330 (+1.79 %, order 39)	2330 (+1.79 %)	0	
+within 2 %	cargo	/en/ecsd	1440	cargo-parity-003	1343	1243 (-7.45 %, order 39)	1319 (-1.79 %)	0	
+within 2 %	austrian	/at/en/entryregulations	390	austrian-parity (order 35)	7236	7108 (-1.77 %, order 35)	7108 (-1.77 %)	0	
+within 2 %	austrian	/ge/en/homepage	390	austrian-parity-022	5729	5652 (-1.34 %, order 41)	5628 (-1.76 %)	0	
+within 2 %	austrian	/at/en/online-check-in	390	austrian-parity (order 35)	5255	5166 (-1.69 %, order 35)	5165 (-1.71 %)	0	
+within 2 %	cargo	/de/eservices-app	390	cargo-parity-005	3142	-	3195 (+1.69 %)	0	
+within 2 %	airdolomiti	/en/flights-europe	1440	airdolomiti-parity-001	5676	5581 (-1.67 %, order 39)	5581 (-1.67 %)	0	
+within 2 %	austrian	/ru/ru/homepage	390	austrian-parity (order 35)	5330	5241 (-1.67 %, order 35)	5241 (-1.67 %)	0	
+within 2 %	airdolomiti	/en/destinations/london-eu	390	airdolomiti-parity-005	9973	9807 (-1.66 %, order 39)	9807 (-1.66 %)	0	
+within 2 %	cargo	/de/news/142-arktische-temperaturen-an-bord	390	cargo-parity-001	8856	9029 (+1.95 %, order 39)	9001 (+1.64 %)	0	
+within 2 %	austrian	/at/en/book-and-manage/flights/wetlease-hub	1440	austrian-parity (order 35)	3070	3020 (-1.63 %, order 35)	3020 (-1.63 %)	0	
+within 2 %	austrian	/cn/zh/contact	390	austrian-parity (order 35)	3141	3090 (-1.62 %, order 35)	3090 (-1.62 %)	0	
+within 2 %	austrian	/fr/en/homepage	390	austrian-parity-026	5989	5876 (-1.89 %, order 41)	6086 (+1.62 %)	0	
+within 2 %	austrian	/pl/en/homepage	390	austrian-parity-023	5989	5876 (-1.89 %, order 41)	6086 (+1.62 %)	0	
+within 2 %	austrian	/tr/en/homepage	390	austrian-parity-024	6010	5897 (-1.88 %, order 41)	6107 (+1.61 %)	0	
+within 2 %	airdolomiti	/voli-europa	1440	airdolomiti-parity-001	5226	5142 (-1.61 %, order 39)	5142 (-1.61 %)	0	
+within 2 %	austrian	/by/ru/homepage	390	austrian-parity (order 35)	5351	5265 (-1.61 %, order 35)	5265 (-1.61 %)	0	
+within 2 %	austrian	/at/en/fly/on-board/culinary-services	390	austrian-parity (order 35)	9176	9053 (-1.34 %, order 35)	9029 (-1.60 %)	0	
+within 2 %	austrian	/at/en/travel-id	390	austrian-parity (order 35)	6190	6062 (-2.07 %, order 35)	6091 (-1.60 %)	0	
+within 2 %	cargo	/en/speed-pro	1440	cargo-parity-004	1955	-	1986 (+1.59 %)	0	
+within 2 %	austrian	/at/de/homepage	390	austrian-parity (order 35)	6186	6089 (-1.57 %, order 35)	6089 (-1.57 %)	0	
+within 2 %	cargo	/en/dangerous-goods	1440	cargo-parity-003	2121	2154 (+1.56 %, order 39)	2154 (+1.56 %)	0	
+within 2 %	cargo	/en/eaw	1440	cargo-parity-003	1641	1404 (-14.44 %, order 39)	1666 (+1.52 %)	0	
+within 2 %	cargo	/en/eservices-app	1440	cargo-parity-003	3289	3133 (-4.74 %, order 39)	3338 (+1.49 %)	0	
+within 2 %	cargo	/en/industries-healthcare	1440	cargo-parity-004	3906	-	3849 (-1.46 %)	0	
+within 2 %	austrian	/at/en/book-and-manage/flights/wetlease-hub	390	austrian-parity (order 35)	3665	3612 (-1.45 %, order 35)	3612 (-1.45 %)	0	
+within 2 %	airdolomiti	/en/articles/dyk/airports-designed-by-archistars	390	airdolomiti-parity-007	4674	4741 (+1.43 %, order 39)	4741 (+1.43 %)	0	
+within 2 %	austrian	/ua/en/homepage	390	austrian-parity-024	5822	5695 (-2.18 %, order 41)	5905 (+1.43 %)	0	
+within 2 %	cargo	/en/news/142-arctic-temperatures-on-board	1440	cargo-parity-001	7829	7939 (+1.41 %, order 39)	7939 (+1.41 %)	0	
+within 2 %	austrian	/ch/en/homepage	390	austrian-parity-026	5790	5871 (+1.40 %, order 41)	5871 (+1.40 %)	0	
+within 2 %	cargo	/en/footer/bottomnav/terms-of-use	1440	cargo-parity-003	2722	2760 (+1.40 %, order 39)	2760 (+1.40 %)	0	
+within 2 %	austrian	/at/en/fly/check-in/private-check-in-counter	390	austrian-parity (order 35)	7221	7337 (+1.61 %, order 35)	7321 (+1.38 %)	71	
+within 2 %	austrian	/me/en/homepage	390	austrian-parity-023	5989	5861 (-2.14 %, order 41)	6071 (+1.37 %)	0	
+within 2 %	austrian	/xk/en/homepage	390	austrian-parity-024	5989	5861 (-2.14 %, order 41)	6071 (+1.37 %)	0	
+within 2 %	cargo	/en/general-cargo	1440	cargo-parity-003	1758	1782 (+1.37 %, order 39)	1782 (+1.37 %)	0	
+within 2 %	austrian	/cn/en/local-pages/tarmac-delay-contingency-plan	390	austrian-parity (order 35)	2800	2838 (+1.36 %, order 35)	2838 (+1.36 %)	0	
+within 2 %	austrian	/at/en/fly/check-in/private-check-in-counter	1440	austrian-parity (order 35)	5965	6073 (+1.81 %, order 35)	6045 (+1.34 %)	71	
+within 2 %	airdolomiti	/destinazioni/monaco-di-baviera	390	airdolomiti-parity-001	10440	10302 (-1.32 %, order 39)	10302 (-1.32 %)	0	
+within 2 %	austrian	/at/en/footer-pages/help-and-contact/bagdamage	1440	austrian-parity (order 35)	5012	4966 (-0.92 %, order 35)	4946 (-1.32 %)	71	
+within 2 %	austrian	/at/en/plan/special-requirements/medical-travel-companions	1440	austrian-parity (order 35)	2775	2766 (-0.32 %, order 35)	2739 (-1.30 %)	0	
+within 2 %	austrian	/at/en/footer-pages/help-and-contact/bagdamage	390	austrian-parity (order 35)	5788	5863 (+1.30 %, order 35)	5863 (+1.30 %)	71	
+within 2 %	cargo	/en/industries-in-focus	390	cargo-parity-001	5347	5288 (-1.10 %, order 39)	5278 (-1.29 %)	0	
+within 2 %	austrian	/it/it/contact	1440	austrian-parity (order 35)	2480	2512 (+1.29 %, order 35)	2512 (+1.29 %)	0	
+within 2 %	austrian	/it/it/form-confirmation	1440	austrian-parity (order 35)	1558	1578 (+1.28 %, order 35)	1578 (+1.28 %)	0	
+within 2 %	cargo	/en/eservices-app	390	cargo-parity-006	3043	2966 (-2.53 %, order 39)	3082 (+1.28 %)	0	
+within 2 %	austrian	/ru/ru/contact	1440	austrian-parity (order 35)	2508	2540 (+1.28 %, order 35)	2540 (+1.28 %)	0	
+within 2 %	cargo	/en/industries-in-focus	1440	cargo-parity-001	2515	2557 (+1.67 %, order 39)	2547 (+1.27 %)	0	
+within 2 %	austrian	/at/de/homepage	1440	austrian-parity (order 35)	4934	4872 (-1.26 %, order 35)	4872 (-1.26 %)	0	
+within 2 %	austrian	/cn/en/local-pages/tarmac-delay-contingency-plan	1440	austrian-parity (order 35)	2241	2269 (+1.25 %, order 35)	2269 (+1.25 %)	0	
+within 2 %	austrian	/at/en/homepage	1440	austrian-parity (order 35)	4885	4824 (-1.25 %, order 35)	4824 (-1.25 %)	0	
+within 2 %	airdolomiti	/destinazioni	1440	airdolomiti-parity-001	3626	3671 (+1.24 %, order 39)	3671 (+1.24 %)	0	
+within 2 %	austrian	/cn/zh/contact	1440	austrian-parity (order 35)	2438	2408 (-1.23 %, order 35)	2408 (-1.23 %)	0	
+within 2 %	austrian	/th/en/book/flights/promptpay	1440	austrian-parity (order 35)	2688	2655 (-1.23 %, order 35)	2655 (-1.23 %)	0	
+within 2 %	austrian	/am/en/homepage	390	austrian-parity (order 35)	5790	5861 (+1.23 %, order 35)	5861 (+1.23 %)	0	
+within 2 %	austrian	/ba/en/homepage	390	austrian-parity (order 35)	5790	5861 (+1.23 %, order 35)	5861 (+1.23 %)	0	
+within 2 %	austrian	/be/en/homepage	390	austrian-parity (order 35)	5790	5861 (+1.23 %, order 35)	5861 (+1.23 %)	0	
+within 2 %	austrian	/bg/en/homepage	390	austrian-parity (order 35)	5790	5861 (+1.23 %, order 35)	5861 (+1.23 %)	0	
+within 2 %	austrian	/cy/en/homepage	390	austrian-parity (order 35)	5790	5861 (+1.23 %, order 35)	5861 (+1.23 %)	0	
+within 2 %	austrian	/dk/en/homepage	390	austrian-parity (order 35)	5790	5861 (+1.23 %, order 35)	5861 (+1.23 %)	0	
+within 2 %	austrian	/es/en/homepage	390	austrian-parity (order 35)	5790	5861 (+1.23 %, order 35)	5861 (+1.23 %)	0	
+within 2 %	austrian	/gr/en/homepage	390	austrian-parity (order 35)	5790	5861 (+1.23 %, order 35)	5861 (+1.23 %)	0	
+within 2 %	austrian	/hr/en/homepage	390	austrian-parity (order 35)	5790	5861 (+1.23 %, order 35)	5861 (+1.23 %)	0	
+within 2 %	austrian	/iq/en/homepage	390	austrian-parity (order 35)	5790	5861 (+1.23 %, order 35)	5861 (+1.23 %)	0	
+within 2 %	austrian	/ir/en/homepage	390	austrian-parity (order 35)	5790	5861 (+1.23 %, order 35)	5861 (+1.23 %)	0	
+within 2 %	austrian	/jo/en/homepage	390	austrian-parity (order 35)	5790	5861 (+1.23 %, order 35)	5861 (+1.23 %)	0	
+within 2 %	austrian	/lt/en/homepage	390	austrian-parity (order 35)	5790	5861 (+1.23 %, order 35)	5861 (+1.23 %)	0	
+within 2 %	austrian	/mk/en/homepage	390	austrian-parity (order 35)	5790	5861 (+1.23 %, order 35)	5861 (+1.23 %)	0	
+within 2 %	austrian	/nl/en/homepage	390	austrian-parity (order 35)	5790	5861 (+1.23 %, order 35)	5861 (+1.23 %)	0	
+within 2 %	austrian	/no/en/homepage	390	austrian-parity (order 35)	5790	5861 (+1.23 %, order 35)	5861 (+1.23 %)	0	
+within 2 %	austrian	/se/en/homepage	390	austrian-parity (order 35)	5790	5861 (+1.23 %, order 35)	5861 (+1.23 %)	0	
+within 2 %	austrian	/si/en/homepage	390	austrian-parity (order 35)	5790	5861 (+1.23 %, order 35)	5861 (+1.23 %)	0	
+within 2 %	austrian	/ro/en/homepage	390	austrian-parity-024	5989	5852 (-2.29 %, order 41)	6062 (+1.22 %)	0	
+within 2 %	austrian	/rs/en/homepage	390	austrian-parity-024	5989	5852 (-2.29 %, order 41)	6062 (+1.22 %)	0	
+within 2 %	austrian	/at/de/entryregulations	390	austrian-parity (order 35)	7712	7618 (-1.22 %, order 35)	7618 (-1.22 %)	0	
+within 2 %	airdolomiti	/articoli/destinazioni/dove-ladriatico-si-fa-selvaggio	390	airdolomiti-parity-001	5134	5196 (+1.21 %, order 39)	5196 (+1.21 %)	0	
+within 2 %	airdolomiti	/en/articles/destinations/where-the-adriatic-becomes-wild	390	airdolomiti-parity-001	5124	5185 (+1.19 %, order 39)	5185 (+1.19 %)	0	
+within 2 %	cargo	/de/support-and-contact	1440	cargo-parity-001	2301	2328 (+1.17 %, order 39)	2328 (+1.17 %)	0	
+within 2 %	cargo	/de/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	1440	cargo-parity-001	2301	2328 (+1.17 %, order 39)	2328 (+1.17 %)	0	
+within 2 %	cargo	/en/support-and-contact	1440	cargo-parity-001	2301	2328 (+1.17 %, order 39)	2328 (+1.17 %)	0	
+within 2 %	cargo	/en/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	1440	cargo-parity-001	2301	2328 (+1.17 %, order 39)	2328 (+1.17 %)	0	
+within 2 %	airdolomiti	/en/destinations/london-eu	1440	airdolomiti-parity-005	7514	7428 (-1.14 %, order 39)	7428 (-1.14 %)	0	
+within 2 %	airdolomiti	/de/artikel/reiseziele/die-wilde-seite-der-adria	390	airdolomiti-parity-001	5481	5543 (+1.13 %, order 39)	5543 (+1.13 %)	0	
+within 2 %	cargo	/en/fleet-ulds/ulds/containers	390	cargo-parity-003	2314	2400 (+3.72 %, order 39)	2288 (-1.12 %)	0	
+within 2 %	austrian	/it/en/homepage	390	austrian-parity-023	5989	5846 (-2.39 %, order 41)	6056 (+1.12 %)	0	
+within 2 %	cargo	/en/ci/facts-figures	1440	cargo-parity-002	4848	4794 (-1.11 %, order 39)	4794 (-1.11 %)	0	
+within 2 %	airdolomiti	/de/reiseziele/basel-de	1440	airdolomiti-parity-005	8164	8074 (-1.10 %, order 39)	8074 (-1.10 %)	0	
+within 2 %	austrian	/at/en/plan/special-requirements/entry-regulations/immigration-regulations-schengen	390	austrian-parity (order 35)	4358	4310 (-1.10 %, order 35)	4310 (-1.10 %)	0	
+within 2 %	cargo	/en/ecsd	390	cargo-parity-003	1751	1713 (-2.17 %, order 39)	1770 (+1.09 %)	0	
+within 2 %	austrian	/at/en/baggage	390	austrian-parity (order 35)	6674	6602 (-1.08 %, order 35)	6602 (-1.08 %)	0	
+within 2 %	cargo	/en/ehm	390	cargo-parity-003	1578	1560 (-1.14 %, order 39)	1561 (-1.08 %)	0	
+within 2 %	cargo	/de/fleet-ulds/fleet	1440	cargo-parity-001	3089	3122 (+1.07 %, order 39)	3122 (+1.07 %)	0	
+within 2 %	austrian	/th/en/book/flights/promptpay	390	austrian-parity (order 35)	3382	3442 (+1.77 %, order 35)	3418 (+1.06 %)	0	
+within 2 %	austrian	/at/de/gepaeck	390	austrian-parity (order 35)	6754	6683 (-1.05 %, order 35)	6683 (-1.05 %)	0	
+within 2 %	airdolomiti	/servizi-a-bordo/sistema-di-intrattenimento-a-bordo	390	airdolomiti-parity-006	3555	3518 (-1.04 %, order 39)	3518 (-1.04 %)	0	
+within 2 %	cargo	/en/news/142-arctic-temperatures-on-board	390	cargo-parity-001	8389	8501 (+1.34 %, order 39)	8473 (+1.00 %)	0	
+within 2 %	austrian	/by/en/homepage	1440	austrian-parity-026	3598	3438 (-4.45 %, order 41)	3562 (-1.00 %)	0	
+within 2 %	austrian	/ru/en/homepage	1440	austrian-parity-026	3598	3438 (-4.45 %, order 41)	3562 (-1.00 %)	0	
+within 2 %	airdolomiti	/de/betreuung	1440	airdolomiti-parity-001	4984	5033 (+0.98 %, order 39)	5033 (+0.98 %)	0	
+within 2 %	cargo	/en/support-and-contact	390	cargo-parity-001	3066	3160 (+3.07 %, order 39)	3036 (-0.98 %)	0	
+within 2 %	cargo	/en/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	390	cargo-parity-001	3066	3160 (+3.07 %, order 39)	3036 (-0.98 %)	0	
+within 2 %	airdolomiti	/en/booking	390	airdolomiti-parity-001	2289	2267 (-0.96 %, order 39)	2267 (-0.96 %)	0	
+within 2 %	airdolomiti	/de/buchung	390	airdolomiti-parity-007	2317	2295 (-0.95 %, order 39)	2295 (-0.95 %)	0	
+within 2 %	cargo	/en/add-on-services/personal-supervision	1440	cargo-parity-004	2015	-	2034 (+0.94 %)	0	
+within 2 %	austrian	/at/en/online-check-in	1440	austrian-parity (order 35)	4477	4435 (-0.94 %, order 35)	4435 (-0.94 %)	0	
+within 2 %	airdolomiti	/prenotazioni	390	airdolomiti-parity-001	2349	2327 (-0.94 %, order 39)	2327 (-0.94 %)	0	
+within 2 %	cargo	/de/support-and-contact	390	cargo-parity-001	3105	3200 (+3.06 %, order 39)	3076 (-0.93 %)	0	
+within 2 %	cargo	/de/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	390	cargo-parity-001	3105	3200 (+3.06 %, order 39)	3076 (-0.93 %)	0	
+within 2 %	austrian	/de/en/homepage	390	austrian-parity (order 35)	5807	5861 (+0.93 %, order 35)	5861 (+0.93 %)	0	
+within 2 %	austrian	/al/en/local-page/black-friday	390	austrian-parity (order 35)	4424	4408 (-0.36 %, order 35)	4383 (-0.93 %)	0	
+within 2 %	austrian	/at/en/fly/on-board/culinary-services	1440	austrian-parity (order 35)	8428	8374 (-0.64 %, order 35)	8350 (-0.93 %)	0	
+within 2 %	airdolomiti	/en/destinations/bari	1440	airdolomiti-parity-001	6850	6912 (+0.91 %, order 39)	6912 (+0.91 %)	0	
+within 2 %	airdolomiti	/de/reiseziele/bari-de	390	airdolomiti-parity-004	8097	8024 (-0.90 %, order 39)	8024 (-0.90 %)	0	
+within 2 %	austrian	/xx/en/homepage	390	austrian-parity (order 35)	4890	4847 (-0.88 %, order 35)	4847 (-0.88 %)	0	
+within 2 %	austrian	/it/it/form-confirmation	390	austrian-parity (order 35)	1823	1807 (-0.88 %, order 35)	1807 (-0.88 %)	0	
+within 2 %	austrian	/ge/en/homepage	1440	austrian-parity-022	4704	4663 (-0.87 %, order 41)	4663 (-0.87 %)	0	
+within 2 %	austrian	/it/it/baggage	390	austrian-parity (order 35)	6087	6058 (-0.48 %, order 35)	6034 (-0.87 %)	0	
+within 2 %	airdolomiti	/destinazioni/monaco-di-baviera	1440	airdolomiti-parity-001	7177	7115 (-0.86 %, order 39)	7115 (-0.86 %)	0	
+within 2 %	austrian	/hu/en/local-page/invoice-request-hungary	1440	austrian-parity (order 35)	3152	3125 (-0.86 %, order 35)	3125 (-0.86 %)	71	
+within 2 %	austrian	/sk/en/homepage	1440	austrian-parity (order 35)	4966	4924 (-0.85 %, order 35)	4924 (-0.85 %)	0	
+within 2 %	airdolomiti	/de/reiseziele/basel-de	390	airdolomiti-parity-005	12014	11913 (-0.84 %, order 39)	11913 (-0.84 %)	0	
+within 2 %	austrian	/at/de/book/overview-manage/manage-my-bookings	390	austrian-parity (order 35)	1794	1809 (+0.84 %, order 35)	1809 (+0.84 %)	0	
+within 2 %	cargo	/en/meta/meta/company/general-terms1	390	cargo-parity-003	1498	1470 (-1.87 %, order 39)	1486 (-0.80 %)	0	
+within 2 %	cargo	/en/eservices/efreight	1440	cargo-parity-003	1893	1908 (+0.79 %, order 39)	1908 (+0.79 %)	0	
+within 2 %	cargo	/de/eservices-app	1440	cargo-parity-005	3289	-	3315 (+0.79 %)	0	
+within 2 %	austrian	/at/en/book/overview-manage	1440	austrian-parity (order 35)	3693	3664 (-0.79 %, order 35)	3664 (-0.79 %)	0	
+within 2 %	cargo	/de/news/142-arktische-temperaturen-an-bord	1440	cargo-parity-001	7925	7987 (+0.78 %, order 39)	7987 (+0.78 %)	0	
+within 2 %	austrian	/cz/en/homepage	390	austrian-parity-022	5831	5876 (+0.77 %, order 41)	5876 (+0.77 %)	0	
+within 2 %	cargo	/en/fleet-ulds/ulds/containers	1440	cargo-parity-003	2361	2379 (+0.76 %, order 39)	2379 (+0.76 %)	0	
+within 2 %	airdolomiti	/articoli/destinazioni/dove-ladriatico-si-fa-selvaggio	1440	airdolomiti-parity-001	4086	4055 (-0.76 %, order 39)	4055 (-0.76 %)	0	
+within 2 %	austrian	/cz/en/homepage	1440	austrian-parity-022	4785	4749 (-0.75 %, order 41)	4749 (-0.75 %)	0	
+within 2 %	airdolomiti	/en/articles/destinations/where-the-adriatic-becomes-wild	1440	airdolomiti-parity-001	4131	4100 (-0.75 %, order 39)	4100 (-0.75 %)	0	
+within 2 %	cargo	/en/home	1440	cargo-parity-001	6064	6109 (+0.74 %, order 39)	6109 (+0.74 %)	0	
+within 2 %	airdolomiti	/de/artikel/reiseziele/die-wilde-seite-der-adria	1440	airdolomiti-parity-001	4262	4231 (-0.73 %, order 39)	4231 (-0.73 %)	0	
+within 2 %	airdolomiti	/en/destinations	390	airdolomiti-parity-002	9699	9629 (-0.72 %, order 39)	9629 (-0.72 %)	0	
+within 2 %	cargo	/de/home	1440	cargo-parity-001	6117	6161 (+0.72 %, order 39)	6161 (+0.72 %)	0	
+within 2 %	austrian	/at/en/plan/special-requirements/entry-regulations/immigration-regulations-schengen	1440	austrian-parity (order 35)	3087	3065 (-0.71 %, order 35)	3065 (-0.71 %)	0	
+within 2 %	austrian	/at/en/book/overview-manage	390	austrian-parity (order 35)	5103	5067 (-0.71 %, order 35)	5067 (-0.71 %)	0	
+within 2 %	austrian	/at/en/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry	1440	austrian-parity (order 35)	3471	3447 (-0.69 %, order 35)	3447 (-0.69 %)	71	
+within 2 %	austrian	/at/en/healthy-travel	390	austrian-parity (order 35)	8822	8860 (+0.43 %, order 35)	8762 (-0.68 %)	0	
+within 2 %	cargo	/de/ci/sustainable-development-goals	1440	cargo-parity-001	2363	2379 (+0.68 %, order 39)	2379 (+0.68 %)	0	
+within 2 %	cargo	/en/add-on-services/todoor	1440	cargo-parity-004	2268	-	2283 (+0.66 %)	0	
+within 2 %	airdolomiti	/	1440	airdolomiti-parity-001	5074	5041 (-0.65 %, order 39)	5041 (-0.65 %)	0	
+within 2 %	austrian	/at/en/plan/special-requirements/healthy-travel/doctor-on-board	390	austrian-parity (order 35)	5857	5819 (-0.65 %, order 35)	5819 (-0.65 %)	0	
+within 2 %	airdolomiti	/en	1440	airdolomiti-parity-001	5092	5059 (-0.65 %, order 39)	5059 (-0.65 %)	0	
+within 2 %	airdolomiti	/en	390	airdolomiti-parity-001	6484	6442 (-0.65 %, order 39)	6442 (-0.65 %)	0	
+within 2 %	airdolomiti	/de	1440	airdolomiti-parity-001	5096	5063 (-0.65 %, order 39)	5063 (-0.65 %)	0	
+within 2 %	airdolomiti	/	390	airdolomiti-parity-001	6514	6472 (-0.64 %, order 39)	6472 (-0.64 %)	0	
+within 2 %	airdolomiti	/de	390	airdolomiti-parity-001	6554	6512 (-0.64 %, order 39)	6512 (-0.64 %)	0	
+within 2 %	austrian	/tr/en/homepage	1440	austrian-parity-024	4869	4775 (-1.93 %, order 41)	4899 (+0.62 %)	0	
+within 2 %	airdolomiti	/en/flight-timetables	390	airdolomiti-parity-001	2150	2163 (+0.60 %, order 39)	2163 (+0.60 %)	0	
+within 2 %	airdolomiti	/voli-europa	390	airdolomiti-parity-001	6643	6603 (-0.60 %, order 39)	6603 (-0.60 %)	0	
+within 2 %	airdolomiti	/de/flugplan	390	airdolomiti-parity-001	2224	2237 (+0.58 %, order 39)	2237 (+0.58 %)	0	
+within 2 %	austrian	/pl/pl/contact	390	austrian-parity (order 35)	3100	3090 (-0.32 %, order 35)	3118 (+0.58 %)	0	
+within 2 %	austrian	/es/es/contact	390	austrian-parity (order 35)	3103	3121 (+0.58 %, order 35)	3121 (+0.58 %)	0	
+within 2 %	austrian	/fr/fr/baggage	1440	austrian-parity (order 35)	4383	4432 (+1.12 %, order 35)	4408 (+0.57 %)	0	
+within 2 %	austrian	/at/en/accessible-travel	1440	austrian-parity (order 35)	12859	12813 (-0.36 %, order 35)	12786 (-0.57 %)	0	
+within 2 %	austrian	/at/en/additional-services	1440	austrian-parity (order 35)	2648	2663 (+0.57 %, order 35)	2663 (+0.57 %)	0	
+within 2 %	airdolomiti	/orario-voli	390	airdolomiti-parity-001	2299	2312 (+0.57 %, order 39)	2312 (+0.57 %)	0	
+within 2 %	austrian	/fr/fr/contact	390	austrian-parity (order 35)	3218	3236 (+0.56 %, order 35)	3236 (+0.56 %)	0	
+within 2 %	austrian	/fr/fr/baggage	390	austrian-parity (order 35)	6012	5979 (-0.55 %, order 35)	5979 (-0.55 %)	0	
+within 2 %	cargo	/de/ebooking-info	390	cargo-parity-001	5688	5831 (+2.51 %, order 39)	5719 (+0.55 %)	0	
+within 2 %	austrian	/xx/en/homepage	1440	austrian-parity (order 35)	3524	3505 (-0.54 %, order 35)	3505 (-0.54 %)	0	
+within 2 %	austrian	/at/en/sustainable-flying	1440	austrian-parity (order 35)	4275	4252 (-0.54 %, order 35)	4252 (-0.54 %)	0	
+within 2 %	airdolomiti	/en/support-and-contacts	390	airdolomiti-parity-001	1874	1884 (+0.53 %, order 39)	1884 (+0.53 %)	0	
+within 2 %	cargo	/en/onerecord	390	cargo-parity-003	5081	5108 (+0.53 %, order 39)	5108 (+0.53 %)	0	
+within 2 %	austrian	/at/en/contact	390	austrian-parity (order 35)	3023	3039 (+0.53 %, order 35)	3039 (+0.53 %)	0	
+within 2 %	austrian	/at/en/help-center	390	austrian-parity (order 35)	3023	3039 (+0.53 %, order 35)	3039 (+0.53 %)	0	
+within 2 %	austrian	/by/ru/homepage	1440	austrian-parity (order 35)	3630	3611 (-0.52 %, order 35)	3611 (-0.52 %)	0	
+within 2 %	austrian	/ru/ru/homepage	1440	austrian-parity (order 35)	3630	3611 (-0.52 %, order 35)	3611 (-0.52 %)	0	
+within 2 %	airdolomiti	/supporto-e-contatti	390	airdolomiti-parity-001	1934	1944 (+0.52 %, order 39)	1944 (+0.52 %)	0	
+within 2 %	cargo	/en/speed-zoom	390	cargo-parity-006	1162	-	1168 (+0.52 %)	0	
+within 2 %	austrian	/al/en/local-page/black-friday	1440	austrian-parity (order 35)	3110	3094 (-0.51 %, order 35)	3094 (-0.51 %)	0	
+within 2 %	airdolomiti	/de/unterstutzung-und-kontakte	390	airdolomiti-parity-001	1948	1958 (+0.51 %, order 39)	1958 (+0.51 %)	0	
+within 2 %	airdolomiti	/supporto-e-contatti	1440	airdolomiti-parity-001	1953	1963 (+0.51 %, order 39)	1963 (+0.51 %)	0	
+within 2 %	austrian	/at/en/plan/special-requirements/healthy-travel/doctor-on-board	1440	austrian-parity (order 35)	4529	4552 (+0.51 %, order 35)	4552 (+0.51 %)	0	
+within 2 %	austrian	/at/de/local-page/feels-like-flying/os401crewstory	1440	austrian-parity (order 35)	7686	7689 (+0.04 %, order 35)	7725 (+0.51 %)	0	
+within 2 %	airdolomiti	/en/support-and-contacts	1440	airdolomiti-parity-001	1971	1981 (+0.51 %, order 39)	1981 (+0.51 %)	0	
+within 2 %	airdolomiti	/de/unterstutzung-und-kontakte	1440	airdolomiti-parity-001	1975	1985 (+0.51 %, order 39)	1985 (+0.51 %)	0	
+within 2 %	cargo	/en/emergency	390	cargo-parity-003	1186	1248 (+5.23 %, order 39)	1192 (+0.51 %)	0	
+within 2 %	austrian	/de/de/homepage	1440	austrian-parity (order 35)	4794	4770 (-0.50 %, order 35)	4770 (-0.50 %)	0	
+within 2 %	airdolomiti	/en/fleet	390	airdolomiti-parity-001	7419	7382 (-0.50 %, order 39)	7382 (-0.50 %)	0	
+within 2 %	cargo	/en/active-temp-control	1440	cargo-parity-003	2217	2206 (-0.50 %, order 39)	2206 (-0.50 %)	0	
+within 2 %	airdolomiti	/informazioni-per-il-viaggio/prenotazione-del-posto	390	airdolomiti-parity-007	3854	3873 (+0.49 %, order 39)	3873 (+0.49 %)	0	
+within 2 %	cargo	/en/add-on-services/sustainable-choice	1440	cargo-parity-004	2456	-	2468 (+0.49 %)	0	
+within 2 %	austrian	/at/de/book/overview-extra-services	390	austrian-parity (order 35)	5155	5130 (-0.48 %, order 35)	5130 (-0.48 %)	0	
+within 2 %	austrian	/at/en/book/overview-extra-services	390	austrian-parity (order 35)	4964	4940 (-0.48 %, order 35)	4940 (-0.48 %)	0	
+within 2 %	austrian	/at/en/plan/special-requirements/medical-travel-companions	390	austrian-parity (order 35)	3120	3129 (+0.29 %, order 35)	3105 (-0.48 %)	0	
+within 2 %	austrian	/at/en/accessible-travel	390	austrian-parity (order 35)	19409	19364 (-0.23 %, order 35)	19316 (-0.48 %)	0	
+within 2 %	austrian	/at/de/contact	390	austrian-parity (order 35)	3131	3146 (+0.48 %, order 35)	3146 (+0.48 %)	0	
+within 2 %	austrian	/at/de/hilfe-center	390	austrian-parity (order 35)	3131	3146 (+0.48 %, order 35)	3146 (+0.48 %)	0	
+within 2 %	austrian	/at/de/bearbeitungsgebuehren	1440	austrian-parity (order 35)	3140	3155 (+0.48 %, order 35)	3155 (+0.48 %)	0	
+within 2 %	airdolomiti	/articoli	1440	airdolomiti-parity-001	2764	2751 (-0.47 %, order 39)	2751 (-0.47 %)	0	
+within 2 %	austrian	/ch/it/homepage	390	austrian-parity (order 35)	5962	5990 (+0.47 %, order 35)	5990 (+0.47 %)	0	
+within 2 %	airdolomiti	/destinazioni	390	airdolomiti-parity-001	6393	6423 (+0.47 %, order 39)	6423 (+0.47 %)	0	
+within 2 %	airdolomiti	/en/articles	1440	airdolomiti-parity-001	2782	2769 (-0.47 %, order 39)	2769 (-0.47 %)	0	
+within 2 %	airdolomiti	/de/artikel	1440	airdolomiti-parity-001	2786	2773 (-0.47 %, order 39)	2773 (-0.47 %)	0	
+within 2 %	austrian	/at/en/austrian-app	1440	austrian-parity (order 35)	5362	5337 (-0.47 %, order 35)	5337 (-0.47 %)	0	
+within 2 %	cargo	/en/passive-temp-support	1440	cargo-parity-004	2148	-	2138 (-0.47 %)	0	
+within 2 %	austrian	/am/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/ba/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/be/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/bg/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/cy/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/de/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/dk/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/eg/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/es/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/gr/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/hr/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/iq/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/ir/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/jo/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/lt/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/mk/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/nl/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/no/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/se/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	austrian	/si/en/homepage	1440	austrian-parity (order 35)	4744	4722 (-0.46 %, order 35)	4722 (-0.46 %)	0	
+within 2 %	airdolomiti	/de/reiseziele	390	airdolomiti-parity-001	10151	10198 (+0.46 %, order 39)	10198 (+0.46 %)	0	
+within 2 %	airdolomiti	/en/baggage	390	airdolomiti-parity-001	2172	2182 (+0.46 %, order 39)	2182 (+0.46 %)	0	
+within 2 %	cargo	/en/eservices/efreight	390	cargo-parity-003	1522	1585 (+4.14 %, order 39)	1529 (+0.46 %)	0	
+within 2 %	austrian	/at/de/book/overview-manage/manage-my-bookings	1440	austrian-parity (order 35)	1530	1537 (+0.46 %, order 35)	1537 (+0.46 %)	0	
+within 2 %	airdolomiti	/bagagli	390	airdolomiti-parity-001	2186	2196 (+0.46 %, order 39)	2196 (+0.46 %)	0	
+within 2 %	cargo	/en/products/customer-owned-tracker	1440	cargo-parity-004	1764	-	1756 (-0.45 %)	0	
+within 2 %	austrian	/at/en/contact	1440	austrian-parity (order 35)	2438	2449 (+0.45 %, order 35)	2449 (+0.45 %)	0	
+within 2 %	austrian	/at/en/help-center	1440	austrian-parity (order 35)	2438	2449 (+0.45 %, order 35)	2449 (+0.45 %)	0	
+within 2 %	cargo	/en/valuables	1440	cargo-parity-004	2005	-	2014 (+0.45 %)	0	
+within 2 %	austrian	/at/de/contact	1440	austrian-parity (order 35)	2459	2470 (+0.45 %, order 35)	2470 (+0.45 %)	0	
+within 2 %	austrian	/at/de/hilfe-center	1440	austrian-parity (order 35)	2459	2470 (+0.45 %, order 35)	2470 (+0.45 %)	0	
+within 2 %	austrian	/es/es/contact	1440	austrian-parity (order 35)	2459	2470 (+0.45 %, order 35)	2470 (+0.45 %)	0	
+within 2 %	austrian	/pl/pl/contact	1440	austrian-parity (order 35)	2459	2470 (+0.45 %, order 35)	2470 (+0.45 %)	0	
+within 2 %	austrian	/at/en/book/groups-and-enterprises/exclusive-charter/exclusive-charter-enquiry	390	austrian-parity (order 35)	3808	3791 (-0.45 %, order 35)	3791 (-0.45 %)	71	
+within 2 %	airdolomiti	/bagagli	1440	airdolomiti-parity-001	2243	2253 (+0.45 %, order 39)	2253 (+0.45 %)	0	
+within 2 %	airdolomiti	/de/gepaeck	390	airdolomiti-parity-001	2244	2254 (+0.45 %, order 39)	2254 (+0.45 %)	0	
+within 2 %	cargo	/en/meta/meta/company/general-terms1	1440	cargo-parity-003	1129	1297 (+14.88 %, order 39)	1124 (-0.44 %)	0	
+within 2 %	airdolomiti	/en/baggage	1440	airdolomiti-parity-001	2261	2271 (+0.44 %, order 39)	2271 (+0.44 %)	0	
+within 2 %	cargo	/de/industries-in-focus	1440	cargo-parity-001	2515	2533 (+0.72 %, order 39)	2526 (+0.44 %)	0	
+within 2 %	airdolomiti	/de/gepaeck	1440	airdolomiti-parity-001	2295	2305 (+0.44 %, order 39)	2305 (+0.44 %)	0	
+within 2 %	austrian	/at/en/book/overview-travel-information	1440	austrian-parity (order 35)	2996	2983 (-0.43 %, order 35)	2983 (-0.43 %)	0	
+within 2 %	cargo	/de/ci/sustainable-development-goals	390	cargo-parity-001	1870	1890 (+1.07 %, order 39)	1862 (-0.43 %)	0	
+within 2 %	austrian	/at/de/book/overview-travel-information	1440	austrian-parity (order 35)	3044	3031 (-0.43 %, order 35)	3031 (-0.43 %)	0	
+within 2 %	austrian	/us/en/local-page/ski-campaign-2026	390	austrian-parity-025	3515	3444 (-2.02 %, order 41)	3530 (+0.43 %)	0	
+within 2 %	cargo	/de/fleet-ulds/fleet	390	cargo-parity-001	3918	4046 (+3.27 %, order 39)	3934 (+0.41 %)	0	
+within 2 %	airdolomiti	/en/destinations	1440	airdolomiti-parity-002	4677	4696 (+0.41 %, order 39)	4696 (+0.41 %)	0	
+within 2 %	austrian	/at/en/sustainable-flying	390	austrian-parity (order 35)	5929	5929 (+0.00 %, order 35)	5905 (-0.40 %)	0	
+within 2 %	cargo	/en/ci/sustainable-development-goals	390	cargo-parity-001	1735	1742 (+0.40 %, order 39)	1742 (+0.40 %)	0	
+within 2 %	airdolomiti	/de/reiseziele	1440	airdolomiti-parity-001	4793	4812 (+0.40 %, order 39)	4812 (+0.40 %)	0	
+within 2 %	austrian	/ch/de/homepage	1440	austrian-parity-022	4794	4775 (-0.40 %, order 41)	4775 (-0.40 %)	0	
+within 2 %	cargo	/en/ebooking-info	390	cargo-parity-001	5393	5526 (+2.47 %, order 39)	5414 (+0.39 %)	0	
+within 2 %	airdolomiti	/servizi/parcheggi-convenzionati	1440	airdolomiti-parity-001	1825	1818 (-0.38 %, order 39)	1818 (-0.38 %)	0	
+within 2 %	austrian	/at/en/book/overview-services-on-board	390	austrian-parity (order 35)	2921	2910 (-0.38 %, order 35)	2910 (-0.38 %)	0	
+within 2 %	airdolomiti	/de/betreuung	390	airdolomiti-parity-001	7771	7800 (+0.37 %, order 39)	7800 (+0.37 %)	0	
+within 2 %	austrian	/at/de/book/overview-services-on-board	390	austrian-parity (order 35)	2969	2958 (-0.37 %, order 35)	2958 (-0.37 %)	0	
+within 2 %	austrian	/at/en/book/overview-travel-information	390	austrian-parity (order 35)	4069	4084 (+0.37 %, order 35)	4084 (+0.37 %)	0	
+within 2 %	cargo	/de/industries-in-focus	390	cargo-parity-001	5434	5424 (-0.18 %, order 39)	5414 (-0.37 %)	0	
+within 2 %	austrian	/at/en/special-requirements	390	austrian-parity (order 35)	5456	5436 (-0.37 %, order 35)	5436 (-0.37 %)	0	
+within 2 %	austrian	/at/en/additional-services	390	austrian-parity (order 35)	3554	3541 (-0.37 %, order 35)	3541 (-0.37 %)	0	
+within 2 %	austrian	/at/en/special-requirements	1440	austrian-parity (order 35)	3784	3771 (-0.34 %, order 35)	3771 (-0.34 %)	0	
+within 2 %	austrian	/at/de/book/overview-travel-information	390	austrian-parity (order 35)	4135	4149 (+0.34 %, order 35)	4149 (+0.34 %)	0	
+within 2 %	cargo	/en/ci/sustainable-development-goals	1440	cargo-parity-001	2363	2355 (-0.34 %, order 39)	2355 (-0.34 %)	0	
+within 2 %	austrian	/at/de/book/overview-extra-services	1440	austrian-parity (order 35)	3669	3657 (-0.33 %, order 35)	3657 (-0.33 %)	0	
+within 2 %	cargo	/en/active-temp-control	390	cargo-parity-003	1242	1302 (+4.83 %, order 39)	1246 (+0.32 %)	0	
+within 2 %	cargo	/en/dangerous-goods	390	cargo-parity-003	1242	1302 (+4.83 %, order 39)	1246 (+0.32 %)	0	
+within 2 %	cargo	/en/general-cargo	390	cargo-parity-003	1242	1302 (+4.83 %, order 39)	1246 (+0.32 %)	0	
+within 2 %	austrian	/at/en/healthy-travel	1440	austrian-parity (order 35)	6614	6640 (+0.39 %, order 35)	6593 (-0.32 %)	0	
+within 2 %	cargo	/en/airmail	390	cargo-parity-003	1266	1326 (+4.74 %, order 39)	1270 (+0.32 %)	0	
+within 2 %	airdolomiti	/servizi/parcheggi-convenzionati	390	airdolomiti-parity-001	2712	2704 (-0.29 %, order 39)	2704 (-0.29 %)	0	
+within 2 %	austrian	/at/de/local-page/feels-like-flying/os401crewstory	390	austrian-parity (order 35)	9982	9813 (-1.69 %, order 35)	9953 (-0.29 %)	0	
+within 2 %	austrian	/at/de/fly/travel-classes	1440	austrian-parity (order 35)	2414	2407 (-0.29 %, order 35)	2407 (-0.29 %)	0	
+within 2 %	austrian	/at/en/fly/travel-classes	1440	austrian-parity (order 35)	2414	2407 (-0.29 %, order 35)	2407 (-0.29 %)	0	
+within 2 %	austrian	/at/en/book/flights	1440	austrian-parity (order 35)	3575	3585 (+0.28 %, order 35)	3585 (+0.28 %)	0	
+within 2 %	austrian	/at/en/book/overview-extra-services	1440	austrian-parity (order 35)	3604	3618 (+0.39 %, order 35)	3594 (-0.28 %)	0	
+within 2 %	cargo	/en/speed-zoom	1440	cargo-parity-004	2186	-	2180 (-0.27 %)	0	
+within 2 %	cargo	/en/home	390	cargo-parity-001	8389	8366 (-0.27 %, order 39)	8366 (-0.27 %)	0	
+within 2 %	austrian	/at/en/entryregulations	1440	austrian-parity (order 35)	5538	5523 (-0.27 %, order 35)	5523 (-0.27 %)	0	
+within 2 %	austrian	/de/de/homepage	390	austrian-parity (order 35)	5916	5932 (+0.27 %, order 35)	5932 (+0.27 %)	0	
+within 2 %	austrian	/pt/en/homepage	390	austrian-parity-023	5887	5662 (-3.82 %, order 41)	5872 (-0.25 %)	0	
+within 2 %	austrian	/at/de/besondere-anforderungen	390	austrian-parity (order 35)	5497	5483 (-0.25 %, order 35)	5483 (-0.25 %)	0	
+within 2 %	airdolomiti	/assistenza	1440	airdolomiti-parity-007	4795	4807 (+0.25 %, order 39)	4807 (+0.25 %)	0	
+within 2 %	austrian	/at/de/book/flights	1440	austrian-parity (order 35)	3600	3609 (+0.25 %, order 35)	3609 (+0.25 %)	0	
+within 2 %	airdolomiti	/gestione-prenotazione-volo	390	airdolomiti-parity-001	3012	3019 (+0.23 %, order 39)	3019 (+0.23 %)	0	
+within 2 %	cargo	/de/ebooking-info	1440	cargo-parity-001	3907	3898 (-0.23 %, order 39)	3898 (-0.23 %)	0	
+within 2 %	airdolomiti	/en/assistance	1440	airdolomiti-parity-007	4776	4787 (+0.23 %, order 39)	4787 (+0.23 %)	0	
+within 2 %	airdolomiti	/en/manage-flight-booking	390	airdolomiti-parity-001	3051	3058 (+0.23 %, order 39)	3058 (+0.23 %)	0	
+within 2 %	cargo	/de/notification-overview	390	cargo-parity-001	1355	1358 (+0.22 %, order 39)	1358 (+0.22 %)	0	
+within 2 %	airdolomiti	/en/services/lounges	390	airdolomiti-parity-007	3223	3216 (-0.22 %, order 39)	3216 (-0.22 %)	0	
+within 2 %	airdolomiti	/de/bearbeitung-ihrer-buchungen	390	airdolomiti-parity-001	3264	3271 (+0.21 %, order 39)	3271 (+0.21 %)	0	
+within 2 %	airdolomiti	/de/artikel	390	airdolomiti-parity-001	6132	6119 (-0.21 %, order 39)	6119 (-0.21 %)	0	
+within 2 %	airdolomiti	/en/travel-info/seat-reservation	390	airdolomiti-parity-007	3900	3892 (-0.21 %, order 39)	3892 (-0.21 %)	0	
+within 2 %	austrian	/at/de/footer-pages/help-and-contact/form-confirmation	390	austrian-parity (order 35)	1522	1525 (+0.20 %, order 35)	1525 (+0.20 %)	0	
+within 2 %	airdolomiti	/en/articles	390	airdolomiti-parity-001	6159	6147 (-0.19 %, order 39)	6147 (-0.19 %)	0	
+within 2 %	cargo	/en/airmail	1440	cargo-parity-003	2068	2072 (+0.19 %, order 39)	2072 (+0.19 %)	0	
+within 2 %	airdolomiti	/articoli	390	airdolomiti-parity-001	6219	6207 (-0.19 %, order 39)	6207 (-0.19 %)	0	
+within 2 %	cargo	/en/vulnerables	1440	cargo-parity-004	2084	-	2088 (+0.19 %)	0	
+within 2 %	austrian	/ca/en/homepage	1440	austrian-parity-026	3162	3067 (-3.00 %, order 41)	3168 (+0.19 %)	0	
+within 2 %	cargo	/en/perishables	1440	cargo-parity-004	2116	-	2120 (+0.19 %)	0	
+within 2 %	austrian	/at/de/besondere-anforderungen	1440	austrian-parity (order 35)	3736	3729 (-0.19 %, order 35)	3729 (-0.19 %)	0	
+within 2 %	austrian	/at/de/fly/travel-classes	390	austrian-parity (order 35)	2889	2918 (+1.00 %, order 35)	2894 (+0.17 %)	0	
+within 2 %	austrian	/at/en/fly/travel-classes	390	austrian-parity (order 35)	2889	2894 (+0.17 %, order 35)	2894 (+0.17 %)	0	
+within 2 %	austrian	/at/de/book/overview-inspiration	1440	austrian-parity (order 35)	1777	1774 (-0.17 %, order 35)	1774 (-0.17 %)	0	
+within 2 %	austrian	/at/en/book/overview-inspiration	1440	austrian-parity (order 35)	1777	1774 (-0.17 %, order 35)	1774 (-0.17 %)	0	
+within 2 %	cargo	/en/emergency	1440	cargo-parity-003	2431	2435 (+0.16 %, order 39)	2435 (+0.16 %)	0	
+within 2 %	austrian	/es/es/baggage	1440	austrian-parity (order 35)	4298	4305 (+0.16 %, order 35)	4305 (+0.16 %)	0	
+within 2 %	austrian	/at/en/austrian-app	390	austrian-parity (order 35)	6165	6199 (+0.55 %, order 35)	6175 (+0.16 %)	0	
+within 2 %	austrian	/pl/pl/baggage	1440	austrian-parity (order 35)	4322	4329 (+0.16 %, order 35)	4329 (+0.16 %)	0	
+within 2 %	austrian	/at/de/book/overview-manage	1440	austrian-parity (order 35)	3721	3727 (+0.16 %, order 35)	3727 (+0.16 %)	0	
+within 2 %	austrian	/sk/en/homepage	390	austrian-parity (order 35)	6331	6341 (+0.16 %, order 35)	6341 (+0.16 %)	0	
+within 2 %	cargo	/en/add-on-services/smartuld	1440	cargo-parity-003	2578	2582 (+0.16 %, order 39)	2582 (+0.16 %)	0	
+within 2 %	cargo	/en/notification-overview	390	cargo-parity-001	1316	1318 (+0.15 %, order 39)	1318 (+0.15 %)	0	
+within 2 %	cargo	/en/ci/newsroom	390	cargo-parity-001	10631	10615 (-0.15 %, order 39)	10615 (-0.15 %)	0	
+within 2 %	austrian	/pl/pl/baggage	390	austrian-parity (order 35)	6012	6003 (-0.15 %, order 35)	6003 (-0.15 %)	0	
+within 2 %	austrian	/at/en/book/flights	390	austrian-parity (order 35)	4693	4710 (+0.36 %, order 35)	4686 (-0.15 %)	0	
+within 2 %	austrian	/at/de/book/flights	390	austrian-parity (order 35)	4850	4843 (-0.14 %, order 35)	4843 (-0.14 %)	0	
+within 2 %	austrian	/es/es/baggage	390	austrian-parity (order 35)	6066	6058 (-0.13 %, order 35)	6058 (-0.13 %)	0	
+within 2 %	cargo	/en/fleet-ulds/fleet	390	cargo-parity-001	3841	3958 (+3.05 %, order 39)	3846 (+0.13 %)	0	
+within 2 %	airdolomiti	/en/services-on-board/in-flight-entertainment-system	1440	airdolomiti-parity-008	2352	2349 (-0.13 %, order 39)	2349 (-0.13 %)	0	
+within 2 %	airdolomiti	/servizi-a-bordo/sistema-di-intrattenimento-a-bordo	1440	airdolomiti-parity-006	2400	2397 (-0.12 %, order 39)	2397 (-0.12 %)	0	
+within 2 %	airdolomiti	/en/assistance	390	airdolomiti-parity-007	7332	7323 (-0.12 %, order 39)	7323 (-0.12 %)	0	
+within 2 %	austrian	/at/de/bearbeitungsgebuehren	390	austrian-parity (order 35)	4125	4130 (+0.12 %, order 35)	4130 (+0.12 %)	0	
+within 2 %	cargo	/en/onerecord	1440	cargo-parity-003	3322	3326 (+0.12 %, order 39)	3326 (+0.12 %)	0	
+within 2 %	airdolomiti	/de/dienstleistungen-an-bord/unterhaltung-an-bord	1440	airdolomiti-parity-005	2492	2489 (-0.12 %, order 39)	2489 (-0.12 %)	0	
+within 2 %	austrian	/ch/de/homepage	390	austrian-parity-022	5916	5923 (+0.12 %, order 41)	5923 (+0.12 %)	0	
+within 2 %	airdolomiti	/en/flights-europe	390	airdolomiti-parity-001	6131	6124 (-0.11 %, order 39)	6124 (-0.11 %)	0	
+within 2 %	airdolomiti	/assistenza	390	airdolomiti-parity-007	7420	7412 (-0.11 %, order 39)	7412 (-0.11 %)	0	
+within 2 %	cargo	/en/ci/partnerships-subsidiaries	1440	cargo-parity-003	4712	4707 (-0.11 %, order 39)	4707 (-0.11 %)	0	
+within 2 %	austrian	/ch/en/homepage	1440	austrian-parity-026	4744	4749 (+0.11 %, order 41)	4749 (+0.11 %)	0	
+within 2 %	austrian	/at/de/entryregulations	1440	austrian-parity (order 35)	5696	5705 (+0.16 %, order 35)	5702 (+0.11 %)	0	
+within 2 %	airdolomiti	/gestione-prenotazione-volo	1440	airdolomiti-parity-001	2147	2149 (+0.09 %, order 39)	2149 (+0.09 %)	0	
+within 2 %	austrian	/at/de/gepaeck	1440	austrian-parity (order 35)	4319	4315 (-0.09 %, order 35)	4315 (-0.09 %)	0	
+within 2 %	austrian	/at/en/baggage	1440	austrian-parity (order 35)	4319	4315 (-0.09 %, order 35)	4315 (-0.09 %)	0	
+within 2 %	austrian	/it/it/baggage	1440	austrian-parity (order 35)	4383	4387 (+0.09 %, order 35)	4387 (+0.09 %)	0	
+within 2 %	airdolomiti	/en/services-on-board/in-flight-entertainment-system	390	airdolomiti-parity-008	3296	3293 (-0.09 %, order 39)	3293 (-0.09 %)	0	
+within 2 %	airdolomiti	/de/dienstleistungen-an-bord/unterhaltung-an-bord	390	airdolomiti-parity-005	3365	3362 (-0.09 %, order 39)	3362 (-0.09 %)	0	
+within 2 %	airdolomiti	/en/manage-flight-booking	1440	airdolomiti-parity-001	2281	2283 (+0.09 %, order 39)	2283 (+0.09 %)	0	
+within 2 %	austrian	/at/en/travel-id	1440	austrian-parity (order 35)	5714	5733 (+0.33 %, order 35)	5709 (-0.09 %)	0	
+within 2 %	austrian	/at/en/book/overview-inspiration	390	austrian-parity (order 35)	2299	2297 (-0.09 %, order 35)	2297 (-0.09 %)	0	
+within 2 %	airdolomiti	/de/bearbeitung-ihrer-buchungen	1440	airdolomiti-parity-001	2312	2314 (+0.09 %, order 39)	2314 (+0.09 %)	0	
+within 2 %	austrian	/at/de/book/overview-inspiration	390	austrian-parity (order 35)	2347	2345 (-0.09 %, order 35)	2345 (-0.09 %)	0	
+within 2 %	austrian	/fr/en/homepage	1440	austrian-parity-026	4869	4749 (-2.46 %, order 41)	4873 (+0.08 %)	0	
+within 2 %	austrian	/gb/en/homepage	1440	austrian-parity-023	4869	4749 (-2.46 %, order 41)	4873 (+0.08 %)	0	
+within 2 %	austrian	/it/en/homepage	1440	austrian-parity-023	4869	4749 (-2.46 %, order 41)	4873 (+0.08 %)	0	
+within 2 %	austrian	/md/en/homepage	1440	austrian-parity-023	4869	4749 (-2.46 %, order 41)	4873 (+0.08 %)	0	
+within 2 %	austrian	/pl/en/homepage	1440	austrian-parity-023	4869	4749 (-2.46 %, order 41)	4873 (+0.08 %)	0	
+within 2 %	austrian	/ro/en/homepage	1440	austrian-parity-024	4869	4749 (-2.46 %, order 41)	4873 (+0.08 %)	0	
+within 2 %	austrian	/xk/en/homepage	1440	austrian-parity-024	4869	4749 (-2.46 %, order 41)	4873 (+0.08 %)	0	
+within 2 %	airdolomiti	/en/travel-info/seat-reservation	1440	airdolomiti-parity-007	2540	2538 (-0.08 %, order 39)	2538 (-0.08 %)	0	
+within 2 %	cargo	/de/ci/newsroom	390	cargo-parity-001	10670	10678 (+0.07 %, order 39)	10678 (+0.07 %)	0	
+within 2 %	cargo	/en/ci/whats-up-now	390	cargo-parity-001	2674	2672 (-0.07 %, order 39)	2672 (-0.07 %)	0	
+within 2 %	austrian	/ca/en/homepage	390	austrian-parity-026	4526	4419 (-2.36 %, order 41)	4523 (-0.07 %)	0	
+within 2 %	austrian	/it/it/contact	390	austrian-parity (order 35)	3123	3121 (-0.06 %, order 35)	3121 (-0.06 %)	0	
+within 2 %	airdolomiti	/en/services/lounges	1440	airdolomiti-parity-007	2027	2026 (-0.05 %, order 39)	2026 (-0.05 %)	0	
+within 2 %	airdolomiti	/de/unsere-dienste/lounge-zutritt	1440	airdolomiti-parity-007	2031	2030 (-0.05 %, order 39)	2030 (-0.05 %)	0	
+within 2 %	cargo	/en/add-on-services/insurance	1440	cargo-parity-004	2080	-	2079 (-0.05 %)	0	
+within 2 %	airdolomiti	/de/fluege-in-europa	390	airdolomiti-parity-001	6745	6748 (+0.04 %, order 39)	6748 (+0.04 %)	0	
+within 2 %	airdolomiti	/informazioni-per-il-viaggio/prenotazione-del-posto	1440	airdolomiti-parity-007	2351	2350 (-0.04 %, order 39)	2350 (-0.04 %)	0	
+within 2 %	austrian	/at/en/book/overview-services-on-board	1440	austrian-parity (order 35)	2422	2423 (+0.04 %, order 35)	2423 (+0.04 %)	0	
+within 2 %	cargo	/de/ci/whats-up-now	390	cargo-parity-001	2713	2712 (-0.04 %, order 39)	2712 (-0.04 %)	0	
+within 2 %	cargo	/de/ci/whats-up-now	1440	cargo-parity-001	2732	2733 (+0.04 %, order 39)	2733 (+0.04 %)	0	
+within 2 %	cargo	/en/ci/whats-up-now	1440	cargo-parity-001	2732	2733 (+0.04 %, order 39)	2733 (+0.04 %)	0	
+within 2 %	airdolomiti	/de/reisenformationen/sitzplatzreservierung	1440	airdolomiti-parity-007	2759	2758 (-0.04 %, order 39)	2758 (-0.04 %)	0	
+within 2 %	airdolomiti	/de/fluege-in-europa	1440	airdolomiti-parity-001	5707	5709 (+0.04 %, order 39)	5709 (+0.04 %)	0	
+within 2 %	austrian	/us/en/local-page/ski-campaign-2026	1440	austrian-parity-025	2910	2853 (-1.96 %, order 41)	2911 (+0.03 %)	0	
+within 2 %	austrian	/hu/en/local-page/invoice-request-hungary	390	austrian-parity (order 35)	3572	3573 (+0.03 %, order 35)	3573 (+0.03 %)	71	
+within 2 %	airdolomiti	/en/destinations/bari	390	airdolomiti-parity-001	8130	8132 (+0.02 %, order 39)	8132 (+0.02 %)	0	
+within 2 %	cargo	/de/home	390	cargo-parity-001	8486	8488 (+0.02 %, order 39)	8488 (+0.02 %)	0	
+within 2 %	airdolomiti	/flotta	1440	airdolomiti-parity-001	4289	4290 (+0.02 %, order 39)	4290 (+0.02 %)	0	
+within 2 %	airdolomiti	/en/fleet	1440	airdolomiti-parity-001	4307	4308 (+0.02 %, order 39)	4308 (+0.02 %)	0	
+within 2 %	airdolomiti	/de/flotte	1440	airdolomiti-parity-001	4423	4424 (+0.02 %, order 39)	4424 (+0.02 %)	0	
+within 2 %	austrian	/ch/it/homepage	1440	austrian-parity (order 35)	4846	4847 (+0.02 %, order 35)	4847 (+0.02 %)	0	
+within 2 %	airdolomiti	/de/reiseziele/bari-de	1440	airdolomiti-parity-004	5924	5923 (-0.02 %, order 39)	5923 (-0.02 %)	0	
+within 2 %	airdolomiti	/flotta	390	airdolomiti-parity-001	7853	7854 (+0.01 %, order 39)	7854 (+0.01 %)	0	
+within 2 %	airdolomiti	/de/flotte	390	airdolomiti-parity-001	8054	8055 (+0.01 %, order 39)	8055 (+0.01 %)	0	
+within 2 %	airdolomiti	/de/buchung	1440	airdolomiti-parity-007	1537	1537 (+0.00 %, order 39)	1537 (+0.00 %)	0	
+within 2 %	airdolomiti	/de/flugplan	1440	airdolomiti-parity-001	2005	2005 (+0.00 %, order 39)	2005 (+0.00 %)	0	
+within 2 %	airdolomiti	/en/booking	1440	airdolomiti-parity-001	1533	1533 (+0.00 %, order 39)	1533 (+0.00 %)	0	
+within 2 %	airdolomiti	/en/flight-timetables	1440	airdolomiti-parity-001	2001	2001 (+0.00 %, order 39)	2001 (+0.00 %)	0	
+within 2 %	airdolomiti	/orario-voli	1440	airdolomiti-parity-001	1991	1991 (+0.00 %, order 39)	1991 (+0.00 %)	0	
+within 2 %	airdolomiti	/prenotazioni	1440	airdolomiti-parity-001	1515	1515 (+0.00 %, order 39)	1515 (+0.00 %)	0	
+within 2 %	austrian	/at/de/book/overview-manage	390	austrian-parity (order 35)	5259	5259 (+0.00 %, order 35)	5259 (+0.00 %)	0	
+within 2 %	austrian	/at/de/book/overview-services-on-board	1440	austrian-parity (order 35)	2447	2447 (+0.00 %, order 35)	2447 (+0.00 %)	0	
+within 2 %	austrian	/at/de/footer-pages/help-and-contact/form-confirmation	1440	austrian-parity (order 35)	1257	1257 (+0.00 %, order 35)	1257 (+0.00 %)	0	
+within 2 %	cargo	/de/ci/newsroom	1440	cargo-parity-001	4430	4430 (+0.00 %, order 39)	4430 (+0.00 %)	0	
+within 2 %	cargo	/de/notification-overview	1440	cargo-parity-001	1648	1648 (+0.00 %, order 39)	1648 (+0.00 %)	0	
+within 2 %	cargo	/en/add-on-services/smartuld	390	cargo-parity-003	1120	1176 (+5.00 %, order 39)	1120 (+0.00 %)	0	
+within 2 %	cargo	/en/ci/newsroom	1440	cargo-parity-001	4430	4430 (+0.00 %, order 39)	4430 (+0.00 %)	0	
+within 2 %	cargo	/en/notification-overview	1440	cargo-parity-001	1648	1648 (+0.00 %, order 39)	1648 (+0.00 %)	0	

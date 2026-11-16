@@ -1,0 +1,1136 @@
+# ema-cashub, standing order 43, item 4 (2026-11-16): Air Dolomiti's article title from 1025 px with www's letter-spacing 3px (styles/themes/airdolomiti.css: body.brand-airdolomiti .article-header .article-header-title, 65 / 72 px as before).
+# Why: www's blog title is 6rem / 72 px with letter-spacing 3px from 930 px (its BlogLayout_title rule, airdolomiti-parity-001's CSS; every recorded article's H1 at 1440 has 3px in its measurements). Without it airports-designed-by-archistars' title fits one line on ours (1,169 px) where www's wraps to two (144 px): 72 of its -201 px at 1440 (sweep-so43-austrian-cargo-airdolomiti.txt).
+# Reach: the served Air Dolomiti copies with an article header: 564 of the 1,569 in the upload state (fetched 2026-11-16 ~03:00 CET, 1,569 x 200). Each rendered at 1440 and at 1025 px (the narrowest width the rule acts at) on airdolomiti.turnsthe.page with today's code, the rule toggled in the same load once the title was decorated and the fonts in; unhinted, consent stored; lh-proxy, www.* and every airline host refused and counted (46, none sent).
+# Read: the title's own height and lines, its right edge, the page's scroll width and the elements past the right edge (the page height is not read: the census does not wait for the rest of the page, so pictures still load; a title in the flow moves the page by its own change).
+# Gate (your condition for a shared fix): every recorded page-width closer or within 0.5 points (PASS: 4 the same, archistars closer: -4.42 -> -2.84 %; each title then has www's height), every other page-width without breakage (OK).
+# Result: 1440: 51 titles one line (72 px) longer, 513 unchanged; 1025: 72 longer, 492 unchanged; no title past the edge, no sideways scroll. 390 is not touched (the rule is in the 1025 px block).
+#
+# gate	path	width	recording	www page (title)	as served	with the rule	breakage	move
+PASS	/articoli/destinazioni/dove-ladriatico-si-fa-selvaggio	1440	airdolomiti-parity-001	4086 (title 72)	4055 (-0.76 %), title 72	4055 (-0.76 %), title 72	none	same
+PASS	/de/artikel/reiseziele/die-wilde-seite-der-adria	1440	airdolomiti-parity-001	4262 (title 144)	4231 (-0.73 %), title 144	4231 (-0.73 %), title 144	none	same
+PASS	/en/articles/destinations/street-food-in-munich	1440	airdolomiti-parity-002 (its picture 5,847 high; the recorded scrollHeight 6,173)	5847 (title 72)	5847 (+0.00 %), title 72	5847 (+0.00 %), title 72	none	same
+PASS	/en/articles/destinations/where-the-adriatic-becomes-wild	1440	airdolomiti-parity-001	4131 (title 72)	4100 (-0.75 %), title 72	4100 (-0.75 %), title 72	none	same
+PASS	/en/articles/dyk/airports-designed-by-archistars	1440	airdolomiti-parity-007	4549 (title 144)	4348 (-4.42 %), title 72	4420 (-2.84 %), title 144	none	closer
+OK	/articoli/avgeek/atterraggio-con-vento	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/atterraggio-con-vento	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/come-fatto-un-finestrino	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/articoli/avgeek/come-fatto-un-finestrino	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/come-riconoscere-i-gradi-sulle-uniformi-dei-piloti	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/articoli/avgeek/come-riconoscere-i-gradi-sulle-uniformi-dei-piloti	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/come-si-accende-un-aereo	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/come-si-accende-un-aereo	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/come-sono-fatti-i-carrelli-degli-aerei	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/come-sono-fatti-i-carrelli-degli-aerei	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/dentro-il-cockpit-di-un-aereo-air-dolomiti	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/dentro-il-cockpit-di-un-aereo-air-dolomiti	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/di-quali-materiali-e-fatto-un-aereo	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/di-quali-materiali-e-fatto-un-aereo	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/discover-embraer-e195-e-e190	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/discover-embraer-e195-e-e190	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/gli-hangar	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/gli-hangar	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/gli-pneumatici-degli-aerei	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/articoli/avgeek/gli-pneumatici-degli-aerei	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/i-circuiti-di-attesa	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/i-circuiti-di-attesa	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/i-flap	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/i-flap	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/il-ciclo-di-vita-degli-aerei	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/articoli/avgeek/il-ciclo-di-vita-degli-aerei	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/il-decollo-verticale	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/il-decollo-verticale	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/il-flight-director	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/il-flight-director	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/il-tail-number	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/il-tail-number	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/il-tubo-di-pitot	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/il-tubo-di-pitot	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/il-variometro	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/il-variometro	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/imbarco-a-sinistra	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/imbarco-a-sinistra	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/la-manutenzione-degli-aerei	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/la-manutenzione-degli-aerei	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/la-manutenzione-degli-aerei-negli-hangar-air-dolomiti	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/avgeek/la-manutenzione-degli-aerei-negli-hangar-air-dolomiti	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/la-scatola-nera	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/la-scatola-nera	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/la-segnaletica-sulle-piste-di-atterraggio	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/la-segnaletica-sulle-piste-di-atterraggio	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/la-strumentazione-bordo	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/la-strumentazione-bordo	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/let-it-snow-let-it-snow-let-it-snow-2	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/let-it-snow-let-it-snow-let-it-snow-2	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/motori-degli-aerei	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/motori-degli-aerei	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/perche-gli-aerei-possono-volare	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/perche-gli-aerei-possono-volare	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/perche-il-comandante-siede-a-sinistra	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/perche-il-comandante-siede-a-sinistra	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/pilota-automatico	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/pilota-automatico	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/plane-speaking-3	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/plane-speaking-3	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/professione-pilota-intervista-con-il-comandante-marino-palla	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/articoli/avgeek/professione-pilota-intervista-con-il-comandante-marino-palla	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/avgeek/professione-pilota-intervista-con-il-primo-ufficiale-grigory-shevandin	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/articoli/avgeek/professione-pilota-intervista-con-il-primo-ufficiale-grigory-shevandin	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/avgeek/ridondanza	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/ridondanza	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/rifornimento-in-volo	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/rifornimento-in-volo	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/roger-o-romeo	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/roger-o-romeo	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/avgeek/una-giornata-con-un-comandante-air-dolomiti	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/articoli/avgeek/una-giornata-con-un-comandante-air-dolomiti	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/vhf-omnidirectional-range-vor-2	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/avgeek/vhf-omnidirectional-range-vor-2	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/a-sud-di-bari-il-salento	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/a-sud-di-bari-il-salento	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/alla-scoperta-della-germania-fiabesca	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/alla-scoperta-della-germania-fiabesca	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/arte-contemporanea-pisa-itinerario-street-art	1025	not recorded at this width	-	title 216 (3 lines)	title 288 (4 lines, +72)	none	one line more
+OK	/articoli/destinazioni/arte-contemporanea-pisa-itinerario-street-art	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/destinazioni/bari-contemporanea-cose-da-non-perdere-art-addicted	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/articoli/destinazioni/bari-contemporanea-cose-da-non-perdere-art-addicted	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/destinazioni/biennale-arte-2019-venezia-consigli-padiglioni-da-visitare	1025	not recorded at this width	-	title 216 (3 lines)	title 288 (4 lines, +72)	none	one line more
+OK	/articoli/destinazioni/biennale-arte-2019-venezia-consigli-padiglioni-da-visitare	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/destinazioni/bologna-diversa-per-ogni-eta	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/bologna-diversa-per-ogni-eta	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/bologna-in-bicicletta-locali-negozi-vintage-street-art	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/destinazioni/bologna-in-bicicletta-locali-negozi-vintage-street-art	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/destinazioni/bologna-segreta	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/bologna-segreta	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/brindisi-per-gli-appassionati-di-storia-e-non-solo	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/destinazioni/brindisi-per-gli-appassionati-di-storia-e-non-solo	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/cosa-fare-a-francoforte-se	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/cosa-fare-a-francoforte-se	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/da-verona-a-peschiera-del-garda-in-soli-30-minuti	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/articoli/destinazioni/da-verona-a-peschiera-del-garda-in-soli-30-minuti	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/discover-monaco-di-baviera-storia-e-leggende	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/articoli/destinazioni/discover-monaco-di-baviera-storia-e-leggende	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/dove-ladriatico-si-fa-selvaggio	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/articoli/destinazioni/dove-sciare-vicino-venezia-cortina-dampezzo	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/dove-sciare-vicino-venezia-cortina-dampezzo	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/estate-sulle-alpi-calcaree-nord-tirolesi-lincredibile-zugspitze	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/destinazioni/estate-sulle-alpi-calcaree-nord-tirolesi-lincredibile-zugspitze	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/articoli/destinazioni/firenze-prato-consigli-itinerario-creativo	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/destinazioni/firenze-prato-consigli-itinerario-creativo	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/fuori-bologna-lestate-di-rimini-e-riccione	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/fuori-bologna-lestate-di-rimini-e-riccione	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/fuori-firenze-alla-scoperta-del-chianti	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/fuori-firenze-alla-scoperta-del-chianti	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/fuori-monaco-di-baviera-il-lago-di-starnberg	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/articoli/destinazioni/fuori-monaco-di-baviera-il-lago-di-starnberg	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/genova-in-tre-giorni	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/genova-in-tre-giorni	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/i-mercatini-di-natale-a-monaco-di-baviera	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/i-mercatini-di-natale-a-monaco-di-baviera	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/il-carnevale-di-venezia	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/il-carnevale-di-venezia	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/il-famoso-carillon-di-marienplatz-a-monaco-di-baviera	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/destinazioni/il-famoso-carillon-di-marienplatz-a-monaco-di-baviera	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/destinazioni/il-mainfest-di-francoforte-2025	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/articoli/destinazioni/il-mainfest-di-francoforte-2025	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/in-viaggio-con-andrea-lorenzon-alias-cartoni-morti	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/destinazioni/in-viaggio-con-andrea-lorenzon-alias-cartoni-morti	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/in-viaggio-con-mamma-tra-le-meraviglie-ditalia	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/articoli/destinazioni/in-viaggio-con-mamma-tra-le-meraviglie-ditalia	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/la-barcolana-di-trieste	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/la-barcolana-di-trieste	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/la-fiera-del-libro-di-francoforte-tutto-quello-che-ce-da-sapere-su-questa-edizione	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/articoli/destinazioni/la-fiera-del-libro-di-francoforte-tutto-quello-che-ce-da-sapere-su-questa-edizione	1440	not recorded at this width	-	title 216 (3 lines)	title 288 (4 lines, +72)	none	one line more
+OK	/articoli/destinazioni/larena-di-verona	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/larena-di-verona	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/le-migliori-ciaspolate-vicino-verona	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/le-migliori-ciaspolate-vicino-verona	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/le-piu-belle-ferrate-vicino-torino	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/le-piu-belle-ferrate-vicino-torino	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/m9-di-mestre-il-900-super-tecnologico-a-due-passi-da-venezia	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/destinazioni/m9-di-mestre-il-900-super-tecnologico-a-due-passi-da-venezia	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/destinazioni/monaco-di-baviera-insolita	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/monaco-di-baviera-insolita	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/o-zapft-is-il-nuovo-oktoberfest	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/o-zapft-is-il-nuovo-oktoberfest	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/primavera-in-sardegna-tutte-le-meraviglie-dellisola-in-questa-stagione	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/articoli/destinazioni/primavera-in-sardegna-tutte-le-meraviglie-dellisola-in-questa-stagione	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/destinazioni/stravagante-hostel-verona	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/articoli/destinazioni/stravagante-hostel-verona	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/destinazioni/street-art-monaco-di-baviera-luoghi-imperdibili	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/destinazioni/street-art-monaco-di-baviera-luoghi-imperdibili	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/articoli/destinazioni/street-food-a-monaco-di-baviera	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/street-food-a-monaco-di-baviera	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/articoli/destinazioni/torino-con-i-bambini	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/torino-con-i-bambini	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/destinazioni/torino-creativa-itinerario-arte-contemporanea	1025	not recorded at this width	-	title 288 (4 lines)	title 360 (5 lines, +72)	none	one line more
+OK	/articoli/destinazioni/torino-creativa-itinerario-arte-contemporanea	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/destinazioni/un-viaggio-tra-le-4-meraviglie-unesco-pugliesi	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/destinazioni/un-viaggio-tra-le-4-meraviglie-unesco-pugliesi	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/visitare-venezia-durante-la-mostra-del-cinema	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/destinazioni/visitare-venezia-durante-la-mostra-del-cinema	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/5-cose-che-non-sapevi-sul-pride	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/5-cose-che-non-sapevi-sul-pride	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/articoli/didyouknow/aeropittura-e-futurismo	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/aeropittura-e-futurismo	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/aeroplanini-di-carta	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/aeroplanini-di-carta	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/aeroporti-progettati-da-archistar	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/aeroporti-progettati-da-archistar	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/aforismi-e-quotes-sugli-aerei	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/aforismi-e-quotes-sugli-aerei	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/antoine-de-saint-exupery-scrittore-aviatore	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/articoli/didyouknow/antoine-de-saint-exupery-scrittore-aviatore	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/boeing-boeing-di-marc-camoletti	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/boeing-boeing-di-marc-camoletti	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/breve-storia-dei-sedili-degli-aerei	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/breve-storia-dei-sedili-degli-aerei	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/articoli/didyouknow/breve-storia-del-passaporto	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/breve-storia-del-passaporto	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/casablanca-3	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/casablanca-3	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/celebrities-aerei	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/celebrities-aerei	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/chi-ha-inventato-il-tavolino-pieghevole-dellaereo	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/didyouknow/chi-ha-inventato-il-tavolino-pieghevole-dellaereo	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/come-sara-il-viaggiatore-del-futuro	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/come-sara-il-viaggiatore-del-futuro	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/come-si-vernicia-un-aereo-e-perche-tutti-gli-aerei-sono-bianchi	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/didyouknow/come-si-vernicia-un-aereo-e-perche-tutti-gli-aerei-sono-bianchi	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/didyouknow/corridoio-o-finestrino-e-questione-di-personalita	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/articoli/didyouknow/corridoio-o-finestrino-e-questione-di-personalita	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/cosa-succede-a-chi-nasce-in-aereo	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/cosa-succede-a-chi-nasce-in-aereo	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/gita-al-museo	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/gita-al-museo	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/gli-aerei-nellarte-contemporanea	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/gli-aerei-nellarte-contemporanea	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/hollywood-insegna	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/hollywood-insegna	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/i-droni-e-la-fotografia-aerea-nel-futuro	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/i-droni-e-la-fotografia-aerea-nel-futuro	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/laereo-piu-pazzo-del-mondo	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/laereo-piu-pazzo-del-mondo	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/leonardo-da-vinci-e-le-macchine-volanti	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/leonardo-da-vinci-e-le-macchine-volanti	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/mamma-perso-laereo	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/mamma-perso-laereo	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/parti-di-aereo-trasformate-in-mobili-di-design	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/articoli/didyouknow/parti-di-aereo-trasformate-in-mobili-di-design	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/pilota-non-vedente-finalmente-si-puo-grazie-alla-tecnologia	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/didyouknow/pilota-non-vedente-finalmente-si-puo-grazie-alla-tecnologia	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/articoli/didyouknow/pride-nellarcobaleno-ce-anche-il-turchese	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/pride-nellarcobaleno-ce-anche-il-turchese	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/quanti-aerei-volano-contemporaneamente-nel-mondo	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/didyouknow/quanti-aerei-volano-contemporaneamente-nel-mondo	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/didyouknow/scie-bianche-aerei	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/scie-bianche-aerei	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/si-lo-volo	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/si-lo-volo	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/storia-della-fotografia-aerea	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/storia-della-fotografia-aerea	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/top-gun-tony-scott	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/top-gun-tony-scott	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/una-gita-al-museo-parte-ii	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/articoli/didyouknow/una-gita-al-museo-parte-ii	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/video-games-flight-simulator-2	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/didyouknow/video-games-flight-simulator-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/volo-nei-fumetti	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/didyouknow/volo-nei-fumetti	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/amalia-ercoli-finzi-madre-della-sonda-spaziale-rosetta	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/throwback/amalia-ercoli-finzi-madre-della-sonda-spaziale-rosetta	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/throwback/amelia-earhart	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/amelia-earhart	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/amy-johnson	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/amy-johnson	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/bessie-coleman	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/bessie-coleman	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/charles-lindbergh-3	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/charles-lindbergh-3	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/ellen-church	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/articoli/throwback/ellen-church	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/throwback/embraer-50o	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/embraer-50o	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/fiorenza-de-bernardi	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/fiorenza-de-bernardi	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/gabriella-gaby-angelini	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/articoli/throwback/gabriella-gaby-angelini	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/harriet-quimby	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/harriet-quimby	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/heinrich-kubis-primo-assistente-volo	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/throwback/heinrich-kubis-primo-assistente-volo	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/throwback/helene-dutrieu	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/helene-dutrieu	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/i-fratelli-montgolfier	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/i-fratelli-montgolfier	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/jacqueline-jackie-cochran	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/throwback/jacqueline-jackie-cochran	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/john-gillespie-magee-jr-aviatore-e-poeta	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/throwback/john-gillespie-magee-jr-aviatore-e-poeta	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/throwback/le-divise-degli-assistenti-volo-la-storia	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/throwback/le-divise-degli-assistenti-volo-la-storia	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/throwback/louis-bleriot	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/louis-bleriot	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/margot-duhalde-sotomayor	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/throwback/margot-duhalde-sotomayor	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/marilyn-e-gli-aerei	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/marilyn-e-gli-aerei	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/mary-chance-vanscyoc	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/mary-chance-vanscyoc	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/pan-storia-un-mito-dellaviazione	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/throwback/pan-storia-un-mito-dellaviazione	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/throwback/sarla-thakral	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/sarla-thakral	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/throwback/volo-nella-mitologia-co	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/throwback/volo-nella-mitologia-co	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/bambini-a-bordo-giochi-passatempo-e-gadget-imperdibili	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/articoli/travellers/bambini-a-bordo-giochi-passatempo-e-gadget-imperdibili	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/articoli/travellers/dedicato-a-chi-non-puo-viaggiare-con-noi	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/travellers/dedicato-a-chi-non-puo-viaggiare-con-noi	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/travellers/guida-per-passeggeri-con-esigenze-speciali	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/travellers/guida-per-passeggeri-con-esigenze-speciali	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/travellers/il-viaggiatore-buongustaio	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/travellers/il-viaggiatore-buongustaio	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/il-viaggiatore-distratto	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/il-viaggiatore-distratto	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/modalita-aereo	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/modalita-aereo	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/quando-iniziare-a-volare-i-consigli-del-pediatra	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/articoli/travellers/quando-iniziare-a-volare-i-consigli-del-pediatra	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/travellers/scegliere-bagaglio-perfetto	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/travellers/scegliere-bagaglio-perfetto	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/travellers/sos-rimedi-naturali	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/sos-rimedi-naturali	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/spiegare-il-volo-ai-bambini-attraverso-il-gioco	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/articoli/travellers/spiegare-il-volo-ai-bambini-attraverso-il-gioco	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/travellers/tipstricks-viaggiare-comodi	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/travellers/tipstricks-viaggiare-comodi	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/viaggiare-in-gruppo	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/viaggiare-in-gruppo	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/viaggiatore-esigente	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/viaggiatore-esigente	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/vincere-la-paura-di-volare	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/articoli/travellers/vincere-la-paura-di-volare	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/vita-da-blogger	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/vita-da-blogger	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/volare-completo-relax	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/articoli/travellers/volare-completo-relax	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/volare-con-le-lenti-a-contatto	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/travellers/volare-con-le-lenti-a-contatto	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/articoli/travellers/volare-gli-animali	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/volare-gli-animali	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/articoli/travellers/weekend-bagaglio-mano	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/articoli/travellers/weekend-bagaglio-mano	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/de/artikel/avgeek-de/air-dolomiti-hangars-moderne-flugzeugwartung	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/air-dolomiti-hangars-moderne-flugzeugwartung	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/avgeek-de/aus-welchen-materialien-besteht-ein-flugzeug	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/avgeek-de/aus-welchen-materialien-besteht-ein-flugzeug	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/beruf-pilot-interview-mit-kapitaen-marino-palla	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/avgeek-de/beruf-pilot-interview-mit-kapitaen-marino-palla	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/black-box	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/black-box	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/de/artikel/avgeek-de/das-automatische-bremssystem-autobrake	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/das-automatische-bremssystem-autobrake	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/das-flugzeugleitwerk	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/das-flugzeugleitwerk	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/das-luftfahrzeugkennzeichen	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/avgeek-de/das-luftfahrzeugkennzeichen	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/das-pitotrohr	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/das-pitotrohr	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/das-variometer	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/das-variometer	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/das-wunderwerk-flugzeugfahrwerk	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/das-wunderwerk-flugzeugfahrwerk	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/der-autopilot	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/der-autopilot	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/der-flight-director	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/der-flight-director	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/der-lebenszyklus-von-flugzeugen	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/der-lebenszyklus-von-flugzeugen	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/der-senkrechtstart	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/der-senkrechtstart	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/die-fluginstrumente	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/die-fluginstrumente	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/die-flugzeugbeleuchtung	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/de/artikel/avgeek-de/die-flugzeugbeleuchtung	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/die-instandhaltung-von-flugzeugen	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/die-instandhaltung-von-flugzeugen	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/die-klimatisierung-von-flugzeugen	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/die-klimatisierung-von-flugzeugen	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/die-landeklappen	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/die-landeklappen	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/die-markierungen-auf-start-und-landebahnen	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/die-markierungen-auf-start-und-landebahnen	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/die-warteschleifen	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/die-warteschleifen	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/ein-tag-an-der-seite-eines-air-dolomiti-kapitaens	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/ein-tag-an-der-seite-eines-air-dolomiti-kapitaens	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/einstieg-links	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/einstieg-links	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/entdecke-die-embraer-e195-und-e190	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/entdecke-die-embraer-e195-und-e190	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/flugzeugreifen	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/flugzeugreifen	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/flugzeugtriebwerke	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/flugzeugtriebwerke	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/hangars-2	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/hangars-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/im-cockpit-eines-air-dolomiti-flugzeugs	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/im-cockpit-eines-air-dolomiti-flugzeugs	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/landung-bei-wind	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/landung-bei-wind	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/let-it-snow-let-it-snow-let-it-snow	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/let-it-snow-let-it-snow-let-it-snow	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/luftbetankung	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/luftbetankung	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/mit-einer-keramikbeschichtung-koennte-das-hyperschallflugzeug-wirklichkeit-werden-2	1025	not recorded at this width	-	title 360 (5 lines)	title 360 (5 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/mit-einer-keramikbeschichtung-koennte-das-hyperschallflugzeug-wirklichkeit-werden-2	1440	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/plane-speaking-2	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/plane-speaking-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/redundanz	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/redundanz	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/roger-oder-romeo	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/roger-oder-romeo	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/traumberuf-pilot-interview-mit-unserem-ersten-offizier-grigory-shevandin	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/traumberuf-pilot-interview-mit-unserem-ersten-offizier-grigory-shevandin	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/vhf-omnidirectional-range-das-vor	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/vhf-omnidirectional-range-das-vor	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/warum-koennen-flugzeuge-fliegen	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/warum-koennen-flugzeuge-fliegen	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/warum-sitzt-der-flugkapitaen-links	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/warum-sitzt-der-flugkapitaen-links	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/wasserflugzeuge-und-ihre-flughaefen-geschichte-und-wissenswertes-fuer-echte-geeks	1025	not recorded at this width	-	title 288 (4 lines)	title 360 (5 lines, +72)	none	one line more
+OK	/de/artikel/avgeek-de/wasserflugzeuge-und-ihre-flughaefen-geschichte-und-wissenswertes-fuer-echte-geeks	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/wie-fliegen-aerostaten	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/wie-fliegen-aerostaten	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/wie-fliegen-hubschrauber	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/wie-fliegen-hubschrauber	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/wie-fliegt-eigentlich-ein-segelflugzeug	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/wie-fliegt-eigentlich-ein-segelflugzeug	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/wie-funktionieren-eigentlich-flugzeugtueren	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/wie-funktionieren-eigentlich-flugzeugtueren	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/wie-ist-ein-flugzeugfenster-gebaut	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/avgeek-de/wie-ist-ein-flugzeugfenster-gebaut	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/wie-man-den-dienstgrad-anhand-der-pilotenuniform-erkennt	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/wie-man-den-dienstgrad-anhand-der-pilotenuniform-erkennt	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/avgeek-de/wie-startet-man-ein-flugzeug	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/avgeek-de/wie-startet-man-ein-flugzeug	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/5-apps-fuer-aktivurlauber	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/5-apps-fuer-aktivurlauber	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/5-apps-fuer-reisende	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/5-apps-fuer-reisende	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/5-dinge-die-du-nicht-ueber-pride-wusstest	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/5-dinge-die-du-nicht-ueber-pride-wusstest	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/5-dinge-die-ihr-noch-nicht-ueber-flugzeuge-wusstet	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/did-you-know/5-dinge-die-ihr-noch-nicht-ueber-flugzeuge-wusstet	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/aeropittura-und-futurismus	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/aeropittura-und-futurismus	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/aeroporti-progettati-da-archistar-2	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/aeroporti-progettati-da-archistar-2	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/als-blinde-pilotin-werden-die-technik-machts-moeglich	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/als-blinde-pilotin-werden-die-technik-machts-moeglich	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/antoine-de-saint-exupery	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/did-you-know/antoine-de-saint-exupery	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/aphorismen-und-spruche-uber-flugzeuge	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/aphorismen-und-spruche-uber-flugzeuge	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/boeing-boeing-von-marc-camoletti	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/boeing-boeing-von-marc-camoletti	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/casablanca	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/casablanca	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/comics-und-fliegen	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/comics-und-fliegen	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/der-reisepass-ein-kurzer-historischer-ruckblick	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/der-reisepass-ein-kurzer-historischer-ruckblick	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/die-besten-memes-aus-dem-bereich-luftfahrt	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/die-besten-memes-aus-dem-bereich-luftfahrt	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/did-you-know/die-flughafencodes	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/die-flughafencodes	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/die-geschichte-der-luftbildfotografie	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/die-geschichte-der-luftbildfotografie	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/die-unglaubliche-reise-in-einem-verrueckten-flugzeug-airplane-1980	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/die-unglaubliche-reise-in-einem-verrueckten-flugzeug-airplane-1980	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/die-weissen-flugzeugstreifen-am-himmel	1025	not recorded at this width	-	title 216 (3 lines)	title 288 (4 lines, +72)	none	one line more
+OK	/de/artikel/did-you-know/die-weissen-flugzeugstreifen-am-himmel	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/did-you-know/drohnen-und-die-luftbildfotografie-der-zukunft	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/drohnen-und-die-luftbildfotografie-der-zukunft	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/did-you-know/ein-ausflug-ins-museum	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/ein-ausflug-ins-museum	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/ein-ausflug-ins-museum-teil-2	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/ein-ausflug-ins-museum-teil-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/eine-kurze-geschichte-der-flugzeugsitze	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/eine-kurze-geschichte-der-flugzeugsitze	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/fenster-oder-gang-eine-frage-der-persoenlichkeit	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/did-you-know/fenster-oder-gang-eine-frage-der-persoenlichkeit	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/flugsimulatoren	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/flugsimulatoren	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/flugzeuge-in-der-modernen-kuns	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/flugzeuge-in-der-modernen-kuns	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/flugzeugszenen-in-tv-serien	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/flugzeugszenen-in-tv-serien	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/flugzeugteile-als-designermoebel	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/flugzeugteile-als-designermoebel	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/guinness-buch-der-rekorde	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/guinness-buch-der-rekorde	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/hoer-podcasts-fuer-das-flugzeug	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/hoer-podcasts-fuer-das-flugzeug	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/de/artikel/did-you-know/hollywood-zeigt-uns-wie-es-geht	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/hollywood-zeigt-uns-wie-es-geht	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/hollywood-zeigt-wie-es-geht-terminal	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/hollywood-zeigt-wie-es-geht-terminal	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/in-den-flugzeugen-der-superreichen	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/in-den-flugzeugen-der-superreichen	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/jawort-ueber-den-wolken	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/jawort-ueber-den-wolken	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/kevin-allein-zu-haus	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/kevin-allein-zu-haus	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/leonardo-da-vinci-und-die-fluggeraete	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/leonardo-da-vinci-und-die-fluggeraete	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/lieder-zum-fliegen	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/lieder-zum-fliegen	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/luftbildfotografie-heute	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/de/artikel/did-you-know/luftbildfotografie-heute	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/nel-blu-dipinto-di-blu-oder-volare-von-domenico-modugno	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/nel-blu-dipinto-di-blu-oder-volare-von-domenico-modugno	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/papierflieger	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/papierflieger	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/pride-den-regenbogen-gibt-es-auch-in-tuerkis	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/pride-den-regenbogen-gibt-es-auch-in-tuerkis	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/prominente-flugzeuge	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/prominente-flugzeuge	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/romane-als-urlaubslektuere	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/romane-als-urlaubslektuere	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/top-gun-von-tony-scott	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/top-gun-von-tony-scott	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/warum-hat-der-steuerknueppel-auf-italienisch-eigentlich-einen-franzoesischen-namen	1025	not recorded at this width	-	title 360 (5 lines)	title 360 (5 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/warum-hat-der-steuerknueppel-auf-italienisch-eigentlich-einen-franzoesischen-namen	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/was-bedeutet-es-wenn-wir-vom-fliegen-traeumen	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/did-you-know/was-bedeutet-es-wenn-wir-vom-fliegen-traeumen	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/was-passiert-eigentlich-wenn-man-in-einem-flugzeug-geboren-wird	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/was-passiert-eigentlich-wenn-man-in-einem-flugzeug-geboren-wird	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/was-sind-planespotter	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/was-sind-planespotter	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/wenn-piloten-schreiben-drei-buchempfehlungen-fuer-flugzeugliebhaber	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/wenn-piloten-schreiben-drei-buchempfehlungen-fuer-flugzeugliebhaber	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/wer-hat-das-klapptischchen-im-flugzeug-erfunden	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/wer-hat-das-klapptischchen-im-flugzeug-erfunden	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/wer-hat-eigentlich-den-rollkoffer-erfunden	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/wer-hat-eigentlich-den-rollkoffer-erfunden	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/wie-viele-flugzeuge-sind-weltweit-eigentlich-gleichzeitig-in-der-luft	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/wie-viele-flugzeuge-sind-weltweit-eigentlich-gleichzeitig-in-der-luft	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/wie-werden-die-reisenden-der-zukunft-sein	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/did-you-know/wie-werden-die-reisenden-der-zukunft-sein	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/wie-wird-ein-flugzeug-lackiert-und-warum-sind-alle-flugzeuge-eigentlich-weiss	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/de/artikel/did-you-know/wie-wird-ein-flugzeug-lackiert-und-warum-sind-alle-flugzeuge-eigentlich-weiss	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/aarhus-das-umland	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/aarhus-das-umland	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/aperitivo-unsere-heissen-tipps-fuer-fuenf-italienische-staedte	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/aperitivo-unsere-heissen-tipps-fuer-fuenf-italienische-staedte	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/auf-entdeckungsreise-durch-das-maerchenland-deutschland	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/auf-entdeckungsreise-durch-das-maerchenland-deutschland	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/reiseziele/biennale-arte-2019-venedig	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/biennale-arte-2019-venedig	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/bologna-fahrrad	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/bologna-fahrrad	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/bologna-macht-laune-in-jedem-alter	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/bologna-macht-laune-in-jedem-alter	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/brindisi-fuer-geschichtsliebhaber-aber-nicht-nur	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/brindisi-fuer-geschichtsliebhaber-aber-nicht-nur	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/reiseziele/das-beruehmte-glockenspiel-am-muenchner-marienplatz	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/das-beruehmte-glockenspiel-am-muenchner-marienplatz	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/das-mainfest-in-frankfurt	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/de/artikel/reiseziele/das-mainfest-in-frankfurt	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/das-stravagante-hostel-verona-air-dolomiti-blog	1025	not recorded at this width	-	title 360 (5 lines)	title 360 (5 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/das-stravagante-hostel-verona-air-dolomiti-blog	1440	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/der-karneval-von-venedig	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/de/artikel/reiseziele/der-karneval-von-venedig	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/der-sardische-fruehling-alle-wunder-sardiniens-in-einer-saison	1025	not recorded at this width	-	title 216 (3 lines)	title 288 (4 lines, +72)	none	one line more
+OK	/de/artikel/reiseziele/der-sardische-fruehling-alle-wunder-sardiniens-in-einer-saison	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/die-arena-von-verona	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/die-arena-von-verona	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/die-barcolana-in-triest	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/die-barcolana-in-triest	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/die-muenchner-weihnachtsmaerkte	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/die-muenchner-weihnachtsmaerkte	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/die-schoensten-klettersteige-rund-um-turin	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/die-schoensten-klettersteige-rund-um-turin	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/die-schoensten-schneeschuhwanderungen-nahe-verona	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/die-schoensten-schneeschuhwanderungen-nahe-verona	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/die-wilde-seite-der-adria	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/reiseziele/eine-reise-zu-den-vier-unesco-welterbestaetten-in-apulien	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/eine-reise-zu-den-vier-unesco-welterbestaetten-in-apulien	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/entdecke-streetfood-in-muenchen	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/entdecke-streetfood-in-muenchen	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/frund-um-bologna-sommer-in-rimini-und-riccione	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/reiseziele/frund-um-bologna-sommer-in-rimini-und-riccione	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/geheimes-bologna	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/geheimes-bologna	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/geheimnisvolles-muenchen	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/de/artikel/reiseziele/geheimnisvolles-muenchen	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/genua-in-drei-tagen	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/genua-in-drei-tagen	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/kreative-tour-florenz-prato	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/kreative-tour-florenz-prato	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/kreatives-turin	1025	not recorded at this width	-	title 360 (5 lines)	title 360 (5 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/kreatives-turin	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/m9-museum-mestre-venedig	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/m9-museum-mestre-venedig	1440	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/mit-mama-nach-italien	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/mit-mama-nach-italien	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/muenchen-mal-anders	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/muenchen-mal-anders	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/ozapft-is-das-muenchner-oktoberfest	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/ozapft-is-das-muenchner-oktoberfest	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/reiseversicherungsschutz	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/reiseversicherungsschutz	1440	not recorded at this width	-	title 216 (3 lines)	title 288 (4 lines, +72)	none	one line more
+OK	/de/artikel/reiseziele/rund-um-muenchen-der-starnberger-see	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/rund-um-muenchen-der-starnberger-see	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/skifahren-in-der-naehe-von-venedig-cortina-dampezzo	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/skifahren-in-der-naehe-von-venedig-cortina-dampezzo	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/sommer-in-den-nordtiroler-kalkalpen-faszination-zugspitze	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/sommer-in-den-nordtiroler-kalkalpen-faszination-zugspitze	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/street-art-muenchen	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/street-art-muenchen	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/reiseziele/suedlich-von-bari-der-salento	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/suedlich-von-bari-der-salento	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/turin-mit-kindern	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/turin-mit-kindern	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/unterwegs-mit-andrea-lorenzon-entdecke-muenchen-und-frankfurt-neu	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/unterwegs-mit-andrea-lorenzon-entdecke-muenchen-und-frankfurt-neu	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/venedig-im-glanz-der-filmfestspiele	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/venedig-im-glanz-der-filmfestspiele	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/von-verona-an-den-gardasee-in-nur-30-minuten	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/von-verona-an-den-gardasee-in-nur-30-minuten	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/was-du-in-frankfurt-machen-kannst-wenn-du	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/reiseziele/was-du-in-frankfurt-machen-kannst-wenn-du	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/zauberhaftes-chianti-rund-um-florenz	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/zauberhaftes-chianti-rund-um-florenz	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/zeitgenoessische-kunst-apulien-bari	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/zeitgenoessische-kunst-apulien-bari	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/zeitgenoessische-kunst-streetart-pisa	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/reiseziele/zeitgenoessische-kunst-streetart-pisa	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/50-jahre-embraer	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/50-jahre-embraer	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/als-es-noch-kein-gps-gab	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/als-es-noch-kein-gps-gab	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/amalia-ercoli-finzi-die-mutter-der-raumsonde-rosetta	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/amalia-ercoli-finzi-die-mutter-der-raumsonde-rosetta	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/throwback-de/amelia-earhart-3	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/amelia-earhart-3	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/amy-johnson-3	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/amy-johnson-3	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/bessie-coleman-3	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/bessie-coleman-3	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/charles-lindbergh	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/charles-lindbergh	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/die-gebrueder-montgolfier	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/de/artikel/throwback-de/die-gebrueder-montgolfier	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/die-geschichte-der-flugbegleiteruniformen	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/die-geschichte-der-flugbegleiteruniformen	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/ellen-church-2	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/ellen-church-2	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/erfinder-von-flugmaschinen	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/erfinder-von-flugmaschinen	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/fiorenza-de-bernardi-3	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/fiorenza-de-bernardi-3	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/gabriella-gaby-angelini-3	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/de/artikel/throwback-de/gabriella-gaby-angelini-3	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/harriet-quimby-3	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/harriet-quimby-3	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/heinrich-kubis-der-erste-flugbegleiter	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/heinrich-kubis-der-erste-flugbegleiter	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/helene-dutrieu-3	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/helene-dutrieu-3	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/jacqueline-jackie-cochran-3	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/jacqueline-jackie-cochran-3	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/james-stewart-3	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/james-stewart-3	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/john-gillespie-magee-jr-flugpionier-und-dichter	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/john-gillespie-magee-jr-flugpionier-und-dichter	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/louis-bleriot-3	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/louis-bleriot-3	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/margot-duhalde-sotomayor-3	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/margot-duhalde-sotomayor-3	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/marilyn-und-die-flugzeuge	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/de/artikel/throwback-de/marilyn-und-die-flugzeuge	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/mary-chance-vanscyoc-3	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/mary-chance-vanscyoc-3	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/pan-geschichte-eines-mythos-der-luftfahrt	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/pan-geschichte-eines-mythos-der-luftfahrt	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/raymonde-de-laroche-3	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/raymonde-de-laroche-3	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/rosina-ferrario-3	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/rosina-ferrario-3	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/sagen-mythen-und-das-fliegen	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/sagen-mythen-und-das-fliegen	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/sarla-thakral-3	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/throwback-de/sarla-thakral-3	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/5-moeglichkeiten-beim-fliegen-eure-fertigkeiten-zu-verbessern	1025	not recorded at this width	-	title 216 (3 lines)	title 288 (4 lines, +72)	none	one line more
+OK	/de/artikel/travellers-de/5-moeglichkeiten-beim-fliegen-eure-fertigkeiten-zu-verbessern	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/travellers-de/ab-wann-kann-man-mit-saeuglingen-fliegen	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/ab-wann-kann-man-mit-saeuglingen-fliegen	1440	not recorded at this width	-	title 216 (3 lines)	title 288 (4 lines, +72)	none	one line more
+OK	/de/artikel/travellers-de/achtung-gefahrgut	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/achtung-gefahrgut	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/als-gruppe-verreisen	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/als-gruppe-verreisen	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/anspruchsvolle-reisende	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/anspruchsvolle-reisende	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/blogger-leben	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/blogger-leben	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/der-feinschmecker	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/der-feinschmecker	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/der-flugmodus	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/der-flugmodus	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/fliegen-mit-kindern	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/fliegen-mit-kindern	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/fliegen-mit-kontaktlinsen	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/de/artikel/travellers-de/fliegen-mit-kontaktlinsen	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/fliegen-spielend-erklaert-fuer-kinder	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/fliegen-spielend-erklaert-fuer-kinder	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/flugangst-ueberwinden	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/flugangst-ueberwinden	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/flughafen-muenchen-franz-josef-strauss-muc-der-fuenf-sterne-flughafen	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/flughafen-muenchen-franz-josef-strauss-muc-der-fuenf-sterne-flughafen	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/flughafen-muenchen-muc-corona-sicherheits-und-hygienemassnahmen	1025	not recorded at this width	-	title 216 (3 lines)	title 288 (4 lines, +72)	none	one line more
+OK	/de/artikel/travellers-de/flughafen-muenchen-muc-corona-sicherheits-und-hygienemassnahmen	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/fuer-alle-die-nicht-mit-uns-reisen-koennen	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/fuer-alle-die-nicht-mit-uns-reisen-koennen	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/gepack-verloren	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/gepack-verloren	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/geschaeftlich-fliegen	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/geschaeftlich-fliegen	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/haben-sie-ihren-pass-griffbereit	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/haben-sie-ihren-pass-griffbereit	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/de/artikel/travellers-de/leitfaden-fuer-barrierefreies-reisen	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/leitfaden-fuer-barrierefreies-reisen	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/mit-kindern-an-bord-spiele-zeitvertreib-und-kleine-geschenke	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/mit-kindern-an-bord-spiele-zeitvertreib-und-kleine-geschenke	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/mit-tieren-fliegen	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/mit-tieren-fliegen	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/schoenheitstipps	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/schoenheitstipps	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/sos-nuetzliche-helferlein	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/de/artikel/travellers-de/sos-nuetzliche-helferlein	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/tippstricks-fuer-bequemes-reisen	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/tippstricks-fuer-bequemes-reisen	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/de/artikel/travellers-de/tippstricks-vier-ratschlaege-die-flugs-genutzt-werden-sollten	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/tippstricks-vier-ratschlaege-die-flugs-genutzt-werden-sollten	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/de/artikel/travellers-de/vollkommen-entspannt-fliegen	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/vollkommen-entspannt-fliegen	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/de/artikel/travellers-de/weihnachten-mit-der-familie-geschenke	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/weihnachten-mit-der-familie-geschenke	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/wie-ihr-das-richtige-gepaeck-auswaehlt	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/wie-ihr-das-richtige-gepaeck-auswaehlt	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/wieder-reisen-in-zeiten-von-covid-19	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/wieder-reisen-in-zeiten-von-covid-19	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/wochenendtrip-mit-handgepaeck	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/wochenendtrip-mit-handgepaeck	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/de/artikel/travellers-de/yoga-und-achtsamkeit-beim-fliegen	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/de/artikel/travellers-de/yoga-und-achtsamkeit-beim-fliegen	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/a-day-with-an-air-dolomiti-captain	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/a-day-with-an-air-dolomiti-captain	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/aeroplane-maintenance	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/aeroplane-maintenance	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/aeroplane-tails	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/aeroplane-tails	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/air-conditioning-up-in-the-air	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/air-conditioning-up-in-the-air	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/aircraft-light	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/aircraft-light	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/aircraft-maintenance-at-air-dolomiti-hangars	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/aircraft-maintenance-at-air-dolomiti-hangars	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/aircraft-tyres	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/aircraft-tyres	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/airplanes-engines	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/airplanes-engines	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/autopilot	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/autopilot	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/boarding-the-left	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/boarding-the-left	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/ceramic-coating-could-make-the-hypersonic-plane-reality	1025	not recorded at this width	-	title 216 (3 lines)	title 288 (4 lines, +72)	none	one line more
+OK	/en/articles/avgeek-en/ceramic-coating-could-make-the-hypersonic-plane-reality	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/en/articles/avgeek-en/discover-embraer-e195-e-e190-2	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/discover-embraer-e195-e-e190-2	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/flaps	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/flaps	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/flight-instruments	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/flight-instruments	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/flight-recorder	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/avgeek-en/flight-recorder	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/hangars	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/hangars	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/holding-patterns	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/holding-patterns	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/how-do-aerostats-fly	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/how-do-aerostats-fly	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/how-do-aircraft-hold-doors-work	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/how-do-aircraft-hold-doors-work	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/how-do-gliders-fly	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/how-do-gliders-fly	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/how-do-helicopters-fly	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/how-do-helicopters-fly	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/how-do-you-start-an-aeroplane	1025	not recorded at this width	-	title 0 (0 lines)	title 0 (0 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/how-do-you-start-an-aeroplane	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/avgeek-en/how-to-recognize-the-ranks-on-pilots-uniforms	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/en/articles/avgeek-en/how-to-recognize-the-ranks-on-pilots-uniforms	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/in-flight-refuelling	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/in-flight-refuelling	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/inside-an-air-dolomiti-cockpit	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/inside-an-air-dolomiti-cockpit	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/is-plane-window-made	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/is-plane-window-made	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/let-it-snow-let-it-snow-let-it-snow-3	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/let-it-snow-let-it-snow-let-it-snow-3	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/markings-on-runways	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/markings-on-runways	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/pitot-tube	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/pitot-tube	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/plane-speaking	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/plane-speaking	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/profession-pilot-interview-with-captain-marino-palla	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/profession-pilot-interview-with-captain-marino-palla	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/redundancy	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/redundancy	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/roger-or-romeo	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/roger-or-romeo	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/seaplanes-and-seaplane-bases-history-and-geek-stuff	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/seaplanes-and-seaplane-bases-history-and-geek-stuff	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/tail-number	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/tail-number	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/the-autobrake	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/the-autobrake	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/the-flight-director	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/the-flight-director	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/the-life-of-a-pilot-interview-with-first-officer-grigory-shevandin	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/the-life-of-a-pilot-interview-with-first-officer-grigory-shevandin	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/en/articles/avgeek-en/the-lifecycle-of-aircraft	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/avgeek-en/the-lifecycle-of-aircraft	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/the-variometer	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/the-variometer	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/vertical-takeoff	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/vertical-takeoff	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/vhf-omnidirectional-range-vor	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/vhf-omnidirectional-range-vor	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/avgeek-en/what-exactly-is-aeroplane-landing-gear	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/en/articles/avgeek-en/what-exactly-is-aeroplane-landing-gear	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/what-material-is-an-aircraft-made-of	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/what-material-is-an-aircraft-made-of	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/why-can-aeroplanes-fly	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/avgeek-en/why-can-aeroplanes-fly	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/why-does-the-captain-sit-on-the-left	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/why-does-the-captain-sit-on-the-left	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/windy-landing	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/avgeek-en/windy-landing	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/a-different-bologna-for-every-age	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/a-different-bologna-for-every-age	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/a-journey-through-apulias-4-unesco-wonders	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/destinations/a-journey-through-apulias-4-unesco-wonders	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/aarhus-outside-the-city	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/aarhus-outside-the-city	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/aarhus-pronounced-aa-huhs	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/aarhus-pronounced-aa-huhs	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/destinations/biennale-arte-2019-venice	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/destinations/biennale-arte-2019-venice	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/bologna-by-bike-cafes-bars-vintage-shops-street-art	1025	not recorded at this width	-	title 216 (3 lines)	title 288 (4 lines, +72)	none	one line more
+OK	/en/articles/destinations/bologna-by-bike-cafes-bars-vintage-shops-street-art	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/destinations/brindisi-for-history-fans-among-others	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/brindisi-for-history-fans-among-others	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/contemporary-art-bari	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/en/articles/destinations/contemporary-art-bari	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/destinations/contemporary-art-pisa	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/contemporary-art-pisa	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/discover-munich-history-and-legends	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/discover-munich-history-and-legends	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/discovering-the-fairytales-of-germany	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/discovering-the-fairytales-of-germany	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/florence-prato-tips-creative-itinerary	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/destinations/florence-prato-tips-creative-itinerary	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/from-verona-to-peschiera-del-garda-in-just-30-minutes	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/destinations/from-verona-to-peschiera-del-garda-in-just-30-minutes	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/genoa-in-three-days	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/genoa-in-three-days	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/hidden-bologna	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/hidden-bologna	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/just-outside-of-munich-starnberg-lake	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/just-outside-of-munich-starnberg-lake	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/m9-in-mestre	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/en/articles/destinations/m9-in-mestre	1440	not recorded at this width	-	title 216 (3 lines)	title 288 (4 lines, +72)	none	one line more
+OK	/en/articles/destinations/mainfest-frankfurt-2025	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/mainfest-frankfurt-2025	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/on-tour-with-andrea-lorenzon-aka-cartoni-morti	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/destinations/on-tour-with-andrea-lorenzon-aka-cartoni-morti	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/outside-of-bologna-summer-in-rimini-and-riccione	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/destinations/outside-of-bologna-summer-in-rimini-and-riccione	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/outside-of-florence-discovering-chianti	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/outside-of-florence-discovering-chianti	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/ozapft-is-its-time-for-oktoberfest	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/ozapft-is-its-time-for-oktoberfest	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/south-of-bari-salento	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/south-of-bari-salento	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/spring-in-sardinia-all-the-wonders-of-the-island-during-this-season	1025	not recorded at this width	-	title 216 (3 lines)	title 288 (4 lines, +72)	none	one line more
+OK	/en/articles/destinations/spring-in-sardinia-all-the-wonders-of-the-island-during-this-season	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/destinations/stravagante-hostel-verona-air-dolomiti-blog	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/en/articles/destinations/stravagante-hostel-verona-air-dolomiti-blog	1440	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/en/articles/destinations/street-art-munich-must-see-places	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/en/articles/destinations/street-art-munich-must-see-places	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/street-food-in-munich	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/summer-in-the-north-tyrol-limestone-alps-the-incredible-zugspitze	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/destinations/summer-in-the-north-tyrol-limestone-alps-the-incredible-zugspitze	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/destinations/the-barcolana-in-trieste	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/the-barcolana-in-trieste	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/the-best-snowshoeing-near-verona	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/the-best-snowshoeing-near-verona	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/the-christmas-markets-of-munich	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/the-christmas-markets-of-munich	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/the-frankfurt-book-fair-everything-you-need-to-know-about-this-years-fair	1025	not recorded at this width	-	title 288 (4 lines)	title 288 (4 lines, +0)	none	no change
+OK	/en/articles/destinations/the-frankfurt-book-fair-everything-you-need-to-know-about-this-years-fair	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/destinations/the-italian-aperitivo-where-to-whet-your-appetite	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/destinations/the-italian-aperitivo-where-to-whet-your-appetite	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/the-mechanical-clock-in-munichs-marienplatz	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/the-mechanical-clock-in-munichs-marienplatz	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/the-most-beautiful-via-ferratas-near-turin	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/the-most-beautiful-via-ferratas-near-turin	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/the-verona-arena	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/the-verona-arena	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/travel-insurance-policy	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/travel-insurance-policy	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/travel-with-your-mum-through-the-wonders-of-italy	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/destinations/travel-with-your-mum-through-the-wonders-of-italy	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/turin-creative-itinerary-contemporary-art	1025	not recorded at this width	-	title 216 (3 lines)	title 288 (4 lines, +72)	none	one line more
+OK	/en/articles/destinations/turin-creative-itinerary-contemporary-art	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/destinations/turin-with-kids	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/turin-with-kids	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/venice-carnival	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/venice-carnival	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/visit-venice-during-the-film-festival	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/visit-venice-during-the-film-festival	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/weird-and-wonderful-munich	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/weird-and-wonderful-munich	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/what-to-do-in-frankfurt-if	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/what-to-do-in-frankfurt-if	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/where-the-adriatic-becomes-wild	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/destinations/where-to-ski-near-venice-cortina-dampezzo	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/destinations/where-to-ski-near-venice-cortina-dampezzo	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/5-apps-for-travellers	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/5-apps-for-travellers	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/5-things-you-didnt-know-about-pride	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/5-things-you-didnt-know-about-pride	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/a-brief-history-of-aircraft-seats	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/a-brief-history-of-aircraft-seats	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/dyk/a-short-history-of-the-passport	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/a-short-history-of-the-passport	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/dyk/a-trip-to-the-museum-part-ii	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/dyk/a-trip-to-the-museum-part-ii	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/aerial-photography-today	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/aerial-photography-today	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/aeropainting-and-futurism	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/aeropainting-and-futurism	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/aeroplanes-in-contemporary-art	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/aeroplanes-in-contemporary-art	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/aircraft-parts-transformed-into-designer-furniture	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/dyk/aircraft-parts-transformed-into-designer-furniture	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/airplane-1980	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/airplane-1980	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/airport-codes	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/airport-codes	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/airports-designed-by-archistars	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/aisle-or-window-its-a-question-of-personality	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/en/articles/dyk/aisle-or-window-its-a-question-of-personality	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/antoine-de-saint-exupery-writer-aviator	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/en/articles/dyk/antoine-de-saint-exupery-writer-aviator	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/aviators-and-writers-of-the-past-3-books-for-aeroplane-lovers	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/dyk/aviators-and-writers-of-the-past-3-books-for-aeroplane-lovers	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/en/articles/dyk/blind-pilot-finally-possible-thanks-to-technology	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/dyk/blind-pilot-finally-possible-thanks-to-technology	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/born-on-an-aeroplane	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/born-on-an-aeroplane	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/casablanca-2	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/casablanca-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/celebrities-airplanes	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/celebrities-airplanes	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/chi-ha-inventato-il-tavolino-pieghevole-dellaereo-2	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/chi-ha-inventato-il-tavolino-pieghevole-dellaereo-2	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/contrails-of-airplanes	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/contrails-of-airplanes	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/drones-and-the-future-of-aerial-photography	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/drones-and-the-future-of-aerial-photography	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/five-apps-for-sports-travellers	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/five-apps-for-sports-travellers	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/dyk/five-things-you-didnt-know-about-aeroplanes	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/five-things-you-didnt-know-about-aeroplanes	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/flight-comics	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/flight-comics	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/guinness-world-record	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/guinness-world-record	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/history-of-aerial-photography	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/history-of-aerial-photography	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/dyk/home-alone	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/home-alone	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/how-many-aeroplanes-head-for-the-skies-each-day-around-the-world	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/dyk/how-many-aeroplanes-head-for-the-skies-each-day-around-the-world	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/dyk/how-to-paint-an-aeroplane	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/dyk/how-to-paint-an-aeroplane	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/en/articles/dyk/how-will-the-future-traveller-be	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/how-will-the-future-traveller-be	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/inside-the-aeroplanes-of-the-super-rich	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/inside-the-aeroplanes-of-the-super-rich	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/interpreting-dreams-flight	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/interpreting-dreams-flight	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/it-makes-me-fly-the-best-aviation-memes	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/it-makes-me-fly-the-best-aviation-memes	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/leonardo-da-vinci-and-the-flying-machines	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/leonardo-da-vinci-and-the-flying-machines	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/lessons-from-hollywood-the-terminal	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/en/articles/dyk/lessons-from-hollywood-the-terminal	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/marc-camolettis-boeing-boeing	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/marc-camolettis-boeing-boeing	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/dyk/nel-blu-dipinto-di-blu-or-volare-by-domenico-modugno	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/dyk/nel-blu-dipinto-di-blu-or-volare-by-domenico-modugno	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/en/articles/dyk/novels-to-take-on-holiday	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/dyk/novels-to-take-on-holiday	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/paper-aeroplanes	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/paper-aeroplanes	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/podcasts-to-listen-to-while-on-the-plane	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/podcasts-to-listen-to-while-on-the-plane	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/pride-theres-a-touch-of-turquoise-in-the-rainbow-too	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/dyk/pride-theres-a-touch-of-turquoise-in-the-rainbow-too	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/quotes-on-aeroplanes	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/quotes-on-aeroplanes	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/saying-do-cloud-nine	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/saying-do-cloud-nine	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/scenes-set-on-aeroplanes-in-tv-series	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/scenes-set-on-aeroplanes-in-tv-series	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/singing-the-air	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/singing-the-air	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/top-gun-by-tony-scott	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/top-gun-by-tony-scott	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/trip-to-the-museum	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/trip-to-the-museum	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/up-in-the-air	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/en/articles/dyk/up-in-the-air	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/video-games-flight-simulator	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/dyk/video-games-flight-simulator	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/who-are-plane-spotters	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/who-are-plane-spotters	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/who-invented-the-trolley	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/dyk/who-invented-the-trolley	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/dyk/why-is-the-command-bar-called-the-cloche-in-italian	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/dyk/why-is-the-command-bar-called-the-cloche-in-italian	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/en/articles/throwback-en/amalia-ercoli-finzi-mother-of-the-rosetta-space-probe	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/throwback-en/amalia-ercoli-finzi-mother-of-the-rosetta-space-probe	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/throwback-en/amelia-earhart-2	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/amelia-earhart-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/amy-johnson-2	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/amy-johnson-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/before-gps	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/before-gps	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/bessie-coleman-2	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/bessie-coleman-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/charles-lindbergh-2	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/charles-lindbergh-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/ellen-church-3	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/throwback-en/ellen-church-3	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/throwback-en/embraer-50o-2	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/embraer-50o-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/fiorenza-de-bernardi-2	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/fiorenza-de-bernardi-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/gabriella-gaby-angelini-2	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/throwback-en/gabriella-gaby-angelini-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/harriet-quimby-2	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/harriet-quimby-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/heinrich-kubis-the-first-flight-attendant	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/throwback-en/heinrich-kubis-the-first-flight-attendant	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/throwback-en/helene-dutrieu-2	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/helene-dutrieu-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/inventors-of-flying-machines	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/throwback-en/inventors-of-flying-machines	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/jacqueline-jackie-cochran-2	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/throwback-en/jacqueline-jackie-cochran-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/james-stewart-2	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/james-stewart-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/jjohn-gillespie-magee-jr-aviator-and-poet	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/throwback-en/jjohn-gillespie-magee-jr-aviator-and-poet	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/throwback-en/louis-bleriot-2	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/louis-bleriot-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/margot-duhalde-sotomayor-2	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/throwback-en/margot-duhalde-sotomayor-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/marilyn-and-the-aeroplanes	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/throwback-en/marilyn-and-the-aeroplanes	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/mary-chance-vanscyoc-2	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/mary-chance-vanscyoc-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/mythology-of-flight	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/mythology-of-flight	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/pan-story-of-myth-of-aviation	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/throwback-en/pan-story-of-myth-of-aviation	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/throwback-en/raymonde-de-laroche-2	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/throwback-en/raymonde-de-laroche-2	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/throwback-en/rosina-ferrario-2	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/rosina-ferrario-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/sarla-thakral-2	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/sarla-thakral-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/throwback-en/the-history-of-flight-attendants-uniforms	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/throwback-en/the-history-of-flight-attendants-uniforms	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/throwback-en/the-montgolfier-brothers	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/throwback-en/the-montgolfier-brothers	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/5-app-per-chi-viaggia-2	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/5-app-per-chi-viaggia-2	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/5-ways-to-improve-your-skills-while-flying	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/5-ways-to-improve-your-skills-while-flying	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/a-bloggers-life	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/a-bloggers-life	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/aeroplane-mode	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/aeroplane-mode	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/beauty-tips	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/beauty-tips	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/business-travel	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/business-travel	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/children-on-board-games-entertainment-and-unmissable-gadgets	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/travellers-en/children-on-board-games-entertainment-and-unmissable-gadgets	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/travellers-en/christmas-with-your-family-presents	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/christmas-with-your-family-presents	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/completely-relaxed-while-flying	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/completely-relaxed-while-flying	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/travellers-en/dedicated-to-all-those-who-cannot-travel-with-us	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/travellers-en/dedicated-to-all-those-who-cannot-travel-with-us	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/demanding-traveller	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/demanding-traveller	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/explaining-flight-to-children-through-games	1025	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/en/articles/travellers-en/explaining-flight-to-children-through-games	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/flying-with-children	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/flying-with-children	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/flying-with-contact-lenses	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/flying-with-contact-lenses	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/foodie-traveller	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/foodie-traveller	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/franz-josef-strauss-international-airport-muc-a-5-star-airport	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/travellers-en/franz-josef-strauss-international-airport-muc-a-5-star-airport	1440	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/travellers-en/getting-back-to-travelling-during-covid-19	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/travellers-en/getting-back-to-travelling-during-covid-19	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/group-travelling	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/group-travelling	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/guide-for-passengers-requiring-additional-assistance	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/travellers-en/guide-for-passengers-requiring-additional-assistance	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/en/articles/travellers-en/lost-luggage	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/lost-luggage	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/munich-airport-muc-covid-19-health-and-safety-precautions	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/travellers-en/munich-airport-muc-covid-19-health-and-safety-precautions	1440	not recorded at this width	-	title 144 (2 lines)	title 216 (3 lines, +72)	none	one line more
+OK	/en/articles/travellers-en/natural-remedies-sos	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/natural-remedies-sos	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/never-on-board	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/never-on-board	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/overcoming-the-fear-of-flying	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/overcoming-the-fear-of-flying	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/travellers-en/the-distracted-traveller	1025	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/travellers-en/the-distracted-traveller	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/tipstricks-4-opportunities-you-should-seize-the-fly	1025	not recorded at this width	-	title 216 (3 lines)	title 216 (3 lines, +0)	none	no change
+OK	/en/articles/travellers-en/tipstricks-4-opportunities-you-should-seize-the-fly	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/tipstricks-for-comfortable-trip-2	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/tipstricks-for-comfortable-trip-2	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/to-choose-the-perfect-bag	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/to-choose-the-perfect-bag	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more
+OK	/en/articles/travellers-en/travelling-with-pets	1025	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/travelling-with-pets	1440	not recorded at this width	-	title 72 (1 lines)	title 72 (1 lines, +0)	none	no change
+OK	/en/articles/travellers-en/weekend-hand-luggage	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/weekend-hand-luggage	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/when-to-start-flying-a-paediatricians-advice	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/when-to-start-flying-a-paediatricians-advice	1440	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/yoga-and-mindfulness-in-the-air	1025	not recorded at this width	-	title 144 (2 lines)	title 144 (2 lines, +0)	none	no change
+OK	/en/articles/travellers-en/yoga-and-mindfulness-in-the-air	1440	not recorded at this width	-	title 72 (1 lines)	title 144 (2 lines, +72)	none	one line more

@@ -1,0 +1,51 @@
+# ema-cashub, standing order 43, item 1 (2026-11-16): the 44 recorded Cargo phone loads as served on cargo.turnsthe.page after 1eca24c8 (the 20 px section gap below 1025 px, Theme wide-gaps keeps 48 px; www's CF8 split) went live (~01:57 CET), measured ~02:00 CET, before this order's list-end rule (9296265a, ~02:24 CET; its own moves are in gate-so43-cargo-list-end.txt and the sweep).
+# Each page a fresh load at 390 x 844, height read once stable (3 equal reads a second apart); unhinted, CONSENT=1; lh-proxy, www.* but www.mynewsdesk.com and every airline host refused and counted: 0. The live theme checked first (styles/themes/cargo.css served with the rule).
+# Gate figures: gate-so42-cargo-section-gap.txt's "with the rule and the rows" column.
+# Result: 42 of 44 as gated to the px, and en eservices-app at its row's figure (3,092); /en/meta/meta/company/general-terms1 +16 px (note). Within 2 % of www: 36 of 44.
+# Not in the 44 (asked): /en/industries-healthcare 390 3,814 (as drafted, footer 3,254, nothing wider than the screen); /en/eservices-app 1440 3,338 (as drafted).
+#
+# reads	path	width	recording	www page	gate (with the rule and the rows)	as served	footer top	section gap	scroll width	note
+as gated	/de/ci/facts-figures	390	cargo-parity-001 (first load)	12482	12774 (+2.34 %)	12774 (+2.34 %)	12174	20px	390	
+as gated	/de/ci/newsroom	390	cargo-parity-001 (first load)	10670	10678 (+0.07 %)	10678 (+0.07 %)	10078	20px	390	
+as gated	/de/ci/sustainable-development-goals	390	cargo-parity-001 (first load)	1870	1862 (-0.43 %)	1862 (-0.43 %)	1262	20px	390	
+as gated	/de/ci/whats-up-now	390	cargo-parity-001 (first load)	2713	2712 (-0.04 %)	2712 (-0.04 %)	2112	20px	390	
+as gated	/de/ebooking-info	390	cargo-parity-001 (first load)	5688	5719 (+0.55 %)	5719 (+0.55 %)	5119	20px	390	
+as gated	/de/eservices-app	390	cargo-parity-005 (first load, less the 80 px notice)	3142	3247 (+3.34 %)	3247 (+3.34 %)	2647	20px	390	
+as gated	/de/fleet-ulds/fleet	390	cargo-parity-001 (first load)	3918	3934 (+0.41 %)	3934 (+0.41 %)	3334	20px	390	
+as gated	/de/home	390	cargo-parity-001 (the 1440 load resized: a pointer)	8486	8488 (+0.02 %)	8488 (+0.02 %)	7888	20px	390	
+as gated	/de/industries-in-focus	390	cargo-parity-001 (first load)	5434	5424 (-0.18 %)	5424 (-0.18 %)	4824	48px	390	
+as gated	/de/news/142-arktische-temperaturen-an-bord	390	cargo-parity-001 (the 1440 load resized: a pointer)	8856	9001 (+1.64 %)	9001 (+1.64 %)	8401	20px	390	
+as gated	/de/notification-overview	390	cargo-parity-001 (first load)	1355	1358 (+0.22 %)	1358 (+0.22 %)	758	20px	390	
+as gated	/de/support-and-contact	390	cargo-parity-001 (first load)	3105	3076 (-0.93 %)	3076 (-0.93 %)	2476	20px	390	
+as gated	/de/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	390	cargo-parity-001 (first load)	3105	3076 (-0.93 %)	3076 (-0.93 %)	2476	20px	390	
+as gated	/en/active-temp-control	390	cargo-parity-003 (the 1440 load resized: a pointer)	1242	1246 (+0.32 %)	1246 (+0.32 %)	686	20px	390	
+as gated	/en/add-on-services/smartuld	390	cargo-parity-003 (the 1440 load resized: a pointer)	1120	1120 (+0.00 %)	1120 (+0.00 %)	560	20px	390	
+as gated	/en/airmail	390	cargo-parity-003 (the 1440 load resized: a pointer)	1266	1270 (+0.32 %)	1270 (+0.32 %)	710	20px	390	
+as gated	/en/ci/facts-figures	390	cargo-parity-002 (first load)	11916	12163 (+2.07 %)	12163 (+2.07 %)	11603	20px	390	
+as gated	/en/ci/newsroom	390	cargo-parity-001 (first load)	10631	10615 (-0.15 %)	10615 (-0.15 %)	10055	20px	390	
+as gated	/en/ci/partnerships-subsidiaries	390	cargo-parity-003 (the 1440 load resized: a pointer)	2781	2659 (-4.39 %)	2659 (-4.39 %)	2099	20px	390	
+as gated	/en/ci/sustainable-development-goals	390	cargo-parity-001 (first load)	1735	1742 (+0.40 %)	1742 (+0.40 %)	1182	48px	390	
+as gated	/en/ci/whats-up-now	390	cargo-parity-001 (first load)	2674	2672 (-0.07 %)	2672 (-0.07 %)	2112	20px	390	
+as gated	/en/dangerous-goods	390	cargo-parity-003 (the 1440 load resized: a pointer)	1242	1246 (+0.32 %)	1246 (+0.32 %)	686	20px	390	
+as gated	/en/data-protection-notice-google-analytics	390	cargo-parity-003 (the 1440 load resized: a pointer)	1120	844 (-24.64 %)	844 (-24.64 %)	178	20px	390	
+as gated	/en/eaw	390	cargo-parity-003 (the 1440 load resized: a pointer)	2236	2188 (-2.15 %)	2188 (-2.15 %)	1628	48px	390	
+as gated	/en/ebooking-info	390	cargo-parity-001 (first load)	5393	5413 (+0.37 %)	5413 (+0.37 %)	4853	20px	390	
+as gated	/en/ecsd	390	cargo-parity-003 (the 1440 load resized: a pointer)	1751	1770 (+1.09 %)	1770 (+1.09 %)	1210	48px	390	
+as gated	/en/ehm	390	cargo-parity-003 (the 1440 load resized: a pointer)	1578	1561 (-1.08 %)	1561 (-1.08 %)	1001	20px	390	
+as gated	/en/emergency	390	cargo-parity-003 (the 1440 load resized: a pointer)	1186	1192 (+0.51 %)	1192 (+0.51 %)	632	20px	390	
+as gated	/en/eservices-app	390	cargo-parity-006 (first load, less the 80 px notice)	3043	3092 (+1.61 %)	3092 (+1.61 %)	2532	20px	390	the gate list's 3,144 was before order 42's eservices-app row; that row's figure is 3,092 (delta-so42-cargo-eservices-app.txt)
+as gated	/en/eservices/efreight	390	cargo-parity-003 (the 1440 load resized: a pointer)	1522	1529 (+0.46 %)	1529 (+0.46 %)	969	20px	390	
+as gated	/en/fleet-ulds/fleet	390	cargo-parity-001 (first load)	3841	3846 (+0.13 %)	3846 (+0.13 %)	3286	20px	390	
+as gated	/en/fleet-ulds/ulds/containers	390	cargo-parity-003 (the 1440 load resized: a pointer)	2314	2288 (-1.12 %)	2288 (-1.12 %)	1728	20px	390	
+as gated	/en/footer/bottomnav/terms-of-use	390	cargo-parity-003 (the 1440 load resized: a pointer)	4780	5414 (+13.26 %)	5414 (+13.26 %)	4854	20px	390	
+as gated	/en/general-cargo	390	cargo-parity-003 (the 1440 load resized: a pointer)	1242	1246 (+0.32 %)	1246 (+0.32 %)	686	20px	390	
+as gated	/en/home	390	cargo-parity-001 (the 1440 load resized: a pointer)	8389	8366 (-0.27 %)	8366 (-0.27 %)	7806	20px	390	
+as gated	/en/industries-in-focus	390	cargo-parity-001 (first load)	5347	5288 (-1.10 %)	5288 (-1.10 %)	4728	48px	390	
+as gated	/en/live-animals	390	cargo-parity-003 (the 1440 load resized: a pointer)	1742	1810 (+3.90 %)	1810 (+3.90 %)	1250	20px	390	
++16 px	/en/meta/meta/company/general-terms1	390	cargo-parity-003 (the 1440 load resized: a pointer)	1498	1470 (-1.87 %)	1486 (-0.80 %)	926	48px	390	+16 px in its Columns Media block since order 42 read it; not the gap rule (in the same load the body without wide-gaps gives 1,458, the rule's 28 px as gated, and without the legal class 1,486); the same document, nav and footer as on 15 November; not traced further. Closer to www.
+as gated	/en/news/142-arctic-temperatures-on-board	390	cargo-parity-001 (the 1440 load resized: a pointer)	8389	8473 (+1.00 %)	8473 (+1.00 %)	7913	20px	390	
+as gated	/en/notification-overview	390	cargo-parity-001 (first load)	1316	1318 (+0.15 %)	1318 (+0.15 %)	758	20px	390	
+as gated	/en/onerecord	390	cargo-parity-003 (the 1440 load resized: a pointer)	5081	5108 (+0.53 %)	5108 (+0.53 %)	4548	48px	390	
+as gated	/en/speed-zoom	390	cargo-parity-006 (first load, less the 80 px notice)	1162	1168 (+0.52 %)	1168 (+0.52 %)	608	20px	390	
+as gated	/en/support-and-contact	390	cargo-parity-001 (first load)	3066	3036 (-0.98 %)	3036 (-0.98 %)	2476	20px	390	
+as gated	/en/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	390	cargo-parity-001 (first load)	3066	3036 (-0.98 %)	3036 (-0.98 %)	2476	20px	390	
