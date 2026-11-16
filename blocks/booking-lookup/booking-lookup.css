@@ -648,3 +648,41 @@ body.brand-cargo main .cards-icon-wrapper:has(> .cards-icon.widget) + .booking-l
   }
 }
 /* stylelint-enable no-descending-specificity */
+
+/* Lufthansa Cargo's homepage widget from 1025px (standing order 55, places 195 / 198): www's Booking tab in two rows
+   under a rule (cargo-parity-001, en-home-1440.png: the rule at 705, the air waybill's underline at 775, the box's
+   end at 808). The intro's "Create booking" alone in the first row, 31px over the rule; the air waybill form 12px
+   under it with the dashboard link after its button; the box 9px under the fields' message space */
+@media (width >= 1025px) {
+  body.brand-cargo main .cards-icon-wrapper:has(> .cards-icon.widget) + .booking-lookup-wrapper > .booking-lookup.tracking {
+    padding-bottom: 9px;
+  }
+
+  body.brand-cargo main .cards-icon-wrapper:has(> .cards-icon.widget) + .booking-lookup-wrapper > .booking-lookup.tracking > .booking-lookup-panel:not([hidden]) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0 20px;
+  }
+
+  body.brand-cargo main .cards-icon-wrapper:has(> .cards-icon.widget) + .booking-lookup-wrapper > .booking-lookup.tracking .booking-lookup-intro {
+    display: contents;
+  }
+
+  body.brand-cargo main .cards-icon-wrapper:has(> .cards-icon.widget) + .booking-lookup-wrapper > .booking-lookup.tracking .booking-lookup-intro > p.button-wrapper {
+    box-sizing: border-box;
+    flex: 0 0 calc(100% + 48px);
+    margin: 0 -24px 12px;
+    padding: 0 24px 31px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  body.brand-cargo main .cards-icon-wrapper:has(> .cards-icon.widget) + .booking-lookup-wrapper > .booking-lookup.tracking .booking-lookup-intro > p.link-wrapper {
+    order: 1;
+    margin: 17px 0 0;
+  }
+
+  body.brand-cargo main .cards-icon-wrapper:has(> .cards-icon.widget) + .booking-lookup-wrapper > .booking-lookup.tracking .booking-lookup-tracking-form {
+    flex: 0 0 640px;
+  }
+}
