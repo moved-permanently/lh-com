@@ -1,0 +1,72 @@
+# ema-test, standing order 36 (2026-11-16): lufthansa.com rows and Columns Media rules. Gate: html-folder renders of the published copy (base) and with the row or rule (trial), on main's code, full Chrome, the drops' fonts, live boxes masked, against lh-parity-002 (2026-11-06); ours vs www mismatch %.
+# Data: delta-so36-lh-com-rows.json (READY rows only); text-inserts-apply --check on DA's copy (read 2026-11-16 ~01:20 UTC, the same bytes as at ~00:50): 2 inserted, DA byte for byte without them.
+# Each line: READY / HOLD, DA path, the change, 1440 and 390 (base -> trial), the gate.
+READY	/de/en/discover-lufthansa/lufthansa-fleet/351	sections 3 and 5 (column-view, grey) get gap-after-small (style "column-view, grey, gap-after-small"): www's grey bands stand 24 px closer to the next section from about y 2,960 at 1440 (ema-adobe's hand-over)	1440 14.24 -> 11.76 %, 390 15.53 -> 13.68 %	closer at both
+# Notes:
+# - A general rule (a padded section after a grey column-view, 24 px less from 768 px; 255 documents) failed its gate: lufthansa-travel-classes / reiseklassen +4.36, onboard-delights +5.07, entry-exit-system +3.55, boeing787 +1.85 to +2.35, premium-economy +1.85 points further. Hence the style row, as gap-after-small's other pages (order 33).
+# - Left on fleet/351 at 1440: the seat-map picture stands 32 px lower under its H3 (www 25 px, ours 57): a carousel-lightbox wrapper sits between the H3's wrapper and the picture's; not changed tonight.
+# - Columns Media rules shipped with this list's commit (no rows; blocks/columns-media/columns-media.css, test/lh-com-teasers-steps-so36.test.mjs):
+#   a. icon teasers, from 768 px: copytext-medium text 22 px above its link (www's text to "Further questions" about 48 px, ours 76). /de/en/advance-seat-reservations-terms-and-conditions 1440 12.18 -> 6.23 %, 390 5.52 -> 5.52 % (phones keep www's 50 px). Its census: 16 documents, 1 recorded (this one, both widths); the 15 unrecorded ones, with/without in the same load at 1440 and 390:
+#   /at/de/sitzplatzreservierungen-konditionen 1440: 1705 -> 1649 px (-56), 4 matched, nothing else changed
+#   /de/de/sitzplatzreservierungen-konditionen 1440: 1705 -> 1649 px (-56), 4 matched, nothing else changed
+#   /fr/fr/advance-seat-reservations-terms-and-conditions 1440: 1785 -> 1729 px (-56), 4 matched, nothing else changed
+#   /gb/en/advance-seat-reservations-terms-and-conditions 1440: 1681 -> 1625 px (-56), 4 matched, nothing else changed
+#   /xx/el/advance-seat-reservations-terms-and-conditions 1440: 1731 -> 1675 px (-56), 4 matched, nothing else changed
+#   /xx/es/advance-seat-reservations-terms-and-conditions 1440: 1731 -> 1675 px (-56), 4 matched, nothing else changed
+#   /xx/fr/advance-seat-reservations-terms-and-conditions 1440: 1785 -> 1729 px (-56), 4 matched, nothing else changed
+#   /xx/hk/advance-seat-reservations-terms-and-conditions 1440: 1568 -> 1512 px (-56), 4 matched, nothing else changed
+#   /xx/it/advance-seat-reservations-terms-and-conditions 1440: 1731 -> 1675 px (-56), 4 matched, nothing else changed
+#   /xx/ja/advance-seat-reservations-terms-and-conditions 1440: 1616 -> 1560 px (-56), 4 matched, nothing else changed
+#   /xx/ko/advance-seat-reservations-terms-and-conditions 1440: 1616 -> 1560 px (-56), 4 matched, nothing else changed
+#   /xx/pl/advance-seat-reservations-terms-and-conditions 1440: 1784 -> 1728 px (-56), 4 matched, nothing else changed
+#   /xx/pt/advance-seat-reservations-terms-and-conditions 1440: 1731 -> 1675 px (-56), 4 matched, nothing else changed
+#   /xx/ru/advance-seat-reservations-terms-and-conditions 1440: 1782 -> 1726 px (-56), 4 matched, nothing else changed
+#   /xx/zh/advance-seat-reservations-terms-and-conditions 1440: 1568 -> 1512 px (-56), 4 matched, nothing else changed
+#   /at/de/sitzplatzreservierungen-konditionen 390: 2768 -> 2768 px (+0), 4 matched, nothing else changed
+#   /de/de/sitzplatzreservierungen-konditionen 390: 2768 -> 2768 px (+0), 4 matched, nothing else changed
+#   /fr/fr/advance-seat-reservations-terms-and-conditions 390: 2847 -> 2847 px (+0), 4 matched, nothing else changed
+#   /gb/en/advance-seat-reservations-terms-and-conditions 390: 2534 -> 2534 px (+0), 4 matched, nothing else changed
+#   /xx/el/advance-seat-reservations-terms-and-conditions 390: 2758 -> 2758 px (+0), 4 matched, nothing else changed
+#   /xx/es/advance-seat-reservations-terms-and-conditions 390: 2758 -> 2758 px (+0), 4 matched, nothing else changed
+#   /xx/fr/advance-seat-reservations-terms-and-conditions 390: 2807 -> 2807 px (+0), 4 matched, nothing else changed
+#   /xx/hk/advance-seat-reservations-terms-and-conditions 390: 2098 -> 2098 px (+0), 4 matched, nothing else changed
+#   /xx/it/advance-seat-reservations-terms-and-conditions 390: 2758 -> 2758 px (+0), 4 matched, nothing else changed
+#   /xx/ja/advance-seat-reservations-terms-and-conditions 390: 2260 -> 2260 px (+0), 4 matched, nothing else changed
+#   /xx/ko/advance-seat-reservations-terms-and-conditions 390: 2214 -> 2214 px (+0), 4 matched, nothing else changed
+#   /xx/pl/advance-seat-reservations-terms-and-conditions 390: 2795 -> 2795 px (+0), 4 matched, nothing else changed
+#   /xx/pt/advance-seat-reservations-terms-and-conditions 390: 2762 -> 2762 px (+0), 4 matched, nothing else changed
+#   /xx/ru/advance-seat-reservations-terms-and-conditions 390: 2935 -> 2935 px (+0), 4 matched, nothing else changed
+#   /xx/zh/advance-seat-reservations-terms-and-conditions 390: 2125 -> 2125 px (+0), 4 matched, nothing else changed
+#   b. numbered steps (a text cell opening with its number as a heading-large H3 over an H2): the number 8 px further from its heading, a numbered row 14 px (phones) / 41 px (from 768 px) further from the row before (www about 37 px more between a picture and the next number, 8 px between the number and its heading). /de/en/farealert/best-price-alert 1440 11.37 -> 3.57 %, 390 12.77 -> 7.79 %. Census: 15 documents, 1 recorded; the 14 unrecorded ones:
+#   /at/de/farealert/best-price-alert 1440: 3873 -> 3971 px (+98), 4 matched, nothing else changed
+#   /de/de/farealert/best-price-alert 1440: 3873 -> 3971 px (+98), 4 matched, nothing else changed
+#   /gb/en/farealert/best-price-alert 1440: 3811 -> 3901 px (+90), 4 matched, nothing else changed
+#   /xx/el/farealert/best-price-alert 1440: 4346 -> 4444 px (+98), 4 matched, nothing else changed
+#   /xx/es/farealert/best-price-alert 1440: 3886 -> 3984 px (+98), 4 matched, nothing else changed
+#   /xx/fr/farealert/best-price-alert 1440: 3846 -> 3944 px (+98), 4 matched, nothing else changed
+#   /xx/hk/farealert/best-price-alert 1440: 4176 -> 4266 px (+90), 4 matched, nothing else changed
+#   /xx/it/farealert/best-price-alert 1440: 4306 -> 4404 px (+98), 4 matched, nothing else changed
+#   /xx/ja/farealert/best-price-alert 1440: 4176 -> 4266 px (+90), 4 matched, nothing else changed
+#   /xx/ko/farealert/best-price-alert 1440: 4176 -> 4266 px (+90), 4 matched, nothing else changed
+#   /xx/pl/farealert/best-price-alert 1440: 4346 -> 4444 px (+98), 4 matched, nothing else changed
+#   /xx/pt/farealert/best-price-alert 1440: 4297 -> 4387 px (+90), 4 matched, nothing else changed
+#   /xx/ru/farealert/best-price-alert 1440: 4373 -> 4471 px (+98), 4 matched, nothing else changed
+#   /xx/zh/farealert/best-price-alert 1440: 4149 -> 4239 px (+90), 4 matched, nothing else changed
+#   /at/de/farealert/best-price-alert 390: 5073 -> 5133 px (+60), 4 matched, nothing else changed
+#   /de/de/farealert/best-price-alert 390: 5073 -> 5133 px (+60), 4 matched, nothing else changed
+#   /gb/en/farealert/best-price-alert 390: 4861 -> 4921 px (+60), 4 matched, nothing else changed
+#   /xx/el/farealert/best-price-alert 390: 5719 -> 5779 px (+60), 4 matched, nothing else changed
+#   /xx/es/farealert/best-price-alert 390: 5157 -> 5217 px (+60), 4 matched, nothing else changed
+#   /xx/fr/farealert/best-price-alert 390: 5201 -> 5261 px (+60), 4 matched, nothing else changed
+#   /xx/hk/farealert/best-price-alert 390: 4785 -> 4845 px (+60), 4 matched, nothing else changed
+#   /xx/it/farealert/best-price-alert 390: 5611 -> 5671 px (+60), 4 matched, nothing else changed
+#   /xx/ja/farealert/best-price-alert 390: 4874 -> 4934 px (+60), 4 matched, nothing else changed
+#   /xx/ko/farealert/best-price-alert 390: 4877 -> 4937 px (+60), 4 matched, nothing else changed
+#   /xx/pl/farealert/best-price-alert 390: 5665 -> 5725 px (+60), 4 matched, nothing else changed
+#   /xx/pt/farealert/best-price-alert 390: 5609 -> 5669 px (+60), 4 matched, nothing else changed
+#   /xx/ru/farealert/best-price-alert 390: 5956 -> 6016 px (+60), 4 matched, nothing else changed
+#   /xx/zh/farealert/best-price-alert 390: 4761 -> 4821 px (+60), 4 matched, nothing else changed
+#   The overlap flags above are the same with and without the rules (sec1.1: the stage's breadcrumb box over the H1's wrapper, as on every page of this template); no new sideways scroll, hidden first row or text, H1 count change or broken picture.
+# - Item 2d (a legal page's phone margin): the hand-over's order-35 additions (items 7-9, on main since 04c87ac6, pulled after these gates) list no legal-page phone case; 04c87ac6 itself ships the legal clause headings' 50 px (compensation-voucher 390 12.6 -> 9.0 %). Nothing more changed here.
+# - Not changed tonight: advance-seat's first teaser row starting 24 px later (item 7's second half); fleet/351's heading after the seat-map slideshow (about 25 px lower) and its PDF link wrapping on two lines (item 9).
+# - Item 1, miles-and-more-credit-card as served with the wide-gap row live: 1440 12.86 %, 390 9.36 % against lh-parity-002 (the gate expected 12.86 / 9.31).

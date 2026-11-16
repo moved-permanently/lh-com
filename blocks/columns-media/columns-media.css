@@ -1774,3 +1774,30 @@ body.brand-lufthansa main .columns-media .columns-media-media > p:has(> picture)
     margin-top: 24px;
   }
 }
+
+/* lufthansa.com: an icon teaser's copytext-medium text 22px above its link (not the 50px of a teaser's running text):
+   www's 48px from the text to "Further questions" on /de/en/advance-seat-reservations-terms-and-conditions at 1440,
+   ours 76; from 768px: on phones www keeps the 50px, standing order 36) */
+@media (width >= 768px) {
+  body.brand-lufthansa .columns-media .columns-media-row > .columns-media-text :is(h3, h4):has(> picture) ~ p.copytext-medium:has(+ p.link-wrapper) {
+    margin-bottom: 22px;
+  }
+}
+
+/* lufthansa.com: numbered steps (a text cell that opens with its number as a heading-large H3 over an H2;
+   /de/en/farealert/best-price-alert, lh-parity-002): the number 8px further from its heading, and a numbered row 41px
+   (from 768px) / 14px (phones) further from the row before, as www's (picture to the next number 113 / 57px on www,
+   ours 72 / 43; standing order 36) */
+body.brand-lufthansa .columns-media .columns-media-text > h3.heading-large:first-child:has(+ h2) {
+  padding-bottom: 8px;
+}
+
+body.brand-lufthansa .columns-media > .columns-media-row:has(> .columns-media-text > h3.heading-large:first-child + h2) + .columns-media-row:has(> .columns-media-text > h3.heading-large:first-child + h2) {
+  margin-top: 14px;
+}
+
+@media (width >= 768px) {
+  body.brand-lufthansa .columns-media > .columns-media-row:has(> .columns-media-text > h3.heading-large:first-child + h2) + .columns-media-row:has(> .columns-media-text > h3.heading-large:first-child + h2) {
+    margin-top: 41px;
+  }
+}
