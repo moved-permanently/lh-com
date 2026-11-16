@@ -4924,3 +4924,51 @@ State at the start: nothing of mine uncommitted or unpushed (order 34's final se
 - Not in git and why: logs/p4/so35 (scratch: captures, gates, folder copies, DA copies), the drops in /tmp (private
   material), content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not mine, kept).
   Preview servers stopped, trial worktrees removed.
+
+## Standing order 36 (received about 00:40 UTC, 2026-11-16)
+
+State at the start: nothing of mine uncommitted or unpushed (order 35's final section on main, 820b0ef6).
+
+1. **miles-and-more-credit-card as served** with the wide-gap row live: 390 9.36 %, 1440 12.86 % against
+   lh-parity-002, as gated (9.31 / 12.86).
+2. **ema-adobe's hand-over** (delta-so36-lh-com-rows.txt; 8ef93584). Columns Media had no commit in the two hours
+   before each edit.
+   - advance-seat-reservations-terms-and-conditions: from 768 px an icon teaser's copytext-medium text 22 px above its
+     link: 1440 12.18 → 6.23 %, 390 unchanged. 16 documents reached, the 15 unrecorded rendered with and without in one
+     load at both widths: 56 px shorter at 1440, nothing else changed.
+   - best-price-alert's numbered steps: the number 8 px further from its heading, a numbered row 14 / 41 px further
+     from the row before: 1440 11.37 → 3.57 %, 390 12.77 → 7.79 %. 15 documents, the 14 unrecorded +90 to +98 px at
+     1440, +60 at 390, nothing else changed.
+   - fleet/351: a rule for every padded section after a grey column view failed its gate (five recorded pages 1.9 to
+     5.1 points further), so gap-after-small on its two grey bands is a READY row: 1440 14.24 → 11.76 %, 390
+     15.53 → 13.68 %. Left: the seat-map picture 32 px lower under its heading.
+   - No legal-page phone case is in the hand-over (its order-35 items 7-9 reached main in 04c87ac6, which shipped
+     the legal clause headings' 50 px itself).
+3. **The info page-widths between 10 and 20 %** (sweep-so36-lh-info-10-20.md; 44601a22, 0b509d4b): the ten worst
+   not located before, each with its cause.
+   - Fixed by READY rows: unterhaltung-an-bord (1440 16.52 → 11.20, 390 15.40 → 13.79), travelling-healthy (390
+     15.48 → 11.52), carry-on-baggage (1440 18.58 → 10.57 on the folder base), internet-overview (390
+     14.16 → 13.68, the existing no-subtitle option).
+   - Two new block options, each set by one row: Columns Media wide-rows (lufthansa-aviation-group 1440
+     15.74 → 5.37) and Table Striped wide-columns (lounge-companions 390 14.26 → 7.08). No published document has
+     them, so the code changes nothing until the rows are published (the interim is today's page).
+   - No fix: with-children-at-the-airport at both widths (the recording predates www's change; 4.99 % at 1440
+     against lh-snapshots-115) and lh-rentalcar 390 (half the page is the partner's live widget, masked).
+   Every row's other width was gated too: the same or closer.
+
+## Standing order 36, final section (about 02:45 UTC, 2026-11-16)
+
+- Items 1-3 done. Not done: fleet/351's seat-map picture, advance-seat's first teaser row (24 px later), the regular
+  stage title's 20 px.
+- Gates ran on html-folder renders with 820b0ef6's code plus the rule under test. The pulls after that brought other
+  brands' theme rules, the legal clause headings and this order's own Columns Media rules. None of these matches the
+  gated pages' blocks.
+- Before this section: lint and the full suite in a fresh worktree of 0b509d4b: npm run lint 0, stylelint 0, 1199 of 1199 test files passed; the folder-reading tests with brand.test.mjs; the whole-repo lint read before every
+  push; Build green on 8ef93584 and 44601a22.
+- Nothing uploaded, previewed or published by me; DA read only (lufthansa.com fleet/351, unterhaltung-an-bord,
+  travelling-healthy, lufthansa-aviation-group, carry-on-baggage, lounge-companions, internet-overview); da-upload.mjs
+  not run; requests only to our own hosts, DA (reads) and GitHub's API; no request to www or any airline host.
+  .migration/project.json not touched; the excluded manage page has no row and no line.
+- Not in git and why: logs/p4/so36 (scratch: captures, gates, renders, folder copies, DA copies), the drops in /tmp
+  (private material), content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not mine, kept). Preview servers 3091-3094
+  stopped, trial and suite worktrees removed.
