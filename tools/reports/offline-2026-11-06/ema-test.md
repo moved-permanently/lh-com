@@ -5152,3 +5152,35 @@ State at the start: nothing of mine uncommitted or unpushed (order 39's final se
 - Not in git and why: logs/p4/so40 (scratch: captures, gates, renders, DA copies, folder pages), the drops in /tmp
   (private material), content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not
   mine, kept). Preview servers stopped, trial and suite worktrees removed.
+
+## Standing order 41 (received about 12:30 UTC, 2026-11-16)
+
+State at the start: nothing of mine uncommitted or unpushed (order 40's final section on main, 247efdc9).
+
+1. **32n and passenger-rights at 390 as served**: 7.68 / 7.69 %, exactly the gate's trial (the -24 px were in it).
+   The percentage stays flat because text offset by more than a line counts as fully different, at 24 px or at 47.
+   - 32n: the row aligned the seat-map section but opened a 29 px stretch further down. A second row closes it, READY:
+     390 7.68 → 7.42 %.
+   - passenger-rights: closer in place (45-48 px low before, 21-27 after). The rest is the band's 32 px phone padding
+     and its link wrapping (shared), not done.
+2. **de/de lhg-history** reads 1,700 px here, as gated; ema-lufthansa's 1,676 comes from its capture. The 56 px
+   before the cards is the block's space-m spacer (60 px) against www's 118. Width-scoped spacers instead, READY
+   (delta-so41-b2b-rows.txt): 1440 26.96 → 2.83 %, 390 unchanged.
+3. **Brussels contact-form-error**: not gated. Its recordings (brussels-parity-004, -012) are not on this machine and
+   their address is not in the repo. The cause is ema-lufthansa's: 84 px from the last text to the footer at 390, www
+   42.
+4. **Places 91-110** (places-so41-lh-rest-91-110.txt): 9 skipped, 11 aligned pages under 4 % without a layout cause.
+
+## Standing order 41, final section (about 13:10 UTC, 2026-11-16)
+
+- Items 1, 2 and 4 done. Item 3 waits for the Brussels recordings.
+- Before this section: lint and the full suite in a fresh worktree of f9fd59e5: npm run lint 0, stylelint 0, 1223 of 1223 test files passed; the folder-reading tests with brand.test.mjs; the whole-repo lint read before every
+  push.
+- Nothing uploaded, previewed or published by me. DA read only: lufthansa.com 32n, Group for Business lhg-history.
+  One read of lhg-history was refused by the safety guard and not repeated; the list rests on the earlier read
+  (~12:45 UTC).
+- da-upload.mjs not run. Requests only to our own hosts, DA (reads) and GitHub's API; no request to www or any
+  airline host. .migration/project.json not touched; the excluded manage page has no row and no line.
+- Not in git and why: logs/p4/so41 (scratch), the drops in /tmp (private material), content/, migration-work/,
+  tools/importer/reports/* (not mine), the old autostash entry (not mine, kept). Preview servers stopped, trial and
+  suite worktrees removed.

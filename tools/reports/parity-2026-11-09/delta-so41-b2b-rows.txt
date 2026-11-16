@@ -1,5 +1,5 @@
 # ema-test, standing order 41 (2026-11-16): Group for Business row (DA moved-permanently/lh-b2b). Gate: html-folder full pages of b2b.turnsthe.page's copy, base and trial, against b2b-parity-006, ours vs www mismatch %.
-# Data: delta-so41-b2b-rows.json; text-inserts-apply --check on DA's copy (read ~12:45 UTC): the insert made once, DA byte for byte without it.
+# Data: delta-so41-b2b-rows.json; text-inserts-apply --check on DA's copy (read ~12:45 UTC; a second read at ~12:58 was refused by the safety guard and not repeated): the insert made once, DA byte for byte without it.
 # Each line: READY / HOLD, DA path, the change, 1440 and 390 (base -> trial), the gate.
 READY	/de/de/about-us/lhg-history	the history cards' Carousel Cards drop option space-m (a 60 px spacer before the block) for {spacer-60 below-768} + {spacer-118 from-768}: www's cards stand 58 px further under the intro at 1440 (ema-lufthansa's -56), phones keep 60	1440 26.96 -> 2.83 % (1,758 px, www 1,748), 390 7.89 -> 7.89 %	closer at 1440, the same at 390
 # Notes:
