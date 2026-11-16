@@ -1,0 +1,20 @@
+[
+ {
+  "path": "/de/en/discover-lufthansa/miles-and-more-credit-card",
+  "inserts": [
+   {
+    "before": "<div class=\"accordion-columns\">",
+    "text": "<p>{spacer-40}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/lufthansa-at-berlin-airport",
+  "inserts": [
+   {
+    "replace": "<p><picture><img src=\"https://www.lufthansa.com/content/dam/lh/images/frontify_variations/8/c-784170484-63601007.jpg.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p><h3 id=\"extras-heading-small\">",
+    "text": "<h3 id=\"extras-heading-small\">"
+   }
+  ]
+ }
+]

@@ -2806,3 +2806,11 @@ body.brand-lufthansa main .default-content-wrapper > h1 + :is(h2, h3) + p:not(:h
     padding-bottom: 16px;
   }
 }
+
+/* lufthansa.com: a section that closes with the heading of an outer column view, before a grey band: the heading's
+   own 32px only, no section gap (www's menus-on-long-haul-flights at 1440, lh-parity-002: 32px from "The menu on
+   your Lufthansa flight" to the grey band, ours 48; standing order 45) */
+/* stylelint-disable-next-line no-descending-specificity -- a section that ends with a heading, not the column-end sections above */
+body.brand-lufthansa main > .section:has(> .default-content-wrapper:last-child > h2.column-start-outer:last-child):has(+ .section.grey:not(.flush, .column-view, .column-band, .in-column)) {
+  margin-bottom: 0;
+}

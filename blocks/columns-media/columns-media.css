@@ -1882,3 +1882,22 @@ body.brand-lufthansa .columns-media .columns-media-text:has(> :is(h2, h3, h4) + 
     padding-bottom: 25px;
   }
 }
+
+/* lufthansa.com from 768px, a plain Columns Media block (not padded, sidebar, separated or wide-rows): a row whose
+   cells all end with a link keeps 16px more before the next row, 82px (www's business-class-on-short-and-medium-haul,
+   menus-travel-classes and travelling-with-special-requirements at 1440, lh-parity-002: -16px at each such row;
+   standing order 45) */
+@media (width >= 768px) {
+  body.brand-lufthansa .columns-media:not(.padded, .sidebar, .separated, .wide-rows) > .columns-media-row:has(> div > p.link-wrapper:last-child):not(:has(> div:not(:empty) > :last-child:not(p.link-wrapper))) + .columns-media-row {
+    margin-top: 16px;
+  }
+}
+
+/* lufthansa.com's separated rows right after a heading, from 768px: the separator's 31px above the first row too
+   (www's advance-seat-reservation at 1440, lh-parity-002: about 30px more from "European flights ..." and
+   "Intercontinental flights" to their first seat row; on phones www's first row sits as ours; standing order 45) */
+@media (width >= 768px) {
+  body.brand-lufthansa main .default-content-wrapper:has(> :is(h2, h3):last-child) + .columns-media-wrapper > .columns-media.separated {
+    padding-top: 31px;
+  }
+}
