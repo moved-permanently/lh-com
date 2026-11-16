@@ -5395,6 +5395,8 @@ was modified, not by me, and is left as it is.
 **Hosts:** reads only from our hosts, the drop and DA (GETs from my session; refused with 401 this order). No request to
 an airline host, no da-upload.mjs call, no upload, preview or publish by me.
 
+**Correction (standing order 29):** the "no request to an airline host" above is wrong for this order's loads with my scratch script host-eval.mjs, which refused those hosts only by a resolver rule the proxy bypassed: its Liberation census (arial-batch.mjs) and its Brussels, accordion and wifi measurements could, and on 111 of the finish lists' 244 page-widths, 16 of the accordion census's 39 and all ten narrow-titles loads did, ask airline hosts (counted again tonight: www.lufthansa.com's labels and APIs, Travel ID, Brussels' chat script, ITA's help-center pictures). One figure was wrong because of it: ITA help-and-contact 390 (corrections-so29-ema-lufthansa.md, every figure measured again with the hosts refused per request).
+
 ## Standing order 25 (2026-11-15, about 15:45 to 18:00 CET), with its final section
 
 **At the start:** nothing of mine uncommitted or unpushed (order 24's c4ad3cff and 0e5ad5e7 were on main).
@@ -5461,6 +5463,8 @@ rows, or causes with no rule that passes the gate.
 **Hosts:** reads only from our hosts, the drop and DA (GETs from my session). No request to an airline host, no
 da-upload.mjs call, no upload, preview or publish by me.
 
+**Correction (standing order 29):** the "no request to an airline host" above is wrong for this order's loads with my scratch script host-eval.mjs, which refused those hosts only by a resolver rule the proxy bypassed: its B2B and Brussels re-measures and the button-wrap and spacer gates could reach airline hosts (the B2B pages ask none; the Brussels homepages, offers, check-in and contact pages and four of the five button-wrap pages do). No figure of this order was wrong because of it (corrections-so29-ema-lufthansa.md, every figure measured again with the hosts refused per request).
+
 ## Standing order 26 (2026-11-15, about 18:40 to 21:30 CET), with its final section
 
 **At the start:** nothing of mine uncommitted or unpushed (order 25's 7498f5bb and 08fcaa9d were on main).
@@ -5522,6 +5526,8 @@ the full suite in its ship.
 **Hosts:** reads only from our hosts, the drop's recordings and DA (GETs from my session). No request to an airline host,
 no da-upload.mjs call, no upload, preview or publish by me.
 
+**Correction (standing order 29):** the "no request to an airline host" above is wrong for this order's loads with my scratch script host-eval.mjs, which refused those hosts only by a resolver rule the proxy bypassed: its cut-label census and the B2B button wrap's gate (host-eval) could reach airline hosts; the lost-content census read our hosts with curl only. No figure of this order was wrong because of it (the cut-label census re-run tonight finds the same labels) (corrections-so29-ema-lufthansa.md, every figure measured again with the hosts refused per request).
+
 ## Standing order 27 (2026-11-15, about 21:40 to 23:30 CET), with its final section
 
 **At the start:** nothing of mine uncommitted or unpushed (order 26's 0bbff184 and fa0898a3 were on main).
@@ -5571,6 +5577,8 @@ tests, and the full suite in its ship.
 
 **Hosts:** reads only from our hosts and the drop (no DA read this order). No request to an airline host, no
 da-upload.mjs call, no upload, preview or publish by me.
+
+**Correction (standing order 29):** the "no request to an airline host" above is wrong for this order's loads with my scratch script host-eval.mjs, which refused those hosts only by a resolver rule the proxy bypassed: its ITA and Discover figures (host-eval) could reach airline hosts (alghero asks www.lufthansa.com 8 times at 1440); the sweep used capture.js and was right. No figure of this order was wrong because of it (corrections-so29-ema-lufthansa.md, every figure measured again with the hosts refused per request).
 
 ## Standing order 28 (2026-11-15/16, about 23:40 to 03:30 CET), with its final section
 
@@ -5651,3 +5659,87 @@ order 27.
     390 -5.48 -> +0.83 %; en contact-us and help-center 1440 -6.05 -> 0.00 %, 390 -5.67 -> +0.86 %.
   - delta-so28-swiss-help-center-pictures.txt is READY for the helper's copy (its backup named in the header); checks
     of this last commit in its ship.
+
+## Standing order 29 (2026-11-16, about 03:10 to 06:30 CET), with its final section
+
+**At the start:** nothing of mine was uncommitted or unpushed; order 28's 4e3c823b, 4d5242a8 and 6b1d9748 were on main.
+`.migration/project.json` was modified, not by me, and is left as it is.
+
+**Item 1, the measuring script (corrections-so29-ema-lufthansa.md):**
+- **Before any other measurement:** every scratch script that starts a browser now refuses airline hosts per request
+  and counts them, or is gone.
+  - Patched (5): host-eval.mjs, rec-eval.mjs, both crop.mjs, arial-batch.mjs.
+  - Deleted (100): every other launcher, plus two leftover folders.
+  - The repo's capture.js always refused per request.
+- **Re-measured:** every figure orders 24 to 28 took with the old host-eval, 412 page-widths in all.
+  - The figures came from the finish lists, the Liberation census, narrow-titles, the accordion census, the button wrap,
+    the spacer and lost-content rows, wifi, the order-27 ITA and Discover figures and order 28's two rows.
+  - Each page-width was measured with the hosts refused per request and each refusal counted.
+  - The "before" of live rows was measured on main's stylesheet with the rule taken out.
+- **What the pages ask of airline hosts:**
+  - www.lufthansa.com's label and finder APIs, and the Travel ID APIs: they answer www's origin only, so these drew in
+    their no-answer state either way;
+  - Brussels' chat script: no height change;
+  - the help centers' pictures, which did load through the proxy.
+- **One figure was wrong:** ITA help-and-contact 390.
+  - Order 24 had it +2.75 -> +0.00 %, and finish-ita made it READY. Its two help-center pictures had loaded from
+    www.ita-airways.com.
+  - Refused, it is 2909 against 3052 (-4.69 %). Its 1440 width, counted within 2 % since order 15, is -7.01 %.
+  - Both rows are HOLD now. The fix is SWISS's of order 28: the block's checked copies, in 36ddde7b, with a test, inert
+    until the copies load (the help pages measure as served). The helper's list, delta-so29-ita-help-center-pictures.txt,
+    stays HOLD until the two files (requested) are on the drop.
+- **Every other figure stands:** equal to the old one where nothing changed since, or explained by rows and code that
+  went live after it (each one in the file).
+- **Seen in passing, outside orders 24 to 28:** Brussels ke/en homepage 1440 is READY with order 19's with-answers
+  figure, but measures +4.72 % as served. Not the leak. Flagged, not changed.
+- **The "refused" lines:**
+  - orders 24 to 27's Hosts lines: a correction note after each;
+  - the six finish-list headers: a correction line each;
+  - order 28's two lists were measured after the fix, and tonight's counts confirm them.
+
+**Item 2, ITA (sweep-so29-ita.md):**
+- 78 page-widths, captured with capture.js and with the Liberation face; 74 within 2 %.
+- **The worst ten:**
+  - help-and-contact at both widths: the pictures, as above.
+  - checked-baggage 390 (-3.10 %) and 1440 (+1.35 %): the import lost www's two route tabs over the excess-baggage
+    charges, so both sets showed without their labels. A document row is READY (delta-so29-ita-checked-baggage-route-tabs,
+    section-tab metadata on DA's copy, backup named, with a test): 1440 -> -0.44 %, 390 -> -2.62 %, closer at both.
+  - travel-insurance 390: a resized recording; its phone first load is requested.
+  - The other six are within 2 %, with no fix needed.
+- group-boarding is ema-test's (-0.35 % / -0.37 %).
+
+**Item 3, TAP (sweep-so29-tap.md):**
+- 52 page-widths, 46 within 2 %. TAP draws no Arial, and its pages ask no airline host.
+- **The worst ten:**
+  - the baggage tracker's four rows: TAP's own service, the owner's decision;
+  - voar-economica 1440 (+3.47 %): the call-back card's out-of-hours state at 02:30 Lisbon time (live state, by design);
+  - navigator-experiences 390: the excepted slider margin (an owner decision);
+  - four rows within 2 % (the homepages against tap-parity-014's scrolled loads: -1.58 %).
+- No TAP change. TAP's code is ema-cashub's.
+
+**No shared fix this order:** the block change reaches only ITA's help pages, and the route tabs are one document. No
+Columns Media or section-gap cause.
+
+**Checks:**
+- 36ddde7b (the block change, both lists, the sweeps, the capture requests; committed as 942d4308):
+  - My first ship timed out in my session while its suite was running, with nothing pushed. push-existing.sh then ran
+    in the background.
+  - Results: `npm run lint` exit 0; the full suite 4591 / 0; the rebase onto main; the push; the smoke afterwards, 0
+    differences on every host; GitHub Build success.
+- This final commit (the corrections file, the finish lists' corrections and ITA rows, this report): lint, the
+  folder-reading tests and the full suite in its ship. No theme file was changed, so stylelint had nothing to check.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git), kept out on purpose:
+  - recordings and archives: ita-parity-007 and tap-parity-012 to -014 from the drop, sha256 equal to their sidecars;
+  - the sweeps' captures, the re-measure's figures and logs;
+  - DA's copy of ITA checked-baggage (read about 03:05 UTC), the drafts and the CSS variants;
+  - the measuring scripts.
+
+**Hosts:**
+- Every browser load of mine refused airline hosts per request and counted them (host-eval, arial-batch, capture.js,
+  the crop tool, what-refused.mjs).
+- Reads came from our hosts, the drop (the four archives, existence checks of ten names) and DA (GETs of one document
+  and three folder lists).
+- No da-upload.mjs call, no upload, preview or publish by me. /de/en/overview-manage got no row.
