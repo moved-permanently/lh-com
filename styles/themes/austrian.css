@@ -992,6 +992,23 @@ body.brand-austrian main > .section:not(.grey):last-child > .carousel-cards-wrap
   padding-bottom: 32px;
 }
 
+/* standing order 53 (places 152 and 156): a two-up teaser grid that closes the page, stacked below 768 px. On www it is a
+   two-column view of a.teaser.card, and its stylesheet keeps the teaser's own 4.4rem under the last card there (0 from
+   768 px). When the last row has a single card, the view's empty second column adds its 1.2rem margin and 1.2rem padding.
+   Both come on top of the view's 3.2rem padding, which the rule above already gives. www's footer is 149 px under the
+   lone "Electronic bag tags" card at 390 (austrian-parity-019 and -003, en and de), ours 80. The thirteen served
+   documents ending this way each end with a lone card (baggage, familien, the eleven extra-services pages). Three-column
+   grids (the crew story's cards end 33 px above www's footer) and phone sliders are left as they are */
+@media (width < 768px) {
+  body.brand-austrian main > .section:not(.grey):last-child > .carousel-cards-wrapper:last-child:has(> .carousel-cards.grid.two-up:not(.phone-slider)) {
+    padding-bottom: 76px;
+  }
+
+  body.brand-austrian main > .section:not(.grey):last-child > .carousel-cards-wrapper:last-child:has(> .carousel-cards.grid.two-up:not(.phone-slider) .carousel-cards-slide:nth-child(odd):last-child) {
+    padding-bottom: 100px;
+  }
+}
+
 /* the brief after 475: flight-search.css drops the bottom margin of any section with a standalone
    search from 768 px (the homepage stage); an Austrian section whose blocks go on after the search
    (fly-with-austrian's cards, the fare pages' accordions) keeps its 40 px, a lone separator after it

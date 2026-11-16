@@ -9195,3 +9195,94 @@ All three items are done, so I stopped well before 19:30.
 - /de/en/overview-manage has no row.
 
 **Not in git** (scratch under /tmp/so52): the drop, the served copies, DA's copies, the renders, drafts, scripts and logs.
+
+## Standing order 53 (2026-11-16, from about 18:35 CET)
+
+**Carried over:** nothing. Order 52's commits were all on main, and my worktree was clean at `95e7be0c`. The checkout's
+88 dirty entries and the old autostash (2026-11-01) belong to other jobs and were left alone.
+
+**The restart:** the machine restarted at about 18:17 CET, and the temporary folder went with it: orders 25 to 52's
+scratch (the drops' downloads, served copies, render, census and replay scripts). I rebuilt what this order needed
+under migration-work/parity-588/so53, which survives a restart:
+- **Recordings:** downloaded again from the brand drop folders, 12 Austrian and 5 Air Dolomiti archives, sha256 checked
+  against the drop's `.sha256` files (austrian-parity-001 has none).
+- **Served copies:** all 4,028 Austrian and Air Dolomiti documents fetched again, all 200.
+- **Render script:** hostv rebuilt from so24/host.mjs. It reproduces order 52's 6,602 for /at/en/baggage at 390 to the px.
+- **Not rebuilt:** the homepage replay of our host's widget answers. Places 178 and 190 are therefore as served.
+
+**Renders:** about 90 page renders, 44 census loads and about 30 offline layouts of www's recordings, all unhinted.
+lh-proxy, www.* (but www.mynewsdesk.com) and every airline host were refused and counted: 0 to 24 a render, none sent.
+
+**DA:** nothing read or written. No upload, preview, publish or da-upload.mjs. /de/en/overview-manage has no row.
+
+### Item 1: the baggage pages' closing card list (gate-so53-austrian-closing-two-up.txt): SHIPPED
+
+**Located:** www's last list on both pages is a two-column view of teasers holding a single card. The view's second
+column is empty.
+- **www's stylesheet** (austrian-parity-019's, read offline): below 768 px each teaser keeps 4.4rem under it. A stacked
+  column item has 1.2rem margin and 1.2rem padding, so the empty one adds 24 px. The view has 3.2rem of padding, and a
+  separator with 48 px follows.
+- That is 148 px from the card to the footer. www's pictures show 149 at 390 (en and de) and 82 at 1440. Ours was 80 at
+  both widths.
+
+**The rule** (beside the page-end grid rule): below 768 px, a two-up grid that closes the page's last section gets
+76 px under it, and 100 px when its last row has one card. Phone sliders, three-column grids and 768 px up are left as
+they are. The crew story's three-column cards end 33 px above www's footer, so the teaser margin would take it further.
+
+**Gate:** all three recorded page-widths it reaches are closer. 1440 is unchanged.
+
+| page | www | as served | with the rule |
+|---|---|---|---|
+| /at/en/baggage 390 (austrian-parity-019, first load) | 6,674 | 6,602 (-1.08 %) | 6,670 (-0.06 %) |
+| /at/en/baggage 390 (-003, resized) | 6,673 | 6,602 (-1.06 %) | 6,670 (-0.04 %) |
+| /at/de/gepaeck 390 (-003, resized) | 6,754 | 6,683 (-1.05 %) | 6,751 (-0.04 %) |
+
+**No-breakage census, done:** the rule was toggled in the same load on all 14 served Austrian documents with a two-up
+grid, at 390, 768 and 1440: 42 page-widths, all OK.
+- The 13 that end with one (baggage, gepaeck, familien, the eleven extra-services pages) move +68 at 390, all of it at
+  the page's end.
+- /at/de/check-in's mid-page grid moves +0, and every page moves +0 at 768 and 1440.
+- Scroll widths are unchanged, and taking the rule out restores every figure. Two broken loads were measured again
+  alone.
+
+The rule has a test (test/austrian-closing-two-up-so53.test.mjs), and stylelint is clean.
+
+### Item 2: the Air Dolomiti lead-in (gate-so53-airdolomiti-lead-in.txt): HOLD, not shipped
+
+**Located:** www's rich text has no paragraph margins. Its blank line is an empty paragraph, and under a bold-only
+lead-in the authors leave none: 10 of 10 in the recordings and snapshots. Under a bold label with plain text beside it
+they leave one 68 of 71 times. Our text pages give every paragraph that line as a 37.4 px margin, so the answer stands
+38 px under its question, against 0 on www.
+
+**The drafted rule:** CSS cannot tell a lead-in from a label, because selectors do not see text nodes. So a small
+script marks bold-only paragraphs on Air Dolomiti, and the theme drops their margin before a paragraph or list. It
+reaches 59 lead-ins on 24 documents.
+
+**The gate fails on 4 of 6 recorded page-widths:**
+- /de/betreuung passes at both widths: 1440 +0.98 -> -0.52 %, 390 +0.37 -> -0.59 %.
+- /en/assistance and /assistenza go 1.0 to 1.1 points further at both widths, for example en/assistance 1440
+  +0.23 -> -1.32 %.
+
+**Why:** the assistance pages matched www only by cancellation. With the rule, the answers stand where www's are, and
+three other steps show: our list items are 10 px further apart each (+85 by the accordion), the step into the
+accordion is -95, and www keeps 120 px under the accordion before the closing picture, where we have 24 (-52 at the
+footer).
+
+The change is in scratch (so53/item2-hold.diff), not in git. Rows would fail the same way. It could pass once those
+three steps are fixed, each with its own census.
+
+### Item 3: places 171 to 190 (sweep-so53-places-171-190.txt)
+
+18 of the 20 are within 2 %.
+- **Closed:** 172 black-friday 390 (-0.43 %: order 46's phone flight search, bisected) and 176 xx/en 390 (-0.25 %:
+  order 47's carousel band rule, bisected).
+- **Live at their gated figures:** 173 culinary-services 1440 (order 48's markers, -0.64 %) and 180 Monaco 1440
+  (order 49's rows, 7,230 to the px).
+- **Outside as served:** 178 ge/en 1440 (-15.24 %) and 190 cz/en 390 (-6.71 %). The fare teaser and destination finder
+  draw their empty states. Order 43's figures used the replay, which is not rebuilt.
+- **The form challenge:** 181 invoice-request-hungary 1440 drew the 71 px challenge in this order's loads (3,196, and
+  3,196 with order 43's code too). Less it, it is order 43's 3,125.
+- **A candidate, not drafted:** 179 it/it/baggage 390 has the same closing lone card (-28), but in a Columns Media row,
+  which item 1's rule does not reach.
+- **Not traced to an element:** 174 bari 1440 (+37 by "Discover Bari") and 175 bari-de 390 (-74 in the card bands).
+- **No fix:** the rest are steps of both signs, widgets' states or resized recordings.

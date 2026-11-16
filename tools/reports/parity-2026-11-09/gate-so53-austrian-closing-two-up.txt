@@ -1,0 +1,32 @@
+# ema-cashub, standing order 53, item 1 (2026-11-16, ~18:35 to ~19:05 CET): places 152 and 156, the Austrian baggage pages after their closing card list. Status: SHIPPED (styles/themes/austrian.css, beside the page-end grid rule; test/austrian-closing-two-up-so53.test.mjs).
+# Located: www's last list is a two-column view of a.teaser.card holding one card, with an empty second column (the recorded HTML: <div class="col-md-6 col-lg column-view-item"> </div>), then a separator section with a 48 px margin. www's stylesheet (austrian-parity-019's, read in its offline layout): .teaser { margin-bottom: 4.4rem } below 768 px (0 from 768), and .column-view > .row > .column-view-item { margin-bottom: 1.2rem; padding-top: 1.2rem } below 768 px. The last item of the last view has no margin, and the view itself has 3.2rem of padding. Stacked at 390, the lone card is followed by 44 (the teaser) + 12 + 12 (the empty column) + 32 (the view) + 48 (the separator) = 148 px to the footer. The PNGs agree: the card's lower edge at 5,458 / 5,459, the footer at 5,608 (en, -019), and 5,540 / 5,689 (de, -003): 149 px each. At 1440 the PNG shows 82 px (3,423 to 3,505), the view's 32 and the separator's 48: ours 80 there, as before.
+# Ours as served: the card 5,454 and the footer 5,534 at 390 (en). That is the page-end grid rule's 32 px and the section's 48, so 69 px short. Every card above stands within -5 of www.
+# The rule: below 768 px, a two-up grid (not a phone slider) as the last block of the page's last section (not grey) gets 76 px under it, the teaser's 44 on top of the view's 32. It gets 100 px when its last row holds a single card (.carousel-cards-slide:nth-child(odd):last-child), for the empty column's 24 more.
+# Left out: three-column grids. The crew story (/at/de/local-page/feels-like-flying/os401crewstory, -003 at 390) ends its three cards 33 px above www's footer (www's teasers there have no margin and no separator follows), so the teaser margin would take it further. Phone sliders (their dots) are also left out, and so is 768 to 1024 px, which has no recording (www's items keep 2.4rem there).
+# Reach (every served Austrian document, 2,459 from the upload state, its .plain.html fetched once this order): 620 end with a carousel-cards block (326 phone sliders, 273 three-column grids, 8 sliders, 13 two-up grids). The 13 two-up ones are /at/en/baggage, /at/de/gepaeck, /at/de/familien and the eleven extra-services pages (at/en, at/de, es/es, fr/fr, it/it, pl/pl, ru/ru, gr/el, jp/ja, cn/zh), each ending with a single card. One more document has a two-up grid mid-page (/at/de/check-in), which the rule does not reach.
+# Renders: so53/hostv.mjs (order 39's hostv rebuilt after the 18:17 CET restart wiped the temporary folder; it reproduces order 52's 6,602 to the px). Unhinted, EAGER=1 CONSENT=1, height once stable; the rule from my worktree (CODE). lh-proxy, www.* (but www.mynewsdesk.com) and every airline host refused and counted: 1 a render, none sent.
+# Gate: every recorded Austrian page-width the rule reaches (the four baggage page-widths at 390; at 1440 the rule is off), as served and with the rule. "further" = |after| - |before|.
+# status	path	width	recording	www page	www footer top	as served	footer as served	with the rule	footer with the rule	further
+PASS	/at/en/baggage	390	austrian-parity-019 (first load, 2026-11-14)	6674	5608	6602 (-1.08 %)	5534	6670 (-0.06 %)	5602	-1.02
+PASS	/at/en/baggage	390	austrian-parity-003 (the 1440 load resized)	6673	5608	6602 (-1.06 %)	5534	6670 (-0.04 %)	5602	-1.02
+PASS	/at/de/gepaeck	390	austrian-parity-003 (the 1440 load resized)	6754	5689	6683 (-1.05 %)	5615	6751 (-0.04 %)	5683	-1.01
+unchanged	/at/en/baggage	1440	austrian-parity-003	4319	3505	4315 (-0.09 %)	3502	4315 (-0.09 %)	3502	0
+unchanged	/at/de/gepaeck	1440	austrian-parity-003	4319	3505	4315 (-0.09 %)	3502	4315 (-0.09 %)	3502	0
+# No-breakage census, done: the rule toggled in the same load (so53/tog1.js: measure, add the rule as a style tag, measure, remove it, measure) on all 14 served documents with a two-up grid at 390, 768 and 1440, 42 page-widths, all OK.
+# At 390, each of the 13 page-closing grids moves +68 (page height and footer top alike). The last block's top stands, its bottom moves +68, every grid's own box stands, the scroll width and the elements past the edge are unchanged, and taking the rule out restores every figure. /at/de/check-in moves +0. At 768 and 1440 every page moves +0.
+# Two broken loads (pl/pl extra-services 768 drew the window's 900, at/en extra-services 1440 its footer at the page's height) were measured again alone: +0 each.
+# path	390: page as served -> with the rule	768	1440
+/at/en/baggage	6602 -> 6670	4070 +0	4315 +0
+/at/de/gepaeck	6683 -> 6751	4103 +0	4315 +0
+/at/de/familien	3090 -> 3158	2409 +0	2417 +0
+/at/de/check-in	3993 +0	2698 +0	2701 +0
+/at/en/book/additional-services/extra-services	6771 -> 6839	4197 +0	4472 +0 (again alone)
+/at/de/book/additional-services/extra-services	6860 -> 6928	4238 +0	4372 +0
+/es/es/book/additional-services/extra-services	7032 -> 7100	4358 +0	4466 +0
+/fr/fr/book/additional-services/extra-services	7164 -> 7232	4524 +0	4459 +0
+/it/it/book/additional-services/extra-services	7071 -> 7139	4435 +0	4459 +0
+/pl/pl/book/additional-services/extra-services	7174 -> 7242	4397 +0 (again alone)	4435 +0
+/ru/ru/book/additional-services/extra-services	7685 -> 7753	4744 +0	4541 +0
+/gr/el/book/additional-services/extra-services	7604 -> 7672	4691 +0	4489 +0
+/jp/ja/book/additional-services/extra-services	6079 -> 6147	3735 +0	4160 +0
+/cn/zh/book/additional-services/extra-services	6016 -> 6084	3644 +0	4052 +0
