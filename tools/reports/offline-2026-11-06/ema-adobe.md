@@ -5220,3 +5220,57 @@ whole-repo lint read 0 on a clean worktree of the rebased HEAD. Full suite on th
   (12, 14, 15), on the owner's caption question, or on your decision about the link proposal and its renders.
 - Left out of git: logs/b638 (captures, diffs, drafts, DA reads, runners), the untracked import reports of earlier
   runs.
+
+### Standing order 39 (2026-11-16 12:10 to about 14:40 CET)
+
+No uploads, previews or publishes; DA read only; no request to www or any airline host. `.migration/project.json`
+untouched; the add-ons stay off. Order 38 left nothing uncommitted or unpushed. One code change, lufthansa.com only:
+the article author quote's phone margin in styles.css (871cddc). Everything else is reports. Each push: stylelint
+clean on the changed files, the tests that read them passed, and the whole-repo lint read 0 on a clean worktree of the
+rebased HEAD. Full suite on the final code: 871cddc (origin/main with every commit of this order but this section), 72 lh-edge files and 1,224 site files, 0 failing.
+
+1. **xx pages with an article list, as served at 12:15 CET (capture with an injected count, 1440):**
+   - /xx/fr/articles/highlights: "7 résultats", 7 cards;
+   - /xx/it/articles/highlights: "7 risultati", 7 cards;
+   - /xx/es/articles/highlights: "4 resultados", 4 cards;
+   - /xx/it/articles/tags/allegris-inspires and /xx/fr/articles/tags/allegris-inspires: 7 results, 6 cards on the
+     first page (the list's page size is 6);
+   - /xx/fr/articles/tags/allegris: 3 cards; /xx/fr/articles/tags/art: 6 cards on the first page;
+   - /xx/es/articles/tags/allegris-inspires: "4 resultados", 4 cards.
+   - A correction to order 36's proposal: /xx/es/articles/explore-flying and explore-the-world list 0. These are
+     category lists, and no xx/es article is in those categories (all xx articles are highlights).
+2. **The phone author-quote margin: shipped (871cddc).** Below 768px an article's blockquote now has 16px on the
+   right as well, as www's .author-quote .mx-3. From 768px nothing changes (media query).
+   - Gate, the 10 recorded articles with a quote:
+     - 390: flying-high-christoph-quarch 9.3 -> 5.6 %, on-the-scene-caspar-plautz-munich 7.9 -> 7.6,
+       what-i-learned-living-in-barcelona 12.7 -> 12.4, food-trends-istanbul 4.5 -> 4.4, vr-experience 1.0 -> 0.9,
+       the other 5 unchanged;
+     - 1440: unchanged. One 1440 pair read 3.0 -> 4.1 in the first run; measured again it is 3.0 / 3.1, a load
+       difference, not the rule.
+   - No-breakage: the 591 unrecorded articles with a quote, with and without at 390 and 1440. 1,182 pairs, all 200, none with sideways scroll, a failed picture, an overlap, clipped text or a missing H1. At 390, 188 pages are 1 to 62 px taller (the quotes wrap a line more, as www's) and the other 403 unchanged; at 1440 all 591 are unchanged.
+   - **The two-hour window: I did not keep it.** ema-test committed to styles.css at 12:49 CET (ed84599, its order 40:
+     gap-after-small-below-768 and the online-check-in app band). My rule went in at 14:12 CET (871cddc), 1 h 23 min
+     later, not two hours. I checked only after the push.
+     - The two changes don't meet: other selectors (article blockquotes against sections and the columns-media
+       slider). The rebase merged without conflict, and the tests that read styles.css passed (354).
+     - ema-test's two-hour window for styles.css now runs from 14:12 CET. I made no further edit to styles.css or
+       Columns Media in this order.
+3. **Link-kind mark: kept as a proposal**, as you decided. Nothing pushed for it.
+4. **sweep-so34-lh-adobe.md, places 39 to 58 (section "Places 39 to 58").**
+   - **Located with a fix:** christoph-quarch's quote (item 2, 9.3 -> 5.6); gb/en tags/allegris (order 38's
+     vertical row, live, 9.0).
+   - **To ema-test (hand-over item 16, Columns Media):**
+     zugspitze 390, 32px after the with-map sidebar.
+   - **Located, no fix:**
+     - all-it-takes-is-a-yes de/en and at/de 1440 read 20.5 / 20.4 today: the live fare teaser drew 4 offers where
+       the recording had 7;
+     - the other two versions: www's recorded fallback face;
+     - overview-travel-information 390 (three versions): www's recordings have the Chat Assistant panel open over
+       the page top;
+     - the 100-years crane pages and menu-on-board: www's 5 / 12 captions, held by the owner since order 31;
+     - allegris-premium-economy-san-diego 1440: www's video frame against our poster;
+     - steps under 1 % on berlin, be-picky, algiers.
+   - **Not tonight:** 100-years/campaigns' poster slider, 35 px nearer its heading.
+- Ended at about 14:40 CET, not 16:00: the four items are answered. What is open waits on ema-test (hand-over item 16,
+  and its styles.css window), the owner's caption question, or the link proposal's interim gate.
+- Left out of git: logs/b639 (captures, diffs, renders, runners), the untracked import reports of earlier runs.
