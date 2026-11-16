@@ -38,6 +38,7 @@ import decorateHeadingIcons from './heading-icon.js';
 import decorateSectionTabs from './section-tabs.js';
 import joinAsideSections from './section-aside.js';
 import rootMarketLinks from './ita-market-links.js';
+import markBoldLeads from './bold-leads.js';
 import { placeAlertsBar } from './alerts-bar.js';
 import {
   isLibraryPath, isAppScreenPath, addHeadingIds, removeLibraryMetadata, applyBarePage, followHash,
@@ -353,6 +354,9 @@ export function decorateMain(main) {
   restoreAppConfigText(main);
   decorateIcons(main);
   decorateTextStyles(main);
+  // Air Dolomiti: bold-only lead-ins (p.bold-lead); its accordion text pages run them into
+  // their answers
+  if (brandOf(getMetadata) === 'airdolomiti') markBoldLeads(main);
   buildAutoBlocks(main);
   decorateSectionMetadata(main);
   // token-free styling (scripts/token-free.js): purpose blocks, block options, section styles,

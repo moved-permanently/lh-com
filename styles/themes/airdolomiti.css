@@ -4937,6 +4937,61 @@ body.brand-airdolomiti main .default-content-wrapper :is(h2, h3, h4, h5, h6):not
   max-width: 100%;
 }
 
+/* standing order 55 (order 54's assistance stack, shipped as one at the user's word): the accordion text template, a
+   text box (a title, then at least two paragraphs) right before an Accordion Columns block in its section: the
+   assistance, FAQ, dangerous goods, digital services and basic fare pages, three languages each. www's rich text
+   there (TitleDescriptionTextCta, airdolomiti-parity-001 laid out with its own CSS) has p { margin: 0 },
+   ul / ol { margin: .5em 0 } and its blank lines as empty paragraphs; the box's 90 px, the empty small paragraph's 50
+   (from 930 px) and the TogleTariffe container's 110 / 120 px stand around the accordion; the title 190 px down the
+   page below 930 px (ours 146). The steps pass the half-point gate only together (all 8 recorded page-widths), so
+   they go as one and reach no other page type */
+
+/* stylelint-disable no-descending-specificity -- the template's text box, after the theme's text rules (above) */
+
+/* the list: .5em above and below, the paragraph before it without its line */
+body.brand-airdolomiti main > .section > .default-content-wrapper:has(> h1 ~ p ~ p):has(+ .accordion-columns-wrapper) > :is(ul, ol):not(h2 ~ *) {
+  margin-block: 11px;
+}
+
+body.brand-airdolomiti main > .section > .default-content-wrapper:has(> h1 ~ p ~ p):has(+ .accordion-columns-wrapper) > p:not(.button-wrapper, h2 ~ p):has(+ :is(ul, ol)) {
+  margin-bottom: 0;
+}
+
+/* a bold-only lead-in (p.bold-lead, scripts/bold-leads.js) runs straight into its answer: www's authors leave no
+   blank line under one (10 of 10 in the recordings and snapshots). After a section heading and before a button as
+   before */
+body.brand-airdolomiti main > .section > .default-content-wrapper:has(> h1 ~ p ~ p):has(+ .accordion-columns-wrapper) > p.bold-lead:not(.button-wrapper, h2 ~ p):has(+ :is(p:not(.button-wrapper), ul, ol)) {
+  margin-bottom: 0;
+}
+
+/* into the accordion: the text's last line 40 px (25 + the empty small paragraph's 50 from 930 px) and the box's 90 */
+body.brand-airdolomiti main > .section > .default-content-wrapper:has(> h1 ~ p ~ p):has(+ .accordion-columns-wrapper) {
+  margin-bottom: 151px;
+}
+
+/* under the accordion: 110 px (120 from 930 px) before the closing picture */
+body.brand-airdolomiti main > .section > .default-content-wrapper:has(> h1 ~ p ~ p) + .accordion-columns-wrapper + .default-content-wrapper:has(> p:only-child > picture:only-child) {
+  margin-top: 110px;
+}
+
+/* the title below 930 px: 190 px down the page as www's, ours 146 */
+@media (width < 930px) {
+  body.brand-airdolomiti main > .section.breadcrumb-container > .default-content-wrapper:has(> h1 ~ p ~ p):has(+ .accordion-columns-wrapper) {
+    margin-top: 68px;
+  }
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section > .default-content-wrapper:has(> h1 ~ p ~ p):has(+ .accordion-columns-wrapper) {
+    margin-bottom: 185px;
+  }
+
+  body.brand-airdolomiti main > .section > .default-content-wrapper:has(> h1 ~ p ~ p) + .accordion-columns-wrapper + .default-content-wrapper:has(> p:only-child > picture:only-child) {
+    margin-top: 120px;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
 /* a blog post's end as www's BlogLayout wrapper (margin-bottom 0 below 930px, 100px from 930): the last section,
    when it ends with the post's text, keeps no margin of its own below 930px and its last element none either (www's
    text runs to 4 to 12px above the footer at 390), 100px from 930px (ours was 48 at every width; standing order 52) */
