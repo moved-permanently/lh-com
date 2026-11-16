@@ -201,3 +201,6 @@ www.brusselsairlines.com /be/en/articles/bike-the-city 390  # only resized (brus
 # Standing order 34 (2026-11-16): two first loads that decide held rows (same format as order 31's lines).
 www.ita-airways.com /it/en/book-and-prepare/travel-information/baggage/electronic-devices-and-batteries 1440  # its only 1440 recording (ita-parity-005, 2026-11-10) predates www's new paragraph; decides delta-so34-ita-electronic-devices-casing-paragraph.txt
 business.lufthansagroup.com /de/en/allegris/video-gallery 390  # only resized (b2b-parity-006); -0.32 % at 390; decides a drafted ending row (sweep-so30-brands.md, order 34's section, no. 76)
+# Standing order 38 (2026-11-16): two 1440 first loads that would let a row be gated (same format). Open the page as a visitor sees it, the first tab ("Traveling with kids") open.
+business.lufthansagroup.com /de/en/program/experts/special-assistance-and-services 1440  # recorded at 390 only (b2b-parity-004, -005, -014); our first tab panel stacks six full-width pictures (8,147 px) where www's two-column views set them beside their text; decides a Columns Media row (sweep-so38-ranks-130-149.md, item 1)
+business.lufthansagroup.com /xx/en/program/experts/special-assistance-and-services 1440  # the same page in the xx/en market

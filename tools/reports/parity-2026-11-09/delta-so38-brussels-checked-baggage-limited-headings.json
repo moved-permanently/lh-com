@@ -1,0 +1,62 @@
+{
+ "/be/fr/extra-services/baggage/checked-baggage": [
+  {
+   "from": "<h2 id=\"à-combien-de-bagages-enregistrés-ai-je-droit\">À combien de bagages enregistrés ai-je droit ?</h2>",
+   "to": "<h2 id=\"à-combien-de-bagages-enregistrés-ai-je-droit\">À combien de bagages enregistrés ai-je droit ? {limited-width}</h2>",
+   "count": 1
+  },
+  {
+   "from": "<h2 id=\"que-se-passe-t-il-si-je-dépasse-les-limites-pour-les-bagages-enregistrés\">Que se passe-t-il si je dépasse les limites pour les bagages enregistrés ?</h2>",
+   "to": "<h2 id=\"que-se-passe-t-il-si-je-dépasse-les-limites-pour-les-bagages-enregistrés\">Que se passe-t-il si je dépasse les limites pour les bagages enregistrés ? {limited-width}</h2>",
+   "count": 1
+  }
+ ],
+ "/be/nl/extra-services/baggage/checked-baggage": [
+  {
+   "from": "<h2 id=\"hoeveel-bagage-mag-ik-inchecken\">Hoeveel bagage mag ik inchecken?</h2>",
+   "to": "<h2 id=\"hoeveel-bagage-mag-ik-inchecken\">Hoeveel bagage mag ik inchecken? {limited-width}</h2>",
+   "count": 1
+  },
+  {
+   "from": "<h2 id=\"wat-als-ik-de-limieten-voor-ingecheckte-bagage-overschrijd\">Wat als ik de limieten voor ingecheckte bagage overschrijd?</h2>",
+   "to": "<h2 id=\"wat-als-ik-de-limieten-voor-ingecheckte-bagage-overschrijd\">Wat als ik de limieten voor ingecheckte bagage overschrijd? {limited-width}</h2>",
+   "count": 1
+  }
+ ],
+ "/de/de/extra-services/baggage/checked-baggage": [
+  {
+   "from": "<h2 id=\"wie-viel-gepäck-darf-ich-aufgeben\">Wie viel Gepäck darf ich aufgeben?</h2>",
+   "to": "<h2 id=\"wie-viel-gepäck-darf-ich-aufgeben\">Wie viel Gepäck darf ich aufgeben? {limited-width}</h2>",
+   "count": 1
+  },
+  {
+   "from": "<h2 id=\"was-wenn-mein-aufgegebenes-gepäck-die-obergrenze-überschreitet\">Was, wenn mein aufgegebenes Gepäck die Obergrenze überschreitet?</h2>",
+   "to": "<h2 id=\"was-wenn-mein-aufgegebenes-gepäck-die-obergrenze-überschreitet\">Was, wenn mein aufgegebenes Gepäck die Obergrenze überschreitet? {limited-width}</h2>",
+   "count": 1
+  }
+ ],
+ "/it/it/extra-services/baggage/checked-baggage": [
+  {
+   "from": "<h2 id=\"quanti-bagagli-posso-presentare-al-check-in\">Quanti bagagli posso presentare al check-in?</h2>",
+   "to": "<h2 id=\"quanti-bagagli-posso-presentare-al-check-in\">Quanti bagagli posso presentare al check-in? {limited-width}</h2>",
+   "count": 1
+  },
+  {
+   "from": "<h2 id=\"cosa-succede-se-supero-il-limite-di-bagagli-registrati-consentiti\">Cosa succede se supero il limite di bagagli registrati consentiti?</h2>",
+   "to": "<h2 id=\"cosa-succede-se-supero-il-limite-di-bagagli-registrati-consentiti\">Cosa succede se supero il limite di bagagli registrati consentiti? {limited-width}</h2>",
+   "count": 1
+  }
+ ],
+ "/es/es/extra-services/baggage/checked-baggage": [
+  {
+   "from": "<h2 id=\"cuánto-equipaje-puedo-facturar\">¿Cuánto equipaje puedo facturar?</h2>",
+   "to": "<h2 id=\"cuánto-equipaje-puedo-facturar\">¿Cuánto equipaje puedo facturar? {limited-width}</h2>",
+   "count": 1
+  },
+  {
+   "from": "<h2 id=\"qué-sucede-si-supero-los-límites-para-el-equipaje-facturado\">¿Qué sucede si supero los límites para el equipaje facturado?</h2>",
+   "to": "<h2 id=\"qué-sucede-si-supero-los-límites-para-el-equipaje-facturado\">¿Qué sucede si supero los límites para el equipaje facturado? {limited-width}</h2>",
+   "count": 1
+  }
+ ]
+}

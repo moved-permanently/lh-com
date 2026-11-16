@@ -6264,3 +6264,46 @@ the ship.
 - Every browser load refused airline hosts per request.
 - Reads came from our hosts, the drop (no new archive) and DA (one GET).
 - No upload, preview or publish by me, no da-upload.mjs. /de/en/overview-manage got no row.
+
+## Standing order 38 (2026-11-16, about 23:05 CET to 02:00 CET), with its final section
+
+**Order 37's ship, finished in this turn:**
+- Lint 0, stylelint on styles/themes/swiss.css 0, the full suite 4704 / 0.
+- Main had moved, so the commit was rebased, and the suite ran again: 4719 / 0. One push was refused, then rebased again
+  (lint 0).
+- Pushed as a6d5cfef; the GitHub Build succeeded.
+- Smoke after:
+  - 0 differences on the hosts whose runs completed.
+  - b2b and lufthansa failed on the network and were run again: 0 differences.
+  - austrian-cn, discover and swiss-cn had no smoke before (network). Against order 36's smoke-after: 0 differences.
+  - austrian's lh-poster PDF answered 503 in the smoke before and 200 after.
+
+**Item 1, Group for Business special-assistance-and-services (9,414 px at 1440, 1,480 at 390): 1440 draws too much, and
+390 hides nothing.**
+- At 1440 the open first tab stacks six news pictures, each across the full 1,264 px content (791 to 949 px tall), so
+  its panel is 8,147 px. On www each news item is a two-column view (text | picture, col-md-6 each).
+- At 390 the tabs are a closed accordion on both, as www's recordings show (1,458 against our 1,480).
+- No row: the page has no 1440 recording to gate a two-column row against. A 1440 first load of both pages is
+  requested (capture-requests-ema-lufthansa.txt).
+
+**Item 2, ranks 130 to 149 (sweep-so38-ranks-130-149.md): all twenty located.**
+- **READY:** delta-so38-brussels-checked-baggage-limited-headings.txt.
+  - The checked-baggage pages' first two headings get {limited-width}, 834 px at 1440 as www's, so the second one takes
+    two lines as on www.
+  - 1440: be/fr -2.44 -> -1.44 %, be/nl and de/de -1.60 -> -0.60 %, it/it -1.59 -> -0.60 %. 390 is equal everywhere.
+  - es/es is HOLD: 0.20 points further at 1440, equal at 390. be/en needs no row.
+  - Each string is found once in DA's copy, and the revert gives DA's bytes back. Its test is
+    test/brussels-checked-baggage-limited-headings-so38.test.mjs. finish-brussels.txt's be/fr 1440 row is READY.
+- **No row, explained:** the other sixteen.
+
+**Checks:** whole-repo lint, the folder-reading tests and the full suite in this order's ship. CSS changed nowhere in
+this order, so stylelint had nothing to check.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine.
+- `.scratch/` (outside git): the loads and drafts, and DA's five checked-baggage copies (read ~22:10 UTC).
+
+**Hosts:**
+- Every browser load refused airline hosts per request.
+- Reads came from our hosts and DA (five GETs).
+- No upload, preview or publish by me, no da-upload.mjs. /de/en/overview-manage got no row.
