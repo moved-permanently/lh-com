@@ -53,6 +53,19 @@
   ]
  },
  {
+  "path": "/at/en/fly/on-board/culinary-services",
+  "inserts": [
+   {
+    "before": "<div class=\"columns-media\"><div><div><h2 id=\"a-sweet-taste-of-austria\">",
+    "text": "<p>{spacer-8 below-768}</p>"
+   },
+   {
+    "before": "<div class=\"section-metadata\"><div><div>style</div><div>flush, column-band, grey</div></div></div>",
+    "text": "<p>{spacer-52 below-768}</p>"
+   }
+  ]
+ },
+ {
   "path": "/eg/en/homepage",
   "inserts": [
    {
