@@ -5468,3 +5468,58 @@ failing.
 - Ended at about 22:00 CET, not 00:30: the three items are answered. Nothing is held.
 - Left out of git: logs/b642 (captures, diffs, renders, runners, the DA copies read for the dry run) and the untracked
   import reports of earlier runs.
+
+### Standing order 43 (2026-11-16 22:40 to about 23:50 CET)
+
+No uploads, previews or publishes; DA read only (none needed); no request to www or any airline host.
+`.migration/project.json` untouched; the add-ons stay off. Order 42 left nothing uncommitted or unpushed. No code change
+this order: the sweep section and hand-over item 21 (e7a4bbc).
+
+Each push: the tests named for it passed, and the whole-repo lint read 0 on a clean worktree of the rebased HEAD (no
+block or theme file changed, so no stylelint). Full suite on the final code: e7a4bbc (origin/main with this order's sweep commit), 72 lh-edge files and 1,246 site files, 0 failing.
+
+**The two-hour windows:** no edit to styles.css or Columns Media; nothing to carousel-cards or the other blocks. The
+hand-over file: my last commits there were 955b7f7 and bb8960e; nobody else's since.
+
+1. **sweep-so34-lh-adobe.md, places 119 to 148 (section "Places 119 to 148", e7a4bbc).** No rule or row passed:
+   - **Gated, not passed:** the stopover example's list on most-significant-route / bedeutsamste-strecken (4
+     versions). www's paragraph before it ends in two line breaks, and the one after starts with one. "{spacer-27}"
+     before and after the list made all eight page-widths worse (390 6.0 -> 7.6, 1440 2.6 -> 5.3): our page is
+     already as tall as www's, because ours leaves 29px more before the footer.
+   - **Load-dependent, not layout:**
+     - the homepage 1440 (6.0 -> 12.1 / 13.2): www's recording has a Dubai flash notice, and our Message Center holds
+       no current message tonight;
+     - stop-over-tokyo and what-i-learned-living-in-barcelona 1440 (+0.9, +0.8): our page is pixel-identical to the
+       sweep's capture except the Price Bar, which drew no price tonight and hid itself. The price feed can't be
+       checked from here (no requests to airline hosts).
+   - **Content changed on www:** discover-lufthansa/take-off ("Impact Fares", a new picture; our copy and the 10-22
+     snapshot have "Green Fares"). It needs a fresh capture of www, not a row from here.
+   - **To ema-test, hand-over item 21:**
+     - an author quote after a columns-media picture row (28px less);
+     - the article-end teaser's picture (20px shorter);
+     - munich-fair's two section gaps, which cancel.
+     - Items 17, 18 and 20 again on be-picky-barcelona and frankfurt-fair 1440.
+   - **No fix:**
+     - www's picture renditions and a video frame;
+     - text over photos;
+     - steps under 1 % (additional-services, meetings-and-events, new-onboard-experience, history,
+       overview-special-request, flying-high).
+2. **Fresh first loads for the Captures child.** The four page-widths the sweep measured against lh-parity-007, whose
+   copies were in /tmp and are gone (orders 41 and 42 measured them against lh-parity-002's older recordings instead):
+
+   | path | width |
+   | --- | --- |
+   | /de/en/articles/explore-flying | 1440 |
+   | /de/en/articles/explore-flying | 390 |
+   | /de/en/articles/explore-the-world | 1440 |
+   | /de/en/articles/explore-the-world | 390 |
+
+   For the same reason, the sweep's lh-parity-008 rows have no recording on this machine either. If the Captures child
+   records those too, the sweep can use them:
+   - /de/en/articles/explore-flying/livery-iconic-moments 1440 and 390;
+   - /de/en, /de/de, /at/de and /gb/en articles/highlights/allegris-new-york 1440 and 390.
+
+   Separately, for its content rather than a recording: /de/en/discover-lufthansa/take-off needs a fresh capture of
+   www's page (item 1), if the owner wants it brought up to date.
+- Ended at about 23:50 CET, not 02:00: both items are answered, and nothing is held.
+- Left out of git: logs/b643 (captures, diffs, drafts, runners) and the untracked import reports of earlier runs.
