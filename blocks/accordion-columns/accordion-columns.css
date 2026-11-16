@@ -659,22 +659,24 @@ body.brand-lufthansa main > .section > .default-content-wrapper:has(+ .accordion
   font-weight: 700;
 }
 
-/* option rich-lists, lufthansa.com: an item's lists as www's richtext lists, the bullet outside with a hanging indent and
-   10px between the items, and on pages with the sub-page navigation the text the item's full width from 1025px (www's
-   dangerous-goods list on /de/en/gefaehrliche-gegenstaende, lh-parity-002: ours set the bullet inside, the items
-   touching, in two thirds of the item; 1440 7.29 -> 6.50 %, 390 13.25 -> 8.61). A rule for every accordion list or every
-   sub-navigation page was not gated: a row puts the option where it is measured (standing order 38) */
-body.brand-lufthansa .accordion-columns.rich-lists .accordion-columns-intro > ul {
+/* lufthansa.com: an item's lists as www's richtext lists, the bullet outside with a hanging indent and 10px between the
+   items, and on pages with the sub-page navigation the item's text its full width from 1025px (www's dangerous-goods
+   list on /de/en/gefaehrliche-gegenstaende, lh-parity-002: ours set the bullet inside, the items touching, in two thirds
+   of the item). Order 38's option rich-lists as a rule for every accordion (standing order 39): its 118 recorded
+   page-widths moved by 0.04 at most (closed items draw nothing at load; gefaehrliche-gegenstaende already has the
+   option), the 965 unrecorded documents with accordion lists rendered with and without: 16 page-widths of 8 documents
+   with an open item changed height, nothing else changed. The option class stays valid and now adds nothing */
+body.brand-lufthansa .accordion-columns .accordion-columns-intro > ul {
   padding-left: 28px;
   list-style-position: outside;
 }
 
-body.brand-lufthansa .accordion-columns.rich-lists .accordion-columns-intro > ul > li + li {
+body.brand-lufthansa .accordion-columns .accordion-columns-intro > ul > li + li {
   margin-top: 10px;
 }
 
 @media (width >= 1025px) {
-  body.brand-lufthansa main:has(.subpage-nav) .accordion-columns.rich-lists .accordion-columns-intro > :is(p, ul, ol) {
+  body.brand-lufthansa main:has(.subpage-nav) .accordion-columns .accordion-columns-intro > :is(p, ul, ol) {
     max-width: none;
   }
 }

@@ -1,0 +1,30 @@
+# ema-test, standing order 39 (2026-11-16): lufthansa.com rows and one shared rule. Against the newest recording (lh-parity-002 / -004), full Chrome, the drops' fonts, live boxes masked, ours vs www mismatch %.
+# Rows: base and trial served from an html folder as full pages (standards mode). Rule: the served content through two local servers of the repo, without and with the rule; no-breakage: every unrecorded document of the census with and without the rule in one load on lufthansa.turnsthe.page.
+# Data: delta-so39-lh-com-rows.json; text-inserts-apply --check on DA's copies read this order (~08:15-08:40 UTC): every insert made once, DA byte for byte without it.
+# Each line: READY / HOLD, DA path, the change, 1440 and 390 (base -> trial), the gate.
+READY	/de/en/data-collection-canada	www's empty line after the first teaser card's text as {spacer-27} (order 36's <br>&nbsp; is dropped by the HTML-to-markdown step; a width-scoped spacer is not hidden inside a Columns Media cell, so the plain one)	1440 9.53 -> 8.24 %, 390 9.75 -> 10.03 %	closer at 1440, within 0.5 at 390 (the same figures as order 36's draft: www's 27 px are the line itself)
+READY	/de/en/general-conditions-currency-conversion	{spacer-40} before "Other credit card charges" (www's headline of its own, about 95 px under the refunds text, ours 52-56)	1440 5.99 -> 1.08 % (1,968 px, www's), 390 6.12 -> 2.81 %	closer at both (item 3, places 52 / 55)
+READY	/de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage	the group airlines' tiles get option wide-rows (order 36: rows 24 px further apart from 768 px; ours about 20 px closer than www's)	1440 5.35 -> 5.07 %, 390 7.15 -> 7.15 %	closer at 1440, the same at 390 (item 3, place 65)
+# Notes:
+# - Item 2, rich-lists as a rule for every lufthansa.com accordion (blocks/accordion-columns, this commit): census 1,024 documents with accordion lists (published copies of 2026-11-12).
+#   Recorded: 118 page-widths (59 pages): none moved by more than 0.04 (electronic-devices-and-batteries 1440 4.57 -> 4.61, lufthansa-express-rail 390 7.32 -> 7.29); gefaehrliche-gegenstaende already carries the option row.
+#   Unrecorded: the 965 documents at 1440 and 390 (1,930 renders), with and without: the selector matched in 1,224 renders, no sideways scroll, overlap, hidden text, H1 or picture change anywhere; 16 page-widths changed height, the documents with an item open at load:
+#     /at/de/gefaehrliche-gegenstaende 1440: 5120 -> 5068 px (-52)
+#     /ca/en/passenger-rights 1440: 8044 -> 8254 px (+210)
+#     /de/de/gefaehrliche-gegenstaende 1440: 5120 -> 5068 px (-52)
+#     /gb/en/gefaehrliche-gegenstaende 1440: 5087 -> 4981 px (-106)
+#     /mk/de/gefaehrliche-gegenstaende 1440: 5120 -> 5068 px (-52)
+#     /mk/en/gefaehrliche-gegenstaende 1440: 5087 -> 4981 px (-106)
+#     /mv/de/gefaehrliche-gegenstaende 1440: 5120 -> 5068 px (-52)
+#     /us/de/gefaehrliche-gegenstaende 1440: 5120 -> 5068 px (-52)
+#     /at/de/gefaehrliche-gegenstaende 390: 9197 -> 9415 px (+218)
+#     /ca/en/passenger-rights 390: 14141 -> 14459 px (+318)
+#     /de/de/gefaehrliche-gegenstaende 390: 9196 -> 9414 px (+218)
+#     /gb/en/gefaehrliche-gegenstaende 390: 8325 -> 8543 px (+218)
+#     /mk/de/gefaehrliche-gegenstaende 390: 9259 -> 9477 px (+218)
+#     /mk/en/gefaehrliche-gegenstaende 390: 8388 -> 8606 px (+218)
+#     /mv/de/gefaehrliche-gegenstaende 390: 9134 -> 9352 px (+218)
+#     /us/de/gefaehrliche-gegenstaende 390: 9259 -> 9477 px (+218)
+#   Closed items draw nothing at load, so the rule acts there when a reader opens an item. Interim: the option row on gefaehrliche-gegenstaende is live and stays valid (the option class now adds nothing).
+# - Item 4, airline-apps as served on lufthansa.turnsthe.page (~08:40 UTC): 390 4.11 %, 1440 2.19 %, as gated.
+# - Item 3: places-so39-lh-rest-51-70.txt (from ranking-so39-lh-rest.tsv, committed first).

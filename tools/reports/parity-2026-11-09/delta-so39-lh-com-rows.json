@@ -1,0 +1,29 @@
+[
+ {
+  "path": "/de/en/data-collection-canada",
+  "inserts": [
+   {
+    "after": "departure and arrival airports.</p>",
+    "text": "<p>{spacer-27}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/general-conditions-currency-conversion",
+  "inserts": [
+   {
+    "before": "<h2 id=\"other-credit-card-charges-limited-width\">",
+    "text": "<p>{spacer-40}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media\">",
+    "text": "<div class=\"columns-media wide-rows\">"
+   }
+  ]
+ }
+]
