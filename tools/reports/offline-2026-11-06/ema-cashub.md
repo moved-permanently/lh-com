@@ -8084,3 +8084,175 @@ All three items are done. I stopped before 07:30: what is left needs your decisi
 
 **Not in git** (scratch under /tmp/so44): the census and gate tables, the code copies used for the bisect and the
 overrides, the snapshot layouts, the scripts and logs.
+
+## Standing order 45 (2026-11-16, from about 06:05 CET)
+
+**Carried over:** nothing. Order 44's commits were all on main (`0f491692`, `80fbed2e`). The footer rule existed only in
+my worktree, which was clean at the start. The checkout's 88 dirty entries are other jobs' and were left alone.
+
+**Renders:** unhinted text throughout. lh-proxy, www.* and every airline host were refused and counted; none was sent.
+- Austria's homepage widget calls were answered from our host's recorded loads (austrian-api-002 / -003).
+- In-flight entertainment renders: the vendor's host (www.austrian-inflightentertainment.com) was refused too.
+- Refused: 0 on the French homepages, the Cargo and the Air Dolomiti pages; 3 per contact page; 18 on at/de's homepage;
+  about 200 on the unterhaltung-an-bord loads (www.lufthansa.com's labels and the vendor's frame).
+
+**DA:** read only, three single GETs: lh-austrian ca/fr and ch/fr homepages, lh-cargo /en/ci/partnerships-subsidiaries.
+No upload, preview, publish or da-upload.mjs. /de/en/overview-manage has no row.
+
+### Item 1: the Austrian footer columns, shipped with the stretcher rows
+
+- **The rule** (`c86de758`, pushed ~06:28 CET): from 1025 px, three tracks when the footer has three link columns. It sits in
+  styles/themes/austrian.css after the footer block, where order 44 drafted it. That is before "/* the end of
+  online-check-in", which other tests read to the end of the file.
+- **The stretcher rows** (delta-so45-austrian-fr-stretcher-block.txt and .json, READY): www's English "Stretcher
+  transportation" heading and paragraph, inserted after the empty flash teaser on ca/fr and ch/fr, with
+  text-inserts-apply.mjs. This replaces order 21's HOLD list.
+  - Dry run on DA's current copies: one insert each, removable byte for byte, a second run "present".
+  - Measured again today against austrian-parity-022 / -026. Each width is a first load, and the controls equal the
+    served pages:
+
+| page-width | www | as served | rule only (interim) | row + rule |
+|---|---|---|---|---|
+| ca/fr 1440 | 3,362 | 3,254 (-3.21 %) | 3,212 (-4.46 %) | 3,428 (+1.96 %) |
+| ca/fr 390 | 4,785 | 4,556 (-4.79 %) | the same | 4,903 (+2.47 %) |
+| ch/fr 1440 | 5,042 | 4,874 (-3.33 %) | 4,832 (-4.17 %) | 5,047 (+0.10 %) |
+| ch/fr 390 | 6,314 | 6,059 (-4.04 %) | the same | 6,405 (+1.44 %) |
+
+- **The gate file** (gate-so44-austrian-footer-columns.txt) has a new status line.
+  - by/ru and ru/ru are ACCEPTED, with your reason on their rows.
+  - ca/fr and ch/fr are INTERIM, with the row's figures.
+  - The code under the rule had not changed for Austrian pages since order 44's code copy: only lufthansa.com-scoped
+    rules, ITA's help pictures and Air Dolomiti's H4s.
+- **Tests:** test/austrian-footer-columns-so45 is new: red on main before the commit, green after. order 44's test now
+  expects the rule.
+- **Live:** your helpers applied the stretcher rows within minutes of the push. As served at ~06:45 CET, every figure is
+  its gate figure to the px: ca/fr 3,428 / 4,903, ch/fr 5,047 / 6,405, fr/fr/contact 2,519, it/it/contact 2,491, at/de
+  homepage 4,872. The interim state lasted only those minutes.
+
+### Item 2: the phone first loads (gate-so45-cargo-007-airdolomiti-011.txt)
+
+**The drops:** both match the sha256 you gave. Each was extracted into its own new folder and read as data. Every width
+was loaded separately (the READMEs still carry the old "after a resize" sentence; the manifests are right).
+
+**Cargo's four loads carry www's 80 px service notice** above the header. Less the notice, each page and footer top
+equals cargo-parity-003's resized 390 to the px. So those four were real gaps, not pointers.
+
+| page (390) | www | ours | cause | row |
+|---|---|---|---|---|
+| terms-of-use | 4,780 | 5,414 (+13.26 %) | www's legal lists (16 / 19.2 px items, no gaps), its ten empty paragraphs, edge-to-edge text below 1281 px, our H1 | HOLD, two options measured |
+| partnerships-subsidiaries | 2,781 | 2,659 (-4.39 %) | www's three link items after "The program"; ours hidden in its closed text | **READY**: 2,767 (-0.50 %) |
+| live-animals | 1,742 | 1,810 (+3.90 %) | the tab band: www's is the five rows alone; ours has 20 px padding top and bottom and 20 under the section | HOLD, captures asked |
+| eaw | 2,236 | 2,188 (-2.15 %) | www's empty line and a `<br>` in a heading, inside the text cell | none |
+
+**terms-of-use: your call.** Two options, measured:
+- **(A) www's structure:** its list style at every width, plus its ten empty lines.
+  - 390: +7.76 %.
+  - 1440: +1.40 -> +3.71 %, further.
+- **(B) the list style below 1281 px only:**
+  - 390: +0.65 %; 1440 unchanged.
+  - But it only matches because our narrower text makes up for the missing empty lines. In www's own layout (offline,
+    within 0.1 % of its recordings), 768 and 1024 go from +4 / +5 % to -6.5 / -7 %.
+- Or leave it as it is.
+
+**partnerships-subsidiaries: READY** (`443218d7`, delta-so45-cargo-partnerships-links.txt):
+- **The code:** a new accordion-columns option, link-rows. A row whose only content is one link becomes a link line drawn
+  as an item's title (its + and its rule), with no disclosure.
+  - Reach: no served Cargo or Austrian document, no content copy in the repo and no importer has the option.
+  - Without the option, every row is built as before. Five accordion pages rendered with the new code are the same to
+    the px at 390 and 1440.
+- **The row:** the option on the "Partnerships Customers" block, and the three links as one-link rows.
+  - 390: 2,767 (-0.50 %), footer top 2,207 against www's 2,219.
+  - 768 and 1440: unchanged to the px; the lines sit over the picture, 58 px apart, as www's.
+  - Dry run on DA's copy: clean.
+- Two other forms were drafted and dropped:
+  - the links as a plain list (1440 +2.06 %);
+  - links inside accordion titles (a nested control).
+- Test: test/accordion-columns-link-rows-so45.
+
+**live-animals: HOLD.**
+- A Cargo rule (below 768 px, a grey section holding only a tab set: no padding; the last one: no margin) gives 1,750
+  (+0.46 %).
+- Its census: 23 documents with a tab set; 16 are 60 px shorter at 390 and 767; none breaks.
+- But six of those 16 have -003 390 rows (resizes with a tab open) that read within 0.5 % with our padding. The rule
+  would take them to -4.5 to -5.4 %.
+- First loads of general-cargo and emergency at 390 would decide it (capture-requests-ema-cashub.txt).
+
+**eaw: no row.** The two missing lines are inside a block, where spacer markers draw nothing. Drawing them would take
+1440 from +1.52 % to about +4.4 %.
+
+**Air Dolomiti:**
+- **lounge-zutritt 390 (-3.76 %):** your German FAQ titles of order 30. The two titles are 4 lines on www and 2 on ours,
+  -116 px. Without them the footer is within 7 px.
+- **archistars 390 (+1.43 %):** within 2 %. www's phone H4 is 20 / 28 px regular. That style alone takes the page to
+  +3.36 %, so not shipped.
+
+### Item 3: two proposals, nothing changed (proposals-so45-austrian-upload-ife.txt)
+
+**cancellation-refund's upload widget:**
+- www draws two uploads:
+  - forms-file on this page: a name line with delete, BROWSE and UPLOAD, ADD ATTACHMENT up to 5;
+  - forms-filedrop, a drop zone, on its other forms.
+- Ours draws the drop zone everywhere.
+- **The proposal:** a file-row option that draws the forms-file lines (code in blocks/form, one DA row).
+  - Your call: UPLOAD left out, or drawn disabled. Ours sends the files with the form.
+  - Reach: one of the 157 Austrian documents with a file row; the other 156 keep the drop zone, which is www's there.
+  - Gate: 390 -6.98 -> about -0.27 %, 1440 -1.88 -> about -0.27 %. It would be drafted before a row is READY.
+
+**The flag austrian-ife-carousel:**
+- Measured today on all ten unterhaltung-an-bord documents: +477 px at 1440 with the flag on, nothing at 390 (the tab
+  set is closed on phones).
+- at/de 1440: on and without order 29's note, 2,749 against www's 2,749 (from -14.73 %).
+- **The catch:** the vendor frames its widget on austrian.com only. On our hosts a visitor would see the browser's
+  refusal box.
+- **The proposal, if you want it on:** the flags row and the ten note rows out, in one round.
+- **My recommendation:** keep it off until the pages are served from austrian.com.
+
+### Final section (about 07:25 CET, 2026-11-16)
+
+All three items are done. I stopped before 10:00 because what is left needs your decision or a capture.
+
+**On main:**
+- `c86de758` (~06:28 CET): item 1. The Austrian footer rule, the stretcher list and its .json, the gate's statuses, the
+  two tests.
+- `443218d7` (~07:03 CET): items 2 and 3. Option link-rows (accordion-columns.js and its README), the partnerships list
+  and its .json, the capture gate, the proposals, the capture requests, the test.
+- This commit: this section.
+
+**Live since:**
+- **The stretcher rows:** applied by your helpers within minutes of the push. ca/fr 3,428 / 4,903, ch/fr 5,047 / 6,405,
+  as gated.
+- **The footer rule:** fr/fr/contact 2,519, it/it/contact 2,491, at/de homepage 4,872, as gated.
+- **The partnerships row:** applied ~07:15 CET. 2,767 / 3,218 / 4,707 at 390 / 768 / 1440, with the three link lines,
+  as gated.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 before each push (one round each; origin did not move during the checks).
+  The exit code was read first.
+- **Stylelint:** exit 0 on styles/themes/austrian.css. No other stylesheet changed.
+- **Tests on the pushes:**
+  - item 1: 1,149 tests, 0 failures (every test naming the theme, the footer columns, the report folder or the inserts
+    tool);
+  - items 2 and 3: 778 tests, 0 failures (the block, the folder, the tool, the capture requests).
+  - Before each commit, every file of those sets also ran on its own: 271 and 176 files, 0 failures.
+- **Folder-reading tests:** 25 files, 121 tests, 0 failures, 2 skipped.
+- **Full suite** on `443218d7`: 1,207 files, 4,614 tests, 0 failures, 5 skipped (one node process per file).
+
+**For you:**
+- **terms-of-use (Cargo, 390 +13.26 %):** option A, B or leave it (item 2).
+- **live-animals:** HOLD until first loads of general-cargo and emergency at 390 (requested).
+- **The two proposals** (item 3):
+  - the upload widget: whether to draw it, and with or without UPLOAD;
+  - the carousel flag: my advice is to keep it off on our hosts.
+- **Unchanged:** bangkok-airways, the brand font's wraps (facts-figures), Cargo's data-protection-notice page (waiting
+  for Ben).
+
+**Rules followed:**
+- No request to an airline host (refused and counted, none sent).
+- **DA:** read only, three single GETs.
+- No upload, preview, publish or da-upload.mjs.
+- The recordings were read as data.
+- The checkout's 88 dirty entries untouched. I worked in migration-work/parity-588/wt, and the full suite ran in wt-push.
+- /de/en/overview-manage has no row.
+
+**Not in git** (scratch under /tmp/so45): the DA copies read, the drafts, the code copies, the census tables, the
+scripts and the logs.

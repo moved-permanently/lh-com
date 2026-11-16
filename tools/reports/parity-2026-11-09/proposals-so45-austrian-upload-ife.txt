@@ -1,4 +1,4 @@
-# ema-cashub, standing order 45, item 3 (2026-11-16, ~07:50 CET): two of the owner's "your call" items as proposals. Nothing is changed by this file; the owner decides after reading it.
+# ema-cashub, standing order 45, item 3 (2026-11-16, ~07:00 CET): two of the owner's "your call" items as proposals. Nothing is changed by this file; the owner decides after reading it.
 #
 # 1. /il/en/legal/cancellation-refund-via-document-upload: the upload widget
 # What www draws: its forms-file widget (austrian-parity-021, both widths): per attachment a "File upload" line (the file's name field and a delete icon), under it BROWSE and UPLOAD, then ADD ATTACHMENT for the next line (up to the form's 5); stacked on phones, 451 px from the text above it to the card's end at 390. www has a second upload, forms-filedrop (a drop zone, "Drag file(s) here ... select File(s)"), on its other forms (private-check-in-counter's recording has it).
