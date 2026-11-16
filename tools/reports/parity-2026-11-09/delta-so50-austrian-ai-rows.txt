@@ -1,0 +1,22 @@
+# Apply (standing order 50): node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so50-austrian-ai-rows.json --list this file --docs <DA's copies, <path>.html> --out <dir> [--check]. Only the READY rows' paths are applied (the tool reads READY / HOLD). One insert per page: order 42's block ask-ai-flights right after the flight-search block, in its section, its button linking to the market's www homepage. Taking it out gives DA's copy back byte for byte (the tool says so); a copy with it already: "present".
+# DA backup folder (standing order 39): before a row is applied, DA's copy goes to /.token-free-backup/2026-11-austrian-so50-ai-rows/<path>.html (lh-austrian; read back equal before the upload).
+# Dry run on DA's current copies (four single GETs, ~13:38 CET; eg/en and am/en equal order 48's copies byte for byte): every path "1 inserted, 0 present" and "without the inserts DA's copy byte for byte: true"; a second run on the results "0 inserted, 1 present". The HOLD row (es/en) was dry-run too.
+# ema-cashub, standing order 50, item 1: your Captures child's austrian-parity-029 (first loads of 2026-11-16 ~12:02 CET, 1440; sha256 and the manifest's 289 file hashes checked). www's "Ask AI for flights" band is in the saved documents of eg/en, am/en, us/en and es/en (and draws 125 px: de/en, without it, is 4,744 to their 4,869), not in de/en's. Our served pages draw no band on any of the five (the block is on none of their documents; the flag is on).
+# eg/en and am/en: order 48's two HOLD rows (delta-so48-austrian-first-loads.txt), the same inserts, gated here against the 1440 first loads; they stay HOLD in order 48's list and are READY in this one. us/en and es/en: new rows, the same insert with their market's link.
+# Gate: drafts of the served copies on austrian.turnsthe.page (/tmp/so39/hostv.mjs with the document replaced, served code, unhinted, EAGER=1 CONSENT=1; lh-proxy, www.* but www.mynewsdesk.com and every airline host refused and counted: 18 to 28 a render, none sent); each control equals the served page to the px. READY = every recorded width of the document ends closer or within 0.5 points, unrecorded widths with their scroll width. The band draws 124 px at 1440, 210 at 390 and 148 at 768, as order 42 measured.
+#
+# status	path	width	recording	www page	as served	with the row	www footer top	footer top as served	footer top with the row	note
+READY	/eg/en/homepage	1440	austrian-parity-029 (first load)	4869	4,722 (-3.02 %)	4,846 (-0.47 %)	4055	3,908 (-3.63 %)	4,032 (-0.57 %)	www draws the band at 1440 since today's load; austrian-parity-008's 1440 (2026-11-09, 4,744, before the band) is superseded by it
+READY	/eg/en/homepage	390	austrian-parity-027 (first load)	6068	5,901 (-2.75 %)	6,111 (+0.71 %)	5003	4,831 (-3.44 %)	5,041 (+0.76 %)	as order 48 (the row's render today: 6,111 / 5,041 again)
+READY	/eg/en/homepage	768	- (not recorded)	-	5397	5545	-	4431	4579	scroll width 768
+READY	/am/en/homepage	1440	austrian-parity-029 (first load)	4869	4,722 (-3.02 %)	4,846 (-0.47 %)	4055	3,908 (-3.63 %)	4,032 (-0.57 %)	as eg/en
+READY	/am/en/homepage	390	austrian-parity-027 (first load)	6029	5,861 (-2.79 %)	6,071 (+0.70 %)	4963	4,791 (-3.47 %)	5,001 (+0.77 %)	as order 48 (today again)
+READY	/am/en/homepage	768	- (not recorded)	-	-	5545	-	-	4579	scroll width 768
+READY	/us/en/homepage	1440	austrian-parity-029 (first load)	4910	4,763 (-2.99 %)	4,887 (-0.47 %)	4055	3,908 (-3.63 %)	4,032 (-0.57 %)	us/en's footer is 41 px taller than the other markets' on both sides; its only recording
+READY	/us/en/homepage	390	- (not recorded)	-	5692	5902	-	4499	4709	scroll width 390; www's band is drawn at 390 wherever it is at 1440 so far (eg/en, am/en); a first load is asked for (capture-requests-ema-cashub.txt)
+READY	/us/en/homepage	768	- (not recorded)	-	-	5559	-	-	4553	scroll width 768
+HOLD	/es/en/homepage	1440	austrian-parity-029 (first load)	4869	4,722 (-3.02 %)	4,846 (-0.47 %)	4055	3,908 (-3.63 %)	4,032 (-0.57 %)	passes (as eg/en); the row stays HOLD for its 390
+HOLD	/es/en/homepage	390	austrian-parity-008 (2026-11-10, the 1440 load resized, before www's band)	5790	5,861 (+1.23 %)	6,071 (+4.85 %)	4725	4,791 (+1.40 %)	5,001 (+5.84 %)	fails against a recording without the band, as eg/en's 1440 did in order 48; a 390 first load decides it (requested)
+HOLD	/es/en/homepage	768	- (not recorded)	-	-	5545	-	-	4579	scroll width 768
+#
+# de/en (no row): www 4,744 without the band, ours 4,722 (-0.46 %), footer top 3,930 / 3,908; our page draws none either.

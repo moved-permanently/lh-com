@@ -1,0 +1,38 @@
+[
+ {
+  "path": "/eg/en/homepage",
+  "inserts": [
+   {
+    "after": "up bookings for 10 or more passengers.</a></div></div></div>",
+    "text": "<div class=\"ask-ai-flights\"><div><div><p><strong>Flexible dates? Chat with our AI to find your perfect flight options</strong></p><p><em><a href=\"https://www.austrian.com/eg/en/homepage\">Ask AI for flights</a></em></p></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/am/en/homepage",
+  "inserts": [
+   {
+    "after": "up bookings for 10 or more passengers.</a></div></div></div>",
+    "text": "<div class=\"ask-ai-flights\"><div><div><p><strong>Flexible dates? Chat with our AI to find your perfect flight options</strong></p><p><em><a href=\"https://www.austrian.com/am/en/homepage\">Ask AI for flights</a></em></p></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/us/en/homepage",
+  "inserts": [
+   {
+    "after": "up bookings for 10 or more passengers.</a></div></div></div>",
+    "text": "<div class=\"ask-ai-flights\"><div><div><p><strong>Flexible dates? Chat with our AI to find your perfect flight options</strong></p><p><em><a href=\"https://www.austrian.com/us/en/homepage\">Ask AI for flights</a></em></p></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/es/en/homepage",
+  "inserts": [
+   {
+    "after": "up bookings for 10 or more passengers.</a></div></div></div>",
+    "text": "<div class=\"ask-ai-flights\"><div><div><p><strong>Flexible dates? Chat with our AI to find your perfect flight options</strong></p><p><em><a href=\"https://www.austrian.com/es/en/homepage\">Ask AI for flights</a></em></p></div></div></div>"
+   }
+  ]
+ }
+]

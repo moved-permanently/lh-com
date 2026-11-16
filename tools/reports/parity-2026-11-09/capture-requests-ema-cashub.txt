@@ -119,3 +119,38 @@ https://www.airdolomiti.de/artikel/reiseziele/die-wilde-seite-der-adria	390	+1.1
 # host: www.lufthansa-cargo.com
 /en/dangerous-goods	390	place 85: the flush row passes at 1440 (+1.56 -> +0.61 %) but takes cargo-parity-003's resized 390 from +0.32 to -4.51 %
 # Standing order 49 (2026-11-16, ~12:45 CET): answered by your Captures child's drop: /at/en/homepage 390 (austrian-parity-028: passes as served, +0.02 %) and /en/ehm 390 (cargo-parity-010: the flush row fails at 390, no fix; gate-so49-phone-first-loads.txt). Still open: the four of order 48 (eg/en and am/en 1440, at/de homepage 390, Cargo dangerous-goods 390) and your 1440 loads of three other English homepages (the AI band). No new request this order: places 91 to 110 need none (sweep-so49-places-91-110.txt; bagdamage's 390 first load has been asked since order 28).
+# Standing order 50 (2026-11-16, ~14:05 CET): answered by austrian-parity-029 / cargo-parity-011: eg/en, am/en 1440 (the AI rows READY), at/de homepage 390 (passes as served), Cargo dangerous-goods 390 (the flush row fails: no fix), and the three English homepages at 1440 (us/en READY, es/en passes at 1440 and is HOLD for its 390, de/en no band); gate-so50-first-loads.txt, delta-so50-austrian-ai-rows.txt.
+# New: first loads that would decide a HOLD row or a place of sweep-so50-places-111-130.txt. One load per page and width, as the ones above.
+# host: www.austrian.com
+/es/en/homepage	390	the AI row (delta-so50-austrian-ai-rows.txt, HOLD at 390): its only 390 recording is austrian-parity-008's resize of 2026-11-10, before www's band
+/us/en/homepage	390	the AI row (READY at 1440; 390 not recorded): to confirm www draws the band at 390 there too
+/ba/en/homepage	390	place of sweep-so50-places-111-130.txt (+1.23 % against austrian-parity-008's pre-band resize): does www draw the AI band here?
+/ba/en/homepage	1440	as its 390: a row needs every recorded width, and the 1440 recording (austrian-parity-008) predates the band
+/be/en/homepage	390	place of sweep-so50-places-111-130.txt (+1.23 % against austrian-parity-008's pre-band resize): does www draw the AI band here?
+/be/en/homepage	1440	as its 390: a row needs every recorded width, and the 1440 recording (austrian-parity-008) predates the band
+/bg/en/homepage	390	place of sweep-so50-places-111-130.txt (+1.23 % against austrian-parity-008's pre-band resize): does www draw the AI band here?
+/bg/en/homepage	1440	as its 390: a row needs every recorded width, and the 1440 recording (austrian-parity-008) predates the band
+/cy/en/homepage	390	place of sweep-so50-places-111-130.txt (+1.23 % against austrian-parity-008's pre-band resize): does www draw the AI band here?
+/cy/en/homepage	1440	as its 390: a row needs every recorded width, and the 1440 recording (austrian-parity-008) predates the band
+/dk/en/homepage	390	place of sweep-so50-places-111-130.txt (+1.23 % against austrian-parity-008's pre-band resize): does www draw the AI band here?
+/dk/en/homepage	1440	as its 390: a row needs every recorded width, and the 1440 recording (austrian-parity-008) predates the band
+/gr/en/homepage	390	place of sweep-so50-places-111-130.txt (+1.23 % against austrian-parity-008's pre-band resize): does www draw the AI band here?
+/gr/en/homepage	1440	as its 390: a row needs every recorded width, and the 1440 recording (austrian-parity-008) predates the band
+/hr/en/homepage	390	place of sweep-so50-places-111-130.txt (+1.23 % against austrian-parity-008's pre-band resize): does www draw the AI band here?
+/hr/en/homepage	1440	as its 390: a row needs every recorded width, and the 1440 recording (austrian-parity-008) predates the band
+/iq/en/homepage	390	place of sweep-so50-places-111-130.txt (+1.23 % against austrian-parity-008's pre-band resize): does www draw the AI band here?
+/iq/en/homepage	1440	as its 390: a row needs every recorded width, and the 1440 recording (austrian-parity-008) predates the band
+/ir/en/homepage	390	place of sweep-so50-places-111-130.txt (+1.23 % against austrian-parity-008's pre-band resize): does www draw the AI band here?
+/ir/en/homepage	1440	as its 390: a row needs every recorded width, and the 1440 recording (austrian-parity-008) predates the band
+/jo/en/homepage	390	place of sweep-so50-places-111-130.txt (+1.23 % against austrian-parity-008's pre-band resize): does www draw the AI band here?
+/jo/en/homepage	1440	as its 390: a row needs every recorded width, and the 1440 recording (austrian-parity-008) predates the band
+/lt/en/homepage	390	place of sweep-so50-places-111-130.txt (+1.23 % against austrian-parity-008's pre-band resize): does www draw the AI band here?
+/lt/en/homepage	1440	as its 390: a row needs every recorded width, and the 1440 recording (austrian-parity-008) predates the band
+/mk/en/homepage	390	place of sweep-so50-places-111-130.txt (+1.23 % against austrian-parity-008's pre-band resize): does www draw the AI band here?
+/mk/en/homepage	1440	as its 390: a row needs every recorded width, and the 1440 recording (austrian-parity-008) predates the band
+/at/en/homepage	1440	place 113: austrian-parity-001's load of 2026-11-05 has www's older flight search (FIND FLIGHTS 50 px lower than in today's loads)
+/at/de/homepage	1440	place 111: as /at/en/homepage 1440
+# One file, no page load: the picture of item 3 (delta-so50-austrian-medical-picture.txt). www's answer (status, content type, length, sha256; the file itself into the drop if it is 200) for each URL:
+https://www.austrian.com/content/dam/aua/images/plan/baggage/electronic-devices-and-batteries/baggage-electronic-devices-flugmodus-2x1.jpg	-	the original; www answered 404 for it on 2026-11-10 08:11 CET (tools/importer/austrian-missing-assets.json)
+https://www.austrian.com/content/dam/aua/images/plan/baggage/electronic-devices-and-batteries/baggage-electronic-devices-flugmodus-2x1.jpg.transform/lh-dcep-transform-width-2560/img.jpg	-	the rendition the row would use (404 on 2026-11-10)
+/at/en/plan/special-requirements/medical-travel-companions	1440	only if the picture answers 200: does www draw it on the second card, "Electronic devices" (it did not in austrian-parity-003)?

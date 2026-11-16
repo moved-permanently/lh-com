@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/at/en/plan/special-requirements/medical-travel-companions",
+  "inserts": [
+   {
+    "replace": "<div><div></div><div><h4 id=\"electronic-devices\">",
+    "text": "<div><div><picture><img src=\"https://www.austrian.com/content/dam/aua/images/plan/baggage/electronic-devices-and-batteries/baggage-electronic-devices-flugmodus-2x1.jpg.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></div><div><h4 id=\"electronic-devices\">"
+   }
+  ]
+ }
+]
