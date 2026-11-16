@@ -58,7 +58,8 @@ test('with both copies there, the stage and the FAQ card point at them and nothi
 
 test('no checked pictures for other apps and brands; Austrian\'s stay as they are', () => {
   assert.equal(mountPlan(blockOf([['claim-form-entry']]), BRANDS.swiss, ch, 'swiss.turnsthe.page').checkedPictures, undefined);
-  ['austrian', 'brussels', 'ita'].filter((b) => BRANDS[b]).forEach((b) => {
+  // ITA has its own checked copies since standing order 29 (micro-frontend-ita-pictures-so29.test.mjs)
+  ['austrian', 'brussels'].filter((b) => BRANDS[b]).forEach((b) => {
     assert.equal(mountPlan(blockOf([['help-center-web']]), BRANDS[b], { country: 'be', lang: 'en', brand: b }, `${b}.turnsthe.page`).checkedPictures, undefined, b);
   });
   assert.ok(mountPlan(blockOf([['help-center-web']]), BRANDS.austrian, { country: 'at', lang: 'en', brand: 'austrian' }, 'austrian.turnsthe.page').pictures);

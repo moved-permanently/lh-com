@@ -91,3 +91,14 @@
 # host: swiss.com
 /content/dam/lx/images/local_images/help-center/main.png
 /content/dam/lx/images/local_images/help-center/faq.png
+# ITA, standing order 29 (2026-11-16): two picture files, as assets with their sha256 (not a page capture), as SWISS's of
+# order 27: the help app (help-center-web) writes them from www's host on /it/en/help-and-contact and /it/it/help-and-contact
+# (its stage and its FAQs card; both addresses in ita-parity-003's and -008's markup); copies in lh-ita's DA let our block
+# point at them (micro-frontend.js, the ITA design's checkedPictures; delta-so29-ita-help-center-pictures.txt).
+# host: www.ita-airways.com
+/content/dam/ita/images/local_images/help-center/main.png
+/content/dam/ita/images/local_images/help-center/faq.png
+# ITA, standing order 29: a phone first load (390 x 844, its own load, not a resize of the 1440 one) of this page, whose
+# only phone recording (ita-parity-004) is a resize: its text wraps narrower there than either width's own layout
+# host: www.ita-airways.com
+/it/en/manage-my-bookings/extra-services/travel-insurance

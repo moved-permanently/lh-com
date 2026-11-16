@@ -58,7 +58,20 @@ const BRAND_DESIGN_SYSTEMS = {
   // system load ITA's fonts and icons (az-fonts.css, icon.library.AZ.js; else Lufthansa's), its
   // head has X-Line b, its help center is 4.3.2
   'www.ita-airways.com': {
-    release: 'mausy-v1.40.1', theme: 'ita', themeClass: 'maui-theme-az', meta: { 'X-Line': 'b' }, apps: { 'help-center-web': '4.3.2' },
+    release: 'mausy-v1.40.1',
+    theme: 'ita',
+    themeClass: 'maui-theme-az',
+    meta: { 'X-Line': 'b' },
+    apps: { 'help-center-web': '4.3.2' },
+    // the help center's stage and FAQ card pictures, which the app writes from www's host: copies
+    // in lh-ita's DA (delta-so29-ita-help-center-pictures.txt, standing order 29), used only once
+    // they load (checkedPictures), as SWISS's: until then the page draws as without them
+    checkedPictures: {
+      'help-center-web': {
+        'https://www.ita-airways.com/content/dam/ita/images/local_images/help-center/main.png': '/media-da/ita/help-center/main.png',
+        'https://www.ita-airways.com/content/dam/ita/images/local_images/help-center/faq.png': '/media-da/ita/help-center/faq.png',
+      },
+    },
   },
   // www's culinaryjourney pages (2026-10-27): v1.38.0, discover.css
   'www.discover-airlines.com': { release: 'v1.38.0', theme: 'discover' },
