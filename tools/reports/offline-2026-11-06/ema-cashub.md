@@ -9078,3 +9078,118 @@ them live at ~16:05 CET. ba/en's and us/en's served copies equal my drafts byte 
 - /de/en/overview-manage has no row.
 
 **Not in git** (scratch under /tmp/so51): the drop, the served copies, DA's copies, the renders, drafts, scripts and logs.
+
+## Standing order 52 (2026-11-16, from about 16:35 CET)
+
+**Carried over:** nothing. Order 51's commits were all on main, and my worktree was clean at `d0939fdf`. The finder rule
+stayed in scratch, as reported. The checkout's 88 dirty entries belong to other jobs and were left alone.
+
+**Renders:** about 95 page renders and 1,810 census loads, all unhinted. lh-proxy, www.* (but www.mynewsdesk.com) and every
+airline host were refused and counted: 494 in the renders and 388 in the census, none sent.
+
+**DA:** read only, four single GETs, one per command: the nl, no, se and si /en homepages (lh-austrian). No upload,
+preview, publish or da-upload.mjs. /de/en/overview-manage has no row.
+
+### Item 1: the finder button rule (gate-so52-austrian-finder-button.txt): HOLD, not shipped
+
+**The drop:** austrian-parity-031 landed while I worked (in the drop at ~16:38 CET).
+- Its sha256 `5375d932…bcbc9cf4c2` equals the drop's `.sha256` sidecar, and the manifest's 288 file hashes match.
+- I found no deliveries record for it: lh-deliveries.json has no Austrian parts, and the Austrian folder has no
+  deliveries file. Please confirm the figure when you name it.
+- It went into its own new folder and was read as data (serve.py not run). The loads are separate first loads,
+  16:32 to 16:36 CET.
+
+**The gate fails again:** www's new ch/de phone load equals austrian-parity-022's to the px (5,916, footer top 4,851).
+
+| page | www | as served | with the rule | further |
+|---|---|---|---|---|
+| ch/de 390 | 5,916 | 5,487 (-7.25 %) | 5,449 (-7.89 %) | 0.64: FAIL |
+| nl, no, se, si /en 390 | 6,029 | 5,861 (-2.79 %) | 5,847 (-3.02 %) | 0.23: PASS, each |
+
+- **Why:** as before, our finder draws its short state because www's APIs are refused, so ch/de is already 429 px short.
+  The rule then takes 38 px off a button that is 74 px where www's is 36.
+- This gate can't pass as served until the finder's state matches. The rule stays out of git.
+
+**A row each for nl, no, se and si /en (delta-so52-austrian-ai-rows.txt, READY):** the new loads draw www's AI band on all
+four at both widths, at es/en's and the eleven's figures. This closes places 131 to 134.
+- The rows are order 51's insert. Dry run on DA's copies: one insert each, DA's copy back byte for byte without it,
+  "present" on a second pass.
+- With the row: 390 6,071 (+0.70 %, as served -2.79 %), 1440 4,846 (-0.47 %, as served -3.02 %), 768 5,545 (scroll
+  width 768). These are the eleven's figures to the px.
+- Not applied yet when I last checked (~17:40 CET).
+
+### Item 2: the Air Dolomiti article end (gate-so52-airdolomiti-article-end.txt): SHIPPED, live as gated
+
+**Located:** our post's last section keeps the section margin, 48 px at every width.
+- **www's own rule** (its stylesheet in the recording): the post's wrapper has no bottom margin below 930 px and 100 px
+  from 930.
+- **www's pictures agree on every recorded post:** at 390 the last line ends 4 to 12 px above the footer, at 1440 100
+  to 107 px above it.
+- What remains on the Adriatic (+13 at the footer) is mostly the +7 and +6 in its first sections; the last heading-to-text
+  step is ~3 px more on ours (60 against ~57). No fix for those.
+
+**The rule** (the theme's last rules): a post whose last section ends with its text gets no margin on that section or
+its last element below 930 px, and 100 px from 930. Posts that end with a block (12 embeds, 6 quizzes, 2 galleries)
+are left as they are, because www's end after a block is not recorded.
+
+**Gate, every recorded page the rule reaches:** 10 of 10 closer.
+
+| page | 390: www, as served -> with the rule | 1440: www, as served -> with the rule |
+|---|---|---|
+| Adriatic it / en / de | 5,134 / 5,124 / 5,481: +1.21 / +1.19 / +1.13 -> +0.27 / +0.25 / +0.26 % | 4,086 / 4,131 / 4,262: -0.76 / -0.75 / -0.73 -> +0.51 / +0.51 / +0.49 % |
+| street-food-in-munich | 6,766: +2.38 -> +1.67 % | 6,173: -5.28 -> -4.44 % |
+| airports-designed-by-archistars | 4,674: +1.43 -> +0.41 % | 4,549: -1.32 -> -0.18 % |
+
+**No-breakage census, done:** the rule was toggled in the same load on all 564 served posts (every Air Dolomiti
+document with article-header, of 1,569) at 390, 768 and 1440, plus the 98 other recorded Air Dolomiti page-widths.
+That is 1,790 page-widths, all OK:
+- Every move is at the page's end: the last section and its last element stand, and the footer moves as much as the page.
+- Scroll widths and elements past the edge are unchanged, and taking the rule out restores every figure.
+- Moves: text ends -48 at 390 and 768 and +52 at 1440; lists -38 below 930 px; the two quote endings (the hangar
+  article, en and de) -50 / -70 / +20. Pages without the header: +0.
+- Ten loads (timeouts, noisy or undecorated) were measured again alone.
+
+**Live:** the theme was served at ~17:37 CET. All ten recorded page-widths measured live equal the gated figures to the
+px. The rule has a test (test/airdolomiti-article-end-so52.test.mjs), and stylelint is clean.
+
+### Item 3: places 151 to 170 (sweep-so52-places-151-170.txt)
+
+All twenty are within 2 %.
+- **Closed:** 151 Cargo ecsd 390 (-0.06 %), 159 and 160 by/en and ru/en 1440 (-0.14 %, the AI band as served).
+- **Moved since order 43, not traced:** 154 Cargo de fleet 1440, -50 to -0.55 %.
+- **Candidates, not drafted:**
+  - 152 and 156 (Austrian baggage, en and de): -69 / -72 after the closing card list. www leaves ~151 px under it, ours
+    80. Every card above stands within -5. A rule needs a census over the Austrian pages that end with a card list.
+  - 161 (Air Dolomiti de/betreuung 1440): +37 at a bold-only lead-in paragraph. www's answer stands 1 px under it, ours
+    38. A rule would reach every brand page with such a lead-in, so it needs a site-wide scan first.
+- **No fix:**
+  - steps of both signs: 153, 157, 158, 162/163/169/170 (Cargo support-and-contact 390), 166, 167;
+  - widgets' states: 155's fare teaser; 164, 165 and 168, the Air Dolomiti booking form's band, -22.
+
+### Final section (about 18:00 CET, 2026-11-16)
+
+All three items are done, so I stopped well before 19:30.
+
+**On main:**
+- `51c5878e`: the Air Dolomiti rule and its test, the AI rows list, both gate files, the sweep file.
+- This commit: this section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0, read before the push. Origin did not move during the checks.
+- **Stylelint:** styles/themes/airdolomiti.css, exit 0.
+- **Tests on the push:** 327 files, 1,513 tests, 1,511 pass, 0 failures, 2 skipped.
+- **Full suite** on `51c5878e`: 1,235 files, 4,686 tests, 4,681 pass, 0 failures, 5 skipped (one node process per file, ~17:35 to ~17:52 CET).
+
+**For you:**
+- **The finder rule:** it can't pass as served (item 1). Keep it held, or decide on it another way.
+- **The archive:** please confirm austrian-parity-031's sha256.
+
+**Rules followed:**
+- No request to an airline host: refused and counted, none sent.
+- DA: four single GETs, read only.
+- No upload, preview, publish or da-upload.mjs.
+- The recordings were read as data.
+- The checkout's dirty entries untouched.
+- /de/en/overview-manage has no row.
+
+**Not in git** (scratch under /tmp/so52): the drop, the served copies, DA's copies, the renders, drafts, scripts and logs.
