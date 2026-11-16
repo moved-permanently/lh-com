@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/advance-seat-reservations-terms-and-conditions",
+  "inserts": [
+   {
+    "replace": "Select a topic below for further information. {full-width}</p></div>",
+    "text": "Select a topic below for further information. {full-width}</p><div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-768</div></div></div></div>"
+   }
+  ]
+ }
+]

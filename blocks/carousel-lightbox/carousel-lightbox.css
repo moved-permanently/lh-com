@@ -309,6 +309,15 @@
   }
 }
 
+/* lufthansa.com: a wide slideshow (option wide: its section's width) right under its heading: 25px under it and 50px to
+   the next heading at every width (www's seat map on /de/en/discover-lufthansa/lufthansa-fleet/351, lh-parity-002c:
+   25px under "Illustration of the Airbus A350-1000 ...", ours 57; 50px to "Seat maps ... to download", ours 72 at 1440,
+   108 at 390: 1440 11.76 -> 7.22 %, 390 13.68 -> 8.66; reach: the 16 fleet/351 documents, standing order 37) */
+body.brand-lufthansa .carousel-lightbox.wide:not(:has(.carousel-lightbox-intro)) {
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+
 /* two slideshows of one column view (/744 Hauptdeck, Oberdeck; side by side on live from
    768px, stacked here): 40px apart */
 .carousel-lightbox-wrapper:has(+ .carousel-lightbox-wrapper) > .carousel-lightbox.carousel-lightbox,

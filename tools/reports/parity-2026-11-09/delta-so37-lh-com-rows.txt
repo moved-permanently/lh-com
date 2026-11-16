@@ -1,0 +1,41 @@
+# ema-test, standing order 37 (2026-11-16): lufthansa.com rows and rules. Gates, against lh-parity-002 (2026-11-06), full Chrome, the drops' fonts, live boxes masked, ours vs www mismatch %:
+# - rows: base and trial served from an html folder as full pages (the host's served HTML with <main> replaced: standards mode; the base reads the host's own figures);
+# - rules: the served content through two local servers of the repo, without and with the rule (also standards mode).
+# Data: delta-so37-lh-com-rows.json (READY rows); text-inserts-apply --check on DA's copies (read 2026-11-16 ~03:45 UTC): every insert made once, DA byte for byte without it.
+# Each line: READY / HOLD, DA path, the change, 1440 and 390 (base -> trial), the gate.
+READY	/de/en/advance-seat-reservations-terms-and-conditions	the first section (breadcrumb, H1, intro) gets the new style gap-after-small-768 (this commit: 24 px to the next section from 768 px; www's FAQ teasers start 24 px under the intro at 1440, ours 48)	1440 6.23 -> 2.17 %, 390 5.52 -> 5.52 %	closer at 1440, the same at 390 (item 2; gap-after-small at both widths: 390 5.52 -> 7.11, further, so not that)
+# Notes:
+# - Item 1, order 36's rows as served on lufthansa.turnsthe.page (~03:05 UTC): lufthansa-aviation-group 1440 5.37 / 390 14.13 %, internet-overview 5.16 / 13.68, unterhaltung-an-bord 11.20 / 13.79, travelling-healthy 6.80 / 11.52, lounge-companions 4.00 / 7.08, fleet/351 11.76 / 13.68: as gated. carry-on-baggage 1440 7.31 % (16.09 before), 390 6.48: its folder gate read 18.58 -> 10.57 because html-folder pages carry no doctype (quirks mode: its superscript-only footnote lines 19 px apart, served 27; corrected in delta-so36). Heights: aviation-group's 48 px at 1440 is the option's two row gaps (24 each), 390 unchanged by design; internet-overview keeps its height because the stage is 640 px whatever its text size.
+# - Item 2a, Carousel Lightbox (this commit, no rows): a wide slideshow right under its heading stands 25 px under it and 50 px from the next heading at every width (the margins were 55 / 72 from 768 px, 55 / 108 on phones, from boeing787's half-width slideshow). /de/en/discover-lufthansa/lufthansa-fleet/351 1440 11.76 -> 7.22 %, 390 13.68 -> 8.66 %. Reach: option wide is in the 16 fleet/351 documents only (census: the current copies of the 520 slideshow documents); the other 15 are not recorded, rendered with and without in one load:
+#   /at/de/discover-lufthansa/lufthansa-fleet/351 1440: 6938 -> 6886 px (-52), selector matched 1, nothing else changed
+#   /de/de/discover-lufthansa/lufthansa-fleet/351 1440: 6919 -> 6867 px (-52), selector matched 1, nothing else changed
+#   /fr/fr/discover-lufthansa/lufthansa-fleet/351 1440: 7037 -> 6985 px (-52), selector matched 1, nothing else changed
+#   /gb/en/discover-lufthansa/lufthansa-fleet/351 1440: 7963 -> 7911 px (-52), selector matched 1, nothing else changed
+#   /xx/el/discover-lufthansa/lufthansa-fleet/351 1440: 7010 -> 6958 px (-52), selector matched 1, nothing else changed
+#   /xx/es/discover-lufthansa/lufthansa-fleet/351 1440: 6983 -> 6931 px (-52), selector matched 1, nothing else changed
+#   /xx/fr/discover-lufthansa/lufthansa-fleet/351 1440: 7037 -> 6985 px (-52), selector matched 1, nothing else changed
+#   /xx/hk/discover-lufthansa/lufthansa-fleet/351 1440: 6681 -> 6629 px (-52), selector matched 1, nothing else changed
+#   /xx/it/discover-lufthansa/lufthansa-fleet/351 1440: 8031 -> 7979 px (-52), selector matched 1, nothing else changed
+#   /xx/ja/discover-lufthansa/lufthansa-fleet/351 1440: 6762 -> 6710 px (-52), selector matched 1, nothing else changed
+#   /xx/ko/discover-lufthansa/lufthansa-fleet/351 1440: 6762 -> 6710 px (-52), selector matched 1, nothing else changed
+#   /xx/pl/discover-lufthansa/lufthansa-fleet/351 1440: 6964 -> 6912 px (-52), selector matched 1, nothing else changed
+#   /xx/pt/discover-lufthansa/lufthansa-fleet/351 1440: 6942 -> 6890 px (-52), selector matched 1, nothing else changed
+#   /xx/ru/discover-lufthansa/lufthansa-fleet/351 1440: 7037 -> 6985 px (-52), selector matched 1, nothing else changed
+#   /xx/zh/discover-lufthansa/lufthansa-fleet/351 1440: 6681 -> 6629 px (-52), selector matched 1, nothing else changed
+#   /at/de/discover-lufthansa/lufthansa-fleet/351 390: 8855 -> 8767 px (-88), selector matched 1, nothing else changed
+#   /de/de/discover-lufthansa/lufthansa-fleet/351 390: 8876 -> 8788 px (-88), selector matched 1, nothing else changed
+#   /fr/fr/discover-lufthansa/lufthansa-fleet/351 390: 9150 -> 9062 px (-88), selector matched 1, nothing else changed
+#   /gb/en/discover-lufthansa/lufthansa-fleet/351 390: 8508 -> 8420 px (-88), selector matched 1, nothing else changed
+#   /xx/el/discover-lufthansa/lufthansa-fleet/351 390: 9189 -> 9101 px (-88), selector matched 1, nothing else changed
+#   /xx/es/discover-lufthansa/lufthansa-fleet/351 390: 8977 -> 8889 px (-88), selector matched 1, nothing else changed
+#   /xx/fr/discover-lufthansa/lufthansa-fleet/351 390: 9445 -> 9357 px (-88), selector matched 1, nothing else changed
+#   /xx/hk/discover-lufthansa/lufthansa-fleet/351 390: 7358 -> 7270 px (-88), selector matched 1, nothing else changed
+#   /xx/it/discover-lufthansa/lufthansa-fleet/351 390: 8891 -> 8803 px (-88), selector matched 1, nothing else changed
+#   /xx/ja/discover-lufthansa/lufthansa-fleet/351 390: 7673 -> 7585 px (-88), selector matched 1, nothing else changed
+#   /xx/ko/discover-lufthansa/lufthansa-fleet/351 390: 7619 -> 7531 px (-88), selector matched 1, nothing else changed
+#   /xx/pl/discover-lufthansa/lufthansa-fleet/351 390: 8810 -> 8722 px (-88), selector matched 1, nothing else changed
+#   /xx/pt/discover-lufthansa/lufthansa-fleet/351 390: 8910 -> 8822 px (-88), selector matched 1, nothing else changed
+#   /xx/ru/discover-lufthansa/lufthansa-fleet/351 390: 9275 -> 9187 px (-88), selector matched 1, nothing else changed
+#   /xx/zh/discover-lufthansa/lufthansa-fleet/351 390: 7358 -> 7270 px (-88), selector matched 1, nothing else changed
+# - Item 2b: the row above (advance-seat's first teaser row 24 px later than www's at both widths, but on phones the rows below already sit as www's).
+# - Item 2c, the regular stage's title: every recorded page with a Hero Campaign regular (9 documents, both widths: 100-years/fleet, giftvoucher, new-onboard-experience, internet-overview, lhg-wifi, first-class, food-and-beverages, onboard-delights, special-meals) compared stage by stage. With the no-subtitle row live, internet-overview's title stands within about 4 px of www's at 390 and 1 px at 1440: the 20 px came from the text set as a subtitle (the stage's text block sits at its foot, so larger text lifted the title). The other pages' titles are within a few px except giftvoucher (ours about 16 px lower: its title's emoji is an empty box in our headless capture, no emoji font) and new-onboard-experience (about 12 px lower at 390). No shared fix: none measures off across the stage kind.
