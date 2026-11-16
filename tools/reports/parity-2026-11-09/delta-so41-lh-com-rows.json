@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/32n",
+  "inserts": [
+   {
+    "before": "<h2 id=\"seat-maps-of-the-airbus-a320neo-for-you-to-download\">",
+    "text": "<p>{spacer-24 below-768}</p>"
+   }
+  ]
+ }
+]

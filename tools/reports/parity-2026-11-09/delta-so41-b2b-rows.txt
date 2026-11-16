@@ -1,0 +1,7 @@
+# ema-test, standing order 41 (2026-11-16): Group for Business row (DA moved-permanently/lh-b2b). Gate: html-folder full pages of b2b.turnsthe.page's copy, base and trial, against b2b-parity-006, ours vs www mismatch %.
+# Data: delta-so41-b2b-rows.json; text-inserts-apply --check on DA's copy (read ~12:45 UTC): the insert made once, DA byte for byte without it.
+# Each line: READY / HOLD, DA path, the change, 1440 and 390 (base -> trial), the gate.
+READY	/de/de/about-us/lhg-history	the history cards' Carousel Cards drop option space-m (a 60 px spacer before the block) for {spacer-60 below-768} + {spacer-118 from-768}: www's cards stand 58 px further under the intro at 1440 (ema-lufthansa's -56), phones keep 60	1440 26.96 -> 2.83 % (1,758 px, www 1,748), 390 7.89 -> 7.89 %	closer at 1440, the same at 390
+# Notes:
+# - Item 2: as served here the page reads 1,700 px at 1440 (26.96 %), as order 29's gate gave it (1,662 -> 1,700). A plain browser load also gives 1,700 with the brand fonts loaded. So nothing has taken 24 px on our host. ema-lufthansa's 1,676 comes from its capture, not from a change on the page.
+# - The -16 px under the cards: with this row the page is 10 px taller than www's. The cards themselves stand as www's (the same heights), so nothing is left to change under them.

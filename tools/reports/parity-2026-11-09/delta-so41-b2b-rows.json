@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/de/about-us/lhg-history",
+  "inserts": [
+   {
+    "replace": "geprägt haben.</p><div class=\"carousel-cards grid four-up space-m\">",
+    "text": "geprägt haben.</p><p>{spacer-60 below-768}</p><p>{spacer-118 from-768}</p><div class=\"carousel-cards grid four-up\">"
+   }
+  ]
+ }
+]

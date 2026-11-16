@@ -1,0 +1,25 @@
+# ema-test, standing order 41, item 4 (2026-11-16): places 91 to 110 of ranking-so39-lh-rest.tsv, each with its cause and a fix, or why there is none.
+# Skipped: pages ema-adobe touched or listed in its commits since order 37 (14c37c1d, 3fd4f3ea, 65553769, 778e10f3, ab8b0e0d, d065f59a, d814ab3d, f2372a81, fe609b56; its full-ranking commit a21f3c1b not counted). /de/en/359 is listed there as a hand-over item to me: done under order 40 (live since round 494).
+# Method: the drift profile of each order-39 capture (as served ~08:00-08:20 UTC). Every page here is under 4 %.
+# Columns: place, path, width, % (order 39), status, cause, fix.
+91	/de/en/terms-and-conditions-lh	1440	3.79	skipped	ema-adobe's page.	-
+92	/de/en/359	1440	3.72	skipped	hand-over item 12, my order-40 row (live).	-
+93	/de/en/sepa-terms-and-conditions	390	3.67	no fix	Aligned (2.0 %): the badge window at y 800 and one paragraph's line breaks at y 2,000.	-
+94	/de/en/prepare-for-your-trip/baggage/sport-baggage/register-ammunition	1440	3.66	no fix	The form's sections: +100 / +43 / -151 px around y 800-1,000 and +297 / -288 at y 2,400 cancel out (the profile matching repeated form rows), then -24 / +10 / +22. The form section spacing is ema-adobe's form work (65553769, fe609b56).	-
+95	/de/en/imprint	1440	3.63	skipped	ema-adobe's page.	-
+96	/de/en/faq-data-security	390	3.60	no fix	Aligned (2.0 %): the badge window only.	-
+97	/de/en/seat-maps	1440	3.59	skipped	ema-adobe's page.	-
+98	/de/en/farealert/best-price-alert	1440	3.57	no fix	After order 36's numbered-steps rules: +15 / -8 / -23 px around the FAQ accordion, both directions.	-
+99	/de/en/common/privacy-statement/privacy-statement-group	1440	3.52	skipped	ema-adobe's page.	-
+100	/de/en/prepare-for-your-trip/baggage/baggage-conditions	390	3.45	no fix	Aligned (1.9 %): the badge window, and +13 / -6 px by the footer.	-
+101	/de/en/datenschutz	1440	3.33	skipped	ema-adobe's page.	-
+102	/de/en/pre-check-in	1440	3.33	no fix	Aligned (1.5 %): a +35 / -38 oscillation at a spacer before the link list (the lines match).	-
+103	/xx/ru/meetings-and-events	1440	3.19	skipped	ema-adobe's page.	-
+104	/fr/fr/meetings-and-events	1440	3.19	no fix	-8 / -22 px at the three-up cards ("Envoyer une demande"), then +21 by the footer: the cards' text lines, both directions.	-
+105	/xx/fr/meetings-and-events	1440	3.15	no fix	As 104 (the same document in another locale).	-
+106	/de/en/cookie-policy	1440	3.08	no fix	Aligned (1.0 %): the cookie tables' row heights move the profile by -104 to +189 px and back (one row of a long table wraps differently), the 8,000 px cut at the end.	-
+107	/de/en/sepa-terms-and-conditions-b	1440	2.90	no fix	Aligned (0.9 %): one -176 / +177 profile step at a heading (the profile matching, the lines match).	-
+108	/de/en/register-animal-cabin	1440	2.88	skipped	ema-adobe's page.	-
+109	/xx/es/meetings-and-events	1440	2.83	no fix	As 104: -8 / -21 at the three-up cards, +22 by the footer.	-
+110	/de/en/common/compensation-voucher	1440	2.75	skipped	ema-adobe's page.	-
+# Result: of the 20, 9 skipped (8 ema-adobe's pages, 1 my order-40 row), 11 aligned pages without a layout cause worth a row.
