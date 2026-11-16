@@ -4910,3 +4910,21 @@ body.brand-airdolomiti main .default-content-wrapper :is(h2, h3, h4, h5, h6):not
   height: auto;
   max-width: 100%;
 }
+
+/* a blog post's end as www's BlogLayout wrapper (margin-bottom 0 below 930px, 100px from 930): the last section,
+   when it ends with the post's text, keeps no margin of its own below 930px and its last element none either (www's
+   text runs to 4 to 12px above the footer at 390), 100px from 930px (ours was 48 at every width; standing order 52) */
+/* stylelint-disable-next-line no-descending-specificity -- a post's last section, not the stage sections above */
+body.brand-airdolomiti main:has(.article-header) > .section:last-child:has(> .default-content-wrapper:last-child) {
+  margin-bottom: 0;
+}
+
+body.brand-airdolomiti main:has(.article-header) > .section:last-child > .default-content-wrapper:last-child > :last-child {
+  margin-bottom: 0;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main:has(.article-header) > .section:last-child:has(> .default-content-wrapper:last-child) {
+    margin-bottom: 100px;
+  }
+}
