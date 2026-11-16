@@ -5254,3 +5254,54 @@ State at the start: nothing of mine uncommitted or unpushed (order 42's final se
 - Not in git and why: logs/p4/so43 (scratch), the drops in /tmp (private material), content/, migration-work/,
   tools/importer/reports/* (not mine), the old autostash entry (not mine, kept). Preview servers stopped, trial and
   suite worktrees removed.
+
+## Standing order 44 (received about 16:40 UTC, 2026-11-16)
+
+State at the start: nothing of mine uncommitted or unpushed (order 43's final section on main). Two session restarts
+during the order; after each I took the work up from disk. The first commit (6bb8859d) went out at about 17:45 UTC.
+
+1. **The recording-path map** (tools/parity/recording-paths.json; publishedPath and recordedPaths in
+   tools/parity/lib.js; 6bb8859d).
+   - I probed all 378 recorded lufthansa.com paths. 373 are published at their own path. The four
+     during-your-trip/lounges roots answer 301 to /at/de, /de/de, /de/en and /gb/en/lounges.
+   - This week only two of my censuses held those four documents: rich-lists (their 390 stayed 6.33 %) and the closing
+     mark (fixed in order 43). No page is more than 0.5 points worse.
+2. **ema-lufthansa's rows 14 and 15**, both shipped as shared rules in styles/themes/brussels.css.
+   - Row 14, economy's grey band end (d85fa7d4).
+     - The source: brussels-parity-003, re-fetched from the earlier brief's address and checked against its .sha256.
+     - What www does: on all three recorded pages that close with a flush grey band of four-up cards, at both widths,
+       www keeps 87 px of grey under the last card and then the footer. Ours had 20 or 40 px of grey and 48 px of white.
+     - The rule matches 11 documents, 3 of them recorded.
+     - Gate, with the recording's own brand face: economy 390 31.83 → 31.18 %, 1440 14.46 → 14.53; business
+       1440 8.43 → 8.40, 390 unchanged; premium-economy 1440 19.53 → 19.50, 390 25.28 → 25.74 (+0.46).
+     - The 8 unrecorded documents, rendered with and without: 1 px shorter at 1440, 19 px longer at 390, no flag
+       changed.
+   - Row 15, student-fares' two buttons side by side from 768 px (6bb8859d).
+     - Census 2 documents. Recorded be/en: 1440 13.334 → 13.332 %, 390 unchanged.
+     - be/fr rendered with and without: 70 px shorter at 1440, nothing else.
+3. **The three located-but-unchanged pages:**
+   - child-in-businessclass: a READY row with the new Columns Media option narrow-pictures. 390 13.32 → 8.37 %, 1440
+     unchanged.
+   - advance-seat-reservation 1440: HOLD. The FAQ inside the grey band takes it 13.98 → 14.53, because the page above is
+     84 px short of www's.
+   - entry-exit-system 390: no fix. Its offsets step in both directions, with no single cause to set.
+   - add-sports-baggage: handed to ema-adobe.
+   - Details for all of item 3 are in delta-so44-rows.txt.
+
+## Standing order 44, final section (about 19:15 UTC, 2026-11-16)
+
+- Items 1-3 done.
+- Before this section: the full suite at d85fa7d4 in a fresh worktree (npm run lint exit 0, stylelint exit 0, 1,239 test files passed, 0 failed); the folder-reading tests with brand.test.mjs (640, 0 failed); the whole-repo lint
+  read before every push.
+- ema-adobe's two-hour window: no file of mine was touched by it in the two hours before my edits.
+- Nothing uploaded, previewed or published by me. DA read only (child-in-businessclass, advance-seat-reservation).
+  da-upload.mjs not run.
+- Requests only to our own hosts, DA (reads), GitHub's API and the drops' address (brussels-parity-003). No request
+  to www or any airline host.
+- .migration/project.json not touched; the excluded manage page has no row and no line.
+- Not in git, and why:
+  - logs/p4/so44 (scratch);
+  - the drop in /tmp (private material);
+  - content/, migration-work/ and tools/importer/reports/* (not mine);
+  - the old autostash entry (not mine, kept).
+- Preview servers stopped; the trial and suite worktrees removed.
