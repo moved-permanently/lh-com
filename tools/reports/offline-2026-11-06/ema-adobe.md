@@ -5027,3 +5027,61 @@ clean worktree of the rebased HEAD. Full suite on the final code: 6555376 (origi
      (my-bookings' end gap after a cards-teaser).
 - Left out of git: logs/b635 (captures, diffs, drafts, DA reads, runners), the untracked import reports of earlier
   runs.
+
+### Standing order 36 (2026-11-16 05:10 to about 06:45 CET)
+
+No uploads, previews or publishes; DA read only; no request to www or any airline host. `.migration/project.json`
+untouched; plugins left off. Order 35 left nothing uncommitted or unpushed. Two code changes, both lufthansa.com only,
+in blocks/cards-teaser and blocks/form (1a38043). Everything else is reports and lists. Each push: stylelint clean on
+the changed files, the tests that read them passed, and the whole-repo lint read 0 on a clean worktree of the
+rebased HEAD. Full suite on the final code: 778e10f (origin/main with every commit of this order but this section), 72 lh-edge files and 1,205 site files, 0 failing.
+
+1. **livery-iconic-moments' pictures: delta-so36-livery-og-image-lh-com.txt, 1 READY.**
+   - www has two files. og:image is the stories picture. The header picture, which is also the card on www's
+     explore-flying list (lh-parity-007), is the plane, "Technicians install retro posters". The other www pages
+     link the article in text only.
+   - The re-import set both metadata cells to the plane. The row puts Image (og:image) back to the stories picture,
+     DA's cell from before the re-import. card-image stays the plane, which our index already lists, as www's card.
+   - Metadata only, nothing drawn changes. de/de, at/de and gb/en still carry the old pictures; there is no current
+     recording of their lists, so no row.
+2. **The six worse column-end documents: column-end-six-so36-lh-com.md.**
+   - refund, register-sports-baggage/confirmation and tiere-als-handgepaeck: the own end paragraph stands between a
+     page's last link and its closing spacer. That breaks standing order 8's page-end rule, so the 48px section gap
+     comes back under the page.
+   - 744: the nested seat-map view; the published spacing is www's.
+   - lufthansa-at-berlin-airport: one of its two ends is in another view on www. The other alone changes nothing.
+   - xx/pt meetings: its page end at 390 is 24px lower than www's after the move.
+   - The end mark written on the last link paragraph, the importer's own form, was gated on all 44 recorded
+     documents: 41 closer or within 0.5, the three page-end documents unchanged, 744, berlin and xx/pt worse.
+   - No new rows: the 15 that pass are live. No importer change: none brings all 44 within 0.5. The change is
+     written there as a proposal with its gate (42 of 44, with 744's nested view still to exclude). Not pushed.
+3. **An article index per xx language: proposal-so36-xx-article-index.md, proposal only.**
+   - articles-xx-it, -fr and -es, copies of articles-de-en with the paths changed: 8 / 8 / 5 rows, 7 / 7 / 4
+     articles.
+   - They would fill 18 empty related-articles blocks (the picks listed; 17 of www's 30 snapshot cards the same
+     article, always 3 cards) and 10 blog-overview lists that show "0 results" today. The author sliders stay
+     unchanged.
+   - Gate after an index job: no-breakage renders of the 28 pages.
+4. **Places 11 to 30 of sweep-so35-lh-rest.md, each with its cause and fix (section "Places 11 to 30").**
+   - **Shipped (1a38043):**
+     - a teaser grid right after its own heading loses the 32px from 768px too. www draws that heading inside the
+       grid's column view. flight-search 1440 10.5 -> 4.6 %, online-check-in 9.8 -> 5.8. The 4 other recorded
+       documents are unchanged. The 79 unrecorded documents rendered with and without (158 pairs): no breakage, 1440
+       32-96px shorter, 390 unchanged;
+     - order 35's bold radio question, now only inside a form sub-section (feedback-past-flight's is regular on
+       www). The 18 recorded form page-widths are unchanged.
+   - **Row:** data-collection-canada's first teaser card gets back www's empty line (delta-so36-lh-rest-rows.txt,
+     READY): 9.5 -> 8.2 % at 1440, 9.6 -> 9.9 at 390.
+   - **No fix, tried:** the FAQ title inset on phones (52px instead of 56: net +6.9 points on the 72 recorded
+     documents it reaches). rail-fly-terms: dense text drawn in the same places.
+   - **No fix yet, tried:** standalone links on phones with 24px lines and the arrow by the first line. On the 63
+     rest pages at 390: 7 better (datenschutz 7.8 -> 5.5), 9 worse (data-collection-canada +3.6), net +4.4. www's
+     links don't share one line height, so this needs an importer mark for the link's component first.
+   - The forms' field spacing (5 of the places) stays the open form question.
+   - **To ema-test:** hand-over items 11-13 (section spacing on feedback and privacy-statement-group, 359's gap
+     after the seat-map view, online-check-in's app band), plus data-collection-canada under item 10.
+- Ended at about 06:45 CET, not 08:30: the four items are answered. What is still open waits on your decision (the xx
+  indexes), on an index job, on the fresh livery recording, on ema-test's hand-over items, or on an importer mark for
+  standalone links, which needs a design of its own first.
+- Left out of git: logs/b636 (captures, diffs, drafts, DA reads, runners), the untracked import reports of earlier
+  runs.
