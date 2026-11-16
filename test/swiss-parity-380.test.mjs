@@ -83,7 +83,9 @@ test('row 15, the footer as www\'s: columns at the content edge, 46 px link rows
   has(css, /body\.brand-swiss \.footer \.footer-legal \.footer-link \.lh-icon \{ display: none; \}/);
   has(css, /body\.brand-swiss \.footer \.footer-subfooter \{[^}]*align-items: center;/, 'stacked and centred below 1025 px');
   has(css, /body\.brand-swiss \.footer \.footer-logo-star-alliance-horizontal img \{ height: 18px; \}/, 'www\'s STAR ALLIANCE mark (the documents\' :star-alliance-horizontal:), 132 x 18');
-  has(css, /@media \(width >= 1025px\) \{ (\/\*[^*]*\*\/ )?body\.brand-swiss \.footer \.footer-subfooter \{ display: grid; grid-template-columns: 1fr auto 1fr;[^}]*\}/, 'the legal links centred on the page (www 720 px at 1440)');
+  // standing order 37 of ema-lufthansa: three equal columns, as www's subfooter grid (was 1fr auto 1fr), so the German
+  // legal links wrap in the middle third as www's
+  has(css, /@media \(width >= 1025px\) \{ (\/\*[^*]*\*\/ )?body\.brand-swiss \.footer \.footer-subfooter \{ display: grid; grid-template-columns: repeat\(3, 1fr\);[^}]*\}/, 'the legal links centred on the page (www 720 px at 1440), in the middle third');
   has(css, /body\.brand-swiss \.footer \.footer-subfooter-partner \{ justify-self: end; \}/);
   has(css, /body\.brand-swiss \.footer \.footer-subfooter \.footer-legal \{ grid-area: auto; \}/, 'the legal list out of the footer\'s legal area, in the middle column');
   has(css, /body\.brand-swiss \.footer \.footer-legal \.footer-link \{[^}]*line-height: 24px;/, 'the wrapped legal links 24 px apart (WCAG 2.5.8; www 14 px)');

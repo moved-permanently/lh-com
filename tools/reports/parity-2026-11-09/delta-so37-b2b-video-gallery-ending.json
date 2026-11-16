@@ -1,0 +1,9 @@
+{
+ "/de/en/allegris/video-gallery": [
+  {
+   "from": "<div class=\"section-metadata\"><div><div>style</div><div>grey</div></div></div></div>\n<div><div class=\"metadata\">",
+   "to": "<p>{spacer-39 below-768}</p><div class=\"section-metadata\"><div><div>style</div><div>grey</div></div></div><div class=\"metadata\">",
+   "count": 1
+  }
+ ]
+}

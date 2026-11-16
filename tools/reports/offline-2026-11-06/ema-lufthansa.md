@@ -6218,3 +6218,49 @@ stylelint had nothing to check. The new test is test/b2b-special-assistance-form
 - Every browser load refused airline hosts per request, and each refusal was counted.
 - Reads came from our hosts (pages, plains, the B2B sitemaps), the drop (archives and sidecars) and DA (two GETs).
 - No da-upload.mjs call, no upload, preview or publish by me. /de/en/overview-manage got no row.
+
+## Standing order 37 (2026-11-16, about 21:35 CET to 01:00 CET), with its final section
+
+**Order 36's ship, finished:** its commit (dfe78baa) was rebased twice onto main, which had moved. After the second
+rebase the full suite ran again: 4697 / 0. It is on main as 7977f43e, and the GitHub Build succeeded. The smoke after
+shows 0 differences on 11 hosts. The three lufthansa.com hosts show one changed sitemap hash
+(/sitemap/sitemap_lh_de_en.xml); my commit has no sitemap or lufthansa.com document in it.
+
+**Item 1, the brand sites after order 36's measurements: no recorded page-width more than 0.5 points further.**
+- 2a02f6f6's two rules and 955b7f7d's are scoped to body.brand-lufthansa. Every brand site serves its own brand class
+  (one load per site), so they reach no brand-site page.
+- d85fa7d4's six matched Brussels page-widths, loaded again at ~21:07 UTC, gave order 36's figures: two closer, four
+  within 0.31 points (regress-so36-commits.md).
+
+**Item 2, the two holds:**
+- **Video-gallery: a narrower row, READY** (delta-so37-b2b-video-gallery-ending.txt).
+  - The page metadata moves into the closing grey section, so the empty last section goes, and {spacer-39 below-768}
+    keeps the phone height.
+  - 1440 goes +2.07 -> +1.38 %, and 390 is equal against b2b-parity-016's first load. The revert gives DA's bytes back.
+- **Bike-the-city: closed, no narrower row.** A row with fewer breaks would follow www on some cities and not on others,
+  so none is written. The 390 cause is located now: Columns Media's phone captions (16 px bold, wrapping where www's
+  stay on one line). That went to ema-test (rows-for-ema-test.md, item 17), and the row stays HOLD until it is in.
+
+**Item 3, ranks 110 to 129 (sweep-so37-ranks-110-129.md): all twenty located; one rule.**
+- **SHIPPED:** the SWISS footer's bottom row in equal thirds from 1025 px, as www's subfooter grid (styles/themes/swiss.css).
+  - The German legal links wrap to a second line, as www's; www's German footer is 622 px against 595 in English, ours was 596.
+  - Recorded: the 13 German and magazine page-widths at 1440 are 24 px taller; 12 are closer and one is as far. Among
+    them, rank 115 goes -1.77 -> -0.14 % and the ch/de homepage -1.40 -> -0.86 % against swiss-parity-010. The 13
+    English ones are unchanged.
+  - No-breakage: one page per SWISS locale (227 at 1440, the ten ch/ ones at 1025 too). The only changes are the legal
+    links' wrapping (+24, -17, +7, +31, +48 px); none overflows, and every page gives its figures back.
+  - test/swiss-footer-thirds-so37.test.mjs is new, and swiss-parity-380.test.mjs's grid assertion is updated.
+- **No row, explained:** the other nineteen.
+
+**Checks:** stylelint on styles/themes/swiss.css 0. Whole-repo lint, the folder-reading tests and the full suite run in
+the ship.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine.
+- `.scratch/` (outside git), kept out on purpose: the census and gate loads, the side-by-sides, DA's video-gallery copy
+  (read ~20:58 UTC), and the drafts.
+
+**Hosts:**
+- Every browser load refused airline hosts per request.
+- Reads came from our hosts, the drop (no new archive) and DA (one GET).
+- No upload, preview or publish by me, no da-upload.mjs. /de/en/overview-manage got no row.

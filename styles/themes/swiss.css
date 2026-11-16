@@ -341,10 +341,15 @@ body.brand-swiss .footer .footer-logo-star-alliance-horizontal img {
 }
 
 @media (width >= 1025px) {
-  /* the legal links centred on the page (www at 720 px of 1440), the logos either side */
+  /* the legal links centred on the page (www at 720 px of 1440), the logos either side. Three equal columns, as www's
+     subfooter grid (repeat(3, 1fr)): its legal links keep to the middle third, so the four German ones wrap to a second
+     line ("Privatsphäre-Einstellungen ändern"), and www's German footer is 622 px at 1440 against 595 in English (ours drew
+     596 / 595 with the middle column at the links' width). Standing order 37 of ema-lufthansa: the 13 recorded German and
+     magazine page-widths 24 px taller, 12 closer and one as far (overview-inspiration 1440 -1.77 -> -0.14 %), the 13 English
+     ones unchanged; every SWISS locale's footer rendered with and without */
   body.brand-swiss .footer .footer-subfooter {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: repeat(3, 1fr);
     padding: 23px 0 44px;
   }
 

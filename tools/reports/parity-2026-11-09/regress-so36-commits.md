@@ -94,3 +94,12 @@ The order did not name them, so they were checked the same way (~19:50 to 20:11 
 | d85fa7d4 | Brussels | /be/en/travel-classes/economy | 1440 | brussels-parity-003 | 3186 | 3127 (-1.85 %) | 3126 (-1.88 %) | +0.03 (within 0.5) |
 | d85fa7d4 | Brussels | /be/fr/travel-classes/business | 1440 | brussels-parity-003 | 6458 | 6449 (-0.14 %) | 6448 (-0.15 %) | +0.02 (within 0.5) |
 | 2a02f6f6 | lufthansa.com | /de/en/100-years/fleet | 390 | lh-parity-002c (cut at 8,000 px) | - | 34905 | 36093 | not comparable by height |
+
+## Standing order 37: the brand sites, after order 36's measurements
+
+What landed on main after order 36's measurements (to ~21:05 UTC): 955b7f7d (lufthansa.com author pages' cards from 1025 px), 75a33aa4 (a report) and 89a05e83 (lufthansa.com document state). With 2a02f6f6 and d85fa7d4, these are all the changes since order 35's captures.
+
+- **2a02f6f6 (the untitled checkbox sub-section, Table Striped beside rows) and 955b7f7d reach no brand-site page-width.** Each of their rules starts with body.brand-lufthansa. Every brand site serves its own brand class: one load per site at 1440, ~21:05 UTC, gave brand-swiss, brand-brussels, brand-discover, brand-b2b, brand-ita and brand-tap, and none of the six homepages has a core form or a Table Striped block. So those rules cannot match there; order 36's lufthansa.com figures above stand.
+- **d85fa7d4 (Brussels closing flush grey four-up band): its six matched page-widths were loaded again at ~21:07 UTC, with the same result as above.** Closer: economy 390 (-0.37 points) and business 390 (-0.21). Within 0.5 points: premium-economy 390 (+0.31), economy 1440 (+0.03), business 1440 (+0.02), premium-economy 1440 (+0.02). The other 30 Brussels four-up documents matched nothing in order 36.
+  - In that run premium-economy 1440 drew 4,148 px with and without the rule. capture.js gives 4,663 again (the served markup's md5 is unchanged), so the run was a bad load. The rule's own effect is -1 px in both.
+- **No recorded brand page-width is more than 0.5 points further. No fix or reverse.**

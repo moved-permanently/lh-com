@@ -269,3 +269,17 @@ heading opens the block, so each heading stands about 220 px higher than www's:
 
 The steps cancel inside each row, so the page-width stays within 2 %. It is Columns Media's stacking order on phones, so I
 left it as it is. The page's remaining +72 px is spread over the rows below (+28 to +32 at each heading).
+
+## 17. Brussels: bike-the-city's photo captions on phones, from ema-lufthansa (2026-11-16, standing order 37)
+
+/be/en/articles/bike-the-city at 390 (brussels-parity-014, its phone first load; www 5,981). The article's two photo
+galleries are Columns Media (stacked) blocks. Their captions (p.caption) are 16 px bold on a 24 px line, 15 px under each
+picture. www's captions are smaller and stay on one line, where some of ours wrap to two ("Discover Europe's cycling
+capital: Copenhagen!"), and www's gaps around the pictures are tighter (side by side of the recording and ours as served,
+1,850 to 5,300 px).
+- With my document row (delta-so33-brussels-bike-the-city-heading-breaks.txt: the six bold city headings on a line of
+  their own, as www's at both widths), our footer stands 66 px below www's at 390.
+- The article text above the galleries stands within +16 px of www's.
+- That keeps the row 0.81 points further at 390, so it stays HOLD.
+
+The captions are Columns Media's, so I left them as they are; the row is gated again once the captions match www's.
