@@ -7564,3 +7564,197 @@ Everything in the order is done. I stopped early: what is left needs your word o
 **Not in git** (scratch under /tmp/so41): the DA copies read, the drafts, the apply outputs, the scripts (the replay
 renderer among them), the renders and logs. The downloaded archives are in their own folders, extracted under
 so23/arch.
+
+## Standing order 42 (2026-11-15, from about 23:05 CET)
+
+**Carried over:** nothing of mine was uncommitted or unpushed. Order 41's last commit, `2d499fae`, was on origin, and
+another session's `497b7686` came after it. The checkout's 88 dirty entries are other jobs' (9 to 13 November) and were
+left alone.
+
+**Renders:** unhinted text in every render. lh-proxy, www.* (except www.mynewsdesk.com on Cargo) and every airline host
+were refused and counted. On Austria's pages every www.lufthansa.com and lh-proxy call was answered from our host's
+recorded load (nothing sent). The Cargo censuses refused 28 widget calls at each width; nothing was sent. www's
+recordings were read as data, their pictures cropped. **DA:** read only, 25 single GETs (listed in the final section).
+No upload, preview, publish or da-upload.mjs. /de/en/overview-manage has no row.
+
+### Your three answers
+
+**Austrian "Ask AI for flights": the block ask-ai-flights, behind the flag ask-ai-flights; 14 rows READY, ca/en HOLD
+(delta-so42-austrian-ask-ai-flights.txt).**
+- **The block** (`aace6c90`) draws www's entry as www has it. The band is #e5e5e5 and spans the content's width. It
+  holds www's line "Flexible dates? Chat with our AI to find your perfect flight options" and an outlined red ASK AI FOR
+  FLIGHTS button with www's AI icon. At 1440 it is 84 px with 40 above it; at 390 it is 158 px with 52 above it. Those
+  are www's 124 / 210 px, measured in austrian-parity-023's pictures. On gb/en the band lands at www's x positions and
+  widths to the px.
+- **The flag:** no row, "off", any other value, a missing sheet or no answer, and the block takes itself out with its
+  wrapper.
+  - Flag off: all 30 page-widths equal today's page to the px.
+  - Flag on: each page is exactly 124 / 210 px taller.
+- **What it links to:** on www the button is no link. It opens www's AI flight agent in a modal from www's script
+  (/digitalhangar/smartflightfinder/smart-flight-finder-fe/smart-flight-finder-fe-latest.js, with an empty public
+  endpoint, so it calls its own host).
+  - Ours links to the market's www homepage (https://www.austrian.com/<market>/en/homepage), where the same button is.
+    That works from our host as it stands.
+  - The modal itself cannot work from our host. www's script and its API would have to answer our origin, and only
+    someone outside can change that.
+- **The rows:** one insert per page, right after the flight-search block. They go on the 15 homepages where www draws
+  the entry tonight: ca, by, ru, fr, gb, it, md, me, pl, pt, ro, rs, tr, ua and xk, all /en. Not on au, cz, ge or jp:
+  www's root is there but empty.
+  - Dry run on DA's copies (15 GETs): placed, removable byte for byte, a second run "present".
+- **The 19 page-widths, gated with the band drawn (flag on):** all 19 are within 2 % of www's page (-1.85 to +0.92 %).
+- **The other 11 widths of these pages:** each is within 2 % of www's page, or its remainder less the widget bands is
+  (order 36's gate), except ca/en 390.
+  - ca/en 390 goes from -2.36 to +2.28 % with the band. Its row is HOLD (below, item 2).
+  - gb/en 390: +2.47 % of the page, remainder +1.10 % (the finder band).
+  - ua/en 1440: +3.43 % of the page, remainder 0 (the finder band, +151).
+- The flag row and switching it on are yours, after a check on lh-austrian's preview. Until then the rows change nothing
+  a visitor sees.
+
+**Cargo's 20 px phone gap: `commit `039d8b66`, ready, not pushed (below)`, with seven Theme wide-gaps rows READY
+(gate-so42-cargo-section-gap.txt, delta-so42-cargo-wide-gaps.txt).**
+- **The rule:** below 1025 px, `body.brand-cargo:not(.wide-gaps)` sets --section-gap to 20 px. A page whose metadata has
+  "Theme | wide-gaps" (aem.js makes it the body class) keeps 48 px.
+- **Your condition was every recorded page closer, or within 0.5 points of where it is. Seven recorded pages needed the
+  row, not two:**
+  - industries-in-focus en / de (first loads, as order 41 found);
+  - en sustainable-development-goals, a first load: +0.40 -> -1.21 %, 0.81 points further. Order 41's census listed it
+    as "further", and its summary should have named it;
+  - eaw, general-terms1, onerecord and ecsd, whose 390 is only a resize of the 1440 load (pointers): 1.02 to 2.50 points
+    further.
+  - Each of the seven stays where it is with the row, to the px.
+  - I used Theme, not Template, so general-terms1 keeps its Template legal.
+- **Gate:** 44 of 44 recorded 390s pass:
+  - 20 closer, 13 of them into 2 % (ebooking-info, fleet, the product pages, containers, efreight, ehm, emergency);
+  - 20 the same;
+  - 4 further by 0.06 / 0.13 points: Support & Contact en and de, each also with its feedback query, all within 1 %.
+  - The rule was toggled in the same load as the served page (each control equals order 41's renders).
+- **The census you asked for** (gate-so42-cargo-section-gap-census.txt): all 990 served Cargo copies at 390 and at 1000
+  px, with and without the rule in the same load.
+  - 0 broken at either width: no sideways scroll, nothing past the edge, no overlapping section, no negative margin.
+  - 390: 939 pages shorter by 24 to 196 px, none taller. 910 of them have no recording.
+  - At 1000, five sustainable-development-goals pages read a few px taller while their footers move up 28 px: something
+    outside the sections changed between the two reads, and nothing overlaps there.
+- **Order:** the wide-gaps rows change nothing without the rule, so they went first. Your helpers applied and previewed all seven, and en eservices-app, by ~00:00 CET. By ~01:05 CET none of them was live, so I did not push the rule: on live it would have moved those pages before their theme arrived. It is commit `039d8b66` in migration-work/parity-588/wt (the rule, the CF8 split, the test's cases), to push once the seven pages and en eservices-app are live.
+
+**The fuller eservices-app rows: en READY, de HOLD (delta-so42-cargo-eservices-app.txt).**
+- **With the 20 px gap and www's CF8 split (both in `commit `039d8b66`, ready, not pushed (below)`):**
+  - en: 1440 +1.49 %, 390 +1.61 %.
+  - de: 1440 +0.79 %, but 390 +2.01 %: 63 px over www, 0.16 px past the line.
+- **Why de is out:** its benefits as Columns Media are 30 px taller on phones than its picture, heading and list today.
+  Without them (B), 390 passes but 1440 doesn't (-2.04 %).
+- **The CF8 split's reach:** toggled at 1000 and 1440 on the four wide-media pages, it moves only the English
+  eservices-app (ebooking-info en / de: the same to the px). It went in after the en row was applied.
+- DA's en copy, read again tonight, is byte for byte order 41's. The rows are order 41's two .json files, applied in
+  order through this list (de is not touched).
+
+**bangkok-airways:** HOLD, as you decided. www's own recording shows the stage's background picture broken; we leave it
+out.
+
+### Item 1: industries-healthcare's rest (delta-so42-cargo-healthcare-rest.txt): READY
+
+- **"Crafted with passion" (+163 px):**
+  - www's Introduction-CF1 holds a Text-Image CF6, two thirds of the grid: the picture 416 x 290 at x 72, the text at
+    x 512.
+  - The option two-thirds (Cargo, from 1025 px): the row is 856 px wide and splits 416 | 416. With it, ours measures as
+    www's to the px.
+- **"Behind every shipment…" (+464 px):**
+  - www draws the planet cover at about its own size, on white.
+  - The option natural-media keeps the picture at its own width: 218 px, where www draws it 178. The section loses Style
+    grey.
+- **"Pharma at a glance":** white on www; Style grey out.
+- **"Any questions?":** www's HTML has it, but its page draws nothing there tonight. Kept: it is www's content.
+- **The tab set:** its row stays HOLD (delta-so37).
+- **The options** are in `c0829a5b` (pushed ~00:25 CET), apart from the gap rule, so the row can be applied at once.
+- **Figures:**
+  - 1440: 4,581 -> 3,849 against www's 3,906 (+17.28 -> -1.46 %), footer -1.52 %.
+  - 390 (not recorded): 3,814. Nothing is lost (271 words, 9 links, 13 pictures, as served) and nothing is wider than
+    the screen.
+  - No Cargo document has either option today.
+
+### Item 2: the Austrian homepage rows that remained
+
+- **ski-campaign 390 (-2.02 %): READY (delta-so42-austrian-ski-teaser.txt), with the Austrian option spaced (`c0829a5b`).**
+  - Both sides draw the same six fare cards, but www spaces them as on its homepages. Ours was 55 / 83 px short:
+    - the heading +16 px;
+    - rows 24 px apart, not 20;
+    - 61 px to the conditions, not 30;
+    - then 67 / 55 px to "Find your winter adventure", not 60 / 24.
+  - The option gives the homepage teaser's values, then 69 / 57 px. 1440 -1.96 -> +0.03 %, 390 -2.02 -> +0.43 %;
+    "Find your winter adventure" lands at www's 1,436 / 1,646.
+  - The control (the served copy with this code) equals the recorded load. None of the 2,459 served Austrian copies has
+    the option.
+  - Five other pages carry a fare teaser outside the homepages, none of them recorded: no rows.
+- **ca/en 390 (+2.28 % with the AI band): HOLD.**
+  - Its differences cancel: -146 px above "Discover Austrian", +478 px to "Looking for more than just a flight?", then
+    -234 px.
+  - The +478 is our inline prices note (528 px at 390). www draws its note lower and shorter.
+  - Order 21 kept the Canadian roots' dialog text inline (the disclaimer form measured worse there), so no row tonight.
+- **The rest, as you said:**
+  - the fare service's 8 empty loads (explained);
+  - bangkok-airways;
+  - the stretcher block (ca/fr, ch/fr).
+
+### After the pushes (measured on the hosts, ~00:25 to 01:05 CET)
+
+- **The 14 READY AI rows:** your helpers applied them and the publish child put them live. With the flag off the block
+  takes itself out: gb/en 4,749 / 5,927 and by/en 3,438 / 4,992, today's heights to the px (the recorded widget
+  answers). The page's first section is the flash teaser and the flight search, as before.
+- **The Cargo rows:** the seven wide-gaps rows and eservices-app en are applied and previewed (the preview host carries the theme and the tabs), but they were not live by ~01:05 CET.
+- **industries-healthcare's row** is live (~01:00 CET) with `c0829a5b`: 3,849 at 1440 as drafted (-1.46 %); 4,034 at 390, 3,814 once the 20 px gap is in. Nothing wider than the screen, the same 9 links and 13 pictures.
+- **The ski campaign's row** is live: 2,911 / 3,530, as drafted (the recorded widget answers).
+
+### Final section (about 01:05 CET, 2026-11-16)
+
+Everything in the order is done. One commit is ready and not pushed: `039d8b66`, the 20 px gap and the CF8 split. It waits for the Cargo rows to go live (above).
+
+**On main:**
+- `aace6c90`: the block ask-ai-flights and its test, the AI rows (14 READY, ca/en HOLD), the seven wide-gaps rows, the
+  eservices-app list (en READY, de HOLD), the gap gate;
+- `c0829a5b`: healthcare's two Cargo options and the Austrian option spaced, their rows (READY), the gap census;
+- not on main: `039d8b66` (the gap rule, the CF8 split, the test's cases), in migration-work/parity-588/wt;
+- this commit: this section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0 in the clean worktree before each push.
+- **Stylelint:** exit 0 on blocks/ask-ai-flights/ask-ai-flights.css, styles/themes/cargo.css and
+  styles/themes/austrian.css.
+- **Tests on the pushes:** 353 and 543 tests, 0 failures. They were every test that names the flags, either theme, the
+  report folder or this order, plus the folder-reading tests.
+- **New tests:** test/ask-ai-flights-so42.test.mjs and test/cargo-phone-gap-so42.test.mjs, red on origin's main before
+  their pushes (the files and rules were absent).
+- **Full suite:** on all three code commits together, one process per file: 1,188 files, 4,561 tests, 1 failure, 5
+  skipped.
+  - The failure was mine: test/austrian-app-part-so8 counts the selectors after the theme's last part, and I had
+    appended the spaced rule there.
+  - I moved the rule before "the end of online-check-in". All 53 tests that read austrian.css then pass, and the ski
+    page measures the same (2,911 / 3,530). That is the pushed version.
+
+**For you:**
+- **Ready to apply:** nothing new; your helpers applied every READY row of this order (the Cargo ones previewed, not yet live). Once the seven wide-gaps pages and en eservices-app are live, `039d8b66` can go to main (your word, or tell me to push it).
+- **A note from the helpers (`6cbb71a2`):** for the ski campaign's row, /.token-free-backup/2026-11-austrian-so42-ski-teaser/
+  was not filled. Their copy was taken after the upload, held the new version, and was deleted again. Their rollback copy
+  is in notes/_backup/2026-11-16-so42-austrian-ski/. Taking the row back is the list's one replace in reverse
+  (`fare-teaser spaced` -> `fare-teaser`). The AI rows' copies are in their folder.
+- **Your call:** the flag row ask-ai-flights | on in Austrian's flags sheet, after a check on lh-austrian's preview. With
+  it on, 29 of the 30 page-widths pass; ca/en 390 is +2.28 % (its inline prices note).
+- **Still HOLD:**
+  - de eservices-app: +2.01 % at 390;
+  - ca/en's AI row;
+  - healthcare's tab set (delta-so37);
+  - bangkok-airways (your decision);
+  - the stretcher block;
+  - the 8 empty fare loads (explained).
+
+**Rules followed:**
+- No request to an airline host: refused and counted. Austria's widget calls were answered from our host's recording;
+  the Cargo censuses refused 28 widget calls per width, none sent.
+- DA read only, 25 single GETs:
+  - lh-austrian: the 15 AI homepages and us/en ski-campaign-2026;
+  - lh-cargo: the seven wide-gaps pages, en eservices-app and en industries-healthcare.
+- No upload, preview, publish or da-upload.mjs.
+- www's recordings read as data.
+- The checkout's 88 dirty entries untouched.
+- /de/en/overview-manage has no row.
+
+**Not in git** (scratch under /tmp/so42): the DA copies read, the drafts, the served copies (2,459 Austrian), the
+renders, the census tables, the scripts and logs.
