@@ -273,3 +273,36 @@ each with its located cause and its fix, or the reason there is none.
   - owner decisions: the brand font, the ads, the form's bot check;
   - www's recorded state;
   - code causes whose rules fail the gate.
+
+## Standing order 34: ranks 71 to 89, captured again
+
+The ranking has 89 rows; ranks 81 to 89 have been within 2 % since order 30. Captured again on 2026-11-16 at about
+14:15 UTC (capture.js, airline hosts refused per request, the same recordings): the nine are still within 2 %:
+- SWISS's contact-us and help-center at both widths (the picture copies live);
+- swiss-senses intermediaries 390;
+- lhg4b-search at both widths.
+
+Of ranks 71 to 80, all ten are still outside 2 %, each with its located cause and its fix, or the reason there is none:
+
+| # | page-width | now | located cause | fix |
+|---|---|---|---|---|
+| 71 | SWISS magazine en 1440 | -2.25 % | www's ad slots before the section headings and before More Stories | none: owner decision |
+| 72 | Brussels be/nl special-care/pets 390 | -2.23 % (the same against brussels-parity-012's first load) | -66 px before the footer: the phone teaser ending (www 187 to 248 px, ours 178) | none: the rule fails the gate on 16 other pages (order 22) |
+| 73 | Group for Business allegris corporates-start-of-booking 390 | +2.22 % (b2b-parity-012's phone first load) | the Allegris tab sets, which ema-test's rows work from (delta-so24-b2b-allegris.txt) | held for ema-test |
+| 74 | Brussels be/en travel-classes/economy 390 | -2.11 % | the closing grey band: www keeps 93 px of grey under its last card, ours 68 | none by document (a spacer changes the band's own ending and takes 1440 further, order 25); the band's end spacing is in rows-for-ema-test.md, row 14 |
+| 75 | Brussels chase-the-sun-across-spain 1440 | +2.11 % | +198 px before the footer: the eclipse city list's length and the closing flight-search band (its fields are live data); -115 before "Good to know" | none: one page, the band's fields are live data |
+| 76 | Group for Business allegris/video-gallery 1440 | +2.07 % | +54 px before the footer: the closing grey band meets the footer on www, ours keeps 48 px. Part of that is the document's empty last section, which is the page metadata block's own section in DA's copy | **drafted, not written:** the metadata block moved into the grey section takes 1440 to +1.38 %, but 390 0.64 points further against a resize (-0.32 -> -0.96 %). Its phone first load is requested (order 34's lines) |
+| 77 | Group for Business de/de about-us 390 | -2.06 % (b2b-parity-001's first load) | spread: the closing "Kontakt" button 77 px higher (over the intro and the four teaser cards' texts), 20 px to the footer where www keeps about 61, our footer about 40 px taller | none: no single cause |
+| 78 | Brussels be/en local-page/student-fares 1440 | +2.06 % | in the grey "Fly, collect and redeem" band, www's heading is heading-medium (36 px, one line), ours the H1 size (48 px, two lines); the app buttons stack on ours | **row READY:** delta-so34-brussels-student-fares-band-heading.txt ({heading-medium} on the heading). 1440 +2.06 -> +1.34 %, 390 +0.18 -> -0.51 % (0.33 points further, within 0.5). The buttons are Columns Media's: rows-for-ema-test.md row 15 |
+| 79 | Brussels be/fr cancel-and-refund-requests 390 | -2.03 % (the same against brussels-parity-012) | the accordions' text column, after P56 and the button wrap | none: the accordion rules fail the gate (orders 24, 28) |
+| 80 | Brussels be/fr travel-classes/business 390 | -2.01 % | spread over the picture-and-text rows (17 to 86 px each, ours shorter: the pictures' heights at our column width), +121 px at the photo gallery | none: no single cause, and the gallery offsets the rows |
+
+**Result:**
+- **One row READY:** student-fares.
+- **One drafted:** video-gallery, waiting for its phone first load.
+- **Two Columns Media and section causes:** rows-for-ema-test.md rows 14 and 15.
+- **The rest have no fix:**
+  - owner decisions;
+  - live data;
+  - ema-test's held Allegris rows;
+  - causes with no single place.

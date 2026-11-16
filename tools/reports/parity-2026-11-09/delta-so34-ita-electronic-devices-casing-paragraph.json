@@ -1,0 +1,9 @@
+{
+ "/it/en/book-and-prepare/travel-information/baggage/electronic-devices-and-batteries": [
+  {
+   "before": "<p><strong>Guide to calculating battery power</strong></p>",
+   "html": "<p>When multiple batteries are contained within a single outer case, the <strong>total sum of the Wh rating</strong> <strong>of all batteries within the battery casing</strong> <strong>is the basis</strong> to determine transport acceptance. Please check the maximum permitted Wh rating for your device in the chapters below.</p>",
+   "count": 1
+  }
+ ]
+}

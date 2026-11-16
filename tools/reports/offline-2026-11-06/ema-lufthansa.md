@@ -6021,3 +6021,71 @@ in its ship. No CSS changed, so stylelint had nothing to check.
 - Every browser load refused airline hosts per request.
 - Reads came from our hosts, the drop (existence checks of seven names) and DA (two document GETs).
 - No da-upload.mjs call, no upload, preview or publish by me. /de/en/overview-manage got no row.
+
+## Standing order 34 (2026-11-16, about 15:05 to 18:30 CET), with its final section
+
+**At the start:** nothing of mine was uncommitted or unpushed; order 33's f98bcdce was on main. `.migration/project.json`
+was modified, not by me, and is left as it is.
+
+**Item 1, connecting-africa:**
+- As served now, airline hosts refused per request: 4040 / 7539 (www 3980 / 7454).
+- **Why the gate missed at 1440 (+92 px):** the page's main section carries its section metadata (Style: sidebar) at
+  its end in DA's copy, after "Related topics".
+  - Order 33's break before that heading therefore moved the metadata, and with it the sidebar style, to the new
+    section.
+  - My gate was drawn on the served page, where the style sits on the section's opening tag, so it kept the style on
+    the first part, which DA's copy could not do. My mistake, now in my notes for every section split.
+- **At 390 nothing missed:** I measure 7539 as gated and as served. Your 7,483 / 7,515 sit 24 px under my 7507 / 7539
+  both before and after the row, a measuring difference, not the row.
+- **The correction** (delta-so34-brussels-connecting-africa-sidebar-style.txt, READY, backup named, with a test):
+  - the sidebar metadata back on the first section and taken out of the Related section;
+  - {spacer-31 from-768} above "Related topics", the rest of www's gap there at 1440;
+  - 1440: 4040 -> 3980 (+0.00 %); 390 unchanged (+1.14 %).
+- **The rest at 390 (+85 px)** is text wrap in the sidebar's columns. No row closes it without taking 1440 away again.
+- Order 33's row is DONE, with this note.
+
+**Item 2, order 33's capture lines (gate-so34-captures.md):**
+- All 40 have landed: ita-parity-012, brussels-parity-014, b2b-parity-015 and swiss-parity-009.
+  - Each sha256 is equal to its sidecar; you have not named them yet.
+  - Each page-width is its own phone first load.
+- **39 match the resizes they replace,** and all 39 are within 2 % as served.
+- **ITA electronic-devices-and-batteries 390 moves:** www 8270 against the resize's 8029.
+  - The 225 px are one paragraph www added after the import (batteries in one casing; not in the recording of
+    2026-11-10, not in DA).
+  - Following www there is the owner's call. The row is written and HOLD (delta-so34-ita-electronic-devices-casing-paragraph.txt):
+    390 -3.42 -> -0.52 %, but 1440 can only be gated against a recording older than the paragraph. A 1440 first load
+    is requested.
+- **Brussels bike-the-city 390:** its first load is www 5981, the same as the resize. Its order-33 row still takes 390
+  0.81 points further, so it stays HOLD. No row closes both widths.
+
+**Item 3, ranks 71 to 89 of sweep-so30-brands.md** (its order-34 section, captured again):
+- 81 to 89 are still within 2 %.
+- **Student-fares 1440:** www's band heading is heading-medium, ours the H1 size. Row READY
+  (delta-so34-brussels-student-fares-band-heading.txt, {heading-medium}, with a test).
+  - 1440: +2.06 -> +1.34 %.
+  - 390: +0.18 -> -0.51 %, 0.33 points further: within the gate.
+- **Video-gallery 1440:** a row moving the page metadata into the closing grey section is drafted. It passes 1440 but
+  takes 390 0.64 points further against a resize, so its phone first load is requested and the row is not written yet.
+- **Handed to ema-test** (rows-for-ema-test.md): economy's closing grey band (row 14) and student-fares' stacked app
+  buttons (row 15).
+- **The other seven have no fix:** owner decisions, live data, ema-test's held Allegris rows, causes with no single
+  place.
+
+**Checks:** this commit (the corrective and the student-fares rows with their tests, the HOLD paragraph row with its
+test, order 33's two lists updated, the gate and sweep sections, the finish rows, two capture lines, rows-for-ema-test.md
+rows 14 and 15, this report): `npm run lint`, the folder-reading tests and the full suite in its ship. No CSS changed,
+so stylelint had nothing to check.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git), kept out on purpose:
+  - the four archives;
+  - DA's copies read today: lh-brussels connecting-africa about 14:10 UTC, student-fares about 14:37 UTC; lh-ita
+    electronic-devices about 14:25 UTC; lh-b2b video-gallery about 14:30 UTC;
+  - the drafts, the captures and the logs.
+
+**Hosts:**
+- Every browser load refused airline hosts per request.
+- Reads came from our hosts, the drop (four archives, their sidecars, existence checks of six names) and DA (four
+  document GETs).
+- No da-upload.mjs call, no upload, preview or publish by me. /de/en/overview-manage got no row.

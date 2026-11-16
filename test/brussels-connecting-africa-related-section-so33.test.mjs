@@ -27,7 +27,8 @@ test('applied once, the revert gives the document back, a second run is refused'
   assert.ok(applyReplacements(done.html, data[PATH]).problems.length);
 });
 
-test('the list: READY, naming the tool and the backup', () => {
-  assert.deepEqual(readyPaths(list), [PATH]);
+test('the list: DONE since standing order 34 (live; corrected by delta-so34), naming the tool and the backup', () => {
+  assert.deepEqual(readyPaths(list), []);
+  assert.ok(list.split('\n').some((l) => l.startsWith(`DONE\t${PATH}\t`)));
   assert.match(list.split('\n')[0], /\.token-free-backup\/2026-11-brussels-so33-connecting-africa-related-section\//);
 });

@@ -235,3 +235,17 @@ resized; brussels-parity-012's phone first load is gated in sweep-so30-brands.md
 (sidebar) block. On ours its last text ("Please fill out the form again.") ends 84 px above the footer: the block's own
 36 px bottom padding (40 px top) and the section's gap under it. www keeps 42 px. Located: +35 px before the footer
 (ranking-588). That is Columns Media's phone padding and the section gap after it, so I left the page as it is.
+
+## 14. Brussels: economy's closing grey band on phones, from ema-lufthansa (2026-11-16, standing order 34)
+
+/be/en/travel-classes/economy at 390 (-2.11 % as served, airline hosts refused per request; brussels-parity-003): the page
+ends with a grey teaser band. www keeps 93 px of grey under its last card, ours 68. A document spacer in the band
+(order 25) changes the band's own ending (+5 px only at 390) and takes 1440 further, so no row stands in for it. It is the
+grey band's end spacing, in the shared section rules, so I left it as it is.
+
+## 15. Brussels: student-fares' app buttons in the grey band, from ema-lufthansa (2026-11-16, standing order 34)
+
+/be/en/local-page/student-fares at 1440: in the flush grey "Fly, collect and redeem" band (Columns Media), www sets the
+two app-store buttons side by side, and ours stacks them in the same 622 px column. The band's heading size is a document
+row of mine (delta-so34-brussels-student-fares-band-heading.txt, READY). The buttons' row layout is Columns Media's, so I
+left it as it is.

@@ -198,3 +198,6 @@ www.ita-airways.com /it/en/book-and-prepare/other-requests/families-and-children
 business.lufthansagroup.com /de/de/about-us/lhg-history 390  # only resized (b2b-parity-006); +0.53 % at 390
 www.ita-airways.com /it/en/book-and-prepare/travel-information/baggage/electronic-devices-and-batteries 390  # only resized (ita-parity-005); -0.52 % at 390
 www.brusselsairlines.com /be/en/articles/bike-the-city 390  # only resized (brussels-parity-010); +0.23 % at 390, ahead of its gap: it decides delta-so33-brussels-bike-the-city-heading-breaks.txt (in place of the 40th, /de/en/travel-management at +0.52 %)
+# Standing order 34 (2026-11-16): two first loads that decide held rows (same format as order 31's lines).
+www.ita-airways.com /it/en/book-and-prepare/travel-information/baggage/electronic-devices-and-batteries 1440  # its only 1440 recording (ita-parity-005, 2026-11-10) predates www's new paragraph; decides delta-so34-ita-electronic-devices-casing-paragraph.txt
+business.lufthansagroup.com /de/en/allegris/video-gallery 390  # only resized (b2b-parity-006); -0.32 % at 390; decides a drafted ending row (sweep-so30-brands.md, order 34's section, no. 76)
