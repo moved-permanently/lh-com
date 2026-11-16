@@ -88,5 +88,14 @@
     "text": "<div class=\"table-striped wide-columns\"><div><div><strong>Business Lounge<sup>2</sup> (Europe"
    }
   ]
+ },
+ {
+  "path": "/de/en/during-your-trip/internet-overview",
+  "inserts": [
+   {
+    "replace": "<div class=\"hero-campaign regular\">",
+    "text": "<div class=\"hero-campaign regular no-subtitle\">"
+   }
+  ]
  }
 ]
