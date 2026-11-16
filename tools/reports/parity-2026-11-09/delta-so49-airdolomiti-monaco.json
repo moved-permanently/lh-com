@@ -1,0 +1,19 @@
+[
+ {
+  "path": "/destinazioni/monaco-di-baviera",
+  "inserts": [
+   {
+    "before": "<h2><strong>Monaco di Baviera da visitare</strong></h2>",
+    "text": "<p>{spacer-0}</p>"
+   },
+   {
+    "before": "<h2><strong>Informazioni di viaggio</strong></h2>",
+    "text": "<p>{spacer-0}</p>"
+   },
+   {
+    "before": "<h2><strong>Curiosità</strong></h2>",
+    "text": "<p>{spacer-0}</p>"
+   }
+  ]
+ }
+]

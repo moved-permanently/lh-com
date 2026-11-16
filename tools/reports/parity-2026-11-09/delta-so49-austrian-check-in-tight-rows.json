@@ -1,0 +1,8 @@
+[
+ {
+  "path": "/at/en/fly/check-in/private-check-in-counter",
+  "block": "table-striped",
+  "text": "Passengers",
+  "add": "tight-rows"
+ }
+]

@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/at/en/plan/special-requirements/medical-travel-companions",
+  "inserts": [
+   {
+    "before": "<h2 id=\"services-at-a-glance\">Services at a glance</h2>",
+    "text": "<p>{spacer-27 from-768}</p>"
+   }
+  ]
+ }
+]
