@@ -9286,3 +9286,39 @@ three steps are fixed, each with its own census.
   which item 1's rule does not reach.
 - **Not traced to an element:** 174 bari 1440 (+37 by "Discover Bari") and 175 bari-de 390 (-74 in the card bands).
 - **No fix:** the rest are steps of both signs, widgets' states or resized recordings.
+
+### Final section (about 20:05 CET, 2026-11-16)
+
+All three items are done, so I stopped before 22:00.
+
+**On main:**
+- `03aeb80d`: the Austrian closing-card rule and its test, both gate files, the sweep file and this order's items.
+- This commit: this section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0, read before the push. Origin had moved (5 commits: lufthansa.com and
+  Brussels rules, upload states), so I rebased and ran lint again: exit 0.
+- **Stylelint:** styles/themes/austrian.css, exit 0.
+- **Tests on the push:** 296 files, 1,180 tests, 1,175 pass, 0 failures, 5 skipped.
+- **Full suite** on `03aeb80d`: 1,239 files, 4,694 tests, 4,689 pass, 0 failures, 5 skipped (one node process per file,
+  ~19:45 to ~20:02 CET).
+
+**Live:** the theme was served at ~19:38 CET. The baggage pages measured live equal the gated figures to the px: en 390
+6,670, de 390 6,751, en 1440 4,315. familien 390 equals its census figure, 3,158.
+
+**For you:**
+- **The lead-in rule (item 2):** hold it, or have the assistance template's three other steps fixed first.
+- **The homepage replay:** places 178 and 190 are outside as served. Order 43's figures used our host's replayed
+  answers, and that script went with the restart. Say if you want it rebuilt.
+
+**Rules followed:**
+- No request to an airline host: refused and counted, none sent.
+- DA: nothing read or written.
+- No upload, preview, publish or da-upload.mjs.
+- The recordings were read as data (serve.py not run).
+- The checkout's dirty entries and the old autostash untouched.
+- /de/en/overview-manage has no row.
+- The finder button rule stays on HOLD, as you said.
+
+**Not in git** (scratch under migration-work/parity-588/so53): the recordings, the served copies, the renders, the
+held lead-in draft, scripts and logs.
