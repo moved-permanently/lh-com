@@ -105,3 +105,9 @@ https://www.airdolomiti.eu/articles/destinations/where-the-adriatic-becomes-wild
 https://www.airdolomiti.de/artikel/reiseziele/die-wilde-seite-der-adria	390	+1.13 %
 # host: www.lufthansa-cargo.com
 /en/fleet-ulds/ulds/containers	390	-1.12 % (cargo-parity-003's resize; a text page, so expect it to equal the resize, as -007 showed)
+# Standing order 47 (2026-11-16, ~09:55 CET): two more phone first loads that would decide a place of sweep-so47-places-51-70.txt.
+# One load per page at 390, as the ten above.
+# host: www.austrian.com
+/at/en/homepage	390	place 57 (-1.95 %): austrian-parity-001's load of 2026-11-09 has www's older flight search (FIND FLIGHTS 86 px lower than on -022 to -026)
+# host: www.lufthansa-cargo.com
+/en/ehm	390	place 60: the flush row passes at 1440 (+1.85 -> +0.31 %) but takes cargo-parity-003's resized 390 from -1.08 to -2.34 %
