@@ -1292,6 +1292,14 @@ body.brand-austrian .table-striped :is(td, th) {
   }
 }
 
+/* option tight-rows: www's maui-table body cells, 24 px above and below the text (ours 32): private-check-in-counter's
+   fee rows are 72 px on www, 88 here (standing order 49). Per document, not for every table: accessible-travel's cells
+   hold www's empty paragraphs, which the import drops, so 24 px there takes the page further (standing order 28) */
+body.brand-austrian .table-striped.tight-rows td {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
 /* a picture in a full-bleed section fills the width, as www's .image-wrapper.full-width-bg (standing order 27, item 4):
    culinary-services' 1,277 px media stood 1,277 px wide at 1440 (459 px high, www 1,440 x 518); 1440 -1.34 -> -0.64 %,
    the only recorded page-width it moves (at 390 such pictures already fill the width) */
@@ -1692,6 +1700,13 @@ body.brand-austrian main .columns-media:not(.steps) .columns-media-text > h3 {
   body.brand-austrian main .columns-media .columns-media-row > .columns-media-media:has(+ div:empty:last-child) {
     margin-bottom: 50px;
   }
+}
+
+/* the end of a page whose last section ends with text (default content): www keeps its last paragraph's 24 px to the
+   footer (cn/en tarmac-delay-contingency-plan at 390 and 1440), ours the 48 px section gap. Opt-in, as below: Section
+   Metadata style "flush" (standing order 49; no served Austrian document had a flush last section of that shape) */
+body.brand-austrian main > .section.flush:last-child:not(.grey):has(> .default-content-wrapper:last-child) {
+  margin-bottom: 24px;
 }
 
 /* the end of a page whose last AEM section has no space below: www ends it with the column view's 32 px, and with
