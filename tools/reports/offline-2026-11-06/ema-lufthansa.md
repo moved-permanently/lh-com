@@ -5645,3 +5645,9 @@ order 27.
 - This order's reads came from our hosts, the drop and DA (GETs and one list GET from my session).
 - Tonight's first host-eval loads, before the fix at about 22:40 UTC, could still reach airline hosts through the proxy.
 - No da-upload.mjs call, no upload, preview or publish by me.
+- **Addendum (00:50 UTC), item 1's gate:** the Captures child's archive is on the drop as swiss-pictures-001
+  (sha256 254f4275…5a43, equal to its sidecar). Both files are www's help-center main.png and faq.png.
+  - With them answered at the copies' paths and main's block change (4e3c823b): de contact-us 1440 -7.23 -> -1.26 %,
+    390 -5.48 -> +0.83 %; en contact-us and help-center 1440 -6.05 -> 0.00 %, 390 -5.67 -> +0.86 %.
+  - delta-so28-swiss-help-center-pictures.txt is READY for the helper's copy (its backup named in the header); checks
+    of this last commit in its ship.
