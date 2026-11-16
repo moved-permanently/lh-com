@@ -79,3 +79,12 @@ https://www.airdolomiti.eu/articles/destinations/street-food-in-munich	390	the p
 # The two other widget pages, if there is time (same two loads each):
 /us/en/local-page/ski-campaign-2026	1440,390	fare teaser and flight search; OS US en; destinationfinder NYC/E and WAS/E, defaultAirport
 /at/en/bangkok-airways	1440,390	the flight search after "Book your flight now"; OS AT en; defaultAirport
+# Standing order 45 (2026-11-16, ~07:30 CET): received, thank you: cargo-parity-007 (terms-of-use, partnerships-subsidiaries,
+# live-animals, eaw at 390, first loads) and airdolomiti-parity-011 (lounge-zutritt, archistars at 390, first loads);
+# gate-so45-cargo-007-airdolomiti-011.txt reads them. Less www's 80 px service notice, each Cargo page equals -003's resize.
+# New: Cargo's tab bands on phones. live-animals' first load draws its grey tab band as the five rows alone (no padding,
+# the footer right under it); the six other product pages with -003 390 rows read within 0.5 % with our padding, but those
+# are resizes of 1440 loads with a tab open. One phone first load of two of them decides a Cargo rule (gate-so45, HOLD):
+# host: www.lufthansa-cargo.com
+/en/general-cargo	390	the tab band at the page's end on a phone's first load (nothing opened): its padding and the gap to the footer
+/en/emergency	390	the same (a second product page; its tab set is three rows)

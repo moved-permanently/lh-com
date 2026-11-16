@@ -457,9 +457,25 @@ export default async function decorate(block) {
   const lang = pathLanguageOf(document.documentElement.lang);
   const filterTexts = { ...(FILTER_LABELS[lang] || FILTER_LABELS.en) };
   const items = [];
+  // option link-rows: a row whose only content is one link is a link line in the list, drawn as an
+  // item's title without a disclosure (www's Cargo image lists: "Global Partner", "Premium
+  // Partner" and "Business Partner" after "The program", standing order 45)
+  const linkRows = block.classList.contains('link-rows');
+  const rows = [];
   [...block.children].forEach((row) => {
     const cells = [...row.children].filter((c) => c.textContent.trim() || c.querySelector('img'));
     if (!cells.length) return;
+    const links = cells.length === 1 ? cells[0].querySelectorAll('a[href]') : [];
+    const onlyLink = links.length === 1
+      && cells[0].textContent.trim() === links[0].textContent.trim();
+    if (linkRows && onlyLink && !cells[0].querySelector('img')) {
+      const line = document.createElement('div');
+      line.className = 'accordion-columns-item accordion-columns-link';
+      links[0].classList.add('accordion-columns-title');
+      line.append(links[0]);
+      rows.push(line);
+      return;
+    }
     const filterRow = filter && cells.length >= 2
       && FILTER_ROWS[cells[0].textContent.trim().toLowerCase()];
     if (filterRow) {
@@ -497,9 +513,10 @@ export default async function decorate(block) {
     }
     details.append(summary, buildPanel(panelNodes, single));
     items.push(details);
+    rows.push(details);
   });
 
-  block.replaceChildren(...items);
+  block.replaceChildren(...rows);
   if (block.classList.contains('tabs')) buildTabs(block, items);
   openFirst(block, items);
   exclusive(block, items);

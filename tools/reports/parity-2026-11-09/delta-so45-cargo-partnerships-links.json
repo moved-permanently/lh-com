@@ -1,0 +1,15 @@
+[
+ {
+  "path": "/en/ci/partnerships-subsidiaries",
+  "inserts": [
+   {
+    "replace": "Partnerships Customers</h2><div class=\"accordion-columns faq exclusive\">",
+    "text": "Partnerships Customers</h2><div class=\"accordion-columns faq exclusive link-rows\">"
+   },
+   {
+    "replace": "<ul><li><a href=\"https://www.lufthansa-cargo.com/partner?aid=global-partners-anchor\">Global Partner</a></li><li><a href=\"https://www.lufthansa-cargo.com/partner?aid=premium-partners-anchor\">Premium Partner</a></li><li><a href=\"https://www.lufthansa-cargo.com/partner?aid=business-partners-anchor\">Business Partner</a></li></ul></div></div>",
+    "text": "</div></div><div><div><a href=\"https://www.lufthansa-cargo.com/partner?aid=global-partners-anchor\">Global Partner</a></div></div><div><div><a href=\"https://www.lufthansa-cargo.com/partner?aid=premium-partners-anchor\">Premium Partner</a></div></div><div><div><a href=\"https://www.lufthansa-cargo.com/partner?aid=business-partners-anchor\">Business Partner</a></div></div>"
+   }
+  ]
+ }
+]

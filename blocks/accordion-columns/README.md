@@ -23,6 +23,7 @@ Options (combinable, written by the importer from the source): `accordion-column
 - `open-2` … `open-9`: the first N items start open (Austrian's new-destinations, where www expands its first items); not with `tabs`; with `exclusive` only the first.
 - `open-item-K` (K = 1, 2, …; several allowed): the K-th item starts open (lufthansa.com's /gefaehrliche-gegenstaende, where www expands its last item; the importer writes it from www's expanded items that are not the first ones); not with `tabs`; with `exclusive` only the first of them.
 - `exclusive`: one item open at a time (www.lufthansa-cargo.com's image lists on Facts & Figures: Meet the Executive Board, Compliance): opening an item closes the open one (the items share a `details` name). Not with `tabs`.
+- `link-rows`: a row whose only content is one link is a link line in the list, not an item: the link drawn as an item's title (its rule, the brand's marks), with no disclosure (www.lufthansa-cargo.com's image lists, whose "Global Partner", "Premium Partner" and "Business Partner" after "The program" on /en/ci/partnerships-subsidiaries are links, not items). Rows with anything else stay items; without the option every row is an item.
 - `spaced`: the accordion is part of a text column (after a headline or text in the same column on lufthansa.com): 40px more space below it (all widths, none when it is the last element of its section) and above it (from 768px).
 
 ## Universal Editor fields
