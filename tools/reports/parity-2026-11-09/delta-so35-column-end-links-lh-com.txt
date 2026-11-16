@@ -1,0 +1,49 @@
+# Standing order 35 (2026-11-16), item 3: a column view's end mark before its links (datenschutz 1440, 3.5 -> 6.5 %
+# since 11-09, the column marks of 11-12).
+# Cause, located: www keeps the standalone links of a column view inside the view (datenschutz: the headline, the text
+# and six maui-navigation-links in one onecolumn column-view-item, lh-com bd-snapshot). The importer's placeColumnMarks
+# (tools/importer/transformers/lufthansa-cleanup.js) counts only p, headings, lists, tables and media as a view's
+# leaves. When it runs, the links are still bare <a> in divs (convertMauiLinks has made them links; the paragraphs
+# around them come later). So "{column-end...}" lands on the text before the links: the view's end padding (20 / 40px)
+# draws between the text and the first link, and none after the last link. datenschutz: the first link 67px under
+# the paragraph's top (www 49), 16px lower.
+# Reach (published copies of 11-14, logs/b613/pub): 719 column ends right before link-only paragraphs in lh-com's
+# documents. www's snapshot has 278 of them in the same view, 5 in another view; 415 have no snapshot and 21 could not
+# be matched. 44 of those documents are recorded.
+# Fix: per document, the end tokens (column-end, column-end-outer, column-spaced) leave the paragraph and an own
+# "{tokens}" paragraph follows the last link. Other tokens (full-width, column-start..., copytext-small) stay where they
+# are. This is the form the importer writes when a view ends on something that cannot hold a mark.
+# Gate: all 44 recorded documents, the published copy (A) and the draft (B) on our host against the newest recording
+# (lh-parity-004a/b, else -002/-003), the first 8,000 px, 1440 and 390; xx/hk with Noto Sans CJK TC. 88 page-widths,
+# all 200, no failed picture, no sideways scroll.
+# - 15 documents are 0.5 points or more closer at one width and no worse than 0.1 at the other: READY below.
+# - 23 change by 0.1 or less at both widths (the moved padding falls where nothing is drawn): no row.
+# - 6 are worse at a width, no row:
+#   - /de/en/744: +1.8 / +1.4, the fleet seat-map PDF links in the nested outer view, dropNestedOuterEnds' case;
+#   - /de/en/refund: +4.1 / +2.6;
+#   - .../register-sports-baggage/confirmation: +6.7 / +4.8;
+#   - /de/en/lufthansa-at-berlin-airport: +1.1 at 1440, the one "other view" end of the census;
+#   - /de/en/tiere-als-handgepaeck: -2.3 at 1440 but +0.9 at 390;
+#   - /xx/pt/meetings-and-events: +0.8 at 390, where the nine other language versions are better.
+# The importer is not changed tonight: the same move inside placeColumnMarks (a bare link counted as a leaf) would
+# reach every future import, including the six pages it makes worse. It needs those six's causes and the no-breakage
+# renders first.
+# Tool: tools/importer/text-inserts-apply.mjs --data delta-so35-column-end-links-lh-com.json (for each end, a replace
+# from the marked paragraph through its last link, found once). Dry run on DA's current copies (read-only GET): 15 of 15
+# documents and 17 ends inserted; without the inserts DA's copy byte for byte (--check).
+# status	document	tool	expected change	gate (pub -> draft, 1440 / 390, %)
+READY	/de/en/datenschutz	text-inserts-apply (delta-so35-column-end-links-lh-com.json)	"{column-end-outer}" from the text to after the six links	6.5 -> 3.4 / 9.6 -> 7.8
+READY	/de/en/first-class-valet-parking-service	text-inserts-apply (delta-so35-column-end-links-lh-com.json)	"{column-end-outer}" after its two links (full-width stays)	5.3 -> 2.1 / 5.1 -> 5.1
+READY	/de/en/lufthansa-at-duesseldorf-airport	text-inserts-apply (delta-so35-column-end-links-lh-com.json)	two ends, each after its link	3.2 -> 1.8 / 3.3 -> 3.3
+READY	/de/en/lufthansa-at-vienna-airport	text-inserts-apply (delta-so35-column-end-links-lh-com.json)	two ends, each after its link	3.6 -> 2.8 / 5.5 -> 5.4
+READY	/de/en/travel-expense-management	text-inserts-apply (delta-so35-column-end-links-lh-com.json)	"More on this subject": "{column-end-outer}" after its five links (column-start-outer stays on the heading)	2.1 -> 2.0 / 4.8 -> 3.9
+READY	/de/en/lufthansa-express-rail	text-inserts-apply (delta-so35-column-end-links-lh-com.json)	"{column-end}" after its link (copytext-small stays)	6.8 -> 6.1 / 7.1 -> 7.2
+READY	/de/en/meetings-and-events	text-inserts-apply (delta-so35-column-end-links-lh-com.json)	"{column-end-outer}" after its link (full-width stays)	3.9 -> 2.6 / 6.0 -> 5.7
+READY	/de/de/meetings-and-events	text-inserts-apply (delta-so35-column-end-links-lh-com.json)	as de/en	4.1 -> 2.7 / 6.3 -> 6.1
+READY	/at/de/meetings-and-events	text-inserts-apply (delta-so35-column-end-links-lh-com.json)	as de/en	4.1 -> 2.7 / 6.3 -> 6.1
+READY	/gb/en/meetings-and-events	text-inserts-apply (delta-so35-column-end-links-lh-com.json)	as de/en	3.9 -> 2.6 / 6.0 -> 5.7
+READY	/fr/fr/meetings-and-events	text-inserts-apply (delta-so35-column-end-links-lh-com.json)	as de/en	4.4 -> 3.1 / 6.2 -> 6.0
+READY	/xx/es/meetings-and-events	text-inserts-apply (delta-so35-column-end-links-lh-com.json)	as de/en	4.1 -> 2.8 / 6.4 -> 6.2
+READY	/xx/fr/meetings-and-events	text-inserts-apply (delta-so35-column-end-links-lh-com.json)	as de/en	4.4 -> 3.1 / 6.2 -> 6.1
+READY	/xx/hk/meetings-and-events	text-inserts-apply (delta-so35-column-end-links-lh-com.json)	as de/en	5.4 -> 4.0 / 13.3 -> 12.0 (Noto Sans CJK TC)
+READY	/xx/ru/meetings-and-events	text-inserts-apply (delta-so35-column-end-links-lh-com.json)	as de/en	4.4 -> 3.1 / 7.8 -> 6.9

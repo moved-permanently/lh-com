@@ -40,3 +40,8 @@ Standing order 35 (2026-11-16, ema-adobe's sweep of the other lufthansa.com page
 9. discover-lufthansa/lufthansa-fleet/351, 1440 (13.9 %, drift +26 to +151 px): after the grey band the seat-map
    heading sits 26px lower than www's (the shared section gap after a grey section); after the seat-map slideshow the
    next heading is about 25px lower; the PDF link wraps to two lines where www's fits one (our text column narrower).
+10. my-bookings, 390 / 1440 (10.1 / 4.6 %, 7.0 / 4.0 on 11-09; drift -21 px by y 1,360, then -54 at the page end): the
+   page ends with a cards-teaser three-up block as the last content of its last section, and ours draws no space
+   after it: the footer starts at the block's last link (section, wrapper and block padding and margin all 0). www
+   keeps about 54px there at 390 (57 at 1440: 3,647 / 3,590 px). The end gap of the last section (the shared
+   section-gap rules).

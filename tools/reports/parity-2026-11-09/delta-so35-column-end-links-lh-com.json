@@ -1,0 +1,145 @@
+[
+ {
+  "path": "/de/en/first-class-valet-parking-service",
+  "inserts": [
+   {
+    "replace": "<p>Even your arrival at the airport should be as simple and pleasant as possible. That’s why we offer you a valet parking service for rental and private cars at the First Class Terminal in Frankfurt and at the exclusive kerbside check-in at Terminal 2 in Munich. This means that your flight begins with that First Class feeling right from the start. {full-width column-end-outer}</p><p><a href=\"/de/en/fia-valet-service\">To the FIA valet service at Frankfurt Airport</a></p><p><a href=\"/de/en/fmg-valet-parking-service\">To the valet parking service at Munich Airport</a></p>",
+    "text": "<p>Even your arrival at the airport should be as simple and pleasant as possible. That’s why we offer you a valet parking service for rental and private cars at the First Class Terminal in Frankfurt and at the exclusive kerbside check-in at Terminal 2 in Munich. This means that your flight begins with that First Class feeling right from the start. {full-width}</p><p><a href=\"/de/en/fia-valet-service\">To the FIA valet service at Frankfurt Airport</a></p><p><a href=\"/de/en/fmg-valet-parking-service\">To the valet parking service at Munich Airport</a></p><p>{column-end-outer}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/datenschutz",
+  "inserts": [
+   {
+    "replace": "<p>We process your personal details in accordance with the statutory provisions. {column-end-outer}</p><p><a href=\"/de/en/data-protection-information\">Go to information about data protection</a></p><p><a href=\"https://www.lufthansa.com/de/en/common/privacy-statement/important-info\">Communication of data breaches in accordance with Art. 34 GDPR</a></p><p><a href=\"/de/en/cookie-policy\">Go to our Cookie Policy</a></p><p><a href=\"/de/en/common/privacy-statement/privacy-policy-for-the-lufthansa-facebook-page\">Go to the Privacy Statement for the Lufthansa Facebook page</a></p><p><a href=\"https://www.lufthansa.com/de/en/profile/travel-id/travel-id-data-protection\">Go to the Privacy Statement for Travel ID</a></p><p><a href=\"/de/en/common/privacy-statement/privacy-statement-group\">Go to the Privacy Statement of all LHG airlines</a></p>",
+    "text": "<p>We process your personal details in accordance with the statutory provisions.</p><p><a href=\"/de/en/data-protection-information\">Go to information about data protection</a></p><p><a href=\"https://www.lufthansa.com/de/en/common/privacy-statement/important-info\">Communication of data breaches in accordance with Art. 34 GDPR</a></p><p><a href=\"/de/en/cookie-policy\">Go to our Cookie Policy</a></p><p><a href=\"/de/en/common/privacy-statement/privacy-policy-for-the-lufthansa-facebook-page\">Go to the Privacy Statement for the Lufthansa Facebook page</a></p><p><a href=\"https://www.lufthansa.com/de/en/profile/travel-id/travel-id-data-protection\">Go to the Privacy Statement for Travel ID</a></p><p><a href=\"/de/en/common/privacy-statement/privacy-statement-group\">Go to the Privacy Statement of all LHG airlines</a></p><p>{column-end-outer}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/meetings-and-events",
+  "inserts": [
+   {
+    "replace": "<p>Weitere Informationen zu Gruppenbuchungen finden Sie hier: {full-width column-end-outer}</p><p><a href=\"/at/de/group-travel\">Eine Gruppenreise buchen</a></p>",
+    "text": "<p>Weitere Informationen zu Gruppenbuchungen finden Sie hier: {full-width}</p><p><a href=\"/at/de/group-travel\">Eine Gruppenreise buchen</a></p><p>{column-end-outer}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/meetings-and-events",
+  "inserts": [
+   {
+    "replace": "<p>Weitere Informationen zu Gruppenbuchungen finden Sie hier: {full-width column-end-outer}</p><p><a href=\"/de/de/group-travel\">Eine Gruppenreise buchen</a></p>",
+    "text": "<p>Weitere Informationen zu Gruppenbuchungen finden Sie hier: {full-width}</p><p><a href=\"/de/de/group-travel\">Eine Gruppenreise buchen</a></p><p>{column-end-outer}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/meetings-and-events",
+  "inserts": [
+   {
+    "replace": "<p>Find more information about group bookings here: {full-width column-end-outer}</p><p><a href=\"/de/en/group-travel\">Book a group</a></p>",
+    "text": "<p>Find more information about group bookings here: {full-width}</p><p><a href=\"/de/en/group-travel\">Book a group</a></p><p>{column-end-outer}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/meetings-and-events",
+  "inserts": [
+   {
+    "replace": "<p>Obtenez plus d’informations sur les réservations de groupe ici : {full-width column-end-outer}</p><p><a href=\"/fr/fr/group-travel\">Réservations de groupe</a></p>",
+    "text": "<p>Obtenez plus d’informations sur les réservations de groupe ici : {full-width}</p><p><a href=\"/fr/fr/group-travel\">Réservations de groupe</a></p><p>{column-end-outer}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/meetings-and-events",
+  "inserts": [
+   {
+    "replace": "<p>Find more information about group bookings here: {full-width column-end-outer}</p><p><a href=\"/gb/en/group-travel\">Book a group</a></p>",
+    "text": "<p>Find more information about group bookings here: {full-width}</p><p><a href=\"/gb/en/group-travel\">Book a group</a></p><p>{column-end-outer}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/es/meetings-and-events",
+  "inserts": [
+   {
+    "replace": "<p>Consulte más información sobre las reservas de grupo aquí: {full-width column-end-outer}</p><p><a href=\"/xx/es/group-travel\">Hacer una reserva de grupo</a></p>",
+    "text": "<p>Consulte más información sobre las reservas de grupo aquí: {full-width}</p><p><a href=\"/xx/es/group-travel\">Hacer una reserva de grupo</a></p><p>{column-end-outer}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/fr/meetings-and-events",
+  "inserts": [
+   {
+    "replace": "<p>Obtenez plus d’informations sur les réservations de groupe ici : {full-width column-end-outer}</p><p><a href=\"/xx/fr/group-travel\">Réservations de groupe</a></p>",
+    "text": "<p>Obtenez plus d’informations sur les réservations de groupe ici : {full-width}</p><p><a href=\"/xx/fr/group-travel\">Réservations de groupe</a></p><p>{column-end-outer}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/hk/meetings-and-events",
+  "inserts": [
+   {
+    "replace": "<p>在此處了解更多關於團體預訂的資訊： {full-width column-end-outer}</p><p><a href=\"/xx/hk/group-travel\">團體預訂</a></p>",
+    "text": "<p>在此處了解更多關於團體預訂的資訊： {full-width}</p><p><a href=\"/xx/hk/group-travel\">團體預訂</a></p><p>{column-end-outer}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/ru/meetings-and-events",
+  "inserts": [
+   {
+    "replace": "<p>Подробности о групповых бронированиях см. здесь: {full-width column-end-outer}</p><p><a href=\"/xx/ru/group-travel\">Оформить групповое бронирование</a></p>",
+    "text": "<p>Подробности о групповых бронированиях см. здесь: {full-width}</p><p><a href=\"/xx/ru/group-travel\">Оформить групповое бронирование</a></p><p>{column-end-outer}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/lufthansa-at-duesseldorf-airport",
+  "inserts": [
+   {
+    "replace": "<p>Fly conveniently from Dusseldorf. Lufthansa offers you flights within Germany to Frankfurt and Munich. Book here directly on lufthansa.com, benefit from the trusted Lufthansa quality and earn valuable bonus miles. {full-width column-end-outer}</p><p><a href=\"/de/en/flight-search\">Book your Lufthansa flight from Dusseldorf here</a></p>",
+    "text": "<p>Fly conveniently from Dusseldorf. Lufthansa offers you flights within Germany to Frankfurt and Munich. Book here directly on lufthansa.com, benefit from the trusted Lufthansa quality and earn valuable bonus miles. {full-width}</p><p><a href=\"/de/en/flight-search\">Book your Lufthansa flight from Dusseldorf here</a></p><p>{column-end-outer}</p>"
+   },
+   {
+    "replace": "<p>You can find a lot more information about Dusseldorf Airport, for example about arriving by car or public transport, at the following link: {full-width column-end-outer}</p><p><a href=\"https://www.dus.com/de-de\">Dusseldorf Airport</a></p>",
+    "text": "<p>You can find a lot more information about Dusseldorf Airport, for example about arriving by car or public transport, at the following link: {full-width}</p><p><a href=\"https://www.dus.com/de-de\">Dusseldorf Airport</a></p><p>{column-end-outer}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/lufthansa-at-vienna-airport",
+  "inserts": [
+   {
+    "replace": "<p>Welcome to the Austrian Star Alliance Terminal – Check-in 3 (301–399): spaces that are flooded with light, short distances, a sophisticated signage system and a varied range of shops, cafés and restaurants turn this new 150,000-square-metre terminal building into a special travel experience for passengers. {full-width column-end-outer}</p><p><a href=\"/content/dam/lh/documents/prepare-for-your-trip/airport-information/vienna-airport/vienna-airport-austrian-star-alliance-terminal-plan.pdf\">Download the terminal map as a PDF</a></p>",
+    "text": "<p>Welcome to the Austrian Star Alliance Terminal – Check-in 3 (301–399): spaces that are flooded with light, short distances, a sophisticated signage system and a varied range of shops, cafés and restaurants turn this new 150,000-square-metre terminal building into a special travel experience for passengers. {full-width}</p><p><a href=\"/content/dam/lh/documents/prepare-for-your-trip/airport-information/vienna-airport/vienna-airport-austrian-star-alliance-terminal-plan.pdf\">Download the terminal map as a PDF</a></p><p>{column-end-outer}</p>"
+   },
+   {
+    "replace": "<p>Would you like to find out more about Vienna Airport? Then just go to: {full-width column-end-outer}</p><p><a href=\"https://www.viennaairport.com/\">Vienna Airport</a></p>",
+    "text": "<p>Would you like to find out more about Vienna Airport? Then just go to: {full-width}</p><p><a href=\"https://www.viennaairport.com/\">Vienna Airport</a></p><p>{column-end-outer}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/travel-expense-management",
+  "inserts": [
+   {
+    "replace": "<h2 id=\"more-on-this-subject-column-start-outer-column-end-outer\">More on this subject {column-start-outer column-end-outer}</h2><p><a href=\"/content/dam/lh/documents/business-services/fra-hq-concur-triplink-update-url-broschuere-210x297-en-screen.pdf\">Brochure: ‘A new level for your Travel &amp; Expense Management’</a></p><p><a href=\"/content/dam/lh/documents/business-services/fra-germany-concur-anleitung-210x297-en-screen.pdf\">Guide: ‘Register once, benefit again and again’</a></p><p><a href=\"https://www.miles-and-more.com/online/portal/mam/en/account/enrolment?l=de&amp;cid=18002\">Not yet a Miles &amp; More member?</a></p><p><a href=\"/de/en/business-terms-and-conditions\">Terms and conditions for the use of the SAP Concur platform services</a></p><p><a href=\"https://www.lufthansa.com/de/en/support/support\">Help &amp; Contact</a></p>",
+    "text": "<h2 id=\"more-on-this-subject-column-start-outer-column-end-outer\">More on this subject {column-start-outer}</h2><p><a href=\"/content/dam/lh/documents/business-services/fra-hq-concur-triplink-update-url-broschuere-210x297-en-screen.pdf\">Brochure: ‘A new level for your Travel &amp; Expense Management’</a></p><p><a href=\"/content/dam/lh/documents/business-services/fra-germany-concur-anleitung-210x297-en-screen.pdf\">Guide: ‘Register once, benefit again and again’</a></p><p><a href=\"https://www.miles-and-more.com/online/portal/mam/en/account/enrolment?l=de&amp;cid=18002\">Not yet a Miles &amp; More member?</a></p><p><a href=\"/de/en/business-terms-and-conditions\">Terms and conditions for the use of the SAP Concur platform services</a></p><p><a href=\"https://www.lufthansa.com/de/en/support/support\">Help &amp; Contact</a></p><p>{column-end-outer}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/lufthansa-express-rail",
+  "inserts": [
+   {
+    "replace": "<p>* City-Ticket is valid for one journey only and is non-transferable. {copytext-small column-end}</p><p><a href=\"https://www.bahn.de/service/informationen-buchung/bahn-flug/lufthansa-express-rail#verbindungen\">More information about City-Ticket</a></p>",
+    "text": "<p>* City-Ticket is valid for one journey only and is non-transferable. {copytext-small}</p><p><a href=\"https://www.bahn.de/service/informationen-buchung/bahn-flug/lufthansa-express-rail#verbindungen\">More information about City-Ticket</a></p><p>{column-end}</p>"
+   }
+  ]
+ }
+]

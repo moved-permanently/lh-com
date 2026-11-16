@@ -90,5 +90,26 @@ sub-section question held since standing order 30). Four page-widths moved 2 poi
 - datenschutz 1440 (3.5 -> 6.5, before standing order 30's legal rules too): its stack of standalone links stands a
   little taller than www's (about 51 px a link against 49.6) and starts about 18 px lower after the paragraph.
 
-No cause yet for those four.
-
+Their causes, found later in the night:
+- **datenschutz 1440 (6.5 %): the column view's end mark sits before its links.** The importer's placeColumnMarks
+  counts no bare link as a view's leaf, so "{column-end-outer}" lands on the text and its padding draws between the
+  text and the first link. There are 719 such ends in lh-com's documents, on 44 recorded documents.
+  - Rows: delta-so35-column-end-links-lh-com.txt, 15 READY (datenschutz 6.5 -> 3.4 / 9.6 -> 7.8, ten
+    meetings-and-events versions, airport and parking pages).
+  - Gate: all 44 recorded documents. 15 closer, 23 unchanged, 6 worse; the 6 get no row.
+  - Not changed tonight: the importer, until the six worse pages are understood.
+- **register-ammunition 390 (11.0 %) and the forms' small steps: two type sizes in the core form.** A sub-section
+  title (www h3.heading-copytext-large, 20px on phones) is a fixed 24px in ours. A radio group's question (www's
+  maui-radio-group label) is bold on www and regular in ours.
+  - Trial, injected on the 9 recorded form pages (18 page-widths): `.form.core .form-subsection-title { font-size:
+    var(--heading-font-size-m) }` and `.form.core .form-group-radio > legend.form-label { font-weight: 700 }`,
+    lufthansa.com only.
+  - Result: register-animal-cabin 390 10.1 -> 8.9, anmeldung-tiere-frachtraum 7.9 -> 7.3, refund-form 8.9 -> 8.6,
+    register-ammunition 11.0 -> 10.8; the other 14 page-widths within 0.1.
+  - Not shipped: the rule reaches about 175 unrecorded documents with a form block (184 in all). The no-breakage
+    renders the shared-fix rule asks for take about five hours here.
+- **refund-form 390 (8.9 %): the same form steps.** The trial above takes it to 8.6; what is left is field spacing of
+  a few pixels a field (-33 to +70 px across the page).
+- **my-bookings 390 (10.1 %): the page end.** Its last section ends with a cards-teaser three-up block, and ours
+  draws no space after it (the footer starts at the block's last link; www about 54px, 57 at 1440). It is the
+  shared section-gap rules, so it went to ema-test as hand-over item 10.
