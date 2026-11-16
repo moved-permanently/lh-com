@@ -1764,3 +1764,13 @@ body.brand-lufthansa main .columns-media .columns-media-media > p:has(> picture)
     margin-bottom: 35px;
   }
 }
+
+/* option wide-gap, lufthansa.com on phones: the rows 90px apart (the 66px row gap and 24px; www's card list on
+   /de/en/discover-lufthansa/miles-and-more-credit-card at 390, lh-parity-002: picture to picture 89px, link to the next
+   heading 97, ours 66 both; a rule for every padded view's picture-to-picture rows took crane, cabin-design and
+   first-class-terminal further, so a row puts the option where www's view is spaced so; standing order 35) */
+@media (width < 768px) {
+  body.brand-lufthansa .columns-media.wide-gap > .columns-media-row + .columns-media-row {
+    margin-top: 24px;
+  }
+}

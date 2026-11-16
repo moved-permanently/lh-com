@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/discover-lufthansa/miles-and-more-credit-card",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media padded\"><div><div><h1 id=\"the-convenient-one-the-gold-credit-card-heading-medium\">The co",
+    "text": "<div class=\"columns-media padded wide-gap\"><div><div><h1 id=\"the-convenient-one-the-gold-credit-card-heading-medium\">The co"
+   }
+  ]
+ }
+]
