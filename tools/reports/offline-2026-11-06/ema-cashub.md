@@ -9365,10 +9365,16 @@ page-widths. All were restored exactly when the steps were taken out, scroll wid
 scratch) the stack passes all 8 as a code override: en/assistance 390 -0.25 %, assistenza -0.23 %, de/betreuung +0.26 %,
 destinazioni -0.11 %.
 
-**Why the fourth step is not ready:** www's breadcrumb never wraps on phones (one line, the last item cut with an
-ellipsis), and ours does. Our titles at 390 stand at 146, 170, 196 or 221 px, depending on the breadcrumb's lines: 15 of
-the 51 reached documents have one line. A flat +44 is right only for those. The faithful fix is our breadcrumb on one
-line below 930 px plus the 44 px: a site-wide breadcrumb change for its own census.
+**The fourth step's census** (in-page toggle, the 54 documents with a title's text in their first section, at 390 and
+768): 51 are reached, each +44 exactly, all restored, scroll widths unchanged.
+- Our titles at 390 stand at 146 px on 15 of them, and at 170, 196 or 221 on the rest (those templates' own padding;
+  the breadcrumb is one line everywhere).
+- The 15 at 146 are exactly the accordion text pages (assistance, FAQ, dangerous goods, digital services, basic fare),
+  the same 15 that the into-accordion step reaches. www's 190 is recorded only on the three assistance pages.
+- So the step belongs to that template (scoped to the accordion sections), not to every text page.
+
+Scoped that way, the stack is one change to the accordion text template. It passes all 8 recorded page-widths as a
+whole, but no step passes on its own.
 
 So everything but the items stays HOLD, in scratch (so54/item1-hold.css, so53/item2-hold.diff).
 
@@ -9411,8 +9417,54 @@ All 20 are within 2 % today.
 - **Widget states:** 193 cz/en 1440 (-0.75 % with the replay, -14.88 % as served).
 - **The form challenge:** 201 charter enquiry 1440 drew the 71 px challenge, the same with order 43's code. Less the
   challenge, it is 3,447, order 43's figure.
-- **Not traced to an element:** 195 / 198 Cargo en / de home (+37 above "Latest news"), 200 overview-manage 390 (-31
-  after "Check-in").
+- **Cargo home:** 195 / 198 en / de 1440 (+37 above "Latest news"). Our booking box draws its Booking tab in three rows
+  (Create booking, the dashboard link, an AWB search with a prefix field), www in two (Origin / Destination / Create
+  booking; AWB number / Update booking / the dashboard link). No fix tonight: that is the block's design, not a spacing.
+- **Not traced to an element:** 200 overview-manage 390 (-31 after "Check-in").
 - **A candidate:** 197 en/destinations 390. Two of www's blank lines (empty paragraphs) draw nothing on ours, -37 each.
   Not traced in our layout.
 - **No fix:** the rest are steps of both signs, or www's 80 px service notice (204).
+
+### Final section (about 22:30 CET, 2026-11-16)
+
+All four items are done, so I stopped before 00:30.
+
+**On main:**
+- `c4b776b3`: item 1's list-item rule and its test, the assistance gate file.
+- `52fcaf95`: the homepages' destinations rule and its test, item 3's gate file, the destinations gate file, the sweep
+  file and this order's items.
+- This commit: corrections to item 1's fourth step (a template's step, not the breadcrumb's), the Cargo booking box
+  finding (195 / 198), and this section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0, read before each push. Origin had moved twice (Brussels, B2B and
+  lufthansa.com rules, upload states), so I rebased and ran lint again: exit 0 both times.
+- **Stylelint:** styles/themes/airdolomiti.css, exit 0 after each rule.
+- **Tests on the push:** 717 files (every test reading what origin's commits changed, plus Air Dolomiti's), 2,580 tests,
+  2,578 pass, 0 failures, 2 skipped.
+- **Full suite** on my two commits before the rebase: 1,247 files, 4,706 tests, 4,701 pass, 0 failures, 5 skipped (one
+  node process per file, ~21:34 to ~21:50 CET).
+
+**Live:** both rules were served by ~22:16 CET. All 16 gated page-widths measure live at their gated figures, to the px:
+the list items on de/betreuung, en/assistance, assistenza and destinazioni at 1440 and 390, and the destinations end on
+the three homepages at 1440 and 390 (plus /, /en at 768).
+
+**For you:**
+- **The assistance stack (item 1):** the list's margins, into and under the accordion, the lead-in and the title's 44 px
+  pass all 8 recorded page-widths only as one change to the accordion text template (15 documents). No step passes on
+  its own, in any order. Ship it as one, or hold it.
+- **Place 179 (item 3):** not extended. The space is www's separator on the baggage pages, and rows for it would still
+  fail ru/ru and gr/el.
+
+**Rules followed:**
+- No request to an airline host: refused and counted, none sent. The replays answered from our host's recorded answers.
+- DA: nothing read or written.
+- No upload, preview, publish or da-upload.mjs. No rows this order.
+- The recordings were read as data (serve.py not run).
+- The checkout's dirty entries untouched.
+- /de/en/overview-manage has no row.
+- The finder button rule stays on HOLD, as you said.
+
+**Not in git** (scratch under migration-work/parity-588/so54): the renders, census outputs, held drafts (item1-hold.css,
+code-stack), the replay and picture scripts, and logs.
+
