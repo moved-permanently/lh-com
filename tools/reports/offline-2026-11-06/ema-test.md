@@ -5184,3 +5184,37 @@ State at the start: nothing of mine uncommitted or unpushed (order 40's final se
 - Not in git and why: logs/p4/so41 (scratch), the drops in /tmp (private material), content/, migration-work/,
   tools/importer/reports/* (not mine), the old autostash entry (not mine, kept). Preview servers stopped, trial and
   suite worktrees removed.
+
+## Standing order 42 (received about 13:35 UTC, 2026-11-16)
+
+State at the start: nothing of mine uncommitted or unpushed (order 41's final section on main, fa3e13b9).
+
+1. **Brussels contact-form-error** (delta-so42-rows.txt; ba09d6e7). The two drops were downloaded, their sha256 matched
+   the given values, and each was unpacked into its own folder and read as data. Shipped as a shared rule
+   (styles/themes/brussels.css): on phones, a page ending with a sidebar Columns Media keeps 42 px above the footer.
+   - contact-form-error 390 11.39 → 5.19 % (1,248 px, www 1,250).
+   - be/en/contact/feedback unchanged.
+   - The 92 unrecorded documents rendered with and without: heights only (87 of them 42 px shorter at 390).
+2. **passenger-rights' grey band**, measured at full size: its top padding equals www's, and www's link wraps too
+   (order 41's note corrected).
+   - What differs is the 32 px of the view's closing mark above the band. Shipped as a shared rule: 16 px on phones
+     before a grey column band. The 9 recorded page-widths come out closer or within 0.2 (special-meals
+     11.51 → 9.53, passenger-rights 7.69 → 6.22); 8 px took green-fare +0.59, so 16. The 118 unrecorded documents:
+     heights only.
+   - The link's line height stays (no single www value, order 38).
+3. **Places 111-126** (the ranking's end), measured as served after 871cddc5: as in order 39. 4 skipped; 12 at www's
+   height.
+
+## Standing order 42, final section (about 14:30 UTC, 2026-11-16)
+
+- Items 1-3 done.
+- Before this section: lint and the full suite in a fresh worktree of ba09d6e7: npm run lint 0, stylelint 0, 1228 of 1228 test files passed; the folder-reading tests with brand.test.mjs; the whole-repo lint read before every
+  push.
+- styles.css had ema-adobe's 871cddc5 in the two hours before my edit; mine is a separate phone-only block at the
+  end.
+- Nothing uploaded, previewed or published by me; DA not touched this order. da-upload.mjs not run. Requests only to
+  our own hosts, GitHub's API and the two given R2 drops; no request to www or any airline host.
+  .migration/project.json not touched; the excluded manage page has no row and no line.
+- Not in git and why: logs/p4/so42 (scratch), the drops in /tmp including the two Brussels ones (private material),
+  content/, migration-work/, tools/importer/reports/* (not mine), the old autostash entry (not mine, kept). Preview
+  servers stopped, trial and suite worktrees removed.
