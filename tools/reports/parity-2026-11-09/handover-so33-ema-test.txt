@@ -139,3 +139,13 @@ order 45):
    link (big arrow, 27px line): 5-15px lower than www's, and "Back to overview" with it.
    Seen on /de/en/articles/explore-the-world/essentials-barcelona-facts and what-i-learned-living-in-frankfurt, 390
    (most articles end with this teaser). Columns Media, so it is yours.
+
+Standing order 43 (2026-11-16, ema-adobe's places 119 to 148 of sweep-so34-lh-adobe.md):
+21. Section and Columns Media gaps:
+   - /de/en/articles/explore-the-world/what-i-learned-living-in-barcelona, 1440 (7.1 %): an author quote right after a
+     columns-media stacked picture row (the two captioned pictures, then the blockquote in the next default content): www
+     100px from the captions to the quote, ours 70;
+   - /de/en/articles/explore-the-world/be-picky-barcelona-insider-tips, 1440 (6.1 %): the article-end teaser's picture
+     (columns-media) 20px shorter than www's, before item 20's link;
+   - /de/en/munich-fair, 390 (6.1 %): 36px less from the stage picture to the first text (www 73px, ours 37), then 29px
+     more from that text to the grey band (www 33, ours 62). Both are section gaps; they cancel in the page's height.

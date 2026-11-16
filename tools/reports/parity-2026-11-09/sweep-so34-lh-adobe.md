@@ -231,3 +231,28 @@ steps, bands and crops are in logs/b642 (not in git).
 | 113 | /de/en/articles/explore-the-world/eat-see-do-algiers 1440 | 7.0 -> 6.9 | Within 20 px. Photos. | None. |
 | 115, 116 | /de/en, /gb/en food-and-beverages 390 | 7.0 -> 7.0 | The English version of #83: 32 px less above the FAQ heading after the last card; one FAQ question wraps a line more. | Hand-over item 18; the rest none. |
 | 117, 118 | /at/de, /de/de articles/highlights/allegris-premium-economy-san-diego 1440 | 6.9 -> 6.9 | (1) www's heading "Zum Download des Posters einfach auf das Bild klicken" runs the page's width (from x 133, one line); ours runs the text column (from x 207) and wraps to two lines: +30. (2) The separator after it is the page's width on www, the text column's on ours. (3) The related cards (as #105). | (1)-(2) Hand-over item 19 (heading width, ema-test's heading rules). (3) None: content. |
+
+## Places 119 to 148 (standing order 43, item 1)
+
+These are the next 30 page-widths of this sweep, measured again as served at 22:40 CET. Drift steps, bands and crops
+are in logs/b643 (not in git).
+
+| Rank | Page-width | Sweep -> now % | Cause (located) | Fix |
+| --- | --- | --- | --- | --- |
+| 119-121, 123 | /at/de, /de/de, /de/en, /gb/en additional-services 390 | 6.8, 6.8, 6.7, 6.7 -> the same | Within 13 px throughout. The worst bands are text on a photo (the "Well looked after on your trip" teaser): ours sits 4-7 px higher over a textured picture. | None: under 1 %. |
+| 145, 148 | /de/en, /gb/en additional-services 1440 | 5.8 -> 5.8 | As above: within 7 px; the teaser's text wraps a word differently over the photo. | None. |
+| 122 | /de/en/articles/explore-the-world/stop-over-tokyo 1440 | 6.7 -> 7.6 | (1) Since the sweep only one thing changed in ours: the Price Bar ("Tokyo, round trip from 982 €") is not drawn tonight. Its price call returned nothing (data source "none"), so the bar hid. Everything else in our capture is pixel-identical to the sweep's. (2) The portrait picture: www's 1440 rendition is cropped lower (as #59 at 390). | (1) None in layout: the price feed (not verifiable from here, no requests to airline hosts). (2) None: www's rendition. |
+| 130 | /de/en/articles/explore-the-world/what-i-learned-living-in-barcelona 1440 | 6.3 -> 7.1 | (1) The Price Bar, as #122. (2) 28 px less above the author quote after the two-picture row (www 100 px from the captions to the quote, ours 70). | (1) None. (2) Hand-over item 21: the quote follows a columns-media stacked picture row, so it is Columns Media's boundary. |
+| 124, 125 | /at/de, /de/de frankfurt-fair 1440 | 6.5 -> 6.5 | As #91: less above the first heading after the intro text, the benefit cards' columns wider. | Hand-over item 18. |
+| 126, 128 | /at/de, /de/de articles/tags/allegris 390 | 6.3 -> 6.0, 6.6 | The "Conditions" label is in place on both. Within 55 px (the article cards), the page ends level. The 0.3 either way is load noise. | None. |
+| 127, 129, 138, 140 | /at/de, /de/de, /de/en, /gb/en meetings-and-events 390 | 6.3, 6.3, 6.0, 6.0 -> 6.1, 6.1, 5.7, 5.7 | Within 14 px; the bands spread evenly over text and photos. | None. |
+| 131 | /de/en/discover-lufthansa/take-off 390 | 6.3 -> 6.3 | www changed the content after our snapshot: "More about Impact Fares" and another picture. Our copy and the 10-22 snapshot have "Green Fares". Layout within 18 px. | A content refresh (a new capture of www), not a row from here. |
+| 132, 133 | /de/en, /gb/en discover-lufthansa/new-onboard-experience 1440 | 6.2 -> 6.2 | Within 5 px after the stage. Photos. | None. |
+| 134 | /de/en/100-years/cabin-design 1440 | 6.1 -> 6.0 | The film still: www's recording caught another frame of the cabin video. Drift within 14 px. | None. |
+| 135 | /de/en/munich-fair 390 | 6.1 -> 6.1 | 36 px less from the stage picture to the first text (www 73, ours 37); then 29 px more from the text to the grey band, so it evens out. | Hand-over item 21 (section gaps, both directions). |
+| 136 | /de/en/articles/explore-the-world/be-picky-barcelona-insider-tips 1440 | 6.0 -> 6.1 | The article-end teaser (Columns Media): its picture is 20 px shorter than www's, and its "Find flight" is the item 20 link. Then 17 px more above "Related Articles". | Hand-over items 20 and 17. |
+| 137 | /de/en/homepage 1440 | 6.0 -> 12.1 (13.2 on a second load) | www's recording has a flash notice ("Information on flights to Dubai", 44 px) above the flight search. Our flash teaser (the Message Center index) holds no current message tonight, so everything below sits 44 px higher. The deals' prices are live on both and differ. | None: the current messages decide. |
+| 139, 141-143 | /de/en, /gb/en most-significant-route, /at/de, /de/de bedeutsamste-strecken 390 | 6.0, 6.0, 5.9, 5.9 -> the same | The stopover example: www's paragraph before the list ends in two line breaks and the one after starts with one. So www has about 28 px more above and below the list, and its bullets sit inside (a wider indent). Our page is as tall as www's anyway (2,780 / 2,783), because ours leaves 29 px more before the footer. | No row passes. "{spacer-27}" before and after the list made all eight page-widths worse (390 6.0 -> 7.6, 1440 2.6 -> 5.3). |
+| 144 | /de/en/100-years/history 390 | 5.9 -> 5.9 | Within 14 px; the route map picture 7 px higher. | None. |
+| 146 | /de/en/articles/explore-flying/flying-high-christoph-quarch 1440 | 5.8 -> 5.8 | The header picture is 12 px shorter than www's, and 10 px less from it to the text: -22, then within 32. | None: under 1 %. |
+| 147 | /de/en/overview-special-request 390 | 5.8 -> 5.8 | Within 13 px. Text. | None. |
