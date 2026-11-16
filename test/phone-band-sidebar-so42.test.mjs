@@ -17,5 +17,5 @@ test('Brussels: the closing sidebar 42px above the footer on phones', () => {
 });
 
 test('lufthansa.com: a closing mark before a grey band keeps 16px on phones', () => {
-  assert.ok(read('styles/styles.css').includes('@media (width < 768px) { body.brand-lufthansa main > .section:has(+ .section.grey.column-band) > .default-content-wrapper:last-child > :is(p.column-end, p.column-end-outer):last-child { padding-bottom: 16px; } }'));
+  assert.ok(read('styles/styles.css').includes('@media (width < 768px) { body.brand-lufthansa main > .section:not(.column-view):has(+ .section.grey.column-band) > .default-content-wrapper:last-child > :is(p.column-end, p.column-end-outer):last-child { padding-bottom: 16px; } }'));
 });

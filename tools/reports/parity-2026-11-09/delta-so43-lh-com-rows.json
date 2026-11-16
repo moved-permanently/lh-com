@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/book-and-manage/stopover/zugspitze",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media sidebar\">",
+    "text": "<div class=\"columns-media sidebar map-tight\">"
+   }
+  ]
+ }
+]

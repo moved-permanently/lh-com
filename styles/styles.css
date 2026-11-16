@@ -2788,9 +2788,11 @@ body.brand-lufthansa main .default-content-wrapper > h1 + :is(h2, h3) + p:not(:h
 /* lufthansa.com on phones: a view's closing mark right before a grey column band keeps 16px of its 32px (www's
    passenger-rights: 45px from the text to the grey "Refunds" band at 390, ours 68 with the section's 24. The 9 recorded
    page-widths: 7 closer (special-meals 11.51 -> 9.53, arrival-services 9.85 -> 8.22, passenger-rights 7.69 -> 6.22), 2
-   within 0.2; the 118 unrecorded documents rendered with and without: heights only; standing order 42) */
+   within 0.2; the 118 unrecorded documents rendered with and without: heights only; standing order 42). Not after a
+   column-view section: the four lounge roots (recorded under during-your-trip/lounges, so counted as unrecorded in
+   order 42) keep www's full 32px there and went 6.33 -> 8.20 % at 390 with it (standing order 43) */
 @media (width < 768px) {
-  body.brand-lufthansa main > .section:has(+ .section.grey.column-band) > .default-content-wrapper:last-child > :is(p.column-end, p.column-end-outer):last-child {
+  body.brand-lufthansa main > .section:not(.column-view):has(+ .section.grey.column-band) > .default-content-wrapper:last-child > :is(p.column-end, p.column-end-outer):last-child {
     padding-bottom: 16px;
   }
 }

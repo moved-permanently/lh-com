@@ -1857,3 +1857,13 @@ body.brand-lufthansa .columns-media .columns-media-text:has(> :is(h2, h3, h4) + 
     object-fit: cover;
   }
 }
+
+/* option map-tight, lufthansa.com on phones: a sidebar's map cell ends 42px above the next cell (www's zugspitze: 42px
+   from the map's foot to the "Zugspitze - Top of Germany" logo at 390, ours 74: the cell's 40px margin and 32px under
+   the map). A rule for every sidebar map took bayerischer-hof and neuschwanstein 5-7 points further, so a row sets it
+   where www's view is tight: zugspitze 390 10.07 -> 3.88 %, 1440 unchanged (standing order 43) */
+@media (width < 768px) {
+  body.brand-lufthansa .columns-media.sidebar.with-map.map-tight .columns-media-row > div:not(:last-child):has(> .poi-map:last-child) {
+    margin-bottom: 8px;
+  }
+}
