@@ -15,3 +15,7 @@ const css = fs.readFileSync(new URL('../styles/styles.css', import.meta.url), 'u
 test('legal pages: a clause heading after a paragraph 50px under it', () => {
   assert.ok(css.includes('body.brand-lufthansa.legal main .default-content-wrapper > p + :is(h2, h3, h4).heading-copytext-large { margin-top: 50px; }'));
 });
+
+test('standing order 37: the first clause right under the H1 and its paragraph keeps 24px', () => {
+  assert.ok(css.includes('body.brand-lufthansa.legal main .default-content-wrapper > h1 + p + :is(h2, h3, h4).heading-copytext-large { margin-top: 24px; }'));
+});

@@ -146,3 +146,35 @@ changes.
 | 28 | /de/en/anmeldung-tiere-frachtraum 390 | 7.9 -> 7.3 | Order 35's form rules. The rest is field spacing (#11). | As #11 (1). |
 | 29 | /de/en/359 390 | 7.8 -> 7.8 | (1) The seat-map PDF links: the standalone-link line height (#18). (2) "Technical data" 38 px lower than www's: the space after the seat-map download view, the nested-view case of item 2. (3) The technical data table's "Max. take-off weight" wraps in ours. | (1) As #18 (1). (2) Hand-over item 12. (3) Not tonight: table column widths (+24 px). |
 | 30 | /xx/ru/meetings-and-events 390 | 7.8 -> 6.9 | Order 35's column-end row (live). The rest are steps of 10 to 37 px (-37 by y 1,840) between its sections, under 1 % of the page. | None tonight (section spacing, small). |
+
+## Places 31 to 50 (standing order 37, item 4)
+
+The page-widths ranked 31 to 50 above, measured again as served at 07:30 CET, with each page's located cause and its
+fix. Same recordings and method as places 11 to 30; drift steps from logs/b460/offsets.mjs, boxes from injected
+queries (logs/b637, not in git). Several causes recur from the places above:
+- the standalone-link line height on phones (#18: no fix without an importer mark);
+- section and view spacing (hand-over items 11-14);
+- dense text drawn in the same places (#26).
+
+| # | Page-width | Sweep -> now % | Cause (located) | Fix |
+| --- | --- | --- | --- | --- |
+| 31 | /de/en/32n 390 | 7.6 -> 7.6 | The seat-map view starts 24 px lower than www's (www 139 px from the text to "Seat maps Airbus A320neo", ours 163); the rest within 13 px. | Hand-over item 14 (view spacing). |
+| 32 | .../booking-services/manage-my-bookings 390 | 7.6 -> 7.6 | (1) The booking lookup's "Find Bookings" button stands 11 px nearer the checkbox above it (www 46 px, ours 35). (2) The page end after the lookup is 28 px longer than www's. | (1) **Tried, no fix:** 33px under the checkbox below 768 measured worse (7.6 -> 8.7); online-check-in unchanged. (2) Hand-over item 14. |
+| 33 | /de/en/boeing787 390 | 7.4 -> 7.4 | The seat-map views: 35 px less than www's before "Seat maps of the Boeing 787-9" and again before "Downloadable seat maps"; the PDF links' phone line height (#18). | Hand-over item 14; #18. |
+| 34 | /de/en/common/accessibility-statement 390 | 7.4 -> 7.4 | No drift at all; the figure is evenly spread (6-11 % in every 200 px band of dense text). | No fix: the text is in www's places (#26). |
+| 35 | /de/en/seat-maps 390 | 7.4 -> 7.4 | Steps of +20 and -12 px between its sections; the rest is pictures and dense text. | None: under 1 % of the page. |
+| 36 | /de/en/passenger-rights 390 | 7.3 -> 7.3 | 47 px more white space above the grey "Refunds" band (www 45 px, ours 92); then constant (+44 to +52). | Hand-over item 14. |
+| 37 | .../register-ammunition 1440 | 7.2 -> 7.2 | The form sections (item 3): sections 10 px late, the card's first title 12-13 px low. | **Shipped with item 3:** 7.2 -> 6.6. The 164 unrecorded core-form documents rendered with and without (328 pairs, all 200, no breakage): 1440 0 to 63 px shorter (median 27), 390 0 to 105 shorter (median 39). |
+| 38 | /de/en/flight-search 390 | 7.1 -> 7.1 | Within 10 px everywhere (the teaser grid after its heading already has no padding below 768, brief 467); the figure is spread over the page, nothing placed differently. | None needed. |
+| 39 | /de/en/imprint 390 | 7.1 -> 7.1 | "Lufthansa Insights legal notice" is 21 px further below the paragraph before it than on www; then constant (+24 to +30). | Hand-over item 14 (the heading-after-paragraph rule). |
+| 40 | .../baggage-irregularities/report-baggage 390 | 7.1 -> 7.1 | Each airline heading ("Austrian Airlines") is 22 px nearer the text above it than on www (-24 px by y 960, -34 by the end). | Hand-over item 14. |
+| 41 | /de/en/terms-and-conditions-lh 390 | 6.9 -> 6.9 | Its jump-link list and standalone links: +12 to +35 px from the links' phone line height (#18). | As #18. |
+| 42 | .../agb-extra-services-at-online-check-in/conditions-seat-reservation 390 | 6.8 -> 6.8 | Within 16 px; dense text. | No fix (#26). |
+| 43 | .../privacy-statement/privacy-statement-group 1440 | 6.8 -> 6.8 | A `{spacer-34 from-768}` between the first and the second link (order 21's row): 87 px from link to link where www has 51. Order 21's gate (8.53 -> 6.68) predates the later link and spacing rules. | **Row, READY** (delta-so37-lh-rest-rows.txt): the spacer goes. 6.8 -> 3.5 % at 1440, 390 unchanged (10.0). |
+| 44 | /de/en/feedback/feedbackai 1440 | 6.8 -> 6.8 | The page shows only its breadcrumb (www's app draws nothing either); ours leaves 22 px more below it. | None: an empty page's section gap (as #10 of the worst ten). |
+| 45 | /de/en/common/accessibility-statement 1440 | 6.7 -> 6.7 | Each h2 after a paragraph is 16 px lower than www's (+16, +31, ... +122 px by the 8th), from `* + h2 { margin-top: var(--section-padding) }`, 40 px at 1440 against www's 24. | Hand-over item 14. A legal-only 24px was tried: 4 better (this page 6.7 -> 4.5), 4 worse (seat-reservations +2.5, agb-extra-services +2.4), net -1.1 on the 29 recorded legal pages. Not shipped. |
+| 46 | /de/en/lufthansa-first-class-fleet 1440 | 6.7 -> 6.7 | Our text column is about 10 px wider than www's (pictures 941 against 931 px wide, so a little taller, +25 px by y 3,440). | No fix tonight: the column width rule is shared by every column page. |
+| 47 | /de/en/common/agb-extra-services-at-online-check-in 390 | 6.6 -> 6.6 | Steps of -17 and +17 px; dense text. | None: under 1 %. |
+| 48 | /de/en/travel-id-terms-conditions 390 | 6.6 -> 6.6 | +14 px at y 1,760, then constant; the figure is dense text (8-11 % in every band). | No fix (#26). |
+| 49 | /de/en/datenschutz 1440 | 6.5 -> 3.4 | Order 35's column-end row (live). | None needed. |
+| 50 | /de/en/common/compensation-voucher 1440 | 6.4 -> 5.4 | Order 35's clause-heading rule took 1.0. The first clause ("1. General") right after the H1 and the version line now stands 26 px lower than www's: www keeps the paragraph's 24 px there, the 50 px only between clauses. | **Shipped** (styles.css, legal pages only): a clause heading right after the H1 and its paragraph keeps 24 px. 5.4 / 9.0 -> 2.8 / 7.4 % at 1440 / 390; the other 56 recorded legal page-widths within 0.2. The 14 unrecorded documents with this pattern rendered with and without (28 pairs, all 200, no breakage): at/de, de/de, gb/en 26 px shorter at both widths, the 11 xx versions unchanged (no legal template). |

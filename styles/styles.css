@@ -2244,6 +2244,14 @@ body.brand-lufthansa.legal main .default-content-wrapper > p + :is(h2, h3, h4).h
   margin-top: 50px;
 }
 
+/* ... except the first clause right under the H1 and its one-line paragraph (the version or date line): www keeps the
+   paragraph's 24px there (/de/en/common/compensation-voucher's "1. General" 26px lower than www's with the 50px).
+   Standing order 37: compensation-voucher 5.4 / 9.0 -> 2.8 / 7.4 % at 1440 / 390, the other 56 recorded legal
+   page-widths within 0.2; the 14 unrecorded documents it reaches rendered with and without, no breakage */
+body.brand-lufthansa.legal main .default-content-wrapper > h1 + p + :is(h2, h3, h4).heading-copytext-large {
+  margin-top: 24px;
+}
+
 /* below 768px a page of spacious cards that opens with its title and a picture (take-off at
    390): www's image component keeps its 4rem under the picture (ours 24px, every card picture
    after it 16px off); at 1440 as before */

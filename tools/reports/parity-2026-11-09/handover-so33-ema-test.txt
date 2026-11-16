@@ -64,3 +64,20 @@ Standing order 36 (2026-11-16, ema-adobe's places 11 to 30 of sweep-so35-lh-rest
    - after the band, "You can check in online from 30 hours before departure." is about 17px higher. The tabs and
      form below follow it, 20px higher.
    Columns Media, then the shared section gap after a grey section.
+
+Standing order 37 (2026-11-16, ema-adobe's places 31 to 50 of sweep-so35-lh-rest.md):
+14. Section and view spacing at 390, measured as served at 07:30 CET. The direction differs by page, so it is not one
+   value:
+   - fleet seat-map views (heading, illustration, slideshow): 32n +24px before "Seat maps Airbus A320neo";
+     boeing787 -35px before "Seat maps of the Boeing 787-9" and -35px again before "Downloadable seat maps"; 359
+     +38px (item 12);
+   - /de/en/passenger-rights: 47px more white space above the grey "Refunds" band (www 45, ours 92 from the text
+     to the band);
+   - /de/en/book-and-manage/booking-services/manage-my-bookings: the page end after the booking lookup, 28px more
+     before the footer than www (www 21, ours 49);
+   - a heading right after a paragraph (styles.css `main .default-content-wrapper > * + h2 { margin-top:
+     var(--section-padding) }`): report-baggage 390 -22px before "Austrian Airlines", imprint 390 +21px before
+     "Lufthansa Insights legal notice", accessibility-statement 1440 +16px before each h2. A legal-only 24px at
+     1440 measured 4 better, 4 worse on the 29 recorded legal pages (net -1.1), so www's spacing there depends on
+     its component (a heading in the paragraph's rich text or a headline component of its own) rather than on the
+     template.

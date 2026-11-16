@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/common/privacy-statement/privacy-statement-group",
+  "inserts": [
+   {
+    "replace": "Data Protection Information</a></p><p>{spacer-34 from-768}</p><p><a href=\"https://www.swiss.com/",
+    "text": "Data Protection Information</a></p><p><a href=\"https://www.swiss.com/"
+   }
+  ]
+ }
+]

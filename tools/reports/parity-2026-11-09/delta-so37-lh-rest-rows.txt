@@ -1,0 +1,13 @@
+# Standing order 37 (2026-11-16), item 4: rows for places 31 to 50 of sweep-so35-lh-rest.md.
+# /de/en/common/privacy-statement/privacy-statement-group, 1440: order 21 put two spacers in (delta-so21-lh-com-recheck,
+# "{spacer-35 from-768}" under the H1 and "{spacer-34 from-768}" between the first and the second link; gate then 8.53
+# -> 6.68). Measured as served today against the same recording (lh-parity-002d), the second spacer is now too much:
+# 87 px from the first link to the second, www 51. The link rules and spacing changed since order 21. The first
+# spacer stays (the H1 to the first link is within 7 px).
+# The row takes out "<p>{spacer-34 from-768}</p>". Nothing else changes.
+# Tool: tools/importer/text-inserts-apply.mjs --data delta-so37-lh-rest-rows.json (a replace of the two links around it,
+# found once). Dry run on DA's current copy (read-only GET): 1 inserted, without it DA's copy byte for byte (--check).
+# Gate (the published copy and the draft on our host, against lh-parity-002d): 1440 6.8 -> 3.5 %, height 1,505 ->
+# 1,470 px (www 1,476); 390 10.0 -> 10.0 (the spacer draws from 768 only). 200, no failed picture.
+# status	document	tool	expected change	gate
+READY	/de/en/common/privacy-statement/privacy-statement-group	text-inserts-apply (delta-so37-lh-rest-rows.json)	the "{spacer-34 from-768}" between the first two links goes (order 21's), 51px from link to link as www	draft 6.8 -> 3.5 / 10.0 -> 10.0 at 1440 / 390
