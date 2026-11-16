@@ -227,3 +227,11 @@ Entertainment section's Columns Media. www shows the same file (1440x617_ejourna
 622 x 267 px (-71 px). www also keeps 40 px more between "In-Flight Entertainment System" and its text (103 against
 63). Both are Columns Media's picture cell and spacing; no document row stands in for them, so I left the page as it
 is (finish-b2b.txt HOLD; sweep-so30-brands.md, order 31's section, no. 23).
+
+## 13. Brussels: contact-form-error's closing sidebar on phones, from ema-lufthansa (2026-11-16, standing order 32)
+
+/am/en/non-encrypt-mail/contact-form-error, 390 (+3.70 % as served, airline hosts refused per request; brussels-parity-004,
+resized; brussels-parity-012's phone first load is gated in sweep-so30-brands.md): the page is one Columns Media
+(sidebar) block. On ours its last text ("Please fill out the form again.") ends 84 px above the footer: the block's own
+36 px bottom padding (40 px top) and the section's gap under it. www keeps 42 px. Located: +35 px before the footer
+(ranking-588). That is Columns Media's phone padding and the section gap after it, so I left the page as it is.

@@ -1,0 +1,9 @@
+{
+ "/it/en/world-of-ita-airways/travel-classes/business-class-medium-haul": [
+  {
+   "from": "<div class=\"profile-tabs content\">",
+   "to": "<div class=\"profile-tabs content phone-closed\">",
+   "count": 2
+  }
+ ]
+}

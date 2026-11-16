@@ -70,8 +70,10 @@ export default async function decorate(block) {
   const fromHash = () => items.find((it) => `#${it.id}` === window.location.hash);
   let selected = fromHash() || items[0];
   // option content (tabs of page content, /onboard-delights): below 768px the first panel is
-  // open on load, as live
-  const initial = fromHash() || (block.classList.contains('content') ? items[0] : null);
+  // open on load, as live; option phone-closed: none open below 768px (www.ita-airways.com's
+  // travel-class tabs on a phone's first load, ita-parity-011)
+  const firstOpen = block.classList.contains('content') && !block.classList.contains('phone-closed');
+  const initial = fromHash() || (firstOpen ? items[0] : null);
   const expanded = new Set(initial ? [initial] : []);
 
   const render = () => {

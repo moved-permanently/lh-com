@@ -5904,3 +5904,64 @@ path, width):
 - Reads came from our hosts, the drop (ita-parity-010 and its sidecar) and DA (GETs of two documents, one picture and
   one folder list).
 - No da-upload.mjs call, no upload, preview or publish by me. /de/en/overview-manage got no row.
+
+## Standing order 32 (2026-11-16, about 11:55 to 16:00 CET), with its final section
+
+**At the start:** nothing of mine was uncommitted or unpushed; order 31's ae7dc431 and 534474bd were on main.
+`.migration/project.json` was modified, not by me, and is left as it is.
+
+**Item 1, the capture archives (gate-so32-captures.md):**
+- **Archives:** four of order 31's capture lines were already on the drop: ita-parity-011, brussels-parity-012,
+  brussels-parity-013 and b2b-parity-014.
+  - Each sha256 is equal to its sidecar. You have not named them yet, so the rows say so.
+  - 43 page-widths in all, every one its own first load.
+- **Gate:** capture.js, airline hosts refused per request; ITA's phones with the Liberation face.
+  - 39 of them match the resizes they replace to within a few px. Their causes stand as located.
+- **One new cause of ours: ITA business-class-medium-haul 390, +34.89 %.**
+  - www's phone first load opens none of the travel-class tab panels; ours opened the first (profile-tabs, option
+    content).
+  - **The fix:** a block option, phone-closed, in blocks/profile-tabs with a test. Below 768 px it keeps every panel
+    closed on load.
+  - The option is inert without its row: no document has it, and the page measures 4937 / 6635 as served and with the
+    code.
+  - **The row** (delta-so32-ita-business-class-phone-tabs-closed.txt) puts the option on the page's two profile-tabs
+    blocks (its two market sections). It is READY once this commit is on main, backup named.
+  - 390: 6635 -> 4886 (www 4919, -0.67 %). 1440 is unchanged.
+  - Census: of the recorded ITA pages only this one has profile-tabs, and its sibling travel-class pages have no tabs.
+- **ITA checked-baggage 390** is within 2 % against its first load (+1.94 %; www 5000 against the resize's 5234).
+- **ITA it/it help-and-contact,** recorded at last: 1440 -1.64 %, 390 +0.50 %. The help pictures' row holds on it/it.
+
+**Item 2, ranks 31 to 50 of sweep-so30-brands.md** (its order-32 section, captured again):
+- be/fr families 390 is within 2 % now.
+- **Of the other 19, one is a Columns Media cause:** contact-form-error 390, the sidebar's phone padding. It is in
+  rows-for-ema-test.md, row 13, with no edit by me.
+- **The rest are located and have no fix:**
+  - live data: the Brussels homepages, check-in-times, Discover's fare calendar;
+  - owner decisions: the magazine ads, punta-cana;
+  - font rendering: the B2B news pages;
+  - code causes whose rules fail the gate: the my-bookings pages, the sidebar-h1 endings, the accordion text column;
+  - ema-test's held row: de/en lhg-history.
+
+**Item 3, de/de lhg-history:** ema-test's READY row is live: the {spacer-39 from-768} is in the served document and
+drawn.
+- As served, the page is 1676 against www's 1748, -4.12 %. **It is not within 2 %.**
+- The title now sits as www's. The gap is -56 px between the intro and the first card row, and -16 px under the cards.
+- The row was gated at 1,662 -> 1,700. Something later took 24 px.
+- finish-b2b.txt has it.
+
+**Checks:** this commit (the block option and its test, the row, the gate and sweep sections, the finish rows,
+rows-for-ema-test.md row 13, this report): `npm run lint`, the folder-reading tests and the full suite in its ship.
+No CSS changed, so stylelint had nothing to check.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine, left as it is.
+- `.scratch/` (outside git), kept out on purpose:
+  - the four archives;
+  - DA's copy of ITA business-class-medium-haul (read about 11:40 UTC);
+  - the drafts, the captures and the logs.
+
+**Hosts:**
+- Every browser load refused airline hosts per request.
+- Reads came from our hosts, the drop (four archives, their sidecars, existence checks of eight names) and DA (one
+  document GET).
+- No da-upload.mjs call, no upload, preview or publish by me. /de/en/overview-manage got no row.

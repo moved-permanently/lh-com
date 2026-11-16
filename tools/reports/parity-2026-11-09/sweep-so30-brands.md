@@ -203,3 +203,34 @@ The two families-and-children page-widths at 1440 (no. 16 and 17) are within 2 %
 Of the 18, none has a new row from me. One is ema-test's READY row waiting to go live (no. 29), and one is a Columns
 Media cause handed to ema-test (no. 23, rows-for-ema-test.md row 12). The rest are live data, owner decisions, www's recorded state, or code causes whose
 rules fail the gate.
+
+## Standing order 32: ranks 31 to 50, captured again
+
+Captured again on 2026-11-16 at about 10:50 UTC (capture.js, airline hosts refused per request, the same recordings).
+Brussels be/fr families-and-children 390 (no. 41) is within 2 % now (-0.42 %, its order-30 row live). That leaves 19,
+each with its located cause and its fix, or the reason there is none.
+
+| # | page-width | now | located cause | fix |
+|---|---|---|---|---|
+| 31 | Brussels fr/fr homepage 390 | -4.08 % | the slider cards and the destination finder in their no-answer state (-156 / -91 px before "Looking for more than just a flight?") | none: live data |
+| 32 | Brussels ke/en homepage 390 | -3.81 % | the same, and the fare teaser's routes (order 30) | none: live data |
+| 33 | Group for Business lhg-ita-airways 1440 | +3.79 % | +54 px under the intro's note and about +24 px at several sections: our paragraphs run a line longer at the same 800 px column. The same web font breaks lines differently (www recorded on macOS, ours on Linux; unchanged with the Arial option) | none: font rendering, not a page cause |
+| 34 | Brussels be/en homepage 390 | -3.78 % | -125 px before "Looking for more than just a flight?": the finder and slider cards in their no-answer state | none: live data |
+| 35 | Brussels be/en my-bookings 390 | +3.74 % | three places in www's screenshot: +46 px from the H1 to the first card (www 110, ours 156), +3 px per card over eight cards, +95 px under the last card (www 83 px to the footer, ours 178) | none: www's space under a closing teaser row is 83 px here and 187 to 248 on other short pages, so the teaser-ending rule fails the gate (order 22) |
+| 36 | Brussels contact-form-error 390 | +3.70 % (+3.20 % against its new first load, brussels-parity-012) | +35 px before the footer: the Columns Media sidebar's 36 px bottom padding and the section gap, 84 px from the last text to the footer (www 42) | Columns Media: rows-for-ema-test.md row 13, no edit by me |
+| 37 | SWISS magazine de a350-special-livery 1440 | -3.51 % | www's ad slots before the section headings and before More Stories | none: owner decision |
+| 38 | Group for Business celebrating-shared-stories/sap 1440 | +3.36 % | +132 px before "More than a flight path", +32 before "Shaping how the world moves": the intro a line longer at the same column (fonts, as no. 33), the grey facts band about 30 px lower | none: font rendering, plus a band offset that follows it |
+| 39 | Brussels be/en check-in-times 1440 | -3.27 % | -43 px before "Related topics", -29 before "When can I check-in when I fly from another airport": the checkin-deadlines block draws www's deadlines from www.lufthansa.com (refused, its no-answer state) | none: live data |
+| 40 | Brussels be/fr my-bookings 390 | +3.17 % | as no. 35 | none: as no. 35 |
+| 42 | Discover de/en flight-search 390 | -3.12 % | -60 px before the footer: the fare calendar widget (data from www's APIs, refused) | none: live data |
+| 43 | Brussels be/fr homepage 390 | -3.12 % | -78 px before "Vous souhaitez des services complémentaires": the destination finder's no-answer state | none: live data |
+| 44 | Brussels be/en contact/service-charges 1440 | -3.04 % | the sidebar's H1 (-44 / -30 px, reimport-588-brussels-sidebar-h1) and the accordions' text column, after P56's ending | none: the sidebar-h1 and accordion rules tried fail the gate on other pages (orders 22, 24) |
+| 45 | Brussels be/nl contact/service-charges 1440 | -3.03 % | as no. 44 | none: as no. 44 |
+| 46 | Brussels it/it special-assistance-legal-guidelines 1440 | -2.96 % | -28 px before "Legal guidelines for flights to and from": a sidebar-h1 page ending with an accordion, where www keeps 35 to 45 px more | none: five other legal pages end the same way with ours as www's, and no scope separates them (order 22) |
+| 47 | Brussels be/en cancel-and-refund-requests 1440 | -2.92 % | the accordions' text column (www's narrower box wraps the answers into more lines), after P56 | none: as no. 28 of order 31 |
+| 48 | Group for Business de/en lhg-history 1440 | -2.84 % | -56 px before "Global route network": www's title in a column view whose marks the collapse dropped | ema-test's de/en row is live (delta-so16-b2b-lhg-history-title-view.txt); the rest is held for them |
+| 49 | Brussels be/en us-traveling-with-disabilities 1440 | -2.81 % | -35 px before the footer: the same sidebar-h1 accordion ending as no. 46 | none: as no. 46 |
+| 50 | Discover punta-cana 390 | +2.80 % | +43 px at the H1 (the eyebrow H2 to H1 gap, ours 24, www 12) and +104 px before the footer (the picture-and-text rows) | none: owner decision and the brand font (Discover rows D3, 49) |
+
+One is a Columns Media cause handed to ema-test (no. 36, rows-for-ema-test.md row 13). The other 18 are live data,
+owner decisions, font rendering, or code causes whose rules fail the gate.
