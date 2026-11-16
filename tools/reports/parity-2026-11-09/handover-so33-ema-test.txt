@@ -29,3 +29,14 @@ Standing order 34 (2026-11-15, ema-adobe's sweep of insights, campaign, hub and 
    www's (the first section's top space before "Your Culinary Journey"), and after the form's grey area ours opens a
    white gap of about 46px before the grey "Need help?" section, where www's two grey areas run together. Both are
    section spacing (the shared section-gap rules).
+
+Standing order 35 (2026-11-16, ema-adobe's sweep of the other lufthansa.com page types, sweep-so35-lh-rest.md):
+7. advance-seat-reservations-terms-and-conditions, 1440 (12.7 %, drift +24 / +48 / +80 px by y 880): its four icon
+   teasers are one columns-media padded block; ours leaves about 76px from a teaser's text to its "Further questions"
+   link (www 48) and starts the first row 24px later. Columns Media.
+8. farealert/best-price-alert, 1440 / 390 (11.4 / 12.8 %, the drift growing to -100 / -54 px): its numbered steps
+   ("02 {heading-large}", heading, text, picture) are one columns-media padded block; ours is about 37px short from a
+   step's picture to the next number at 1440 and 8px from the number to its heading. Columns Media.
+9. discover-lufthansa/lufthansa-fleet/351, 1440 (13.9 %, drift +26 to +151 px): after the grey band the seat-map
+   heading sits 26px lower than www's (the shared section gap after a grey section); after the seat-map slideshow the
+   next heading is about 25px lower; the PDF link wraps to two lines where www's fits one (our text column narrower).

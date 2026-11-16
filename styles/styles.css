@@ -2200,6 +2200,16 @@ body.brand-lufthansa.legal main > .section > .default-content-wrapper > p.link-w
   margin-bottom: 48px;
 }
 
+/* lufthansa.com's legal pages: a numbered clause heading ("{heading-copytext-large}") right after a
+   paragraph 50px under it at every width, as www (its grid columns keep the paragraph's 24px and the
+   headline's own margin apart; ours collapsed them: 24px at 390, 40 at 1440). Standing order 35:
+   /de/en/common/compensation-voucher 6.4 / 12.6 -> 5.4 / 9.0 % at 1440 / 390, the other 56 recorded
+   legal page-widths within 0.5; 8 documents reach it (compensation-voucher, terms-of-service-group /
+   befoerderungsbedingungen-group in their markets) */
+body.brand-lufthansa.legal main .default-content-wrapper > p + :is(h2, h3, h4).heading-copytext-large {
+  margin-top: 50px;
+}
+
 /* below 768px a page of spacious cards that opens with its title and a picture (take-off at
    390): www's image component keeps its 4rem under the picture (ours 24px, every card picture
    after it 16px off); at 1440 as before */
