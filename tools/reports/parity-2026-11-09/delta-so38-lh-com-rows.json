@@ -1,0 +1,20 @@
+[
+ {
+  "path": "/de/en/discover-lufthansa/lufthansa-fleet/351",
+  "inserts": [
+   {
+    "replace": "212 Economy Class)</a></p>",
+    "text": "212 Economy Class)</a> {full-width}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/my-bookings",
+  "inserts": [
+   {
+    "after": "<a href=\"/de/en/travelling-with-animals\">Find out more now</a></p></div></div></div>",
+    "text": "<p>{spacer-72}</p>"
+   }
+  ]
+ }
+]

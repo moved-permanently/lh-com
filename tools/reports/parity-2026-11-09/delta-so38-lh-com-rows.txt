@@ -1,0 +1,130 @@
+# ema-test, standing order 38 (2026-11-16): lufthansa.com rows and shared rules. Against lh-parity-002 (2026-11-06), full Chrome, the drops' fonts, live boxes masked, ours vs www mismatch %.
+# Rows: base and trial served from an html folder as full pages (standards mode). Rules: the served content through two local servers of the repo, without and with the rule. No-breakage: every unrecorded document of the census, with and without the rule in one load on lufthansa.turnsthe.page.
+# Data: delta-so38-lh-com-rows.json (READY rows); text-inserts-apply --check on DA's copies (read ~05:25 and again ~06:30 UTC, unchanged): every insert made once, DA byte for byte without it.
+# Each line: READY / HOLD, DA path, the change, 1440 and 390 (base -> trial), the gate.
+READY	/de/en/discover-lufthansa/lufthansa-fleet/351	the seat-map PDF link gets {full-width} (ours wrapped it on two lines in two thirds of the row, www's runs one line; ema-adobe's item 9)	1440 7.22 -> 4.87 %, 390 8.66 -> 8.66 %	closer at 1440, the same at 390
+READY	/de/en/my-bookings	{spacer-72} after the last Cards Teaser (www keeps about 57 px above the footer at 1440 and 54 at 390, ours none; ema-adobe's item 10)	1440 4.58 -> 1.15 % (3,647 px, www's), 390 10.06 -> 8.15 %	closer at both
+# Notes:
+# - Item 1: fleet/351's seat-map slideshow rule (Carousel Lightbox, a wide slideshow 25 px under its heading and 50 px to the next) is on main since c4a20196 (order 37); live since its push. As served now: 1440 7.22 %, 390 8.66 %.
+# - Item 2a, no arrow on e-mail links in running text: NOT shipped. Census 394 documents (22 recorded, 44 page-widths). On the one recorded page where it changes the layout, doctor-on-board-news 390, it moved further: 9.61 -> 10.29 % (2,386 -> 2,359 px, www 2,383). www does not draw the arrow, but it breaks the line before "email: medicaloperation@dlh.de" and keeps the label and the address together; our arrow-less line fits one line more than www's. The other 43 page-widths moved by 0.00-0.01. The rule fails the shared-fix rule, so the renders of the 372 unrecorded documents were stopped (140 done, none changed but in height).
+# - Item 2b, wrapped link lines: NOT shipped. www's standalone links do not share one line height on phones: on affiliatemarketing a two-line link is 48 px with 24 px between links, a one-line link 30 px. A uniform 24 px line takes one-line links 6 px further. The other session's trial of exactly that rule (778e10f3, sweep-so35-lh-rest.md #18) on 63 pages at 390: 7 better, 9 worse, net +4.4 points. It reaches 7,134 documents with standalone links (1,527 with long external ones): their no-breakage renders (14,000+ at about 8 s) do not fit, and the rule would need an importer mark for which www component a link came from first.
+# - Item 2c(1), the symbol legend: shipped (styles.css, this commit). Census 34 documents (the two pages in every locale). Recorded:
+#     /de/en/gefaehrliche-gegenstaende 1440: 9.76 -> 7.29 %
+#     /de/en/gefaehrliche-gegenstaende 390: 13.25 -> 13.25 %
+#     /de/en/prepare-for-your-trip/baggage/electronic-devices-and-batteries 1440: 4.35 -> 4.61 %
+#     /de/en/prepare-for-your-trip/baggage/electronic-devices-and-batteries 390: 8.01 -> 8.01 %
+#   The 32 unrecorded documents, with and without in one load (1440 -182 to +17 px, 390 unchanged; no other change):
+#     /at/de/gefaehrliche-gegenstaende 1440: 5276 -> 5120 px (-156), matched 1
+#     /at/de/prepare-for-your-trip/baggage/electronic-devices-and-batteries 1440: 4472 -> 4415 px (-57), matched 1
+#     /de/de/gefaehrliche-gegenstaende 1440: 5276 -> 5120 px (-156), matched 1
+#     /de/de/prepare-for-your-trip/baggage/electronic-devices-and-batteries 1440: 4472 -> 4415 px (-57), matched 1
+#     /gb/en/gefaehrliche-gegenstaende 1440: 5144 -> 5087 px (-57), matched 1
+#     /gb/en/prepare-for-your-trip/baggage/electronic-devices-and-batteries 1440: 4392 -> 4388 px (-4), matched 1
+#     /mk/de/gefaehrliche-gegenstaende 1440: 5276 -> 5120 px (-156), matched 1
+#     /mk/en/gefaehrliche-gegenstaende 1440: 5144 -> 5087 px (-57), matched 1
+#     /mv/de/gefaehrliche-gegenstaende 1440: 5276 -> 5120 px (-156), matched 1
+#     /us/de/gefaehrliche-gegenstaende 1440: 5276 -> 5120 px (-156), matched 1
+#     /xx/el/gefaehrliche-gegenstaende 1440: 4530 -> 4348 px (-182), matched 1
+#     /xx/el/prepare-for-your-trip/baggage/electronic-devices-and-batteries 1440: 4441 -> 4405 px (-36), matched 1
+#     /xx/es/gefaehrliche-gegenstaende 1440: 4477 -> 4342 px (-135), matched 1
+#     /xx/es/prepare-for-your-trip/baggage/electronic-devices-and-batteries 1440: 4368 -> 4285 px (-83), matched 1
+#     /xx/fr/gefaehrliche-gegenstaende 1440: 4400 -> 4324 px (-76), matched 1
+#     /xx/fr/prepare-for-your-trip/baggage/electronic-devices-and-batteries 1440: 4417 -> 4360 px (-57), matched 1
+#     /xx/hk/gefaehrliche-gegenstaende 1440: 3823 -> 3819 px (-4), matched 1
+#     /xx/hk/prepare-for-your-trip/baggage/electronic-devices-and-batteries 1440: 3748 -> 3738 px (-10), matched 1
+#     /at/de/gefaehrliche-gegenstaende 390: 9197 -> 9197 px (+0), matched 1
+#     /at/de/prepare-for-your-trip/baggage/electronic-devices-and-batteries 390: 7595 -> 7595 px (+0), matched 1
+#     /de/de/gefaehrliche-gegenstaende 390: 9197 -> 9197 px (+0), matched 1
+#     /de/de/prepare-for-your-trip/baggage/electronic-devices-and-batteries 390: 7595 -> 7595 px (+0), matched 1
+#     /gb/en/gefaehrliche-gegenstaende 390: 8325 -> 8325 px (+0), matched 1
+#     /gb/en/prepare-for-your-trip/baggage/electronic-devices-and-batteries 390: 7109 -> 7109 px (+0), matched 1
+#     /mk/de/gefaehrliche-gegenstaende 390: 9258 -> 9258 px (+0), matched 1
+#     /mk/en/gefaehrliche-gegenstaende 390: 8388 -> 8388 px (+0), matched 1
+#     /mv/de/gefaehrliche-gegenstaende 390: 9134 -> 9134 px (+0), matched 1
+#     /us/de/gefaehrliche-gegenstaende 390: 9258 -> 9258 px (+0), matched 1
+#     /xx/el/gefaehrliche-gegenstaende 390: 7866 -> 7866 px (+0), matched 1
+#     /xx/el/prepare-for-your-trip/baggage/electronic-devices-and-batteries 390: 7610 -> 7610 px (+0), matched 1
+#     /xx/es/gefaehrliche-gegenstaende 390: 7738 -> 7738 px (+0), matched 1
+#     /xx/es/prepare-for-your-trip/baggage/electronic-devices-and-batteries 390: 7521 -> 7521 px (+0), matched 1
+#     /xx/fr/gefaehrliche-gegenstaende 390: 7739 -> 7739 px (+0), matched 1
+#     /xx/fr/prepare-for-your-trip/baggage/electronic-devices-and-batteries 390: 7471 -> 7471 px (+0), matched 1
+#     /xx/hk/gefaehrliche-gegenstaende 390: 5817 -> 5817 px (+0), matched 1
+#     /xx/hk/prepare-for-your-trip/baggage/electronic-devices-and-batteries 390: 5291 -> 5291 px (+0), matched 1
+#     /xx/it/gefaehrliche-gegenstaende 1440: 4370 -> 4267 px (-103), matched 1
+#     /xx/it/prepare-for-your-trip/baggage/electronic-devices-and-batteries 1440: 4363 -> 4312 px (-51), matched 1
+#     /xx/ja/gefaehrliche-gegenstaende 1440: 3930 -> 3879 px (-51), matched 1
+#     /xx/ja/prepare-for-your-trip/baggage/electronic-devices-and-batteries 1440: 3883 -> 3879 px (-4), matched 1
+#     /xx/ko/gefaehrliche-gegenstaende 1440: 3877 -> 3867 px (-10), matched 1
+#     /xx/ko/prepare-for-your-trip/baggage/electronic-devices-and-batteries 1440: 3775 -> 3792 px (+17), matched 1
+#     /xx/pl/gefaehrliche-gegenstaende 1440: 4399 -> 4285 px (-114), matched 1
+#     /xx/pl/prepare-for-your-trip/baggage/electronic-devices-and-batteries 1440: 4422 -> 4360 px (-62), matched 1
+#     /xx/pt/gefaehrliche-gegenstaende 1440: 4370 -> 4294 px (-76), matched 1
+#     /xx/pt/prepare-for-your-trip/baggage/electronic-devices-and-batteries 1440: 4414 -> 4357 px (-57), matched 1
+#     /xx/ru/gefaehrliche-gegenstaende 1440: 4556 -> 4395 px (-161), matched 1
+#     /xx/ru/prepare-for-your-trip/baggage/electronic-devices-and-batteries 1440: 4593 -> 4519 px (-74), matched 1
+#     /xx/zh/gefaehrliche-gegenstaende 1440: 3823 -> 3819 px (-4), matched 1
+#     /xx/zh/prepare-for-your-trip/baggage/electronic-devices-and-batteries 1440: 3748 -> 3738 px (-10), matched 1
+#     /xx/it/gefaehrliche-gegenstaende 390: 7466 -> 7466 px (+0), matched 1
+#     /xx/it/prepare-for-your-trip/baggage/electronic-devices-and-batteries 390: 7227 -> 7227 px (+0), matched 1
+#     /xx/ja/gefaehrliche-gegenstaende 390: 6119 -> 6119 px (+0), matched 1
+#     /xx/ja/prepare-for-your-trip/baggage/electronic-devices-and-batteries 390: 5748 -> 5748 px (+0), matched 1
+#     /xx/ko/gefaehrliche-gegenstaende 390: 6083 -> 6083 px (+0), matched 1
+#     /xx/ko/prepare-for-your-trip/baggage/electronic-devices-and-batteries 390: 5446 -> 5446 px (+0), matched 1
+#     /xx/pl/gefaehrliche-gegenstaende 390: 7659 -> 7659 px (+0), matched 1
+#     /xx/pl/prepare-for-your-trip/baggage/electronic-devices-and-batteries 390: 7405 -> 7405 px (+0), matched 1
+#     /xx/pt/gefaehrliche-gegenstaende 390: 7602 -> 7602 px (+0), matched 1
+#     /xx/pt/prepare-for-your-trip/baggage/electronic-devices-and-batteries 390: 7400 -> 7400 px (+0), matched 1
+#     /xx/ru/gefaehrliche-gegenstaende 390: 8298 -> 8298 px (+0), matched 1
+#     /xx/ru/prepare-for-your-trip/baggage/electronic-devices-and-batteries 390: 8357 -> 8357 px (+0), matched 1
+#     /xx/zh/gefaehrliche-gegenstaende 390: 5817 -> 5817 px (+0), matched 1
+#     /xx/zh/prepare-for-your-trip/baggage/electronic-devices-and-batteries 390: 5240 -> 5240 px (+0), matched 1
+# - Item 2c(2), the accordion text width: NOT shipped. A rule giving an accordion item's text the full width on sub-navigation pages (408 documents, 24 recorded at 1440) took its own page further: gefaehrliche-gegenstaende 1440 7.29 -> 11.06 % with the legend rule (5,087 -> 4,871 px, www 5,024); the other 23 unchanged. Located: www's accordion runs the full content width below the sub-navigation (1,264 px, ours 948 beside it) with its list two thirds of that, and its list items stand about 12 px apart (ours touch). Width alone overshoots; the item spacing is an accordion rule over 1,024 documents with lists. Its gate and renders did not fit after the others tonight. The renders were stopped.
+# - Item 3, airline-apps' alternating +27 / -16 px per app tile: traced and shipped (Columns Media, this commit).
+#   (1) The badge paragraph rule (a linked picture after copy: margin-top 55 px) also caught the app icons right under their heading: +30 px a tile.
+#   (2) www keeps about 38 px under the icon, ours the paragraph's 24: -14 px.
+#   (3) The group airlines' 5 px taller links matched only unlinked logos (> p > picture), not these linked ones (> p > a > picture): -5 px a link.
+#   New rule: under a heading, a linked picture gets no top margin and 38 px under it, and its links are 5 px taller. Recorded (base -> rule):
+#     /de/en/articles/highlights/allegris-premium-economy-san-diego 1440: 10.04 -> 10.04 %
+#     /de/en/articles/highlights/allegris-premium-economy-san-diego 390: 8.52 -> 8.52 %
+#     /de/en/book-and-manage/digital-self-services/airline-apps 1440: 4.19 -> 2.19 %
+#     /de/en/book-and-manage/digital-self-services/airline-apps 390: 9.41 -> 4.11 %
+#     /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment 1440: 12.87 -> 12.80 %
+#     /de/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment 390: 5.93 -> 5.93 %
+#   Census 140 documents; the 137 unrecorded with and without in one load (the selector matched in 17 of them; only their heights changed):
+#     /at/de/book-and-manage/digital-self-services/airline-apps 1440: 1687 -> 1688 px (+1), matched 4
+#     /at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment 1440: 7448 -> 7460 px (+12), matched 1
+#     /de/de/book-and-manage/digital-self-services/airline-apps 1440: 1687 -> 1688 px (+1), matched 4
+#     /de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment 1440: 7448 -> 7460 px (+12), matched 1
+#     /at/de/book-and-manage/digital-self-services/airline-apps 390: 3512 -> 3484 px (-28), matched 4
+#     /at/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment 390: 13421 -> 13433 px (+12), matched 1
+#     /de/de/book-and-manage/digital-self-services/airline-apps 390: 3512 -> 3484 px (-28), matched 4
+#     /de/de/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment 390: 13421 -> 13433 px (+12), matched 1
+#     /gb/en/book-and-manage/digital-self-services/airline-apps 1440: 1687 -> 1688 px (+1), matched 4
+#     /gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment 1440: 7287 -> 7299 px (+12), matched 1
+#     /xx/el/book-and-manage/digital-self-services/airline-apps 1440: 1713 -> 1714 px (+1), matched 4
+#     /xx/es/book-and-manage/digital-self-services/airline-apps 1440: 1713 -> 1714 px (+1), matched 4
+#     /gb/en/book-and-manage/digital-self-services/airline-apps 390: 3471 -> 3443 px (-28), matched 4
+#     /gb/en/prepare-for-your-trip/special-travel-needs/travel-with-needs/cognitive-impairment 390: 12961 -> 12973 px (+12), matched 1
+#     /xx/el/book-and-manage/digital-self-services/airline-apps 390: 3604 -> 3576 px (-28), matched 4
+#     /xx/es/book-and-manage/digital-self-services/airline-apps 390: 3604 -> 3576 px (-28), matched 4
+#     /xx/fr/book-and-manage/digital-self-services/airline-apps 1440: 1764 -> 1765 px (+1), matched 4
+#     /xx/hk/book-and-manage/digital-self-services/airline-apps 1440: 1592 -> 1593 px (+1), matched 4
+#     /xx/it/book-and-manage/digital-self-services/airline-apps 1440: 1713 -> 1714 px (+1), matched 4
+#     /xx/ja/book-and-manage/digital-self-services/airline-apps 1440: 1619 -> 1620 px (+1), matched 4
+#     /xx/ko/book-and-manage/digital-self-services/airline-apps 1440: 1592 -> 1593 px (+1), matched 4
+#     /xx/pl/book-and-manage/digital-self-services/airline-apps 1440: 1713 -> 1714 px (+1), matched 4
+#     /xx/pt/book-and-manage/digital-self-services/airline-apps 1440: 1737 -> 1738 px (+1), matched 4
+#     /xx/ru/book-and-manage/digital-self-services/airline-apps 1440: 1713 -> 1714 px (+1), matched 4
+#     /xx/zh/book-and-manage/digital-self-services/airline-apps 1440: 1592 -> 1593 px (+1), matched 4
+#     /xx/fr/book-and-manage/digital-self-services/airline-apps 390: 3671 -> 3643 px (-28), matched 4
+#     /xx/hk/book-and-manage/digital-self-services/airline-apps 390: 3214 -> 3186 px (-28), matched 4
+#     /xx/it/book-and-manage/digital-self-services/airline-apps 390: 3604 -> 3576 px (-28), matched 4
+#     /xx/ja/book-and-manage/digital-self-services/airline-apps 390: 3309 -> 3281 px (-28), matched 4
+#     /xx/ko/book-and-manage/digital-self-services/airline-apps 390: 3282 -> 3254 px (-28), matched 4
+#     /xx/pl/book-and-manage/digital-self-services/airline-apps 390: 3604 -> 3576 px (-28), matched 4
+#     /xx/pt/book-and-manage/digital-self-services/airline-apps 390: 3626 -> 3599 px (-27), matched 4
+#     /xx/ru/book-and-manage/digital-self-services/airline-apps 390: 3658 -> 3630 px (-28), matched 4
+#     /xx/zh/book-and-manage/digital-self-services/airline-apps 390: 3214 -> 3186 px (-28), matched 4
+#   The other 120 unrecorded documents: selector matched 0 and nothing changed.
+# - Item 4, ema-adobe's hand-over 7-10. Done in orders 36-37: 7 (advance-seat's teaser text-to-link and first row) and 8 (best-price-alert's steps); 9 is fleet/351 (grey band gap 36, slideshow gap 37, its PDF link the row above).
+#   10, my-bookings: the row above. A shared rule (a last section ending with a Cards Teaser keeps 54 / 57 px above the footer) was gated on the 38 recorded page-widths of its 723 documents and failed: articles/tags 1440 1.14 -> 7.14, services-at-the-airport 1440 +4.20, overview-travel-information 1440 +4.11 and 20 more further by over 0.5 (www ends those pages tight). Hence the row.

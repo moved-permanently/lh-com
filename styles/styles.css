@@ -1937,6 +1937,31 @@ body.brand-lufthansa main .cards-icon-text-wrapper:has(> .cards-icon-text.partne
   }
 }
 
+/* lufthansa.com: the dangerous-goods symbol legend (a grey column band's Cards Icon Text (partner) of seven cards, an icon
+   and a title each): www's two lists side by side, a third of the row wide each, the "may" symbols down the first and
+   the "NOT" ones down the second, its titles 18px on 21px lines; ours ran row by row over three columns in 24px
+   headings. gefaehrliche-gegenstaende 1440 9.76 -> 7.29 %, electronic-devices-and-batteries 4.35 -> 4.61 (within 0.5),
+   phones unchanged; reach: those two pages in every locale (34 documents; standing order 38) */
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section.column-band.grey .cards-icon-text.partner > ul:has(> li:nth-child(7):last-child):not(:has(.cards-icon-text-body > :not(.cards-icon-text-title))) {
+    display: block;
+    width: calc((100% - 40px) / 3 * 2 + 20px);
+    columns: 2;
+    column-gap: 20px;
+  }
+
+  body.brand-lufthansa main > .section.column-band.grey .cards-icon-text.partner > ul:has(> li:nth-child(7):last-child):not(:has(.cards-icon-text-body > :not(.cards-icon-text-title))) > li {
+    break-inside: avoid;
+    margin-bottom: 12px;
+  }
+
+  body.brand-lufthansa main > .section.column-band.grey .cards-icon-text.partner > ul:has(> li:nth-child(7):last-child):not(:has(.cards-icon-text-body > :not(.cards-icon-text-title))) .cards-icon-text-title {
+    margin-bottom: 0;
+    font-size: 18px;
+    line-height: 21px;
+  }
+}
+
 /* the divider after a group of partner rows (digital-self-services): www's .hr.limited-width, two
    thirds of the content from 1025px like the running text (ours ran over the whole width) */
 @media (width >= 1025px) {

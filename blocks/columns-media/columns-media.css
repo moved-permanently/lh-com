@@ -1810,3 +1810,19 @@ body.brand-lufthansa .columns-media > .columns-media-row:has(> .columns-media-te
     margin-top: 41px;
   }
 }
+
+/* lufthansa.com: a text cell's linked picture right under its heading (the airline apps' icons on
+   /de/en/book-and-manage/digital-self-services/airline-apps, 390, lh-parity-002): www stands it about 28px under the heading
+   (ours 55: the badge paragraph's margin), keeps about 38px under it to the first link (ours 24) and sets the links 5px
+   taller as the group airlines' tiles (that rule matched only unlinked logos). airline-apps 390 9.41 -> 4.11 %, 1440
+   4.19 -> 2.19; cognitive-impairment 1440 12.87 -> 12.80, 390 the same; standing order 38 */
+/* stylelint-disable-next-line no-descending-specificity -- a picture under a heading, not a nested view's first picture */
+body.brand-lufthansa .columns-media .columns-media-text > :is(h2, h3, h4) + p:has(> a > picture) {
+  margin-top: 0;
+  margin-bottom: 38px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- lufthansa.com tiles, not Cargo's fact band */
+body.brand-lufthansa .columns-media .columns-media-text:has(> :is(h2, h3, h4) + p > a > picture) > p.link-wrapper:not(.copytext-small, .copytext-medium, .copytext-large) {
+  padding-bottom: 5px;
+}
