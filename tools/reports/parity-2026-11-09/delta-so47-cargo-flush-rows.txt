@@ -1,0 +1,21 @@
+# ema-cashub, standing order 47, item 2 (2026-11-16, ~09:30 to ~10:00 CET): places 56 and 65 of order 43's sweep (sweep-so47-places-51-70.txt), Cargo /en/ebooking-info and /en/ecsd. DA rows only; no code (the style flush and the heading marker {limited-width} exist: styles.css's "main > .section.grey.flush:last-child { margin-bottom: 0 }" and its ".limited-width" headings at two thirds from 1025 px).
+# What www draws (its full-page pictures, grey #f5f5f5 down the left edge): on both pages the grey band that ends the page touches the footer (ebooking-info 1440: band 2,826 to 3,292, footer 3,294; ecsd 1440: band 371 to 860, footer 861); ours keeps 20 px (Cargo's --spacing-default) under it. On ecsd www's title is in the intro's 856 px column and takes two lines at 1440 (96 px; ours 1,296 px wide, one line).
+# Not a Cargo rule: the same margin toggled off on every recorded Cargo page-width (99, in the same load as the served page) reaches 39: 14 closer, 5 within 0.5 points, 20 further (e.g. active-temp-control 1440 -0.50 -> -1.40 %, general-cargo 390 +0.32 -> -1.29 %): on most pages our 20 px stands in for other px. Per document it passes only where every recorded width ends closer: these two (ehm, place 60, does not: its resized 390 goes -1.08 -> -2.34 %).
+# Rows, in this order:
+# 1. node tools/importer/section-style-apply.mjs --data <one row of delta-so47-cargo-flush-rows.json without "path"> --in <DA's copy> --out <file> (ebooking-info: the section whose first heading is "Tailored to your booking"; ecsd: the section whose first element is the columns-media block): "Style | grey" -> "grey, flush" (the tool reads DA's "Style" key since this order's 7b73a71a);
+# 2. ecsd only: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so47-cargo-ecsd-title.json --list this file --docs <step 1's results> --out <dir> [--check]: " {limited-width}" at the end of the H1.
+# Dry run on DA's current copies (one GET each, ~09:45 CET): step 1 "placed" on both, the one change each "<div>grey</div>" -> "<div>grey, flush</div>"; step 2 "1 inserted", "without the inserts DA's copy byte for byte: true", a second run "1 present".
+# Ours: drafts of the served copies on cargo.turnsthe.page (/tmp/so39/hostv.mjs, served code, unhinted, EAGER=1 CONSENT=1; lh-proxy, www.* but www.mynewsdesk.com and every airline host refused and counted: 0); each control equals the served page (5,414 / 4,557 / 3,845 and 1,770 / 1,495 / 1,319 at 390 / 768 / 1440).
+#
+# status	path	width	recording	www page	as served	with the rows	www footer top	footer top as served	footer top with the rows	note
+READY	/en/ebooking-info	1440	cargo-parity-001	3771	3845 (+1.96 %)	3825 (+1.43 %)	3294	3368 (+2.25 %)	3348 (+1.64 %)	the rest: our 48 px of white between the grey eBooking features band and the navy band, where www's touch (+48), and the first two grey bands 19 / 16 px shorter than www's
+READY	/en/ebooking-info	390	cargo-parity-001	5393	5414 (+0.39 %)	5394 (+0.02 %)	4834	4854 (+0.41 %)	4834 (0.00 %)
+READY	/en/ebooking-info	768	- (not recorded)	-	4557	4537	-	4027	4007	scroll width 768, nothing past the edge; the margin only
+READY	/en/ecsd	1440	cargo-parity-003	1343	1319 (-1.79 %)	1347 (+0.30 %)	861	842 (-2.21 %)	870 (+1.05 %)	the title on two lines (96 x 855 px) as www's; the rest +8 px where the grey band starts
+READY	/en/ecsd	390	cargo-parity-003	1751	1770 (+1.09 %)	1750 (-0.06 %)	1191	1210 (+1.60 %)	1190 (-0.08 %)	the marker draws nothing below 1025 px (the title 110 px, as served)
+READY	/en/ecsd	768	- (not recorded)	-	1495	1475	-	965	945	scroll width 768; the margin only
+# Rows:
+READY	/en/ebooking-info	section-style-apply {"heading": "Tailored to your booking", "add": "flush"}	the last grey section "grey" -> "grey, flush"	as above
+READY	/en/ecsd	section-style-apply {"block": "columns-media", "add": "flush"}	the grey section "grey" -> "grey, flush"	as above, with the next row
+READY	/en/ecsd	text-inserts-apply delta-so47-cargo-ecsd-title.json	" {limited-width}" at the end of the H1	as above
+# Not drafted: the 48 px between ebooking-info's grey and navy bands. Only en and de/ebooking-info have a grey band before a navy one (the 990 served copies); www's German page has the same touching bands, but a rule taking the gap off would take de 1440 from -0.23 to -1.46 % (our German bands are shorter there).

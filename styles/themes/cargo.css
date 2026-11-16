@@ -839,6 +839,16 @@ body.brand-cargo main > .section.hero-campaign-container:first-of-type:has(.hero
   }
 }
 
+/* standing order 47, item 2 (place 63, /en/fleet-ulds/fleet 1440): from 768 px the second of two such card rows starts
+   41 px under the first row's last line ("More"), as www's fleet page (cargo-parity-001's picture: the More line ends at
+   1,915, the next row's pictures start at 1,956); ours kept cards-teaser.css's 91 px (lufthansa.com's my-bookings).
+   Reach: four served Cargo documents (fleet and fleet-ulds/ulds, en and de), 50 px shorter from 768 px */
+@media (width >= 768px) {
+  body.brand-cargo .cards-teaser-wrapper:has(> .cards-teaser:not(.three-up, .four-up, .overlay, .mosaic, .boxed)) + .cards-teaser-wrapper > .cards-teaser:not(.three-up, .four-up, .overlay, .mosaic, .boxed) {
+    margin-top: 41px;
+  }
+}
+
 /* row 40 (the brief after 505): the footer's logo strip as www's .subFooter, 20 px above and below
    the 20 px logos (not lufthansa.com's 25 / 28 px and staggered logos); below 768 px stacked and
    centred, 10 px and 20 px apart; from 768 px one row in the 1296 px content column, the member

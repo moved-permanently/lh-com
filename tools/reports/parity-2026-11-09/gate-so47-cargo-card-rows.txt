@@ -1,0 +1,15 @@
+# ema-cashub, standing order 47, item 2 (2026-11-16, ~10:00 to ~10:15 CET): place 63 of order 43's sweep, Cargo /en/fleet-ulds/fleet 1440 (+1.81 %).
+# Located (cargo-parity-001's 1440 picture and measurements against our served page, element by element): "Our fleet in detail" is two card rows, two plain cards-teaser blocks on ours. www's second row's pictures start 41 px under the first row's "More" line (its arrow at 1,902 to 1,904, the line 1,891 to 1,915; the pictures from 1,956); ours 91 px (cards-teaser.css's margin for a grid after a grid, measured on lufthansa.com's my-bookings), so the second row and the page end +50 px. The rest nets +5 px: the title 22 px higher, the grey band 40 px shorter than www's (466 against 506), each card's title 19 px lower under its picture.
+# The rule (styles/themes/cargo.css, test/cargo-card-rows-gap-so47): from 768 px a plain card block (no option) right after another one: margin-top 41 px. Below 768 px Cargo's row 39 rule (no margin) stays.
+# Reach: four of the 990 served Cargo copies have two plain card blocks in a row: fleet and fleet-ulds/ulds, en and de (the other 16 pairs have options: three-up, overlay, mosaic). Each 50 px shorter at 768, 1024 and 1440, unchanged at 390, scroll width = window, nothing past the edge (in-page toggle in the same load; the code render reads the same).
+# Ours: the served page on cargo.turnsthe.page with the worktree's code (CODE=), unhinted, EAGER=1 CONSENT=1; lh-proxy, www.* but www.mynewsdesk.com and every airline host refused and counted: 0.
+#
+# status	path	width	recording	www page	as served	with the rule	www footer top	footer top as served	footer top with the rule	note
+SHIPPED	/en/fleet-ulds/fleet	1440	cargo-parity-001	3043	3098 (+1.81 %)	3048 (+0.16 %)	2566	2621 (+2.14 %)	2571 (+0.19 %)
+SHIPPED	/de/fleet-ulds/fleet	1440	cargo-parity-001	3089	3122 (+1.07 %)	3072 (-0.55 %)	2612	2645 (+1.26 %)	2595 (-0.65 %)	closer
+SHIPPED	/en/fleet-ulds/fleet	390	cargo-parity-001	3841	3846 (+0.13 %)	3846 (unchanged)	-	3286	3286	the rule is from 768 px
+SHIPPED	/de/fleet-ulds/fleet	390	cargo-parity-001	3918	3934 (+0.41 %)	3934 (unchanged)	-	3334	3334
+SHIPPED	/en/fleet-ulds/fleet	768 / 1024	- (not recorded)	-	2821 / 2818	2771 / 2768	-	2291 / 2341	2241 / 2291	scroll width 768 / 1024
+SHIPPED	/de/fleet-ulds/fleet	768 / 1024	- (not recorded)	-	2955 / 2898	2905 / 2848	-	2371 / 2421	2321 / 2371
+SHIPPED	/en/fleet-ulds/ulds	768 / 1024 / 1440	- (not recorded)	-	2783 / 2748 / 3076	2733 / 2698 / 3026	-	2253 / 2271 / 2599	2203 / 2221 / 2549	no recording; 390 unchanged (3,681)
+SHIPPED	/de/fleet-ulds/ulds	768 / 1024 / 1440	- (not recorded)	-	2862 / 2813 / 3053	2812 / 2763 / 3003	-	2278 / 2336 / 2576	2228 / 2286 / 2526	no recording; 390 unchanged (3,749)

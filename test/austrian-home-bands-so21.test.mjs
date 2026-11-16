@@ -22,7 +22,8 @@ const selectors = block.split('}').map((r) => r.replace(/^\s*@media[^{]*\{/, '')
 const CONDITION = 'body.brand-austrian main:has(a[href*="/fragments/modals/"], :where(.section.flight-search-container:first-child + .section.hero-card-overlay-container + .section.fare-teaser-container))';
 
 test('every band rule: the patched document or a homepage that never had the dialog text', () => {
-  assert.equal(selectors.length, 15);
+  // 16 since standing order 47: the carousel band before the cards-icon band where no finder follows
+  assert.equal(selectors.length, 16);
   selectors.forEach((s) => assert.ok(s.startsWith(CONDITION), s));
 });
 

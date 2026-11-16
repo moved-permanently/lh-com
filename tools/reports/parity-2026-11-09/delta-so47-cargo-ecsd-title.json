@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/en/ecsd",
+  "inserts": [
+   {
+    "before": "</h1><p>Comprehensive security details",
+    "text": " {limited-width}"
+   }
+  ]
+ }
+]

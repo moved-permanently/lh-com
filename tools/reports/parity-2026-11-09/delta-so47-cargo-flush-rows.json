@@ -1,0 +1,12 @@
+[
+ {
+  "path": "/en/ebooking-info",
+  "heading": "Tailored to your booking",
+  "add": "flush"
+ },
+ {
+  "path": "/en/ecsd",
+  "block": "columns-media",
+  "add": "flush"
+ }
+]

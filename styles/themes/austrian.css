@@ -1443,6 +1443,12 @@ body.brand-austrian main:has(a[href*="/fragments/modals/"], :where(.section.flig
 body.brand-austrian main:has(a[href*="/fragments/modals/"], :where(.section.flight-search-container:first-child + .section.hero-card-overlay-container + .section.fare-teaser-container)):has(> .section.flight-search-container:first-child) > .section.destination-finder-container:not(:has(> .default-content-wrapper)) { margin-bottom: calc(var(--section-gap) + 82px); }
 body.brand-austrian main:has(a[href*="/fragments/modals/"], :where(.section.flight-search-container:first-child + .section.hero-card-overlay-container + .section.fare-teaser-container)):has(> .section.flight-search-container:first-child) > .section > .cards-icon-wrapper + .default-content-wrapper { margin-top: 114px; }
 
+/* standing order 47, item 2: no destination finder after the carousel (by/en, by/ru, ru/en, ru/ru, xx/en): www keeps the
+   carousel band's own spacing, 79 px from its dots to the next heading at 390 and 1440 (xx/en), ours the section gap
+   (48); ca/en and ca/fr (no fare teaser) are left as they read. The BY / RU roots' further 36 px is a section of www's
+   holding only an empty "ghost" component (its .mb-default; not drawn). Reach: those five served documents, every one recorded */
+body.brand-austrian main:has(a[href*="/fragments/modals/"], :where(.section.flight-search-container:first-child + .section.hero-card-overlay-container + .section.fare-teaser-container)):has(> .section.flight-search-container:first-child):has(> .section.fare-teaser-container) > .section.carousel-cards-container:has(+ .section.cards-icon-container) { margin-bottom: calc(var(--section-gap) + 31px); }
+
 @media (width >= 1025px) {
   body.brand-austrian main:has(a[href*="/fragments/modals/"], :where(.section.flight-search-container:first-child + .section.hero-card-overlay-container + .section.fare-teaser-container)) > .section.flight-search-container:first-child:has(+ .section.hero-card-overlay-container) .flight-search.block { padding-top: 59px; }
   body.brand-austrian main:has(a[href*="/fragments/modals/"], :where(.section.flight-search-container:first-child + .section.hero-card-overlay-container + .section.fare-teaser-container)) > .section.flight-search-container:first-child:has(+ .section.hero-card-overlay-container) { margin-bottom: 44px; }
