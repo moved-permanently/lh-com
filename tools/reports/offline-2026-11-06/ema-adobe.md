@@ -5562,3 +5562,54 @@ block or theme file changed, so no stylelint). Full suite on the final code: 73e
    gate as for the sweep.
 - Ended at about 00:50 CET: items 1 and 2 are done, and item 3 needs the archive. Nothing is held.
 - Left out of git: logs/b644 (captures, diffs, cut recordings, runners) and the untracked import reports of earlier runs.
+
+### Standing order 45 (2026-11-17 01:10 to about 02:10 CET)
+
+No uploads, previews or publishes; DA read only (GETs of take-off and three allegris-new-york copies); no request to www
+or any airline host. lh-parity-014 came from the R2 link, sha256 checked (bc98b993...), unpacked into its own folder;
+its serve.py was not run. `.migration/project.json` untouched; the add-ons stay off. Order 44 left nothing uncommitted
+or unpushed. No code change this order: the sweep, rows and hand-over (d9e05d0) and this section.
+
+Each push: the tests named for it passed, and the whole-repo lint read 0 on a clean worktree of the rebased HEAD (no
+block or theme file changed, so no stylelint). Full suite on the final code: d9e05d0 (main with this order's commit), 72 lh-edge files and 1,254 site files, 0
+failing.
+
+**The two-hour windows:** no edit to styles.css, Columns Media or any block. The hand-over file: my last commit there
+before tonight was e7a4bbc (order 43); nobody else's since. A temporary copy of www's Travel ID picture sat untracked in styles/ for the
+take-off draft (the capture tool serves working-copy files from there). It was deleted right after; it was never
+staged.
+
+**lh-parity-014's first screen.** Every one of its 16 loads shows the OneTrust "Privacy Settings" dialog open over the
+first screen (rows 0-899 at 1440, 0-843 at 390; the page dimmed at 1440, covered by the dialog at 390), although the
+README says the banner was accepted. Every gate below masks that screen on both sides. If the Captures child records
+these pages again, closing the dialog first would give whole-page figures.
+
+1. **The two hubs and the lh-parity-008 pages against lh-parity-014 (sweep-so44-lh-adobe.md).** First screen masked:
+   - explore-flying 4.1 / 7.1 %, explore-the-world 7.6 / 7.4 (1440 / 390; their live article lists, 57-74 %, masked);
+   - livery-iconic-moments 5.4 / 8.4 (sweep-so34: 29.8 / 24.2 against lh-parity-008);
+   - allegris-new-york 8.3-10.2 at 1440 and 10.3-11.7 at 390, in the four versions;
+   - take-off 3.9 / 6.3.
+   All 16 are merged into the sweep's ranking (286 page-widths).
+2. **take-off as www now: delta-so45-adobe-take-off-impact-fares.txt, 1 READY.**
+   - The row: "Impact Fares" in the sustainability card's text and link label; the Travel ID card's new picture
+     (www's frontify file, in DA's form).
+   - Draft gate, with www's picture cut from the recording: 1440 3.9 -> 1.6 %, 390 6.3 -> 4.6 (whole page 17.5 ->
+     15.3, 10.9 -> 9.2).
+   - The new link target www uses answers 301 on our host, so our working /de/en/green-fare link stays.
+3. **Places 21 to 40.**
+   - Rows: allegris-new-york at/de and gb/en lack the related cards' heading. 2 READY rows
+     (delta-so45-adobe-related-heading.txt): 1440 / 390 9.8 / 11.8 -> 9.3 / 10.7 and 10.2 / 11.9 -> 8.3 / 10.5.
+   - The same gap is on 1,053 published copies, nearly every at/de and gb/en article
+     (list-so45-related-heading-missing.txt). Those have no recording, so no rows; the same insert fits each, with a
+     heading in the version's language. That is for the migration session to decide, or to follow the no-breakage
+     renders.
+   - To ema-test, hand-over item 22: munich-fair 1440's section gap and heading width; tags/allegris 1440's grey band.
+   - Already there: items 6, 15, 17 and 20.
+   - No fix:
+     - the font width (stopover);
+     - content (related cards);
+     - the recordings' states: overview-travel-information's open chat assistant, the 100-years fallback face;
+     - steps under 1 %.
+- Ended at about 02:10 CET: the three items are done. Nothing is held.
+- Left out of git: logs/b645 (the archive and its unpacked files, captures, diffs, drafts, DA copies, runners) and the
+  untracked import reports of earlier runs.
