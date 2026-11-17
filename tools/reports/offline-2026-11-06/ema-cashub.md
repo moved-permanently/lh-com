@@ -9920,3 +9920,124 @@ All four items are done.
 
 **Not in git** (scratch under migration-work/parity-588/so57): the census and gate outputs, drafts and controls, DA's
 two copies, renders, logs and the report draft.
+
+## Standing order 58 (2026-11-17, from about 03:05 CET)
+
+**Carried over:** nothing. Order 57's three commits (68a49fa7, 9dfe182c, d85d1198) were on main, and my worktree was
+clean. Other jobs pushed order 46's work on top. The checkout's 88 dirty entries belong to other jobs and were left alone.
+
+**Scratch:** migration-work/parity-588/so58 (it survives a restart). It holds the served copies, the census, the drafts,
+DA's two read copies, the locating dumps, the test outputs and logs.
+
+**Renders:** about 700 page loads, all unhinted. lh-proxy, www.* (but www.mynewsdesk.com) and every airline host were
+refused and counted: 0 to 26 a render, none sent.
+
+**DA:** two single GETs (/faq/bagaglio and /en/faq-eu/baggage, for the row's dry run); nothing written. No upload,
+preview, publish or da-upload.mjs by me. /de/en/overview-manage has no row.
+
+### Item 1: the Air Dolomiti FAQ package (gate-so58-airdolomiti-faq-package.txt): SHIPPED, the accordion part narrowed
+
+**What shipped:**
+- **The cards from 930 px:** order 57's CardNews cards now apply at every width. From 930 px they're 30vw wide, with the
+  arrows at the title's right and 24 px under the cards. From 1450 px they're 466.67 px, 20 px apart.
+- **The accordion's end:** the related articles' title sits 110 px under the FAQ accordion (120 from 930 px), www's
+  TogleTariffe margin. Ours was 24.
+- **The intro-lines row:** READY on /faq/bagaglio and /en/faq-eu/baggage, and already applied by the helpers.
+
+**Narrowed (the part that didn't pass):** the accordion rule as drafted, for whatever follows a FAQ accordion, also
+reached six pages www has no figure for: /servizi-digitali, /de/digitale-services, /en/digital-services and the three
+electronic-devices-and-batteries pages. Each got +86 px at 390 and 768 and +96 at 1440, where their next title is
+already 99 px down (195 with the rule). No recording and no snapshot covers them. The rule now needs a carousel after the
+title, so it reaches the three FAQ baggage pages only. The cards' part is unchanged.
+
+**Census:** I fetched fresh served copies of all 1,569 Air Dolomiti documents; none had changed since order 56's. I took
+the 114 card documents and the 76 FAQ-accordion documents (184 in all) at 390, 768 and 1440. Each was loaded fresh as
+served, measured again with the package added as a style tag in the same load, then with the tag removed.
+- **390 and 768:** 3 page-widths change, the FAQ baggage pages at +86 each (the cards there were already live).
+- **1440:** 114 change. 111 get shorter by 30 to 268 px, as lh-com's 524 to 628 px cards become www's 470. The three FAQ
+  pages get +49 (+96 from the accordion, -47 from the cards).
+- **Breakage:** none. No sideways scroll, no card text past its card, no overlap, no lost picture, no title newly cut.
+- **www's structure:** where www was snapshotted (the related lists of /de/flughaefen/frankfurt-de and
+  /en/airports/munich), it draws the same MiniCardSlider of CardNews as the FAQ page.
+- **Code override:** the committed theme gives the style tag's figures to the px.
+
+**Gate:** 6 of 6 PASS, against airdolomiti-parity-013's footer top.
+
+| page | width | www | before | the code | with the row (live) | result |
+| --- | --- | --- | --- | --- | --- | --- |
+| /faq/bagaglio | 390 | 4,438 | 4,410 (-0.63 %) | 4,496 (+1.31 %) | 4,459 (+0.47 %) | closer |
+| /faq/bagaglio | 1440 | 2,524 | 2,529 (+0.20 %) | 2,578 (+2.14 %) | 2,540 (+0.63 %) | within 0.43 |
+| /en/faq-eu/baggage | 390 | 4,490 | 4,463 (-0.60 %) | 4,549 (+1.31 %) | 4,512 (+0.49 %) | closer |
+| /en/faq-eu/baggage | 1440 | 2,524 | 2,529 (+0.20 %) | 2,578 (+2.14 %) | 2,540 (+0.63 %) | within 0.43 |
+| /de/faq-de/gepaeck-faq | 390 | 5,033 | 4,910 (-2.44 %) | 4,996 (-0.74 %) | no row | closer |
+| /de/faq-de/gepaeck-faq | 1440 | 2,664 | 2,631 (-1.24 %) | 2,680 (+0.60 %) | no row | closer |
+
+**Order of landing:**
+- **The code:** 7952e2c9, pushed at about 03:48 CET and served within the minute.
+- **The row:** drafted with the code live. The controls equal the served pages to the px. It moves both pages closer
+  at both widths (+1.31 -> +0.47 / +0.49 %, +2.14 -> +0.63 %). Its dry run on DA's current copies (byte for byte
+  order 57's) inserts once and gives DA's copy back byte for byte.
+- **READY:** fd5f3e78, at about 03:56 CET. The data file lost its -hold suffix.
+- **Applied:** the helpers had applied it by about 04:03 CET. The served copies equal the drafts, and all six page-widths
+  (and the 768s) measure live at the gated figures, to the px.
+
+### Item 2: places 291 to 320 (sweep-so58-places-291-320.txt)
+
+**Live as gated (10):**
+- **291 to 294:** the Austrian contact and help-center pages at 1440, order 56's help app end (2,458).
+- **296, 297, 299, 301:** Air Dolomiti's baggage pages, order 56's link tiles.
+- **312:** Cargo /en/ebooking-info 390, order 47's flush row (5,394). This one is -20 since order 43 because of the
+  document, not the code: order 43's code on today's document reads 5,393.
+- **315:** /de/betreuung 390, order 55's accordion text stack (7,791).
+
+**Within 2 %, located (20):** each has its steps in the file. None has a step a rule or row could take without moving
+others the wrong way.
+- **295:** the 71 px bot check, subtracted.
+- **302 / 304 / 317:** the Austrian travel-information pages. Their title and section-title steps cancel.
+- **303 / 309:** Cargo's SDG pages, text wraps.
+- **305:** the ski campaign at 390 is +5 since order 43, small steps around the fare teaser. Three of its four loads
+  stopped at the window's height.
+- **311:** /ch/de/homepage, read with the widget answers replayed: as orders 41 and 43.
+- **318:** Cargo's industries panels, whose steps cancel.
+- **The rest:** small steps.
+
+**No rows or rules:** none of the 30 has a cause a row or rule could fix.
+
+### Final section (about 04:20 CET, 2026-11-17)
+
+Both items are done, well before 06:00. Nothing was left running.
+
+**On main:**
+- `7952e2c9`: the package's code (theme rules, the new test, order 57's test updated, the gate file).
+- `fd5f3e78`: the intro-lines row READY (the list and its data file).
+- This commit: the sweep file and this order's section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0, read before each push. Origin moved before the first push (order 46's two
+  commits), so I put the commit on top and ran lint again: exit 0.
+- **Stylelint:** styles/themes/airdolomiti.css, exit 0 after each change.
+- **Tests before the code push:** 391 files (every test naming Air Dolomiti, carousel-cards or accordion-columns, and
+  the folder-reading tests): 1,686 pass, 0 failures. Run again after the narrowing: the same.
+- **Tests before the row push:** the 130 tests that read the report folder or delta lists: 0 failures.
+- **Full suite:** on fd5f3e78 with this commit's sweep file in the tree: 1,258 files, 4,741 tests, 4,736 pass,
+  0 failures, 5 skipped.
+
+**Live:** the code since about 03:49 CET and the row since about 04:03 CET. The six FAQ page-widths measure live at
+their gated figures, to the px.
+
+**For you:**
+- **The six pages the narrowing left out** (the digital-services and electronic-devices pages): if www's spacing after
+  their FAQ accordions matters, a recording of one at 390 and 1440 would settle whether they take the 110 / 120 px.
+- **The 1440 cards:** 111 unrecorded pages are 30 to 268 px shorter with www's card size. A 1440 recording of one
+  article or destination sub-page would gate that figure; the snapshots only show the same component.
+
+**Rules followed:**
+- No request to an airline host: refused and counted, none sent.
+- DA: two single GETs, nothing written.
+- No upload, preview, publish or da-upload.mjs by me. The row was applied by the helpers.
+- The checkout's dirty entries untouched.
+- /de/en/overview-manage has no row.
+- The finder button rule stays on HOLD.
+
+**Not in git** (scratch under migration-work/parity-588/so58): the served copies, the census and gate outputs, the
+drafts and controls, DA's two copies, the locating dumps, test outputs and logs.
