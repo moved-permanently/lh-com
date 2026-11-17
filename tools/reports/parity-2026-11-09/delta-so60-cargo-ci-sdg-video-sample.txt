@@ -1,0 +1,11 @@
+# ema-cashub, standing order 60, item 1: the no-breakage renders of the SDG hero video rows (all 4). A = served, B = the video
+# link as the /en source has it, deployed code, cargo.turnsthe.page, airline hosts refused (8 requests: the A pages ask static.lufthansa-cargo.com).
+# path	width	status A/B	height A -> B	sideways A/B	overlaps A/B	clipped A/B	empty A/B	failed pictures A/B
+/es/ci/sustainable-development-goals	1440	200/200	2355 -> 2355 (+0)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 1/0	failed 0/0
+/es/ci/sustainable-development-goals	390	200/200	1821 -> 1778 (-43)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 1/0	failed 0/0
+/fr/ci/sustainable-development-goals	1440	200/200	2355 -> 2355 (+0)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 1/0	failed 0/0
+/fr/ci/sustainable-development-goals	390	200/200	1797 -> 1754 (-43)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 1/0	failed 0/0
+/it/ci/sustainable-development-goals	1440	200/200	2355 -> 2355 (+0)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 1/0	failed 0/0
+/it/ci/sustainable-development-goals	390	200/200	1797 -> 1754 (-43)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 1/0	failed 0/0
+/pt/ci/sustainable-development-goals	1440	200/200	2355 -> 2355 (+0)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 1/0	failed 0/0
+/pt/ci/sustainable-development-goals	390	200/200	1861 -> 1818 (-43)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 1/0	failed 0/0

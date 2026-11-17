@@ -1,0 +1,17 @@
+# ema-cashub, standing order 60, item 1: the no-breakage renders of the Cargo /de tab rows (all built documents). A = served,
+# B = with the tabs (the served copy through cargo-tabs-apply), deployed code, cargo.turnsthe.page, airline hosts refused.
+# path	width	status A/B	height A -> B	sideways A/B	overlaps A/B	clipped A/B	empty A/B	failed pictures A/B
+/de/active-temp-control	1440	200/200	1547 -> 2207 (+660)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/de/active-temp-control	390	200/200	1263 -> 1263 (+0)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/de/airmail	1440	200/200	1547 -> 2073 (+526)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/de/airmail	390	200/200	1263 -> 1263 (+0)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/de/eservices/efreight	1440	200/200	1641 -> 1909 (+268)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/de/eservices/efreight	390	200/200	1626 -> 1626 (+0)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/de/general-cargo	1440	200/200	1547 -> 1759 (+212)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/de/general-cargo	390	200/200	1263 -> 1263 (+0)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/de/perishables	1440	200/200	1547 -> 2097 (+550)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/de/perishables	390	200/200	1287 -> 1287 (+0)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/de/products/customer-owned-tracker	1440	200/200	1445 -> 1733 (+288)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/de/products/customer-owned-tracker	390	200/200	1222 -> 1222 (+0)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/de/speed-pro	1440	200/200	1473 -> 1904 (+431)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/de/speed-pro	390	200/200	1161 -> 1161 (+0)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0

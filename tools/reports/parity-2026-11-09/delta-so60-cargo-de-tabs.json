@@ -1,0 +1,208 @@
+{
+ "/de/active-temp-control": {
+  "block": "accordion-columns",
+  "titles": [
+   "eigenschaften",
+   "besondere merkmale",
+   "infrastruktur",
+   "booking & tracking",
+   "links & downloads"
+  ],
+  "add": "tabs",
+  "rows": [
+   {
+    "panel": "eigenschaften",
+    "cells": [
+     [
+      "h3|active temp control für einen temperaturgeregelten transport",
+      "p|bringen sie sendungen, die eine durchgängige kühlkette oder konstante temperaturen benötigen, perfekt temperiert ans ziel: dank spezieller container mit aktiver temperaturkontrolle sowie optimierter handlingprozesse an unseren pharma-drehkreuzen in frankfurt und münchen sind wir auf den sicheren transport temperatursensibler sendungen spezialisiert."
+     ],
+     [
+      "img"
+     ]
+    ]
+   }
+  ]
+ },
+ "/de/airmail": {
+  "block": "accordion-columns",
+  "titles": [
+   "eigenschaften",
+   "besondere merkmale",
+   "infrastruktur",
+   "booking & tracking",
+   "links & downloads"
+  ],
+  "add": "tabs",
+  "rows": [
+   {
+    "panel": "eigenschaften",
+    "cells": [
+     [
+      "h3|schnell und zuverlässig für airmail",
+      "p|bringen sie wichtige postsendungen planbar und zuverlässig weltweit ans ziel: ob express mail services (ems), pakete oder internationale briefe – setzen sie auf schnelle zustellung in höchster qualität."
+     ],
+     [
+      "img"
+     ]
+    ]
+   }
+  ]
+ },
+ "/de/eservices/efreight": {
+  "block": "accordion-columns",
+  "titles": [
+   "papierlos",
+   "prozesseffizienz",
+   "weitere informationen"
+  ],
+  "add": "tabs",
+  "rows": [
+   {
+    "panel": "papierlos",
+    "cells": [
+     [
+      "img",
+      "h4|eawb",
+      "p|der elektronische luftfrachtbrief."
+     ],
+     [
+      "img",
+      "h4|eaw",
+      "p|papierlose sendungen ohne begleitdokumente."
+     ],
+     [
+      "img",
+      "h4|ecsd",
+      "p|die elektronische sicherheitserklärung."
+     ],
+     [
+      "img",
+      "h4|ehm",
+      "p|das elektronische house manifest."
+     ]
+    ]
+   },
+   {
+    "panel": "prozesseffizienz",
+    "cells": [
+     [
+      "img",
+      "h4|precheck",
+      "p|die elektronische dokumentenprüfung vor der frachtannahme."
+     ],
+     [
+      "img",
+      "h4|quick drop-off/pick-up",
+      "p|die beschleunigte frachtannahme und frachtabholung."
+     ],
+     [
+      "img",
+      "h4|one record",
+      "p|der neue datenstandard der luftfrachtindustrie."
+     ]
+    ]
+   }
+  ]
+ },
+ "/de/general-cargo": {
+  "block": "accordion-columns",
+  "titles": [
+   "eigenschaften",
+   "besondere merkmale",
+   "infrastruktur",
+   "buchung & tracking",
+   "links & downloads"
+  ],
+  "add": "tabs",
+  "rows": [
+   {
+    "panel": "eigenschaften",
+    "cells": [
+     [
+      "h3|unser produkt für ihre standardfracht",
+      "p|ob die neuste schuhkollektion für geschäfte weltweit oder maschinenteile für eine reibungslose supply chain: general cargo ist das produkt ihrer wahl für ihre trockenfracht ohne besondere anforderungen.",
+      "h3|weltweit flexibel",
+      "ul|verfügbar für nahezu alle warengruppen weltweite verfügbarkeit im gesamten netzwerk der lufthansa group mit mehr als 1.000 flüge täglich flexible transport- und servicelösungen, zum beispiel transportpläne entsprechend der gewählten speed"
+     ],
+     [
+      "img"
+     ]
+    ]
+   }
+  ]
+ },
+ "/de/perishables": {
+  "block": "accordion-columns",
+  "titles": [
+   "eigenschaften",
+   "besondere merkmale",
+   "infrastruktur",
+   "booking & tracking",
+   "links & downloads"
+  ],
+  "add": "tabs",
+  "rows": [
+   {
+    "panel": "eigenschaften",
+    "cells": [
+     [
+      "h3|lange haltbarkeit für verderbliche güter",
+      "p|wir sorgen dafür, dass ihre verderblichen güter wie obst und gemüse, fisch und schnittblumen frisch an ihrem bestimmungsort landen. mit schnellem transport, lagerung in überwiegend temperaturkontrollierter umgebung in vier buchbaren temperaturbereichen und dem einzigartigen perishable center frankfurt."
+     ],
+     [
+      "img"
+     ]
+    ]
+   }
+  ]
+ },
+ "/de/products/customer-owned-tracker": {
+  "block": "accordion-columns",
+  "titles": [
+   "einfach selbst tracken: customer-owned tracker",
+   "ganz einfach",
+   "tracker als dgr"
+  ],
+  "add": "tabs",
+  "rows": [
+   {
+    "panel": "einfach selbst tracken: customer-owned tracker",
+    "cells": [
+     [
+      "h3|einfach selbst tracken: customer-owned tracker",
+      "p|eine solide basis für die optimierung ihrer gesamten lieferkette: auf den meisten lufthansa und lufthansa cargo flügen können sie ihre sendung mit ihrem eigenen tracking device zugelassener hersteller verfolgen – und so von noch genaueren daten aus der sendungsüberwachung profitieren.",
+      "h3|ihre vorteile auf einen blick",
+      "ul|keine weiteren kosten nach evaluierung der tracking devices detaillierte informationen über ihre sendung je nach gerät weitere vorteile, z.b. diebstahlschutz oder luftfeuchtigkeitsmessung"
+     ],
+     [
+      "img"
+     ]
+    ]
+   }
+  ]
+ },
+ "/de/speed-pro": {
+  "block": "accordion-columns",
+  "titles": [
+   "eigenschaften",
+   "buchung & tracking",
+   "links & downloads"
+  ],
+  "add": "tabs",
+  "rows": [
+   {
+    "panel": "eigenschaften",
+    "cells": [
+     [
+      "h3|zum richtigen zeitpunkt am richtigen ort",
+      "p|td.pro ist ihre wirtschaftliche wahl der geschwindigkeiten für airport-to-airport sendungen im gesamten lufthansa cargo netzwerk und bietet eine hervorragende grundlage für eine reibungslose supply chain."
+     ],
+     [
+      "img"
+     ]
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,17 @@
+# ema-cashub, standing order 60 (2026-11-17), item 1 (breakage): the Sustainable Development Goals page's hero video on the es, fr,
+# it and pt copies (4 documents). The no-breakage census found the copies' hero-campaign empty at 390 and 1440 (a 900 px box
+# without picture or video at 1440): their hero links www's file
+# (https://static.lufthansa-cargo.com/videos/Environment_Report/Film_SEG/Sustainably%20Enabling%20Global%20Business%20EN%20Lufthansa%20Cargo.mp4),
+# which our pages must not load from www; the sources /en and /de link our copy of the same film,
+# /documents/sustainably-enabling-global-business-en-lufthansa-cargo-13b2f4.mp4, and play it.
+# Each row: that link (its href and text) replaced by the sources' link. Tool: node tools/importer/text-inserts-apply.mjs
+#   --data tools/reports/parity-2026-11-09/delta-so60-cargo-ci-sdg-video.json --list <this file> --docs <DA's copies> --out <dir>
+# Dry run on DA's current copies (da-tree-read.mjs --site lh-cargo --root /es/ci, /fr/ci, /it/ci, /pt/ci, read-only, ~08:40 CET):
+# 4/4 "1 inserted" (the link found once), taking it back gives DA's copy byte for byte, a second run "present".
+# Gate (no recording): with and without at 390 and 1440 as served (delta-so60-cargo-ci-sdg-video-sample.txt): all 200; the
+# empty hero gone at both widths (empty 1 -> 0), nothing added; 1440 unchanged (2,355), 390 -43 px (the film's box as /en's).
+# status	document	tool	expected change	gate (height as served -> with the row)
+READY	/es/ci/sustainable-development-goals	text-inserts-apply (delta-so60-cargo-ci-sdg-video.json)	the hero plays our copy of the film, as /en and /de	1440 2355 -> 2355 (+0), 390 1821 -> 1778 (-43), the empty hero gone
+READY	/fr/ci/sustainable-development-goals	text-inserts-apply (delta-so60-cargo-ci-sdg-video.json)	the hero plays our copy of the film, as /en and /de	1440 2355 -> 2355 (+0), 390 1797 -> 1754 (-43), the empty hero gone
+READY	/it/ci/sustainable-development-goals	text-inserts-apply (delta-so60-cargo-ci-sdg-video.json)	the hero plays our copy of the film, as /en and /de	1440 2355 -> 2355 (+0), 390 1797 -> 1754 (-43), the empty hero gone
+READY	/pt/ci/sustainable-development-goals	text-inserts-apply (delta-so60-cargo-ci-sdg-video.json)	the hero plays our copy of the film, as /en and /de	1440 2355 -> 2355 (+0), 390 1861 -> 1818 (-43), the empty hero gone

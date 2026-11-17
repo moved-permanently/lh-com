@@ -17,6 +17,9 @@
 # as served on cargo.turnsthe.page (each served copy with the same block in the same place), 390 and 1440, airline hosts and
 # lh-proxy refused per request (counted: 0 for these pages): delta-so60-cargo-de-breadcrumb-sample.txt, all 200, no sideways
 # scroll, overlap, clipped text, empty block or failed picture added; every page the breadcrumb taller, +29 px (one +33).
+# Live (applied by the helpers, upload state eddb90c0; measured ~08:40 CET): the 26 rows at the end of the hero section +23 px at
+# both widths, not the drafted +29 (the draft's served copy lost the hero paragraph's end tag; live has the /en source's markup);
+# the eAW / CargoTalk / industries shapes as drafted to the px.
 # status	document	tool	expected change	gate (height as served -> with the row)
 READY	/de/active-temp-control	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1547 -> 1576 (+29), 390 1263 -> 1292 (+29), no breakage
 READY	/de/add-on-services/insurance	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1445 -> 1474 (+29), 390 1161 -> 1190 (+29), no breakage

@@ -1,0 +1,38 @@
+[
+ {
+  "path": "/es/ci/sustainable-development-goals",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://static.lufthansa-cargo.com/videos/Environment_Report/Film_SEG/Sustainably%20Enabling%20Global%20Business%20EN%20Lufthansa%20Cargo.mp4\">https://static.lufthansa-cargo.com/videos/Environment_Report/Film_SEG/Sustainably%20Enabling%20Global%20Business%20EN%20Lufthansa%20Cargo.mp4</a>",
+    "text": "<a href=\"/documents/sustainably-enabling-global-business-en-lufthansa-cargo-13b2f4.mp4\">/documents/sustainably-enabling-global-business-en-lufthansa-cargo-13b2f4.mp4</a>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/ci/sustainable-development-goals",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://static.lufthansa-cargo.com/videos/Environment_Report/Film_SEG/Sustainably%20Enabling%20Global%20Business%20EN%20Lufthansa%20Cargo.mp4\">https://static.lufthansa-cargo.com/videos/Environment_Report/Film_SEG/Sustainably%20Enabling%20Global%20Business%20EN%20Lufthansa%20Cargo.mp4</a>",
+    "text": "<a href=\"/documents/sustainably-enabling-global-business-en-lufthansa-cargo-13b2f4.mp4\">/documents/sustainably-enabling-global-business-en-lufthansa-cargo-13b2f4.mp4</a>"
+   }
+  ]
+ },
+ {
+  "path": "/it/ci/sustainable-development-goals",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://static.lufthansa-cargo.com/videos/Environment_Report/Film_SEG/Sustainably%20Enabling%20Global%20Business%20EN%20Lufthansa%20Cargo.mp4\">https://static.lufthansa-cargo.com/videos/Environment_Report/Film_SEG/Sustainably%20Enabling%20Global%20Business%20EN%20Lufthansa%20Cargo.mp4</a>",
+    "text": "<a href=\"/documents/sustainably-enabling-global-business-en-lufthansa-cargo-13b2f4.mp4\">/documents/sustainably-enabling-global-business-en-lufthansa-cargo-13b2f4.mp4</a>"
+   }
+  ]
+ },
+ {
+  "path": "/pt/ci/sustainable-development-goals",
+  "inserts": [
+   {
+    "replace": "<a href=\"https://static.lufthansa-cargo.com/videos/Environment_Report/Film_SEG/Sustainably%20Enabling%20Global%20Business%20EN%20Lufthansa%20Cargo.mp4\">https://static.lufthansa-cargo.com/videos/Environment_Report/Film_SEG/Sustainably%20Enabling%20Global%20Business%20EN%20Lufthansa%20Cargo.mp4</a>",
+    "text": "<a href=\"/documents/sustainably-enabling-global-business-en-lufthansa-cargo-13b2f4.mp4\">/documents/sustainably-enabling-global-business-en-lufthansa-cargo-13b2f4.mp4</a>"
+   }
+  ]
+ }
+]

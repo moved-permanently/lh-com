@@ -10172,3 +10172,148 @@ All three items are done well before 07:30, and nothing is left running.
 
 **Not in git** (scratch under migration-work/parity-588/so59): the recording and its download, the served copies, the
 census, gate and locating outputs, the code exports for the bisects, test outputs and logs.
+
+## Standing order 60 (2026-11-17, from about 06:10 CET)
+
+**Carried over:** nothing. Order 59's two commits (28aaa10d, 71f69463) were on main and my worktree was clean. The main
+checkout's dirty entries (blocks/notifications/notifications.css, import-progress.json, importer reports) belong to other
+jobs and were left alone.
+
+**Scratch:** migration-work/parity-588/so60 (not in git): the served copies of all three sites, DA's copies read for the
+dry runs, the census and render scripts and their outputs, drafts, test outputs and logs.
+
+**Renders:** every render refused lh-proxy, www.* and every airline host per request and counted them (0 to 16 a page,
+none sent). Cargo and Air Dolomiti pages call their own www widgets, which were refused. The map tiles come from
+tile.openstreetmap.org, which is not an airline host.
+
+**DA:** read only, with the repo's read-only tool tools/importer/da-tree-read.mjs:
+- lh-cargo /de and /en, without news.
+- lh-airdolomiti /aeroporti, /en/airports and /de/flughaefen.
+- The nine lh-austrian /<locale>/fly/check-in folders.
+
+Nothing was written. No upload, preview, publish or da-upload.mjs by me. /de/en/overview-manage has no row. The finder
+button rule stays on HOLD.
+
+### Item 1: copies against their source, all three sites (census-so60-copies.txt)
+
+**What was compared:** 5,018 published documents, fetched as served. I paired 3,427 copies with a source:
+
+| Site | Pairs | How the source was found |
+| --- | --- | --- |
+| Austrian | 1,990 | The same path under /at/de or /at/en. The language trees (ja, zh, it, fr, el, pl, es, ru) use /at/en. Market copies in other languages use their language's tree. |
+| Cargo | 489 | www's alternate list for /de, and the same /en path for es, fr, it and pt. |
+| Air Dolomiti | 730 | The page's alternate-it, else www's hreflang. |
+| Air Dolomiti, German against English | 218 | German pages that have no Italian page on www, compared with their English sibling. |
+
+Each pair was compared on section count, block sequence and options, headings by level, and pictures per block and
+outside blocks. Every class and its document count is in the census file, with a reading and examples. Same as the
+source: Austrian 1,471, Cargo 430, Air Dolomiti 334, plus 108 German–English siblings.
+
+**Classes where the copy should follow its source:**
+- **Cargo es/fr/it/pt, hero links www's film (4 documents, found by the renders).** See the breakage notes below.
+- **Cargo /de, no breadcrumb (32 documents).** These are imports of 2026-10-31. Their /en sources were re-imported with
+  www's breadcrumb, and www's German pages show it too. Rows: delta-so60-cargo-de-breadcrumb, 32 READY.
+- **Cargo /de, no tab set (20 documents).** Orders 37 to 41 gave the /en pages the tab bar and picture-row tables. I
+  carried each spec over from the /en DA copy wherever the German panel holds the same elements in the same order. That
+  works for 7 (delta-so60-cargo-de-tabs, 7 READY). The other 13 have different German panels, and /es/eservices/efreight
+  has no DA copy. They are listed in that file, not built.
+- **Austrian private-check-in-counter without tight-rows (8 copies plus /at/de).** delta-so60-austrian-check-in-tight-rows:
+  8 READY, each −96 px as the source's recorded row. jp/ja is HOLD: its cells take the 24 px, but its table stays 657 px.
+
+**Classes left alone:**
+- **No row, the source is the odd one:** Austrian wetlease-hub's hero. /at/en lacks narrow, while /at/de and every copy
+  have it.
+- **No row, different texts:** Cargo es/fr/it/pt partnerships. /en was rebuilt from www's English page in orders 39 and
+  45, and the copies hold another text of the block.
+- **Real local content:**
+  - Austrian market homepages: their market sections, and order 50's AI rows on the copies.
+  - The Austrian language trees' own differences. Each was imported from its own www page and no row of ours made them.
+    www's translated pages are not in the workspace, so they weren't checked page by page. That includes the 103 copies
+    without phone-slider: the parser sets it from www's swiper twin.
+  - Every Air Dolomiti class. Each language is its own WordPress page. Spot check: www's English Amsterdam airport page
+    has the CardPromo cards that the Italian one lacks.
+- **No source copy:** Austrian 104, Air Dolomiti 162, Cargo 1.
+
+**Breakage (no-breakage renders):** all 4,801 pages (every published document except nav, footer, fragments and message-center items), at 390 and
+1440, as served: 9,602 page-widths. Three loads stopped while a lint ran; I rendered them again and all are 200. Each
+copy's flags were read against its source's flags at the same width, and the table is in the census file.
+- **Shared with the source (design):** Air Dolomiti's breadcrumb ellipsis and the stage/strip overlaps, Austrian's
+  emptied "may also interest you" accordions, and the accordion/default-content overlaps.
+- **Copy-only:** 69 documents in 12 classes, each looked at on its example:
+  - **Cargo es/fr/it/pt sustainable-development-goals (4, real breakage):** the hero is an empty 900 px box, because it
+    links www's film on static.lufthansa-cargo.com while the sources play our copy. Rows:
+    delta-so60-cargo-ci-sdg-video, 4 READY. Dry run 4 of 4. The empty hero is gone at both widths; 1440 is unchanged and
+    390 is −43 px.
+  - **Air Dolomiti German "was sehen" / "Sehenswürdigkeiten" destination pages at 390 (real breakage):** 14 copies, 27
+    page-widths with the sources and unpaired pages. The one-row breadcrumb's four parents need more than 350 px, so the
+    page scrolls 3 to 38 px sideways and the current crumb gets 0 px. No rule this order. A parent that may shrink below
+    its longest word also changes the pages whose parents sit at their min-content today, so it needs the site-wide reach
+    census first. Clipping the trail would only trade the scroll for cut text.
+  - **The rest are design or the widgets' refused www answers:** breadcrumb ellipses on longer translated titles,
+    destination-finder without its offers, and an empty wrapper drawn 16 px up on jp/ja baggage and three others.
+
+**Dry runs:** every row passed on DA's current copy:
+- 32 of 32, 9 of 9, 7 of 7, 4 of 4 and 121 of 121 applied.
+- Taking each one back gives DA's copy byte for byte.
+- A second run reports "present" or "there already".
+- listPaths and readyPaths return only the READY paths.
+
+**Row renders:** every row document was rendered with and without the row, at 390 and 1440, as served:
+- **Breadcrumb (32):** +29 px each (one +33), nothing added.
+- **Tabs (7):** +212 to +660 px at 1440, where the first panel opens as on www. 0 at 390, where the tabs start from 768.
+  Nothing added. /de/airmail with its tabs is 2,073 px, against /en/airmail's 2,072.
+- **Tight rows (9):** −96 px on eight, 0 on jp/ja.
+
+These batches are under 40 documents each, so every document was rendered rather than a sample.
+
+**Live (the helpers applied them within the hour):** the breadcrumb rows (upload state eddb90c0, 32 documents) and the
+tight-rows rows (430c9577, 8) are served.
+- **fr/fr private-check-in-counter:** 6,307 / 7,860, the drafted figures to the px.
+- **Breadcrumb, eAW and industrien-pharma shapes:** as drafted to the px.
+- **Breadcrumb, the 26 hero-section shapes (/de/airmail, /de/vulnerables, /de/speed-zoom measured):** +23 px at both
+  widths, not the drafted +29. My draft wrote the served copy back through linkedom, which dropped the hero paragraph's
+  closing tag. The live markup is the /en source's own (`<p><picture></p><div class="breadcrumb">`), so the live figure
+  is the right one. The list's +29 is 6 px high on those rows.
+
+The tab, SDG and map lists are in this order's last commit.
+
+### Item 2: Air Dolomiti's airport maps (delta-so60-airdolomiti-airport-maps)
+
+**Reach:** 121 airport pages (/aeroporti 41, /en/airports 40, /de/flughaefen 40). www embeds a Google map on every one of
+them, and each of our documents has the Google Maps link in that place.
+
+**The row:** our poi-map with one point, www's place name at its view's centre. A new Zoom row carries www's view (zoom 6
+to 15). The theme sizes the map like www's frame: the window's width below 930 px, 95 % of it from 930, 56.25 % of the
+window high, with 30 px above and below. At 390 it measures 219 px, at 1440 810 px, as www's.
+
+**The code (a4af9a19):** blocks/poi-map's Zoom row and the Air Dolomiti theme rule, with a test. No Air Dolomiti document
+has a poi-map yet, so nothing served moved.
+
+**Gate on the recorded page (/de/flughaefen/frankfurt-de):**
+
+| Width | www | As served | With the map |
+| --- | --- | --- | --- |
+| 1440 | 12,574 | 11,372 (−9.56 %) | 12,161 (−3.28 %) |
+| 390 | 16,967 | 18,108 (+6.72 %) | 18,307 (+7.90 %, 1.18 points further) |
+
+The map band matches www's at both widths. The 390 page is already 1,141 px longer than www's for other reasons, so the
+row fails at 390.
+
+**Sample:** 46 documents with and without, both widths, with this code. The map drew on every one, all tiles loaded and
+one pin. Pages grow +788/789 px at 1440 and +198/199 at 390. Nothing was added except the zoom buttons' screen-reader
+labels.
+
+**Status:** all 121 rows are HOLD. Shipping them means accepting 390 further, or first finding the 1,141 px.
+
+
+### Checks
+
+- **Lint:** whole-repo `npm run lint` exit 0, read before each push. The first run found one max-len line in
+  poi-map.js, which I fixed before committing. Origin moved before the code push, so I rebased and linted again: exit 0.
+- **Stylelint:** styles/themes/airdolomiti.css and blocks/poi-map/poi-map.css, exit 0.
+- **Tests before the code push:** 351 files (every test naming Air Dolomiti, poi-map or the reports folders, plus the
+  187 folder-reading tests), 0 failures. airdolomiti-article-end-so52 reads the theme's last rules, so the map rule
+  moved above them.
+- **After the rebase:** the 188 folder-reading tests: 898 pass, 0 failures, 2 skipped.
+- **Full suite on a4af9a19:** 1,263 files, 4,750 pass, 0 failures, 5 skipped.
+- **This docs commit:** the folder-reading tests again, and lint exit 0.

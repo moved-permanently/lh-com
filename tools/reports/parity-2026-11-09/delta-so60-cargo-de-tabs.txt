@@ -1,0 +1,39 @@
+# ema-cashub, standing order 60 (2026-11-17), item 1: the tab sets of Cargo's English product pages on their German copies.
+# The census found "variant accordion-columns -tabs" on 20 copies (19 /de, /es/eservices/efreight): orders 37 to 41 gave the
+# /en pages www's tab bar (option tabs) and their panels' picture rows as one-row tables (cargo-tabs-apply, built from www's
+# English recordings); the /de copies are the imports of 2026-10-31. www's German pages draw the same tab bar
+# (content-sites/lh-cargo/snapshots/www.lufthansa-cargo.com/de/airmail.html, speed-pro.html: nav-tabs).
+# Each row: tools/importer/cargo-tabs-apply.mjs with a spec carried over from the /en DA copy as it is now: per panel the
+# runs the /en copy wraps in tables, at the same element positions in the /de panel, which must hold the same elements by
+# tag in the same order (the /en copy's {spacer-N} markers aside); titles and signatures are the /de copy's own.
+#   node tools/importer/cargo-tabs-apply.mjs --data tools/reports/parity-2026-11-09/delta-so60-cargo-de-tabs.json --docs <DA's copies>
+#   --out <dir> --list tools/reports/parity-2026-11-09/delta-so60-cargo-de-tabs.txt
+# Built for 7 documents; the other 13 are left (their German panels hold other elements than the English
+# ones, listed below with the first panel that differs; www's German markup per panel would be needed: not built this order).
+# Dry run on DA's current copies (da-tree-read.mjs --site lh-cargo --root /en and /de, read-only, ~07:30 CET): each spec applies,
+# the result less the tables' tags and the option is DA's copy byte for byte, a second run "option tabs there already".
+# Independent of delta-so60-cargo-de-breadcrumb (that row's anchor is the first section, these the tab block): either order.
+# Gate (no recording of a German Cargo page): no-breakage renders of all 7 with and without, as served on
+# cargo.turnsthe.page (the served copy through the same tool), 390 and 1440, airline hosts and lh-proxy refused per request
+# (delta-so60-cargo-de-tabs-sample.txt); READY where nothing is added at either width.
+# status	document	tool	expected change	gate (height as served -> with the row)
+READY	/de/active-temp-control	cargo-tabs-apply (delta-so60-cargo-de-tabs.json)	www's tab bar (eigenschaften | besondere merkmale | infrastruktur | booking & tracking | links & downloads), 1 picture row(s) as tables, as /en	1440 1547 -> 2207 (+660), 390 1263 -> 1263 (+0), no breakage
+READY	/de/airmail	cargo-tabs-apply (delta-so60-cargo-de-tabs.json)	www's tab bar (eigenschaften | besondere merkmale | infrastruktur | booking & tracking | links & downloads), 1 picture row(s) as tables, as /en	1440 1547 -> 2073 (+526), 390 1263 -> 1263 (+0), no breakage
+READY	/de/eservices/efreight	cargo-tabs-apply (delta-so60-cargo-de-tabs.json)	www's tab bar (papierlos | prozesseffizienz | weitere informationen), 2 picture row(s) as tables, as /en	1440 1641 -> 1909 (+268), 390 1626 -> 1626 (+0), no breakage
+READY	/de/general-cargo	cargo-tabs-apply (delta-so60-cargo-de-tabs.json)	www's tab bar (eigenschaften | besondere merkmale | infrastruktur | buchung & tracking | links & downloads), 1 picture row(s) as tables, as /en	1440 1547 -> 1759 (+212), 390 1263 -> 1263 (+0), no breakage
+READY	/de/perishables	cargo-tabs-apply (delta-so60-cargo-de-tabs.json)	www's tab bar (eigenschaften | besondere merkmale | infrastruktur | booking & tracking | links & downloads), 1 picture row(s) as tables, as /en	1440 1547 -> 2097 (+550), 390 1287 -> 1287 (+0), no breakage
+READY	/de/products/customer-owned-tracker	cargo-tabs-apply (delta-so60-cargo-de-tabs.json)	www's tab bar (einfach selbst tracken: customer-owned tracker | ganz einfach | tracker als dgr), 1 picture row(s) as tables, as /en	1440 1445 -> 1733 (+288), 390 1222 -> 1222 (+0), no breakage
+READY	/de/speed-pro	cargo-tabs-apply (delta-so60-cargo-de-tabs.json)	www's tab bar (eigenschaften | buchung & tracking | links & downloads), 1 picture row(s) as tables, as /en	1440 1473 -> 1904 (+431), 390 1161 -> 1161 (+0), no breakage
+# not built	/de/add-on-services/insurance	panel 2 "buchung": copy h3,ul,p,p,p,p,p,p,p vs source h3,ul,h3,p,p,p,p,p,p
+# not built	/de/add-on-services/personal-supervision	panel 2 "buchung": copy h3,ul,p,h3,ul,p,p,p,ul,p vs source h3,ul,p,h3,ul,p,p,h3,ul
+# not built	/de/add-on-services/smartuld	panel 1 "eigenschaften": copy h3,p,h3,ul,h3,ul,p vs source h3,p,h3,ul,h3,ul,p,p
+# not built	/de/add-on-services/sustainable-choice	panel 1 "eigenschaften": copy h3,p,p,p,h3,ul,h3,ol,p,h3,ul vs source h3,p,h3,ul,h3,ol,p,p,h3,ul
+# not built	/de/add-on-services/todoor	panel 2 "buchung": copy h3,ul,h3,ul,h3,ul,p,ul vs source h3,ul,h3,ul,h3,ul,p,h3,ul
+# not built	/de/dangerous-goods	panel 2 "besondere merkmale": copy h3,ul,h3,p,h3,ul,h3,p,h3,p,h3,p,h3,ul,p vs source h3,ul,h3,ul,h3,ul,h3,p,h3,p,h3,p,h3,ul,p
+# not built	/de/emergency	panel 1 "eigenschaften": copy h3,p,p,h3,ul,h3,p,p vs source h3,p,p,p,p,h3,ul,h3,p,p
+# not built	/de/live-animals	panel 5 "links & downloads": copy h3,p,ul vs source h3,p,ul,ul
+# not built	/de/passive-temp-support	panel 1 "eigenschaften": copy h3,p,p,h3,ul,p,p vs source h3,p,p,h3,ul,p
+# not built	/de/speed-zoom	panel 2 "buchung & tracking": copy h3,ul,h3,ul,h3,ul,p,p,p,p,p,p,p,p,p,p,h3,p,p vs source h3,ul,h3,ul,h3,p,h3,p,p,p,p,h3,p,p,p,p,h3,p,p
+# not built	/de/valuables	panel 5 "links & downloads": copy h3,p,ul,ul,ul vs source h3,p,ul,ul
+# not built	/de/vulnerables	panel 4 "buchung & tracking": copy h3,ul,ul,h3,ul,h3,p,p,p,h3,p,p,p,p,p,h3,p vs source h3,ul,h3,ul,h3,p,p,p,h3,p,p,p,p,p,h3,p
+# not built	/es/eservices/efreight	no DA copy
