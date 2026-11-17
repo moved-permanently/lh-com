@@ -1,0 +1,649 @@
+[
+ {
+  "path": "/gb/en/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+  "from": "/de/en/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+  "op": "section-end",
+  "section": 4,
+  "text": "<p>{spacer-84 from-768}</p>"
+ },
+ {
+  "path": "/gb/en/all-check-in",
+  "from": "/de/en/all-check-in",
+  "op": "section-style",
+  "section": 0,
+  "styles": [
+   "gap-after-small-below-768"
+  ]
+ },
+ {
+  "path": "/gb/en/arrival-services",
+  "from": "/de/en/arrival-services",
+  "op": "section-style",
+  "section": 2,
+  "styles": [
+   "gap-after-small-below-768"
+  ]
+ },
+ {
+  "path": "/gb/en/book-and-manage/flights/wetlease-hub",
+  "from": "/de/en/book-and-manage/flights/wetlease-hub",
+  "op": "section-end",
+  "section": 2,
+  "text": "<p>{spacer-92 from-768}</p><p>{spacer-77 below-768}</p>"
+ },
+ {
+  "path": "/gb/en/book-and-manage/pax-receipt",
+  "from": "/de/en/book-and-manage/pax-receipt",
+  "op": "replace",
+  "old": "<p>{spacer-80}</p>",
+  "new": "<p>{spacer-80 from-768}</p><p>{spacer-57 below-768}</p>"
+ },
+ {
+  "path": "/gb/en/book-and-manage/rebook",
+  "from": "/de/en/book-and-manage/rebook",
+  "op": "section-style",
+  "section": 2,
+  "styles": [
+   "gap-after-small-below-768",
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/gb/en/book-and-manage/rebook/involuntary-rebooking",
+  "from": "/de/en/book-and-manage/rebook/involuntary-rebooking",
+  "op": "section-style",
+  "section": [
+   5,
+   6,
+   7
+  ],
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/gb/en/book-and-manage/rebook/voluntary-rebooking",
+  "from": "/de/en/book-and-manage/rebook/voluntary-rebooking",
+  "op": "section-style",
+  "section": [
+   1,
+   2,
+   6
+  ],
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/gb/en/cancellations-and-refunds",
+  "from": "/de/en/cancellations-and-refunds",
+  "op": "replace",
+  "old": "<p>{column-end}</p><div class=\"metadata\">",
+  "new": "<p>{spacer-4 below-768}</p><p>{column-end}</p><div class=\"metadata\">"
+ },
+ {
+  "path": "/gb/en/flight-disruptions",
+  "from": "/de/en/flight-disruptions",
+  "op": "replace",
+  "old": "<p>{column-end}</p><p>{divider-25}</p>",
+  "new": "<p>{column-end}</p><p>{divider-25 from-768}</p><p>{divider-9 below-768}</p>"
+ },
+ {
+  "path": "/gb/en/flying-with-small-children",
+  "from": "/de/en/flying-with-small-children",
+  "op": "section-style",
+  "section": 1,
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/gb/en/hotel-offers",
+  "from": "/de/en/hotel-offers",
+  "op": "replace",
+  "old": "<p>{spacer-70}</p>",
+  "new": "<p>{spacer-108 from-768}</p><p>{spacer-70 below-768}</p>"
+ },
+ {
+  "path": "/gb/en/lufthansa-first-class-entertainment",
+  "from": "/de/en/lufthansa-first-class-entertainment",
+  "op": "replace",
+  "old": "<p>{divider-25}</p>",
+  "new": "<p>{divider-50 from-768}</p><p>{divider-25 below-768}</p>"
+ },
+ {
+  "path": "/gb/en/lufthansa-terminal-muenchen",
+  "from": "/de/en/lufthansa-terminal-muenchen",
+  "op": "replace",
+  "old": "<p>{spacer-70}</p>",
+  "new": "<p>{spacer-23 from-768}</p><p>{spacer-70 below-768}</p>"
+ },
+ {
+  "path": "/gb/en/mobility-partner-program-healthcare",
+  "from": "/de/en/mobility-partner-program-healthcare",
+  "op": "replace",
+  "old": "<div><p>{spacer-25}</p><div class=\"subpage-nav\">",
+  "new": "<div><p>{spacer-25}</p><p>{spacer-40 below-768}</p><div class=\"subpage-nav\">"
+ },
+ {
+  "path": "/gb/en/payment-options-at-the-airport",
+  "from": "/de/en/payment-options-at-the-airport",
+  "op": "replace+before-first-p-after-block",
+  "old": "<p>{column-end}</p>",
+  "new": "<p>{spacer-40 from-768}</p><p>{column-end}</p>",
+  "section": 0,
+  "block": "columns-media padded",
+  "text": "<p>{spacer-25 below-768}</p>"
+ },
+ {
+  "path": "/gb/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+  "from": "/de/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+  "op": "section-style",
+  "section": 0,
+  "styles": [
+   "gap-after-small-below-768"
+  ]
+ },
+ {
+  "path": "/gb/en/rail-and-fly",
+  "from": "/de/en/rail-and-fly",
+  "op": "section-end",
+  "section": 1,
+  "text": "<p>{spacer-96 from-768}</p>"
+ },
+ {
+  "path": "/gb/en/shopping",
+  "from": "/de/en/shopping",
+  "op": "replace",
+  "old": "<p>{divider-60}</p>",
+  "new": "<p>{divider-100 from-768}</p><p>{divider-60 below-768}</p>"
+ },
+ {
+  "path": "/gb/en/support/contact/passenger-duty-united-kingdom",
+  "from": "/de/en/support/contact/passenger-duty-united-kingdom",
+  "op": "section-style",
+  "section": 0,
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/gb/en/upgrade-business-class-long-haul",
+  "from": "/de/en/upgrade-business-class-long-haul",
+  "op": "section-style",
+  "section": 1,
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/gb/en/upgrade-first-class",
+  "from": "/de/en/upgrade-first-class",
+  "op": "section-style",
+  "section": 1,
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/gb/en/upgrade-options",
+  "from": "/de/en/upgrade-options",
+  "op": "section-style",
+  "section": 0,
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/gb/en/upgrade-premium-economy-class",
+  "from": "/de/en/upgrade-premium-economy-class",
+  "op": "section-style",
+  "section": 1,
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/de/de/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+  "from": "/de/en/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+  "op": "section-end",
+  "section": 4,
+  "text": "<p>{spacer-84 from-768}</p>"
+ },
+ {
+  "path": "/de/de/all-check-in",
+  "from": "/de/en/all-check-in",
+  "op": "section-style",
+  "section": 0,
+  "styles": [
+   "gap-after-small-below-768"
+  ]
+ },
+ {
+  "path": "/de/de/arrival-services",
+  "from": "/de/en/arrival-services",
+  "op": "section-style",
+  "section": 2,
+  "styles": [
+   "gap-after-small-below-768"
+  ]
+ },
+ {
+  "path": "/de/de/book-and-manage/flights/lufthansa-voucher",
+  "from": "/de/en/book-and-manage/flights/lufthansa-voucher",
+  "op": "section-style",
+  "section": 1,
+  "styles": [
+   "gap-after-small-below-768"
+  ]
+ },
+ {
+  "path": "/de/de/book-and-manage/flights/wetlease-hub",
+  "from": "/de/en/book-and-manage/flights/wetlease-hub",
+  "op": "section-end",
+  "section": 2,
+  "text": "<p>{spacer-92 from-768}</p><p>{spacer-77 below-768}</p>"
+ },
+ {
+  "path": "/de/de/book-and-manage/pax-receipt",
+  "from": "/de/en/book-and-manage/pax-receipt",
+  "op": "replace",
+  "old": "<p>{spacer-80}</p>",
+  "new": "<p>{spacer-80 from-768}</p><p>{spacer-57 below-768}</p>"
+ },
+ {
+  "path": "/de/de/book-and-manage/rebook",
+  "from": "/de/en/book-and-manage/rebook",
+  "op": "section-style",
+  "section": 2,
+  "styles": [
+   "gap-after-small-below-768",
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/de/de/book-and-manage/rebook/involuntary-rebooking",
+  "from": "/de/en/book-and-manage/rebook/involuntary-rebooking",
+  "op": "section-style",
+  "section": [
+   5,
+   6,
+   7
+  ],
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/de/de/book-and-manage/rebook/voluntary-rebooking",
+  "from": "/de/en/book-and-manage/rebook/voluntary-rebooking",
+  "op": "section-style",
+  "section": [
+   1,
+   2,
+   6
+  ],
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/de/de/cancellations-and-refunds",
+  "from": "/de/en/cancellations-and-refunds",
+  "op": "replace",
+  "old": "<p>{column-end}</p><div class=\"metadata\">",
+  "new": "<p>{spacer-4 below-768}</p><p>{column-end}</p><div class=\"metadata\">"
+ },
+ {
+  "path": "/de/de/kinder-an-bord",
+  "from": "/de/en/children-on-board",
+  "op": "section-style",
+  "section": 0,
+  "styles": [
+   "gap-after-small-below-768"
+  ]
+ },
+ {
+  "path": "/de/de/flugunregelmaessigkeiten",
+  "from": "/de/en/flight-disruptions",
+  "op": "replace",
+  "old": "<p>{column-end}</p><p>{divider-25}</p>",
+  "new": "<p>{column-end}</p><p>{divider-25 from-768}</p><p>{divider-9 below-768}</p>"
+ },
+ {
+  "path": "/de/de/fliegen-mit-kleinkind",
+  "from": "/de/en/flying-with-small-children",
+  "op": "section-style",
+  "section": 1,
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/de/de/free2move",
+  "from": "/de/en/free2move",
+  "op": "before-first-p-after-block",
+  "market-sections": true,
+  "block": "columns-media padded",
+  "text": "<p>{spacer-59 below-768}</p>"
+ },
+ {
+  "path": "/de/de/hotelangebote",
+  "from": "/de/en/hotel-offers",
+  "op": "replace",
+  "old": "<p>{spacer-70}</p>",
+  "new": "<p>{spacer-108 from-768}</p><p>{spacer-70 below-768}</p>"
+ },
+ {
+  "path": "/de/de/lufthansa-first-class-entertainment",
+  "from": "/de/en/lufthansa-first-class-entertainment",
+  "op": "replace",
+  "old": "<p>{divider-25}</p>",
+  "new": "<p>{divider-50 from-768}</p><p>{divider-25 below-768}</p>"
+ },
+ {
+  "path": "/de/de/lufthansa-terminal-muenchen",
+  "from": "/de/en/lufthansa-terminal-muenchen",
+  "op": "replace",
+  "old": "<p>{spacer-70}</p>",
+  "new": "<p>{spacer-23 from-768}</p><p>{spacer-70 below-768}</p>"
+ },
+ {
+  "path": "/de/de/mobility-partner-program-healthcare",
+  "from": "/de/en/mobility-partner-program-healthcare",
+  "op": "replace",
+  "old": "<div><p>{spacer-25}</p><div class=\"subpage-nav\">",
+  "new": "<div><p>{spacer-25}</p><p>{spacer-40 below-768}</p><div class=\"subpage-nav\">"
+ },
+ {
+  "path": "/de/de/zahlungsmoeglichkeiten-am-flughafen",
+  "from": "/de/en/payment-options-at-the-airport",
+  "op": "replace+before-first-p-after-block",
+  "old": "<p>{column-end}</p>",
+  "new": "<p>{spacer-40 from-768}</p><p>{column-end}</p>",
+  "section": 0,
+  "block": "columns-media padded",
+  "text": "<p>{spacer-25 below-768}</p>"
+ },
+ {
+  "path": "/de/de/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+  "from": "/de/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+  "op": "section-style",
+  "section": 0,
+  "styles": [
+   "gap-after-small-below-768"
+  ]
+ },
+ {
+  "path": "/de/de/rail-and-fly",
+  "from": "/de/en/rail-and-fly",
+  "op": "section-end",
+  "section": 1,
+  "text": "<p>{spacer-96 from-768}</p>"
+ },
+ {
+  "path": "/de/de/shopping",
+  "from": "/de/en/shopping",
+  "op": "replace",
+  "old": "<p>{divider-60}</p>",
+  "new": "<p>{divider-100 from-768}</p><p>{divider-60 below-768}</p>"
+ },
+ {
+  "path": "/de/de/support/contact/passenger-duty-united-kingdom",
+  "from": "/de/en/support/contact/passenger-duty-united-kingdom",
+  "op": "section-style",
+  "section": 0,
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/de/de/upgrade-business-class-langstrecke",
+  "from": "/de/en/upgrade-business-class-long-haul",
+  "op": "section-style",
+  "section": 1,
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/de/de/upgrade-first-class",
+  "from": "/de/en/upgrade-first-class",
+  "op": "section-style",
+  "section": 1,
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/de/de/upgrademoeglichkeiten",
+  "from": "/de/en/upgrade-options",
+  "op": "section-style",
+  "section": 0,
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/de/de/upgrade-premium-economy-class",
+  "from": "/de/en/upgrade-premium-economy-class",
+  "op": "section-style",
+  "section": 1,
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/at/de/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+  "from": "/de/en/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+  "op": "section-end",
+  "section": 4,
+  "text": "<p>{spacer-84 from-768}</p>"
+ },
+ {
+  "path": "/at/de/all-check-in",
+  "from": "/de/en/all-check-in",
+  "op": "section-style",
+  "section": 0,
+  "styles": [
+   "gap-after-small-below-768"
+  ]
+ },
+ {
+  "path": "/at/de/arrival-services",
+  "from": "/de/en/arrival-services",
+  "op": "section-style",
+  "section": 2,
+  "styles": [
+   "gap-after-small-below-768"
+  ]
+ },
+ {
+  "path": "/at/de/book-and-manage/flights/wetlease-hub",
+  "from": "/de/en/book-and-manage/flights/wetlease-hub",
+  "op": "section-end",
+  "section": 2,
+  "text": "<p>{spacer-92 from-768}</p><p>{spacer-77 below-768}</p>"
+ },
+ {
+  "path": "/at/de/book-and-manage/pax-receipt",
+  "from": "/de/en/book-and-manage/pax-receipt",
+  "op": "replace",
+  "old": "<p>{spacer-80}</p>",
+  "new": "<p>{spacer-80 from-768}</p><p>{spacer-57 below-768}</p>"
+ },
+ {
+  "path": "/at/de/book-and-manage/rebook",
+  "from": "/de/en/book-and-manage/rebook",
+  "op": "section-style",
+  "section": 2,
+  "styles": [
+   "gap-after-small-below-768",
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/at/de/book-and-manage/rebook/involuntary-rebooking",
+  "from": "/de/en/book-and-manage/rebook/involuntary-rebooking",
+  "op": "section-style",
+  "section": [
+   5,
+   6,
+   7
+  ],
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/at/de/book-and-manage/rebook/voluntary-rebooking",
+  "from": "/de/en/book-and-manage/rebook/voluntary-rebooking",
+  "op": "section-style",
+  "section": [
+   1,
+   2,
+   6
+  ],
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/at/de/cancellations-and-refunds",
+  "from": "/de/en/cancellations-and-refunds",
+  "op": "replace",
+  "old": "<p>{column-end}</p><div class=\"metadata\">",
+  "new": "<p>{spacer-4 below-768}</p><p>{column-end}</p><div class=\"metadata\">"
+ },
+ {
+  "path": "/at/de/kinder-an-bord",
+  "from": "/de/en/children-on-board",
+  "op": "section-style",
+  "section": 0,
+  "styles": [
+   "gap-after-small-below-768"
+  ]
+ },
+ {
+  "path": "/at/de/flugunregelmaessigkeiten",
+  "from": "/de/en/flight-disruptions",
+  "op": "replace",
+  "old": "<p>{column-end}</p><p>{divider-25}</p>",
+  "new": "<p>{column-end}</p><p>{divider-25 from-768}</p><p>{divider-9 below-768}</p>"
+ },
+ {
+  "path": "/at/de/fliegen-mit-kleinkind",
+  "from": "/de/en/flying-with-small-children",
+  "op": "section-style",
+  "section": 1,
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/at/de/hotelangebote",
+  "from": "/de/en/hotel-offers",
+  "op": "replace",
+  "old": "<p>{spacer-70}</p>",
+  "new": "<p>{spacer-108 from-768}</p><p>{spacer-70 below-768}</p>"
+ },
+ {
+  "path": "/at/de/lufthansa-first-class-entertainment",
+  "from": "/de/en/lufthansa-first-class-entertainment",
+  "op": "replace",
+  "old": "<p>{divider-25}</p>",
+  "new": "<p>{divider-50 from-768}</p><p>{divider-25 below-768}</p>"
+ },
+ {
+  "path": "/at/de/lufthansa-terminal-muenchen",
+  "from": "/de/en/lufthansa-terminal-muenchen",
+  "op": "replace",
+  "old": "<p>{spacer-70}</p>",
+  "new": "<p>{spacer-23 from-768}</p><p>{spacer-70 below-768}</p>"
+ },
+ {
+  "path": "/at/de/mobility-partner-program-healthcare",
+  "from": "/de/en/mobility-partner-program-healthcare",
+  "op": "replace",
+  "old": "<div><p>{spacer-25}</p><div class=\"subpage-nav\">",
+  "new": "<div><p>{spacer-25}</p><p>{spacer-40 below-768}</p><div class=\"subpage-nav\">"
+ },
+ {
+  "path": "/at/de/zahlungsmoeglichkeiten-am-flughafen",
+  "from": "/de/en/payment-options-at-the-airport",
+  "op": "replace+before-first-p-after-block",
+  "old": "<p>{column-end}</p>",
+  "new": "<p>{spacer-40 from-768}</p><p>{column-end}</p>",
+  "section": 0,
+  "block": "columns-media padded",
+  "text": "<p>{spacer-25 below-768}</p>"
+ },
+ {
+  "path": "/at/de/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+  "from": "/de/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+  "op": "section-style",
+  "section": 0,
+  "styles": [
+   "gap-after-small-below-768"
+  ]
+ },
+ {
+  "path": "/at/de/rail-and-fly",
+  "from": "/de/en/rail-and-fly",
+  "op": "section-end",
+  "section": 1,
+  "text": "<p>{spacer-96 from-768}</p>"
+ },
+ {
+  "path": "/at/de/shopping",
+  "from": "/de/en/shopping",
+  "op": "replace",
+  "old": "<p>{divider-60}</p>",
+  "new": "<p>{divider-100 from-768}</p><p>{divider-60 below-768}</p>"
+ },
+ {
+  "path": "/at/de/support/contact/passenger-duty-united-kingdom",
+  "from": "/de/en/support/contact/passenger-duty-united-kingdom",
+  "op": "section-style",
+  "section": 0,
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/at/de/upgrade-business-class-langstrecke",
+  "from": "/de/en/upgrade-business-class-long-haul",
+  "op": "section-style",
+  "section": 1,
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/at/de/upgrade-first-class",
+  "from": "/de/en/upgrade-first-class",
+  "op": "section-style",
+  "section": 1,
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/at/de/upgrademoeglichkeiten",
+  "from": "/de/en/upgrade-options",
+  "op": "section-style",
+  "section": 0,
+  "styles": [
+   "gap-after-small-768"
+  ]
+ },
+ {
+  "path": "/at/de/upgrade-premium-economy-class",
+  "from": "/de/en/upgrade-premium-economy-class",
+  "op": "section-style",
+  "section": 1,
+  "styles": [
+   "gap-after-small-768"
+  ]
+ }
+]
