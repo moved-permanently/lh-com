@@ -236,6 +236,13 @@ body.brand-airdolomiti .breadcrumb ol {
   font-size: 15px;
   line-height: 26px;
   text-transform: capitalize;
+
+  /* standing order 61: a trail whose parents need more than the row (the German "Sehenswürdigkeiten" sub-pages at
+     390, four parents at their longest word, 3 to 38 px past the window) scrolls inside itself, never the page. A
+     trail that fits lays out as before (census of every Air Dolomiti page at 390 and 1440). */
+  overflow-x: auto;
+  scrollbar-width: none;
+  container-type: scroll-state;
 }
 
 body.brand-airdolomiti .breadcrumb li,
@@ -282,6 +289,13 @@ body.brand-airdolomiti .breadcrumb li:last-child > * {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* once the trail scrolls (standing order 61, the ol rule above), the current page keeps its whole label at its end */
+@container scroll-state(scrollable: inline) {
+  body.brand-airdolomiti .breadcrumb li:last-child {
+    min-width: max-content;
+  }
 }
 
 /*
@@ -4333,10 +4347,13 @@ body.brand-airdolomiti main > .section.heading-icon:has(> .carousel-cards-wrappe
   transform: translateY(-50%);
 }
 
+/* the icon at most the 35px kept for it (standing order 61: a 30px-high icon of a wider picture, 36.8px, ran 1.8px past
+   the screen on eight Italian and English destination pages at 390); a wider one is scaled into that box */
 body.brand-airdolomiti main > .section.heading-icon:has(> .carousel-cards-wrapper > .carousel-cards:not(.promo, .destinations)) > .default-content-wrapper:first-child > h2 .heading-icon-image img {
   width: auto;
-  max-width: none;
+  max-width: 35px;
   height: 30px;
+  object-fit: contain;
 }
 
 body.brand-airdolomiti main > .section.heading-icon:has(> .carousel-cards-wrapper > .carousel-cards:not(.promo, .destinations)) > .default-content-wrapper:first-child > p {

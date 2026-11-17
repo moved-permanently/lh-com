@@ -167,6 +167,14 @@ body.brand-tap button.button {
   font-weight: 400;
 }
 
+/* a label that doesn't fit wraps, as www's (white-space normal: tap-parity-001's voar-economica at 390 laid out
+   offline); one that fits stays one line. Ours cut it with lh-com's ellipsis: the German, Polish and English
+   economy and seat pages, the refund pages of all eight languages at 390 (standing order 61, item 5) */
+body.brand-tap a.button:any-link {
+  white-space: normal;
+  text-overflow: clip;
+}
+
 body.brand-tap .hero-campaign .hero-campaign-content > .hero-campaign-subtitle {
   font-family: var(--body-font-family);
   font-size: 20px;
