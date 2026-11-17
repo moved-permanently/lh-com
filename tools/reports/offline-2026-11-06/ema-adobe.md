@@ -5613,3 +5613,44 @@ these pages again, closing the dialog first would give whole-page figures.
 - Ended at about 02:10 CET: the three items are done. Nothing is held.
 - Left out of git: logs/b645 (the archive and its unpacked files, captures, diffs, drafts, DA copies, runners) and the
   untracked import reports of earlier runs.
+
+### Standing order 46 (2026-11-17 02:40 to about 03:35 CET)
+
+No uploads, previews or publishes; DA read only (1,050 read-only GETs of the at/de and gb/en article copies); no
+request to www or any airline host. `.migration/project.json` untouched; the add-ons stay off. Order 45 left nothing
+uncommitted or unpushed. No code change this order: the row lists and the sweep (c73ec67) and this section.
+
+Each push: the tests named for it passed, and the whole-repo lint read 0 on a clean worktree of the rebased HEAD (no
+block or theme file changed, so no stylelint). Full suite on the final code: c73ec67 (main with this order's commit), 72 lh-edge files and 1,257 site files, 0
+failing.
+
+**The two-hour windows:** no edit to styles.css, Columns Media or any block; the hand-over file not touched.
+
+1. **The related-articles heading on the at/de and gb/en articles: 1,045 READY rows in seven batches**
+   (delta-so46-adobe-related-articles-bulk-01 to -07: six of 150 and one of 145).
+   - **The rows:** one insert each, before `<div class="related-articles">` in DA's current copy. The heading text is
+     the source version's, checked per document on its published de/de or de/en copy: "Ähnliche Artikel" on 521,
+     "Related Articles" on 524.
+   - **Dry run on DA's current copy of every document:** 1 inserted each, and DA's copy byte for byte without it.
+     Repeated per batch file.
+   - **Left out, with the reason (in batch 01):**
+     - allegris-new-york at/de and gb/en: the heading is there since round 514;
+     - gb/en livery-iconic-moments and in-my-hood-district-helsinki: their de/en source has no heading;
+     - gb/en winter-destinations: its block doesn't open its own section.
+   - **No-breakage sample (delta-so46-adobe-related-articles-sample.txt):** 50 documents, 25 per locale across
+     explore-flying, explore-the-world and highlights, with and without at 390 and 1440 as served. 100 pairs, all 200,
+     no breakage. Every page is exactly the heading taller: 1440 +71/72 px, 390 +58/59 px, as order 45's published
+     rows (+71 / +59).
+2. **The new recording: not landed during this order.** The gate is the same as order 45's without the first-screen
+   mask (logs/b645/g014-shard.sh with the new archive's files), then the whole-page figures go into
+   sweep-so44-lh-adobe.md.
+3. **sweep-so44-lh-adobe.md, places 41 to 60: located, no row or rule passed.**
+   - Mostly sweep-so34's causes, unchanged:
+     - the 100-years captions (the owner's decision) and the recordings' fallback face;
+     - www's picture renditions and a video frame;
+     - the article-end link (item 20) and the Related Articles gap (item 17);
+     - tags/allegris's grey band (item 22);
+     - steps under 1 % (the bordered cards, the onboard collage).
+- Ended at about 03:35 CET: items 1 and 3 are done, and item 2 waits for the archive. Nothing is held.
+- Left out of git: logs/b646 (DA copies, source copies, the sample's renders, runners) and the untracked import reports
+  of earlier runs.
