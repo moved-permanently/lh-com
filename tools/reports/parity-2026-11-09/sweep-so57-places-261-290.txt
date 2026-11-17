@@ -1,0 +1,35 @@
+# ema-cashub, standing order 57, item 4 (2026-11-17 ~02:05 to ~02:50 CET): places 261 to 290 of order 43's 449 page-width sweep (sweep-so43-austrian-cargo-airdolomiti.txt, worst first by the page's difference; so54/places.py).
+# "today": the served page measured again this order (~02:05 CET, main at 68a49fa7 with this order's cards; so53/hostv.mjs, unhinted, EAGER=1 CONSENT=1; lh-proxy, www.* but www.mynewsdesk.com and every airline host refused and counted: 0 to 24 a render, none sent). Broken loads (the footer at the page's height) read again alone. The homepages as served, APIs refused.
+# How located: www's measurement file of the recorded load (so54/findrec.py; Cargo's cargo-parity-004 less its 80 px service notice) matched by text to ours in one load (so53/match.py); the Austrian homepages also against their newest recordings (austrian-parity-029 / -030 / -031, 2026-11-16).
+# Status: "within 2 %" (the located cause, no fix or why none), "live as gated" (a shipped rule's gated figure, to the px), "fixed" (this order's rule, its gate file named).
+# place	status	brand	path	width	recording	www	ours today	located cause	fix or why none
+261	within 2 %	cargo	/en/passive-temp-support	1440	cargo-parity-004	2148	2138 (-0.47 %)	as order 43. www less its 80 px service notice: +15 at the breadcrumb, -80 / +66 at the title and its text (as 245 and 247 of order 56), +8, -14 to the footer	no fix: steps of both signs
+262	within 2 %	austrian	/am/en/homepage	1440	austrian-parity (order 35); austrian-parity-029	4744; 4869	4846 (+2.15 %; -0.47 %)	+124 since order 43 (4,722): the AI band (ask-ai-flights, on: 84 px and its 40 px gap), which www's 2026-11-16 recording also has (www 4,869 there). Against it: the band to "Winter deals" at www's place (-1), -62 at "All offers & destinations" (the destination finder's empty state), +38, -12, +13 to the footer	no fix: widgets' states (the order 35 recording predates www's AI entry)
+263	within 2 %	austrian	/ba/en/homepage	1440	austrian-parity (order 35); austrian-parity-030	4744; 4869	4846 (+2.15 %; -0.47 %)	as 262 (the AI band on; the same page on www)	as 262
+264	within 2 %	austrian	/be/en/homepage	1440	austrian-parity (order 35); austrian-parity-030	4744; 4744	4722 (-0.46 %)	as order 43, no AI band on ours or www's newest. -23 at "Looking for more than just a flight?", -12, +13 to the footer	no fix: widgets' states
+265	within 2 %	austrian	/bg/en/homepage	1440	austrian-parity (order 35); austrian-parity-030	4744; 4869	4846 (+2.15 %; -0.47 %)	as 262	as 262
+266	within 2 %	austrian	/cy/en/homepage	1440	austrian-parity (order 35); austrian-parity-030	4744; 4869	4846 (+2.15 %; -0.47 %)	as 262	as 262
+267	within 2 %	austrian	/de/en/homepage	1440	austrian-parity (order 35); austrian-parity-029	4744; 4744	4722 (-0.46 %)	as 264	as 264
+268	within 2 %	austrian	/dk/en/homepage	1440	austrian-parity (order 35); austrian-parity-030	4744; 4869	4846 (+2.15 %; -0.47 %)	as 262	as 262
+269	within 2 %	austrian	/eg/en/homepage	1440	austrian-parity (order 35); austrian-parity-029	4744; 4869	4846 (+2.15 %; -0.47 %)	as 262	as 262
+270	within 2 %	austrian	/es/en/homepage	1440	austrian-parity (order 35); austrian-parity-029	4744; 4869	4846 (+2.15 %; -0.47 %)	as 262	as 262
+271	within 2 %	austrian	/gr/en/homepage	1440	austrian-parity (order 35); austrian-parity-030	4744; 4869	4846 (+2.15 %; -0.47 %)	as 262	as 262
+272	within 2 %	austrian	/hr/en/homepage	1440	austrian-parity (order 35); austrian-parity-030	4744; 4869	4846 (+2.15 %; -0.47 %)	as 262	as 262
+273	within 2 %	austrian	/iq/en/homepage	1440	austrian-parity (order 35); austrian-parity-030	4744; 4869	4846 (+2.15 %; -0.47 %)	as 262	as 262
+274	within 2 %	austrian	/ir/en/homepage	1440	austrian-parity (order 35); austrian-parity-030	4744; 4869	4846 (+2.15 %; -0.47 %)	as 262	as 262
+275	within 2 %	austrian	/jo/en/homepage	1440	austrian-parity (order 35); austrian-parity-030	4744; 4869	4846 (+2.15 %; -0.47 %)	as 262	as 262
+276	within 2 %	austrian	/lt/en/homepage	1440	austrian-parity (order 35); austrian-parity-030	4744; 4869	4846 (+2.15 %; -0.47 %)	as 262	as 262
+277	within 2 %	austrian	/mk/en/homepage	1440	austrian-parity (order 35); austrian-parity-030	4744; 4869	4846 (+2.15 %; -0.47 %)	as 262	as 262
+278	within 2 %	austrian	/nl/en/homepage	1440	austrian-parity (order 35); austrian-parity-031	4744; 4869	4846 (+2.15 %; -0.47 %)	as 262	as 262
+279	within 2 %	austrian	/no/en/homepage	1440	austrian-parity (order 35); austrian-parity-031	4744; 4869	4846 (+2.15 %; -0.47 %)	as 262	as 262
+280	within 2 %	austrian	/se/en/homepage	1440	austrian-parity (order 35); austrian-parity-031	4744; 4869	4846 (+2.15 %; -0.47 %)	as 262	as 262
+281	within 2 %	austrian	/si/en/homepage	1440	austrian-parity (order 35); austrian-parity-031	4744; 4869	4846 (+2.15 %; -0.47 %)	as 262	as 262
+282	fixed	airdolomiti	/de/reiseziele	390	airdolomiti-parity-001	10151	10198 (+0.46 %)	as order 43. +6 at the title, every listing heading at www's place to "Nützliche Informationen für die Planung Ihrer Reise" (+5), then +42 to the footer: that closing title runs to four lines in 326 px (the heading-icon rule keeps 45 px for a map icon this title doesn't have), www's three in 351 px	this order's rule (gate-so57-airdolomiti-heading-icon-no-icon.txt): 10,198 -> 10,156 (+0.05 %)
+283	live as gated	airdolomiti	/en/baggage	390	airdolomiti-parity-001	2172	2172 (+0.00 %)	-10 since order 43: order 56's link tiles (gate-so56-airdolomiti-link-tiles.txt, 2,172 gated, to the px)	-
+284	within 2 %	cargo	/en/eservices/efreight	390	cargo-parity-003	1522	1529 (+0.46 %)	as order 43. -12 at the title, +18 to the footer	no fix: small steps
+285	within 2 %	austrian	/at/de/book/overview-manage/manage-my-bookings	1440	austrian-parity (order 35)	1530	1537 (+0.46 %)	as order 43. +20 at "Anzeigen" (the booking lookup's button), -12 to the footer	no fix: small steps
+286	live as gated	airdolomiti	/bagagli	390	airdolomiti-parity-001	2186	2186 (+0.00 %)	as 283 (2,186 gated)	-
+287	within 2 %	cargo	/en/products/customer-owned-tracker	1440	cargo-parity-004	1764	1756 (-0.45 %)	as order 43. www less its 80 px notice: +15 at the breadcrumb, -80 / +66 at the title and its text, +8, -44 at "Your benefits at a glance", +32 to the footer	no fix: steps of both signs
+288	live as gated	austrian	/at/en/contact	1440	austrian-parity (order 35)	2438	2437 (-0.04 %)	-12 since order 43: order 56's help app end (gate-so56-austrian-help-app-footer-gap.txt, 2,437 gated, to the px)	-
+289	live as gated	austrian	/at/en/help-center	1440	austrian-parity (order 35)	2438	2437 (-0.04 %)	as 288	-
+290	within 2 %	cargo	/en/valuables	1440	cargo-parity-004	2005	2014 (+0.45 %)	as order 43. www less its 80 px notice: +15 at the breadcrumb, -80 / +66 at the title and its text, +8, +5 to the footer	no fix: steps of both signs

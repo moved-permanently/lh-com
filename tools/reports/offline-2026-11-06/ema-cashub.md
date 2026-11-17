@@ -9751,3 +9751,172 @@ figures, to the px.
 
 **Not in git** (scratch under migration-work/parity-588/so56): the served copies, airdolomiti-parity-013, census and
 gate outputs, overrides, renders, logs and the report draft.
+
+## Standing order 57 (2026-11-17, from about 01:40 CET)
+
+**Carried over:** nothing. Order 56's three commits (1a1a12d4, 8f82a5af, 8b82b68b) were on main, and my worktree was
+clean. Other jobs pushed orders 45, 46 and 39's work on top. The checkout's 88 dirty entries belong to other jobs and
+were left alone.
+
+**Scratch:** migration-work/parity-588/so57 (it survives a restart). It holds the censuses, gates, drafts, locating
+dumps, DA's two read copies, renders and logs. The served copies are order 56's (so56/served, ~00:20 CET).
+
+**Renders:** about 1,400 page loads, all unhinted. lh-proxy, www.* (but www.mynewsdesk.com) and every airline host were
+refused and counted: 0 to 24 a render, none sent.
+
+**DA:** two single GETs (/faq/bagaglio and /en/faq-eu/baggage, for item 2's dry run); nothing written. No upload,
+preview, publish or da-upload.mjs. One delta list, both rows HOLD. /de/en/overview-manage has no row.
+
+### Item 1: the related-articles cards (gate-so57-airdolomiti-related-cards.txt): SHIPPED below 930 px
+
+**What www draws:** I laid airdolomiti-parity-013's /faq/bagaglio out offline with its own CSS. The related articles are
+www's MiniCardSlider of CardNews, the same as on the destination carousels:
+- the title 20 px over the cards;
+- cards 325 x 470 (432 x 470 at 1440), the picture 282 px, the title 20 / 26 px regular;
+- at 390, the counter and arrows in a row 50 px under the cards, and the footer 100 px under that row.
+
+Ours were lh-com's 351 x 334 cards (396 x 524 at 1440).
+
+**Narrowed:** with every width, the FAQ pages' 1440 ends further from www: /faq/bagaglio 2,529 -> 2,482 against 2,524,
++0.20 -> -1.66 %. www's cards are shorter there, and our page is already 42 px short above the title (see item 2). So
+the rules sit below 930 px, and lh-com's cards stay from 930 px.
+
+**Census:** I took all 267 documents with a plain carousel, at 390, 768 and 1440. Each was loaded fresh as served, then
+measured again with the rules added as a style tag in the same load, then with the tag removed.
+- **Reached:** 114 documents (115 carousels). The other 153 have their carousels in heading-icon sections, which already
+  draw CardNews.
+- **Heights:** at 390 and 768 the reached pages are 85 to 294 px longer (the taller cards). 1440 doesn't change.
+- **Breakage:** no sideways scroll, no card text past its card, no overlap, no lost picture.
+- **Long titles:** on two German pages one card title runs past three lines and is cut at the third, as www's CardNews.
+
+**Per element** (/faq/bagaglio 390): every distance is www's to the px.
+- the title to the cards 20;
+- the card pitch 334;
+- the card title 307 px down its card;
+- the cards to the arrows 50;
+- the arrows to the footer 100.
+
+The counter "(3)" isn't drawn; it adds no height.
+
+**Gate:** 6 of 6 PASS. The rules reach no other recorded Air Dolomiti page-width (every other recorded carousel sits in
+a heading-icon section).
+
+| page | width | www | as served | with the cards | result |
+| --- | --- | --- | --- | --- | --- |
+| /faq/bagaglio | 390 | 4,438 | 4,186 (-5.68 %) | 4,410 (-0.63 %) | closer |
+| /en/faq-eu/baggage | 390 | 4,490 | 4,214 (-6.15 %) | 4,463 (-0.60 %) | closer |
+| /de/faq-de/gepaeck-faq | 390 | 5,033 | 4,685 (-6.91 %) | 4,910 (-2.44 %) | closer |
+| the three at 1440 | 1440 | 2,524 / 2,524 / 2,664 | +0.20 / +0.20 / -1.24 % | unchanged | PASS |
+
+**Live:** 68a49fa7. All six measure live at their gated figures, to the px.
+
+### Item 2: the FAQ intro lines (delta-so57-airdolomiti-faq-intro.txt): HOLD, both rows
+
+The row joins the first two intro paragraphs with a line break, as www's one block. Its dry run on DA's current copies
+inserts once and gives DA's copy back byte for byte.
+
+I drafted it on the served copies with the cards live. The controls equal the served pages to the px.
+
+| page | width | www | today | with the row | result |
+| --- | --- | --- | --- | --- | --- |
+| /faq/bagaglio | 390 | 4,438 | 4,410 (-0.63 %) | 4,373 (-1.46 %) | further by 0.83 |
+| /faq/bagaglio | 1440 | 2,524 | 2,529 (+0.20 %) | 2,491 (-1.31 %) | further by 1.11 |
+| /en/faq-eu/baggage | 390 | 4,490 | 4,463 (-0.60 %) | 4,426 (-1.43 %) | further by 0.83 |
+| /en/faq-eu/baggage | 1440 | 2,524 | 2,529 (+0.20 %) | 2,491 (-1.31 %) | further by 1.11 |
+
+**Locally right, but the page runs short after it:**
+- **The lines:** at 1440 the draft puts the three intro lines at www's places, less the title's 4 px.
+- **The gap:** below them the FAQ accordion ends 24 px over "Articoli correlati". www leaves 110 px (120 from 930 px):
+  its accordion container's margin.
+- **The cards:** at 1440 lh-com's cards are still 47 px taller than www's.
+
+**With all three** (drafts, not shipped: the cards at every width, the accordion's 110 / 120 px, then the row):
+
+| page | 390 | 1440 |
+| --- | --- | --- |
+| /faq/bagaglio | 4,459 (+0.47 %) | 2,540 (+0.63 %) |
+| /en/faq-eu/baggage | 4,512 (+0.49 %) | 2,540 (+0.63 %) |
+
+Each is within the half point of today, and the 390s are far closer than they were. But the code alone, before the row,
+reads 1440 2,578 (+2.14 %), so the code and the row have to land together. A plan is under "For you".
+
+### Item 3: cn/zh contact at 390 (-2.01 %): located, no fix
+
+**Cause:** the whole -63 px is Chinese text wrapping, in the help app's shadow DOM. Three lines wrap to two on www and
+stay on one in our renders, because the headless browser has no Chinese font: the glyphs are narrower and nothing wraps.
+- **The heading "我们可以如何为您提供帮助？":** 13 characters at 28 px in 314 px, -31.
+- **The feedback note:** -21.
+- **The FAQ card's line:** -17.
+
+The app's texts, rows and grey band are otherwise at www's places (the topic rows' 53 px pitch matches).
+
+**Check:** I gave those three lines www's two-line heights in the same load. The page comes to 3,144 against www's 3,141
+(+0.10 %).
+
+**No fix:** the page doesn't differ from www; the gap comes from the font this machine lacks. This is the owner's
+non-Latin explanation, now traced to the element.
+
+### Item 4: places 261 to 290 (sweep-so57-places-261-290.txt), and one fix
+
+**/de/reiseziele 390, the closing title (gate-so57-airdolomiti-heading-icon-no-icon.txt): SHIPPED**
+- **Cause:** every listing heading sits at www's place down to "Nützliche Informationen für die Planung Ihrer Reise".
+  From there it's +42 to the footer. That title is in a heading-icon section but has no map icon, and the rule still kept
+  45 px for one. So it ran to four lines in 326 px; www's has three in 351.
+- **Fix:** a heading-icon title without an icon keeps the column's width.
+- **Census:** all 153 heading-icon documents at 390, 768 and 1440, with and without in the same load. 3 have an icon-less
+  title; 1 page-width changes (this one, -42 px); no sideways scroll.
+- **Gate:** 6 of 6 recorded page-widths PASS. /de/reiseziele 390 goes from 10,198 (+0.46 %) to 10,156 (+0.05 %); the
+  other five are unchanged.
+
+**The Austrian /xx/en homepages (262 to 281):**
+- **Today:** 18 of the 20 carry the AI band, so they read +2.15 % against order 35's recordings.
+- **Against www's newest recordings** (austrian-parity-029 to -031, 2026-11-16, www's entry included): all 18 sit at
+  -0.47 %. The band matches to "Winter deals" (-1 px); after it come the destination finder's empty state (-62) and
+  small steps.
+- **be/en and de/en:** no band on ours or on www, -0.46 % as in order 43.
+
+**The rest:**
+- **Live as gated:** 283 and 286 (order 56's link tiles), 288 and 289 (order 56's help app).
+- **Cargo:** 261, 287 and 290 are www less its 80 px service notice: the breadcrumb, title and text steps as order 56's
+  245 and 247. 284 has small steps.
+- **285:** +20 at the booking lookup's button, -12 to the footer.
+
+### Final section (about 03:00 CET, 2026-11-17)
+
+All four items are done.
+
+**On main:**
+- `68a49fa7`: the related-articles cards below 930 px (theme rules, the test, the gate file).
+- `9dfe182c`: the icon-less title (theme rule, the test, the gate file).
+- This commit: the delta list (HOLD) with its data, the sweep file and this order's section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0, read before each push. Origin moved before each push (orders 45 and 39's
+  commits), so I rebased and ran lint again: exit 0.
+- **Stylelint:** styles/themes/airdolomiti.css, exit 0 after each change.
+- **Tests before the pushes:** 205 test files for the first push (every test reading the Air Dolomiti theme or carousel-cards, the folder-reading tests): 799 pass, 0 failures. For the second, 206 (with this order's two tests) and origin's new B2B test: 0 failures.
+- **Full suite:** on 9dfe182c with this commit's files in the tree: 1,257 files, 4,738 tests, 4,733 pass, 0 failures, 5 skipped.
+
+**Live:** both commits are served. The six FAQ page-widths and the three listings' six measure live at their gated figures, to the px (one broken /de/reiseziele 390 load read again alone: 10,156).
+
+**For you:**
+- **The FAQ pages' last two steps (a plan, not started):**
+  - **What:** the FAQ accordion's end at www's 110 px (120 from 930 px), the cards from 930 px too, and the intro row.
+  - **Order:** the code and the row land together (helpers apply READY rows within the hour); the code alone reads
+    +2.14 % at 1440 until the row is in.
+  - **Reach:** the accordion rule up to 76 documents and the wide cards 114, so it needs its own census first.
+  - **Drafts:** all four FAQ page-widths end within the half point (+0.47 / +0.49 % at 390, +0.63 % at 1440).
+  - **How long:** about an hour with the censuses.
+- **cn/zh and jp/ja:** a CJK font on the render machine would make these pages measurable. Until then they read short
+  by their wrapped lines.
+
+**Rules followed:**
+- No request to an airline host: refused and counted, none sent.
+- DA: two single GETs, nothing written.
+- No upload, preview, publish or da-upload.mjs. Both rows HOLD.
+- The checkout's dirty entries untouched.
+- /de/en/overview-manage has no row.
+- The finder button rule stays on HOLD.
+
+**Not in git** (scratch under migration-work/parity-588/so57): the census and gate outputs, drafts and controls, DA's
+two copies, renders, logs and the report draft.

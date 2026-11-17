@@ -1,0 +1,20 @@
+[
+ {
+  "path": "/faq/bagaglio",
+  "inserts": [
+   {
+    "replace": "sia per lavoro che per piacere.</p><p>In questo articolo",
+    "text": "sia per lavoro che per piacere.<br>In questo articolo"
+   }
+  ]
+ },
+ {
+  "path": "/en/faq-eu/baggage",
+  "inserts": [
+   {
+    "replace": "both for business and leisure.</p><p>In this article",
+    "text": "both for business and leisure.<br>In this article"
+   }
+  ]
+ }
+]
