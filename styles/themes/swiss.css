@@ -226,6 +226,21 @@
 
 /* rules where lh-com's blocks have no token (brief 380, www.swiss.com 2026-11-05) */
 
+/* a button label that doesn't fit wraps, as www's (swiss-parity-002b, ch/de baggage-irregularities at 390: "Weitere
+   häufig gestellte Fragen zu verspätetem Gepäck" on two lines); one that fits stays one line. Ours cut it with lh-com's
+   ellipsis: 157 labels on 116 page-widths (standing order 62, item 5). www's two-line button is 63 to 64 px high (its PNG's
+   pixel run), its one-line button 50: 6 px more padding above and below gives 64 (2 + 14 + 44 + 2 against 68), one-line
+   buttons stay 50 (min-height). Standing order 64, gated after the seat sections' rule and small print went live: of the
+   172 recorded SWISS page-widths it moves three, all at 390: ch/en advance-seat-reservation 9,300 -> 9,356 (-0.51 ->
+   +0.09 %), ch/de baggage-irregularities 5,020 -> 5,034 (-1.20 -> -0.94 %), ch/de internet-overview 4,077 -> 4,091
+   (+2.93 -> +3.28 %, 0.35 points further) */
+body.brand-swiss a.button:any-link {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  white-space: normal;
+  text-overflow: clip;
+}
+
 /* the header: no dividers around the login (www has none) */
 body.brand-swiss .header .nav-divider {
   display: none;
