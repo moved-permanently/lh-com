@@ -1,0 +1,30 @@
+# ema-adobe, standing order 51 (2026-11-17), item 2: breakage found by the no-breakage render of the language versions and
+# market roots (list-so51-adobe-language-versions-and-markets.txt): blocks that render empty because DA's copy holds them
+# empty (<div class="name ..."></div>, nothing inside). The row removes the empty block; on the two xx/es Insights hubs also the
+# English "Our Authors" heading over it (www's Spanish hubs draw no author slider: bd-snapshots, 0 author-slider links).
+# Where www had content there (mk/de/articles/munich: 6 FAQ items on www; the xx meetings-and-events teasers, which their
+# de/en source has), the content itself is lost and is on the re-import list (reimport-so51-adobe-lost-content.txt); the row
+# only takes away the empty box.
+# Tool: tools/importer/text-inserts-apply.mjs --data delta-so51-adobe-empty-blocks.json (one replace with nothing, the
+# anchor found once). Dry run on DA's current copies (read-only GETs, 12:02 CET): 16 inserted, 16 byte for byte without
+# them (--check).
+# Gate: all 16 documents (no recordings) rendered on our host as served, the published copy and the row applied, each at
+# 1440 and 390 in the same load: all 200; the empty block gone, no sideways scroll, overlap, clipped text, failed picture
+# or empty block added (A -> B per width: over/overlaps/clipped/failed/empty).
+# status	document	tool	expected change	gate (heights 1440 / 390, A -> B)
+READY	/at/en/book-and-manage/offers-and-destination/nordamerika-angebote	text-inserts-apply (delta-so51-adobe-empty-blocks.json)	the empty accordion-columns block removed	2720 -> 2720 / 3357 -> 3357 px; 0/0/0/0/accordion-columns -> 0/0/0/0/- / 0/0/0/0/accordion-columns -> 0/0/0/0/-
+READY	/at/en/book-and-manage/offers-and-destination/weltweite-angebote1	text-inserts-apply (delta-so51-adobe-empty-blocks.json)	the empty accordion-columns block removed	3202 -> 3202 / 3902 -> 3902 px; 0/0/0/0/accordion-columns -> 0/0/0/0/- / 0/0/0/0/accordion-columns -> 0/0/0/0/-
+READY	/dk/en/sale	text-inserts-apply (delta-so51-adobe-empty-blocks.json)	the empty accordion-columns block removed	900 -> 900 / 2347 -> 2347 px; 0/0/0/0/accordion-columns -> 0/0/0/0/- / 0/0/0/0/accordion-columns -> 0/0/0/0/-
+READY	/ge/en/worldwide-sale	text-inserts-apply (delta-so51-adobe-empty-blocks.json)	the empty table-striped block removed	3498 -> 3428 / 4136 -> 4069 px; 0/0/0/0/table-striped -> 0/0/0/0/- / 0/0/0/0/table-striped -> 0/0/0/0/-
+READY	/it/en/invoice-italy	text-inserts-apply (delta-so51-adobe-empty-blocks.json)	the empty accordion-columns block removed	1230 -> 1230 / 1547 -> 1547 px; 0/0/0/0/accordion-columns -> 0/0/0/0/- / 0/0/0/0/accordion-columns -> 0/0/0/0/-
+READY	/it/it/fattura	text-inserts-apply (delta-so51-adobe-empty-blocks.json)	the empty accordion-columns block removed	1284 -> 1284 / 1710 -> 1710 px; 0/0/0/0/accordion-columns -> 0/0/0/0/- / 0/0/0/0/accordion-columns -> 0/0/0/0/-
+READY	/kz/ru/worldwide-sale	text-inserts-apply (delta-so51-adobe-empty-blocks.json)	the empty table-striped block removed	4923 -> 4853 / 5308 -> 5241 px; 0/0/0/0/table-striped -> 0/0/0/0/- / 0/0/0/0/table-striped -> 0/0/0/0/-
+READY	/mk/de/articles/munich	text-inserts-apply (delta-so51-adobe-empty-blocks.json)	the empty accordion-columns block removed	4860 -> 4860 / 5029 -> 5029 px; 0/0/0/0/accordion-columns -> 0/0/0/0/- / 0/0/0/0/accordion-columns -> 0/0/0/0/-
+READY	/xx/el/meetings-and-events	text-inserts-apply (delta-so51-adobe-empty-blocks.json)	the empty cards-teaser block removed	2996 -> 2956 / 4124 -> 4068 px; 0/0/0/0/cards-teaser -> 0/0/0/0/- / 0/0/0/0/cards-teaser -> 0/0/0/0/-
+READY	/xx/es/articles/explore-flying	text-inserts-apply (delta-so51-adobe-empty-blocks.json)	the empty carousel-cards block and its "Our Authors" heading removed	2539 -> 2341 / 2591 -> 2413 px; 0/0/4/0/carousel-cards -> 0/0/4/0/- / 0/0/4/0/carousel-cards -> 0/0/4/0/-
+READY	/xx/es/articles/explore-the-world	text-inserts-apply (delta-so51-adobe-empty-blocks.json)	the empty carousel-cards block and its "Our Authors" heading removed	2790 -> 2591 / 3651 -> 3474 px; 0/0/4/0/carousel-cards -> 0/0/4/0/- / 0/0/4/0/carousel-cards -> 0/0/4/0/-
+READY	/xx/it/meetings-and-events	text-inserts-apply (delta-so51-adobe-empty-blocks.json)	the empty cards-teaser block removed	2916 -> 2876 / 3717 -> 3661 px; 0/0/0/0/cards-teaser -> 0/0/0/0/- / 0/0/0/0/cards-teaser -> 0/0/0/0/-
+READY	/xx/ja/meetings-and-events	text-inserts-apply (delta-so51-adobe-empty-blocks.json)	the empty cards-teaser block removed	2660 -> 2620 / 3158 -> 3102 px; 0/0/0/0/cards-teaser -> 0/0/0/0/- / 0/0/0/0/cards-teaser -> 0/0/0/0/-
+READY	/xx/ko/meetings-and-events	text-inserts-apply (delta-so51-adobe-empty-blocks.json)	the empty cards-teaser block removed	2633 -> 2593 / 3037 -> 2981 px; 0/0/0/0/cards-teaser -> 0/0/0/0/- / 0/0/0/0/cards-teaser -> 0/0/0/0/-
+READY	/xx/pl/meetings-and-events	text-inserts-apply (delta-so51-adobe-empty-blocks.json)	the empty cards-teaser block removed	2943 -> 2903 / 3848 -> 3792 px; 0/0/0/0/cards-teaser -> 0/0/0/0/- / 0/0/0/0/cards-teaser -> 0/0/0/0/-
+READY	/xx/zh/meetings-and-events	text-inserts-apply (delta-so51-adobe-empty-blocks.json)	the empty cards-teaser block removed	2579 -> 2539 / 2834 -> 2778 px; 0/0/0/0/cards-teaser -> 0/0/0/0/- / 0/0/0/0/cards-teaser -> 0/0/0/0/-

@@ -1,0 +1,146 @@
+[
+ {
+  "path": "/at/en/book-and-manage/offers-and-destination/nordamerika-angebote",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns\"></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/at/en/book-and-manage/offers-and-destination/weltweite-angebote1",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns\"></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/dk/en/sale",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns\"></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/ge/en/worldwide-sale",
+  "inserts": [
+   {
+    "replace": "<div class=\"table-striped\"></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/it/en/invoice-italy",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns\"></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/it/it/fattura",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns\"></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/kz/ru/worldwide-sale",
+  "inserts": [
+   {
+    "replace": "<div class=\"table-striped\"></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/mk/de/articles/munich",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns\"></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/xx/el/meetings-and-events",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser three-up\"></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/xx/es/articles/explore-flying",
+  "inserts": [
+   {
+    "replace": "<h1 id=\"our-authors\">Our Authors</h1><div class=\"carousel-cards four-up authors\"></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/xx/es/articles/explore-the-world",
+  "inserts": [
+   {
+    "replace": "<h1 id=\"our-authors\">Our Authors</h1><div class=\"carousel-cards four-up authors\"></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/xx/it/meetings-and-events",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser three-up\"></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/xx/ja/meetings-and-events",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser three-up\"></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/xx/ko/meetings-and-events",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser three-up\"></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/xx/pl/meetings-and-events",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser three-up\"></div>",
+    "text": ""
+   }
+  ]
+ },
+ {
+  "path": "/xx/zh/meetings-and-events",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser three-up\"></div>",
+    "text": ""
+   }
+  ]
+ }
+]

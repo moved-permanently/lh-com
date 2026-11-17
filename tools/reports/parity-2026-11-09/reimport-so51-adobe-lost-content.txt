@@ -1,0 +1,47 @@
+# ema-adobe, standing order 51 (2026-11-17), item 2: documents whose content was lost in their import, for a re-import from
+# www (the harness's re-import; not rows: the words are not in our copies). Found by the structure check against the de/en
+# source and the no-breakage render (list-so51-adobe-language-versions-and-markets.txt).
+# - FAQ pages of the language versions: the accordion-columns faq block is missing; the answers stand as plain paragraphs and
+#   the questions are gone. www's xx pages hold the accordion (bd-snapshots xx/es and xx/fr: 8 and 56 maui-collapsible items,
+#   as de/en).
+# - meetings-and-events of six language versions: the three-up teaser block is empty in DA (its de/en source has the teasers);
+#   delta-so51-adobe-empty-blocks.txt removes the empty box meanwhile.
+# - /mk/de/articles/munich: its FAQ accordion is empty in DA; www's page has 6 FAQ items.
+# path	what is lost
+/xx/de/common/seatreservation-condtions/economy-light-fare	the FAQ accordion (questions)
+/xx/de/common/seatreservation-condtions/rebookings-cancellation	the FAQ accordion (questions)
+/xx/de/common/seatreservation-condtions/refund	the FAQ accordion (questions)
+/xx/el/common/seatreservation-condtions/seat-reservations	the FAQ accordion (questions)
+/xx/el/faq-data-security	the FAQ accordion (questions)
+/xx/el/faq-password-security	the FAQ accordion (questions)
+/xx/en/common/seatreservation-condtions/economy-light-fare	the FAQ accordion (questions)
+/xx/en/common/seatreservation-condtions/rebookings-cancellation	the FAQ accordion (questions)
+/xx/en/common/seatreservation-condtions/refund	the FAQ accordion (questions)
+/xx/es/common/seatreservation-condtions/seat-reservations	the FAQ accordion (questions)
+/xx/es/faq-data-security	the FAQ accordion (questions)
+/xx/es/faq-password-security	the FAQ accordion (questions)
+/xx/fr/common/seatreservation-condtions/seat-reservations	the FAQ accordion (questions)
+/xx/fr/faq-data-security	the FAQ accordion (questions)
+/xx/fr/faq-password-security	the FAQ accordion (questions)
+/xx/it/common/seatreservation-condtions/seat-reservations	the FAQ accordion (questions)
+/xx/it/faq-data-security	the FAQ accordion (questions)
+/xx/it/faq-password-security	the FAQ accordion (questions)
+/xx/ja/common/seatreservation-condtions/seat-reservations	the FAQ accordion (questions)
+/xx/ja/faq-data-security	the FAQ accordion (questions)
+/xx/ja/faq-password-security	the FAQ accordion (questions)
+/xx/ko/common/seatreservation-condtions/seat-reservations	the FAQ accordion (questions)
+/xx/ko/faq-data-security	the FAQ accordion (questions)
+/xx/ko/faq-password-security	the FAQ accordion (questions)
+/xx/pl/common/seatreservation-condtions/seat-reservations	the FAQ accordion (questions)
+/xx/pl/faq-data-security	the FAQ accordion (questions)
+/xx/pl/faq-password-security	the FAQ accordion (questions)
+/xx/zh/common/seatreservation-condtions/seat-reservations	the FAQ accordion (questions)
+/xx/zh/faq-data-security	the FAQ accordion (questions)
+/xx/zh/faq-password-security	the FAQ accordion (questions)
+/xx/el/meetings-and-events	the three-up teasers
+/xx/it/meetings-and-events	the three-up teasers
+/xx/ja/meetings-and-events	the three-up teasers
+/xx/ko/meetings-and-events	the three-up teasers
+/xx/pl/meetings-and-events	the three-up teasers
+/xx/zh/meetings-and-events	the three-up teasers
+/mk/de/articles/munich	the FAQ accordion (6 items on www)
