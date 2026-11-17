@@ -1,0 +1,1091 @@
+[
+ {
+  "path": "/aeroporti/amsterdam",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Amsterdam Airport Schiphol</div><div>52.324725, 4.764607</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/ancona-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Ancona Airport Raffaello Sanzio</div><div>43.598012, 13.437374</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/bari",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Bari International Airport-Karol Wojtyla</div><div>41.127261, 16.671552</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/basilea",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>EuroAirport Basel-Mulhouse-Freiburg</div><div>47.578415, 7.471680</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/biarritz-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Biarritz Airport</div><div>43.464502, -1.525554</div></div><div><div>Zoom</div><div>12</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/billund",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Billund Airport</div><div>55.746188, 9.145493</div></div><div><div>Zoom</div><div>15</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/birmingham-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Birmingham Airport</div><div>52.475501, -1.841441</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/bologna-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Bologna Guglielmo Marconi Airport</div><div>44.488059, 11.315553</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/bordeaux-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Bordeaux Aéroport</div><div>44.821941, -0.787935</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/brindisi-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Brindisi Airport</div><div>40.517203, 17.953716</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/cagliari-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Cagliari Elmas Airport</div><div>39.593244, 7.567611</div></div><div><div>Zoom</div><div>6</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/cracovia",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>John Paul II International Airport Kraków-Balice</div><div>50.078785, 19.786147</div></div><div><div>Zoom</div><div>15</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/figari",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Figari-South Corsica Airport</div><div>41.498692, 9.095698</div></div><div><div>Zoom</div><div>15</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/firenze",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Amerigo Vespucci Airport</div><div>43.774917, 10.772059</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/francoforte",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Frankfurt Airport</div><div>50.092344, 8.599771</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/genova-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Genova City Airport</div><div>44.407413, 8.817945</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/ginevra",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Geneva Airport</div><div>46.217811, 6.075702</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/graz-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Graz Airport</div><div>46.994045, 15.437557</div></div><div><div>Zoom</div><div>15</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/innsbruck-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Innsbruck Airport</div><div>47.257649, 11.341008</div></div><div><div>Zoom</div><div>13</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/jersey-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Jersey Airport</div><div>49.206918, -2.221946</div></div><div><div>Zoom</div><div>12</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/katowice-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Międzynarodowy Port Lotniczy Katowice</div><div>50.329086, 19.066033</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/lione-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Lyon Airport</div><div>45.766563, 4.854028</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/london-city-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>London City Airport</div><div>51.516242, -0.108107</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/lubiana",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Ljubljana Airport</div><div>46.142298, 14.444216</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/lussemburgo",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Luxembourg Airport</div><div>49.581911, 6.043835</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/milano-linate",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Milan Linate Airport</div><div>45.474877, 9.149957</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/milano-malpensa-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Milano Malpensa Airport</div><div>45.578061, 8.976190</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/monaco-di-baviera",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Munich International Airport</div><div>48.152591, 11.383247</div></div><div><div>Zoom</div><div>7</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/olbia-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Olbia Costa Smeralda Airport</div><div>40.936479, 9.563889</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/palermo-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Palermo Airport</div><div>38.179546, 13.096385</div></div><div><div>Zoom</div><div>15</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/parigi-orly",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Paris-Orly Airport</div><div>48.727225, 2.359745</div></div><div><div>Zoom</div><div>15</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/pisa",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Pisa International Airport</div><div>43.682385, 10.409561</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/pola",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Pula Airport</div><div>44.783215, 14.098658</div></div><div><div>Zoom</div><div>6</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/praga",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Václav Havel Airport Prague</div><div>50.090637, 14.314530</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/rijeka-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Rijeka International Airport</div><div>45.218531, 14.559486</div></div><div><div>Zoom</div><div>13</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/torino",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Torino Airport</div><div>45.067006, 7.693031</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/trieste-it",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Trieste Airport</div><div>45.621912, 13.522760</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/venezia",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Venice Marco Polo Airport</div><div>45.428199, 12.295768</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/verona",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Valerio Catullo Airport</div><div>45.494070, 10.814811</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/wroclaw-breslavia",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Port Lotniczy Wrocław S.A.</div><div>51.107518, 16.972496</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/aeroporti/zurigo",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Mappa su Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Zurich Airport</div><div>47.422297, 8.517895</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/amsterdam-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Amsterdam Airport Schiphol</div><div>52.324725, 4.764607</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/ancona-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Ancona Airport Raffaello Sanzio</div><div>43.598012, 13.437374</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/bari-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Bari International Airport-Karol Wojtyla</div><div>41.127261, 16.671552</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/basel-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>EuroAirport Basel-Mulhouse-Freiburg</div><div>47.578415, 7.471680</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/biarritz-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Biarritz Airport</div><div>43.464502, -1.525554</div></div><div><div>Zoom</div><div>12</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/billund-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Billund Airport</div><div>55.746188, 9.145498</div></div><div><div>Zoom</div><div>15</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/birmingham",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Birmingham Airport</div><div>52.475501, -1.841441</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/bologna-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Bologna Guglielmo Marconi Airport</div><div>44.488059, 11.315553</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/bordeaux-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Bordeaux Aéroport</div><div>44.821941, -0.787935</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/breslau",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Port Lotniczy Wrocław S.A.</div><div>51.107518, 16.972496</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/brindisi",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Brindisi Airport</div><div>40.517203, 17.953716</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/cagliari-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Cagliari Elmas Airport</div><div>39.593244, 7.567611</div></div><div><div>Zoom</div><div>6</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/figari-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Figari-South Corsica Airport</div><div>41.498692, 9.095698</div></div><div><div>Zoom</div><div>15</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/florenz",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Amerigo Vespucci Airport</div><div>43.774917, 10.772059</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/frankfurt-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Frankfurt Airport</div><div>50.092344, 8.599771</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/genf",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Geneva Airport</div><div>46.217811, 6.075702</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/genua-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Genova City Airport</div><div>44.407413, 8.817945</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/graz-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Flughafen+Graz</div><div>46.995407, 15.439574</div></div><div><div>Zoom</div><div>12</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/innsbruck-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Aeroporto di Innsbruck</div><div>47.257653, 11.349119</div></div><div><div>Zoom</div><div>15</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/jersey-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Jersey Airport</div><div>49.207184, -2.208030</div></div><div><div>Zoom</div><div>13</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/kattowitz",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Międzynarodowy Port Lotniczy Katowice</div><div>50.329086, 19.066033</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/krakau",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>John Paul II International Airport Kraków-Balice</div><div>50.078785, 19.786147</div></div><div><div>Zoom</div><div>15</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/ljubljana",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Ljubljana Airport</div><div>46.142298, 14.444216</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/london-city-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>London City Airport</div><div>51.516242, -0.108107</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/luxemburg",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Luxembourg Airport</div><div>49.581911, 6.043835</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/lyon-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Lyon Airport</div><div>45.766563, 4.854028</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/mailand-linate",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Milan Linate Airport</div><div>45.474877, 9.149957</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/mailand-malpensa-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Milano Malpensa Airport</div><div>45.578061, 8.976190</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/muenchen",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Munich International Airport</div><div>48.152591, 11.383247</div></div><div><div>Zoom</div><div>7</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/olbia-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Olbia Costa Smeralda Airport</div><div>40.936479, 9.563889</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/palermo",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Palermo Airport</div><div>38.179546, 13.096385</div></div><div><div>Zoom</div><div>15</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/pisa-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Pisa International Airport</div><div>43.682385, 10.409561</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/prag",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Václav Havel Airport Prague</div><div>50.090637, 14.314530</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/pula-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Pula Airport</div><div>44.783215, 14.098658</div></div><div><div>Zoom</div><div>6</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/rijeka-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Rijeka International Airport</div><div>45.218531, 14.559486</div></div><div><div>Zoom</div><div>13</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/triest-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Trieste Airport</div><div>45.621912, 13.522760</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/turin-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Torino Airport</div><div>45.067006, 7.693031</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/venedig",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Venice Marco Polo Airport</div><div>45.428199, 12.295768</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/verona-de",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Valerio Catullo Airport</div><div>45.494070, 10.814811</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/flughaefen/zuerich",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Karte auf Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Zurich Airport</div><div>47.422297, 8.517895</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/amsterdam-eu",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Amsterdam Airport Schiphol</div><div>52.324725, 4.764607</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/ancona-en",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Ancona Airport Raffaello Sanzio</div><div>43.598012, 13.437374</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/bari-en",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Bari International Airport-Karol Wojtyla</div><div>41.127261, 16.671552</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/basel",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>EuroAirport Basel-Mulhouse-Freiburg</div><div>47.578415, 7.471680</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/biarritz-eu",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Biarritz Airport</div><div>43.464502, -1.525554</div></div><div><div>Zoom</div><div>12</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/billund-eu",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Billund Airport</div><div>55.746188, 9.145498</div></div><div><div>Zoom</div><div>15</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/birmingham-eu",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Birmingham Airport</div><div>52.475501, -1.841441</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/bologna-en",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Bologna Guglielmo Marconi Airport</div><div>44.488059, 11.315553</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/bordeaux",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Bordeaux Aéroport</div><div>44.821941, -0.787935</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/brindisi-en",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Brindisi Airport</div><div>40.517203, 17.953716</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/cagliari-eu",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Cagliari Elmas Airport</div><div>39.593244, 7.567611</div></div><div><div>Zoom</div><div>6</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/figari-eu",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Figari-South Corsica Airport</div><div>41.498692, 9.095698</div></div><div><div>Zoom</div><div>15</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/florence",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Amerigo Vespucci Airport</div><div>43.774917, 10.772059</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/frankfurt-eu",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Frankfurt Airport</div><div>50.092344, 8.599771</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/geneva",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Geneva Airport</div><div>46.217811, 6.075702</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/genoa-en",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Genova City Airport</div><div>44.407413, 8.817945</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/graz-eu",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Flughafen+Graz</div><div>46.995407, 15.439574</div></div><div><div>Zoom</div><div>12</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/innsbruck",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Aeroporto di Innsbruck</div><div>47.257653, 11.349119</div></div><div><div>Zoom</div><div>15</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/jersey",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Jersey Airport</div><div>49.207184, -2.208030</div></div><div><div>Zoom</div><div>13</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/katowice",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Międzynarodowy Port Lotniczy Katowice</div><div>50.329086, 19.066033</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/krakow-eu",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>John Paul II International Airport Kraków-Balice</div><div>50.078785, 19.786147</div></div><div><div>Zoom</div><div>15</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/ljubljana-eu",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Ljubljana Airport</div><div>46.142298, 14.444216</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/london-city",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>London City Airport</div><div>51.516242, -0.108107</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/luxembourg-en",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Luxembourg Airport</div><div>49.581911, 6.043835</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/lyon",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Lyon Airport</div><div>45.766563, 4.854028</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/milan-linate",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Milan Linate Airport</div><div>45.474877, 9.149957</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/milan-malpensa",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Milano Malpensa Airport</div><div>45.578061, 8.976190</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/munich",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Munich International Airport</div><div>48.152591, 11.383247</div></div><div><div>Zoom</div><div>7</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/olbia-en",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Olbia Costa Smeralda Airport</div><div>40.936479, 9.563889</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/palermo-eu",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Palermo Airport</div><div>38.179546, 13.096385</div></div><div><div>Zoom</div><div>15</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/pisa-en",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Pisa International Airport</div><div>43.682385, 10.409561</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/prague",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Václav Havel Airport Prague</div><div>50.090637, 14.314530</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/pula-eu",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Pula Airport</div><div>44.783215, 14.098658</div></div><div><div>Zoom</div><div>6</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/rijeka",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Rijeka International Airport</div><div>45.218531, 14.559486</div></div><div><div>Zoom</div><div>13</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/trieste-en",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Trieste Airport</div><div>45.621912, 13.522760</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/turin-en",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Torino Airport</div><div>45.067006, 7.693031</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/venice",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Venice Marco Polo Airport</div><div>45.428199, 12.295768</div></div><div><div>Zoom</div><div>8</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/verona-en",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Valerio Catullo Airport</div><div>45.494070, 10.814811</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/wroclaw",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Port Lotniczy Wrocław S.A.</div><div>51.107518, 16.972496</div></div><div><div>Zoom</div><div>9</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/en/airports/zurich",
+  "inserts": [
+   {
+    "replace": "<p><a href=\"https://www.google.com/maps\">Map on Google Maps</a></p>",
+    "text": "<div class=\"poi-map\"><div><div>Zurich Airport</div><div>47.422297, 8.517895</div></div><div><div>Zoom</div><div>10</div></div></div>"
+   }
+  ]
+ }
+]

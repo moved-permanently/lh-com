@@ -5200,6 +5200,27 @@ body.brand-airdolomiti main > .section > .default-content-wrapper:has(> h1 ~ p ~
 }
 /* stylelint-enable no-descending-specificity */
 
+/* an airport page's map as www's EmbedUrl (the Google map under the route cards, standing order 60 item 2): our poi-map
+   with the airport's point in its place, as wide as www's frame (the window below 930px, 95 % of it from 930) and
+   16:9 of the window high (www's padding-top 56.25 %: 219px at 390, 810 at 1440), 30px above and below */
+body.brand-airdolomiti main .poi-map-wrapper:has(> .poi-map:not(.poi-map-with-aside)) {
+  max-width: none;
+  padding: 0;
+}
+
+body.brand-airdolomiti main .poi-map:not(.poi-map-with-aside) .poi-map-view {
+  width: 100vw;
+  height: 56.25vw;
+  margin: 30px calc(50% - 50vw);
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main .poi-map:not(.poi-map-with-aside) .poi-map-view {
+    width: 95vw;
+    margin: 30px calc(50% - 47.5vw);
+  }
+}
+
 /* a blog post's end as www's BlogLayout wrapper (margin-bottom 0 below 930px, 100px from 930): the last section,
    when it ends with the post's text, keeps no margin of its own below 930px and its last element none either (www's
    text runs to 4 to 12px above the footer at 390), 100px from 930px (ours was 48 at every width; standing order 52) */

@@ -1,0 +1,52 @@
+# ema-cashub, standing order 60 (2026-11-17), item 1: Cargo's German product, add-on, fleet, eFreight and industry pages without
+# www's breadcrumb (32 documents, one batch). Their source copies (/en, paired by www's alternate list) carry it since
+# brief 422 (the importer's breadcrumbHtml); the /de copies were imported on 2026-10-31, before it, and never again (upload
+# state), so the census of order 60 finds "block breadcrumb missing" on exactly these 32. www's German pages draw it
+# (content-sites/lh-cargo/snapshots/www.lufthansa-cargo.com/de/<page>.html: portlet-breadcrumb, Liferay's desktopBreadcrumb).
+# Each row: one insert, the breadcrumb block as tools/importer/cargo-import.mjs breadcrumbHtml builds it from www's German
+# snapshot (Home and the hub pages linked to our /de paths, the menu's section labels as text, www's own labels: several
+# are English on www's German pages, e.g. "Customer information"), where the source copy has it: at the end of the
+# first section (the hero picture's section, 26), first in the first section (eAW, eCSD, eHM and the CargoTalk page, whose
+# source has no hero above it, 5), right after the header carousel (industrien-pharma-medizintechnik, 1).
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so60-cargo-de-breadcrumb.json
+#   --list tools/reports/parity-2026-11-09/delta-so60-cargo-de-breadcrumb.txt --docs <DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copy of every document (tools/importer/da-tree-read.mjs --site lh-cargo --root /de --skip /de/news,
+# read-only GETs, ~06:20 CET): each "1 inserted", the anchor found once, without the insert DA's copy byte for byte, a
+# second run "present".
+# Gate (no recording of a German Cargo page): no-breakage renders of all 32 documents with and without the breadcrumb,
+# as served on cargo.turnsthe.page (each served copy with the same block in the same place), 390 and 1440, airline hosts and
+# lh-proxy refused per request (counted: 0 for these pages): delta-so60-cargo-de-breadcrumb-sample.txt, all 200, no sideways
+# scroll, overlap, clipped text, empty block or failed picture added; every page the breadcrumb taller, +29 px (one +33).
+# status	document	tool	expected change	gate (height as served -> with the row)
+READY	/de/active-temp-control	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1547 -> 1576 (+29), 390 1263 -> 1292 (+29), no breakage
+READY	/de/add-on-services/insurance	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1445 -> 1474 (+29), 390 1161 -> 1190 (+29), no breakage
+READY	/de/add-on-services/personal-supervision	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1445 -> 1474 (+29), 390 1161 -> 1190 (+29), no breakage
+READY	/de/add-on-services/smartuld	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1445 -> 1474 (+29), 390 1137 -> 1166 (+29), no breakage
+READY	/de/add-on-services/sustainable-choice	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1469 -> 1498 (+29), 390 1233 -> 1262 (+29), no breakage
+READY	/de/add-on-services/todoor	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1445 -> 1474 (+29), 390 1161 -> 1190 (+29), no breakage
+READY	/de/airmail	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1547 -> 1576 (+29), 390 1263 -> 1292 (+29), no breakage
+READY	/de/ci/241126-cargotalk	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1767 -> 1796 (+29), 390 1831 -> 1860 (+29), no breakage
+READY	/de/dangerous-goods	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1547 -> 1576 (+29), 390 1263 -> 1292 (+29), no breakage
+READY	/de/eaw	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1428 -> 1457 (+29), 390 1947 -> 1976 (+29), no breakage
+READY	/de/ecsd	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1243 -> 1272 (+29), 390 1793 -> 1822 (+29), no breakage
+READY	/de/ehm	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1242 -> 1271 (+29), 390 1692 -> 1721 (+29), no breakage
+READY	/de/emergency	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1469 -> 1498 (+29), 390 1233 -> 1262 (+29), no breakage
+READY	/de/eservices-app	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 3315 -> 3344 (+29), 390 3195 -> 3224 (+29), no breakage
+READY	/de/eservices/efreight	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1641 -> 1670 (+29), 390 1626 -> 1655 (+29), no breakage
+READY	/de/fleet-ulds/fleet/a321f	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 4391 -> 4420 (+29), 390 4532 -> 4561 (+29), no breakage
+READY	/de/fleet-ulds/fleet/b777f	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 4253 -> 4282 (+29), 390 3859 -> 3888 (+29), no breakage
+READY	/de/fleet-ulds/fleet/belly-fleet	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 2506 -> 2535 (+29), 390 2465 -> 2494 (+29), no breakage
+READY	/de/fleet-ulds/ulds	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 3003 -> 3032 (+29), 390 3749 -> 3778 (+29), no breakage
+READY	/de/fleet-ulds/ulds/containers	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 2356 -> 2385 (+29), 390 2361 -> 2390 (+29), no breakage
+READY	/de/general-cargo	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1547 -> 1576 (+29), 390 1263 -> 1292 (+29), no breakage
+READY	/de/industrien-pharma-medizintechnik	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 4346 -> 4379 (+33), 390 3944 -> 3973 (+29), no breakage
+READY	/de/live-animals	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1847 -> 1876 (+29), 390 1779 -> 1808 (+29), no breakage
+READY	/de/onerecord	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 3543 -> 3572 (+29), 390 5592 -> 5621 (+29), no breakage
+READY	/de/passive-temp-support	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1547 -> 1576 (+29), 390 1263 -> 1292 (+29), no breakage
+READY	/de/perishables	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1547 -> 1576 (+29), 390 1287 -> 1316 (+29), no breakage
+READY	/de/product-road-feeder-service	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 2255 -> 2284 (+29), 390 2764 -> 2793 (+29), no breakage
+READY	/de/products/customer-owned-tracker	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1445 -> 1474 (+29), 390 1222 -> 1251 (+29), no breakage
+READY	/de/speed-pro	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1473 -> 1502 (+29), 390 1161 -> 1190 (+29), no breakage
+READY	/de/speed-zoom	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1497 -> 1526 (+29), 390 1185 -> 1214 (+29), no breakage
+READY	/de/valuables	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1547 -> 1576 (+29), 390 1287 -> 1316 (+29), no breakage
+READY	/de/vulnerables	text-inserts-apply (delta-so60-cargo-de-breadcrumb.json)	www's breadcrumb above the title, as the source copy	1440 1547 -> 1576 (+29), 390 1287 -> 1316 (+29), no breakage

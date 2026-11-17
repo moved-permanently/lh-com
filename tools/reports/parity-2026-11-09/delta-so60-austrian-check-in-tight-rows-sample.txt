@@ -1,0 +1,21 @@
+# ema-cashub, standing order 60, item 1: the no-breakage renders of the private-check-in-counter tight-rows rows (all 9).
+# A = the served copy, B = with tight-rows, on austrian.turnsthe.page with the deployed code (so60/nbd.mjs, airline hosts refused).
+# path	width	status A/B	height A -> B	sideways A/B	overlaps A/B	clipped A/B	empty A/B	failed pictures A/B
+/at/de/fly/check-in/private-check-in-counter	1440	200/200	6213 -> 6117 (-96)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/at/de/fly/check-in/private-check-in-counter	390	200/200	7659 -> 7563 (-96)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/cn/zh/fly/check-in/private-check-in-counter	1440	200/200	5518 -> 5422 (-96)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/cn/zh/fly/check-in/private-check-in-counter	390	200/200	5839 -> 5743 (-96)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/es/es/fly/check-in/private-check-in-counter	1440	200/200	6240 -> 6144 (-96)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/es/es/fly/check-in/private-check-in-counter	390	200/200	7598 -> 7502 (-96)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/fr/fr/fly/check-in/private-check-in-counter	1440	200/200	6403 -> 6307 (-96)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/fr/fr/fly/check-in/private-check-in-counter	390	200/200	7956 -> 7860 (-96)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/gr/el/fly/check-in/private-check-in-counter	1440	200/200	6574 -> 6478 (-96)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/gr/el/fly/check-in/private-check-in-counter	390	200/200	8251 -> 8155 (-96)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/it/it/fly/check-in/private-check-in-counter	1440	200/200	6203 -> 6107 (-96)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/it/it/fly/check-in/private-check-in-counter	390	200/200	7504 -> 7408 (-96)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/jp/ja/fly/check-in/private-check-in-counter	1440	200/200	5558 -> 5558 (+0)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/jp/ja/fly/check-in/private-check-in-counter	390	200/200	6018 -> 6018 (+0)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/pl/pl/fly/check-in/private-check-in-counter	1440	200/200	6206 -> 6110 (-96)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/pl/pl/fly/check-in/private-check-in-counter	390	200/200	7622 -> 7526 (-96)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/ru/ru/fly/check-in/private-check-in-counter	1440	200/200	6393 -> 6297 (-96)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0
+/ru/ru/fly/check-in/private-check-in-counter	390	200/200	8093 -> 7997 (-96)	sideways 0/0	overlaps 0/0	clipped 0/0	empty 0/0	failed 0/0

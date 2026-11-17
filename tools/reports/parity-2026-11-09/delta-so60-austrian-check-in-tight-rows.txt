@@ -1,0 +1,24 @@
+# ema-cashub, standing order 60 (2026-11-17), item 1: the private check-in counter's fee table as its source (9 documents, 8 READY, 1 HOLD).
+# /at/en/fly/check-in/private-check-in-counter has the table option tight-rows since order 49 (delta-so49-austrian-code-rows,
+# gated on austrian-parity-003: www's maui-table, six fee rows 72 px, ours 88; -96 px at 390 and 1440); /at/de and the eight
+# language copies (cn/zh, es/es, fr/fr, gr/el, it/it, jp/ja, pl/pl, ru/ru) kept the plain table (order 60's census:
+# "variant table-striped -tight-rows"). The same component on www in every language; the table is the same six rows.
+# Each row: the table-striped block whose text starts with the row's first header word gets tight-rows after its options.
+# Tool: node tools/importer/block-option-apply.mjs --data <the row of delta-so60-austrian-check-in-tight-rows.json without "path">
+#   --in <DA's copy> --out <file>
+# Dry run on DA's current copies (da-tree-read.mjs --site lh-austrian --root /<locale>/fly/check-in, read-only, ~06:30 CET):
+# each "placed", taking the option back gives DA's copy byte for byte, a second run "there already".
+# Gate: no-breakage renders of all 9 with and without, as served on austrian.turnsthe.page, 390 and 1440, airline hosts and
+# lh-proxy refused per request (delta-so60-austrian-check-in-tight-rows-sample.txt): all 200, nothing added; every page
+# -96 px at both widths, as the source's recorded row, but /jp/ja: the cells take the 24 px, the table stays 657 px (HOLD,
+# not in the .json; 8 READY rows in it).
+# status	document	tool	expected change	gate (height as served -> with the row)
+READY	/at/de/fly/check-in/private-check-in-counter	block-option-apply (delta-so60-austrian-check-in-tight-rows.json)	the fee table's rows 72 px as www's (tight-rows), as /at/en	1440 6213 -> 6117 (-96), 390 7659 -> 7563 (-96), no breakage
+READY	/cn/zh/fly/check-in/private-check-in-counter	block-option-apply (delta-so60-austrian-check-in-tight-rows.json)	the fee table's rows 72 px as www's (tight-rows), as /at/en	1440 5518 -> 5422 (-96), 390 5839 -> 5743 (-96), no breakage
+READY	/es/es/fly/check-in/private-check-in-counter	block-option-apply (delta-so60-austrian-check-in-tight-rows.json)	the fee table's rows 72 px as www's (tight-rows), as /at/en	1440 6240 -> 6144 (-96), 390 7598 -> 7502 (-96), no breakage
+READY	/fr/fr/fly/check-in/private-check-in-counter	block-option-apply (delta-so60-austrian-check-in-tight-rows.json)	the fee table's rows 72 px as www's (tight-rows), as /at/en	1440 6403 -> 6307 (-96), 390 7956 -> 7860 (-96), no breakage
+READY	/gr/el/fly/check-in/private-check-in-counter	block-option-apply (delta-so60-austrian-check-in-tight-rows.json)	the fee table's rows 72 px as www's (tight-rows), as /at/en	1440 6574 -> 6478 (-96), 390 8251 -> 8155 (-96), no breakage
+READY	/it/it/fly/check-in/private-check-in-counter	block-option-apply (delta-so60-austrian-check-in-tight-rows.json)	the fee table's rows 72 px as www's (tight-rows), as /at/en	1440 6203 -> 6107 (-96), 390 7504 -> 7408 (-96), no breakage
+HOLD	/jp/ja/fly/check-in/private-check-in-counter	block-option-apply (delta-so60-austrian-check-in-tight-rows.json)	none drawn: the option sets the cells' 24 px (computed), but the table stays 657 px tall at 1440 (its rows' height comes from elsewhere on this copy, not traced); held, as the row would not move the page	1440 5558 -> 5558 (+0), 390 6018 -> 6018 (+0), no breakage
+READY	/pl/pl/fly/check-in/private-check-in-counter	block-option-apply (delta-so60-austrian-check-in-tight-rows.json)	the fee table's rows 72 px as www's (tight-rows), as /at/en	1440 6206 -> 6110 (-96), 390 7622 -> 7526 (-96), no breakage
+READY	/ru/ru/fly/check-in/private-check-in-counter	block-option-apply (delta-so60-austrian-check-in-tight-rows.json)	the fee table's rows 72 px as www's (tight-rows), as /at/en	1440 6393 -> 6297 (-96), 390 8093 -> 7997 (-96), no breakage

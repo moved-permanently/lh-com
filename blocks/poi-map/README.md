@@ -13,6 +13,7 @@ Model: `standalone`. Rows (all optional, but without Source or point rows the bl
 | Caption | rich text under the map (live: the text under the map in the same column, "For more information about our tips, please click on the points on the map above.") |
 | Aside | rich content beside the map, two equal columns from 768px (live: the other column of the `.twocolumn` around the map, e.g. "Our recommendations" and its list) |
 | Tiles | `osm` (default) or `carto` |
+| Zoom | the first view's highest zoom, a whole number from 2 to the tiles' maximum (19 OSM, 20 CARTO); a single point is shown at that zoom instead of the maximum (Air Dolomiti's airport maps: www's Google view as zoom, standing order 60); out of range or no row: as without |
 
 Label rows (override): Zoom in label, Zoom out label, Visit website label, Map label, Attribution label. Precedence: authored row, then labels/common (`common.sr.mapview.zoomIn`, `common.sr.mapview.zoomOut`, `common.misc.cms.visitWebsite`: "Zoom in", "Zoom out", "Visit website" / "Website besuchen"), then built-in English/German copies.
 

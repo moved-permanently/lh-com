@@ -1,0 +1,290 @@
+[
+ {
+  "path": "/de/active-temp-control",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Customer information</li><li><a href=\"/de/portfolio\">Portfolio</a></li><li>Active Temp Control</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/add-on-services/insurance",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Customer information</li><li><a href=\"/de/portfolio\">Portfolio</a></li><li>Insurance</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/add-on-services/personal-supervision",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Customer information</li><li><a href=\"/de/portfolio\">Portfolio</a></li><li>Personal Supervision</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/add-on-services/smartuld",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Customer information</li><li><a href=\"/de/portfolio\">Portfolio</a></li><li>smartULD</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/add-on-services/sustainable-choice",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Customer information</li><li><a href=\"/de/portfolio\">Portfolio</a></li><li>Sustainable Choice</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/add-on-services/todoor",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Customer information</li><li><a href=\"/de/portfolio\">Portfolio</a></li><li>toDoor</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/airmail",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Customer information</li><li><a href=\"/de/portfolio\">Portfolio</a></li><li>Airmail</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/ci/241126-cargotalk",
+  "inserts": [
+   {
+    "after": "<body><header></header><main><div>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li><a href=\"https://www.lufthansa-cargo.com/de/cargo-inside\">Cargo inside</a></li><li><a href=\"https://www.lufthansa-cargo.com/de/whats-up\">What's up</a></li><li><a href=\"/de/ci/whats-up-now\">What's up now?</a></li><li>241126-CargoTalk</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/dangerous-goods",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Customer information</li><li><a href=\"/de/portfolio\">Portfolio</a></li><li>Dangerous Goods</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/eaw",
+  "inserts": [
+   {
+    "after": "<body><header></header><main><div>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>eServices</li><li><a href=\"/de/eservices/efreight\">eFreight</a></li><li>EAW</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/ecsd",
+  "inserts": [
+   {
+    "after": "<body><header></header><main><div>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>eServices</li><li><a href=\"/de/eservices/efreight\">eFreight</a></li><li>eCSD</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/ehm",
+  "inserts": [
+   {
+    "after": "<body><header></header><main><div>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>eServices</li><li><a href=\"/de/eservices/efreight\">eFreight</a></li><li>eHM</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/emergency",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Customer information</li><li><a href=\"/de/portfolio\">Portfolio</a></li><li>Emergency</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/eservices-app",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>More info</li><li>Lufthansa Cargo App</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/eservices/efreight",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>eServices</li><li>eFreight</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/fleet-ulds/fleet/a321f",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Flotte &amp; ULD</li><li><a href=\"/de/fleet-ulds/fleet\">Unsere Flotte</a></li><li>A321F</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/fleet-ulds/fleet/b777f",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Flotte &amp; ULD</li><li><a href=\"/de/fleet-ulds/fleet\">Unsere Flotte</a></li><li>B777F</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/fleet-ulds/fleet/belly-fleet",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Flotte &amp; ULD</li><li><a href=\"/de/fleet-ulds/fleet\">Unsere Flotte</a></li><li>Aircraft bellies</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/fleet-ulds/ulds",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Flotte &amp; ULD</li><li>ULD</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/fleet-ulds/ulds/containers",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Flotte &amp; ULD</li><li><a href=\"/de/fleet-ulds/ulds\">ULD</a></li><li>Container</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/general-cargo",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Customer information</li><li><a href=\"/de/portfolio\">Portfolio</a></li><li>General Cargo</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/industrien-pharma-medizintechnik",
+  "inserts": [
+   {
+    "after": "17613389.jpg\" alt=\"\"></picture></div><div></div></div></div>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>More info</li><li><a href=\"/de/industries-in-focus\">Industrien</a></li><li>Pharma &amp; Medizintechnik</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/live-animals",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Customer information</li><li><a href=\"/de/portfolio\">Portfolio</a></li><li>Live Animals</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/onerecord",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>eServices</li><li><a href=\"/de/eservices/efreight\">eFreight</a></li><li>ONE Record</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/passive-temp-support",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Customer information</li><li><a href=\"/de/portfolio\">Portfolio</a></li><li>Passive Temp Support</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/perishables",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Customer information</li><li><a href=\"/de/portfolio\">Portfolio</a></li><li>Perishables</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/product-road-feeder-service",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Flotte &amp; ULD</li><li><a href=\"/de/fleet-ulds/fleet\">Unsere Flotte</a></li><li>Road Feeder Service</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/products/customer-owned-tracker",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Customer information</li><li><a href=\"/de/portfolio\">Portfolio</a></li><li>Customer-owned Tracker</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/speed-pro",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Customer information</li><li><a href=\"/de/portfolio\">Portfolio</a></li><li>td.Pro</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/speed-zoom",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Customer information</li><li><a href=\"/de/portfolio\">Portfolio</a></li><li>td.Zoom</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/valuables",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Customer information</li><li><a href=\"/de/portfolio\">Portfolio</a></li><li>Valuables</li></ul></div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/vulnerables",
+  "inserts": [
+   {
+    "before": "</div>\n<div><h1>",
+    "text": "<div class=\"breadcrumb\"><div><div><ul><li><a href=\"/de/home\">Home</a></li><li>Info-Hub</li><li>Customer information</li><li><a href=\"/de/portfolio\">Portfolio</a></li><li>Vulnerables</li></ul></div></div></div>"
+   }
+  ]
+ }
+]

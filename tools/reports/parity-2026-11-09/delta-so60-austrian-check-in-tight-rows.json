@@ -1,0 +1,50 @@
+[
+ {
+  "path": "/at/de/fly/check-in/private-check-in-counter",
+  "block": "table-striped",
+  "text": "Passagieranzahl",
+  "add": "tight-rows"
+ },
+ {
+  "path": "/cn/zh/fly/check-in/private-check-in-counter",
+  "block": "table-striped",
+  "text": "旅客",
+  "add": "tight-rows"
+ },
+ {
+  "path": "/es/es/fly/check-in/private-check-in-counter",
+  "block": "table-striped",
+  "text": "Pasajeros",
+  "add": "tight-rows"
+ },
+ {
+  "path": "/fr/fr/fly/check-in/private-check-in-counter",
+  "block": "table-striped",
+  "text": "Passagers",
+  "add": "tight-rows"
+ },
+ {
+  "path": "/gr/el/fly/check-in/private-check-in-counter",
+  "block": "table-striped",
+  "text": "Επιβάτες",
+  "add": "tight-rows"
+ },
+ {
+  "path": "/it/it/fly/check-in/private-check-in-counter",
+  "block": "table-striped",
+  "text": "Tassa",
+  "add": "tight-rows"
+ },
+ {
+  "path": "/pl/pl/fly/check-in/private-check-in-counter",
+  "block": "table-striped",
+  "text": "Pasażerowie",
+  "add": "tight-rows"
+ },
+ {
+  "path": "/ru/ru/fly/check-in/private-check-in-counter",
+  "block": "table-striped",
+  "text": "Пассажиры",
+  "add": "tight-rows"
+ }
+]

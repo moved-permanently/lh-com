@@ -185,13 +185,19 @@ export function readPoiMapRows(block) {
   return { config, points: mapPointsOfInterest({ pointsOfInterest: points }) };
 }
 
-/** Settings of an authored block: the live id and the tile source. */
+/**
+ * Settings of an authored block: the live id, the tile source and the first view's highest zoom
+ * (Zoom row, a whole number from 2 to the tiles' maximum; none: the tiles' maximum, as live).
+ */
 export function readPoiMapSettings(config) {
   const text = (...keys) => (pick(config, ...keys) || {}).text || '';
   const tiles = text('tiles').toLowerCase();
+  const source = TILE_SOURCES[tiles] ? tiles : 'osm';
+  const zoom = /^\d{1,2}$/.test(text('zoom')) ? Number(text('zoom')) : null;
   return {
     id: poiMapId(text('source', 'id', 'poi-id')),
-    tiles: TILE_SOURCES[tiles] ? tiles : 'osm',
+    tiles: source,
+    zoom: zoom !== null && zoom >= MIN_ZOOM && zoom <= TILE_SOURCES[source].maxZoom ? zoom : null,
   };
 }
 
@@ -333,15 +339,17 @@ function buildBubble(point, labels) {
  * @param {Array} points
  * @param {Object} labels
  * @param {string} tiles key of TILE_SOURCES
+ * @param {{zoom?: number}} [options] zoom: the first view's highest zoom (the Zoom row)
  */
-export function drawMap(view, points, labels, tiles) {
+export function drawMap(view, points, labels, tiles, options = {}) {
   const source = TILE_SOURCES[tiles] || TILE_SOURCES.osm;
   const size = () => ({
     w: view.clientWidth || DEFAULT_WIDTH,
     h: view.clientHeight || DEFAULT_HEIGHT,
   });
   const first = size();
-  const fitted = fitBounds(points, first.w, first.h, source.maxZoom);
+  const highest = Math.min(source.maxZoom, options.zoom || source.maxZoom);
+  const fitted = fitBounds(points, first.w, first.h, highest);
   const state = { zoom: fitted.zoom, center: fitted.center };
 
   const tileLayer = el('div', 'poi-map-tiles');
@@ -630,7 +638,7 @@ export default function decorate(block) {
         resolve();
         return;
       }
-      const drawn = drawMap(view, result.points, labels, settings.tiles);
+      const drawn = drawMap(view, result.points, labels, settings.tiles, { zoom: settings.zoom });
       if (variant) {
         const { maxZoom } = TILE_SOURCES[settings.tiles] || TILE_SOURCES.osm;
         variant.decorateTapMap(block, drawn, result.points, {
