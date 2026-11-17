@@ -1,0 +1,13 @@
+# ema-adobe, standing order 49 (2026-11-17), item 1: the one rollout difference class that should follow its source
+# (list-so49-adobe-rollout-structure.txt). Order 36's rows gave de/en lufthansa-aviation-group's and report-baggage's
+# Columns Media option wide-rows (rows 24 px further apart from 768 px, as www); their gb/en rollouts did not get it.
+# www's versions are alike (9 / 9 and 12 / 12 column views in the bd-snapshots).
+# Tool: tools/importer/text-inserts-apply.mjs --data delta-so49-adobe-rollout-wide-rows.json (one replace,
+# '<div class="columns-media">' -> '<div class="columns-media wide-rows">', the copy's only Columns Media). Dry run on DA's
+# current copies (read-only GETs, 06:45 CET): 1 inserted each; without it DA's copy byte for byte (--check).
+# Gate: no recording of either gb/en page. The class has 2 documents, so both are rendered (not a sample of 40):
+# published copy and draft with the option on our host, 390 and 1440, as served: 4 pairs, all 200, no overflow, the
+# same overlap counts; 1440 +16 / +48 px (the rows apart, as on de/en), 390 unchanged (the option starts at 768 px).
+# status	document	tool	expected change	gate
+READY	/gb/en/lufthansa-aviation-group	text-inserts-apply (delta-so49-adobe-rollout-wide-rows.json)	Columns Media wide-rows, as de/en	no-breakage 1440 / 390: 2,735 -> 2,751 / 3,783 -> 3,783 px
+READY	/gb/en/prepare-for-your-trip/baggage/baggage-irregularities/report-baggage	text-inserts-apply (delta-so49-adobe-rollout-wide-rows.json)	Columns Media wide-rows, as de/en	no-breakage 1440 / 390: 2,586 -> 2,634 / 4,910 -> 4,910 px

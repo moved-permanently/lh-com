@@ -464,6 +464,24 @@ export function buildVideo(link, picture, playLabel) {
   if (size) {
     wrapper.classList.add('media-video-sized');
     wrapper.style.setProperty('--media-video-ratio', `${size[1]} / ${size[2]}`);
+    // www's video.js (preload metadata) paints the video's first frame behind the contained
+    // poster, so a poster of another shape (1920x823 in the 16:9 player) shows the scene above
+    // and below it, not black bars: a muted still under the poster, never played; the play
+    // button replaces it. Only for a file on our own host: a still would load a video from
+    // another host (www's DAM links on the language versions) with every page view
+  }
+  if (size && new URL(src, window.location.href).origin === window.location.origin) {
+    const frame = document.createElement('video');
+    frame.className = 'media-video-frame';
+    frame.muted = true;
+    frame.setAttribute('muted', '');
+    frame.playsInline = true;
+    frame.setAttribute('playsinline', '');
+    frame.preload = 'metadata';
+    frame.tabIndex = -1;
+    frame.setAttribute('aria-hidden', 'true');
+    frame.src = src;
+    wrapper.prepend(frame);
   }
   button.setAttribute('aria-label', buttonLabel);
   button.setAttribute('aria-controls', wrapper.id);

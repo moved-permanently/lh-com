@@ -102,6 +102,23 @@
   object-fit: contain;
 }
 
+/* ... and behind the poster the video's own first frame (www's video.js, preload metadata), filling the
+   player, so the poster's letterbox shows the scene; the poster stays on top */
+.media-video.media-video-sized:has(> .media-video-frame) {
+  position: relative;
+}
+
+.media-video.media-video-sized > .media-video-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  object-fit: cover;
+}
+
+.media-video.media-video-sized:has(> .media-video-frame) > picture {
+  position: relative;
+}
+
 /* embeds: Lufthansa .video-player (YouTube: 16:9 over the full width) and .iframe-wrapper
    (in-flight entertainment widget: max-width 1240px, height 520px inline) */
 .media-embed {

@@ -1,0 +1,79 @@
+# ema-adobe, standing order 49, item 2 (finished in order 50): the video letterbox, scripts/media.js buildVideo() and
+# styles/media.css. A sized player (a size-WxH token: the 16:9 player of a 1920x823 poster) gets a muted, never-played
+# still of its video under the contained poster (preload metadata), as www's video.js paints the first frame there; so
+# the letterbox shows the scene, not black bars. Only for a video file on our own host: the language versions link www's
+# DAM files, and a still there would load a video from www with every page view (26 page-widths, below).
+#
+# 1. Census: every served document with a video, lh-com (875, the 11-14 census of published copies) and the nine brand
+#    sites (479 of 16,564 documents, DA lists and published copies read; none has a sized player), at 390 and 1440, on
+#    their own hosts with the working copy's code, every request to a host other than ours and aem refused in the browser.
+#    In the same load: "with" measured once the page settled, every .media-video-frame removed, "without" measured.
+#    2708 page-widths, all 200: austrian.turnsthe.page 80, b2b.turnsthe.page 112, brussels.turnsthe.page 114, cargo.turnsthe.page 118, discover.turnsthe.page 20, ita.turnsthe.page 20, lufthansa.turnsthe.page 1750, swiss.turnsthe.page 478, tap.turnsthe.page 16.
+#    154 page-widths (77 documents, all lh-com) have a sized player. With and without: the same document
+#    height, the same player boxes, no sideways overflow, overlap, clipped text, missing H1 or failed picture added, on all
+#    of them. 7 page-widths of pages without any still first read another height between the two measurements (the page
+#    still growing); measured again with a settle wait, equal. The 26 language-version page-widths whose video is www's
+#    file: first run with a still that never loaded (refused); with the own-host condition, no still, measured again equal.
+#    The census ran on main at aff0063 plus the change; the recorded gate below on main at 9710d29 plus the change.
+#
+# 2. Recorded gate: every recorded page-width whose page has a sized player (56), deployed code (A) against the working
+#    copy (B), whole page against the newest recording (lh-parity-015 for allegris-new-york, else lh-parity-002 / -004).
+#    No page-width ends more than 0.5 points further. de/de tags/allegris 390 read 5.96 -> 6.64 once; loaded again 5.96 ->
+#    5.96 (at/de, the same page, 5.96 -> 5.97 both times): load noise.
+# delta	page	width	A -> B %	heights A/B	status A/B
+-1.42	/de/en/articles/highlights/allegris-premium-economy-san-diego	1440	9.54 -> 8.12	h 6747/6747	200/200
+-1.40	/gb/en/articles/highlights/allegris-premium-economy-san-diego	1440	5.05 -> 3.65	h 6747/6747	200/200
+-1.37	/at/de/articles/highlights/allegris-premium-economy-san-diego	1440	4.90 -> 3.53	h 6965/6965	200/200
+-1.37	/de/de/articles/highlights/allegris-premium-economy-san-diego	1440	4.90 -> 3.53	h 6965/6965	200/200
+-1.36	/de/en/articles/highlights/allegris-new-york	1440	4.51 -> 3.15	h 6961/6961	200/200
+-1.36	/gb/en/articles/highlights/allegris-new-york	1440	4.51 -> 3.15	h 6961/6961	200/200
+-1.33	/at/de/articles/highlights/allegris-new-york	1440	4.47 -> 3.14	h 7096/7096	200/200
+-1.33	/de/de/articles/highlights/allegris-new-york	1440	4.47 -> 3.14	h 7096/7096	200/200
+-0.50	/gb/en/articles/highlights/allegris-premium-economy-san-diego	390	5.63 -> 5.13	h 7287/7287	200/200
+-0.48	/at/de/articles/highlights/allegris-new-york	390	5.16 -> 4.68	h 8189/8189	200/200
+-0.48	/de/de/articles/highlights/allegris-new-york	390	5.16 -> 4.68	h 8189/8189	200/200
+-0.48	/de/en/articles/highlights/allegris-new-york	390	4.65 -> 4.17	h 7682/7682	200/200
+-0.48	/gb/en/articles/highlights/allegris-new-york	390	4.65 -> 4.17	h 7682/7682	200/200
+-0.47	/de/en/articles/highlights/allegris-premium-economy-san-diego	390	7.19 -> 6.72	h 7287/7287	200/200
+-0.46	/at/de/articles/highlights/allegris-premium-economy-san-diego	390	5.55 -> 5.09	h 7871/7871	200/200
+-0.46	/de/de/articles/highlights/allegris-premium-economy-san-diego	390	5.28 -> 4.82	h 7844/7844	200/200
+-0.01	/de/de/articles/tags/allegris	1440	10.63 -> 10.62	h 7396/7396	200/200
++0.00	/at/de/100-years/crane	1440	7.96 -> 7.96	h 9755/9755	200/200
++0.00	/at/de/100-years/crane	390	9.38 -> 9.38	h 11407/11407	200/200
++0.00	/at/de/100-years/destinations	1440	0.71 -> 0.71	h 18993/18993	200/200
++0.00	/at/de/100-years/destinations	390	7.96 -> 7.96	h 21813/21813	200/200
++0.00	/at/de/articles/highlights/all-it-takes-is-a-yes	1440	6.60 -> 6.60	h 6802/6802	200/200
++0.00	/at/de/articles/highlights/all-it-takes-is-a-yes	390	12.77 -> 12.77	h 7984/7984	200/200
++0.00	/at/de/articles/tags/allegris	1440	10.62 -> 10.62	h 7396/7396	200/200
++0.00	/at/de/discover-lufthansa/new-onboard-experience	1440	4.46 -> 4.46	h 15411/15411	200/200
++0.00	/at/de/discover-lufthansa/new-onboard-experience	390	8.33 -> 8.33	h 18847/18847	200/200
++0.00	/de/de/100-years/crane	1440	7.96 -> 7.96	h 9755/9755	200/200
++0.00	/de/de/100-years/crane	390	9.38 -> 9.38	h 11407/11407	200/200
++0.00	/de/de/100-years/destinations	1440	0.71 -> 0.71	h 18993/18993	200/200
++0.00	/de/de/100-years/destinations	390	7.96 -> 7.96	h 21813/21813	200/200
++0.00	/de/de/articles/highlights/all-it-takes-is-a-yes	1440	6.60 -> 6.60	h 6802/6802	200/200
++0.00	/de/de/articles/highlights/all-it-takes-is-a-yes	390	12.78 -> 12.78	h 7984/7984	200/200
++0.00	/de/de/discover-lufthansa/new-onboard-experience	1440	4.46 -> 4.46	h 15411/15411	200/200
++0.00	/de/de/discover-lufthansa/new-onboard-experience	390	8.33 -> 8.33	h 18847/18847	200/200
++0.00	/de/en/100-years/crane	1440	7.79 -> 7.79	h 9782/9782	200/200
++0.00	/de/en/100-years/crane	390	9.46 -> 9.46	h 10981/10981	200/200
++0.00	/de/en/100-years/destinations	1440	0.78 -> 0.78	h 18938/18938	200/200
++0.00	/de/en/100-years/destinations	390	8.10 -> 8.10	h 21178/21178	200/200
++0.00	/de/en/articles/highlights/all-it-takes-is-a-yes	1440	6.64 -> 6.64	h 6748/6748	200/200
++0.00	/de/en/articles/highlights/all-it-takes-is-a-yes	390	13.43 -> 13.43	h 7476/7476	200/200
++0.00	/de/en/articles/tags/allegris	1440	9.01 -> 9.01	h 7412/7412	200/200
++0.00	/de/en/articles/tags/allegris	390	3.88 -> 3.88	h 7893/7893	200/200
++0.00	/de/en/discover-lufthansa/new-onboard-experience	1440	6.19 -> 6.19	h 15128/15128	200/200
++0.00	/de/en/discover-lufthansa/new-onboard-experience	390	7.47 -> 7.47	h 18227/18227	200/200
++0.00	/gb/en/100-years/crane	1440	7.78 -> 7.78	h 9782/9782	200/200
++0.00	/gb/en/100-years/crane	390	9.46 -> 9.46	h 10981/10981	200/200
++0.00	/gb/en/100-years/destinations	1440	0.78 -> 0.78	h 18938/18938	200/200
++0.00	/gb/en/100-years/destinations	390	8.10 -> 8.10	h 21178/21178	200/200
++0.00	/gb/en/articles/highlights/all-it-takes-is-a-yes	1440	6.64 -> 6.64	h 6748/6748	200/200
++0.00	/gb/en/articles/highlights/all-it-takes-is-a-yes	390	13.59 -> 13.59	h 7476/7476	200/200
++0.00	/gb/en/articles/tags/allegris	1440	9.04 -> 9.04	h 7412/7412	200/200
++0.00	/gb/en/articles/tags/allegris	390	3.93 -> 3.93	h 7893/7893	200/200
++0.00	/gb/en/discover-lufthansa/new-onboard-experience	1440	6.18 -> 6.18	h 15128/15128	200/200
++0.00	/gb/en/discover-lufthansa/new-onboard-experience	390	7.46 -> 7.46	h 18227/18227	200/200
++0.01	/at/de/articles/tags/allegris	390	5.96 -> 5.97	h 8154/8154	200/200
++0.68	/de/de/articles/tags/allegris	390	5.96 -> 6.64	h 8154/8154	200/200
