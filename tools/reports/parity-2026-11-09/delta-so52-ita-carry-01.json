@@ -1,0 +1,227 @@
+[
+ {
+  "path": "/it/it/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "inserts": [
+   {
+    "replace": "<div class=\"profile-tabs content\">",
+    "text": "<div class=\"profile-tabs content phone-closed\">"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "inserts": [
+   {
+    "replace": "<div class=\"profile-tabs content\">",
+    "text": "<div class=\"profile-tabs content phone-closed\">"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "inserts": [
+   {
+    "replace": "<div class=\"profile-tabs content\">",
+    "text": "<div class=\"profile-tabs content phone-closed\">"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "inserts": [
+   {
+    "replace": "<div class=\"profile-tabs content\">",
+    "text": "<div class=\"profile-tabs content phone-closed\">"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "inserts": [
+   {
+    "replace": "<div class=\"profile-tabs content\">",
+    "text": "<div class=\"profile-tabs content phone-closed\">"
+   }
+  ]
+ },
+ {
+  "path": "/br/pt/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "inserts": [
+   {
+    "replace": "<div class=\"profile-tabs content\">",
+    "text": "<div class=\"profile-tabs content phone-closed\">"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "inserts": [
+   {
+    "replace": "<div class=\"profile-tabs content\">",
+    "text": "<div class=\"profile-tabs content phone-closed\">"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/world-of-ita-airways/travel-classes/business-class-medium-haul",
+  "inserts": [
+   {
+    "replace": "<div class=\"profile-tabs content\">",
+    "text": "<div class=\"profile-tabs content phone-closed\">"
+   }
+  ]
+ },
+ {
+  "path": "/it/it/support/utilities/invoicing",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>column-band, grey</div>",
+    "text": "<div>style</div><div>column-band, grey, gap-after-small</div>"
+   }
+  ]
+ },
+ {
+  "path": "/it/it/world-of-ita-airways/discover-ita-airways/ita-airways-app",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>flush, column-band, grey</div>",
+    "text": "<div>style</div><div>flush, column-band, grey, gap-after-none</div>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/world-of-ita-airways/discover-ita-airways/ita-airways-app",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>flush, column-band, grey</div>",
+    "text": "<div>style</div><div>flush, column-band, grey, gap-after-none</div>"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/world-of-ita-airways/discover-ita-airways/ita-airways-app",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>flush, column-band, grey</div>",
+    "text": "<div>style</div><div>flush, column-band, grey, gap-after-none</div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/world-of-ita-airways/discover-ita-airways/ita-airways-app",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>flush, column-band, grey</div>",
+    "text": "<div>style</div><div>flush, column-band, grey, gap-after-none</div>"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/world-of-ita-airways/discover-ita-airways/ita-airways-app",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>flush, column-band, grey</div>",
+    "text": "<div>style</div><div>flush, column-band, grey, gap-after-none</div>"
+   }
+  ]
+ },
+ {
+  "path": "/br/pt/world-of-ita-airways/discover-ita-airways/ita-airways-app",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>flush, column-band, grey</div>",
+    "text": "<div>style</div><div>flush, column-band, grey, gap-after-none</div>"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/world-of-ita-airways/discover-ita-airways/ita-airways-app",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>flush, column-band, grey</div>",
+    "text": "<div>style</div><div>flush, column-band, grey, gap-after-none</div>"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/world-of-ita-airways/discover-ita-airways/ita-airways-app",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>flush, column-band, grey</div>",
+    "text": "<div>style</div><div>flush, column-band, grey, gap-after-none</div>"
+   }
+  ]
+ },
+ {
+  "path": "/it/it/book-and-prepare/other-requests/families-and-children/baggage-and-strollers",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns\">",
+    "text": "<div class=\"accordion-columns open-2\">"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/book-and-prepare/other-requests/families-and-children/baggage-and-strollers",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns\">",
+    "text": "<div class=\"accordion-columns open-2\">"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/book-and-prepare/other-requests/families-and-children/baggage-and-strollers",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns\">",
+    "text": "<div class=\"accordion-columns open-2\">"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-prepare/other-requests/families-and-children/baggage-and-strollers",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns\">",
+    "text": "<div class=\"accordion-columns open-2\">"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/book-and-prepare/other-requests/families-and-children/baggage-and-strollers",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns\">",
+    "text": "<div class=\"accordion-columns open-2\">"
+   }
+  ]
+ },
+ {
+  "path": "/br/pt/book-and-prepare/other-requests/families-and-children/baggage-and-strollers",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns\">",
+    "text": "<div class=\"accordion-columns open-2\">"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/book-and-prepare/other-requests/families-and-children/baggage-and-strollers",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns\">",
+    "text": "<div class=\"accordion-columns open-2\">"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/book-and-prepare/other-requests/families-and-children/baggage-and-strollers",
+  "inserts": [
+   {
+    "replace": "<div class=\"accordion-columns\">",
+    "text": "<div class=\"accordion-columns open-2\">"
+   }
+  ]
+ }
+]
