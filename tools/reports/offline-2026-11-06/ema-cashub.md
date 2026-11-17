@@ -10653,3 +10653,154 @@ the Christmas page's stray text. The helpers apply READY rows within the hour.
 
 **Left uncommitted:** nothing of mine. Scratch stays in migration-work/parity-588/so62. No background job of mine is
 running.
+
+## Standing order 63 (2026-11-17, from about 16:05 CET)
+
+**Carried over:** nothing. Order 62's last commit (ca1b3bda) was on main and my worktree was clean. The SWISS button
+rule stayed out of git on HOLD, as ordered. The main checkout's dirty entries (blocks/notifications/notifications.css,
+import-progress.json, importer reports, urls-*.txt) belong to other jobs and were left alone.
+
+**Scratch:** migration-work/parity-588/so63 (not in git): Cargo's recordings -008 to -012 (each sha256 checked against
+the drop's sidecar, extracted into its own folder; -013 answers 404), DA's three copies, drafts, dry runs, the Austrian
+roots' served pages before and after, the smoke output, the render, toggle and pixel scripts with their outputs, logs.
+
+**Requests:** every render refused lh-proxy, www.* and every airline host per request and counted them; none were sent.
+www's pages were read only from the recordings on disk. The upgrade links were read from austrian.turnsthe.page, one
+request per root and side.
+
+**DA:** read only, three single GETs (lh-cargo de/live-animals, de/passive-temp-support, de/speed-zoom). Nothing was
+written. No upload, preview, publish or da-upload.mjs by me. /de/en/overview-manage has no row.
+
+### Item 1: Austrian's four roots (7a820f43, live)
+
+ca/fr, ch/fr, ch/it and by/ru now link their own artifact. A new map in tools/workers/lh-edge/src/markets.js
+(UPGRADE_ARTIFACT_ALSO) lists, for Austrian only, the version code each of those roots also rewrites: fr-en, it-en,
+ru-en. The language versions keep theirs. No market-diff archive of Austrian is on this machine, so I used the four
+codes you gave.
+
+**Test:** test/austrian-upgrade-artifact.test.mjs. The four roots fail on the old code (7 pass, 1 fail) and pass on the
+new one (8 of 8). It also checks that fr/fr, it/it and ru/ru keep fr-en, it-en and ru-en, and that ch/it's other links
+don't change. lh-edge tests: 432 pass, 0 failures.
+
+**Served /upgrades on all 64 roots, before and after the deploy** (about 16:39 CET):
+
+| Root | Before | After |
+| --- | --- | --- |
+| ca/fr | fix-price-upgrade/fr-en | fix-price-upgrade/ca-fr |
+| ch/fr | fix-price-upgrade/fr-en | fix-price-upgrade/ch-fr |
+| ch/it | fix-price-upgrade/it-en | fix-price-upgrade/ch-it |
+| by/ru | fix-price-upgrade/ru-en | fix-price-upgrade/by-ru |
+
+- The four pages are otherwise byte for byte the same.
+- The other 60 roots are byte for byte the same apart from nonces.
+- **Smoke** on all 12 hosts after the deploy, against order 62's post-deploy run: 833 checks, 7 differ. None is on an
+  Austrian host and all 7 are content: lh-com's /de/en search index and its sitemap on the three lufthansa hosts (6), and
+  swiss-cn's search index (1). These files are built from published pages and change with every publish. I didn't
+  trace which pages moved them; the code change touches only Austrian upgrade links.
+
+### Item 2: Cargo's three re-imported pages (744df190, READY, already live)
+
+Each cause was a row an earlier order had given the /en page, which the re-import didn't carry. All three rows are live
+(the helpers applied them) and render as drafted, to the px.
+
+| Page | Width | www | As served | With the row (live) |
+| --- | --- | --- | --- | --- |
+| /de/live-animals | 1440 | 2,297 | 2,218 (−3.44 %) | 2,290 (−0.30 %) |
+| /de/live-animals | 390 | 1,902 | 1,802 (−5.26 %) | 1,874 (−1.47 %) |
+| /de/passive-temp-support | 1440 | 2,168 | 2,278 (+5.07 %) | 2,206 (+1.75 %) |
+| /de/speed-zoom | 1440 | 2,210 | 2,308 (+4.43 %) | 2,273 (+2.85 %) |
+
+- **live-animals** (delta-so63-cargo-de-live-animals-dividers.txt): www's two separators around the update note. The
+  row adds `{divider-50}` before the H4 and `{divider-20}` before "Bitte beachten Sie" (en's second one is 44; de's needs
+  20). "Ab dem" is now at 804 (www 803) and the tab bar at 1,148 (www 1,148). Your 390 figure was 1,826; my first load
+  measures 1,802.
+- **passive-temp-support** (…-passive-temp-full-width.txt): the Features list runs across the panel again (`{full-width}`,
+  order 40's rule). Its eight items match www's to the px. 390 is unchanged (+0.31 %). The footer is still +2.55 %: the
+  footnotes and Cargo's 20 px under the band.
+- **speed-zoom** (…-speed-zoom-footnote.txt): the footnote in www's small print (`{copytext-small}`). It now takes two
+  lines, not three. 390 is unchanged. The page is within your 3 %, but the footer is still +3.94 %. What's left at 1440
+  is +63 px, and none of it is in the document:
+  - **27 px:** the gap between the breadcrumb and the grey band, 48 px against www's 21.
+  - **24 px:** one list item wraps because of how we draw list bullets.
+  - **8 px:** a section gap.
+
+  Both rules that would remove these are in item 4, and both fail.
+
+Dry runs on DA's copies: each change placed once, taken back byte for byte, and a second run "present".
+
+### Item 3: SWISS button labels (HOLD, not in git)
+
+No honest form passes the half point.
+- **Button height:** www's two-line button is 63 to 64 px (pixel run on swiss-parity-002b's 390 PNG) and its one-line
+  button 50. Ours is 68 when wrapped. With 6 px top and bottom padding the wrapped button is 64, and one-line buttons stay
+  50 (min-height).
+- **The second "Extra Legroom" button:** www draws it too. Its PNG shows "Book an Extra Legroom Seat now" on two lines
+  under "Extra Legroom seat". The recording's measurement file lists only 8 buttons because it stops at 8, not because www
+  has fewer. So it isn't a row.
+
+| Page (390) | www | As served | Order 62's rule (68 px) | 64 px form |
+| --- | --- | --- | --- | --- |
+| ch/en advance-seat-reservation | 9,348 | 9,636 (+3.08 %) | 9,708 (+3.85 %, +0.77) | 9,692 (+3.68 %, +0.60) |
+| ch/de baggage-irregularities | 5,081 | 5,020 (−1.20 %) | 5,038 (−0.85 %) | 5,034 (−0.94 %) |
+| ch/de internet-overview | 3,961 | 4,077 (+2.93 %) | 4,095 (+3.38 %) | 4,091 (+3.28 %, +0.35) |
+
+- **Why advance-seat-reservation fails:** the page is already +3 % before any button rule. Each seat section is about
+  52 px longer than www's:
+  - the disclaimer takes three lines, www's two (smaller print);
+  - the gap from the "Features" accordion to the picture is 64 px, www's 32;
+  - the picture is 173 px high, www's 162.
+
+  That's where the next fix would go. After it, the 64 px button form could be gated again.
+- A 60 px form would pass, but it's shorter than www's buttons, so I didn't take it.
+- Saved in so63/hold-button-rule-64/ (the rule, the extra padding and the toggle output).
+
+### Item 4: Cargo's other recorded pages (sweep-so63-cargo.txt)
+
+I measured 99 page-widths as served against each one's newest recording. That includes the phone first loads -007 and
+-008 less their 80 px notice, and -009 to -011 as recorded. **91 are within 2 %.** Of the 8 outside, 7 have their cause
+on file, unchanged since order 43.
+
+**The eighth, /de/eservices-app at 390** (+2.42 %, +1.69 % in order 43), is located:
+- **The +23 px since order 43** is order 60's breadcrumb row. A render with order 43's code gives the same height as
+  today's (3,218), so the code didn't move it. The row brought the title to within 11 px of www's (it was 34 px off).
+- **The +76 px left** is under the title, in the app section. www's PNG has its consent dialog over that part, so I can't
+  compare pixels there. No row.
+
+**Two shared rules tried, both failing your gate** (in-page toggles on 125 page-widths, these 99 and -012's 26):
+- **Panel list bullets as www's** (outside, 20 px). It reaches 4 page-widths, all at 1440. de/speed-zoom gets closer
+  (+2.85 → +1.76 %). en/speed-zoom (−0.27 → −1.37 %), active-temp-control (−0.50 → −1.58 %) and emergency (+0.16 →
+  −0.82 %) each go further by more than the half point.
+- **The breadcrumb gap of 20 px from 1025 px too.** It reaches the three recorded Speed page-widths. en/speed-pro gets
+  closer (+1.59 → +0.15 %). en/speed-zoom goes further (−0.27 → −1.56 %). It still fails if en/speed-zoom's tab band is
+  split back out as www's (+1.01 %).
+
+No rule shipped and no new row.
+
+### Checks
+
+- **Lint:** whole-repo `npm run lint`: exit 0 before each push (7a820f43 and 744df190) and before this docs push.
+- **Stylelint:** no theme or block CSS file changed in git this order.
+- **Tests before the pushes:**
+  - eslint on the changed lh-edge files: exit 0.
+  - lh-edge: 432 pass, 0 failures.
+  - The 215 folder-reading tests: 1,014 pass, 0 failures, 2 skipped. They were run before each push, and again for this
+    docs commit.
+- **Full suite** on the tree with this order's code and lists (744df190): 1,271 files, 4,770 pass, 0 failures, 5 skipped.
+- **Pushed:** 7a820f43 (item 1), 744df190 (item 2), and this docs commit.
+
+### Final section (about 17:21 CET, 2026-11-17)
+
+**Done and live:**
+- The four Austrian roots link their own upgrade artifact (7a820f43); the deploy's smoke is clean.
+- Cargo's three German rows (744df190), applied by the helpers and live as drafted.
+
+**Held, with figures:**
+- The SWISS button rule. The best form matching www (64 px) is +0.60 points on advance-seat-reservation. That page's own
+  section gaps come first.
+- The two Cargo rules from item 4. Each takes one recorded page further than the half point.
+
+**Your calls:** none new. The SWISS button rule stays held until you decide, or until advance-seat-reservation's section
+gaps are fixed.
+
+**Left uncommitted:** nothing of mine. Scratch stays in migration-work/parity-588/so63. No background job of mine is
+running.

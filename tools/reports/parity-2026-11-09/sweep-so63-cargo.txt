@@ -1,0 +1,120 @@
+# ema-cashub, standing order 63, item 4 (2026-11-17, ~17:00 to ~17:20 CET): Cargo's other recorded page-widths (all but cargo-parity-012's 13
+# pages, item 2) as served today, each against its newest recording, worst first.
+# The set: order 43's 99 Cargo page-widths (sweep-so43-austrian-cargo-airdolomiti.txt, www's figures as taken there: cargo-parity-004 / -005 less
+# the 80 px service notice), the newer phone first loads over them: cargo-parity-007 (four pages) and -008 (general-cargo, emergency) less their
+# 80 px notice (www's header at y 98), -009 (containers), -010 (ehm), -011 (dangerous-goods) as recorded (header at y 18). 99 page-widths.
+# Ours: the served page on cargo.turnsthe.page, a fresh load each, height once stable (so63/tog.mjs with no rule: unhinted, eager pictures, the
+# visitor's consent stored as www's recordings; lh-proxy, www.* and every airline host refused per request and counted: 0 a load, none sent).
+# Result: 91 of 99 within 2 %. The 8 outside: 7 with their cause on file (unchanged since order 43) and /de/eservices-app 390, which moved
+# +1.69 -> +2.42 % since order 43 and is located below. No page-width is a broken load.
+# Two shared rules were tried against these pages and cargo-parity-012's (125 page-widths) by an in-page toggle, and neither passes:
+# - Panel lists as www's (body.brand-cargo .accordion-columns.faq .accordion-columns-panel ul: the disc outside, 20 px padding; www's text 836 px
+#   on every line, ours 830 on a first line and 855 after): reaches 4 page-widths (1440 only; the panels are closed below 1025 px), -24 each:
+#   de/speed-zoom +2.85 -> +1.76 % (closer); en/speed-zoom -0.27 -> -1.37 %, active-temp-control -0.50 -> -1.58 %, emergency +0.16 -> -0.82 %
+#   (each further by more than the half point). No rule.
+# - The breadcrumb section 20 px above a grey title band from 1025 px too (order 41's rule is below 1025 px): reaches the three recorded Speed
+#   page-widths, -28 each: de/speed-zoom +4.43 -> +3.17 % (as served before item 2's row; with the row, now live, 2,273 -> 2,245 expected,
+#   +2.85 -> +1.58 %), en/speed-pro +1.59 -> +0.15 %, en/speed-zoom -0.27 ->
+#   -1.56 % (fails). en/speed-zoom's document has www's white tab band joined into the grey one (order 41's row; www's en and de pages both draw
+#   the tabs in a white band under a 172 px grey title band): with the tabs split off again and the rule, 2,208 (+1.01 %, fails too); 390
+#   unchanged either way. No rule; en/speed-zoom stays as gated in order 41.
+# Columns: place, status, path, width, recording, www page, ours today (difference), cause and state.
+1	outside 2 %	/en/data-protection-notice-google-analytics	390	cargo-parity-003	1120	844 (-24.64 %)	explained (order 43): www's page has no content (an empty Liferay main); ours is the title only, the page the window's height; yours: keep or unpublish
+2	outside 2 %	/en/data-protection-notice-google-analytics	1440	cargo-parity-003	1072	900 (-16.04 %)	as above
+3	outside 2 %	/en/footer/bottomnav/terms-of-use	390	cargo-parity-007 (first load)	4780	5414 (+13.26 %)	your call (order 45): www's legal template below 1281 px, the two options measured
+4	outside 2 %	/de/eservices-app	390	cargo-parity-005	3142	3218 (+2.42 %)	located (this order): +23 since order 43 is order 60's breadcrumb row (delta-so60-cargo-de-breadcrumb.txt, live): it put the title 11 px above www's (before 34). Same code then and now (a CODE= render at 9296265a: 3,218 both). The +76 left is under the title, in the app section (h1 to first h3 +32, to the second +24, to the eServices band +23); www's PNG has its consent dialog over that part, so no pixel compare; no row
+5	outside 2 %	/de/ci/facts-figures	390	cargo-parity-001	12482	12775 (+2.35 %)	your decision (ema-lufthansa row 49): the brand font's wraps
+6	outside 2 %	/de/ci/facts-figures	1440	cargo-parity-001	4952	4839 (-2.28 %)	explained (order 33): the history timeline's geometry
+7	outside 2 %	/en/eaw	390	cargo-parity-007 (first load)	2236	2188 (-2.15 %)	HOLD (order 41), a pointer
+8	outside 2 %	/en/ci/facts-figures	390	cargo-parity-002	11916	12163 (+2.07 %)	your decision (ema-lufthansa row 49): the brand font's wraps
+9	within 2 %	/en/ehm	1440	cargo-parity-003	1294	1318 (+1.85 %)	no fix (order 49): www's band touches the footer; the flush row fails at 390
+10	within 2 %	/de/news/142-arktische-temperaturen-an-bord	390	cargo-parity-001	8856	9001 (+1.64 %)	
+11	within 2 %	/en/speed-pro	1440	cargo-parity-004	1955	1986 (+1.59 %)	located (this order): the breadcrumb section ends 48 px above the grey title band, www's 21; the rule from 1025 px takes it to +0.15 % but fails en/speed-zoom (see below)
+12	within 2 %	/en/dangerous-goods	1440	cargo-parity-003	2121	2154 (+1.56 %)	no fix (order 50): the flush row fails
+13	within 2 %	/en/eaw	1440	cargo-parity-003	1641	1666 (+1.52 %)	HOLD (order 41)
+14	within 2 %	/en/eservices-app	1440	cargo-parity-003	3289	3338 (+1.49 %)	
+15	within 2 %	/de/eservices-app	1440	cargo-parity-005	3289	3338 (+1.49 %)	
+16	within 2 %	/en/industries-healthcare	1440	cargo-parity-004	3906	3849 (-1.46 %)	
+17	within 2 %	/en/ebooking-info	1440	cargo-parity-001	3771	3825 (+1.43 %)	
+18	within 2 %	/en/news/142-arctic-temperatures-on-board	1440	cargo-parity-001	7829	7939 (+1.41 %)	
+19	within 2 %	/en/footer/bottomnav/terms-of-use	1440	cargo-parity-003	2722	2760 (+1.40 %)	
+20	within 2 %	/en/general-cargo	1440	cargo-parity-003	1758	1782 (+1.37 %)	
+21	within 2 %	/en/industries-in-focus	390	cargo-parity-001	5347	5278 (-1.29 %)	
+22	within 2 %	/en/eservices-app	390	cargo-parity-006	3043	3082 (+1.28 %)	
+23	within 2 %	/en/industries-in-focus	1440	cargo-parity-001	2515	2547 (+1.27 %)	
+24	within 2 %	/en/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	1440	cargo-parity-001	2301	2328 (+1.17 %)	
+25	within 2 %	/en/support-and-contact	1440	cargo-parity-001	2301	2328 (+1.17 %)	
+26	within 2 %	/de/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	1440	cargo-parity-001	2301	2328 (+1.17 %)	
+27	within 2 %	/de/support-and-contact	1440	cargo-parity-001	2301	2328 (+1.17 %)	
+28	within 2 %	/en/fleet-ulds/ulds/containers	390	cargo-parity-009 (first load)	2314	2288 (-1.12 %)	
+29	within 2 %	/en/ci/facts-figures	1440	cargo-parity-002	4848	4794 (-1.11 %)	
+30	within 2 %	/en/ehm	390	cargo-parity-010 (first load)	1578	1561 (-1.08 %)	
+31	within 2 %	/en/news/142-arctic-temperatures-on-board	390	cargo-parity-001	8389	8473 (+1.00 %)	
+32	within 2 %	/en/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	390	cargo-parity-001	3066	3036 (-0.98 %)	
+33	within 2 %	/en/support-and-contact	390	cargo-parity-001	3066	3036 (-0.98 %)	
+34	within 2 %	/en/add-on-services/personal-supervision	1440	cargo-parity-004	2015	2034 (+0.94 %)	
+35	within 2 %	/de/support-and-contact?reason=General%20request&subreason=Feedback%20%2F%20Complaints	390	cargo-parity-001	3105	3076 (-0.93 %)	
+36	within 2 %	/de/support-and-contact	390	cargo-parity-001	3105	3076 (-0.93 %)	
+37	within 2 %	/en/live-animals	1440	cargo-parity-003	2289	2310 (+0.92 %)	
+38	within 2 %	/en/meta/meta/company/general-terms1	390	cargo-parity-003	1498	1486 (-0.80 %)	
+39	within 2 %	/en/eservices/efreight	1440	cargo-parity-003	1893	1908 (+0.79 %)	
+40	within 2 %	/de/news/142-arktische-temperaturen-an-bord	1440	cargo-parity-001	7925	7987 (+0.78 %)	
+41	within 2 %	/en/fleet-ulds/ulds/containers	1440	cargo-parity-003	2361	2379 (+0.76 %)	
+42	within 2 %	/de/ci/sustainable-development-goals	1440	cargo-parity-001	2363	2379 (+0.68 %)	
+43	within 2 %	/en/add-on-services/todoor	1440	cargo-parity-004	2268	2283 (+0.66 %)	
+44	within 2 %	/de/fleet-ulds/fleet	1440	cargo-parity-001	3089	3072 (-0.55 %)	
+45	within 2 %	/de/ebooking-info	390	cargo-parity-001	5688	5719 (+0.55 %)	
+46	within 2 %	/en/onerecord	390	cargo-parity-003	5081	5108 (+0.53 %)	
+47	within 2 %	/en/speed-zoom	390	cargo-parity-006	1162	1168 (+0.52 %)	
+48	within 2 %	/en/emergency	390	cargo-parity-008 (first load)	1186	1192 (+0.51 %)	
+49	within 2 %	/en/ci/partnerships-subsidiaries	390	cargo-parity-007 (first load)	2781	2767 (-0.50 %)	
+50	within 2 %	/en/active-temp-control	1440	cargo-parity-003	2217	2206 (-0.50 %)	
+51	within 2 %	/en/add-on-services/sustainable-choice	1440	cargo-parity-004	2456	2468 (+0.49 %)	
+52	within 2 %	/en/passive-temp-support	1440	cargo-parity-004	2148	2138 (-0.47 %)	
+53	within 2 %	/en/eservices/efreight	390	cargo-parity-003	1522	1529 (+0.46 %)	
+54	within 2 %	/en/live-animals	390	cargo-parity-007 (first load)	1742	1750 (+0.46 %)	
+55	within 2 %	/en/products/customer-owned-tracker	1440	cargo-parity-004	1764	1756 (-0.45 %)	
+56	within 2 %	/en/valuables	1440	cargo-parity-004	2005	2014 (+0.45 %)	
+57	within 2 %	/en/meta/meta/company/general-terms1	1440	cargo-parity-003	1129	1124 (-0.44 %)	
+58	within 2 %	/de/industries-in-focus	1440	cargo-parity-001	2515	2526 (+0.44 %)	
+59	within 2 %	/de/ci/sustainable-development-goals	390	cargo-parity-001	1870	1862 (-0.43 %)	
+60	within 2 %	/de/fleet-ulds/fleet	390	cargo-parity-001	3918	3934 (+0.41 %)	
+61	within 2 %	/en/ci/sustainable-development-goals	390	cargo-parity-001	1735	1742 (+0.40 %)	
+62	within 2 %	/de/industries-in-focus	390	cargo-parity-001	5434	5414 (-0.37 %)	
+63	within 2 %	/en/ci/sustainable-development-goals	1440	cargo-parity-001	2363	2355 (-0.34 %)	
+64	within 2 %	/en/general-cargo	390	cargo-parity-008 (first load)	1242	1246 (+0.32 %)	
+65	within 2 %	/en/dangerous-goods	390	cargo-parity-011 (first load)	1242	1246 (+0.32 %)	
+66	within 2 %	/en/active-temp-control	390	cargo-parity-003	1242	1246 (+0.32 %)	
+67	within 2 %	/en/airmail	390	cargo-parity-003	1266	1270 (+0.32 %)	
+68	within 2 %	/en/ecsd	1440	cargo-parity-003	1343	1347 (+0.30 %)	
+69	within 2 %	/en/speed-zoom	1440	cargo-parity-004	2186	2180 (-0.27 %)	
+70	within 2 %	/en/home	390	cargo-parity-001	8389	8366 (-0.27 %)	
+71	within 2 %	/de/ebooking-info	1440	cargo-parity-001	3907	3898 (-0.23 %)	
+72	within 2 %	/de/notification-overview	390	cargo-parity-001	1355	1358 (+0.22 %)	
+73	within 2 %	/en/airmail	1440	cargo-parity-003	2068	2072 (+0.19 %)	
+74	within 2 %	/en/vulnerables	1440	cargo-parity-004	2084	2088 (+0.19 %)	
+75	within 2 %	/en/perishables	1440	cargo-parity-004	2116	2120 (+0.19 %)	
+76	within 2 %	/en/home	1440	cargo-parity-001	6064	6074 (+0.16 %)	
+77	within 2 %	/en/emergency	1440	cargo-parity-003	2431	2435 (+0.16 %)	
+78	within 2 %	/en/fleet-ulds/fleet	1440	cargo-parity-001	3043	3048 (+0.16 %)	
+79	within 2 %	/en/add-on-services/smartuld	1440	cargo-parity-003	2578	2582 (+0.16 %)	
+80	within 2 %	/en/notification-overview	390	cargo-parity-001	1316	1318 (+0.15 %)	
+81	within 2 %	/en/ci/newsroom	390	cargo-parity-001	10631	10615 (-0.15 %)	
+82	within 2 %	/de/home	1440	cargo-parity-001	6117	6126 (+0.15 %)	
+83	within 2 %	/en/fleet-ulds/fleet	390	cargo-parity-001	3841	3846 (+0.13 %)	
+84	within 2 %	/en/onerecord	1440	cargo-parity-003	3322	3326 (+0.12 %)	
+85	within 2 %	/en/ci/partnerships-subsidiaries	1440	cargo-parity-003	4712	4707 (-0.11 %)	
+86	within 2 %	/de/ci/newsroom	390	cargo-parity-001	10670	10678 (+0.07 %)	
+87	within 2 %	/en/ci/whats-up-now	390	cargo-parity-001	2674	2672 (-0.07 %)	
+88	within 2 %	/en/ecsd	390	cargo-parity-003	1751	1750 (-0.06 %)	
+89	within 2 %	/en/add-on-services/insurance	1440	cargo-parity-004	2080	2079 (-0.05 %)	
+90	within 2 %	/de/ci/whats-up-now	390	cargo-parity-001	2713	2712 (-0.04 %)	
+91	within 2 %	/en/ci/whats-up-now	1440	cargo-parity-001	2732	2733 (+0.04 %)	
+92	within 2 %	/de/ci/whats-up-now	1440	cargo-parity-001	2732	2733 (+0.04 %)	
+93	within 2 %	/de/home	390	cargo-parity-001	8486	8488 (+0.02 %)	
+94	within 2 %	/en/ebooking-info	390	cargo-parity-001	5393	5394 (+0.02 %)	
+95	within 2 %	/en/notification-overview	1440	cargo-parity-001	1648	1648 (+0.00 %)	
+96	within 2 %	/en/ci/newsroom	1440	cargo-parity-001	4430	4430 (+0.00 %)	
+97	within 2 %	/en/add-on-services/smartuld	390	cargo-parity-003	1120	1120 (+0.00 %)	
+98	within 2 %	/de/notification-overview	1440	cargo-parity-001	1648	1648 (+0.00 %)	
+99	within 2 %	/de/ci/newsroom	1440	cargo-parity-001	4430	4430 (+0.00 %)	
