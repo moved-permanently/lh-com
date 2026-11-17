@@ -5654,3 +5654,48 @@ failing.
 - Ended at about 03:35 CET: items 1 and 3 are done, and item 2 waits for the archive. Nothing is held.
 - Left out of git: logs/b646 (DA copies, source copies, the sample's renders, runners) and the untracked import reports
   of earlier runs.
+
+### Standing order 47 (2026-11-17 04:10 to about 04:50 CET)
+
+No uploads, previews or publishes; DA read only (none needed: the DA copy of gb/en winter-destinations was order 46's);
+no request to www or any airline host. lh-parity-015 came from the R2 link, sha256 checked (64c1967d...), unpacked into
+its own folder. `.migration/project.json` untouched; the add-ons stay off. Order 46 left nothing uncommitted or
+unpushed. No code change this order: the sweep and hand-over (eff8ef4) and this section.
+
+Each push: the tests named for it passed, and the whole-repo lint read 0 on a clean worktree of the rebased HEAD (no
+block or theme file changed, so no stylelint). Full suite on the final code: eff8ef4 (main with this order's commit), 72 lh-edge files and 1,258 site files, 0
+failing.
+
+**The two-hour windows:** no edit to styles.css, Columns Media or any block. The hand-over file: my own commits only.
+
+1. **lh-parity-015, whole page (sweep-so44-lh-adobe.md).**
+   - The header is undimmed on all 16 loads, so the dialog is gone.
+   - 1440 / 390:
+
+     | Page | 1440 | 390 |
+     | --- | --- | --- |
+     | explore-flying | 4.3 % | 7.8 % |
+     | explore-the-world | 7.7 % | 7.4 % |
+     | livery-iconic-moments | 5.5 % | 8.7 % |
+     | allegris-new-york | 9.0-9.1 % | 10.9-11.1 % |
+     | take-off | 1.8 % | 4.8 % |
+
+     Merged into the ranking.
+   - The first screens alone read 0.5-6.0 %. Where they differ:
+     - www's sticky Price Bar under allegris-new-york's stage at 1440 (ours hides it, with prices refused here);
+     - the map on explore-the-world (Google Maps on www, OpenStreetMap on ours, by design);
+     - explore-flying's H1 8px lower at 390 (hand-over item 23);
+     - www's Feedback tab and our DEMO badge.
+2. **gb/en winter-destinations: no row.** Its de/en source has no heading before the related block either: on both, the
+   block follows the "More Stories" teasers in the same section, and de/en winter-destinations was itself in order 45's
+   list. www's snapshot draws the related component as an empty include, so there is no heading to follow, and no
+   recording to gate.
+3. **Places 61 to 80: located, no row or rule passed.** All were located before:
+   - the 100-years captions (the owner's) and the recordings' fallback face;
+   - photos and the font width;
+   - hand-over items 6, 17, 18 and 20;
+   - the hubs' lists and map;
+   - the Price Bar with prices refused.
+- Ended at about 04:50 CET: the three items are answered. Nothing is held, and no background job runs.
+- Left out of git: logs/b647 (the archive and its unpacked files, captures, diffs, runners) and the untracked import
+  reports of earlier runs.
