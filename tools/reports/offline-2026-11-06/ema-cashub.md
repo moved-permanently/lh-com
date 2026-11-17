@@ -10993,3 +10993,237 @@ No new row.
 
 **Left uncommitted:** nothing of mine. Scratch stays in migration-work/parity-588/so64. No background job of mine is
 running.
+
+## Standing order 65 (2026-11-17, from about 19:40 CET)
+
+**Carried over:** nothing. Order 64's last commit (7ef11f42) was on main and my worktree was clean. The main checkout's
+dirty entries (blocks/notifications/notifications.css, import-progress.json, importer reports, urls-*.txt) belong to
+other jobs and were left alone.
+
+**Scratch:** migration-work/parity-588/so65 (not in git): DA's 14 copies, the served copies of the 84 recorded SWISS
+documents, drafts and dry runs, the offline www layouts' outputs, the toggle censuses (togn.mjs: any number of CSS files,
+each on top of the ones before), PNG tools (ink.mjs for ink rows, crop.mjs for side-by-side crops), logs.
+
+**Requests:** every render refused lh-proxy, www.* and every airline host per request and counted them; none were sent.
+www's pages were read only from the recordings on disk (swiss-parity-001, -002a, -002b; b2b-parity-001, -007, -014, -015).
+
+**DA:** read only, 14 single GETs, one per command (lh-swiss: ch/de swiss-economy, ch/en swiss-recraft-collection, ch/en
+green-fare, ch/en fleet and the nine aside documents of item 5; lh-b2b: de/de news/celebrating-shared-stories). Nothing was written.
+No upload, preview, publish or da-upload.mjs by me. /de/en/overview-manage has no row.
+
+### Item 1: swiss-economy and swiss-recraft-collection at 390, then the tab-panel inset
+
+**What www does** (all 25 recorded SWISS sidebar pages laid out offline with their own CSS, so65/aside-www.txt, and the
+PNGs): below 768 px the aside (.sidebar-aside) sits 80 px under the content on every one of them. The sidebar has
+20 / 10 px padding, a picture row that ends the content keeps its column view's 32 px, and the aside's last teaser card
+keeps its 20 px margin. Ours puts the aside 40 px under the content (styles.css, every brand) and nothing under it.
+- **swiss-economy (Europa panel):** www has 137 px from the "Mehr zu Miles More" link to the first card (ours 47) and 69 px
+  from the last card to the "Interkontinental" label (ours 19). That is order 64's 92 and 45 px, measured on the PNGs'
+  ink rows.
+- **swiss-recraft-collection:** each shown aside is 40 px short ("Buy now" to the Worldshop card: www 80, ours 40). The
+  rest of its shortfall is the document: www's nine H3s are heading-small (ours copytext) and its intro is copytext-large.
+
+**Why rows, not a rule:** I toggled a SWISS rule (the aside 80 px on phones, so65/rule-a1.css) on all 86 recorded SWISS
+390 page-widths. It reaches the 25 sidebar pages, and 5 of them end more than 0.5 points further:
+
+| Page (390) | www | As served | With the rule | Points |
+| --- | --- | --- | --- | --- |
+| ch/de newsletter | 2,176 | 2,217 (+1.88 %) | 2,249 (+3.35 %) | +1.47 |
+| ch/de unaccompanied-minors | 4,483 | 4,499 (+0.36 %) | 4,539 (+1.25 %) | +0.89 |
+| ch/de new-destinations | 5,676 | 5,825 (+2.63 %) | 5,865 (+3.33 %) | +0.70 |
+| ch/en swiss-airrail | 9,662 | 10,013 (+3.63 %) | 10,073 (+4.25 %) | +0.62 |
+| ch/en food-and-beverage | 6,747 | 6,758 (+0.16 %) | 6,798 (+0.76 %) | +0.59 |
+
+Those pages are already long elsewhere, or their aside is empty (newsletter, refunds, payment-options: ours draws nothing,
+www's draws its 80). So the rule is held (so65/rule-a1.css) and the gaps go into the documents.
+
+**The rows** (delta-so65-swiss-aside-gaps.txt / .json, text-inserts-apply.mjs): "{spacer-N below-768}" paragraphs in the
+aside sections. They draw on phones only, N+1 px, measured.
+- **Dry runs on DA's current copies:** recraft "4 inserted", economy "2 inserted", both byte for byte back, and a second
+  run reports "present".
+- **Drafts:** the controls equal live to the px. On the drafts' PNGs the gaps are www's: economy 137 / 69 px, recraft 80.
+  768 and 1440 are unchanged on both.
+
+| Page | Width | www | As served | With the row | Row and inset | State |
+| --- | --- | --- | --- | --- | --- | --- |
+| ch/en swiss-recraft-collection | 390 | 5,441 | 5,259 (−3.34 %) | 5,339 (−1.87 %) | 5,281 (−2.94 %) | **READY** |
+| ch/en swiss-recraft-collection | 1440 | 4,053 | 4,106 (+1.31 %) | 4,106 | 4,106 | READY (unchanged) |
+| ch/de swiss-economy | 390 | 6,755 | 6,708 (−0.70 %) | 6,848 (+1.38 %) | 6,769 (+0.21 %) | **HOLD** |
+| ch/de swiss-economy | 1440 | 3,989 | 4,042 (+1.33 %) | 4,042 | 4,042 | HOLD (unchanged) |
+
+**The tab-panel inset, gated again on top of the rows (so64/rule-inset.css): HOLD.**
+- On swiss-economy it now lands closer: +1.38 → +0.21 %.
+- On swiss-recraft-collection it still goes further: −1.87 → −2.94 %, 1.07 points. That is the same 58 px as in order 64.
+  Recraft's remaining shortfall is its headings and intro, not the panel.
+- **The economy row waits with the inset.** It gives www's gaps to the px, but on its own it ends 0.68 points further
+  (−0.70 → +1.38 %), because the panel's pictures are still 11 px taller than www's. Both rows of that path say HOLD.
+
+### Item 2: celebrating-shared-stories de/de at 1440, then the news-title rule
+
+**Where the page is short** (www's measurement file and PNG, b2b-parity-001; the computed boxes from its markup laid out
+offline). Against www, heading by heading at 1440:
+- **The two card rows:** each is a column view of its own on www (fourcolumn / threecolumn, 40 px padding above).
+  - After the "Vom Streckennetz" picture row www has 140 px to the cards, ours 100.
+  - Under the "100 Jahre Lufthansa" text www has 66 px, ours 27.
+  - Together that is −80 px.
+- **The rest, −50 px:** 8 px at each of six grey section boundaries, 18 px under the last cards, and 16 px under the
+  100-years heading.
+
+**READY: the two card rows** (delta-so65-b2b-celebrating-card-rows.txt / .json).
+- **The row:** "{spacer-100}" before the four-up cards, where it takes the place of the column end's 61 px, so net +40.
+  "{spacer-39}" before the 100-years cards (+40).
+- **Dry run on DA's copy:** "2 inserted", byte for byte back, a second run "present".
+- **Measured:** "Weltweites Streckennetz" now sits 776 px under its row heading, as on www.
+- **Figures:** 1440 7,624 → 7,704 (www 7,754; −1.68 → −0.64 %), 390 11,858 → 11,938 (www 12,092; −1.94 → −1.27 %),
+  768 8,474 → 8,554.
+
+**The news-title rule, gated again on top of the row: still HOLD.**
+- 1440: 7,704 → 7,664 (−0.64 → −1.16 %, 0.52 points further).
+- 390: 11,938 → 11,906 (−1.27 → −1.54 %, +0.27).
+- **What moves it further is the arithmetic, not a part of the page.** The rule takes 40 px off, and 40 px is 0.516 % of
+  www's 7,754. On any height below www's, |x − 40| − |x| = 40 px. So the rule fails the half point at 1440 until the page
+  reaches www's height, whatever else is fixed.
+- The −50 px still open can't be written as marks: the smallest spacer draws about 25 px, and these gaps are 8 to 18 px.
+  A B2B rule for the grey-section boundaries would reach every grey-to-grey boundary on the site, and it wasn't censused this order.
+
+No note from ema-lufthansa about SWISS documents with the same empty section arrived (origin's commits since order 64
+checked), so there was nothing to take after item 2.
+
+### Item 3: experts-members (de/de, de/en): no row
+
+The smallest spacer mark draws 65 px there, so it can't keep the 48 px gap. Its 1 px and the paragraph's 24 px margin
+count, and the last section also gets its 48 px end margin back in place of the 8 px that b2b.css gives a page ending in
+a link (the "Back to News" ending). Drafted with {spacer-0} where the empty section was: the footer is at 609 against
+today's 584 at both widths, 25 px lower. The empty section stays.
+
+### Item 4: European fares and invoice-receipt: no row, no rule
+
+- **our-european-fares (de/en, de/de at 390):** the "stacked fare tables" are text wrap, not layout. Heading by heading
+  (de/en, www −015's phone load), everything is within 24 px down to the fare details. Then the nine fare descriptions
+  (18 px, weight 300) wrap into more lines per paragraph than www's at the same 24 px pitch: +240 px by "Exclusive
+  benefits", +372 by the FAQs. That is the font, as on lhg-ita-airways and sap, not a document or a spacing rule. de/de's +185 px in the same fare details (order 40) is the same.
+- **lhg-invoice-receipt-download de/de at 1440:** the 44 px are the H1's margin over the news column view, which is the
+  news-title rule's case (item 2). A mark can only add space, not take a heading's margin away, so it waits for that rule.
+
+### Item 5: SWISS recorded pages more than 2 % off (newest recordings, worst first)
+
+Fresh loads as served of all 172 recorded SWISS page-widths (so65/tA, tB, tC). The broken loads (height = the window, or
+homepages still filling) were read again alone.
+
+**Pushed (8364cc2f, live): the icon teasers' 20 px** (swiss.css). The grid cards' 40 px under the text (SWISS row 53) also
+reached the usp grids, so each icon teaser was 20 px taller than www's: pitch 205 against 180 px on phones (www's teaser
+usp: h1.teaser-heading padding-bottom 20).
+- **Reach:** an in-page toggle on all 172 recorded page-widths. It moves only ch/de and ch/en terms-conditions, the two
+  recorded documents with usp grids. The homepages' and one magazine hub's moving figures are loads still filling: there
+  is no usp block on them, checked in the page. Nothing scrolls sideways.
+- **Figures:**
+  - ch/de: 390 3,506 → 3,266 (www 3,147; +11.41 → +3.78 %), 1440 1,957 → 1,877 (www 1,818; +7.65 → +3.25 %);
+  - ch/en: 390 3,482 → 3,242 (+10.65 → +3.02 %), 1440 1,933 → 1,853 (www 1,790; +7.99 → +3.52 %).
+- **Live:** ch/de 3,266 / 1,877, as gated.
+- Test: test/swiss-usp-teaser-foot-so65.test.mjs (red on the code before it: the rule isn't there).
+
+**READY: green-fare's infographic** (delta-so65-swiss-green-fare-picture.txt / .json).
+- **Cause:** www has the "50 % SAF / 50 % climate protection" picture as the content's last element, under the
+  domestic-flights text. Our document has it at the start of the aside, so from 768 px it is drawn in the narrow column.
+- **The row:** one replace moves it into the section before.
+- **Dry run:** byte for byte, then "present".
+- **Figures:** 1440 5,711 → 6,079 (www 6,240; −8.48 → −2.58 %), 390 7,468 → 7,488 (www 7,481; −0.17 → +0.09 %).
+
+**READY: nine aside rows** (delta-so65-swiss-aside-rows.txt / .json). Item 1's phone gap on the nine documents that are
+more than 2 % off at 390 and end closer with it: "{spacer-39 below-768}" first in each aside with content (13 inserts).
+- **Dry runs** on DA's nine copies: byte for byte, then "present".
+- **Drafts:** each 390 draft equals the in-page toggle to the px. 1440 is unchanged on all nine, 768 on the three I
+  checked.
+
+| Page (390) | www | As served | With the row |
+| --- | --- | --- | --- |
+| ch/en swiss-premium-economy | 7,682 | 7,414 (−3.49 %) | 7,454 (−2.97 %) |
+| ch/en miles-and-more | 5,194 | 5,035 (−3.06 %) | 5,075 (−2.29 %) |
+| ch/en upgrade-options | 3,904 | 3,723 (−4.64 %) | 3,763 (−3.61 %) |
+| ch/en mobile-apps | 2,643 | 2,505 (−5.22 %) | 2,545 (−3.71 %) |
+| ch/de additional-bag | 2,816 | 2,730 (−3.05 %) | 2,770 (−1.63 %) |
+| ch/de entertainment-on-board | 2,837 | 2,625 (−7.47 %) | 2,665 (−6.06 %) |
+| ch/en health-and-travel | 4,873 | 4,732 (−2.89 %) | 4,772 (−2.07 %) |
+| ch/de swiss-business | 6,821 | 6,681 (−2.05 %) | 6,721 (−1.47 %) |
+| ch/en animals-travelling | 7,771 | 7,540 (−2.97 %) | 7,580 (−2.46 %) |
+
+**READY: fleet's teaser row** (delta-so65-swiss-fleet-card-row.txt / .json).
+- **Cause:** www's two teasers stand in a column view of their own, so ours had 48 px less above the row and 46 px less
+  under it at 1440. It is the only recorded SWISS document with a two-up grid, so a row, not a rule.
+- **The row:** "{spacer-47}" before the row and "{spacer-61}" after it.
+- **Dry run:** byte for byte, then "present".
+- **Figures:** 1440 1,550 → 1,640 (www 1,635; −5.20 → +0.31 %; "Long-haul fleet" at 737 against www's 734), 390
+  1,949 → 2,039 (www 2,040; −4.46 → −0.05 %).
+
+**The others outside 2 %, with their cause:**
+- **On file, unchanged:**
+  - /ch/en/offers (www's live fares grid);
+  - pax-receipt (www's booking-details form);
+  - the magazine rows, −6 to −14 % at 390 (www's advertisement slots);
+  - culinaryjourney (its app answers from www, refused);
+  - internet-overview +3.28 % (the 64 px button form, order 64);
+  - advance-seat-reservation 1440 (order 64);
+  - upgrade-options' intro (copytext-large);
+  - the homepages. Read alone: ch/de 390 +0.56 %, ch/en +2.14 % (the finder's conditions as page text, on file), us/en
+    −3.25 %; at 1440 −1 to −3 %.
+- **Located this order:**
+  - **terms-conditions:** still +3.0 to +3.8 % after the rule (+95 to +120 px); the rest isn't located yet.
+  - **travel-insurances (+8.99 / +6.25 %):** the grey notice band's spacing (+38 px above, +25 below), www's intro in
+    copytext-large and its two footnotes in small print. Text styles for a row and a band question; not this order.
+  - **health-and-travel 1440 (−6.48 %):** about 20 to 40 px at the start of each of its two accordion lists, and −89 at
+    the end.
+  - **recraft:** item 1 (headings and intro).
+  - **refunds, payment-options, unaccompanied-minors, travel-regulations, mobile-apps at 1440 (−3 to −5.5 %):** the
+    difference is spread over 3 to 5 steps of 10 to 90 px each. Several end 50 to 90 px short before the footer, a
+    pattern for a page-end census next.
+  - **newsletter 1440 (+5.21 %):** +63 px at the text after its empty aside.
+- **Not reached this order:** imprint, swiss-airrail, rebook, new-destinations, arrival-departure, vouchers,
+  accessibility-statement, privacy-statement, online-check-in and group-travel-and-charter, each 2 to 3.7 % off.
+
+### Checks
+
+- **Lint:** whole-repo `npm run lint`, exit 0 before each push: 8364cc2f (round 1), 31e0090a (round 1), and this docs
+  commit with the fleet list.
+- **Stylelint** on styles/themes/swiss.css after the change: exit 0. No block CSS file changed.
+- **Tests before the code push:** the folder-reading tests (order 62's list), every test that reads the SWISS theme,
+  carousel-cards, text-inserts-apply or a delta list, and the new test: 333 files, 1,432 pass, 0 failures, 3 skipped.
+- **Full suite** on 31e0090a: 1,275 files, 4,782 pass, 0 failures, 5 skipped.
+- **Folder-reading tests** again with the fleet list: 215 files, 1,014 pass, 0 failures, 2 skipped.
+- **Live checks:**
+  - terms-conditions ch/de after 8364cc2f: 3,266 / 1,877, as gated.
+  - celebrating-shared-stories de/de, after the helpers applied its row: 7,704 / 11,938, as drafted; the served markers
+    equal the draft's.
+  - The SWISS rows weren't applied yet when I last looked (~21:00 CET).
+- **Pushed:** 8364cc2f (the usp rule, its test, and the first three lists), 31e0090a (the nine aside rows), and this docs
+  commit (the fleet list and this section).
+
+### Final section (about 21:05 CET, 2026-11-17)
+
+**Done and live:**
+- The SWISS icon teasers' 20 px (8364cc2f): terms-conditions ch/de 390 +11.41 → +3.78 %, 1440 +7.65 → +3.25 %; ch/en
+  the same. No other recorded page reached.
+- Group for Business celebrating-shared-stories de/de, both card rows (READY, applied by the helpers): 1440 −1.68 →
+  −0.64 %, 390 −1.94 → −1.27 %.
+
+**READY lists (pushed, for the helpers):**
+- delta-so65-swiss-aside-gaps.txt: swiss-recraft-collection (1 path; economy HOLD in the same file);
+- delta-so65-b2b-celebrating-card-rows.txt: 1 path, applied;
+- delta-so65-swiss-green-fare-picture.txt: 1 path;
+- delta-so65-swiss-aside-rows.txt: 9 paths;
+- delta-so65-swiss-fleet-card-row.txt: 1 path.
+
+**Held, with figures:**
+- **The SWISS tab-panel inset:** recraft still 1.07 points further, even with its row.
+- **swiss-economy's aside row:** www's gaps to the px, but 0.68 points further alone (+0.21 % with the inset). It waits
+  with the inset.
+- **The SWISS aside rule (80 px on phones):** 5 pages further, so the rows above instead.
+- **The B2B news-title rule:** its 40 px is 0.516 % of celebrating's 7,754, so it fails at 1440 while the page is shorter
+  than www's; 50 px still open there, in 8 to 18 px pieces.
+- **No row possible:** experts-members (the smallest mark draws 65 px), European fares (font wrap), invoice-receipt
+  (waits for the news-title rule).
+
+**Your calls:** the economy row with the inset, together or not at all; and whether a B2B rule for the 8 px grey-section
+boundaries is worth a site census.
+
+**Left uncommitted:** nothing of mine. Scratch stays in migration-work/parity-588/so65. No background job of mine is
+running.
