@@ -9603,3 +9603,151 @@ live at their gated figures, to the px.
 
 **Not in git** (scratch under migration-work/parity-588/so55): the served copies, census and gate outputs, toggles,
 renders, logs and the report draft.
+
+## Standing order 56 (2026-11-17, from about 23:30 CET on the 16th)
+
+**Carried over:** nothing. Order 55's three commits (9ab814fd, d06c7a33, 6453384e) were on main and my worktree was
+clean. Another job pushed order 43's report (7fc4d6eb) on top. The checkout's 88 dirty entries belong to other jobs and
+were left alone (blocks/notifications/notifications.css among them).
+
+**Scratch:** migration-work/parity-588/so56 (it survives a restart): fresh served copies of every Austrian (2,459) and
+Air Dolomiti (1,569) document, airdolomiti-parity-013 extracted, the censuses, gates, locating dumps, renders and logs.
+
+**Renders:** about 1,000 page loads, all unhinted. lh-proxy, www.* (but www.mynewsdesk.com) and every airline host were
+refused and counted: 0 to 20 a render, none sent.
+
+**DA:** nothing read or written. No upload, preview, publish or da-upload.mjs. No rows this order: both fixes are code,
+and neither needs a document change. /de/en/overview-manage has no row.
+
+### Item 1: plugins
+
+`.agents/settings.json` had `{"enabledPlugins": {"stardust@excat-extended": true}}`; it now has `false`. Impeccable is
+not in that file: this session loads it as an inline plugin (the platform's, not the workspace's), so I can't switch it
+off from here. If stardust brings it in, it should go with stardust's switch at the next session start. All other
+optional plugins were already off. The file is excluded from git (.git/info/exclude), so nothing is committed for it.
+
+### Item 2: the Air Dolomiti stack against www's FAQ baggage recording (gate-so56-airdolomiti-stack-faq-baggage.txt): STAYS AS SHIPPED
+
+**The archive:** airdolomiti-parity-013 landed in Air Dolomiti's drop folder at 23:42 CET (sha256 checked against its
+sidecar). It holds /faq/bagaglio, /faq-eu/baggage and /faq-de/gepaeck-faq at 390 and 1440, each width its own first load
+(22:37 to 22:42 UTC). You hadn't named it when I picked it up; its contents are the ones you described.
+
+**Gate figure:** the footer's top. At 390 www's pictures stop at the footer and the scroll height runs on past them.
+
+| page | width | www | with the stack (as served) | without it | result |
+| --- | --- | --- | --- | --- | --- |
+| /faq/bagaglio | 390 | 4,438 | 4,186 (-5.68 %) | 4,081 (-8.04 %) | closer |
+| /faq/bagaglio | 1440 | 2,524 | 2,529 (+0.20 %) | 2,434 (-3.57 %) | closer |
+| /en/faq-eu/baggage | 390 | 4,490 | 4,214 (-6.15 %) | 4,109 (-8.49 %) | closer |
+| /en/faq-eu/baggage | 1440 | 2,524 | 2,529 (+0.20 %) | 2,434 (-3.57 %) | closer |
+| /de/faq-de/gepaeck-faq | 390 | 5,033 | 4,685 (-6.91 %) | 4,580 (-9.00 %) | closer |
+| /de/faq-de/gepaeck-faq | 1440 | 2,664 | 2,631 (-1.24 %) | 2,536 (-4.80 %) | closer |
+
+"Without it" is today's code with the stack's 54 lines cut and the lead-in script a no-op.
+
+**Per element**, so the height gate isn't crediting the stack for something else: with the stack the last intro
+paragraph sits 261 px over the first question at 1440 (www 261, without 166) and 339 at 390 (www 338). The question rows
+step as www's. So the scope is not narrowed.
+
+**What's left on these pages is not the stack's:**
+- **Italian and English, both widths (+33 / +37 px):** www's first two intro lines are one block, ours two paragraphs
+  with a blank line between. That's a document difference. I wrote no row: closing it alone moves both pages further
+  from www, because the 390 tail is larger.
+- **390 only (-139 px to the related articles, -152 more to the footer):** the related-articles cards. www's are its
+  CardNews, 325 x 470 px with a 282 px picture, then a counter and arrows. Ours are lh-com's default, 351 x 334 with a
+  196 px picture. The theme already draws CardNews on the destination pages' carousels, but only in heading-icon
+  sections; on the FAQ pages the carousel shares the accordion's section. A plan is under "For you".
+
+### Item 3: fr/fr/contact at 1440
+
+It was already located and fixed. Order 44 traced it to the footer (our 221 px link columns wrapped the French labels:
+877 px against www's 836), and order 45's footer rule (c86de758) fixed it. Order 43's sweep file still carries its "not
+traced tonight" note from before then. Today it measures 2,519 against www's 2,508 (+0.44 %), order 44's gated figure
+to the px. With this order's help app rule it is 2,507 (-0.04 %).
+
+### Item 4: places 231 to 260 (sweep-so56-places-231-260.txt), and two fixes
+
+All 30 are within 1 %. Each was measured again and located against www's recorded load. Two causes repeat across many
+pages, so I traced them to an element and fixed both:
+
+**Austrian help app's end (gate-so56-austrian-help-app-footer-gap.txt): SHIPPED, 1a1a12d4**
+- **Cause:** on the contact and help-center pages every text and the app's grey band sit at www's place. After the
+  band www's footer starts 36 px lower, ours 48 (the section's gap). This was order 55's "+14 to the footer" on 216, 217,
+  222, 229 and 230.
+- **Fix:** 36 px under a last section holding help-center-web, by the body's maui-theme-os. It sits in the block's CSS
+  next to ITA's 24 px and SWISS's 30. The culinary hub's app has the same body class and is not reached.
+- **Census:** of the 22 Austrian documents that end with an app, at 390, 768 and 1440: the 12 help-center documents -12
+  px at every width; the 10 culinary pages unchanged.
+- **Gate:** 24 of 24 recorded page-widths PASS, 20 closer (at/de contact 390 +0.48 -> +0.10 %, 1440 +0.45 -> -0.04 %).
+  cn/zh, jp/ja and it/it 390 move up to 0.49 points further; www has the same 36 px on all 24, so the rest on those
+  pages lies elsewhere (the non-Latin faces).
+- **Live:** all 24 measure live at their gated figures, to the px.
+
+**Air Dolomiti link tiles (gate-so56-airdolomiti-link-tiles.txt): SHIPPED, 8f82a5af**
+- **Cause:** www's tile pads its content 30px 20px (its recorded stylesheet). So the chip sits 30 px down the picture,
+  and under a title's line the grid starts 30 px down. Ours were 20 and 40: the texts at www's place, the pictures 10 px
+  lower, each page 10 px longer. This was order 55's "+10 to the footer" on 227.
+- **Fix:** the chip 30 px down on every link tile; link tiles under a title and its line 30 px down (other cards there
+  keep 40).
+- **Census:** all 96 documents with link tiles at 390, 768 and 1440: 30 page-widths -10 px (support, baggage, extra
+  services and booking services in three languages, en/faq-eu), the rest unchanged.
+- **Gate:** 12 of 12 recorded page-widths PASS, each at www's height to the px.
+- **Live:** all 12 and two other reached pages measure live at their gated figures, to the px.
+
+**The rest:**
+- **Live as gated:** 257 destinazioni 390 (order 54's destinations end, 6,413).
+- **Moved since order 43:** 231 / 232 by/ru and ru/ru homepages +10 (order 45's footer columns -21, order 47's carousel
+  without the finder +31), now -0.25 %.
+- **Widget states:** 243 de/de and 256 ch/it homepages, as served with the APIs refused.
+- **www's file lists closed accordion texts at one top:** 250 and 251, as order 55's 219.
+- **No fix:** steps of both signs on the others, none a rule's worth.
+
+### Final section (about 01:15 CET, 2026-11-17)
+
+All four items are done, so I stopped well before 03:00.
+
+**On main:**
+- `1a1a12d4`: the Austrian help app's 36 px to the footer (block CSS, the test).
+- `8f82a5af`: the Air Dolomiti link tiles (theme rules, the test).
+- This commit: the three gate files, the sweep file and this order's section.
+
+**Checks:**
+- **Lint:** whole-repo `npm run lint` exit 0, read before each push. Origin moved twice (SWISS, Brussels and report
+  commits), so I rebased and ran lint again each time: exit 0.
+- **Stylelint:** blocks/micro-frontend/micro-frontend.css and styles/themes/airdolomiti.css, exit 0. The theme needed
+  one no-descending-specificity note on an older rule (a two-paragraph text box, which the tiles' one-line rule can't
+  match).
+- **Tests before the pushes:** 112 files for the first (every micro-frontend and Austrian test, the folder-reading
+  tests), 170 for the second (every test reading the Air Dolomiti theme or cards-teaser, the folder-reading tests), and
+  what origin's commits changed: 0 failures.
+- **Full suite** on 8f82a5af: 1,253 files, 4,728 tests, 4,723 pass, 0 failures, 5 skipped.
+
+**Live:** both commits are served. All 36 gated page-widths and two other reached pages measure live at their gated
+figures, to the px.
+
+**For you:**
+- **Air Dolomiti's related-articles cards (a plan, not started):**
+  - **What changes:** the plain carousel-cards outside the destination pages' heading-icon sections (the FAQ pages'
+    "Articoli correlati", articles' related lists) would draw www's CardNews, as the destination carousels already do.
+    That means 325 x 470 px cards, a 282 px picture, the title 18.5 / 24 px regular, and the counter row with arrows
+    below 1230 px.
+  - **Which documents:** up to 267 have a plain carousel. A rendered census comes first: my count from the documents
+    couldn't tell the heading-icon sections apart.
+  - **What it would fix:** the FAQ baggage pages' 390 shortfall (-139 / -152 px) and destinazioni's -307 / +307 step.
+  - **How long:** about two hours with the census and the gate (the six FAQ page-widths, destinazioni and the recorded
+    articles).
+- **The FAQ intro lines:** on the Italian and English baggage FAQ, www's first two intro lines are one block. A row
+  would bring them together, but alone it fails the gate until the cards above are done.
+- **Plugins:** stardust is off in the workspace. Impeccable is loaded by the platform here; if it is still on next
+  session, it needs switching off where the session's plugins are set.
+
+**Rules followed:**
+- No request to an airline host: refused and counted, none sent.
+- DA: nothing read or written.
+- No upload, preview, publish or da-upload.mjs. No rows this order.
+- The checkout's dirty entries untouched.
+- /de/en/overview-manage has no row.
+- The finder button rule stays on HOLD.
+
+**Not in git** (scratch under migration-work/parity-588/so56): the served copies, airdolomiti-parity-013, census and
+gate outputs, overrides, renders, logs and the report draft.

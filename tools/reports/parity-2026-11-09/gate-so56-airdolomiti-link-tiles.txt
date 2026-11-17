@@ -1,0 +1,20 @@
+# ema-cashub, standing order 56, item 4 (2026-11-17, ~00:30 to ~01:55 CET): Air Dolomiti's support pages' "+10 to the footer" (places 227 of order 55; 233, 236, 237, 240, 241 of this order) located and fixed. Status: SHIPPED (styles/themes/airdolomiti.css, test/airdolomiti-link-tiles-so56.test.mjs; commit 8f82a5af).
+# Cause: the link tiles (cards-teaser three-up of a picture, a title and its link). www's tile (CardIllustrationsSmall, its recorded stylesheet css/_next/static/css/9b0d6fc8931d0dff.css) pads its content 30px 20px, so the chip sits 30 px down its picture and 20 px in; under a title and its line www's grid starts 30 px down. Ours: the chip 20 px down, the grid 40 px down (written from the baggage page). The texts come out at www's place, the pictures 10 px lower, so each page ends 10 px longer.
+# www, read on all 12 recorded page-widths (airdolomiti-parity-001; the first chip's top from the measurement file, the picture's top down the column 10 px left of the chip): the chip 30 px under the picture's top on 12 of 12 (support 1440: picture 300, chip 330; ours 310 / 330).
+# Fix: the chip's top 30 px (every link tile, 96 documents); a rule for link tiles right under a title and its line: margin-top 30 px (the other cards there keep 40).
+# Census: fresh served copies of all 1,569 Air Dolomiti documents (~00:20 CET); the 96 with link tiles (support, baggage, FAQ, leisure, extra services and booking services in three languages, 82 airport pages) at 390 / 768 / 1440, fresh loads as served and with the change (code override). 30 page-widths -10 px: bagagli, de/gepaeck, en/baggage, supporto-e-contatti, de/unterstutzung-und-kontakte, en/support-and-contacts, servizi-extra, de/services-zur-buchung, en/additional-services, en/faq-eu (each at all three widths); 258 unchanged (de/flughaefen/rijeka-de 768 came back broken and was read again alone: unchanged).
+# Renders: unhinted, EAGER=1 CONSENT=1; lh-proxy, www.* but www.mynewsdesk.com and every airline host refused and counted (none sent).
+# Gate: PASS when |after %| - |before %| <= 0.5 (page height against www's recorded one). 12 of 12 PASS, each at www's height to the px.
+# path	width	recording	www	as served	with the change	result	points
+/bagagli	390	airdolomiti-parity-001	2186	2196 (+0.46 %)	2186 (+0.00 %)	PASS	-0.46
+/de/gepaeck	390	airdolomiti-parity-001	2244	2254 (+0.45 %)	2244 (+0.00 %)	PASS	-0.45
+/de/unterstutzung-und-kontakte	390	airdolomiti-parity-001	1948	1958 (+0.51 %)	1948 (+0.00 %)	PASS	-0.51
+/en/baggage	390	airdolomiti-parity-001	2172	2182 (+0.46 %)	2172 (+0.00 %)	PASS	-0.46
+/en/support-and-contacts	390	airdolomiti-parity-001	1874	1884 (+0.53 %)	1874 (+0.00 %)	PASS	-0.53
+/supporto-e-contatti	390	airdolomiti-parity-001	1934	1944 (+0.52 %)	1934 (+0.00 %)	PASS	-0.52
+/bagagli	1440	airdolomiti-parity-001	2243	2253 (+0.45 %)	2243 (+0.00 %)	PASS	-0.45
+/de/gepaeck	1440	airdolomiti-parity-001	2295	2305 (+0.44 %)	2295 (+0.00 %)	PASS	-0.44
+/de/unterstutzung-und-kontakte	1440	airdolomiti-parity-001	1975	1985 (+0.51 %)	1975 (+0.00 %)	PASS	-0.51
+/en/baggage	1440	airdolomiti-parity-001	2261	2271 (+0.44 %)	2261 (+0.00 %)	PASS	-0.44
+/en/support-and-contacts	1440	airdolomiti-parity-001	1971	1981 (+0.51 %)	1971 (+0.00 %)	PASS	-0.51
+/supporto-e-contatti	1440	airdolomiti-parity-001	1953	1963 (+0.51 %)	1953 (+0.00 %)	PASS	-0.51

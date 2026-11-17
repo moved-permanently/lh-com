@@ -1,0 +1,32 @@
+# ema-cashub, standing order 56, item 4 (2026-11-17, ~00:05 to ~00:25 CET): the Austrian contact pages' "+14 to the footer" (places 216, 217, 222, 229, 230 of order 55, 252 and 253 of this order) located and fixed. Status: SHIPPED (blocks/micro-frontend/micro-frontend.css, test/micro-frontend-austrian-help-footer-gap-so56.test.mjs; commit 1a1a12d4, live by ~00:30 CET).
+# Cause: inside the help centre app (help-center-web) every text and the app's grey band end at www's place (at/de contact 390: the band ends 2,030 / www 2,028; 1440: 1,607 / 1,607, pixels read down both pictures). After the band www's footer starts 36 px lower, ours 48 (the section's --section-gap). The footer itself is the same height (390: 1,067 / 1,066).
+# Fix: body.maui-theme-os main > .section:last-child:has(.micro-frontend help-center-web) { margin-bottom: 36px; }, next to ITA's 24 px and SWISS's 30 px (the app's theme class on the body; maui-theme-os is Austrian's only). The culinary hub's app (culinary-hub, same body class) is not reached.
+# www's gap read on every recording (the last #f6f6f6 row at least half the width, the measurement file's footer top): 36 px on all 24 page-widths below.
+# Census (served copies of all 2,459 Austrian documents fetched ~00:00 CET; the 22 that end with a micro-frontend section: 12 help-center-web, 10 culinary-hub), 390 / 768 / 1440, fresh loads as served and with the rule (code override): help-center 36 of 36 page-widths -12 px, culinary 30 of 30 unchanged. Five loads of the first run came back broken (a window-high page) and were read again alone; the second run with the committed CSS: the same figures, no broken load.
+# Renders: unhinted, EAGER=1 CONSENT=1; lh-proxy, www.* but www.mynewsdesk.com and every airline host refused and counted (0 to 3 a render), none sent.
+# Gate: PASS when |after %| - |before %| <= 0.5 (page height against www's recorded one). 24 of 24 PASS, 20 closer; cn/zh, jp/ja (non-Latin faces, the owner's explanation) and it/it 390 further, each within the half point, each with www's 36 px.
+# path	width	recording	www	as served	with the rule	result	points	www's gap under the band
+/at/de/contact	390	austrian-parity-007	3131	3146 (+0.48 %)	3134 (+0.10 %)	PASS	-0.38	36 px
+/at/de/hilfe-center	390	austrian-parity-006	3131	3146 (+0.48 %)	3134 (+0.10 %)	PASS	-0.38	36 px
+/at/en/contact	390	austrian-parity-007	3023	3039 (+0.53 %)	3027 (+0.13 %)	PASS	-0.40	36 px
+/at/en/help-center	390	austrian-parity-019	3023	3039 (+0.53 %)	3027 (+0.13 %)	PASS	-0.40	36 px
+/cn/zh/contact	390	austrian-parity-007	3141	3090 (-1.62 %)	3078 (-2.01 %)	PASS	+0.38	36 px
+/es/es/contact	390	austrian-parity-007	3103	3121 (+0.58 %)	3109 (+0.19 %)	PASS	-0.39	36 px
+/fr/fr/contact	390	austrian-parity-007	3218	3236 (+0.56 %)	3224 (+0.19 %)	PASS	-0.37	36 px
+/gr/el/contact	390	austrian-parity-007	3172	3245 (+2.30 %)	3233 (+1.92 %)	PASS	-0.38	36 px
+/it/it/contact	390	austrian-parity-007	3123	3121 (-0.06 %)	3109 (-0.45 %)	PASS	+0.38	36 px
+/jp/ja/contact	390	austrian-parity-007	3044	2967 (-2.53 %)	2955 (-2.92 %)	PASS	+0.39	36 px
+/pl/pl/contact	390	austrian-parity-007	3100	3118 (+0.58 %)	3106 (+0.19 %)	PASS	-0.39	36 px
+/ru/ru/contact	390	austrian-parity-007	3232	3300 (+2.10 %)	3288 (+1.73 %)	PASS	-0.37	36 px
+/at/de/contact	1440	austrian-parity-001	2459	2470 (+0.45 %)	2458 (-0.04 %)	PASS	-0.41	36 px
+/at/de/hilfe-center	1440	austrian-parity-006	2459	2470 (+0.45 %)	2458 (-0.04 %)	PASS	-0.41	36 px
+/at/en/contact	1440	austrian-parity-001	2438	2449 (+0.45 %)	2437 (-0.04 %)	PASS	-0.41	36 px
+/at/en/help-center	1440	austrian-parity-003	2438	2449 (+0.45 %)	2437 (-0.04 %)	PASS	-0.41	36 px
+/cn/zh/contact	1440	austrian-parity-007	2438	2408 (-1.23 %)	2396 (-1.72 %)	PASS	+0.49	36 px
+/es/es/contact	1440	austrian-parity-007	2459	2470 (+0.45 %)	2458 (-0.04 %)	PASS	-0.41	36 px
+/fr/fr/contact	1440	austrian-parity-007	2508	2519 (+0.44 %)	2507 (-0.04 %)	PASS	-0.40	36 px
+/gr/el/contact	1440	austrian-parity-007	2459	2498 (+1.59 %)	2486 (+1.10 %)	PASS	-0.49	36 px
+/it/it/contact	1440	austrian-parity-007	2480	2491 (+0.44 %)	2479 (-0.04 %)	PASS	-0.40	36 px
+/jp/ja/contact	1440	austrian-parity-007	2459	2408 (-2.07 %)	2396 (-2.56 %)	PASS	+0.49	36 px
+/pl/pl/contact	1440	austrian-parity-007	2459	2470 (+0.45 %)	2458 (-0.04 %)	PASS	-0.41	36 px
+/ru/ru/contact	1440	austrian-parity-007	2508	2519 (+0.44 %)	2507 (-0.04 %)	PASS	-0.40	36 px
