@@ -6022,3 +6022,103 @@ browser jobs at a time, each read inside the turn. No stylesheet or code touched
     - two Brussels upload-state commits.
   - A fourth pull brought two commits: a SWISS upload state and ema-cashub's report (docs only).
   - The lint, the folder-reading tests and the full suite were run again at the final rebased HEAD before the push.
+
+## Standing order 57 (received about 23:05 UTC, 2026-11-17): token-free rows
+
+Ben's rule (17 Nov ~23:05 CET): no row may put a style token into a document. I wrote row lists only; no theme, block or importer file was touched.
+
+### Item 1: the 76 carried rows
+
+Lists: delta-so57-carry-gb-en.txt, -de-de.txt and -at-de.txt. Inserts: delta-so57-carry-rows.json.
+
+| locale | READY | HOLD | dropped |
+| --- | --- | --- | --- |
+| gb/en | 16 | 7 | 1 |
+| de/de | 18 | 8 | 1 |
+| at/de | 17 | 7 | 1 |
+| all | 51 | 22 | 3 |
+
+- **DA reads.** 51 copies, one page per command, ~23:10-23:35 UTC, all 200. Each copy's sections match the served copy's, text for
+  text. (DA keeps an empty trailing section and the Metadata block, which the served .plain.html drops.)
+- **READY, the section-style rows (39).** The gap-after-small-* classes are carriers, so these are token-free as they stand.
+  - Dry run: 51 inserts, each made once; without them, every DA copy byte for byte.
+  - Renders: order 56's no-breakage renders hold. The served copies are byte for byte the same, and main's changes since (default-content
+    pictures' min-width, the b2b theme) reach none of them.
+- **READY, the marker rows rewritten as de/en's (12).**
+  - pax-receipt: the copy's {spacer-80} becomes a Spacer block.
+  - flight-disruptions and first-class-entertainment: the {divider-25} becomes a Divider block.
+  - terminal-muenchen: the closing {spacer-70} goes.
+  - Each takes a marker out and adds none. Dry run byte for byte. Rendered again with and without at 1440 and 390: no new flag. The
+    Divider block draws what {divider-25} drew (no change); pax-receipt is 20 px shorter; terminal-muenchen is 119 / 95 px shorter.
+- **Dropped (3).** cancellations' {spacer-4 below-768} is a near value: no row. payment-options' 25 px part is dropped the same way.
+- **HOLD (22).** hotel-offers, rail-and-fly, wetlease-hub, advice-usa, payment-options (its 40 px part), free2move, shopping and mobility-partner:
+  each waits for the same theme class as its de/en row (item 2).
+
+### Item 2: my 15 live de/en marker rows (14 documents, orders 50 to 56)
+
+List: delta-so57-lh-com-token-cleanup.txt. Inserts of the READY rows: delta-so57-lh-com-token-cleanup.json.
+
+- **Gate.** On the recordings (lh-parity-002a/002b/003, 1440 and 390, renders in the same hour), at each width either:
+  - no further from www by more than 0.5 points than with the marker, or
+  - the near-value collapse: separators 0-31 px none, 32-89 M, 90+ L; a divider's space within 30 px of the Divider's 25.
+- **READY (7).** DA copies read one per command; dry run byte for byte.
+  - terminal-muenchen: removal.
+  - pax-receipt: Spacer block, 1440 4.87 -> 3.04 %.
+  - flight-disruptions: Divider block.
+  - first-class-entertainment: Divider block.
+  - payment-options: the 25 px part out.
+  - cancellations: removal.
+  - special-meals: removal.
+- **HOLD (8).** No existing section style passes. The removal waits with its carrier, so the page doesn't go back. The list gives the cost of
+  the removal alone, and each existing style tried.
+- **Classes a theme rule would need (ema-adobe):**
+  - space-below-l-768 (Space below L from 768 px only): rail-and-fly; with space-below-m-below-768 for hotel-offers and wetlease-hub;
+  - space-below-m-768 (Space below M from 768 px only): advice-usa;
+  - space-below-m-768 drawn inside the column view, before its column end: payment-options' 40 px part;
+  - space-m-below-768 (Space above M on phones only): mobility-partner (applied after a leading separator) and free2move (its small print a
+    section of its own);
+  - divider-l-768 with divider-m-below-768 (the Divider's space L from 768 px, M on phones): shopping.
+  - With the space-below classes, each width measures as today's style of that size draws it: within the near-value collapse.
+- **No token, left as they are:** the gap-after-small-* rows (rebook's below-768 change of order 52 is one).
+- **Not mine, same question:** ema-adobe's services-at-the-airport {spacer-34 below-768} (order 53).
+- **Outside this order's lufthansa.com lists:** my ITA rows that add markers. delta-so53-ita-carry-01 has 64, delta-so55-ita-rows 9; the
+  carry of order 52 has none.
+- **Found on the way (marker-collapse.mjs, not changed).** The collapse adds a from-768 / below-768 pair up as one run: pax-receipt's 80 + 57
+  becomes L, terminal-muenchen's 23 + 70 L, wetlease-hub's pair space-below-l. So these markers would also collapse wrong at lufthansa.com's
+  switch.
+
+### Final section (about 23:50 UTC)
+
+- **Checks at the lists' commit:** whole-repo lint exit 0; the folder-reading tests 665, 0 failed; brand.test.mjs passed. The full suite (lint,
+  stylelint, tests) before this section: see the last line.
+- **Remote:** nothing uploaded, previewed or published; da-upload.mjs not run; no DA write. DA reads only, 58 single literal-URL GETs, each its
+  own command. No guard block this order.
+- **Requests:** our own host, DA and GitHub's API only; no airline host; renders refuse them per request.
+- **Not touched:** .migration/project.json. /de/en/overview-manage has no row and no line. The optional plugins stay off; .agents/settings.json
+  not written.
+- **Not in git:** logs/p4/so57 (DA copies, served copies, trials, renders) and the drops; content/, migration-work/ and tools/importer/reports/*
+  (not mine); the old autostash entry.
+- **Cleanup:** the folder servers are stopped (by PID); the gate and suite worktrees are removed after the push.
+- **For the publish child's round:**
+  - delta-so57-carry-rows.json (51 documents);
+  - delta-so57-lh-com-token-cleanup.json (7 documents).
+  - Held: 22 carried rows and 8 de/en rows, until ema-adobe's classes exist.
+- The full suite at the lists' commit: npm run lint exit 0, stylelint exit 0, 1,278 test files passed, 0 failed. The lint, the folder-reading tests and the suite run again if the last pull brings commits.
+- The last pull brought seven commits:
+  - marker-collapse.mjs's "no separator stays a marker on any brand";
+  - the SWISS and B2B themes and their token-free cleanups' upload states;
+  - ema-cashub's report.
+  - The collapse note above still holds with the new marker-collapse.mjs (my 14 copies collapsed again: the same output). Nothing lufthansa.com's
+    pages read changed (style-markers.js: other brands' theme entries and the new h3-compact style).
+  - A second pull brought two more, docs and upload state only: the Discover cleanup's state and the lufthansa.com switch plan
+    (lufthansa-switch-plan-919.md).
+  - A third pull brought two upload states, B2B's and ITA's token-free cleanups; a fourth one, Brussels'.
+  - The lint, the folder-reading tests and the suite were run again after each of those pulls: last at Brussels' state, lint 0, stylelint 0,
+    1,281 test files passed, 0 failed.
+  - A fifth pull brought one upload-state file (Austrian's token-free cleanup). After it: the whole-repo lint, the folder-reading tests and the
+    two tests that read upload states (da-upload-sites, loc-sites).
+  - A sixth pull brought "fix(importers, collapse, ita theme), docs(lists): standing order 44 item 2" (code and tests: style-markers.js'
+    ITA / Brussels entries, ita.css, two importers, five tests). Nothing lufthansa.com's carriers read changed. After it: the whole-repo
+    lint, the folder-reading tests (668, 0 failed) and the full suite (lint 0, stylelint 0, 1,282 test files passed, 0 failed).
+  - The last pull brought one upload-state file (ITA's). After it, before the push: the whole-repo lint, the folder-reading tests and the
+    upload-state and brand tests.
