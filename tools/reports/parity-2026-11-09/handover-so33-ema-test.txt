@@ -149,3 +149,11 @@ Standing order 43 (2026-11-16, ema-adobe's places 119 to 148 of sweep-so34-lh-ad
      (columns-media) 20px shorter than www's, before item 20's link;
    - /de/en/munich-fair, 390 (6.1 %): 36px less from the stage picture to the first text (www 73px, ours 37), then 29px
      more from that text to the grey band (www 33, ours 62). Both are section gaps; they cancel in the page's height.
+
+Standing order 45 (2026-11-17, ema-adobe's places 21 to 40 of sweep-so44-lh-adobe.md):
+22. Section gap and heading width at 1440:
+   - /de/en/munich-fair, 1440 (11.3 %): 55px less from the stage picture to the first text (www 84px, ours 29); then the
+     grey band's H2 "From the airport to Messe München (Munich Trade Fair)/ICM" wraps to two lines in ours, one on www (the
+     heading's width);
+   - /at/de, /de/de articles/tags/allegris, 1440 (10.6 %): ours starts the grey "Tauchen Sie tiefer in die Welt von
+     Lufthansa Allegris ein" band 15px sooner after the picture above it; everything below is 44-74px higher.

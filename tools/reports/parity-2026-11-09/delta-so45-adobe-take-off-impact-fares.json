@@ -1,0 +1,19 @@
+[
+ {
+  "path": "/de/en/discover-lufthansa/take-off",
+  "inserts": [
+   {
+    "replace": "With our Green Fares, you can",
+    "text": "With our Impact Fares, you can"
+   },
+   {
+    "replace": ">More about Green Fares</a>",
+    "text": ">More about Impact Fares</a>"
+   },
+   {
+    "replace": "https://www.lufthansa.com/content/dam/lh/images/local_variations/c-2004600113-1078_01_10973_02_Travel_ID.jpg.transform/lh-dcep-transform-width-2560/img.jpg",
+    "text": "https://www.lufthansa.com/content/dam/lh/images/frontify_variations/1/c-1624975041-1094_29a_1_04482.jpg.transform/lh-dcep-transform-width-2560/img.jpg"
+   }
+  ]
+ }
+]

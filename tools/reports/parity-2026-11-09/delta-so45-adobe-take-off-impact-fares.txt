@@ -1,0 +1,24 @@
+# ema-adobe, standing order 45 (2026-11-17), item 2: /de/en/discover-lufthansa/take-off following www's new content, as
+# recorded in lh-parity-014 (sha256 bc98b993..., one fresh load at 1440 and 390).
+# What changed on www since our import (10-22 snapshot):
+# - the card "More sustainable air travel": "With our Green Fares, you can ..." -> "With our Impact Fares, you can ...",
+#   and its link "More about Green Fares" -> "More about Impact Fares". www now links it to
+#   /de/en/prepare-for-your-trip/travel-classes/green-fare, which answers 301 on our host; our link stays
+#   /de/en/green-fare (200, the same page), so only the label changes;
+# - the card "Travel ID: one login - lots of options": a new picture,
+#   frontify_variations/1/c-1624975041-1094_29a_1_04482.jpg (was local_variations/c-2004600113-..._Travel_ID.jpg). The
+#   row points DA's picture at www's new file, in DA's own form (the 2560 transform URL), as DA's other pictures are;
+#   the picture is ingested when the page is next previewed.
+# Everything else on the page is as www's: the same 11 cards, headings and pictures in the same order. Two links stay as
+# DA has them: Travel ID and Lufthansa Insights point at www's absolute URLs (www now links them relative; /de/en/travel-id
+# is not on our site, 404), as before.
+# Tool: tools/importer/text-inserts-apply.mjs --data delta-so45-adobe-take-off-impact-fares.json (3 replaces, each
+# anchor found once). Dry run on DA's current copy (read-only GET, 01:15 CET): 3 inserted; without them DA's copy
+# byte for byte (--check).
+# Gate: the published copy and a draft with the row's changes on our host (--main, working-copy code), against
+# lh-parity-014. In the draft the new picture is www's own, cut from the 1440 recording (622 x 267, the card's box) and
+# served from the working copy, so no request went to www. lh-parity-014's loads show the OneTrust "Privacy Settings"
+# dialog over the first screen (rows 0-899 at 1440, 0-843 at 390); the gate masks that screen on both sides.
+# Whole page (first screen included): 1440 17.5 -> 15.3, 390 10.9 -> 9.2.
+# status	document	tool	expected change	gate (1440 / 390, %, first screen masked)
+READY	/de/en/discover-lufthansa/take-off	text-inserts-apply (delta-so45-adobe-take-off-impact-fares.json)	"Impact Fares" in the sustainability card (text and link label); the Travel ID card's new picture, as www	3.9 -> 1.6 / 6.3 -> 4.6

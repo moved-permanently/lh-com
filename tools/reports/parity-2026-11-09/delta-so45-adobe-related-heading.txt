@@ -1,0 +1,18 @@
+# ema-adobe, standing order 45 (2026-11-17), item 3 (places 22, 23, 33, 38 of sweep-so44-lh-adobe.md):
+# allegris-new-york at/de and gb/en have no heading before their related cards. de/de and de/en carry
+# "Ähnliche Artikel {heading-medium}" / "Related Articles {heading-medium}" there, and www shows the heading on all four
+# (lh-parity-014). The row puts the same heading before the block, in DA's own form (de/de's DA copy:
+# <div><h3>Ähnliche Artikel {heading-medium}</h3><div class="related-articles"></div></div>).
+# Tool: tools/importer/text-inserts-apply.mjs --data delta-so45-adobe-related-heading.json (one insert before
+# '<div class="related-articles">', found once per copy). Dry run on DA's current copies (read-only GET, 01:30 CET):
+# 1 inserted each; without it DA's copy byte for byte (--check).
+# Gate: the published copy and a draft with the heading on our host (--main, the working-copy code), against
+# lh-parity-014. That archive's loads show the OneTrust "Privacy Settings" dialog over the first screen, so the
+# gate masks that screen on both sides. With the heading, the 390 page heights become www's (gb/en 7,663 = 7,663).
+# The same gap, wider: 1,053 published copies have a related-articles block with no heading before it, 522 at/de and
+# 528 gb/en, i.e. nearly every at/de and gb/en article; de/en and de/de have the heading. Listed in
+# list-so45-related-heading-missing.txt. Those have no recording, so no row here: the same insert would apply to each
+# (a heading in the version's language), but it needs the no-breakage renders first, or the migration session's call.
+# status	document	tool	expected change	gate (1440 / 390, %, first screen masked)
+READY	/at/de/articles/highlights/allegris-new-york	text-inserts-apply (delta-so45-adobe-related-heading.json)	"Ähnliche Artikel" above the related cards, as de/de and www	9.8 -> 9.3 / 11.8 -> 10.7
+READY	/gb/en/articles/highlights/allegris-new-york	text-inserts-apply (delta-so45-adobe-related-heading.json)	"Related Articles" above the related cards, as de/en and www	10.2 -> 8.3 / 11.9 -> 10.5

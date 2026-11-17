@@ -1,0 +1,20 @@
+[
+ {
+  "path": "/at/de/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/allegris-new-york",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ }
+]
