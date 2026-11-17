@@ -1,0 +1,15 @@
+# ema-test, standing order 54, items 2 and 3 (2026-11-17): ITA.
+#
+# Item 2: the two it/en heading-size marks held since order 11 (reimport-so11-ita-column-view-headings.txt, "worse at 390"), gated once more against ita-parity-005 as served. Trial pages are html-folder full pages of the served copy (ita.turnsthe.page ~17:05 UTC), base and trial on lh-ita's code at origin/main. The folder base reads as the host at both widths: measured on the host ~17:08 UTC, the same figures. Full Chrome, the drops' fonts (ita-parity-005's included), live boxes masked, airline hosts refused per request.
+# Rule: READY if both widths end closer to www or within 0.5 points. Neither passes: the mark changes nothing at 1440 (the heading's size there is already the mark's), and at 390 it makes the heading larger than www's, more than 0.5 points further. Both stay held; nothing to carry to the other versions.
+# Each line: HOLD, path, the mark, 1440 and 390 (base -> trial, www), why.
+HOLD	/it/en/book-and-prepare/travel-information/at-the-airport/lounges/fantasia-lounge	{heading-medium} on "Traveling Alone: Services for Unaccompanied Minors"	1440 11.14 -> 11.14 % (3,754 -> 3,754 px, www 3,759), 390 10.41 -> 12.36 % (4,819 -> 4,863 px, www 4,747)	1.95 points further at 390, unchanged at 1440
+HOLD	/it/en/manage-my-bookings/extra-services/seats-selection/seats-selection-economy	{heading-small} on "Legroom Seat"	1440 12.01 -> 12.01 % (4,574 -> 4,574 px, www 4,528), 390 10.59 -> 11.65 % (6,148 -> 6,144 px, www 6,065)	1.06 points further at 390, unchanged at 1440
+#
+# Item 3: ITA's recorded pages in the other languages.
+#   - The drops on the drops' address were all fetched and checked against their published sha256: ita-parity-005 to -013. ita-parity-001 to -004 answer 404 there, and there is no -014.
+#   - They record it/en pages only, except one: it/it help-and-contact (ita-parity-011). No de/de, fr/fr or es/es page is recorded in any of them.
+#   - That one page, measured as served (ita.turnsthe.page ~17:09 UTC): 1440 29.53 % (www 2,375 px, ours 2,378), 390 21.08 % (www 3,193, ours 3,251).
+#   - The difference is the recording, not the layout. www's capture shows the privacy settings dialog open over the page ("Impostazioni sulla privacy", the banner not accepted), and its stage picture never loaded (grey).
+#   - Under the dialog the help centre, its search box and the request tiles stand where ours do, and the heights agree within 3 px at 1440. The drift profile's large values are all in the top 900 px, under the dialog; below it they are within 15 px at 1440. At 390, +-86 px near the end.
+#   - No row. A recording with the banner accepted would be needed to read the page.
