@@ -5752,3 +5752,87 @@ today, and every fix of this order is a content row.
 - For a next order:
   - this ranking's first 20 places (nobody's);
   - the ita-airways-app height flip at 1440.
+
+## Standing order 53 (received about 15:40 UTC, 2026-11-17)
+
+State at the start: nothing of mine uncommitted or unpushed (order 52 on main, 664afc09, Build green). At most four
+browser jobs at a time, each read inside the turn. No stylesheet or code touched: rows only, with existing section styles
+and separator widths.
+
+1. **ITA ita-airways-app's 1440 flip** (note-so53-ita-app-height.txt; 3559f2da). Nothing READY, nothing held.
+   - What jumps: the closing section's five lazy default-content pictures (www's app screens, 1,264 x 816 each when
+     loaded).
+     - Loaded (a tall viewport, as the parity capture and round 550 load it): the section is 5,916 px, the page 8,472
+       (de/de).
+     - Not loaded (a 900 px viewport and a quick scroll pass): every picture is 0 x 0, and the page reads 4,390.
+   - Cause in our code, a note for ema-adobe: styles.css `main img { width: auto; height: auto; max-width: 100% }`
+     overrides the picture's width attribute, so an unloaded lazy image takes no space although its aspect ratio is
+     known. The Columns Media picture keeps its box. This touches every brand's default-content pictures.
+   - Which height matches www (recorded for it/en only, 4,045 px):
+     - it/en, with its re-imported tabs, reads 4,009 on every load.
+     - The other eight versions still hold the flattened screens: 8,472 when loaded. Their 4,390 only looked close
+       because the pictures had not loaded.
+   - The content fix is reimport-1110's tab set, listed for all nine languages, of which only it/en is done; that is
+     a re-import, not a row.
+2. **ITA's English-anchored rows, carried by structure** (delta-so53-ita-carry-01.txt / .json; d6ae0036).
+   64 documents READY, 104 inserts:
+   - heading-size marks on 8 pages;
+   - entry-exit-system's 49 px phone spacer;
+   - pets-in-cabin's and fantasia-lounge's gap sections.
+   - Places found by structure on DA's and the served copy alike: blocks and default-content runs aligned across
+     it/en's market-split section breaks; the same heading count and position; for gap sections, a section boundary
+     with the same styles on both sides.
+   - Dry run on DA's copies: every insert once, byte for byte without them.
+   - No-breakage with and without at 1440 and 390: 256 loads, all 200, no new flag. The two short-haul overlaps are
+     the same lazy-picture timing, as the base reloads show.
+   - Not carried, each line with its reason:
+     - "What data is collected?" (its mark, and the 75 px spacer before it): an English-only inserted heading;
+     - ita-airways-app's marks (in it/en's tabs);
+     - the two marks HOLD on it/en;
+     - online-check-in it/it, present already.
+3. **lufthansa.com ranking places 1-20** (delta-so53-lh-com-rows.txt / .json,
+   places-so53-lh-com-ranking-1-20.txt; 6ef5a665). 6 READY:
+   - voluntary-rebooking 1440: 8.48 → 5.45 %;
+   - passenger-duty-united-kingdom 1440: 10.40 → 7.98 %;
+   - shopping 1440: 8.42 → 4.10 %;
+   - arrival-services 390: 8.22 → 6.98 %;
+   - pax-receipt 390: 8.32 → 6.58 %;
+   - flight-disruptions 390: 9.05 → 7.52 %.
+   - The other width is unchanged on every row. The folder base equals the host at both widths, the DA dry run is
+     byte for byte, and base and trial show the same flags.
+   - Held, with reasons:
+     - hertz and sixt are Meili's car-rental app, refused in the render;
+     - free2move's small print stands in two market sections;
+     - three trials read worse (ana, baggage-irregularities, arrival-services with the first section too);
+     - the rest are text or block spacing in the stylesheets (ema-adobe's today) or aligner swings.
+
+## Standing order 53, final section (about 16:30 UTC, 2026-11-17)
+
+- Items 1-3 done well before 20:00 UTC. Every background job was started and read inside this turn; no more than four
+  browser jobs at once.
+- Before this section, at 0ae5365e (6ef5a665 after the last rebase, which brought one report-only commit, f2584534; lint
+  and the folder-reading tests read again at the final commit):
+  - the full suite in a fresh worktree: npm run lint exit 0, stylelint exit 0, 1,271 test files passed, 0 failed;
+  - the folder-reading tests: 660, 0 failed;
+  - brand.test.mjs: passed.
+  - The whole-repo lint is read before every push.
+- No code, stylesheet or file of ema-adobe's touched. One note for it: the lazy-picture rule in
+  note-so53-ita-app-height.txt.
+- Nothing uploaded, previewed or published by me; da-upload.mjs not run; no DA write. DA reads only:
+  - ITA's nine pages in nine languages;
+  - lufthansa.com's six row pages.
+- Requests went only to our own hosts, DA (reads) and GitHub's API. No request to www or any airline host; the drops
+  were already on disk.
+- .migration/project.json not touched; the excluded manage page has no row and no line.
+- The optional plugins stay off; .agents/settings.json not written.
+- Not in git, and why:
+  - logs/p4/so53 (scratch: served and DA copies, trials, probes, captures);
+  - the drops under logs/drops (private material);
+  - content/, migration-work/ and tools/importer/reports/* (not mine);
+  - the old autostash entry (not mine, kept).
+- The folder servers are stopped; the gate and suite worktrees removed. No job left running.
+- For the publish child's round:
+  - delta-so53-ita-carry-01.json: 64 ITA documents;
+  - delta-so53-lh-com-rows.json: 6 lufthansa.com documents.
+- For ema-adobe: the main img width:auto note.
+- For the harness: reimport-1110's tab sets for the eight remaining ita-airways-app versions.
