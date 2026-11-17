@@ -1,0 +1,38 @@
+# ema-adobe, standing order 52 (2026-11-17), item 2: hand-over items 18-24 of handover-so33-ema-test.txt, moved to ema-adobe
+# for the afternoon (ema-test on ITA). Shipped in 197f797 (styles/styles.css, test/lh-com-heading-gaps-so52.test.mjs: 4 tests,
+# red without the rules, green with them).
+#
+# Reach: every recorded page (logs/b644/rows.tsv with lh-parity-015's rows, 143 pages) loaded on our host as served and the
+# four selectors counted (logs/b652/reach.cjs). 18a: frankfurt-fair x4; 18b: speisen-und-getraenke x2, food-and-beverages
+# x2; 18c: de/en articles/explore-the-world; 19: digital-self-services x4, de/de fluege, an Insights article (left out by
+# the rule's final form). 22 recorded page-widths.
+# Gate: A = the deployed code before the push (sweep render, logs/b652/base), B = the working copy (--local,
+# logs/b652/gate.sh), whole page against the recording (tools/parity/compare.js, live boxes masked, the first 8,000 px),
+# every host but ours and aem refused. No page-width further by more than 0.5 (none further at all).
+# No-breakage: 400 unrecorded de/de, de/en, gb/en, at/de documents scanned the same way (seed 52): 3 reached (18c:
+# de/de support/contact/passenger-duty-united-kingdom, at/de datenschutz; 19: de/en articles/tags/zurich). Each loaded as
+# served with the rule and with the old value put back (logs/b652/nb-toggle.cjs): +26 / +26 / +14 px, no flag changed
+# (over/overlaps/clipped/failed/empty the same).
+#
+# rule	page-width	recording	A %	B %	heights A -> B (www/ours)
+18a	/at/de/frankfurt-fair 1440	lh-parity-004	6.5	4.5	3501/3451 -> 3501/3490
+18a	/de/de/frankfurt-fair 1440	lh-parity-004	6.5	4.5	3501/3451 -> 3501/3490
+18a	/de/en/frankfurt-fair 1440	lh-parity-002	7.7	5.6	3524/3448 -> 3524/3487
+18a	/gb/en/frankfurt-fair 1440	lh-parity-004	7.7	5.6	3524/3448 -> 3524/3487
+18a	frankfurt-fair 390 (4)	-	7.6, 7.6, 7.3, 7.3	the same	the rule starts at 768 px
+18b	/at/de/speisen-und-getraenke 390	lh-parity-004	7.6	7.4	7101/7101
+18b	/de/de/speisen-und-getraenke 390	lh-parity-004	7.8	7.6	7101/7101
+18b	/de/en/food-and-beverages 390	lh-parity-002	7.0	6.7	6683/6683
+18b	/gb/en/food-and-beverages 390	lh-parity-004	7.0	6.7	6683/6683
+18b	the four at 1440	-	2.4, 2.4, 2.2, 2.2	the same	phones only
+18c	/de/en/articles/explore-the-world 1440	lh-parity-015	7.7	5.5	6333/6258 -> 6333/6284
+18c	/de/en/articles/explore-the-world 390	lh-parity-015	7.4	7.4	not applied on phones (the trial with 55 px there: 7.7)
+19	/at/de/digital-self-services 390	lh-parity-004	7.2	5.6	5651/5631 -> 5651/5645
+19	/de/de/digital-self-services 390	lh-parity-004	7.2	5.6	5651/5631 -> 5651/5645
+19	/de/en/digital-self-services 390	lh-parity-002	7.0	5.5	5489/5469 -> 5489/5483
+19	/gb/en/digital-self-services 390	lh-parity-004	7.1	5.6	5489/5469 -> 5489/5483
+19	/de/de/fluege 390	lh-parity-004	45.8	45.8	the destination finder draws nothing with www refused (622 px; 7,725 with data in order 44)
+19	/de/en/articles/explore-flying/anniversary-super-crane-special 390	lh-parity-002	10.8	10.8	left out (:not(:has(.article-header))); with it 11.9
+#
+# Trials not shipped: 19 as margin-top 21 px (collapses into the divider's margin: no change; the article 10.8 -> 11.0);
+# 19 for articles too (the article 10.8 -> 11.9).
