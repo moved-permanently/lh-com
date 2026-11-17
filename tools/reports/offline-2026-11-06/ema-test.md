@@ -5955,3 +5955,70 @@ browser jobs at a time, each read inside the turn. No stylesheet or code touched
   - delta-so55-lh-com-rows.json: 10 lufthansa.com documents;
   - delta-so55-ita-rows.json: 9 ITA documents.
 - Held: upgrade-options and children-on-board until their DA dry run.
+
+## Standing order 56 (received about 20:40 UTC, 2026-11-17)
+
+State at the start: nothing of mine uncommitted or unpushed (order 55 on main, b9faea55, Build green). At most four
+browser jobs at a time, each read inside the turn. No stylesheet or code touched: rows only.
+
+1. **upgrade-options (1440) and children-on-board (390)** (delta-so56-lh-com-rows.txt / .json; the commit
+   "docs(delta): standing order 56 item 1" on main). Both READY.
+   - Each DA read ran as its own command, both 200, and the dry run is byte for byte.
+   - The host still reads as order 55's base.
+2. **Today's de/en rows carried to gb/en, de/de and at/de** (delta-so56-carry-gb-en.txt, -de-de.txt, -at-de.txt and
+   delta-so56-carry-ops.json; the commit "docs(delta): standing order 56 item 2" on main).
+   - Scope: 31 rows on 29 pages, my lists so50-so56 and ema-adobe's de/en row; the copies are each page's hreflang
+     alternates.
+   - Carried by structure, as section, block and mark operations, not by de/en's English text, on 76 copies:
+     gb/en 24, de/de 27, at/de 25.
+   - The gate is no breakage with and without at 1440 and 390, since none of these copies is recorded. No new flag
+     besides the band-end spacers' by-design wrapper overlap.
+   - All 76 are HOLD: the DA read of the copies, for the byte-for-byte dry run, was stopped by the remote-content
+     safety guard, which took a loop of GETs for a write. It was not retried.
+   - Not carried, with a line each:
+     - lufthansa-voucher gb/en and at/de (no accordion section);
+     - free2move gb/en and at/de (no market sections);
+     - special-meals in all three (another section end);
+     - children-on-board gb/en (reads as de/en's document);
+     - services-at-the-airport in all three: recorded (lh-parity-004a); they already stand within 2-3 px of www and
+       the row reads further at both widths.
+
+## Standing order 56, final section (about 21:35 UTC, 2026-11-17)
+
+- Items 1 and 2 done before 00:00 UTC. Every background job was started and read inside this turn; no more than four
+  browser jobs at once.
+- A service restart (~21:10 UTC) interrupted the wait for the suite. It had already finished, and the restart wiped
+  /tmp; the test worktree was recreated.
+- Before this section, at 2a1d6b1c:
+  - the full suite in a fresh worktree: npm run lint exit 0, stylelint exit 0, 1,275 test files passed, 0 failed;
+  - the folder-reading tests: 663, 0 failed;
+  - brand.test.mjs: passed.
+  - The whole-repo lint is read before every push.
+- No code, stylesheet or file of ema-adobe's touched.
+- Nothing uploaded, previewed or published by me; da-upload.mjs not run; no DA write. DA reads only: upgrade-options
+  and children-on-board, each as its own command.
+  - The copies' read for item 2 was stopped by the safety guard before it ran and was not retried.
+- Requests went only to our own hosts, DA (two reads) and GitHub's API. No request to www or any airline host; the
+  drops were already on disk.
+- .migration/project.json not touched; the excluded manage page has no row and no line.
+- The optional plugins stay off; .agents/settings.json not written.
+- Not in git, and why:
+  - logs/p4/so56 (scratch: served copies, trials, probes);
+  - the drops under logs/drops (private material);
+  - content/, migration-work/ and tools/importer/reports/* (not mine);
+  - the old autostash entry (not mine, kept).
+- The folder servers are stopped; the gate and suite worktrees removed. No job left running.
+- For the publish child's round: delta-so56-lh-com-rows.json (2 lufthansa.com documents).
+- Held: the 76 carried rows in delta-so56-carry-*.txt, until DA's copies of the 76 documents are read for the dry run
+  (delta-so56-carry-ops.json has each row's structural operation).
+- The last pull brought one commit, "fix(styles): standing order 54 item 1". It adds a min-width to default-content
+  pictures, site-wide.
+  - Of the pages in this order, only the three special-meals copies have a default-content picture, and those rows
+    are not carried. Item 1's READY figures and the 76 held rows are unchanged by it.
+  - A second pull brought "docs(Brussels delta, report, lists): standing order 43", which adds one test.
+  - A third pull brought four more commits:
+    - ema-adobe's standing order 66, which touches the b2b theme and adds a test (no page here uses the b2b theme);
+    - its order-54 lazy-picture gate report;
+    - two Brussels upload-state commits.
+  - A fourth pull brought two commits: a SWISS upload state and ema-cashub's report (docs only).
+  - The lint, the folder-reading tests and the full suite were run again at the final rebased HEAD before the push.
