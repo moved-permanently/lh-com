@@ -1,0 +1,52 @@
+# ema-cashub, standing order 64 (2026-11-17), item 2: Group for Business, the 12 member documents order 42's empty-last-section row could not
+# move (de/de and de/en experts-members, fund, history, home, lhghome, reports; login, login-internal, profile and usermanagement left alone).
+# Cause, the same on all 12: DA's copy holds the page's metadata block in a section of its own, as order 42 found elsewhere, but written
+# without a line break ("</div></div><div><div class="metadata">"), so order 42's string ("</div>\n<div><div class="metadata">") is found 0
+# times. The served .plain.html leaves that section empty: each of the 12 ends with "<div></div>" (b2b.turnsthe.page, ~17:45 CET).
+# The row: the metadata block into the last content section, i.e. "</div><div><div class="metadata">" becomes "<div class="metadata">"
+# (11 bytes fewer). Every other byte stays as DA's.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so64-b2b-member-empty-ending.json
+#   --list <this file> --docs <lh-b2b: DA's current copies, <path>.html> --out <dir> [--check] (one replace per document; the anchor must be
+#   found exactly once, taking the replace back gives DA's copy byte for byte; a second run reports "present").
+#   (ita-fragment-replace-apply.mjs refuses this row: its "to" is part of its "from", so it is "there already".)
+# Dry run on DA's current copies (12 read-only GETs of admin.da.live/source/moved-permanently/lh-b2b/de/{de,en}/<page>.html, one per command,
+# 17:51 to 17:53 CET): all 12 "1 inserted", "without the inserts DA's copy byte for byte: true", 11 bytes fewer each; a second run "1 present".
+# DA backup folder (standing order 39): before the rows are applied, DA's copies go to
+# /.token-free-backup/2026-11-b2b-so64-member-empty-ending/<path>.html (lh-b2b; read back equal before the upload).
+# Renders (so64/b2bm.mjs): signed out, the edge sends these pages to login (302), so each was drawn at its own path with the market's login
+# page as served for the shell (same nav, footer, brand and theme flow-spacing as the members' metadata) and its own .plain.html as main,
+# as served and with the closing empty section removed; the member API answering 404 (the block's error state, no redirect); airline hosts,
+# www.* and lh-proxy refused per request and counted: 0. Not recorded by www (behind the login), so the gate is the no-breakage render:
+# sections 2 -> 1 (empty 1 -> 0), one H1, nothing else changes.
+# - The 10 pages with the member block (fund, history, home, lhghome, reports): the empty section draws 0 px at both widths (its margins
+#   fold into the block section's 48 px above the footer), so the footer stays where it is, to the px. READY: the DOM loses the empty section,
+#   nothing drawn moves.
+# - experts-members (de/de, de/en): HOLD, no row. There the empty section is the page's end gap: 48 px under the last link; without it the
+#   last section keeps its own 8 px and the footer moves up 40 px at both widths (the same ending order 42 kept OUT on discover-airlines).
+# status	path	width	footer top as served	with the row	height as served	with the row	note
+READY	/de/de/fund	1440	392	392 (+0)	900	900	the empty section draws nothing: 0 px
+READY	/de/de/fund	390	461	461 (+0)	962	962	the empty section draws nothing: 0 px
+READY	/de/en/fund	1440	392	392 (+0)	900	900	the empty section draws nothing: 0 px
+READY	/de/en/fund	390	413	413 (+0)	914	914	the empty section draws nothing: 0 px
+READY	/de/de/history	1440	392	392 (+0)	900	900	the empty section draws nothing: 0 px
+READY	/de/de/history	390	424	424 (+0)	926	926	the empty section draws nothing: 0 px
+READY	/de/en/history	1440	392	392 (+0)	900	900	the empty section draws nothing: 0 px
+READY	/de/en/history	390	400	400 (+0)	902	902	the empty section draws nothing: 0 px
+READY	/de/de/home	1440	416	416 (+0)	900	900	the empty section draws nothing: 0 px
+READY	/de/de/home	390	448	448 (+0)	950	950	the empty section draws nothing: 0 px
+READY	/de/en/home	1440	416	416 (+0)	900	900	the empty section draws nothing: 0 px
+READY	/de/en/home	390	424	424 (+0)	926	926	the empty section draws nothing: 0 px
+READY	/de/de/lhghome	1440	392	392 (+0)	900	900	the empty section draws nothing: 0 px
+READY	/de/de/lhghome	390	424	424 (+0)	926	926	the empty section draws nothing: 0 px
+READY	/de/en/lhghome	1440	392	392 (+0)	900	900	the empty section draws nothing: 0 px
+READY	/de/en/lhghome	390	413	413 (+0)	914	914	the empty section draws nothing: 0 px
+READY	/de/de/reports	1440	392	392 (+0)	900	900	the empty section draws nothing: 0 px
+READY	/de/de/reports	390	400	400 (+0)	902	902	the empty section draws nothing: 0 px
+READY	/de/en/reports	1440	392	392 (+0)	900	900	the empty section draws nothing: 0 px
+READY	/de/en/reports	390	376	376 (+0)	878	878	the empty section draws nothing: 0 px
+HOLD	/de/de/experts-members	1440	584	544 (-40)	935	900	no row: the empty section is the end gap (48 px); without it 8 px above the footer
+HOLD	/de/de/experts-members	390	701	661 (-40)	1202	1162	no row: the empty section is the end gap (48 px); without it 8 px above the footer
+HOLD	/de/en/experts-members	1440	584	544 (-40)	925	900	no row: the empty section is the end gap (48 px); without it 8 px above the footer
+HOLD	/de/en/experts-members	390	629	589 (-40)	1130	1090	no row: the empty section is the end gap (48 px); without it 8 px above the footer
+#
+# DA change (the 10 READY): lh-b2b /de/de and /de/en fund, history, home, lhghome, reports: the section break before the metadata block goes.

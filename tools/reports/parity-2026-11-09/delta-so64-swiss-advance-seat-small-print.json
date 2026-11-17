@@ -1,0 +1,63 @@
+[
+ {
+  "path": "/ch/en/book-and-manage/swiss-choice/advance-seat-reservation",
+  "inserts": [
+   {
+    "before": "</p></div></div></div><div class=\"accordion-columns faq spaced\"><div><div>Features</div><div><table><tbody><tr><td>Seat</td><td>Seat pitch: 74–76 cm Seat width: 42–46 cm (depending on aircraft type)</td>",
+    "text": " {copytext-small}"
+   },
+   {
+    "before": "</p></div></div></div><div class=\"accordion-columns faq spaced\"><div><div>Features</div><div><table><tbody><tr><td>Seat</td><td>Seat pitch: 76–82 cm Seat width: 42–46 cm (depending on aircraft type)</td>",
+    "text": " {copytext-small}"
+   },
+   {
+    "before": "</p></div></div></div><div class=\"accordion-columns faq spaced\"><div><div>Features</div><div><table><tbody><tr><td>Seat</td><td>Seat pitch: 86–114 cm Seat width: 42–46 cm (depending on aircraft type)</td>",
+    "text": " {copytext-small}"
+   },
+   {
+    "before": "</p></div></div></div><h3 id=\"intercontinental-flights\">Intercontinental flights</h3>",
+    "text": " {copytext-small}"
+   },
+   {
+    "before": "</p></div></div></div><div class=\"accordion-columns faq spaced\"><div><div>Features</div><div><table><tbody><tr><td>Seat</td><td>Seat pitch: 78–81 cm Seat width: 41–50 cm (depending on aircraft type)</td>",
+    "text": " {copytext-small}"
+   },
+   {
+    "before": "</p></div></div></div><div class=\"accordion-columns faq spaced\"><div><div>Features</div><div><table><tbody><tr><td>Seat</td><td>Seat pitch: 78–99 cm Seat width: 41–50 cm (depending on aircraft type)</td>",
+    "text": " {copytext-small}"
+   },
+   {
+    "before": "</p></div></div></div><div class=\"accordion-columns faq spaced\"><div><div>Features</div><div><table><tbody><tr><td>Seat</td><td>Seat pitch: 86 cm Seat width: 41–50 cm (depending on aircraft type)</td>",
+    "text": " {copytext-small}"
+   },
+   {
+    "before": "</p></div></div></div><div class=\"accordion-columns faq spaced\"><div><div>Features</div><div><table><tbody><tr><td>Seat</td><td>Seat pitch: 86–150 cm Seat width: 41–50 cm (depending on aircraft type)</td>",
+    "text": " {copytext-small}"
+   },
+   {
+    "before": "</p></div></div></div><div class=\"columns-media\">",
+    "text": " {copytext-small}"
+   },
+   {
+    "before": "</p></div></div></div><div class=\"section-metadata\"><div><div>Tab</div>",
+    "text": " {copytext-small}"
+   },
+   {
+    "before": "</p></div></div></div><div class=\"accordion-columns faq spaced\"><div><div>Features</div><div><table><tbody><tr><td>Seat</td><td>Seat pitch: 90–99 cm Seat width: 40–48 cm (depending on aircraft type)</td>",
+    "text": " {copytext-small}"
+   },
+   {
+    "before": "</p></div></div></div><h3 id=\"intercontinental-flights-2\">Intercontinental flights</h3>",
+    "text": " {copytext-small}"
+   },
+   {
+    "before": "</p></div></div></div><div class=\"accordion-columns faq spaced\"><div><div>Features</div><div><table><tbody><tr><td>Seat</td><td>Seat width: 52.1 cm 2 m-long bed</td>",
+    "text": " {copytext-small}"
+   },
+   {
+    "before": "</p></div></div></div><div class=\"accordion-columns faq spaced\"><div><div>Features</div><div><table><tbody><tr><td>Seat</td><td>Seat width: 54 cm 2 m-long bed</td>",
+    "text": " {copytext-small}"
+   }
+  ]
+ }
+]

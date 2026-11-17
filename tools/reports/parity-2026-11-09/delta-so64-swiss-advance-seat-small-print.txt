@@ -1,0 +1,25 @@
+# ema-cashub, standing order 64 (2026-11-17), item 1: SWISS /ch/en/book-and-manage/swiss-choice/advance-seat-reservation, the seat
+# sections' disclaimers in www's small print.
+# www (swiss-parity-002b, its markup laid out offline with its own CSS; its PNGs): each of the 14 "The reservation is free of charge for HON
+# Circle Members and Senators ..." paragraphs under the seat rows is <p class="copytext-small">, 14 px on 15 px lines: at 390 five lines
+# (75 px) for the long one, at 1440 two to three. Ours drew them as running text, 16 / 22 px: six lines (132 px) at 390, three at 1440.
+# The row: the marker " {copytext-small}" at the end of each of the 14 paragraphs (scripts.js: p.copytext-small). DA's copy holds the 14
+# with the same text, so each insert is anchored on the markup after its paragraph (the next row, accordion or heading), found once.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so64-swiss-advance-seat-small-print.json
+#   --list <this file> --docs <lh-swiss: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copy (one read-only GET of admin.da.live/source/moved-permanently/lh-swiss/ch/en/book-and-manage/swiss-choice/
+# advance-seat-reservation.html, ~17:45 CET): "14 inserted", "without the inserts DA's copy byte for byte: true"; a second run "14 present".
+# DA backup folder (standing order 39): before the row is applied, DA's copy goes to
+# /.token-free-backup/2026-11-swiss-so64-advance-seat-small-print/ch/en/book-and-manage/swiss-choice/advance-seat-reservation.html (lh-swiss;
+# read back equal before the upload).
+# Drafted on swiss.turnsthe.page (so53/hostv.mjs: the served .plain.html with the 14 markers as main; unhinted; airline hosts, www.* and
+# lh-proxy refused per request and counted: 0). Control = live to the px (6,838 / 9,636).
+# Gate: the page at both widths, as served and with the seat-section rule of this order (swiss.css, standing order 64 item 1):
+# status	path	width	recording	www page	as served	with the row	with the row and the rule	note
+READY	/ch/en/book-and-manage/swiss-choice/advance-seat-reservation	1440	swiss-parity-002b	7124	6838 (-4.01 %)	6835 (-4.06 %)	6947 (-2.48 %)	the 14 disclaimers two to three lines in small print; what is left at 1440 is above the tabs (the first panel's buttons start 104 px higher than www's) and not in the seat rows
+READY	/ch/en/book-and-manage/swiss-choice/advance-seat-reservation	390	swiss-parity-002b (the 1440 load resized)	9348	9636 (+3.08 %)	9328 (-0.21 %)	9300 (-0.51 %)	each seat section about 44 px shorter: the disclaimer five lines of 15 px as www's
+#
+# The other 12 language and market copies of the page (ch/de, ch/fr, ...) are not recorded and get no row here: in 11 of them the button and
+# the disclaimer stand outside the picture row (an import difference), so a row would be the layout's, not only the small print.
+#
+# DA change: lh-swiss /ch/en/book-and-manage/swiss-choice/advance-seat-reservation: " {copytext-small}" at the end of the 14 disclaimers.

@@ -1,0 +1,92 @@
+[
+  {
+    "path": "/de/de/fund",
+    "inserts": [
+      {
+        "replace": "</div><div><div class=\"metadata\">",
+        "text": "<div class=\"metadata\">"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/fund",
+    "inserts": [
+      {
+        "replace": "</div><div><div class=\"metadata\">",
+        "text": "<div class=\"metadata\">"
+      }
+    ]
+  },
+  {
+    "path": "/de/de/history",
+    "inserts": [
+      {
+        "replace": "</div><div><div class=\"metadata\">",
+        "text": "<div class=\"metadata\">"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/history",
+    "inserts": [
+      {
+        "replace": "</div><div><div class=\"metadata\">",
+        "text": "<div class=\"metadata\">"
+      }
+    ]
+  },
+  {
+    "path": "/de/de/home",
+    "inserts": [
+      {
+        "replace": "</div><div><div class=\"metadata\">",
+        "text": "<div class=\"metadata\">"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/home",
+    "inserts": [
+      {
+        "replace": "</div><div><div class=\"metadata\">",
+        "text": "<div class=\"metadata\">"
+      }
+    ]
+  },
+  {
+    "path": "/de/de/lhghome",
+    "inserts": [
+      {
+        "replace": "</div><div><div class=\"metadata\">",
+        "text": "<div class=\"metadata\">"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/lhghome",
+    "inserts": [
+      {
+        "replace": "</div><div><div class=\"metadata\">",
+        "text": "<div class=\"metadata\">"
+      }
+    ]
+  },
+  {
+    "path": "/de/de/reports",
+    "inserts": [
+      {
+        "replace": "</div><div><div class=\"metadata\">",
+        "text": "<div class=\"metadata\">"
+      }
+    ]
+  },
+  {
+    "path": "/de/en/reports",
+    "inserts": [
+      {
+        "replace": "</div><div><div class=\"metadata\">",
+        "text": "<div class=\"metadata\">"
+      }
+    ]
+  }
+]
