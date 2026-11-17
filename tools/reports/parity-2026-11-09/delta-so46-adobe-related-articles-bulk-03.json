@@ -1,0 +1,1352 @@
+[
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-le-sentier-paris",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-mallorca",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-metaxourgeio-athens",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-mount-pleasant-washington",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-munich-sendling",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-nice-ouest",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-noord-amsterdam",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-ny-brooklyn",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-osterbro-kopenhagen",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-palermo-buenos-aires",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-plaza-midwood-charlotte",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-poblenou-barcelona",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-rome-pigneto-rome",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-rosebank-johannesburg",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-sachsenhausen-frankfurt",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-salamanca-madrid",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-schanzenviertel-hamburg",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-schaumburg-chicago",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-seventh-district-vienna",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-shinjuku-tokyo",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-song-wat-road-bangkok",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-south-beach-miami",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-the-bund-shanghai",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-toronto-summerhill",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-vasastaden-stockholm",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-vrsovice-prague",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/in-my-hood-west-seattle-seattle",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-almaty",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-amman",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-atlanta",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-beijing",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-bilbao",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-bogota",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-boston",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-cagliari",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-cairo",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-casablanca",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-catania",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-chennai",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-dallas",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-denver",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-detroit",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-dubai",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-edinburgh",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-faro",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-gothenburg",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-hamburg",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-houston",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-hyderabad",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-kuala-lumpur",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-larnaca",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-ljubljana",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-malaga",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-manchester",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-marseille",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-minneapolis-st-paul",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-nairobi",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-nice",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-olbia",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-porto",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-raleigh-durham",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-riga",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-riyadh",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-san-diego",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-seattle",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-st-louis",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-tallinn",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-tbilisi",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-tel-aviv",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-thessaloniki",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-tirana",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-tunis",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-valletta",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-venice",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-vilnius",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/know-before-you-go-zagreb",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/my-experiences-in-vancouver",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-architecture-copenhagen",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-art-and-pubs-dublin",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-art-johannesburg",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-bar-basso-milan",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-bookstores-buenos-aires",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-braamfontein-johannesburg",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-brunch-restaurants-la",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-caspar-plautz-munich",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-chicago-beer",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-creative-architecture-prague",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-culinary-trip-washington",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-fashion-and-culture-budapest",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-food-mumbai",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-food-trends-amsterdam",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-food-trends-bengaluru",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-food-trends-istanbul",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-hidden-gems-seoul",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-humor-vienna",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-listening-bars-toronto",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-lunch-mexico-city",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-mallorca",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-music-cape-town",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-samba-rio-de-janeiro",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-san-francisco-fashion",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-shanghai-art-scene",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-shopping-barcelona",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-shopping-lisbon",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-shopping-tokyo",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-sports-miami",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-stockholm",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-street-art-charlotte",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-street-art-london",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-streetart-athens",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-super-bros-frankfurt",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-supper-clubs-ny",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-techno-sound-rome",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-tips-oslo",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-topic-bangkok",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-topic-helsinki",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-topic-zurich",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-trends-madrid",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-urban-farming-singapore",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-vancouver-donuts",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/on-the-scene-wellness-cuisine-hong-kong",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/perfect-day-nice-cote-dazur",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/perfect-day-seattle",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/perfect-day-tips-vancouver",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-austin",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-beijing",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-bogota",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-boston",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-cairo",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-elevator-boys",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-hyderabad",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-la",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-ny",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-riad",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/picture-perfect-singapore",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/sao-paulo-sights",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-bangkok",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-beijing",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-boston",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-buenos-aires",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-charlotte",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-hong-kong",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-johannesburg",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-los-angeles",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-mexico-city",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-seoul",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-singapore",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-tokyo",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/stop-over-washington",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/explore-the-world/what-i-learned-living-in-amsterdam",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Ähnliche Artikel {heading-medium}</h3>"
+   }
+  ]
+ }
+]

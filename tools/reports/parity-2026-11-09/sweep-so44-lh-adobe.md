@@ -126,6 +126,27 @@ Places in the ranking below, with the lh-parity-014 page-widths in it. Drift ste
 | 39 | /de/en/100-years/campaigns 390 | 9.5 | Within 24 px since orders 40-41's slider and quote rules. The recording's fallback face on the campaign headings (as #4). | None. |
 | 40 | /de/en/100-years/crane 390 | 9.5 | Picture captions missing (the owner's decision, order 31), the recording's face; drift within 14 px, -55 at the end. | The owner's decision. |
 
+## Places 41 to 60 (standing order 46, item 3)
+
+Places in the ranking below (with the lh-parity-014 page-widths in it). Tonight's drift steps on order 44's captures
+are in logs/b646/drift (not in git); most of these were located before, in sweep-so34-lh-adobe.md, and are unchanged.
+
+| Rank | Page-width | % | Cause (located) | Fix |
+| --- | --- | --- | --- | --- |
+| 41 | /de/en/100-years/history/menu-on-board 390 | 9.5 | 12 picture captions missing (www 12, ours 0); drift within 30 px (one -274 step at 5,840 is the offsets matching a repeated picture, gone at the next step). | The owner's decision on the 100-years captions (order 31). |
+| 42 | /de/en/articles/explore-the-world/be-picky-barcelona-insider-tips 390 | 9.5 | The pictures and captions sit 4-8 px lower than www's, within 22 px; the figure is the photos' detail at that offset. | None. |
+| 43 | /de/en/articles/highlights/allegris-premium-economy-san-diego 1440 | 9.5 | www's recording shows a frame of the playing video, ours the poster; within 16 px. The poster heading's width is hand-over item 19. | None for the frame; item 19. |
+| 44-46 | /gb/en, /at/de, /de/de 100-years/crane 390 | 9.5, 9.4, 9.4 | 5 picture captions missing, the recording's fallback face; within 14 px, -55 near the end. | The owner's decision. |
+| 47, 56 | /de/de, /de/en articles/highlights/allegris-new-york 1440 | 9.3, 8.3 | Within 30 px (first screen masked, lh-parity-014); the related cards are other, newer articles; the article-end link (item 20). | None: content; item 20. |
+| 48 | /de/en/articles/explore-the-world/eat-see-do-algiers 390 | 9.2 | The "This may also be of interest to you" cards stand 2 px lower each, +32 at the end. | None: under 1 % (order 41, item 3). |
+| 49, 50 | /de/en, /gb/en articles/tags/allegris 1440 | 9.0 | The stage -27 px, then -43 to -80 from the grey band on (as #29: the band starts 15 px sooner). de/en's "Conditions" row is live (12.5 in sweep-so34). | Hand-over item 22. |
+| 51 | /de/en/articles/explore-the-world/stop-over-tokyo 390 | 8.7 | The portrait picture: www's phone crop (faces higher); +92 at 4,480 is the offsets on that picture, back to -12 next; the end +37-42. | None: www's rendition. |
+| 52 | /de/en/articles/explore-the-world/eat-see-do-berlin 390 | 8.5 | No drift until the end (+31 px): the bordered cards, about 2 px per card. | None: under 1 %. |
+| 53 | /de/en/articles/explore-flying/livery-iconic-moments 390 | 8.4 | Within 15 px on the first 8,000 px (first screen masked). Photos. | None. |
+| 54, 55 | /at/de, /de/de discover-lufthansa/new-onboard-experience 390 | 8.3 | Within 11 px; the collage after the awards badge 11 px higher. | None: under 1 %. |
+| 57, 59 | /de/en/articles/explore-the-world/know-before-you-go-algiers, -berlin 390 | 8.2, 8.1 | (1) 21-44 px more above "Related Articles". (2) The "Find your flight" button's steps (order 41, item 3). | (1) Hand-over item 17. (2) None. |
+| 58, 60 | /de/en, /gb/en 100-years/destinations 390 | 8.1 | Within 15 px; the recording's fallback face on the headings. | None: the recording's face. |
+
 ## Every page-width, worst first
 
 | Rank | Page | Template | Width | % | Height www / ours | Masked % | Recording | Before (sweep-so34, or sweep-so44 before lh-parity-014) |

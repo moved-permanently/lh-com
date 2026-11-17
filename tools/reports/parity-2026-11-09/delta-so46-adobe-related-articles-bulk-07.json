@@ -1,0 +1,1307 @@
+[
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-bookstores-buenos-aires",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-braamfontein-johannesburg",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-brunch-restaurants-la",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-chicago-beer",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-creative-architecture-prague",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-culinary-trip-washington",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-fashion-and-culture-budapest",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-food-mumbai",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-food-trends-amsterdam",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-food-trends-bengaluru",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-food-trends-istanbul",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-hidden-gems-seoul",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-humor-vienna",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-listening-bars-toronto",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-lunch-mexico-city",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-mallorca",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-music-cape-town",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-samba-rio-de-janeiro",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-san-francisco-fashion",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-shanghai-art-scene",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-shopping-barcelona",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-shopping-lisbon",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-shopping-tokyo",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-sports-miami",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-stockholm",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-street-art-charlotte",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-street-art-london",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-streetart-athens",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-super-bros-frankfurt",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-supper-clubs-ny",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-techno-sound-rome",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-tips-oslo",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-topic-bangkok",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-topic-helsinki",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-topic-zurich",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-trends-madrid",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-urban-farming-singapore",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-vancouver-donuts",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/on-the-scene-wellness-cuisine-hong-kong",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/perfect-day-nice-cote-dazur",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/perfect-day-seattle",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/perfect-day-tips-vancouver",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/picture-perfect-austin",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/picture-perfect-beijing",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/picture-perfect-bogota",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/picture-perfect-boston",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/picture-perfect-cairo",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/picture-perfect-elevator-boys",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/picture-perfect-hyderabad",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/picture-perfect-la",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/picture-perfect-ny",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/picture-perfect-riad",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/picture-perfect-singapore",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/sao-paulo-sights",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/stop-over-bangkok",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/stop-over-beijing",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/stop-over-boston",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/stop-over-buenos-aires",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/stop-over-charlotte",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/stop-over-hong-kong",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/stop-over-johannesburg",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/stop-over-los-angeles",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/stop-over-mexico-city",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/stop-over-seoul",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/stop-over-singapore",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/stop-over-tokyo",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/stop-over-washington",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-amsterdam",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-athens",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-bangkok",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-barcelona",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-bengaluru",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-boston",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-budapest",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-buenos-aires",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-cape-town",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-charlotte",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-chicago",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-dublin",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-frankfurt",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-helsinki",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-hong-kong",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-istanbul",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-johannesburg",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-la",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-lisbon",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-london",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-madrid",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-mallorca",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-mexico-city",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-miami",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-milan",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-mumbai",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-munich",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-ny",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-oslo",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-paris",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-prague",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-rio-de-janeiro",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-rome",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-san-francisco",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-seoul",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-shanghai",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-singapore",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-stockholm",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-tokyo",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-toronto",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-vienna",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-washington",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/explore-the-world/what-i-learned-living-in-zurich",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/allegris-a-new-flight-experience",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/allegris-business-class-shanghai",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/allegris-business-san-diego",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/allegris-destinations",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/allegris-dirk-nowitzki",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/allegris-essentials",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/allegris-experiences",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/allegris-travel-hacks",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/allegris-typologies",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/art-and-travel-delhi-berlin",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/austin-texas-city-of-live-music",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/chisinau-winter",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/dfb-partnership-diversity-success",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/exclusive-first-class-tracksuit",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/fashion-footprints-new-york",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/hyderabad-city-of-pearls-and-programmers",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/johannesburg-winter",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/minneapolis-best-winter-activities",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/minneapolis-winter",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/mumbai-nyc-art-journey",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/mumbai-san-francisco-art-journey",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/mumbai-uk-art-journey",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/new-york-fashion-week",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/raleigh-nc-winter",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/rome-art-and-culture",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/sao-paulo-carnival-brazil-largest-street-carnival",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/seattle-winter",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/shanghai-best-restaurants-and-traditional-chinese-dishes",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/sports-experiences-rio-de-janeiro",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/stefan-marx-travel-hacks",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/the-art-of-flying-extra-long-bed",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/the-art-of-flying-extra-space-seat",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/the-art-of-flying-suite",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ },
+ {
+  "path": "/gb/en/articles/highlights/vancouver-winter",
+  "inserts": [
+   {
+    "before": "<div class=\"related-articles\">",
+    "text": "<h3>Related Articles {heading-medium}</h3>"
+   }
+  ]
+ }
+]
