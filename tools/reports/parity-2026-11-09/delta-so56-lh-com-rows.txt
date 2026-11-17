@@ -1,0 +1,7 @@
+# ema-test, standing order 56, item 1 (2026-11-17): the two lufthansa.com rows held in order 55 for their DA dry run (delta-so55-lh-com-rows.txt, HOLD), now READY.
+# DA reads (~20:32 UTC), each as its own command: /de/en/upgrade-options and /de/en/children-on-board, both 200. text-inserts-apply --check on them: each insert made once, each DA copy byte for byte without it. DA's sections match the served copy's (upgrade-options: the text section, the flush grey band, the metadata; children-on-board: one section).
+# Gate as in order 55: html-folder full pages of the served copy, base and trial, recordings lh-parity-002a/b; breakage probe the same flags in both. The host still reads as the base (measured again ~20:34 UTC: upgrade-options 1440 3,559 px, children-on-board 390 3,666 px).
+# Data: delta-so56-lh-com-rows.json.
+# Each line: READY, DA path, rank, the change, 1440 and 390 (base -> trial, www), the gate.
+READY	/de/en/upgrade-options	rank 92	gap-after-small-768 on the section before the flush grey "Need help?" band	1440 6.07 -> 4.56 % (3,559 -> 3,535 px, www 3,531), 390 8.73 -> 8.73 % (4,884 px)	better at 1440, unchanged at 390
+READY	/de/en/children-on-board	rank 95	its one section gets gap-after-small-below-768 (a new section-metadata block)	1440 4.46 -> 4.46 % (2,404 px), 390 6.02 -> 5.39 % (3,666 -> 3,642 px, www 3,639)	better at 390, unchanged at 1440

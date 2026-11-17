@@ -1,0 +1,20 @@
+[
+ {
+  "path": "/de/en/upgrade-options",
+  "inserts": [
+   {
+    "after": "nner.</p><p><a href=\"https://www.lufthansa.com/artifacts/flight-upgrades/fix-price-upgrade/de-en\">Go to fixed-price upgrade</a></p><p><a href=\"/de/en/bid-upgrade\">Go to upgrade at the price you want</a></p><p><a href=\"https://www.miles-and-more.com/row/en/spend/flights.html\">Go to upgrade award</a></p></div></div></div><p>{column-end}</p>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/children-on-board",
+  "inserts": [
+   {
+    "after": "ling-with-children</a></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-below-768</div></div></div>"
+   }
+  ]
+ }
+]
