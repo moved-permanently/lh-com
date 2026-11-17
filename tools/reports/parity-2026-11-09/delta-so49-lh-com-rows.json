@@ -1,0 +1,24 @@
+[
+ {
+  "path": "/de/en/lufthansa-express-bus",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-25}</p></div>",
+    "text": "</div>"
+   },
+   {
+    "replace": "<p>{spacer-50}</p><h2 id=\"flight-via-munich-airport-muc\">",
+    "text": "<p>{spacer-25}</p><h2 id=\"flight-via-munich-airport-muc\">"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/upgrade-to-premium-economy-class",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-40}</p><h2 id=\"how-to-book-your-upgrade\">",
+    "text": "<p>{spacer-10}</p><h2 id=\"how-to-book-your-upgrade\">"
+   }
+  ]
+ }
+]
