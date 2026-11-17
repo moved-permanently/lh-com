@@ -5475,3 +5475,61 @@ order 47 was on main.
   - content/, migration-work/ and tools/importer/reports/* (not mine);
   - the old autostash entry (not mine, kept).
 - Preview servers stopped; the trial, folder and suite worktrees removed. No job left running.
+
+## Standing order 49 (received about 05:40 UTC, 2026-11-17)
+
+State at the start: nothing of mine uncommitted or unpushed (orders 46-48 on main, d6340f23, Build green). At most four
+browser jobs at a time, each read before the next step.
+
+1. **Discover** (discover-so49-copies.txt, delta-so49-rows.txt).
+   - Copies against their source: 366 language and market copies of the 563 served documents.
+     - 299 are the same on every measure.
+     - 8 have no source document.
+     - 59 differ, in 9 classes:
+       - D, drift (the source's pictures, another structure): D1 tabs 4, D2 search bar and side-picture missing 5, D3
+         a variant 2, D4 heading levels 6, D5 blocks merged 10;
+       - L, local content: L1 homepages 8, L2 German-only teasers 14, L3 legal and market pages 4, L4 different
+         pictures or links 6.
+   - Rows:
+     - D2 for the us/en and ca/en customer-service copies: READY (dry run byte for byte; folder renders with no new
+       flag, the copies growing toward the source).
+     - D3: HOLD (the source with the variant renders as the copy without it).
+     - The other D classes need the copies' own translated text regrouped, or a call on www's market templates; they
+       are listed.
+   - No-breakage render of all 563 documents at 390 and 1440 (1,126 loads): no sideways scroll, clipped text or failed
+     picture.
+     - One real breakage: the business-class services-long-haul page's closing divider 16 px into the block above, in
+       three languages. Fixed with a Discover-scoped rule (21 documents rendered with and without; the 3 lose the
+       overlap, 18 unchanged).
+     - The empty flash teasers, maps and micro-frontends, and the H1-less fragments, are by design or caused by the
+       render's refusals.
+2. **The shared-stylesheet hand-over items.**
+   - 24: allegris-new-york's video caption. www keeps 60 px under it, ours 34. Rule: 26 px more.
+     - de/en 1440 9.57 → 4.80, 390 12.86 → 5.56; de/de, at/de, gb/en alike.
+     - The 3 unrecorded locales render 26 px longer, no flag.
+   - 23: explore-flying's H1 under the stage. Rule: 40 px on phones. 390 19.54 → 18.23; the 4 other locales are 8 px
+     shorter, no flag.
+   - 18-21: as in orders 45 and 46.
+3. **The single-step pages.**
+   - lufthansa-express-bus: two spacer rows READY. 1440 9.25 → 4.15, 390 12.75 → 8.90.
+   - upgrade-to-premium-economy-class: a spacer row READY. 1440 8.64 → 5.03, 390 10.47 → 10.23.
+   - special-meals: HOLD. 1440 closer, 390 further.
+
+## Standing order 49, final section (about 07:25 UTC, 2026-11-17)
+
+- Items 1-3 done. Every background job was started and read inside this turn; no more than four browser jobs at once.
+- Before this section: the full suite at 4f1b11a3 in a fresh worktree (npm run lint exit 0, stylelint exit 0, 1,264 test files passed, 0 failed); the folder-reading tests with brand.test.mjs (656, 0 failed); the whole-repo lint read
+  before every push.
+- The two-hour window: no other session touched styles.css or discover.css in the two hours before my edits.
+- Nothing uploaded, previewed or published by me. DA read only (Discover services-long-haul and customer-service,
+  lufthansa.com express-bus and upgrade-to-premium-economy-class). da-upload.mjs not run.
+- Requests only to our own hosts, DA (reads), GitHub's API and the drops' address (lh-parity-015). No request to www or
+  any airline host.
+- .migration/project.json not touched; the excluded manage page has no row and no line.
+- Not in git, and why:
+  - logs/p4/so49 (scratch: the served copies, the probe, the renders);
+  - the drops under logs/drops (private material);
+  - content/, migration-work/ and tools/importer/reports/* (not mine);
+  - the old autostash entry (not mine, kept).
+- Preview servers stopped; the trial, folder and suite worktrees removed. No job left running.
+- Next order: the de/de and de/en sources' own no-breakage check, as ordered.
