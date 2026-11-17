@@ -30,3 +30,9 @@ test('from 768px: 66px above a heading-small h2 after the H1 intro, not on phone
 test('hubs on phones, not articles: 14px more above a heading-small h2 after a divider (hand-over item 19)', () => {
   assert.ok(read('styles/styles.css').includes('@media (width < 768px) { body.brand-lufthansa main:not(:has(.article-header)) p.spacer.divider + h2.heading-small { padding-top: 14px; } }'));
 });
+
+test('40px under a first section\'s stage picture before a column view of full-width text, not before a slider', () => {
+  const css = read('styles/styles.css');
+  assert.ok(css.includes('body.brand-lufthansa main > .section.breadcrumb-container:has(> .default-content-wrapper:last-child > p:last-child > picture):has(+ .section.column-view.flush.padded > .default-content-wrapper:first-child > p.full-width:first-child) { margin-bottom: 40px; }'));
+  assert.ok(!css.includes(':has(+ .section.column-view.flush.padded) { margin-bottom: 40px; }'));
+});

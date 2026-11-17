@@ -168,3 +168,16 @@ Standing order 48 (2026-11-17, ema-adobe's region breakdown of allegris-new-york
     "Take one! A film crew accompanies Antonio Colomboni ..." in its columns-media block: www 74px from the caption to the
     next paragraph at 1440, ours 46. Everything below stands 26px higher from there (y 2,160 at 1440, 1,760 at 390), and
     that step carries about 5-6 of the page's 9 points at 1440 (body text and pictures) and most of 390's.
+
+Standing order 52 (2026-11-17 afternoon): items 18, 19, 20, 21, 23 and 24 were with ema-adobe while ema-test checked ITA's
+pages, and they come back with the shared stylesheets (styles/styles.css; Columns Media and the themes were not edited):
+- 18: three rules shipped in 197f797 (frankfurt-fair 1440, the campaign FAQ heading after cards on phones, a hub
+  heading-small after the H1's intro from 768 px); know-before-you-go's 8 px is not a rule of its own (item 17's steps).
+- 19: the divider heading on hub phones shipped in 197f797 (articles left out); the article heading width was ema-test's
+  4306ac8.
+- 20: ema-test's phone rule stands (ad927be9); its 1440 half as a real 13 px (the wrapper's margin) went further on 7 of
+  31 recorded page-widths: not shipped.
+- 21: 21a ema-test's (4306ac8); 21b be-picky's 1440 figure moved 6.1 -> 7.2 only because the Price Bar is no longer drawn
+  and masked with www refused; 21c munich-fair's 390 gaps still cancel (6.1), its two-column row HOLD as before.
+- 23, 24: ema-test's (d65fae2); as served now explore-flying 390 7.2, allegris-new-york 3.1-5.2.
+Figures: gate-so52-adobe-heading-gaps.txt, sweep-so52-lh-adobe.md.

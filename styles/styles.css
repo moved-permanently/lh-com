@@ -2912,3 +2912,11 @@ body.brand-lufthansa main:has(.article-header) .columns-media:has(.media-video +
     padding-top: 14px;
   }
 }
+
+/* lufthansa.com: a first section that ends with its stage picture, before a flush padded column view that opens with
+   full-width text: 40px under the picture (www's frankfurt-fair at 390 and 1440, lh-parity-002/-004: the text 16 / 15px
+   lower than ours; standing order 52: the 4 locales 390 7.3-7.6 -> 5.9-6.1 %, 1440 4.5-5.6 -> 3.8-4.7. A column view
+   that opens with a Columns Media slider, as on meetings-and-events, went 0.5-1.4 further, so only text) */
+body.brand-lufthansa main > .section.breadcrumb-container:has(> .default-content-wrapper:last-child > p:last-child > picture):has(+ .section.column-view.flush.padded > .default-content-wrapper:first-child > p.full-width:first-child) {
+  margin-bottom: 40px;
+}

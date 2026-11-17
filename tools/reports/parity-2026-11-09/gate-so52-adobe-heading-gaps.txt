@@ -36,3 +36,20 @@
 #
 # Trials not shipped: 19 as margin-top 21 px (collapses into the divider's margin: no change; the article 10.8 -> 11.0);
 # 19 for articles too (the article 10.8 -> 11.9).
+#
+# Item 4 (sweep-so52-lh-adobe.md): frankfurt-fair's text under the stage picture, 16 px (390) / 15 px (1440) lower on www.
+# Rule: a first section ending with its stage picture before a flush padded column view that opens with full-width text
+# keeps 40 px under the picture (24 before). Reach on the recorded pages: frankfurt-fair x4 only (the wider form also
+# reached meetings-and-events x4, whose column view opens with a Columns Media slider: 0.5-1.4 further, so not that).
+# Gate as above (working copy against the deployed code).
+# rule	page-width	recording	A %	B %	heights A -> B (www/ours)
+stage	/at/de/frankfurt-fair 390	lh-parity-004	7.6	6.1	5439/5435 -> 5439/5439
+stage	/de/de/frankfurt-fair 390	lh-parity-004	7.6	6.1	5439/5435 -> 5439/5439
+stage	/de/en/frankfurt-fair 390	lh-parity-002	7.3	5.9	5310/5305 -> 5310/5310
+stage	/gb/en/frankfurt-fair 390	lh-parity-004	7.3	5.9	5310/5305 -> 5310/5310
+stage	/at/de/frankfurt-fair 1440	lh-parity-004	4.5	3.8	3501/3490 -> 3501/3501
+stage	/de/de/frankfurt-fair 1440	lh-parity-004	4.5	3.8	3501/3490 -> 3501/3501
+stage	/de/en/frankfurt-fair 1440	lh-parity-002	5.6	4.7	3524/3487 -> 3524/3503
+stage	/gb/en/frankfurt-fair 1440	lh-parity-004	5.6	4.7	3524/3487 -> 3524/3503
+stage	meetings-and-events x4, 390 and 1440	lh-parity-002/-004	2.6-6.1	the same	not reached
+# No-breakage: the same 400 unrecorded documents scanned for the final selector: none reached (it is the fair pages' form).
