@@ -5671,3 +5671,84 @@ places-so51-lh-com-outside-101-120.txt, delta-so51-lh-com-rows.txt / .json.
 - The folder servers are stopped; the gate and suite worktrees removed. No job left running.
 - For the publish child's round: hotel-offers' row (delta-so51-lh-com-rows.json).
 - For a decision: ITA's C1 carry-over (21 it/en rows to the eight other versions), unrecorded.
+
+## Standing order 52 (received about 14:10 UTC, 2026-11-17)
+
+State at the start: nothing of mine uncommitted or unpushed (order 51 on main, 8fd147e2, Build green). At most four
+browser jobs at a time, each read inside the turn. No stylesheet or code touched: ema-adobe holds the shared stylesheets
+today, and every fix of this order is a content row.
+
+1. **Discover services-long-haul** (delta-so52-rows.txt; a71901ff).
+   - discover-parity-005 fetched and checked (sha256 ce34d7dd...9ac9b9 as briefed).
+   - Trial pages were built from the served copy; the folder base reads as the host at both widths.
+   - Both rows end further from www at both widths:
+     - de/en: 1440 30.99 → 35.20 %, 390 20.22 → 29.78 %;
+     - xx/fr: 1440 35.52 → 39.43 %, 390 27.81 → 34.80 %.
+   - www's English and French pages draw no divider there: an invisible separator (hr-no-layout) sits before the
+     first two-column block, and the visible one comes before the next block, where the copies already have theirs.
+   - The rows are withdrawn: nothing READY, nothing held. Discover is closed on our side.
+2. **ITA's it/en rows carried** (delta-so52-ita-carry-01.txt / .json; 259419dd). 25 READY in one batch.
+   - Carried rows:
+     - business-class-medium-haul's phone-closed tabs, 8 versions;
+     - baggage-and-strollers' open-2 fare accordion, 8 versions;
+     - ita-airways-app's gap-after-none, 8 versions;
+     - invoicing's gap-after-small, it/it.
+   - Each anchor stands exactly once in the language document, with the same block or section around it. The dry run
+     on DA's copies makes every insert once, byte for byte without them.
+   - No-breakage with and without the rows at 1440 and 390: 100 loads, all 200, no new flag, no sideways scroll, no
+     lost words.
+   - Not carried, each with its reason in the list:
+     - English-text anchors: entry-exit-system's spacers, the pets and fantasia gap sections, the column-view heading
+       marks.
+     - Re-import content: fare cells, the "Please Note" box, the app page's tabs and pictures, an English heading,
+       the teaser lines and two-up (their lists already cover every language).
+     - The other it/en differences are not rows: they came with re-imports or are as authored.
+   - Noted for a look of its own: ita-airways-app at 1440 loads at one of two heights about 4,100 px apart, with and
+     without the row, in five versions.
+3. **lufthansa.com places 101-140** (delta-so52-lh-com-rows.txt / .json, places-so52-lh-com-outside-121-140.txt,
+   places-so51 updated; 0a70b1a2, e16a4fc5). 5 READY rows:
+   - 108 lufthansa-terminal-muenchen 1440 8.04 → 6.08 % (closing spacer 23 px from 768);
+   - 106 rebook 390 8.05 → 6.51 % and 115 lufthansa-voucher 390 7.81 → 4.18 % (gap-after-small-below-768 on the
+     closing section: the end-of-page space is a per-page section style, not the shared footer offset);
+   - 130 involuntary-rebooking 1440 7.34 → 4.48 % and 137 flying-with-small-children 1440 7.19 → 4.15 %
+     (gap-after-small-768 where ours had 48 px between sections and www 24).
+   - The other width is unchanged on every row. The folder base equals the host at both widths. The DA dry run is
+     byte for byte, and base and trial show the same flags.
+   - Held, not written: 12 trials read worse and are listed with their figures. The rest are aligner swings, small
+     mixed steps, or CSS spacing in today's ema-adobe files (the grey section blocks of advice-usa, the phone table
+     rows of europa-tarife, the Columns Media spacing of rail-and-fly and wetlease-hub).
+   - ema-adobe's places 81-100 are another ranking (sweep-so44), with no overlap.
+   - Order 51 wrongly took this ranking's first 20 (hertz and sixt 390 down to baggage-irregularities 390) to be
+     ema-adobe's. They are nobody's places yet and are listed for a next order.
+
+## Standing order 52, final section (about 15:00 UTC, 2026-11-17)
+
+- Items 1-3 done well before 18:00 UTC. Every background job was started and read inside this turn; no more than four
+  browser jobs at once.
+- Before this section, at 614bb4cf (e16a4fc5 after the last rebase, which brought one report-only commit, 39caa0aa;
+  lint and the folder-reading tests read again at the final commit):
+  - the full suite in a fresh worktree: npm run lint exit 0, stylelint exit 0, 1,271 test files passed, 0 failed;
+  - the folder-reading tests: 660, 0 failed;
+  - brand.test.mjs: passed.
+  - The whole-repo lint is read before every push.
+- No code, stylesheet or file of ema-adobe's touched; hand-over items 18-21, 23 and 24 untouched. Nothing to note for
+  them: no fix of mine needed one of their files.
+- Nothing uploaded, previewed or published by me; da-upload.mjs not run; no DA write. DA reads only:
+  - ITA's four pages in nine languages;
+  - lufthansa.com's five row pages.
+- Requests went only to our own hosts, DA (reads), GitHub's API and the drops' address (discover-parity-005, checksum
+  as briefed). No request to www or any airline host.
+- .migration/project.json not touched; the excluded manage page has no row and no line.
+- The optional plugins stay off; .agents/settings.json not written.
+- Not in git, and why:
+  - logs/p4/so52 (scratch: the served copies, DA copies, trials, captures);
+  - the drops under logs/drops (private material);
+  - content/, migration-work/ and tools/importer/reports/* (not mine);
+  - the old autostash entry (not mine, kept).
+- The folder servers are stopped; the gate and suite worktrees removed. No job left running.
+- For the publish child's round:
+  - delta-so52-ita-carry-01.json: 25 ITA documents;
+  - delta-so52-lh-com-rows.json: 5 lufthansa.com documents.
+- For a next order:
+  - this ranking's first 20 places (nobody's);
+  - the ita-airways-app height flip at 1440.
