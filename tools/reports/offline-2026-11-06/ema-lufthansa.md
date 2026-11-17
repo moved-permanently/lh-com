@@ -6401,3 +6401,34 @@ changed, so stylelint had nothing to check.
 - Every browser load refused airline hosts per request, or (offline renders) answered only from 127.0.0.1.
 - Reads came from our hosts and DA (two GETs).
 - No upload, preview or publish by me, no da-upload.mjs. /de/en/overview-manage got no row.
+
+## Standing order 41 (2026-11-17, about 05:40 to 08:30 CET), with its final section
+
+Figures in full Chrome (capture.js PARITY_CHROME=1, host-eval HOST_CHROME=1), airline hosts refused per request.
+
+**Item 1, the Chrome comparison finished; the finish lists corrected.**
+- **All 498 page-widths are compared** (engines-so40-chrome-shell.md, its order-41 section). 20 differ by more than 1 % between the engines in both re-captures: Group for Business 11, Brussels 8, Discover 1.
+- **Finish rows whose verdict changes** when measured in Chrome, 13 corrected:
+  - Group for Business /de/de/about-us 390 leaves HOLD: www's height exactly in Chrome.
+  - Ten more are within 2 % now. Most of them through rules and rows live since they were written (the closing-sidebar rule, cover-16x9, d85fa7d4, the lhg-history row, the SWISS footer rule); for three of them the old figure was a form's load variance.
+  - Two marked READY are outside 2 % in both engines: de/de and it/it checked-baggage 390. They are HOLD now, with the cause located.
+- **Brussels be/en checked-baggage 390 (-1.74 % in Chrome) is located:** the closing related-topics band. www keeps about 80 px from its heading to the first card and 135 under the last card, ours 38 and 49. The same band ends the de, es, nl and it pages. No row: it needs a page-end rule for every Brussels page closing with that band, with its own census.
+
+**Item 2, rank 187's footer rule: its two blocking pages located; two rows READY; the rule waits for them.**
+- de/de lounges and be/fr my-bookings are single-section sidebar pages ending with their card grid. The Brussels theme's median end padding there (130 px on phones, 64 from 768) is more than www keeps on these two (81 and 153 px at 390 against our 177 and 178).
+- delta-so41-brussels-card-page-endings.txt (READY) gives each card grid a section of its own, with desktop-only and phone-only spacers giving www's exact gap. Lounges keeps its "padded" title style by moving its section-metadata.
+- With the rows: my-bookings 1440 +1.78 -> +0.00 % and 390 +3.14 -> -1.28 %; lounges 1440 +0.22 -> +0.00 % and 390 +1.92 -> -0.92 %. With the rule on top, both 390s are closer again (-0.68 %, +0.00 %).
+- The rule is not pushed in this order: code goes live on push, and before the rows are published lounges would be 0.92 points further (the interim gate). It ships once the rows are live, after a fresh gate and a footer census.
+
+**Item 3, ranks 190 to 209 (sweep-so41-ranks-190-209.md): all twenty located; no row.** Four are Discover's (ema-test).
+
+**Checks:** whole-repo lint, the folder-reading tests and the full suite in the ship, waited for in the turn. No CSS changed, so stylelint had nothing to check.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine.
+- `.scratch/` (outside git): the Chrome sweeps and loads, the side-by-sides, and DA's two Brussels copies (read ~04:40 UTC).
+
+**Hosts:**
+- Every browser load refused airline hosts per request; the offline renders answered from 127.0.0.1 only.
+- Reads came from our hosts and DA (two GETs).
+- No upload, preview or publish by me, no da-upload.mjs. /de/en/overview-manage got no row.

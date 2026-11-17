@@ -39,3 +39,19 @@ The publish child measures in full Chrome. My captures used the headless shell u
 | Group for Business | /de/en/news/lhg-invoice-receipt-download | 390 | b2b-parity-006 | 2142 | 2134 (-0.37 %) | 2158 (+0.75 %) | +1.12 % | 2134 / 2158 |
 | Group for Business | /de/en/travel-solutions/our-european-fares | 1440 | b2b-parity-007 | 9102 | 9203 (+1.11 %) | 9102 (+0.00 %) | -1.10 % | 9203 / 9102 |
 | Group for Business | /de/de/news/lhg-invoice-receipt-download | 390 | b2b-parity-006 | 2302 | 2315 (+0.56 %) | 2339 (+1.61 %) | +1.04 % | 2315 / 2339 |
+| Brussels | /es/es/extra-services/baggage/checked-baggage | 1440 | brussels-parity-005 | 4016 | 4000 (-0.40 %) | 3952 (-1.59 %) | -1.20 % | 4000 / 3952 |
+| Discover | /de/en/book/baggage | 1440 | discover-parity-001 | 4196 | 4163 (-0.79 %) | 4115 (-1.93 %) | -1.15 % | 4163 / 4115 |
+| Brussels | /it/it/legal-notices/special-assistance-legal-guidelines | 390 | brussels-parity-007 | 2256 | 2204 (-2.30 %) | 2180 (-3.37 %) | -1.09 % | 2204 / 2180 |
+
+## Standing order 41: the other 133
+
+The other 132 page-widths (one recording has two) were captured in full Chrome on 2026-11-17 ~04:31 to 04:55 UTC, so all 498 are compared now. 11 differed by more than 1 % from their shell figure and were captured again in both engines (~04:56 to 05:00 UTC).
+- **Three differ:** Brussels es/es checked-baggage 1440 (-1.20 %), Brussels it/it special-assistance legal guidelines 390 (-1.09 %), and Discover de/en book/baggage 1440 (-1.15 %). They are added to the table above.
+- **The other eight do not:**
+  - one bad first load (Discover de/en homepage 1440 drew the window's 900 px);
+  - seven shell figures older than a live rule or row: the SWISS German footer rule (order 37) and round 512's checked-baggage headings. Both engines now agree on those seven.
+
+**All 498: 20 page-widths differ by more than 1 % between the engines:**
+- Group for Business: 11, Chrome mostly longer;
+- Brussels: 8, Chrome shorter;
+- Discover: 1.

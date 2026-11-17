@@ -1,0 +1,26 @@
+{
+ "/be/fr/my-bookings": [
+  {
+   "from": "<h1 id=\"gérer\">Gérer</h1></div><div></div></div></div><div class=\"carousel-cards grid four-up\">",
+   "to": "<h1 id=\"gérer\">Gérer</h1></div><div></div></div></div></div><div><div class=\"carousel-cards grid four-up\">",
+   "count": 1
+  },
+  {
+   "from": "<div>Accueil</div></div></div></div>\n<div></div></main>",
+   "to": "<div>Accueil</div></div></div><p>{spacer-64 from-768}</p></div>\n<div></div></main>",
+   "count": 1
+  }
+ ],
+ "/de/de/extra-services/lounges": [
+  {
+   "from": "die sie zu bieten hat.</p></div><div></div></div></div><div class=\"carousel-cards grid four-up\">",
+   "to": "die sie zu bieten hat.</p></div><div></div></div></div><div class=\"section-metadata\"><div><div>Style</div><div>padded</div></div></div></div><div><div class=\"carousel-cards grid four-up\">",
+   "count": 1
+  },
+  {
+   "from": "</div><div class=\"section-metadata\"><div><div>Style</div><div>padded</div></div></div></div>\n<div></div></main>",
+   "to": "</div><p>{spacer-89 below-768}</p><p>{spacer-48 from-768}</p></div>\n<div></div></main>",
+   "count": 1
+  }
+ ]
+}

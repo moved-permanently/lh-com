@@ -54,3 +54,9 @@ That is www's col-9 of the footer row less its 10 px padding each side: 254.5 px
 - The footer change is right on those pages too (www wraps the same link), but the gate counts page heights, so the rule fails it.
 
 **HOLD.** It can ship together with rows that take those two pages' other steps out, under the interim gate.
+
+**Standing order 41:** the two pages that stopped it are located. Each is a single-section sidebar page that ends with its card grid, where the Brussels theme's median end padding (130 px on phones, 64 from 768) is more than www keeps on these two. delta-so41-brussels-card-page-endings.txt (READY) gives each card grid a section of its own, with spacers giving www's exact gap:
+- with the rows, both pages are closer at both widths;
+- with the rule on top, de/de lounges 390 is 2,401 (www 2,401) and be/fr my-bookings 390 is 3,634 (-0.68 %), so the rule then takes both closer.
+
+The rule stays out of the theme until the rows are live: code goes live on push, and until then lounges would be 0.92 points further (the interim gate). Then it is gated again, with the loads that were still growing in order 40 measured once more and every Brussels locale's footer rendered with and without it.
