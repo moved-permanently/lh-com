@@ -5836,3 +5836,59 @@ and separator widths.
   - delta-so53-lh-com-rows.json: 6 lufthansa.com documents.
 - For ema-adobe: the main img width:auto note.
 - For the harness: reimport-1110's tab sets for the eight remaining ita-airways-app versions.
+
+## Standing order 54 (received about 17:15 UTC, 2026-11-17)
+
+State at the start: nothing of mine uncommitted or unpushed (order 53 on main, 297169f7, Build green). At most four
+browser jobs at a time, each read inside the turn. No stylesheet or code touched: rows only.
+
+1. **lufthansa.com ranks 21-40 and free2move** (delta-so54-lh-com-rows.txt / .json; 7efee6fb, a737fdf1).
+   - Ranks 21-40 of order 51's ranking are the pages of places-so51-lh-com-outside-101-120.txt (written there as
+     places 101-120). This order tried those with no row yet, plus free2move and one more of ranks 1-20 with the same
+     kind of step. 5 READY:
+     - free2move 390: 8.57 → 4.08 % (a phone spacer before both market sections' small print);
+     - rail-and-fly 1440: 7.99 → 2.15 % (a band-end spacer);
+     - wetlease-hub: 1440 7.05 → 1.65 %, 390 8.54 → 5.18 % (band-end spacers);
+     - payment-options-at-the-airport 390: 8.44 → 5.74 %;
+     - advice-for-travellers-...-usa 1440: 8.08 → 4.21 % (a grey-section-end spacer).
+   - Every row's other width is unchanged, except wetlease-hub, where both widths are gated. The folder base equals
+     the host, the DA dry run is byte for byte, and no new flag appears besides the by-design spacer-wrapper overlap.
+   - Held, each with a line:
+     - mobility-partner 390 and cancellations-and-refunds 390 read worse;
+     - five pages have only aligner swings;
+     - two have text or table spacing (stylesheets).
+2. **ITA's two held it/en marks** (ita-so54-held-marks-and-languages.txt; c03fa050).
+   - fantasia-lounge and seats-selection-economy, gated again against ita-parity-005 as served: unchanged at 1440,
+     further at 390 (1.95 and 1.06 points). Both stay held; nothing carried.
+3. **ITA's other-language recordings** (same file).
+   - Every drop at the drops' address was fetched and checked (ita-parity-005 to -013; 001-004 answer 404). They
+     record it/en only, except it/it help-and-contact; no de/de, fr/fr or es/es page is recorded.
+   - That page reads 29.5 % at 1440, but the recording shows www's privacy dialog open over the page and an unloaded
+     stage picture. The layout under the dialog matches ours (2,375 against 2,378 px). No row.
+- Note: ema-adobe's table-striped change a78163e4 (17:20 UTC) landed during the gates. It reaches only
+  .table-striped.beside / beside-end with a picture above; none of the five pages has one.
+
+## Standing order 54, final section (about 17:45 UTC, 2026-11-17)
+
+- Items 1-3 done well before 21:00 UTC. Every background job was started and read inside this turn; no more than four
+  browser jobs at once.
+- Before this section: the full suite at f9875bb0 and again at df0ca5e8, after the last rebase brought another session's
+  SWISS theme change (99f4a801, its order 64) and other sessions' state and report commits (the last 7ef11f42); lint and the folder-reading tests read at the final commit:
+  - the full suite in a fresh worktree: npm run lint exit 0, stylelint exit 0, 1,273 and then 1,274 test files passed, 0 failed;
+  - the folder-reading tests: 661, then 662 at the final commit, 0 failed;
+  - brand.test.mjs: passed.
+  - The whole-repo lint is read before every push.
+- No code, stylesheet or file of ema-adobe's touched.
+- Nothing uploaded, previewed or published by me; da-upload.mjs not run; no DA write. DA reads only: lufthansa.com's
+  five row pages.
+- Requests went only to our own hosts, DA (reads), GitHub's API and the drops' address (ita-parity-006 to -013,
+  checked against their sha256; HEAD requests for 001-004 and 014). No request to www or any airline host.
+- .migration/project.json not touched; the excluded manage page has no row and no line.
+- The optional plugins stay off; .agents/settings.json not written.
+- Not in git, and why:
+  - logs/p4/so54 (scratch);
+  - the drops under logs/drops (private material);
+  - content/, migration-work/ and tools/importer/reports/* (not mine);
+  - the old autostash entry (not mine, kept).
+- The folder servers are stopped; the gate and suite worktrees removed. No job left running.
+- For the publish child's round: delta-so54-lh-com-rows.json (5 lufthansa.com documents).
