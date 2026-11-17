@@ -2874,3 +2874,41 @@ body.brand-lufthansa main:has(.article-header) .columns-media:has(.media-video +
     margin-bottom: 40px;
   }
 }
+
+/* lufthansa.com from 768px: a section that opens with an h2 right after a flush padded column view (full-width text):
+   39px above the heading, as www's (frankfurt-fair at 1440, lh-parity-002/-004: www 113px from the text to "The benefits
+   of travelling with Lufthansa to Messe Frankfurt", ours 74; hand-over item 18, standing order 52: the 4 frankfurt-fair
+   locales 1440 6.5-7.7 -> 4.5-5.6 %, no other recorded page reached) */
+@media (width >= 768px) {
+  body.brand-lufthansa main > .section.column-view.flush.padded:not(.grey) + .section:not(.grey, .padded, .stage, .spaced, .flush, .column-view, .column-band, .campaign-section) > .default-content-wrapper:first-child > h2:first-child {
+    margin-top: 39px;
+  }
+}
+
+/* lufthansa.com campaign sections on phones: the FAQ heading opening a spaced section after a spaced section that ends
+   with Carousel Cards keeps 30px more above it (speisen-und-getraenke, food-and-beverages at 390, lh-parity-002/-004:
+   www 70px from the last card's foot to "Häufig gestellte Fragen", ours 40; hand-over item 18, standing order 52) */
+@media (width < 768px) {
+  body.brand-lufthansa main > .section.campaign-section.spaced:has(> .carousel-cards-wrapper:last-child) + .section.campaign-section.spaced > .default-content-wrapper:first-child > h2:first-child {
+    margin-top: 30px;
+  }
+}
+
+/* lufthansa.com hubs from 768px: a heading-small h2 right after the H1's intro paragraph keeps 66px above it (www's
+   explore-the-world at 1440, lh-parity-015: 26px more above "Discover your dream destinations with us!" than ours;
+   hand-over item 18, standing order 52; on phones the same step made the page further, so not there) */
+@media (width >= 768px) {
+  body.brand-lufthansa main .default-content-wrapper > h1 + p + h2.heading-small {
+    margin-top: 66px;
+  }
+}
+
+/* lufthansa.com hubs on phones (not articles): a heading-small h2 right after a divider keeps 14px more above it
+   (digital-self-services at 390, lh-parity-002/-004: www 58px from the line to "You might also be interested in" /
+   "Das könnte Sie auch interessieren", ours 37; hand-over item 19, standing order 52: the 4 locales 7.0-7.2 ->
+   5.5-5.6 %; an Insights article with the same pair went 1.1 further, so articles are left out) */
+@media (width < 768px) {
+  body.brand-lufthansa main:not(:has(.article-header)) p.spacer.divider + h2.heading-small {
+    padding-top: 14px;
+  }
+}

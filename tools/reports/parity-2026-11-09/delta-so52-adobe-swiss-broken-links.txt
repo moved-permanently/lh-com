@@ -5,10 +5,13 @@
 # 2 inserted, 2 byte for byte without them (--check); the diff of each copy is the one href.
 # Gate: the target answers 200 on main--lh-swiss--moved-permanently.aem.live (.plain.html) and on swiss.turnsthe.page as
 # served; the document itself answers 200 on swiss.turnsthe.page. Layout does not change (an href only).
-# (The third link of the order, lh-austrian /at/en/plan/special-requirements/healthy-travel, gets no row: that document is
-# not on our site. DA holds only a folder of that name under at/en (doctor-on-board, medical-travel-companions), no
-# healthy-travel document; the page answers 404 on aem.live and on austrian.turnsthe.page. Its target
-# /at/en/plan/special-requirements/healthy-travel/medical-travel-companions answers 200 on aem.live.)
+# (The third link of the order, lh-austrian's healthy-travel page, gets no row. On our site that version page is the
+# document /at/en/healthy-travel, not /at/en/plan/special-requirements/healthy-travel: under that path DA holds only a folder
+# (doctor-on-board, medical-travel-companions) and the page answers 404 on aem.live and austrian.turnsthe.page; this
+# commit's first version said "not on our site", which was wrong. The helper changed that document's link in DA and
+# previewed it at 13:33 CET (47b6a94): DA's copy and aem.page read
+# /at/en/plan/special-requirements/healthy-travel/medical-travel-companions (200 on aem.live), aem.live still the old
+# /at/en/plan/special-requirements/medical-travel-companions until it is published. Nothing left for a row.)
 # status	document	tool	expected change	gate
 READY	/ch/it/fly/check-in/electronic-bag-tag	text-inserts-apply (delta-so52-adobe-swiss-broken-links.json)	the "Fast Bag Drop" link: https://www.swiss.com/ch/it/fly/check-in/fast-bag-drop -> /ch/it/fly/check-in/fast-bag-drop-gva	anchor found 1x; target 200 on aem.live, 200 on swiss.turnsthe.page; document 200 on swiss.turnsthe.page
 READY	/ch/en/customer-support/feedback	text-inserts-apply (delta-so52-adobe-swiss-broken-links.json)	the "Send feedback" link: /ch/en/customer-support/contact-us/feedback-past-flight -> /ch/en/feedback	anchor found 1x; target 200 on aem.live, 200 on swiss.turnsthe.page; document 200 on swiss.turnsthe.page

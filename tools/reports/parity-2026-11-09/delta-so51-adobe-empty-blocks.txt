@@ -11,6 +11,13 @@
 # Gate: all 16 documents (no recordings) rendered on our host as served, the published copy and the row applied, each at
 # 1440 and 390 in the same load: all 200; the empty block gone, no sideways scroll, overlap, clipped text, failed picture
 # or empty block added (A -> B per width: over/overlaps/clipped/failed/empty).
+# Heights (standing order 52): the gate column's heights are the page as served without and with the row. Where the empty
+# block took room the page gets shorter: worldwide-sale ge/en, kz/ru -70 / -67 px, the six xx meetings-and-events -40 / -56,
+# the two xx/es Insights hubs -198 / -178 (heading and carousel); the accordion-columns rows draw no height (0 / 0).
+# Order 51's report said "nothing else changed": it meant no other check changed, not the height. Measured again on
+# lufthansa.turnsthe.page as served after round 539 (logs/b652/live-heights.cjs, the same scroll and settle): the 9 rows
+# whose documents were not re-imported read the B heights exactly; mk/de munich and the six meetings-and-events read taller,
+# because their lost content (reimport-so51-adobe-lost-content.txt) was re-imported and published at 12:26-12:59 CET.
 # status	document	tool	expected change	gate (heights 1440 / 390, A -> B)
 READY	/at/en/book-and-manage/offers-and-destination/nordamerika-angebote	text-inserts-apply (delta-so51-adobe-empty-blocks.json)	the empty accordion-columns block removed	2720 -> 2720 / 3357 -> 3357 px; 0/0/0/0/accordion-columns -> 0/0/0/0/- / 0/0/0/0/accordion-columns -> 0/0/0/0/-
 READY	/at/en/book-and-manage/offers-and-destination/weltweite-angebote1	text-inserts-apply (delta-so51-adobe-empty-blocks.json)	the empty accordion-columns block removed	3202 -> 3202 / 3902 -> 3902 px; 0/0/0/0/accordion-columns -> 0/0/0/0/- / 0/0/0/0/accordion-columns -> 0/0/0/0/-
