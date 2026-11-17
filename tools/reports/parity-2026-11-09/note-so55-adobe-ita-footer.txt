@@ -1,0 +1,18 @@
+# ema-adobe, standing order 55 (2026-11-17), item 3: ITA's footer on phones (ema-test's delta-so55-ita-rows.txt): ours
+# 1,355 px against www's 1,271 on flight-search at 390, the same +82 px step on eight recorded ITA pages.
+#
+# HOLD, no rule. The step is the font this capture machine draws the legal links in, not ITA's footer CSS.
+# - Where: the footer's legal links (styles/themes/ita.css: body.brand-ita .footer .footer-legal .footer-link, 12 px,
+#   font-family arial, helvetica, sans-serif, 24 px apart). it/en homepage at 390, the footer cut from both images
+#   (www: ita-parity-001, footer y 3,653 h 1,268; ours y 3,665 h 1,355) and aligned: within 2 px down to the legal
+#   links, then +87 px from them on. www sets the links in 7 rows ("Cookie policy | Change cookie settings" and "Data
+#   protection | Suppliers data protection" each one row), ours in 9.
+# - Why: this machine has no Arial (fc-match Arial: DejaVu Sans), so the links are drawn in DejaVu Sans, about 12 %
+#   wider, and two more of them wrap. www's recording is a macOS Chrome with Arial. The served page asks for Arial as
+#   www does; on a browser with Arial (Windows, macOS, iOS) the rows are www's.
+# - Check: the same page as served, the links 0.9 px narrower per letter (a stand-in for Arial's width): the legal list
+#   403 -> 361 px, the footer 1,355 -> 1,313 (one row less). A rule that made the rows fit DejaVu Sans would draw them
+#   differently from www on real devices, so none is written.
+# - What would help the measurements: a metric-compatible Arial on the capture machine (Liberation Sans), which isn't
+#   installed here; nothing in the site.
+# Not touched: styles/themes/ita.css (ema-lufthansa's this order) and styles/styles.css.
