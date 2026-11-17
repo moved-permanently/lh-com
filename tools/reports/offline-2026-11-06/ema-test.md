@@ -5533,3 +5533,73 @@ browser jobs at a time, each read before the next step.
   - the old autostash entry (not mine, kept).
 - Preview servers stopped; the trial, folder and suite worktrees removed. No job left running.
 - Next order: the de/de and de/en sources' own no-breakage check, as ordered.
+
+## Standing order 50 (received about 08:10 UTC, 2026-11-17)
+
+State at the start: nothing of mine uncommitted or unpushed (order 49 on main, ae5e99b0). At most four browser jobs at
+a time, each read inside the turn. Lists: delta-so50-rows.txt, delta-so50-lh-com-rows.json,
+nobreak-so50-lh-com-de-sources.txt.
+
+1. **Order 49's Discover customer-service figures.**
+   - Order 49 quoted 1440 3,836 → 4,098. As served the pages read 4,736 → 4,347 (390: 6,046 → 6,218).
+   - Cause: I built those two rows' folder pages from DA's copy, not from the served .plain.html, and did not compare
+     the folder base with the host. DA's copy points at www for its pictures, which the render refuses. So the stage
+     picture collapsed (365 px instead of 735) and the WhatsApp QR code never loaded, in both states.
+   - The sign was hidden too: the row moves the full-width QR code into the side-picture column, so the live page got
+     389 px shorter; my folder pages showed only the added divider, search bar and spacing (+262).
+   - No regression: both live pages have no flag at 390 and 1440 and stand within 67 / 31 px of their source.
+   - The other Discover rows of that order used served copies. Their folder base was compared with the host. No other
+     row was gated on DA's copy.
+   - Corrected figures in delta-so50-rows.txt; the lesson is in my notes (folder pages only from the served copy).
+2. **No-breakage render of lufthansa.com's de/de and de/en documents.**
+   - 2,104 served documents (the manage page excluded), 4,208 loads at 1440 and 390, all 200. Other hosts were
+     refused.
+   - No breakage: no sideways scroll, text with no height or unknown block. Every class is by design, a refusal of
+     the render, or the document as authored. Classes and counts:
+     - clipped text 260 (the overlay teaser cards crop their cover picture);
+     - overlap 109 at section level (the subpage navigation beside the content) and 32 inside a section (the hidden
+       spacers' deliberate margins);
+     - lost words 1,214 (block configuration), 6 (market-hidden sections), 9 (link paths, doubled words);
+     - empty poi-map 20 and failed picture 11 (OpenStreetMap tiles refused);
+     - empty carousel-lightbox 19 (builds in view: 269 px when scrolled to);
+     - empty micro-frontend 6 (its app from another host);
+     - empty message-center 2 and flash-teaser 2 (no message today);
+     - visible H1 other than one: 117, each equal to the document's own count.
+   - No row and no shared rule. The note for ema-adobe's rollout comparison is in the file: nothing there should be
+     copied as breakage into the at/de or gb/en lists.
+3. **The two HOLD items.**
+   - special-meals: READY.
+     - The {column-end} before the grey band becomes {spacer-30 below-768}.
+     - 1440 8.95 → 8.38 %, 390 9.53 → 9.38 %, no flag. The folder base equals the host.
+     - Dry run on DA's copy: the insert made once; DA's copy byte for byte without it.
+   - Discover services-long-haul (de/en, xx/fr): no row passes, because no drop holds a recording of www for these
+     pages, so there is no gate figure.
+     - The variant itself is right. As served, the German source draws the divider between the text and the Columns
+       Media at both widths, and the copies have none. The trial adds the same 62 px.
+     - Order 49's "same height" note compared whole pages, whose German text differs in length.
+     - The rows stay HOLD until a recording exists.
+
+## Standing order 50, final section (about 10:55 UTC, 2026-11-17)
+
+- Items 1-3 done, ahead of the 12:00 UTC end. Every background job was started and read inside this turn; no more
+  than four browser jobs at once.
+- Before this section, at 0340570d:
+  - the full suite in a fresh worktree: npm run lint exit 0, stylelint exit 0, 1,269 test files passed, 0 failed;
+  - the folder-reading tests: 659, 0 failed;
+  - brand.test.mjs: passed.
+  - The whole-repo lint is read before every push.
+- No code or stylesheet changed this order, so the two-hour window was not in play. No shared rule was written.
+- Nothing uploaded, previewed or published by me. da-upload.mjs not run. DA read only (lufthansa.com special-meals,
+  for the dry run).
+- Requests went only to our own hosts, DA (reads) and GitHub's API. No request to www or any airline host; the drops
+  were already on disk.
+- .migration/project.json not touched; the excluded manage page has no row and no line.
+- The optional plugins stay off; .agents/settings.json not written.
+- Not in git, and why:
+  - logs/p4/so50 (scratch: the served copies, the probe, the renders);
+  - the drops under logs/drops (private material);
+  - content/, migration-work/ and tools/importer/reports/* (not mine);
+  - the old autostash entry (not mine, kept).
+- The folder servers are stopped and the gate worktree removed. No job left running.
+- For the publish child's round: special-meals' row (delta-so50-lh-com-rows.json). Services-long-haul's two rows stay
+  HOLD until a recording of www exists.
