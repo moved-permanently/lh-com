@@ -1,0 +1,42 @@
+# ema-adobe, standing order 54 (2026-11-17), item 1: default-content pictures keep their box before they load
+# (ema-test's note-so53-ita-app-height.txt, 3559f2da).
+#
+# Cause: styles/styles.css `main img { width: auto; height: auto; max-width: 100% }` overrides the picture's width
+# attribute; a lazy picture that has not loaded has no natural size, so width: auto gives 0 x 0 although its attributes
+# give its shape (aspect-ratio auto W / H). Columns Media pictures keep their box (the block sizes them). The capture
+# tool's picture wait skips 0 x 0 pictures, so a capture could be taken before they loaded: the load-timing flips.
+#
+# Rule (styles/styles.css, test/lazy-picture-box-so54.test.mjs: 3 tests, red without the rule, green with it):
+#   main :where(.default-content-wrapper) img:where([width][height]) { min-width: min(100%, attr(width px, 0px)); }
+#   - An unloaded picture is at least its width attribute wide (capped by its container), its height from the
+#     attributes' ratio. A minimum, not a width: a loaded picture whose file is larger than its attributes keeps its
+#     drawn size. The first form (width: attr(width px, auto)) shrank SWISS pictures whose copies carry smaller
+#     attributes than their files (the brand sample: magazine and senses pages 600-900 px shorter), so it was dropped
+#     before the gate below.
+#   - :where() keeps main img's specificity, so blocks and more specific rules still win. Typed attr() needs Chrome 133+
+#     (the capture Chrome is 158); older browsers keep today's behaviour.
+#   - Browser check (logs/b654/attrtest.cjs): an unloaded lazy 1440 x 930 picture in a 600 px column 600 x 387.5 (0 x 0
+#     before); a loaded 300 x 150 file with 100 x 50 attributes stays 300 x 150.
+#
+# Gate: every recorded page-width held on this machine, every host but ours and aem refused.
+# - lufthansa.com, the sweep's 286 page-widths (lh-parity-002/-004/-015): the working copy (logs/b652/gate.sh --local)
+#   against sweep-so52's captures, the same compare. 274 within 0.2 points; 5 read 0.5-10 further in that parallel run;
+#   those 5 and the 12 rows whose sweep capture predates a later rule or row were captured with and without the rule
+#   in turn in one run (logs/b654/gab*.sh): all 17 identical (e.g. tags/allegris 390 3.88 / 3.88, all-it-takes-is-a-yes
+#   at/de 1440 6.60 / 6.60, fleet 1440 7.45 / 7.45 with the page 3,695 px taller below the compared 8,000 px). None
+#   further by more than 0.5.
+# - lufthansa.com, the other 472 recorded page-widths (lh-parity-002a-d, -003, -004a/b): the rule toggled in one load
+#   after a capture-like scroll (logs/b654/togglescan.cjs): 466 with every picture box and the page height unchanged;
+#   6 moved or did not load (security-fast-lanes 390 +111, lounges 390 +124, first-class 390 +252: a picture still
+#   pending after the scroll got its box; delayed-baggage-lhg 390, services-at-frankfurt-airport 1440, affiliatemarketing
+#   1440: first load unfinished). Those 6 captured with and without in turn: all identical (first-class 390 16.73 /
+#   16.73, the page 252 px taller below 8,000 px).
+# - SWISS (swiss-parity-001, 48 page-widths) and ITA (ita-parity-001/-002, 52): with and without in turn
+#   (logs/b654/brand-gate.sh): 97 within 0.2, ch/de homepage 1440 19.68 -> 19.17; two rows whose B load broke off
+#   (ch/en overview-travel-information 1440, it/en extra-services 1440) loaded again: 3.47 / 3.47 and 26.84 / 26.84.
+#   None further by more than 0.5. (The other brands' recordings are ema-test's, not on this machine.)
+# No-breakage: 8 unrecorded documents with default-content pictures per brand (swiss, austrian, brussels, ita, discover,
+# b2b, airdolomiti, cargo, tap; 72 documents, 144 loads), with the rule injected and as served, 1440 and 390
+# (logs/b654/nb-brand.cjs): no flag that the rule adds (the three flag differences of the first pass were gone or the
+# same on both in a second load). Heights move by load timing, as the note describes, now in the rule's favour (pictures
+# keep their box).

@@ -1,0 +1,34 @@
+# ema-adobe, standing order 54 (2026-11-17), item 3: the 3,393 lufthansa.com documents list-so53 left (de/en 957, de/de
+# 1,005, gb/en 585, 846 data documents). Same checks as list-so53-adobe-next-1500.txt: each page on lufthansa.turnsthe.page
+# as served, every host but ours and aem refused, 1440 then 390 in one load (logs/b654/rcheck.cjs), copies against their
+# source's structure. The render shared the evening with item 1's gates and three service restarts; it reached 716 pages:
+# de/en 397 of 957 (in path order, through /de/en/articles/...) and de/de 319 of 1,005. Not reached tonight: de/en 560,
+# de/de 686, gb/en 585 (1,831 pages, fetched to logs/b654/pub for the next order).
+#
+# Results (716 pages)
+# - 524 clean in every check; 5 load errors (render again next order).
+# - Breakage that takes a row: none. The one loose-marker page (de/de on-the-scene-art-johannesburg: "{caption}
+#   {heading-small} {divider-25}" as text, no H1) renders correctly on a second load (H1 1, no marker): a load whose
+#   decoration did not finish.
+# - Not breakage: failed pictures (136 pages, nearly all articles) and empty Related Articles (31): six sampled pages
+#   render clean one at a time (pictures loaded, related cards 256-270 characters), as in list-so53: the parallel loads
+#   met our host's limits. Lost words (22) sit on the same article loads. H1 counts: de/en and de/de are the sources
+#   themselves; 0 on the fleet detail pages (as their copies in list-so53), 2-3 on the article hubs, tag pages and author
+#   pages (www's own h1 components).
+# - The 846 data documents (data/lufthansa-group 427, data/details 283, content/mobile 75, data/content-fragments 57,
+#   others 4): 844 answer 200 on our host as noindex, nofollow HTML pages (the app's "what's new" texts and ancillary
+#   data, the whole text as title, an empty main), 2 timed out. Served as pages, not meant as site pages; no row.
+#
+# The classes with their documents (logs/b654/classes.txt):
+# documents 716; served and clean in every check 524; not served 5 {'error': 5}
+#   136  failed picture at 1440  e.g. /de/de/articles/explore-the-world/in-my-hood-apgujeong-seoul, /de/de/articles/explore-the-world/in-my-hood-arroios-lissabon, /de/de/articles/explore-the-world/in-my-hood-bandra-mumbai, /de/de/articles/explore-the-world/in-my-hood-chiswick-london
+#   135  failed picture at 390  e.g. /de/de/articles/explore-the-world/in-my-hood-apgujeong-seoul, /de/de/articles/explore-the-world/in-my-hood-arroios-lissabon, /de/de/articles/explore-the-world/in-my-hood-bandra-mumbai, /de/de/articles/explore-the-world/in-my-hood-chiswick-london
+#    31  empty block at 1440: related-articles  e.g. /de/de/articles/explore-the-world/in-my-hood-back-bay-boston, /de/de/articles/explore-the-world/in-my-hood-japantown-san-francisco, /de/de/articles/explore-the-world/in-my-hood-mount-pleasant-washington, /de/de/articles/explore-the-world/in-my-hood-nice-ouest
+#    24  empty block at 390: related-articles  e.g. /de/de/articles/explore-the-world/in-my-hood-back-bay-boston, /de/de/articles/explore-the-world/in-my-hood-japantown-san-francisco, /de/de/articles/explore-the-world/in-my-hood-mount-pleasant-washington, /de/de/articles/explore-the-world/know-before-you-go-bogota
+#    22  lost words  e.g. /de/de/articles/explore-the-world/in-my-hood-back-bay-boston, /de/de/articles/explore-the-world/in-my-hood-mount-pleasant-washington, /de/de/articles/explore-the-world/in-my-hood-nice-ouest, /de/de/articles/explore-the-world/know-before-you-go-dallas
+#    14  H1 0: no source (de/de, de/en, xx own documents)  e.g. /de/de/articles/explore-the-world/in-my-hood-mount-pleasant-washington, /de/de/articles/explore-the-world/know-before-you-go-dallas, /de/de/articles/explore-the-world/on-the-scene-art-johannesburg, /de/de/articles/explore-the-world/picture-perfect-riad
+#     5  H1 2: no source (de/de, de/en, xx own documents)  e.g. /de/de/articles/highlights/soccer-event-in-north-america, /de/de/articles/tags/amsterdam, /de/de/articles/tags/athens, /de/de/articles/tags/barcelona
+#     5  not served (error)  e.g. /de/de/articles/explore-the-world/in-my-hood-vrsovice-prague, /de/de/articles/tags/budapest, /de/en/articles/explore-flying/welcome-to-my-world-alexandra-maria-lara, /de/en/articles/explore-the-world/a-perfect-day-malaga-on-one-day
+#     4  H1 3: no source (de/de, de/en, xx own documents)  e.g. /de/en/articles/authors/alexandra-mikamo, /de/en/articles/authors/florian-schwebel, /de/en/articles/authors/julia-buth, /de/en/articles/authors/till-weisbrod
+#     1  loose marker at 390: {caption} {heading-small} {divider-25}  e.g. /de/de/articles/explore-the-world/on-the-scene-art-johannesburg
+#     1  loose marker at 1440: {caption} {heading-small} {divider-25}  e.g. /de/de/articles/explore-the-world/on-the-scene-art-johannesburg

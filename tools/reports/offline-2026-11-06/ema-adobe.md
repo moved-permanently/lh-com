@@ -6056,3 +6056,59 @@ failing (no code changed after it).
   shipped, with their figures).
 - Left out of git: logs/b653 (copies, DA copies, renders, masks, trials, runners) and the untracked import reports of
   earlier runs.
+
+### Standing order 54 (2026-11-17 20:10 to about 23:20 CET)
+
+No uploads, previews or publishes; DA read only; no request to www or any airline host (every render refused every host
+but ours and aem in the browser). `.migration/project.json` untouched; /de/en/overview-manage has no row. Order 53 left
+nothing uncommitted or unpushed (695875d on main). The service restarted three times in this order (about 22:15, 22:25 and 22:30
+CET); the resumable runners went on from their outputs.
+
+Each push: the tests named for it passed, stylelint 0 on styles/styles.css, and the whole-repo lint read 0 on a clean
+worktree of the rebased HEAD. Full suite on the rule's code: e25e679 (rebased to b389b28), 73 lh-edge files and 1,275
+site files, 0 failing; nothing but reports after it.
+
+**The shared stylesheets** were mine for this order and go back to ema-test now. This order's one stylesheet change:
+styles/styles.css, default-content pictures keep their box before they load (b389b28). Nothing else in styles/,
+blocks/columns-media or the themes.
+
+1. **Lazy pictures in default content (gate-so54-adobe-lazy-pictures.txt; pushed b389b28).**
+   - Cause: `main img { width: auto }` overrides the width attribute, so an unloaded lazy picture is 0 x 0; the capture
+     tool's picture wait skips 0 x 0 pictures, hence the load-timing flips.
+   - Rule: `main :where(.default-content-wrapper) img:where([width][height]) { min-width: min(100%, attr(width px, 0px)) }`.
+     An unloaded picture is at least its attribute width (capped by its container) with the attributes' ratio; a
+     loaded picture keeps its drawn size. The first form (a width from the attribute) shrank SWISS pictures whose
+     attributes are smaller than their files, and was replaced before the gate. Test: test/lazy-picture-box-so54.test.mjs
+     (3 tests, red without, green with).
+   - Gate, every recorded page-width on this machine: lufthansa.com's 286 sweep page-widths (274 within 0.2, the 17 rows
+     captured with and without in one run all identical), its other 472 recorded page-widths (the rule toggled in one
+     load: 466 unchanged, 6 captured with and without: identical), SWISS 48 and ITA 52 with and without (none further
+     by more than 0.5). No-breakage: 8 unrecorded documents per brand, 9 brands, 1440 and 390: no flag the rule adds.
+     The other brands' recordings are ema-test's and not on this machine.
+2. **ema-test's two stylesheet pages and the band rows (delta-so54-lh-com-rows.txt): no rule; one line each.**
+   - europa-tarife-economy-class 390 (8.06 %): within 52 px of www all the way down (drift -15 to -52, the page 7,407 /
+     7,419); the steps are spread over the repeated fare texts and the baggage table sits in its 840 px scroll box on
+     both. No single spacing differs enough for a rule.
+   - unaccompanied-minors 1440 (8.44 %): a steady drift from -40 to -220 px between y 1,600 and 4,300 (the travel-documents
+     text, the fee table and the booking text): ours runs about 6 % tighter line by line. That is the text's line pitch
+     on info pages, which every info document shares; a line-height change of that reach was not gated tonight.
+   - The band row spacing (rail-and-fly, wetlease-hub, advice-for-travellers-...-usa): with ema-test's band-end spacers
+     live, rail-and-fly 1440 is within 19 px of www (4,714 / 4,714). The rows' own shortfall (81-96 px at 1440) is in
+     text-only Columns Media rows of grey column bands; a rule giving those rows the height would move every grey band,
+     and the three pages are already closed by rows. Left to the rows.
+3. **The remaining lufthansa.com documents (list-so54-adobe-de-sources.txt): 716 of 2,547 pages rendered, no breakage that
+   takes a row.**
+   - de/en 397 of 957 and de/de 319 of 1,005. The render shared the evening with item 1's gates and the restarts.
+     de/en 560, de/de 686 and gb/en 585 are left for the next order (fetched to logs/b654/pub).
+   - 524 clean in every check; 5 load errors.
+   - The one loose-marker page (de/de on-the-scene-art-johannesburg) renders correctly on a second load.
+   - Failed pictures (136) and empty Related Articles (31) render clean one at a time (6 sampled): our host's limits under
+     parallel loads, as in list-so53.
+   - H1 counts are the sources' own (fleet detail pages 0; hubs, tag and author pages www's h1 components).
+   - The 846 data documents: 844 answer 200 as noindex, nofollow HTML (the app's "what's new" texts, ancillary data;
+     empty main), 2 timed out. Served as pages, not meant as site pages; no row.
+- Ended at about 23:20 CET. Pushed: b389b28 (rule and test) and this section's commit. READY: none in this order (no breakage that takes a row). Held: nothing
+  (item 1 passed and is live).
+- Left out of git: logs/b654 (copies, renders, gates, captures, runners). A capture runner without --state appended 206
+  lines to the tracked tools/reports/parity/state/captures.jsonl; they were mine only and were taken out again before
+  the push.
