@@ -1,0 +1,21 @@
+# ema-adobe, standing order 53 (2026-11-17): READY rows from item 2 (recorded pages) and item 3 (the next 1,500 documents).
+# Tool: tools/importer/text-inserts-apply.mjs --data delta-so53-adobe-rows.json (one replace each, the anchor found exactly
+# once in DA's current copy). Dry run on DA's copies (read-only GETs, 2026-11-17 ~18:20 CET): 3 inserted, 3 byte for byte
+# without them (--check).
+# - services-at-the-airport (item 2): www ends the page 34 px later after its last card on phones (69 px from "To the
+#   Lufthansa Guide Service" to the footer, ours 35; sweep-so44 #67). It is the de/en copy's own: gb/en and the at/de, de/de
+#   services-am-flughafen copies already end within 3 px of their recordings, and a shared rule took them 0.5-0.6 further
+#   (logs/b653/t/rsvc), so this is a row and not a rule. The token sits inline after the last link (a paragraph of its
+#   own after the block added a wrapper and 6 px at 1440). Gate: the published copy and the row as <main> on our host,
+#   against lh-parity-002's recording: 390 8.03 -> 6.41 %, 1440 1.40 -> 1.82 (3 px; within 0.5).
+# - the-art-of-flying-extra-space-seat at/de and de/de (item 3): the second video's link holds only www's folder
+#   (https://www.lufthansa.com/content/dam/video/c3/art-design-it-2026/), so the block draws no player and prints the
+#   marker "{controls round-play-button}" as text. de/en, gb/en and xx/it link the file; it answers 206 video/mp4 on
+#   lufthansa.turnsthe.page. Gate (no recording): the published copy and the row injected on our host, 1440 then 390 in
+#   one load (logs/b653/rowbreak.cjs): the loose marker gone, the player drawn (1440 6,132 -> 6,051, 390 7,999 ->
+#   7,864 px: the link line becomes the 16:9 player), no sideways scroll, overlap, clipped text, failed picture or empty
+#   block before or after.
+# status	document	tool	expected change	gate
+READY	/de/en/services-at-the-airport	text-inserts-apply (delta-so53-adobe-rows.json)	{spacer-34 below-768} after the last card's link	390 8.03 -> 6.41 %, 1440 1.40 -> 1.82 % (lh-parity-002)
+READY	/at/de/articles/highlights/the-art-of-flying-extra-space-seat	text-inserts-apply (delta-so53-adobe-rows.json)	the second video links its file (…elena-e2-master-clean-v01-260330-15h.mp4), as de/en	loose marker 1 -> 0 at 1440 and 390; heights 6,132 -> 6,051 / 7,999 -> 7,864 px; checks 0/0/0/0 before and after
+READY	/de/de/articles/highlights/the-art-of-flying-extra-space-seat	text-inserts-apply (delta-so53-adobe-rows.json)	the same (the at/de copy's source, the same link)	loose marker 1 -> 0 at 1440 and 390; heights 6,132 -> 6,051 / 7,999 -> 7,864 px; checks 0/0/0/0 before and after

@@ -1,0 +1,29 @@
+[
+ {
+  "path": "/de/en/services-at-the-airport",
+  "inserts": [
+   {
+    "replace": "To the Lufthansa Guide Service</a></p>",
+    "text": "To the Lufthansa Guide Service</a> {spacer-34 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/at/de/articles/highlights/the-art-of-flying-extra-space-seat",
+  "inserts": [
+   {
+    "replace": "href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-it-2026/\"",
+    "text": "href=\"/content/dam/video/c3/art-design-it-2026/lufthansa-artdesign-2-0-ita-elena-e2-master-clean-v01-260330-15h.mp4\""
+   }
+  ]
+ },
+ {
+  "path": "/de/de/articles/highlights/the-art-of-flying-extra-space-seat",
+  "inserts": [
+   {
+    "replace": "href=\"https://www.lufthansa.com/content/dam/video/c3/art-design-it-2026/\"",
+    "text": "href=\"/content/dam/video/c3/art-design-it-2026/lufthansa-artdesign-2-0-ita-elena-e2-master-clean-v01-260330-15h.mp4\""
+   }
+  ]
+ }
+]
