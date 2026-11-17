@@ -837,3 +837,10 @@ body.brand-discover .search-bar .search-bar-form {
     margin-bottom: 32px;
   }
 }
+
+/* discover-airlines.com: a divider-below section that ends with a block keeps its divider under the block, not 16px
+   into it (the closing divider-only wrapper took the closing-spacer rule's -16px: business-class services-long-haul in
+   de/de, de/en and xx/fr, the line 4px above the Columns Media's last row; standing order 49) */
+body.brand-discover main > .section.divider-below > div:not(.default-content-wrapper) + .default-content-wrapper:last-child:not(:has(> :not(p.spacer))) {
+  margin-top: 0;
+}
