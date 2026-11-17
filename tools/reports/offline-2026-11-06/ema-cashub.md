@@ -10317,3 +10317,180 @@ labels.
 - **After the rebase:** the 188 folder-reading tests: 898 pass, 0 failures, 2 skipped.
 - **Full suite on a4af9a19:** 1,263 files, 4,750 pass, 0 failures, 5 skipped.
 - **This docs commit:** the folder-reading tests again, and lint exit 0.
+
+## Standing order 61 (2026-11-17, from about 09:00 CET)
+
+**Carried over:** nothing. Order 60's two commits (a4af9a19, e25a5a05) were on main and my worktree was clean. The main
+checkout's dirty entries (blocks/notifications/notifications.css, import-progress.json, importer reports, urls-*.txt)
+belong to other jobs and were left alone.
+
+**Scratch:** migration-work/parity-588/so61 (not in git): the served copies of TAP (all 2,354) and their full pages, DA's
+copies read for the dry run, the census and render scripts and their outputs, drafts, test outputs and logs.
+
+**Renders:** about 7,000 page loads, all unhinted. lh-proxy, www.* and every airline host were refused per request and
+counted: 6,845 on Air Dolomiti's loads (0 to 10 a load), none on TAP's (no TAP page asked for one). None were sent.
+www's recordings were laid out offline from their archives only.
+
+**DA:** read only. tools/importer/da-tree-read.mjs read lh-tap's twelve market roots (/en-at, /en-ca, /en-ch, /en-de,
+/en-fr, /fr-ca, /fr-ch, /pt-at, /pt-ca, /pt-ch, /pt-de, /pt-fr). Three single GETs read /en-pt/legal-info,
+/pt-pt/info-legal and /fr-fr/mentions-legales. Nothing was written. No upload, preview, publish or da-upload.mjs by me.
+/de/en/overview-manage has no row. The finder button rule stays on HOLD. The optional plugins stay off.
+
+### Item 1: Air Dolomiti, nothing scrolls sideways (census-so61-airdolomiti-sideways.txt)
+
+**The rule:** the trail list scrolls inside itself. It has no scrollbar drawn and is a scroll-state container. Once it
+scrolls, the current crumb keeps its whole label at the trail's end, through `@container scroll-state(scrollable:
+inline)`. A trail that fits is not scrollable, so it lays out exactly as before.
+
+**Census:** all 1,563 documents except nav, footer and fragments, plus the three homepages at /, /en/ and /de/. Each was
+loaded once per width at 390 and 1440 and measured as served, then measured again with the rule added in the same load.
+- **1440:** 1,554 trails, none changed.
+- **390:** 111 changed:
+  - **19 sideways pages:** the German "Sehenswürdigkeiten" sub-pages of Bologna, Genua, Innsbruck, Kattowitz,
+    Mailand, Triest, Turin and Verona went from 3–38 px sideways to 0. The current crumb gets its 122–342 px.
+  - **10 cut trails:** trails wider than their box, cut at the window without reaching the scroll width. They
+    now scroll and show the current crumb.
+  - **82 hidden trails:** the hubs' 1 px screen-reader trails. Their crumbs change width inside the clip, and nothing
+    is drawn.
+- **Page and trail heights:** unchanged on all 3,126 page-widths.
+
+**A second cause the census found:** with the trail rule in place, 8 page-widths still scrolled 2 px at 390: Frankfurt
+fiera, three Munich pages, three Turin pages and Venice, in Italian and English. Their "what to do" title icon is a
+200 × 163 picture, 36.8 px wide at 30 px high. The title keeps 45 px for its icon, for "an icon up to 35px wide", so this
+icon ran 1.8 px past the screen.
+- **Rule:** the icon is at most 35 px wide (object-fit contain).
+- **Reach:** the 121 documents that carry it, each at 390 and 1440 with and without. The 8 go to 0 and no height changes.
+  The icon is absolutely placed, and it now draws 35 × 28.5 px.
+
+**Both rules together:** from the work tree, all 27 page-widths are 390 px wide. The code is live (5f5e19a1):
+bologna-tuerme and Venice are served 390 px wide. No recorded Air Dolomiti page changes
+height, so each recorded page-width stays where it was.
+
+### Item 2: the 1,141 px, and the maps (delta-so60-airdolomiti-airport-maps.txt, header corrected)
+
+**There is no 1,141 px gap. It was my mistake in order 60.** I set www's footer top at 390 (16,967, the measurement's
+footer.rect.y) against our page height (18,108). The same field on both sides:
+
+| frankfurt-de | www | As served | With the map |
+| --- | --- | --- | --- |
+| 390, page height | 18,041 | 18,108 (+0.37 %) | 18,307 (+1.47 %) |
+| 390, footer top | 16,967 | 17,034 (+0.39 %) | 17,233 (+1.57 %) |
+| 1440, page height | 12,574 | 11,372 (−9.56 %) | 12,161 (−3.28 %) |
+| 1440, footer top | 11,739 | 10,537 (−10.24 %) | 11,326 (−3.52 %) |
+
+**Where the 390 page differs:** I compared it text by text against www's 390 measurement and an offline layout of the
+recording.
+- **From "Entdecke Frankfurt" to the footer:** 198 px shorter than www's as served, which is www's map band. With the
+  map row it is 1 px longer.
+- **The text sections from "Sicherheitskontrollen" on:** 258 px longer than www's, with the same texts. www joins the
+  words with no-break spaces, so 42 of its paragraphs and list items don't wrap and run past the window (offline
+  scrollWidth 1,892 px). For example, www draws "Um Ihren Durchgang …" as one 33 px line, where ours is six lines. With
+  those spaces turned into plain ones, www's 390 footer top moves 892 px lower.
+
+That is www's own breakage, and our page shouldn't copy it. Only 3 of the 121 airport snapshots have such chains, all
+German, and frankfurt-de is the recorded one.
+
+**There is nothing of ours to fix**, so I made no rule and no row for it. By the gate, the map row takes frankfurt-de at
+390 1.10 points further from www, so **all 121 map rows stay HOLD**. The map band itself matches www's at both widths.
+
+**Your call:** keep them on HOLD, or accept the 390 figure on this page on the grounds that www's text there doesn't wrap.
+
+### Item 3: Austrian's market-diff review list
+
+**Not done.** I can't read work/market-diff/austrian/review-list.tsv: it isn't in this workspace or anywhere on this
+machine. Only TAP's review list is in the repo, at tools/reports/market-diff/tap. Rebuilding it would mean fetching
+www.austrian.com, which I may not do. **Please attach the file.**
+
+Origin also shows Ben Peter answering Austrian review rows himself (8901a4ce: ch/it contact-form-passenger-receipt as the
+root's own document). With the file, I'd leave out the rows already answered on main.
+
+### Item 4: Cargo's 13 /de tab pages
+
+**No recording of any of them is in the capture drops.** I checked cargo-parity-001 to -007 and cargo-snapshots-001 to
+-014. The only copies of www's German pages are the import snapshots of 2026-10-30
+(content-sites/lh-cargo/snapshots/www.lufthansa-cargo.com/de/…), which the stale /de copies were made from. Nothing is
+built. The URLs to record, the same paths on www:
+
+- https://www.lufthansa-cargo.com/de/add-on-services/insurance
+- https://www.lufthansa-cargo.com/de/add-on-services/personal-supervision
+- https://www.lufthansa-cargo.com/de/add-on-services/smartuld
+- https://www.lufthansa-cargo.com/de/add-on-services/sustainable-choice
+- https://www.lufthansa-cargo.com/de/add-on-services/todoor
+- https://www.lufthansa-cargo.com/de/dangerous-goods
+- https://www.lufthansa-cargo.com/de/emergency
+- https://www.lufthansa-cargo.com/de/live-animals
+- https://www.lufthansa-cargo.com/de/passive-temp-support
+- https://www.lufthansa-cargo.com/de/speed-zoom
+- https://www.lufthansa-cargo.com/de/valuables
+- https://www.lufthansa-cargo.com/de/vulnerables
+- https://www.lufthansa-cargo.com/es/eservices/efreight. This one has no DA copy, so a recording alone won't do: it needs a
+  document first.
+
+### Item 5: TAP, copies against their source and no-breakage renders (census-so61-tap-copies.txt)
+
+**What was compared:** all 2,354 published documents of lh-tap and lh-tap-markets, fetched as served (all 200), plus the
+full pages of the 1,053 that aren't fragments. The source of each copy is read as the copy's own market sees it, with
+sections whose Markets exclude that country left out.
+- **Language versions:** compared with /pt-pt (1,597 pairs) by the page's alternate-pt-pt. Their fragments are paired by
+  name.
+- **Market roots:** compared with their language's version, same path, the homepage with the version's homepage (473
+  pairs).
+
+| | Same | Differs | No source copy |
+| --- | --- | --- | --- |
+| Versions | 1,345 | 106 | 146 |
+| Market roots | 269 | 183 | 21 |
+
+Every class with its count is in the file. I checked the differing pairs against both www pages where the market-diff run
+of 2026-11-07 read them (page.sections: component types, accordion items, cards).
+
+**Readings:**
+- **Market homepages (137):** each root's homepage is its own www homepage. For example, en-pt and pt-pt carry Portugal's
+  "Credit Intermediation" alert. Local content.
+- **Own market documents (34):** all are in the market-diff import-list as "own document", so they are local content.
+- **Legal information pages (12):** the copy should follow its source. These are en-at, en-ca, en-ch, en-de, en-fr,
+  fr-ca, fr-ch, pt-at, pt-ca, pt-ch, pt-de and pt-fr. They show the stage picture as a plain paragraph above the H1,
+  while their versions, re-imported on 2026-11-08, draw a hero-campaign narrow. www's market pages have the version's
+  components.
+  - Rows: delta-so61-tap-market-legal-stage, 12 READY.
+  - Dry run: 12 of 12 inserted, byte for byte back, a second run "present".
+  - Every document was rendered with and without the row. 1440 −32 px, to the version's own 1,887; 390 unchanged;
+    nothing added at either width.
+  - There is no recording of these pages.
+- **Versions (106):** each is its own import of its own www page. www's two pages differ in their section list on 15 of
+  the 35 pairs it read. On the other 20, the difference is what the sections hold (for example, buy-ticket's hero cards
+  per language) or how the sections were split. No row.
+
+**Breakage (no-breakage renders):** 1,053 pages, including the market homepages at /<root>/, at 390 and 1440: 2,106
+page-widths, all 200.
+- No sideways scroll, no overlapping blocks and no empty blocks.
+- One failed picture, which was a broken load: 0 when rendered alone.
+- Clipped text that is design: the logo's hidden link on every page, and the destination cards' 3-line clamp on all
+  eight languages.
+- **Real breakage:** button labels cut by lh-com's one-line ellipsis, where www's TAP buttons wrap. I laid out www's
+  voar-economica 390 offline: its buttons are white-space normal.
+  - 20 page-widths: the refund pages of all eight languages, the economy and seat pages of de-de, en-pt and pl-pl,
+    de-de partnerschaft-ucs, and six labels 1 px too wide.
+  - **Fix:** a TAP rule, a.button labels wrap.
+  - A toggle census of all 1,053 pages at both widths changed only those 20 (+10 to +24 px each).
+  - Recorded en-pt schengen-visas 390: www 6,483, as served 6,509 (+0.40 %), with the rule 6,527 (+0.68 %). That is
+    within 0.5 points.
+
+**The rows:** one batch of 12, under 40 documents, so every document was rendered rather than a 40-document sample.
+
+**Live:** the helpers applied the 12 legal rows within about 15 minutes of the push. All 12 are served with the stage,
+measured as drafted to the px at both widths: 1440 1,887, 390 unchanged, nothing added.
+
+### Checks
+
+- **Lint:** whole-repo `npm run lint` exit 0, read before the push. I ran it again after adding the brand test's change to the code commit: exit 0.
+- **Stylelint:** styles/themes/airdolomiti.css and styles/themes/tap.css, exit 0. The first try found the trail rule as a
+  duplicate selector, so it went into the existing trail rule.
+- **Tests before the push:** 576 files (the 190 folder-reading tests and every test naming Air Dolomiti, the
+  breadcrumb, TAP, buttons, heading icons, text-inserts or market-diff). One failed: test/brand.test.mjs. Its theme
+  scope check stripped only @media and @supports wrappers, so the @container query looked unscoped. It now reads
+  through @container too, and still checks the rules inside against body.brand-airdolomiti. 4 pass after that.
+- **Folder-reading tests on the docs commit:** 190 files, 902 pass, 0 failures, 2 skipped.
+- **Pushed:** 5f5e19a1 (code) and 4835b96b (lists, census). Origin had not moved since the rebase.
+- **Full suite on 4835b96b:** 1,273 files, 4,766 pass, 0 failures, 5 skipped.
+- **This docs commit:** the folder-reading tests again, and lint exit 0.
