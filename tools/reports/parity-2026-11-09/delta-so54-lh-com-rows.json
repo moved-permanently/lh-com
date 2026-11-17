@@ -29,5 +29,23 @@
     "text": "<p>{spacer-92 from-768}</p><p>{spacer-77 below-768}</p>"
    }
   ]
+ },
+ {
+  "path": "/de/en/payment-options-at-the-airport",
+  "inserts": [
+   {
+    "before": "<p>In order to pay",
+    "text": "<p>{spacer-25 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/advice-for-travellers-with-special-needs-to-and-from-the-usa",
+  "inserts": [
+   {
+    "after": "efore-padded</div></div></div>",
+    "text": "<p>{spacer-84 from-768}</p>"
+   }
+  ]
  }
 ]
