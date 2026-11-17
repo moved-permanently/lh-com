@@ -1,0 +1,113 @@
+# ema-cashub, standing order 61 (2026-11-17), item 5: TAP's served copies against their source, as order 60 did for
+# Austrian, Cargo and Air Dolomiti (so60/census.py, here so61/census-tap.py): 2,354 published documents of lh-tap and
+# lh-tap-markets fetched as served from tap.turnsthe.page (.plain.html, all 200; the full pages of the 1,053 non-fragment
+# documents for their metadata).
+# Pairs (the source is the copy as its own market sees it: sections whose Markets exclude that country left out):
+#   language versions (en-pt, es-es, fr-fr, de-de, it-it, pl-pl, pt-br) -> /pt-pt, by the page's alternate-pt-pt;
+#     their nav and footer by name; their fragments by the fragment's name under /pt-pt/fragments (the Inspire tabs)
+#   market roots (en-ao ... pt-za) -> their language's version (en -> en-pt, pt -> pt-pt, es -> es-es, fr -> fr-fr,
+#     de -> de-de), same path; a root's index -> the version's homepage
+#   /pt-pt itself (284 documents) is the source of the versions.
+# Compared: section count, block sequence and options, headings by level, pictures per block and outside blocks.
+# www cross-check for differing pairs: page.sections of both www pages (market-diff run of 2026-11-07, 7,929 bodies):
+#   component types in order, accordion items, cards. "www page missing": that run did not read one of the two pages.
+#
+# totals	site	class	documents
+#	tap-market	differs	183
+#	tap-market	no source copy	21
+#	tap-market	same	269
+#	tap-version	differs	106
+#	tap-version	no source copy	146
+#	tap-version	same	1345
+#
+# class table: site, documents, class, by origin / www check, examples
+tap-market	140	sections -1	market homepage 125, legal stage (ROW) 10, own document (import-list) 5	/en-ao/index /en-ar/index /en-at/index /en-at/legal-info /en-be/index
+tap-market	125	block columns missing	market homepage 125	/en-ao/index /en-ar/index /en-at/index /en-be/index /en-br/index
+tap-market	115	pictures in cards-icon fewer	market homepage 115	/en-ao/index /en-ar/index /en-at/index /en-be/index /en-br/index
+tap-market	108	h2 fewer	market homepage 108	/en-ar/index /en-at/index /en-be/index /en-ch/index /en-ci/index
+tap-market	108	pictures in columns-media fewer	market homepage 108	/en-ar/index /en-at/index /en-be/index /en-ch/index /en-ci/index
+tap-market	93	pictures in hero-campaign fewer	market homepage 93	/en-ao/index /en-ar/index /en-ci/index /en-cl/index /en-co/index
+tap-market	35	pictures in hero-campaign more	market homepage 35	/de-at/index /de-ch/index /en-at/index /en-be/index /en-br/index
+tap-market	14	sections -2	own document (import-list) 14	/en-br/help /en-br/help/tap-refunds /en-br/legal-info/terms-and-conditions /en-es/legal-info/conditions-of-carriage /en-gb/legal-info/conditions-of-carriage
+tap-market	12	block hero-campaign missing	legal stage (ROW) 12	/en-at/legal-info /en-ca/legal-info /en-ch/legal-info /en-de/legal-info /en-fr/legal-info
+tap-market	12	pictures outside blocks more	legal stage (ROW) 12	/en-at/legal-info /en-ca/legal-info /en-ch/legal-info /en-de/legal-info /en-fr/legal-info
+tap-market	8	h2 more	market homepage 8	/de-at/index /de-ch/index /en-br/index /es-us/index /fr-be/index
+tap-market	8	sections -3	own document (import-list) 6, legal stage (ROW) 2	/en-br/info-legal/privacidade /en-br/legal-info/privacy /en-br/miles-and-go/gift /en-us/miles-and-go/gift /es-us/miles-and-go/club
+tap-market	4	sections -5	own document (import-list) 4	/de-at/buchungen/versicherung /de-ch/buchungen/versicherung /fr-be/reservations/assurances /pt-ch/reservas/seguros
+tap-market	3	sections -4	own document (import-list) 3	/es-us/miles-and-go/promociones /es-us/promos /fr-ca/promos
+tap-market	2	block accordion-columns extra (more)	own document (import-list) 2	/en-br/help/frequently-asked-questions /pt-us/ajuda/perguntas-frequentes
+tap-market	2	h3 more	own document (import-list) 2	/en-br/help/frequently-asked-questions /pt-us/ajuda/perguntas-frequentes
+tap-market	2	sections +5	own document (import-list) 2	/en-br/help/frequently-asked-questions /pt-us/ajuda/perguntas-frequentes
+tap-market	2	pictures in columns-media more	market homepage 2	/es-us/index /fr-ca/index
+tap-market	1	block click-to-call missing	own document (import-list) 1	/es-us/miles-and-go/club
+tap-version	25	sections -1	www page missing 18, www differs 4, www same 3	/de-de /de-de/hilfe/anfragen-reklamationen /de-de/hilfe/flugverspatungen-annullierungen /de-de/informationen/gepack/sportausrustung /de-de/miles-and-go/meilen-sammeln
+tap-version	22	sections -2	www page missing 17, www same 4, www differs 1	/de-de/information/dokumentations /de-de/informationen/besonderen-bedurfnissen /de-de/informationen/besonderen-bedurfnissen/gesundheitsprobleme /de-de/miles-and-go/happy-miles /de-de/miles-and-go/promo
+tap-version	21	sections +2	www page missing 14, www same 7	/de-de/an-bord/economy-prime /de-de/rechtliche-informationen /en-pt/help/tap-refunds /en-pt/legal-info/accessibility /en-pt/legal-info/terms-and-conditions
+tap-version	15	h3 more	www page missing 8, www differs 6, www same 1	/de-de/an-bord/fliegen-business /de-de/miles-and-go/partner /de-de/promos /en-pt/fragments/get-inspired/3-mercados-de-natal-que-nao-pode-perder-na-belgica /es-es/miles-and-go/socios
+tap-version	13	block accordion-columns extra	www page missing 10, www differs 3	/de-de/miles-and-go/partner /es-es/miles-and-go/socios /fr-fr/miles-and-go/partenaires /pt-br/ajuda /pt-br/ajuda/perguntas-frequentes
+tap-version	11	h2 fewer	www page missing 10, www same 1	/de-de /en-pt/fragments/get-inspired/3-mercados-de-natal-que-nao-pode-perder-na-belgica /en-pt/information/baggage/locate-baggage /es-es /es-es/informacion/equipaje/localizar-equipaje
+tap-version	10	h2 more	www page missing 6, www differs 4	/de-de/miles-and-go/partner /en-pt/fragments/get-inspired/fogo-a-ilha-em-forma-de-vulcao /es-es/miles-and-go/socios /fr-fr/miles-and-go/partenaires /fr-fr/reservations/assurances
+tap-version	8	block hero-campaign extra	www differs 3, www same 3, www page missing 2	/de-de/miles-and-go/partner /de-de/miles-and-go/verwenden-meilen/ticket-kaufen /es-es/miles-and-go/socios /es-es/miles-and-go/utilice-millas/comprar-billete /fr-fr/miles-and-go/partenaires
+tap-version	8	sections +1	www page missing 6, www differs 1, www same 1	/de-de/verwalten-buchungen/extras/fast-track /en-pt/information/baggage/hand-baggage /en-pt/miles-and-go/use-miles/donate-miles /pt-br/ajuda /pt-br/ajuda/perguntas-frequentes
+tap-version	6	pictures in cards-icon fewer	www page missing 6	/de-de /es-es /fr-fr /it-it /pl-pl
+tap-version	5	block columns missing	www page missing 5	/de-de /es-es /it-it /pl-pl /pt-br
+tap-version	5	pictures in columns-media fewer	www page missing 5	/de-de /es-es /fr-fr /it-it /pl-pl
+tap-version	5	pictures in hero-campaign more	www page missing 5	/de-de /fr-fr /it-it /pt-br /pt-br/miles-and-go
+tap-version	4	variant hero-campaign +slider	www page missing 3, www differs 1	/de-de/miles-and-go /es-es/miles-and-go /fr-fr/miles-and-go /pt-br/miles-and-go
+tap-version	4	block click-to-call missing	www page missing 3, www differs 1	/de-de/miles-and-go/angebote /de-de/verwalten-buchungen/extras/fast-track /es-es/miles-and-go/promociones /pl-pl/na-pokladzie/lot-ekonomicznej
+tap-version	4	block fragment missing	www differs 3, www page missing 1	/de-de/miles-and-go/partner /es-es/miles-and-go/socios /fr-fr/miles-and-go/partenaires /pt-br/miles-and-go/parceiros
+tap-version	4	pictures in cards-teaser more	www differs 3, www page missing 1	/de-de/promos /es-es/promos /fr-fr/promos /pt-br/miles-and-go/promocoes
+tap-version	4	h3 fewer	www page missing 4	/en-pt/fragments/get-inspired/as-1001-surpresas-de-maputo /en-pt/fragments/get-inspired/fogo-a-ilha-em-forma-de-vulcao /pl-pl/rezerwacje /pt-br/reservas
+tap-version	3	sections -4	www differs 2, www page missing 1	/de-de/miles-and-go/angebote /es-es/miles-and-go/promociones /fr-fr/miles-and-go/promotions
+tap-version	3	block hero-card-overlay missing	www same 3	/de-de/miles-and-go/verwenden-meilen/ticket-kaufen /es-es/miles-and-go/utilice-millas/comprar-billete /fr-fr/miles-and-go/utilisez-miles/acheter-un-billet
+tap-version	3	block cards-teaser extra	www page missing 3	/pt-br/miles-and-go/ganhe-milhas/cartoes-de-credito /pt-br/miles-and-go/gift /pt-br/promos
+tap-version	2	pictures in cards-teaser fewer	www page missing 2	/pl-pl/rezerwacje /pt-br/reservas
+tap-version	1	pictures in accordion-columns fewer	www differs 1	/en-pt/miles-and-go/partners
+tap-version	1	pictures in accordion-columns more	www differs 1	/en-pt/miles-and-go/partners
+tap-version	1	block table-striped extra (more)	www page missing 1	/es-es/informacion/equipaje/equipaje-bodega
+tap-version	1	block info-alert missing	www differs 1	/fr-fr/reservations/assurances
+tap-version	1	h4 fewer	www differs 1	/fr-fr/reservations/assurances
+tap-version	1	block accordion-columns extra (more)	www page missing 1	/pt-br/informacoes/viajar-com-animais/animais-auxiliares
+tap-version	1	block info-alert extra	www page missing 1	/pt-br/informacoes/viajar-com-animais/animais-auxiliares
+tap-version	1	h4 more	www page missing 1	/pt-br/informacoes/viajar-com-animais/animais-auxiliares
+tap-version	1	sections +3	www page missing 1	/pt-br/informacoes/viajar-com-animais/animais-auxiliares
+tap-version	1	block table-striped extra	www page missing 1	/pt-br/miles-and-go/club
+tap-version	1	variant hero-campaign -slider	www page missing 1	/pt-br/miles-and-go/club
+tap-version	1	sections +4	www page missing 1	/pt-br/miles-and-go/utilizar-milhas/comprar-passagem
+#
+# readings
+# - tap-market, "market homepage" (137 documents: every root's /index against its version's homepage): each root's
+#   homepage is its own www homepage (tools/importer/tap-markets.mjs imports it from the root's capture); the
+#   versions' homepages hold their own market's content (en-pt and pt-pt: Portugal's "Credit Intermediation" alert
+#   columns over the stage; their own stage pictures and offers). Local content, no row.
+# - tap-market, "own document (import-list)" (34): roots whose www page differs from the version's (market-diff
+#   import-list.tsv, action "own document": insurance providers' links, local phone numbers, FAQ items, promos), each
+#   imported from the root's www page. Local content, no row.
+# - tap-market, "legal stage (ROW)" (12): the legal-information pages of en-at, en-ca, en-ch, en-de, en-fr, fr-ca,
+#   fr-ch, pt-at, pt-ca, pt-ch, pt-de and pt-fr open with the stage picture as a plain paragraph; their versions draw
+#   it as a hero-campaign narrow (re-imported on 2026-11-08, the market copies are imports of 2026-11-07); www's market
+#   pages hold the same components as the version's. Rows: delta-so61-tap-market-legal-stage, 12 READY.
+# - tap-version (106 pairs differ after the market filter): each version is its own import of its own www page. Where
+#   the market-diff run read both www pages (35 pairs), www's two pages differ in their section list on 15 and are the
+#   same on 20; on those 20 the difference is in what the sections hold (traced on buy-ticket: hero cards pt-pt 2,
+#   en-pt 3, es-es 1, de-de, fr-fr and pt-br 0 as served, each from its own page; the hero cards are www's
+#   per-language targets) or in how the importer split the sections (a section count alone: same blocks and
+#   headings). No row: no class is a delta row carried to one language only.
+# - no source copy: 135 de-de Inspire fragments with German names, 8 version pages without alternate-pt-pt, 3
+#   fragments with two pt-pt namesakes; 21 market pages without a version page (Canada, France and Austria legal
+#   pages, the es-us and fr-ca credit-card pages: the roots' own pages).
+#
+# no-breakage renders: 1,053 pages (every document but nav, footer and fragments; the 137 market homepages at their
+# folder address), 390 and 1440, as served on tap.turnsthe.page, airline hosts and lh-proxy refused per request (no
+# TAP page asked for one): 2,106 page-widths, all 200.
+# - sideways scroll 0, overlapping blocks 0, empty blocks 0 at both widths.
+# - failed pictures: 1 (/en-pt/information/special-needs 1440), a broken load: rendered alone again, 0.
+# - clipped text: the header logo's hidden "TAP Air Portugal" link on every page (design); the destination-grid card
+#   texts (3-line clamp) on all eight destinations pages, shared with the source (design).
+# - BREAKAGE, button labels cut with lh-com's ellipsis (white-space nowrap) where www's TAP buttons wrap (www's
+#   voar-economica 390 laid out offline from tap-parity-001: white-space normal): 20 page-widths (19 at 390, pt-br
+#   voar-executiva at 1440): the refund pages of all eight languages (two buttons each), the economy and seat pages
+#   of de-de, en-pt and pl-pl, de-de partnerschaft-ucs, and six labels 1 px too wide. Fixed by a TAP rule
+#   (styles/themes/tap.css: a.button labels wrap). Toggle census of all 1,053 pages at both widths: only those 20
+#   page-widths change (+10 to +24 px, the label on two lines), nothing else moves. Recorded en-pt schengen-visas 390:
+#   www 6,483, as served 6,509 (+0.40 %), with the rule 6,527 (+0.68 %): within 0.5 points.

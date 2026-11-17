@@ -1,0 +1,43 @@
+# ema-cashub, standing order 61 (2026-11-17), item 1: Air Dolomiti pages that scroll sideways at 390, fixed by two
+# brand-scoped rules in styles/themes/airdolomiti.css (this order's code commit), with the census of their reach.
+#
+# Census: every published Air Dolomiti document but nav, footer and fragments (1,563; the three homepages also at their
+# address /, /en/, /de/), at 390 and 1440, as served on airdolomiti.turnsthe.page (code as on main before the commit),
+# airline hosts and lh-proxy refused per request and counted (6,845 refused, 0 to 10 a load, none sent). One load per
+# document and width: measured as served, then the rule added as a style tag and measured again in the same load
+# (so61/bct.mjs; the rule's text equals the committed one).
+#
+# 1. The trail scrolls inside itself (the ol: overflow-x auto, no scrollbar drawn, container-type scroll-state; once it
+#    scrolls, @container scroll-state(scrollable: inline) gives the current crumb min-width max-content).
+#
+#    width  documents  with a trail  trail fits, unchanged  changed by the rule
+#    1440   1,563      1,554         1,554                  0 (3 current crumbs end in an ellipsis, as before)
+#    390    1,563      1,554         1,443                  111
+#
+#    The 111 at 390:
+#    - 19 trails wider than the window, the page 3 to 38 px sideways (the German "Sehenswürdigkeiten" sub-pages: four
+#      parents at their longest word, the current crumb 0 px): page 0 px sideways, the trail scrolls, the current crumb
+#      its whole label (122 to 342 px).
+#        bologna-de 4 (26 px), genua-de 2 (15), innsbruck-de 2 (37), kattowitz 1 (38), mailand-de 2 (25), triest 1 (7),
+#        turin-de 3 (3), verona-de 4 (19)
+#    - 10 trails wider than their box whose overflow did not reach the scroll width (bari-de 4, graz-de 1, pisa-de 4,
+#      /destinazioni/francoforte/cosa-mangiare/3-piatti-tipici-di-francoforte): the current crumb was 0 px; now the
+#      trail scrolls with it.
+#    - 82 hidden trails (the destination hubs at 390: www shows none there, ours is 1 px and clipped, for screen
+#      readers): the crumbs' widths change inside the 1 px box, nothing is drawn.
+#    Page height: unchanged on all 3,126 page-widths. Trail height: unchanged everywhere. No page scrolls sideways with
+#    the rule that did not before.
+#
+# 2. The carousel title icon at most the 35 px the title keeps for it (object-fit contain). The census above found 8
+#    more page-widths 2 px sideways at 390 with the trail rule in place: the "what to do" icon (a 200 x 163 picture,
+#    36.8 px wide at 30 px high) 1.8 px past the screen where the title fills its column:
+#      /destinazioni/francoforte/cosa-fare/fiera-francoforte, /destinazioni/monaco-di-baviera/cosa-vedere/
+#      deutsches-museum-..., hofbrauhaus-..., strada-romantica, /en/destinations/turin/... piedmont-turin,
+#      turin-by-night-..., the-mole-antonelliana, /en/destinations/venice
+#    Reach: the 121 documents whose served copy carries that icon (every other icon is at most 35 px wide), each at 390
+#    and 1440 with and without in one load: the 8 page-widths 2 -> 0 px sideways, no height change on any of the 242
+#    (the icon is absolutely placed); the icon draws 35 x 28.5 px instead of 36.8 x 30.
+#
+# Both rules from the work tree (CODE override) on all 27 page-widths: the page 390 px wide on every one.
+# Recorded Air Dolomiti pages: no page height changes anywhere, so every recorded page-width stays where it is (0.00
+# points).

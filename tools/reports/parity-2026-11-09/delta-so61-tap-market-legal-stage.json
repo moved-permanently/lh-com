@@ -1,0 +1,110 @@
+[
+ {
+  "path": "/en-at/legal-info",
+  "inserts": [
+   {
+    "replace": "<main><div><p><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"></p>",
+    "text": "<main><div><div class=\"hero-campaign narrow\"><div><div><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-56f35406.jpg\" alt=\"\"></div></div></div></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/en-ca/legal-info",
+  "inserts": [
+   {
+    "replace": "<main><div><p><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"></p>",
+    "text": "<main><div><div class=\"hero-campaign narrow\"><div><div><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-56f35406.jpg\" alt=\"\"></div></div></div></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/en-ch/legal-info",
+  "inserts": [
+   {
+    "replace": "<main><div><p><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"></p>",
+    "text": "<main><div><div class=\"hero-campaign narrow\"><div><div><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-56f35406.jpg\" alt=\"\"></div></div></div></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/en-de/legal-info",
+  "inserts": [
+   {
+    "replace": "<main><div><p><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"></p>",
+    "text": "<main><div><div class=\"hero-campaign narrow\"><div><div><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-56f35406.jpg\" alt=\"\"></div></div></div></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/en-fr/legal-info",
+  "inserts": [
+   {
+    "replace": "<main><div><p><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"></p>",
+    "text": "<main><div><div class=\"hero-campaign narrow\"><div><div><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-56f35406.jpg\" alt=\"\"></div></div></div></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/fr-ca/mentions-legales",
+  "inserts": [
+   {
+    "replace": "<main><div><p><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"></p>",
+    "text": "<main><div><div class=\"hero-campaign narrow\"><div><div><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-56f35406.jpg\" alt=\"\"></div></div></div></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/fr-ch/mentions-legales",
+  "inserts": [
+   {
+    "replace": "<main><div><p><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"></p>",
+    "text": "<main><div><div class=\"hero-campaign narrow\"><div><div><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-56f35406.jpg\" alt=\"\"></div></div></div></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/pt-at/info-legal",
+  "inserts": [
+   {
+    "replace": "<main><div><p><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"></p>",
+    "text": "<main><div><div class=\"hero-campaign narrow\"><div><div><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-56f35406.jpg\" alt=\"\"></div></div></div></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/pt-ca/info-legal",
+  "inserts": [
+   {
+    "replace": "<main><div><p><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"></p>",
+    "text": "<main><div><div class=\"hero-campaign narrow\"><div><div><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-56f35406.jpg\" alt=\"\"></div></div></div></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/pt-ch/info-legal",
+  "inserts": [
+   {
+    "replace": "<main><div><p><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"></p>",
+    "text": "<main><div><div class=\"hero-campaign narrow\"><div><div><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-56f35406.jpg\" alt=\"\"></div></div></div></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/pt-de/info-legal",
+  "inserts": [
+   {
+    "replace": "<main><div><p><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"></p>",
+    "text": "<main><div><div class=\"hero-campaign narrow\"><div><div><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-56f35406.jpg\" alt=\"\"></div></div></div></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/pt-fr/info-legal",
+  "inserts": [
+   {
+    "replace": "<main><div><p><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"></p>",
+    "text": "<main><div><div class=\"hero-campaign narrow\"><div><div><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-5121ed04.jpg\" alt=\"\"><img src=\"https://content.da.live/moved-permanently/lh-tap/media-da/tap/legal-information-56f35406.jpg\" alt=\"\"></div></div></div></div><div>"
+   }
+  ]
+ }
+]

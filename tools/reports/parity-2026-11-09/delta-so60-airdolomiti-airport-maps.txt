@@ -12,12 +12,22 @@
 # Dry run on DA's current copies (da-tree-read.mjs --site lh-airdolomiti --root /aeroporti, /en/airports, /de/flughaefen,
 # read-only, ~06:40 CET): all 121 "1 inserted" (the paragraph found once), taking it back gives DA's copy byte for byte,
 # a second run "present".
-# Gate, the recorded page (airdolomiti-parity-014, /de/flughaefen/frankfurt-de, first loads; airline hosts refused per request):
-#   www 1440 12,574 / 390 16,967. As served 1440 11,372 (-9.56 %) / 390 18,108 (+6.72 %). With the row and the code (drafted
-#   served copy, CODE = this work tree): 1440 12,161 (-3.28 %, 6.28 points closer) / 390 18,307 (+7.90 %, 1.18 points further).
-#   The map band itself is as www's at both widths (1440: 810 px + 30 / 30; 390: 219 + 30 / 30; www's band 870 / 349 px between
-#   the cards and the newsletter, ours 888 / 298), but at 390 the page is already 1,141 px longer than www's for other reasons,
-#   so the row takes the page further: it fails the gate at 390. Every row stays HOLD, all widths (your call).
+# Gate, the recorded page (airdolomiti-parity-014, /de/flughaefen/frankfurt-de, first loads; airline hosts refused per request),
+#   corrected in standing order 61: order 60 set www's footer top at 390 (16,967) against our page height (18,108). Page
+#   heights on both sides: www 1440 12,574 / 390 18,041. As served 1440 11,372 (-9.56 %) / 390 18,108 (+0.37 %). With the row
+#   and the code (drafted served copy): 1440 12,161 (-3.28 %, 6.28 points closer) / 390 18,307 (+1.47 %, 1.10 points further).
+#   Footer tops: www 11,739 / 16,967; as served 10,537 (-10.24 %) / 17,034 (+0.39 %); with the row 11,326 (-3.52 %) /
+#   17,233 (+1.57 %). There is no 1,141 px gap: the 390 page as served is 67 px longer than www's.
+#   Where the 390 page differs, step by text (www's 390 measurement and its offline layout against ours): the section from
+#   "Entdecke Frankfurt" to the footer is 198 px shorter than www's as served (www's map band; with the row +1 px), and the
+#   text sections are 258 px longer, from "Sicherheitskontrollen" on. Same texts, but www writes them with no-break spaces
+#   between the words: 42 paragraphs and items of www's 390 page do not wrap and run past the window (offline layout:
+#   scrollWidth 1,892 px; "Um Ihren Durchgang ..." one 33 px line, ours 6 lines, 198 px). With those spaces as plain spaces
+#   www's 390 footer top is 892 px lower (offline: 16,736 -> 17,628). That is www's own breakage, which our page does not copy.
+#   Only 3 of the 121 airport snapshots have such chains (German pages; frankfurt-de 30 paragraphs), so the recorded page is
+#   the one airport page where www's 390 height is short for that reason.
+#   The map band itself is as www's at both widths (1440: 810 px + 30 / 30; 390: 219 + 30 / 30). At 390 the row takes the
+#   recorded page 1.10 points further, so it fails the gate there: every row stays HOLD, all widths (your call).
 # No-breakage sample: 46 documents (15 per language, seed 60, plus the three Frankfurt pages), with and without at 390 and
 #   1440, as served on airdolomiti.turnsthe.page with this work tree's code (delta-so60-airdolomiti-airport-maps-sample.txt):
 #   all 200; the map drawn on every page (all its tiles loaded, one pin); +788 / +789 px at 1440, +198 / +199 at 390; nothing
@@ -80,7 +90,7 @@ HOLD	/de/flughaefen/brindisi	text-inserts-apply (delta-so60-airdolomiti-airport-
 HOLD	/de/flughaefen/cagliari-de	text-inserts-apply (delta-so60-airdolomiti-airport-maps.json)	www's map: Cagliari Elmas Airport at 39.5932, 7.5676, zoom 6, in place of the Google Maps link	not recorded, not in the sample
 HOLD	/de/flughaefen/figari-de	text-inserts-apply (delta-so60-airdolomiti-airport-maps.json)	www's map: Figari-South Corsica Airport at 41.4987, 9.0957, zoom 15, in place of the Google Maps link	not recorded, not in the sample
 HOLD	/de/flughaefen/florenz	text-inserts-apply (delta-so60-airdolomiti-airport-maps.json)	www's map: Amerigo Vespucci Airport at 43.7749, 10.7721, zoom 8, in place of the Google Maps link	not recorded, not in the sample
-HOLD	/de/flughaefen/frankfurt-de	text-inserts-apply (delta-so60-airdolomiti-airport-maps.json)	www's map: Frankfurt Airport at 50.0923, 8.5998, zoom 8, in place of the Google Maps link	recorded: 1440 -9.56 -> -3.28 %, 390 +6.72 -> +7.90 % (fails at 390)
+HOLD	/de/flughaefen/frankfurt-de	text-inserts-apply (delta-so60-airdolomiti-airport-maps.json)	www's map: Frankfurt Airport at 50.0923, 8.5998, zoom 8, in place of the Google Maps link	recorded: 1440 -9.56 -> -3.28 %, 390 +0.37 -> +1.47 % (fails at 390; www's 390 text does not wrap, see the header)
 HOLD	/de/flughaefen/genf	text-inserts-apply (delta-so60-airdolomiti-airport-maps.json)	www's map: Geneva Airport at 46.2178, 6.0757, zoom 10, in place of the Google Maps link	not recorded, not in the sample
 HOLD	/de/flughaefen/genua-de	text-inserts-apply (delta-so60-airdolomiti-airport-maps.json)	www's map: Genova City Airport at 44.4074, 8.8179, zoom 10, in place of the Google Maps link	not recorded, not in the sample
 HOLD	/de/flughaefen/graz-de	text-inserts-apply (delta-so60-airdolomiti-airport-maps.json)	www's map: Flughafen+Graz at 46.9954, 15.4396, zoom 12, in place of the Google Maps link	sample: 1440 3861 -> 4649 (+788), 390 5122 -> 5321 (+199)

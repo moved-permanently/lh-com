@@ -1,0 +1,30 @@
+# ema-cashub, standing order 61 (2026-11-17), item 5: TAP's market legal-information pages without their version's stage.
+# The TAP census (census-so61-tap-copies.txt) found 12 market copies (/en-at, /en-ca, /en-ch, /en-de, /en-fr legal-info;
+# /fr-ca, /fr-ch mentions-legales; /pt-at, /pt-ca, /pt-ch, /pt-de, /pt-fr info-legal) whose first section opens with the
+# stage picture as a plain paragraph above the H1, while their language versions (/en-pt/legal-info, /fr-fr/mentions-legales,
+# /pt-pt/info-legal, re-imported on 2026-11-08) draw it as a hero-campaign narrow in a section of its own. The market copies
+# are tap-markets.mjs imports of 2026-11-07 (before that re-import); www's market pages hold the same components as the
+# version's (page.sections of www's pages in the market-diff run of 2026-11-07: equal).
+# Each row: the copy's picture paragraph replaced by the version's stage section as DA holds it (the same picture, which the
+# copy already shows, and the version's second, phone picture); nothing else changes. Tool:
+#   node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so61-tap-market-legal-stage.json
+#   --list <this file> --docs <DA's copies> --out <dir>
+# Dry run on DA's current copies (da-tree-read.mjs --site lh-tap --root /<market>, read only, and one GET per version page,
+# ~09:30 CET): 12 of 12 "1 inserted"; without the insert DA's copy byte for byte; a second run "present".
+# Gate (no recording of these pages): every document rendered with and without the row, as served on tap.turnsthe.page
+# (the drafted served copy), 390 and 1440, airline hosts and lh-proxy refused per request: READY where nothing is added at
+# either width. 1440 -32 px on each, to the version's own height; 390 unchanged. The one clipped text on each render is the
+# header logo's hidden "TAP Air Portugal" link (every TAP page), on both sides.
+# status	document	tool	expected change	gate (height as served -> with the row)
+READY	/en-at/legal-info	text-inserts-apply (delta-so61-tap-market-legal-stage.json)	the stage picture as /en-pt/legal-info's hero-campaign narrow, in its own section	1440 1919 -> 1887 (-32; /en-pt/legal-info 1887), 390 2762 -> 2762 (+0), no breakage
+READY	/en-ca/legal-info	text-inserts-apply (delta-so61-tap-market-legal-stage.json)	the stage picture as /en-pt/legal-info's hero-campaign narrow, in its own section	1440 1919 -> 1887 (-32; /en-pt/legal-info 1887), 390 2762 -> 2762 (+0), no breakage
+READY	/en-ch/legal-info	text-inserts-apply (delta-so61-tap-market-legal-stage.json)	the stage picture as /en-pt/legal-info's hero-campaign narrow, in its own section	1440 1919 -> 1887 (-32; /en-pt/legal-info 1887), 390 2674 -> 2674 (+0), no breakage
+READY	/en-de/legal-info	text-inserts-apply (delta-so61-tap-market-legal-stage.json)	the stage picture as /en-pt/legal-info's hero-campaign narrow, in its own section	1440 1919 -> 1887 (-32; /en-pt/legal-info 1887), 390 2762 -> 2762 (+0), no breakage
+READY	/en-fr/legal-info	text-inserts-apply (delta-so61-tap-market-legal-stage.json)	the stage picture as /en-pt/legal-info's hero-campaign narrow, in its own section	1440 1919 -> 1887 (-32; /en-pt/legal-info 1887), 390 2674 -> 2674 (+0), no breakage
+READY	/fr-ca/mentions-legales	text-inserts-apply (delta-so61-tap-market-legal-stage.json)	the stage picture as /fr-fr/mentions-legales's hero-campaign narrow, in its own section	1440 1919 -> 1887 (-32; /fr-fr/mentions-legales 1887), 390 2834 -> 2834 (+0), no breakage
+READY	/fr-ch/mentions-legales	text-inserts-apply (delta-so61-tap-market-legal-stage.json)	the stage picture as /fr-fr/mentions-legales's hero-campaign narrow, in its own section	1440 1919 -> 1887 (-32; /fr-fr/mentions-legales 1887), 390 2746 -> 2746 (+0), no breakage
+READY	/pt-at/info-legal	text-inserts-apply (delta-so61-tap-market-legal-stage.json)	the stage picture as /pt-pt/info-legal's hero-campaign narrow, in its own section	1440 1919 -> 1887 (-32; /pt-pt/info-legal 1887), 390 2810 -> 2810 (+0), no breakage
+READY	/pt-ca/info-legal	text-inserts-apply (delta-so61-tap-market-legal-stage.json)	the stage picture as /pt-pt/info-legal's hero-campaign narrow, in its own section	1440 1919 -> 1887 (-32; /pt-pt/info-legal 1887), 390 2810 -> 2810 (+0), no breakage
+READY	/pt-ch/info-legal	text-inserts-apply (delta-so61-tap-market-legal-stage.json)	the stage picture as /pt-pt/info-legal's hero-campaign narrow, in its own section	1440 1919 -> 1887 (-32; /pt-pt/info-legal 1887), 390 2722 -> 2722 (+0), no breakage
+READY	/pt-de/info-legal	text-inserts-apply (delta-so61-tap-market-legal-stage.json)	the stage picture as /pt-pt/info-legal's hero-campaign narrow, in its own section	1440 1919 -> 1887 (-32; /pt-pt/info-legal 1887), 390 2810 -> 2810 (+0), no breakage
+READY	/pt-fr/info-legal	text-inserts-apply (delta-so61-tap-market-legal-stage.json)	the stage picture as /pt-pt/info-legal's hero-campaign narrow, in its own section	1440 1919 -> 1887 (-32; /pt-pt/info-legal 1887), 390 2722 -> 2722 (+0), no breakage
