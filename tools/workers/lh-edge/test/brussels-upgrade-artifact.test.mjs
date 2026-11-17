@@ -98,7 +98,7 @@ test('the helper: only the prefix with the source\'s code, on www or relative; b
   assert.equal(upgradeArtifactHref(`${WWW}${A}/de-de`, 'be/en', 'lv/en', 'www.brusselsairlines.com'), null);
   assert.equal(upgradeArtifactHref(`https://www.example.com${A}/be-en`, 'be/en', 'lv/en', 'www.brusselsairlines.com'), null);
   assert.equal(upgradeArtifactHref('/be/en/extra-services/upgrades', 'be/en', 'lv/en', 'www.brusselsairlines.com'), null);
-  assert.deepEqual([...UPGRADE_ARTIFACT_SITES], ['brussels', 'swiss']);
+  assert.deepEqual([...UPGRADE_ARTIFACT_SITES], ['austrian', 'brussels', 'swiss']);
   assert.ok(UPGRADE_ARTIFACT_MISSING instanceof Set);
 });
 

@@ -550,7 +550,11 @@ export function marketHref(href, {
  */
 // SWISS (brief 493): the same on its upgrade-in-to-business-class pages (www's cz/it links cz-it;
 // ch's language versions were served with ch-it)
-export const UPGRADE_ARTIFACT_SITES = new Set(['brussels', 'swiss']);
+// Austrian (standing order 62): the same on its upgrades pages; the market roots were served
+// at/en's at-en (at/de's at-de), while www links each root's own (52 roots' artifacts answering
+// 200 on www.austrian.com, read by the migration workspace on 2026-11-17). Roots served from
+// fr/fr, it/it or ru/ru keep the version's <cc>-en link: it doesn't name the version's <cc>-<ll>.
+export const UPGRADE_ARTIFACT_SITES = new Set(['austrian', 'brussels', 'swiss']);
 export const UPGRADE_ARTIFACT_MISSING = new Set(['bf/en', 'bf/fr']);
 const UPGRADE_ARTIFACT = '/artifacts/flight-upgrades/fix-price-upgrade/';
 
