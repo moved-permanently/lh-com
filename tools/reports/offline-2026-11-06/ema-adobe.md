@@ -5819,3 +5819,61 @@ or the hand-over file.
        7 noisy ones were measured again: equal.
 - Ended at about 09:40 CET: both items are answered. Nothing is held, and no background job runs.
 - Left out of git: logs/b649 (copies, census and gate renders, runners) and the untracked import reports of earlier runs.
+
+### Standing order 51 (2026-11-17 10:10 to about 12:50 CET)
+
+No uploads, previews or publishes; DA read only; no request to www or any airline host (every render refused every host but
+ours and aem in the browser). At most four browser jobs at once. `.migration/project.json` untouched; the optional plugins
+stay off. Order 49 / 50 left nothing uncommitted or unpushed. No code change this order: lists and rows (cb1c93f, 5264cb4)
+and this section.
+
+Each push: the tests named for it passed, and the whole-repo lint read 0 on a clean worktree of the rebased HEAD (no
+block or theme file changed, so no stylelint). Full suite on the final code: 5264cb4 (main with this order's commits), 72 lh-edge files and 1,269 site files, 0
+failing.
+
+**The two-hour windows:** no edit to the site stylesheet, Columns Media, any block or the hand-over file.
+
+1. **The "doubled" sources: no rows; order 49's verdict was wrong and is corrected (list-so49-adobe-rollout-structure.txt).**
+   - de/de and de/en cash-and-miles, free2move and lufthansa-express-rail-briefing, and de/en europcar hold market sections
+     by design. One version has "markets: de" for Germany; the other has "markets: -de" for every other market that reads
+     the document. scripts.js dropOtherMarkets shows one of them.
+   - Rendered on our host:
+     - /de/de and /de/en: one H1 each;
+     - /ch/de/cash-and-miles: the other version (3 sections);
+     - europcar: one car-rental block on /de/en and on /ae/en.
+   - de/en articles/explore-flying's two H1s are www's own ("Our Authors" is an h1 on www).
+   - Order 49 had read the published copies without the market filter. The rollouts carry no duplicate.
+2. **The language versions and market roots (list-so51-adobe-language-versions-and-markets.txt).**
+   - Scope: 4,557 documents, each against its source as served, with the market filter applied as the page draws it.
+     4,027 compared (500 have no source): 3,045 alike, 982 in 82 classes.
+   - The verdicts:
+     - local (35 classes): the market homepages' own composition (about 200 each); www's own hero teasers on its language
+       and market pages; the markets' own campaign, voucher and form documents;
+     - follow the source (4 classes): 51 READY rows, delta-so51-adobe-language-versions-follow.txt (cb1c93f). Options
+       spacious, wide-rows, phone-slider and stacked, where www's de/en and xx pages are alike. Byte-for-byte dry run on
+       DA's copies; 40-document no-breakage sample at 1440 and 390, nothing broken;
+     - lost in import (2 classes): the language versions' FAQ accordions, where the questions are gone. With six
+       meetings-and-events teaser rows and mk/de munich's FAQ, these make reimport-so51-adobe-lost-content.txt
+       (37 documents);
+     - not followed (41 classes): no evidence the copy should change; listed.
+   - The no-breakage render of all 4,543 served documents, at 1440 and 390 in the same load:
+     - no sideways scroll and no block that failed to load;
+     - no lost words once the pages settled (the 66 flagged documents and the 55 flagged homepages loaded again);
+     - **breakage: 16 blocks empty in DA.** 16 READY rows, delta-so51-adobe-empty-blocks.txt (5264cb4): accordion-columns
+       6, cards-teaser 6, table-striped 2, and the xx/es hubs' English "Our Authors" with its empty author carousel 2
+       (www's Spanish hubs have no author slider). Byte-for-byte dry run; all 16 rendered with and without, the empty box
+       gone, nothing else changed;
+     - not the documents: empty at runtime (the micro-frontend from a refused host on 21 copies, no current message on 11
+       message-center and 231 flash-teaser copies); systemic and the same on de/en's own pages (homepages without an H1,
+       the flight widget's clipped text, campaign pages with several H1s, as on www).
+   - The two known items:
+     - /dz/de/datenschutz-lufthansa-facebook doesn't scroll sideways as served (390 px at 390; the long link wraps);
+     - /xx/ru/automatic-check-in and pre-check-in use markets "xx" for the language root and "-xx" for the market
+       copies, the same scheme as de / -de. /xx/ru, /ru/ru and /by/ru each render one H1. No row.
+3. **Places 81 to 100 of sweep-so44, measured again as served:**
+   - what-i-learned-living-in-barcelona 1440: 7.1 -> 4.9 %;
+   - allegris-premium-economy-san-diego 390: 7.3 -> 6.7 (ema-test's caption fix and order 49's video still);
+   - the other 18 within 0.2 of order 48's figures, whose causes stand. No new row or rule.
+- Ended at about 12:50 CET: the three items are answered. Nothing is held, and no background job runs.
+- Left out of git: logs/b651 (copies, DA copies, census and render results, runners) and the untracked import reports of
+  earlier runs.
