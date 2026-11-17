@@ -5761,3 +5761,61 @@ own commits only.
 - Ended at about 06:10 CET: the three items are answered. Nothing is held, and no background job runs.
 - Left out of git: logs/b648 (captures, diffs, region data, request logs, runners) and the untracked import reports of
   earlier runs.
+
+### Standing order 49 (2026-11-17 06:10 to about 09:40 CET; the turn broke off at 07:30 and was finished under order 50)
+
+No uploads, previews or publishes; DA read only (the DA list API for the brand sites, and two gb/en copies); no request to
+www or any airline host. The census and gate renders refused every host but ours and aem in the browser. At most four
+browser jobs at once after order 50. `.migration/project.json` untouched; the add-ons stay off.
+
+What the broken-off turn left: scripts/media.js and styles/media.css modified (the item 2 change, uncommitted until its
+census passed, as asked), and the item 1 lists untracked. Its census jobs had ended with the session; they were run again
+from the start.
+
+Each push: the tests named for it passed, and the whole-repo lint read 0 on a clean worktree of the rebased HEAD;
+stylelint clean on styles/media.css. Full suite on the final code: f63d5f4 (main with this order's commit), 72 lh-edge files and 1,265 site files, 0
+failing.
+
+**The two-hour windows:** nobody else touched scripts/media.js or styles/media.css; no edit to styles.css, Columns Media
+or the hand-over file.
+
+1. **The rollouts against their sources (list-so49-adobe-rollout-structure.txt).**
+   - 2,074 at/de and gb/en paths, both copies fetched fresh. 2,055 compared (15 have no source, 4 answer 301): 1,988 are
+     structurally alike (sections and their styles, blocks with options and pictures, headings by level, pictures), 67
+     differ in 33 classes. The largest class has 15 documents.
+   - **Local, left alone:**
+     - the hero teasers' options (narrow, no-subtitle, regular: 39 documents in 8 classes). www's own at/de and gb/en
+       pages draw .inspiration-teaser-narrow where de/de and de/en do not;
+     - the voucher, receipt and form pages (other FAQ, sections and headings on www's own versions);
+     - the two market article hubs, built as hubs of their own.
+   - **The source is wrong, not the rollout:** six de/de and de/en copies hold their content twice (merge leftovers, two
+     H1s): cash-and-miles and free2move in both languages, lufthansa-express-rail-briefing (de/de) and
+     articles/explore-flying (de/en). Also de/en europcar's second car-rental block, whose fallback link reads
+     /ae/en/europcar. For the loc tools, not rows.
+   - **To follow its source:** gb/en lufthansa-aviation-group and report-baggage lack the Columns Media option wide-rows
+     that order 36's rows gave de/en (www's versions alike). 2 READY rows (delta-so49-adobe-rollout-wide-rows.txt):
+     - a byte-for-byte dry run on DA's current copies;
+     - no-breakage renders of both documents (the whole class, so not a 40-document sample) at 390 and 1440: 4 pairs, all
+       200, nothing broken; 1440 +16 / +48 px, 390 unchanged.
+   - **Left, too small to tell from structure alone and without a recording:** the rest of the 21 classes of one or two documents
+     (picture counts, a phone-slider option, overview-manage's spacious option: overview-manage gets no row).
+2. **The video letterbox: shipped (f63d5f4, gate-so49-adobe-video-letterbox.txt).**
+   - The change, in buildVideo(), the function that builds createVideo()'s player: a sized player (the 16:9 player of a
+     1920x823 poster) gets a muted, never-played still of its video under the contained poster, as www's video.js
+     draws its first frame there. Only for a video file on our own host: the language versions link www's DAM files.
+   - Census, with and without in the same load:
+     - every served document with a video, lh-com (875) and the nine brand sites (479 of 16,564 documents);
+     - 2,708 page-widths, all 200, nothing broken, the same heights and player boxes;
+     - 154 page-widths (77 lh-com documents) have a sized player; the brand sites have none.
+   - Recorded gate, the 56 recorded page-widths with a sized player:
+     - none more than 0.5 points further;
+     - allegris-new-york and allegris-premium-economy-san-diego, four versions each, 1.33-1.42 points closer at 1440
+       and 0.46-0.50 at 390;
+     - the rest within 0.01.
+   - Two catches on the way:
+     - The first gate ran on a working copy 19 commits behind main, which had meanwhile shipped ema-test's
+       video-caption fix. It was redone on main 9710d29 plus the change.
+     - The census showed the language versions' www video links, hence the own-host condition. Those 26 page-widths and
+       7 noisy ones were measured again: equal.
+- Ended at about 09:40 CET: both items are answered. Nothing is held, and no background job runs.
+- Left out of git: logs/b649 (copies, census and gate renders, runners) and the untracked import reports of earlier runs.
