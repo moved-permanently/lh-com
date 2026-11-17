@@ -1,0 +1,86 @@
+{
+ "/be/en/extra-services/baggage/checked-baggage": [
+  {
+   "from": "Related topics</h2>",
+   "to": "Related topics</h2><p>{spacer-36 from-768}</p><p>{spacer-47 below-768}</p>",
+   "count": 1
+  },
+  {
+   "from": "Sports equipment</a></h4></div></div></div>",
+   "to": "Sports equipment</a></h4></div></div></div><p>{spacer-35 from-768}</p><p>{spacer-89 below-768}</p>",
+   "count": 1
+  }
+ ],
+ "/be/fr/extra-services/baggage/checked-baggage": [
+  {
+   "from": "Autres sujets</h2>",
+   "to": "Autres sujets</h2><p>{spacer-36 from-768}</p><p>{spacer-47 below-768}</p>",
+   "count": 1
+  },
+  {
+   "from": "Équipement de sport</a></h4></div></div></div>",
+   "to": "Équipement de sport</a></h4></div></div></div><p>{spacer-35 from-768}</p><p>{spacer-89 below-768}</p>",
+   "count": 1
+  }
+ ],
+ "/be/nl/extra-services/baggage/checked-baggage": [
+  {
+   "from": "Gerelateerde onderwerpen</h2>",
+   "to": "Gerelateerde onderwerpen</h2><p>{spacer-36 from-768}</p><p>{spacer-47 below-768}</p>",
+   "count": 1
+  },
+  {
+   "from": "Sportmateriaal</a></h4></div></div></div>",
+   "to": "Sportmateriaal</a></h4></div></div></div><p>{spacer-35 from-768}</p><p>{spacer-89 below-768}</p>",
+   "count": 1
+  }
+ ],
+ "/de/de/extra-services/baggage/checked-baggage": [
+  {
+   "from": "Verwandte Themen</h2>",
+   "to": "Verwandte Themen</h2><p>{spacer-36 from-768}</p><p>{spacer-47 below-768}</p>",
+   "count": 1
+  },
+  {
+   "from": "Sportausrüstung</a></h4></div></div></div>",
+   "to": "Sportausrüstung</a></h4></div></div></div><p>{spacer-35 from-768}</p><p>{spacer-89 below-768}</p>",
+   "count": 1
+  }
+ ],
+ "/es/es/extra-services/baggage/checked-baggage": [
+  {
+   "from": "Temas relacionados</h2>",
+   "to": "Temas relacionados</h2><p>{spacer-36 from-768}</p><p>{spacer-47 below-768}</p>",
+   "count": 1
+  },
+  {
+   "from": "Equipaje deportivo</a></h4></div></div></div>",
+   "to": "Equipaje deportivo</a></h4></div></div></div><p>{spacer-35 from-768}</p><p>{spacer-89 below-768}</p>",
+   "count": 1
+  }
+ ],
+ "/it/it/extra-services/baggage/checked-baggage": [
+  {
+   "from": "Argomenti correlati</h2>",
+   "to": "Argomenti correlati</h2><p>{spacer-36 from-768}</p><p>{spacer-47 below-768}</p>",
+   "count": 1
+  },
+  {
+   "from": "Attrezzatura sportiva</a></h4></div></div></div>",
+   "to": "Attrezzatura sportiva</a></h4></div></div></div><p>{spacer-35 from-768}</p><p>{spacer-89 below-768}</p>",
+   "count": 1
+  }
+ ],
+ "/be/en/extra-services/meals/bon": [
+  {
+   "from": "Related topics</h2>",
+   "to": "Related topics</h2><p>{spacer-47 below-768}</p>",
+   "count": 1
+  },
+  {
+   "from": "Belgian Star Chefs</a></h4></div></div></div>",
+   "to": "Belgian Star Chefs</a></h4></div></div></div><p>{spacer-57 below-768}</p>",
+   "count": 1
+  }
+ ]
+}
