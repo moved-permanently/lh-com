@@ -1,0 +1,55 @@
+[
+ {
+  "path": "/de/en/lufthansa-terminal-muenchen",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-70}</p>",
+    "text": "<p>{spacer-23 from-768}</p><p>{spacer-70 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/book-and-manage/rebook",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>padded",
+    "text": "<div>style</div><div>padded, gap-after-small-below-768"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/book-and-manage/flights/lufthansa-voucher",
+  "inserts": [
+   {
+    "after": "r Lufthansa Gift Cards</div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-below-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/book-and-manage/rebook/involuntary-rebooking",
+  "inserts": [
+   {
+    "replace": "/div><div class=\"section-metadata\"><div><div>style</div><div>padded",
+    "text": "/div><div class=\"section-metadata\"><div><div>style</div><div>padded, gap-after-small-768"
+   },
+   {
+    "replace": "</h2><div class=\"section-metadata\"><div><div>style</div><div>padded",
+    "text": "</h2><div class=\"section-metadata\"><div><div>style</div><div>padded, gap-after-small-768"
+   },
+   {
+    "replace": "<div>style</div><div>flush, grey",
+    "text": "<div>style</div><div>flush, grey, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/flying-with-small-children",
+  "inserts": [
+   {
+    "after": "ok\">My logbook</a></p></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-768</div></div></div>"
+   }
+  ]
+ }
+]
