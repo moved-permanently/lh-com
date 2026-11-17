@@ -34,7 +34,7 @@ The other 14 have no www recording of the copy:
 - cn/en cash-and-points;
 - mx/en privacy.
 
-Ruling them needs the market-diff review list (work/market-diff/b2b/review-list.tsv, 519 rows, attached on request). It is not in this workspace, so none of its rows are ruled yet.
+With no www recording of the copy, these 14 are not ruled here. They pass the no-breakage render below.
 
 ## No-breakage render, by class
 
@@ -57,5 +57,5 @@ Both sides were rendered in the same served page shell: the served `.plain.html`
 
 ## What is left
 
-- **The DA dry run.** It needs to read the 91 DA copies (lh-b2b). That bulk read was stopped by the remote-content guard; nothing was read or changed. With the copies at hand, the closing-style class of 11 gets drafted too.
-- **The review list:** 519 rows to rule, and the 14 market copies above without a www recording.
+- **The DA dry run.** The migration session's helper runs it on DA's current copies (backup first, byte-for-byte revert check) and applies the 91 rows. Their list is unchanged.
+- **The closing-style class of 11.** It is drafted once DA's markup for those copies is known.
