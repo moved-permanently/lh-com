@@ -6378,8 +6378,15 @@ as the publish child measures.
   Both are already taller than www elsewhere, so the rule fails the gate and is not in the theme.
 - Rank 189 is Discover's (ema-test).
 
-**Item 3, the Chrome against headless-shell list:** the full Chrome sweep of all 498 page-widths is running. Its list
-comes in a second commit if it finishes in this order.
+**Item 3, Chrome against the headless shell (engines-so40-chrome-shell.md, second commit):**
+- 365 of the 498 recorded page-widths were captured in full Chrome. The sweep was stopped for time; the other 133 are
+  not covered yet.
+- 23 differed by more than 1 % from their newest shell figure. Captured again in both engines, 17 still do.
+  - Group for Business: 11, Chrome mostly longer, by +1.04 to +2.10 %.
+  - Brussels: 6, Chrome shorter, by -1.19 to -2.52 %.
+  - The other six were bad loads, or shell figures older than a live row.
+- Two verdicts change: /de/de/about-us 390 is exactly www's height in Chrome (shell -2.06 %), and Brussels be/en
+  checked-baggage 390 is -1.74 % in Chrome (shell +0.81 %).
 
 **Checks:** whole-repo lint, the folder-reading tests and the full suite in the ship, waited for in the turn. No CSS
 changed, so stylelint had nothing to check.
