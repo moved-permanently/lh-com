@@ -147,6 +147,47 @@ Where the first screen differs from www, now that it is visible:
 The ranking below holds these 16 whole-page figures instead of lh-parity-014's masked ones. (Places 21 to 60 below were
 numbered on the ranking of their order; places 61 to 80 on this one.)
 
+## allegris-new-york against lh-parity-015, by region (standing order 48, item 1)
+
+The four versions captured as served at 05:05 CET (logs/b648/cap) and compared with lh-parity-015 in 10 px bands, the
+live boxes masked as in every gate. Each band's mismatched pixels go to the region it falls in: www's sticky Price Bar
+rows (drawn over the first screen's foot on www: rows 810-899 at 1440, 679-843 at 390), then our page's regions from its
+DOM (logs/b648/q-regions.js). The figures are points of the whole page (they add up to its %).
+
+| Version | Width | Whole page % | header | stage | Price Bar (www) | body text | body pictures | article-end teaser | related cards | footer | other |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| de/en | 1440 | 9.0 | 0.01 | 0.09 | 0.74 | 1.61 | 4.47 | 0.41 | 1.02 | 0.63 | 0.08 |
+| de/en | 390 | 10.7 | 0.04 | 0.12 | 0.18 | 4.85 | 2.39 | 2.02 | 0.14 | 0.83 | 0.09 |
+| de/de | 1440 | 9.1 | 0.01 | 0.1 | 0.72 | 1.86 | 4.27 | 0.4 | 1.04 | 0.62 | 0.07 |
+| de/de | 390 | 10.9 | 0.03 | 0.14 | 0.19 | 4.83 | 2.28 | 1.95 | 0.18 | 1.26 | 0.03 |
+| at/de | 1440 | 9.1 | 0.01 | 0.1 | 0.72 | 1.86 | 4.27 | 0.4 | 1.04 | 0.62 | 0.07 |
+| at/de | 390 | 11.1 | 0.03 | 0.29 | 0.24 | 4.83 | 2.28 | 1.95 | 0.18 | 1.26 | 0.03 |
+| gb/en | 1440 | 9.0 | 0.01 | 0.09 | 0.74 | 1.61 | 4.47 | 0.41 | 1.02 | 0.63 | 0.08 |
+| gb/en | 390 | 10.9 | 0.03 | 0.29 | 0.24 | 4.85 | 2.39 | 2.02 | 0.14 | 0.84 | 0.09 |
+
+What each region holds, and whether a row or rule of ours could close it:
+- **Body pictures (4.3-4.5 points at 1440, 2.3-2.4 at 390).**
+  - (1) The video "Take one!": www's player (video.js, preload metadata) paints the video's first 16:9 frame behind its
+    21:9 poster, so the letterbox strips show the scene. Ours sets the poster on the video element and draws the strips
+    black. That is 1.3 points at 1440 (two 70 px strips across the 1,052 px player) and 0.45 at 390. Closable in our
+    code: scripts/media.js createVideo() (preload metadata and the poster as an overlay, not the poster attribute). It is
+    the shared video code, every video on the site, and it would make every capture load the mp4. Not gated tonight; a
+    proposal.
+  - (2) The rest is the pictures below standing 26 px higher than www's, from y 2,160 at 1440 / 1,760 at 390 on. The
+    video's caption has 28 px less below it than www's (www 74 px from the caption to the next text, ours 46): a Columns
+    Media caption gap, ema-test's item 17.
+- **Body text (1.6-1.9 at 1440, 4.8-4.9 at 390).** The same 26 px step: every line below the video's caption is offset
+  by it, and at 390 that is most of the page. Item 17 again; no row of ours.
+- **Article-end teaser (0.4 at 1440, 2.0 at 390).** The "Ready to discover the world?" teaser: www's "Find flight" is a
+  text link with the small arrow, ours a standalone link (hand-over item 20), and the step above it.
+- **Related cards (1.0 at 1440, 0.1-0.2 at 390).** Other, newer articles than www's three (content). None.
+- **Price Bar (0.7 at 1440, 0.2 at 390).** www's bar with its price; ours hides it with the price refused here. None.
+- **Footer (0.6-1.3).** The footer sits 10-11 px off with the drift above it; it closes with item 17.
+- **Header and stage (0.1-0.3).** Within a few pixels.
+
+So, of about 9 points at 1440: about 1.3 is ours to close (the video letterbox, a scripts/media.js change, not gated);
+about 5-6 follow ema-test's item 17; the Price Bar and the related cards' content stay.
+
 ## Places 21 to 40 (standing order 45, item 3)
 
 Places in the ranking below, with the lh-parity-014 page-widths in it. Drift steps and crops are in logs/b645 (not in git).
@@ -208,6 +249,26 @@ places 59-118, order 44's worst 20); tonight's drift on the two hubs against lh-
 | 78 | /de/en/articles/explore-the-world 1440 | 7.7 (lh-parity-015, whole page) | (1) The map (OpenStreetMap against www's Google Maps). (2) 26 px less above "Discover your dream destinations with us!". (3) The results list's content (drift -175 to -68). | (1) None: by design. (2) Hand-over item 18. (3) None. |
 | 79 | /de/en/articles/explore-the-world/eat-see-do-algiers 1440 | 7.7 | Our capture is sweep-so34's but for the Price Bar band at y 800: the bar draws no price with airline hosts refused and hides (7.0 in sweep-so34, when it drew one). | None: expected with prices refused. |
 | 80 | /de/en/articles/explore-the-world/in-my-hood-chiswick-london 390 | 7.7 | Within 23 px until the related cards (+48), then back to 0; photos. | None. |
+
+## Places 81 to 100 (standing order 48, item 3)
+
+Places in the ranking below (order 47's). All were located in sweep-so34-lh-adobe.md (places 79-118) or in order 47's
+lh-parity-015 section, and are unchanged.
+
+| Rank | Page-width | % | Cause (located) | Fix |
+| --- | --- | --- | --- | --- |
+| 81, 82 | /de/en, /gb/en frankfurt-fair 1440 | 7.7 | 39 px less above "The benefits of travelling with Lufthansa to Messe Frankfurt"; the benefit cards' columns 9 px wider. | Hand-over item 18; the columns not tonight (Columns Media). |
+| 83, 85, 95, 96 | /at/de, /de/de, /de/en, /gb/en frankfurt-fair 390 | 7.6, 7.6, 7.3, 7.3 | Within 37 px (the stage), then within 18. | None. |
+| 84 | /at/de/speisen-und-getraenke 390 | 7.6 | 30 px less above the FAQ heading; one question wraps a line more. | Hand-over item 18. |
+| 86 | /de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich 390 | 7.6 | The article end (item 20's link), 23 px more above "Related Articles" (item 17), the third related article another one. | Items 20 and 17. |
+| 87 | /de/en/articles/explore-the-world/stop-over-tokyo 1440 | 7.6 | The Price Bar not drawn with prices refused (6.7 in sweep-so34, when it drew one); www's 1440 portrait crop. | None. |
+| 88, 89, 92 | /at/de, /de/de services-am-flughafen, /gb/en services-at-the-airport 390 | 7.5 | Within 26 px; the text a word wider per line (the font width). | None. |
+| 90, 91 | /de/en, /gb/en discover-lufthansa/new-onboard-experience 390 | 7.5 | Within 8 px; the collage. | None. |
+| 93 | /de/en/articles/explore-the-world 390 | 7.4 (lh-parity-015) | The map (OpenStreetMap against Google Maps), 35 px less above "Discover your dream destinations with us!", the list's content. | None for the map and list; item 18. |
+| 94 | /de/en/articles/highlights/allegris-premium-economy-san-diego 390 | 7.3 | The related cards: newer articles than the recording's. | None: content. |
+| 97, 98 | /at/de, /de/de digital-self-services 390 | 7.2 | 21 px less from the separator to "Das könnte Sie auch interessieren". | Hand-over item 19. |
+| 99 | /de/en/articles/explore-the-world/essentials-barcelona-facts 390 | 7.2 | The inline link "→ history" wraps a line more; the illustration 10 px lower; item 20's link; 22 px more above "Related Articles". | Items 20 and 17; the rest under 1 %. |
+| 100 | /de/en/articles/explore-the-world/what-i-learned-living-in-barcelona 1440 | 7.1 | The Price Bar not drawn (6.3 in sweep-so34); 28 px less above the author quote after the picture row (item 21). | Item 21; the bar none. |
 
 ## Every page-width, worst first
 

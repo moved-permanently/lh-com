@@ -162,3 +162,9 @@ Standing order 47 (2026-11-17, ema-adobe's lh-parity-015 gate and places 61 to 8
 23. A heading after a hub's stage picture: /de/en/articles/explore-flying, 390 (7.8 %, lh-parity-015 whole page): the H1
     "Lufthansa Insights - Explore Flying" stands 8px lower under the stage picture than www's (www 410px, ours 418px from
     the top), and the intro text with it. The site stylesheet's heading spacing, yours tonight.
+
+Standing order 48 (2026-11-17, ema-adobe's region breakdown of allegris-new-york against lh-parity-015):
+24. For item 17 (Columns Media photo captions), a measured case: allegris-new-york (de/en, de/de, at/de, gb/en), the video
+    "Take one! A film crew accompanies Antonio Colomboni ..." in its columns-media block: www 74px from the caption to the
+    next paragraph at 1440, ours 46. Everything below stands 26px higher from there (y 2,160 at 1440, 1,760 at 390), and
+    that step carries about 5-6 of the page's 9 points at 1440 (body text and pictures) and most of 390's.
