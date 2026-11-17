@@ -210,10 +210,8 @@ export const THEMES = {
     live: true,
     text: { width: 'full' },
     headingsBefore: { 'carousel-cards': { h2: 'heading-small' }, 'cards-icon': { h2: 'heading-small' } },
-    // keepSizesIn: in a Columns Media cell (www's column-view items) a heading keeps its marker in
-    // heading-medium or heading-small, which the page reads as the class (www has both there: 36
-    // and 28 px; rows-for-ema-test.md row 6, standing order 10 of 2026-11-12; import time only)
-    keepSizesIn: { 'columns-media': ['heading-medium', 'heading-small'] },
+    // (no keepSizesIn since standing order 44: a Columns Media heading keeps no size marker;
+    // ita.css draws a padded view's H2 in heading-medium, the other views' in heading-small)
   },
   // SWISS: flow pages set their H2s in heading-small (www: 63 % of the markets' pages, 79 % of the
   // sub-sites'; the rest mostly unmarked, one step up); the FAQ hub's topic teasers in their groups
@@ -227,9 +225,9 @@ export const THEMES = {
     // one-column view after the title) keeps its marks in the collapse (standing order 10 of
     // 2026-11-12; import time only)
     columnViews: { oneElementViews: true },
-    // keepSizes: a heading size the collapse keeps as its marker, which the page reads as the class
-    // (www's heading-copytext-large, 16 / 18 px bold: rows-for-ema-test.md row 3)
-    keepSizes: ['heading-copytext-large'],
+    // (no keepSizes since standing order 44 of 2026-11-17: heading-copytext-large is the H3 and
+    // H4 default, and for an H2 the title-compact block option or the h2-compact section style;
+    // the collapse writes that carrier or nothing, no marker)
     pageTypes: { flow: { headings: { h2: 'heading-small' }, columnViews: { blocks: ['columns-media'] } } },
   },
   // Lufthansa Group for Business: on flow pages the H3s in heading-small (www: 82 %); Columns

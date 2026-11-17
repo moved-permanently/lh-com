@@ -54,7 +54,6 @@ test('the wiring: Austrian\'s mapped snapshot (48 px) and Brussels\' (40 px)', (
   // Austrian's on www's snapshot as captured (scripts stripped), before the panels are rewritten (test/austrian-teaser-cards.test.mjs pins the outer steps)
   assert.match(read('austrian-import.mjs'), /withPlaceholder\(withEmptyLineSpacers\(stripScripts\(html\)\)\)/);
   assert.match(read('austrian-import.mjs'), /const withEmptyLineSpacers = \(html\) => emptyLineSpacers\(html, \{ parse: parseHTML, size: 48 \}\);/);
-  // the empty lines the last mapping step; only the empty paragraphs after them (standing order 5, test/text-spacers-so5)
-  assert.match(read('brussels-import.mjs').match(/const mapped = (.*)/)[1], /^withEmptyParagraphSpacers\(withEmptyLineSpacers\(/);
-  assert.match(read('brussels-import.mjs'), /const withEmptyLineSpacers = \(html\) => emptyLineSpacers\(html, \{ parse: parseHTML, size: 40 \}\);/);
+  // Brussels writes no spacing marker for them since standing order 44 (token-free content, test/token-free-importers-so44)
+  assert.doesNotMatch(read('brussels-import.mjs'), /emptyLineSpacers|emptyParagraphSpacers/);
 });

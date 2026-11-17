@@ -971,6 +971,15 @@ body.brand-ita main .columns-media:not(.title-large, .title-compact, .sidebar) .
   line-height: 1.1;
 }
 
+/* a padded column view's H2 in www's heading-medium (36px at 1440: contact's country headings, entry-exit-system;
+   ita.css's padded-row spacing below assumes it), the carrier of the size the import marked as {heading-medium} until
+   standing order 44 (token-free content). Gated on all 80 recorded ITA page-widths: 78 unchanged, residents-in-sicily
+   1440 closer (-0.23 -> 0.00 %), 390 within 0.5 points */
+body.brand-ita main .columns-media.padded .columns-media-text h2:not([class*="heading-"]) {
+  font-size: var(--heading-font-size-xl);
+  line-height: 1.1;
+}
+
 /* small print under a text (ITA row 32): www's copytext-small is the last paragraph of the text's richtext, 24px under
    the text and 42px over the next component (its 18px margin and the component's 24); the import gives it a section of
    its own (Style small-print), 48px from either */

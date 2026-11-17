@@ -1,0 +1,459 @@
+{
+ "/be/en/check-in-options-and-info/check-in-at-the-airport": [
+  {
+   "from": "gage at the airport.</p><p>{spacer-25}</p><h2 id=\"express-check-in",
+   "to": "gage at the airport.</p><h2 id=\"express-check-in",
+   "count": 1
+  },
+  {
+   "from": " our check-in desks.</p><p>{spacer-27}</p><h2 id=\"check-in-at-our-",
+   "to": " our check-in desks.</p><h2 id=\"check-in-at-our-",
+   "count": 1
+  },
+  {
+   "from": "emium Economy Class.</p><p>{spacer-27}</p><h2 id=\"good-to-know\">Go",
+   "to": "emium Economy Class.</p><h2 id=\"good-to-know\">Go",
+   "count": 1
+  }
+ ],
+ "/be/en/contact/service-charges": [
+  {
+   "from": "continental flights)</p><p>{spacer-28}</p><h2 id=\"ticket-service-f",
+   "to": "continental flights)</p><h2 id=\"ticket-service-f",
+   "count": 1
+  }
+ ],
+ "/be/en/extra-services/baggage/checked-baggage": [
+  {
+   "from": "to your destination.</p><p>{spacer-28}</p><h2 id=\"how-much-baggage",
+   "to": "to your destination.</p><h2 id=\"how-much-baggage",
+   "count": 1
+  },
+  {
+   "from": "gage at the airport.</p><p>{spacer-28}</p><h2 id=\"how-can-i-buy-ex",
+   "to": "gage at the airport.</p><h2 id=\"how-can-i-buy-ex",
+   "count": 1
+  }
+ ],
+ "/be/en/farealert/unsubscribe-failure": [
+  {
+   "from": "estinations</a></em></p><p>{spacer-11}</p><div class=\"metadata\"><d",
+   "to": "estinations</a></em></p><div class=\"metadata\"><d",
+   "count": 1
+  }
+ ],
+ "/be/en/legal-notices/privacy-notice-applicants": [
+  {
+   "from": "9.08.2025</sub></em></p><p>{spacer-41}</p><h2 id=\"introduction\">IN",
+   "to": "9.08.2025</sub></em></p><h2 id=\"introduction\">IN",
+   "count": 1
+  },
+  {
+   "from": "sar-start\">here</a>.</p><p>{spacer-41}</p><h2 id=\"purpose-and-lega",
+   "to": "sar-start\">here</a>.</p><h2 id=\"purpose-and-lega",
+   "count": 1
+  },
+  {
+   "from": "of your application.</p><p>{spacer-41}</p><p><strong>2. Third Part",
+   "to": "of your application.</p><p><strong>2. Third Part",
+   "count": 1
+  },
+  {
+   "from": "t as a pilot.</li>\n</ul><p>{spacer-41}</p><h2 id=\"security-when-de",
+   "to": "t as a pilot.</li>\n</ul><h2 id=\"security-when-de",
+   "count": 1
+  },
+  {
+   "from": "cle 45 of the GDPR).</p><p>{spacer-41}</p><h2 id=\"your-data-protec",
+   "to": "cle 45 of the GDPR).</p><h2 id=\"your-data-protec",
+   "count": 1
+  }
+ ],
+ "/be/en/legal-notices/short-notice-eu-us": [
+  {
+   "from": "ked Questions (FAQ):</p><p>{spacer-41}</p><h2 id=\"frequently-asked",
+   "to": "ked Questions (FAQ):</p><h2 id=\"frequently-asked",
+   "count": 1
+  }
+ ],
+ "/be/en/legal-notices/terms-and-conditions-conditions-of-carriage": [
+  {
+   "from": "urchased afterwards.</p><p>{spacer-11}</p><h3 id=\"charters\">Charte",
+   "to": "urchased afterwards.</p><h3 id=\"charters\">Charte",
+   "count": 1
+  },
+  {
+   "from": "ement or the Ticket.</p><p>{spacer-11}</p><h3 id=\"code-shares\">Cod",
+   "to": "ement or the Ticket.</p><h3 id=\"code-shares\">Cod",
+   "count": 1
+  },
+  {
+   "from": "egulation 2111/2005.</p><p>{spacer-11}</p><h3 id=\"applicable-law\">",
+   "to": "egulation 2111/2005.</p><h3 id=\"applicable-law\">",
+   "count": 1
+  },
+  {
+   "from": "heless remain valid.</p><p>{spacer-11}</p><h3 id=\"conditions-preva",
+   "to": "heless remain valid.</p><h3 id=\"conditions-preva",
+   "count": 1
+  },
+  {
+   "from": "hem on social media.</p><p>{spacer-11}</p><h3 id=\"requirement-for-",
+   "to": "hem on social media.</p><h3 id=\"requirement-for-",
+   "count": 1
+  },
+  {
+   "from": "issued in your name.</p><p>{spacer-11}</p><h3 id=\"loss-of-ticket-o",
+   "to": "issued in your name.</p><h3 id=\"loss-of-ticket-o",
+   "count": 1
+  },
+  {
+   "from": "cessed at that time.</p><p>{spacer-11}</p><h3 id=\"duty-of-care\">Du",
+   "to": "cessed at that time.</p><h3 id=\"duty-of-care\">Du",
+   "count": 1
+  },
+  {
+   "from": " not lost or stolen.</p><p>{spacer-11}</p><h3 id=\"period-of-validi",
+   "to": " not lost or stolen.</p><h3 id=\"period-of-validi",
+   "count": 1
+  },
+  {
+   "from": "nce with Article 10.</p><p>{spacer-11}</p><h3 id=\"extension-of-val",
+   "to": "nce with Article 10.</p><h3 id=\"extension-of-val",
+   "count": 1
+  },
+  {
+   "from": "m the date of death.</p><p>{spacer-11}</p><h3 id=\"changes-by-the-p",
+   "to": "m the date of death.</p><h3 id=\"changes-by-the-p",
+   "count": 1
+  },
+  {
+   "from": " us duly in advance.</p><p>{spacer-11}</p><h3 id=\"no-show\">No Show",
+   "to": " us duly in advance.</p><h3 id=\"no-show\">No Show",
+   "count": 1
+  },
+  {
+   "from": "ating to the refund.</p><p>{spacer-11}</p><h3 id=\"name-and-address",
+   "to": "ating to the refund.</p><h3 id=\"name-and-address",
+   "count": 1
+  },
+  {
+   "from": " imposed surcharges.</p><p>{spacer-11}</p><h3 id=\"taxes-fees-and-c",
+   "to": " imposed surcharges.</p><h3 id=\"taxes-fees-and-c",
+   "count": 1
+  },
+  {
+   "from": "ately on the Ticket.</p><p>{spacer-11}</p><h3 id=\"currency\">Curren",
+   "to": "ately on the Ticket.</p><h3 id=\"currency\">Curren",
+   "count": 1
+  },
+  {
+   "from": " a retraction right.</p><p>{spacer-11}</p><h3 id=\"ticketing-time-l",
+   "to": " a retraction right.</p><h3 id=\"ticketing-time-l",
+   "count": 1
+  },
+  {
+   "from": "el your reservation.</p><p>{spacer-11}</p><h3 id=\"personal-data\">P",
+   "to": "el your reservation.</p><h3 id=\"personal-data\">P",
+   "count": 1
+  },
+  {
+   "from": "respective purposes.</p><p>{spacer-11}</p><h3 id=\"reservation-requ",
+   "to": "respective purposes.</p><h3 id=\"reservation-requ",
+   "count": 1
+  },
+  {
+   "from": "ill not be refunded.</p><p>{spacer-11}</p><h3 id=\"reconfirmation-o",
+   "to": "ill not be refunded.</p><h3 id=\"reconfirmation-o",
+   "count": 1
+  },
+  {
+   "from": "y you on the flight.</p><p>{spacer-11}</p><h3 id=\"special-assistan",
+   "to": "y you on the flight.</p><h3 id=\"special-assistan",
+   "count": 1
+  },
+  {
+   "from": "ce\">click here</a>).</p><p>{spacer-11}</p><h3 id=\"carriage-of-chil",
+   "to": "ce\">click here</a>).</p><h3 id=\"carriage-of-chil",
+   "count": 1
+  },
+  {
+   "from": "th the instructions.</p><p>{spacer-11}</p><h3 id=\"recourse-when-ca",
+   "to": "th the instructions.</p><h3 id=\"recourse-when-ca",
+   "count": 1
+  },
+  {
+   "from": "exceed 32 kilograms.</p><p>{spacer-11}</p><h3 id=\"baggage-from-str",
+   "to": "exceed 32 kilograms.</p><h3 id=\"baggage-from-str",
+   "count": 1
+  },
+  {
+   "from": "ived from strangers.</p><p>{spacer-11}</p><h3 id=\"items-unacceptab",
+   "to": "ived from strangers.</p><h3 id=\"items-unacceptab",
+   "count": 1
+  },
+  {
+   "from": "amage to such items.</p><p>{spacer-11}</p><h3 id=\"right-to-refuse-",
+   "to": "amage to such items.</p><h3 id=\"right-to-refuse-",
+   "count": 1
+  },
+  {
+   "from": "suitable containers.</p><p>{spacer-11}</p><h3 id=\"search-of-passen",
+   "to": "suitable containers.</p><h3 id=\"search-of-passen",
+   "count": 1
+  },
+  {
+   "from": "ditions of Carriage.</p><p>{spacer-11}</p><h3 id=\"checked-baggage\"",
+   "to": "ditions of Carriage.</p><h3 id=\"checked-baggage\"",
+   "count": 1
+  },
+  {
+   "from": " remains unaffected.</p><p>{spacer-11}</p><h3 id=\"unchecked-baggag",
+   "to": " remains unaffected.</p><h3 id=\"unchecked-baggag",
+   "count": 1
+  },
+  {
+   "from": " your travel agency.</p><p>{spacer-11}</p><h3 id=\"delivery-of-chec",
+   "to": " your travel agency.</p><h3 id=\"delivery-of-chec",
+   "count": 1
+  },
+  {
+   "from": "s/her right thereto.</p><p>{spacer-11}</p><h3 id=\"pets-and-assista",
+   "to": "s/her right thereto.</p><h3 id=\"pets-and-assista",
+   "count": 1
+  },
+  {
+   "from": "e with Article 10.2.</p><p>{spacer-11}</p><h3 id=\"cancellation-rer",
+   "to": "e with Article 10.2.</p><h3 id=\"cancellation-rer",
+   "count": 1
+  },
+  {
+   "from": "ier and/or aircraft.</p><p>{spacer-11}</p><h3 id=\"notification\">No",
+   "to": "ier and/or aircraft.</p><h3 id=\"notification\">No",
+   "count": 1
+  },
+  {
+   "from": "anted in every case.</p><p>{spacer-11}</p><h3 id=\"person-to-whom-r",
+   "to": "anted in every case.</p><h3 id=\"person-to-whom-r",
+   "count": 1
+  },
+  {
+   "from": "ed a processing fee.</p><p>{spacer-11}</p><h3 id=\"involuntary-refu",
+   "to": "ed a processing fee.</p><h3 id=\"involuntary-refu",
+   "count": 1
+  },
+  {
+   "from": "icket has been used.</p><p>{spacer-11}</p><h3 id=\"voluntary-refund",
+   "to": "icket has been used.</p><h3 id=\"voluntary-refund",
+   "count": 1
+  },
+  {
+   "from": "r cancellation fees.</p><p>{spacer-11}</p><h3 id=\"refund-on-lost-t",
+   "to": "r cancellation fees.</p><h3 id=\"refund-on-lost-t",
+   "count": 1
+  },
+  {
+   "from": " our responsibility.</p><p>{spacer-11}</p><h3 id=\"refusal-of-refun",
+   "to": " our responsibility.</p><h3 id=\"refusal-of-refun",
+   "count": 1
+  },
+  {
+   "from": " means of transport.</p><p>{spacer-11}</p><h3 id=\"currency-1\">Curr",
+   "to": " means of transport.</p><h3 id=\"currency-1\">Curr",
+   "count": 1
+  },
+  {
+   "from": "h the fare was paid.</p><p>{spacer-11}</p><h3 id=\"by-whom-ticket-r",
+   "to": "h the fare was paid.</p><h3 id=\"by-whom-ticket-r",
+   "count": 1
+  },
+  {
+   "from": "nt if so authorised.</p><p>{spacer-11}</p><h3 id=\"refund-to-credit",
+   "to": "nt if so authorised.</p><h3 id=\"refund-to-credit",
+   "count": 1
+  },
+  {
+   "from": "r to this diversion.</p><p>{spacer-11}</p><h3 id=\"use-of-electroni",
+   "to": "r to this diversion.</p><h3 id=\"use-of-electroni",
+   "count": 1
+  },
+  {
+   "from": " and Conditions</a>.</p><p>{spacer-11}</p><h3 id=\"non-smoking-flig",
+   "to": " and Conditions</a>.</p><h3 id=\"non-smoking-flig",
+   "count": 1
+  },
+  {
+   "from": "ectronic cigarettes.</p><p>{spacer-11}</p><h3 id=\"alcohol-and-drug",
+   "to": "ectronic cigarettes.</p><h3 id=\"alcohol-and-drug",
+   "count": 1
+  },
+  {
+   "from": "ard of the aircraft.</p><p>{spacer-11}</p><h3 id=\"obligation-to-we",
+   "to": "ard of the aircraft.</p><h3 id=\"obligation-to-we",
+   "count": 1
+  },
+  {
+   "from": "les or instructions.</p><p>{spacer-11}</p><h3 id=\"travel-documents",
+   "to": "les or instructions.</p><h3 id=\"travel-documents",
+   "count": 1
+  },
+  {
+   "from": "pear to be in order.</p><p>{spacer-11}</p><h3 id=\"refusal-of-entry",
+   "to": "pear to be in order.</p><h3 id=\"refusal-of-entry",
+   "count": 1
+  },
+  {
+   "from": "t be refunded by us.</p><p>{spacer-11}</p><h3 id=\"passenger-respon",
+   "to": "t be refunded by us.</p><h3 id=\"passenger-respon",
+   "count": 1
+  },
+  {
+   "from": " you are travelling.</p><p>{spacer-11}</p><h3 id=\"customs-inspecti",
+   "to": " you are travelling.</p><h3 id=\"customs-inspecti",
+   "count": 1
+  },
+  {
+   "from": "th this requirement.</p><p>{spacer-11}</p><h3 id=\"security-inspect",
+   "to": "th this requirement.</p><h3 id=\"security-inspect",
+   "count": 1
+  },
+  {
+   "from": ", Carriers or by us.</p><p>{spacer-11}</p><h3 id=\"transmission-of-",
+   "to": ", Carriers or by us.</p><h3 id=\"transmission-of-",
+   "count": 1
+  },
+  {
+   "from": " or applicable laws.</p><p>{spacer-11}</p><h3 id=\"compensation-in-",
+   "to": " or applicable laws.</p><h3 id=\"compensation-in-",
+   "count": 1
+  },
+  {
+   "from": "o such compensation.</p><p>{spacer-11}</p><h3 id=\"destruction-loss",
+   "to": "o such compensation.</p><h3 id=\"destruction-loss",
+   "count": 1
+  },
+  {
+   "from": "le only if at fault.</p><p>{spacer-11}</p><h3 id=\"higher-limits-fo",
+   "to": "le only if at fault.</p><h3 id=\"higher-limits-fo",
+   "count": 1
+  },
+  {
+   "from": "a supplementary fee.</p><p>{spacer-11}</p><h3 id=\"complaints-on-ba",
+   "to": "a supplementary fee.</p><h3 id=\"complaints-on-ba",
+   "count": 1
+  },
+  {
+   "from": "as a result thereof.</p><p>{spacer-11}</p><h3 id=\"passenger-and-ba",
+   "to": "as a result thereof.</p><h3 id=\"passenger-and-ba",
+   "count": 1
+  },
+  {
+   "from": "placement purchases.</p><p>{spacer-11}</p><h3 id=\"non-carriage-due",
+   "to": "placement purchases.</p><h3 id=\"non-carriage-due",
+   "count": 1
+  },
+  {
+   "from": "arliest opportunity.</p><p>{spacer-11}</p><h3 id=\"cancellation\">Ca",
+   "to": "arliest opportunity.</p><h3 id=\"cancellation\">Ca",
+   "count": 1
+  },
+  {
+   "from": "the times aforesaid.</p><p>{spacer-11}</p><h3 id=\"limitation-of-ac",
+   "to": "the times aforesaid.</p><h3 id=\"limitation-of-ac",
+   "count": 1
+  }
+ ],
+ "/be/en/special-care/families-and-children": [
+  {
+   "from": "milies and children</h1><p>{spacer-40}</p><p>Flying with children ",
+   "to": "milies and children</h1><p>Flying with children ",
+   "count": 1
+  },
+  {
+   "from": "’ve got you covered.</p><p>{spacer-45}</p></div><div></div></div><",
+   "to": "’ve got you covered.</p></div><div></div></div><",
+   "count": 1
+  }
+ ],
+ "/be/en/travel-classes/economy": [
+  {
+   "from": "lity of your ticket.</p><p>{spacer-28}</p><h2 id=\"quality-on-every",
+   "to": "lity of your ticket.</p><h2 id=\"quality-on-every",
+   "count": 1
+  }
+ ],
+ "/be/fr/special-care/families-and-children": [
+  {
+   "from": "Familles et enfants</h1><p>{spacer-40}</p><p>Prendre l’avion avec ",
+   "to": "Familles et enfants</h1><p>Prendre l’avion avec ",
+   "count": 1
+  },
+  {
+   "from": " ce qu’il vous faut.</p><p>{spacer-45}</p></div><div></div></div><",
+   "to": " ce qu’il vous faut.</p></div><div></div></div><",
+   "count": 1
+  }
+ ],
+ "/be/nl/contact/service-charges": [
+  {
+   "from": "ntinentale vluchten)</p><p>{spacer-28}</p><h2 id=\"toeslag-op-ticke",
+   "to": "ntinentale vluchten)</p><h2 id=\"toeslag-op-ticke",
+   "count": 1
+  }
+ ],
+ "/be/nl/extra-services/baggage/checked-baggage": [
+  {
+   "from": " naar je bestemming.</p><p>{spacer-28}</p><h2 id=\"hoeveel-bagage-m",
+   "to": " naar je bestemming.</p><h2 id=\"hoeveel-bagage-m",
+   "count": 1
+  },
+  {
+   "from": "ht op de luchthaven.</p><p>{spacer-28}</p><h2 id=\"hoe-kan-ik-extra",
+   "to": "ht op de luchthaven.</p><h2 id=\"hoe-kan-ik-extra",
+   "count": 1
+  }
+ ],
+ "/de/de/extra-services/baggage/checked-baggage": [
+  {
+   "from": "is an Ihren Zielort.</p><p>{spacer-28}</p><h2 id=\"wie-viel-gepäck-",
+   "to": "is an Ihren Zielort.</p><h2 id=\"wie-viel-gepäck-",
+   "count": 1
+  },
+  {
+   "from": "ätzliches Gepäck an.</p><p>{spacer-28}</p><h2 id=\"wie-kann-ich-zus",
+   "to": "ätzliches Gepäck an.</p><h2 id=\"wie-kann-ich-zus",
+   "count": 1
+  }
+ ],
+ "/es/es/extra-services/baggage/checked-baggage": [
+  {
+   "from": "amente a tu destino.</p><p>{spacer-28}</p><h2 id=\"cuánto-equipaje-",
+   "to": "amente a tu destino.</p><h2 id=\"cuánto-equipaje-",
+   "count": 1
+  },
+  {
+   "from": "je en el aeropuerto.</p><p>{spacer-28}</p><h2 id=\"cómo-puedo-compr",
+   "to": "je en el aeropuerto.</p><h2 id=\"cómo-puedo-compr",
+   "count": 1
+  }
+ ],
+ "/it/it/extra-services/baggage/checked-baggage": [
+  {
+   "from": "la massima comodità.</p><p>{spacer-28}</p><h2 id=\"quanti-bagagli-p",
+   "to": "la massima comodità.</p><h2 id=\"quanti-bagagli-p",
+   "count": 1
+  },
+  {
+   "from": " extra in aeroporto.</p><p>{spacer-28}</p><h2 id=\"come-posso-acqui",
+   "to": " extra in aeroporto.</p><h2 id=\"come-posso-acqui",
+   "count": 1
+  }
+ ],
+ "/it/it/legal-notices/special-assistance-legal-guidelines": [
+  {
+   "from": "e as of 13 May 2009.</p><p>{spacer-28}</p><h2 id=\"legal-guidelines",
+   "to": "e as of 13 May 2009.</p><h2 id=\"legal-guidelines",
+   "count": 1
+  }
+ ]
+}

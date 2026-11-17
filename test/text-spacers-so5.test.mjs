@@ -83,9 +83,9 @@ test('the import: an empty paragraph between two text paragraphs as {spacer-17},
     assert.equal(emptyParagraphSpacers(html, opts), html);
   });
   assert.equal(emptyParagraphSpacers(page('<p>a</p><p></p><p>b</p>'), { parse: parseHTML }), page('<p>a</p><p></p><p>b</p>'));
+  // the Brussels import no longer calls it (token-free content, standing order 44; test/token-free-importers-so44)
   const src = fs.readFileSync(new URL('../tools/importer/brussels-import.mjs', import.meta.url), 'utf8');
-  assert.equal(src.includes('const withEmptyParagraphSpacers = (html) => emptyParagraphSpacers(html, { parse: parseHTML, emptySize: 17, brSize: 40 });'), true);
-  assert.equal(/const mapped = withEmptyParagraphSpacers\(withEmptyLineSpacers\(/.test(src), true, 'after the empty lines');
+  assert.equal(src.includes('emptyParagraphSpacers'), false);
 });
 
 test('the collapse keeps no small spacer between running text, on Brussels as on every brand (standing order 55: token-free)', () => {
@@ -93,16 +93,18 @@ test('the collapse keeps no small spacer between running text, on Brussels as on
   const html = '<div><h1>T</h1><p>a</p><p>{spacer-17}</p><p>b</p><p>{spacer-17}</p><div class="cards"><div><div>c</div></div></div></div>';
   ['/be/en/x:brussels', '/de/en/x:lufthansa'].forEach((pb) => {
     const [path, brand] = pb.split(':');
-    const once = collapseHtml(html, { path, brand, parse: parseHTML, force: true }).html;
+    const once = collapseHtml(html, {
+      path, brand, parse: parseHTML, force: true,
+    }).html;
     assert.equal(once.includes('{spacer-'), false, brand);
     assert.equal(once.includes('<p>a</p><p>b</p>'), true, `${brand}: the two paragraphs together`);
   });
 });
 
-test('the list: a reimport list gives its READY rows only; the Brussels list as released', () => {
+test('the list: a reimport list gives its READY rows only; the Brussels list withdrawn (standing order 44)', () => {
   assert.deepEqual(listPaths('# head\n/a\tdelta\tres\tREADY\n/b\tdelta\tres\tHOLD (worse)\n/c\n'), ['/a', '/c']);
   const list = fs.readFileSync(new URL('../tools/reports/parity-2026-11-09/reimport-so5-brussels-text-spacers.txt', import.meta.url), 'utf8');
-  assert.deepEqual(listPaths(list), ['/ao/fr/legal-notices/aviation-services-law', '/be/en/legal-notices/privacy-notice-applicants', '/be/en/legal-notices/short-notice-eu-us']);
-  const data = JSON.parse(fs.readFileSync(new URL('../tools/reports/parity-2026-11-09/text-spacers-so5.json', import.meta.url), 'utf8'));
-  assert.equal(listPaths(list).every((p) => data.some((r) => r.site === 'brussels' && r.path === p)), true, 'every READY row has data');
+  // its three READY rows added {spacer-N}: withdrawn by standing order 44 (token-free content), none READY now
+  assert.deepEqual(listPaths(list), []);
+  assert.match(list, /WITHDRAWN/);
 });

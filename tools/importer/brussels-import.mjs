@@ -49,7 +49,7 @@ import { withShareImage } from './brussels-share-image.mjs';
 import { stripScripts } from './excat-plugin.mjs';
 import { withHiddenH1 } from './discover-import.mjs';
 import collapseDocs from './collapse-docs.mjs';
-import { withRestoredNbsp, emptyLineSpacers, emptyParagraphSpacers } from './nbsp-guard.mjs';
+import { withRestoredNbsp } from './nbsp-guard.mjs';
 import { bulkImporterScripts } from './bulk-importer.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -228,14 +228,10 @@ export function spliceGalleries(doc, fleetDoc) {
  * ".tabs:has(.checkinpassengerreceiptentry)" into the booking-lookup block). Only the entry's
  * markup changes (a wrapper div), the rest of the snapshot stays as captured.
  */
-// www's visible empty lines (<p>&nbsp;</p>, about 40 px each on www) as the spacing marker the collapse turns into a
-// Spacer block (the brief after 530, item 1; nbsp-guard.mjs emptyLineSpacers)
-export const withEmptyLineSpacers = (html) => emptyLineSpacers(html, { parse: parseHTML, size: 40 });
-// www's empty paragraphs between two text paragraphs (<p></p>: one paragraph margin, 20 px at 1440 and 16 at 390, so 17
-// for our paragraph's own margin and the marker's 1 px; <p><br></p>: a line, as an empty line's 40), which the framework
-// drops (standing order 5 of 2026-11-11, item 1; nbsp-guard.mjs emptyParagraphSpacers; the collapse keeps the small one
-// between running text, THEMES.brussels textSpacers)
-export const withEmptyParagraphSpacers = (html) => emptyParagraphSpacers(html, { parse: parseHTML, emptySize: 17, brSize: 40 });
+// www's empty paragraphs and visible empty lines (<p></p>, <p><br></p>, <p>&nbsp;</p>: 17 to 40 px between two text
+// paragraphs) no longer become spacing markers (token-free content, standing order 44 of 2026-11-17: no {spacer-N} in a
+// document; a gap of one paragraph or one line is a near value the theme's paragraph spacing covers). The import writes
+// nothing for them; the framework drops the empty paragraphs as it always did (test/token-free-importers-so44).
 
 export function withCheckinTabs(html) {
   if (/class="tabs[ "][^>]*>\s*<div class="checkinpassengerreceiptentry/.test(html)) return html;
@@ -659,8 +655,8 @@ if (isMain) {
     // (the help centre app's screen-reader announcement "Help page loaded." is no page text;
     // the Studio's snapshots keep www's scripts, which must not run in the import browser)
     // (the form's jQuery UI date picker, appended to the body and hidden on www, is no content)
-    const mapped = withEmptyParagraphSpacers(withEmptyLineSpacers(withoutLoads(withTeaserCta(withPhoneSliders(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withFactColumns(withSidebarContent(withSidebarH1(withoutTestForms(editDivs(stripScripts(withBookingLabels(html)), '<div id="ui-datepicker-div"', () => '')))))))), p)))))))
-      .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, ''));
+    const mapped = withoutLoads(withTeaserCta(withPhoneSliders(withTeaserColumns(withCheckinTabs(withLinkOuts(withHotlines(withPaymentTable(withPlaceholder(withFactColumns(withSidebarContent(withSidebarH1(withoutTestForms(editDivs(stripScripts(withBookingLabels(html)), '<div id="ui-datepicker-div"', () => '')))))))), p))))))
+      .replace(/<output[^>]*class="screen-reader-announcer"[^>]*>[\s\S]*?<\/output>/g, '');
     if (mapped.includes(`https://${LINK_OUT}`)) linkOuts.push(p);
     if (/<div class="slideshow/.test(mapped)) {
       const fleetCopy = path.join(GALLERY_W, 'snapshots', HOST, `${p}.html`);

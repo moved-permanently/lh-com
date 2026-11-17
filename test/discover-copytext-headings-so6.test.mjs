@@ -13,20 +13,20 @@ const run = (html, brand = 'discover') => collapseHtml(html, {
   path: '/de/en/travel-inspiration/inspiration/destinations/punta-cana', brand, parse: parseHTML, force: true,
 }).html;
 
-test('Discover keeps heading-copytext-large: in a mixed section, in a block, on an eyebrow; idempotent', () => {
-  assert.deepEqual(themeFor('discover').keepSizes, ['heading-copytext-large']);
+// standing order 44 (token-free content): no keepSizes on Discover; the collapse writes the carrier or nothing
+test('Discover keeps no heading-copytext-large marker: in a mixed section, in a block, on an eyebrow; idempotent', () => {
+  assert.equal(themeFor('discover').keepSizes, undefined);
   const mixed = run('<div><h1>Punta Cana</h1><h2>Useful to know {heading-copytext-large}</h2><p>x</p><h2>Best time</h2><p>y</p></div>');
-  assert.equal(mixed.includes('<h2>Useful to know {heading-copytext-large}</h2>'), true);
+  assert.equal(mixed.includes('{heading-copytext-large}'), false, mixed.slice(0, 300));
   assert.equal(mixed.includes('<h2>Best time</h2>'), true);
   const block = run('<div><h1>T</h1><div class="columns-media"><div><div><h3>Seats {heading-copytext-large}</h3><p>x</p></div><div><h3>Food</h3><p>y</p></div></div></div></div>');
-  assert.equal(block.includes('<h3>Seats {heading-copytext-large}</h3>'), true);
+  assert.equal(block.includes('{heading-copytext-large}'), false, 'an H3 is heading-copytext-large by default');
   const eyebrow = run('<div><h1>Punta Cana</h1><h2>Your dream destination {heading-copytext-large}</h2><p>x</p></div>');
-  assert.equal(eyebrow.includes('<h2>Your dream destination {heading-copytext-large}</h2>'), true, 'the marker, not a section style');
-  assert.equal(eyebrow.includes('h2-compact'), false);
+  assert.equal(eyebrow.includes('{heading-copytext-large}'), false, 'no marker');
   assert.equal(run(mixed), mixed, 'a second run leaves it');
   // a heading with a link keeps its marker after the link
   const link = run('<div><h1>T</h1><h2><a href="/x">Go</a> {heading-copytext-large}</h2><p>x</p><h2>B</h2><p>y</p></div>');
-  assert.equal(/<h2><a href="\/x">Go<\/a> \{heading-copytext-large\}<\/h2>/.test(link), true);
+  assert.equal(link.includes('{heading-copytext-large}'), false);
 });
 
 test('the kept marker is one the page reads as the class', () => {
