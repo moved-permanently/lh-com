@@ -11227,3 +11227,8 @@ boundaries is worth a site census.
 
 **Left uncommitted:** nothing of mine. Scratch stays in migration-work/parity-588/so65. No background job of mine is
 running.
+
+**Addendum (about 21:10 CET):** after the docs push the helpers applied the SWISS rows (bf81dc96: recraft, green-fare and
+the nine aside documents, previewed). All 22 page-widths render as drafted, to the px: recraft 390 5,339; green-fare 1440
+6,079; mobile-apps 390 2,545; the rest as in the lists. One parallel load of premium-economy at 390 came back as the
+window (844), and read alone it is 7,454. The fleet row wasn't applied yet at that time.
