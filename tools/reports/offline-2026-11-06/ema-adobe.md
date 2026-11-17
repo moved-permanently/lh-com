@@ -5877,3 +5877,105 @@ failing.
 - Ended at about 12:50 CET: the three items are answered. Nothing is held, and no background job runs.
 - Left out of git: logs/b651 (copies, DA copies, census and render results, runners) and the untracked import reports of
   earlier runs.
+
+### Standing order 52 (2026-11-17 13:10 to about 15:45 CET)
+
+No uploads, previews or publishes; DA read only; no request to www or any airline host (every render refused every host
+but ours and aem in the browser). At most four browser jobs at once, each read inside the turn. `.migration/project.json`
+untouched; the optional plugins off. Order 51 left nothing uncommitted or unpushed (3e7a7fa on main).
+
+Each push: the tests named for it passed, stylelint 0 on styles/styles.css, and the whole-repo lint read 0 on a clean
+worktree of the rebased HEAD. Full suite on the final code: 7692d76 (main with this order's code), 73 lh-edge files and 1,271 site files, 0 failing; 134e4c8 before the stage rule, the same.
+
+**The two-hour window:** styles/styles.css had no other session's commit in the four hours before my edit (ema-test had
+handed it over for the afternoon). The hand-over file's last commit before my note was mine (e423968).
+
+1. **The empty-block render (delta-so51-adobe-empty-blocks.txt).**
+   - The render did not read "no change", and it measured the served copy. logs/b651/rowbreak-empty.cjs fetched the
+     published .plain.html from aem.live (not DA's copy), injected it as `<main>` on lufthansa.turnsthe.page, scrolled the
+     whole page, settled, and measured at 1440 and then 390 in the same load. Its gate column holds the heights you
+     measured: xx/el meetings-and-events 2,996 -> 2,956 / 4,124 -> 4,068, ge/en worldwide-sale 3,498 -> 3,428 /
+     4,136 -> 4,069, xx/es explore-flying 2,539 -> 2,341 / 2,591 -> 2,413, it/it fattura unchanged.
+   - The wrong words were mine: order 51's final section said "the empty box gone, nothing else changed". That meant
+     no other check flag changed, and it read as "heights unchanged". The list header now states the heights.
+   - The other lists gated the same way, measured again as served now with the same scroll and settle
+     (logs/b652/live-heights.cjs): 58 rows with figures (16 empty-block rows, the 40 sampled follow rows of
+     delta-so51-adobe-language-versions-follow.txt, the 2 wide-rows rows of order 49).
+     - 50 read their B heights to the pixel.
+     - mk/de munich and the six xx meetings-and-events read taller: their lost content was re-imported and published
+       at 12:26-12:59 CET (reimport-so51-adobe-lost-content.txt, da56b26).
+     - gb/en lufthansa-aviation-group 390 reads 3,752 against the gate's 3,783. The published copy is the row's
+       (wide-rows, 09:17 CET), and 1440 reads its B height. The 31 px at 390 come from code shipped between that gate
+       (06:45 CET) and now; the same option's xx copies, gated in order 51 (late morning), read exactly. I did not trace which rule.
+     - No list needs corrected figures.
+2. **Hand-over items 18-24 (gate-so52-adobe-heading-gaps.txt; 197f797). Handed back to ema-test: styles/styles.css** (no
+   Columns Media or theme file edited).
+   - Reach: all 143 recorded pages loaded as served and each selector counted (logs/b652/reach.cjs).
+   - Gate: the deployed code against the working copy (--local), whole page against the recording, on every recorded
+     page-width a rule reaches. No page-width went further.
+   - Test: test/lh-com-heading-gaps-so52.test.mjs, 4 tests, red without the rules and green with them.
+   - 18, the space above a heading after text: three narrow rules (one general heading rule goes both ways: ema-test,
+     order 45).
+     - From 768 px, an h2 opening the section after a flush padded column view: 39 px (www 113 from the text, ours 74).
+       frankfurt-fair 1440: at/de and de/de 6.5 -> 4.5, de/en and gb/en 7.7 -> 5.6.
+     - On phones, a campaign FAQ heading after a section ending with Carousel Cards: 30 px (www 70, ours 40).
+       speisen-und-getraenke 390 7.6 -> 7.4 and 7.8 -> 7.6; food-and-beverages 390 7.0 -> 6.7 (x2).
+     - From 768 px, a heading-small h2 right after the H1's intro paragraph: 66 px (26 more). explore-the-world 1440
+       7.7 -> 5.5. On phones the same step went 7.4 -> 7.7, so it is not applied there.
+     - know-before-you-go's 8 px is one of item 17's steps, not a rule of its own.
+   - 19, the heading after a divider: on hub phones, 14 px of padding (a margin collapses into the divider's and changed
+     nothing). digital-self-services 390: at/de and de/de 7.2 -> 5.6, de/en 7.0 -> 5.5, gb/en 7.1 -> 5.6. An Insights
+     article with the same pair went 10.8 -> 11.9, so articles are left out; with that it stays at 10.8. The heading's
+     width was ema-test's (4306ac8).
+   - 20, the article-end link: ema-test's phone rule stands (ad927be9). Its 1440 half was dropped because it collapsed
+     into the wrapper's 24 px. Tried here as the wrapper's own margin (13 px closer, 31 recorded page-widths): 7
+     page-widths went 0.5-0.7 further (be-picky-frankfurt, what-i-learned-living-in-frankfurt and others). No rule.
+   - 21: ema-test's quote rule (4306ac8) reads 4.9 at 1440 as served.
+     - Barcelona 390 (11.7) keeps -20 px in the body text (www breaks a word earlier, the font width) and +61 at Related
+       Articles (item 17's gap).
+     - be-picky 1440 moved 6.1 -> 7.2 only because the Price Bar is no longer drawn and masked (below).
+     - munich-fair 390's two section gaps still cancel (6.1). ema-test's two-column row stays HOLD.
+   - 23 and 24: ema-test's (d65fae2). As served, explore-flying 390 reads 7.2 (7.8 before) and allegris-new-york
+     3.1-5.2 (9-11 before).
+   - No-breakage: 400 unrecorded de/de, de/en, gb/en and at/de documents scanned (seed 52); 3 reached.
+     - 18c reaches de/de passenger-duty-united-kingdom and at/de datenschutz: +26 px each.
+     - 19 reaches de/en articles/tags/zurich (no article header): +14 px.
+     - Each was rendered with the rule and with the old value put back: no flag changed.
+3. **The three broken links (delta-so52-adobe-swiss-broken-links.txt; 709ec6b, note corrected in 197f797).**
+   - lh-swiss: 2 READY rows. The targets answer 200 on aem.live and on swiss.turnsthe.page. Each href is found once in
+     DA's copy, and the dry run gives DA's copy back byte for byte.
+     - ch/it electronic-bag-tag: DA's copy holds www's absolute https://www.swiss.com/ch/it/fly/check-in/fast-bag-drop;
+       it becomes /ch/it/fly/check-in/fast-bag-drop-gva.
+     - ch/en customer-support/feedback: /ch/en/customer-support/contact-us/feedback-past-flight becomes /ch/en/feedback.
+   - lh-austrian: no row.
+     - The version page is the document /at/en/healthy-travel on our site. Under www's path DA has only a folder, and
+       that page answers 404.
+     - My first commit's note called it "not on our site", which was wrong.
+     - The helper had already changed this link in DA and previewed it (13:33 CET, 47b6a94). DA's copy and aem.page read
+       /at/en/plan/special-requirements/healthy-travel/medical-travel-companions (200); aem.live keeps the old link
+       until it is published.
+4. **lufthansa.com recorded-page parity (sweep-so52-lh-adobe.md).**
+   - The fresh sweep of all 286 recorded page-widths, as served after 197f797: median 5.6 %, 95 at 7 % or more.
+   - Closer by 0.5 or more since order 44: 32 page-widths, among them allegris-new-york x8 (9-11 -> 3.1-5.2),
+     allegris-premium-economy-san-diego, barcelona 1440, munich-fair 1440 11.3 -> 9.8, and this order's frankfurt-fair,
+     explore-the-world and digital-self-services.
+   - Further by 0.5 or more: 22, none from a page change. All are www refused in the render (order 44 still let www
+     answer):
+     - fluege/flights x8: the destination finder empty (0.0-0.1 -> 33-46 %);
+     - culinaryjourney x4: the micro-frontend shorter;
+     - 10 articles at 1440 and the homepage 1440: the Price Bar is not drawn, so its band is no longer masked. Same
+       heights and drift.
+   - Without fluege, flights and culinaryjourney: 274 page-widths, 83 at 7 % or more.
+   - Every page-width at 7 % or more has a located cause: sweep-so44's (they still hold) or the refusals above.
+   - One rule (f6c5de4; gate-so52-adobe-heading-gaps.txt): frankfurt-fair's text sits 16 / 15 px lower under the
+     stage picture on www. The fix keeps 40 px under a first section's stage picture before a flush padded column view
+     that opens with full-width text.
+     - 390: 7.6 -> 6.1 (at/de, de/de), 7.3 -> 5.9 (de/en, gb/en). 1440: 4.5 -> 3.8, 5.6 -> 4.7.
+     - The wider form (any column view) also reached meetings-and-events x4, whose view opens with a slider: 0.5-1.4
+       further, so the rule asks for the text. meetings-and-events stays the same.
+     - No unrecorded document of the 400-document sample is reached.
+- Ended at about 15:45 CET. Pushed: 709ec6b, 197f797, 134e4c8, f6c5de4 and this section's commit. READY: delta-so52-adobe-swiss-broken-links.txt
+  (2 rows). Held: nothing new (item 20's 1440 half and item 21c's two-column row stay unshipped, with their figures). No
+  background job runs.
+- Left out of git: logs/b652 (DA and published copies, reach scans, gates, the sweep's captures, runners) and the
+  untracked import reports of earlier runs.

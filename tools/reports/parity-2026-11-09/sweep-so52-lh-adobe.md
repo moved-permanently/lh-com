@@ -25,7 +25,7 @@ what-i-learned-living-in-barcelona 1440 7.1 -> 4.9, munich-fair 1440 11.3 -> 9.8
 Every page-width at 7 % or more has a located cause: the sweep-so44 places (its cause and fix columns hold) or one of the
 three kinds above. One rule came out of it after this table was measured: frankfurt-fair's text sits 16 / 15 px
 lower under the stage picture on www, and 40 px under the picture before a column view of full-width text took the 4
-locales 390 7.3-7.6 -> 5.9-6.1 and 1440 4.5-5.6 -> 3.8-4.7 (6c587ab; gate-so52-adobe-heading-gaps.txt). The other tries
+locales 390 7.3-7.6 -> 5.9-6.1 and 1440 4.5-5.6 -> 3.8-4.7 (f6c5de4; gate-so52-adobe-heading-gaps.txt). The other tries
 are in the final section of ema-adobe.md (item 20's 1440 half: further on 7 page-widths, not shipped).
 
 Runner logs/b652/sweep-shard.sh (4 shards), ranking logs/b652/rank.py; captures and diffs in logs/b652/sweep (not in git).
