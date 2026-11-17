@@ -204,3 +204,5 @@ business.lufthansagroup.com /de/en/allegris/video-gallery 390  # only resized (b
 # Standing order 38 (2026-11-16): two 1440 first loads that would let a row be gated (same format). Open the page as a visitor sees it, the first tab ("Traveling with kids") open.
 business.lufthansagroup.com /de/en/program/experts/special-assistance-and-services 1440  # recorded at 390 only (b2b-parity-004, -005, -014); our first tab panel stacks six full-width pictures (8,147 px) where www's two-column views set them beside their text; decides a Columns Media row (sweep-so38-ranks-130-149.md, item 1)
 business.lufthansagroup.com /xx/en/program/experts/special-assistance-and-services 1440  # the same page in the xx/en market
+# Standing order 42 (2026-11-17): one phone first load that decides rank 187's Brussels footer rule (same format).
+www.brusselsairlines.com /be/fr/extra-services/baggage 390  # only resized (brussels-parity-006, www 3,701); with the rule 0.54 points further against the resize, the only recorded page-width outside the gate (sweep-so40-ranks-170-189.md)

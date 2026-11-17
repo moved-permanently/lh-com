@@ -1,0 +1,639 @@
+{
+ "/al/de/allegris/video-gallery": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/al/en/programs-and-advantages/experts": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/ch/en/program/experts/on-board": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/about-us/joint-ventures": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/allegris/corporates-start-of-booking": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/allegris/intermediaries-start-of-booking": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/allegris/video-gallery": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/experts-members": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/fund": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/history": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/home": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/lhghome": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/login-internal": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/login": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/news": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/news/celebrating-shared-stories": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/profile": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/at-the-airport/arrival-departure/lufthansa-express-rail": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/news/austrian-airlines-recognized-for-outstanding-service-and-hospita": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/news/book-a-first-class-suite-plus-with-no-asr-fee-for-travel-start": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/news/brussels-airlines-express-rail-a-seamless-connection-to-the-wo": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/news/ees-the-european-union-s-entry-exit-system": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/news/lufthansa-allegris-first-class-suite-plus-now-bookable-with-a": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/news/lufthansa-group-accelerates-strategy-implementation-and-optimize": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/news/lufthansa-honored-by-skytrax-for-first-class-dining": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/news/munich-airport-named-airport-of-the-year": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/news/new-lufthansa-airbus-a350-1000-more-premium-options-to-asia": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/news/now-available-for-booking-additional-lufthansa-allegris-busines": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/news/power-banks-on-board-updated-regulations-from-january-2026": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/news/summer-2027-new-destinations-more-ways-to-travel": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/news/swiss-and-sbb-expand-air-rail-service-to-include-three-more-dest": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/news/the-european-union-s-new-entry-exit-system": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/news/travel-id-now-required-for-online-check-in": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/on-board/meals-on-board/airdolomiti": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/on-board/travel-classes/airdolomiti": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/on-board/travel-classes/edelweiss": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/on-board/travel-classes/edelweiss/economy-max": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/on-board/travel-classes/edelweiss/edelweiss-presents-the-new-cabin-in-the-airbus-a350": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/on-board/travel-classes/lufthansa/business-class": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/on-board/travel-classes/lufthansa/economy-class": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/on-board/travel-classes/lufthansa/first-class": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/program/experts/on-board/travel-classes/lufthansa/premium-economy-class": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/reports": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/de/usermanagement": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/about-us/joint-ventures": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/allegris/corporates-start-of-booking": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/allegris/intermediaries-start-of-booking": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/experts-members": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/fund": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/history": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/home": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/lhghome": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/login-internal": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/login": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/news": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/news/celebrating-shared-stories": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/profile": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/news": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/news/austrian-airlines-recognized-for-outstanding-service-and-hospita": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/news/book-a-first-class-suite-plus-with-no-asr-fee-for-travel-start": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/news/brussels-airlines-express-rail-a-seamless-connection-to-the-wo": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/news/ees-the-european-union-s-entry-exit-system": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/news/lufthansa-allegris-first-class-suite-plus-now-bookable-with-a": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/news/lufthansa-group-accelerates-strategy-implementation-and-optimize": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/news/lufthansa-honored-by-skytrax-for-first-class-dining": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/news/munich-airport-named-airport-of-the-year": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/news/new-lufthansa-airbus-a350-1000-more-premium-options-to-asia": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/news/now-available-for-booking-additional-lufthansa-allegris-busines": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/news/power-banks-on-board-updated-regulations-from-january-2026": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/news/summer-2027-new-destinations-more-ways-to-travel": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/news/swiss-and-sbb-expand-air-rail-service-to-include-three-more-dest": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/news/the-european-union-s-new-entry-exit-system": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/news/travel-id-now-required-for-online-check-in": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/news/where-will-lufthansa-allegris-be-flying-to-from-frankfurt": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/on-board": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/on-board/travel-classes-and-booking/lufthansa": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/route-network/eurowings": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/program/experts/special-assistance-and-services": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/reports": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/de/en/usermanagement": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/xx/de/allegris/corporates-start-of-booking": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/xx/de/allegris/intermediaries-start-of-booking": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/xx/de/allegris/video-gallery": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/xx/de/program/experts/on-board/travel-classes/lufthansa/business-class": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/xx/de/program/experts/on-board/travel-classes/lufthansa/economy-class": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/xx/de/program/experts/on-board/travel-classes/lufthansa/first-class": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/xx/de/program/experts/on-board/travel-classes/lufthansa/premium-economy-class": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/xx/en/program/experts/on-board/travel-classes-and-booking/lufthansa": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ],
+ "/xx/en/program/experts/special-assistance-and-services": [
+  {
+   "from": "</div>\n<div><div class=\"metadata\">",
+   "to": "<div class=\"metadata\">",
+   "count": 1
+  }
+ ]
+}

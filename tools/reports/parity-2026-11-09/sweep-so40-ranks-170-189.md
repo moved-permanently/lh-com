@@ -60,3 +60,18 @@ That is www's col-9 of the footer row less its 10 px padding each side: 254.5 px
 - with the rule on top, de/de lounges 390 is 2,401 (www 2,401) and be/fr my-bookings 390 is 3,634 (-0.68 %), so the rule then takes both closer.
 
 The rule stays out of the theme until the rows are live: code goes live on push, and until then lounges would be 0.92 points further (the interim gate). Then it is gated again, with the loads that were still growing in order 40 measured once more and every Brussels locale's footer rendered with and without it.
+
+**Standing order 42: gated again with both rows live (round 525). Still HOLD, by one page-width.**
+
+Gate (2026-11-17 ~06:33 to 07:08 UTC), full Chrome, airline hosts refused per request:
+- All 104 recorded Brussels documents at 390, each measured as served, with the rule added as a style tag in the same load, and with it removed.
+- Each figure was taken only once the page had been scrolled through and its height had held for 2 s. All 104 loads settled and gave their first figure back, including the 12 that were still growing in order 40.
+- 72 are unchanged; 32 gain one footer line (+22 px): the long last legal link wraps, as on www.
+- Of the 45 recorded comparisons that move, 36 are closer. The two pages that stopped it in order 40 now come closer:
+  - de/de lounges 2,379 -> 2,401 (www 2,401);
+  - be/fr my-bookings 3,612 -> 3,634 (www 3,659).
+- **One is further than 0.5 points:** be/fr/extra-services/baggage 390, -0.03 -> +0.57 %, 0.54 points (brussels-parity-006, a 390 resize of its 1440 load; www 3,701, ours 3,700 -> 3,722).
+  - The page is otherwise 22 px longer than www's in its main part, which the shorter footer hid until now.
+  - Its only phone recording is a resize, so a phone first load decides it (capture-requests-ema-lufthansa.txt, order 42's line).
+
+The rule stays out of the theme until that page passes. The locale footer census is run when it can ship.
