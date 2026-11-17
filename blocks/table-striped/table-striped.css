@@ -359,6 +359,20 @@
   }
 }
 
+/* lufthansa.com from 768px: a spec table with a picture above it (the aircraft rows) takes two thirds of the row and its
+   text one third, as www's (fleet at 1440, lh-parity-002: the text column 410px, the picture and table 834px; ours split
+   the row in halves, 622px each, so our text ran in fewer lines and every row ended 30-99px shorter; standing order 53:
+   /de/en/100-years/fleet 1440 11.4 -> 7.4 %; the 6 other fleet documents rendered with and without, no breakage) */
+@media (width >= 768px) {
+  body.brand-lufthansa .table-striped.beside:has(.table-striped-above) {
+    grid-template-columns: minmax(0, 410fr) minmax(0, 834fr);
+  }
+
+  body.brand-lufthansa .table-striped.beside-end:has(.table-striped-above) {
+    grid-template-columns: minmax(0, 834fr) minmax(0, 410fr);
+  }
+}
+
 /* lufthansa.com below 768px: the same on phones (fleet at 390: a one-line spec row 128px, ours 90; the
    table's box 840px tall and scrolling, as www's; standing order 41: /de/en/100-years/fleet 390
    7.9 -> 6.4 %, the drift after the first table from -140 to within 40px; the 6 other fleet documents
