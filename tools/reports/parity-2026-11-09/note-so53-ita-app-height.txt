@@ -1,0 +1,18 @@
+# ema-test, standing order 53, item 1 (2026-11-17): ITA ita-airways-app at 1440 loads at one of two heights about 4,100 px apart (order 52's folder renders; round 550 measured de/de 8,472 and nl/nl 8,405). Measured as served on ita.turnsthe.page ~15:30-15:50 UTC, full Chrome, every other host refused.
+#
+# What jumps: the closing section's default content (section 2). In the eight versions other than it/en it holds www's app screens as five stacked pictures (1440 x 930, each 1,264 x 816 at 1440 once loaded, 4,080 px together), lazily loaded.
+#   - Loaded (an 8,000 px viewport, or a scroll pass slow enough for each picture to load): the section is 5,916 px, the page 8,472 (de/de), as the parity capture tool and round 550 read it.
+#   - Not loaded (a 900 px viewport and a quick scroll pass: the probes of orders 51/52 and this order's first loads): each picture's box is 0 x 0, the section 1,834 px, the page 4,390 (de/de; br/pt 4,336, gr/el 4,429).
+#   - Whether a probe's scroll pass gets them loaded is timing; hence the flip between loads, with and without order 52's row (the row changes the grey band's gap only).
+#
+# Cause in our code (for ema-adobe, which holds the stylesheets today; not changed here): styles/styles.css
+#     main img { width: auto; height: auto; max-width: 100%; }
+#   overrides the picture's width attribute (the served copy writes width="1440" height="930"). An unloaded lazy image has no natural size yet, so width:auto and height:auto give 0 x 0, though its aspect-ratio (auto 1440 / 930 from the attributes) is known. After loading it is 1,264 x 816.
+#   Evidence on de/de: computed img width 0px, height 0px, aspect-ratio auto 1440 / 930, complete=false, the picture and its paragraph 1264 x 0. The matching rules are "main img {width:auto; height:auto; max-width:100%}" and "main .default-content-wrapper > p > picture ... {display:block}".
+#   The Columns Media picture of the same section keeps its 350 px while unloaded: its block sets its size. So only pictures in default content collapse.
+#   Effect: every default-content picture below the first screen takes no space until it loads. Page heights, anchors and parity captures then depend on load timing, on every brand; www reserves the space.
+#   A fix (ema-adobe's call, with its own census across brands): let the width attribute size the image, for example "main .default-content-wrapper > p > picture img { width: 100%; }" or no width:auto for images with a width attribute, so the aspect ratio reserves the box before loading.
+#
+# Which height matches www: www is recorded for it/en only (ita-parity-005, 4,045 px at 1440). it/en loads at 4,009 on every load: it shows the app screens as tabs, as www does (re-imported from the snapshots: reimport-1110-ita-tabs.txt), and has no default-content pictures there.
+#   The other eight versions still hold the flattened screens. Fully loaded that is 8,472 px, about twice www. The 4,390 reading only looked close to www because the pictures had not loaded.
+#   The content fix is the same tab re-import: reimport-1110-ita-tabs.txt already lists the page's tab set in all nine languages (br/pt, de/de, es/es, fr/fr, gr/el, it/it, jp/ja, nl/nl from the snapshots); only it/en has been done. It takes www's words and pictures, so it is a re-import, not a row: none written here.
