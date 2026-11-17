@@ -1,0 +1,68 @@
+# ema-adobe, standing order 53 (2026-11-17), item 3: lufthansa.com documents no check of mine had covered.
+# Coverage before this order: order 51's 4,557 (language versions and market roots) and the 143 recorded pages; order 49
+# compared the at/de and gb/en copies' structure with their sources but rendered none of them. Of the 9,924 served-or-
+# previewed lh-com documents (tools/importer/da-upload-state.json, without nav, footer, fragments and modals), 5,218 had
+# never been rendered by a check of mine: de/de 1,025, at/de 1,013, gb/en 1,011, de/en 979, fr/fr 224, lhg 107, 846 data
+# and content documents (data/lufthansa-group, data/details, content/mobile: not pages), 13 others. 1,232 of them had no
+# check of mine at all (386 pages, the 846 data documents).
+# Taken here: those 386 pages first, then at/de (1,013), then gb/en up to 1,825 documents, because 325 of the first 1,500
+# turned out not to be served (below). Each loaded on lufthansa.turnsthe.page as served, every host but ours and aem
+# refused, at 1440 and then 390 in one load (logs/b653/rcheck.cjs: sideways scroll, H1 count, failed pictures, empty
+# blocks, blocks that failed to load, loose {markers}, lost words of the document's own default content); every flagged
+# document loaded again (a flag counts only if both loads show it), and copies compared with their source's structure
+# (logs/b653/struct.py, published copies of 2026-11-17).
+# Left after this order: 3,393 (de/de 1,005, de/en 957, gb/en 585, the 846 data documents).
+#
+# Results
+# - 1,825 documents: 1,712 served and rendered, 109 not served, 4 that timed out in the first load and render clean one
+#   at a time. 1,464 clean in every check.
+# - Not served (109): lhg/de 70, lhg/at 19, lhg/gb 18, mk/de 2 answer 404 on aem.live, aem.page and our host (previewed
+#   state only, never published). fr/fr's 216 published-404 copies are served on our host from their xx/fr documents
+#   (lh-edge; e.g. /fr/fr/europcar draws xx/fr's car rental block) and rendered like them.
+# - Breakage that takes a row: 1 class. the-art-of-flying-extra-space-seat at/de (and its de/de source): a loose
+#   "{controls round-play-button}" where the second video's link holds only www's folder. READY rows in
+#   delta-so53-adobe-rows.txt (marker gone, the player drawn).
+# - Not breakage, no row:
+#   - failed pictures (122 documents at 1440, 119 at 390, in both loads; nearly all at/de and gb/en articles), empty Related Articles (22) and
+#     their lost words: all three render clean one at a time (8 sampled for pictures, 3 for related articles); the two
+#     parallel loads ran into our host's limits (memory our-host-429). Not the documents.
+#   - H1 count: every copy holds its source's headings (H1 0: 44 fleet-detail and other copies as de/de or de/en; H1 2-8:
+#     the article hubs, author pages and campaign pages, www's own h1 components); the 14 documents without a source
+#     (de/de, de/en local pages, brussels-express-rail with 14 / 8) carry www's campaign h1s, as order 51 found on de/en.
+#   - lost words that stay: tab and accordion panels closed on load (advance-seat-reservation, baggage-irregularities).
+#   - empty at runtime: micro-frontends (7, a refused host), message-center (2, no current message), destination-finder
+#     (fr/fr flights), the at/de homepage's flash teaser.
+#   - sideways scroll: at/de/feedback 390 +28 px in the first load only.
+#   - structure: 1,448 copies compared with their source: 1,418 alike, 30 differ, all 30 in order 49's list with its
+#     verdicts (www's own at/de / gb/en versions: hero variants, voucher, receipt and form pages, the market article hubs).
+#
+# The classes with their documents (logs/b653/classes.txt):
+# documents 1825; served and clean in every check 1464; not served 113 {'error': 4, '404': 109}
+#   122  failed picture at 1440  e.g. /at/de/articles/explore-the-world/a-perfect-day-amsterdam-in-one-day, /at/de/articles/explore-the-world/a-perfect-day-beijing-in-one-day, /at/de/articles/explore-the-world/a-perfect-day-copenhagen-in-one-day, /at/de/articles/explore-the-world/a-perfect-day-frankfurt-in-one-day
+#   119  failed picture at 390  e.g. /at/de/articles/explore-the-world, /at/de/articles/explore-the-world/a-perfect-day-amsterdam-in-one-day, /at/de/articles/explore-the-world/a-perfect-day-beijing-in-one-day, /at/de/articles/explore-the-world/a-perfect-day-copenhagen-in-one-day
+#   109  not served (404)  e.g. /lhg/at/de, /lhg/at/de/dest/c/grossbritannien, /lhg/at/de/dest/c/indien, /lhg/at/de/dest/c/italien
+#    35  H1 0: as its source (de/de)  e.g. /at/de/31h, /at/de/320, /at/de/321, /at/de/32n
+#    22  empty block at 1440: related-articles  e.g. /gb/en/articles/explore-the-world/eat-see-do-venice, /gb/en/articles/explore-the-world/essentials-boston-facts, /gb/en/articles/explore-the-world/essentials-dublin-facts, /gb/en/articles/explore-the-world/essentials-facts-vancouver
+#    15  H1 0: copy None / source 0  e.g. /fr/fr/100-years/destinations, /fr/fr/book-and-manage/flights/air-baltic, /fr/fr/book-and-manage/flights/wetlease-hub, /fr/fr/culinaryjourney
+#    15  empty block at 390: related-articles  e.g. /gb/en/articles/explore-the-world/eat-see-do-venice, /gb/en/articles/explore-the-world/essentials-boston-facts, /gb/en/articles/explore-the-world/essentials-dublin-facts, /gb/en/articles/explore-the-world/essentials-helsinki-facts
+#    14  lost words  e.g. /at/de/advance-seat-reservation, /at/de/baggage-irregularities, /gb/en/advance-seat-reservation, /gb/en/articles/explore-the-world/eat-see-do-venice
+#    12  H1 2: as its source (de/de)  e.g. /at/de/articles, /at/de/articles/explore-flying, /at/de/articles/explore-the-world, /at/de/articles/explore-the-world/a-perfect-day-hong-kong-in-one-day
+#     9  H1 0: as its source (de/en)  e.g. /gb/en/31h, /gb/en/320, /gb/en/321, /gb/en/32n
+#     7  H1 2: no source (de/de, de/en, xx own documents)  e.g. /at/de/book-and-manage/offers-and-destination/companion-special-business-class, /at/de/local-page/black-friday, /de/de/local-page/discover-japan1, /de/de/local-page/south-africa-winter-promotion
+#     7  empty block at 390: micro-frontend  e.g. /at/de/book-and-manage/trip-management, /at/de/culinaryjourney, /at/de/help-and-contact, /at/de/lufthansa-city/culinaryjourney
+#     5  empty block at 1440: micro-frontend  e.g. /at/de/book-and-manage/trip-management, /at/de/culinaryjourney, /at/de/lufthansa-city/culinaryjourney, /fr/fr/culinaryjourney
+#     5  H1 3: as its source (de/de)  e.g. /at/de/articles/authors/alexandra-mikamo, /at/de/articles/authors/florian-schwebel, /at/de/articles/authors/florian-tomberg, /at/de/articles/authors/julia-buth
+#     5  H1 3: as its source (de/en)  e.g. /gb/en/articles/authors/alexandra-mikamo, /gb/en/articles/authors/florian-schwebel, /gb/en/articles/authors/florian-tomberg, /gb/en/articles/authors/julia-buth
+#     4  not served (error)  e.g. /at/de/articles/explore-the-world/essentials-lisbon-facts, /at/de/articles/explore-the-world/in-my-hood-gulou-beijing, /de/en/flight-frankfurt-kuusamo, /gb/en/articles/explore-the-world/in-my-hood-geylang-singapur
+#     3  H1 4: no source (de/de, de/en, xx own documents)  e.g. /at/de/book-and-manage/offers-and-destination/weltweite-angebote, /de/en/local-page/south-africa-winter-promotion, /de/en/lufthansa-ana
+#     3  H1 2: copy None / source 2  e.g. /fr/fr/prepare-for-your-trip/baggage/electronic-devices-and-batteries, /fr/fr/speisen-und-getraenke, /fr/fr/support/contact/passenger-duty-united-kingdom
+#     3  H1 2: as its source (de/en)  e.g. /gb/en/articles, /gb/en/articles/explore-flying, /gb/en/articles/explore-the-world
+#     2  H1 0: no source (de/de, de/en, xx own documents)  e.g. /de/de/sfad, /de/en/common/terms-and-conditions/terms-and-conditions-promocode
+#     2  empty block at 390: message-center  e.g. /at/de/prepare-for-your-trip/current-travel-information, /fr/fr/prepare-for-your-trip/current-travel-information
+#     2  empty block at 1440: message-center  e.g. /at/de/prepare-for-your-trip/current-travel-information, /fr/fr/prepare-for-your-trip/current-travel-information
+#     1  H1 14: no source (de/de, de/en, xx own documents)  e.g. /de/de/prepare-for-your-trip/getting-to-and-from-the-airport/brussels-express-rail
+#     1  H1 8: no source (de/de, de/en, xx own documents)  e.g. /de/en/prepare-for-your-trip/getting-to-and-from-the-airport/brussels-express-rail
+#     1  empty block at 390: destination-finder  e.g. /fr/fr/flights
+#     1  empty block at 1440: destination-finder  e.g. /fr/fr/flights
+#     1  H1 3: no source (de/de, de/en, xx own documents)  e.g. /at/de/book-and-manage/offers-and-destination/nordamerika-angebote
+#     1  H1 8: as its source (de/de)  e.g. /at/de/discover-lufthansa/miles-and-more-credit-card

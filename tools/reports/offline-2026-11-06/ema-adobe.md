@@ -5979,3 +5979,80 @@ handed it over for the afternoon). The hand-over file's last commit before my no
   background job runs.
 - Left out of git: logs/b652 (DA and published copies, reach scans, gates, the sweep's captures, runners) and the
   untracked import reports of earlier runs.
+
+### Standing order 53 (2026-11-17 16:20 to about 20:00 CET)
+
+No uploads, previews or publishes; DA read only; no request to www or any airline host (every render refused every host
+but ours and aem in the browser). `.migration/project.json` untouched; /de/en/overview-manage has no row. Order 52 left
+nothing uncommitted or unpushed (676dc1c on main). The service restarted three times between 16:30 and 17:30 CET while
+3-4 browsers and PNG-heavy node jobs ran together; every job was made resumable and run again, at most three browsers
+after that.
+
+Each push: the tests named for it passed, stylelint 0 on the changed block file, and the whole-repo lint read 0 on a
+clean worktree of the rebased HEAD. Full suite on the final code: a78163e, 73 lh-edge files and 1,272 site files, 0
+failing (no code changed after it).
+
+**The shared stylesheets** were mine for this order and go back to ema-test now:
+- styles/styles.css: no edit in this order. My rules there from order 52: four heading gaps (197f797: a section's h2
+  after a flush padded column view from 768 px; a campaign FAQ heading after Carousel Cards on phones; a heading-small
+  h2 after the H1's intro from 768 px; a hub heading-small after a divider on phones) and the stage-picture gap before a
+  column view of full-width text (f6c5de4).
+- blocks/table-striped/table-striped.css: the fleet rows' one-third / two-thirds split from 768 px (a78163e, this order).
+- blocks/columns-media/columns-media.css and styles/themes/*.css: not edited by me in orders 52-53.
+
+1. **The sweep, comparable (sweep-so52-lh-adobe.md, last section; 472317b).**
+   - The same captures and recordings, with www's refused widgets taken out on both sides. Where a widget changes the
+     height (the destination finder on fluege / flights and the homepage, the culinaryjourney micro-frontend), its rows
+     are cut from both images: the recording at order 44's box, ours at today's. Where it keeps the height (the Price
+     Bar band, fare teasers, www-fed article teasers), order 44's box is masked on both, as order 44 did.
+   - All 286 page-widths: median 5.6 %, 84 at 7 % or more (95 before), 30 at 10 %, 8 at 15 %. Without fluege, flights
+     and culinaryjourney: 274, median 5.6 %, 81 at 7 % or more (83 before).
+   - Closer than order 44 by 0.5 or more: 33. Still further: 11. fluege / flights x8 0.0 -> 0.5-1.4 (only the strip
+     above the finder is left to compare), lufthansa-city/culinaryjourney 390 and the homepage 1440 (the content around
+     the cut widget), essentials-barcelona-facts 1440 3.0 -> 3.6.
+   - A first pass that cut every widget whose height changed misaligned the fare teasers and lost compare.js's
+     recording metadata (livery 5.5 -> 15.0); the second pass (logs/b653/remask2.cjs) cuts only the two widgets.
+2. **Recorded pages at 7 % or more (gate-so53-adobe-recorded.txt): one rule, one row, the rest one line each.**
+   - Rule (a78163e, test/fleet-table-columns-so53.test.mjs red without, green with): /de/en/100-years/fleet 1440. www
+     sets the aircraft rows' text in a third (410 px) and the picture with its spec table in two thirds; ours split the
+     row in halves. 11.4 -> 7.4 % in the gate, 7.6 as served. It reaches the 7 fleet documents only; the 6 unrecorded
+     ones rendered at 1440 with and without: +169 to +277 px, no flag.
+   - READY row (delta-so53-adobe-rows.txt): de/en services-at-the-airport, the page's end 34 px sooner than www's on
+     phones: 390 8.03 -> 6.41 %, 1440 1.40 -> 1.82. It is the de/en copy's own: as a shared rule (padding under a last
+     spacious cards-teaser) gb/en, at/de and de/de went 0.5-0.6 further.
+   - Tried, not shipped: 20 px less above Related Articles on phones (46 article page-widths: 7 further by up to 0.6;
+     the related cards themselves differ); meetings-and-events (under 7 %, no step under its stage; 22 px more above
+     "Benefits" took all four 1440 page-widths 0.4-0.5 further: its step is in the teaser cards).
+   - No rule or row: www's parallax crops (picture-perfect-austin), www's clipped H1 (flughafeninformation), the
+     recordings' fallback face and the owner's caption decision (100-years pages), newer list content (tags/munich and
+     the hubs), the font width (stopover, services, essentials, barcelona), www components (all-it-takes-is-a-yes'
+     arrowless links), steps under 1 % (photos, captions, bordered cards), spread steps (tags/allegris), the recording's
+     chat window (overview-travel-information), www's renditions (crops, a video frame, the collage); frankfurt-fair and
+     speisen are order 52's rules plus a remainder within 18 px.
+3. **The next 1,825 lufthansa.com documents without a check of mine (list-so53-adobe-next-1500.txt).**
+   - Not yet covered before this order: 5,218 lh-com documents never rendered by a check of mine (order 49 had
+     compared the at/de and gb/en copies' structure only). 1,232 of them had no check at all: 386 pages and 846 data
+     documents.
+   - Taken: those 386 pages, at/de (1,013), then gb/en (426). That makes 1,825, because 325 of the first 1,500 turned out
+     not to be served. Rendered at 1440 and 390 in one load on our host; every flag loaded again.
+   - Results:
+     - 1,712 served, 1,464 clean in every check.
+     - Not served: 109 (lhg 107, mk/de 2: 404 everywhere, previewed only).
+     - fr/fr's copies are served from xx/fr and render like them.
+   - Breakage that takes a row: the-art-of-flying-extra-space-seat at/de (and de/de) prints "{controls
+     round-play-button}". Its second video links only www's folder. 2 READY rows (delta-so53-adobe-rows.txt): marker
+     gone, player drawn.
+   - The rest is no breakage:
+     - Failed pictures (122) and empty Related Articles (22) in the parallel loads render clean one at a time (our
+       host's limits).
+     - H1 counts are each copy's source's or www's campaign h1s.
+     - Words lost in closed tabs and accordions.
+     - Runtime-empty widgets.
+     - 30 structural differences, all in order 49's list.
+   - Left: 3,393 (de/de 1,005, de/en 957, gb/en 585, the 846 data documents).
+4. **Handed back:** see "The shared stylesheets" above.
+- Ended at about 20:00 CET. Pushed: 472317b (item 1), 3bbb799 (rows), a78163e (fleet rule) and this section's commit.
+  READY: delta-so53-adobe-rows.txt (3 rows; the helper has already applied them in DA, ebe0167). Held: nothing new (the Related Articles and meetings rules are not
+  shipped, with their figures).
+- Left out of git: logs/b653 (copies, DA copies, renders, masks, trials, runners) and the untracked import reports of
+  earlier runs.

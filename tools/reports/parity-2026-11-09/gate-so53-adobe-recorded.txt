@@ -1,0 +1,57 @@
+# ema-adobe, standing order 53 (2026-11-17), item 2: the recorded lufthansa.com page-widths at 7 % or more (81 without
+# fluege, flights and culinaryjourney after item 1's masks, sweep-so52-lh-adobe.md), each one's located cause, and what
+# can close it. Figures: the masked sweep (A); trials with the rule injected (logs/b635/trial.sh), gates with the working
+# copy (logs/b652/gate.sh); every host but ours and aem refused. Worst first, page-widths of one cause together.
+#
+# Shipped / READY
+# - /de/en/100-years/fleet 1440 (11.4): the aircraft rows (text | picture above a spec table): www's text column 410 px,
+#   ours half the row (622). Rule (a78163e, blocks/table-striped/table-striped.css, test/fleet-table-columns-so53.test.mjs,
+#   red without, green with): from 768 px the text a third, the picture and table two thirds. Gate: 11.4 -> 7.4 %. It
+#   reaches the 7 fleet documents only (census of the published copies); the 6 unrecorded ones rendered at 1440 with
+#   and without: +169 to +277 px (the narrower text), no flag in any load (de/de's loads vary by thousands of px between
+#   runs, lazy sections still loading; no flag in its five loads).
+# - /de/en/services-at-the-airport 390 (8.0): the page ends 34 px sooner after the last card. The de/en copy's own (gb/en,
+#   at/de, de/de end within 3 px; the shared padding rule took them 0.5-0.6 further, below): READY row
+#   delta-so53-adobe-rows.txt, 390 8.03 -> 6.41 %, 1440 1.40 -> 1.82.
+#
+# Tried, not shipped (a rule that fails the 0.5 rule)
+# - Related Articles on phones (know-before-you-go-algiers / -berlin, on-the-scene-caspar-plautz-munich,
+#   what-i-learned-living-in-frankfurt, essentials-barcelona-facts: about 20 px more above the section than www): 20 px
+#   less above it on every article (46 recorded article page-widths at 390): 6 closer by 0.1-0.5, 15 the same, 7 further
+#   by 0.1-0.6 (know-before-you-go-berlin 7.7 -> 8.3, be-picky-frankfurt 8.1 -> 8.7): the related cards themselves differ
+#   (other articles, other order), so the gap alone does not bring the band in line.
+# - meetings-and-events x4 1440 (2.6-2.7; 390 5.7-6.1, under 7 %): no step under the stage (0 px until y 1,200), so the
+#   stage rule of order 52 rightly leaves it. The one 22-30 px step at 1440 sits at the three-up teaser cards before
+#   "Benefits"; 22 px more above "Benefits" took all four 0.4-0.5 further (2.6 -> 3.0, 2.7 -> 3.2). No rule.
+# - services pages 390 as a shared rule (a last section ending with a spacious cards-teaser, 21 recorded pages): a
+#   margin changes nothing (it collapses into the page end); 34 px of padding: de/en 8.0 -> 6.0 but gb/en, at/de, de/de
+#   7.5 -> 8.0-8.1. Hence the de/en row above.
+#
+# No rule or row can close (one line each)
+# - picture-perfect-austin 390 / 1440 (25.4 / 18.8): www's gallery pictures are parallax crops that move with the scroll
+#   position; ours stand in the same boxes (ema-test, order 41).
+# - at/de, de/de flughafeninformation 390 (24.8): www lets the H1 run off the phone and clips its last letter; matching
+#   it would hide text.
+# - 100-years (390 19.7, 1440 12.0), global-network (15.0 / 13.6), cabin-design 390, crane x8, menu-on-board 390,
+#   campaigns 390, destinations x5 390, chronicle (12.2 / 7.0): the recording's fallback face on the campaign headings
+#   and the picture captions the owner decided to leave out (order 31); chronicle's jump links were placed as www's in
+#   order 44 without a measurable gain.
+# - articles/tags/munich (16.6 / 13.1), explore-flying 390, explore-the-world 390: the lists hold newer articles than the
+#   recordings (content).
+# - stopover (14.0 / 11.8), services-at-the-airport x3 390, essentials-barcelona-facts 390, what-i-learned-living-in-
+#   barcelona 390 (body): the text runs a word wider per line (the font width).
+# - all-it-takes-is-a-yes x4 390 (12.8-13.6): the recording's fallback face; www's arrowless "To the article" link is a
+#   www component we do not mark.
+# - a-perfect-day-barcelona / -berlin 390, be-picky-barcelona 390: Columns Media photo captions within 3-8 px (item 17,
+#   ema-test's; under 1 % per step).
+# - anniversary-super-crane-special (10.8 / 7.7), livery-iconic-moments 390, be-picky-frankfurt 390, chiswick 390,
+#   eat-see-do-algiers / -berlin 390: steps under 1 % each (photos, bordered cards 2 px each).
+# - tags/allegris x4 1440 (9.0-10.6): steps of -16 to -27 px spread over the stage, a heading, the grey band and the
+#   small print; no single cause (ema-test, order 48).
+# - overview-travel-information x3 390 (10.1): the recording has www's chat assistant open over the first screen.
+# - munich-fair 1440 (9.8): 55 px less under the stage picture; a spacer took the page further (ema-test, order 48); the
+#   two-column closing section is HOLD (390 further).
+# - stop-over-tokyo 390, san-diego 1440, lufthansa-travel-classes / -reiseklassen x4 390, new-onboard-experience x4 390:
+#   www's own renditions (phone portrait crop, a video frame, photos under the stage overlay, the collage).
+# - frankfurt-fair 390 x4 and speisen-und-getraenke 390 x2: order 52's rules are in (7.3-7.8 -> 5.9-7.6); what is left
+#   is within 18 px.
