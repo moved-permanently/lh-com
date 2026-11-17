@@ -2558,6 +2558,19 @@ body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-
   }
 }
 
+/* the related articles' title after the FAQ accordion (the FAQ baggage pages' "Articoli correlati") 110px under it,
+   120px from 930px: www's TogleTariffe container's margin (airdolomiti-parity-013 /faq/bagaglio, standing order 58;
+   24px before). Only before a carousel: the other FAQ accordions' next texts have no www figure */
+body.brand-airdolomiti main > .section > .accordion-columns-wrapper:has(> .accordion-columns.faq) + .default-content-wrapper:has(+ .carousel-cards-wrapper) {
+  margin-top: 110px;
+}
+
+@media (width >= 930px) {
+  body.brand-airdolomiti main > .section > .accordion-columns-wrapper:has(> .accordion-columns.faq) + .default-content-wrapper:has(+ .carousel-cards-wrapper) {
+    margin-top: 120px;
+  }
+}
+
 @media (width >= 530px) {
   body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .default-content-wrapper h1,
   body.brand-airdolomiti main > .section.flight-status-container.columns-media-container .default-content-wrapper h1 + h2 {
@@ -4528,149 +4541,172 @@ body.brand-airdolomiti main > .section.heading-icon > .carousel-cards-wrapper:ha
 
 /*
  * the plain carousels outside the heading-icon sections (the FAQ pages' "Articoli correlati", the
- * articles' and the destinations' sub-pages' related lists) as www's MiniCardSlider of CardNews below
- * 930px, as the destinations' carousels above (airdolomiti-parity-013 /faq/bagaglio at 390, standing
- * order 57): a title's line 20px over the cards; the cards 325px wide 2.5vw apart, 470px high (the
+ * articles' and the destinations' sub-pages' related lists) as www's MiniCardSlider of CardNews, as the
+ * destinations' carousels above (airdolomiti-parity-013 /faq/bagaglio at 390 and 1440, standing orders
+ * 57 and 58): a title's line 20px over the cards; the cards 325px wide 2.5vw apart, 470px high (the
  * picture 60%, the title 20px / 26px regular, at most three lines, 25px 15px in), the whole card one
  * link; no dots; the two arrows (40px circles, 10px apart) at the right of a row 50px under the cards,
- * 100px over what follows (52px here, the section's 48px after). From 930px lh-com's cards stay: www's
- * there are shorter, and the FAQ pages' gate fails until their intro lines and the accordion's end
- * match (gate-so57-airdolomiti-related-cards.txt).
+ * 100px over what follows (52px here, the section's 48px after). From 930px 30vw wide, the arrows at
+ * the title's right, 24px under the cards (the section's 48px after); from 1450px 466.67px, 20px apart. Order 58
+ * widened them from 930px with the FAQ accordion's end and the intro lines' row
+ * (gate-so58-airdolomiti-faq-package.txt).
  */
 /* stylelint-disable no-descending-specificity -- another option's carousels (the offers', the destinations' above) */
-@media (width < 930px) {
-  body.brand-airdolomiti main > .section:not(.heading-icon) > .default-content-wrapper:has(+ .carousel-cards-wrapper > .carousel-cards:not(.promo, .destinations)) > :is(h2, h3):last-child {
-    margin-bottom: 0;
-  }
+body.brand-airdolomiti main > .section:not(.heading-icon) > .default-content-wrapper:has(+ .carousel-cards-wrapper > .carousel-cards:not(.promo, .destinations)) > :is(h2, h3):last-child {
+  margin-bottom: 0;
+}
 
-  body.brand-airdolomiti main > .section:not(.heading-icon) > .default-content-wrapper:has(> :is(h2, h3):last-child) + .carousel-cards-wrapper:has(> .carousel-cards:not(.promo, .destinations)) {
-    margin-top: 15px;
-  }
+body.brand-airdolomiti main > .section:not(.heading-icon) > .default-content-wrapper:has(> :is(h2, h3):last-child) + .carousel-cards-wrapper:has(> .carousel-cards:not(.promo, .destinations)) {
+  margin-top: 15px;
+}
 
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) {
+  position: relative;
+  padding-bottom: 134px;
+}
+
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-viewport {
+  position: static;
+}
+
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-track {
+  gap: 2.5vw;
+}
+
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-slide {
+  position: relative;
+  flex: 0 0 325px;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 470px;
+  border: 0;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 12px 25px rgb(0 0 0 / 5%);
+}
+
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-image {
+  flex: none;
+  aspect-ratio: auto;
+  height: 60%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-body {
+  box-sizing: border-box;
+  flex: none;
+  height: 40%;
+  padding: 25px 15px;
+}
+
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-body > :is(h2, h3, h4) {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0;
+  color: var(--lh-deepblue);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-body > p:not(.carousel-cards-cta) {
+  margin: 0;
+  color: #757575;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-cta {
+  position: static;
+  margin: 0;
+}
+
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-cta a:any-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  color: transparent;
+  font-size: 0;
+}
+
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-cta a:any-link::before {
+  content: none;
+}
+
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-slide:has(.carousel-cards-cta a:hover) .carousel-cards-body > :is(h2, h3, h4) {
+  text-decoration: underline;
+}
+
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-dots {
+  display: none;
+}
+
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-nav {
+  inset: auto 0 52px auto;
+  display: flex;
+  gap: 10px;
+}
+
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-nav[hidden] {
+  display: none;
+}
+
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) :is(.carousel-cards-prev, .carousel-cards-next) {
+  position: static;
+  display: flex;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--lh-grey-3);
+  border-radius: 50%;
+  background-color: #fff;
+  color: var(--lh-deepblue);
+  pointer-events: auto;
+}
+
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) :is(.carousel-cards-prev, .carousel-cards-next)::before {
+  width: 22px;
+  height: 22px;
+}
+
+body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) :is(.carousel-cards-prev, .carousel-cards-next):disabled {
+  visibility: visible;
+  color: var(--lh-grey-3);
+  cursor: default;
+}
+
+@media (width >= 930px) {
   body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) {
-    position: relative;
-    padding-bottom: 134px;
-  }
-
-  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-viewport {
-    position: static;
-  }
-
-  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-track {
-    gap: 2.5vw;
+    padding-bottom: 24px;
   }
 
   body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-slide {
-    position: relative;
-    flex: 0 0 325px;
-    flex-direction: column;
-    box-sizing: border-box;
-    height: 470px;
-    border: 0;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 12px 25px rgb(0 0 0 / 5%);
-  }
-
-  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-image {
-    flex: none;
-    aspect-ratio: auto;
-    height: 60%;
-    overflow: hidden;
-    border-radius: 10px;
-  }
-
-  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-body {
-    box-sizing: border-box;
-    flex: none;
-    height: 40%;
-    padding: 25px 15px;
-  }
-
-  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-body > :is(h2, h3, h4) {
-    display: -webkit-box;
-    overflow: hidden;
-    margin: 0;
-    color: var(--lh-deepblue);
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 26px;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-  }
-
-  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-body > p:not(.carousel-cards-cta) {
-    margin: 0;
-    color: #757575;
-    font-size: 14px;
-    line-height: 18px;
-  }
-
-  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-cta {
-    position: static;
-    margin: 0;
-  }
-
-  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-cta a:any-link {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    overflow: hidden;
-    color: transparent;
-    font-size: 0;
-  }
-
-  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-cta a:any-link::before {
-    content: none;
-  }
-
-  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-slide:has(.carousel-cards-cta a:hover) .carousel-cards-body > :is(h2, h3, h4) {
-    text-decoration: underline;
-  }
-
-  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-dots {
-    display: none;
+    flex-basis: 30vw;
   }
 
   body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-nav {
-    inset: auto 0 52px auto;
-    display: flex;
-    gap: 10px;
+    inset: -60px 0 auto auto;
+  }
+}
+
+@media (width >= 1450px) {
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-track {
+    gap: 20px;
   }
 
-  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-nav[hidden] {
-    display: none;
-  }
-
-  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) :is(.carousel-cards-prev, .carousel-cards-next) {
-    position: static;
-    display: flex;
-    box-sizing: border-box;
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--lh-grey-3);
-    border-radius: 50%;
-    background-color: #fff;
-    color: var(--lh-deepblue);
-    pointer-events: auto;
-  }
-
-  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) :is(.carousel-cards-prev, .carousel-cards-next)::before {
-    width: 22px;
-    height: 22px;
-  }
-
-  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) :is(.carousel-cards-prev, .carousel-cards-next):disabled {
-    visibility: visible;
-    color: var(--lh-grey-3);
-    cursor: default;
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-slide {
+    flex-basis: 466.67px;
   }
 }
 /* stylelint-enable no-descending-specificity */
