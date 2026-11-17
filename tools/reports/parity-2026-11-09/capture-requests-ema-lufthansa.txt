@@ -206,3 +206,6 @@ business.lufthansagroup.com /de/en/program/experts/special-assistance-and-servic
 business.lufthansagroup.com /xx/en/program/experts/special-assistance-and-services 1440  # the same page in the xx/en market
 # Standing order 42 (2026-11-17): one phone first load that decides rank 187's Brussels footer rule (same format).
 www.brusselsairlines.com /be/fr/extra-services/baggage 390  # only resized (brussels-parity-006, www 3,701); with the rule 0.54 points further against the resize, the only recorded page-width outside the gate (sweep-so40-ranks-170-189.md)
+# Standing order 42 (2026-11-17): one SWISS page whose teaser cards carry H1 titles (436 such titles on 281 SWISS documents; no recorded SWISS page has a Cards Teaser, so the heading level www uses is not known). Same format.
+www.swiss.com /ch/de/fly/airport/boarding 1440  # Cards Teaser titles imported as H1 ("Einchecken am Vorabend"); decides whether a rule or rows demote them (unrecorded-so42-swiss.md)
+www.swiss.com /ch/de/fly/airport/boarding 390  # the same at phone width (first load)
