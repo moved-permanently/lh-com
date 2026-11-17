@@ -552,19 +552,25 @@ export function marketHref(href, {
 // ch's language versions were served with ch-it)
 // Austrian (standing order 62): the same on its upgrades pages; the market roots were served
 // at/en's at-en (at/de's at-de), while www links each root's own (52 roots' artifacts answering
-// 200 on www.austrian.com, read by the migration workspace on 2026-11-17). Roots served from
-// fr/fr, it/it or ru/ru keep the version's <cc>-en link: it doesn't name the version's <cc>-<ll>.
+// 200 on www.austrian.com, read by the migration workspace on 2026-11-17).
+// Austrian (standing order 63): the four roots served from fr/fr, it/it or ru/ru, whose documents
+// link <ll>-en, not <ll>-<ll>: www links each root's own (ca-fr, ch-fr, ch-it, by-ru, all answering
+// 200). UPGRADE_ARTIFACT_ALSO names, per site and root, the version's code that root also rewrites;
+// the versions themselves (fr/fr, it/it, ru/ru) keep theirs.
 export const UPGRADE_ARTIFACT_SITES = new Set(['austrian', 'brussels', 'swiss']);
 export const UPGRADE_ARTIFACT_MISSING = new Set(['bf/en', 'bf/fr']);
+export const UPGRADE_ARTIFACT_ALSO = {
+  austrian: new Map([['ca/fr', 'fr-en'], ['ch/fr', 'fr-en'], ['ch/it', 'it-en'], ['by/ru', 'ru-en']]),
+};
 const UPGRADE_ARTIFACT = '/artifacts/flight-upgrades/fix-price-upgrade/';
 
-export function upgradeArtifactHref(href, from, to, www) {
+export function upgradeArtifactHref(href, from, to, www, also = null) {
   const raw = String(href || '');
   const i = raw.indexOf(UPGRADE_ARTIFACT);
   if (i < 0 || (i > 0 && raw.slice(0, i) !== `https://${www}`)) return null;
-  const code = from.replace('/', '-');
   const rest = raw.slice(i + UPGRADE_ARTIFACT.length);
-  if (!rest.startsWith(code) || !/^($|[/?#])/.test(rest.slice(code.length))) return null;
+  const code = [from.replace('/', '-'), also].find((c) => c && rest.startsWith(c) && /^($|[/?#])/.test(rest.slice(c.length)));
+  if (!code) return null;
   return `${raw.slice(0, i)}${UPGRADE_ARTIFACT}${to.replace('/', '-')}${rest.slice(code.length)}`;
 }
 
@@ -601,7 +607,7 @@ export function marketHtml(resp, ctx) {
       }
       const value = e.getAttribute(attr);
       // the root's own upgrade artifact (Brussels, see upgradeArtifactHref)
-      const artifact = ctx.upgradeArtifacts && attr === 'href' ? upgradeArtifactHref(value, ctx.from, ctx.to, ctx.www) : null;
+      const artifact = ctx.upgradeArtifacts && attr === 'href' ? upgradeArtifactHref(value, ctx.from, ctx.to, ctx.www, ctx.upgradeArtifactAlso) : null;
       if (artifact !== null) {
         e.setAttribute(attr, artifact);
         return;
@@ -1197,6 +1203,7 @@ export async function market(request, env) {
   return marketHtml(resp, {
     ...ctx,
     upgradeArtifacts: UPGRADE_ARTIFACT_SITES.has(env.SITE) && !UPGRADE_ARTIFACT_MISSING.has(root),
+    upgradeArtifactAlso: UPGRADE_ARTIFACT_ALSO[env.SITE]?.get(root) || null,
     marketPath: `/${root}${suffix}`,
     alternates: kind === 'page' ? alternates(model, t.table[root].lang, suffix) : [],
   });

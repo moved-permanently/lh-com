@@ -3,8 +3,9 @@
 // the root's own fix-price-upgrade artifact (https://www.austrian.com/artifacts/flight-upgrades/
 // fix-price-upgrade/<cc>-<ll>); the market route served the English roots at/en's at-en and ch/de,
 // de/de at/de's at-de. With austrian in UPGRADE_ARTIFACT_SITES the link becomes the serving root's.
-// A version whose document links <cc>-en (fr/fr: fr-en) keeps it on its roots (ca/fr), as the link
-// doesn't name the version; the versions themselves and a root's own document as before.
+// Standing order 63: the four roots served from fr/fr, it/it and ru/ru, whose documents link
+// <ll>-en, link their own too (ca-fr, ch-fr, ch-it, by-ru: www's, each answering 200); the
+// versions themselves keep theirs, and a root's own document as before.
 import { test, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
 import HTMLRewriter from './htmlrewriter-shim.mjs';
@@ -38,10 +39,14 @@ const FILES = {
   '/at/en/search-index.json': sheet([row('/at/en/homepage'), row(`/at/en/${UP}`), row('/at/en/info/upgrade-conditions')]),
   '/at/de/search-index.json': sheet([row(`/at/de/${UP}`)]),
   '/fr/fr/search-index.json': sheet([row(`/fr/fr/${UP}`)]),
+  '/it/it/search-index.json': sheet([row(`/it/it/${UP}`)]),
+  '/ru/ru/search-index.json': sheet([row(`/ru/ru/${UP}`)]),
   '/market-pages.json': sheet([row(`/us/en/${UP}`)]),
   [`/at/en/${UP}`]: upgrade('at/en', 'at-en'),
   [`/at/de/${UP}`]: upgrade('at/de', 'at-de'),
   [`/fr/fr/${UP}`]: upgrade('fr/fr', 'fr-en'),
+  [`/it/it/${UP}`]: upgrade('it/it', 'it-en'),
+  [`/ru/ru/${UP}`]: upgrade('ru/ru', 'ru-en'),
   [`/us/en/${UP}`]: page(`/us/en/${UP}`, `<a href="${WWW}${A}/us-en">own</a>`),
 };
 beforeEach(() => {
@@ -83,8 +88,20 @@ test('the versions themselves keep their links (at/en, at/de)', async () => {
   assert.deepEqual(got, [`${WWW}${A}/at-en`, `${WWW}${A}/at-de`]);
 });
 
-test('ca/fr keeps fr/fr\'s fr-en: the link does not name fr-fr', async () => {
-  assert.equal(await first('ca/fr'), `${WWW}${A}/fr-en`);
+test('ca/fr, ch/fr, ch/it and by/ru link their own, not the version\'s <ll>-en', async () => {
+  const got = await Promise.all(['ca/fr', 'ch/fr', 'ch/it', 'by/ru'].map(first));
+  assert.deepEqual(got, ['ca-fr', 'ch-fr', 'ch-it', 'by-ru'].map((c) => `${WWW}${A}/${c}`));
+});
+
+test('the versions fr/fr, it/it and ru/ru keep their links', async () => {
+  const got = await Promise.all(['fr/fr', 'it/it', 'ru/ru'].map(first));
+  assert.deepEqual(got, ['fr-en', 'it-en', 'ru-en'].map((c) => `${WWW}${A}/${c}`));
+});
+
+test('ch/it\'s other links as before', async () => {
+  const links = hrefs(await (await get(`https://austrian.example/ch/it/${UP}`)).text());
+  assert.ok(!links[1].includes(A), 'the conditions link is no artifact');
+  assert.ok(!links[1].includes('ch-it'));
 });
 
 test('a root\'s own document is served as it is (us/en)', async () => {
