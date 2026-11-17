@@ -2839,3 +2839,21 @@ body.brand-lufthansa main:has(.article-header) .columns-media-wrapper:has(> .col
     margin-top: 119px;
   }
 }
+
+/* lufthansa.com info pages from 768px: a grey band's plain h2 runs the column's full width, not the text components'
+   75% (www's munich-fair at 1440, lh-parity-002: "From the airport to Messe München (Munich Trade Fair)/ICM" on one
+   line, ours on two; standing order 47) */
+@media (width >= 768px) {
+  body.brand-lufthansa main:has(.subpage-nav) > .section.grey:not(.subpage-nav-container) > .default-content-wrapper > h2:not([class*="heading-"]) {
+    margin-right: 0;
+  }
+}
+
+/* Insights articles on phones: "Back to overview" after the article-end teaser (Columns Media) 7px closer, www's 29px
+   from the teaser's "Find flight" (ours 36; what-i-learned-living-in-frankfurt, essentials-barcelona-facts at 390,
+   lh-parity-002; standing orders 46-48: 16 of 52 recorded page-widths closer, none more than 0.5 further) */
+@media (width < 768px) {
+  body.brand-lufthansa main:has(.article-header) .columns-media-wrapper + .default-content-wrapper > p.link-wrapper:first-child:has(> a[href$="/articles"]) {
+    margin-top: -7px;
+  }
+}
