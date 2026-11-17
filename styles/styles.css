@@ -695,6 +695,17 @@ main img {
   height: auto;
 }
 
+/* a picture in default content keeps its box before it loads: at least its width attribute's width (capped by its
+   container), the height from the attributes' ratio. width: auto left an unloaded lazy picture 0 x 0, so pages read
+   thousands of px shorter or longer by load timing (ITA ita-airways-app 1440: 4,390 or 8,472; ema-test's
+   note-so53-ita-app-height.txt). A minimum, not a width: a loaded picture whose file is larger than its attributes
+   keeps its drawn size (SWISS copies carry smaller attributes than their files; a width from the attribute shrank them).
+   Blocks and more specific rules still win (:where keeps this at main img's specificity). Standing order 54 */
+main :where(.default-content-wrapper) img:where([width][height]) {
+  /* stylelint-disable-next-line declaration-property-value-no-unknown -- typed attr() (Chrome 133+); older browsers keep no minimum */
+  min-width: min(100%, attr(width px, 0px));
+}
+
 .icon {
   display: inline-block;
   height: 24px;
