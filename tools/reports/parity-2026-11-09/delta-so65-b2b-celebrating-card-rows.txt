@@ -1,0 +1,25 @@
+# ema-cashub, standing order 65 (2026-11-17), item 2: Group for Business /de/de/news/celebrating-shared-stories, the space
+# above its two card rows.
+# www (b2b-parity-001, de/de at 1440: its measurement file and PNG; its markup laid out offline for the computed boxes): the
+# card rows are column views of their own (fourcolumn / threecolumn, 40 px padding above), so after the "Vom Streckennetz"
+# picture row www has 140 px to the cards (ours 100: the H3 "Weltweites Streckennetz" 40 px higher than www's from that
+# row's heading), and under the "100 Jahre Lufthansa" text 66 px (its 24 px margin and the nested view's 40; ours 27).
+# The row: "{spacer-100}" right before the four-up cards (it takes the place of the column end's 61 px there, net +40) and
+# "{spacer-39}" right before the 100-years cards (+40), at every width.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so65-b2b-celebrating-card-rows.json
+#   --list <this file> --docs <lh-b2b: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copy (one read-only GET of admin.da.live/source/moved-permanently/lh-b2b/de/de/news/
+# celebrating-shared-stories.html, ~20:15 CET): "2 inserted", "without the inserts DA's copy byte for byte: true"; a second run
+# "2 present".
+# Drafted on b2b.turnsthe.page (so53/hostv.mjs, the served .plain.html with the two markers as main; unhinted; airline hosts,
+# www.* and lh-proxy refused per request). Control = live (7,624 / 11,858). Measured: "Weltweites Streckennetz" at 2,780 at
+# 1440 (www's step from the row heading: 776 px, ours now 776); the 100-years cards 66 px under the text as www's. 768:
+# 8,474 -> 8,554.
+# The news-title rule on top (so64/rule-b2b-news.css, item 2's gate): 1440 7,704 -> 7,664 (-0.64 -> -1.16 %, +0.52 points),
+# 390 11,938 -> 11,906 (-1.27 -> -1.54 %, +0.27): still HOLD (see ema-cashub, standing order 65, item 2).
+# status	path	width	recording	www page	as served	with the row	with the row and the news-title rule	note
+READY	/de/de/news/celebrating-shared-stories	1440	b2b-parity-001	7754	7624 (-1.68 %)	7704 (-0.64 %)	7664 (-1.16 %)	the two card rows 40 px lower, as www's; left: 8 px at each of six grey section boundaries, 18 px under the last cards, 16 px under the 100-years heading
+READY	/de/de/news/celebrating-shared-stories	390	b2b-parity-001	12092	11858 (-1.94 %)	11938 (-1.27 %)	11906 (-1.54 %)	+40 at each card row; "Weltweites Streckennetz" 1,055 px under the row heading (www 1,068)
+#
+# DA change: lh-b2b /de/de/news/celebrating-shared-stories: "<p>{spacer-100}</p>" before the four-up cards and
+# "<p>{spacer-39}</p>" before the 100-years cards. de/en's twin isn't in this row (its recording wasn't gated here).

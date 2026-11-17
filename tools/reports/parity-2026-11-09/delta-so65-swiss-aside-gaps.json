@@ -1,0 +1,36 @@
+[
+ {
+  "path": "/ch/en/discover/swiss-recraft-collection",
+  "inserts": [
+   {
+    "after": "ing\">Buy now</a></strong></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "v><div>Design</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "Fleet renewal</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "ory of HB-IOC</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/de/fly/on-board/swiss-economy",
+  "inserts": [
+   {
+    "after": "v><div>Europa</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-89 below-768}</p>"
+   },
+   {
+    "before": "<div class=\"section-metadata\"><div><div>Style</div><div>sidebar-aside</div></div></div></div>\n<div><h2 id=\"bequem-in-die",
+    "text": "<p>{spacer-49 below-768}</p>"
+   }
+  ]
+ }
+]

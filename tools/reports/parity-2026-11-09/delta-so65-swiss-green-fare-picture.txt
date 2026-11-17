@@ -1,0 +1,20 @@
+# ema-cashub, standing order 65 (2026-11-17), item 5: SWISS /ch/en/fly/on-board/green-fare, the Impact fares infographic.
+# www (swiss-parity-002b, 1440 and 390, PNGs and the sidebar laid out offline): the "50 % Sustainable Aviation Fuel / 50 %
+# Climate protection projects" picture is the content's last element (sidebar-content > image), under the domestic-flights
+# text, as wide as the text. Our document has it as the first paragraph of the aside section, so from 768 px it is drawn in
+# the narrow aside column and the content below moves up 449 px at 1440 ("Summary of our European Impact fares" at 2,934
+# against www's 3,383).
+# The row: the picture paragraph goes from the aside's start to the end of the section before it (one replace; every other
+# byte as DA's).
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so65-swiss-green-fare-picture.json
+#   --list <this file> --docs <lh-swiss: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copy (one read-only GET of admin.da.live/source/moved-permanently/lh-swiss/ch/en/fly/on-board/
+# green-fare.html, ~20:40 CET): "1 inserted", "without the inserts DA's copy byte for byte: true"; a second run "1 present".
+# Drafted on swiss.turnsthe.page (so53/hostv.mjs, the served .plain.html with the paragraph moved as main; unhinted; airline
+# hosts, www.* and lh-proxy refused per request). Control = live (5,711 / 7,468). 768: 5,783 -> 5,993.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/ch/en/fly/on-board/green-fare	1440	swiss-parity-002b	6240	5711 (-8.48 %)	6079 (-2.58 %)	the infographic under the text as www's; the rest is the two fare tables' rows
+READY	/ch/en/fly/on-board/green-fare	390	swiss-parity-002b	7481	7468 (-0.17 %)	7488 (+0.09 %)	on phones the picture was already under the text; +20 px now that it ends the content section instead of opening the aside
+#
+# DA change: lh-swiss /ch/en/fly/on-board/green-fare: the infographic paragraph moves from the aside section into the section
+# before it. The other language copies are not recorded and get no row here.

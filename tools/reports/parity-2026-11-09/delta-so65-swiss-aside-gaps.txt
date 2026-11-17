@@ -1,0 +1,37 @@
+# ema-cashub, standing order 65 (2026-11-17), item 1: SWISS swiss-economy (ch/de) and swiss-recraft-collection (ch/en) at
+# 390, the space around the sidebar's aside on phones.
+# www (swiss-parity-002b; the 25 recorded SWISS sidebar pages laid out offline with their own CSS, so65/aside-www.txt, and the
+# PNGs): below 768 px the aside (.sidebar-aside) sits under the content with margin-top 80 px on every one of them, the sidebar
+# (.airem-sidebar) has 20 / 10 px padding, a picture row (twocolumn) ending the content keeps its column view's 32 px padding,
+# and the aside's last teaser card its 20 px margin. Ours: the aside 40 px under the content (styles.css, every brand), nothing
+# under it.
+# - swiss-economy (the Europa panel): www 137 px from the "Mehr zu Miles More" link to the first card (ours 47), 69 px from the
+#   last card to the "Interkontinental" toggle's label (ours 19): 90 + 50 px short.
+# - swiss-recraft-collection: each shown aside 40 px short (the "Buy now" button to the Worldshop card: www 80, ours 40).
+# A SWISS rule (aside 80 px on phones, so65/rule-a1.css) was toggled on all 86 recorded SWISS 390 page-widths: it reaches the
+# 25 sidebar pages and fails the half point on 5 of them (newsletter +1.47 points, unaccompanied-minors +0.89,
+# new-destinations +0.70, swiss-airrail +0.62, food-and-beverage +0.59): pages already long elsewhere, or empty asides (ours
+# draw nothing; www's draw 80). So no rule; rows on the two documents.
+# The rows: "{spacer-N below-768}" paragraphs in the aside sections (drawn on phones only; N+1 px drawn, measured):
+# - recraft: {spacer-39 below-768} first in each of the 4 asides with content (+40 px each where shown).
+# - economy: {spacer-89 below-768} first in the Europa panel's aside, {spacer-49 below-768} last in it.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so65-swiss-aside-gaps.json
+#   --list <this file> --docs <lh-swiss: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (two read-only GETs of admin.da.live/source/moved-permanently/lh-swiss/<path>.html, ~20:05 CET):
+# recraft "4 inserted", economy "2 inserted", both "without the inserts DA's copy byte for byte: true"; a second run "present".
+# Drafted on swiss.turnsthe.page (so53/hostv.mjs: the served .plain.html with the markers as main; unhinted; airline hosts,
+# www.* and lh-proxy refused per request). Controls = live to the px (economy 6,708 / 4,042; recraft 5,259 / 4,106).
+# Measured on the drafts' PNGs: economy 137 px link -> card and 69 px card -> toggle label, as www's; recraft 80 px button ->
+# card, as www's. 768 and 1440 unchanged on both (economy 4,274 / 4,042, recraft 3,728 / 4,106).
+# The economy row is HOLD: alone it takes the page past www (-0.70 -> +1.38 %, 0.68 points further), because the panel's
+# pictures are still 11 px taller than www's (the held tab-panel inset, so64/rule-inset.css). With the inset on top it ends
+# +0.21 %. The inset itself stays HOLD (it takes recraft 1.07 points further, also with recraft's row), so the economy row
+# waits with it.
+# status	path	width	recording	www page	as served	with the row	with the row and the inset	note
+READY	/ch/en/discover/swiss-recraft-collection	390	swiss-parity-002b	5441	5259 (-3.34 %)	5339 (-1.87 %)	5281 (-2.94 %)	the two shown asides 80 px under the content as www's; the rest is the document's headings (www heading-small, ours copytext) and the intro (www copytext-large), not in this row
+READY	/ch/en/discover/swiss-recraft-collection	1440	swiss-parity-002b	4053	4106 (+1.31 %)	4106 (+1.31 %)	4106 (+1.31 %)	unchanged (phones only)
+HOLD	/ch/de/fly/on-board/swiss-economy	390	swiss-parity-002b	6755	6708 (-0.70 %)	6848 (+1.38 %)	6769 (+0.21 %)	the gaps as www's to the px; alone 0.68 points further: waits with the tab-panel inset
+HOLD	/ch/de/fly/on-board/swiss-economy	1440	swiss-parity-002b	3989	4042 (+1.33 %)	4042 (+1.33 %)	4042 (+1.33 %)	unchanged (phones only)
+#
+# DA change (READY): lh-swiss /ch/en/discover/swiss-recraft-collection: "<p>{spacer-39 below-768}</p>" first in each of its
+# four asides with content (the fifth, empty, gets none).

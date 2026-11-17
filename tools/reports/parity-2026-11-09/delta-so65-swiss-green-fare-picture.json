@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/ch/en/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "replace": "feeder or connecting flights.</p></div><div><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-en-f01-2x.jpg\" alt=\"\"></picture></p><div class=\"cards-teaser\">",
+    "text": "feeder or connecting flights.</p><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-en-f01-2x.jpg\" alt=\"\"></picture></p></div><div><div class=\"cards-teaser\">"
+   }
+  ]
+ }
+]

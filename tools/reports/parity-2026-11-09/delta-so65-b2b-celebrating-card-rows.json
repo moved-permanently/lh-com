@@ -1,0 +1,15 @@
+[
+ {
+  "path": "/de/de/news/celebrating-shared-stories",
+  "inserts": [
+   {
+    "before": "<div class=\"carousel-cards grid four-up ",
+    "text": "<p>{spacer-100}</p>"
+   },
+   {
+    "before": "<div class=\"carousel-cards grid\"><div><d",
+    "text": "<p>{spacer-39}</p>"
+   }
+  ]
+ }
+]
