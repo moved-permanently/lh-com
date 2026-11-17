@@ -6353,3 +6353,44 @@ CSS changed nowhere, so stylelint had nothing to check.
 - Every browser load refused airline hosts per request.
 - Reads came from our hosts, the drop (one archive and its sidecar) and DA (two GETs).
 - No upload, preview or publish by me, no da-upload.mjs. /de/en/overview-manage got no row.
+
+## Standing order 40 (2026-11-17, about 02:40 to 05:30 CET), with its final section
+
+**From this order, figures are measured in full Chrome** (capture.js PARITY_CHROME=1, and host-eval with HOST_CHROME=1),
+as the publish child measures.
+
+**Item 1, special-assistance at 1440: READY** (delta-so40-b2b-special-assistance-news-gaps.txt).
+- Located against b2b-parity-017: www's pictures are as tall as ours, and the step is the space between news items.
+  www puts 105 px between two items (each two-column view padded 40 px above and below, a 25 px separator between).
+  Ours put 58 (8 px, the 26 px divider, a 24 px margin): 47 px per gap.
+- The row adds {spacer-47 from-768} before the six dividers that stand between two news items. That is spacing between
+  blocks, so no Columns Media rule is needed and nothing goes to ema-test.
+- 1440 goes 4,452 -> 4,692 (www 4,707), -5.42 -> -0.32 %, and 390 is equal (1,480), on both pages, in full Chrome.
+- The string is found 6 times in each DA copy, and the revert gives DA's bytes back. Each tab, opened with its pictures
+  loaded, keeps its 622 px headings. The test is test/b2b-special-assistance-news-gaps-so40.test.mjs.
+
+**Item 2, ranks 170 to 189 (sweep-so40-ranks-170-189.md): all twenty located; one rule drafted, HOLD.**
+- Rank 187 (fr feedback 390, -2.34 % in Chrome): www's footer keeps its legal links to three quarters of the footer
+  row, so the long last link wraps in French, German and Italian; ours used the full width.
+- The drafted Brussels phone rule matches that. In 23 recorded page-widths it makes the footer one line taller, and
+  most of them come closer (up to 0.98 points).
+- But two page-widths go more than 0.5 points further: de/de lounges 390 (+0.92) and be/fr my-bookings 390 (+0.60).
+  Both are already taller than www elsewhere, so the rule fails the gate and is not in the theme.
+- Rank 189 is Discover's (ema-test).
+
+**Item 3, the Chrome against headless-shell list:** the full Chrome sweep of all 498 page-widths is running. Its list
+comes in a second commit if it finishes in this order.
+
+**Checks:** whole-repo lint, the folder-reading tests and the full suite in the ship, waited for in the turn. No CSS
+changed, so stylelint had nothing to check.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine.
+- `.scratch/` (outside git): the Chrome loads and sweeps, the offline renders of b2b-parity-017 and brussels-parity-006,
+  and DA's two special-assistance copies (read ~01:38 UTC).
+- My scratch host-eval tool gained a HOST_CHROME switch; it lives in .scratch.
+
+**Hosts:**
+- Every browser load refused airline hosts per request, or (offline renders) answered only from 127.0.0.1.
+- Reads came from our hosts and DA (two GETs).
+- No upload, preview or publish by me, no da-upload.mjs. /de/en/overview-manage got no row.

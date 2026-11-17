@@ -1,0 +1,16 @@
+{
+ "/de/en/program/experts/special-assistance-and-services": [
+  {
+   "from": "</picture></p></div></div></div><div class=\"divider\"><div><div></div></div></div><div class=\"columns-media\">",
+   "to": "</picture></p></div></div></div><p>{spacer-47 from-768}</p><div class=\"divider\"><div><div></div></div></div><div class=\"columns-media\">",
+   "count": 6
+  }
+ ],
+ "/xx/en/program/experts/special-assistance-and-services": [
+  {
+   "from": "</picture></p></div></div></div><div class=\"divider\"><div><div></div></div></div><div class=\"columns-media\">",
+   "to": "</picture></p></div></div></div><p>{spacer-47 from-768}</p><div class=\"divider\"><div><div></div></div></div><div class=\"columns-media\">",
+   "count": 6
+  }
+ ]
+}

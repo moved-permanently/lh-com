@@ -1,0 +1,21 @@
+# ema-lufthansa, standing order 40 (2026-11-17), item 1: Group for Business /de/en and /xx/en/program/experts/special-assistance-and-services (DA moved-permanently/lh-b2b). After round 515 (order 39's two-column news row, live), 1440 is 4,452 against b2b-parity-017's 4,707 (-5.42 %). The recording: sha256 529a4fcb4fdbe169d08677e538c9bd71ad2ed58346df19fa01ffe87fe5a7893f, first loads at 1440 and 390.
+# Located, against -017. The recorded page was rendered offline from its own files on 127.0.0.1 only, in full Chrome; its pictures are not in the archive, so their heights come from the recording's heading positions.
+# - www's pictures are as tall as ours at that width. Item 1: 390 px on www (heading-to-heading 495 less the 105 px of spacing), 389 on ours (622 px wide, 1280 x 801).
+# - The difference is the space between news items. On www each two-column view has 40 px of padding above and below, with a 25 px separator between views (div.separator): 105 px from one item's content to the next.
+# - Ours keeps 58: 8 px under the Columns Media row, the 26 px divider block, and the next block's 24 px margin.
+# - So 47 px per gap: -48, -74, -48, -47, -47 at the five gaps of the open first tab. www's second item is also 27 px taller than ours.
+# - It is spacing between blocks, not inside Columns Media, so a document row carries it and no Columns Media rule is needed.
+# The row adds a {spacer-47 from-768} paragraph before each divider that stands between two news items: five in "Traveling with kids", one in "Traveling with pets". The three dividers before other content (healthy, accessible travel, doctors) are left as they are. Below 768 px the spacer draws nothing (www's phone views are inside the closed tabs on both).
+# DA's copies plus a delta: node tools/importer/ita-fragment-replace-apply.mjs --data tools/reports/parity-2026-11-09/delta-so40-b2b-special-assistance-news-gaps.json --docs <lh-b2b: DA's current copies, <path>.html> --out <dir> --list this file (--revert gives DA's copies back byte for byte: checked on both).
+# - Expected change only: <p>{spacer-47 from-768}</p> before the divider between a news item's closing Columns Media block and the next item's.
+# - The string is found exactly 6 times in each DA copy, as round 515 left them (read 2026-11-17 ~01:38 UTC). The tool refuses any other count, or a copy that already has the spacer; every other byte stays as DA's.
+# - Backup the helper takes before the upload: DA's current copies into /.token-free-backup/2026-11-b2b-so40-special-assistance-news-gaps/<path>.html (lh-b2b), read back equal.
+# Gate (~01:25 to 01:38 UTC): the served page with the spacers (PLAIN_DIR draft of each served .plain.html), main as deployed, served CSS, airline hosts refused per request, full Chrome, against -017's first loads.
+# - 1440: 4,452 -> 4,692 (www 4,707), -5.42 -> -0.32 %, closer.
+# - 390: 1,480 -> 1,480 (www 1,458), +1.51 % both, equal.
+# - The news headings stand within +7 to +33 px of www's (878 / 1,373 / 1,894 / 2,467 / 3,040 / 3,803 against 845 / 1,340 / 1,887 / 2,460 / 3,032 / 3,794).
+# - Each tab opened at 1440, its pictures loaded first (served -> with the row): kids 3,185 -> 3,425, pets 1,060 -> 1,108. Healthy (2,440), accessible travel (4,780) and doctors (2,147) are the same in both. The headings are 622 px wide, and the scroll width stays 1,440. (A first run measured these tabs before their pictures had loaded: up to 949 px apart between runs.)
+# READY. Nothing uploaded or previewed.
+# status	path	recording	change	ours 1440 / 390	with the row 1440 / 390	www 1440 / 390	note
+READY	/de/en/program/experts/special-assistance-and-services	b2b-parity-017 (1440, 390 first loads)	{spacer-47 from-768} before the 6 dividers between news items, www's 105 px between views	4452 / 1480	4692 / 1480	4707 / 1458	1440 -5.42 -> -0.32 % (closer), 390 equal; full Chrome
+READY	/xx/en/program/experts/special-assistance-and-services	b2b-parity-017 (1440, 390 first loads)	{spacer-47 from-768} before the 6 dividers between news items, www's 105 px between views	4452 / 1480	4692 / 1480	4707 / 1458	1440 -5.42 -> -0.32 % (closer), 390 equal; full Chrome
