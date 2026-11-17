@@ -1,0 +1,92 @@
+[
+ {
+  "path": "/de/en/book-and-manage/rebook",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>padded, gap-after-small-below-768",
+    "text": "<div>style</div><div>padded, gap-after-small-below-768, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/upgrade-business-class-long-haul",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>grey",
+    "text": "<div>style</div><div>grey, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/upgrade-first-class",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>grey",
+    "text": "<div>style</div><div>grey, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/upgrade-premium-economy-class",
+  "inserts": [
+   {
+    "replace": "<div>style</div><div>grey",
+    "text": "<div>style</div><div>grey, gap-after-small-768"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/all-check-in",
+  "inserts": [
+   {
+    "after": "e\">/de/en/homepage</a></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-below-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/payment-options-at-the-airport",
+  "inserts": [
+   {
+    "replace": "<p>{column-end}</p>",
+    "text": "<p>{spacer-40 from-768}</p><p>{column-end}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/lufthansa-first-class-entertainment",
+  "inserts": [
+   {
+    "replace": "<p>{divider-25}</p>",
+    "text": "<p>{divider-50 from-768}</p><p>{divider-25 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk",
+  "inserts": [
+   {
+    "after": "/en/entryprocesses</a></div></div></div>",
+    "text": "<div class=\"section-metadata\"><div><div>style</div><div>gap-after-small-below-768</div></div></div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/mobility-partner-program-healthcare",
+  "inserts": [
+   {
+    "replace": "<div><p>{spacer-25}</p><div class=\"subpage-nav\">",
+    "text": "<div><p>{spacer-25}</p><p>{spacer-40 below-768}</p><div class=\"subpage-nav\">"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/cancellations-and-refunds",
+  "inserts": [
+   {
+    "replace": "<p>{column-end}</p><div class=\"metadata\">",
+    "text": "<p>{spacer-4 below-768}</p><p>{column-end}</p><div class=\"metadata\">"
+   }
+  ]
+ }
+]

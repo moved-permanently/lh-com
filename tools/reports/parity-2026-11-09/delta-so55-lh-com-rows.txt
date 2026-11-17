@@ -1,0 +1,32 @@
+# ema-test, standing order 55, items 1 and 2 (2026-11-17): lufthansa.com rows. Rows only: the stylesheets are ema-adobe's until about 22:30 UTC.
+# Item 1: order 51's ranking beyond its rank 60. Ranks 1-60 all have their line in places-so53 (1-20), places-so51 (21-40) and places-so52 (41-60); ranks 61 to 131 are its page-widths at 5 % or more. All 71 were measured again as served ~19:02-19:10 UTC (lufthansa.turnsthe.page), since earlier rows have gone live on some of them. Worst first, the ones with a step one of the working markers fits were tried.
+# Item 2: mobility-partner-program-healthcare and cancellations-and-refunds at 390, both held in order 54.
+# Gated on html-folder full pages of the served copy (fetched ~19:13-19:21 UTC), base and trial, on lh-com's code at origin/main. The folder base reads as the host at both widths for all ten pages: measured on the host ~19:34 UTC, the same figures as each base below. Full Chrome, the drops' fonts, live boxes masked, airline hosts refused per request; recordings lh-parity-002a/b, -003.
+# Data: delta-so55-lh-com-rows.json. text-inserts-apply --check on DA's copies (read ~19:29 UTC): every insert made once, each DA copy byte for byte without them. Breakage probe on base and trial at 1440 and 390: all 200, the same flags in both, no new lost word.
+# Two rows move their other width as well, closer to www both times; the cause is a hidden spacer's own wrapper:
+#   - payment-options' desktop spacer: 390 3,305 -> 3,329 px, www 3,340;
+#   - cancellations' phone spacer: 1440 2,370 -> 2,394 px, www 2,396.
+# The others move only their gated width.
+# Tried and not passing (not written):
+#   - saf 390: gap-after-small-below-768 on the closing section, 6.78 -> 7.45.
+#   - mobility-partner 390:
+#       - the spacer before the grey band made desktop-only, with a phone spacer after it: 8.17;
+#       - gap-after-small-below-768 before the band (order 54): 8.29;
+#       - taken: the phone spacer after the band alone.
+#   - cancellations 390:
+#       - a 28 px phone spacer before the closing column end: 8.13 (the spacer brings about 25 px of margin with it);
+#       - after the column end (order 54): 9.11;
+#       - taken: 4 px before it.
+#   - payment-options 1440 with 66 px: 3.39, overshooting www by 26 px; 40 px taken.
+# Not tried, no single place for a row: first-class-terminal 1440, passenger-receipt-90 390, wheelchair-batteries 390, schengen 390, travelling-healthy 1440, automatic-check-in 390, sports-baggage 390, partner 390, gefaehrliche-gegenstaende 1440, carry-on-baggage 390, tips-senior-travellers 1440, invoices-different-countries 390, air-baltic 1440 (aligner swings, steps in both directions, or cut at 8,000 px).
+# Each line: READY, DA path, item and rank, the change, 1440 and 390 (base -> trial, www), the gate.
+READY	/de/en/book-and-manage/rebook	1, rank 73	gap-after-small-768 added to the closing padded section (beside order 52's below-768 one)	1440 6.64 -> 4.34 % (1,910 -> 1,886 px, www 1,860), 390 6.51 -> 6.51 % (2,407 px)	better at 1440, unchanged at 390
+READY	/de/en/upgrade-business-class-long-haul	1, rank 70	gap-after-small-768 on the grey "Further information" band before the subpage navigation	1440 6.75 -> 4.96 % (2,465 -> 2,441 px, www 2,418), 390 5.13 -> 5.13 % (3,622 px)	better at 1440, unchanged at 390
+READY	/de/en/upgrade-first-class	1, rank 76	as upgrade-business-class-long-haul	1440 6.51 -> 4.76 % (2,545 -> 2,521 px, www 2,498), 390 5.29 -> 5.29 % (3,772 px)	better at 1440, unchanged at 390
+READY	/de/en/upgrade-premium-economy-class	1, rank 80	as upgrade-business-class-long-haul	1440 6.44 -> 4.68 % (2,490 -> 2,466 px, www 2,444), 390 5.37 -> 5.37 % (3,691 px)	better at 1440, unchanged at 390
+READY	/de/en/all-check-in	1, rank 65	its one section gets gap-after-small-below-768 (a new section-metadata block)	1440 3.10 -> 3.10 % (2,817 px), 390 6.87 -> 5.23 % (3,354 -> 3,330 px, www 3,323)	better at 390, unchanged at 1440
+READY	/de/en/payment-options-at-the-airport	1, rank 75	{spacer-40 from-768} before the column end (www 66 px more there at 1440)	1440 6.52 -> 1.00 % (2,477 -> 2,542 px, www 2,542), 390 5.74 -> 4.51 % (3,305 -> 3,329 px, www 3,340)	better at both widths
+READY	/de/en/lufthansa-first-class-entertainment	1, rank 74	the {divider-25} becomes {divider-50 from-768} with {divider-25 below-768}	1440 6.54 -> 4.93 % (3,064 -> 3,089 px, www 3,099), 390 4.26 -> 4.26 % (3,793 px)	better at 1440, unchanged at 390
+READY	/de/en/prepare-for-your-trip/entry-regulations/immigration-regulations-uk	1, rank 72	its one section gets gap-after-small-below-768 (a new section-metadata block)	1440 6.07 -> 6.07 % (2,592 px), 390 6.65 -> 4.87 % (3,097 -> 3,073 px, www 3,066)	better at 390, unchanged at 1440
+READY	/de/en/mobility-partner-program-healthcare	2	{spacer-40 below-768} after the grey band, before the subpage navigation (www keeps about 40 px there on phones, ours none)	1440 7.88 -> 7.88 % (3,506 px), 390 7.80 -> 6.21 % (4,703 -> 4,744 px, www 4,741)	better at 390, unchanged at 1440
+READY	/de/en/cancellations-and-refunds	2	{spacer-4 below-768} before the closing column end (www about 28 px more under "Check flight status")	1440 3.62 -> 1.34 % (2,370 -> 2,394 px, www 2,396), 390 7.78 -> 6.30 % (3,115 -> 3,144 px, www 3,130)	better at both widths

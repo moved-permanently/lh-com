@@ -1,0 +1,83 @@
+[
+ {
+  "path": "/it/en/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-20}</p><p>{spacer-20 from-768}</p>",
+    "text": "<p>{spacer-40 from-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/it/it/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-20}</p><p>{spacer-20 from-768}</p>",
+    "text": "<p>{spacer-40 from-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/fr/fr/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-20}</p><p>{spacer-20 from-768}</p>",
+    "text": "<p>{spacer-40 from-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/es/es/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-20}</p><p>{spacer-20 from-768}</p>",
+    "text": "<p>{spacer-40 from-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-20}</p><p>{spacer-20 from-768}</p>",
+    "text": "<p>{spacer-40 from-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/nl/nl/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-20}</p><p>{spacer-20 from-768}</p>",
+    "text": "<p>{spacer-40 from-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/br/pt/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-20}</p><p>{spacer-20 from-768}</p>",
+    "text": "<p>{spacer-40 from-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/gr/el/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-20}</p><p>{spacer-20 from-768}</p>",
+    "text": "<p>{spacer-40 from-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/jp/ja/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-20}</p><p>{spacer-20 from-768}</p>",
+    "text": "<p>{spacer-40 from-768}</p>"
+   }
+  ]
+ }
+]
