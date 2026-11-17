@@ -5699,3 +5699,65 @@ failing.
 - Ended at about 04:50 CET: the three items are answered. Nothing is held, and no background job runs.
 - Left out of git: logs/b647 (the archive and its unpacked files, captures, diffs, runners) and the untracked import
   reports of earlier runs.
+
+### Standing order 48 (2026-11-17 05:05 to about 06:10 CET)
+
+No uploads, previews or publishes; DA read only (none needed); no request to www or any airline host. For item 2, our
+pages' requests to www were recorded and refused in the browser before they left (logs/b648/price-req.cjs: every
+*.lufthansa.com request aborted). `.migration/project.json` untouched; the add-ons stay off. Order 47 left nothing
+uncommitted or unpushed. No code change this order: the sweep and hand-over (e423968) and this section.
+
+Each push: the tests named for it passed, and the whole-repo lint read 0 on a clean worktree of the rebased HEAD (no
+block or theme file changed, so no stylelint). Full suite on the final code: e423968 (main with this order's commit), 72 lh-edge files and 1,260 site files, 0
+failing.
+
+**The two-hour windows:** no edit to styles.css, Columns Media, scripts/media.js or any block. The hand-over file: my
+own commits only.
+
+1. **allegris-new-york against lh-parity-015, by region (sweep-so44-lh-adobe.md).** 10px bands, points of the whole
+   page, the same in all four versions.
+   - At 1440 (9.0-9.1 %):
+
+     | Region | Points |
+     | --- | --- |
+     | body pictures | 4.3-4.5 |
+     | body text | 1.6-1.9 |
+     | related cards | 1.0 |
+     | Price Bar | 0.7 |
+     | footer | 0.6 |
+     | article-end teaser | 0.4 |
+     | header and stage | 0.1 |
+
+   - At 390 (10.7-11.1 %): body text 4.8-4.9, body pictures 2.3-2.4, the article-end teaser 2.0, the footer 0.8-1.3,
+     the rest under 0.3.
+   - Ours to close, not gated: the video's letterbox. www paints the video's first frame behind its 21:9 poster, ours
+     draws black strips: 1.3 points at 1440, 0.45 at 390. It's a change to scripts/media.js createVideo(), the shared
+     video code on every video, so it's a proposal and wasn't gated tonight.
+   - Not ours:
+     - most of the rest is one 26px step under the video's caption (www 74px to the next text, ours 46): Columns
+       Media, ema-test's item 17, measured in hand-over item 24;
+     - the article-end link (item 20);
+     - the Price Bar (prices refused here);
+     - the related cards' content.
+   - No row or rule written.
+2. **gb/en prices: no difference.**
+   - www, as recorded:
+     - lh-parity-015 gb/en allegris-new-york's sticky Price Bar: 476.93 GBP to JFK (de/en: 574.29 EUR). Its markup
+       names no origin (OriginCode empty), so www's service picks the origin for the market;
+     - lh-parity-004b gb/en all-it-takes-is-a-yes's fare teaser: offers from Munich and Frankfurt, in EUR.
+   - Ours, as served (the requests refused in the browser):
+     - gb/en's Price Bar asks GET /service/api/teaser/price/JFK with X-Portal: LH, X-Portal-Site: GB and
+       X-Portal-Language: en, and no origin or currency, so the same service makes the same choice (de/en sends
+       X-Portal-Site: DE);
+     - gb/en's fare teaser asks .../destination/finder/MUC/E and .../FRA/E with site GB, its authored Origin and
+       Destinations rows (Munich and Frankfurt), as www's.
+   - Where it's set: the market header in scripts/lh-data.js portalHeaders() (the locale's country), the route in
+     scripts/lh-api.js teaserPriceRequest(), the destination and routes in the documents. Nothing changed.
+3. **Places 81 to 100: located, no row or rule passed.** All were located before:
+   - hand-over items 17-21 (section and heading gaps, the article-end link);
+   - the font width and photos;
+   - the hub's map and list;
+   - the Price Bar with prices refused.
+- Ended at about 06:10 CET: the three items are answered. Nothing is held, and no background job runs.
+- Left out of git: logs/b648 (captures, diffs, region data, request logs, runners) and the untracked import reports of
+  earlier runs.
