@@ -5603,3 +5603,71 @@ nobreak-so50-lh-com-de-sources.txt.
 - The folder servers are stopped and the gate worktree removed. No job left running.
 - For the publish child's round: special-meals' row (delta-so50-lh-com-rows.json). Services-long-haul's two rows stay
   HOLD until a recording of www exists.
+
+## Standing order 51 (received about 11:10 UTC, 2026-11-17)
+
+State at the start: nothing of mine uncommitted or unpushed (order 50 on main, 7ca3c467, Build green). At most four
+browser jobs at a time, each read inside the turn. Lists: ita-so51-copies.txt, nobreak-so51-ita.txt,
+places-so51-lh-com-outside-101-120.txt, delta-so51-lh-com-rows.txt / .json.
+
+1. **ITA, all 2,574 served paths** (2,442 documents, 67 navs and 67 footers; every path answered 200).
+   - Copies against their source (ita-so51-copies.txt).
+     - ITA has nine language versions with the same paths, each imported from www's own page in that language.
+     - Against the Italian original, 277 of 1,921 copies differed. Most of those flagged it/it itself (its Italy-only
+       market sections) and section breaks.
+     - So each page's versions are compared against the structure most of them share. The 238 market-root documents
+       are the ruled market-diff list and are not compared.
+     - Result: 2,110 of the 2,204 language documents the same; 40 single-version pages; 54 in five classes.
+     - L1-L4 (33): www's own per-language content (homepages and sitemaps, Italy content in it/it and it/en, Italian
+       or single-translation authoring).
+     - C1 (21): it/en only. These are the layout rows and re-imports gated on the it/en recordings, 18 of them on
+       earlier lists. They were never carried to the other eight versions.
+     - Carrying C1 over would mean up to 168 rows on unrecorded pages. No drop records www in another language
+       (on the drops' address only ita-parity-005 exists, it/en), so none can pass a gate. Listed for a decision;
+       none written as READY.
+   - No-breakage render (nobreak-so51-ita.txt): 4,884 loads at 1440 and 390, no breakage.
+     - No sideways scroll, clipped text, failed picture, unknown block or empty widget.
+     - The 163 overlap documents were traced in the browser: the homepage flash teaser's www step (66), hidden
+       spacer and divider wrappers (54), sidebars (28), side-by-side grid columns (13), joined grey bands (2).
+     - Lost words: block settings, tab ids, card sizes, video track labels, market-hidden sections.
+     - The empty Columns Media on entry-exit-system (9) is www's own empty column row (ita-parity-005).
+     - H1: help-and-contact's H1 sits in the help centre's fallback, which the app (from our host) replaces, as www.
+   - No row or rule.
+2. **Places 101-120** (places-so51-lh-com-outside-101-120.txt).
+   - 140 page-widths measured again as served at ~13:01-13:11 UTC, after the heading-gap rule of order 52 was live
+     (197f797c, Build 12:51).
+   - 61 read 7 % or more. ema-adobe's 81-100 are not on main, so they are taken as the first 20 of this ranking,
+     and mine are its next 20.
+   - 19 located, 1 without a layout fix.
+   - One READY row: hotel-offers 1440 7.72 → 5.22 %, 390 unchanged.
+     - The closing spacer becomes 108 px from 768 and stays 70 below.
+     - Dry run on DA's copy: the insert made once, the copy byte for byte without it.
+     - The folder base equals the host at both widths; no new flag.
+   - Shared cause, not changed: the space under the last block before the footer at 390 (rebook +53, voucher +27).
+     That is the shared footer offset, open with ema-lufthansa.
+
+## Standing order 51, final section (about 13:45 UTC, 2026-11-17)
+
+- Items 1 and 2 done before 15:00 UTC. Every background job was started and read inside this turn; no more than four
+  browser jobs at once.
+- Before this section:
+  - the full suite at 45c9abec in a fresh worktree: npm run lint exit 0, stylelint exit 0, 1,271 test files passed,
+    0 failed;
+  - at 440b5309 (docs only since): the whole-repo lint exit 0, the folder-reading tests 660 with 0 failed,
+    brand.test.mjs passed;
+  - the whole-repo lint is read before every push.
+- No code or stylesheet changed this order, so the two-hour window was not in play.
+- Nothing uploaded, previewed or published by me; da-upload.mjs not run. DA read only (lufthansa.com hotel-offers, for
+  the dry run).
+- Requests went only to our own hosts, DA (one read), GitHub's API and the drops' address (ita-parity-005, checksum
+  verified; HEAD requests for ita-parity-001 to -004 answered 404). No request to www or any airline host.
+- .migration/project.json not touched; the excluded manage page has no row and no line.
+- The optional plugins stay off; .agents/settings.json not written.
+- Not in git, and why:
+  - logs/p4/so51 (scratch: the served copies, the renders, the captures);
+  - the drops under logs/drops (private material);
+  - content/, migration-work/ and tools/importer/reports/* (not mine);
+  - the old autostash entry (not mine, kept).
+- The folder servers are stopped; the gate and suite worktrees removed. No job left running.
+- For the publish child's round: hotel-offers' row (delta-so51-lh-com-rows.json).
+- For a decision: ITA's C1 carry-over (21 it/en rows to the eight other versions), unrecorded.
