@@ -11232,3 +11232,149 @@ running.
 the nine aside documents, previewed). All 22 page-widths render as drafted, to the px: recraft 390 5,339; green-fare 1440
 6,079; mobile-apps 390 2,545; the rest as in the lists. One parallel load of premium-economy at 390 came back as the
 window (844), and read alone it is 7,454. The fleet row wasn't applied yet at that time.
+
+## Standing order 66 (2026-11-17, from about 21:40 CET)
+
+**Carried over:** nothing. Order 65's last commit (361eab27) was on main and my worktree was clean. The main checkout's
+dirty entries (blocks/notifications/notifications.css, import-progress.json, importer reports, urls-*.txt) belong to
+other jobs and were left alone. The session restarted at about 22:45 CET, partway through the order. On disk then: the B2B
+rule and its test uncommitted in my worktree, 74 of the 488 language-version renders not yet done. Finished from there,
+nothing done twice.
+
+**Scratch:** migration-work/parity-588/so66 (not in git): the toggle censuses (togn2.mjs: togn.mjs plus the final path),
+the served and DA copies, the drafts and dry runs, the evaluators (ev.mjs, greyw.js, cm.js, bnd.js), logs.
+
+**Requests:** every render refused lh-proxy, www.* and every airline host per request and counted them; none were sent.
+www's pages were read only from the recordings on disk (b2b-parity-001, -004, -011, -014; swiss-parity-002a, -002b).
+
+**DA:** read only, 125 single GETs, one per command (lh-swiss: the 122 language versions of item 2, ch/en swiss-airrail,
+ch/de group-travel-and-charter, and one ch/fr copy read twice). Nothing was written. No upload, preview, publish or
+da-upload.mjs by me. /de/en/overview-manage has no row.
+
+**Your two answers:** swiss-economy's aside row and the SWISS tab-panel inset stay HOLD, with order 65's figures
+(economy 390 -0.70 -> +1.38 % with the row alone, +0.21 % with the inset; the inset takes recraft 1.07 points further even
+with its row). Neither was carried to other languages.
+
+### The Group for Business grey-band boundaries: pushed (0f12740f)
+
+- **Where the 8 px is:** on celebrating-shared-stories (b2b-parity-001, the PNGs' ink rows) the short boundaries are the
+  ones after a grey picture-and-text band (columns-media with a media cell, then its column end) before another grey
+  band. b2b.css's column-end rule gives such a band no margin, and the next band's -48 px pulls the two views together.
+  Ink to ink: www 40 px on phones (ours 12 to 18), 79 to 86 from 768 px (ours 72 to 78). The boundaries after the video
+  band and the text band were already www's (80 / 79 px), so a uniform +8 would have overshot them.
+- **First form, HOLD:** every grey column-end band before a grey band, 28 px on phones and 8 from 768. An in-page toggle
+  on all 184 recorded B2B page-widths took 16 phone page-widths 0.61 to 0.87 points further: allegris and swiss-senses
+  start-of-booking (de/de, de/en, xx/de, xx/en), and travel-id. Their bands are two text cells.
+- **Pushed form:** the same margins, only on bands with a media cell. On the 25 page-widths the first form moved, it
+  moves celebrating only (the subset holds for the other 159). Every row is closer:
+
+| Page | Width | www | As served | With the rule |
+| --- | --- | --- | --- | --- |
+| de/de celebrating-shared-stories | 1440 | 7,754 | 7,704 (-0.64 %) | 7,736 (-0.23 %) |
+| de/de celebrating-shared-stories | 390 | 12,092 | 11,938 (-1.27 %) | 12,050 (-0.35 %) |
+| de/en celebrating-shared-stories | 1440 | 8,265 | 8,184 (-0.98 %) | 8,216 (-0.59 %) |
+| de/en celebrating-shared-stories | 390 | 12,438 | 12,233 (-1.65 %) | 12,345 (-0.75 %) |
+
+- **No-breakage sample:** 50 unrecorded B2B documents (the two others with such a boundary, de/de and de/en
+  program/experts/news, plus 48 at random among those with grey bands, seed 66) at 390 and 1440. None moves, none scrolls
+  sideways. One broken load (lhg-history-connectivity 390) was read again alone: unchanged.
+- **Checked:** rendered with this checkout's code: celebrating de/de 12,050 / 7,736, as gated. Test:
+  test/b2b-grey-media-band-so66.test.mjs (red on the theme before it: 2 of 3 fail).
+- **Still open on celebrating:** 16 px under the two grey-band h3s ("Ein Jahrhundert ikonischer Ziele", "100 Jahre
+  Lufthansa": www 59 px to the text, ours 43) and the hero-campaign video band's 9 px.
+
+### Item 1: the SWISS pages 2 to 3.7 % off that order 65 did not reach (worst first)
+
+The figures are fresh loads as served. Each page was matched heading by heading against www's measurement file, and the
+PNGs were read where a step needed it (so66/mt).
+
+| Page | Width | www | Ours | Off | Outcome |
+| --- | --- | --- | --- | --- | --- |
+| ch/de terms-conditions/imprint | 390 | 2,134 | 2,212 | +3.66 % | no row: www's footnote component (14 / 15 px list) and the page end, +44 px after the last heading. A {copytext-small} row on the list moves 8 of the 78 px (1440: 3 of 51) |
+| ch/en partner-offers/swiss-airrail | 390 | 9,662 | 10,013 | +3.63 % | **READY**, see below |
+| ch/de discover/new-destinations | 1440 | 6,070 | 6,287 | +3.57 % | no row this order: the destination stages (Toulouse +116 / +87, Rijeka +171 px at 1440; +63 / +65 at 390) differ in height per stage, not in one spacing |
+| ch/de check-in/online-check-in | 1440 | 3,728 | 3,608 | -3.22 % | no row: two steps around "Optionen für das Self-Check-in" cancel (-247 / +202), the rest is spread (-55 at Travel ID, -40 at the page end) |
+| ch/en book-and-manage/rebook | 390 | 2,064 | 2,127 | +3.05 % | no row: spread, four steps of 28 to 44 px in both directions |
+| ch/en various/accessibility-statement | 1440 | 5,901 | 5,728 | -2.93 % | no row: 17 to 58 px short at each h2 of the text page. That is a SWISS heading-margin question for text pages, a rule with its own census, not a row |
+| ch/en flight-information/arrival-departure | 390 | 1,690 | 1,646 | -2.60 % | no row: -87 px at www's live timetable and flight-status form (a widget, as /ch/en/offers on file) |
+| ch/en terms-conditions/privacy-statement | 1440 | 16,127 | 15,720 | -2.52 % | no row: spread over the h2s of a long text page, -164 px at the end (390 -1.99 %) |
+| ch/en offers/vouchers | 390 | 4,189 | 4,286 | +2.32 % | no row: +98 px after the FAQ list's last question (the open answer and the closing divider), not located further |
+| ch/de corporate-customers/group-travel-and-charter | 1440 | 2,281 | 2,234 | -2.06 % | **READY**, see below |
+
+- **READY: swiss-airrail** (delta-so66-swiss-airrail.txt / .json).
+  - *Cause:* www draws a plain flight search (origin "Bern station"). Our document's flight search carries a background
+    picture, a video and a "Discover India / From 27 October, fly from Zurich to vibrant Bengaluru" teaser: +209 px at 390
+    and +341 at 1440. www's recording has no Bengaluru teaser at all.
+  - *Also in the row:* www's two tab panels open with their titles ("Start your air journey by train", "From the plane
+    to the train"); ours had none.
+  - *The row:* the three background rows removed and both titles added. Dry run: "3 inserted", byte for byte back, then
+    "present".
+  - *Figures:* 390 10,013 -> 9,779 (www 9,662; +3.63 -> +1.21 %); 1440 6,439 -> 6,095 (www 6,269; +2.71 -> -2.78 %, 0.07
+    points further, within the half point).
+  - The teaser alone fails 1440 (-3.57 %, 0.86 further). The rest of 1440's tab shortfall (-216 px) is www's narrower
+    panel text column, the held tab-panel inset.
+- **READY: group-travel-and-charter** (delta-so66-swiss-group-travel.txt / .json).
+  - *Cause:* one step of -48 px between the intro and "Gruppenreisen". At 390 the same step is -52, but that page is
+    long elsewhere, so the space is for 768 px and up only.
+  - *The row:* "{spacer-59 from-768}" before the heading. A spacer of 47 drew 36 px on the draft; 59 draws 48.
+  - *Figures:* 1440 2,234 -> 2,282 (www 2,281; -2.06 -> +0.04 %); 390 unchanged (2,067); 768 1,890 -> 1,938.
+  - Dry run: byte for byte back, then "present".
+
+### Item 2: today's SWISS rows in the other language versions: READY (delta-so66-swiss-language-versions.txt / .json)
+
+- **Scope:** order 65's rows on ch/en or ch/de documents: the nine aside rows, recraft's aside gaps, green-fare's
+  infographic and fleet's teaser row. The other language versions of those 12 documents number 122: ch/de or ch/en (the
+  twin), ch/el, es, fr, it, ja, pt, ru, zh and kr/ko, plus au/en and cn/zh for premium-economy. swiss-economy (HOLD) is
+  not carried.
+- **Structure:** in every version the same sections as the source (served copies compared section by section): the same
+  asides with content, green-fare's picture first in its aside, one two-up teaser grid on fleet. The inserts were placed
+  by that structure in each version's own DA copy, each anchor DA's own text right before the place, found once.
+- **Gate:** none of the 122 is recorded by www, so the gate was no breakage at 390 and 1440, with and without the row
+  (488 renders). Every draft moves by the source's own amounts: asides +40 px per shown aside at 390 and 0 at 1440;
+  recraft +80 at 390 (two of its four asides sit in closed tab panels); green-fare +368 / +369 at 1440 and +20 at 390;
+  fleet +90 at both widths. No page scrolls sideways. Five broken loads were rendered again alone and then moved as
+  expected.
+- **Dry runs:** on the 122 DA copies, 192 inserts, each "without the inserts DA's copy byte for byte: true"; a second run
+  "present" on all 122.
+
+### Note from ema-lufthansa (2eaa7822, rows-for-ema-cashub.md item 3)
+
+1,076 SWISS documents end with an empty section. In their 40-document sample it draws 0 px on almost every page (24 px
+on two). It is marked as a note only, and no recorded page was gated, so I took no action this order.
+
+### Checks
+
+- **Lint:** whole-repo `npm run lint`, exit 0 on a5c3d03a. After the rebase over origin's b389b28f (it changed
+  styles/styles.css) it ran again, exit 0, before the push. The last rebase was over eeaac322, a DA upload state with no
+  JS or CSS, and had no third run. Pushed as 0f12740f. The docs commit was linted before its own push.
+- **Stylelint** on styles/themes/b2b.css: exit 0. No block CSS file changed.
+- **Tests before the code push:** the folder-reading tests (order 62's list), every test naming the B2B theme,
+  columns-media-media, column-end-outer, text-inserts-apply or a delta-so6 list, and the new test: 279 files, 1,214 pass,
+  0 failures, 2 skipped.
+- **Full suite** on 0f12740f: 1,278 files, 4,791 pass, 0 failures, 5 skipped.
+
+### Final section (about 23:25 CET, 2026-11-17)
+
+**Pushed (0f12740f):**
+- The Group for Business rule for picture-and-text grey bands before a grey band, with its test. It moves only
+  celebrating-shared-stories, closer at every width: de/de 1440 -0.64 -> -0.23 %, 390 -1.27 -> -0.35 %; de/en 1440
+  -0.98 -> -0.59 %, 390 -1.65 -> -0.75 %.
+- In the same commit, the three READY lists below.
+
+**READY lists (pushed, for the helpers):**
+- delta-so66-swiss-airrail.txt: 1 path. 390 +3.63 -> +1.21 %, 1440 +2.71 -> -2.78 % (within the half point).
+- delta-so66-swiss-group-travel.txt: 1 path. 1440 -2.06 -> +0.04 %, 390 unchanged.
+- delta-so66-swiss-language-versions.txt: 122 paths, 192 inserts. Order 65's aside, recraft, green-fare and fleet rows in
+  the other SWISS language versions; no breakage at 390 and 1440.
+
+**Held, with figures:**
+- **The first, wider B2B form** (every grey column-end band before a grey band): 16 phone page-widths 0.61 to 0.87
+  points further. Only the media-cell form went in.
+- **swiss-economy's aside row and the SWISS tab-panel inset:** as you decided, with order 65's figures. The inset is
+  also what keeps swiss-airrail's 1440 panel 216 px short.
+- **No row this order, cause given in item 1's table:** imprint (www's footnote component), new-destinations (the
+  destination stages), online-check-in, rebook, accessibility-statement (a heading-margin rule question), arrival-departure
+  (www's live form), privacy-statement, vouchers.
+
+**Left uncommitted:** nothing of mine. Scratch stays in migration-work/parity-588/so66. No background job of mine is
+running.
