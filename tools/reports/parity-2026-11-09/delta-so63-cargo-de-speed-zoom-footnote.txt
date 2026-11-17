@@ -1,0 +1,30 @@
+# ema-cashub, standing order 63 (2026-11-17), item 2: Cargo /de/speed-zoom, re-imported from cargo-parity-012 (helper commit
+# 37effaa7, live since round 541): the Features panel's footnote in www's small print.
+# www (cargo-parity-012, its 1440 load; its markup laid out offline with its own CSS): the footnote under the list ("* Ausnahmen
+# können je nach Flugzeugtyp ... gelten / ** Gebäude 455d ...") is <p><span class="small">: two lines, 50 px. Ours drew it as
+# running text, 18 px: the first line wraps (867 px of text in an 855 px column), three lines, 72 px.
+# The row: the marker " {copytext-small}" at the paragraph's end (scripts.js: Cargo's 14 px small print). With it two lines, 37 px.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so63-cargo-de-speed-zoom-footnote.json
+#   --list <this file> --docs <DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copy (one read-only GET of admin.da.live/source/moved-permanently/lh-cargo/de/speed-zoom.html,
+# ~16:25 CET): the anchor found once, "1 inserted", "without the inserts DA's copy byte for byte: true"; a second run "1 present".
+# DA backup folder (standing order 39): before the row is applied, DA's copy goes to
+# /.token-free-backup/2026-11-cargo-so63-de-speed-zoom/de/speed-zoom.html (lh-cargo; read back equal before the upload).
+# Drafted on cargo.turnsthe.page (so53/hostv.mjs as the live-animals row's; refused and counted: 0). Control = live (2,308 / 1,208).
+# Gate: your 3 % for the page at 1440 (the page is within it, its footer top is not; see the note); 390 unchanged.
+# status	path	width	recording	www page	as served	with the row	www footer top	footer top as served	footer top with the row	note
+READY	/de/speed-zoom	1440	cargo-parity-012	2210	2308 (+4.43 %)	2273 (+2.85 %)	1728	1831 (+5.96 %)	1796 (+3.94 %)	the footnote two lines as www's (37 px, www 50); what is left is not in the document, see the note
+READY	/de/speed-zoom	390	cargo-parity-012 (the 1440 load resized)	1202	1208 (+0.50 %)	1208 (unchanged)	-	-	-	the panels are closed below 1025 px: the page as served, to the px
+#
+# Note, what is left at 1440 (+63 px), none of it a document matter:
+# - 27 px: the breadcrumb section ends 48 px (the section gap) above the grey title band, www's 21 px (the "Back" row, then the
+#   band). Order 41's rule (20 px) is below 1025 px only. Toggled from 1025 px too (so63/tog.mjs, the three recorded Speed
+#   page-widths it reaches): de/speed-zoom 2,308 -> 2,280 (+3.17 % with the row's -35: +1.58 %), en/speed-zoom 2,180 -> 2,152
+#   (www less the 80 px notice 2,186: -0.27 % -> -1.56 %, 1.28 points further), en/speed-pro 1,986 -> 1,958 (www less the notice
+#   1,955: +1.59 % -> +0.15 %). en/speed-zoom fails the half point, so no rule.
+# - 24 px: one list item takes two lines ("Dediziertes Handling ... Courier Terminal**", 836 px of text): our panel lists draw the
+#   disc inside the 855 px column (830 px for a first line), www's outside with 20 px padding (836 px for every line). A Cargo-wide
+#   list rule, not this page's; see item 4 of the report.
+# - 8 px: the grey band ends 48 px above the white tab section, www's 40 px; the rest within 4 px.
+#
+# DA change: lh-cargo /de/speed-zoom: " {copytext-small}" at the end of the Features panel's footnote ("... 60546 Frankfurt/Main").

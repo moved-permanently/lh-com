@@ -1,0 +1,27 @@
+# ema-cashub, standing order 63 (2026-11-17), item 2: Cargo /de/live-animals, re-imported from cargo-parity-012 (helper
+# commit 37effaa7, live since round 541), the update note's two separators, as order 38's row for /en/live-animals
+# (delta-so38-cargo-live-animals.txt): the re-import dropped them again (our importer drops a rule inside a section; in our
+# documents a rule is a section break).
+# www (cargo-parity-012, recorded 2026-11-17 11:21 UTC, its 1440 load; its markup laid out offline with its own CSS): the
+# intro's update note sits between two Liferay separators (component-separator, an <hr class="m-0 pb-3">, 21 px): one before
+# the H4 "Update 05. Februar 2026: ...", one before "Bitte beachten Sie: ...". As served ours ran 50 and 21 px short there:
+# "Ab dem 01. März 2026 ..." at 753 (www 803), the tab bar 1,077 (www 1,148).
+# The row: a paragraph {divider-50} before the H4 and {divider-20} before "Bitte beachten Sie" (scripts.js: a 1 px line, N px
+# under it). The N are solved on a draft for this document: with them "Ab dem" 804 (www 803), the tab bar 1,148 (www 1,148).
+# (en's second divider is 44: en's note stands differently; de's 44 put the tab bar 25 px under www's.)
+# Tool: node tools/importer/paragraph-spacer-apply.mjs --data tools/reports/parity-2026-11-09/delta-so63-cargo-de-live-animals-dividers.json
+#   --in <DA's current copy, de/live-animals.html> --out <file>
+# Dry run on DA's current copy (one read-only GET of admin.da.live/source/moved-permanently/lh-cargo/de/live-animals.html,
+# ~16:25 CET): both "placed"; a second run "there already" for both; the two paragraphs taken out give DA's copy byte for byte.
+# DA backup folder (standing order 39): before the row is applied, DA's copy goes to
+# /.token-free-backup/2026-11-cargo-so63-de-live-animals/de/live-animals.html (lh-cargo; read back equal before the upload).
+# Drafted on cargo.turnsthe.page (so53/hostv.mjs: the served copy with the two paragraphs as the drafted main; unhinted,
+# EAGER=1 CONSENT=1; lh-proxy, www.* and every airline host refused per request and counted: 0). The control (the served copy
+# as a draft) equals live to the px at both widths (2,218 / 1,802).
+# Gate: READY = the page and the footer top within 2 % of www's recording.
+# status	path	width	recording	www page	as served	with the row	www footer top	footer top as served	footer top with the row	note
+READY	/de/live-animals	1440	cargo-parity-012	2297	2218 (-3.44 %)	2290 (-0.30 %)	1815	1741 (-4.08 %)	1813 (-0.11 %)	the note's text and the tab bar where www's are (804 / 1,148, www 803 / 1,148)
+READY	/de/live-animals	390	cargo-parity-012 (the 1440 load resized)	1902	1802 (-5.26 %)	1874 (-1.47 %)	1302	1202 (-7.68 %)	1274 (-2.15 %)	our first load (your figure as served: 1,826, -4.00 %); the separators draw at every width, as www's; a pointer, not a gate (www's 390 is the 1440 load resized)
+#
+# DA change: lh-cargo /de/live-animals: a paragraph {divider-50} before the H4 "Update 05. Februar 2026: Käfiganforderungen
+# für Listenhunde"; a paragraph {divider-20} before "Bitte beachten Sie: Privatpersonen müssen über einen Spediteur buchen ...".

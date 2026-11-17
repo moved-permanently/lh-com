@@ -1,0 +1,27 @@
+# ema-cashub, standing order 63 (2026-11-17), item 2: Cargo /de/passive-temp-support, re-imported from cargo-parity-012
+# (helper commit 37effaa7, live since round 541): www's full-width list in the Features panel, as order 40's row for
+# /en/passive-temp-support (delta-so40-cargo-passive-temp-full-width.txt). The re-import has no {full-width} marker on it.
+# www (cargo-parity-012, its 1440 load; its markup laid out offline with its own CSS): the Features list ("Passive
+# Temperaturunterstützung im gesamten ...", eight items) runs across the panel, 1,276 px; six items take one line, two take two.
+# As served ours kept the FAQ answers' 66 % (855 px), so four more items took two lines (+96 px); the rest of the page is where
+# www's is to 9 px (the tab bar 777, www 768).
+# The row: the marker " {full-width}" at the end of the list's last item (scripts.js gives the list the class full-width;
+# styles/themes/cargo.css, order 40: a panel list so marked runs across the panel, from 1025 px).
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so63-cargo-de-passive-temp-full-width.json
+#   --list <this file> --docs <DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copy (one read-only GET of admin.da.live/source/moved-permanently/lh-cargo/de/passive-temp-support.html,
+# ~16:25 CET): "1 inserted", "without the inserts DA's copy byte for byte: true"; a second run "1 present".
+# DA backup folder (standing order 39): before the row is applied, DA's copy goes to
+# /.token-free-backup/2026-11-cargo-so63-de-passive-temp/de/passive-temp-support.html (lh-cargo; read back equal before the upload).
+# Drafted on cargo.turnsthe.page (so53/hostv.mjs as the live-animals row's; refused and counted: 0). Control = live (2,278 / 1,286).
+# Gate: READY = the page within 2 % of www's recording at 1440, the band's end within 2 %; 390 unchanged.
+# status	path	width	recording	www page	as served	with the row	www footer top (the band's end)	band end as served	band end with the row	note
+READY	/de/passive-temp-support	1440	cargo-parity-012	2168	2278 (+5.07 %)	2206 (+1.75 %)	1686	1781 (+5.63 %)	1709 (+1.36 %)	the list's items as www's to the px (24 / 24 / 24 / 24 / 48 / 48 / 24 / 24); our footer 1,729 keeps Cargo's 20 px under the band (www's band touches it): +2.55 %, see the note below
+READY	/de/passive-temp-support	390	cargo-parity-012 (the 1440 load resized)	1282	1286 (+0.31 %)	1286 (unchanged)	-	-	-	the panels are closed below 1025 px and the rule is from 1025 px: the page as served, to the px
+#
+# Note: what is left at 1440 (+38 px) is the footnotes (ours two paragraphs 20 px apart, www's an empty line and two small
+# lines without gaps) and Cargo's 20 px under the band. The style flush (order 47) would take the 20 px at 1440 but also the
+# band's 40 px of padding at 390 (about -2.8 % there, estimated from the boxes, not rendered), so it is not in this row.
+#
+# DA change: lh-cargo /de/passive-temp-support: " {full-width}" at the end of the Features list's last item ("Einsatz von
+# Thermo Covers von und nach FRA** für besonderen Schutz vor extremen Witterungsbedingungen").
