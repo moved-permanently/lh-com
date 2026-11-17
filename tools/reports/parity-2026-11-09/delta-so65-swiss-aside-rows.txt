@@ -1,0 +1,39 @@
+# ema-cashub, standing order 65 (2026-11-17), item 5: SWISS recorded pages more than 2 % off at 390 whose sidebar aside is
+# short on phones, as item 1 found (delta-so65-swiss-aside-gaps.txt): www's .sidebar-aside is 80 px under the content below
+# 768 px on all 25 recorded sidebar pages (laid out offline with their own CSS, so65/aside-www.txt), ours 40. A SWISS rule
+# fails the half point on five other pages, so these are per-document rows, on the nine documents that are more than 2 % off
+# at 390 and end closer with it.
+# The row: "{spacer-39 below-768}" first in each aside section with content (drawn on phones only, 40 px).
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so65-swiss-aside-rows.json
+#   --list <this file> --docs <lh-swiss: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (nine read-only GETs of admin.da.live/source/moved-permanently/lh-swiss/<path>.html, one per
+# command, ~20:45 CET): each "N inserted" (13 in all), "without the inserts DA's copy byte for byte: true"; a second run
+# "present" on all nine.
+# Drafted on swiss.turnsthe.page (so53/hostv.mjs, the served .plain.html with the markers as main; unhinted; airline hosts,
+# www.* and lh-proxy refused per request). Each 390 draft equals the in-page toggle of the 80 px margin to the px
+# (so65/tA.*.tsv). 1440 unchanged on all nine; 768 checked on three (premium-economy 4,164, swiss-business 4,992,
+# animals-travelling 5,941: unchanged). Where a second aside sits in a closed tab panel it draws nothing on load.
+# What is left on these pages is other: the intro's copytext-large (upgrade-options), the first section's 68 px
+# (mobile-apps), the accordion lists' starts (health-and-travel), entertainment's single-page differences.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/ch/en/fly/on-board/travel-classes/swiss-premium-economy	390	swiss-parity-002a	7682	7414 (-3.49 %)	7454 (-2.97 %)	1 aside(s) with content, the shown one 80 px under the content as www's
+READY	/ch/en/fly/on-board/travel-classes/swiss-premium-economy	1440	swiss-parity-002a	4120	4044 (-1.84 %)	4044 (-1.84 %)	unchanged (phones only)
+READY	/ch/en/book-and-manage/offers/miles-and-more	390	swiss-parity-002b	5194	5035 (-3.06 %)	5075 (-2.29 %)	1 aside(s) with content, the shown one 80 px under the content as www's
+READY	/ch/en/book-and-manage/offers/miles-and-more	1440	swiss-parity-002b	3427	3543 (+3.38 %)	3543 (+3.38 %)	unchanged (phones only)
+READY	/ch/en/book-and-manage/swiss-choice/upgrade-options	390	swiss-parity-002b	3904	3723 (-4.64 %)	3763 (-3.61 %)	1 aside(s) with content, the shown one 80 px under the content as www's
+READY	/ch/en/book-and-manage/swiss-choice/upgrade-options	1440	swiss-parity-002b	2888	2822 (-2.29 %)	2822 (-2.29 %)	unchanged (phones only)
+READY	/ch/en/fly/flight-information/mobile-apps	390	swiss-parity-002b	2643	2505 (-5.22 %)	2545 (-3.71 %)	1 aside(s) with content, the shown one 80 px under the content as www's
+READY	/ch/en/fly/flight-information/mobile-apps	1440	swiss-parity-002b	2152	2086 (-3.07 %)	2086 (-3.07 %)	unchanged (phones only)
+READY	/ch/de/book-and-manage/swiss-choice/additional-bag	390	swiss-parity-002a	2816	2730 (-3.05 %)	2770 (-1.63 %)	1 aside(s) with content, the shown one 80 px under the content as www's
+READY	/ch/de/book-and-manage/swiss-choice/additional-bag	1440	swiss-parity-002a	2387	2324 (-2.64 %)	2324 (-2.64 %)	unchanged (phones only)
+READY	/ch/de/fly/on-board/entertainment-on-board	390	swiss-parity-002b	2837	2625 (-7.47 %)	2665 (-6.06 %)	2 aside(s) with content, the shown one 80 px under the content as www's
+READY	/ch/de/fly/on-board/entertainment-on-board	1440	swiss-parity-002b	2554	2494 (-2.35 %)	2494 (-2.35 %)	unchanged (phones only)
+READY	/ch/en/prepare/special-care/health-and-travel	390	swiss-parity-002b	4873	4732 (-2.89 %)	4772 (-2.07 %)	1 aside(s) with content, the shown one 80 px under the content as www's
+READY	/ch/en/prepare/special-care/health-and-travel	1440	swiss-parity-002b	3150	2946 (-6.48 %)	2946 (-6.48 %)	unchanged (phones only)
+READY	/ch/de/fly/on-board/swiss-business	390	swiss-parity-002a	6821	6681 (-2.05 %)	6721 (-1.47 %)	2 aside(s) with content, the shown one 80 px under the content as www's
+READY	/ch/de/fly/on-board/swiss-business	1440	swiss-parity-002a	4655	4748 (+2.00 %)	4748 (+2.00 %)	unchanged (phones only)
+READY	/ch/en/prepare/special-care/animals-travelling	390	swiss-parity-002b	7771	7540 (-2.97 %)	7580 (-2.46 %)	2 aside(s) with content, the shown one 80 px under the content as www's
+READY	/ch/en/prepare/special-care/animals-travelling	1440	swiss-parity-002b	5121	5016 (-2.05 %)	5016 (-2.05 %)	unchanged (phones only)
+#
+# DA change: lh-swiss, the nine documents above: "<p>{spacer-39 below-768}</p>" first in each aside section with content
+# (empty asides get none).

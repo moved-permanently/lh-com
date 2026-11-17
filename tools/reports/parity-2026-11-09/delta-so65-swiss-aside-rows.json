@@ -1,0 +1,95 @@
+[
+ {
+  "path": "/ch/en/fly/on-board/travel-classes/swiss-premium-economy",
+  "inserts": [
+   {
+    "after": "ore</a></p></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/en/book-and-manage/offers/miles-and-more",
+  "inserts": [
+   {
+    "after": "</li> </ul></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/en/book-and-manage/swiss-choice/upgrade-options",
+  "inserts": [
+   {
+    "after": "riginates in India</li>\n</ol></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/en/fly/flight-information/mobile-apps",
+  "inserts": [
+   {
+    "after": "1269540972\">App Store</a></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/de/book-and-manage/swiss-choice/additional-bag",
+  "inserts": [
+   {
+    "after": "ke erhoben.</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/de/fly/on-board/entertainment-on-board",
+  "inserts": [
+   {
+    "after": " &amp; Spiele</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": ">space-m</div></div><div><div>Tab</div><div>eJournals</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/en/prepare/special-care/health-and-travel",
+  "inserts": [
+   {
+    "after": "idebar-part</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/de/fly/on-board/swiss-business",
+  "inserts": [
+   {
+    "after": "erkontinental</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "v><div>Europa</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/en/prepare/special-care/animals-travelling",
+  "inserts": [
+   {
+    "after": "yle</div><div>flush</div></div><div><div>Tab</div><div>General provisions</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "d regulations</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ }
+]
