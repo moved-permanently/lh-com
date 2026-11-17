@@ -1,0 +1,461 @@
+[
+ {
+  "path": "/xx/el/overview-travel-information",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/el/services-at-the-airport",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/es/overview-travel-information",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/es/services-at-the-airport",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/fr/overview-travel-information",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/fr/services-at-the-airport",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/hk/overview-travel-information",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/hk/services-at-the-airport",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/it/overview-travel-information",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/it/services-at-the-airport",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/ja/overview-travel-information",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/ja/services-at-the-airport",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/ko/overview-travel-information",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/ko/services-at-the-airport",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/pl/overview-travel-information",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/pl/services-at-the-airport",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/pt/overview-travel-information",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/pt/services-at-the-airport",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/ru/overview-travel-information",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/ru/services-at-the-airport",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/zh/overview-travel-information",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/zh/services-at-the-airport",
+  "inserts": [
+   {
+    "replace": "<div class=\"cards-teaser\">",
+    "text": "<div class=\"cards-teaser spacious\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/el/lufthansa-aviation-group",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media\">",
+    "text": "<div class=\"columns-media wide-rows\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/es/lufthansa-aviation-group",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media\">",
+    "text": "<div class=\"columns-media wide-rows\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/fr/lufthansa-aviation-group",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media\">",
+    "text": "<div class=\"columns-media wide-rows\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/hk/lufthansa-aviation-group",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media\">",
+    "text": "<div class=\"columns-media wide-rows\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/it/lufthansa-aviation-group",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media\">",
+    "text": "<div class=\"columns-media wide-rows\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/ja/lufthansa-aviation-group",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media\">",
+    "text": "<div class=\"columns-media wide-rows\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/ko/lufthansa-aviation-group",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media\">",
+    "text": "<div class=\"columns-media wide-rows\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/pl/lufthansa-aviation-group",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media\">",
+    "text": "<div class=\"columns-media wide-rows\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/pt/lufthansa-aviation-group",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media\">",
+    "text": "<div class=\"columns-media wide-rows\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/ru/lufthansa-aviation-group",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media\">",
+    "text": "<div class=\"columns-media wide-rows\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/zh/lufthansa-aviation-group",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media\">",
+    "text": "<div class=\"columns-media wide-rows\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/el/book-and-manage/additional-services/travel-insurances",
+  "inserts": [
+   {
+    "replace": "<div class=\"carousel-cards grid\">",
+    "text": "<div class=\"carousel-cards grid phone-slider\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/es/book-and-manage/additional-services/travel-insurances",
+  "inserts": [
+   {
+    "replace": "<div class=\"carousel-cards grid\">",
+    "text": "<div class=\"carousel-cards grid phone-slider\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/fr/book-and-manage/additional-services/travel-insurances",
+  "inserts": [
+   {
+    "replace": "<div class=\"carousel-cards grid\">",
+    "text": "<div class=\"carousel-cards grid phone-slider\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/hk/book-and-manage/additional-services/travel-insurances",
+  "inserts": [
+   {
+    "replace": "<div class=\"carousel-cards grid\">",
+    "text": "<div class=\"carousel-cards grid phone-slider\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/it/book-and-manage/additional-services/travel-insurances",
+  "inserts": [
+   {
+    "replace": "<div class=\"carousel-cards grid\">",
+    "text": "<div class=\"carousel-cards grid phone-slider\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/ja/book-and-manage/additional-services/travel-insurances",
+  "inserts": [
+   {
+    "replace": "<div class=\"carousel-cards grid\">",
+    "text": "<div class=\"carousel-cards grid phone-slider\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/ko/book-and-manage/additional-services/travel-insurances",
+  "inserts": [
+   {
+    "replace": "<div class=\"carousel-cards grid\">",
+    "text": "<div class=\"carousel-cards grid phone-slider\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/pl/book-and-manage/additional-services/travel-insurances",
+  "inserts": [
+   {
+    "replace": "<div class=\"carousel-cards grid\">",
+    "text": "<div class=\"carousel-cards grid phone-slider\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/pt/book-and-manage/additional-services/travel-insurances",
+  "inserts": [
+   {
+    "replace": "<div class=\"carousel-cards grid\">",
+    "text": "<div class=\"carousel-cards grid phone-slider\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/ru/book-and-manage/additional-services/travel-insurances",
+  "inserts": [
+   {
+    "replace": "<div class=\"carousel-cards grid\">",
+    "text": "<div class=\"carousel-cards grid phone-slider\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/zh/book-and-manage/additional-services/travel-insurances",
+  "inserts": [
+   {
+    "replace": "<div class=\"carousel-cards grid\">",
+    "text": "<div class=\"carousel-cards grid phone-slider\">"
+   }
+  ]
+ },
+ {
+  "path": "/ca/en/flight-disruptions",
+  "inserts": [
+   {
+    "replace": "<div class=\"jump-links\">",
+    "text": "<div class=\"jump-links stacked\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/el/flight-disruptions",
+  "inserts": [
+   {
+    "replace": "<div class=\"jump-links\">",
+    "text": "<div class=\"jump-links stacked\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/hk/flight-disruptions",
+  "inserts": [
+   {
+    "replace": "<div class=\"jump-links\">",
+    "text": "<div class=\"jump-links stacked\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/ko/flight-disruptions",
+  "inserts": [
+   {
+    "replace": "<div class=\"jump-links\">",
+    "text": "<div class=\"jump-links stacked\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/pl/flight-disruptions",
+  "inserts": [
+   {
+    "replace": "<div class=\"jump-links\">",
+    "text": "<div class=\"jump-links stacked\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/ru/flight-disruptions",
+  "inserts": [
+   {
+    "replace": "<div class=\"jump-links\">",
+    "text": "<div class=\"jump-links stacked\">"
+   }
+  ]
+ },
+ {
+  "path": "/xx/zh/flight-disruptions",
+  "inserts": [
+   {
+    "replace": "<div class=\"jump-links\">",
+    "text": "<div class=\"jump-links stacked\">"
+   }
+  ]
+ }
+]
