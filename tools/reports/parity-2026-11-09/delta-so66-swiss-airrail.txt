@@ -1,0 +1,26 @@
+# ema-cashub, standing order 66 (2026-11-17), item 1: /ch/en/book-and-manage/partner-offers/swiss-airrail, the worst of the
+# SWISS pages 2 to 3.7 % off that order 65 did not reach (390 +3.63 %, 1440 +2.71 %).
+# Cause, against swiss-parity-002b (its PNGs and markup):
+#  - The flight search: www draws a plain flight search (no picture, no teaser, origin "Bern station"). Our document's
+#    standalone flight search carries a Background image, a Background video and a "Discover India / From 27 October, fly
+#    from Zurich to vibrant Bengaluru" teaser: +209 px at 390 and +341 at 1440 between the intro and "Find flights". www's
+#    recording has no Bengaluru teaser anywhere.
+#  - The tab panels: www's two panels open with their column view's title, "Start your air journey by train" and "From
+#    the plane to the train" (h3.heading-copytext-large); ours have no title. The rest of the 1440 shortfall in the panel
+#    (-216 px) is www's narrower text column there: the held SWISS tab-panel inset (order 64), not this row.
+# The row: the flight search loses its three background rows, each panel gets its title as a plain h3 first (drawn 20 / 24
+# px bold; www's is 16 / 18 px: a few px taller, measured with it).
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so66-swiss-airrail.json
+#   --list <this file> --docs <lh-swiss: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copy (one read-only GET, ~22:00 CET): "3 inserted", "without the inserts DA's copy byte for byte:
+# true"; a second run "3 present".
+# Drafted on swiss.turnsthe.page (so53/hostv.mjs, the served .plain.html with the change as main; unhinted; airline hosts,
+# www.* and lh-proxy refused per request). Gate (|after %| - |before %| <= 0.5 at each recorded width): 390 3.09 points
+# closer; 1440 0.07 points further (the teaser alone took 1440 to -3.57 %, 0.86 further; with the panel titles it passes).
+# status	path	width	recording	www page	as served	with the row	note
+READY	/ch/en/book-and-manage/partner-offers/swiss-airrail	390	swiss-parity-002b	9662	10013 (+3.63 %)	9779 (+1.21 %)	flight search without the Bengaluru background, panel titles
+READY	/ch/en/book-and-manage/partner-offers/swiss-airrail	1440	swiss-parity-002b	6269	6439 (+2.71 %)	6095 (-2.78 %)	within the half point; the rest is the held tab-panel inset
+#
+# DA change: lh-swiss /ch/en/book-and-manage/partner-offers/swiss-airrail: the flight-search block's "Background image",
+# "Background video" and "Background teaser" rows removed; "<h3>Start your air journey by train</h3>" first in the
+# "Before the flight" panel, "<h3>From the plane to the train</h3>" first in "After the flight".

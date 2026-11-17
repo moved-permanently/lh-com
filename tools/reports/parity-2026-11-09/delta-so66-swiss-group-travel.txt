@@ -1,0 +1,19 @@
+# ema-cashub, standing order 66 (2026-11-17), item 1: /ch/de/book-and-manage/corporate-customers/group-travel-and-charter
+# at 1440 (-2.06 %).
+# Cause, against swiss-parity-002a's measurement file: between the intro paragraph and the first heading ("Gruppenreisen")
+# www has 124 px, ours 76: the one step of -48 px; everything after it moves with it (within 16 px to the footer).
+# At 390 the same step is -52 but the page is longer elsewhere (+1.62 %), so the space is for 768 px and up only.
+# The row: "<p>{spacer-59 from-768}</p>" before the first h2 (a spacer before a heading nets N+1-12 here, solved on the
+# draft: 47 drew 36, 59 draws 48).
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so66-swiss-group-travel.json
+#   --list <this file> --docs <lh-swiss: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copy (one read-only GET, ~22:55 CET): "1 inserted", byte for byte back: true; a second run
+# "1 present".
+# Drafted on swiss.turnsthe.page (so53/hostv.mjs, unhinted, airline hosts refused): 390 unchanged (2,067), 768 1,890 ->
+# 1,938, 1440 as below.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/ch/de/book-and-manage/corporate-customers/group-travel-and-charter	1440	swiss-parity-002a	2281	2234 (-2.06 %)	2282 (+0.04 %)	"Gruppenreisen" 48 px lower, as www's
+READY	/ch/de/book-and-manage/corporate-customers/group-travel-and-charter	390	swiss-parity-002a	2034	2067 (+1.62 %)	2067 (+1.62 %)	unchanged (from 768 px only)
+#
+# DA change: lh-swiss /ch/de/book-and-manage/corporate-customers/group-travel-and-charter: "<p>{spacer-59 from-768}</p>"
+# before <h2 id="gruppenreisen">.

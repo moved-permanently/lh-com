@@ -174,6 +174,24 @@ body.brand-b2b main > .section.grey:has(+ .section > .default-content-wrapper:fi
   margin-bottom: 0;
 }
 
+/* standing order 66: two grey bands in a row where the first is a picture-and-text row (a columns-media block with a
+   media cell, then its column end): the rule above leaves it no margin, so the next band's -48 px pulls the two views
+   together. www's views meet with their own paddings: 40 px between the rows' ink on phones (ours 12 to 18), 80 from
+   768 px (ours 72); b2b-parity-001's celebrating-shared-stories, the PNGs' ink rows at its four such boundaries. Reach:
+   an in-page toggle on all 184 recorded B2B page-widths moves celebrating-shared-stories only (de/de 1440 -0.64 ->
+   -0.23 %, 390 -1.27 -> -0.35 %; de/en 1440 -0.98 -> -0.59 %, 390 -1.65 -> -0.75 %). Bands of two text cells
+   (allegris, swiss-senses start-of-booking) are not reached: the same margin on them took 16 phone page-widths 0.6 to
+   0.9 points further */
+body.brand-b2b main > .section.grey:has(> .columns-media-wrapper .columns-media-media):has(> .default-content-wrapper:last-child > p.column-mark.column-end-outer:last-child):has(+ .section.grey) {
+  margin-bottom: 28px;
+}
+
+@media (width >= 768px) {
+  body.brand-b2b main > .section.grey:has(> .columns-media-wrapper .columns-media-media):has(> .default-content-wrapper:last-child > p.column-mark.column-end-outer:last-child):has(+ .section.grey) {
+    margin-bottom: 8px;
+  }
+}
+
 body.brand-b2b main > .section > div:not(.default-content-wrapper) + div:not(.default-content-wrapper) {
   margin-top: 40px;
 }

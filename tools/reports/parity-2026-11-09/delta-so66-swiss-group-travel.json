@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/ch/de/book-and-manage/corporate-customers/group-travel-and-charter",
+  "inserts": [
+   {
+    "before": "<h2 id=\"gruppenreisen\">",
+    "text": "<p>{spacer-59 from-768}</p>"
+   }
+  ]
+ }
+]

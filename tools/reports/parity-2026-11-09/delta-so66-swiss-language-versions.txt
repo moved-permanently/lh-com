@@ -1,0 +1,268 @@
+# ema-cashub, standing order 66 (2026-11-17), item 2: today's SWISS rows carried to the other SWISS language versions of
+# the same documents (122 documents): the aside gaps of delta-so65-swiss-aside-rows.txt (nine documents) and of
+# swiss-recraft-collection (delta-so65-swiss-aside-gaps.txt), green-fare's infographic (delta-so65-swiss-green-fare-picture.txt)
+# and fleet's teaser row (delta-so65-swiss-fleet-card-row.txt). swiss-economy's row stays HOLD (the user's word, order 66)
+# and is not carried.
+# Anchored by structure, in each language's own DA copy (so66/da-rows.py): the aside spacer first in every section whose
+# section-metadata Style is sidebar-aside and which has content (empty asides get none; the same count as the source in
+# every language); green-fare: the aside's first picture paragraph moved to the end of the section before; fleet: the
+# spacers before and after the one "carousel-cards grid two-up" block. Each anchor is DA's own text right before the place,
+# lengthened until it is found once.
+# None of these 122 documents is recorded by www (the recordings hold ch/de, ch/en, us/en and the magazine), so the gate is
+# no breakage: each drafted at 390 and 1440 with and without the row (so53/hostv.mjs: the served .plain.html as main, the
+# same document with the row as the draft; unhinted; airline hosts, www.* and lh-proxy refused per request). Every draft
+# moves by the source's own amounts (asides +40 px per shown aside at 390, 0 at 1440; recraft +80 at 390, two of its four
+# asides sit in closed tab panels; green-fare +368/+369 at 1440, +20 at 390; fleet +90 at both), no page scrolls sideways.
+# Five loads that came back broken (height = the window, or still filling) were rendered again alone; the list holds the
+# second load.
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so66-swiss-language-versions.json
+#   --list <this file> --docs <lh-swiss: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (122 read-only GETs of lh-swiss's DA source, one per command, 21:50 to 22:15 CET): every
+# one "N inserted" (192 inserts), "without the inserts DA's copy byte for byte: true"; a second run "present" on all 122.
+# status	path	width	recording	www page	as served (draft control)	with the row	note
+READY	/au/en/fly/on-board/travel-classes/swiss-premium-economy	390	-	-	7526	7566 (+40)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/au/en/fly/on-board/travel-classes/swiss-premium-economy	1440	-	-	4044	4044 (+0)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/de/fly/on-board/travel-classes/swiss-premium-economy	390	-	-	7568	7608 (+40)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/de/fly/on-board/travel-classes/swiss-premium-economy	1440	-	-	4106	4106 (+0)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/el/fly/on-board/travel-classes/swiss-premium-economy	390	-	-	8223	8263 (+40)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/el/fly/on-board/travel-classes/swiss-premium-economy	1440	-	-	4211	4211 (+0)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/es/fly/on-board/travel-classes/swiss-premium-economy	390	-	-	7614	7654 (+40)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/es/fly/on-board/travel-classes/swiss-premium-economy	1440	-	-	4084	4084 (+0)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/fr/fly/on-board/travel-classes/swiss-premium-economy	390	-	-	7770	7810 (+40)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/fr/fly/on-board/travel-classes/swiss-premium-economy	1440	-	-	4123	4123 (+0)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/it/fly/on-board/travel-classes/swiss-premium-economy	390	-	-	7746	7786 (+40)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/it/fly/on-board/travel-classes/swiss-premium-economy	1440	-	-	4084	4084 (+0)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ja/fly/on-board/travel-classes/swiss-premium-economy	390	-	-	7478	7518 (+40)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ja/fly/on-board/travel-classes/swiss-premium-economy	1440	-	-	4093	4093 (+0)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/pt/fly/on-board/travel-classes/swiss-premium-economy	390	-	-	7592	7632 (+40)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/pt/fly/on-board/travel-classes/swiss-premium-economy	1440	-	-	4106	4106 (+0)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ru/fly/on-board/travel-classes/swiss-premium-economy	390	-	-	8357	8397 (+40)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ru/fly/on-board/travel-classes/swiss-premium-economy	1440	-	-	4374	4374 (+0)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/zh/fly/on-board/travel-classes/swiss-premium-economy	390	-	-	7095	7135 (+40)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/zh/fly/on-board/travel-classes/swiss-premium-economy	1440	-	-	4044	4044 (+0)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/cn/zh/fly/on-board/travel-classes/swiss-premium-economy	390	-	-	7431	7471 (+40)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/cn/zh/fly/on-board/travel-classes/swiss-premium-economy	1440	-	-	4103	4103 (+0)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/kr/ko/fly/on-board/travel-classes/swiss-premium-economy	390	-	-	7321	7361 (+40)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/kr/ko/fly/on-board/travel-classes/swiss-premium-economy	1440	-	-	4068	4068 (+0)	as /ch/en/fly/on-board/travel-classes/swiss-premium-economy: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/de/book-and-manage/offers/miles-and-more	390	-	-	5169	5209 (+40)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/de/book-and-manage/offers/miles-and-more	1440	-	-	3599	3599 (+0)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/el/book-and-manage/offers/miles-and-more	390	-	-	5753	5793 (+40)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/el/book-and-manage/offers/miles-and-more	1440	-	-	3718	3718 (+0)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/es/book-and-manage/offers/miles-and-more	390	-	-	5215	5255 (+40)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/es/book-and-manage/offers/miles-and-more	1440	-	-	3598	3598 (+0)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/fr/book-and-manage/offers/miles-and-more	390	-	-	5333	5373 (+40)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/fr/book-and-manage/offers/miles-and-more	1440	-	-	3643	3643 (+0)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/it/book-and-manage/offers/miles-and-more	390	-	-	5240	5280 (+40)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/it/book-and-manage/offers/miles-and-more	1440	-	-	3599	3599 (+0)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ja/book-and-manage/offers/miles-and-more	390	-	-	5080	5120 (+40)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ja/book-and-manage/offers/miles-and-more	1440	-	-	3593	3593 (+0)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/pt/book-and-manage/offers/miles-and-more	390	-	-	5236	5276 (+40)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/pt/book-and-manage/offers/miles-and-more	1440	-	-	3568	3568 (+0)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ru/book-and-manage/offers/miles-and-more	390	-	-	5917	5957 (+40)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ru/book-and-manage/offers/miles-and-more	1440	-	-	3833	3833 (+0)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/zh/book-and-manage/offers/miles-and-more	390	-	-	4655	4695 (+40)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/zh/book-and-manage/offers/miles-and-more	1440	-	-	3477	3477 (+0)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/kr/ko/book-and-manage/offers/miles-and-more	390	-	-	4885	4925 (+40)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/kr/ko/book-and-manage/offers/miles-and-more	1440	-	-	3615	3615 (+0)	as /ch/en/book-and-manage/offers/miles-and-more: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/de/book-and-manage/swiss-choice/upgrade-options	390	-	-	3811	3851 (+40)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/de/book-and-manage/swiss-choice/upgrade-options	1440	-	-	2868	2868 (+0)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/el/book-and-manage/swiss-choice/upgrade-options	390	-	-	4229	4269 (+40)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/el/book-and-manage/swiss-choice/upgrade-options	1440	-	-	2904	2904 (+0)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/es/book-and-manage/swiss-choice/upgrade-options	390	-	-	4077	4117 (+40)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/es/book-and-manage/swiss-choice/upgrade-options	1440	-	-	2912	2912 (+0)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/fr/book-and-manage/swiss-choice/upgrade-options	390	-	-	4011	4051 (+40)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/fr/book-and-manage/swiss-choice/upgrade-options	1440	-	-	2868	2868 (+0)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/it/book-and-manage/swiss-choice/upgrade-options	390	-	-	3918	3958 (+40)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/it/book-and-manage/swiss-choice/upgrade-options	1440	-	-	2890	2890 (+0)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ja/book-and-manage/swiss-choice/upgrade-options	390	-	-	3943	3983 (+40)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ja/book-and-manage/swiss-choice/upgrade-options	1440	-	-	2871	2871 (+0)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/pt/book-and-manage/swiss-choice/upgrade-options	390	-	-	3879	3919 (+40)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/pt/book-and-manage/swiss-choice/upgrade-options	1440	-	-	2912	2912 (+0)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ru/book-and-manage/swiss-choice/upgrade-options	390	-	-	4564	4604 (+40)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ru/book-and-manage/swiss-choice/upgrade-options	1440	-	-	3144	3144 (+0)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/zh/book-and-manage/swiss-choice/upgrade-options	390	-	-	3547	3587 (+40)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/zh/book-and-manage/swiss-choice/upgrade-options	1440	-	-	2800	2800 (+0)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/kr/ko/book-and-manage/swiss-choice/upgrade-options	390	-	-	3725	3765 (+40)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/kr/ko/book-and-manage/swiss-choice/upgrade-options	1440	-	-	2890	2890 (+0)	as /ch/en/book-and-manage/swiss-choice/upgrade-options: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/de/fly/flight-information/mobile-apps	390	-	-	2549	2589 (+40)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/de/fly/flight-information/mobile-apps	1440	-	-	2110	2110 (+0)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/el/fly/flight-information/mobile-apps	390	-	-	2744	2784 (+40)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/el/fly/flight-information/mobile-apps	1440	-	-	2174	2174 (+0)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/es/fly/flight-information/mobile-apps	390	-	-	2698	2738 (+40)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/es/fly/flight-information/mobile-apps	1440	-	-	2152	2152 (+0)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/fr/fly/flight-information/mobile-apps	390	-	-	2766	2806 (+40)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/fr/fly/flight-information/mobile-apps	1440	-	-	2196	2196 (+0)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/it/fly/flight-information/mobile-apps	390	-	-	2549	2589 (+40)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/it/fly/flight-information/mobile-apps	1440	-	-	2130	2130 (+0)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ja/fly/flight-information/mobile-apps	390	-	-	2527	2567 (+40)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ja/fly/flight-information/mobile-apps	1440	-	-	2177	2177 (+0)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/pt/fly/flight-information/mobile-apps	390	-	-	2615	2655 (+40)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/pt/fly/flight-information/mobile-apps	1440	-	-	2130	2130 (+0)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ru/fly/flight-information/mobile-apps	390	-	-	2854	2894 (+40)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ru/fly/flight-information/mobile-apps	1440	-	-	2267	2267 (+0)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/zh/fly/flight-information/mobile-apps	390	-	-	2371	2411 (+40)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/zh/fly/flight-information/mobile-apps	1440	-	-	2084	2084 (+0)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/kr/ko/fly/flight-information/mobile-apps	390	-	-	2419	2459 (+40)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/kr/ko/fly/flight-information/mobile-apps	1440	-	-	2088	2088 (+0)	as /ch/en/fly/flight-information/mobile-apps: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/el/book-and-manage/swiss-choice/additional-bag	390	-	-	3029	3069 (+40)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/el/book-and-manage/swiss-choice/additional-bag	1440	-	-	2382	2382 (+0)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/en/book-and-manage/swiss-choice/additional-bag	390	-	-	2638	2678 (+40)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/en/book-and-manage/swiss-choice/additional-bag	1440	-	-	2340	2340 (+0)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/es/book-and-manage/swiss-choice/additional-bag	390	-	-	2684	2724 (+40)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/es/book-and-manage/swiss-choice/additional-bag	1440	-	-	2338	2338 (+0)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/fr/book-and-manage/swiss-choice/additional-bag	390	-	-	2797	2837 (+40)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/fr/book-and-manage/swiss-choice/additional-bag	1440	-	-	2360	2360 (+0)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/it/book-and-manage/swiss-choice/additional-bag	390	-	-	2703	2743 (+40)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/it/book-and-manage/swiss-choice/additional-bag	1440	-	-	2338	2338 (+0)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ja/book-and-manage/swiss-choice/additional-bag	390	-	-	2598	2638 (+40)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ja/book-and-manage/swiss-choice/additional-bag	1440	-	-	2319	2319 (+0)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/pt/book-and-manage/swiss-choice/additional-bag	390	-	-	2717	2757 (+40)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/pt/book-and-manage/swiss-choice/additional-bag	1440	-	-	2338	2338 (+0)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ru/book-and-manage/swiss-choice/additional-bag	390	-	-	3063	3103 (+40)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ru/book-and-manage/swiss-choice/additional-bag	1440	-	-	2506	2506 (+0)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/zh/book-and-manage/swiss-choice/additional-bag	390	-	-	2391	2431 (+40)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/zh/book-and-manage/swiss-choice/additional-bag	1440	-	-	2270	2270 (+0)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/kr/ko/book-and-manage/swiss-choice/additional-bag	390	-	-	2509	2549 (+40)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/kr/ko/book-and-manage/swiss-choice/additional-bag	1440	-	-	2294	2294 (+0)	as /ch/de/book-and-manage/swiss-choice/additional-bag: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/el/fly/on-board/entertainment-on-board	390	-	-	2896	2936 (+40)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/el/fly/on-board/entertainment-on-board	1440	-	-	2538	2538 (+0)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/en/fly/on-board/entertainment-on-board	390	-	-	2647	2687 (+40)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/en/fly/on-board/entertainment-on-board	1440	-	-	2470	2470 (+0)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/es/fly/on-board/entertainment-on-board	390	-	-	2715	2755 (+40)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/es/fly/on-board/entertainment-on-board	1440	-	-	2516	2516 (+0)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/fr/fly/on-board/entertainment-on-board	390	-	-	2698	2738 (+40)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/fr/fly/on-board/entertainment-on-board	1440	-	-	2494	2494 (+0)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/it/fly/on-board/entertainment-on-board	390	-	-	2696	2736 (+40)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/it/fly/on-board/entertainment-on-board	1440	-	-	2494	2494 (+0)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/ja/fly/on-board/entertainment-on-board	390	-	-	2696	2736 (+40)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/ja/fly/on-board/entertainment-on-board	1440	-	-	2541	2541 (+0)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/pt/fly/on-board/entertainment-on-board	390	-	-	2671	2711 (+40)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/pt/fly/on-board/entertainment-on-board	1440	-	-	2516	2516 (+0)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/ru/fly/on-board/entertainment-on-board	390	-	-	2874	2914 (+40)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/ru/fly/on-board/entertainment-on-board	1440	-	-	2587	2587 (+0)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/zh/fly/on-board/entertainment-on-board	390	-	-	2453	2493 (+40)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/zh/fly/on-board/entertainment-on-board	1440	-	-	2426	2426 (+0)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/kr/ko/fly/on-board/entertainment-on-board	390	-	-	2590	2630 (+40)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/kr/ko/fly/on-board/entertainment-on-board	1440	-	-	2494	2494 (+0)	as /ch/de/fly/on-board/entertainment-on-board: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/de/prepare/special-care/health-and-travel	390	-	-	5142	5182 (+40)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/de/prepare/special-care/health-and-travel	1440	-	-	3111	3111 (+0)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/el/prepare/special-care/health-and-travel	390	-	-	5530	5570 (+40)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/el/prepare/special-care/health-and-travel	1440	-	-	3291	3291 (+0)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/es/prepare/special-care/health-and-travel	390	-	-	4783	4823 (+40)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/es/prepare/special-care/health-and-travel	1440	-	-	3036	3036 (+0)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/fr/prepare/special-care/health-and-travel	390	-	-	5091	5131 (+40)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/fr/prepare/special-care/health-and-travel	1440	-	-	3133	3133 (+0)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/it/prepare/special-care/health-and-travel	390	-	-	4849	4889 (+40)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/it/prepare/special-care/health-and-travel	1440	-	-	3107	3107 (+0)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ja/prepare/special-care/health-and-travel	390	-	-	4631	4671 (+40)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ja/prepare/special-care/health-and-travel	1440	-	-	3035	3035 (+0)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/pt/prepare/special-care/health-and-travel	390	-	-	4920	4960 (+40)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/pt/prepare/special-care/health-and-travel	1440	-	-	3111	3111 (+0)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ru/prepare/special-care/health-and-travel	390	-	-	5985	6025 (+40)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/ru/prepare/special-care/health-and-travel	1440	-	-	3397	3397 (+0)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/zh/prepare/special-care/health-and-travel	390	-	-	4181	4221 (+40)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/zh/prepare/special-care/health-and-travel	1440	-	-	2859	2859 (+0)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/kr/ko/prepare/special-care/health-and-travel	390	-	-	4464	4504 (+40)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/kr/ko/prepare/special-care/health-and-travel	1440	-	-	2922	2922 (+0)	as /ch/en/prepare/special-care/health-and-travel: {spacer-39 below-768} first in each aside with content (1); phones only
+READY	/ch/el/fly/on-board/swiss-business	390	-	-	7117	7157 (+40)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/el/fly/on-board/swiss-business	1440	-	-	4823	4823 (+0)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/en/fly/on-board/swiss-business	390	-	-	6483	6523 (+40)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/en/fly/on-board/swiss-business	1440	-	-	4740	4740 (+0)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/es/fly/on-board/swiss-business	390	-	-	6573	6613 (+40)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/es/fly/on-board/swiss-business	1440	-	-	4748	4748 (+0)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/fr/fly/on-board/swiss-business	390	-	-	6683	6723 (+40)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/fr/fly/on-board/swiss-business	1440	-	-	4779	4779 (+0)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/it/fly/on-board/swiss-business	390	-	-	6595	6635 (+40)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/it/fly/on-board/swiss-business	1440	-	-	4770	4770 (+0)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/ja/fly/on-board/swiss-business	390	-	-	6505	6545 (+40)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/ja/fly/on-board/swiss-business	1440	-	-	4795	4795 (+0)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/pt/fly/on-board/swiss-business	390	-	-	6595	6635 (+40)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/pt/fly/on-board/swiss-business	1440	-	-	4764	4764 (+0)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/ru/fly/on-board/swiss-business	390	-	-	7262	7302 (+40)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/ru/fly/on-board/swiss-business	1440	-	-	4932	4932 (+0)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/zh/fly/on-board/swiss-business	390	-	-	6031	6071 (+40)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/zh/fly/on-board/swiss-business	1440	-	-	5015	5015 (+0)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/kr/ko/fly/on-board/swiss-business	390	-	-	6309	6349 (+40)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/kr/ko/fly/on-board/swiss-business	1440	-	-	4762	4762 (+0)	as /ch/de/fly/on-board/swiss-business: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/de/prepare/special-care/animals-travelling	390	-	-	7968	8008 (+40)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/de/prepare/special-care/animals-travelling	1440	-	-	5233	5233 (+0)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/el/prepare/special-care/animals-travelling	390	-	-	9330	9370 (+40)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/el/prepare/special-care/animals-travelling	1440	-	-	5519	5519 (+0)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/es/prepare/special-care/animals-travelling	390	-	-	8171	8211 (+40)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/es/prepare/special-care/animals-travelling	1440	-	-	5226	5226 (+0)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/fr/prepare/special-care/animals-travelling	390	-	-	8241	8281 (+40)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/fr/prepare/special-care/animals-travelling	1440	-	-	5363	5363 (+0)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/it/prepare/special-care/animals-travelling	390	-	-	8168	8208 (+40)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/it/prepare/special-care/animals-travelling	1440	-	-	5223	5223 (+0)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/ja/prepare/special-care/animals-travelling	390	-	-	7098	7138 (+40)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/ja/prepare/special-care/animals-travelling	1440	-	-	4978	4978 (+0)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/pt/prepare/special-care/animals-travelling	390	-	-	8058	8098 (+40)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/pt/prepare/special-care/animals-travelling	1440	-	-	5122	5122 (+0)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/ru/prepare/special-care/animals-travelling	390	-	-	9571	9611 (+40)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/ru/prepare/special-care/animals-travelling	1440	-	-	5633	5633 (+0)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/zh/prepare/special-care/animals-travelling	390	-	-	6059	6099 (+40)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/zh/prepare/special-care/animals-travelling	1440	-	-	4687	4687 (+0)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/kr/ko/prepare/special-care/animals-travelling	390	-	-	6789	6829 (+40)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/kr/ko/prepare/special-care/animals-travelling	1440	-	-	4888	4888 (+0)	as /ch/en/prepare/special-care/animals-travelling: {spacer-39 below-768} first in each aside with content (2); phones only
+READY	/ch/de/discover/swiss-recraft-collection	390	-	-	5364	5444 (+80)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/ch/de/discover/swiss-recraft-collection	1440	-	-	4152	4152 (+0)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/ch/el/discover/swiss-recraft-collection	390	-	-	5938	6018 (+80)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/ch/el/discover/swiss-recraft-collection	1440	-	-	4372	4372 (+0)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/ch/es/discover/swiss-recraft-collection	390	-	-	5329	5409 (+80)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/ch/es/discover/swiss-recraft-collection	1440	-	-	4152	4152 (+0)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/ch/fr/discover/swiss-recraft-collection	390	-	-	5480	5560 (+80)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/ch/fr/discover/swiss-recraft-collection	1440	-	-	4152	4152 (+0)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/ch/it/discover/swiss-recraft-collection	390	-	-	5417	5497 (+80)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/ch/it/discover/swiss-recraft-collection	1440	-	-	4174	4174 (+0)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/ch/ja/discover/swiss-recraft-collection	390	-	-	5245	5325 (+80)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/ch/ja/discover/swiss-recraft-collection	1440	-	-	4155	4155 (+0)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/ch/pt/discover/swiss-recraft-collection	390	-	-	5434	5514 (+80)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/ch/pt/discover/swiss-recraft-collection	1440	-	-	4152	4152 (+0)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/ch/ru/discover/swiss-recraft-collection	390	-	-	5872	5952 (+80)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/ch/ru/discover/swiss-recraft-collection	1440	-	-	4333	4333 (+0)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/ch/zh/discover/swiss-recraft-collection	390	-	-	4717	4797 (+80)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/ch/zh/discover/swiss-recraft-collection	1440	-	-	3908	3908 (+0)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/kr/ko/discover/swiss-recraft-collection	390	-	-	5069	5149 (+80)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/kr/ko/discover/swiss-recraft-collection	1440	-	-	4042	4042 (+0)	as /ch/en/discover/swiss-recraft-collection: {spacer-39 below-768} first in each aside with content (4); phones only
+READY	/ch/de/fly/on-board/green-fare	390	-	-	8045	8065 (+20)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/ch/de/fly/on-board/green-fare	1440	-	-	6001	6370 (+369)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/ch/el/fly/on-board/green-fare	390	-	-	8815	8835 (+20)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/ch/el/fly/on-board/green-fare	1440	-	-	6043	6411 (+368)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/ch/es/fly/on-board/green-fare	390	-	-	7924	7944 (+20)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/ch/es/fly/on-board/green-fare	1440	-	-	5892	6261 (+369)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/ch/fr/fly/on-board/green-fare	390	-	-	8146	8166 (+20)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/ch/fr/fly/on-board/green-fare	1440	-	-	5936	6305 (+369)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/ch/it/fly/on-board/green-fare	390	-	-	7816	7836 (+20)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/ch/it/fly/on-board/green-fare	1440	-	-	5897	6266 (+369)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/ch/ja/fly/on-board/green-fare	390	-	-	7443	7463 (+20)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/ch/ja/fly/on-board/green-fare	1440	-	-	5773	6142 (+369)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/ch/pt/fly/on-board/green-fare	390	-	-	7774	7794 (+20)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/ch/pt/fly/on-board/green-fare	1440	-	-	5897	6266 (+369)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/ch/ru/fly/on-board/green-fare	390	-	-	8964	8984 (+20)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/ch/ru/fly/on-board/green-fare	1440	-	-	6249	6618 (+369)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/ch/zh/fly/on-board/green-fare	390	-	-	6475	6495 (+20)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/ch/zh/fly/on-board/green-fare	1440	-	-	5376	5745 (+369)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/kr/ko/fly/on-board/green-fare	390	-	-	7152	7172 (+20)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/kr/ko/fly/on-board/green-fare	1440	-	-	5660	6029 (+369)	as /ch/en/fly/on-board/green-fare: the infographic moved from the aside start to the end of the section before
+READY	/ch/de/discover/fleet	390	-	-	1971	2061 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/ch/de/discover/fleet	1440	-	-	1574	1664 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/ch/el/discover/fleet	390	-	-	2225	2315 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/ch/el/discover/fleet	1440	-	-	1618	1708 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/ch/es/discover/fleet	390	-	-	2044	2134 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/ch/es/discover/fleet	1440	-	-	1574	1664 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/ch/fr/discover/fleet	390	-	-	2065	2155 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/ch/fr/discover/fleet	1440	-	-	1618	1708 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/ch/it/discover/fleet	390	-	-	2022	2112 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/ch/it/discover/fleet	1440	-	-	1596	1686 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/ch/ja/discover/fleet	390	-	-	1975	2065 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/ch/ja/discover/fleet	1440	-	-	1599	1689 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/ch/pt/discover/fleet	390	-	-	2019	2109 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/ch/pt/discover/fleet	1440	-	-	1574	1664 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/ch/ru/discover/fleet	390	-	-	2316	2406 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/ch/ru/discover/fleet	1440	-	-	1711	1801 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/ch/zh/discover/fleet	390	-	-	1839	1929 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/ch/zh/discover/fleet	1440	-	-	1550	1640 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/kr/ko/discover/fleet	390	-	-	1953	2043 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+READY	/kr/ko/discover/fleet	1440	-	-	1574	1664 (+90)	as /ch/en/discover/fleet: {spacer-47} before the two-up teaser grid, {spacer-61} after it
+#
+# DA change: lh-swiss, the 122 documents above, as delta-so66-swiss-language-versions.json (192 inserts in all).

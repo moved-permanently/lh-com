@@ -1,0 +1,1380 @@
+[
+ {
+  "path": "/au/en/fly/on-board/travel-classes/swiss-premium-economy",
+  "inserts": [
+   {
+    "after": "ore</a></p></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/de/fly/on-board/travel-classes/swiss-premium-economy",
+  "inserts": [
+   {
+    "after": "ore</a></p></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/el/fly/on-board/travel-classes/swiss-premium-economy",
+  "inserts": [
+   {
+    "after": "ore</a></p></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/es/fly/on-board/travel-classes/swiss-premium-economy",
+  "inserts": [
+   {
+    "after": "ore</a></p></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/fr/fly/on-board/travel-classes/swiss-premium-economy",
+  "inserts": [
+   {
+    "after": "ore</a></p></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/it/fly/on-board/travel-classes/swiss-premium-economy",
+  "inserts": [
+   {
+    "after": "ore</a></p></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ja/fly/on-board/travel-classes/swiss-premium-economy",
+  "inserts": [
+   {
+    "after": "て知る</a></p></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/pt/fly/on-board/travel-classes/swiss-premium-economy",
+  "inserts": [
+   {
+    "after": "ore</a></p></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ru/fly/on-board/travel-classes/swiss-premium-economy",
+  "inserts": [
+   {
+    "after": "ore</a></p></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/zh/fly/on-board/travel-classes/swiss-premium-economy",
+  "inserts": [
+   {
+    "after": "ore</a></p></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/cn/zh/fly/on-board/travel-classes/swiss-premium-economy",
+  "inserts": [
+   {
+    "after": "ore</a></p></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/kr/ko/fly/on-board/travel-classes/swiss-premium-economy",
+  "inserts": [
+   {
+    "after": "펴보기</a></p></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/de/book-and-manage/offers/miles-and-more",
+  "inserts": [
+   {
+    "after": "</li> </ul></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/el/book-and-manage/offers/miles-and-more",
+  "inserts": [
+   {
+    "after": "</li> </ul></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/es/book-and-manage/offers/miles-and-more",
+  "inserts": [
+   {
+    "after": "</li> </ul></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/fr/book-and-manage/offers/miles-and-more",
+  "inserts": [
+   {
+    "after": "</li> </ul></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/it/book-and-manage/offers/miles-and-more",
+  "inserts": [
+   {
+    "after": "</li> </ul></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ja/book-and-manage/offers/miles-and-more",
+  "inserts": [
+   {
+    "after": "</li> </ul></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/pt/book-and-manage/offers/miles-and-more",
+  "inserts": [
+   {
+    "after": "</li> </ul></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ru/book-and-manage/offers/miles-and-more",
+  "inserts": [
+   {
+    "after": "</li> </ul></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/zh/book-and-manage/offers/miles-and-more",
+  "inserts": [
+   {
+    "after": "</li> </ul></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/kr/ko/book-and-manage/offers/miles-and-more",
+  "inserts": [
+   {
+    "after": "</li> </ul></div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/de/book-and-manage/swiss-choice/upgrade-options",
+  "inserts": [
+   {
+    "after": " in Indien beginnt</li>\n</ol></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/el/book-and-manage/swiss-choice/upgrade-options",
+  "inserts": [
+   {
+    "after": " ξεκινά στην Ινδία</li>\n</ol></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/es/book-and-manage/swiss-choice/upgrade-options",
+  "inserts": [
+   {
+    "after": "origen en la India</li>\n</ol></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/fr/book-and-manage/swiss-choice/upgrade-options",
+  "inserts": [
+   {
+    "after": "venance de l’Inde.</li>\n</ol></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/it/book-and-manage/swiss-choice/upgrade-options",
+  "inserts": [
+   {
+    "after": "artenza dall’India</li>\n</ol></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ja/book-and-manage/swiss-choice/upgrade-options",
+  "inserts": [
+   {
+    "after": "利用のお客様にはご利用いただけません</li>\n</ol></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/pt/book-and-manage/swiss-choice/upgrade-options",
+  "inserts": [
+   {
+    "after": "m origem na Índia.</li>\n</ol></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ru/book-and-manage/swiss-choice/upgrade-options",
+  "inserts": [
+   {
+    "after": "ылетающим из Индии</li>\n</ol></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/zh/book-and-manage/swiss-choice/upgrade-options",
+  "inserts": [
+   {
+    "after": "此优惠不适用于航班始发地为印度的旅客</li>\n</ol></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/kr/ko/book-and-manage/swiss-choice/upgrade-options",
+  "inserts": [
+   {
+    "after": "공편 승객에게 제공되지 않습니다.</li>\n</ol></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/de/fly/flight-information/mobile-apps",
+  "inserts": [
+   {
+    "after": "1269540972\">App Store</a></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/el/fly/flight-information/mobile-apps",
+  "inserts": [
+   {
+    "after": "1269540972\">App Store</a></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/es/fly/flight-information/mobile-apps",
+  "inserts": [
+   {
+    "after": "1269540972\">App Store</a></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/fr/fly/flight-information/mobile-apps",
+  "inserts": [
+   {
+    "after": "1269540972\">App Store</a></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/it/fly/flight-information/mobile-apps",
+  "inserts": [
+   {
+    "after": "1269540972\">App Store</a></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ja/fly/flight-information/mobile-apps",
+  "inserts": [
+   {
+    "after": "/id1269540972\">アップストア</a></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/pt/fly/flight-information/mobile-apps",
+  "inserts": [
+   {
+    "after": "1269540972\">App Store</a></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ru/fly/flight-information/mobile-apps",
+  "inserts": [
+   {
+    "after": "1269540972\">App Store</a></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/zh/fly/flight-information/mobile-apps",
+  "inserts": [
+   {
+    "after": "1269540972\">App Store</a></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/kr/ko/fly/flight-information/mobile-apps",
+  "inserts": [
+   {
+    "after": "1269540972\">App Store</a></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/el/book-and-manage/swiss-choice/additional-bag",
+  "inserts": [
+   {
+    "after": "δρομολόγιο.</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/en/book-and-manage/swiss-choice/additional-bag",
+  "inserts": [
+   {
+    "after": " itinerary.</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/es/book-and-manage/swiss-choice/additional-bag",
+  "inserts": [
+   {
+    "after": "itinerario.</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/fr/book-and-manage/swiss-choice/additional-bag",
+  "inserts": [
+   {
+    "after": "vol entier.</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/it/book-and-manage/swiss-choice/additional-bag",
+  "inserts": [
+   {
+    "after": " raggiunto.</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ja/book-and-manage/swiss-choice/additional-bag",
+  "inserts": [
+   {
+    "after": "程全体に適用されます。</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/pt/book-and-manage/swiss-choice/additional-bag",
+  "inserts": [
+   {
+    "after": "itinerário.</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ru/book-and-manage/swiss-choice/additional-bag",
+  "inserts": [
+   {
+    "after": "назначения.</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/zh/book-and-manage/swiss-choice/additional-bag",
+  "inserts": [
+   {
+    "after": "收取整个行程的行李费。</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/kr/ko/book-and-manage/swiss-choice/additional-bag",
+  "inserts": [
+   {
+    "after": " 요금이 청구됩니다.</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/el/fly/on-board/entertainment-on-board",
+  "inserts": [
+   {
+    "after": "δια</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "als</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/en/fly/on-board/entertainment-on-board",
+  "inserts": [
+   {
+    "after": "mes</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "icket.</p><div class=\"section-metadata\"><div><div>Tab</div><div>eJournals</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/es/fly/on-board/entertainment-on-board",
+  "inserts": [
+   {
+    "after": "gos</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "als</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/fr/fly/on-board/entertainment-on-board",
+  "inserts": [
+   {
+    "after": "eux</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "idité.</p><div class=\"section-metadata\"><div><div>Tab</div><div>eJournals</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/it/fly/on-board/entertainment-on-board",
+  "inserts": [
+   {
+    "after": "chi</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "nal</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ja/fly/on-board/entertainment-on-board",
+  "inserts": [
+   {
+    "after": "ゲーム</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "ーナル</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/pt/fly/on-board/entertainment-on-board",
+  "inserts": [
+   {
+    "after": "gos</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "als</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ru/fly/on-board/entertainment-on-board",
+  "inserts": [
+   {
+    "after": "гры</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "als</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/zh/fly/on-board/entertainment-on-board",
+  "inserts": [
+   {
+    "after": "和游戏</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "子期刊</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/kr/ko/fly/on-board/entertainment-on-board",
+  "inserts": [
+   {
+    "after": " 게임</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "e저널</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/de/prepare/special-care/health-and-travel",
+  "inserts": [
+   {
+    "after": "idebar-part</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/el/prepare/special-care/health-and-travel",
+  "inserts": [
+   {
+    "after": "idebar-part</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/es/prepare/special-care/health-and-travel",
+  "inserts": [
+   {
+    "after": "idebar-part</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/fr/prepare/special-care/health-and-travel",
+  "inserts": [
+   {
+    "after": "idebar-part</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/it/prepare/special-care/health-and-travel",
+  "inserts": [
+   {
+    "after": "idebar-part</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ja/prepare/special-care/health-and-travel",
+  "inserts": [
+   {
+    "after": "idebar-part</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/pt/prepare/special-care/health-and-travel",
+  "inserts": [
+   {
+    "after": "idebar-part</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ru/prepare/special-care/health-and-travel",
+  "inserts": [
+   {
+    "after": "idebar-part</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/zh/prepare/special-care/health-and-travel",
+  "inserts": [
+   {
+    "after": "idebar-part</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/kr/ko/prepare/special-care/health-and-travel",
+  "inserts": [
+   {
+    "after": "idebar-part</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/el/fly/on-board/swiss-business",
+  "inserts": [
+   {
+    "after": "εις</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "ώπη</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/en/fly/on-board/swiss-business",
+  "inserts": [
+   {
+    "after": "tal</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "ope</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/es/fly/on-board/swiss-business",
+  "inserts": [
+   {
+    "after": "tal</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "opa</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/fr/fly/on-board/swiss-business",
+  "inserts": [
+   {
+    "after": "aux</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "ope</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/it/fly/on-board/swiss-business",
+  "inserts": [
+   {
+    "after": "ali</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "opa</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ja/fly/on-board/swiss-business",
+  "inserts": [
+   {
+    "after": "大陸間</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "ロッパ</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/pt/fly/on-board/swiss-business",
+  "inserts": [
+   {
+    "after": "tal</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "opa</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ru/fly/on-board/swiss-business",
+  "inserts": [
+   {
+    "after": "йсы</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "опа</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/zh/fly/on-board/swiss-business",
+  "inserts": [
+   {
+    "after": ">洲际</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": ">欧洲</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/kr/ko/fly/on-board/swiss-business",
+  "inserts": [
+   {
+    "after": "국제선</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": ">유럽</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/de/prepare/special-care/animals-travelling",
+  "inserts": [
+   {
+    "after": "lush</div></div><div><div>Tab</div><div>Allgemeine Bestimmungen</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "Erweiterte Bestimmungen</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/el/prepare/special-care/animals-travelling",
+  "inserts": [
+   {
+    "after": "<div>flush</div></div><div><div>Tab</div><div>Γενικές διατάξεις</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "μών</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/es/prepare/special-care/animals-travelling",
+  "inserts": [
+   {
+    "after": ">flush</div></div><div><div>Tab</div><div>Condiciones generales</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "das</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/fr/prepare/special-care/animals-travelling",
+  "inserts": [
+   {
+    "after": "v>flush</div></div><div><div>Tab</div><div>Conditions générales</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "ire</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/it/prepare/special-care/animals-travelling",
+  "inserts": [
+   {
+    "after": ">flush</div></div><div><div>Tab</div><div>Disposizioni generali</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "ari</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ja/prepare/special-care/animals-travelling",
+  "inserts": [
+   {
+    "after": "ush</div></div><div><div>Tab</div><div>一般条項</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "細規則</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/pt/prepare/special-care/animals-travelling",
+  "inserts": [
+   {
+    "after": "div>flush</div></div><div><div>Tab</div><div>Disposições gerais</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "dos</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ru/prepare/special-care/animals-travelling",
+  "inserts": [
+   {
+    "after": "sh</div></div><div><div>Tab</div><div>Общие положения</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "ые требования</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/zh/prepare/special-care/animals-travelling",
+  "inserts": [
+   {
+    "after": "ush</div></div><div><div>Tab</div><div>一般条款</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "展条例</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/kr/ko/prepare/special-care/animals-travelling",
+  "inserts": [
+   {
+    "after": "sh</div></div><div><div>Tab</div><div>일반 조항</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": " 규정</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/de/discover/swiss-recraft-collection",
+  "inserts": [
+   {
+    "after": "Jetzt kaufen</a></strong></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "ign</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "ung</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "IOC</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/el/discover/swiss-recraft-collection",
+  "inserts": [
+   {
+    "after": "\">Αγορά τώρα</a></strong></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "μός</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "λου</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "IOC</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/es/discover/swiss-recraft-collection",
+  "inserts": [
+   {
+    "after": "omprar ahora</a></strong></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "eño</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "ota</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "IOC</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/fr/discover/swiss-recraft-collection",
+  "inserts": [
+   {
+    "after": "ing\">Acheter</a></strong></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "ign</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "tte</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "IOC</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/it/discover/swiss-recraft-collection",
+  "inserts": [
+   {
+    "after": "uisti subito</a></strong></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "ign</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "tta</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "IOC</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ja/discover/swiss-recraft-collection",
+  "inserts": [
+   {
+    "after": "ing\">今すぐ購入する</a></strong></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "ザイン</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "材更新</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "の歴史</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/pt/discover/swiss-recraft-collection",
+  "inserts": [
+   {
+    "after": "omprar agora</a></strong></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "ign</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "ota</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "IOC</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ru/discover/swiss-recraft-collection",
+  "inserts": [
+   {
+    "after": "ling\">Купить</a></strong></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "айн</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "рка</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "IOC</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/zh/discover/swiss-recraft-collection",
+  "inserts": [
+   {
+    "after": "ycling\">立即购买</a></strong></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": ">设计</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "队更新</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "的历史</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/kr/ko/discover/swiss-recraft-collection",
+  "inserts": [
+   {
+    "after": "cling\">지금 구매</a></strong></p></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "디자인</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": "리뉴얼</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   },
+   {
+    "after": " 역사</div></div><div><div>Tabs</div><div>1</div></div></div></div><div>",
+    "text": "<p>{spacer-39 below-768}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/de/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "replace": "Anschlussflügen verfügbar.</p></div><div><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-de-f01-2x.jpg\" alt=\"\"></picture></p>",
+    "text": "Anschlussflügen verfügbar.</p><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-de-f01-2x.jpg\" alt=\"\"></picture></p></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/el/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "replace": "er ή πτήσεις ανταπόκρισης.</p></div><div><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-el-f01-2x.jpg\" alt=\"\"></picture></p>",
+    "text": "er ή πτήσεις ανταπόκρισης.</p><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-el-f01-2x.jpg\" alt=\"\"></picture></p></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/es/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "replace": "s de enlace o de conexión.</p></div><div><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-es-f01-2x.jpg\" alt=\"\"></picture></p>",
+    "text": "s de enlace o de conexión.</p><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-es-f01-2x.jpg\" alt=\"\"></picture></p></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/fr/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "replace": "port ou de correspondance.</p></div><div><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-fr-f01-2x.jpg\" alt=\"\"></picture></p>",
+    "text": "port ou de correspondance.</p><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-fr-f01-2x.jpg\" alt=\"\"></picture></p></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/it/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "replace": "egamento o di feederaggio.</p></div><div><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-it-f01-2x.jpg\" alt=\"\"></picture></p>",
+    "text": "egamento o di feederaggio.</p><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-it-f01-2x.jpg\" alt=\"\"></picture></p></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ja/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "replace": "便や乗り継ぎ便は対象外となりますのでご留意ください。</p></div><div><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-jp-f01-2x.jpg\" alt=\"\"></picture></p>",
+    "text": "便や乗り継ぎ便は対象外となりますのでご留意ください。</p><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-jp-f01-2x.jpg\" alt=\"\"></picture></p></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/pt/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "replace": " com escala ou de conexão.</p></div><div><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-pt-f01-2x.jpg\" alt=\"\"></picture></p>",
+    "text": " com escala ou de conexão.</p><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-pt-f01-2x.jpg\" alt=\"\"></picture></p></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ru/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "replace": "ых или стыковочных рейсах.</p></div><div><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-ru-f01-2x.jpg\" alt=\"\"></picture></p>",
+    "text": "ых или стыковочных рейсах.</p><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-ru-f01-2x.jpg\" alt=\"\"></picture></p></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/zh/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "replace": "于日内瓦和苏黎世之间的航班。不适用于支线或联程航班。</p></div><div><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-zh-f01-2x.jpg\" alt=\"\"></picture></p>",
+    "text": "于日内瓦和苏黎世之间的航班。不适用于支线或联程航班。</p><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-zh-f01-2x.jpg\" alt=\"\"></picture></p></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/kr/ko/fly/on-board/green-fare",
+  "inserts": [
+   {
+    "replace": "선 또는 연계 항공편에서는 이용할 수 없습니다.</p></div><div><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-en-f01-2x.jpg\" alt=\"\"></picture></p>",
+    "text": "선 또는 연계 항공편에서는 이용할 수 없습니다.</p><p><picture><img src=\"https://content.da.live/moved-permanently/lh-swiss/content/dam/lx/images/local_images/sustainability/green-fares/4/lx048-impact-fares-infographic-50-50-1440x630px-en-f01-2x.jpg\" alt=\"\"></picture></p></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/de/discover/fleet",
+  "inserts": [
+   {
+    "before": "<div class=\"carousel-cards grid two-up\">",
+    "text": "<p>{spacer-47}</p>"
+   },
+   {
+    "after": "streckenflotte</a></p></div></div></div>",
+    "text": "<p>{spacer-61}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/el/discover/fleet",
+  "inserts": [
+   {
+    "before": "<div class=\"carousel-cards grid two-up\">",
+    "text": "<p>{spacer-47}</p>"
+   },
+   {
+    "after": "ωτικών πτήσεων</a></p></div></div></div>",
+    "text": "<p>{spacer-61}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/es/discover/fleet",
+  "inserts": [
+   {
+    "before": "<div class=\"carousel-cards grid two-up\">",
+    "text": "<p>{spacer-47}</p>"
+   },
+   {
+    "after": "rcontinentales</a></p></div></div></div>",
+    "text": "<p>{spacer-61}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/fr/discover/fleet",
+  "inserts": [
+   {
+    "before": "<div class=\"carousel-cards grid two-up\">",
+    "text": "<p>{spacer-47}</p>"
+   },
+   {
+    "after": " long-courrier</a></p></div></div></div>",
+    "text": "<p>{spacer-61}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/it/discover/fleet",
+  "inserts": [
+   {
+    "before": "<div class=\"carousel-cards grid two-up\">",
+    "text": "<p>{spacer-47}</p>"
+   },
+   {
+    "after": "ercontinentale</a></p></div></div></div>",
+    "text": "<p>{spacer-61}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ja/discover/fleet",
+  "inserts": [
+   {
+    "before": "<div class=\"carousel-cards grid two-up\">",
+    "text": "<p>{spacer-47}</p>"
+   },
+   {
+    "after": "l\">長距離路線の機材を見る</a></p></div></div></div>",
+    "text": "<p>{spacer-61}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/pt/discover/fleet",
+  "inserts": [
+   {
+    "before": "<div class=\"carousel-cards grid two-up\">",
+    "text": "<p>{spacer-47}</p>"
+   },
+   {
+    "after": "onga distância</a></p></div></div></div>",
+    "text": "<p>{spacer-61}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/ru/discover/fleet",
+  "inserts": [
+   {
+    "before": "<div class=\"carousel-cards grid two-up\">",
+    "text": "<p>{spacer-47}</p>"
+   },
+   {
+    "after": "льный авиапарк</a></p></div></div></div>",
+    "text": "<p>{spacer-61}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/ch/zh/discover/fleet",
+  "inserts": [
+   {
+    "before": "<div class=\"carousel-cards grid two-up\">",
+    "text": "<p>{spacer-47}</p>"
+   },
+   {
+    "after": "haul\">查看长途航班机队</a></p></div></div></div>",
+    "text": "<p>{spacer-61}</p>"
+   }
+  ]
+ },
+ {
+  "path": "/kr/ko/discover/fleet",
+  "inserts": [
+   {
+    "before": "<div class=\"carousel-cards grid two-up\">",
+    "text": "<p>{spacer-47}</p>"
+   },
+   {
+    "after": "aul\">장거리 기종 보기</a></p></div></div></div>",
+    "text": "<p>{spacer-61}</p>"
+   }
+  ]
+ }
+]
