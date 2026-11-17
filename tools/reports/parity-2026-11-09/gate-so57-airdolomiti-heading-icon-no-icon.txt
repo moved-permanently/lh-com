@@ -1,0 +1,13 @@
+# ema-cashub, standing order 57, item 4 (2026-11-17, ~02:25 to ~02:50 CET): place 282 (/de/reiseziele 390, +0.46 %) located and fixed. Status: SHIPPED (styles/themes/airdolomiti.css, test/airdolomiti-heading-icon-no-icon-so57.test.mjs).
+# Cause: every listing heading sits at www's place (+5 to +7) down to the closing "Nützliche Informationen für die Planung Ihrer Reise"; from there +42 to the footer. That title is in a heading-icon section (the destinations' carousels' rules) but has no map icon; the rule still keeps 45 px for one (max-width: 100% + the page margin - 45px), so at 390 it runs to four lines in 326 px. www's title (CosaFareCarroussel, no icon) has three lines in 351 px (airdolomiti-parity-001, laid out offline with the recording's CSS: 126 px high).
+# Fix: a heading-icon carousel's title without an icon keeps the column's width (max-width: none).
+# Census: the 153 served Air Dolomiti documents with a heading-icon section (order 56's copies) at 390 / 768 / 1440, a fresh load as served, then the rule as a style tag and measured again in the same load, then removed (every load back to its first figures). 3 documents have an icon-less title (/de/reiseziele, /destinazioni, /en/destinations); 1 page-width changes (/de/reiseziele 390: the title 326 x 168 -> 351 x 126, the page -42 px); the other 458 unchanged; no sideways scroll, no title past the screen. One broken 1440 load (/de/reiseziele/bologna-de) read again alone: unchanged.
+# Renders: so53/hostv.mjs, unhinted, EAGER=1 CONSENT=1; lh-proxy, www.* but www.mynewsdesk.com and every airline host refused and counted: 0 to 8 a render, none sent. The theme as committed (code override) gives the census figures to the px.
+# Gate: PASS when |after %| - |before %| <= 0.5 (page height against www's recorded one, as the sweep). The three reached documents' recorded page-widths (airdolomiti-parity-001): 6 of 6 PASS, 1 closer.
+# path	width	recording	www	as served	with the change	result	points
+/de/reiseziele	390	airdolomiti-parity-001	10151	10198 (+0.46 %)	10156 (+0.05 %)	PASS	-0.41
+/de/reiseziele	1440	airdolomiti-parity-001	4793	4812 (+0.40 %)	4812 (+0.40 %)	PASS	0.00
+/destinazioni	390	airdolomiti-parity-001	6393	6413 (+0.31 %)	6413 (+0.31 %)	PASS	0.00
+/destinazioni	1440	airdolomiti-parity-001	3626	3661 (+0.97 %)	3661 (+0.97 %)	PASS	0.00
+/en/destinations	390	airdolomiti-parity-001	9699	9629 (-0.72 %)	9629 (-0.72 %)	PASS	0.00
+/en/destinations	1440	airdolomiti-parity-001	4677	4696 (+0.41 %)	4696 (+0.41 %)	PASS	0.00

@@ -4295,6 +4295,12 @@ body.brand-airdolomiti main > .section.heading-icon:has(> .carousel-cards-wrappe
   margin: 0;
 }
 
+/* a title without an icon (the destinations' listings' closing "Nützliche Informationen für die Planung Ihrer Reise")
+   keeps the column's width, as www's: no 45px kept for an icon (standing order 57, /de/reiseziele 390 three lines) */
+body.brand-airdolomiti main > .section.heading-icon:has(> .carousel-cards-wrapper > .carousel-cards:not(.promo, .destinations)) > .default-content-wrapper:first-child > h2:not(:has(.heading-icon-image)) {
+  max-width: none;
+}
+
 /* the icon out of the line (www's flex row lets it run past a long word rather than wrap it) */
 body.brand-airdolomiti main > .section.heading-icon:has(> .carousel-cards-wrapper > .carousel-cards:not(.promo, .destinations)) > .default-content-wrapper:first-child > h2 .heading-icon-image {
   position: absolute;
