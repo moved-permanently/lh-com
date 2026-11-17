@@ -6307,3 +6307,49 @@ this order, so stylelint had nothing to check.
 - Every browser load refused airline hosts per request.
 - Reads came from our hosts and DA (five GETs).
 - No upload, preview or publish by me, no da-upload.mjs. /de/en/overview-manage got no row.
+
+## Standing order 39 (2026-11-17, about 01:10 to 04:00 CET), with its final section
+
+**Item 1, the video gallery at 390: no corrected row. 390 is unchanged by the row, as gated, and +0.32 % in the publish
+child's measure.**
+- As served (round 511), the page has the spacer paragraph at the grey band's end and no empty last section, so the row
+  is in place.
+- The difference is the browser. My gate measured in the headless shell (3,733 at 390, before and after). The publish
+  child measures in full Chrome: capture.js with PARITY_CHROME=1 gives 3,757 at 390 and 3,525 at 1440, its figures to
+  the pixel. In Chrome the intro paragraph wraps to one more line at 390 (216 px against 192), and every box below
+  moves +24.
+- The window height (844 or 900) and the first-visit notice change nothing (3,733 in the shell each time).
+- So 390 is 3,757 against www's 3,745 before and after, +0.32 %, within 2 %. The list and the finish row now carry both
+  engines' figures.
+
+**Item 2, special-assistance at 1440: READY** (delta-so39-b2b-special-assistance-two-column-news.txt, against b2b-parity-017).
+- b2b-parity-017 landed: sha256 529a4fcb4fdbe169d08677e538c9bd71ad2ed58346df19fa01ffe87fe5a7893f, first loads of both
+  pages at 1440 and 390; www 4,707 / 1,458.
+- The row makes each of the twelve news items, in all five tabs, a Columns Media row: text | picture. On www every one of
+  them is a two-column view (-017's recorded HTML).
+- 1440 goes 9,414 -> 4,452, +100.00 -> -5.42 %, and 390 is equal (1,480), on both pages. It passes: closer at one width,
+  equal at the other.
+- 1440 stays 5.42 % short: about 47 px per news item (the picture cell and the space between items), not yet located
+  further.
+- Each item string is found once in DA's copy, and the revert gives DA's bytes back. The other four tabs, opened at
+  1440, draw their headings 622 px wide, as www's, and the page keeps its width.
+- Its test is test/b2b-special-assistance-two-column-news-so39.test.mjs.
+
+**Item 3, ranks 150 to 169 (sweep-so39-ranks-150-169.md): all twenty located.**
+- Five SWISS German page-widths at 1440 are within 1 % now with order 37's footer rule (overview-travel-information
+  -1.44 -> -0.21 %, the ch/de homepage -1.40 -> -0.86 %).
+- Five are Discover's, which is ema-test's area.
+- The other ten are within 2 % and explained; no row.
+
+**Checks:** whole-repo lint, the folder-reading tests and the full suite in this order's ship, waited for in the turn.
+CSS changed nowhere, so stylelint had nothing to check.
+
+**Left uncommitted, and why:**
+- `.migration/project.json`: not mine.
+- `.scratch/` (outside git): b2b-parity-017, the loads and drafts, and DA's two special-assistance copies (read
+  ~00:07 UTC).
+
+**Hosts:**
+- Every browser load refused airline hosts per request.
+- Reads came from our hosts, the drop (one archive and its sidecar) and DA (two GETs).
+- No upload, preview or publish by me, no da-upload.mjs. /de/en/overview-manage got no row.
