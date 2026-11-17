@@ -41,8 +41,9 @@ test('other sizes on Discover and other brands as before', () => {
     const out = run('<div><h1>T</h1><h2>A {heading-copytext-large}</h2><p>x</p><h2>B</h2><p>y</p></div>', brand);
     assert.equal(out.includes('{heading-copytext-large}'), false, brand);
   });
-  // Group for Business keeps it too since standing order 9 (test/b2b-keep-copytext-so9)
-  assert.deepEqual(themeFor('b2b').keepSizes, ['heading-copytext-large']);
+  // Group for Business kept it from standing order 9 to 66; since order 67 its carriers instead
+  // (test/b2b-keep-copytext-so9, test/b2b-heading-carriers-so67)
+  assert.equal(themeFor('b2b').keepSizes, undefined);
 });
 
 test('the delta: a listed heading gets its marker once; the list\'s READY rows have data', async () => {

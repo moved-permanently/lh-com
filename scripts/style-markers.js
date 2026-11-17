@@ -246,11 +246,13 @@ export const THEMES = {
     live: true,
     // a title in heading-small (www's airline pages: 21 first H1s of the census, 20 later ones),
     // two steps under the H1 default, which the collapse dropped (section style H1 compact)
-    headingChoices: { h1: { compact: 'heading-small' } },
-    // keepSizes: www's H2s in heading-copytext-large (18 / 24 px bold; route-network, businesstogo)
-    // keep their marker in the collapse, which the page reads as the class (standing order 9 of
-    // 2026-11-12: 6 of 12 page-widths better, none worse); heading-small not (9 worse)
-    keepSizes: ['heading-copytext-large'],
+    // an H3 in heading-copytext-large (18 / 24 px bold, www's column-view headings: businesstogo's
+    // and Wi-Fi's) a choice of its own, one step under the flow pages' H3 and the default
+    // elsewhere, which the collapse writes as a carrier (in a block its option title-compact, in a
+    // section H3 compact) in place of the {heading-copytext-large} marker it kept until standing
+    // order 67 (token-free: no document keeps a size marker); an H2 in that size is H2 compact
+    headingChoices: { h1: { compact: 'heading-small' }, h3: { large: 'heading-medium', compact: 'heading-copytext-large' } },
+    nearChoices: { h3: { 'heading-copytext-large': 'compact' } },
     pageTypes: {
       // a heading right before such a block opens its column view (www: 81 of 105 marked so, the
       // brief after 550 narrows it); in a grey band no edge above a block right after a heading
@@ -340,6 +342,8 @@ export const SECTION_STYLES = {
   'h2-large': { headings: { h2: 'large' } },
   'h2-compact': { headings: { h2: 'compact' } },
   'h3-large': { headings: { h3: 'large' } },
+  // an H3 one size smaller (Group for Business: heading-copytext-large; without the choice: none)
+  'h3-compact': { headings: { h3: 'compact' } },
   'h4-large': { headings: { h4: 'large' } },
   // the section's own images in a 500 px window (Insights' parallax), its quotes narrow (centred)
   parallax: { image: 'parallax' },
@@ -365,6 +369,7 @@ export const SECTION_STYLE_LABELS = {
   'h2-large': 'H2 large',
   'h2-compact': 'H2 compact',
   'h3-large': 'H3 large',
+  'h3-compact': 'H3 compact',
   'h4-large': 'H4 large',
   parallax: 'Parallax image',
   narrow: 'Narrow quote',

@@ -501,6 +501,15 @@ body.brand-swiss .carousel-cards:is(.grid, .four-up) .carousel-cards-track:has(>
   }
 }
 
+/* standing order 67 (token-free, in place of order 65's {spacer-47} / {spacer-61} on the fleet hub): a two-up card
+   grid right after text at the end of a page's last section (www's fleet hub: its two teasers in a column view of their
+   own, swiss-parity-002b) 44 px under the text and 46 px over the page's end, at every width; padding, so neither
+   collapses with the text's or the section's margins. A document still holding a spacer row there doesn't match */
+body.brand-swiss main > .section:last-child > .default-content-wrapper + .carousel-cards-wrapper:last-child:has(> .carousel-cards.grid.two-up) {
+  padding-top: 44px;
+  padding-bottom: 46px;
+}
+
 body.brand-swiss .carousel-cards:is(.grid, .four-up) .carousel-cards-track:has(> .carousel-cards-slide:not(.carousel-cards-text-only)) > .carousel-cards-slide {
   border-color: #ccc;
   border-radius: 0;
@@ -814,6 +823,16 @@ body.brand-swiss .flight-search .flight-search-dates::after {
 
   body.brand-swiss main > .section.with-aside > .section-aside {
     padding-left: 40px;
+  }
+}
+
+/* standing order 67 (token-free, in place of order 65's {spacer-39 below-768} rows): below 768 px an aside with
+   content 60 px under the content (lh-com's 40; www's sidebar-aside margin-top 80 on all 25 recorded sidebar pages,
+   so65/aside-www.txt: 80 takes five long pages more than half a point further, 60 none). An empty aside keeps 40
+   (it draws nothing), and one that still starts with a spacer row has its gap from it */
+@media (width < 768px) {
+  body.brand-swiss main > .section.with-aside > .section-aside:not(:empty, :has(> .default-content-wrapper:first-child > p.spacer:first-child)) {
+    margin-top: 60px;
   }
 }
 

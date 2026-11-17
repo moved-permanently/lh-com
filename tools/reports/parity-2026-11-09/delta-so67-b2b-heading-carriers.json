@@ -1,0 +1,165 @@
+[
+ {
+  "path": "/de/en/travel-solutions/lufthansa-group-wifi",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media\"><div><div><p><picture><img src=\"https://business.lufthansagroup.com/content/dam/b2b/lufthansa_group_wifi/Headphones%20are%20essential.jpg.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p><h3 id=\"headphones-are-essential\">Headphones are essential {heading-copytext-large}",
+    "text": "<div class=\"columns-media title-compact\"><div><div><p><picture><img src=\"https://business.lufthansagroup.com/content/dam/b2b/lufthansa_group_wifi/Headphones%20are%20essential.jpg.transform/lh-dcep-transform-width-2560/img.jpg\" alt=\"\"></picture></p><h3 id=\"headphones-are-essential\">Headphones are essential"
+   },
+   {
+    "replace": ">No calls during the flight {heading-copytext-large}</",
+    "text": ">No calls during the flight</"
+   },
+   {
+    "replace": ">No broadcasting {heading-copytext-large}</",
+    "text": ">No broadcasting</"
+   },
+   {
+    "replace": ">Thanks for your cooperation {heading-copytext-large}</",
+    "text": ">Thanks for your cooperation</"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/travel-management/route-network",
+  "inserts": [
+   {
+    "replace": "<h2 id=\"profitieren-sie-von-den-vorteilen-unseres-globalen-streckennetzes\">Profitieren Sie von den Vorteilen unseres globalen Streckennetzes {heading-copytext-large}</h2>",
+    "text": "<h2 id=\"profitieren-sie-von-den-vorteilen-unseres-globalen-streckennetzes\">Profitieren Sie von den Vorteilen unseres globalen Streckennetzes</h2>"
+   },
+   {
+    "replace": "<div class=\"spacer\"><div><div></div></div></div><h2 id=\"alle-destinationen-auf-einen-blick\">Alle Destinationen auf einen Blick</h2>",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>wide-text, h2-compact</div></div></div></div><div><h2 id=\"alle-destinationen-auf-einen-blick\">Alle Destinationen auf einen Blick</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/travel-management/route-network",
+  "inserts": [
+   {
+    "replace": "<h2 id=\"enjoy-the-benefits-of-our-global-route-network\">Enjoy the benefits of our global route network {heading-copytext-large}</h2>",
+    "text": "<h2 id=\"enjoy-the-benefits-of-our-global-route-network\">Enjoy the benefits of our global route network</h2>"
+   },
+   {
+    "replace": "<div class=\"spacer\"><div><div></div></div></div><h2 id=\"all-destinations-at-a-glance\">All destinations at a glance</h2>",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>wide-text, h2-compact</div></div></div></div><div><h2 id=\"all-destinations-at-a-glance\">All destinations at a glance</h2>"
+   }
+  ]
+ },
+ {
+  "path": "/de/en/program/businesstogo",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media divider-above\"><div><div><h2 id=\"unlock-smarter-business-travel--with-businesstogos-integrated-platform\">Unlock smarter business travel – with BusinessToGo’s integrated platform {heading-medium}</h2><h3 id=\"enhanced-efficiency--user-experience\">Enhanced Efficiency &amp; User Experience: {heading-copytext-large}",
+    "text": "<div class=\"columns-media divider-above title-compact\"><div><div><h2 id=\"unlock-smarter-business-travel--with-businesstogos-integrated-platform\">Unlock smarter business travel – with BusinessToGo’s integrated platform {heading-medium}</h2><h3 id=\"enhanced-efficiency--user-experience\">Enhanced Efficiency &amp; User Experience:"
+   },
+   {
+    "replace": ">Maximize Savings &amp; Rewards: {heading-copytext-large}</",
+    "text": ">Maximize Savings &amp; Rewards:</"
+   },
+   {
+    "replace": ">Gain Control &amp; Flexibility: {heading-copytext-large}</",
+    "text": ">Gain Control &amp; Flexibility:</"
+   },
+   {
+    "replace": ">Prioritize Traveler Safety: {heading-copytext-large}</",
+    "text": ">Prioritize Traveler Safety:</"
+   },
+   {
+    "replace": "<h2 id=\"frequently-asked-questions-faq\">Frequently Asked Questions (FAQ) {heading-copytext-large}</h2>",
+    "text": "</div><div><h2 id=\"frequently-asked-questions-faq\">Frequently Asked Questions (FAQ)</h2>"
+   },
+   {
+    "before": "<h2 id=\"built-with-technology-backed-by-trust\">Built with technology. Backed by trust.</h2>",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>h2-compact</div></div></div></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/en/program/businesstogo",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media divider-above\"><div><div><h2 id=\"unlock-smarter-business-travel--with-businesstogos-integrated-platform\">Unlock smarter business travel – with BusinessToGo’s integrated platform {heading-medium}</h2><h3 id=\"enhanced-efficiency--user-experience\">Enhanced Efficiency &amp; User Experience: {heading-copytext-large}",
+    "text": "<div class=\"columns-media divider-above title-compact\"><div><div><h2 id=\"unlock-smarter-business-travel--with-businesstogos-integrated-platform\">Unlock smarter business travel – with BusinessToGo’s integrated platform {heading-medium}</h2><h3 id=\"enhanced-efficiency--user-experience\">Enhanced Efficiency &amp; User Experience:"
+   },
+   {
+    "replace": ">Maximize Savings &amp; Rewards: {heading-copytext-large}</",
+    "text": ">Maximize Savings &amp; Rewards:</"
+   },
+   {
+    "replace": ">Gain Control &amp; Flexibility: {heading-copytext-large}</",
+    "text": ">Gain Control &amp; Flexibility:</"
+   },
+   {
+    "replace": ">Prioritize Traveler Safety: {heading-copytext-large}</",
+    "text": ">Prioritize Traveler Safety:</"
+   },
+   {
+    "replace": "<h2 id=\"frequently-asked-questions-faq\">Frequently Asked Questions (FAQ) {heading-copytext-large}</h2>",
+    "text": "</div><div><h2 id=\"frequently-asked-questions-faq\">Frequently Asked Questions (FAQ)</h2>"
+   },
+   {
+    "before": "<h2 id=\"built-with-technology-backed-by-trust\">Built with technology. Backed by trust.</h2>",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>h2-compact</div></div></div></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/de/de/program/businesstogo",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media divider-above nested equal-cells\"><div><div><h2 id=\"optimieren-sie-ihre-geschäftsreisen--mit-der-integrierten-plattform-von-businesstogo\">Optimieren Sie Ihre Geschäftsreisen – mit der integrierten Plattform von BusinessToGo</h2><h3 id=\"mehr-effizienz-und-eine-bessere-user-experience\">Mehr Effizienz und eine bessere User Experience: {heading-copytext-large}",
+    "text": "<div class=\"columns-media divider-above nested equal-cells title-compact\"><div><div><h2 id=\"optimieren-sie-ihre-geschäftsreisen--mit-der-integrierten-plattform-von-businesstogo\">Optimieren Sie Ihre Geschäftsreisen – mit der integrierten Plattform von BusinessToGo</h2><h3 id=\"mehr-effizienz-und-eine-bessere-user-experience\">Mehr Effizienz und eine bessere User Experience:"
+   },
+   {
+    "replace": ">Maximale Kostenersparnis und Prämien: {heading-copytext-large}</",
+    "text": ">Maximale Kostenersparnis und Prämien:</"
+   },
+   {
+    "replace": ">Gewinnen Sie Kontrolle und Flexibilität: {heading-copytext-large}</",
+    "text": ">Gewinnen Sie Kontrolle und Flexibilität:</"
+   },
+   {
+    "replace": ">Priorisieren Sie die Sicherheit Ihrer Reisenden: {heading-copytext-large}</",
+    "text": ">Priorisieren Sie die Sicherheit Ihrer Reisenden:</"
+   },
+   {
+    "replace": "<h2 id=\"frequently-asked-questions-faq\">Frequently Asked Questions (FAQ) {heading-copytext-large}</h2>",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>wide-text</div></div></div></div><div><h2 id=\"frequently-asked-questions-faq\">Frequently Asked Questions (FAQ)</h2>"
+   },
+   {
+    "before": "<h2 id=\"modernste-technologie-maximales-vertrauen\">Modernste Technologie. Maximales Vertrauen.</h2>",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>wide-text, h2-compact</div></div></div></div><div>"
+   }
+  ]
+ },
+ {
+  "path": "/xx/de/program/businesstogo",
+  "inserts": [
+   {
+    "replace": "<div class=\"columns-media divider-above nested equal-cells\"><div><div><h2 id=\"optimieren-sie-ihre-geschäftsreisen--mit-der-integrierten-plattform-von-businesstogo\">Optimieren Sie Ihre Geschäftsreisen – mit der integrierten Plattform von BusinessToGo</h2><h3 id=\"mehr-effizienz-und-eine-bessere-user-experience\">Mehr Effizienz und eine bessere User Experience: {heading-copytext-large}",
+    "text": "<div class=\"columns-media divider-above nested equal-cells title-compact\"><div><div><h2 id=\"optimieren-sie-ihre-geschäftsreisen--mit-der-integrierten-plattform-von-businesstogo\">Optimieren Sie Ihre Geschäftsreisen – mit der integrierten Plattform von BusinessToGo</h2><h3 id=\"mehr-effizienz-und-eine-bessere-user-experience\">Mehr Effizienz und eine bessere User Experience:"
+   },
+   {
+    "replace": ">Maximale Kostenersparnis und Prämien: {heading-copytext-large}</",
+    "text": ">Maximale Kostenersparnis und Prämien:</"
+   },
+   {
+    "replace": ">Gewinnen Sie Kontrolle und Flexibilität: {heading-copytext-large}</",
+    "text": ">Gewinnen Sie Kontrolle und Flexibilität:</"
+   },
+   {
+    "replace": ">Priorisieren Sie die Sicherheit Ihrer Reisenden: {heading-copytext-large}</",
+    "text": ">Priorisieren Sie die Sicherheit Ihrer Reisenden:</"
+   },
+   {
+    "replace": "<h2 id=\"frequently-asked-questions-faq\">Frequently Asked Questions (FAQ) {heading-copytext-large}</h2>",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>wide-text</div></div></div></div><div><h2 id=\"frequently-asked-questions-faq\">Frequently Asked Questions (FAQ)</h2>"
+   },
+   {
+    "before": "<h2 id=\"modernste-technologie-maximales-vertrauen\">Modernste Technologie. Maximales Vertrauen.</h2>",
+    "text": "<div class=\"section-metadata\"><div><div>Style</div><div>wide-text, h2-compact</div></div></div></div><div>"
+   }
+  ]
+ }
+]

@@ -1,0 +1,46 @@
+# ema-cashub, standing order 67 (2026-11-17), item 2: Group for Business keeps no {heading-copytext-large} marker
+# (token-free). THEMES.b2b keepSizes is gone (scripts/style-markers.js): an H3 in that size is the B2B choice "compact"
+# (in a block the option title-compact, in a section the new style H3 compact), an H2 is H2 compact. The page reads
+# both as the class heading-copytext-large, as it read the marker. These rows give the seven documents that still carry
+# the marker (733 served B2B documents read) their carriers; nothing else in them changes.
+# Per document:
+#  - a block with marked headings: its option title-compact, the markers off (wifi, businesstogo);
+#  - a section's own marked H2 (route-network, businesstogo's FAQ): the H2 and what follows it up to the section's next
+#    own H2 become a section of their own with the Style h2-compact (and the section's own Style, wide-text). The other
+#    H2s of that section keep the theme's size. On route-network the cut falls where a Spacer block stands: the
+#    section break takes its place (cutting without that adds 48 px and fails both widths).
+# No row puts a style marker in: every insert takes {heading-copytext-large} out, and the rest is block options,
+# section metadata (Style) and section breaks.
+# HOLD: de/de and xx/de businesstogo. Their block's H2 ("Optimieren Sie Ihre Geschäftsreisen") has no size in the
+# document (www: heading-medium; de/en's copy has it), so title-compact makes it heading-copytext-large too: -70 px at
+# 390, 0.73 points further. They keep the marker until that H2 has its size another way (a row that moves the H2 out
+# of the block, as the section's own heading, would give it the theme's heading-medium: not drafted this order).
+# Tool: node tools/importer/text-inserts-apply.mjs --data tools/reports/parity-2026-11-09/delta-so67-b2b-heading-carriers.json
+#   --list <this file> --docs <lh-b2b: DA's current copies, <path>.html> --out <dir> [--check]
+# Dry run on DA's current copies (7 read-only GETs, ~23:50 CET): wifi "4 inserted", route-network "2 inserted" (each),
+# businesstogo "6 inserted" (each), every one "without the inserts DA's copy byte for byte: true"; a second run
+# "present" on all 7. The HOLD rows' data is in the .json too; --list applies the READY paths only.
+# Drafted on b2b.turnsthe.page (so67/hostv2.mjs: so53/hostv.mjs with the form's Turnstile challenge aborted on both
+# sides of a pair, the served .plain.html with the change as main, this checkout's code; unhinted; airline hosts, www.*
+# and lh-proxy refused per request). Gate: |after %| - |before %| <= 0.5 at each recorded width.
+# status	path	width	recording	www page	as served	with the row	note
+READY	/de/en/travel-solutions/lufthansa-group-wifi	390	b2b-parity-015	6532	6496 (-0.55 %)	6496 (-0.55 %)	+0.00 points; block title-compact: the same page
+READY	/de/en/travel-solutions/lufthansa-group-wifi	1440	b2b-parity-007	4476	4469 (-0.16 %)	4469 (-0.16 %)	+0.00 points; block title-compact: the same page
+READY	/de/de/travel-management/route-network	390	b2b-parity-001	5915	6025 (+1.86 %)	6012 (+1.64 %)	-0.22 points; H2 in a section of its own (wide-text, h2-compact), the section break in place of the Spacer block
+READY	/de/de/travel-management/route-network	1440	b2b-parity-001	4173	4188 (+0.36 %)	4175 (+0.05 %)	-0.31 points; as 390
+READY	/de/en/travel-management/route-network	390	b2b-parity-001	5739	5849 (+1.92 %)	5836 (+1.69 %)	-0.23 points; as de/de
+READY	/de/en/travel-management/route-network	1440	b2b-parity-001	4037	4074 (+0.92 %)	4061 (+0.59 %)	-0.32 points; as de/de
+READY	/de/en/program/businesstogo	390	b2b-parity-009	6685	6725 (+0.60 %)	6733 (+0.72 %)	+0.12 points; block title-compact (its H2 keeps its heading-medium); the FAQ H2 in a section of its own (h2-compact): +8 px
+READY	/de/en/program/businesstogo	1440	b2b-parity-009	4931	4903 (-0.57 %)	4911 (-0.41 %)	-0.16 points; as 390
+READY	/xx/en/program/businesstogo	390	b2b-parity-009	6685	6725 (+0.60 %)	6733 (+0.72 %)	+0.12 points; as de/en
+READY	/xx/en/program/businesstogo	1440	b2b-parity-009	4931	4903 (-0.57 %)	4911 (-0.41 %)	-0.16 points; as de/en
+HOLD	/de/de/program/businesstogo	390	b2b-parity-009	7283	7288 (+0.07 %)	7225 (-0.80 %)	+0.73 points; FAILS by 0.73 points: the block's H2 "Optimieren Sie Ihre Geschäftsreisen" has no size in the document (www: heading-medium), so title-compact shrinks it too (-70 px)
+HOLD	/de/de/program/businesstogo	1440	b2b-parity-009	5069	5010 (-1.16 %)	5018 (-1.01 %)	-0.16 points; passes (closer); held with its 390
+HOLD	/xx/de/program/businesstogo	390	b2b-parity-009	7283	7288 (+0.07 %)	7225 (-0.80 %)	+0.73 points; as de/de (the same document)
+HOLD	/xx/de/program/businesstogo	1440	b2b-parity-009	5069	5010 (-1.16 %)	5018 (-1.01 %)	-0.16 points; as de/de
+#
+# DA change (lh-b2b), READY paths: the four marked H3s of wifi and of de/en, xx/en businesstogo lose " {heading-copytext-large}"
+# and their block gets title-compact; route-network (de/de, de/en): the marked H2 loses its marker, the Spacer block before
+# the next H2 becomes the end of the section (Style "wide-text, h2-compact") and a new section starts; businesstogo (de/en,
+# xx/en): a section break before the FAQ H2 (marker off) and one before "Built with technology", the FAQ part with Style
+# "h2-compact".
