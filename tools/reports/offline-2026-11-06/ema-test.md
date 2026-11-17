@@ -5363,3 +5363,64 @@ before (lh-parity-002a/b/d, -003). They are now kept under logs/drops (git-ignor
   - content/, migration-work/ and tools/importer/reports/* (not mine);
   - the old autostash entry (not mine, kept).
 - Preview servers stopped; the trial and suite worktrees removed.
+
+## Standing order 46 (received about 22:30 UTC, 2026-11-16)
+
+State at the start: nothing of mine uncommitted or unpushed (order 45's final section on main, 58596a60, Build green).
+I fetched lh-parity-002c, -004a and -004b again into logs/drops; they are the bytes of the earlier copies.
+
+1. **ema-adobe's hand-over items 19-21** (delta-so46-rows.txt; 4306ac8e).
+   - 19, the heading after a divider (digital-self-services, 4 locales): www puts 48 px from the line to the heading and
+     25 px from the heading to the cards; ours 34 and 45. A rule matching those figures read worse on all 8 recorded
+     page-widths (1440 about 2.9 → 4.7 %), so it is not shipped.
+   - 19, the article heading's width: www's "Zum Download des Posters ..." runs the article card (from x 195), not the
+     text column. Rule: a plain body h2 in an article uses the card, from 768 px. Gate: at/de, de/de
+     allegris-premium-economy-san-diego 1440 7.29 → 5.20; the other recorded page-widths unchanged.
+   - 20, the article-end "Find flight": the spacing up to the link is www's. The difference is "Back to overview": 7 px
+     further on phones and 13 px closer from 768 px.
+     - A rule for it gated well: 16 of 52 recorded page-widths closer, none more than 0.5 further.
+     - It reaches 2,094 unrecorded articles. Their no-breakage render did not fit in the order, so the rule is HOLD.
+       - The render, read on 2026-11-17 at about 03:10 UTC (session restarts stopped it twice; it resumes from its own
+         output): 2,636 of 4,188 loads in. The 1440 half of the rule does nothing: its 13 px collapse into the wrapper's
+         24 px margin (1,832 loads at 1440 unchanged; the 1440 gate figures were unchanged too). So the rule will ship as
+         phones only.
+       - At 390, 385 finished loads are 7 px shorter, and no finished load has a flag.
+       - The 34 flags earlier, and 163 in all, were "without" loads that had not finished (900 px tall). 109 more show the
+         same late loading (+141 to +4,829 px, which a -7 px margin cannot cause). Those 272 load again with the remaining
+         1,327 at 390 in standing order 48.
+   - 21a, the author quote after the two captioned pictures (www 128 / 87 px from the last caption, ours 89 / 68).
+     Rule: the quote keeps 119 px above it from 768 px, 79 on phones. what-i-learned-living-in-barcelona 1440
+     7.72 → 5.34, 390 13.86 → 13.00.
+   - 21b: be-picky's teaser picture is 221 px tall on both now. The 29 px offset comes from earlier in the article.
+   - 21c: munich-fair's 390 section gaps cancel each other.
+     - At 1440 (12.84 %) www sets the closing section as two columns. A row doing the same: 1440 12.84 → 2.99, but 390
+       6.22 → 7.21 (the page above it already sits low on phones), so it is HOLD.
+   - No-breakage of the two article rules: 318 unrecorded articles (636 renders), no flag changed.
+2. **Places 41 to 60** (places-so46-lh-com-outside-41-60.txt), measured again as served.
+   - 1 READY row: the confirmation page's closing {spacer-70} as {spacer-20}. 1440 10.91 → 2.41, 390 10.55 → 5.23.
+   - 4 without a layout fix: another session's rows, a widget, an embed, drift.
+   - 14 located with their steps.
+   - Tried and not shipped: arrival-services' closing mark before the grey band at 1440, as a rule on order 42's
+     census. arrival-services and group-travel got closer, 7 other page-widths further.
+- As served after the push: allegris-premium-economy-san-diego 5.20, barcelona 5.34 / 13.00, as gated.
+- Also on main since this order began: rows-for-ema-test.md item 17 (Brussels bike-the-city's captions), not in this
+  order's items.
+
+## Standing order 46, final section (about 01:30 UTC, 2026-11-17)
+
+- Items 1 and 2 done; the article-end link rule waits for the rest of its 390 render (standing order 48).
+- Before this section: the full suite at 4306ac8e in a fresh worktree (npm run lint exit 0, stylelint exit 0, 1,254 test files passed, 0 failed); the folder-reading tests with brand.test.mjs (647, 0 failed); the whole-repo lint read
+  before every push.
+- ema-adobe's two-hour window: styles/styles.css had no other session's commit in the two hours before my edits.
+- Nothing uploaded, previewed or published by me. DA read only (munich-fair, the confirmation page). da-upload.mjs not
+  run.
+- Requests only to our own hosts, DA (reads), GitHub's API and the drops' address. No request to www or any airline
+  host.
+- .migration/project.json not touched; the excluded manage page has no row and no line.
+- Not in git, and why:
+  - logs/p4/so46 (scratch, with the running render);
+  - the drops under logs/drops (private material, git-ignored);
+  - content/, migration-work/ and tools/importer/reports/* (not mine);
+  - the old autostash entry (not mine, kept).
+- Preview servers stopped; the trial, folder and suite worktrees removed. The article-end render goes on in standing
+  order 48 (three processes, writing to logs/p4/so46).
