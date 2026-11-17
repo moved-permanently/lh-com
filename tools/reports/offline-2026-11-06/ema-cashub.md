@@ -11378,3 +11378,217 @@ on two). It is marked as a note only, and no recorded page was gated, so I took 
 
 **Left uncommitted:** nothing of mine. Scratch stays in migration-work/parity-588/so66. No background job of mine is
 running.
+
+## Standing order 67 (2026-11-17, from about 23:40 CET)
+
+**Carried over:** nothing. Order 66's last commit (192f617c) was on main and my worktree was clean. The main checkout's
+dirty entries (blocks/notifications/notifications.css, import-progress.json, importer reports, urls-*.txt) belong to
+other jobs and were left alone.
+
+**Scratch:** migration-work/parity-588/so67 (not in git): the toggle censuses (togn2.mjs; togs.mjs takes JS steps too, so
+a document change or the later cleanup pass can be simulated in the same load), hostv2.mjs (so53/hostv.mjs with ABORT, so
+the form's Turnstile challenge is aborted on both sides of a draft pair), the served SWISS copies (5,335 GETs to
+swiss.turnsthe.page), the B2B served and DA copies, the drafts, the row generator gen-b2b.mjs, logs.
+
+**Requests:** every render refused lh-proxy, www.* and every airline host per request and counted them; none were sent.
+www's pages were read only from the recordings on disk (swiss-parity-002a, -002b; b2b-parity-001, -007, -009, -015).
+
+**DA:** read only, 7 single GETs, one per command (lh-b2b: the seven documents of item 2). Nothing was written. No upload,
+preview, publish or da-upload.mjs by me. /de/en/overview-manage has no row.
+
+**Token-free:** nothing this order puts a style token into a document. The SWISS gaps are theme rules, and the B2B
+carriers are a block option, section metadata (Style) and section breaks. The B2B list's test checks that no insert adds
+a `{…}` its anchor doesn't hold.
+
+### Item 1: the withdrawn SWISS rows as SWISS rules (pushed, 040d0326)
+
+**The aside gap on phones** (styles/themes/swiss.css, below 768 px):
+- **The rule:** an aside with content sits 60 px under the content, against lh-com's 40 px. An empty aside keeps its 40,
+  because it draws nothing. An aside that still starts with a spacer row keeps the gap that row gives it: those are the
+  ten ch/en and ch/de documents whose order 65 rows are live, until the cleanup pass. After that pass the rule takes over
+  there too.
+- **Why not www's 80:** I toggled 80 px (asides with content) on all 86 recorded SWISS 390 page-widths. It takes five long
+  pages more than half a point further:
+
+  | Page (390) | Points further with 80 px |
+  | --- | --- |
+  | unaccompanied-minors | +0.89 |
+  | new-destinations | +0.70 |
+  | swiss-airrail (its order 66 row is live) | +0.62 |
+  | food-and-beverage | +0.59 |
+  | green-fare (its order 66 row is live) | +0.53 |
+
+  60 px is the site's Spacer M, so it is the near value left to the theme.
+- **The gate:** the final rule, without !important, toggled in-page on all 86 recorded SWISS 390 page-widths. 12 pages
+  move. None is further by more than half a point:
+
+  | Page (390) | www | As served | With the rule | Points |
+  | --- | --- | --- | --- | --- |
+  | ch/de unaccompanied-minors | 4,483 | 4,499 (+0.36 %) | 4,519 (+0.80 %) | +0.45 |
+  | ch/en swiss-airrail | 9,662 | 9,779 (+1.21 %) | 9,819 (+1.62 %) | +0.41 |
+  | ch/de new-destinations | 5,676 | 5,825 (+2.63 %) | 5,845 (+2.98 %) | +0.35 |
+  | ch/en food-and-beverage | 6,747 | 6,758 (+0.16 %) | 6,778 (+0.46 %) | +0.30 |
+  | ch/en green-fare | 7,481 | 7,488 (+0.09 %) | 7,508 (+0.36 %) | +0.27 |
+  | ch/en advance-seat-reservation | 9,348 | 9,356 (+0.09 %) | 9,376 (+0.30 %) | +0.21 |
+  | ch/en accessible-travel | 9,918 | 10,044 (+1.27 %) | 10,064 (+1.47 %) | +0.20 |
+  | ch/de swiss-first | 8,116 | 8,029 (-1.07 %) | 8,049 (-0.83 %) | closer |
+  | ch/de swiss-economy | 6,755 | 6,708 (-0.70 %) | 6,728 (-0.40 %) | closer |
+  | ch/de online-check-in | 5,567 | 5,543 (-0.43 %) | 5,563 (-0.07 %) | closer |
+  | ch/de baggage-irregularities | 5,081 | 5,034 (-0.93 %) | 5,054 (-0.53 %) | closer |
+  | ch/en special-meals | 3,167 | 3,111 (-1.77 %) | 3,131 (-1.14 %) | closer |
+
+  - The ten documents with live rows are unchanged, and so is every 768 and 1440 width.
+  - The homepages that "moved" were loads still filling: they have no aside.
+  - With the code itself (CODE override), unaccompanied-minors 4,519, green-fare 7,508 and swiss-business 6,721
+    (unchanged) match the toggle to the px.
+- **Reach:** 1,253 of the 5,335 served SWISS documents have an aside. The 102 documents of the withdrawn rows get 20 px
+  where the rows gave 40.
+- **After the cleanup pass:** the ten live documents will be 20 px per shown aside short of today. For example,
+  entertainment-on-board 390 goes 2,665 to 2,625 with its two asides. That pass should be gated with this rule in place.
+
+**The fleet hub's teaser grid** (every width):
+- **The rule:** a two-up card grid right after text, at the end of the page's last section, gets 44 px of padding above
+  and 46 px below. It is padding, so neither collapses with the text's or the section's margin. These are order 65's
+  {spacer-47} / {spacer-61} figures.
+- **Reach:** of the 38 served documents with a two-up grid, it matches the fleet hub in its 11 language versions only.
+  airbus-longhaul, the new-destinations pages, the corporate pages and speedlab don't match; a toggle on six of them at
+  both widths moved none.
+- **ch/en (recorded):**
+  - As served, with its live rows, the grid isn't the section's last child, so the rule doesn't match: unchanged.
+  - With the rows taken out in the same load (the cleanup simulated) and the rule added: 1440 1,550 to 1,640, 390 1,949
+    to 2,039. That is exactly the rows' figures (www 1,635 / 2,040).
+- **The other ten versions** (ch/de, el, es, fr, it, ja, pt, ru, zh, kr/ko): +90 px at 390 and at 1440, the withdrawn
+  rows' amount. No page scrolls sideways. ch/de with the code: 2,061 / 1,664.
+
+**group-travel-and-charter's {spacer-59 from-768}:** dropped as a near value, as you allowed. It is one 48 px step under
+the intro, at 1440 only (2,234 against www's 2,281, -2.06 %); 390 is unaffected.
+
+### Item 2: Group for Business without the kept marker (pushed, 040d0326; list READY)
+
+**Which documents:** of the 733 served B2B documents, 7 still carry {heading-copytext-large}:
+- businesstogo de/de, de/en, xx/de and xx/en: four H3s in a Columns Media block, plus the FAQ H2;
+- route-network de/de and de/en: one H2;
+- lufthansa-group-wifi: four H3s in a block.
+
+All seven are recorded (14 page-widths).
+
+**The theme** (scripts/style-markers.js, THEMES.b2b):
+- keepSizes is gone.
+- An H3 in heading-copytext-large is a choice of its own, "compact" (headingChoices.h3.compact, and nearChoices for the
+  one step under the flow pages' heading-small).
+- The collapse now writes it as the block option title-compact, or in a section as the new section style H3 compact.
+  The page reads both as the class the marker gave.
+- An H2 in that size is H2 compact where its section's H2s agree. In a mixed section it goes to the theme (the existing
+  majority rule).
+- With the collapse of this checkout, the seven DA copies keep no copytext-large marker.
+- **Served pages:** no served B2B document has a title-compact block with an unmarked H3, or the new style, so the code
+  moves no page. CODE-override renders of 50 B2B documents (the seven and 43 at random, seed 67) at 390 and 1440 against
+  the served code: all 100 page-widths the same height, none scrolls sideways (one broken served load, wifi 390 at the window height, read again alone: 6,496 both).
+
+**Measured first, without carriers:**
+- Taking the class off the block H3s (the collapse without the theme change) fails 9 of the 14 page-widths. For example,
+  businesstogo de/de 390 is +2.94 points (+214 px).
+- Aligning the mixed-section H2s to heading-medium fails route-network (+59 / +25 px).
+
+**The rows** (delta-so67-b2b-heading-carriers.txt / .json, text-inserts-apply.mjs):
+- *Block headings:* the block gets title-compact and the markers go.
+- *A section's own H2:* the H2 and what follows it, up to the section's next own H2, become a section of their own with
+  Style h2-compact, plus the section's wide-text where it has it.
+- *route-network:* the cut falls where a Spacer block stands, so the section break takes its place. A cut without that
+  adds 48 px (B2B's section margin) and failed both widths.
+
+The drafts were rendered with Turnstile aborted on both sides of each pair.
+
+| Page | Width | www | As served | With the row | Points | State |
+| --- | --- | --- | --- | --- | --- | --- |
+| de/en lufthansa-group-wifi | 390 | 6,532 | 6,496 (-0.55 %) | 6,496 | 0 | **READY** |
+| de/en lufthansa-group-wifi | 1440 | 4,476 | 4,469 (-0.16 %) | 4,469 | 0 | **READY** |
+| de/de route-network | 390 | 5,915 | 6,025 (+1.86 %) | 6,012 (+1.64 %) | -0.22 | **READY** |
+| de/de route-network | 1440 | 4,173 | 4,188 (+0.36 %) | 4,175 (+0.05 %) | -0.31 | **READY** |
+| de/en route-network | 390 | 5,739 | 5,849 (+1.92 %) | 5,836 (+1.69 %) | -0.23 | **READY** |
+| de/en route-network | 1440 | 4,037 | 4,074 (+0.92 %) | 4,061 (+0.59 %) | -0.32 | **READY** |
+| de/en, xx/en businesstogo | 390 | 6,685 | 6,725 (+0.60 %) | 6,733 (+0.72 %) | +0.12 | **READY** |
+| de/en, xx/en businesstogo | 1440 | 4,931 | 4,903 (-0.57 %) | 4,911 (-0.41 %) | -0.16 | **READY** |
+| de/de, xx/de businesstogo | 390 | 7,283 | 7,288 (+0.07 %) | 7,225 (-0.80 %) | +0.73 | HOLD |
+| de/de, xx/de businesstogo | 1440 | 5,069 | 5,010 (-1.16 %) | 5,018 (-1.01 %) | -0.16 | HOLD |
+
+- **Dry runs** on DA's copies: wifi "4 inserted", route-network "2 inserted" each, businesstogo "6 inserted" each. Every one
+  was "without the inserts DA's copy byte for byte: true", and a second run gave "present". The section structure of the
+  output was read back: businesstogo de/en's last section is now three sections, the FAQ one with Style h2-compact; the
+  page Metadata stays in the last one.
+- **HOLD, de/de and xx/de businesstogo:**
+  - *Cause:* their block's H2 ("Optimieren Sie Ihre Geschäftsreisen") has no size in the document. de/en's copy has
+    {heading-medium}, and www draws it heading-medium. So title-compact makes it heading-copytext-large too: -70 px at
+    390, 0.73 points further.
+  - *What it needs:* that H2's size from something other than a marker. One way is a row that moves the H2 out of the
+    block as the section's own heading, which gets the theme's heading-medium; not drafted this order.
+  - *Until then:* these two documents keep the marker. Their rows are in the .json but HOLD in the list (listPaths gives
+    the five READY paths only).
+- **The rows need this push's code** (headingChoices.h3.compact): without it, title-compact draws nothing on an H3. They
+  are in the same commit.
+
+### Item 3: SWISS's empty last section: no rule
+
+- **The toggle:** on all 172 recorded SWISS page-widths, in the same load: first the empty last section not drawn, then
+  any empty section.
+- **The last section:** only baggage-irregularities moves: 390 5,034 to 4,946 (-0.93 to -2.66 %), 1440 3,881 to 3,753
+  (+1.04 to -2.29 %). Both fail. That "empty" section is a padded section (the token-free style Padded, 40 / 20 px), the
+  page-end gap www has. On every other recorded page-width the empty last section draws 0.
+- **Any empty section:** online-check-in 390 -24 px (0.43 further, within).
+- The two loads that timed out (group-travel 390, overview-extra-services 1440) were read again alone: unchanged.
+- **So:** a rule would change nothing visible on the recorded pages except the one where the section is deliberate. No
+  rule, nothing pushed.
+
+### Item 4: looked at, no rule
+
+I read order 66's heading-by-heading matches (so66/mt). None of the three pages has one spacing a SWISS rule could carry:
+
+- **accessibility-statement (1440, -2.93 %):** the steps fall at the H2s, but they vary (+12, -22, -19, -58, -48, -17 px).
+  Each step includes the text before it, so it is text wrap and list spacing, not one heading margin. A heading-margin
+  rule would overshoot some H2s and undershoot others.
+- **vouchers (390, +2.32 %):** every step down to the last FAQ question is within 34 px. Then +98 px to the footer: the
+  open answer and the closing divider. That is one block's content on one page, not a theme spacing.
+- **imprint (390, +3.66 %):** +44 px after the last heading, plus www's footnote component (a 14 / 15 px list). Order 66
+  found that a small-print carrier on it closes 8 of the 78 px at 390 and 3 of the 51 at 1440. A rule for one page's
+  footnote would be a pixel exception.
+
+### Checks
+
+- **Lint:** whole-repo `npm run lint`. The first run was exit 1: a line of mine in scripts/style-markers.js was 106
+  characters long (max-len). I fixed it, and the second run was exit 0 on 9fd728d8. Before the push the commit was
+  rebased over ec9e63e6, an Air Dolomiti upload state (JSON only, no JS or CSS), and pushed as 040d0326. The docs commit
+  was linted before its own push.
+- **Stylelint:** `npm run lint` does not cover styles/themes, so I ran stylelint on styles/themes/swiss.css and b2b.css
+  separately: exit 0.
+- **Tests before the code push:** the folder-reading tests (order 62's list), every test naming the SWISS or B2B theme,
+  style-markers, marker-collapse, token-free, section-aside, carousel-cards, text-inserts-apply, keepSizes or a delta-so6
+  list, and the two new tests: 436 files, 1,887 pass, 0 failures, 3 skipped.
+- **Full suite** on 9fd728d8 (040d0326 before its rebase over a JSON file): 1,280 files, 4,798 pass, 0 failures,
+  5 skipped.
+
+### Final section (about 00:40 CET, 2026-11-18)
+
+**Pushed (040d0326):**
+- **SWISS (styles/themes/swiss.css):**
+  - The aside gap below 768 px: 60 px for an aside with content. 12 recorded 390 page-widths move, none further by more
+    than half a point.
+  - The fleet hub's teaser grid, 44 / 46 px: the rows' +90 px on the ten unrecorded language versions; ch/en unchanged
+    as served, and with its rows taken out equal to them.
+- **Group for Business:** THEMES.b2b without keepSizes, the H3 compact choice and the section style H3 compact.
+- **The tests:** swiss-aside-fleet-so67, b2b-heading-carriers-so67, and the two order-9 tests brought in line.
+
+**READY list (token-free, pushed with the code):**
+- delta-so67-b2b-heading-carriers.txt: 5 paths (lufthansa-group-wifi, route-network de/de and de/en, businesstogo de/en
+  and xx/en). Every recorded width closer or within the half point (businesstogo 390 +0.12).
+
+**Held, with figures:**
+- **businesstogo de/de and xx/de** (in the same list, HOLD): 390 +0.07 to -0.80 %, 0.73 points further. Their block H2
+  lacks its size. They keep the marker until that H2 gets a size another way.
+- **www's 80 px aside gap:** 5 recorded pages 0.53 to 0.89 points further. 60 px went in instead.
+- **group-travel-and-charter:** dropped as a near value (-2.06 % at 1440).
+- **Item 3:** no rule. The one recorded page it moves goes 1.25 to 1.73 points further, because its empty section is a
+  Padded carrier.
+- **Item 4:** looked at, no rule. Causes as in item 4: text wrap per step, one block's content, one page's footnote.
+
+**Left uncommitted:** nothing of mine. Scratch stays in migration-work/parity-588/so67. No background job of mine is
+running.
