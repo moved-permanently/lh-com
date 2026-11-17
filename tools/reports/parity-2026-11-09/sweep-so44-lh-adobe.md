@@ -106,6 +106,47 @@ recordings: 286 page-widths. (The per-template table above is order 44's 276.)
 - allegris-new-york: 8.3-10.2 % at 1440 and 10.3-11.7 % at 390, with the video ratio rows (order 34) live. at/de and gb/en lack the related cards' heading (places 22-23 below).
 - take-off: 3.9 / 6.3 %, and with item 2's row 1.6 / 4.6 (delta-so45-adobe-take-off-impact-fares.txt).
 
+## lh-parity-015: the same 8 pages, whole page (standing order 47, item 1)
+
+lh-parity-015 (sha256 64c1967d..., the same 8 pages and 16 loads as lh-parity-014; each load a first visit, the OneTrust
+dialog closed with a real click before recording) checked here too: the header is undimmed on all 16 (5,22,77 at 20,20,
+as on our host). Our pages captured at 04:05 CET, with round 514's rows (take-off, allegris-new-york at/de and gb/en) and
+round 516's batch 01 live. Whole page, no first-screen mask; the live boxes masked as in every gate. "First screen" is the
+first 900 px (1440) / 844 px (390) alone.
+
+| Page | Width | Whole page % | First screen % | Masked % | Height www / ours | lh-parity-014 (first screen masked) |
+| --- | --- | --- | --- | --- | --- | --- |
+| /de/en/articles/explore-flying | 1440 | 4.3 | 1.3 | 50.8 | 5489/5489 | 4.1 |
+| /de/en/articles/explore-flying | 390 | 7.8 | 5.3 | 62.1 | 6650/6650 | 7.1 |
+| /de/en/articles/explore-the-world | 1440 | 7.7 | 3.2 | 50.3 | 6333/6258 | 7.6 |
+| /de/en/articles/explore-the-world | 390 | 7.4 | 6.0 | 56.8 | 8156/8000 | 7.4 |
+| /de/en/articles/explore-flying/livery-iconic-moments | 1440 | 5.5 | 0.7 | 0.0 | 17187/8000 | 5.4 |
+| /de/en/articles/explore-flying/livery-iconic-moments | 390 | 8.7 | 2.9 | 0.0 | 25051/8000 | 8.4 |
+| /de/en/articles/highlights/allegris-new-york | 1440 | 9.0 | 5.9 | 5.8 | 6945/6935 | 8.3 |
+| /de/en/articles/highlights/allegris-new-york | 390 | 10.9 | 3.6 | 12.7 | 7663/7663 | 10.3 |
+| /de/de/articles/highlights/allegris-new-york | 1440 | 9.1 | 5.9 | 5.7 | 7080/7070 | 9.3 |
+| /de/de/articles/highlights/allegris-new-york | 390 | 11.1 | 3.7 | 12.1 | 8227/8000 | 10.6 |
+| /at/de/articles/highlights/allegris-new-york | 1440 | 9.1 | 5.9 | 5.7 | 7080/7070 | 9.8 |
+| /at/de/articles/highlights/allegris-new-york | 390 | 11.1 | 3.7 | 12.1 | 8227/8000 | 11.7 |
+| /gb/en/articles/highlights/allegris-new-york | 1440 | 9.0 | 5.9 | 5.8 | 6945/6935 | 10.2 |
+| /gb/en/articles/highlights/allegris-new-york | 390 | 10.9 | 3.6 | 12.7 | 7663/7663 | 11.7 |
+| /de/en/discover-lufthansa/take-off | 1440 | 1.8 | 0.5 | 0.0 | 4514/4514 | 3.9 |
+| /de/en/discover-lufthansa/take-off | 390 | 4.8 | 0.8 | 0.0 | 6895/6895 | 6.3 |
+
+Where the first screen differs from www, now that it is visible:
+- allegris-new-york at 1440 (5.9 %): www draws its sticky Price Bar ("New York, round trip from 574.29 €", Find Flights)
+  under the stage; ours hides the bar, because its price comes from www in the browser and is refused here. Our article card
+  then starts where www's bar is. At 390 (3.6-3.7 %) the bar sits below the first screen on both.
+- explore-the-world (1440 3.2, 390 6.0 %): the map. www draws Google Maps (its tiles and outline pins, a wider view down to
+  South Africa at 390); ours draws OpenStreetMap tiles with filled pins at another zoom. By design (the poi-map block).
+- explore-flying 390 (5.3 %): our H1 sits 8 px lower under the stage picture, and the results line reads 83 (www 82, the
+  list's content).
+- On every page: www's "Feedback" tab on the right edge (a www survey widget, not ours) and our DEMO badge; livery and
+  take-off are within 0.5-2.9 % otherwise.
+
+The ranking below holds these 16 whole-page figures instead of lh-parity-014's masked ones. (Places 21 to 60 below were
+numbered on the ranking of their order; places 61 to 80 on this one.)
+
 ## Places 21 to 40 (standing order 45, item 3)
 
 Places in the ranking below, with the lh-parity-014 page-widths in it. Drift steps and crops are in logs/b645 (not in git).
@@ -147,9 +188,30 @@ are in logs/b646/drift (not in git); most of these were located before, in sweep
 | 57, 59 | /de/en/articles/explore-the-world/know-before-you-go-algiers, -berlin 390 | 8.2, 8.1 | (1) 21-44 px more above "Related Articles". (2) The "Find your flight" button's steps (order 41, item 3). | (1) Hand-over item 17. (2) None. |
 | 58, 60 | /de/en, /gb/en 100-years/destinations 390 | 8.1 | Within 15 px; the recording's fallback face on the headings. | None: the recording's face. |
 
+## Places 61 to 80 (standing order 47, item 3)
+
+Places in the ranking below (with lh-parity-015's whole-page figures in it). All were located before (sweep-so34
+places 59-118, order 44's worst 20); tonight's drift on the two hubs against lh-parity-015 is in logs/b647.
+
+| Rank | Page-width | % | Cause (located) | Fix |
+| --- | --- | --- | --- | --- |
+| 61, 63, 73, 76 | /at/de, /de/de, /de/en, /gb/en 100-years/crane 1440 | 8.0, 8.0, 7.8, 7.8 | 5 picture captions missing; drift within 32 px. | The owner's decision (order 31). |
+| 62, 64 | /at/de, /de/de 100-years/destinations 390 | 8.0 | Within 15 px; the recording's fallback face on the headings. | None. |
+| 65 | /de/en/lufthansa-city/culinaryjourney 1440 | 8.0 | The H1's section starts 38 px higher than www's, then 24 px. | Hand-over item 6. |
+| 66, 68, 69, 70 | /de/en, /gb/en lufthansa-travel-classes, /at/de, /de/de lufthansa-reiseklassen 390 | 8.0, 8.0, 7.9, 7.9 | Within 12 px; the stage tiles' photos under their dark overlay. | None. |
+| 67 | /de/en/services-at-the-airport 390 | 8.0 | The text runs a word wider per line (the font width); the page ends 34 px sooner after the last card. | None for the font; hand-over item 17. |
+| 71 | /de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips 390 | 7.9 | Within 12 px; photos. | None. |
+| 72 | /de/de/speisen-und-getraenke 390 | 7.8 | 30 px less above "Häufig gestellte Fragen"; one question wraps a line more. | Hand-over item 18. |
+| 74 | /de/en/articles/explore-flying 390 | 7.8 (lh-parity-015, whole page) | (1) The first screen: our H1 8 px lower (see the lh-parity-015 section). (2) From 4,800 px on +136 to +171: the article list holds one article more (83 vs 82) and its cards are live boxes, masked. | (1) A heading's space after a stage picture: for ema-test's heading rules, item 23. (2) None: content. |
+| 75 | /de/en/articles/explore-the-world/what-i-learned-living-in-frankfurt 390 | 7.8 | The article-end teaser's link (item 20), 22 px more above "Related Articles" (item 17), the related cards' order. | Items 20 and 17; the rest none. |
+| 77 | /de/en/articles/explore-flying/anniversary-super-crane-special 1440 | 7.7 | Within 31 px; photos. | None. |
+| 78 | /de/en/articles/explore-the-world 1440 | 7.7 (lh-parity-015, whole page) | (1) The map (OpenStreetMap against www's Google Maps). (2) 26 px less above "Discover your dream destinations with us!". (3) The results list's content (drift -175 to -68). | (1) None: by design. (2) Hand-over item 18. (3) None. |
+| 79 | /de/en/articles/explore-the-world/eat-see-do-algiers 1440 | 7.7 | Our capture is sweep-so34's but for the Price Bar band at y 800: the bar draws no price with airline hosts refused and hides (7.0 in sweep-so34, when it drew one). | None: expected with prices refused. |
+| 80 | /de/en/articles/explore-the-world/in-my-hood-chiswick-london 390 | 7.7 | Within 23 px until the related cards (+48), then back to 0; photos. | None. |
+
 ## Every page-width, worst first
 
-| Rank | Page | Template | Width | % | Height www / ours | Masked % | Recording | Before (sweep-so34, or sweep-so44 before lh-parity-014) |
+| Rank | Page | Template | Width | % | Height www / ours | Masked % | Recording | Before |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | /de/en/articles/explore-the-world/picture-perfect-austin | insights | 390 | 25.4 | 8000/8000 | 0.0 | lh-parity-002 | 25.2 |
 | 2 | /at/de/flughafeninformation | hub | 390 | 24.8 | 5882/5882 | 0.0 | lh-parity-004 | 24.8 |
@@ -172,41 +234,41 @@ are in logs/b646/drift (not in git); most of these were located before, in sweep
 | 19 | /de/en/100-years/chronicle | campaign | 1440 | 12.2 | 8000/8000 | 20.3 | lh-parity-002 | 12.2 |
 | 20 | /de/en/100-years | campaign | 1440 | 11.9 | 8000/8000 | 10.1 | lh-parity-002 | 11.9 |
 | 21 | /de/en/book-and-manage/stopover | campaign | 1440 | 11.8 | 8000/8000 | 2.4 | lh-parity-002 | 11.8 |
-| 22 | /at/de/articles/highlights/allegris-new-york | insights | 390 | 11.7 | 8227/8000 | 23.4 | lh-parity-014 (first screen masked) | not swept |
-| 23 | /gb/en/articles/highlights/allegris-new-york | insights | 390 | 11.7 | 7663/7604 | 24.4 | lh-parity-014 (first screen masked) | not swept |
-| 24 | /de/en/100-years/fleet | campaign | 1440 | 11.4 | 8000/8000 | 8.0 | lh-parity-002 | 11.4 |
-| 25 | /de/en/munich-fair | campaign | 1440 | 11.3 | 2322/2322 | 0.0 | lh-parity-002 | 11.3 |
+| 22 | /de/en/100-years/fleet | campaign | 1440 | 11.4 | 8000/8000 | 8.0 | lh-parity-002 | 11.4 |
+| 23 | /de/en/munich-fair | campaign | 1440 | 11.3 | 2322/2322 | 0.0 | lh-parity-002 | 11.3 |
+| 24 | /at/de/articles/highlights/allegris-new-york | insights | 390 | 11.1 | 8227/8000 | 12.1 | lh-parity-015 | 11.7 (lh-parity-014, first screen masked) |
+| 25 | /de/de/articles/highlights/allegris-new-york | insights | 390 | 11.1 | 8227/8000 | 12.1 | lh-parity-015 | 10.6 (lh-parity-014, first screen masked) |
 | 26 | /de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day | insights | 390 | 11.1 | 8000/8000 | 14.1 | lh-parity-002 | 11.1 |
 | 27 | /de/en/lufthansa-city/culinaryjourney | campaign | 390 | 11.1 | 1736/1736 | 0.0 | lh-parity-002 | 11.1 |
-| 28 | /de/en/articles/explore-flying/anniversary-super-crane-special | insights | 390 | 10.8 | 8000/8000 | 0.0 | lh-parity-002 | 12.0 |
-| 29 | /at/de/articles/tags/allegris | insights | 1440 | 10.6 | 7467/7396 | 31.3 | lh-parity-004 | 12.1 |
-| 30 | /de/de/articles/highlights/allegris-new-york | insights | 390 | 10.6 | 8227/8000 | 23.4 | lh-parity-014 (first screen masked) | not swept |
-| 31 | /de/de/articles/tags/allegris | insights | 1440 | 10.6 | 7467/7396 | 31.3 | lh-parity-004 | 12.1 |
-| 32 | /de/en/articles/highlights/allegris-new-york | insights | 390 | 10.3 | 7663/7663 | 24.4 | lh-parity-014 (first screen masked) | not swept |
-| 33 | /gb/en/articles/highlights/allegris-new-york | insights | 1440 | 10.2 | 6945/6864 | 18.8 | lh-parity-014 (first screen masked) | not swept |
-| 34 | /at/de/overview-travel-information | hub | 390 | 10.1 | 4041/4041 | 0.0 | lh-parity-004 | 10.1 |
-| 35 | /de/de/overview-travel-information | hub | 390 | 10.1 | 4041/4041 | 0.0 | lh-parity-004 | 10.1 |
-| 36 | /gb/en/overview-travel-information | hub | 390 | 10.1 | 3950/3950 | 0.0 | lh-parity-004 | 10.1 |
-| 37 | /de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day | insights | 390 | 10.0 | 8000/8000 | 12.5 | lh-parity-002 | 10.0 |
-| 38 | /at/de/articles/highlights/allegris-new-york | insights | 1440 | 9.8 | 7080/7038 | 18.4 | lh-parity-014 (first screen masked) | not swept |
-| 39 | /de/en/100-years/campaigns | campaign | 390 | 9.5 | 8000/8000 | 0.0 | lh-parity-002 | 10.4 |
-| 40 | /de/en/100-years/crane | campaign | 390 | 9.5 | 8000/8000 | 0.0 | lh-parity-002 | 9.5 |
-| 41 | /de/en/100-years/history/menu-on-board | campaign | 390 | 9.5 | 8000/8000 | 10.1 | lh-parity-002 | 9.5 |
-| 42 | /de/en/articles/explore-the-world/be-picky-barcelona-insider-tips | insights | 390 | 9.5 | 7635/7635 | 15.2 | lh-parity-002 | 9.5 |
-| 43 | /de/en/articles/highlights/allegris-premium-economy-san-diego | insights | 1440 | 9.5 | 6730/6730 | 6.0 | lh-parity-002 | 9.5 |
-| 44 | /gb/en/100-years/crane | campaign | 390 | 9.5 | 8000/8000 | 0.0 | lh-parity-004 | 9.5 |
-| 45 | /at/de/100-years/crane | campaign | 390 | 9.4 | 8000/8000 | 0.0 | lh-parity-004 | 9.4 |
-| 46 | /de/de/100-years/crane | campaign | 390 | 9.4 | 8000/8000 | 0.0 | lh-parity-004 | 9.4 |
-| 47 | /de/de/articles/highlights/allegris-new-york | insights | 1440 | 9.3 | 7080/7080 | 18.4 | lh-parity-014 (first screen masked) | not swept |
-| 48 | /de/en/articles/explore-the-world/eat-see-do-algiers | insights | 390 | 9.2 | 8000/8000 | 13.5 | lh-parity-002 | 9.2 |
+| 28 | /de/en/articles/highlights/allegris-new-york | insights | 390 | 10.9 | 7663/7663 | 12.7 | lh-parity-015 | 10.3 (lh-parity-014, first screen masked) |
+| 29 | /gb/en/articles/highlights/allegris-new-york | insights | 390 | 10.9 | 7663/7663 | 12.7 | lh-parity-015 | 11.7 (lh-parity-014, first screen masked) |
+| 30 | /de/en/articles/explore-flying/anniversary-super-crane-special | insights | 390 | 10.8 | 8000/8000 | 0.0 | lh-parity-002 | 12.0 |
+| 31 | /at/de/articles/tags/allegris | insights | 1440 | 10.6 | 7467/7396 | 31.3 | lh-parity-004 | 12.1 |
+| 32 | /de/de/articles/tags/allegris | insights | 1440 | 10.6 | 7467/7396 | 31.3 | lh-parity-004 | 12.1 |
+| 33 | /at/de/overview-travel-information | hub | 390 | 10.1 | 4041/4041 | 0.0 | lh-parity-004 | 10.1 |
+| 34 | /de/de/overview-travel-information | hub | 390 | 10.1 | 4041/4041 | 0.0 | lh-parity-004 | 10.1 |
+| 35 | /gb/en/overview-travel-information | hub | 390 | 10.1 | 3950/3950 | 0.0 | lh-parity-004 | 10.1 |
+| 36 | /de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day | insights | 390 | 10.0 | 8000/8000 | 12.5 | lh-parity-002 | 10.0 |
+| 37 | /de/en/100-years/campaigns | campaign | 390 | 9.5 | 8000/8000 | 0.0 | lh-parity-002 | 10.4 |
+| 38 | /de/en/100-years/crane | campaign | 390 | 9.5 | 8000/8000 | 0.0 | lh-parity-002 | 9.5 |
+| 39 | /de/en/100-years/history/menu-on-board | campaign | 390 | 9.5 | 8000/8000 | 10.1 | lh-parity-002 | 9.5 |
+| 40 | /de/en/articles/explore-the-world/be-picky-barcelona-insider-tips | insights | 390 | 9.5 | 7635/7635 | 15.2 | lh-parity-002 | 9.5 |
+| 41 | /de/en/articles/highlights/allegris-premium-economy-san-diego | insights | 1440 | 9.5 | 6730/6730 | 6.0 | lh-parity-002 | 9.5 |
+| 42 | /gb/en/100-years/crane | campaign | 390 | 9.5 | 8000/8000 | 0.0 | lh-parity-004 | 9.5 |
+| 43 | /at/de/100-years/crane | campaign | 390 | 9.4 | 8000/8000 | 0.0 | lh-parity-004 | 9.4 |
+| 44 | /de/de/100-years/crane | campaign | 390 | 9.4 | 8000/8000 | 0.0 | lh-parity-004 | 9.4 |
+| 45 | /de/en/articles/explore-the-world/eat-see-do-algiers | insights | 390 | 9.2 | 8000/8000 | 13.5 | lh-parity-002 | 9.2 |
+| 46 | /at/de/articles/highlights/allegris-new-york | insights | 1440 | 9.1 | 7080/7070 | 5.7 | lh-parity-015 | 9.8 (lh-parity-014, first screen masked) |
+| 47 | /de/de/articles/highlights/allegris-new-york | insights | 1440 | 9.1 | 7080/7070 | 5.7 | lh-parity-015 | 9.3 (lh-parity-014, first screen masked) |
+| 48 | /de/en/articles/highlights/allegris-new-york | insights | 1440 | 9.0 | 6945/6935 | 5.8 | lh-parity-015 | 8.3 (lh-parity-014, first screen masked) |
 | 49 | /de/en/articles/tags/allegris | insights | 1440 | 9.0 | 7492/7412 | 31.7 | lh-parity-002 | 12.5 |
-| 50 | /gb/en/articles/tags/allegris | insights | 1440 | 9.0 | 7492/7412 | 31.7 | lh-parity-004 | 10.6 |
-| 51 | /de/en/articles/explore-the-world/stop-over-tokyo | insights | 390 | 8.7 | 7337/7337 | 15.1 | lh-parity-002 | 8.8 |
-| 52 | /de/en/articles/explore-the-world/eat-see-do-berlin | insights | 390 | 8.5 | 8000/8000 | 0.7 | lh-parity-002 | 8.4 |
-| 53 | /de/en/articles/explore-flying/livery-iconic-moments | insights | 390 | 8.4 | 25051/8000 | 10.5 | lh-parity-014 (first screen masked) | not swept |
-| 54 | /at/de/discover-lufthansa/new-onboard-experience | campaign | 390 | 8.3 | 8000/8000 | 0.0 | lh-parity-004 | 8.3 |
-| 55 | /de/de/discover-lufthansa/new-onboard-experience | campaign | 390 | 8.3 | 8000/8000 | 0.0 | lh-parity-004 | 8.3 |
-| 56 | /de/en/articles/highlights/allegris-new-york | insights | 1440 | 8.3 | 6945/6935 | 18.8 | lh-parity-014 (first screen masked) | not swept |
+| 50 | /gb/en/articles/highlights/allegris-new-york | insights | 1440 | 9.0 | 6945/6935 | 5.8 | lh-parity-015 | 10.2 (lh-parity-014, first screen masked) |
+| 51 | /gb/en/articles/tags/allegris | insights | 1440 | 9.0 | 7492/7412 | 31.7 | lh-parity-004 | 10.6 |
+| 52 | /de/en/articles/explore-flying/livery-iconic-moments | insights | 390 | 8.7 | 25051/8000 | 0.0 | lh-parity-015 | 8.4 (lh-parity-014, first screen masked) |
+| 53 | /de/en/articles/explore-the-world/stop-over-tokyo | insights | 390 | 8.7 | 7337/7337 | 15.1 | lh-parity-002 | 8.8 |
+| 54 | /de/en/articles/explore-the-world/eat-see-do-berlin | insights | 390 | 8.5 | 8000/8000 | 0.7 | lh-parity-002 | 8.4 |
+| 55 | /at/de/discover-lufthansa/new-onboard-experience | campaign | 390 | 8.3 | 8000/8000 | 0.0 | lh-parity-004 | 8.3 |
+| 56 | /de/de/discover-lufthansa/new-onboard-experience | campaign | 390 | 8.3 | 8000/8000 | 0.0 | lh-parity-004 | 8.3 |
 | 57 | /de/en/articles/explore-the-world/know-before-you-go-algiers | insights | 390 | 8.2 | 7470/7470 | 14.5 | lh-parity-002 | 8.2 |
 | 58 | /de/en/100-years/destinations | campaign | 390 | 8.1 | 8000/8000 | 0.0 | lh-parity-002 | 8.1 |
 | 59 | /de/en/articles/explore-the-world/know-before-you-go-berlin | insights | 390 | 8.1 | 7415/7415 | 14.2 | lh-parity-002 | 8.0 |
@@ -224,32 +286,32 @@ are in logs/b646/drift (not in git); most of these were located before, in sweep
 | 71 | /de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips | insights | 390 | 7.9 | 5101/5101 | 19.0 | lh-parity-002 | 7.9 |
 | 72 | /de/de/speisen-und-getraenke | hub | 390 | 7.8 | 7101/7101 | 0.0 | lh-parity-004 | 7.8 |
 | 73 | /de/en/100-years/crane | campaign | 1440 | 7.8 | 8000/8000 | 0.0 | lh-parity-002 | 7.8 |
-| 74 | /de/en/articles/explore-the-world/what-i-learned-living-in-frankfurt | insights | 390 | 7.8 | 6027/6027 | 16.1 | lh-parity-002 | 7.8 |
-| 75 | /gb/en/100-years/crane | campaign | 1440 | 7.8 | 8000/8000 | 0.0 | lh-parity-004 | 7.8 |
-| 76 | /de/en/articles/explore-flying/anniversary-super-crane-special | insights | 1440 | 7.7 | 7218/7218 | 5.9 | lh-parity-002 | 7.7 |
-| 77 | /de/en/articles/explore-the-world/eat-see-do-algiers | insights | 1440 | 7.7 | 6548/6527 | 5.6 | lh-parity-002 | 7.0 |
-| 78 | /de/en/articles/explore-the-world/in-my-hood-chiswick-london | insights | 390 | 7.7 | 7210/7210 | 24.2 | lh-parity-002 | 7.5 |
-| 79 | /de/en/frankfurt-fair | campaign | 1440 | 7.7 | 3524/3448 | 0.0 | lh-parity-002 | 7.7 |
-| 80 | /gb/en/frankfurt-fair | campaign | 1440 | 7.7 | 3524/3448 | 0.0 | lh-parity-004 | 7.7 |
-| 81 | /at/de/frankfurt-fair | campaign | 390 | 7.6 | 5439/5435 | 0.0 | lh-parity-004 | 7.6 |
-| 82 | /at/de/speisen-und-getraenke | hub | 390 | 7.6 | 7101/7101 | 0.0 | lh-parity-004 | 7.6 |
-| 83 | /de/de/frankfurt-fair | campaign | 390 | 7.6 | 5439/5435 | 0.0 | lh-parity-004 | 7.6 |
-| 84 | /de/en/articles/explore-the-world | insights | 1440 | 7.6 | 6333/6258 | 57.6 | lh-parity-014 (first screen masked) | 8.1 vs lh-parity-002 |
-| 85 | /de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich | insights | 390 | 7.6 | 6746/6746 | 26.7 | lh-parity-002 | 7.7 |
-| 86 | /de/en/articles/explore-the-world/stop-over-tokyo | insights | 1440 | 7.6 | 6251/6240 | 5.9 | lh-parity-002 | 6.7 |
-| 87 | /at/de/services-am-flughafen | hub | 390 | 7.5 | 3622/3619 | 0.0 | lh-parity-004 | 7.5 |
-| 88 | /de/de/services-am-flughafen | hub | 390 | 7.5 | 3622/3619 | 0.0 | lh-parity-004 | 7.5 |
-| 89 | /de/en/discover-lufthansa/new-onboard-experience | campaign | 390 | 7.5 | 8000/8000 | 0.0 | lh-parity-002 | 7.5 |
-| 90 | /gb/en/discover-lufthansa/new-onboard-experience | campaign | 390 | 7.5 | 8000/8000 | 0.0 | lh-parity-004 | 7.5 |
-| 91 | /gb/en/services-at-the-airport | hub | 390 | 7.5 | 3411/3409 | 0.0 | lh-parity-004 | 7.5 |
-| 92 | /de/en/articles/explore-the-world | insights | 390 | 7.4 | 8156/8000 | 61.8 | lh-parity-014 (first screen masked) | 7.6 vs lh-parity-002 |
-| 93 | /de/en/articles/highlights/allegris-premium-economy-san-diego | insights | 390 | 7.3 | 7206/7206 | 14.2 | lh-parity-002 | 7.3 |
-| 94 | /de/en/frankfurt-fair | campaign | 390 | 7.3 | 5310/5305 | 0.0 | lh-parity-002 | 7.3 |
-| 95 | /gb/en/frankfurt-fair | campaign | 390 | 7.3 | 5310/5305 | 0.0 | lh-parity-004 | 7.3 |
-| 96 | /at/de/digital-self-services | hub | 390 | 7.2 | 5651/5631 | 0.0 | lh-parity-004 | 7.2 |
-| 97 | /de/de/digital-self-services | hub | 390 | 7.2 | 5651/5631 | 0.0 | lh-parity-004 | 7.2 |
-| 98 | /de/en/articles/explore-the-world/essentials-barcelona-facts | insights | 390 | 7.2 | 5986/5986 | 19.4 | lh-parity-002 | 7.3 |
-| 99 | /de/en/articles/explore-flying | insights | 390 | 7.1 | 6650/6650 | 74.1 | lh-parity-014 (first screen masked) | 8.7 vs lh-parity-002 |
+| 74 | /de/en/articles/explore-flying | insights | 390 | 7.8 | 6650/6650 | 62.1 | lh-parity-015 | 7.1 (lh-parity-014, first screen masked) |
+| 75 | /de/en/articles/explore-the-world/what-i-learned-living-in-frankfurt | insights | 390 | 7.8 | 6027/6027 | 16.1 | lh-parity-002 | 7.8 |
+| 76 | /gb/en/100-years/crane | campaign | 1440 | 7.8 | 8000/8000 | 0.0 | lh-parity-004 | 7.8 |
+| 77 | /de/en/articles/explore-flying/anniversary-super-crane-special | insights | 1440 | 7.7 | 7218/7218 | 5.9 | lh-parity-002 | 7.7 |
+| 78 | /de/en/articles/explore-the-world | insights | 1440 | 7.7 | 6333/6258 | 50.3 | lh-parity-015 | 7.6 (lh-parity-014, first screen masked) |
+| 79 | /de/en/articles/explore-the-world/eat-see-do-algiers | insights | 1440 | 7.7 | 6548/6527 | 5.6 | lh-parity-002 | 7.0 |
+| 80 | /de/en/articles/explore-the-world/in-my-hood-chiswick-london | insights | 390 | 7.7 | 7210/7210 | 24.2 | lh-parity-002 | 7.5 |
+| 81 | /de/en/frankfurt-fair | campaign | 1440 | 7.7 | 3524/3448 | 0.0 | lh-parity-002 | 7.7 |
+| 82 | /gb/en/frankfurt-fair | campaign | 1440 | 7.7 | 3524/3448 | 0.0 | lh-parity-004 | 7.7 |
+| 83 | /at/de/frankfurt-fair | campaign | 390 | 7.6 | 5439/5435 | 0.0 | lh-parity-004 | 7.6 |
+| 84 | /at/de/speisen-und-getraenke | hub | 390 | 7.6 | 7101/7101 | 0.0 | lh-parity-004 | 7.6 |
+| 85 | /de/de/frankfurt-fair | campaign | 390 | 7.6 | 5439/5435 | 0.0 | lh-parity-004 | 7.6 |
+| 86 | /de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich | insights | 390 | 7.6 | 6746/6746 | 26.7 | lh-parity-002 | 7.7 |
+| 87 | /de/en/articles/explore-the-world/stop-over-tokyo | insights | 1440 | 7.6 | 6251/6240 | 5.9 | lh-parity-002 | 6.7 |
+| 88 | /at/de/services-am-flughafen | hub | 390 | 7.5 | 3622/3619 | 0.0 | lh-parity-004 | 7.5 |
+| 89 | /de/de/services-am-flughafen | hub | 390 | 7.5 | 3622/3619 | 0.0 | lh-parity-004 | 7.5 |
+| 90 | /de/en/discover-lufthansa/new-onboard-experience | campaign | 390 | 7.5 | 8000/8000 | 0.0 | lh-parity-002 | 7.5 |
+| 91 | /gb/en/discover-lufthansa/new-onboard-experience | campaign | 390 | 7.5 | 8000/8000 | 0.0 | lh-parity-004 | 7.5 |
+| 92 | /gb/en/services-at-the-airport | hub | 390 | 7.5 | 3411/3409 | 0.0 | lh-parity-004 | 7.5 |
+| 93 | /de/en/articles/explore-the-world | insights | 390 | 7.4 | 8156/8000 | 56.8 | lh-parity-015 | 7.4 (lh-parity-014, first screen masked) |
+| 94 | /de/en/articles/highlights/allegris-premium-economy-san-diego | insights | 390 | 7.3 | 7206/7206 | 14.2 | lh-parity-002 | 7.3 |
+| 95 | /de/en/frankfurt-fair | campaign | 390 | 7.3 | 5310/5305 | 0.0 | lh-parity-002 | 7.3 |
+| 96 | /gb/en/frankfurt-fair | campaign | 390 | 7.3 | 5310/5305 | 0.0 | lh-parity-004 | 7.3 |
+| 97 | /at/de/digital-self-services | hub | 390 | 7.2 | 5651/5631 | 0.0 | lh-parity-004 | 7.2 |
+| 98 | /de/de/digital-self-services | hub | 390 | 7.2 | 5651/5631 | 0.0 | lh-parity-004 | 7.2 |
+| 99 | /de/en/articles/explore-the-world/essentials-barcelona-facts | insights | 390 | 7.2 | 5986/5986 | 19.4 | lh-parity-002 | 7.3 |
 | 100 | /de/en/articles/explore-the-world/what-i-learned-living-in-barcelona | insights | 1440 | 7.1 | 5915/5882 | 6.9 | lh-parity-002 | 6.3 |
 | 101 | /gb/en/digital-self-services | hub | 390 | 7.1 | 5489/5469 | 0.0 | lh-parity-004 | 7.1 |
 | 102 | /de/en/100-years/chronicle | campaign | 390 | 7.0 | 8000/8000 | 10.1 | lh-parity-002 | 7.0 |
@@ -273,66 +335,66 @@ are in logs/b646/drift (not in git); most of these were located before, in sweep
 | 120 | /at/de/frankfurt-fair | campaign | 1440 | 6.5 | 3501/3451 | 0.0 | lh-parity-004 | 6.5 |
 | 121 | /de/de/frankfurt-fair | campaign | 1440 | 6.5 | 3501/3451 | 0.0 | lh-parity-004 | 6.5 |
 | 122 | /de/en/100-years/fleet | campaign | 390 | 6.4 | 8000/8000 | 8.0 | lh-parity-002 | 7.9 |
-| 123 | /de/en/discover-lufthansa/take-off | campaign | 390 | 6.3 | 6895/6895 | 12.2 | lh-parity-014 (first screen masked) | 6.3 vs lh-parity-002 |
-| 124 | /de/en/discover-lufthansa/new-onboard-experience | campaign | 1440 | 6.2 | 8000/8000 | 0.0 | lh-parity-002 | 6.2 |
-| 125 | /gb/en/discover-lufthansa/new-onboard-experience | campaign | 1440 | 6.2 | 8000/8000 | 0.0 | lh-parity-004 | 6.2 |
-| 126 | /at/de/meetings-and-events | hub | 390 | 6.1 | 4130/4130 | 0.0 | lh-parity-004 | 6.3 |
-| 127 | /de/de/meetings-and-events | hub | 390 | 6.1 | 4130/4130 | 0.0 | lh-parity-004 | 6.3 |
-| 128 | /de/en/articles/explore-the-world/be-picky-barcelona-insider-tips | insights | 1440 | 6.1 | 5062/5042 | 9.8 | lh-parity-002 | 6.0 |
-| 129 | /de/en/munich-fair | campaign | 390 | 6.1 | 3143/3143 | 0.0 | lh-parity-002 | 6.1 |
-| 130 | /de/de/articles/tags/allegris | insights | 390 | 6.0 | 8000/8000 | 45.1 | lh-parity-004 | 6.3 |
-| 131 | /de/en/most-significant-route | campaign | 390 | 6.0 | 2783/2780 | 0.0 | lh-parity-002 | 6.0 |
-| 132 | /gb/en/most-significant-route | campaign | 390 | 6.0 | 2783/2780 | 0.0 | lh-parity-004 | 6.0 |
-| 133 | /at/de/bedeutsamste-strecken | campaign | 390 | 5.9 | 2878/2875 | 0.0 | lh-parity-004 | 5.9 |
-| 134 | /de/de/bedeutsamste-strecken | campaign | 390 | 5.9 | 2878/2875 | 0.0 | lh-parity-004 | 5.9 |
-| 135 | /de/en/100-years/cabin-design | campaign | 1440 | 5.9 | 8000/8000 | 10.1 | lh-parity-002 | 6.1 |
-| 136 | /de/en/100-years/history | campaign | 390 | 5.9 | 8000/8000 | 10.1 | lh-parity-002 | 5.9 |
-| 137 | /de/en/additional-services | hub | 1440 | 5.8 | 6773/6766 | 0.0 | lh-parity-002 | 5.8 |
-| 138 | /de/en/articles/explore-flying/flying-high-christoph-quarch | insights | 1440 | 5.8 | 5407/5400 | 7.9 | lh-parity-002 | 5.8 |
-| 139 | /de/en/overview-special-request | hub | 390 | 5.8 | 3936/3936 | 0.0 | lh-parity-002 | 5.8 |
-| 140 | /gb/en/additional-services | hub | 1440 | 5.8 | 6773/6766 | 0.0 | lh-parity-004 | 5.8 |
-| 141 | /gb/en/overview-special-request | hub | 390 | 5.8 | 3936/3936 | 0.0 | lh-parity-004 | 5.8 |
-| 142 | /at/de/additional-services | hub | 1440 | 5.7 | 6773/6766 | 0.0 | lh-parity-004 | 5.7 |
-| 143 | /at/de/articles/highlights/allegris-premium-economy-san-diego | insights | 390 | 5.7 | 7820/7820 | 13.1 | lh-parity-004 | 5.7 |
-| 144 | /at/de/overview-flights | hub | 390 | 5.7 | 3612/3601 | 0.0 | lh-parity-004 | 5.7 |
-| 145 | /de/de/additional-services | hub | 1440 | 5.7 | 6773/6766 | 0.0 | lh-parity-004 | 5.7 |
-| 146 | /de/de/overview-flights | hub | 390 | 5.7 | 3612/3601 | 0.0 | lh-parity-004 | 5.7 |
-| 147 | /de/en/homepage | homepage | 390 | 5.7 | 6086/6076 | 26.9 | lh-parity-002 (notice cut) | 5.4 |
-| 148 | /de/en/meetings-and-events | hub | 390 | 5.7 | 3869/3869 | 0.0 | lh-parity-002 | 6.0 |
-| 149 | /de/en/overview-flights | hub | 390 | 5.7 | 3517/3506 | 0.0 | lh-parity-002 | 5.7 |
-| 150 | /gb/en/articles/highlights/allegris-premium-economy-san-diego | insights | 390 | 5.7 | 7206/7206 | 14.2 | lh-parity-004 | 5.7 |
-| 151 | /gb/en/meetings-and-events | hub | 390 | 5.7 | 3869/3869 | 0.0 | lh-parity-004 | 6.0 |
-| 152 | /gb/en/overview-flights | hub | 390 | 5.7 | 3517/3506 | 0.0 | lh-parity-004 | 5.7 |
-| 153 | /at/de/overview-special-request | hub | 390 | 5.6 | 4027/4027 | 0.0 | lh-parity-004 | 5.6 |
-| 154 | /at/de/overview-travel-information | hub | 1440 | 5.6 | 2840/2840 | 0.0 | lh-parity-004 | 5.6 |
-| 155 | /de/de/overview-special-request | hub | 390 | 5.6 | 4027/4027 | 0.0 | lh-parity-004 | 5.6 |
-| 156 | /de/de/overview-travel-information | hub | 1440 | 5.6 | 2840/2840 | 0.0 | lh-parity-004 | 5.6 |
-| 157 | /de/en/airport-information | hub | 390 | 5.6 | 5465/5465 | 0.0 | lh-parity-002 | 5.6 |
-| 158 | /de/en/articles/explore-flying/flying-high-christoph-quarch | insights | 390 | 5.6 | 6410/6402 | 15.4 | lh-parity-002 | 9.3 |
-| 159 | /de/en/articles/explore-the-world/in-my-hood-district-zurich | insights | 390 | 5.6 | 8000/8000 | 25.7 | lh-parity-002 | 5.6 |
-| 160 | /de/en/services-on-board | hub | 390 | 5.6 | 3993/3991 | 0.0 | lh-parity-002 | 5.6 |
-| 161 | /gb/en/airport-information | hub | 390 | 5.6 | 5465/5465 | 0.0 | lh-parity-004 | 5.6 |
-| 162 | /gb/en/services-on-board | hub | 390 | 5.6 | 3993/3991 | 0.0 | lh-parity-004 | 5.6 |
-| 163 | /at/de/services-an-bord | hub | 390 | 5.5 | 4088/4086 | 0.0 | lh-parity-004 | 5.5 |
-| 164 | /de/de/services-an-bord | hub | 390 | 5.5 | 4088/4086 | 0.0 | lh-parity-004 | 5.5 |
+| 123 | /de/en/discover-lufthansa/new-onboard-experience | campaign | 1440 | 6.2 | 8000/8000 | 0.0 | lh-parity-002 | 6.2 |
+| 124 | /gb/en/discover-lufthansa/new-onboard-experience | campaign | 1440 | 6.2 | 8000/8000 | 0.0 | lh-parity-004 | 6.2 |
+| 125 | /at/de/meetings-and-events | hub | 390 | 6.1 | 4130/4130 | 0.0 | lh-parity-004 | 6.3 |
+| 126 | /de/de/meetings-and-events | hub | 390 | 6.1 | 4130/4130 | 0.0 | lh-parity-004 | 6.3 |
+| 127 | /de/en/articles/explore-the-world/be-picky-barcelona-insider-tips | insights | 1440 | 6.1 | 5062/5042 | 9.8 | lh-parity-002 | 6.0 |
+| 128 | /de/en/munich-fair | campaign | 390 | 6.1 | 3143/3143 | 0.0 | lh-parity-002 | 6.1 |
+| 129 | /de/de/articles/tags/allegris | insights | 390 | 6.0 | 8000/8000 | 45.1 | lh-parity-004 | 6.3 |
+| 130 | /de/en/most-significant-route | campaign | 390 | 6.0 | 2783/2780 | 0.0 | lh-parity-002 | 6.0 |
+| 131 | /gb/en/most-significant-route | campaign | 390 | 6.0 | 2783/2780 | 0.0 | lh-parity-004 | 6.0 |
+| 132 | /at/de/bedeutsamste-strecken | campaign | 390 | 5.9 | 2878/2875 | 0.0 | lh-parity-004 | 5.9 |
+| 133 | /de/de/bedeutsamste-strecken | campaign | 390 | 5.9 | 2878/2875 | 0.0 | lh-parity-004 | 5.9 |
+| 134 | /de/en/100-years/cabin-design | campaign | 1440 | 5.9 | 8000/8000 | 10.1 | lh-parity-002 | 6.1 |
+| 135 | /de/en/100-years/history | campaign | 390 | 5.9 | 8000/8000 | 10.1 | lh-parity-002 | 5.9 |
+| 136 | /de/en/additional-services | hub | 1440 | 5.8 | 6773/6766 | 0.0 | lh-parity-002 | 5.8 |
+| 137 | /de/en/articles/explore-flying/flying-high-christoph-quarch | insights | 1440 | 5.8 | 5407/5400 | 7.9 | lh-parity-002 | 5.8 |
+| 138 | /de/en/overview-special-request | hub | 390 | 5.8 | 3936/3936 | 0.0 | lh-parity-002 | 5.8 |
+| 139 | /gb/en/additional-services | hub | 1440 | 5.8 | 6773/6766 | 0.0 | lh-parity-004 | 5.8 |
+| 140 | /gb/en/overview-special-request | hub | 390 | 5.8 | 3936/3936 | 0.0 | lh-parity-004 | 5.8 |
+| 141 | /at/de/additional-services | hub | 1440 | 5.7 | 6773/6766 | 0.0 | lh-parity-004 | 5.7 |
+| 142 | /at/de/articles/highlights/allegris-premium-economy-san-diego | insights | 390 | 5.7 | 7820/7820 | 13.1 | lh-parity-004 | 5.7 |
+| 143 | /at/de/overview-flights | hub | 390 | 5.7 | 3612/3601 | 0.0 | lh-parity-004 | 5.7 |
+| 144 | /de/de/additional-services | hub | 1440 | 5.7 | 6773/6766 | 0.0 | lh-parity-004 | 5.7 |
+| 145 | /de/de/overview-flights | hub | 390 | 5.7 | 3612/3601 | 0.0 | lh-parity-004 | 5.7 |
+| 146 | /de/en/homepage | homepage | 390 | 5.7 | 6086/6076 | 26.9 | lh-parity-002 (notice cut) | 5.4 |
+| 147 | /de/en/meetings-and-events | hub | 390 | 5.7 | 3869/3869 | 0.0 | lh-parity-002 | 6.0 |
+| 148 | /de/en/overview-flights | hub | 390 | 5.7 | 3517/3506 | 0.0 | lh-parity-002 | 5.7 |
+| 149 | /gb/en/articles/highlights/allegris-premium-economy-san-diego | insights | 390 | 5.7 | 7206/7206 | 14.2 | lh-parity-004 | 5.7 |
+| 150 | /gb/en/meetings-and-events | hub | 390 | 5.7 | 3869/3869 | 0.0 | lh-parity-004 | 6.0 |
+| 151 | /gb/en/overview-flights | hub | 390 | 5.7 | 3517/3506 | 0.0 | lh-parity-004 | 5.7 |
+| 152 | /at/de/overview-special-request | hub | 390 | 5.6 | 4027/4027 | 0.0 | lh-parity-004 | 5.6 |
+| 153 | /at/de/overview-travel-information | hub | 1440 | 5.6 | 2840/2840 | 0.0 | lh-parity-004 | 5.6 |
+| 154 | /de/de/overview-special-request | hub | 390 | 5.6 | 4027/4027 | 0.0 | lh-parity-004 | 5.6 |
+| 155 | /de/de/overview-travel-information | hub | 1440 | 5.6 | 2840/2840 | 0.0 | lh-parity-004 | 5.6 |
+| 156 | /de/en/airport-information | hub | 390 | 5.6 | 5465/5465 | 0.0 | lh-parity-002 | 5.6 |
+| 157 | /de/en/articles/explore-flying/flying-high-christoph-quarch | insights | 390 | 5.6 | 6410/6402 | 15.4 | lh-parity-002 | 9.3 |
+| 158 | /de/en/articles/explore-the-world/in-my-hood-district-zurich | insights | 390 | 5.6 | 8000/8000 | 25.7 | lh-parity-002 | 5.6 |
+| 159 | /de/en/services-on-board | hub | 390 | 5.6 | 3993/3991 | 0.0 | lh-parity-002 | 5.6 |
+| 160 | /gb/en/airport-information | hub | 390 | 5.6 | 5465/5465 | 0.0 | lh-parity-004 | 5.6 |
+| 161 | /gb/en/services-on-board | hub | 390 | 5.6 | 3993/3991 | 0.0 | lh-parity-004 | 5.6 |
+| 162 | /at/de/services-an-bord | hub | 390 | 5.5 | 4088/4086 | 0.0 | lh-parity-004 | 5.5 |
+| 163 | /de/de/services-an-bord | hub | 390 | 5.5 | 4088/4086 | 0.0 | lh-parity-004 | 5.5 |
+| 164 | /de/en/articles/explore-flying/livery-iconic-moments | insights | 1440 | 5.5 | 17187/8000 | 0.0 | lh-parity-015 | 5.4 (lh-parity-014, first screen masked) |
 | 165 | /gb/en/overview-travel-information | hub | 1440 | 5.5 | 2840/2840 | 0.0 | lh-parity-004 | 5.5 |
 | 166 | /de/de/articles/highlights/allegris-premium-economy-san-diego | insights | 390 | 5.4 | 7820/7820 | 13.1 | lh-parity-004 | 5.4 |
-| 167 | /de/en/articles/explore-flying/livery-iconic-moments | insights | 1440 | 5.4 | 17187/8000 | 11.3 | lh-parity-014 (first screen masked) | not swept |
-| 168 | /de/en/miles-and-more | hub | 390 | 5.2 | 4188/4188 | 0.0 | lh-parity-002 | 5.2 |
-| 169 | /gb/en/miles-and-more | hub | 390 | 5.2 | 4188/4188 | 0.0 | lh-parity-004 | 5.2 |
-| 170 | /de/en/articles/explore-flying/essentials-future-of-flying | insights | 390 | 5.1 | 5715/5715 | 18.3 | lh-parity-002 | 5.1 |
-| 171 | /de/en/book-and-manage/stopover/bayerischer-hof | campaign | 1440 | 5.1 | 2935/2935 | 11.1 | lh-parity-002 | 5.1 |
-| 172 | /at/de/miles-and-more | hub | 390 | 5.0 | 4511/4511 | 0.0 | lh-parity-004 | 5.0 |
-| 173 | /de/de/miles-and-more | hub | 390 | 5.0 | 4511/4511 | 0.0 | lh-parity-004 | 5.0 |
-| 174 | /de/en/articles/explore-the-world/essentials-frankfurt-facts | insights | 1440 | 5.0 | 5130/5130 | 7.9 | lh-parity-002 | 5.2 |
-| 175 | /de/en/articles/explore-the-world/on-the-scene-food-trends-istanbul | insights | 1440 | 5.0 | 5289/5217 | 18.2 | lh-parity-002 | 5.0 |
-| 176 | /de/en/baggage | hub | 390 | 5.0 | 7339/7339 | 0.0 | lh-parity-002 | 5.0 |
-| 177 | /gb/en/articles/highlights/allegris-premium-economy-san-diego | insights | 1440 | 5.0 | 6730/6730 | 6.0 | lh-parity-004 | 5.0 |
-| 178 | /gb/en/baggage | hub | 390 | 5.0 | 7339/7339 | 0.0 | lh-parity-004 | 5.0 |
-| 179 | /de/en/100-years/campaigns | campaign | 1440 | 4.9 | 8000/8000 | 0.0 | lh-parity-002 | 4.9 |
-| 180 | /at/de/gepaeck | hub | 390 | 4.8 | 7511/7511 | 0.0 | lh-parity-004 | 4.8 |
-| 181 | /de/de/gepaeck | hub | 390 | 4.8 | 7511/7511 | 0.0 | lh-parity-004 | 4.8 |
-| 182 | /de/en/book-and-manage/stopover/neuschwanstein | campaign | 1440 | 4.8 | 2999/2999 | 10.9 | lh-parity-002 | 4.8 |
+| 167 | /de/en/miles-and-more | hub | 390 | 5.2 | 4188/4188 | 0.0 | lh-parity-002 | 5.2 |
+| 168 | /gb/en/miles-and-more | hub | 390 | 5.2 | 4188/4188 | 0.0 | lh-parity-004 | 5.2 |
+| 169 | /de/en/articles/explore-flying/essentials-future-of-flying | insights | 390 | 5.1 | 5715/5715 | 18.3 | lh-parity-002 | 5.1 |
+| 170 | /de/en/book-and-manage/stopover/bayerischer-hof | campaign | 1440 | 5.1 | 2935/2935 | 11.1 | lh-parity-002 | 5.1 |
+| 171 | /at/de/miles-and-more | hub | 390 | 5.0 | 4511/4511 | 0.0 | lh-parity-004 | 5.0 |
+| 172 | /de/de/miles-and-more | hub | 390 | 5.0 | 4511/4511 | 0.0 | lh-parity-004 | 5.0 |
+| 173 | /de/en/articles/explore-the-world/essentials-frankfurt-facts | insights | 1440 | 5.0 | 5130/5130 | 7.9 | lh-parity-002 | 5.2 |
+| 174 | /de/en/articles/explore-the-world/on-the-scene-food-trends-istanbul | insights | 1440 | 5.0 | 5289/5217 | 18.2 | lh-parity-002 | 5.0 |
+| 175 | /de/en/baggage | hub | 390 | 5.0 | 7339/7339 | 0.0 | lh-parity-002 | 5.0 |
+| 176 | /gb/en/articles/highlights/allegris-premium-economy-san-diego | insights | 1440 | 5.0 | 6730/6730 | 6.0 | lh-parity-004 | 5.0 |
+| 177 | /gb/en/baggage | hub | 390 | 5.0 | 7339/7339 | 0.0 | lh-parity-004 | 5.0 |
+| 178 | /de/en/100-years/campaigns | campaign | 1440 | 4.9 | 8000/8000 | 0.0 | lh-parity-002 | 4.9 |
+| 179 | /at/de/gepaeck | hub | 390 | 4.8 | 7511/7511 | 0.0 | lh-parity-004 | 4.8 |
+| 180 | /de/de/gepaeck | hub | 390 | 4.8 | 7511/7511 | 0.0 | lh-parity-004 | 4.8 |
+| 181 | /de/en/book-and-manage/stopover/neuschwanstein | campaign | 1440 | 4.8 | 2999/2999 | 10.9 | lh-parity-002 | 4.8 |
+| 182 | /de/en/discover-lufthansa/take-off | campaign | 390 | 4.8 | 6895/6895 | 0.0 | lh-parity-015 | 6.3 (lh-parity-014, first screen masked) |
 | 183 | /de/en/homepage | homepage | 1440 | 4.8 | 5020/4996 | 28.1 | lh-parity-002 (notice cut) | 6.0 |
 | 184 | /de/en/articles/explore-the-world/know-before-you-go-berlin | insights | 1440 | 4.6 | 7488/7458 | 6.1 | lh-parity-002 | 4.6 |
 | 185 | /de/en/articles/explore-the-world/what-i-learned-living-in-frankfurt | insights | 1440 | 4.6 | 4526/4519 | 9.0 | lh-parity-002 | 4.6 |
@@ -342,9 +404,9 @@ are in logs/b646/drift (not in git); most of these were located before, in sweep
 | 189 | /de/en/articles/authors/florian-tomberg | insights | 390 | 4.5 | 3801/3801 | 41.6 | lh-parity-002 | 4.5 |
 | 190 | /de/en/book-and-manage/stopover/zugspitze | campaign | 1440 | 4.5 | 3055/3055 | 10.7 | lh-parity-002 | 4.5 |
 | 191 | /de/en/articles/explore-the-world/on-the-scene-food-trends-istanbul | insights | 390 | 4.4 | 7097/7097 | 26.0 | lh-parity-002 | 4.4 |
-| 192 | /de/en/articles/explore-the-world/know-before-you-go-algiers | insights | 1440 | 4.3 | 7447/7417 | 6.2 | lh-parity-002 | 4.3 |
-| 193 | /gb/en/special-needs | hub | 1440 | 4.2 | 5271/5271 | 0.0 | lh-parity-004 | 5.3 |
-| 194 | /de/en/articles/explore-flying | insights | 1440 | 4.1 | 5489/5489 | 67.2 | lh-parity-014 (first screen masked) | 1.1 vs lh-parity-002 |
+| 192 | /de/en/articles/explore-flying | insights | 1440 | 4.3 | 5489/5489 | 50.8 | lh-parity-015 | 4.1 (lh-parity-014, first screen masked) |
+| 193 | /de/en/articles/explore-the-world/know-before-you-go-algiers | insights | 1440 | 4.3 | 7447/7417 | 6.2 | lh-parity-002 | 4.3 |
+| 194 | /gb/en/special-needs | hub | 1440 | 4.2 | 5271/5271 | 0.0 | lh-parity-004 | 5.3 |
 | 195 | /de/en/articles/explore-the-world/eat-see-do-berlin | insights | 1440 | 4.1 | 7064/7064 | 7.0 | lh-parity-002 | 4.1 |
 | 196 | /de/en/book-and-manage/stopover/bayerischer-hof | campaign | 390 | 4.1 | 4036/4036 | 11.0 | lh-parity-002 | 4.1 |
 | 197 | /de/en/special-needs | hub | 1440 | 4.1 | 5271/5271 | 0.0 | lh-parity-002 | 5.3 |
@@ -352,67 +414,67 @@ are in logs/b646/drift (not in git); most of these were located before, in sweep
 | 199 | /de/de/lufthansa-reiseklassen | hub | 1440 | 3.9 | 3295/3290 | 0.0 | lh-parity-004 | 3.9 |
 | 200 | /de/en/articles/explore-the-world/essentials-frankfurt-facts | insights | 390 | 3.9 | 5001/5001 | 19.4 | lh-parity-002 | 3.9 |
 | 201 | /de/en/articles/tags/allegris | insights | 390 | 3.9 | 7897/7893 | 44.8 | lh-parity-002 | 7.3 |
-| 202 | /de/en/discover-lufthansa/take-off | campaign | 1440 | 3.9 | 4514/4514 | 19.9 | lh-parity-014 (first screen masked) | 4.5 vs lh-parity-002 |
-| 203 | /de/en/lufthansa-travel-classes | hub | 1440 | 3.9 | 3295/3290 | 0.0 | lh-parity-002 | 3.9 |
-| 204 | /gb/en/lufthansa-travel-classes | hub | 1440 | 3.9 | 3295/3290 | 0.0 | lh-parity-004 | 3.9 |
-| 205 | /de/en/airport-information | hub | 1440 | 3.8 | 3232/3230 | 0.0 | lh-parity-002 | 3.8 |
-| 206 | /gb/en/airport-information | hub | 1440 | 3.8 | 3232/3230 | 0.0 | lh-parity-004 | 3.8 |
-| 207 | /de/en/articles/explore-the-world/in-my-hood-district-zurich | insights | 1440 | 3.6 | 5455/5440 | 17.6 | lh-parity-002 | 3.6 |
-| 208 | /de/en/digital-self-services | hub | 1440 | 3.5 | 4430/4430 | 0.0 | lh-parity-002 | 3.5 |
-| 209 | /at/de/gepaeck | hub | 1440 | 3.4 | 4727/4727 | 0.0 | lh-parity-004 | 3.4 |
-| 210 | /de/de/gepaeck | hub | 1440 | 3.4 | 4727/4727 | 0.0 | lh-parity-004 | 3.4 |
-| 211 | /de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history | insights | 390 | 3.3 | 8000/8000 | 0.0 | lh-parity-002 | 3.3 |
-| 212 | /de/en/articles/explore-the-world/in-my-hood-chiswick-london | insights | 1440 | 3.3 | 5212/5180 | 18.5 | lh-parity-002 | 3.3 |
-| 213 | /de/en/book-and-manage/stopover/zugspitze | campaign | 390 | 3.3 | 3991/3991 | 11.1 | lh-parity-002 | 8.9 |
-| 214 | /at/de/flughafeninformation | hub | 1440 | 3.1 | 3281/3281 | 0.0 | lh-parity-004 | 3.1 |
-| 215 | /de/de/flughafeninformation | hub | 1440 | 3.1 | 3281/3281 | 0.0 | lh-parity-004 | 3.1 |
-| 216 | /de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich | insights | 1440 | 3.1 | 5162/5146 | 19.4 | lh-parity-002 | 3.1 |
-| 217 | /de/en/articles/authors/florian-tomberg | insights | 1440 | 3.0 | 3437/3437 | 36.2 | lh-parity-002 | 7.5 |
-| 218 | /de/en/articles/explore-the-world/essentials-barcelona-facts | insights | 1440 | 3.0 | 5395/5387 | 9.2 | lh-parity-002 | 3.4 |
-| 219 | /at/de/digital-self-services | hub | 1440 | 2.9 | 4548/4541 | 0.0 | lh-parity-004 | 2.9 |
-| 220 | /de/de/digital-self-services | hub | 1440 | 2.9 | 4548/4541 | 0.0 | lh-parity-004 | 2.9 |
-| 221 | /de/en/articles/tags | insights | 390 | 2.9 | 2469/2469 | 0.0 | lh-parity-002 | 2.9 |
-| 222 | /gb/en/digital-self-services | hub | 1440 | 2.9 | 4471/4463 | 0.0 | lh-parity-004 | 2.9 |
-| 223 | /de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips | insights | 1440 | 2.8 | 3841/3833 | 10.5 | lh-parity-002 | 2.8 |
-| 224 | /de/en/services-on-board | hub | 1440 | 2.8 | 2789/2781 | 0.0 | lh-parity-002 | 2.8 |
-| 225 | /gb/en/services-on-board | hub | 1440 | 2.8 | 2789/2781 | 0.0 | lh-parity-004 | 2.8 |
-| 226 | /at/de/bedeutsamste-strecken | campaign | 1440 | 2.7 | 2475/2466 | 0.0 | lh-parity-004 | 2.7 |
-| 227 | /at/de/meetings-and-events | hub | 1440 | 2.7 | 3615/3609 | 0.0 | lh-parity-004 | 4.1 |
-| 228 | /at/de/overview-flights | hub | 1440 | 2.7 | 2730/2730 | 0.0 | lh-parity-004 | 2.7 |
-| 229 | /at/de/services-an-bord | hub | 1440 | 2.7 | 2856/2847 | 0.0 | lh-parity-004 | 2.7 |
-| 230 | /de/de/bedeutsamste-strecken | campaign | 1440 | 2.7 | 2475/2466 | 0.0 | lh-parity-004 | 2.7 |
-| 231 | /de/de/meetings-and-events | hub | 1440 | 2.7 | 3615/3609 | 0.0 | lh-parity-004 | 4.1 |
-| 232 | /de/de/overview-flights | hub | 1440 | 2.7 | 2730/2730 | 0.0 | lh-parity-004 | 2.7 |
-| 233 | /de/de/services-an-bord | hub | 1440 | 2.7 | 2856/2847 | 0.0 | lh-parity-004 | 2.7 |
-| 234 | /de/en/articles/explore-flying/essentials-future-of-flying | insights | 1440 | 2.7 | 5733/5733 | 7.5 | lh-parity-002 | 2.7 |
-| 235 | /de/en/book-and-manage/stopover/neuschwanstein | campaign | 390 | 2.7 | 3727/3727 | 11.9 | lh-parity-002 | 2.7 |
-| 236 | /de/en/overview-flights | hub | 1440 | 2.7 | 2703/2703 | 0.0 | lh-parity-002 | 2.7 |
-| 237 | /gb/en/overview-flights | hub | 1440 | 2.7 | 2703/2703 | 0.0 | lh-parity-004 | 2.7 |
-| 238 | /at/de/betreuungsbedarf | hub | 1440 | 2.6 | 5387/5383 | 0.0 | lh-parity-004 | 3.6 |
-| 239 | /de/de/betreuungsbedarf | hub | 1440 | 2.6 | 5387/5383 | 0.0 | lh-parity-004 | 3.6 |
-| 240 | /de/en/meetings-and-events | hub | 1440 | 2.6 | 3534/3528 | 0.0 | lh-parity-002 | 3.9 |
-| 241 | /de/en/most-significant-route | campaign | 1440 | 2.6 | 2583/2574 | 0.0 | lh-parity-002 | 2.6 |
-| 242 | /de/en/overview-travel-information | hub | 390 | 2.6 | 3950/3950 | 0.0 | lh-parity-003 | 2.6 |
-| 243 | /gb/en/meetings-and-events | hub | 1440 | 2.6 | 3534/3528 | 0.0 | lh-parity-004 | 3.9 |
-| 244 | /gb/en/most-significant-route | campaign | 1440 | 2.6 | 2583/2574 | 0.0 | lh-parity-004 | 2.6 |
-| 245 | /de/en/overview-special-request | hub | 1440 | 2.5 | 2754/2746 | 0.0 | lh-parity-002 | 2.5 |
-| 246 | /gb/en/overview-special-request | hub | 1440 | 2.5 | 2754/2746 | 0.0 | lh-parity-004 | 2.5 |
-| 247 | /at/de/overview-special-request | hub | 1440 | 2.4 | 2781/2773 | 0.0 | lh-parity-004 | 2.4 |
-| 248 | /at/de/speisen-und-getraenke | hub | 1440 | 2.4 | 5112/5112 | 0.0 | lh-parity-004 | 2.4 |
-| 249 | /de/de/overview-special-request | hub | 1440 | 2.4 | 2781/2773 | 0.0 | lh-parity-004 | 2.4 |
-| 250 | /de/de/speisen-und-getraenke | hub | 1440 | 2.4 | 5112/5112 | 0.0 | lh-parity-004 | 2.4 |
-| 251 | /de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day | insights | 1440 | 2.4 | 7608/7608 | 13.2 | lh-parity-002 | 2.4 |
-| 252 | /de/en/culinaryjourney | campaign | 1440 | 2.4 | 1586/1586 | 0.0 | lh-parity-002 | 2.4 |
-| 253 | /de/en/miles-and-more | hub | 1440 | 2.4 | 3406/3406 | 0.0 | lh-parity-002 | 2.4 |
-| 254 | /at/de/miles-and-more | hub | 1440 | 2.3 | 3487/3487 | 0.0 | lh-parity-004 | 2.3 |
-| 255 | /de/de/miles-and-more | hub | 1440 | 2.3 | 3487/3487 | 0.0 | lh-parity-004 | 2.3 |
-| 256 | /gb/en/miles-and-more | hub | 1440 | 2.3 | 3406/3406 | 0.0 | lh-parity-004 | 2.3 |
-| 257 | /de/en/100-years/history/menu-on-board | campaign | 1440 | 2.2 | 8000/8000 | 10.1 | lh-parity-002 | 2.2 |
-| 258 | /de/en/food-and-beverages | hub | 1440 | 2.2 | 5085/5085 | 0.0 | lh-parity-002 | 2.2 |
-| 259 | /gb/en/food-and-beverages | hub | 1440 | 2.2 | 5085/5085 | 0.0 | lh-parity-004 | 2.2 |
-| 260 | /de/en/articles/explore-flying/inflight-entertainment-vr-experience | insights | 1440 | 2.1 | 7854/7854 | 5.5 | lh-parity-002 | 2.1 |
-| 261 | /de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day | insights | 1440 | 2.0 | 8000/8000 | 12.5 | lh-parity-002 | 2.0 |
-| 262 | /de/en/overview-travel-information | hub | 1440 | 1.9 | 2840/2840 | 0.0 | lh-parity-003 | 1.9 |
+| 202 | /de/en/lufthansa-travel-classes | hub | 1440 | 3.9 | 3295/3290 | 0.0 | lh-parity-002 | 3.9 |
+| 203 | /gb/en/lufthansa-travel-classes | hub | 1440 | 3.9 | 3295/3290 | 0.0 | lh-parity-004 | 3.9 |
+| 204 | /de/en/airport-information | hub | 1440 | 3.8 | 3232/3230 | 0.0 | lh-parity-002 | 3.8 |
+| 205 | /gb/en/airport-information | hub | 1440 | 3.8 | 3232/3230 | 0.0 | lh-parity-004 | 3.8 |
+| 206 | /de/en/articles/explore-the-world/in-my-hood-district-zurich | insights | 1440 | 3.6 | 5455/5440 | 17.6 | lh-parity-002 | 3.6 |
+| 207 | /de/en/digital-self-services | hub | 1440 | 3.5 | 4430/4430 | 0.0 | lh-parity-002 | 3.5 |
+| 208 | /at/de/gepaeck | hub | 1440 | 3.4 | 4727/4727 | 0.0 | lh-parity-004 | 3.4 |
+| 209 | /de/de/gepaeck | hub | 1440 | 3.4 | 4727/4727 | 0.0 | lh-parity-004 | 3.4 |
+| 210 | /de/en/articles/explore-flying/7-people-who-shaped-lufthansa-history | insights | 390 | 3.3 | 8000/8000 | 0.0 | lh-parity-002 | 3.3 |
+| 211 | /de/en/articles/explore-the-world/in-my-hood-chiswick-london | insights | 1440 | 3.3 | 5212/5180 | 18.5 | lh-parity-002 | 3.3 |
+| 212 | /de/en/book-and-manage/stopover/zugspitze | campaign | 390 | 3.3 | 3991/3991 | 11.1 | lh-parity-002 | 8.9 |
+| 213 | /at/de/flughafeninformation | hub | 1440 | 3.1 | 3281/3281 | 0.0 | lh-parity-004 | 3.1 |
+| 214 | /de/de/flughafeninformation | hub | 1440 | 3.1 | 3281/3281 | 0.0 | lh-parity-004 | 3.1 |
+| 215 | /de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich | insights | 1440 | 3.1 | 5162/5146 | 19.4 | lh-parity-002 | 3.1 |
+| 216 | /de/en/articles/authors/florian-tomberg | insights | 1440 | 3.0 | 3437/3437 | 36.2 | lh-parity-002 | 7.5 |
+| 217 | /de/en/articles/explore-the-world/essentials-barcelona-facts | insights | 1440 | 3.0 | 5395/5387 | 9.2 | lh-parity-002 | 3.4 |
+| 218 | /at/de/digital-self-services | hub | 1440 | 2.9 | 4548/4541 | 0.0 | lh-parity-004 | 2.9 |
+| 219 | /de/de/digital-self-services | hub | 1440 | 2.9 | 4548/4541 | 0.0 | lh-parity-004 | 2.9 |
+| 220 | /de/en/articles/tags | insights | 390 | 2.9 | 2469/2469 | 0.0 | lh-parity-002 | 2.9 |
+| 221 | /gb/en/digital-self-services | hub | 1440 | 2.9 | 4471/4463 | 0.0 | lh-parity-004 | 2.9 |
+| 222 | /de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips | insights | 1440 | 2.8 | 3841/3833 | 10.5 | lh-parity-002 | 2.8 |
+| 223 | /de/en/services-on-board | hub | 1440 | 2.8 | 2789/2781 | 0.0 | lh-parity-002 | 2.8 |
+| 224 | /gb/en/services-on-board | hub | 1440 | 2.8 | 2789/2781 | 0.0 | lh-parity-004 | 2.8 |
+| 225 | /at/de/bedeutsamste-strecken | campaign | 1440 | 2.7 | 2475/2466 | 0.0 | lh-parity-004 | 2.7 |
+| 226 | /at/de/meetings-and-events | hub | 1440 | 2.7 | 3615/3609 | 0.0 | lh-parity-004 | 4.1 |
+| 227 | /at/de/overview-flights | hub | 1440 | 2.7 | 2730/2730 | 0.0 | lh-parity-004 | 2.7 |
+| 228 | /at/de/services-an-bord | hub | 1440 | 2.7 | 2856/2847 | 0.0 | lh-parity-004 | 2.7 |
+| 229 | /de/de/bedeutsamste-strecken | campaign | 1440 | 2.7 | 2475/2466 | 0.0 | lh-parity-004 | 2.7 |
+| 230 | /de/de/meetings-and-events | hub | 1440 | 2.7 | 3615/3609 | 0.0 | lh-parity-004 | 4.1 |
+| 231 | /de/de/overview-flights | hub | 1440 | 2.7 | 2730/2730 | 0.0 | lh-parity-004 | 2.7 |
+| 232 | /de/de/services-an-bord | hub | 1440 | 2.7 | 2856/2847 | 0.0 | lh-parity-004 | 2.7 |
+| 233 | /de/en/articles/explore-flying/essentials-future-of-flying | insights | 1440 | 2.7 | 5733/5733 | 7.5 | lh-parity-002 | 2.7 |
+| 234 | /de/en/book-and-manage/stopover/neuschwanstein | campaign | 390 | 2.7 | 3727/3727 | 11.9 | lh-parity-002 | 2.7 |
+| 235 | /de/en/overview-flights | hub | 1440 | 2.7 | 2703/2703 | 0.0 | lh-parity-002 | 2.7 |
+| 236 | /gb/en/overview-flights | hub | 1440 | 2.7 | 2703/2703 | 0.0 | lh-parity-004 | 2.7 |
+| 237 | /at/de/betreuungsbedarf | hub | 1440 | 2.6 | 5387/5383 | 0.0 | lh-parity-004 | 3.6 |
+| 238 | /de/de/betreuungsbedarf | hub | 1440 | 2.6 | 5387/5383 | 0.0 | lh-parity-004 | 3.6 |
+| 239 | /de/en/meetings-and-events | hub | 1440 | 2.6 | 3534/3528 | 0.0 | lh-parity-002 | 3.9 |
+| 240 | /de/en/most-significant-route | campaign | 1440 | 2.6 | 2583/2574 | 0.0 | lh-parity-002 | 2.6 |
+| 241 | /de/en/overview-travel-information | hub | 390 | 2.6 | 3950/3950 | 0.0 | lh-parity-003 | 2.6 |
+| 242 | /gb/en/meetings-and-events | hub | 1440 | 2.6 | 3534/3528 | 0.0 | lh-parity-004 | 3.9 |
+| 243 | /gb/en/most-significant-route | campaign | 1440 | 2.6 | 2583/2574 | 0.0 | lh-parity-004 | 2.6 |
+| 244 | /de/en/overview-special-request | hub | 1440 | 2.5 | 2754/2746 | 0.0 | lh-parity-002 | 2.5 |
+| 245 | /gb/en/overview-special-request | hub | 1440 | 2.5 | 2754/2746 | 0.0 | lh-parity-004 | 2.5 |
+| 246 | /at/de/overview-special-request | hub | 1440 | 2.4 | 2781/2773 | 0.0 | lh-parity-004 | 2.4 |
+| 247 | /at/de/speisen-und-getraenke | hub | 1440 | 2.4 | 5112/5112 | 0.0 | lh-parity-004 | 2.4 |
+| 248 | /de/de/overview-special-request | hub | 1440 | 2.4 | 2781/2773 | 0.0 | lh-parity-004 | 2.4 |
+| 249 | /de/de/speisen-und-getraenke | hub | 1440 | 2.4 | 5112/5112 | 0.0 | lh-parity-004 | 2.4 |
+| 250 | /de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day | insights | 1440 | 2.4 | 7608/7608 | 13.2 | lh-parity-002 | 2.4 |
+| 251 | /de/en/culinaryjourney | campaign | 1440 | 2.4 | 1586/1586 | 0.0 | lh-parity-002 | 2.4 |
+| 252 | /de/en/miles-and-more | hub | 1440 | 2.4 | 3406/3406 | 0.0 | lh-parity-002 | 2.4 |
+| 253 | /at/de/miles-and-more | hub | 1440 | 2.3 | 3487/3487 | 0.0 | lh-parity-004 | 2.3 |
+| 254 | /de/de/miles-and-more | hub | 1440 | 2.3 | 3487/3487 | 0.0 | lh-parity-004 | 2.3 |
+| 255 | /gb/en/miles-and-more | hub | 1440 | 2.3 | 3406/3406 | 0.0 | lh-parity-004 | 2.3 |
+| 256 | /de/en/100-years/history/menu-on-board | campaign | 1440 | 2.2 | 8000/8000 | 10.1 | lh-parity-002 | 2.2 |
+| 257 | /de/en/food-and-beverages | hub | 1440 | 2.2 | 5085/5085 | 0.0 | lh-parity-002 | 2.2 |
+| 258 | /gb/en/food-and-beverages | hub | 1440 | 2.2 | 5085/5085 | 0.0 | lh-parity-004 | 2.2 |
+| 259 | /de/en/articles/explore-flying/inflight-entertainment-vr-experience | insights | 1440 | 2.1 | 7854/7854 | 5.5 | lh-parity-002 | 2.1 |
+| 260 | /de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day | insights | 1440 | 2.0 | 8000/8000 | 12.5 | lh-parity-002 | 2.0 |
+| 261 | /de/en/overview-travel-information | hub | 1440 | 1.9 | 2840/2840 | 0.0 | lh-parity-003 | 1.9 |
+| 262 | /de/en/discover-lufthansa/take-off | campaign | 1440 | 1.8 | 4514/4514 | 0.0 | lh-parity-015 | 3.9 (lh-parity-014, first screen masked) |
 | 263 | /de/en/baggage | hub | 1440 | 1.7 | 4630/4627 | 0.0 | lh-parity-002 | 1.7 |
 | 264 | /gb/en/baggage | hub | 1440 | 1.7 | 4630/4627 | 0.0 | lh-parity-004 | 1.7 |
 | 265 | /at/de/services-am-flughafen | hub | 1440 | 1.5 | 2849/2849 | 0.0 | lh-parity-004 | 1.5 |
