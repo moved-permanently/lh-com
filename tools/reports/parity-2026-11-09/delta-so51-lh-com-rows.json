@@ -1,0 +1,11 @@
+[
+ {
+  "path": "/de/en/hotel-offers",
+  "inserts": [
+   {
+    "replace": "<p>{spacer-70}</p>",
+    "text": "<p>{spacer-108 from-768}</p><p>{spacer-70 below-768}</p>"
+   }
+  ]
+ }
+]
