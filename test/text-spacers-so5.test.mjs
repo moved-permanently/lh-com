@@ -88,23 +88,15 @@ test('the import: an empty paragraph between two text paragraphs as {spacer-17},
   assert.equal(/const mapped = withEmptyParagraphSpacers\(withEmptyLineSpacers\(/.test(src), true, 'after the empty lines');
 });
 
-test('the collapse keeps a small spacer between running text on Brussels only, the same on a second run', () => {
-  assert.equal(themeFor('brussels').textSpacers, true);
-  assert.equal(Boolean(themeFor('b2b').textSpacers), false);
-  assert.equal(Boolean(themeFor('lufthansa').textSpacers), false);
+test('the collapse keeps no small spacer between running text, on Brussels as on every brand (standing order 55: token-free)', () => {
+  ['brussels', 'b2b', 'lufthansa'].forEach((brand) => assert.equal(Boolean(themeFor(brand).textSpacers), false, brand));
   const html = '<div><h1>T</h1><p>a</p><p>{spacer-17}</p><p>b</p><p>{spacer-17}</p><div class="cards"><div><div>c</div></div></div></div>';
-  const once = collapseHtml(html, {
-    path: '/be/en/x', brand: 'brussels', parse: parseHTML, force: true,
-  }).html;
-  assert.equal(once.includes('<p>a</p><p>{spacer-17}</p><p>b</p>'), true, 'between two paragraphs: kept');
-  assert.equal(once.split('{spacer-17}').length, 2, 'before a block: dropped as before');
-  assert.equal(collapseHtml(once, {
-    path: '/be/en/x', brand: 'brussels', parse: parseHTML, force: true,
-  }).html.split('{spacer-17}').length, 2, 'second run');
-  const lh = collapseHtml(html, {
-    path: '/de/en/x', brand: 'lufthansa', parse: parseHTML, force: true,
-  }).html;
-  assert.equal(lh.includes('{spacer-17}'), false, 'other brands: dropped as before');
+  ['/be/en/x:brussels', '/de/en/x:lufthansa'].forEach((pb) => {
+    const [path, brand] = pb.split(':');
+    const once = collapseHtml(html, { path, brand, parse: parseHTML, force: true }).html;
+    assert.equal(once.includes('{spacer-'), false, brand);
+    assert.equal(once.includes('<p>a</p><p>b</p>'), true, `${brand}: the two paragraphs together`);
+  });
 });
 
 test('the list: a reimport list gives its READY rows only; the Brussels list as released', () => {

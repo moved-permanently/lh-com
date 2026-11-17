@@ -60,11 +60,11 @@ const collapse = (html, brand) => collapseHtml(html, {
   path: '/be/en/legal-notices/terms-and-conditions-conditions-of-carriage', brand, parse: parseHTML, force: true,
 }).html;
 
-test('the collapse: in a block cell, a spacer between running text and a heading stays on Brussels', () => {
+test('the collapse: in a block cell, a spacer between running text and a heading goes on Brussels too (standing order 55: token-free)', () => {
   const cell = '<p>2.1. These Conditions apply.</p><p>{spacer-11}</p><h3>Charters {heading-small}</h3><p>2.2. A charter.</p>';
   const out = collapse(BLOCK(cell), 'brussels');
-  assert.ok(out.includes('<p>2.1. These Conditions apply.</p><p>{spacer-11}</p><h3>'), out.slice(0, 300));
-  assert.ok(collapse(out, 'brussels').includes('<p>{spacer-11}</p><h3>'), 'a second run keeps it');
+  assert.ok(out.includes('<p>2.1. These Conditions apply.</p><h3>'), out.slice(0, 300));
+  assert.ok(!out.includes('{spacer-'), 'no separator marker left');
 });
 
 test('the collapse: elsewhere in a block cell, and on other brands, the spacer goes as before', () => {

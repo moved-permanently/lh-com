@@ -1,8 +1,9 @@
 /* eslint-disable max-len, import/no-extraneous-dependencies, import/extensions -- dev tooling; linkedom is a dev dependency */
 /* rows-for-ema-test.md row 4 (standing order 6 of 2026-11-12, item 1): www.discover-airlines.com's separators add 31 px
    between two components; the cleanup keeps them for Discover as "{spacer-30}" (52d5f939), and the collapse now carries
-   them on THEMES.discover (componentSpacers): a run of 31 px or less between two components (blocks, headings, text) stays
-   one "{spacer-N}"; at a section's start or end it goes as before; other brands as before; idempotent. */
+   them on THEMES.discover (componentSpacers): a run of 31 px or less between two components (blocks, headings, text) stayed
+   one "{spacer-N}". Standing order 55 (token-free content): no collapse keeps a separator marker; a run of 31 px or less
+   is a near value and goes on every brand; idempotent. */
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { parseHTML } from 'linkedom';
@@ -15,19 +16,19 @@ const run = (html, brand = 'discover', path = '/de/en/my-bookings/manage/custome
 }).html;
 const markers = (html) => (html.match(/\{(spacer|divider)-\d+[^}]*\}/g) || []);
 
-test('Discover: a 30 px separator between an accordion and a heading stays one {spacer-30}', () => {
-  assert.equal(themeFor('discover').componentSpacers, true);
+test('Discover: a 30 px separator between an accordion and a heading goes (standing order 55: token-free, a near value)', () => {
+  assert.equal(Boolean(themeFor('discover').componentSpacers), false);
   const out = run(`<div><h1>Customer service</h1>${accordion}<p>{spacer-30}</p><h2>Rebooking a flight</h2><p>You can rebook online.</p></div>`);
-  assert.deepEqual(markers(out), ['{spacer-30}']);
-  assert.equal(out.includes('</div></div></div><p>{spacer-30}</p><h2'), true, 'right between the two');
+  assert.deepEqual(markers(out), []);
+  assert.equal(out.includes('</div></div></div><h2'), true, 'nothing between the two');
   assert.equal(run(out), out, 'a second run leaves it');
 });
 
-test('Discover: between two blocks, between text and a block; two in a row as their sum', () => {
+test('Discover: between two blocks, between text and a block, two in a row: none kept', () => {
   const two = run(`<div><h1>T</h1>${accordion}<p>{spacer-30}</p>${accordion}<p>Text.</p><p>{spacer-30}</p>${accordion}</div>`);
-  assert.deepEqual(markers(two), ['{spacer-30}', '{spacer-30}']);
+  assert.deepEqual(markers(two), []);
   const sum = run('<div><h1>T</h1><p>Text.</p><p>{spacer-15}</p><p>{spacer-15}</p><h2>Next</h2></div>');
-  assert.deepEqual(markers(sum), ['{spacer-30}']);
+  assert.deepEqual(markers(sum), []);
 });
 
 test('Discover: at a section\'s start or end, as before (none); larger spacers as before', () => {

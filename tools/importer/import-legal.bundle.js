@@ -48,9 +48,9 @@ var CustomImportScript = (() => {
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
   // tools/importer/import-legal.js
-  var tmp_bundle_legal_1595085_exports = {};
-  __export(tmp_bundle_legal_1595085_exports, {
-    default: () => tmp_bundle_legal_1595085_default
+  var tmp_bundle_legal_24966_exports = {};
+  __export(tmp_bundle_legal_24966_exports, {
+    default: () => tmp_bundle_legal_24966_default
   });
 
   // tools/importer/parsers/video-sizes.js
@@ -507,6 +507,20 @@ var CustomImportScript = (() => {
       const size = videoSizeToken(src);
       if (size) settings.push(size);
       out.push(videoPara2(src, clean3(cfg.alternativeText), settings));
+      if (ARTICLE) {
+        const drawn = comp.querySelector('[data-testid="video-caption"], p.caption');
+        let text = drawn ? visibleText(drawn.querySelector("maui-caption") || drawn) : "";
+        if (!text && cfg.caption) {
+          const scratch = document.createElement("div");
+          scratch.innerHTML = String(cfg.caption);
+          text = clean3(scratch.textContent);
+        }
+        if (text) {
+          const p = document.createElement("p");
+          p.textContent = `${text} {caption}`;
+          out.push(p);
+        }
+      }
       return out;
     };
     const captionPara = (comp) => {
@@ -1584,12 +1598,8 @@ var CustomImportScript = (() => {
     austrian: { live: true, rules: ["intro-after-h1"], pageTypes: { flow: { headings: { h3: "heading-small" } } } },
     // Brussels: flow pages set their H3s in heading-small (www: 72 %); a service page's H2s are the
     // default (www: 89 % unmarked, heading-medium; no longer heading-small)
-    // textSpacers: a spacer of 31 px or less between two text elements (www's empty paragraph,
-    // nbsp-guard.mjs emptyParagraphSpacers) stays as {spacer-N} in the collapse (standing order 5
-    // of 2026-11-11, item 1; import time only, nothing served reads it)
     brussels: {
       live: true,
-      textSpacers: true,
       pageTypes: { flow: { headings: { h3: "heading-small" } } }
     },
     // ITA: running text over the whole width
@@ -1610,11 +1620,8 @@ var CustomImportScript = (() => {
     swiss: { live: true, rules: ["teaser-groups"], pageTypes: { flow: { headings: { h2: "heading-small" } } } },
     // Discover: on flow pages the H2s in heading-small (www: 86 %) and a Columns Media a column view
     // of its own (www: 26 of 33 not at a section's start)
-    // componentSpacers: a separator of 31 px or less between two components (www's .hr, 30 px + 1)
-    // stays as {spacer-N} in the collapse (rows-for-ema-test.md row 4; import time only)
     discover: {
       live: true,
-      componentSpacers: true,
       // oneElementViews: a column view that opens and closes on one paragraph (www's intro in a
       // one-column view after the title) keeps its marks in the collapse (standing order 10 of
       // 2026-11-12; import time only)
@@ -4891,18 +4898,11 @@ var CustomImportScript = (() => {
     return kids.length === 1 && kids[0].nodeType === 1 && /^(STRONG|B)$/.test(kids[0].tagName) && !!textOf(kids[0]) && !kids[0].querySelector("a, img, picture");
   }
   function collapseSeparators(main, doc, stats, ctx) {
-    const { rules, textSpacers = false, componentSpacers = false } = themeFor(ctx.brand, ctx.pageType);
+    const { rules } = themeFor(ctx.brand, ctx.pageType);
     const isSep = (el) => !!el && el.tagName === "P" && SEPARATOR.test(textOf(el));
     const parse5 = (el) => textOf(el).match(SEPARATOR);
     main.querySelectorAll(":scope > div > * p").forEach((p) => {
       if (!isSep(p)) return;
-      const m = parse5(p);
-      const prev = p.previousElementSibling;
-      const next = p.nextElementSibling;
-      if (textSpacers && m[1] === "spacer" && !m[3] && Number(m[2]) <= 31 && prev && isRunningText(prev) && !SEPARATOR.test(textOf(prev)) && next && /^H[1-6]$/.test(next.tagName)) {
-        count(stats, "carrier", "text-spacer-in-block");
-        return;
-      }
       count(stats, "theme", "separator-in-block");
       p.remove();
     });
@@ -4937,24 +4937,6 @@ var CustomImportScript = (() => {
         const atStart = !content(before) && now.slice(0, first).every((el) => !content(el));
         const atEnd = now.slice(lastAt + 1).every((el) => !content(el));
         const remove = () => run.els.forEach((el) => el.remove());
-        const prose = (el) => !!el && isRunningText(el) && !/^\s*\{[^}]*\}\s*$/.test(textOf(el));
-        const heading = (el) => !!el && /^H[1-6]$/.test(el.tagName);
-        if (size === "none" && textSpacers && !tablet && !phone && prose(before) && (prose(after) || heading(after))) {
-          const keep = doc.createElement("p");
-          keep.textContent = `{spacer-${px}}`;
-          run.els[0].before(keep);
-          remove();
-          count(stats, "carrier", "text-spacer", run.els.length);
-          return;
-        }
-        if (size === "none" && componentSpacers && !tablet && !phone && !atStart && !atEnd && content(before) && content(after)) {
-          const keep = doc.createElement("p");
-          keep.textContent = `{spacer-${px}}`;
-          run.els[0].before(keep);
-          remove();
-          count(stats, "carrier", "component-spacer", run.els.length);
-          return;
-        }
         if (size === "none") {
           remove();
           count(stats, "theme", "separator", run.els.length);
@@ -5334,7 +5316,7 @@ var CustomImportScript = (() => {
     });
     return pageBlocks;
   }
-  var tmp_bundle_legal_1595085_default = {
+  var tmp_bundle_legal_24966_default = {
     // before helix-importer's preprocessing (which drops empty paragraphs): the transformers' onLoad
     onLoad: ({ document }) => {
       executeTransformers("onLoad", document.body, { document });
@@ -5375,5 +5357,5 @@ var CustomImportScript = (() => {
       }];
     }
   };
-  return __toCommonJS(tmp_bundle_legal_1595085_exports);
+  return __toCommonJS(tmp_bundle_legal_24966_exports);
 })();

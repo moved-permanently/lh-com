@@ -986,23 +986,15 @@ function isBoldHeading(el) {
 function collapseSeparators(main, doc, stats, ctx) {
   // the page type's gaps the theme draws (THEMES rules: sections-m, rule-before-info-box,
   // ruled-chapters)
-  const { rules, textSpacers = false, componentSpacers = false } = themeFor(ctx.brand, ctx.pageType);
+  // (standing order 55: no separator stays a marker; one of 31 px or less is a near value the theme draws, on every
+  // brand: Brussels' textSpacers and Discover's componentSpacers kept them as {spacer-N} and are gone)
+  const { rules } = themeFor(ctx.brand, ctx.pageType);
   const isSep = (el) => !!el && el.tagName === 'P' && SEPARATOR.test(textOf(el));
   const parse = (el) => textOf(el).match(SEPARATOR);
   // in block cells, or nested in any other element of the page (an importer's tab panel before
   // its sections): no carrier there; the space goes
-  // (on a theme with textSpacers, Brussels: one of 31 px or less between running text and a heading stays, as in
-  // default content: www's separators before an accordion panel's headings, standing order 18)
   main.querySelectorAll(':scope > div > * p').forEach((p) => {
     if (!isSep(p)) return;
-    const m = parse(p);
-    const prev = p.previousElementSibling;
-    const next = p.nextElementSibling;
-    if (textSpacers && m[1] === 'spacer' && !m[3] && Number(m[2]) <= 31 && prev && isRunningText(prev)
-      && !SEPARATOR.test(textOf(prev)) && next && /^H[1-6]$/.test(next.tagName)) {
-      count(stats, 'carrier', 'text-spacer-in-block');
-      return;
-    }
     count(stats, 'theme', 'separator-in-block');
     p.remove();
   });
@@ -1043,32 +1035,6 @@ function collapseSeparators(main, doc, stats, ctx) {
       const atStart = !content(before) && now.slice(0, first).every((el) => !content(el));
       const atEnd = now.slice(lastAt + 1).every((el) => !content(el));
       const remove = () => run.els.forEach((el) => el.remove());
-      // a small space between two running-text elements (www's empty paragraph: nbsp-guard.mjs emptyParagraphSpacers)
-      // stays as one {spacer-N} on a theme with textSpacers (standing order 5 of 2026-11-11, item 1); the same on a second run
-      const prose = (el) => !!el && isRunningText(el) && !/^\s*\{[^}]*\}\s*$/.test(textOf(el));
-      // and between running text and the next heading (www.brusselsairlines.com's .separator .hr-no-layout between a
-      // text and a headline, the cleanup's "{spacer-28}": the heading 48 to 51 px under the text on www;
-      // rows-for-ema-test.md row 5, standing order 8 of 2026-11-12)
-      const heading = (el) => !!el && /^H[1-6]$/.test(el.tagName);
-      if (size === 'none' && textSpacers && !tablet && !phone && prose(before) && (prose(after) || heading(after))) {
-        const keep = doc.createElement('p');
-        keep.textContent = `{spacer-${px}}`;
-        run.els[0].before(keep);
-        remove();
-        count(stats, 'carrier', 'text-spacer', run.els.length);
-        return;
-      }
-      // a small space between two components (Discover's separators, www's .hr 30 px + 1: the cleanup's "{spacer-30}")
-      // stays as one {spacer-N} on a theme with componentSpacers, not at a section's start or end (www: no margin
-      // there; rows-for-ema-test.md row 4, standing order 6 of 2026-11-12); the same on a second run
-      if (size === 'none' && componentSpacers && !tablet && !phone && !atStart && !atEnd && content(before) && content(after)) {
-        const keep = doc.createElement('p');
-        keep.textContent = `{spacer-${px}}`;
-        run.els[0].before(keep);
-        remove();
-        count(stats, 'carrier', 'component-spacer', run.els.length);
-        return;
-      }
       if (size === 'none') { remove(); count(stats, 'theme', 'separator', run.els.length); return; }
       if (tablet || phone) {
         const opt = tablet ? 'from-768' : 'below-768';

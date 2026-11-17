@@ -199,12 +199,8 @@ export const THEMES = {
   austrian: { live: true, rules: ['intro-after-h1'], pageTypes: { flow: { headings: { h3: 'heading-small' } } } },
   // Brussels: flow pages set their H3s in heading-small (www: 72 %); a service page's H2s are the
   // default (www: 89 % unmarked, heading-medium; no longer heading-small)
-  // textSpacers: a spacer of 31 px or less between two text elements (www's empty paragraph,
-  // nbsp-guard.mjs emptyParagraphSpacers) stays as {spacer-N} in the collapse (standing order 5
-  // of 2026-11-11, item 1; import time only, nothing served reads it)
   brussels: {
     live: true,
-    textSpacers: true,
     pageTypes: { flow: { headings: { h3: 'heading-small' } } },
   },
   // ITA: running text over the whole width
@@ -225,11 +221,8 @@ export const THEMES = {
   swiss: { live: true, rules: ['teaser-groups'], pageTypes: { flow: { headings: { h2: 'heading-small' } } } },
   // Discover: on flow pages the H2s in heading-small (www: 86 %) and a Columns Media a column view
   // of its own (www: 26 of 33 not at a section's start)
-  // componentSpacers: a separator of 31 px or less between two components (www's .hr, 30 px + 1)
-  // stays as {spacer-N} in the collapse (rows-for-ema-test.md row 4; import time only)
   discover: {
     live: true,
-    componentSpacers: true,
     // oneElementViews: a column view that opens and closes on one paragraph (www's intro in a
     // one-column view after the title) keeps its marks in the collapse (standing order 10 of
     // 2026-11-12; import time only)

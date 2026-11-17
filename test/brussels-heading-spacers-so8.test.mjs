@@ -15,17 +15,17 @@ const run = (html, brand = 'brussels') => collapseHtml(html, {
   path: '/be/en/contact/service-charges', brand, parse: parseHTML, force: true,
 }).html;
 
-test('Brussels: a small spacer between a paragraph and an H2, and a list and an H3, stays', () => {
+test('Brussels: a small spacer between a paragraph and an H2, and a list and an H3, goes (standing order 55: token-free)', () => {
   const html = '<div><h1>Service charges</h1><p>Fees apply.</p><p>{spacer-28}</p><h2>Ticket service fee for other countries</h2><ul><li>One</li></ul><p>{spacer-28}</p><h3>Next</h3><p>Text</p></div>';
   const once = run(html);
-  assert.ok(once.includes('<p>Fees apply.</p><p>{spacer-28}</p><h2'), 'paragraph -> H2: kept');
-  assert.ok(once.includes('</ul><p>{spacer-28}</p><h3'), 'list -> H3: kept');
-  assert.ok(run(once).split('{spacer-28}').length === 3, 'second run: both still there');
+  assert.ok(once.includes('<p>Fees apply.</p><h2'), 'paragraph -> H2: no marker');
+  assert.ok(once.includes('</ul><h3'), 'list -> H3: no marker');
+  assert.ok(!once.includes('{spacer-'), once.slice(0, 300));
 });
 
-test('Brussels: a run before a heading is one spacer of its sum (31 px or less)', () => {
+test('Brussels: a run before a heading goes too', () => {
   const once = run('<div><p>Text</p><p>{spacer-11}</p><p>{spacer-17}</p><h2>H</h2><p>x</p></div>');
-  assert.ok(once.includes('<p>Text</p><p>{spacer-28}</p><h2'), once.slice(0, 200));
+  assert.ok(once.includes('<p>Text</p><h2'), once.slice(0, 200));
 });
 
 test('Brussels: after a heading, before a block, at the section\'s start: removed as before', () => {
