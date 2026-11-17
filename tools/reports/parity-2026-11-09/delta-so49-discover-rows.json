@@ -1,0 +1,60 @@
+[
+ {
+  "path": "/us/en/my-bookings/manage/customer-service",
+  "inserts": [
+   {
+    "replace": "<h3 id=\"do-you-have-a-request-before-your-trip\">Do you have a request before your trip?</h3>",
+    "text": "<h3 id=\"do-you-have-a-request-before-your-trip\">Do you have a request before your trip? {heading-small}</h3>"
+   },
+   {
+    "replace": "<h3 id=\"do-you-have-any-feedback-or-complaints-after-your-flight\">Do you have any feedback or complaints after your flight?</h3>",
+    "text": "<h3 id=\"do-you-have-any-feedback-or-complaints-after-your-flight\">Do you have any feedback or complaints after your flight? {heading-small}</h3>"
+   },
+   {
+    "replace": "</div></div><h3 id=\"you-can-also-contact-us-via-whatsapp\">You can also contact us via WhatsApp</h3>",
+    "text": "</div></div><div class=\"columns-media side-picture\"><div><div><h3 id=\"you-can-also-contact-us-via-whatsapp\">You can also contact us via WhatsApp {heading-small}</h3>"
+   },
+   {
+    "replace": "</picture></p><h3 id=\"is-your-baggage-delayed-or-was-it-damaged\">Is your baggage delayed or was it damaged?</h3>",
+    "text": "</picture></p></div><div><h3 id=\"is-your-baggage-delayed-or-was-it-damaged\">Is your baggage delayed or was it damaged? {heading-small}</h3>"
+   },
+   {
+    "replace": "<p>We will make every possible effort to recover your baggage as quickly as possible or to remedy the damage to your item of baggage. Discover how to report the delay or damage on the following page.</p><p><a href=\"/us/en/book/baggage/baggage-irregularities\">Report delayed or damaged baggage</a></p><h2 id=\"refunds\">",
+    "text": "<p>We will make every possible effort to recover your baggage as quickly as possible or to remedy the damage to your item of baggage. Discover how to report the delay or damage on the following page.</p><p><a href=\"/us/en/book/baggage/baggage-irregularities\">Report delayed or damaged baggage</a></p></div></div></div><p>{spacer-30}</p><h2 id=\"refunds\">"
+   },
+   {
+    "replace": "</div></div></div><div class=\"metadata\">",
+    "text": "</div></div></div><p>{divider-40}</p><div class=\"search-bar\"><div><div><a href=\"/us/en/help/search-result\">Enter search term</a></div></div></div><div class=\"metadata\">"
+   }
+  ]
+ },
+ {
+  "path": "/ca/en/my-bookings/manage/customer-service",
+  "inserts": [
+   {
+    "replace": "<h3 id=\"do-you-have-a-request-before-your-trip\">Do you have a request before your trip?</h3>",
+    "text": "<h3 id=\"do-you-have-a-request-before-your-trip\">Do you have a request before your trip? {heading-small}</h3>"
+   },
+   {
+    "replace": "<h3 id=\"do-you-have-any-feedback-or-complaints-after-your-flight\">Do you have any feedback or complaints after your flight?</h3>",
+    "text": "<h3 id=\"do-you-have-any-feedback-or-complaints-after-your-flight\">Do you have any feedback or complaints after your flight? {heading-small}</h3>"
+   },
+   {
+    "replace": "</div></div><h3 id=\"you-can-also-contact-us-via-whatsapp\">You can also contact us via WhatsApp</h3>",
+    "text": "</div></div><div class=\"columns-media side-picture\"><div><div><h3 id=\"you-can-also-contact-us-via-whatsapp\">You can also contact us via WhatsApp {heading-small}</h3>"
+   },
+   {
+    "replace": "</picture></p><h3 id=\"is-your-baggage-delayed-or-was-it-damaged\">Is your baggage delayed or was it damaged?</h3>",
+    "text": "</picture></p></div><div><h3 id=\"is-your-baggage-delayed-or-was-it-damaged\">Is your baggage delayed or was it damaged? {heading-small}</h3>"
+   },
+   {
+    "replace": "<p>We will make every possible effort to recover your baggage as quickly as possible or to remedy the damage to your item of baggage. Discover how to report the delay or damage on the following page.</p><p><a href=\"/ca/en/book/baggage/baggage-irregularities\">Report delayed or damaged baggage</a></p><h2 id=\"refunds\">",
+    "text": "<p>We will make every possible effort to recover your baggage as quickly as possible or to remedy the damage to your item of baggage. Discover how to report the delay or damage on the following page.</p><p><a href=\"/ca/en/book/baggage/baggage-irregularities\">Report delayed or damaged baggage</a></p></div></div></div><p>{spacer-30}</p><h2 id=\"refunds\">"
+   },
+   {
+    "replace": "</div></div></div><div class=\"metadata\">",
+    "text": "</div></div></div><p>{divider-40}</p><div class=\"search-bar\"><div><div><a href=\"/ca/en/help/search-result\">Enter search term</a></div></div></div><div class=\"metadata\">"
+   }
+  ]
+ }
+]
