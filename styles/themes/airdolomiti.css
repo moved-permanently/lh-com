@@ -2571,6 +2571,16 @@ body.brand-airdolomiti main > .section > .accordion-columns-wrapper:has(> .accor
   }
 }
 
+/* below 930px any text after a FAQ accordion 110px under it (the digital services' "Altri servizi", the
+   electronic devices pages): www's TogleTariffe margin on /servizi-digitali at 390 (airdolomiti-parity-014,
+   standing order 59; 24px before). Not from 930px: there our next title is already 99px down (www 120) and
+   the 120px would take the recorded 1440 further (gate-so59-airdolomiti-faq-accordion-end.txt) */
+@media (width < 930px) {
+  body.brand-airdolomiti main > .section > .accordion-columns-wrapper:has(> .accordion-columns.faq) + .default-content-wrapper {
+    margin-top: 110px;
+  }
+}
+
 @media (width >= 530px) {
   body.brand-airdolomiti main > .section:is(.accordion-columns-container, .flight-status-container).columns-media-container .default-content-wrapper h1,
   body.brand-airdolomiti main > .section.flight-status-container.columns-media-container .default-content-wrapper h1 + h2 {

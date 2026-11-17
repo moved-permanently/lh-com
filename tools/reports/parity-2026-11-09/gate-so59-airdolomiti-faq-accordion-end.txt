@@ -1,0 +1,35 @@
+# ema-cashub, standing order 59, item 1 (2026-11-17, ~04:46 to ~05:00 CET): the six pages order 58's narrowing left out (/servizi-digitali, /de/digitale-services, /en/digital-services, /bagaglio/dispositivi-elettronici-e-batterie, /de/gepaeck/elektronische-gegenstaende-und-batterien, /en/baggage/electronic-devices-and-batteries), the spacing after their FAQ accordion gated against airdolomiti-parity-014 /servizi-digitali; and the 1440 card size against its /de/flughaefen/frankfurt-de.
+# The recording: airdolomiti-parity-014.tar.gz from the Air Dolomiti drop folder, sha256 dcb82f74...3095cc9 equal to its .sha256 sidecar, read as data. Each width its own first load (manifest: loadedSeparately), 2026-11-17 ~04:36 / ~04:39 CET, cookie banner accepted. www's spacing read from the recorded markup laid out offline with its own CSS (so23/rec-render.mjs; nothing sent, 39 to 43 requests aborted); the offline 1440 equals the recorded page height (2,760), the 390 is 58 px short (pictures), so spacing only. The gate: the recorded page height (scrollHeight) and footer top, ours as served (so53/hostv.mjs, unhinted, EAGER=1 CONSENT=1; lh-proxy, www.* but www.mynewsdesk.com and every airline host refused and counted: 0 to 8 a render, none sent).
+#
+# 1. The spacing after the FAQ accordion (/servizi-digitali)
+# www: the TogleTariffe container has margin-bottom 110 px at 390 and 120 px at 1440; "Altri servizi" stands 110 px (390) / 120 px (1440) under the first accordion's last row.
+# ours as served: 24 px at 390 and 768 (the default content's 24 px margin), 99 px at 1440 (the section's grid with the side card adds 75).
+# width	www gap	ours gap	drafted gap	www page	ours page	with the rule	www footer	ours footer	with the rule	result
+390	110	24	110 (< 930px rule)	4054	4012 (-1.04 %)	4098 (+1.09 %)	2948	2906 (-1.42 %)	2992 (+1.49 %)	PASS (within 0.5: page 0.05, footer 0.07 points further; the gap now www's to the px)
+1440	120	99	195 (the 120 px rule)	2760	2846 (+3.12 %)	2942 (+6.59 %)	1947	2033 (+4.42 %)	2129 (+9.35 %)	FAIL (3.47 points further): not taken
+1440	120	99	120 (45 px margin, www's gap)	2760	2846 (+3.12 %)	2867 (+3.88 %)	1947	2033 (+4.42 %)	2054 (+5.50 %)	FAIL (0.76 points further): not taken
+# Why 1440 is long: +72 at the intro (title and text, the accordion starts 576 against www's 504), -21 at this gap, +32 from "Altri servizi" to the second accordion, +3 to the footer. Any gap toward www's adds to the +72; no rule of this order.
+# Shipped: below 930px only (styles/themes/airdolomiti.css, test/airdolomiti-faq-accordion-end-so59.test.mjs): any text after a FAQ accordion 110 px under it. From 930px order 58's rule (before a carousel only) stays.
+# Code override (CODE=this checkout) on /servizi-digitali: 390 4,098 / footer 2,992, 768 3,569 / 2,543, 1440 2,846 / 2,033 (unchanged): equal to the toggle to the px.
+#
+# Census (in-page toggle, the rule added as a style tag and removed in the same load): the 76 documents whose FAQ accordion is followed by default content (so58/reach-acc.txt from fresh served copies of all 1,569 Air Dolomiti documents, ~04:50 CET; 2 changed since order 58, the intro-lines row's pages), at 390 and 768: 152 renders, no broken load.
+# Changed: exactly the six, +86 px at both widths; the other 70 documents 0 (the FAQ baggage pages already have it). No sideways scroll, no overlap, no lost picture, restored on all 152. 1440 is outside the media query.
+# path	width	before	after	footer before	footer after	www
+/servizi-digitali	390	4012	4098	2906	2992	4054 / 2948 (airdolomiti-parity-014)
+/servizi-digitali	768	3483	3569	2457	2543	-
+/de/digitale-services	390	3870	3956	2796	2882	-
+/de/digitale-services	768	3445	3531	2479	2565	-
+/en/digital-services	390	3927	4013	2881	2967	-
+/en/digital-services	768	3445	3531	2479	2565	-
+/bagaglio/dispositivi-elettronici-e-batterie	390	9423	9509	8317	8403	-
+/bagaglio/dispositivi-elettronici-e-batterie	768	6753	6839	5727	5813	-
+/de/gepaeck/elektronische-gegenstaende-und-batterien	390	9554	9640	8480	8566	-
+/de/gepaeck/elektronische-gegenstaende-und-batterien	768	6829	6915	5863	5949	-
+/en/baggage/electronic-devices-and-batteries	390	9191	9277	8145	8231	-
+/en/baggage/electronic-devices-and-batteries	768	6632	6718	5666	5752	-
+# The five unrecorded pages take the same template step as the recorded one (www's TogleTariffe margin, now recorded on /faq/bagaglio and /servizi-digitali); their page figures have no www counterpart.
+#
+# 2. The 1440 card size (/de/flughaefen/frankfurt-de, measurements/de-flughaefen-frankfurt-de-1440-cards.json)
+# www: three CardNews 432 x 470 at x 36 / 504 / 972 (36 px apart), 66 px under the "Entdecke Frankfurt" title's top.
+# ours as served: 432 x 470 at x 36 / 504 / 972, 66 px under the title's top. Equal to the px: order 58's figure (30vw, 470 high, 2.5vw apart) stands for the 111 pages; no correction.
+# The page, for the record (not part of the card rule): 1440 www 12,574 (footer 11,739), ours 11,372 (10,537), -9.56 %. Located: www embeds the Google map (EmbedUrl, 810 px) under the cards where our document has the link "Karte auf Google Maps" (27 px): -783; the rest -383 down to "Entdecke Frankfurt", in the services' and FAQ texts above. 390: www 18,041 (footer 16,967), ours 18,108 (17,034), +0.37 %.
