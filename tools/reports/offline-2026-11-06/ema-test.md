@@ -5424,3 +5424,54 @@ I fetched lh-parity-002c, -004a and -004b again into logs/drops; they are the by
   - the old autostash entry (not mine, kept).
 - Preview servers stopped; the trial, folder and suite worktrees removed. The article-end render goes on in standing
   order 48 (three processes, writing to logs/p4/so46).
+
+## Standing orders 47 and 48 (received about 02:10 and 03:10 UTC, 2026-11-17)
+
+Order 47's turn ended twice with no final word: session restarts wiped /tmp and stopped every job. The likely cause is
+memory: seven render shards, two gates and three servers ran together. In order 48 I kept to four browser jobs.
+State at the start of order 48: order 46's report commit was local only (the render had not finished), and nothing of
+order 47 was on main.
+
+0. **Order 46's report** is on main (0be2251a).
+   - The render's reading then: the article-end rule's 1440 half collapses into the wrapper's 24 px margin and does
+     nothing. At 390 the finished loads were 7 px shorter, with no flag.
+   - The render is now complete: all 2,094 unrecorded articles at 390, 2,093 7 px shorter, 1 unchanged, no flag (the unfinished first loads loaded again with a longer settle).
+   - So the rule ships as phones only (ad927be9). Its gate stands: 16 of 52 recorded page-widths closer, none more than
+     0.5 further.
+1. **Hand-over item 22** (delta-so48-rows.txt).
+   - munich-fair's grey band heading wraps in our 75 % text column; www sets it on one line. Rule: a grey band's plain
+     h2 on info pages runs the full width from 768 px. munich-fair 1440 12.84 → 10.01; the other 7 recorded page-widths
+     unchanged. No-breakage: 112 unrecorded info documents (224 renders): 15 at 1440 39-40 px shorter, the rest unchanged, no flag.
+   - The 55 px under its stage picture: a spacer for it took the page further (1440 6.57, 390 9.26 with the two-column
+     row), so no spacer. The two-column row stays HOLD.
+   - tags/allegris at/de, de/de 1440 now read 15.5 %. The steps are spread out: -16 before "Erfahren Sie mehr ...", -22
+     at its text, -16 at the grey band (the first section ends with a Columns Media and keeps only 24 px), -15 at the
+     "Konditionen" small print. No single rule.
+2. **Hand-over item 17** (Brussels bike-the-city's captions).
+   - Recording: brussels-parity-014, checked against its .sha256.
+   - Ours were italic and 4 px lower under each picture. Rule: on phones a gallery caption sits 11 px under its picture
+     and is upright.
+   - Gate: bike-the-city 390 23.86 → 22.88, sun-in-march 33.46 → 31.91.
+   - No-breakage: 27 unrecorded documents, 16 shorter by 12-44 px at 390, no flag.
+   - ema-lufthansa's held row for bike-the-city has 66 px of its footer offset left, 42 after this.
+3. **Places 61 to 80** (places-so48-lh-com-outside-61-80.txt), measured again as served.
+   - 1 without a layout fix, 19 located.
+   - The single-step pages (lufthansa-express-bus 1440, special-meals 1440, upgrade-to-premium-economy-class 1440) are
+     the candidates for rows next. special-meals' step failed as a rule in order 46.
+
+## Standing order 48, final section (about 05:50 UTC, 2026-11-17)
+
+- Items 0-3 done. Every background job was started and read inside this turn.
+- Before this section: the full suite at ad927be9 in a fresh worktree (npm run lint exit 0, stylelint exit 0, 1,260 test files passed, 0 failed); the folder-reading tests with brand.test.mjs; the whole-repo lint read before every
+  push.
+- The two-hour window: no other session touched styles.css or brussels.css in the two hours before my edits.
+- Nothing uploaded, previewed or published by me. No DA request this order. da-upload.mjs not run.
+- Requests only to our own hosts, GitHub's API and the drops' address (brussels-parity-014). No request to www or any
+  airline host.
+- .migration/project.json not touched; the excluded manage page has no row and no line.
+- Not in git, and why:
+  - logs/p4/so46-48 (scratch, with the copied Intelo files for the Brussels gate);
+  - the drops under logs/drops (private material, git-ignored);
+  - content/, migration-work/ and tools/importer/reports/* (not mine);
+  - the old autostash entry (not mine, kept).
+- Preview servers stopped; the trial, folder and suite worktrees removed. No job left running.

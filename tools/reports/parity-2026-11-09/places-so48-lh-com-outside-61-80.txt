@@ -1,0 +1,25 @@
+# ema-test, standing order 48, item 3 (2026-11-17; asked in order 47): places 61 to 80 of the recorded lufthansa.com page-widths outside both rankings (1-20: worst20-so43, 21-40: places-so45, 41-60: places-so46).
+# Page list: order 32's info sweep, the page-widths that read 5 % or more; the next 32 of order 43's list measured again as served now (lufthansa.turnsthe.page, ~04:35 UTC, full Chrome, the drops' fonts, live boxes masked, the first 8,000 px, airline hosts refused per request), without the 60 places already listed, ranked again.
+# Causes from the drift profile (www y -> our offset, the step and what of ours sits there).
+# Columns: place, path, width, % now, status, cause, fix.
+61	/de/en/affiliatemarketing	390	9.51	located	+12 px at each programme link ("Great Britain (Commission Junction ...)", "Norway ...", "Spain ..."): ours sets the stacked partner links 12 px further apart than www, +23 at the spacer after them; ours 107 px taller.	A link list's spacing on one page; not changed tonight.
+62	/de/en/book-and-manage/rebook/voluntary-rebooking	390	9.32	located	+24 at the intro, +41 at a section, +28 before "Explore your rebooking options", -25 at the flush padded block, then swings of 200-400 px through the accordion (the aligner).	Not changed tonight.
+63	/de/en/flying-with-small-children	390	9.29	located	+48 at the accordion section, +24 at the flush grey column view with carousel cards, -23 at the section after it.	Not changed tonight.
+64	/de/en/lufthansa-express-bus	1440	9.25	located	+46 and +24 at two spacers (y 1200 and 3300); ours 88 px taller.	Spacer rows candidates; not gated tonight.
+65	/de/en/dangerous-dogs	390	9.19	located	+10 at the link to the general pet information, the aligner around the column text (y 800), +89 / -62 by the page end.	Not changed tonight.
+66	/de/en/baggage-irregularities	1440	9.01	located	+39 at the tabs, -31 at a spacer, -13 at the Columns Media, -12 and -40 further down; ours 88 px shorter.	Not changed tonight.
+67	/de/en/special-meals	1440	8.95	located	One step, +48 at the flush grey column band (y 3200): the closing mark before a grey column band at 1440, which order 46 tried as a rule (special-meals went 8.95 -> 9.31, seven pages further).	No rule passes (order 46).
+68	/de/en/prepare-for-your-trip/special-travel-needs/medical-travel-companions	390	8.86	located	The aligner at the stage (y 800), -31 at y 1700, -23 at a list item.	Not changed tonight.
+69	/de/en/during-your-trip/lhg-wifi	1440	8.83	located	The "Full volume for you" teaser row reads 43-44 % (y 2200-2300, the aligner loses it: its picture or video frame), +48 by the footer.	Not changed tonight.
+70	/de/en/shopping	390	8.83	located	-30 / +32 at the hero campaign (y 4100), -17 at a divider, -10 before "You decide: your selection, your location".	Not changed tonight.
+71	/de/en/discover-lufthansa/miles-and-more-credit-card	390	8.79	located	-37 / +30 at the card rows, +36 at a spacer, the accordion (+79 / -106 / +87, the aligner), +108 / -108 / -54 in the footnotes. Its 1440 READY row (order 45) is live.	Not changed tonight.
+72	/de/en/book-and-manage/flights/ana/faq	1440	8.76	located	-17 before "Additional and special services", -18 before "Check-in", then the FAQ accordion (swings of 100-350 px), -17 later: plain headings after text (hand-over item 14's kind, both ways across the recordings).	No heading rule (order 45).
+73	/de/en/upgrade-options	390	8.73	located	The aligner at "Book at a fixed price" (y 800), +42 at the closing column mark (y 3800).	Not changed tonight.
+74	/de/en/lufthansa-guide-service	390	8.71	located	The aligner at the language list (y 800), -27 / -27 / +27 in the column text, +378 to -186 swings at y 3700-4600 (a list the aligner loses), ours 183 px taller.	Not changed tonight.
+75	/de/en/rail-and-fly	390	8.68	located	-14 at the Columns Media (y 700), the aligner at y 800-900, -47 at the tabbed section, swings at the column marks, +24 after "Frequently Asked Questions".	Not changed tonight.
+76	/de/en/exclusive-charter	390	8.65	no fix	No step of 10 px or more (aligned 2.0): heights within 13 px; text rendering and drift.	-
+77	/de/en/lufthansa-express	390	8.65	located	+27 at the first column end, -26 at the flush grey column band (y 3300).	Not changed tonight.
+78	/de/en/book-and-manage/rebook/involuntary-rebooking	390	8.64	located	+23 at the flush padded section, -25 at the next, -105 / +79 around y 5000, -25 at the accordion, +48 / +49 / +41 / +26 at the closing sections (the grey carousel band, "Go to Help center").	Not changed tonight.
+79	/de/en/upgrade-to-premium-economy-class	1440	8.64	located	One step, +29 at the outer column mark (y 1100).	Not changed tonight.
+80	/de/en/gefaehrliche-gegenstaende	390	8.61	located	+23 at the flush grey column band, +13 / +13 at its icon-text list, -35, +23 at the accordion section, then swings of 300 px at y 3400-4100 (the aligner).	Not changed tonight.
+# Result: 1 without a layout fix (76), 19 located with their steps; no row or rule tonight (the single-step pages 64, 67 and 79 are the candidates: 67 failed as a rule in order 46).
