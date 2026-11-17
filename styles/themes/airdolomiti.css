@@ -4521,6 +4521,155 @@ body.brand-airdolomiti main > .section.heading-icon > .carousel-cards-wrapper:ha
 /* stylelint-enable no-descending-specificity */
 
 /*
+ * the plain carousels outside the heading-icon sections (the FAQ pages' "Articoli correlati", the
+ * articles' and the destinations' sub-pages' related lists) as www's MiniCardSlider of CardNews below
+ * 930px, as the destinations' carousels above (airdolomiti-parity-013 /faq/bagaglio at 390, standing
+ * order 57): a title's line 20px over the cards; the cards 325px wide 2.5vw apart, 470px high (the
+ * picture 60%, the title 20px / 26px regular, at most three lines, 25px 15px in), the whole card one
+ * link; no dots; the two arrows (40px circles, 10px apart) at the right of a row 50px under the cards,
+ * 100px over what follows (52px here, the section's 48px after). From 930px lh-com's cards stay: www's
+ * there are shorter, and the FAQ pages' gate fails until their intro lines and the accordion's end
+ * match (gate-so57-airdolomiti-related-cards.txt).
+ */
+/* stylelint-disable no-descending-specificity -- another option's carousels (the offers', the destinations' above) */
+@media (width < 930px) {
+  body.brand-airdolomiti main > .section:not(.heading-icon) > .default-content-wrapper:has(+ .carousel-cards-wrapper > .carousel-cards:not(.promo, .destinations)) > :is(h2, h3):last-child {
+    margin-bottom: 0;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) > .default-content-wrapper:has(> :is(h2, h3):last-child) + .carousel-cards-wrapper:has(> .carousel-cards:not(.promo, .destinations)) {
+    margin-top: 15px;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) {
+    position: relative;
+    padding-bottom: 134px;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-viewport {
+    position: static;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-track {
+    gap: 2.5vw;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-slide {
+    position: relative;
+    flex: 0 0 325px;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 470px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 12px 25px rgb(0 0 0 / 5%);
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-image {
+    flex: none;
+    aspect-ratio: auto;
+    height: 60%;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-body {
+    box-sizing: border-box;
+    flex: none;
+    height: 40%;
+    padding: 25px 15px;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-body > :is(h2, h3, h4) {
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 0;
+    color: var(--lh-deepblue);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 26px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-body > p:not(.carousel-cards-cta) {
+    margin: 0;
+    color: #757575;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-cta {
+    position: static;
+    margin: 0;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-cta a:any-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    color: transparent;
+    font-size: 0;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-cta a:any-link::before {
+    content: none;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-slide:has(.carousel-cards-cta a:hover) .carousel-cards-body > :is(h2, h3, h4) {
+    text-decoration: underline;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-dots {
+    display: none;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-nav {
+    inset: auto 0 52px auto;
+    display: flex;
+    gap: 10px;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) .carousel-cards-nav[hidden] {
+    display: none;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) :is(.carousel-cards-prev, .carousel-cards-next) {
+    position: static;
+    display: flex;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--lh-grey-3);
+    border-radius: 50%;
+    background-color: #fff;
+    color: var(--lh-deepblue);
+    pointer-events: auto;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) :is(.carousel-cards-prev, .carousel-cards-next)::before {
+    width: 22px;
+    height: 22px;
+  }
+
+  body.brand-airdolomiti main > .section:not(.heading-icon) .carousel-cards:not(.promo, .destinations) :is(.carousel-cards-prev, .carousel-cards-next):disabled {
+    visibility: visible;
+    color: var(--lh-grey-3);
+    cursor: default;
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+/*
  * the destinations' band (hero-campaign narrow with an h2: www's HeroMiddleNotCta, "Discover Bari"
  * on /destinations/bari; airdolomiti-parity-001 at 1440 and 390, the sweep after 556): 140vh high
  * (1260px at 1440 x 900), the photo without the stages' veil, 100px above and under it; a box of
