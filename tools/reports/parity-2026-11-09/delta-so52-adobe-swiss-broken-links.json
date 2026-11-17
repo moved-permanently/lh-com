@@ -1,0 +1,20 @@
+[
+ {
+  "path": "/ch/it/fly/check-in/electronic-bag-tag",
+  "inserts": [
+   {
+    "replace": "href=\"https://www.swiss.com/ch/it/fly/check-in/fast-bag-drop\"",
+    "text": "href=\"/ch/it/fly/check-in/fast-bag-drop-gva\""
+   }
+  ]
+ },
+ {
+  "path": "/ch/en/customer-support/feedback",
+  "inserts": [
+   {
+    "replace": "href=\"/ch/en/customer-support/contact-us/feedback-past-flight\"",
+    "text": "href=\"/ch/en/feedback\""
+   }
+  ]
+ }
+]

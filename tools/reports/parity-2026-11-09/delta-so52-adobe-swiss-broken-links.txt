@@ -1,0 +1,14 @@
+# ema-adobe, standing order 52 (2026-11-17), item 3: two lh-swiss version pages whose link is broken on www itself. The row
+# points the link at the page that holds the content on our site; nothing else of the copy changes.
+# Tool: tools/importer/text-inserts-apply.mjs --data delta-so52-adobe-swiss-broken-links.json (one replace each: the whole
+# href attribute, found exactly once in DA's copy). Dry run on DA's current copies (read-only GETs, 2026-11-17 ~13:40 CET):
+# 2 inserted, 2 byte for byte without them (--check); the diff of each copy is the one href.
+# Gate: the target answers 200 on main--lh-swiss--moved-permanently.aem.live (.plain.html) and on swiss.turnsthe.page as
+# served; the document itself answers 200 on swiss.turnsthe.page. Layout does not change (an href only).
+# (The third link of the order, lh-austrian /at/en/plan/special-requirements/healthy-travel, gets no row: that document is
+# not on our site. DA holds only a folder of that name under at/en (doctor-on-board, medical-travel-companions), no
+# healthy-travel document; the page answers 404 on aem.live and on austrian.turnsthe.page. Its target
+# /at/en/plan/special-requirements/healthy-travel/medical-travel-companions answers 200 on aem.live.)
+# status	document	tool	expected change	gate
+READY	/ch/it/fly/check-in/electronic-bag-tag	text-inserts-apply (delta-so52-adobe-swiss-broken-links.json)	the "Fast Bag Drop" link: https://www.swiss.com/ch/it/fly/check-in/fast-bag-drop -> /ch/it/fly/check-in/fast-bag-drop-gva	anchor found 1x; target 200 on aem.live, 200 on swiss.turnsthe.page; document 200 on swiss.turnsthe.page
+READY	/ch/en/customer-support/feedback	text-inserts-apply (delta-so52-adobe-swiss-broken-links.json)	the "Send feedback" link: /ch/en/customer-support/contact-us/feedback-past-flight -> /ch/en/feedback	anchor found 1x; target 200 on aem.live, 200 on swiss.turnsthe.page; document 200 on swiss.turnsthe.page
