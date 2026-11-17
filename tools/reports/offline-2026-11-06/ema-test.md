@@ -5892,3 +5892,66 @@ browser jobs at a time, each read inside the turn. No stylesheet or code touched
   - the old autostash entry (not mine, kept).
 - The folder servers are stopped; the gate and suite worktrees removed. No job left running.
 - For the publish child's round: delta-so54-lh-com-rows.json (5 lufthansa.com documents).
+
+## Standing order 55 (received about 19:10 UTC, 2026-11-17)
+
+State at the start: nothing of mine uncommitted or unpushed (order 54 on main, 1ddb5d9c, Build green). At most four
+browser jobs at a time, each read inside the turn. No stylesheet or code touched: rows only.
+
+1. **lufthansa.com, order 51's ranking beyond rank 60** (delta-so55-lh-com-rows.txt / .json; the commits "docs(delta): standing order 55 ..." on main).
+   - Ranks 61-131 (5 % or more) were measured again as served, 71 page-widths. 8 READY rows:
+     - closing-gap styles on rebook 1440 and the three upgrade pages at 1440;
+     - all-check-in 390 and immigration-regulations-uk 390;
+     - payment-options 1440: 6.52 → 1.00 %, landing on www's height;
+     - lufthansa-first-class-entertainment's divider at 1440.
+   - Two more pass their gate but are held: upgrade-options 1440 and children-on-board 390.
+     - Their DA read for the dry run was stopped by a safety guard, which took the read for a write, so they have no
+       dry run yet.
+     - The guard's instruction was not to retry, so I did not.
+   - Trials that read worse and pages with no single place are listed.
+2. **mobility-partner and cancellations-and-refunds at 390** (same list): both READY.
+   - mobility-partner: 7.80 → 6.21 %, with a phone spacer after the grey band, where www keeps about 40 px.
+   - cancellations: 7.78 → 6.30 %, with a 4 px phone spacer before the closing column end. Its hidden wrapper also
+     brings 1440 closer, 3.62 → 1.34 %.
+3. **ITA it/en recorded pages more than 2 % off ita-parity-005** (delta-so55-ita-rows.txt / .json; the same commit).
+   - All 44 page-widths were measured as served; 43 read more than 2 %.
+   - One row: pets-in-cabin's gap section.
+     - it/en: 390 16.63 → 12.31 %, 1440 4.90 → 4.76 %.
+     - Carried by structure to the 8 other versions, where order 53 put the same section; no new flag with or
+       without it.
+   - Not rows, one line each:
+     - The four tab pages at 390 compare www's resized desktop tab state against our phone accordion.
+     - A note for ema-adobe: ITA's phone footer is 84 px taller than www's (1,355 against 1,271 px on
+       flight-search), the +82 step of eight pages.
+     - fantasia-lounge and seats-selection-economy stay held.
+     - The rest are aligner swings.
+
+## Standing order 55, final section (about 20:00 UTC, 2026-11-17)
+
+- Items 1-3 done well before 22:30 UTC. Every background job was started and read inside this turn; no more than four
+  browser jobs at once (two stopped ITA shards were restarted on ita-parity-005 alone before any figure was used).
+- Before this section, at b8c3d7ef (the last rebases brought only other sessions' report and state commits; lint read again at
+  the pushed commit):
+  - the full suite in a fresh worktree: npm run lint exit 0, stylelint exit 0, 1,275 test files passed, 0 failed;
+  - the folder-reading tests: 663, 0 failed;
+  - brand.test.mjs: passed.
+  - The whole-repo lint is read before every push.
+- No code, stylesheet or file of ema-adobe's touched. One note for it: ITA's phone footer (delta-so55-ita-rows.txt).
+- Nothing uploaded, previewed or published by me; da-upload.mjs not run; no DA write. DA reads only:
+  - lufthansa.com's ten row pages;
+  - pets-in-cabin in nine languages.
+  - One read of two more pages was stopped by a safety guard before it ran and was not retried.
+- Requests went only to our own hosts, DA (reads) and GitHub's API. No request to www or any airline host; the drops
+  were already on disk.
+- .migration/project.json not touched; the excluded manage page has no row and no line.
+- The optional plugins stay off; .agents/settings.json not written.
+- Not in git, and why:
+  - logs/p4/so55 (scratch);
+  - the drops under logs/drops (private material);
+  - content/, migration-work/ and tools/importer/reports/* (not mine);
+  - the old autostash entry (not mine, kept).
+- The folder servers are stopped; the gate and suite worktrees removed. No job left running.
+- For the publish child's round:
+  - delta-so55-lh-com-rows.json: 10 lufthansa.com documents;
+  - delta-so55-ita-rows.json: 9 ITA documents.
+- Held: upgrade-options and children-on-board until their DA dry run.
