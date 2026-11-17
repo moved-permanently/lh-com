@@ -431,3 +431,77 @@ Runner logs/b652/sweep-shard.sh (4 shards), ranking logs/b652/rank.py; captures 
 | 284 | /at/de/100-years/destinations | campaign | 1440 | 0.7 | 8000/8000 | 0.0 | 200 | lh-parity-004 | 0.7 |
 | 285 | /de/de/100-years/destinations | campaign | 1440 | 0.7 | 8000/8000 | 0.0 | 200 | lh-parity-004 | 0.7 |
 | 286 | /de/en/articles/highlights | insights | 390 | 0.7 | 8000/8000 | 69.2 | 200 | lh-parity-002 | 0.7 |
+
+## Standing order 53: the same captures with www's refused widgets taken out on both sides
+
+The sweep above compared our captures, drawn with www refused, against recordings drawn with www's data. Here the
+same captures and recordings (no new capture) are compared again so that a refused widget neither adds nor hides
+height (logs/b653/remask.cjs, remask2.cjs):
+- where a widget changes the page's height (the destination finder on fluege / flights and the homepage, the
+  culinaryjourney micro-frontend), its rows are cut from both images: from the recording at order 44's box (drawn
+  with www's data then, aligned with the recording) and from ours at today's box. fluege / flights' recordings end
+  inside the finder (8,000 px), so ours is compared over the recording's remaining height;
+- where it keeps the height (the Price Bar band at 810 / 735 px, fare teasers, the article teasers that come from www),
+  order 44's box is masked on both sides in addition to the capture's own live boxes, as order 44 masked it;
+- every other page-width keeps its figure above (248 of 286: nothing to add).
+
+All 286 page-widths: median 5.6 %, 84 at 7 % or more (95 before), 30 at 10 % or more, 8 at 15 % or more. Without
+fluege, flights and culinaryjourney: 274, median 5.6 %, 81 at 7 % or more (83 before).
+Against order 44: 33 page-widths closer by 0.5 or more. 11 still read further by 0.5 or more:
+- fluege / flights x8 0.0-0.1 -> 0.5-1.4: only the strip above the finder is left to compare (order 44 masked 85 % of
+  the page);
+- lufthansa-city/culinaryjourney 390 11.1 -> 14.4 and the homepage 1440 4.8 -> 5.9: after the cut, their other
+  content (culinaryjourney: the part above and below the micro-frontend; the homepage: the teasers around the finder);
+- essentials-barcelona-facts 1440 3.0 -> 3.6.
+
+| Page-width | Sweep above % | With the widgets out % | How |
+| --- | --- | --- | --- |
+| /de/en/homepage 1440 | 6.3 | 5.9 | cut 2245+990 / 2245+960 |
+| /de/en/flights 1440 | 34.1 | 0.6 | cut 368+7632 / 368+1191 |
+| /de/en/flights 390 | 44.8 | 1.4 | cut 295+7705 / 295+622 |
+| /de/de/fluege 1440 | 33.8 | 0.6 | cut 328+7672 / 328+1191 |
+| /de/de/fluege 390 | 45.8 | 1.4 | cut 275+7725 / 275+622 |
+| /at/de/fluege 1440 | 34.1 | 0.6 | cut 328+7672 / 328+1191 |
+| /at/de/fluege 390 | 43.9 | 1.4 | cut 275+7725 / 275+622 |
+| /gb/en/flights 1440 | 33.1 | 0.5 | cut 368+7632 / 368+1191 |
+| /gb/en/flights 390 | 43.8 | 1.3 | cut 295+7705 / 295+622 |
+| /de/en/culinaryjourney 1440 | 10.5 | 1.1 | cut 147+463 / 147+400 |
+| /de/en/culinaryjourney 390 | 32.6 | 16.6 | cut 169+777 / 169+400 |
+| /de/en/lufthansa-city/culinaryjourney 1440 | 15.3 | 8.3 | cut 147+463 / 147+400 |
+| /de/en/lufthansa-city/culinaryjourney 390 | 38.1 | 14.4 | cut 169+777 / 169+400 |
+| /de/en/articles/explore-flying 390 | 7.2 | 7.1 | masked [data-lh-source]@795+4122,[data-lh-source]@5012+533 |
+| /de/en/articles/explore-flying/essentials-future-of-flying 390 | 4.9 | 4.9 | masked [data-lh-source]@3880+1177 |
+| /de/en/articles/explore-the-world 1440 | 5.5 | 5.5 | masked [data-lh-source]@1648+2633,[data-lh-source]@4396+499 |
+| /de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day 1440 | 3.1 | 2.3 | masked .price-bar@810+90 |
+| /de/en/articles/explore-the-world/a-perfect-day-barcelona-in-one-day 390 | 11.3 | 11.0 | masked .price-bar@735+165 |
+| /de/en/articles/explore-the-world/a-perfect-day-berlin-in-one-day 1440 | 2.7 | 2.0 | masked .price-bar@810+90 |
+| /de/en/articles/explore-the-world/be-picky-barcelona-insider-tips 1440 | 7.2 | 6.0 | masked .price-bar@810+90 |
+| /de/en/articles/explore-the-world/be-picky-barcelona-insider-tips 390 | 9.7 | 9.3 | masked .price-bar@735+165,[data-lh-source]@5735+1125 |
+| /de/en/articles/explore-the-world/be-picky-frankfurt-insider-tips 390 | 8.1 | 8.0 | masked [data-lh-source]@3214+1094 |
+| /de/en/articles/explore-the-world/eat-see-do-algiers 390 | 9.4 | 9.0 | masked .price-bar@735+165,[data-lh-source]@6538+1032 |
+| /de/en/articles/explore-the-world/eat-see-do-berlin 1440 | 4.9 | 4.1 | masked .price-bar@810+90 |
+| /de/en/articles/explore-the-world/eat-see-do-berlin 390 | 8.5 | 8.5 | masked [data-lh-source]@7941+59 |
+| /de/en/articles/explore-the-world/essentials-barcelona-facts 1440 | 3.9 | 3.6 | masked .price-bar@810+90 |
+| /de/en/articles/explore-the-world/essentials-barcelona-facts 390 | 7.4 | 6.9 | masked .price-bar@735+165,[data-lh-source]@4118+1125 |
+| /de/en/articles/explore-the-world/essentials-frankfurt-facts 390 | 3.7 | 3.7 | masked [data-lh-source]@3134+1094 |
+| /de/en/articles/explore-the-world/in-my-hood-chiswick-london 1440 | 4.3 | 3.3 | masked .price-bar@810+90 |
+| /de/en/articles/explore-the-world/in-my-hood-chiswick-london 390 | 7.7 | 7.7 | masked [data-lh-source]@5334+1085 |
+| /de/en/articles/explore-the-world/in-my-hood-district-zurich 390 | 5.4 | 5.4 | masked [data-lh-source]@6223+1094 |
+| /de/en/articles/explore-the-world/know-before-you-go-algiers 390 | 8.1 | 8.0 | masked .price-bar@735+165,[data-lh-source]@5652+1032 |
+| /de/en/articles/explore-the-world/know-before-you-go-berlin 390 | 7.7 | 7.7 | masked [data-lh-source]@5597+1032 |
+| /de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich 1440 | 4.1 | 3.0 | masked .price-bar@810+90 |
+| /de/en/articles/explore-the-world/on-the-scene-caspar-plautz-munich 390 | 7.6 | 7.3 | masked .price-bar@735+165,[data-lh-source]@4942+1063 |
+| /de/en/articles/explore-the-world/on-the-scene-food-trends-istanbul 1440 | 5.9 | 4.9 | masked .price-bar@810+90 |
+| /de/en/articles/explore-the-world/on-the-scene-food-trends-istanbul 390 | 4.9 | 4.5 | masked .price-bar@735+165,[data-lh-source]@5231+1063 |
+| /de/en/articles/explore-the-world/stop-over-tokyo 390 | 8.9 | 8.6 | masked .price-bar@735+165,[data-lh-source]@5519+1063 |
+| /de/en/articles/explore-the-world/what-i-learned-living-in-barcelona 1440 | 4.9 | 4.9 | masked [data-lh-source]@4744+462 |
+| /de/en/articles/explore-the-world/what-i-learned-living-in-barcelona 390 | 11.7 | 11.7 | masked [data-lh-source]@7109+891 |
+| /de/en/articles/explore-the-world/what-i-learned-living-in-frankfurt 390 | 7.6 | 7.6 | masked [data-lh-source]@4202+1093 |
+| /de/de/articles/highlights/all-it-takes-is-a-yes 1440 | 6.6 | 6.6 | masked .fare-teaser@3336+345 |
+| /gb/en/articles/highlights/all-it-takes-is-a-yes 1440 | 6.6 | 6.6 | masked .fare-teaser@3282+345 |
+| /de/en/articles/highlights/allegris-premium-economy-san-diego 390 | 6.7 | 6.7 | masked [data-lh-source]@5336+1156 |
+| /de/de/articles/highlights/allegris-premium-economy-san-diego 1440 | 3.5 | 3.5 | masked [data-lh-source]@5841+487 |
+| /de/de/articles/highlights/allegris-premium-economy-san-diego 390 | 4.8 | 4.8 | masked [data-lh-source]@5851+1156 |
+| /at/de/articles/highlights/allegris-premium-economy-san-diego 1440 | 3.5 | 3.5 | masked [data-lh-source]@5841+487 |
+| /at/de/articles/highlights/allegris-premium-economy-san-diego 390 | 5.1 | 5.1 | masked [data-lh-source]@5878+1156 |
+| /gb/en/articles/highlights/allegris-premium-economy-san-diego 390 | 5.1 | 5.1 | masked [data-lh-source]@5336+1156 |
