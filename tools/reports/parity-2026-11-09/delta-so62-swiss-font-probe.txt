@@ -1,0 +1,16 @@
+# ema-cashub, standing order 62 (2026-11-17), item 5: SWISS, the no-breakage renders' one real content breakage (one
+# document; census-so62-swiss-copies.txt). /al/de/prepare-lxmas-2024 (the Christmas campaign page of the Albanian root, its
+# own document) shows a paragraph "BESbswy" under the sidebar's map: a web-font loader's test string (www keeps it in a hidden
+# probe element), imported as content. It is drawn: 834 x 22 px at 1440 (so62/bes.js). It is on no other SWISS document
+# (the 5,335 served copies searched).
+# The row: that paragraph removed. Tool: node tools/importer/text-inserts-apply.mjs
+#   --data tools/reports/parity-2026-11-09/delta-so62-swiss-font-probe.json --list <this file> --docs <DA's copies> --out <dir>
+# Dry run on DA's current copy (one read-only GET of admin.da.live/source/moved-permanently/lh-swiss/al/de/prepare-lxmas-2024.html,
+# ~13:40 CET): the anchor <p>BESbswy</p> found once, "inserted" (replaced by nothing, -14 bytes), taken back gives DA's copy
+# byte for byte, a second run "present"; listPaths returns the one path.
+# Render, with and without the row (the served copy without the paragraph as the drafted main), as served on
+# swiss.turnsthe.page, airline hosts refused per request (4 to 7 a load, none sent): 1440 14,742 -> 14,696 (-46), 390 9,949 ->
+# 9,903 (-46); nothing else changes (the sidebar map is empty on both: it asks www's AEM for its points, refused). Not recorded
+# by www. One document, so it was rendered rather than sampled.
+# status	document	tool	expected change	gate
+READY	/al/de/prepare-lxmas-2024	text-inserts-apply (delta-so62-swiss-font-probe.json)	the stray "BESbswy" paragraph under the sidebar map removed	not recorded; 1440 14742 -> 14696 (-46), 390 9949 -> 9903 (-46), nothing else changes, 0 sideways

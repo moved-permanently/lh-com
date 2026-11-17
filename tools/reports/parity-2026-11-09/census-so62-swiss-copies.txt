@@ -1,0 +1,447 @@
+# ema-cashub, standing order 62 (2026-11-17), item 5: SWISS (lh-swiss), every published document's copy against its
+# source as served, and the no-breakage renders at 390 and 1440. From ema-lufthansa's queue (which keeps Brussels).
+# Scratch: migration-work/parity-588/so62 (served copies, census and render scripts, outputs; not in git).
+#
+# What was compared: all 5,335 documents of tools/importer/da-upload-state-lh-swiss.json, fetched as served from
+# swiss.turnsthe.page (all 200). Each copy is compared with its source on section count, block sequence and options,
+# headings by level (inside blocks too) and pictures per block and outside blocks (so62/census-swiss.py, from order 61's).
+# Pairs (4,753; the 582 reference documents magazine/de, corporate/de and medicalservices/de are sources only):
+#   swiss-version  3,135  ch/<ll> and kr/ko against ch/de by path (ch/de against ch/en); fragments by name.
+#   swiss-market     986  a market root's own document against its language version (ch/<ll>), same path; the version's
+#                         sections as the root's country sees them (data-markets; a root entry counts as its country, as
+#                         scripts/market-rules.js).
+#   swiss-subsite    632  magazine/en against magazine/de, corporate/en and /fr against corporate/de, medicalservices/en
+#                         against medicalservices/de, by path.
+#
+#                 same   differs   no source copy
+#   versions     2,358       633   144 (no ch/de document at that path; 9 fragments without a namesake)
+#   market roots   644       227   115 (pages only the market versions have)
+#   sub-sites      419        48   165 (no same-path document: the magazine's slugs are translated)
+#
+# Readings (each class with its count is below):
+# - Market roots: navs (216), footers (216) and fragments (196) all equal their version's. The 212 differing homepages are
+#   each root's own www homepage (lh-swiss-markets.md: imported from swiss-snapshots-031/-032, the market homepages):
+#   fewer sections, no accordion-columns (197), the hero card on the right (191). The one recorded market homepage
+#   (swiss-parity: /de/de/homepage 1440) has www's card on the right, as ours. Local content, no row. The 15 own pages
+#   that differ from the version's page at their path are www's market pages (the markets report's 84 own pages; e.g.
+#   gb/en various/airportr is www's London AirPortr page, 4.5 kB against ch/en's 16.5 kB). Local content, no row.
+# - Versions: each language is its own import of its own www page (ch/de and ch/en on the same days: 2026-11-02 to -08,
+#   the parser the same). Where every other language differs from ch/de on the same page (the "ch/de is the odd one"
+#   classes: accordion-columns limited-width on 10 FAQ pages, carousel-cards plain-view on 5, an h4 more on 11), the
+#   source decides: the importer sets limited-width only where www's accordion sits in <maui-limited-width>, and www's
+#   recorded ch/en FAQ (swiss-parity-002b, payment-options) has its accordion outside it, as our ch/en. www's ch/de FAQ
+#   pages are not recorded. No row. kr/ko's 41 "h1 fewer / h3 more": the sidebar card title, h1 on the ch versions (as
+#   www's markup), h3 on kr/ko (the market importer's one h1 a page). No row. The feedback block (contact-us, offers) is on
+#   0 to 3 pages per language (de, en, ja on contact-us; www's de and en recordings both show it); www's other languages
+#   are not recorded. No row.
+# - Sub-sites: each article and page is its own import per language (different headings and pictures per article). No row.
+# - Shared by all 11 languages: /customer-support/faq/damaged-baggage-faq ends with an empty accordion-columns block
+#   (one empty cell; draws 0 px, its wrapper 24 px of margin). www's page is not recorded, so whether a fourth accordion
+#   was lost is open. Listed, no row.
+#
+# No-breakage renders: all 4,661 documents except nav, footer and fragments (the market homepages are their own
+# documents), at 390 and 1440, as served on swiss.turnsthe.page, unhinted: 9,322 page-widths. Airline hosts and lh-proxy
+# refused per request and counted (none sent). 9,318 answered 200. Two 500s, two timeouts and three loads cut when I
+# re-split the run were rendered again alone: all 200 and clean. Per flag, each copy's flags read against its source's at
+# the same width (so62/swflags.py; so62/swflags.txt has every class with examples):
+# - Sideways: none. One 390 load showed 81 px (ch/es immigration-regulations-usa, a 500 that time): 0 alone.
+# - Failed pictures: two, both broken loads (ch/pt swiss-airrail, magazine/en hello-city): 0 alone.
+# - Overlaps, design:
+#   - 1,834 magazine page-widths, breadcrumb-wrapper over article-header-wrapper, every magazine article at both widths:
+#     the breadcrumb is placed on the article header as on www (swiss-parity: magazine/en a350-special-livery's
+#     breadcrumb at y 834, 33 px high at 1440 on www and ours). 48 magazine hubs: the same over hero-card-overlay.
+#   - Spacer take-backs: X-wrapper/default-content-wrapper (columns-media 240, accordion-columns 85, carousel-cards 44,
+#     profile-tabs, jump-links and cards-icon-text 22 each, form 6). Every one of them checked in the browser (so62/
+#     ovcheck.mjs: the first 218 page-widths, then all the rest) is a wrapper of spacer paragraphs only (aria-hidden,
+#     nothing drawn), pulled up 16 px by lh-com's base rule for a closing spacer wrapper. Shared with the sources.
+#   - Overlaps checked in the browser: 383 page-widths (the first 218, then every one of another kind plus all 115 left of
+#     the spacer kind; the 1,834 magazine article ones left out once the first ones matched www). 3 didn't reproduce.
+#   - kr/ko homepage (2), flash-teaser over flight-search by 11 px, copy only: its flash teaser carries a promotion (the
+#     other homepages' are empty) and lh-com's flash-teaser rule starts the search 11 px higher, as lh-com's live layout;
+#     the strip and the search's first row don't touch (screenshot). Design.
+# - Overlap, real breakage: ch/en /book-and-manage/corporate-customers/company-offers/partnerplusbenefit at 1440, two
+#   sidebar cards on top of each other (157 px), on ch/en and every English market root (they serve ch/en's document).
+#   Row: delta-so62-swiss-partnerplusbenefit-aside (1 READY).
+# - Empty blocks:
+#   - culinaryjourney's micro-frontend on all 11 languages: the culinary journey app answers from www (refused), as on the
+#     other brands' widget pages. Shared with the source.
+#   - damaged-baggage-faq's empty accordion-columns on all 11 languages (see the copies above): 0 px, nothing drawn.
+#   - al/de prepare-lxmas-2024's poi-map: its Source is www's AEM path (refused). The same page shows the stray
+#     "BESbswy" paragraph: row delta-so62-swiss-font-probe (1 READY).
+# - Clipped text, real breakage: button labels cut by lh-com's one-line ellipsis: 157 labels on 116 page-widths, 110 at 390
+#   (65 shared with the source, 44 copy only, 1 unpaired) and 6 at 1440 (long Greek, Japanese and Russian labels). www's SWISS
+#   buttons wrap (swiss-parity-002b: ch/de baggage-irregularities and ch/en advance-seat-reservation at 390, two-line buttons
+#   63 to 64 px high, one-line 50).
+#   Fix drafted, on HOLD: body.brand-swiss a.button:any-link { white-space: normal; text-overflow: clip } (as TAP's of
+#   order 61). Toggle in the same load on every cut-label page-width (so62/tog.mjs, a stable height and a control measure
+#   first): all 116, every cut label uncut, none still cut, 0 sideways; 108 grow (median +18 px, up to +246 on pages with
+#   many labels), 6 don't change height, 2 were still loading (no cut label before or after). On the recorded pages
+#   (152 page-widths, so62/tog-rec.tsv) it changes only the three with a cut label, all at 390:
+#     ch/de baggage-irregularities  www 5,081, as served 5,020 (-1.20 %), with the rule 5,038 (-0.85 %): -0.35 points
+#     ch/de internet-overview       www 3,961, as served 4,077 (+2.93 %), with the rule 4,095 (+3.38 %): +0.45 points
+#     ch/en advance-seat-reservation www 9,348, as served 9,636 (+3.08 %), with the rule 9,708 (+3.85 %): +0.77 points
+#   The third fails the half point. There each wrapped button is 68 px against www's 63 to 64 (cut, ours were 50), and our
+#   page carries a second "Book an Extra Legroom Seat now" button that www's doesn't. The page is already 3.08 % long for
+#   other reasons. So the rule is not in git: it waits for your word, as the finder button rule.
+# - The toggle's "still loading" rows are pages whose height kept changing during the probe (homepages); none has a
+#   cut label before or after.
+#
+# Census classes (site, documents, class, first examples; so62/swc1.classes.tsv):
+swiss-market	644	same	/ae/de/footer /ae/de/fragments/modals/allgemeine-bedingungen /ae/de/nav /ae/en/footer /ae/en/fragments/modals/general-conditions /ae/en/nav
+swiss-market	200	h3 fewer	/ae/de/homepage /ae/en/homepage /ae/fr/homepage /ae/it/homepage /al/de/homepage /al/en/homepage
+swiss-market	198	block accordion-columns missing	/ae/de/homepage /ae/en/homepage /ae/fr/homepage /ae/it/homepage /al/de/homepage /al/en/homepage
+swiss-market	191	variant hero-card-overlay +right	/ae/de/homepage /ae/en/homepage /ae/fr/homepage /ae/it/homepage /al/de/homepage /al/en/homepage
+swiss-market	95	sections -2	/ae/de/homepage /ae/en/homepage /al/de/homepage /al/en/homepage /ar/de/homepage /ar/en/homepage
+swiss-market	93	sections -1	/ae/fr/homepage /ae/it/homepage /al/fr/homepage /al/it/homepage /ar/fr/homepage /ar/it/homepage
+swiss-market	62	no source copy (no ch/en document)	/ae/en/local-page/black-friday /ae/en/local-page/dxb-50th-anniversary-promotion-lx /al/en/book-and-manage/pax-receipt/pax-receipt-request /al/en/customer-support/faq/hold-the-booking /al/en/customer-support/travel-and-corona/travel-briefing/destinations-masks /al/en/flights
+swiss-market	22	block fare-teaser missing	/au/de/homepage /be/it/homepage /ca/de/homepage /ca/en/homepage /ca/fr/homepage /ca/it/homepage
+swiss-market	16	no source copy (no ch/fr document)	/ae/fr/local-page/black-friday /al/fr/book-and-manage/conditions/aig-travel-insurance /al/fr/book-and-manage/swiss-choice/privacy-seat /al/fr/customer-support/faq/hold-the-booking /al/fr/customer-support/travel-and-corona/excemption-mouth-nose-cover /al/fr/customer-support/travel-and-corona/faq-rebooking-corona
+swiss-market	11	sections -3	/au/de/homepage /ca/fr/homepage /ca/it/homepage /cz/de/homepage /eg/en/homepage /ge/de/homepage
+swiss-market	10	no source copy (no ch/it document)	/ae/it/local-page/black-friday /al/it/book-and-manage/swiss-choice/privacy-seat /al/it/customer-support/faq/hold-the-booking /al/it/customer-support/travel-and-corona/excemption-mouth-nose-cover /al/it/customer-support/travel-and-corona/faq-rebooking-corona /al/it/customer-support/travel-and-corona/travel-planning/world-map
+swiss-market	8	block destination-finder missing	/ca/de/homepage /ca/en/homepage /ca/fr/homepage /ca/it/homepage /ru/de/homepage /ru/en/homepage
+swiss-market	7	no source copy (no ch/de document)	/al/de/book-and-manage/pax-receipt/pax-receipt-request /al/de/customer-support/refundable-travel-credit /al/de/flights /al/de/flights/offers /al/de/prepare-lxmas-2024 /al/de/prepare/travel-regulations/immigration-regulations-worldwide1
+swiss-market	7	h3 more	/br/pt/homepage /es/es/homepage /gr/el/homepage /jp/ja/homepage /kr/it/book-and-manage/conditions/voucher-conditions-overview /pt/pt/homepage
+swiss-market	6	no source copy (no ch/es document)	/ar/es/local-page/companion-special-swiss-business /ar/es/local-page/companion-special-swiss-premium-economy /es/es/bizum /es/es/feedback /es/es/fly-friday22 /es/es/local-page/ski-campaign-2026
+swiss-market	6	no source copy (no ch/zh document)	/cn/zh/irreg-handling-plan /cn/zh/local-page/cnypromocode26 /cn/zh/local-page/lx-cn-zh-tarmac-delay-contingency-plan /cn/zh/local-page/promocode-pe-business-lx-in /hk/zh/compensation/flight-voucher /hk/zh/compensation/flight-voucher/terms-of-use
+swiss-market	5	no source copy (no ch/pt document)	/br/pt/customer-support/flight-voucher/flight-voucher-portal /br/pt/local-page/ski-campaign-2026 /br/pt/pix /br/pt/terminal-btg /pt/pt/feedback
+swiss-market	5	block fare-teaser extra	/br/pt/homepage /gr/el/homepage /jp/ja/homepage /pt/pt/homepage /ru/ru/homepage
+swiss-market	4	sections +1	/es/es/homepage /gr/el/homepage /jp/ja/homepage /pt/pt/homepage
+swiss-market	3	sections -4	/ca/de/homepage /ca/en/homepage /de/en/homepage
+swiss-market	3	h2 more	/ca/en/book-and-manage/offers/vouchers /ca/fr/book-and-manage/offers/vouchers /cn/zh/fly/on-board/travel-classes/swiss-premium-economy
+swiss-market	3	pictures outside blocks fewer	/gb/en/various/airportr /kr/fr/terms-conditions/agb-extra-services-at-online-check-in /kr/it/terms-conditions/agb-extra-services-at-online-check-in
+swiss-market	2	h4 fewer	/ae/de/fly/check-in/airport-check-in /gb/en/various/airportr
+swiss-market	2	pictures in carousel-cards fewer	/br/en/homepage /kr/it/book-and-manage/overview-extra-services
+swiss-market	2	block accordion-columns extra	/br/pt/homepage /es/es/homepage
+swiss-market	2	sections +2	/br/pt/homepage /ru/ru/homepage
+swiss-market	2	block accordion-columns extra (more)	/ca/en/book-and-manage/offers/vouchers /ca/fr/book-and-manage/offers/vouchers
+swiss-market	2	block columns-media extra	/ca/en/book-and-manage/offers/vouchers /ca/fr/book-and-manage/offers/vouchers
+swiss-market	2	h1 fewer	/gb/en/various/airportr /kr/it/book-and-manage/flights
+swiss-market	2	h2 fewer	/gb/en/various/airportr /us/en/customer-support/travel-and-corona/travel-planning
+swiss-market	2	variant table-striped -header	/kr/fr/terms-conditions/cookie-policy /kr/it/terms-conditions/cookie-policy
+swiss-market	2	h4 more	/kr/it/book-and-manage/conditions/baggage-conditions-check-in /ro/de/fly/on-board
+swiss-market	2	block carousel-cards extra (more)	/kr/it/book-and-manage/conditions/voucher-conditions-overview /ro/de/fly/on-board
+swiss-market	1	pictures in cards-teaser fewer	/ae/de/fly/check-in/airport-check-in
+swiss-market	1	variant hero-card-overlay +no-mobile-image	/gb/en/homepage
+swiss-market	1	block cards-teaser missing	/gb/en/various/airportr
+swiss-market	1	block spacer missing	/gb/en/various/airportr
+swiss-market	1	pictures in columns-media fewer	/gb/en/various/airportr
+swiss-market	1	sections -6	/gb/en/various/airportr
+swiss-market	1	no source copy (no ch/el document)	/gr/el/family-promotion
+swiss-market	1	no source copy (no ch/ja document)	/jp/ja/local-page/japanese-meal
+swiss-market	1	block columns-media missing	/kr/it/book-and-manage/flights
+swiss-market	1	variant carousel-cards +plain-view	/kr/it/book-and-manage/overview-extra-services
+swiss-market	1	no source copy (no ch/ru document)	/ru/ru/family-promotion
+swiss-market	1	pictures in destination-finder fewer	/th/en/homepage
+swiss-market	1	block columns-media missing (fewer)	/us/en/customer-support/travel-and-corona/travel-planning
+swiss-market	1	variant hero-card-overlay +no-mobile-image,right	/us/en/homepage
+swiss-subsite	419	same	/corporate/en/careers /corporate/en/careers/information-events /corporate/en/careers/information-events/cabin /corporate/en/careers/information-events/cockpit /corporate/en/careers/information-events/events /corporate/en/careers/information-events/experience-day
+swiss-subsite	11	h3 more	/corporate/en/careers/professional-fields/cabin-crew-member /corporate/en/careers/working-at-swiss /corporate/en/company/about-us /corporate/en/company/about-us/management-board /corporate/en/company/corporate-responsibility/compliance /corporate/fr/company/about-us/management-board
+swiss-subsite	9	h2 fewer	/corporate/en/careers/professional-fields/cabin-crew-member /corporate/en/company/about-us/management-board /corporate/en/company/corporate-responsibility/compliance /corporate/fr/company/about-us/management-board /corporate/fr/company/corporate-responsibility/compliance /magazine/en/inside-swiss/behind-the-scenes/great-taste-above-the-clouds-six-facts-about-swiss-catering
+swiss-subsite	7	h2 more	/corporate/en/company/about-us/sponsoring /corporate/fr/company/about-us/sponsoring /corporate/fr/company/corporate-responsibility/social-responsibility /magazine/en/inside-swiss/behind-the-scenes/aircraft-evacuation /magazine/en/inside-swiss/behind-the-scenes/high-five-kai /magazine/en/inside-swiss/swiss-experience/the-magic-of-christmas
+swiss-subsite	5	h4 fewer	/corporate/en/careers/working-at-swiss /corporate/en/company/about-us /corporate/fr/company/corporate-responsibility/social-responsibility /magazine/en/inside-swiss/swiss-experience/swiss-and-sef /medicalservices/en/aviation/before-the-flight
+swiss-subsite	5	pictures outside blocks fewer	/magazine/en/inside-swiss/behind-the-scenes/es-gibt-viele-gaensehautmomente-im-behindertensport /magazine/en/inside-swiss/behind-the-scenes/wolken-wind-und-wetter-so-macht-meteoschweiz-das-fliegen-siche /magazine/en/inside-swiss/sustainability/a-second-life-for-retired-aircraft-trolleys /magazine/en/switzerland/art-culture/behind-the-design-the-story-of-the-new-swiss-passport /medicalservices/en/travel/travel-medicine/our-services
+swiss-subsite	4	h3 fewer	/corporate/en/company/about-us/company-profile /corporate/fr/careers/working-at-swiss /corporate/fr/company/about-us/company-profile /magazine/en/inside-swiss/behind-the-scenes/pilot-training-part-3-night-in-the-simulator-with-seraina
+swiss-subsite	4	block columns-media extra (more)	/corporate/en/company/about-us/sponsoring /corporate/en/company/corporate-responsibility/environmental-responsibility/climate-projects /corporate/fr/company/about-us/sponsoring /corporate/fr/company/corporate-responsibility/environmental-responsibility/climate-projects
+swiss-subsite	4	pictures in carousel-images more	/magazine/en/inside-swiss/behind-the-scenes/inflight-loose-change-donations /magazine/en/inside-swiss/sustainability/a-second-life-for-retired-aircraft-trolleys /magazine/en/inside-swiss/swiss-experience/swiss-senses /magazine/en/switzerland/art-culture/behind-the-design-the-story-of-the-new-swiss-passport
+swiss-subsite	3	h4 more	/corporate/en/company/about-us/company-profile /corporate/fr/careers/working-at-swiss /corporate/fr/company/about-us/company-profile
+swiss-subsite	3	block order	/magazine/en/inside-swiss/behind-the-scenes/a-night-in-the-swiss-hangar-when-zurich-is-asleep-their-work-b /magazine/en/inside-swiss/behind-the-scenes/wheel-change-efficient-and-reliable /magazine/en/inside-swiss/swiss-experience/swiss-taste-of-switzerland-schaffhausen
+swiss-subsite	3	block related-articles extra	/magazine/en/inside-swiss/behind-the-scenes/aircraft-evacuation /magazine/en/inside-swiss/behind-the-scenes/high-five-kai /magazine/en/inside-swiss/swiss-experience/why-your-skin-dries-out-at-high-altitudes-and-how-to-prevent-i
+swiss-subsite	3	sections +1	/magazine/en/inside-swiss/behind-the-scenes/aircraft-evacuation /magazine/en/inside-swiss/behind-the-scenes/high-five-kai /magazine/en/inside-swiss/swiss-experience/why-your-skin-dries-out-at-high-altitudes-and-how-to-prevent-i
+swiss-subsite	3	block carousel-images missing (fewer)	/magazine/en/inside-swiss/sustainability/a-second-life-for-retired-aircraft-trolleys /magazine/en/inside-swiss/swiss-experience/lxmas-with-you /magazine/en/switzerland/culinary/swiss-gastronomic-scene-10-new-culinary-hotspots
+swiss-subsite	3	pictures outside blocks more	/magazine/en/inside-swiss/swiss-experience/the-magic-of-christmas /magazine/en/switzerland/culinary/swiss-garden-restaurants /magazine/en/switzerland/culinary/swiss-gastronomic-scene-10-new-culinary-hotspots
+swiss-subsite	2	block embed missing	/corporate/en/company/corporate-responsibility/environmental-responsibility/climate-projects /corporate/fr/company/corporate-responsibility/environmental-responsibility/climate-projects
+swiss-subsite	2	pictures in carousel-images fewer	/magazine/en/switzerland/discover-switzerland/how-to-lift-the-spirits-wellness-retreats-to-kickstart-body-mind-and-soul /magazine/en/switzerland/discover-switzerland/jungfrau-region
+swiss-subsite	2	block carousel-cards missing (fewer)	/medicalservices/en/aviation/before-the-flight /medicalservices/en/aviation/during-the-flight
+swiss-subsite	1	no source copy (no /corporate/de/company/about-us/procurement/contact-corporate-procurement document)	/corporate/en/company/about-us/procurement/contact-corporate-procurement
+swiss-subsite	1	no source copy (no /corporate/de/company/about-us/procurement/contact-corporate-procurement/contact-procurement-success document)	/corporate/en/company/about-us/procurement/contact-corporate-procurement/contact-procurement-success
+swiss-subsite	1	block cards-teaser missing (fewer)	/corporate/fr/careers/professional-fields/apprenticeships
+swiss-subsite	1	pictures in cards-teaser more	/corporate/fr/careers/professional-fields/apprenticeships
+swiss-subsite	1	variant cards-teaser -divider-above	/corporate/fr/careers/professional-fields/apprenticeships
+swiss-subsite	1	block columns-media missing	/corporate/fr/company/corporate-responsibility/economic-sustainability
+swiss-subsite	1	block cards-teaser extra (more)	/corporate/fr/company/corporate-responsibility/environmental-responsibility/saf
+swiss-subsite	1	block related-articles missing	/magazine/en/inside-swiss/behind-the-scenes/great-taste-above-the-clouds-six-facts-about-swiss-catering
+swiss-subsite	1	sections -1	/magazine/en/inside-swiss/behind-the-scenes/great-taste-above-the-clouds-six-facts-about-swiss-catering
+swiss-subsite	1	block carousel-images extra (more)	/magazine/en/inside-swiss/behind-the-scenes/new-destination-bristol-from-idea-to-first-flight
+swiss-subsite	1	block carousel-cards missing	/magazine/en/inside-swiss/behind-the-scenes/pilot-training-part-3-night-in-the-simulator-with-seraina
+swiss-subsite	1	no source copy (no /magazine/de/inside-swiss/behind-the-scenes/relaxed-on-board document)	/magazine/en/inside-swiss/behind-the-scenes/relaxed-on-board
+swiss-subsite	1	block quote missing	/magazine/en/inside-swiss/sustainability/a-second-life-for-retired-aircraft-trolleys
+swiss-subsite	1	no source copy (no /magazine/de/inside-swiss/swiss-experience/aircraft-naming-20-years-swiss document)	/magazine/en/inside-swiss/swiss-experience/aircraft-naming-20-years-swiss
+swiss-subsite	1	no source copy (no /magazine/de/inside-swiss/swiss-experience/connoisseur-weeks-caviar document)	/magazine/en/inside-swiss/swiss-experience/connoisseur-weeks-caviar
+swiss-subsite	1	no source copy (no /magazine/de/inside-swiss/swiss-experience/indulgent-elegance-champagne-on-board-of-swiss document)	/magazine/en/inside-swiss/swiss-experience/indulgent-elegance-champagne-on-board-of-swiss
+swiss-subsite	1	block embed missing (fewer)	/magazine/en/inside-swiss/swiss-experience/international-lauberhorn-ski-races-in-wengen
+swiss-subsite	1	no source copy (no /magazine/de/inside-swiss/swiss-experience/swiss-taste-of-switzerland-grisons document)	/magazine/en/inside-swiss/swiss-experience/swiss-taste-of-switzerland-grisons
+swiss-subsite	1	block embed extra	/magazine/en/inside-swiss/swiss-experience/the-magic-of-christmas
+swiss-subsite	1	no source copy (no /magazine/de/switzerland/culinary/the-cheese-whisperer document)	/magazine/en/switzerland/culinary/the-cheese-whisperer
+swiss-subsite	1	no source copy (no /magazine/de/switzerland/discover-switzerland/rooftop-restaurants-aerial-views-of-swiss-cities document)	/magazine/en/switzerland/discover-switzerland/rooftop-restaurants-aerial-views-of-swiss-cities
+swiss-subsite	1	no source copy (no /magazine/de/switzerland/discover-switzerland/young-minds-reinvent-mountain-village document)	/magazine/en/switzerland/discover-switzerland/young-minds-reinvent-mountain-village
+swiss-subsite	1	no source copy (no /magazine/de/travel document)	/magazine/en/travel
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations document)	/magazine/en/travel/destinations
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/1-advent-taste-of-travel-our-employees-top-five-restaurants document)	/magazine/en/travel/destinations/1-advent-taste-of-travel-our-employees-top-five-restaurants
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/10-tips-for-a-summer-trip-to-bremen document)	/magazine/en/travel/destinations/10-tips-for-a-summer-trip-to-bremen
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/11-stylish-yet-affordable-new-accommodations-in-european-cities document)	/magazine/en/travel/destinations/11-stylish-yet-affordable-new-accommodations-in-european-cities
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/250708-new-york-mit-familie document)	/magazine/en/travel/destinations/250708-new-york-mit-familie
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/a-family-winter-escape-discover-berlin-and-its-christmas-magic document)	/magazine/en/travel/destinations/a-family-winter-escape-discover-berlin-and-its-christmas-magic
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/algarve document)	/magazine/en/travel/destinations/algarve
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/alicante-the-best-travel-tips-for-the-city-of-light document)	/magazine/en/travel/destinations/alicante-the-best-travel-tips-for-the-city-of-light
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/all-about-manchester document)	/magazine/en/travel/destinations/all-about-manchester
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/athens-for-little-and-big-explorers document)	/magazine/en/travel/destinations/athens-for-little-and-big-explorers
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/athens-more-than-acropolis document)	/magazine/en/travel/destinations/athens-more-than-acropolis
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/bengaluru-and-beyond document)	/magazine/en/travel/destinations/bengaluru-and-beyond
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/bordeaux-the-little-paris document)	/magazine/en/travel/destinations/bordeaux-the-little-paris
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/brindisi-the-insiders-tip-on-the-adriatic document)	/magazine/en/travel/destinations/brindisi-the-insiders-tip-on-the-adriatic
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/ciao-firenze document)	/magazine/en/travel/destinations/ciao-firenze
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/crew-tipp-bologna document)	/magazine/en/travel/destinations/crew-tipp-bologna
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/crew-tips-montreal-views-flavors-hidden-gems document)	/magazine/en/travel/destinations/crew-tips-montreal-views-flavors-hidden-gems
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/culinary-delights-in-budapest document)	/magazine/en/travel/destinations/culinary-delights-in-budapest
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/discovering-bristol-hidden-gems-and-cultural-delights document)	/magazine/en/travel/destinations/discovering-bristol-hidden-gems-and-cultural-delights
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/dolce-vita-in-puglia document)	/magazine/en/travel/destinations/dolce-vita-in-puglia
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/down-to-earth-glamour-in-the-north-15-tips-for-culinary-and-relaxation-in-sylt document)	/magazine/en/travel/destinations/down-to-earth-glamour-in-the-north-15-tips-for-culinary-and-relaxation-in-sylt
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/dubrovnik-enchanted-walled-city-of-the-adriatic document)	/magazine/en/travel/destinations/dubrovnik-enchanted-walled-city-of-the-adriatic
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/european-city-breaks document)	/magazine/en/travel/destinations/european-city-breaks
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/europes-coolest-neighborhoods document)	/magazine/en/travel/destinations/europes-coolest-neighborhoods
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/find-your-zen-five-wellness-escapes-recommended-by-employees document)	/magazine/en/travel/destinations/find-your-zen-five-wellness-escapes-recommended-by-employees
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/five-neighborhoods-to-explore-with-kids-in-stockholm document)	/magazine/en/travel/destinations/five-neighborhoods-to-explore-with-kids-in-stockholm
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/florence-dolce-vita document)	/magazine/en/travel/destinations/florence-dolce-vita
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/from-a-ms-to-z-rh-the-abc-of-airport-codes document)	/magazine/en/travel/destinations/from-a-ms-to-z-rh-the-abc-of-airport-codes
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/fussball-em-2024 document)	/magazine/en/travel/destinations/fussball-em-2024
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/gothenburgs-green-revolution-sustainability-in-urban-style document)	/magazine/en/travel/destinations/gothenburgs-green-revolution-sustainability-in-urban-style
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/grape-escape document)	/magazine/en/travel/destinations/grape-escape
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/hello-boston document)	/magazine/en/travel/destinations/hello-boston
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/high-five-the-best-of-new-york-citys-five-boroughs document)	/magazine/en/travel/destinations/high-five-the-best-of-new-york-citys-five-boroughs
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/hongkong-vibes document)	/magazine/en/travel/destinations/hongkong-vibes
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/hygge-the-lifestyle-feeling-in-copenhagen document)	/magazine/en/travel/destinations/hygge-the-lifestyle-feeling-in-copenhagen
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/insider-impressions document)	/magazine/en/travel/destinations/insider-impressions
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/kosice-and-eastern-slovakia-the-tuscany-of-the-east document)	/magazine/en/travel/destinations/kosice-and-eastern-slovakia-the-tuscany-of-the-east
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/lisbon document)	/magazine/en/travel/destinations/lisbon
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/london-with-the-whole-family document)	/magazine/en/travel/destinations/london-with-the-whole-family
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/los-angeles-angels-on-the-rise document)	/magazine/en/travel/destinations/los-angeles-angels-on-the-rise
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/luxembourg-the-charming-small-town document)	/magazine/en/travel/destinations/luxembourg-the-charming-small-town
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/malta-gozo-comino document)	/magazine/en/travel/destinations/malta-gozo-comino
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/manchester-momentum document)	/magazine/en/travel/destinations/manchester-momentum
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/marrakesch document)	/magazine/en/travel/destinations/marrakesch
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/miami-with-kids-the-best-neighborhoods-beaches-and-art-highlights document)	/magazine/en/travel/destinations/miami-with-kids-the-best-neighborhoods-beaches-and-art-highlights
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/montpellier-multifaceted-city document)	/magazine/en/travel/destinations/montpellier-multifaceted-city
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/montreal-culture-cool-and-contrasts document)	/magazine/en/travel/destinations/montreal-culture-cool-and-contrasts
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/my-berlin document)	/magazine/en/travel/destinations/my-berlin
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/my-hamburg document)	/magazine/en/travel/destinations/my-hamburg
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/my-ibiza document)	/magazine/en/travel/destinations/my-ibiza
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/my-vienna document)	/magazine/en/travel/destinations/my-vienna
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/new-hotels-by-the-water document)	/magazine/en/travel/destinations/new-hotels-by-the-water
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/paris-fuer-kleine-und-grosse-flaneure document)	/magazine/en/travel/destinations/paris-fuer-kleine-und-grosse-flaneure
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/pozna-a-city-waiting-to-be-discovered document)	/magazine/en/travel/destinations/pozna-a-city-waiting-to-be-discovered
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/ready-for-take-off-five-getaway-spots-across-the-swiss-network document)	/magazine/en/travel/destinations/ready-for-take-off-five-getaway-spots-across-the-swiss-network
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/reisen document)	/magazine/en/travel/destinations/reisen
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/seoul-root-and-rise document)	/magazine/en/travel/destinations/seoul-root-and-rise
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/singapore document)	/magazine/en/travel/destinations/singapore
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/sonne-socca-savoir-vivre-in-nizza document)	/magazine/en/travel/destinations/sonne-socca-savoir-vivre-in-nizza
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/spring-awakening-four-weekend-destinations-to-recharge-your-batteries document)	/magazine/en/travel/destinations/spring-awakening-four-weekend-destinations-to-recharge-your-batteries
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/spring-in-europe-six-cities-off-the-beaten-path document)	/magazine/en/travel/destinations/spring-in-europe-six-cities-off-the-beaten-path
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/ten-activities-for-a-city-trip-to-krakow document)	/magazine/en/travel/destinations/ten-activities-for-a-city-trip-to-krakow
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/time-to-travel-summer-destinations-across-europe document)	/magazine/en/travel/destinations/time-to-travel-summer-destinations-across-europe
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/toronto-in-summer document)	/magazine/en/travel/destinations/toronto-in-summer
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/toronto-tolerance-trends-and-tradition document)	/magazine/en/travel/destinations/toronto-tolerance-trends-and-tradition
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/undiscovered-winter-gems-these-six-cities-are-particularly-wort document)	/magazine/en/travel/destinations/undiscovered-winter-gems-these-six-cities-are-particularly-wort
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/unwind-in-slovenia document)	/magazine/en/travel/destinations/unwind-in-slovenia
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/washington-dc document)	/magazine/en/travel/destinations/washington-dc
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/welcome-to-boston-travel-tips-from-former-station-manager document)	/magazine/en/travel/destinations/welcome-to-boston-travel-tips-from-former-station-manager
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/what-to-see-in-hamburg-when-visiting-with-kids-for-the-first-time document)	/magazine/en/travel/destinations/what-to-see-in-hamburg-when-visiting-with-kids-for-the-first-time
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/where-sea-breeze-meets-city-flair-four-new-getaways-with-swiss document)	/magazine/en/travel/destinations/where-sea-breeze-meets-city-flair-four-new-getaways-with-swiss
+swiss-subsite	1	no source copy (no /magazine/de/travel/destinations/winter-magic-in-vienna-the-city-s-most-beautiful-markets document)	/magazine/en/travel/destinations/winter-magic-in-vienna-the-city-s-most-beautiful-markets
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle document)	/magazine/en/travel/lifestyle
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/7-facts-about-carry-on-and-checked-luggage document)	/magazine/en/travel/lifestyle/7-facts-about-carry-on-and-checked-luggage
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/8-extraordinary-food-festivals-in-europ document)	/magazine/en/travel/lifestyle/8-extraordinary-food-festivals-in-europ
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/a-walk-in-the-park-green-retreats-from-amsterdam-to-new-york document)	/magazine/en/travel/lifestyle/a-walk-in-the-park-green-retreats-from-amsterdam-to-new-york
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/art-in-the-cow-meadow document)	/magazine/en/travel/lifestyle/art-in-the-cow-meadow
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/business-travel-in-japan document)	/magazine/en/travel/lifestyle/business-travel-in-japan
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/crew-travel-compagnions-these-products-keep-swiss-employees-on-the-move-at-all-times document)	/magazine/en/travel/lifestyle/crew-travel-compagnions-these-products-keep-swiss-employees-on-the-move-at-all-times
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/die-naechste-generation-der-avantgarde-von-bmw document)	/magazine/en/travel/lifestyle/die-naechste-generation-der-avantgarde-von-bmw
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/family-care document)	/magazine/en/travel/lifestyle/family-care
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/five-tips-to-keep-little-travellers-entertained document)	/magazine/en/travel/lifestyle/five-tips-to-keep-little-travellers-entertained
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/flughafen-gourmet-einzigartige-kulinarischen-hoehenfluege document)	/magazine/en/travel/lifestyle/flughafen-gourmet-einzigartige-kulinarischen-hoehenfluege
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/flying-without-fear document)	/magazine/en/travel/lifestyle/flying-without-fear
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/fresh-alpine-and-northern-retreats-to-escape-the-heat document)	/magazine/en/travel/lifestyle/fresh-alpine-and-northern-retreats-to-escape-the-heat
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/from-farm-to-table document)	/magazine/en/travel/lifestyle/from-farm-to-table
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/from-pozna-to-zuerich-between-tej-and-grueezi document)	/magazine/en/travel/lifestyle/from-pozna-to-zuerich-between-tej-and-grueezi
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/glamour-on-rails-the-comeback-of-luxury-train-travel document)	/magazine/en/travel/lifestyle/glamour-on-rails-the-comeback-of-luxury-train-travel
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/hello-city-hot-new-hotels-to-bookmark document)	/magazine/en/travel/lifestyle/hello-city-hot-new-hotels-to-bookmark
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/holiday-with-kids-travel-essentials document)	/magazine/en/travel/lifestyle/holiday-with-kids-travel-essentials
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/interview-howard-shore document)	/magazine/en/travel/lifestyle/interview-howard-shore
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/last-minute-destinations-with-kids document)	/magazine/en/travel/lifestyle/last-minute-destinations-with-kids
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/lessons-above-the-clouds-why-lisa-feels-at-home-in-shanghai-today document)	/magazine/en/travel/lifestyle/lessons-above-the-clouds-why-lisa-feels-at-home-in-shanghai-today
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/light-up-your-journey-smart-travel-tips-from-our-employees document)	/magazine/en/travel/lifestyle/light-up-your-journey-smart-travel-tips-from-our-employees
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/marche-aux-puces document)	/magazine/en/travel/lifestyle/marche-aux-puces
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/nonna-s-secret-recipes-a-culinary-journey-through-italy document)	/magazine/en/travel/lifestyle/nonna-s-secret-recipes-a-culinary-journey-through-italy
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/of-easter-bilbies-and-buried-herrings-easter-traditions-around document)	/magazine/en/travel/lifestyle/of-easter-bilbies-and-buried-herrings-easter-traditions-around
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/organic-wine-growing-in-ibiza document)	/magazine/en/travel/lifestyle/organic-wine-growing-in-ibiza
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/renaissance-hotelrestaurants document)	/magazine/en/travel/lifestyle/renaissance-hotelrestaurants
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/schoene-haut-beim-fliegen document)	/magazine/en/travel/lifestyle/schoene-haut-beim-fliegen
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/seasonal-escapes-11-stunning-new-hotels-across-the-mediterranean document)	/magazine/en/travel/lifestyle/seasonal-escapes-11-stunning-new-hotels-across-the-mediterranean
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/six-facts-about-customs-what-you-need-to-know-when-travelling-t document)	/magazine/en/travel/lifestyle/six-facts-about-customs-what-you-need-to-know-when-travelling-t
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/somerset-cheddar document)	/magazine/en/travel/lifestyle/somerset-cheddar
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/spread-the-love document)	/magazine/en/travel/lifestyle/spread-the-love
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/steven-spielberg document)	/magazine/en/travel/lifestyle/steven-spielberg
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/surfprofi-kelly-slater document)	/magazine/en/travel/lifestyle/surfprofi-kelly-slater
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/travel-companions-inspired-by-nature document)	/magazine/en/travel/lifestyle/travel-companions-inspired-by-nature
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/travel-companions-stylish-outfits document)	/magazine/en/travel/lifestyle/travel-companions-stylish-outfits
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/travel-hacks-with-maitre-de-cabine-peter-five-gadgets-to-make-y document)	/magazine/en/travel/lifestyle/travel-hacks-with-maitre-de-cabine-peter-five-gadgets-to-make-y
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/travel-with-care-leave-with-memories document)	/magazine/en/travel/lifestyle/travel-with-care-leave-with-memories
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/uncorked-in-copenhagen document)	/magazine/en/travel/lifestyle/uncorked-in-copenhagen
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/uncorked-in-roma document)	/magazine/en/travel/lifestyle/uncorked-in-roma
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/vintage-london document)	/magazine/en/travel/lifestyle/vintage-london
+swiss-subsite	1	no source copy (no /magazine/de/travel/lifestyle/winter-dreams document)	/magazine/en/travel/lifestyle/winter-dreams
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories document)	/magazine/en/travel/travel-stories
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/251105-jutland document)	/magazine/en/travel/travel-stories/251105-jutland
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/a-life-full-of-action document)	/magazine/en/travel/travel-stories/a-life-full-of-action
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/about-bears-berries-and-colorful-trees-leaf-peeping-in-new-england document)	/magazine/en/travel/travel-stories/about-bears-berries-and-colorful-trees-leaf-peeping-in-new-england
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/airplane-mode-how-to-arrive-fit-and-relaxed-at-your-destination document)	/magazine/en/travel/travel-stories/airplane-mode-how-to-arrive-fit-and-relaxed-at-your-destination
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/at-home-and-at-peace-in-kenya document)	/magazine/en/travel/travel-stories/at-home-and-at-peace-in-kenya
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/check-in-online-and-get-it-right document)	/magazine/en/travel/travel-stories/check-in-online-and-get-it-right
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/come-on-a-adventure-a-road-trip-to-the-norwegian-lofoten-islands document)	/magazine/en/travel/travel-stories/come-on-a-adventure-a-road-trip-to-the-norwegian-lofoten-islands
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/connecticut-of-whales-wine-and-a-thirst-for-knowledge document)	/magazine/en/travel/travel-stories/connecticut-of-whales-wine-and-a-thirst-for-knowledge
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/costa-blanca document)	/magazine/en/travel/travel-stories/costa-blanca
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/cotswolds document)	/magazine/en/travel/travel-stories/cotswolds
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/crew-tip-a-day-in-new-delhi-with-felicitas document)	/magazine/en/travel/travel-stories/crew-tip-a-day-in-new-delhi-with-felicitas
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/crew-tip-discover-miami-in-all-its-colors document)	/magazine/en/travel/travel-stories/crew-tip-discover-miami-in-all-its-colors
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/crew-tip-dubai-100-1-night-in-mustafas-favourite-city document)	/magazine/en/travel/travel-stories/crew-tip-dubai-100-1-night-in-mustafas-favourite-city
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/crew-tip-miami document)	/magazine/en/travel/travel-stories/crew-tip-miami
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/crew-tip-new-york-noemie document)	/magazine/en/travel/travel-stories/crew-tip-new-york-noemie
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/crew-tip-seoul document)	/magazine/en/travel/travel-stories/crew-tip-seoul
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/crew-tip-vienna-discover-naomis-favourite-city document)	/magazine/en/travel/travel-stories/crew-tip-vienna-discover-naomis-favourite-city
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/crew-tipp-san-francisco document)	/magazine/en/travel/travel-stories/crew-tipp-san-francisco
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/crew-tipp-the-swinging-city-london document)	/magazine/en/travel/travel-stories/crew-tipp-the-swinging-city-london
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/crew-tipp-two-nights-in-bangkok document)	/magazine/en/travel/travel-stories/crew-tipp-two-nights-in-bangkok
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/crew-tips-about-valencia document)	/magazine/en/travel/travel-stories/crew-tips-about-valencia
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/denmarks-sweet-temptations document)	/magazine/en/travel/travel-stories/denmarks-sweet-temptations
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/explore-london document)	/magazine/en/travel/travel-stories/explore-london
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/from-new-york-to-delhi-the-greatest-love-stories-from-around-th document)	/magazine/en/travel/travel-stories/from-new-york-to-delhi-the-greatest-love-stories-from-around-th
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/fuenf-tipps-fuer-48-stunden-in-bengaluru document)	/magazine/en/travel/travel-stories/fuenf-tipps-fuer-48-stunden-in-bengaluru
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/in-full-color-bengaluru-with-nidhhi-agerwal document)	/magazine/en/travel/travel-stories/in-full-color-bengaluru-with-nidhhi-agerwal
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/inspired-by-nature document)	/magazine/en/travel/travel-stories/inspired-by-nature
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/kenya-s-ecotourism document)	/magazine/en/travel/travel-stories/kenya-s-ecotourism
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/love-at-first-flight-share-your-love-stories-with-us document)	/magazine/en/travel/travel-stories/love-at-first-flight-share-your-love-stories-with-us
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/mr-bauhaus-in-tel-aviv document)	/magazine/en/travel/travel-stories/mr-bauhaus-in-tel-aviv
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/my-pula document)	/magazine/en/travel/travel-stories/my-pula
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/sakura-a-cherry-blossom-road-trip document)	/magazine/en/travel/travel-stories/sakura-a-cherry-blossom-road-trip
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/seoul-with-nina-yuun document)	/magazine/en/travel/travel-stories/seoul-with-nina-yuun
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/the-wild-east-of-greenland document)	/magazine/en/travel/travel-stories/the-wild-east-of-greenland
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/toronto-montreal document)	/magazine/en/travel/travel-stories/toronto-montreal
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/toronto-with-dominique document)	/magazine/en/travel/travel-stories/toronto-with-dominique
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/washington-dc-with-stephane-vogel document)	/magazine/en/travel/travel-stories/washington-dc-with-stephane-vogel
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/when-dreams-come-true document)	/magazine/en/travel/travel-stories/when-dreams-come-true
+swiss-subsite	1	no source copy (no /magazine/de/travel/travel-stories/zurich-to-singapore document)	/magazine/en/travel/travel-stories/zurich-to-singapore
+swiss-subsite	1	variant carousel-cards +four-up	/medicalservices/en/aviation/during-the-flight
+swiss-version	2358	same	/ch/de/baggage-reimbursement /ch/de/book-and-manage /ch/de/book-and-manage/advanced-search /ch/de/book-and-manage/conditions/affiliate-partner-program-conditions /ch/de/book-and-manage/conditions/baggage-conditions-check-in /ch/de/book-and-manage/conditions/bid-upgrade-conditions
+swiss-version	120	no source copy (no ch/de document)	/ch/el/customer-support /ch/el/customer-support/faq/a-la-carte-dining /ch/el/customer-support/faq/privacy-seat /ch/el/customer-support/travel-and-corona/free-neighbouring-seat /ch/el/customer-support/travel-and-corona/simplified-onboard-service /ch/el/customer-support/travel-and-corona/travel-briefing/destinations-masks
+swiss-version	119	h4 more	/ch/de/fly/check-in/fast-bag-drop-zrh /ch/de/prepare/baggage/excess-baggage /ch/de/prepare/travel-regulations /ch/de/terms-conditions/agb-extra-services-at-online-check-in /ch/de/various/social-media-community-guidelines /ch/el/book-and-manage/corporate-customers/ads-at-swiss/affiliate-partner-programme
+swiss-version	103	h1 fewer	/ch/de/book-and-manage/conditions/baggage-conditions /ch/de/fly/airport/security-control-service /ch/de/fly/check-in/fast-bag-drop-zrh /ch/de/fly/check-in/previous-day-check-in /ch/de/local-page/city-ticket-office /ch/de/offers
+swiss-version	99	variant accordion-columns -limited-width	/ch/el/customer-support/faq/animals-travelling /ch/el/customer-support/faq/change-cancel-booking /ch/el/customer-support/faq/check-in /ch/el/customer-support/faq/entertainment-electronics /ch/el/customer-support/faq/first-welcome-service /ch/el/customer-support/faq/food-and-beverage
+swiss-version	82	h3 fewer	/ch/de/discover/sustainable-choices/saf /ch/de/local-page/city-ticket-office /ch/de/prepare/travel-regulations /ch/el/book-and-manage/swiss-choice /ch/el/fly /ch/el/fly/check-in
+swiss-version	80	h3 more	/ch/de/book-and-manage/swiss-choice /ch/de/fly /ch/de/fly/check-in /ch/de/prepare/baggage /ch/de/prepare/special-care/children-travelling /ch/de/prepare/travel-briefing
+swiss-version	71	h2 fewer	/ch/de/book-and-manage/corporate-customers/company-offers/partnerplusbenefit /ch/de/terms-conditions/agb-extra-services-at-online-check-in /ch/de/terms-conditions/passenger-rights /ch/el/book-and-manage/conditions/baggage-conditions /ch/el/book-and-manage/partner-offers/medical-travel-companions /ch/el/discover/sustainable-choices/saf
+swiss-version	63	h4 fewer	/ch/de/book-and-manage/corporate-customers/ads-at-swiss/affiliate-partner-programme /ch/de/book-and-manage/swiss-choice /ch/de/discover/sustainable-choices/saf /ch/de/fly /ch/de/fly/check-in /ch/de/local-page/city-ticket-office
+swiss-version	59	h1 more	/ch/de/book-and-manage/corporate-customers/ads-at-swiss/affiliate-partner-programme /ch/de/prepare/special-care/children-travelling/unaccompanied-minors /ch/de/prepare/travel-regulations/immigration-regulations-worldwide /ch/el/book-and-manage/conditions/baggage-conditions /ch/el/book-and-manage/flights /ch/el/fly/airport/security-control-service
+swiss-version	46	variant carousel-cards +plain-view	/ch/el/book-and-manage/overview-manage /ch/el/fly/airport/zurich-airport /ch/el/prepare /ch/el/prepare/baggage /ch/el/prepare/special-care/children-travelling /ch/en/fly/airport/zurich-airport
+swiss-version	45	sections -1	/ch/de/customer-support/faq/swiss-upgrade-bargain /ch/de/various/airportr /ch/el/book-and-manage/partner-offers/medical-travel-companions /ch/el/fly/check-in/off-counter-check-in /ch/el/prepare /ch/el/prepare/baggage
+swiss-version	35	h2 more	/ch/de/book-and-manage/conditions/baggage-conditions /ch/de/discover/sustainable-choices/saf /ch/de/fly/airport/security-control-service /ch/de/local-page/city-ticket-office /ch/de/terms-conditions/imprint /ch/de/various/airportr
+swiss-version	30	pictures in cards-teaser fewer	/ch/de/book-and-manage/swiss-choice/additional-bag /ch/de/prepare/baggage/excess-baggage /ch/el/fly/on-board/swiss-first /ch/el/fly/on-board/travel-classes/swiss-premium-economy/discover-premium-economy /ch/el/prepare/baggage/excess-baggage /ch/en/prepare/baggage/excess-baggage
+swiss-version	25	pictures outside blocks more	/ch/de/book-and-manage/swiss-choice/advance-seat-reservation /ch/el/fly/on-board/swiss-first /ch/en/various/airportr /ch/es/fly/on-board/swiss-first /ch/fr/various/airportr /ch/it/fly/on-board/swiss-first
+swiss-version	24	pictures in cards-teaser more	/ch/de/prepare/baggage/excess-baggage /ch/el/book-and-manage/swiss-choice/additional-bag /ch/el/prepare/baggage/excess-baggage /ch/en/book-and-manage/swiss-choice/additional-bag /ch/en/prepare/baggage/excess-baggage /ch/es/book-and-manage/swiss-choice/additional-bag
+swiss-version	22	block cards-teaser missing (fewer)	/ch/de/book-and-manage/corporate-customers/company-offers/partnerplusbenefit /ch/de/fly/check-in/previous-day-check-in /ch/el/book-and-manage/swiss-choice/additional-bag /ch/el/prepare/baggage/excess-baggage /ch/en/book-and-manage/swiss-choice/additional-bag /ch/en/prepare/baggage/excess-baggage
+swiss-version	21	sections +1	/ch/de/prepare /ch/de/prepare/baggage/excess-baggage /ch/el/customer-support/faq/swiss-upgrade-bargain /ch/en/customer-support/faq/swiss-upgrade-bargain /ch/en/various/airportr /ch/es/customer-support/faq/swiss-upgrade-bargain
+swiss-version	19	block columns-media extra (more)	/ch/de/various/airportr /ch/el/book-and-manage/swiss-choice/advance-seat-reservation /ch/el/fly/on-board/swiss-first /ch/en/book-and-manage/swiss-choice/advance-seat-reservation /ch/es/book-and-manage/swiss-choice/advance-seat-reservation /ch/es/fly/on-board/swiss-first
+swiss-version	19	sections -3	/ch/el/book-and-manage/offers/miles-and-more /ch/el/fly/check-in/check-in-times /ch/el/homepage /ch/en/fly/check-in/check-in-times /ch/es/book-and-manage/offers/miles-and-more /ch/fr/fly/check-in/check-in-times
+swiss-version	18	sections +2	/ch/el/terms-conditions/passenger-rights /ch/en/terms-conditions/passenger-rights /ch/es/local-page/black-friday /ch/es/terms-conditions/passenger-rights /ch/fr/terms-conditions/passenger-rights /ch/it/fly/on-board/food-and-beverage
+swiss-version	17	block columns-media missing	/ch/el/fly/check-in/fast-bag-drop-gva /ch/en/fly/check-in/fast-bag-drop-zrh /ch/es/local-page/black-friday /ch/ja/book-and-manage/corporate-customers/ads-at-swiss/ad-plattforms /ch/ja/book-and-manage/swiss-choice/hold-the-booking /ch/ja/fly/check-in/fast-bag-drop-zrh
+swiss-version	16	block columns-media missing (fewer)	/ch/de/book-and-manage/swiss-choice/advance-seat-reservation /ch/el/book-and-manage/partner-offers/medical-travel-companions /ch/en/various/airportr /ch/es/fly/check-in/online-check-in /ch/fr/various/airportr /ch/ja/book-and-manage/partner-offers/medical-travel-companions
+swiss-version	16	block feedback missing	/ch/el/customer-support/contact-us /ch/el/offers /ch/es/customer-support/contact-us /ch/es/offers /ch/fr/customer-support/contact-us /ch/it/customer-support/contact-us
+swiss-version	14	no source copy (no ch/en document)	/ch/de/competitions/gewinnspiel-lucerne-festival-contemporary-orchestra /ch/de/competitions/verlosung-locarno-film-festival-2026 /ch/de/competitions/verlosung-weltklasse-zuerich-2026 /ch/de/customer-support/faq/hold-the-booking /ch/de/customer-support/refund /ch/de/fly/flight-information/new-destinations-2021
+swiss-version	12	sections -2	/ch/de/terms-conditions/passenger-rights /ch/el/fly/on-board/entertainment-on-board /ch/es/fly/on-board/entertainment-on-board /ch/es/homepage /ch/it/fly/on-board/entertainment-on-board /ch/ja/book-and-manage/overview-manage/manage-bookings
+swiss-version	11	variant accordion-columns +faq	/ch/de/customer-support/faq/damaged-baggage-faq /ch/el/customer-support/faq/damaged-baggage-faq /ch/en/customer-support/faq/damaged-baggage-faq /ch/es/customer-support/faq/damaged-baggage-faq /ch/fr/customer-support/faq/damaged-baggage-faq /ch/it/customer-support/faq/damaged-baggage-faq
+swiss-version	11	variant accordion-columns -faq	/ch/de/customer-support/faq/damaged-baggage-faq /ch/el/customer-support/faq/damaged-baggage-faq /ch/en/customer-support/faq/damaged-baggage-faq /ch/es/customer-support/faq/damaged-baggage-faq /ch/fr/customer-support/faq/damaged-baggage-faq /ch/it/customer-support/faq/damaged-baggage-faq
+swiss-version	11	pictures outside blocks fewer	/ch/de/various/airportr /ch/el/book-and-manage/swiss-choice/advance-seat-reservation /ch/en/book-and-manage/swiss-choice/advance-seat-reservation /ch/es/book-and-manage/swiss-choice/advance-seat-reservation /ch/fr/book-and-manage/swiss-choice/advance-seat-reservation /ch/it/book-and-manage/swiss-choice/advance-seat-reservation
+swiss-version	11	block spacer extra	/ch/el/book-and-manage/partner-offers/swiss-airrail /ch/en/book-and-manage/partner-offers/swiss-airrail /ch/en/fly/on-board/entertainment-on-board /ch/es/book-and-manage/partner-offers/swiss-airrail /ch/fr/book-and-manage/partner-offers/swiss-airrail /ch/it/book-and-manage/partner-offers/swiss-airrail
+swiss-version	10	block columns-media extra	/ch/de/fly/check-in/fast-bag-drop-zrh /ch/el/book-and-manage/flights /ch/es/book-and-manage/flights /ch/fr/book-and-manage/flights /ch/it/book-and-manage/flights /ch/ja/book-and-manage/flights
+swiss-version	10	variant columns-media -padded	/ch/de/fly/flight-information/swiss-app /ch/el/fly/flight-information/swiss-app /ch/es/fly/flight-information/swiss-app /ch/fr/fly/flight-information/swiss-app /ch/it/fly/flight-information/swiss-app /ch/ja/fly/flight-information/swiss-app
+swiss-version	10	variant accordion-columns -spaced	/ch/el/book-and-manage/swiss-choice/hold-the-booking /ch/en/book-and-manage/swiss-choice/hold-the-booking /ch/es/book-and-manage/swiss-choice/hold-the-booking /ch/fr/book-and-manage/swiss-choice/hold-the-booking /ch/it/book-and-manage/swiss-choice/hold-the-booking /ch/ja/book-and-manage/swiss-choice/hold-the-booking
+swiss-version	10	variant columns-media +space-l	/ch/el/discover/swiss-senses/first/grand-suite /ch/en/discover/swiss-senses/first/grand-suite /ch/es/discover/swiss-senses/first/grand-suite /ch/fr/discover/swiss-senses/first/grand-suite /ch/it/discover/swiss-senses/first/grand-suite /ch/ja/discover/swiss-senses/first/grand-suite
+swiss-version	9	variant accordion-columns +limited-width	/ch/de/customer-support/faq/animals-travelling /ch/de/customer-support/faq/change-cancel-booking /ch/de/customer-support/faq/entertainment-electronics /ch/de/customer-support/faq/first-welcome-service /ch/de/customer-support/faq/food-and-beverage /ch/de/customer-support/faq/lounge-voucher
+swiss-version	9	pictures in carousel-cards fewer	/ch/el/book-and-manage/overview-extra-services /ch/es/book-and-manage/overview-extra-services /ch/fr/book-and-manage/overview-extra-services /ch/it/book-and-manage/overview-extra-services /ch/ja/book-and-manage/overview-extra-services /ch/pt/book-and-manage/overview-extra-services
+swiss-version	9	no source copy (fragment without one ch/de namesake (0))	/ch/el/fragments/modals/el /ch/en/fragments/modals/general-conditions /ch/es/fragments/modals/condiciones-generales /ch/fr/fragments/modals/conditions-generales /ch/it/fragments/modals/condizioni-generali /ch/ja/fragments/modals/ja
+swiss-version	9	variant carousel-cards -usp	/ch/el/terms-conditions /ch/es/terms-conditions /ch/fr/terms-conditions /ch/it/terms-conditions /ch/ja/terms-conditions /ch/pt/terms-conditions
+swiss-version	8	block hero-campaign missing	/ch/el/fly/on-board/swiss-first /ch/es/fly/on-board/swiss-first /ch/it/fly/on-board/swiss-first /ch/ja/fly/on-board/swiss-first /ch/pt/fly/on-board/swiss-first /ch/ru/fly/on-board/swiss-first
+swiss-version	8	variant accordion-columns -open-first	/ch/el/prepare/baggage/baggage-provisions-partners /ch/es/prepare/baggage/baggage-provisions-partners /ch/fr/prepare/baggage/baggage-provisions-partners /ch/ja/prepare/baggage/baggage-provisions-partners /ch/pt/prepare/baggage/baggage-provisions-partners /ch/ru/prepare/baggage/baggage-provisions-partners
+swiss-version	7	block cards-teaser extra (more)	/ch/de/book-and-manage/swiss-choice/additional-bag /ch/de/prepare/baggage/excess-baggage /ch/en/book-and-manage/corporate-customers/company-offers/partnerplusbenefit /ch/en/fly/check-in/previous-day-check-in /ch/ja/prepare/baggage/electronic-devices-and-batteries /ch/ru/book-and-manage/swiss-choice/upgrade-options/upgrade-in-to-business-class
+swiss-version	7	block accordion-columns missing	/ch/el/homepage /ch/es/homepage /ch/ja/homepage /ch/pt/homepage /ch/ru/homepage /ch/zh/homepage
+swiss-version	6	block spacer missing	/ch/de/book-and-manage/partner-offers/swiss-airrail /ch/de/fly/on-board/entertainment-on-board /ch/el/fly/on-board/entertainment-on-board/swiss-magazine /ch/ja/fly/on-board/entertainment-on-board/swiss-magazine /ch/ru/fly/on-board/entertainment-on-board/swiss-magazine /ch/zh/fly/on-board/entertainment-on-board/swiss-magazine
+swiss-version	6	sections +3	/ch/de/fly/check-in/check-in-times /ch/el/book-and-manage/flights /ch/es/book-and-manage/flights /ch/fr/book-and-manage/flights /ch/it/book-and-manage/flights /ch/ja/book-and-manage/flights
+swiss-version	5	variant carousel-cards -plain-view	/ch/de/fly/airport/zurich-airport /ch/de/prepare /ch/es/prepare/travel-regulations /ch/ru/customer-support/travel-and-corona /kr/ko/fly
+swiss-version	5	block fare-teaser missing	/ch/el/homepage /ch/ja/homepage /ch/pt/homepage /ch/ru/homepage /kr/ko/homepage
+swiss-version	5	pictures in flight-search fewer	/ch/es/local-page/black-friday /kr/ko/book-and-manage/advanced-search /kr/ko/book-and-manage/flights /kr/ko/book-and-manage/partner-offers/swiss-airrail /kr/ko/customer-support/faq/payment-options/cash-and-miles
+swiss-version	4	block table-striped extra	/ch/el/fly/on-board/entertainment-on-board/swiss-magazine /ch/ja/fly/on-board/entertainment-on-board/swiss-magazine /ch/ru/fly/on-board/entertainment-on-board/swiss-magazine /ch/zh/fly/on-board/entertainment-on-board/swiss-magazine
+swiss-version	3	block accordion-columns extra (more)	/ch/en/fly/check-in/previous-day-check-in /ch/it/fly/on-board/food-and-beverage /ch/pt/fly/on-board/food-and-beverage
+swiss-version	3	pictures in columns-media more	/ch/ja/discover/swiss-recraft-collection /ch/zh/discover/swiss-recraft-collection /kr/ko/discover/swiss-recraft-collection
+swiss-version	3	block cards-teaser missing	/ch/ja/fly/on-board/food-and-beverage/swiss-business /ch/ja/fly/on-board/food-and-beverage/swiss-first /kr/ko/fly/on-board/swiss-economy/economy-interior
+swiss-version	2	block spacer extra (more)	/ch/en/various/airportr /ch/fr/various/airportr
+swiss-version	2	pictures in columns-media fewer	/ch/ja/discover/swiss-recraft-collection /kr/ko/discover/swiss-recraft-collection
+swiss-version	1	sections -6	/ch/de/book-and-manage/corporate-customers/company-offers/partnerplusbenefit
+swiss-version	1	variant accordion-columns +spaced	/ch/de/book-and-manage/swiss-choice/hold-the-booking
+swiss-version	1	variant columns-media -space-l	/ch/de/discover/swiss-senses/first/grand-suite
+swiss-version	1	block accordion-columns missing (fewer)	/ch/de/fly/check-in/previous-day-check-in
+swiss-version	1	sections -5	/ch/de/fly/check-in/previous-day-check-in
+swiss-version	1	no source copy (fragment without one ch/en namesake (0))	/ch/de/fragments/modals/allgemeine-bedingungen
+swiss-version	1	block spacer missing (fewer)	/ch/de/various/airportr
+swiss-version	1	variant spacer +l	/ch/de/various/airportr
+swiss-version	1	sections +6	/ch/en/book-and-manage/corporate-customers/company-offers/partnerplusbenefit
+swiss-version	1	sections +5	/ch/en/fly/check-in/previous-day-check-in
+swiss-version	1	variant columns-media +padded	/ch/en/fly/flight-information/swiss-app
+swiss-version	1	variant spacer -l	/ch/en/various/airportr
+swiss-version	1	block divider missing	/ch/es/local-page/black-friday
+swiss-version	1	block hero-campaign extra	/ch/es/local-page/black-friday
+swiss-version	1	variant columns-media +space-m	/ch/fr/discover/swiss-senses/business
+swiss-version	1	variant hero-campaign +narrow -regular	/ch/it/discover/swiss-senses/first
+swiss-version	1	block booking-lookup missing	/ch/ja/book-and-manage/overview-manage/manage-bookings
+swiss-version	1	pictures in carousel-cards more	/ch/ru/prepare/baggage
+swiss-version	1	pictures in carousel-images more	/kr/ko/discover/a350/special-livery
+swiss-version	1	variant hero-campaign -pinned	/kr/ko/discover/swiss-senses
+swiss-version	1	variant hero-card-overlay +right	/kr/ko/homepage
+#
+# Breakage flags (count, flag, width, detail, against the source, examples; so62/swflags.txt, the re-renders included):
+flag	7 clipped	1440	a label	copy only	/ch/el/discover/swiss-senses /ch/el/prepare/baggage/baggage-irregularities /ch/ja/discover/swiss-senses /ch/ru/book-and-manage/swiss-choice/upgrade-options/upgrade-in-to-business-class
+flag	98 clipped	390	a label	shared with source	/ae/fr/book-and-manage/offers/vouchers /br/pt/book-and-manage/swiss-choice/advance-seat-reservation /br/pt/book-and-manage/swiss-choice/advance-seat-reservation /br/pt/book-and-manage/swiss-choice/advance-seat-reservation
+flag	51 clipped	390	a label	copy only	/be/it/homepage /ch/de/book-and-manage/offers/vouchers /ch/de/book-and-manage/rebook /ch/el/book-and-manage/destination
+flag	1 clipped	390	a label	source or unpaired	/ch/de/local-page/group-travel
+flag	11 empty	1440	micro-frontend	shared with source	/ch/de/culinaryjourney /ch/el/culinaryjourney /ch/en/culinaryjourney /ch/es/culinaryjourney
+flag	11 empty	1440	accordion-columns	shared with source	/ch/de/customer-support/faq/damaged-baggage-faq /ch/el/customer-support/faq/damaged-baggage-faq /ch/en/customer-support/faq/damaged-baggage-faq /ch/es/customer-support/faq/damaged-baggage-faq
+flag	1 empty	1440	poi-map	source or unpaired	/al/de/prepare-lxmas-2024
+flag	11 empty	390	micro-frontend	shared with source	/ch/de/culinaryjourney /ch/el/culinaryjourney /ch/en/culinaryjourney /ch/es/culinaryjourney
+flag	11 empty	390	accordion-columns	shared with source	/ch/de/customer-support/faq/damaged-baggage-faq /ch/el/customer-support/faq/damaged-baggage-faq /ch/en/customer-support/faq/damaged-baggage-faq /ch/es/customer-support/faq/damaged-baggage-faq
+flag	1 empty	390	poi-map	source or unpaired	/al/de/prepare-lxmas-2024
+flag	617 overlaps	1440	breadcrumb-wrapper/article-header-wrapper	source or unpaired	/magazine/de/inside-swiss/behind-the-scenes/1-august-weggen /magazine/de/inside-swiss/behind-the-scenes/10-years-of-b777 /magazine/de/inside-swiss/behind-the-scenes/100-days-a350 /magazine/de/inside-swiss/behind-the-scenes/2023-a-year-full-of-highlights
+flag	300 overlaps	1440	breadcrumb-wrapper/article-header-wrapper	shared with source	/magazine/en/inside-swiss/behind-the-scenes/1-august-weggen /magazine/en/inside-swiss/behind-the-scenes/10-years-of-b777 /magazine/en/inside-swiss/behind-the-scenes/100-days-a350 /magazine/en/inside-swiss/behind-the-scenes/2023-a-year-full-of-highlights
+flag	121 overlaps	1440	columns-media-wrapper/default-content-wrapper	shared with source	/ch/de/discover/a350/production /ch/de/discover/swiss-senses /ch/de/discover/swiss-senses/business /ch/de/discover/swiss-senses/economy
+flag	45 overlaps	1440	accordion-columns-wrapper/default-content-wrapper	shared with source	/ca/en/book-and-manage/offers/vouchers /ch/de/customer-support/faq/ejournals /ch/de/customer-support/faq/seat-reservation/refund /ch/de/fly/flight-information/flight-irregularities/faq
+flag	22 overlaps	1440	carousel-cards-wrapper/default-content-wrapper	shared with source	/ch/de/fly/flight-information /ch/de/terms-conditions /ch/el/fly/flight-information /ch/el/terms-conditions
+flag	16 overlaps	1440	breadcrumb-wrapper/hero-card-overlay-wrapper	source or unpaired	/magazine/de/inside-swiss /magazine/de/inside-swiss/behind-the-scenes /magazine/de/inside-swiss/sustainability /magazine/de/inside-swiss/swiss-experience
+flag	11 overlaps	1440	cards-icon-text-wrapper/default-content-wrapper	shared with source	/ch/de/customer-support/faq/seat-reservation /ch/el/customer-support/faq/seat-reservation /ch/en/customer-support/faq/seat-reservation /ch/es/customer-support/faq/seat-reservation
+flag	11 overlaps	1440	profile-tabs-wrapper/default-content-wrapper	shared with source	/ch/de/discover/swiss-senses/business /ch/el/discover/swiss-senses/business /ch/en/discover/swiss-senses/business /ch/es/discover/swiss-senses/business
+flag	11 overlaps	1440	jump-links-wrapper/default-content-wrapper	shared with source	/ch/de/fly/flight-information/flight-irregularities /ch/el/fly/flight-information/flight-irregularities /ch/en/fly/flight-information/flight-irregularities /ch/es/fly/flight-information/flight-irregularities
+flag	8 overlaps	1440	breadcrumb-wrapper/hero-card-overlay-wrapper	shared with source	/magazine/en/inside-swiss /magazine/en/inside-swiss/behind-the-scenes /magazine/en/inside-swiss/sustainability /magazine/en/inside-swiss/swiss-experience
+flag	3 overlaps	1440	form-wrapper/default-content-wrapper	source or unpaired	/kr/en/local-page/klook /kr/ko/local-page/hyundai26-application /kr/ko/local-page/klook
+flag	2 overlaps	1440	accordion-columns-wrapper/default-content-wrapper	source or unpaired	/br/pt/local-page/ski-campaign-2026 /cn/en/local-page/swiss-senses-promo
+flag	1 overlaps	1440	section-aside/section-aside	copy only	/ch/en/book-and-manage/corporate-customers/company-offers/partnerplusbenefit
+flag	1 overlaps	1440	accordion-columns-wrapper/default-content-wrapper	copy only	/ch/en/book-and-manage/offers/vouchers
+flag	1 overlaps	1440	flash-teaser-wrapper/flight-search-wrapper	copy only	/kr/ko/homepage
+flag	617 overlaps	390	breadcrumb-wrapper/article-header-wrapper	source or unpaired	/magazine/de/inside-swiss/behind-the-scenes/1-august-weggen /magazine/de/inside-swiss/behind-the-scenes/10-years-of-b777 /magazine/de/inside-swiss/behind-the-scenes/100-days-a350 /magazine/de/inside-swiss/behind-the-scenes/2023-a-year-full-of-highlights
+flag	300 overlaps	390	breadcrumb-wrapper/article-header-wrapper	shared with source	/magazine/en/inside-swiss/behind-the-scenes/1-august-weggen /magazine/en/inside-swiss/behind-the-scenes/10-years-of-b777 /magazine/en/inside-swiss/behind-the-scenes/100-days-a350 /magazine/en/inside-swiss/behind-the-scenes/2023-a-year-full-of-highlights
+flag	119 overlaps	390	columns-media-wrapper/default-content-wrapper	shared with source	/ch/de/discover/a350/production /ch/de/discover/swiss-senses /ch/de/discover/swiss-senses/business /ch/de/discover/swiss-senses/economy
+flag	34 overlaps	390	accordion-columns-wrapper/default-content-wrapper	shared with source	/ca/en/book-and-manage/offers/vouchers /ch/de/customer-support/faq/ejournals /ch/de/customer-support/faq/seat-reservation/refund /ch/de/fly/flight-information/flight-irregularities/faq
+flag	22 overlaps	390	carousel-cards-wrapper/default-content-wrapper	shared with source	/ch/de/fly/flight-information /ch/de/terms-conditions /ch/el/fly/flight-information /ch/el/terms-conditions
+flag	16 overlaps	390	breadcrumb-wrapper/hero-card-overlay-wrapper	source or unpaired	/magazine/de/inside-swiss /magazine/de/inside-swiss/behind-the-scenes /magazine/de/inside-swiss/sustainability /magazine/de/inside-swiss/swiss-experience
+flag	11 overlaps	390	cards-icon-text-wrapper/default-content-wrapper	shared with source	/ch/de/customer-support/faq/seat-reservation /ch/el/customer-support/faq/seat-reservation /ch/en/customer-support/faq/seat-reservation /ch/es/customer-support/faq/seat-reservation
+flag	11 overlaps	390	profile-tabs-wrapper/default-content-wrapper	shared with source	/ch/de/discover/swiss-senses/business /ch/el/discover/swiss-senses/business /ch/en/discover/swiss-senses/business /ch/es/discover/swiss-senses/business
+flag	11 overlaps	390	jump-links-wrapper/default-content-wrapper	shared with source	/ch/de/fly/flight-information/flight-irregularities /ch/el/fly/flight-information/flight-irregularities /ch/en/fly/flight-information/flight-irregularities /ch/es/fly/flight-information/flight-irregularities
+flag	8 overlaps	390	breadcrumb-wrapper/hero-card-overlay-wrapper	shared with source	/magazine/en/inside-swiss /magazine/en/inside-swiss/behind-the-scenes /magazine/en/inside-swiss/sustainability /magazine/en/inside-swiss/swiss-experience
+flag	3 overlaps	390	form-wrapper/default-content-wrapper	source or unpaired	/kr/en/local-page/klook /kr/ko/local-page/hyundai26-application /kr/ko/local-page/klook
+flag	2 overlaps	390	accordion-columns-wrapper/default-content-wrapper	source or unpaired	/br/pt/local-page/ski-campaign-2026 /cn/en/local-page/swiss-senses-promo
+flag	1 overlaps	390	accordion-columns-wrapper/default-content-wrapper	copy only	/ch/en/book-and-manage/offers/vouchers
+flag	1 overlaps	390	flash-teaser-wrapper/flight-search-wrapper	copy only	/kr/ko/homepage

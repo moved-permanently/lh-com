@@ -1,0 +1,22 @@
+# ema-cashub, standing order 62 (2026-11-17), item 5: SWISS, real breakage the no-breakage renders found (census-so62-swiss-
+# copies.txt): on ch/en's /book-and-manage/corporate-customers/company-offers/partnerplusbenefit two sidebar cards are drawn
+# one on top of the other at 1440 (157 px overlap: "Contact PartnerPlusBenefit" under "Contact and information"). The
+# document has three sidebar-aside sections: the Contact card for every market, then the contact-information card twice,
+# once for every market but al, bg, ge, xk and once for those four. On any root two asides stay, one after the other, and
+# scripts/section-aside.js puts each into the same grid area (row 1 / -1, column 2). ch/de's page has one aside with both
+# cards (442 px). ch/en's document is served on ch/en and on the English market roots (none has its own), so every one of them
+# draws the overlap. Of the 5,335 SWISS documents this is the only one with two shown asides in a row (so62/asides.py, each
+# document for its own root's country; 289 have two or more asides, never adjacent).
+# The row: the Contact card goes into each of the two market asides, in front of its card, and its own section goes: one
+# aside per market with both cards, as ch/de's. Tool: node tools/importer/text-inserts-apply.mjs
+#   --data tools/reports/parity-2026-11-09/delta-so62-swiss-partnerplusbenefit-aside.json --list <this file> --docs <DA's copies> --out <dir>
+#   (one replace: the three aside sections, adjacent in DA's copy and found once, by the two new ones).
+# Dry run on DA's current copy (one read-only GET, ~14:05 CET): "inserted" (+81 bytes), taken back gives DA's copy byte for
+# byte, a second run "present"; listPaths returns the one path.
+# Renders, with and without (the drafted served copy as main; the page script drops the other markets' aside), as served on
+# swiss.turnsthe.page, airline hosts refused per request: ch/en, gb/en, al/en (the four-market aside), us/en:
+#   1440: the overlap gone on all four, heights unchanged (2,132; us/en 2,180: the aside sits beside the content);
+#   390: -16 px on all four (2,551 -> 2,535; gb/en and al/en 2,553 -> 2,537; us/en 2,577 -> 2,561: one section gap fewer);
+#   nothing added, 0 sideways. Not recorded by www.
+# status	document	tool	expected change	gate
+READY	/ch/en/book-and-manage/corporate-customers/company-offers/partnerplusbenefit	text-inserts-apply (delta-so62-swiss-partnerplusbenefit-aside.json)	the Contact card inside each market's aside: one sidebar column with both cards, no overlap (ch/en and the English market roots)	not recorded; 1440 overlap 1 -> 0, height unchanged (ch/en, gb/en, al/en, us/en); 390 -16 on all four; nothing added, 0 sideways

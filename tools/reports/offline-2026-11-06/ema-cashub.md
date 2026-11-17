@@ -10494,3 +10494,162 @@ measured as drafted to the px at both widths: 1440 1,887, 390 unchanged, nothing
 - **Pushed:** 5f5e19a1 (code) and 4835b96b (lists, census). Origin had not moved since the rebase.
 - **Full suite on 4835b96b:** 1,273 files, 4,766 pass, 0 failures, 5 skipped.
 - **This docs commit:** the folder-reading tests again, and lint exit 0.
+
+## Standing order 62 (2026-11-17, from about 12:00 CET)
+
+**Carried over:** nothing. Order 61's three commits (5f5e19a1, 4835b96b, 17d2f6da) were on main and my worktree was
+clean. The main checkout's dirty entries (blocks/notifications/notifications.css, import-progress.json, importer reports,
+urls-*.txt) belong to other jobs and were left alone.
+
+**Scratch:** migration-work/parity-588/so62 (not in git): the served SWISS copies (all 5,335), the Austrian roots'
+served upgrade pages before and after, the smoke outputs, DA's copies read for the dry runs, the census, render, toggle
+and overlap scripts with their outputs, drafts, test outputs and logs.
+
+**Requests:** every render and probe refused lh-proxy, www.* and every airline host per request and counted them; none
+were sent. www's pages were read only from the recordings on disk (swiss-parity-001, -002a, -002b; airdolomiti-parity-014's
+figures from order 61). The upgrade links were read from austrian.turnsthe.page only, one request per root and side.
+
+**DA:** read only. tools/importer/da-tree-read.mjs re-read lh-airdolomiti's /aeroporti, /en/airports and /de/flughaefen
+(all 121 unchanged since order 60). One single GET read lh-swiss /al/de/prepare-lxmas-2024. Nothing was written. No upload,
+preview, publish or da-upload.mjs by me. /de/en/overview-manage has no row. The finder button rule stays on HOLD. The
+optional plugins stay off.
+
+### Item 1: Austrian's review list
+
+Skipped, as ordered.
+
+### Item 2: two Austrian items (f296e755)
+
+**(a) Allowlist:** /ch/it/contact-form-passenger-receipt is in tools/importer/sites/lh-austrian.json's upload allowlist,
+in the market roots' sorted block (2,400 paths, all unique).
+
+**(b) Upgrade links:** austrian joins UPGRADE_ARTIFACT_SITES in tools/workers/lh-edge/src/markets.js, with a new test
+(test/austrian-upgrade-artifact.test.mjs, red without the change) and the Brussels test's site list.
+
+What our hosts served, all 64 roots' /upgrades, one request each before and after the deploy:
+
+| | Before | After |
+| --- | --- | --- |
+| us/en | fix-price-upgrade/at-en | fix-price-upgrade/us-en |
+| gb/en | fix-price-upgrade/at-en | fix-price-upgrade/gb-en |
+| ch/de | fix-price-upgrade/at-de | fix-price-upgrade/ch-de |
+
+- **50 roots changed to their own link:** the 48 English market roots (at/en's document) and ch/de, de/de (at/de's).
+- **14 unchanged:** the 10 language versions, which already link their own, and ca/fr, ch/fr, ch/it, by/ru. These four
+  are served from fr/fr, it/it and ru/ru, whose documents link `<cc>-en` (fr-en, it-en, ru-en), not `<cc>-<ll>`. The code
+  only rewrites a link that names the version's own code, so they keep fr-en, it-en and ru-en. That's 50, not your 52.
+  If www links `ca-fr` or `ca-en` on those four, I need its answer per root to write that rule.
+- Apart from that link and the nonces, all 64 pages are byte for byte the same before and after.
+
+**Checks:** lh-edge tests 430 pass, 0 failures (twice: before and after the comment rewrap). Smoke on all 12 hosts with
+baselines, before against after the deploy: 832 checks, 0 differ. (Against the committed baselines both runs differ the
+same way on 11 hosts: content and search data that moved since the baselines were written. Not touched.)
+
+### Item 3: Air Dolomiti's airport maps (13199feb), READY
+
+All 121 rows are READY in one batch, with your reasoning in the list header (delta-so60-airdolomiti-airport-maps.txt).
+- **1440 on frankfurt-de:** www 12,574; as served 11,372 (−9.56 %); with the map 12,161 (−3.28 %).
+- **No breakage, all 121 rather than a sample:** each page with and without the map at 390 and 1440, with today's code
+  (order 61's trail and title-icon rules live), 484 loads, all 200. The map drew on all 121, every tile, one pin, 810 px at
+  1440 and 219 at 390. Pages grow +788/789 at 1440 and +198/199 at 390. The only new flags are the zoom buttons'
+  screen-reader labels.
+- **Sideways:** 0 px on every page at both widths, with and without.
+- **Dry run:** DA's copies unchanged since order 60; 121 of 121 inserted, taken back byte for byte, a second run "present";
+  listPaths returns the 121 paths.
+- **Live:** the helpers applied them; /aeroporti/bari is served with its map (checked about 13:13 CET).
+
+### Item 4: Cargo's 13 recordings
+
+**Not started.** work/lh-capture/deliveries.md doesn't exist on this machine (checked at the start and every hour). No
+archive arrived, so I built nothing. Another job has since re-imported exactly these 13 documents (the 12 /de tab
+pages and /es/eservices/efreight) and uploaded them: publish-cargo-de-tabs-reimport-01, 37effaa7, about 12:33 CET, not
+published. Before I build anything from the recordings, please tell me whether that job replaces item 4.
+
+### Item 5: SWISS (census-so62-swiss-copies.txt)
+
+SWISS's review list was already ruled, so I skipped it. No SWISS theme file was touched by me (the last change to
+styles/themes/swiss.css on main is 2026-11-16 22:45 UTC, well outside the two-hour window).
+
+**Copies against their source:** all 5,335 published documents, fetched as served (all 200). I compared 4,753 pairs; the
+other 582 are reference documents (magazine/de, corporate/de, medicalservices/de).
+
+| | Same | Differs | No source copy |
+| --- | --- | --- | --- |
+| Versions (ch/<ll> and kr/ko against ch/de) | 2,358 | 633 | 144 |
+| Market roots (own documents against ch/<ll>) | 644 | 227 | 115 |
+| Sub-sites (magazine, corporate, medicalservices: en/fr against de) | 419 | 48 | 165 |
+
+- **Market roots:** navs, footers and fragments all equal their version's (628). The 212 differing homepages are each
+  root's own www homepage, as the markets report says they were imported. The one recorded market homepage (www's de/de)
+  has its hero card on the right, as ours. The 15 differing own pages are www's market pages. Local content, no row.
+- **Versions:** each language is its own import of its own www page, ch/de and ch/en on the same days with the same
+  parser. Where every other language differs from ch/de on a page (limited-width on 10 FAQ pages, for example), www's
+  recorded ch/en page matches our ch/en. www's ch/de FAQ pages aren't recorded. kr/ko's 41 "fewer h1" pages are the
+  sidebar card title as h3, from the market importer's one h1 a page. No row.
+- **Sub-sites:** each article is its own import per language. No row.
+- **Open, no row:** damaged-baggage-faq ends with an empty accordion on all 11 languages (0 px, 24 px of margin). www's
+  page isn't recorded, so I can't tell whether content was lost.
+
+**No-breakage renders:** 4,661 pages at 390 and 1440, 9,322 page-widths, all 200 (seven broken loads rendered again
+alone). The flags were read against each copy's source:
+- **Sideways:** none. **Failed pictures:** none (two broken loads, clean alone).
+- **Overlaps, design:** 383 checked in the browser. Spacer-only wrappers pulled up 16 px by lh-com's base rule, with
+  nothing drawn (all of them, ~330). The magazine breadcrumb on the article header (1,834) and on the hubs' hero (48):
+  www's breadcrumb sits at the same y (834 at 1440, 609 at 390). kr/ko's flash teaser: lh-com's measured −11 px, and
+  nothing drawn touches.
+- **Empty blocks:** culinaryjourney's app and a Christmas page's map ask www for their data (refused); the empty FAQ
+  accordion above.
+
+**Real breakage, two rows (READY, one document each, so rendered rather than sampled):**
+- **delta-so62-swiss-partnerplusbenefit-aside:** ch/en's partnerplusbenefit draws two sidebar cards on top of each other
+  at 1440 (157 px). Market sections leave two asides in a row on every root, and ch/en's document is served on all the
+  English roots. It's the only such document among the 5,335. The row puts the Contact card inside each market's aside,
+  as ch/de's one aside. Dry run on DA's copy: applied, back byte for byte, a second run "present". Rendered on ch/en,
+  gb/en, al/en and us/en: the overlap gone, 1440 unchanged, 390 −16 px, nothing added.
+- **delta-so62-swiss-font-probe:** al/de's Christmas page shows a "BESbswy" paragraph, a web-font loader's test string
+  imported as content (834 × 22 px). The row removes it. Dry run as above. −46 px at both widths, nothing else changes.
+
+**Real breakage, rule on HOLD (not in git): button labels.** lh-com's one-line ellipsis cuts 157 button labels on 116
+page-widths (110 at 390, 6 at 1440). www's SWISS buttons wrap: its recordings show two-line buttons 63–64 px high. The
+rule is TAP's from order 61, scoped to SWISS. In a toggle on all 116 page-widths it uncuts every label, nothing goes
+sideways and pages grow a median 18 px. On the recorded pages it changes only three, all at 390:
+
+| Page (390) | www | As served | With the rule | Points |
+| --- | --- | --- | --- | --- |
+| ch/de baggage-irregularities | 5,081 | 5,020 (−1.20 %) | 5,038 (−0.85 %) | −0.35 |
+| ch/de internet-overview | 3,961 | 4,077 (+2.93 %) | 4,095 (+3.38 %) | +0.45 |
+| ch/en advance-seat-reservation | 9,348 | 9,636 (+3.08 %) | 9,708 (+3.85 %) | +0.77 |
+
+The third fails the half point. Its buttons wrap on www too, but ours are 68 px against www's 63–64, our page has a
+second "Extra Legroom" button that www's doesn't, and it's already 3.08 % long. So the rule waits for your word, like
+the finder button rule. Rule, test and diff: so62/hold-button-rule/.
+
+### Checks
+
+- **Lint:** whole-repo `npm run lint`: exit 1 on the first run (one comment line of mine 101 characters), fixed;
+  exit 0 before the item 2 and 3 push (after the rebase), and exit 0 before this push.
+- **Stylelint:** no theme or block CSS file changed in git this order. The held SWISS rule's theme passed the 22 tests
+  that read styles/themes/swiss.css (114 pass, 0 failures) before I took it out.
+- **Tests before the code push:** lh-edge 430 pass, 0 failures; the 215 folder-reading and allowlist tests 1,014 pass,
+  0 failures, 2 skipped; after the rebase the six closest tests again, 26 pass.
+- **Pushed:** f296e755 (item 2), 13199feb (item 3). The lh-edge deploy followed; smoke 832 checks, 0 differ.
+- **Full suite** on the tree with this order's lists (before this docs commit): 1,273 files, 4,766 pass, 0 failures,
+  5 skipped.
+- **This docs commit:** the folder-reading tests again, and lint exit 0.
+
+### Final section (about 15:35 CET, 2026-11-17)
+
+**Done and live:** the Austrian roots' own upgrade links (50 roots) and the ch/it allowlist path (f296e755); Air
+Dolomiti's 121 map rows (13199feb, applied by the helpers).
+
+**In this commit:** SWISS's census (census-so62-swiss-copies.txt) and two READY rows, partnerplusbenefit's asides and
+the Christmas page's stray text. The helpers apply READY rows within the hour.
+
+**Your calls:**
+- The SWISS button rule (HOLD): accept advance-seat-reservation's +0.77 points, or keep it held.
+- The four Austrian roots served from fr/fr, it/it and ru/ru (ca/fr, ch/fr, ch/it, by/ru): they keep `<cc>-en`. If www
+  links them their own artifacts, tell me which code each one uses.
+- Cargo's 13 recordings: nothing arrived, and another job re-imported the /de tab pages (37effaa7). Does it replace item 4?
+
+**Left uncommitted:** nothing of mine. Scratch stays in migration-work/parity-588/so62. No background job of mine is
+running.
